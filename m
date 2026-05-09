@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A666CD3447
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 07:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A4ABCD343F
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 07:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q1Xo0XCKA/vUkJeGmgp7rSoUzDv4C2Kvcz6/r1/ktOU=; b=o+lIUIrnRaM9jw
-	+f/clehZFDa+457MUjCV8z2D6RPW2w39qZigBke9lPUOIZgdaYcGU4XVQNTYfS7XusW+SuocScrdk
-	+NSjfsO7kdYJxi1iVdW8wehc3wRex2gC7oMHZEcFyk+b3VUl3emuVdms1ASVvIbQRM6EqPk8J+gHv
-	NAcHwJZNZdc8Xvh8vMUozpqzyBxnHhPiZzvo5eVEna0e0GNA/HduA40/OwBZxInyBSHLpPhbzPk1G
-	aAqBatstK0uTujRQFrvkeQx7JcMKOqgKUjvEN9tH6LQ4VwpNpMf3QqzW91HRFj885n5yhko4QY/DT
-	WRKxsJTBCPJsxqIgOFaA==;
+	List-Owner; bh=MZxUJ+l137vWsnpWZkAg1sEdK6rxPUexjmnN1VCmShQ=; b=jM9dxIbN52cTRw
+	dR3/+pZ7H+G1oL7lPw76kET78+15Qqla7XM++102Gz2O8fry0FenEDPIwV3ENUf6dspOvv0iHvPib
+	2mnc0EcyWnBZqZQgkL75RRgWXq0C9ZF04x2sYxAVOdOmWLstfZCF8HJtRC040wTE/C7GTJRKIs3AP
+	n+Fwh/KProChoj0l9T8LVmfUIwMZ0R4XDUopqXUZnRPoWKeusmcKHJo2ZocUzFsSXU6zLw16CgKUJ
+	fg9ZK/3onvtOX9gzFDoguJOUpwDTiL1Si9+2VReNgGHUkwPooB3s7gKC7Ah0mdy01s/YfZ8PvGE90
+	0uFANKTMGalAMsQUKfzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLbxM-00000008SiK-3CeS;
-	Sat, 09 May 2026 07:18:36 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wLcAR-00000008UNX-15X5;
+	Sat, 09 May 2026 07:32:07 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLbxK-00000008Sho-26cU
+	id 1wLcAN-00000008UMn-0gu6
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 May 2026 07:18:36 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82fbf5d4dc2so1935374b3a.1
-        for <linux-riscv@lists.infradead.org>; Sat, 09 May 2026 00:18:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778311113; x=1778915913; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=skObjcn2ITTEAn6Yzrs7wNLXCgAg8sVMpOQ0WmRpnAE=;
-        b=Dh48ys6KracPe2DzgYehJysb9Y8+J5gj0pXCHynjJ/JgORUug4I2N810Ed9bHZ1Fv+
-         TpZVBMs2asaT9qGt1SSuOzXr/tc5ju6IEmkmeOENRQ+QwPe0MlpcXEo4y/hUJugQXJQj
-         rmL5QR+L7cBXgFuEKVt1FwyeA8nEN3kjnMHXDE0l8Qwq5smuNCqkXJvVVOQXxlOIDSAl
-         7zmhMna/hhE7BerWKzvipnk58BiNsbC3rIn27ONTtJQDuxvy1gX0wXZdFgQYp8A/o4dY
-         j3wFqM5Iqtg9fV0nbVTTFKyEwJG1QL3duVI15iOiyBiftEfbjkZIoq2AdU2r2FVA9MF0
-         JDUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778311113; x=1778915913;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=skObjcn2ITTEAn6Yzrs7wNLXCgAg8sVMpOQ0WmRpnAE=;
-        b=WMXdtEPIPkHMeTKOdJRdb/MeMX2WTL2HaXev2iZSlWBHQB4OGuduj3mS3I+C/L+Ufv
-         qCDxsaHpbnzE1kiV40HU89sT/8dE5X5SF+ZT7GxVK0BVd4HU3T0ywqzdChbp32RMXIR8
-         qgr+403TEBaZKCiFJV+YAbS/CWlZJpkQY+nRPrppb8rd+4obaR1Gcd4TPiNk4SCTOF5n
-         24/sSl5MNjmtKzVclzkbxgUPzutu1Z3Y7CqqBmMUu97w0r28X5wbqqxvEYB62KrkePlM
-         rpC4VYWNMtMarUj9vDRbzEBsE1swnFsduzXPZe9ABr9DbfIQiyt2lf0Dfmb8MkFGC9Eh
-         SxNQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+4cGoH+slBxgl51PECOgfhP8NBz7Y1bInC4WKLcNEu2MMwVu47Ag56YoF4ybqK1ZIgxLtYWIwA2t7xYQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7RRMTDqj777zK9c6ShE9k7dwRJASMWhmN1fTU4GX9j873RoWf
-	e8nnvWsASTE3Mlqskv5s7AN4gHunlZWbM/SdR6pndxr7FNlJU7kEIuCf
-X-Gm-Gg: Acq92OGz5Tnf4DOuSv6ThDeD3jEmmCwqK9bZ2CUYpERwO3kSH3uK7wtO/If2rledBa+
-	tNIZVXW+KpjuSbRXXuPP59iuh1aTKI90wbD0FabyDGkg3Nz0lt9sJkLtvvTBJMQsbktw/dKsA8H
-	pv5B+kTdXt7c+usVIZRICl8QfnCj05P9ETOFjw+IV98Cw1KjRfrBRRpRKZBV6GLW5iWP3pxlYbG
-	dNfxso5uiiqAZE2gNX9pw7izjITK+02JboJHQbXMNohoB1PIlGMMl6VxaVyKeSiW5vx2PIO5u7J
-	MeMFUkryomqHVpmHkXmg/tht+aboqD3uEMN2XVSXeyuva8V7cV5HcJORBHiO8tPVqhhmWIYwjFZ
-	Yw5Nbnkxb5DXFqQHsogrCmrBJeWU70KZqH5jZhkVjlwLpTvnmqZpJ7ymG+tOSZpw8ygzIS8ebGs
-	M5BQlTE7DMFNZsVqjSKEZaTxPVAwC2m9B5mA==
-X-Received: by 2002:a05:6a00:2442:b0:835:443e:4be2 with SMTP id d2e1a72fcca58-83a5badbebcmr16047333b3a.2.1778311112968;
-        Sat, 09 May 2026 00:18:32 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83967dbcf36sm17667656b3a.41.2026.05.09.00.18.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 00:18:32 -0700 (PDT)
-Date: Sat, 9 May 2026 15:18:11 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Alex Elder <elder@riscstar.com>, 
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 4/5] dt-bindings: pci: spacemit: Introduce Spacemit K3
- PCIe host controller
-Message-ID: <af7exVxVnDYagA7D@inochi.infowork>
-References: <20260502101319.2364052-1-inochiama@gmail.com>
- <20260502101319.2364052-5-inochiama@gmail.com>
- <20260507191302.GA2284447-robh@kernel.org>
+	Sat, 09 May 2026 07:32:05 +0000
+Received: from localhost (unknown [115.199.218.204])
+	by APP-01 (Coremail) with SMTP id qwCowAB3HWnm4v5pssCvDw--.31819S2;
+	Sat, 09 May 2026 15:31:50 +0800 (CST)
+Date: Sat, 9 May 2026 15:31:50 +0800
+From: Zishun Yi <vulab@iscas.ac.cn>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Kees Cook <kees@kernel.org>, Will Pierce <wgpierce17@gmail.com>, 
+	Maxim Kochetkov <fido_max@inbox.ru>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Markus.Elfring@web.de, 
+	patchwork@lists.ozlabs.org
+Subject: Re: [PATCH] riscv: Check the return value of reloc handlers
+Message-ID: <qb46gvbcqyp3pqbdjbx4v4vkziqiwbmn46747deqejkcyaqhnc@dvloherhy5sl>
+References: <20260321113419.34437-1-vulab@iscas.ac.cn>
+ <6c1715e6-2bb9-40fd-dfb2-791468522614@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260507191302.GA2284447-robh@kernel.org>
+In-Reply-To: <6c1715e6-2bb9-40fd-dfb2-791468522614@kernel.org>
+X-CM-TRANSID: qwCowAB3HWnm4v5pssCvDw--.31819S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CFWrWFy3Cw4fGr4DAw45GFg_yoW8Wr1UpF
+	Wvg3W3Ca18JFyxC397ur48Z3yfZrW3CF47Gr98Wr43ZFyY9ry2vwna9FWY9FZrXw1rWr42
+	yr4xur98Ca4ay37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
+	ZFpf9x07j16wZUUUUU=
+X-Originating-IP: [115.199.218.204]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAUCA2n+2sIcQQAAsa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_001834_582307_40505273 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20260509_003203_576827_06F9E5A0 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,118 +83,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 02:13:02PM -0500, Rob Herring wrote:
-> On Sat, May 02, 2026 at 06:13:17PM +0800, Inochi Amaoto wrote:
-> > Add binding support for the PCIe controller on the SpacemiT K3 SoC.
-> > This controller is almost a standard Synopsys Designware PCIe IP,
-> > with some extra link and reset state control.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  .../bindings/pci/spacemit,k3-pcie-host.yaml   | 142 ++++++++++++++++++
-> >  1 file changed, 142 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml b/Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml
-> > new file mode 100644
-> > index 000000000000..be2641526b19
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml
-> > @@ -0,0 +1,142 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pci/spacemit,k3-pcie-host.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: SpacemiT K3 PCI Express Host Controller
-> > +
-> > +maintainers:
-> > +  - Inochi Amaoto <inochiama@gmail.com>
-> > +
-> > +description:
-> > +  The SpacemiT K3 SoC PCIe host controller is based on the Synopsys
-> > +  DesignWare PCIe IP.  The controller uses the external MSI interrupt
-> > +  controller.
-> > +
-> > +allOf:
-> > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: spacemit,k3-pcie
-> > +
-> > +  reg:
-> > +    items:
-> > +      - description: DesignWare PCIe registers
-> > +      - description: Data Bus Interface (DBI) shadow registers
-> > +      - description: ATU address space
-> > +      - description: PCIe configuration space
-> > +      - description: Link control registers
-> > +
-> > +  reg-names:
-> > +    items:
-> > +      - const: dbi
-> > +      - const: dbi2
-> > +      - const: atu
-> > +      - const: config
-> > +      - const: link
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: DWC PCIe Data Bus Interface (DBI) clock
-> > +      - description: DWC PCIe application AXI-bus master interface clock
-> > +      - description: DWC PCIe application AXI-bus slave interface clock
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: dbi
-> > +      - const: mstr
-> > +      - const: slv
-> > +
-> > +  resets:
-> > +    items:
-> > +      - description: DWC PCIe Data Bus Interface (DBI) reset
-> > +      - description: DWC PCIe application AXI-bus master interface reset
-> > +      - description: DWC PCIe application AXI-bus slave interface reset
-> > +
-> > +  reset-names:
-> > +    items:
-> > +      - const: dbi
-> > +      - const: mstr
-> > +      - const: slv
-> > +
-> > +  interrupts:
-> > +    items:
-> > +      - description: Interrupt used for port state
-> > +
-> > +  interrupt-names:
-> > +    const: app
-> > +
-> > +  msi-parent: true
-> > +
-> > +  phys:
-> > +    minItems: 1
-> > +    maxItems: 6
+On Thu, Apr 30, 2026 at 02:04:20PM -0600, Paul Walmsley wrote:
 > 
-> You have to define what each entry is. I assume this is 1 per lane 
-> though I thought only a power of 2 number of lanes was valid.
+> Thank you for sending this and several other fixes.  I would like to 
+> accept the RISC-V-oriented fixes, but have a few questions first -- 
+> similar to the ones that Markus already asked you several weeks ago.
+> 
+> First: were these fixes found and/or generated by LLM tools?  They appear 
+> to be.  If so, please add an Assisted-by: tag, according to the directions 
+> documented here:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst#n637 
+> 
+> and here:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-assistants.rst
+
+Yes, they were found by LLM tools. I will send a v2 for these patches
+with the Assisted-by: tag added. Thanks.
+
+> 
+> 
+> Second: is it possible for you both to get your own unique E-mail 
+> accounts?  Many kernel developers and tools assume that a specific E-mail 
+> address will be used by only one person.  For example, Patchwork is now 
+> incorrectly attributing patches originally sent by Zishun Yi to Wentao 
+> Liang, under the not-unreasonable assumption that each developer will have 
+> their own E-mail address.
 > 
 
-In fact it is not 1 per lane, the PCIe accept lanes from the Comb PHY,
-and the phy can provide 1 lane or 2 lanes according to the PHY MUX. 
-In detail,
-- PHY 0,1 is 2 lanes
-- PHY 2,3,4,5 is 1 lane.
+Regarding the email address, I apologize for the confusion. I am
+currently an intern and do not have a personal work email. We were
+instructed to use this shared email address for submitting patches and
+sign-offs. If this is strictly prohibited, please let me know how we
+should handle this situation.
 
-So the max number of the phys is 6 with 8 lanes.
-
-Maybe need a description link to the phy mux configuration?
-
-Regards,
-Inochi
-
+Best,
+Zishun Yi
 
 
 _______________________________________________
