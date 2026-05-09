@@ -4,70 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44926CD343F
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 12:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F818CD37B2
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 13:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UzvlLatzxGJKY5QJ9JCi6kP/158hloD0iCFVHIH4vBs=; b=v6JqF0rBfptX00
-	/WtmJOI8JswAMstidiAnl14Od0MF+m1i3toYT8ExCrXC6eoXEqQ+aiyWtOaQBr0jHxriW4e6Ap4RS
-	IgiFs3L9os1au7GV3yT/AKdF2mZCQEQbIQUtbrYD4RG8PpmojPhWAI2LRO/gzxWYCxmbGMmeUte8J
-	7cceP1DXxRd+tTj/LZQ2mMQF4eV71RYMnsbwaWShuoljLT/OvtDy5bkEn8bos0ujKSpG4zab3xBv6
-	pITp/7EaELrFDo3GDMz2ODG7KJusKjxD6x6m8ZqiyVMPIQ+uF+NmkVDkVO+GKIxuF99W63gJpkypO
-	pAtIFOnFiWyz9r+/E83Q==;
+	List-Owner; bh=daxd7RdiX6A0WJzfKCSDQWP1j6vu4DWjaWTLMyKFbFU=; b=EY8nYQM15HllTz
+	W0FrXTfYsQ6Wg8GbI2keJPj9ioeo9hcym9nudjCKLYu0jQurmkjDGfg03/iL1Eso7jkwRG/UCfAfj
+	BK8FldJH07+Vs0x/lctLdXcGfiGFGZnMKg1SxqsLUYHbQDzdVvaJftGdPpjpxjMAkWPCvG3yzLOki
+	cFvH31NmMiP4sYwpOdC39qI8uNpkzLlpBhH/tAujuZ9zh/zRnLU9Eo1mYa2URW1h8X9uJ9N0XzNOL
+	A1JcbjdM/W9CQktnAQai/A2UOuXnd2oIiCfgbReww4HG95lwnQKCqlKgJW6FWvSrCMYhO0aYly9eW
+	89pVVqpyh3jivAY1tygA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLgdF-00000008uUU-0Ff9;
-	Sat, 09 May 2026 12:18:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wLhRq-0000000908a-2rC2;
+	Sat, 09 May 2026 13:10:26 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLgdC-00000008uTt-40Sh
+	id 1wLhRo-0000000907S-1MDu
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 May 2026 12:18:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 44B1C43E8C;
-	Sat,  9 May 2026 12:18:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A9FC2BCB2;
-	Sat,  9 May 2026 12:18:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778329086;
-	bh=e2oFXTT2JCKAlsxuWsZ6hENzU/VoBbUd/BrLIBFBNP4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HGRVQTciuPangxRxax8jZyIRUUotI2KItf+rr+a5pIP/kRPNqBkBffgLG+LPr49j2
-	 Sg/CsTt4o1qiPlKxruGVWNJlhcF0/pN/2uaZBtNzpC5yFQM1YowZQrDGTMP6k1XG9V
-	 jsVqryep0OA0ba/WJ6mfWLmkF1meAicdVTLNXod78+9fyAnh0pYyTo97nQ3x2l8PNj
-	 IRGtblwh54w8OKgoFq3nxuGkCGLukFGi3T882Zk+RrJTrENoU9QcEWtOC3ZDdzHRmE
-	 r+o9vx0PKj02EGFS7Ls3CqZQWJx66H+llTxwvHwqxyvx6rkVWxikxW18DZEv6JQbhD
-	 sHrOPfOpKqHXA==
-Date: Sat, 9 May 2026 12:18:02 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Sat, 09 May 2026 13:10:25 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-836ebdeb969so1322644b3a.3
+        for <linux-riscv@lists.infradead.org>; Sat, 09 May 2026 06:10:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1778332223; x=1778937023; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PAkSYkxsqqTOgdXkwd1wAt3CxX5zO5z0PreuHh3BJZA=;
+        b=lYG3cYs4GyK6r8ONRmLsairGcXUF0EqW09uvRscWbrpJUT4147ScaGDb5ZWh9EfZje
+         sFGQgCdNyx1pcaj1QVUDKSXTobh68c4JQm9WGuimgRxTKuuWkWSqwKeyFj7/4lm9+Yav
+         94rBeCeyVINz+jQXWfd6D+/1nUPwJX/tabgkg9GSAOHUh1Iu9yxzpSXjuBSg76gDtY/1
+         nNzxjeHM88Pyjzd17EwUjcrocX9XoEmT7Zny3zDqeL6xHBxJO1+Z9ZhZQublJ8DING+z
+         PN7bd7xneAKdv/hZdRLiI/DnUzBKYNKrn8EStBQn0Ca3dlnsvFcmjEVxDnO6+qYEhu7O
+         yEDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778332223; x=1778937023;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=PAkSYkxsqqTOgdXkwd1wAt3CxX5zO5z0PreuHh3BJZA=;
+        b=RIy/V+srdeXPYVBZkav1mNDi0pQNw7PH+9Vd+yAp3b4/O6ZazLl4Q+IupbR9aKD4GY
+         7xqcBkaJYBS3i0R0UgZI8Snw1AWEpXfkqHZhbYgkKixoVEE60rD1A5RkFrf9rCeqGykm
+         6Rr6HgkJeCop3M+ofyzscPY4Pi1kiCD4alivJ6BXXCF99duSf6q3p5jMr4qgHIJb00Bf
+         DSgUDQ4uLR+qTCG3x4wvSS4lxhLsyI4MpO6rqZgpINFPHO9Pifai7QgBtBXyup7tnB9Q
+         Md7WTM9B1DxP1wFbDilr/ARZlcbbVbEE6HJBbYRHc+16e9rQYxWIM31tPSn/g8vXHKet
+         xwzw==
+X-Gm-Message-State: AOJu0YwvBLUSDV7yJ3TDNIxfu711MFwX+HuLzdFdaUwKnkQmS/vSCIkl
+	H4dIoDt2bHK4W8o+IEpzT11JIeI75tXQRUV5PwkqS52BHtjSPNYo0ckhbgBFJRaa0hQdNSOEGwl
+	tRyrH5Nw=
+X-Gm-Gg: Acq92OFwelko0WLzsuFkGZUs1hjfz4vSOzODq9tGyIAR5002fOid1mWy3mSFQfU0BG0
+	T+shgPyKQ57/L6hnDHeD/0GVsZpIKk/1/uFmtS7P0YRsfMwugShG2kTqwmc7NRaJTjGYry/h9s2
+	/GBVR3/W/xcth9itRCKhPfaoMw7SbC4zz7IVouWoqJpk0cH2K2RqC+LpCfzlpgMhh8ckjcyMqa8
+	BgBfehSwWO/RQNct0nmSlVAYe5Knae8SJnkDeN/4XDY/27pmKbLYhLdQiGoQ6PqDFjkNj16ZQvr
+	qyvpPB2Z1o0mSGGEweUfZFfckq5U9xn9Ym7F/7cEsZp3u6vAaguR2FF7c7tljoHfW5t4maQtoGQ
+	d3mGrMx8B+9BVKmK2ty/BZK/hQTmbrG3uPMW32A1UmVAIaOKMwErwH3VCGeVI2q0/YUox2jKR9J
+	HTK089BNZ0uhzZH0qW1N5IG4U75BllOpGPGkYsuvqyMRQXVy6RoyUIZ/PsXrw+h3IplhIF/U4K4
+	G0sRg==
+X-Received: by 2002:a05:6a00:8018:b0:82c:249e:a85b with SMTP id d2e1a72fcca58-83a5b7cd0famr17299719b3a.13.1778332222817;
+        Sat, 09 May 2026 06:10:22 -0700 (PDT)
+Received: from FJ7FR2JRQ3.bytedance.net ([155.117.34.6])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839679c86b3sm18552855b3a.28.2026.05.09.06.10.15
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 09 May 2026 06:10:22 -0700 (PDT)
+From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>,
-	Han Gao <gaohan@iscas.ac.cn>, Ze Huang <huang.ze@linux.dev>,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH v2 1/4] riscv: dts: spacemit: k1-bananapi-f3: Add
- vcc5v0_sys regulator for Banana Pi F3
-Message-ID: <20260509121802-GKB3601591@kernel.org>
-References: <20260502051906.8160-1-linux.amoon@gmail.com>
- <20260502051906.8160-2-linux.amoon@gmail.com>
- <20260507024524-GKA3579608@kernel.org>
- <CANAwSgQLhgC6puNy2dkMjL=hd+yTYizBBFykd63KJDbw48219w@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor@kernel.org>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Himanshu Chauhan <himanshu@thechauhan.dev>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Zhu Yuan <yuanzhu@bytedance.com>,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Subject: [PATCH v9 1/5] riscv: add SBI SSE extension definitions
+Date: Sat,  9 May 2026 21:09:58 +0800
+Message-ID: <2a8913d680ccf162d5d697fde1a125c48b2f1d0a.1778331862.1.git.zhangzhanpeng.jasper@bytedance.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <cover.1778331862.git.zhangzhanpeng.jasper@bytedance.com>
+References: <cover.1778331862.git.zhangzhanpeng.jasper@bytedance.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CANAwSgQLhgC6puNy2dkMjL=hd+yTYizBBFykd63KJDbw48219w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_051807_057000_87FC6C31 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20260509_061024_480139_70968EDC 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,88 +114,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anand,
-
-On 13:06 Fri 08 May     , Anand Moon wrote:
-> Hi Yixun,
-> 
-> Thanks for your review comments.
-> 
-> On Thu, 7 May 2026 at 08:15, Yixun Lan <dlan@kernel.org> wrote:
-> >
-> > Hi Anand,
-> >
-> > On 10:48 Sat 02 May     , Anand Moon wrote:
-> > > Define the system 5V fixed regulator (vcc5v0_sys) supplied by the
-> > > DC input. As per the schematics, vcc5v0_sys is the input power source
-> > > for the VCC5V0_HUB and 5V_VBUS reglators. Update these regulators
-> > > to correctly reference vcc5v0_sys as their parent (vin-supply).
-> > >
-> > > Cc: Han Gao <gaohan@iscas.ac.cn>
-> > > Cc: Ze Huang <huang.ze@linux.dev>
-> > > Cc: Chukun Pan <amadeus@jmu.edu.cn>
-> > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > > ---
-> > >  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 12 ++++++++++++
-> > >  1 file changed, 12 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> > > index 5790d927b93d..9727ecdd9f6b 100644
-> > > --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> > > +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> > > @@ -50,6 +50,16 @@ reg_dc_in: regulator-dc-in-12v {
-> > >               regulator-always-on;
-> > >       };
-> > >
-> > > +     reg_vcc5v0_sys: regulator-vcc5v0-sys {
-> > This will fall into the catogery of "non-controllable & serve no devices"
-> > see similar comment for 'reg_dc_in' which raised by Krzysztof
-> >
-> > https://lore.kernel.org/all/6530526f-59ca-4753-a068-46c62a1a1fed@kernel.org/
-> >
-> > or should I ask, what's the real problem if regulator has no vin-supply?
-> 
-> If the device tree is not configured with the correct power source it
-> will affect performance.
-> 
-Please elaborate, or provide enough evidence to prove this, because the
-conclusion you gave here contradicts with what Krzysztof pointed out
-
-> > Any probe failure or something bad happen? (besides /sys/../regulator_summay)
-> 
-> Not really; the regulator summary just confirms the PMIC used the
-> correct power source.
-> with te device ip blocks.
-> 
-then I see it's unnecessary to add this
-
-> Bananapi F3 schematics.
-> [1] https://drive.google.com/file/d/19iLJ5xnCB_oK8VeQjkPGjzAn39WYyylv/view
-> (page 24)
-> 
-> Please check the shematics VCC5V0_SYS page 4
-> VCC5V0_SYS->USB_VCC5V0->HDMI_VCC5V0->FAN_VCC5V0->VCC3V3_SYS
-> 
-> Please check the shematics VCC5V0_SYS page 24
-> VCC5V0_SYS input for VCC5V0_HUB and 5V_VBUS give the USB hub,
-> which is enabled by USB3_PWREN (gpio pin)>
-> 
-> Plese check power tree page 4
-> USBVBUS->SY8386J UXXX -> PCIE_VCC3V3 for pcie vin source
-> 
-> So, this series tries to fix the vin source for USB 3.0 and PCIe nodes.
-> 
-This is not what I ask..
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgoKQWRkIG5lZWRlZCBk
+ZWZpbml0aW9ucyBmb3IgU0JJIFN1cGVydmlzb3IgU29mdHdhcmUgRXZlbnRzIGV4dGVuc2lvbiBb
+MV0uClRoaXMgZXh0ZW5zaW9uIGVuYWJsZXMgdGhlIFNCSSB0byBpbmplY3QgZXZlbnRzIGludG8g
+c3VwZXJ2aXNvciBzb2Z0d2FyZQptdWNoIGxpa2UgQVJNIFNERUkuCgpbMV0gaHR0cHM6Ly9saXN0
+cy5yaXNjdi5vcmcvZy90ZWNoLXBycy9tZXNzYWdlLzUxNQoKU2lnbmVkLW9mZi1ieTogQ2zDqW1l
+bnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgpDby1kZXZlbG9wZWQtYnk6IFpoYW5wZW5n
+IFpoYW5nIDx6aGFuZ3poYW5wZW5nLmphc3BlckBieXRlZGFuY2UuY29tPgpTaWduZWQtb2ZmLWJ5
+OiBaaGFucGVuZyBaaGFuZyA8emhhbmd6aGFucGVuZy5qYXNwZXJAYnl0ZWRhbmNlLmNvbT4KLS0t
+CiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oIHwgNjEgKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrCiAxIGZpbGUgY2hhbmdlZCwgNjEgaW5zZXJ0aW9ucygrKQoKZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL3NiaS5oCmluZGV4IDU3MjVlMGNhNGRkYS4uMzQwM2IwZjcwNmI0IDEwMDY0NAotLS0gYS9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+c2JpLmgKQEAgLTM4LDYgKzM4LDcgQEAgZW51bSBzYmlfZXh0X2lkIHsKIAlTQklfRVhUX0ZXRlQg
+PSAweDQ2NTc0NjU0LAogCVNCSV9FWFRfTVBYWSA9IDB4NEQ1MDU4NTksCiAJU0JJX0VYVF9EQlRS
+ID0gMHg0NDQyNTQ1MiwKKwlTQklfRVhUX1NTRSA9IDB4NTM1MzQ1LAogCiAJLyogRXhwZXJpbWVu
+dGFscyBleHRlbnNpb25zIG11c3QgbGllIHdpdGhpbiB0aGlzIHJhbmdlICovCiAJU0JJX0VYVF9F
+WFBFUklNRU5UQUxfU1RBUlQgPSAweDA4MDAwMDAwLApAQCAtNTA2LDYgKzUwNyw2NiBAQCBlbnVt
+IHNiaV9tcHh5X3JwbWlfYXR0cmlidXRlX2lkIHsKICNkZWZpbmUgU0JJX01QWFlfQ0hBTl9DQVBf
+U0VORF9XSVRIT1VUX1JFU1AJQklUKDQpCiAjZGVmaW5lIFNCSV9NUFhZX0NIQU5fQ0FQX0dFVF9O
+T1RJRklDQVRJT05TCUJJVCg1KQogCitlbnVtIHNiaV9leHRfc3NlX2ZpZCB7CisJU0JJX1NTRV9F
+VkVOVF9BVFRSX1JFQUQgPSAwLAorCVNCSV9TU0VfRVZFTlRfQVRUUl9XUklURSwKKwlTQklfU1NF
+X0VWRU5UX1JFR0lTVEVSLAorCVNCSV9TU0VfRVZFTlRfVU5SRUdJU1RFUiwKKwlTQklfU1NFX0VW
+RU5UX0VOQUJMRSwKKwlTQklfU1NFX0VWRU5UX0RJU0FCTEUsCisJU0JJX1NTRV9FVkVOVF9DT01Q
+TEVURSwKKwlTQklfU1NFX0VWRU5UX0lOSkVDVCwKKwlTQklfU1NFX0hBUlRfVU5NQVNLLAorCVNC
+SV9TU0VfSEFSVF9NQVNLLAorfTsKKworZW51bSBzYmlfc3NlX3N0YXRlIHsKKwlTQklfU1NFX1NU
+QVRFX1VOVVNFRCAgICAgPSAwLAorCVNCSV9TU0VfU1RBVEVfUkVHSVNURVJFRCA9IDEsCisJU0JJ
+X1NTRV9TVEFURV9FTkFCTEVEICAgID0gMiwKKwlTQklfU1NFX1NUQVRFX1JVTk5JTkcgICAgPSAz
+LAorfTsKKworLyogU0JJIFNTRSBFdmVudCBBdHRyaWJ1dGVzLiAqLworZW51bSBzYmlfc3NlX2F0
+dHJfaWQgeworCVNCSV9TU0VfQVRUUl9TVEFUVVMJCT0gMHgwMDAwMDAwMCwKKwlTQklfU1NFX0FU
+VFJfUFJJTwkJPSAweDAwMDAwMDAxLAorCVNCSV9TU0VfQVRUUl9DT05GSUcJCT0gMHgwMDAwMDAw
+MiwKKwlTQklfU1NFX0FUVFJfUFJFRkVSUkVEX0hBUlQJPSAweDAwMDAwMDAzLAorCVNCSV9TU0Vf
+QVRUUl9FTlRSWV9QQwkJPSAweDAwMDAwMDA0LAorCVNCSV9TU0VfQVRUUl9FTlRSWV9BUkcJCT0g
+MHgwMDAwMDAwNSwKKwlTQklfU1NFX0FUVFJfSU5URVJSVVBURURfU0VQQwk9IDB4MDAwMDAwMDYs
+CisJU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0ZMQUdTCT0gMHgwMDAwMDAwNywKKwlTQklfU1NF
+X0FUVFJfSU5URVJSVVBURURfQTYJPSAweDAwMDAwMDA4LAorCVNCSV9TU0VfQVRUUl9JTlRFUlJV
+UFRFRF9BNwk9IDB4MDAwMDAwMDksCisKKwlTQklfU1NFX0FUVFJfTUFYCQk9IDB4MDAwMDAwMEEK
+K307CisKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX1NUQVRVU19TVEFURV9PRkZTRVQJMAorI2RlZmlu
+ZSBTQklfU1NFX0FUVFJfU1RBVFVTX1NUQVRFX01BU0sJCTB4MworI2RlZmluZSBTQklfU1NFX0FU
+VFJfU1RBVFVTX1BFTkRJTkdfT0ZGU0VUCTIKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX1NUQVRVU19J
+TkpFQ1RfT0ZGU0VUCTMKKworI2RlZmluZSBTQklfU1NFX0FUVFJfQ09ORklHX09ORVNIT1QJQklU
+KDApCisKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0ZMQUdTX1NTVEFUVVNfU1BQ
+CUJJVCgwKQorI2RlZmluZSBTQklfU1NFX0FUVFJfSU5URVJSVVBURURfRkxBR1NfU1NUQVRVU19T
+UElFCUJJVCgxKQorI2RlZmluZSBTQklfU1NFX0FUVFJfSU5URVJSVVBURURfRkxBR1NfSFNUQVRV
+U19TUFYJQklUKDIpCisjZGVmaW5lIFNCSV9TU0VfQVRUUl9JTlRFUlJVUFRFRF9GTEFHU19IU1RB
+VFVTX1NQVlAJQklUKDMpCisKKyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9MT0NBTF9ISUdIX1BSSU9f
+UkFTCTB4MDAwMDAwMDAKKyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9MT0NBTF9ET1VCTEVfVFJBUAkJ
+MHgwMDAwMDAwMQorI2RlZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTF9ISUdIX1BSSU9fUkFTCTB4
+MDAwMDgwMDAKKyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9MT0NBTF9QTVVfT1ZFUkZMT1cJMHgwMDAx
+MDAwMAorI2RlZmluZSBTQklfU1NFX0VWRU5UX0xPQ0FMX0xPV19QUklPX1JBUwkweDAwMTAwMDAw
+CisjZGVmaW5lIFNCSV9TU0VfRVZFTlRfR0xPQkFMX0xPV19QUklPX1JBUwkweDAwMTA4MDAwCisj
+ZGVmaW5lIFNCSV9TU0VfRVZFTlRfTE9DQUxfU09GVFdBUkVfSU5KRUNURUQJMHhmZmZmMDAwMAor
+I2RlZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTF9TT0ZUV0FSRV9JTkpFQ1RFRAkweGZmZmY4MDAw
+CisKKyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9QTEFURk9STQkJQklUKDE0KQorI2RlZmluZSBTQklf
+U1NFX0VWRU5UX0dMT0JBTAkJQklUKDE1KQorCiAvKiBTQkkgZGVidWcgdHJpZ2dlcnMgZnVuY3Rp
+b24gSURzICovCiBlbnVtIHNiaV9leHRfZGJ0cl9maWQgewogCVNCSV9FWFRfREJUUl9OVU1fVFJJ
+R0dFUlMgPSAwLAotLSAKMi41MC4xIChBcHBsZSBHaXQtMTU1KQoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
