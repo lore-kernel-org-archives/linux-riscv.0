@@ -4,131 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E176CD37B2
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 20:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1486FCD37AF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 May 2026 07:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v2AU7aewMRuKS5Y6PquAcilU/H1r0AgrqnEngpXslcI=; b=C3uBfAaiHh63Lo
-	kuReV4TfLwk+xzqixGWMDN51CRY7bXfwAetLNMy0NEvihocI9e5xbsHdHPhbEMT9OX12EcAGzdkrc
-	uZwBF+qWh14UWL+w+5BDWfWN696ybP1kMbOkz1+K0SgDVfcbatYNNaUAt087E+DXTkHCtPAS+5zUf
-	OcsRhYr3gn4Xnj9SKFquexWXznEK+z37QTRfmsQjaW8SOBu+oTbHk3ZWaecenrnAsBI9QpqRkScY7
-	54746Jx22KKw1ZfpmBhAcrIIjgTX8kglOopeaiSo9ejjEvlPhgBPlyv9rVw4wDMP4s0X1inUQhOCV
-	w4TfMYhXfrBvlDDicX6w==;
+	List-Owner; bh=DPXC/ZP0DVN5v+hwruJaaDeWH/N5usqQc/vJf8m31LY=; b=OWlu6mJLuWO/kN
+	kPY1/A3tlPAO1teoflCpp+UdTOUmDuQDN116xTg9SudhDz1kqMIwI2m9kYfHH+4bG5q6286Qq7V0B
+	XRW5blURr/xOK2VhnBhAR+VTmf+UC6FDGYjQL+gbASYYKR3tdg0b1m23nx07IwJ0KFGAsdkgfnNZy
+	3Asij/SrpH+OHdiBC0Jvz5Uhsz6YN32hmPnWjzGf/KH6iZ+swuqOJTM1537OXz8agswZ11fAqynYS
+	/owVsJ/h1J2RzU6sbCPD0aUNNzeujEJFKjKRenm84l4ecMbzS4oWxQzw7tqfwz42itw45w0HD6Ao/
+	L3aT256YOfyaVf2f6x+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLoSE-00000009cvf-1YWC;
-	Sat, 09 May 2026 20:39:18 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wLypu-0000000AMbz-25KP;
+	Sun, 10 May 2026 07:44:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLoSA-00000009cvF-3Vef
-	for linux-riscv@lists.infradead.org;
-	Sat, 09 May 2026 20:39:16 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 649BNfWe3845274
-	for <linux-riscv@lists.infradead.org>; Sat, 9 May 2026 20:39:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=8FERYh6VD5a4wdxa/Bnz7uhQ
-	P4f/Pd7RYSvqE9Wu2OE=; b=DPPBDGcvwnv8ZYuPGm+6yjucliFISVowWVdRRxu7
-	JMYipI+ZwiVn7QJFCWrqkiPLxoHTgD+zR9lgSMZ7A4M4RVubjKkRfF6ZwHCBkS0q
-	nKsRiSjPF0hox9elKadYzZrsxRdBzKO5hIqyUVCv7iihilpHpktWG1xIZ/Hizu79
-	LD3ZIWiJUKqlU7TEHWVck3p6uwO2RUuXSbeL8j4a4x5dh4CM85D8QU+mQoRRwich
-	QDUgNn4+h7h+67vuEvtRq5IppJ5HNLbOx0LCYIkB3tk42UbbG6rcpZeAhIUqhjL/
-	j/SSkHDrNXQ7HXxZa7ML1QQex1I7BiVRIslChXv3EjUrZQ==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e240h0ugf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Sat, 09 May 2026 20:39:13 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2c0f6593ef5so4019618eec.1
-        for <linux-riscv@lists.infradead.org>; Sat, 09 May 2026 13:39:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778359152; x=1778963952; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8FERYh6VD5a4wdxa/Bnz7uhQP4f/Pd7RYSvqE9Wu2OE=;
-        b=InyBafG5d7eDJz26NFpFq7NIYQL3QUiFAyUdYN4gNKgbX+qya5+xV4nPhhuyZGeuaM
-         zcLhaxpeFgeFk8XB/ba7Bt2dNg9caposfAEOVRhS/ZpD8+2AG4JfB20bYCEAp11PFH/R
-         IKbrA9hA2eZ41oyOpmTerCKIPAwFoaiWaR4urEqe2G1Et+pPuJ0l4uN+MaMHSvp7kew8
-         An/iFD0JHQZkdnULzZtozhdraRvyWeMsc2haebp7PdqnHk58ECJhH695zTIk9mabg1rT
-         mD0uN4eItU1F9obdSZwn8yp6ICcYGs80Du4Dj0DmsEK3edFgaDANGlH6JiL2M7pv7r0S
-         IlFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778359152; x=1778963952;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8FERYh6VD5a4wdxa/Bnz7uhQP4f/Pd7RYSvqE9Wu2OE=;
-        b=EAx9o+E8/a429ShOOWolwLbjjUpKqkyZ12qF35469pOUQ5dRjNyPNLg+eG3H9JShrr
-         TnM89W9Ju4mpmsk1SSBodRPFEhEhNmHUvVYbzMXZwWWvnGmTflUMPiljuU/0WQ1ZJVst
-         FDEHVEcS7f8+/iQbUDIPrRFYlDF7LahMo2ls6lUrWuBRiOijc5Hkjoa7MDw8grZ5qTlF
-         s14+LtnW96IAaSc0MTqx77D7OrehvKZ51ogixW4AqpG/85XX54ciGn9OA68N6jpgaoiI
-         qHWpfkJPPc8OKto3QNcY0gIyal+Tp/J4htAj8t8I5YsO0etW76IFyhrNwp/Cs+jyrvlO
-         x7cQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/2836aB4dr4m22bl2jonKLdyQGVWZIpfLf6KeLr8K1QYYBiGy0+RwdKB3wp89awzWWMvCtB31zG54MVg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhUFGZUgxFM5bhsEIFNhl8yqdBoARi9PXzC7/FNNKitQ4Z6xyF
-	b7WIi+a+l7Y4NmB3YMZJ5zDNX6Au03iXAsswUIiFLYIKdv+DLVf4rWdk6F85XsJECJMe0HWjuyP
-	sWgcsT+gQe7gR39zTs/0fSt3MmTsF7xiA7W8/E1tPzi+4bozB7aRPgscFSQVTUGcUundFpJE=
-X-Gm-Gg: Acq92OHtcZq8T+2G0+id4Ru/LqEFZEePZ3C8ixFWbyZ88GB9Uu5bJfHU7eOykqDNw4R
-	LUNSxv0McCqDErWkiuK9bprA6DPEW7eEPX//uAIlck9AdoafN+gMCLp3aqtutxiZgthiCoNGdP2
-	Q+rx2Zu2Ul6j2p6IBoVBI0Z4JHTWRX+b+oKteaPr6qGAeC0LL6fQ2Cd4ejmRGlT0ExB3Y7ZNGZ7
-	5QHB9MUICKU4F2AEPFlv5zOK1TY4UbahTiwgf9f8ONMFR1tikjKaQwOu4TDeFGAir1rpGD1rAmK
-	i9x50uK+YIsmJHKNJ7ObFaQzIQn3hbN5zqfeJAwzdbSO2fFsbZ0NMfFGelAkTuVFtLfMim8m33c
-	CxHPDj84ZZuLaF6jXl6S4DyaRHce/S3I=
-X-Received: by 2002:a05:7022:438f:b0:12d:b6de:8da7 with SMTP id a92af1059eb24-1317d893a55mr8179036c88.6.1778359152329;
-        Sat, 09 May 2026 13:39:12 -0700 (PDT)
-X-Received: by 2002:a05:7022:438f:b0:12d:b6de:8da7 with SMTP id a92af1059eb24-1317d893a55mr8179017c88.6.1778359151798;
-        Sat, 09 May 2026 13:39:11 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13277bb2b14sm9696489c88.0.2026.05.09.13.39.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 13:39:11 -0700 (PDT)
-Date: Sat, 9 May 2026 15:39:09 -0500
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-        linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
-        Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>,
-        Fangyu Yu <fangyu.yu@linux.alibaba.com>, patches@lists.linux.dev
-Subject: Re: [PATCH v2 0/8] Support non-leaf and range invalidation features
- in RISC-V
-Message-ID: <rcxkvq5laonp6mofxmdawg7s5lgxrdy436ksbld22rngp5vrwp@guqmelktxveh>
-References: <0-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
+	id 1wLypq-0000000AMb6-2Veb;
+	Sun, 10 May 2026 07:44:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4492041E5A;
+	Sun, 10 May 2026 07:44:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 418C4C2BCB8;
+	Sun, 10 May 2026 07:44:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778399061;
+	bh=JdzQ4anNbdp6hZvOcAV+vpR6o5TNnOw3BRE3u7jPJ3I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Srw5A2bCOfwk/jitLq7nfgkj2WCDxxbD2FIBLb/TQTOLxKHcxidSYyuEZ03osjmdr
+	 L2IwVt0iQHGEMwt3ajEdM28j7rl+pXTUfjkDXJpRNoTX5T7UtMAd1hA3+UElo/ftTl
+	 GxbOZ6eIY30unSLP0f08qKwX6VbzVh7A3m2pJov14i86Qq4xSgZeO/A775E3tFmWIK
+	 vnApd2+1/75BEmcmurPKNeJU7HFX11y76Wd/dFytTW5BGfXWPz+RUzza3mXvoVryXe
+	 HqHDRV3w8lReiaKoZjwCjs0cUXLMw673Uco1IorVW50vL8YSf0DgjZl81FCpwXOgUu
+	 emf7xO9RWG0rA==
+Date: Sun, 10 May 2026 13:14:17 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH 05/12] phy: add a driver for T-Head TH1520 USB PHY
+Message-ID: <agA3URhGA1u6R7LD@vaman>
+References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
+ <20260507081710.4090814-6-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA5MDIyMiBTYWx0ZWRfX0UHs/cOeDgqj
- QUpcriWAFiurv9Yemq7JQrNGD2rOiVz6XXPqSGZ6sSgHLAZo3ybREUyOU2ViWWvBxY3XSu0qtmI
- W+AS02u1+b8ckTFGc7GFn03Mchq8mjjB384+PM/JiB0y8lxWzvq174WpR+wcfyNvoXAus2CMnoF
- DPn0d3f5igAydsBhQTDeOFXW/w+G51/CzqwL7XdrkS53EWhdHaFdcc5UNP9Xd7Tc2gt/pGzK45Y
- rVPJpIdaANLAInlI4zAscG+5wrYq8aaz7KEjzprpAqXoX4Z2qJxWV3ftDnACRBU/3WOkxVGd8Bs
- 4xO2SP31QNavuwLBAjgehaQjBC3QX220STbiqDYdpwVIFzgVg3UO+m9PTp3cVh9EmDIo1xEBY5N
- nphgW+A0XjP5hxX96RD+PIxzANqnr4natgEM4PRO/8bQW0BG+MUpov8yjtt+bkLU3af4WNU/gO5
- A8qVHk/1vURLb46TVZQ==
-X-Proofpoint-GUID: _7lt_TY-7HdWHh6ANgkwGMyDU2UELF0N
-X-Authority-Analysis: v=2.4 cv=X5Bi7mTe c=1 sm=1 tr=0 ts=69ff9b71 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=kj9zAlcOel0A:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=p0WdMEafAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=e4hL8whFHqtjNLFC1lYA:9
- a=CjuIK1q_8ugA:10 a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-ORIG-GUID: _7lt_TY-7HdWHh6ANgkwGMyDU2UELF0N
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-09_06,2026-05-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 priorityscore=1501 impostorscore=0 clxscore=1015
- malwarescore=0 bulkscore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605090222
+In-Reply-To: <20260507081710.4090814-6-zhengxingda@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_133915_028676_C931BE36 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260510_004422_695281_DB090BA8 
+X-CRM114-Status: GOOD (  33.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,32 +65,302 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Drew Fustini <fustini@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Yao Zi <ziyao@disroot.org>, linux-gpio@vger.kernel.org, Paul Walmsley <pjw@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 11:52:59AM -0300, Jason Gunthorpe wrote:
-> This is part of the patch pile to get SMMUv3 moved to iommupt. From
-> that perspective it introduces the PT_FEAT_DETAILED_GATHER which will
-> be used by both RISC-V and SMMUv3 to generate optimized invalidation
-> commands.
+On 07-05-26, 16:17, Icenowy Zheng wrote:
+> The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
+> some PHY parameters exported as another system controller along with it.
 > 
-> I don't have any RISC-V anything so this needs to be tested by someone who
-> does.
+> As a few PHY parameters' default value isn't ready to work, add a driver
+> configuring them before letting the PHY run, in addition to
+> clock/reset/regulator management.
 
-I dangled some tokens in front of Claude to convince him to add the
-support for NL and S to QEMU's IOMMU model along with some new trace[1].
-Then I based this series on [2], along with some VFIO support, and mucked
-around enough to generate trace which appears to prove things are working
-correctly.
+Is there any dependency on the rest of series, if not please split up!
 
-For the series,
+Some warnings flagged by sashiko, please check
+https://sashiko.dev/#/patchset/20260507081710.4090814-1-zhengxingda%40iscas.ac.cn
 
-Tested-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 
-[1] https://gitlab.com/jones-drew/qemu/-/commits/riscv/iommu-nl-s
-[2] https://lore.kernel.org/all/20260508212339.381933-1-andrew.jones@oss.qualcomm.com/
+> 
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> ---
+>  drivers/phy/Kconfig                |   1 +
+>  drivers/phy/Makefile               |   1 +
+>  drivers/phy/thead/Kconfig          |  12 ++
+>  drivers/phy/thead/Makefile         |   2 +
+>  drivers/phy/thead/phy-th1520-usb.c | 197 +++++++++++++++++++++++++++++
+>  5 files changed, 213 insertions(+)
+>  create mode 100644 drivers/phy/thead/Kconfig
+>  create mode 100644 drivers/phy/thead/Makefile
+>  create mode 100644 drivers/phy/thead/phy-th1520-usb.c
+> 
+> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+> index 227b9a4c612e8..ea1a52e14b839 100644
+> --- a/drivers/phy/Kconfig
+> +++ b/drivers/phy/Kconfig
+> @@ -164,6 +164,7 @@ source "drivers/phy/st/Kconfig"
+>  source "drivers/phy/starfive/Kconfig"
+>  source "drivers/phy/sunplus/Kconfig"
+>  source "drivers/phy/tegra/Kconfig"
+> +source "drivers/phy/thead/Kconfig"
+>  source "drivers/phy/ti/Kconfig"
+>  source "drivers/phy/xilinx/Kconfig"
+>  
+> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+> index f49d83f00a3d8..4604522548c91 100644
+> --- a/drivers/phy/Makefile
+> +++ b/drivers/phy/Makefile
+> @@ -48,5 +48,6 @@ obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
+>  					   starfive/	\
+>  					   sunplus/	\
+>  					   tegra/	\
+> +					   thead/	\
+>  					   ti/		\
+>  					   xilinx/
+> diff --git a/drivers/phy/thead/Kconfig b/drivers/phy/thead/Kconfig
+> new file mode 100644
+> index 0000000000000..14012db5973c4
+> --- /dev/null
+> +++ b/drivers/phy/thead/Kconfig
+> @@ -0,0 +1,12 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +config PHY_TH1520_USB
+> +	tristate "USB PHY driver for T-Head TH1520 SoC"
+> +	depends on ARCH_THEAD || COMPILE_TEST
+> +	depends on COMMON_CLK
+> +	depends on HAS_IOMEM
+> +	depends on OF
+> +	depends on RESET_CONTROLLER
+> +	select GENERIC_PHY
+> +	default ARCH_THEAD
+
+Why should this be default?
+
+> +	help
+> +	  Enable support for the USB PHY on the T-Head TH1520 SoC.
+> diff --git a/drivers/phy/thead/Makefile b/drivers/phy/thead/Makefile
+> new file mode 100644
+> index 0000000000000..5b459bc7004bd
+> --- /dev/null
+> +++ b/drivers/phy/thead/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +obj-$(CONFIG_PHY_TH1520_USB) += phy-th1520-usb.o
+> diff --git a/drivers/phy/thead/phy-th1520-usb.c b/drivers/phy/thead/phy-th1520-usb.c
+> new file mode 100644
+> index 0000000000000..c87bd779bbb74
+> --- /dev/null
+> +++ b/drivers/phy/thead/phy-th1520-usb.c
+> @@ -0,0 +1,197 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Institute of Software, Chinese Academy of Sciences (ISCAS)
+> + *
+> + * Authors:
+> + * Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/reset.h>
+> +
+> +#define USB_SYSCON_OFFSET		0xf000
+> +
+> +/* All the below registers are in the USB syscon region */
+> +#define USB_CLK_GATE_STS		0x0
+> +#define USB_LOGIC_ANALYZER_TRACE_STS0	0x4
+> +#define USB_LOGIC_ANALYZER_TRACE_STS1	0x8
+> +#define USB_GPIO			0xc
+> +#define USB_DEBUG_STS0			0x10
+> +#define USB_DEBUG_STS1			0x14
+> +#define USB_DEBUG_STS2			0x18
+> +#define USBCTL_CLK_CTRL0		0x1c
+> +#define USBPHY_CLK_CTRL1		0x20
+> +#define USBPHY_TEST_CTRL0		0x24
+> +#define USBPHY_TEST_CTRL1		0x28
+> +#define USBPHY_TEST_CTRL2		0x2c
+> +#define USBPHY_TEST_CTRL3		0x30
+> +#define USB_SSP_EN			0x34
+> +#define USB_HADDR_SEL			0x38
+> +#define USB_SYS				0x3c
+> +#define USB_HOST_STATUS			0x40
+> +#define USB_HOST_CTRL			0x44
+> +#define USBPHY_HOST_CTRL		0x48
+> +#define USBPHY_HOST_STATUS		0x4c
+> +#define USB_TEST_REG0			0x50
+> +#define USB_TEST_REG1			0x54
+> +#define USB_TEST_REG2			0x58
+> +#define USB_TEST_REG3			0x5c
+
+Why do need these test registers, they seem unused?
+
+> +
+> +#define USB_SYS_COMMONONN		BIT(0)
+> +
+> +#define USB_SSP_EN_REF_SSP_EN		BIT(0)
+> +
+> +struct th1520_usb_phy {
+> +	struct platform_device *pdev;
+> +	struct phy *phy;
+> +	struct regmap *regmap;
+> +	struct clk *ref_clk;
+> +	struct reset_control *phy_reset;
+> +};
+> +
+> +static int th1520_usb_phy_init(struct phy *phy)
+> +{
+> +	struct th1520_usb_phy *th1520_phy = phy_get_drvdata(phy);
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(th1520_phy->ref_clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = reset_control_assert(th1520_phy->phy_reset);
+> +	if (ret)
+> +		goto err_disable_clk;
+> +
+> +	/*
+> +	 * Do some initial PHY setup:
+> +	 * - Set COMMONONN to allow the PHY to automatically power down.
+> +	 * - Set REF_SSP_EN to enable feeding reference clock to SuperSpeed
+> +	 *   PHY clock PLL.
+> +	 */
+> +	regmap_set_bits(th1520_phy->regmap, USB_SYS, USB_SYS_COMMONONN);
+> +	regmap_set_bits(th1520_phy->regmap, USB_SSP_EN, USB_SSP_EN_REF_SSP_EN);
+> +
+> +	ret = reset_control_deassert(th1520_phy->phy_reset);
+> +	if (ret)
+> +		goto err_disable_clk;
+> +
+> +	udelay(10);
+> +
+> +	return 0;
+> +
+> +err_disable_clk:
+> +	clk_disable_unprepare(th1520_phy->ref_clk);
+> +	return ret;
+> +}
+> +
+> +static int th1520_usb_phy_exit(struct phy *phy)
+> +{
+> +	struct th1520_usb_phy *th1520_phy = phy_get_drvdata(phy);
+> +	int ret;
+> +
+> +	ret = reset_control_assert(th1520_phy->phy_reset);
+> +	if (ret)
+> +		return ret;
+> +
+> +	clk_disable_unprepare(th1520_phy->ref_clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct phy_ops th1520_usb_phy_ops = {
+> +	.init		= th1520_usb_phy_init,
+> +	.exit		= th1520_usb_phy_exit,
+> +	.owner		= THIS_MODULE,
+> +};
+> +
+> +static const struct regmap_config phy_regmap_config = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.max_register = USB_TEST_REG3,
+> +};
+> +
+> +static int th1520_usb_phy_probe(struct platform_device *pdev)
+> +{
+> +	struct phy_provider *phy_provider;
+> +	struct device *dev = &pdev->dev;
+> +	struct th1520_usb_phy *th1520_phy;
+> +	struct reset_control *bus_reset;
+> +	void __iomem *base;
+> +	int ret;
+> +
+> +	th1520_phy = devm_kzalloc(dev, sizeof(*th1520_phy), GFP_KERNEL);
+> +	if (!th1520_phy)
+> +		return -ENOMEM;
+> +
+> +	th1520_phy->pdev = pdev;
+> +
+> +	base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	th1520_phy->ref_clk = devm_clk_get(dev, "ref");
+> +	if (IS_ERR(th1520_phy->ref_clk))
+> +		return PTR_ERR(th1520_phy->ref_clk);
+> +
+> +	/* De-assert the bus reset and leave it that way */
+> +	bus_reset = devm_reset_control_get_exclusive_deasserted(dev, "bus");
+> +	if (IS_ERR(bus_reset))
+> +		return PTR_ERR(bus_reset);
+> +
+> +	th1520_phy->phy_reset = devm_reset_control_get_exclusive(dev, "phy");
+> +	if (IS_ERR(th1520_phy->phy_reset))
+> +		return PTR_ERR(th1520_phy->phy_reset);
+> +
+> +	/*
+> +	 * Schematics of several boards (Lichee Module 4A/Milk-V Meles)
+> +	 * describe this power rail as always-on.
+> +	 */
+> +	ret = devm_regulator_get_enable(dev, "avdd33-usb3");
+> +	if (ret)
+> +		return ret;
+> +
+> +	th1520_phy->regmap = devm_regmap_init_mmio_clk(dev, "bus",
+> +						       base + USB_SYSCON_OFFSET,
+> +						       &phy_regmap_config);
+> +	if (IS_ERR(th1520_phy->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(th1520_phy->regmap),
+> +				     "Failed to init regmap\n");
+> +
+> +	th1520_phy->phy = devm_phy_create(dev, dev->of_node, &th1520_usb_phy_ops);
+> +	if (IS_ERR(th1520_phy->phy)) {
+> +		dev_err(dev, "failed to create PHY\n");
+> +		return PTR_ERR(th1520_phy->phy);
+> +	}
+> +
+> +	phy_set_drvdata(th1520_phy->phy, th1520_phy);
+> +
+> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> +
+> +	return PTR_ERR_OR_ZERO(phy_provider);
+> +}
+> +
+> +static const struct of_device_id th1520_usb_phy_of_table[] = {
+> +	{ .compatible = "thead,th1520-usb-phy" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, th1520_usb_phy_of_table);
+> +
+> +static struct platform_driver th1520_usb_phy_driver = {
+> +	.driver = {
+> +		.name = "th1520-usb-phy",
+> +		.of_match_table = th1520_usb_phy_of_table,
+> +	},
+> +	.probe = th1520_usb_phy_probe,
+> +};
+> +
+> +module_platform_driver(th1520_usb_phy_driver);
+> +
+> +MODULE_DESCRIPTION("T-Head TH1520 USB PHY driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.52.0
+
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
