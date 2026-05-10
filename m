@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B52CD37AF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 May 2026 12:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223B0CD37AF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 May 2026 12:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j6oZhix9F0wQ3awaq2AhV6uFw5PCam2oogZtMLvVkfA=; b=K5aoi8spS1s9Zb
-	VjHia6R/ZMmPu0BOxSgf33Hj13hpBfbBxUV3R1jZW9jFZcqt1Pva1Y5HT4+jOmaL/Fcyz0gBeclCP
-	KtkFoCOrjsZZRGZfjnHhenYDUcX18WyL3uYN0KI18APu9tSIHNqSGzys0ES+qQwvrJFSMLL2II9d+
-	CSioTYYpAxIyamDSeyB2inK7WIzVmNsbdwZr+rmgl0wsfUT5nXsfTsqqe3Uxoa8Eo2/fk0+41FtSU
-	TVbMOIiYIrG7XSyV03tJJ3zBn2CjGLCZUxxw8tMntXbFWRDv0LvBDOdoGHe5k/LsnanKLnNIoW0jU
-	5/vaCoqxLLSLlljOgduw==;
+	List-Owner; bh=ADLOtE2Z7YNiv245rgbA8RRrlP/EETvOFG6J+AncC54=; b=knCxSNzooyOPvV
+	J51n4/Js5sQ0O5AdY6TxiRcfJD+nYLBd6CJndii9FQWmU4dWzMlYAJtB814rRpqOB7yjOj0fL23C8
+	Csvx9Bnpb8Ad/OUChcDwoW8OiLo6KEd8I1iIbXm6PmIV/gLt3UxWWw7Q6Yp1HSfhBfwNcsRuCBKvI
+	LOk2rVlgwXxT5wEtzKyzf21A/7ZHF2HDyWLnRRm9aReyzmeTgzv/LLFM712qmHHZ9tT2OjW9H0fFo
+	ZqijRCSwwxmRMDfVpSUSE76fWySLXu4dsAR+RkgOqlPoPcHapi2kIENKSXpexxOxsell+5z4ezZvb
+	74xx4zzDLtPGMtHSV6cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3CZ-0000000AhZM-0aaY;
-	Sun, 10 May 2026 12:24:07 +0000
+	id 1wM3Jj-0000000AiJd-3Vwm;
+	Sun, 10 May 2026 12:31:31 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3CW-0000000AhYQ-2K5r;
-	Sun, 10 May 2026 12:24:05 +0000
+	id 1wM3Jg-0000000AiI5-2gct;
+	Sun, 10 May 2026 12:31:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 465D644432;
-	Sun, 10 May 2026 12:24:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 775C3C2BCB8;
-	Sun, 10 May 2026 12:24:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 19F7943CA8;
+	Sun, 10 May 2026 12:31:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C8A4C2BCB8;
+	Sun, 10 May 2026 12:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778415844;
-	bh=NDt3RJVWprBMRZL1hBTLG//fICJZ2Q/u+HUTRUNib4Q=;
+	s=k20201202; t=1778416288;
+	bh=Ff/B4KxNBZMQywpnIfxmpeNFZWzaDYfLmaF91BK2Y0o=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=AfWwBhQtpDxEhQxpko4dQ46hRgQTiqKB/8Ckyw078zeELmg7rpPomWKmGC78rcu4A
-	 HKr39pjE0ucLVhCUrFO174K1CA7NUSZ08A2kx+n6pYCMIqRroe48AsBnaNkVYk6Pm7
-	 9oeXMiN3uNqkcDsu1wT4uul/lXLyvGJPy76Q3aoyCWTVleyiX6nr9+ieFemMaZN+DA
-	 KM0asltdqcRSqIDqg/JN4y/oIqj0cFmDDGdVvv3fgImXU6+A5PHKVWpOIG5TdeM8Ck
-	 0sfCH3VwS67s6qcA1dPxDkFfmbkgJ2hWAL3ZDgltR0FeiJDx2jK+jg9wnVlyk534YF
-	 xaU/m6IGfmQ9A==
+	b=oDp+KODB/+gujPT1prT4mhlQ4OnHP3sFOj6iuiN8taPKf+wezG/cAAujkiwGujLIj
+	 HQITdb5qdimBuShm2X/k9u1qjq+zBVn7RTIPhurXvn0XS7YirpuwYFwTY4rvr55p6i
+	 uGHr/9GuUoVwXcLMg1drqaYL/WecLmJHTrZnYL+8Av8pJTD5r5BvQxtOtffHXkQsnV
+	 BoRxRH0EJaJj3hgrBL3NGkbyQIF9PKknwufnZ6x7ad4rfe/eLPmR288XBiQfrjPJCr
+	 sQwfucxIeRySRyihVxlCEyOh2rWP8quG3sA8wK1T1FpIh7yC9rPw8AvbFmw2r3k8sL
+	 YgAv3mCu64Ccw==
 From: Vinod Koul <vkoul@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Yixun Lan <dlan@kernel.org>, 
- Ze Huang <huang.ze@linux.dev>, Felix Gu <ustc.gu@gmail.com>
-Cc: linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <20260326-k1-usb3-v1-1-0c2b6adf5185@gmail.com>
-References: <20260326-k1-usb3-v1-1-0c2b6adf5185@gmail.com>
-Subject: Re: [PATCH] phy: spacemit: Remove incorrect clk_disable() in
- spacemit_usb2phy_init()
-Message-Id: <177841584101.420676.11785245534258956583.b4-ty@kernel.org>
-Date: Sun, 10 May 2026 17:54:01 +0530
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>, 
+ Yixun Lan <dlan@kernel.org>
+Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Yao Zi <me@ziyao.cc>
+In-Reply-To: <20260305-11-k3-usb2-phy-v4-0-15554fb933bc@kernel.org>
+References: <20260305-11-k3-usb2-phy-v4-0-15554fb933bc@kernel.org>
+Subject: Re: [PATCH v4 0/2] phy: spacemit: Add USB2 PHY support for K3 SoC
+Message-Id: <177841628298.434434.4061327159499259923.b4-ty@kernel.org>
+Date: Sun, 10 May 2026 18:01:22 +0530
 MIME-Version: 1.0
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_052404_614108_BD904F48 
-X-CRM114-Status: UNSURE (   4.99  )
+X-CRM114-CacheID: sfid-20260510_053128_740323_5D0BE714 
+X-CRM114-Status: UNSURE (   6.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,20 +80,22 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 26 Mar 2026 00:23:58 +0800, Felix Gu wrote:
-> When clk_enable() fails, the clock was never enabled. Calling
-> clk_disable() in this error path is incorrect.
+On Thu, 05 Mar 2026 01:00:50 +0000, Yixun Lan wrote:
+> The series trys to add USB2 PHY support for SpacemiT K3 SoC, while
+> patch [1/2] implement a disconnect function which is needed during
+> next connection.
 > 
-> Remove the spurious clk_disable() call from the error handling
-> in spacemit_usb2phy_init().
-> 
+> No DTS part has been inclueded in this series, instead I plan to
+> submit them later while adding USB host support.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] phy: spacemit: Remove incorrect clk_disable() in spacemit_usb2phy_init()
-      commit: a4058c09dd6e28ec33316fd6eb45ddae4cab1f31
+[1/2] dt-bindings: phy: spacemit: k3: add USB2 PHY support
+      commit: ad8fdebd40fd25e86331886f4fc6951531691319
+[2/2] phy: k1-usb: k3: add USB2 PHY support
+      commit: 056ee8b37bc91e3230afa11ec1018fa898b983b8
 
 Best regards,
 -- 
