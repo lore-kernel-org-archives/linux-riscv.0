@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BC4CD37AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 03:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A710CD37AC
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 03:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QTfttkFtSNuxDxkGwWaJaaj7TXhubR3YGjzEe2MryLs=; b=A6btq5oFMp+/GY
-	epQcEYg3U/FuT2xd4J5nuHS+ItxFm+AWkHcx0pzbtJI4NrjlkFuQFGXVgoMBwpnwBSnhvahwXQXu+
-	g8xa4GwvEdnncvokely7V9YiBWe/GL6D9LNMi7Yh91nMFFAt+fYqGDb4Uy0HCISDoznVsBBS3MI2p
-	kxkMqAHNvMXdVbCGHfntO2mj3+j3AIQY/3XeUFrUpist2OSo8lozlN0YgK4PknF1fzJn8LB6SFLK6
-	FeRbXhwnw4ILYD5wdTYOSJURQ9Vfoq6mkH7n4W/mHVsNKq2eB55xjJTJeYYXrBT6WkCyruAiyd4jq
-	S0nLtaR5BELu5A6GsLgQ==;
+	List-Owner; bh=s6BOXQGv+4mrQ0tNs81Mv00ISXc6KA5QLBJrwnLHIxU=; b=BKWvZHlSK9UJWV
+	ZusVwwnXd0kdZWrImhD3SxAnVWb4eCISBzgpv2ZIciKrNH+Ucxm0ZbtvIKZ/vpQbIM0qiA+l3tK0v
+	pgjGl+D3S8nfFm2W5LLkc3GuyKuUMwm7N+7Wr5EDRnOHA67VSGcJJKegPPNXsJdREHTDMRtZix9Qv
+	2h8QdCs+F41fujlNPuyA+MNzSVOZM10PAmWWnnVkYZyHR8+aXtIicFQSDrosOzQ/6AwoW2OeloZl+
+	NCVezQTdbo1QhQnt3cmzTSoqnAuHMhon7+HZ3Uz5bBxfE5q2UBeafYwUB1u/Anq3mFVLzhGXP/Qt6
+	bVikGmxjPJR80W8bOJVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMHDs-0000000CA6l-1tr9;
-	Mon, 11 May 2026 03:22:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wMHKf-0000000CAqB-0rL2;
+	Mon, 11 May 2026 03:29:25 +0000
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMHDq-0000000CA6U-2By6
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 11 May 2026 03:22:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=LE/4+F+CsUsIVKFjtrPVESM23HnQEEdghZta/8JF8Ek=; b=kiyhekiDygJgoe14tKyTE29VTs
-	WzRTt1/ACHoNdVyyMXSFfRtsMyc3djTBAHReGX2mtiGF8TafiKYp5ouA3WVPODyCyYZ2sBnuhNxPE
-	zS+ZOtB36z5yPcfulq3NLKP+BRH7XM5yBORNjO/0/pBae9q1ItLmxjaf1QOs4GDgy2AopuA9/BqHT
-	1IU4ul3PVqLw3Q9p4sHYNyfa+KpudtYP4//km7M/N93QLBh/w3eHPl+aF/Lii9nbhY+QoQvzW+yPX
-	eZvtgfbABtNIKN+NxE19VmuYfZAV5FeIotnpXdltW/hbcBuxJDlCgE6QXju9fY8f0XyXgxkTp0Kmb
-	vHssqMvA==;
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMHDY-0000000AX42-3JRs
+	id 1wMHKb-0000000CApb-3FdO
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 03:22:21 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2b9fcf7c91bso37367385ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 10 May 2026 20:22:04 -0700 (PDT)
+	Mon, 11 May 2026 03:29:23 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-2ba9c484e5eso3900498eec.1
+        for <linux-riscv@lists.infradead.org>; Sun, 10 May 2026 20:29:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778469722; x=1779074522; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1778470160; x=1779074960; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LE/4+F+CsUsIVKFjtrPVESM23HnQEEdghZta/8JF8Ek=;
-        b=dmhG2OI3Pg6KzxeS9k+zgrMAm8MaGSbXfmPTjpjviBOyQDL8CJCaxOI3ewjBREUQED
-         IBQX3xecZDUOucANH6txebkJmTxi2QNuEvjzj6J4DipPjnQn8fJfZDB50H4Ohle880Bw
-         EygJW2I2/XKVolTiNblqMKD5cP1FzeGFEzJQ0qx9HZD7gy99yXnCc+7Gd/G31OOSqn9c
-         kO1hqKnddjXecqbJWxjCayM6Tf8J+8/2Mem9JX6Tjx3sbKSnZr4BsBWKsOwNQFXzAC/e
-         Ks5OX8n+HvHZeqV5ax03do95J3m7GtgZynrmUEYUr0fNgfQ1RkAsYykVHvZUo3Sk3t9o
-         PAIg==
+        bh=Y/0AIvK8BCcj8XqdwEdcIT92Ta29adSchEewMFBK5y0=;
+        b=I787YpjFeN0tasBt+G9SVSh0rV81ikNmhcHh+gWtFU4X47Y/ibseVYf7Qa/ODfFPHI
+         4pkoIh6TGhdQg6h85MxpBzvGBd5rtmwXLUYVMNJCOOaXrjbOSxYw5Jf6rGgl1SNYTgqo
+         ZDrg29reX7oeP9AMB+7219X+Ds0pWhmnggpvIxzMq4JwOwQBzKZjis7q8j53hzz4HW9k
+         g4i4Sv2QceONCbrq2ci0oxoU4TeZXo6PK6Rti26EQoaLCEWilSXUtBLXVyGA+XXDN/Fz
+         eingm+4OTUTup0x4BjZKkXBkSEB/caGrNumdHuqKRjkLBNe6+HZV+W9tCxPi1biF7qTb
+         YrTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778469722; x=1779074522;
+        d=1e100.net; s=20251104; t=1778470160; x=1779074960;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=LE/4+F+CsUsIVKFjtrPVESM23HnQEEdghZta/8JF8Ek=;
-        b=FbsO5EWEJaj9zo0T0pY5tBQZ9zwkQA8geF/j8FjkITUjJpz48Cm/zgbEkzsVLHAAIE
-         lNdsIXAeU5gpEvkZBl+XspTwcxsa5UsipvCnBBUQpwpZeN0jRiepJcu0IWQBGXEPWhHF
-         D39Pw+lVQKmqtfKVFviePW1qE103Qke+5Lm3xFhPHOCJhV8boGO6FVpoxjFGICAHcnjr
-         0l4hmz1LLmhzdD/Ku2ULw4sc7/8AoWRmtHyGxoyomL1YYeZGw8p/l+HJa7PIYtMSA1V4
-         00hhpgIpBQXEvh4YtZULUk7sc2IzIAHjhx3w+DqXsXFp0colMYc14EghRinJHUygWAVC
-         azZA==
-X-Gm-Message-State: AOJu0YygSZIUrEZinc4sdvsCp+BmpWXXGwC37kk8RQz2n+HRYq4EmlXI
-	J73WnF2JYukhsRmDbm1vfLCGZceNYedImErMcuo460d5rA3FD5SplW76m8+iksTn
-X-Gm-Gg: Acq92OF485zXRRZwHRAE8ajk8Krz/vxUR6OkjTvo0Nn6hGoEK5mfsDBanj6jqB6XuU+
-	XBGtcxy+izss7D0nAfNTosiZqL92+5jUvJUooED2+kp9DEc/ILGdu4va6IPIfoAc0NkQa4MJfJi
-	/aBPIO9pbNAVx4oycu263ZU9trzjItaB/BILSc1Y4WLrnx98alEYekxjnBZHkAgWjFYxqVa7auf
-	JiaW88/REMGH1KE0PVCGrWEjQUdHYJwKlMwr6Kf06jwK76BBUs2lTLNggKWptMuYbmLNHOYraJ5
-	mECxph3NTXiZ6AC/w0JoLSKIwj3TpafN1XqWPHb5bmuALrae++A2EKer4tVsacwbiGNctwrCG2i
-	cvLkuEOrU2jX1UWDCFIle5Lr0Fkdi+0wl9cQamC88PWrb7i5faVu2F6hweIWDSTUX8UNYt0/xrB
-	iqKs9rdnoBO2KaA9u9HosAAfSj5P+7h2jxuc9DyBSkvWZNeX0Oy19B4dW8etWrZ7eHCzIjCFPEl
-	uuBSO4ml5poTjYuFxOCqH8sZgofP+VmZmVlZJBEWpGDGQ==
-X-Received: by 2002:a17:903:1ab0:b0:2b2:4bf9:1766 with SMTP id d9443c01a7336-2ba7a34b378mr246513525ad.33.1778469722390;
-        Sun, 10 May 2026 20:22:02 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d269fcsm89856955ad.15.2026.05.10.20.22.01
+        bh=Y/0AIvK8BCcj8XqdwEdcIT92Ta29adSchEewMFBK5y0=;
+        b=aNp4U/H28yk+Nr+IjXS9Dp7dXdiujMVc1vHZeV42rurX5aP6/by9fplGxMk5cWVKAg
+         zbEi0hN2scOmA8kkbodOiCKC3onoNGS/yWmPZJaDV9/SUotU4ssfy1CaVCEcT5MtzkPy
+         HcM2T9TAWmt8IKzRdKWJy6MBsrTMm+puIAY7Gshn079AhtX/QItNuEmUUMH6VSoSSiKi
+         fn04J9h1xPRSF5Z5TuP/vIwuseyel3/DH7GrtB4O8CzpA8GNdTa+B+DcSckTdIcMVAl/
+         6S7xWLMnIveeOyMsJoIp9wSb8jk7H9I6kOT29AUz7ZmlfJvod3K5/e5NXvyjpSywWNe7
+         iKhg==
+X-Forwarded-Encrypted: i=1; AFNElJ/Je6TnNfcUMAWQ3vWRG42NImXz/Q/QSbckhZ3YsFc2RD2NTl2uEsmAgxqrf4SN3TAXILgSSbRHr3DPBg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx28SWOZ0v8HksjHfdO/NCynE4pfOc7BSQJiStx+/QSGXCscqCZ
+	vQoUdzUHhgdcMrn2UExQ6E+AWcOWBlgDzvQc7Lo1niluNrpvpylF9h23H3aQXVHOSjE=
+X-Gm-Gg: Acq92OFAbBijauXaHuRL1onvBiieRQw3nU3oVi2PjXMlCJc3A8TCeMlWGq0YfpEWy0e
+	l1NL4nxeJFmihcuBwU8bwIUIqjjQfPDtLz/2F8MxcUb0ffppBqilRjSdMXIb+92wD7B2a7ZOCnZ
+	Y+aH9L9a1FQRgNPSXa7rtaexwcRqoULRQap5Tf+3PmCf8x6kkTe8o7xrzUCNuINDpojqgcfBAeP
+	e/fQF/WGPBteu3hF6U5yQ0l4FdGdbLzLcbPI0dNdSkgAQw+EZcu1sNc/lA9p5/FOMdABf6fx1Mb
+	9zW5Z2S+NIsLkgh48gl96s/kjvFcW/S5DaMHPONGFCxWsaSJYrA4PYqsGY3GXBRainuA2Op7JIO
+	2uhlHr/Q1HrJ1VcdhQM4E/D0GbnHGyWnJRdrXdWz17uiun5DbCm6q9mHJ7HIlUsBS51a0aSio4g
+	N7jb3og4AEG4+DK+TQOmu0BsoqlxW20zd9+YA=
+X-Received: by 2002:a05:7301:128b:b0:2d3:f3fc:bb6b with SMTP id 5a478bee46e88-2f5482664b0mr11091502eec.1.1778470160415;
+        Sun, 10 May 2026 20:29:20 -0700 (PDT)
+Received: from sw04.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f8859eafc2sm15049827eec.4.2026.05.10.20.29.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 May 2026 20:22:01 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-riscv@lists.infradead.org
-Cc: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	kvm@vger.kernel.org (open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)),
-	kvm-riscv@lists.infradead.org (open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)),
-	linux-kernel@vger.kernel.org (open list),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCH] RISC-V: KVM: Use flexible array for APLIC IRQ state
-Date: Sun, 10 May 2026 20:21:44 -0700
-Message-ID: <20260511032144.361520-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        Sun, 10 May 2026 20:29:19 -0700 (PDT)
+From: Zong Li <zong.li@sifive.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	shuah@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH] selftests/riscv: fix compiler output flag spacing in all Makefiles
+Date: Sun, 10 May 2026 20:29:17 -0700
+Message-ID: <20260511032917.3542802-1-zong.li@sifive.com>
+X-Mailer: git-send-email @GIT_VERSION@
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_042216_809296_9BB1746F 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260510_202921_817295_9BD3D3AC 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,82 +103,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Store the per-source APLIC IRQ state in the APLIC allocation instead
-of allocating it separately.
+Standardize the compiler output flag format across all RISC-V
+selftests by adding a space between '-o' and '$@'.
 
-This ties the IRQ state lifetime directly to the APLIC state, removes a
-separate allocation failure path, and lets __counted_by() describe the
-array bounds.
+Although '-o$@' is perfectly valid for GCC/Clang to parse, But
+changing it to '-o $@' with a space could align with the GNU
+official documentation conventions, improves readability by
+visually separating the flag from the target variable, and
+ensures consistency with other architectures
 
-Assisted-by: Codex:GPT-5.5
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Currently, RISC-V selftests use '-o$@' (without space) in 13
+instances across 6 Makefiles, while all other architectures
+consistently use '-o $@' (with space). This inconsistency makes
+RISC-V an outlier in the kernel's selftest infrastructure.
+
+Signed-off-by: Zong Li <zong.li@sifive.com>
 ---
- arch/riscv/kvm/aia_aplic.c | 15 +++------------
- 1 file changed, 3 insertions(+), 12 deletions(-)
+ tools/testing/selftests/riscv/abi/Makefile       |  2 +-
+ tools/testing/selftests/riscv/cfi/Makefile       |  2 +-
+ tools/testing/selftests/riscv/hwprobe/Makefile   |  6 +++---
+ tools/testing/selftests/riscv/mm/Makefile        |  2 +-
+ tools/testing/selftests/riscv/sigreturn/Makefile |  2 +-
+ tools/testing/selftests/riscv/vector/Makefile    | 12 ++++++------
+ 6 files changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/kvm/aia_aplic.c b/arch/riscv/kvm/aia_aplic.c
-index 3464f3351df7..748107c347d9 100644
---- a/arch/riscv/kvm/aia_aplic.c
-+++ b/arch/riscv/kvm/aia_aplic.c
-@@ -35,7 +35,7 @@ struct aplic {
+diff --git a/tools/testing/selftests/riscv/abi/Makefile b/tools/testing/selftests/riscv/abi/Makefile
+index ed82ff9c664e..041114675ad5 100644
+--- a/tools/testing/selftests/riscv/abi/Makefile
++++ b/tools/testing/selftests/riscv/abi/Makefile
+@@ -7,4 +7,4 @@ TEST_GEN_PROGS := pointer_masking
+ include ../../lib.mk
  
- 	u32 nr_irqs;
- 	u32 nr_words;
--	struct aplic_irq *irqs;
-+	struct aplic_irq irqs[] __counted_by(nr_irqs);
- };
+ $(OUTPUT)/pointer_masking: pointer_masking.c
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/cfi/Makefile b/tools/testing/selftests/riscv/cfi/Makefile
+index 93b4738c0e2e..418b4b5325a5 100644
+--- a/tools/testing/selftests/riscv/cfi/Makefile
++++ b/tools/testing/selftests/riscv/cfi/Makefile
+@@ -16,7 +16,7 @@ ifeq ($(shell $(CC) $(CFLAGS) -nostdlib -xc /dev/null -o /dev/null > /dev/null 2
+ TEST_GEN_PROGS := cfitests
  
- static u32 aplic_read_sourcecfg(struct aplic *aplic, u32 irq)
-@@ -581,7 +581,7 @@ int kvm_riscv_aia_aplic_init(struct kvm *kvm)
- 		return 0;
+ $(OUTPUT)/cfitests: cfitests.c shadowstack.c
+-	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
+ else
  
- 	/* Allocate APLIC global state */
--	aplic = kzalloc_obj(*aplic);
-+	aplic = kzalloc_flex(*aplic, irqs, kvm->arch.aia.nr_sources + 1);
- 	if (!aplic)
- 		return -ENOMEM;
- 	kvm->arch.aia.aplic_state = aplic;
-@@ -589,11 +589,6 @@ int kvm_riscv_aia_aplic_init(struct kvm *kvm)
- 	/* Setup APLIC IRQs */
- 	aplic->nr_irqs = kvm->arch.aia.nr_sources + 1;
- 	aplic->nr_words = DIV_ROUND_UP(aplic->nr_irqs, 32);
--	aplic->irqs = kzalloc_objs(*aplic->irqs, aplic->nr_irqs);
--	if (!aplic->irqs) {
--		ret = -ENOMEM;
--		goto fail_free_aplic;
--	}
- 	for (i = 0; i < aplic->nr_irqs; i++)
- 		raw_spin_lock_init(&aplic->irqs[i].lock);
+ $(shell echo "Toolchain doesn't support CFI, skipping CFI kselftest." >&2)
+diff --git a/tools/testing/selftests/riscv/hwprobe/Makefile b/tools/testing/selftests/riscv/hwprobe/Makefile
+index cec81610a5f2..71e3f26c541b 100644
+--- a/tools/testing/selftests/riscv/hwprobe/Makefile
++++ b/tools/testing/selftests/riscv/hwprobe/Makefile
+@@ -9,10 +9,10 @@ TEST_GEN_PROGS := hwprobe cbo which-cpus
+ include ../../lib.mk
  
-@@ -606,7 +601,7 @@ int kvm_riscv_aia_aplic_init(struct kvm *kvm)
- 				      &aplic->iodev);
- 	mutex_unlock(&kvm->slots_lock);
- 	if (ret)
--		goto fail_free_aplic_irqs;
-+		goto fail_free_aplic;
+ $(OUTPUT)/hwprobe: hwprobe.c sys_hwprobe.S
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
  
- 	/* Setup default IRQ routing */
- 	ret = kvm_riscv_setup_default_irq_routing(kvm, aplic->nr_irqs);
-@@ -619,8 +614,6 @@ int kvm_riscv_aia_aplic_init(struct kvm *kvm)
- 	mutex_lock(&kvm->slots_lock);
- 	kvm_io_bus_unregister_dev(kvm, KVM_MMIO_BUS, &aplic->iodev);
- 	mutex_unlock(&kvm->slots_lock);
--fail_free_aplic_irqs:
--	kfree(aplic->irqs);
- fail_free_aplic:
- 	kvm->arch.aia.aplic_state = NULL;
- 	kfree(aplic);
-@@ -638,8 +631,6 @@ void kvm_riscv_aia_aplic_cleanup(struct kvm *kvm)
- 	kvm_io_bus_unregister_dev(kvm, KVM_MMIO_BUS, &aplic->iodev);
- 	mutex_unlock(&kvm->slots_lock);
+ $(OUTPUT)/cbo: cbo.c sys_hwprobe.S
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
  
--	kfree(aplic->irqs);
--
- 	kvm->arch.aia.aplic_state = NULL;
- 	kfree(aplic);
- }
+ $(OUTPUT)/which-cpus: which-cpus.c sys_hwprobe.S
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
+index 4664ed79e20b..24122453e3d0 100644
+--- a/tools/testing/selftests/riscv/mm/Makefile
++++ b/tools/testing/selftests/riscv/mm/Makefile
+@@ -12,4 +12,4 @@ TEST_PROGS := run_mmap.sh
+ include ../../lib.mk
+ 
+ $(OUTPUT)/mm: mmap_default.c mmap_bottomup.c mmap_tests.h
+-	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/sigreturn/Makefile b/tools/testing/selftests/riscv/sigreturn/Makefile
+index eb8bac9279a8..8c77508641f3 100644
+--- a/tools/testing/selftests/riscv/sigreturn/Makefile
++++ b/tools/testing/selftests/riscv/sigreturn/Makefile
+@@ -9,4 +9,4 @@ TEST_GEN_PROGS := sigreturn
+ include ../../lib.mk
+ 
+ $(OUTPUT)/sigreturn: sigreturn.c
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
+index 326dafd739bf..7e0017b3fb8b 100644
+--- a/tools/testing/selftests/riscv/vector/Makefile
++++ b/tools/testing/selftests/riscv/vector/Makefile
+@@ -11,29 +11,29 @@ include ../../lib.mk
+ TEST_GEN_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(TEST_GEN_LIBS))
+ 
+ $(OUTPUT)/sys_hwprobe.o: ../hwprobe/sys_hwprobe.S
+-	$(CC) -static -c -o$@ $(CFLAGS) $^
++	$(CC) -static -c -o $@ $(CFLAGS) $^
+ 
+ $(OUTPUT)/v_helpers.o: v_helpers.c
+-	$(CC) -static -c -o$@ $(CFLAGS) $^
++	$(CC) -static -c -o $@ $(CFLAGS) $^
+ 
+ $(OUTPUT)/vstate_prctl: vstate_prctl.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+ 
+ $(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
+ 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+ 		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+ 
+ $(OUTPUT)/v_initval: v_initval.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+ 
+ $(OUTPUT)/v_exec_initval_nolibc: v_exec_initval_nolibc.c
+ 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+ 		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+ 
+ $(OUTPUT)/vstate_ptrace: vstate_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+ 
+ $(OUTPUT)/validate_v_ptrace: validate_v_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+-	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+ 
+ EXTRA_CLEAN += $(TEST_GEN_OBJ)
 -- 
-2.54.0
+2.43.7
 
 
 _______________________________________________
