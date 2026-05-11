@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F5CCD37B5
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 10:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28599CD37B9
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 11:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
-	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UoQgHhwg50HFUSskFvStPlCVQkocsD759fqdZSS8nRU=; b=Pr//Wplc8p7Smn
-	E3Rv02eT+tkZ2mdR1xSZ9L8T8MkisOt3wR6Salyuqi1yvph1cVZ2m3v6G+IGIouEEY7bYw5plaLYW
-	qcG+LCrp5aEjhFflpkM6J0ZQkFOGkHk0EwQgW6LErrH/LiWcaRIaL0/+KwbgfZsjkfTwDRdZRvDxJ
-	dyijxJpnbOnBJJ9MmYucQDnmjuaVypilhybfoVJq/ljNrWzeUJQ/ru97cxsJOP08q/LTuuKdBkluu
-	8On1vh8GzzIkTHc3K+DGvTpSmEjvOFUJ7UUi7pGiX4wfsAS0NdPsXtdCJ2uValBP54nuuvqe432nf
-	QghERqMwzZRJLfEXIeLA==;
+	List-Owner; bh=txanKP+LCf80FdcFLJugyNSSUqC0MXMYB13Y+m4xYRw=; b=n9hPAgx5UcCyYo
+	/qlq3GnZOmKCJEom3yS6FF725z61fYhwQzf91Z2Ex83rHv4L7eaJxUOeHi6+XaDAfvkz5ldqxImiB
+	LB9nibPVQXgwYnRWyY2Wy1k03nh/aDk1/Mb3pNNjKtv6ulscC79COGkX3HBA3l6oFMDRJdPRS+Hz/
+	y/i+VENtyf+FPEiY+hEQcAxkMEg5vvzbJyrFHRelVtBbTDAyAQxzprPGnuvrvx9niULg3Or9mK+E9
+	A8/8M2C2YCZqZc87j/hfJ3ErxgIoPOQkCkdJ+8axKUv8EZaK9lvuoApHvy2hVK1FUAO+JTsZH/2Ag
+	eOqClHrxhJAUPzOeQtQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOHv-0000000DCFT-3qdQ;
-	Mon, 11 May 2026 10:55:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMOVC-0000000DEM9-1mil;
+	Mon, 11 May 2026 11:08:46 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOHt-0000000DCE9-1rfq
-	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 10:55:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8905A444E6;
-	Mon, 11 May 2026 10:55:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 667B6C2BCB0;
-	Mon, 11 May 2026 10:55:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778496900;
-	bh=7c/fgE9AubmOdd28+ClB5iz7GbkE6njsMZaCswO7czU=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=DrC8At+ShEuPM6vthAZX4ENzR6IB+3rM4iCl99i+zBQTYDPbwQQ6XZLzZ9GnpHwrN
-	 boqhakWJaMmwsrM20oSJnpe7Z7wFSwm87AOzICuO0VKJA6hiK73Lvv5Zm/LP2aTiOq
-	 tacSl8vIcvWXISEWfoKZE30HDk4GhyanewUyITHw3FCZmqYVE5XkpYXXrDmDA4iAyM
-	 uodPL6NE/O9MdXT9ZwTTe3MS2w7xE7YFS3ZENrhcgSOfgZpL18o2EnVY5pSo+d3GZu
-	 H5nKqosfEaXB8EpL1LJJRZzDnl/JM9lmUA+uzKR6EDc9pAldQ7aElg5DmFDCZj7f1U
-	 zFaolUs4eHPgA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 51AA9CD37B9;
-	Mon, 11 May 2026 10:55:00 +0000 (UTC)
-From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 11 May 2026 12:50:43 +0200
-Subject: [PATCH] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
- mips.pause
-MIME-Version: 1.0
-Message-Id: <20260511-p8700-wfi-v1-1-099b1d10fcf2@htecgroup.com>
-X-B4-Tracking: v=1; b=H4sIAIK0AWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDE0NT3QILcwMD3fK0TF1LAwvjJMMUC/MUIyMloPqCotS0zAqwWdGxtbU
- AXMx1A1sAAAA=
-X-Change-ID: 20260415-p8700-wfi-9083b1d87d22
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778496899; l=6792;
- i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=mYf6QfV2es6fc3DDH6Apg44OtuXdeSmwhrWl6VF62r0=;
- b=gLIQCoQ+3bp8+MeVcd0BIaOLge9OjPPwuUnf5YZyoqfob79CpIb2Um2SIcgqdmUZ7MJCm7rT4
- x/vHrcAxoP2BuzlHabSQvWwd/gO1BZKFqGAmYjnc+9PHFTXfrBUe6Gn
-X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
- pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
-X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
- with auth_id=476
-X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+	id 1wMOV8-0000000DEKb-2L1O;
+	Mon, 11 May 2026 11:08:44 +0000
+Received: from mse-db.zte.com.cn (unknown [10.5.228.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gDcR26Szgz5BNRf;
+	Mon, 11 May 2026 19:08:30 +0800 (CST)
+Received: (from root@localhost)
+	by mse-db.zte.com.cn id 64BB8RFR010522;
+	Mon, 11 May 2026 19:08:27 +0800 (+08)
+	(envelope-from wu.fei9@sanechips.com.cn)
+Message-Id: <202605111108.64BB8RFR010522@mse-db.zte.com.cn>
+Received: from njy2app02.zte.com.cn ([10.40.13.116])
+	by mse-fl1.zte.com.cn with SMTP id 64BAnfWM045156;
+	Mon, 11 May 2026 18:49:41 +0800 (+08)
+	(envelope-from wu.fei9@sanechips.com.cn)
+Received: from mapi (njy2app01[null])
+	by mapi (Zmail) with MAPI id mid204;
+	Mon, 11 May 2026 18:49:44 +0800 (CST)
+X-Zmail-TransId: 2af96a01b448f8b-74e63
+X-Mailer: Zmail v1.0
+Date: Mon, 11 May 2026 18:49:44 +0800 (CST)
+Mime-Version: 1.0
+From: <wu.fei9@sanechips.com.cn>
+To: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-kselftest@vger.kernel.org>
+Cc: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <pbonzini@redhat.com>, <shuah@kernel.org>, <wu.fei9@sanechips.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIDAvM10gUklTQy1WOiBLVk06IEZpeCBza2lwIG9mIHZhbGlkIHBhZ2VzIGluIGdzdGFnZSBvcHM=?=
+X-MAIL: mse-db.zte.com.cn 64BB8RFR010522
+X-MSS: AUDITRELEASE@mse-db.zte.com.cn
+X-TLS: YES
+X-SPF-DOMAIN: sanechips.com.cn
+X-ENVELOPE-SENDER: wu.fei9@sanechips.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.131 unknown Mon, 11 May 2026 19:08:30 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A01B8AE.000/4gDcR26Szgz5BNRf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_035501_552041_CBBF1F70 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260511_040842_774537_759CA57C 
+X-CRM114-Status: UNSURE (   5.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,209 +80,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+The current gstage range walker unconditionally advances by 'page_size'
+when a leaf PTE is not found, e.g. when the range to wp is
+[0xfffff01fc000, 0xfffff023c000) , if found_leaf of 0xfffff01fc000
+returns false and page_size is 2MB, it skips the whole range, but it's
+possible to have valid entries in [0xfffff0200000, 0xfffff023c000), so
+only [0xfffff01fc000, 0xfffff0200000) can be skipped safely. Both
+wp/unamp have the same pattern.
 
-The MIPS P8700 has bugs with the WFI instruction. This errata
-uses the RISC-V alternatives framework to patch all WFI
-instructions with the MIPS P8700 pause opcode (0x00501013)
-at runtime when running on P8700 hardware.
+dirty_log_test intentionally sets up the unaligned guest physical
+address, after riscv kvm enabling KVM_DIRTY_LOG_INITIALLY_SET, it's easy
+to trigger this bug if there is a larger window for guest to write more
+pages before first collect_dirty_pages.
 
-Two call sites are patched:
- - arch/riscv/kernel/head.S: secondary hart parking loop
- - arch/riscv/include/asm/processor.h: wait_for_interrupt()
+Wu Fei (3):
+  KVM: selftests: Add unit to dirty_log_test
+  RISC-V: KVM: Fix skip of valid pages in kvm_riscv_gstage_wp_range
+  RISC-V: KVM: Fix skip of valid pages in kvm_riscv_gstage_unmap_range
 
-Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
----
-This patch was tested on QEMU configured with eight P8700 harts,
-as well as on the MIPS Boston board, configured with a single P8700 CPU.
-Errata application was tested by disassembling with GDB on QEMU
-and inserting an illegal instruction on the Boston board.
-Correctness was tested with a combination of kselftests
-and torture tests (rcu, locktorture), along with coremark testing.
----
- arch/riscv/Kconfig.errata                    | 11 +++++++++++
- arch/riscv/errata/mips/errata.c              | 14 ++++++++++++++
- arch/riscv/include/asm/errata_list.h         | 27 +++++++++++++++++++++++++++
- arch/riscv/include/asm/errata_list_vendors.h |  5 +++--
- arch/riscv/include/asm/processor.h           |  3 ++-
- arch/riscv/kernel/head.S                     |  4 +++-
- 6 files changed, 60 insertions(+), 4 deletions(-)
+ arch/riscv/kvm/gstage.c                      | 39 +++++++++++---------
+ tools/testing/selftests/kvm/dirty_log_test.c | 24 ++++++++----
+ 2 files changed, 39 insertions(+), 24 deletions(-)
 
-diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index 3c945d086c7d0266b685f9506d58b0662af071c4..cc75e6f70513d08afeedf650b14dba83eea84632 100644
---- a/arch/riscv/Kconfig.errata
-+++ b/arch/riscv/Kconfig.errata
-@@ -44,6 +44,17 @@ config ERRATA_MIPS_P8700_PAUSE_OPCODE
- 
- 	   If you are not using the P8700 processor, say n.
- 
-+config ERRATA_MIPS_P8700_WFI
-+	bool "Replace WFI with mips.pause for MIPS P8700"
-+	depends on ERRATA_MIPS && 64BIT
-+	default n
-+	help
-+	   The RISCV MIPS P8700 has bugs with the WFI instruction.
-+	   This errata replaces all WFI instructions with the MIPS
-+	   P8700 pause opcode to avoid these issues.
-+
-+	   If you are not using the P8700 processor, say n.
-+
- config ERRATA_SIFIVE
- 	bool "SiFive errata"
- 	depends on RISCV_ALTERNATIVE
-diff --git a/arch/riscv/errata/mips/errata.c b/arch/riscv/errata/mips/errata.c
-index e984a8152208c34690f89d8101571b097485c360..67b59f8c1708ea8b7a040f7939e111b8f30e6a75 100644
---- a/arch/riscv/errata/mips/errata.c
-+++ b/arch/riscv/errata/mips/errata.c
-@@ -23,6 +23,17 @@ static inline bool errata_probe_pause(void)
- 	return true;
- }
- 
-+static inline bool errata_probe_wfi(void)
-+{
-+	if (!IS_ENABLED(CONFIG_ERRATA_MIPS_P8700_WFI))
-+		return false;
-+
-+	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
-+		return false;
-+
-+	return true;
-+}
-+
- static u32 mips_errata_probe(void)
- {
- 	u32 cpu_req_errata = 0;
-@@ -30,6 +41,9 @@ static u32 mips_errata_probe(void)
- 	if (errata_probe_pause())
- 		cpu_req_errata |= BIT(ERRATA_MIPS_P8700_PAUSE_OPCODE);
- 
-+	if (errata_probe_wfi())
-+		cpu_req_errata |= BIT(ERRATA_MIPS_P8700_WFI);
-+
- 	return cpu_req_errata;
- }
- 
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 6694b5ccdcf85cfe7e767ea4de981b34f2b17b04..cbe90b19556203e1462cfb345b164c9061887e74 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -25,6 +25,16 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
- 	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
- 	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
- 	    CONFIG_ERRATA_SIFIVE_CIP_453)
-+
-+#ifdef CONFIG_ERRATA_MIPS_P8700_WFI
-+#define ALT_WFI								\
-+ALTERNATIVE("wfi; .rept 7; nop; .endr;",				\
-+	".rept 8; .insn 0x00501013; .endr;", MIPS_VENDOR_ID,		\
-+	ERRATA_MIPS_P8700_WFI, CONFIG_ERRATA_MIPS_P8700_WFI)
-+#else
-+#define ALT_WFI	wfi
-+#endif
-+
- #else /* !__ASSEMBLER__ */
- 
- #define ALT_SFENCE_VMA_ASID(asid)					\
-@@ -53,6 +63,23 @@ asm(ALTERNATIVE(	\
- 	: /* no inputs */	\
- 	: "memory")
- 
-+#ifdef CONFIG_ERRATA_MIPS_P8700_WFI
-+#define ALT_RISCV_WFI()										\
-+asm volatile(ALTERNATIVE(									\
-+		"wfi\n" /* Original RISC-V wfi insn */						\
-+		__nops(7),									\
-+		".rept 8;" MIPS_PAUSE ".endr;\n", /* Replacement: mips.pause for P8700 */	\
-+		MIPS_VENDOR_ID, /* Vendor ID to match */					\
-+		ERRATA_MIPS_P8700_WFI, /* patch_id */						\
-+		CONFIG_ERRATA_MIPS_P8700_WFI)							\
-+		: /* no outputs */								\
-+		: /* no inputs */								\
-+		: "memory")
-+#else
-+#define ALT_RISCV_WFI()		\
-+	__asm__ __volatile__ ("wfi")
-+#endif
-+
- /*
-  * _val is marked as "will be overwritten", so need to set it to 0
-  * in the default case.
-diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
-index ec7eba3734371a2d8b68fbd4cbd88a8e7135a413..4505317a6b949be602f507547fc9cd495c923e32 100644
---- a/arch/riscv/include/asm/errata_list_vendors.h
-+++ b/arch/riscv/include/asm/errata_list_vendors.h
-@@ -22,8 +22,9 @@
- #endif
- 
- #ifdef CONFIG_ERRATA_MIPS
--#define	ERRATA_MIPS_P8700_PAUSE_OPCODE 0
--#define	ERRATA_MIPS_NUMBER 1
-+#define ERRATA_MIPS_P8700_PAUSE_OPCODE 0
-+#define ERRATA_MIPS_P8700_WFI 1
-+#define ERRATA_MIPS_NUMBER 2
- #endif
- 
- #endif /* ASM_ERRATA_LIST_VENDORS_H */
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 4c3dd94d0f63844fecc32a7e2c1a184113ee49d9..ae4faed371c16ba33f31373561de03e89d35d04c 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -17,6 +17,7 @@
- #include <asm/alternative-macros.h>
- #include <asm/hwcap.h>
- #include <asm/usercfi.h>
-+#include <asm/errata_list.h>
- 
- #define arch_get_mmap_end(addr, len, flags)			\
- ({								\
-@@ -176,7 +177,7 @@ extern unsigned long __get_wchan(struct task_struct *p);
- 
- static inline void wait_for_interrupt(void)
- {
--	__asm__ __volatile__ ("wfi");
-+	ALT_RISCV_WFI();
- }
- 
- extern phys_addr_t dma32_phys_limit;
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 9c99c5ad6fe8a32e24c8ce7e0badd63469d2c387..14935e8eec2639844c45bd37db29db74fee38a22 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -16,6 +16,8 @@
- #include <asm/scs.h>
- #include <asm/xip_fixup.h>
- #include <asm/usercfi.h>
-+#include <asm/alternative.h>
-+#include <asm/errata_list.h>
- #include "efi-header.S"
- 
- __HEAD
-@@ -196,7 +198,7 @@ secondary_start_sbi:
- 	 *  - receive an early trap, before setup_trap_vector finished
- 	 *  - fail in smp_callin(), as a successful one wouldn't return
- 	 */
--	wfi
-+	ALT_WFI
- 	j .Lsecondary_park
- 
- .align 2
-
----
-base-commit: c369299895a591d96745d6492d4888259b004a9e
-change-id: 20260415-p8700-wfi-9083b1d87d22
-
-Best regards,
--- 
-Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-
-
+--
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
