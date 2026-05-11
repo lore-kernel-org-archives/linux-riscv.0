@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7EDCD37B7
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 06:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A15FCD37AC
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 06:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l/UQo1jylQSY9rcB/F0YgsEhAEu7ISrrhsHsqnhD9MU=; b=fDe4kcbFJLVAQG
-	iR0OKykDnaKyXOeA0cy9cZL7p2jxDZkkFt2DhnKaN8HSEyJFujKsCh6A3Nv1e8A6KjKdqhGRijTR0
-	EUezgCVEZOKwYGQP5k+QZlLgLbUpq+Nj5DU0rGMcCs7fyNyjQu09r5bpaLBRnGq6jM4Y1PjPUMwzj
-	2tC1A0TzHENZlt4SH9C0ca/W5FcIyPXtAF8ZNpU5cKeYi92Qh3nSJTqHp4JbNjaGghc5TCg6V6j7f
-	e9JNV/ra/sqogfkXO6df/3M9KbkiIJyhsuZ3rkJjvWxYg87MluaxfDxVEXdmCfPlUceaLAcJA8NrO
-	mfhuXEAXuDY0cUlMLb6Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SAsR7Y8Tb2lhJPexaO0yEuTk+qO3e4BfnIRku/6GfrE=; b=SOyllv30dLBN9q
+	gR5/9vfSaujSMXqL1wqGWLMaQa7vUr/nQ1EoCEje2or1Ho7UxdUx6mv4oD6pypuPW+jeAvFBYar0d
+	6jxLBXNiOd2xS6EGTkw3c+Wxc6fye/Mtfk2CcnULezicMyj8jK2p4Bmo1AGTlqD1KMDCy8ZrPii3C
+	xVmjedufn4rvk2uZ/wy0mXlquyObTleK23fw4FysD8TIbiL2M60FEVJkYxPn3SyR/KSoOfwBhhqNA
+	LoSj6mJ/JSKB8zb0LRd2u2AWuszclATPACmDAEhkMF7FaBa43SD6Ry2k/7S6bPJ1fkUQAIhvrkB8n
+	8Se16Kv4R9f0+E8h14KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMJtf-0000000CSd3-0RtK;
-	Mon, 11 May 2026 06:13:43 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMJtb-0000000CScN-0as0
+	id 1wMJvg-0000000CSrR-2L5w;
+	Mon, 11 May 2026 06:15:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMJve-0000000CSrC-24OD
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 06:13:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=7GzYADyAvoPjA/SmP0gQ9bvXyEvY4ldv6
-	QUkQ5iFUhg=; b=LgCeoHJvMlnsbhfWWwoSARFsnStQT+lgiyHzJ31gTTjq1Zmni
-	ixo6m94NHE18Z7ul6CfIZ88O41CAKaSguiAseCthCy4ox20BebfDbAIY6qbZSDP7
-	jqEKt/hUuUkZ0tS7Bjx8X2HM9RHOHDY002BRYDtSz9tDZjiZCJzdTS9www=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkOFcwFqKf4DAA--.3544S2;
-	Mon, 11 May 2026 14:13:25 +0800 (CST)
+	Mon, 11 May 2026 06:15:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 96C1C6001A;
+	Mon, 11 May 2026 06:15:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8E35C2BCB0;
+	Mon, 11 May 2026 06:15:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778480145;
+	bh=ckpKuiJ8anViAYbq3xIpKuU5G4pEkhhZ5GsgmQIZTO4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=fb7SVJ8vbHDtTmLij0e87kPxdKNhJ98O00cdZXvMAvvHkpMsJD026WuE7Y9HN0egv
+	 BHZse3d+d9ns8727Q+QHrl+bsGX9hQB32gqqNA/tTBStbyxZY99PXKmZMNPL4IB4eO
+	 Rrs3T3H1/tmbw4xMddpPGRhuqv0NRPSk5MtKLIAYeWfdOZaMBDwyqbP1so5cou/nyC
+	 CGX0s+v0nJmo8/ti1AKZtB650aAi2c+/40L7pCGRybQtc00EMAuv1gTGgQUv4d56Z8
+	 xGS4xmTXHq9Wonkfj6A9Ss73qtA/T2xrPjkE1AHBY1GlAPQ5jqONJi6t6tu4YcYx2l
+	 9AdHu6MOswHVw==
+From: Yixun Lan <dlan@kernel.org>
+Date: Mon, 11 May 2026 06:15:28 +0000
+Subject: [PATCH] riscv: dts: spacemit: k3: Add pwm support
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 3/3] PCI: ultrarisc: Add UltraRISC DP1000 PCIe Root
- Complex driver
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
- Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
- devicetree@vger.kernel.org
-In-Reply-To: <20260427-ultrarisc-pcie-v4-3-98935f6cdfb5@ultrarisc.com>
-References: <20260427-ultrarisc-pcie-v4-0-98935f6cdfb5@ultrarisc.com>
- <20260427-ultrarisc-pcie-v4-3-98935f6cdfb5@ultrarisc.com>
-Date: Mon, 11 May 2026 14:12:43 +0800
-Message-Id: <177847996346.3934882.9098618466749392519.b4-reply@b4>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778479963; l=9852;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=GfcBItbzyybH1YaNl19S68Nh/5j3PYRsyCScPTxaEu4=;
- b=BhT8z1r5jP9SJbdRpme/+NSFgxpNJCZlt5ckjzIzClCP8LMJ39I5TaSuqQj/vEyQq2MHAxPKm
- 0jWTmfVWkpjAl2eY1nQcHgo8gt7eBX1nfrU+wzuh091j5uwBjQN2QaF
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwAnEkOFcwFqKf4DAA--.3544S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3JFWUurWDCFy5Jr4xGry8Krg_yoWDJry5pa
-	y5GFWSyFWUJF45Ww4ay3Z8AF1aq3ZxCrWUWanFgw1293ZxZryUWFyvg34YyFn7GF4qgrWY
-	kw1Ykay7GanIgwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNJ5oDUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQATEWn6usEAHQAfsp
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_231340_011293_63AA62FA 
-X-CRM114-Status: GOOD (  30.72  )
+Message-Id: <20260511-04-k3-pwm-dts-v1-1-81fcde1871f8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAP9zAWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDYyNDXQMT3Wxj3YLyXN2UkmJdwxRDMyNTizSDFCMDJaCegqLUtMwKsHn
+ RsbW1AMsSuCFfAAAA
+X-Change-ID: 20260321-04-k3-pwm-dts-1d16258f0d20
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=19439; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=ckpKuiJ8anViAYbq3xIpKuU5G4pEkhhZ5GsgmQIZTO4=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqAXQLMkc9RkxcAlYImqjDRRDfQd8zVYg9Q8zZ+
+ du/kCw9m+yJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCagF0CxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+0wpA//ZSrEIbZyaJoazIPaB3VkdHT4MKlADE9k36L7nlgBn0uF0PB+RDxaB
+ RAsDYicYTR0LmjD/Y2zE45LxgHlsAUyWjqvFehst+8hFvUZfca8hK+WaGeMEVrl+fCNkalxO2Xg
+ iEbwr/hDWarrF0Ztef1RDDxi8ZlEl1g+A6RpxhLqTCNt/vwWkXva4ZVUJOXQyAwPgbc94iB6jiq
+ oDEdeckr+FKGX8IhgwcBHX4wSYG4B9scRYeusGY404tSPj+5YSz4ROqZlDigg2nRcrqPizNz6g1
+ 5IySBg/h9CykNa63QuGkK0kmriINzW8K5d37EJV+r+62M2WNe+MOToDddKNQ8LFS5+XB1O/an0z
+ cV1u/JJTbsIcov2D/FEQDfgH6y1tdvPVKpb1DXGaCu4KlyT6Z0KP/boqEu2d796gQcfEA88OKgn
+ wWW0nNTlBcKLnSlabDAuFTQOTitZ7+2IISFsOJM7Z87ccklbbL9Lu2ToUtvbAVzqI597wY7KWq9
+ bvx0Rd05GBlvsXNY2rqllcrNqnx3nl452OwpXDHbxnEqVqfrquZS4XM6R4Kjk6xnbj4Lcw4i/E2
+ VrBEPB7jQmWSW1VObvDdFJ9mcm/dTUP/VAZqF6n2Yp90GURt2BWAR1l/ZajWPAUi8UyeItTZnjM
+ /Rrny+cTdw8ab51aXnvfSBj/8OGOsI=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,300 +93,860 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-27 09:32 +0800, Jia Wang wrote:
-> From: Xincheng Zhang <zhangxincheng@ultrarisc.com>
-> 
-> Add DP1000 SoC PCIe Root Complex driver.
-> 
-> The controller only supports 32-bit aligned configuration space accesses.
-> 
-> Signed-off-by: Xincheng Zhang <zhangxincheng@ultrarisc.com>
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> ---
->  MAINTAINERS                                  |   1 +
->  drivers/pci/controller/dwc/Kconfig           |  12 ++
->  drivers/pci/controller/dwc/Makefile          |   1 +
->  drivers/pci/controller/dwc/pcie-designware.h |  22 ++++
->  drivers/pci/controller/dwc/pcie-ultrarisc.c  | 175 +++++++++++++++++++++++++++
->  5 files changed, 211 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 818685933541..16203b804c16 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -20589,6 +20589,7 @@ M:	Jia Wang <wangjia@ultrarisc.com>
->  L:	linux-pci@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-> +F:	drivers/pci/controller/dwc/pcie-ultrarisc.c
->  
->  PCIE ENDPOINT DRIVER FOR QUALCOMM
->  M:	Manivannan Sadhasivam <mani@kernel.org>
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> index d0aa031397fa..06f7d98259cd 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -548,4 +548,16 @@ config PCIE_VISCONTI_HOST
->  	  Say Y here if you want PCIe controller support on Toshiba Visconti SoC.
->  	  This driver supports TMPV7708 SoC.
->  
-> +config PCIE_ULTRARISC
-> +	tristate "UltraRISC PCIe host controller"
-> +	depends on ARCH_ULTRARISC || COMPILE_TEST
-> +	select PCIE_DW_HOST
-> +	select PCI_MSI
-> +	default y if ARCH_ULTRARISC
-> +	help
-> +	  Enables support for the PCIe controller in the UltraRISC SoC.
-> +	  This driver supports UR-DP1000 SoC.
-> +	  By default, this symbol is enabled when ARCH_ULTRARISC is active,
-> +	  requiring no further configuration on that platform.
-> +
->  endmenu
-> diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-> index 67ba59c02038..884c46b78e01 100644
-> --- a/drivers/pci/controller/dwc/Makefile
-> +++ b/drivers/pci/controller/dwc/Makefile
-> @@ -38,6 +38,7 @@ obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
->  obj-$(CONFIG_PCIE_SPACEMIT_K1) += pcie-spacemit-k1.o
->  obj-$(CONFIG_PCIE_STM32_HOST) += pcie-stm32.o
->  obj-$(CONFIG_PCIE_STM32_EP) += pcie-stm32-ep.o
-> +obj-$(CONFIG_PCIE_ULTRARISC) += pcie-ultrarisc.o
->  
->  # The following drivers are for devices that use the generic ACPI
->  # pci_root.c driver but don't support standard ECAM config access.
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index ae6389dd9caa..88dcb0e7943a 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -69,6 +69,8 @@
->  
->  /* Synopsys-specific PCIe configuration registers */
->  #define PCIE_PORT_FORCE			0x708
-> +/* Bit[7:0] LINK_NUM: Link Number. Not used for endpoint */
-> +#define PORT_LINK_NUM_MASK		GENMASK(7, 0)
->  #define PORT_FORCE_DO_DESKEW_FOR_SRIS	BIT(23)
->  
->  #define PCIE_PORT_AFR			0x70C
-> @@ -96,6 +98,26 @@
->  #define PCIE_PORT_LANE_SKEW		0x714
->  #define PORT_LANE_SKEW_INSERT_MASK	GENMASK(23, 0)
->  
-> +/*
-> + * PCIE_TIMER_CTRL_MAX_FUNC_NUM: Timer Control and Max Function Number
-> + * Register.
-> + * This register holds the ack frequency, latency, replay, fast link
-> + * scaling timers, and max function number values.
-> + * Bit[30:29] FAST_LINK_SCALING_FACTOR: Fast Link Timer Scaling Factor.
-> + *   0x0 (SF_1024):Scaling Factor is 1024 (1ms is 1us).
-> + *     When the LTSSM is in Config or L12 Entry State, 1ms
-> + *     timer is 2us, 2ms timer is 4us and 3ms timer is 6us.
-> + *   0x1 (SF_256): Scaling Factor is 256 (1ms is 4us)
-> + *   0x2 (SF_64): Scaling Factor is 64 (1ms is 16us)
-> + *   0x3 (SF_16): Scaling Factor is 16 (1ms is 64us)
-> + */
-> +#define PCIE_TIMER_CTRL_MAX_FUNC_NUM	0x718
-> +#define PORT_FLT_SF_MASK	GENMASK(30, 29)
-> +#define PORT_FLT_SF_VAL_1024	0x0
-> +#define PORT_FLT_SF_VAL_256	0x1
-> +#define PORT_FLT_SF_VAL_64	0x2
-> +#define PORT_FLT_SF_VAL_16	0x3
-> +
->  #define PCIE_PORT_DEBUG0		0x728
->  #define PORT_LOGIC_LTSSM_STATE_MASK	0x3f
->  #define PORT_LOGIC_LTSSM_STATE_L0	0x11
-> diff --git a/drivers/pci/controller/dwc/pcie-ultrarisc.c b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-> new file mode 100644
-> index 000000000000..7326bd446590
-> --- /dev/null
-> +++ b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-> @@ -0,0 +1,175 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * DWC PCIe RC driver for UltraRISC SoCs
-> + *
-> + * Copyright (C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/pci.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/resource.h>
-> +
-> +#include "pcie-designware.h"
-> +
-> +#define PCIE_CUS_CORE          0x400000
-> +
-> +#define LTSSM_ENABLE           BIT(7)
-> +#define FAST_LINK_MODE         BIT(12)
-> +#define HOLD_PHY_RST           BIT(14)
-> +#define L1SUB_DISABLE          BIT(15)
-> +
-> +#define ULTRARISC_PCIE_COMP_TIMEOUT_65_210MS	0x6
-> +
-> +static struct pci_ops ultrarisc_pci_ops = {
-> +	.map_bus = dw_pcie_own_conf_map_bus,
-> +	.read = pci_generic_config_read32,
-> +	.write = pci_generic_config_write32,
-> +};
-> +
-> +static int ultrarisc_pcie_host_init(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct pci_host_bridge *bridge = pp->bridge;
-> +	u8 cap_exp;
-> +	u32 val;
-> +
-> +	bridge->ops = &ultrarisc_pci_ops;
-> +
-> +	if (dw_pcie_link_up(pci))
-> +		return 0;
-> +
-> +	val = dw_pcie_readl_dbi(pci, PCIE_CUS_CORE);
-> +	val &= ~FAST_LINK_MODE;
-> +	dw_pcie_writel_dbi(pci, PCIE_CUS_CORE, val);
-> +
-> +	val = dw_pcie_readl_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM);
-> +	FIELD_MODIFY(PORT_FLT_SF_MASK, &val, PORT_FLT_SF_VAL_64);
-> +	dw_pcie_writel_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM, val);
-> +
-> +	cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> +	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCTL2);
-> +	FIELD_MODIFY(PCI_EXP_LNKCTL2_TLS, &val, PCI_EXP_LNKCTL2_TLS_16_0GT);
-> +	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCTL2, val);
-> +
-> +	val = dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
-> +	FIELD_MODIFY(PORT_LINK_NUM_MASK, &val, 0);
-> +	dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
-> +
-> +	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_DEVCTL2);
-> +	FIELD_MODIFY(PCI_EXP_DEVCTL2_COMP_TIMEOUT, &val,
-> +		     ULTRARISC_PCIE_COMP_TIMEOUT_65_210MS);
-> +	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_DEVCTL2, val);
-> +
-> +	val = dw_pcie_readl_dbi(pci, PCIE_CUS_CORE);
-> +	val &= ~(HOLD_PHY_RST | L1SUB_DISABLE);
-> +	dw_pcie_writel_dbi(pci, PCIE_CUS_CORE, val);
-> +
-> +	return 0;
-> +}
-> +
-> +static void ultrarisc_pcie_pme_turn_off(struct dw_pcie_rp *pp)
-> +{
-> +	/*
-> +	 * DP1000 does not support sending PME_Turn_Off from the RC.
-> +	 * Keep this callback empty to skip the generic MSG TLP path.
-> +	 */
-> +}
-> +
-> +static const struct dw_pcie_host_ops ultrarisc_pcie_host_ops = {
-> +	.init = ultrarisc_pcie_host_init,
-> +	.pme_turn_off = ultrarisc_pcie_pme_turn_off,
-> +};
-> +
-> +static int ultrarisc_pcie_start_link(struct dw_pcie *pci)
-> +{
-> +	u32 val;
-> +
-> +	val = dw_pcie_readl_dbi(pci, PCIE_CUS_CORE);
-> +	val |= LTSSM_ENABLE;
-> +	dw_pcie_writel_dbi(pci, PCIE_CUS_CORE, val);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct dw_pcie_ops dw_pcie_ops = {
-> +	.start_link = ultrarisc_pcie_start_link,
-> +};
-> +
-> +static int ultrarisc_pcie_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct dw_pcie_rp *pp;
-> +	struct dw_pcie *pci;
-> +	int ret;
-> +
-> +	pci = devm_kzalloc(dev, sizeof(*pci), GFP_KERNEL);
-> +	if (!pci)
-> +		return -ENOMEM;
-> +
-> +	pci->dev = dev;
-> +	pci->ops = &dw_pcie_ops;
-> +
-> +	/* Set a default value suitable for at most 16 in and 16 out windows */
-> +	pci->atu_size = SZ_8K;
-> +
-> +	pp = &pci->pp;
-> +
-> +	platform_set_drvdata(pdev, pci);
-> +
-> +	pp->num_vectors = MAX_MSI_IRQS;
-> +	/* No L2/L3 Ready indication is available on this platform. */
-> +	pp->skip_l23_ready = true;
-> +	pp->ops = &ultrarisc_pcie_host_ops;
-> +
-> +	ret = dw_pcie_host_init(pp);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to initialize host\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int ultrarisc_pcie_suspend_noirq(struct device *dev)
-> +{
-> +	struct dw_pcie *pci = dev_get_drvdata(dev);
-> +
-> +	return dw_pcie_suspend_noirq(pci);
-> +}
-> +
-> +static int ultrarisc_pcie_resume_noirq(struct device *dev)
-> +{
-> +	struct dw_pcie *pci = dev_get_drvdata(dev);
-> +
-> +	return dw_pcie_resume_noirq(pci);
-> +}
-> +
-> +static const struct dev_pm_ops ultrarisc_pcie_pm_ops = {
-> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(ultrarisc_pcie_suspend_noirq,
-> +				  ultrarisc_pcie_resume_noirq)
-> +};
-> +
-> +static const struct of_device_id ultrarisc_pcie_of_match[] = {
-> +	{
-> +		.compatible = "ultrarisc,dp1000-pcie",
-> +	},
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, ultrarisc_pcie_of_match);
-> +
-> +static struct platform_driver ultrarisc_pcie_driver = {
-> +	.driver = {
-> +		.name	= "ultrarisc-pcie",
-> +		.of_match_table = ultrarisc_pcie_of_match,
-> +		.suppress_bind_attrs = true,
-> +		.pm = &ultrarisc_pcie_pm_ops,
-> +	},
-> +	.probe = ultrarisc_pcie_probe,
-> +};
-> +module_platform_driver(ultrarisc_pcie_driver);
-> +
-> +MODULE_DESCRIPTION("UltraRISC DP1000 DWC PCIe host controller");
-> +MODULE_LICENSE("GPL");
-> 
-> -- 
-> 2.34.1
-> 
->
+Populate all pwm device tree nodes for SpacemiT K3 SoC, also documents
+the pinctrl info which would easily help to enable them in future.
 
-Gentle ping.
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+Although we have not enabled any specific pwm device in this patch..
+but should be easy to achieve that.
 
-Best Regards,
-Jia Wang 
+For test purpose, we've used pwm11 as the instance to test functions.
+---
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 590 +++++++++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k3.dtsi         | 220 ++++++++++
+ 2 files changed, 810 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+index 23899d3f308a..1fd39502071b 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+@@ -56,6 +56,596 @@ i2c8-pins {
+ 		};
+ 	};
+ 
++	/omit-if-no-ref/
++	pwm0_0_cfg: pwm0-0-cfg {
++		pwm0-0-pins {
++			pinmux = <K3_PADCONF(0, 3)>;	/* pwm0 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm0_1_cfg: pwm0-1-cfg {
++		pwm0-0-pins {
++			pinmux = <K3_PADCONF(42, 6)>;	/* pwm0 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm1_0_cfg: pwm1-0-cfg {
++		pwm1-0-pins {
++			pinmux = <K3_PADCONF(1, 3)>;	/* pwm1 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm1_1_cfg: pwm0-0-cfg {
++		pwm0-0-pins {
++			pinmux = <K3_PADCONF(43, 6)>;	/* pwm1 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm1_2_cfg: pwm1-2-cfg {
++		pwm1-0-pins {
++			pinmux = <K3_PADCONF(95, 6)>;	/* pwm1 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm2_0_cfg: pwm2-0-cfg {
++		pwm2-0-pins {
++			pinmux = <K3_PADCONF(2, 3)>;	/* pwm2 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm2_1_cfg: pwm2-1-cfg {
++		pwm2-0-pins {
++			pinmux = <K3_PADCONF(44, 6)>;	/* pwm2 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm2_2_cfg: pwm2-2-cfg {
++		pwm2-0-pins {
++			pinmux = <K3_PADCONF(96, 6)>;	/* pwm2 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm2_3_cfg: pwm2-3-cfg {
++		pwm2-0-pins {
++			pinmux = <K3_PADCONF(134, 4)>;	/* pwm2 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm3_0_cfg: pwm3-0-cfg {
++		pwm3-0-pins {
++			pinmux = <K3_PADCONF(3, 3)>;	/* pwm3 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm3_1_cfg: pwm3-1-cfg {
++		pwm3-0-pins {
++			pinmux = <K3_PADCONF(45, 6)>;	/* pwm3 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm3_2_cfg: pwm3-2-cfg {
++		pwm3-0-pins {
++			pinmux = <K3_PADCONF(97, 6)>;	/* pwm3 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm3_3_cfg: pwm3-3-cfg {
++		pwm3-0-pins {
++			pinmux = <K3_PADCONF(135, 4)>;	/* pwm3 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm4_0_cfg: pwm4-0-cfg {
++		pwm4-0-pins {
++			pinmux = <K3_PADCONF(4, 3)>;	/* pwm4 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm4_1_cfg: pwm4-1-cfg {
++		pwm4-0-pins {
++			pinmux = <K3_PADCONF(46, 6)>;	/* pwm4 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm4_2_cfg: pwm4-2-cfg {
++		pwm4-0-pins {
++			pinmux = <K3_PADCONF(136, 4)>;	/* pwm4 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm5_0_cfg: pwm5-0-cfg {
++		pwm5-0-pins {
++			pinmux = <K3_PADCONF(5, 3)>;	/* pwm5 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm5_1_cfg: pwm5-1-cfg {
++		pwm5-0-pins {
++			pinmux = <K3_PADCONF(47, 6)>;	/* pwm5 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm5_2_cfg: pwm5-2-cfg {
++		pwm5-0-pins {
++			pinmux = <K3_PADCONF(137, 4)>;	/* pwm5 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm6_0_cfg: pwm6-0-cfg {
++		pwm6-0-pins {
++			pinmux = <K3_PADCONF(6, 3)>;	/* pwm6 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm6_1_cfg: pwm6-1-cfg {
++		pwm6-0-pins {
++			pinmux = <K3_PADCONF(145, 3)>;	/* pwm6 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm6_2_cfg: pwm6-2-cfg {
++		pwm6-0-pins {
++			pinmux = <K3_PADCONF(48, 6)>;	/* pwm6 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm7_0_cfg: pwm7-0-cfg {
++		pwm7-0-pins {
++			pinmux = <K3_PADCONF(7, 3)>;	/* pwm7 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm7_1_cfg: pwm7-1-cfg {
++		pwm7-0-pins {
++			pinmux = <K3_PADCONF(146, 3)>;	/* pwm7 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm7_2_cfg: pwm7-2-cfg {
++		pwm7-0-pins {
++			pinmux = <K3_PADCONF(49, 6)>;	/* pwm7 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm8_0_cfg: pwm8-0-cfg {
++		pwm8-0-pins {
++			pinmux = <K3_PADCONF(8, 3)>;	/* pwm8 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm8_1_cfg: pwm8-1-cfg {
++		pwm8-0-pins {
++			pinmux = <K3_PADCONF(147, 3)>;	/* pwm8 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm8_2_cfg: pwm8-2-cfg {
++		pwm8-0-pins {
++			pinmux = <K3_PADCONF(50, 6)>;	/* pwm8 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm9_0_cfg: pwm9-0-cfg {
++		pwm9-0-pins {
++			pinmux = <K3_PADCONF(9, 3)>;	/* pwm9 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm9_1_cfg: pwm9-1-cfg {
++		pwm9-0-pins {
++			pinmux = <K3_PADCONF(148, 3)>;	/* pwm9 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm9_2_cfg: pwm9-2-cfg {
++		pwm9-0-pins {
++			pinmux = <K3_PADCONF(51, 6)>;	/* pwm9 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm10_0_cfg: pwm10-0-cfg {
++		pwm10-0-pins {
++			pinmux = <K3_PADCONF(10, 3)>;	/* pwm10 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm10_1_cfg: pwm10-1-cfg {
++		pwm10-0-pins {
++			pinmux = <K3_PADCONF(52, 6)>;	/* pwm10 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm10_2_cfg: pwm10-2-cfg {
++		pwm10-0-pins {
++			pinmux = <K3_PADCONF(141, 4)>;	/* pwm10 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm11_0_cfg: pwm11-0-cfg {
++		pwm11-0-pins {
++			pinmux = <K3_PADCONF(53, 6)>;	/* pwm11 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm11_1_cfg: pwm11-1-cfg {
++		pwm11-0-pins {
++			pinmux = <K3_PADCONF(140, 4)>;	/* pwm11 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm12_0_cfg: pwm12-0-cfg {
++		pwm12-0-pins {
++			pinmux = <K3_PADCONF(54, 6)>;	/* pwm12 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm12_1_cfg: pwm12-1-cfg {
++		pwm12-0-pins {
++			pinmux = <K3_PADCONF(139, 4)>;	/* pwm12 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm13_0_cfg: pwm13-0-cfg {
++		pwm13-0-pins {
++			pinmux = <K3_PADCONF(55, 6)>;	/* pwm13 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm13_1_cfg: pwm13-1-cfg {
++		pwm13-0-pins {
++			pinmux = <K3_PADCONF(138, 4)>;	/* pwm13 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm13_2_cfg: pwm13-2-cfg {
++		pwm13-0-pins {
++			pinmux = <K3_PADCONF(13, 3)>;	/* pwm13 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm14_0_cfg: pwm14-0-cfg {
++		pwm14-0-pins {
++			pinmux = <K3_PADCONF(56, 6)>;	/* pwm14 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm14_1_cfg: pwm14-1-cfg {
++		pwm14-0-pins {
++			pinmux = <K3_PADCONF(144, 4)>;	/* pwm14 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm14_2_cfg: pwm14-2-cfg {
++		pwm14-0-pins {
++			pinmux = <K3_PADCONF(14, 3)>;	/* pwm14 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm15_0_cfg: pwm15-0-cfg {
++		pwm15-0-pins {
++			pinmux = <K3_PADCONF(57, 6)>;	/* pwm15 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm15_1_cfg: pwm15-1-cfg {
++		pwm15-0-pins {
++			pinmux = <K3_PADCONF(142, 4)>;	/* pwm15 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm15_2_cfg: pwm15-2-cfg {
++		pwm15-0-pins {
++			pinmux = <K3_PADCONF(21, 3)>;	/* pwm15 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm16_0_cfg: pwm16-0-cfg {
++		pwm16-0-pins {
++			pinmux = <K3_PADCONF(58, 6)>;	/* pwm16 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm16_1_cfg: pwm16-1-cfg {
++		pwm16-0-pins {
++			pinmux = <K3_PADCONF(143, 4)>;	/* pwm16 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm16_2_cfg: pwm16-2-cfg {
++		pwm16-0-pins {
++			pinmux = <K3_PADCONF(22, 3)>;	/* pwm16 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm17_0_cfg: pwm17-0-cfg {
++		pwm17-0-pins {
++			pinmux = <K3_PADCONF(23, 3)>;	/* pwm17 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm17_1_cfg: pwm17-1-cfg {
++		pwm17-0-pins {
++			pinmux = <K3_PADCONF(59, 6)>;	/* pwm17 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm17_2_cfg: pwm17-2-cfg {
++		pwm17-0-pins {
++			pinmux = <K3_PADCONF(105, 6)>;	/* pwm17 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm18_0_cfg: pwm18-0-cfg {
++		pwm18-0-pins {
++			pinmux = <K3_PADCONF(24, 3)>;	/* pwm18 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm18_1_cfg: pwm18-1-cfg {
++		pwm18-0-pins {
++			pinmux = <K3_PADCONF(60, 6)>;	/* pwm18 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm18_2_cfg: pwm18-2-cfg {
++		pwm18-0-pins {
++			pinmux = <K3_PADCONF(106, 6)>;	/* pwm18 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm19_0_cfg: pwm19-0-cfg {
++		pwm19-0-pins {
++			pinmux = <K3_PADCONF(25, 3)>;	/* pwm19 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm19_1_cfg: pwm19-1-cfg {
++		pwm19-0-pins {
++			pinmux = <K3_PADCONF(61, 6)>;	/* pwm19 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
++	/omit-if-no-ref/
++	pwm19_2_cfg: pwm19-2-cfg {
++		pwm19-0-pins {
++			pinmux = <K3_PADCONF(107, 6)>;	/* pwm19 */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++		};
++	};
++
+ 	/omit-if-no-ref/
+ 	uart0_0_cfg: uart0-0-cfg {
+ 		uart0-0-pins {
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index e6faf8d8759e..e331adbcb11a 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -797,6 +797,226 @@ i2c8: i2c@d401d800 {
+ 			status = "disabled";
+ 		};
+ 
++		pwm0: pwm@d401a000 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401a000 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM0>,
++				 <&syscon_apbc CLK_APBC_PWM0_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM0>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm1: pwm@d401a400 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401a400 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM1>,
++				 <&syscon_apbc CLK_APBC_PWM1_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM1>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm2: pwm@d401a800 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401a800 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM2>,
++				 <&syscon_apbc CLK_APBC_PWM2_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM2>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm3: pwm@d401ac00 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401ac00 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM3>,
++				 <&syscon_apbc CLK_APBC_PWM3_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM3>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm4: pwm@d401b000 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401b000 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM4>,
++				 <&syscon_apbc CLK_APBC_PWM4_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM4>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm5: pwm@d401b400 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401b400 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM5>,
++				 <&syscon_apbc CLK_APBC_PWM5_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM5>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm6: pwm@d401b800 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401b800 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM6>,
++				 <&syscon_apbc CLK_APBC_PWM6_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM6>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm7: pwm@d401bc00 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd401bc00 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM7>,
++				 <&syscon_apbc CLK_APBC_PWM7_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM7>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm8: pwm@d4020000 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4020000 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM8>,
++				 <&syscon_apbc CLK_APBC_PWM8_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM8>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm9: pwm@d4020400 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4020400 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM9>,
++				 <&syscon_apbc CLK_APBC_PWM9_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM9>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm10: pwm@d4020800 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4020800 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM10>,
++				 <&syscon_apbc CLK_APBC_PWM10_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM10>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm11: pwm@d4020c00 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4020c00 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM11>,
++				 <&syscon_apbc CLK_APBC_PWM11_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM11>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm12: pwm@d4021000 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4021000 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM12>,
++				 <&syscon_apbc CLK_APBC_PWM12_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM12>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm13: pwm@d4021400 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4021400 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM13>,
++				 <&syscon_apbc CLK_APBC_PWM13_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM13>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm14: pwm@d4021800 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4021800 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM14>,
++				 <&syscon_apbc CLK_APBC_PWM14_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM14>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm15: pwm@d4021c00 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4021c00 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM15>,
++				 <&syscon_apbc CLK_APBC_PWM15_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM15>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm16: pwm@d4022000 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4022000 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM16>,
++				 <&syscon_apbc CLK_APBC_PWM16_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM16>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm17: pwm@d4022400 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4022400 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM17>,
++				 <&syscon_apbc CLK_APBC_PWM17_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM17>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm18: pwm@d4022800 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4022800 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM18>,
++				 <&syscon_apbc CLK_APBC_PWM18_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM18>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm19: pwm@d4022c00 {
++			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
++			reg = <0x0 0xd4022c00 0x0 0x10>;
++			clocks = <&syscon_apbc CLK_APBC_PWM19>,
++				 <&syscon_apbc CLK_APBC_PWM19_BUS>;
++			clock-names = "func", "bus";
++			resets = <&syscon_apbc RESET_APBC_PWM19>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
+ 		pinctrl: pinctrl@d401e000 {
+ 			compatible = "spacemit,k3-pinctrl";
+ 			reg = <0x0 0xd401e000 0x0 0x1000>;
+
+---
+base-commit: f068b204555ad62d6a841a49feb4ea8c4f45b25c
+change-id: 20260321-04-k3-pwm-dts-1d16258f0d20
+
+Best regards,
+--  
+Yixun Lan <dlan@kernel.org>
 
 
 _______________________________________________
