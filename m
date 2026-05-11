@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A6ACD37B6
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 03:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD22CD37B6
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 03:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yh7ERrwZTxn2jqwygEdrTl3KnJ3zkmO1AXZeyt6MXBg=; b=Ap90loX1BWMMno
-	IRZ6rOwwXTVVO7VhUIqJnKN3mPCOV/PJ2ggKK7YnZ1C+zyJ8V6JmjR8faae8tvLH7ooo3qlf8RMHP
-	P1slYMDyPhmRUzASt2gM3rbntnnBca1ii9DkGtSUPXWj/uqVX3diPkZGX0U4+zomiQ5QCR8eERUJC
-	HGzuoTnOD2CSanmkMECIushtSFvLDXMWwJ/g4LngFN32lix4t8AD07zT8mNOUk1NUUULFQnfOyI00
-	FbmgKFO50JX28ov4UyfUcV+DjXtol1N6taWt8zZXlk0fjut5xMWKPD+ff4lF0DhXgBFhaI89wzM3e
-	604abIk2LfyBjwR7yCUw==;
+	List-Owner; bh=NGoU9qvKQktG9jpZdVQEqsu/722h162v6B4CtZ4pkLs=; b=EMeeL/jSqousA9
+	CHyE9yLrtKfvbREqbaTFpCsTIqRDgsebzU9AsxE9IpNQV21m6Cl9eZMu7Fpa5+gpvxvDOemKEmvv1
+	l4qq0SAsAOKJH9EP2k8TQUgnvJ3hNIjvwp84GgSB5gjKJImCeOO6ilQgM61kw3CMzvpCoHTSedwUr
+	5d4ttmrYh32lZBREs9/6SsNZWxWDmltWeqCTf+b8n8igqVOHRlmoXDPnEpRVc2uf/5KW6CvWxLHqQ
+	P9yRttEQU4F3hGwN6u7YAmbyYEfG4J+n868FinO6uEsP0NlB+8b4bXgNrPpdoK1ymtjDqH0eA7yVB
+	85VrkhZAXtHECzhHjdWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGyJ-0000000C6us-0IdB;
-	Mon, 11 May 2026 03:06:19 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wMGyW-0000000C77d-0bDd;
+	Mon, 11 May 2026 03:06:32 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGxx-0000000C6h3-39t8;
-	Mon, 11 May 2026 03:06:07 +0000
+	id 1wMGy2-0000000C6jo-36fW;
+	Mon, 11 May 2026 03:06:10 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=gP8HfVClTHWeVnZhgkiJHpftRA/L/IH7204wUamvGpI=;
-	b=aC5ld2VGwocK5wNF4kNLWzXRwqGy7VVPy2Y7aT6z1Plew96KuD/b6JVVo5tIpaUsuozqhNEBl
-	Uq5G5iRkNwhE7Lb+guOM8yaJgFcRNxm/1aqoZHpEZ52JHGoLfBZO5hurcijEe7IxeJY4lGg8hJ6
-	MUBIPE/iCbbNEzS2v3yjOWw=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gDPYR2FCnz1K9ZG;
-	Mon, 11 May 2026 10:58:19 +0800 (CST)
+	bh=FN47AsrpVzfQTrIqYctGspIy+BM7hOr1EhL3a4fj6fE=;
+	b=DQSa+l/dDuk3pu1UynnnYhnUqa2Hqh3YefLCNgbYC/xbzSjcLGTdCUgoKDPicUOOrh4wiQUqK
+	dIPYDcAQopX4RC9PvgntmzdBspJyjbpLgDpuHVBGsmFO9bXGkMoVJHzX0dO41PQLu1X6ZICTQBs
+	Oz87yLApXwFII6fr0p3twqI=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gDPYX2HQJzRhrf;
+	Mon, 11 May 2026 10:58:24 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9CB14402AB;
-	Mon, 11 May 2026 11:05:53 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id AC7C240537;
+	Mon, 11 May 2026 11:05:59 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 11 May
- 2026 11:05:50 +0800
+ 2026 11:05:56 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
@@ -71,9 +71,9 @@ To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<kexec@lists.infradead.org>
-Subject: [PATCH v13 03/15] x86/kexec: Fix potential buffer overflow in prepare_elf_headers()
-Date: Mon, 11 May 2026 11:04:42 +0800
-Message-ID: <20260511030454.1730881-4-ruanjinjie@huawei.com>
+Subject: [PATCH v13 05/15] riscv: kexec_file: Fix potential buffer overflow in prepare_elf_headers()
+Date: Mon, 11 May 2026 11:04:44 +0800
+Message-ID: <20260511030454.1730881-6-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260511030454.1730881-1-ruanjinjie@huawei.com>
 References: <20260511030454.1730881-1-ruanjinjie@huawei.com>
@@ -82,8 +82,9 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_200558_379846_E5872CD5 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20260510_200606_452317_1238C2FC 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +117,34 @@ This happens because kexec_load() uses kexec_trylock (atomic_t) while
 memory hotplug uses device_hotplug_lock (mutex), so they don't serialize
 with each other.
 
-Since x86 supports crash hotplug, any data inconsistency caused by
-a race during the initial load will be corrected by the subsequent
-hotplug update. However, we must prevent a buffer overflow if the
-number of memory regions increases between the two passes.
+While this works today because RISC-V server hardware with hotplug
+support is still rare and most deployments use fixed memory configurations
+(e.g., QEMU virt machine), it is technically fragile. So add bounds
+checking in prepare_elf64_ram_headers_callback() to prevent
+out-of-bounds (OOB) access.
 
-Add a boundary checking in prepare_elf64_ram_headers_callback() to ensure
-that the number of populated ranges does not exceed
-the allocated maximum.
+No functional change for current RISC-V deployments, but makes
+the code robust against future hotplug-capable platforms.
 
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Baoquan He <bhe@redhat.com>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: stable@vger.kernel.org
-Fixes: 8d5f894a3108 ("x86: kexec_file: lift CRASH_MAX_RANGES limit on crash_mem buffer")
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: songshuaishuai@tinylab.org
+Cc: bjorn@rivosinc.com
+Cc: leitao@debian.org
+Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
+Reviewed-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/x86/kernel/crash.c | 3 +++
+ arch/riscv/kernel/machine_kexec_file.c | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
-index cd796818d94d..fa6a1feb1bf1 100644
---- a/arch/x86/kernel/crash.c
-+++ b/arch/x86/kernel/crash.c
-@@ -226,6 +226,9 @@ static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+index 3f7766057cac..773a1cba8ba0 100644
+--- a/arch/riscv/kernel/machine_kexec_file.c
++++ b/arch/riscv/kernel/machine_kexec_file.c
+@@ -48,6 +48,9 @@ static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
  {
  	struct crash_mem *cmem = arg;
  
