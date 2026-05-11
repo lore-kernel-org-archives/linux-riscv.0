@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54922CD37B6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54984CD4842
 	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 02:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,41 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0JQA8xPEH1NU9o0pWBOWLaSrB8v2cxfLCcM9mWODnDg=; b=jtboC83Ubv0IA5
-	l+Fd9adbQEr81ZTtt/KcVReco+DK+p5/nefVWWhWRb/dkVYaqj2i9hZu0XH8ZrjMogc0+MTJYlxxO
-	GIMj6x9XRsHJIkY9cZV9MSzFRRB48e4+SPo1jK87UbFKghW9O+LyybhQohkjpmBP81qPuF+FlRWrN
-	3N8076UjGyioY+mJ4Jz2tYINYwhhg8XcAaIOtJLdZcHxdJX4mEfAg8+buuTXNbXzuk1pEcZfaz87i
-	wuflQbtdPKx0zKIYbnt2g+QgzKxTMSQPt7Yt2AJrTn8PpN8UKt6owMNOMRbQJvP4RcY99pV4Idtfr
-	v1JVxX8xbo2gobJxmdPg==;
+	List-Owner; bh=ZRy4YCmuMvBVc3/KiFo/vCwPF7/DJBtGSDRYNAZMVp8=; b=lWn2NRMOAyMnIq
+	BNO2VBuLfFLzJj45GzkZPVuMyuSYD7P3Sr50Y4MJ4tlJhYH1yJ/hiu0bdSQhxvQhkvpMg8JAQbCMN
+	dD52GSOrw8g4Cmvtxoo/WDJi4cKaen+/wlewnd0h8aaEw7Sr3QeO5mfRyI1c22Lc72+rzZ3t7Vwvr
+	4SXequ3243DyEOvd2w6tvBdbpiycnW4ZXb62Cg7F29B84eWG3YA6X5G6KAQWNvUHtk+y6mPFvjQYP
+	dCJSS7cMTfBJdB4wOSqLlAed+STXUMfoFkWYjiL41YGf9Tgi/2CRSFmRzpUHlZ3VTFhMldvfTYezf
+	8mNZXrlE1PNRMod4BV8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGrr-0000000C5y9-1Q45;
-	Mon, 11 May 2026 02:59:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMGro-0000000C5x9-0xfA;
+	Mon, 11 May 2026 02:59:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGrp-0000000C5xP-0MP9
+	id 1wMGrm-0000000C5wx-4C8a
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 02:59:38 +0000
+	Mon, 11 May 2026 02:59:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD95C4441A;
-	Mon, 11 May 2026 02:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 298CBC2BCB8;
-	Mon, 11 May 2026 02:59:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 02BD9600CB;
+	Mon, 11 May 2026 02:59:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2898BC2BCC7;
+	Mon, 11 May 2026 02:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778468376;
-	bh=9gPF9mfRxQfv5LrILU4PhVKjworVQdsc+SJeTbRrSJk=;
+	s=k20201202; t=1778468373;
+	bh=UA/S9cLsNrwPIyQx/17ZpDqEZXlb8oCbwx2AeLnP4tA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qYc+6SI9NUuXdgLdUAg9lBKCRnn9PkL16bLLM+2xWhtI6HUPIbww1n/RkkXY3Jt4j
-	 8MekyRApnZYXxCmWV6rVcNewufXpmcVi8B9q6NTcDqq1Vl6V6ReEVhuf9H3gbocx1w
-	 ifY01sAvn8WTwzo6r6WKIDRXGSAIYRYgzeO0i4cTZUC45Yr9PIvmFV6XV8I++MMmjN
-	 WDiI2RdL9KpY5V+g6Cs72H2cqNXi2uekzZmADTc6ZdjYpr7/gz/vQWJomVqNZ8jhH1
-	 I1m5/FzKL7rAc+X2A1pI9blRT06g+wN0I5ZRjg82rcIZ4bjzHMgaVBJYsWr2nW9XJt
-	 yijnel3J/r5IA==
+	b=QuhIsEQBhLGMtCcs5+wQCR28fPvTvIkMsUdiTCNUQXfs6wV8K0Y2Y8VtV6QXy/W8g
+	 7k60BcM0DUWWJvDRRFANzg/AjvRsd/xquOZCt7o0jHvxDsesQMntmKk6EXZwntNjk6
+	 H9IFBeoodxyqTYyqZ3K9bU4K0e1RXsBxGVqMW2OjvYDB8gHVzDzEwc+YC39hWSQ5Yi
+	 NOjxtBnKB9DruyTfPmIxWSTf1TxaPxStFVG+/9LVHxDMDUpNVnTXrpvz4mHVYJ/WSS
+	 6UTG/5rqhViX4Opbwz8MAlC4j/QdSUK7SgsG1DGKbsKXamnN6e2xcZBubh9VQhZehW
+	 rp2fU9IuYHEQw==
 From: Yixun Lan <dlan@kernel.org>
-Date: Mon, 11 May 2026 02:59:10 +0000
-Subject: [PATCH v2 2/4] clk: spacemit: k3: Fix PCIe clock register offset
+Date: Mon, 11 May 2026 02:59:09 +0000
+Subject: [PATCH v2 1/4] clk: spacemit: k3: Switch to pll2_d6 as parent for
+ PCIe clock
 MIME-Version: 1.0
-Message-Id: <20260511-06-pci-clk-fix-v2-2-c9a5e563bab3@kernel.org>
+Message-Id: <20260511-06-pci-clk-fix-v2-1-c9a5e563bab3@kernel.org>
 References: <20260511-06-pci-clk-fix-v2-0-c9a5e563bab3@kernel.org>
 In-Reply-To: <20260511-06-pci-clk-fix-v2-0-c9a5e563bab3@kernel.org>
 To: Stephen Boyd <sboyd@kernel.org>, 
@@ -59,28 +60,24 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
  devicetree@vger.kernel.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=963; i=dlan@kernel.org;
- h=from:subject:message-id; bh=9gPF9mfRxQfv5LrILU4PhVKjworVQdsc+SJeTbRrSJk=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqAUYGc8kUkeptiFWtyUXVVi01nwKqsp2A76xKx
- 12/w41K2T6JAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCagFGBhsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2734; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=UA/S9cLsNrwPIyQx/17ZpDqEZXlb8oCbwx2AeLnP4tA=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqAUYDNADeAp9EG+/1Pm7EgKZgd1gfP4VI92uxz
+ s/PZNf2hyeJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCagFGAxsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+3WVg/+LNvaoKuUq0to/+3q04KPjwmcdMBrDjTs6+Jb1Km9y0VG4OuvsIv6i
- F7JDpVghwP7ruv0XW05EW5SdY7OWQi3TAYjxdCb4rMqs6cuajSYkLI4F/wJai2uNKoR04UcCHiC
- ShdiL711MFsemL6gAuQY7Bvqy7k4XnnW3UviHZ/MqUX9vf32uGbsNJDOT0slAjh94oJXeSlw77y
- HGS++Bj6Zr5nyR00neX0T3X6sxRxvjmKiFtERaiSp3DErDsEtjWesk4rPKk4UYcVGhpzcSjqdGX
- 3XqODLmJbnq5lw6WJbvzqFsDAKETI39VsCIheDhrcdQISislRVpCf3uhW/2kaV5bz+imtPch6EX
- wGOVqIutX1p0m0SN92t/+pA753TLDYnn/2DkQhwVzY7uiQ7vW5XmG/ADFpFjuHyrFnBGtLjjwdj
- XHTN/oTg67FOpNqDDdVaM/rfvcDFBApW6q5oTo6BwYHueQ4Ey+kRTkcg8u5QTfFrBaj373LR0EU
- aHb9ddIpBUYYbykYpWWYpwht5AU5IY/T4GechEGS/hXhniDCWds8ba+5TVAsdUtCbOh79Ftaypg
- 3atg8VildwL+vmoK71aKtGUyt8C8cR3TCvJqvZwxj5g+PmtoxapfHV8Y1sE3LdcSkUUC4uCWjN3
- /7Bqf6s6W8aU+8DnaIhMM2fG7tAEnQ=
+ QACgkQMarqR1lNu+3vYw/9FsunmNwj3qzz/V6ypxizxz5gTJXnTB9Pp3PpSdt+yEmfej1n4T5AO
+ ycBXb7QuWLxoEfLWiJHvx2idO2SH9J1e5HBNyIGVpkBj2ELf93Qahwlbh4UjNhOaXmqRs8TZtY/
+ uILLoKnN9c+F3C208Mv8qnHMmBxpVSlu66VhP+VjqV0MC+flUMM4wNSwTFbUa689nvN9sSwDnZh
+ G/vx+hTqU9uA7fDcgSnxNJjKGPxdmo1FbJoSW3tWFWhllzRa44UbmB0Z3l4xv03DJE+lYEi+nxM
+ CFHXSqJrnbAe0fbHqThpMgVnZRxT0wqJV7xV6NuAnGUpSf0piwSUaShcL+DYO5B8EMwssZX0rLz
+ 7FE2UCjvkq8+i12AuTujox3HQR7nU6WAhEUAJvyk2JRKp89eco1Khc4VPcGzcGmcIN5Ne0+Dhg8
+ WjUSD/G5pkGWsaT1w6ULHskE2MOXBz88xVFoAAh2wwImt9oX2+ZzF/yusCct2J97AfNh3LNFcAF
+ 4TQQHWwYiitrO8rfKl883FJaUJAE2UwzZwES3au3e5/8afiOXh+ui5qCTpRgi4ngeTqAcGzj2ir
+ 1TNYJekoNhisqpxiwmXX2VHTYTDsjmvzqNNUzjDiofHALLj4vGzosPYld0aJKOSmhoO7mhOJHK9
+ 6oRV0bU5lBp+049Qti8tdAAkmkniso=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_195937_170007_9A05B7AF 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,30 +94,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The offset of PCIe Clock CTRL register for port B and C controller was
-wrongly swapped, correct it here.
+According to SpacemiT updated docs, the PCIe master and slave clock's
+parent is the pll2_d6 clock, so fix it.
 
-Fixes: 091d19cc2401 ("clk: spacemit: k3: extract common header")
+Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- include/soc/spacemit/k3-syscon.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/clk/spacemit/ccu-k3.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/include/soc/spacemit/k3-syscon.h b/include/soc/spacemit/k3-syscon.h
-index 0299bea065a0..a68255dd641f 100644
---- a/include/soc/spacemit/k3-syscon.h
-+++ b/include/soc/spacemit/k3-syscon.h
-@@ -168,8 +168,8 @@
- #define APMU_CPU_C2_CLK_CTRL		0x394
- #define APMU_CPU_C3_CLK_CTRL		0x208
- #define APMU_PCIE_CLK_RES_CTRL_A	0x1f0
--#define APMU_PCIE_CLK_RES_CTRL_B	0x1c8
--#define APMU_PCIE_CLK_RES_CTRL_C	0x1d0
-+#define APMU_PCIE_CLK_RES_CTRL_B	0x1d0
-+#define APMU_PCIE_CLK_RES_CTRL_C	0x1c8
- #define APMU_PCIE_CLK_RES_CTRL_D	0x1e0
- #define APMU_PCIE_CLK_RES_CTRL_E	0x1e8
- #define APMU_EMAC0_CLK_RES_CTRL		0x3e4
+diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
+index e98afd59f05c..8f0b743046ab 100644
+--- a/drivers/clk/spacemit/ccu-k3.c
++++ b/drivers/clk/spacemit/ccu-k3.c
+@@ -947,16 +947,16 @@ static const struct clk_parent_data edp1_pclk_parents[] = {
+ };
+ CCU_MUX_GATE_DEFINE(edp1_pxclk, edp1_pclk_parents, APMU_LCD_EDP_CTRL, 18, 1, BIT(17), 0);
+ 
+-CCU_GATE_DEFINE(pciea_mstr_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_A, BIT(2), 0);
+-CCU_GATE_DEFINE(pciea_slv_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_A, BIT(1), 0);
+-CCU_GATE_DEFINE(pcieb_mstr_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_B, BIT(2), 0);
+-CCU_GATE_DEFINE(pcieb_slv_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_B, BIT(1), 0);
+-CCU_GATE_DEFINE(pciec_mstr_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_C, BIT(2), 0);
+-CCU_GATE_DEFINE(pciec_slv_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_C, BIT(1), 0);
+-CCU_GATE_DEFINE(pcied_mstr_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_D, BIT(2), 0);
+-CCU_GATE_DEFINE(pcied_slv_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_D, BIT(1), 0);
+-CCU_GATE_DEFINE(pciee_mstr_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_E, BIT(2), 0);
+-CCU_GATE_DEFINE(pciee_slv_clk, CCU_PARENT_HW(axi_clk), APMU_PCIE_CLK_RES_CTRL_E, BIT(1), 0);
++CCU_GATE_DEFINE(pciea_mstr_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_A, BIT(2), 0);
++CCU_GATE_DEFINE(pciea_slv_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_A, BIT(1), 0);
++CCU_GATE_DEFINE(pcieb_mstr_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_B, BIT(2), 0);
++CCU_GATE_DEFINE(pcieb_slv_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_B, BIT(1), 0);
++CCU_GATE_DEFINE(pciec_mstr_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_C, BIT(2), 0);
++CCU_GATE_DEFINE(pciec_slv_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_C, BIT(1), 0);
++CCU_GATE_DEFINE(pcied_mstr_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_D, BIT(2), 0);
++CCU_GATE_DEFINE(pcied_slv_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_D, BIT(1), 0);
++CCU_GATE_DEFINE(pciee_mstr_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_E, BIT(2), 0);
++CCU_GATE_DEFINE(pciee_slv_clk, CCU_PARENT_HW(pll2_d6), APMU_PCIE_CLK_RES_CTRL_E, BIT(1), 0);
+ 
+ static const struct clk_parent_data emac_1588_parents[] = {
+ 	CCU_PARENT_NAME(vctcxo_24m),
 
 -- 
 2.54.0
