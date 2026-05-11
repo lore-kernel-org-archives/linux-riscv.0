@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD741CD4F21
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 20:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C64CD4F21
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 20:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	References:In-Reply-To:Message-Id:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bxv4l5TDHn4zIZOm6RB+235uiCtzx6Q939PciMECEFA=; b=ybcAWy6giQ1Wem
-	IEo3guHN2guyEfzGMUcRrn9DLUIVA09cP+b+MW5FjM7aePZp6RoQ/YLp+/HwJnU/sF/YZmojOQWqt
-	lWZQ+WYQB2f7KYdxE7Vsd6ao19z3Ji1DDL8wzgm3OLYj2lq66S1NQfSNlo8tg0ulbvPxTonUAElzK
-	myixV2P8arb4j/hI1hEGNdK4fKYKM6fL1EjK57t18SOuaxs3+KXYdkEyw8d0z7Eimbk460vYGqXC+
-	wTpi2WlS2Kzev4JHM6Xwuqnc1ickQqIUzmCSzYLdc584PdRIcysyPQaX1s+x+JPgZnlwb7j93joGK
-	gXb9VUYYZ0oIVOCUwOrg==;
+	List-Owner; bh=d+kLm7cUxxazL5Z6tRZWMFnVeQ1U61KiJt4F4ks/piU=; b=rTa8Gebxx4X3SP
+	fA3iGNLW2JHFxDhZrnajm1/cOUgHCJGYoIYIOpshfQuibpNyeuD2/dxzCHdXXT693NqCsr+IzN5yt
+	fN8P0GXmDSV3oxTUn7h/JQiYPOYsaB4WCwZhK08GyllDhKl3CYu1SkGqZHgFh34ocPuR5CJTytViD
+	cHt4nECYURncfhOHQeDLWL7FbxdHVbwWtbf20jXp+ArvEBVFGgrSxRD2D86HZphGHnMi/xZlLMSZS
+	emMmtYDuh7v5W1u1xGDDU1ReBj6ZZHNfYEpVRh3bTRNj8PepUx4xZoTXPeqV6OZrwrCY0on5GlheX
+	CR4I6CacNfksatLBym0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNG3M-00000003gMX-0QF5;
-	Wed, 13 May 2026 20:19:36 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wNGFq-00000003iX1-1YDZ;
+	Wed, 13 May 2026 20:32:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNG3J-00000003gLK-2AKF
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 20:19:34 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	id 1wMOql-0000000DKTw-0oAL;
+	Mon, 11 May 2026 11:31:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Subject:Cc:To:From:
+	Mime-Version:Date:References:In-Reply-To:Message-Id:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GarQ9hJWYMIDDIdsyOnJdUlE124XUc1xLB+gYTY7Geo=; b=rfj22+5tC2ykA3LUNEUGL01AiX
+	wfHkO4VN3D/vGZh/SMApurOLDrGuERkckRSScE/BHz20Al/fcEigIIzy5nKa5qtSk50+mdLgfLfAU
+	hrFn0RrxkCW/3SLfZ5+7hJp00SqBRcy3ZZWpRQrP3C6ZVXGsCo13u6UtK2PwC2VnmL6k9u6GSU7wI
+	lbBCX/HaM5tEaHPNr7+fHchFkZuPGnGeRPKa520nnyGPjmeF1topicIaks7sxdUiRBSeyQFonEawl
+	wlXQbyhwCq2NYUDhS2Havg5hIM+FQM+gaTU0YftvFka5oWmZy0qxXauIbp2NlBm11FeWcEhLlLV3n
+	Vr4YGyjQ==;
+Received: from mxhk.zte.com.cn ([160.30.148.34])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMOqe-0000000BTeD-2oX0;
+	Mon, 11 May 2026 11:31:01 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id ED6E36B0F3;
-	Wed, 13 May 2026 20:19:29 +0000 (UTC)
-Authentication-Results: smtp-out1.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A5E0E593A9;
-	Wed, 13 May 2026 20:19:29 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id G7fLJ9HcBGpwcwAAD6G6ig
-	(envelope-from <dsterba@suse.cz>); Wed, 13 May 2026 20:19:29 +0000
-Date: Wed, 13 May 2026 22:19:28 +0200
-From: David Sterba <dsterba@suse.cz>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-Message-ID: <20260513201928.GO2558453@suse.cz>
-References: <20260512052230.2947683-1-hch@lst.de>
- <20260512052230.2947683-2-hch@lst.de>
- <20260512114231.GG2558453@suse.cz>
- <20260513054742.GA1018@lst.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260513054742.GA1018@lst.de>
-User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: ED6E36B0F3
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gDcwm1B91z5BNRf;
+	Mon, 11 May 2026 19:30:48 +0800 (CST)
+Received: (from root@localhost)
+	by mse-fl2.zte.com.cn id 64BBUjU6013213;
+	Mon, 11 May 2026 19:30:45 +0800 (+08)
+	(envelope-from wu.fei9@sanechips.com.cn)
+Message-Id: <202605111130.64BBUjU6013213@mse-fl2.zte.com.cn>
+Received: from njy2app01.zte.com.cn ([10.40.12.136])
+	by mse-fl2.zte.com.cn with SMTP id 64BBOdCA006778;
+	Mon, 11 May 2026 19:24:39 +0800 (+08)
+	(envelope-from wu.fei9@sanechips.com.cn)
+Received: from mapi (njy2app03[null])
+	by mapi (Zmail) with MAPI id mid204;
+	Mon, 11 May 2026 19:24:42 +0800 (CST)
+X-Zmail-TransId: 2afb6a01bc7a786-9563d
+X-Mailer: Zmail v1.0
+In-Reply-To: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn>
+References: 202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn
+Date: Mon, 11 May 2026 19:24:42 +0800 (CST)
+Mime-Version: 1.0
+From: <wu.fei9@sanechips.com.cn>
+To: <linux-kselftest@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>,
+        <kvm-riscv@lists.infradead.org>
+Cc: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <pbonzini@redhat.com>, <shuah@kernel.org>, <wu.fei9@sanechips.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIDIvM10gUklTQy1WOiBLVk06IEZpeCBza2lwIG9mIHZhbGlkIHBhZ2VzIGluwqBrdm1fcmlzY3ZfZ3N0YWdlX3dwX3Jhbmdl?=
+X-MAIL: mse-fl2.zte.com.cn 64BBUjU6013213
+X-MSS: AUDITRELEASE@mse-fl2.zte.com.cn
+X-TLS: YES
+X-SPF-DOMAIN: sanechips.com.cn
+X-ENVELOPE-SENDER: wu.fei9@sanechips.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.133 unknown Mon, 11 May 2026 19:30:48 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A01BDE8.000/4gDcwm1B91z5BNRf
+X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_131933_699148_1F792FE2 
-X-CRM114-Status: GOOD (  27.10  )
+X-CRM114-CacheID: sfid-20260511_123057_335417_082436EF 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
+X-Mailman-Approved-At: Wed, 13 May 2026 13:32:29 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,47 +98,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: dsterba@suse.cz
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 07:47:42AM +0200, Christoph Hellwig wrote:
-> On Tue, May 12, 2026 at 01:42:31PM +0200, David Sterba wrote:
-> > On Tue, May 12, 2026 at 07:20:41AM +0200, Christoph Hellwig wrote:
-> > > While the RAID6 algorithm could in theory support 3 devices by just
-> > > copying the data disk to the two parity disks, this version is not only
-> > > useless because it is a suboptimal version of 3-way mirroring, but also
-> > > broken with various crashes and incorrect parity generation in various
-> > > architecture-optimized implementations.  Disallow it similar to mdraid
-> > > which requires at least 4 devices for RAID 6.
-> > > 
-> > > Fixes: 53b381b3abeb ("Btrfs: RAID5 and RAID6")
-> > > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> > 
-> > This patch should have been sent separately as it has user visible
-> > impact and can potentially break some setups.
-> 
-> It _is_ sent out separate.
+The current gstage range walker unconditionally advances by 'page_size'
+when a leaf PTE is not found, e.g. when the range to wp is
+[0xfffff01fc000, 0xfffff023c000) and page_size is 2MB, if found_leaf of
+0xfffff01fc000 returns false, it skip the whole range, but it's possible
+to have valid entries in [0xfffff0200000, 0xfffff023c000).
 
-It's public interface change of btrfs but in a patch series cleaning
-up some library code, I noticed it by accident.
+Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+---
+ arch/riscv/kvm/gstage.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-> > The degenerate modes of
-> > raid0, 5, or 6 are explicit as a possible middle step when converting
-> > profiles.  We can use a fallback implementation for this case if the
-> > accelerated implementations cannot do it.
-> 
-> This is not about a degenerated mode.  For a degenerated RAID 6, parity
-> generation uses the RAID 5 XOR routines as the second parity will be
-> missing.  This is about generating two parities for a single data disk,
-> which must be explicitly selected.
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index d9fe8be2a151..2b141a78ecac 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -429,14 +429,14 @@ void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end
+                if (ret)
+                        break;
 
-The calcuation is a different than what I'm concened about, changing
-minimum devices from 3 to 4 is a breaking change. If the library won't
-provide the xor/parity functions then we'll have to add a fallback for
-this special case.
+-               if (!found_leaf)
+-                       goto next;
+-
+-               addr = ALIGN_DOWN(addr, page_size);
+-               kvm_riscv_gstage_op_pte(gstage, addr, ptep,
+-                                       ptep_level, GSTAGE_OP_WP);
+-next:
+-               addr += page_size;
++               if (!found_leaf) {
++                       addr = ALIGN(addr + 1, page_size);
++               } else {
++                       addr = ALIGN_DOWN(addr, page_size);
++                       kvm_riscv_gstage_op_pte(gstage, addr, ptep,
++                                               ptep_level, GSTAGE_OP_WP);
++                       addr += page_size;
++               }
+        }
+ }
+
+--
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
