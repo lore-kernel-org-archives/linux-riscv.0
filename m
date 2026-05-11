@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CE1CD37AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C28CD37AC
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1Fvo2pGy5tORxdkKFkNXjtXz0PHk/N+YIMU0x+RxL0=; b=15Sqaf30jED8EZ
-	cNaEnd8C2d5Dz4SXSamfbEoVtTMIgzYRfR4feyWDy/HWSRnBNWAoetzK1Mok2PchQm8oh8DYohsNT
-	+xr+UPG9Td0bMykWh+OmQzLVjnMy+eJIrEjDquzI1srs212LediiMaEi9Og7s9h0r+Qyesd8XNr3I
-	VIvS6h4RXhd9bSm/GBaKmeQ5A5dwDXs5VB7f6rTLHMWXTZ6RHgRGy5ZrT+AHSYuSU9n7XR3FIwaBm
-	dCsUbzFA03LUbxtpEy5j+7WSO+zUuvm66Q0LqS+i0UnjhXdhVCXr2XpZChPmvYe+oKF0VEBsRCT83
-	nqjN/7bYnR0KtEooz0UQ==;
+	List-Owner; bh=gzX9e3zrhou9bqGH2rF2Rxf0z8268Hwu3exdGhoLMBw=; b=rxS1kKYAC0fpmB
+	dRe0+mCRLd0hmZ3a87Xb+8wiGgEW82hzUwNO0WL1043zWQHnUyENJnHsTF9yd/KneejPt1hw57Ea4
+	SL+mIb6+YJ/QtXRWGncK9wlmow93Hz7sOzBwxaaNuJgRHUJJr9xURHXeavi0nQKuvqVJo7teELKFl
+	5DEaWxn7KNFLOTMqEEEM/Yc++F4XGRhRpPFKBnAUgYfxX2jjiy0GT4Q6PZZIFHzJuhAouUBmIyWV9
+	PIS4+eFn2RIBJvUs+G73/2P8Zl+Pce+B81FgaJ/S8ZmSV0vI2f2ZQrWFU+43bOsV/gXUxUMuJ/qom
+	ubG5SEhu7mncob9LKtMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvZ-0000000CLP7-2h7W;
-	Mon, 11 May 2026 05:11:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wMIvb-0000000CLSz-3nsJ;
+	Mon, 11 May 2026 05:11:39 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvX-0000000CLL6-29H0
+	id 1wMIvY-0000000CLMk-2n5p
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 11 May 2026 05:11:35 +0000
+	Mon, 11 May 2026 05:11:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=srvdFyNcKWrG6UhIb2zhEmit0iT5/TwfHnN+QzKDIL4=; b=cdAdLcDyrlVa07zp7n4bhsx9kG
-	HPX7h6dHPOd4s2ctTGmZlJEu9dwI3xQn3VUNbpXLtmrAdZkEVZ0UtppsaOXPzDkXS1jK+0LcSc7My
-	6YQGI7uZNAfsrM2WZ6yVHad5LV5CUOts3b7XlX/ULUrgmdoB6/DOXen5oyQSpTFwEHQsDHj00lmwx
-	hc7JEcy13DLlvamS/Eht96IwmdIybBCkZzWrvVFuDWmobqL2erOhQyjCcMeJoacsedc1fwJoXQg7K
-	DO+UUWaMlZzT2e3FLeXyxkICD5l+/p29chOETQ2AY/kSeHErY4DGFuT89SjxaJ8MU0O8gt+czSQ80
-	ndz966rg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvB-0000000Ae1D-3428
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=1ZXUGcI4QY/k8wrrJOVYUig1jPia71TGD+QwJhSF/tM=; b=HoE0nYSnJDAvG6MBx1Hnh2kMZD
+	vEFYS6019ZYKTTybEsHhGGI9TSh5cloUebjonFIz2ArAeLgmBC+RHikClVmCJgmbBBVI+bUPBVapl
+	uPLIOhsqMT7hlaMbcM2kESqhv+hrbq0+wJqCXAVGh0DlbBx8ca5515teKvIl/4PKhjKmCOZScR4a/
+	y0nKFRRjB14sbSuRoC4nVwtkke7a0QHhD90PoE/osuDhd+vO7/WBgJ7aSIH9SkT83oO1oQDzrVmoT
+	jxrn+BGMEJnjowdG1zgT8uqoasKGV2LwCTLxPSuht8WPs7Jucpe83v+jCZql0Kr5Z8ibJESvBNvBP
+	FhpJOgGw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMIvT-00000007eJx-10lC
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 05:11:32 +0000
+	Mon, 11 May 2026 05:11:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2C584454E;
-	Mon, 11 May 2026 05:11:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC25C4AF0B;
-	Mon, 11 May 2026 05:11:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 245544457C;
+	Mon, 11 May 2026 05:11:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 760AAC2BCFA;
+	Mon, 11 May 2026 05:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778476269;
-	bh=oVWQwUJrVLgt2ds0hOtdw/u3HLWC21FLWSsgjsdIJHo=;
+	s=k20201202; t=1778476280;
+	bh=waJCNkfo7Gi+cbJICDLJj/TEQGDl/0aLz8gi7LMw9T4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=S7CDMUquQFxBeQXuBHcEEOQmSp06/rh179c+P7fYhN9EaL2F2yAGmdsuD3HhTFcvf
-	 Avy4v2N4Otqn9O1+HAWyfqNZu5STDgQ9frHcGn3vgBljIWdD4IQP+7Kz3BtER6zEz1
-	 qQtS8e3svEJcjNe84EcAvg61W+BrOWcs5B0fqFNjOrO6GM8DFRhzEv+MBB6qZL0K6Y
-	 yblPKSKs8qEMhM7gSkRJCq7JroL8+3OSj0CiKN9ngVL+rQSavmGvRLJsdtVFOkyblN
-	 CS4C8tajr0fq3kLde7nJaEdGZSATQlUKpg8siNj4tcGcHygL9i2NXlNiaNtgZSz9k6
-	 oiIuowBx3hccw==
+	b=MxInM7Cc64OWnQsGWLUyv7lPOmKb33Rkn103ESJVIUa56nUMPWg8ODngQo6DA0Gqp
+	 KRtu733CdisqWS2ku00djIRPLGik0YDn9U1NRpDmA3GznhZuE3a24u19kSAH9FigUj
+	 8dEi8uDGDC2KNhzYyQgWpusjCg9neeLKAJZhQIZZNckI5pzv+e09CNYpOlUQeaasCA
+	 j0OEWoszIRF+nioUpYxCl9qOS2xfeGholh5bwelA2ZSY8yDu7uYpyEq/8d2U6c/B+2
+	 9pFngllrjexdKBH7rdKSiN+JMWKXCNyCpMBXpQcNilKmaPbAUW0807WJ77CdfpmR4/
+	 qcvJ/qoBL1L0A==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 10 May 2026 22:10:57 -0700
-Subject: [PATCH RFC v4 01/18] dt-bindings: riscv: Add Ssqosid extension
- description
+Date: Sun, 10 May 2026 22:11:12 -0700
+Subject: [PATCH RFC v4 16/18] ACPI: RISC-V: Parse RISC-V Quality of Service
+ Controller (RQSC) table
 MIME-Version: 1.0
-Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-1-eb53831ef683@kernel.org>
+Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-16-eb53831ef683@kernel.org>
 References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
 In-Reply-To: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -101,18 +101,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1227; i=fustini@kernel.org;
- h=from:subject:message-id; bh=oVWQwUJrVLgt2ds0hOtdw/u3HLWC21FLWSsgjsdIJHo=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxprza+/BWo+jrSn/ZLZnrnk4rWuFg3fl69yT571I9k
- WKajpq/O0pZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQAT0XBk+O8qJtc8a+plF+b5
- iypK5mpIMYddP1N+XU71cNyRdfO69bIZ/rtZ3WuvOHOtKywo4qMRs/vEq4IPZqyLid+zQYtB1Gf
- 1aj4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9089; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=waJCNkfo7Gi+cbJICDLJj/TEQGDl/0aLz8gi7LMw9T4=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxprw5bPh14tHN1/k1L97OfrIyz++Z56+GnCqZq1+F0
+ lY8WXM+u6OUhUGMi0FWTJFl04e8C0u8Qr8umP9iG8wcViaQIQxcnAIwkf8fGP5HSHa+Xa1h0z9p
+ 9pw3nVJexe9vr0s+3+x84ek3rkmBGvvLGH6z3yne8vm3oNGbQ25fjU4IuMTyST10Vm2bU3dmy7G
+ 2F7cYAQ==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_061130_237275_DDA0360C 
-X-CRM114-Status: UNSURE (   7.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260511_061132_205190_4916DF4D 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,33 +128,280 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
-extension v1.0.
+Add a parser for the ACPI RQSC table, which describes the CBQRI
+controllers in a system. For each table entry, populate a
+cbqri_controller_info descriptor and hand it to the CBQRI driver via
+riscv_cbqri_register_controller(). The driver owns all subsequent state,
+including cpumask resolution at cbqri_resctrl_setup() time.
 
-Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
+Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+Assisted-by: Claude:claude-opus-4-7
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ MAINTAINERS                   |   2 +
+ arch/riscv/include/asm/acpi.h |  10 +++
+ drivers/acpi/riscv/Makefile   |   1 +
+ drivers/acpi/riscv/rqsc.c     | 147 ++++++++++++++++++++++++++++++++++++++++++
+ drivers/acpi/riscv/rqsc.h     |  52 +++++++++++++++
+ 5 files changed, 212 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 2b0a8a93bb21..1c6f091518d4 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -232,6 +232,12 @@ properties:
-             ratified at commit d70011dde6c2 ("Update to ratified state")
-             of riscv-j-extension.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5589fe766153..3cf3cfa7e6f2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23014,6 +23014,8 @@ S:	Supported
+ F:	arch/riscv/include/asm/qos.h
+ F:	arch/riscv/include/asm/resctrl.h
+ F:	arch/riscv/kernel/qos.c
++F:	drivers/acpi/riscv/rqsc.c
++F:	drivers/acpi/riscv/rqsc.h
+ F:	drivers/resctrl/cbqri_devices.c
+ F:	drivers/resctrl/cbqri_internal.h
+ F:	drivers/resctrl/cbqri_resctrl.c
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index 26ab37c171bc..3cfd0102085e 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -67,6 +67,16 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
  
-+        - const: ssqosid
-+          description: |
-+            The standard Ssqosid extension for Quality of Service ID is
-+            ratified as v1.0 in commit d9c616497fde ("Merge pull
-+            request #7 from ved-rivos/Ratified") of riscv-ssqosid.
+ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
+ 			     u32 *cboz_size, u32 *cbop_size);
 +
-         - const: ssstateen
-           description: |
-             The standard Ssstateen extension for supervisor-mode view of the
++#ifdef CONFIG_RISCV_CBQRI_DRIVER
++int __init acpi_parse_rqsc(struct acpi_table_header *table);
++#else
++static inline int acpi_parse_rqsc(struct acpi_table_header *table)
++{
++	return -EINVAL;
++}
++#endif /* CONFIG_RISCV_CBQRI_DRIVER */
++
+ #else
+ static inline void acpi_init_rintc_map(void) { }
+ static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
+index 1284a076fa88..77f8f0101b7e 100644
+--- a/drivers/acpi/riscv/Makefile
++++ b/drivers/acpi/riscv/Makefile
+@@ -1,5 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-y					+= rhct.o init.o irq.o
++obj-$(CONFIG_RISCV_CBQRI_DRIVER)	+= rqsc.o
+ obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
+ obj-$(CONFIG_ACPI_CPPC_LIB)		+= cppc.o
+ obj-$(CONFIG_ACPI_RIMT)			+= rimt.o
+diff --git a/drivers/acpi/riscv/rqsc.c b/drivers/acpi/riscv/rqsc.c
+new file mode 100644
+index 000000000000..ac3d43b13f3b
+--- /dev/null
++++ b/drivers/acpi/riscv/rqsc.c
+@@ -0,0 +1,147 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#define pr_fmt(fmt) "ACPI: RQSC: " fmt
++
++#include <linux/acpi.h>
++#include <linux/bits.h>
++#include <linux/riscv_cbqri.h>
++
++#include "rqsc.h"
++
++#define CBQRI_CTRL_SIZE 0x1000
++
++int __init acpi_parse_rqsc(struct acpi_table_header *table)
++{
++	struct acpi_table_rqsc *rqsc = (struct acpi_table_rqsc *)table;
++	struct acpi_rqsc_node *end, *node;
++	int num_controllers = 0;
++
++	/* Reject tables shorter than the fixed RQSC header. */
++	if (rqsc->header.length < sizeof(struct acpi_table_rqsc)) {
++		pr_err("RQSC table truncated: length %u < %zu, aborting\n",
++		       rqsc->header.length, sizeof(struct acpi_table_rqsc));
++		return -EINVAL;
++	}
++
++	end = ACPI_ADD_PTR(struct acpi_rqsc_node, rqsc, rqsc->header.length);
++
++	for (node = ACPI_ADD_PTR(struct acpi_rqsc_node, rqsc,
++				 sizeof(struct acpi_table_rqsc));
++	     node < end;
++	     node = ACPI_ADD_PTR(struct acpi_rqsc_node, node, node->length)
++	) {
++		const struct acpi_rqsc_resource *res0;
++		struct cbqri_controller_info info = {};
++		int ret;
++
++		if ((void *)node + sizeof(*node) > (void *)end) {
++			pr_err("truncated entry at end of table, aborting\n");
++			riscv_cbqri_unregister_last(num_controllers);
++			return -EINVAL;
++		}
++
++		if (node->length < sizeof(*node)) {
++			pr_err("malformed RQSC entry: length %u < %zu, aborting\n",
++			       node->length, sizeof(*node));
++			riscv_cbqri_unregister_last(num_controllers);
++			return -EINVAL;
++		}
++
++		/* GAS must describe system memory. ioremap() consumes it later. */
++		if (node->reg.space_id != ACPI_ADR_SPACE_SYSTEM_MEMORY) {
++			pr_warn("controller has unsupported address space_id=%u, skipping\n",
++				node->reg.space_id);
++			continue;
++		}
++
++		/* Address 0 would map page 0 (reset vectors, SBI, boot ROM). */
++		if (!node->reg.address) {
++			pr_warn("controller has zero address, skipping\n");
++			continue;
++		}
++
++		info.type = node->type;
++		/* RQSC v0.9.2 section 2 Table 2: 12-byte GAS-format register interface address */
++		info.addr = node->reg.address;
++		info.size = CBQRI_CTRL_SIZE;
++		info.rcid_count = node->rcid;
++		info.mcid_count = node->mcid;
++
++		/* See CBQRI_MAX_RCID/MCID in <linux/riscv_cbqri.h> for the rationale. */
++		if (info.rcid_count > CBQRI_MAX_RCID) {
++			pr_warn("controller at %pa: rcid_count %u exceeds CBQRI_MAX_RCID %u, skipping\n",
++				&info.addr, info.rcid_count, CBQRI_MAX_RCID);
++			continue;
++		}
++
++		if (info.mcid_count > CBQRI_MAX_MCID) {
++			pr_warn("controller at %pa: mcid_count %u exceeds CBQRI_MAX_MCID %u, skipping\n",
++				&info.addr, info.mcid_count, CBQRI_MAX_MCID);
++			continue;
++		}
++
++		if (node->nres == 0) {
++			pr_warn("controller at %pa has no resource descriptors, skipping\n",
++				&info.addr);
++			continue;
++		}
++
++		/*
++		 * Resources follow the node header in-line. Only res[0] is
++		 * consumed. Bound it against end before reading its prefix so
++		 * a table that ends partway through a resource subtable is
++		 * rejected rather than read past the mapping.
++		 */
++		res0 = (const struct acpi_rqsc_resource *)
++		       ((const u8 *)node + sizeof(*node));
++		if ((void *)res0 + sizeof(*res0) > (void *)end ||
++		    node->length < sizeof(*node) + sizeof(*res0) ||
++		    res0->length < sizeof(*res0)) {
++			pr_warn("controller at %pa: node too short for resource descriptor, skipping\n",
++				&info.addr);
++			continue;
++		}
++
++		if (node->nres > 1)
++			pr_warn("controller at %pa has %u resource descriptors, using first\n",
++				&info.addr, node->nres);
++
++		/*
++		 * id1 is u64 on the wire but cache_id and prox_dom are u32
++		 * downstream (PPTT cache_id, ACPI proximity domain). Reject
++		 * rather than truncate, so a too-large id is not silently
++		 * mapped to the wrong PPTT entry or NUMA node.
++		 */
++		if (res0->id1 > U32_MAX) {
++			pr_warn("controller at %pa: id1 0x%llx exceeds u32, skipping\n",
++				&info.addr, res0->id1);
++			continue;
++		}
++
++		switch (info.type) {
++		case CBQRI_CONTROLLER_TYPE_CAPACITY:
++			info.cache_id = (u32)res0->id1;
++			break;
++		case CBQRI_CONTROLLER_TYPE_BANDWIDTH:
++			info.prox_dom = (u32)res0->id1;
++			break;
++		default:
++			pr_warn("controller at %pa: unknown type %u, skipping\n",
++				&info.addr, info.type);
++			continue;
++		}
++
++		pr_debug("registering controller type=%u addr=%pa rcid=%u mcid=%u\n",
++			 info.type, &info.addr, info.rcid_count, info.mcid_count);
++
++		ret = riscv_cbqri_register_controller(&info);
++		if (ret == 0)
++			num_controllers++;
++		else
++			pr_warn("controller at %pa: registration failed (%d), skipping\n",
++				&info.addr, ret);
++	}
++
++	pr_info("found %d CBQRI controllers\n", num_controllers);
++	return 0;
++}
+diff --git a/drivers/acpi/riscv/rqsc.h b/drivers/acpi/riscv/rqsc.h
+new file mode 100644
+index 000000000000..7bea15cb26d8
+--- /dev/null
++++ b/drivers/acpi/riscv/rqsc.h
+@@ -0,0 +1,52 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Local definitions for the RISC-V Quality of Service Controller (RQSC)
++ * ACPI table. Will move to ACPICA's include/acpi/actbl2.h once the spec
++ * is ratified.
++ */
++#ifndef _DRIVERS_ACPI_RISCV_RQSC_H
++#define _DRIVERS_ACPI_RISCV_RQSC_H
++
++#include <linux/types.h>
++#include <acpi/actbl.h>
++
++#define ACPI_SIG_RQSC	"RQSC"	/* RISC-V Quality of Service Controller */
++
++/*
++ * Byte-packed: u64 id1 would otherwise pad to 8-byte alignment and inflate
++ * sizeof(*res) from the spec's 20 bytes to 24, mis-sizing resource subtables.
++ */
++struct acpi_rqsc_resource {
++	u8 type;
++	u8 resv;
++	u16 length;
++	u16 flags;
++	u8 resv2;
++	u8 id_type;
++	u64 id1;
++	u32 id2;
++} __packed;
++
++struct acpi_rqsc_node {
++	u8 type;
++	u8 resv;
++	u16 length;
++	/* RQSC v0.9.2 section 2 Table 2: 12-byte GAS-format register interface address */
++	struct acpi_generic_address reg;
++	u16 rcid;
++	u16 mcid;
++	u16 flags;
++	u16 nres;
++	/*
++	 * Followed by nres acpi_rqsc_resource subtables. Walk them via
++	 * each resource's own length field so a future RQSC revision that
++	 * extends the resource layout cannot misalign older parsers.
++	 */
++} __packed;
++
++struct acpi_table_rqsc {
++	struct acpi_table_header header;	/* Common ACPI table header */
++	u32 num;
++} __packed;
++
++#endif /* _DRIVERS_ACPI_RISCV_RQSC_H */
 
 -- 
 2.43.0
