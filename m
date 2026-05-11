@@ -4,52 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 101D9CD4841
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C625CD4844
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SVdyjX2RJ/qrHfyVT26h9fU8ZpwlMeOxzT7NyzJ8zJk=; b=h9Wo6S+U/D0Myi
-	xjwe1mR9p1kcuSImYRO0D1bb+9t4tmArsKCsOjKO1qXFyKuFHb5ieossSUsFPiwbHReKIJ+GSvmDj
-	sx0jB/twe/HfgFYsf34KRLkFfrVtKEXAurmgElgaR9Pu9vg/RdL1c1r4aX2zh9zE+wzzhMbjNUEkQ
-	Be/TrJ+TgVXgogGNFz79y2IwYlLsS4F1bFhqa+bEA+tijbY2jRf6EHoW95G+ADU1L4ZlyHwF1yWuz
-	F2aZDG/4tsPnYc8epxedmzX4R4wnCkKquYXbq7o6bH6tWjp7Wg5L6iH+8yj4ZdkuOhGzzxEGb1DFG
-	v1mqwfLvoQdRYu7wYouA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Q06oQSZjHYgnSo+A7jgXSXCjKm/0Rt7ao++DtKQGQ/s=; b=R3l0KWxc1HbfkR
+	yEtn7ZO2uLYIZT8Z7LTtV4xj6xI59LQIuQun1darJZUQ25ofW0wvoKv0HQEVWrC2IOBWiwxosr2fm
+	zVy5xMqOH46G8/JKFp49IvvENfAZp1NgDWUOALDkto5zEUt8ESk+/GCt3GQbCQ023d8Mr42+s+juS
+	hL0s0eFVq34b15kj0PKrFGEFrqfHxfEG1pcg0K60d+9o2h/AnGuG/iyA7LaoF0HdIG2pBW14td5gM
+	2PGCeo41nMECmjg7b6ZVwLS+yen8xk1cjtMWHetrUstq5dsf3b0DGJVLoZqeKlR6nAhb/HA6U5QmR
+	gR2qWn3s4fHbucWgSegw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvK-0000000CL94-3Wsv;
-	Mon, 11 May 2026 05:11:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMIvf-0000000CLaZ-3bUU;
+	Mon, 11 May 2026 05:11:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvA-0000000CL72-03lf
+	id 1wMIvc-0000000CLRX-0CZ8
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 11 May 2026 05:11:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=VUWXERqi3yIeOEVZb39w5zUGCZ+BfwZMpFOSi0+iWIE=; b=Y/YhhDznA22Re5Po7u/XEmVFiv
+	yRb+XrV5hpBX1QAMfKpuggnqOo1vsyOjH4YVhH9Ip1E2xz85UesyEt3pPxFkZYZWaQZDp3jWbyvfg
+	0z4ZA6PGjVj1Frqzyth6M25wUhrJSt6KXmpIDilNofENUu46tOmB9QVLwZ6KT8fO292jJJa33nI7P
+	/LbwFY21M7MwKqsHnTUxjDjEn5RxujELpH0E5QDoTeCeBYfdEOdE4eaW6hODokT/jvTGPoI1Ic0Fl
+	8hcgNqM8UN1MRwUMS8dHOkDn4a6D77eEkoZedSLoqEWPAGuPqks8MondSPRIvXmXaEdWBxnw3kjle
+	iLGXpsTg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMIvB-0000000Ae1A-0zlF
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 05:11:15 +0000
+	Mon, 11 May 2026 05:11:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3920D441EC;
-	Mon, 11 May 2026 05:11:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8290DC2BCFF;
-	Mon, 11 May 2026 05:11:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 259F94411C;
+	Mon, 11 May 2026 05:11:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ED82C2BCB0;
+	Mon, 11 May 2026 05:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778476271;
-	bh=7zh/xIk9KE07e14wxorJlZWgxkGTVDJv66IX1VUZcbw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=sKjUhHIMSBu1y5OcyzL7CvAKZnhEzDQfkIIPIXfuA3QH+hw/aqkc0mVS255QN0Sss
-	 GqcP35LnLhM0wyNugeDoW0RO71ltcf5W/I/Ah8JUxkIDEljugK5+E/TDEk7jv3WTri
-	 qst4JomXXqKtbQvhW/3RfOxXkl6ia8A67Z+0LLY6/FLOT57eSiR9oqZhc40o3Hoajv
-	 dDDlyNqt8OEtBQXm/+ieNwH//2ovjr/Lrcw2EqCogYNIgGuNn5yJC8D9TlyYZ+qxUz
-	 yAydKbN1JXk6M5LvePH7lcec2CursB8tMOrY4iDJO0zwVD5Z/Fpu+aqIxY+yudygtO
-	 fzYdIT3jcLGMQ==
+	s=k20201202; t=1778476269;
+	bh=1bjEctrKc8U3pwHQ7F6COx+333aais51yWOAJe1WnU8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=oMFanZHW2UGbGWDX6uzQAqxBjvTVtm3e4VdQ/GrAqpib6KdtmicTIPbF7/B4HQmDN
+	 qnpRJ8D3SL4p9pz299iyvOskfF5RbJtTqa5u8Wvj8UjzC+IkYS67kz9htI1xvthcCt
+	 5WHPrgdGmNNK7XbqyYGeDR1zO8/qb1vVRor/G2O5EFMCcN6bFglLK7BRuM72Y+8LnJ
+	 aK8NoIcFL5MtDnvxaJo0cv6uet4kfkZL14jXqW/Cr/KGj/J1/LbWhrXbSQHe3XnJOj
+	 huaLnqHu4+SwteyMPiVhHJftAwcF33+040fCX+85UQUpMZVZOwY7B5yreGT+EYzkW2
+	 VsTUBkymbjMEg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 10 May 2026 22:10:59 -0700
-Subject: [PATCH RFC v4 03/18] riscv: add support for srmcfg CSR from
- Ssqosid extension
+Subject: [PATCH RFC v4 00/18] riscv: add Ssqosid and CBQRI resctrl support
+Date: Sun, 10 May 2026 22:10:56 -0700
+Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-3-eb53831ef683@kernel.org>
-References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
-In-Reply-To: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAOFkAWoC/3WNQQ7CIBREr9L8tRgEItSViYkHcGu6APptiaZYv
+ iGapncX2bt8M5k3CxCmgASHZoGEOVCIUwG1acCPdhqQhb4wCC72XIqWEc2RQs+8m1NgaSbPsma
+ cOe61Mc46ZSyU9TPhLbyr+QqX8wm6Eo6BXjF96luWtapitVN/xVn+7NIJ1Ngape3xjmnCxzamA
+ bp1Xb/0CMGTxAAAAA==
+X-Change-ID: 20260329-ssqosid-cbqri-rqsc-v7-0-b0c788bab48a
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
@@ -86,17 +103,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9619; i=fustini@kernel.org;
- h=from:subject:message-id; bh=7zh/xIk9KE07e14wxorJlZWgxkGTVDJv66IX1VUZcbw=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxprzi9HPfalb0au8yzV/sC3Mb50+omHPUp1Ch95RAg
- dTPNYH3O0pZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQAT+XOakeGSlcv5VMUcubIz
- AikcV3/7yLyulHYtkubXfHDn3cfU62oM/6zmq3q9UncXLoh5onrg54WfhYpTrtuwH4gQ+cOyq+Q
- HIxsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8738; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=1bjEctrKc8U3pwHQ7F6COx+333aais51yWOAJe1WnU8=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxpjyd01HBcu1DhpG5rR/flIfBu69nfG9w+qhfYVB+Y
+ 9285SeDO0pZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQATyeRhZDgWp+Y4efa+JSwx
+ YZZFW8/WHTx/aHUG62E2h0USj5wfs/ox/PexfhmQ+HPKIkUGsdB6wZz/ik1vr0kcnJk8welfk+i
+ mmcwA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_221112_145626_6CE5327F 
-X-CRM114-Status: GOOD (  28.65  )
+X-CRM114-CacheID: sfid-20260511_061130_339895_590A6CB9 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,175 +125,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIHN1cHBvcnQgZm9yIHRoZSBzcm1jZmcgQ1NSIGRlZmluZWQgaW4gdGhlIFNzcW9zaWQgSVNB
-IGV4dGVuc2lvbi4KVGhlIENTUiBjb250YWlucyB0d28gZmllbGRzOgoKICAtIFJlc291cmNlIENv
-bnRyb2wgSUQgKFJDSUQpIGZvciByZXNvdXJjZSBhbGxvY2F0aW9uCiAgLSBNb25pdG9yaW5nIENv
-dW50ZXIgSUQgKE1DSUQpIGZvciB0cmFja2luZyByZXNvdXJjZSB1c2FnZQoKUmVxdWVzdHMgZnJv
-bSBhIGhhcnQgdG8gc2hhcmVkIHJlc291cmNlcyBhcmUgdGFnZ2VkIHdpdGggdGhlc2UgSURzLAph
-bGxvd2luZyByZXNvdXJjZSB1c2FnZSB0byBiZSBhc3NvY2lhdGVkIHdpdGggdGhlIHJ1bm5pbmcg
-dGFzay4KCkFkZCBhIHNybWNmZyBmaWVsZCB0byB0aHJlYWRfc3RydWN0IHdpdGggdGhlIHNhbWUg
-Zm9ybWF0IGFzIHRoZSBDU1Igc28KdGhlIHNjaGVkdWxlciBjYW4gc2V0IHRoZSBSQ0lEIGFuZCBN
-Q0lEIGZvciBlYWNoIHRhc2sgb24gY29udGV4dApzd2l0Y2guIEEgcGVyLWNwdSBjcHVfc3JtY2Zn
-IHZhcmlhYmxlIG1pcnJvcnMgdGhlIENTUiBzdGF0ZSB0byBhdm9pZApyZWR1bmRhbnQgd3JpdGVz
-LiBMMUQtaG90IG1lbW9yeSBhY2Nlc3MgaXMgZmFzdGVyIHRoYW4gYSBDU1IgcmVhZCBhbmQKYXZv
-aWRzIHRyYXBzIHVuZGVyIHZpcnR1YWxpemF0aW9uLgoKQSBwZXItY3B1IGNwdV9zcm1jZmdfZGVm
-YXVsdCBob2xkcyB0aGUgZGVmYXVsdCBzcm1jZmcgZm9yIGVhY2ggQ1BVIGFzCnNldCBieSByZXNj
-dHJsIENQVSBncm91cCBhc3NpZ25tZW50LiBPbiBjb250ZXh0IHN3aXRjaCwgaWYgdGhlIG5leHQK
-dGFzayBiZWxvbmdzIHRvIHRoZSBkZWZhdWx0IHJlc291cmNlIGdyb3VwIChzcm1jZmcgPT0gMCks
-IHRoZSBDUFUncwpkZWZhdWx0IHZhbHVlIGlzIHVzZWQgaW5zdGVhZC4gVGhpcyBpbXBsZW1lbnRz
-IHJlc2N0cmwgYWxsb2NhdGlvbgpydWxlIDI6IGRlZmF1bHQtZ3JvdXAgdGFza3Mgb24gYSBDUFUg
-YXNzaWduZWQgdG8gYSBzcGVjaWZpYyBncm91cApyZWNlaXZlIHRoYXQgZ3JvdXAncyBhbGxvY2F0
-aW9ucy4KCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9yaXNjdi1zc3Fvc2lkL3JlbGVh
-c2VzL3RhZy92MS4wCkFzc2lzdGVkLWJ5OiBDbGF1ZGU6Y2xhdWRlLW9wdXMtNC03CkNvLWRldmVs
-b3BlZC1ieTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+ClNpZ25lZC1vZmYt
-Ynk6IEtvcm5lbCBEdWzEmWJhIDxtaW5kYWxAc2VtaWhhbGYuY29tPgpTaWduZWQtb2ZmLWJ5OiBE
-cmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVsLm9yZz4KLS0tCiBNQUlOVEFJTkVSUyAgICAgICAg
-ICAgICAgICAgICAgICAgIHwgIDggKysrKysKIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAg
-ICAgICAgfCAxOCArKysrKysrKysrKwogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCAgICAg
-ICB8ICA1ICsrKwogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCB8ICAzICsrCiBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oICAgICAgIHwgNjQgKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgg
-fCAgMyArKwogYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgICAgICAgICB8ICAyICsrCiBhcmNo
-L3Jpc2N2L2tlcm5lbC9xb3MuYyAgICAgICAgICAgIHwgNDkgKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysKIDggZmlsZXMgY2hhbmdlZCwgMTUyIGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQg
-YS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCmluZGV4IDRkMWUxOTg5NTllNC4uNTAzOWY0OGYz
-ODdhIDEwMDY0NAotLS0gYS9NQUlOVEFJTkVSUworKysgYi9NQUlOVEFJTkVSUwpAQCAtMjMwMDYs
-NiArMjMwMDYsMTQgQEAgRjoJZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jCiBGOglkcml2ZXJzL3Bl
-cmYvcmlzY3ZfcG11X2xlZ2FjeS5jCiBGOglkcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5jCiAK
-K1JJU0MtViBRT1MgUkVTQ1RSTCBTVVBQT1JUCitNOglEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2Vy
-bmVsLm9yZz4KK1I6CXl1bmh1aSBjdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29tPgorTDoJbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZworUzoJU3VwcG9ydGVkCitGOglhcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3Fvcy5oCitGOglhcmNoL3Jpc2N2L2tlcm5lbC9xb3MuYworCiBSSVNDLVYg
-UlBNSSBBTkQgTVBYWSBEUklWRVJTCiBNOglSYWh1bCBQYXRoYWsgPHJhaHVsQHN1bW1hdGlvbnMu
-bmV0PgogTToJQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwppbmRleCBkMjM1Mzk2YzQ1MTQu
-LmE3ZTg3YzQ5YmUyMSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCisrKyBiL2FyY2gv
-cmlzY3YvS2NvbmZpZwpAQCAtNTkxLDYgKzU5MSwyNCBAQCBjb25maWcgUklTQ1ZfSVNBX1NWTkFQ
-T1QKIAogCSAgSWYgeW91IGRvbid0IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkgWS4KIAorY29u
-ZmlnIFJJU0NWX0lTQV9TU1FPU0lECisJYm9vbCAiU3Nxb3NpZCBleHRlbnNpb24gc3VwcG9ydCBm
-b3Igc3VwZXJ2aXNvciBtb2RlIFF1YWxpdHkgb2YgU2VydmljZSBJRCIKKwlkZXBlbmRzIG9uIDY0
-QklUCisJZGVmYXVsdCBuCisJaGVscAorCSAgQWRkcyBzdXBwb3J0IGZvciB0aGUgU3Nxb3NpZCBJ
-U0EgZXh0ZW5zaW9uIChTdXBlcnZpc29yLW1vZGUKKwkgIFF1YWxpdHkgb2YgU2VydmljZSBJRCku
-CisKKwkgIFNzcW9zaWQgZGVmaW5lcyB0aGUgc3JtY2ZnIENTUiB3aGljaCBhbGxvd3MgdGhlIHN5
-c3RlbSB0byB0YWcgdGhlCisJICBydW5uaW5nIHByb2Nlc3Mgd2l0aCBhbiBSQ0lEIChSZXNvdXJj
-ZSBDb250cm9sIElEKSBhbmQgTUNJRAorCSAgKE1vbml0b3JpbmcgQ291bnRlciBJRCkuIFRoZSBS
-Q0lEIGlzIHVzZWQgdG8gZGV0ZXJtaW5lIHJlc291cmNlCisJICBhbGxvY2F0aW9uLiBUaGUgTUNJ
-RCBpcyB1c2VkIHRvIHRyYWNrIHJlc291cmNlIHVzYWdlIGluIGV2ZW50CisJICBjb3VudGVycy4K
-KworCSAgRm9yIGV4YW1wbGUsIGEgY2FjaGUgY29udHJvbGxlciBtYXkgdXNlIHRoZSBSQ0lEIHRv
-IGFwcGx5IGEKKwkgIGNhY2hlIHBhcnRpdGlvbmluZyBzY2hlbWUgYW5kIHVzZSB0aGUgTUNJRCB0
-byB0cmFjayBob3cgbXVjaAorCSAgY2FjaGUgYSBwcm9jZXNzLCBvciBhIGdyb3VwIG9mIHByb2Nl
-c3NlcywgaXMgdXNpbmcuCisKIGNvbmZpZyBSSVNDVl9JU0FfU1ZQQk1UCiAJYm9vbCAiU3ZwYm10
-IGV4dGVuc2lvbiBzdXBwb3J0IGZvciBzdXBlcnZpc29yIG1vZGUgcGFnZS1iYXNlZCBtZW1vcnkg
-dHlwZXMiCiAJZGVwZW5kcyBvbiA2NEJJVCAmJiBNTVUKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vY3NyLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCmluZGV4IDMx
-Yjg5ODhmNDQ4OC4uN2JjZTkyOGU1ZGFhIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL2Nzci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKQEAgLTg0LDYgKzg0
-LDEwIEBACiAjZGVmaW5lIFNBVFBfQVNJRF9NQVNLCV9BQygweEZGRkYsIFVMKQogI2VuZGlmCiAK
-Ky8qIFNSTUNGRyBmaWVsZHMgKi8KKyNkZWZpbmUgU1JNQ0ZHX1JDSURfTUFTSwlHRU5NQVNLKDEx
-LCAwKQorI2RlZmluZSBTUk1DRkdfTUNJRF9NQVNLCUdFTk1BU0soMjcsIDE2KQorCiAvKiBFeGNl
-cHRpb24gY2F1c2UgaGlnaCBiaXQgLSBpcyBhbiBpbnRlcnJ1cHQgaWYgc2V0ICovCiAjZGVmaW5l
-IENBVVNFX0lSUV9GTEFHCQkoX0FDKDEsIFVMKSA8PCAoX19yaXNjdl94bGVuIC0gMSkpCiAKQEAg
-LTMyOCw2ICszMzIsNyBAQAogI2RlZmluZSBDU1JfU1RWQUwJCTB4MTQzCiAjZGVmaW5lIENTUl9T
-SVAJCQkweDE0NAogI2RlZmluZSBDU1JfU0FUUAkJMHgxODAKKyNkZWZpbmUgQ1NSX1NSTUNGRwkJ
-MHgxODEKIAogI2RlZmluZSBDU1JfU1RJTUVDTVAJCTB4MTRECiAjZGVmaW5lIENTUl9TVElNRUNN
-UEgJCTB4MTVECmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5o
-IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAppbmRleCA4MTI1MTdiMmNlYzEu
-LjQ5YTM4NmQ3NGNkMyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNz
-b3IuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCkBAIC0xMjMsNiAr
-MTIzLDkgQEAgc3RydWN0IHRocmVhZF9zdHJ1Y3QgewogCS8qIEEgZm9yY2VkIGljYWNoZSBmbHVz
-aCBpcyBub3QgbmVlZGVkIGlmIG1pZ3JhdGluZyB0byB0aGUgcHJldmlvdXMgY3B1LiAqLwogCXVu
-c2lnbmVkIGludCBwcmV2X2NwdTsKICNlbmRpZgorI2lmZGVmIENPTkZJR19SSVNDVl9JU0FfU1NR
-T1NJRAorCXUzMiBzcm1jZmc7CisjZW5kaWYKIH07CiAKIC8qIFdoaXRlbGlzdCB0aGUgZnN0YXRl
-IGZyb20gdGhlIHRhc2tfc3RydWN0IGZvciBoYXJkZW5lZCB1c2VyY29weSAqLwpkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9xb3MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cW9zLmgKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwLi42OTg4ZmUzNzU1
-MWUKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oCkBAIC0w
-LDAgKzEsNjQgQEAKKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wICovCisjaWZu
-ZGVmIF9BU01fUklTQ1ZfUU9TX0gKKyNkZWZpbmUgX0FTTV9SSVNDVl9RT1NfSAorCisjaW5jbHVk
-ZSA8bGludXgvcGVyY3B1LWRlZnMuaD4KKworI2lmZGVmIENPTkZJR19SSVNDVl9JU0FfU1NRT1NJ
-RAorCisjaW5jbHVkZSA8bGludXgvY3B1ZmVhdHVyZS5oPgorI2luY2x1ZGUgPGxpbnV4L3NjaGVk
-Lmg+CisKKyNpbmNsdWRlIDxhc20vY3NyLmg+CisjaW5jbHVkZSA8YXNtL2ZlbmNlLmg+CisjaW5j
-bHVkZSA8YXNtL2h3Y2FwLmg+CisKKy8qIGNhY2hlZCB2YWx1ZSBvZiBzcm1jZmcgY3NyIGZvciBl
-YWNoIGNwdSAqLworREVDTEFSRV9QRVJfQ1BVKHUzMiwgY3B1X3NybWNmZyk7CisKKy8qIGRlZmF1
-bHQgc3JtY2ZnIHZhbHVlIGZvciBlYWNoIGNwdSwgc2V0IHZpYSByZXNjdHJsIGNwdSBhc3NpZ25t
-ZW50ICovCitERUNMQVJFX1BFUl9DUFUodTMyLCBjcHVfc3JtY2ZnX2RlZmF1bHQpOworCitzdGF0
-aWMgaW5saW5lIHZvaWQgX19zd2l0Y2hfdG9fc3JtY2ZnKHN0cnVjdCB0YXNrX3N0cnVjdCAqbmV4
-dCkKK3sKKwl1MzIgdGhyZWFkX3NybWNmZzsKKworCXRocmVhZF9zcm1jZmcgPSBSRUFEX09OQ0Uo
-bmV4dC0+dGhyZWFkLnNybWNmZyk7CisKKwkvKiBEZWZhdWx0LWdyb3VwIHRhc2tzICh0aHJlYWQu
-c3JtY2ZnID09IDApIGZvbGxvdyB0aGlzIENQVSdzIGRlZmF1bHQuICovCisJaWYgKHRocmVhZF9z
-cm1jZmcgPT0gMCkKKwkJdGhyZWFkX3NybWNmZyA9IF9fdGhpc19jcHVfcmVhZChjcHVfc3JtY2Zn
-X2RlZmF1bHQpOworCisJaWYgKHRocmVhZF9zcm1jZmcgIT0gX190aGlzX2NwdV9yZWFkKGNwdV9z
-cm1jZmcpKSB7CisJCS8qCisJCSAqIERyYWluIHN0b3JlcyBmcm9tIHRoZSBvdXRnb2luZyB0YXNr
-IGJlZm9yZSB0aGUgQ1NSIHdyaXRlCisJCSAqIHNvIHRoZXkgcmV0YWluIHRoZSBwcmV2aW91cyBS
-Q0lEL01DSUQgdGFnIGF0IHRoZSBjYWNoZQorCQkgKiBpbnRlcmNvbm5lY3QuCisJCSAqLworCQlS
-SVNDVl9GRU5DRShydywgbyk7CisKKwkJX190aGlzX2NwdV93cml0ZShjcHVfc3JtY2ZnLCB0aHJl
-YWRfc3JtY2ZnKTsKKwkJY3NyX3dyaXRlKENTUl9TUk1DRkcsIHRocmVhZF9zcm1jZmcpOworCQkv
-KgorCQkgKiBPcmRlciB0aGUgY3NydyBiZWZvcmUgdGhlIG5ldyB0YXNrJ3MgbG9hZHMvc3RvcmVz
-IHNvIHRoZXkKKwkJICogcGljayB1cCB0aGUgbmV3IHRhZy4gWmljc3IgNi4xLjEgbWFrZXMgQ1NS
-IHdyaXRlcyB3ZWFrbHkKKwkJICogb3JkZXJlZCAoZGV2aWNlLW91dHB1dCkgdnMgbWVtb3J5IG9w
-cy4gU3Nxb3NpZCB2MS4wIGlzCisJCSAqIHNpbGVudCBzbyBob25vciB0aGUgZ2VuZXJhbCBDU1Ig
-cnVsZS4KKwkJICovCisJCVJJU0NWX0ZFTkNFKG8sIHJ3KTsKKwl9Cit9CisKK3N0YXRpYyBfX2Fs
-d2F5c19pbmxpbmUgYm9vbCBoYXNfc3JtY2ZnKHZvaWQpCit7CisJcmV0dXJuIHJpc2N2X2hhc19l
-eHRlbnNpb25fdW5saWtlbHkoUklTQ1ZfSVNBX0VYVF9TU1FPU0lEKTsKK30KKworI2Vsc2UgLyog
-ISBDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQgICovCisKK3N0cnVjdCB0YXNrX3N0cnVjdDsKK3N0
-YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCBoYXNfc3JtY2ZnKHZvaWQpIHsgcmV0dXJuIGZhbHNl
-OyB9CitzdGF0aWMgaW5saW5lIHZvaWQgX19zd2l0Y2hfdG9fc3JtY2ZnKHN0cnVjdCB0YXNrX3N0
-cnVjdCAqbmV4dCkgeyB9CisKKyNlbmRpZiAvKiBDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQgKi8K
-KyNlbmRpZiAvKiBfQVNNX1JJU0NWX1FPU19IICovCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL3N3aXRjaF90by5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8u
-aAppbmRleCAwZTcxZWI4MmY5MjAuLjFjN2VhNTNlYzAxMiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3
-aXRjaF90by5oCkBAIC0xNCw2ICsxNCw3IEBACiAjaW5jbHVkZSA8YXNtL3Byb2Nlc3Nvci5oPgog
-I2luY2x1ZGUgPGFzbS9wdHJhY2UuaD4KICNpbmNsdWRlIDxhc20vY3NyLmg+CisjaW5jbHVkZSA8
-YXNtL3Fvcy5oPgogCiAjaWZkZWYgQ09ORklHX0ZQVQogZXh0ZXJuIHZvaWQgX19mc3RhdGVfc2F2
-ZShzdHJ1Y3QgdGFza19zdHJ1Y3QgKnNhdmVfdG8pOwpAQCAtMTE5LDYgKzEyMCw4IEBAIGRvIHsJ
-CQkJCQkJXAogCQlfX3N3aXRjaF90b19mcHUoX19wcmV2LCBfX25leHQpOwlcCiAJaWYgKGhhc192
-ZWN0b3IoKSB8fCBoYXNfeHRoZWFkdmVjdG9yKCkpCQlcCiAJCV9fc3dpdGNoX3RvX3ZlY3Rvcihf
-X3ByZXYsIF9fbmV4dCk7CVwKKwlpZiAoaGFzX3NybWNmZygpKQkJCQlcCisJCV9fc3dpdGNoX3Rv
-X3NybWNmZyhfX25leHQpOwkJXAogCWlmIChzd2l0Y2hfdG9fc2hvdWxkX2ZsdXNoX2ljYWNoZShf
-X25leHQpKQlcCiAJCWxvY2FsX2ZsdXNoX2ljYWNoZV9hbGwoKTsJCVwKIAlfX3N3aXRjaF90b19l
-bnZjZmcoX19uZXh0KTsJCQlcCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmls
-ZSBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCmluZGV4IGNhYmI5OWNhZGZiNi4uZWJlMWMz
-NTg4MTc3IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQorKysgYi9hcmNo
-L3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQpAQCAtMTI4LDMgKzEyOCw1IEBAIG9iai0kKENPTkZJR19B
-Q1BJX05VTUEpCSs9IGFjcGlfbnVtYS5vCiAKIG9iai0kKENPTkZJR19HRU5FUklDX0NQVV9WVUxO
-RVJBQklMSVRJRVMpICs9IGJ1Z3Mubwogb2JqLSQoQ09ORklHX1JJU0NWX1VTRVJfQ0ZJKSArPSB1
-c2VyY2ZpLm8KKworb2JqLSQoQ09ORklHX1JJU0NWX0lTQV9TU1FPU0lEKSArPSBxb3MubwpkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcW9zLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9xb3Mu
-YwpuZXcgZmlsZSBtb2RlIDEwMDY0NAppbmRleCAwMDAwMDAwMDAwMDAuLjc1YmRhMmVkODllMQot
-LS0gL2Rldi9udWxsCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Fvcy5jCkBAIC0wLDAgKzEsNDkg
-QEAKKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkKKyNpbmNsdWRlIDxs
-aW51eC9jcHUuaD4KKyNpbmNsdWRlIDxsaW51eC9jcHVob3RwbHVnLmg+CisjaW5jbHVkZSA8bGlu
-dXgvcGVyY3B1LWRlZnMuaD4KKyNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgorCisjaW5jbHVkZSA8
-YXNtL2NwdWZlYXR1cmUtbWFjcm9zLmg+CisjaW5jbHVkZSA8YXNtL2h3Y2FwLmg+CisjaW5jbHVk
-ZSA8YXNtL3Fvcy5oPgorCisvKiBjYWNoZWQgdmFsdWUgb2Ygc3JtY2ZnIGNzciBmb3IgZWFjaCBj
-cHUgKi8KK0RFRklORV9QRVJfQ1BVKHUzMiwgY3B1X3NybWNmZyk7CisKKy8qIGRlZmF1bHQgc3Jt
-Y2ZnIHZhbHVlIGZvciBlYWNoIGNwdSwgc2V0IHZpYSByZXNjdHJsIGNwdSBhc3NpZ25tZW50ICov
-CitERUZJTkVfUEVSX0NQVSh1MzIsIGNwdV9zcm1jZmdfZGVmYXVsdCk7CisKKy8qCisgKiBTZWVk
-IHRoZSBwZXItQ1BVIHNybWNmZyBjYWNoZSB0byBhIHNlbnRpbmVsIHRoYXQgbm8gcmVhbCBzcm1j
-ZmcgZW5jb2RpbmcKKyAqIGNhbiBwcm9kdWNlIChNQ0lEIDw8IDE2IHwgUkNJRCwgYm90aCBmaWVs
-ZHMgd2VsbCB1bmRlciAxNiBiaXRzKSBzbyB0aGUKKyAqIG5leHQgX19zd2l0Y2hfdG9fc3JtY2Zn
-KCkgdW5jb25kaXRpb25hbGx5IHdyaXRlcyB0aGUgQ1NSLiBTc3Fvc2lkIHYxLjAKKyAqIGxlYXZl
-cyBDU1Igc3RhdGUgYWNyb3NzIGhhcnQgc3RvcC9zdGFydCBpbXBsZW1lbnRhdGlvbi1kZWZpbmVk
-LCBzbyB0aGUKKyAqIGNhY2hlZCB2YWx1ZSBjYW5ub3QgYmUgdHJ1c3RlZCBhZnRlciBvbmxpbmUu
-CisgKi8KK3N0YXRpYyBpbnQgcmlzY3Zfc3JtY2ZnX29ubGluZSh1bnNpZ25lZCBpbnQgY3B1KQor
-eworCXBlcl9jcHUoY3B1X3NybWNmZywgY3B1KSA9IFUzMl9NQVg7CisJcmV0dXJuIDA7Cit9CisK
-K3N0YXRpYyBpbnQgX19pbml0IHJpc2N2X3NybWNmZ19pbml0KHZvaWQpCit7CisJdW5zaWduZWQg
-aW50IGNwdTsKKwlpbnQgZXJyOworCisJaWYgKCFyaXNjdl9oYXNfZXh0ZW5zaW9uX3VubGlrZWx5
-KFJJU0NWX0lTQV9FWFRfU1NRT1NJRCkpCisJCXJldHVybiAwOworCisJLyogU2VlZCBhbHJlYWR5
-LW9ubGluZSBDUFVzLiBUaGUgY3B1aHAgY2FsbGJhY2sgY292ZXJzIGxhdGVyIG9ubGluZXMuICov
-CisJZm9yX2VhY2hfb25saW5lX2NwdShjcHUpCisJCXBlcl9jcHUoY3B1X3NybWNmZywgY3B1KSA9
-IFUzMl9NQVg7CisKKwllcnIgPSBjcHVocF9zZXR1cF9zdGF0ZShDUFVIUF9BUF9PTkxJTkVfRFlO
-LCAicmlzY3Yvc3JtY2ZnOm9ubGluZSIsCisJCQkJcmlzY3Zfc3JtY2ZnX29ubGluZSwgTlVMTCk7
-CisJaWYgKGVyciA8IDApCisJCXByX3dhcm4oInNybWNmZyBjcHVocCByZWdpc3RyYXRpb24gZmFp
-bGVkICglZCksIGNwdXMgYnJvdWdodCBvbmxpbmUgYWZ0ZXIgYm9vdCB3aWxsIG5vdCBpbnZhbGlk
-YXRlIHRoZSBDU1JfU1JNQ0ZHIGNhY2hlXG4iLAorCQkJZXJyKTsKKwlyZXR1cm4gZXJyOworfQor
-YXJjaF9pbml0Y2FsbChyaXNjdl9zcm1jZmdfaW5pdCk7CgotLSAKMi40My4wCgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This RFC series adds RISC-V QoS support: the Ssqosid extension [1]
+(srmcfg CSR), the CBQRI controller interface [2] integrated with
+resctrl [3], and ACPI RQSC [4] for controller discovery. DT support
+is possible but no platform drivers are included. The series is
+also available as a branch [5].
+
+QEMU support for Ssqosid and CBQRI lives in [6], with ACPI RQSC as
+a follow-on series [7]. There is also a combined branch [8].
+
+Series organization
+-------------------
+01      DT binding for Ssqosid extension
+02-03   Ssqosid ISA support (detection, srmcfg CSR, switch_to)
+04-06   fs/resctrl helpers and resource type additions
+07-10   CBQRI device ops (cbqri_devices.c): capacity probe +
+        allocation, capacity monitoring, bandwidth probe +
+        allocation, bandwidth monitoring
+11-15   CBQRI resctrl integration (cbqri_resctrl.c): cache
+        allocation, L3 cache occupancy monitoring, MB_MIN
+        bandwidth allocation, MB_WGHT bandwidth allocation,
+        mbm_total_bytes monitoring
+16-17   ACPI RQSC parser and init
+18      Enable resctrl filesystem for Ssqosid (Kconfig)
+
+Refer to the v3 cover letter [9] for the test setup including the
+reference SoC layout and the corresponding QEMU command line.
+
+[1] https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+[2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+[3] https://docs.kernel.org/filesystems/resctrl.html
+[4] https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
+[5] https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=b4/ssqosid-cbqri-rqsc
+[6] https://lore.kernel.org/qemu-devel/20260105-riscv-ssqosid-cbqri-v4-0-9ad7671dde78@kernel.org/
+[7] https://lore.kernel.org/qemu-devel/20260202-riscv-rqsc-v1-0-dcf448a3ed73@kernel.org/
+[8] https://github.com/tt-fustini/qemu/tree/b4/riscv-rqsc
+[9] https://lore.kernel.org/r/20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org
+
+Key design decisions
+--------------------
+- Create new resource types as RDT_RESOURCE_MBA cannot represent the
+  semantics of the CBQRI bandwidth controllers:
+
+  - RDT_RESOURCE_MB_MIN matches CBQRI Rbwb (reserved bandwidth
+    blocks). The sum of Rbwb across all control groups must be
+    <= MRBWB (maximum number of reserved bandwidth blocks).
+
+  - RDT_RESOURCE_MB_WGHT matches CBQRI Mweight, the weighted shared of
+    the remaining bandwidth blocks. Values are in [0, 255]: 0 disables
+    work-conserving sharing for the group, 1..255 compete for the
+    leftover pool.
+
+- mbm_total_bytes is supported but only on platforms that expose one
+  mon-capable bandwidth controller. That single BC pairs with every L3
+  monitoring domain on the assumption that all memory traffic flows
+  through it.
+
+Open issues
+-----------
+ - RDT_RESOURCE_MB_MIN and RDT_RESOURCE_MB_WGHT are intended to drive
+   discussion, not as the final solution. I plan to rebase onto
+   Reinette's proof of concept once it is posted.
+
+ - resctrl monitoring scope limitations:
+   - monitor-only L3 capacity controllers are not supported.
+   - CBQRI capacity controllers can monitor any cache level, but resctrl
+     only supports occupancy on L3.
+   - resctrl needs to gain a non-CPU scope level in order for
+     mbm_total_bytes to be supported on platforms with multiple
+     bandwidth controllers.
+
+ - cc_cunits is not supported. cc_block_mask maps well onto resctrl's
+   existing CBM schema, but there is no existing equivalent for
+   capacity units.
+
+ - RQSC structs live in drivers/acpi/riscv/rqsc.h until the spec is
+   ratified and the ACPICA upstream submission lands. They will then move
+   to include/acpi/actbl2.h. The spec is in the final phase
+   before ratification.
+
+Changes in v4:
+--------------
+resctrl:
+ - Add RDT_RESOURCE_MB_MIN and RDT_RESOURCE_MB_WGHT
+ - Add default_to_min to resctrl_membw so MB_MIN defaults to min_bw
+ - Add L3 cache occupancy monitoring for L3-scoped capacity controllers
+ - Add mbm_total_bytes bandwidth monitoring when there is a single
+   bandwidth controller
+ - Move domain creation into cpuhp callbacks so that cpu_mask reflects
+   only online CPUs
+ - resctrl_arch_reset_rmid() returns early when called with IRQs
+   disabled.
+
+CBQRI:
+ - Replace per-controller spinlock with mutex. Each CBQRI op is a
+   write-then-poll-busy cycle of up to 1 ms. A sleeping mutex paired
+   with readq_poll_timeout() keeps preemption enabled across the
+   busy-wait. All resctrl-arch entry points run in process context.
+ - Replace struct cbqri_config with direct params in helper functions.
+ - max_rmid = min(max_rmid, ctrl->mcid_count) now gated on
+   ctrl->mon_capable.
+ - Validate that the sum of Rbwb does not exceed MRBWB.
+ - Move CDP enable state from file-scope globals to per-resource
+   cdp_enabled / cdp_capable.
+ - Configure both AT_CODE and AT_DATA limits when CDP is supported but
+   not enabled.
+
+Ssqosid:
+ - __switch_to_srmcfg() emits RISCV_FENCE(rw, o) before and (o, rw)
+   after csrw to drain old-task stores and order new-task loads.
+ - Invalidate per-cpu cpu_srmcfg on hart online via CPUHP_AP_ONLINE_DYN.
+   Also seed already-online CPUs synchronously at init.
+
+ACPI:
+ - Drop the PPTT helper patch and resolve cache_size via cacheinfo at
+   cbqri_resctrl_setup() time.
+ - ACPI driver now calls riscv_cbqri_register_controller() and the
+   cbqri_controller internals stay in cbqri_internal.h.
+
+Refer to v3 for previous change logs:
+https://lore.kernel.org/r/20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org
+
+---
+Drew Fustini (18):
+      dt-bindings: riscv: Add Ssqosid extension description
+      riscv: detect the Ssqosid extension
+      riscv: add support for srmcfg CSR from Ssqosid extension
+      fs/resctrl: Add resctrl_is_membw() helper
+      fs/resctrl: Add RDT_RESOURCE_MB_MIN and RDT_RESOURCE_MB_WGHT
+      fs/resctrl: Let bandwidth resources default to min_bw at reset
+      riscv_cbqri: Add capacity controller probe and allocation device ops
+      riscv_cbqri: Add capacity controller monitoring device ops
+      riscv_cbqri: Add bandwidth controller probe and allocation device ops
+      riscv_cbqri: Add bandwidth controller monitoring device ops
+      riscv_cbqri: resctrl: Add cache allocation via capacity block mask
+      riscv_cbqri: resctrl: Add L3 cache occupancy monitoring
+      riscv_cbqri: resctrl: Add MB_MIN bandwidth allocation via Rbwb
+      riscv_cbqri: resctrl: Add MB_WGHT bandwidth allocation via Mweight
+      riscv_cbqri: resctrl: Add mbm_total_bytes bandwidth monitoring
+      ACPI: RISC-V: Parse RISC-V Quality of Service Controller (RQSC) table
+      ACPI: RISC-V: Add support for RISC-V Quality of Service Controller (RQSC)
+      riscv: enable resctrl filesystem for Ssqosid
+
+ .../devicetree/bindings/riscv/extensions.yaml      |    6 +
+ MAINTAINERS                                        |   15 +
+ arch/riscv/Kconfig                                 |   20 +
+ arch/riscv/include/asm/acpi.h                      |   10 +
+ arch/riscv/include/asm/csr.h                       |    5 +
+ arch/riscv/include/asm/hwcap.h                     |    1 +
+ arch/riscv/include/asm/processor.h                 |    3 +
+ arch/riscv/include/asm/qos.h                       |   64 +
+ arch/riscv/include/asm/resctrl.h                   |  152 +++
+ arch/riscv/include/asm/switch_to.h                 |    3 +
+ arch/riscv/kernel/Makefile                         |    2 +
+ arch/riscv/kernel/cpufeature.c                     |    1 +
+ arch/riscv/kernel/qos.c                            |   49 +
+ drivers/acpi/riscv/Makefile                        |    1 +
+ drivers/acpi/riscv/init.c                          |   21 +
+ drivers/acpi/riscv/rqsc.c                          |  147 +++
+ drivers/acpi/riscv/rqsc.h                          |   52 +
+ drivers/resctrl/Kconfig                            |   33 +
+ drivers/resctrl/Makefile                           |    6 +
+ drivers/resctrl/cbqri_devices.c                    | 1016 ++++++++++++++
+ drivers/resctrl/cbqri_internal.h                   |  240 ++++
+ drivers/resctrl/cbqri_resctrl.c                    | 1388 ++++++++++++++++++++
+ fs/resctrl/ctrlmondata.c                           |    3 +-
+ fs/resctrl/internal.h                              |    2 +
+ fs/resctrl/rdtgroup.c                              |   16 +-
+ include/linux/resctrl.h                            |   13 +-
+ include/linux/riscv_cbqri.h                        |   66 +
+ 27 files changed, 3326 insertions(+), 9 deletions(-)
+---
+base-commit: ef5f46b630235b75beec43174348c3d01d6fc49a
+change-id: 20260329-ssqosid-cbqri-rqsc-v7-0-b0c788bab48a
+
+Best regards,
+--  
+Drew Fustini <fustini@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
