@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16026CD37AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 04:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E83FCD37B7
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 04:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=As8ihHlZ4E/Z6tcH5y8/jGUECFKULVLs4icgZScY3Jc=; b=pwyq+38SIKw/sY
-	I6tICDFg5SJ1Q2dztO5B/IUbDMWRdG61JXCn4f/w7eA2cDlzy2KkqG6E8fOauvD0DFs/+1a8jp1Bp
-	BqeA+XJUmv9UEwma+NERhpTg4zq6XAk+jj1ocUE/8E+V3cPUNdV7TKNbwOEXAHnJLCfq8prbHpNdi
-	H+foN6JvYFReECqWHzu3Qcq2M25W73PNMO6mD/O7n7ucaZnGvOJlMaizBsvQIx5rUETBWZubrbpJV
-	bfGPAe+xNOdLBjaY3+L3uo9H3LSpEvpkHSs85dMSBCF8nTTQowHJ5fzAIoAKLvJ3oEL0RvSaTFOgh
-	CmUPCQEn3bnty0vH7oBw==;
+	List-Owner; bh=4j/HReEzEYh30NEQaozn7eo8zUGJz900am3S/34F890=; b=dLRRtQr2+j4FUJ
+	n4f7FX49fwkVOOCmWgCdyHa+bHNaB2ipjRRRArfQwWO8Hj0LFF3nnUe/vhzrOLSY0f8gM7Fop0++X
+	Yj801mywGej22szqSzNr3EqCD+bztuHXyDXYaS7UtVKiolrPmrEsqUu5eZqu2e8DKcZA0wXMrmPMH
+	BhvgzEG2MMfy6JEMUg/a1fs3Q7YtFY4qzVZk8gAqopQiEMh+4AT5YoYtOp4vBDxT6QOZmp/ll6oEn
+	KBLuRdl7FsPK0kera/G1vtqoS4T9RCP8AA9Hw/AMjjaIkepH3YvWytxsLqrkLVV8ljlvxp6YUlSS0
+	pKNZLm5A46yyIQGcmCig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIau-0000000CIYU-0ss9;
-	Mon, 11 May 2026 04:50:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMIbI-0000000CIcq-2Ppc;
+	Mon, 11 May 2026 04:50:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIas-0000000CIYJ-28tL
+	id 1wMIbG-0000000CIbn-34N1
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 04:50:14 +0000
+	Mon, 11 May 2026 04:50:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CE31600C3;
-	Mon, 11 May 2026 04:50:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65EA0C2BCB0;
-	Mon, 11 May 2026 04:50:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 08CF643759;
+	Mon, 11 May 2026 04:50:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B63B8C2BCB0;
+	Mon, 11 May 2026 04:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778475013;
-	bh=GnoZ5DrKFM2dwnC3dtM4eqBnszt3yJf8/fmsVTycPc4=;
+	s=k20201202; t=1778475037;
+	bh=iXnH4xL/sNUx84mYT62A403ppNgf+sxnvjWMK1wR7VI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=r9pbg98yWfAANY7vagM2dyoIedkjt3ZJqdb7g+oG4E6IvDYFsOZR2lxIZpz7ELFpU
-	 hGur6lEl01QV8lKAusduQumqUY5iM/uhxZrF+dLMxt2N0yVtVhhzbVvBuxz3RnHYDe
-	 y+EwknnyrrN6ZeI2AAXfRN9WsWkMqFhKXzZ55+QH9OFhsJMvLnZfkoAeie9Cxl6cSj
-	 XL1M/Lmuu2AGw1BB52wOSDDuJDceO0iI7QX+9gF2JovvVD/gZRKt6kYd/fEQSV+I+j
-	 7d+jgfVqWiNr94mbE/fIQNdjU3ro/1yZW3YyZtHZeNKH8wZWj1fX/GhtMN/VFP1Oib
-	 9QXwpaw+iHnHg==
+	b=L4Z6LaDlRw5xH+3w+HR5VRFc5AbhxsdAuBVB/n6zwvj96hIRrR37T3CkCzjqcTl96
+	 s1/i0UK36KRKl+g0shnHIhANpLHdo+MjZ+C3tpY88ehhzj8YH4K3w1ggboINVQ5lLu
+	 T4IYkmflVRUkhGX8NvhsiyHAlW/H/CY/akQSPj0e41O/IPIRxWXQrcY0u/wHFarV39
+	 z536uO0bxtW7u59fgNkX93V3yW6YHZbIvfAl5rAYJvljJjWfm2AKU71/WSXth/aAa5
+	 Kuz9MVifKUoF6MlH8Gse3I0QAqsn4evGIDJOcXuWi0MfcAvyRW4gK4VXipYUL918Kf
+	 1ZbGkxs+gL+bg==
 From: Yixun Lan <dlan@kernel.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yixun Lan <dlan@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Alex Elder <elder@riscstar.com>,
-	Haylen Chu <heylenay@4d2.org>,
-	Yixun Lan <dlan@kernel.org>
-Cc: devicetree@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dts: riscv: spacemit: correct 32k clock frequency
-Date: Mon, 11 May 2026 04:50:04 +0000
-Message-ID: <177847498895.951618.10632308286447634075.b4-ty@b4>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/1] riscv: dts: spacemit: enable eMMC for OrangePi RV2
+Date: Mon, 11 May 2026 04:50:30 +0000
+Message-ID: <177847502723.951835.14416544463790637222.b4-ty@b4>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260428-06-k3-clk-osc32k-v1-1-e2378da7cb9b@kernel.org>
-References: <20260428-06-k3-clk-osc32k-v1-1-e2378da7cb9b@kernel.org>
+In-Reply-To: <20260509100000.3315109-1-amadeus@jmu.edu.cn>
+References: <20260509100000.3315109-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260510_215038_791144_D5F5A7BE 
+X-CRM114-Status: UNSURE (   5.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,13 +84,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 28 Apr 2026 10:57:29 +0000, Yixun Lan wrote:
-> The 32k oscillator's clock frequency is actually 32768Hz, so correct it.
+On Sat, 09 May 2026 18:00:00 +0800, Chukun Pan wrote:
+> The OrangePi RV2 board has one eMMC slot, so enable eMMC.
+> Tested using a 16 GiB AJTD4R eMMC module.
 
 Applied, thanks!
 
-[1/1] dts: riscv: spacemit: correct 32k clock frequency
-      https://github.com/spacemit-com/linux/commit/3c350f6284d8ea5e7a9648241b2e9604f2262d42
+[1/1] riscv: dts: spacemit: enable eMMC for OrangePi RV2
+      https://github.com/spacemit-com/linux/commit/f068b204555ad62d6a841a49feb4ea8c4f45b25c
 
 Best regards,
 -- 
