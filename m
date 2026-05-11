@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2460ECD37AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 07:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB55CD37B5
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 07:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YnGOFeRlbDMPUlrLkr1+sKL0PwRoVADe/gbXhGU31is=; b=WF1WGthEpKRKMi
-	FLR/6k+Yf0io1EoPkd605pBYeV5tlq2V6U2n3oE8lKAANb2JsBVcCIpPtSFkCYrAx6UZ7bx/NtHkb
-	qHBwDKDpehuT8t1X9WdbSrE0qwJFHzyuyvMFI8NsIotZpU/3bxbUfWSVT6YfQYSmjnUXzTCbpA5kX
-	KMnyTBWp+PDEykn/wOzB3yabZPmvejQi7tnrm6M6+hoDrbGRSNFnXzmMnIPevVCIoqBGQxyw2uhxD
-	yPaMmCNY0LhLtRTZBinlvgovpxbijSORqnGJUNghrPCqmmvbtWocIb0YwKTBi3ckW1WU77n23I65h
-	8qwl/P2ZFV+RutkpYWoQ==;
+	List-Owner; bh=CfRXs9KXnORX6VI9HmspUYPzwoGx8yfVl+tOcEwqXGc=; b=MK+Ha+9PWntLQc
+	ZihkKx10xSe/+kldOLoyezw2RjTlJUjRreuqQwgzCz7H7oD1ltfLvB3T8HoO8De5hhFAn3KlxUKXj
+	e51pm+bd3zMSLzwQqEFcNgnNhnlfx0lAzS77nkMXKVojrZw8EKkDtQlF2upH8rYHVhnTxZba+4oXE
+	0VNIcymbBZqk+f+0ISDqVpMrqXa0J3XKxWX5ryDRyD2Cp4K07YJGFuUPp6Gkg2yJln7Z4ytvT1Ljj
+	5mm1LZgAB1WqEZ4JwRRDBSZbOIsPPllN8p9feCXuwWdc92z0Ya5ebR1GNoyYlEbYpUmEYbjPpv4H4
+	P1vh0Dm2+XOR9hLyPUdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMKjc-0000000CYmd-0ghc;
-	Mon, 11 May 2026 07:07:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMKjY-0000000CYm1-3ueO
-	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 07:07:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A4ED043CCC;
-	Mon, 11 May 2026 07:07:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED65FC2BCB0;
-	Mon, 11 May 2026 07:07:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778483240;
-	bh=2gFiDL3VupG/8sWVskWAbPqYRsDXt3LLxEZvkrAN/K8=;
+	id 1wMLVI-0000000CfpC-1gFF;
+	Mon, 11 May 2026 07:56:40 +0000
+Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMLVE-0000000CfnR-3WiR;
+	Mon, 11 May 2026 07:56:38 +0000
+Received: from 8bytes.org (p200300f6af1d9600f5faa5cebd6c042e.dip0.t-ipconnect.de [IPv6:2003:f6:af1d:9600:f5fa:a5ce:bd6c:42e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 41ECA1C3E81;
+	Mon, 11 May 2026 09:56:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1778486191;
+	bh=kdL4PNsOX6mz5DbR4xt+4lvMH7nnV1ort4ldJMlDfJI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RdkRcEWedDRQSgz6SUsTh/+VkrY82V+Dd235f7fSmEG2+M/ZH3uR+f0V3ugAuEG/6
-	 ATPeKGCRLMVI/HpfkhJ6qzcd+kkPaG9KGcqiwupTsOJ4eOqXfePCZRRCJzx35UZZ/S
-	 XxXn8REH+RZtVQLIdYQ6kAaymWTHe8DubBt9rsZFycpxvwkFu5b3kTQurgDyKr8FBT
-	 oQTrUO176f2wReYo7YK8u+w39t7riZkArkYDO3QvPUms+V9KdPf+3lpqB0mkylwi3q
-	 rcmxxG+sL7TZu3ZcqcsCkOtjo3DY2qjf0ZSrRC6q52yfZxJ5qHmlgcf9odJxu64Qo1
-	 nr50UZVE5ek9A==
-Date: Mon, 11 May 2026 07:07:18 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v3 1/2] riscv: dts: spacemit: add fixed regulators for
- OrangePi R2S
-Message-ID: <20260511070718-GKC3624147@kernel.org>
-References: <20260410100010.1197804-1-amadeus@jmu.edu.cn>
- <20260410100010.1197804-2-amadeus@jmu.edu.cn>
+	b=oQD9nSEqlCi3VNSUVxTGVmL7V2OTyE9VZOFViIb3A7DckknaIDAsckH/K0/XoTCMk
+	 nPEoyVckdez7Da2ub6bIAM6p8oHDfQQfIaIPIJkM+YyIVCQIc2c3T2V0V8yG1x9uNv
+	 kRAItTkUYpCGOMVBK9LNCCjGDKYiqctK70HvcY/l4G4L4HxmjXyw6h65ySXYTGaL8X
+	 mV2UTOgO90Oj7Magxx4CvP8VGRTy3WSkRjS+u/7ZDjuq0OVLcjcn6QM0LndtY9hLUU
+	 BS+SyLs9bWYQ8s0NDyZjBBg+/9xwPdOYLNRNremZ9ovcugTIlQEPF66PWpOOmzHmv3
+	 VzkCZs9RFLcQA==
+Date: Mon, 11 May 2026 09:56:30 +0200
+From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
+To: fangyu.yu@linux.alibaba.com
+Cc: will@kernel.org, robin.murphy@arm.com, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, tjeznach@rivosinc.com, 
+	jgg@ziepe.ca, kevin.tian@intel.com, baolu.lu@linux.intel.com, 
+	vasant.hegde@amd.com, anup@brainfault.org, nutty.liu@hotmail.com, jgg@nvidia.com, 
+	guoren@kernel.org, iommu@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] iommu/riscv: Support Svpbmt memory types in
+ generic_pt
+Message-ID: <unecry3tpor6u2dnitimpenvmet56ly72p6mfsfqmcupowo35u@vuju76n33jqo>
+References: <20260414110212.79526-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260410100010.1197804-2-amadeus@jmu.edu.cn>
+In-Reply-To: <20260414110212.79526-1-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_000721_130153_6BBAFEAD 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260511_005637_129600_92C2764C 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +78,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
-
-On 18:00 Fri 10 Apr     , Chukun Pan wrote:
-> Define the power input and the 4V power as fixed regulator supplies.
+On Tue, Apr 14, 2026 at 07:02:10PM +0800, fangyu.yu@linux.alibaba.com wrote:
+> Fangyu Yu (2):
+>   iommu/riscv: Advertise Svpbmt support to generic page table
+>   iommupt: Encode IOMMU_MMIO/IOMMU_CACHE via RISC-V Svpbmt bits
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
->  .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> index de75f6aac740..409a6db269ae 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> @@ -21,6 +21,25 @@ aliases {
->  	chosen {
->  		stdout-path = "serial0";
->  	};
-> +
-> +	vcc_5v0: regulator-vcc-5v0 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_5v0";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +	};
-> +
-> +	vcc4v0: regulator-vcc4v0 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc4v0";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <4000000>;
-> +		regulator-max-microvolt = <4000000>;
-> +		vin-supply = <&vcc_5v0>;
-> +	};
->  };
-please check my comment below, I think this patch has similar issue
+>  drivers/iommu/generic_pt/fmt/riscv.h | 8 ++++++++
+>  drivers/iommu/riscv/iommu.c          | 2 ++
+>  include/linux/generic_pt/common.h    | 4 ++++
+>  3 files changed, 14 insertions(+)
 
-https://lore.kernel.org/all/20260511065338-GKA3624147@kernel.org/
--- 
-Yixun Lan (dlan)
+Applied, thanks.
 
 _______________________________________________
 linux-riscv mailing list
