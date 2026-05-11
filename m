@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC00FCD37AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40438CD37B7
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lpNFmTzmTksl/tJuzTaAniDFEVgUyVeib6DRY9dBI54=; b=wN5qN+wyiqW9c4
-	yw7GzXsoyhwx6t3pzG3WRE1Hxg3WLVwdqY4068kPmiTFKyF0EYGWDPTTX9cM1NVvvgoR/qyKtLqHT
-	RSDblhzhUJmC0CI/lWuphJTiMirlQCNBm2hlb/lUlch7kh2wX89ik0yZE/1R0TDhyCa9PhtIjF2lG
-	8rYFaNKYW1Tjh8G/FOPh2iGZdJD86hszt+tgSs98Qk+1d+aWtEhU4SO5D1dGf+nMacdgQDWY196v2
-	V5qfc99+yFxsepzXNw3dHCZWwv5AiaYPu1wjRIiIOiEm9xsBNEjNY+WFVsbPMhF8yb1bNa5y0ajbF
-	sAU8Ux108xAiEPLA0IVA==;
+	List-Owner; bh=FzPkkMP8h03Np2mdGKrwiJEex4f6wCjE49M5hUtn4KE=; b=4pK5FS+kKyo+pV
+	IAanDNRBkuY2HyY6jVRLRgtkoAX5sUgJ8bQ796q6JDwkWXVZ4uAeOsllvWL1ZWcw/Z7LidWEAiJZa
+	vPB65UewjVhiNmQYjAeOfy2Xu7qKJ9aFGyZp6uL7iRTlbcdWpbDchQqGNoZBIRD00FARtsL4tJ+JG
+	pExer48iJlkQB/dUWrStPzL4HoQGYUVVbGdi52hdAf0C5RBG2tAWo/QuCxEnd8GbE5tcwICLe1CvI
+	nVFHust8Xd7X54Qf0ljWK7moBnS16EEIC56AJAjOzUO/XtH+LJHI9kWcIaaIHEhw725iM8jIOjPgP
+	MJb7Bk4gn9eAqJdX3/Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvE-0000000CL8L-3Wue;
-	Mon, 11 May 2026 05:11:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMIvM-0000000CLA5-0LWb;
+	Mon, 11 May 2026 05:11:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvB-0000000CL7R-2zFP
+	id 1wMIvK-0000000CL8i-12EF
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 05:11:15 +0000
+	Mon, 11 May 2026 05:11:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A521860125;
-	Mon, 11 May 2026 05:11:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0005C4AF0F;
-	Mon, 11 May 2026 05:11:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AD9C860129;
+	Mon, 11 May 2026 05:11:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC7E1C2BCF5;
+	Mon, 11 May 2026 05:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778476272;
-	bh=ewfeCcD9Ot0T200VQaUyxNc64vTwsILDn7MzeFMv3kU=;
+	s=k20201202; t=1778476281;
+	bh=IfK90oL89PLZ77zZUqMTiT6Ew+f2/fOrCwuhT7VtBQ0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=sqCIBMN49l1N2T9zn6Ziz342oa3q83ofxOhOrs2KvJatbuDmWneGCSHgS4bUuokGE
-	 SuFdpcKQgs9mC5GSvIJTJP0voIlqjdJOndOD93ZvmkRB0bd26KiBpi4Q2sUsODvHdz
-	 uagxE5urHDSLUE9H05j9XDbniA+nrkIPHRpZ7psfitZ5IeQKfBzf7jAHGzAmNaTR7F
-	 jqd/V6dLmnVhBqGtqfBTvpH0NutcUaTnvzxMovNC/AyK/b6+oAkqvIqhpaGto9nOGx
-	 QeoGqAZzeyCw5H2mKmR3GltroNxyzSrvKAws++Q6GXbZ6NXik0MPbEByPfUYa7vepb
-	 FGnXU4JNXlLvw==
+	b=NO5H17MoG/pw6yzuPDowtnsunSDQIo679yk1cZvTcR8hnDUSQQhjA/0uI6E+t97Gf
+	 tzdPuyigKDPkEANJxOlSponqMMUkAqnMrx+TqlwPsaSb/NVelm1X90Rd4iDaSlPCg3
+	 WJ/rTsx+X/h1WJni3NVoVMjtl5k99+cPHWPcOyz2zd+lNXidaLj5MaPsAG5hrMHF9P
+	 PkgjQqdPLRleCLTgumxOqkL8/M4qElXssAG22cRWIWnIzMGbClZsLIhzqAwGegTDe4
+	 pDokNii24iXjMhDJH6DT9SqqCEtNsujHEW562hPDS0V3hq7pPSMn/bDDSFF3iWGcRF
+	 D3gLonk8WA0UQ==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 10 May 2026 22:11:01 -0700
-Subject: [PATCH RFC v4 05/18] fs/resctrl: Add RDT_RESOURCE_MB_MIN and
- RDT_RESOURCE_MB_WGHT
+Date: Sun, 10 May 2026 22:11:14 -0700
+Subject: [PATCH RFC v4 18/18] riscv: enable resctrl filesystem for Ssqosid
 MIME-Version: 1.0
-Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-5-eb53831ef683@kernel.org>
+Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-18-eb53831ef683@kernel.org>
 References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
 In-Reply-To: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,12 +85,12 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1641; i=fustini@kernel.org;
- h=from:subject:message-id; bh=ewfeCcD9Ot0T200VQaUyxNc64vTwsILDn7MzeFMv3kU=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxprz6m/FtfeKXs3Wz4jyXL5NekffXOXuhS2BH6IfDN
- jd4Zrgbd5SyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmsqmX4Z++we/ea2vjpEo8
- j35OZaspOvp5tk/L6uuFh9IYrvgtWRnEyHB6YV9HQCPL7b/ft6174G1uHKcl/ClP+cX8P7FfW7q
- C77MDAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=732; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=IfK90oL89PLZ77zZUqMTiT6Ew+f2/fOrCwuhT7VtBQ0=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxprxZ2yOz0U5U4FPV5R8Ry+qPTpdcertH7Katwh6N+
+ M+PWdpXdZSyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmsqubkWFGeN+b36eXx8WY
+ 9nqx/rB26E1dau6n1u1gmqRulS4dXsLI8OSMZOeaibGdr4NX7876/iTnk4bTVflTFtlPkvQFq2b
+ rsQIA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -110,54 +109,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce bandwidth controls which are semantically different from
-the throttle-based MB resource:
+RISCV_ISA_SSQOSID selects RISCV_CBQRI_DRIVER, which in turn depends
+on RESCTRL_FS. Enabling the resctrl filesystem itself stays a user
+choice via the standard fs/Kconfig MISC_FILESYSTEMS menu.
 
-- RDT_RESOURCE_MB_MIN: minimum reserved bandwidth
-- RDT_RESOURCE_MB_WGHT: weighted share of unreserved bandwidth
-
-Assisted-by: Claude:claude-opus-4-7
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- fs/resctrl/rdtgroup.c   | 4 +++-
- include/linux/resctrl.h | 2 ++
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 0f331bf5ce82..02733b11e115 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -1555,7 +1555,7 @@ bool is_mba_sc(struct rdt_resource *r)
- 	return r->membw.mba_sc;
- }
- 
--/* RANGE schema is bandwidth (MBA/SMBA). BITMAP is cache. */
-+/* RANGE schema is bandwidth (MBA/SMBA/MB_MIN/MB_WGHT). BITMAP is cache. */
- bool resctrl_is_membw(struct rdt_resource *r)
- {
- 	return r->schema_fmt == RESCTRL_SCHEMA_RANGE;
-@@ -2402,6 +2402,8 @@ static unsigned long fflags_from_resource(struct rdt_resource *r)
- 		return RFTYPE_RES_CACHE;
- 	case RDT_RESOURCE_MBA:
- 	case RDT_RESOURCE_SMBA:
-+	case RDT_RESOURCE_MB_MIN:
-+	case RDT_RESOURCE_MB_WGHT:
- 		return RFTYPE_RES_MB;
- 	case RDT_RESOURCE_PERF_PKG:
- 		return RFTYPE_RES_PERF_PKG;
-diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 006e57fd7ca5..9529ed0d1fdf 100644
---- a/include/linux/resctrl.h
-+++ b/include/linux/resctrl.h
-@@ -53,6 +53,8 @@ enum resctrl_res_level {
- 	RDT_RESOURCE_L2,
- 	RDT_RESOURCE_MBA,
- 	RDT_RESOURCE_SMBA,
-+	RDT_RESOURCE_MB_MIN,
-+	RDT_RESOURCE_MB_WGHT,
- 	RDT_RESOURCE_PERF_PKG,
- 
- 	/* Must be the last */
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a0c73edbe734..ea430b4a3aab 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -596,6 +596,7 @@ config RISCV_ISA_SSQOSID
+ 	depends on 64BIT
+ 	default n
+ 	select ARCH_HAS_CPU_RESCTRL
++	select RISCV_CBQRI_DRIVER if RESCTRL_FS
+ 	help
+ 	  Adds support for the Ssqosid ISA extension (Supervisor-mode
+ 	  Quality of Service ID).
 
 -- 
 2.43.0
