@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612E2CD37B9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE19CD4842
 	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 11:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9VU7qQ1I3OTSRQFH8ndWa1BHHwoJ7R3W2wZ5lMNj8mA=; b=tNUYfis6LCuiY4
-	gmjbStPyJMv+pAQoeS5Jj4yz1YWU236OQMnVuMDLlylMmLIZprEYJ+dsBRWbko1vMjWzRilziFkqv
-	hsIma6d1aJ34lFMWzVkBMP3jnJxxIML6CB3m6k70DlQ5hXE/9k3Qcz+iChSc3H37yy2Wb1lSSNLjW
-	SpuaT7EEqx4uWKemuI4hX2SEBRyfbwIGia/z9jQmoXU5c8ioMKJSCgJbzQKKaCb95UzeGVdrahfVj
-	fKwsjGT+1p56Hw09x9fN4k6S+PaKBs9ewJxymnMNNPNPrVkqOEqUlrr/oRnAwc5cde18IVuxAVaB1
-	LbwXTWkAih3cF5edWDKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7wnlmLjyoGxz9CZiE8Gne1bvSqxsmoBdWAT2kD7Um7s=; b=cNFl3LFhaFjqkV
+	gq0eQaTeAuaMeSvMp5fa7IdCTdfkXM57OFiWasQGHFvftxUNRGzisSdpUs4u1ucS0KJvQYDLMt6Z0
+	dNkDNFMuBlMen811/nSjMIkxWmRWT3BuuCDPjY8ACOrFLz53Rnr6hG5B4g4htqqPdW54l/2ABnWfG
+	gkoz2olWiU9dHLjTUM4vNyBTw57ubTmahsGUrWVhbw1c+UY5fvsqmC3opo6aEpupvb09fx/HINDUp
+	Wb2F39Bx8DIGqo40Z0rEag/m8MX73bRzrjJbFEMiS5Ffw52VWlQ4tX2P8Nv8LOYZysIy6zZWMXyXb
+	Q2lSOC7DGxdId4vs4ltg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOXl-0000000DEuC-1Y9H;
-	Mon, 11 May 2026 11:11:25 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wMOXl-0000000DEv0-3F0S;
+	Mon, 11 May 2026 11:11:26 +0000
+Received: from mail-wm1-f41.google.com ([209.85.128.41])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOXi-0000000DEpg-2rMP
+	id 1wMOXi-0000000DEpF-2gFl
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 11:11:23 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891c00e7aeso35039805e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 11 May 2026 04:11:22 -0700 (PDT)
+	Mon, 11 May 2026 11:11:24 +0000
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-488a8ca4aadso38115125e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 11 May 2026 04:11:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778497881; x=1779102681; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GtTvf9vsfLePhnbh9KXY1gq0CLeR2YIl5j5cO/hpSW8=;
-        b=S16UG0ckhRLBbJJ4Ne+wrWgz0OKCFemgKP7Ih9a94YjHD+UfATWUF9aohLPLpfKPPO
-         FC+gIKXOodL4srptLwlpOaYZftmgXT/rw2EtbixXbsa8BrtTYNqUe8ygy3s3NPWoa9mB
-         eHm7stZQ1eHhZ+IRq/YPcLuScujv1V+76tSWTqFUy1p9kjyQbs9+zu2BV8MXC7ofVf/W
-         /EtrqVPaE1+V/j4nMk1fSG+8JD98HUi+J/ZpHqaRQOPzuK43RjxKBK5eZqodGGYB1erZ
-         /Z+6b4xcEsULuduVx8Bcu3jQn47eBSmmmtxEi1wD0LNLkvLNPfXEDXfZr3hcb9OZAXAq
-         OI6g==
+        d=gmail.com; s=20251104; t=1778497879; x=1779102679; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0C1bHVka4WkqxKLcjiVrRtNUHdq3msbMLuP2fSIT1mk=;
+        b=W+01UIXk9m4NDw5T6jZ+xbhZs5EFnIPvRk6joRmKMBjFkw9IgdorQ13ILD16V/hZeg
+         XCECORkFkhUiJEZY5SBnTkagrsGSOII1DLa1iEnRX8x1OkhMr3ZiPo0goFR5k7M2++Ut
+         QgLb6T+vinFkRXvJRX0Z1SQ4fIDJxsz6YQl8wC/s9wYVaIYXf7AxaTrmP6/l8ye4QSVH
+         4zwEoCjdWpaUzr2w+df2ZH82zFxZdkIWOEpZcULCDhq5aS1rojxPHifc2J9E2YPy8VzA
+         cMzopKmRKeDWlSd8shKGUEPezgkvzJaad6zC8y2jiYAyLnNbjuZ3PQ8KnDNKsog3+kz/
+         PuvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778497881; x=1779102681;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=GtTvf9vsfLePhnbh9KXY1gq0CLeR2YIl5j5cO/hpSW8=;
-        b=Th/RqisWcASLjVrD9Xi38AYAldvoHcuEXptWXp/oCz9Nerp31/ZLVsT6AES+BN8Ll7
-         f2tRp6QVpu3wIAZUlkxnuMtuD9eQP6BvmXUchJCya4aCgkLcUCl6bIKgwAo6DRRw4SpT
-         njY7g1zPbdwQ+f4oIIb9KBDZ9hZ2T46cxEkhCAVHuTo/XWvHK3BZV+bwcsSv9LVpzaU9
-         glKVAmxWUjwFmAMDW7XnxOB9dIr3kneuHVq30ILX31uEOrgHokgXslsMQdI8BLXl/14R
-         cGTkkAvc+t4A6zH37YswFoPeNIfDPe8HWEEokJqqlea2k/6pHnjaT6VSMLanLNs3ElQz
-         1iug==
-X-Forwarded-Encrypted: i=1; AFNElJ+HQL3oAAmVmvEw+halJLt74N9N3FEkcdf3nbS32YFo8YdfZldj7GaP23ya3LVBvUiGglADZQRIPLDjtg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDKAbQmlyKBk1Nfsdm0jmnP8ONaXINMdtobSiGlf4EThKkMxnp
-	K8BmyHkkcTC3SeoS3lfOFyt5XeyIGxcmtZzPYfcyuN8QakL31+bhl5Xk
-X-Gm-Gg: Acq92OGH42Ts+qhARnNDvVqwG5w46QIZBHRHTWWrnfpcTBAFwc0dTqC1Kuz0/4eX7W/
-	eZEiWB5cUKXjzPTRfeeONWPJE9rVGczE2yvJtad09jR0CgCiIwhwVYZ0nRhmX9CgWTXvDG7BC5H
-	WJ69cGy/XdDTI71IvFfwAdDAjRa1uQ8eIo+sBN+ppwGMznMhZh03/Bp+K8niQAXB2AzkrgGcaWZ
-	bSYbH1x2fSEN44x/xYfyaLASas+zwgfiFy++olQDuxi8/Kibhzcj3LongVs9I6vHk3AFcp+th4O
-	oY9d22v23ZRRXNMYPcbvs6qKz9XqUNr3yTmkSyqiKmZCeppyYJadQ+tBFw7yWcU8AhjEIGjtIAB
-	+lu5ciiA+V0jF8Od/LPFEm/dICWTK87+NQLP75tlCRA6riMXH77j/vV4wZsTB0qbFXDAWAXD3+u
-	tdcazLkS114Z12LxkPGtISuegIk897gomtdo4F9aOQ2PvmTz9lngiPCeU23oYVeEojPQ==
-X-Received: by 2002:a05:600c:4512:b0:488:ac01:72b6 with SMTP id 5b1f17b1804b1-48e51f3a538mr373235125e9.21.1778497880440;
-        Mon, 11 May 2026 04:11:20 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778497879; x=1779102679;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0C1bHVka4WkqxKLcjiVrRtNUHdq3msbMLuP2fSIT1mk=;
+        b=BZtmpMwxHDxiKz175BsQ+IOIKQJWGtr5SJFvDdxGrqtmJIntmJROUt9iXwiqI5OvQ4
+         vAcuSR5zh0GKWINRIq0haitHPBMKVtG0EJj8dsT+fGZqvjGbotwGJq9KIOCpqtrDoT3T
+         l3uAY5ep4+jlK9tWvqx+2PPYdmRh9Wm7z9W/YbcN3pDqQChaSZFEoOwDMtWeqE4rF7/6
+         NqzginGxJ6WifUCwTPxn5KyKMKDJrot+kB5Nw0zV+iHGNejYidQPoZ/9Sop8goDiVW9C
+         YsxX0VVgHllHi//CE2mVfwouIC/VGkGKDqpLZENQq2B+opSuMldp5ipFEvqw6g8ObLnY
+         61ZA==
+X-Gm-Message-State: AOJu0YyYOqkapqaM/8mPlURBnAGhqMDv2veVP+nqCmRsK89Diz2slx2g
+	CXDsaP1Db5/ecWpF9jNHRALvD1UZ3OhkDHUJ1/lC1pzpj7ndKA5sayk3
+X-Gm-Gg: Acq92OHFc5IaZCByOTbQ8yeZZVOc/PinoHB3WQ6S6yeSB4YHCGkMSH6R0kry7kXxf04
+	sRiZSaqAdeIOC5q6BKgYdkDaEyF3YRGEZdtzMd9GftWzlOlCZRYi2tD75oCUeJIMZlt0xlugQCE
+	i4Okiwg8CsqRNtOt3puOk7aYpodgLLySInCBxJQglqF57Ul/LMh7bhovfthlokhbrjhRO+mYX08
+	i+qFkAu6t57kxt8sWT92+VMT5bfkTtd1t16nlOmkNc6FhsABTDfbRvJPKdTQo4Wa8SoaXaDEa0j
+	OG7XbtRqQCJm+l9V5jDxVUzs01SDba1BSlAOtFgH0DpbcBh3SuXD6d1WDS3i2OaGU/+V1oj04zO
+	xYQGd4WGvjXWRKTq70Y0DweaJUJchePNSnrI2yng973hDaD/evngn97isu6LXnfqY9mFEHf7tmu
+	P5MlyH9l4HF7QmfRttHtCtaGHEzC+PByh+sW0dWiSZhClqa+Mq+JCF4DGy6e6Q+Tv0Ng==
+X-Received: by 2002:a05:600c:8b65:b0:48a:53ea:140b with SMTP id 5b1f17b1804b1-48e51f4e5fdmr424568565e9.28.1778497878900;
+        Mon, 11 May 2026 04:11:18 -0700 (PDT)
 Received: from mamamia.internal (a89-182-129-90.net-htp.de. [89.182.129.90])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e701e9585sm175077375e9.5.2026.05.11.04.11.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e701e9585sm175077375e9.5.2026.05.11.04.11.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 04:11:20 -0700 (PDT)
+        Mon, 11 May 2026 04:11:18 -0700 (PDT)
 From: Andre Heider <a.heider@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Yixun Lan <dlan@gentoo.org>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/6] riscv: dts: spacemit: k1-musepi-pro: add PMIC and power infrastructure
-Date: Mon, 11 May 2026 13:11:08 +0200
-Message-ID: <20260511111116.1109643-2-a.heider@gmail.com>
+Cc: linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: [PATCH v2 0/6] spacemit: k1-musepi-pro: add missing devices
+Date: Mon, 11 May 2026 13:11:07 +0200
+Message-ID: <20260511111116.1109643-1-a.heider@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260511111116.1109643-1-a.heider@gmail.com>
-References: <20260511111116.1109643-1-a.heider@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_041122_810242_2DF55005 
-X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-CacheID: sfid-20260511_041122_701166_2B6EFE94 
+X-CRM114-Status: UNSURE (   5.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,183 +100,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable i2c8 and add the connected SpacemiT P1 PMIC with its related regulators
-for the board's power infrastructure and voltage regulation support.
+Add the missing devices with their required regulators. The regulators are named after
+their label in the vendor schematics[0].
 
-Signed-off-by: Andre Heider <a.heider@gmail.com>
----
- .../riscv/boot/dts/spacemit/k1-musepi-pro.dts | 144 ++++++++++++++++++
- 1 file changed, 144 insertions(+)
+v2:
+- drop reg_vcc_5v0_sys as per "non-controllable" review comments on
+  similar patches for other boards (kept the root reg_usb_vbus for though)
+- add reg_vcc_4v0 instead as p1 vin?-supply, misread the schematics
+- drop mpcie_vcc_3v3 and use pcie_vcc_3v3 for pcie2* too
+  ("non-controllable" again)
+- all of the above makes it consistent with other k1 boards
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-index 29e333b670cf0..88c35ad1ef2ae 100644
---- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-@@ -17,6 +17,7 @@ / {
- 	aliases {
- 		ethernet0 = &eth0;
- 		serial0 = &uart0;
-+		i2c8 = &i2c8;
- 	};
- 
- 	chosen {
-@@ -33,6 +34,25 @@ led1 {
- 			default-state = "on";
- 		};
- 	};
-+
-+	reg_usb_vbus: regulator-usb-vbus {
-+		compatible = "regulator-fixed";
-+		regulator-name = "USBVBUS";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_vcc_4v0: regulator-vcc-40v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC4V0";
-+		regulator-min-microvolt = <4000000>;
-+		regulator-max-microvolt = <4000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+		vin-supply = <&reg_usb_vbus>;
-+	};
- };
- 
- &emmc {
-@@ -72,6 +92,130 @@ &pdma {
- 	status = "okay";
- };
- 
-+&i2c8 {
-+	pinctrl-0 = <&i2c8_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	pmic@41 {
-+		compatible = "spacemit,p1";
-+		reg = <0x41>;
-+		interrupts = <64>;
-+		vin1-supply = <&reg_vcc_4v0>;
-+		vin2-supply = <&reg_vcc_4v0>;
-+		vin3-supply = <&reg_vcc_4v0>;
-+		vin4-supply = <&reg_vcc_4v0>;
-+		vin5-supply = <&reg_vcc_4v0>;
-+		vin6-supply = <&reg_vcc_4v0>;
-+		aldoin-supply = <&reg_vcc_4v0>;
-+		dldoin1-supply = <&buck5>;
-+		dldoin2-supply = <&buck5>;
-+
-+		regulators {
-+			buck1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck5: buck5 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			aldo1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-boot-on;
-+			};
-+
-+			aldo2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-boot-on;
-+			};
-+
-+			dldo2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-always-on;
-+			};
-+
-+			dldo5 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-always-on;
-+			};
-+
-+			dldo7 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-0 = <&uart0_2_cfg>;
- 	pinctrl-names = "default";
+v1: https://lore.kernel.org/spacemit/20260505160623.1369347-1-a.heider@gmail.com/T/#t
+
+root@OpenWrt:~# cat /sys/kernel/debug/regulator/regulator_summary
+ regulator                      use open bypass  opmode voltage current     min     max
+---------------------------------------------------------------------------------------
+ regulator-dummy                  1    0      0 unknown     0mV     0mA     0mV     0mV
+ USBVBUS                          5    4      0 unknown 12000mV     0mA 12000mV 12000mV
+    PCIE_VCC3V3                   5    4      0 unknown  3300mV     0mA  3300mV  3300mV
+       ca400000.pcie:pcie@0-vpcie3v3   1                                 0mA     0mV     0mV
+       ca800000.pcie:pcie@0-vpcie3v3   1                                 0mA     0mV     0mV
+       ca400000.pcie-vpcie3v3     1                                 0mA     0mV     0mV
+       ca800000.pcie-vpcie3v3     1                                 0mA     0mV     0mV
+    VCC4V0                        8   10      0 unknown  4000mV     0mA  4000mV  4000mV
+       buck1                      1    0      0 unknown  1050mV     0mA   500mV  3450mV
+       buck2                      1    0      0 unknown   900mV     0mA   500mV  3450mV
+       buck3                      1    1      0 unknown  1800mV     0mA   500mV  1800mV
+          2-0050-vcc              0                                 0mA     0mV     0mV
+       buck4                      2    2      0 unknown  3300mV     0mA   500mV  3300mV
+          spi0.0-vcc              1                                 0mA     0mV     0mV
+          d4280000.mmc-vmmc       0                                 0mA  3300mV  3300mV
+       buck5                      3    7      0 unknown  2100mV     0mA   500mV  3450mV
+          dldo1                   0    0      0 unknown  1200mV     0mA   500mV  3400mV
+          dldo2                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+          dldo3                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+          dldo4                   1    0      0 unknown  1800mV     0mA   500mV  3400mV
+          dldo5                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+          dldo6                   1    0      0 unknown  1800mV     0mA   500mV  3400mV
+          dldo7                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+       buck6                      1    0      0 unknown  1100mV     0mA   500mV  3450mV
+       aldo1                      1    1      0 unknown  3300mV     0mA   500mV  3400mV
+          d4280000.mmc-vqmmc      1                                 0mA     0mV     0mV
+       aldo2                      0    0      0 unknown   500mV     0mA   500mV  3400mV
+       aldo3                      0    0      0 unknown   500mV     0mA   500mV  3400mV
+       aldo4                      0    0      0 unknown   500mV     0mA   500mV  3400mV
+    5V_VBUS                       2    1      0 unknown  5000mV     0mA  5000mV  5000mV
+       c0a00000.usb-vbus          1                                 0mA     0mV     0mV
+    VCC5V0_HUB                    2    1      0 unknown  5000mV     0mA  5000mV  5000mV
+       c0a00000.usb:hub@1-vdd     1                                 0mA     0mV     0mV
+
+[0] https://github.com/spacemit-com/docs-product/blob/main/en/k1_muse_pi_pro/pi_pro_hw.md
+
+Andre Heider (6):
+  riscv: dts: spacemit: k1-musepi-pro: add PMIC and power infrastructure
+  riscv: dts: spacemit: k1-musepi-pro: add 24c04 eeprom
+  riscv: dts: spacemit: k1-musepi-pro: enable QSPI and add SPI NOR
+  riscv: dts: spacemit: k1-musepi-pro: enable USB 3 ports
+  riscv: dts: spacemit: k1-musepi-pro: enable PCIe ports
+  riscv: dts: spacemit: k1-musepi-pro: set default console baud rate
+
+ .../riscv/boot/dts/spacemit/k1-musepi-pro.dts | 324 +++++++++++++++++-
+ 1 file changed, 323 insertions(+), 1 deletion(-)
+
 -- 
 2.53.0
 
