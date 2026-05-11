@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F4E7CD37BE
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 03:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A6ACD37B6
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 03:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nItdHgCos9UiGJ0Pkk7VY8t4S1WVYMOyL+lMd9EMBu0=; b=AGtZny6PmfC3b7
-	tEST6glI+yZUNKVH8ytGieI3EjXdTF198vpzSwz7+3dUVdsk32pL49UN4OyG8ddZ7ajndSWsxlka3
-	d2xKPoVp8V+ZYbG8T+c35G70sC6cKJQqUm7l2m/l39XTUWJ9m3lIFzpGyapHAB3QOF7ExlLl4CM9Z
-	gP7KSI/eCS1wCJBSU4xZby5f2XWghsP/6P7Kd6LCxkHE5Z08hmiI7NVibX9Yw6q/ih51tbTKjqmMn
-	whX8LqQvmnJCHzPkrL+EfSssF5vO7bIx/CmKYig/rgkotPhD6JHj4oRuehLyWwdiXaM2ckZ89n042
-	Ukx4csZO/KyrL62RbvtQ==;
+	List-Owner; bh=yh7ERrwZTxn2jqwygEdrTl3KnJ3zkmO1AXZeyt6MXBg=; b=Ap90loX1BWMMno
+	IRZ6rOwwXTVVO7VhUIqJnKN3mPCOV/PJ2ggKK7YnZ1C+zyJ8V6JmjR8faae8tvLH7ooo3qlf8RMHP
+	P1slYMDyPhmRUzASt2gM3rbntnnBca1ii9DkGtSUPXWj/uqVX3diPkZGX0U4+zomiQ5QCR8eERUJC
+	HGzuoTnOD2CSanmkMECIushtSFvLDXMWwJ/g4LngFN32lix4t8AD07zT8mNOUk1NUUULFQnfOyI00
+	FbmgKFO50JX28ov4UyfUcV+DjXtol1N6taWt8zZXlk0fjut5xMWKPD+ff4lF0DhXgBFhaI89wzM3e
+	604abIk2LfyBjwR7yCUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGyE-0000000C6qP-0Mzu;
-	Mon, 11 May 2026 03:06:14 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wMGyJ-0000000C6us-0IdB;
+	Mon, 11 May 2026 03:06:19 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGxx-0000000C6gP-38CR;
-	Mon, 11 May 2026 03:06:01 +0000
+	id 1wMGxx-0000000C6h3-39t8;
+	Mon, 11 May 2026 03:06:07 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=MS+svJjwX+WERXmMYEnQYyI5Mc94faKy2CdWQtmAb8o=;
-	b=xXm5VJ0gzjFo5FI6ifJNt2lYYB9fpiEFwKvKrblrK5cZ5X5QR0VEIsC4iprJlRC3urHXpb75e
-	XRqctvGI7uS/yew73xY6QXp4G2a2n8T+yKdd4nuZDj5kccyoaXIEo3Ic4MOgmKWA5NZ5J2KJg3p
-	VaGi5GtRXJK44kah7P/dE2Q=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gDPYF3Hxjz1T4FV;
-	Mon, 11 May 2026 10:58:09 +0800 (CST)
+	bh=gP8HfVClTHWeVnZhgkiJHpftRA/L/IH7204wUamvGpI=;
+	b=aC5ld2VGwocK5wNF4kNLWzXRwqGy7VVPy2Y7aT6z1Plew96KuD/b6JVVo5tIpaUsuozqhNEBl
+	Uq5G5iRkNwhE7Lb+guOM8yaJgFcRNxm/1aqoZHpEZ52JHGoLfBZO5hurcijEe7IxeJY4lGg8hJ6
+	MUBIPE/iCbbNEzS2v3yjOWw=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gDPYR2FCnz1K9ZG;
+	Mon, 11 May 2026 10:58:19 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 95FE540537;
-	Mon, 11 May 2026 11:05:47 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 9CB14402AB;
+	Mon, 11 May 2026 11:05:53 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 11 May
- 2026 11:05:44 +0800
+ 2026 11:05:50 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
@@ -71,9 +71,9 @@ To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<kexec@lists.infradead.org>
-Subject: [PATCH v13 01/15] riscv: kexec_file: Fix crashk_low_res not exclude bug
-Date: Mon, 11 May 2026 11:04:40 +0800
-Message-ID: <20260511030454.1730881-2-ruanjinjie@huawei.com>
+Subject: [PATCH v13 03/15] x86/kexec: Fix potential buffer overflow in prepare_elf_headers()
+Date: Mon, 11 May 2026 11:04:42 +0800
+Message-ID: <20260511030454.1730881-4-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260511030454.1730881-1-ruanjinjie@huawei.com>
 References: <20260511030454.1730881-1-ruanjinjie@huawei.com>
@@ -82,8 +82,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_200558_377794_09D35863 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260510_200558_379846_E5872CD5 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,63 +100,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As done in commit 944a45abfabc ("arm64: kdump: Reimplement crashkernel=X")
-and commit 4831be702b95 ("arm64/kexec: Fix missing extra range for
-crashkres_low.") for arm64, while implementing crashkernel=X,[high,low],
-riscv should have excluded the "crashk_low_res" reserved ranges from
-the crash kernel memory to prevent them from being exported through
-/proc/vmcore, and the exclusion would need an extra crash_mem range.
+There is a race condition between the kexec_load() system call
+(crash kernel loading path) and memory hotplug operations that can lead
+to buffer overflow and potential kernel crash.
 
-Just simply tested on qemu with crashkernel=4G with kexec in [1] mentioned
-in [2]. And the second kernel can be started normally.
+During prepare_elf_headers(), the following steps occur:
+1. get_nr_ram_ranges_callback() queries current System RAM memory ranges
+2. Allocates buffer based on queried count
+3. prepare_elf64_ram_headers_callback() populates ranges from memblock
 
-	# dmesg | grep crash
-	[    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
-	[    0.000000] crashkernel reserved: 0x000000017fe00000 - 0x000000027fe00000 (4096 MB)
+If memory hotplug occurs between step 1 and step 3, the number of ranges
+can increase, causing out-of-bounds write when populating cmem->ranges[].
 
-Cc: Guo Ren <guoren@kernel.org>
+This happens because kexec_load() uses kexec_trylock (atomic_t) while
+memory hotplug uses device_hotplug_lock (mutex), so they don't serialize
+with each other.
+
+Since x86 supports crash hotplug, any data inconsistency caused by
+a race during the initial load will be corrected by the subsequent
+hotplug update. However, we must prevent a buffer overflow if the
+number of memory regions increases between the two passes.
+
+Add a boundary checking in prepare_elf64_ram_headers_callback() to ensure
+that the number of populated ranges does not exceed
+the allocated maximum.
+
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
 Cc: Baoquan He <bhe@redhat.com>
-[1]: https://github.com/chenjh005/kexec-tools/tree/build-test-riscv-v2
-[2]: https://lore.kernel.org/all/20230726175000.2536220-1-chenjiahao16@huawei.com/
-Fixes: 5882e5acf18d ("riscv: kdump: Implement crashkernel=X,[high,low]")
-Reviewed-by: Guo Ren <guoren@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: stable@vger.kernel.org
+Fixes: 8d5f894a3108 ("x86: kexec_file: lift CRASH_MAX_RANGES limit on crash_mem buffer")
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/riscv/kernel/machine_kexec_file.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ arch/x86/kernel/crash.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-index 54e2d9552e93..3f7766057cac 100644
---- a/arch/riscv/kernel/machine_kexec_file.c
-+++ b/arch/riscv/kernel/machine_kexec_file.c
-@@ -61,7 +61,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 	unsigned int nr_ranges;
- 	int ret;
+diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
+index cd796818d94d..fa6a1feb1bf1 100644
+--- a/arch/x86/kernel/crash.c
++++ b/arch/x86/kernel/crash.c
+@@ -226,6 +226,9 @@ static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+ {
+ 	struct crash_mem *cmem = arg;
  
--	nr_ranges = 1; /* For exclusion of crashkernel region */
-+	nr_ranges = 2; /* For exclusion of crashkernel region */
- 	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
- 
- 	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
-@@ -76,8 +76,16 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 
- 	/* Exclude crashkernel region */
- 	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
--	if (!ret)
--		ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
-+	if (ret)
-+		goto out;
++	if (cmem->nr_ranges >= cmem->max_nr_ranges)
++		return -ENOMEM;
 +
-+	if (crashk_low_res.end) {
-+		ret = crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
- 
- out:
- 	kfree(cmem);
+ 	cmem->ranges[cmem->nr_ranges].start = res->start;
+ 	cmem->ranges[cmem->nr_ranges].end = res->end;
+ 	cmem->nr_ranges++;
 -- 
 2.34.1
 
