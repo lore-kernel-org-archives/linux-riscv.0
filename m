@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8C1CD37B2
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 May 2026 16:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BACCD37B7
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 02:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LqG6Rn8K527pkF1/PsNzzAACAISV1ayLBN9SZ4wD1XA=; b=tULM1IdqO11Bao
-	a7DMcCMhpX70DG0xEJB/uiV9/3/UldBh7w733flK0y8VIDz7batNA0DOHmiVFRj6aQJ/4PBJG5VZh
-	JXgKVsn+Qd5PhUhN2346TlcnvCZZ7MK1ZBVoaSvO4ytph+4xafGmeSU8RZxaZA7lgYvMujObnSXS/
-	aSHs98uJZFPG5IRwQvYY8JbrMw7x0ZnCv7R/SjsIiXO4ar15RGjqguLkXYI1mh2gRh6e3K4QprnBt
-	nfd+RHosYh6UPBFix3x0I/qGU+uNJPYVBg43HOnUhr3pIlY2Bp+z2TMJWXIgW2w1T94532J0o3a7O
-	/iKJ4+y9cERdJMLKO9iw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9mMjGIzi1NYmF2exV4+DYSVZO6JKz7XqodrKtWNa0hU=; b=ipnuwK0YNExzhF
+	c0jaeTTGNbTU0yT8wI4bPc5+jTjVwymwye2amrj9XjECcGICJBUaauwxJeix76MNzpjKtJ1NN0vdE
+	DFKLfoQNN61lcrLvKlhwaJbulpwIxCY8v8WwdD2Q85afrmu+onasf8+fbIZV23vqOl6mvF/CJFWsv
+	Enm5pdsV8MdtndNiDlHdiTUdgLPxYLW4q0MV52elz9zGBFM+ORdvlwqwZnVdo2X+QVscCjusPi21B
+	/uYmY39RigE5j6pjDUTO1nkhQKSseowc1fzpNBe+QBKBS9AxV3XPQ8QHYkdCiJQbSuI1gpWSsu/cI
+	L0TG9ZXxbUX1AJGxt0wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM7Qs-0000000BCXf-0O5c;
-	Sun, 10 May 2026 16:55:10 +0000
-Received: from out-188.mta1.migadu.com ([95.215.58.188])
+	id 1wMGru-0000000C5yj-1s4H;
+	Mon, 11 May 2026 02:59:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM7Qp-0000000BCWb-0SXV
+	id 1wMGrs-0000000C5yV-3tg3
 	for linux-riscv@lists.infradead.org;
-	Sun, 10 May 2026 16:55:08 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1778432101;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=2OBzuW9P7eODNU5hYdcV6ou8oladCxtRgVfmGhmczYI=;
-	b=L3MDoQxatDs7iYyHRS6BCcM7AruD9bUlD1xQR7dh1tsZLifM6GtBIEbJpFqGkOTUKdhz6D
-	UpEMXEHs1E+exel/qljgBv0NrQUXo8ssvjMC//Gg6LaMe76KElCctwl3xFnTK4UJAX9j3h
-	NDgSXIZI0te0Ar9OSu4BWIksqPQ8npk=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: use sysfs_emit in cpu_show_ghostwrite
-Date: Sun, 10 May 2026 18:54:21 +0200
-Message-ID: <20260510165420.109453-3-thorsten.blum@linux.dev>
+	Mon, 11 May 2026 02:59:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 63A0D600CB;
+	Mon, 11 May 2026 02:59:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7E3C2BCC7;
+	Mon, 11 May 2026 02:59:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778468380;
+	bh=62GFDbMhrf9Hmoi1Uc8kFyF4ciHaqpBzUokKVG2CQe4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=GxH9U3WpJQ8kpNLWtfR4TNWbj1+70f+u2GidLkv99rRLoxpv4+HcDQIP6IaFgdXmt
+	 +C0qNMHqLph5H7y07+5V33VafNkXlkgr60uZvIPGezkZdc+tZ50sj7HPKgTvMp115n
+	 +FL0z8SXPeM/1/NTto/3950g/H1tpNlq/lkXiKxVl+IEWU1IeNUDINeuqrpUisi+oN
+	 DkAGRlxH9f6Vzs6j7TYVMWxCI7/EOw6JZrejNq+GqlNXPqiEwtoKuixjEmBxPol9X6
+	 KRn/kR3Srq+orw1NjEx29ib6OsdyvZs4IBL5Jn30UO+ZQokvtg2zR1SMor+WEgmRV2
+	 AlFbMTFKM/lbA==
+From: Yixun Lan <dlan@kernel.org>
+Date: Mon, 11 May 2026 02:59:11 +0000
+Subject: [PATCH v2 3/4] dt-bindings: soc: spacemit: k3: Add PCIe DBI clock
+ IDs
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1536; i=thorsten.blum@linux.dev; h=from:subject; bh=9QU6JQBnJSTvkHt4s2chb6UGQgx22xxDss11LLTomps=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFkMO2w+LPi3/qlVxvvoR5rGqV+PKPu/N6naf4Z5pkJhs 9Z5VaPujlIWBjEuBlkxRZYHs37M8C2tqdxkErETZg4rE8gQBi5OAZjInDxGhiPCElESXoqyQXsf v7Q1e+u8Rc36vcTVX0mFL6/eVtU5N5vhJ2POlgehEssDJO/0rN0rZDeReYvYOqPIs987p/CcLuj NZgAA
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_095507_320801_2DF5F9DC 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <20260511-06-pci-clk-fix-v2-3-c9a5e563bab3@kernel.org>
+References: <20260511-06-pci-clk-fix-v2-0-c9a5e563bab3@kernel.org>
+In-Reply-To: <20260511-06-pci-clk-fix-v2-0-c9a5e563bab3@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Inochi Amaoto <inochiama@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=861; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=62GFDbMhrf9Hmoi1Uc8kFyF4ciHaqpBzUokKVG2CQe4=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqAUYJTaej5SBATnnsigEQdD+rTWC3jpqtX29uv
+ BMQCLX3BiiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCagFGCRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+0UhQ//etf6fkp4Z+h/0EGk6dhK2chO/s+iitT9uA/dId0n23K63Ggbgy5sa
+ L+Gfy6C0uF4rsQTaXr89cU/kyqBYsBdTuERvk2B54BpV5KPNrOwqo+GTW8dISqEsb8+HH5qCbQk
+ WycI8DIZMDCIYn+PRtZjl3mpghtAh1eBOGbmqslCz2XXwMudz9kV3laTxYXRNvnHe1bB+d4mec4
+ Ic4vqQjSRDbxV6915yHVs59UEhL7xM7KEG0i0WnJP141ViwYkMjefgeTuGIM/wYGIrrc9vHS85i
+ qV7l+Nv76sJ4T3wNzOIxmXEfyL/+k+hRpYOSmF+dcn7jLqVQ5oqr7B+e6lC+SU0Aa5Xe31Dv0Aa
+ A5H0YD/y0Z2/L/Ds4fVjicwLTvySZa1crzr7EYsGnEc529IEceV+0Jrj8GNRvTTn9zDI7OFDIn/
+ 0TcaK/nreMRYLydrANhLt25E0IrnmnKvR/Fwnem4SB2foK/r6/db/5FQxho7HOmABnWoS5KpTKQ
+ 9NjieuDcEi+EBI8BEiU/eSN40GLbTxwCiqLdUpEREQ+XaVl03KQJs2BdnZQ+I7pxM06QCHy0Xyj
+ WdIpsE0TTCpJX31f2O3ueDPcneybDfQyOVv92AJD3if53wBYmfSdYs2ylYDu6K/cqxiZ8w9a/6v
+ cuA6vJUibrAnMZnMqVyQNaM208dHG4=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,52 +94,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace sprintf() with sysfs_emit() in cpu_show_ghostwrite(), which is
-preferred for formatting sysfs output because it provides safer bounds
-checking.
+Add clock IDs of PCIe DBI (Data Bus Interface) clock.
 
-While the current code only emits fixed strings that fit easily within
-PAGE_SIZE, use sysfs_emit() to follow secure coding best practices.
-
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- arch/riscv/kernel/bugs.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ include/dt-bindings/clock/spacemit,k3-clocks.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/kernel/bugs.c b/arch/riscv/kernel/bugs.c
-index 3655fe7d678c..e5758e3f1c7e 100644
---- a/arch/riscv/kernel/bugs.c
-+++ b/arch/riscv/kernel/bugs.c
-@@ -5,7 +5,7 @@
+diff --git a/include/dt-bindings/clock/spacemit,k3-clocks.h b/include/dt-bindings/clock/spacemit,k3-clocks.h
+index b22336f3ae40..dfae52547cda 100644
+--- a/include/dt-bindings/clock/spacemit,k3-clocks.h
++++ b/include/dt-bindings/clock/spacemit,k3-clocks.h
+@@ -380,6 +380,11 @@
+ #define CLK_APMU_ISIM_VCLK1      86
+ #define CLK_APMU_ISIM_VCLK2      87
+ #define CLK_APMU_ISIM_VCLK3      88
++#define CLK_APMU_PCIE_PORTA_DBI  89
++#define CLK_APMU_PCIE_PORTB_DBI  90
++#define CLK_APMU_PCIE_PORTC_DBI  91
++#define CLK_APMU_PCIE_PORTD_DBI  92
++#define CLK_APMU_PCIE_PORTE_DBI  93
  
- #include <linux/cpu.h>
- #include <linux/device.h>
--#include <linux/sprintf.h>
-+#include <linux/sysfs.h>
- 
- #include <asm/bugs.h>
- #include <asm/vendor_extensions/thead.h>
-@@ -46,15 +46,15 @@ ssize_t cpu_show_ghostwrite(struct device *dev, struct device_attribute *attr, c
- 	if (IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR)) {
- 		switch (ghostwrite_state) {
- 		case UNAFFECTED:
--			return sprintf(buf, "Not affected\n");
-+			return sysfs_emit(buf, "Not affected\n");
- 		case MITIGATED:
--			return sprintf(buf, "Mitigation: xtheadvector disabled\n");
-+			return sysfs_emit(buf, "Mitigation: xtheadvector disabled\n");
- 		case VULNERABLE:
- 			fallthrough;
- 		default:
--			return sprintf(buf, "Vulnerable\n");
-+			return sysfs_emit(buf, "Vulnerable\n");
- 		}
--	} else {
--		return sprintf(buf, "Not affected\n");
- 	}
-+
-+	return sysfs_emit(buf, "Not affected\n");
- }
+ /* DCIU clocks */
+ #define CLK_DCIU_HDMA            0
+
+-- 
+2.54.0
+
 
 _______________________________________________
 linux-riscv mailing list
