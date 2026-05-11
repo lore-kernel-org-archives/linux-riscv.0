@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197A0CD37B7
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 08:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE0CCD37AC
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 08:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xVbdlQR49sHIBB7y9CGdj7HWV6pvB4Cxukuuo6UMyj8=; b=NeEPaluWBEicGQ
-	hk7CvrXtTZaFX/q4nHixufiuPB6Xu8T1Y+fsVRfztrRDuQP/eGzNcs5MM96hR7SfiFJsds01trBqZ
-	16X2c4Cdlq3HMFb14qWkr+fqE0iIjQJP7NgLQACEFoPYMKIv6Wx4J4dR1ejV2/uaQu/iEw8Z+vYeK
-	XfgDGOGPNnn4JTuJleydalEY9m9/fLPzfX8ev1FOkkva0vE98X/Lggp9gg/6PYFIAHl9Cv/MoAwyg
-	IitRdEAGgl6z0mx80lICTopTbJ49oql3Oe81MFa/jtdCdZq3KR8NvK0suNgoBmG1UwuebSRgr6bGZ
-	cmK9v/bOt4Vt6tVID0ow==;
+	List-Owner; bh=1BVCosEeztJrfNqUCe0MyGfa0I6PcLjbF8q8sLC2UaI=; b=AeVARBKEzHsnCi
+	WudjZlebcUewSWqz/X9THkxgJayI/98dSV/25jTkSMzXyNsknMbCBR/TbYCgEvodZ7Px9eLMV3Tdp
+	4M5cWRHhfWFVtxrTPupmrYpfR+oWt1z1kMi/xBRcHdiMY9SujzF2czCYEa5PlV/o6EjvoEE2MS8/C
+	JqLSAyy/l4jFMfR39jO0jdCB/gUVSA9dUC5HqIWlAruVwntEEgYcBob+6daDnlLqkVEBswvKaJA7K
+	51cMwkTh7TbhLFg1vvPHY6dUTOh3HsBh32nZYwYvlvWtkANCSJRrgepM9bX0kl33DPn8lIueb26Hq
+	IGXSHPJH/uXX9zJxCL0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMPL-0000000Co2W-1ptE;
-	Mon, 11 May 2026 08:54:35 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wMMPM-0000000Co3p-34WT;
+	Mon, 11 May 2026 08:54:36 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMPI-0000000Co0h-1HEK
+	id 1wMMPK-0000000Co13-03xZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 08:54:34 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-441209fb77eso2377171f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 11 May 2026 01:54:31 -0700 (PDT)
+	Mon, 11 May 2026 08:54:35 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-44dd5cb0f81so3204718f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 11 May 2026 01:54:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778489670; x=1779094470; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778489672; x=1779094472; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rGycZZ0oxVCkeN0xv1IJG1TkG4N0VwOrQ4cI2sdWgss=;
-        b=pHKC2GKKa92Mv2lLeh81Xl26vrlJdVm5HBudPr1udzcz8mM3r8TpaZmmBg+ZQ4IVfO
-         LPjnXqYOasOZUXJpQggbJB4fzy4e1R5LYld+KRdM+5Prb3QDXQkCATznkicZ4iemONJb
-         juiEDQeeCJK7F0ygXrEQ++RsoKJq+9m+Nhe/goqHBjuG9I+C9tLZGE/ajYIJDK/iKNwc
-         GXab5M+pyljHImLsEiO3HOGqxkT+BU8d38cueELEGJvI5TD4W7WsyEsdCZUnvvz19Fqi
-         7UnqwOCDPLr/DYtYhNQ0GKMybINidJBFaz9rT7K8xZS0muWy7k75pTOV/YdM4Epu5DSR
-         dkkg==
+        bh=qQW1TmR9evC/67fcZb5WXGa69DfOLAbqQ0G8sRDSbLM=;
+        b=Rhrttd9oz6xK1JXpvGC9aLM69+miE5SHhC8ALL4HPeXQGVqWYWUOkovdi8llvfIRQ1
+         kX3NXVkG/OvZ/M2kc52PXSZ3TMuT+XTO1YRkV+Ny0XU3kRWZn8xQ8Ie0STjA8jbwV+4L
+         GfIYhJiZeKEJnjQGBPUxnz4ZTh3CzsOJgauTT0/HwBKMVi4CpeKJDsCsS2MuzbtcEf9P
+         t9xanihMYUaJqPTYQWR5syFn/WG4F1v7T+EbHzs01hK+CX4AA4sLgXc9DTrikJJkRfmP
+         GKOr1txM6XZ6qvXvcyPGD0/z5RmJXzNMPmZylPdR4ems4p8Zi2iyP93bP4zIzD5tdsVE
+         RxHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778489670; x=1779094470;
+        d=1e100.net; s=20251104; t=1778489672; x=1779094472;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=rGycZZ0oxVCkeN0xv1IJG1TkG4N0VwOrQ4cI2sdWgss=;
-        b=JEJ2T7AxjnQfNH0+RFWSHNEXBoL1DDmEfMr7R6tqHnmFv+Bn0cFimq/k01gKfgP0Hs
-         9bpS4NGeM402YyJMPPuAUPWZNAIcC5b3O9mIJNUPlEoHHacH54eJ2pAXqMlO4ckl6ZNk
-         mdr6MC0sWN8dbLYRFYnUjBWFGZalZzcHZJj3z+dV3Mt6nATtxYEdB2Yvt2ADqEKXll+G
-         6qIlN+pGt4Ufzmu6JxI+0z5KjZO55wyrAwXqn3kW52FBkErwhgyG4WvtUSSuv7b1kR/J
-         RSKR+YZU+ATPHV2IfTMTCdJw1GHi5XCdFp0k2bU4SeWTmvgvfkSdXt2NHd6lIwuP6vnR
-         XpuA==
-X-Forwarded-Encrypted: i=1; AFNElJ+okjFB1DadJ2U7j4DoWIWVDbQQikYPLlv95/KYSxlEtmyQYZ/7Aymem78ibdolvZoUZrM/MPsh7opQPw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxI4c8EUabjcak8L1iyX9mjDJS7FqBJ3v3zYV/X7Uo2gwsUsXp1
-	k9Jcp0ykLhzy3IhDFoZW+xC/h7oVEkZ6NuhK30r/8jtskYKCIYOB1FKk
-X-Gm-Gg: Acq92OGJBbZM392jNbEo/s0qsZKeL9hQXSUisUk+/PeNusZC/kdiJOirVnOW9yTdASI
-	RHVyxRgPAswPQ4JAkqLb1Rvipf8uzE+xfuk/FC/ffKQPqdhiP4VpVTp5z/jZFSU1pQxglZ93fnS
-	DVWSTs3FoNuKqhM+xWkSkrsXuRozEbnwCoM/614VWidWYeJ11klI/o5MN3eaeQVTd4B/+FHfTZ/
-	ppkG0pfElT7Qk4O9cdDDuO+qJbNLjQWfCdlZaqDWDd4l6XZCrUwifGn65QdQtRPEy3K6VPZs/rT
-	1KXeOYndwSXYFhx/yEUcfXeDAd4+bOUgznAk9pLRZhaFX5yZHpllIHUIPyGmJOqj8e85EBCXQ4L
-	9V50LAEOCnLq3W0ZUYXyAheyqiKrxKpea5J1qcud3rEduOuZHeQFselcQSwLnWclOjEIwsLLPva
-	Ac6fv6UGSR7VQMXqoyRI9/voT7Jy8spHdrN9E8GO0q9/a1MwKAiMs2N+5olEsN7tj4WJIY4PFYQ
-	E+8
-X-Received: by 2002:adf:fa45:0:b0:441:29cd:a18e with SMTP id ffacd0b85a97d-452ea07e223mr20899118f8f.23.1778489670340;
-        Mon, 11 May 2026 01:54:30 -0700 (PDT)
+        bh=qQW1TmR9evC/67fcZb5WXGa69DfOLAbqQ0G8sRDSbLM=;
+        b=X/sZdNWB1xYm1h4OzGZhttWYj12SS2PI+VIln1QXKmjYvyXkEJ/PQceGYG2voX1twM
+         64uPaO036C/ELuu9KpZLIW9Vq0+3DYkluic4rZBQ6lACatEodOdbIVn9O7oh0z1U1lKY
+         un1D71nWMCkNn5XE+esCM/hCGZYPF/RMZrAXWx6/RKImi+c74VPKNpTfy6krGv7s/g3P
+         qOm3VYXjJq2Sk/ahQwUD6d+LBd6rucSIGUpaF+0I3DidFliAdZEi6cT0o9yF6prpcmQL
+         WALYEcxL6t/rqntOuF0Y+cJIDjiU5tB1YC9mhWPelkaDhvkzQJ7DIfPsGwWLW6NFFQh3
+         K4wQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8rTod6GyS39BUosybl8B4X/socV/Jzj12qK/pvfgU+ZhTdYsKZKRusZDDHMeav6EfALhb2t/dm99L7Lg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyepV97GLAwPiQzohBQdir4h2eBRHrsnQA9/jWNfSH6SoIG7rvj
+	DaIDe2eJbad1fomdxM+KSY8Exrp6EqI70xczdtpt4OagVAaN5EohkuVK
+X-Gm-Gg: Acq92OEZYlZ96s+jCEHpZmsgaSYdOXIYFnU1xLXdNnsQXXJyVNEyjycS+snsHGabXre
+	d3EocD5r8z3Veh67iW0FeDcuE2IuPa2yW17rxyJwSAv5XoOtsbsJlHfzClzRwFmOKZEdwxIQoWl
+	94bAu9syM1SpFZLjYBpxqZtFQQPKYzXnDtl/XkCvpQlgKb4HowMtqz3U+TtuqK61jdcSnb+44cU
+	q3fvPWXUX8AlVh2yoz2Hu/e5y26wgindqZRXCk16lzkdSOlcaU9NV0WQlGe9VOFQmnOIQaUs4vN
+	gW7TbsUz6q8HcKElTcTsBvb/q74SfgRW8bISQoXsvrso0Bv9KGELJllI+5RYbszXt1HNiv7FM4S
+	tx7UVEhGcwZrfoMHbeZAN9Uj7YqJtMdoX4XpE3pwn23BcDtb6I8qduptKET52ThyqQm4ijgRzpz
+	NQiO4dgOd0GxzckGqxoap6a7aA/tSKjRlubBnhbHtrXKNsNZf94BqI3EnYAAkzJdbzaQ==
+X-Received: by 2002:a05:6000:609:b0:452:bc74:b129 with SMTP id ffacd0b85a97d-452e9ca06b1mr28253152f8f.16.1778489672083;
+        Mon, 11 May 2026 01:54:32 -0700 (PDT)
 Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.237.202])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45491ca2fd6sm24944189f8f.30.2026.05.11.01.54.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45491ca2fd6sm24944189f8f.30.2026.05.11.01.54.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 01:54:29 -0700 (PDT)
+        Mon, 11 May 2026 01:54:31 -0700 (PDT)
 From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Mon, 11 May 2026 10:53:57 +0200
-Subject: [PATCH v9 2/8] mmc: sdhci-of-k1: enable essential clock
- infrastructure for SD operation
+Date: Mon, 11 May 2026 10:53:58 +0200
+Subject: [PATCH v9 3/8] mmc: sdhci-of-k1: add regulator and pinctrl voltage
+ switching support
 MIME-Version: 1.0
-Message-Id: <20260511-orangepi-sd-card-uhs-v9-2-ae48c0b2b2cf@gmail.com>
+Message-Id: <20260511-orangepi-sd-card-uhs-v9-3-ae48c0b2b2cf@gmail.com>
 References: <20260511-orangepi-sd-card-uhs-v9-0-ae48c0b2b2cf@gmail.com>
 In-Reply-To: <20260511-orangepi-sd-card-uhs-v9-0-ae48c0b2b2cf@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -86,9 +85,8 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Ulf Hansson <ulfh@kernel.org>, Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_015432_402806_8E1CA6FD 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260511_015434_187370_852454BC 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,60 +104,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ensure SD card pins receive clock signals by enabling pad clock
-generation and overriding automatic clock gating. Required for all SD
-operation modes.
+Add voltage switching infrastructure for UHS-I modes by integrating both
+regulator framework (for supply voltage control) and pinctrl state
+switching (for pin drive strength optimization).
 
-The SDHC_GEN_PAD_CLK_ON setting in LEGACY_CTRL_REG is safe for both SD
-and eMMC operation as both protocols use the same physical MMC interface
-pins and require proper clock signal generation at the hardware level
-for signal integrity and timing.
+- Add regulator supply parsing and voltage switching callback
+- Add optional pinctrl state switching between "default" (3.3V) and
+  "state_uhs" (1.8V) configurations
+- Enable coordinated voltage and pin configuration changes for UHS modes
 
-Additional SD-specific clock overrides (SDHC_OVRRD_CLK_OEN and
-SDHC_FORCE_CLK_ON) are conditionally applied only for SD-only
-controllers to handle removable card scenarios.
+This provides complete voltage switching support while maintaining
+backward compatibility when pinctrl states are not defined.
 
 Tested-by: Anand Moon <linux.amoon@gmail.com>
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
 Tested-by: Vincent Legoll <legoll@online.fr>
 Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 ---
- drivers/mmc/host/sdhci-of-k1.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/mmc/host/sdhci-of-k1.c | 72 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 72 insertions(+)
 
 diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-index 455656f9842d..0dd06fc19b85 100644
+index 0dd06fc19b85..d9144537032a 100644
 --- a/drivers/mmc/host/sdhci-of-k1.c
 +++ b/drivers/mmc/host/sdhci-of-k1.c
-@@ -21,6 +21,13 @@
+@@ -16,6 +16,7 @@
+ #include <linux/of.h>
+ #include <linux/of_device.h>
+ #include <linux/reset.h>
++#include <linux/pinctrl/consumer.h>
+ #include <linux/platform_device.h>
+ 
  #include "sdhci.h"
- #include "sdhci-pltfm.h"
+@@ -71,6 +72,9 @@
+ struct spacemit_sdhci_host {
+ 	struct clk *clk_core;
+ 	struct clk *clk_io;
++	struct pinctrl *pinctrl;
++	struct pinctrl_state *pinctrl_default;
++	struct pinctrl_state *pinctrl_uhs;
+ };
  
-+#define SPACEMIT_SDHC_OP_EXT_REG	0x108
-+#define  SDHC_OVRRD_CLK_OEN		BIT(11)
-+#define  SDHC_FORCE_CLK_ON		BIT(12)
-+
-+#define SPACEMIT_SDHC_LEGACY_CTRL_REG	0x10C
-+#define  SDHC_GEN_PAD_CLK_ON		BIT(6)
-+
- #define SPACEMIT_SDHC_MMC_CTRL_REG	0x114
- #define  SDHC_MISC_INT_EN		BIT(1)
- #define  SDHC_MISC_INT			BIT(2)
-@@ -101,6 +108,12 @@ static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
- 
- 	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC))
- 		spacemit_sdhci_setbits(host, SDHC_MMC_CARD_MODE, SPACEMIT_SDHC_MMC_CTRL_REG);
-+
-+	spacemit_sdhci_setbits(host, SDHC_GEN_PAD_CLK_ON, SPACEMIT_SDHC_LEGACY_CTRL_REG);
-+
-+	if (host->mmc->caps2 & MMC_CAP2_NO_MMC)
-+		spacemit_sdhci_setbits(host, SDHC_OVRRD_CLK_OEN | SDHC_FORCE_CLK_ON,
-+				       SPACEMIT_SDHC_OP_EXT_REG);
+ /* All helper functions will update clr/set while preserve rest bits */
+@@ -219,6 +223,46 @@ static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
+ 			       SPACEMIT_SDHC_PHY_CTRL_REG);
  }
  
- static void spacemit_sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned int timing)
++static int spacemit_sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
++						      struct mmc_ios *ios)
++{
++	struct sdhci_host *host = mmc_priv(mmc);
++	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
++	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
++	struct pinctrl_state *state;
++	int ret;
++
++	ret = sdhci_start_signal_voltage_switch(mmc, ios);
++	if (ret)
++		return ret;
++
++	if (!sdhst->pinctrl)
++		return 0;
++
++	/* Select appropriate pinctrl state based on signal voltage */
++	switch (ios->signal_voltage) {
++	case MMC_SIGNAL_VOLTAGE_330:
++		state = sdhst->pinctrl_default;
++		break;
++	case MMC_SIGNAL_VOLTAGE_180:
++		state = sdhst->pinctrl_uhs;
++		break;
++	default:
++		dev_warn(mmc_dev(mmc), "unsupported voltage %d\n", ios->signal_voltage);
++		return 0;
++	}
++
++	ret = pinctrl_select_state(sdhst->pinctrl, state);
++	if (ret) {
++		dev_warn(mmc_dev(mmc), "failed to select pinctrl state: %d\n", ret);
++		return 0;
++	}
++	dev_dbg(mmc_dev(mmc), "switched to %s pinctrl state\n",
++		ios->signal_voltage == MMC_SIGNAL_VOLTAGE_180 ? "UHS" : "default");
++
++	return 0;
++}
++
+ static inline int spacemit_sdhci_get_clocks(struct device *dev,
+ 					    struct sdhci_pltfm_host *pltfm_host)
+ {
+@@ -252,6 +296,30 @@ static inline int spacemit_sdhci_get_resets(struct device *dev)
+ 	return 0;
+ }
+ 
++static inline void spacemit_sdhci_get_pins(struct device *dev,
++					   struct sdhci_pltfm_host *pltfm_host)
++{
++	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
++
++	sdhst->pinctrl = devm_pinctrl_get(dev);
++	if (IS_ERR(sdhst->pinctrl)) {
++		sdhst->pinctrl = NULL;
++		dev_dbg(dev, "pinctrl not available, voltage switching will work without it\n");
++		return;
++	}
++
++	sdhst->pinctrl_default = pinctrl_lookup_state(sdhst->pinctrl, "default");
++	if (IS_ERR(sdhst->pinctrl_default))
++		sdhst->pinctrl_default = NULL;
++
++	sdhst->pinctrl_uhs = pinctrl_lookup_state(sdhst->pinctrl, "uhs");
++	if (IS_ERR(sdhst->pinctrl_uhs))
++		sdhst->pinctrl_uhs = NULL;
++
++	dev_dbg(dev, "pinctrl setup: default=%p, uhs=%p\n",
++		sdhst->pinctrl_default, sdhst->pinctrl_uhs);
++}
++
+ static const struct sdhci_ops spacemit_sdhci_ops = {
+ 	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
+ 	.reset			= spacemit_sdhci_reset,
+@@ -324,6 +392,10 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
+ 
+ 	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
+ 
++	spacemit_sdhci_get_pins(dev, pltfm_host);
++
++	host->mmc_host_ops.start_signal_voltage_switch = spacemit_sdhci_start_signal_voltage_switch;
++
+ 	ret = spacemit_sdhci_get_clocks(dev, pltfm_host);
+ 	if (ret)
+ 		goto err_pltfm;
 
 -- 
 2.54.0
