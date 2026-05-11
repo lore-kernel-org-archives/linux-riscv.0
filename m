@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D041CD37BE
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C3DCD4840
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 05:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=74QrUNqayd87PmoxrHOhYUsezJ4iH1wIw56mWCFcuH0=; b=kOrw3YzS8ASz7O
-	DCGB8wQM/V2Ii3J2Xf40t7jW9F6sXW4AN5KNUVPEgKjM7JD81RRPa4+HkhnKdH2aaGmV4q/PTwPNN
-	PoTP4LbuwPmIYWxnxGHcSlXdOSy3RXBZ5oRdgbul9prlxmoDSCc3xINzxucVhKho5Uw50ISf89Zf/
-	7JXL58QIPD6RHCu5i+luUigPxPb4i6NyyNWcf6Li806hwlX5MpoSwLsJLnjZ4M0TT4+/vFwi08nhK
-	e5x1uJVl6nMAsl+nVzKH1a3wshnH7ODHkKcW6gWoPYkUuM7eYu/teXHSrxh6Y+UMfAoGzPHQxI9ZT
-	2HXdqE2L1fNwP9CMYgdQ==;
+	List-Owner; bh=q2Q3yUyHonIUZaznGa3d+5wVyBPYzQWV42sRaTuCBCI=; b=BoZjAkapLUHXzC
+	ymm6hOjMPj0zv9sJAZy5roLXQh/YhU1uAuY+GMyrunGs12Xaa9wqlrKPID4dXAIXXd+ALgJ0QctPh
+	CRE6e3sXuj0uYYyJgACkln+MJ/+DiMtzy3Eu0Q9N18NrLaazZ5fllW6RmaC6Aqzb9QKmKpwduBnvM
+	BFKgogUPBMWTAi+4SiTfdiAItAHXD4k0y/8E1PBzbXodwi3QrF9Hmt+Oi++wMdoYxE9ZjTIVo8qPd
+	YaIcDr6JRdb034fusrZjDHsi6ZP813OdEM3rmsJJDhyS2F5UcVlTrrq01AbO+ms14nLHgz6sTUs7X
+	114pK2A0Dmu8Q0xAx16A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvc-0000000CLUU-3SoS;
-	Mon, 11 May 2026 05:11:40 +0000
+	id 1wMIvd-0000000CLVO-253E;
+	Mon, 11 May 2026 05:11:41 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIva-0000000CLOk-0cdQ
+	id 1wMIvb-0000000CLQM-20A8
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 11 May 2026 05:11:38 +0000
+	Mon, 11 May 2026 05:11:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=04z5b3ENFFStDILh5daSgPFr7SyjhKEetoj74bl6s2o=; b=FT3Iis+Gj12HkiKS+PTt0iCvrl
-	zq/4l+AfrXEIOOvDe6HNV22ZRA6oFM0sU8cIRxCm8Lm9GPYQ4EHPI3tJXIU35Q1ghpGVbCiOPYC9F
-	qIL9v/89c1BkfR4BYOBQHna0DFpsyn2urlqWG5jAri1XtaupevOD3VNgMe+AA/zEA2YThBaBugX5A
-	8U/iQwL5Hd4uM21qsXdTReWcF2PlsG+6RcvknRnLa174AKekc+MzwFL2QyyAcBlR6BdONM+pGhmD6
-	2CEA1qLhwTEeZBHR5PlcOk7eu89KetbhlNpZAH68x73einAcBeUVgrUFRg9+In9GozDfHhy8KbDFQ
-	5hurgKGw==;
+	bh=AcqbGOJ3LBfhQECTm3rp+7azQwW8rYFrttj4m3M1gwk=; b=eu/q2B/0UhMKNeylo/6W6Znmc8
+	BF4EXyjNq6Q3gFYMTEG7bxrOzS7HaCcnfuMREnH21PqZFa6Ag6jL4WODs44UbqPaxqeSOeNEbsAS3
+	Ek66tTLEgmu9Bc9kYgbIlGNcXU0F8wuQc3lhmdG2XMvAFXx2s/HacaTunjSqCo6I+PWd6xM6cYyFW
+	K0GFsDcdwZv2r2graAuWI8G5iw5SZJb0hcvM/eD99QcgpdhE6j+fz3J8El3Osjj6ponmqLF8w62Fz
+	foyNNSa0rZBfIxgjZ/m70nhY4cpqUxAPAFgok5iy2PpaOUPORNBwOexcGjBAOXjGEuF/sSyq9brWN
+	+GX01ptQ==;
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIvB-0000000Ae1O-3wLg
+	id 1wMIvE-0000000Ae1T-19dg
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 May 2026 05:11:35 +0000
+	Mon, 11 May 2026 05:11:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E08984456F;
-	Mon, 11 May 2026 05:11:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 386F0C4AF0E;
-	Mon, 11 May 2026 05:11:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A283444712;
+	Mon, 11 May 2026 05:11:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3C84C4AF11;
+	Mon, 11 May 2026 05:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778476271;
-	bh=AWRHihJSBi+LIrOoIsOzoxnsBG0+4NVU5YSaIMOxEs8=;
+	s=k20201202; t=1778476274;
+	bh=+Ka0NMSXOMcysYspQYgekhunhqZmoAxRwXrsbr/Fqnk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KV81w8Lh+F3FhkuspZ1kLBC9e+eptXdMI9K3Sdc9elu3bsNhZEpTRE494U167TZWB
-	 D+plhCpAJ+uxh6qxPNHBsH046+7ed26olcoqA8RlpJuY6W3FyyJalCzH0+/nuAC3bs
-	 N6xES97s60/foQlrHtWAVC+3GeQP8FGB/36LRwZ4thiPxfI+Qz7bYcsk0qF9kh7uOX
-	 hIKQhoF08s7GmZ+qnkl2RcFfmGIZqNxTyHHdCvVEH3I743G0hZh0G6QJzKH0/vLdm/
-	 TdEXUw6UjyWcLCLCE0FQ3+sm3E8sHXV/fA0n/d+mbIazywaY4E1xar4xTXtzsSFZhx
-	 PD1w/AP3aRuaQ==
+	b=RDs0NUP6N30e0OM3qjXSTBx3n3Gul3xBLvoR4ynWl//zrCMIjs2ZHEvrLc/KIAnNq
+	 mKHohEK9/dTLbftY1mtsMYkGdEd/Ps2KrNJkpD2CYszAmrjQEXrd/YRXe2zHXAtX0X
+	 rkdcH9rZWlHjc8eidfrZ3CbUCXEr8bpqQBqXq/MgppGOWmBEWJ1Qg6Ee/5emKl9plT
+	 p73ODgVRwO8xoIZFN2A8XJewWOREuwTbNwvxodAIAV4GZMVzf0mS8ki3a69U8hZ0FS
+	 nVR7nlBp3tM7yyhsrfDyGou7bh5zDp7BosfkfZllA6Y3KF96BpoCYOWhH/NavSkmYB
+	 Uae60Er++Tr4w==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 10 May 2026 22:11:00 -0700
-Subject: [PATCH RFC v4 04/18] fs/resctrl: Add resctrl_is_membw() helper
+Date: Sun, 10 May 2026 22:11:04 -0700
+Subject: [PATCH RFC v4 08/18] riscv_cbqri: Add capacity controller
+ monitoring device ops
 MIME-Version: 1.0
-Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-4-eb53831ef683@kernel.org>
+Message-Id: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-8-eb53831ef683@kernel.org>
 References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
 In-Reply-To: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -100,17 +101,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3572; i=fustini@kernel.org;
- h=from:subject:message-id; bh=AWRHihJSBi+LIrOoIsOzoxnsBG0+4NVU5YSaIMOxEs8=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxprzatdcp6XquClv+E2+LUpEXCxdP2JGyvtlfIFXzv
- O2KJ561HaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJNB9l+MOh+jbpHIt9TsEB
- T87b2l3CbKcPPX4n5TzJsHVuzGMbI1lGhpO7InLYFJdyJ0SUTHCJ3JtX97PJon529vkfX99qqn9
- dyQ4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6207; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=+Ka0NMSXOMcysYspQYgekhunhqZmoAxRwXrsbr/Fqnk=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQxprw+s/9F834TPW8R62ce4l05bGHmVgZ3ugTXbspN3
+ Fz2eMvTjlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBEmJsYGfY/FFl39sbGmk1Z
+ yhITNs/7/l4sIubJ+6R52m/vh7/RvDid4b/TtW98U2S0njy4Ll+ldVr18Oqo1rMxjM6HRU2Tvv1
+ aNI8HAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_061130_524952_5FA3CF3E 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20260511_061130_407596_614614C5 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,102 +128,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Four sites in fs/resctrl distinguish bandwidth resources (MBA, SMBA)
-from cache resources by explicit rid match:
+Add the CC monitoring primitives. cbqri_init_mon_counters() pre-arms
+every MCID with the Occupancy event so a subsequent READ_COUNTER
+just snapshots the live counter without re-configuring the slot.
 
-  fs/resctrl/ctrlmondata.c parse_line()
-  fs/resctrl/rdtgroup.c    rdtgroup_mode_test_exclusive()
-  fs/resctrl/rdtgroup.c    rdtgroup_size_show()
-  fs/resctrl/rdtgroup.c    rdtgroup_init_alloc()
-
-Replace the open-coded MBA/SMBA tests with a single resctrl_is_membw()
-helper keyed on schema_fmt (RESCTRL_SCHEMA_RANGE). No functional change:
-every existing RESCTRL_SCHEMA_RANGE resource is MBA or SMBA today.
-
-This isolates fs/resctrl from the addition of further bandwidth resource
-types so the four call sites do not have to be updated for each new rid.
+cbqri_probe_cc() leaves ctrl->mon_capable false when cacheinfo has
+not given a non-zero cache_size, since the byte conversion would be
+meaningless. cbqri_mon_op() takes a reg_offset and serves both CC
+and BC mon_ctl registers, which share an identical layout.
 
 Assisted-by: Claude:claude-opus-4-7
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- fs/resctrl/ctrlmondata.c |  3 +--
- fs/resctrl/internal.h    |  2 ++
- fs/resctrl/rdtgroup.c    | 14 +++++++++-----
- 3 files changed, 12 insertions(+), 7 deletions(-)
+ drivers/resctrl/cbqri_devices.c  | 85 ++++++++++++++++++++++++++++++++++++++++
+ drivers/resctrl/cbqri_internal.h | 21 ++++++++++
+ 2 files changed, 106 insertions(+)
 
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index 9a7dfc48cb2e..d9f052700941 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -245,8 +245,7 @@ static int parse_line(char *line, struct resctrl_schema *s,
- 	if (WARN_ON_ONCE(!parse_ctrlval))
- 		return -EINVAL;
- 
--	if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP &&
--	    (r->rid == RDT_RESOURCE_MBA || r->rid == RDT_RESOURCE_SMBA)) {
-+	if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP && resctrl_is_membw(r)) {
- 		rdt_last_cmd_puts("Cannot pseudo-lock MBA resource\n");
- 		return -EINVAL;
- 	}
-diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
-index 1a9b29119f88..76187987b2ee 100644
---- a/fs/resctrl/internal.h
-+++ b/fs/resctrl/internal.h
-@@ -397,6 +397,8 @@ void mbm_handle_overflow(struct work_struct *work);
- 
- bool is_mba_sc(struct rdt_resource *r);
- 
-+bool resctrl_is_membw(struct rdt_resource *r);
-+
- void cqm_setup_limbo_handler(struct rdt_l3_mon_domain *dom, unsigned long delay_ms,
- 			     int exclude_cpu);
- 
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 5dfdaa6f9d8f..0f331bf5ce82 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -1412,7 +1412,7 @@ static bool rdtgroup_mode_test_exclusive(struct rdtgroup *rdtgrp)
- 
- 	list_for_each_entry(s, &resctrl_schema_all, list) {
- 		r = s->res;
--		if (r->rid == RDT_RESOURCE_MBA || r->rid == RDT_RESOURCE_SMBA)
-+		if (resctrl_is_membw(r))
- 			continue;
- 		has_cache = true;
- 		list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
-@@ -1555,6 +1555,12 @@ bool is_mba_sc(struct rdt_resource *r)
- 	return r->membw.mba_sc;
+diff --git a/drivers/resctrl/cbqri_devices.c b/drivers/resctrl/cbqri_devices.c
+index dc76a146e34d..e46b02d2c50d 100644
+--- a/drivers/resctrl/cbqri_devices.c
++++ b/drivers/resctrl/cbqri_devices.c
+@@ -105,6 +105,46 @@ static int cbqri_cc_alloc_op(struct cbqri_controller *ctrl, int operation,
+ 	return 0;
  }
  
-+/* RANGE schema is bandwidth (MBA/SMBA). BITMAP is cache. */
-+bool resctrl_is_membw(struct rdt_resource *r)
++/*
++ * Issue a monitoring op on a CC or BC controller's mon_ctl register at
++ * reg_offset (CBQRI_CC_MON_CTL_OFF or CBQRI_BC_MON_CTL_OFF). The CC and
++ * BC mon_ctl registers share an identical OP/MCID/EVT_ID/STATUS layout, so
++ * one helper covers both. Caller must hold ctrl->lock.
++ */
++int cbqri_mon_op(struct cbqri_controller *ctrl, int reg_offset,
++		 int operation, int mcid, int evt_id, u64 *out_reg)
 +{
-+	return r->schema_fmt == RESCTRL_SCHEMA_RANGE;
++	u64 reg;
++
++	lockdep_assert_held(&ctrl->lock);
++
++	if (ctrl->faulted)
++		return -EIO;
++
++	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
++		pr_err_ratelimited("BUSY timeout before starting operation\n");
++		return -EIO;
++	}
++	FIELD_MODIFY(CBQRI_MON_CTL_OP_MASK, &reg, operation);
++	FIELD_MODIFY(CBQRI_MON_CTL_MCID_MASK, &reg, mcid);
++	FIELD_MODIFY(CBQRI_MON_CTL_EVT_ID_MASK, &reg, evt_id);
++	iowrite64(reg, ctrl->base + reg_offset);
++
++	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
++		pr_err_ratelimited("BUSY timeout\n");
++		return -EIO;
++	}
++
++	if (FIELD_GET(CBQRI_MON_CTL_STATUS_MASK, reg) !=
++	    CBQRI_MON_CTL_STATUS_SUCCESS)
++		return -EIO;
++
++	if (out_reg)
++		*out_reg = reg;
++
++	return 0;
 +}
 +
  /*
-  * rdtgroup_size_show - Display size in bytes of allocated regions
+  * Apply a capacity block mask and verify via CONFIG_LIMIT + READ_LIMIT.
   *
-@@ -1616,8 +1622,7 @@ static int rdtgroup_size_show(struct kernfs_open_file *of,
- 					ctrl = resctrl_arch_get_config(r, d,
- 								       closid,
- 								       type);
--				if (r->rid == RDT_RESOURCE_MBA ||
--				    r->rid == RDT_RESOURCE_SMBA)
-+				if (resctrl_is_membw(r))
- 					size = ctrl;
- 				else
- 					size = rdtgroup_cbm_to_size(r, d, ctrl);
-@@ -3648,8 +3653,7 @@ static int rdtgroup_init_alloc(struct rdtgroup *rdtgrp)
+@@ -310,6 +350,7 @@ static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
  
- 	list_for_each_entry(s, &resctrl_schema_all, list) {
- 		r = s->res;
--		if (r->rid == RDT_RESOURCE_MBA ||
--		    r->rid == RDT_RESOURCE_SMBA) {
-+		if (resctrl_is_membw(r)) {
- 			rdtgroup_init_mba(r, rdtgrp->closid);
- 			if (is_mba_sc(r))
- 				continue;
+ static int cbqri_probe_cc(struct cbqri_controller *ctrl)
+ {
++	bool has_mon_at_code = false;
+ 	int err, status;
+ 	u64 reg;
+ 
+@@ -361,6 +402,28 @@ static int cbqri_probe_cc(struct cbqri_controller *ctrl)
+ 	}
+ 	cpus_read_unlock();
+ 
++	/* Probe monitoring features */
++	err = cbqri_probe_feature(ctrl, CBQRI_CC_MON_CTL_OFF,
++				  CBQRI_CC_MON_CTL_OP_READ_COUNTER, &status,
++				  &has_mon_at_code);
++	if (err)
++		return err;
++
++	if (status == CBQRI_MON_CTL_STATUS_SUCCESS) {
++		/*
++		 * Occupancy is reported to userspace in bytes, computed as
++		 * cache_size * counter / ncblks by the resctrl glue. If
++		 * cacheinfo has no cache_size, leave mon_capable false so
++		 * the file is not exposed at all rather than silently
++		 * returning 0.
++		 */
++		if (!ctrl->cache.cache_size)
++			pr_debug("CC @%pa: cache_size unknown, occupancy monitoring disabled\n",
++				 &ctrl->addr);
++		else
++			ctrl->mon_capable = true;
++	}
++
+ 	/* Probe allocation features */
+ 	err = cbqri_probe_feature(ctrl, CBQRI_CC_ALLOC_CTL_OFF,
+ 				  CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT,
+@@ -428,6 +491,28 @@ static int cbqri_probe_controller(struct cbqri_controller *ctrl)
+ 	return err;
+ }
+ 
++/*
++ * Pre-arm every MCID with the Occupancy event so a subsequent READ_COUNTER
++ * just snapshots the live counter rather than re-configuring the slot.
++ * Called once per CC during resctrl-side cpuhp online for the L3 monitoring
++ * domain.
++ */
++int cbqri_init_mon_counters(struct cbqri_controller *ctrl)
++{
++	int i, err;
++
++	for (i = 0; i < ctrl->mcid_count; i++) {
++		mutex_lock(&ctrl->lock);
++		err = cbqri_mon_op(ctrl, CBQRI_CC_MON_CTL_OFF,
++				   CBQRI_CC_MON_CTL_OP_CONFIG_EVENT,
++				   i, CBQRI_CC_EVT_ID_OCCUPANCY, NULL);
++		mutex_unlock(&ctrl->lock);
++		if (err)
++			return err;
++	}
++	return 0;
++}
++
+ void cbqri_controller_destroy(struct cbqri_controller *ctrl)
+ {
+ 	kfree(ctrl);
+diff --git a/drivers/resctrl/cbqri_internal.h b/drivers/resctrl/cbqri_internal.h
+index 6a581a7e417b..b1169ffc599f 100644
+--- a/drivers/resctrl/cbqri_internal.h
++++ b/drivers/resctrl/cbqri_internal.h
+@@ -11,6 +11,8 @@
+ 
+ /* Capacity Controller (CC) MMIO register offsets. */
+ #define CBQRI_CC_CAPABILITIES_OFF 0
++#define CBQRI_CC_MON_CTL_OFF      8
++#define CBQRI_CC_MON_CTL_VAL_OFF 16
+ #define CBQRI_CC_ALLOC_CTL_OFF   24
+ #define CBQRI_CC_BLOCK_MASK_OFF  32
+ 
+@@ -39,6 +41,20 @@
+ #define CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT   2
+ #define CBQRI_CC_ALLOC_CTL_STATUS_SUCCESS  1
+ 
++#define CBQRI_CC_MON_CTL_OP_CONFIG_EVENT 1
++#define CBQRI_CC_MON_CTL_OP_READ_COUNTER 2
++
++/* mon_ctl field masks (CC and BC share an identical OP/MCID/EVT_ID/STATUS layout) */
++#define CBQRI_MON_CTL_OP_MASK        GENMASK(4, 0)
++#define CBQRI_MON_CTL_MCID_MASK      GENMASK(19, 8)
++#define CBQRI_MON_CTL_EVT_ID_MASK    GENMASK(27, 20)
++#define CBQRI_MON_CTL_STATUS_MASK    GENMASK_ULL(38, 32)
++#define CBQRI_MON_CTL_STATUS_SUCCESS 1
++
++/* Capacity usage monitoring event IDs (CBQRI spec Table 4) */
++#define CBQRI_CC_EVT_ID_NONE         0
++#define CBQRI_CC_EVT_ID_OCCUPANCY    1
++
+ /* Capacity Controller hardware capabilities */
+ struct riscv_cbqri_capacity_caps {
+ 	u16 ncblks;
+@@ -122,4 +138,9 @@ int cbqri_apply_cache_config(struct cbqri_controller *ctrl, u32 closid,
+ int cbqri_read_cache_config(struct cbqri_controller *ctrl, u32 closid,
+ 			    enum cbqri_at at, u32 *cbm_out);
+ 
++int cbqri_mon_op(struct cbqri_controller *ctrl, int reg_offset,
++		 int operation, int mcid, int evt_id, u64 *out_reg);
++
++int cbqri_init_mon_counters(struct cbqri_controller *ctrl);
++
+ #endif /* _DRIVERS_RESCTRL_CBQRI_INTERNAL_H */
 
 -- 
 2.43.0
