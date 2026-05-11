@@ -4,102 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FBDECD37AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 11:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62CC7CD37B9
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 May 2026 11:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E7MPc+yxTJj4aX4rC1L9C6uJYp37OWzU4ASDgXOSqME=; b=xbjDvhBoRDm7ul
-	Ztl1leETgtYitDwzVHxrQELl06txE5GbyxKgOxK9i+L04EYea7anHRVJmk6eanrAvKsXHmAQssk0u
-	qChs9N+cQMqbFQ4VN7YttpZQ7o0RIFlfA8NtPvL09Fb9QdOXVJAelMqgDTiVmeN3ODRXPCPwyMwgR
-	TsjuYrcKT4Q4jHZSzaFTWPAdOI32XUhLgdCMMJBb3mZrVpj6qQXQ/bamb+mGb59MugzM3+DuQmrfQ
-	R3lVYZETJawVGQwpb21nU/WVH0uQBU121ShEDL3urv40wvi70dmQ4XaWX5v8+pl4GdQfURf1i3vk6
-	R0yXGZK7Pmrb3kAkc+AQ==;
+	List-Owner; bh=+TrTCqCv0H2jbyxiMgzLsDNDDkN5nlR8e6prYuIkKQw=; b=mne27rdtTBvuAU
+	CB0mEdSyuaCO6CA738gkmKG6ay9Ibo+AKK5lN3xSf+/imJiFQX5HUVT1TKMUp2tD/Hyhp/VrgjxeI
+	1KMMVO/MyfWi/Qci4C1X1Y7HMRyorztDunryrSGLozWFFdYYoOa0DvpAm8vGkrlnkqTP9bywl6r8s
+	09Fl+GIWXvqUSNI6BFR+/txeuxEBad81KbKBvaeutI0bDK1myxG/W1+1WWZmJ3n3H4mEqXCTwWFT6
+	YncyL9jNgYYhew2byLD1E4L6MfR2GyCowgYtVoVZgLRFcjLrRcdIRsozOrOSCb9IBiWS37r0JJ2BH
+	iRuU0kS28yZgEH16trkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOqt-0000000DKXD-3EwL;
-	Mon, 11 May 2026 11:31:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wMP2r-0000000DNDs-3Cj8;
+	Mon, 11 May 2026 11:43:33 +0000
+Received: from mail-wr1-f46.google.com ([209.85.221.46])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOqp-0000000DKUw-3b27;
-	Mon, 11 May 2026 11:31:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=hZY77WY1R4lZKqkiJYVx90NM7cypXm7b/K/Dl6ostWU=; b=jf3k3vPKpYFGz5dCFf+bos0NFo
-	16tV9Bs8TrOFsV8eOCQVLsErLlZWgUjBPnVYeWoq9TJpCjUMKpJF93URl8pFn95nVJuYTphKxvsEp
-	2LTvmfzKMmTU8cJ1Pg1hUFei1sZIEgJ7RI5Fa+bYQgyNqoPm1zsM45Ay+2jI+iXQO0lW+CxTle67F
-	PJuxM9t+dZKoD7fUud1CPAvZ2DHJB6A4MrRWvduDVFAUW0/ss4QZ5ABxfcrrOY84FAvJLQ/kdTXqq
-	maf/klmK3d3oFYhCcQQLAC3Gqts246494SDO7vgyh5cV9HSaDQfPD/w1m7IKi5zxZX9OjIm0slTeU
-	gL2dtSfQ==;
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOqh-0000000BTgS-2SLB;
-	Mon, 11 May 2026 11:31:04 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=hZY77WY1R4lZKqkiJYVx90NM7cypXm7b/K/Dl6ostWU=;
-	b=A7gfGf9I2mWtoGk1twpeKdsTWxHRCoqkxK6h8sqAufJacFPxPk7J5UV8oj4BBjTyooxVD2Cki
-	IZBX0lyWqVPhijn1Ra4jjJgWV2oQvMFsHXLFq2R6ycKWvoUQXNa+lNIZBbmfXSzS+9wfOLM4NXI
-	bc1oxF4bSdMbsjNUg+iYH3U=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gDcm00dzbzmV6w;
-	Mon, 11 May 2026 19:23:12 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2B9494048B;
-	Mon, 11 May 2026 19:30:49 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 11 May 2026 19:30:44 +0800
-Message-ID: <79c14bee-b1f5-4d70-8345-6582d6cf0128@huawei.com>
-Date: Mon, 11 May 2026 19:30:44 +0800
+	id 1wMP2p-0000000DNCg-3v9h
+	for linux-riscv@lists.infradead.org;
+	Mon, 11 May 2026 11:43:33 +0000
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-45562c41ec7so1310022f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 11 May 2026 04:43:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778499810; x=1779104610; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vq0OHDPrSqmT5iEr31Nrcm4QgRLDSjmnaM+8FKnpEIY=;
+        b=R6F1hnAfFKsoOTbY7VFj4U4C4G8KatXdLFGFP1dVVrR+LzY5juXqH959AZsJGRDa4h
+         ke4v3DfRXYTeUyLSdC//CwmOSxpSZybmeBsKYeRaSGolme47tHyoOhq3BVJkljztPvPc
+         Y8ZT7XMVZEWFoR9nwkuqBbhYHk2fRKoVnTaVFve6VwJxEwQBrGpiTkqYm+VMdVqYaILB
+         0Dhv7U1787IWUZxcu9DSAXIY48qIF54sODipU+yDwdrm5J1dygKdnCnF0im5w+e9dos6
+         EHNqQ+HQ4SS+0MTCZBw4cyjLorqxDcyoNFYgY6EKzVOvD0OGga8Ft2i9Kira5+bdbFNh
+         wBCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778499810; x=1779104610;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vq0OHDPrSqmT5iEr31Nrcm4QgRLDSjmnaM+8FKnpEIY=;
+        b=dxzrXnUd5ZEnt/5igtvZnwzwzbGTAVKwfNHIRzd6xjOVP3rIzPoVVMXodlgtwcbWxR
+         Hm0lxLgnDdxpJWSRFGDY+CHeKU1VxFnxq8GgP5brh0iBFNWaTexVt6/C48iP4vz/NRWQ
+         RMTg6KgqWdYCfybQvjtHHMA6z7yPkFXCz1PqAHEWvYQ/fpJXyMbg7Kzn4Tl+erGGPvWn
+         VnQ5uktaXrzF3iVM7G3KzhttJNtzNjncVI5t2ZPNoMc3DlEGHJL5EIOUP8/aqcR//fcB
+         HekBjdqn3OMi+q3hpkSGMF7w2dI/1QiSW5OY41n19aDtgnH637fOtpKYAFYGnMrBa4Ac
+         TunA==
+X-Forwarded-Encrypted: i=1; AFNElJ8uc9hhhTHy8awGh4vSxWNqdXeb8qns811lcunE82Mx8usibIV19tb8ppJ+CeF93cTp+Qcp4fJ1CGqGKw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCmEO+kYmO6i6wXs3koaruRn2Cd8WOdizV5J4qIv6lZEaz8GaT
+	fkuIdv00HYl18UmF7kjgiGLqNeHW1/VkDk2yJyRyqJHNZOrZ4hxPY5TV
+X-Gm-Gg: Acq92OG2CpKPNnAL9x0NdPnvNyBSske0O/bRzMWfI6fQxhsOAhaHeRuGxsjsYCLMmbo
+	IDFG8MyZ5GlIDEcR2Om05wTcyBqobWS6yXN7zdQXbcVSTI8Wpz5HeGKW2PL6AEiTVmGokKbPJ21
+	QE046frBNLEz6SBr4x0TcNzoaIN8M+drlz2a8ie+NMHTWb9IDkFiZ/xlrFUPrQCapWNvD9jmkEB
+	BMh2Ww74xrxNFjIL1eWI1m4QBG6oYCa+lYH+N0JhPw0mUoeElGxjTESKe+yh9iXxWjrrlQFSAuG
+	/6LPxuXNbHuX89gIThTOT8QxUbmh5qRRLS2FXeUJDP9kyFA3gpjDHYrsqlmfiN3mH8Fo/xdSirV
+	FhzcqiYeAgZVaX+1GLUmEhV8e0WzMheX0JPBGyyo821qnk0W4/zOOEZBGbzSKQrU190CLpaTrTy
+	oth/LsjuPrmk8pDWKy+HUy6sfbf9VpbkYgbUWgAzX2h1CMDAqkPAssPvaAbsGfHXI=
+X-Received: by 2002:a5d:64c9:0:b0:43d:75ec:26f7 with SMTP id ffacd0b85a97d-4515cb3d91dmr38402992f8f.29.1778499809527;
+        Mon, 11 May 2026 04:43:29 -0700 (PDT)
+Received: from [192.168.0.40] (a89-182-129-90.net-htp.de. [89.182.129.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-458b3664e3esm9488989f8f.3.2026.05.11.04.43.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 May 2026 04:43:29 -0700 (PDT)
+Message-ID: <46f93cdb-e65d-4c83-9050-f8223690b0ce@gmail.com>
+Date: Mon, 11 May 2026 13:43:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 04/15] arm64: kexec_file: Fix potential buffer
- overflow in prepare_elf_headers()
-To: Breno Leitao <leitao@debian.org>
-CC: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <rppt@kernel.org>,
-	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <ruirui.yang@linux.dev>,
-	<rdunlap@infradead.org>, <pmladek@suse.com>, <dapeng1.mi@linux.intel.com>,
-	<kees@kernel.org>, <elver@google.com>, <kuba@kernel.org>,
-	<ebiggers@kernel.org>, <lirongqing@baidu.com>, <paulmck@kernel.org>,
-	<sourabhjain@linux.ibm.com>, <coxu@redhat.com>, <jbohac@suse.cz>,
-	<ryan.roberts@arm.com>, <osandov@fb.com>, <cfsworks@gmail.com>,
-	<tangyouling@kylinos.cn>, <ritesh.list@gmail.com>, <adityag@linux.ibm.com>,
-	<guoren@kernel.org>, <songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
-	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>,
-	<wangruikang@iscas.ac.cn>, <namcao@linutronix.de>, <chao.gao@intel.com>,
-	<seanjc@google.com>, <fuqiang.wang@easystack.cn>, <ardb@kernel.org>,
-	<chenjiahao16@huawei.com>, <hbathini@linux.ibm.com>,
-	<takahiro.akashi@linaro.org>, <james.morse@arm.com>, <lizhengyu3@huawei.com>,
-	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-References: <20260511030454.1730881-1-ruanjinjie@huawei.com>
- <20260511030454.1730881-5-ruanjinjie@huawei.com> <agGkvrg06KNDNfDi@gmail.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <agGkvrg06KNDNfDi@gmail.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Subject: Re: [PATCH v9 8/8] riscv: dts: spacemit: k1-musepi-pro: add SD card
+ support with UHS modes
+To: Iker Pedrosa <ikerpedrosam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Yixun Lan <dlan@kernel.org>, Ulf Hansson <ulfh@kernel.org>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>,
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+ Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Trevor Gamblin <tgamblin@baylibre.com>
+References: <20260511-orangepi-sd-card-uhs-v9-0-ae48c0b2b2cf@gmail.com>
+ <20260511-orangepi-sd-card-uhs-v9-8-ae48c0b2b2cf@gmail.com>
+From: Andre Heider <a.heider@gmail.com>
+Content-Language: de-DE
+In-Reply-To: <20260511-orangepi-sd-card-uhs-v9-8-ae48c0b2b2cf@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_123101_208554_DF05BF5C 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20260511_044332_001820_60CC432B 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,98 +107,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Iker,
 
-
-On 5/11/2026 5:46 PM, Breno Leitao wrote:
-> On Mon, May 11, 2026 at 11:04:43AM +0800, Jinjie Ruan wrote:
->> There is a race condition between the kexec_load() system call
->> (crash kernel loading path) and memory hotplug operations that can
->> lead to buffer overflow and potential kernel crash.
->>
->> During prepare_elf_headers(), the following steps occur:
->> 1. The first for_each_mem_range() queries current System RAM memory ranges
->> 2. Allocates buffer based on queried count
->> 3. The 2st for_each_mem_range() populates ranges from memblock
->>
->> If memory hotplug occurs between step 1 and step 3, the number of ranges
->> can increase, causing out-of-bounds write when populating cmem->ranges[].
->>
->> This happens because kexec_load() uses kexec_trylock (atomic_t) while
->> memory hotplug uses device_hotplug_lock (mutex), so they don't serialize
->> with each other.
->>
->> Add the explicit bounds checking to prevent out-of-bounds access.
+On 11.05.26 10:54 AM, Iker Pedrosa wrote:
+> From: Trevor Gamblin <tgamblin@baylibre.com>
 > 
-> It seems you have a TOCTOU type of issue, and this seems to be shrinking
-> the window, but not fully solving it?
-
-Hi Breno,
-
-Thanks for your comments regarding the TOCTOU issue.
-
-You are correct that the current bounds checking only "shrinks the
-window" and prevents a kernel crash, but doesn't fully guarantee header
-consistency if a race occurs.
-
-In my local environment, this race is extremely difficult to reproduce,
-but it is theoretically possible.
-
-To address this properly for arm64, I am considering two steps:
-
-- For this patch: I will change the return value to -EAGAIN and keep the
-bounds check. This ensures that even if a race happens, the kernel
-remains safe (no OOB access), and user-space is notified to retry.
-
-- Long-term solution: A better way to solve this is to implement ARM64
-CRASH_HOTPLUG support (similar to x86). With crash hotplug, the kernel
-will automatically re-generate the crash headers whenever a memory
-hotplug event occurs. This makes the TOCTOU during the initial
-kexec_load less critical, as any transient inconsistency will be
-immediately corrected by the subsequent hotplug handler.
-
-Does it make sense to you to use this patch as a safety guard first, and
-then I (or someone else) follow up with the full CRASH_HOTPLUG support
-for arm64 as [1]?
-
-[1]:
-https://lore.kernel.org/all/20260402081459.635022-1-ruanjinjie@huawei.com/
-
-Best regards,
-Jinjie
-
+> Update the Muse Pi Pro devicetree with SD card support to match what
+> was done for the OrangePi RV2 in [1]. More precisely:
 > 
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will.deacon@arm.com>
->> Cc: Andrew Morton <akpm@linux-foundation.org>
->> Cc: Baoquan He <bhe@redhat.com>
->> Cc: Breno Leitao <leitao@debian.org>
->> Cc: stable@vger.kernel.org
->> Fixes: 3751e728cef2 ("arm64: kexec_file: add crash dump support")
->> Closes: https://sashiko.dev/#/patchset/20260323072745.2481719-1-ruanjinjie%40huawei.com
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/kernel/machine_kexec_file.c | 5 +++++
->>  1 file changed, 5 insertions(+)
->>
->> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
->> index e31fabed378a..a67e7b1abbab 100644
->> --- a/arch/arm64/kernel/machine_kexec_file.c
->> +++ b/arch/arm64/kernel/machine_kexec_file.c
->> @@ -59,6 +59,11 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->>  	cmem->max_nr_ranges = nr_ranges;
->>  	cmem->nr_ranges = 0;
->>  	for_each_mem_range(i, &start, &end) {
->> +		if (cmem->nr_ranges >= cmem->max_nr_ranges) {
->> +			ret = -ENOMEM;
+> - Enable sdhci0 controller with 4-bit bus width
+> - Configure card detect GPIO with inversion
+> - Connect vmmc-supply to buck4 for 3.3V card power
+> - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
+> - Add dual pinctrl states for voltage-dependent pin configuration
+> - Support UHS-I SDR25, SDR50, and SDR104 modes
 > 
-> -ENOMEM seems to be the the wrong errno. This isn't an allocation
-> failure; it's a transient race. -EBUSY or -EAGAIN would be more honest
+> [1] https://lore.kernel.org/linux-riscv/20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com/T/#
+> 
+> Signed-off-by: Trevor Gamblin <tgamblin@baylibre.com>
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 
+with the cd issue mentioned below this is:
+
+Tested-by: Andre Heider <a.heider@gmail.com>
+
+
+> ---
+>   arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 66 ++++++++++++++++++++++++++
+>   1 file changed, 66 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> index 29e333b670cf..774a4640f065 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> @@ -18,6 +18,24 @@ aliases {
+>   		ethernet0 = &eth0;
+>   		serial0 = &uart0;
+>   	};
+> +	reg_dc_in: dc-in-5v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "dc_in_5v";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-boot-on;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_vcc_4v: vcc-4v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_4v";
+> +		regulator-min-microvolt = <4000000>;
+> +		regulator-max-microvolt = <4000000>;
+> +		regulator-boot-on;
+> +		regulator-always-on;
+> +	};
+> +
+>   
+>   	chosen {
+>   		stdout-path = "serial0";
+> @@ -77,3 +95,51 @@ &uart0 {
+>   	pinctrl-names = "default";
+>   	status = "okay";
+>   };
+> +
+> +&i2c8 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c8_cfg>;
+> +	status = "okay";
+> +
+> +	pmic@41 {
+> +		compatible = "spacemit,p1";
+> +		reg = <0x41>;
+> +		interrupts = <64>;
+> +		vin-supply = <&reg_vcc_4v>;
+> +
+> +		regulators {
+> +			buck4: buck4 {
+> +				regulator-min-microvolt = <500000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-ramp-delay = <5000>;
+> +				regulator-always-on;
+> +			};
+> +
+> +			aldo1: aldo1 {
+> +				regulator-min-microvolt = <500000>;
+> +				regulator-max-microvolt = <3400000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&sdhci0 {
+> +	pinctrl-names = "default", "uhs";
+> +	pinctrl-0 = <&mmc1_cfg>;
+> +	pinctrl-1 = <&mmc1_uhs_cfg>;
+> +	bus-width = <4>;
+> +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
+> +	cd-inverted;
+
+cd doesn't work with that on my muse pi pro. This on top fixes it though:
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+index c3920fc708f51..ad68ded8dfd7e 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+@@ -396,8 +396,7 @@ &sdhci0 {
+     pinctrl-0 = <&mmc1_cfg>;
+     pinctrl-1 = <&mmc1_uhs_cfg>;
+     bus-width = <4>;
+-   cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
+-   cd-inverted;
++   cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+     no-mmc;
+     no-sdio;
+     disable-wp;
+
+> +	no-mmc;
+> +	no-sdio;
+> +	disable-wp;
+> +	cap-sd-highspeed;
+> +	vmmc-supply = <&buck4>;
+> +	vqmmc-supply = <&aldo1>;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +	status = "okay";
+> +};
+> 
+
+Thanks!
+Andre
 
 _______________________________________________
 linux-riscv mailing list
