@@ -4,69 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB2ECD4F25
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 17:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 334A6CD4F24
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 18:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GnJh+eHOWOp6PoqInh50vHnX5LmdJt0eJXcdD+BFiy4=; b=2nIvjj/fi0kUIDc6zwy5xGVn0c
-	YuoRwSRgxQ8QTcUXpP7deLgjYHHI6XF+fSYL7vYfhPmz5xsUd4KTtEyDdTVLa6yCIZ8EzVP2/f0Oe
-	W10DNHRPlwD/Eqx8V06qfQmUQBAHm5kw2/OO3zyfNBBbGwP44GeSNsa+7Xuu51DOeP8P77uL4aFZu
-	RJXzdTOxlrik7yS9GHO2x+NFn9ydABbhUyfC+/1cWt60+5cxP5R6vBDa38Wuuf3iY8W/irpdA1UES
-	5agzqJq1LmHV41maWAw4tpK+edFmi06gfAK+BkrI0lvnFiWcnamX7V/4ToKJu/FOXs8xeDPM5zin5
-	EYVo6Nvg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hs3Hnrkz7DFct7NwowfG+ioOYCYW+Qc2M2GNVEt801A=; b=AXrJsGkCjfBABwtw1okkeHvb1e
+	MQYhVGC0/7ZfIk5f90L3n41Rs23cNdcxE5IHZUkw6tuyybS+s8sj50EuzoNsGysMP+iEttKVOu7jy
+	K3+JisIl+R9MkubQRZQEdTCcOQiADaxR9dOEohgyObr/1CHFWvOtaHVDdHxeOwwT3OtHKRg0rjWCO
+	f9/VDO+YPyB2X620k4MQJH1Pu4Kgqi/0oE4XjuMhnvjS4oQsC+CcWiarQOw4ORPBF/n+9w9fVAGc2
+	/m44uakKCDM7hHSY29KRf9n46+PwBwHm8XuTyg3a9FIeCSSjy+fCBP0F20Rt9pT6+Jdxd+vq5C8HH
+	R+SO7YAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMrAi-0000000Ha2D-1r0M;
-	Tue, 12 May 2026 17:45:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMs1X-000000007Z7-0cwC;
+	Tue, 12 May 2026 18:40:07 +0000
+Received: from mail-japaneastazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d405::1] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMrAg-0000000Ha1v-2YpF
+	id 1wMs1U-000000007YW-0nWG
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 May 2026 17:45:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB6576013B;
-	Tue, 12 May 2026 17:45:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D058C2BCB0;
-	Tue, 12 May 2026 17:45:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778607929;
-	bh=9aMeB+elZKJmBmPb1njtTesJSt6OSyeU3hoZQHRS7CE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cGpEoFO111K/xozDW22L7T2YoE3xgsPRmW/+yiSRn+Cqsi66R4xNf+w6nxqk4L+KL
-	 DQCOuDmwImerMLEvlYIODmVIDH8snfj1qsUBrmL4TqQdCALwv6UdaUqId39i59FHeh
-	 LbYYzDg4a8WU/5VPgaUSXm2cSZsp9XnGbIcflw554HYHQv1Qol40K2sq7UfRTdpOnU
-	 st33D0MANtoxJFGo0sXROWDmQXfKCulR22eA4n3kGYpt2r2FVgxyFNWe9PigWoS2vi
-	 TITtCMqsweXHLWJ43f4kujm2oMIHmmNA4w2LZTcUsAMvM3uC/Okn2bZSQdZlQuYG3k
-	 KQkacWNLCK4QQ==
-Date: Tue, 12 May 2026 18:45:23 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Keguang Zhang <keguang.zhang@gmail.com>, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 11/12] soc: starfive: Add socinfo driver for JHB100 SoC
-Message-ID: <20260512-mushroom-helpless-0815d0885abb@spud>
-References: <20260512083521.3448-1-changhuang.liang@starfivetech.com>
- <20260512083521.3448-12-changhuang.liang@starfivetech.com>
+	Tue, 12 May 2026 18:40:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jyjhlUj6lyIO1b+gWPWVNhSAnOi5ujaIO3PHlENp+vZRcmW3esNPSynkUVYlW3RyWtTUP4rmXxzNnREDGpN7y5kj7VV8sDklHS9rdgTZWJpsSEByuidpwcA4j15dmL5P4CCM/diXToiMEH8KXELzeelMbELmqLTXROQeUY0jcToJL19dMvWI9nM7ISy5NaX4zK5XlSOXbqqwUhBuUNNTSpFKnCSb4YjAF6D+Een+ZJWuct+ncmeUBggmfTLSovd94jCcMX+Yg9KWC9zMu71539HO4ZHzkJd5gKwbV5ha2hmDrRgSO7TBsflDnMPJ5E0xplyZaVckU4tB257beEnHEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6Sg33Ykk0n9c92b16qY0zYMonqKNKEpxGbGlM0jZyHs=;
+ b=pZO9DVm72kAaYg0bcYN+qIWCwx0oV+Mpv1Jiq6B6uoJ+RVl8893SBXJHS7Gtu+2oftm0y3FC6oPFDLgw7/YyMUcCAAnpr3mdcJ4E9QqEJm0Iw11j+Udy1IrRknTKeDRJbXLSIWAUb9XvhWZfiYpJdWtLYZ9vqzo1E2G2qeiS4s92F8oKO1IJl4qP07K++nlUHaeLX0Kqr1DB8sD3qioX6vrGxrpIcE0ezCflWH/ypJT8di35Yj2PBmsLvJ90nMZX+aaa4XwSL2deGeedTF+LqRKjePMqhDEXuEN2bB6o0acMX+shvVSf5hV0b99xUen7vtb/FlSnUUbAv8Fk1MHQjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6Sg33Ykk0n9c92b16qY0zYMonqKNKEpxGbGlM0jZyHs=;
+ b=jRu+3CZ2YnjJBIh6L7e5gI5+4Oebrl3xOk9Zc5UDY38ey0lbLM8DKKywaBpHRvAAUgQ1/nQFQylmrW5T7BNDZIC6XuxEGwcGG+0iuXEW//oZ02s5RDaM4c2n0JYmSQzSt3Vo5DTAFLNnJBKnE/povY9CXdy9fUC6f/Bm3vi3CbAeLFNfL37qti9oWs+gbpxhXtcEOotwnT8zsuZS2v/UQmaPrid2YuyH8icehIgnLnUCHAjWsCZeZvfyOT2jhJu6irDM5W0z+xccipQkyf4KJRj6sV0MOVRAtp5cE9OE+DVXirzyO/89cNkorf5Hr6cOKXdQdwl94Vp/k0lxciN73Q==
+Received: from TY4PR01MB14432.jpnprd01.prod.outlook.com
+ (2603:1096:405:235::10) by TYRPR01MB13660.jpnprd01.prod.outlook.com
+ (2603:1096:405:18d::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 18:39:55 +0000
+Received: from TY4PR01MB14432.jpnprd01.prod.outlook.com
+ ([fe80::de2b:6c81:9bd7:99c2]) by TY4PR01MB14432.jpnprd01.prod.outlook.com
+ ([fe80::de2b:6c81:9bd7:99c2%6]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 18:39:55 +0000
+Message-ID: <TY4PR01MB14432F2BBDFF6E2C4AC79DD1E98392@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+Date: Wed, 13 May 2026 02:39:51 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Enable wifi on the BeagleV-Ahead
+To: Thomas Gerner <thomas.gerner@muenchen-mail.de>,
+ Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260511141119.155369-1-thomas.gerner@muenchen-mail.de>
+ <20260512173440.163179-1-thomas.gerner@muenchen-mail.de>
+Content-Language: en-US
+From: Shengyu Qu <wiagn233@outlook.com>
+In-Reply-To: <20260512173440.163179-1-thomas.gerner@muenchen-mail.de>
+X-ClientProxiedBy: SE2P216CA0165.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2cb::14) To TY4PR01MB14432.jpnprd01.prod.outlook.com
+ (2603:1096:405:235::10)
+X-Microsoft-Original-Message-ID: <b016a0ee-9425-41fc-a079-542892765ba8@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20260512083521.3448-12-changhuang.liang@starfivetech.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY4PR01MB14432:EE_|TYRPR01MB13660:EE_
+X-MS-Office365-Filtering-Correlation-Id: 73054ffc-a571-42b1-2b93-08deb055dca0
+X-Microsoft-Antispam: BCL:0;ARA:14566002|24021099003|20031999006|6090799003|39105399006|8060799015|19110799012|5072599009|23021999003|15080799012|1602099012|41105399003|40105399003|4302099013|440099028|3412199025|10035399007|26104999009;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cFB6bFRhUHJXcU4xVDUxczdrcENlTzhXbUdsRllIY1pyUWMrUSs0SVVaVFFJ?=
+ =?utf-8?B?c3JWTmROYUNlL3krSVlCN2YvSEMxd3JTZFJycHRTY2pJNFZkbWN1VW5sVXVz?=
+ =?utf-8?B?NTlyZE1Eb0NqTGtVcmgyZGI3OGtLNjZSOElNdU5ZZUxXRlh0OEkyVXFrOE1Y?=
+ =?utf-8?B?NGMwUCt0RnhGaEt1VFJQOU13ejdUWWpZUkYxSFgzcTRKZ0FEalAzV0gwVlcz?=
+ =?utf-8?B?RGc1dXBIM0hSMGpuTGNqMzZkZnBKbzhjOFA2bmlmL0NXWTUzK3hDcWEzdzZN?=
+ =?utf-8?B?YlR6b1E1YUk4VmhIQSs4c0JMemhkM2ZVQ3M5RzBRN2MvL2ZQaFh3VGkvRHU4?=
+ =?utf-8?B?dmRiUlVWNUxVOExuc2pSSU1wSzNQb3h5UXo3NTlJYnZWQzBFVnJzbVFkWHRV?=
+ =?utf-8?B?Y1krRkhrcUF2S3hrckdRWVpKbStadHIvaDlXUWNzNngwNzFsSEVzM2E1SmMw?=
+ =?utf-8?B?a2l1M25uQzFzSHlpR0JycG42OTZveldSVWllcVd5TnhkbEUrYWozeU84WkpY?=
+ =?utf-8?B?RFZqUjRvY3VCTS9Cb0tnVDN2c09DaDI2Zzg5MDBsam1LTytrSExxTGpvRTNo?=
+ =?utf-8?B?R0FuL0JkNFlCeWdiWi92bzR3cnhMWmxYSmZwYU8vUTRNbTJtdG9PUjFwTDV5?=
+ =?utf-8?B?bWF1ZzJhRWFrVGd4RTgrTDFzZGIxWStyQTlkZzB6R3Y0SndlODJnb2l1N2VG?=
+ =?utf-8?B?amxUeDJNZldJSnU1OGtMT1pUOUNTamdhY2JqaVdtb0RnRk50bWxaRlFiTjM5?=
+ =?utf-8?B?WWFNSW44OHFCQ0ZWUTZsRTI5V0JyVE03UjhCeTJMWEdFcHhYa0MzVkwya0Zs?=
+ =?utf-8?B?aTJ5S1RXbkdmY01xUUdTeGNETThDSjlvc0VKencreXp1K3hwQVJhRTZDeFdo?=
+ =?utf-8?B?YllRUDRmbHBEMDdSOExFQ2ZRdGtUZk9XeEZOU3o5NldRSklJajhqVjIzK3RQ?=
+ =?utf-8?B?K2h3VXp1eWpEaGF4c2d2cVpaWlJKOFlGTU9qWnpwdXhSejVwcTB6c0dzZWJj?=
+ =?utf-8?B?UjRhcWtoWm16NnpaQVhhQXhVVk01RnF6UkREbldvbGI5eWZZaldOS1pPTmVR?=
+ =?utf-8?B?M2RMZ2I0OFEwWWNXZzNiSnJNZVpSc1BQdzdTaVl2SG1hNDFqa1dCMm52TnNI?=
+ =?utf-8?B?Um1QR1R6YjNiK3hRS0JqMk1IakxJMTVnQUIzR09JSHk5U3dGakZCNjRSb0NR?=
+ =?utf-8?B?WmtMZm9GL0k2YlpONExNNzE5YUR2L3RzOEdGczF6TDFEU25FK2FUTUhtTGhm?=
+ =?utf-8?B?YXFkSldPTG11MlJMY0RQdUI4YWpibGlGVUhSaTdTeWhzNjZLbWJrZXZrUVoy?=
+ =?utf-8?B?YWpnd2xDdmNnaG1PTWZ3MzZLNUdQeVdxV1JKN2Q0Z3NEZ1o3TEhnV2RCR1RI?=
+ =?utf-8?B?bDR2L0JmdXBJUGoxVnk3cEdrRFhvaExJZ2NoRFVBbHk5TWRaWGRQeUprd1o2?=
+ =?utf-8?B?eVgwOEg3WTBZb3ptVHZjVlJiMi94NXVBUzhnM3RBSXk1NEozYy8xZTlFdDZB?=
+ =?utf-8?Q?KnCDGWdk4PwAvaJpzzmZzXqzBaj?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R2hvT0h0eHNuVlZWNHFoK0l5WXgrTDdMeGxGUXJMeEwwTXA4cTNEcHNkbTlJ?=
+ =?utf-8?B?VllnY3lPdXlNdk00azBFOTlhU1Ywd1BBdTZ6ODIvSklpTzNmaDBsSFJZK2RZ?=
+ =?utf-8?B?T2x5TXgzWnNOdjhwNHJWSWE3TWtEcVpiZklBYUI0b2hPd3J1STI5Zy9kVXpP?=
+ =?utf-8?B?OTdMTXA2VDJnRGU1NWFuVE83WllpNG1jRVFLOWVTbzRySVc5NEl0bnhxS2dq?=
+ =?utf-8?B?aWtFQXhjSXp4SUNjRXQ0anU4L0U5Nm9UYXNZZ3NXN0hQSTZZSFhyaWI4eWNC?=
+ =?utf-8?B?dmtQVGlEcDZ4Q3N6eFAycm1YWGUybmFzOUlIVmlRbFRyOHhPeExqZXZqRVh5?=
+ =?utf-8?B?OTJWdlBLbFdzeHB1eGNDM3I1eWRUWTU3OXM2MEtWOXBYbVIvdTkyRjg4amhY?=
+ =?utf-8?B?bkJ2RVIxWlZvc1Fpa1U1NUU1TmQ2LzJGcEJZQUxMbTNuZVRWZDJjSDg5cm0z?=
+ =?utf-8?B?ZlBUeld1ZDB1QVdoenl5NkVOYktQRm5oOWduczNycXNLQ2pUMndYNmtQTWUy?=
+ =?utf-8?B?RjE3TlYvTGtYaVk0bDBZY0J4Z0tjVGlIWmdoRVd3U0E5aEovMmVxenlTNGlM?=
+ =?utf-8?B?UXdlSFpaY3M3NytudlRiS2V0dmJSRXhaSjExMzFjYmxWL2lvVGpDMHllRW0v?=
+ =?utf-8?B?UWNIejJuQ3lCZE5RMEY2WjAzMjNlTGdxMVZjbk8vb2VLMUdvR0RzZm5sZS9z?=
+ =?utf-8?B?SWFjeG8yMy93NXc0VGRCUzF0NkNPNVNSdEtsMFVXWllFcVJNbnIvSmVJZm1U?=
+ =?utf-8?B?OTAwc1pFN2x6NGovMGg3UENyVy93empTSFRoeUJVQnlGZkdqTDlNMEhXd2JK?=
+ =?utf-8?B?cjN1UGhOY3NJN08zblZLTWgveURMbVVKQnIwT0V6T1NvdDh3SFNQNDdWTUlG?=
+ =?utf-8?B?djdIN05ZblRnUFEvUktHRmhDSC9SeGpWcHJldEFERW90ZXZSQTErUmZ4ZGFU?=
+ =?utf-8?B?Si92OU1kdGlhYnUwc2FjNmVWM3lob05TdkRYWWRJaWhOc0ltejNtbzNTeDhq?=
+ =?utf-8?B?aHhJMU5aRDgzK3hNOGgvVVdqZkpPZ1lkdzk2clAvOUprektsWk0yWHFoNWlz?=
+ =?utf-8?B?SE1aaU04TVFZbmsvMWFiclpQanpZcDNVOXEzNXBTWE82ekNUTFl5RnRmZ1pt?=
+ =?utf-8?B?VEZ2Um1DKzBiZUREcWQ2VVdicWYySFU5aXFhQW9FWHVSbjQrclZhZUhia3k0?=
+ =?utf-8?B?SE1mZm9CYXh2T1hmODFDTWJnYXRIdVBMbVRsNnJDTFgvZUdYNmJhUUxhOEgy?=
+ =?utf-8?B?QnA5U2NQQkZiTUJFSU1DU1dVRXo5ejhMU0ZnMk85a3lmS2tVMnZXOVlTSzhP?=
+ =?utf-8?B?QnRtZlJlVTNsUnR5TFh5U2dqVFUxM3hVYnlQMC9GZ1M3bVV4UHNQaXgxWThy?=
+ =?utf-8?B?cEpXQzVDMVo0dGZ3SHdQR2t6NWc1aDlZT1lqUlhPZ3luZHFUcmgyb0Y5N2JF?=
+ =?utf-8?B?R3dQaVMrYjJJL3VOT05XaEJOeXlCMm9wSHBDdUJSclhxMWNHTEtVWnJnZWxK?=
+ =?utf-8?B?M2xMZ1Y0NWxRUlpJbVpDc005ZEFpOVhJTUNkcTJuL0czWjhsemdFVGVQV3B5?=
+ =?utf-8?B?UURLZjc5ZktFckxUcnhsTTNSYVlnaWYvNVpJdWxDeDlYeXIrbWUzM0ExZ05G?=
+ =?utf-8?B?K2dEaHFRdkVKdFU0aGlTSzVza3BVYm9wOWVjNDRhVG1qMHdreHlYN2Y2cDR5?=
+ =?utf-8?B?UFpNYStmYnNhUUppdlAwdFJrR1dLNEIxR0lMU1ZIRWg4WmtUUjU3MDBFWThT?=
+ =?utf-8?B?S1NQMzk5SS9aNDgrTzVWTjNTTXk5d2R3bGx5MjB5Q3FhVEovT3l4Yy9Bc1pS?=
+ =?utf-8?B?MzRtaGdKZnYyZ3NndW9QMlJHTjB4QXF0RFU3aWp6UW0rU2lwOERBcmZNa2ta?=
+ =?utf-8?B?aytpUG9ENVF6NVZwR0NQWmFFRWd1bHBWKzB4MnBMOWY1ZGc5THVHL21zcDJJ?=
+ =?utf-8?Q?pHpjcZtc2JqTbLo3PUPyuCLW5EEBY5lv?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 73054ffc-a571-42b1-2b93-08deb055dca0
+X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB14432.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 18:39:55.6713
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB13660
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_114004_260506_1776B370 
+X-CRM114-Status: UNSURE (   4.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,251 +162,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1459352406907410024=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+> +
+> +	brcmf_pwrseq: brcmf-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&gpio2 31 GPIO_ACTIVE_LOW>;	/* WL-REG-ON */
+> +	};
+>   };
 
---===============1459352406907410024==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tSIjibv7OA7pVANL"
-Content-Disposition: inline
+I think such pwrseq won't work? Need to set timing parameter, for example:
+https://github.com/torvalds/linux/blob/1d5dcaa3bd65f2e8c9baa14a393d3a2dc5db7524/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts#L71
 
-
---tSIjibv7OA7pVANL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, May 12, 2026 at 01:35:20AM -0700, Changhuang Liang wrote:
-> Add socinfo driver for JHB100 SoC. Currently available for distinguishing
-> between the two reversions, A0 and A1.
->=20
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  MAINTAINERS                                   |  5 ++
->  drivers/soc/Kconfig                           |  1 +
->  drivers/soc/Makefile                          |  1 +
->  drivers/soc/starfive/Kconfig                  |  6 ++
->  drivers/soc/starfive/Makefile                 |  2 +
->  drivers/soc/starfive/socinfo/Kconfig          | 11 +++
->  drivers/soc/starfive/socinfo/Makefile         |  2 +
->  drivers/soc/starfive/socinfo/jhb100-socinfo.c | 80 +++++++++++++++++++
->  8 files changed, 108 insertions(+)
->  create mode 100644 drivers/soc/starfive/Kconfig
->  create mode 100644 drivers/soc/starfive/Makefile
->  create mode 100644 drivers/soc/starfive/socinfo/Kconfig
->  create mode 100644 drivers/soc/starfive/socinfo/Makefile
->  create mode 100644 drivers/soc/starfive/socinfo/jhb100-socinfo.c
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 6f6aac7cea95..66175f453d20 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25613,6 +25613,11 @@ S:	Maintained
->  F:	drivers/reset/starfive/reset-starfive-jhb1*
->  F:	include/dt-bindings/reset/starfive,jhb1*.h
-> =20
-> +STARFIVE JHB100 SOCINFO DRIVER
-> +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-> +S:	Maintained
-> +F:	drivers/soc/starfive/
-
-FWIW, this is not what I asked for in v1, this should remain the full
-path to the driver. I wanted you to add this directory back to the
-"STARFIVE SOC DRIVERS" entry, since it's me that'll be applying patches
-for this driver.
-
-> +
->  STARFIVE JHB100 SYSCON
->  M:	Changhuang Liang <changhuang.liang@starfivetech.com>
->  S:	Maintained
-> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-> index a2d65adffb80..b3b01fc38139 100644
-> --- a/drivers/soc/Kconfig
-> +++ b/drivers/soc/Kconfig
-> @@ -24,6 +24,7 @@ source "drivers/soc/renesas/Kconfig"
->  source "drivers/soc/rockchip/Kconfig"
->  source "drivers/soc/samsung/Kconfig"
->  source "drivers/soc/sophgo/Kconfig"
-> +source "drivers/soc/starfive/Kconfig"
->  source "drivers/soc/sunxi/Kconfig"
->  source "drivers/soc/tegra/Kconfig"
->  source "drivers/soc/ti/Kconfig"
-> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-> index c9e689080ceb..009f85ff891a 100644
-> --- a/drivers/soc/Makefile
-> +++ b/drivers/soc/Makefile
-> @@ -30,6 +30,7 @@ obj-y				+=3D renesas/
->  obj-y				+=3D rockchip/
->  obj-$(CONFIG_SOC_SAMSUNG)	+=3D samsung/
->  obj-y				+=3D sophgo/
-> +obj-y				+=3D starfive/
->  obj-y				+=3D sunxi/
->  obj-$(CONFIG_ARCH_TEGRA)	+=3D tegra/
->  obj-y				+=3D ti/
-> diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
-> new file mode 100644
-> index 000000000000..04b020083d3e
-> --- /dev/null
-> +++ b/drivers/soc/starfive/Kconfig
-> @@ -0,0 +1,6 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +menu "StarFive SoC (System On Chip) specific Drivers"
-> +
-> +source "drivers/soc/starfive/socinfo/Kconfig"
-> +
-> +endmenu
-> diff --git a/drivers/soc/starfive/Makefile b/drivers/soc/starfive/Makefile
-> new file mode 100644
-> index 000000000000..ca1e609b8104
-> --- /dev/null
-> +++ b/drivers/soc/starfive/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-y +=3D socinfo/
-> diff --git a/drivers/soc/starfive/socinfo/Kconfig b/drivers/soc/starfive/=
-socinfo/Kconfig
-> new file mode 100644
-> index 000000000000..92bbab62895b
-> --- /dev/null
-> +++ b/drivers/soc/starfive/socinfo/Kconfig
-> @@ -0,0 +1,11 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +config STARFIVE_JHB100_SOCINFO
-> +	bool "StarFive JHB100 SoC Information"
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	select SOC_BUS
-> +	default y
-> +	help
-> +	  Include support for the SoC bus socinfo for the StarFive JHB100 SoC
-> +	  platforms to provide information about the SoC family and variant
-> +	  to user space.
-> diff --git a/drivers/soc/starfive/socinfo/Makefile b/drivers/soc/starfive=
-/socinfo/Makefile
-> new file mode 100644
-> index 000000000000..26c2bdf1de3b
-> --- /dev/null
-> +++ b/drivers/soc/starfive/socinfo/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_STARFIVE_JHB100_SOCINFO)	+=3D jhb100-socinfo.o
-> diff --git a/drivers/soc/starfive/socinfo/jhb100-socinfo.c b/drivers/soc/=
-starfive/socinfo/jhb100-socinfo.c
-> new file mode 100644
-> index 000000000000..9c5826d7c253
-> --- /dev/null
-> +++ b/drivers/soc/starfive/socinfo/jhb100-socinfo.c
-> @@ -0,0 +1,80 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/init.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/of.h>
-> +#include <linux/regmap.h>
-> +#include <linux/sys_soc.h>
-> +
-> +#define JHB100_REV_ID			0x38
-> +#define JHB100_REV_ID_CHAR		GENMASK(3, 2)
-> +#define JHB100_REV_ID_NUM		GENMASK(1, 0)
-> +
-> +static int __init starfive_socinfo_init(void)
-> +{
-> +	struct soc_device_attribute *attrs;
-> +	struct soc_device *soc_dev;
-> +	const char *machine =3D NULL;
-> +	struct device_node *np;
-> +	struct regmap *regmap;
-> +	char rev_char;
-> +	u32 rev_id;
-> +	int ret;
-> +
-> +	np =3D of_find_compatible_node(NULL, NULL, "starfive,jhb100-sys0-syscon=
-");
-> +	if (!of_device_is_available(np)) {
-> +		of_node_put(np);
-> +		return -ENODEV;
-> +	}
-> +
-> +	regmap =3D syscon_node_to_regmap(np);
-> +	if (IS_ERR(regmap)) {
-> +		of_node_put(np);
-> +		return PTR_ERR(regmap);
-> +	}
-> +
-> +	ret =3D regmap_read(regmap, JHB100_REV_ID, &rev_id);
-> +	if (ret) {
-> +		of_node_put(np);
-> +		return ret;
-> +	}
-> +
-> +	of_node_put(np);
-> +
-> +	rev_char =3D (char)FIELD_GET(JHB100_REV_ID_CHAR, rev_id) + 'A';
-> +	rev_id =3D (u32)FIELD_GET(JHB100_REV_ID_NUM, rev_id);
-> +
-> +	attrs =3D kzalloc_obj(*attrs);
-> +	if (!attrs)
-> +		return -ENOMEM;
-> +
-> +	np =3D of_find_node_by_path("/");
-> +	of_property_read_string(np, "model", &machine);
-> +	if (machine)
-> +		attrs->machine =3D kstrdup(machine, GFP_KERNEL);
-> +	of_node_put(np);
-> +
-> +	attrs->revision =3D kasprintf(GFP_KERNEL, "%c%u", rev_char, rev_id);
-> +	attrs->family =3D "JH";
-> +	attrs->soc_id =3D "JHB100";
-> +
-> +	soc_dev =3D soc_device_register(attrs);
-> +	if (IS_ERR(soc_dev)) {
-> +		kfree(attrs->revision);
-> +		kfree(attrs->machine);
-> +		kfree(attrs);
-> +		return PTR_ERR(soc_dev);
-> +	}
-> +
-> +	pr_info("StarFive %s SoC rev(%s)\n", attrs->soc_id, attrs->revision);
-> +
-> +	return 0;
-> +}
-> +
-> +early_initcall(starfive_socinfo_init);
-
-Does this really need to be an early initcall btw?
-
---tSIjibv7OA7pVANL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagNnMwAKCRB4tDGHoIJi
-0s3SAQDOveOtLqjxEwo/NynsHooZNj674awuY1eMenP54fnqUwEA2klyVlbxwlxm
-9Ha6aqwG9AHCPWXshLZvhuXgwR+gnAk=
-=tC2B
------END PGP SIGNATURE-----
-
---tSIjibv7OA7pVANL--
-
-
---===============1459352406907410024==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Shengyu
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1459352406907410024==--
-
