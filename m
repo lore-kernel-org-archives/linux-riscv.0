@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710BBCD484E
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 05:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46918CD484E
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 05:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1KlwTtXHUlLnJRJuZ00/M09XeyH2gpEw5SFYfyxEtlQ=; b=tNmqEIBLs6JeNa
-	+9HyGFNvQLckkIcb63KBgGOZSQLPkYuLZlTjuleg8m16AivdtZQWbsj6F9kk1Jk4smUVemtNRGq94
-	ioeTKlIAZYdqmrojwCfU/yA74qF2Rinay2i0Mq87YxzmZ+rMErilt+TW8Q7uhXwj1fCxzgaEEd4HS
-	wyX9iJ9MAUP4oGBG+nm+a+j9k6Jvw/QwlSn2uFB+L82riIds/PTSd1cHtcgnHGSE+08AZStDMBdLA
-	/ZrPDOm5WcAvl5rWn/3xqqHATQolFFxbiUs0dnjxHjZSVFVYOtYqj25p2sXOsi8+iqPYc2I01MBbC
-	UWUw0Ef2kXGJ+XRoQaHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R+FJs1yHD14mTh5l9woE0s438KISjWizbN+TgTzheUs=; b=u3EAJipjii6bNt
+	7VZU2M08T9IMCn4WMjgJwmnEM1Mt+/JjiSgeW2p9j6BSvcHBSGGKf9s+FuiYSmNW8xHqee8UiCSx9
+	oMQvuWOFJS9NeUdJOCLAjW/dKe7H+tCJIQ28P6tlpr+PSF9vIX1PPBKR/xgyqUrOAkdx8BhyzVPln
+	foukC6KRK9+3OWxJhhxEZ0yXq/+y7r5W4sCXHMJaVSg7EpsvEYe0mF07QcWIQQ2uFexmDVd5NEU25
+	Rs4CPgD7lg9YxUZ9q5rpEQTf0C5IqeVcKKDpvDks09rkalXhC7+iVCCdst9CbElA6tVuQFlVxV29h
+	T218EO9KYzdjW0fYcm5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfYC-0000000FYZ8-3Tfs;
-	Tue, 12 May 2026 05:21:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfYC-0000000FYYT-0YQt
-	for linux-riscv@lists.infradead.org;
-	Tue, 12 May 2026 05:21:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3279960103;
-	Tue, 12 May 2026 05:20:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85B96C2BCB8;
-	Tue, 12 May 2026 05:20:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778563258;
-	bh=DKykONumnN8vEAkNqUHocQNuYxuy08HseTU9qi3MfU4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ISF34sO4Kyt0LWF1g1Qy9SHd4SwpidsMOSdsluazACG6ullhYMhA/Hn3ZaPf0lCFu
-	 6nz3rADFvJKXfBlqps+EAlz9Fi1MVJi/aKXXgbk9JTP9UPU5yRrdChrqFr4FmvdHJ0
-	 h8+OmyE4aetyGCxlNmxVloa4LT15I9rxldJlqaTzk00OCC3fIeMgtz13wybdftlIHz
-	 T8B0QHJ/KytY5+t4sLH7UZzbytHf3iYXreOhjGgAoIwStGVM3VxvnrkKPzZ0J/6HaQ
-	 yorofaw4HfFiFhaUACELeqRqyZUUSIjV8yNlGfyANcZupMzvo3fSPEuAQfvdjLW8Td
-	 vTF78sUdtaYsA==
-Date: Tue, 12 May 2026 05:20:56 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Iker Pedrosa <ikerpedrosam@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.dev>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	id 1wMfZv-0000000FaSe-2vIy;
+	Tue, 12 May 2026 05:22:47 +0000
+Received: from 2a02-8389-2341-5b80-decc-1a96-daaa-a2cc.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:decc:1a96:daaa:a2cc] helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMfZo-0000000FaGb-2eLn;
+	Tue, 12 May 2026 05:22:41 +0000
+From: Christoph Hellwig <hch@lst.de>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>,
 	linux-kernel@vger.kernel.org,
-	Trevor Gamblin <tgamblin@baylibre.com>
-Subject: Re: [PATCH v9 8/8] riscv: dts: spacemit: k1-musepi-pro: add SD card
- support with UHS modes
-Message-ID: <20260512052056-GKD3624147@kernel.org>
-References: <20260511-orangepi-sd-card-uhs-v9-0-ae48c0b2b2cf@gmail.com>
- <20260511-orangepi-sd-card-uhs-v9-8-ae48c0b2b2cf@gmail.com>
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: cleanup the RAID6 P/Q library v2
+Date: Tue, 12 May 2026 07:20:40 +0200
+Message-ID: <20260512052230.2947683-1-hch@lst.de>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260511-orangepi-sd-card-uhs-v9-8-ae48c0b2b2cf@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,130 +91,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Iker, Trevor,
+Hi all,
 
-On 10:54 Mon 11 May     , Iker Pedrosa wrote:
-> From: Trevor Gamblin <tgamblin@baylibre.com>
-> 
-> Update the Muse Pi Pro devicetree with SD card support to match what
-> was done for the OrangePi RV2 in [1]. More precisely:
-> 
-> - Enable sdhci0 controller with 4-bit bus width
-> - Configure card detect GPIO with inversion
-> - Connect vmmc-supply to buck4 for 3.3V card power
-> - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
-> - Add dual pinctrl states for voltage-dependent pin configuration
-> - Support UHS-I SDR25, SDR50, and SDR104 modes
-> 
-> [1] https://lore.kernel.org/linux-riscv/20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com/T/#
-> 
-> Signed-off-by: Trevor Gamblin <tgamblin@baylibre.com>
-> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-> ---
->  arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 66 ++++++++++++++++++++++++++
->  1 file changed, 66 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> index 29e333b670cf..774a4640f065 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> @@ -18,6 +18,24 @@ aliases {
->  		ethernet0 = &eth0;
->  		serial0 = &uart0;
->  	};
-Add one blank line here, but see comment below..
-> +	reg_dc_in: dc-in-5v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "dc_in_5v";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-reg_dc_in is not used, drop it, for the reason, see recent discussion of
-this thread here[1][2], especially refer to Krzysztof's original comment
-https://lore.kernel.org/all/6530526f-59ca-4753-a068-46c62a1a1fed@kernel.org/ [1]
-https://lore.kernel.org/all/20260511065338-GKA3624147@kernel.org/  [2]
+this series cleans up the RAID6 P/Q library to match the recent updates
+to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
+providing properly documented external interfaces, hiding the internals,
+using static_call instead of indirect calls and turning the user space
+test suite into an in-kernel kunit test which is also extended to
+improve coverage.
 
-> +
-> +	reg_vcc_4v: vcc-4v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_4v";
-> +		regulator-min-microvolt = <4000000>;
-> +		regulator-max-microvolt = <4000000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
->  
->  	chosen {
->  		stdout-path = "serial0";
-> @@ -77,3 +95,51 @@ &uart0 {
->  	pinctrl-names = "default";
->  	status = "okay";
->  };
-> +
-> +&i2c8 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c8_cfg>;
-> +	status = "okay";
-> +
-> +	pmic@41 {
-> +		compatible = "spacemit,p1";
-> +		reg = <0x41>;
-> +		interrupts = <64>;
-..
-> +		vin-supply = <&reg_vcc_4v>;
-This should be adjusted, please check schematics as I haven't done it
-myself, for reason behind please refer to this patch (which was merged
-in v7.1)
+Note that this changes registration so that non-priority algorithms are
+not registered, which greatly helps with the benchmark time at boot time.
+I'd like to encourage all architecture maintainers to see if they can
+further optimized this by registering as few as possible algorithms when
+there is a clear benefit in optimized or more unrolled implementations.
 
-http://lore.kernel.org/r/20260206-spacemit-p1-v4-1-8f695d93811e@riscstar.com
+This series sits on top of the "cleanup the RAID5 XOR library v3" series.
 
-> +
-> +		regulators {
-> +			buck4: buck4 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-ramp-delay = <5000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			aldo1: aldo1 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&sdhci0 {
-> +	pinctrl-names = "default", "uhs";
-> +	pinctrl-0 = <&mmc1_cfg>;
-> +	pinctrl-1 = <&mmc1_uhs_cfg>;
-> +	bus-width = <4>;
-> +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
-> +	cd-inverted;
-> +	no-mmc;
-> +	no-sdio;
-> +	disable-wp;
-> +	cap-sd-highspeed;
-> +	vmmc-supply = <&buck4>;
-> +	vqmmc-supply = <&aldo1>;
-> +	sd-uhs-sdr25;
-> +	sd-uhs-sdr50;
-> +	sd-uhs-sdr104;
-> +	status = "okay";
-> +};
-> 
-> -- 
-> 2.54.0
-> 
+A git tree is also available here:
 
--- 
-Yixun Lan (dlan)
+    git://git.infradead.org/users/hch/misc.git lib-raid6
+
+Gitweb:
+
+    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/lib-raid6
+
+Changes since v1:
+ - fix arm64 objdir != srcdir builds
+ - call the kunit module raid6_kunit.ko from the beginning
+ - update MAINTAINERS
+ - don't require preemptible context and apply the same restrictions as
+   the merged version of the XOR API
+ - fix the arm64 default in Kconfig
+ - pick the last registered (and presumably most optimized) algorithm when
+   benchmarking is disabled
+ - port over the randomization fixes from the XOR series
+ - misc other kunit cleanups
+ - require at least 4 devices for RAID6 to skip broken special cases
+
+Diffstat:
+ b/Documentation/crypto/async-tx-api.rst           |    4 
+ b/MAINTAINERS                                     |    2 
+ b/crypto/async_tx/async_pq.c                      |    9 
+ b/crypto/async_tx/async_raid6_recov.c             |    9 
+ b/drivers/dma/bcm-sba-raid.c                      |    1 
+ b/drivers/md/raid5.c                              |    4 
+ b/fs/btrfs/raid56.c                               |    8 
+ b/fs/btrfs/volumes.c                              |    2 
+ b/include/linux/raid/pq.h                         |  233 +------------
+ b/include/linux/raid/pq_tables.h                  |   19 +
+ b/lib/Kconfig                                     |   11 
+ b/lib/Makefile                                    |    1 
+ b/lib/raid/Kconfig                                |   33 +
+ b/lib/raid/Makefile                               |    2 
+ b/lib/raid/raid6/Makefile                         |  126 +++++++
+ b/lib/raid/raid6/algos.c                          |  383 ++++++++++++++++++++++
+ b/lib/raid/raid6/algos.h                          |   41 ++
+ b/lib/raid/raid6/arm/neon.c                       |   23 -
+ b/lib/raid/raid6/arm/neon.uc                      |    2 
+ b/lib/raid/raid6/arm/pq_arch.h                    |   24 +
+ b/lib/raid/raid6/arm/recov_neon.c                 |   27 -
+ b/lib/raid/raid6/arm/recov_neon_inner.c           |    2 
+ b/lib/raid/raid6/arm64/pq_arch.h                  |    1 
+ b/lib/raid/raid6/int.uc                           |   10 
+ b/lib/raid/raid6/loongarch/loongarch_simd.c       |   31 -
+ b/lib/raid/raid6/loongarch/pq_arch.h              |   23 +
+ b/lib/raid/raid6/loongarch/recov_loongarch_simd.c |   39 --
+ b/lib/raid/raid6/mktables.c                       |   28 -
+ b/lib/raid/raid6/powerpc/altivec.uc               |   32 -
+ b/lib/raid/raid6/powerpc/pq_arch.h                |   31 +
+ b/lib/raid/raid6/powerpc/vpermxor.uc              |   29 -
+ b/lib/raid/raid6/recov.c                          |   62 ---
+ b/lib/raid/raid6/riscv/pq_arch.h                  |   21 +
+ b/lib/raid/raid6/riscv/recov_rvv.c                |   14 
+ b/lib/raid/raid6/riscv/rvv.h                      |   26 -
+ b/lib/raid/raid6/s390/pq_arch.h                   |   15 
+ b/lib/raid/raid6/s390/recov_s390xc.c              |   14 
+ b/lib/raid/raid6/s390/s390vx.uc                   |   15 
+ b/lib/raid/raid6/tests/Makefile                   |    3 
+ b/lib/raid/raid6/tests/raid6_kunit.c              |  321 ++++++++++++++++++
+ b/lib/raid/raid6/x86/avx2.c                       |   47 --
+ b/lib/raid/raid6/x86/avx512.c                     |   57 +--
+ b/lib/raid/raid6/x86/mmx.c                        |   39 --
+ b/lib/raid/raid6/x86/pq_arch.h                    |   97 +++++
+ b/lib/raid/raid6/x86/recov_avx2.c                 |   22 -
+ b/lib/raid/raid6/x86/recov_avx512.c               |   26 -
+ b/lib/raid/raid6/x86/recov_ssse3.c                |   23 -
+ b/lib/raid/raid6/x86/sse1.c                       |   49 --
+ b/lib/raid/raid6/x86/sse2.c                       |   47 --
+ lib/raid6/Makefile                                |   83 ----
+ lib/raid6/algos.c                                 |  291 ----------------
+ lib/raid6/loongarch.h                             |   38 --
+ lib/raid6/test/.gitignore                         |    3 
+ lib/raid6/test/Makefile                           |  156 --------
+ lib/raid6/test/test.c                             |  152 --------
+ lib/raid6/x86.h                                   |   75 ----
+ 56 files changed, 1369 insertions(+), 1517 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
