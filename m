@@ -4,62 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B93CCD4F21
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 11:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B046CCD4851
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 11:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZbuLclYu1SiOal5AfUgM1NdlCk8bqFQmfHugK21Ql2A=; b=0Ff6DWxJXUBqfq
-	lQPJy4oCgYzWIKtHLMdi8uekqlNrGspmV5S6J8plpMhbpcOMEqMf1e/B0cEsd7qS2fxRI43kEram1
-	lFuJkng0QySXbl3lM6nw+hNlfneJI/K9nplyiOOq2XoDRD38qrfZc4/62Iz5V1KLzpqsAtqQJ339I
-	YaLmDS+iJedDaU1rk2FD2rlc1faeODCDsiGZefjvoZqETfJcHiflVeTR6iSPBKLl96zxZP0Ka2ZoX
-	B4ciXaaR1S0jkHS3kJYDogMpyR7Ji2TknqcjXZrbXbSTMnIxdzSKWXn88HhgTmqFrdEeGOT2eCV0G
-	1Z4ToQbSDdAlfW7xBG7w==;
+	List-Owner; bh=FucvPgs0SbZPRGeOsAzQc2p4f5JSganJSSCJabxZvk0=; b=JaiOjRX/WplRT+
+	CxyTEibthzCbZHs84UfCIgs6Vg+GR1fNC4lrW+PKAGUQrcfoBSzJnWYjx5h95wOr6thE7MYIzsHv4
+	HddaunvGR3iFP7DKBxk44sQ/VpMxj5NMDic5fI0jpXUHOCCxwRd9GhCv9MANAkgWTnqM24cd6uqk7
+	Lwjzjnex7cVifricndi9J9iINpUDjI8tnhfdnG2jWoyFJ6OMu0cqx00qbuyA4dM4Yg3+icWr+qkSU
+	mOzwOx0tlxCU6l0WpWa9QnJFelA6b+RfG/dgHeDdTkTSngRIf3MMA7Tv2ddO5dXJToX6icw3xUP1n
+	9jnjN2fb6Ucv52j5E6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMlSI-0000000GacV-2lmH;
-	Tue, 12 May 2026 11:39:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMlVf-0000000GayI-0xgU;
+	Tue, 12 May 2026 11:42:47 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMlSH-0000000GacE-3DgA
+	id 1wMlVc-0000000Gax8-3r1f
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 May 2026 11:39:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 075A16001A;
-	Tue, 12 May 2026 11:39:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 533A2C2BCB0;
-	Tue, 12 May 2026 11:39:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778585956;
-	bh=kJdd4/vQ20oHpvv/vZ2fhCfv1fSDoI+846b9C3EMHBk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zz3HGQNKpHi5hjprhdZ5YJIEE9wOrIENApMoeCfoDzR++zXfvq9NDQyqrOTn2AEna
-	 B0+JtISL9KM8B9CQjWTFxlmZeSYxIIHnrZ8ysFafhJCn8CUpRCjXD1ALc/W8fuLJKv
-	 l/e9sKDXnJT0rlCGUM+dniBlgLzpQQ3WxQh9OLIOP8h/OOGKHGmKMFL4vVezEhWyNx
-	 cHDp919m9a9zk7tcSaPZJ77YClrweEachGOl6rUxJR4biQmwYETheFLCDqj0NwgClU
-	 Xsx0scIvB5CJUSR7RnSk4ljIZCT/dvG12ShQcBXqlXawuMTMJA+ac1nKNzMVLidTop
-	 EOlvDRmopr5yg==
-Date: Tue, 12 May 2026 11:39:13 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Andre Heider <a.heider@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	Tue, 12 May 2026 11:42:46 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 34B7376120;
+	Tue, 12 May 2026 11:42:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1778586161;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
+	b=KEweNcFXbI/4awwwikZwQpLsJhqdcKP/ND/eEIHZpMVZYswHjsmnrwZiU2bxaD8n1OK0IS
+	Kc6YjC0sw7nAn6qO/p47INirDH4cevpavEC2j0COzrDVxJtWpDOoi9k2FZAGtUc4QSsWyH
+	YY7KnSMmVLtonjV5smZq449Ls/XSOCc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1778586161;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
+	b=0J342uiqkSfyW8DZyH8r4hsv6i4foe07KIq12qtoXRLRS5m/d+XbyypVqVX3QbmZPnqRJi
+	sxhM5qcbrx7pPCAQ==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1778586161;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
+	b=KEweNcFXbI/4awwwikZwQpLsJhqdcKP/ND/eEIHZpMVZYswHjsmnrwZiU2bxaD8n1OK0IS
+	Kc6YjC0sw7nAn6qO/p47INirDH4cevpavEC2j0COzrDVxJtWpDOoi9k2FZAGtUc4QSsWyH
+	YY7KnSMmVLtonjV5smZq449Ls/XSOCc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1778586161;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
+	b=0J342uiqkSfyW8DZyH8r4hsv6i4foe07KIq12qtoXRLRS5m/d+XbyypVqVX3QbmZPnqRJi
+	sxhM5qcbrx7pPCAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 08727593A9;
+	Tue, 12 May 2026 11:42:41 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id rkjQATESA2rLPQAAD6G6ig
+	(envelope-from <dsterba@suse.cz>); Tue, 12 May 2026 11:42:41 +0000
+Date: Tue, 12 May 2026 13:42:31 +0200
+From: David Sterba <dsterba@suse.cz>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@gentoo.org>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/6] riscv: dts: spacemit: k1-musepi-pro: add PMIC and
- power infrastructure
-Message-ID: <20260512113913-GKH3624147@kernel.org>
-References: <20260511111116.1109643-1-a.heider@gmail.com>
- <20260511111116.1109643-2-a.heider@gmail.com>
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
+Message-ID: <20260512114231.GG2558453@suse.cz>
+References: <20260512052230.2947683-1-hch@lst.de>
+ <20260512052230.2947683-2-hch@lst.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260511111116.1109643-2-a.heider@gmail.com>
+In-Reply-To: <20260512052230.2947683-2-hch@lst.de>
+User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
+X-Spamd-Result: default: False [-8.00 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	HAS_REPLYTO(0.30)[dsterba@suse.cz];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MIME_TRACE(0.00)[0:+];
+	R_RATELIMIT(0.00)[to_ip_from(RLj13sa47em33kcomko4xd63ai)];
+	RCPT_COUNT_TWELVE(0.00)[44];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[linux-foundation.org,arm.com,kernel.org,xen0n.name,linux.ibm.com,ellerman.id.au,gmail.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,redhat.com,alien8.de,linux.intel.com,zytor.com,gondor.apana.org.au,intel.com,fb.com,suse.com,arndb.de,fnnas.com,huawei.com,vger.kernel.org,lists.infradead.org,lists.linux.dev,lists.ozlabs.org];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.cz:mid,suse.cz:replyto];
+	RCVD_COUNT_TWO(0.00)[2];
+	REPLYTO_ADDR_EQ_FROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	REPLYTO_DOM_NEQ_TO_DOM(0.00)[]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_044245_243171_D373583F 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,202 +160,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: dsterba@suse.cz
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+On Tue, May 12, 2026 at 07:20:41AM +0200, Christoph Hellwig wrote:
+> While the RAID6 algorithm could in theory support 3 devices by just
+> copying the data disk to the two parity disks, this version is not only
+> useless because it is a suboptimal version of 3-way mirroring, but also
+> broken with various crashes and incorrect parity generation in various
+> architecture-optimized implementations.  Disallow it similar to mdraid
+> which requires at least 4 devices for RAID 6.
+> 
+> Fixes: 53b381b3abeb ("Btrfs: RAID5 and RAID6")
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-On 13:11 Mon 11 May     , Andre Heider wrote:
-> Enable i2c8 and add the connected SpacemiT P1 PMIC with its related regulators
-> for the board's power infrastructure and voltage regulation support.
-> 
-> Signed-off-by: Andre Heider <a.heider@gmail.com>
-> ---
->  .../riscv/boot/dts/spacemit/k1-musepi-pro.dts | 144 ++++++++++++++++++
->  1 file changed, 144 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> index 29e333b670cf0..88c35ad1ef2ae 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> @@ -17,6 +17,7 @@ / {
->  	aliases {
->  		ethernet0 = &eth0;
->  		serial0 = &uart0;
-> +		i2c8 = &i2c8;
->  	};
->  
->  	chosen {
-> @@ -33,6 +34,25 @@ led1 {
->  			default-state = "on";
->  		};
->  	};
-> +
-..
-> +	reg_usb_vbus: regulator-usb-vbus {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "USBVBUS";
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-max-microvolt = <12000000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-I think you can further drop above regulator, which merely serve as vin-supply 
-and not used by devices, plus it's a non-controllable fixed regulator
-
-> +
-> +	reg_vcc_4v0: regulator-vcc-40v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC4V0";
-> +		regulator-min-microvolt = <4000000>;
-> +		regulator-max-microvolt = <4000000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_usb_vbus>;
-> +	};
->  };
->  
->  &emmc {
-> @@ -72,6 +92,130 @@ &pdma {
->  	status = "okay";
->  };
->  
-> +&i2c8 {
-> +	pinctrl-0 = <&i2c8_cfg>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	pmic@41 {
-> +		compatible = "spacemit,p1";
-> +		reg = <0x41>;
-> +		interrupts = <64>;
-> +		vin1-supply = <&reg_vcc_4v0>;
-> +		vin2-supply = <&reg_vcc_4v0>;
-> +		vin3-supply = <&reg_vcc_4v0>;
-> +		vin4-supply = <&reg_vcc_4v0>;
-> +		vin5-supply = <&reg_vcc_4v0>;
-> +		vin6-supply = <&reg_vcc_4v0>;
-> +		aldoin-supply = <&reg_vcc_4v0>;
-> +		dldoin1-supply = <&buck5>;
-> +		dldoin2-supply = <&buck5>;
-> +
-> +		regulators {
-> +			buck1 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3450000>;
-> +				regulator-ramp-delay = <5000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			buck2 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3450000>;
-> +				regulator-ramp-delay = <5000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			buck3 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-ramp-delay = <5000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			buck4 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-ramp-delay = <5000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			buck5: buck5 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3450000>;
-> +				regulator-ramp-delay = <5000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			buck6 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3450000>;
-> +				regulator-ramp-delay = <5000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			aldo1 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +				regulator-boot-on;
-> +			};
-> +
-> +			aldo2 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +			};
-> +
-> +			aldo3 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +			};
-> +
-> +			aldo4 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +			};
-> +
-> +			dldo1 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +				regulator-boot-on;
-> +			};
-> +
-> +			dldo2 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +			};
-> +
-> +			dldo3 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +			};
-> +
-> +			dldo4 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			dldo5 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +			};
-> +
-> +			dldo6 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			dldo7 {
-> +				regulator-min-microvolt = <500000>;
-> +				regulator-max-microvolt = <3400000>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
->  &uart0 {
->  	pinctrl-0 = <&uart0_2_cfg>;
->  	pinctrl-names = "default";
-> -- 
-> 2.53.0
-> 
-> 
-
--- 
-Yixun Lan (dlan)
+This patch should have been sent separately as it has user visible
+impact and can potentially break some setups. The degenerate modes of
+raid0, 5, or 6 are explicit as a possible middle step when converting
+profiles.  We can use a fallback implementation for this case if the
+accelerated implementations cannot do it.
 
 _______________________________________________
 linux-riscv mailing list
