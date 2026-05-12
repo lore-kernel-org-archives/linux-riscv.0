@@ -4,124 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B79DCD4F24
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 13:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E754ACD4851
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 14:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yx21GKxye+dV1XNuCGTKgpnO7hwe4GR+baC0X3Q2mDI=; b=O4JW5aLyXN3x3y
-	cr4MoGaGX/VMk9hszzKMP4GwMfjVKM5/uaKT41gkqz3jLzJ6d6nKwWMPrlhquF9Fsf4XFlMDSSj7E
-	ouC/TT54fdfL0clxhjuprbwe0hI/uEwNi5/g11M8b0Mvp7x0rzorEAMskCNti11FVWJ5op5lQuWlf
-	LrwtOcAaN3GIW1oW+b6n7e2SsWbMGPj9WpoPyXd+9cy3CMDHseIisXHPKoO8He/4+tP5Nt+gMPv9C
-	xQFJw0ouBI0U0sdPItwZgPIeEkxpWIL/WxM+nB8cWZQHTvEYhBqw/BULMyDdk3JBaNZE2HtLn3yxm
-	1Gdx5/Fe8W+1jKHOHq3w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LIiA75Nv2QyJzo9NkFjwqPsrOvbJnsuQWPzylT36vCQ=; b=Q8cS7RduM5ispO
+	pDNoIr6eHbyTWOiwSKjZbL3CDnynFvcrVe3cFhNYLlC10KJGrCfwoRAUEgjwVSmTbESsN/wL4kxIj
+	K8YJMd8waiT1lQWuLcQTtgwVVkzpP4nQpJZcsypKnS9FPHOV5ED8Xg7s2tJzUtyyLEJubtpt9UIT5
+	YiRS4lCS4U+pRNVPcDGW2C7niiiiHMhHGVmH7ToV4rtTTvnApHW5p45AM0H6I3IG+jltcAfScBUY/
+	pE1BcDod9v9GZm/+QhLt9poRfxS36694apmE0WtQ8sTMKwAyX09XJD1AB/f4H/f37lF8tdwOYIOhw
+	55nW42aPGdl9qxU4m7Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnKB-0000000Gsj3-3wwE;
-	Tue, 12 May 2026 13:39:03 +0000
-Received: from mail-eastusazon11012002.outbound.protection.outlook.com ([52.101.53.2] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wMnoX-0000000GyNN-3Fhl;
+	Tue, 12 May 2026 14:10:25 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnK9-0000000Gsi2-3rxd
+	id 1wMnoV-0000000GyMN-26sd
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 May 2026 13:39:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lhYUmHP5MiA2IZynqk6vkl9+I5KiGq5O4LBAkM/aHjwMGF5SYaLjib4w8YzXj6mWufZSn+bIww9PU6QoiWB69/SGJq1xQ+65pQXGAJyxVDbZ5IdMDoDzGfEdA1eV2BFfNcLTQTa5uXcCDXUe/dU43voR+kln37ypHQzvNN38/JON7u3Szez6xJaZ4vzAhktbLVrHJbxQIxDdnTm+y1BTCFxlBmRi/yOyZUXDZhMJoMgr/L4rBiH898A+rqSmWCqITRjlvz5bwv0+z0rEHnMP+n0NvVb2dNbrKTLKkU3aMw9pyuDyjoL1T1vCyYnjL17u3axyQZ8iSWElouh0YzR2sQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q5Hsy5f45z/idNgevQvqe7JIFVq5r7FxU1xMmWSIi2A=;
- b=Uavhhh3m+F2Ezg3apvq8nQpSEFThSDGhw7zxrg2VnUlm9OgwHUWMogFK4OLhjyCJ62p8JYwB3DTN4gVesJLG4aHRJM0R4LsfYqNZ7mngO9EdDaQ32P3aeu5RUtq/t5E1BvxxfNlu8xwJPWqBlRVXBQF0gJ0QowwyEO6Mb4s5NH9jSEkyrSQ7AfwqyG1xmPAI/KOt2aUkAcQFHs73kaaOjmcfTn+7ebVyWyLqV18LCWmeXaydohIFxUKHI3IdvHxha6GKMAUZTmxpT9eGhJ6NMMYrFl2bxklhfKs5qDrbpGHXf0OveTMe/p8rSq30utCmLxe3n11dlE/bSk7Ve/N8oQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q5Hsy5f45z/idNgevQvqe7JIFVq5r7FxU1xMmWSIi2A=;
- b=Q3/uHmkLWbAza1wqZsnyH+2ijNB1fiNEWDZ3R0n/sGAFlCkD5iHK/f+Msdrulu4zyWADvx+KoRdR4n9yq36S+RFM7LxxbiekPR7+8I1YGxpVkKYPHknvXX/SSGC0cD2QanmzytffPGWDIsOO/MptJ6SAqohCq55dL7NMbXNAgK05VfvNxLqjkHW75Fr/rk771vzRC/0NjrDkuf6pB7DB5gFrI3SmgZKm8MH2zNYwzcLVVwsuFmDrDaRalZLQjh2DJqdL1pm195w1mPIqtpKuAJnkwynrYy/W12zFolqHz8I5GUD7Yel1SbOjjnumKm7kXlWyentHIO/DiyRd9uiXRA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY1PR12MB9601.namprd12.prod.outlook.com (2603:10b6:930:107::16)
- by SA0PR12MB4464.namprd12.prod.outlook.com (2603:10b6:806:9f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
- 2026 13:38:56 +0000
-Received: from CY1PR12MB9601.namprd12.prod.outlook.com
- ([fe80::cd76:b497:475f:4de3]) by CY1PR12MB9601.namprd12.prod.outlook.com
- ([fe80::cd76:b497:475f:4de3%5]) with mapi id 15.20.9913.009; Tue, 12 May 2026
- 13:38:56 +0000
-Date: Tue, 12 May 2026 10:38:54 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, tjeznach@rivosinc.com,
-	joro@8bytes.org, will@kernel.org, pjw@kernel.org,
-	palmer@dabbelt.com, anup@brainfault.org
-Subject: Re: [PATCH 1/2] iommu/riscv: Map IMSIC addresses for paging domains
-Message-ID: <20260512133854.GA9129@nvidia.com>
-References: <20260508212339.381933-1-andrew.jones@oss.qualcomm.com>
- <20260508212339.381933-2-andrew.jones@oss.qualcomm.com>
-Content-Disposition: inline
-In-Reply-To: <20260508212339.381933-2-andrew.jones@oss.qualcomm.com>
-X-ClientProxiedBy: MN0PR02CA0021.namprd02.prod.outlook.com
- (2603:10b6:208:530::23) To CY1PR12MB9601.namprd12.prod.outlook.com
- (2603:10b6:930:107::16)
+	Tue, 12 May 2026 14:10:25 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-488a9033b2cso51437065e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 12 May 2026 07:10:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778595021; x=1779199821; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZZM+fzCNYkJrcKy3N4OsZwqA734P6megTGbF20hl8lY=;
+        b=HA+FaLOb5BRaynJy2srlbiU6afg4aBJekxTQmFKKF4Evhvhh0UEFn0OeCVdicRnVmU
+         8zbRbkx2p9kd93DOBlGFOlSG6ZbQIQ9CvaXkrsv82r28+F77AR9wQM6qZZGsWL3qRq/g
+         PbRCFk53ere0sNzyMg8kDXffixdth0CRDb9tdv8o1Wh022L5Khk8SEruEQJWmXDS5Ffr
+         EUXvhHecduEOlofbtt7zNVdXWUTLdQXwKK5naxUEWp/6zi/LxNyzSCyeFCOi4ZOTQg/d
+         YfP1zv8Xi7vsLrlHyuxOG78K5JpEPm7KS+H3hE63I0XdHfNvXjLg3qfbUEF3J8McIGAH
+         cZQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778595021; x=1779199821;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZZM+fzCNYkJrcKy3N4OsZwqA734P6megTGbF20hl8lY=;
+        b=EsoMwWE1jwBrzDkXdFS8xtSKcp49Ffa42LG83dCdmOF3z+wNSiC8qxaheJFJcrsFxz
+         dH9sOg4IzMP8cshrbgv4+EkCrszdmubHyWZw5YsPlYKKCqHKn0LCySgSUgDGY9QG0X5Y
+         /tps0syhxsuATHCE0Sy4Zuh5vy3bG+hDmQrcQQ3Oc+BHJCQtZMYi0VQw5Lo1IsW/SBlJ
+         ogkH/Nu9aaC4AjtKGQDmk4i3PzPCUS0PvkBPv9k5ti/gebU9/7pFsTTXqYnolfuOnNAa
+         GvtA1eXyvYM0kniPeWjd514LSvl0HOYAhRBIkL4eI9yzjw4r1Xmj0K7DrGSerKIvisHE
+         PW6w==
+X-Forwarded-Encrypted: i=1; AFNElJ/r0moM1ZAGQIf7Y9tbN+5aPsClzQp3Kok0wQ9kQtaQ6eK/hr9RTsEbnXNQq9WCZCXiU0BrXtFA7cm2lw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrY/AnV5HHyrhuxhPLJnu5cAaT5dfLZEH4fGdgGhTJ55QkSCAI
+	uYuRUYzUfPTEncc6DS8fHc+xv73lZGVK0zoysYv5g2CC+rViOF2BbD7r
+X-Gm-Gg: Acq92OFmemmguU2+Za1enKJcOOhtOnOASmI5MOyhMwqEiyTATxZ4z7KkUBIXeFwxHOw
+	aVx0i8x43mYJ2VnAnNkn3OO0IXzGMP8XGd86O2JzIJ3LFrgPU2bgO7wm5wicD3WG44//rdf2zd0
+	68dACGhsEQ1jvftgFaFIkJ6z4m2I3xnXss6isF9vacGpJr0OThQOc3R48ZsJ2MzMnjMS/kj1jJk
+	T94KPCJoiubjENxOIS2X2KtZcvn7dKW9bV2JwtGJPafQWiXM6elK3SM+mV5/ilgJ6Vdf7isr8KD
+	c7oHkLobIxA6wnpuOb7KIlfz1Ws2yQVKQ2/LwWCJ8BCMgJVWRsxEjDVwWTDmf6YhgKJ7FwS3iQ6
+	dzr7jOotkbmugDpttw+gmFDa88gNTucIj77wTaU3jPkM5JBBGol/tsEM4BjWsYBHJv6hNZE2LEc
+	dSbrjkQh15YnDvGmGRqv+PzyCOsm73xvfrXhj1tPHvoA==
+X-Received: by 2002:a05:600c:8706:b0:48a:8905:a500 with SMTP id 5b1f17b1804b1-48e70696dfdmr245353365e9.12.1778595019740;
+        Tue, 12 May 2026 07:10:19 -0700 (PDT)
+Received: from RTRKW671-LIN.domain.local ([77.243.27.125])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e8e568b04sm40557965e9.0.2026.05.12.07.10.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 07:10:19 -0700 (PDT)
+From: Milan Tripkovic <milant2002@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Dusan Stojkovic <dusan.stojkovic@rt-rk.com>,
+	Milan Tripkovic <milan.tripkovic@rt-rk.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+Subject: [PATCH 1/2] riscv: lib: add memcmp() implementation
+Date: Tue, 12 May 2026 16:10:06 +0200
+Message-ID: <20260512141007.1193033-1-milant2002@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9601:EE_|SA0PR12MB4464:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd1acf50-a2fb-4606-f78c-08deb02bd08e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|18002099003|56012099003|11063799003;
-X-Microsoft-Antispam-Message-Info: sHe9pcpdSS3kz+b2ICKI0crbu1cGI4OKlQOWbHu1L+SosKCiIz4eOqsrDbqIA2E8NPBKinOo0B0+yases3sX65Z1RNOO6vMYfLmncbtd+ZG9MoIg/GR7zygFxGy/xCJVML/TCmsbJPD1nLc+2LzMv2qOkqajjeI8qKAe4PJOAVY8HlSYRe15F0i7XnRv8diTI3Zr0rENYb0REiqaQRY/DRWE5BuDo24YuOc18t4MelnG5Diz16ZIQUSje6voMr+zbOM639fgFx49mcisLAowRGKCJcm5AcyLUG8GC6UhoM0P1uf+JW+OX0Hvfs9wE5E7Mn9gug6qqcFHojjw5VoOSiZ31HjLxDAC2b/x795JQFt0qCuHcZzBA+Yi6WcvGb2KcYrUiNIuRL3g1Y9TgeCMYT3pdJnHQ4pX5koAiiXzt7XQVHwM+XFlhSyZNEdqiAMGQ2O63BDn47V0hn6TFC+RAlwL2927DsALx1iZGFfKJE54EvsCKCMLROGHDOikV/7OSX1nvTzceNGLVifu4G7DC0or8uonHdpOjGXmUzjHokPCVstX1I4GnB85M+zOYZlqNrOf3JgRBjNS9BgseqXbyaW8qZIg4v8k5RHliQFW/hocWi4wA7Kx3Qzu4SQ/njJDjSpqPbsQw/0cYUObf0DPVizbfWbchaClju5Vj5zHFrEk5Ph2jwUj249NtJM7ig4y
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9601.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(18002099003)(56012099003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?e+KrWZMFJpc8NFqJLiN2vk92H5ORfgCdAK5LZeulokJiGloTCNjBIYSVWz3F?=
- =?us-ascii?Q?xds3TEIuQ3SEAjPkwY1OKu0PmWOhoyRYAQaC47to+U7tLLHD89h1PToK/rCv?=
- =?us-ascii?Q?v2XEjEWeF31N+LP96diZY2UzTD4cH2opnFFB1hrnQXRtAxMNka31T8Bjxp3v?=
- =?us-ascii?Q?OHghaxnB8VisVoAkXTNblpIzkfQ7HeOX7O24iyA4wfxKsPfo1HOrS7enQhg6?=
- =?us-ascii?Q?bdaNm4Nx3f3OtZ8cIyGPRcFlFh/wZ1TN9nnUGjYmq0whOqFbOtz++ulu8upP?=
- =?us-ascii?Q?wUOS0gJfVeh9d5QNzK06HbPLy/lDXuIB1dDRSHAO3azRQ4p3hbrDKWZm8RrS?=
- =?us-ascii?Q?OC5G6bMK9xoUESHIx9EaChJRkWXxuoysfbc3iURiaXlSAgewF5KqDI1BpF/e?=
- =?us-ascii?Q?bYg0jW0EQd/c2MAatcVJ89A7b7+MILJ1jD6oyLjraKhdKV9Xl1++CHV0vhWN?=
- =?us-ascii?Q?jEivwLbXnwpzOLUQXXiymWuePv/0AVGzL/LvxznF3mJYmZqQJSHVveRUSh4c?=
- =?us-ascii?Q?TIIpcuiZzi00uPTizZMxb+PJjHi5eEis3J+tPD0a6SWZZT9qO2X2vQtrpyJc?=
- =?us-ascii?Q?dCp85EM7qSFs+sa0A8It5MIDeKj19kp+oGYKt1CX+Y7OpgSp08+Pe8n5Lylw?=
- =?us-ascii?Q?TJArTGcQU9MLCGVRBcqrbDRi2CSXcyw2m3VFQY2+Gh0ZzGoAgWTGAG+PVC46?=
- =?us-ascii?Q?4temNjyJESV/PTxOa5JK3S0ygJy0ttbETNmKq2SJx1VxBuhALpntlP6PuxfY?=
- =?us-ascii?Q?K96TMZ/B9x4vkJbUvT1jMeSAH212uwD5Iw6IgmcKOU+qXERI/81OLbnwFKYy?=
- =?us-ascii?Q?xLSjEf5KD9hl6xKSkKs/qdZ6UmeAOgIsny+2fqzLCXimLx/nCpPX7SUewuNx?=
- =?us-ascii?Q?R4jPTqWc5GYBwhXObmRJm7vpuhvwhQQGTRJ/x6M4PejaWdxFvYfwTTz2GKdZ?=
- =?us-ascii?Q?EULSzmEomSvBQFqrPJkEIAeNMVW1e7eMuSdhgOiapUVzzp//pE04SLq395mS?=
- =?us-ascii?Q?uMgpvZLI5Va+EJ0AyvR+Im24i4k/QlugdoSkZoFEF9R6KizRd8W3Aewfzin6?=
- =?us-ascii?Q?2B1H4v9Mia8fOuUX/KwVI9f6UGjbqJgiM3WvvTqGkTJjeClnWJPtXF19Jsli?=
- =?us-ascii?Q?/6lQFMMsIg2OudwMj6y7BdDqOjQU/G5NYHMh/55E8dUjr0aJBMMQ48A3XxuV?=
- =?us-ascii?Q?QDewxddkUtMFIxbYgIky45bPa0xZUVUaKNeWsFoJuiCcFT6XycYnhXOayUf5?=
- =?us-ascii?Q?W52HL9VfWGxsLosTrnZlengYYE3YGbZ3M+Bz/2z85Jh/qBHpNKIFd3oWxEUk?=
- =?us-ascii?Q?NeFtwZK1LFXtk2s3+LqA96fmoQKErlc5HnAU1UQGJu1O0wFpJ8vuzh5bmglJ?=
- =?us-ascii?Q?vNQZ3TR2OyubN0CVJv1eVg9j5hxhliT0/ue71yplsB9v/RKpYq4e9NsbQzaM?=
- =?us-ascii?Q?4VHXg2nucRoRrNPhJ8FVXqDyQJtEuK1HEXPMmbvMkGIhzrUEYOs96Z74ChhB?=
- =?us-ascii?Q?99dEKleJ0kpYHGWByMQ93tAzQhheLkjH9ZyHs5RUd23IxfisA4bp9sNlGoK/?=
- =?us-ascii?Q?2nnknTSaBna2VkkedklVT/2e9r3aIBeR+mCC5Or6Xpl74+iyhtJNC/+YT8+u?=
- =?us-ascii?Q?8P7cgqI+Cfdhg+xd7EX0akbYrvVkFGSrizRSMXJsafM30RfsA1RGF5Oa3fy5?=
- =?us-ascii?Q?WYNU3u7H7jvGLGqIAZgFel0Nz8YCfgNPGNqrr7pHZtTOdW/9?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd1acf50-a2fb-4606-f78c-08deb02bd08e
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9601.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 13:38:56.5398
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: T9faavJCBNAJoyIyk9l+G8vHOpzSKZUKA1YvEDNrFLyU9NmRlBdn9YG34cNe57cD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4464
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_063901_965593_D8E52099 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260512_071023_600929_A194BBA4 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,46 +102,196 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 04:23:38PM -0500, Andrew Jones wrote:
-> +static void riscv_iommu_get_resv_regions(struct device *dev, struct list_head *head)
-> +{
-> +	const struct imsic_global_config *imsic_global;
-> +	unsigned int cpu;
-> +
-> +	if (!imsic_enabled())
-> +		return;
-> +
-> +	imsic_global = imsic_get_global_config();
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		const struct imsic_local_config *local;
-> +		struct iommu_resv_region *reg;
-> +
-> +		local = per_cpu_ptr(imsic_global->local, cpu);
-> +		if (!local->msi_va)
-> +			continue;
-> +
-> +		/*
-> +		 * The device always writes to the host physical IMSIC address, so install
-> +		 * identity mappings directly. Use IOMMU_RESV_DIRECT_RELAXABLE instead of
-> +		 * IOMMU_RESV_DIRECT since these 1:1 mappings are not required for assigned
-> +		 * devices.
+From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
 
-Oh? Why not?
+Add an assembly implementation of memcmp() for RISC-V. The implementation
+uses the ZBB extension for word-at-a-time comparison and an assembly
+fallback for non-ZBB systems.
 
-> +		reg = iommu_alloc_resv_region(local->msi_pa, IMSIC_MMIO_PAGE_SZ,
-> +					      IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO,
-> +					      IOMMU_RESV_DIRECT_RELAXABLE, GFP_KERNEL);
-> +		if (reg)
-> +			list_add_tail(&reg->list, head);
+Benchmark results (QEMU TCG, rv64):
 
-This seems like quite a hack, the ARM was seems much better, the
-interrupt controller should be using the iommu_dma_prepare_msi() path
-to obtain an appropriately translated MSI address for the aperture.
+  Len  | Def   | NoZBB | ZBB   | %NoZBB | %ZBB
+  -----|-------|-------|-------|--------|-------
+  1 B  | 22.4  | 24.6  | 23.2  | +9.8%  | +3.5%
+  7 B  | 96.9  | 108.5 | 107.3 | +12.0% | +10.7%
+  8 B  | 107.0 | 116.3 | 176.7 | +8.7%  | +65.1%
+  16 B | 148.4 | 172.8 | 315.6 | +16.4% | +112.6%
+  31 B | 182.2 | 217.1 | 377.6 | +19.2% | +107.2%
+  64 B | 220.6 | 239.4 | 874.2 | +8.5%  | +296.2%
+  127 B| 213.7 | 254.8 | 1042.9| +19.2% | +388.0%
+  512 B| 255.1 | 269.0 | 1778.6| +5.4%  | +597.2%
+  1024B| 252.3 | 280.9 | 1887.7| +11.3% | +648.1%
+  3173B| 241.3 | 288.7 | 2063.2| +19.6% | +755.0%
+  4096B| 240.9 | 280.5 | 2064.5| +16.4% | +756.9%
 
-Then things will work correctly with VFIO too.
+Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+---
+ arch/riscv/include/asm/string.h |   2 +
+ arch/riscv/lib/Makefile         |   1 +
+ arch/riscv/lib/memcmp.S         | 103 ++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |   5 +-
+ 4 files changed, 110 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/memcmp.S
 
-Jason
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index 764ffe8f6..5c5299678 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -18,6 +18,8 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
+ #define __HAVE_ARCH_MEMMOVE
+ extern asmlinkage void *memmove(void *, const void *, size_t);
+ extern asmlinkage void *__memmove(void *, const void *, size_t);
++#define __HAVE_ARCH_MEMCMP
++extern asmlinkage int memcmp(const void *, const void *, size_t);
+ 
+ #if !(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
+ #define __HAVE_ARCH_STRCMP
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 6f767b2a3..b529e1be1 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -3,6 +3,7 @@ lib-y			+= delay.o
+ lib-y			+= memcpy.o
+ lib-y			+= memset.o
+ lib-y			+= memmove.o
++lib-y			+= memcmp.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+ lib-y			+= strcmp.o
+ lib-y			+= strlen.o
+diff --git a/arch/riscv/lib/memcmp.S b/arch/riscv/lib/memcmp.S
+new file mode 100644
+index 000000000..444b082d9
+--- /dev/null
++++ b/arch/riscv/lib/memcmp.S
+@@ -0,0 +1,103 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
++
++/* int memcmp(const void *cs, const void *ct, size_t n) */
++SYM_FUNC_START(memcmp)
++
++	__ALTERNATIVE_CFG("nop", "j memcmp_zbb", 0, RISCV_ISA_EXT_ZBB,
++		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
++/*
++ * Parameters
++ *	a0 - Pointer to first memory block (cs), also return value
++ *	a1 - Pointer to second memory block (ct)
++ *	a2 - Number of bytes to compare (n), transformed to end pointer (a0 + n)
++ *
++ * Returns
++ *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
++ *
++ * Clobbers
++ *	t0, t1
++ */
++	beqz	a2, 2f
++	add	a2, a0, a2
++1:
++	lbu	t0, 0(a0)
++	lbu	t1, 0(a1)
++	bne	t0, t1, 3f
++	addi	a0, a0, 1
++	addi	a1, a1, 1
++	bne	a0, a2, 1b
++2:
++	li	a0, 0
++	ret
++3:
++	sub	a0, t0, t1
++	ret
++
++
++memcmp_zbb:
++.option push
++.option arch,+zbb
++/*
++ * Parameters
++ *	a0 - Pointer to first memory block (cs), also return value
++ *	a1 - Pointer to second memory block (ct)
++ *	a2 - Number of bytes to compare (n), decremented during loop
++ *
++ * Returns
++ *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
++ *
++ * Clobbers
++ *	t0, t1, t2
++ */
++	beq	a0, a1, 4f
++
++	li	t0, SZREG
++	bltu	a2, t0, 5f
++
++1:
++	REG_L	t1, 0(a0)
++	REG_L	t2, 0(a1)
++	bne	t1, t2, 2f
++
++	addi	a0, a0, SZREG
++	addi	a1, a1, SZREG
++	addi	a2, a2, -SZREG
++	bgeu	a2, t0, 1b
++
++5:
++	beqz	a2, 4f
++6:
++	lbu	t1, 0(a0)
++	lbu	t2, 0(a1)
++	bne	t1, t2, 3f
++	addi	a0, a0, 1
++	addi	a1, a1, 1
++	addi	a2, a2, -1
++	bnez	a2, 6b
++
++4:	li	a0, 0
++	ret
++2:
++#ifndef CONFIG_CPU_BIG_ENDIAN
++	rev8	t1, t1
++	rev8	t2, t2
++#endif
++	sltu	a0, t2, t1
++	sltu	t0, t1, t2
++	sub	a0, a0, t0
++	ret
++
++3:
++	sub	a0, t1, t2
++	ret
++
++.option pop
++
++SYM_FUNC_END(memcmp)
++SYM_FUNC_ALIAS(__pi_memcmp, memcmp)
++EXPORT_SYMBOL(memcmp)
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index b0358a78f..456929971 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+-purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
++purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o memcmp.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+ purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
+ endif
+@@ -41,6 +41,9 @@ $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
+ $(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
+ 	$(call if_changed_rule,as_o_S)
+ 
++$(obj)/memcmp.o: $(srctree)/arch/riscv/lib/memcmp.S FORCE
++	$(call if_changed_rule,as_o_S)
++
+ CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
+ CFLAGS_string.o := -D__DISABLE_EXPORTS
+ CFLAGS_ctype.o := -D__DISABLE_EXPORTS
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
