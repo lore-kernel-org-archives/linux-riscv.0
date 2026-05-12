@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46918CD484E
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 05:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EEACD484E
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 05:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=R+FJs1yHD14mTh5l9woE0s438KISjWizbN+TgTzheUs=; b=u3EAJipjii6bNt
-	7VZU2M08T9IMCn4WMjgJwmnEM1Mt+/JjiSgeW2p9j6BSvcHBSGGKf9s+FuiYSmNW8xHqee8UiCSx9
-	oMQvuWOFJS9NeUdJOCLAjW/dKe7H+tCJIQ28P6tlpr+PSF9vIX1PPBKR/xgyqUrOAkdx8BhyzVPln
-	foukC6KRK9+3OWxJhhxEZ0yXq/+y7r5W4sCXHMJaVSg7EpsvEYe0mF07QcWIQQ2uFexmDVd5NEU25
-	Rs4CPgD7lg9YxUZ9q5rpEQTf0C5IqeVcKKDpvDks09rkalXhC7+iVCCdst9CbElA6tVuQFlVxV29h
-	T218EO9KYzdjW0fYcm5g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Jro39aLuyyxPQ0ojN770R6yGCo3/wZaSBKXyNKOCgZs=; b=n9sJg7rtb5+IpN
+	b81ZYqZz0YSjvRNou8ankzri3B85fEhEKokzSbsAyPxmUPhMF/TmEFD8Lu0q3qNLDtNRbRyUm5Nzu
+	Xqkwvyj9HTkVGbcwBSLyivqxcWtDpmOzfRQn9Jjp9Bgar5gD9WLWF/y09O5PqcIC2wUAYJGTepceM
+	V0NnscmyLfy+LZR2rSeetkSzQqyh7ePQRd5Cv1ipMuIyGBJmAFZNbigoEldenHDjDrTWQOG+kR9N8
+	fBwFpY+owIkZdwobCb6A1xsNXBfpZrZ7DxEIWOx0RkZbpAvPRTPeAFlgEUU+ndmOG6/6nuria+zuF
+	uwzlAb98tOBxYN93oaKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfZv-0000000FaSe-2vIy;
-	Tue, 12 May 2026 05:22:47 +0000
+	id 1wMfa1-0000000FaWs-052E;
+	Tue, 12 May 2026 05:22:53 +0000
 Received: from 2a02-8389-2341-5b80-decc-1a96-daaa-a2cc.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:decc:1a96:daaa:a2cc] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfZo-0000000FaGb-2eLn;
-	Tue, 12 May 2026 05:22:41 +0000
+	id 1wMfZz-0000000FaPv-0bKv;
+	Tue, 12 May 2026 05:22:51 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -70,10 +70,12 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: cleanup the RAID6 P/Q library v2
-Date: Tue, 12 May 2026 07:20:40 +0200
-Message-ID: <20260512052230.2947683-1-hch@lst.de>
+Subject: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
+Date: Tue, 12 May 2026 07:20:41 +0200
+Message-ID: <20260512052230.2947683-2-hch@lst.de>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260512052230.2947683-1-hch@lst.de>
+References: <20260512052230.2947683-1-hch@lst.de>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,102 +93,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+While the RAID6 algorithm could in theory support 3 devices by just
+copying the data disk to the two parity disks, this version is not only
+useless because it is a suboptimal version of 3-way mirroring, but also
+broken with various crashes and incorrect parity generation in various
+architecture-optimized implementations.  Disallow it similar to mdraid
+which requires at least 4 devices for RAID 6.
 
-this series cleans up the RAID6 P/Q library to match the recent updates
-to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
-providing properly documented external interfaces, hiding the internals,
-using static_call instead of indirect calls and turning the user space
-test suite into an in-kernel kunit test which is also extended to
-improve coverage.
+Fixes: 53b381b3abeb ("Btrfs: RAID5 and RAID6")
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ fs/btrfs/volumes.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Note that this changes registration so that non-priority algorithms are
-not registered, which greatly helps with the benchmark time at boot time.
-I'd like to encourage all architecture maintainers to see if they can
-further optimized this by registering as few as possible algorithms when
-there is a clear benefit in optimized or more unrolled implementations.
+diff --git a/fs/btrfs/volumes.c b/fs/btrfs/volumes.c
+index a88e68f90564..0b54b97bdad8 100644
+--- a/fs/btrfs/volumes.c
++++ b/fs/btrfs/volumes.c
+@@ -159,7 +159,7 @@ const struct btrfs_raid_attr btrfs_raid_array[BTRFS_NR_RAID_TYPES] = {
+ 		.sub_stripes	= 1,
+ 		.dev_stripes	= 1,
+ 		.devs_max	= 0,
+-		.devs_min	= 3,
++		.devs_min	= 4,
+ 		.tolerated_failures = 2,
+ 		.devs_increment	= 1,
+ 		.ncopies	= 1,
+-- 
+2.53.0
 
-This series sits on top of the "cleanup the RAID5 XOR library v3" series.
-
-A git tree is also available here:
-
-    git://git.infradead.org/users/hch/misc.git lib-raid6
-
-Gitweb:
-
-    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/lib-raid6
-
-Changes since v1:
- - fix arm64 objdir != srcdir builds
- - call the kunit module raid6_kunit.ko from the beginning
- - update MAINTAINERS
- - don't require preemptible context and apply the same restrictions as
-   the merged version of the XOR API
- - fix the arm64 default in Kconfig
- - pick the last registered (and presumably most optimized) algorithm when
-   benchmarking is disabled
- - port over the randomization fixes from the XOR series
- - misc other kunit cleanups
- - require at least 4 devices for RAID6 to skip broken special cases
-
-Diffstat:
- b/Documentation/crypto/async-tx-api.rst           |    4 
- b/MAINTAINERS                                     |    2 
- b/crypto/async_tx/async_pq.c                      |    9 
- b/crypto/async_tx/async_raid6_recov.c             |    9 
- b/drivers/dma/bcm-sba-raid.c                      |    1 
- b/drivers/md/raid5.c                              |    4 
- b/fs/btrfs/raid56.c                               |    8 
- b/fs/btrfs/volumes.c                              |    2 
- b/include/linux/raid/pq.h                         |  233 +------------
- b/include/linux/raid/pq_tables.h                  |   19 +
- b/lib/Kconfig                                     |   11 
- b/lib/Makefile                                    |    1 
- b/lib/raid/Kconfig                                |   33 +
- b/lib/raid/Makefile                               |    2 
- b/lib/raid/raid6/Makefile                         |  126 +++++++
- b/lib/raid/raid6/algos.c                          |  383 ++++++++++++++++++++++
- b/lib/raid/raid6/algos.h                          |   41 ++
- b/lib/raid/raid6/arm/neon.c                       |   23 -
- b/lib/raid/raid6/arm/neon.uc                      |    2 
- b/lib/raid/raid6/arm/pq_arch.h                    |   24 +
- b/lib/raid/raid6/arm/recov_neon.c                 |   27 -
- b/lib/raid/raid6/arm/recov_neon_inner.c           |    2 
- b/lib/raid/raid6/arm64/pq_arch.h                  |    1 
- b/lib/raid/raid6/int.uc                           |   10 
- b/lib/raid/raid6/loongarch/loongarch_simd.c       |   31 -
- b/lib/raid/raid6/loongarch/pq_arch.h              |   23 +
- b/lib/raid/raid6/loongarch/recov_loongarch_simd.c |   39 --
- b/lib/raid/raid6/mktables.c                       |   28 -
- b/lib/raid/raid6/powerpc/altivec.uc               |   32 -
- b/lib/raid/raid6/powerpc/pq_arch.h                |   31 +
- b/lib/raid/raid6/powerpc/vpermxor.uc              |   29 -
- b/lib/raid/raid6/recov.c                          |   62 ---
- b/lib/raid/raid6/riscv/pq_arch.h                  |   21 +
- b/lib/raid/raid6/riscv/recov_rvv.c                |   14 
- b/lib/raid/raid6/riscv/rvv.h                      |   26 -
- b/lib/raid/raid6/s390/pq_arch.h                   |   15 
- b/lib/raid/raid6/s390/recov_s390xc.c              |   14 
- b/lib/raid/raid6/s390/s390vx.uc                   |   15 
- b/lib/raid/raid6/tests/Makefile                   |    3 
- b/lib/raid/raid6/tests/raid6_kunit.c              |  321 ++++++++++++++++++
- b/lib/raid/raid6/x86/avx2.c                       |   47 --
- b/lib/raid/raid6/x86/avx512.c                     |   57 +--
- b/lib/raid/raid6/x86/mmx.c                        |   39 --
- b/lib/raid/raid6/x86/pq_arch.h                    |   97 +++++
- b/lib/raid/raid6/x86/recov_avx2.c                 |   22 -
- b/lib/raid/raid6/x86/recov_avx512.c               |   26 -
- b/lib/raid/raid6/x86/recov_ssse3.c                |   23 -
- b/lib/raid/raid6/x86/sse1.c                       |   49 --
- b/lib/raid/raid6/x86/sse2.c                       |   47 --
- lib/raid6/Makefile                                |   83 ----
- lib/raid6/algos.c                                 |  291 ----------------
- lib/raid6/loongarch.h                             |   38 --
- lib/raid6/test/.gitignore                         |    3 
- lib/raid6/test/Makefile                           |  156 --------
- lib/raid6/test/test.c                             |  152 --------
- lib/raid6/x86.h                                   |   75 ----
- 56 files changed, 1369 insertions(+), 1517 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
