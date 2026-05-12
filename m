@@ -4,119 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF4DCD4855
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 09:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBF6CD4F21
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 11:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=K8gV3JFFIfJMBwLdCjNScVHobXEkAbNNdB8ftKjgFDk=; b=zzytdBv4aoihJIdVtD0Xk4E6Gz
-	g9op9c2W83u4bfWs9AeOWSiQYfEpKI1xsTqYGAPqVl/AhrWrmfpZJ1eHSFtCAfgIdRbZmUx5v8wbD
-	8lCSpmu5scvIkafhzWrJPfhQSYolkE4xnZHocw8Zpi9Uy9mTYHgtmszutNx7kL6v8FoJeTiQuszfd
-	/4QP1cbu96gAO6x7rKaVI8Fi+zPjAii/WwhWnqnhes2YtQr7PmEraM1+B1wGgV4yaz/J68xYjUx1U
-	lxsEllQ5EGuFFhteV3A6Ks5zRCsJjmq+zfFc0GE4dwS7vG9NNf0HjpLv0Q5WLpcf4TiAS7sjI00Zf
-	cIN3/SgA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=05SlYQ1X+uqIxGdCWOBgY2AMPEFywFm+rWgZ5IdH+F8=; b=C8KaNb1bcQzan/
+	P09u/wB3icpYY3Iq1hwNkmF6hCn626dcCfLL4qJBSGiipnMjinbclTRb4RMYDRVH56ZM5RegZ0Hc8
+	SXxkdiCI2mzxqBP76LTzjtV5ZFtl7ldqMXGSWYC6cp/TcDKONJlopy+q9jHbINY5l/PkP2Jq13EJI
+	D/DK/lDOnjkMiwl/a3595uCpq2QWi6q9HGklwIwjgD0ColEM+v8rIXr2QZr+NyGJb7wF9nHzG2LwM
+	9fBjeaVjHX2H+XCT30AycbNTqq6AikpbJ+OqECKr1md1aCYbvd6pD8QV92z55RE4uur/ytItyv3z0
+	oWD2Ej111h1VaB78Dfiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjlC-0000000GJdf-1UhW;
-	Tue, 12 May 2026 09:50:42 +0000
+	id 1wMlNx-0000000GZv0-0Ry6;
+	Tue, 12 May 2026 11:34:49 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjl9-0000000GJcp-1tVY
+	id 1wMlNu-0000000GZuB-1F2A
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 May 2026 09:50:40 +0000
+	Tue, 12 May 2026 11:34:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2BFB44361;
-	Tue, 12 May 2026 09:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63D85C2BCF5;
-	Tue, 12 May 2026 09:50:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 586A0438B4;
+	Tue, 12 May 2026 11:34:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2701C2BCB0;
+	Tue, 12 May 2026 11:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778579438;
-	bh=iodQUQY7CnisbRWz7ZX1kdnUrHJlSwk4Axa8QKYq830=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=XFOgFHvn9mBF2xBvRAZWYN4FsdnnUCfPsyFwGq5E9zA90qIOCobVdiEX9IjRuOO7A
-	 a4koWchkllcAIttf8zp8nn4DNgAVrP9LdSX7c7Wd2O/Ip/XWfV7tEV0OA9U7Udc+UE
-	 fEBu5x2ef3P1zVecOZKVBZrnFtNm/j8jBWssv5lVpyaW+nKCdX9FnSHkuv+MOahJJE
-	 QNDdbgoh7OoscH495SUEFI0BJnaKehG0YhHRaOpuk7FVyVPOsRcJRVWd+JLcdYAR9J
-	 Mh1IFQ3qEmNBYLJIOPrHNmKAZ1ztNQxjTy4SJZikX6wyepAIsQBzQb9nb5w/at5zDd
-	 CFzv2hvfalSuw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 69211F4007E;
-	Tue, 12 May 2026 05:50:36 -0400 (EDT)
-Received: from phl-imap-14 ([10.202.2.87])
-  by phl-compute-01.internal (MEProxy); Tue, 12 May 2026 05:50:36 -0400
-X-ME-Sender: <xms:7PcCam9YJOHuCSkFlDq4ISbUnfEsy1OEjiwfu2I0G97RJXn0Y9Qj3Q>
-    <xme:7PcCahg10CcdO5ywOYNj_MoUADdtr56c-r9bHz7tueJKnmE7BlO5CNe34OWAHP6O0
-    K2ZP7MTmRqCKNmM6To0iTGAEXW_mzbRu-_Ppobim0hC3yvVCtlniA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduvddugeekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpeetgedvtddttdeuffegvdefgffgteeiueejuefhjefhvdekkeelkeduteej
-    tdetheenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucevlhhushhtvghruf
-    hiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhguodhmvghsmhhtphgruhht
-    hhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdeffedvudeigeduhedqrghrug
-    gspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurdgtohhmpdhnsggprhgtphht
-    thhopeegfedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnke
-    druggvpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdp
-    rhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtohepphgrlhhmvghrse
-    gurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgv
-    hidrvgguuhdprhgtphhtthhopehmphgvsegvlhhlvghrmhgrnhdrihgurdgruhdprhgtph
-    htthhopegtlhhmsehfsgdrtghomhdprhgtphhtthhopeihuhhkuhgrihesfhhnnhgrshdr
-    tghomhdprhgtphhtthhopegrlhgvgiesghhhihhtihdrfhhr
-X-ME-Proxy: <xmx:7PcCalktau1ceeO9LVmwrvdgtBQqFGLkbXstpSg8yybS685IYcHORw>
-    <xmx:7PcCasmugZGdftyVI7SsXjAnPbfXZESq-0jgJf5WHEk-4Op-5tihhg>
-    <xmx:7PcCakOBuua_a1L3B6_7D8BIKwPWLDsIB0zTRk7q4odJEd-XR7f0rg>
-    <xmx:7PcCamtx3Q0fvbGtW41fj2F_sqDaICjJw47CJSybFMv4EVU0bnkNFA>
-    <xmx:7PcCauA9QdM04AOLLlOCDA53c0jW-oZSzKQywL6_3ngSclabTlPoqQSc>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 38C50C4006F; Tue, 12 May 2026 05:50:36 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20201202; t=1778585685;
+	bh=rEH0LubyCwBzQ9XB43fGcRH9yWcSU7fpspDXa3oAJV4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=huhAFQz0karYLPQmSKNvruvCoi9lXwDr+HDIeX1PLbcemcWgTcyi1FHXNgUOlw35X
+	 QUp0wFLaXU6CWU4hhnxo9409qn8U5rpGBgONtlq9J65ZABGGU3wl/AMsIymEFbmRvp
+	 GS7OWxtVkaE92OV0P+2OxFOExJfH54t39olwbk/p2mfNPWV+q1vK6oO5tOyKs0KS7S
+	 84ualVrNHj0xC8bx1XYfwWKsRhI/Cq14GsYD8KuQyHfMXugh0Q31/V6vZJlK6VvpTZ
+	 IW16r5BvcRS2OBKnMUff/wkL5Qe68X/hMaCAxqMlRmIiHBOx3z/p6/lU6ghGNdXG8s
+	 JPAGhj16JAggQ==
+Date: Tue, 12 May 2026 11:34:41 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Andre Heider <a.heider@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/6] riscv: dts: spacemit: k1-musepi-pro: enable PCIe
+ ports
+Message-ID: <20260512113441-GKF3624147@kernel.org>
+References: <20260511111116.1109643-1-a.heider@gmail.com>
+ <20260511111116.1109643-6-a.heider@gmail.com>
 MIME-Version: 1.0
-Date: Tue, 12 May 2026 11:50:15 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Christoph Hellwig" <hch@lst.de>,
- "Andrew Morton" <akpm@linux-foundation.org>
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <kernel@xen0n.name>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Heiko Carstens" <hca@linux.ibm.com>,
- "Vasily Gorbik" <gor@linux.ibm.com>,
- "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Christian Borntraeger" <borntraeger@linux.ibm.com>,
- "Sven Schnelle" <svens@linux.ibm.com>,
- "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>,
- "Herbert Xu" <herbert@gondor.apana.org.au>,
- "Dan Williams" <dan.j.williams@intel.com>, "Chris Mason" <clm@fb.com>,
- "David Sterba" <dsterba@suse.com>, "Arnd Bergmann" <arnd@arndb.de>,
- "Song Liu" <song@kernel.org>, "Yu Kuai" <yukuai@fnnas.com>,
- "Li Nan" <linan122@huawei.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-raid@vger.kernel.org
-Message-Id: <d40e984f-7dec-425c-bf80-a255980c7457@app.fastmail.com>
-In-Reply-To: <20260512052230.2947683-1-hch@lst.de>
-References: <20260512052230.2947683-1-hch@lst.de>
-Subject: Re: cleanup the RAID6 P/Q library v2
+Content-Disposition: inline
+In-Reply-To: <20260511111116.1109643-6-a.heider@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_025039_546633_C2084775 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20260512_043446_355539_34F1FBDC 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,50 +78,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Andre,
 
-On Tue, 12 May 2026, at 07:20, Christoph Hellwig wrote:
-> Hi all,
->
-> this series cleans up the RAID6 P/Q library to match the recent updates
-> to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
-> providing properly documented external interfaces, hiding the internals,
-> using static_call instead of indirect calls and turning the user space
-> test suite into an in-kernel kunit test which is also extended to
-> improve coverage.
->
-> Note that this changes registration so that non-priority algorithms are
-> not registered, which greatly helps with the benchmark time at boot time.
-> I'd like to encourage all architecture maintainers to see if they can
-> further optimized this by registering as few as possible algorithms when
-> there is a clear benefit in optimized or more unrolled implementations.
->
-> This series sits on top of the "cleanup the RAID5 XOR library v3" series.
->
-> A git tree is also available here:
->
->     git://git.infradead.org/users/hch/misc.git lib-raid6
->
-> Gitweb:
->
->     
-> https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/lib-raid6
->
-> Changes since v1:
->  - fix arm64 objdir != srcdir builds
->  - call the kunit module raid6_kunit.ko from the beginning
->  - update MAINTAINERS
->  - don't require preemptible context and apply the same restrictions as
->    the merged version of the XOR API
->  - fix the arm64 default in Kconfig
->  - pick the last registered (and presumably most optimized) algorithm when
->    benchmarking is disabled
->  - port over the randomization fixes from the XOR series
->  - misc other kunit cleanups
->  - require at least 4 devices for RAID6 to skip broken special cases
->
+On 13:11 Mon 11 May     , Andre Heider wrote:
+> Enable the two PCIe controller along with and their associated PHYs. They
+> are routed to the M.2 M-key connector and to the PCIe slot.
+> 
+> Signed-off-by: Andre Heider <a.heider@gmail.com>
+> ---
+>  .../riscv/boot/dts/spacemit/k1-musepi-pro.dts | 50 +++++++++++++++++++
+>  1 file changed, 50 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> index 9c90c2817ecb7..2d3e30f0bd806 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> @@ -36,6 +36,24 @@ led1 {
+>  		};
+>  	};
+>  
+> +	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "PCIE_VCC3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +		vin-supply = <&reg_usb_vbus>;
+> +	};
+> +
+> +	mpcie_vcc_3v3: regulator-mpcie-vcc3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "MPCIE_VCC3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +		vin-supply = <&reg_usb_vbus>;
+> +	};
+> +
+>  	reg_usb_vbus: regulator-usb-vbus {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "USBVBUS";
+> @@ -275,6 +293,38 @@ dldo7 {
+>  	};
+>  };
+>  
+> +&pcie1_phy {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie1_3_cfg>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie1_port {
+> +	phys = <&pcie1_phy>;
+> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> +};
+> +
+> +&pcie1 {
+..
+> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+drop vpcie3v3-supply which not needed
 
-Tested-by: Ard Biesheuvel <ardb@kernel.org> # kunit only on arm64
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> +	status = "okay";
+> +};
+> +
+> +&pcie2_phy {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie2_4_cfg>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie2_port {
+> +	phys = <&pcie2_phy>;
+> +	vpcie3v3-supply = <&mpcie_vcc_3v3>;
+> +};
+> +
+> +&pcie2 {
+> +	vpcie3v3-supply = <&mpcie_vcc_3v3>;
+same here
+> +	status = "okay";
+> +};
+> +
+>  &qspi {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&qspi_cfg>;
+> -- 
+> 2.53.0
+> 
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
