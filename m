@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE81CD4851
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 05:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8E4CD4851
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 05:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=++sn2iMDKkfgghURnqdrE7GwonYMknn1X76WsB3q4mc=; b=iYdgXvuLTvtdj4
-	ZBwpAXpomKCMDZJLNqKXleNYwCPfIXD6+VFXsqeKU2MzQn6ovl+a2XgmWPycokquiJoZ5CsU9WpAc
-	tqECVLsLCJkK3jprMgb7/l5VECB1J9zB/8cwUIN3oT1Jhih6AdRsG+NL5BIkkBorBNJAtX1T9CpeR
-	YqG1GDTjGorx8yJEHcALvvQm0rpjAGFLIMCR5MGkQO8Jkv8dazg3lFln0rvYS4GhVAkof1ZUgPz5k
-	PocIUH8pR3ipr4FOkVwX0jx5elia/n6EbS8F6OGMMeUg9FIj51PA9TwOCfv6RVK5g2doDEfWyJpRY
-	BK0iLoY6+hLTjlHXe2Zg==;
+	List-Owner; bh=JSAi1oNN/6ty8C+F8OkrBzoZKPYUkPdy3YGaFzVmnrs=; b=xLnLnqv6Kd3j3c
+	pqbvGHYlV9s3HkXrBPIso7bXZ5UjIyHrwqbwcLzlLgHGkJ7W/tN5+Hj5HgdA9aQ0y72bzRdgd+goe
+	CcBSAw89lUCW9fr9TKOm8kVFue7zsb4BR5+sMvMOVZoaXFmBJvQ0wfKf4c0Ot8zb7ci02ktLicfaY
+	f2hIoKa589srOj3pfqd4F3udvAwcGB6fBo6OiQICQrgFiKbCV/eO+eyErTzfV/Fb3FaL3zLSF818/
+	5OpqY0MjZFpG9HvlMBnYTTc5MuP2qx5DEVUFockcGF/PZx9o/AJMfuKMYOSKMvNwG8FPk/SXmqMDY
+	FofzaDue/HW7o/ca3/kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfdM-0000000FdaX-10Qe;
-	Tue, 12 May 2026 05:26:20 +0000
-Received: from 2a02-8389-2341-5b80-decc-1a96-daaa-a2cc.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:decc:1a96:daaa:a2cc] helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfdK-0000000FdPB-1GFj;
-	Tue, 12 May 2026 05:26:18 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
+	id 1wMfqf-0000000Ffpl-1lU6;
+	Tue, 12 May 2026 05:40:05 +0000
+Received: from azure-sdnproxy.icoremail.net ([4.193.249.245])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMfqb-0000000Ffnv-3yQA;
+	Tue, 12 May 2026 05:40:04 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Tue, 12 May 2026 13:39:12 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Tue, 12 May 2026 13:39:12 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: "Jakub Kicinski" <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, devicetree@vger.kernel.org, davem@davemloft.net,
+	edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: [PATCH 19/19] raid6_kunit: randomize buffer alignment
-Date: Tue, 12 May 2026 07:20:59 +0200
-Message-ID: <20260512052230.2947683-20-hch@lst.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260512052230.2947683-1-hch@lst.de>
-References: <20260512052230.2947683-1-hch@lst.de>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+	horms@kernel.org
+Subject: Re: Re: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable
+ clocks before syscon access and correct RX sampling timing
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
+References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+ <20260427072508.1151-1-lizhi2@eswincomputing.com>
+ <20260428180625.738223cf@kernel.org>
+ <2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
+ <20260430163551.7491407a@kernel.org>
+ <38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
+Message-ID: <446f69bd.7fe4.19e1ab248fb.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: en_US
+X-CM-TRANSID: TAJkCgBnCXMAvQJqub8YAA--.6986W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgEFDGoCBREW-AAAsc
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260511_224002_156796_084F4C8F 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,127 +81,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add code to add random alignment to the buffers to test the case where
-they are not page aligned, and to move the buffers to the end of the
-allocation so that they are next to the vmalloc guard page.
-
-This does not include the recovery buffers as the recovery requires
-page alignment.
-
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- lib/raid/raid6/tests/raid6_kunit.c | 41 +++++++++++++++++++++++++-----
- 1 file changed, 35 insertions(+), 6 deletions(-)
-
-diff --git a/lib/raid/raid6/tests/raid6_kunit.c b/lib/raid/raid6/tests/raid6_kunit.c
-index d6ac777dcaee..7b45c7be36fc 100644
---- a/lib/raid/raid6/tests/raid6_kunit.c
-+++ b/lib/raid/raid6/tests/raid6_kunit.c
-@@ -21,6 +21,7 @@ MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
- 
- static struct rnd_state rng;
- static void *test_buffers[RAID6_KUNIT_MAX_BUFFERS];
-+static void *aligned_buffers[RAID6_KUNIT_MAX_BUFFERS];
- static void *test_recov_buffers[RAID6_KUNIT_MAX_FAILURES];
- static size_t test_buflen;
- 
-@@ -50,6 +51,14 @@ static unsigned int random_nr_buffers(void)
- 			RAID6_MIN_DISKS;
- }
- 
-+/* Generate a random alignment that is a multiple of 64. */
-+static unsigned int random_alignment(unsigned int max_alignment)
-+{
-+	if (max_alignment == 0)
-+		return 0;
-+	return (rand32() % (max_alignment + 1)) & ~63;
-+}
-+
- static void makedata(int start, int stop)
- {
- 	int i;
-@@ -80,7 +89,7 @@ static void test_recover_one(struct kunit *test, unsigned int nr_buffers,
- 	for (i = 0; i < RAID6_KUNIT_MAX_FAILURES; i++)
- 		memset(test_recov_buffers[i], 0xf0, test_buflen);
- 
--	memcpy(dataptrs, test_buffers, sizeof(dataptrs));
-+	memcpy(dataptrs, aligned_buffers, sizeof(dataptrs));
- 	dataptrs[faila] = test_recov_buffers[0];
- 	dataptrs[failb] = test_recov_buffers[1];
- 
-@@ -102,13 +111,13 @@ static void test_recover_one(struct kunit *test, unsigned int nr_buffers,
- 		ta->recov->data2(nr_buffers, len, faila, failb, dataptrs);
- 	}
- 
--	KUNIT_EXPECT_MEMEQ_MSG(test, test_buffers[faila], test_recov_buffers[0],
-+	KUNIT_EXPECT_MEMEQ_MSG(test, aligned_buffers[faila], dataptrs[faila],
- 			len,
- 			"faila miscompared: %3d[%c] buffers %u len %u (failb=%3d[%c])\n",
- 			faila, member_type(nr_buffers, faila),
- 			nr_buffers, len,
- 			failb, member_type(nr_buffers, failb));
--	KUNIT_EXPECT_MEMEQ_MSG(test, test_buffers[failb], test_recov_buffers[1],
-+	KUNIT_EXPECT_MEMEQ_MSG(test, aligned_buffers[failb], dataptrs[failb],
- 			len,
- 			"failb miscompared: %3d[%c] buffers %u len %u (faila=%3d[%c])\n",
- 			failb, member_type(nr_buffers, failb),
-@@ -152,9 +161,9 @@ static void test_rmw_one(struct kunit *test, unsigned int nr_buffers,
- {
- 	const struct test_args *ta = test->param_value;
- 
--	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, test_buffers);
-+	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, aligned_buffers);
- 	makedata(p1, p2);
--	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, test_buffers);
-+	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, aligned_buffers);
- 	test_recover(test, nr_buffers, len);
- }
- 
-@@ -178,13 +187,33 @@ static void raid6_test_one(struct kunit *test)
- 	const struct test_args *ta = test->param_value;
- 	unsigned int nr_buffers = random_nr_buffers();
- 	unsigned int len = random_length(RAID6_KUNIT_MAX_BYTES);
-+	unsigned int max_alignment;
-+	int i;
- 
- 	/* Nuke syndromes */
- 	memset(test_buffers[nr_buffers - 2], 0xee, test_buflen);
- 	memset(test_buffers[nr_buffers - 1], 0xee, test_buflen);
- 
-+	/*
-+	 * If we're not using the entire buffer size, inject randomize alignment
-+	 * into the buffer.
-+	 */
-+	max_alignment = RAID6_KUNIT_MAX_BYTES - len;
-+	if (rand32() % 2 == 0) {
-+		/* Use random alignments mod 64 */
-+		for (i = 0; i < nr_buffers; i++)
-+			aligned_buffers[i] = test_buffers[i] +
-+				random_alignment(max_alignment);
-+	} else {
-+		/* Go up to the guard page, to catch buffer overreads */
-+		unsigned int align = test_buflen - len;
-+
-+		for (i = 0; i < nr_buffers; i++)
-+			aligned_buffers[i] = test_buffers[i] + align;
-+	}
-+
- 	/* Generate assumed good syndrome */
--	ta->gen->gen_syndrome(nr_buffers, len, test_buffers);
-+	ta->gen->gen_syndrome(nr_buffers, len, aligned_buffers);
- 
- 	test_recover(test, nr_buffers, len);
- 
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgoKPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2VzLS0tLS0KPiBGcm9tOiDmnY7lv5cgPGxpemhpMkBl
+c3dpbmNvbXB1dGluZy5jb20+Cj4gU2VuZCB0aW1lOldlZG5lc2RheSwgMDYvMDUvMjAyNiAxMDox
+MDo1Nwo+IFRvOiAiSmFrdWIgS2ljaW5za2kiIDxrdWJhQGtlcm5lbC5vcmc+Cj4gQ2M6IGFuZHJl
+dytuZXRkZXZAbHVubi5jaCwgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmcsIGRhdmVtQGRhdmVt
+bG9mdC5uZXQsIGVkdW1hemV0QGdvb2dsZS5jb20sIHJvYmhAa2VybmVsLm9yZywga3J6aytkdEBr
+ZXJuZWwub3JnLCBjb25vcitkdEBrZXJuZWwub3JnLCBuZXRkZXZAdmdlci5rZXJuZWwub3JnLCBw
+YWJlbmlAcmVkaGF0LmNvbSwgbWNvcXVlbGluLnN0bTMyQGdtYWlsLmNvbSwgYWxleGFuZHJlLnRv
+cmd1ZUBmb3NzLnN0LmNvbSwgcm1rK2tlcm5lbEBhcm1saW51eC5vcmcudWssIHBqd0BrZXJuZWwu
+b3JnLCBwYWxtZXJAZGFiYmVsdC5jb20sIGFvdUBlZWNzLmJlcmtlbGV5LmVkdSwgYWxleEBnaGl0
+aS5mciwgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGludXgtc3RtMzJAc3QtbWQt
+bWFpbG1hbi5zdG9ybXJlcGx5LmNvbSwgbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQu
+b3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBtYXhpbWUuY2hldmFsbGllckBib290
+bGluLmNvbSwgbmluZ3l1QGVzd2luY29tcHV0aW5nLmNvbSwgbGlubWluQGVzd2luY29tcHV0aW5n
+LmNvbSwgcGlua2VzaC52YWdoZWxhQGVpbmZvY2hpcHMuY29tLCBwcml0ZXNoLnBhdGVsQGVpbmZv
+Y2hpcHMuY29tLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29tLCBob3Jtc0BrZXJuZWwu
+b3JnCj4gU3ViamVjdDogUmU6IFJlOiBbUEFUQ0ggbmV0LW5leHQgdjcgMi80XSBuZXQ6IHN0bW1h
+YzogZWljNzcwMDogZW5hYmxlIGNsb2NrcyBiZWZvcmUgc3lzY29uIGFjY2VzcyBhbmQgY29ycmVj
+dCBSWCBzYW1wbGluZyB0aW1pbmcKPiAKPiAKPiAKPiAKPiA+IC0tLS0t5Y6f5aeL6YKu5Lu2LS0t
+LS0KPiA+IOWPkeS7tuS6ujogIkpha3ViIEtpY2luc2tpIiA8a3ViYUBrZXJuZWwub3JnPgo+ID4g
+5Y+R6YCB5pe26Ze0OjIwMjYtMDUtMDEgMDc6MzU6NTEgKOaYn+acn+S6lCkKPiA+IOaUtuS7tuS6
+ujog5p2O5b+XIDxsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tPgo+ID4g5oqE6YCBOiBhbmRyZXcr
+bmV0ZGV2QGx1bm4uY2gsIGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnLCBkYXZlbUBkYXZlbWxv
+ZnQubmV0LCBlZHVtYXpldEBnb29nbGUuY29tLCByb2JoQGtlcm5lbC5vcmcsIGtyemsrZHRAa2Vy
+bmVsLm9yZywgY29ub3IrZHRAa2VybmVsLm9yZywgbmV0ZGV2QHZnZXIua2VybmVsLm9yZywgcGFi
+ZW5pQHJlZGhhdC5jb20sIG1jb3F1ZWxpbi5zdG0zMkBnbWFpbC5jb20sIGFsZXhhbmRyZS50b3Jn
+dWVAZm9zcy5zdC5jb20sIHJtaytrZXJuZWxAYXJtbGludXgub3JnLnVrLCBwandAa2VybmVsLm9y
+ZywgcGFsbWVyQGRhYmJlbHQuY29tLCBhb3VAZWVjcy5iZXJrZWxleS5lZHUsIGFsZXhAZ2hpdGku
+ZnIsIGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcsIGxpbnV4LXN0bTMyQHN0LW1kLW1h
+aWxtYW4uc3Rvcm1yZXBseS5jb20sIGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9y
+ZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZywgbWF4aW1lLmNoZXZhbGxpZXJAYm9vdGxp
+bi5jb20sIG5pbmd5dUBlc3dpbmNvbXB1dGluZy5jb20sIGxpbm1pbkBlc3dpbmNvbXB1dGluZy5j
+b20sIHBpbmtlc2gudmFnaGVsYUBlaW5mb2NoaXBzLmNvbSwgcHJpdGVzaC5wYXRlbEBlaW5mb2No
+aXBzLmNvbSwgd2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0aW5nLmNvbSwgaG9ybXNAa2VybmVsLm9y
+Zwo+ID4g5Li76aKYOiBSZTogW1BBVENIIG5ldC1uZXh0IHY3IDIvNF0gbmV0OiBzdG1tYWM6IGVp
+Yzc3MDA6IGVuYWJsZSBjbG9ja3MgYmVmb3JlIHN5c2NvbiBhY2Nlc3MgYW5kIGNvcnJlY3QgUlgg
+c2FtcGxpbmcgdGltaW5nCj4gPiAKPiA+IE9uIFRodSwgMzAgQXByIDIwMjYgMTQ6NDM6NTAgKzA4
+MDAgKEdNVCswODowMCkg5p2O5b+XIHdyb3RlOgo+ID4gPiA+IFdoeSBGaXhlcz8gSWYgZXRoMSBu
+ZXZlciB3b3JrZWQgdGhpcyBpcyBub3QgYSBmaXggYnV0IG5ldyBmdW5jdGlvbmFsaXR5Cj4gPiA+
+ID4gSWYgeW91IHdhbnQgdG8gbWFrZSB0aGlzIGEgZml4IHRvIHByZXZlbnQgaW5jb21wYXRpYmls
+aXR5IC0gY3V0IGl0IGRvd24KPiA+ID4gPiBqdXN0IHRvIHRoZSBldGgwIGNoYW5nZXMuCj4gPiA+
+ID4gICAKPiA+ID4gVGhhbmsgeW91IGZvciB0aGUgc3VnZ2VzdGlvbi4KPiA+ID4gCj4gPiA+IFlv
+dSdyZSByaWdodCB0aGF0IGV0aDEgbmV2ZXIgd29ya2VkIGF0IEdpZ2FiaXQgc3BlZWQsIHNvIHRo
+aXMgc2hvdWxkCj4gPiA+IG5vdCBiZSB0cmVhdGVkIGFzIGEgZml4Lgo+ID4gPiAKPiA+ID4gSW4g
+djgsIEkgd2lsbCBzcGxpdCB0aGUgY2hhbmdlcyBpbnRvIHR3byBwYXRjaGVzIHdpdGhpbiB0aGUg
+c2FtZSBzZXJpZXM6Cj4gPiA+IC0gUGF0Y2ggMSB3aWxsIGNvbnRhaW4gb25seSB0aGUgZml4ZXMg
+YWZmZWN0aW5nIHRoZSBleGlzdGluZyBldGgwCj4gPiA+IGZ1bmN0aW9uYWxpdHksIGFuZCB3aWxs
+IGtlZXAgdGhlIEZpeGVzIHRhZy4KPiA+ID4gLSBQYXRjaCAyIHdpbGwgYWRkIHRoZSBldGgxIHN1
+cHBvcnQgKFJYIGNsb2NrIGludmVyc2lvbiB3b3JrYXJvdW5kKQo+ID4gPiBhcyBuZXcgZnVuY3Rp
+b25hbGl0eSwgd2l0aG91dCBhIEZpeGVzIHRhZy4KPiA+ID4gCj4gPiA+IFBsZWFzZSBsZXQgbWUg
+a25vdyBpZiB5b3Ugd291bGQgcHJlZmVyIGEgZGlmZmVyZW50IHNwbGl0IG9yIG9yZGVyaW5nLgo+
+ID4gCj4gPiBJZiB5b3Ugd2FudCB0byBjb25zaWRlciBzb21lIHBhcnQgb2YgdGhpcyBjb21taXQg
+YSBmaXggaXQgaGFzIHRvIGJlCj4gPiBwb3N0ZWQgc2VwYXJhdGVseSB0byB0aGUgbmV0IHRyZWUg
+KHJhdGhlciB0aGFuIG5ldC1uZXh0KS4KPiA+IE9uY2UgaXQncyBtZXJnZWQgYW5kIG1ha2VzIGl0
+IHdheSBvdmVyIHRvIHRoZSBuZXQtbmV4dCB0cmVlIChlYWNoCj4gPiBUaHVyc2RheSkgeW91IGNh
+biBwb3N0IHRoZSBuZXQtbmV4dCBjaG5hZ2VzIGZvciBldGgxCj4gCj4gVGhhbmtzLCB1bmRlcnN0
+b29kLgo+IAo+IEkgd2lsbCBzcGxpdCB0aGUgY2hhbmdlcyBhY2NvcmRpbmdseToKPiAtIFNlbmQg
+dGhlIGV0aDAgZml4ZXMgYXMgYSBuZXcgdjEgc2VyaWVzIHRhcmdldGluZyBuZXQuCj4gLSBTZW5k
+IHRoZSBldGgxIGVuYWJsZW1lbnQgYXMgYSBuZXcgdjEgc2VyaWVzIHRhcmdldGluZyBuZXQtbmV4
+dC4KPiAKPiBUaGFua3MgZm9yIHRoZSBndWlkYW5jZS4KCkhpIEpha3ViLAoKSnVzdCB0byBjb25m
+aXJtIHRoZSB2ZXJzaW9uaW5nIGZvciB0aGUgZXRoMSBwYXJ0IGFmdGVyIHNwbGl0dGluZyB0aGUK
+b3JpZ2luYWwgdjcvdjggc2VyaWVzOgoKRm9yIHRoZSBuZXQgZml4IHBhcnQsIEkgaGF2ZSBhbHJl
+YWR5IHBvc3RlZCBpdCBhcyBhIG5ldyB2MSBzZXJpZXMKdGFyZ2V0aW5nIG5ldC4KCkZvciB0aGUg
+ZXRoMSBlbmFibGVtZW50IHBhcnQsIG15IGN1cnJlbnQgdW5kZXJzdGFuZGluZyBpcyB0aGF0IGl0
+CnNob3VsZCBiZSB0cmVhdGVkIGFzIGEgbmV3IGluZGVwZW5kZW50IHYxIHNlcmllcyBmb3IgbmV0
+LW5leHQsCnNpbmNlIHRoZSBzY29wZSBhbmQgdGFyZ2V0IHRyZWUgaGF2ZSBjaGFuZ2VkIGFmdGVy
+IHRoZSBzcGxpdC4KCldvdWxkIHlvdSBwcmVmZXIgdGhpcyBldGgxIHNlcmllcyB0byBzdGFydCBh
+cyB2MSwgb3Igc2hvdWxkIGl0CmNvbnRpbnVlIGFzIHY4IGZvciBjb250aW51aXR5IHdpdGggdGhl
+IG9yaWdpbmFsIHNlcmllcz8KCkkgd2lsbCBmb2xsb3cgeW91ciBwcmVmZXJyZWQgYXBwcm9hY2gg
+YmVmb3JlIHBvc3RpbmcgaXQuCgpUaGFua3MsClpoaQpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
