@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD150CD4855
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 07:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCB3CD4F26
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 07:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yxz3J3TMYCKZ/S3IN/AEZBXAl/T7FIElpV4URRIjb6I=; b=zOU+SZSBBZtbjK
-	G0PuRRO1OPY/wF1E0S9HW0HXF9zarVQ0lD6JrWAC4rJfo5lkI+FiVWXOiWTfB3OBuBVYnT7Dbm/9y
-	fSmbRuWm9XjarnR+4dJ67ttQ7BZrAHWzFbvmNpyj7Z6qR1Qy6jaQjChBpmqG+BLphUNi9S24kWBCX
-	g78Raht7DPlu9NnxIzlcNt1DwEGZwAxJGXGn0+jnWJVCvNI0O0tYrKQBByWP7A5I1BS88lGH8Hp78
-	GzuU/6RbZg7+TVDlfczX9/yTfgR95ut7Mz6FErCBg86ImKkp3F+T4Y3d0p0r0emwRVhWltKE4smy5
-	2L1d+oBt3Kr00mxqzmbA==;
+	List-Owner; bh=NUkuDrE+bP5ABz8XBmrl7I4ksIpFyCg4RSZtLYrNldQ=; b=Bctpd0j3UTbaK5
+	+AEKvxWPUsZD0MDSvEqvFWvNvqcOFOGo/YcC4PsHZN+UYZdsym0In/iKeeps1Wwk0kqJeUzTAsLGr
+	h8lfh660kksgfOEYpyTibgO7jWlpmTXGJAOkpA9qaPv0D3z+jlHK9tuOLTfX2Du4L5eAtV4ZKSJ2I
+	lv16Vxw0L+F6yaYneLIVyCOPWzH7zY3Wtk3EbjTh/rjgINRLA6YpIOq0TYT9y33tzkb5FiC47cQOX
+	i5GP9uwf5lqiCLhbORVL0iBf4bkb9MAEAPBSZEjD8HWS0aOYSFDUL1Kr6s/KYXkWuOeNNqERjRDpw
+	9cGbiKH7CxAoKtHM+FiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhbb-0000000Fw2w-0rTl;
-	Tue, 12 May 2026 07:32:39 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1wMhkj-0000000FxkR-08Rd;
+	Tue, 12 May 2026 07:42:05 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhbY-0000000Fw1g-3QKL
-	for linux-riscv@lists.infradead.org;
-	Tue, 12 May 2026 07:32:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=pB
-	IBMXz36sssME+lKehR+5CjED5Xmd4twSn/mrxxIfY=; b=VctuolUxep88HKoZSI
-	Aj/YyLbUVo37RHcbv0sg+0AqDpKiAOUbQaoL1LX5+siztbWyPISu87nKQDvZgNH9
-	rU8gQy+pgMdzrBVdx2SVrppc3ptKIFcZ20mJHqBsIQRoVQV6LS+CdXCMqKYgwVgL
-	Tl10uutG4g1NBP0nILPLiB0cQ=
-Received: from thinkpadx13gen2i.. (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3vz431wJq7ieNAw--.2537S2;
-	Tue, 12 May 2026 15:31:04 +0800 (CST)
-From: Zongmin Zhou <min_halo@163.com>
-To: david.laight.linux@gmail.com
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
+	id 1wMhkf-0000000FxiJ-3k3h;
+	Tue, 12 May 2026 07:42:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1778571716; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=i04ZuxIi3jt4m8VWianwNO2YFQpZ5BInIfUiKWtaoro=;
+	b=opfCsCYITa20PfnCeeFY4R40+pjN8lEYQ90TEDK5CTD/T5uTi0/NaB9L2io10X9N8Wi/LKJNBybANI9OR1If/7yFLHrliCHsVRXLu4xSZR6daOiplNZfoeQFdFYdPRHqhfASPJzggzqDU6t+zvD6jXnC1Yfk8WeHMzeOtfO7w7A=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=25;SR=0;TI=SMTPD_---0X2puQMt_1778571712;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X2puQMt_1778571712 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 12 May 2026 15:41:53 +0800
+From: fangyu.yu@linux.alibaba.com
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
 	pjw@kernel.org,
-	Zongmin Zhou <zhouzongmin@kylinos.cn>
-Subject: [PATCH v2] riscv: lib: optimize strchr() with Zbb extension
-Date: Tue, 12 May 2026 15:30:07 +0800
-Message-Id: <20260512073006.363434-1-min_halo@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260507112235.41e539fa@pumpkin>
-References: <20260507112235.41e539fa@pumpkin>
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	tjeznach@rivosinc.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	baolu.lu@linux.intel.com,
+	vasant.hegde@amd.com,
+	anup@brainfault.org,
+	atish.patra@linux.dev,
+	skhawaja@google.com,
+	jgg@nvidia.com,
+	nutty.liu@hotmail.com
+Cc: guoren@kernel.org,
+	andrew.jones@oss.qualcomm.com,
+	kvm@vger.kernel.org,
+	iommu@lists.linux.dev,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: [PATCH v4 1/2] iommu/riscv: Advertise Svpbmt support to generic page table
+Date: Tue, 12 May 2026 15:41:41 +0800
+Message-Id: <20260512074142.16356-2-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260512074142.16356-1-fangyu.yu@linux.alibaba.com>
+References: <20260512074142.16356-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wD3vz431wJq7ieNAw--.2537S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXr4fGr1DJw4UtF43ZFWUurg_yoWrCw45pF
-	4Skwnxt3ykKw1xursIyF409rs8Xrn5KFW3K3sxtFyrAa4jyr1jqr93t3WrXrWDArWrGryS
-	vFWUK347ur17Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UlFAXUUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: pplqsxxdorqiywtou0bp/xtbC0hgfymoC1zi+bgAA3I
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_003237_221883_E517AA50 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260512_004202_405681_61B9EC38 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,188 +88,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zongmin Zhou <zhouzongmin@kylinos.cn>
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Add a Zbb-powered optimization to the existing strchr() implementation
-using the 'orc.b' instruction, following the same pattern established
-by strnlen().
+The RISC-V IOMMU can optionally support Svpbmt page-based memory types
+in its page table format. When present,the generic page table code can
+use this capability to encode memory attributes (e.g. MMIO vs normal
+memory) in PTEs.
 
-The Zbb variant processes data in word-sized chunks using orc.b to
-detect both NUL terminators and target characters in parallel. On
-systems without Zbb support, the original byte-by-byte implementation
-is used as a fallback via the alternatives mechanism.
-
-Benchmark results (QEMU TCG, rv64):
-  Length | zbb=off (MB/s) | zbb=on (MB/s) | Improvement
-  -------|----------------|---------------|------------
-  1 B    | 27             | 24            | -11.1%
-  7 B    | 148            | 125           | -15.5%
-  16 B   | 218            | 363           | +66.5%
-  64 B   | 384            | 1044          | +171.9%
-  512 B  | 424            | 2081          | +390.8%
-  4096 B | 498            | 2636          | +429.3%
-
-The regression on very short strings (1-7 bytes) is due to the fixed
-overhead of the word-level path: broadcasting the target character to
-all byte lanes via multiplication and checking pointer alignment before
-entering the main loop. For strings shorter than one machine word, this
-setup cost outweighs the benefit of parallel comparison. As string
-length increases beyond 16 bytes, the word-at-a-time processing shows
-significant gains.
-
-Suggested-by: David Laight <david.laight.linux@gmail.com>
-Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
-Changes in v2:
-- Move alignment handling out-of-line (optimize hot path).
-- Hide load latency by reordering REG_L and addi.
-- Simplify loop branching.
+ drivers/iommu/riscv/iommu.c       | 2 ++
+ include/linux/generic_pt/common.h | 4 ++++
+ 2 files changed, 6 insertions(+)
 
- arch/riscv/lib/strchr.S | 119 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 119 insertions(+)
-
-diff --git a/arch/riscv/lib/strchr.S b/arch/riscv/lib/strchr.S
-index 48c3a9da53e3..b7abf8b609b6 100644
---- a/arch/riscv/lib/strchr.S
-+++ b/arch/riscv/lib/strchr.S
-@@ -6,9 +6,15 @@
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index a31f50bbad35..6c324f9fdc53 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1268,6 +1268,8 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+ 	cfg.common.features = BIT(PT_FEAT_SIGN_EXTEND) |
+ 			      BIT(PT_FEAT_FLUSH_RANGE) |
+ 			      BIT(PT_FEAT_RISCV_SVNAPOT_64K);
++	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SVPBMT)
++		cfg.common.features |= BIT(PT_FEAT_RISCV_SVPBMT);
+ 	domain->riscvpt.iommu.nid = dev_to_node(iommu->dev);
+ 	domain->domain.ops = &riscv_iommu_paging_domain_ops;
  
- #include <linux/linkage.h>
- #include <asm/asm.h>
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
- 
- /* char *strchr(const char *s, int c) */
- SYM_FUNC_START(strchr)
-+
-+	__ALTERNATIVE_CFG("nop", "j strchr_zbb", 0, RISCV_ISA_EXT_ZBB,
-+		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-+
- 	/*
- 	 * Parameters
- 	 *   a0 - The string to be searched
-@@ -29,6 +35,119 @@ SYM_FUNC_START(strchr)
- 	li	a0, 0
- 2:
- 	ret
-+
-+/*
-+ * Variant of strchr using the ZBB extension if available
-+ *
-+ * This implementation uses orc.b to detect both NUL terminators and target
-+ * characters in parallel, processing word-sized chunks for efficiency.
-+ */
-+#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
-+strchr_zbb:
-+
-+#ifdef CONFIG_CPU_BIG_ENDIAN
-+# define CZ	clz
-+#else
-+# define CZ	ctz
-+#endif
-+
-+.option push
-+.option arch,+zbb
-+
+diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
+index fc5d0b5edadc..2683e5b38998 100644
+--- a/include/linux/generic_pt/common.h
++++ b/include/linux/generic_pt/common.h
+@@ -188,6 +188,10 @@ enum {
+ 	 * Support the 64k contiguous page size following the Svnapot extension.
+ 	 */
+ 	PT_FEAT_RISCV_SVNAPOT_64K = PT_FEAT_FMT_START,
 +	/*
-+	 * Returns
-+	 *   a0 - Address of first occurrence of 'c' or NULL
-+	 *
-+	 * Parameters
-+	 *   a0 - String to search
-+	 *   a1 - Character to find
-+	 *
-+	 * Clobbers
-+	 *   t0, t1, t2, t3, t4
++	 * Support Svpbmt extension: encode page-based memory type (PBMT) in PTEs.
 +	 */
-+
-+	/*
-+	 * Prepare target character mask.
-+	 * Broadcast target character to all bytes using multiply.
-+	 */
-+	andi	a1, a1, 0xff
-+	li	t1, 0x01010101
-+#if __riscv_xlen == 64
-+	slli	t2, t1, 32
-+	or	t1, t1, t2
-+#endif
-+	mul	t2, a1, t1
-+
-+	/* All-ones mask for orc.b comparisons. */
-+	li	t4, -1
-+
-+	/* Check alignment: jump out-of-line if misaligned. */
-+	andi	t0, a0, SZREG-1
-+	bnez	t0, 10f
-+
-+	/* Entry Path A: Directly aligned. Pre-bias for the loop. */
-+	addi	a0, a0, -SZREG
-+
-+2:
-+	/* Main loop: process word-sized chunks. */
-+	REG_L	t0, SZREG(a0)
-+	addi	a0, a0, SZREG
-+
-+	/* Check for NUL terminator. */
-+	orc.b	t1, t0
-+	bne	t1, t4, 3f
-+
-+	/* Check for target character. */
-+	xor	t1, t0, t2
-+	orc.b	t1, t1
-+	beq	t1, t4, 2b
-+
-+	/* Target found in chunk without NUL. */
-+	not	t1, t1
-+	CZ	t1, t1
-+	srli	t1, t1, 3
-+	add	a0, a0, t1
-+	ret
-+
-+3:
-+	/* NUL found in current chunk. Check if target appears before NUL. */
-+	not	t1, t1
-+
-+	xor	t3, t0, t2
-+	orc.b	t3, t3
-+	not	t3, t3
-+
-+	CZ	t3, t3
-+	CZ	t1, t1
-+
-+	/* If NUL appears before target, character not found. */
-+	bltu	t1, t3, 8f
-+
-+	srli	t3, t3, 3
-+	add	a0, a0, t3
-+	ret
-+
-+8:
-+	/* Character not found, return NULL. */
-+	li	a0, 0
-+9:
-+	ret
-+
-+	/* --- Out-of-line: Handle misaligned portion byte-by-byte --- */
-+10:
-+	lbu	t1, 0(a0)
-+	beq	t1, a1, 9b
-+	beqz	t1, 8b
-+	addi	a0, a0, 1
-+	andi	t0, a0, SZREG-1
-+	bnez	t0, 10b
-+
-+	/* Entry Path B: Misalignment fixed. Pre-bias and enter main loop. */
-+	addi	a0, a0, -SZREG
-+	j	2b
-+
-+.option pop
-+#endif
- SYM_FUNC_END(strchr)
++	PT_FEAT_RISCV_SVPBMT,
  
- SYM_FUNC_ALIAS_WEAK(__pi_strchr, strchr)
+ };
+ 
 -- 
-2.43.0
+2.50.1
 
 
 _______________________________________________
