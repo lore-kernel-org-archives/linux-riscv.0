@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBF6CD4F21
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 11:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0173BCD4851
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 11:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=05SlYQ1X+uqIxGdCWOBgY2AMPEFywFm+rWgZ5IdH+F8=; b=C8KaNb1bcQzan/
-	P09u/wB3icpYY3Iq1hwNkmF6hCn626dcCfLL4qJBSGiipnMjinbclTRb4RMYDRVH56ZM5RegZ0Hc8
-	SXxkdiCI2mzxqBP76LTzjtV5ZFtl7ldqMXGSWYC6cp/TcDKONJlopy+q9jHbINY5l/PkP2Jq13EJI
-	D/DK/lDOnjkMiwl/a3595uCpq2QWi6q9HGklwIwjgD0ColEM+v8rIXr2QZr+NyGJb7wF9nHzG2LwM
-	9fBjeaVjHX2H+XCT30AycbNTqq6AikpbJ+OqECKr1md1aCYbvd6pD8QV92z55RE4uur/ytItyv3z0
-	oWD2Ej111h1VaB78Dfiw==;
+	List-Owner; bh=yA/QXAAK/Jjlphvclj7JYAT+WOygi5TFJZT0JP+PL1E=; b=WlMkwn6JVl+Da1
+	jdkluJLd0OV5Lq5BbLw7MObbktFabvOlKjjsQf73cnij4QF+2a3hrWoLhyL0LE0s4qjAw5hJA2wh5
+	NZ2imC9NMalE8K7fpbdL+KHtlgWQh80mboXHfxc4WmLHONpB2M4H1J9QvMXpwP6EDH/02jzTaPrPq
+	HPuZAQ3KosEgNC1KCzj53PJxino8GsXtYUa0IZNVaqDcEOX2NDA34zpbzXqyEySIxvh2dBmoJW8T6
+	M+5igaBcwpdEmaJL/4csGpUoAfhI9Ra1Ka5hep95zduvwBPYWBWaisH7wS6FJORhhoy3Z34/wEhCX
+	D5KFv6ZLRZY1U7cytXPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMlNx-0000000GZv0-0Ry6;
-	Tue, 12 May 2026 11:34:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMlOf-0000000Ga4I-13k6;
+	Tue, 12 May 2026 11:35:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMlNu-0000000GZuB-1F2A
+	id 1wMlOZ-0000000Ga34-2vkc
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 May 2026 11:34:47 +0000
+	Tue, 12 May 2026 11:35:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 586A0438B4;
-	Tue, 12 May 2026 11:34:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2701C2BCB0;
-	Tue, 12 May 2026 11:34:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C3D74416A;
+	Tue, 12 May 2026 11:35:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D54AC2BCB0;
+	Tue, 12 May 2026 11:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778585685;
-	bh=rEH0LubyCwBzQ9XB43fGcRH9yWcSU7fpspDXa3oAJV4=;
+	s=k20201202; t=1778585727;
+	bh=O+s/qJ2aS0wV7WhC+jnpUOVvpf2JriqhRZ0N9HYUX5w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=huhAFQz0karYLPQmSKNvruvCoi9lXwDr+HDIeX1PLbcemcWgTcyi1FHXNgUOlw35X
-	 QUp0wFLaXU6CWU4hhnxo9409qn8U5rpGBgONtlq9J65ZABGGU3wl/AMsIymEFbmRvp
-	 GS7OWxtVkaE92OV0P+2OxFOExJfH54t39olwbk/p2mfNPWV+q1vK6oO5tOyKs0KS7S
-	 84ualVrNHj0xC8bx1XYfwWKsRhI/Cq14GsYD8KuQyHfMXugh0Q31/V6vZJlK6VvpTZ
-	 IW16r5BvcRS2OBKnMUff/wkL5Qe68X/hMaCAxqMlRmIiHBOx3z/p6/lU6ghGNdXG8s
-	 JPAGhj16JAggQ==
-Date: Tue, 12 May 2026 11:34:41 +0000
+	b=ix+qxIhJdVyCjq8HoFIelgKUJ4U8HtdeEDYQCIxJAEUdWDp7yMTtcVHwJj0AtAG7k
+	 k+X+0G5Aus19rHsGv/ZQpSlQ3iU+X7NIZxsoMVhxgAEgSTwYRk0OLU+Qa1gEdEQNIB
+	 3QqZMzgZJQHewQ9TfBNuljK2yff9Xg7+51wTl5i4YXlJSMkpLinSr9QeLK10ayZdYs
+	 Vzwyyo/FKn7GFO4F4wueiw1hbe/qMAkvEnmYMTlJTuquTa8lQlJQbdhGrdoytQ6fCe
+	 gJkZAOsB51OcouNOzu8gDSRsPcxCsAJweyfP0PIewlsikQe3BXj1/yLlcQgPshPaJo
+	 0VcLyYvPrp8dA==
+Date: Tue, 12 May 2026 11:35:22 +0000
 From: Yixun Lan <dlan@kernel.org>
 To: Andre Heider <a.heider@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] riscv: dts: spacemit: k1-musepi-pro: enable PCIe
- ports
-Message-ID: <20260512113441-GKF3624147@kernel.org>
+	Yixun Lan <dlan@gentoo.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 6/6] riscv: dts: spacemit: k1-musepi-pro: set default
+ console baud rate
+Message-ID: <20260512113522-GKG3624147@kernel.org>
 References: <20260511111116.1109643-1-a.heider@gmail.com>
- <20260511111116.1109643-6-a.heider@gmail.com>
+ <20260511111116.1109643-7-a.heider@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260511111116.1109643-6-a.heider@gmail.com>
+In-Reply-To: <20260511111116.1109643-7-a.heider@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_043446_355539_34F1FBDC 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260512_043527_758758_A2D44375 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,89 +79,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
 
 On 13:11 Mon 11 May     , Andre Heider wrote:
-> Enable the two PCIe controller along with and their associated PHYs. They
-> are routed to the M.2 M-key connector and to the PCIe slot.
+> Allow serial output with the same uboot/opensbi settings so the
+> console works without providing a cmdline.
 > 
 > Signed-off-by: Andre Heider <a.heider@gmail.com>
+
+Reviewed-by: Yixun Lan <dlan@kernel.org>
+
 > ---
->  .../riscv/boot/dts/spacemit/k1-musepi-pro.dts | 50 +++++++++++++++++++
->  1 file changed, 50 insertions(+)
+>  arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> index 9c90c2817ecb7..2d3e30f0bd806 100644
+> index 2d3e30f0bd806..c8bf776511c94 100644
 > --- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
 > +++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> @@ -36,6 +36,24 @@ led1 {
->  		};
+> @@ -22,7 +22,7 @@ aliases {
 >  	};
 >  
-> +	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "PCIE_VCC3V3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_usb_vbus>;
-> +	};
-> +
-> +	mpcie_vcc_3v3: regulator-mpcie-vcc3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "MPCIE_VCC3V3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_usb_vbus>;
-> +	};
-> +
->  	reg_usb_vbus: regulator-usb-vbus {
->  		compatible = "regulator-fixed";
->  		regulator-name = "USBVBUS";
-> @@ -275,6 +293,38 @@ dldo7 {
+>  	chosen {
+> -		stdout-path = "serial0";
+> +		stdout-path = "serial0:115200n8";
 >  	};
->  };
 >  
-> +&pcie1_phy {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie1_3_cfg>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie1_port {
-> +	phys = <&pcie1_phy>;
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-> +};
-> +
-> +&pcie1 {
-..
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-drop vpcie3v3-supply which not needed
-
-> +	status = "okay";
-> +};
-> +
-> +&pcie2_phy {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie2_4_cfg>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie2_port {
-> +	phys = <&pcie2_phy>;
-> +	vpcie3v3-supply = <&mpcie_vcc_3v3>;
-> +};
-> +
-> +&pcie2 {
-> +	vpcie3v3-supply = <&mpcie_vcc_3v3>;
-same here
-> +	status = "okay";
-> +};
-> +
->  &qspi {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&qspi_cfg>;
+>  	leds {
 > -- 
 > 2.53.0
 > 
