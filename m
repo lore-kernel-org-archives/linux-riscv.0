@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A78CD4851
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 13:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01F7CD4851
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 13:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a6OJcx+kdNnQAOOZg7uaHh/OOf+kTr4Q2HB0bNuzyR4=; b=myV5++Rvr0JUx6
-	1unbIkL/2FAzdXkRYJts8aWuylMgANyDhhXOc4kD+qvlvPVa7NcKoyJdFBaWikO5A80N5t98rVj/l
-	KP8FKkIIi/M1ybEiH4OqW9lsgn1OtUr/3U7SAA3OiNTmt1WcFqm13zhI4/31VpnCS2MICtAlsDyjE
-	JwEI7A+YVpMWDOletC/+LXm4jv9y13KkIxct+u8iNDVgP5JHvYDFYp6RGlT07Blf2YqER8Nm+adf0
-	7+fcO2ySytXOhQK51TNR9UCbGBy5pGU9nN+cfzmA3eqNM9jIKCdXRF3slcfGbd6Lu7pHP04cbKTPN
-	qO/dqmLbpnkDR5Nyjxxg==;
+	List-Owner; bh=z2zh5UhcOJw3FlG4pFrpHcDkyppGDH1J5nSdCx0U4Qk=; b=3UvvHpaEv3isC9
+	vBWm/gZO9Ri27mbDB4qJJLzBnX0H3NNM2BsamSDShn7yrR6TmXiLUdJmRjEITgmxh7gbf3Ef/3SUU
+	zYJgTvPN4F2thx1odd10//NwQU0V//vM0GplmeTWoJLkg9e/T2KKawLNKekPbwy+bzcxMn4GPhuQP
+	DUFYynyp4Vbyjm9/asETFhTtMBu73x2LdJYfAhB1AGZNRzxNaNOzNOYWpbmVgOV/bRpthC5qcAONN
+	EqrXFyKdcoQLcVPISw8oBHx5P2eJNzo0rQNSKkoV10wAoC1DOSPflbz97BDEU4r6ADSgRK7JDtKIq
+	u33LPZUytnzX034UGcpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNA0O-00000002osh-0Z4B;
-	Wed, 13 May 2026 13:52:08 +0000
-Received: from forward100b.mail.yandex.net ([2a02:6b8:c02:900:1:45:d181:d100])
+	id 1wNA0Q-00000002otg-1Pdv;
+	Wed, 13 May 2026 13:52:10 +0000
+Received: from forward100b.mail.yandex.net ([178.154.239.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNA0K-00000002opj-3Lzl
+	id 1wNA0K-00000002opk-3SMy
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 13:52:07 +0000
+	Wed, 13 May 2026 13:52:08 +0000
 Received: from mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net [IPv6:2a02:6b8:c23:1ba8:0:640:1638:0])
-	by forward100b.mail.yandex.net (Yandex) with ESMTPS id 97AEF8071F;
-	Wed, 13 May 2026 16:51:58 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net (smtp) with ESMTPSA id ppLkjiGSViE0-UaUZKwYN;
-	Wed, 13 May 2026 16:51:57 +0300
+	by forward100b.mail.yandex.net (Yandex) with ESMTPS id 8906280668;
+	Wed, 13 May 2026 16:51:59 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net (smtp) with ESMTPSA id ppLkjiGSViE0-7XsiPCaJ;
+	Wed, 13 May 2026 16:51:59 +0300
 X-Yandex-Fwd: 1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1778680317; bh=9g1rCpxz2tcUvBZ4ViA0PV+aISe/bmNJIWEfyzUAKpg=;
+	t=1778680319; bh=5sQTk16iTwRjsA7opO3KVlv5gR/NRWgPvIqwzzepJnA=;
 	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=HNl92y4iCIk5uTq/gyjOXzlFTx272GRBvGuYPFuAXz2CXrTz5sefbtg6cmTC+tI7r
-	 qqiMBkLAaYVozpm36QBABjFDQThHAghqNAvkh/mRjIKBnoqGAUXiH5WQ22yIZJMK9F
-	 Nr9YqhyUHNnntTi2YSFYI1vvqnL8sHM3F+xTruLE=
+	b=m05l/xTt5S4lWJtuaPMgD8mV06O8VP5syHvATRUeHBfzti4RGN+7rq8ibNiA620TS
+	 EeJfn3b6BLJJJaOKC/+ncVRs4CTlP1B9yiW6ffdmhmwbhGFFajYI7l7CZeSsqSc75D
+	 6XBq8HX/EB0tCRp+MoNZJGgM+HSuHfmlBeso7NlY=
 Authentication-Results: mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
 From: Dmitry Antipov <dmantipov@yandex.ru>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -52,17 +52,16 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	linux-riscv@lists.infradead.org,
 	linux-efi@vger.kernel.org,
 	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH v10 3/8] lib: add more string to 64-bit integer conversion overflow tests
-Date: Wed, 13 May 2026 16:44:02 +0300
-Message-ID: <20260513134407.884033-4-dmantipov@yandex.ru>
+Subject: [PATCH v10 4/8] lib/cmdline_kunit: add test case for memparse()
+Date: Wed, 13 May 2026 16:44:03 +0300
+Message-ID: <20260513134407.884033-5-dmantipov@yandex.ru>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260513134407.884033-1-dmantipov@yandex.ru>
 References: <20260513134407.884033-1-dmantipov@yandex.ru>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_065205_154884_EFA9CDA7 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_065205_154245_AA7BFB9A 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,62 +78,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a few more string to 64-bit integer conversion tests to
-check whether 'kstrtoull()', 'kstrtoll()', 'kstrtou64()' and
-'kstrtos64()' can handle overflows reported by
-'_parse_integer_limit()'.
+Better late than never, now there is a long-awaited basic
+test for 'memparse()' which is provided by cmdline.c.
 
 Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
 ---
-v5 and upwards: bump version to match the series
-v4: initial version to join the series
+v7 and upwards: bump version to match the series
+v6: tests to check whether valid-suffix-only string is handled as unrecognized
+v5: even more tests to trigger overflow with size suffix
+v4: move actual overflow tests to test-kstrtox.c
+v3: adjust style as suggested by Andy
+v2: few more test cases to trigger overflows
 ---
- lib/test-kstrtox.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ lib/tests/cmdline_kunit.c | 56 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/lib/test-kstrtox.c b/lib/test-kstrtox.c
-index ee87fef66cb5..811128d0df16 100644
---- a/lib/test-kstrtox.c
-+++ b/lib/test-kstrtox.c
-@@ -198,6 +198,7 @@ static void __init test_kstrtoull_fail(void)
- 		{"10000000000000000000000000000000000000000000000000000000000000000",	2},
- 		{"2000000000000000000000",	8},
- 		{"18446744073709551616",	10},
-+		{"569202370375329612767",	10},
- 		{"10000000000000000",	16},
- 		/* negative */
- 		{"-0", 0},
-@@ -275,9 +276,11 @@ static void __init test_kstrtoll_fail(void)
- 		{"9223372036854775809",	10},
- 		{"18446744073709551614",	10},
- 		{"18446744073709551615",	10},
-+		{"569202370375329612767",	10},
- 		{"-9223372036854775809",	10},
- 		{"-18446744073709551614",	10},
- 		{"-18446744073709551615",	10},
-+		{"-569202370375329612767",	10},
- 		/* sign is first character if any */
- 		{"-+1", 0},
- 		{"-+1", 8},
-@@ -334,6 +337,7 @@ static void __init test_kstrtou64_fail(void)
- 		{"-1",	10},
- 		{"18446744073709551616",	10},
- 		{"18446744073709551617",	10},
-+		{"569202370375329612767",	10},
- 	};
- 	TEST_FAIL(kstrtou64, u64, "%llu", test_u64_fail);
+diff --git a/lib/tests/cmdline_kunit.c b/lib/tests/cmdline_kunit.c
+index c1602f797637..18b19c85baef 100644
+--- a/lib/tests/cmdline_kunit.c
++++ b/lib/tests/cmdline_kunit.c
+@@ -6,6 +6,7 @@
+ #include <kunit/test.h>
+ #include <linux/kernel.h>
+ #include <linux/random.h>
++#include <linux/sizes.h>
+ #include <linux/string.h>
+ 
+ static const char *cmdline_test_strings[] = {
+@@ -139,11 +140,66 @@ static void cmdline_test_range(struct kunit *test)
+ 	} while (++i < ARRAY_SIZE(cmdline_test_range_strings));
  }
-@@ -386,6 +390,8 @@ static void __init test_kstrtos64_fail(void)
- 		{"18446744073709551615",	10},
- 		{"18446744073709551616",	10},
- 		{"18446744073709551617",	10},
-+		{"569202370375329612767",	10},
-+		{"-569202370375329612767",	10},
- 	};
- 	TEST_FAIL(kstrtos64, s64, "%lld", test_s64_fail);
- }
+ 
++struct cmdline_test_memparse_entry {
++	const char *input;
++	const char *unrecognized;
++	unsigned long long result;
++};
++
++static const struct cmdline_test_memparse_entry testdata[] = {
++	{ "0",				"",	0ULL },
++	{ "1",				"",	1ULL },
++	{ "a",				"a",	0ULL },
++	{ "k",				"k",	0ULL },
++	{ "E",				"E",	0ULL },
++	{ "0xb",			"",	11ULL },
++	{ "0xz",			"x",	0ULL },
++	{ "1234",			"",	1234ULL },
++	{ "04567",			"",	2423ULL },
++	{ "0x9876",			"",	39030LL },
++	{ "05678",			"8",	375ULL },
++	{ "0xabcdefz",			"z",	11259375ULL },
++	{ "0cdba",			"c",	0ULL },
++	{ "4K",				"",	SZ_4K },
++	{ "0x10k@0xaaaabbbb",		"@",	SZ_16K },
++	{ "32M",			"",	SZ_32M },
++	{ "067m:foo",			":",	55 * SZ_1M },
++	{ "2G;bar=baz",			";",	SZ_2G },
++	{ "07gz",			"z",	7ULL * SZ_1G },
++	{ "3T+data",			"+",	3 * SZ_1T },
++	{ "04t,ro",			",",	SZ_4T },
++	{ "012p",			"",	11258999068426240ULL },
++	{ "7P,sync",			",",	7881299347898368ULL },
++	{ "0x2e",			"",	46ULL },
++	{ "2E and more",		" ",	2305843009213693952ULL },
++	{ "18446744073709551615",	"",	ULLONG_MAX },
++	{ "0xffffffffffffffff0",	"",	ULLONG_MAX },
++	{ "1111111111111111111T",	"",	ULLONG_MAX },
++	{ "222222222222222222222G",	"",	ULLONG_MAX },
++	{ "3333333333333333333333M",	"",	ULLONG_MAX },
++};
++
++static void cmdline_test_memparse(struct kunit *test)
++{
++	const struct cmdline_test_memparse_entry *e;
++	unsigned long long ret;
++	char *retptr;
++
++	for (e = testdata; e < testdata + ARRAY_SIZE(testdata); e++) {
++		ret = memparse(e->input, &retptr);
++		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
++				    "    when parsing '%s'", e->input);
++		KUNIT_EXPECT_EQ_MSG(test, *retptr, *e->unrecognized,
++				    "    when parsing '%s'", e->input);
++	}
++}
++
+ static struct kunit_case cmdline_test_cases[] = {
+ 	KUNIT_CASE(cmdline_test_noint),
+ 	KUNIT_CASE(cmdline_test_lead_int),
+ 	KUNIT_CASE(cmdline_test_tail_int),
+ 	KUNIT_CASE(cmdline_test_range),
++	KUNIT_CASE(cmdline_test_memparse),
+ 	{}
+ };
+ 
 -- 
 2.54.0
 
