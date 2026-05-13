@@ -4,64 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04541CD4851
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 13:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350F8CD4851
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 14:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ko+Z+N0xl3FOTD9HAKjWf8/93tX+Ip/nfBu58KrpU28=; b=q9Kc61mMcLj+Ws
-	lWreq0kCKHH1Z3LJw22mmv707JZD2hNANV9o0kISup73QlkNze1hUZGQUJYrXpA+rvNFF6dwWILg8
-	xKri1BmnGipmL66RWiXHaFnddyVv9BvRuRXetyVTum+lBDbnCCipAIKPbzz+5zQDqEfQlJQyY1BGE
-	uSbsacttuGWlWsaUlBRiI0fGtNZ8KnV0WtIe+6uAPjUMRW/8FRGVlNVPw1FakTLLPU2NZ1Qdc+Aez
-	F2r2wrBQAYAFdSNRN0fAsh+94hvNj2+7EMoQGhXAmOXsIOVSH9/ox1pbRdn6muhWNaxORNJVQ5yr1
-	tPrAHLdIHT+qycqKqS9w==;
+	List-Owner; bh=x7kjd6SgFrNy+HoB/bgDG0M1Vwj7sxMH4lLKEMk7YLQ=; b=BYz3BRzrrgwANM
+	da6wH/mFs3ECpe1vkvlr31VvNkt+ntid/4dlL32g1X27s/WEx9K58TFYDyIO7K/wB8jDMl7R0HmFj
+	ABUz5xDiEk5ftx3VRxoHayXj8Ly/hL1uEcDXo90WwOOpUXjkJEJjjLTiseAgp4FjRrREkKtwTI53o
+	JJ4Dh+mxr7H6Y/xNGRJcLTMJfiTJ6xQcxhZQRVN/4cympX0DfBlU/rQq5oyUt8Rir5QVevoA5Y6gk
+	OgDtma79J0mpBp3bC6Fpq7hGFhSrb36o1JltJi5YZsYqUWNrbtpxexVGap11mgmA/oNrplA/jH4+B
+	vb8QL6Bp/quEXL1y5oGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNA0Q-00000002oto-20ln;
-	Wed, 13 May 2026 13:52:10 +0000
-Received: from forward102b.mail.yandex.net ([178.154.239.149])
+	id 1wNAkY-00000002xIm-0NOv;
+	Wed, 13 May 2026 14:39:50 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNA0K-00000002opf-2uTR
+	id 1wNAkV-00000002xHs-1Usr
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 13:52:08 +0000
-Received: from mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net [IPv6:2a02:6b8:c23:1ba8:0:640:1638:0])
-	by forward102b.mail.yandex.net (Yandex) with ESMTPS id 04BDDC0121;
-	Wed, 13 May 2026 16:51:56 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net (smtp) with ESMTPSA id ppLkjiGSViE0-2mqjxlxE;
-	Wed, 13 May 2026 16:51:55 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1778680315; bh=TBxNdS4HSxmdP1AXz5UGyX20Ie/mR2EERiHh7P+Kz6A=;
-	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=sfEceLETzv9FrWpzv6xaEpmFWz50RPvI1bs8kPtJrunRk8RKm4vcg/FOLq/LPGH04
-	 +rYjDV4vd9nppAZRxMf9Y0tk2x+byM1OSSyBS29nSrE7FSUZHBS60/YV2j8FpARoRe
-	 QXmzwEZiyvoJbM2tBbEXNUBIurieFd5gcTp5Ubd8=
-Authentication-Results: mail-nwsmtp-smtp-production-main-98.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
-From: Dmitry Antipov <dmantipov@yandex.ru>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH v10 1/8] lib: fix _parse_integer_limit() to handle overflow
-Date: Wed, 13 May 2026 16:44:00 +0300
-Message-ID: <20260513134407.884033-2-dmantipov@yandex.ru>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260513134407.884033-1-dmantipov@yandex.ru>
-References: <20260513134407.884033-1-dmantipov@yandex.ru>
+	Wed, 13 May 2026 14:39:48 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-bce57c132b2so573989766b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 07:39:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778683185; cv=none;
+        d=google.com; s=arc-20240605;
+        b=N309iq/qNT4bQmIzFKr6hIZJ3xtI2wtUzIWBYtnxHwYRGiMmS6w1Ebiy6BIM3m3gy0
+         XS0rT6YpZS81o+DvNGgi6WsLMBV0nPTSYcpIjiDUQXre5qPooBTSU/6U5G7+zgtuzSUc
+         FdNM9ipcZRa+02L6u/8gkYiA7mDOufrm8dLUg1zCuntg90JH7NmorV4ZMMmgFMgpHt57
+         RpURa9baboQByeJaCwkZYHm/fP6+/LouXtKnkgSo37uYan5+oTCSslOHMEWP2ryXyxx0
+         90qpL8KAi4KEPOeSbUdmMCNP/TCU4i/vIS3QiWKXL6VElIMinBhAAcePFd9tkzefDRgq
+         FEfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=OaBPAaai2do6tTEr5ZFJIJdibTEdzt3Q2IEnGfklUBk=;
+        fh=aIeKituxQk8yITLqRxhBB1cAHI4zAoPvAXoNxYwPLxI=;
+        b=KCokejyIlIBrRKtozofCDcXZEjReW4a3hY+sTbjlQPTRAlOEX3TU+CWI/DohuwWoKU
+         5tg58if0RnLk5TxsrpzOXvaBWqPQ5qa3xXS2n8hDYXnq8m2jpRggrMAd6+u/vdHkRMSJ
+         KCDPqb0JpX5Uwjwp6oIGJrxpG/HCbvX/CCDDXovGjnSbAZu1LCST6/qYDqVjOipCIYts
+         +YBNk5LDW81mTBvVdQCe6OPuWDd27WH2bRoYb5a4+QOki9CcMVEPKtg0w2ipssN7JfJR
+         twkPrYqsy2SoW7C5wPNPXDmFORzUltt1M7P8bj00jZFfaAb5SlNT43D5STuqMt1sSoD5
+         kgYg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778683185; x=1779287985; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=OaBPAaai2do6tTEr5ZFJIJdibTEdzt3Q2IEnGfklUBk=;
+        b=fKT2ntv2llTJ5gtcD28MJa42auPcPrYmbqNfJ2CP2qikflYB/vAUbpAJ2KvSA9511E
+         SRjfkEQVdxIQAVmMIfiLAQ9m3THltsGv5N4+PrvYsuOHPDXt1gGPkYg/lx982Oge7qMm
+         KQZZj5dZyRL6jvEEc/aAAIpkB4v5HOfUog+x6CHG8k5nu2c2W3PsnS1ThNialAwjrrCM
+         cF3roh7QyRDU/+QLOhOzlOquXBzKzFOIUH8OWxqbVmhmhG7RoKhkUelYNBu0VbSgECJp
+         1NnOFjo+zY8p+vPqvsFzBz7K2zDGZJ67qfPXm93tJSkEeeEgEiqSA/7TMHselCO+YdFq
+         FjhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778683185; x=1779287985;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OaBPAaai2do6tTEr5ZFJIJdibTEdzt3Q2IEnGfklUBk=;
+        b=VkfjZ3iVUL4/NIQI22SffSaSrd/C/em2Wafz4pvCzLtLgS2YVu4h4EEWQn7d3G1Bdo
+         PJ7gPWZN8SOuZpNxBEqXY+y+6VBp+ay+Tfz3sSql1Gkl2DlN2atAokmtXEvufaiIiG5a
+         R65mnGKTBbw74OY2wxZ2ipeOnAJHV7QhGWeEf83kjGrdCIuu1um7ncgiew/c19arh88S
+         uzwqZFDyckPDGiAcxQZrgfLSQ/pe6V4q55h2Fjybu/IsxjmVjvwk1rcfnFHDs/mcZ8Za
+         qIGrVxdEhMxeg8+deV43ZwgdLUKOvOIgSOyQNd0Zrzb3Is91gXsXCYgZ235IcDp4rKAp
+         MPuw==
+X-Forwarded-Encrypted: i=1; AFNElJ+oxcDpGE8ec/inGxS2KLW/d4omhmS+fQB2sT7/X5DC9FFc9be4Mgjjucs8oAaijMTTy4ub9VsPNRzZPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE+jDojnZvbWHs4TwRIowSMiQlnypR9C4QupNsHTNObBgaYure
+	av4nmCSED9UALUVOTJH3K9g4NRBUS6H5EWullP59/ieBPKBvvvoGTabCl/kfcA013xG9etpv2Sy
+	jICOQI9ueIhEOd1L1Q+d4J2WNk+GbtWc=
+X-Gm-Gg: Acq92OHwUsicnNmyDpsNLQlTZz1k7us/azt4QFKqahk3jNwsjFSBHnznUjqiZuj4WSh
+	MXs7NTrJBiAmtho3wPB7IoWSSci3LBqpz+d+n8j3PP8PGB0n01zPSmuL3bmtAX939uOIrhBMt+T
+	kylwOeQygmHrwHZY4qLVNr6EKFRdLgniX0S4ESccSNicUFNiaZjmYhQA2uITo5mMwmWcVPV7qxK
+	ZhWzLp2pngEJAeD82xWRNjYjZbQihHEx+Ezegk+GcUVukRRLe2fsxn/R4/QJ1/sgI6x2x7mrWpV
+	Qg2sVA==
+X-Received: by 2002:a17:907:3d43:b0:bcb:b15f:14a1 with SMTP id
+ a640c23a62f3a-bd23aa1844fmr479690166b.7.1778683185065; Wed, 13 May 2026
+ 07:39:45 -0700 (PDT)
 MIME-Version: 1.0
+References: <CANAwSgREs-Ai5RxuiD4Ue-8OGGdrhnLSBmSePBrjN3x9=59zrA@mail.gmail.com>
+ <20260513105030.1074335-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260513105030.1074335-1-amadeus@jmu.edu.cn>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Wed, 13 May 2026 20:09:29 +0530
+X-Gm-Features: AVHnY4LObZPjOHYcJad_9LeD-36GYglsaC0zIs_XJX_NY4Ny0UPRl2ZDzVqaAoE
+Message-ID: <CANAwSgQ5-ATFGESe+=sEuGfEHwqDxg6b_QL=WJSV0gONFLmiZA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] riscv: dts: spacemit: k1-bananapi-f3: Add
+ vin-supply for PCIe 3.3V regulator
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org, 
+	devicetree@vger.kernel.org, dlan@kernel.org, gaohan@iscas.ac.cn, 
+	huang.ze@linux.dev, krzk+dt@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org, 
+	robh@kernel.org, spacemit@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_065205_149969_4ABD78A0 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260513_073947_413216_5016D6F1 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +120,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In '_parse_integer_limit()', adjust native integer arithmetic
-with near-to-overflow branch where 'check_mul_overflow()' and
-'check_add_overflow()' are used to check whether an intermediate
-result goes out of range, and denote such a case with ULLONG_MAX,
-thus making the function more similar to standard C library's
-'strtoull()'. Adjust comment to kernel-doc style as well.
+Hi Chukun
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
----
-v9 and upwards: bump version to match the series
-v8: do not use explicit temporary in check_xxx_overflow()
-    calls and handle overflow flag using separate variable
-v7: drop redundant check against ULLONG_MAX and restore
-    original comment
-v6: more compact for-loop and minor style adjustments again
-v5: minor brace style adjustment
-v4: restore plain integer arithmetic and use check_xxx_overflow()
-    on near-to-overflow branch only
-v3: adjust commit message and comments as suggested by Andy
-v2: initial version to join the series
----
- lib/kstrtox.c | 37 ++++++++++++++++++++++---------------
- 1 file changed, 22 insertions(+), 15 deletions(-)
+On Wed, 13 May 2026 at 16:20, Chukun Pan <amadeus@jmu.edu.cn> wrote:
+>
+> Hi,
+>
+> > @@ -39,6 +39,7 @@ pcie_vcc_3v3: regulator-pcie-vcc3v3 {
+> >               regulator-min-microvolt = <3300000>;
+> >               regulator-max-microvolt = <3300000>;
+> >               regulator-always-on;
+> > +             vin-supply = <&reg_vcc5v0_sys>;
+> >       };
+>
+> > Plese check power tree page 4
+> >
+> > USBVBUS->SY8386J UXXX -> PCIE_VCC3V3 for pcie vin source
+> >
+> > USBVBUS is power source from the typec port.
+>
+> So this isn't from VCC5V0_SYS. USBVBUS and DC_IN can be
+> considered as the same power source.
 
-diff --git a/lib/kstrtox.c b/lib/kstrtox.c
-index 97be2a39f537..edc4eb7c1bca 100644
---- a/lib/kstrtox.c
-+++ b/lib/kstrtox.c
-@@ -39,25 +39,30 @@ const char *_parse_integer_fixup_radix(const char *s, unsigned int *base)
- 	return s;
- }
- 
--/*
-- * Convert non-negative integer string representation in explicitly given radix
-- * to an integer. A maximum of max_chars characters will be converted.
-+/**
-+ * _parse_integer_limit - Convert integer string representation to an integer
-+ * @s: Integer string representation
-+ * @base: Radix
-+ * @p: Where to store result
-+ * @max_chars: Maximum amount of characters to convert
-+ *
-+ * Convert non-negative integer string representation in explicitly given
-+ * radix to an integer. If overflow occurs, value at @p is set to ULLONG_MAX.
-  *
-- * Return number of characters consumed maybe or-ed with overflow bit.
-- * If overflow occurs, result integer (incorrect) is still returned.
-+ * This function is the workhorse of other string conversion functions and it
-+ * is discouraged to use it explicitly. Consider kstrto*() family instead.
-  *
-- * Don't you dare use this function.
-+ * Return: Number of characters consumed, maybe ORed with overflow bit
-  */
- noinline
- unsigned int _parse_integer_limit(const char *s, unsigned int base, unsigned long long *p,
- 				  size_t max_chars)
- {
-+	unsigned int rv, overflow = 0;
- 	unsigned long long res;
--	unsigned int rv;
- 
- 	res = 0;
--	rv = 0;
--	while (max_chars--) {
-+	for (rv = 0; rv < max_chars; rv++, s++) {
- 		unsigned int c = *s;
- 		unsigned int lc = _tolower(c);
- 		unsigned int val;
-@@ -76,15 +81,17 @@ unsigned int _parse_integer_limit(const char *s, unsigned int base, unsigned lon
- 		 * it in the max base we support (16)
- 		 */
- 		if (unlikely(res & (~0ull << 60))) {
--			if (res > div_u64(ULLONG_MAX - val, base))
--				rv |= KSTRTOX_OVERFLOW;
-+			if (check_mul_overflow(res, base, &res) ||
-+			    check_add_overflow(res, val, &res)) {
-+				res = ULLONG_MAX;
-+				overflow = KSTRTOX_OVERFLOW;
-+			}
-+		} else {
-+			res = res * base + val;
- 		}
--		res = res * base + val;
--		rv++;
--		s++;
- 	}
- 	*p = res;
--	return rv;
-+	return rv | overflow;
- }
- 
- noinline
--- 
-2.54.0
+I am not the hardware person. USBVBUS supplies 12V, and VCC5V0_SYS supplies 5V
+As I understand it, SY8386J UXXX serves as a step-down DC/DC regulator
+for your PCI device.
 
+[1] https://datasheet4u.com/download_new.php?id=1604744
+
+USBVBUS is the input for the PCIe source, so this should be vin-supply
+= <&rreg_dc_in>;
+It is as per the schematic
+
+Thanks
+-Anand
 
 _______________________________________________
 linux-riscv mailing list
