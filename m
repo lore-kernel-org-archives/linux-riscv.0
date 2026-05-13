@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C2FCD37B6
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 10:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DF2CD4F39
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 10:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5E5qClT96EYUKF16PNP4myA/qlgift/xnbAp8Rm8MGk=; b=D2jxb8ANl3wjXC
-	t7KTi5/E/qeMMm74Uz3E5EMM+aFif7HUIvzAkx57Y1XAlsxFud3bG0IezTQnGoF+CTetX/ci6+a6S
-	TcT/0atxSsmFaNMFqFZ9kXdJTaPtLSF5LCHhxpQqUY9za3n1t18PTmEfjhOr4NQKoTb7r9JZ8fexj
-	doWUtCzy0Lhg2q8sRkyFCsnQkglAlt4OQ5CKAEImhcMdllh8KCxIj+hUo5vG1oauv8inNyQspAGYa
-	v38C2MPsK+WsN/2m3iy0TwNTfDKnilVsXdozT3kwc6UXG3Dp4Z6jpo3nt1MyPaFRjU8y58CbOh3xs
-	8/MNiuFffwEF0XETA+xw==;
+	List-Owner; bh=RmyYtRt+Ll+8QE/VTaHMhCzdnNyYkZyC6+eHB017JNs=; b=zcbHa2nNRBY1IX
+	vMNMKtL4kEpCfvz5RTfgK6KikWmxCrcFGFad3p6f/c6pPd+t73ZgW9gs66VUEDbiXDlDaJDHwyjA4
+	3lMA4qB5EKLHDpCKHoeKeSLjkncVfSLUKqtFIOW7OMyZV+MSvZsZHX33NjdcQCqLCIPZK1RZgcY9R
+	Qla6laKJmM2QGUYhxxD4PWGTyLZ5MpkG9XzBouRis+Zovq/CG3Li69P6XwSzx8xlP5h+Lb24KMIyL
+	JqQ6bdHa2b0V3fOcVfbvaztXmvMNVjZ8PzC2MR4vkOBKHFUlMyHhFjO6hguo3vi7Wzc2QVYTg1CR+
+	f4qbsRLZFkzxYgEKxzsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6vo-00000002Cgn-1diR;
-	Wed, 13 May 2026 10:35:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wN6vx-00000002Cjz-0YkF;
+	Wed, 13 May 2026 10:35:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6vn-00000002CgX-0vfO
+	id 1wN6vu-00000002Cio-3cw2
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 10:35:11 +0000
+	Wed, 13 May 2026 10:35:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B7E860121;
-	Wed, 13 May 2026 10:35:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE963C2BCB7;
-	Wed, 13 May 2026 10:35:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D88643F2A;
+	Wed, 13 May 2026 10:35:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E15BFC2BCB7;
+	Wed, 13 May 2026 10:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1778668510;
-	bh=sF+Pm4mfrfXND7lL5Z6QpI4cx9tugUfK4jX6T+Nq230=;
+	s=korg; t=1778668518;
+	bh=8S+r3vi1jr7i6VhYB4ksbZTc+cZK5iU9FX8rEbFmZyA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IqlU/05d+cufJULX5BEPfPMM2CUDbVBGecI6BkX5uxwnB/5dFoLkL8RB9bL2pwg8L
-	 Iv4jruKLTFHbBo14xJEhqiJYfaTkKbr9plMyXCXXSHWwhAVc8Wbn1VKTB0DUJdzYTn
-	 Bhetk4n7LD7/RuV5UNqZdwlGVA7xHyIska8Ov8AA=
-Date: Wed, 13 May 2026 10:59:09 +0200
+	b=eVvk8vYzhESNW7SI3UycernAMZQJh4mtp/eJZC26stwL+421inzivWuTQHXnzQrpk
+	 eN2lQWrbyfOCdXIMmJIX6aeY5LYmJQ8B4JuB2qzz+ycqDQXT+lrGumNW0qfk7qutQa
+	 b4GWRvbnBk+Wfuu/NinjCaFfXc2GnMNMBaTkE4e0=
+Date: Wed, 13 May 2026 12:01:11 +0200
 From: Greg KH <gregkh@linuxfoundation.org>
 To: liu.qingtao2@zte.com.cn
 Cc: krzk@kernel.org, jirislaby@kernel.org, robh@kernel.org,
@@ -57,12 +57,16 @@ Cc: krzk@kernel.org, jirislaby@kernel.org, robh@kernel.org,
 	jia.yunxiang@zte.com.cn, he.yilin@zte.com.cn, bai.lu5@zte.com.cn,
 	yang.susheng@zte.com.cn, shen.lin1@zte.com.cn, zuo.jiang@zte.com.cn,
 	hu.shengming@zte.com.cn, gao.rui@zte.com.cn, tan.hu@zte.com.cn
-Subject: Re: [PATCH v2 1/2] Add ZTE LRX UART driver
-Message-ID: <2026051332-footsie-ogle-4eba@gregkh>
-References: <202605130851.64D8prqc083672@mse-fl1.zte.com.cn>
+Subject: Re: [PATCH v2 0/2] Add ZTE LRX UART driver
+Message-ID: <2026051341-cattle-multiple-3845@gregkh>
+References: <202605130852.64D8qMgL084414@mse-fl1.zte.com.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202605130851.64D8prqc083672@mse-fl1.zte.com.cn>
+In-Reply-To: <202605130852.64D8qMgL084414@mse-fl1.zte.com.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_033518_928827_D2EFE96A 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,14 +83,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 04:46:51PM +0800, liu.qingtao2@zte.com.cn wrote:
-> >From 08610be731b6fc3919d5eebfd2ff9d67f38a094c Mon Sep 17 00:00:00 2001
-> From: Wenhong Liu <liu.wenhong35@zte.com.cn>
-> Date: Tue, 28 Apr 2026 22:30:31 +0800
-> Subject: [PATCH v2 1/2] dt-bindings: serial: Add zte,lrx-uart
+On Wed, May 13, 2026 at 04:46:42PM +0800, liu.qingtao2@zte.com.cn wrote:
+> >From 9eba3be2e9b4d5c77956258e3c5db95049c3a895 Mon Sep 17 00:00:00 2001
+> From: Wenhong Liu
+> Date: Mon, 12 May 2026 10:15:55 +0800
+> Subject: [PATCH v2 0/2] Add ZTE LRX UART driver
 
-Um, something went wrong with your email client, this should not be in
-the body of the email :(
+Again, why is this here?
+
+Just use 'git send-email' to send patches out please.  Your patches here
+are not threaded together at all and our tooling can not pick them up
+:(
 
 thanks,
 
