@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B1ECD37AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 20:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5783CD4F25
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 20:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iUtmIMlF91gHCvbpSng9iZelYFitJSwWf/YDruJ3RgQ=; b=udbGp4/xMq55eo
-	I58kOzQbf8MUUDyPgb8U9GXSVIvshpHX8hBUQkBj6WZizgKIl3cHIaunQ12IVUi0bjOcUIuXsqiCs
-	2KCGgvb9GWVQOHxLawHcvfOKWIdChynOIkZvR197VQw4T/Un23C3QBAHrepsMnTD4ZMRwfRH1zZAO
-	RvIKvKUQrelX9/CvcyAXFoHlViPpS0ceH1RRL6hsBV2b2Wjzl+zDJ+8dtx0HHlJUJKMxmQlNV8k4H
-	RGcVckNzzi5Da6VhhhNXkeJTq4u99wSiwrmh+uu2Rk7BucJDzlMX9RVLCv9Du0x+TSm8ZRKMeEv/U
-	th5aLFTAWp3V57IQhu8w==;
+	References:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=W/zZDIVXc5u8Xk00LO7VA/2uqEl+IRwLpAgij07fjFk=; b=dWWDPn80lgMegN
+	ffIH+KVFovA1COia+TQB9+Du4gdru740lTrMDYE4YUELUn/PReN+MD4Q6TLA8aANm64WDr8jYqApt
+	bD3MH0ELPSh7JynyZg5UnYj0gczlAlpMg6MbMC5N7NuiAXB/vYH/3rMG2QwEGMUoCVAtGglFt3CsB
+	BFq6RmNm2yKInJxo6lRbJiL6vkq7sL7c1SU1hm9poXd1hvSIQE7aSuaefX/hL2lvJokyj2aEdaUYk
+	0F1AhJcoqzhfL3ujOFYqDpra0Uan41gXcfEHThWJNAOSZG6YL7AO6r3feivV1ctG3ktke3M8vRIBe
+	yCS98RdrkUyO+9uv81IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNGFq-00000003iXq-3Ic2;
-	Wed, 13 May 2026 20:32:30 +0000
+	id 1wNGFr-00000003iYF-24Gi;
+	Wed, 13 May 2026 20:32:31 +0000
 Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN4HI-00000001ccZ-0j76;
-	Wed, 13 May 2026 07:45:13 +0000
+	id 1wN5Ku-00000001oLC-3yPZ
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 May 2026 08:53:02 +0000
 Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gFlqT5v4cz57DCm;
-	Wed, 13 May 2026 15:45:09 +0800 (CST)
-Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
-	by mse-fl2.zte.com.cn with SMTP id 64D7iwAc002188;
-	Wed, 13 May 2026 15:44:58 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxl2zmapp07[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Wed, 13 May 2026 15:45:00 +0800 (CST)
-X-Zmail-TransId: 2b096a042bfcf82-db4ed
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gFnKl0490z5B1K3;
+	Wed, 13 May 2026 16:52:59 +0800 (CST)
+Received: (from root@localhost)
+	by mse-fl2.zte.com.cn id 64D8qugc044740;
+	Wed, 13 May 2026 16:52:56 +0800 (+08)
+	(envelope-from liu.qingtao2@zte.com.cn)
+Message-Id: <202605130852.64D8qugc044740@mse-fl2.zte.com.cn>
+Received: from njy2app03.zte.com.cn ([10.40.13.14])
+	by mse-fl1.zte.com.cn with SMTP id 64D8hsld067319;
+	Wed, 13 May 2026 16:43:54 +0800 (+08)
+	(envelope-from liu.qingtao2@zte.com.cn)
+Received: from mapi (njy2app01[null])
+	by mapi (Zmail) with MAPI id mid204;
+	Wed, 13 May 2026 16:43:57 +0800 (CST)
+X-Zmail-TransId: 2af96a0439cd9b7-06b0a
 X-Mailer: Zmail v1.0
-Message-ID: <20260513154500183qjAlxzbei98Q4B5HjLpMx@zte.com.cn>
-In-Reply-To: <20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn>
-References: 20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn
-Date: Wed, 13 May 2026 15:45:00 +0800 (CST)
+References: 20260213093334.9217-1-qtliu@mail.ustc.edu.cn,20260213093334.9217-3-qtliu@mail.ustc.edu.cn,3387b1bd-c945-4b9d-915a-baf9412f656f@kernel.org,20260428233949705AHdTSCRS2r_rFbGYOwDb5@zte.com.cn,20260430171826967JqSqSGvBgq68Xq-SNewYu@zte.com.cn
+Date: Wed, 13 May 2026 16:43:57 +0800 (CST)
 Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <wang.yechao255@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIDQvNF0gUklTQy1WOiBLVk06IEFkZCB0aGUgZWFnZXJfcGFnZV9zcGxpdCBtb2R1bGUgcGFyYW1ldGVy?=
-X-MAIL: mse-fl2.zte.com.cn 64D7iwAc002188
+From: <liu.qingtao2@zte.com.cn>
+To: <krzk@kernel.org>
+Cc: <gregkh@linuxfoundation.org>, <jirislaby@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <marex@nabladev.com>,
+        <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <rdunlap@infradead.org>, <geert+renesas@glider.be>,
+        <quic_zongjian@quicinc.com>, <arturs.artamonovs@analog.com>,
+        <robert.marko@sartura.hr>, <hvilleneuve@dimonoff.com>,
+        <thierry.bultel.yh@bp.renesas.com>, <julianbraha@gmail.com>,
+        <flavra@baylibre.com>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <linux-serial@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <liu.wenhong35@zte.com.cn>, <dai.hualiang@zte.com.cn>,
+        <deng.weixian@zte.com.cn>, <jia.yunxiang@zte.com.cn>,
+        <bai.lu5@zte.com.cn>, <yang.susheng@zte.com.cn>,
+        <shen.lin1@zte.com.cn>, <zuo.jiang@zte.com.cn>,
+        <hu.shengming@zte.com.cn>, <gao.rui@zte.com.cn>, <tan.hu@zte.com.cn>,
+        <liu.qingtao2@zte.com.cn>
+Subject: =?UTF-8?B?UmU6IFtQQVRDSCB2MSAyLzJdIExSVyBVQVJUOiBzZXJpYWw6IGFkZCBkcml2ZXIgZm9yIHRoZSBMUlcgVUFSVA==?=
+X-MAIL: mse-fl2.zte.com.cn 64D8qugc044740
+X-MSS: AUDITRELEASE@mse-fl2.zte.com.cn
 X-TLS: YES
 X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-ENVELOPE-SENDER: liu.qingtao2@zte.com.cn
 X-SPF: None
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 13 May 2026 15:45:09 +0800
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 13 May 2026 16:52:59 +0800
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A042C05.003/4gFlqT5v4cz57DCm
-X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
+X-Fangmail-MID-QID: 6A043BEA.002/4gFnKl0490z5B1K3
+X-Bad-Reply: References but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_004512_373023_5F835530 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_015301_304053_1CF8C066 
+X-CRM114-Status: GOOD (  22.31  )
 X-Mailman-Approved-At: Wed, 13 May 2026 13:32:29 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,63 +99,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wang Yechao <wang.yechao255@zte.com.cn>
+> On 13/02/2026 10:33, LiuQingtao wrote:
+> > From: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> >
+> > This commit introduces a serial driver for the LRW UART controller
+> Please do not use "This commit/patch/change", but imperative mood. See
+> longer explanation here:
+> https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
 
-Add an eager_page_split module parameter for RISC-V KVM, following
-the same approach as on x86. This parameter controls whether eager
-page splitting is enabled. The default value is on.
+Thanks. I change subject to "Add support for the ZTE LRX UART controller with the following features"
+in the following patches.
 
-When eager page splitting is enabled, KVM proactively splits large
-pages (huge pages) into smaller pages when needed for dirty logging
-or other operations. Disabling it can be beneficial for VM workloads
-that rarely perform writes, or that only write to a small region of
-memory, as it allows huge pages to remain intact for read accesses.
+> >
+> > Key features implemented:
+> > - Support for FIFO mode (16-byte depth)
+> > - Baud rate configuration
+> > - Standard asynchronous communication formats:
+> > * Data bits: 5, 6, 7, 8, 9 bits
+> > * Parity: odd, even, fixed, none
+> > * Stop bits: 1 or 2 bits
+> > - Hardware flow control (RTS/CTS)
+> > - Multiple interrupt reporting mechanisms
+> >
+> > Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> > Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+> Mismatched DCO/SoB.
+> Run checkpatch on your code.
 
-Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
----
- arch/riscv/kvm/mmu.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+Thanks for your notice. This patch is co-developed by Qingtao Liu.
+SoB will be modified in v2 patches:
 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 2cdea3e3ed4b..2af03c48aff3 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -16,6 +16,9 @@
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nacl.h>
+Co-developed-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
 
-+bool __read_mostly eager_page_split = true;
-+module_param(eager_page_split, bool, 0644);
-+
- static void mmu_wp_memory_region(struct kvm *kvm, int slot)
- {
- 	struct kvm_memslots *slots = kvm_memslots(kvm);
-@@ -148,8 +151,10 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+> > ---
+> > MAINTAINERS | 3 +
+> > drivers/tty/serial/Kconfig | 33 +
+> > drivers/tty/serial/Makefile | 1 +
+> > drivers/tty/serial/lrw_uart.c | 2822 ++++++++++++++++++++++++++++++
+> > include/uapi/linux/serial_core.h | 3 +
+> > 5 files changed, 2862 insertions(+)
+> > create mode 100644 drivers/tty/serial/lrw_uart.c
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index ad6acbe24544..a97fbd205f75 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -15041,6 +15041,9 @@ R: Qingtao Liu <liu.qingtao2@zte.com.cn>
+> > L: linux-serial@vger.kernel.org
+> > S: Maintained
+> > F: Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
+> > +F: drivers/tty/serial/Kconfig
+> > +F: drivers/tty/serial/Makefile
+>
+> Why do you claim you maintain these files?
+>
 
- 	kvm_riscv_gstage_wp_range(&gstage, start, end);
+Oh sorry, now i only added these files in v2 patch.
++F: Documentation/devicetree/bindings/serial/zte,lrx-uart.yaml
++F: drivers/tty/serial/lrx_uart.c
 
--	if (kvm_dirty_log_manual_protect_and_init_set(kvm))
--		kvm_riscv_split_huge_pages(&gstage, start, end, true);
-+	if (kvm_dirty_log_manual_protect_and_init_set(kvm)) {
-+		if (READ_ONCE(eager_page_split))
-+			kvm_riscv_split_huge_pages(&gstage, start, end, true);
-+	}
- }
 
- void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
-@@ -214,7 +219,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
- 		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
- 			return;
- 		mmu_wp_memory_region(kvm, new->id);
--		kvm_riscv_split_memory_region(kvm, new->id);
-+
-+		if (READ_ONCE(eager_page_split))
-+			kvm_riscv_split_memory_region(kvm, new->id);
- 	}
- }
+> > +F: drivers/tty/serial/lrw_uart.c
+> >
+> ....
+> > +
+> > +static int lrw_uart_probe(struct platform_device *pdev)
+> > +{
+> > + struct lrw_uart_port *sup;
+> > + struct resource *r;
+> > + int portnr, ret;
+> > + unsigned int clk;
+> > + unsigned int baudrate;
+> > +
+> > + /*
+> > + * Check the mandatory baud rate parameter in the DT node early
+> > + * so that we can easily exit with the error.
+> > + */
+> > + if (pdev->dev.of_node) {
+> > + struct device_node *np = pdev->dev.of_node;
+> > +
+> > + ret = of_property_read_u32(np, "current-speed", &baudrate);
+>
+> Test your code/DTS - there is no such property allowed and you would see
+> warnings on DTS.
+>
+> Best regards,
+> Krzysztof
 
--- 
-2.27.0
+Oh, i've lost this property in dt-bindings. It will be added in the
+v2 patches and no more warnings.
 
 _______________________________________________
 linux-riscv mailing list
