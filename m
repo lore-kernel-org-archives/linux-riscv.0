@@ -4,105 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A173CD37B6
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 08:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EAF1CD4F24
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 08:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3S9Gqi4yuR3Rh8eBse3dvxpVQrmfJEo3Pcx+LHx7gm4=; b=IHhzUV+KkzlSlP
-	yMLsL0TmBvk5ucjohDKEO34uKJr95tzeUQoX6QZGIq6gQLMzn09SMoIfF5gGrhv/p7MIxcZGQAYgj
-	OEEH+v1ArY/DtH6blrvcnkYGENZj/QQHo6BBnlFSDZlpO4m1jQjCMAtWF2ooDZMbSOP8kyhJMQ906
-	KVcF2PjIv1nAkTmquwBfYymr9J9oLnOWb3ybv5gtLq4n7ZFmqXfyJrmwqsDD1o8ZrKTOTrsrdOkyf
-	eh2E6o/v8IHIdzcirnd9pXR6CJt4eEdjNBsxxKcOfJ5PnrR6kQP4SfcUYm4bPzsdtvtjJBqGcpEYp
-	/L06roRKQtB1qBkMJ6ww==;
+	List-Owner; bh=7KC9djvAMI/q8tbRtCT9bFZECImCXt4QS8KZZzLmM4c=; b=MvBPlhMEn4Y2C0
+	8qJCn3XLyNSsBc2Gj7WLgxAEBds08dvcQ6HFHiAls175plL+TnpWWU5BOxoBo8ZmKUiVUvZ3y74rV
+	N0hfuj9XCS2PcvcDkKwszfpObEEU78sa8UD1o642rVY6Ji4K/WqJDljjO3hyhCq1BIoeVhSBklad1
+	THt5kSZo/UawU0GiBQZ6n7+xd5/3H0oU8M19+o0dVEuNW73FaNFnrwdTrWfLk4YrMSArpuCJgX30O
+	Zp/9MO6233PZ4/j+Tb334J0dEfEqhNUB/d1W2kozpB+OBqiTnHVBUkzsrxXNSWpBaTRlP4eNjyP8m
+	c0cHiHEgkZHYmwsWMC2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5Ci-00000001mS0-0iSd;
-	Wed, 13 May 2026 08:44:32 +0000
+	id 1wN5Cw-00000001mbt-1dZG;
+	Wed, 13 May 2026 08:44:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5Cg-00000001mQo-3sqo
+	id 1wN5Cq-00000001mYY-2eTl
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 13 May 2026 08:44:31 +0000
+	Wed, 13 May 2026 08:44:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=NUjop8bIgjc4kzn5Txli1zlGm+BpePPllAZ0mN/qO84=; b=U0tMnX9dQpBrUzYGVAIjM+slw/
-	ee12W5J30XRq3YHU69f/AHa0yAre1zROI/9ViCyGM6/7Il9SedslG0g11/lGS/Jn/nsZJGVomEbDn
-	5b4TiFuLgeMxmSvkw7fRwZ0sx89J6dwIh77ZFh4J5jO3d61Mc8HfjhAseiwUufyukZS7M0MQYYHC/
-	ckf7ilCGsNsLf8NvCAjKFDazw+UBbQgpkfdMGbcEEa26CbCg9CDQaGn0sSmxHhFzEM5NyMU+WjWe+
-	aZUrU5lwE+npL7G/KAH7QhGT3mt8n2Iqk8SxMMKHaySaTcifHSWokFuZGi6cgFX35DvgRtFzu2rv2
-	NJ2+GC+w==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	bh=V0HbiZ4P78pMMZLzC1v2KdG7nYX9gwkT4Ii7QaESwzY=; b=AiqrFElmDMtWhM8PzkvUSRDWCa
+	0znOc9EghWrPYlT6vdMfaVLIqe7SbyJCi3c9+8wAO++lOxpnY8Dm+viKmWuWRbpxfkfJsC6RWDHuw
+	auCKTQ73uAvWCwjaPwJyNr+5534RK1vF4XIzmISkLBAUc/1MBMrXkeQ6tJyszsSk1HaXlFIV86Lx5
+	zTFwRYbElLCwSU15twi8celfD9Iu6nxFwMT/XX2qXYo5dH/EOc0ayyUInzv3zF6FiFLBadJQq987q
+	w04X/gs693GfFAbg1E4pncCOoq5Mu4CsKAHP8NAogpqwNSdkMlSd6kv5qzWpYHcgOoaTEr3KQJPHN
+	N7JQ1z3g==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5Ca-0000000Gs9X-3fJR
+	id 1wN5CP-0000000Gs5v-330x
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 08:44:28 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64D4pFUj3527777
-	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 08:44:23 GMT
+	Wed, 13 May 2026 08:44:24 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64D4p8dk978130
+	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 08:44:12 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=NUjop8bIgjc
-	4kzn5Txli1zlGm+BpePPllAZ0mN/qO84=; b=YRekJzfFZ/MHDlciDtRpJz040hC
-	BlbOFPswO1P456inpjHtRnZ9ouyRtT0MY0O4FkMSeLeSm1WNmh194NcDk1zClm1d
-	LbNeJVxalCUmw4bhrKN4xCzQkcIyfPhdcmwfo+iLf/3WxeLsfCKiihuINxAYP+2m
-	RcwuHFrhocW4/fVs4vP6a2UQLSAUhBMHI3m03Img7RZCX0gsjPivVnUPBVVXmUv1
-	1Gro2I3fb6r5zZXpJgY62ZBZa7c7q38FbGCX2x2mcmro4L+rq1eISBTCY2JWHnXc
-	ZTDAXySzbbSg2F99Xq1tIZkMB8xu0zPxhHMBXjHWKHn1bBdiWssE2BjcCLQ==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e44f340qp-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=V0HbiZ4P78p
+	MMZLzC1v2KdG7nYX9gwkT4Ii7QaESwzY=; b=Ew1B5Uchu+VjkXeGWc9d3N/Pnp0
+	nZzD6LFWdy1C5JumSy6HgxxxatVH7CrcEpiAr9tS75N2AIkHFhcuhJRYTQ8mgoyP
+	k1wM/NjaJOAmnExQUkI3ZQALvNKL7NR6A92epgC9W1XZK9labvSiOzprUknX81XP
+	UpnV7m3Y4Bttu2nKW79QfqCF4PFIRGybDVKuPRjTLw9qc4t2aI1vB8yBu89fjwzP
+	fFdMdlBWmDobbsttc8VESNOP/+UnbmbEa23zIA9ufpAF+GWKY/+Ag75US69WBBTB
+	h7+ga4OgAag/YdzmegpAqGLCjlOoUX3Xj2wXtuqPlacEWT0VTmuGmhuIz4g==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e46s9ue2m-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 08:44:23 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-365faf6006dso7610225a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 01:44:22 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 08:44:12 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2b7aba0af02so70502785ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 01:44:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778661862; x=1779266662; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1778661852; x=1779266652; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NUjop8bIgjc4kzn5Txli1zlGm+BpePPllAZ0mN/qO84=;
-        b=e6+7yIhApRWuR4awKx3OJL5cOM7c8rAPud13S+50jXSiZpMjFNOlQro6mNscTzVrC0
-         HtOUOUzUo7YGq8vZ377hFOgCtFTLkpn7PH1mXPEarTG93rE8cSkKOqFrJLIMCM0FvqCW
-         0OTgHEd8O9zChUzEotCmlJpyZ2iHKAnB0QoBpLUxlph6YdyTkcSXySXA+Bbk6HWfbSmU
-         H6osvi3jyDbomxlZruQe+GAadetlLvl0WUbmZAPYUNIG8sN4iGWdgaQGF+Fv05RUvt0N
-         TeBsaGDIuUHMvTii//omsdeoh6DvD2hjoxDux/vAcoaD7la38qZMBt34WzoXujJC5aSI
-         bQAQ==
+        bh=V0HbiZ4P78pMMZLzC1v2KdG7nYX9gwkT4Ii7QaESwzY=;
+        b=gMT1oGdMkDJ6x2RqxwqIMTNKQYHXgKHXDUQdR7LyAOC+V/N5xFKz0vymfP55junZrO
+         3IfbZSoJjDroWfIpNXXmqJGa4G+yHRMPSYMRrqBKT2ri1HmCMxmVU6kmRctmxiQPsfXo
+         0ECbvzuZJiS6ITxSEb3k9IP4IWvXJGq+k5zCXw/P7RwA29eQVHk5XtsbmtbgNkcvIw8t
+         PRdIxvrZaH/SuqDDHGVazLr5j6rbOEb0ZFkF7yPFHdb0Xhtk9hF/fdgLGyN7OQ+mqX8o
+         HsDYDIztKfPE+gwGpzgw1MLq6WJ43b1v/ngYtadKYbNawL208hrpbKd8jPZcXWpaSPwq
+         ONug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778661862; x=1779266662;
+        d=1e100.net; s=20251104; t=1778661852; x=1779266652;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=NUjop8bIgjc4kzn5Txli1zlGm+BpePPllAZ0mN/qO84=;
-        b=BK4veq9QXyT9A/1g0E/uqx+WBcA75KrilW+ugYa6BBzxPXgt9hug3PBgbljKdvRN17
-         2+9r1UxWACvlikOswWEF7qKcV1VUriias48Cpc4B257mTuoOIrglYjL24wT7JCzX5EnH
-         8SaG4/Aox4rBHrfP1tDsHHCQijM4CoOKbxEzBw1XMJWYu4TcRRAmbBoHnF+MAeyr+Ft7
-         /doWSuKVM5u1otToLFbrMXh3/iz4ognq7G+h074gChklRW42VPmWZLIM7U8hIQNzVQvm
-         koW0+9E6bQcT9nZOuLufBYdtj4BoW9EXOsmXFVz0Qc14HPM7QaL460DbFjLyppt6z68l
-         ZB3g==
-X-Gm-Message-State: AOJu0YzS5VjjLIXsgy9EminThZu7cLt9YgA1U6IRMML8ySeB5lH+3gSR
-	J8nmVg+M3ysGr4iGP5RvnQTk7wWPSSme7bq5CwZA8lJ8T2TrIo3zAojC14pPvech2axIgbf8rBJ
-	347tpbSxrZxo3smNRCUTMwYnG7XQB84LP4JY/a5XePFjGckKmQhJtQ6et3QdlCaQfDr9FuSWF6d
-	PbYsw=
-X-Gm-Gg: Acq92OHNlx4SUmqBnXrZv5oe2drA9/9Pc7MmfhYr7+dTqo2uMV6FDjMGdKtLjir1YQv
-	XlGROTWnWP8mn+BRA4/5s2ZHYHzk/4O9ME6vmIavM7VEtRrdIYqLUyy9nUHdFZ6t0031/R/nmH+
-	9ekrcQJ67W0bIFkJXnPe5LtXuc2a/J2nxmKIHCEFQpHPXeJTLQ6aSs0BmlB8nCl4/abc07G+vCc
-	I18oxTGI12UyBECUhP5slkjY9B+55DyX5D2OPcUhPod79bURsdWhl1UXIcYm9T9yTEb/e99z6gS
-	iMsv6HedbF9HJ/O5qgUipjOCdN42COAEYuvUm7hjaVoGmRQdkHSpOdBe/QA5L1ue1IjntLEYEt1
-	g1EnJiul5WYqfgG9LQk8Q77whz6A3/zJYwBXNXlDmlChIPfaj0ozaWoaMYbGXxHx97HaPIV4bYG
-	udMi6GQgftxEzE+sDtyrehe4AXe4hJ7UX3uqeV4piNSJ5STg==
-X-Received: by 2002:a17:90b:3845:b0:368:1064:62f2 with SMTP id 98e67ed59e1d1-368f3bd83ecmr2662353a91.3.1778661862216;
-        Wed, 13 May 2026 01:44:22 -0700 (PDT)
-X-Received: by 2002:a17:90b:3845:b0:368:1064:62f2 with SMTP id 98e67ed59e1d1-368f3bd83ecmr2662325a91.3.1778661861767;
-        Wed, 13 May 2026 01:44:21 -0700 (PDT)
+        bh=V0HbiZ4P78pMMZLzC1v2KdG7nYX9gwkT4Ii7QaESwzY=;
+        b=YfVlsbehmWZQQ7ul/MGGBZkYCFyOdH4d49Po/SXlT7stU/sgO3xanpBsFxGj1Jxi2j
+         JSTT8R/rKIxsAe9IqgbgwtD5ky5TU5fpMaIYv4lVY2cGUoqWQDykQlFh1qsh+37dfV+C
+         LGCGLTGQ5Kn1SaBsPfacSOErOS7QXjvQ91Hf18ZDrC7pec9muFGK9qWlDe3akPdvWlDx
+         W8jmS1baCqUHhuAoQZ3qk+hxbe75pNdW6sli8H5m+tuY8QZTaXkOCKG+cumgz3WUVqJI
+         AKS6m7B2kuKbNfqPP/ybxgVH5SBULSKNbvN/WMs0ST+Xr6lqaB3QR9JWPKynJpBZh21Y
+         wd/w==
+X-Gm-Message-State: AOJu0YwVFPuigU+Nu2G3tHgbdOPW92dDUVxapMZ0aQeJA7B8c+33f+S9
+	7jbmWWk/I+9+hAyZBUni5mYjOoXabESBmRpSPgy8nwgKeO2fIje74vY8cy5CgMbFzWZ7ruxhGxc
+	kfjYk1GlLN1dPcW34PFcWrCwFU1xtPSW5pM9V+HlzrlL+3WXq6ckCJFntmyx4hTqAo0xNZHgR9S
+	rgzSE=
+X-Gm-Gg: Acq92OE2LR2jzSb1s3vZBIYwoB1PYSRrYXvYbNXOm4+nNjD4+3Y8vqEG92OWywvPidC
+	rOibYU5tSadoAO4GCPbeJCCBZcbFlgnYtlQKGc99DczXeU4Tbef692DyVGy9sqV/SUWwAlFnv80
+	IpB4NOxt+mYqmatrsfJsrNchq3rKOYbDJ2lC6u8YGYkqQbCNc6lBweuWeDM06dWx1b2hjbYFMtJ
+	3h+AjmfElwy0v+Sp57YiGqvxOdn1PyRHILTHWUo9zvTX9jIH3ZiSkoDlsccL4KkWvB+AHu37gx3
+	oVEBMILuQ4B/u/gaREMCnj6avlrngymMfZObaHtEfS6kXMGmjAetjV7NodZ1rv3BN60J4IJzG6z
+	vwHIPTsFx/C61mR04CWRGkRV7ki1OyBPSBzDPbfha43EnU4Ine71TfydZamnLgymSa1RJfSYXXq
+	pxDAzXrvnAL0Wz+DTOCpWV/bFdLa9tMhlvmC5XbgRYT5+RMQ==
+X-Received: by 2002:a17:903:11c3:b0:2b0:608d:d8a8 with SMTP id d9443c01a7336-2bd2f4cb703mr20265485ad.1.1778661851549;
+        Wed, 13 May 2026 01:44:11 -0700 (PDT)
+X-Received: by 2002:a17:903:11c3:b0:2b0:608d:d8a8 with SMTP id d9443c01a7336-2bd2f4cb703mr20264915ad.1.1778661851092;
+        Wed, 13 May 2026 01:44:11 -0700 (PDT)
 Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d2709bsm169158725ad.5.2026.05.13.01.44.16
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d2709bsm169158725ad.5.2026.05.13.01.44.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 01:44:21 -0700 (PDT)
+        Wed, 13 May 2026 01:44:10 -0700 (PDT)
 From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
 To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
         linux-acpi@vger.kernel.org, linux-efi@vger.kernel.org,
@@ -112,39 +112,39 @@ To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
         cleger@rivosinc.com, robert.moore@intel.com, sunilvl@oss.qualcomm.com,
         anup.patel@oss.qualcomm.com
 Cc: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Subject: [PATCH v4 07/10] riscv: Add RISC-V entries in processor type and ISA strings
-Date: Wed, 13 May 2026 14:13:22 +0530
-Message-ID: <20260513084325.2176952-8-himanshu.chauhan@oss.qualcomm.com>
+Subject: [PATCH v4 05/10] riscv: conditionally compile GHES NMI spool function
+Date: Wed, 13 May 2026 14:13:20 +0530
+Message-ID: <20260513084325.2176952-6-himanshu.chauhan@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260513084325.2176952-1-himanshu.chauhan@oss.qualcomm.com>
 References: <20260513084325.2176952-1-himanshu.chauhan@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-ORIG-GUID: futKJjAjoyvA03VQaJJllVrJfamUP4H1
-X-Authority-Analysis: v=2.4 cv=SpSgLvO0 c=1 sm=1 tr=0 ts=6a0439e7 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDA4OSBTYWx0ZWRfXwRMJooHK+F5A
+ +hcjNLesfSTu3zR13k1JnQ6I80mmle97MPiCuaGCFjaWSn1yRNHvhN1RSdSLpFXZc0JZaErcuK0
+ 7JHonCSaCcaf5YvnegJUbx2W7nyDlLhxJJWqWZrcaxkBw2bKR7YVyp4j9jMlH2spPwH7971ziWZ
+ rytD26CBIsDa5fPVssgarb+Ga8FrEAeIRzg7+v0LCM09GUKHYER0WnC0W9uXtSoLiURAgw77DYF
+ NCyTZRhsd7DU2VSpxYnH/Mdpo5xf6W5z/peVq9u+4J3cCskNRHxh2d7E5SXO3gvzM+JplVTXHaa
+ AFdaWrGG7VTSLsyBhk/zH7RawT0o45My4fbTEGx1c96/176nNdlkyq6ytNeLRWqmLpRAwZHa0Py
+ ZVOwsUdJ7Qv83oWaXevvCYtNvb59PTLGtbVVIvAd1AuwtRfi/+8JWCCRivKZwLO1Vz0E8TUoJQC
+ 1pin9208ZOgSKQWTEOw==
+X-Proofpoint-GUID: vT9KBnWEgUdhMm-3Okx2-KHtIqD6Mfuk
+X-Authority-Analysis: v=2.4 cv=L68theT8 c=1 sm=1 tr=0 ts=6a0439dc cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
- a=osVkw33_48dge00NZUcA:9 a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDA4OSBTYWx0ZWRfX0p5oj43aAcJS
- 8MA0cPCnE2OrBX3x/L5SP93pRHPIXzRc62XcjtMysGH+4+ibAkoyVkKdeHHVmRKZCad/YEIeTHr
- hhwNAkyfM5/aCU2rFwd1L1OFXbL1JUhAAd1eSE2T1VaxHtk4YAYrll9Qw1HEAUlK3a9e9N0Y1w3
- rP7WcJwmFrUOnE263rgHckyyFlMNOhLmHL5kYpEot4bHaL4k2yGuNsKR/3h02MvzdyagAQIIv62
- ahgmRTh9K3ugCl8XBG7V2NRagBcxjpXpcbsZgU5EjAul5hgQxsL9GjmNLT6+knoCzNB4Keetiga
- lb2Nj8rHiq82w3nh0kjwiB8h+Xp/YDjXuiJaCUDxVmqZ4UJ1SkUbfCOGewFDTgY22ORX2T0433d
- YgnNdRL+1M5Wo0zPMzpVvYMF7Xw37uU0LoezgWGsuR9+6EPi/l86fNVUAnoR1Vh0bEAuEwT4KfE
- 0ibBUF+lvxq1jyZywrQ==
-X-Proofpoint-GUID: futKJjAjoyvA03VQaJJllVrJfamUP4H1
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
+ a=-FlRX8pefk0TmyAjS3oA:9 a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-ORIG-GUID: vT9KBnWEgUdhMm-3Okx2-KHtIqD6Mfuk
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-11_05,2026-05-08_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 suspectscore=0 impostorscore=0 bulkscore=0
- spamscore=0 phishscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0
+ spamscore=0 bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501
+ suspectscore=0 clxscore=1015 malwarescore=0 lowpriorityscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_094426_365601_B196AA74 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260513_094417_642279_B373F360 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,35 +161,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add RISCV and RISCV32/64 strings in the in processor type and ISA strings
-respectively. These are defined for cper records.
+Compile ghes_in_nmi_spool_from_list only when NMI and SEA
+is enabled. Otherwise compilation fails with "defined but
+not used" error.
 
 Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
 ---
- drivers/firmware/efi/cper.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/acpi/apei/ghes.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/firmware/efi/cper.c b/drivers/firmware/efi/cper.c
-index 06b4fdb59917..1b1ab2f1355b 100644
---- a/drivers/firmware/efi/cper.c
-+++ b/drivers/firmware/efi/cper.c
-@@ -170,6 +170,7 @@ static const char * const proc_type_strs[] = {
- 	"IA32/X64",
- 	"IA64",
- 	"ARM",
-+	"RISC-V",
- };
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index 3236a3ce79d6..8edc2c8db1bb 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -1397,6 +1397,7 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
+ 	return rc;
+ }
  
- static const char * const proc_isa_strs[] = {
-@@ -178,6 +179,8 @@ static const char * const proc_isa_strs[] = {
- 	"X64",
- 	"ARM A32/T32",
- 	"ARM A64",
-+	"RV32/RV32E",
-+	"RV64",
- };
++#if defined(CONFIG_HAVE_ACPI_APEI_NMI) || defined(CONFIG_ACPI_APEI_SEA)
+ static int ghes_in_nmi_spool_from_list(struct list_head *rcu_list,
+ 				       enum fixed_addresses fixmap_idx)
+ {
+@@ -1415,6 +1416,7 @@ static int ghes_in_nmi_spool_from_list(struct list_head *rcu_list,
  
- const char * const cper_proc_error_type_strs[] = {
+ 	return ret;
+ }
++#endif
+ 
+ /**
+  * ghes_has_active_errors - Check if there are active errors in error sources
 -- 
 2.43.0
 
