@@ -4,52 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF80ECD4851
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 15:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 375E5CD4F3D
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 15:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dGLP2BOcxrdw82qEEwgONhEwuSS5RDJ0ohWQfdGQr4o=; b=dePX7otKlpEl3P
-	/pM7m/beHHD/UietBbyKbya2lOkaYwHdJasam1q/js2dOHvwa5jUb/MdnacFmvn1VdL1BzUMNlM5I
-	mxzt3h/eXJkJzEIn6hmMlVbU5jLynWpDx5blgfLXeru4JB6ZpM+lEI4jzuOsEpQ/P0ffKbwu1Kb3H
-	vRjUYUdDHRunYuPoIdnOl60mo2+fWe/HHAqPKIRKN/6sHhljJkx9xpN2a9pbxAfG6oIMgGPkKoCpK
-	eoWBTmMDX/HkI3wsuwxhEAD+eWPnsgNZ7ZU0zeAVFM15SwTIZThxMMyixv0ybR9jtw5kw2Z2aNAlX
-	b+ZW050zfSPw1H4anqzg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pZG4TdeQIKrz/ELExVTuNiTJhqXvtf30tcuE5DjabYY=; b=iN3Yid34LspvRI
+	1m5Z2YCsbLZZodFYzTJ3DZbOi9v28ewBXkMWPal3x8k7fmV3qG8Zf6w4Cbi556Av27cXisF6/gwcJ
+	g5bVP3cruhC5UoThiFWyTG3xXp35Pelz35xwn45aH4SYl279BUVNjBoi1cp8Q8nMck3DgmVu/nrIl
+	23FNvq7ViYYtFruwhy/Ot231nWOqcgT+9Zkm7QRfb4nlUlGBnhOx6RzQR1B/v/UaiDfQu55FQwFAr
+	NCfZBtWLMPpCSRHPBSxTSZqwwXkzEz4GK/4ZZOhsfCafJsFAVJOJESjS0Zi5ClTP6wSnFmiQKhI/U
+	r+o8dJHsKy/Ahp41fFTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNBWY-000000034sj-1qYb;
+	id 1wNBWY-000000034sf-1RLt;
 	Wed, 13 May 2026 15:29:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNBWT-000000034ot-3wjP
+	id 1wNBWT-000000034pB-3zwM
 	for linux-riscv@lists.infradead.org;
 	Wed, 13 May 2026 15:29:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBEA642A11;
+	by sea.source.kernel.org (Postfix) with ESMTP id E2A4144472;
 	Wed, 13 May 2026 15:29:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8E9F9C19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B6DB8C2BCC7;
 	Wed, 13 May 2026 15:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1778686160;
-	bh=ePHchjnhwuY+HtMvCqWbW0nK976smbTfakDyyaKGCPs=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=I3R2UzTuNIjO6Ilc1+KJaKqL2E3JRGJuqyugg6YS+K0TxJNTVgGlsQlMk7BDQaj8m
-	 p3mSLv2ycyUSE01el8kCqJtH4DBAlAYS7Feghry/uM5ZoghXTQNNvpqHocMQcOmgP5
-	 vCNtO2rkW+bFlgSorh0ziU11RQSM0UFzDP99UYnKA9dsIpSVUpR6sgHntVxOmahFos
-	 F8U63emFXTrW/S/rMJeXa6448NH1gpUV/3nJnRZkj/0oCH7p4kO9NwLfrK13zbJfQg
-	 KwuY1MLGkLMI2ecd5NvF9iRIZVrA1Pgugqqp9cy5CYCNVQu949ug1fESvb7ImEAL0K
-	 /H98khUedcPdg==
+	bh=41IZMqDKuz/6MXeNloPVlflrmSHQD4lgmzdF8Vzr3C4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=HcG3RjKsxnlwK9fZIokCsL3iQuI9NDVCBU0s78z3VXXUkgBrSWk1Ec5ipfKy50Ajo
+	 nwH+3q2K77RqbQdw+kvDJvzsiTJMMbEQ7XjVfKHkXCOU7IRtYfujWPMYYPqLjCpwWl
+	 j6JnHaZD0jPGvEUwazVx02txtar3XGwWObLeNu80SsCa2jcIRxJ/tmRJpMd/AW9bPN
+	 VC4PImqkpy4PetLZFliRJXeiLx25p9ARvzF2kUrnGam0bJtsUDkiIpP5+54sKs3CjP
+	 xmyyabqZ0n4EaipedvdJxi1j2sgmqN+WAZ4n8gChSDrfMPe3ayl1IHXECuECqysTZh
+	 kPW8eFdcGLY4A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B52DCD4F21;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A0612CD4F3D;
 	Wed, 13 May 2026 15:29:20 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Subject: [PATCH RESEND v7 0/3] riscv: Use GCR.U timer device as clocksource
-Date: Wed, 13 May 2026 17:29:07 +0200
-Message-Id: <20260513-riscv-time-mmio-v7-0-f8925ffc226b@htecgroup.com>
+Date: Wed, 13 May 2026 17:29:09 +0200
+Subject: [PATCH RESEND v7 2/3] riscv: clocksource: Add readq options to
+ clocksource mmio
 MIME-Version: 1.0
+Message-Id: <20260513-riscv-time-mmio-v7-2-f8925ffc226b@htecgroup.com>
+References: <20260513-riscv-time-mmio-v7-0-f8925ffc226b@htecgroup.com>
+In-Reply-To: <20260513-riscv-time-mmio-v7-0-f8925ffc226b@htecgroup.com>
 To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
  Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,21 +66,22 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, 
  Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
- Chao-ying Fu <cfu@mips.com>, Conor Dooley <conor.dooley@microchip.com>
+ Chao-ying Fu <cfu@mips.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778686158; l=2879;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778686158; l=1888;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=ePHchjnhwuY+HtMvCqWbW0nK976smbTfakDyyaKGCPs=;
- b=DRwgnHWwrSwfSEw/0SDTGvuurI0sp5QwEl0FVn05Jy5bdnIGSmh1xaYASOkbddAcYPWueIr9/
- v1NHBx13zYlCHo8sodGK1FrRikC6SQbYWb8rQnzeLOnyk62KO6l4trp
+ bh=Jv3vpBN1+Uh24vJH4CQZDSOQFXoXTNQJWJ4G2f0Tyms=;
+ b=4kpf+EMPbfGjaxnf9vD+A3laptT18SJFJPnFZcHz0/gp0ClnPrnSu6ztZBVE1qtPrVPDSCWWt
+ HLh7kE+l0TlDLy24QvKcp1en65ukAK/sfikCj/NO6GXMKOD948ksd+w
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
  with auth_id=476
 X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_082922_038724_2BC5D2C4 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260513_082922_042285_B3CA31EA 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,67 +99,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds bindings for the GCR.U timer device and corresponding
-driver support. Accessing the memory mapped shadow of the mtime register
-in the GCR.U region should be faster
-than trapping to M mode each time the timer needs to be read.
-The timer device does not implement any interrupts, therefore the
-timer-riscv clockevent implementation should suffice.
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
-We tested the patchset both on QEMU and the Boston board with the P8700 bitfile:
-- Coremark and timer kselftests on QEMU emulating an 8 core CPU
-- Coremark and timer kselftests on the Boston board with a single core CPU.
+Add read functions for 64-bit register size to the generic
+mmio clocksource, covering both up and down counters.
 
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Signed-off-by: Chao-ying Fu <cfu@mips.com>
 ---
-Changes in v7:
-- Replace the previous implementation with a new timer driver for mips,p8700-gcru
-- Add a patch for 64bit reads for timer mmio
-- Link to v6: https://lore.kernel.org/r/20250806-riscv-time-mmio-v6-0-2df0e8219998@htecgroup.com
+ drivers/clocksource/mmio.c  | 14 ++++++++++++++
+ include/linux/clocksource.h |  4 ++++
+ 2 files changed, 18 insertions(+)
 
-Changes in v6:
-- Rename mti,gcru to mips,p8700-gcru
-- Link to v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
+diff --git a/drivers/clocksource/mmio.c b/drivers/clocksource/mmio.c
+index 9de75153183124cc8997c6ab61d0c01d9b2637bc..6329d8ce2c0911b5c6de34346b5ca8de40b93099 100644
+--- a/drivers/clocksource/mmio.c
++++ b/drivers/clocksource/mmio.c
+@@ -17,6 +17,20 @@ static inline struct clocksource_mmio *to_mmio_clksrc(struct clocksource *c)
+ 	return container_of(c, struct clocksource_mmio, clksrc);
+ }
+ 
++#if defined(readq_relaxed)
++
++u64 clocksource_mmio_readq_up(struct clocksource *c)
++{
++	return (u64)readq_relaxed(to_mmio_clksrc(c)->reg);
++}
++
++u64 clocksource_mmio_readq_down(struct clocksource *c)
++{
++	return ~(u64)readq_relaxed(to_mmio_clksrc(c)->reg) & c->mask;
++}
++
++#endif
++
+ u64 clocksource_mmio_readl_up(struct clocksource *c)
+ {
+ 	return (u64)readl_relaxed(to_mmio_clksrc(c)->reg);
+diff --git a/include/linux/clocksource.h b/include/linux/clocksource.h
+index 65b7c41471c390463770c2da13694e58e83b84ea..df8ea45ec60a28e0276020cb95ab5328bec89879 100644
+--- a/include/linux/clocksource.h
++++ b/include/linux/clocksource.h
+@@ -276,6 +276,10 @@ static inline void clocksource_arch_init(struct clocksource *cs) { }
+ 
+ extern int timekeeping_notify(struct clocksource *clock);
+ 
++#if defined(readq_relaxed)
++extern u64 clocksource_mmio_readq_up(struct clocksource *c);
++extern u64 clocksource_mmio_readq_down(struct clocksource *c);
++#endif
+ extern u64 clocksource_mmio_readl_up(struct clocksource *);
+ extern u64 clocksource_mmio_readl_down(struct clocksource *);
+ extern u64 clocksource_mmio_readw_up(struct clocksource *);
 
-Changes in v5:
-- Fixed build issues on 32-bit RISC-V and sparse warnings
-- Remove clint_time_val and clint.h, replace with riscv_time_val
-- Depend on RISCV_TIMER in Kconfig
-
-Changes in v4:
-- Remove "select" from mti,gcru.yaml.
-- Refactor the driver to use function pointers instead of static keys.
-
-Previous versions:
-v1: https://lore.kernel.org/lkml/20241227150056.191794-1-arikalo@gmail.com/#t
-v2: https://lore.kernel.org/linux-riscv/20250409143816.15802-1-aleksa.paunovic@htecgroup.com/
-v3: https://lore.kernel.org/linux-riscv/DU0PR09MB61968695A2A3146EE83B7708F6BA2@DU0PR09MB6196.eurprd09.prod.outlook.com/
-v4: https://lore.kernel.org/r/20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com
-v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
-v6: https://lore.kernel.org/r/20250806-riscv-time-mmio-v6-0-2df0e8219998@htecgroup.com
-
----
-Aleksa Paunovic (3):
-      dt-bindings: timer: mips,p8700-gcru
-      riscv: clocksource: Add readq options to clocksource mmio
-      riscv: clocksource: Add p8700-gcru driver
-
- .../devicetree/bindings/timer/mips,p8700-gcru.yaml | 38 ++++++++++++++++++
- drivers/clocksource/Kconfig                        |  9 +++++
- drivers/clocksource/Makefile                       |  1 +
- drivers/clocksource/mmio.c                         | 14 +++++++
- drivers/clocksource/timer-p8700.c                  | 45 ++++++++++++++++++++++
- include/linux/clocksource.h                        |  4 ++
- 6 files changed, 111 insertions(+)
----
-base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
-change-id: 20250424-riscv-time-mmio-5628e0fca8af
-
-Best regards,
 -- 
-Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+2.43.0
 
 
 
