@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA0CCD37AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 20:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A32CD4F21
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 20:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qI0adqPY35T3eRb2JWP3lOuGSyOoA2WubytqCxdsZEo=; b=IO53RDepO3mdJy
-	kFTs63sggWjlQgfQSHGNsdgrJFay3ieUUNPI8t8LovcJwu8hLRjTNL47QCnCcBn/nR7/Zd1kxtBil
-	YKHguOL5GhDfqaVUMGgU99fjrOtIGWCGG4w1GmdA9D6uE3CQelLKODjcjhpI8hNwFcJzpeVv9q448
-	BkN/TkpgEksXqSZbJ0aBK0l6KutbwIupfyDXhLiGQKVHZXfA/uxX3WVXE9XDnb+h1aUxzT0ZD5Xkf
-	vuwFLeyMjqhljb3/1hkAonpsPbghaRrrgjD6aqIvumVYKHWTSBfaI1XHYSNSdd7rJq4qs6BRl64SO
-	hxUrEuauRj2IuyG5ATQw==;
+	References:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=9t48G0vVPb4szJv6MazQp17XRZyNwToVcJK6ZVrAT+c=; b=Vy6XqIPvNrez3d
+	xGzEpo2IpnNAlpgHZy5QjpxpGV7w0N2OxFXmf4AwWtQjCRWJVx4WThrskGGqqA6ZkF9q+neD01t27
+	Gxx9PKDSwLf5j8pULFxZoCoHCFaV+loKSK+E04DFArmj6z3s4TEX59ayEjYHOlrMnWA+1ZOuHLveH
+	gSCctJUO1kX1sQV6NYYvTrMsc0MJzfCOVI3W9fg1yPAepn0uwQ9UH9n1Nafo1GE+fKrd3iLl1OVST
+	ASlZxF+c9Dr/PTW4/9/IfpCo+2pNEgKrW8QhOLu3a56JEnr9ow6U6JbRpX/VAFHQEgjQQVAkgogky
+	2XUu1+rkmpJGfq7QHdDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNGFq-00000003iXg-2TmB;
-	Wed, 13 May 2026 20:32:30 +0000
-Received: from mxde.zte.com.cn ([209.9.37.142])
+	id 1wNGFr-00000003iY5-0bqz;
+	Wed, 13 May 2026 20:32:31 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN4Bh-00000001b9y-2Yao;
-	Wed, 13 May 2026 07:39:27 +0000
-Received: from mxhk.zte.com.cn (unknown [192.168.250.138])
+	id 1wN5Kj-00000001oGg-2f8O
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 May 2026 08:52:51 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxde.zte.com.cn (FangMail) with ESMTPS id 4gFlhn4HlpzBfcW8;
-	Wed, 13 May 2026 15:39:21 +0800 (CST)
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gFlhY3fM6z5B0n0;
-	Wed, 13 May 2026 15:39:09 +0800 (CST)
-Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
-	by mse-fl1.zte.com.cn with SMTP id 64D7cxSP050732;
-	Wed, 13 May 2026 15:38:59 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxl2zmapp07[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Wed, 13 May 2026 15:39:01 +0800 (CST)
-X-Zmail-TransId: 2b096a042a95c50-ca1cc
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gFnKL53nsz51Sdp;
+	Wed, 13 May 2026 16:52:38 +0800 (CST)
+Received: (from root@localhost)
+	by mse-fl2.zte.com.cn id 64D8qdE5044241;
+	Wed, 13 May 2026 16:52:39 +0800 (+08)
+	(envelope-from liu.qingtao2@zte.com.cn)
+Message-Id: <202605130852.64D8qdE5044241@mse-fl2.zte.com.cn>
+Received: from njy2app01.zte.com.cn ([10.40.12.136])
+	by mse-fl2.zte.com.cn with SMTP id 64D8iPxu027365;
+	Wed, 13 May 2026 16:44:25 +0800 (+08)
+	(envelope-from liu.qingtao2@zte.com.cn)
+Received: from mapi (njb2app07[null])
+	by mapi (Zmail) with MAPI id mid204;
+	Wed, 13 May 2026 16:44:27 +0800 (CST)
+X-Zmail-TransId: 2aff6a0439eb2c1-f7422
 X-Mailer: Zmail v1.0
-Message-ID: <20260513153901371U0gWZRa45N893VGbU7Gf9@zte.com.cn>
-In-Reply-To: <20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn>
-References: 20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn
-Date: Wed, 13 May 2026 15:39:01 +0800 (CST)
+References: 20260213093334.9217-1-qtliu@mail.ustc.edu.cn,20260213093334.9217-3-qtliu@mail.ustc.edu.cn,2026031201-dense-unrefined-7bf5@gregkh,202605061057582963JK3yxV44CRPCHHVos6kc@zte.com.cn
+Date: Wed, 13 May 2026 16:44:27 +0800 (CST)
 Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <wang.yechao255@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIDEvNF0gUklTQy1WOiBLVk06IEFkZCB0aGUgc3BsaXQgcGFnZSBjYWNoZSBmb3IgaW9jdGwgY29udGV4dA==?=
-X-MAIL: mse-fl1.zte.com.cn 64D7cxSP050732
+From: <liu.qingtao2@zte.com.cn>
+To: <gregkh@linuxfoundation.org>
+Cc: <krzk@kernel.org>, <jirislaby@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <marex@nabladev.com>,
+        <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <rdunlap@infradead.org>, <geert+renesas@glider.be>,
+        <quic_zongjian@quicinc.com>, <arturs.artamonovs@analog.com>,
+        <robert.marko@sartura.hr>, <hvilleneuve@dimonoff.com>,
+        <thierry.bultel.yh@bp.renesas.com>, <julianbraha@gmail.com>,
+        <flavra@baylibre.com>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <linux-serial@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <liu.wenhong35@zte.com.cn>, <dai.hualiang@zte.com.cn>,
+        <deng.weixian@zte.com.cn>, <jia.yunxiang@zte.com.cn>,
+        <bai.lu5@zte.com.cn>, <yang.susheng@zte.com.cn>,
+        <shen.lin1@zte.com.cn>, <zuo.jiang@zte.com.cn>,
+        <hu.shengming@zte.com.cn>, <gao.rui@zte.com.cn>, <tan.hu@zte.com.cn>,
+        <liu.qingtao2@zte.com.cn>
+Subject: =?UTF-8?B?UmU6IFtQQVRDSCB2MSAyLzJdIExSVyBVQVJUOiBzZXJpYWw6IGFkZCBkcml2ZXIgZm9yIHRoZSBMUlcgVUFSVA==?=
+X-MAIL: mse-fl2.zte.com.cn 64D8qdE5044241
+X-MSS: AUDITRELEASE@mse-fl2.zte.com.cn
 X-TLS: YES
 X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-ENVELOPE-SENDER: liu.qingtao2@zte.com.cn
 X-SPF: None
-X-SOURCE-IP: 192.168.250.138 unknown Wed, 13 May 2026 15:39:21 +0800
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 13 May 2026 16:52:38 +0800
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A042AA8.000/4gFlhn4HlpzBfcW8
-X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
+X-Fangmail-MID-QID: 6A043BD6.001/4gFnKL53nsz51Sdp
+X-Bad-Reply: References but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_003925_803860_B95A9EB8 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_015249_821800_013C62E1 
+X-CRM114-Status: GOOD (  14.40  )
 X-Mailman-Approved-At: Wed, 13 May 2026 13:32:29 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,53 +99,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wang Yechao <wang.yechao255@zte.com.cn>
+> On Fri, Feb 13, 2026 at 05:33:34PM +0800, LiuQingtao wrote:
+> > From: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> >
+> > This commit introduces a serial driver for the LRW UART controller
+> >
+> > Key features implemented:
+> > - Support for FIFO mode (16-byte depth)
+> > - Baud rate configuration
+> > - Standard asynchronous communication formats:
+> >   * Data bits: 5, 6, 7, 8, 9 bits
+> >   * Parity: odd, even, fixed, none
+> >   * Stop bits: 1 or 2 bits
+> > - Hardware flow control (RTS/CTS)
+> > - Multiple interrupt reporting mechanisms
+> >
+> > Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
+> > Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+> > ---
+> >  MAINTAINERS                      |    3 +
+> >  drivers/tty/serial/Kconfig       |   33 +
+> >  drivers/tty/serial/Makefile      |    1 +
+> >  drivers/tty/serial/lrw_uart.c    | 2822 ++++++++++++++++++++++++++++++
+>
+> This really is a totally new uart?  No relation to any existing devices
+> at all?  Why would that be created?
+>
+> Anyway, this doesn't seem to build properly, how was it tested?
 
-Add the split page cache for dirty logging enablement and the
-KVM_CLEAR_DIRTY_LOG ioctl.
+Yes, it`s a new uart for lrx SoC. The lrx SoC with its related docs will be released soon.
 
-Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
----
- arch/riscv/include/asm/kvm_host.h | 2 ++
- arch/riscv/kvm/mmu.c              | 3 +++
- 2 files changed, 5 insertions(+)
+The uart TX & RX test environment:
+1.Kernel: linux-next, commit 4cd074ae20bbcc293bbbce9163abe99d68ae6ae0(Tue May 5 14:57:23 2026 +0200),
+with CONFIG_SERIAL_LRX_UART and SERIAL_LRX_UART_CONSOLE selected.
+2.GCC: 14.1.0.
+3.SoC: lrx SoC.
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 75b0a951c1bc..e2f40854305f 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -93,6 +93,8 @@ struct kvm_arch {
 
- 	/* KVM_CAP_RISCV_MP_STATE_RESET */
- 	bool mp_state_reset;
-+
-+	struct kvm_mmu_memory_cache split_page_cache;
- };
+> > --- a/include/uapi/linux/serial_core.h
+> > +++ b/include/uapi/linux/serial_core.h
+> > @@ -231,6 +231,9 @@
+> >  /* Sunplus UART */
+> >  #define PORT_SUNPLUS    123
+> >  
+> > +/* LRW UART */
+> > +#define PORT_LRW    124
+>
+> Why is this id needed?
+>
+> thanks,
+>
+> greg k-h
 
- struct kvm_cpu_trap {
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 2d3def024270..85a3fb2622a4 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -549,6 +549,7 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- 	kvm->arch.pgd = page_to_virt(pgd_page);
- 	kvm->arch.pgd_phys = page_to_phys(pgd_page);
- 	kvm->arch.pgd_levels = kvm_riscv_gstage_max_pgd_levels;
-+	kvm->arch.split_page_cache.gfp_zero = __GFP_ZERO;
-
- 	return 0;
- }
-@@ -572,6 +573,8 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
-
- 	if (pgd)
- 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
-+
-+	kvm_mmu_free_memory_cache(&kvm->arch.split_page_cache);
- }
-
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
--- 
-2.27.0
+Thanks for notice. This id is not needed actually.
+According to https://lore.kernel.org/all/20231008001804.889727-1-jcmvbkbc@gmail.com/, the specific type
+of the port is not important to the userspace.
 
 _______________________________________________
 linux-riscv mailing list
