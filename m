@@ -4,106 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350F8CD4851
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 14:39:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 375E2CD4F21
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 15:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x7kjd6SgFrNy+HoB/bgDG0M1Vwj7sxMH4lLKEMk7YLQ=; b=BYz3BRzrrgwANM
-	da6wH/mFs3ECpe1vkvlr31VvNkt+ntid/4dlL32g1X27s/WEx9K58TFYDyIO7K/wB8jDMl7R0HmFj
-	ABUz5xDiEk5ftx3VRxoHayXj8Ly/hL1uEcDXo90WwOOpUXjkJEJjjLTiseAgp4FjRrREkKtwTI53o
-	JJ4Dh+mxr7H6Y/xNGRJcLTMJfiTJ6xQcxhZQRVN/4cympX0DfBlU/rQq5oyUt8Rir5QVevoA5Y6gk
-	OgDtma79J0mpBp3bC6Fpq7hGFhSrb36o1JltJi5YZsYqUWNrbtpxexVGap11mgmA/oNrplA/jH4+B
-	vb8QL6Bp/quEXL1y5oGA==;
+	List-Owner; bh=+tb6+3RZzNAUjM2beeiyMo+2JxhW4H7fH6zDqNfBvjc=; b=4MlhvvULgRxRZz
+	RI40HVbLgUbCKOoidlhUhx8x/TSadb6WqhkDXz51BUjDdUoqeGBc9BC9jNXa7VRyPtGLXstSzG4PE
+	EtbNE/4jcIyWNvY2JWKD1PPmkDmwVqhHAd2nMAfA8PKr1F8bCPp4oUMMtlD5suBH2m258X8yEHuXw
+	0NHfYD7VOI8xWSdeD/yIcuCvTT+goZNXwdZ7c9syhaxVOJt7qcNf6PcX8seLUDZXGLL+XoVV5zEFv
+	3niNL0Y7tpFBbpT6i1ChneBUrDEMzzg1nvFXoAWia95M+xJcnlPcM67/mOHhzU9pgkJG0lLDXpUJ5
+	97z0MA3m5CPt/hdbqlZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAkY-00000002xIm-0NOv;
-	Wed, 13 May 2026 14:39:50 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1wNBWW-000000034rF-0aqP;
+	Wed, 13 May 2026 15:29:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAkV-00000002xHs-1Usr
+	id 1wNBWT-000000034p6-3QIB
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 14:39:48 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-bce57c132b2so573989766b.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 07:39:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778683185; cv=none;
-        d=google.com; s=arc-20240605;
-        b=N309iq/qNT4bQmIzFKr6hIZJ3xtI2wtUzIWBYtnxHwYRGiMmS6w1Ebiy6BIM3m3gy0
-         XS0rT6YpZS81o+DvNGgi6WsLMBV0nPTSYcpIjiDUQXre5qPooBTSU/6U5G7+zgtuzSUc
-         FdNM9ipcZRa+02L6u/8gkYiA7mDOufrm8dLUg1zCuntg90JH7NmorV4ZMMmgFMgpHt57
-         RpURa9baboQByeJaCwkZYHm/fP6+/LouXtKnkgSo37uYan5+oTCSslOHMEWP2ryXyxx0
-         90qpL8KAi4KEPOeSbUdmMCNP/TCU4i/vIS3QiWKXL6VElIMinBhAAcePFd9tkzefDRgq
-         FEfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=OaBPAaai2do6tTEr5ZFJIJdibTEdzt3Q2IEnGfklUBk=;
-        fh=aIeKituxQk8yITLqRxhBB1cAHI4zAoPvAXoNxYwPLxI=;
-        b=KCokejyIlIBrRKtozofCDcXZEjReW4a3hY+sTbjlQPTRAlOEX3TU+CWI/DohuwWoKU
-         5tg58if0RnLk5TxsrpzOXvaBWqPQ5qa3xXS2n8hDYXnq8m2jpRggrMAd6+u/vdHkRMSJ
-         KCDPqb0JpX5Uwjwp6oIGJrxpG/HCbvX/CCDDXovGjnSbAZu1LCST6/qYDqVjOipCIYts
-         +YBNk5LDW81mTBvVdQCe6OPuWDd27WH2bRoYb5a4+QOki9CcMVEPKtg0w2ipssN7JfJR
-         twkPrYqsy2SoW7C5wPNPXDmFORzUltt1M7P8bj00jZFfaAb5SlNT43D5STuqMt1sSoD5
-         kgYg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778683185; x=1779287985; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OaBPAaai2do6tTEr5ZFJIJdibTEdzt3Q2IEnGfklUBk=;
-        b=fKT2ntv2llTJ5gtcD28MJa42auPcPrYmbqNfJ2CP2qikflYB/vAUbpAJ2KvSA9511E
-         SRjfkEQVdxIQAVmMIfiLAQ9m3THltsGv5N4+PrvYsuOHPDXt1gGPkYg/lx982Oge7qMm
-         KQZZj5dZyRL6jvEEc/aAAIpkB4v5HOfUog+x6CHG8k5nu2c2W3PsnS1ThNialAwjrrCM
-         cF3roh7QyRDU/+QLOhOzlOquXBzKzFOIUH8OWxqbVmhmhG7RoKhkUelYNBu0VbSgECJp
-         1NnOFjo+zY8p+vPqvsFzBz7K2zDGZJ67qfPXm93tJSkEeeEgEiqSA/7TMHselCO+YdFq
-         FjhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778683185; x=1779287985;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OaBPAaai2do6tTEr5ZFJIJdibTEdzt3Q2IEnGfklUBk=;
-        b=VkfjZ3iVUL4/NIQI22SffSaSrd/C/em2Wafz4pvCzLtLgS2YVu4h4EEWQn7d3G1Bdo
-         PJ7gPWZN8SOuZpNxBEqXY+y+6VBp+ay+Tfz3sSql1Gkl2DlN2atAokmtXEvufaiIiG5a
-         R65mnGKTBbw74OY2wxZ2ipeOnAJHV7QhGWeEf83kjGrdCIuu1um7ncgiew/c19arh88S
-         uzwqZFDyckPDGiAcxQZrgfLSQ/pe6V4q55h2Fjybu/IsxjmVjvwk1rcfnFHDs/mcZ8Za
-         qIGrVxdEhMxeg8+deV43ZwgdLUKOvOIgSOyQNd0Zrzb3Is91gXsXCYgZ235IcDp4rKAp
-         MPuw==
-X-Forwarded-Encrypted: i=1; AFNElJ+oxcDpGE8ec/inGxS2KLW/d4omhmS+fQB2sT7/X5DC9FFc9be4Mgjjucs8oAaijMTTy4ub9VsPNRzZPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE+jDojnZvbWHs4TwRIowSMiQlnypR9C4QupNsHTNObBgaYure
-	av4nmCSED9UALUVOTJH3K9g4NRBUS6H5EWullP59/ieBPKBvvvoGTabCl/kfcA013xG9etpv2Sy
-	jICOQI9ueIhEOd1L1Q+d4J2WNk+GbtWc=
-X-Gm-Gg: Acq92OHwUsicnNmyDpsNLQlTZz1k7us/azt4QFKqahk3jNwsjFSBHnznUjqiZuj4WSh
-	MXs7NTrJBiAmtho3wPB7IoWSSci3LBqpz+d+n8j3PP8PGB0n01zPSmuL3bmtAX939uOIrhBMt+T
-	kylwOeQygmHrwHZY4qLVNr6EKFRdLgniX0S4ESccSNicUFNiaZjmYhQA2uITo5mMwmWcVPV7qxK
-	ZhWzLp2pngEJAeD82xWRNjYjZbQihHEx+Ezegk+GcUVukRRLe2fsxn/R4/QJ1/sgI6x2x7mrWpV
-	Qg2sVA==
-X-Received: by 2002:a17:907:3d43:b0:bcb:b15f:14a1 with SMTP id
- a640c23a62f3a-bd23aa1844fmr479690166b.7.1778683185065; Wed, 13 May 2026
- 07:39:45 -0700 (PDT)
+	Wed, 13 May 2026 15:29:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2F43444A0;
+	Wed, 13 May 2026 15:29:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B9D50C2BCF5;
+	Wed, 13 May 2026 15:29:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778686160;
+	bh=LFbmUOex4B5o7clfZWmgNVfvHIxLuigp4QSkfd7cb74=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=lRvQVwgc4ZenW1PEwYV77HOsPeKKXDrFd5YdTmn9bx5E/cCFhhyPqjWBlIoKmIRsb
+	 v8/+16lzOs8NT6hdGMUSTHNdpce3+nmagMKI5HgA4baJx1tpDuawlYbKyUxBwvSShr
+	 13ogsXrJYceE9Pk/T11iBPE1YYAqEISnH8ZL6taplYqELl+1tT11E0XkZJaFrNMlK0
+	 4yUqn3O/glBxy9NZ18fXPTfPVsC/KmluYZsTPX4w9kb8ql98++MTy+Q6frS+YvtoSP
+	 M6xS4adkvY+EQqeevpvlQiBjuDobteQeVe/QwnzuTn37hslKMZxJ4EQBTaXrmUOxCh
+	 /B5TJLgndgHSQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B23F7CD4F3E;
+	Wed, 13 May 2026 15:29:20 +0000 (UTC)
+From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
+Date: Wed, 13 May 2026 17:29:10 +0200
+Subject: [PATCH RESEND v7 3/3] riscv: clocksource: Add p8700-gcru driver
 MIME-Version: 1.0
-References: <CANAwSgREs-Ai5RxuiD4Ue-8OGGdrhnLSBmSePBrjN3x9=59zrA@mail.gmail.com>
- <20260513105030.1074335-1-amadeus@jmu.edu.cn>
-In-Reply-To: <20260513105030.1074335-1-amadeus@jmu.edu.cn>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Wed, 13 May 2026 20:09:29 +0530
-X-Gm-Features: AVHnY4LObZPjOHYcJad_9LeD-36GYglsaC0zIs_XJX_NY4Ny0UPRl2ZDzVqaAoE
-Message-ID: <CANAwSgQ5-ATFGESe+=sEuGfEHwqDxg6b_QL=WJSV0gONFLmiZA@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] riscv: dts: spacemit: k1-bananapi-f3: Add
- vin-supply for PCIe 3.3V regulator
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org, dlan@kernel.org, gaohan@iscas.ac.cn, 
-	huang.ze@linux.dev, krzk+dt@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org, 
-	robh@kernel.org, spacemit@lists.linux.dev
+Message-Id: <20260513-riscv-time-mmio-v7-3-f8925ffc226b@htecgroup.com>
+References: <20260513-riscv-time-mmio-v7-0-f8925ffc226b@htecgroup.com>
+In-Reply-To: <20260513-riscv-time-mmio-v7-0-f8925ffc226b@htecgroup.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <pjw@kernel.org>, 
+ John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, 
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
+ Chao-ying Fu <cfu@mips.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778686158; l=3250;
+ i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
+ bh=6tKjaKViZn8P2amTu2oO3Kpu4d2sX/LUMZ6acjvMpRY=;
+ b=yqFqFT2FlIVTgi2TVjxUCDiuHbeM0zfUfHwtCFK/BVCMLLwbzX6HmPi9VsScWzC1TmZZKh3M1
+ yIQ6AE1h1zgBSAo5e/Uu/YHaPEOJqniGucbSIFilTsV15hi6KHCnTOm
+X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
+ pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
+X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
+ with auth_id=476
+X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_073947_413216_5016D6F1 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20260513_082921_902896_D2E9B4EB 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,45 +91,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
-On Wed, 13 May 2026 at 16:20, Chukun Pan <amadeus@jmu.edu.cn> wrote:
->
-> Hi,
->
-> > @@ -39,6 +39,7 @@ pcie_vcc_3v3: regulator-pcie-vcc3v3 {
-> >               regulator-min-microvolt = <3300000>;
-> >               regulator-max-microvolt = <3300000>;
-> >               regulator-always-on;
-> > +             vin-supply = <&reg_vcc5v0_sys>;
-> >       };
->
-> > Plese check power tree page 4
-> >
-> > USBVBUS->SY8386J UXXX -> PCIE_VCC3V3 for pcie vin source
-> >
-> > USBVBUS is power source from the typec port.
->
-> So this isn't from VCC5V0_SYS. USBVBUS and DC_IN can be
-> considered as the same power source.
+Add a clocksource driver for the P8700 GCRU.
 
-I am not the hardware person. USBVBUS supplies 12V, and VCC5V0_SYS supplies 5V
-As I understand it, SY8386J UXXX serves as a step-down DC/DC regulator
-for your PCI device.
+Initialization uses helper functions
+provided by clocksource/mmio.c and timer-of.c.
 
-[1] https://datasheet4u.com/download_new.php?id=1604744
+Since the GCRU does not support any kind of interrupts,
+the default RISC-V clockevent implementation should suffice.
 
-USBVBUS is the input for the PCIe source, so this should be vin-supply
-= <&rreg_dc_in>;
-It is as per the schematic
+Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+---
+ drivers/clocksource/Kconfig       |  9 ++++++++
+ drivers/clocksource/Makefile      |  1 +
+ drivers/clocksource/timer-p8700.c | 45 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 55 insertions(+)
 
-Thanks
--Anand
+diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+index ffcd23668763fe7707a4e917bf240caadbb09a8c..861e7b8c93376b345e3a488dabe435d06a42f357 100644
+--- a/drivers/clocksource/Kconfig
++++ b/drivers/clocksource/Kconfig
+@@ -672,6 +672,15 @@ config CLINT_TIMER
+ 	  This option enables the CLINT timer for RISC-V systems.  The CLINT
+ 	  driver is usually used for NoMMU RISC-V systems.
+ 
++config P8700_TIMER
++	bool "MIPS P8700 timer driver"
++	depends on GENERIC_SCHED_CLOCK && RISCV && RISCV_SBI
++	select CLKSRC_MMIO
++	select TIMER_PROBE
++	select TIMER_OF
++	help
++	  Enables support for MIPS P8700 timer driver.
++
+ config CSKY_MP_TIMER
+ 	bool "SMP Timer for the C-SKY platform" if COMPILE_TEST
+ 	depends on CSKY
+diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
+index ec4452ee958f1a814c708aeba6412bea61d24892..fae9a58d6c8663a7c857b9ab7fdae05782b3551c 100644
+--- a/drivers/clocksource/Makefile
++++ b/drivers/clocksource/Makefile
+@@ -95,3 +95,4 @@ obj-$(CONFIG_CLKSRC_LOONGSON1_PWM)	+= timer-loongson1-pwm.o
+ obj-$(CONFIG_EP93XX_TIMER)		+= timer-ep93xx.o
+ obj-$(CONFIG_RALINK_TIMER)		+= timer-ralink.o
+ obj-$(CONFIG_NXP_STM_TIMER)		+= timer-nxp-stm.o
++obj-$(CONFIG_P8700_TIMER)		+= timer-p8700.o
+diff --git a/drivers/clocksource/timer-p8700.c b/drivers/clocksource/timer-p8700.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..220ed8efdfe5544a3f925ad43b8faf2e0565557b
+--- /dev/null
++++ b/drivers/clocksource/timer-p8700.c
+@@ -0,0 +1,45 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2025 MIPS.
++ */
++
++#include <linux/sched_clock.h>
++#include <linux/delay.h>
++#include <linux/of_address.h>
++#include <linux/init.h>
++#include <linux/interrupt.h>
++#include <linux/clocksource.h>
++
++#include "timer-of.h"
++
++static struct timer_of gcru_of = { .flags = TIMER_OF_BASE };
++static u64 __iomem *p8700_time_val __ro_after_init;
++
++static u64 notrace p8700_timer_sched_read(void)
++{
++	return (u64)readq_relaxed(p8700_time_val);
++}
++
++static int __init p8700_timer_init(struct device_node *node)
++{
++	int error = 0;
++
++	error = timer_of_init(node, &gcru_of);
++	if (error)
++		return error;
++
++	p8700_time_val = timer_of_base(&gcru_of);
++	/* Now init the mmio timer with the address we got from DT */
++	error = clocksource_mmio_init(p8700_time_val, "mips,p8700-gcru",
++				      riscv_timebase, 450, 64,
++				      clocksource_mmio_readq_up);
++	if (error)
++		return error;
++
++	/* Sched clock */
++	sched_clock_register(p8700_timer_sched_read, 64, riscv_timebase);
++
++	return error;
++}
++
++TIMER_OF_DECLARE(p8700_timer, "mips,p8700-gcru", p8700_timer_init);
+
+-- 
+2.43.0
+
+
 
 _______________________________________________
 linux-riscv mailing list
