@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851A5CD4F21
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 23:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42D5CD4F21
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 23:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cISshR87kFLdS5apv4aFNgM58ZJgVrxGh7F3lBgg24g=; b=bZcrRojPmMLNLV
-	pJ+4k4NBRhJBWt7KHUZkBKFvEDbrzpGXlYAx85q2ZiCmPYot3kKvsqfVRVpBANVQoDQVBfoBxiTpH
-	A30Ezyv7aT4Tykk1VqU9KSDyA8iY1PawrN7mjGvF4FFY/+iAyzsPHHzjlxAHHBvpW5nianUkzl+Qu
-	zx4IujpNyGRpqPZnbm1ycSicMuMqHF/arq00vUcPJa+o/DhNm6FySTT/tRfkPts7Ip6+VpILQOAAl
-	I4M81eACBfZ7/NddKksbBhV/HeNqK4lvTpeIKAJaS9BML3t332VhxCmazcgwZ5vBxejFYETYNrtnq
-	LTDsRFlH0mudaCGAiacg==;
+	List-Owner; bh=wv9v4X1u4UeWSRo9qTGetHwFl+7gfRlMVWXap+ikNEc=; b=IHxyDIFJ5Qt64g
+	Zyy6Mw3cPmixv0tJVaYxSfRnubINNk59FS7gF2i+JtmaMq0EP8c8nMnF9zsc/sVOhDbyDNUtMDwiI
+	p3RrCIgL1ixw7BmXAVPEb4QIVr8mGY8Bnvwnm6TENnnzrGjKk0RfWDSVA1sMM13rWqj2uwFVX1uC7
+	7+OMKtBLlqVPz+4nX2QTDkQRPQTbTwar90Nlk9vCQ79hAOcX8lbRmZkaJrbDu8WSIRiiSn3b762/g
+	Sxtjg6Q7rI0Q3rm0Gs+1WTgkKW75Rphe+cQ2dJcWgvcs+tBgG/cus1sU+SgDkgMEuueGg3CiUdx99
+	RSFmU9SlGEulrlk/KsZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNIf7-00000003zL8-3F8O;
-	Wed, 13 May 2026 23:06:45 +0000
+	id 1wNIgS-00000003zh7-0PE6;
+	Wed, 13 May 2026 23:08:08 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNIf4-00000003zKX-3Umc
+	id 1wNIgQ-00000003zgQ-2Tnh
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 23:06:43 +0000
+	Wed, 13 May 2026 23:08:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7855942B62;
-	Wed, 13 May 2026 23:06:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0992C19425;
-	Wed, 13 May 2026 23:06:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 24E6D401A9;
+	Wed, 13 May 2026 23:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AA98C19425;
+	Wed, 13 May 2026 23:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778713602;
-	bh=DlAbAtOk3x6I8PGdX/PgiHRv4Qup6WPVLeUY8Disf1Q=;
+	s=k20201202; t=1778713686;
+	bh=YOx5S+WMlC2TiFkDOXGAXO69J0hp9pP8PzJFV3ILM6I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BTkbeQaNHGC1BPlEuISVj2AdP8A07sxaIuOHKiy8+87z1XAT2ZbbLEhclWFKSeG8P
-	 /Hd/O5EcpHx2Rc5S3WxjRhg7fm7mIne9ylGYKejlFAb6H9R5oiUz1lMiU6l5NkToHn
-	 wIf+z6lkmRWrxRozLu9/DR4JaMvQspjvfuU/WShks54qYOq+etKrPCTLXAE8eWbVOe
-	 L3Fmh/tS4OIBQ+WgfRIZG26asLwEJDEquPjaU2snHLKMuJC7iYFsPcSawowTjspCQc
-	 1a8gW++rd682Fj0LZ1bG2UCOfbkkjH6E6zeSIJA8pgBRdW4PPKoggCyz9gzVFMHn9x
-	 qa5d5OaFNwfUA==
-Date: Wed, 13 May 2026 18:06:39 -0500
+	b=sXLc7dTSbKXJC1jjz6deJLApBQj3vUvPUCCdX992sxhcVK+u2hxmG42CAL21gfEpB
+	 vxJr1MkHpnloYFmsVHAra/jmlWTQHHYVwKh9C4Rr+O9MnQjU5YhhWqP2OS0TbGqMtz
+	 61abOa61pSryxXjkgRtwFzFHN/V+sXvWLso536Ee37I0YeD2vlvaHux/sOsYL5ombS
+	 X2vORTBVZ8bfsbj7bO2M/wCsYQQIljDdE/sJ3BiUXGvLu4ZycRxdPSAPbmWULfaNC8
+	 8CvYgJ0uGaaimwfkkE6LNFfNfjvVY9unKJlMXEZgm5NT81IMZJqXTHAfD6yj1j/X+c
+	 2ZKDmCftR2AvQ==
+Date: Wed, 13 May 2026 18:07:57 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: linux-hardening@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>,
-	netdev@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+Cc: Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	devicetree@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>,
+	Kees Cook <kees@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-hardening@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
-	linux-clk@vger.kernel.org,
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, netdev@vger.kernel.org,
 	Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
-	Kees Cook <kees@kernel.org>
-Subject: Re: [PATCH v2 07/22] dt-bindings: clock: Add StarFive JHB100
- System-1 clock and reset generator
-Message-ID: <177871356173.2271810.4990360775235090390.robh@kernel.org>
+	Hal Feng <hal.feng@starfivetech.com>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	linux-clk@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v2 09/22] dt-bindings: clock: Add StarFive JHB100
+ System-2 clock and reset generator
+Message-ID: <177871367651.2277166.1596733708637773220.robh@kernel.org>
 References: <20260508053632.818548-1-changhuang.liang@starfivetech.com>
- <20260508053632.818548-8-changhuang.liang@starfivetech.com>
+ <20260508053632.818548-10-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260508053632.818548-8-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260508053632.818548-10-changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_160642_897321_B5496C37 
-X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-CacheID: sfid-20260513_160806_651254_3586448E 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,17 +89,17 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 07 May 2026 22:36:17 -0700, Changhuang Liang wrote:
-> Add bindings for the System-1 clocks and reset generator (SYS1CRG) on
+On Thu, 07 May 2026 22:36:19 -0700, Changhuang Liang wrote:
+> Add bindings for the System-2 clocks and reset generator (SYS2CRG) on
 > JHB100 SoC.
 > 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  .../clock/starfive,jhb100-sys1crg.yaml        | 71 +++++++++++++++++++
->  .../dt-bindings/clock/starfive,jhb100-crg.h   | 20 ++++++
->  .../dt-bindings/reset/starfive,jhb100-crg.h   | 11 +++
->  3 files changed, 102 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb100-sys1crg.yaml
+>  .../clock/starfive,jhb100-sys2crg.yaml        | 64 +++++++++++++++++++
+>  .../dt-bindings/clock/starfive,jhb100-crg.h   | 33 ++++++++++
+>  .../dt-bindings/reset/starfive,jhb100-crg.h   | 25 ++++++++
+>  3 files changed, 122 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb100-sys2crg.yaml
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
