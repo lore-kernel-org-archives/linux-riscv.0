@@ -4,147 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E344CD4851
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 08:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E683CD37B6
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 08:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cWDKgbCOIt3TwNv6Tv8QAbrWqGDRR8qFdDiPj041+u4=; b=n5yb0SpRo7a6nL
-	bisAnT/Yjw8UN7lT1hZrF2fHV9mejANZi6hGMlU3iDyhyO9Xj5odhFzw7rcQt5fEVv3D/hakbCDfn
-	wLZfHcUqo7oXVBkD2XMXTpCH+M9paKITsD6YCN8hGbHHMxSMZM2Nugajjxmdi0d1DDQDH2vHITtAP
-	0Noh6LW64FG8T9ig6O8oZ1Q2yCQtZVcAlsEy9BfUAT8Xl1bTw/7I+cYcL1wMrtp5wKVoMroL5glpB
-	8xI2lSrzya3OYouC7TXcWozpeJ4XZovn7bODC7eWxyXdJxAJLEtiPmgs+XZkdVEQlq/AExFNh30g8
-	evzjoRWo0s19nEO3I7lg==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:To:From:Mime-Version:Date:
+	References:Message-Id:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=6BoPywbh0K8ypiAp84MqW/pHOZEhxMH1D3u4ZIs3ceY=; b=Vw4zJw75e/D6fo
+	1sJD5rP/B9Ass0vod00BTxLJ9ihINTL/s3ECZ8aS6NLJM0aJMJ1IEPfwMeiPUaY9h0JipWWuCOLOI
+	/pw/NDhjiVQj2oymuEYeH2bvsc7OD6n8s1mQAo4IPV/jBMoVDX8I/7KTXmagh/4/7kRfb9EeuMpJz
+	g+XAJ/DxN3334+DW+1jBibPA4SGowQZzE94jfsXJ7l84safZQtK+wTJSXp58aQvAqwsQmVB4hYBFF
+	O106AevOXG5CD51YEz6jMaGR8YwJDot2R308MNrEZNkz+dOnyXnDq/lxUVGDvvMC73z/FDGQ0JjmI
+	NDiMjg/aE9t1g61Y23WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5D2-00000001mgP-243b;
-	Wed, 13 May 2026 08:44:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wN5K1-00000001o87-0eJV;
+	Wed, 13 May 2026 08:52:05 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5D0-00000001meT-36Vb
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 13 May 2026 08:44:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zmAbegcURExUMu9LBa5XbR8BKHL2qZB12gzd9RXImJ0=; b=C9++a4sQ0242Du+RJQsxGgyjEG
-	TMPFoTlC3Q4Gh3zla8flQCORL02fJC9+uj+DMAivNt8bo/DFyZdh7WBJFbWIuW4yUqaOaknYWGkfk
-	ryWbNJB9KE5pbURWsCFEuDDLbrpAaerorIxSUEBOK56w39srvIEFyFP9acaOSzCPLU/GXrCsqrNKS
-	vKRsLQWErH5iepUIUgx0hI/kHEF+ipGNNdq452g0tkU/zwTNnQ+84+WoXeeaQivVAoThvHS0GUKxV
-	TrRAaXsB6x//sCWkApVNfPyesc+OMaW37Ockvik+6YQvWwL624pfqe78F+QP1Ht2SmnL2F1KhYt7r
-	xnh9N5Iw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5Cr-0000000GsDb-10LV
+	id 1wN5Jy-00000001o6u-21Vg
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 08:44:44 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64D4p9VW2343978
-	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 08:44:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=zmAbegcUREx
-	UMu9LBa5XbR8BKHL2qZB12gzd9RXImJ0=; b=iVz425xm8NrnarAFsAX5H+HUYOk
-	UupNDRM0cum8UeBq+sX4nbv6ktka9JpEftA+rUacYqi1jirP8l1ku/xlW47Z/SmQ
-	gBg6/yreQLGjB/YhRmi3TDQ9+BDohxcLaw7Lp4WHKRPiS8gAYSyB2DfEWcbXXNzX
-	ZGoxnZZVb240KftcGC9Za+JzSgFh+2tAY7ZlTs9Bu199r/EX7K3yGQfQEt/zNmaH
-	f7FKO8Qeisg4eu5QEIoUHSaDwHHgxaq2dhKFA24DAqnIQQBq5FbGmh8umsTneYvu
-	cN0DiryRjmRxMnumLqySOn021o/3lSjwwH60BeVLTnsEmOIIdJm67l57apQ==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e43tn456s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 08:44:39 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b2ecc96a9aso67975625ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 01:44:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778661879; x=1779266679; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zmAbegcURExUMu9LBa5XbR8BKHL2qZB12gzd9RXImJ0=;
-        b=Ud2MfpQQuX0XJp6XOfAdxG3fPiDGj//Wcc9NV5xJYap1DImCwBTFcuL+JLmHYWTEHe
-         EZBrELPaDx8DoM6aFu5YjdablwDhv3lc7fy0qb/DogDrMmVvqPfOb3aq7jmmiJUQDAWy
-         1K2UqXw3VW44j4ex3ZAkZoK6Z4YDeJx3hvbH9uEyjw+yrn8sXVHbOcFK0hU/cAbHW24I
-         gCDUJt/ENWDEapHJPO92YfupQrYoEA5ZWtjOhMC+R0qYQ8G2rsfWO3HCxzC7/WMkGh3N
-         zophD2HtiT75lVy7ZkUB8dT3B+Qtzvbs0jnZBIHOGnR0KV2/P82yDXRFHtIXifpPq6P5
-         t9JQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778661879; x=1779266679;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zmAbegcURExUMu9LBa5XbR8BKHL2qZB12gzd9RXImJ0=;
-        b=emFb7LNUi44MTopj5jfRW2PancEEz4uKSBwEty8RitCpP9PinEGLR53mAWfSQOgGt4
-         RYIgj1tEKhQtVyhCINd3LtrbLJxQukgZvACMpJECvLPhggZPFE5eSzdFFRp1I5jrMs9M
-         uKW3kJYYhhv5/FL8UnK9lc186wl5OgnRxv6+hYwfJzLTiuCKKZwYKuUYtSoMzqZZb77G
-         HjRsDvuWuSS+Lm2MmrRp9+jEXNZ6Yr+QxO5QKDCYCeTwDzPiaejDhDQQiqqFU59lbBNI
-         jLH8dqQiFm1Iun6eZ8VgdQDo1rJfWrWjGjyV6uVUUw8mt7dQHnhZiq5Ds/z0olAvcDjf
-         3+zg==
-X-Gm-Message-State: AOJu0Yyi0l9LyDSbZpEv38JKthwt8QrMJj5VoAwDwx7ltbdzHiFMdLqq
-	cCWChUty2zoQEgE7uERv7GtvY+Cbv4RcN+5G1MXIkgcJz8k2nUa5vrxDU6iBsb8z7IJan3cViVX
-	o/YCF+a0mBlP2WHX/8+ZzflzvE0xjyTLnAyR5dN7pNMjKjDh7USZ1qTZUeAJzCjFO0S892EQvC0
-	GV+m4=
-X-Gm-Gg: Acq92OElyb8vJUFNVZwFuy3YZHPQB7bzPUOcIQYs182QKHSlNPlrpir+k81+TTliJ69
-	AYgM/2Mdnk3z53GeE6MIvBBBe21IiDiN2/54qAbPqoFSDs0NSqJyEtvM92+2P8cOG7HxXFhsLRA
-	uYLOMv7fygKeiZbip6z3BawT+GLwkHs65oinuC3u/l9lGEt6+Nn6Nu3hTxy8fi7qRxf8HQoEIdB
-	AzH3IkxtwvUfZwUvzwKYwyT+OljopNllhYOsafQXF5xgJFjxwgDe35gge/6CWdOwpCRGty1cCWK
-	EBdhIVL5Hlb/zdp0pzDoLkkpHGJaWq+XsRG6vEREhVkSwitG6NsC8ltX+3crhU/BCMqPwzoOGj1
-	m4JcwjGVk0cUgJo7M5rVRBLhiAWRNTSd6uzHBAUx37WMCuRgONw0bD1EeZPosQJ8eQAUhZnuBn6
-	l4FCOTtfpoGfIy8CsinIr6HoG+ZVDGsWOEL5pdkzy3p5aTsQ==
-X-Received: by 2002:a17:903:907:b0:2b0:5ae9:ee4 with SMTP id d9443c01a7336-2bd2713c355mr27371415ad.5.1778661878568;
-        Wed, 13 May 2026 01:44:38 -0700 (PDT)
-X-Received: by 2002:a17:903:907:b0:2b0:5ae9:ee4 with SMTP id d9443c01a7336-2bd2713c355mr27371015ad.5.1778661877861;
-        Wed, 13 May 2026 01:44:37 -0700 (PDT)
-Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d2709bsm169158725ad.5.2026.05.13.01.44.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 01:44:37 -0700 (PDT)
-From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-acpi@vger.kernel.org, linux-efi@vger.kernel.org,
-        acpica-devel@lists.linux.dev, paul.walmsley@sifive.com,
-        palmer@dabbelt.com, lenb@kernel.org, james.morse@arm.com,
-        tony.luck@intel.com, ardb@kernel.org, conor@kernel.org,
-        cleger@rivosinc.com, robert.moore@intel.com, sunilvl@oss.qualcomm.com,
-        anup.patel@oss.qualcomm.com
-Cc: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Subject: [PATCH v4 10/10] riscv: Enable APEI GHES driver in defconfig
-Date: Wed, 13 May 2026 14:13:25 +0530
-Message-ID: <20260513084325.2176952-11-himanshu.chauhan@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260513084325.2176952-1-himanshu.chauhan@oss.qualcomm.com>
-References: <20260513084325.2176952-1-himanshu.chauhan@oss.qualcomm.com>
-MIME-Version: 1.0
-X-Proofpoint-ORIG-GUID: 1fadRKYAa-33Z8pbZHrRiJOed0ME7ZQR
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDA4OSBTYWx0ZWRfXxHaNjEsyQLYy
- aXttXBbBYLq+5jB6aycd+A7+SiJ0XXjNAwU7OFVh0NQLCHuoZohSFA9sEQ4EKcpfl5z34FFJv8o
- f0IdMaENCgZnal6XI5sl5xSks2vbNkoU5UQiDZcfptFbcTu/IlMzu+58sp3w8SlFQEVHrfdHfJU
- 6KdkASps6f3wX2VzEWJuQUCRMvsQ59KEYX9baF/z9oiuo0w9cOeD/EmRhJtIMwVBYrbQoI/7TD5
- gEXZXbx8NAJsoUyf6+plS7b6t1Ujy1j4lDp+6obNjV0K/E9Ovg3+fsmRYeOK8ngxTbP5vif6mcn
- 2T8QqOVO1UDwhO9Hix3vzjMVd8gvMPCvBOR3MbA9zEWj9JTzFWcG7tQ82fXgG2JSdDsWQptn1k9
- ROsb8iGpy9D2HdvRbrz8Q7TeRagco2AxGjsRegNR0wXNPTOnjkNfEvaJeVpHHuW//RZeEsJHRbJ
- fx3mDtWXotObPh8d9hg==
-X-Proofpoint-GUID: 1fadRKYAa-33Z8pbZHrRiJOed0ME7ZQR
-X-Authority-Analysis: v=2.4 cv=Ebn4hvmC c=1 sm=1 tr=0 ts=6a0439f7 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=xUlk1AThICIXWUt23vsA:9 a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-11_05,2026-05-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
- adultscore=0 clxscore=1015 impostorscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130089
+	Wed, 13 May 2026 08:52:04 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gFnJX44xfz4xPYg;
+	Wed, 13 May 2026 16:51:56 +0800 (CST)
+Received: (from root@localhost)
+	by mse-fl1.zte.com.cn id 64D8prqc083672;
+	Wed, 13 May 2026 16:51:53 +0800 (+08)
+	(envelope-from liu.qingtao2@zte.com.cn)
+Message-Id: <202605130851.64D8prqc083672@mse-fl1.zte.com.cn>
+Received: from njy2app03.zte.com.cn ([10.40.13.14])
+	by mse-fl1.zte.com.cn with SMTP id 64D8kmvG074085;
+	Wed, 13 May 2026 16:46:48 +0800 (+08)
+	(envelope-from liu.qingtao2@zte.com.cn)
+Received: from mapi (njb2app06[null])
+	by mapi (Zmail) with MAPI id mid204;
+	Wed, 13 May 2026 16:46:51 +0800 (CST)
+X-Zmail-TransId: 2afe6a043a7be67-f3fcc
+X-Mailer: Zmail v1.0
+References: 20260512183012245tRba33vG69iPkP37ZE21R@zte.com.cn
+Date: Wed, 13 May 2026 16:46:51 +0800 (CST)
+Mime-Version: 1.0
+From: <liu.qingtao2@zte.com.cn>
+To: <krzk@kernel.org>, <gregkh@linuxfoundation.org>, <jirislaby@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <marex@nabladev.com>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+        <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <rdunlap@infradead.org>,
+        <geert+renesas@glider.be>, <quic_zongjian@quicinc.com>,
+        <arturs.artamonovs@analog.com>, <robert.marko@sartura.hr>,
+        <hvilleneuve@dimonoff.com>, <thierry.bultel.yh@bp.renesas.com>,
+        <julianbraha@gmail.com>, <flavra@baylibre.com>,
+        <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <linux-serial@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <liu.wenhong35@zte.com.cn>, <liu.fei16@zte.com.cn>,
+        <dai.hualiang@zte.com.cn>, <deng.weixian@zte.com.cn>,
+        <jia.yunxiang@zte.com.cn>, <he.yilin@zte.com.cn>, <bai.lu5@zte.com.cn>,
+        <yang.susheng@zte.com.cn>, <shen.lin1@zte.com.cn>,
+        <zuo.jiang@zte.com.cn>, <hu.shengming@zte.com.cn>,
+        <gao.rui@zte.com.cn>, <tan.hu@zte.com.cn>, <liu.qingtao2@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYyIDEvMl0gQWRkIFpURSBMUlggVUFSVCBkcml2ZXI=?=
+X-MAIL: mse-fl1.zte.com.cn 64D8prqc083672
+X-MSS: AUDITRELEASE@mse-fl1.zte.com.cn
+X-TLS: YES
+X-SPF-DOMAIN: zte.com.cn
+X-ENVELOPE-SENDER: liu.qingtao2@zte.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.132 unknown Wed, 13 May 2026 16:51:56 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A043BAC.000/4gFnJX44xfz4xPYg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_094443_007804_37D406B0 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20260513_015202_674783_37EBB857 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,31 +97,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The APEI GHES driver is very important for error handling on ACPI
-based platforms so enable it in defconfig.
+From 08610be731b6fc3919d5eebfd2ff9d67f38a094c Mon Sep 17 00:00:00 2001
+From: Wenhong Liu <liu.wenhong35@zte.com.cn>
+Date: Tue, 28 Apr 2026 22:30:31 +0800
+Subject: [PATCH v2 1/2] dt-bindings: serial: Add zte,lrx-uart
 
-Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+Add devicetree binding for ZTE LRX UART controller.
+
+Co-developed-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
 ---
- arch/riscv/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+../bindings/serial/zte,lrx-uart.yaml         | 51 +++++++++++++++++++
+MAINTAINERS                                   |  8 +++
+2 files changed, 59 insertions(+)
+create mode 100644 Documentation/devicetree/bindings/serial/zte,lrx-uart.yaml
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index c2c37327b987..eb0c45405cd4 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -46,6 +46,9 @@ CONFIG_ACPI_CPPC_CPUFREQ=m
- CONFIG_VIRTUALIZATION=y
- CONFIG_KVM=m
- CONFIG_ACPI=y
-+CONFIG_ACPI_APEI=y
-+CONFIG_ACPI_APEI_GHES=y
-+CONFIG_ACPI_APEI_ERST_DEBUG=y
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
- CONFIG_MODULE_UNLOAD=y
--- 
-2.43.0
+diff --git a/Documentation/devicetree/bindings/serial/zte,lrx-uart.yaml b/Documentation/devicetree/bindings/serial/zte,lrx-uart.yaml
+new file mode 100644
+index 000000000000..20f470f04257
+--- /dev/null
++++ b/Documentation/devicetree/bindings/serial/zte,lrx-uart.yaml
+@@ -0,0 +1,51 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/serial/zte,lrx-uart.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ZTE LRX UART
++
++maintainers:
++  - Wenhong Liu <liu.wenhong35@zte.com.cn>
++  - Qingtao Liu <liu.qingtao2@zte.com.cn>
++
++allOf:
++  - $ref: serial.yaml#
++
++properties:
++  compatible:
++    const: zte,lrx-uart
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  current-speed:
++    description:
++      Initial baud rate configuration for the UART. This is a required
++      property to configure the serial port baud rate at boot time.
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - current-speed
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    serial@e0001800 {
++      compatible = "zte,lrx-uart";
++      reg = <0xe0001800 0x100>;
++      interrupts = <18>;
++      clocks = <&clk_uart0>;
++      current-speed = <115200>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0dfad67f66c0..79be2dde3b71 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -29494,6 +29494,14 @@ F: include/linux/zswap.h
+F: mm/zswap.c
+F: tools/testing/selftests/cgroup/test_zswap.c
 
++ZTE LRX SERIAL DRIVER
++M: Wenhong Liu <liu.wenhong35@zte.com.cn>
++R: Qingtao Liu <liu.qingtao2@zte.com.cn>
++L: linux-serial@vger.kernel.org
++S: Maintained
++F: Documentation/devicetree/bindings/serial/zte,lrx-uart.yaml
++F: drivers/tty/serial/lrx_uart.c
++
+SENARYTECH AUDIO CODEC DRIVER
+M: bo liu <bo.liu@senarytech.com>
+S: Maintained
+--
+2.27.0
 
 _______________________________________________
 linux-riscv mailing list
