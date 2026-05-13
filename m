@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC712CD4F21
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 19:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70AEFCD4F21
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 19:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0u/w5x6hCpSSSX9QzkRCNY5heI9AFPPzq0LDxHwE0Wc=; b=aU+nkQsybKr8JcGp+ypIcbDXXO
-	nWJQbRI9mBhF/JHohX5uufwxJcqObolLVBN3Dyt5ntDNCWzsu1IP/OKD0Xe6M3CP0pMzmfeqsRIDw
-	sL8q9dQFAfSmjms6Lsr4wnaaMzh2gLv0u211n2Jrpy7Y0fFrTrlQhrxojfIcGfOBUbMRWGQkSE9GZ
-	Sgt7XUyaskgw7VUT8E8UcCnmbhR8btmds+hA+kG/Sfkn3sPEb61vO7OeVxoP9XDBf2LDfauYHfRXy
-	3TUv1Qsuh8V7J0S+RuifgcburrHzRXPoeSSGYy2JsNdB3RI/j+BfvN8+N+08l2WF30eJTfPmQxuTW
-	KC5k2Mjw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5qs2c+fMq7YL/9QH6E7ubYmuoeKiMl1F9V9vRDM8zF8=; b=l3P8p7a1jlZ0VK
+	G8x+cLAfU4pWem+pyPeDwQ2omw8oLj8f50qL0NMIVDfkdsK8RSfxFtsK5FK1FeivkZDe2JNvlI+Mc
+	E34HSQZjqWl8n39BvTbSJ6jgdOe+PrViuFjGEx85GiIHU9DO65afM8mdpLvbsftGJBx+VDBSMs/Ho
+	p5ukcMn8Mf8KV/lnC45Kf9vFBFkMCuqhoUizs/o6T1Uuevkw4D89e9cjNmG+cbpJdds1LF8KXYc5d
+	uVH53o+hC1WD3AlAXhZyZarpNuF/4o0uxqGkVFFbK1XefpAVEWR4wkF3xdn7o68XdjcGoJrttMwE2
+	aK60/1Ei8mKOUI5J8PBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNF4e-00000003YKq-2UIy;
-	Wed, 13 May 2026 19:16:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNFDg-00000003Zp5-1roy;
+	Wed, 13 May 2026 19:26:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNF4d-00000003YKd-1lmm
+	id 1wNFDf-00000003Zou-1LTh
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 19:16:51 +0000
+	Wed, 13 May 2026 19:26:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B043600AE;
-	Wed, 13 May 2026 19:16:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BAA5C19425;
-	Wed, 13 May 2026 19:16:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ADE2F60129
+	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 19:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6587FC2BCC7
+	for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 19:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778699810;
-	bh=iJJNz6HXYxUUNPv3YiVGvW7CisErCC6b/AI/iBRLhSw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z6OuiCq8h7MijIfztDY6J+WrxdHxFNtPzhozImiBFKWXr4RVkFOxosQZuzp1ZYavK
-	 ElWJajC62XL+KbcFm1qYm69qffyGzkK5nWZ5W4P8MqED0RCivwlQzriDlV9c7LiHcq
-	 j3tHQ6BVrEVEDyiF+ssBGaBeBrR+X41bpPPeWFGlfcO381xumDpZuZALJRKprODfkr
-	 FmV79SWkehR89ltZ4VWnqLGeNVDbA+doXtRjM9dU5oqCfe2rQCzMu28JbN33zdb3kR
-	 JTnUrdqjZUB3myunpwF0AdfZFFwK1BKOgMMaFVK/+DIAZGcwj3H4V4ZzBmEP8G2X6t
-	 A6R9QblpKZeew==
-Date: Wed, 13 May 2026 20:16:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v2 11/12] soc: starfive: Add socinfo driver for JHB100 SoC
-Message-ID: <20260513-headstand-hertz-bf31fe6c1938@spud>
-References: <20260512083521.3448-1-changhuang.liang@starfivetech.com>
- <20260512083521.3448-12-changhuang.liang@starfivetech.com>
- <20260512-mushroom-helpless-0815d0885abb@spud>
- <ZQ4PR01MB120205CCC0A3229824701640F2062@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+	s=k20201202; t=1778700370;
+	bh=jkUkWktFpdEdF2Lcj4EAj+e+wcRxBaXPi67I/QnY5NQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=cYGlfSj2/CHzKzyv9me2Zk/HspGP9sjtk4Engs8yoqb2zW9iTZpuRoru+aQDg8KcV
+	 CEivNN1d8In9wMQitua9OBf7lWz7JGVU2BXwSMqwhsjDrgaw9VroxtmQhiVPWihWfx
+	 IozQQUTd3LoCBCP9tlsnzBJWhc5SrgtBEEXIps7vxbey6TVUvgg6W3P+IunX3Lt6kL
+	 5lsFlql/jIyJ5Mi8TcUHdEoBcdsJliEGZoacbbNpWwvqBquVFzVBija05KoWnslRv4
+	 O3QXNx5fZDPvRLLqI9Tk+1kTQPbvK1d4jjK7Kkbz9sEpPCHoijuPNVMzLhU0VhCnqs
+	 sPx4/a+0DCMDA==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-393ba0616aaso78851781fa.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 May 2026 12:26:10 -0700 (PDT)
+X-Gm-Message-State: AOJu0YyP6lD2ol2EFPI6FbnpdSYz6anNDDwitA1CoAt2T3AHHgYW2WuR
+	d8gqumH4A4sdwA/LLx1rlwvrp7iaTipXODzQJmb37tBPvPXFZN9PsU+yaFFCp+dWHczjwg+mVq9
+	8UwograuNlwxDDjBqYfVF6/JcdoBaCnQ=
+X-Received: by 2002:a05:6512:684:b0:5a3:cc81:eff3 with SMTP id
+ 2adb3069b0e04-5a8ef97ca57mr1632659e87.26.1778700368753; Wed, 13 May 2026
+ 12:26:08 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <ZQ4PR01MB120205CCC0A3229824701640F2062@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260513084325.2176952-1-himanshu.chauhan@oss.qualcomm.com> <20260513084325.2176952-4-himanshu.chauhan@oss.qualcomm.com>
+In-Reply-To: <20260513084325.2176952-4-himanshu.chauhan@oss.qualcomm.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 13 May 2026 21:25:56 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0g2kjfAvcTzp8898A8HdMymU1SQ-rHW_DFhZP49c9=s5Q@mail.gmail.com>
+X-Gm-Features: AVHnY4I62r5FzdLCp8o0gBy8GA7EdJU8GhHm1Xiv_xt-CcqS2_Q5U7R1FjYttsM
+Message-ID: <CAJZ5v0g2kjfAvcTzp8898A8HdMymU1SQ-rHW_DFhZP49c9=s5Q@mail.gmail.com>
+Subject: Re: [PATCH v4 03/10] acpi: Introduce SSE in HEST notification types
+To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-efi@vger.kernel.org, 
+	acpica-devel@lists.linux.dev, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	lenb@kernel.org, james.morse@arm.com, tony.luck@intel.com, ardb@kernel.org, 
+	conor@kernel.org, cleger@rivosinc.com, robert.moore@intel.com, 
+	sunilvl@oss.qualcomm.com, anup.patel@oss.qualcomm.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,131 +77,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4948081271646369536=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4948081271646369536==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wpszzjDaD+Si2T8W"
-Content-Disposition: inline
-
-
---wpszzjDaD+Si2T8W
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, May 13, 2026 at 01:01:46AM +0000, Changhuang Liang wrote:
-> Hi, Conor
->=20
-> Thanks for the review.
->=20
-> > On Tue, May 12, 2026 at 01:35:20AM -0700, Changhuang Liang wrote:
-> > > Add socinfo driver for JHB100 SoC. Currently available for
-> > > distinguishing between the two reversions, A0 and A1.
-> > >
-> > > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > > ---
-> > >  MAINTAINERS                                   |  5 ++
-> > >  drivers/soc/Kconfig                           |  1 +
-> > >  drivers/soc/Makefile                          |  1 +
-> > >  drivers/soc/starfive/Kconfig                  |  6 ++
-> > >  drivers/soc/starfive/Makefile                 |  2 +
-> > >  drivers/soc/starfive/socinfo/Kconfig          | 11 +++
-> > >  drivers/soc/starfive/socinfo/Makefile         |  2 +
-> > >  drivers/soc/starfive/socinfo/jhb100-socinfo.c | 80
-> > > +++++++++++++++++++
-> > >  8 files changed, 108 insertions(+)
-> > >  create mode 100644 drivers/soc/starfive/Kconfig  create mode 100644
-> > > drivers/soc/starfive/Makefile  create mode 100644
-> > > drivers/soc/starfive/socinfo/Kconfig
-> > >  create mode 100644 drivers/soc/starfive/socinfo/Makefile
-> > >  create mode 100644 drivers/soc/starfive/socinfo/jhb100-socinfo.c
-> > >
-> > > diff --git a/MAINTAINERS b/MAINTAINERS index
-> > > 6f6aac7cea95..66175f453d20 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -25613,6 +25613,11 @@ S:	Maintained
-> > >  F:	drivers/reset/starfive/reset-starfive-jhb1*
-> > >  F:	include/dt-bindings/reset/starfive,jhb1*.h
-> > >
-> > > +STARFIVE JHB100 SOCINFO DRIVER
-> > > +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-> > > +S:	Maintained
-> > > +F:	drivers/soc/starfive/
-> >=20
-> > FWIW, this is not what I asked for in v1, this should remain the full p=
-ath to the
-> > driver. I wanted you to add this directory back to the "STARFIVE SOC
-> > DRIVERS" entry, since it's me that'll be applying patches for this driv=
-er.
->=20
-> Sorry, I misunderstood what you meant.
->=20
-> >=20
-> > > +
-> > >  STARFIVE JHB100 SYSCON
-> > >  M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-> > >  S:	Maintained
-> > > diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig index
-> > > a2d65adffb80..b3b01fc38139 100644
-> > > --- a/drivers/soc/Kconfig
-> > > +++ b/drivers/soc/Kconfig
-> > > @@ -24,6 +24,7 @@ source "drivers/soc/renesas/Kconfig"
-> > >  source "drivers/soc/rockchip/Kconfig"
-> > >  source "drivers/soc/samsung/Kconfig"
-> > >  source "drivers/soc/sophgo/Kconfig"
-> > > +source "drivers/soc/starfive/Kconfig"
-> > >  source "drivers/soc/sunxi/Kconfig"
-> > >  source "drivers/soc/tegra/Kconfig"
->=20
-> [...]
->=20
-> > > +	pr_info("StarFive %s SoC rev(%s)\n", attrs->soc_id,
-> > > +attrs->revision);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +early_initcall(starfive_socinfo_init);
-> >=20
-> > Does this really need to be an early initcall btw?
->=20
-> Yes, there are some drivers that need to use soc_device_match() to match =
-different=20
-> revisions, in order to handle the processes caused by differences between=
- revisions.=20
-> So there's no harm in initializing this driver earlier.
-
-Other socinfo drivers use device_initcall, can you use that instead?
-
---wpszzjDaD+Si2T8W
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagTOHAAKCRB4tDGHoIJi
-0oebAQDHUz422QiNNBAozcQBRUUNetPwyzPv9mbhp5q6DhB6SgEA829KIXqQgaIA
-+5tVEGY9wkEQecJDp2etojerH/4Npwk=
-=dzjP
------END PGP SIGNATURE-----
-
---wpszzjDaD+Si2T8W--
-
-
---===============4948081271646369536==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4948081271646369536==--
-
+T24gV2VkLCBNYXkgMTMsIDIwMjYgYXQgMTA6NDTigK9BTSBIaW1hbnNodSBDaGF1aGFuCjxoaW1h
+bnNodS5jaGF1aGFuQG9zcy5xdWFsY29tbS5jb20+IHdyb3RlOgo+Cj4gSW50cm9kdWNlIGEgbmV3
+IEhFU1Qgbm90aWZpY2F0aW9uIHR5cGUgZm9yIFJJU0MtViBTU0UgZXZlbnRzLgo+IFRoZSBHSEVT
+IGVudHJ5J3Mgbm90aWZpY2F0aW9uIHN0cnVjdHVyZSBjb250YWlucyB0aGUgbm90aWZpY2F0aW9u
+Cj4gdG8gYmUgdXNlZCBmb3IgYSBnaXZlbiBlcnJvciBzb3VyY2UuIEZvciBlcnJvciBzb3VyY2Vz
+IGRlbGl2ZXJpbmcKPiBldmVudHMgb3ZlciBTU0UsIGl0IHNob3VsZCBjb250YWluIHRoZSBuZXcg
+U1NFIG5vdGlmaWNhdGlvbiB0eXBlLgo+Cj4gU2lnbmVkLW9mZi1ieTogSGltYW5zaHUgQ2hhdWhh
+biA8aGltYW5zaHUuY2hhdWhhbkBvc3MucXVhbGNvbW0uY29tPgo+IFJldmlld2VkLWJ5OiBDbMOp
+bWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+Cj4gLS0tCj4gIGluY2x1ZGUvYWNwaS9h
+Y3RibDEuaCB8IDMgKystCj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDEgZGVs
+ZXRpb24oLSkKPgo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2FjcGkvYWN0YmwxLmggYi9pbmNsdWRl
+L2FjcGkvYWN0YmwxLmgKPiBpbmRleCBmNzJlMDA1MTdlYjMuLjJhODE2Nzk3OTQ1OCAxMDA2NDQK
+PiAtLS0gYS9pbmNsdWRlL2FjcGkvYWN0YmwxLmgKPiArKysgYi9pbmNsdWRlL2FjcGkvYWN0Ymwx
+LmgKClRoaXMgaXMgYW4gQUNQSUNBIGNoYW5nZSwgc28gaXQgc2hvdWxkIGdvIHRocm91Z2ggdGhl
+IHVwc3RyZWFtIEFDUElDQQpwcm9qZWN0IG9uIEdpdEh1Yi4gIFNlZQoKRG9jdW1lbnRhdGlvbi9k
+cml2ZXItYXBpL2FjcGkvbGludXhpemVkLWFjcGljYS5yc3QKCmZvciBtb3JlIGluZm9ybWF0aW9u
+LgoKSWYgdGhlcmUgaXMgYWxyZWFkeSBhbiB1cHN0cmVhbSBBQ1BJQ0EgY29tbWl0IG1ha2luZyB0
+aGlzIGNoYW5nZSwKcGxlYXNlIGFkZCBhIExpbms6IHRhZyBwb2ludGluZyB0byB0aGF0IGNvbW1p
+dCB0byB0aGUgJHN1YmplY3QgcGF0Y2guCgo+IEBAIC0xNzk4LDcgKzE3OTgsOCBAQCBlbnVtIGFj
+cGlfaGVzdF9ub3RpZnlfdHlwZXMgewo+ICAgICAgICAgQUNQSV9IRVNUX05PVElGWV9TRUkgPSA5
+LCAgICAgICAvKiBBQ1BJIDYuMSAqLwo+ICAgICAgICAgQUNQSV9IRVNUX05PVElGWV9HU0lWID0g
+MTAsICAgICAvKiBBQ1BJIDYuMSAqLwo+ICAgICAgICAgQUNQSV9IRVNUX05PVElGWV9TT0ZUV0FS
+RV9ERUxFR0FURUQgPSAxMSwgICAgICAgLyogQUNQSSA2LjIgKi8KPiAtICAgICAgIEFDUElfSEVT
+VF9OT1RJRllfUkVTRVJWRUQgPSAxMiAgLyogMTIgYW5kIGdyZWF0ZXIgYXJlIHJlc2VydmVkICov
+Cj4gKyAgICAgICBBQ1BJX0hFU1RfTk9USUZZX1NTRSA9IDEyLCAvKiBSSVNDViBTU0UgKi8KPiAr
+ICAgICAgIEFDUElfSEVTVF9OT1RJRllfUkVTRVJWRUQgPSAxMyAgLyogMTMgYW5kIGdyZWF0ZXIg
+YXJlIHJlc2VydmVkICovCj4gIH07Cj4KPiAgLyogVmFsdWVzIGZvciBjb25maWdfd3JpdGVfZW5h
+YmxlIGJpdGZpZWxkIGFib3ZlICovCj4gLS0KPiAyLjQzLjAKPgo+CgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
