@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2411CD37AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 18:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D85CD37AC
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 18:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gdFP5j2kv4EXFtEJKm9g+E3ALIL7t5mX5vXOAMdWIt0=; b=f8bGDEWA4aUCS8
-	TFqQWrMNSlU18AbEiEUMcwZwJQQ8mCDW84NXsFO85XoOvoklKNH8ITPkFMxeVZ8jiSAL7yNX4KOqa
-	nrt4MhzbmUS0vbXlCMhDgIjqGgsSUEsHSDjnpVbiMD4xPobyEE7ZMedUgTvUCJjnItXyu7R+QyIyR
-	uNYK4GnOGC6FTlrx9NNm+E5jBVeZYl9DjOl1F1dUa4SpaEa4wiht52VP5z4Pi3vow31YPY190iIcn
-	y+Lg25EX6lGXAwSsUlgVS/fRKCay1KbbbXMx9bwlxhheMO7CjRsex+W7vd/FEXMtq2jnDS0Hjm8fm
-	9sVlHF0WXhT6nEMr7dmg==;
+	List-Owner; bh=Zfmr/2QiBp/tu7F/GZa+ZzE70ikV8BSIL79GhIdGhIk=; b=cf57q82bcIz5hr
+	DS9DdzXUNlfwwksc7/U14TSSuzz69GbGQ0pbmFk0hwSXJqcMAn5vPPt5uuJwiHpbR3EdVc0csfk+D
+	4cmxE5XJ2HC+gRjb3mV29y7NiG05vpg335alh+vn3QwVN/IbcNmcy7P8IorqX607qWTskg1qK7lLR
+	U693CVUBRzcvNNE0Vhzdr4IXRvW9MNsN0KneNucg6R1v5j7bREGmX3wcoCkcKKn4Atab1EP4j01Xw
+	a1HTQguhQwMCMuD2+FnoAewADifJnsTKf0tMnngIeGne9ArUyCUxr9ck0N7YKpbRt4OTzXuvZfTTn
+	7tdQ0sNieODZkI1G+/nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDxx-00000003QrH-2l0Q;
-	Wed, 13 May 2026 18:05:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNDzu-00000003R6G-0CIU;
+	Wed, 13 May 2026 18:07:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDxw-00000003Qql-1KiJ
+	id 1wNDzs-00000003R64-2PUD
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 May 2026 18:05:52 +0000
+	Wed, 13 May 2026 18:07:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 799A9600AE;
-	Wed, 13 May 2026 18:05:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F22B3C19425;
-	Wed, 13 May 2026 18:05:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ED269600AE;
+	Wed, 13 May 2026 18:07:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E014C19425;
+	Wed, 13 May 2026 18:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778695551;
-	bh=YEDixEb6AcOw2r2rrtOjAT+iDZxDlQcaXflSShbHv+w=;
+	s=k20201202; t=1778695671;
+	bh=2OZp1D4J6nCudtldfqfQQZXSnW0Ffzi18jRZlS94kJ4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DCgHB2NqbCWHwfje3UepQYhM3oqLgnbfUO355iiocQW/WuijRA5mbbI9VS2rF4bDb
-	 K8u8iHArfPxpsoQqiNveknJsWb8fMOLZXbCsj4r34buuQ2WVtBY2D79oiun2TP8ylN
-	 yYCVADcXDRJV0zWqqddSw3yzazhYyWsFaXXuVTO3ivEwQlgpKzUJZ/3VVupgnpzHi5
-	 cofvGs1wqx6YzAwMPsaeTEipayGTc4Pnt6zWeWMOl0tm7IIZLuIanzi3UxHiWvFNrH
-	 00E858ElL1zDHR9rLH/PvqOh+5uX900UUzDG0uWLpSpT8nrEVAqEET18eY6n356smQ
-	 T/cOHVa1VNIMg==
-Message-ID: <3bfdf6b0-8b5c-47ac-aa61-a5ff88e6eedb@kernel.org>
-Date: Wed, 13 May 2026 20:05:42 +0200
+	b=K+fgN9GlffBqKLi+Yd72iVzB5CqPvtLP1MLZoYxSsBX3VqhGXicZgEOBdQZaF3y+A
+	 E3h27Le0yc2sWj3ay60rX6FpQeaR+gDfiVe1BgVMrzVPu1zZ27yF1TgrKm5S5H655W
+	 Y2TftOuhDqJJtwNESwcAiaYWhZzVV2W+MLAngReD1Ls7o3gmPuG51KqICyVGRpb3TK
+	 3WFBC6lHwXrl+fSexkNwF7i2wcqhSxicc8Wm63YVli3D8+Tcp863sR3M7VnktqOvRT
+	 0XzAODnCXaa4Gd/1Qf+wkLiWfSN/c+VxX92IKzR3Or+tT92XKKdhIwOfLMx75lliZa
+	 os4o6PhfdzmCg==
+Message-ID: <04b8c5eb-03fa-444c-86c1-07beb20e13f5@kernel.org>
+Date: Wed, 13 May 2026 20:07:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] LRW UART: serial: add driver for the LRW UART
+Subject: Re: [PATCH v1 1/2] LRW UART: dt-bindings: Add binding for LRW UART
 To: liu.qingtao2@zte.com.cn
 Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, marex@nabladev.com, pjw@kernel.org,
@@ -62,7 +62,7 @@ Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, robh@kernel.org,
  bai.lu5@zte.com.cn, yang.susheng@zte.com.cn, shen.lin1@zte.com.cn,
  zuo.jiang@zte.com.cn, hu.shengming@zte.com.cn, gao.rui@zte.com.cn,
  tan.hu@zte.com.cn
-References: <202605130852.64D8qugc044740@mse-fl2.zte.com.cn>
+References: <202605130853.64D8r4bc045011@mse-fl2.zte.com.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,7 +108,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <202605130852.64D8qugc044740@mse-fl2.zte.com.cn>
+In-Reply-To: <202605130853.64D8r4bc045011@mse-fl2.zte.com.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,18 +126,67 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 13/05/2026 10:43, liu.qingtao2@zte.com.cn wrote:
+> Thanks for your kindly review. Sorry for the delay.
+> 
 >> On 13/02/2026 10:33, LiuQingtao wrote:
 >>> From: Wenhong Liu <liu.wenhong35@zte.com.cn>
 >>>
->>> This commit introduces a serial driver for the LRW UART controller
->> Please do not use "This commit/patch/change", but imperative mood. See
->> longer explanation here:
->> https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+>>> Add documentation for LRW UART devicetree bindings.
+>>>
+>>> Signed-off-by: Wenhong Liu <liu.wenhong35@zte.com.cn>
+>>> Signed-off-by: Qingtao Liu <liu.qingtao2@zte.com.cn>
+>>
+>> Please use subject prefixes matching the subsystem. You can get them for
+>> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+>> your patch is touching. For bindings, the preferred subjects are
+>> explained here:
+>> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+>>
+>>
+>> A nit, subject: drop second/last, redundant "bindings". The
+>> "dt-bindings" prefix is already stating that these are bindings.
+>> See also:
+>> https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 > 
-> Thanks. I change subject to "Add support for the ZTE LRX UART controller with the following features"
-> in the following patches.
+> Thanks for the notice. I will change the subject to "Add devicetree binding for ZTE LRX UART controller"
+> in the v2 patch series.
 
-You did not improve much. Read all comments again.
+NAK. Read the comment again. You improved nothing.
+
+> 
+> 
+>>> ---
+>>>  .../bindings/serial/lrw,lrw-uart.yaml         | 49 +++++++++++++++++++
+>>>  .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
+>>>  MAINTAINERS                                   |  7 +++
+>>>  3 files changed, 58 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml b/Documentation/devicetree/bindings/> serial/lrw,lrw-uart.yaml
+>>> new file mode 100644
+>>> index 000000000000..a2d41c278c4f
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/serial/lrw,lrw-uart.yaml
+>>> @@ -0,0 +1,49 @@
+>>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>> +
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/serial/lrw-uart.yaml#
+>>
+>> Never tested, NAK. There are several other issues here, but I am not
+>> going through rest of review if you did not bother to even build test
+>> it. Please open any other recent binding and apply same style here
+>> (filename, descriptions etc), so you won't be repeating SAME mistakes.
+>>
+>>
+> 
+> Sorry, i tested on an older version kernel.
+> No errors or warnings ever showed up running the command
+> "make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/serial/zte,lrx-uart.yaml".
+> 
+
+Don't work on older kernel. It's not an excuse.
 
 Best regards,
 Krzysztof
