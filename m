@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D258DCD37B6
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 05:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B3BCD4851
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 06:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yr7brhXQSr5gYMSp32D9ZEWpib9tmlwE/+chzHfU9hc=; b=gYdJhjMe8wqfwT
-	5bdcDxxAcCRa5v80BWWJ6UwrhA9YhiyxD4Ikyjuu4dF3smZH2ugsG4zyQpk/wMjZll4w09ANvxyip
-	ZKdGRHIpev+feSVhJRZUbaZwZSD96Ib+75xOqpS1iqB4gFuJicuSG5smkT6T2Gnf+ydZF1szLCOh+
-	myDh1MjxQXIQGKmPxLiADXhKDGz0Yiep2xXtrqDTUD07f/YJRUscrrPjPWC10JoUh5LKT93YSzYwz
-	ayqxbtFi1hUM2QlgPXXR7p8IgwitUKEjV6uhF0YHvYivAg/j1ATVo5sV2xNxxv6JWxHSXAOX3p3gX
-	noINzfP+BDKWVzJddk/g==;
+	List-Owner; bh=ZDKQNYwLoo2Vlx61mnESPqTNgWzNz3t75L/gMG0ybZg=; b=rj5knEW21HolMs
+	oWq6YvVIxwXpfPECbwZCSn0ZROOqN4bYMp/25gApY7MT2YkLdVvldu8AHl9vRezqL6xjl5WyOSnhW
+	6dctqcGneu5Hq5C81DyocxnvMgcBvQCEqjSnBjmsro/GHcvipLW1PXLwO+DpY6x21M9z6yH4gmikh
+	KiJwjrsVuwjW5Bxjt0mChRTCnY8lz8HOHAEzWAStM1zjTCY7/Afl6aOPnXJqtUcT4Nlp7zciiyNwK
+	cJLAVcGxmedl+c+kz5pD+TA06CGJTxPdkDOfxUxesfTvYDlwGSkdV6HIW+iPIGxqgH+pWTNDAoTyq
+	Oj+VXTx+e2rdrzN6tnAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2Rm-00000001MhX-2Sb7;
-	Wed, 13 May 2026 05:47:54 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1wN2es-00000001OnU-3BUR;
+	Wed, 13 May 2026 06:01:26 +0000
+Received: from mail-m12871.netease.com ([103.209.128.71])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2Ri-00000001MgA-0qbk;
-	Wed, 13 May 2026 05:47:52 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id B404568B05; Wed, 13 May 2026 07:47:42 +0200 (CEST)
-Date: Wed, 13 May 2026 07:47:42 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: David Sterba <dsterba@suse.cz>
-Cc: Christoph Hellwig <hch@lst.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-Message-ID: <20260513054742.GA1018@lst.de>
-References: <20260512052230.2947683-1-hch@lst.de> <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz>
+	id 1wN2eo-00000001Omh-2L2P
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 May 2026 06:01:24 +0000
+Received: from Vostro-3710.. (unknown [119.122.215.211])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3e3542995;
+	Wed, 13 May 2026 14:01:08 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: dlan@kernel.org
+Cc: alex@ghiti.fr,
+	amadeus@jmu.edu.cn,
+	aou@eecs.berkeley.edu,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robh@kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v3 1/2] riscv: dts: spacemit: add fixed regulators for OrangePi R2S
+Date: Wed, 13 May 2026 14:00:30 +0800
+Message-Id: <20260513060030.616473-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260511070718-GKC3624147@kernel.org>
+References: <20260511070718-GKC3624147@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260512114231.GG2558453@suse.cz>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+X-HM-Tid: 0a9e1fecbaa003a2kunm76fdac8128a16
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSRpKVk8ZHR1NTUJOTB0YTlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVJSkpZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pOTE5VSktLVUpCS0tZBg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_224750_380222_6E63D641 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260512_230122_803091_C2427B9F 
+X-CRM114-Status: UNSURE (   6.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +77,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 01:42:31PM +0200, David Sterba wrote:
-> On Tue, May 12, 2026 at 07:20:41AM +0200, Christoph Hellwig wrote:
-> > While the RAID6 algorithm could in theory support 3 devices by just
-> > copying the data disk to the two parity disks, this version is not only
-> > useless because it is a suboptimal version of 3-way mirroring, but also
-> > broken with various crashes and incorrect parity generation in various
-> > architecture-optimized implementations.  Disallow it similar to mdraid
-> > which requires at least 4 devices for RAID 6.
-> > 
-> > Fixes: 53b381b3abeb ("Btrfs: RAID5 and RAID6")
-> > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> 
-> This patch should have been sent separately as it has user visible
-> impact and can potentially break some setups.
+Hi,
 
-It _is_ sent out separate.
+> please check my comment below, I think this patch has similar issue
+>
+> https://lore.kernel.org/all/20260511065338-GKA3624147@kernel.org/
 
-> The degenerate modes of
-> raid0, 5, or 6 are explicit as a possible middle step when converting
-> profiles.  We can use a fallback implementation for this case if the
-> accelerated implementations cannot do it.
+I don't think this is an issue. Otherwise, these commits need to be fixed:
+https://github.com/torvalds/linux/commit/1df07a40453fd652132051419140950d47941fe9
+https://github.com/torvalds/linux/commit/ae9d03f8aec76c1bff21083b67c211238d7c57b1
 
-This is not about a degenerated mode.  For a degenerated RAID 6, parity
-generation uses the RAID 5 XOR routines as the second parity will be
-missing.  This is about generating two parities for a single data disk,
-which must be explicitly selected.
+Let's confirm the current DT preferred:
+
+- regulator-fixed
+
+  nodename: Preferred name is 'regulator-[0-9]v[0-9]'
+
+  gpio/gpios: Preferred 'gpios'
+  https://github.com/torvalds/linux/commit/12df2c182ccb850988d2680a422211a812fb5cb2
+
+There is no specification or preference stating that regulators without
+software or GPIO control should be removed.
+
+This has been discussed many times, and people are used to describing DT
+according to the schematic:
+https://lore.kernel.org/all/44ba02e34d7bf6a6657894802a87b690@manjaro.org/
+
+Therefore, if you consider these regulators unacceptable, we should remove
+them from other dts in spacemit, or allow such changes.
+
+Thanks,
+Chukun
 
 _______________________________________________
 linux-riscv mailing list
