@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD7CCD343F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 May 2026 23:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2253BCD343F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 May 2026 00:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ecg+XS5WnEyHgXRJAnpr7xUys8GPjmM8Fyx5YBhjTQU=; b=w2OoPNgZbmlgyl
-	rIn0J5peDiFgzA/9/npeo8J5AYgwJ7ilkxGjbnkbGafeAdJB+GEWvLJI8pc+7OizUSKBpBn9Xpqxc
-	sg90TszWKfR32nAUkDPJCJ5ueFEAdRDHxqxm6JFVFJKTYdsZXYL9HjcFqvr/1EVQgiJCvFRHnXkB2
-	55oNjaiQ9/B2a3OMHsMbHDjIS7IUlvyth1Vp3lzjrri0X+uZAkXar4Bwz0lMiZ7auq7J3iy+MELqh
-	owY1sAEqvpfbj346d0mUN0JG8mnv1BnbXLUFllLLXGVQ9A0K6LAz6GLuVa7dzev/YGlgbdK5GtDkV
-	AvK6k7V0Mzp0clPwYDnw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Unsb1AI0dlMuN1jO+cds1yIb64Ao87gAvS7PVNIXnPY=; b=PivmS3+5TywY854XvSYsw4xoqv
+	T7nYsGBoBL4c2/WVgniD98SA7CLmUnMVVjZL1cdmCDXulzbq3iB5UOBicPm5jzSiAdHx0vKWY4GET
+	nWMXuAAHIdsn0CqLkYUIGvI0U+xzrIh6QN7I/RyC7zNdd4kSnxelvveGO783JSOPGQGwDeI0Bf4oJ
+	FAFECnp46J/ESSbijTID5QuNFpf6CJt4gkFVyqXFiktOid6a0sRBciAmclSw7kAyiACqJnljPTudo
+	SgP15eJxTropOYKsr8lZMAfKeATLHC68i+SYAaW/FjeXpO7IDS2V7YLeB/UDPfTSWDa71GGEOqDcV
+	B4+1SsrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMwHw-00000000fgi-1jbK;
-	Tue, 12 May 2026 23:13:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMx4X-00000000kSA-3lUV;
+	Wed, 13 May 2026 00:03:33 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMwHv-00000000fg0-0WUS;
-	Tue, 12 May 2026 23:13:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2723160120;
-	Tue, 12 May 2026 23:13:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E9CC2BCB0;
-	Tue, 12 May 2026 23:13:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778627597;
-	bh=7y5ERZ+46G5TuZ6kypctntsWjjmLUBio5KVlVFgY9Zw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=L8ix4T7LumVzKwTGAmGHMrwUukpsAmAzFvnrLz0XdT9IECAVpIFPzI8JAdwAjELFb
-	 eEOXvwRJm5nKwiHf/5bwAazCxNLpjjYIURLL8u5VLa2jLpFYeCMrf0TzKNrnZcgJ3k
-	 b1lCRWWmuNb7/GLTRAnrSQXC0w+Xf2ly6Yt7jub737/bcoKACKWpPLlF+VCL8d8bld
-	 +ASIw4J2jCQZw86XzI2rfrgQWBcvoQF4p6LyjzYRgVlHTseYTsHE0RaF3T6I2k9mJZ
-	 OwdU7ctOnJp0Ts89wGEA+Md1HUBm4TJwDahotDhq1bYxG1AgaLLYqPhajGxV8kGAQ9
-	 YJQWeT5Ho3mBg==
-Date: Tue, 12 May 2026 16:13:15 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-Cc: andrew+netdev@lunn.ch, devicetree@vger.kernel.org, davem@davemloft.net,
- edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
- linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
- pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
- horms@kernel.org
-Subject: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable clocks
- before syscon access and correct RX sampling timing
-Message-ID: <20260512161315.141aba88@kernel.org>
-In-Reply-To: <446f69bd.7fe4.19e1ab248fb.Coremail.lizhi2@eswincomputing.com>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
-	<20260427072508.1151-1-lizhi2@eswincomputing.com>
-	<20260428180625.738223cf@kernel.org>
-	<2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
-	<20260430163551.7491407a@kernel.org>
-	<38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
-	<446f69bd.7fe4.19e1ab248fb.Coremail.lizhi2@eswincomputing.com>
-MIME-Version: 1.0
+	id 1wMx4V-00000000kRJ-42Ti
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 May 2026 00:03:33 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b4654f9bb6so65219375ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 12 May 2026 17:03:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778630610; x=1779235410; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DwPr9KzMTwvYnVjMUfpiwh1INt0dAKct26Q2oFZfRtE=;
+        b=qDwY+sa4lQYK1dmMI2vJcSLA7ulITV7JH8GjOCiWnr16mgEerPRIl1pJccV0MWs3PH
+         vyagQ5H1JidR5oyoess+8nlnKi7eo+9+8SLacXiSxPPvMiY4k+SN06qoK4gMBcyaPniy
+         DeeVQSFKccEq/XxXCp8bX9Vj5gWoHthG0BsPPMEcIdwQ2BZYads+TrLKgur6lRJv+wjG
+         U3BdnGchEIt8v69s91fvjdwbAi0FyzTxNqI66uWlOsYMLBqSmTMKRbTHaLN21CSAS610
+         M7/xWilE24s0ztgU8TuYcZ1JSj1Plns+riFTcpMuKA6198JUWqTr8MaqcG87d9rw57ak
+         sWmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778630610; x=1779235410;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DwPr9KzMTwvYnVjMUfpiwh1INt0dAKct26Q2oFZfRtE=;
+        b=A7E2lR7qTe0nkpchOLS10U3qg7IfwR12YapS2v5lLq5qYuB8B+RvXy/63Zf5GFFpWZ
+         ZFbh+QuTEzOktlUpoxKmnU3eapOSvGxLv9Yb/vBY+eP6n0l/Bft6ouB23Cse2Pen+EYM
+         cNqBtuFWIlFk3ikg/PUVAkif2d480vaHyytpaN8X2fbN43qjDuxpxDigIO6y59FpCiN3
+         fWx4kT1a6ZADCPFnyjGGwE+oS3Giwg0CGPzL7i0x1SlNv/9SdMqqYBf6Whw/dUeDpwwD
+         JT9S1N0BPj9jQ6DgEl9k80BVebitCV+XcLN1ZEG58lFOOVCLCZkzJf4Jcg60WMOFLfSu
+         gA7w==
+X-Gm-Message-State: AOJu0YyNvuFvYm+FShN2eMJU0A66E4pKwue4jthXmHZHLlxH7G1tAl4z
+	O4hfh/dAGpm8vwypa4M7l9vv7kTyGFz+B7SsAp+QiQ7w1qEEApJPKWLC2Ix2ksCgGNaAiREHga6
+	nRJV4pg==
+X-Received: from plhs10.prod.google.com ([2002:a17:903:320a:b0:2bc:bb08:92dc])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3b8f:b0:2b4:5cb8:99eb
+ with SMTP id d9443c01a7336-2bd276d98d1mr11087365ad.27.1778630609922; Tue, 12
+ May 2026 17:03:29 -0700 (PDT)
+Date: Tue, 12 May 2026 17:03:29 -0700
+In-Reply-To: <202605111130.64BBUXDN013040@mse-fl2.zte.com.cn>
+Mime-Version: 1.0
+References: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn> <202605111130.64BBUXDN013040@mse-fl2.zte.com.cn>
+Message-ID: <agO_0ejKd0x38_-E@google.com>
+Subject: Re: [PATCH 1/3] KVM: selftests: Add unit to dirty_log_test
+From: Sean Christopherson <seanjc@google.com>
+To: wu.fei9@sanechips.com.cn
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, anup@brainfault.org, atish.patra@linux.dev, 
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	pbonzini@redhat.com, shuah@kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_170331_995237_28B87253 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +86,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAxMiBNYXkgMjAyNiAxMzozOToxMiArMDgwMCAoR01UKzA4OjAwKSDmnY7lv5cgd3Jv
-dGU6Cj4gRm9yIHRoZSBldGgxIGVuYWJsZW1lbnQgcGFydCwgbXkgY3VycmVudCB1bmRlcnN0YW5k
-aW5nIGlzIHRoYXQgaXQKPiBzaG91bGQgYmUgdHJlYXRlZCBhcyBhIG5ldyBpbmRlcGVuZGVudCB2
-MSBzZXJpZXMgZm9yIG5ldC1uZXh0LAo+IHNpbmNlIHRoZSBzY29wZSBhbmQgdGFyZ2V0IHRyZWUg
-aGF2ZSBjaGFuZ2VkIGFmdGVyIHRoZSBzcGxpdC4KPiAKPiBXb3VsZCB5b3UgcHJlZmVyIHRoaXMg
-ZXRoMSBzZXJpZXMgdG8gc3RhcnQgYXMgdjEsIG9yIHNob3VsZCBpdAo+IGNvbnRpbnVlIGFzIHY4
-IGZvciBjb250aW51aXR5IHdpdGggdGhlIG9yaWdpbmFsIHNlcmllcz8KCnY4IGlzIGJldHRlciwg
-YnV0IGlzIHRoZSBmaXggaW4gbmV0LW5leHQgYWxyZWFkeT8KCklmIHRoaXMgaXMgdGhlIHBvc3Rp
-bmcgeW91J3JlIHJlZmVycmluZyB0bzoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjYw
-NTA3MDgzMjE0LjE5Mi0xLWxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20vCml0IGhhcyBiZWVuIGRy
-b3BwZWQgYmFzZWQgb24gZmVlZGJhY2sgZnJvbSBNYXhpbWUgYW5kIEkgZG9uJ3Qgc2VlIGEgdjIu
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, May 11, 2026, wu.fei9@sanechips.com.cn wrote:
+> Currently dirty_log_test hardcodes usleep 1ms in each interval, which
+> could be too short for guest to write and fault in enough pages, then
+> there is less chance to test the write protection mechanism, especially
+> in the case of (log_mode != LOG_MODE_DIRTY_RING).
+
+But when log_mode != LOG_MODE_DIRTY_RING, the individual sleep time is largely
+meaningless, because the test won't reap the bitmaps for iterations > 0.
+
+			if (i && host_log_mode != LOG_MODE_DIRTY_RING)
+				continue;
+
+>
+> Unit is introduced to replace the default 1ms if specified in command
+> line. The following test can't trigger failure on my riscv vm:
+
+Failure of what?  And does the failure really not reproduce with a higher interval?
+
+> 
+>   # ./dirty_log_test -m 21 -M clear-log
+> 
+> By enlarging unit, it fails every time:
+
+"unit" is way too vague.   Even looking at the code, it's not clear to me what
+you intended a "unit" to be.  I'm not entirely opposed to providing the user with
+more control over the innards of the test, but the interface needs to be somewhat
+intuitive.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
