@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1209FCD4F25
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 07:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316D6CD4F25
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 08:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0sUSkZQ0AtSJ/3yE8iradDYcOXem4pd9hmkHBfOp0hs=; b=Ibe9KZwq+BqgeE
-	ofg0err0jvaYhcxnrJOs5Eoz3a7S6O+Duew4Fb9L5Hmg482Hm1lhcYLjCV7Oa4SMQauTPNHUdkQWU
-	gQY3aqwSiQ5PzAmwCSfsduWe7jfWiQ8WmRYn7xamnARcxIZM9KAMOPt426p6YOWAfhlfPas4hpmVp
-	UmBfGibDzQC1pwFITjrgrGiO0Kvk2PfITalOoJoeyJCU4FS0jIMoW/02JrqnUiQuTpQ/DTbSsXhPE
-	UuVhRvD35H1lH6O2R2wtZQsUflV9ZNCZWRhJUbaC/jNKHKuZJShAz5gSY7zdRru6v0C7NSHEW/A47
-	oWMXCQdESp1KD5f7JN/w==;
+	List-Owner; bh=I0icJE3jvKux/+tTfxKnTgQtGFX5sYNeZMEmoJcfv+o=; b=G2ByNY9/W7qSir
+	9eQ30PitwwwLg1T2p374EZmODG+xqIpAyZWL+NbcvzTkjPbAF9D4CoveD5mLXJ1gEy+7MbfQCwiUm
+	AoWrHACCbr1KDJxHrvsJRnUbvWvIUFsSzKpJf21Qz0yiStfnOq5bCBcOly1S0S8lbPSXmS6ArJWm3
+	I+YMYTN+9umQpND9H0D5+CtXDZD/ntvbJ7BKHyFKDjKviaZgg2amJ/IZtTwupLLWoR+eHgdM1shdi
+	fRc22eivEvn9ixJfvF5qcEHT8mHao8q6OlPfyrTWVD7VaY1VaEh3ra6Idh8D4uCY1z6iUTRb7KDfn
+	pzC+dQd92oK3axuke8iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNQqB-00000004rqB-1Je9;
-	Thu, 14 May 2026 07:50:43 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1wNRGo-00000004vCB-1JZ6;
+	Thu, 14 May 2026 08:18:14 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNQq8-00000004rpT-3w2l
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 07:50:42 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-2f7020a928eso10730389eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 May 2026 00:50:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1778745040; x=1779349840; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RDKYjZJg/Bo3EjMAid7K8WutRS/dE3g6XX4B3GZEcbo=;
-        b=UUNMowA4AFaWys0pRj8ulRg/pe30TeUdvwBf2j4rjSt1v/D/DjnH7U6RtSJlFxa3tb
-         9DfxBBMd0K0fCZzcOsh7vOZQMR9xPJ9p9s8GcnbqctvuGyXaWwYd64IWuq3CqfZLF0zx
-         X2ZDv1kObCy3lunTQn29YkGK7ENv77r6enutdqH6uYtvrWB89SvePuVXcV1qRyBV8cYC
-         Nqfvsv8pHBJxNOkZIJbgu7o1G/DfGM1MxMs4Obqln439Cv0MTHZHy8bLDVROA4F0VkX5
-         Tp6RkV7xaRoMx7UuvCPcd+AzUmOTjURcIO1E2j+xo06tC+N6SUw2377Y1FWIAs5CxxwX
-         iK4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778745040; x=1779349840;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RDKYjZJg/Bo3EjMAid7K8WutRS/dE3g6XX4B3GZEcbo=;
-        b=BFulaLhwinPf07JI5DHu+VNJvZzj9ZULFaEEbKJMNPY2KJQaQAqFkU7YGyu3mxK0N2
-         rIYN/k1mYMRd7KImXpCMYTVNJCKf5yhjpjbQs9L/GSmnZaMWC6leruyb0FPghit4UEfu
-         fLQVECP4LW5zF0mMVEomK8cqNOklN7LdYKV83XVATBJf25yKcWInaW+YHj/LHubNTzSG
-         CrMzqWmuJ6VpFvTjEmxTC1P8qOIaNMUKN83K0axwMv/E1zlqhWw/0AnwaaKVAv04V2ti
-         vBeTfByNGFzfpRDCbvlN1noEaiFlE6GMfbrpq0CtJJdyAwbxYpVWAWsMMcQyJlHkt5PG
-         HKNg==
-X-Forwarded-Encrypted: i=1; AFNElJ/8AMWIn933hDlOcYgvRv8/sP7L2ph+PDvwqqvS6MWVpEBYDYu9bigxdeG1tQH9X/oR9qBigQUexp88Ow==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzxg/37o2hUOLZpfzRc1jq3mcKxH/O8rcdCc/U8vm+hiZ8OPnnb
-	4EePG2V298sftkEapN39E5d4QtKLUhcOYXafkMuwwN0uEt7zQLzOiutJNoMQBsTwOt0=
-X-Gm-Gg: Acq92OH5S6cGo6zEiLJOWjch3HzOYDeZnuYrsOEe/iWYo80E5tyuPHl2HpwknDkbwzW
-	5FE/pKOWsyUKTUa49KmaOrSV7vEokqmSsBTYYya0YHRaKhuGOvGgVWfXn7Jx6jqN9pv1NLjb1wR
-	yK7F26GV0cgmYvsMjn2sq1bvvrDgaVBhkhLB85PZ787lKJltmnFU4PLWQ24Q968d4SbPFaPar3R
-	+4EXCSRbyyP4WQKvHv9EfB41njblwkOSqATdp4vIDVwCGKFyCx5NA4NbUPdQ6i0ye+3/b/XpGIN
-	Ikjxn+HEj/s8UIVZHaP83NxFyU1jPB9Y8mY5dHLVnr94jtJP4/BpMPgodGDQY3n+SKHHRlusQ9B
-	7qw1ZKGnJaQMccMEt8yjgAX5P5zd/8eznY2cJMPvYjYMJDQKLYJitq6N/LleAgQ7JtitBxrjq3c
-	VaxVcfQrHTt99FT6d+/Tu2LEDzoodR1GTcSVsMdtEV2CUBGQ==
-X-Received: by 2002:a05:7301:2901:b0:2f1:496c:94d4 with SMTP id 5a478bee46e88-30117c736aemr3622831eec.4.1778745039815;
-        Thu, 14 May 2026 00:50:39 -0700 (PDT)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30293e2ea78sm2090985eec.6.2026.05.14.00.50.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 00:50:39 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	debug@rivosinc.com,
-	linux-riscv@lists.infradead.org,
+	id 1wNRGk-00000004vAs-2uG6;
+	Thu, 14 May 2026 08:18:13 +0000
+Received: from fric.. (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowAAHlgkyhQVqs4A7EA--.41408S2;
+	Thu, 14 May 2026 16:17:54 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	david.laight.linux@gmail.com
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v3] riscv: cif: reduce shadow stack size limit from 4GB to 2GB
-Date: Thu, 14 May 2026 00:50:35 -0700
-Message-ID: <20260514075036.1432352-1-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
+	linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Fix sign extension for MMIO loads
+Date: Thu, 14 May 2026 08:17:51 +0000
+Message-Id: <20260514081752.472987-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowAAHlgkyhQVqs4A7EA--.41408S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuF1xCry5WF18tF4UXw13Jwb_yoW5Gw4xpF
+	W8G34YqFWxXr1Y9F1Ykr409rs09wsYkF1rXrWqg34fKw4jvFy5AFWvg3s5AryUJF1xZr1F
+	kFWSqa45ZF1kAa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7V
+	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
+	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
+	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
+	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
+	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjEoGDUUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAYHCWoFRNPz8gAAs9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_005041_078923_85A7DB30 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20260514_011811_097595_1962A79F 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,72 +85,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Follow the ARM64 GCS (Guarded Control Stack) implementation approach
-by reducing the shadow stack size allocation from min(RLIMIT_STACK, 4GB)
-to min(RLIMIT_STACK/2, 2GB). see commit '506496bcbb42 "arm64/gcs: Ensure
-that new threads have a GCS")'
+The kvm_riscv_vcpu_mmio_return() function handles MMIO read results
+by writing the data back to the guest register. For signed load
+instructions (LB, LH, LW on RV64), the value needs sign-extension
+from a smaller integer to unsigned long.
 
-Rationale:
+The current code uses:
+    (ulong)data << shift >> shift
+but (ulong) makes the right shift a logical shift (zero-extend)
+rather than an arithmetic shift (sign-extend), causing incorrect
+results when the MMIO device returns a negative value. For example,
+LB reading 0x80 would return 128 instead of -128.
 
-1. Shadow stacks only store return addresses (8 bytes per entry), not
-   local variables, function parameters, or saved registers. A 2GB
-   shadow stack is far more than sufficient for any practical
-   application, even with extremely deep recursion. Using half the size
-   maintains adequate while being more resource-efficient margin
+Fix this by casting to (long) after the left shift so that the
+subsequent right shift is arithmetic and correctly propagates
+the sign bit:
+    (long)((ulong)data << shift) >> shift
 
-2. On memory-constrained systems (e.g., platforms with only 4GB of
-   physical memory, which is a common configuration), allocating 4GB
-   of virtual address space for shadow stack per process/thread can
-   lead to virtual memory allocation failures when the overcommit mode
-   is set to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER:
-   Error: "__vm_enough_memory: not enough memory for the allocation"
+Additionally, remove the unnecessary shift assignment for LBU
+(unsigned byte load) since it does not need sign extension.
+This makes LBU consistent with LHU and LWU which already keep
+shift = 0.
 
-This reduces virtual address space consumption by 50% while maintaining
-more than adequate space for return address storage.
-
-Additionally, add max(PAGE_SIZE, size) constraint, which covers the
-case where RLIMIT_STACK is smaller than PAGE_SIZE.
-
-Signed-off-by: Zong Li <zong.li@sifive.com>
+Fixes: b91f0e4cb8a3 ("RISC-V: KVM: Factor-out instruction emulation into separate sources")
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Assisted-by: OpenClaw:DeepSeek-V3.2
 ---
+ arch/riscv/kvm/vcpu_insn.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-Changed in v2:
-- Add max() in case RLIMIT_STACK is smaller than PAGE_SIZE. Suggested by
-  Paul Walmsley and Sashiko
-
-Changed in v1:
-- Use min() instead of min_t(). Suggested by David Laight
-
- arch/riscv/kernel/usercfi.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 6eaa0d94fdfe..0f75e8f5d0ec 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -109,15 +109,17 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
- 	task->thread_info.user_cfi_state.ufcfi_locked = lock;
- }
- /*
-- * If size is 0, then to be compatible with regular stack we want it to be as big as
-- * regular stack. Else PAGE_ALIGN it and return back
-+ * The shadow stack only stores the return address and not any variables
-+ * 2G should be more than sufficient for most applications.
-  */
- static unsigned long calc_shstk_size(unsigned long size)
- {
- 	if (size)
- 		return PAGE_ALIGN(size);
- 
--	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G));
-+	size = PAGE_ALIGN(min(rlimit(RLIMIT_STACK) / 2, SZ_2G));
-+
-+	return max(PAGE_SIZE, size);
- }
- 
- /*
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index 4d89b94128aea..f09f9251d1f0a 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -415,7 +415,6 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		shift = 8 * (sizeof(ulong) - len);
+ 	} else if ((insn & INSN_MASK_LBU) == INSN_MATCH_LBU) {
+ 		len = 1;
+-		shift = 8 * (sizeof(ulong) - len);
+ #ifdef CONFIG_64BIT
+ 	} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
+ 		len = 8;
+@@ -649,22 +648,22 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ 	case 1:
+ 		data8 = *((u8 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data8 << shift >> shift);
++			(long)((ulong)data8 << shift) >> shift);
+ 		break;
+ 	case 2:
+ 		data16 = *((u16 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data16 << shift >> shift);
++			(long)((ulong)data16 << shift) >> shift);
+ 		break;
+ 	case 4:
+ 		data32 = *((u32 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data32 << shift >> shift);
++			(long)((ulong)data32 << shift) >> shift);
+ 		break;
+ 	case 8:
+ 		data64 = *((u64 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data64 << shift >> shift);
++			(long)((ulong)data64 << shift) >> shift);
+ 		break;
+ 	default:
+ 		return -EOPNOTSUPP;
 -- 
-2.43.7
+2.34.1
 
 
 _______________________________________________
