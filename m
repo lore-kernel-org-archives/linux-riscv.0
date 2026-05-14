@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA656CD4851
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 16:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DA1CD4851
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 16:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=O+QAJ1mphhk55AapwazfdoD6Tt8HgsW+TvSmEMMUtuo=; b=15oFDw0e+WY7In
-	kvsqyUD0rLBqUaZSiCHNCW+/Vj0TZmjqdXw004i6PaeM2ZAj7qer8xDLCUQ2OHQGD/ekIXls3viff
-	NRJqc8BThBKuELoU7quBiEF/9UyVF8/6K3BBXEZpiAcKGWwQEkdRrzaUteetb4Uvs+gaupygKW1nh
-	tWfzSqCRjl4fjvTkghp1mz2qb7DAOie6ytt7oq4+2z+ylLwQTOLldPXxo4VVeEVu/+71sEWFboxrl
-	V8p2sF8E2GKJFXUxDZnO+MbnCQhfMWbh0oFgYFDo/3twVm8aGTX0fPelggU+Vv2O6kvUlynnUQ3Q3
-	qfTgPmd6O2jHyqr2bnGg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ccbIQhlt6B6K+Wp+MKg8W+S8tjeaRNYJzDaahtXPpfk=; b=Z4BfAYlZxVKu0k
+	uadzQf7xsyJyxzStBIHJgL+KrRqcC1IdFMFM0lQ8TmG/D+fK4c+t6Rvpo/GsTeE3akPISD5vUn8CP
+	8iqtk2Nf2dkVp+XYUWIFyuTuEytELj4T+zoRShmJWpDC65rejre0GK+OWyBRV5QlkqrD5oMmFTMlP
+	bGf1lZnltgwFn9ytqPWk+x4i3K6WsUDMqfDSSv3QoZ5IfsIajhL2xGswG1bv2l38IZqtQ/LNbkFYL
+	q+yh1avLetaQsz7Ok01VSOqh8YEDkvGWXdyzwjajsmbw8Tof3Vmn541Tt4b5Uu8oFQF94MXoUa8BG
+	w/chdFgCblWccMv4X0wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYdK-000000060Do-2XWf;
-	Thu, 14 May 2026 16:09:58 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1wNYmI-0000000622Z-1tmu;
+	Thu, 14 May 2026 16:19:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYdI-000000060D8-0w5e
+	id 1wNYmH-00000006223-0X2Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 16:09:58 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b9382e59c0eso1333580166b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 14 May 2026 09:09:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778774994; x=1779379794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=a/TOhWCMb69A8t8x3HcmEMu6AFhsGlWitaL0c7QL/dg=;
-        b=MY7gV5eA9h3fLgyUTyExUABFdJhvN28BGUb0TCrcnLCALOG1hJCmE7KxmsV64UZVGb
-         ibv5jMqS1awS4nY+K/a5tRbVVWGH+tgD2Cx26dI4/hdL+XWDbqq+Lf0eP7M6/ovWukUM
-         v0ivNwdt6z9cLntQFbHT9Ha3e7VgxVogfDpUmrAUkyAC+Zhd9LRLxDz1h6m5vBKaOnt8
-         cvZXivwp7gL7F8R9QdlDFg9bh7U2rI0Msgd4FhkDwbia48JMvVJPR3SlYCrkC+0oCzuC
-         GjP/gpKXA9oOcste5GqW6V5kupTLBJa3iDj4LnX6owo+beS/8ZjIyQ+1k+epLmSiij6A
-         8Z3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778774994; x=1779379794;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a/TOhWCMb69A8t8x3HcmEMu6AFhsGlWitaL0c7QL/dg=;
-        b=RT1zq50e4HJpKf2w3VfhU8xczvlKsBBg6MRUqRvOrW5JlrTtjPLHFEqw100qc5O/xA
-         M/s4N3slTAxGtCoe36kA9FOQJZ8i+8jiXQxkDYui1ptEW72gug6sj3qYrBy3aNoyK/7e
-         /6DInjsp4sSvnUcI8wu+gWZtKIdERLTMSqxsCcljFyvB1M3O89eQNeAaLC9Fw7JKPVP6
-         87qsGcRBSOg3BO2v4o18ZSPUSNYqo65CU/QGgXKyZrfMM7EnOHQkiVeYPoav5pYLQiuY
-         XhV3tv+sWaqrcm6qZBX7i5StJhshZlud1W9rJoiLepbC72FWWSYh3VwVGEjD2ebSJfNK
-         HARg==
-X-Forwarded-Encrypted: i=1; AFNElJ9vb5LLPEuXijHgE8ecf6qViPsitrFioPAt8/kBIMEg+/4ZTwL8O92gOfjn2nUBmeljyLrX1QA6PTha/g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLKiOQPpVJm5rgGPUfk+IsD8A2yA7uF/Ja5JqFpLLHOVyVuT/q
-	zB/oF46JUNsWrU25EkGvRC3KFvCyLlWTfye/+LKWmH1vdMYVDSksfYlh
-X-Gm-Gg: Acq92OGJnznzsaGE5SrczbO1zu9AW2UuDoJDoobVGUvjpmBtH33g+SWmaIzgMYPKkj+
-	QACVMw9EKNmTi/7mlDBJ+Cn1Dt+dRC6IBf7aVhhoQVInVwzyJUQXT5iNo1S+MUFno7pXs9OjTMP
-	QKueLv9lKct42M6oXYEepS+O4j/f/suGTZ35D2gOsLMbIg1k3U359FANfRGzIpqgaX+d0jRr37s
-	e7/3HKFOHtQCojMS6ybeeIq06kStNxb5UuXr2Mu5IzfpEH9GS7Nnz+w/pYEPXtEiR8J0AArITQe
-	DwKN38EqkQHuG07sUS7a9FFUcE05BzgnNDdxgpzE4qxho8L0hb3oQscWM44fG6pKGlupoPWsnHt
-	7JdTAYRVB3ae5gRmRZpJQ5CCjGwhqdumKDgtkZ5g0GG7pG6IP6AwTlvM/6TFW5dXrM65yOyMCd4
-	uKubdRfpxDXH+nMUCFtPB5ahMxk+eW+MCDhe51qhb4jAHvNowOF4Dm
-X-Received: by 2002:a17:907:7255:b0:bd3:5e5d:7ea3 with SMTP id a640c23a62f3a-bd3c181e7fdmr577804766b.33.1778774993895;
-        Thu, 14 May 2026 09:09:53 -0700 (PDT)
-Received: from RTRKW671-LIN.domain.local ([77.243.27.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bd4f4969850sm107368966b.0.2026.05.14.09.09.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 09:09:53 -0700 (PDT)
-From: Milan Tripkovic <milant2002@gmail.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dusan.Stojkovic@rt-rk.com,
-	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
-Subject: [PATCH] riscv: lib: add strrchr() zbb implementation
-Date: Thu, 14 May 2026 18:09:10 +0200
-Message-ID: <20260514160910.1796966-1-milant2002@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 14 May 2026 16:19:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 92C7E60008;
+	Thu, 14 May 2026 16:19:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D67DC2BCB3;
+	Thu, 14 May 2026 16:19:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778775552;
+	bh=F5wvXsrQ072xrenn6NhqUcsSK80NMgYOdkf79Wcyit0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DyI7aUt5Odd7cxM308rIqtrnCHzkcvK8kpOQGBf2iNBUalcyubX6bYqabIhQxwMzB
+	 QclfOAr+oIg93PZSuYlXikSzrYk1FfydLDzroPOpFSeKdvE1jnfHQKyNbzpIXLkhdl
+	 ZHCT628QYWZmbRHmUdpUrTxQ3hbRFj2JL7o5SYrBcsXNA6bN6EcG+TB5cPZehfRdvd
+	 VxJ9KytgCshu+2ddvSQLEW5epkaooiLDyxTylDhU4UodHc1jAwawOyzxKSeobMbiGx
+	 mSKo1MF9zTmmrtBUXPzpMHzIcPlDdTadQDA6KTs8hADWt5bLnetDS9Y+Y7auYiBNGl
+	 PoDqL6LpF1Eag==
+Date: Thu, 14 May 2026 09:19:11 -0700
+From: Kees Cook <kees@kernel.org>
+To: Milan Tripkovic <milant2002@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andy Shevchenko <andy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
+	Dusan Stojkovic <Dusan.Stojkovic@rt-rk.com>,
+	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2 2/2] lib/string_kunit: extend benchmarks and unit test
+ to memcmp()
+Message-ID: <202605140916.09FBB1A4@keescook>
+References: <20260514121359.931999-1-milant2002@gmail.com>
+ <20260514121359.931999-3-milant2002@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_090956_287640_5781635C 
-X-CRM114-Status: GOOD (  11.53  )
+Content-Disposition: inline
+In-Reply-To: <20260514121359.931999-3-milant2002@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,195 +81,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+On Thu, May 14, 2026 at 02:13:58PM +0200, Milan Tripkovic wrote:
+> From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+> 
+> Extend the string benchmarking suite to include memcmp().
+> Extend the string unit test to include memcmp().
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202605140827.Qg1DZpcB-lkp@intel.com/
+> Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+> ---
+>  lib/tests/string_kunit.c | 106 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 106 insertions(+)
+> 
+> diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
+> index 0819ace5b027..d0bad40a719a 100644
+> --- a/lib/tests/string_kunit.c
+> +++ b/lib/tests/string_kunit.c
+> @@ -881,6 +881,110 @@ static void string_bench_strrchr(struct kunit *test)
+>  	STRING_BENCH_BUF(test, buf, len, strrchr, buf, '\0');
+>  }
+>  
+> +static void string_test_memcmp(struct kunit *test)
+> +{
+> +	const int max_offset = 16;
+> +	const int max_len = 32;
+> +	const int buf_size = max_offset + max_len + 32;
+> +	u8 *buf1, *buf2;
+> +	int i, j, len, k;
+> +
+> +	buf1 = kunit_kzalloc(test, buf_size, GFP_KERNEL);
+> +	buf2 = kunit_kzalloc(test, buf_size, GFP_KERNEL);
+> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf1);
+> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf2);
+> +
+> +	for (i = 0; i < max_offset; i++) {
+> +		for (j = 0; j < max_offset; j++) {
+> +			for (len = 0; len <= max_len; len++) {
+> +				memset(buf1, 'A', buf_size);
+> +				memset(buf2, 'A', buf_size);
+> +				KUNIT_EXPECT_EQ_MSG(test, memcmp(buf1 + i, buf2 + j, len), 0,
+> +						    "Should be equal: i:%d j:%d len:%d", i, j, len);
+> +				for (k = 0; k < len; k++) {
+> +					memset(buf1, 'A', buf_size);
+> +					memset(buf2, 'A', buf_size);
+> +					buf2[j + k] = 'B';
+> +					int res = memcmp(buf1 + i, buf2 + j, len);
+> +
+> +					KUNIT_EXPECT_NE_MSG(test, res, 0,
+> +							    "Should detect difference at k:%d (i:%d j:%d len:%d)",
+> +						k, i, j, len);
+> +
+> +					if (buf1[i + k] < buf2[j + k])
+> +						KUNIT_EXPECT_LT(test, res, 0);
+> +					else
+> +						KUNIT_EXPECT_GT(test, res, 0);
+> +				}
+> +			}
+> +		}
+> +	}
+> +}
 
-Add an zbb assembly implementation of strrchr() for RISC-V.
-The implementation uses ZBB bit-manipulation instructions such as
-orc.b, ctz, and clz to process multiple bytes per iteration and
-significantly improve performance for longer strings compared to
-the generic byte-by-byte implementation.
+This looks good, thanks!
 
-For the test case, I used the existing string_bench_strrchr benchmark,
-but I changed the input character from '\0' to 'a' to obtain more
-realistic results, because I added a check for '\0' in the assembly code.
+> +#if IS_ENABLED(CONFIG_STRING_KUNIT_BENCH)
+> +static void string_bench_memcmp(struct kunit *test)
+> +{
+> +	char *buf1, *buf2;
+> +	size_t lengths[] = { 1, 7, 8, 16, 32, 64, 128, 512, 1024, 4096};
+> +	int offsets[] = {0, 1, 3, 7};
+> +	const size_t max_len = 4096 + 64;
 
-Benchmark results (QEMU TCG, rv64):
+I think I'd prefer, instead of a ifdef stub, to do:
 
-  Len   | ZBB    | WoZBB | %ZBB/WoZBB
-  ------|--------|--------|------------
-  1 B   | 20.0   | 22.9   | -12.7%
-  7 B   | 87.5   | 110.1  | -20.5%
-  8 B   | 166.8  | 130.3  | +28.0%
-  16 B  | 329.5  | 189.1  | +74.2%
-  31 B  | 366.9  | 195.7  | +87.5%
-  64 B  | 870.3  | 231.5  | +275.9%
-  127 B | 1007.0 | 278.9  | +261.1%
-  512 B | 1751.9 | 305.5  | +473.5%
-  1024 B| 1841.9 | 294.7  | +525.0%
-  2048 B| 1955.4 | 310.4  | +530.0%
-  4096 B| 2034.6 | 312.5  | +551.1%
+        if (!IS_ENABLED(CONFIG_STRING_KUNIT_BENCH))
+	        kunit_skip(test, "CONFIG_STRING_KUNIT_BENCH not enabled")
 
-Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
----
- arch/riscv/lib/strrchr.S | 129 ++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 128 insertions(+), 1 deletion(-)
+here.
 
-diff --git a/arch/riscv/lib/strrchr.S b/arch/riscv/lib/strrchr.S
-index ac58b20ca21d..46ca232a6b43 100644
---- a/arch/riscv/lib/strrchr.S
-+++ b/arch/riscv/lib/strrchr.S
-@@ -6,13 +6,17 @@
- 
- #include <linux/linkage.h>
- #include <asm/asm.h>
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
- 
- /* char *strrchr(const char *s, int c) */
- SYM_FUNC_START(strrchr)
-+	__ALTERNATIVE_CFG("nop", "j strrchr_zbb", 0, RISCV_ISA_EXT_ZBB,
-+		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
- 	/*
- 	 * Parameters
- 	 *	a0 - The string to be searched
--	 *	a1 - The character to seaerch for
-+	 *	a1 - The character to search for
- 	 *
- 	 * Returns
- 	 *	a0 - Address of last occurrence of 'c' or 0
-@@ -31,6 +35,129 @@ SYM_FUNC_START(strrchr)
- 	addi	t1, t1, 1
- 	bnez	t0, 1b
- 	ret
-+
-+/*
-+ * Variant of strrchr using the ZBB extension if available
-+ */
-+
-+strrchr_zbb:
-+.option push
-+.option arch,+zbb
-+	/*
-+	 * Parameters
-+	 *	a0 - The string to be searched
-+	 *	a1 - The character to search for
-+	 *
-+	 * Returns
-+	 *	a0 - Address of last occurrence of 'c' or 0
-+	 *
-+	 * Clobbers
-+	 *	t0, t1, t2, t3, t4, t5, t6
-+	 */
-+	andi	a1, a1, 0xff
-+	mv	t1, a0
-+	li	a0, 0
-+	beqz	a1, .Lfind_end_zbb
-+
-+	slli	t5, a1, 8
-+	or	t5, t5, a1
-+	slli	t2, t5, 16
-+	or	t5, t5, t2
-+#if __riscv_xlen == 64
-+	slli	t2, t5, 32
-+	or	t5, t5, t2
-+#endif
-+
-+	andi	t2, t1, SZREG-1
-+	bnez	t2, .Lmisaligned_start
-+
-+.Lmain_loop_pre:
-+	li	t4, -1
-+
-+	.balign 16
-+.Lmain_loop:
-+	REG_L	t0, 0(t1)
-+	addi	t1, t1, SZREG
-+	xor	t6, t0, t5
-+	orc.b	t2, t0
-+	orc.b	t6, t6
-+	and	t3, t2, t6
-+	beq	t3, t4, .Lmain_loop
-+
-+	not	t2, t2
-+	not	t6, t6
-+
-+	beqz	t2, .Lonly_matches
-+
-+	addi	t1, t1, -SZREG
-+	ctz	t3, t2
-+	sll	t4, t4, t3
-+	andn	t6, t6, t4
-+	beqz	t6, .Ldone
-+
-+	clz	t3, t6
-+	srli	t3, t3, 3
-+	xori	t3, t3, SZREG-1
-+	add	a0, t1, t3
-+.Ldone:
-+	ret
-+
-+.Lonly_matches:
-+	clz	t3, t6
-+	srli	t3, t3, 3
-+	not	t3, t3
-+	add	a0, t1, t3
-+	j	.Lmain_loop
-+
-+.Lfind_end_zbb:
-+	andi	t2, t1, SZREG-1
-+	bnez	t2, .Lmisaligned_end_start
-+
-+.Lfind_end_pre:
-+	li	t4, -1
-+
-+	.balign 16
-+.Lfind_end_loop:
-+	REG_L	t0, 0(t1)
-+	addi	t1, t1, SZREG
-+	orc.b	t2, t0
-+	beq	t2, t4, .Lfind_end_loop
-+
-+	addi	t1, t1, -SZREG
-+	not	t2, t2
-+	ctz	t3, t2
-+	srli	t3, t3, 3
-+	add	a0, t1, t3
-+	ret
-+
-+.Lfound_zero:
-+	mv	a0, t1
-+	ret
-+.Lmisaligned_start:
-+	ori	t2, t1, SZREG-1
-+	addi	t2, t2, 1
-+.Lalign_loop:
-+	lbu	t0, 0(t1)
-+	beqz	t0, .Ldone
-+	bne	t0, a1, 1f
-+	mv	a0, t1
-+1:
-+	addi	t1, t1, 1
-+	bne	t1, t2, .Lalign_loop
-+	j	.Lmain_loop_pre
-+
-+.Lmisaligned_end_start:
-+	ori	t2, t1, SZREG-1
-+	addi	t2, t2, 1
-+.Lfind_end_align:
-+	lbu	t0, 0(t1)
-+	beqz	t0, .Lfound_zero
-+	addi	t1, t1, 1
-+	bne	t1, t2, .Lfind_end_align
-+	j	.Lfind_end_pre
-+
-+.option pop
-+
- SYM_FUNC_END(strrchr)
- 
- SYM_FUNC_ALIAS_WEAK(__pi_strrchr, strrchr)
+> +
+> +	buf1 = vmalloc(max_len);
+> +	buf2 = vmalloc(max_len);
+> +
+> +	if (!buf1 || !buf2) {
+> +		vfree(buf1);
+> +		vfree(buf2);
+> +		kunit_err(test, "vmalloc failed\n");
+> +		return;
+> +	}
+> +
+> +	memset(buf1, 'A', max_len);
+> +	memset(buf2, 'A', max_len);
+> +
+> +	for (int i = 0; i < 100000; i++)
+> +		(void)memcmp(buf1, buf2, 4096);
+> +
+> +	for (int o = 0; o < ARRAY_SIZE(offsets); o++) {
+> +		int off = offsets[o];
+> +
+> +		for (int i = 0; i < ARRAY_SIZE(lengths); i++) {
+> +			size_t len = lengths[i];
+> +			char *p1 = buf1;
+> +			char *p2 = buf2 + off;
+> +
+> +			u32 iterations = (len < 512) ? 100000 : 10000;
+> +
+> +			for (u32 j = 0; j < iterations; j++) {
+> +				(void)memcmp(p1, p2, len);
+> +				barrier();
+> +			}
+> +
+> +			u64 elapsed = STRING_BENCH(iterations, memcmp, p1, p2, len);
+> +			u64 ns_per_call = div_u64(elapsed, iterations);
+> +			u64 mbps = len ? div_u64((u64)len * iterations * 1000,
+> +									 elapsed) : 0;
+> +
+> +			if (off == 0) {
+> +				kunit_info(test, "bench_memcmp_aligned: len=%-4zu: %llu MB/s (%llu ns/call)\n",
+> +					   len, mbps, ns_per_call);
+> +			} else {
+> +				kunit_info(test, "bench_memcmp_unaligned(off=%d): len=%-4zu: %llu MB/s (%llu ns/call)\n",
+> +					   off, len, mbps, ns_per_call);
+> +			}
+> +		}
+> +	}
+> +
+> +	vfree(buf1);
+> +	vfree(buf2);
+> +}
+> +#else
+> +static void string_bench_memcmp(struct kunit *test)
+> +{
+> +	kunit_skip(test, "not enabled");
+> +}
+> +#endif
+> +
+>  static struct kunit_case string_test_cases[] = {
+>  	KUNIT_CASE(string_test_memset16),
+>  	KUNIT_CASE(string_test_memset32),
+> @@ -910,6 +1014,8 @@ static struct kunit_case string_test_cases[] = {
+>  	KUNIT_CASE(string_bench_strnlen),
+>  	KUNIT_CASE(string_bench_strchr),
+>  	KUNIT_CASE(string_bench_strrchr),
+> +	KUNIT_CASE(string_test_memcmp),
+> +	KUNIT_CASE_SLOW(string_bench_memcmp),
+>  	{}
+>  };
+>  
+> -- 
+> 2.43.0
+> 
+
 -- 
-2.43.0
-
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
