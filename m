@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D72ACD37AC
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 17:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5189ACD37AC
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 18:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVIib8HIMKqzwyZwSRB05ItIpxSh/NiWs5Uo3+wwoRA=; b=3ubcjM2IpJ2rTr9c6b/HrK5Sbe
-	bzfdb5w0yId5RItRbiYr251zNslaHnm27RCiA+5ij8ehhsY2zI0+LqG1HNbDCyJhHodWRynM4+R4G
-	JYO4o0qQBCPfbhhjJ4RlPBnXAH5hO742x1Fv12WzdxqD5CBJYGUSOvi6fx3PSYO4krtRgF+oCl//c
-	7kgM76k4E1+66/RXdOehUP3WPuid9njLjA+50SrECZmQLR9D/7IQSxWPs47GrLAgC1/Y3Qtl8hPPt
-	Fb5Wd3M8TryOzmHkqHZatUwsEdLGIKTOcFGNsS4JCik2JjacsHXfawgY0Bi5wtArEm5ezXpxvugDm
-	/eYHdcfQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RGwo/YOfZQxtF30BDoHRjY4GiSf2U8yqJnH4FfMSxcI=; b=UY+CUFfzmaf1SC8H+toKaW9n3M
+	zMznGJsHgRDLke5FAo3++t09lUYqnIN4QUyNG4mogbKsnC23OfxEV+zIWBd50SLiVcSKiNpQ7DgCt
+	Tzw2rpQ0JXtbxLDpbVz0zIPwis891nPyHhNWRUg9b7spiaPdUqHxNyT7yFrw+IdOjkVzy5YXnKY1W
+	tEHqmkx2Fn3AKNQob1DNtvAYZBMcHFQNwupTDTvUr2pbfkI2JyxrSOnKaLhO0GTe8jsj4me1oafV7
+	3RCu6jr0F9jrl8cLxlgVzhGkdJClgJYTfaaaPCdJ7Ljj7dd5ed1ttUp+DU6Sge1xVJtmGSfx1Lxlb
+	B0SRE3gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNaCz-00000006FLh-1Dch;
-	Thu, 14 May 2026 17:50:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNabc-00000006IFD-0uTn;
+	Thu, 14 May 2026 18:16:20 +0000
+Received: from mail-out.m-online.net ([212.18.0.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNaCy-00000006FLQ-1DGq
+	id 1wNabY-00000006IED-3I3G
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 17:50:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7914360132;
-	Thu, 14 May 2026 17:50:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C3DEC2BCB3;
-	Thu, 14 May 2026 17:50:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778781051;
-	bh=vgBsgGXe+zv6+W6MvoN9aWXs4JINY+nECk3GKt5x/P8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E8f6kfTItwwyHlhuFGNz3o8xDm0Saj3GLBDvYYT5rnyZASc77iQqDjaOIVdIW6ydP
-	 RAI3iIMBI/NX+1nT5b8Mxp13VcDeV6UJsi4WBD4PfOCTQ1HDHdyZ0zDvX7CeIRPgc5
-	 ajMm5+IS4ALHyel0HZgSNQ+25HwXMaXo1EsynL8aG5kOu7TghvnjlWkSoAlWqt0K0Y
-	 uE4yBunz/rS9fby4aYr2KPgRPaMuuX7GvPRv5Kj2C+zAgrGWMshDTMMWKv/xjFkCEW
-	 Vj4GddrkwgOe7bJh96tQvK4IQREQF9Yk5p8J9iaCQN4Xa3cI/xE1wNBUazl7MUpv7A
-	 Il2wYDsXKK/Jg==
-Date: Thu, 14 May 2026 18:50:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v2 11/12] soc: starfive: Add socinfo driver for JHB100 SoC
-Message-ID: <20260514-filler-footgear-3ae65c9b8c92@spud>
-References: <20260512083521.3448-1-changhuang.liang@starfivetech.com>
- <20260512083521.3448-12-changhuang.liang@starfivetech.com>
- <20260512-mushroom-helpless-0815d0885abb@spud>
- <ZQ4PR01MB120205CCC0A3229824701640F2062@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260513-headstand-hertz-bf31fe6c1938@spud>
- <ZQ4PR01MB1202150D76C700778EB29978F2072@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+	Thu, 14 May 2026 18:16:19 +0000
+Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.9])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4gGdn50HHwz1r9v0;
+	Thu, 14 May 2026 20:16:09 +0200 (CEST)
+DKIM-Signature: a=rsa-sha256; bh=yuIlx8fKUMSP8DjiSMG+3fouirFk9hyst3xiVZ6i69s=;
+        c=relaxed/relaxed; d=muenchen-mail.de;
+        h=Date:From:To:Message-ID:Subject;
+        s=r1; t=1778782569; v=1;
+        b=Q1TJVFuIbLB5vbal61hzmnR6Lm78mGCXNPaVYan9SmqfJ4gdkBt4OdtA2AsHG8X8
+         oQW+dsiH2kctPQ8mZehjrb/esTcB+Dos4w8RSOoAZIAJXJqxvgXBgPM8US9YMdmn
+         d1wGFG8xdTs3mitl7rksEVpq2iOdQDx/NgT54gYdcW0PuUYFCDl8/AaATX1FH85a
+         LdsA5aeBJWcB7wDu0ceUCzj2DdzDJTbguLpek4E4oYUytMm/kIbHpsqA7D0HrahH
+         Zjxi/Phz7+iPGd9hdS9cka1drhRZHOC873TrWqS1Mizu3k39E+69DwpgwffwPDb4
+         smXM7xNLZipHYWrz4vKz8A==
+Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4gGdn24ZsQz1r9v8;
+	Thu, 14 May 2026 20:16:06 +0200 (CEST)
+Received: from localhost (dynscan3.mnet-online.de [192.168.6.87])
+	by mail.m-online.net (Postfix) with ESMTP id 4gGdn22zmkz1qqlR;
+	Thu, 14 May 2026 20:16:06 +0200 (CEST)
+X-Virus-Scanned: amavis at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.6.182])
+ by localhost (dynscan3.mail.m-online.net [192.168.6.87]) (amavis, port 10024)
+ with ESMTP id Li8SPNrNQsAc; Thu, 14 May 2026 20:16:05 +0200 (CEST)
+X-Auth-Info: vn20Z3webF0HJbVboEQ5bf66aciJ5niILSARlrBhKipUC4RAgTEwNae/f17KHYnC
+Received: from wiesel.intern (aftr-62-216-206-65.dynamic.mnet-online.de [62.216.206.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Thu, 14 May 2026 20:16:05 +0200 (CEST)
+Received: from [IPV6:fdea:9b79:8984:1:c250:c287:2f42:db51] (unknown [IPv6:fdea:9b79:8984:1:c250:c287:2f42:db51])
+	by wiesel.intern (Postfix) with ESMTP id 9D63879A03CF;
+	Thu, 14 May 2026 20:16:04 +0200 (CEST)
+Message-ID: <5750784a-b00a-4dcc-a3b8-4540ef79b6e4@muenchen-mail.de>
+Date: Thu, 14 May 2026 20:16:04 +0200
 MIME-Version: 1.0
-In-Reply-To: <ZQ4PR01MB1202150D76C700778EB29978F2072@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] Enable wifi on the BeagleV-Ahead
+To: Krzysztof Kozlowski <krzk@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260512173440.163179-1-thomas.gerner@muenchen-mail.de>
+ <20260514144836.50101-1-thomas.gerner@muenchen-mail.de>
+ <f564b6ae-31b6-4f51-9351-dfb27ef0298e@kernel.org>
+Content-Language: de-DE
+From: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+In-Reply-To: <f564b6ae-31b6-4f51-9351-dfb27ef0298e@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_111617_993046_FAB32DE1 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +92,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8039607428116287369=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Am 14.05.26 um 16:55 schrieb Krzysztof Kozlowski:
+> On 14/05/2026 16:47, Thomas Gerner wrote:
+>> The BeagleV-Ahead board uses an AP6203BM WiFi chip from AMPAK Technology
+>> Inc. connected to SDIO1. The chip is compatible to the broadcom wireless
+>> driver.
+>>
+> Please use subject prefixes matching the subsystem. You can get them for
+> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+> your patch is touching. For bindings, the preferred subjects are
+> explained here:
+> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
---===============8039607428116287369==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="58SM5AM6G6irs/hi"
-Content-Disposition: inline
+I read some more docs and will hopefully make things right with my next 
+patch version. And I start a new thread with every new version and the 
+recommended subject.
+
+>> The AP6203BM is a dual-band 2.4GHz/5GHz Wi-Fi 4 (802.11a/b/g/n) and
+>> Bluetooth 5.4 module. Bluetooth is not enabled by this patch.
+>>
+>> Change in v3:
+> This goes to changelog part, so after ---
+Okay.
+>> - consider further issues found by sashiko AI review
+>>
+>> Change in v2:
+>> - consider issues found by sashiko AI review
+> Do not attach (thread) your patchsets to some other threads (unrelated
+> or older versions). This buries them deep in the mailbox and might
+> interfere with applying entire sets. See also:
+> https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+Okay, I start new threads with new versions.
+>> Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+>> ---
+>>   .../boot/dts/thead/th1520-beaglev-ahead.dts   | 49 +++++++++++++++++++
+>>   1 file changed, 49 insertions(+)
+>>
+>> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+>> index 91f3f9b987bc..f13a2d1deefa 100644
+>> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+>> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+>> @@ -86,6 +86,11 @@ hdmi_con_in: endpoint {
+>>   			};
+>>   		};
+>>   	};
+>> +
+>> +	brcmf_pwrseq: brcmf-pwrseq {
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> If you cannot find a name matching your device, please check in kernel
+> sources for similar cases or you can grow the spec (via pull request to
+> DT spec repo).
+>
+> pwrseq?
+
+Other device trees with wifi connected to mmc controller use wifi-pwrseq 
+as node name. Wifi is one of the generic names. I use this node name in 
+the next patch version.
+
+>> +		compatible = "mmc-pwrseq-simple";
+>> +		reset-gpios = <&gpio2 31 GPIO_ACTIVE_LOW>;	/* WL-REG-ON */
+>> +	};
+>>   };
+>>   
+>>   &osc {
+>> @@ -239,6 +244,28 @@ rx-pins {
+>>   			slew-rate = <0>;
+>>   		};
+>>   	};
+>> +
+>> +	wifi_pins: wifi-0 {
+>> +		host-wake-pins {
+>> +			pins = "GPIO2_25";
+>> +			function = "gpio";
+>> +			bias-disable;
+>> +			drive-strength = <1>;
+>> +			input-enable;
+>> +			input-schmitt-disable;
+>> +			slew-rate = <0>;
+>> +		};
+>> +
+>> +		reg-on-pins {
+>> +			pins = "GPIO2_31";
+>> +			function = "gpio";
+>> +			bias-disable;
+>> +			drive-strength = <3>;
+>> +			input-disable;
+>> +			input-schmitt-disable;
+>> +			slew-rate = <0>;
+>> +		};
+>> +	};
+>>   };
+>>   
+>>   &sdio0 {
+>> @@ -247,6 +274,28 @@ &sdio0 {
+>>   	status = "okay";
+>>   };
+>>   
+>> +&sdio1 {
+>> +	bus-width = <4>;
+>> +	max-frequency = <198000000>;
+>> +	status = "okay";
+> Please follow DTS coding style in way of organizing properties.
+My next patch will contain the properies order according to DTS coding 
+style.
+>
+>> +	#address-cells = <1>;
+>> +	#size-cells = <0>;
+>> +	non-removable;
+>> +	keep-power-in-suspend;
 
 
---58SM5AM6G6irs/hi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Best regards
+Thomas
 
-On Thu, May 14, 2026 at 01:07:37AM +0000, Changhuang Liang wrote:
->=20
-> This is at the same priority level as most drivers. If some drivers use
->  soc_device_match() and are registered earlier than this driver, issues
->  may arise. It might be possible to lower the level by using subsys_initc=
-all.
->=20
-> What do you think?
-
-If this is the level it has to be to avoid probe issues, that;s okay.
-
---58SM5AM6G6irs/hi
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagYLdAAKCRB4tDGHoIJi
-0kJDAP9O0q8w4WvGaOhEQWn9xc/1yHmmppNMJ6J57RBwoR5TEQEAw3kmCD4WPpQ9
-nJ4Q03CWPpKy44/6gTmDgMs1k8bWWAQ=
-=O8cT
------END PGP SIGNATURE-----
-
---58SM5AM6G6irs/hi--
-
-
---===============8039607428116287369==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8039607428116287369==--
-
