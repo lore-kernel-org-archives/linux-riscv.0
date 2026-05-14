@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD7FCD4F3E
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 12:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB52CCD4851
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 12:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tOkoQuWnL6KNdiOYdkEJ4A8ArfuX7p6QG1L5uKab4Gc=; b=bORueMvhL1Umbm
-	xMkSfDE6FUo+dx6pObfMSF9RUS1DHIki5Ud9SxLt2q+frx3eFgPriWjWOwwXpdTQzz+HguS1sjYP/
-	3YZSRBDIWECS72GnwqO4/CaDK/A65k+cVgJ2My8ToNT9tAgyohlbS0WDVikGWLZhJgWKFSsXOy2Qf
-	IqO8cyXqo8Ri8KpyGQiyALJ9Lu8TDS6d6smxzGXh3F+Dczdz4AiICpRoV/uDBrJYQUNHDRWM5YPKN
-	/TPM4s0aAkD7+Gov1hk1swjQryXziC7DVyy1rI8jaduPqzIlN2qOkcQjO51UCIfUycnQxAQjz/5pu
-	J3z+ESRhJ3TF6V6nqotg==;
+	List-Owner; bh=NK4IFx+vAjlCcegVr2EmwmTfdmOENl9RfQBI0/DFy3I=; b=NoJdU+62rZBl+G
+	u6Fz5+TwxQx0Ve3rAFJmhV+JFDlXIJOYFc5yvxXR+gj636AwqU1SkF3yUNvr6PJ2h1ATeQi/2ZaHG
+	uIcPDKOdNCgoqu4hmgv805HP5tmV9pQwyhUHxYpDskFxIfd2/67Bt3zOWE1l6Hn3kYvt0YY8gO4GP
+	rObh2By5A3q01c/ysI3aOt39xiKWQ5Q7SWPgD39qyscZi+w4CL3SSOixGEzLNazrPJ7Atw6VJc6ja
+	l/SAc0pumdY2PzmGt/qwIzDe7r/XpC2/DVsqXKgsOaVCb/zbyM0yQ0HnHL8iz1Wy8nxRoM4TwvF92
+	1sZlVXehfm+sp31XqDbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNUxO-00000005QTH-2qAh;
+	id 1wNUxO-00000005QTL-3Fjv;
 	Thu, 14 May 2026 12:14:26 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNUxL-00000005QRk-1MBL
-	for linux-riscv@lists.infradead.org;
+	id 1wNUxN-00000005QSU-1LZy
+	for linux-riscv@bombadil.infradead.org;
 	Thu, 14 May 2026 12:14:25 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488ad135063so64539715e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 14 May 2026 05:14:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Pgj61FBq/UbvmM2TQH6EKEDIV/V9Gcyb7zXKSvEriQc=; b=mS48qN1lOlU6CgQWDLfT1Tt5yv
+	1OVo47obgvn/9TFy/N9Jwc/PwrbcGlzEXeHD9rH0IEKivwWMAi4OsfkrEMC3YCNsroGjK2bri8e/h
+	1jYjUDN45xY/buEoXopMjeJWPnGI7cJwmdoPy87XcCR8/aXsX5crKMdMoYIIU5YErIJY9QQcZ1tY+
+	b+QPVVCR1v9saw58cGmgDVtT6xyspNK2wHLKXV0+Utc5TboxUpBUjkVfOXN94pLiYPppDiyDXYUO6
+	FV/c/dQ+jgd8XA8setV36O3QR+PgVoREkEH+RSvVrWc37nTiAELowylK2067vKNYmukFA0AI6hR1y
+	3KoorIUQ==;
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNUxJ-00000002qDd-284P
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 May 2026 12:14:24 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-44e1860558fso5106533f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 May 2026 05:14:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778760861; x=1779365661; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778760860; x=1779365660; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VRooYCCfpJIXVfO+TbuD+FrPZ3PAKdcOterQ+HA71Ww=;
-        b=Sac+Z5WrNcq8zQ1WVatW98G1euZSdpvvzI72jwJoE/HsySTXCjg/YvUAn4VRX9B6xr
-         QGR4oqyCzMcqddBXpCA9P7JFaEd2FJiMSl+JCSVuhxdZzlhq266vG6xOz5W661drb+Hz
-         1ntbnc7RintU5xirYYxPbIINocXyLU6in0ceBxVeapwiIkRyX9Gyy0eilXiRYubk+7Lh
-         elkEsH9ZOUsk9eK1oGGbx0oaRSxRiG6nS8GZh6iv6mOk3BGN9bg+ugEQ/vU+ng8mRIlK
-         VOzfx5nFfq/LGXS9s+OjKOmH4l8e6Tpg1pGmaXcSTeDN9656OVi8fO+3c5RSvWMnUti1
-         qRaQ==
+        bh=Pgj61FBq/UbvmM2TQH6EKEDIV/V9Gcyb7zXKSvEriQc=;
+        b=dVM3QPnMFFoXWBfmD7gBmulPfYxbxVMXbK5MH5WD46Q/+eRG2DSkxojWWgtzU2yPao
+         g3plyMmEh3arcHcZA7D6vPjOKzHhjNlq7S0YfsL1OwzXNO4rLDZNaXTDo5MwQErGN/iz
+         EJRu5QU/D+uZ0DK/oOlEPAuzamQI8N6AKHsPF0v/hnOz8531Xl7eh3/kjgw4D7A4cOXf
+         6MMM4uJqG5Qh42sLwv+WNM35aL8kZd1FSvtna3cs0mxUa4vRwxf6CnR6YPrS3hYedjUd
+         /rtxQRmwzigNoIp8ZD14Ek/z5VxgBitpPTIaNloQudyzzIKXQmSQrKPZsLkQjeDTAjs9
+         N98g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778760861; x=1779365661;
+        d=1e100.net; s=20251104; t=1778760860; x=1779365660;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=VRooYCCfpJIXVfO+TbuD+FrPZ3PAKdcOterQ+HA71Ww=;
-        b=oIl2gD2m9hgvGpp+WLZlC5mbJOpr30NmgP9xDKvFkNcWP7SUEOPlpDr4sl3KaywQPN
-         4t1ejOK/3LG8LVHdNCfsomKx8i7RIF72bTTLS86jqF6thYqM7TsqMP9/sNV6wMAfKR+B
-         xLgzcJv/BDDBzlkyPPnAuChakn+yE2titJ6JhPL77C2cyT8J+2OoYawwAv2Gfz+trv7D
-         0dafhgIbrXmfnB96FlhaLD81iLAJFPyrDX+z8/gduIpvNSehnch3pzWvGAH9auxGH4lb
-         +PUoq49lAipZ2AY7dCn3Cg2MuWGs4eOyJrHyJDoj3Ysu2VfEEhjxlKzldyh7Ss7YEu0+
-         BonQ==
-X-Forwarded-Encrypted: i=1; AFNElJ90jAwhZ3DddgHTzz14uBJMOdOp2zPqoaVAbSlgCh+JSmtdzoa7K90ZpF7b9nr202U2FiWSkENGJ1RzeA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP22EkDYRQ1jOnm7Za2PEgdytkRfGtgKdGjR4SyEyvccQUCF8S
-	29JtYtU18qopjoezF1G2Qu72mm2pxRfjz8yfxORmK0JntKj/jjAyNNPI
-X-Gm-Gg: Acq92OGhSQjXwbabRwExLtBxFgR49gJ19RBvxRouF7NH6ub8tue3a9/q4aZn+XrVinO
-	s0FRR9PpI/VX+zu7kO5sbrTI6Lk12OoNZTo01N6tYD9m1phy/1VJp9NPdb0HW/jPGPQKZRSrEeH
-	FavwQAZzBlPDnnGvAj7NgymcwdtpT8RDw3Hgf0hlEc3AiccMc8qZI9f1uZuumFu+S0rHQ9QSuVm
-	JOkVga60OHY7zkV5lpKdH90TMzC4/I0d+hcvKpjOcRf7AgeTjBF7LNLonFZ8bE3UrvAS9gxMpZg
-	h8iv8gmYdK97kGyYimu9xdo1Mn3ZKbynAWudCSkhy9wncAiB7ablA1eKHLjJ7mUd9bjbPC67U6v
-	Gl6EzAso/E3KVjvGxw9m8LLMyhfjB749sWQVlPEctWWQiWZNcatWsiQrHJ1UmmrKBXdZ2OztYQt
-	afyefLwdWnSa9y0wf6aNIykGgk8pkU5UCPVA3ANIgtYxSmiQkysBFHPojut/5QPZA=
-X-Received: by 2002:a05:600c:45c8:b0:48d:35e:84a0 with SMTP id 5b1f17b1804b1-48fcea151fbmr104364665e9.28.1778760861344;
-        Thu, 14 May 2026 05:14:21 -0700 (PDT)
+        bh=Pgj61FBq/UbvmM2TQH6EKEDIV/V9Gcyb7zXKSvEriQc=;
+        b=BoUuwJHCAkHl0KLbR96z6MQ982e+EEIaLgdPByt0IXUFdijw137PV8qzh3OjYfglFY
+         2EWWsisLsVf3lqzuzZfb0A7md3dFzjtN29maTrY4OIl8QuqGXQcKDZjQGarYBX03fzKH
+         W4O4MQLVMRiMHnJM91HLFSy09nlEPbN+9jhVXZKHzYphhMCibfAX8X35ZhQ1Agx04gh2
+         f3hKgKU31djNq+DHnLrVQQLJcGYi1V9IoQV7n2fk2WInBW8FK3uSp0abzDKLAJdunOgU
+         8+cWBbKlV4B8JLUJRxQKHe/mM8DJ678gfK4csoOymEoK4+FJAfFHW8LFMOhEagQrcT51
+         5stw==
+X-Forwarded-Encrypted: i=1; AFNElJ9s0eol7zi68sSECsc6/ldWNyKEW4MqJgGzDeolqxBJGLdkHs5jQYhedJCc3HRc6qjKAlJGwlREDvnWBg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhJ5tZcNmXPaIdERmZZelHideDTQMIAnmUZ51zad0H2glp/5r9
+	KX98F2B2uPOeJaBrsHj4vuDVAgpQJadivybiOPR7WhULagzOzhHa5Sks
+X-Gm-Gg: Acq92OE9h56PaaSIB9rczrm8YyZTKjPJzdepfU1IyT/c/eecYB/jOelil9NM6hSf9rQ
+	LlnuFYl7m07v7uuwarTor73/NithchSL8wRIovSKpfCJDGUp9ivAg14nj+yI/1JF3oO+5XcrpP+
+	cbxJ+TARlr6cdRCG6WPn8F/Gba5oLN/dkrCYAtbFHv5ASvNJKD6P8Tq3mf3MDNj4ek0HvlWNIPK
+	kVVbGVPt0wLlUYXLBZPP6Z118/hhjaB9GxAwexhkFH8qqk+QEUrpwpPzzAP3Fjcg+96OavbeToj
+	gIwSi/TvtWWO4P7pOp49dK74m3F+15HENuPRGxPNOxeOoR6wbvJaaSkPfbnDngZi626q1hll4KA
+	u7q6XlHCdEKU2glUytgdxsMIN0mZjsPQE430MvjwCFNraQ54sgpvlYzr96crAg+vOyb8AxaE25j
+	UnsBCyCx8Mr67sploiBteJGEUXrc0ClXnbbdcsmfgT6w==
+X-Received: by 2002:adf:e884:0:b0:45d:817c:b8b2 with SMTP id ffacd0b85a97d-45d817cb8f7mr4986962f8f.30.1778760859579;
+        Thu, 14 May 2026 05:14:19 -0700 (PDT)
 Received: from RTRKW671-LIN.domain.local ([77.243.27.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9e767cb9sm6285630f8f.2.2026.05.14.05.14.19
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9e767cb9sm6285630f8f.2.2026.05.14.05.14.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 05:14:20 -0700 (PDT)
+        Thu, 14 May 2026 05:14:19 -0700 (PDT)
 From: Milan Tripkovic <milant2002@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -85,18 +100,17 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-hardening@vger.kernel.org,
 	llvm@lists.linux.dev,
 	Dusan Stojkovic <Dusan.Stojkovic@rt-rk.com>,
-	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v2 2/2] lib/string_kunit: extend benchmarks and unit test to memcmp()
-Date: Thu, 14 May 2026 14:13:58 +0200
-Message-ID: <20260514121359.931999-3-milant2002@gmail.com>
+	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+Subject: [PATCH v2 1/2] riscv: lib: add memcmp() implementation
+Date: Thu, 14 May 2026 14:13:57 +0200
+Message-ID: <20260514121359.931999-2-milant2002@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260514121359.931999-1-milant2002@gmail.com>
 References: <20260514121359.931999-1-milant2002@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_051423_387776_57960B2B 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20260514_131422_021359_DA4249A1 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,140 +129,226 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
 
-Extend the string benchmarking suite to include memcmp().
-Extend the string unit test to include memcmp().
+Add an assembly implementation of memcmp() for RISC-V. The implementation
+uses the ZBB extension for word-at-a-time comparison and an assembly
+fallback for non-ZBB systems.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202605140827.Qg1DZpcB-lkp@intel.com/
+Benchmark results (QEMU TCG, rv64, Aligned):
+
+  Len   | Default | NoZBB  | ZBB    | %NoZBB | %ZBB
+  ------|---------|--------|--------|--------|-------
+  1 B   | 20.3    | 25.0   | 20.9   | +23.2% | +3.0%
+  7 B   | 88.9    | 107.5  | 155.7  | +20.9% | +75.1%
+  8 B   | 89.6    | 110.9  | 176.2  | +23.8% | +96.7%
+  16 B  | 134.4   | 172.4  | 334.8  | +28.3% | +149.1%
+  31 B  | 163.5   | 220.5  | 606.2  | +34.9% | +270.8%
+  64 B  | 203.8   | 235.9  | 968.6  | +15.8% | +375.3%
+  127 B | 224.6   | 268.7  | 1362.8 | +19.6% | +506.8%
+  512 B | 235.7   | 271.1  | 1913.7 | +15.0% | +711.9%
+  1024 B| 256.8   | 290.6  | 2123.6 | +13.2% | +726.9%
+  4096 B| 263.8   | 302.9  | 2290.4 | +14.8% | +768.2%
+  
+Benchmark results (QEMU TCG, rv64, Unaligned - Offset 3):
+
+  Len   | Default | NoZBB  | ZBB    | %NoZBB | %ZBB
+  ------|---------|--------|--------|--------|-------
+  1 B   | 20.7    | 21.7   | 21.5   | +4.8%  | +3.9%
+  7 B   | 96.2    | 99.1   | 96.9   | +3.0%  | +0.7%
+  8 B   | 97.5    | 118.5  | 110.5  | +21.5% | +13.3%
+  16 B  | 136.7   | 166.6  | 172.8  | +21.9% | +26.4%
+  31 B  | 167.6   | 206.5  | 211.9  | +23.2% | +26.4%
+  64 B  | 204.4   | 229.9  | 240.3  | +12.5% | +17.6%
+  127 B | 229.6   | 261.7  | 269.0  | +14.0% | +17.2%
+  512 B | 245.5   | 260.8  | 269.9  | +6.2%  | +9.9%
+  1024 B| 246.9   | 261.2  | 283.5  | +5.8%  | +14.8%
+  4096 B| 250.7   | 295.8  | 299.7  | +18.0% | +19.5%
+
 Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
 ---
- lib/tests/string_kunit.c | 106 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 106 insertions(+)
+ arch/riscv/include/asm/string.h |   2 +
+ arch/riscv/lib/Makefile         |   1 +
+ arch/riscv/lib/memcmp.S         | 124 ++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |   5 +-
+ 4 files changed, 131 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/memcmp.S
 
-diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-index 0819ace5b027..d0bad40a719a 100644
---- a/lib/tests/string_kunit.c
-+++ b/lib/tests/string_kunit.c
-@@ -881,6 +881,110 @@ static void string_bench_strrchr(struct kunit *test)
- 	STRING_BENCH_BUF(test, buf, len, strrchr, buf, '\0');
- }
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index 764ffe8f6479..5c5299678c66 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -18,6 +18,8 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
+ #define __HAVE_ARCH_MEMMOVE
+ extern asmlinkage void *memmove(void *, const void *, size_t);
+ extern asmlinkage void *__memmove(void *, const void *, size_t);
++#define __HAVE_ARCH_MEMCMP
++extern asmlinkage int memcmp(const void *, const void *, size_t);
  
-+static void string_test_memcmp(struct kunit *test)
-+{
-+	const int max_offset = 16;
-+	const int max_len = 32;
-+	const int buf_size = max_offset + max_len + 32;
-+	u8 *buf1, *buf2;
-+	int i, j, len, k;
+ #if !(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
+ #define __HAVE_ARCH_STRCMP
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 6f767b2a349d..b529e1be18b2 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -3,6 +3,7 @@ lib-y			+= delay.o
+ lib-y			+= memcpy.o
+ lib-y			+= memset.o
+ lib-y			+= memmove.o
++lib-y			+= memcmp.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+ lib-y			+= strcmp.o
+ lib-y			+= strlen.o
+diff --git a/arch/riscv/lib/memcmp.S b/arch/riscv/lib/memcmp.S
+new file mode 100644
+index 000000000000..f7d0eaa08880
+--- /dev/null
++++ b/arch/riscv/lib/memcmp.S
+@@ -0,0 +1,124 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +
-+	buf1 = kunit_kzalloc(test, buf_size, GFP_KERNEL);
-+	buf2 = kunit_kzalloc(test, buf_size, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf1);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf2);
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
 +
-+	for (i = 0; i < max_offset; i++) {
-+		for (j = 0; j < max_offset; j++) {
-+			for (len = 0; len <= max_len; len++) {
-+				memset(buf1, 'A', buf_size);
-+				memset(buf2, 'A', buf_size);
-+				KUNIT_EXPECT_EQ_MSG(test, memcmp(buf1 + i, buf2 + j, len), 0,
-+						    "Should be equal: i:%d j:%d len:%d", i, j, len);
-+				for (k = 0; k < len; k++) {
-+					memset(buf1, 'A', buf_size);
-+					memset(buf2, 'A', buf_size);
-+					buf2[j + k] = 'B';
-+					int res = memcmp(buf1 + i, buf2 + j, len);
++/* int memcmp(const void *cs, const void *ct, size_t n) */
++SYM_FUNC_START(memcmp)
 +
-+					KUNIT_EXPECT_NE_MSG(test, res, 0,
-+							    "Should detect difference at k:%d (i:%d j:%d len:%d)",
-+						k, i, j, len);
++	__ALTERNATIVE_CFG("nop", "j memcmp_zbb", 0, RISCV_ISA_EXT_ZBB,
++		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
++/*
++ * Parameters
++ *	a0 - Pointer to first memory block (cs), also return value
++ *	a1 - Pointer to second memory block (ct)
++ *	a2 - Number of bytes to compare (n), transformed to end pointer (a0 + n)
++ *
++ * Returns
++ *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
++ *
++ * Clobbers
++ *	t0, t1
++ */
++	beqz	a2, 2f
++	add	a2, a0, a2
++1:
++	lbu	t0, 0(a0)
++	lbu	t1, 0(a1)
++	bne	t0, t1, 3f
++	addi	a0, a0, 1
++	addi	a1, a1, 1
++	bne	a0, a2, 1b
++2:
++	li	a0, 0
++	ret
++3:
++	sub	a0, t0, t1
++	ret
 +
-+					if (buf1[i + k] < buf2[j + k])
-+						KUNIT_EXPECT_LT(test, res, 0);
-+					else
-+						KUNIT_EXPECT_GT(test, res, 0);
-+				}
-+			}
-+		}
-+	}
-+}
 +
-+#if IS_ENABLED(CONFIG_STRING_KUNIT_BENCH)
-+static void string_bench_memcmp(struct kunit *test)
-+{
-+	char *buf1, *buf2;
-+	size_t lengths[] = { 1, 7, 8, 16, 32, 64, 128, 512, 1024, 4096};
-+	int offsets[] = {0, 1, 3, 7};
-+	const size_t max_len = 4096 + 64;
++memcmp_zbb:
++.option push
++.option arch,+zbb
++/*
++ * Parameters
++ *	a0 - Pointer to first memory block (cs), also return value
++ *	a1 - Pointer to second memory block (ct)
++ *	a2 - Number of bytes to compare (n), decremented during loop
++ *
++ * Returns
++ *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
++ *
++ * Clobbers
++ *	t0, t1, t2, t3, t4
++ */
++	add	t3, a0, a2
++	or	t0, a0, a1
++	andi	t0, t0, (SZREG - 1)
++	bnez	t0, 5f
 +
-+	buf1 = vmalloc(max_len);
-+	buf2 = vmalloc(max_len);
++	addi	t4, t3, -SZREG
++	bltu	t4, a0, 7f
 +
-+	if (!buf1 || !buf2) {
-+		vfree(buf1);
-+		vfree(buf2);
-+		kunit_err(test, "vmalloc failed\n");
-+		return;
-+	}
++1:
++	REG_L	t1, 0(a0)
++	REG_L	t2, 0(a1)
++	bne	t1, t2, 2f
++	addi	a0, a0, SZREG
++	addi	a1, a1, SZREG
++	bleu	a0, t4, 1b
 +
-+	memset(buf1, 'A', max_len);
-+	memset(buf2, 'A', max_len);
++7:
++	beq	a0, t3, 4f
++	REG_L	t1, 0(a0)
++	REG_L	t2, 0(a1)
 +
-+	for (int i = 0; i < 100000; i++)
-+		(void)memcmp(buf1, buf2, 4096);
++	sub	t0, t3, a0
++	li	t4, SZREG
++	sub	t0, t4, t0
++	slli	t0, t0, 3
 +
-+	for (int o = 0; o < ARRAY_SIZE(offsets); o++) {
-+		int off = offsets[o];
-+
-+		for (int i = 0; i < ARRAY_SIZE(lengths); i++) {
-+			size_t len = lengths[i];
-+			char *p1 = buf1;
-+			char *p2 = buf2 + off;
-+
-+			u32 iterations = (len < 512) ? 100000 : 10000;
-+
-+			for (u32 j = 0; j < iterations; j++) {
-+				(void)memcmp(p1, p2, len);
-+				barrier();
-+			}
-+
-+			u64 elapsed = STRING_BENCH(iterations, memcmp, p1, p2, len);
-+			u64 ns_per_call = div_u64(elapsed, iterations);
-+			u64 mbps = len ? div_u64((u64)len * iterations * 1000,
-+									 elapsed) : 0;
-+
-+			if (off == 0) {
-+				kunit_info(test, "bench_memcmp_aligned: len=%-4zu: %llu MB/s (%llu ns/call)\n",
-+					   len, mbps, ns_per_call);
-+			} else {
-+				kunit_info(test, "bench_memcmp_unaligned(off=%d): len=%-4zu: %llu MB/s (%llu ns/call)\n",
-+					   off, len, mbps, ns_per_call);
-+			}
-+		}
-+	}
-+
-+	vfree(buf1);
-+	vfree(buf2);
-+}
-+#else
-+static void string_bench_memcmp(struct kunit *test)
-+{
-+	kunit_skip(test, "not enabled");
-+}
++#ifndef CONFIG_CPU_BIG_ENDIAN
++	rev8	t1, t1
++	rev8	t2, t2
 +#endif
++	srl	t1, t1, t0
++	srl	t2, t2, t0
 +
- static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_test_memset16),
- 	KUNIT_CASE(string_test_memset32),
-@@ -910,6 +1014,8 @@ static struct kunit_case string_test_cases[] = {
- 	KUNIT_CASE(string_bench_strnlen),
- 	KUNIT_CASE(string_bench_strchr),
- 	KUNIT_CASE(string_bench_strrchr),
-+	KUNIT_CASE(string_test_memcmp),
-+	KUNIT_CASE_SLOW(string_bench_memcmp),
- 	{}
- };
++	bne	t1, t2, 8f
++	li	a0, 0
++	ret
++5:
++	beq	a0, t3, 4f
++6:
++	lbu	t1, 0(a0)
++	lbu	t2, 0(a1)
++	bne	t1, t2, 3f
++	addi	a0, a0, 1
++	addi	a1, a1, 1
++	bne	a0, t3, 6b
++
++4:	li	a0, 0
++	ret
++2:
++#ifndef CONFIG_CPU_BIG_ENDIAN
++	rev8	t1, t1
++	rev8	t2, t2
++#endif
++8:
++	sltu	a0, t2, t1
++	sltu	t0, t1, t2
++	sub	a0, a0, t0
++	ret
++
++3:
++	sub	a0, t1, t2
++	ret
++
++.option pop
++
++SYM_FUNC_END(memcmp)
++SYM_FUNC_ALIAS(__pi_memcmp, memcmp)
++EXPORT_SYMBOL(memcmp)
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index b0358a78f11a..456929971da7 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
  
+-purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
++purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o memcmp.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+ purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
+ endif
+@@ -41,6 +41,9 @@ $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
+ $(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
+ 	$(call if_changed_rule,as_o_S)
+ 
++$(obj)/memcmp.o: $(srctree)/arch/riscv/lib/memcmp.S FORCE
++	$(call if_changed_rule,as_o_S)
++
+ CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
+ CFLAGS_string.o := -D__DISABLE_EXPORTS
+ CFLAGS_ctype.o := -D__DISABLE_EXPORTS
 -- 
 2.43.0
 
