@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D27CD4F25
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 08:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA41CD4851
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 09:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d0YUj99tYUBUQF8tsT4Rsu676SkqywmFgbPfmh2BEsw=; b=AxNGgBzPJou5mq
-	DdWgPQwr1CKJE8ts6iynxFXtCMBsZAjD5odL2ZTks71oRtVE9LHqzoooOX3k82jAj8wHgf6vCXrQ/
-	OZlqMmzkqTyFSBXJJM6MU3I6oaG0qkiSuA8rO3IbtM2/DV7a1g93WEW4ThSvvLplMF6k2NaDgA5qE
-	QtqrYgKXgzPsKANelCa/RmwNU4IRlLUNtPyVXvR1pDxZph+/snrS3fiCNV3dUa5ZO2M+cWbSDvoLW
-	lcsLZDhd+wj4PbQ5oe3KorL5o/TmDWZO3+znTl/7Oxi/ZrNvA57H+j/T/H4hrQCnCWG7JlbqI1e3y
-	srPHZwWiWFFkU/jDe3mQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=j1VcOcaCO3DC5WENgXSs1RtyrDB2GKINL7cCMdq6W54=; b=wt0KHn3tJQ6J+6
+	cVcDxKM7sPq2JnBPhY94V16jHI7uI2JSb+DklezKNCEVj9nTFlLfJoFupr36eUnW6D7CSn6pQ3n16
+	ftlZynpMb2JC7/HRMMLoAjpVrm3zN76jIZLC/Dm/ZseTFDTrdL33rJdgjUFPUyU62CGGkOlwEm+jm
+	XPM9kSABnsLT5m8e1qW9xPiAKHcKdY2ePYQNwL7XBkX4NkO40g2mBV218wQVa3xN4T6O65m9P6TMZ
+	S5UUEibWRJ9385tzCIA3Td5EA88BnHD0rZExpVE+6cQXxvZoiiFeEDqTzpp7fR4UwO0Fgat4/Sfcr
+	HxDT74J2+GmAHoFi0OWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNRrY-00000004zjT-2dpQ;
-	Thu, 14 May 2026 08:56:12 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wNSMZ-000000053eR-2efu;
+	Thu, 14 May 2026 09:28:16 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNRrV-00000004zik-3UaS
+	id 1wNSMV-000000053dc-0HHV
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 08:56:11 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43d73422431so5726417f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 May 2026 01:56:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778748967; x=1779353767; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t3LT0hR23Ad91sR/2WKkYMfAOBkKoFQtEPupdXVlcoY=;
-        b=RFB6ME6uRD+JchEAVYLg4Yl0L0jWbYFoh5lJOLYQh64hmYAAfZq7R09UW2eh3MaWtp
-         N2j/SVIK0WxaeS97rTR1LT+dC7/NxCI7SIroBv+Ve7mjk7SGzAKWm+rZ7aCEaeevrger
-         axMYx013oZNoVjcaMUhftRYlZEVfFLBbzmuueCMiRZWeZkwgJanhfP32XbkEi0bUkVBF
-         //haoI8xN43FZudAbUVF4jftedTSWQURjUJu39N5EOJvShPRUtjfjmj9qcqnN4MJlaa1
-         9sBHHTxXnfmDOROt2TRFcNu6rp9zUv3uhhv9cbqbrNPpQTrh42nsbjUcI7Q6gPzzCaTz
-         1dwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778748967; x=1779353767;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=t3LT0hR23Ad91sR/2WKkYMfAOBkKoFQtEPupdXVlcoY=;
-        b=CYdAW/JtveYDyGI7N1Nkn3om80OPtjo2DU1spEsDavvrmaXUbZsNIkYxLBXK+M7zGQ
-         8slWJtWyY//ujJjwSHjSROUkNPVH8V6zkCrTEM0dAE3qB54gk7yHlM0iUHFx+keUC3Sz
-         YFb0DKyKPezegu1FAPFYf5a6PFdnYm3TimE/8FWf6YSBlCB4fG7BFIC3zxBITjf4EMrz
-         m9CNsu0tmoYuFFLdAx73RIBjHmIpRjiT7ykR+7yAB8MJFX4xGB/0dMkSBKKQNsoCuXs7
-         8kh69KDaSjK/cmeBxv+6z1/guxR4XRNjMBtBXjJBcgUrdrKTOzw7AAdnU+yNLEWb2mpi
-         vwGA==
-X-Forwarded-Encrypted: i=1; AFNElJ+i1O9zEr5+9lZEeH8Zu1wXyDQbghId3pcqd99UTnSj5mSAO2jr+GBD9hQvovA8Drfohho/moT1SyYtZQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnolAAqR6YqogrDr7P0Nytc9Su3WHsW6GQWA4JNxR3dFiN0ez2
-	Z3XQnfbb6jWfwSi4B+geFJfTzyzR7OSgnjAI6l7wYz2BD5vtyBWLEMFI
-X-Gm-Gg: Acq92OEUSzkMQRycB9BlzI3Qt8+hlgSeyurSCWKmm0W2/fK6P+49cP6P83ZnQhdnbpH
-	B0bbrTUuD7Trpd5ZAqPKcLEGh4tgvqQzj8jypbIZEbRB9M+cgOtgozg4SXLKaSt8tRLsMFrEc6Q
-	dN7UtScbONiFgI0lZ+kTSOjqFK3y+33JYVA/G38UjjJlWckqhp7QdxOcbEXRsplb9WSE8DE+Da8
-	UXT2+IW5ymDDpl0s0VhYFC9QjnVketWOf7lfqIGTXZqqXBHJDI7dZzXBhK/AlXE4n+FUOMDNTGe
-	nD0StHkyYtKEqBDB3hVbRCN+fnPRqrKHW3nfxpBJgUH6Ph0cZzvI2FN/ooOoF6AmG6gacIrSinn
-	C3NWWouwYM4DMEUqsQXYYTVFP1UQMPF6bBllFBrIJDQNDDDCd8bwMpVB5N6wdMBEPCB5P6VIPtg
-	/Wcs/3s7rCghCfk85gGYhgUSsO2g9aCMHZ2DKjWfxopAVSiHADEjdtQhK97Rcl
-X-Received: by 2002:a05:6000:2dc3:b0:45b:d2ff:4d4f with SMTP id ffacd0b85a97d-45c7a8d4c68mr10226319f8f.40.1778748967200;
-        Thu, 14 May 2026 01:56:07 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9e768072sm5236440f8f.5.2026.05.14.01.56.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 01:56:06 -0700 (PDT)
-Date: Thu, 14 May 2026 09:56:05 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Zong Li <zong.li@sifive.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, debug@rivosinc.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: cif: reduce shadow stack size limit from 4GB
- to 2GB
-Message-ID: <20260514095605.2c7d8761@pumpkin>
-In-Reply-To: <20260514075036.1432352-1-zong.li@sifive.com>
-References: <20260514075036.1432352-1-zong.li@sifive.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 14 May 2026 09:28:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1778750872; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=RhHQfrrDQxOr/Pyjl84FNSqHp4hhEjak7rPRt5BzbYPLp/M4/QUWnN3a4kCjHnc1WXeUOiUdaBS5CLnZ55zabk5ILFQUou854P746petd1HA8WCKhYACULKG82mBDvV5kMGj7yDy9ZBj3rOKAdOx30e/z7w8C6gaistPMH6Oy7w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1778750872; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=X59KxAk7T+LmST/s9ktNmLejHGQz11xABLTtF0WEZCM=; 
+	b=gzQX9yZeoKKrYU8D4xkqeFCBRxbNH57+uKr6Lf5idsr0XVLFo63s/F/4LQY/bPomRd9wWmjDHEDVLLf/KnIrGj5907AlERGrXCOVSiztX2Bl6N4GFD1b/Fhdtkm8bmR/3alsP9rCx+JJd2HFcJtp6UHNnZe0elGCb0RIy6fRylI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1778750872;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=X59KxAk7T+LmST/s9ktNmLejHGQz11xABLTtF0WEZCM=;
+	b=PkZSnwI76jhiMlb0EebhcgptBNrQ34C6EVEvjCu3eLGbjDPm4oewouO31OxPPE32
+	7VvdSlpGW3L5bxd5P9HtwOxeMRb5WE/DZ3/ryvvBT4+WUg9xW186X5//CWZHc6ktq0f
+	JtGu0ouykxPMYHUbUbavZ/4AC7Kp7wBvWr7sjp00=
+Received: by mx.zohomail.com with SMTPS id 1778750868733531.0360837030714;
+	Thu, 14 May 2026 02:27:48 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH v5 0/6] clk/reset: anlogic: add support for DR1V90 SoC
+Date: Thu, 14 May 2026 17:27:16 +0800
+Message-Id: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23NQQ6CMBCF4auYrq1pp4VSV97DuIDOKE1UtGCjI
+ dzdoomKYfkm+f7pWUvBU8vWi54Fir71zTmNbLlgri7PB+Ie02YgIBMWgGOQ0Qruwo0bXVZaOLM
+ Ho1gCl0B7f3/Ftrv3DnS9pWb3Pda+7ZrweD2McrzOtqPkgpOyCk1WIGnaXPzh1ITyuOrI1WxMR
+ fhwKSCfcEhcqyo3pcMcEee4+nKQU64Sz8A5qwqUWIk5rn+4khOuE0+scIUxVFn5z4dheAIDbFi
+ 6egEAAA==
+X-Change-ID: 20250922-dr1v90-cru-74ab40c7f273
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Brian Masney <bmasney@redhat.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778750853; l=4246;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=J2/S40TiCw6k69eaOKQI442EBK/SDfU7izqJXnyyuIg=;
+ b=NNCEe7KtjpFVpBn6ik3E1byVkkVGWoX74sJ0/BJ3iEp5x0pvVcwqCs6GDRVYw6aZmK6xj4ZC1
+ G2JM3g+fyyJC7oSDPMZD0IQ4Z8lHfnHeo+ogInmUWo4zX5i1fOjYfxt
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_015609_896949_BAC6C752 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20260514_022811_726864_DD1E2962 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,83 +98,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 May 2026 00:50:35 -0700
-Zong Li <zong.li@sifive.com> wrote:
+Add Clock and Reset Unit (CRU) support for the Anlogic DR1V90 SoC, as
+well as corresponding dts bindings and dts integration.
 
-> Follow the ARM64 GCS (Guarded Control Stack) implementation approach
-> by reducing the shadow stack size allocation from min(RLIMIT_STACK, 4GB)
-> to min(RLIMIT_STACK/2, 2GB). see commit '506496bcbb42 "arm64/gcs: Ensure
-> that new threads have a GCS")'
-> 
-> Rationale:
-> 
-> 1. Shadow stacks only store return addresses (8 bytes per entry), not
->    local variables, function parameters, or saved registers. A 2GB
->    shadow stack is far more than sufficient for any practical
->    application, even with extremely deep recursion. Using half the size
->    maintains adequate while being more resource-efficient margin
-> 
-> 2. On memory-constrained systems (e.g., platforms with only 4GB of
->    physical memory, which is a common configuration), allocating 4GB
->    of virtual address space for shadow stack per process/thread can
->    lead to virtual memory allocation failures when the overcommit mode
->    is set to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER:
->    Error: "__vm_enough_memory: not enough memory for the allocation"
-> 
-> This reduces virtual address space consumption by 50% while maintaining
-> more than adequate space for return address storage.
-> 
-> Additionally, add max(PAGE_SIZE, size) constraint, which covers the
-> case where RLIMIT_STACK is smaller than PAGE_SIZE.
-> 
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> ---
-> 
-> Changed in v2:
-> - Add max() in case RLIMIT_STACK is smaller than PAGE_SIZE. Suggested by
->   Paul Walmsley and Sashiko
-> 
-> Changed in v1:
-> - Use min() instead of min_t(). Suggested by David Laight
-> 
->  arch/riscv/kernel/usercfi.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-> index 6eaa0d94fdfe..0f75e8f5d0ec 100644
-> --- a/arch/riscv/kernel/usercfi.c
-> +++ b/arch/riscv/kernel/usercfi.c
-> @@ -109,15 +109,17 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
->  	task->thread_info.user_cfi_state.ufcfi_locked = lock;
->  }
->  /*
-> - * If size is 0, then to be compatible with regular stack we want it to be as big as
-> - * regular stack. Else PAGE_ALIGN it and return back
-> + * The shadow stack only stores the return address and not any variables
-> + * 2G should be more than sufficient for most applications.
->   */
->  static unsigned long calc_shstk_size(unsigned long size)
->  {
->  	if (size)
->  		return PAGE_ALIGN(size);
->  
-> -	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G));
-> +	size = PAGE_ALIGN(min(rlimit(RLIMIT_STACK) / 2, SZ_2G));
+The CRU driver framework is built around the clock controller as the
+primary device, with the reset controller implemented as an auxiliary
+device. The clock part refers to the vendor's code [1] to determine the
+structure of the clock tree.
 
-PAGE_ALIGN() already rounds up, so the only problem would be if rlimit(STACK)
-were 0 or 1, I'm sure that would fail earlier (or not be allowed).
+The Anlogic DR1 series includes not only the DR1V90 (based on the Nuclei
+UX900 RISC-V core), but also the DR1M90 (based on the Cortex-A35 ARM64
+core). Most of the clock tree and CRU design can be shared between them.
+This series only adds CRU support for DR1V90. Nevertheless, the driver
+is structured to make future extension to other DR1 variants like
+DR1M90.
 
-I also don't understand the rational for just /2 and the 2G upper limit.
-You need 512 nested function calls to even use 4k.
-That would have to be quite deep recursion.
+Link: https://gitee.com/anlogic/linux/blob/anlogic-6.1.54/drivers/clk/anlogic/anl_dr1x90_crp.c [1]
 
--- David
+---
+Changes in v5:
+- Use the standard GENMASK() macro for clk_div_mask() instead of a 1L
+  cast
+- Rename the main oscillator from "osc_33m" to "osc" across bindings
+  and driver
+- Move the main oscillator clock-frequency definition from the SoC dtsi
+  to the board dts
+- Add MAINTAINERS entry for only the DR1V90 CRU driver instead of using
+  broad wildcards to match all DR1V90 files
+- Link to v4: https://lore.kernel.org/r/20251231-dr1v90-cru-v4-0-1db8c877eb91@pigmoral.tech
 
-> +
-> +	return max(PAGE_SIZE, size);
->  }
->  
->  /*
+Changes in v4:
+- Change common cru_dr1 code into a standalone module for future reuse
+- Remove redundant .round_rate() in the clock driver
+- Use devm_auxiliary_device_create() to simplify auxiliary device
+  registration
+- Pass register base from clk to reset via platform_data instead of
+  performing a second ioremap
+- Update clock Kconfig and Makefile licenses to GPL-2.0-only from
+  deprecated GPL-2.0
+- Add Kconfig dependency for the reset driver on the clock driver
+- Link to v3: https://lore.kernel.org/r/20251216-dr1v90-cru-v3-0-52cc938d1db0@pigmoral.tech
+
+Changes in v3:
+- Remove incorrect __free(kfree) usage for auxiliary_device in clock
+  driver
+- Replace __clk_get_enable_count with __clk_is_enabled in clock driver
+- Add a lock to protect register read-modify-write in reset driver
+- Rebase to v6.19-rc1
+- Link to v2: https://lore.kernel.org/r/20251026-dr1v90-cru-v2-0-43b67acd6ddd@pigmoral.tech
+
+Changes in v2:
+- Update copyright infomation
+- Add the original vendor author's infomation to the clock driver
+- Rebase on the v3 basic DT patch, which is based on v6.18-rc1
+- Link to v1: https://lore.kernel.org/r/20250922-dr1v90-cru-v1-0-e393d758de4e@pigmoral.tech
+
+---
+Junhui Liu (6):
+      clk: correct clk_div_mask() return value for width == 32
+      dt-bindings: clock: add Anlogic DR1V90 CRU
+      clk: anlogic: add cru support for Anlogic DR1V90 SoC
+      reset: anlogic: add support for Anlogic DR1V90 resets
+      riscv: dts: anlogic: add clocks and CRU for DR1V90
+      MAINTAINERS: Add Anlogic DR1V90 CRU driver entry
+
+ .../bindings/clock/anlogic,dr1v90-cru.yaml         |  60 ++++++
+ MAINTAINERS                                        |   9 +
+ arch/riscv/boot/dts/anlogic/dr1v90-mlkpai-fs01.dts |   4 +
+ arch/riscv/boot/dts/anlogic/dr1v90.dtsi            |  40 +++-
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/Makefile                               |   1 +
+ drivers/clk/anlogic/Kconfig                        |  21 ++
+ drivers/clk/anlogic/Makefile                       |   7 +
+ drivers/clk/anlogic/cru-dr1v90.c                   | 192 +++++++++++++++++
+ drivers/clk/anlogic/cru_dr1.c                      | 226 +++++++++++++++++++++
+ drivers/clk/anlogic/cru_dr1.h                      | 117 +++++++++++
+ drivers/reset/Kconfig                              |  10 +
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-dr1v90.c                       | 140 +++++++++++++
+ include/dt-bindings/clock/anlogic,dr1v90-cru.h     |  46 +++++
+ include/dt-bindings/reset/anlogic,dr1v90-cru.h     |  41 ++++
+ include/linux/clk-provider.h                       |   3 +-
+ 17 files changed, 916 insertions(+), 3 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20250922-dr1v90-cru-74ab40c7f273
+
+Best regards,
+-- 
+Junhui Liu <junhui.liu@pigmoral.tech>
 
 
 _______________________________________________
