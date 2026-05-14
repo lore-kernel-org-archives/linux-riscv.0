@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A23CD37AC
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 02:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D26ECD4F21
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 02:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w18jBQvrb4LF3nAR90mgC9MS7ZCeuz1/1UFfhfdR5C0=; b=EJIQBs7nHYVLip
-	UzRXOT0175g+OK2Kp/212dYFjMnxrRRYDeMzx83+yWmWhEeEOFZTTsRlNg4zQFowlWTCpSHv2rMe5
-	7YmjiSXDpfQ9I/aeejfSjPSw4awLKzzcve4h4bN+5EtN/5MW+TqUIRVFTsqDi948GHH4502AZXl/w
-	3flFNxfJvT1PQ7HEyE82yPsfRRQ9lVwDAUapY+BuJ3lOrlixElXdWB/EJWSqmN2iAaSb90TsH3E3p
-	2bWVl5tpxJglsGPiWMjx/MYuOmPnSvpD/CzQhzLCq/Smcm8pJMVlQJUKur0JV4kDymQe0+SeAmtpD
-	9OIy14Gdfj/6ElX4GcIg==;
+	List-Owner; bh=Si18B+qcKpuoq+0KwL+R6Znl5GacGbYA4dOi5RwZXSY=; b=L3ZXSEqMNu3vAI
+	N2u6rmHnewPIYxGeWHkT1rvCTFMeY9Aekqcb5npfmEJSRSgcD7x5foaSpnp8MPh74XlJRnGBx54ki
+	05258QsjRcShpD0GOiWrTtz97vy8jDTyULM36s1AE76nBeUM4974uStyGBvmyeQU+Vrhd7RTSAckn
+	VZtGK8xxuOa6Zw1/rAZmysKQhkbOeKOuV2SDk5ikYe1CkSnJ4JjCi8QLY7IKvpoITcKBNnPoiXZ6z
+	6y5JEveDZYY3Q9jSFwGEQqe1RbwkSKXoVRqWvVzvl+X3rcax3WQHQNFYtkCbXxOMIoGzEJUnQADTx
+	VUKAXOgWutCf30ye5uiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNLlP-00000004MID-22PD;
-	Thu, 14 May 2026 02:25:27 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNLlM-00000004MHX-2Gew
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 02:25:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778725524; x=1810261524;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/pf7isI3byc11rrABu6e8n7Zzxos23Sk/PCCBbiveVs=;
-  b=DLjCX2u8iXmHb7rKf8MZtXYuMRKkJsOnlR+jO0UapnXcxVlRGcb1E6tk
-   1n0Sa7quvPXCrm5mies/b/m2fqeezsE3gsZ3GNd7yfolNpWMo5RDbzcWW
-   yCh8GHYp1/KQ4NLXFF1qdrOKjf1zgEDVn0enr+NPi0pbYLkWgJWNVWUEy
-   TA+PFr9HJ0lAr3d+aRksTOIkKXQWoBwx63YnM3MWiNC4l/S7Lnnr2Q+eI
-   2aDiB+93/CE/qcRskm+g4/KbDkkCOubBi+ClO8oQPmxl5Dt0htt/mgGPR
-   XsxGnwHVJA4x+jF1m5pVeX59lguDGIjDIsMUnHdK1Aj+6SZnovFKB4DQP
-   g==;
-X-CSE-ConnectionGUID: ffcleLFdS3SFn1eP7JyKXg==
-X-CSE-MsgGUID: 5fl+ozicTG6l/q8wxtCzAg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="79644671"
-X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
-   d="scan'208";a="79644671"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 19:25:23 -0700
-X-CSE-ConnectionGUID: BBnIGDTxRGOlXd/jFfeYVQ==
-X-CSE-MsgGUID: 3Gn9w2a6QSKk7gNLQ9LT1w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
-   d="scan'208";a="231857809"
-Received: from lkp-server01.sh.intel.com (HELO dca79079c3eb) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 13 May 2026 19:25:20 -0700
-Received: from kbuild by dca79079c3eb with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wNLlE-000000005fP-3wZ4;
-	Thu, 14 May 2026 02:25:16 +0000
-Date: Thu, 14 May 2026 10:24:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
-	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-Subject: Re: [PATCH] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
- mips.pause
-Message-ID: <202605141021.Fw5Aqgfw-lkp@intel.com>
-References: <20260511-p8700-wfi-v1-1-099b1d10fcf2@htecgroup.com>
+	id 1wNLmY-00000004MSM-2lKJ;
+	Thu, 14 May 2026 02:26:38 +0000
+Received: from azure-sdnproxy.icoremail.net ([13.75.44.102])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNLmU-00000004MRC-2V0p;
+	Thu, 14 May 2026 02:26:37 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Thu, 14 May 2026 10:25:55 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Thu, 14 May 2026 10:25:55 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: "Jakub Kicinski" <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, devicetree@vger.kernel.org, davem@davemloft.net,
+	edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+	horms@kernel.org
+Subject: Re: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable clocks
+ before syscon access and correct RX sampling timing
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20260512161315.141aba88@kernel.org>
+References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+ <20260427072508.1151-1-lizhi2@eswincomputing.com>
+ <20260428180625.738223cf@kernel.org>
+ <2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
+ <20260430163551.7491407a@kernel.org>
+ <38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
+ <446f69bd.7fe4.19e1ab248fb.Coremail.lizhi2@eswincomputing.com>
+ <20260512161315.141aba88@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260511-p8700-wfi-v1-1-099b1d10fcf2@htecgroup.com>
+Message-ID: <7171f9b3.81b6.19e244e0e9f.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: en_US
+X-CM-TRANSID: TAJkCgDHaXO1MgVqOkkZAA--.7373W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAQEGDGoDVh1cGAAEso
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_192524_632945_651500D4 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_192634_936942_CAB07471 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,134 +83,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aleksa,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on c369299895a591d96745d6492d4888259b004a9e]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Aleksa-Paunovic-via-B4-Relay/riscv-Add-ERRATA_MIPS_P8700_WFI-to-replace-WFI-with-mips-pause/20260513-011847
-base:   c369299895a591d96745d6492d4888259b004a9e
-patch link:    https://lore.kernel.org/r/20260511-p8700-wfi-v1-1-099b1d10fcf2%40htecgroup.com
-patch subject: [PATCH] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with mips.pause
-config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20260514/202605141021.Fw5Aqgfw-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260514/202605141021.Fw5Aqgfw-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202605141021.Fw5Aqgfw-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> <instantiation>:1:7: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-         ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-   <instantiation>:1:25: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-                           ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-   <instantiation>:1:43: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-                                             ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-   <instantiation>:1:61: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-                                                               ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-   <instantiation>:1:79: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-                                                                                 ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-   <instantiation>:1:97: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-                                                                                                   ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-   <instantiation>:1:115: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-                                                                                                                     ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-   <instantiation>:1:133: error: expected instruction format
-   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
-                                                                                                                                       ^
-   <instantiation>:10:2: note: while in macro instantiation
-    .rept 8; .insn 0x00501013; .endr;
-    ^
-   <instantiation>:8:2: note: while in macro instantiation
-    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
-    ^
-   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
-    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
-    ^
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgoKPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2VzLS0tLS0KPiBGcm9tOiAiSmFrdWIgS2ljaW5za2ki
+IDxrdWJhQGtlcm5lbC5vcmc+Cj4gU2VuZCB0aW1lOldlZG5lc2RheSwgMTMvMDUvMjAyNiAwNzox
+MzoxNQo+IFRvOiDmnY7lv5cgPGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20+Cj4gQ2M6IGFuZHJl
+dytuZXRkZXZAbHVubi5jaCwgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmcsIGRhdmVtQGRhdmVt
+bG9mdC5uZXQsIGVkdW1hemV0QGdvb2dsZS5jb20sIHJvYmhAa2VybmVsLm9yZywga3J6aytkdEBr
+ZXJuZWwub3JnLCBjb25vcitkdEBrZXJuZWwub3JnLCBuZXRkZXZAdmdlci5rZXJuZWwub3JnLCBw
+YWJlbmlAcmVkaGF0LmNvbSwgbWNvcXVlbGluLnN0bTMyQGdtYWlsLmNvbSwgYWxleGFuZHJlLnRv
+cmd1ZUBmb3NzLnN0LmNvbSwgcm1rK2tlcm5lbEBhcm1saW51eC5vcmcudWssIHBqd0BrZXJuZWwu
+b3JnLCBwYWxtZXJAZGFiYmVsdC5jb20sIGFvdUBlZWNzLmJlcmtlbGV5LmVkdSwgYWxleEBnaGl0
+aS5mciwgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGludXgtc3RtMzJAc3QtbWQt
+bWFpbG1hbi5zdG9ybXJlcGx5LmNvbSwgbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQu
+b3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBtYXhpbWUuY2hldmFsbGllckBib290
+bGluLmNvbSwgbmluZ3l1QGVzd2luY29tcHV0aW5nLmNvbSwgbGlubWluQGVzd2luY29tcHV0aW5n
+LmNvbSwgcGlua2VzaC52YWdoZWxhQGVpbmZvY2hpcHMuY29tLCBwcml0ZXNoLnBhdGVsQGVpbmZv
+Y2hpcHMuY29tLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29tLCBob3Jtc0BrZXJuZWwu
+b3JnCj4gU3ViamVjdDogUmU6IFtQQVRDSCBuZXQtbmV4dCB2NyAyLzRdIG5ldDogc3RtbWFjOiBl
+aWM3NzAwOiBlbmFibGUgY2xvY2tzIGJlZm9yZSBzeXNjb24gYWNjZXNzIGFuZCBjb3JyZWN0IFJY
+IHNhbXBsaW5nIHRpbWluZwo+IAo+IE9uIFR1ZSwgMTIgTWF5IDIwMjYgMTM6Mzk6MTIgKzA4MDAg
+KEdNVCswODowMCkg5p2O5b+XIHdyb3RlOgo+ID4gRm9yIHRoZSBldGgxIGVuYWJsZW1lbnQgcGFy
+dCwgbXkgY3VycmVudCB1bmRlcnN0YW5kaW5nIGlzIHRoYXQgaXQKPiA+IHNob3VsZCBiZSB0cmVh
+dGVkIGFzIGEgbmV3IGluZGVwZW5kZW50IHYxIHNlcmllcyBmb3IgbmV0LW5leHQsCj4gPiBzaW5j
+ZSB0aGUgc2NvcGUgYW5kIHRhcmdldCB0cmVlIGhhdmUgY2hhbmdlZCBhZnRlciB0aGUgc3BsaXQu
+Cj4gPiAKPiA+IFdvdWxkIHlvdSBwcmVmZXIgdGhpcyBldGgxIHNlcmllcyB0byBzdGFydCBhcyB2
+MSwgb3Igc2hvdWxkIGl0Cj4gPiBjb250aW51ZSBhcyB2OCBmb3IgY29udGludWl0eSB3aXRoIHRo
+ZSBvcmlnaW5hbCBzZXJpZXM/Cj4gCj4gdjggaXMgYmV0dGVyLCBidXQgaXMgdGhlIGZpeCBpbiBu
+ZXQtbmV4dCBhbHJlYWR5Pwo+IAo+IElmIHRoaXMgaXMgdGhlIHBvc3RpbmcgeW91J3JlIHJlZmVy
+cmluZyB0bzoKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNjA1MDcwODMyMTQuMTky
+LTEtbGl6aGkyQGVzd2luY29tcHV0aW5nLmNvbS8KPiBpdCBoYXMgYmVlbiBkcm9wcGVkIGJhc2Vk
+IG9uIGZlZWRiYWNrIGZyb20gTWF4aW1lIGFuZCBJIGRvbid0IHNlZSBhIHYyLgoKWWVzLCB0aGUg
+ZXRoMCBmaXhlcyBoYXZlIG5vdyBiZWVuIHJlcG9zdGVkIGFzIGEgZGVkaWNhdGVkIHNlcmllcyB0
+YXJnZXRpbmcgbmV0OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjYwNTA3MDgzMDM3
+LjE1Mi0xLWxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20vCgpUaGUgcHJldmlvdXMgbmV0LW5leHQg
+ZXRoMS1yZWxhdGVkIHBvc3Rpbmcgd2FzIGRyb3BwZWQgZm9sbG93aW5nIHlvdXIgZ3VpZGFuY2UK
+dG8gZmlyc3QgY29tcGxldGUgdGhlIGV0aDAgZml4ZXMgaW4gbmV0IGJlZm9yZSBjb250aW51aW5n
+IHdpdGggZXRoMS4gSSB3aWxsCmtlZXAgZXRoMSBhcyB2OCBhcyBwcmV2aW91c2x5IHN1Z2dlc3Rl
+ZC4KCkZvciB0aGUgZXRoMCBuZXQgc2VyaWVzLCBJIHdpbGwgc3BsaXQgdGhlIHJlbWFpbmluZyBj
+aGFuZ2VzIGluIHYyIGFzIHN1Z2dlc3RlZApieSBNYXhpbWUgdG8gaW1wcm92ZSByZXZpZXdhYmls
+aXR5IGFuZCBiaXNlY3RhYmlsaXR5LCBhbmQgcmVzZW5kIHNob3J0bHkuCgpPbmNlIHRoYXQgaXMg
+Y29tcGxldGVkLCBJIHdpbGwgcHJvY2VlZCB3aXRoIHRoZSBldGgxIGVuYWJsZW1lbnQgc2VyaWVz
+ICh2OCkKYmFzZWQgb24gdGhlIHVwZGF0ZWQgY29udGV4dC4KClRoYW5rcywKWmhpCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
