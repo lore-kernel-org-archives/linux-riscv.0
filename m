@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC5BCD4F25
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 16:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7989CD4F39
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 17:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FG/X4F09cBakhtwyTdYG6a3SiW1l7oJIO879Ve5h5ig=; b=n0684H2gkCCxQg
-	w5lOVeir+4kRWegMUIqOZHDwYXUyqL1QOljKrTJuA9auc7yiY8u6aN7hJEzRGnhb9NeyE/LIMFGuE
-	bnEozVqfc29gW8InRKkLS0H3NLOptwbAR/eKzSupshqkbjl+9bd591tBL+jiBWUptNHg76iTaIBVn
-	HdpMBWYojSRRzC2PLRqbHXnsKULEyr3T4+sdnIOg097BOEQ+hBW4ZFYRQu1/NtDVjxhF17+Ff+YU2
-	VN7JKhmtXgN3cHKHVTMlPkjUTFDP5YIXB9AbyaqU6n2YAgiFghElTn5wo3r4KVuNEDysaIQOX7opm
-	+0/5nGEnPWprgtnK5FfQ==;
+	List-Owner; bh=hsYM6lAwkHt95O37XlNgMypIvbfmwO3c+KWod8baebc=; b=uaqwt6fPJpYYrt
+	MdDn+RqctTVNVj2RskoZ8wFz2XSXZ61Gp2Tx5/OWf5p1vTeZEmYIAxY5vuidQLgP2pbgbFk5SbWP3
+	AwbKOgSL5qgPKdXUkubje3WQUsXVhsre6yRMR4zA69/F2Jg0jEI0HiLYmRSOaORff8w7Rh/wv/Jpa
+	15ClksguQYvN5GLZh4cfv64kKdDHwKT4usEbVFe24XKTQ6fR+PDYOLLwNJ9ZzEEn8o61WnkweGlWX
+	e0YnbJKrtc4mnHf0HVQy4r2Yw6e9GP0cmbXnv7oK1TDFvFdDjSUjDixOyCr2yQMsKL6Sc9zugIPu6
+	ytKx95u5ygM5fQwFb8xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZLS-000000067v9-1wFe;
-	Thu, 14 May 2026 16:55:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wNZzU-00000006DSF-3vnE;
+	Thu, 14 May 2026 17:36:56 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZLM-000000067uM-30uJ
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 14 May 2026 16:55:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=rhs4rPnXJOnQ0TMkpeTOhKZgfpfxJZD8kt9kby3x2Ic=; b=A585R7QwtfQD0J+ISL0nYGjPGL
-	ZuZC1tFwPvhNacsF5+Jtwgh1OS4e27NzwrobvyM6cQvMT9KZE6kOYBHSvFpckSIUoRdTL/zYzLr7U
-	hU2JMnsWdq1sctlIwQ16bys9Z+4Kv8mpludNe2NIRLs13zRTerC6rwLmPP+KP1xVzhzSNn+xumHZU
-	iFXRIk4LR2n9IXM9aMU5stBVVKD1ifEQVzdLuL1+h/puOstTZvwRPSDpyG8ih4joFmX2M/rKgQbyS
-	CiYTvfMhr2ctzu2NIVfD9RabzYA+5N1cbvf7Xk/A3ipwN3fvzwvGlKkCFeJ1QLo/xxAbaPOUSU+5v
-	Qpe1hhxA==;
-Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZLI-00000003RxG-0cME
+	id 1wNZzT-00000006DR9-08DU
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 16:55:27 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1778777715;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=rhs4rPnXJOnQ0TMkpeTOhKZgfpfxJZD8kt9kby3x2Ic=;
-	b=fSUXlmMwCdhNDt00FA+dopT9YjAk8uWWdF4LImcZAEuaHI3dKCRNmtztsJlmWZSUraLtEc
-	kaW84RLkrlaZdKcevJ1Sn9b5ITooevsWxZ+pVLnuevJtm1nPmA5sYXHWU4dq7CW/rsnrMB
-	pOAjq4MYGzV8d87vrf+Dkob67/v2k9I=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
+	Thu, 14 May 2026 17:36:56 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-44b052142e1so4667141f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 May 2026 10:36:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778780213; x=1779385013; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KChkhZSF5dUBGW1dpwhtz2Nd2WW6tFTUrsIGPgeyre0=;
+        b=Vv39yy9j9Zu2M6gYu4fMfy0nUFsq9nvg9XSHYv1O6+heQq4p26IISrC0Js6Wan3Bad
+         RnvgPCWcoZfTQ6Vc9eupoi5eH10rU1MSCwr676mQKa5R0HiACPo4v/ugPQJf6O6WM6ak
+         ZQ1x2WfaLuPJlf20cvWbUin5GVEZz9k3qHqbDX2bu7YLOSWW6nLjjjnWLbNOENoQI9F1
+         ocn51NBtJyYBtbT6psyhXC4HJJt7AzlB7pBRDXPmbkKzdi9yObJ7M4vsxOHBVMxrJfnj
+         Pa774zQUWIiKKLGD0snMFE7GUmF7qI4Cb/kROCiC7zLs80pOK1WM6Dynf3XywqAP/S7H
+         Jdnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778780213; x=1779385013;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KChkhZSF5dUBGW1dpwhtz2Nd2WW6tFTUrsIGPgeyre0=;
+        b=ZviJkCU9VMFqDemXV2HDc5heX2vrA3F4v+7qvPLkKq0Ng3RyF4Mf/EsahYESLra8gx
+         DNI+dAV4mXcmDqpzvCeHTUMQRwOx/Frqhk7sJzKpl6kc4SvQ98w5/okXGPAKKA2Nz9rp
+         ElV5d6VPAp8IhTxOQMGg+lphXAkZcmFP1fHT2miUT+b8T1FC/QmGQ0BIqfozZMFsGUwO
+         fRQPRVjqMc6DiHXOj/pcqYd6EGZb0mt42jvno4ZrgWfaFq8Q7I+FPOSv2yhojXP8SMgM
+         qq7zEed2rmkeCzzohM9ZFhZygddLmX7DCVZCrK9bjUeebOeppajSHVilqgL+Dd8Dvspp
+         2o3g==
+X-Forwarded-Encrypted: i=1; AFNElJ8fdRR694Zec9zUyctIK4cfEUPvv7bZoIG/fWJZdqtGlegxIg6yzdNfC0Ms9Cmty9Ua5R1H4qyjh9KVyw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGYGGYhrYvL4Sb7eZs2TDrfUTuNBKIBgIThdJnSkUFb2JHpIGw
+	w8QHbWHtKz1YCfz9N2tQvEDSTlY41x5tNBdqQf0uFZdKOdz2r14g5JHE
+X-Gm-Gg: Acq92OEAY7Qp1dI6GjUkhI6Sq//S2dHX8zsChCwUEsXD5+2r9hAjw1doUqTXjBJu/ln
+	f+REcWJAx/7n0koyXItMkWeZludLijG+RXxb/SWdfaopCzuP+R1Ffdr+oktBOe+MY2VxtBcKaZc
+	o54h6DvXTRXcdhntdZmvMWlzp8FNyzmxw0EHZvwyzOd1hU6UK54A3KoV3ahyTUWt4AiiLlyiDee
+	pk1As2Wo1/pL5NCmNtbyFYme4BaioHTpQZHo1V2sVOQ2HG2nUolPeEi0XCysw0oQzJ6AGWJyuG3
+	JAZoZ/7u0JICShb1RwHO6dtlmY9y5z8leJD1xeMcyfr/wK6eOln4uhLMFtSgmeI6wtFHiKWBKjF
+	LO3IIN+qgtubrOc/JG/P9wm6zCNY6C/ksfOHlHff2sm0dbViMAEXYVawOLRiVcl5LDOptfP0chQ
+	UE0mvwbxBbxoxKxxw094ZHdFqjNqaU/cSXytiCV07/w6Mati2LqvmVC0DpNSdQ
+X-Received: by 2002:a05:6000:220c:b0:45b:d891:4ef1 with SMTP id ffacd0b85a97d-45e5c60497emr19791f8f.34.1778780212640;
+        Thu, 14 May 2026 10:36:52 -0700 (PDT)
+Received: from osama.. ([2a02:908:1b6:8980:4f8c:d716:5699:930b])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0fe222bsm6575063f8f.27.2026.05.14.10.36.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 May 2026 10:36:52 -0700 (PDT)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-crypto@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: riscv - replace min_t with min in riscv64_aes_ctr_crypt
-Date: Thu, 14 May 2026 18:55:10 +0200
-Message-ID: <20260514165509.527721-2-thorsten.blum@linux.dev>
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] riscv: kvm: return SBI_ERR_FAILURE for pmu_snapshot_set_shmem OOM
+Date: Thu, 14 May 2026 19:36:40 +0200
+Message-ID: <20260514173642.41448-1-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1194; i=thorsten.blum@linux.dev; h=from:subject; bh=v7o5JznVlPNo7AD+88VwjdqH7OaDNTvDjI3KRzcUXw0=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFms//Ke3XPp1V5QG+v/tPrUyZJu6y/ed/v7X4rZzPY3f y+6yZmjo5SFQYyLQVZMkeXBrB8zfEtrKjeZROyEmcPKBDKEgYtTACbS5sjwT8HTfOFK9gPTr3/f rlr23DHw4bufvxLeLD73b1mHuKOdrjwjw5XdLU4LPkodMLrcd2bL/8XTPtRGb/30p4Xnm/m657e /iTADAA==
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_175524_526206_942A616C 
-X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-CacheID: sfid-20260514_103655_075434_2B01D86C 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,36 +107,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the simpler min() macro since the values are unsigned and
-compatible.
+kvm_riscv_vcpu_pmu_snapshot_set_shmem() returned -ENOMEM from the
+SBI extension handler, which caused kvm_riscv_vcpu_sbi_ecall() to
+abort KVM_RUN and surface the error to userspace instead of
+ompleting the ECALL with a negative SBI error in a0.
+Use SBI_ERR_FAILURE and the normal retdata path, matching other PMU
+handlers and kvm_sbi_ext_pmu_handler comment.
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+Fixes: c2f41ddbcdd7 ("RISC-V: KVM: Implement SBI PMU Snapshot feature")
+Cc: stable@vger.kernel.org
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
 ---
- arch/riscv/crypto/aes-riscv64-glue.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/kvm/vcpu_pmu.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/crypto/aes-riscv64-glue.c b/arch/riscv/crypto/aes-riscv64-glue.c
-index 8bbf7f348c23..bbd920c9e29d 100644
---- a/arch/riscv/crypto/aes-riscv64-glue.c
-+++ b/arch/riscv/crypto/aes-riscv64-glue.c
-@@ -19,6 +19,7 @@
- #include <crypto/scatterwalk.h>
- #include <crypto/xts.h>
- #include <linux/linkage.h>
-+#include <linux/minmax.h>
- #include <linux/module.h>
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index a935ed96bc17..91aa0155a420 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -453,8 +453,10 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 	}
  
- asmlinkage void aes_ecb_encrypt_zvkned(const struct crypto_aes_ctx *key,
-@@ -266,8 +267,7 @@ static int riscv64_aes_ctr_crypt(struct skcipher_request *req)
- 			 * operation into two at the point where the overflow
- 			 * will occur.  After the first part, add the carry bit.
- 			 */
--			p1_nbytes = min_t(unsigned int, nbytes,
--					  (nblocks - ctr32) * AES_BLOCK_SIZE);
-+			p1_nbytes = min(nbytes, (nblocks - ctr32) * AES_BLOCK_SIZE);
- 			aes_ctr32_crypt_zvkned_zvkb(ctx, walk.src.virt.addr,
- 						    walk.dst.virt.addr,
- 						    p1_nbytes, req->iv);
+ 	kvpmu->sdata = kzalloc(snapshot_area_size, GFP_ATOMIC);
+-	if (!kvpmu->sdata)
+-		return -ENOMEM;
++	if (!kvpmu->sdata) {
++		sbiret = SBI_ERR_FAILURE;
++		goto out;
++	}
+ 
+ 	/* No need to check writable slot explicitly as kvm_vcpu_write_guest does it internally */
+ 	if (kvm_vcpu_write_guest(vcpu, saddr, kvpmu->sdata, snapshot_area_size)) {
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
