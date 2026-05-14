@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1546CD4F39
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 16:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE40CD4851
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 16:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0OYGzZytcEf6Lr2fHk/2XDi4EB2NW32ctL9tDeoC0Ck=; b=PEuQslVZ4v1k4D
-	vofkOETmk1hN4RfRRcVlkRLKnfz+Q+cIMDcQv7OKN1V7CiEp9a+IDT1csJEK3t72pMb70k2Q6IF46
-	UCdXVijwx/D2+318zoljDPLc7sLUTErj0w0sa9pwCEoin+qcDjizqSWdKDS3iSuCGb5FtrcDhKNL5
-	66K5JILTziqlhnFYNrnfH7/BNSACpTCwWETJ+wmgfWK6sGFNNTIfA8N3YAc+ZuvowCOrV+YojAjWk
-	MFI2gmjrZPUMTu+CIFs2tvGTlqUKthmrc135MKgAIj39i665gLLrrojj4UMO2HRBenJe2Uz0wahhb
-	5X+cvTX4iWnKSQMtPr8g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n/wGIBTNPbzN1YRsSRrBGzzL6Tl/3jRcCgOBtj/99Ww=; b=SayUYTaoNKlAfV
+	07keEwDdDJOfUgfU0n85HXXlXgGlSIhbXCJVhdUlgTu1ew34sc69Z5VRv6neZ9ueKBduUMYOr+28i
+	+uZUaPqHFzK9gSBL5mEjDW8q3DBneWTqMPDQ6Ud5qakL5nxmtf2gZFuXAuR9JO7ni1YcuUC6AllsA
+	Bh8i916DbDoAazPHmDGIO2/fY0xottSxMAXYggooouBAg6z9QvGhUrNcMWpUAoAmhXditYHnDOo1s
+	PSYDw3VvoPPlco10cbmIAIpwxw3ZDN/rffAjAw/Fzkn07jDgItAQI59CEZGUGHbAcw8YBjk07cRR0
+	8nm1+6ghpE4SA2S9tJmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYYD-00000005zG1-3bqJ;
+	id 1wNYYD-00000005zFT-2MOe;
 	Thu, 14 May 2026 16:04:41 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYY8-00000005zBN-0GPp
+	id 1wNYY8-00000005zBO-0ESy
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 16:04:39 +0000
+	Thu, 14 May 2026 16:04:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
-	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
-	bh=JARAgOxWgx/BmBgpATzav7ngBmd3um0PYsWZ9kX/7f4=; b=D6kV5Dk9H5LOFeb729H2DsI0Bw
-	c5djFikSM0W4LPoJcZgvA/6Y6HEZ35S2pzSjM/C+zlNA1RHazDJB/wKWiU+uigd5q4hkTUTl7OIWe
-	xfM4/cMHw5v6g/MFjLax3KTDfbGeo+hcXVQDRmyHOP5xQjIfBewzK22wSCwdUtZAushQDnkorwqOs
-	PbBr68U8WevDnGtmmCv9G2bnmrOXLKJ+joB+cMpzMrajPW4xoVPilVIFl1F+y4yqxpBH6uJcO00va
-	58BbpPpcOZ2op42Ydn5vsvX03ZDGk7uVnO01yVFNtnqCKdSryfhKecmE0TMyxQbiUABs8ztFVSm0G
-	evVb99Qg==;
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=sqRxMWMXlSnZN0jD0+5LubNrtpBuXqfyan8I6F7qG0c=; b=DT70ziJu/3UUj2Pji9ORK5HhLG
+	bAhTe0+36Ce0cTWrZ28/9ufa/TftuKG9moM/2IO25vBVgzLwNKPuQ44IjxWYlHBzDpFzarCsol3TH
+	BuQm0mJzZ/jpuH+hd32eWhQi/go0cWbEOfaScObYd8jnKiurL/cRh22OcgNIPU43vDmKi6PPy6oxj
+	wGXr/5LzMY7ydU4mEMDG3mvJWICwK8fKKjIbKyfa3XFz4bufQO2ZwrYaMIaLZABWt4FxnMQGuy4df
+	UsNX3WF0FAhFZjOhpHkp6aTr6upPxaAHwpGBUsiAZqmOpHCgKMAi6WhWd31SS2qwyHGHUlqdvQDaT
+	JQInceTg==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wNYXx-00000007W27-1lZX;
-	Thu, 14 May 2026 18:04:25 +0200
+	id 1wNYXy-00000007W2C-0qnA;
+	Thu, 14 May 2026 18:04:26 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>
+	Javier Martinez Canillas <javierm@redhat.com>
 Cc: Aurelien Jarno <aurelien@aurel32.net>,
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE:Keyword:riscv),
-	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit)
-Subject: [PATCH 0/4] riscv: dts: spacemit: improve Milk-V Jupiter device tree
-Date: Thu, 14 May 2026 17:56:20 +0200
-Message-ID: <20260514160356.1642075-1-aurelien@aurel32.net>
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
+Subject: [PATCH 1/4] riscv: dts: spacemit: set console baud rate on Milk-V Jupiter
+Date: Thu, 14 May 2026 17:56:21 +0200
+Message-ID: <20260514160356.1642075-2-aurelien@aurel32.net>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260514160356.1642075-1-aurelien@aurel32.net>
+References: <20260514160356.1642075-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_090436_104814_2D60A386 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260514_090436_115811_B06307B9 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +84,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset updates the Milk-V Jupiter device tree to align with the
-changes recently done for other SpacemiT K1 based boards.
+Because the default console's baud rate is not set, defconfig kernels do
+not have any serial output on this platform. Set the baud rate to
+115200, matching what is used by U-Boot etc on this platform.
 
-In addition the last patch enables SD card support, but it depends on
-the SD card support series for the K1 SoC to be merged first:
-https://lore.kernel.org/linux-riscv/20260511-orangepi-sd-card-uhs-v9-0-ae48c0b2b2cf@gmail.com/
+See-also: 24c12ca43b12c ("dts: spacemit: set console baud rate on bpif3")
+Fixes: 5b90a3d6092d9 ("riscv: dts: spacemit: Add Milk-V Jupiter board device tree")
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Aurelien Jarno (4):
-  riscv: dts: spacemit: set console baud rate on Milk-V Jupiter
-  riscv: dts: spacemit: sort aliases on Milk-V Jupiter
-  riscv: dts: spacemit: enable eMMC on Milk-V Jupiter
-  riscv: dts: spacemit: enable SD card support on Milk-V Jupiter
-
- .../boot/dts/spacemit/k1-milkv-jupiter.dts    | 35 +++++++++++++++++--
- 1 file changed, 32 insertions(+), 3 deletions(-)
-
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+index 95c35154da96d..9b1dfddf2bac5 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+@@ -21,7 +21,7 @@ aliases {
+ 	};
+ 
+ 	chosen {
+-		stdout-path = "serial0";
++		stdout-path = "serial0:115200n8";
+ 	};
+ 
+ 	leds {
 -- 
 2.53.0
 
