@@ -4,130 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F21CD4F25
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 11:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F240CD4851
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 12:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tYNgAnJ3pyoWU8nQd0cdLfVcMMhuuvVix3GWaiPOILQ=; b=BFw40MRdMsvlhn
-	APhuXtPGWtkESeepulGE++ZQsWtI3vSH37WKDgyeZvklq5YIErz2HaouF+qiHALle8FNxHp6z4J3f
-	YIvT4s8r/BB0u+z2JeEieyaACztHHY5BZwjN6h7zDZhhOl/3pKZdo+Wgc3jB6RvL7pz/WcBoSKsi4
-	nbbEr5QXkEE7NJw/jNKW1i7KzPjGh3LdRW3f7NC1Ad50IhZ1ygwT4usBadIZ9KZq/HYJ7ioC9Tpba
-	nD0ljUyRBjFUB/jx1t1TJpM83nbGjLOpwTISyY7Y8EdbWjtIJYCNROjnZhO1P9Ct93xDo6FD5rbnZ
-	7kDORZ+fGLXAnAmKXJtw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IdKdYCzDoCeOqPBoEjSc4f9XdDyvOSSyHa5RMPvcx/8=; b=XKHDvPJM8DvlU4
+	CKRwqgUNOLDd+o0m0uDBcjd9WOwa3uyKhGfvpMQpSx8a3Be3lLs84zifqInyVJl/Q3y5YSLEN9euK
+	WMOSdh/JsVuIf0xZfGh+/DizxBLsrP/HCjPy7Q5RHmxzLECSuOXRVU/0ozM6irgSQU4a8F0XYVf6A
+	BGxVTBovUUQhAC9hE4LlAoWXUmOF8/YVij5AiutkMzVUAMa5QBbLezWDAQXwEZcAMJHA3owS4NYWp
+	ogfuO7Jur46UTOziALu7G1gMPkudegfnNFPUZSvaE24W7UG8mJYKGXMSZOqUosv2b6ZE6RgzeB+QD
+	J/hlsrWM7e1UZFsEFs7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNU0E-00000005IbC-0lt4;
-	Thu, 14 May 2026 11:13:18 +0000
-Received: from mail-sh0chn02on20726.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::726] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wNUxK-00000005QRn-2ROS;
+	Thu, 14 May 2026 12:14:22 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNU08-00000005IBx-2CwI
+	id 1wNUxI-00000005QRA-0UTc
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 11:13:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gVRulTr9ml8XfJEcx63A4mTgfC8Wc8TN+lugV4Br/7CdHlp64ekrjgtQnYj+Z2P/M8zyPjkgUsDr5OAJYQ8+S599loX1/qHAxxCDCrUwbRHnJMJ/qaLp2V5s2fEjiW7Hav1p5lLDFLMFyEjpC6v+mHjhUI2SDyUbts1RAWOkk6Vz5vicOpjVCJy/25yMbDh0PvAsDxiothP+dmI/izJQB4/SpsWhd7DR4GEipqpPP6K9t1Xeu2ngfRZzx3+we16TKXs4+/2Qgyq/aaCj2cc7NPosixC4hxIR9LbnMG2OkA13ohG0hvHUJcI24LHOBtB8/BhjVYTxbPXr0L7BpSF8Vg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+y664snwcNOdRJMs9N6HdldGQYkJVBWduxyJc3itTuM=;
- b=RqBMv+iksHcujpN2YIBn9jdkUFGYI+EjdEQkE3b1j7y31YrWzGaRNF6ed0c6Ax43u65rASsCb6LJilCqIeg0We059MfIrLw2KrGFWIReBS8YjL20lIoVzWvo9U9wDYBfNGFgLCpTR8qRXllI18JwO1j8g2tEny98M0XvOnZopLBQQ6aDtTFaz6YflqCj54bMJoVURsJGU8SR0AjPjsMbIwmC8bLVkZ7vlT8J8dNpu4WShBqOQ1Vqr9eMU498bmOTMycI/fFegCgljcCeV3pKtsZPcH1nERKn9CeWBwtXSXpS8DjJeIV/eHNuT3oKDd7KY7Yv2Wf6OECRVoO1LVGcvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1139.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:15::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.25; Thu, 14 May
- 2026 11:12:53 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9913.009; Thu, 14 May 2026 11:12:53 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	Thu, 14 May 2026 12:14:21 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-44a14580111so5792061f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 May 2026 05:14:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778760858; x=1779365658; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bGqf3rD2el4Fophu1OMYrfA7Yv/0FbhBVG7jdE96agc=;
+        b=XZn/BfYmSR0yz/oqeB9O6csEPSfbR263ToUA1ZbZzsKZn+4ju7CNJc/87CSNsIeqTg
+         lHRVmaDEZJzr4U46rO/rB/pSexamCO8zrYF4kf6XjOSAw2nHjLMuyjISwrjwnubuvwfW
+         LrY2jhgX2fFgxdGjtGSxXyxUv1WDnwzni3nCx8IkO8CIHkcSy60x348+P+gRuvYILy4E
+         qeY9Ca0w1YudRHXms5gKvnO6EMZ/TgJHUwc30TymBaDqNOBmGvMr78mY6S2RrZGSJNio
+         TfqVUd0lu05i7d0UPMV7fS5i2DJ/Id7R0aEdK7hg7QRwG9eECTHKYbNu5+0uYKhCMbD9
+         QxUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778760858; x=1779365658;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bGqf3rD2el4Fophu1OMYrfA7Yv/0FbhBVG7jdE96agc=;
+        b=XasdIHN+DtORfWX1Z7RsLm/4ylJJ2WgsYBJU69bFW++Ey57GJq4p4U7Uh/zZPt2yHl
+         GBl/a9ia1XjYsdgFwD8ihTMR7+C4UO0WtdCdYAZWhdxjZVgL2ZWCOBQ82vseep7hABJB
+         ue6JXEYizlDFAKP3mvrIcFpqhno5G4lhoVJoeS9d93W197zgb6hJ09AAnPjV2fgVKrXy
+         0JNLTSq8Reu7+as3nl4ztymXdTHhC218vQODs+KJvvvFSum2HgQxv/aCVME9EABca/Mq
+         jIwl2hOpk+ged7Za8noY7RSjEFo52c8/zxlFSZJeS9XVhYYTBFiLNHfSzJ19JvJQuv5f
+         Fk1w==
+X-Forwarded-Encrypted: i=1; AFNElJ9Y6sf/kBuilZPJLI34TdHN/9H0MGnl1cNlQYJUcPpQE65rkgPWSQ0hYD4b1NawfZmEvgwTk9qmXwzh7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7sIlXsrGNkwOUxVIjpYLTIq6610N9EDHX/gitbydMHhGP6Hnx
+	2R7X83AyvYaBHVksc5T/oel3UhlYHmKtPqXCwTBvLcG179uXkxHCbOQO
+X-Gm-Gg: Acq92OFCCqOkVEdcJSSGm199HR0nn+Y+uJBh04bhbCgs8opa28LRb0YSVPvYy2Q5zub
+	OxYlE1cKKCrAInd1qEKec2lrfJ8sY+5Ll802SM53zax4ka/v0C3TytLYZ8uiTO+rp3RSOud3Ddt
+	WbYw//qaxqV+fWi23b74yGfyHpaByyjzV1MIWYW2GKXN3ahTum6cWfV+abUGuL8bXdkp1kCBxb+
+	cZ3DbqePRlgEsuvSq049Mft5U3ZoyGZXExmgf6KxlLAnrm4MS4+SxERKsT55YsMpi/6+K/6iKb4
+	s6Fbh5glU1CLKm4mEOav+A7sxs9uPPlJ3cJUqz/UGb57ydK/EsYjzaDmuAZjEfHKis/K+wly7J/
+	3Xdo0HuY/w80+WGzH2VgvJFGr/9PKiGdvNo1bMXJ4H8uQSnlG8J96E7FwAmMM2ZmMH4TBhUwOxc
+	8Ec+SvHD5J6Dl550f0xe2l4S66dHtcAmKJLMcI5rYieJZ7HzyA7L5h
+X-Received: by 2002:a05:6000:1acc:b0:43d:7af0:3a7c with SMTP id ffacd0b85a97d-45c7a4ef3e4mr11408615f8f.29.1778760857731;
+        Thu, 14 May 2026 05:14:17 -0700 (PDT)
+Received: from RTRKW671-LIN.domain.local ([77.243.27.125])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9e767cb9sm6285630f8f.2.2026.05.14.05.14.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 May 2026 05:14:17 -0700 (PDT)
+From: Milan Tripkovic <milant2002@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
 	linux-riscv@lists.infradead.org,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v2 19/22] pinctrl: starfive: Add StarFive JHB100 per2pok controller driver
-Date: Thu, 14 May 2026 04:12:15 -0700
-Message-Id: <20260514111218.94519-20-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
-References: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: ZQ0PR01CA0028.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:2::18) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6)
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	llvm@lists.linux.dev,
+	Dusan Stojkovic <Dusan.Stojkovic@rt-rk.com>,
+	Milan Tripkovic <milant2002@gmail.com>,
+	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+Subject: [PATCH v2 0/2] riscv: lib: add optimized memcmp() and extend KUnit tests
+Date: Thu, 14 May 2026 14:13:56 +0200
+Message-ID: <20260514121359.931999-1-milant2002@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1139:EE_
-X-MS-Office365-Filtering-Correlation-Id: be14a0b7-5046-4cb8-adbb-08deb1a9be7e
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|921020|38350700014|3023799003|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: s8GejrVabmgJtLbSlUshlrakeyl+MrIgxbmjCb2Wy3gD80+6+RlhZOKsRbFBp9csqZYCQ7bGS1OkvDIz4BGud7AfI3zI3ezpaPku9Jbbns2puYNjR6XvU9t89N7tG8KQcAMob9S0U7zxHTL0+4MxVu1srR1dBrDsQF2xW7R4qZGxzRQnEpZ7xbUZL9Wp69T100M+hbg4W9OdVdROKizpeqnSbo0m/E4d6koa3HhSn2oJKFKqgq6Bf871KtxSYnQkGPBtspnM01xw8dkztqEhEs0QyeQXzTQqouWl0tCxILiDQhuybQqRtSBZGIODQ+xhRjE83TQklZlWy/8McK765ifPYK1B8L26AfrRVf59u9FeJa3nuVPhQ4A960zcImapNXMMb4NRc0jnuuDp65K8Hn9bmEiKpS4tH52zr2ueonwwmxsm1slI4C8NmNdlDho81VAOZD4uilMfFJMZC7AaWEsbMBX6ZguC6/hIZYzTyLAFLNwQsX4Xisy69TxM6kqqK8wXyf2PAr+EMiq0FVClQ0emSw4o/oLtitJeOa0pocOX3cVHfBumaQOi7hW/Npp09aNMPKKtM+4PhZXE62kVPA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(921020)(38350700014)(3023799003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?o0Au2PBjzpWug/Az+KQOhwlWWLzuyyYu7ogIGqsLRdJJKsfi4thXS5o47u/l?=
- =?us-ascii?Q?XPJgk9JjsfB+ScRbgHXt3Q5mLI6d6Fl8FJGOBt3muSVupMrO1cOs6emW034d?=
- =?us-ascii?Q?Uq7hM7n3mnrQ8WRp5utHGRCx6tQRLBLgoIXvevMmPSrY34rMDV9IvvT+Fz4c?=
- =?us-ascii?Q?de0t8bRe46To2jFV8hU/fcTZt6BgKeh2Et1jgkWhmsPpF1TAMrju0VAssfqZ?=
- =?us-ascii?Q?LmPOfNs6Fby4QQS5uULZXcBOc8M/jHtDD9EyHFjGG3hhS6ajOLyTuZf7aCqi?=
- =?us-ascii?Q?FxRYpvRXRFUsIpCmXnpaqgPf3mLlGmQ0OmOgrpN4sQedOkQFbH8G5qxmYdcY?=
- =?us-ascii?Q?HyjVpAkofmYfoT/8jDm4DG6CGaU1lgYTqRYd+WdzZClzcog4fMTR34NGkB97?=
- =?us-ascii?Q?P0ok9T8HffkMeRY0wfktdJLkBbF64vbm4WtvaA3GjdEgFLOKzV1/Cyq/3Gr+?=
- =?us-ascii?Q?PZfCVJFcZQvk28gXRH/ocDX41ZDzIGzoy91Ow9VQxQb4WNblpZxkAUGzmBKG?=
- =?us-ascii?Q?odmYYFeBrMG3XPUcuYDwgN3tsvKAVXSt5ih5mXdBsE9G6nZw68OgK1XjinOq?=
- =?us-ascii?Q?9ubgTqg2TBlD9JUNRDTDzW2j8fW/MyFL/+6GkYFXnAF3XgLe1BhB7x0nSpDX?=
- =?us-ascii?Q?3a4j7xURW77/WQpEV/EQEppFYm17sxq/ha7tKkS1OwU7CPmaPThocyXvH31l?=
- =?us-ascii?Q?YI6x2oUooeg5KVBXF3KDDU2gsl4oTVxfTsOainQ9b2eHdyYmJSeRBxgd0XTN?=
- =?us-ascii?Q?pjkfsKTE8ZRMZhx0Fm+KfANk8Q6bHQf5331WM2bzft4iovEJOwzF1LaKTsug?=
- =?us-ascii?Q?xP4i7ejU8elAkuIudQwtBtfPKdHMRj8J4W6UeUIywkzV4WxfnW1sZ73A8VU7?=
- =?us-ascii?Q?7D6zWRG055Ae04v28+ksMh3yRKqKTYz69u783CaC/lms4obMdnLVudQfKDL4?=
- =?us-ascii?Q?p0rAqYzBUAShNyN8aXoRZKfVOvoHRz+TQzyKzJjfiOiy4pZcNkYr51te0pHq?=
- =?us-ascii?Q?jFS90djGZoSAVFxr0DB3+ztlkqbhVHnyqo/9443HyjEdRWOufizqYoh6w8r9?=
- =?us-ascii?Q?bFxOuLGcgrdm1Ad4swLyfQpaHCH0sij90S0UMW+ltzEGIGoiaKt3JMKuAAdY?=
- =?us-ascii?Q?k2Ai82G0KqAsn63d2f5LvRJJcYvwxY4VyMHNyaFgQUWU06gvXLUJMNC3y/zy?=
- =?us-ascii?Q?z1Zi8N5DLdc3y9juT6PvoMDnFjjQy17NDqsh6yvAyHcs95JppViK/4KEe5KO?=
- =?us-ascii?Q?OfFmzTIUN21OUgkFRyo3gUrXDVgR8WqF6TRnXEJtFmwv1P0VUfcGdLZev8dR?=
- =?us-ascii?Q?Ly7X6P11F2vODWqpQPEdM1m/y+W+sCRXivaadvyLqh1fj6vvP5R4C0ez1Mc/?=
- =?us-ascii?Q?wQXcPX+HnM10J+mK+CG3XfG4UctXadIFwQAzfAVmkjtqo1qGkk0Z6Vx6ZhQc?=
- =?us-ascii?Q?8i1Gx2vSIKwNR69H5ohFeaSdMsl+6TBshnQgigYlsWP73FU6ylwltlr4MVLX?=
- =?us-ascii?Q?4X/KmWeNG57PNQjfECrcjWNQqWYP/b47PkIcaARH7dJcRewdFpLja96dHIXi?=
- =?us-ascii?Q?XA1yD07OvyTetWom+qwzJ3YAtb0xANKPhFTq+YOujyIvgs/AZUEo8v6iz4vI?=
- =?us-ascii?Q?9ty82BIt1Ht7hPzp4PCZgd7SfDHEDVNRPpF3l44er97UVGvjkyKz84/hK1SZ?=
- =?us-ascii?Q?/mPVUFD3uN3+MLfzMUFrIrrSBA2kwal8SP+/OM/cIhM3QsHJO0Jpfo2gIubz?=
- =?us-ascii?Q?s6e5H2qB+3KmcGSsFLLEOSFf47rpxepR62WeAUecf1/CXS5Yyr5Q?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be14a0b7-5046-4cb8-adbb-08deb1a9be7e
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 11:12:53.7919
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gCN5rqDPY3emxhh34yUQ3Z2qNwVV3EjoYRRmm0+dbToqVgZJpl3VmEz/YnkOj7Zz/7q7TMmYJHolEbMruqZ7POR2NAmeOdrtPHkF/ewcYjOrduMdRkYM2H9p9ZU9ZzCJ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_041312_605241_67D83A39 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20260514_051420_169365_A0CC6531 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,159 +111,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl driver for StarFive JHB100 SoC Peripheral-2 Power OK
-(per2pok) pinctrl controller.
+Add an assembly implementation of memcmp() for RISC-V. This version
+incorporates feedback from v1 regarding alignment safety, loop 
+efficiency, and ZBB usage.
 
-Co-developed-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Signed-off-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+The second patch extends the KUnit string tests to include functional
+verification and benchmarking for memcmp().
+        
+Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+
 ---
- drivers/pinctrl/starfive/Kconfig              | 12 +++
- drivers/pinctrl/starfive/Makefile             |  1 +
- .../pinctrl-starfive-jhb100-per2pok.c         | 97 +++++++++++++++++++
- 3 files changed, 110 insertions(+)
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per2pok.c
+v2 changes:
+    - Added alignment checks for buffers to avoid expensive misaligned loads.
+    - Optimized the loop using end-pointers to reduce per-iteration overhead.
+    - Implemented word-aligned tail handling using ZBB shifts.
+    - Removed redundant pointer equality (a0 == a1) check.
+    - Retained BE support via #ifndef; ZBB rev8 is used for the LE fast-path.
+    - Fixed KUnit build failures for Clang and non-benchmark configs.
 
-diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-index edc3b6d9c8d7..bf5915e0a5f2 100644
---- a/drivers/pinctrl/starfive/Kconfig
-+++ b/drivers/pinctrl/starfive/Kconfig
-@@ -91,6 +91,18 @@ config PINCTRL_STARFIVE_JHB100_PER2
- 	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
- 	  and interrupts on input changes.
- 
-+config PINCTRL_STARFIVE_JHB100_PER2POK
-+	tristate "StarFive JHB100 SoC Peripheral-2 Power OK pinctrl and GPIO driver"
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	depends on OF
-+	select PINCTRL_STARFIVE_JHB100
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support Peripheral-2 Power OK pin control on the StarFive JHB100 SoC.
-+	  This also provides an interface to the GPIO pins not used by other
-+	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
-+	  and interrupts on input changes.
-+
- config PINCTRL_STARFIVE_JHB100_SYS0
- 	tristate "StarFive JHB100 SoC System-0 pinctrl and GPIO driver"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
-diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
-index 33213bd1919f..213002da9cdd 100644
---- a/drivers/pinctrl/starfive/Makefile
-+++ b/drivers/pinctrl/starfive/Makefile
-@@ -10,6 +10,7 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JHB100)		+= pinctrl-starfive-jhb100.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER0)	+= pinctrl-starfive-jhb100-per0.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER1)	+= pinctrl-starfive-jhb100-per1.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER2)	+= pinctrl-starfive-jhb100-per2.o
-+obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER2POK)	+= pinctrl-starfive-jhb100-per2pok.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS0)	+= pinctrl-starfive-jhb100-sys0.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS0H)	+= pinctrl-starfive-jhb100-sys0h.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS1)	+= pinctrl-starfive-jhb100-sys1.o
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per2pok.c b/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per2pok.c
-new file mode 100644
-index 000000000000..abeeee2e7a00
---- /dev/null
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per2pok.c
-@@ -0,0 +1,97 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Pinctrl / GPIO driver for StarFive JHB100 SoC Peripheral-2 Power OK domain
-+ *
-+ * Copyright (C) 2024 StarFive Technology Co., Ltd.
-+ * Author: Alex Soo <yuklin.soo@starfivetech.com>
-+ *
-+ */
-+
-+#include <dt-bindings/pinctrl/starfive,jhb100-pinctrl.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/platform_device.h>
-+
-+#include "pinctrl-starfive-jhb100.h"
-+
-+static const struct jhb100_pin_layout_desc jhb100_per2pok_pl_desc[] = {
-+	{ .pin_start = 0, .pin_cnt = 10, .name = "gpio", .gpio_func_sel = 0 },
-+	{ .pin_start = 10, .pin_cnt = 8, .name = "pwm_channel", .gpio_func_sel = 1 },
-+	{ 0xff },
-+};
-+
-+static struct config_reg_layout_desc jhb100_per2pok_pinctrl_rl_desc[] = {
-+	{
-+		.pin_start			= 0,
-+		.pin_cnt			= 18,
-+		.drive_strength_2bit		= { .shift = 0, .width = 2 },
-+		.input_enable			= { .shift = 2, .width = 1 },
-+		.pull_down			= { .shift = 3, .width = 1 },
-+		.pull_up			= { .shift = 4, .width = 1 },
-+		.slew_rate			= { .shift = 5, .width = 1 },
-+		.schmitt_trigger_select		= { .shift = 6, .width = 1 },
-+		.reserved			= { .shift = 7, .width = 8 },
-+		.debounce_width			= { .shift = 15, .width = 17 },
-+	},
-+	{ 0xff },
-+};
-+
-+struct starfive_pinctrl_regs jhb100_per2pok_pinctrl_regs = {
-+	.func_sel		= { .reg = 0x58, .width_per_pin = 2 },
-+	.config			= 0x04,
-+	.output			= 0x4c,
-+	.output_en		= 0x50,
-+	.gpio_status		= 0x54,
-+	.irq_en			= 0x60,
-+	.irq_status		= 0x64,
-+	.irq_clr		= 0x68,
-+	.irq_trigger		= 0x6c,
-+	.irq_level		= 0x70,
-+	.irq_both_edge		= 0x74,
-+	.irq_edge		= 0x78,
-+};
-+
-+static const struct jhb100_pinctrl_func_maps jhb100_func_maps_per2pok[] = {
-+	{ .func = "can",		.val = 1 },
-+	{ .func = "gpio",		.val = 0,
-+	  .max_pin = JHB100_FUNC_MAPS_MAX_PIN(PADNUM_PER2POK_GPIO_D40) },
-+	{ .func = "gpio",		.val = 1,
-+	  .max_pin = JHB100_FUNC_MAPS_MAX_PIN(PADNUM_PER2POK_GPIO_D48) },
-+	{ .func = "host0_port80",	.val = 2 },
-+	{ .func = "host1_port80",	.val = 3 },
-+	{ .func = "passthru",		.val = 2,
-+	  .max_pin = JHB100_FUNC_MAPS_MAX_PIN(PADNUM_PER2POK_GPIO_D36) },
-+	{ .func = "passthru",		.val = 1,
-+	  .max_pin = JHB100_FUNC_MAPS_MAX_PIN(PADNUM_PER2POK_GPIO_D40) },
-+	{ .func = "pwm",		.val = 0 },
-+};
-+
-+static const struct jhb100_pinctrl_domain_info jhb100_per2pok_pinctrl_info = {
-+	.name			= "jhb100-per2pok",
-+	.pl_desc		= jhb100_per2pok_pl_desc,
-+	.crl_desc		= jhb100_per2pok_pinctrl_rl_desc,
-+	.regs			= &jhb100_per2pok_pinctrl_regs,
-+	.fmaps			= jhb100_func_maps_per2pok,
-+	.num_maps		= ARRAY_SIZE(jhb100_func_maps_per2pok),
-+};
-+
-+static const struct of_device_id jhb100_per2pok_pinctrl_of_match[] = {
-+	{
-+		.compatible = "starfive,jhb100-per2pok-pinctrl",
-+		.data = &jhb100_per2pok_pinctrl_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jhb100_per2pok_pinctrl_of_match);
-+
-+static struct platform_driver jhb100_per2pok_pinctrl_driver = {
-+	.probe = jhb100_pinctrl_probe,
-+	.driver = {
-+		.name = "starfive-jhb100-per2pok-pinctrl",
-+		.of_match_table = jhb100_per2pok_pinctrl_of_match,
-+	},
-+};
-+module_platform_driver(jhb100_per2pok_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for StarFive JHB100 SoC Peripheral-2 Power OK domain");
-+MODULE_AUTHOR("Alex Soo <yuklin.soo@starfivetech.com>");
-+MODULE_LICENSE("GPL");
+Milan Tripkovic (2):
+  riscv: lib: add memcmp() implementation
+  lib/string_kunit: extend benchmarks and unit test to memcmp()
+
+ arch/riscv/include/asm/string.h |   2 +
+ arch/riscv/lib/Makefile         |   1 +
+ arch/riscv/lib/memcmp.S         | 124 ++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |   5 +-
+ lib/tests/string_kunit.c        | 106 +++++++++++++++++++++++++++
+ 5 files changed, 237 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/memcmp.S
+
 -- 
-2.25.1
+2.43.0
 
 
 _______________________________________________
