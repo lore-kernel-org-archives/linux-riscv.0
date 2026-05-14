@@ -4,56 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAF5CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 02:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A23CD37AC
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 02:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R8g3nFYnvxcJ88nD3VAhbnr/Hs9p4tfH0Idt0VXs6fo=; b=lB7/tzBBLFUgS6
-	otzsZzxhnvPAy2M5w4HkSUb3JeHd7FBGGOkRNloyeHR8nymqeSBLfDWUvBReyZ/ZOxe3EQREeEfsw
-	doe97Hz0J6PbJSVen8xeCp7gKyx5BP2pRUwIFTQnp1woCe81cF5qChrkvOvB/b+JY3pVMeHrLfo9d
-	yIx8WGThMhs7QOFqhqHSB4qcdlewqmqlJWbT0erd3RSju0joaH6FeMTh0Aa/hw8DdCc/3S8JlnKt+
-	bwW7u9pYyIru6NjmQ1fYVnQoNnJBvOyeqLeR5GIY2OvwpD+TXYAMyFeqBdyNRi5NlJeyKJYjxSV2Q
-	FIn7dme/25KhSZOVRcVQ==;
+	List-Owner; bh=w18jBQvrb4LF3nAR90mgC9MS7ZCeuz1/1UFfhfdR5C0=; b=EJIQBs7nHYVLip
+	UzRXOT0175g+OK2Kp/212dYFjMnxrRRYDeMzx83+yWmWhEeEOFZTTsRlNg4zQFowlWTCpSHv2rMe5
+	7YmjiSXDpfQ9I/aeejfSjPSw4awLKzzcve4h4bN+5EtN/5MW+TqUIRVFTsqDi948GHH4502AZXl/w
+	3flFNxfJvT1PQ7HEyE82yPsfRRQ9lVwDAUapY+BuJ3lOrlixElXdWB/EJWSqmN2iAaSb90TsH3E3p
+	2bWVl5tpxJglsGPiWMjx/MYuOmPnSvpD/CzQhzLCq/Smcm8pJMVlQJUKur0JV4kDymQe0+SeAmtpD
+	9OIy14Gdfj/6ElX4GcIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNLbk-00000004LNZ-2N5U;
-	Thu, 14 May 2026 02:15:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNLlP-00000004MID-22PD;
+	Thu, 14 May 2026 02:25:27 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNLbi-00000004LNR-3Ai0
+	id 1wNLlM-00000004MHX-2Gew
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 02:15:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA5DC600AE;
-	Thu, 14 May 2026 02:15:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16395C19425;
-	Thu, 14 May 2026 02:15:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778724925;
-	bh=gufw34IuiHNiE+ByypQKYUWNSB1gfIHap088tcTp+/I=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=Q3tbrMmXdA0fUHqsmllTj8EmxJ27S+UxQYlYEeThzfm0XMFsZFmyi25c8QOK2QFIV
-	 FIKB6yecWqunCAgoE2y0x1HaO55u5k1o72Fd8JFRRfeWaB7+OfxI0XMa0qU2ME2Ot3
-	 0rQyYVY259k7GBZ/xJ7GS0xnrf3Xar+k6DmgvngTe5089gYAwJdjktMUAgQAoO4zJF
-	 t7iHdgJ8t+0TXMmQbSXeVB71OcKK8rfUq5Ulyhi+NmGJXIg3enwEXaX0M6QQn7G6t2
-	 GhbkAYW+jk6CgQg/rvPEOzssr/tSViJ7m6Azmq7LQGHddbKJf1gxdI9jgPYl13c1nM
-	 +/3HccTLfSJTQ==
-Date: Wed, 13 May 2026 20:15:24 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Rui Qi <qirui.001@bytedance.com>
-cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-    zhangchunyan@iscas.ac.cn, xujiakai2025@iscas.ac.cn, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Fix ftrace_graph_ret_addr() to use the correct
- task pointer
-In-Reply-To: <20260408092915.46408-1-qirui.001@bytedance.com>
-Message-ID: <ddc3b007-e40b-578c-05fe-b6635fb439eb@kernel.org>
-References: <20260408092915.46408-1-qirui.001@bytedance.com>
+	Thu, 14 May 2026 02:25:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778725524; x=1810261524;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/pf7isI3byc11rrABu6e8n7Zzxos23Sk/PCCBbiveVs=;
+  b=DLjCX2u8iXmHb7rKf8MZtXYuMRKkJsOnlR+jO0UapnXcxVlRGcb1E6tk
+   1n0Sa7quvPXCrm5mies/b/m2fqeezsE3gsZ3GNd7yfolNpWMo5RDbzcWW
+   yCh8GHYp1/KQ4NLXFF1qdrOKjf1zgEDVn0enr+NPi0pbYLkWgJWNVWUEy
+   TA+PFr9HJ0lAr3d+aRksTOIkKXQWoBwx63YnM3MWiNC4l/S7Lnnr2Q+eI
+   2aDiB+93/CE/qcRskm+g4/KbDkkCOubBi+ClO8oQPmxl5Dt0htt/mgGPR
+   XsxGnwHVJA4x+jF1m5pVeX59lguDGIjDIsMUnHdK1Aj+6SZnovFKB4DQP
+   g==;
+X-CSE-ConnectionGUID: ffcleLFdS3SFn1eP7JyKXg==
+X-CSE-MsgGUID: 5fl+ozicTG6l/q8wxtCzAg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="79644671"
+X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
+   d="scan'208";a="79644671"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 19:25:23 -0700
+X-CSE-ConnectionGUID: BBnIGDTxRGOlXd/jFfeYVQ==
+X-CSE-MsgGUID: 3Gn9w2a6QSKk7gNLQ9LT1w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
+   d="scan'208";a="231857809"
+Received: from lkp-server01.sh.intel.com (HELO dca79079c3eb) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 13 May 2026 19:25:20 -0700
+Received: from kbuild by dca79079c3eb with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wNLlE-000000005fP-3wZ4;
+	Thu, 14 May 2026 02:25:16 +0000
+Date: Thu, 14 May 2026 10:24:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
+	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Subject: Re: [PATCH] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
+ mips.pause
+Message-ID: <202605141021.Fw5Aqgfw-lkp@intel.com>
+References: <20260511-p8700-wfi-v1-1-099b1d10fcf2@htecgroup.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260511-p8700-wfi-v1-1-099b1d10fcf2@htecgroup.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_192524_632945_651500D4 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,27 +94,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 8 Apr 2026, Rui Qi wrote:
+Hi Aleksa,
 
-> The walk_stackframe() function is used to unwind the stack of a given
-> task. When function graph tracing is enabled, ftrace_graph_ret_addr()
-> is called to resolve the original return address if it was modified by
-> the tracer.
-> 
-> The current code incorrectly passes 'current' instead of 'task' to
-> ftrace_graph_ret_addr(). This causes incorrect return address resolution
-> when unwinding a stack of a different task (e.g., when the task is
-> blocked in __switch_to).
-> 
-> Fix this by passing 'task' instead of 'current' to match the behavior
-> of other architectures (arm64, loongarch, powerpc, s390, x86).
-> 
-> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+kernel test robot noticed the following build errors:
 
-Thanks, queued for v7.1-rc.
+[auto build test ERROR on c369299895a591d96745d6492d4888259b004a9e]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Aleksa-Paunovic-via-B4-Relay/riscv-Add-ERRATA_MIPS_P8700_WFI-to-replace-WFI-with-mips-pause/20260513-011847
+base:   c369299895a591d96745d6492d4888259b004a9e
+patch link:    https://lore.kernel.org/r/20260511-p8700-wfi-v1-1-099b1d10fcf2%40htecgroup.com
+patch subject: [PATCH] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with mips.pause
+config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20260514/202605141021.Fw5Aqgfw-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260514/202605141021.Fw5Aqgfw-lkp@intel.com/reproduce)
 
-- Paul
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605141021.Fw5Aqgfw-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> <instantiation>:1:7: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+         ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+   <instantiation>:1:25: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+                           ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+   <instantiation>:1:43: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+                                             ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+   <instantiation>:1:61: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+                                                               ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+   <instantiation>:1:79: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+                                                                                 ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+   <instantiation>:1:97: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+                                                                                                   ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+   <instantiation>:1:115: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+                                                                                                                     ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+   <instantiation>:1:133: error: expected instruction format
+   .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .insn 0x00501013; .endr
+                                                                                                                                       ^
+   <instantiation>:10:2: note: while in macro instantiation
+    .rept 8; .insn 0x00501013; .endr;
+    ^
+   <instantiation>:8:2: note: while in macro instantiation
+    ALT_NEW_CONTENT 0x127, 1, 1, ".rept 8; .insn 0x00501013; .endr;"
+    ^
+   arch/riscv/kernel/head.S:201:2: note: while in macro instantiation
+    ALTERNATIVE_CFG "wfi; .rept 7; nop; .endr;", ".rept 8; .insn 0x00501013; .endr;", 0x127, 1, 1
+    ^
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
