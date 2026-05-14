@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC565CD4F3D
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 22:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E763CD4F39
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 23:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5P66Y1ulO6xItAdm7l8NfKHxew4cFiqRbS2I6iCqhME=; b=e8QbcT29cIuOQB
-	Xf6mig0sUUSRF8Lb/Dy1Hrqf+x6tQ+mQLbAfBrNuSzpZl16VEOoOD8J7Mcdb9HFvXxWITHKfxkdjy
-	/oS28rkoJo2s10m/58d/j9pU7Y5lz3npzl49OQCsgNtK52aR5o3JLoava40rZeNaOWUS26T6RtQ6u
-	gfOXplgIMP9jg0/snmEUshEyC3iWM9z8o7Y1Ll/z2vAUwXeb5SVk5NO/gJKh/5o9lgexOWgizXdy0
-	twJDCavONxlY8y+Tyge0IeP3Yp5PZEXibAVZIbjfBOoGfRQppm12rpRRGjgDRYRoKgf4jHkLT4bXN
-	NKj+NF0CwgTqx8z8Bd9g==;
+	List-Owner; bh=u4IpOeosWK4fsybybYXkdqbVd2HqUuxRmidUf6PfAf0=; b=ePMgzVR4/yGM9Z
+	RaVpQbMLvIegx2fRaC8ao/KRR5roObCHXffr61+FARtgQ7JEOdrgJcbRKS28wZXsTPvIIWUAabc+Z
+	J1pAx7mJ1d3DZ6EyrVLkOjoCwazYUoLHUMwRdByJAji4G1QF7tdX1zoA8jjOy+UQSqkvFfMq7ozVy
+	WCxIXIKgz16aB4naY1xTScpj8YJiq3pOYBWFvKMTEwuI7B+I0oPtXzvf33+UscUAyxvXB1rwlrl3B
+	szYGjJa7koLh/qDnYF46khjdD50m9EcyWqFibiQn7gWKj1OzdktJGS8LjiKk/Zb5y6LwtPsfLMWFN
+	YHpgs5HasmnhUQeEK71g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNeUK-00000006hvq-0Emv;
-	Thu, 14 May 2026 22:25:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNfZs-00000006por-3upE;
+	Thu, 14 May 2026 23:34:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNeUH-00000006huy-3iiu
+	id 1wNfZr-00000006poh-3lew
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 22:25:03 +0000
+	Thu, 14 May 2026 23:34:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA81D4097E;
-	Thu, 14 May 2026 22:24:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A548C2BCB3;
-	Thu, 14 May 2026 22:24:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CB19D60132;
+	Thu, 14 May 2026 23:34:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 353E7C2BCB3;
+	Thu, 14 May 2026 23:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778797497;
-	bh=dUk9JsRqi+eVVIWIQ1HsnjPxpZIfmsgJD9d96E55lbQ=;
+	s=k20201202; t=1778801690;
+	bh=VTVKVwBI0yfXk8vWOqDjB0TtPEq/BIS9tDluZGPTVE8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XuFX6uD2G4sgxbhA2crI8Itlhm9AS5wBry95zVTtonsYioWWMzBJnbMvexrmxYjxF
-	 eWYJMTaPRQBxIqW2tUxzfPKVuFz52kobX9jwZFwhPJXlYJSNMkOXgStZKn65pgnJxk
-	 kfDd/3OFQ11DISePfq8HHLDp4XWDNh0WsymN1xLGQ9aSbRbVJNCwfA+TtoHcmkxNLf
-	 adao9FJbU6y30CLRZ2IlyG8Ag4uC0ZXJ1lDeeuzIssvozcalzTzl7IyJapR6Jn8qqt
-	 vMv4b6LePfkKtfFA0KWw+dBdLFeJY6Rs7OLPhKt6Z9G9n7UKY8vUFxTmF38HnOo5OK
-	 QALAdaDYAFUbg==
-Date: Thu, 14 May 2026 15:24:56 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: sashiko@lists.linux.dev
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
-	robh@kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: Re: [PATCH RFC v4 03/18] riscv: add support for srmcfg CSR from
- Ssqosid extension
-Message-ID: <agZLuHhsN5ezSmqg@tt-p14-dfustini>
-References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-3-eb53831ef683@kernel.org>
- <20260511235300.781C6C2BCB0@smtp.kernel.org>
+	b=KzDuGBx6iH26mngpO4t7dd7Ic4nvod0HRexS7rQXFo1QPRZA/pT27Zb0RM54kS4ax
+	 vLoFpifHWxhr4nDK0Ox2RFpMAsz4sbMuOCCGVtVxPCusPjFk84roYr0isUi6ARFzA/
+	 EFhq8gP7QnWpbLJHq5TqDKr8rr77g36rrTG9zsbNkc+lcAQ0838NHkPrO1D+NMeziu
+	 cK7KTcGBzI7uq2IXSLfS2muqYoF7nFUbY5i2Qi2CHTTI8nG+qQA6vzSyZhK+NA4Hr8
+	 jOTek0vzKCyFsJa7+mL6lcTVwo+a1rvh4zmuy36abVQ0tS5Wg0gVtUJVIpvabeOOxL
+	 UTZZ7K9cVm6yg==
+Date: Thu, 14 May 2026 23:34:48 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 0/2] pwm: spacemit: Add Support for K3 SoC
+Message-ID: <20260514233448-GKA3663945@kernel.org>
+References: <20260428-03-k3-pwm-drv-v2-0-a532bbe45556@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260511235300.781C6C2BCB0@smtp.kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_152501_977761_06E752F8 
-X-CRM114-Status: GOOD (  32.40  )
+In-Reply-To: <20260428-03-k3-pwm-drv-v2-0-a532bbe45556@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,156 +69,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 11:52:59PM +0000, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 5 potential issue(s) to consider:
-> - [High] Uninitialized Hardware State / Early Boot Bypass for CSR_SRMCFG
-> - [High] Resource Control Bypass via Monitoring Group (MCID) evaluation flaw
-> - [High] Hardware/Software State Desync on Boot CPU Resume from Suspend
-> - [Medium] Redundant loop and Data Race in hotplug initialization
-> - [Medium] Initcall returns positive hotplug state ID on success
-> --
-> 
-> commit 0e2697a6f259670c211c47e45e2448410a9ac7b9
-> Author: Drew Fustini <fustini@kernel.org>
-> 
-> riscv: add support for srmcfg CSR from Ssqosid extension
->     
-> This commit adds support for the srmcfg CSR defined in the Ssqosid ISA
-> extension. It introduces a per-task srmcfg field mirrored to a per-CPU
-> cache to optimize context switching and configure resource management IDs.
->     
-> Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-> 
-> > diff --git a/arch/riscv/include/asm/qos.h b/arch/riscv/include/asm/qos.h
-> > new file mode 100644
-> > index 0000000000000..6988fe37551ee
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/qos.h
-> > @@ -0,0 +1,64 @@
-> [ ... ]
-> > +static inline void __switch_to_srmcfg(struct task_struct *next)
-> > +{
-> > +	u32 thread_srmcfg;
-> > +
-> > +	thread_srmcfg = READ_ONCE(next->thread.srmcfg);
-> > +
-> > +	/* Default-group tasks (thread.srmcfg == 0) follow this CPU's default. */
-> > +	if (thread_srmcfg == 0)
-> > +		thread_srmcfg = __this_cpu_read(cpu_srmcfg_default);
-> 
-> Does this logic correctly handle tasks assigned to a specific monitoring
-> group but the default resource group?
-> 
-> The srmcfg CSR encodes both the Resource Control ID (RCID) and Monitoring
-> Counter ID (MCID).
-> 
-> If a task is placed in the default resource allocation group (RCID=0) but
-> is assigned a specific monitoring group (MCID!=0), its thread.srmcfg will
-> be non-zero.
-> 
-> The thread_srmcfg == 0 check will fail, bypassing the cpu_srmcfg_default
-> override. This would allow the task to escape the CPU's restricted RCID
-> allocation.
-> 
-> Could the RCID and MCID fields be extracted and evaluated independently?
+Hi Uwe Kleine-K=F6nig,
+  Can you queue this one for v7.2? I'm sending the DTS part patch
+and got a complaint for "clock definitions violation"
 
-Yes, good catch. v5 will rewrite __switch_to_srmcfg() to evaluate RCID
-and MCID against cpu_srmcfg_default independently, matching x86 RDT's
-__resctrl_sched_in() per-field logic. A task in the default RCID group
-with a specific MCID (or vice versa) now correctly inherits the CPU
-default for the unassigned dimension.
+https://lore.kernel.org/all/20260511235952.F32FBC2BCB0@smtp.kernel.org/
 
-> 
-> > diff --git a/arch/riscv/kernel/qos.c b/arch/riscv/kernel/qos.c
-> > new file mode 100644
-> > index 0000000000000..75bda2ed89e1f
-> > --- /dev/null
-> > +++ b/arch/riscv/kernel/qos.c
-> > @@ -0,0 +1,49 @@
-> [ ... ]
-> > +/* cached value of srmcfg csr for each cpu */
-> > +DEFINE_PER_CPU(u32, cpu_srmcfg);
-> 
-> Will this cause the CSR write to be bypassed during early boot?
-> 
-> DEFINE_PER_CPU places the cache in .bss or implicitly zero-initializes it.
-> 
-> During early boot, context switches occur to threads like idle or init
-> before the arch_initcall executes, and these early threads have
-> thread.srmcfg == 0.
-> 
-> When __switch_to_srmcfg() checks if thread_srmcfg != __this_cpu_read(cpu_srmcfg),
-> it will evaluate to 0 != 0 and skip writing the CSR. This means the CPU
-> would execute all early boot code with an implementation-defined,
-> potentially random hardware CSR state.
-> 
-> Could we statically initialize the per-CPU variable, for example:
-> 
-> DEFINE_PER_CPU(u32, cpu_srmcfg) = U32_MAX;
+On 10:46 Tue 28 Apr     , Yixun Lan wrote:
+> The PWM controller in SpacemiT K3 SoC reuse the same IP as previous K1
+> generation, while the difference is that one additional bus clock is
+> added. Introduce a new compatible string and also adjust driver code to
+> support it.
+> =
 
-I will fix in v5
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+> Changes in v2:
+> - Merge dt-binding of clock-names property
+> - Use local variable for bus clock
+> - Rebase to v7.1-rc1
+> - Link to v1: https://lore.kernel.org/r/20260409-03-k3-pwm-drv-v1-0-1307a=
+06fba38@kernel.org
+> =
 
-> > +
-> > +/* default srmcfg value for each cpu, set via resctrl cpu assignment */
-> > +DEFINE_PER_CPU(u32, cpu_srmcfg_default);
-> > +
-> > +/*
-> > + * Seed the per-CPU srmcfg cache to a sentinel that no real srmcfg encoding
-> > + * can produce (MCID << 16 | RCID, both fields well under 16 bits) so the
-> > + * next __switch_to_srmcfg() unconditionally writes the CSR. Ssqosid v1.0
-> > + * leaves CSR state across hart stop/start implementation-defined, so the
-> > + * cached value cannot be trusted after online.
-> > + */
-> > +static int riscv_srmcfg_online(unsigned int cpu)
-> > +{
-> > +	per_cpu(cpu_srmcfg, cpu) = U32_MAX;
-> > +	return 0;
-> > +}
-> 
-> How is the boot CPU's cache handled during system resume from suspend?
+> ---
+> Yixun Lan (2):
+>       dt-bindings: pwm: marvell,pxa-pwm: Add SpacemiT K3 PWM support
+>       pwm: pxa: Add optional bus clock
+> =
 
-I will add a CPU PM notifier that invalidates cpu_srmcfg on CPU_PM_EXIT
-and CPU_PM_ENTER_FAILED, so the boot CPU also forces a CSR write on
-resume.
- 
-> > +static int __init riscv_srmcfg_init(void)
-> > +{
-> > +	unsigned int cpu;
-> > +	int err;
-> > +
-> > +	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SSQOSID))
-> > +		return 0;
-> > +
-> > +	/* Seed already-online CPUs. The cpuhp callback covers later onlines. */
-> > +	for_each_online_cpu(cpu)
-> > +		per_cpu(cpu_srmcfg, cpu) = U32_MAX;
-> 
-> Is this manual iteration over online CPUs necessary?
+>  .../devicetree/bindings/pwm/marvell,pxa-pwm.yaml   | 41 ++++++++++++++++=
+++++--
+>  drivers/pwm/pwm-pxa.c                              |  8 ++++-
+>  2 files changed, 45 insertions(+), 4 deletions(-)
+> ---
+> base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+> change-id: 20260401-03-k3-pwm-drv-4ea99ae355d6
+> =
 
-No, I will drop it. cpuhp_setup_state() already invokes the startup
-callback on every already-online CPU.
+> Best regards,
+> -- =
 
-> > +	err = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/srmcfg:online",
-> > +				riscv_srmcfg_online, NULL);
-> > +	if (err < 0)
-> > +		pr_warn("srmcfg cpuhp registration failed (%d), cpus brought online after boot will not invalidate the CSR_SRMCFG cache\n",
-> > +			err);
-> > +	return err;
-> > +}
-> > +arch_initcall(riscv_srmcfg_init);
-> 
-> Does this return a false failure during boot?
+> Yixun Lan <dlan@kernel.org>
+> =
 
-do_one_initcall() in init/main.c ignores positive return values from
-initcalls. I will leave this as-is.
 
-thanks,
-drew
+-- =
+
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
