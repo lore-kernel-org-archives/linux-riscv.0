@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78360CD4851
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 09:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC63CD4851
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 10:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qJrQeF40sBnk+kBuFgvhNcy9KokYtODQYZBJMtDVngc=; b=MteTaMTk9XFNGZ
-	17FKFDjrfChBIxnGHO7UFBqfvMsIGCHso2n5HxbMkqtNvruVc9ROF5uFsP5HrzT8NBvTpRranqorv
-	n5SPmR7py2oJ7OaRQGx0sVVPB5PvClZ2CgXqRR4HyXTyraBOhAE5krCov6vFQ1Rmra52p2f/NNfSq
-	SYBVitgtRsXlVJDhMEsITsv+U05bGnW1HTamqFMwBAI2q9LyRahcyjazzVf7QpSL2omLLJOtlD7dj
-	o5h3XscJuJw49sDPP8fQSW6Io21zh7BjB87CnicgypLElV+lv+hNtbGLArpkUNZqhUP3gJtAI49RW
-	sEJK1qO7hye7MGdDmYKg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wtd5GSPB3rezd2FQba8L8hpNbyhFYyQHzxjHJFt0ZzU=; b=LSscjUaxzh4GgV
+	GKXDsqNmxDUNy/z/e5+uHhWlS3WUKo8+FfzI34wCVvSEp9McsDk5/MpSlZZsEVYTfkwFje/HiZpac
+	xBZDCxdyOqmi7raKM04fxMqkeYQPVz98liSZSBfRaeZSckhArL1KEvjo9dmTqbjjiyPOKIMF4xEMn
+	RDigFDhU8ic6Ftwln/UkBOQ50lO5BJfxaHQ5PUbyPTrZzIZRob5joAP8deKAomEQLtAHefEUHmCHv
+	FpLLqQSZmkhaDnacMRz0ksecL5/t1hxlcQoUiu4mmUgQ7o8LN9iesDraUFZq2siqCVT9GuVGSlI0k
+	ehPfBuuMTPUmoA2PVzWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSNP-000000053yf-109t;
-	Thu, 14 May 2026 09:29:07 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wNSyX-0000000595Q-3oG7;
+	Thu, 14 May 2026 10:07:29 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSNM-000000053x1-2K6L
+	id 1wNSyV-0000000594h-0PCD
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 09:29:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1778750942; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=OUztNKNvxKx8BTHIAT0NVd/xlA5EkE7Cnrhe1KKRftdcSOy/6ubJTr4eEORmxjsGhDzPrN5XW6R4gzAhErEZVLUW3mGMDB1qrNgRkLQS3LiFh9Sqs1AUZ2ED7O46KHxO6n/9NviZi4WJVYK2kzn+u4WipgqaJ7CBLsOy3rl9eYE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1778750942; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=9LNCeu8aLN/0ZrXOBXKgi3APh74x/QlkzHTfwujzqwI=; 
-	b=e+HGjdYnQX1Ro9oUmYiony9zT6oahREBvyL05Mj6bs2LuZXLbliLmjTxzHAYEJ+xbwlC0MaLBdVvrkhg/6mqGLj9zUVG0Yv9z+PJ5hBkZZa8/m4zpd4WnJK8KT8WgrLxxKAKY24KnWcUjXFLKMSbiOyJdTGrUYj0QBIQcVoqPFU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1778750942;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=9LNCeu8aLN/0ZrXOBXKgi3APh74x/QlkzHTfwujzqwI=;
-	b=lGVr1PZSVyfHG0z3csYaP785oiV5ZlUTrIly+cSmTIDhPakN9G8NrwB2XnoGnoOs
-	JYi0syYnWV2QClmHQJUkpJrtJLRMnp8fDRclyzv/XwmjvWwFSxJHSZEdrnEHiVoyDvd
-	RZVxaHtD1bfzISpfXCpeJaFbiu+4XVckiQMeky8o=
-Received: by mx.zohomail.com with SMTPS id 1778750941232885.290315532009;
-	Thu, 14 May 2026 02:29:01 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Thu, 14 May 2026 17:27:22 +0800
-Subject: [PATCH v5 6/6] MAINTAINERS: Add Anlogic DR1V90 CRU driver entry
+	Thu, 14 May 2026 10:07:28 +0000
+Received: from fric.. (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowACXQm7XngVqRHA0EA--.11494S2;
+	Thu, 14 May 2026 18:07:20 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Matthew Bystrin <dev.mbstr@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe
+Date: Thu, 14 May 2026 10:07:11 +0000
+Message-Id: <20260514100711.838895-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-Id: <20260514-dr1v90-cru-v5-6-34f3021aab51@pigmoral.tech>
-References: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
-In-Reply-To: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778750853; l=912;
- i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=3bKVlzCRSrUWEZ3gCwiFPOq+BkySOj+CH4yCIImMNMk=;
- b=eC16vayzbk3SlGcWQ+Jj6qjY7iw8dENwzpW8fCvLtkLSNLi6FaYxcxvY4MK/PhQTBDVGrnP5a
- Nbm25L6BBqKDCKyeZ7jVSWk8AFSqrK64j4EKygiu3xZ53J94fqiBaAj
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
-X-ZohoMailClient: External
+X-CM-TRANSID: qwCowACXQm7XngVqRHA0EA--.11494S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF47Gr4UKw1kuryUAw47Jwb_yoW5JF4rpF
+	Zak3Zrtr47G3y293sxAr18ury5Jrs3W3yUKFZxtw15J3W7GFyYvryqqa45Zr1Yyryvqa42
+	kFyjyw4DCan0vaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7V
+	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
+	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
+	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAI
+	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
+	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjEoGDUUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBg0HCWoFh+JXSAAAsQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_022904_645690_592CA58D 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260514_030727_510029_87941240 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +84,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a MAINTAINERS entry for the Anlogic DR1V90 Clock and Reset Unit (CRU)
-drivers.
+The fp_is_valid() function uses ALIGN(sp, THREAD_SIZE) as the upper
+bound for the frame pointer check. This bound is calculated relative
+to the current sp and shifts upward when sp itself exceeds the valid
+stack region, allowing the unwinder to read past the end of the
+allocated task stack and triggering KASAN stack-out-of-bounds.
 
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+Fix this by using the absolute task stack boundary
+(task_stack_page(task) + THREAD_SIZE) instead. This ensures that
+once the frame pointer walks past the actual end of the stack,
+the check consistently fails and the unwinding terminates.
+
+Note that the frame pointer unwinder has no mechanism to detect
+when the unwind has crossed from the task stack onto a different
+kernel stack (e.g., IRQ stack). Using the absolute task stack
+boundary provides correct protection against out-of-bounds reads
+at the end of the task stack.
+
+Fixes: a2a4d4a6a0bf ("riscv: stacktrace: fixed walk_stackframe()")
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Assisted-by: OpenClaw:DeepSeek-V3.2
 ---
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/riscv/kernel/stacktrace.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2fb1c75afd16..4861bf96b996 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -1898,6 +1898,15 @@ M:	Jiaxun Yang <jiaxun.yang@flygoat.com>
- S:	Supported
- F:	drivers/rtc/rtc-goldfish.c
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index b41b6255751c..d23681873b5a 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -35,12 +35,16 @@
+ extern asmlinkage void handle_exception(void);
+ extern unsigned long ret_from_exception_end;
  
-+ANLOGIC DR1V90 CRU DRIVER
-+M:	Junhui Liu <junhui.liu@pigmoral.tech>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/anlogic,dr1v90-cru.yaml
-+F:	drivers/clk/anlogic/cru?dr1*
-+F:	drivers/reset/reset-dr1v90.c
-+F:	include/dt-bindings/clock/anlogic,dr1v90-cru.h
-+F:	include/dt-bindings/reset/anlogic,dr1v90-cru.h
+-static inline int fp_is_valid(unsigned long fp, unsigned long sp)
++static inline int fp_is_valid(unsigned long fp, unsigned long sp,
++			      struct task_struct *task)
+ {
+ 	unsigned long low, high;
+ 
++	if (!task)
++		task = current;
 +
- AOA (Apple Onboard Audio) ALSA DRIVER
- M:	Johannes Berg <johannes@sipsolutions.net>
- L:	linuxppc-dev@lists.ozlabs.org
-
+ 	low = sp + sizeof(struct stackframe);
+-	high = ALIGN(sp, THREAD_SIZE);
++	high = (unsigned long)task_stack_page(task) + THREAD_SIZE;
+ 
+ 	return !(fp < low || fp > high || fp & 0x07);
+ }
+@@ -74,13 +78,13 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
+ 			break;
+ 
+-		if (unlikely(!fp_is_valid(fp, sp)))
++		if (unlikely(!fp_is_valid(fp, sp, task)))
+ 			break;
+ 
+ 		/* Unwind stack frame */
+ 		frame = (struct stackframe *)fp - 1;
+ 		sp = fp;
+-		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp)) {
++		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp, task)) {
+ 			/* We hit function where ra is not saved on the stack */
+ 			fp = frame->ra;
+ 			pc = regs->ra;
 -- 
-2.54.0
+2.34.1
 
 
 _______________________________________________
