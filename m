@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5EACD4846
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 04:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14010CD4846
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 04:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cjb8Cozq1mDGfRWhGFOzKrYzxJeFQkWIRWyp1TIwImQ=; b=lFOqR7dauG3rvr
-	+Q9aeTELyXHGBeI3nfQf4hn4J4bH5xbtW61p8DrbUHFpyMKQq12qlA+pbnrj6xKg7zH0/J/E2ZfKE
-	IaN/Y00lE32WA4sprBPEzPGj5K+MFxzST0o1+6i7gFcgo4UD6O8li2BugkxEMET0XD3hxlEz5dN1k
-	SMXCmaUj9KdbIqq6m+ubPIVPtzcejXuhb0Yyo28FAfRD+jD57Eb+vwe/QIVoi93MBvFZuSCWndmiV
-	/q+M+NkmKRv7+ofyVWOr0Je34vpWhye0pUz0oXYcOrq3lQfoRUhSSbLuBNIEeXnkiWtbQKv9C1eAV
-	BGDzosWMHUAhYicETMrA==;
+	List-Owner; bh=1ptKzeuz3efuKKbBit2FoLgQq83i7cyyaBt+G8cfzBw=; b=ELJwFqrgC0TnkB
+	P4wz8zOg013/Wkhv1CD8MALzMBYowkzheyBxN8qGhcd9q21w+IUQjpBNuRzYK4gBpfg0KHIdbkVFi
+	ZDy3cnLy6FLAvQdedZBwuqW7Fq2/z9Vr7f8+2iFYcWs8OzDezG7A/DRNVxPXp2VzV9dCaUw2wU6As
+	u/HtsFeH7/YCbuLxiAx4B3MhHDE1a3z9VEz47kuDWAyK/t3p5MvPcJ9toMmWzqBdCYNVUbW0cWP1k
+	xneJPK3Iv+kl+Z0smlqxJBzUBm/eriVdPJwsjxLTNsglb1V5/r3ZmPqTNiW8K6jZvs6iu+jmgbdY5
+	1BjepjUqeW+avW22BGpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNNVK-00000004WNx-2HnK;
-	Thu, 14 May 2026 04:16:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNNiq-00000004Xhv-2ark;
+	Thu, 14 May 2026 04:30:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNNVI-00000004WNW-2JmT
+	id 1wNNin-00000004XhO-19j9
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 04:16:56 +0000
+	Thu, 14 May 2026 04:30:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7C83600AE;
-	Thu, 14 May 2026 04:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E21CCC2BCB7;
-	Thu, 14 May 2026 04:16:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 87F36444FE;
+	Thu, 14 May 2026 04:30:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF15EC2BCB7;
+	Thu, 14 May 2026 04:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778732214;
-	bh=BQSZ9ee/VgHstNC8tJm0ej+5RQbrx3NRClPwFKpSEWQ=;
+	s=k20201202; t=1778733052;
+	bh=ixvoQlegkcO1L+9UtwK7CT8sYtpgRASkPGBszMTMo7I=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=Q5VZAaFlwLXXpqqzimWpLMDbbAvVO0PBwYRla5alMQ8B7Qh1yJRvBb0GT4wPTj1wI
-	 hbJfDhqfp+7ggqH5AFoaq60IrqhqsbekJyEAaWMpJogGcpfMtUcKbqspJwn/QCfcxS
-	 0197NRkY5U8Z3F/L3zFaTAHwDzFyOW9+nt8eKptTNhouAzLijKyVduk0YptUWzD6hk
-	 5P1PD224YEuruHYIvIk42jfNx6FifBvwr+ZGkj+x9Nxpgt8V9/fV7aCVQyaeiMG3pA
-	 AP/9nJVx4SgjAjQE2Re88frycf8nsHkQasSWqdpk+Jy8v5iNqIr2RAXEFsZRCMfmb2
-	 o79myiZ8PutSw==
-Date: Wed, 13 May 2026 22:16:49 -0600 (MDT)
+	b=AkdJkhlMp0kLrTIe8rwFvCjghzPLyk2+L2KHXtg+8pmpVG0KciPQyL8gnuP1D3xr1
+	 B4iDW/FX2mN3VtJS7YszimvQl7w1+b0w6jHB1sVU2+AxvZHPyrybEboeYwoE1aCleq
+	 /a6MhV6IWgbS8mo8FZZN25BlOoyVqcq1lJo1HV+VieLH/9fj4Lc/YftlsQdct0w54r
+	 mXuNk75zaiwc55wIySIQhKlKto8cUyI897HuC3lDIuuLurFrf46ERsNo5/IUyoJV9S
+	 LuE7qyjgFZrim1UmR/4f3wCDCyfEZJ7WPp2kuvnP1CqTy4aWeHIpEDpfR0rYUtJR6B
+	 YTJJXB1iHvbWQ==
+Date: Wed, 13 May 2026 22:30:50 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-cc: linux-kernel@vger.kernel.org, Deepak Gupta <debug@rivosinc.com>, 
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+cc: =?ISO-8859-15?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, 
     Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, 
-    Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-Subject: Re: [PATCH] riscv: Docs: fix unmatched quote warning
-In-Reply-To: <4827939a-2e8e-4ac7-981c-deb3b7296a66@infradead.org>
-Message-ID: <590cf7aa-1e0c-6cc2-ab69-53d2680f9d36@kernel.org>
-References: <20260406232304.1892528-1-rdunlap@infradead.org> <4914fc7a-607f-41bb-891e-89df83a0b292@infradead.org> <4827939a-2e8e-4ac7-981c-deb3b7296a66@infradead.org>
+    Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
+    Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+    Songsong Zhang <U2FsdGVkX1@gmail.com>
+Subject: Re: [PATCH v2] riscv: misaligned: Make enabling delegation depend
+ on NONPORTABLE
+In-Reply-To: <20260401-riscv-misaligned-dont-delegate-v2-1-5014a288c097@iscas.ac.cn>
+Message-ID: <ed77660c-84d2-ce2f-3b21-01a3309ed997@kernel.org>
+References: <20260401-riscv-misaligned-dont-delegate-v2-1-5014a288c097@iscas.ac.cn>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_213053_791350_C5A3A11D 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,17 +76,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Randy,
+On Wed, 1 Apr 2026, Vivian Wang wrote:
 
-On Wed, 13 May 2026, Randy Dunlap wrote:
+> The unaligned access emulation code in Linux has various deficiencies.
+> For example, it doesn't emulate vector instructions [1] [2], and doesn't
+> emulate KVM guest accesses. Therefore, requesting misaligned exception
+> delegation with SBI FWFT actually regresses vector instructions' and KVM
+> guests' behavior.
+> 
+> Until Linux can handle it properly, guard these sbi_fwft_set() calls
+> behind RISCV_SBI_FWFT_DELEGATE_MISALIGNED, which in turn depends on
+> NONPORTABLE. Those who are sure that this wouldn't be a problem can
+> enable this option, perhaps getting better performance.
+> 
+> The rest of the existing code proceeds as before, except as if
+> SBI_FWFT_MISALIGNED_EXC_DELEG is not available, to handle any remaining
+> address misaligned exceptions on a best-effort basis. The KVM SBI FWFT
+> implementation is also not touched, but it is disabled if the firmware
+> emulates unaligned accesses.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: cf5a8abc6560 ("riscv: misaligned: request misaligned exception from SBI")
+> Reported-by: Songsong Zhang <U2FsdGVkX1@gmail.com> # KVM
+> Link: https://lore.kernel.org/linux-riscv/38ce44c1-08cf-4e3f-8ade-20da224f529c@iscas.ac.cn/ [1]
+> Link: https://lore.kernel.org/linux-riscv/b3cfcdac-0337-4db0-a611-258f2868855f@iscas.ac.cn/ [2]
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
-> This docs build warning is now in mainline.
-> Should I ask Jon to merge the patch, given no activity on it?
+Thanks, queued for v7.1-rc.
 
-Sorry about the delay; I'll pick it up as a fix.
-
-
-thanks,
 
 - Paul
 
