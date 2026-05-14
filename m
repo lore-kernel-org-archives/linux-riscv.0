@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DA1CD4851
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 16:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCFDCD4851
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 16:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ccbIQhlt6B6K+Wp+MKg8W+S8tjeaRNYJzDaahtXPpfk=; b=Z4BfAYlZxVKu0k
-	uadzQf7xsyJyxzStBIHJgL+KrRqcC1IdFMFM0lQ8TmG/D+fK4c+t6Rvpo/GsTeE3akPISD5vUn8CP
-	8iqtk2Nf2dkVp+XYUWIFyuTuEytELj4T+zoRShmJWpDC65rejre0GK+OWyBRV5QlkqrD5oMmFTMlP
-	bGf1lZnltgwFn9ytqPWk+x4i3K6WsUDMqfDSSv3QoZ5IfsIajhL2xGswG1bv2l38IZqtQ/LNbkFYL
-	q+yh1avLetaQsz7Ok01VSOqh8YEDkvGWXdyzwjajsmbw8Tof3Vmn541Tt4b5Uu8oFQF94MXoUa8BG
-	w/chdFgCblWccMv4X0wA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EOIn+amkLmOwVXCURBTNzfrkbE/Xcpf3p2ie8lKLpDM=; b=NdVQweIE0VUQtB
+	WU69emzyLFLvU8sUa53CZHbDuAwj1Mx/Trmka1g0ewvUQtkWXYBWcdQGYEnCjN0Kpb5DjVn0+3nDR
+	j1zvbaNeC2enuZYj1axhgoei6+TzpsflgsnqakJLHQ7qZ9UEleqrDdLF14i6cKgOgwWHGmOcczvYZ
+	ZRmUU/YRlmhYuR+bwaQuxKzwwNqeipSWniBOkKrKxXPfRDaNmeNpn1nc/09uZJIMswxgomVGV/m5S
+	WWuOnRIJhIzde+z/P43DMkXr5BMGZIKSbqeDivZTUuYiG7A7qzQHcoLFF8AffagXb+uKpway/Q2RE
+	mgxvXYGgIC/rLdRkCXBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYmI-0000000622Z-1tmu;
-	Thu, 14 May 2026 16:19:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNZ6U-000000065DI-1wY4;
+	Thu, 14 May 2026 16:40:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYmH-00000006223-0X2Q
+	id 1wNZ6Q-000000065Bm-3T3q
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 16:19:13 +0000
+	Thu, 14 May 2026 16:40:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92C7E60008;
-	Thu, 14 May 2026 16:19:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D67DC2BCB3;
-	Thu, 14 May 2026 16:19:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B35144270;
+	Thu, 14 May 2026 16:39:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE565C2BCB3;
+	Thu, 14 May 2026 16:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778775552;
-	bh=F5wvXsrQ072xrenn6NhqUcsSK80NMgYOdkf79Wcyit0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DyI7aUt5Odd7cxM308rIqtrnCHzkcvK8kpOQGBf2iNBUalcyubX6bYqabIhQxwMzB
-	 QclfOAr+oIg93PZSuYlXikSzrYk1FfydLDzroPOpFSeKdvE1jnfHQKyNbzpIXLkhdl
-	 ZHCT628QYWZmbRHmUdpUrTxQ3hbRFj2JL7o5SYrBcsXNA6bN6EcG+TB5cPZehfRdvd
-	 VxJ9KytgCshu+2ddvSQLEW5epkaooiLDyxTylDhU4UodHc1jAwawOyzxKSeobMbiGx
-	 mSKo1MF9zTmmrtBUXPzpMHzIcPlDdTadQDA6KTs8hADWt5bLnetDS9Y+Y7auYiBNGl
-	 PoDqL6LpF1Eag==
-Date: Thu, 14 May 2026 09:19:11 -0700
-From: Kees Cook <kees@kernel.org>
-To: Milan Tripkovic <milant2002@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andy Shevchenko <andy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
-	Dusan Stojkovic <Dusan.Stojkovic@rt-rk.com>,
-	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v2 2/2] lib/string_kunit: extend benchmarks and unit test
- to memcmp()
-Message-ID: <202605140916.09FBB1A4@keescook>
-References: <20260514121359.931999-1-milant2002@gmail.com>
- <20260514121359.931999-3-milant2002@gmail.com>
+	s=k20201202; t=1778776799;
+	bh=Uu8LgHeTvuBSkg46HGL1uzGanUNqMH+ybOhQ0yJ7ZcM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=u7r0o5hm/RgDFmoq9cOUpZyvqIBPO1SefinkqwdT/Ih1IF5rfKCSyV74u/wc6eANU
+	 jawb81Xs1etleaKDIljvFZWkGyZkQsufDFQSbeEVi45MqjFc9qFRwTJvIyb7tEuIz5
+	 gd1ee+4mhJ2jjQLZ1sO2GB1PeFu8k5xav/trts/t0mvNpZWCiSDl/0+V3GQpE9ovmp
+	 RaSRud4/P0LzSKpVtlimH1rfdRuzi1D4CMt9eaamEtxk9cMG4bMFlgRZg+cOpbt0fL
+	 ic9NOurZqqLudKDhx9c/fgJF7jO/qtssqX8NtrXXYTwnnkXzbat238Cfk4+DEUOtiF
+	 d0HSHXUmhD//g==
+From: Conor Dooley <conor@kernel.org>
+To: jassisinghbrar@gmail.com
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Valentina.FernandezAlanis@microchip.com
+Subject: [PATCH v1] mailbox: mpfs: fix check for syscon presence in mpfs_mbox_inbox_isr()
+Date: Thu, 14 May 2026 17:39:51 +0100
+Message-ID: <20260514-reopen-purity-0e8914bf3c51@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260514121359.931999-3-milant2002@gmail.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1275; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=nZN8rv3keeoKA6RSwvYbwGD0yvX+d5JBkA0LYCAO2eM=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFmsv24k9nlEBL2e8frGnUgPfjlr9dMpRVPvJy+WimguW ffSw3lqRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbC5MjI8H7D7qnHt//P7Hsj +yPHecOZEx4yL+6tMJqu+aTxq/8tcxdGhqXctd+jE1ac2tXpUz3XJXnn5F3OswxmaLFas5f8CHi +hAkA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_094004_206114_5B7552E1 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,159 +76,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 02:13:58PM +0200, Milan Tripkovic wrote:
-> From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
-> 
-> Extend the string benchmarking suite to include memcmp().
-> Extend the string unit test to include memcmp().
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202605140827.Qg1DZpcB-lkp@intel.com/
-> Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
-> ---
->  lib/tests/string_kunit.c | 106 +++++++++++++++++++++++++++++++++++++++
->  1 file changed, 106 insertions(+)
-> 
-> diff --git a/lib/tests/string_kunit.c b/lib/tests/string_kunit.c
-> index 0819ace5b027..d0bad40a719a 100644
-> --- a/lib/tests/string_kunit.c
-> +++ b/lib/tests/string_kunit.c
-> @@ -881,6 +881,110 @@ static void string_bench_strrchr(struct kunit *test)
->  	STRING_BENCH_BUF(test, buf, len, strrchr, buf, '\0');
->  }
->  
-> +static void string_test_memcmp(struct kunit *test)
-> +{
-> +	const int max_offset = 16;
-> +	const int max_len = 32;
-> +	const int buf_size = max_offset + max_len + 32;
-> +	u8 *buf1, *buf2;
-> +	int i, j, len, k;
-> +
-> +	buf1 = kunit_kzalloc(test, buf_size, GFP_KERNEL);
-> +	buf2 = kunit_kzalloc(test, buf_size, GFP_KERNEL);
-> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf1);
-> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, buf2);
-> +
-> +	for (i = 0; i < max_offset; i++) {
-> +		for (j = 0; j < max_offset; j++) {
-> +			for (len = 0; len <= max_len; len++) {
-> +				memset(buf1, 'A', buf_size);
-> +				memset(buf2, 'A', buf_size);
-> +				KUNIT_EXPECT_EQ_MSG(test, memcmp(buf1 + i, buf2 + j, len), 0,
-> +						    "Should be equal: i:%d j:%d len:%d", i, j, len);
-> +				for (k = 0; k < len; k++) {
-> +					memset(buf1, 'A', buf_size);
-> +					memset(buf2, 'A', buf_size);
-> +					buf2[j + k] = 'B';
-> +					int res = memcmp(buf1 + i, buf2 + j, len);
-> +
-> +					KUNIT_EXPECT_NE_MSG(test, res, 0,
-> +							    "Should detect difference at k:%d (i:%d j:%d len:%d)",
-> +						k, i, j, len);
-> +
-> +					if (buf1[i + k] < buf2[j + k])
-> +						KUNIT_EXPECT_LT(test, res, 0);
-> +					else
-> +						KUNIT_EXPECT_GT(test, res, 0);
-> +				}
-> +			}
-> +		}
-> +	}
-> +}
+From: Conor Dooley <conor.dooley@microchip.com>
 
-This looks good, thanks!
+mpfs_mbox_inbox_isr() writes to the sysreg scb syscon, not the control
+scb syscon, but checks for the presence of the latter. Ultimately this
+makes little difference because if one syscon is present, both will be.
 
-> +#if IS_ENABLED(CONFIG_STRING_KUNIT_BENCH)
-> +static void string_bench_memcmp(struct kunit *test)
-> +{
-> +	char *buf1, *buf2;
-> +	size_t lengths[] = { 1, 7, 8, 16, 32, 64, 128, 512, 1024, 4096};
-> +	int offsets[] = {0, 1, 3, 7};
-> +	const size_t max_len = 4096 + 64;
+Fixes: a4123ffab9ece ("mailbox: mpfs: support new, syscon based, devicetree configuration")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Jassi Brar <jassisinghbrar@gmail.com>
+CC: linux-riscv@lists.infradead.org
+CC: linux-kernel@vger.kernel.org
+CC: Valentina.FernandezAlanis@microchip.com
+---
+ drivers/mailbox/mailbox-mpfs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I think I'd prefer, instead of a ifdef stub, to do:
-
-        if (!IS_ENABLED(CONFIG_STRING_KUNIT_BENCH))
-	        kunit_skip(test, "CONFIG_STRING_KUNIT_BENCH not enabled")
-
-here.
-
-> +
-> +	buf1 = vmalloc(max_len);
-> +	buf2 = vmalloc(max_len);
-> +
-> +	if (!buf1 || !buf2) {
-> +		vfree(buf1);
-> +		vfree(buf2);
-> +		kunit_err(test, "vmalloc failed\n");
-> +		return;
-> +	}
-> +
-> +	memset(buf1, 'A', max_len);
-> +	memset(buf2, 'A', max_len);
-> +
-> +	for (int i = 0; i < 100000; i++)
-> +		(void)memcmp(buf1, buf2, 4096);
-> +
-> +	for (int o = 0; o < ARRAY_SIZE(offsets); o++) {
-> +		int off = offsets[o];
-> +
-> +		for (int i = 0; i < ARRAY_SIZE(lengths); i++) {
-> +			size_t len = lengths[i];
-> +			char *p1 = buf1;
-> +			char *p2 = buf2 + off;
-> +
-> +			u32 iterations = (len < 512) ? 100000 : 10000;
-> +
-> +			for (u32 j = 0; j < iterations; j++) {
-> +				(void)memcmp(p1, p2, len);
-> +				barrier();
-> +			}
-> +
-> +			u64 elapsed = STRING_BENCH(iterations, memcmp, p1, p2, len);
-> +			u64 ns_per_call = div_u64(elapsed, iterations);
-> +			u64 mbps = len ? div_u64((u64)len * iterations * 1000,
-> +									 elapsed) : 0;
-> +
-> +			if (off == 0) {
-> +				kunit_info(test, "bench_memcmp_aligned: len=%-4zu: %llu MB/s (%llu ns/call)\n",
-> +					   len, mbps, ns_per_call);
-> +			} else {
-> +				kunit_info(test, "bench_memcmp_unaligned(off=%d): len=%-4zu: %llu MB/s (%llu ns/call)\n",
-> +					   off, len, mbps, ns_per_call);
-> +			}
-> +		}
-> +	}
-> +
-> +	vfree(buf1);
-> +	vfree(buf2);
-> +}
-> +#else
-> +static void string_bench_memcmp(struct kunit *test)
-> +{
-> +	kunit_skip(test, "not enabled");
-> +}
-> +#endif
-> +
->  static struct kunit_case string_test_cases[] = {
->  	KUNIT_CASE(string_test_memset16),
->  	KUNIT_CASE(string_test_memset32),
-> @@ -910,6 +1014,8 @@ static struct kunit_case string_test_cases[] = {
->  	KUNIT_CASE(string_bench_strnlen),
->  	KUNIT_CASE(string_bench_strchr),
->  	KUNIT_CASE(string_bench_strrchr),
-> +	KUNIT_CASE(string_test_memcmp),
-> +	KUNIT_CASE_SLOW(string_bench_memcmp),
->  	{}
->  };
->  
-> -- 
-> 2.43.0
-> 
-
+diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpfs.c
+index d5d9effece979..ef40fe2be30d6 100644
+--- a/drivers/mailbox/mailbox-mpfs.c
++++ b/drivers/mailbox/mailbox-mpfs.c
+@@ -201,7 +201,7 @@ static irqreturn_t mpfs_mbox_inbox_isr(int irq, void *data)
+ 	struct mbox_chan *chan = data;
+ 	struct mpfs_mbox *mbox = (struct mpfs_mbox *)chan->con_priv;
+ 
+-	if (mbox->control_scb)
++	if (mbox->sysreg_scb)
+ 		regmap_write(mbox->sysreg_scb, MESSAGE_INT_OFFSET, 0);
+ 	else
+ 		writel_relaxed(0, mbox->int_reg);
 -- 
-Kees Cook
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
