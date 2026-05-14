@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB86CD4F39
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 19:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDEF8CD37AC
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 19:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5L/zWRQ3ADsJAj8QxmWoafL7veOlYNNbj+cv/XcCZ2U=; b=lD3/TbmdPFPifSLKKnMVkCQqt0
-	6YRuJjTPLfR3wlaFfg3qx96ARtxKvPJIUwzM6BuKWdYNnFAAJN/Xey9AWHnKMRCkhM8RH1Xu6rcjW
-	HxQkiNWTPF/evLlW8x2m+YOtCR0vjdAT2CrXvPV/u2ahIwlmSX30jERKDzzcw6PXZFk8vW+Bh42XX
-	3TBEOp1MsjEm0TiBW5n/WgakZ7gCsVWEmaMN52TTpDrsGkwGnpZ9538lXFLiOOOHkBOnhY85NyZsI
-	o2f/SQrynmUeBoA6/f/3abdC/kfm6wSlFvmgAmD6PxcdMcna4XzrEjJe7ss8cRFgpN9GWLBU3CH+Z
-	16BuDcWQ==;
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XpFP2lVSZqnIKqFVo5rgnrzRCwV3r5gEOgMuJZ834S4=; b=Qylkyi1FRwfDh1
+	jgsupBezMG4tpLL+mWQPHC/0/vywScwOje4Hz9wQMCBHSs4TEpVXSZgavSPkWVfWsgKIzUa8Bv2lC
+	ie/t05yJJyNmGyRj2ViaLiMAwtcwZv8ZlAV1/y5nsowaIj7Yw0jtMqf84WofJc3iNTDDeyc9ie9bm
+	XV9lxCXxKBxRKAkwVrbHGTO+4ywG2WmjnjkHZHiUVvPf57DtIcEwvvZuY9KbCdZQeGB+cNfg5T0iD
+	kWOU19mm0/ROwbse7B2hIkjanrjdIN1kEGVxwXkmJrWTCs9wJDb4c+f8gSlaLsAfJhvt1T7GOxIQH
+	Z3lsNI5fU8mE79w4Xf5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNbxV-00000006Rxr-3Gnm;
-	Thu, 14 May 2026 19:43:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNc6R-00000006SxG-2Y0M;
+	Thu, 14 May 2026 19:52:15 +0000
+Received: from smtp-18.italiaonline.it ([213.209.10.18] helo=libero.it)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNbxU-00000006RxQ-0Dhk
+	id 1wNc6O-00000006Svc-2DQD
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 19:43:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9A774407F;
-	Thu, 14 May 2026 19:42:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAC49C2BCB3;
-	Thu, 14 May 2026 19:42:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778787779;
-	bh=W/qjBzJ//hnBPBVzPJXnywtEm4GdGWvVJtVx/vCE8kw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HwBOC5yesbJhd7elS7rbwmxmousku2yG0bQDkyyZS06fKnah3m8V7ar2wgIR5eeFr
-	 Uqcka/CzkZfysOhKK4D6MInJwJuT8fmY4OT/FyDd2a2n2UyWhVOB40xietOTcAc/4B
-	 yMRTDp/vSE9Wd0d3Mal/l+fN9kj1XZ8DFQ2HHa9kDYUXwqPCny9CiFHPS7wKDK5Ejr
-	 4Z5IQkWt9Cty6UCnKaiUNjOnlK7rqTwUtjVQWv5qcthsLg3q3uLtuo1J266k5dLs8I
-	 fFKC41sHymDQk+Xf5aaR3vu8rrGDnOgFuVHillhVHnqRVxdESTCBZDK3bPw3odR3HW
-	 2+ZUWqIXlIx9g==
-Date: Thu, 14 May 2026 20:42:55 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [RFC v1 0/4] generic pinmux dt_node_to_map implementation
-Message-ID: <20260514-probe-clarinet-a7d31c3630d3@spud>
-References: <20260506-energize-dramatize-051909e54256@spud>
- <CAD++jLkEfqDrqaxTjxf4AwHPcdCppPfO5F7H5YnR2gebzhZFig@mail.gmail.com>
- <20260514-used-revival-306ddced4ab8@spud>
- <20260514-afterglow-overlabor-bc483b2a8b35@spud>
+	Thu, 14 May 2026 19:52:14 +0000
+Received: from [192.168.1.27] ([84.220.171.3])
+	by smtp-18.iol.local with ESMTPA
+	id Nc6CwXG9svXD3Nc6CwmS65; Thu, 14 May 2026 21:52:07 +0200
+x-libjamoibt: 1601
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=libero.it; s=s2021;
+	t=1778788327; bh=bD3QJ+lr63//8NcpvDCT9tKc3YLZWQgdbpAaQhjYRpQ=;
+	h=From;
+	b=WjBd6m5GeZLiEpJDmyyT/8VPp5EOXd4PhZx9kHUiOpqfvSBe7IFbl7krzNd92M9Ij
+	 h6EhL6qXXq9UaNsQfdJ5a66jWHPe3D2L7Nu/xrybOS+yOAwV6LdAjAl7orTfUz4kwH
+	 3auL6iqBbyl11V0qHQa1mg54QFrGy31tudePZPxfmDSHUVOc9cV7FN4yHppkUtjtZO
+	 1eNNuq7/0Y74HmPuEqWqRhs3SrQQlZ7arXDilEcB+jEsAp8ofe+4bD0Y0I0ZeAg86U
+	 3nuNpLvyVhMptjCg9r0R4NKBj3/xghtHqCInpSBZcxe6j2wOauOLHj8pRwkeniaUAa
+	 v7xxVDpm6+b5w==
+X-CNFS-Analysis: v=2.4 cv=KNpaDEFo c=1 sm=1 tr=0 ts=6a0627e7 cx=a_exe
+ a=hciw9o01/L1eIHAASTHaSw==:117 a=hciw9o01/L1eIHAASTHaSw==:17
+ a=IkcTkHD0fZMA:10 a=gdOXTq2rPY5K92qxl70A:9 a=QEXdDO2ut3YA:10
+Message-ID: <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it>
+Date: Thu, 14 May 2026 21:51:59 +0200
 MIME-Version: 1.0
-In-Reply-To: <20260514-afterglow-overlabor-bc483b2a8b35@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
+To: Christoph Hellwig <hch@lst.de>, David Sterba <dsterba@suse.cz>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Herbert Xu <herbert@gondor.apana.org.au>,
+ Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+ David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+ Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
+ Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-raid@vger.kernel.org
+References: <20260512052230.2947683-1-hch@lst.de>
+ <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz>
+ <20260513054742.GA1018@lst.de>
+Content-Language: en-US
+From: Goffredo Baroncelli <kreijack@libero.it>
+In-Reply-To: <20260513054742.GA1018@lst.de>
+X-CMAE-Envelope: MS4xfIDtr7UvibXhotDq/eGXiDloNUqbPDkdUcxlgBaAHHbQvsiYahHpeNORunqIajszasgr8c3B8z/XyVOyAuN5hf4175nD+vlvtMC0bIY9QJZp6woWJNrG
+ aQk3PfyHHPYy0hAJeCmEsrwL+sXrn8raXvwSVFwja+mNIGcKFygU4bdVw8v1VKDOhOcKheYp3BbVwQqMojH7Fl3INb7gtuRV2KJmyAjSGXNJhncVaQGAWAXT
+ oo9oBSC2F1t8jl/GotUy7wzpLHDbKBEqbAMmtYHdik+INpHro8RYa5E9Xq6OjONzHdXTvo9rbFmCDPwVpbwYHwCe0MqnMSDrNEtco2tbBGAHXZQltPV0OL6m
+ Xs4XHyVNJychZ3wNHl+FP7VInrjAJxVyZarLA6h1GLmH6C7bo7xh7AiFVhmS448mJ7oddw2E4GcHCQLw5nc+mncOBuUBdW8FPmgVqBmLYRW/E1uHf5H7ymxf
+ 7+M72Ab7Lfz5l1ZroO9USEopaT2TBjueXvWWFJeuh+TSc+GQh5CVcLujqqlEOSlSp1R8OM48gPzAiNRzuVncRPYO912eFvGsZNofHbnJZ9P4JQlVvIPXrGUB
+ k7Rksq1+0+/sGJ2glUPm+veTLd0hOFrGOX4ZELZW5Img1Rjh7oT/YM8G+lXjJbJOhlr6dtYSc1AC8AObXM80AsLIGbqAOpJVhPL0SZOZ5g6Eu3Cfm1/Q33as
+ QHSlwOGbMr3uM6BXBwCA/iRSLcteO0RORQvEAQO/e8MiSvc/dUNZzTez6wHixpEXWQgZ9Z2NCRxukJhNoR1Rx4h+eGB19h2fhW2x2HiNZrbKd9S9OcLI88MY
+ VUksbcbJ5ZMjktY8kGFSnH8Sl2ShB0yrH/NgA0RY1roEXSzCGqsE7TP3RQARPk+NJazqFOqfqBBqnZtd5+mQ4UNQ7vAQ8hGUUzJa0YumkRS4nD9X559FZfXe
+ 3QOgg2TlhwAwcQGvb+Ss+4k9h9DXM6VcEJLsA1QfBnYHYKfliz3h16SIG6W9Iv+uyDk540G1k9dytoNAOXtfwInzV/kvD8Gdkx/D5xTLs2Sy2Vsz+fiNYheM
+ RnLdoR588cGVPiQvhFzHmun/E7dTIUBeFfbij8HjYQhlm3iRhm0aHJPBV9Vy9cCHzTY2Xgl9a5O9fV2pbB+fheegaejlj1NEvwMJXnqpW4b7V72sTbFeBBpq
+ sV7UY0G4iFsh4psQSpK2n56bqWeEew5AkQ99Y/kUreS7WeUBfBiERWWaetQDZDCQNQA8U71Vc5hY0RLOFV2Aw7GFB7tuY8UWgz+lrNAODlW3lBkv98wvQAM2
+ elm5SufYC+WToRDZbALHIfeKQaWetyvkUyIdnsY+d8sgX9LlFz8i7BQ2NdF+Kx5bVl5SHJ+7SVGlrENFPkZmuc9c76uB16GUvPNEKCGDocJxGmG4zCOAHF2C
+ /C9IjdfcMCOt4BPR2AQ5I7a7UIHbl/0cLeCT3ndssV7yObVQj8fyrC9JvV103G4ONfKQAFRlbxqOghcPn/SVhhkuA7CbWDbiGwsvIIr4aWyBADP7w9O7YYob
+ oxPW28FwtEbUoi7iCAVuNr75ZuhwG4v9wrI1nPiKemFdJA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_124300_150213_5C07C4EC 
-X-CRM114-Status: GOOD (  47.45  )
+X-CRM114-CacheID: sfid-20260514_125213_017484_1FCE60CB 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,340 +107,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1530858170673016027=="
+Reply-To: kreijack@inwind.it
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 13/05/2026 07.47, Christoph Hellwig wrote:
+> On Tue, May 12, 2026 at 01:42:31PM +0200, David Sterba wrote:
 
---===============1530858170673016027==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OGavs1+g+/uj82Wo"
-Content-Disposition: inline
+> 
+>> The degenerate modes of
+>> raid0, 5, or 6 are explicit as a possible middle step when converting
+>> profiles.  We can use a fallback implementation for this case if the
+>> accelerated implementations cannot do it.
+> 
+> This is not about a degenerated mode.  For a degenerated RAID 6, parity
+> generation uses the RAID 5 XOR routines as the second parity will be
+> missing.  This is about generating two parities for a single data disk,
+> which must be explicitly selected.
+> 
 
+I think that the David concern is : "what happens for an already
+existing btrfs raid6 3 disks filesystem when the user upgrade the kernel ?"
+(I am thinking when a new BG needs to be allocated)...
 
---OGavs1+g+/uj82Wo
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+BR
+GB
 
-On Thu, May 14, 2026 at 08:40:26PM +0100, Conor Dooley wrote:
-> On Thu, May 14, 2026 at 07:57:46PM +0100, Conor Dooley wrote:
-> > On Mon, May 11, 2026 at 10:23:16PM +0200, Linus Walleij wrote:
-> > > On Wed, May 6, 2026 at 11:58=E2=80=AFAM Conor Dooley <conor@kernel.or=
-g> wrote:
-> > >=20
-> > > > Whipped this up last week, at to a first glance it appears to work,
-> > > > although the spacemit platform I've used to implement this has very
-> > > > limited in-tree use of pinctrl so it is hard to be sure.
-> > >=20
-> > > I like it, if it wasn't RFC I would merge it.
-> >=20
-> > Half the reason that it is RFC is that I knew dlan wanted to take a look
-> > but told me they weren't available, so I said I'd send it on the list in
-> > the interim.
-> >=20
-> > > > What I don't love though is how similar the functions
-> > > > pinctrl_generic_pins_function_dt_node_to_map() and
-> > > > pinctrl_generic_pinmux_dt_node_to_map() are - essentially identical
-> > > > other than which function they in turn call.
-> > >=20
-> > > Hm we can maybe think of something more descriptive
-> > > to the first one?
-> >=20
-> > I think the name is actually okay, it was the similarity of the code
-> > that I don't like. There's a fair bit of duplication.
-> >=20
-> > > I think the new function is very much to the point. That's what
-> > > it does. pinctrl_generic_pins_function_dt_node_to_map() could
-> > > perhaps be names something that make it evident what is
-> > > special about it. Not that I have a good idea.
-> > >=20
-> > > > Basically, I wanna know if you think that that is acceptable,
-> > >=20
-> > > Looks Good To Me (TM) no-one else is helping out with pin
-> > > control core work so I'm happy for everything I get.
-> >=20
-> > Right, well I'll go clean it up I suppose. I might send a rfc v2 with an
-> > extra patch that tries to get rid of some of the code duplication and
-> > you can tell me which version you prefer?
->=20
-> Actually, no need for rfc v2, can just paste here:
->=20
-> diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-=
-generic.c
-> index d1365acfd1f8c..9759b0186bcc2 100644
-> --- a/drivers/pinctrl/pinctrl-generic.c
-> +++ b/drivers/pinctrl/pinctrl-generic.c
-> @@ -119,92 +119,6 @@ static int pinctrl_generic_pins_function_dt_subnode_=
-to_map(struct pinctrl_dev *p
->  				      functions, pins, npins);
->  }
-> =20
-> -/*
-> - * For platforms that do not define groups or functions in the driver, b=
-ut
-> - * instead use the devicetree to describe them. This function will, unli=
-ke
-> - * pinconf_generic_dt_node_to_map() etc which rely on driver defined gro=
-ups
-> - * and functions, create them in addition to parsing pinconf properties =
-and
-> - * adding mappings.
-> - */
-> -int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pct=
-ldev,
-> -						 struct device_node *np,
-> -						 struct pinctrl_map **maps,
-> -						 unsigned int *num_maps)
-> -{
-> -	struct device *dev =3D pctldev->dev;
-> -	struct device_node *child_np;
-> -	const char **group_names;
-> -	unsigned int num_reserved_maps =3D 0;
-> -	int ngroups =3D 0;
-> -	int ret;
-> -
-> -	*maps =3D NULL;
-> -	*num_maps =3D 0;
-> -
-> -	/*
-> -	 * Check if this is actually the pins node, or a parent containing
-> -	 * multiple pins nodes.
-> -	 */
-> -	if (!of_property_present(np, "pins"))
-> -		goto parent;
-> -
-> -	group_names =3D devm_kcalloc(dev, 1, sizeof(*group_names), GFP_KERNEL);
-> -	if (!group_names)
-> -		return -ENOMEM;
-> -
-> -	ret =3D pinctrl_generic_pins_function_dt_subnode_to_map(pctldev, np, np,
-> -							      maps, num_maps,
-> -							      &num_reserved_maps,
-> -							      group_names,
-> -							      ngroups);
-> -	if (ret) {
-> -		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
-> -		return dev_err_probe(dev, ret, "error figuring out mappings for %s\n",=
- np->name);
-> -	}
-> -
-> -	ret =3D pinmux_generic_add_function(pctldev, np->name, group_names, 1, =
-NULL);
-> -	if (ret < 0) {
-> -		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
-> -		return dev_err_probe(dev, ret, "error adding function %s\n", np->name);
-> -	}
-> -
-> -	return 0;
-> -
-> -parent:
-> -	for_each_available_child_of_node(np, child_np)
-> -		ngroups +=3D 1;
-> -
-> -	group_names =3D devm_kcalloc(dev, ngroups, sizeof(*group_names), GFP_KE=
-RNEL);
-> -	if (!group_names)
-> -		return -ENOMEM;
-> -
-> -	ngroups =3D 0;
-> -	for_each_available_child_of_node_scoped(np, child_np) {
-> -		ret =3D pinctrl_generic_pins_function_dt_subnode_to_map(pctldev, np, c=
-hild_np,
-> -								      maps, num_maps,
-> -								      &num_reserved_maps,
-> -								      group_names,
-> -								      ngroups);
-> -		if (ret) {
-> -			pinctrl_utils_free_map(pctldev, *maps, *num_maps);
-> -			return dev_err_probe(dev, ret, "error figuring out mappings for %s\n",
-> -					     np->name);
-> -		}
-> -
-> -		ngroups++;
-> -	}
-> -
-> -	ret =3D pinmux_generic_add_function(pctldev, np->name, group_names, ngr=
-oups, NULL);
-> -	if (ret < 0) {
-> -		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
-> -		return dev_err_probe(dev, ret, "error adding function %s\n", np->name);
-> -	}
-> -
-> -	return 0;
-> -}
-> -EXPORT_SYMBOL_GPL(pinctrl_generic_pins_function_dt_node_to_map);
-> -
-> -
->  static int pinctrl_generic_pinmux_dt_subnode_to_map(struct pinctrl_dev *=
-pctldev,
->  						    struct device_node *parent,
->  						    struct device_node *np,
-> @@ -250,20 +164,19 @@ static int pinctrl_generic_pinmux_dt_subnode_to_map=
-(struct pinctrl_dev *pctldev,
->  				      muxes, pins, npins);
->  }
-> =20
-> -/*
-> - * For platforms that do not define groups or functions in the driver, b=
-ut
-> - * instead use the devicetree to describe them. This function will, unli=
-ke
-> - * pinconf_generic_dt_node_to_map() etc which rely on driver defined gro=
-ups
-> - * and functions, create them in addition to parsing pinconf properties =
-and
-> - * adding mappings.
-> - *
-> - * It assumes that the upper 16 bits of the pinmux items contain the pin
-> - * and the lower 16 the mux setting.
-> - */
-> -int pinctrl_generic_pinmux_dt_node_to_map(struct pinctrl_dev *pctldev,
-> +static int pinctrl_generic_dt_node_to_map(struct pinctrl_dev *pctldev,
-
-This function name conflicts with another helper in the pinctrl
-core, so I would have to rename it, but that's not needed for proof of
-concept of course.
-
->  					  struct device_node *np,
->  					  struct pinctrl_map **maps,
-> -					  unsigned int *num_maps)
-> +					  unsigned int *num_maps,
-> +					  int (dt_subnode_to_map)(
-> +						  struct pinctrl_dev *,
-> +						  struct device_node *,
-> +						  struct device_node *,
-> +						  struct pinctrl_map **,
-> +						  unsigned int *,
-> +						  unsigned int *,
-> +						  const char **,
-> +						  unsigned int))
->  {
->  	struct device *dev =3D pctldev->dev;
->  	struct device_node *child_np;
-> @@ -276,21 +189,18 @@ int pinctrl_generic_pinmux_dt_node_to_map(struct pi=
-nctrl_dev *pctldev,
->  	*num_maps =3D 0;
-> =20
->  	/*
-> -	 * Check if this is actually the pinmux node, or a parent containing
-> -	 * multiple pinmux nodes.
-> +	 * Check if this is actually the pins node, or a parent containing
-> +	 * multiple pins nodes.
->  	 */
-> -	if (!of_property_present(np, "pinmux"))
-> +	if (!of_property_present(np, "pins"))
->  		goto parent;
-> =20
->  	group_names =3D devm_kcalloc(dev, 1, sizeof(*group_names), GFP_KERNEL);
->  	if (!group_names)
->  		return -ENOMEM;
-> =20
-> -	ret =3D pinctrl_generic_pinmux_dt_subnode_to_map(pctldev, np, np,
-> -						       maps, num_maps,
-> -						       &num_reserved_maps,
-> -						       group_names,
-> -						       ngroups);
-> +	ret =3D dt_subnode_to_map(pctldev, np, np, maps, num_maps,
-> +				&num_reserved_maps, group_names, ngroups);
->  	if (ret) {
->  		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
->  		return dev_err_probe(dev, ret, "error figuring out mappings for %s\n",=
- np->name);
-> @@ -314,11 +224,8 @@ int pinctrl_generic_pinmux_dt_node_to_map(struct pin=
-ctrl_dev *pctldev,
-> =20
->  	ngroups =3D 0;
->  	for_each_available_child_of_node_scoped(np, child_np) {
-> -		ret =3D pinctrl_generic_pinmux_dt_subnode_to_map(pctldev, np, child_np,
-> -							       maps, num_maps,
-> -							       &num_reserved_maps,
-> -							       group_names,
-> -							       ngroups);
-> +		ret =3D dt_subnode_to_map(pctldev, np, child_np, maps, num_maps,
-> +					&num_reserved_maps, group_names, ngroups);
->  		if (ret) {
->  			pinctrl_utils_free_map(pctldev, *maps, *num_maps);
->  			return dev_err_probe(dev, ret, "error figuring out mappings for %s\n",
-> @@ -336,4 +243,40 @@ int pinctrl_generic_pinmux_dt_node_to_map(struct pin=
-ctrl_dev *pctldev,
-> =20
->  	return 0;
->  }
-> +
-> +/*
-> + * For platforms that do not define groups or functions in the driver, b=
-ut
-> + * instead use the devicetree to describe them. This function will, unli=
-ke
-> + * pinconf_generic_dt_node_to_map() etc which rely on driver defined gro=
-ups
-> + * and functions, create them in addition to parsing pinconf properties =
-and
-> + * adding mappings.
-> + */
-> +int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pct=
-ldev,
-> +						 struct device_node *np,
-> +						 struct pinctrl_map **maps,
-> +						 unsigned int *num_maps)
-> +{
-> +	return pinctrl_generic_dt_node_to_map(pctldev, np, maps, num_maps,
-> +					      &pinctrl_generic_pins_function_dt_subnode_to_map);
-> +}
-> +EXPORT_SYMBOL_GPL(pinctrl_generic_pins_function_dt_node_to_map);
-> +
-> +/*
-> + * For platforms that do not define groups or functions in the driver, b=
-ut
-> + * instead use the devicetree to describe them. This function will, unli=
-ke
-> + * pinconf_generic_dt_node_to_map() etc which rely on driver defined gro=
-ups
-> + * and functions, create them in addition to parsing pinconf properties =
-and
-> + * adding mappings.
-> + *
-> + * It assumes that the upper 16 bits of the pinmux items contain the pin
-> + * and the lower 16 the mux setting.
-> + */
-> +int pinctrl_generic_pinmux_dt_node_to_map(struct pinctrl_dev *pctldev,
-> +					  struct device_node *np,
-> +					  struct pinctrl_map **maps,
-> +					  unsigned int *num_maps)
-> +{
-> +	return pinctrl_generic_dt_node_to_map(pctldev, np, maps, num_maps,
-> +					      &pinctrl_generic_pinmux_dt_subnode_to_map);
-> +};
->  EXPORT_SYMBOL_GPL(pinctrl_generic_pinmux_dt_node_to_map);
->=20
-
-
-
---OGavs1+g+/uj82Wo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagYlvwAKCRB4tDGHoIJi
-0u+wAP4xcHC+/yHCaOc1JgSeVIA9aXk5lRICPRrcX2csdF/0uAEAtREJWROc0+mK
-Rd1zXeoQuusz8TYMSoKaN1OA/gymQQU=
-=fkwc
------END PGP SIGNATURE-----
-
---OGavs1+g+/uj82Wo--
-
-
---===============1530858170673016027==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+gpg @keyserver.linux.it: Goffredo Baroncelli <kreijackATinwind.it>
+Key fingerprint BBF5 1610 0B64 DAC6 5F7D  17B2 0EDA 9B37 8B82 E0B5
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1530858170673016027==--
-
