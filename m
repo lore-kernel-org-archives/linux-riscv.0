@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEB8CD4F42
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37059CD4F3E
 	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 11:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LLGOz/NqI4+oLyrkkqAqhHEfITmTs0dfd6BiBO4HBik=; b=n/VGyOowymCJNF
-	Cz6UT44KpDcddAB4vMJxYK+zScU4vvAk58uHMCl3JAQxvxTHpPFX3c25XehQ3AJ8morRY30A38y0S
-	6quAmPWeVtY/pI5VJ7krikfeJsoNz4wvYcPfb2fZNGwUcLc5J1i2bIRv+9rfCAOxumQbn70b8bdbj
-	4MBu2VT5d2VicILlaPZlkxbJowzfu3rl6d42zRVM+qKJDJrFVZEQk1tl8Pd6u6R5jljEuHYXyWV0N
-	3Koo4bD89lYzt0z+y6j/HCURcM4ycIv31W8vjN/zYloxKwbT1VBULMheIw9+N1uliShKpy7PehsSx
-	BoJk5jVfHjVUUbITmPtA==;
+	List-Owner; bh=cr2Stkl5uCLA6L3r+cWwlw1Mmup817nOwtbjD6huTL0=; b=b3RKDWjKzwKHGq
+	CSO7Mi3zvFc0s8hlBle/b+M0Ffgt2R1EMo8o7PKlQfMXMy0exDgU6z/rFxB8GQsPuZQ0LPYItAKRW
+	TOEI/jJugM0Kj0G60F9ACsejAMo5lIGdnZ0D0CM8sMW3FcyNtkB3DaSZFyFbEEob/iNnSqWYu8S9g
+	E2pO+qRK63t7EzBa9VJRvkv47G+Zw4sdoZ6ysB8CcfPesjonSbizhwxFkw1ejz99tN7Qzxr78YMzv
+	1h7JGdD78fvDO+eZ0+PVKcdDAERMHaQ2R4GTr32mNu0OQlSSqKPDu8hpyeLGwVudE4SOmYL9QsGqP
+	LVFuaM813D8vA3VuPnUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTzw-00000005I8U-1Ad1;
-	Thu, 14 May 2026 11:13:00 +0000
-Received: from mail-sh0chn02on2090.outbound.protection.partner.outlook.cn ([139.219.146.90] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wNTzu-00000005I6U-0GUF;
+	Thu, 14 May 2026 11:12:58 +0000
+Received: from mail-bjschn02on2070f.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::70f] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTzr-00000005I4e-2WXk
+	id 1wNTzr-00000005I43-1jR0
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 11:12:57 +0000
+	Thu, 14 May 2026 11:12:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=O3ZEs2mjgEe3bezVBu+Cuo+fpbw4GAAGvfS0yLWY3+HscevagJx/DSi9BU/9aAEDRoDGkqMR11AnnDA3ARWIQ/ibW3mMCz+mnzuWl4PQylxX0gQZ3Qj4FPSZDEG7UZ/AfiqgWpzvbqMLOws439ua0lkYI+ls7BIoO5/lJSaK1nc6Gge0vJ7qSv/S4+hj9Pa4sO9f2e9dR1fENdE/HmIsKocHzX2ZSPuIQP0whz3tB77FOZSqw2RgVHzoHX21uw+SC2+MKLAfbg2wUxxHgCsfdp0+saJr7gJK2hPsUpb7vj3nrXUTFNFb/0ifoiTl0u4BGOrD1soF/7Ka3JzHnSjv8Q==
+ b=Va9M2lrsOaveF77PTtA3A9iZYQM+aneHlQRDvd/WswWpxNu1hjAl1WqVI3XCrAUC+dCKg7lMUpQeIM42H0rM6j6pApuzlwfrSmdDSyOeI71mF8I+f83pi1Q5wQLAViSaSRUdf886PTRMUJJw4LZnIcBHCYgGdmqHJaslicuQTvz07/bNO49elDtMhhU3dg7CB8yTCpvPVoyOgJt5bAWDwBdv0JvGwpvjv39arPR9bT69Nh2l+9eIAeZXDaENsWsiyrN+s4mdIGrkFuMEXd2GGh/QdOWjDSi+8lw+NPv/N4EDs0S9zwR2LiCvjA/4sZHxf0ztHxn1ZS/hg+RSM7ON2Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UmxKQpXMRSuKAe84Y1lpFVAaXf4q4PiNCBlu997kHfg=;
- b=NqmVEy3PbWmKsZlzyYLVW7DBCrVqcLO2vu1tExDuvNmihyN7CU5f4hcZMkXlGo/OxbcVeyW57gcun3OrXdbHIjm3i0u8lFUw5IiTJOa3R8flr+fQ7Z/Oxdzrpf+FpzVYOO7WikzQJ0JC00tzCA8IsaazgpzramGHF5hngUf4tRwfa6AvfzsoHU9ybXFSog0+trbFsK3T24kmbHox6lAL0M/NVZCO4SWAke7vst8xInCxBAzxJ/dZULmQDh7j4l8fnmjAiPNUvyuKitSfZaAqMPbd/UjbMvCW74tey7dOY5pPJ+1kJWBkBhoCHZ5DMYs+C16ZC0qo8xAlpFTW9Z/XyQ==
+ bh=6qm8lAXKmRIo4j43PA66w3oSdXDbQeqmjEFJw4hdmaU=;
+ b=WNJYSLnDbOIm2/4V27KMgxwEw76YPMunFKchMorNQaOOlpT6DU70bBLggBwt1JTsFIxQaszA2dK88xbAnwMi5CBFF8eHIiUiPuhi0gtqYwjhibh6VLeAxOYjMtWXtDvw5voszqOGYPYKknJozIEwnNdFmNH8dAfaatxmQuzNyrgt6pjIagB+4xCuRyv6c2LVsIugOgqbRbT0YKR5F9WzIl9TebvxTj+46SYYxrAxcOBz+mC1raRPQRsmhckk8Q60UqJLhCudD83HP1lWoxxDdiB9Z+FywE1yMJGwLWk+eQxRxB7tknmO7sZNBEBS4FuBxzFZ32znjA+MBnPb7Bw+pQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6) by ZQ4PR01MB1139.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:15::7) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.25; Thu, 14 May
- 2026 11:12:33 +0000
+ 2026 11:12:35 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9913.009; Thu, 14 May 2026 11:12:33 +0000
+ with mapi id 15.20.9913.009; Thu, 14 May 2026 11:12:35 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Linus Walleij <linusw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -66,9 +66,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
 	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v2 01/22] dt-bindings: pincfg-node: Add property 'input-debounce-nanoseconds'
-Date: Thu, 14 May 2026 04:11:57 -0700
-Message-Id: <20260514111218.94519-2-changhuang.liang@starfivetech.com>
+Subject: [PATCH v2 03/22] pinctrl: pinctrl-generic: Make the "function" property optional
+Date: Thu, 14 May 2026 04:11:59 -0700
+Message-Id: <20260514111218.94519-4-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
 References: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
@@ -78,57 +78,56 @@ X-ClientProxiedBy: ZQ0PR01CA0028.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1139:EE_
-X-MS-Office365-Filtering-Correlation-Id: 192abae9-2406-4a2c-42df-08deb1a9b224
+X-MS-Office365-Filtering-Correlation-Id: e9939af0-b592-4ad2-1eb8-08deb1a9b388
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|921020|38350700014|3023799003|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: UubFojR8cbNnJZYgNzj7rg3L5qFxXyKHDjsPNb8oCHSYOZ+xlW+IjGLevzj6mfnG9vbEuF+k+91Ixe9WoZ4nSfy0QadS3DQ0eozZvV35F9+UihCG7U44zqAUQOV20ocHmm222lhyPu8GqoXF7mI+EWPtMje2H61aawh3UYN/JtW/JyBlh/a8Q2/RjBnyQex9NxIDTRvfB2NZN0XSyku2IjV5tPVWNyRaYgrT9S1WzIoFlT+M7IJ5g8ywY8zxarSgB0D0eWA3RTgdH882IfVypz+mcE/n7Zx/ao3R7GpTsGyblcCiUtUN+GpVIgmc5+8f8JFboHFhp/nU+WGQkKy9MATgYZXN/pT8zfsKa5X0Y+Ow6WnLu5GLuQzacDJnt8lSWN1dj7aERjWd8VU86DBt3cAphtWjX1+9xWgR0e5gCtbZ/SxVW1vZoSu+/lnz6JOfCM/uSLQqK39u0GVO+Hs0XdQ9QlLdocPUv+Fbzjd3giPgp2C5uNm1UHdJYcE+Zw6JX8dip5kZ1K4UON19J8t8zV1mBB89uisTpV/Vwdrvr1f3bpCc/+TDBYjeZ8IdOoCm8psIsd6oGF09lqj70ZgWaA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(921020)(38350700014)(3023799003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|921020|38350700014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 99/hZ9e4YDGqPeeZk4lyHSArYZcOoRembS95ieazLaeSUXPBxtUAsfpGCBrjiwPGcFf+yEfG4f3dP9q8KgCIXXUfCG1lDLDhdtL6FKRRHBIm7bAWm468nv6LsVGSBxaWM8Iobz3Q0eZj2HnFGt4d70A+Yh1073dUb060wPQ4Zhfl45XLPJ8MoM/5MM3N6U6vE1r/X+X/czU3IG157msVFO+ZLz8Ejl8oZpaWguNaVFm9Y8qjL3NnYsaEs/LRhEOk/anNKBbQr6kM2F7dBLLLOqwWwapWOm+T0iveOYUmbyolwoeWfvuQS6D4vKz//mFE9hVq0omXqcSyBEbh5aMw/BKJpOkdTUAN+teLcG0bMHXMuc0YOJC71ub2MyDLycIJTRE9nOrKZ4KL9s43ddDrgLdUrq3IJwbg4/8HaSaH1QPDiT4rbgL9wNeJrZMAXeAeLrg52f9OtVpRiG9VjHPAvGPuquSxrxTUm1dEyboow7KvoDVLt7RsDICGvIIyjHSj569/ILCrG/bi+WfGnqYojhNiiWML3AI1VKSp43j1VCO/0CsglfaN26V84U7yPbnoTy0zX6aetF529b6+IGq7Vw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(921020)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4mVvU+hf3xthepRFHCLOu58027W6rhtan097heGTKbsrHGq72/3NNSrF2+qM?=
- =?us-ascii?Q?MNN5362sWHyZ47iXuHhsvIkqofEgQzaU2bdLlmnlhZYCDNKkNHRG4h7ylEYL?=
- =?us-ascii?Q?Dd/zdLABeurX42gomh0AhKOuboao5r0JesYo32kDhXuPbfRgjzNb2xSe2gDE?=
- =?us-ascii?Q?mZPQLxNbvSipQSpMLjEihEiIO7L27Cb3Z/hYBIyDLQEzRNVSOKJma8/gcDDn?=
- =?us-ascii?Q?F0XMFALyofTme6N/+YLm5DSdvg5RNOPpkWziyIeQ2AOEtXtDP1YzMAUCJTgU?=
- =?us-ascii?Q?NcxXTDFRyrFCEyvvv83UH6Azjz6Qce6VkIKN23hHZjjyQQUD5uv+d9hl0goX?=
- =?us-ascii?Q?FZq8SmuHxtbl+oGwU10i3bZIU6krjt57gdmbesjC8I9IMb7GT/JQu97pK5R3?=
- =?us-ascii?Q?VxUpchILzW6/388HqDHdXaBueV6KptO4aiJxrmy7spqlXfHl0pVOlbTpjLi9?=
- =?us-ascii?Q?5I9zh+eMQjn2BLUlHqU2ctHpE39yWDHO4aEuiEC5Mk83HjVriLOooc6QsAcs?=
- =?us-ascii?Q?re+V3dDHIKGuDmyJCF1L/4z3lGOOBkhWkIPjVUwVP6OSiahpRCBL9ISzMO+W?=
- =?us-ascii?Q?X86ecgwiBmufIvWhpgQn9TmT/GCEZ/qfyN2O+0t03QOy2zZM1HgFfj10uYn+?=
- =?us-ascii?Q?KMYKlVkWCVC+Py5oj404BrmyoAJcefpLTYq2YQFG7bHwj7hjlfp1cFEJKYGZ?=
- =?us-ascii?Q?OpgKmU+ncGCcPXM0ItY1xKk+5yMg2+XJefWLnxH2W0rYwNYqNyD7MCgMfulv?=
- =?us-ascii?Q?W+b8rWrkeaopG/O6gAXXRkWxkNQoVQsMCw1n73zuhtiYD66+G5XGIKbNqR6N?=
- =?us-ascii?Q?Bm+gH4nWE819kNaBmsuExLyLQ2xnQuzO29XkjbznQJB/vwPlsKDfatHJA2yY?=
- =?us-ascii?Q?/mDJ0XMr3ABFj5YU/icfqO886uKpE3R72U64SVK++wAu05l5OfhYWMbUg/cC?=
- =?us-ascii?Q?xTuLAIPFDHTwCNiJ1YugYFvNIrWZsWVOBzzBca/w1oXvBeq1A0fSVOb1FXkr?=
- =?us-ascii?Q?tzJ+IePl/VXUzpItKvno33hV/YqyJiG+DUBY//v42vD6K3JVSkGomSxIuxh/?=
- =?us-ascii?Q?y6pruSefy2iIK2vCk9+De+h9Js4tU/C8LbQhGn0IrCjZSKRF2lYxuL6//ki7?=
- =?us-ascii?Q?tZmJFT00Iiw1tNnkncRZYT8LEyUoqlhCUJfOPHybZm/7qOUeJi5gCi7iiTAW?=
- =?us-ascii?Q?T8KtULhNpLmz16nuNMaQfuq8Ttz/sR1xKFY+5lh3BdJlX4O8Od7TornXRt1P?=
- =?us-ascii?Q?18ZwZiaql3tw3FOyqRSGmqkNw97X/1nPDo3gue4+9ArRWM1+cOtqAFPZBmnL?=
- =?us-ascii?Q?5Ip5PEq4cw+r7SufG/r4RNF8py8OhBzeqBUziQGwCYmDqB8ApONC/g02G9Lt?=
- =?us-ascii?Q?lSOKhrrvtKScSNnrLDE7DwxBPalnjG3aAqV00AFG7d/XH1hv2DFpY7dT9UWo?=
- =?us-ascii?Q?62egNWrdMEhdlwtkH4CuyzOBmukUiS0Qs2qd2pUl0XNyaMIhL+1ZTrg4KJye?=
- =?us-ascii?Q?RthzXeVrcZuqJTuux1PwBcPoddNu+3JAp/a+Yz+jkb55M/LyTI/F7HNXPpi7?=
- =?us-ascii?Q?ZTAFC5GRIxbe0g5sFYFvadMum0QZcxR03Riy7l0ARmFG2BjOvxI7nTXDN87X?=
- =?us-ascii?Q?B2HFwWd+UtYpCG2npBooz177GRMdZSGd/G9IEZf/XexeUuFAcVkekg5NKTBV?=
- =?us-ascii?Q?+6QuLk0bf3HwpNsw61kl+Xg0gU7U2YZUzz6Xy3fkW4ja3ph3NRbireFdVSVO?=
- =?us-ascii?Q?aVhHvNUC6Tb/DHi9NuV/FJmXpxLkTyn01cdbHMyBCxeOH9iHdnRa?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g0PR0t38zbOtRzBN9wxc6PgXP54y059vEb5yEINk34hJ4DYdF92hRq1U60mv?=
+ =?us-ascii?Q?5qlHGDI6pv4uNp2q3OfXGQyf9XVhz+5BtS69MzMRNW8DP5N/Lfg8nRAvL7yD?=
+ =?us-ascii?Q?vQXZDDQ0rjLWtS5SH48VQ8rIowhtGkNyAZsazLMcot9MMPzDJ+ZiZYJkiDMH?=
+ =?us-ascii?Q?LZFRHapMJ056za7hpkW6m8lHY41i5mgZ+C+CG97ep4B4HSUHMCm5Mgtwi7ii?=
+ =?us-ascii?Q?7vs2u5biU3EaSBESm0S2FvjRlY/f3VrMljvyf04ryUdh6ByAj3I925HT6YQq?=
+ =?us-ascii?Q?xbFUpqOEAWdTCbX4pGbrOLB1/7EiROp9+xILj8BBDCz3/3KEo5WPqps0ipQc?=
+ =?us-ascii?Q?oamsyO7Rp5SbxzP3U0ZtHjZfvfhRHIitkDn5hMA13Jl8IRNBNiV1RX7US8F0?=
+ =?us-ascii?Q?Y0QV5wC62ssRTahnDBI/Q077a1DgIGFmcs90gg8Ebzwf/uCUeYuRUztIF7g2?=
+ =?us-ascii?Q?+hsE6FM73JP0Leu7JbFqPTfOu6LAAmoPqps4cpmltLrn0dP7GOSretugoad/?=
+ =?us-ascii?Q?cIbwhc7dAk3Oh4mXiqcBcW+szoJLFT+drqXt/Ne7z4SSYBEUmGr+gbn9G8w4?=
+ =?us-ascii?Q?28vXVxfSwa02IQmmlR6w6WDXQ3iM27A5wGeKkuFCnW2N6qk+XvCObVAgySV2?=
+ =?us-ascii?Q?qiH1fPPLnP+B9lDAgIqWW0TWs13Iliq9iS+yzJ+iZByx3Y26UxR0GFR4ycuL?=
+ =?us-ascii?Q?zqrtWvTGL47DhLkmWP/K0WV7oy2jM/gAhejEC3SlxCyeJMqZSdtaOZj4whFI?=
+ =?us-ascii?Q?YssAS33PzXE7aySRzWsUyEathZ/6tZIy0ZiQ9MUTvqqdwqBgIMlaehROECjd?=
+ =?us-ascii?Q?0RFoPc9XGVmGJkqLH9f3Ya0BOz+oN6OSq+XpuyxxhJdfwFNs8EFEIe+7QWEy?=
+ =?us-ascii?Q?Q4Q8MNmnbrwUNCwcslgyH1Wg7qEp/jzB7rRajn7ZxkJpDNRGjJuwS+L8P964?=
+ =?us-ascii?Q?VQpSN8jBBoZ4ikoPhiwc0jgMa+pqawhk3a+xVKQLeMojuvgOU/9OvykkUFDR?=
+ =?us-ascii?Q?Uxq+sF0vBjPgUgBZea33GUWWTleyEzr2STj2A8x2aO8mVIFBDYyxkxZsOnkI?=
+ =?us-ascii?Q?J+MydLT3WMOBorU1gzkqNMYgFWEZSrg5mB+IphsjjRSmn3XHHMiq2WcKID8T?=
+ =?us-ascii?Q?xmqfyadT3w4OwLxPgE7QuwwZ++R6VaUZvDik1LNoVfAEbaM+NdJ9FuIW4MQm?=
+ =?us-ascii?Q?CTwCJaJn4GbVkRYZKKCOqmQjQcV67M2vV0jdwg5QNeI9YoqdXjamcSg/RPp3?=
+ =?us-ascii?Q?ltJD8vycqz5LmhNr6JAXy25yiNmIsmPxbTBKUSHm4Dy3+2QzwSiuT9Qmk4NI?=
+ =?us-ascii?Q?WBdARix0Qg9VTglV6oBYvPnXIpYMtMTdcHFX5Uw9OICzdA81u+VfScXpJ+FL?=
+ =?us-ascii?Q?u2DJ0pZkDgw93xmueFFYwHPLF1KJOUMw+5LwCFkpoVbyOC2LpEf8a+3xg5ez?=
+ =?us-ascii?Q?FY1+IoqmWub8lL5nKG39vOYVFF1k2SPDQpHe1FulT5akGoHKOH4v0QeqNwHa?=
+ =?us-ascii?Q?vHrS+jiIB5E0CJdNpmZlnSQKWmcn7dkQM5ETPzst/QPFjgfjwxwUxjrUneyZ?=
+ =?us-ascii?Q?D6tvAwONqJciB4GJgTcIXVPbuBNg+l66OpuWqKBN0ZL8prYqSXIC4PUh1vjq?=
+ =?us-ascii?Q?PLtvqZf1PM2PeDgChmO1KV7cRXgj2FpbY79UNfbnMQxBfo2Whq03qqC6+oTi?=
+ =?us-ascii?Q?zsajHuouUtWQumtIS7EWILF5s+DzccYRKFBmHhCca+4cLu2c6aL+nh2t8Yj0?=
+ =?us-ascii?Q?ZctvfOvcFB6Lmakg7xTvhjtDIK/ShNum3YBsPSUGDZ9dcPVC+HK2?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 192abae9-2406-4a2c-42df-08deb1a9b224
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9939af0-b592-4ad2-1eb8-08deb1a9b388
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 11:12:33.0673
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 11:12:35.3992
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GrWq7JYeqrpWA/ZkU0hSJU/BFB8TOvpm/cNA08ZxmHs+kAq0RuQoLNUZLADzOnwMV7kqzuFRwjw1mzroW9GgJ+snSaDlC15PmpzBCaibwaDHnj6rt+hW5AN/bms7N2AY
+X-MS-Exchange-CrossTenant-UserPrincipalName: FC0fp9Z/fJO9/OB/PjrK3W5bnWbKfQnVeIV2QW3M8ijzzTuoAbzT2JD/sYceaJadaIQvKN3ohieqb0hmRFAZF5xa5Sj7WYT85FBAzIr8YXgJSaYwRX2MCAHrdEyJ2Tse
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_041255_649896_20A250FD 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260514_041255_616145_6284704D 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,46 +144,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the property 'input-debounce-nanoseconds' to specify debounce time
-in nanoseconds as an alternative to the existing 'input-debounce' which
-uses microseconds. Make the new property unavailable when the existing
-property 'input-debounce' is selected to prevent conflicting definitions.
+Some pinctrl subnodes only need to configure pin properties (e.g.,
+power-source, bias, drive strength) without assigning any mux function.
+
+Currently, the driver requires a valid "function" property for all
+pinctrl subnodes. This forces the addition of dummy or redundant
+"function" entries when only pin configuration is needed.
+
+Example use case:
+gpios-configs {
+    config {
+        pins = <0 1 2 3>;
+        power-source = <0>;
+    };
+};
+
+Make the "function" property optional. If it is missing, skip adding
+the mux map and only process the pin configuration.
 
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 ---
- .../devicetree/bindings/pinctrl/pincfg-node.yaml     | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/pinctrl/pinctrl-generic.c | 37 ++++++++++++++++++++++---------
+ 1 file changed, 27 insertions(+), 10 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml b/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
-index 97dbce8a261f..4db66cdf438c 100644
---- a/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
-@@ -104,6 +104,11 @@ properties:
-     description: Takes the debounce time in usec as argument or 0 to disable
-       debouncing
+diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-generic.c
+index efb39c6a6703..c7dd0924aa0e 100644
+--- a/drivers/pinctrl/pinctrl-generic.c
++++ b/drivers/pinctrl/pinctrl-generic.c
+@@ -62,19 +62,36 @@ static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *p
  
-+  input-debounce-nanoseconds:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description: Takes the debounce time in nsec as argument or 0 to disable
-+      debouncing
-+
-   power-source:
-     $ref: /schemas/types.yaml#/definitions/uint32
-     description: select between different power supplies
-@@ -214,6 +219,13 @@ allOf:
-         input-schmitt-enable: false
-         input-schmitt-microvolt: false
+ 		pins[i] = pin;
  
-+  - if:
-+      required:
-+        - input-debounce
-+    then:
-+      properties:
-+        input-debounce-nanoseconds: false
+-		ret = of_property_read_string(np, "function", &functions[i]);
+-		if (ret)
+-			return ret;
++		if (functions) {
++			ret = of_property_read_string(np, "function", &functions[i]);
++			if (ret < 0) {
++				/* EINVAL = missing, which is fine since it's optional */
++				if (ret != -EINVAL) {
++					dev_err(dev, "%pOF: could not parse property function\n",
++						np);
++					return ret;
++				}
 +
-   - if:
-       required:
-         - drive-strength
++				devm_kfree(dev, functions);
++				functions = NULL;
++
++				/* Continue parsing all pins */
++				continue;
++			}
++		}
+ 	}
+ 
+-	ret = pinctrl_utils_reserve_map(pctldev, maps, num_reserved_maps, num_maps, reserve);
+-	if (ret)
+-		return ret;
++	if (functions) {
++		ret = pinctrl_utils_reserve_map(pctldev, maps, num_reserved_maps,
++						num_maps, reserve);
++		if (ret)
++			return ret;
+ 
+-	ret = pinctrl_utils_add_map_mux(pctldev, maps, num_reserved_maps, num_maps, group_name,
+-					parent->name);
+-	if (ret < 0)
+-		return ret;
++		ret = pinctrl_utils_add_map_mux(pctldev, maps, num_reserved_maps,
++						num_maps, group_name, parent->name);
++		if (ret < 0)
++			return ret;
++	}
+ 
+ 	ret = pinctrl_generic_add_group(pctldev, group_name, pins, npins, functions);
+ 	if (ret < 0)
 -- 
 2.25.1
 
