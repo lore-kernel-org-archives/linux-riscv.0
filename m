@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6E6CD4851
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 07:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 955C4CD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 07:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vi/t7nErHY59WEerfRl9cOYqRfhy5BB+rIjXKqoHGdU=; b=PYteSRE3g+kofgOim5NnjZiOeg
-	lCcGo8lKAYah04+3tLgQGMguxUWTIq8ln7XDRnSDX52sKToPSUHwJ9XwoGMY/yppRMlSGoANTRc0C
-	cSYns7USsCJfF90t9QMFIXCSdpakqtGf55mLRSILzh4HRNiZstPMzH90gOpOU+i20fQGxTdHbuyh1
-	Y/+Y4JUkyXQRrAT7sku+kH5qgsZCrNuprH9gMm10DZNg9XJc9cJlQylB9F+FPzvV2mFuchn//hFJT
-	sLLTccGS2QFf9eOtekoYqLBzlWRnC+y+42re/dWa5N/Qc1wP1PheML08/cebZEAUF84niyKryiPTo
-	mtrSdqHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MWk/CzRxbddN96USjshWl/0ow0M+LFpcFM06GzZH2LQ=; b=Hsyj7TZdDHS+5f
+	Ye/OPOStf0HxP4uyr7x303nNloRHO6BPWUvV/0zMxs0FUzUEsEKGM7pOwFbxq37I91T+bf9srYfuG
+	CxpnC4iuZAz4N6C2HF3uRzXHAZOTU+8f0bq92qyWOoowOceUTBbDMct/FzTWPC+7Q/Br4qxssZdLx
+	OejpN2ggd4z0oKRQH9pknlqwUj79erseqppNN9qLPYnJq0RNQe62/pZeRo8sqlQk2di7OJ9+KwvOs
+	a2pSvqDlmJS55/92QWVV40jxR4rHD5qCBm8iSRWZd7Wl+Yw19Ael85eb+Nsx55HE+XTgFrTJ2Vp/5
+	yDEdd3ofifLKMC6LGVig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNn8H-00000007ddh-0Nwr;
-	Fri, 15 May 2026 07:38:53 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wNnHn-00000007epi-1BHM;
+	Fri, 15 May 2026 07:48:43 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNn8E-00000007dd1-1yQ3
+	id 1wNnHl-00000007ep7-17Rs
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 07:38:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778830730; x=1810366730;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=YRLf0lurFbfXEuuPH6jbfmoCndoC1re7fD+TOa1Oyjk=;
-  b=ak+cn/8r0zgFH1D/ncLwc848RgwuI3VOhPWpJsXdzGHZJ/pKO5Pa5Jn2
-   GQsUw3UgXtDVVKQcLWZuzjvhyfPpe1LnsbB0+40tL4PxB035KNiK6fqXU
-   koqXrgpgWfMkQG9+aEq2mUIOXWJTot9BOjNK9NUpNrmD+WgGIWpBoF4sL
-   ZVYE9eckDO6pRAYBXfzgLTQf9YFaEb5dGCcyltKzxFSJe7k8Avmg89Bz0
-   WVUhwuIl4PvRMoCbNj28grtdINdaSfK/FfQtL2huNzDZbeOxorUu5U2uF
-   fN+Ul3piOs8Q61WMrMVhvnMQvgmCqO7o3i9Zkl5QrT3JCYb2eQEPNOlzu
-   Q==;
-X-CSE-ConnectionGUID: v9Dn61O4RUWO9G2t+3/DGg==
-X-CSE-MsgGUID: h7E9LxoKTimEBkOISndbBw==
-X-IronPort-AV: E=Sophos;i="6.23,236,1770620400"; 
-   d="asc'?scan'208";a="224790273"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 00:38:48 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.37; Fri, 15 May 2026 00:38:48 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 15 May 2026 00:38:44 -0700
-Date: Fri, 15 May 2026 08:38:07 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-CC: Conor Dooley <conor@kernel.org>, Linus Walleij <linusw@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul
- Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Lianfeng
- Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v2 03/22] pinctrl: pinctrl-generic: Make the "function"
- property optional
-Message-ID: <20260515-dandruff-shorts-d7417c6e977a@wendy>
-References: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
- <20260514111218.94519-4-changhuang.liang@starfivetech.com>
- <20260514-operation-remix-9f9fcf9a6102@spud>
- <ZQ4PR01MB120245CDE718812D1C65638AF2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+	Fri, 15 May 2026 07:48:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=a1AVvdVarc8InzAOGW6ry1UU/91SpnKo6fW3luX2//U=; b=av5IrmdufgZCyrkWhuzfjPjqid
+	qR2SeBhvG4bLfAHJc0UhihY+pCE+1pudh4/9DxKesByZDb7ddBmSJNuR3MZNMxvpV/sBGIVFh0afh
+	MOXd3D8Rc2vh020gjBvhKA+W3ecJgZpuQQFcm1oUPbhIW4i95n4W9yR210YYO9lWCBNeZSwOQ7D8w
+	A4ELDN0tLgPGCGDjYggh309d8EmUk3MCH5iDHbAXRWLftmENZh4bXqpdMsT5gU5kqLQ4rgMCVK8aN
+	PjSYO1ijgSw7X0354AQZnh+Vxqpkr3YA7JBcmbOg+RN9Cr0G/rapoWhLocjt+vdG/9abXSB99nMQY
+	BrM8Ju6Q==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1wNnHf-00000008MGS-2RNt;
+	Fri, 15 May 2026 09:48:35 +0200
+Date: Fri, 15 May 2026 09:48:35 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: E Shattow <e@freeshell.de>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 3/4] riscv: dts: spacemit: enable eMMC on Milk-V Jupiter
+Message-ID: <agbP0-OsfQRFJcr0@aurel32.net>
+Mail-Followup-To: E Shattow <e@freeshell.de>, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20260514160356.1642075-1-aurelien@aurel32.net>
+ <20260514160356.1642075-4-aurelien@aurel32.net>
+ <f52a821b-157a-467d-84ee-4d1d4a96f673@freeshell.de>
 MIME-Version: 1.0
-In-Reply-To: <ZQ4PR01MB120245CDE718812D1C65638AF2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+Content-Disposition: inline
+In-Reply-To: <f52a821b-157a-467d-84ee-4d1d4a96f673@freeshell.de>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_003850_579031_28A5366C 
-X-CRM114-Status: GOOD (  35.84  )
+X-CRM114-CacheID: sfid-20260515_004841_306199_089E8683 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,203 +88,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7673783265656003181=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7673783265656003181==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TfqgCJgMGabClEuj"
-Content-Disposition: inline
+On 2026-05-14 23:49, E Shattow wrote:
+> On 5/14/26 08:56, Aurelien Jarno wrote:
+> > The Milk-V Jupiter board has a connector for an eMMC module. Add an
+> > entry for it in the device tree and alias it mmc0. As it is not
+> > populated by default, do no mark it as non-removable.
+> > 
+> 
+> The meaning of "non-removable" here is whether it is expected to be
+> added and removed during use, requiring to be probed again; not whether
+> it is a user configurable module or soldered down part.
 
---TfqgCJgMGabClEuj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Not connecting the eMMC module and larking it as non-removable causes this info
+message to appears in the logs:
 
-On Fri, May 15, 2026 at 05:55:48AM +0000, Changhuang Liang wrote:
-> Hi, Conor
->=20
-> Thanks for the review.
->=20
-> > On Thu, May 14, 2026 at 04:11:59AM -0700, Changhuang Liang wrote:
-> > > Some pinctrl subnodes only need to configure pin properties (e.g.,
-> > > power-source, bias, drive strength) without assigning any mux functio=
-n.
-> > >
-> > > Currently, the driver requires a valid "function" property for all
-> > > pinctrl subnodes. This forces the addition of dummy or redundant
-> > > "function" entries when only pin configuration is needed.
-> > >
-> > > Example use case:
-> > > gpios-configs {
-> > >     config {
-> > >         pins =3D <0 1 2 3>;
-> > >         power-source =3D <0>;
-> > >     };
-> > > };
-> > >
-> > > Make the "function" property optional. If it is missing, skip adding
-> > > the mux map and only process the pin configuration.
-> >=20
-> > I looked through the series though and all controllers appear to have p=
-ins and
-> > functions, is it the case that gpio is the default for these pins, so y=
-ou are
-> > omitting the functions property when you are using the pin in gpio mode?
-> > Saying that the functions property is "redudant" makes it seem like thi=
-s might
-> > be the case?
-> >=20
-> > I've got some feedback here, but I can't really provide it without know=
-ing the
-> > answer to that question.
->=20
->=20
-> "From v1, copying Linus's suggestion:
->=20
-> > +  This domain contains 4 IO groups which support voltage levels 1.8V a=
-nd 3.3V
-> > +  gpioe-spi - comprises PAD_GPIO_C0 through PAD_GPIO_C4.
-> > +  gpioe-qspi0 - comprises PAD_GPIO_C5 through PAD_GPIO_C11.
-> > +  gpioe-qspi1 - comprises PAD_GPIO_C12 through PAD_GPIO_C19.
-> > +  gpioe-qspi2 - comprises PAD_GPIO_C20 through PAD_GPIO_C27.
-> > +
-> > +  Each of the above IO groups must be configured with a voltage settin=
-g that matches the external
-> > +  voltage level provided to the IO group.
->=20
-> So your hardware has groups and support some properties on the group leve=
-l.
->=20
-> So expose these groups and make these properties configurable per group
-> instead of inventing per-group properties.
->=20
-> > +  gpioe-spi-vref:
-> > +  gpioe-qspi0-vref:
-> > +  gpioe-qspi1-vref:
-> > +  gpioe-qspi2-vref:
->=20
-> Create proper groups in the pin controller then use the
-> standard pincfg property power-source =3D <...>; for this.
->=20
-> Example for a simple default hog:
->=20
-> pinctrl {
->     /* Hog the QSPI pins */
->     pinctrl-names =3D "default";
->     pinctrl-0 =3D <&qspi_default>;
->=20
->     qspi_default: pinctrl-qspi {
->         config {
->             groups =3D "gpioe-qspi-pins";
->             power-source =3D <2>;
->         };
->     };
-> };
->=20
-> The groups can be orthogonal to other pin handling, that's
-> fine. Implement .pin_config_group_set in struct pinconf_ops.
->=20
-> However, I found that pinctrl_generic_pins_function_dt_node_to_map() does=
- not=20
-> handle the groups property,
+mmc0: SDHCI controller on d4281000.mmc [d4281000.mmc] using ADMA
+mmc0: Failed to initialize a non-removable card
 
-That's kind of the whole point of the function, see the comment about
-it:
-/*
- * For platforms that do not define groups or functions in the driver, but
- * instead use the devicetree to describe them. This function will, unlike
- * pinconf_generic_dt_node_to_map() etc which rely on driver defined groups
- * and functions, create them in addition to parsing pinconf properties and
- * adding mappings.
- */
+Regards
+Aurelien
 
-If you have the groups property in your devicetree, it contains strings
-that the driver uses to match against the groups it has defined in it.
-See my recently added microchip,pic64gx-pinctrl-gpio2 for an example of
-that if you like.
-
-However, if you are using the pins or pinmux properties, the groups are
-not defined in the driver, and need to be created at runtime. That's
-what pinctrl_generic_pins_function_dt_node_to_map() is for - it creates
-the groups at runtime when using the *pins* and *function* properties.
-It's in the name!
-
-Judging by your drivers, and how many structures you have that look very
-like groups from a quick glance, probably you can still make use of the
-groups property. The equivalent function to
-pinctrl_generic_pins_function_dt_node_to_map() when you're using driver
-defined groups is pinconf_generic_dt_node_to_map().
-
-Also, I notice that you never actually answered the question that I
-asked:
-> > I looked through the series though and all controllers appear to have p=
-ins and
-> > functions, is it the case that gpio is the default for these pins, so y=
-ou are
-> > omitting the functions property when you are using the pin in gpio mode?
-> > Saying that the functions property is "redudant" makes it seem like thi=
-s might
-> > be the case?
-
-Are you omitting the functions property from your nodes when they're
-using gpio because it is a default, or is there some other reason why
-you're omitting the functions property sometimes?
-
-
-> currently, my node uses pins instead, so it looks like this:
->=20
-> +&pinctrl_per3 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&gpios_configs>;
-> +
-> +	gpios_configs: gpios-hog-grp {
-> +		gpios-hog-pins {
-> +			pins =3D <PADNUM_PER3_GPIO_E0
-> +				PADNUM_PER3_GPIO_E1
-> +				PADNUM_PER3_GPIO_E2
-> +				PADNUM_PER3_GPIO_E3
-> +				PADNUM_PER3_GPIO_E4
-> +				PADNUM_PER3_GPIO_E5
-> +				PADNUM_PER3_GPIO_E6
-> +				PADNUM_PER3_GPIO_E7
-> +				PADNUM_PER3_GPIO_E8
-> +				PADNUM_PER3_GPIO_E9
-> +				PADNUM_PER3_GPIO_E10>;
-> +			power-source =3D <JHB100_PINVREF_1_8V>;
-> +		};
-> +	};
-> +};
->=20
-> Best regards,
-> Changhuang
->=20
-
---TfqgCJgMGabClEuj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagbNXgAKCRB4tDGHoIJi
-0hDOAP9QsmueYrhT6e0GNFL/p7Lhrcf5L/7S/ufZj4VmRodEHgD6A2+iq8ip2Jsc
-wOX3AS5YYYdkLDxh/V4ZlxG20GuG9Qg=
-=miil
------END PGP SIGNATURE-----
-
---TfqgCJgMGabClEuj--
-
-
---===============7673783265656003181==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7673783265656003181==--
-
