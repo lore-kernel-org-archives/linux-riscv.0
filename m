@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017D8CD4F25
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 13:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23176CD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 13:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h4chSPW9dgrLOgSC4tqpMuavaaBnoylOqq2YB5c+sOo=; b=ypJl02dGzOmRxv
-	Hi0iZzpcQPb86bdr9w1XpwLACmAp1baDyCb/S5lcHOBn2YF3phj8QMzOKskZjPTg+OApeOucwdvZ+
-	45oYbZjjKbj1lckLurs4bf6vaNKOxFwDdaSvCFZSDRGxqZclEu0B4uxNfOE0DdzipVJWs0ND4Wltf
-	YlsgdcQ2euOxMnKEv7OL40EOig762GJ84QoL+clN1hvnUWUnAnqq+FFL5WByfUWXZzbmnCmZDy0nu
-	UyE2cI79bH9/vYnPEUJIy2GwImlyJpZd0u1niywbb8Nk60xDEERwnxoKkBJMeAwWMHrAq8ClheRrU
-	EcwU/elCGc+0wC6AyHvg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=78BcHup3A9szODZenSG7GDbvhvfnu7G3e43ZfJPXjrs=; b=VTp1IYGBUk9fk10Evzo2FJOrVk
+	sSn1VuME57XHe5wu/PNDD17L45+6HO2nj2+kWSHlcRf8Uw8CjdZrvbIFYwLsppQ0Cr/BFiMY9icwF
+	PGvCNr5In5tUEc6Kkbwf1IBXj822wTgwUCisgMMC8OF24MiPhfLTkNkN7yP3qSOofxFYvwR4w3qBN
+	wu00LySO2bBZZaa4l/0N0BpFcWecbfKQAGyz7lEf6Y56lurEoRFmnyeHh1yOzJf+rUvdBAdI+tTza
+	wEK1SmssN31F8E4VM4UWo2vrLHOHqYK6MJxV3OBrxbIofj56xvQnwQ8NjlKYmZI0lRVW6ZrQV1xG1
+	97Ygde5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNssX-00000008Tof-29sy;
-	Fri, 15 May 2026 13:47:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNswk-00000008UZ1-1z8u;
+	Fri, 15 May 2026 13:51:22 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNssW-00000008ToR-3zwu
+	id 1wNswh-00000008UXk-3EBe
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 13:47:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 13B9760138;
-	Fri, 15 May 2026 13:47:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0878C2BCB0;
-	Fri, 15 May 2026 13:46:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778852819;
-	bh=1DnnCkmocMnHe94ZkReRXuscYumyh1GIuX6FKsRW7gU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i9XkkD7PzP8uXBEEeDm7JVQRgf3aXLKbGhB6VQPjUauVsBNxvwtykf+WkzilGX8ts
-	 84SQVmaqdX+JHhbm1JRAmvgKyLzDGn3CqeurmAZrGxQAf2V1MHJVZPIS9tP8t5dCqL
-	 i4MfOu9SjKwoUD3SphCYbNr19xkwnuGlkhvjuY771bYEKpzm7cjx/Hi+sMNtnRIwku
-	 MuzBkNZOgfdh+SNj9O9sPfwgHUILfE2nWcl/PqWmPBJqd7lAIy6ymCuwxbUh+6GmIB
-	 45slBgCu9dRiZP0peWw8U8iSkzxUEWR78T3Qaxqd4MlSea2Ol6TKg//YmR0Q09QMuc
-	 7XnrCDrVjmuXg==
-Date: Fri, 15 May 2026 06:46:58 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: sashiko@lists.linux.dev
-Cc: robh@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RFC v4 07/18] riscv_cbqri: Add capacity controller probe
- and allocation device ops
-Message-ID: <agcj0jBGTAllxjCu@tt-p14-dfustini>
-References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-7-eb53831ef683@kernel.org>
- <20260512012635.84FCCC2BCB0@smtp.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260512012635.84FCCC2BCB0@smtp.kernel.org>
+	Fri, 15 May 2026 13:51:21 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-82f74bcfb86so9663027b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 15 May 2026 06:51:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778853078; x=1779457878; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7fxCMimmNsvVLuGM+eq9TJTg+IBO/pqIm0gpoVqUw5E=;
+        b=gfIFTo7NsEEhD2zp2aX3khyNgrpSnGct3j6GxlURSiV9OpC7D7WF8ZBAaJHaHyVvR4
+         s0zrxOlzyEUNLDxX7xysuhaL/4oUou6lyZIG2XHLIV8l5JtJuLQgp1k4J30TbbnZrm6I
+         kki3BMADcDK1FAAyBb/BBGKd6awFuNxCnWEmp5shUJvsDguTPOUkVy94HdK+OymyuSnV
+         2G/d3hBjUjVyF6DBXqjEJFGsw/OuV9JoDqUH86hZ8R9RNVLsMcWuELuWnPzGUjvBg+Pg
+         EfUU1ZM8sWAf2GMRoa7WEHwxsb25NH6pQAGYLUdXIPI2yUmJe9U6zIJDkrxSH/o4+QYw
+         gb9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778853078; x=1779457878;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7fxCMimmNsvVLuGM+eq9TJTg+IBO/pqIm0gpoVqUw5E=;
+        b=TaUrPLYUdhLSrcGv5diFIpHcMNb1QRaOgSynhx18+YWH8zfHjoP8fRFI+VcvPMH6Z0
+         RczRQM6XEhLFPGK/DeDDTqmHWf1nzvUchgfpAc6SHH9DluaLReafbnPiv/d0Ro29Qvvz
+         pZpJxnR1R5QzJaV8zX/QS8ciV1CDhLgQ1g7oZnGQd5VNcTylMMpN2Ci8SAVl8L0bBMEL
+         Y0+fI+d+e6gN3EWPlQUjDqoCux6iE8xaGAmjkd0CexN7pq4Jc1/VrnbpRYVB56IQgOwu
+         gLcdaoNlwdKxXm/j/OQLEgC/MzSDhhbZzn6AAzdGVkjLL07zcd2SLyTa3sIoQlUmmd+V
+         3eCA==
+X-Forwarded-Encrypted: i=1; AFNElJ/0HAiUWgCTgNY3yaopUcoWfnQnqvfhK2Lwyy/rWPCz7L+iWBxjnQJ5Gz/hqREGNdfIdLvYyh8k2Du2Fw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxv/yRCVF7eqejJkSpEGJJ6vra+0FhAbbGC/f0KQPzF6MvobGqk
+	SO9awFT2taBQHMOud8io5dLMLmPVvCnnAHG4s30VtDHme6VrMei1gwLZpYYKl9W74ROX1zChZNK
+	xvStVuA==
+X-Received: from pfbem15.prod.google.com ([2002:a05:6a00:374f:b0:83d:3c25:eb8b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:8088:b0:839:44c5:c321
+ with SMTP id d2e1a72fcca58-83f33f29b57mr4275573b3a.44.1778853078151; Fri, 15
+ May 2026 06:51:18 -0700 (PDT)
+Date: Fri, 15 May 2026 06:51:17 -0700
+In-Reply-To: <f64029bf-1f4c-40a7-860a-eb04fbe5317b@163.com>
+Mime-Version: 1.0
+References: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn>
+ <202605111130.64BBUXDN013040@mse-fl2.zte.com.cn> <agO_0ejKd0x38_-E@google.com>
+ <f64029bf-1f4c-40a7-860a-eb04fbe5317b@163.com>
+Message-ID: <agck1WqW-TyEqkqd@google.com>
+Subject: Re: [PATCH 1/3] KVM: selftests: Add unit to dirty_log_test
+From: Sean Christopherson <seanjc@google.com>
+To: Wu Fei <atwufei@163.com>
+Cc: wu.fei9@sanechips.com.cn, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, anup@brainfault.org, 
+	atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, pbonzini@redhat.com, shuah@kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260515_065119_814485_61536A73 
+X-CRM114-Status: GOOD (  30.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,167 +94,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 01:26:34AM +0000, sashiko-bot@kernel.org wrote:
-[..] 
-> > +int cbqri_apply_cache_config(struct cbqri_controller *ctrl, u32 closid,
-> > +			     const struct cbqri_cc_config *cfg)
-> > +{
-> > +	bool need_at_mirror;
-> > +	u64 saved_cbm = 0;
-> > +	int err = 0;
-> > +	u64 reg;
-> > +
-> > +	mutex_lock(&ctrl->lock);
-> > +
-> > +	need_at_mirror = ctrl->cc.supports_alloc_at_code && !cfg->cdp_enabled;
-> > +
-> > +	/*
-> > +	 * Capture the cfg->at half CBM before any write so a partial
-> > +	 * AT-mirror failure can revert and keep the two halves consistent.
-> > +	 */
-> > +	if (need_at_mirror) {
-> > +		err = cbqri_cc_alloc_op(ctrl, CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT,
-> > +					closid, cfg->at);
-> > +		if (err < 0)
-> > +			goto out;
-> > +		saved_cbm = ioread64(ctrl->base + CBQRI_CC_BLOCK_MASK_OFF);
-> > +	}
-> 
-> To mitigate silent firmware no-ops where the hardware returns success without
-> updating the staging register, cbqri_read_cache_config() pre-clears
-> the register.
-> 
-> If a silent no-op occurs here during the READ_LIMIT operation, could
-> saved_cbm capture stale MMIO data? If a revert is later triggered, does
-> this risk writing garbage data back and corrupting the controller's capacity
-> allocation state?
+On Wed, May 13, 2026, Wu Fei wrote:
+> On 5/13/26 08:03, Sean Christopherson wrote:
+> > On Mon, May 11, 2026, wu.fei9@sanechips.com.cn wrote:
+> > > Currently dirty_log_test hardcodes usleep 1ms in each interval, which
+> > > could be too short for guest to write and fault in enough pages, then
+> > > there is less chance to test the write protection mechanism, especially
+> > > in the case of (log_mode != LOG_MODE_DIRTY_RING).
+> > 
+> > But when log_mode != LOG_MODE_DIRTY_RING, the individual sleep time is largely
+> > meaningless, because the test won't reap the bitmaps for iterations > 0.
+> > 
+> > 			if (i && host_log_mode != LOG_MODE_DIRTY_RING)
+> > 				continue;
+> > 
+> The first usleep  matters in the case of KVM_DIRTY_LOG_INITIALLY_SET. The
+> dirty bitmap is not precise in the first get_dirty_log, all pages are marked
+> as dirty but most of them are not populated in page table, this creates the
+> situation I mentioned in the cover letter.
 
-I will change it to pre-clear cc_block_mask before the READ_LIMIT so a
-silent firmware no-op surfaces as zero rather than stale data.
+I suspect something is messed up in your workflow, because the actual patches
+aren't properly threaded with respect to the cover letter.  E.g. patch 1 has
 
-> > +	/* Get the operation status */
-> > +	*status = FIELD_GET(CBQRI_CONTROL_REGISTERS_STATUS_MASK, reg);
-> > +
-> > +	/*
-> > +	 * Check for the AT support if the register is implemented
-> > +	 * (if not, the status value will remain 0)
-> > +	 */
-> > +	if (*status != 0) {
-> > +		/*
-> > +		 * Re-issue operation with AT=CODE so the controller
-> > +		 * latches AT=CODE on supported hardware (or resets it to 0
-> > +		 * on hardware that doesn't). OP must be a defined CBQRI op
-> > +		 * here. OP=0 is a no-op and would silently disable CDP.
-> > +		 */
-> > +		reg = saved_reg;
-> > +		FIELD_MODIFY(CBQRI_CONTROL_REGISTERS_OP_MASK, &reg, operation);
-> > +		FIELD_MODIFY(CBQRI_CONTROL_REGISTERS_AT_MASK, &reg,
-> > +			     CBQRI_CONTROL_REGISTERS_AT_CODE);
-> > +		iowrite64(reg, ctrl->base + reg_offset);
-> 
-> When issuing the second probe to verify AT support, the code restores the raw
-> boot-time register state via reg = saved_reg.
-> 
-> Does this execute the command against whatever uninitialized RCID value the
-> firmware originally left in the register, since the RCID mask is not cleared
-> again? If the RCID is out of bounds, could the hardware reject the operation,
-> causing the driver to falsely report that supports_alloc_at_code is false?
-> 
+  In-Reply-To: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn>
 
-I will change cbqri_probe_feature() to build each write from saved_reg
-masked clean of OP, AT, RCID, and EVT_ID before ORing in the intended
-fields.
+but the cover letter has:
 
-> > +static int cbqri_probe_cc(struct cbqri_controller *ctrl)
-> > +{
-> 
-> [ ... ]
-> 
-> > +	/*
-> > +	 * Resolve cache_size via cacheinfo. cpus_read_lock satisfies
-> > +	 * lockdep_assert_cpus_held() inside get_cpu_cacheinfo_level(). If
-> > +	 * every cpu_mask member is offline, cache_size stays 0 and the
-> > +	 * controller cannot back occupancy monitoring.
-> > +	 */
-> > +	cpus_read_lock();
-> > +	if (!ctrl->cache.cache_size) {
-> > +		int cpu = cpumask_first_and(&ctrl->cache.cpu_mask, cpu_online_mask);
-> > +
-> > +		if (cpu < nr_cpu_ids) {
-> > +			struct cacheinfo *ci;
-> > +
-> > +			ci = get_cpu_cacheinfo_level(cpu, ctrl->cache.cache_level);
-> > +			if (ci)
-> > +				ctrl->cache.cache_size = ci->size;
-> > +		}
-> > +	}
-> > +	cpus_read_unlock();
-> 
-> A comment in riscv_cbqri_register_controller() states that cache_size is
-> filled lazily during probe.
-> 
-> Since cbqri_probe_cc() is invoked synchronously during early boot
-> registration, wouldn't CPUs in other clusters still be offline? Because there
-> is no lazy re-evaluation mechanism or CPU hotplug hook later on, does this
-> permanently leave ctrl->cache.cache_size at 0 and break occupancy monitoring
-> calculations for those controllers?
+  Message-Id: <202605111108.64BB8RFR010522@mse-db.zte.com.cn>
 
-ACPI parsing runs at subsys_initcall which is after smp_init() brings up
-the secondary CPUs, so every cpu in cpu_mask is online by the time
-cbqri_probe_cc() runs.
-> 
-> > +void cbqri_controller_destroy(struct cbqri_controller *ctrl)
-> > +{
-> > +	kfree(ctrl);
-> > +}
-> 
-> When riscv_cbqri_unregister_last() is used to roll back a successful
-> registration, it calls this function to free the controller.
-> 
-> Does this leak the I/O mappings and memory regions, since it fails to call
-> iounmap(ctrl->base) and release_mem_region() for the resources successfully
-> allocated during cbqri_probe_controller()?
+Copy+pasting the entirety of the cover letter for reference:
 
-I will fix this to mirror the probe error paths. They already clean up
-and clear ctrl->base before returning, so destroying a probe-failed
-controller does not double free or unmap an already-released region.
+ : The current gstage range walker unconditionally advances by 'page_size'
+ : when a leaf PTE is not found, e.g. when the range to wp is
+ : [0xfffff01fc000, 0xfffff023c000) , if found_leaf of 0xfffff01fc000
+ : returns false and page_size is 2MB, it skips the whole range, but it's
+ : possible to have valid entries in [0xfffff0200000, 0xfffff023c000), so
+ : only [0xfffff01fc000, 0xfffff0200000) can be skipped safely. Both
+ : wp/unamp have the same pattern.
+ : 
+ : dirty_log_test intentionally sets up the unaligned guest physical
+ : address, after riscv kvm enabling KVM_DIRTY_LOG_INITIALLY_SET, it's easy
+ : to trigger this bug if there is a larger window for guest to write more
+ : pages before first collect_dirty_pages.
 
-> > +int riscv_cbqri_register_controller(const struct cbqri_controller_info *info)
-> > +{
-> > +	struct cbqri_controller *ctrl;
-> > +	int err;
-> > +
-> > +	if (!info->addr) {
-> > +		pr_warn("skipping controller with invalid addr=0x0\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	ctrl = kzalloc(sizeof(*ctrl), GFP_KERNEL);
-> > +	if (!ctrl)
-> > +		return -ENOMEM;
-> > +
-> > +	mutex_init(&ctrl->lock);
-> > +
-> > +	ctrl->addr = info->addr;
-> > +	ctrl->size = info->size;
-> > +	ctrl->type = info->type;
-> > +	ctrl->rcid_count = info->rcid_count;
-> > +	ctrl->mcid_count = info->mcid_count;
+> "when the range to wp is
+> [0xfffff01fc000, 0xfffff023c000) , if found_leaf of 0xfffff01fc000
+> returns false and page_size is 2MB, it skips the whole range, but it's
+> possible to have valid entries in [0xfffff0200000, 0xfffff023c000), so
+> only [0xfffff01fc000, 0xfffff0200000) can be skipped safely."
 > 
-> The cbqri header explicitly defines CBQRI_MAX_RCID and CBQRI_MAX_MCID as 1024,
-> alongside documentation warning that a malformed firmware table claiming a
-> large number of IDs could trip the soft-lockup watchdog during per-id MMIO
-> init loops.
+> > > 
+> > > Unit is introduced to replace the default 1ms if specified in command
+> > > line. The following test can't trigger failure on my riscv vm:
+> > 
+> > Failure of what?  And does the failure really not reproduce with a higher interval?
 > 
-> Is it safe to blindly assign these counts without validating them against the
-> safety caps? Could a malformed ACPI or DT table bypass this protection and
-> trigger a soft lockup during boot?
+> On riscv, it fails to write protect some pages with valid page table entry
+> then loses track of dirty pages. Higher interval doesn't help because only
+> the first usleep matters, after the first collect_dirty_pages, all dirty
+> pages are tracked precisely then there is no such problem.
 
-CBQRI_MAX_RCID and CBQRI_MAX_MCID are enforced in acpi_parse_rqsc()
-which is the only firmware discovery path that exists today. Any value
-that reaches riscv_cbqri_register_controller() has already passed that.
+Ah, gotcha.  Rather than let (and force) the user to provide a larger sleep time,
+what if we instead randomize the delay before the initial reaping of the dirty
+bitmap/ring?  That should provide a good balance between coverage, complexity and
+user-friendliness.
 
--Drew
+diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
+index 12446a4b6e8d..74ca096bf976 100644
+--- a/tools/testing/selftests/kvm/dirty_log_test.c
++++ b/tools/testing/selftests/kvm/dirty_log_test.c
+@@ -694,7 +694,17 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+        pthread_create(&vcpu_thread, NULL, vcpu_worker, vcpu);
+ 
+        for (iteration = 1; iteration <= p->iterations; iteration++) {
+-               unsigned long i;
++               unsigned long i, reap_i;
++
++               /*
++                * Select a random point in the time interval to reap the dirty
++                * bitmap/ring while the guest is running, i.e. randomize how
++                * long the guest gets to initially run and thus how many pages
++                * it can dirty, before collecting the dirty bitmap/ring.  See
++                * the loop below for details.
++                */
++               reap_i = random() % p->interval;
++               printf("Reaping after a %lu ms delay\n", reap_i);
+ 
+                sync_global_to_guest(vm, iteration);
+ 
+@@ -729,13 +739,17 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+                         * that's effectively blocked.  Collecting while the
+                         * guest is running also verifies KVM doesn't lose any
+                         * state.
+-                        *
++                        */
++                       if (i < reap_i)
++                               continue;
++
++                       /*
+                         * For bitmap modes, KVM overwrites the entire bitmap,
+                         * i.e. collecting the bitmaps is destructive.  Collect
+-                        * the bitmap only on the first pass, otherwise this
+-                        * test would lose track of dirty pages.
++                        * the bitmap while the guest is running only once,
++                        * otherwise this test would lose track of dirty pages.
+                         */
+-                       if (i && host_log_mode != LOG_MODE_DIRTY_RING)
++                       if (i > reap_i && host_log_mode != LOG_MODE_DIRTY_RING)
+                                continue;
+ 
+                        /*
+@@ -745,7 +759,7 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+                         * the ring on every pass would make it unlikely the
+                         * vCPU would ever fill the fing).
+                         */
+-                       if (i && !READ_ONCE(dirty_ring_vcpu_ring_full))
++                       if (i > reap_i && !READ_ONCE(dirty_ring_vcpu_ring_full))
+                                continue;
+ 
+                        log_mode_collect_dirty_pages(vcpu, TEST_MEM_SLOT_INDEX,
 
 _______________________________________________
 linux-riscv mailing list
