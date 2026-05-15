@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5492CD4851
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 09:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72772CD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 09:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NaTlbVzEaDEC3XoJV+WWdkw6M8P2im/y+/xcBsT/hpw=; b=LdSYyP31weNI4c
-	/+63kprVmnNun8XUcMi0lhHGs4AtwdOvhN/VoBJZqbsv51ur/fuiNxwamHpAdyQfjPev5lGWZTE8W
-	LtpfL6GWICV5VH4mjq+1sJuZzUy/QTmYhBMD7mwiZKSFZbA2dzHub0QxZRgz2yIG2wtEwXIJ1WZkx
-	iJh5avDXiy1PcLl05KcMs4PlTJ//2KJ4UbfOboukQnqiMMv9bEqbpOrLVXVluuXquaR3r436ZXOAi
-	UJqoXPnD0HlUGsiaqzSRfyksh8Otp6z+qXzM9E2sbYudc1xXPIq+qxfEelRBL6SCIHwqw/ZSgBlSm
-	fsWpbxNQ2I15oWkFTDTA==;
+	List-Owner; bh=KzqsQrDhyxrHitY8RezE7jgLJgEdiU1r/KwpB4jsv88=; b=gc5bBRqr/yQ1Kv
+	tiPNLoeZvZwrnDTpmtUEwkOcT/RpiIWIMDCBDmElXgWahZdbqG2VJ6ZzbmtNuAyas5ub3Nej6JU+0
+	pD3jYRef1R/KI9ndKFL4FDelKj+WBEpEMaspot3EzXciIefvF1STMXPU5FQfmFvZ2GbdRJdbhXM9A
+	0JIxj1v2awAyPx1uRQwcCWDySgWZ41MRMrcXbMyeLbczZ/Vdu6DK+0y6fyrQVrqZvl7v3uZvOLNtG
+	FP245EYWe3ZZzbxmEYB+eZt41KCrXrKmT2zVBHmhQpLGlBjKhxhe4aHssGl/Xgcslmx5+qehSlS7j
+	IYCIJhqpP17S1351fZ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNomH-00000007sH3-3uW0;
-	Fri, 15 May 2026 09:24:17 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wNomp-00000007sQD-0VVT;
+	Fri, 15 May 2026 09:24:51 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNomF-00000007sGN-3Vtc
+	id 1wNoml-00000007sOc-40t2
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 09:24:16 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43d75312379so479126f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 May 2026 02:24:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778837054; x=1779441854; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6c5hfgSD5xJa00nFFCK7kaxUQ5uueiePQvAM1Cjtv/s=;
-        b=LZE1VorbEkoBCXbNNb7/JVRP/4iQrZLThubXNAgrQ6TWyC7VyMakBI1jUEjFK40Z9D
-         cdHUVjU6XWXSpeKLUziU7A51JIB6iCdx9OdKHyoGiPPo0bT5sS/5fL3/Zey5qezjv1dl
-         sDvu2RmGLUMJCEXqAPp3tn4YZbCWPuHTf1AyrkKncYGJ3YECHHzueL/k1tlB+YperuYS
-         +xaV9SXZnv6+kwwAI9a0BPu1YgiH3n4Vdp0/jN9q3DmgiCdA2wSD9Fs/rY8fkc0FHaXm
-         s/9NncrY3bqc7xe/o0GeWKgRWWfMe4feoUMbdOQLOdFZlZTb1c8e4aL8k6xaq8Sw+8vP
-         UAXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778837054; x=1779441854;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6c5hfgSD5xJa00nFFCK7kaxUQ5uueiePQvAM1Cjtv/s=;
-        b=G+UCUIy70mZ4tMiAxHAXqKC95bM3/ELX1SbE3jGMnK4Q5Vffp7pVrsWLTg/TjLuLyl
-         aKciFAsiO9/pKf8DLXmhTxIS4//lqLTX0r04FcqPcCBRY9IkYybmMWngw4O193eNULL0
-         fTlQCqPN8jp074fJ+7WMfOH8Db16/5YW+CBUSdedQLgLfudSgDC5gdtgeLMKwFdZFKrs
-         jvnYtxSQDbsQ0FYqoq237I/z9OuQsY3NetCVDJeJz6JdoZKJVF9wYMzNKjUEQjkXQUJi
-         at9qolxIpZFvxRpSAcNlSK6ldFsDerbdqEWhk6fAlguNtOuPFTdI1DtEw4e1j2rfz7II
-         6zkQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9+ejGLtqMKPiQH7IF6rS/HJ3nnLeQIrolUPy9EkybM4Fq78Cu/92sD1qpGOsfGSiULVQ2wExRFPbwBnw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJfhmn5PvIzNlpOMY4QuX1Z2DZEUUAC/MfDvjjqM1zScnU5bl9
-	bDlEM44sZXwFMub0zqekIpPmm8RkUjcc5D8yl7qVG21jCJ843FnLxXwE
-X-Gm-Gg: Acq92OHunKjbYpXlVCROrk2RTh6KoVWxhqhZyGzkfypdgBo725uMwDMas3s/QIIgDxT
-	eSk+fkU4+XVFoSXxnw6aBPPlxVDLEOvrVy2Jd9fp7nCcF+scdjNfbSLDhCqXK1W2nWqbzOfJqjf
-	1nUIZJSK93Vd6vP+kwAESaVECPJcYDugkkScQgTVsWVsvdwy3WBItuV68vL/wzvOMm2OtnfWK8e
-	u5JvdoizW0LfeiVR5GujlPZw7UYJaqfVWwWPzZJ5ttVgkoTG3pxhWpA/pb9axEEC4JtzabPntdx
-	Kfj6NLYWQiIVKmUQLdl7M7tZsvzalj8K4r6JOOqbjbT+vZk6YoZP0hOcJEFzLVui5SnDya5z/Wk
-	6Ssh7WsJaLqcNJShBEs/kANGdAUJlkmnqEkY1ypM+P+vvlVDfyCp+IzBnHh+Y1p9zNgbBZlzzNw
-	VMUfka48/HsJ7/SBZa8OsfV6PfaQP2Y+jGEeOhYIJ/ecE9Xlox5+BNYXRtbw/Q
-X-Received: by 2002:a05:6000:290f:b0:43e:a75e:352 with SMTP id ffacd0b85a97d-45e5b73b1d5mr4833404f8f.4.1778837053558;
-        Fri, 15 May 2026 02:24:13 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9e768acesm13910437f8f.7.2026.05.15.02.24.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 02:24:13 -0700 (PDT)
-Date: Fri, 15 May 2026 10:24:11 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Zong Li <zong.li@sifive.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, debug@rivosinc.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: cif: reduce shadow stack size limit from 4GB
- to 2GB
-Message-ID: <20260515102411.4d3e868a@pumpkin>
-In-Reply-To: <CANXhq0rY8wb-0x2whLGMSuWLujtZwrEsmpWh_PUhxoZ0gpA96w@mail.gmail.com>
-References: <20260514075036.1432352-1-zong.li@sifive.com>
-	<20260514095605.2c7d8761@pumpkin>
-	<CANXhq0rY8wb-0x2whLGMSuWLujtZwrEsmpWh_PUhxoZ0gpA96w@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Fri, 15 May 2026 09:24:49 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wNomG-00020n-GL; Fri, 15 May 2026 11:24:16 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wNomC-000u10-1s;
+	Fri, 15 May 2026 11:24:12 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wNomC-000000007wg-1zKf;
+	Fri, 15 May 2026 11:24:12 +0200
+Message-ID: <2fdfe98c2b99f3cb6b1e0af0f1db3df32d21288a.camel@pengutronix.de>
+Subject: Re: [PATCH v2 09/12] reset: starfive: Introduce assert_polarity
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>, Michael Turquette	
+ <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Stephen Boyd	 <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Paul
+ Walmsley	 <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou	
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Emil Renner
+ Berthing	 <kernel@esmil.dk>
+Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+ <inochiama@gmail.com>,  Alexey Charkov <alchark@gmail.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Keguang Zhang	
+ <keguang.zhang@gmail.com>, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Date: Fri, 15 May 2026 11:24:12 +0200
+In-Reply-To: <20260512083521.3448-10-changhuang.liang@starfivetech.com>
+References: <20260512083521.3448-1-changhuang.liang@starfivetech.com>
+	 <20260512083521.3448-10-changhuang.liang@starfivetech.com>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_022415_893859_B0712409 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20260515_022447_994889_7DB6C7BF 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +81,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAxNSBNYXkgMjAyNiAxMTo0Mjo0NSArMDgwMApab25nIExpIDx6b25nLmxpQHNpZml2
-ZS5jb20+IHdyb3RlOgoKPiBPbiBUaHUsIE1heSAxNCwgMjAyNiBhdCA0OjU24oCvUE0gRGF2aWQg
-TGFpZ2h0Ci4uCj4gPiBJIGFsc28gZG9uJ3QgdW5kZXJzdGFuZCB0aGUgcmF0aW9uYWwgZm9yIGp1
-c3QgLzIgYW5kIHRoZSAyRyB1cHBlciBsaW1pdC4KPiA+IFlvdSBuZWVkIDUxMiBuZXN0ZWQgZnVu
-Y3Rpb24gY2FsbHMgdG8gZXZlbiB1c2UgNGsuCj4gPiBUaGF0IHdvdWxkIGhhdmUgdG8gYmUgcXVp
-dGUgZGVlcCByZWN1cnNpb24uICAKPiAKPiBEdXJpbmcgdGhlIGRpc2N1c3Npb25zIGFib3V0IHRo
-ZSBBUk0gR0NTIHYzIHNlcmllcywgY29tbXVuaXR5IHBvaW50ZWQKPiBvdXQgdGhhdCBhIDRHIHNo
-YWRvdyBzdGFjayBtaWdodCBiZSB0b28gbGFyZ2UuIFRoaXMgc2l6ZSBpcyBoYXJkIHRvCj4gc3Vw
-cG9ydCBpbiBtZW1vcnktY29uc3RyYWluZWQgZW52aXJvbm1lbnRzIGxpa2UgQW5kcm9pZC4gSG93
-ZXZlciwgdGhlCj4gc2l6ZSBjYW5ub3QgYmUgdG9vIHNtYWxsIGVpdGhlciwgb3Igd2UgbWlnaHQg
-ZmFjZSBzdGFjayBvdmVyZmxvdwo+IGlzc3Vlcy4gQXQgdGhhdCB0aW1lLCBhIHBlcmZlY3Qgc2l6
-ZSB3YXMgbm90IGRlY2lkZWQuCgpJdCBpcyBvbmx5IFZBIG5vdCByZWFsIG1lbW9yeSBzbyBzaG91
-bGRuJ3QgbWFrZSBtdWNoIGRpZmZlcmVuY2UgdG8gbWVtb3J5CnVzZSAoZXhjZXB0IGZvciBub21t
-dSB3aGVyZSB0aGUgYWN0dWFsIG1lbW9yeSBoYXMgdG8gYmUgYWxsb2NhdGVkKS4KCkJ1dCAzMmJp
-dCBwcm9ncmFtcyB3aXRoIGxvdHMgb2YgdGhyZWFkcyBjYW4gcnVuIG91dCBvZiBWQS4KSW5jcmVh
-c2luZyB0aGUgc3RhY2sgVkEgc2l6ZSBieSA1MCUgbWlnaHQgZXZlbiBnaXZlIHByb2JsZW1zIGZv
-ciA2NGJpdApwcm9ncmFtcyAtIGlmIHRoZXkgYXJlIGFscmVhZHkgcmVkdWNpbmcgdGhlIHRocmVh
-ZCBzdGFjayBzaXplIGF2b2lkCnJ1bm5pbmcgb3V0IG9mIFZBLgoKSSd2ZSBub3QgY2hlY2tlZCwg
-YnV0IHB0aHJlYWRfYXR0cl9zZXRzdGFja3NpemUoKSBzZXRzIGEgbGltaXQgZm9yIHRoZQp0aHJl
-YWQgc3RhY2sgc2l6ZSAod2hpY2ggd291bGQgb3RoZXJ3aXNlIGRlZmF1bHQgc28gcmxpbWl0KFNU
-QUNLKSkuCkkgZG9uJ3QgYmVsaWV2ZSBpdCBzaG91bGQgdXBkYXRlIHRoZSBybGltaXQgdmFsdWUg
-aXRzZWxmLgpJbiB3aGljaCBjYXNlIHlvdSBhcmUgdXNpbmcgdGhlIHdyb25nIHNpemUuCgpCdXQg
-Zm9yIGEgdGhyZWFkIHdpdGggYSB2ZXJ5IHJlZHVjZWQgc3RhY2sgKHNheSAxMjhrKSB5b3UgcHJv
-YmFibHkgb25seQpuZWVkIDEgcGFnZSBvZiBzaGFkb3cgc3RhY2ssIGFueSBtb3JlIGNvdWxkIGVh
-c2lseSBsZWFkIHRvIHJ1bm5pbmcgb3V0Cm9mIFZBLgoKLS0gRGF2aWQKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Di, 2026-05-12 at 01:35 -0700, Changhuang Liang wrote:
+> The JHB100 SoC supports inverted operations for reset
+> assertion/deassertion, introducing the an assert_polarity field to
+> distinguish between different operation logics.
+> 
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  drivers/reset/starfive/reset-starfive-common.c | 18 +++++++++++++++---
+>  drivers/reset/starfive/reset-starfive-common.h |  6 ++++++
+>  2 files changed, 21 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/reset/starfive/reset-starfive-common.c b/drivers/reset/starfive/reset-starfive-common.c
+> index 8ea142ecbd15..c7289c2b2a28 100644
+> --- a/drivers/reset/starfive/reset-starfive-common.c
+> +++ b/drivers/reset/starfive/reset-starfive-common.c
+> @@ -68,7 +68,7 @@ static int starfive_reset_update(struct reset_controller_dev *rcdev,
+>  	reg_status = data->status + offset * sizeof(u32);
+>  	done = data->asserted ? data->asserted[offset] & mask : 0;
+>  
+> -	if (!assert)
+> +	if (data->info && data->info->assert_polarity == assert)
+>  		done ^= mask;
+>  
+>  	spin_lock_irqsave(&data->lock, flags);
+> @@ -90,13 +90,25 @@ static int starfive_reset_update(struct reset_controller_dev *rcdev,
+>  static int starfive_reset_assert(struct reset_controller_dev *rcdev,
+>  				 unsigned long id)
+>  {
+> -	return starfive_reset_update(rcdev, id, true);
+
+Please keep this.
+
+> +	struct starfive_reset *data = starfive_reset_from(rcdev);
+> +	bool assert = true;
+> +
+> +	if (data->info && data->info->assert_polarity)
+> +		assert = false;
+
+And move this into starfive_reset_update().
+
+Consider renaming assert_polarity to active_low or similar, to align
+nomenclature with other drivers.
+
+> +
+> +	return starfive_reset_update(rcdev, id, assert);
+>  }
+>  
+>  static int starfive_reset_deassert(struct reset_controller_dev *rcdev,
+>  				   unsigned long id)
+>  {
+> -	return starfive_reset_update(rcdev, id, false);
+> +	struct starfive_reset *data = starfive_reset_from(rcdev);
+> +	bool deassert = false;
+> +
+> +	if (data->info && data->info->assert_polarity)
+> +		deassert = true;
+
+Same as for starfive_reset_assert().
+
+regards
+Philipp
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
