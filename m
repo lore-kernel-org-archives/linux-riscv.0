@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E04CD4851
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 12:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D49ACD4851
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 13:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hDXmu4INGQjgDPY4nT+NB6WtTyalP4QaWyWnbSo2Vdg=; b=xjeH5BeqyCkjGS
-	ur/gg+uiAdppZVTUhAqOo06wCsEOF2kgt200zHz1M9yEdMjoqRr3FipHRX8ifEX5aC/ALdsE5SO2Y
-	GWoil88HCS067GZgA/wI7B8j551mPUOFFDBxllF2KhjJfaCVV5fOFzBAq8Rh0Av2kLyT1SQBzWT/B
-	NXaOqhWW02VAkqwe1ZTqhMHa1Pd420QxX1xSmCI+WKeXtT8VICfCS4OYthm91d9V1CDyawVoUviMF
-	WxbhuDGIMPDAWxU+a1OftLQzugbVB/Qn4OYg2dmcpGlCnO0QR+TrNfUbDj18Iki8P6muLD5zm2Jao
-	EGQF81nxq2nysxEXLhHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tiyqbABRnPVe4UCmacIPkrQ3lFrcjTYkuKjsVVD96cI=; b=BB+pZ+b9Ai128vlEZBPqj6PPyX
+	iVCTm0okJxv1/S2pu8WiRMYYF28lbnaYxilpqPGRidNRiP9Wwn41u0d23ocli/XCb9ncxNXOzWMjl
+	rcaeLXqg10w50LYP7x5rVKNgodhOQcP45F/hjboJOvEkx2bLsU38LlzpOa7Q08NqT9cDdEkV+vqKx
+	+aMhBLsZ08Oycfu/zklA7sEsIIjqQWWvt2ksN6mBVZAk2iHSBNINWM5C2dZlWk7vXJZW+VlcerKDP
+	25MWrH7Lw+lcyR4lIXNxq5nDQnrz25ibhPZKM6Ho3B3Vg1wNUNRCtzjVmbWuOt8g9aHq6luPUuwhZ
+	hlAi0jwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrgE-00000008KUb-1r8M;
-	Fri, 15 May 2026 12:30:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wNsFK-00000008P30-1py8;
+	Fri, 15 May 2026 13:06:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrgB-00000008KT4-3HDC
+	id 1wNsFH-00000008P2H-2Wot
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 12:30:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778848211;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JbQpMKcevS++aTCfiq6LCpCT2Etcw0pMnz1eArG6sPw=;
-	b=V+ccu94uBoZgYa+DzSlyAt6L2zsZVZDUZ6RhWtwY/j6bfJVYmpZyfzmKac5R9FC9tE5mA6
-	L/6PNEPyHmdvDTT1eLlWBE6mgoLKOae1iKUzlNC4fn4zX3UFpO3pi8RGLZUYJzpsQ1Kudj
-	NOfyM0oR/uxAJNHeTTQJggHI6HEw4Ks=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-282-w4asKj8WNGC4wBcILv2rhA-1; Fri,
- 15 May 2026 08:30:07 -0400
-X-MC-Unique: w4asKj8WNGC4wBcILv2rhA-1
-X-Mimecast-MFC-AGG-ID: w4asKj8WNGC4wBcILv2rhA_1778848203
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 26E6A180061A;
-	Fri, 15 May 2026 12:30:02 +0000 (UTC)
-Received: from [192.168.1.153] (headnet01.pony-001.prod.iad2.dc.redhat.com [10.2.32.101])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0A6801956053;
-	Fri, 15 May 2026 12:29:54 +0000 (UTC)
-From: Albert Esteve <aesteve@redhat.com>
-Date: Fri, 15 May 2026 14:29:33 +0200
-Subject: [PATCH v13 2/4] kunit: Add backtrace suppression self-tests
+	Fri, 15 May 2026 13:06:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F0D9440951;
+	Fri, 15 May 2026 13:06:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31C42C2BCB0;
+	Fri, 15 May 2026 13:06:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778850386;
+	bh=uUeWRpb6xVmmL+Lm7CLlmRxmdTh61MhPLeJ6UxoXK48=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ki6lpypOzKMiHDITLyOYMf1T4BOaUqjbJKKxUd91YQRXBCpxXWYiJQzi7lEjX/VNk
+	 GdGuMXvO6plYdYaEpO8DthgdPZXsYlO3nkMNEgPnyjDHj0+myWDE1FMHPtj9rmaPN1
+	 Er++cWiIZIMdYHN/uFVIfdzylgJzHF3L22wa+B3NyiPJBxRJu/U4Pv1MCRkuKBNWjs
+	 FGlz6skdhT2o1jxQwKBHUCYdotqPfQeQvEu1WY9Kw2VBeTmJ/Pb+WtTLZKi3H8u04D
+	 c40CopEGAbuQtKljOUTRlz3genvU1aKhvRGujsSYZR8p4xEFzH/jLQ49uSYAwLeLTM
+	 ioi2NqvjCplZQ==
+Date: Fri, 15 May 2026 14:06:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v18 1/3] dt-bindings: pwm: opencores: Drop starfive
+ compatibles and update maintainers
+Message-ID: <20260515-blinked-gigabyte-d2882372b616@spud>
+References: <20260515054723.25024-1-hal.feng@starfivetech.com>
+ <20260515054723.25024-2-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-Message-Id: <20260515-kunit_add_support-v13-2-18ee42f96e7b@redhat.com>
-References: <20260515-kunit_add_support-v13-0-18ee42f96e7b@redhat.com>
-In-Reply-To: <20260515-kunit_add_support-v13-0-18ee42f96e7b@redhat.com>
-To: Arnd Bergmann <arnd@arndb.de>, 
- Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
- Rae Moar <raemoar63@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
- dri-devel@lists.freedesktop.org, workflows@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
- peterz@infradead.org, Guenter Roeck <linux@roeck-us.net>, 
- Linux Kernel Functional Testing <lkft@linaro.org>, 
- Alessandro Carminati <acarmina@redhat.com>, 
- Albert Esteve <aesteve@redhat.com>, Dan Carpenter <error27@gmail.com>, 
- Kees Cook <kees@kernel.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778848177; l=7437;
- i=aesteve@redhat.com; s=20260303; h=from:subject:message-id;
- bh=fXyWbZzlWoIL12G+585gezsNpwYj6kS7sHf+I+BjxB8=;
- b=+gTm1OO1UQfCnSDKLfe1y/MSfehl+06846bDlK4XHTZgaWLSKmXWuz4Z8yniV67cvSdXo010w
- GjYWnf8Ac5vCBPL5mJncnkhLDczhOYzZV24XfeCWdJcdxoMk0EfEusN
-X-Developer-Key: i=aesteve@redhat.com; a=ed25519;
- pk=YSFz6sOHd2L45+Fr8DIvHTi6lSIjhLZ5T+rkxspJt1s=
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: gKzbLfKTJ8PTPfgIEB8AlCBniGxy3LdrAGn5zhicacY_1778848203
-X-Mimecast-Originator: redhat.com
+In-Reply-To: <20260515054723.25024-2-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_053011_907924_FD03E02B 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20260515_060627_677295_C85B0BE1 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,258 +76,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5212983729400462326=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guenter Roeck <linux@roeck-us.net>
 
-Add unit tests to verify that warning backtrace suppression works.
+--===============5212983729400462326==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bsBRJFDfWIlVk/Sa"
+Content-Disposition: inline
 
-Tests cover both API forms:
-- Scoped: kunit_warning_suppress() with in-block count verification
-  and post-block inactivity check.
-- Direct functions: kunit_start/end_suppress_warning() with
-  sequential independent suppression blocks and per-block counts.
 
-Furthermore, tests verify incremental warning counting, that
-kunit_has_active_suppress_warning() transitions correctly around
-suppression boundaries, and that suppression active in the test
-kthread does not leak to a separate kthread.
+--bsBRJFDfWIlVk/Sa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-If backtrace suppression does _not_ work, the unit tests will likely
-trigger unsuppressed backtraces, which should actually help to get
-the affected architectures / platforms fixed.
+On Fri, May 15, 2026 at 01:47:20PM +0800, Hal Feng wrote:
+> Each of the StarFive JH7100/JH7110/JH8100 SoCs has 8 OpenCores PTC IP
+> cores. One OpenCores PTC IP core can output one PWM channel. The only
+> difference among them is the register base address. There is no need
+> to add starfive compatibles to distinguish them.
 
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
-Reviewed-by: David Gow <david@davidgow.net>
-Signed-off-by: Albert Esteve <aesteve@redhat.com>
----
- lib/kunit/Makefile                     |   1 +
- lib/kunit/backtrace-suppression-test.c | 192 +++++++++++++++++++++++++++++++++
- 2 files changed, 193 insertions(+)
+NAK, that's not an acceptable reason to remove soc-specific compatibles.
 
-diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
-index 4592f9d0aa8dd..2e8a6b71a2ab0 100644
---- a/lib/kunit/Makefile
-+++ b/lib/kunit/Makefile
-@@ -22,6 +22,7 @@ obj-$(if $(CONFIG_KUNIT),y) +=		hooks.o
- 
- obj-$(CONFIG_KUNIT_TEST) +=		kunit-test.o
- obj-$(CONFIG_KUNIT_TEST) +=		platform-test.o
-+obj-$(CONFIG_KUNIT_TEST) +=		backtrace-suppression-test.o
- 
- # string-stream-test compiles built-in only.
- ifeq ($(CONFIG_KUNIT_TEST),y)
-diff --git a/lib/kunit/backtrace-suppression-test.c b/lib/kunit/backtrace-suppression-test.c
-new file mode 100644
-index 0000000000000..59a038b2739f5
---- /dev/null
-+++ b/lib/kunit/backtrace-suppression-test.c
-@@ -0,0 +1,192 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * KUnit test for suppressing warning tracebacks.
-+ *
-+ * Copyright (C) 2024, Guenter Roeck
-+ * Author: Guenter Roeck <linux@roeck-us.net>
-+ */
-+
-+#include <kunit/test.h>
-+#include <linux/bug.h>
-+#include <linux/completion.h>
-+#include <linux/kthread.h>
-+
-+static void backtrace_suppression_test_warn_direct(struct kunit *test)
-+{
-+	if (!IS_ENABLED(CONFIG_BUG))
-+		kunit_skip(test, "requires CONFIG_BUG");
-+
-+	kunit_warning_suppress(test) {
-+		WARN(1, "This backtrace should be suppressed");
-+		/*
-+		 * Count must be checked inside the scope; the handle
-+		 * is not accessible after the block exits.
-+		 */
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
-+	}
-+	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
-+}
-+
-+static noinline void trigger_backtrace_warn(void)
-+{
-+	WARN(1, "This backtrace should be suppressed");
-+}
-+
-+static void backtrace_suppression_test_warn_indirect(struct kunit *test)
-+{
-+	if (!IS_ENABLED(CONFIG_BUG))
-+		kunit_skip(test, "requires CONFIG_BUG");
-+
-+	kunit_warning_suppress(test) {
-+		trigger_backtrace_warn();
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
-+	}
-+}
-+
-+static void backtrace_suppression_test_warn_multi(struct kunit *test)
-+{
-+	if (!IS_ENABLED(CONFIG_BUG))
-+		kunit_skip(test, "requires CONFIG_BUG");
-+
-+	kunit_warning_suppress(test) {
-+		WARN(1, "This backtrace should be suppressed");
-+		trigger_backtrace_warn();
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 2);
-+	}
-+}
-+
-+static void backtrace_suppression_test_warn_on_direct(struct kunit *test)
-+{
-+	if (!IS_ENABLED(CONFIG_BUG))
-+		kunit_skip(test, "requires CONFIG_BUG");
-+
-+	kunit_warning_suppress(test) {
-+		WARN_ON(1);
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
-+	}
-+}
-+
-+static noinline void trigger_backtrace_warn_on(void)
-+{
-+	WARN_ON(1);
-+}
-+
-+static void backtrace_suppression_test_warn_on_indirect(struct kunit *test)
-+{
-+	if (!IS_ENABLED(CONFIG_BUG))
-+		kunit_skip(test, "requires CONFIG_BUG");
-+
-+	kunit_warning_suppress(test) {
-+		trigger_backtrace_warn_on();
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
-+	}
-+}
-+
-+static void backtrace_suppression_test_count(struct kunit *test)
-+{
-+	if (!IS_ENABLED(CONFIG_BUG))
-+		kunit_skip(test, "requires CONFIG_BUG");
-+
-+	kunit_warning_suppress(test) {
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 0);
-+
-+		WARN(1, "suppressed");
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
-+
-+		WARN(1, "suppressed again");
-+		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 2);
-+	}
-+}
-+
-+static void backtrace_suppression_test_active_state(struct kunit *test)
-+{
-+	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
-+
-+	kunit_warning_suppress(test) {
-+		KUNIT_EXPECT_TRUE(test, kunit_has_active_suppress_warning());
-+	}
-+
-+	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
-+
-+	kunit_warning_suppress(test) {
-+		KUNIT_EXPECT_TRUE(test, kunit_has_active_suppress_warning());
-+	}
-+
-+	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
-+}
-+
-+static void backtrace_suppression_test_multi_scope(struct kunit *test)
-+{
-+	struct kunit_suppressed_warning *sw1, *sw2;
-+
-+	if (!IS_ENABLED(CONFIG_BUG))
-+		kunit_skip(test, "requires CONFIG_BUG");
-+
-+	sw1 = kunit_start_suppress_warning(test);
-+	trigger_backtrace_warn_on();
-+	WARN(1, "suppressed by sw1");
-+	kunit_end_suppress_warning(test, sw1);
-+
-+	sw2 = kunit_start_suppress_warning(test);
-+	WARN(1, "suppressed by sw2");
-+	kunit_end_suppress_warning(test, sw2);
-+
-+	KUNIT_EXPECT_EQ(test, kunit_suppressed_warning_count(sw1), 2);
-+	KUNIT_EXPECT_EQ(test, kunit_suppressed_warning_count(sw2), 1);
-+}
-+
-+struct cross_kthread_data {
-+	bool was_active;
-+	struct completion done;
-+};
-+
-+static int cross_kthread_fn(void *data)
-+{
-+	struct cross_kthread_data *d = data;
-+
-+	d->was_active = kunit_has_active_suppress_warning();
-+	complete(&d->done);
-+	while (!kthread_should_stop())
-+		schedule();
-+	return 0;
-+}
-+
-+static void backtrace_suppression_test_cross_kthread(struct kunit *test)
-+{
-+	struct cross_kthread_data data;
-+	struct task_struct *task;
-+
-+	data.was_active = false;
-+	init_completion(&data.done);
-+
-+	kunit_warning_suppress(test) {
-+		task = kthread_run(cross_kthread_fn, &data, "kunit-cross-test");
-+		KUNIT_ASSERT_FALSE(test, IS_ERR(task));
-+		wait_for_completion(&data.done);
-+		kthread_stop(task);
-+	}
-+
-+	KUNIT_EXPECT_FALSE(test, data.was_active);
-+}
-+
-+static struct kunit_case backtrace_suppression_test_cases[] = {
-+	KUNIT_CASE(backtrace_suppression_test_warn_direct),
-+	KUNIT_CASE(backtrace_suppression_test_warn_indirect),
-+	KUNIT_CASE(backtrace_suppression_test_warn_multi),
-+	KUNIT_CASE(backtrace_suppression_test_warn_on_direct),
-+	KUNIT_CASE(backtrace_suppression_test_warn_on_indirect),
-+	KUNIT_CASE(backtrace_suppression_test_count),
-+	KUNIT_CASE(backtrace_suppression_test_active_state),
-+	KUNIT_CASE(backtrace_suppression_test_multi_scope),
-+	KUNIT_CASE(backtrace_suppression_test_cross_kthread),
-+	{}
-+};
-+
-+static struct kunit_suite backtrace_suppression_test_suite = {
-+	.name = "backtrace-suppression-test",
-+	.test_cases = backtrace_suppression_test_cases,
-+};
-+kunit_test_suites(&backtrace_suppression_test_suite);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("KUnit test to verify warning backtrace suppression");
+pw-bot: changes-requested
 
--- 
-2.53.0
+>=20
+> I will maintain the pwm module in place of William.
+>=20
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  .../devicetree/bindings/pwm/opencores,pwm.yaml         | 10 +++-------
+>  1 file changed, 3 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml b/D=
+ocumentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> index 52a59d245cdb..834fb17ec595 100644
+> --- a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> @@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  title: OpenCores PWM controller
+> =20
+>  maintainers:
+> -  - William Qiu <william.qiu@starfivetech.com>
+> +  - Hal Feng <hal.feng@starfivetech.com>
+> =20
+>  description:
+>    The OpenCores PTC ip core contains a PWM controller. When operating in=
+ PWM
+> @@ -20,10 +20,6 @@ allOf:
+>  properties:
+>    compatible:
+>      items:
+> -      - enum:
+> -          - starfive,jh7100-pwm
+> -          - starfive,jh7110-pwm
+> -          - starfive,jh8100-pwm
+>        - const: opencores,pwm-v1
+> =20
+>    reg:
+> @@ -48,8 +44,8 @@ additionalProperties: false
+>  examples:
+>    - |
+>      pwm@12490000 {
+> -        compatible =3D "starfive,jh7110-pwm", "opencores,pwm-v1";
+> -        reg =3D <0x12490000 0x10000>;
+> +        compatible =3D "opencores,pwm-v1";
+> +        reg =3D <0x12490000 0x10>;
+>          clocks =3D <&clkgen 181>;
+>          resets =3D <&rstgen 109>;
+>          #pwm-cells =3D <3>;
+> --=20
+> 2.43.2
+>=20
 
+--bsBRJFDfWIlVk/Sa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagcaSgAKCRB4tDGHoIJi
+0vz7AQDnchzrkgpD5wwGGsBP0yvNyXSvs8NxJBiUXVHJNmwg0wEAgZFhi1GnKqLB
+ujHGBW3J5oDRwL4QP5p0t03/7ZjktQU=
+=shV9
+-----END PGP SIGNATURE-----
+
+--bsBRJFDfWIlVk/Sa--
+
+
+--===============5212983729400462326==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5212983729400462326==--
+
