@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8CFCD343F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 10:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A683CD4851
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 10:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYFiKmVcWhVBE8iH32mWNPi9KxdZkz7rG0Totp69ERA=; b=0g8jhBwQ2x0eFi6wpr8GtaB1I3
-	nRi/IpzB5gBb9kbWYbY/nFYcuvXA2dN3XZMG2wzblMwl0YsPcQONmOPOuEhd4zQK6TdAredzxLYVz
-	NbSSNABFayetufodxpf9NcQyZaBmKxXcy96cg7otCgitSDfVF0zVqvMhY3DKVfO48XxTzz5CbE03H
-	p1TD+0LnUKWGt6mxhj0iuDFx3pWfSLU5lgfacrqTDkpZYYcInCwXZemylstO8/KwZbm6bNA14H/+J
-	2Urpxx7lb8uONq4IevDJMQrxrD0V+L+fX+VpP8ynsmal1Qdp0YoN44OBO+UFQ/wnj4cvDamNoUumo
-	cB/sshKA==;
+	bh=u7EQlJysOlRnENOqYp3gfIAklX8vI3zIDPXYo6fYZOs=; b=DBiRNOx6OVmnnDuEsyGUPk71KG
+	isnNenU/opSvDAtZZ6VDXD3vrKpyr2sfnumqn9gIw0G2Qw72g61cO8Kak5pAUQga/gA/WW3lFewA0
+	+Cbh8sbaN8ioeKFuylvMDzu6XfOxUXFe+mhHuv6W/4Ge1j2uCBRgbSsJ2cRtxLSvI8GnslovZmaNa
+	eJU4rUaqCKNn+/FtiXEwmNz4F+KpR1w0zxGN9tZrug0Ej9fVneh3oJYqmcE/GqLabuAh2wIUPrXMQ
+	tFMTbZuV2DzumGMWv3A4lrNMw9MXdmKv7OjqpqRTzvY6/eUP2SFmmtq5sDlXir5zUusA9nyGPR2IV
+	xDWtb1iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpR4-00000007zPQ-2uX3;
-	Fri, 15 May 2026 10:06:26 +0000
+	id 1wNpRx-00000007zZw-3ejG;
+	Fri, 15 May 2026 10:07:21 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpR0-00000007zOZ-4AEy
+	id 1wNpRv-00000007zZF-0j6X
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 10:06:25 +0000
+	Fri, 15 May 2026 10:07:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778839584; x=1810375584;
+  t=1778839640; x=1810375640;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=Tt8o4wmWv7FBD8c1FR41Koq5aNB7M2BPgy0ZMMxct8g=;
-  b=0Ih20V3aLTBrBl/UZ+1/PjcadnbxKih9tftWFW/0HPV196oe+6hqiszr
-   ewpZRfqSrEoolqk6jrGqvc02nio4QOB8hAFbW2VZNNkBa68UmURaD7U9c
-   Fx9au9aR3UgR+GFNiLQLAEfpdWXMGL7LnGaBwivL45CdKotYI38lj1peD
-   wNkYkVtqFpi2GM+HPq4RcUdlMYToEQrguVzj1S3gcY4YvvWpher/6xpmw
-   c6wDnuKstmpHQIL/8Pzx1Uv0JtdY7tjBVKw3kfXfU1DWJ5i5hKqkpVFQG
-   BqxEZojjbWokzbiiae38lrBpB9cWTF2Vkj5UiCVQhonYTzLNn68wP/DPv
-   g==;
-X-CSE-ConnectionGUID: o9rrxM+iSRKeBuLs0oESHA==
-X-CSE-MsgGUID: fQzx7hEJQgO9SWwp0ra30g==
+  bh=p16Samuzcb7UeG8Qdbq/J3WL7f5r6uCXgJkREuEk3FE=;
+  b=0MQpcXCdPYEcfEZJYgUopfbWfuuJ2A6t2bhi3xuBmHe4VXLhU7gnE4BV
+   RLUBVg5C6AhIz4WsXjhSBd8y+6Bp4/RQLhcQM1HVLl+zdLhrWHjSGmw3c
+   qqHL+i72/cnZHdkZpgFpJcyNJZen0PqjgUqTbNMf6MdRc/zIP6PJ5F1O+
+   P2oY8LKtOsSESzTvZl++xIMII2bp7ARBpmNXfsSfnQJTl6WJwCJ/NgQN5
+   +6lsL5TUBUywE5YDT/HaGeAamYxk3LUJJb9Ur7/K1G7+l4ck1gW55WEK8
+   7pbyu3yrXkP0056F0CFXSc2NTfi965Dve5TqvEUO2C4gnJuhEcRlyqxC1
+   Q==;
+X-CSE-ConnectionGUID: 3YPa1uukQxehnbSvoJmU4A==
+X-CSE-MsgGUID: LTVlmf/nT4aZ2CNGcybFHQ==
 X-IronPort-AV: E=Sophos;i="6.23,236,1770620400"; 
-   d="asc'?scan'208";a="56789153"
+   d="asc'?scan'208";a="56789185"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 03:06:23 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 May 2026 03:07:19 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.37; Fri, 15 May 2026 03:06:21 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ 15.1.2507.58; Fri, 15 May 2026 03:07:17 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 15 May 2026 03:06:18 -0700
-Date: Fri, 15 May 2026 11:05:40 +0100
+ Transport; Fri, 15 May 2026 03:07:14 -0700
+Date: Fri, 15 May 2026 11:06:36 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Jia Wang <wangjia@ultrarisc.com>
 CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -68,15 +68,17 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	<conor@kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<linux-gpio@vger.kernel.org>
-Subject: Re: [PATCH 0/9] riscv: ultrarisc: add DP1000 SoC DT and pinctrl
- support
-Message-ID: <20260515-brink-dealer-d0610c0dbc7b@wendy>
+Subject: Re: [PATCH 2/9] dt-bindings: riscv: cpus: Add UltraRISC CP100
+ compatible
+Message-ID: <20260515-possibly-showgirl-a38423881f96@wendy>
 References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
+ <20260515-ultrarisc-pinctrl-v1-2-bf559589ea8a@ultrarisc.com>
 MIME-Version: 1.0
-In-Reply-To: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
+In-Reply-To: <20260515-ultrarisc-pinctrl-v1-2-bf559589ea8a@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_030623_110136_B939C4DA 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20260515_030719_276266_6AC50B5D 
+X-CRM114-Status: UNSURE (   4.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,149 +90,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1630618939390000742=="
+Content-Type: multipart/mixed; boundary="===============1211121569218019704=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1630618939390000742==
+--===============1211121569218019704==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Zg1zeyfmQCNl+VVp"
+	protocol="application/pgp-signature"; boundary="Qa3Omcx9s0HAw1jP"
 Content-Disposition: inline
 
---Zg1zeyfmQCNl+VVp
+--Qa3Omcx9s0HAw1jP
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-Hey,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-On Fri, May 15, 2026 at 09:17:56AM +0800, Jia Wang wrote:
-> This series adds initial Devicetree support for the UltraRISC DP1000 RISC=
--V
-> SoC and two DP1000-based boards (Milk-V Titan and Rongda M0).
->=20
-> The series introduces the required DT bindings, adds the DP1000 pinctrl
-> driver, and provides the initial SoC/board DTS files.
->=20
-> Notes:
->   - Clocks are configured and enabled by firmware before Linux boots. Lin=
-ux
->     does not manage clock rates or gating at runtime on this platform.
->     Therefore the initial DT only models the fixed clocks required by
->     standard drivers, and no clock controller/driver is provided.
-
-I really disagree with this approach. In my experience it never ends up
-working out and ends up being disruptive, because it is either an over
-simplification of the clock tree and condenses multiple different clocks
-into one where rates are similar or because firmware changes mean clock
-rate changes down the line. I would much rather you modelled the clocks
-accurately, even if that just means that a read-only clock controller is
-implemented. Alternatively, if firmware does all of your clock control,
-you can implement this using rpmi/mpoxy using clk-rpmi.c
-
->   - The DP1000 pinctrl binding supports two child node styles under the s=
-ame
->     controller compatible:
->       * legacy DP1000-specific nodes using phandle-array properties
->         "pinctrl-pins" and "pinconf-pins"
->       * generic pinctrl nodes using "pins", "function" and generic pin
->         configuration properties
->     The legacy form is kept for compatibility with existing vendor DTs.
-
-Why would we want "legacy" stuff in mainline when this is a brand new
-platform? "legacy" vendor devicetrees are not something that mainline
-cares about, sorry.
-
-Additionally, these pinctrl patches should be sent standalone to the
-pinctrl maintainers, they're likely to go through lots of revisions and
-a different maintainer applies them.
-
->   - The bindings for "ultrarisc,dp1000-uart" and "ultrarisc,dp1000-pcie" =
-are
->     being reviewed in separate series, since the DP1000 SoC DTS introduced
->     here uses those compatibles:
->     * Link: https://lore.kernel.org/lkml/20260429-ultrarisc-serial-v7-3-e=
-475cce9e274@ultrarisc.com/
->     * Link: https://lore.kernel.org/lkml/20260427-ultrarisc-pcie-v4-2-989=
-35f6cdfb5@ultrarisc.com/
->   - ARCH_ULTRARISC support is being reviewed separately:
->     * Link: https://lore.kernel.org/lkml/20260427-ultrarisc-pcie-v4-1-989=
-35f6cdfb5@ultrarisc.com/
-
-IMO, this patch needs to be in this series so that it compiles.
-
-Cheers,
-Conor.
-
->=20
-> Testing:
->   - dt_binding_check and yamllint (all new/modified binding YAMLs)
->   - dtbs_check and dtbs (RISC-V, including dp1000-milkv-titan.dtb and
->     dp1000-rongda-m0.dtb)
->   - Kernel build for RISC-V and boot-tested on DP1000 (Milk-V Titan and
->     Rongda M0)
->=20
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> ---
-> Jia Wang (9):
->       dt-bindings: vendor-prefixes: add Rongda
->       dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible
->       dt-bindings: riscv: Add UltraRISC DP1000 bindings
->       dt-bindings: pinctrl: Add UltraRISC DP1000 pinctrl bindings
->       riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000
->       pinctrl: ultrarisc: Add UltraRISC DP1000 pinctrl driver
->       riscv: dts: ultrarisc: add Rongda M0 board device tree
->       riscv: dts: ultrarisc: add Milk-V Titan board device tree
->       riscv: defconfig: enable ARCH_ULTRARISC
->=20
->  .../bindings/pinctrl/ultrarisc,dp1000-pinctrl.yaml | 168 ++++
->  Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
->  .../devicetree/bindings/riscv/ultrarisc.yaml       |  27 +
->  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
->  MAINTAINERS                                        |  15 +
->  arch/riscv/boot/dts/Makefile                       |   1 +
->  arch/riscv/boot/dts/ultrarisc/Makefile             |   3 +
->  .../dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi  | 107 +++
->  .../boot/dts/ultrarisc/dp1000-milkv-titan.dts      | 182 +++++
->  .../dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi    |  85 ++
->  arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts | 111 +++
->  arch/riscv/boot/dts/ultrarisc/dp1000.dtsi          | 851 +++++++++++++++=
-++++++
->  arch/riscv/configs/defconfig                       |   1 +
->  drivers/pinctrl/Kconfig                            |   1 +
->  drivers/pinctrl/Makefile                           |   1 +
->  drivers/pinctrl/ultrarisc/Kconfig                  |  23 +
->  drivers/pinctrl/ultrarisc/Makefile                 |   4 +
->  drivers/pinctrl/ultrarisc/pinctrl-dp1000.c         | 112 +++
->  drivers/pinctrl/ultrarisc/pinctrl-ultrarisc.c      | 746 +++++++++++++++=
-+++
->  drivers/pinctrl/ultrarisc/pinctrl-ultrarisc.h      |  71 ++
->  .../dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h |  65 ++
->  21 files changed, 2577 insertions(+)
-> ---
-> base-commit: 50897c955902c93ae71c38698abb910525ebdc89
-> change-id: 20260316-ultrarisc-pinctrl-efa6e24c4803
->=20
-> Best regards,
-> -- =20
-> Jia Wang <wangjia@ultrarisc.com>
->=20
-
---Zg1zeyfmQCNl+VVp
+--Qa3Omcx9s0HAw1jP
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagbv9AAKCRB4tDGHoIJi
-0owyAP98o2Gi+WPgvPXDb2eegMxaGOqaR/US3qNCty4tHANZqgEA1vZfx3qOE2A4
-JvyDT2lpoJ17eKlYt9elN5N+5alSIQI=
-=6JcX
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagbwLAAKCRB4tDGHoIJi
+0r/OAQDRlYqfkdPpp90m6Qrq0ztSJvu2u34C9qGWQNkz4kamQQD+Pj1GthASpIRQ
+hFGwBclBGjHAlwcUVTh78KCnFIt2PAk=
+=VDHT
 -----END PGP SIGNATURE-----
 
---Zg1zeyfmQCNl+VVp--
+--Qa3Omcx9s0HAw1jP--
 
 
---===============1630618939390000742==
+--===============1211121569218019704==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -241,5 +130,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1630618939390000742==--
+--===============1211121569218019704==--
 
