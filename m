@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E763CD4F39
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 May 2026 23:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D3DCD4F39
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 00:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u4IpOeosWK4fsybybYXkdqbVd2HqUuxRmidUf6PfAf0=; b=ePMgzVR4/yGM9Z
-	RaVpQbMLvIegx2fRaC8ao/KRR5roObCHXffr61+FARtgQ7JEOdrgJcbRKS28wZXsTPvIIWUAabc+Z
-	J1pAx7mJ1d3DZ6EyrVLkOjoCwazYUoLHUMwRdByJAji4G1QF7tdX1zoA8jjOy+UQSqkvFfMq7ozVy
-	WCxIXIKgz16aB4naY1xTScpj8YJiq3pOYBWFvKMTEwuI7B+I0oPtXzvf33+UscUAyxvXB1rwlrl3B
-	szYGjJa7koLh/qDnYF46khjdD50m9EcyWqFibiQn7gWKj1OzdktJGS8LjiKk/Zb5y6LwtPsfLMWFN
-	YHpgs5HasmnhUQeEK71g==;
+	List-Owner; bh=RurAIwTPqc5iu5B/Ff2gQaijbUSSg7gO0xQ91477jl4=; b=4LJMDFiJRBtI/3
+	qS040Ns+fPHgPGzyCEbQaIfoEwSed6xDpO2jDtDQqBvMHf9kHz/4/epVPt1oL6E2zb420vG3wU4c6
+	Vh/O7ChgnjYQOKWs7I4rY0Yt3yEhBi/h4KGXXIMz4KE6WUIMnHzPHdOF+ka3mnk4c3ogoi3CFeEh9
+	yv3ED8YrQ+ZCCwmuUXQovxfrKHxqpvFUqs+p+PKFJLbYj/9l6sbdC9/emQ6Lndr9PK+c1duWJQQ04
+	DFWy2bPAIQPf87tm5DYE8aZOvMrHtDaL34Z52EZedZ3Pbn9HoC+n9iVP/29v0dOBVWboLe4L/ydG4
+	uIb6XYRpyuvEZvca6A6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNfZs-00000006por-3upE;
-	Thu, 14 May 2026 23:34:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNfzW-00000006s3B-1rYH;
+	Fri, 15 May 2026 00:01:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNfZr-00000006poh-3lew
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 May 2026 23:34:51 +0000
+	id 1wNfzU-00000006s2k-0J4O;
+	Fri, 15 May 2026 00:01:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB19D60132;
-	Thu, 14 May 2026 23:34:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 353E7C2BCB3;
-	Thu, 14 May 2026 23:34:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C6B6860008;
+	Fri, 15 May 2026 00:01:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9D03C2BCB3;
+	Fri, 15 May 2026 00:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778801690;
-	bh=VTVKVwBI0yfXk8vWOqDjB0TtPEq/BIS9tDluZGPTVE8=;
+	s=k20201202; t=1778803278;
+	bh=qcyh1k6oDWxzqMUIRNWfJA2lNDX2xIYpO4RsFgvB/Pc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KzDuGBx6iH26mngpO4t7dd7Ic4nvod0HRexS7rQXFo1QPRZA/pT27Zb0RM54kS4ax
-	 vLoFpifHWxhr4nDK0Ox2RFpMAsz4sbMuOCCGVtVxPCusPjFk84roYr0isUi6ARFzA/
-	 EFhq8gP7QnWpbLJHq5TqDKr8rr77g36rrTG9zsbNkc+lcAQ0838NHkPrO1D+NMeziu
-	 cK7KTcGBzI7uq2IXSLfS2muqYoF7nFUbY5i2Qi2CHTTI8nG+qQA6vzSyZhK+NA4Hr8
-	 jOTek0vzKCyFsJa7+mL6lcTVwo+a1rvh4zmuy36abVQ0tS5Wg0gVtUJVIpvabeOOxL
-	 UTZZ7K9cVm6yg==
-Date: Thu, 14 May 2026 23:34:48 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 0/2] pwm: spacemit: Add Support for K3 SoC
-Message-ID: <20260514233448-GKA3663945@kernel.org>
-References: <20260428-03-k3-pwm-drv-v2-0-a532bbe45556@kernel.org>
+	b=ORTs2e47LDfXtxpftrsgmc0BBJfhsGWPf3S7imib3v4dWSmqlGKYQTWNchK/6tqqv
+	 28zSEFcawoJf5V5dMaouJ/OjkKLtq1W+p1dESsernOwMwK7viKW4dlettM9fHGZJ/g
+	 GUI/V3HUvr+ResYK5Wo+/EnZVSefKesf7+hwdq5+G5er6JKBevdLzivjuiELJUBEww
+	 BBRyyBE1t8374ptrmuPzDNmNofdZC8dRo2ivwgc/FhQ4blzhzcWxfDchMnGEL3jS2K
+	 vMhmTj6OBA4dBHPhOVFmkR66JiCZSaodo3uE/UB6rBNz3FPqlkz2ZY0XPM4GiMfpiH
+	 Rwch+YpztSmpw==
+Date: Thu, 14 May 2026 21:01:15 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: adrian.hunter@intel.com, dapeng1.mi@linux.intel.com,
+	james.clark@linaro.org, namhyung@kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Li Guan <guanli.oerv@isrc.iscas.ac.cn>, 9erthalion6@gmail.com,
+	alex@ghiti.fr, alexander.shishkin@linux.intel.com,
+	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+	atrajeev@linux.ibm.com, howardchu95@gmail.com,
+	john.g.garry@oracle.com, jolsa@kernel.org, leo.yan@linux.dev,
+	libunwind-devel@nongnu.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org, mingo@redhat.com,
+	palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org,
+	shimin.guo@skydio.com, tglozar@redhat.com, tmricht@linux.ibm.com,
+	will@kernel.org
+Subject: Re: [PATCH v5 0/7] perf libunwind multiple remote support
+Message-ID: <agZiS2-fY49MjsY6@x1>
+References: <20260413024805.1316480-1-irogers@google.com>
+ <20260513233151.572332-1-irogers@google.com>
+ <CAP-5=fW6S1XzZvq=kWj6ma=O1UCDrVV3ZNbzK0fMS_ho6e1qVg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260428-03-k3-pwm-drv-v2-0-a532bbe45556@kernel.org>
+In-Reply-To: <CAP-5=fW6S1XzZvq=kWj6ma=O1UCDrVV3ZNbzK0fMS_ho6e1qVg@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,61 +77,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe Kleine-K=F6nig,
-  Can you queue this one for v7.2? I'm sending the DTS part patch
-and got a complaint for "clock definitions violation"
-
-https://lore.kernel.org/all/20260511235952.F32FBC2BCB0@smtp.kernel.org/
-
-On 10:46 Tue 28 Apr     , Yixun Lan wrote:
-> The PWM controller in SpacemiT K3 SoC reuse the same IP as previous K1
-> generation, while the difference is that one additional bus clock is
-> added. Introduce a new compatible string and also adjust driver code to
-> support it.
-> =
-
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
-> Changes in v2:
-> - Merge dt-binding of clock-names property
-> - Use local variable for bus clock
-> - Rebase to v7.1-rc1
-> - Link to v1: https://lore.kernel.org/r/20260409-03-k3-pwm-drv-v1-0-1307a=
-06fba38@kernel.org
-> =
-
-> ---
-> Yixun Lan (2):
->       dt-bindings: pwm: marvell,pxa-pwm: Add SpacemiT K3 PWM support
->       pwm: pxa: Add optional bus clock
-> =
-
->  .../devicetree/bindings/pwm/marvell,pxa-pwm.yaml   | 41 ++++++++++++++++=
-++++--
->  drivers/pwm/pwm-pxa.c                              |  8 ++++-
->  2 files changed, 45 insertions(+), 4 deletions(-)
-> ---
-> base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-> change-id: 20260401-03-k3-pwm-drv-4ea99ae355d6
-> =
-
-> Best regards,
-> -- =
-
-> Yixun Lan <dlan@kernel.org>
-> =
-
-
--- =
-
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMTQsIDIwMjYgYXQgMDk6NTE6MDlBTSAtMDcwMCwgSWFuIFJvZ2VycyB3cm90
+ZToKPiBPbiBXZWQsIE1heSAxMywgMjAyNiBhdCA0OjMy4oCvUE0gSWFuIFJvZ2VycyA8aXJvZ2Vy
+c0Bnb29nbGUuY29tPiB3cm90ZToKPiA+IEZpeCB0aGUgbGlidW53aW5kIGJ1aWxkIGZvciB3aGVu
+IGxpYmR3IGFuZCBsaWJ1bndpbmQgYXJlIGZlYXR1cmUKPiA+IGRldGVjdGVkLCBjdXJyZW50bHkg
+ZmFpbGluZyB3aXRoIGEgZHVwbGljYXRlIHN5bWJvbC4KPiA+Cj4gPiBSZWZhY3RvciB0aGUgbGli
+dW53aW5kIHN1cHBvcnQgc28gdGhhdCB3aGVuZXZlciBhIHJlbW90ZSB0YXJnZXQgaXMKPiA+IGF2
+YWlsYWJsZSwgcGVyZiBmdW5jdGlvbnMgdXNpbmcgdGhlIEVMRiBtYWNoaW5lIGNhbiB1c2UgdGhh
+dCByZW1vdGUKPiA+IHRhcmdldCByZWdhcmRsZXNzIG9mIHdoYXQgdGhlIGhvc3QvbG9jYWwgbWFj
+aGluZSBpcy4gTWlncmF0ZSBleGlzdGluZwo+ID4gbGlidW53aW5kIHN1cHBvcnRlZCBhcmNoaXRl
+Y3R1cmVzIGxpa2UgcG93ZXJwYywgYXJtNjQgYW5kIGxvb25nYXJjaCBzbwo+ID4gdGhhdCB0aGV5
+IGNhbiB3b3JrIGluIGEgY3Jvc3MtYXJjaGl0ZWN0dXJlIHdheS4gQWRkIHN1cHBvcnQgZm9yCj4g
+PiBSSVNDLVYuIE1ha2UgdGhlIGNvZGUgbW9yZSByZWd1bGFyIGluIGZ1bmN0aW9uIG5hbWVzLCBl
+dGMuIGFuZCBhdm9pZAo+ID4gaW5jbHVkaW5nIGEgQy1maWxlLiBUaGlzIGluY3JlYXNlcyB0aGUg
+bGluZXMgb2YgY29kZS4gSXQgaXMgc2ltaWxhciBpbgo+ID4gc3R5bGUgdG8gdGhlIHVud2luZC1s
+aWJkdyBpbXBsZW1lbnRhdGlvbi4gSXQgaXMgaG9wZWQgdGhhdCB0aGUgbW9yZQo+ID4gdW5pZm9y
+bSBuYXR1cmUgb2YgdGhlIGNvZGUgd2lsbCBoZWxwIHdpdGggcmVmYWN0b3JpbmcgdGhlIHBlcmYK
+PiA+IHJlZ2lzdGVycyBmb3IgU0lNRC9BUFggc3VwcG9ydC4KPiA+Cj4gPiBBc2lkZSBmcm9tIGxv
+Y2FsIGhvc3QgdGVzdGluZyB0aGVzZSBwYXRjaGVzIGFyZSB1bmRlciB0ZXN0ZWQsIGluIHBhcnQK
+PiA+IGFzIEknbSBmYWlsaW5nIHRvIHNlZSBob3cgdG8gYnVpbGQgbGlidW53aW5kIHdpdGggc3Vw
+cG9ydCBmb3IgbXVsdGlwbGUKPiA+IHJlbW90ZSB0YXJnZXRzLiBQbGVhc2UgY291bGQgSSBnZXQg
+aGVscCBpbiB0ZXN0aW5nLgo+IAo+IFNvIHRoZSBwYXRjaGVzIGZhaWxlZCB0byBhcHBseSBpbiBT
+YXNoaWtvOgo+IGh0dHBzOi8vc2FzaGlrby5kZXYvIy9wYXRjaHNldC8yMDI2MDUxMzIzMzE1MS41
+NzIzMzItMS1pcm9nZXJzJTQwZ29vZ2xlLmNvbQo+IFRoZSBiYXNlbGluZSBsb2dzIHNob3cgcGVy
+Zi10b29scy1uZXh0IHdhcyBhdCBjb21taXQgOGM4ZjIwOTM2MTQzCj4gKCJwZXJmIGJ1aWxkOiBS
+ZW1vdmUgTk9fR1RLMiBidWlsZCB0ZXN0Iikgd2hpY2ggaXMgNiBwYXRjaGVzCj4gb3V0LW9mLWRh
+dGUgY29tcGFyZWQgdG8gdGhlIGN1cnJlbnQgdGlwIHRoZXNlIHBhdGNoZXMgYXJlIGFnYWluc3Qu
+IEkKPiByYW4gU2FzaGlrbyBsb2NhbGx5LCBzbyBJIGRvbid0IGV4cGVjdCBhIGh1Z2UgYW1vdW50
+IGZyb20gdGhlIHJldmlld3MuCj4gQ3VycmVudGx5IFNhc2hpa28gaXMgY2F0Y2hpbmcgdXAgd2l0
+aCBhIGJhY2tsb2cgYmVjYXVzZSBpdHMgdG9rZW5zCj4gaGF2ZSBhIGxvd2VyIHByaW9yaXR5IGFu
+ZCB0aGVyZSB3YXMgaGlnaCBsb2FkIGVhcmxpZXIgaW4gdGhlIHdlZWsuCj4gQW55d2F5LCBJIGNv
+dWxkIHJlcG9zdCB0aGUgcGF0Y2hlcyBmb3IgU2FzaGlrbyByZXZpZXcgYnV0IGdpdmVuIHRoZQo+
+IGJhY2tsb2cgSSB0aGluayB0aGF0IHdvdWxkIGp1c3QgY3JlYXRlIG5vaXNlIGF0IHRoZSBtb21l
+bnQuIEhvcGVmdWxseQo+IEkgY2FuIGdldCBodW1hbiByZXZpZXcgc28gd2UgY2FuIG1vdmUgZm9y
+d2FyZCB3aXRoIG1lcmdpbmcgdGhlc2UKPiBpbXByb3ZlbWVudHMuCgpUcnlpbmcgdG8gYXBwbHkg
+aXQgbm93LCB3aWxsIGFsc28gcnVuIHNhc2hpa28gbG9jYWxseS4KCi0gQXJuYWxkbwoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
