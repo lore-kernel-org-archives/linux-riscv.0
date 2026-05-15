@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E63CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 01:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5C9CD37AC
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 01:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s+eIj1AOQ/kSOqqlrejmfc5dlPeZxE36tqsMZdjuOiQ=; b=jBLzQK54z9mpJT
-	sKA9sKoy9LeugXl3riaEHP9vjlbKW2AcnfytMXfsUUGX0pgZM4snvxgbiF9KIeP4BNsr2qIUCCIYO
-	ye1o6i2A6o17hZKN5O+8YnGaD+ySfBNMJQQwZvpH+LKBDpWwqzNKGsPXtCdgHYoU3YQ59CjPfUu5U
-	DKfJ7F0XgWIjV/S8uKQCdGU4pYM5lvkKUxTgeD7oy3gM2MG+zjXICTzBV5lyovKQy8ukPB6Q3Falk
-	sXztF1jf+uX7kSsB1rf8mGOfTbXSVFjmcXYBXOs4W+bKtW8nHSsFxuKnhgmmuFgtegSIga3DzM9rH
-	f/6OIJeRPhk97+/pfSGg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CDh6GpAH7bbvJhJERjwHA55rokAFfVQCYTXbN2YEBqw=; b=QZnKC6jStMg6tJ
+	jBxDDI5JfqExZcHoVuBwsEN9dnL0ug0dufk/RTuLtPbFPOJIqVkZ37rHUU+/Y079jc+uTC9DowqS9
+	0cl1MktVdEoM6NtIvEkgZB1qG6jsvCaBXqYYyAGX4a7w2tVrlVTh+O/xb7C6Oz1cq3odznmooFHgg
+	tJWbRQ+2dUFC7kgKjgbZN3G1wMbjDMzApbtnj6emyYQc36ZLcu3f5kdrL6WESAgq7x3g8l7oi2eU0
+	ywzTRLaL/74a60zCunlDxrTOjKVry6Wt6QBXO/j/8R1487CBgpHFEzln73uBKiu1AJhgW72+SPnzM
+	5xUpeIhnKO3OiW6u1pZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhBz-00000006zl7-1508;
-	Fri, 15 May 2026 01:18:19 +0000
+	id 1wNhC3-00000006znm-0Rz1;
+	Fri, 15 May 2026 01:18:23 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhBu-00000006zh1-1E2A
+	id 1wNhBu-00000006zgx-1Ck0
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 01:18:18 +0000
+	Fri, 15 May 2026 01:18:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1AB8844735;
-	Fri, 15 May 2026 01:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E6646C2BD04;
+	by sea.source.kernel.org (Postfix) with ESMTP id CACE543972;
+	Fri, 15 May 2026 01:18:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A0546C2BCB3;
 	Fri, 15 May 2026 01:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778807893;
-	bh=JRT4MxexkJ8P9HZKdmQPtFUfwGYiqT4wP9WIUsn4168=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=gR0k//j7qkAzUXnvIqUEuVeowhfkes0+7ugmE/gHhf4nSij8jWF44kbBvFQhm+2V1
-	 GjNFApvNQqxsSLtwoI13GPUmQqNAYoRTXWsl9SpiXJ/Q7KtSd4FBaSKfbzjaqwsc1w
-	 YEgvM8KKrNzYlwRWuhxPYvced3CuGs2mUQReCk1rC185cTt2HriFsMb68ApFcPSfXh
-	 cqUHFFrfyGRs/38zXk7ycPdsdf7Q+7xtcuDKMOoa/wJfYBvVBFlmRSRObNcAZFBS2l
-	 KoNYh3mCTCEFQEObIrg5GUtOHh6M64E48Z+WEBM/KWp2ngk+9JSsAX3U/7a0W/VyeZ
-	 ok4rwIxEDCW4g==
+	s=k20201202; t=1778807892;
+	bh=CIzqu3iSXQE7WxLBaG2FjLAc8gxifDDaK5d1TURsWzw=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=jFAX2C35WASpbW6IgltgDFQTonP7mjFkOe6XTQvVFgFtOpsPgk8NuXs0ix05a7iyc
+	 B+H1ZiWSI/FS/lLCMntHpsCOdV3D/DeulHw1TTHwHdtQN5/G9rEyqQYJO0/S2WahMz
+	 VGiaXnwTskSRUABEdq2cczZKsx3BfedV+VCn2oADWigrKLzYbG0NfrYbGF5LGWlODB
+	 GqsEB6WUCS52aIxWjyuKGLgKQaUPB1QZpinZRME7yKlXF1Su/AISs+7dkVhTx0bXG/
+	 YF3+ZVhs0j53TzUUJuldgICDI9n6WarWYjy2T1wIPLoYuINk0MqyfpCmjkckhJBfNq
+	 /gBTIce2oa8xg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D4645CD4F3C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BB36CD37AC;
 	Fri, 15 May 2026 01:18:12 +0000 (UTC)
 From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Date: Fri, 15 May 2026 09:18:00 +0800
-Subject: [PATCH 4/9] dt-bindings: pinctrl: Add UltraRISC DP1000 pinctrl
- bindings
+Subject: [PATCH 0/9] riscv: ultrarisc: add DP1000 SoC DT and pinctrl
+ support
+Date: Fri, 15 May 2026 09:17:56 +0800
+Message-Id: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
 MIME-Version: 1.0
-Message-Id: <20260515-ultrarisc-pinctrl-v1-4-bf559589ea8a@ultrarisc.com>
-References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
-In-Reply-To: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
+X-B4-Tracking: v=1; b=H4sIAER0BmoC/yXMQQqEMAxA0atI1hZqlSJzlcFFjVEj0pGkiiDe3
+ c7M8i3+v0BJmBRexQVCByt/YkZVFoBziBMZHrLBWedtXXmzr0mCsKLZOGKS1dAYPLkGm9bWkLt
+ NaOTz93x3f+veL4TpO4L7fgAwkAmRdQAAAA==
+X-Change-ID: 20260316-ultrarisc-pinctrl-efa6e24c4803
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -65,19 +67,20 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
  Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778807890; l=8595;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778807890; l=3939;
  i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=Ryby9hZuN7SHyXVlBdmHsw3fGds+h05WBF/9u3gnjj8=;
- b=1ms6oJVaXPuFMoEnClPMUvo6AV+r6jTiIXQ9zEWR4VHGoOAViGCJib+EFlvbUc0a5qin/9UDG
- rWr1XkxHvIgB4wag7aLpzeY/ac3tDhqhHQfvxVByu2v+/YuefwPrFcp
+ bh=CIzqu3iSXQE7WxLBaG2FjLAc8gxifDDaK5d1TURsWzw=;
+ b=Dc3d8WwB4MLDtzdPDDLY4xc9u1QECszdJWuus/oTWcJL6qCseT8wQhfxrgPWTLdMqoNvJ2MJ9
+ GoaIZaZQjVpC7juOougB38kb6ZoCx5T2PubrnD9nuZnupQ/FfpHQfw3
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
 X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
  auth_id=779
 X-Original-From: Jia Wang <wangjia@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_181814_382149_1B1588CF 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20260514_181814_396807_9D0869AD 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,158 +93,90 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: wangjia@ultrarisc.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSmlhIFdhbmcgPHdhbmdqaWFAdWx0cmFyaXNjLmNvbT4KCkFkZCBiaW5kaW5ncyBmb3Ig
-dGhlIHBpbiBjb250cm9sbGVycyBvbiB0aGUgVWx0cmFSSVNDIERQMTAwMCBSSVNDLVYgU29DLgoK
-U2lnbmVkLW9mZi1ieTogSmlhIFdhbmcgPHdhbmdqaWFAdWx0cmFyaXNjLmNvbT4KLS0tCiAuLi4v
-YmluZGluZ3MvcGluY3RybC91bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwueWFtbCB8IDE2OCArKysr
-KysrKysrKysrKysrKysrKysKIE1BSU5UQUlORVJTICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIHwgICA3ICsKIC4uLi9kdC1iaW5kaW5ncy9waW5jdHJsL3VsdHJhcmlzYyxk
-cDEwMDAtcGluY3RybC5oIHwgIDY1ICsrKysrKysrCiAzIGZpbGVzIGNoYW5nZWQsIDI0MCBpbnNl
-cnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
-L3BpbmN0cmwvdWx0cmFyaXNjLGRwMTAwMC1waW5jdHJsLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2Rl
-dmljZXRyZWUvYmluZGluZ3MvcGluY3RybC91bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwueWFtbApu
-ZXcgZmlsZSBtb2RlIDEwMDY0NAppbmRleCAwMDAwMDAwMDAwMDAuLmM3ZWQxZjk2MzgyYQotLS0g
-L2Rldi9udWxsCisrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9waW5jdHJs
-L3VsdHJhcmlzYyxkcDEwMDAtcGluY3RybC55YW1sCkBAIC0wLDAgKzEsMTY4IEBACisjIFNQRFgt
-TGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkKKyVZQU1M
-IDEuMgorLS0tCiskaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL3BpbmN0cmwvdWx0
-cmFyaXNjLGRwMTAwMC1waW5jdHJsLnlhbWwjCiskc2NoZW1hOiBodHRwOi8vZGV2aWNldHJlZS5v
-cmcvbWV0YS1zY2hlbWFzL2NvcmUueWFtbCMKKwordGl0bGU6IFVsdHJhUklTQyBEUDEwMDAgUGlu
-IENvbnRyb2xsZXIKK21haW50YWluZXJzOgorICAtIEppYSBXYW5nIDx3YW5namlhQHVsdHJhcmlz
-Yy5jb20+CisKK2Rlc2NyaXB0aW9uOiB8CisgIFVsdHJhUklTQyBSSVNDLVYgU29DIERQMTAwMCBw
-aW4gY29udHJvbGxlci4KKworICBUaGUgYmluZGluZyBzdXBwb3J0cyB0d28gY2hpbGQgbm9kZSBz
-dHlsZXMgdW5kZXIgdGhlIHNhbWUgY29udHJvbGxlcgorICBjb21wYXRpYmxlOgorCisgIC0gbGVn
-YWN5IERQMTAwMC1zcGVjaWZpYyBub2RlcyB1c2luZyBwaGFuZGxlLWFycmF5IHByb3BlcnRpZXMK
-KyAgICBgcGluY3RybC1waW5zYCBhbmQgYHBpbmNvbmYtcGluc2AKKyAgLSBnZW5lcmljIHBpbmN0
-cmwgbm9kZXMgdXNpbmcgYHBpbnNgLCBgZnVuY3Rpb25gIGFuZCBnZW5lcmljIHBpbgorICAgIGNv
-bmZpZ3VyYXRpb24gcHJvcGVydGllcworCitwcm9wZXJ0aWVzOgorICBjb21wYXRpYmxlOgorICAg
-IGNvbnN0OiB1bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwKKworICByZWc6CisgICAgbWF4SXRlbXM6
-IDEKKworICAiI3BpbmN0cmwtY2VsbHMiOgorICAgICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwj
-L2RlZmluaXRpb25zL3VpbnQzMgorCitwYXR0ZXJuUHJvcGVydGllczoKKyAgJy4qLXBpbnMkJzoK
-KyAgICB0eXBlOiBvYmplY3QKKyAgICBhbGxPZjoKKyAgICAgIC0gJHJlZjogL3NjaGVtYXMvcGlu
-Y3RybC9waW5jZmctbm9kZS55YW1sIworICAgICAgLSAkcmVmOiAvc2NoZW1hcy9waW5jdHJsL3Bp
-bm11eC1ub2RlLnlhbWwjCisgICAgYWRkaXRpb25hbFByb3BlcnRpZXM6IGZhbHNlCisgICAgcHJv
-cGVydGllczoKKyAgICAgIHBpbmN0cmwtcGluczoKKyAgICAgICAgZGVzY3JpcHRpb246IHwKKyAg
-ICAgICAgICBUaGUgbGlzdCBvZiBwaW5zIGFuZCB0aGVpciBtdXggc2V0dGluZ3MgdGhhdCBwcm9w
-ZXJ0aWVzIGluIHRoZSBub2RlCisgICAgICAgICAgYXBwbHkgdG8uIFRoZSBmb3JtYXQ6IGBQT1JU
-ICBQSU4gIEZVTkNUSU9OYC4KKyAgICAgICAgJHJlZjogL3NjaGVtYXMvdHlwZXMueWFtbCMvZGVm
-aW5pdGlvbnMvdWludDMyLWFycmF5CisgICAgICAgIG1pbkl0ZW1zOiAxCisgICAgICAgIG1heEl0
-ZW1zOiAzMgorICAgICAgcGluY29uZi1waW5zOgorICAgICAgICBkZXNjcmlwdGlvbjogfAorICAg
-ICAgICAgIFRoZSBsaXN0IG9mIHBpbnMgYW5kIHRoZWlyIHBhZCBjb25maWd1cmF0aW9uIHRoYXQg
-cHJvcGVydGllcyBpbiB0aGUKKyAgICAgICAgICBub2RlIGFwcGx5IHRvLiBUaGUgZm9ybWF0OiBg
-UE9SVCAgUElOICBDT05GYC4KKyAgICAgICAgICBDT05GIGlzIGEgRFAxMDAwLXNwZWNpZmljIGVu
-Y29kaW5nIG9mIHB1bGwgYW5kIGRyaXZlIHN0cmVuZ3RoIGFzCisgICAgICAgICAgZGVmaW5lZCBp
-biBkdC1iaW5kaW5ncy9waW5jdHJsL3VsdHJhcmlzYyxkcDEwMDAtcGluY3RybC5oLgorICAgICAg
-ICAkcmVmOiAvc2NoZW1hcy90eXBlcy55YW1sIy9kZWZpbml0aW9ucy91aW50MzItYXJyYXkKKyAg
-ICAgICAgbWluSXRlbXM6IDEKKyAgICAgICAgbWF4SXRlbXM6IDMyCisgICAgICBwaW5zOgorICAg
-ICAgICBkZXNjcmlwdGlvbjogTGlzdCBvZiBwaW5zIGFmZmVjdGVkIGJ5IHRoaXMgc3RhdGUgbm9k
-ZS4KKyAgICAgICAgbWluSXRlbXM6IDEKKyAgICAgICAgdW5pcXVlSXRlbXM6IHRydWUKKyAgICAg
-ICAgaXRlbXM6CisgICAgICAgICAgdHlwZTogc3RyaW5nCisgICAgICAgICAgcGF0dGVybjogJ14o
-UEEoWzAtOV18MVswLTVdKXxQW0JDRF1bMC03XXxMUEMoWzAtOV18MVswLTJdKSkkJworCisgICAg
-ICBmdW5jdGlvbjoKKyAgICAgICAgZGVzY3JpcHRpb246IHwKKyAgICAgICAgICBNdXggZnVuY3Rp
-b24gdG8gc2VsZWN0IGZvciB0aGUgbGlzdGVkIHBpbnMuCisgICAgICAgICAgZ3BpbyBtYXBzIHRv
-IHRoZSBoYXJkd2FyZSBkZWZhdWx0IG1vZGUuIFRoZSBkZWZhdWx0IG1vZGUgaXMKKyAgICAgICAg
-ICBHUElPIGZvciBQQS9QQi9QQy9QRCBwaW5zIGFuZCBMUEMgZm9yIExQQyBwaW5zLgorICAgICAg
-ICAgIGZ1bmMxIGlzIG5vdCBzdXBwb3J0ZWQgb24gTFBDIHBpbnMuCisgICAgICAgIGVudW06Cisg
-ICAgICAgICAgLSBncGlvCisgICAgICAgICAgLSBmdW5jMAorICAgICAgICAgIC0gZnVuYzEKKwor
-ICAgICAgYmlhcy1kaXNhYmxlOiB0cnVlCisgICAgICBiaWFzLWhpZ2gtaW1wZWRhbmNlOiB0cnVl
-CisgICAgICBiaWFzLXB1bGwtdXA6IHRydWUKKyAgICAgIGJpYXMtcHVsbC1kb3duOiB0cnVlCisK
-KyAgICAgIGRyaXZlLXN0cmVuZ3RoOgorICAgICAgICBkZXNjcmlwdGlvbjogT3V0cHV0IGRyaXZl
-IHN0cmVuZ3RoIGluIG1BLgorICAgICAgICBlbnVtOiBbMjAsIDI3LCAzMywgNDBdCisKKyAgICBv
-bmVPZjoKKyAgICAgIC0gYWxsT2Y6CisgICAgICAgICAgLSBhbnlPZjoKKyAgICAgICAgICAgICAg
-LSByZXF1aXJlZDogW3BpbmN0cmwtcGluc10KKyAgICAgICAgICAgICAgLSByZXF1aXJlZDogW3Bp
-bmNvbmYtcGluc10KKyAgICAgICAgICAtIG5vdDoKKyAgICAgICAgICAgICAgcmVxdWlyZWQ6IFtw
-aW5zXQorICAgICAgLSBhbGxPZjoKKyAgICAgICAgICAtIHJlcXVpcmVkOiBbcGluc10KKyAgICAg
-ICAgICAtIG5vdDoKKyAgICAgICAgICAgICAgYW55T2Y6CisgICAgICAgICAgICAgICAgLSByZXF1
-aXJlZDogW3BpbmN0cmwtcGluc10KKyAgICAgICAgICAgICAgICAtIHJlcXVpcmVkOiBbcGluY29u
-Zi1waW5zXQorCit1bmV2YWx1YXRlZFByb3BlcnRpZXM6IGZhbHNlCisKK2V4YW1wbGVzOgorICAt
-IHwKKyAgICBzb2MgeworICAgICAgI2FkZHJlc3MtY2VsbHMgPSA8Mj47CisgICAgICAjc2l6ZS1j
-ZWxscyA9IDwyPjsKKworICAgICAgcGlubXV4QDExMDgxMDAwIHsKKyAgICAgICAgY29tcGF0aWJs
-ZSA9ICJ1bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwiOworICAgICAgICByZWcgPSA8MHgwIDB4MTEw
-ODEwMDAgIDB4MCAweDEwMDA+OworICAgICAgICAjcGluY3RybC1jZWxscyA9IDwyPjsKKworICAg
-ICAgICBpMmMwLXBpbnMgeworICAgICAgICAgIHBpbnMgPSAiUEExMiIsICJQQTEzIjsKKyAgICAg
-ICAgICBmdW5jdGlvbiA9ICJmdW5jMCI7CisgICAgICAgICAgYmlhcy1wdWxsLXVwOworICAgICAg
-ICAgIGRyaXZlLXN0cmVuZ3RoID0gPDMzPjsKKyAgICAgICAgfTsKKworICAgICAgICB1YXJ0MC1w
-aW5zIHsKKyAgICAgICAgICBwaW5zID0gIlBBOCIsICJQQTkiOworICAgICAgICAgIGZ1bmN0aW9u
-ID0gImZ1bmMxIjsKKyAgICAgICAgICBiaWFzLXB1bGwtdXA7CisgICAgICAgICAgZHJpdmUtc3Ry
-ZW5ndGggPSA8MzM+OworICAgICAgICB9OworICAgICAgfTsKKyAgICB9OworCisgIC0gfAorICAg
-IC8qIExlZ2FjeSBleGFtcGxlICovCisgICAgI2luY2x1ZGUgPGR0LWJpbmRpbmdzL3BpbmN0cmwv
-dWx0cmFyaXNjLGRwMTAwMC1waW5jdHJsLmg+CisKKyAgICBzb2MgeworICAgICAgI2FkZHJlc3Mt
-Y2VsbHMgPSA8Mj47CisgICAgICAjc2l6ZS1jZWxscyA9IDwyPjsKKworICAgICAgcGlubXV4QDEx
-MDgxMDAwIHsKKyAgICAgICAgY29tcGF0aWJsZSA9ICJ1bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwi
-OworICAgICAgICByZWcgPSA8MHgwIDB4MTEwODEwMDAgIDB4MCAweDEwMDA+OworICAgICAgICAj
-cGluY3RybC1jZWxscyA9IDwyPjsKKworICAgICAgICBpMmMwLXBpbnMgeworICAgICAgICAgIHBp
-bmN0cmwtcGlucyA9IDwKKyAgICAgICAgICAgIFVSX0RQMTAwMF9JT01VWF9BICAxMiAgVVJfRFAx
-MDAwX0ZVTkMwCisgICAgICAgICAgICBVUl9EUDEwMDBfSU9NVVhfQSAgMTMgIFVSX0RQMTAwMF9G
-VU5DMAorICAgICAgICAgID47CisKKyAgICAgICAgICBwaW5jb25mLXBpbnMgPSA8CisgICAgICAg
-ICAgICBVUl9EUDEwMDBfSU9NVVhfQSAgMTIgIFVSX0RQMTAwMF9CSUFTKFVSX0RQMTAwMF9QVUxM
-X1VQLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBV
-Ul9EUDEwMDBfRFJJVkVfREVGKQorICAgICAgICAgICAgVVJfRFAxMDAwX0lPTVVYX0EgIDEzICBV
-Ul9EUDEwMDBfQklBUyhVUl9EUDEwMDBfUFVMTF9VUCwKKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgVVJfRFAxMDAwX0RSSVZFX0RFRikKKyAgICAgICAg
-ICA+OworICAgICAgICB9OworCisgICAgICAgIHVhcnQwLXBpbnMgeworICAgICAgICAgIHBpbmN0
-cmwtcGlucyA9IDwKKyAgICAgICAgICAgIFVSX0RQMTAwMF9JT01VWF9BICA4ICBVUl9EUDEwMDBf
-RlVOQzEKKyAgICAgICAgICAgIFVSX0RQMTAwMF9JT01VWF9BICA5ICBVUl9EUDEwMDBfRlVOQzEK
-KyAgICAgICAgICA+OworCisgICAgICAgICAgcGluY29uZi1waW5zID0gPAorICAgICAgICAgICAg
-VVJfRFAxMDAwX0lPTVVYX0EgIDggICBVUl9EUDEwMDBfQklBUyhVUl9EUDEwMDBfUFVMTF9VUCwK
-KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVVJfRFAx
-MDAwX0RSSVZFX0RFRikKKyAgICAgICAgICAgIFVSX0RQMTAwMF9JT01VWF9BICA5ICAgVVJfRFAx
-MDAwX0JJQVMoVVJfRFAxMDAwX1BVTExfVVAsCisgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIFVSX0RQMTAwMF9EUklWRV9ERUYpCisgICAgICAgICAgPjsK
-KyAgICAgICAgfTsKKyAgICAgIH07CisgICAgfTsKZGlmZiAtLWdpdCBhL01BSU5UQUlORVJTIGIv
-TUFJTlRBSU5FUlMKaW5kZXggNWJmOTcxZmY0OGIyLi5iYWFhYTQ2YjFhNTYgMTAwNjQ0Ci0tLSBh
-L01BSU5UQUlORVJTCisrKyBiL01BSU5UQUlORVJTCkBAIC0yNzM1OCw2ICsyNzM1OCwxMyBAQCBT
-OglNYWludGFpbmVkCiBGOglkcml2ZXJzL3VzYi9jb21tb24vdWxwaS5jCiBGOglpbmNsdWRlL2xp
-bnV4L3VscGkvCiAKK1VMVFJBUklTQyBEUDEwMDAgUElOQ1RSTCBEUklWRVIKK006CUppYSBXYW5n
-IDx3YW5namlhQHVsdHJhcmlzYy5jb20+CitMOglsaW51eC1ncGlvQHZnZXIua2VybmVsLm9yZwor
-UzoJTWFpbnRhaW5lZAorRjoJRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BpbmN0
-cmwvdWx0cmFyaXNjLGRwMTAwMC1waW5jdHJsLnlhbWwKK0Y6CWluY2x1ZGUvZHQtYmluZGluZ3Mv
-cGluY3RybC91bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwuaAorCiBVTFRSQVRST05JSyBCT0FSRCBT
-VVBQT1JUCiBNOglHb3JhbiBSYcSRZW5vdmnEhyA8Z29yYW4ucmFkbmlAZ21haWwuY29tPgogTToJ
-QsO2cmdlIFN0csO8bXBmZWwgPGJvZXJnZS5zdHJ1ZW1wZmVsQGdtYWlsLmNvbT4KZGlmZiAtLWdp
-dCBhL2luY2x1ZGUvZHQtYmluZGluZ3MvcGluY3RybC91bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwu
-aCBiL2luY2x1ZGUvZHQtYmluZGluZ3MvcGluY3RybC91bHRyYXJpc2MsZHAxMDAwLXBpbmN0cmwu
-aApuZXcgZmlsZSBtb2RlIDEwMDY0NAppbmRleCAwMDAwMDAwMDAwMDAuLmJlZjI4MTE1ODk4ZAot
-LS0gL2Rldi9udWxsCisrKyBiL2luY2x1ZGUvZHQtYmluZGluZ3MvcGluY3RybC91bHRyYXJpc2Ms
-ZHAxMDAwLXBpbmN0cmwuaApAQCAtMCwwICsxLDY1IEBACisvKiBTUERYLUxpY2Vuc2UtSWRlbnRp
-ZmllcjogKEdQTC0yLjAtb25seSBPUiBCU0QtMi1DbGF1c2UpICovCisvKgorICogVWx0cmFSSVND
-IERQMTAwMCBwaW5jdHJsIGhlYWRlci4KKyAqCisgKiBDb3B5cmlnaHQgKEMpIDIwMjYgVWx0cmFS
-SVNDIFRlY2hub2xvZ3kgKFNoYW5naGFpKSBDby4sIEx0ZC4KKyAqLworCisjaWZuZGVmIF9EVF9C
-SU5ESU5HU19QSU5DVFJMX1VMVFJBUklTQ19EUDEwMDBfUElOQ1RSTF9ICisjZGVmaW5lIF9EVF9C
-SU5ESU5HU19QSU5DVFJMX1VMVFJBUklTQ19EUDEwMDBfUElOQ1RSTF9ICisKKy8qKgorICogVWx0
-cmFSSVNDIERQMTAwMCBJTyBwYWQgY29uZmlndXJhdGlvbgorICogcG9ydDogQSwgQiwgQywgRCwg
-TFBDCisgKiAgICAgUGluIGluIHRoZSBwb3J0CisgKiBwaW46CisgKiAgICAgUEE6IDAgLSAxNQor
-ICogICAgIFBCLVBEOiAwIC0gNworICogICAgIExQQzogMCAtIDEyCisgKiBmdW5jOgorICogICAg
-IFVSX0RQMTAwMF9GVU5DX0RFRjogZGVmYXVsdAorICogICAgIFVSX0RQMTAwMF9GVU5DMDogZnVu
-YzAKKyAqICAgICBVUl9EUDEwMDBfRlVOQzE6IGZ1bmMxCisgKi8KKyNkZWZpbmUgVVJfRFAxMDAw
-X0lPTVVYX0EJCTB4MAorI2RlZmluZSBVUl9EUDEwMDBfSU9NVVhfQgkJMHgxCisjZGVmaW5lIFVS
-X0RQMTAwMF9JT01VWF9DCQkweDIKKyNkZWZpbmUgVVJfRFAxMDAwX0lPTVVYX0QJCTB4MworI2Rl
-ZmluZSBVUl9EUDEwMDBfSU9NVVhfTFBDCQkweDQKKworI2RlZmluZSBVUl9EUDEwMDBfRlVOQ19E
-RUYJCTAKKyNkZWZpbmUgVVJfRFAxMDAwX0ZVTkMwCQkJMQorI2RlZmluZSBVUl9EUDEwMDBfRlVO
-QzEJCQkweDEwMDAwCisKKy8qKgorICogQ29uZmlndXJlIHB1bGwgdXAvZG93biByZXNpc3RvciBv
-ZiB0aGUgSU8gcGluCisgKiBVUl9EUDEwMDBfUFVMTF9ESVM6IGRpc2FibGUgcHVsbC11cCBhbmQg
-cHVsbC1kb3duCisgKiBVUl9EUDEwMDBfUFVMTF9VUDogZW5hYmxlIHB1bGwtdXAKKyAqIFVSX0RQ
-MTAwMF9QVUxMX0RPV046IGVuYWJsZSBwdWxsLWRvd24KKyAqLworI2RlZmluZSBVUl9EUDEwMDBf
-UFVMTF9ESVMJMAorI2RlZmluZSBVUl9EUDEwMDBfUFVMTF9VUAkxCisjZGVmaW5lIFVSX0RQMTAw
-MF9QVUxMX0RPV04JMgorLyoqCisgKiBDb25maWd1cmUgZHJpdmUgc3RyZW5ndGggb2YgdGhlIElP
-IHBpbgorICogVVJfRFAxMDAwX0RSSVZFX0RFRjogZGVmYXVsdCB2YWx1ZSwgcmVzZXQgdmFsdWUg
-aXMgMgorICogVVJfRFAxMDAwX0RSSVZFXzA6IDIwbUEKKyAqIFVSX0RQMTAwMF9EUklWRV8xOiAy
-N21BCisgKiBVUl9EUDEwMDBfRFJJVkVfMjogMzNtQQorICogVVJfRFAxMDAwX0RSSVZFXzM6IDQw
-bUEKKyAqLworI2RlZmluZSBVUl9EUDEwMDBfRFJJVkVfREVGCTIKKyNkZWZpbmUgVVJfRFAxMDAw
-X0RSSVZFXzAJMAorI2RlZmluZSBVUl9EUDEwMDBfRFJJVkVfMQkxCisjZGVmaW5lIFVSX0RQMTAw
-MF9EUklWRV8yCTIKKyNkZWZpbmUgVVJfRFAxMDAwX0RSSVZFXzMJMworCisvKioKKyAqIENvbWJp
-bmUgdGhlIHB1bGwtdXAvZG93biByZXNpc3RvciBhbmQgZHJpdmUgc3RyZW5ndGgKKyAqIHB1bGw6
-IFVSX0RQMTAwMF9QVUxMX0RJUywgVVJfRFAxMDAwX1BVTExfVVAsIFVSX0RQMTAwMF9QVUxMX0RP
-V04KKyAqIGRyaXZlOiBVUl9EUDEwMDBfRFJJVkVfREVGLCBVUl9EUDEwMDBfRFJJVkVfMCwgVVJf
-RFAxMDAwX0RSSVZFXzEsCisgKiAgICAgICAgVVJfRFAxMDAwX0RSSVZFXzIsIFVSX0RQMTAwMF9E
-UklWRV8zCisgKi8KKyNkZWZpbmUgVVJfRFAxMDAwX0JJQVMocHVsbCwgZHJpdmUpCQkoKChwdWxs
-KSA8PCAyKSB8IChkcml2ZSkpCisKKyNlbmRpZiAvKiBfRFRfQklORElOR1NfUElOQ1RSTF9VTFRS
-QVJJU0NfRFAxMDAwX1BJTkNUUkxfSCAqLwoKLS0gCjIuMzQuMQoKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This series adds initial Devicetree support for the UltraRISC DP1000 RISC-V
+SoC and two DP1000-based boards (Milk-V Titan and Rongda M0).
+
+The series introduces the required DT bindings, adds the DP1000 pinctrl
+driver, and provides the initial SoC/board DTS files.
+
+Notes:
+  - Clocks are configured and enabled by firmware before Linux boots. Linux
+    does not manage clock rates or gating at runtime on this platform.
+    Therefore the initial DT only models the fixed clocks required by
+    standard drivers, and no clock controller/driver is provided.
+  - The DP1000 pinctrl binding supports two child node styles under the same
+    controller compatible:
+      * legacy DP1000-specific nodes using phandle-array properties
+        "pinctrl-pins" and "pinconf-pins"
+      * generic pinctrl nodes using "pins", "function" and generic pin
+        configuration properties
+    The legacy form is kept for compatibility with existing vendor DTs.
+  - The bindings for "ultrarisc,dp1000-uart" and "ultrarisc,dp1000-pcie" are
+    being reviewed in separate series, since the DP1000 SoC DTS introduced
+    here uses those compatibles:
+    * Link: https://lore.kernel.org/lkml/20260429-ultrarisc-serial-v7-3-e475cce9e274@ultrarisc.com/
+    * Link: https://lore.kernel.org/lkml/20260427-ultrarisc-pcie-v4-2-98935f6cdfb5@ultrarisc.com/
+  - ARCH_ULTRARISC support is being reviewed separately:
+    * Link: https://lore.kernel.org/lkml/20260427-ultrarisc-pcie-v4-1-98935f6cdfb5@ultrarisc.com/
+
+Testing:
+  - dt_binding_check and yamllint (all new/modified binding YAMLs)
+  - dtbs_check and dtbs (RISC-V, including dp1000-milkv-titan.dtb and
+    dp1000-rongda-m0.dtb)
+  - Kernel build for RISC-V and boot-tested on DP1000 (Milk-V Titan and
+    Rongda M0)
+
+Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+---
+Jia Wang (9):
+      dt-bindings: vendor-prefixes: add Rongda
+      dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible
+      dt-bindings: riscv: Add UltraRISC DP1000 bindings
+      dt-bindings: pinctrl: Add UltraRISC DP1000 pinctrl bindings
+      riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000
+      pinctrl: ultrarisc: Add UltraRISC DP1000 pinctrl driver
+      riscv: dts: ultrarisc: add Rongda M0 board device tree
+      riscv: dts: ultrarisc: add Milk-V Titan board device tree
+      riscv: defconfig: enable ARCH_ULTRARISC
+
+ .../bindings/pinctrl/ultrarisc,dp1000-pinctrl.yaml | 168 ++++
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+ .../devicetree/bindings/riscv/ultrarisc.yaml       |  27 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |  15 +
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/ultrarisc/Makefile             |   3 +
+ .../dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi  | 107 +++
+ .../boot/dts/ultrarisc/dp1000-milkv-titan.dts      | 182 +++++
+ .../dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi    |  85 ++
+ arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts | 111 +++
+ arch/riscv/boot/dts/ultrarisc/dp1000.dtsi          | 851 +++++++++++++++++++++
+ arch/riscv/configs/defconfig                       |   1 +
+ drivers/pinctrl/Kconfig                            |   1 +
+ drivers/pinctrl/Makefile                           |   1 +
+ drivers/pinctrl/ultrarisc/Kconfig                  |  23 +
+ drivers/pinctrl/ultrarisc/Makefile                 |   4 +
+ drivers/pinctrl/ultrarisc/pinctrl-dp1000.c         | 112 +++
+ drivers/pinctrl/ultrarisc/pinctrl-ultrarisc.c      | 746 ++++++++++++++++++
+ drivers/pinctrl/ultrarisc/pinctrl-ultrarisc.h      |  71 ++
+ .../dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h |  65 ++
+ 21 files changed, 2577 insertions(+)
+---
+base-commit: 50897c955902c93ae71c38698abb910525ebdc89
+change-id: 20260316-ultrarisc-pinctrl-efa6e24c4803
+
+Best regards,
+--  
+Jia Wang <wangjia@ultrarisc.com>
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
