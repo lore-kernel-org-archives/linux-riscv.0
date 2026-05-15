@@ -4,135 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D085CD343F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 10:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFE6CD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 10:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lJIg81zrda+rNTLSuTp3+FID1jDICRef5zjy6kx4w+8=; b=PiWpT1WbUily9h
-	F0sBMuJjaiVE/TCNflDd5YD43qxWY0ObuI0/Ms0gMdiaR1hbYk37stjAVZBMdbLOO8VPcnJQnbDfz
-	i5pSIdqXXUqegZ+22VoliXtRpD/F+X7nDaUNjX/HVcp5tXh6ue1osWwH6pHqG9p8QGqP7Gg1u5aOu
-	GVrXjU+QAuQde+cRUbjIQtdHZBDWIeJbHlh1a2p5rF4+KAbh5rOodkXVEdovk8ac8SdxOmHM4bN3C
-	OZrT+Bjz8gsCK/nrSj3Rm0PgjMJOFV9P4+xhQAFQABWW3PRsDQ6L4/iWEw/8pRfI95iOAWIewuv4E
-	Gmhbk1PHKnsTtIRbED7g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AoGCteorw+JAcxtAoUpTE0/9R42Cu07CGxkecp5EQxs=; b=CElkS09mEEG9m2
+	meuObRqlpiD0yAoWYrYdu9YS06IG+MqpK9dx43LTg26VIqzT8TI5Yr7M7CI4kyE0bQiiSK7nrLqT7
+	iDUbhFyCwWp9A7XFCE+v7TJNbR5n2L+qsWe7UpX28QmCxk7Z1qtyZQfCU+bxYth5jrFGeE4iaZlW7
+	lVCzqJUP5TdRcsDBNySFMGOfE3tj6rs7SOvIRXepzYVbJsNwEvQFyHKXXoe1jxuKQWeJsNovk6ipR
+	pgJwFZEaj4obzhh8BWKrzjHK35siUkLpf/7vaw2OVRL9U7NSQ6fmcThUfq0MnCLLyKBFy3mShKVNt
+	hLnj34xfcIw4qwnSc+9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpp0-000000083IW-1JSu;
-	Fri, 15 May 2026 10:31:11 +0000
-Received: from mail-bjschn02on2118.outbound.protection.partner.outlook.cn ([139.219.17.118] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1wNptG-00000008488-0s90;
+	Fri, 15 May 2026 10:35:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpov-000000083HR-2aWb
+	id 1wNptE-0000000847n-2uIy
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 10:31:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=MFMjLHdkJPniFWmsMIcNyfMOdRSidR731DLqLlBBedeatkkFjbW0CkJSqkLH0yc6dIDAqiKMsm3UtZWf3LNYg7flWwHoLObBg6MiHWA5taspksDhzxWmFRz+T7yBiBtogURR5nrR9jO/0NutQ7Kj4AvEC9NIJsWnP23IIIRk4kuA5IgO9Kq9dPA7MhwFXJ7PwUPw50Ys2bjBuJGVlyochqwM9xqn5f460HsggmdnUE2RYSZwrbY1XAB6uV6DK8+RCTMOwLWu4UEcTt+7v+VvWaQv02LIXThs7Cw8o3x0bo4kGeOByVv5DYHWxUgKJ0vs7xJ0UWffbjg/m7wpHhZvhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XoWscz4PesxAvAD+70LVXjdL7/ubcL+71qVNsWvsbQ0=;
- b=JyIKCYfE3/MV53Gg2HaxUtMyORF6d+LRMk86dppNj/DYWGkAN1R7BvIcEJpCPu9sHgAN5WJ2QMJCWL5RDJS/HMaJkZZtjs7A6ltaCgY6un9dnVNDcUXkvLcSAcJFVq64kI+LO8H0xi1OZgiqy7v+nsQtf2ZTRWqjaW9z2h0DgfuPol3Y4Y5R1VFCkdUsV8VrwmIc/IgbL8emXrkkoc6lGZjmn0srdNlkfyjIUDXgq0tTzC9ohS5v9LQfIKw4oVPh/87S1ji8xDa3wLK/xGRaZSW/sbKnFHIcb7iNHJH0gjtPaCx1KO1uHc/kbGpOjxamO99AglwDcLI30iBbDq/OKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1267.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:16::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.13; Fri, 15 May
- 2026 10:30:38 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9913.009; Fri, 15 May 2026 10:30:38 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Conor Dooley <conor@kernel.org>, Linus Walleij <linusw@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul
- Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Lianfeng
- Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v2 03/22] pinctrl: pinctrl-generic: Make the "function"
- property optional
-Thread-Topic: [PATCH v2 03/22] pinctrl: pinctrl-generic: Make the "function"
- property optional
-Thread-Index: AQHc45KRzWGkgNqwEUK1h3GqM3NQzLYN3PGAgAC63ECAAByYgIAADMtAgAAXToCAAAwZ4A==
-Date: Fri, 15 May 2026 10:30:38 +0000
-Message-ID: <ZQ4PR01MB12021791B5A255F9EB91D9F6F2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
- <20260514111218.94519-4-changhuang.liang@starfivetech.com>
- <20260514-operation-remix-9f9fcf9a6102@spud>
- <ZQ4PR01MB120245CDE718812D1C65638AF2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260515-dandruff-shorts-d7417c6e977a@wendy>
- <ZQ4PR01MB1202D30B108C4562242C1ED8F2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260515-bounce-lather-23de8e36754c@wendy>
-In-Reply-To: <20260515-bounce-lather-23de8e36754c@wendy>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1267:EE_
-x-ms-office365-filtering-correlation-id: b5d3cca0-895f-4016-e979-08deb26d01df
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|4143699003|22082099003|56012099003|18002099003|38070700021;
-x-microsoft-antispam-message-info: XH5vQRDPQfJ5PzMkis2Y+MpRr/cxM+q0EyvEOSKPQsDvzzzIeaYi00lJPT21EM61wnP8KToxd92WNq/V41bPFZWht943tCLisOaAt/VxLoPTDvgEjTQNP6kZkvZWJkjY9npys00WhmBS8sUvwFvJQqCzKFkxC1i6Au9Z+oZI9PYtkOVTzhhskZh4Hf2T26+AEG5s4t9ZDN29eZ78+Cap/a0cWWkvISJC/MNLcaBZnIvj/eTXFM4bMN4UUG3Aszd2QAbwOvvBkE7Lo0FeG6YmkR5BkVqxB5ImVQOGe38KN6Ox67v0661RD+kefotRnn4u85jf6PL5OwRHx9GzY9rk9mopJPPW7DlROhUPSX7SKSDFEEvTNbBruXATFEQeaHWT6qcIg/gvBHApaDA0F8lNCHay2mDFFN/v6rRbnTRo+KOkgsGaFY68uE2ac/tFgCRNgC/YVtRFKq433dhTzKC+QMRrpEVlNjsHuIayWAUWDgVxqJ0HcI9Go3oBKG5eW0w6Uf3CArKQk5OSzIcVQ7kq0bf6oQuWJj9e/HOiaHi9dg33NvWb1a3KbEpiovczrg3s
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(4143699003)(22082099003)(56012099003)(18002099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ImNn2cufgY7lHZbVCePm63UdWFetAxJABqF7QrcmoEYS6YXnsY54A8xaDVPw?=
- =?us-ascii?Q?2yFqOUzwmUCGKNqfFKoxPyaSnUoAmYO4y6iYneLhQFavWoESqoldv687qEFo?=
- =?us-ascii?Q?tpBP8JX8pggaYH+SywTJuKXqs5TYHSDwHMGQQJ9Ut5M+pJXykpr5wGD5dXs9?=
- =?us-ascii?Q?Nsz7Htu177rzt7ICpEs2fjtprJKehCSzthHVXQ/sEDnnlefJ5O9kfpWZluHd?=
- =?us-ascii?Q?sOVjwNo60y9ZSebB9QXFuVIgdjPXK4vlJkdLTKxpymcTzH9vq4Tj5jA1BByW?=
- =?us-ascii?Q?jEs2vJ3q8qxR32zI6hcpXLvioN7tb8u8+LgiBn77o180Wyvo1rofaA1uCYao?=
- =?us-ascii?Q?2CTG3Nm27wh/Vf7Bl9vihnZBke9f9uwUqvMqD74dKiTYukWjTSA6vOe2LFgt?=
- =?us-ascii?Q?C9U8JMNFNvNSDrtC/dk2oeLFUAzKwfI3KTOMG7bvk59FTU8AhVhtSIiIJw9I?=
- =?us-ascii?Q?iv40W2C2U2ja2Ez1gnffbVwKlZIc/jYzCfJ7sp4CJ6V4jj4O9tl1Bz6dXx+v?=
- =?us-ascii?Q?2CDoeasGI4Ax/Q4YB3yB/BnDdC1qoGKCCwEy6sCezxt4fWcPugz1sp0dZldK?=
- =?us-ascii?Q?Ejuq+LGYBkVcIiyUUwJkh2mxrt4cgwgj8HkaEyHZW1/smJF/YZJ+gk8IPtoZ?=
- =?us-ascii?Q?5jier0Xz6Ou8Nk7Y/k97k63y71I/PKu4JvZ0Azb5fkljrqSZxGD2rXcNoSBr?=
- =?us-ascii?Q?kCp2Z6RF9/L9qNQbkPqGdFY3LB9HUGJQ9ny4E37ZA1XGDHDZFNBiM4kn7mAI?=
- =?us-ascii?Q?x4CDVTfaX/a1Bhn89K+nhQ9fy3SBPCoIbrkTp7mNLjrdzELnorn1lAq9hGSU?=
- =?us-ascii?Q?F7BUKx+ttjB3XvLibbHTvicRZOcphdItyrowmu7MOqcKCAySByFugOW2oI3H?=
- =?us-ascii?Q?a2CGcN9mf8L6CnldbLGA5/BMKefFUIpDJudpM7ebUQvGQt7MIqtJPT4W6FQc?=
- =?us-ascii?Q?gL17fjZUOgBNkU0nMomK5bgff5qoa9m0VOx4jR4T/1uRFIhTZY8YkltZCPd5?=
- =?us-ascii?Q?WalSkz3TronPuJzy5PyOcvMXXnajQ+1856oVJ4rTicJJ7GI8OHx8KqqbMASn?=
- =?us-ascii?Q?Skl/eJbjySssYNMLb24koEXvdE6C8qnsv4IAe4gUhm8j2GLz9OafNp1Q/ZGW?=
- =?us-ascii?Q?phmajMUpbTHT8nGRrQLsFACxqDvVsGnh9mweEiJpQepuhmkdk33E2LYQBFhu?=
- =?us-ascii?Q?vihd+aGVUYe2HvW/yAaGa76B0oFYw15Jj/mLljTfb4G8SXf7lAHD6jPWeOb5?=
- =?us-ascii?Q?YYjc6bv5bTIeGi5jEFhirZ+uKDyaVcgIHANlS42eVTdkyIw74Zb2ZVSUhaPJ?=
- =?us-ascii?Q?dAeWbkOOwhiDfMc4QlQhcnvBucuia9yu4xTz3K/5n83o0hwo1HlDC9hIdvUk?=
- =?us-ascii?Q?9WIPXYi3/GJtRUPfyf2iLKsKJJKR5x19swEG3gb7w3q/KBGjnyt8navZ2T9s?=
- =?us-ascii?Q?gSSgqU0tvmDWR4wTMGtIGglPGZnK5tyclfICoO081c6wswFLU4IkdRM3CbU2?=
- =?us-ascii?Q?8SrSyZFHYKLAoRjtPqWQ+8R5YAeOhocxo9DV+gSAP78NCPGlN6bpdSdIh3sy?=
- =?us-ascii?Q?A6FjYlNwo3gYgZfxcmtHMJAXr2HF/Yt1c/LHhKxFpsTLO8f1JwN7vAkprNJF?=
- =?us-ascii?Q?BCDKrwS6KU6UqyhSobVXoc8muZhYm/V/iF1R8kB8xkHREoo0+6yzybCPd8zg?=
- =?us-ascii?Q?ZjIOwgenJ8LNkp9FufUKPFaS7KJg8DoL9dre+LmsX+0MGmd97COeLjTTGB9K?=
- =?us-ascii?Q?VfXzkTrXWLVXcBeLTgDv6Gm7sum3Uq4=3D?=
+	Fri, 15 May 2026 10:35:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DF11260008;
+	Fri, 15 May 2026 10:35:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2948AC2BCB0;
+	Fri, 15 May 2026 10:35:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778841331;
+	bh=xHT782td4/pqewKHklx9mvORJH5xH6wMrIYOffPUzP0=;
+	h=From:Date:Subject:To:Cc:From;
+	b=B89axjR2weA87MJnC1wmVawwfwIuJ4aLnuDMf8Ks0YLp3LAnAOcmXuE2NImN0ogDx
+	 6CokhxxD31U7vOHOp30HkLILoefD5ge7528YpHnd8R3Qroey67aggOWvVWi0Crsk0L
+	 GfcOicAYIGMUoaSLEe+hcAVC0NlG6ybV+d/lBl12OlfuzIBrRqPODEFuZVFgqiCQtu
+	 dfNSvaPPYTuq4qMosYquIwpJrKw+uzd2AIjaf/uFyTFeY0pX3gIzLRw7+GiBh1v4Rr
+	 +fFictysr4XQDfLCLmtFmkkiObLPD7H8F+h0RiC6bM8ntoTHrWKulAdEZke/icHivU
+	 jy83f9o3RD8kA==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Fri, 15 May 2026 19:35:18 +0900
+Subject: [PATCH] Disable -Wattribute-alias for clang-23 and newer
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5d3cca0-895f-4016-e979-08deb26d01df
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2026 10:30:38.5566
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: bgfqw6SgenOoT+tM8I9dYdmI3aWxveqJa/ulOcKb/8h13OTETam7dBxYBzIH+9L+gMmNto1dZW7+8gEcWDxgeF37VExSkg34gUn4Ey3NdmHFwl2IrtzE31OEPE4Y08v+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1267
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_033105_825668_4A99DDF7 
-X-CRM114-Status: GOOD (  50.94  )
+Message-Id: <20260515-syscall-disable-attribute-alias-for-clang-v1-1-9a9d95d41df6@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQ7CMAwEv1L5jKWkairgK4iDk7pgZLUoTitQ1
+ b8T4LZz2JkNjLOwwbnZIPMqJvNUwR8aSHeabowyVIbWtb0LvkN7WyJVHMQoKiOVkiUupS4VMhz
+ njEnrE4P3XYjx5Nyxh+p7Zh7l9Wtdrn+2JT44lW8A9v0DVn7HnY0AAAA=
+X-Change-ID: 20260514-syscall-disable-attribute-alias-for-clang-51145bb90086
+To: Nathan Chancellor <nathan@kernel.org>, Bill Wendling <morbo@google.com>, 
+ Justin Stitt <justinstitt@google.com>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5348; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=xHT782td4/pqewKHklx9mvORJH5xH6wMrIYOffPUzP0=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDFls3z4se8c2s25jzbRshcI5P/atWNhSYBF9ZNcpHh4mu
+ fCnXvnyHaUsDGJcDLJiiizVj1WPGxrOOct449QkmDmsTCBDGLg4BWAiqaGMDKeUKxR2MbpsDGKP
+ YErz31G0WM/kZNJqUbfdIpzN6QEfTzP8L5uZIW1THuDGI3hdY8nU5NbXDbsCdlVIWXKUZpYfXav
+ LCAA=
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,241 +83,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor
+Clang recently added support for -Wattribute-alias [1], which results in
+the same warnings that necessitated commit bee20031772a ("disable
+-Wattribute-alias warning for SYSCALL_DEFINEx()") for GCC.
 
-Thanks for the comments.
+  kernel/time/itimer.c:325:1: error: alias and aliasee have different types 'long (unsigned int)' and 'long (typeof (__builtin_choose_expr((__builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0LL)) || __builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0ULL))), 0LL, 0L)))' (aka 'long (long)') [-Werror,-Wattribute-alias]
+    325 | SYSCALL_DEFINE1(alarm, unsigned int, seconds)
+        | ^
+  include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
+    225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
+        |                                    ^
+  include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
+    236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+        |         ^
+  include/linux/syscalls.h:251:18: note: expanded from macro '__SYSCALL_DEFINEx'
+    251 |                 __attribute__((alias(__stringify(__se_sys##name))));    \
+        |                                ^
+  kernel/time/itimer.c:325:1: note: aliasee is declared here
+  include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
+    225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
+        |                                    ^
+  include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
+    236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+        |         ^
+  include/linux/syscalls.h:255:18: note: expanded from macro '__SYSCALL_DEFINEx'
+    255 |         asmlinkage long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))  \
+        |                         ^
+  <scratch space>:16:1: note: expanded from here
+     16 | __se_sys_alarm
+        | ^
 
-> On Fri, May 15, 2026 at 08:23:55AM +0000, Changhuang Liang wrote:
-> > > On Fri, May 15, 2026 at 05:55:48AM +0000, Changhuang Liang wrote:
-> > > > > On Thu, May 14, 2026 at 04:11:59AM -0700, Changhuang Liang wrote:
-> > > > > > Some pinctrl subnodes only need to configure pin properties
-> > > > > > (e.g., power-source, bias, drive strength) without assigning any mux
-> function.
-> > > > > >
-> > > > > > Currently, the driver requires a valid "function" property for
-> > > > > > all pinctrl subnodes. This forces the addition of dummy or
-> > > > > > redundant "function" entries when only pin configuration is needed.
-> > > > > >
-> > > > > > Example use case:
-> > > > > > gpios-configs {
-> > > > > >     config {
-> > > > > >         pins = <0 1 2 3>;
-> > > > > >         power-source = <0>;
-> > > > > >     };
-> > > > > > };
-> > > > > >
-> > > > > > Make the "function" property optional. If it is missing, skip
-> > > > > > adding the mux map and only process the pin configuration.
-> > > > >
-> > > > > I looked through the series though and all controllers appear to
-> > > > > have pins and functions, is it the case that gpio is the default
-> > > > > for these pins, so you are omitting the functions property when
-> > > > > you are using
-> > > the pin in gpio mode?
-> > > > > Saying that the functions property is "redudant" makes it seem
-> > > > > like this might be the case?
-> > > > >
-> > > > > I've got some feedback here, but I can't really provide it
-> > > > > without knowing the answer to that question.
-> > > >
-> > > >
-> > > > "From v1, copying Linus's suggestion:
-> > > >
-> > > > > +  This domain contains 4 IO groups which support voltage levels
-> > > > > + 1.8V and 3.3V  gpioe-spi - comprises PAD_GPIO_C0 through
-> > > PAD_GPIO_C4.
-> > > > > +  gpioe-qspi0 - comprises PAD_GPIO_C5 through PAD_GPIO_C11.
-> > > > > +  gpioe-qspi1 - comprises PAD_GPIO_C12 through PAD_GPIO_C19.
-> > > > > +  gpioe-qspi2 - comprises PAD_GPIO_C20 through PAD_GPIO_C27.
-> > > > > +
-> > > > > +  Each of the above IO groups must be configured with a voltage
-> > > > > + setting that matches the external  voltage level provided to
-> > > > > + the IO
-> > > group.
-> > > >
-> > > > So your hardware has groups and support some properties on the
-> > > > group
-> > > level.
-> > > >
-> > > > So expose these groups and make these properties configurable per
-> > > > group instead of inventing per-group properties.
-> > > >
-> > > > > +  gpioe-spi-vref:
-> > > > > +  gpioe-qspi0-vref:
-> > > > > +  gpioe-qspi1-vref:
-> > > > > +  gpioe-qspi2-vref:
-> > > >
-> > > > Create proper groups in the pin controller then use the standard
-> > > > pincfg property power-source = <...>; for this.
-> > > >
-> > > > Example for a simple default hog:
-> > > >
-> > > > pinctrl {
-> > > >     /* Hog the QSPI pins */
-> > > >     pinctrl-names = "default";
-> > > >     pinctrl-0 = <&qspi_default>;
-> > > >
-> > > >     qspi_default: pinctrl-qspi {
-> > > >         config {
-> > > >             groups = "gpioe-qspi-pins";
-> > > >             power-source = <2>;
-> > > >         };
-> > > >     };
-> > > > };
-> > > >
-> > > > The groups can be orthogonal to other pin handling, that's fine.
-> > > > Implement .pin_config_group_set in struct pinconf_ops.
-> > > >
-> > > > However, I found that
-> > > > pinctrl_generic_pins_function_dt_node_to_map()
-> > > > does not handle the groups property,
-> > >
-> > > That's kind of the whole point of the function, see the comment
-> > > about
-> > > it:
-> > > /*
-> > >  * For platforms that do not define groups or functions in the
-> > > driver, but
-> > >  * instead use the devicetree to describe them. This function will,
-> > > unlike
-> > >  * pinconf_generic_dt_node_to_map() etc which rely on driver defined
-> > > groups
-> > >  * and functions, create them in addition to parsing pinconf
-> > > properties and
-> > >  * adding mappings.
-> > >  */
-> > >
-> > > If you have the groups property in your devicetree, it contains
-> > > strings that the driver uses to match against the groups it has defined in it.
-> > > See my recently added microchip,pic64gx-pinctrl-gpio2 for an example
-> > > of that if you like.
-> > >
-> > > However, if you are using the pins or pinmux properties, the groups
-> > > are not defined in the driver, and need to be created at runtime.
-> > > That's what
-> > > pinctrl_generic_pins_function_dt_node_to_map() is for - it creates
-> > > the groups at runtime when using the *pins* and *function* properties.
-> > > It's in the name!
-> > >
-> > > Judging by your drivers, and how many structures you have that look
-> > > very like groups from a quick glance, probably you can still make
-> > > use of the groups property. The equivalent function to
-> > > pinctrl_generic_pins_function_dt_node_to_map() when you're using
-> > > driver defined groups is pinconf_generic_dt_node_to_map().
-> >
-> > I feel that for the current platform, initializing pin voltage is
-> > suitable for using `pinconf_generic_dt_node_to_map()`,
-> > and configuring pin mux is suitable for using
-> > `pinctrl_generic_pins_function_dt_node_to_map()`. Should I use both of
-> them at the same time?
-> 
-> No, pick either groups or pins across the board and then use the appropriate
-> function after that. Mixing and matching just adds complication for no real
-> reason.
-> 
-> > > Also, I notice that you never actually answered the question that I
-> > > asked:
-> > > > > I looked through the series though and all controllers appear to
-> > > > > have pins and functions, is it the case that gpio is the default
-> > > > > for these pins, so you are omitting the functions property when
-> > > > > you are using
-> > > the pin in gpio mode?
-> > > > > Saying that the functions property is "redudant" makes it seem
-> > > > > like this might be the case?
-> > >
-> > > Are you omitting the functions property from your nodes when they're
-> > > using gpio because it is a default, or is there some other reason
-> > > why you're omitting the functions property sometimes?
-> >
-> > Sorry, I missed that question. What I meant by making 'functions'
-> > optional is that I don't care whether the current pin's default value is GPIO
-> or some other function.
-> > Here, I just want to initialize the default voltage of these pins, not
-> > configure their pin function.
-> 
-> You're making them gpios in all the cases that I saw, so I think you're best
-> served by using the "gpio" function and thereby being able to have function as
-> a required property. Unless the pins are unused, you need to set the function
-> anyway, and if they're unused and survived on the values set by reset or prior
-> boot stages, why do you need to set the voltage anyway?
-> 
-> Looking at this node, it looks completely wrong to me:
-> +&pinctrl_sys2 {
-> +	gpiow0_configs: gpiow0-hog-grp {
-> +		gpiow0-hog-pins {
-> +			pins = <PADNUM_SYS2_GPIO_A36
-> +				PADNUM_SYS2_GPIO_A37
-> +				PADNUM_SYS2_GPIO_A38
-> +				PADNUM_SYS2_GPIO_A39>;
-> +			power-source = <JHB100_PINVREF_3_3V>;
-> +		};
-> +	};
-> +
-> +	gpiow_inner_configs: gpiow-inner-hog-grp {
-> +		gpiow-inner-hog-pins {
-> +			pins = <PADNUM_SYS2_GPIO_A40
-> +				PADNUM_SYS2_GPIO_A41
-> +				PADNUM_SYS2_GPIO_A42
-> +				PADNUM_SYS2_GPIO_A43>;
-> +			power-source = <JHB100_PINVREF_3_3V>;
-> +		};
-> +	};
-> +
-> +	uart6_pins: uart6-grp {
-> +		uart6-tx-pins {
-> +			pins = <PADNUM_SYS2_GPIO_A38>;
-> +			function = "uart";
-> +		};
-> +
-> +		uart6-rx-pins {
-> +			pins = <PADNUM_SYS2_GPIO_A39>;
-> +			function = "uart";
-> +			input-enable;
-> +		};
-> +	};
-> +};
-> 
-> The pins used by uart appear also in your hog node and...
-> 
-> > This part of the voltage configuration only has one register, but it
-> > applies to many pins, so currently it seems I can only use pinctrl hog to
-> initialize it.
-> 
-> ...I think that relates to the point you make here. If a setting for the
-> power-source applies across an entire set of pins, there's no need to
-> preemptively apply this across the whole set. It's usually sufficient to just set
-> the power-source in the nodes that describe pins that are actually in use, for
-> example:
-> 
-> | &pinctrl_sys2 {
-> | 	uart6_pins: uart6-grp {
-> | 		uart6-tx-pins {
-> | 			pins = <PADNUM_SYS2_GPIO_A38>;
-> | 			function = "uart";
-> | 			power-source = <JHB100_PINVREF_3_3V>;
-> | 		};
-> |
-> | 		uart6-rx-pins {
-> | 			pins = <PADNUM_SYS2_GPIO_A39>;
-> | 			function = "uart";
-> | 			input-enable;
-> | 			power-source = <JHB100_PINVREF_3_3V>;
-> | 		};
-> | 	};
-> | };
+Disable the warnings in the same way for clang-23 and newer.
 
-I think this approach is suitable for cases where each pin has its own independent register filed. 
-I'm not sure if it's suitable for this kind of voltage configuration where multiple pins share a 
-single register field.
+Cc: stable@vger.kernel.org
+Closes: https://github.com/ClangBuiltLinux/linux/issues/2163
+Link: https://github.com/llvm/llvm-project/commit/40da6920a0d71d49dfa2392b09153600b0759f5e [1]
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+I plan to take this via my clang-fixes tree for 7.1.
+---
+ arch/riscv/include/asm/syscall_wrapper.h | 2 ++
+ include/linux/compat.h                   | 2 ++
+ include/linux/compiler-clang.h           | 6 ++++++
+ include/linux/syscalls.h                 | 2 ++
+ 4 files changed, 12 insertions(+)
 
-With this approach, the driver would end up writing the same value to the same register twice, 
-once for A38 and once for A39. Is that acceptable?
+diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
+index ac80216549ff..366a5354caa5 100644
+--- a/arch/riscv/include/asm/syscall_wrapper.h
++++ b/arch/riscv/include/asm/syscall_wrapper.h
+@@ -32,6 +32,8 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
+ 	__diag_push();									\
+ 	__diag_ignore(GCC, 8, "-Wattribute-alias",					\
+ 			"Type aliasing is used to sanitize syscall arguments");		\
++	__diag_ignore(clang, 23, "-Wattribute-alias",					\
++			"Type aliasing is used to sanitize syscall arguments");		\
+ 	static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong, 	\
+ 					ulong)						\
+ 			__attribute__((alias(__stringify(___se_##prefix##name))));	\
+diff --git a/include/linux/compat.h b/include/linux/compat.h
+index 56cebaff0c91..a1ce6d559db9 100644
+--- a/include/linux/compat.h
++++ b/include/linux/compat.h
+@@ -72,6 +72,8 @@
+ 	__diag_push();								\
+ 	__diag_ignore(GCC, 8, "-Wattribute-alias",				\
+ 		      "Type aliasing is used to sanitize syscall arguments");\
++	__diag_ignore(clang, 23, "-Wattribute-alias",				\
++		      "Type aliasing is used to sanitize syscall arguments");\
+ 	asmlinkage long compat_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))	\
+ 		__attribute__((alias(__stringify(__se_compat_sys##name))));	\
+ 	ALLOW_ERROR_INJECTION(compat_sys##name, ERRNO);				\
+diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+index e1123dd28486..527e4e136020 100644
+--- a/include/linux/compiler-clang.h
++++ b/include/linux/compiler-clang.h
+@@ -131,6 +131,12 @@
+ #define __diag_str(s)		__diag_str1(s)
+ #define __diag(s)		_Pragma(__diag_str(clang diagnostic s))
+ 
++#if CONFIG_CLANG_VERSION >= 230000
++#define __diag_clang_23(s)	__diag(s)
++#else
++#define __diag_clang_23(s)
++#endif
++
+ #define __diag_clang_13(s)	__diag(s)
+ 
+ #define __diag_ignore_all(option, comment) \
+diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+index f5639d5ac331..97e3411b49d2 100644
+--- a/include/linux/syscalls.h
++++ b/include/linux/syscalls.h
+@@ -247,6 +247,8 @@ static inline int is_syscall_trace_event(struct trace_event_call *tp_event)
+ 	__diag_push();							\
+ 	__diag_ignore(GCC, 8, "-Wattribute-alias",			\
+ 		      "Type aliasing is used to sanitize syscall arguments");\
++	__diag_ignore(clang, 23, "-Wattribute-alias",			\
++		      "Type aliasing is used to sanitize syscall arguments");\
+ 	asmlinkage long sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))	\
+ 		__attribute__((alias(__stringify(__se_sys##name))));	\
+ 	ALLOW_ERROR_INJECTION(sys##name, ERRNO);			\
 
-If that's acceptable, the code would indeed become much simpler.
+---
+base-commit: 5d6919055dec134de3c40167a490f33c74c12581
+change-id: 20260514-syscall-disable-attribute-alias-for-clang-51145bb90086
 
-Best Regards,
-Changhuang
-
+Best regards,
+--  
+Cheers,
+Nathan
 
 
 _______________________________________________
