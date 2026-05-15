@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64181CD4F3D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E8BCD343F
 	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 10:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WSDs0d0PeIdeuJ3iXEfrN2o12oGTwBxYMKxZ/Hv600Q=; b=wyfnLYdrRIKWmC
-	lJQub2k5EHZt38MTvbD2q6uLCjdKVX8jSLgZ4M5czlVY3utAnwsmxn1GHnX2J4gCOcscIxMYvuvz0
-	CZi5C+5htnUaS3uGQcu50wFzFT0UZmkQNgpCzpxEfMuE7P5Ck4Ok0B40nbvHkgr6lERkTSlQTtPuh
-	W/EeQzzv7pKruMS98UXRUZoSH+WWxratQbZq2tMnGgulq7VMau739SrKJgZEtN/YrZ2DJupSq3Mmr
-	8k6OC/YtmSfNv0S8i52Zx2a/Wf9IHu1ZoBbCgNUxIHR/dUgbyNuE2lTxgM//Uqj5J5SCvPRDT4JwS
-	FDBfzMZlPW1TfNgdhx0g==;
+	List-Owner; bh=evfLkWLFLJJdIM3aravFjIxDX642OxOwWPQzeo+fN0k=; b=NHDoe5ngqTiY14
+	wHn1pzLBFyj/PP8f4HWuM1BD4xGLPF+hUyIwRoQy2sDwxHcAOb7P2DgRj5jnUoq/TDcwgRo1i12mK
+	z2tvjmzGdkXT6iGeyBqy1O+PBnVPufdH9DyuA/Ts9afmyGepwAQNKt7j5hcFAc3FT9wjNqMx590u4
+	DfmqQeKfcoONjvymh9j0qtY8/4ZPW3wbU+L3gRCy9GhCFzIgS6obN95O2T2/dCkPou3Mf8PnV6KUf
+	e79QU6Vc1QnSYQUR4A8CKGT8M4F8SqC0EhgYNHxQnYEY1aUC7lkHDGfrMO5huzIkT1Iazhrv4tyDg
+	VfdfIwTWHx0DKnvLsRgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNq6h-000000085mt-1nrV;
-	Fri, 15 May 2026 10:49:27 +0000
+	id 1wNq6k-000000085ol-2IzD;
+	Fri, 15 May 2026 10:49:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNq6f-000000085m2-2bKX
+	id 1wNq6j-000000085nn-1JrK
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 15 May 2026 10:49:25 +0000
+	Fri, 15 May 2026 10:49:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=cdO1zzlLKkykrIptdTOfySnlGfDlrWt09hUBxB4Iamw=; b=O7azNylDI8cvafjlwq19XIPcti
-	B1DaCq5gDRKdNSGeWaCPf91B3dOJi2s/Y1Vq5+JuC5liSgyu0C66pscXoxwi+0iHCxhvrbxG2oJW5
-	B/n3W3ZJXzunH4oG1eGaze/fffkw5fyvE8jnGbBZq6aOMONtpYuxPJLrOfqjLavJTOhj73Zms0PJL
-	tAQpTy6VxW7k1eV4COTRa6iVvSatL3hRh4oreXw57bLZMM5GaKNPB6WeYgOGf+Dgy6WUWpeE6rKHp
-	zRk2JIIurrhhjZTL3nkYxV4xp1j8llsyCVyKRonaeKwl6m9iT5/cf4egRFWSzPelK8K+NXhfM0kU5
-	YpVWg5vA==;
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	bh=iB8eoQBD1gDe3NlGs/goqrqIf498nPGYBfRez10qXig=; b=rHGRoGZFin55gpN/idpTIl/7SQ
+	PMcUtP5+lLbt/xbAWJ/gT2RKKynl3EEUb2XZnkCRfufNeQWingmSXklH+oznQZdFtmSUbdZWFkk3V
+	NMp9bcCdHzsTVszY19R+678EE6z2STYWxro00pwHN4lShcHoiVf4Bns5FQZqRcI1CK12RmzlPcnki
+	UbuOFirqyY0FV7JjLQYeg/Vn6CtPuHidvIBMEVIR58ZEzh000oUXbtvYLYOiQZmz1XPLL7WMtVibh
+	p+bTBnhOTfISW+6diScblKeDeNTNiE/87Pp6jSrhL/OxP0djCwo0ht41rjWvNQRMRW7An/nC4VhtB
+	1fuvgmRA==;
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNq6b-00000004wnh-0BuD
+	id 1wNq6c-00000004woA-2xd4
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 10:49:23 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-45ae6a0e523so2761342f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 May 2026 03:49:20 -0700 (PDT)
+	Fri, 15 May 2026 10:49:25 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-448528f4e69so5153027f8f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 15 May 2026 03:49:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778842160; x=1779446960; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778842161; x=1779446961; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cdO1zzlLKkykrIptdTOfySnlGfDlrWt09hUBxB4Iamw=;
-        b=q/MEBhR45p8Ac29g5c9M58mSGPwBTAHERTToalXzRh6XsSckcI0daR8zKgFgZb1cgj
-         yV4UQT/YTAIoFIWflRiRLxiG1e8kzv6jiZVV6UuqaIvwkl7IsjUU0xHaq8WEbzHIBmam
-         ffItTVrZi0Mf4guyA1Gul52AzqEYN//G0ZgaeQw6tmqW8ZDu1iVAm7i+ruwIpWQeeTrT
-         GgiLl3GlXkPqGcXkoOUEWBdoAvsOCfFKAnfc6u0Z9DPYi2Y+P+yKroUn3eKpjx5xfu89
-         1xyL2V7cqpfZ1POrmdeE3RrWxymDItUqZlUdQktZbx2EuxSd137HVfGC8YOq3zMXHyfV
-         PF2w==
+        bh=iB8eoQBD1gDe3NlGs/goqrqIf498nPGYBfRez10qXig=;
+        b=kt2X4TA4hheKPIR84p6SbUKe0z7LG+RylnVyz4BApbJWrEQsTqtJp495hw+RfpELq2
+         xbs/8HGmpO+mbHtV5aWXVqrrzFQ/ggZBcXGzLEEv2Ntk6J+t9ojvKGilg/aMs2PcZiF1
+         f3AV4UG3IJKrcA9x9wvfiyf19biUyXTvqrtLLAelXtKg8u8zKjwE3qUCPX6RakH2zpw0
+         QUk+XoSYs9HJTHRYBzvyZsdl7tM5tGOuG3IwMY3WiwaUhWYtVs/wY2dpaPZ16n/73YEx
+         H8LfCr2DMAAQKA23zhuWNEU/J+U675EwOzTDnRynVnFb6AO0jjltezsmPMkmQLNJbz1e
+         +zxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778842160; x=1779446960;
+        d=1e100.net; s=20251104; t=1778842161; x=1779446961;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=cdO1zzlLKkykrIptdTOfySnlGfDlrWt09hUBxB4Iamw=;
-        b=YM47ORdpBFdJyQKQO4jJMWYYqTAxYqWcj7WDsoEuiGnFHWI0JzKoW69c2xlF16rFMQ
-         IIqw2PJAMMH3DytBAQ1rKbgMLHmeOSSaK49YAgT4ByGtEnXg8TjlovelLXhe91Yqda6w
-         BhIu5y8JiU4IUpv/YcnzQmw3BCq0KM2AUGYndpApRnfKJjcQJB/66XIVQ5+DFiRUjKCz
-         k05sB2gwhG04EF8bPDoAyGj7IuJKZk8InsW8Juz/14Gm7VtJNmp7kSRR7YTFYjOSYp6G
-         hV5MB4OV2CebyOvElYFLeu5GTzESO3iOx6GKqGDFZBZznzFxyjQFvvnLtsOwZFgD7n8W
-         1Puw==
-X-Forwarded-Encrypted: i=1; AFNElJ+l7Y0f8ECLz6jrw69yXXEZFlX73NLoeGpqPrb3KZffgXdz+E2xGimP/cI+xPO6ALCL3qHOEpG4rpbWIQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2KPpX2m6aNpSITZqDowUzSl49tsFyBUjUlEOl/6evOZnGqR0i
-	43OQeYHVBDGIVkkF7S/1FsCvISg9WteOIN6l1liHGtNouO7kO90Jpz7b
-X-Gm-Gg: Acq92OFK3+HB0j9o/zUa9625860tsg33zPq8VowvbfJt28uAi97xvKQUEP296Xd04bc
-	IZR78vvXWXu0RjFbLbss9PM2ZmT3nNyj48rdfg85z1gBRjTSZVlNgUPrz3RJSmhs1jMnJBEvIH1
-	nEyah2dduDSigFhCrHZO9Kc0kaHhh5Bc1G5RhGIVxPZfIbIaue8HrXcmhEiBVNAcBY0c+sYeEXB
-	WejjpH0pVn6eV7dubhQPErqTfY6gGlwV+IXDp9jH+O1iCnMQ8VVlT1mLcCigmo6iiuBbuZQ1FTD
-	N8b8uGjkbuXhNOWwQ/a790pXFEoR1GnbsdSwp90S74TnLLjmIKovql+IdpUrhhtlZO8R6AQTpMm
-	EBOg2lixj2dPugOX4048V0y5AReKw9N3+KTGDE1crr4sGeK6udr1sHbK8a540CcxEZC1pSsll1p
-	zaWh2bltaSx4cknO+V+f6tmo1iIg11o/883jaoeTys+ULTT9pONgC2qYRkO+3QJ81sCQ==
-X-Received: by 2002:a5d:5d10:0:b0:44e:1984:5f3e with SMTP id ffacd0b85a97d-45e5c5951f9mr4409926f8f.31.1778842159282;
-        Fri, 15 May 2026 03:49:19 -0700 (PDT)
+        bh=iB8eoQBD1gDe3NlGs/goqrqIf498nPGYBfRez10qXig=;
+        b=oxuy8VJexCHtBucl8JklBdzzxrPjE7zzId0nPuYaiuTbompDXKR02ViwA2f2RbZxJ9
+         4aKch2w85lEEFkqffL8eF9E1s+So0B1ogr7PCFHfR29eLYpi5EyWmC47ZVaBIUfApLUg
+         vMXk/MBi54nGwNvSqodqp47wKEMk3YKq0fRF7zJKJyU1fyUz3J48R+xoHrPI/An0N8jn
+         o60z26SVBc92IYrSqZlfLQqCBg4a4CQIfZwTK+Q0/WONUpzqLqf1zHCFlwvPxJBQk0gk
+         GX4MiMpq+HTr973DFe230Sp24zeYlde7I++BqY0eC7txm0DSeSFkJNEvsczbGP/X85Bq
+         l/Fg==
+X-Forwarded-Encrypted: i=1; AFNElJ+1SHbsAhjG5/IEa8HQvgQXVDXtxJetCZMAi3TkuRbJdS2cRM2C1CYzL/sWME+8hJb8XdgQxJsn9YZzuA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYMLcx3r+yvGj2u8e7p6je86NvGhvvrrbeBrI1x+2h7XuKvYVd
+	H0rLC7+u2Hf+I1vXUmtCFnI4FXFOIiDtsZN3YFV3itZTCTH2psYt/qz+ewiD8w==
+X-Gm-Gg: Acq92OFw7R+kzs8dMZfz4/L8oWFM8V7vBhVSOjCzrp502qQ1tC6E93lhrtRQHE3NOzz
+	MeTqjdvIWVKVyP8eT+BCcGH6fX9Po2xbNBHROw+BktzGYqTRoU2dIOj4jiJr7lZoH5DswLuXaYf
+	opRyP/VhWNQJXPIbF2NPjMi79hwwPiPaY9fQZYdXsbH69v19JEQAaMWO5Rk5INBOPwN/kRCajA0
+	H4tV2jBq283yKH3HGT5OBVLZ62xyGyHya+UAAIRdY+Zvq+3dKifN1crPTeBRN1RvnsnRJJ/90Ut
+	pvNVPS4s+pxI1d9DCZtVRgxz06UD6PhXvhRR7AdGvOHgln+OYeGCQlhML1eepbgG9EmMhaps/pj
+	4MeeiQ47S2YE7Es9lOTAQKSozBEvyxQ23hy6O87KBwEc+ICejlcEsJCCm6e2O9ZOv4JFhmbjMOQ
+	u//VqNlYC9eSJw/bGTtE2nV6W3PLeL/d9XfuUVsZ05LBzt16x/C+nrC51xJhB6ji4Q/g==
+X-Received: by 2002:a05:6000:26cf:b0:43d:7a97:78b5 with SMTP id ffacd0b85a97d-45e5c5ccbe0mr4405213f8f.33.1778842161362;
+        Fri, 15 May 2026 03:49:21 -0700 (PDT)
 Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.235.183])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9ec3ac86sm13975602f8f.14.2026.05.15.03.49.17
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9ec3ac86sm13975602f8f.14.2026.05.15.03.49.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 03:49:18 -0700 (PDT)
+        Fri, 15 May 2026 03:49:20 -0700 (PDT)
 From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Fri, 15 May 2026 12:49:01 +0200
-Subject: [PATCH v10 3/4] riscv: dts: spacemit: k1-bananapi-f3: add SD card
+Date: Fri, 15 May 2026 12:49:02 +0200
+Subject: [PATCH v10 4/4] riscv: dts: spacemit: k1-musepi-pro: add SD card
  support with UHS modes
 MIME-Version: 1.0
-Message-Id: <20260515-orangepi-sd-card-uhs-v10-3-094af27e310d@gmail.com>
+Message-Id: <20260515-orangepi-sd-card-uhs-v10-4-094af27e310d@gmail.com>
 References: <20260515-orangepi-sd-card-uhs-v10-0-094af27e310d@gmail.com>
 In-Reply-To: <20260515-orangepi-sd-card-uhs-v10-0-094af27e310d@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -98,11 +98,17 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  Yixun Lan <dlan@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
  Ulf Hansson <ulfh@kernel.org>, Yixun Lan <dlan@kernel.org>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>, 
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+ Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Iker Pedrosa <ikerpedrosam@gmail.com>, 
+ Trevor Gamblin <tgamblin@baylibre.com>, Andre Heider <a.heider@gmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_114921_571622_FEE4489A 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_114923_275088_5E7407D4 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,78 +120,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Margherita Milani <margherita.milani@amarulasolutions.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, Troy Mitchell <troy.mitchell@linux.dev>, linux-mmc@vger.kernel.org, Javier Martinez Canillas <javierm@redhat.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Aurelien Jarno <aurelien@aurel32.net>, Iker Pedrosa <ikerpedrosam@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add complete SD card controller support with UHS high-speed modes.
+From: Trevor Gamblin <tgamblin@baylibre.com>
+
+Update the Muse Pi Pro devicetree with SD card support to match what
+was done for the OrangePi RV2 in [1]. More precisely:
 
 - Enable sdhci0 controller with 4-bit bus width
-- Configure card detect GPIO with GPIO_ACTIVE_LOW and internal pull-up
-  support
+- Configure card detect GPIO with internal pull-up support
 - Connect vmmc-supply to buck4 for 3.3V card power
 - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
 - Add dual pinctrl states for voltage-dependent pin configuration
 - Support UHS-I SDR25, SDR50, and SDR104 modes
 - Add stable MMC device aliases (mmc0 = eMMC, mmc1 = SD card)
+- Update PMIC configuration to use per-regulator supply properties
 
-This enables full SD card functionality including high-speed UHS modes
-for improved performance.
+[1] https://lore.kernel.org/linux-riscv/20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com/T/#
 
-Suggested-by: Anand Moon <linux.amoon@gmail.com>
-Tested-by: Anand Moon <linux.amoon@gmail.com>
-Tested-by: Margherita Milani <margherita.milani@amarulasolutions.com>
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+Tested-by: Andre Heider <a.heider@gmail.com>
+Signed-off-by: Trevor Gamblin <tgamblin@baylibre.com>
 Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 ---
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 24 ++++++++++++++++++++++--
- 1 file changed, 22 insertions(+), 2 deletions(-)
+ arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 60 ++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index e20daa50a152..72f77e9edd63 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -17,6 +17,8 @@ aliases {
- 		spi3 = &spi3;
- 		i2c2 = &i2c2;
- 		i2c8 = &i2c8;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+index 29e333b670cf..81d3ce85d460 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+@@ -17,8 +17,20 @@ / {
+ 	aliases {
+ 		ethernet0 = &eth0;
+ 		serial0 = &uart0;
 +		mmc0 = &emmc;
 +		mmc1 = &sdhci0;
  	};
  
++	reg_vcc_4v: vcc-4v {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_4v";
++		regulator-min-microvolt = <4000000>;
++		regulator-max-microvolt = <4000000>;
++		regulator-boot-on;
++		regulator-always-on;
++	};
++
++
  	chosen {
-@@ -221,7 +223,7 @@ buck3_1v8: buck3 {
- 				regulator-always-on;
- 			};
- 
--			buck4 {
-+			buck4: buck4 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-ramp-delay = <5000>;
-@@ -242,7 +244,7 @@ buck6 {
- 				regulator-always-on;
- 			};
- 
--			aldo1 {
-+			aldo1: aldo1 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-@@ -374,3 +376,21 @@ hub_3_0: hub@2 {
- 		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
+ 		stdout-path = "serial0";
  	};
+@@ -77,3 +89,51 @@ &uart0 {
+ 	pinctrl-names = "default";
+ 	status = "okay";
  };
++
++&i2c8 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c8_cfg>;
++	status = "okay";
++
++	pmic@41 {
++		compatible = "spacemit,p1";
++		reg = <0x41>;
++		interrupts = <64>;
++		vin4-supply = <&reg_vcc_4v>;
++		aldoin-supply = <&reg_vcc_4v>;
++
++		regulators {
++			buck4: buck4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			aldo1: aldo1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++		};
++	};
++};
 +
 +&sdhci0 {
 +	pinctrl-names = "default", "uhs";
 +	pinctrl-0 = <&mmc1_cfg>;
 +	pinctrl-1 = <&mmc1_uhs_cfg>;
 +	bus-width = <4>;
-+	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 +	no-mmc;
 +	no-sdio;
 +	disable-wp;
