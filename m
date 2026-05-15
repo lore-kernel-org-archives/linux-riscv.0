@@ -4,133 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EA7CD4851
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24284CD4F3D
 	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 08:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a7/BvApbofLgb0pxldhiiU0b3FJ0Cf1qUUaSI1N+A28=; b=A3s0+MOwaS8eoD
-	U3ak608kOkpFgoQKd2LQmbZ+YfMioSMwI5rES0ZZ0T7c3otPKewxYsOLjVa62/Em+BGttXNyG4A2k
-	idtyAaKlkbGGbegiYkNMbSdifcOHlgDoNt7/Ua5p7Ke1BfzKdtIcjialDpCVN8SaYfdghO0NhdjGQ
-	MnX1Go/IRxo/o32oCldYfxgFHhTIsANK1rrscG8ZANquIzTxFnKO1KnVGmsAn/zdhfH0ZUcP8Wlmx
-	uNpm9ALZdSXJyij8xOzg+AJm+PbPGBpVcriL3RPDzuPFuIAuaMRhLyYs4pmcyfwwWN+ixlkDdqWX5
-	wP2R+696g0GWAsZvLjJg==;
+	List-Owner; bh=8jH3YJi8oV5OH+v7tGa1fIxjlHRuvSScdsMJo3iEmwQ=; b=Js67Q612nWJPD5
+	GUVdDk9jn5jhMaNojWxMi7vDtVG7MoPSOtCzxEfLyQNK77OZxuPevaM+HvJmDZwoPW4gXkRf3T52A
+	XzP+G53aIkLQIXVSJYmDhk4xAwGUnUVF+wGdqtn/BYgyFwAkDH9miMhvIDfJVCahyZL0hYeqOaOGQ
+	1tZ0ENI6bf6rT9NdOyHeEMUsrhX3iCmUCnSY8wms56ebsjVtXjlefmMX+8KUkaRGtI0P/6n5GgtWH
+	CQKjZIMRnC6fur4mNOpPdbyeLKYvx16UWHmiuJVF/KHnZgvK3aTeSwWUKyDonOHCtCUgRLS7wuHMF
+	GJaHYNNbnHWyeRju2fJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoIO-00000007nBB-0Dip;
-	Fri, 15 May 2026 08:53:24 +0000
-Received: from mail-sh0chn02on2092.outbound.protection.partner.outlook.cn ([139.219.146.92] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wNoIY-00000007nDw-1LRl;
+	Fri, 15 May 2026 08:53:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoII-00000007n9i-2lN1
+	id 1wNoIT-00000007nCX-2w1T
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 08:53:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ny1/OmIMDvDlZ0gAIxsd7J5fucaL/4CXT2vDpXx7v60VZc8yS6gp9ei28L0NKZgosGEOiNZnkapT6iMQrIJhyZHXm4kwPaCAXplkczi/87hgd5RBpEodP/0b4O/Anfp6afGj0b2ehsFEZ3Nn/9h/bJfPj3WNjCUF5C/xzo3Pv5mCSSVp6FS1vc+5BdE9lOdzx7i8PRrQq/vKzkRCg8dBJIhxszSVGwd115YWfs1cC3tIIbbb1mC+W1n3T83qok4y5gipcL1kRDK5Pp/Ab0jnA7tF/cem2GgOFGN3c7odvT4vlETs/9K/T1J8YcQM4OrwUFu4kDLiOwzMZGcKy7D6cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OmZTvKCLwfhBq97T+N9oMPC0HiqvAJP0vUED9HZnIik=;
- b=YyUtrMD++96niu1aNWZSMc4zdHxhu2hhw7WL9IN/7EZ5t+by+sUIbF6gAqlIK0Hn1rSgnhvUlJNaA8MLQPms8F4hO5Z5L0Jzezf3LUpg9nHvvEyyjNdEMsU6QyEkDbgCUE0gGqEp+rdCnM9P9kX6gXN9ILfIZxtT4lKVUOtz1+Pfe5csiziAcBPH+b+feKtQhw0EAY8gc/g3w9NIFKb61ltFi+MvSDWaDT2b8e8xN3/yewd6+g6NY3qureHARVWNvR+KC85wSPFkzPvmh88bCUQrQgmEA4OglYJ/+OKyhNxnt/4Amhs9T3ms6FgUOIhH1fL52RRaj25b/oTBmq3Iyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1315.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:15::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.13; Fri, 15 May
- 2026 08:53:05 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9913.009; Fri, 15 May 2026 08:53:05 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Conor Dooley <conor@kernel.org>, Linus Walleij <linusw@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul
- Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Lianfeng
- Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v2 04/22] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Thread-Topic: [PATCH v2 04/22] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Thread-Index: AQHc45KRvsqG0r7N2ECAW67mfXLNbrYN3n4AgAC9aVCAABQvAIAAGT8A
-Date: Fri, 15 May 2026 08:53:04 +0000
-Message-ID: <ZQ4PR01MB1202A1C94D9A17C1F85FF1BDF2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
- <20260514111218.94519-5-changhuang.liang@starfivetech.com>
- <20260514-undermost-gray-6c9967b363a3@spud>
- <ZQ4PR01MB1202BD7677ACAF6EE18D062AF2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260515-eligible-greasily-257029ab1720@wendy>
-In-Reply-To: <20260515-eligible-greasily-257029ab1720@wendy>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1315:EE_
-x-ms-office365-filtering-correlation-id: e75b3d45-7336-4aa3-31c4-08deb25f60d9
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|22082099003|18002099003|56012099003|4143699003|3023799003|38070700021;
-x-microsoft-antispam-message-info: HuoiPgLtZFCHOJSuTMFbqOUJjb9ZdLPjx8aEYOZ0jI3zH0sp0jO2raL+7DSWGg55XhN8gfL86pkfSBlWwIiRPwtlmXwEdJSiESw7pgKz+o+zVp7PqFc2X7e/C5G15c83k1lCBJYz7tUhqMMsnfRmulUuaEVFfzhjnjgsn8A9u/wlDP+8pYm41+lH8ALarq5m0jwvo521E8qnZBNeIrUzWa3ChOOz/Q4hxEBaq4Fdva+aMKaqYmcUbPVQfzmBMrvXzqxhRyftufdwtoPKhvC+FJZOJMSchrqYfus1ba/lSqf6ve8kUVyrVfSKt6TEnPvDwGx1bcYV1BogWUNkz1PDbil6+hHMEzFpft0a1coM/WoacOgQg+3z1MKe4EmL4ugY/o8HBDq6bSe8OKPLj20J3iGnBMdyKbA63XylUzgiPSyhELR/GsSKEKDIqjshXsokThIDJqnpIIItQHhNrIZqGoteSnmR7OidoxlorNknzMP9sBbaciTXnRPBTcT2/FDKNBaVgkvTgrq9ASUNA26HZ1BcG4IRKp+Zn4r7Gwn/jRuIwUnaESUUlXXWZgwcrniV
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(22082099003)(18002099003)(56012099003)(4143699003)(3023799003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?NpwrGNuhfRXfhNP7EJqdBtQK/oOyANDPnco4zO4L457OVazhxAoVv/do92VH?=
- =?us-ascii?Q?jx2QPK/sVt1WINzjRI94VcNOpFGTJX2bzrHW2N+gbDnLC0GAg9LjYvqep/2F?=
- =?us-ascii?Q?ua7r/VGdSWDgBIHRdOac/IwdnmCRqveNt+vsLn4XcOgQSCi2+C2uDc1KD2yD?=
- =?us-ascii?Q?/OGXq+ak7/Wv/N9+YfPtXal8Rd8QhhFOgQCi50nLBGwo1ji6vEMCWFfjt6tH?=
- =?us-ascii?Q?TZMUZkAGqNBjlCn17jMLAYvVcGgtbmwrLsOjMbZKAEkJwIgx7+oDCfClQNIg?=
- =?us-ascii?Q?2S3e/Qm47fjRVz2Ug/TuTM0OL9tFIODGNgNOK5XDPMijNXWMRyG4Hm9TDIiF?=
- =?us-ascii?Q?1UR2ONkpCpmcndKBI9WGxy0flQzXcc2s3zUtYLmVLSYIxRnlYdZyGcyhtHF0?=
- =?us-ascii?Q?1koGYRha64SB76xEQeSZj9uaeQ84o80MJZ8hRY7QEWhmxeoKVTTjpSv1X6I/?=
- =?us-ascii?Q?cKRtXL1E+D/3SDP1v0sb5/Jfq2H0vluCgR693ZYFsqwcVkp9WWXEUUwhYetc?=
- =?us-ascii?Q?1mCuFKxgHa4t/6agVxI2g5tv30JgXOU9KXAs5ng39QXSb6yrVrTtzKnEKGAj?=
- =?us-ascii?Q?m0IZGjYww569trggf+AcYTYMzajKZksy7pxQXjpsomE1hS5kCPtikGEz7ArA?=
- =?us-ascii?Q?n6PS/6OtTkJE7ZQGLW2VEpSL1ZKLvkQoTZl2+X255XR56eY9aJQROTArW6cF?=
- =?us-ascii?Q?2l1tjRXOAfPcDk67WyDYBIGkmwnaHaE9YH1+rQke4JXTV3pGpeMC33Cm7A/X?=
- =?us-ascii?Q?XvOz1RgnddMxM5Y+uQTT13MDDJXFMzYOrChnyN/eL0jh8ODYz4B/47rLF+6U?=
- =?us-ascii?Q?2OQumu3H+Rh/SttenNrrEB6foM1nECcwVcbr8qQ7Dccbm3ytVHqJaR7DWGDa?=
- =?us-ascii?Q?f96+zNJqBhHov7QQ0YCurKq1oeuKoxjzHINbSNuXu9req5FoIHyKjPzg2DSn?=
- =?us-ascii?Q?55uaYJvYC9y92s4s2ZBQjJeuzmEgUtm6dNW1GR4gM1pVEkrCTBKX9/7Rcubq?=
- =?us-ascii?Q?b8oSYCztMXgHpJgRYRGcW2W3ZKKsf7LckbXGnauc/25w9mERsohLYtrs0t25?=
- =?us-ascii?Q?tauGibjOG2waa2ioXRlvFJy6HUrT101iI3q6DYyvH+vFTnVA0xuQRE9nps2F?=
- =?us-ascii?Q?HRMwdTumBXg/PF1Lz7BKx1+4CGzwo2f6MlcB5Nv1wEDzlIfMK2XdYd3lYsDe?=
- =?us-ascii?Q?o5KKoAmyENbYXIbj7TiK6pcwnlMirh6GQKf4VY4zCVXpE2ja8BbUbhjtdz3X?=
- =?us-ascii?Q?xwYe8ctw8B546zU5jrWlSrOwuj/WwtXpuOPT5FEk+Id0fGF7LOCObAguEDLO?=
- =?us-ascii?Q?oB8F5hNYrikU3EAhLTqWNOUk+fBD1lQuo1SfKYi71Ch7lPHDAy4R3EP84t6O?=
- =?us-ascii?Q?uxVe0/kMV88LYPsmgWvQ1lN1sTMTfwygU4naMKT1GZn9Zu42M8D5FozCxJEn?=
- =?us-ascii?Q?s1jcD64OucFsrX67sDcxkezwoz+hpLYutxapgmdA/c40PjcoRe2DxBB3ACc/?=
- =?us-ascii?Q?kRlls8C6sOsa5ljrhFbcSQtaK1Y4RWqRMw3a7hPwlUQ46p2Grm73eiurrObP?=
- =?us-ascii?Q?Ag9xTHWITPbrCuVnwlaGr9XZeM4ZXoHirS63vgr1xxOJTUIB902vmObwIsO0?=
- =?us-ascii?Q?K4ouqVfapwgcDP/PzAY2o6KxXazTRqCRcLaqtRR/7HKrj1fKsLUb/PElkaHt?=
- =?us-ascii?Q?zp+TrTvBhu0Z66CQxxgU5EQVfGrFNBOsLIRGH9Wltxm5C/QOQC/LljyH/RX3?=
- =?us-ascii?Q?VSBq6r66GoxqpmgGWP/IbDFqI1kSClM=3D?=
+	Fri, 15 May 2026 08:53:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778835208;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vocfv8X6sC3JpCoVoIUoxZpmc+3EyjWnx/brcltJKZA=;
+	b=ibgp5xl1Ke5JUSKo4UfBleBbazy36P25+HZTRgGgsWAzNDCWU/t3BxC8HAfMr1/GcTFXyB
+	2aHmeHXx/J8vtolTET5Lh0nOHAUsaIlUiTVc6jNuQSXdz4rDksK/Mo6yN0T998pSGh8e/0
+	7yWMma5P4MaUdHLvBcJ9pATLnwekUQ0=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-628-4a9suRC3M0eLdSSn_n1e9w-1; Fri,
+ 15 May 2026 04:53:19 -0400
+X-MC-Unique: 4a9suRC3M0eLdSSn_n1e9w-1
+X-Mimecast-MFC-AGG-ID: 4a9suRC3M0eLdSSn_n1e9w_1778835196
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3AB0918002C8;
+	Fri, 15 May 2026 08:53:15 +0000 (UTC)
+Received: from [192.168.1.153] (headnet01.pony-001.prod.iad2.dc.redhat.com [10.2.32.101])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9967A1955F2D;
+	Fri, 15 May 2026 08:53:07 +0000 (UTC)
+From: Albert Esteve <aesteve@redhat.com>
+Date: Fri, 15 May 2026 10:52:50 +0200
+Subject: [PATCH v12 1/4] bug/kunit: Core support for suppressing warning
+ backtraces
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: e75b3d45-7336-4aa3-31c4-08deb25f60d9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2026 08:53:04.9518
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: vPZ2crvOp/O0x1Msm2t/dxk1FF3YW6GgsfVVFA8DCl1mdbsADFOM/o9W/kvy7qht8lrIGhyWLtmHNO6YtzIAKSvnndszcppso3tHWxWLbF79lUw3bBEXF1rcC73kERRn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1315
+Message-Id: <20260515-kunit_add_support-v12-1-a216dc228be8@redhat.com>
+References: <20260515-kunit_add_support-v12-0-a216dc228be8@redhat.com>
+In-Reply-To: <20260515-kunit_add_support-v12-0-a216dc228be8@redhat.com>
+To: Arnd Bergmann <arnd@arndb.de>, 
+ Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+ Rae Moar <raemoar63@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+ dri-devel@lists.freedesktop.org, workflows@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
+ peterz@infradead.org, Alessandro Carminati <acarmina@redhat.com>, 
+ Guenter Roeck <linux@roeck-us.net>, Kees Cook <kees@kernel.org>, 
+ Albert Esteve <aesteve@redhat.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778835177; l=17209;
+ i=aesteve@redhat.com; s=20260303; h=from:subject:message-id;
+ bh=W/1CY6niuMYarxTFCQH1sQK3vRBqEnqe7pJ2GOgXriI=;
+ b=f+k7BO6igZbE4eOGvSVFZQqp5GJ7cVd+26dCHMsiRW7Kf2Qkt/PnOvg4BeeJjPFjgo1XFd/UR
+ xPrDjx/5mehDL7dhM8O1B9vykCpgM7hf9JLnneiMP57rg7zCVTkmEo9
+X-Developer-Key: i=aesteve@redhat.com; a=ed25519;
+ pk=YSFz6sOHd2L45+Fr8DIvHTi6lSIjhLZ5T+rkxspJt1s=
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: PRxpMK4Y1Hf1obcmyV0RMDOnLu4UEvJhZ0BxnOe07y8_1778835196
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_015318_862863_8ABF4738 
-X-CRM114-Status: GOOD (  36.53  )
+X-CRM114-CacheID: sfid-20260515_015331_262079_21251475 
+X-CRM114-Status: GOOD (  31.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,346 +107,490 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor
+From: Alessandro Carminati <acarmina@redhat.com>
 
-Thank for the comments
+Some unit tests intentionally trigger warning backtraces by passing bad
+parameters to kernel API functions. Such unit tests typically check the
+return value from such calls, not the existence of the warning backtrace.
 
-> On Fri, May 15, 2026 at 06:10:28AM +0000, Changhuang Liang wrote:
-> > Hi, Conor
-> >
-> > Thanks for the review.
-> >
-> > > On Thu, May 14, 2026 at 04:12:00AM -0700, Changhuang Liang wrote:
-> > > > Add pinctrl bindings for StarFive JHB100 SoC System-0(sys0)
-> > > > pinctrl controller.
-> > > >
-> > > > Signed-off-by: Changhuang Liang
-> > > > <changhuang.liang@starfivetech.com>
-> > > > ---
-> > > >  .../pinctrl/starfive,jhb100-sys0-pinctrl.yaml | 175
-> ++++++++++++++++++
-> > > >  .../pinctrl/starfive,jhb100-pinctrl.h         |  17 ++
-> > > >  2 files changed, 192 insertions(+)  create mode 100644
-> > > > Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-pin
-> > > > ctrl
-> > > > .yaml  create mode 100644
-> > > > include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> > > >
-> > > > diff --git
-> > > > a/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-p
-> > > > inct
-> > > > rl.yaml
-> > > > b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-p
-> > > > inct
-> > > > rl.yaml
-> > > > new file mode 100644
-> > > > index 000000000000..21d3693587fd
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sy
-> > > > +++ s0-p
-> > > > +++ inctrl.yaml
-> > > > @@ -0,0 +1,175 @@
-> > > > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause %YAML 1.2
-> > > > +---
-> > > > +$id:
-> > > > +http://devicetree.org/schemas/pinctrl/starfive,jhb100-sys0-pinctr
-> > > > +l.ya
-> > > > +ml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: StarFive JHB100 System-0 Pin Controller
-> > > > +
-> > > > +description: |
-> > > > +  Pinctrl bindings for JHB100 RISC-V SoC from StarFive Technology Ltd.
-> > > > +
-> > > > +  The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1,
-> > > > + sys2, per0, per1,  per2, per2pok, per3, adc0, adc1, emmc, and vga.
-> > > > +  This document provides an overview of the "sys0" pinctrl domain.
-> > > > +
-> > > > +  The "sys0" domain has a pin controller which provides
-> > > > +  - function selection for GPIO pads.
-> > > > +  - GPIO pad configuration.
-> > > > +  - GPIO interrupt handling.
-> > > > +
-> > > > +  In the SYS0 Pin Controller, there are 4 multi-function GPIO_PADs.
-> > > > + Each of  them can be multiplexed to different hardware blocks
-> > > > + through function  selection and each iopad has a maximum of up
-> > > > + to 2
-> > > functions - 0 and 1.
-> > > > +  Function 0 is the default function which is generally the GPIO
-> > > > + function  (or occasionally, it can be a peripheral signal).
-> > > > +  Function 1 is the alternate function or peripheral signal that
-> > > > + can be  routed to the iopad. The function selection is carried
-> > > > + out by writing  the function number to the iopad function select
-> register.
-> > > > +
-> > > > +  Each iopad is configurable with parameters such as
-> > > > + input-enable, internal  pull-up/pull-down bias, drive strength,
-> > > > + schmitt trigger, slew rate,  input  debounce nanoseconds, power
-> > > > + source and drive type
-> > > (open-drain or push-pull).
-> > > > +
-> > > > +maintainers:
-> > > > +  - Alex Soo <yuklin.soo@starfivetech.com>
-> > >
-> > > Why is Alex the maintainer when you are the sole author?
+Such intentionally generated warning backtraces are neither desirable
+nor useful for a number of reasons:
+- They can result in overlooked real problems.
+- A warning that suddenly starts to show up in unit tests needs to be
+  investigated and has to be marked to be ignored, for example by
+  adjusting filter scripts. Such filters are ad hoc because there is
+  no real standard format for warnings. On top of that, such filter
+  scripts would require constant maintenance.
 
-I will change it to myself. Alex has already resigned.
+Solve the problem by providing a means to suppress warning backtraces
+originating from the current kthread while executing test code. Since
+each KUnit test runs in its own kthread, this effectively scopes
+suppression to the test that enabled it. Limit changes to generic code
+to the absolute minimum.
 
-> > >
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    items:
-> > > > +      - const: starfive,jhb100-sys0-pinctrl
-> > > > +
-> > > > +  reg:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  clocks:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  resets:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  interrupts:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  interrupt-controller: true
-> > > > +
-> > > > +  '#interrupt-cells':
-> > > > +    const: 3
-> > > > +
-> > > > +  gpio-controller: true
-> > > > +
-> > > > +  '#gpio-cells':
-> > > > +    const: 3
-> > > > +
-> > > > +  gpio-ranges: true
-> > > > +
-> > > > +  gpio-line-names: true
-> > > > +
-> > > > +patternProperties:
-> > > > +  '-grp$':
-> > > > +    type: object
-> > > > +    additionalProperties: false
-> > > > +    patternProperties:
-> > > > +      '-pins$':
-> > > > +        type: object
-> > > > +        description: |
-> > > > +          A pinctrl node should contain at least one subnode
-> > > representing the
-> > > > +          pinctrl groups available in the domain. Each subnode
-> > > > + will list
-> > > the
-> > > > +          pins it needs, and how they should be configured, with
-> > > > + regard
-> > > to
-> > > > +          function selection, bias, input enable/disable, input schmitt
-> > > > +          trigger enable/disable, slew-rate, input debounce
-> > > nanoseconds,
-> > > > +          drive-open-drain, drive-push-pull, power-source and
-> > > drive-strength.
-> > > > +        allOf:
-> > > > +          - $ref: /schemas/pinctrl/pincfg-node.yaml
-> > > > +          - $ref: /schemas/pinctrl/pinmux-node.yaml
-> > > > +        unevaluatedProperties: false
-> > >
-> > > I think this should be additionalProperties, since you're citing all
-> > > the properties you do support below.
-> > >
-> > > > +
-> > > > +        properties:
-> > > > +          pins:
-> > > > +            description:
-> > > > +              The list of IOs that properties in the pincfg node apply
-> to.
-> > > > +
-> > > > +          function:
-> > > > +            description:
-> > > > +              A string containing the name of the function to mux
-> > > > + for
-> > > these
-> > > > +              pins.
-> > > > +            enum: [ auxpwrgood, gpio, hbled, pe2rst_out ]
-> > > > +
-> > > > +          bias-disable: true
-> > > > +
-> > > > +          bias-pull-down:
-> > > > +            type: boolean
-> > > > +
-> > > > +          bias-pull-up:
-> > > > +            oneOf:
-> > > > +              - type: boolean
-> > > > +              - enum: [ 600, 900, 1200, 2000 ]
-> > > > +                description: Pull up RSEL type resistance values
-> > > > + (in
-> > > ohms)
-> > > > +            description:
-> > > > +              For normal pull up type there is no need to specify
-> > > > + a
-> > > resistance
-> > > > +              value, hence this can be specified as a boolean
-> property.
-> > > > +              For RSEL pull up type a resistance value (in ohms)
-> > > > + can be
-> > > added.
-> > > > +
-> > > > +          drive-open-drain: true
-> > > > +
-> > > > +          drive-push-pull: true
-> > > > +
-> > > > +          drive-strength:
-> > > > +            enum: [ 2, 4, 8, 12 ]
-> > > > +
-> > > > +          drive-strength-microamp:
-> > > > +            enum: [ 2000, 4000, 8000, 12000 ]
-> > > > +
-> > > > +          input-debounce-nanoseconds:
-> > > > +            minimum: 0
-> > > > +            maximum: 4294967295
-> > > > +
-> > > > +          input-disable: true
-> > > > +
-> > > > +          input-enable: true
-> > > > +
-> > > > +          input-schmitt-enable: true
-> > > > +
-> > > > +          input-schmitt-disable: true
-> > > > +
-> > > > +          power-source:
-> > > > +             enum: [ 0, 1, 2 ]
-> > > > +
-> > > > +          slew-rate:
-> > > > +            enum: [ 0, 1 ]
-> > > > +            default: 0
-> > > > +            description: |
-> > > > +                0: slow (half frequency)
-> > > > +                1: fast
-> > > > +
-> > > > +required:
-> > > > +  - compatible
-> > > > +  - reg
-> > > > +  - resets
-> > > > +  - interrupts
-> > > > +  - interrupt-controller
-> > > > +  - '#interrupt-cells'
-> > > > +  - gpio-controller
-> > > > +  - '#gpio-cells'
-> > > > +  - gpio-ranges
-> > > > +
-> > > > +additionalProperties: false
-> > > > +
-> > > > +examples:
-> > > > +  - |
-> > > > +    soc {
-> > > > +        #address-cells = <2>;
-> > > > +        #size-cells = <2>;
-> > > > +
-> > > > +        pinctrl_sys0: pinctrl@13080000 {
-> > > > +            compatible = "starfive,jhb100-sys0-pinctrl";
-> > > > +            reg = <0x0 0x13080000 0x0 0x800>;
-> > > > +            resets = <&sys0crg 2>;
-> > > > +            interrupts = <56>;
-> > > > +            interrupt-controller;
-> > > > +            #interrupt-cells = <3>;
-> > > > +            gpio-controller;
-> > > > +            #gpio-cells = <3>;
-> > > > +            gpio-ranges = <&pinctrl_sys0 0 0 0 4>;
-> > > > +        };
-> > > > +    };
-> > > > diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> > > > b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> > > > new file mode 100644
-> > > > index 000000000000..6d8f5516a178
-> > > > --- /dev/null
-> > > > +++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> > > > @@ -0,0 +1,17 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> > > > +/*
-> > > > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> > > > + *
-> > > > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > > > + */
-> > > > +
-> > > > +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
-> > > > +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
-> > > > +
-> > > > +/* sys0 pad numbers */
-> > > > +#define PADNUM_SYS0_GPIO_A0				0
-> > > > +#define PADNUM_SYS0_GPIO_A1				1
-> > > > +#define PADNUM_SYS0_GPIO_A2				2
-> > > > +#define PADNUM_SYS0_GPIO_A3				3
-> > >
-> > > Does this provide any actual value? Across the whole series, most
-> > > numbers you put in this binding headers do not appear in any drivers
-> > > at all. Seems like these defines should appear in the dts directly?
-> >
-> > However, the current series of drivers will use some of these definitions.
-> >
-> > Copied from patch 12:
-> > +static const struct pinvref_desc pinvref_desc_sys2[] = {
-> > +	{
-> > +		.name = "gpiow0",
-> > +		.pin_grp = {
-> > +			PADNUM_SYS2_GPIO_A36,
-> > +			PADNUM_SYS2_GPIO_A37,
-> > +			PADNUM_SYS2_GPIO_A38,
-> > +			PADNUM_SYS2_GPIO_A39
-> > +		},
-> > +		.num_pins = 4,
-> > +		.range = BIT(JHB100_PINVREF_1_8V) | BIT(JHB100_PINVREF_3_3V)
-> 
-> Can you explain why you need something like this when you're using pins and
-> functions? These look a lot like your own home-rolled groups, that exist just to
-> set the range of permitted values for vref?
+Implementation details:
+Suppression is integrated into the existing KUnit hooks infrastructure
+in test-bug.h, reusing the kunit_running static branch for zero
+overhead when no tests are running.
 
-This part of the voltage configuration only has one register, but it applies to A36/A37/A38/A39.
-The range field is used to restrict the valid voltages that can be configured.
+Suppression is checked at three points in the warning path:
+- In warn_slowpath_fmt(), the check runs before any output, fully
+  suppressing both message and backtrace. This covers architectures
+  without __WARN_FLAGS.
+- In __warn_printk(), the check suppresses the warning message text.
+  This covers architectures that define __WARN_FLAGS but not their own
+  __WARN_printf (arm64, loongarch, parisc, powerpc, riscv, sh), where
+  the message is printed before the trap enters __report_bug().
+- In __report_bug(), the check runs before __warn() is called,
+  suppressing the backtrace and stack dump.
 
-> As far as I can tell, the only controller that supports something other than 1.8v
-> and 3.3v is "per2", so you should be able to apply the restrictions here entirely
-> in the dt-binding?
+To avoid double-counting on architectures where both __warn_printk()
+and __report_bug() run for the same warning, kunit_is_suppressed_warning()
+takes a bool parameter: true to increment the suppression counter
+(used in warn_slowpath_fmt and __report_bug), false to check only
+(used in __warn_printk).
 
-Okay, I will provide more details about the power source and set limits on the supported voltage values.
+The suppression state is dynamically allocated via kzalloc() and its
+lifetime is managed via kunit_add_action(). On cleanup, the node is
+removed with list_del_rcu() and the object is freed asynchronously via
+call_rcu(), ensuring that any concurrent RCU reader that obtained a
+pointer to the handle before removal can finish safely. Writer-side
+access to the global suppression list is serialized with a spinlock;
+readers use RCU.
 
-Best Regards,
-Changhuang
+Two API forms are provided:
+- kunit_warning_suppress(test) { ... }: scoped, uses __cleanup for
+  automatic teardown on scope exit, kunit_add_action() as safety net
+  for abnormal exits (e.g. kthread_exit from failed assertions).
+  Suppression handle is only accessible inside the block.
+- kunit_start/end_suppress_warning(test): direct functions returning
+  an explicit handle, for retaining the handle within the test,
+  or for cross-function usage.
 
-> I notice you have
-> > > > +          power-source:
-> > > > +             enum: [ 0, 1, 2 ]
-> in all bindings, but no explanation of what the values are. That needs to
-> change, and you should not permit 1 in anything other than "per2", since that
-> appears to be the only user.
-> 
-> Also, you've not responded to my other comments, one of which was a
-> question. Why not?
-> 
-> Thanks,
-> Conor.
-> 
-> > +	},
-> > +	{
-> > +		.name = "gpiow-inner",
-> > +		.pin_grp = {
-> > +			PADNUM_SYS2_GPIO_A40,
-> > +			PADNUM_SYS2_GPIO_A41,
-> > +			PADNUM_SYS2_GPIO_A42,
-> > +			PADNUM_SYS2_GPIO_A43
-> > +		},
-> > +		.num_pins = 4,
-> > +		.range = BIT(JHB100_PINVREF_1_8V) | BIT(JHB100_PINVREF_3_3V)
-> > +	},
-> > +	{ NULL },
-> > +};
-> >
-> > Therefore, I have uniformly created
-> > include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> >
-> > Best Regards,
-> > Changhuang
-> >
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
+Reviewed-by: Kees Cook <kees@kernel.org>
+Reviewed-by: David Gow <david@davidgow.net>
+Signed-off-by: Albert Esteve <aesteve@redhat.com>
+---
+ include/kunit/test-bug.h |  26 ++++++++++
+ include/kunit/test.h     |  98 +++++++++++++++++++++++++++++++++++
+ kernel/panic.c           |  11 ++++
+ lib/bug.c                |  12 ++++-
+ lib/kunit/Makefile       |   3 +-
+ lib/kunit/bug.c          | 131 +++++++++++++++++++++++++++++++++++++++++++++++
+ lib/kunit/hooks-impl.h   |   2 +
+ 7 files changed, 280 insertions(+), 3 deletions(-)
+
+diff --git a/include/kunit/test-bug.h b/include/kunit/test-bug.h
+index 47aa8f21ccce8..99869029fc686 100644
+--- a/include/kunit/test-bug.h
++++ b/include/kunit/test-bug.h
+@@ -10,6 +10,7 @@
+ #define _KUNIT_TEST_BUG_H
+ 
+ #include <linux/stddef.h> /* for NULL */
++#include <linux/types.h>  /* for bool */
+ 
+ #if IS_ENABLED(CONFIG_KUNIT)
+ 
+@@ -23,6 +24,7 @@ DECLARE_STATIC_KEY_FALSE(kunit_running);
+ extern struct kunit_hooks_table {
+ 	__printf(3, 4) void (*fail_current_test)(const char*, int, const char*, ...);
+ 	void *(*get_static_stub_address)(struct kunit *test, void *real_fn_addr);
++	bool (*is_suppressed_warning)(bool count);
+ } kunit_hooks;
+ 
+ /**
+@@ -60,9 +62,33 @@ static inline struct kunit *kunit_get_current_test(void)
+ 		}								\
+ 	} while (0)
+ 
++/**
++ * kunit_is_suppressed_warning() - Check if warnings are being suppressed
++ *                                 by the current KUnit test.
++ * @count: if true, increment the suppression counter on match.
++ *
++ * Returns true if the current task has active warning suppression.
++ * Uses the kunit_running static branch for zero overhead when no tests run.
++ *
++ * A single WARN*() may traverse multiple call sites in the warning path
++ * (e.g., __warn_printk() and __report_bug()). Pass @count = true at the
++ * primary suppression point to count each warning exactly once, and
++ * @count = false at secondary points to suppress output without
++ * inflating the count.
++ */
++static inline bool kunit_is_suppressed_warning(bool count)
++{
++	if (!static_branch_unlikely(&kunit_running))
++		return false;
++
++	return kunit_hooks.is_suppressed_warning &&
++	       kunit_hooks.is_suppressed_warning(count);
++}
++
+ #else
+ 
+ static inline struct kunit *kunit_get_current_test(void) { return NULL; }
++static inline bool kunit_is_suppressed_warning(bool count) { return false; }
+ 
+ #define kunit_fail_current_test(fmt, ...) do {} while (0)
+ 
+diff --git a/include/kunit/test.h b/include/kunit/test.h
+index 9cd1594ab697d..be71612f61655 100644
+--- a/include/kunit/test.h
++++ b/include/kunit/test.h
+@@ -1795,4 +1795,102 @@ do {									       \
+ // include resource.h themselves if they need it.
+ #include <kunit/resource.h>
+ 
++/*
++ * Warning backtrace suppression API.
++ *
++ * Suppresses WARN*() backtraces on the current task while active. Two forms
++ * are provided:
++ *
++ * - Scoped: kunit_warning_suppress(test) { ... }
++ *   Suppression is active for the duration of the block. On normal exit,
++ *   the for-loop increment deactivates suppression. On early exit (break,
++ *   return, goto), the __cleanup attribute fires. On kthread_exit() (e.g.,
++ *   a failed KUnit assertion), kunit_add_action() cleans up at test
++ *   teardown. The suppression handle is only accessible inside the block,
++ *   so warning counts must be checked before the block exits.
++ *
++ * - Direct: kunit_start_suppress_warning() / kunit_end_suppress_warning()
++ *   The underlying functions, returning an explicit handle pointer. Use
++ *   when the handle needs to be retained (e.g., for post-suppression
++ *   count checks) or passed across helper functions.
++ */
++struct kunit_suppressed_warning;
++
++struct kunit_suppressed_warning *
++kunit_start_suppress_warning(struct kunit *test);
++void kunit_end_suppress_warning(struct kunit *test,
++				struct kunit_suppressed_warning *w);
++int kunit_suppressed_warning_count(struct kunit_suppressed_warning *w);
++void __kunit_suppress_auto_cleanup(struct kunit_suppressed_warning **wp);
++bool kunit_has_active_suppress_warning(void);
++
++/**
++ * kunit_warning_suppress() - Suppress WARN*() backtraces for the duration
++ *                            of a block.
++ * @test: The test context object.
++ *
++ * Scoped form of the suppression API. Suppression starts when the block is
++ * entered and ends automatically when the block exits through any path. See
++ * the section comment above for the cleanup guarantees on each exit path.
++ * Fails the test if suppression is already active; nesting is not supported.
++ *
++ * The warning count can be checked inside the block via
++ * KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(). The handle is not accessible
++ * after the block exits.
++ *
++ * Example::
++ *
++ *   kunit_warning_suppress(test) {
++ *       trigger_warning();
++ *       KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
++ *   }
++ */
++#define kunit_warning_suppress(test)					\
++	for (struct kunit_suppressed_warning *__kunit_suppress		\
++	     __cleanup(__kunit_suppress_auto_cleanup) =			\
++	     kunit_start_suppress_warning(test);			\
++	     __kunit_suppress;						\
++	     kunit_end_suppress_warning(test, __kunit_suppress),	\
++	     __kunit_suppress = NULL)
++
++/**
++ * KUNIT_SUPPRESSED_WARNING_COUNT() - Returns the suppressed warning count.
++ *
++ * Returns the number of WARN*() calls suppressed since the current
++ * suppression block started, or 0 if the handle is NULL. Usable inside a
++ * kunit_warning_suppress() block.
++ */
++#define KUNIT_SUPPRESSED_WARNING_COUNT() \
++	kunit_suppressed_warning_count(__kunit_suppress)
++
++/**
++ * KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT() - Sets an expectation that the
++ *                                           suppressed warning count equals
++ *                                           @expected.
++ * @test: The test context object.
++ * @expected: an expression that evaluates to the expected warning count.
++ *
++ * Sets an expectation that the number of suppressed WARN*() calls equals
++ * @expected. This is semantically equivalent to
++ * KUNIT_EXPECT_EQ(@test, KUNIT_SUPPRESSED_WARNING_COUNT(), @expected).
++ * See KUNIT_EXPECT_EQ() for more information.
++ */
++#define KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, expected) \
++	KUNIT_EXPECT_EQ(test, KUNIT_SUPPRESSED_WARNING_COUNT(), expected)
++
++/**
++ * KUNIT_ASSERT_SUPPRESSED_WARNING_COUNT() - Sets an assertion that the
++ *                                           suppressed warning count equals
++ *                                           @expected.
++ * @test: The test context object.
++ * @expected: an expression that evaluates to the expected warning count.
++ *
++ * Sets an assertion that the number of suppressed WARN*() calls equals
++ * @expected. This is the same as KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(),
++ * except it causes an assertion failure (see KUNIT_ASSERT_TRUE()) when the
++ * assertion is not met.
++ */
++#define KUNIT_ASSERT_SUPPRESSED_WARNING_COUNT(test, expected) \
++	KUNIT_ASSERT_EQ(test, KUNIT_SUPPRESSED_WARNING_COUNT(), expected)
++
+ #endif /* _KUNIT_TEST_H */
+diff --git a/kernel/panic.c b/kernel/panic.c
+index 20feada5319d4..213725b612aa1 100644
+--- a/kernel/panic.c
++++ b/kernel/panic.c
+@@ -39,6 +39,7 @@
+ #include <linux/sys_info.h>
+ #include <trace/events/error_report.h>
+ #include <asm/sections.h>
++#include <kunit/test-bug.h>
+ 
+ #define PANIC_TIMER_STEP 100
+ #define PANIC_BLINK_SPD 18
+@@ -1124,6 +1125,11 @@ void warn_slowpath_fmt(const char *file, int line, unsigned taint,
+ 	bool rcu = warn_rcu_enter();
+ 	struct warn_args args;
+ 
++	if (kunit_is_suppressed_warning(true)) {
++		warn_rcu_exit(rcu);
++		return;
++	}
++
+ 	pr_warn(CUT_HERE);
+ 
+ 	if (!fmt) {
+@@ -1146,6 +1152,11 @@ void __warn_printk(const char *fmt, ...)
+ 	bool rcu = warn_rcu_enter();
+ 	va_list args;
+ 
++	if (kunit_is_suppressed_warning(false)) {
++		warn_rcu_exit(rcu);
++		return;
++	}
++
+ 	pr_warn(CUT_HERE);
+ 
+ 	va_start(args, fmt);
+diff --git a/lib/bug.c b/lib/bug.c
+index 224f4cfa4aa31..874cb4ae4d047 100644
+--- a/lib/bug.c
++++ b/lib/bug.c
+@@ -48,6 +48,7 @@
+ #include <linux/rculist.h>
+ #include <linux/ftrace.h>
+ #include <linux/context_tracking.h>
++#include <kunit/test-bug.h>
+ 
+ extern struct bug_entry __start___bug_table[], __stop___bug_table[];
+ 
+@@ -209,8 +210,6 @@ static enum bug_trap_type __report_bug(struct bug_entry *bug, unsigned long buga
+ 			return BUG_TRAP_TYPE_NONE;
+ 	}
+ 
+-	disable_trace_on_warning();
+-
+ 	bug_get_file_line(bug, &file, &line);
+ 	fmt = bug_get_format(bug);
+ 
+@@ -220,6 +219,15 @@ static enum bug_trap_type __report_bug(struct bug_entry *bug, unsigned long buga
+ 	no_cut   = bug->flags & BUGFLAG_NO_CUT_HERE;
+ 	has_args = bug->flags & BUGFLAG_ARGS;
+ 
++	/*
++	 * Before the once logic so suppressed warnings do not consume
++	 * the single-fire budget of WARN_ON_ONCE().
++	 */
++	if (warning && kunit_is_suppressed_warning(true))
++		return BUG_TRAP_TYPE_WARN;
++
++	disable_trace_on_warning();
++
+ 	if (warning && once) {
+ 		if (done)
+ 			return BUG_TRAP_TYPE_WARN;
+diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
+index 656f1fa35abcc..4592f9d0aa8dd 100644
+--- a/lib/kunit/Makefile
++++ b/lib/kunit/Makefile
+@@ -10,7 +10,8 @@ kunit-objs +=				test.o \
+ 					executor.o \
+ 					attributes.o \
+ 					device.o \
+-					platform.o
++					platform.o \
++					bug.o
+ 
+ ifeq ($(CONFIG_KUNIT_DEBUGFS),y)
+ kunit-objs +=				debugfs.o
+diff --git a/lib/kunit/bug.c b/lib/kunit/bug.c
+new file mode 100644
+index 0000000000000..8a5725aebcaa4
+--- /dev/null
++++ b/lib/kunit/bug.c
+@@ -0,0 +1,131 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * KUnit helpers for backtrace suppression
++ *
++ * Copyright (C) 2025 Alessandro Carminati <acarmina@redhat.com>
++ * Copyright (C) 2024 Guenter Roeck <linux@roeck-us.net>
++ */
++
++#include <kunit/resource.h>
++#include <linux/export.h>
++#include <linux/rculist.h>
++#include <linux/sched.h>
++#include <linux/sched/task.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++
++#include "hooks-impl.h"
++
++struct kunit_suppressed_warning {
++	struct list_head node;
++	struct rcu_head rcu;
++	struct task_struct *task;
++	struct kunit *test;
++	atomic_t counter;
++};
++
++static LIST_HEAD(suppressed_warnings);
++static DEFINE_SPINLOCK(suppressed_warnings_lock);
++
++static void kunit_suppress_warning_free(struct rcu_head *rcu)
++{
++	struct kunit_suppressed_warning *w =
++		container_of(rcu, struct kunit_suppressed_warning, rcu);
++
++	put_task_struct(w->task);
++	kfree(w);
++}
++
++static void kunit_suppress_warning_remove(struct kunit_suppressed_warning *w)
++{
++	unsigned long flags;
++
++	spin_lock_irqsave(&suppressed_warnings_lock, flags);
++	list_del_rcu(&w->node);
++	spin_unlock_irqrestore(&suppressed_warnings_lock, flags);
++	call_rcu(&w->rcu, kunit_suppress_warning_free);
++}
++
++KUNIT_DEFINE_ACTION_WRAPPER(kunit_suppress_warning_cleanup,
++			    kunit_suppress_warning_remove,
++			    struct kunit_suppressed_warning *);
++
++bool kunit_has_active_suppress_warning(void)
++{
++	return __kunit_is_suppressed_warning_impl(false);
++}
++EXPORT_SYMBOL_GPL(kunit_has_active_suppress_warning);
++
++struct kunit_suppressed_warning *
++kunit_start_suppress_warning(struct kunit *test)
++{
++	struct kunit_suppressed_warning *w;
++	unsigned long flags;
++	int ret;
++
++	if (kunit_has_active_suppress_warning()) {
++		KUNIT_FAIL(test, "Another suppression block is already active");
++		return NULL;
++	}
++
++	w = kzalloc(sizeof(*w), GFP_KERNEL);
++	if (!w) {
++		KUNIT_FAIL(test, "Failed to allocate suppression handle.");
++		return NULL;
++	}
++
++	w->task = get_task_struct(current);
++	w->test = test;
++
++	spin_lock_irqsave(&suppressed_warnings_lock, flags);
++	list_add_rcu(&w->node, &suppressed_warnings);
++	spin_unlock_irqrestore(&suppressed_warnings_lock, flags);
++
++	ret = kunit_add_action_or_reset(test,
++					kunit_suppress_warning_cleanup, w);
++	if (ret) {
++		KUNIT_FAIL(test, "Failed to add suppression cleanup action.");
++		return NULL;
++	}
++
++	return w;
++}
++EXPORT_SYMBOL_GPL(kunit_start_suppress_warning);
++
++void kunit_end_suppress_warning(struct kunit *test,
++				struct kunit_suppressed_warning *w)
++{
++	if (!w)
++		return;
++	kunit_release_action(test, kunit_suppress_warning_cleanup, w);
++}
++EXPORT_SYMBOL_GPL(kunit_end_suppress_warning);
++
++void __kunit_suppress_auto_cleanup(struct kunit_suppressed_warning **wp)
++{
++	if (*wp)
++		kunit_end_suppress_warning((*wp)->test, *wp);
++}
++EXPORT_SYMBOL_GPL(__kunit_suppress_auto_cleanup);
++
++int kunit_suppressed_warning_count(struct kunit_suppressed_warning *w)
++{
++	return w ? atomic_read(&w->counter) : 0;
++}
++EXPORT_SYMBOL_GPL(kunit_suppressed_warning_count);
++
++bool __kunit_is_suppressed_warning_impl(bool count)
++{
++	struct kunit_suppressed_warning *w;
++
++	guard(rcu)();
++	list_for_each_entry_rcu(w, &suppressed_warnings, node) {
++		if (w->task == current) {
++			if (count)
++				atomic_inc(&w->counter);
++			return true;
++		}
++	}
++
++	return false;
++}
+diff --git a/lib/kunit/hooks-impl.h b/lib/kunit/hooks-impl.h
+index 4e71b2d0143ba..d8720f2616925 100644
+--- a/lib/kunit/hooks-impl.h
++++ b/lib/kunit/hooks-impl.h
+@@ -19,6 +19,7 @@ void __printf(3, 4) __kunit_fail_current_test_impl(const char *file,
+ 						   int line,
+ 						   const char *fmt, ...);
+ void *__kunit_get_static_stub_address_impl(struct kunit *test, void *real_fn_addr);
++bool __kunit_is_suppressed_warning_impl(bool count);
+ 
+ /* Code to set all of the function pointers. */
+ static inline void kunit_install_hooks(void)
+@@ -26,6 +27,7 @@ static inline void kunit_install_hooks(void)
+ 	/* Install the KUnit hook functions. */
+ 	kunit_hooks.fail_current_test = __kunit_fail_current_test_impl;
+ 	kunit_hooks.get_static_stub_address = __kunit_get_static_stub_address_impl;
++	kunit_hooks.is_suppressed_warning = __kunit_is_suppressed_warning_impl;
+ }
+ 
+ #endif /* _KUNIT_HOOKS_IMPL_H */
+
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
