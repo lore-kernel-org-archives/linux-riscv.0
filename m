@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFD4CD343F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 10:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE64CD4851
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 10:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6fPtsTT5KFOJScfREfR6Z25aQH4N3guZKheW+E7dRY=; b=Um2Kmj0IMpWFdQkc2K5TfuYyoG
-	Q4FWPqwYz0T4h/VUEXczSlcMqO5uxu+3jFzc4mELHT+1sRtIq6asClJjZuZMmtBjDirq6WJkXO9qv
-	iQiPx7V7/K5Jg3F+vk4EigtXB/CQmvC/EhcnIuPtmbaqWzMLi1k0B6Sad9zEIIwUNmzVLMcPItW5O
-	8su2pynxDfx/GMUe6htSYKl675fVhDDhuogJCMiCoriYv5oBL/VO4An0KT1kH3t8AWH5rnvHgcevV
-	KtoCOhLmoludaXZ1PFR47cPgDXpiDnys23TrtwmF+fsJ+w1j7cB5qYNxPw0x8kbf0N4tnVpd0DfZS
-	unGFtkmA==;
+	bh=zk6LTOuZDBBauZun5C3Q2dVinws/ZRGQeqG2u4ih2kY=; b=l9CjDzqquepaQ9qJReD9fphApF
+	4X9hF2Rb5OXtG5pvmEVsvE6V6lAM3Y3WCG3M1Pfki9bSxE9gEo1CkjnGgChdfHPKnXGWqV8/erl3s
+	ypUPTUhDDvYIJwhb98b0ABc+kg7REEddVGzae/9cEaWOd+bC5VS6VC9Un50ciQeCgq8yofUdQwqoa
+	WhwchXsIvMoguN9cqN0CaYz6SKlD6L7QEW+ERqj7Y6NIu8ke86mwzrKH6xRMuWdUv8qiXfF1DZamf
+	kj/elmDpUL5uHuroELxj/pfKu6aO3HDnjOiKFnaqsD36jw3RYfkqLmaGlqkNys8OonaJTte9ytP3I
+	hYUDj+2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpTQ-00000007zpX-0FzI;
-	Fri, 15 May 2026 10:08:52 +0000
+	id 1wNpXp-000000080LD-2M8E;
+	Fri, 15 May 2026 10:13:25 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpTN-00000007zp2-2ds9
+	id 1wNpXm-000000080Kl-3Clu
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 10:08:51 +0000
+	Fri, 15 May 2026 10:13:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778839729; x=1810375729;
+  t=1778840003; x=1810376003;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=68cBE+E7krc/yQQ7bawOf+XK6T02GAKG9lPaqwKTlQM=;
-  b=F4IiFjtjphoI59rXCIB6PCg1d47qu5/QYOu55iDEr971GuBK/jSAk4PJ
-   8TPMc2WH0z+5tvqn4IaWZIqoTtIIkAN7Ad2xND+RLJtdgOBllPmZotlyt
-   +4nqrwr2NP+frSf6toecvTBKHauDKO1zJemy/YMXzOGAVWaiVwoysBhGy
-   Xum/EsdNOSubgFB/wC1Vo9FOEVKGmOMGVOGbRKaF38F337o87YqgyfvUU
-   6mzxleh8vZcdsHjZxyyYZeWnBJk/IOA3LC+/Sw6bBZS0avgtOPV5QGPFQ
-   HCyT9gHsDLeaRLfmK9hVK8sjPgj3Bt4qC9/NuAl0gjGromFx/Y3er+9iO
-   g==;
-X-CSE-ConnectionGUID: MwkWFtK8Tc6INnEjCwjUfQ==
-X-CSE-MsgGUID: fet69JvFQE2z7lxPetrrqg==
+  bh=evQX+4ofonjzB1hQTvK0ltGR/Y5Sa64Uh561hOVtgMA=;
+  b=Ht4LX0dRrSQ4G7J0cofVladEWHDWfxJLibv/UidgPzyJpFDgokczi9wN
+   GRL8twLZAp45kywdxwoDQ5cMe2D9vk2RRqG+1DU8XPNdZGFDOkK0U5Am2
+   RLDlP71ahDMQOqp4G0E3DZ9PAqa8K11mWZFzgjra4OeJmIQEHK6mk3u0L
+   dRFfvjxQ+maj5s7omeNN0mo+DX0CfjzwX+9fDo7plB7wKxpaKNt0ATI+Z
+   ZFNYThCgEtb5N3Pxnnr35FwzE9JqvDwjrRXMRW8s8iXbHHcKeOLihkpJM
+   KTT1CtukNB1q3uN33ldpOEPxmvt2M39qOCj46Ca1gSXXZX9BDzQKdBeWt
+   w==;
+X-CSE-ConnectionGUID: 6wFzbMQaTSC3kZhzRYr1Uw==
+X-CSE-MsgGUID: bjSFnhTDSWeIQeux3JDtew==
 X-IronPort-AV: E=Sophos;i="6.23,236,1770620400"; 
-   d="asc'?scan'208";a="66243734"
+   d="asc'?scan'208";a="288921741"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 May 2026 03:08:47 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 03:13:22 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 15 May 2026 03:08:47 -0700
+ 15.2.2562.37; Fri, 15 May 2026 03:13:21 -0700
 Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 15 May 2026 03:08:44 -0700
-Date: Fri, 15 May 2026 11:08:06 +0100
+ Transport; Fri, 15 May 2026 03:13:17 -0700
+Date: Fri, 15 May 2026 11:12:39 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Jia Wang <wangjia@ultrarisc.com>
 CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -68,15 +68,16 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	<conor@kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<linux-gpio@vger.kernel.org>
-Subject: Re: [PATCH 3/9] dt-bindings: riscv: Add UltraRISC DP1000 bindings
-Message-ID: <20260515-cyclic-frequency-50d690821af1@wendy>
+Subject: Re: [PATCH 4/9] dt-bindings: pinctrl: Add UltraRISC DP1000 pinctrl
+ bindings
+Message-ID: <20260515-fragrant-anyplace-e69a7d3e205d@wendy>
 References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
- <20260515-ultrarisc-pinctrl-v1-3-bf559589ea8a@ultrarisc.com>
+ <20260515-ultrarisc-pinctrl-v1-4-bf559589ea8a@ultrarisc.com>
 MIME-Version: 1.0
-In-Reply-To: <20260515-ultrarisc-pinctrl-v1-3-bf559589ea8a@ultrarisc.com>
+In-Reply-To: <20260515-ultrarisc-pinctrl-v1-4-bf559589ea8a@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_030849_679539_783C2C3F 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20260515_031322_833072_506178CD 
+X-CRM114-Status: GOOD (  27.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,109 +89,344 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1364868181377175849=="
+Content-Type: multipart/mixed; boundary="===============8827333216795485719=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1364868181377175849==
+--===============8827333216795485719==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="aCKnMLL/2dELPqOT"
+	protocol="application/pgp-signature"; boundary="sT3yokN64rYA2jYt"
 Content-Disposition: inline
 
---aCKnMLL/2dELPqOT
-Content-Type: text/plain; charset=us-ascii
+--sT3yokN64rYA2jYt
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, May 15, 2026 at 09:17:59AM +0800, Jia Wang wrote:
-> Add DT binding documentation for the UltraRISC DP1000 SoC.
+On Fri, May 15, 2026 at 09:18:00AM +0800, Jia Wang wrote:
+> Add bindings for the pin controllers on the UltraRISC DP1000 RISC-V SoC.
 >=20
 > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 > ---
->  .../devicetree/bindings/riscv/ultrarisc.yaml       | 27 ++++++++++++++++=
+>  .../bindings/pinctrl/ultrarisc,dp1000-pinctrl.yaml | 168 +++++++++++++++=
 ++++++
->  MAINTAINERS                                        |  6 +++++
->  2 files changed, 33 insertions(+)
+>  MAINTAINERS                                        |   7 +
+>  .../dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h |  65 ++++++++
+>  3 files changed, 240 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/ultrarisc.yaml b/Doc=
-umentation/devicetree/bindings/riscv/ultrarisc.yaml
+> diff --git a/Documentation/devicetree/bindings/pinctrl/ultrarisc,dp1000-p=
+inctrl.yaml b/Documentation/devicetree/bindings/pinctrl/ultrarisc,dp1000-pi=
+nctrl.yaml
 > new file mode 100644
-> index 000000000000..d4421c2ef945
+> index 000000000000..c7ed1f96382a
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-> @@ -0,0 +1,27 @@
+> +++ b/Documentation/devicetree/bindings/pinctrl/ultrarisc,dp1000-pinctrl.=
+yaml
+> @@ -0,0 +1,168 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/riscv/ultrarisc.yaml#
+> +$id: http://devicetree.org/schemas/pinctrl/ultrarisc,dp1000-pinctrl.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: UltraRISC SoC-based boards
-> +
+> +title: UltraRISC DP1000 Pin Controller
 > +maintainers:
 > +  - Jia Wang <wangjia@ultrarisc.com>
 > +
-> +description:
-> +  UltraRISC DP1000 SoC-based boards
+> +description: |
+> +  UltraRISC RISC-V SoC DP1000 pin controller.
+> +
+> +  The binding supports two child node styles under the same controller
+> +  compatible:
+> +
+> +  - legacy DP1000-specific nodes using phandle-array properties
+> +    `pinctrl-pins` and `pinconf-pins`
+> +  - generic pinctrl nodes using `pins`, `function` and generic pin
+> +    configuration properties
 > +
 > +properties:
-> +  $nodename:
-> +    const: '/'
 > +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - rongda,m0
-> +              - milkv,titan
-> +          - const: ultrarisc,dp1000
+> +    const: ultrarisc,dp1000-pinctrl
 > +
-> +additionalProperties: true
-> +...
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#pinctrl-cells":
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +patternProperties:
+> +  '.*-pins$':
+> +    type: object
+> +    allOf:
+> +      - $ref: /schemas/pinctrl/pincfg-node.yaml#
+> +      - $ref: /schemas/pinctrl/pinmux-node.yaml#
+> +    additionalProperties: false
+> +    properties:
+> +      pinctrl-pins:
+> +        description: |
+> +          The list of pins and their mux settings that properties in the=
+ node
+> +          apply to. The format: `PORT  PIN  FUNCTION`.
+> +        $ref: /schemas/types.yaml#/definitions/uint32-array
+> +        minItems: 1
+> +        maxItems: 32
+> +      pinconf-pins:
+> +        description: |
+> +          The list of pins and their pad configuration that properties i=
+n the
+> +          node apply to. The format: `PORT  PIN  CONF`.
+> +          CONF is a DP1000-specific encoding of pull and drive strength =
+as
+> +          defined in dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h.
+> +        $ref: /schemas/types.yaml#/definitions/uint32-array
+> +        minItems: 1
+> +        maxItems: 32
+
+These two "legacy" properties are not acceptable, sorry.
+
+> +      pins:
+> +        description: List of pins affected by this state node.
+> +        minItems: 1
+> +        uniqueItems: true
+> +        items:
+> +          type: string
+> +          pattern: '^(PA([0-9]|1[0-5])|P[BCD][0-7]|LPC([0-9]|1[0-2]))$'
+
+The regex might be neat, but I don't think that it is very
+user-friendly. It's hard to read this and understand what the pin
+namings actually are. Could you break this down into multiple patterns,
+one for each type of pin?
+I think that would make reading it much simpler.
+
+> +
+> +      function:
+> +        description: |
+> +          Mux function to select for the listed pins.
+> +          gpio maps to the hardware default mode. The default mode is
+> +          GPIO for PA/PB/PC/PD pins and LPC for LPC pins.
+> +          func1 is not supported on LPC pins.
+> +        enum:
+> +          - gpio
+
+> +          - func0
+> +          - func1
+
+These two do no seem to be very useful to people writing devicetrees.
+What do func0 and func1 represent? I assume that they represent
+something different for different pins? For example, maybe qspi for LPC
+or i2c for PC?
+
+pw-bot: changes-requested
+
+Cheers,
+Conor.
+
+> +
+> +      bias-disable: true
+> +      bias-high-impedance: true
+> +      bias-pull-up: true
+> +      bias-pull-down: true
+> +
+> +      drive-strength:
+> +        description: Output drive strength in mA.
+> +        enum: [20, 27, 33, 40]
+> +
+> +    oneOf:
+> +      - allOf:
+> +          - anyOf:
+> +              - required: [pinctrl-pins]
+> +              - required: [pinconf-pins]
+> +          - not:
+> +              required: [pins]
+> +      - allOf:
+> +          - required: [pins]
+> +          - not:
+> +              anyOf:
+> +                - required: [pinctrl-pins]
+> +                - required: [pinconf-pins]
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    soc {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      pinmux@11081000 {
+> +        compatible =3D "ultrarisc,dp1000-pinctrl";
+> +        reg =3D <0x0 0x11081000  0x0 0x1000>;
+> +        #pinctrl-cells =3D <2>;
+> +
+> +        i2c0-pins {
+> +          pins =3D "PA12", "PA13";
+> +          function =3D "func0";
+> +          bias-pull-up;
+> +          drive-strength =3D <33>;
+> +        };
+> +
+> +        uart0-pins {
+> +          pins =3D "PA8", "PA9";
+> +          function =3D "func1";
+> +          bias-pull-up;
+> +          drive-strength =3D <33>;
+> +        };
+> +      };
+> +    };
+> +
+> +  - |
+> +    /* Legacy example */
+> +    #include <dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h>
+> +
+> +    soc {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      pinmux@11081000 {
+> +        compatible =3D "ultrarisc,dp1000-pinctrl";
+> +        reg =3D <0x0 0x11081000  0x0 0x1000>;
+> +        #pinctrl-cells =3D <2>;
+> +
+> +        i2c0-pins {
+> +          pinctrl-pins =3D <
+> +            UR_DP1000_IOMUX_A  12  UR_DP1000_FUNC0
+> +            UR_DP1000_IOMUX_A  13  UR_DP1000_FUNC0
+> +          >;
+> +
+> +          pinconf-pins =3D <
+> +            UR_DP1000_IOMUX_A  12  UR_DP1000_BIAS(UR_DP1000_PULL_UP,
+> +                                                  UR_DP1000_DRIVE_DEF)
+> +            UR_DP1000_IOMUX_A  13  UR_DP1000_BIAS(UR_DP1000_PULL_UP,
+> +                                                  UR_DP1000_DRIVE_DEF)
+> +          >;
+> +        };
+> +
+> +        uart0-pins {
+> +          pinctrl-pins =3D <
+> +            UR_DP1000_IOMUX_A  8  UR_DP1000_FUNC1
+> +            UR_DP1000_IOMUX_A  9  UR_DP1000_FUNC1
+> +          >;
+> +
+> +          pinconf-pins =3D <
+> +            UR_DP1000_IOMUX_A  8   UR_DP1000_BIAS(UR_DP1000_PULL_UP,
+> +                                                  UR_DP1000_DRIVE_DEF)
+> +            UR_DP1000_IOMUX_A  9   UR_DP1000_BIAS(UR_DP1000_PULL_UP,
+> +                                                  UR_DP1000_DRIVE_DEF)
+> +          >;
+> +        };
+> +      };
+> +    };
 > diff --git a/MAINTAINERS b/MAINTAINERS
-> index b2040011a386..5bf971ff48b2 100644
+> index 5bf971ff48b2..baaaa46b1a56 100644
 > --- a/MAINTAINERS
 > +++ b/MAINTAINERS
-> @@ -23082,6 +23082,12 @@ F:	include/dt-bindings/power/thead,th1520-power.h
->  F:	include/dt-bindings/reset/thead,th1520-reset.h
->  F:	include/linux/firmware/thead/thead,th1520-aon.h
+> @@ -27358,6 +27358,13 @@ S:	Maintained
+>  F:	drivers/usb/common/ulpi.c
+>  F:	include/linux/ulpi/
 > =20
-> +RISC-V ULTRARISC SoC SUPPORT
+> +ULTRARISC DP1000 PINCTRL DRIVER
 > +M:	Jia Wang <wangjia@ultrarisc.com>
-> +L:	linux-riscv@lists.infradead.org
+> +L:	linux-gpio@vger.kernel.org
 > +S:	Maintained
-
-You work for ultrasoc, probably this should be "Supported".
-
-> +F:	Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-
-There's no git tree here where patches for the platform will be applied
-before sending them on to the SoC maintainers. Are you expecting me to
-apply patches for this platform?
-
+> +F:	Documentation/devicetree/bindings/pinctrl/ultrarisc,dp1000-pinctrl.ya=
+ml
+> +F:	include/dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h
 > +
->  RNBD BLOCK DRIVERS
->  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
->  M:	Jack Wang <jinpu.wang@ionos.com>
+>  ULTRATRONIK BOARD SUPPORT
+>  M:	Goran Ra=C4=91enovi=C4=87 <goran.radni@gmail.com>
+>  M:	B=C3=B6rge Str=C3=BCmpfel <boerge.struempfel@gmail.com>
+> diff --git a/include/dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h b/inc=
+lude/dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h
+> new file mode 100644
+> index 000000000000..bef28115898d
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h
+> @@ -0,0 +1,65 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * UltraRISC DP1000 pinctrl header.
+> + *
+> + * Copyright (C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_PINCTRL_ULTRARISC_DP1000_PINCTRL_H
+> +#define _DT_BINDINGS_PINCTRL_ULTRARISC_DP1000_PINCTRL_H
+> +
+> +/**
+> + * UltraRISC DP1000 IO pad configuration
+> + * port: A, B, C, D, LPC
+> + *     Pin in the port
+> + * pin:
+> + *     PA: 0 - 15
+> + *     PB-PD: 0 - 7
+> + *     LPC: 0 - 12
+> + * func:
+> + *     UR_DP1000_FUNC_DEF: default
+> + *     UR_DP1000_FUNC0: func0
+> + *     UR_DP1000_FUNC1: func1
+> + */
+> +#define UR_DP1000_IOMUX_A		0x0
+> +#define UR_DP1000_IOMUX_B		0x1
+> +#define UR_DP1000_IOMUX_C		0x2
+> +#define UR_DP1000_IOMUX_D		0x3
+> +#define UR_DP1000_IOMUX_LPC		0x4
+> +
+> +#define UR_DP1000_FUNC_DEF		0
+> +#define UR_DP1000_FUNC0			1
+> +#define UR_DP1000_FUNC1			0x10000
+> +
+> +/**
+> + * Configure pull up/down resistor of the IO pin
+> + * UR_DP1000_PULL_DIS: disable pull-up and pull-down
+> + * UR_DP1000_PULL_UP: enable pull-up
+> + * UR_DP1000_PULL_DOWN: enable pull-down
+> + */
+> +#define UR_DP1000_PULL_DIS	0
+> +#define UR_DP1000_PULL_UP	1
+> +#define UR_DP1000_PULL_DOWN	2
+> +/**
+> + * Configure drive strength of the IO pin
+> + * UR_DP1000_DRIVE_DEF: default value, reset value is 2
+> + * UR_DP1000_DRIVE_0: 20mA
+> + * UR_DP1000_DRIVE_1: 27mA
+> + * UR_DP1000_DRIVE_2: 33mA
+> + * UR_DP1000_DRIVE_3: 40mA
+> + */
+> +#define UR_DP1000_DRIVE_DEF	2
+> +#define UR_DP1000_DRIVE_0	0
+> +#define UR_DP1000_DRIVE_1	1
+> +#define UR_DP1000_DRIVE_2	2
+> +#define UR_DP1000_DRIVE_3	3
+> +
+> +/**
+> + * Combine the pull-up/down resistor and drive strength
+> + * pull: UR_DP1000_PULL_DIS, UR_DP1000_PULL_UP, UR_DP1000_PULL_DOWN
+> + * drive: UR_DP1000_DRIVE_DEF, UR_DP1000_DRIVE_0, UR_DP1000_DRIVE_1,
+> + *        UR_DP1000_DRIVE_2, UR_DP1000_DRIVE_3
+> + */
+> +#define UR_DP1000_BIAS(pull, drive)		(((pull) << 2) | (drive))
+> +
+> +#endif /* _DT_BINDINGS_PINCTRL_ULTRARISC_DP1000_PINCTRL_H */
 >=20
 > --=20
 > 2.34.1
 >=20
 
---aCKnMLL/2dELPqOT
+--sT3yokN64rYA2jYt
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagbwhgAKCRB4tDGHoIJi
-0vFDAP9/U7yDOql0mWJq913tte1U4UXAD3DS6B2k8IWw8F+SCwD/dop+0s4Rw7tn
-F9b4uZN0qNakBefohN5nlJh9V09ADAA=
-=Nrlh
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagbxlwAKCRB4tDGHoIJi
+0podAQD7GF/lKiqNyCikUEzAv4zfP11Bt7aAu+k3VMrb6Lq8zQD8C14tBDOTIRF3
+5G4VZMFnlPtSHlBfPmEUuBt6F7y6ogs=
+=L0rM
 -----END PGP SIGNATURE-----
 
---aCKnMLL/2dELPqOT--
+--sT3yokN64rYA2jYt--
 
 
---===============1364868181377175849==
+--===============8827333216795485719==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -201,5 +437,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1364868181377175849==--
+--===============8827333216795485719==--
 
