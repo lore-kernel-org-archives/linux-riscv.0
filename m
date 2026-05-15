@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95597CD343F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 19:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F25CD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 20:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SZ7f8Ux4xEPKLAZTSExIiJWpdj7rwvyzz9f54kOOV3U=; b=Qp0Kq87TkkEiti
-	y7AxktOTYZjuBrDNXO7eaeC9zlt3xtBwhV3mulr6w61AUp8zYQAAcSqHJZjq2XX7SfgewqPAneBgM
-	ijq7MdR52AjhUxh1N7dWlLMv9khWttDcI5bQieeGIRus5Rc84XT3y3RtT6S8VCK7IzZnxB3asfe7I
-	HADeEVjtLpXa7X+l/wKzExfwy+uTun8QP3ze9jI1u3r5QuoHMZh4lIGkKlgPCwI+nr0kjN7PJ2vAU
-	fSJL/Ox4jkiMv35XR+syEwnhMgECNTBuknoJwA0guOZ/ORSCWsS1SPLxYh8dEnciNu2nziTfHa8q/
-	sEyar4Aj6sGoUMUXnz7g==;
+	List-Owner; bh=68SQwe6MAgsqAAMwWiCw3voCF8TOphtDyhLxLwYyBx0=; b=GC3ZMdh8xk3SRu
+	kdaEbPXaW9qa5yDnSkAJnJtbbINQwNuHjp5/gsDhx4f0cZJsWI4AqZ8p0H4oG5zeZ2o5MlRLzc0lu
+	r8t8Q1RD16cAHdCscyqPhama81qu//JMLD0GydQHSPz0RqfewNXbS+hggVPtA2OKASQRyhwUDWBMu
+	Xm2XCKUJFrZ1ecUL8qmrpO69Dy4TfAvaj7LfMPjqLO056/JVlCmHZwKLmWRSmRcF7R114cvi04dst
+	tsCRPOKaKKX0fBWz4W6yZKWJsIa18lkR6q92+/Ve2KUjRCzi+GuKxcDBtUBpevzApXjifHfTgJS1s
+	Bws7Ghs1MWmtACL3wIEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNyOG-00000009EqH-3qKh;
-	Fri, 15 May 2026 19:40:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNzOA-00000009P0f-2JPA;
+	Fri, 15 May 2026 20:44:06 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNyOF-00000009Eq7-1uVu
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 19:40:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCCBB601DF;
-	Fri, 15 May 2026 19:40:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A4EBC2BCB3;
-	Fri, 15 May 2026 19:40:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778874006;
-	bh=3yyQkYdxChwarAweftCvJrPicHgtEMSdTY4CgyHFHQ0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qkPUbcm8VX6YlsCEuEPuJrnYm9SbKuyFOtePI+sU8nRJRhOpok/mJB1eLpXLAQdEt
-	 jJog4xlA8nxDF0OlC+YML7KHZVAFB2QwcTEE671syL5xPhEP7O6nYh7WWjely9B9zf
-	 +c4a9GATU5oaP8k+gzAh0wGrpYnB/CcpNydmOhX353a97eP7o16Fvv+kpD0Y33v32y
-	 c5fZskya4WtVGUOF9KVfzXFDlYWgSpzupIsgr5CIbUNsRgKGrLD6PfOyXL6ldxTIb9
-	 8w1Uo91Bfhrexx54X2rzou0gZODnS86I+a+tiD6nfpaQLfsWH16/RsNljP3ESb5yjX
-	 WLuPE3BOIQMKA==
-Date: Sat, 16 May 2026 04:40:01 +0900
-From: Nathan Chancellor <nathan@kernel.org>
-To: Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] Disable -Wattribute-alias for clang-23 and newer
-Message-ID: <20260515194001.GA3434682@ax162>
-References: <20260515-syscall-disable-attribute-alias-for-clang-v1-1-9a9d95d41df6@kernel.org>
+	id 1wNzO6-00000009Ozg-3SNl;
+	Fri, 15 May 2026 20:44:05 +0000
+Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 64FJxdt93762934
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Fri, 15 May 2026 12:59:40 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 64FJxdt93762934
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2026042601; t=1778875185;
+	bh=yOPbK2OFF6IcrfoJraZaWua7RTa6T7n9+bq8VLS6qCY=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=HvwBqnLT38+P8wOr09I0oo/MRbA0gltt1BvxpDB/CXoHAI/p9iMtZP4Acni9CBE8i
+	 UuQANyZJcLZO9XcaPLGm0i1Xg+soCjS4z5NjIoUETnDDa930DiHBVRAOT/MRlLb9jY
+	 QYrQ9QMS7lPYMHGvM8plKfNxe30Gl9az6f+vOCv0hNim3O4/Bdo2qSTnUxGO9V7Nx4
+	 F46aEk0Mx5DZE0TAlF3l22P0Yw61+alulS+V4O2YtDdYTlzt2T6qIuwD2KE0nXfR9T
+	 jNDuDCJ8yXY/CId0JmSkw1Ar6+GJQTs5O0RqwrWv5l7cMbOBEgdh93GvzIYQG1gbNB
+	 I9HJmsdG2PKng==
+Date: Fri, 15 May 2026 12:59:34 -0700
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: Christoph Hellwig <hch@lst.de>, kreijack@inwind.it
+CC: David Sterba <dsterba@suse.cz>, Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+        David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+        Song Liu <song@kernel.org>,
+        Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
+        Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+        linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-raid@vger.kernel.org
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20260515043705.GA3855@lst.de>
+References: <20260512052230.2947683-1-hch@lst.de> <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz> <20260513054742.GA1018@lst.de> <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it> <20260515043705.GA3855@lst.de>
+Message-ID: <34C16854-1065-4542-8836-DDED58EC1844@zytor.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260515-syscall-disable-attribute-alias-for-clang-v1-1-9a9d95d41df6@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260515_134404_555906_3BDB1C02 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,133 +97,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 07:35:18PM +0900, Nathan Chancellor wrote:
-> Clang recently added support for -Wattribute-alias [1], which results in
-> the same warnings that necessitated commit bee20031772a ("disable
-> -Wattribute-alias warning for SYSCALL_DEFINEx()") for GCC.
-> 
->   kernel/time/itimer.c:325:1: error: alias and aliasee have different types 'long (unsigned int)' and 'long (typeof (__builtin_choose_expr((__builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0LL)) || __builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0ULL))), 0LL, 0L)))' (aka 'long (long)') [-Werror,-Wattribute-alias]
->     325 | SYSCALL_DEFINE1(alarm, unsigned int, seconds)
->         | ^
->   include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
->     225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
->         |                                    ^
->   include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
->     236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
->         |         ^
->   include/linux/syscalls.h:251:18: note: expanded from macro '__SYSCALL_DEFINEx'
->     251 |                 __attribute__((alias(__stringify(__se_sys##name))));    \
->         |                                ^
->   kernel/time/itimer.c:325:1: note: aliasee is declared here
->   include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
->     225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
->         |                                    ^
->   include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
->     236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
->         |         ^
->   include/linux/syscalls.h:255:18: note: expanded from macro '__SYSCALL_DEFINEx'
->     255 |         asmlinkage long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))  \
->         |                         ^
->   <scratch space>:16:1: note: expanded from here
->      16 | __se_sys_alarm
->         | ^
-> 
-> Disable the warnings in the same way for clang-23 and newer.
-> 
-> Cc: stable@vger.kernel.org
-> Closes: https://github.com/ClangBuiltLinux/linux/issues/2163
-> Link: https://github.com/llvm/llvm-project/commit/40da6920a0d71d49dfa2392b09153600b0759f5e [1]
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
-> I plan to take this via my clang-fixes tree for 7.1.
-> ---
->  arch/riscv/include/asm/syscall_wrapper.h | 2 ++
->  include/linux/compat.h                   | 2 ++
->  include/linux/compiler-clang.h           | 6 ++++++
->  include/linux/syscalls.h                 | 2 ++
->  4 files changed, 12 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
-> index ac80216549ff..366a5354caa5 100644
-> --- a/arch/riscv/include/asm/syscall_wrapper.h
-> +++ b/arch/riscv/include/asm/syscall_wrapper.h
-> @@ -32,6 +32,8 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
->  	__diag_push();									\
->  	__diag_ignore(GCC, 8, "-Wattribute-alias",					\
->  			"Type aliasing is used to sanitize syscall arguments");		\
-> +	__diag_ignore(clang, 23, "-Wattribute-alias",					\
-> +			"Type aliasing is used to sanitize syscall arguments");		\
->  	static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong, 	\
->  					ulong)						\
->  			__attribute__((alias(__stringify(___se_##prefix##name))));	\
-> diff --git a/include/linux/compat.h b/include/linux/compat.h
-> index 56cebaff0c91..a1ce6d559db9 100644
-> --- a/include/linux/compat.h
-> +++ b/include/linux/compat.h
-> @@ -72,6 +72,8 @@
->  	__diag_push();								\
->  	__diag_ignore(GCC, 8, "-Wattribute-alias",				\
->  		      "Type aliasing is used to sanitize syscall arguments");\
-> +	__diag_ignore(clang, 23, "-Wattribute-alias",				\
-> +		      "Type aliasing is used to sanitize syscall arguments");\
->  	asmlinkage long compat_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))	\
->  		__attribute__((alias(__stringify(__se_compat_sys##name))));	\
->  	ALLOW_ERROR_INJECTION(compat_sys##name, ERRNO);				\
-> diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
-> index e1123dd28486..527e4e136020 100644
-> --- a/include/linux/compiler-clang.h
-> +++ b/include/linux/compiler-clang.h
-> @@ -131,6 +131,12 @@
->  #define __diag_str(s)		__diag_str1(s)
->  #define __diag(s)		_Pragma(__diag_str(clang diagnostic s))
->  
-> +#if CONFIG_CLANG_VERSION >= 230000
-> +#define __diag_clang_23(s)	__diag(s)
-> +#else
-> +#define __diag_clang_23(s)
-> +#endif
-> +
->  #define __diag_clang_13(s)	__diag(s)
->  
->  #define __diag_ignore_all(option, comment) \
-> diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
-> index f5639d5ac331..97e3411b49d2 100644
-> --- a/include/linux/syscalls.h
-> +++ b/include/linux/syscalls.h
-> @@ -247,6 +247,8 @@ static inline int is_syscall_trace_event(struct trace_event_call *tp_event)
->  	__diag_push();							\
->  	__diag_ignore(GCC, 8, "-Wattribute-alias",			\
->  		      "Type aliasing is used to sanitize syscall arguments");\
-> +	__diag_ignore(clang, 23, "-Wattribute-alias",			\
-> +		      "Type aliasing is used to sanitize syscall arguments");\
->  	asmlinkage long sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))	\
->  		__attribute__((alias(__stringify(__se_sys##name))));	\
->  	ALLOW_ERROR_INJECTION(sys##name, ERRNO);			\
+On May 14, 2026 9:37:05 PM PDT, Christoph Hellwig <hch@lst.de> wrote:
+>On Thu, May 14, 2026 at 09:51:59PM +0200, Goffredo Baroncelli wrote:
+>> I think that the David concern is : "what happens for an already
+>> existing btrfs raid6 3 disks filesystem when the user upgrade the kernel ?"
+>> (I am thinking when a new BG needs to be allocated)...
+>
+>Then it will cleanly fail to mount instead of constantly corrupting data
+>and memory with every write, yes.  Which clearly suggest that such
+>file systems don't exist in the wild.
+>
+>But if btrfs wants to keep supporting this I'll just add a _unsafe
+>version without the check in the core library.
 
-The kbuild test robot pointed out that I need
+I don't think this is a good idea. Error out; it is the btrfs maintainers' job to ensure user data isn't lost. 
 
-diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-index e8fd77593b68..369966598a2c 100644
---- a/include/linux/compiler_types.h
-+++ b/include/linux/compiler_types.h
-@@ -711,6 +711,10 @@ struct ftrace_likely_data {
- #define __diag_GCC(version, severity, string)
- #endif
- 
-+#ifndef __diag_clang
-+#define __diag_clang(version, severity, string)
-+#endif
-+
- #define __diag_push()	__diag(push)
- #define __diag_pop()	__diag(pop)
- 
---
+The RAID-6 code has *never* supported only 3 units, and if it ever worked for *any* of the implementations it was purely by accident. Speaking as the original author I should know; this was deliberate as in some cases the degenerate case (3) would have required extra trays in the code to no user benefit. 
 
-for this to build properly with GCC, which I will fold in.
-
--- 
-Cheers,
-Nathan
+I would not be surprised if the kernel crashed or corrupted the page cache in that case.
 
 _______________________________________________
 linux-riscv mailing list
