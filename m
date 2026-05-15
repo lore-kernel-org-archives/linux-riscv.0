@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5383ACD37AC
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 01:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704EFCD37AC
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 01:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mK34G7Ggz822PejDQ5FqZGZR1ARCJnfLefwHJDbHUWI=; b=iu59BCr1Ijj5cw
-	kLtNYsQUGuC/hBRRsZ2p/pS/yuTn9kiTI4MO/5W8FYd7X9ptaCZVzsK58HjlUnwcAIXKgPZ8D0zxk
-	Zci8JB6t8pTC/y+drW0XyUzPslUSKu0Dv8i3YTx/166Sqlh0EiOcvoE2KZzMFnJuo5UiYC1M+XvRZ
-	njrdSrrzh9oDxYEUUYVIbLefQiQ/zWlK63iwOR5Zr5TnVmtMucJB0CLuN15ZrnOF3nXyfYON/l3aq
-	q3kILZ+Vkwe66XYvfhp7ZrCkAFNPx/ueDnkT/V+mbVqRBih9rE/tVyMiq65nwStgqXaQR9nFYX03p
-	NBxZqGMzQPKu2OXd/cdQ==;
+	List-Owner; bh=plWdEf9OhIhP441sT01F/6trgMTn18VOGlnNuqK3YFM=; b=VBwmaKBD9j4RvL
+	z7Kiai4bgeGE3CJyoVhVbrVP+ubsv+VjAvGagMU7dqPJOMJAIPa02X5WzTFNHmreGSTxCblbxkR5o
+	qOagQY9XSfzRSw3Wq029p0YyR+mz3BGN2TNmjuLewPCqGR3OIMIfkgIjUwM5Ox4YNeeqAg+3bF0vy
+	Kv8vDAjX/epog4IsOBfySSiiyGXfXwNxWx0XRdQHeQOx762JCWHiUjo40xOn+cIhC+kYAZkM6CIF3
+	BHGUFqvlh6pH2pLpvLPTpI3++6EMyGoB47tPr793OzJyb56dba9Ncvj28l1SfeXVHitZcKp/FuiWQ
+	AbPfsFnFM/GQZ/j398aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhBx-00000006zjk-4AiC;
-	Fri, 15 May 2026 01:18:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNhTi-000000072N4-2cdR;
+	Fri, 15 May 2026 01:36:38 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhBu-00000006zh0-1Ci1
+	id 1wNhTe-000000072M7-49op
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 01:18:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0ADA744727;
-	Fri, 15 May 2026 01:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CF969C2BCC7;
-	Fri, 15 May 2026 01:18:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778807892;
-	bh=fldrCiL0VTRIPUbDx8lKsvu2ghQXL+gjW6ClP1G/zJ4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=CMe2IjR5SW+Nb8znQxvKBwUFj0RV3/YiOSjGvEmhkqDqKef8cevOfwaX19znyNTOX
-	 Iobn6EuSEebocm5wK4TxfEExU3yWi1hH/mfPYOflO9MtWZZzOR53Xqv/O/N/rWqYWj
-	 KbTBIbihGe/3IGkwQDbTvOWAYNJOvZWaCirrNMJ4hSsTCeq6JmMmfXWnVvT7WHdGi+
-	 MhSGbGCZvsi1ICwlcQsiwcLonjclsGPGVsYYV3YCv8A6a+vTXC02FfrL72rgZnK+vm
-	 Lxd3GeRMkeQ+IMDUgSf3ygkZbV+VKLtEMdZfUlqDdyNi9WAm/HMBipYRrfn7bTLIAl
-	 MjbuqKdKHG/Ww==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C36BBCD37AC;
-	Fri, 15 May 2026 01:18:12 +0000 (UTC)
-From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Date: Fri, 15 May 2026 09:17:59 +0800
-Subject: [PATCH 3/9] dt-bindings: riscv: Add UltraRISC DP1000 bindings
+	Fri, 15 May 2026 01:36:37 +0000
+Received: from fric.. (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowAAHlwqReAZqPDpMEA--.42958S2;
+	Fri, 15 May 2026 09:36:17 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: dev.mbstr@gmail.com
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	samuel.holland@sifive.com,
+	xujiakai2025@iscas.ac.cn,
+	zhangchunyan@iscas.ac.cn
+Subject: Re: [PATCH] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe
+Date: Fri, 15 May 2026 01:36:17 +0000
+Message-Id: <20260515013617.2587283-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <DIIGT2B04NER.LLGB7WGGPC2N@gmail.com>
+References: <DIIGT2B04NER.LLGB7WGGPC2N@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20260515-ultrarisc-pinctrl-v1-3-bf559589ea8a@ultrarisc.com>
-References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
-In-Reply-To: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Jia Wang <wangjia@ultrarisc.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778807890; l=1778;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=qaBC2cTXnLnD+JIt0DLP1KqvWkTUCFHsUaQu5JTU/dA=;
- b=WjaarwqtmIiEMHOknJXQgaDxZpuJJfoLCE7K7+8MSl1guMQezkfhgQUtrbv5/DmQj7A6v8tJ9
- d+WC3TY9ctLAq4A0b3FJ1jfR0C4XK/KzKYSFEKNzqBXQW77JE2Nf+UF
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
- auth_id=779
-X-Original-From: Jia Wang <wangjia@ultrarisc.com>
+X-CM-TRANSID: zQCowAAHlwqReAZqPDpMEA--.42958S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7trWUAr4xCF1UKFW8GFykXwb_yoW8JF43pF
+	s5K3W3tFsrKa40gFy7Zrs7Zry5tr1kKa9rJrW7Ja4UAan8J3WFkF9rKas8AwnrCryDta4I
+	qayUJwsxCFsIka7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28Icx
+	kI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
+	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
+	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY
+	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aV
+	CY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfUOmhFUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCREHCWoFiGX9TwABsn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_181814_383681_3D224799 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260514_183635_410619_41AE2CE7 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +81,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wangjia@ultrarisc.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jia Wang <wangjia@ultrarisc.com>
-
-Add DT binding documentation for the UltraRISC DP1000 SoC.
-
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
----
- .../devicetree/bindings/riscv/ultrarisc.yaml       | 27 ++++++++++++++++++++++
- MAINTAINERS                                        |  6 +++++
- 2 files changed, 33 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/riscv/ultrarisc.yaml b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-new file mode 100644
-index 000000000000..d4421c2ef945
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-@@ -0,0 +1,27 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/ultrarisc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: UltraRISC SoC-based boards
-+
-+maintainers:
-+  - Jia Wang <wangjia@ultrarisc.com>
-+
-+description:
-+  UltraRISC DP1000 SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - rongda,m0
-+              - milkv,titan
-+          - const: ultrarisc,dp1000
-+
-+additionalProperties: true
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b2040011a386..5bf971ff48b2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23082,6 +23082,12 @@ F:	include/dt-bindings/power/thead,th1520-power.h
- F:	include/dt-bindings/reset/thead,th1520-reset.h
- F:	include/linux/firmware/thead/thead,th1520-aon.h
- 
-+RISC-V ULTRARISC SoC SUPPORT
-+M:	Jia Wang <wangjia@ultrarisc.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-+
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
- M:	Jack Wang <jinpu.wang@ionos.com>
-
--- 
-2.34.1
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIE1hdHQhCgpUaGFuayB5b3UgZm9yIHlvdXIgcmV2aWV3IGFuZCB2YWx1YWJsZSBzdWdnZXN0
+aW9ucyEKCj4gPiAtc3RhdGljIGlubGluZSBpbnQgZnBfaXNfdmFsaWQodW5zaWduZWQgbG9uZyBm
+cCwgdW5zaWduZWQgbG9uZyBzcCkKPiA+ICtzdGF0aWMgaW5saW5lIGludCBmcF9pc192YWxpZCh1
+bnNpZ25lZCBsb25nIGZwLCB1bnNpZ25lZCBsb25nIHNwLAo+ID4gKwkJCSAgICAgIHN0cnVjdCB0
+YXNrX3N0cnVjdCAqdGFzaykKPiA+ICB7Cj4gPiAgCXVuc2lnbmVkIGxvbmcgbG93LCBoaWdoOwo+
+ID4gIAo+ID4gKwlpZiAoIXRhc2spCj4gPiArCQl0YXNrID0gY3VycmVudDsKPiA+ICsKPiAKPiBJ
+IHdvdWxkIHN1Z2dlc3QgdG8gbW92ZSB0aGlzIGBpZmAgaW50byB3YWxrX3N0YWNrZnJhbWUoKSBm
+dW5jdGlvbiBpbiBvcmRlciB0byBkbwo+IHRoaXMgb25seSBvbmNlIGJlZm9yZSB3YWxraW5nIGxv
+b3AuCgpNb3ZpbmcgdGhlIGBpZiAoIXRhc2spYCBjaGVjayBpbnRvIGB3YWxrX3N0YWNrZnJhbWUo
+KWAgaXMgYSByZWFzb25hYmxlIAptaWNyby1vcHRpbWl6YXRpb24uIEknbGwgYWRvcHQgdGhpcyBp
+biB2Mi4KCj4gCj4gPiAgCWxvdyA9IHNwICsgc2l6ZW9mKHN0cnVjdCBzdGFja2ZyYW1lKTsKPiA+
+IC0JaGlnaCA9IEFMSUdOKHNwLCBUSFJFQURfU0laRSk7Cj4gPiArCWhpZ2ggPSAodW5zaWduZWQg
+bG9uZyl0YXNrX3N0YWNrX3BhZ2UodGFzaykgKyBUSFJFQURfU0laRTsKPiAKPiBBbHNvIGFmdGVy
+IGdyZXBwaW5nIGB0YXNrX3N0YWNrX3BhZ2VgIEkndmUgbm90aWNlZCB0aGF0IHB0X3JlZ3Mgc3Ry
+dWN0dXJlIGlzCj4gbG9jYXRlZCBhdCB0aGUgZW5kIG9mIHN0YWNrLiBNYXliZSBpdCBpcyBhIGdv
+b2QgaWRlYSB0byBhZGp1c3QgYm9yZGVyIGV2ZW4KPiAibG93ZXIiIHRvIGNoZWNrIHRoYXQgc3Ag
+ZG9lcyBub3QgcG9pbnRzIGluc2lkZSBwdF9yZWdzPyAoc2VlIHRhc2tfcHRfcmVncwo+IG1hY3Jv
+KQoKVXNpbmcgYHRhc2tfcHRfcmVncyh0YXNrKWAgYXMgdGhlIHVwcGVyIGJvdW5kIHByb3ZpZGVz
+IGEgdGlnaHRlciBhbmQgbW9yZSAKcHJlY2lzZSBib3VuZGFyeS4gSSdsbCB1cGRhdGUgdGhlIGhp
+Z2ggYm91bmQgYWNjb3JkaW5nbHkgaW4gdjIuCgpJ4oCZbSBwbGFubmluZyB0byBzdWJtaXQgdGhl
+IHYyIHBhdGNoIGluIHR3byBkYXlzLiBJ4oCZZCBsaWtlIHRvIHdhaXQgYW5kIHNlZSAKd2hldGhl
+ciBvdGhlcnMgaGF2ZSBhbnkgc3VnZ2VzdGlvbnMgZm9yIHRoaXMgcGF0Y2guCgpUaGFua3MgYWdh
+aW4gZm9yIHlvdXIgdGltZSBhbmQgc3VnZ2VzdGlvbnMhCgpCZXN0IHJlZ2FyZHMsCkppYWthaSBY
+dQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
