@@ -4,114 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AF6CD343F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 19:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95597CD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 19:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S8WEYMNlhgGbCY93RgBRXlGqOa6CzP/Ltc0eLil53ak=; b=J8KdMbI9b4SmlD
-	UlPVJx9774EE3DgY+NzKIHE350ZyINXlqNwXk+NyYbbKX/iMMjQ99NQODcpYZdo6xC7vGWLDfTGZg
-	K+BxtVUJ+O/qo0qVGMtcIQ5dRIgr4YKAi85+nT9IZJOgnQhkuCpX86ORLvyDIAeIwYGQl/6+jgP4i
-	/XqcVzDXEHVCvSSQn+U+s1C5QFCOV1L4Bd5TidCfS92vZfw0I9fEJJFECwhBPWlkglWU+FNYi83PD
-	6rGnJztrtZBqgiCbX7jTTSwhkkAUanaNSBMZSUi96W97tm3V8waQnAOgQ9dQSXhx+4gVuhoI5vwPG
-	y+e/WAKDTTU2V3KNmiaQ==;
+	List-Owner; bh=SZ7f8Ux4xEPKLAZTSExIiJWpdj7rwvyzz9f54kOOV3U=; b=Qp0Kq87TkkEiti
+	y7AxktOTYZjuBrDNXO7eaeC9zlt3xtBwhV3mulr6w61AUp8zYQAAcSqHJZjq2XX7SfgewqPAneBgM
+	ijq7MdR52AjhUxh1N7dWlLMv9khWttDcI5bQieeGIRus5Rc84XT3y3RtT6S8VCK7IzZnxB3asfe7I
+	HADeEVjtLpXa7X+l/wKzExfwy+uTun8QP3ze9jI1u3r5QuoHMZh4lIGkKlgPCwI+nr0kjN7PJ2vAU
+	fSJL/Ox4jkiMv35XR+syEwnhMgECNTBuknoJwA0guOZ/ORSCWsS1SPLxYh8dEnciNu2nziTfHa8q/
+	sEyar4Aj6sGoUMUXnz7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNyND-00000009EcN-2RJQ;
-	Fri, 15 May 2026 19:39:03 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1wNyOG-00000009EqH-3qKh;
+	Fri, 15 May 2026 19:40:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNyNB-00000009EbE-0yIt
+	id 1wNyOF-00000009Eq7-1uVu
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 19:39:02 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2ba180a022dso6475ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 May 2026 12:39:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778873940; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Qk7XW9YxNd3ObH1sWG8rSKKsYI7NMJ36VW6JByFq3RQUvhwGhlh3wE+yLFoittgfeP
-         zRdI4+ordDBcLVUXJb+ytZVnvFFM30P+eX76q0pNxFv4T1XiLgD9XurfccFKYL/K5rBU
-         ca2Gv6h8fdd5w0OFT6GpBfU8MTiJaxDTX9coqWsx/22r+9oxyVZexCYAHuEclZ7Sm4iG
-         fmbDYanxNQTydLPL22nAhXtscdj0MfneWan4L9olJV2UAHXqYVeREpqk9GKem7cILMZ+
-         4u6nPo20mbD5KbLUXYrV6yrJbUJYLOh8vd/ibcLX6tJcfhKOUWoHfDEyA/srSlr4TWzO
-         pFww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=IYpIIZ9l/Mh5nFdtuzxg/eCZabaH9dxjddO1/8L86VA=;
-        fh=FShTXkmw57C44KU51pjcpCEw3tYmXIcWcxLAkztNIOc=;
-        b=Konk9Zie/qIbP/7tPUMvsqqSEAubZ2JsiTTVNBZW1NuEMjHpESILJeZqVxcfcvS2Sf
-         Z55tcaXkydK1piFoetzxCA49aDNry9dGz2GCMkKEtFwHZrNylh87uts6dauybGB2n+cS
-         WsQ96wKKjkTKHS/5BOCw2zcfet/maOVN9HMyVV3na5A91p4Ecgp7bNkei7wBF26ewwKD
-         qcJKPrjP7kygaYYBoIHIuoCT6l9by5l2Bz8fCNG2XgcYtSIdtrUeLM1OJ0gL4BW/SYvB
-         FvrymXICGMOjtaiKG2XonZskRN+Lp5Q/kp/u4A8oHDkTf83QJu3RjHTWmPsWJyj6UnpP
-         Jcow==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778873940; x=1779478740; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IYpIIZ9l/Mh5nFdtuzxg/eCZabaH9dxjddO1/8L86VA=;
-        b=N3PnoTEKObD21YKynAguLy0yF7jIP4Mg9SCglHt04GJw50wZL59Mn2octW37Q1U3On
-         UgRAPLGPRK/Ymj9HREvkqxvDcW3gflQK7LmReuk6mkHYWEknzsn26bn08+65ukFI2qDT
-         ni662FgVaNS7A3hA5iCyM77cejyShGUBg2+9Qmb+JYMGwEu0fnDpVOfeePUY3R+IePLK
-         Fo1M5UloZqDeDXc64ZAGAlv30zU/G2nx+iMKg9lx/1q72eEV9/TuispH0/MBYXtizcU1
-         KqpByMbIZoMULT4iqaREVFF6F7w/IXyRoZLwhXedLB5ysTufBpQey3OGauJwW+VoAzfk
-         7FrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778873940; x=1779478740;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=IYpIIZ9l/Mh5nFdtuzxg/eCZabaH9dxjddO1/8L86VA=;
-        b=EP1UKYEfct1btH0OTnfCz5+8QdiozU8CHl2+xuw5jVJNK6FIkDqEc/oHkD2Sj9FAAs
-         vBpFgq40TL+eFD9nDkde85IbezKiET9Ysbsfo05htEHjE8BunolwLilj/sCsExnUI4jr
-         7JCvTao5NF7XgvijJxnYMJw8+FBfc5r2Ga14gQ5i8Q/3mKQ1ti7MFE1tbnVBltroL+ul
-         E7SbKcGiagDR1sG1kBkxRfPyoSntudDlDpEc9u/6RpIX7nb37McjYsvfBLr0pYRHT2pu
-         2O+XWacWiZbm6x/ApwC+KUi0HOHaXPzI9FrYsw8D3bIL+RCqL9h8wcmhq1oYfGdYLUmJ
-         nt0A==
-X-Forwarded-Encrypted: i=1; AFNElJ9zkEsndUtBT3XM3RbxyHRtTel4yQygC+DPX2YtAb/QG+BQTfLL0Oo5XkhpIONGQyrTGPhmUOWldnlJvw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1/MCxGhQkwhjydd2VXFmAzj4vy5lHgy2O+b/eFk9C973O8vxg
-	NOIiXaYZ6DwBfJdTjy5TylmcRHhognbhuiGfUKusULrbuhqtQSDpNonHMGE5sFaLJh5WufU5h6k
-	377VM+ubmF3JDUQ/6wN6rdKd/sr33MM8tdZJ3rhan9YopOq/3iDxJfODz
-X-Gm-Gg: Acq92OErn4J2dklXE10EukyP3jEA7Di7Aa/zbPy/cIZJl91UmzXYNOTmALOsbEPNAph
-	G7wp9/oAIMkWqYwXHo34w3kZ0Vz2SR+Nv3hd0YQlSNdZfbpIe5FEgZQVG/sGw23H0378XytxaJu
-	PDYbX1awGh3GXF143duQ2Udu7OAHSEKcHP+xlKUtJr+0fiC88FAkBVtZ5g/ME8CuldeuNCtE+Qi
-	KWqwgXvZsbQLPnr1DqIvulY7l2nCCUMhp/rEEuLrWBgKD1BNfe/uNPY3t2YCKrVsCS/9dua7Hbn
-	/qBfZ/Hh8pqjbNtb8RE=
-X-Received: by 2002:a17:902:d502:b0:2bd:bbe:e3a3 with SMTP id
- d9443c01a7336-2bda0d8369amr548535ad.10.1778873939803; Fri, 15 May 2026
- 12:38:59 -0700 (PDT)
+	Fri, 15 May 2026 19:40:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCCBB601DF;
+	Fri, 15 May 2026 19:40:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A4EBC2BCB3;
+	Fri, 15 May 2026 19:40:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778874006;
+	bh=3yyQkYdxChwarAweftCvJrPicHgtEMSdTY4CgyHFHQ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qkPUbcm8VX6YlsCEuEPuJrnYm9SbKuyFOtePI+sU8nRJRhOpok/mJB1eLpXLAQdEt
+	 jJog4xlA8nxDF0OlC+YML7KHZVAFB2QwcTEE671syL5xPhEP7O6nYh7WWjely9B9zf
+	 +c4a9GATU5oaP8k+gzAh0wGrpYnB/CcpNydmOhX353a97eP7o16Fvv+kpD0Y33v32y
+	 c5fZskya4WtVGUOF9KVfzXFDlYWgSpzupIsgr5CIbUNsRgKGrLD6PfOyXL6ldxTIb9
+	 8w1Uo91Bfhrexx54X2rzou0gZODnS86I+a+tiD6nfpaQLfsWH16/RsNljP3ESb5yjX
+	 WLuPE3BOIQMKA==
+Date: Sat, 16 May 2026 04:40:01 +0900
+From: Nathan Chancellor <nathan@kernel.org>
+To: Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH] Disable -Wattribute-alias for clang-23 and newer
+Message-ID: <20260515194001.GA3434682@ax162>
+References: <20260515-syscall-disable-attribute-alias-for-clang-v1-1-9a9d95d41df6@kernel.org>
 MIME-Version: 1.0
-References: <20260413024805.1316480-1-irogers@google.com> <20260513233151.572332-1-irogers@google.com>
- <20260513233151.572332-5-irogers@google.com> <agdyluuau3wPQOtX@x1>
-In-Reply-To: <agdyluuau3wPQOtX@x1>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 15 May 2026 12:38:48 -0700
-X-Gm-Features: AVHnY4Lb9u9dPRlfZ_lWNCr7BMoBHYS17-9qKyqj0HY7xDzks8g3D3teRStrsVs
-Message-ID: <CAP-5=fUeGOSH1LO1oSbWnpmXfv_RzxfFE+YCQ07PC19gLHDEsA@mail.gmail.com>
-Subject: Re: [PATCH v5 4/7] perf unwind-libunwind: Make libunwind register
- reading cross platform
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: adrian.hunter@intel.com, dapeng1.mi@linux.intel.com, 
-	james.clark@linaro.org, namhyung@kernel.org, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Li Guan <guanli.oerv@isrc.iscas.ac.cn>, 
-	9erthalion6@gmail.com, alex@ghiti.fr, alexander.shishkin@linux.intel.com, 
-	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, 
-	howardchu95@gmail.com, john.g.garry@oracle.com, jolsa@kernel.org, 
-	leo.yan@linux.dev, libunwind-devel@nongnu.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	mingo@redhat.com, palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org, 
-	shimin.guo@skydio.com, tglozar@redhat.com, tmricht@linux.ibm.com, 
-	will@kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_123901_283213_14AD52E9 
-X-CRM114-Status: GOOD (  20.40  )
+Content-Disposition: inline
+In-Reply-To: <20260515-syscall-disable-attribute-alias-for-clang-v1-1-9a9d95d41df6@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,64 +68,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMTUsIDIwMjYgYXQgMTI6MjPigK9QTSBBcm5hbGRvIENhcnZhbGhvIGRlIE1l
-bG8KPGFjbWVAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBXZWQsIE1heSAxMywgMjAyNiBhdCAw
-NDozMTo0OFBNIC0wNzAwLCBJYW4gUm9nZXJzIHdyb3RlOgo+ID4gLS0tIC9kZXYvbnVsbAo+ID4g
-KysrIGIvdG9vbHMvcGVyZi91dGlsL2xpYnVud2luZC1hcmNoL2xpYnVud2luZC1wcGMzMi5jCj4g
-PiBAQCAtMCwwICsxLDMxIEBACj4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0y
-LjAtb3ItbGF0ZXIKPiA+ICsjaW5jbHVkZSAibGlidW53aW5kLWFyY2guaCIKPiA+ICsjaW5jbHVk
-ZSAiLi4vZGVidWcuaCIKPiA+ICsjaW5jbHVkZSAiLi4vLi4vLi4vYXJjaC9wb3dlcnBjL2luY2x1
-ZGUvdWFwaS9hc20vcGVyZl9yZWdzLmgiCj4gPiArI2luY2x1ZGUgPGxpbnV4L2NvbXBpbGVyLmg+
-Cj4gPiArI2luY2x1ZGUgPGVycm5vLmg+Cj4gPiArCj4gPiArI2lmZGVmIEhBVkVfTElCVU5XSU5E
-X1BQQzMyX1NVUFBPUlQKPiA+ICsjaW5jbHVkZSA8bGlidW53aW5kLXBwYzMyLmg+Cj4gPiArI2Vu
-ZGlmCj4gPiArCj4gPiAraW50IF9fZ2V0X3BlcmZfcmVnbnVtX2Zvcl91bndfcmVnbnVtX3BwYzMy
-KGludCB1bndfcmVnbnVtIF9fbWF5YmVfdW51c2VkKQo+ID4gK3sKPiA+ICsjaWZuZGVmIEhBVkVf
-TElCVU5XSU5EX1BQQzMyX1NVUFBPUlQKPiA+ICsgICAgIHJldHVybiAtRUlOVkFMOwo+ID4gKyNl
-bHNlCj4gPiArICAgICBzd2l0Y2ggKHVud19yZWdudW0pIHsKPiA+ICsgICAgIGNhc2UgVU5XX1BQ
-QzMyX1IwIC4uLiBVTldfUFBDMzJfUjMxOgo+ID4gKyAgICAgICAgICAgICByZXR1cm4gdW53X3Jl
-Z251bSAtIFVOV19QUEMzMl9SMCArIFBFUkZfUkVHX1BPV0VSUENfUjA7Cj4gPiArICAgICBjYXNl
-IFVOV19QUEMzMl9MUjoKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIFBFUkZfUkVHX1BPV0VSUENf
-TElOSzsKPiA+ICsgICAgIGNhc2UgVU5XX1BQQzMyX0NUUjoKPiA+ICsgICAgICAgICAgICAgcmV0
-dXJuIFBFUkZfUkVHX1BPV0VSUENfQ1RSOwo+ID4gKyAgICAgY2FzZSBVTldfUFBDMzJfWEVSOgo+
-ID4gKyAgICAgICAgICAgICByZXR1cm4gUEVSRl9SRUdfUE9XRVJQQ19YRVI7Cj4gPiArICAgICBk
-ZWZhdWx0Ogo+ID4gKyAgICAgICAgICAgICBwcl9lcnIoInVud2luZDogaW52YWxpZCByZWcgaWQg
-JWRcbiIsIHVud19yZWdudW0pOwo+ID4gKyAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiA+
-ICsgICAgIH0KPiA+ICsjZW5kaWYgLy8gSEFWRV9MSUJVTldJTkRfUFBDMzJfU1VQUE9SVAo+Cj4g
-VG8gYWRkcmVzcyB0aGlzIGxvY2FsIHNhc2hpa28gY29tbWVudDoKPgo+IC0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+IElzIHRoZSBp
-bnN0cnVjdGlvbiBwb2ludGVyIChOSVApIGludGVudGlvbmFsbHkgb21pdHRlZCBmcm9tIHRoaXMg
-c3dpdGNoCj4gc3RhdGVtZW50Pwo+Cj4gV2hlbiBsaWJ1bndpbmQgYXR0ZW1wdHMgdG8gcmVhZCB0
-aGUgaW5zdHJ1Y3Rpb24gcG9pbnRlciwgd2lsbCBhY2Nlc3NfcmVnKCkKPiBoaXQgdGhlIGRlZmF1
-bHQgY2FzZSBoZXJlIGFuZCByZXR1cm4gLUVJTlZBTCwgY2F1c2luZyBzdGFjayB1bndpbmRpbmcK
-PiB0byBmYWlsIG9uIDMyLWJpdCBQb3dlclBDIGFyY2hpdGVjdHVyZXM/Cj4gRm9yIGNvbXBhcmlz
-b24sIHRoZSA2NC1iaXQgaW1wbGVtZW50YXRpb24gaW4gbGlidW53aW5kLXBwYzY0LmMgY29ycmVj
-dGx5Cj4gbWFwcyBVTldfUFBDNjRfTklQIHRvIFBFUkZfUkVHX1BPV0VSUENfTklQLgo+IC0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+
-Cj4gSSBhbW1lbmRlZCB0aGlzIHBhdGNoIHdpdGg6Cj4KPiDirKIgW2FjbWVAdG9vbGJ4IHBlcmYt
-dG9vbHMtbmV4dF0kIHZpbSB0b29scy9wZXJmL3V0aWwvbGlidW53aW5kLWFyY2gvbGlidW53aW5k
-LXBwYzMyLmMKPiDirKIgW2FjbWVAdG9vbGJ4IHBlcmYtdG9vbHMtbmV4dF0kIGdpdCBkaWZmCj4g
-ZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvdXRpbC9saWJ1bndpbmQtYXJjaC9saWJ1bndpbmQtcHBj
-MzIuYyBiL3Rvb2xzL3BlcmYvdXRpbC9saWJ1bndpbmQtYXJjaC9saWJ1bndpbmQtcHBjMzIuYwo+
-IGluZGV4IGJjZGVlZDM0ZDBhODFiOGQuLjk3NmExNjAzMDQwNzM1ODIgMTAwNjQ0Cj4gLS0tIGEv
-dG9vbHMvcGVyZi91dGlsL2xpYnVud2luZC1hcmNoL2xpYnVud2luZC1wcGMzMi5jCj4gKysrIGIv
-dG9vbHMvcGVyZi91dGlsL2xpYnVud2luZC1hcmNoL2xpYnVud2luZC1wcGMzMi5jCj4gQEAgLTIz
-LDYgKzIzLDggQEAgaW50IF9fZ2V0X3BlcmZfcmVnbnVtX2Zvcl91bndfcmVnbnVtX3BwYzMyKGlu
-dCB1bndfcmVnbnVtIF9fbWF5YmVfdW51c2VkKQo+ICAgICAgICAgICAgICAgICByZXR1cm4gUEVS
-Rl9SRUdfUE9XRVJQQ19DVFI7Cj4gICAgICAgICBjYXNlIFVOV19QUEMzMl9YRVI6Cj4gICAgICAg
-ICAgICAgICAgIHJldHVybiBQRVJGX1JFR19QT1dFUlBDX1hFUjsKPiArICAgICAgIGNhc2UgVU5X
-X1BQQzMyX05JUDoKPiArICAgICAgICAgICAgICAgcmV0dXJuIFBFUkZfUkVHX1BPV0VSUENfTklQ
-Owo+ICAgICAgICAgZGVmYXVsdDoKPiAgICAgICAgICAgICAgICAgcHJfZXJyKCJ1bndpbmQ6IGlu
-dmFsaWQgcmVnIGlkICVkXG4iLCB1bndfcmVnbnVtKTsKPiAgICAgICAgICAgICAgICAgcmV0dXJu
-IC1FSU5WQUw7Cj4g4qyiIFthY21lQHRvb2xieCBwZXJmLXRvb2xzLW5leHRdJAo+Cj4gT2s/IEl0
-IHdhcyB0aGUgb25seSBpc3N1ZSBmb3VuZCBpbiB0aGlzIHBhdGNoLgoKTG9va3MgZ29vZCwgdGhl
-IE5JUCBpcyBpbiB0aGUgb3JpZ2luYWwgY29kZSB0aGF0IEkgY29waWVkLCBzbyBJIGRvbid0CnVu
-ZGVyc3RhbmQgaG93IEkgbG9zdCB0aGlzLCBidXQgZ29vZCBjYXRjaCEKClRoYW5rcywKSWFuCgo+
-IC0gQXJuYWxkbwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Fri, May 15, 2026 at 07:35:18PM +0900, Nathan Chancellor wrote:
+> Clang recently added support for -Wattribute-alias [1], which results in
+> the same warnings that necessitated commit bee20031772a ("disable
+> -Wattribute-alias warning for SYSCALL_DEFINEx()") for GCC.
+> 
+>   kernel/time/itimer.c:325:1: error: alias and aliasee have different types 'long (unsigned int)' and 'long (typeof (__builtin_choose_expr((__builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0LL)) || __builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0ULL))), 0LL, 0L)))' (aka 'long (long)') [-Werror,-Wattribute-alias]
+>     325 | SYSCALL_DEFINE1(alarm, unsigned int, seconds)
+>         | ^
+>   include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
+>     225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
+>         |                                    ^
+>   include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
+>     236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+>         |         ^
+>   include/linux/syscalls.h:251:18: note: expanded from macro '__SYSCALL_DEFINEx'
+>     251 |                 __attribute__((alias(__stringify(__se_sys##name))));    \
+>         |                                ^
+>   kernel/time/itimer.c:325:1: note: aliasee is declared here
+>   include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
+>     225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
+>         |                                    ^
+>   include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
+>     236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+>         |         ^
+>   include/linux/syscalls.h:255:18: note: expanded from macro '__SYSCALL_DEFINEx'
+>     255 |         asmlinkage long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))  \
+>         |                         ^
+>   <scratch space>:16:1: note: expanded from here
+>      16 | __se_sys_alarm
+>         | ^
+> 
+> Disable the warnings in the same way for clang-23 and newer.
+> 
+> Cc: stable@vger.kernel.org
+> Closes: https://github.com/ClangBuiltLinux/linux/issues/2163
+> Link: https://github.com/llvm/llvm-project/commit/40da6920a0d71d49dfa2392b09153600b0759f5e [1]
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+> I plan to take this via my clang-fixes tree for 7.1.
+> ---
+>  arch/riscv/include/asm/syscall_wrapper.h | 2 ++
+>  include/linux/compat.h                   | 2 ++
+>  include/linux/compiler-clang.h           | 6 ++++++
+>  include/linux/syscalls.h                 | 2 ++
+>  4 files changed, 12 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
+> index ac80216549ff..366a5354caa5 100644
+> --- a/arch/riscv/include/asm/syscall_wrapper.h
+> +++ b/arch/riscv/include/asm/syscall_wrapper.h
+> @@ -32,6 +32,8 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
+>  	__diag_push();									\
+>  	__diag_ignore(GCC, 8, "-Wattribute-alias",					\
+>  			"Type aliasing is used to sanitize syscall arguments");		\
+> +	__diag_ignore(clang, 23, "-Wattribute-alias",					\
+> +			"Type aliasing is used to sanitize syscall arguments");		\
+>  	static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong, 	\
+>  					ulong)						\
+>  			__attribute__((alias(__stringify(___se_##prefix##name))));	\
+> diff --git a/include/linux/compat.h b/include/linux/compat.h
+> index 56cebaff0c91..a1ce6d559db9 100644
+> --- a/include/linux/compat.h
+> +++ b/include/linux/compat.h
+> @@ -72,6 +72,8 @@
+>  	__diag_push();								\
+>  	__diag_ignore(GCC, 8, "-Wattribute-alias",				\
+>  		      "Type aliasing is used to sanitize syscall arguments");\
+> +	__diag_ignore(clang, 23, "-Wattribute-alias",				\
+> +		      "Type aliasing is used to sanitize syscall arguments");\
+>  	asmlinkage long compat_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))	\
+>  		__attribute__((alias(__stringify(__se_compat_sys##name))));	\
+>  	ALLOW_ERROR_INJECTION(compat_sys##name, ERRNO);				\
+> diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+> index e1123dd28486..527e4e136020 100644
+> --- a/include/linux/compiler-clang.h
+> +++ b/include/linux/compiler-clang.h
+> @@ -131,6 +131,12 @@
+>  #define __diag_str(s)		__diag_str1(s)
+>  #define __diag(s)		_Pragma(__diag_str(clang diagnostic s))
+>  
+> +#if CONFIG_CLANG_VERSION >= 230000
+> +#define __diag_clang_23(s)	__diag(s)
+> +#else
+> +#define __diag_clang_23(s)
+> +#endif
+> +
+>  #define __diag_clang_13(s)	__diag(s)
+>  
+>  #define __diag_ignore_all(option, comment) \
+> diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+> index f5639d5ac331..97e3411b49d2 100644
+> --- a/include/linux/syscalls.h
+> +++ b/include/linux/syscalls.h
+> @@ -247,6 +247,8 @@ static inline int is_syscall_trace_event(struct trace_event_call *tp_event)
+>  	__diag_push();							\
+>  	__diag_ignore(GCC, 8, "-Wattribute-alias",			\
+>  		      "Type aliasing is used to sanitize syscall arguments");\
+> +	__diag_ignore(clang, 23, "-Wattribute-alias",			\
+> +		      "Type aliasing is used to sanitize syscall arguments");\
+>  	asmlinkage long sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))	\
+>  		__attribute__((alias(__stringify(__se_sys##name))));	\
+>  	ALLOW_ERROR_INJECTION(sys##name, ERRNO);			\
+
+The kbuild test robot pointed out that I need
+
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index e8fd77593b68..369966598a2c 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -711,6 +711,10 @@ struct ftrace_likely_data {
+ #define __diag_GCC(version, severity, string)
+ #endif
+ 
++#ifndef __diag_clang
++#define __diag_clang(version, severity, string)
++#endif
++
+ #define __diag_push()	__diag(push)
+ #define __diag_pop()	__diag(pop)
+ 
+--
+
+for this to build properly with GCC, which I will fold in.
+
+-- 
+Cheers,
+Nathan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
