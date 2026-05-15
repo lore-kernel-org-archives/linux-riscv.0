@@ -4,101 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB58ECD4851
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 08:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EA7CD4851
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 08:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F9WYjYWVarxla8cL1hz6nLhnRYpUyF2Hfvop8bGxACc=; b=f4+2ukvk0Qz1tU
-	1sr+e46tplORF329SbJ53V71wrkQb8Gx+irYSBxfQispUvdnZqT/8gsabbrmiGb7hcY8AxDkZz2Nm
-	OETfJRgdU+WkVX3L0x1IFZImCg/fRmqmcCzHDLRhOOZgEGfLW3fewKlf9AU9PAVV3uYl8a49Obs82
-	zsgJii/JlDnAkWJ9pfK3g9KTPRlu10HRvlSIon/oK6Rk/3r2MFVpJZn71lp0gN2qfrmukU7kXRPaN
-	iSqRNWC3A0bc/aCgLr3KZhonmrl+KEWKPXJQOG4NCbji0rtUqBmd8z5OmlgoKJHRs1J6B0W2nN0Fy
-	5I39PcKOqD8R11VQtI0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=a7/BvApbofLgb0pxldhiiU0b3FJ0Cf1qUUaSI1N+A28=; b=A3s0+MOwaS8eoD
+	U3ak608kOkpFgoQKd2LQmbZ+YfMioSMwI5rES0ZZ0T7c3otPKewxYsOLjVa62/Em+BGttXNyG4A2k
+	idtyAaKlkbGGbegiYkNMbSdifcOHlgDoNt7/Ua5p7Ke1BfzKdtIcjialDpCVN8SaYfdghO0NhdjGQ
+	MnX1Go/IRxo/o32oCldYfxgFHhTIsANK1rrscG8ZANquIzTxFnKO1KnVGmsAn/zdhfH0ZUcP8Wlmx
+	uNpm9ALZdSXJyij8xOzg+AJm+PbPGBpVcriL3RPDzuPFuIAuaMRhLyYs4pmcyfwwWN+ixlkDdqWX5
+	wP2R+696g0GWAsZvLjJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoIM-00000007nB0-35Y7;
-	Fri, 15 May 2026 08:53:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wNoIO-00000007nBB-0Dip;
+	Fri, 15 May 2026 08:53:24 +0000
+Received: from mail-sh0chn02on2092.outbound.protection.partner.outlook.cn ([139.219.146.92] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoIJ-00000007n9s-2Cii
+	id 1wNoII-00000007n9i-2lN1
 	for linux-riscv@lists.infradead.org;
 	Fri, 15 May 2026 08:53:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778835197;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=FoeXP8IPHQo8m2XylW4O1e9RVcotvFK209BP66FzlQ8=;
-	b=TtjGrZ2eU5iYgILWhyCd6e5wVEZkuvJPBJXaTXstfSKEzoG467vn106PW5OZXTj2Ns1xXe
-	cHS06+eDwVtjotjC1GzuEefMBL8xVChc0+SHWql9wvf6KbHF4l1aErOilbADk4vEPUOqTe
-	BekcgtE70153Vi4m2SKqKLRuIISFTN8=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-54-Yej80VBHN4C6Jz1IuNrkvQ-1; Fri,
- 15 May 2026 04:53:12 -0400
-X-MC-Unique: Yej80VBHN4C6Jz1IuNrkvQ-1
-X-Mimecast-MFC-AGG-ID: Yej80VBHN4C6Jz1IuNrkvQ_1778835189
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1AFB2195608C;
-	Fri, 15 May 2026 08:53:07 +0000 (UTC)
-Received: from [192.168.1.153] (headnet01.pony-001.prod.iad2.dc.redhat.com [10.2.32.101])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6E5D51956053;
-	Fri, 15 May 2026 08:52:57 +0000 (UTC)
-From: Albert Esteve <aesteve@redhat.com>
-Subject: [PATCH v12 0/4] kunit: Add support for suppressing warning
- backtraces
-Date: Fri, 15 May 2026 10:52:49 +0200
-Message-Id: <20260515-kunit_add_support-v12-0-a216dc228be8@redhat.com>
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ny1/OmIMDvDlZ0gAIxsd7J5fucaL/4CXT2vDpXx7v60VZc8yS6gp9ei28L0NKZgosGEOiNZnkapT6iMQrIJhyZHXm4kwPaCAXplkczi/87hgd5RBpEodP/0b4O/Anfp6afGj0b2ehsFEZ3Nn/9h/bJfPj3WNjCUF5C/xzo3Pv5mCSSVp6FS1vc+5BdE9lOdzx7i8PRrQq/vKzkRCg8dBJIhxszSVGwd115YWfs1cC3tIIbbb1mC+W1n3T83qok4y5gipcL1kRDK5Pp/Ab0jnA7tF/cem2GgOFGN3c7odvT4vlETs/9K/T1J8YcQM4OrwUFu4kDLiOwzMZGcKy7D6cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OmZTvKCLwfhBq97T+N9oMPC0HiqvAJP0vUED9HZnIik=;
+ b=YyUtrMD++96niu1aNWZSMc4zdHxhu2hhw7WL9IN/7EZ5t+by+sUIbF6gAqlIK0Hn1rSgnhvUlJNaA8MLQPms8F4hO5Z5L0Jzezf3LUpg9nHvvEyyjNdEMsU6QyEkDbgCUE0gGqEp+rdCnM9P9kX6gXN9ILfIZxtT4lKVUOtz1+Pfe5csiziAcBPH+b+feKtQhw0EAY8gc/g3w9NIFKb61ltFi+MvSDWaDT2b8e8xN3/yewd6+g6NY3qureHARVWNvR+KC85wSPFkzPvmh88bCUQrQgmEA4OglYJ/+OKyhNxnt/4Amhs9T3ms6FgUOIhH1fL52RRaj25b/oTBmq3Iyg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1315.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:15::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.13; Fri, 15 May
+ 2026 08:53:05 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9913.009; Fri, 15 May 2026 08:53:05 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Conor Dooley <conor@kernel.org>, Linus Walleij <linusw@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul
+ Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Lianfeng
+ Ouyang <lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v2 04/22] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+Thread-Topic: [PATCH v2 04/22] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+Thread-Index: AQHc45KRvsqG0r7N2ECAW67mfXLNbrYN3n4AgAC9aVCAABQvAIAAGT8A
+Date: Fri, 15 May 2026 08:53:04 +0000
+Message-ID: <ZQ4PR01MB1202A1C94D9A17C1F85FF1BDF2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260514111218.94519-1-changhuang.liang@starfivetech.com>
+ <20260514111218.94519-5-changhuang.liang@starfivetech.com>
+ <20260514-undermost-gray-6c9967b363a3@spud>
+ <ZQ4PR01MB1202BD7677ACAF6EE18D062AF2042@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260515-eligible-greasily-257029ab1720@wendy>
+In-Reply-To: <20260515-eligible-greasily-257029ab1720@wendy>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1315:EE_
+x-ms-office365-filtering-correlation-id: e75b3d45-7336-4aa3-31c4-08deb25f60d9
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|22082099003|18002099003|56012099003|4143699003|3023799003|38070700021;
+x-microsoft-antispam-message-info: HuoiPgLtZFCHOJSuTMFbqOUJjb9ZdLPjx8aEYOZ0jI3zH0sp0jO2raL+7DSWGg55XhN8gfL86pkfSBlWwIiRPwtlmXwEdJSiESw7pgKz+o+zVp7PqFc2X7e/C5G15c83k1lCBJYz7tUhqMMsnfRmulUuaEVFfzhjnjgsn8A9u/wlDP+8pYm41+lH8ALarq5m0jwvo521E8qnZBNeIrUzWa3ChOOz/Q4hxEBaq4Fdva+aMKaqYmcUbPVQfzmBMrvXzqxhRyftufdwtoPKhvC+FJZOJMSchrqYfus1ba/lSqf6ve8kUVyrVfSKt6TEnPvDwGx1bcYV1BogWUNkz1PDbil6+hHMEzFpft0a1coM/WoacOgQg+3z1MKe4EmL4ugY/o8HBDq6bSe8OKPLj20J3iGnBMdyKbA63XylUzgiPSyhELR/GsSKEKDIqjshXsokThIDJqnpIIItQHhNrIZqGoteSnmR7OidoxlorNknzMP9sBbaciTXnRPBTcT2/FDKNBaVgkvTgrq9ASUNA26HZ1BcG4IRKp+Zn4r7Gwn/jRuIwUnaESUUlXXWZgwcrniV
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(22082099003)(18002099003)(56012099003)(4143699003)(3023799003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?NpwrGNuhfRXfhNP7EJqdBtQK/oOyANDPnco4zO4L457OVazhxAoVv/do92VH?=
+ =?us-ascii?Q?jx2QPK/sVt1WINzjRI94VcNOpFGTJX2bzrHW2N+gbDnLC0GAg9LjYvqep/2F?=
+ =?us-ascii?Q?ua7r/VGdSWDgBIHRdOac/IwdnmCRqveNt+vsLn4XcOgQSCi2+C2uDc1KD2yD?=
+ =?us-ascii?Q?/OGXq+ak7/Wv/N9+YfPtXal8Rd8QhhFOgQCi50nLBGwo1ji6vEMCWFfjt6tH?=
+ =?us-ascii?Q?TZMUZkAGqNBjlCn17jMLAYvVcGgtbmwrLsOjMbZKAEkJwIgx7+oDCfClQNIg?=
+ =?us-ascii?Q?2S3e/Qm47fjRVz2Ug/TuTM0OL9tFIODGNgNOK5XDPMijNXWMRyG4Hm9TDIiF?=
+ =?us-ascii?Q?1UR2ONkpCpmcndKBI9WGxy0flQzXcc2s3zUtYLmVLSYIxRnlYdZyGcyhtHF0?=
+ =?us-ascii?Q?1koGYRha64SB76xEQeSZj9uaeQ84o80MJZ8hRY7QEWhmxeoKVTTjpSv1X6I/?=
+ =?us-ascii?Q?cKRtXL1E+D/3SDP1v0sb5/Jfq2H0vluCgR693ZYFsqwcVkp9WWXEUUwhYetc?=
+ =?us-ascii?Q?1mCuFKxgHa4t/6agVxI2g5tv30JgXOU9KXAs5ng39QXSb6yrVrTtzKnEKGAj?=
+ =?us-ascii?Q?m0IZGjYww569trggf+AcYTYMzajKZksy7pxQXjpsomE1hS5kCPtikGEz7ArA?=
+ =?us-ascii?Q?n6PS/6OtTkJE7ZQGLW2VEpSL1ZKLvkQoTZl2+X255XR56eY9aJQROTArW6cF?=
+ =?us-ascii?Q?2l1tjRXOAfPcDk67WyDYBIGkmwnaHaE9YH1+rQke4JXTV3pGpeMC33Cm7A/X?=
+ =?us-ascii?Q?XvOz1RgnddMxM5Y+uQTT13MDDJXFMzYOrChnyN/eL0jh8ODYz4B/47rLF+6U?=
+ =?us-ascii?Q?2OQumu3H+Rh/SttenNrrEB6foM1nECcwVcbr8qQ7Dccbm3ytVHqJaR7DWGDa?=
+ =?us-ascii?Q?f96+zNJqBhHov7QQ0YCurKq1oeuKoxjzHINbSNuXu9req5FoIHyKjPzg2DSn?=
+ =?us-ascii?Q?55uaYJvYC9y92s4s2ZBQjJeuzmEgUtm6dNW1GR4gM1pVEkrCTBKX9/7Rcubq?=
+ =?us-ascii?Q?b8oSYCztMXgHpJgRYRGcW2W3ZKKsf7LckbXGnauc/25w9mERsohLYtrs0t25?=
+ =?us-ascii?Q?tauGibjOG2waa2ioXRlvFJy6HUrT101iI3q6DYyvH+vFTnVA0xuQRE9nps2F?=
+ =?us-ascii?Q?HRMwdTumBXg/PF1Lz7BKx1+4CGzwo2f6MlcB5Nv1wEDzlIfMK2XdYd3lYsDe?=
+ =?us-ascii?Q?o5KKoAmyENbYXIbj7TiK6pcwnlMirh6GQKf4VY4zCVXpE2ja8BbUbhjtdz3X?=
+ =?us-ascii?Q?xwYe8ctw8B546zU5jrWlSrOwuj/WwtXpuOPT5FEk+Id0fGF7LOCObAguEDLO?=
+ =?us-ascii?Q?oB8F5hNYrikU3EAhLTqWNOUk+fBD1lQuo1SfKYi71Ch7lPHDAy4R3EP84t6O?=
+ =?us-ascii?Q?uxVe0/kMV88LYPsmgWvQ1lN1sTMTfwygU4naMKT1GZn9Zu42M8D5FozCxJEn?=
+ =?us-ascii?Q?s1jcD64OucFsrX67sDcxkezwoz+hpLYutxapgmdA/c40PjcoRe2DxBB3ACc/?=
+ =?us-ascii?Q?kRlls8C6sOsa5ljrhFbcSQtaK1Y4RWqRMw3a7hPwlUQ46p2Grm73eiurrObP?=
+ =?us-ascii?Q?Ag9xTHWITPbrCuVnwlaGr9XZeM4ZXoHirS63vgr1xxOJTUIB902vmObwIsO0?=
+ =?us-ascii?Q?K4ouqVfapwgcDP/PzAY2o6KxXazTRqCRcLaqtRR/7HKrj1fKsLUb/PElkaHt?=
+ =?us-ascii?Q?zp+TrTvBhu0Z66CQxxgU5EQVfGrFNBOsLIRGH9Wltxm5C/QOQC/LljyH/RX3?=
+ =?us-ascii?Q?VSBq6r66GoxqpmgGWP/IbDFqI1kSClM=3D?=
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23QS2rDMBCA4asEr6swI0WvrHqPUoKskWpRYhvZM
- S3Bd68cCHGxlzOgj390r4aQUxiq8+Fe5TClIXVtGZC/HSrfuPYrsERlUXHgCgRy9n1r03hxRJf
- h1vddHhmPQhpQNVqiqrzrc4jp54F+fJY55u7KxiYH95QkSK5QcC3lEZVCCQyZ8y5fU+vec6DGj
- UffXRetScPY5d9H4aQW89mid1omxYARce5CLWKQtNaWmEm/iBOHPUIXIpjaqwBRA4UNYV6EhNM
- eYQohgrRS+xIj5Iawa8LsEbYQ1lLUzhkDUW0IhJWBYs9AWE4R2hIH5Y3f/gbiGtm9BbEgtVBOC
- nCKTPyHzPP8B2TZASVFAgAA
-X-Change-ID: 20260312-kunit_add_support-2f35806b19dd
-To: Arnd Bergmann <arnd@arndb.de>, 
- Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
- Rae Moar <raemoar63@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
- dri-devel@lists.freedesktop.org, workflows@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
- peterz@infradead.org, Alessandro Carminati <acarmina@redhat.com>, 
- Guenter Roeck <linux@roeck-us.net>, Kees Cook <kees@kernel.org>, 
- Albert Esteve <aesteve@redhat.com>, 
- Linux Kernel Functional Testing <lkft@linaro.org>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Dan Carpenter <error27@gmail.com>, Kees Cook <kees@kernel.org>, 
- Simona Vetter <simona.vetter@ffwll.ch>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778835177; l=10625;
- i=aesteve@redhat.com; s=20260303; h=from:subject:message-id;
- bh=DXrTHnJRsNBLgtTyh0yUNmg0Bf9Ow0FsIDm0xcMWfSY=;
- b=dF4NCSeN8SmCPCVQ1hhWdAeLuK2bj0aMH6eBrjm9vugjfXQ1g0I3TZ7JZdC490//zzSpKl42i
- x8IRIUOwP8fBBTa7A76p8qDUvHIrr3Etyw1Zr7vyxFpkSq+0WWiR8V4
-X-Developer-Key: i=aesteve@redhat.com; a=ed25519;
- pk=YSFz6sOHd2L45+Fr8DIvHTi6lSIjhLZ5T+rkxspJt1s=
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: zrzQbr0aK4aZFCkro_lPW7K6TlDdjiqUab-RXfvrZ64_1778835189
-X-Mimecast-Originator: redhat.com
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: e75b3d45-7336-4aa3-31c4-08deb25f60d9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2026 08:53:04.9518
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: vPZ2crvOp/O0x1Msm2t/dxk1FF3YW6GgsfVVFA8DCl1mdbsADFOM/o9W/kvy7qht8lrIGhyWLtmHNO6YtzIAKSvnndszcppso3tHWxWLbF79lUw3bBEXF1rcC73kERRn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_015319_714269_EE8D35EA 
-X-CRM114-Status: GOOD (  28.03  )
+X-CRM114-CacheID: sfid-20260515_015318_862863_8ABF4738 
+X-CRM114-Status: GOOD (  36.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,239 +147,346 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some unit tests intentionally trigger warning backtraces by passing bad
-parameters to kernel API functions. Such unit tests typically check the
-return value from such calls, not the existence of the warning backtrace.
+Hi, Conor
 
-Such intentionally generated warning backtraces are neither desirable
-nor useful for a number of reasons:
-- They can result in overlooked real problems.
-- A warning that suddenly starts to show up in unit tests needs to be
-  investigated and has to be marked to be ignored, for example by
-  adjusting filter scripts. Such filters are ad hoc because there is
-  no real standard format for warnings. On top of that, such filter
-  scripts would require constant maintenance.
+Thank for the comments
 
-One option to address the problem would be to add messages such as
-"expected warning backtraces start/end here" to the kernel log.
-However, that would again require filter scripts, might result in
-missing real problematic warning backtraces triggered while the test
-is running, and the irrelevant backtrace(s) would still clog the
-kernel log.
+> On Fri, May 15, 2026 at 06:10:28AM +0000, Changhuang Liang wrote:
+> > Hi, Conor
+> >
+> > Thanks for the review.
+> >
+> > > On Thu, May 14, 2026 at 04:12:00AM -0700, Changhuang Liang wrote:
+> > > > Add pinctrl bindings for StarFive JHB100 SoC System-0(sys0)
+> > > > pinctrl controller.
+> > > >
+> > > > Signed-off-by: Changhuang Liang
+> > > > <changhuang.liang@starfivetech.com>
+> > > > ---
+> > > >  .../pinctrl/starfive,jhb100-sys0-pinctrl.yaml | 175
+> ++++++++++++++++++
+> > > >  .../pinctrl/starfive,jhb100-pinctrl.h         |  17 ++
+> > > >  2 files changed, 192 insertions(+)  create mode 100644
+> > > > Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-pin
+> > > > ctrl
+> > > > .yaml  create mode 100644
+> > > > include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> > > >
+> > > > diff --git
+> > > > a/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-p
+> > > > inct
+> > > > rl.yaml
+> > > > b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-p
+> > > > inct
+> > > > rl.yaml
+> > > > new file mode 100644
+> > > > index 000000000000..21d3693587fd
+> > > > --- /dev/null
+> > > > +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sy
+> > > > +++ s0-p
+> > > > +++ inctrl.yaml
+> > > > @@ -0,0 +1,175 @@
+> > > > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause %YAML 1.2
+> > > > +---
+> > > > +$id:
+> > > > +http://devicetree.org/schemas/pinctrl/starfive,jhb100-sys0-pinctr
+> > > > +l.ya
+> > > > +ml#
+> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > +
+> > > > +title: StarFive JHB100 System-0 Pin Controller
+> > > > +
+> > > > +description: |
+> > > > +  Pinctrl bindings for JHB100 RISC-V SoC from StarFive Technology Ltd.
+> > > > +
+> > > > +  The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1,
+> > > > + sys2, per0, per1,  per2, per2pok, per3, adc0, adc1, emmc, and vga.
+> > > > +  This document provides an overview of the "sys0" pinctrl domain.
+> > > > +
+> > > > +  The "sys0" domain has a pin controller which provides
+> > > > +  - function selection for GPIO pads.
+> > > > +  - GPIO pad configuration.
+> > > > +  - GPIO interrupt handling.
+> > > > +
+> > > > +  In the SYS0 Pin Controller, there are 4 multi-function GPIO_PADs.
+> > > > + Each of  them can be multiplexed to different hardware blocks
+> > > > + through function  selection and each iopad has a maximum of up
+> > > > + to 2
+> > > functions - 0 and 1.
+> > > > +  Function 0 is the default function which is generally the GPIO
+> > > > + function  (or occasionally, it can be a peripheral signal).
+> > > > +  Function 1 is the alternate function or peripheral signal that
+> > > > + can be  routed to the iopad. The function selection is carried
+> > > > + out by writing  the function number to the iopad function select
+> register.
+> > > > +
+> > > > +  Each iopad is configurable with parameters such as
+> > > > + input-enable, internal  pull-up/pull-down bias, drive strength,
+> > > > + schmitt trigger, slew rate,  input  debounce nanoseconds, power
+> > > > + source and drive type
+> > > (open-drain or push-pull).
+> > > > +
+> > > > +maintainers:
+> > > > +  - Alex Soo <yuklin.soo@starfivetech.com>
+> > >
+> > > Why is Alex the maintainer when you are the sole author?
 
-Solve the problem by providing a means to suppress warning backtraces
-originating from the current kthread while executing test code.
-Since each KUnit test runs in its own kthread, this effectively scopes
-suppression to the test that enabled it, without requiring any
-architecture-specific code.
+I will change it to myself. Alex has already resigned.
 
-Overview:
-Patch#1 Introduces the suppression infrastructure integrated into
-        KUnit's hook mechanism.
-Patch#2 Adds selftests to validate the functionality.
-Patch#3 Demonstrates real-world usage in the DRM subsystem.
-Patch#4 Documents the new API and usage guidelines.
+> > >
+> > > > +
+> > > > +properties:
+> > > > +  compatible:
+> > > > +    items:
+> > > > +      - const: starfive,jhb100-sys0-pinctrl
+> > > > +
+> > > > +  reg:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  clocks:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  resets:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  interrupts:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  interrupt-controller: true
+> > > > +
+> > > > +  '#interrupt-cells':
+> > > > +    const: 3
+> > > > +
+> > > > +  gpio-controller: true
+> > > > +
+> > > > +  '#gpio-cells':
+> > > > +    const: 3
+> > > > +
+> > > > +  gpio-ranges: true
+> > > > +
+> > > > +  gpio-line-names: true
+> > > > +
+> > > > +patternProperties:
+> > > > +  '-grp$':
+> > > > +    type: object
+> > > > +    additionalProperties: false
+> > > > +    patternProperties:
+> > > > +      '-pins$':
+> > > > +        type: object
+> > > > +        description: |
+> > > > +          A pinctrl node should contain at least one subnode
+> > > representing the
+> > > > +          pinctrl groups available in the domain. Each subnode
+> > > > + will list
+> > > the
+> > > > +          pins it needs, and how they should be configured, with
+> > > > + regard
+> > > to
+> > > > +          function selection, bias, input enable/disable, input schmitt
+> > > > +          trigger enable/disable, slew-rate, input debounce
+> > > nanoseconds,
+> > > > +          drive-open-drain, drive-push-pull, power-source and
+> > > drive-strength.
+> > > > +        allOf:
+> > > > +          - $ref: /schemas/pinctrl/pincfg-node.yaml
+> > > > +          - $ref: /schemas/pinctrl/pinmux-node.yaml
+> > > > +        unevaluatedProperties: false
+> > >
+> > > I think this should be additionalProperties, since you're citing all
+> > > the properties you do support below.
+> > >
+> > > > +
+> > > > +        properties:
+> > > > +          pins:
+> > > > +            description:
+> > > > +              The list of IOs that properties in the pincfg node apply
+> to.
+> > > > +
+> > > > +          function:
+> > > > +            description:
+> > > > +              A string containing the name of the function to mux
+> > > > + for
+> > > these
+> > > > +              pins.
+> > > > +            enum: [ auxpwrgood, gpio, hbled, pe2rst_out ]
+> > > > +
+> > > > +          bias-disable: true
+> > > > +
+> > > > +          bias-pull-down:
+> > > > +            type: boolean
+> > > > +
+> > > > +          bias-pull-up:
+> > > > +            oneOf:
+> > > > +              - type: boolean
+> > > > +              - enum: [ 600, 900, 1200, 2000 ]
+> > > > +                description: Pull up RSEL type resistance values
+> > > > + (in
+> > > ohms)
+> > > > +            description:
+> > > > +              For normal pull up type there is no need to specify
+> > > > + a
+> > > resistance
+> > > > +              value, hence this can be specified as a boolean
+> property.
+> > > > +              For RSEL pull up type a resistance value (in ohms)
+> > > > + can be
+> > > added.
+> > > > +
+> > > > +          drive-open-drain: true
+> > > > +
+> > > > +          drive-push-pull: true
+> > > > +
+> > > > +          drive-strength:
+> > > > +            enum: [ 2, 4, 8, 12 ]
+> > > > +
+> > > > +          drive-strength-microamp:
+> > > > +            enum: [ 2000, 4000, 8000, 12000 ]
+> > > > +
+> > > > +          input-debounce-nanoseconds:
+> > > > +            minimum: 0
+> > > > +            maximum: 4294967295
+> > > > +
+> > > > +          input-disable: true
+> > > > +
+> > > > +          input-enable: true
+> > > > +
+> > > > +          input-schmitt-enable: true
+> > > > +
+> > > > +          input-schmitt-disable: true
+> > > > +
+> > > > +          power-source:
+> > > > +             enum: [ 0, 1, 2 ]
+> > > > +
+> > > > +          slew-rate:
+> > > > +            enum: [ 0, 1 ]
+> > > > +            default: 0
+> > > > +            description: |
+> > > > +                0: slow (half frequency)
+> > > > +                1: fast
+> > > > +
+> > > > +required:
+> > > > +  - compatible
+> > > > +  - reg
+> > > > +  - resets
+> > > > +  - interrupts
+> > > > +  - interrupt-controller
+> > > > +  - '#interrupt-cells'
+> > > > +  - gpio-controller
+> > > > +  - '#gpio-cells'
+> > > > +  - gpio-ranges
+> > > > +
+> > > > +additionalProperties: false
+> > > > +
+> > > > +examples:
+> > > > +  - |
+> > > > +    soc {
+> > > > +        #address-cells = <2>;
+> > > > +        #size-cells = <2>;
+> > > > +
+> > > > +        pinctrl_sys0: pinctrl@13080000 {
+> > > > +            compatible = "starfive,jhb100-sys0-pinctrl";
+> > > > +            reg = <0x0 0x13080000 0x0 0x800>;
+> > > > +            resets = <&sys0crg 2>;
+> > > > +            interrupts = <56>;
+> > > > +            interrupt-controller;
+> > > > +            #interrupt-cells = <3>;
+> > > > +            gpio-controller;
+> > > > +            #gpio-cells = <3>;
+> > > > +            gpio-ranges = <&pinctrl_sys0 0 0 0 4>;
+> > > > +        };
+> > > > +    };
+> > > > diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> > > > b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> > > > new file mode 100644
+> > > > index 000000000000..6d8f5516a178
+> > > > --- /dev/null
+> > > > +++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> > > > @@ -0,0 +1,17 @@
+> > > > +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+> > > > +/*
+> > > > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> > > > + *
+> > > > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > > > + */
+> > > > +
+> > > > +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> > > > +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> > > > +
+> > > > +/* sys0 pad numbers */
+> > > > +#define PADNUM_SYS0_GPIO_A0				0
+> > > > +#define PADNUM_SYS0_GPIO_A1				1
+> > > > +#define PADNUM_SYS0_GPIO_A2				2
+> > > > +#define PADNUM_SYS0_GPIO_A3				3
+> > >
+> > > Does this provide any actual value? Across the whole series, most
+> > > numbers you put in this binding headers do not appear in any drivers
+> > > at all. Seems like these defines should appear in the dts directly?
+> >
+> > However, the current series of drivers will use some of these definitions.
+> >
+> > Copied from patch 12:
+> > +static const struct pinvref_desc pinvref_desc_sys2[] = {
+> > +	{
+> > +		.name = "gpiow0",
+> > +		.pin_grp = {
+> > +			PADNUM_SYS2_GPIO_A36,
+> > +			PADNUM_SYS2_GPIO_A37,
+> > +			PADNUM_SYS2_GPIO_A38,
+> > +			PADNUM_SYS2_GPIO_A39
+> > +		},
+> > +		.num_pins = 4,
+> > +		.range = BIT(JHB100_PINVREF_1_8V) | BIT(JHB100_PINVREF_3_3V)
+> 
+> Can you explain why you need something like this when you're using pins and
+> functions? These look a lot like your own home-rolled groups, that exist just to
+> set the range of permitted values for vref?
 
-Design Notes:
-Suppression is integrated into the existing KUnit hooks infrastructure,
-reusing the kunit_running static branch for zero overhead
-when no tests are running. The implementation lives entirely in the
-kunit module; only a static-inline wrapper and a function pointer
-slot are added to built-in code.
+This part of the voltage configuration only has one register, but it applies to A36/A37/A38/A39.
+The range field is used to restrict the valid voltages that can be configured.
 
-Suppression is checked at three points in the warning path:
-- In `warn_slowpath_fmt()` (kernel/panic.c), for architectures without
-  __WARN_FLAGS. The check runs before any output, fully suppressing
-  both message and backtrace.
-- In `__warn_printk()` (kernel/panic.c), for architectures that define
-  __WARN_FLAGS but not their own __WARN_printf (arm64, loongarch,
-  parisc, powerpc, riscv, sh). The check suppresses the warning message
-  text that is printed before the trap enters __report_bug().
-- In `__report_bug()` (lib/bug.c), for architectures that define
-  __WARN_FLAGS. The check runs before `__warn()` is called, suppressing
-  the backtrace and stack dump. 
+> As far as I can tell, the only controller that supports something other than 1.8v
+> and 3.3v is "per2", so you should be able to apply the restrictions here entirely
+> in the dt-binding?
 
-To avoid double-counting on architectures where both `__warn_printk()`
-and `__report_bug()` run for the same warning, the hook takes a bool
-parameter: true to increment the suppression counter, false to suppress
-without counting.
+Okay, I will provide more details about the power source and set limits on the supported voltage values.
 
-The suppression state is dynamically allocated via kunit_kzalloc() and
-tied to the KUnit test lifecycle via `kunit_add_action()`, ensuring
-automatic cleanup at test exit. Writer-side access to the global
-suppression list is serialized with a spinlock; readers use RCU.
+Best Regards,
+Changhuang
 
-Two API forms are provided:
-- kunit_warning_suppress(test) { ... }: scoped blocks with automatic
-  cleanup. The suppression handle is not accessible outside the block,
-  so warning counts (if needed) must be checked inside. Multiple
-  suppression blocks are allowed.
-- kunit_start/end_suppress_warning(test): direct functions that return
-  an explicit handle. Use when the handle needs to be retained, or passed
-  across helpers. Multiple suppression blocks are allowed.
-
-This series is based on the RFC patch and subsequent discussion at
-https://patchwork.kernel.org/project/linux-kselftest/patch/02546e59-1afe-4b08-ba81-d94f3b691c9a@moroto.mountain/
-and offers a more comprehensive solution of the problem discussed there.
-
-Changes since RFC:
-- Introduced CONFIG_KUNIT_SUPPRESS_BACKTRACE
-- Minor cleanups and bug fixes
-- Added support for all affected architectures
-- Added support for counting suppressed warnings
-- Added unit tests using those counters
-- Added patch to suppress warning backtraces in dev_addr_lists tests
-
-Changes since v1:
-- Rebased to v6.9-rc1
-- Added Tested-by:, Acked-by:, and Reviewed-by: tags
-  [I retained those tags since there have been no functional changes]
-- Introduced KUNIT_SUPPRESS_BACKTRACE configuration option, enabled by
-  default.
-
-Changes since v2:
-- Rebased to v6.9-rc2
-- Added comments to drm warning suppression explaining why it is needed.
-- Added patch to move conditional code in arch/sh/include/asm/bug.h
-  to avoid kerneldoc warning
-- Added architecture maintainers to Cc: for architecture specific patches
-- No functional changes
-
-Changes since v3:
-- Rebased to v6.14-rc6
-- Dropped net: "kunit: Suppress lock warning noise at end of dev_addr_lists tests"
-  since 3db3b62955cd6d73afde05a17d7e8e106695c3b9
-- Added __kunit_ and KUNIT_ prefixes.
-- Tested on interessed architectures.
-
-Changes since v4:
-- Rebased to v6.15-rc7
-- Dropped all code in __report_bug()
-- Moved all checks in WARN*() macros.
-- Dropped all architecture specific code.
-- Made __kunit_is_suppressed_warning nice to noinstr functions.
-
-Changes since v5:
-- Rebased to v7.0-rc3
-- Added RCU protection for the suppressed warnings list.
-- Added static key and branching optimization.
-- Removed custom `strcmp` implementation and reworked
-  __kunit_is_suppressed_warning() entrypoint function.
-
-Changes since v6:
-- Moved suppression checks from WARN*() macros to warn_slowpath_fmt()
-  and __report_bug().
-- Replaced stack-allocated suppression struct with kunit_kzalloc() heap
-  allocation tied to the KUnit test lifecycle.
-- Changed suppression strategy from function-name matching to task-scoped:
-  all warnings on the current task are suppressed between START and END,
-  rather than only warnings originating from a specific named function.
-- Simplified macro API: removed KUNIT_DECLARE_SUPPRESSED_WARNING(),
-  the START macro now takes (test) and handles allocation internally.
-- Removed static key and branching optiomization, as by the time it
-  was executed, callers are already in warn slowpaths.
-- Link to v6: https://lore.kernel.org/r/20260317-kunit_add_support-v6-0-dd22aeb3fe5d@redhat.com
-
-Changes since v7:
-- Integrated suppression into existing KUnit hooks infrastructure
-- Removed CONFIG_KUNIT_SUPPRESS_BACKTRACE
-- Added suppression check in __warn_printk()
-- Added spinlock for writer-side RCU protection
-- Replaced explicit rcu_read_lock/unlock with guard(rcu)()
-- Added scoped API (kunit_warning_suppress) using __cleanup attribute
-- Updated DRM patch to use scoped API
-- Expanded self-tests: incremental counting, cross-kthread isolation
-- Rewrote documentation covering all three API forms with examples
-- Link to v7: https://lore.kernel.org/r/20260420-kunit_add_support-v7-0-e8bc6e0f70de@redhat.com
-
-Changes since v8:
-- Rebased to v7.1-rc2
-- Remove KUNIT_START/END_SUPPRESSED_WARNING() macros
-- Add KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT checks to drm tests
-- Link to v8: https://lore.kernel.org/r/20260504-kunit_add_support-v8-0-3e5957cdd235@redhat.com
-
-Changes since v9:
-- Fix silent false-pass when kunit_start_suppress_warning() returns NULL
-- Fix RCU lockdep splat for kunit_is_suppressed_warning() calls
-- Move disable_trace_on_warning() in __report_bug()
-- Make suppress counter atomic
-- Mark helper warn functions in selftest as noinline
-- Add kunit_skip() for CONFIG_BUG=n in selftests
-- Fix potentially uninitialized data.was_active in kthread seltest
-- Add kthread_stop() in kthread selftest early exit
-- Initialize scaling_factor to INT_MIN in DRM scaling tests
-- Add include for bool in test-bug.h to fix CONFIG_KUNIT=n case
-- Link to v9: https://lore.kernel.org/r/20260508-kunit_add_support-v9-0-99df7aa880f6@redhat.com
-
-Changes since v10:
-- Remove synchronize_rcu() to avoid sleeping in atomic context
-- Pin task_struct refcount to prevent ABA false-positive matches
-- Loop in suppression selftest to prevent use-after-free on kthread exit
-- Skip DRM rect tests on CONFIG_BUG=n
-- Link to v10: https://lore.kernel.org/r/20260513-kunit_add_support-v10-0-e379d206c8cd@redhat.com
-
-Changes since v11:
-- Use call_rcu() to defer free without blocking
-- Remove #ifdef CONFIG_KUNIT guard in lib/bug.c
-- Remove stale config checks from selftest
-- Replace skip on DRM rect tests with conditional expectation
-- Link to v11: https://lore.kernel.org/r/20260514-kunit_add_support-v11-0-b36a530a6d8f@redhat.com
-
---
-2.34.1
-
----
-To: Brendan Higgins <brendan.higgins@linux.dev>
-To: David Gow <david@davidgow.net>
-To: Rae Moar <raemoar63@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-To: Paul Walmsley <pjw@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Alexandre Ghiti <alex@ghiti.fr>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-To: David Airlie <airlied@gmail.com>
-To: Simona Vetter <simona@ffwll.ch>
-To: Jonathan Corbet <corbet@lwn.net>
-To: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-kselftest@vger.kernel.org
-Cc: kunit-dev@googlegroups.com
-Cc: linux-riscv@lists.infradead.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: workflows@vger.kernel.org
-Cc: linux-doc@vger.kernel.org
-
----
-Alessandro Carminati (1):
-      bug/kunit: Core support for suppressing warning backtraces
-
-Guenter Roeck (3):
-      kunit: Add backtrace suppression self-tests
-      drm: Suppress intentional warning backtraces in scaling unit tests
-      kunit: Add documentation for warning backtrace suppression API
-
- Documentation/dev-tools/kunit/usage.rst |  46 +++++++-
- drivers/gpu/drm/tests/drm_rect_test.c   |  36 +++++-
- include/kunit/test-bug.h                |  26 +++++
- include/kunit/test.h                    |  98 ++++++++++++++++
- kernel/panic.c                          |  11 ++
- lib/bug.c                               |  12 +-
- lib/kunit/Makefile                      |   4 +-
- lib/kunit/backtrace-suppression-test.c  | 192 ++++++++++++++++++++++++++++++++
- lib/kunit/bug.c                         | 131 ++++++++++++++++++++++
- lib/kunit/hooks-impl.h                  |   2 +
- 10 files changed, 548 insertions(+), 10 deletions(-)
----
-base-commit: 74fe02ce122a6103f207d29fafc8b3a53de6abaf
-change-id: 20260312-kunit_add_support-2f35806b19dd
-
-Best regards,
--- 
-Albert Esteve <aesteve@redhat.com>
-
+> I notice you have
+> > > > +          power-source:
+> > > > +             enum: [ 0, 1, 2 ]
+> in all bindings, but no explanation of what the values are. That needs to
+> change, and you should not permit 1 in anything other than "per2", since that
+> appears to be the only user.
+> 
+> Also, you've not responded to my other comments, one of which was a
+> question. Why not?
+> 
+> Thanks,
+> Conor.
+> 
+> > +	},
+> > +	{
+> > +		.name = "gpiow-inner",
+> > +		.pin_grp = {
+> > +			PADNUM_SYS2_GPIO_A40,
+> > +			PADNUM_SYS2_GPIO_A41,
+> > +			PADNUM_SYS2_GPIO_A42,
+> > +			PADNUM_SYS2_GPIO_A43
+> > +		},
+> > +		.num_pins = 4,
+> > +		.range = BIT(JHB100_PINVREF_1_8V) | BIT(JHB100_PINVREF_3_3V)
+> > +	},
+> > +	{ NULL },
+> > +};
+> >
+> > Therefore, I have uniformly created
+> > include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> >
+> > Best Regards,
+> > Changhuang
+> >
 
 _______________________________________________
 linux-riscv mailing list
