@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22583CD4851
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 08:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256BFCD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 09:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X11NkhgA79/ppp/OQHIgmfSjQndlWLBL/0xZOPlTHy4=; b=A0/OP251Pj8B1o
-	6ljcz8K9kkV9OfCxAvKLTayB/o6gk0UhVifgljJuQD7hvKgINPZVdpxKZfVdbRL9Nxy46d2sKjsj+
-	6tIxs+ArAqvDzjdmW0VwkeG+Y6H0oaLUdXo4Hdt9sQFf70zPfGvma3k/P3j6cPJRvNzpXzxkhH7dW
-	2EnCmWUCoH+EFAQPROrP6zq3pYAas/yueTlBcnU6B7bA+K5a5dWybV1A6q5bHxHtmA77VEU+WWIQO
-	W0TgBsQDq+anRg2K0JTeqlfbD2YQ4dVcPFwTsW8jGHIItHK9Ho6wKX0e+PbaAIzEWMY+1Z/Ugwo/R
-	KzUVVd1kaHkNaFsomFGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yo6MlX9XhVavJzZEfXaAab1K8w5bgco9PjSl8S9V/I8=; b=xiHIfk9XtLZ8/V8tjwTnzjb+tQ
+	cuIQ4sMmSpdflsSHaF/WpxJhuRddShfE2RJwU84aB0Vs8L7TN6LJNQexgfb+CznTQcB4ErDOKpBzG
+	auffy9w8pkUvTA5W5s0qQlfDNhHWhVworMjNivmd50vuK9uZsorLV/SLz4kXiuq+XRw5td03vMp6y
+	PJ4LJWuvj4kXqqOx7M+KLECFlVRDkPt10l54MLIZtbYHkozcG/IZdU8TWr8rSsl03feKp1MGJjgi0
+	Ui4p3TawUephIZGv3VAqQu+iPkHFA51KW5GjFVQmD73jzg/L2vVhVqms6/SFArXSm9eYozeanNyVr
+	1l1v23nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoIz-00000007nNd-0qC8;
-	Fri, 15 May 2026 08:54:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wNoOp-00000007oIW-1IWi;
+	Fri, 15 May 2026 09:00:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoIl-00000007nJ6-1ql2
+	id 1wNoOm-00000007oHg-3flD
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 08:53:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778835226;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mmxOVGUrnxS/H09zubyapT22aA5Jy+w6JF95xU/Ftgg=;
-	b=N/fBBTKpCCcvyiEDEdEyXOWPY/eCNbw5kIYwSTFSbusrtswPyX3m6+CVVYsc0J5eT1ZBCq
-	A3t/jeC/O7y87Gt/NARoaiywQVAfGflYMUgwh9EuFzHuwaf8VK3FwPwoGaOp00NkCeBuX2
-	6W2ELQytCo36fDgcaYJpbn0SSIkiwJ0=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-484-XDqT1YrxOLCP5ZZge2o2rA-1; Fri,
- 15 May 2026 04:53:42 -0400
-X-MC-Unique: XDqT1YrxOLCP5ZZge2o2rA-1
-X-Mimecast-MFC-AGG-ID: XDqT1YrxOLCP5ZZge2o2rA_1778835219
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4B1411956054;
-	Fri, 15 May 2026 08:53:38 +0000 (UTC)
-Received: from [192.168.1.153] (headnet01.pony-001.prod.iad2.dc.redhat.com [10.2.32.101])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DBD4D1955D85;
-	Fri, 15 May 2026 08:53:31 +0000 (UTC)
-From: Albert Esteve <aesteve@redhat.com>
-Date: Fri, 15 May 2026 10:52:53 +0200
-Subject: [PATCH v12 4/4] kunit: Add documentation for warning backtrace
- suppression API
+	Fri, 15 May 2026 09:00:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE0CB41709;
+	Fri, 15 May 2026 08:59:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40770C2BCB0;
+	Fri, 15 May 2026 08:59:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778835599;
+	bh=b6e0q5E/Z3lguAgVGLZBgj8nkX7SNZuRIxj/ZXgF52A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W2+U6Cbb0T2fH/KE8jemF3oQapwHqnAMjJH/w/wJM2wuz+W0eYQBqGA+b/TA1KkEG
+	 gVnIqrqMFFrfQh/PCgWCuUn6uCX96qTEi2WlEcmS34WVrrRhTGwT+EAUy8vVAw/8dp
+	 lLuZfdQbl3AhdkxtFppY0xAmUZrXhi/1pIsElDO6qB2SjPgpKLvyHEIWRogk5Eyftt
+	 Jev9+HypDtQ/sYDVc083yEQP3wPuLmkhKqfmbZdXOO6cSW71Vq5rS20Wb/+otdnmZf
+	 ngpMdF2XEkVOzUscjwLRCgLm5B+lQ6KlRopS8kmFs7ipfrQFob+qcJ6DUHNzrooWVa
+	 Kry11b78B3m0Q==
+Date: Fri, 15 May 2026 10:59:56 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 0/2] pwm: spacemit: Add Support for K3 SoC
+Message-ID: <agbgG00YENm388dd@monoceros>
+References: <20260428-03-k3-pwm-drv-v2-0-a532bbe45556@kernel.org>
+ <20260514233448-GKA3663945@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260515-kunit_add_support-v12-4-a216dc228be8@redhat.com>
-References: <20260515-kunit_add_support-v12-0-a216dc228be8@redhat.com>
-In-Reply-To: <20260515-kunit_add_support-v12-0-a216dc228be8@redhat.com>
-To: Arnd Bergmann <arnd@arndb.de>, 
- Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
- Rae Moar <raemoar63@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
- dri-devel@lists.freedesktop.org, workflows@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
- peterz@infradead.org, Guenter Roeck <linux@roeck-us.net>, 
- Linux Kernel Functional Testing <lkft@linaro.org>, 
- Alessandro Carminati <acarmina@redhat.com>, 
- Albert Esteve <aesteve@redhat.com>, Dan Carpenter <error27@gmail.com>, 
- Kees Cook <kees@kernel.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778835177; l=2728;
- i=aesteve@redhat.com; s=20260303; h=from:subject:message-id;
- bh=YX7AMC4Z3qCvd9o2GGoQ6LMsoUJS/dulVvDsXv5Qzg4=;
- b=uU8iZP3aKTG6p9f6uzLQ+7585Tt2YEgz1OTvweQ4CuLQ3H8MMENyxt9ulFNJQ1k4vJADogKw5
- Vq1oW3OIyVmDghCtrvC2+FcWQVlJ23+UX8uxtuiWX2rKMKaZvQTxK9J
-X-Developer-Key: i=aesteve@redhat.com; a=ed25519;
- pk=YSFz6sOHd2L45+Fr8DIvHTi6lSIjhLZ5T+rkxspJt1s=
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: 0qRVt2rbaAYanNNgy36lr1d5_zE0wEliGU__qEfgioY_1778835219
-X-Mimecast-Originator: redhat.com
+In-Reply-To: <20260514233448-GKA3663945@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_015347_541461_86F540A5 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260515_020000_934753_5FF58918 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,94 +70,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7211763187656280690=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guenter Roeck <linux@roeck-us.net>
 
-Document API functions for suppressing warning backtraces.
+--===============7211763187656280690==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="w6hgagzjjsephwbw"
+Content-Disposition: inline
 
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
-Reviewed-by: David Gow <david@davidgow.net>
-Signed-off-by: Albert Esteve <aesteve@redhat.com>
----
- Documentation/dev-tools/kunit/usage.rst | 46 ++++++++++++++++++++++++++++++++-
- 1 file changed, 45 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/dev-tools/kunit/usage.rst b/Documentation/dev-tools/kunit/usage.rst
-index ebd06f5ea4550..1c78dfff94e8a 100644
---- a/Documentation/dev-tools/kunit/usage.rst
-+++ b/Documentation/dev-tools/kunit/usage.rst
-@@ -157,6 +157,50 @@ Alternatively, one can take full control over the error message by using
- 	if (some_setup_function())
- 		KUNIT_FAIL(test, "Failed to setup thing for testing");
- 
-+Suppressing warning backtraces
-+------------------------------
-+
-+Some unit tests trigger warning backtraces either intentionally or as a side
-+effect. Such backtraces are normally undesirable since they distract from
-+the actual test and may result in the impression that there is a problem.
-+
-+Backtraces can be suppressed with **task-scoped suppression**: while
-+suppression is active on the current task, the backtrace and stack dump from
-+``WARN*()``, ``WARN_ON*()``, and related macros on that task are suppressed.
-+Two API forms are available.
-+
-+- Scoped suppression is the simplest form. Wrap the code that triggers
-+  warnings in a ``kunit_warning_suppress()`` block:
-+
-+.. code-block:: c
-+
-+	static void some_test(struct kunit *test)
-+	{
-+		kunit_warning_suppress(test) {
-+			trigger_backtrace();
-+			KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
-+		}
-+	}
-+
-+.. note::
-+   The warning count must be checked inside the block; the suppression handle
-+   is not accessible after the block exits.
-+
-+- Direct functions return an explicit handle pointer. Use them when the handle
-+  needs to be retained or passed across helper functions:
-+
-+.. code-block:: c
-+
-+	static void some_test(struct kunit *test)
-+	{
-+		struct kunit_suppressed_warning *w;
-+
-+		w = kunit_start_suppress_warning(test);
-+		trigger_backtrace();
-+		kunit_end_suppress_warning(test, w);
-+
-+		KUNIT_EXPECT_EQ(test, kunit_suppressed_warning_count(w), 1);
-+	}
- 
- Test Suites
- ~~~~~~~~~~~
-@@ -1211,4 +1255,4 @@ For example:
- 		dev_managed_string = devm_kstrdup(fake_device, "Hello, World!");
- 
- 		// Everything is cleaned up automatically when the test ends.
--	}
-\ No newline at end of file
-+	}
+--w6hgagzjjsephwbw
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 0/2] pwm: spacemit: Add Support for K3 SoC
+MIME-Version: 1.0
 
--- 
-2.53.0
+On Thu, May 14, 2026 at 11:34:48PM +0000, Yixun Lan wrote:
+> Hi Uwe Kleine-K=F6nig,
+>   Can you queue this one for v7.2? I'm sending the DTS part patch
+> and got a complaint for "clock definitions violation"
 
+I applied it to
+
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+
+now.
+
+Best regards
+Uwe
+
+--w6hgagzjjsephwbw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoG4IoACgkQj4D7WH0S
+/k7IaQf/RwVZrA1y/tuywL9sMmr3+vfppD8jAunAr0bdirOJvxIVq6Xwbbt1UqL3
+x/9+O0qbc+5XUMvwuEc5Sr8XbBiXdY4igJAgS1m/1Up4NIh10qKTiavgCJPGzxor
+yUAhKOazg3JUc8TnAY9gYM3A9y4/r2+S/DIKIiYWFDlhjMwYjpQe7IgxtVK+LSjQ
+fR81u9XDcqbbnUFd73KU4nVg5bazaK/lTGeTTqoCcdLotfBsASVT5FIMHnoRcNSK
+hauzn7Q/YsmrNeyZf/4cd29Ff7EMcOqZnryTnHzoWU4dwCdRP1dUPIdlpHf1P0al
+RIDvOVzN1JV9I5J5sULdZZt+H1RatA==
+=SHGP
+-----END PGP SIGNATURE-----
+
+--w6hgagzjjsephwbw--
+
+
+--===============7211763187656280690==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7211763187656280690==--
+
