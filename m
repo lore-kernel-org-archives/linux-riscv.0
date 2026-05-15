@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC6ECD343F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 16:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B21CD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 16:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OCiEPFaAoQRzc+bt/S+pGz8fKOOEIdlqokndQhP2sZs=; b=llLC88oIOXwG+5
-	vAeoKevoUm4nKitSC7f4wdj4b1DtwNCDeQedLt7+xKcx6hi3WS0y9ilhiuY5jQCqZqVjV7sj8cUAO
-	yXrLT6XVYlQVkW7NeYl86k4u/AL8VcizxBXphEyExcnd6zMaZI63zM2kvCqqbGxsGJDhZx/sm54fP
-	BlUl6/OpHnjEj8WQyK/o5fTbg38L3QoWyOHikfz0BQunfIDazi6N59ZjBBsaCiswpWG3wJMtXxW09
-	ty6vGPQe7i3PuaQYsbVXYwfuOeTzUHSsu3vohuVhpIJ/dtajiCY1xRKedPPqu/RxyNti8+JORT0DM
-	8eyqPOWNVv9Pp7TK1Xtg==;
+	List-Owner; bh=bVwjjJb8HGj5EMHFbrgK0grMrcTeFB8VIGBzNqxIh4M=; b=SuL/Q/0TdGjBCI
+	/F6uH1reiVsXmAfdqwFIEwZnEFdNFcNLIgCGCr4v/7US+Z0Hv8/lYgBL8095rtJzVjeSXMllhb1q2
+	ANebylIOjQCAnD6x9AfGI89wMKX/tXXiMkNbbdoIzb+8Fxsepp7kXSjIzZhUq+tSIJqqkN+BQ1/Lh
+	NY71I6IPqmERP/WMEoRLsfeup246n93ETMFOfmB0uc0B24peDXpWRbWLQ7e3sFQuG3kGAxhDskQ/9
+	srtU7YzqxEUW85RtFjtHiJMbjKlkykzgYFM+NFQ/SapWJVptxr54Kux4etEKW2d7hR00kPY2HGwe+
+	RXR0eAwAnxQelcJjixXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNvjt-00000008uoY-2Kq4;
-	Fri, 15 May 2026 16:50:17 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1wNvkg-00000008uw1-2t4t;
+	Fri, 15 May 2026 16:51:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNvjq-00000008uni-2WUD
+	id 1wNvke-00000008uvo-2Bc4
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 16:50:16 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1778863811;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xTOuacRFqf7jRiO8aj4MgPqi+i+IVWIh9egGsHuyaHw=;
-	b=O/DasoEoGDcTGx8ffmNX0/z9Uv2PDz9BqNwqyFXWyFtqDlMtS2AWCgcf7ja++6/yVQcuyA
-	9MmPEE2neYO6FbkDr++2X9oikz5OajuiUrTa0/YkggVjws+TZ2M5oHCtndMdoyxJPl/doN
-	U/OSHy/veaWlVjiIXYyFzTeKOd5OEAw=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Breno Leitao <leitao@debian.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Alexander Graf <graf@amazon.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
+	Fri, 15 May 2026 16:51:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE49A60098;
+	Fri, 15 May 2026 16:51:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8DF7C2BCC7;
+	Fri, 15 May 2026 16:51:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778863863;
+	bh=BReUGgHoYTDJh7cSrs/u1F61XWcA/9TtEZBk5WoaNXc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bY6tYAilDsW6nxBiun3BUTKPpj3Py8uxttjb0Mevx1dedsXLndxyHn6WOIqgWmitp
+	 d8evHBewmLdlzF6aHgUt13fHWMcQuDDd5zojOxZ2Q4YfQNawRgP9x/eH89st45Tcgx
+	 gs/2RighS00AW+67HuV+2itB+Cu46Ub6NRW/j0E5zFqiBNT2TsyPGMmDndkM/nOHvf
+	 i3mgCeQaxbMkaB3RUxIfSE2sqcysBf06bOR+bwIi5UoJiHCG9xKhLODjcHm5a1rcQE
+	 Y+448r7SFhDoQjiRsyGB1XTpZOg5eB3db95ao6wVC2+AIwEinahBuRuy2M5GPvnD4h
+	 rcK+iLjIHKHUQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: kexec: use min to simplify riscv_kexec_elf_load
-Date: Fri, 15 May 2026 18:49:40 +0200
-Message-ID: <20260515164944.574460-2-thorsten.blum@linux.dev>
+Subject: [PATCH] riscv: dts: microchip: remove redudant enabling of syscontroller
+Date: Fri, 15 May 2026 17:50:42 +0100
+Message-ID: <20260515-fetch-antennae-2eba5bf45593@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1420; i=thorsten.blum@linux.dev; h=from:subject; bh=tH5WJ66QRToRkxKMi5CzlJ8nS5W/lCMqd4UDM9GQwkU=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFnsfiv1s8/Nd8mM/xnA4uggeuSVx1zVNcJG9b8VjuhPO Cw3My2io5SFQYyLQVZMkeXBrB8zfEtrKjeZROyEmcPKBDKEgYtTACZyOZXhf9bXVe4zdBgfWmxd 6Xbwt6NtaNmcrHlLnHcvNtZdFpyeyc7wP8qL/9vbS2+mz9pbWFpRt+vbn09mm6XOiLxi+yskKJI rzgYA
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_095015_139931_F9331917 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4396; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=+j3Q+HJOMszU63lc/mKAVJp2ABWAuiZDnQ2FzIBLAgE=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFnsfo9Y/lRs1ZtZNpszsmHKs7BLO7b+WFn0MMTotOSn6 +vfK3n1dZSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAin84z/OEROXSuaVaoANvT t04OfBJcFYVz7yx7k6pn1M0cvmRjqhvD/5T1bTssl5d+qnZcvTwyZ7HQVvlfG3ZeDDp1UFAky07 8OQcA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +74,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use min() to replace the open-coded version and assign the result
-directly to kbuf.bufsz. Drop the now-unused local size variable.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+The system controller is never disabled, there's no need to ever enable
+it.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/kernel/kexec_elf.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts       | 1 -
+ arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts          | 4 ----
+ arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi | 4 ----
+ arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts         | 4 ----
+ arch/riscv/boot/dts/microchip/mpfs-polarberry.dts         | 4 ----
+ arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts            | 4 ----
+ arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts            | 4 ----
+ arch/riscv/boot/dts/microchip/pic64gx-curiosity-kit.dts   | 4 ----
+ 8 files changed, 29 deletions(-)
 
-diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
-index 531d348db84d..528141df90ba 100644
---- a/arch/riscv/kernel/kexec_elf.c
-+++ b/arch/riscv/kernel/kexec_elf.c
-@@ -19,6 +19,7 @@
- #include <linux/libfdt.h>
- #include <linux/types.h>
- #include <linux/memblock.h>
-+#include <linux/minmax.h>
- #include <asm/setup.h>
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts b/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
+index 7bbd400b71039..6d7037c9528dd 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
+@@ -328,7 +328,6 @@ mmc@1 {
  
- static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
-@@ -27,7 +28,6 @@ static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
- {
- 	int i;
- 	int ret = 0;
--	size_t size;
- 	struct kexec_buf kbuf = {};
- 	const struct elf_phdr *phdr;
+ &syscontroller {
+ 	microchip,bitstream-flash = <&sys_ctrl_flash>;
+-	status = "okay";
+ };
  
-@@ -38,12 +38,8 @@ static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
- 		if (phdr->p_type != PT_LOAD)
- 			continue;
- 
--		size = phdr->p_filesz;
--		if (size > phdr->p_memsz)
--			size = phdr->p_memsz;
+ &syscontroller_qspi {
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
+index f769c9d5d7b47..da2fcde263e3c 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
+@@ -199,7 +199,3 @@ &spi0 {
+ &spi1 {
+ 	status = "okay";
+ };
 -
- 		kbuf.buffer = (void *) elf_info->buffer + phdr->p_offset;
--		kbuf.bufsz = size;
-+		kbuf.bufsz = min(phdr->p_filesz, phdr->p_memsz);
- 		kbuf.buf_align = phdr->p_align;
- 		kbuf.mem = phdr->p_paddr - old_pbase + new_pbase;
- 		kbuf.memsz = phdr->p_memsz;
+-&syscontroller {
+-	status = "okay";
+-};
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi
+index 7816408343a32..a11e3103b8f25 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi
+@@ -238,10 +238,6 @@ &spi1 {
+ 	status = "okay";
+ };
+ 
+-&syscontroller {
+-	status = "okay";
+-};
+-
+ &syscontroller_qspi {
+ 	/*
+ 	 * The flash *is* there, but Icicle kits that have engineering sample
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
+index 86234968df486..973e34b74be44 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
+@@ -179,10 +179,6 @@ &spi1 {
+ 	status = "okay";
+ };
+ 
+-&syscontroller {
+-	status = "okay";
+-};
+-
+ &usb {
+ 	status = "okay";
+ 	dr_mode = "host";
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
+index 510d59153cd07..cad0871a62a5d 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
+@@ -112,7 +112,3 @@ &refclk {
+ &rtc {
+ 	status = "okay";
+ };
+-
+-&syscontroller {
+-	status = "okay";
+-};
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
+index 8f1908a105671..46ded8a4fc363 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
+@@ -149,10 +149,6 @@ &rtc {
+ 	status = "okay";
+ };
+ 
+-&syscontroller {
+-	status = "okay";
+-};
+-
+ &usb {
+ 	status = "okay";
+ 	dr_mode = "otg";
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
+index bc15530a2979b..c6950410e918a 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
+@@ -171,10 +171,6 @@ flash@0 {
+ 	};
+ };
+ 
+-&syscontroller {
+-	status = "okay";
+-};
+-
+ &usb {
+ 	status = "okay";
+ 	dr_mode = "host";
+diff --git a/arch/riscv/boot/dts/microchip/pic64gx-curiosity-kit.dts b/arch/riscv/boot/dts/microchip/pic64gx-curiosity-kit.dts
+index ef5bff3093fc3..180fd8891903c 100644
+--- a/arch/riscv/boot/dts/microchip/pic64gx-curiosity-kit.dts
++++ b/arch/riscv/boot/dts/microchip/pic64gx-curiosity-kit.dts
+@@ -170,7 +170,3 @@ &refclk {
+ &rtc {
+ 	status = "okay";
+ };
+-
+-&syscontroller {
+-	status = "okay";
+-};
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
