@@ -4,104 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FDCCD343F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 14:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB3BCD343F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 May 2026 14:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eexxdaiapSxVtuJr8CQujMplbGE3Wzb/xH3U+MMqbEU=; b=JbqD2coa0RDQBb
-	QgaEIQnGEbJE55qNPLh1MtvGGUiVKUhJPH2qJ/PdcsQEV3aIhu8PDw92FtpGHaoe9/Z3qVonSNzKU
-	DjEr0/u/zrgTnOFroYN9JeLA+u2WoroKIZTaQpvXxK6RXSiCTE/tcKBd+OroUAr0rkHk8qO+QhL+h
-	l1r+IfR6Ik2d197RZirEyV1NA+f9Gc6nqP3owNcvSNsTo6Dd/Jg60lOAZ6+hyAlHy33FpRyWga+bq
-	FKDhLbTPWxhfYqkvKGMwdcpU3irWsWoZ/JxieHN5R0svp/x69HtR2UXS/h+Lep2+B3sZimG2tDGKA
-	jpPW+9E7EDvRhPvv/sYQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pue/FXgHYfnEAENZf0wWVEOIPdBYdkvzRTaxC6O4ulY=; b=fs00gO4EyaXexW
+	z2qhwPqi7zNRp9u4fZ8OlPA5w4C5hMpTBFQ6gVONYileq91zoy70WxiaUgiOudCFCQI6Cv/lsHv9B
+	SMfZl0n7EdsRZoeJ7Z6hyxsGTW1zwiEubOIg6Nw9+apClQI33aYbNVnJDcWgfAHjkMtiTR4aJN9kk
+	yt9GnObCNWAdMqOby6VasiAubwtJtqFuT1y4GOA72shj/hJfZPcAQibCCVyKqCEIZ2EQlVMGkK544
+	HImwrWwQdbVp39F0TifQicpaBuabdqTjRUG9QphReGU062qt4N8oUhtPFe7mQOR9+jMuKSPNAfUcb
+	7NqurnXnXiFvIzVY/4mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNtXW-00000008Zrm-2wEj;
-	Fri, 15 May 2026 14:29:22 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1wNtrg-00000008cRf-3Te8;
+	Fri, 15 May 2026 14:50:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNtXS-00000008Zqu-1FdN
+	id 1wNtre-00000008cR3-1LDt
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 15 May 2026 14:50:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=5wLPJ697j15buFae28nKx+T1fmX+G41ijvIipmfeRcg=; b=Ejf4cdFZdm56cwxBL616pz+A9m
+	bmr1dODm33eeAAIzTx6gQBc0S2avZMsmb3Ls4J0c9moo9kqfuOUv3/JLC43EcGq2vc9w4LW1cKW7Q
+	Cf1yF9GEjXIebw2MTkr9kalwFdWXA8364Z7/CvIgafQJLnJ12p58x4iZoO8VwcDYt5VuQgJdjBJBz
+	GgVcIIl+p2T8nYCbsg+Rj39WUoA/hZaPDE2T0qDC5MlRMtL/Z4n26wM6ZJ4vO/ccSE2tsW+5X7V7T
+	QObzfJEvRm0MjxQajL71aGSnvRH/6MZQOgmnj51o8zxvrMUYgnNj85sZv//C1kz61D7BsPPjFVjzH
+	LIgAMvXQ==;
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNtra-00000005UoR-3vZo
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 May 2026 14:29:21 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-bccd251d622so1038232566b.3
-        for <linux-riscv@lists.infradead.org>; Fri, 15 May 2026 07:29:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778855356; cv=none;
-        d=google.com; s=arc-20240605;
-        b=UI+GgpZWF/v+dWRdoOxDHtezKDr7hW6YpF7+weS2t5SwSk8IRKJKSkASlMgWaSCIfH
-         fhhsUhFqsxUsayGvpnR/nlBF5ckznSit7Z+nScZtvw+9j8v6sdIt/M3Sqn11cgU/cMro
-         YYl0PY5wAj6fi9TIVAq9gR18SuQTtv8GkpWQfDUlefDiN68G3DHoSCbMOfFGU8hRtMTq
-         osPCnqmnDCEoLsdTphvTPmFV+uW8GgSPr+m+4YOw3KlEP/PIGwWXOwskbwiKJQkyTADp
-         des1rF5MZANA8TbvkNEkKljDXRLYuxZtcyeC8Y+ZHPGngDGvfjFRnWGuhfengC28ZW9/
-         WJEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=SOWH8qQVPt22tmx61JYoYEomxWEbQj5qkteErrA0Nfc=;
-        fh=3Dg0t00Mg3rT8/Sxjxl8g+42B/JcI2g/yAN54xridx8=;
-        b=PxxiFq3vwhBfT2r5yqjnaFgrn1120Wn11digElZXkWUDIMBeN2uBwrT2bi7YOrnfVL
-         L0SYCc/2sCPF5J3vnQZb48XqEIWViwtciyozEo+lFekg4CxN1DjipiZTu8i/EUFqEgPo
-         JUIY+dDz9mm9gSio8SD5eO8eVBtSstgqnmSkuqj6JqPLNcazxPOK8xHjyZ0z8Ke6ROSw
-         L8uPU8GxV9rgIPzWImWS81aKb0W3MF8w/KY5Uy0LT/51dpVb07AGS+MaoPhFCC0PPkPd
-         BVsvj/0ysVPxWEkLl6oJJJAB3/Au4Gg3Us6lpbifdk5T9Qp2yvFJXuEhNvbe39jnbaPC
-         yNgg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 15 May 2026 14:50:09 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-67e24b8ef55so13510049a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 May 2026 07:50:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1778855356; x=1779460156; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SOWH8qQVPt22tmx61JYoYEomxWEbQj5qkteErrA0Nfc=;
-        b=mBJ2o/fsylg5ZoX/L0rzDynU9kGUJRG5blvn3zAvjF5I4/ED9DxrJ55PvrDZN8TKyo
-         ADjhhD8GVWZ+fM77975i+XgYUWrkL4Cs2vHsr/DD7HGZ5Q7QNro9c/VaEvLbuAuMitvo
-         wWjxCy+in5PjXPsqJKntT3YVmkCZL8aEgL85jGyWRE1+HStUsfm03kCBwN/R8U2ZX7kt
-         FPxs0npqnqIq6X9YPchJ1VrZqlB1ub20+JdOiSO3f8x61JCYjxstn69Dc7aOAwOY+MCf
-         cmaY0N9st8uMFAbwghuTm6GUo1jC3q33pYQm3/Ah/uibHIdxoby60iHZKxXEkW2SlLb/
-         s/qQ==
+        d=gmail.com; s=20251104; t=1778856605; x=1779461405; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5wLPJ697j15buFae28nKx+T1fmX+G41ijvIipmfeRcg=;
+        b=Gp+NEaTh8o589ma8maWWZEfcVjKV7b7vkGpJkgrO8GhlS8M9fj8MTfvM42kNNJQ5M3
+         a4/LI6j2J1+Eq+EEKHE4ky5Fn7em/WATCvbq4ynLYSerQJHkgJrcU1cskaCsapGw8AfU
+         23jUtLfQAIxtpu46Sh9yjMH5Jwot69wHQMZLMsZaMhdIZQ/arWDqeyMAUeO85HzVqZ/2
+         VZoUqJ9jMN7EZLi8PCdcqmXdlioPUCwK3Z4L6XlvtPCeidx8ks2jdUbh/o+Ql/dZAy0h
+         8XiSuPqT6FljJhxR53wiJntqUrHEVueaZBgYnIVLDk6xFxD+gi9pDFNd//jWwMkwbqHa
+         3gTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778855356; x=1779460156;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=SOWH8qQVPt22tmx61JYoYEomxWEbQj5qkteErrA0Nfc=;
-        b=oawY1i509TTnZR99JkeqiyEnnaxqC1zmeQa6GdT8HtLx+SvIxj3n7KIGcpWWz7IoFZ
-         X21w7oI5H0UQ0owNH5YB+6SAnPKCSjyYR4U0tklYtEEXQtH/kNpqqqddXGRDGG9E7HgA
-         PFPkIBZO16EGvaLOlFtfRMFdVbnYvHLzTayiuQ9kY5lq2Hcyf34tFGH/wnME/MvLe6gB
-         mLGlXNeFe8XarEcf6ianq2esYzIQnF0by25+87VaPqPErBJQYGu2+nMa4Ylh04uo+VST
-         s6Vc8hBWP1anod1X6dyvm15o/p8RWwLEViw7/nJr4BjSfn3YkWK1ifEHQlNi9J+tCn/B
-         0SKA==
-X-Forwarded-Encrypted: i=1; AFNElJ/T211FlFrX8LOyq8T7lQG39JzcS10SJGVFPiNlzAWiMTPXzJAQj6RM0g8WvztNaQDntT/SHGzqdrWnEQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeoYcbFiu9QOyJwi1y1+tWtSjBxrixoENMYUqmPPz+ZaMtLdWZ
-	82MJxymeQuzjAlDW6NfKrYcslPAomEOYuIVkfs7fw7WrND5hm5UNZb4k2TTtdyUX4Hb4AWnGDiq
-	F9irfVp280L99v7axp1vOj8QG6p6qTqqKU9Z1WGYR0g==
-X-Gm-Gg: Acq92OHWOHkadJ47bRHVmOEv0beyiDFnlilmooh4IA/GOe+ery8JX4ylXKWlyyga5rs
-	lPXCywjn0rrXXdLmDDl8QKZdySsKnR31u7x9XGzVsfDbpJpGY7oUDYvb5pznmzSOspbIUWga0sH
-	Si9BAxTKWrQPMlEndieYpTku+Os4YQ3gc0LIGyzD2OV+IVEX3p1V2jr8P7WjI+VTX4iKcd3s+dr
-	JwT/paYdcymmXTcVp9MXMUltwHjbVo/jg8DWE8Ln49MKkEqDD11uCO5MdQBLmJ79DVtHTkPZyi4
-	X3ajuP6TeQ==
-X-Received: by 2002:a17:907:86a2:b0:ba0:d58b:6045 with SMTP id
- a640c23a62f3a-bd51797a648mr263918666b.27.1778855356200; Fri, 15 May 2026
- 07:29:16 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778856605; x=1779461405;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5wLPJ697j15buFae28nKx+T1fmX+G41ijvIipmfeRcg=;
+        b=i6LQDSEKu8s50d5mj1NWPIHKR8LcjsGGaWsCrhUA+VIzFLIEISDNggrrKV/OpzPaj8
+         SZahUszmXqHPZXQj+kWX+MYQi6D9GxCMkgppQpfwGfI/bzzZ7dClPuMbakscznpcSteN
+         eBDzsp/5BYcIPbQPfbGWHrAE/Gy38a+dd/TdjkT876IA6zkxaw4p29+LDYgIQ6dEzLqf
+         e1d31pX/bhcviznD95YVatS+PSN2dEuo+lfwf9GlXBIYYEleJUo2LRlo1fTIwXFiSI/z
+         681BRu0DbZolnWKIMW0jdg+nRbUgyC2EXXa98VVyyaPVfzWk4icQ/sbNL1XlNg0xlAFc
+         K2Sg==
+X-Forwarded-Encrypted: i=1; AFNElJ8ECpkeYc/yV3eZxrflsLogCiFuu00AShqNy1+CU2CY55ZtcdMN/Gooy5sbpHah9WJNuQ+drzNpgBrvLg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy438SmaWe4VL6kY1eO6BFySzt+b2+ia+kOK9M0VhuQ6yWVGhk+
+	K6n/FyrNqMr1rp5BLjSYsRJMoyipn3fKx7A0UDDiRypYTJc1kNeyLJ6d
+X-Gm-Gg: Acq92OG7bbbheLdERfVWAPALJf0+jeyvrZN1krJuu6Rc0nQAIMd8uXkt4GEa5laMMnN
+	S5ImVKrukI7vxf5w0EPtXPFRagRyN6rggd7tbjbstaACTfgHje83N5xnR6F7xRQ4yDXl57zl92o
+	G4tTHPKzAejhOMAP/nUPI+LLZGoKEP2ZZEBfcRnZpsFKwl7iPHo6awig6Ok+ABRVaJCS0e23JIY
+	iz7CKlL37AKcHTJHzUsyqJt9sSIkFWOVi4kKbseS+bRhiPdZw5jU9n9M86r+I7ec3tFZJ0BuuDr
+	NKvygZ3S+D7WE9OcbVv0qb79vtzM6bFFCWcIMb6FGOSeN08wOt6kko4rfgIDZEN1hxO/NOP5WNp
+	mcH3pBE1y2xgjC/j1rcgs52Y4PQ4QZeJHp5M3nsROFwLHG7HdXPrdLKmPox7SEp4A9t5coPOGMd
+	JrjkAfN5JHiwINfMry0+lEF4yKHfOhO/B94o/lev+ktA==
+X-Received: by 2002:a17:907:960a:b0:bc6:502e:6d68 with SMTP id a640c23a62f3a-bd517acc9cbmr218905566b.40.1778856605098;
+        Fri, 15 May 2026 07:50:05 -0700 (PDT)
+Received: from RTRKW671-LIN.domain.local ([77.243.23.192])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bd4f4c3150dsm242038566b.24.2026.05.15.07.50.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 May 2026 07:50:04 -0700 (PDT)
+From: Milan Tripkovic <milant2002@gmail.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dusan.Stojkovic@rt-rk.com,
+	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+Subject: [PATCH v2] riscv: lib: add strrchr() zbb implementation
+Date: Fri, 15 May 2026 16:49:56 +0200
+Message-ID: <20260515144956.1389792-1-milant2002@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260514075036.1432352-1-zong.li@sifive.com> <20260514095605.2c7d8761@pumpkin>
- <CANXhq0rY8wb-0x2whLGMSuWLujtZwrEsmpWh_PUhxoZ0gpA96w@mail.gmail.com> <20260515102411.4d3e868a@pumpkin>
-In-Reply-To: <20260515102411.4d3e868a@pumpkin>
-From: Zong Li <zong.li@sifive.com>
-Date: Fri, 15 May 2026 22:29:05 +0800
-X-Gm-Features: AVHnY4KFvJbJlbTY2B-b7oG29hdvbI8oMtimXbSLORHoUu4mZM3cfwuiidgZAK4
-Message-ID: <CANXhq0p-YeNHGtQGHVvHSRvSaDtEvoY=KHc019iRBfQM7aV+ZA@mail.gmail.com>
-Subject: Re: [PATCH v3] riscv: cif: reduce shadow stack size limit from 4GB to 2GB
-To: David Laight <david.laight.linux@gmail.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	debug@rivosinc.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_072918_363646_809F112D 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20260515_155007_388428_8BA1792F 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,50 +111,207 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMTUsIDIwMjYgYXQgNToyNOKAr1BNIERhdmlkIExhaWdodAo8ZGF2aWQubGFp
-Z2h0LmxpbnV4QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBGcmksIDE1IE1heSAyMDI2IDExOjQy
-OjQ1ICswODAwCj4gWm9uZyBMaSA8em9uZy5saUBzaWZpdmUuY29tPiB3cm90ZToKPgo+ID4gT24g
-VGh1LCBNYXkgMTQsIDIwMjYgYXQgNDo1NuKAr1BNIERhdmlkIExhaWdodAo+IC4uCj4gPiA+IEkg
-YWxzbyBkb24ndCB1bmRlcnN0YW5kIHRoZSByYXRpb25hbCBmb3IganVzdCAvMiBhbmQgdGhlIDJH
-IHVwcGVyIGxpbWl0Lgo+ID4gPiBZb3UgbmVlZCA1MTIgbmVzdGVkIGZ1bmN0aW9uIGNhbGxzIHRv
-IGV2ZW4gdXNlIDRrLgo+ID4gPiBUaGF0IHdvdWxkIGhhdmUgdG8gYmUgcXVpdGUgZGVlcCByZWN1
-cnNpb24uCj4gPgo+ID4gRHVyaW5nIHRoZSBkaXNjdXNzaW9ucyBhYm91dCB0aGUgQVJNIEdDUyB2
-MyBzZXJpZXMsIGNvbW11bml0eSBwb2ludGVkCj4gPiBvdXQgdGhhdCBhIDRHIHNoYWRvdyBzdGFj
-ayBtaWdodCBiZSB0b28gbGFyZ2UuIFRoaXMgc2l6ZSBpcyBoYXJkIHRvCj4gPiBzdXBwb3J0IGlu
-IG1lbW9yeS1jb25zdHJhaW5lZCBlbnZpcm9ubWVudHMgbGlrZSBBbmRyb2lkLiBIb3dldmVyLCB0
-aGUKPiA+IHNpemUgY2Fubm90IGJlIHRvbyBzbWFsbCBlaXRoZXIsIG9yIHdlIG1pZ2h0IGZhY2Ug
-c3RhY2sgb3ZlcmZsb3cKPiA+IGlzc3Vlcy4gQXQgdGhhdCB0aW1lLCBhIHBlcmZlY3Qgc2l6ZSB3
-YXMgbm90IGRlY2lkZWQuCj4KPiBJdCBpcyBvbmx5IFZBIG5vdCByZWFsIG1lbW9yeSBzbyBzaG91
-bGRuJ3QgbWFrZSBtdWNoIGRpZmZlcmVuY2UgdG8gbWVtb3J5Cj4gdXNlIChleGNlcHQgZm9yIG5v
-bW11IHdoZXJlIHRoZSBhY3R1YWwgbWVtb3J5IGhhcyB0byBiZSBhbGxvY2F0ZWQpLgo+CgpZb3Ug
-cmFpc2UgYSB2YWxpZCBwb2ludCB0aGF0IHNoYWRvdyBzdGFja3MgYXJlIHByaW1hcmlseSBhIFZB
-CmFsbG9jYXRpb24uIEhvd2V2ZXIsIGluIExpbnV4LCB0aGUgbWVtb3J5IG92ZXJjb21taXQgbWVj
-aGFuaXNtIGNyZWF0ZXMKYSBwcmFjdGljYWwgbGluayBiZXR3ZWVuIFZBIGFsbG9jYXRpb24gYW5k
-IHBoeXNpY2FsIG1lbW9yeSBjYXBhY2l0eS4KQXMgSSBtZW50aW9uZWQgaW4gdGhlIGNvbW1pdCBt
-ZXNzYWdlLCBtZW1vcnkgYWxsb2NhdGlvbiB3aWxsIGZhaWwgd2hlbgp0aGUgb3ZlcmNvbW1pdCBt
-b2RlIGlzIHNldCB0byBPVkVSQ09NTUlUX0dVRVNTIG9yIE9WRVJDT01NSVRfTkVWRVIuCgpJbiBf
-X3ZtX2Vub3VnaF9tZW1vcnk6CiAgICAgICAgaWYgKHBhZ2VzID4gdG90YWxyYW1fcGFnZXMoKSAr
-IHRvdGFsX3N3YXBfcGFnZXMpCiAgICAgICAgICAgICAgICBnb3RvIGVycm9yOwoKTWFueSBwYWdl
-IHJlcXVlc3RzIGZvciBWQSB3aWxsIGZhaWwgaWYgdGhlIHJlcXVlc3RlZCBzaXplIGV4Y2VlZHMg
-dGhlCnN5c3RlbSdzIHRvdGFsIFJBTSBwbHVzIFN3YXAuIE9uIG1lbW9yeS1jb25zdHJhaW5lZCBz
-eXN0ZW1zLAphbGxvY2F0aW5nIGEgbWFzc2l2ZSA0R0Igc2hhZG93IHN0YWNrIHBlciB0aHJlYWQg
-d291bGQgaW1tZWRpYXRlbHkKdHJpZ2dlciB0aGlzIGVycm9yLgoKPiBCdXQgMzJiaXQgcHJvZ3Jh
-bXMgd2l0aCBsb3RzIG9mIHRocmVhZHMgY2FuIHJ1biBvdXQgb2YgVkEuCj4gSW5jcmVhc2luZyB0
-aGUgc3RhY2sgVkEgc2l6ZSBieSA1MCUgbWlnaHQgZXZlbiBnaXZlIHByb2JsZW1zIGZvciA2NGJp
-dAo+IHByb2dyYW1zIC0gaWYgdGhleSBhcmUgYWxyZWFkeSByZWR1Y2luZyB0aGUgdGhyZWFkIHN0
-YWNrIHNpemUgYXZvaWQKPiBydW5uaW5nIG91dCBvZiBWQS4KPgo+IEkndmUgbm90IGNoZWNrZWQs
-IGJ1dCBwdGhyZWFkX2F0dHJfc2V0c3RhY2tzaXplKCkgc2V0cyBhIGxpbWl0IGZvciB0aGUKPiB0
-aHJlYWQgc3RhY2sgc2l6ZSAod2hpY2ggd291bGQgb3RoZXJ3aXNlIGRlZmF1bHQgc28gcmxpbWl0
-KFNUQUNLKSkuCj4gSSBkb24ndCBiZWxpZXZlIGl0IHNob3VsZCB1cGRhdGUgdGhlIHJsaW1pdCB2
-YWx1ZSBpdHNlbGYuCj4gSW4gd2hpY2ggY2FzZSB5b3UgYXJlIHVzaW5nIHRoZSB3cm9uZyBzaXpl
-Lgo+Cj4gQnV0IGZvciBhIHRocmVhZCB3aXRoIGEgdmVyeSByZWR1Y2VkIHN0YWNrIChzYXkgMTI4
-aykgeW91IHByb2JhYmx5IG9ubHkKPiBuZWVkIDEgcGFnZSBvZiBzaGFkb3cgc3RhY2ssIGFueSBt
-b3JlIGNvdWxkIGVhc2lseSBsZWFkIHRvIHJ1bm5pbmcgb3V0Cj4gb2YgVkEuCj4KPiAtLSBEYXZp
-ZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+
+Add an zbb assembly implementation of strrchr() for RISC-V.
+The implementation uses ZBB bit-manipulation instructions such as
+orc.b, ctz, and clz to process multiple bytes per iteration and
+significantly improve performance for longer strings compared to
+the generic byte-by-byte implementation.
+
+For the test case, I used the existing string_bench_strrchr benchmark,
+but I changed the input character from '\0' to 'a' to obtain more
+realistic results, because I added a check for '\0' in the assembly code.
+
+Benchmark results (QEMU TCG, rv64):
+
+  Len   | ZBB    | WoZBB | %ZBB/WoZBB
+  ------|--------|--------|------------
+  1 B   | 20.0   | 22.9   | -12.7%
+  7 B   | 87.5   | 110.1  | -20.5%
+  8 B   | 166.8  | 130.3  | +28.0%
+  16 B  | 329.5  | 189.1  | +74.2%
+  31 B  | 366.9  | 195.7  | +87.5%
+  64 B  | 870.3  | 231.5  | +275.9%
+  127 B | 1007.0 | 278.9  | +261.1%
+  512 B | 1751.9 | 305.5  | +473.5%
+  1024 B| 1841.9 | 294.7  | +525.0%
+  2048 B| 1955.4 | 310.4  | +530.0%
+  4096 B| 2034.6 | 312.5  | +551.1%
+
+Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+---
+Change in v2:
+    - Added #if defined(CONFIG_RISCV_ISA_ZBB)...
+    - Link to v1:https://lore.kernel.org/all/20260514160910.1796966-1-milant2002@gmail.com/
+
+ arch/riscv/lib/strrchr.S | 130 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 128 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/lib/strrchr.S b/arch/riscv/lib/strrchr.S
+index ac58b20ca..82a50d440 100644
+--- a/arch/riscv/lib/strrchr.S
++++ b/arch/riscv/lib/strrchr.S
+@@ -6,13 +6,17 @@
+ 
+ #include <linux/linkage.h>
+ #include <asm/asm.h>
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
+ 
+ /* char *strrchr(const char *s, int c) */
+ SYM_FUNC_START(strrchr)
++	__ALTERNATIVE_CFG("nop", "j strrchr_zbb", 0, RISCV_ISA_EXT_ZBB,
++		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
+ 	/*
+ 	 * Parameters
+ 	 *	a0 - The string to be searched
+-	 *	a1 - The character to seaerch for
++	 *	a1 - The character to search for
+ 	 *
+ 	 * Returns
+ 	 *	a0 - Address of last occurrence of 'c' or 0
+@@ -31,7 +35,129 @@ SYM_FUNC_START(strrchr)
+ 	addi	t1, t1, 1
+ 	bnez	t0, 1b
+ 	ret
+-SYM_FUNC_END(strrchr)
+ 
++/*
++ * Variant of strrchr using the ZBB extension if available
++ */
++#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
++strrchr_zbb:
++.option push
++.option arch,+zbb
++	/*
++	 * Parameters
++	 *	a0 - The string to be searched
++	 *	a1 - The character to search for
++	 *
++	 * Returns
++	 *	a0 - Address of last occurrence of 'c' or 0
++	 *
++	 * Clobbers
++	 *	t0, t1, t2, t3, t4, t5, t6
++	 */
++	andi	a1, a1, 0xff
++	mv	t1, a0
++	li	a0, 0
++	beqz	a1, .Lfind_end_zbb
++
++	slli	t5, a1, 8
++	or	t5, t5, a1
++	slli	t2, t5, 16
++	or	t5, t5, t2
++#if __riscv_xlen == 64
++	slli	t2, t5, 32
++	or	t5, t5, t2
++#endif
++
++	andi	t2, t1, SZREG-1
++	bnez	t2, .Lmisaligned_start
++
++.Lmain_loop_pre:
++	li	t4, -1
++
++	.balign 16
++.Lmain_loop:
++	REG_L	t0, 0(t1)
++	addi	t1, t1, SZREG
++	xor	t6, t0, t5
++	orc.b	t2, t0
++	orc.b	t6, t6
++	and	t3, t2, t6
++	beq	t3, t4, .Lmain_loop
++
++	not	t2, t2
++	not	t6, t6
++
++	beqz	t2, .Lonly_matches
++
++	addi	t1, t1, -SZREG
++	ctz	t3, t2
++	sll	t4, t4, t3
++	andn	t6, t6, t4
++	beqz	t6, .Ldone
++
++	clz	t3, t6
++	srli	t3, t3, 3
++	xori	t3, t3, SZREG-1
++	add	a0, t1, t3
++.Ldone:
++	ret
++
++.Lonly_matches:
++	clz	t3, t6
++	srli	t3, t3, 3
++	not	t3, t3
++	add	a0, t1, t3
++	j	.Lmain_loop
++
++.Lfind_end_zbb:
++	andi	t2, t1, SZREG-1
++	bnez	t2, .Lmisaligned_end_start
++
++.Lfind_end_pre:
++	li	t4, -1
++
++	.balign 16
++.Lfind_end_loop:
++	REG_L	t0, 0(t1)
++	addi	t1, t1, SZREG
++	orc.b	t2, t0
++	beq	t2, t4, .Lfind_end_loop
++
++	addi	t1, t1, -SZREG
++	not	t2, t2
++	ctz	t3, t2
++	srli	t3, t3, 3
++	add	a0, t1, t3
++	ret
++
++.Lfound_zero:
++	mv	a0, t1
++	ret
++.Lmisaligned_start:
++	ori	t2, t1, SZREG-1
++	addi	t2, t2, 1
++.Lalign_loop:
++	lbu	t0, 0(t1)
++	beqz	t0, .Ldone
++	bne	t0, a1, 1f
++	mv	a0, t1
++1:
++	addi	t1, t1, 1
++	bne	t1, t2, .Lalign_loop
++	j	.Lmain_loop_pre
++
++.Lmisaligned_end_start:
++	ori	t2, t1, SZREG-1
++	addi	t2, t2, 1
++.Lfind_end_align:
++	lbu	t0, 0(t1)
++	beqz	t0, .Lfound_zero
++	addi	t1, t1, 1
++	bne	t1, t2, .Lfind_end_align
++	j	.Lfind_end_pre
++
++.option pop
++#endif
++SYM_FUNC_END(strrchr)
+ SYM_FUNC_ALIAS_WEAK(__pi_strrchr, strrchr)
+ EXPORT_SYMBOL(strrchr)
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
