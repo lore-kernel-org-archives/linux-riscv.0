@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB54CD4F21
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 05:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81EEDCD4F25
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 06:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1OG5MBHiUV5SHC10HLNKT2zOp7VFrpmabJtAm3zzJDM=; b=OTjQHAKOmV+ysH
-	Utnc8KcyceI0A5eti+MRe7jZmfBGVIMucdiZgGT9xyvy7ImsCJIYSl9ivtY55qMacNTLAZCnJbKeD
-	23UeHW/CP5O83ZLGeZfvQGolAyzxwgK1kBNn3KgB0bpAkiKOIfZIzq3rRaKC+WI515ozGAOI31rH2
-	Il7B8rOTIQmcvPaYT+H7uMg82M1AVUM9xdsJOJS/tpuymMPZfYLgfeuGNfwgCy0YUyVK11mcYmrIl
-	9oxNPfIyvSM1UbD05dfDOklSMZl6/i7mZ6/wEa41efizPRB9MVRwB+uhdjgB+HiZ5PQXKmBFYKOXd
-	TXdNPaIn08rq8d5Noa4A==;
+	List-Owner; bh=yvFZTdLpnu/A/jlk0agJUO2Xx4JnJrYk3OLmPM84wk4=; b=2tS3AHg6tYnoCA
+	WqCoAxW99Tuyy/r7cOsaLFvIBjEg9nZATbKTiT92CM0U9dFKmS5qAZkDtw80WoUy8kxFbvpAug0h4
+	asdU3NMqOuYDVrXaOTb275VouZJrgrylqbwnZV7OTLZEB9d43xq+49MFwfy8vM8uSUlCMNOWQ4b4R
+	eHkvITFBYG2r1Loa+3l0DfA4K5CqjqZ5uL6hoD8ecKVuvaMvbd/0eSfQ2lLYlJwpmqd5oahJ08CIb
+	brN/1AgICyDxHqxvMj6puAWgS7wDTR8O+TxzAPsZxJnVtqPxkhAm39ZiFHJ0aagFlV4A9H4d9fN+J
+	LTnbg/PNt9in7dJeNZqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO7iT-0000000ABkc-1ZJi;
-	Sat, 16 May 2026 05:37:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wO8JD-0000000AFub-1LJs;
+	Sat, 16 May 2026 06:15:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO7iR-0000000ABk6-2B5k
+	id 1wO8JB-0000000AFuL-2kOK
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 May 2026 05:37:36 +0000
+	Sat, 16 May 2026 06:15:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9AA6E408C4;
-	Sat, 16 May 2026 05:37:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64DF4C19425;
-	Sat, 16 May 2026 05:37:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5343360138;
+	Sat, 16 May 2026 06:15:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1067C19425;
+	Sat, 16 May 2026 06:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778909854;
-	bh=8yBvfhLzYDJAvKIHnzpbKWBDmTKaskcNlT36hAQ0Img=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=fK1aSbm8mudfk4ee6EzKpdHjeIFsFfF7nm+GOPlpahSUotCWY0ksHkUGF0m19EPrY
-	 g7GKFh7EWTb+zSaVr5DrMQOy8/YmU9Euao08L9AS3Ba4d3BU0ce17We++sgwaXZb3k
-	 DOpv0NSN11xQ9ubjC1lofG9vE+ItMhTPE/gwz5/JPDrGvwxuDNmJgF7SHeIxz+oLay
-	 0A2DxcvfWSluN1ERcvKOpZE4ITsDfuM85GDxsK3YAR/Z1/cfpszJTjxW7bj2JHODv+
-	 DpKSTCb+zmpj+AO9EyQbRjTYA/dfhXJ9v6RdZLSIX2HUUGLnzXlhft9Ym9XMKMnekg
-	 C149fh8jHax6Q==
-Date: Sat, 16 May 2026 05:37:30 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: E Shattow <e@freeshell.de>, linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH 3/4] riscv: dts: spacemit: enable eMMC on Milk-V Jupiter
-Message-ID: <20260516053730-GKA3675990@kernel.org>
-References: <20260514160356.1642075-1-aurelien@aurel32.net>
- <20260514160356.1642075-4-aurelien@aurel32.net>
- <f52a821b-157a-467d-84ee-4d1d4a96f673@freeshell.de>
- <agbP0-OsfQRFJcr0@aurel32.net>
+	s=k20201202; t=1778912131;
+	bh=qzjqVHKvQyATuIeQqKgJaYd4zkcX2/SrbvAc/Ym8gQM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BKITLAwwdnOt3fCsbnX2kwZL0cXoVpJVy7zmDy05NDYnsp9lP6JUXbnnDopm5DlsD
+	 XVACQtlZzxYNN964ZcJj7Bk75QUVvC4gPuu3BueDkR2eSTSasUSJ3pO3XJrR3yjaCp
+	 0gYb/SF5eWgDxtVKovFPpPl6HU/ZA/E7/epwDo3o+2AwiOks48sZh7D2FRNxtxW2I9
+	 /+HNDOQmaN3t0kW49nkpEriQTiifoRgqU1znbtcIcihbFLXQPhu2jHRK7/AfG4eWiI
+	 Rn8gxB2GsddwkCmHLAiGf6QkjzFONxh9rnNwnN/LcZcOQi7bNcs7rcXPndcD0eZk0u
+	 fTSv6jKR5PjOA==
+Date: Fri, 15 May 2026 23:15:30 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: sashiko@lists.linux.dev
+Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v4 09/18] riscv_cbqri: Add bandwidth controller probe
+ and allocation device ops
+Message-ID: <aggLggGOeuPTQV3p@thelio>
+References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-9-eb53831ef683@kernel.org>
+ <20260512022939.683A1C2BCB0@smtp.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <agbP0-OsfQRFJcr0@aurel32.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_223735_580515_BCBE58BF 
-X-CRM114-Status: GOOD (  16.25  )
+In-Reply-To: <20260512022939.683A1C2BCB0@smtp.kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +72,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien,
-
-On 09:48 Fri 15 May     , Aurelien Jarno wrote:
-> On 2026-05-14 23:49, E Shattow wrote:
-> > On 5/14/26 08:56, Aurelien Jarno wrote:
-> > > The Milk-V Jupiter board has a connector for an eMMC module. Add an
-> > > entry for it in the device tree and alias it mmc0. As it is not
-> > > populated by default, do no mark it as non-removable.
-> > > 
-> > 
-> > The meaning of "non-removable" here is whether it is expected to be
-> > added and removed during use, requiring to be probed again; not whether
-> > it is a user configurable module or soldered down part.
+On Tue, May 12, 2026 at 02:29:38AM +0000, sashiko-bot@kernel.org wrote:
+[..]
+> > +static int cbqri_bc_alloc_op(struct cbqri_controller *ctrl, int operation, int rcid)
+> > +{
+> > +	int reg_offset = CBQRI_BC_ALLOC_CTL_OFF;
+> > +	int status;
+> > +	u64 reg;
+> > +
+> > +	lockdep_assert_held(&ctrl->lock);
+> > +
+> > +	if (ctrl->faulted)
+> > +		return -EIO;
+> > +
+> > +	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
 > 
-> Not connecting the eMMC module and larking it as non-removable causes this info
-> message to appears in the logs:
+> If a timeout in cbqri_wait_busy_flag() sets ctrl->faulted = true, will
+> runtime operations like cbqri_bc_alloc_op() ever execute again? Because
+> it returns early here when ctrl->faulted is true, the polling function
+> is never called again to clear the flag, which seems to permanently
+> disable the controller after a single timeout.
+
+I'll drop the ctrl->faulted early return from cbqri_bc_alloc_op(),
+cbqri_cc_alloc_op() and cbqri_mon_op() to avoid locking the controller
+out for the lifetime of the driver.
+
+> > +static int cbqri_apply_bc_field(struct cbqri_controller *ctrl, u32 closid,
+> > +				void (*set)(struct cbqri_controller *, u64),
+> > +				u64 (*get)(struct cbqri_controller *),
+> > +				u64 val, bool *committed)
+> > +{
+> > +	int ret;
+> > +	u64 reg;
+> > +
+> > +	lockdep_assert_held(&ctrl->lock);
+> > +
+> > +	/* Load current RCID state so the unmodified field is preserved */
+> > +	ret = cbqri_bc_alloc_op(ctrl, CBQRI_BC_ALLOC_CTL_OP_READ_LIMIT, closid);
+> > +	if (ret < 0)
+> > +		return ret;
 > 
-> mmc0: SDHCI controller on d4281000.mmc [d4281000.mmc] using ADMA
-> mmc0: Failed to initialize a non-removable card
+> Does this initial read need the same sentinel protection as the
+> verification read? If this READ_LIMIT silently fails, the staging
+> register might retain data from a previous operation (like a different
+> RCID). Since set() only modifies the target field, CONFIG_LIMIT could
+> commit the stale data in the unmodified field, causing cross-RCID state
+> corruption.
+
+I'll stop relying on the register to preserve the unmodified field. I
+will add an mweight_cache alongside rbwb_cache.
+
+> > +	reg = get(ctrl);
+> > +	if (reg != val) {
+> > +		pr_err_ratelimited("BC field verify mismatch (reg=0x%llx != val=%llu)\n",
+> > +				   reg, val);
+> > +		return -EIO;
+> > +	}
+> > +
+> > +	return 0;
+> > +}
 > 
+> If the verification fails here and returns -EIO, *committed remains
+> true. When called from cbqri_apply_rbwb(), this causes the rejected
+> value to be cached in ctrl->rbwb_cache[closid]. If the requested value
+> was smaller than the previous one, could this cause the software cache
+> to underestimate the reserved capacity and allow future allocations to
+> exceed the MRBWB hardware limit?
 
-I'm with E Shattow here, and would prefer to add "non-removable" property,
-Unlike SD card, the eMMC has no CD pin, some logic may be handled slightly
-differently.
+I'll change the order so that committed is only set to true after the
+verify readback succeeds.
 
-For that failure message, I have no idea how to deal with it but might
-just ignore it.. Guess it's the price that have to pay if enabling the
-eMMC in DT but has no module soldered or plugged in?
+> > +int cbqri_apply_mweight_config(struct cbqri_controller *ctrl, u32 closid,
+> > +			       u64 mweight)
+> > +{
+> > +	int ret;
+> > +
+> > +	mutex_lock(&ctrl->lock);
+> > +	ret = cbqri_apply_bc_field(ctrl, closid,
+> > +				   cbqri_set_mweight, cbqri_get_mweight,
+> > +				   mweight, NULL);
+> > +	mutex_unlock(&ctrl->lock);
+> > +	return ret;
+> > +}
+> 
+> What happens if an arbitrarily large mweight is passed in? FIELD_MODIFY
+> silently truncates values larger than the 8-bit MWEIGHT_MASK. The
+> verification step in cbqri_apply_bc_field() will then compare the
+> truncated hardware value against the original untruncated val and
+> always fail, returning -EIO and logging a hardware failure instead of
+> returning -EINVAL. Should this have bounds checking similar to
+> cbqri_apply_rbwb()?
 
--- 
-Yixun Lan (dlan)
+I will bound mweight against FIELD_MAX(MWEIGHT_MASK) at the beginning.
+
+> 
+> > @@ -437,6 +664,83 @@ static int cbqri_probe_cc(struct cbqri_controller *ctrl)
+> >  	return 0;
+> >  }
+> >  
+> > +static int cbqri_probe_bc(struct cbqri_controller *ctrl)
+> > +{
+> > +	bool has_mon_at_code = false;
+> > +	int err, status;
+> > +	u64 reg;
+> 
+> [ ... ]
+> 
+> > +	/* Probe monitoring features */
+> > +	err = cbqri_probe_feature(ctrl, CBQRI_BC_MON_CTL_OFF,
+> > +				  CBQRI_BC_MON_CTL_OP_READ_COUNTER, &status,
+> > +				  &has_mon_at_code);
+> 
+> When probing features, cbqri_probe_feature() modifies the OP mask and
+> clears RCID_MASK, but it doesn't appear to clear EVT_ID_MASK:
+> 
+> drivers/resctrl/cbqri_devices.c:cbqri_probe_feature() {
+>     ...
+>     FIELD_MODIFY(CBQRI_CONTROL_REGISTERS_OP_MASK, &reg, operation);
+>     reg &= ~CBQRI_CONTROL_REGISTERS_RCID_MASK;
+>     iowrite64(reg, ctrl->base + reg_offset);
+>     ...
+> }
+> 
+> If the hardware or firmware left an unsupported Event ID in those bits,
+> could the hardware reject the READ_COUNTER operation, causing the probe
+> to see STATUS != SUCCESS and incorrectly assume monitoring is not
+> supported?
+
+I will clear OP, AT, RCID and EVT_ID on every write in the probe.
+
+-Drew
 
 _______________________________________________
 linux-riscv mailing list
