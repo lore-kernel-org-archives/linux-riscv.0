@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C93BCD4F21
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 14:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6914DCD4F21
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 15:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/juGHGWbxMvm2HPToyxeyypjMd1OMVCTCmRaRbH2XPc=; b=uurxPzYg7s/EJU
-	T2PjDCGkWr4TSulWRWEkakievZDWk84RWZhiMPciQnxtuXz+RtpbjKHxh/r41MYmryDm+pW99lALF
-	nEfsxVyZFq28Vg0lUYOnu5SOTeRKXDzwYejqCU0s4CYI1l12oqF24pezmVK16nxFbwZfJHl3N4aTV
-	2rYD+YWkfwMPHOf5TcD32BQVsVwZeRgv0Y92XG0+NZbRhIPYyrabKYwgdpr7zAjoOXMsh4bQI/k9M
-	PPVeMjSzpWA5BNFZVi8Q4Xs9DfkyWHzAtyQ0OoD5YxtS7YBGPSRA+xbK3S6R7UpaI3fvMPglrvz7q
-	hkFqr34XdtYTBAisl/Ig==;
+	List-Owner; bh=N1g65fhT5kMlQAHczlhS6Ssehj9qx6q0p/m/mTKDT8k=; b=4CxN1H6Ulqk/FA
+	gEzOQ4Z9kBDbn0phXh2X+yfAe5lTY4s1fX/aXEKC5zWe3QMUX7L/KibE3+8dF+mSVocevP9I8RYjM
+	lfe5ALE7KjlZSFk3934AaZtkgCbvplmca3rZI43clf/HnM3Mih9aItt3+9sejNW2TwQWkSjg97kDD
+	LJ1OS/xVb+z/1GyovF02/lv3KoDAjM8E/tkV1RoBGVLaF1PRWo1TkU6Mh73vBAyBYTXDHxNE4Jygs
+	eI4lGvvfwwSqgg1Sx8NueyGGwoF5e2M0JQCQk/zTnJJoNcl7+D7fC6btPLFjhBPzXshnoCkEVdZgs
+	8IVbpD2aXffAbM3QN2RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOGTZ-0000000Atkd-2EBE;
-	Sat, 16 May 2026 14:58:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOHDF-0000000Axry-0L6k;
+	Sat, 16 May 2026 15:46:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOGTX-0000000Atk8-26Fb
+	id 1wOHDC-0000000AxrJ-2Uhu
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 May 2026 14:58:48 +0000
+	Sat, 16 May 2026 15:45:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DB14445BA
-	for <linux-riscv@lists.infradead.org>; Sat, 16 May 2026 14:58:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0870AC2BCF5
-	for <linux-riscv@lists.infradead.org>; Sat, 16 May 2026 14:58:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C7569440C3;
+	Sat, 16 May 2026 15:45:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE2BC2BCB3;
+	Sat, 16 May 2026 15:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778943526;
-	bh=cj6DCkgT4nLvdRIrKGN5toggTRHiMavADIBTkg63RsE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=eGQV6Yjolm3KPajKQCTPhOXBTnJiQHGujbPXrxoHisgiQihaxNxPQeylYzml+oQ0E
-	 UsyNGC9BcX8CBGookrLqzTHUAb9Bklp6f3IHDeVWWln30UowpCWtYY4HKNrtfVQFF7
-	 jKejTCzA9XyqPW2a8ckzbaQd8c6PBM6XZoor35sOcVe5aXU6W+8msj4hfFjcKRVy6H
-	 L5fRMDpRihEGBv79UE7RtDqa6YsckOvEX4OCkVPA+t86ds+8tWYcu5ajiBD0or3ebM
-	 gCK/vIeMUUQM2i3Oyayo735pd3mSjJ4iMqGJv3PmNe9Y4trxtK4+13REJKAUOGJJwT
-	 rZDwl8UMC+GnA==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5a8ee4b703fso815993e87.0
-        for <linux-riscv@lists.infradead.org>; Sat, 16 May 2026 07:58:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+hKHRlBtFz2TnX/VrjjEmb+4B15xlqNu87oHgN2s9DuuaawjT5WqLuqFTZyk44ouu3l4kY1ECocIbCjA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxFfVn6RDy0e6REs8e/Nw5LM9XZG2hoLU0XZ/OhCx+LcSXyaUk
-	Uz/o/SX8fqjHSee+UNSZQugDZKF3IgavB/4AK6jeGOTqVqu29TBc+3nLaiXzyknjCvFx384Udzc
-	VhdrU2SvfFyun0to9jvCBJ/HoIR/EJVQ=
-X-Received: by 2002:a05:6512:3409:b0:5a8:73c3:f27b with SMTP id
- 2adb3069b0e04-5aa0e623b51mr2521095e87.15.1778943524744; Sat, 16 May 2026
- 07:58:44 -0700 (PDT)
+	s=k20201202; t=1778946357;
+	bh=egbemg+5nqSVkO2AOzaWkqFQ7vFLcLsKYmh0F1RjecQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ncBhZ8Xxr/cCg/jaq4Sb3LzQHT4exdpxhEgji1PkYqfadgcQ8bpYjq5T53m1di5Uc
+	 qw7MfVcZpcd64POVV5LkS5jH0fy28P0k/ETmSCXSIRzbWH3Ey8Z7M9fGfBKIAOhXk0
+	 mlxnZe+KkV9vE3K+w8aUzJxsfpdPemsZXuXRPc7ZeddJHUes5dwgkoJV6LLUENcptA
+	 VYmboTKVADQ+HHtUwFdD2OqRV/V15d5ObMZ3+jMjsvuTDdkFTJoPiwE226xmDITVX3
+	 A41YFd3HbLYkP56fh5LBM0AKCjv5ddhSp2Tr8KgEA3cNtBt/rmh89x0oE8N6qRSz1b
+	 +eaeS0/Eg3KYA==
+Date: Sat, 16 May 2026 08:45:55 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: sashiko@lists.linux.dev
+Cc: robh@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+	conor+dt@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v4 11/18] riscv_cbqri: resctrl: Add cache allocation
+ via capacity block mask
+Message-ID: <agiRMzX3nTvO0jPM@thelio>
+References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-11-eb53831ef683@kernel.org>
+ <20260512040135.51715C2BCB0@smtp.kernel.org>
 MIME-Version: 1.0
-References: <20260506-energize-dramatize-051909e54256@spud>
- <CAD++jLkEfqDrqaxTjxf4AwHPcdCppPfO5F7H5YnR2gebzhZFig@mail.gmail.com>
- <20260514-used-revival-306ddced4ab8@spud> <20260514-afterglow-overlabor-bc483b2a8b35@spud>
-In-Reply-To: <20260514-afterglow-overlabor-bc483b2a8b35@spud>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 16 May 2026 16:58:32 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnsL7w+2mR6JmAEwEXcfbipoL6eLWwz6g9ZCbr4T22Wmw@mail.gmail.com>
-X-Gm-Features: AVHnY4JdmrVpvtaNxwOlXXn3NxCkXK8mtEn98EOr0BMFQmQRWm8DuStr0owd8fc
-Message-ID: <CAD++jLnsL7w+2mR6JmAEwEXcfbipoL6eLWwz6g9ZCbr4T22Wmw@mail.gmail.com>
-Subject: Re: [RFC v1 0/4] generic pinmux dt_node_to_map implementation
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <20260512040135.51715C2BCB0@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_075847_560461_FFD982F0 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260516_084558_677914_6EBD64ED 
+X-CRM114-Status: GOOD (  40.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +70,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXkgMTQsIDIwMjYgYXQgOTo0MOKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cgo+ID4gUmlnaHQsIHdlbGwgSSdsbCBnbyBjbGVhbiBpdCB1cCBJIHN1
-cHBvc2UuIEkgbWlnaHQgc2VuZCBhIHJmYyB2MiB3aXRoIGFuCj4gPiBleHRyYSBwYXRjaCB0aGF0
-IHRyaWVzIHRvIGdldCByaWQgb2Ygc29tZSBvZiB0aGUgY29kZSBkdXBsaWNhdGlvbiBhbmQKPiA+
-IHlvdSBjYW4gdGVsbCBtZSB3aGljaCB2ZXJzaW9uIHlvdSBwcmVmZXI/Cj4KPiBBY3R1YWxseSwg
-bm8gbmVlZCBmb3IgcmZjIHYyLCBjYW4ganVzdCBwYXN0ZSBoZXJlOgoKTG9va3MgZ29vZCB3aXRo
-IHNvbWUgcmVuYW1pbmcuCgpTZW5kIGEgbm9uLVJGQyB2ZXJzaW9uIHdoZW4geW91IGZlZWwgcmVh
-ZHkhCgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Tue, May 12, 2026 at 04:01:34AM +0000, sashiko-bot@kernel.org wrote:
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -595,6 +595,7 @@ config RISCV_ISA_SSQOSID
+> >  	bool "Ssqosid extension support for supervisor mode Quality of Service ID"
+> >  	depends on 64BIT
+> >  	default n
+> > +	select ARCH_HAS_CPU_RESCTRL
+> 
+> If CONFIG_RISCV_CBQRI_DRIVER is disabled, does this cause a linker error
+> when CONFIG_RESCTRL_FS is enabled? The riscv implementation of the
+> resctrl_arch_* functions is in cbqri_resctrl.c, which seems to only be
+> compiled when the driver is enabled.
+
+I will change RISCV_ISA_SSQOSID to select RISCV_CBQRI_DRIVER
+unconditionally. That makes the SSQOSID=y CBQRI_DRIVER=n combination
+unreachable, so the resctrl_arch_* symbols are always available when
+RESCTRL_FS is enabled.
+
+> > +u32 resctrl_arch_get_num_closid(struct rdt_resource *res)
+> > +{
+> > +	struct cbqri_resctrl_res *hw_res;
+> > +
+> > +	hw_res = container_of(res, struct cbqri_resctrl_res, resctrl_res);
+> > +
+> > +	/*
+> > +	 * fs/resctrl calls this for resctrl-defined rids that CBQRI may not
+> > +	 * back (e.g. RDT_RESOURCE_MBA from set_mba_sc() during unmount).
+> > +	 * Unpicked rids have ctrl == NULL. Report no closids.
+> > +	 */
+> > +	if (!hw_res->ctrl)
+> > +		return 0;
+> > +
+> > +	return hw_res->ctrl->rcid_count;
+> > +}
+> 
+> Is there a bounds check needed for rcid_count against the 12-bit maximum?
+> 
+> If the firmware reports an rcid_count greater than 4096, fs/resctrl would
+> permit creating groups with closid >= 4096.
+> 
+> This could lead to FIELD_PREP() silently truncating the upper bits in
+> resctrl_arch_set_closid_rmid(), causing the task to run in a different group
+> and bypassing the intended hardware isolation.
+
+CBQRI_MAX_RCID is 1024, so there is no risk of exceeding the 12-bit
+SRMCFG_RCID_MASK limit. However, I can add a WARN_ON_ONCE(rcid_count >
+SRMCFG_RCID_MASK) at controller registration time so a future discovery
+path like DT cannot silently bypass this.
+
+> > +static struct rdt_ctrl_domain *cbqri_new_domain(struct cbqri_controller *ctrl)
+> > +{
+> > +	struct cbqri_resctrl_dom *hw_dom;
+> > +	struct rdt_ctrl_domain *domain;
+> > +
+> > +	hw_dom = kzalloc_obj(*hw_dom, GFP_KERNEL);
+> 
+> Does kzalloc_obj exist in the kernel? It looks like this might cause a
+> build failure due to an implicit function declaration.
+
+kzalloc_obj() is defined in include/linux/slab.h
+
+> > +static int cbqri_init_domain_ctrlval(struct rdt_resource *r, struct rdt_ctrl_domain *d)
+> > +{
+> > +	struct cbqri_resctrl_res *hw_res;
+> > +	enum resctrl_conf_type t;
+> > +	int err = 0;
+> > +	int i;
+> > +
+> > +	hw_res = container_of(r, struct cbqri_resctrl_res, resctrl_res);
+> > +
+> > +	for (i = 0; i < hw_res->ctrl->rcid_count; i++) {
+> > +		/*
+> > +		 * Seed both DATA and CODE staged slots so a later mount
+> > +		 * with -o cdp does not see stale CODE values.
+> > +		 * CDP_NUM_TYPES is 1 on non-CDP controllers.
+> > +		 */
+> > +		for (t = 0; t < CDP_NUM_TYPES; t++) {
+> > +			err = resctrl_arch_update_one(r, d, i, t,
+> > +						      resctrl_get_default_ctrl(r));
+> 
+> Does this loop correctly handle non-CDP hardware? A comment mentions that
+> CDP_NUM_TYPES is 1 on non-CDP controllers, but since it is a compile-time enum
+> constant, the loop will always execute for t = CDP_CODE.
+> 
+> This could cause resctrl_arch_update_one() to send CBQRI_AT_CODE to
+> controllers that do not support it, potentially triggering a hardware fault and
+> aborting initialization.
+
+The comment is wrong. CDP_NUM_TYPES is the compile-time constant 3
+regardless of hardware. I will reword the misleading comment and gate
+the inner loop on cdp_capable so non-CDP controllers only see CDP_NONE.
+
+> > +static void cbqri_detach_cpu_from_ctrl_domains(struct rdt_resource *res,
+> > +					       unsigned int cpu)
+> > +{
+> > +	struct rdt_ctrl_domain *domain, *tmp;
+> > +
+> > +	list_for_each_entry_safe(domain, tmp, &res->ctrl_domains, hdr.list) {
+> > +		if (!cpumask_test_cpu(cpu, &domain->hdr.cpu_mask))
+> > +			continue;
+> > +		cpumask_clear_cpu(cpu, &domain->hdr.cpu_mask);
+> > +		if (cpumask_empty(&domain->hdr.cpu_mask)) {
+> > +			resctrl_offline_ctrl_domain(res, domain);
+> > +			list_del_rcu(&domain->hdr.list);
+> > +			synchronize_rcu();
+> 
+> Could this synchronize_rcu() call cause severe latency spikes during CPU
+> hotplug?
+> 
+> This function is called synchronously from cbqri_resctrl_offline_cpu() while
+> the core kernel holds the global cpu_hotplug_lock. It seems fs/resctrl manages
+> these lists using standard locks, so the RCU primitives might not be necessary
+> here.
+
+This is the same list_del_rcu + synchronize_rcu pattern used by
+arch/x86/kernel/cpu/resctrl/core.c for domain teardown. Readers walk
+ctrl_domains under rcu_read_lock() (e.g. the schemata file walks), so
+the grace period is needed before kfree.
+
+The latency is bounded by one RCU grace period per detach, same as on
+x86. I do not see a way to drop it without changing the reader side too.
+
+> > +static int cbqri_resctrl_setup(void)
+> > +{
+> > +	int rid;
+> > +	int err;
+> > +
+> > +	/* Wait for cacheinfo so cbqri_probe_cc()'s lazy fill has data. */
+> > +	wait_event(wait_cacheinfo_ready, cacheinfo_ready);
+> 
+> Could this wait_event() potentially put the init thread to sleep indefinitely?
+> 
+> Because cbqri_resctrl_setup() and __cacheinfo_ready() both run as initcalls on
+> the same kernel_init thread, if the previous initcall failed or the order
+> changed, wait_event() would sleep forever since no other thread exists to
+> wake it up.
+
+device_initcall_sync always runs before late_initcall, so
+cacheinfo_ready is already true on entry. The wait_event() is dead code.
+I will drop it along with the waitqueue and just leave a comment noting
+the initcall ordering CBQRI relies on.
+
+> > +	cbqri_resctrl_accumulate_caps();
+> > +
+> > +	if (!exposed_alloc_capable) {
+> > +		pr_debug("no resctrl-capable CBQRI controllers found\n");
+> > +		return -ENODEV;
+> > +	}
+> > +
+> > +	err = resctrl_init();
+> > +	if (err)
+> > +		return err;
+> 
+> If resctrl_init() fails, should this function call cbqri_resctrl_teardown()
+> or otherwise revert the global state?
+> 
+> Since cbqri_resctrl_accumulate_caps() sets exposed_alloc_capable to true,
+> leaving it set on failure would cause resctrl_arch_alloc_capable() to
+> incorrectly return true.
+
+If resctrl_init() fails, then the resctrl filesystem is not mountable
+and nothing queries resctrl_arch_alloc_capable() afterwards. I will call
+cbqri_resctrl_teardown() on the resctrl_init() error path so
+exposed_alloc_capable does not stay set.
+
+> > +static int cbqri_resctrl_online_cpu(unsigned int cpu)
+> > +{
+> > +	struct cbqri_controller *ctrl;
+> > +	int err = 0;
+> > +
+> > +	mutex_lock(&cbqri_domain_list_lock);
+> 
+> Is the cbqri_domain_list_lock mutex necessary?
+> 
+> Since cbqri_resctrl_online_cpu() and cbqri_resctrl_offline_cpu() are invoked
+> exclusively by the CPU hotplug state machine, the core kernel already
+> serializes them globally using the cpu_hotplug_lock.
+
+I will drop cbqri_domain_list_lock and replace it with
+lockdep_assert_cpus_held() in the helpers.
+
+-Drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
