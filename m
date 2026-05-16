@@ -4,85 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC239CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 17:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F22CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 22:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KPD0K3pr+iOfQVATqB71Nn0mm2P7UKvZJEAg1RI1sZU=; b=luisWfLZxnQ/RF
-	bjEJkAVmMtEqIJK+bW+LGLIqvja0u+TaU9wfak5AdiuQq1Yg330+O0hEiJeT/UOiyCBW8P+OEWD3p
-	mSOhJ/Km8BV7hjXKc/JHeGcMUq+byOwCWTSyu1pROkk0+DH21Z6ECk8d4V/LKDtaHSPwepm2z6nfD
-	dRx9IwJv+VzqV/IscQNOHFawJ3JKgJfaS8vqWXrYUqcwoT183KgajPyUBqxnv7QRqsp/8+h2AS8Q/
-	8l5Jnju0Fm2vnsaeE8Ar0fq6Kwnq+WECSuSPx36aMctnhE6wNwOHijnfTAtuzk4HPh0FnBberOyaE
-	lKzyBk1p+8IubgJ9m/Ew==;
+	List-Owner; bh=YhzFZtw5+BUTI1GPxmRPTu5bgMJHMCoRzennssVsrpY=; b=NQ0WHt87zCjZ0C
+	6Ixz1ZdmEi4UoBoqTBF3wbSNKid6qRcWiuiKIABap1KG352NieXIqQ5IOlhxACKDoMuijwsoksiDq
+	WMjR6VWyeJuEO0WN0V9A9XaFS8wyLwvmJpu3sxMJhSbnjBrcXsI9BsI07bRkRdT7yPT2SrYtFVg79
+	/z68INKeeElmZ5lwBt/YvGfix4ZLbt0fhSZ1aCBRQ9YOtWQlXxVUz/84YLx9t2DyEDrltx9PtFjvq
+	IU7oQjd42b3vnbQaAvnQZKHcI0+BuszwUVW1Kt2Y22zgdn8+yDyVyt+8hFF8CCsfAk+nJJI+GjWwM
+	PZymHsprvFJ3sDvvRCjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJ7n-0000000B92V-2r3R;
-	Sat, 16 May 2026 17:48:31 +0000
-Received: from mail-yx1-xb12b.google.com ([2607:f8b0:4864:20::b12b])
+	id 1wONfq-0000000BeJt-32WY;
+	Sat, 16 May 2026 22:39:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJ7k-0000000B91t-1naM
+	id 1wONfo-0000000BeJO-0NgA
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 May 2026 17:48:30 +0000
-Received: by mail-yx1-xb12b.google.com with SMTP id 956f58d0204a3-65c21049dafso1084390d50.2
-        for <linux-riscv@lists.infradead.org>; Sat, 16 May 2026 10:48:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1778953706; x=1779558506; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=h1tBZhEj0+N7xH8mR9DXL2awOx7YE8ulJfOJ3TwcS84=;
-        b=XuyhywWKbRAIBEd5UR9khVterOgVDz0+S0JdVYwOEuSof/5ftHgP45mkUIVTXLkYaS
-         PeDddAFWe4MSvylkG7RXq6YJlMjICWmalgIqlCs82To+VzPOHONELJYs19GLDJ2tdtwn
-         a5KqpNym4mf4HaxUAfIQZMxfCdOprL7PjVleqQMeOiHslBEJh7k0vhvXI3tMLQt4VrBn
-         Lkyt5D+XCjz4/+V86ople7S6Urc4Xxg7XeSPIcr6ZK3UrqFIyYWpyF7z6LLMIMaqnVJa
-         fwIRwvuv8KZ7r1S+VPGKKm5vZqsxaDd29dlLAotUbHsu92NdlzQ60Gn5FQ7RhAz/7fY8
-         2ulg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778953706; x=1779558506;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=h1tBZhEj0+N7xH8mR9DXL2awOx7YE8ulJfOJ3TwcS84=;
-        b=c3pzLj64QTDp2ZRkfjJZ9+vsWFh6LQjD5qGJV4iWnYmH6N8J8vqNQcByHpIzTBn+S+
-         ne0sEM67F5afHtHU3BN6WB6szfCgD66bVcp4ZVXgDeHL3XMOoPjUuPOEbLn2BgTztPnS
-         SjSh/aJnUIWpI2sEAd/uvt2Rgc2pkn3X5ycMzxXJNgfwKqrcx6C5dAwTVliSmcK+qsbL
-         4nlmTpp9D81VwLeyQ/kM/jA8LVXm33eyUwRzT03s7zXcV/4KuIlNwpcFZvaaDKeBsjyc
-         GFUuwYzVXFanxCwRg14O3+us4nU94+9tBesDKFo6PK3RO5EXJP2uTYuJq4P9UUrJtoiy
-         H9NQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8UVHwmHOLuyMdUzuZk4YEiVmcKSQQ1MYpAm0poWD49sj+x/1paik63zHiQ7DEGbTJ64cnSySId2TuvTw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4DTBD/Apc879OehN9XD6PqUNlaa3ZKqeugjIVOTAhJXOuUL51
-	poRxGveoxQ++vrQa3Kd98tztwXPuoWhtQotv1X2p5V0aU6XGNymMM0OE63EIzts0M0I=
-X-Gm-Gg: Acq92OG4LmxY9DVCq8x4raEKzw9ArIXs4yVJr3eJil4aUwCO/YO9+CouqhpZyPk8pjW
-	reUUvSnc4v5HvTRhGFO708vC4iAW8ZiDzjlY+gScqQpj3BQx7K2JroOgQXtfqWDopKYZwQtGwiM
-	UX6hdGOMHjZzQjhklYZvv0Gwq78+efVq1v8z5tdWQrQTH47LkVC5hZBMficqlroXWlVMG31Sq1d
-	dnV5lIRT8eGQKSB8PpLTVP0K+F/0a0OaFJQ355JLlJJLeHdycsHfNcekHQUfts2fwIOT4g0X/5/
-	J8WDgJ91CjeJl8ba4XW666ytjJE732WMFysDjJZyglzvDYLm5/hDMHsqZ2MS14hBNl4aeo6AG/q
-	ArmGL6r1YG4U+ox1JyQk+N338j9WzFoABUiAFpW7pX8wFbXv1Z0jSgy5wii2HFtirO25pFleXNz
-	3OOcult9WC/0CRad1siOcuwBcJI/EZnFkQh4yjQTRhZqbsRWyBqX+BQBefsIq/g66k5cCb
-X-Received: by 2002:a53:ac96:0:b0:65b:f634:e89b with SMTP id 956f58d0204a3-65e22834cd7mr8785006d50.48.1778953706528;
-        Sat, 16 May 2026 10:48:26 -0700 (PDT)
-Received: from toolbox ([2600:1700:220:59e0:404d:bcd6:3f7c:3a9c])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-65e0db6f4f4sm4146949d50.15.2026.05.16.10.48.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 May 2026 10:48:26 -0700 (PDT)
-Date: Sat, 16 May 2026 12:48:04 -0500
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-To: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: cfi: gitignore generated vdso files
-Message-ID: <6u2ysyepovq5w2vffev4snbtj536sieivk2m53edenfbobx5rr@lkuwbv6rbw2c>
-References: <20260418-vdso_cfi_ignore-v1-1-f4b89f5b0d3b@gmail.com>
+	Sat, 16 May 2026 22:39:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0CC7460125;
+	Sat, 16 May 2026 22:39:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854E4C19425;
+	Sat, 16 May 2026 22:39:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778971194;
+	bh=O9vY5xgIduoE6o099w+D8afHS0L8Ab8xEtCmV8q5JDA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pMjkURX3WCA65Kt6Rt72D+C/t0O+n7O5bEYSyWf9Hm/ZRqIyEmmrbqLDIWQigcUnw
+	 bSWdDNUZnZ8jIE7whd5M5KzieFUFbvMqLvnJe4mAzVKG2fo/OdFFCgEgzrQv9P/D/L
+	 /9QvLgGb6d4DIopjFOCi0mhwvVTmbNTbpc0rrEul1F5LCQHtjhV1Qr2gFUJAI7VpZX
+	 9jU5S6qENvoZJ+c0nHxM3f/We+xHxk0sKeSvYhCLUNtUCqBCjZSccpHpDtb+JYLBkU
+	 uiYr9SxPMAA80oB7f0KMIojNRuhiljfuMG6Yad2jEYrCNuxZBEmMG1nDZwnkQSmpHp
+	 Cd9W99Q1AgWpQ==
+Date: Sat, 16 May 2026 15:39:53 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: sashiko@lists.linux.dev
+Cc: robh@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+	krzk+dt@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v4 12/18] riscv_cbqri: resctrl: Add L3 cache
+ occupancy monitoring
+Message-ID: <agjyOYWZLcnm4PZO@thelio>
+References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-12-eb53831ef683@kernel.org>
+ <20260512050001.38B24C2BCB0@smtp.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260418-vdso_cfi_ignore-v1-1-f4b89f5b0d3b@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_104828_593860_F2854F8A 
-X-CRM114-Status: GOOD (  21.52  )
+In-Reply-To: <20260512050001.38B24C2BCB0@smtp.kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,75 +72,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 18, 2026 at 12:31:08AM -0400, Charlie Jenkins wrote:
-> During compilation, the standard VDSO files are copied into
-> arch/riscv/kernel/vdso_cfi. Add a .gitignore to prevent these files from
-> being tracked by git.
+On Tue, May 12, 2026 at 05:00:00AM +0000, sashiko-bot@kernel.org wrote:
+> >     resctrl_arch_reset_rmid() re-arms CONFIG_EVENT with EVT_ID=Occupancy.
+> >     CONFIG_EVENT both resets the counter to 0 and selects the event, so
+> >     re-arming with the same event keeps the MCID counting after reset rather
+> >     than relying on sticky-last-event semantics that the CBQRI register
+> >     definition does not guarantee.
 > 
-> Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> ---
->  arch/riscv/kernel/vdso_cfi/.gitignore | 5 +++++
->  1 file changed, 5 insertions(+)
+> The resctrl core only calls mon_event_read() with first=true (which
+> triggers the arch reset hook) for Memory Bandwidth Monitoring events,
+> never for L3 Occupancy.
 > 
-> diff --git a/arch/riscv/kernel/vdso_cfi/.gitignore b/arch/riscv/kernel/vdso_cfi/.gitignore
-> new file mode 100644
-> index 000000000000..8bc6f31c8ee6
-> --- /dev/null
-> +++ b/arch/riscv/kernel/vdso_cfi/.gitignore
-> @@ -0,0 +1,5 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +*.S
-> +*.c
-> +vdso.lds
-> +!vdso-cfi.S
+> Because resctrl_arch_reset_rmid() is never invoked for L3 Occupancy during
+> RMID recycle, will the counter fail to re-arm when a new monitoring group
+> is created, causing it to stop counting or inherit dirty data from previous
+> users?
 
-Thanks for this patch. I was seeing a bunch of files in gitignore like
-this and this cleans this up.
+cbqri_init_mon_counters() pre-configures the MCID slot at domain init,
+and occupancy is a current state read rather than an accumulator, so a
+recycled MCID returns the live counter. I'll update the commit message
+and drop the occupancy branch in resctrl_arch_reset_rmid() since it is
+unreachable.
 
-Sashiko [1] seems to say that *.tmp should be added to this gitignore.
-I think it's correct. I see some vdso-cfi.so.dbg.tmp files being
-generated (and removed) in the build logs if I run make with --trace.
-
-arch/riscv/kernel/vdso/Makefile:81: update target 'arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg' due to: arch/riscv/kernel/vdso_cfi/vdso.lds arch/riscv/kernel/vdso_cfi/rt_sigreturn.o arch/riscv/kernel/vdso_cfi/vgettimeofday.o arch/riscv/kernel/vdso_cfi/getcpu.o arch/riscv/kernel/vdso_cfi/flush_icache.o arch/riscv/kernel/vdso_cfi/hwprobe.o arch/riscv/kernel/vdso_cfi/sys_hwprobe.o arch/riscv/kernel/vdso_cfi/getrandom.o arch/riscv/kernel/vdso_cfi/note.o arch/riscv/kernel/vdso_cfi/vgetrandom-chacha.o FORCE
-set -e;  echo '  VDSOLD  arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg';   trap 'rm -f arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg; trap - HUP; kill -s HUP $$' HUP;  trap 'rm -f arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg; trap - INT; kill -s INT $$' INT;  trap 'rm -f arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg; trap - QUIT; kill -s QUIT $$' QUIT;  trap 'rm -f arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg; trap - TERM; kill -s TERM $$' TERM;  trap 'rm -f arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg; trap - PIPE; kill -s PIPE $$' PIPE; riscv64-unknown-linux-gnu-ld -fcf-protection=full -melf64lriscv -z noexecstack --no-warn-rwx-segments  -shared -soname=linux-vdso.so.1 --build-id=sha1 --eh-frame-hdr -T arch/riscv/kernel/vdso_cfi/vdso.lds arch/riscv/kernel/vdso_cfi/rt_sigreturn.o arch/riscv/kernel/vdso_cfi/vgettimeofday.o arch/riscv/kernel/vdso_cfi/getcpu.o arch/riscv/kernel/vdso_cfi/flush_icache.o arch/riscv/kernel/vdso_cfi/hwprobe.o arch/riscv/kernel/vdso_cfi/sys_hwprobe.o arch/riscv/kernel/vdso_cfi/getrandom.o arch/riscv/kernel/vdso_cfi/note.o arch/riscv/kernel/vdso_cfi/vgetrandom-chacha.o -o arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg.tmp && riscv64-unknown-linux-gnu-objcopy  -G __vdso_rt_sigreturn  -G __vdso_vgettimeofday  -G __vdso_getcpu  -G __vdso_flush_icache  -G __vdso_hwprobe  -G __vdso_sys_hwprobe  -G __vdso_getrandom arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg.tmp arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg && rm arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg.tmp && if riscv64-unknown-linux-gnu-readelf -rW arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg | grep -v _NONE | grep -q " R_\w*_"; then (echo >&2 "arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg: dynamic relocations are not supported"; rm -f arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg; /bin/false); fi; printf '%s\n' 'savedcmd_arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg := riscv64-unknown-linux-gnu-ld -fcf-protection=full -melf64lriscv -z noexecstack --no-warn-rwx-segments  -shared -soname=linux-vdso.so.1 --build-id=sha1 --eh-frame-hdr -T arch/riscv/kernel/vdso_cfi/vdso.lds arch/riscv/kernel/vdso_cfi/rt_sigreturn.o arch/riscv/kernel/vdso_cfi/vgettimeofday.o arch/riscv/kernel/vdso_cfi/getcpu.o arch/riscv/kernel/vdso_cfi/flush_icache.o arch/riscv/kernel/vdso_cfi/hwprobe.o arch/riscv/kernel/vdso_cfi/sys_hwprobe.o arch/riscv/kernel/vdso_cfi/getrandom.o arch/riscv/kernel/vdso_cfi/note.o arch/riscv/kernel/vdso_cfi/vgetrandom-chacha.o -o arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg.tmp && riscv64-unknown-linux-gnu-objcopy  -G __vdso_rt_sigreturn  -G __vdso_vgettimeofday  -G __vdso_getcpu  -G __vdso_flush_icache  -G __vdso_hwprobe  -G __vdso_sys_hwprobe  -G __vdso_getrandom arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg.tmp arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg && rm arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg.tmp && if riscv64-unknown-linux-gnu-readelf -rW arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg | grep -v _NONE | grep -q " R_\w*_"; then (echo >&2 "arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg: dynamic relocations are not supported"; rm -f arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg; /bin/false); fi' > arch/riscv/kernel/vdso_cfi/.vdso-cfi.so.dbg.cmd
-  VDSOLD  arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg
-
-Sort of related, but I noticed that make clean doesn't cleanup these
-files in the vdso_cfi directory. I can send a patch to clean this up.
-Something like this
-
-diff --git a/arch/riscv/kernel/vdso_cfi/Makefile b/arch/riscv/kernel/vdso_cfi/Makefile
-index 8ebd190782b08..5aa78b85bbed8 100644
---- a/arch/riscv/kernel/vdso_cfi/Makefile
-+++ b/arch/riscv/kernel/vdso_cfi/Makefile
-@@ -20,6 +20,8 @@ $(vdso_S_objects): $(obj)/%.S: $(src)/%.S
- $(vdso_c_objects): $(obj)/%.c: $(src)/%.c
-        $(Q)cp $< $@
- 
-+clean-files := $(patsubst $(src)/%.c, %.c, $(vdso_c_sources)) $(patsubst $(src)/%.S, %.S, $(vdso_S_sources))
-+
- # Include the main VDSO Makefile which contains all the build rules and sources
- # The VDSO_CFI_BUILD variable will be passed to it to enable CFI compilation
- include $(src)/Makefile
-
-[1] https://sashiko.dev/#/patchset/20260418-vdso_cfi_ignore-v1-1-f4b89f5b0d3b%40gmail.com
-
+> > +/*
+> > + * Per-event controller table. Only events CBQRI can back occupy a
+> > + * slot, so other events do not bloat the array.
+> > + */
+> > +#define CBQRI_MAX_EVENT QOS_L3_OCCUP_EVENT_ID
+> > +static struct cbqri_controller *cbqri_resctrl_counters[CBQRI_MAX_EVENT + 1];
 > 
-> ---
-> base-commit: 08ee1559052be302f1d3752f48360b89517d9f8d
-> change-id: ${change-id}
+> This array is allocated and initialized in cbqri_resctrl_pick_counters()
+> and nulled out during teardown, but its contents appear to never be accessed
+> by any logic in the driver. 
 > 
-> - Charlie
+> Is this array just dead code?
+
+No, cbqri_resctrl_counters[QOS_L3_MBM_TOTAL_EVENT_ID] is read in
+cbqri_resctrl.c to decide whether to enable mbm_total_bytes. 
+
+> > @@ -205,10 +225,101 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+> >  			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
+> >  			   void *arch_priv, u64 *val, void *arch_mon_ctx)
+> >  {
+> > -	return -ENODATA;
+> > +	struct cbqri_resctrl_dom *hw_dom;
+> > +	struct cbqri_controller *ctrl;
+> > +	struct rdt_ctrl_domain *d;
+> > +	u64 ctr_val;
+> > +	int err;
+> > +
+> > +	resctrl_arch_rmid_read_context_check();
+> > +
+> > +	/*
+> > +	 * Each branch takes a sleeping mutex. Bail if called with IRQs
+> > +	 * disabled (e.g. smp_call_function_any() from nohz_full CPUs).
+> > +	 */
+> > +	if (irqs_disabled())
+> > +		return -EIO;
 > 
+> The resctrl core intentionally reads remote domains via
+> smp_call_function_any() when the target CPU is nohz_full, running the
+> callback in hardirq context.
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Will rejecting calls in atomic context completely break cache occupancy
+> monitoring for nohz_full CPUs, as any attempt to read their statistics
+> will always fail with -EIO?
 
+This matches MPAM's __read_mon(). fs/resctrl explicitly handles -EIO
+from this class of drivers when dispatching via smp_call_function_any()
+for nohz_full CPUs. I'll update the comment to clarify.
 
+> > +	err = resctrl_online_mon_domain(res, &mon_dom->hdr);
+> > +	if (err)
+> > +		goto err_listdel;
+> > +
+> > +	err = cbqri_init_mon_counters(ctrl);
+> 
+> During domain initialization, resctrl_online_mon_domain() internally
+> calls resctrl_arch_reset_rmid_all(), which loops over all max_rmid to
+> issue CONFIG_EVENT MMIO operations.
+> 
+> Immediately after this returns, cbqri_init_mon_counters() is called,
+> which loops over ctrl->mcid_count to issue the exact same CONFIG_EVENT
+> MMIO operations again.
+> 
+> Since each CBQRI MMIO operation can sleep and take up to 1ms, does
+> doing this twice per domain initialization introduce strictly redundant
+> and significant latency during CPU hotplug?
 
+Yes. I'll drop cbqri_init_mon_counters() from the L3 mon attach path,
+since resctrl_arch_reset_rmid_all() called from
+resctrl_online_mon_domain() already covers the same occupancy
+configuration.
 
+> > +	if (err)
+> > +		goto err_offline;
+> > +
+> > +	return 0;
+> > +
+> > +err_offline:
+> > +	cancel_delayed_work_sync(&mon_dom->cqm_limbo);
+> > +	cancel_delayed_work_sync(&mon_dom->mbm_over);
+> 
+> The resctrl core only initializes mbm_over if resctrl_is_mbm_enabled()
+> is true. Since the CBQRI driver only enables the L3 Occupancy event and
+> not MBM, mbm_over remains completely zero-initialized from allocation.
+> 
+> Can calling cancel_delayed_work_sync() on a zeroed structure pass an
+> uninitialized timer to del_timer_sync() and trigger kernel panics?
+
+Yes. The fix is to guard the mbm_over cancel on
+resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID). resctrl only
+INIT_DELAYED_WORK's mbm_over when MBM is enabled, so a system without a
+paired BC will no longer cancel a zeroed work struct.
+
+> > +static int cbqri_attach_cpu_to_cap_ctrl(struct cbqri_controller *ctrl,
+> > +					unsigned int cpu)
+> > +{
+> 
+> The hotplug callback cbqri_resctrl_online_cpu() unconditionally skips
+> controllers if !ctrl->alloc_capable.
+> 
+> Will this cause controllers that are only capable of monitoring to be
+> ignored entirely, meaning no CPUs will ever be attached and no monitoring
+> domains will be created on monitoring-only hardware?
+
+This implementation does not support a capacity controller that supports
+mon_capable but not alloc_capable. I'll add pr_warn_once() in
+cbqri_resctrl_pick_caches() to make the limitation visible. 
+
+> > -	domain = cbqri_create_ctrl_domain(ctrl, res, cpu, dom_id);
+> > -	if (IS_ERR(domain))
+> > -		return PTR_ERR(domain);
+> > +	if (ctrl->mon_capable && ctrl->cache.cache_level == 3) {
+> > +		err = cbqri_attach_cpu_to_l3_mon(ctrl, res, cpu);
+> > +		if (err)
+> > +			return err;
+> 
+> If cbqri_attach_cpu_to_l3_mon() fails here, the error is returned, but the
+> CPU is not removed from the ctrl_domain mask and the domain structure is
+> not freed.
+> 
+> Because the CPU hotplug core handles a startup failure by rolling back
+> from the previous state, the offline callback for the current state
+> (cbqri_resctrl_offline_cpu) is not invoked.
+> 
+> Does this leave the CPU permanently stranded in the ctrl_domain mask and
+> leak the newly allocated domain structure?
+
+Yes. I'll make cbqri_attach_cpu_to_cap_ctrl() roll back the
+cpumask_set_cpu and tear down the new ctrl_domain when
+cbqri_attach_cpu_to_l3_mon() fails.
+
+> > +static void cbqri_detach_cpu_from_l3_mon(struct rdt_resource *res,
+> > +					 unsigned int cpu)
+> > +{
+> > +	struct rdt_l3_mon_domain *mon_dom, *tmp;
+> > +
+> > +	lockdep_assert_held(&cbqri_domain_list_lock);
+> > +
+> > +	list_for_each_entry_safe(mon_dom, tmp, &res->mon_domains, hdr.list) {
+> > +		if (!cpumask_test_cpu(cpu, &mon_dom->hdr.cpu_mask))
+> > +			continue;
+> > +		cpumask_clear_cpu(cpu, &mon_dom->hdr.cpu_mask);
+> > +		if (cpumask_empty(&mon_dom->hdr.cpu_mask)) {
+> > +			cancel_delayed_work_sync(&mon_dom->cqm_limbo);
+> 
+> This function is executed as a CPU hotplug callback, meaning the thread
+> holds cpus_write_lock(). Concurrently, the cqm_handle_limbo() worker
+> function in the resctrl core begins by acquiring cpus_read_lock().
+> 
+> If the worker starts executing while the hotplug thread is active, the
+> worker will block on cpus_read_lock(), while the hotplug thread blocks in
+> cancel_delayed_work_sync() waiting for the worker to finish.
+> 
+> Could this create an unresolvable AB-BA deadlock that hangs the system
+> during CPU offline operations?
+
+Yes, I will move the L3 mon_domain teardown path from
+cancel_delayed_work_sync to cancel_delayed_work.
+
+> > +			cancel_delayed_work_sync(&mon_dom->mbm_over);
+> 
+> (As mentioned above, mbm_over appears to be uninitialized here as well.)
+
+I'll do the same fix here too.
+
+-Drew
 
 _______________________________________________
 linux-riscv mailing list
