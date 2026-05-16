@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CFFCD4F21
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 14:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C93BCD4F21
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 May 2026 14:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JuLOeKxC2xmecJABqj4cquoIjCtymbyWhpfTqwERXxg=; b=NdbSGbGEiS+vGC
-	k5wniqqbSjcDTUf5ogfnS0PibgKEv9ObV3+Q9W/G7yqVxG3Hw5rRsjz66XMTxa8Wr+cBGwboTxvlZ
-	lY46QUjSRB4spAe3daLOePieA/AEKUG03kSw3FbFDc7uaqng7HtEBWr5sw2HwRc2nXxxfK+90uDUb
-	2Vv+6DK4Zcms82Niqzl7WcsSBKpDVj4Wukip0UlTUqfuxN/rttW0tXiGRwQa41AP/+C6JuPU9jXVx
-	2hgPx+5dIwOe01emHsNfoQL7OcWKmXisALgTgmCNGjvBzvmRSds5k4IU1dkzpNHrqrpV/CKG5y1+0
-	N1Gxox33ufGypgHl0fkw==;
+	List-Owner; bh=/juGHGWbxMvm2HPToyxeyypjMd1OMVCTCmRaRbH2XPc=; b=uurxPzYg7s/EJU
+	T2PjDCGkWr4TSulWRWEkakievZDWk84RWZhiMPciQnxtuXz+RtpbjKHxh/r41MYmryDm+pW99lALF
+	nEfsxVyZFq28Vg0lUYOnu5SOTeRKXDzwYejqCU0s4CYI1l12oqF24pezmVK16nxFbwZfJHl3N4aTV
+	2rYD+YWkfwMPHOf5TcD32BQVsVwZeRgv0Y92XG0+NZbRhIPYyrabKYwgdpr7zAjoOXMsh4bQI/k9M
+	PPVeMjSzpWA5BNFZVi8Q4Xs9DfkyWHzAtyQ0OoD5YxtS7YBGPSRA+xbK3S6R7UpaI3fvMPglrvz7q
+	hkFqr34XdtYTBAisl/Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOFjS-0000000AqJ6-3Isa;
-	Sat, 16 May 2026 14:11:10 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1wOGTZ-0000000Atkd-2EBE;
+	Sat, 16 May 2026 14:58:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOFjP-0000000AqIA-2zer
+	id 1wOGTX-0000000Atk8-26Fb
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 May 2026 14:11:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1778940640;
-	bh=gl6h17IIH0vCWE5gXx+SMnqjSaIj3H6R4jAvrfOok/s=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=mlxvpyFnzbK3DFvybUsWoIBIVa8Qfja0e3gqLHisdV9JW1eAGO0YOSQ+F4aFOdbim
-	 hBm04vC9FHY6OJyHjjE6HfsP8JMwSuPN1lwJyOYhRP6woLbb4L6Rnw+MfzeGY5KSnP
-	 3m8YV3Q4YA1Wtm5hK4MS945z/nX8RsoMKKpm55YgxiG9+asRULIlhrVKSV2cgxYkOh
-	 jFnEXvNCQKn4in/JVRz1jZQJuRLOHowB6LOGWmV+uViuZTplAUuM8QncSp3IUYA8Pm
-	 GJKC7m/379kbvOnkdw8uv8IT+CyqlMuESugYs8M7a4+xWVJeYu6lHhph2VeEeseVkR
-	 pNrizXHelklgw==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id BB048B220220;
-	Sat, 16 May 2026 16:10:37 +0200 (CEST)
-Message-ID: <57bd1600-fa0f-4387-b2fc-4dd17430ce5b@freeshell.de>
-Date: Sat, 16 May 2026 07:09:11 -0700
+	Sat, 16 May 2026 14:58:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2DB14445BA
+	for <linux-riscv@lists.infradead.org>; Sat, 16 May 2026 14:58:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0870AC2BCF5
+	for <linux-riscv@lists.infradead.org>; Sat, 16 May 2026 14:58:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778943526;
+	bh=cj6DCkgT4nLvdRIrKGN5toggTRHiMavADIBTkg63RsE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=eGQV6Yjolm3KPajKQCTPhOXBTnJiQHGujbPXrxoHisgiQihaxNxPQeylYzml+oQ0E
+	 UsyNGC9BcX8CBGookrLqzTHUAb9Bklp6f3IHDeVWWln30UowpCWtYY4HKNrtfVQFF7
+	 jKejTCzA9XyqPW2a8ckzbaQd8c6PBM6XZoor35sOcVe5aXU6W+8msj4hfFjcKRVy6H
+	 L5fRMDpRihEGBv79UE7RtDqa6YsckOvEX4OCkVPA+t86ds+8tWYcu5ajiBD0or3ebM
+	 gCK/vIeMUUQM2i3Oyayo735pd3mSjJ4iMqGJv3PmNe9Y4trxtK4+13REJKAUOGJJwT
+	 rZDwl8UMC+GnA==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5a8ee4b703fso815993e87.0
+        for <linux-riscv@lists.infradead.org>; Sat, 16 May 2026 07:58:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+hKHRlBtFz2TnX/VrjjEmb+4B15xlqNu87oHgN2s9DuuaawjT5WqLuqFTZyk44ouu3l4kY1ECocIbCjA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxFfVn6RDy0e6REs8e/Nw5LM9XZG2hoLU0XZ/OhCx+LcSXyaUk
+	Uz/o/SX8fqjHSee+UNSZQugDZKF3IgavB/4AK6jeGOTqVqu29TBc+3nLaiXzyknjCvFx384Udzc
+	VhdrU2SvfFyun0to9jvCBJ/HoIR/EJVQ=
+X-Received: by 2002:a05:6512:3409:b0:5a8:73c3:f27b with SMTP id
+ 2adb3069b0e04-5aa0e623b51mr2521095e87.15.1778943524744; Sat, 16 May 2026
+ 07:58:44 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] riscv: dts: spacemit: enable eMMC on Milk-V Jupiter
-To: Yixun Lan <dlan@kernel.org>, linux-kernel@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- "open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-References: <20260514160356.1642075-1-aurelien@aurel32.net>
- <20260514160356.1642075-4-aurelien@aurel32.net>
- <f52a821b-157a-467d-84ee-4d1d4a96f673@freeshell.de>
- <agbP0-OsfQRFJcr0@aurel32.net> <20260516053730-GKA3675990@kernel.org>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20260516053730-GKA3675990@kernel.org>
+References: <20260506-energize-dramatize-051909e54256@spud>
+ <CAD++jLkEfqDrqaxTjxf4AwHPcdCppPfO5F7H5YnR2gebzhZFig@mail.gmail.com>
+ <20260514-used-revival-306ddced4ab8@spud> <20260514-afterglow-overlabor-bc483b2a8b35@spud>
+In-Reply-To: <20260514-afterglow-overlabor-bc483b2a8b35@spud>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 16 May 2026 16:58:32 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnsL7w+2mR6JmAEwEXcfbipoL6eLWwz6g9ZCbr4T22Wmw@mail.gmail.com>
+X-Gm-Features: AVHnY4JdmrVpvtaNxwOlXXn3NxCkXK8mtEn98EOr0BMFQmQRWm8DuStr0owd8fc
+Message-ID: <CAD++jLnsL7w+2mR6JmAEwEXcfbipoL6eLWwz6g9ZCbr4T22Wmw@mail.gmail.com>
+Subject: Re: [RFC v1 0/4] generic pinmux dt_node_to_map implementation
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_071108_192816_EA5E0354 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20260516_075847_560461_FFD982F0 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,105 +82,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/15/26 22:37, Yixun Lan wrote:
-> Hi Aurelien,
-> 
-> On 09:48 Fri 15 May     , Aurelien Jarno wrote:
->> On 2026-05-14 23:49, E Shattow wrote:
->>> On 5/14/26 08:56, Aurelien Jarno wrote:
->>>> The Milk-V Jupiter board has a connector for an eMMC module. Add an
->>>> entry for it in the device tree and alias it mmc0. As it is not
->>>> populated by default, do no mark it as non-removable.
->>>>
->>>
->>> The meaning of "non-removable" here is whether it is expected to be
->>> added and removed during use, requiring to be probed again; not whether
->>> it is a user configurable module or soldered down part.
->>
->> Not connecting the eMMC module and larking it as non-removable causes this info
->> message to appears in the logs:
->>
->> mmc0: SDHCI controller on d4281000.mmc [d4281000.mmc] using ADMA
->> mmc0: Failed to initialize a non-removable card
->>
-> 
-> I'm with E Shattow here, and would prefer to add "non-removable" property,
-> Unlike SD card, the eMMC has no CD pin, some logic may be handled slightly
-> differently.
-> 
-> For that failure message, I have no idea how to deal with it but might
-> just ignore it.. Guess it's the price that have to pay if enabling the
-> eMMC in DT but has no module soldered or plugged in?
-> 
-
-Yes in this situation the ideal measure would need an overlay to set the
-status = "okay" or status = "disabled" dependent on the presence or
-absence of the module, correctly representing the state of the hardware
-- there is no module attached with which to configure. That is no
-trivial amount of work though and the easier (and I think we agree
-acceptable) approach is the driver will do what it does and inform that
-the module is not initialized. I would agree that an error message is
-the more useful outcome even if we would like to silence the error
-message it is at least accurate information.
-
-For comparison, Pine64 Star64 boot messages when SD Card is present and
-eMMC module is not populated, as follows.
-
-U-Boot:
-Working FDT set to ff731a10
-Hit any key to stop autoboot:  0
-Card did not respond to voltage select! : -110
-** Booting bootflow '<NULL>' with efi_mgr
-Booting: Debian
-
-Linux kernel (reverse timeline log):
-dwmmc_starfive 16020000.mmc: IDMAC supports 32-bit address mode.
-dwmmc_starfive 16020000.mmc: Using internal DMA controller.
-dwmmc_starfive 16020000.mmc: Version ID is 290a
-dwmmc_starfive 16020000.mmc: DW MMC controller at irq 26,32 bit host
-data width,32 deep fifo
-dwmmc_starfive 16020000.mmc: Got CD GPIO
-dwmmc_starfive 16010000.mmc: IDMAC supports 32-bit address mode.
-dwmmc_starfive 16010000.mmc: Using internal DMA controller.
-dwmmc_starfive 16010000.mmc: Version ID is 290a
-dwmmc_starfive 16010000.mmc: DW MMC controller at irq 25,32 bit host
-data width,32 deep fifo
-mmc_host mmc1: Bus speed (slot 0) = 45511111Hz (slot req 400000Hz,
-actual 399220HZ div = 57)
-mmc_host mmc0: Bus speed (slot 0) = 45511111Hz (slot req 400000Hz,
-actual 399220HZ div = 57)
-mmc_host mmc0: Bus speed (slot 0) = 45511111Hz (slot req 300000Hz,
-actual 299415HZ div = 76)
-mmc_host mmc1: Bus speed (slot 0) = 45511111Hz (slot req 50000000Hz,
-actual 45511111HZ div = 0)
-mmc1: new high speed SDXC card at address 0001
-mmc_host mmc0: Bus speed (slot 0) = 45511111Hz (slot req 200000Hz,
-actual 199610HZ div = 114)
-mmc_host mmc0: Bus speed (slot 0) = 45511111Hz (slot req 100000Hz,
-actual 99805HZ div = 228)
-
-There "Card did not respond to voltage select! : -110" is repeated each
-mmc interface that does not have media presently;  mmc1 is the eMMC
-connection. This driver (for JH-7110 designware MMC controller) does not
-complain about the eMMC module that is not attached.
-
-I don't have an answer what should be done about that error message and
-no opinion on making the driver less verbose or leaning into suggesting
-an overlay (which is not trivial, so... feel free to ignore me on that)
-however reporting on what is commonly true of 'non-removable' property.
-
-Best regards,
-
--E
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMTQsIDIwMjYgYXQgOTo0MOKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cgo+ID4gUmlnaHQsIHdlbGwgSSdsbCBnbyBjbGVhbiBpdCB1cCBJIHN1
+cHBvc2UuIEkgbWlnaHQgc2VuZCBhIHJmYyB2MiB3aXRoIGFuCj4gPiBleHRyYSBwYXRjaCB0aGF0
+IHRyaWVzIHRvIGdldCByaWQgb2Ygc29tZSBvZiB0aGUgY29kZSBkdXBsaWNhdGlvbiBhbmQKPiA+
+IHlvdSBjYW4gdGVsbCBtZSB3aGljaCB2ZXJzaW9uIHlvdSBwcmVmZXI/Cj4KPiBBY3R1YWxseSwg
+bm8gbmVlZCBmb3IgcmZjIHYyLCBjYW4ganVzdCBwYXN0ZSBoZXJlOgoKTG9va3MgZ29vZCB3aXRo
+IHNvbWUgcmVuYW1pbmcuCgpTZW5kIGEgbm9uLVJGQyB2ZXJzaW9uIHdoZW4geW91IGZlZWwgcmVh
+ZHkhCgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
