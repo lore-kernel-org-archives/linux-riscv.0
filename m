@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DC3CD4F21
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 10:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DFC2CD4F21
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 12:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DmOTpQAEMZWc8s3QND/nFtx/3Q+ALFxVBJUOd1Pqe4E=; b=IR4ysio+GuFN0M
-	2PsXFI/IAut01fk1TfdshnqtLpfh++cxkSY53MebKTPclTGL2/XuDGddEtpx1n2hjyPRq6BFmov0B
-	7keN65qr3uuVrJQeWRs3geyMOsmkluxv/XBEaUaqwfJ6ch8m5FGKGwALM0SK/n/xR5LACchXPuGNJ
-	AeQd7LuJtfh36jHk2JCMPbU1f7siHYc+HvJwM0OK0qLtmm2M0+jAsBF/X29CWz9fZApCVaeEkasmo
-	J4KvC6coLyLJ0ld0upFrwIjT+YQaxdO2AelQCs/RkD8RtmTSpRoVXWU6yO4Io6J3B2OY4DZJXwJn0
-	yZ6AzpORzQ2uXkSSKQuw==;
+	List-Owner; bh=zwXKk1ZWCVlQbCZB0HuRuYMQziiKoFdanfmpOT4+Gfw=; b=vQDD4neHv/bT84
+	js5Kgb0QWkbLOOps8FKu+WrhvRldEHKFpQ84aMt0NA8A61oZhEhfMz2JVAk0tngl4zV0d8HrrY0Td
+	cvopxRAjrZv4pmhecI6QEFo+89oIOzBTLsNM0+1upvbkRV3l29zrdnQ3u2IpR0sCIw5zeWEIJd/a8
+	UdlrAgHWHetTG0Wb3u0TJwqvV9INYBATmL3X+9++0+pvXhTIMasD96UEY6RJ30NGWS39lCCoApwhY
+	Dy+n/NXACn+SsiqYUmYFWJewTgy/USsjEIlJgQdKTfCPamDMwe9JEN3phZQpX4wq1EYoZIya0nHEd
+	lKeDyXYq26z2c8+R47AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOZ4d-0000000CYIC-2LN5;
-	Sun, 17 May 2026 10:50:19 +0000
-Received: from mail-m82212.xmail.ntesmail.com ([156.224.82.212])
+	id 1wOamI-0000000Ci1H-0slY;
+	Sun, 17 May 2026 12:39:30 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOZ4Z-0000000CYGt-3jTY
-	for linux-riscv@lists.infradead.org;
-	Sun, 17 May 2026 10:50:18 +0000
-Received: from Vostro-3710.. (unknown [119.122.215.211])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3eb5cf39b;
-	Sun, 17 May 2026 18:50:01 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: legoll@online.fr
+	id 1wOamE-0000000Ci0U-40DS;
+	Sun, 17 May 2026 12:39:29 +0000
+Received: from fric.. (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowADXaw_jtglq5ZqHEA--.31390S2;
+	Sun, 17 May 2026 20:38:59 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: anup@brainfault.org
 Cc: alex@ghiti.fr,
-	amadeus@jmu.edu.cn,
 	aou@eecs.berkeley.edu,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dlan@kernel.org,
-	krzk+dt@kernel.org,
+	atish.patra@linux.dev,
+	jiakaiPeanut@gmail.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
 	pjw@kernel.org,
-	robh@kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/1] riscv: dts: spacemit: enable QSPI for OrangePi RV2
-Date: Sun, 17 May 2026 18:40:40 +0800
-Message-Id: <20260517104040.1941126-1-amadeus@jmu.edu.cn>
+	xujiakai2025@iscas.ac.cn
+Subject: Re: [PATCH] RISC-V: KVM: Fix NULL pointer dereference in SBI v0.1 SEND_IPI handler
+Date: Sun, 17 May 2026 12:38:59 +0000
+Message-Id: <20260517123859.409709-1-xujiakai2025@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <e92fc4a6-7a63-4d24-9c13-8fec3d8184d3@online.fr>
-References: <e92fc4a6-7a63-4d24-9c13-8fec3d8184d3@online.fr>
+In-Reply-To: <CAAhSdy08enoCH83begksrSA4strPG5n5Wd4i+ext0Z+Wmz_OAA@mail.gmail.com>
+References: <CAAhSdy08enoCH83begksrSA4strPG5n5Wd4i+ext0Z+Wmz_OAA@mail.gmail.com>
 MIME-Version: 1.0
-X-HM-Tid: 0a9e358ea40403a2kunm5a1540d111564e
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSx5PVk4YGRoZQh5KTExDSFYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVJSkpZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pOTE5VSktLVUpCS0tZBg++
+X-CM-TRANSID: zQCowADXaw_jtglq5ZqHEA--.31390S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrCr4DXr47Jw4UGF4UWr15urg_yoWxXFc_Gw
+	s7Aay5WrW8ZF1FvF1DKwn3WFnxJw4kX3yktrnxAr95C34kArW7Kws3WF1DXr15Jrn8Ja93
+	CrnYv34fJ3909jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbfkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v
+	4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64
+	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
+	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2I
+	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK
+	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
+	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOmhFUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAgKCWoJMy-L8wAAsA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_035016_191755_F2F4F207 
-X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-CacheID: sfid-20260517_053927_368812_D31915CD 
+X-CRM114-Status: UNSURE (   7.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,42 +88,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi, Anup!
 
-> but cannot see anything relevant to SPI in dmesg, whereas I see [Q]SPI 
-> in u-boot output, but there it is listed as:
-> [   0.887] SF: Detected XM25QH128A with page size 256 Bytes, erase size 
-> 64 KiB, total 16 MiB
-> Which is not the same you tested (XM25QU128C).
+Thanks for your review!
 
-Please do not trust the flash name printed by vendor UBoot.
-XM25QU128C is 0x204118, while XM25QH128A is 0x207018.
+> > diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
+> > index 188d5ea5b3b85..98ecfcb2469e6 100644
+> > --- a/arch/riscv/kvm/vcpu_sbi_v01.c
+> > +++ b/arch/riscv/kvm/vcpu_sbi_v01.c
+> > @@ -55,6 +55,8 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> >
+> >                 for_each_set_bit(i, &hmask, BITS_PER_LONG) {
+> >                         rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
+> > +                       if (!rvcpu)
+> > +                               break;
+> 
+> Instead of break it is better to continue here so that non-existent
+> VCPUs are ignored.
 
-~ # cat /sys/kernel/debug/spi-nor/spi0.0/params 
-name            spi-nor-generic
-id              20 41 18 20 41 18
-size            16.0 MiB
+You are right. I'll send the v2 patch later.
 
-You can also check the silkscreen of the SPI NOR flash. By
-the way, the IO voltages of these two flashes are different.
+Jiakai
 
-> How can I know this patch is working properly ?
-
-[    1.116594] 6 fixed-partitions partitions found on MTD device d420c000.spi
-[    1.116609] Creating 6 MTD partitions on "d420c000.spi":
-[    1.116615] 0x000000000000-0x000000010000 : "bootinfo"
-[    1.119280] 0x000000010000-0x000000020000 : "private"
-[    1.120718] 0x000000020000-0x000000060000 : "fsbl"
-[    1.122064] 0x000000060000-0x000000070000 : "env"
-[    1.126373] 0x000000070000-0x0000000a0000 : "opensbi"
-[    1.127679] 0x0000000a0000-0x000000800000 : "uboot"
-
-These partitions can be tested using the mtd command.
-Or simply view the contents of these partitions:
-~ # hexdump -C /dev/mtd0
-
-Thanks,
-Chukun
 
 _______________________________________________
 linux-riscv mailing list
