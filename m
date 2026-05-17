@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16508CD37AC
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 14:14:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE17CD4F21
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 14:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E1fGTUPb5VF2XJhqidFS+EXNBW33TdGmpWtIrNmFyNw=; b=1wadIrRJaiMkMO
-	V9fBeTXIurWgghxlluCjLkEvIeJfow0HUIdJEBt5UgqP219JyISdpk2jyzW9/UsYBDDhIgBQnl/wx
-	TK9gCt18Q4azkobE8v+NEX5SLzIsEYy4umIpr9sR7+gJBvbnf7a7algHq6FXLZssTqSBIuypxOSCG
-	6c47AsBmMTxSWzOIRi7elFNh5a6q8gYLn0hG4bJiizSdE12SZ7vL/gvhFwu4EHXpTfFe+RDBOwTQ1
-	FvK5Pe9IxbaFmXxglwIWItyllU/HRawnAtP6oJkLHkehUD/5Q2gHmnGwL+pInLglpIowKn8jj7V+0
-	MgxN0MS7SZtylq7GtytQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OPh5faU3JcacphJoZ7b5f3Isru6E8uydEROwVpNs8sA=; b=EcNWg9m19/Xy4Z
+	3YS65mp2zKZ36wiWWUj+WXaxlhS3q3zBUi5fD6+OrnBBVcmAue2VdXb3Nbltl6dGYi7z6KxTxiI5M
+	FdPMHRdgjFTTaw2VV2Mz/oclBZOKqKclII0RLQFkzp/QLOWBRz9unW0ExeV/Gt8UKyS7xW+gZIWB7
+	3VhswlEyJxShawT4mN0p2pGZZ3lng680wjNzwdKlZuLpXHUD4excLLeK3G8QpaMxQY/ylbdJa6f+m
+	3uf5/u30+6aVHy92LI1bil2vGwNIXPd72LWknXg18VvuewyJjCBmPVU992C/2Wba28jVZKqZ5SQ4M
+	URe+EHXZ2b2EFM7BxqLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOcFW-0000000CpIq-0pKb;
-	Sun, 17 May 2026 14:13:46 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wOcFf-0000000CpKN-1CVu;
+	Sun, 17 May 2026 14:13:55 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOcFT-0000000CpII-0O9q
+	id 1wOcFd-0000000CpJw-1K7r
 	for linux-riscv@lists.infradead.org;
-	Sun, 17 May 2026 14:13:44 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-82fbdd60b64so1149682b3a.3
-        for <linux-riscv@lists.infradead.org>; Sun, 17 May 2026 07:13:42 -0700 (PDT)
+	Sun, 17 May 2026 14:13:54 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-839dc688d6cso493941b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 17 May 2026 07:13:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779027222; x=1779632022; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yk8HOd3Eg0mugUUA+8CSg5qLF5dL573+VzafG0ZQv/8=;
-        b=Iq921hTlI9DwiJdspWT6riJga7cKC4Jr7LpihK+kd0bhosgNXEzt2iZQDg4dNMaHWO
-         Shkwj/xlryQMoti/gH4AvrzPWE+C0M9HxkO3BLm8Tx8lPx+Kz2TEJpDDoWdl3tgcRu8T
-         jmex44oEdjd1rYAinF+FL+uwCKjC41geg53bYfjBE4jWwT0/wndA4169q/r25ZONH5l0
-         R8H53Hur0b0lIH0WVwK5sm2YmO72K/+DGu82fQ7A6gUQc0vxKkCOEJ3HSCpULw3RA6fo
-         kKgh4TD0H5qBdAK4GqmtmSeLI0EdklLi2rBoVd4bgvRUZGgj7WDK+ovTaok+jnYRRXUX
-         tNww==
+        d=gmail.com; s=20251104; t=1779027232; x=1779632032; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=seaxzvl1xgZZJAa+rRq0jV+BZBh4vJTt4ZSm28H6Xmk=;
+        b=LAACiO4K0zPm6i2P6ArYEZwXoO37SbB2g7V+mfpLubkadPRdMt3PByH8gZmaCygkRt
+         kX84MmVLb6WgVCpeWBMC/mj0mG3j38p4Xto+axfmlmfZEaAsZ52f0Ka0Qr8B6KjCUU1n
+         sXk0SXCnnxZnYUS/5T57YyyfUuEham7YEIw/E49jejy5QTlrFsJdxM8JiLrIMRNILH6h
+         z2vTBdkCetBdguG3uJwJ3Kchl3LB8VlIPGlX/l/pYTwrX6ZGvHeTXeN2H+nQVGU05G9S
+         OLInT7rGfJga7+5TUOH4jRjEDzWu/xcgek7ZQ6+s5qqvf8qxa4JAEYcaGsYgqPYCKwbs
+         +fgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779027222; x=1779632022;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yk8HOd3Eg0mugUUA+8CSg5qLF5dL573+VzafG0ZQv/8=;
-        b=Eo6KKBTpvynmCIHwObVaKVr/26CoKZ8Qck3j1jwONgPep711GNLSW+e+QsqsqG9Bh7
-         j64V83q4wiMVlD3OMpOIIzpDUKkcllw5fuNnIs+zYtsEIBpIO2BVmCygB+yIuW5PXckl
-         Ic4fJxjFbQIdpmP1f7vQKQ9B73UHuymj8sVWZcuLxk6m10iuTSSS5awbAH2YkMThZHmh
-         Ar4vmT5epT3SZVCFhE6L+hNVhc7nz14vH5uKOWJe2Tbl0eM6agjB3NHMv+LJUehhndmF
-         YTPaMzbfbwEDsrnhuRm3aoESxXZnHO8JK7M/g4NgY4TeYl2Ob25V+qCK0J9wj8ZnO5+h
-         weHQ==
-X-Gm-Message-State: AOJu0YyMMlyqOB6IMno1MlEuYxF26YFSdHc2tl7+fRKpzwJqN8GdZFca
-	ojUc4IpLd1hNKgoBQu9G/vQKfGccp+THYB9IfV1tdoH+u14CKKCEkXyw
-X-Gm-Gg: Acq92OFYRQPMPi4pwh1VchWpA5cZcqSHhdKTpUnFcoAeP9lelznG5Gb53+bmi/WJNLK
-	K8MoCFrAl+e7Cl2gmmIEIqGbwTwWe131AJm758WOw5ilRsJlJxlu10F8X6VinNAS5Yt53w5N2Zq
-	w5vBEhadZnUmQziNx0tcP/ss6uY199hQjbHGwkwGf+EvDiR/YyJT2bGosh7oOoVD4FipPX+4Ggd
-	WlPzASawjwh1LVUhuHiw+J9o27Cr68sFzSh1LKj3q0AA8cIAqzc96YOvdCwwyCCY4KPq6DUBlz+
-	krG/HD9N1BMuHKSm3rsFjGMD4FepdSO6zjTnsI2ImaZhfKGqjkuRp04epbvEWBN+xleSAYRoDEk
-	9PnOfRjYUTBQN1/jBOXTXlCWVxlAJhq/LRwppbJhToPSraG1vPnNQsqGO2qYN+Ff4Fvqg7OE5J9
-	2zJG5dkw/KvChEnJ8P9tMWEae1Q9Ol
-X-Received: by 2002:a05:6a00:4212:b0:82f:42bc:3386 with SMTP id d2e1a72fcca58-83f33d0356bmr11819618b3a.21.1779027221951;
-        Sun, 17 May 2026 07:13:41 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779027232; x=1779632032;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=seaxzvl1xgZZJAa+rRq0jV+BZBh4vJTt4ZSm28H6Xmk=;
+        b=oJSUYGmSQKsJ/h2w/9933gJCvXZ0ERBxnsTR+B/aqCCPjtmigNXYpgjkoOIngxNHAU
+         fr4si++AZyMK2VDnPNPjH0cn01lE25I+B4sua7O6dvNJ+31EL32bxImk2xfp3kGaPkv5
+         S7DDx8Pdbo+7pMBeJmMMQkYdFrJ7ctETuLBDjj6sCJtdedrQWM9X52N0CxKte3kvrVPd
+         MwXtzlbGUMyWzH/1qBXwrK38M5oRGAyn5nIipW04VCWR0+02UokPa/93/zJRU9JCm1mO
+         C1ezK3t+tqDCtoBTggFWCmd0k7VI+c4VoALXhHx8xtI7VbIFtZdOfTt4+DfoHFEu53+W
+         RgRg==
+X-Gm-Message-State: AOJu0YyWGyLcdZA6Qt3siRn7TSpxhilSgHp8c2sNeqdOXHoCTAbO3G+x
+	y5mJy9U38y6FXZ2B4AWHQyjgVmTbfvSdvIdnvd1xt+b/osUFHANbS3Gm
+X-Gm-Gg: Acq92OGvFLn9fmK8Pun7ObVERaw0cjTRgvTnYGj3igVj/5jxTQu8XzSS2taG6sdrDOB
+	UrwXItfN+3xmw3kWWKXElkfPoyQM0j5tULY8YV/goKCP60QECQn0Ai14/FhhuzO3YCh/aANGYSf
+	Hdq02ba3zEMhoqqAzlZlEu3IiMlhg0StU1qbAtUYfi8wiFS+A1OXS+MwrLVd1i7+3jkaCFs412w
+	ZYatrlONxWPmsqlbYEWPdbdmmbOtaGAhWNITgjzWqHfFppniDT47Lr+ZMqet+n4c9hifuliFDbo
+	FYeo+iEVy8IV8gGCgEKTDF6zk5uawKx4jBQUHDGJJU3MlY4z3YrtAWBy0HURrik+CslDI4M9p8M
+	b0Cia2nbAIsaayQJcg5yAM3JpmhmWPapmdR11vWsOPcpqiiRD32vsShsUcnOqFscga1vfL3udH9
+	qXD+B9BdsWYRoy9ZklbYOHwkjIyHhunW0a77F36kE=
+X-Received: by 2002:a05:6a00:4ac2:b0:82c:66f2:1226 with SMTP id d2e1a72fcca58-83f33d5494bmr11243398b3a.38.1779027232488;
+        Sun, 17 May 2026 07:13:52 -0700 (PDT)
 Received: from guoguo-lecoo.lan ([104.28.163.100])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19fa5489sm10252528b3a.60.2026.05.17.07.13.33
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19fa5489sm10252528b3a.60.2026.05.17.07.13.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 07:13:41 -0700 (PDT)
+        Sun, 17 May 2026 07:13:52 -0700 (PDT)
 From: Chuanhong Guo <gch981213@gmail.com>
-Subject: [PATCH 0/4] clk: add Siflower SF21 topcrm support
-Date: Sun, 17 May 2026 22:12:54 +0800
-Message-Id: <20260517-sf21-topcrm-v1-0-438f2e0513ff@gmail.com>
+Date: Sun, 17 May 2026 22:12:55 +0800
+Subject: [PATCH 1/4] riscv: add Siflower RISC-V SoC family Kconfig support
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDU0NT3eI0I0PdkvyC5KJcXUMLU7NkA9MkM0NjCyWgjoKi1LTMCrBp0bG
- 1tQAa2/r4XQAAAA==
-X-Change-ID: 20260515-sf21-topcrm-1856c05b6138
+Message-Id: <20260517-sf21-topcrm-v1-1-438f2e0513ff@gmail.com>
+References: <20260517-sf21-topcrm-v1-0-438f2e0513ff@gmail.com>
+In-Reply-To: <20260517-sf21-topcrm-v1-0-438f2e0513ff@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  Michael Turquette <mturquette@baylibre.com>, 
@@ -87,8 +86,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Chuanhong Guo <gch981213@gmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_071343_139970_F7B678C3 
-X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-CacheID: sfid-20260517_071353_360210_68CD9CF2 
+X-CRM114-Status: UNSURE (   7.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,35 +105,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Siflower SF21A6826 and SF21H8898 are RISC-V chips with quad-core
-T-Head C908 for home routers and gateways.
-This series adds the initial RISC-V Kconfig entry for Siflower SoCs and
-support for the toplevel clock and reset module on Siflower SF21 socs.
+Siflower RISC-V SoCs, including SF21A6826 and SF21H8898, are RISC-V
+chips with T-Head C908 cores for home routers and gateways. Add a
+Kconfig entry named ARCH_SIFLOWER for them.
+Notably these chips uses ARM PL011 for UART. ARM_AMBA is selected
+for its driver.
 
 Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
 ---
-Chuanhong Guo (4):
-      riscv: add Siflower RISC-V SoC family Kconfig support
-      dt-bindings: clock: add binding header for sf21-topcrm
-      dt-bindings: clock: add doc for Siflower sf21-topcrm
-      clk: add support for siflower sf21-topcrm
+ arch/riscv/Kconfig.socs | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
- .../bindings/clock/siflower,sf21-topcrm.yaml       |   69 ++
- arch/riscv/Kconfig.socs                            |    7 +
- drivers/clk/Kconfig                                |    1 +
- drivers/clk/Makefile                               |    1 +
- drivers/clk/siflower/Kconfig                       |   22 +
- drivers/clk/siflower/Makefile                      |    1 +
- drivers/clk/siflower/clk-sf21-topcrm.c             | 1053 ++++++++++++++++++++
- include/dt-bindings/clock/siflower,sf21-topcrm.h   |   63 ++
- 8 files changed, 1217 insertions(+)
----
-base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-change-id: 20260515-sf21-topcrm-1856c05b6138
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index c174ac0ec46b..9996591cd9db 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -37,6 +37,13 @@ config ARCH_SIFIVE
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+ 
++config ARCH_SIFLOWER
++	bool "Siflower RISC-V SoCs"
++	select ARM_AMBA if TTY
++	select ERRATA_THEAD
++	help
++	  This enables support for Siflower RISC-V SoC platform hardware.
++
+ config ARCH_SOPHGO
+ 	bool "Sophgo SoCs"
+ 	help
 
-Best regards,
 -- 
-Chuanhong Guo <gch981213@gmail.com>
+2.54.0
 
 
 _______________________________________________
