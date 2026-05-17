@@ -4,69 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CCFCD5BAF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 17:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA00CD5BAC
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 17:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/Vszw8Nc2raeP/OwxAZqBLmdAU3IB0ug91+qQBnIhAw=; b=N5jsSgrVeGooAP
-	G2WSXAZFm8NYt3Vc1iLBDUcnLFE4pQjo5pamPzG/fRLC+iAQL1FSDInm1Bh+gwafjdahJh9KKrYfd
-	dzYQijzPAZbggKodKy6cj2eYq2QejlS+IWkwD7FXNUoLTWkKYe/eCwZefk0e69yDh7lbjE1sS9s3n
-	0Mr8Tckz1kZAahe5y/+TD8WOlgNItTjxWTwDDlFMHu7Gi3Mbh1Fw1VdXEWvbLoa+4aMu/T1OZ69mT
-	I+8M1ted8a3ygLf6yIq3tUR4GNnUQS9MJQbk6XRXBJc57Bhjls3lHa6NYNBbKJbEePfJ+UVwld/TB
-	EoTZ56rWwiQV3+usUErg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:From:Cc:To:MIME-Version:Date:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sIMSNSvIQWJHNaNoi8KnXwpejcz0l0/wdKyByq+asI8=; b=2TJhM4vWGYbbtm6N4Etd6UOr25
+	8pXaYKyEhhbI/1+j23Jt+W60dr7WMKJXSmw3ca2ENBwjkD9SoXIEDJfH/YGs7P4QuTvAZV6FWdIyQ
+	cVvggc+cNG7fjvuhqiphSRNOlzNVPFEqRfkahOLio2Dx2HL+gpoi1VLNZgiaVmbJGZgbs86mgp2B6
+	TT4jDvfo/v4H8/NpxcMhn/iy6fj7k/3OGotRS2izOndkB2T4vI3Cwg1D2ZB/7C5jF+h2BjbG21Ml/
+	AO9ndLOhR1tigM8F1Q+25HL4SwliUI/rRo1p5frEOlPJNHNH5ZhbZo2e/KHW4D878otzd2EixFh6r
+	qn4w5g/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ718-00000008blJ-3B7e;
-	Thu, 21 May 2026 17:17:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQ7fq-00000008i7m-3kD1;
+	Thu, 21 May 2026 17:59:10 +0000
+Received: from smtp5-g21.free.fr ([2a01:e0c:1:1599::14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ717-00000008bkt-19yu
+	id 1wOYVj-0000000CVUE-16r9
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 May 2026 17:17:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3AFA960098;
-	Thu, 21 May 2026 17:17:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A3FC1F000E9;
-	Thu, 21 May 2026 17:17:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779383823;
-	bh=TzvtaM0HFO3hTTzXz7hMDZGf1pih4p7h/VA/ScQingo=;
-	h=From:To:Cc:Subject:Date;
-	b=R03u+1IhglKS+fD4HrN34UdKSTml7c8/JKlusR/RqHb/FhZug2oS3UjI+ZRWX6B9a
-	 7w9pbUIEUMOJV1dBfc71064/evHIVrgIwwlXgjACKIOUejQVQuVno5CToaMO/HiJKI
-	 KZfhzWsDwuw23BQt1xNqPVOoHeeif76+voYUku0cVNOTaDyU1VpZhVeR4l8oP3DcVp
-	 zv4zVWTN8JFVyKS1ehM7RqXoAiUsixu1AWXyeNilf23XMcruxVVdjliDOSX1Vm43uj
-	 euqBlmmpBCKfVgUm0J9e3iLRrQ92bxzTKpKf0Vc0iXYtATd2i9qItrbDY/dnq+EsP9
-	 ULXD7955uxeig==
-From: Drew Fustini <fustini@kernel.org>
-To: Tomasz Jeznach <tomasz.jeznach@linux.dev>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Drew Fustini <fustini@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Nicholas Piggin <npiggin@gmail.com>
-Subject: [PATCH v4] dt-bindings: iommu: riscv: Add bindings for Tenstorrent RISC-V IOMMU
-Date: Thu, 21 May 2026 10:06:33 -0700
-Message-ID: <20260521170652.1880662-2-fustini@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Sun, 17 May 2026 10:14:17 +0000
+Received: from [10.0.0.2] (unknown [82.65.243.93])
+	(Authenticated sender: legoll@free.fr)
+	by smtp5-g21.free.fr (Postfix) with ESMTPSA id 8B6E86013C;
+	Sun, 17 May 2026 12:13:54 +0200 (CEST)
+Message-ID: <e92fc4a6-7a63-4d24-9c13-8fec3d8184d3@online.fr>
+Date: Sun, 17 May 2026 12:13:54 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Yixun Lan <dlan@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, krzk+dt@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ pjw@kernel.org, robh@kernel.org, spacemit@lists.linux.dev
+From: Vincent Legoll <legoll@online.fr>
+Subject: Re: [PATCH 1/1] riscv: dts: spacemit: enable QSPI for OrangePi RV2
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260517_031415_442807_E59B1C52 
+X-CRM114-Status: UNSURE (   5.71  )
+X-CRM114-Notice: Please train this message.
+X-Mailman-Approved-At: Thu, 21 May 2026 10:59:10 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,151 +60,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nicholas Piggin <npiggin@gmail.com>
-
-Extend the binding to cover details specific to the Tenstorrent RISC-V
-IOMMU. In particular, a second register range is added which contains
-M-privileged registers, e.g., PMAs and PMPs.
-
-The RISC-V spec S-privileged registers remain in the first register
-range and are compatible with "riscv,iommu" so the Linux driver does not
-notice any difference, but the binding will be used by OpenSBI and
-potentially other M-mode software.
-
-Reviewed-by: Joel Stanley <joel@jms.id.au>
-Acked-by: Joerg Roedel <joerg.roedel@amd.com>
-Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
-[fustini: fix dt_binding_check errors]
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
-v4 changes:
-- Add minItems: 1 to reg-names so it is legal to for platforms other
-  than tenstorrent,riscv-iommu to use "base"
-- Add reg-names constraints to the allOf: block
-- Sashiko review:
-  https://lore.kernel.org/lkml/20260521070154.9CAA41F000E9@smtp.kernel.org/
-- Link to v3:
-  https://lore.kernel.org/lkml/20260521064445.1740782-2-fustini@kernel.org/
-
-v3 changes:
-- Move tenstorrent,riscv-iommu to the enum with qemu,riscv-iommu
-- Move descriptions out of the allOf:
-- Add minItems: 2 for tenstorrent,riscv-iommu in allOf:
-- Fix reg syntax in Example 5
-- Link to v2:
-  https://lore.kernel.org/lkml/20260520061855.1623468-4-fustini@kernel.org/
-
-v2 changes:
-- Fix dt_binding_check errors
-- Add the Acked-by: from Joerg
-- Drop RFC prefix
-- Link to v1:
-  https://lore.kernel.org/lkml/20260310003850.3837030-1-npiggin@gmail.com/
-
- .../bindings/iommu/riscv,iommu.yaml           | 59 ++++++++++++++++---
- 1 file changed, 51 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-index d4838c3b3741..f83efb3ee000 100644
---- a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-+++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-@@ -32,22 +32,35 @@ properties:
-   # should be specified along with 'reg' property providing MMIO location.
-   compatible:
-     oneOf:
--      - items:
-+      - description: Platform (non-PCIe) IOMMU implementations
-+        items:
-           - enum:
-               - qemu,riscv-iommu
-+              - tenstorrent,riscv-iommu
-           - const: riscv,iommu
--      - items:
-+      - description: PCIe IOMMU implementations
-+        items:
-           - enum:
-               - pci1efd,edf1
-           - const: riscv,pci-iommu
- 
-   reg:
--    maxItems: 1
--    description:
--      For non-PCI devices this represents base address and size of for the
--      IOMMU memory mapped registers interface.
--      For PCI IOMMU hardware implementation this should represent an address
--      of the IOMMU, as defined in the PCI Bus Binding reference.
-+    minItems: 1
-+    items:
-+      - description:
-+          For non-PCI devices, base address and size of the IOMMU memory
-+          mapped registers interface. For PCI IOMMU hardware
-+          implementation, an address of the IOMMU, as defined in the PCI
-+          Bus Binding reference.
-+      - description:
-+          Region containing platform specific MMRs for machine-mode
-+          configuration, such as PMA and PMP registers.
-+
-+  reg-names:
-+    minItems: 1
-+    items:
-+      - const: base
-+      - const: machine
- 
-   '#iommu-cells':
-     const: 1
-@@ -75,6 +88,26 @@ required:
- 
- additionalProperties: false
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - tenstorrent,riscv-iommu
-+    then:
-+      properties:
-+        reg:
-+          minItems: 2
-+        reg-names:
-+          minItems: 2
-+    else:
-+      properties:
-+        reg:
-+          maxItems: 1
-+        reg-names:
-+          maxItems: 1
-+
- examples:
-   - |+
-     /* Example 1 (IOMMU device with wired interrupts) */
-@@ -145,3 +178,13 @@ examples:
-             };
-         };
-     };
-+
-+  - |+
-+    /* Example 5 (Tenstorrent IOMMU device with MSIs) */
-+    iommu5: iommu@d2020000 {
-+        compatible = "tenstorrent,riscv-iommu", "riscv,iommu";
-+        reg = <0xd2020000 0x10000>, <0xaa000000 0x10000>;
-+        reg-names = "base", "machine";
-+        msi-parent = <&imsics_smode>;
-+        #iommu-cells = <1>;
-+    };
-
-base-commit: 80dd246accce631c328ea43294e53b2b2dd2aa32
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWWl4dW4gTGFuLCBDaHVrdW4gUGFuLAoKSSB0cmllZCBzcGFjZW1pdC1jb20vZm9yLW5leHQg
+KGUyNTE4ZThjYjFkZGU2NGFmMmQxYmIyNDY2MzliYjdlZjc1MjNmN2EpIApvbiBvcGktcnYyCndo
+aWNoIGluY2x1ZGVzIHRoaXMgcGF0Y2guCgpidXQgY2Fubm90IHNlZSBhbnl0aGluZyByZWxldmFu
+dCB0byBTUEkgaW4gZG1lc2csIHdoZXJlYXMgSSBzZWUgW1FdU1BJIAppbiB1LWJvb3Qgb3V0cHV0
+LCBidXQgdGhlcmUgaXQgaXMgbGlzdGVkIGFzOgpbwqAgwqAwLjg4N10gU0Y6IERldGVjdGVkIFhN
+MjVRSDEyOEEgd2l0aCBwYWdlIHNpemUgMjU2IEJ5dGVzLCBlcmFzZSBzaXplIAo2NCBLaUIsIHRv
+dGFsIDE2IE1pQgpXaGljaCBpcyBub3QgdGhlIHNhbWUgeW91IHRlc3RlZCAoWE0yNVFVMTI4Qyku
+CgpBbSBJIG1pc3Npbmcgc29tZXRoaW5nID8KSG93IGNhbiBJIGtub3cgdGhpcyBwYXRjaCBpcyB3
+b3JraW5nIHByb3Blcmx5ID8KV2hhdCBzaG91bGQgSSB0ZXN0ID8KV2hhdCBzaG91bGQgSSByZXBv
+cnQgPwpJcyB0aGlzIHRlc3QgdXNlZnVsID8KClRoYW5rcwoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
