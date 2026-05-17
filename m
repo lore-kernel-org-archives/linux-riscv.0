@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C0CCD4F21
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 15:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB82CD4F47
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 15:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=le/REesTWXhNgcv7WVIMPsm9+/OvQYkeM7nJvD+iz7o=; b=JhhfHIUO8ObyCS
-	px16Yo60EMW+6HnC++wJBVkLpa60SxTy61hLOOkhj7cOBw982Y22VFJkR7983tFWviCs/yXD87WCu
-	hruaOTfODxgizI8Xp0mw9yGldb/dMvzkRUZFmt41RXPT5L2PrIrL0oqszvzrlMoko14nVFX01X4wa
-	nNMG1shdpldOlP4G0m9TG6MWiKGGMzlDUOQye6hWYAfbu6Bdq7sghmlE8mcxWOacKhdWgmH/pyA4J
-	2pwpc7DB2zkyn0GyqPFoaJM8YxDUhgq0Nt4KN6VCbQMeeam9HDgL5myoSf8yxDZWz6QojaTJhUfPa
-	+/9ESjE7ucjUiDkg3mTA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JHmBnyhQ+x1yK6nv/Vysk6R16ttg8WyZSFKYrK7S1GY=; b=hTdThRm/anL8yI
+	a1gScwULsc4u5WlqwQRLDvHDd+Q9ahHCgcyJO0njdIWSPUH2r5XEPvtyrYmqUQMgurx7frrUGjQwy
+	12kFYA3Lyyhujl5L0ZYw2werNSVKQ/Q0j8aDXjqhgnucbCRMS+dmVoLpO6lK2sILzKAzHr2IHWZqw
+	VIdFx1sHn/aehHymwj4BzP5sqmMC9DUu95L34pR0gGH+SZDjaugdpMA9eqLcJ2obaXKdhX8zlslJt
+	kTuKtfGiIFSYzqH8IYbRT1Q2+HU6JLOPoEdMowIBoUv/nnG3zXKes7SiBJ1o2LxTnvvcbMcTPsvIi
+	pxWGm5sNXHqTAySCtfgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOdY2-0000000CwI4-1d1v;
-	Sun, 17 May 2026 15:36:58 +0000
+	id 1wOdY5-0000000CwL3-32qs;
+	Sun, 17 May 2026 15:37:01 +0000
 Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOdXz-0000000CwGd-1vIZ;
-	Sun, 17 May 2026 15:36:57 +0000
+	id 1wOdY1-0000000CwGa-0Pfa;
+	Sun, 17 May 2026 15:36:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=R2
-	vdFoj/uYRCZ7Xe7zmYDyiQkstZgeSKUDsvCleEwA8=; b=J1W7Oelfr8fXM1QOFV
-	OLSE7F3bmId4/hJ3lCuusehbacu3aI22bzz6GSsbxXLsIs7XKmS4WG5w1nzLhrBM
-	+ACz8G2gMKxYu+bGePoOvmLSTY8m/SR7nVIUlTOBPoyiPxxiraNgfArSG8eTgiCD
-	f9aDA5ubkeAsVEBQWMOamO/EI=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=GS
+	RXubJm/GTIB2NyfMCMfFiE+Wj4O/jjRpn2yvJTgg8=; b=cNdf7/9a8wM9X4TBcT
+	4zZ2UCoK6d6HCiyJkAvZJ0DCDafJP/gmCKaF7iNnfv6YC308750AVGkVWWHzmoAe
+	BWXn9vVnJ9grWVdY4hNGeIj99IcobInW/xhsxmOKfJ8bP7+PzlqhaFqwVf+4lzD8
+	IbpvNOsRSiDZixyxGRCZuo/C4=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wA3ylwO4AlqyKW7Bw--.10227S2;
-	Sun, 17 May 2026 23:34:39 +0800 (CST)
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wA3ylwO4AlqyKW7Bw--.10227S6;
+	Sun, 17 May 2026 23:34:59 +0800 (CST)
 From: Jinyu Tang <tjytimi@163.com>
 To: Anup Patel <apatel@ventanamicro.com>,
 	Anup Patel <anup@brainfault.org>,
@@ -56,21 +56,23 @@ Cc: kvm@vger.kernel.org,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Nutty Liu <nutty.liu@hotmail.com>,
 	Jinyu Tang <tjytimi@163.com>
-Subject: [PATCH 0/5] KVM: riscv: Speed up dirty logging write faults
-Date: Sun, 17 May 2026 23:34:22 +0800
-Message-ID: <20260517153427.94889-1-tjytimi@163.com>
+Subject: [PATCH 4/5] KVM: riscv: Update G-stage PTE permissions atomically
+Date: Sun, 17 May 2026 23:34:26 +0800
+Message-ID: <20260517153427.94889-5-tjytimi@163.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260517153427.94889-1-tjytimi@163.com>
+References: <20260517153427.94889-1-tjytimi@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wA3ylwO4AlqyKW7Bw--.10227S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7uF48Cr1DKryUuFy3Ww45Wrg_yoW8Kr1UpF
-	WkWr4Fkws2gryxZ3s3C3WDCr909as3GrW7GF47X34DZFs0kry5Aayvg348XFZrJFyxXw12
-	vFW0y34fu34UA37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ziVbyZUUUUU=
+X-CM-TRANSID: _____wA3ylwO4AlqyKW7Bw--.10227S6
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uw4xJrykWF45Zr1kKF1DGFg_yoW8Ww43pF
+	WDCry3ur4rKwnxCF4Sqw1vyrs8uFs7Kw4rJr9Fv34DAF15trW8Xrn093yYyr98AF97Xa4Y
+	vrW0gF1UGr48twUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pifcTLUUUUU=
 X-Originating-IP: [2408:823d:2011:b54:9f00:c5fa:7b13:491e]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC0A8YkGoJ4A+wjQAA3m
+X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC8QMdlWoJ4CM3MgAA3f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_083655_960510_E5A5EF33 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20260517_083657_611835_9F5C3218 
+X-CRM114-Status: UNSURE (   9.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,59 +90,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series speeds up the common dirty logging write fault path for
-RISC-V KVM.
+When a fault hits an existing G-stage leaf with the same PFN, KVM only
+needs to update the PTE permissions. This path will be used by read-side
+fault handling, so it must not overwrite a concurrent PTE update.
 
-When dirty logging is enabled, guest writes to write-protected G-stage
-4K leaves currently go through the full fault path and take mmu_lock for
-write.  That is expensive once the leaf already exists and
-only needs its permission and dirty state updated.
+Use the cmpxchg helper when relaxing permissions on an existing leaf,
+following the same concurrency model used by x86 for atomic SPTE
+permission updates. Retry if another CPU changed the PTE first, and use
+cpu_relax() while spinning.
 
-The series first makes the existing MMU notifier locking contract
-explicit, switches RISC-V KVM to KVM's rwlock form of mmu_lock, adds an
-atomic G-stage PTE update helper, uses it for existing permission
-updates, and finally handles dirty logging write faults under the read
-side of mmu_lock when a 4K G-stage leaf is already present.
+Signed-off-by: Jinyu Tang <tjytimi@163.com>
+---
+ arch/riscv/kvm/gstage.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-The locking and concurrency model follows existing KVM patterns from x86
-and arm64: use an rwlock mmu_lock, keep structural page-table changes on
-the write side, and use atomic PTE updates for permission-only changes
-that may race with another vCPU.
-
-The fast path marks the memslot page dirty before making the PTE writable
-again.  It also sets the PTE dirty bit, so systems that trap when D is
-clear do not fall back to the slow path for a writable-but-clean PTE.
-
-Performance was measured with KVM selftests inside a QEMU RISC-V host.
-
-  dirty_log_perf_test -m 19 -v 4 -b 1G -i 3
-    base dirty memory avg, iterations 2-3: 53.262493s
-    patch 1-4 dirty memory avg, iterations 2-3: 52.735675s
-    patch 1-5 dirty memory avg, iterations 2-3: 26.422964s
-    patch 1-5 improvement over base: 50.4%
-
-  dirty_log_perf_test -m 19 -v 4 -b 64M -i 3
-    base dirty memory avg, iterations 2-3: 3.203170s
-    patch 1-5 dirty memory avg, iterations 2-3: 1.762452s
-    improvement: 45.0%
-
-Patch 1-4 are prerequisites for the read-side fast path. The
-main speedup comes from patch 5 avoiding the full fault path 
-for dirty logging write faults.
-
-Jinyu Tang (5):
-  KVM: riscv: Rely on common MMU notifier locking
-  KVM: riscv: Use an rwlock for mmu_lock
-  KVM: riscv: Add a G-stage PTE cmpxchg helper
-  KVM: riscv: Update G-stage PTE permissions atomically
-  KVM: riscv: Fast-path dirty logging write faults
-
- arch/riscv/include/asm/kvm_gstage.h |   4 ++
- arch/riscv/include/asm/kvm_host.h   |   2 +
- arch/riscv/kvm/gstage.c             |  35 +++++++---
- arch/riscv/kvm/mmu.c                | 105 +++++++++++++++++++++++-----
- 4 files changed, 122 insertions(+), 24 deletions(-)
-
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index d70584b9e..9595169da 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -182,17 +182,22 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
+ static void kvm_riscv_gstage_update_pte_prot(struct kvm_gstage *gstage, u32 level,
+ 					     gpa_t addr, pte_t *ptep, pgprot_t prot)
+ {
+-	pte_t new_pte;
++	pte_t old_pte, new_pte;
+ 
+-	if (pgprot_val(pte_pgprot(ptep_get(ptep))) == pgprot_val(prot))
+-		return;
++	for (;;) {
++		old_pte = ptep_get(ptep);
++		if (pgprot_val(pte_pgprot(old_pte)) == pgprot_val(prot))
++			return;
+ 
+-	new_pte = pfn_pte(pte_pfn(ptep_get(ptep)), prot);
+-	new_pte = pte_mkdirty(new_pte);
++		new_pte = pfn_pte(pte_pfn(old_pte), prot);
++		new_pte = pte_mkdirty(new_pte);
+ 
+-	set_pte(ptep, new_pte);
++		if (kvm_riscv_gstage_try_update_pte(gstage, level, addr, ptep,
++						    old_pte, new_pte))
++			return;
+ 
+-	gstage_tlb_flush(gstage, level, addr);
++		cpu_relax();
++	}
+ }
+ 
+ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
 -- 
 2.43.0
 
