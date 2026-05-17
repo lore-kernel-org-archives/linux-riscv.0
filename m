@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687FECD37AC
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 05:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534E1CD37AC
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 06:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0oOqRzkKZ3ESeS7N8FbHi7A2CgcRM5m92zWe4LlIY4U=; b=Yq3dQVaVz06Xyq
-	tvBG/c9pWibsfPthFUZCEtDzjU+HcahrXzOReMm1is0+6nAc4/hNlVRVZ9lV898itMi/rsyw3QT1s
-	rh6hEU/FMg0MKGoOzeVaI1GcwprvSaQnPq2f0FV1YoH34xmjI+wCcshgba0UHgRGa9Kn6JHHZjpxa
-	QOSRI9LyZpeHgGituC7DNxnFk17Cjh8dfhHlCLrUf65h3vzKn7CTL5QDWnjB+S6wslodajtW8k9KE
-	E2v+nLbANa8nE2HpwW+aH5WlTrb2tz6SVWiOCYnad2RYcKXXD8RssOckFYXvph87nPNGnKfF7dJli
-	q4jkqZQ1O6vQANm+tL4g==;
+	List-Owner; bh=AFZomi4TCV/nCIhEyoieSYr7vc2BBSC5ZqVzhtjXjU4=; b=Nd+9vro4T1nU+c
+	WSnC7YgJgwj2+jSO7sW2rGBgNG/BnJpufQWghgQS629tovs9x2I96OoDFFXxrKmgIxnjaPbna4i3Y
+	zxRwQnhUBWm3TXpbLxlbaaSfAIZz0liPeP9RU0inH/b1ARbf6CiOHcqr+Dunea/gXIOmobkpEF24e
+	WY7b4+jh6EJkOXrsfgi8P1a0LaQCLjg2nHdbv7ArxCZSRhHCPBebZAHqkfQNYwckaSlYUV5Hc6NBB
+	APGPgupURXk3q3wItNkeLsntqcg3yvWwA5HE02IMhgiQqUvwmkKcMFSXuIbclKJP3VT+QsWZvHAH3
+	CK6CqYZvz1RfrN1NvGqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOTcp-0000000C7Wh-36J0;
-	Sun, 17 May 2026 05:01:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wOVQO-0000000CFkZ-0KwU;
+	Sun, 17 May 2026 06:56:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOTco-0000000C7WT-2MF3
+	id 1wOVQL-0000000CFjO-3u6G
 	for linux-riscv@lists.infradead.org;
-	Sun, 17 May 2026 05:01:14 +0000
+	Sun, 17 May 2026 06:56:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2893600BB;
-	Sun, 17 May 2026 05:01:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79A46C2BCB0;
-	Sun, 17 May 2026 05:01:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F09A240464;
+	Sun, 17 May 2026 06:56:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B4DC2BCB0;
+	Sun, 17 May 2026 06:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778994072;
-	bh=w0R+IU0Qf9k1/TmEYOOCrxVZkzJCPWvnHCpoOqhmlCk=;
+	s=k20201202; t=1779000987;
+	bh=WfJI8//0rNc8Gw4ik+Cx70cFrQE8E/tdr3m42LSQEVg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jd3691L3RIaqnX2kkTgD/CKP8yg+R7Hrn/xgdWGzraAYO2vSwerBXEIMhsUdxiSkJ
-	 u5980Kei3bP+cPHXqLpyMruZBUtZ91Gfn2W7EaqQewqp5rto9jlvHOmgIzWcF05+tU
-	 YWxwk7d7bAxLSwvlkvmJVLwr/mJqPy5tK+5saPzfMy6/jLz+e/NKRZp792nZIApWIP
-	 3WcOySK7CNT1yXwF6F53DQoeqwO+j2yC2lGW92dzEfqcxZ5NXzzs6RVnkKaEhLs5HL
-	 PtuhdeZsn7JcZxuj62maHejEz8a0p1Lh6Ifh7XDknQrAv3XAG/h/50gaYixpjdUM1t
-	 gUTFVHHFejzBw==
-Date: Sat, 16 May 2026 22:01:11 -0700
+	b=gJRNQK/oQM8kuyyNA4wjJHym5YtDnZVlBwMOJyxzo8aM+fFZojqbCm/sHxzKbdYRh
+	 qcBaa4t7pshXyYaAdUJLWt7yiPWaK4qbb5b32PRpQFjm6zY1kYMN53mf2Ch4irsbWq
+	 J5NhJWN99E9piS/PziKuUJMwAWsl36pJ3bJdWezBf/hQrUcNPj836Z/rSYIltA0NTR
+	 d+K1QCW04pAMjTXfAybV0udAhC1wL9MHUJVSpdfkrQV2QGPTcRP23GEk9kcd7Wt3im
+	 Ro3Ar4duQrLvB4uO6wN5i4vVsEgikrveNInZ0mUAIGXvu4asFOcBLJXN9WiA70zvxt
+	 6JTTj+f6tfE1w==
+Date: Sat, 16 May 2026 23:56:26 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: sashiko@lists.linux.dev
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org
-Subject: Re: [PATCH RFC v4 16/18] ACPI: RISC-V: Parse RISC-V Quality of
- Service Controller (RQSC) table
-Message-ID: <aglLlzrpud8Dj9ky@thelio>
-References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-16-eb53831ef683@kernel.org>
- <20260512214628.EB578C2BCB0@smtp.kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v4 18/18] riscv: enable resctrl filesystem for Ssqosid
+Message-ID: <aglmmkHKTlt9nhwq@thelio>
+References: <20260510-ssqosid-cbqri-rqsc-v7-0-v4-18-eb53831ef683@kernel.org>
+ <20260512225649.4A949C2BCB0@smtp.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260512214628.EB578C2BCB0@smtp.kernel.org>
+In-Reply-To: <20260512225649.4A949C2BCB0@smtp.kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260516_235629_988990_4180A4BC 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,121 +72,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 09:46:28PM +0000, sashiko-bot@kernel.org wrote:
-> > +	for (node = ACPI_ADD_PTR(struct acpi_rqsc_node, rqsc,
-> > +				 sizeof(struct acpi_table_rqsc));
-> > +	     node < end;
-> > +	     node = ACPI_ADD_PTR(struct acpi_rqsc_node, node, node->length)
-> > +	) {
-> > +		const struct acpi_rqsc_resource *res0;
-> > +		struct cbqri_controller_info info = {};
-> > +		int ret;
-> > +
-> > +		if ((void *)node + sizeof(*node) > (void *)end) {
-> > +			pr_err("truncated entry at end of table, aborting\n");
-> > +			riscv_cbqri_unregister_last(num_controllers);
-> > +			return -EINVAL;
-> > +		}
+On Tue, May 12, 2026 at 10:56:48PM +0000, sashiko-bot@kernel.org wrote:
+> This commit updates the RISCV_ISA_SSQOSID Kconfig option to select
+> RISCV_CBQRI_DRIVER. It conditionally selects the driver only if
+> RESCTRL_FS is enabled, aiming to keep the filesystem as a user choice.
 > 
-> Does this code also need to verify that the entire declared length of the node
-> fits within the table boundary?
+> > RISCV_ISA_SSQOSID selects RISCV_CBQRI_DRIVER, which in turn depends
+> > on RESCTRL_FS. Enabling the resctrl filesystem itself stays a user
 > 
-> If a malformed node declares a length extending beyond the end of the ACPI
-> table, the node pointer could advance past end during the loop increment:
+> Is this description accurate?
 > 
->     node = ACPI_ADD_PTR(struct acpi_rqsc_node, node, node->length)
-> 
-> Could this cleanly fail the loop condition on the next iteration and silently
-> return success instead of rejecting the corrupted table?
+> The driver configuration shows that RISCV_CBQRI_DRIVER only depends on
+> RISCV && RISCV_ISA_SSQOSID. The filesystem integration is decoupled into
+> a separate silent config, so the driver does not actually depend on
+> the filesystem.
 
-I will add an explicit check so that an overrun is flagged as corruption
-rather than silently truncating the controller list.
+The commit message is wrong. I will rewrite it to describe the actual
+wiring.
 
-> > +		if (node->length < sizeof(*node)) {
-> > +			pr_err("malformed RQSC entry: length %u < %zu, aborting\n",
-> > +			       node->length, sizeof(*node));
-> > +			riscv_cbqri_unregister_last(num_controllers);
-> > +			return -EINVAL;
-> > +		}
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -596,6 +596,7 @@ config RISCV_ISA_SSQOSID
+> >  	depends on 64BIT
+> >  	default n
+> >  	select ARCH_HAS_CPU_RESCTRL
+> > +	select RISCV_CBQRI_DRIVER if RESCTRL_FS
 > 
-> Could this loop be bounded by rqsc->num instead of just node < end?
+> Could this conditional selection lead to unexpected configurations?
 > 
-> If the firmware pads the table at the end for alignment, the parser might
-> attempt to process the zeroed padding as a node.
+> Because the driver does not actually depend on the filesystem, if a user
+> enables the SSQOSID extension but leaves RESCTRL_FS disabled, the
+> underlying hardware driver will unexpectedly not be automatically
+> selected. 
 > 
-> Would encountering this padding trigger this length check, unregister all
-> successfully parsed controllers, and completely abort initialization for an
-> otherwise valid table?
+> This differs from platforms like ARM64, where ARM64_MPAM unconditionally
+> selects ARM64_MPAM_DRIVER regardless of the filesystem configuration.
 
-The behavior is intentional. RQSC does not document a padding allowance,
-so a zero length entry inside the declared table length is treated as
-corruption.
-
-> > +		/* GAS must describe system memory. ioremap() consumes it later. */
-> > +		if (node->reg.space_id != ACPI_ADR_SPACE_SYSTEM_MEMORY) {
-> > +			pr_warn("controller has unsupported address space_id=%u, skipping\n",
-> > +				node->reg.space_id);
-> > +			continue;
-> > +		}
-> 
-> Should this code check node->flags before proceeding? Standard ACPI practice
-> typically uses Bit 0 to indicate whether a hardware block is present and
-> enabled.
-> 
-> If flags are ignored, could the driver risk mapping and accessing
-> memory-mapped registers of explicitly disabled hardware?
-
-Ignoring node->flags is correct here as RQSC defines bit 0 as: "When
-set, indicates the controller supports allocating zero capacity blocks
-or zero bandwidth blocks to an RCID."
-
-> > +		/*
-> > +		 * Resources follow the node header in-line. Only res[0] is
-> > +		 * consumed. Bound it against end before reading its prefix so
-> > +		 * a table that ends partway through a resource subtable is
-> > +		 * rejected rather than read past the mapping.
-> > +		 */
-> > +		res0 = (const struct acpi_rqsc_resource *)
-> > +		       ((const u8 *)node + sizeof(*node));
-> 
-> Is it safe to hardcode the start of the resource subtables using
-> sizeof(*node)?
-> 
-> If a future revision of the RQSC table extends the acpi_rqsc_node structure
-> with additional fields, sizeof(*node) would be smaller than the actual
-> node header size.
-> 
-> Could this missing rqsc->header.revision check cause the parser to point into
-> the middle of the new header fields and incorrectly interpret them as the
-> first resource descriptor?
-
-I will add a revision check at the top of acpi_parse_rqsc()
-
-> > +		if (res0->id1 > U32_MAX) {
-> > +			pr_warn("controller at %pa: id1 0x%llx exceeds u32, skipping\n",
-> > +				&info.addr, res0->id1);
-> > +			continue;
-> > +		}
-> > +
-> > +		switch (info.type) {
-> > +		case CBQRI_CONTROLLER_TYPE_CAPACITY:
-> > +			info.cache_id = (u32)res0->id1;
-> > +			break;
-> > +		case CBQRI_CONTROLLER_TYPE_BANDWIDTH:
-> > +			info.prox_dom = (u32)res0->id1;
-> > +			break;
-> 
-> Does this code need to validate the type and id_type fields of the resource
-> descriptor before extracting res0->id1?
-> 
-> If a controller specifies multiple resources (node->nres > 1) and the first
-> descriptor is not the expected cache ID or proximity domain, could the
-> parser blindly misinterpret its contents?
-
-I will add a check for res0->type and res0->id_type before using id1.
+The 'if RESCTRL_FS' guard is wrong. I will drop it so that enabling
+SSQOSID always pulls in the controller driver.
 
 -Drew
-
 
 _______________________________________________
 linux-riscv mailing list
