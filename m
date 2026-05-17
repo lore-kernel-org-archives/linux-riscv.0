@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8AA0CD4F3D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCBCFCD4F3C
 	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 23:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w4ksGwC9vVQHtYPgTtOeONDCpex9KyEgdf7deWb6uEI=; b=JLpyaFRatut+QJ
-	Dy+xhosQHORJH+KmyGoFut/pzntLT0K1SOJuq/JV10A8qNNww6OpfDsIxEnYlke2wojQtl49ClFzM
-	DzTq8kcYfyFJHFKAAUMbzE2QvisUVgSHRorQLK4rkgEkWo12tGv+8dXLkGutx7cBnfoh+wd+k+/CM
-	X6wa0JbHddna7DYceE1K1kp9ZQfZFPljfKzvT8K+dpom5ciGTM9ZIaHC3LDFQu9qp1Tvk5cCh+w+V
-	ebIFasZ+Ga5kTolD5jXjW6Q70YgYbPChKWOm7s141gHRVa6+mtye5Ovnlcm2rNWDH1bfuvo5UAMaM
-	y7o1I+VByeVuzyy6maWQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ncXhgNHb/VXOwTpLYbwhPjYlXCdXFAXN7pV0VuCeGV0=; b=AGsBuWE6ufxAU4
+	Yi3ZXEiNDsjKDKlgtjSRcNAwdUCSaskGUE29VnSZ5TcNHnGNHl2GD6nZ71vR3OoyQkv1XtMkzsOLd
+	kyiUdBobEZNM6+qBupmQraHECfuKQk69x7khCV+EOjrZ06kY2PWIOW3x1DZ1KaNUSVQD8rIq7S2/G
+	njIMg3bJ/MfSpMRQ9ZgjrjAV7NeMlbn09T3bTuFwJEZRVbFMvRKaPrR6nubckyRI/uRRYYGzp4FnR
+	BLVGtV8T1G7z0DeKogFQYTa6koiTLb3Y+RbJDZF5VDIkods7jHomU0169HYCbyEO+LNj8gdCOzWQz
+	R80srVZnuoGWsXF7JF7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOkYT-0000000Dd0o-0ezz;
-	Sun, 17 May 2026 23:05:53 +0000
+	id 1wOkYC-0000000Dcvg-3ZQW;
+	Sun, 17 May 2026 23:05:36 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOkYQ-0000000DczH-3U1Y
-	for linux-riscv@lists.infradead.org;
-	Sun, 17 May 2026 23:05:52 +0000
+	id 1wOkY9-0000000DcuW-29Hv;
+	Sun, 17 May 2026 23:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83C7C404B7;
-	Sun, 17 May 2026 23:05:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DFE0C4AF0C;
-	Sun, 17 May 2026 23:05:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EBBFA40994;
+	Sun, 17 May 2026 23:05:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D63B0C2BCB0;
+	Sun, 17 May 2026 23:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779059150;
-	bh=xt/hUeyba8w0CmJ8CXSb6hKOQbJSb9j0i1jLwFA91wA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Vclbl3IT3wOblDXpomJab09F4LGnGTE3N74msN0m5v9afiVupdkx4tqBQ+aiGAjIv
-	 8hxa/Jkchw+b0Te4x2YL1UsgEL8AyPw95deGcTryQWgICAt8KkNJmMT1UNbBKI7hSt
-	 6/4CFyBT6tEFx6XMMawyQ0KYhBDwDSWmNgsC7//MFLMS376T6Y4/a2CKYjDqkVf9RX
-	 0kPH8aR1jpItqqdH1vuPcVpr5swJ4GLs76BOqABYr/DFVRU9wA+rQW7ctJ6r54Fxzn
-	 3Vm7+HD8/XdRdTMQj+dMR+jxcrTjfVlKw/BXASFKtCZhKCOFyaJR4BqaBe/WRCgE5z
-	 /G0Nn4zKnvXyA==
+	s=k20201202; t=1779059129;
+	bh=sKGyBmnsQGG9j/rVeObTG2RlcjQt9ogqSMl6CyE8SUg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=KZwZunnneLfGOgNmmMgkbwkMmz/eop0EoFPf6Bj7HAIhfo4y4EPlrhXXKKsJy2cTu
+	 dj5E9yHpjiiMV9g7Lak7U0DEW4BOZobhXz430Fc8nutZ78AORq20zAt9SizLEHUppr
+	 CDk0PqKPo0tWnLsFYjF45wyPt7UTT843kcHUchXlNFlksCJEkkmNom5ngRVMTFWjX/
+	 u+ChBcsToLQ8C5V1QBH0kxtAkkJZGxPcmYRktnIlSlCckRzwujz8fuvh1GArCx1Tck
+	 gOZCfFxKzAhGvDFWtcGwhfef4h4u6dwbRtw/TZNbOZ5pXM3Fopvdsfdu7eVl8R4UcS
+	 pUtoOE7qN6TxQ==
 From: Nathan Chancellor <nathan@kernel.org>
-Date: Sun, 17 May 2026 13:05:11 -1000
-Subject: [PATCH v2 08/16] riscv: Remove tautological condition from
- selection of ARCH_SUPPORTS_CFI
+Subject: [PATCH v2 00/16] Bump minimum version of LLVM for building the
+ kernel to 17.0.1
+Date: Sun, 17 May 2026 13:05:03 -1000
+Message-Id: <20260517-bump-minimum-supported-llvm-version-to-17-v2-0-b3b8cda46bdd@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260517-bump-minimum-supported-llvm-version-to-17-v2-8-b3b8cda46bdd@kernel.org>
-References: <20260517-bump-minimum-supported-llvm-version-to-17-v2-0-b3b8cda46bdd@kernel.org>
-In-Reply-To: <20260517-bump-minimum-supported-llvm-version-to-17-v2-0-b3b8cda46bdd@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOSw6CMBRFt2I69hkov+rIfRgGFJ7wlH7SlkZD2
+ LuAcQEOT3LvPXdmHh2hZ5fDzBxG8mT0Cvx4YO3Q6B6BupUZT3iZ5JyDnJQFRZrUpMBP1hoXsIN
+ xjAoiuq0PwUBagczLTDSFkEmesXXPOrzTa3fd6i/7ST6wDZtgSwzkg3Hv/UxMt9zPK/7wxhQSE
+ Gl3lhwFYlVcn+g0jifjelYvy/IBVVHJSPUAAAA=
+X-Change-ID: 20260422-bump-minimum-supported-llvm-version-to-17-b4638a58b043
 To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
  Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
 Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
- linux-kbuild@vger.kernel.org, Paul Walmsley <pjw@kernel.org>, 
+ linux-kbuild@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ linux-hardening@vger.kernel.org, linux-security-module@vger.kernel.org, 
+ Rong Xu <xur@google.com>, Han Shen <shenhan@google.com>, 
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-arm-kernel@lists.infradead.org, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Kees Cook <kees@kernel.org>, 
- linux-riscv@lists.infradead.org, linux-hardening@vger.kernel.org
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Ard Biesheuvel <ardb@kernel.org>, Peter Zijlstra <peterz@infradead.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1272; i=nathan@kernel.org;
- h=from:subject:message-id; bh=xt/hUeyba8w0CmJ8CXSb6hKOQbJSb9j0i1jLwFA91wA=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDFlcnhvVNZVOtHdfSCnRfhXW+EfikE6T7KH03J7cfrlnh
- VPKJLM6SlkYxLgYZMUUWaofqx43NJxzlvHGqUkwc1iZQIYwcHEKwET2qjIydLmylcT56KWrH82X
- zt31nZ358DXzJsfWrl3HFsgX/GJWYPhf1ueTY8JgeXmr3kSmuhbeF/NXKkzZJb3b000hWcZ67R4
- +AA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6925; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=sKGyBmnsQGG9j/rVeObTG2RlcjQt9ogqSMl6CyE8SUg=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDFlcnhuUlFizjHsnZfOubBbtifmavaft/KMLr/WqgvPtL
+ syVkfHvKGVhEONikBVTZKl+rHrc0HDOWcYbpybBzGFlAhnCwMUpABPZJc3wz2SGZ+Wx2uZ7ug/c
+ 0qI55uxh1P/T4m87RXvG0Ql6awpKXzAyrD3mJcquZ1VVVHpY6tvlR04vsrP/L469VWB/0WHymWo
+ RNgA=
 X-Developer-Key: i=nathan@kernel.org; a=openpgp;
  fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_160550_891836_ECFF24BC 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260517_160533_600989_395A8713 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +97,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the minimum supported version of LLVM for building the kernel
-has been raised to 17.0.1, the condition of the selection of
-CONFIG_ARCH_SUPPORTS_CFI is always true, so it can be removed.
+The current minimum version of LLVM for building the kernel is 15.0.0.
+However, there are two deficiencies compared to GCC that were fixed in
+LLVM 17 that are starting to become more noticeable.
 
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+The first was a bug in LLVM's scope checker [1], where all labels in a
+function were validated as potential targets of an asm goto statement,
+even if they were not listed in the asm goto statement as targets. This
+becomes particularly problematic when the cleanup attribute is used, as
+
+  asm goto(... : label_a);
+  ...
+label_a:
+  ...
+  int var __free(foo);
+  asm goto(... : label_b);
+  ...
+label_b:
+  ...
+
+will trigger an error since the scope checker will complain that the
+cleanup variable would be skipped when jumping from the first asm goto
+to label_b (which obviously cannot happen). This issue was the catalyst
+for commit e2ffa15b9baa ("kbuild: Disable CC_HAS_ASM_GOTO_OUTPUT on
+clang < 17"). Unfortunately, this issue is reproducible with regular asm
+goto in addition to asm goto with outputs, so that change was not
+entirely sufficient to avoid the issue altogether. As asm goto has
+effectively been required since commit a0a12c3ed057 ("asm goto:
+eradicate CC_HAS_ASM_GOTO") and the usage of the cleanup attribute
+continues to grow across the tree, raising the minimum to a version that
+avoids this issue altogether is a better long term solution than
+attempting to workaround it at every spot where it happens.
+
+The second issue is an incompatibility with GCC 8.1+ around variables
+marked with const being valid constant expressions for _Static_assert
+and other macros [2]. With GCC 8.1 being the minimum supported version
+since commit 118c40b7b503 ("kbuild: require gcc-8 and binutils-2.30"),
+this incompatibility becomes more of a maintenance burden since only
+clang-15 and clang-16 are affected by it.
+
+Looking at the clang version of various major distributions through
+Docker images, no one should be left behind as a result of this bump, as
+the old ones cannot clear the current minimum of 15.0.0.
+
+  archlinux:latest              clang version 22.1.3
+  debian:oldoldstable-slim      Debian clang version 11.0.1-2
+  debian:oldstable-slim         Debian clang version 14.0.6
+  debian:stable-slim            Debian clang version 19.1.7 (3+b1)
+  debian:testing-slim           Debian clang version 21.1.8 (3+b1)
+  debian:unstable-slim          Debian clang version 21.1.8 (7+b1)
+  fedora:42                     clang version 20.1.8 (Fedora 20.1.8-4.fc42)
+  fedora:latest                 clang version 21.1.8 (Fedora 21.1.8-4.fc43)
+  fedora:44                     clang version 22.1.1 (Fedora 22.1.1-2.fc44)
+  fedora:rawhide                clang version 22.1.3 (Fedora 22.1.3-1.fc45)
+  opensuse/leap:latest          clang version 17.0.6
+  opensuse/tumbleweed:latest    clang version 21.1.8
+  ubuntu:jammy                  Ubuntu clang version 14.0.0-1ubuntu1.1
+  ubuntu:noble                  Ubuntu clang version 18.1.3 (1ubuntu1)
+  ubuntu:questing               Ubuntu clang version 20.1.8 (0ubuntu4)
+  ubuntu:resolute               Ubuntu clang version 21.1.8 (6ubuntu1)
+
+17.0.1 is chosen as the minimum instead of 17.0.0 to ensure that the
+particular version of LLVM 17 has the two aforementioned bugs fixed, as
+the second was fixed during the 17.0.0 release candidate phase and it
+was not until LLVM 18 that LLVM adopted the scheme of x.0.0 being a
+prerelease version and x.1.0 is a release version [3] to help with
+scenarios such as this.
+
+The first patch in the series does the actual bump. The remaining
+patches are cleanups of workarounds for various issues that are no
+longer needed with the bump.
+
+I plan to take this via the Kbuild tree for 7.2, please provide Acks as
+necessary.
+
+[1]: https://github.com/llvm/llvm-project/commit/f023f5cdb2e6c19026f04a15b5a935c041835d14
+[2]: https://github.com/llvm/llvm-project/commit/0b2d5b967d98375793897295d651f58f6fbd3034
+[3]: https://github.com/llvm/llvm-project/commit/4532617ae420056bf32f6403dde07fb99d276a49
+
 ---
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Kees Cook <kees@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-hardening@vger.kernel.org
+Changes in v2:
+- Pick up provided tags (thanks everyone!)
+- Patch 1: Adjust changes.rst in Documentation/translations
+- Patch 11: Adjust commit message based on Sashiko review
+- Patch 15-16: New changes
+- Link to v1: https://patch.msgid.link/20260428-bump-minimum-supported-llvm-version-to-17-v1-0-81d9b2e8ee75@kernel.org
+
 ---
- arch/riscv/Kconfig | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Nathan Chancellor (16):
+      kbuild: Bump minimum version of LLVM for building the kernel to 17.0.1
+      security/Kconfig.hardening: Remove tautological condition from CC_HAS_ZERO_CALL_USED_REGS
+      security/Kconfig.hardening: Remove tautological condition from FORTIFY_SOURCE
+      security/Kconfig.hardening: Remove tautological condition from CC_HAS_RANDSTRUCT
+      arch/Kconfig: Remove tautological conditions from HAS_LTO_CLANG
+      arch/Kconfig: Remove tautological condition from AUTOFDO_CLANG
+      ARM: Drop tautological ld.lld conditions from ARCH_MULTI_V4{,T}
+      riscv: Remove tautological condition from selection of ARCH_SUPPORTS_CFI
+      riscv: Drop tautological condition from TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+      scripts/Makefile.warn: Drop -Wformat handling for clang < 16
+      x86/build: Drop unnecessary '-ffreestanding' addition to KBUILD_CFLAGS
+      x86/module: Revert "Deal with GOT based stack cookie load on Clang < 17"
+      x86/entry/vdso32: Remove conditional omission of '.cfi_offset eflags'
+      kbuild: Remove check for broken scoping with clang < 17 in CC_HAS_ASM_GOTO_OUTPUT
+      compiler-clang.h: Remove __cleanup -Wunused-variable workaround
+      compiler-clang.h: Drop explicit version number from "all" diagnostic macro
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d235396c4514..7ffbf6032b61 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -61,8 +61,7 @@ config RISCV
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
- 	select ARCH_STACKWALK
- 	select ARCH_SUPPORTS_ATOMIC_RMW
--	# clang >= 17: https://github.com/llvm/llvm-project/commit/62fa708ceb027713b386c7e0efda994f8bdc27e2
--	select ARCH_SUPPORTS_CFI if (!CC_IS_CLANG || CLANG_VERSION >= 170000)
-+	select ARCH_SUPPORTS_CFI
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
- 	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
- 	select ARCH_SUPPORTS_HUGETLBFS if MMU
+ Documentation/process/changes.rst                    |  2 +-
+ Documentation/translations/it_IT/process/changes.rst |  2 +-
+ Documentation/translations/pt_BR/process/changes.rst |  2 +-
+ arch/Kconfig                                         |  5 +----
+ arch/arm/Kconfig.platforms                           |  4 ----
+ arch/riscv/Kconfig                                   | 16 +++++++---------
+ arch/x86/Makefile                                    |  5 -----
+ arch/x86/entry/vdso/vdso32/sigreturn.S               | 10 ----------
+ arch/x86/include/asm/elf.h                           |  5 ++---
+ arch/x86/kernel/module.c                             | 15 ---------------
+ include/linux/compiler-clang.h                       | 13 ++-----------
+ init/Kconfig                                         |  3 ---
+ scripts/Makefile.warn                                | 10 ----------
+ scripts/min-tool-version.sh                          |  2 +-
+ security/Kconfig.hardening                           |  8 --------
+ 15 files changed, 16 insertions(+), 86 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260422-bump-minimum-supported-llvm-version-to-17-b4638a58b043
 
--- 
-2.54.0
+Best regards,
+--  
+Cheers,
+Nathan
 
 
 _______________________________________________
