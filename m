@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41616CD4F21
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 15:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C0CCD4F21
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 15:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=LrwVbSZEgf+tQdcO6unNvkOl8qDPfyW/8Kyi8GMAgO0=; b=vMXntja+OkkcYlPexQB00PBAMp
-	lkJryG5CM35LfQS61SfLgIy4Oo81GpbR+5fdoxnTkpnFGtEGMWUjrAUdSo6ifQU70VOZlRP9MqaGu
-	Axu1ac1nkZV47+FN3REMZ5g/++54QC30U8drqN6K7VtJM+QdmP4ODwvD2IcQpLeOF3HK15ptHM1VM
-	PZZIAzaq975ImagtSent1wadnbKdeVmIzQZ1weCqo90W1LtuNV+UPxgeraqFmxo3FDt9ko+CXPnSS
-	f34zMzWE1z6v4aPRtYXU2tc63gPnDpR+LODzEniPWtrxNOo2x4o7Ee1ICA1mG84zWAaNN1znw/PPz
-	NTW+GyVw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=le/REesTWXhNgcv7WVIMPsm9+/OvQYkeM7nJvD+iz7o=; b=JhhfHIUO8ObyCS
+	px16Yo60EMW+6HnC++wJBVkLpa60SxTy61hLOOkhj7cOBw982Y22VFJkR7983tFWviCs/yXD87WCu
+	hruaOTfODxgizI8Xp0mw9yGldb/dMvzkRUZFmt41RXPT5L2PrIrL0oqszvzrlMoko14nVFX01X4wa
+	nNMG1shdpldOlP4G0m9TG6MWiKGGMzlDUOQye6hWYAfbu6Bdq7sghmlE8mcxWOacKhdWgmH/pyA4J
+	2pwpc7DB2zkyn0GyqPFoaJM8YxDUhgq0Nt4KN6VCbQMeeam9HDgL5myoSf8yxDZWz6QojaTJhUfPa
+	+/9ESjE7ucjUiDkg3mTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOdWF-0000000Cw5T-0U0T;
-	Sun, 17 May 2026 15:35:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wOdY2-0000000CwI4-1d1v;
+	Sun, 17 May 2026 15:36:58 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOdWB-0000000Cw4x-32wx
-	for linux-riscv@lists.infradead.org;
-	Sun, 17 May 2026 15:35:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B2CC42D80;
-	Sun, 17 May 2026 15:35:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B64C2BCB0;
-	Sun, 17 May 2026 15:35:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779032102;
-	bh=DyCKE+6QVJML/SRaH5o/1PGkhtGZiUS9tYCZZV8ek6k=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=DdoQ81g0J1xQP3Pxn/9g5eRaK99GfNAY6DkB1XsC1WIiIl77PPic5z1XapCVT3qPa
-	 OiZtwiF+YR/zmraIvF+YrYoT+JTOmR2b8AcBN0QMNN6/dZIan9plkI7qK5lW3mpJEh
-	 cjT8kh/IrfYkjbEqX78uPyAzFnAcUfa/oM2UbF5CUiAlgxlEkKLGN4sW1cBXEFfoQ2
-	 5DaKgFDfp/PuQKdJoM+mKCKZkvAsBWGfSrSFeq+goFmvwG9FkYs20ivNo2xmGm7UHA
-	 SxKmiCvv+aPvXq6jQUUjmaniT9vdGlruVhaUkHUDRLODIVzzVhunpfTT4D4EN4nzXv
-	 QAylAryJ+CRdQ==
-Date: Sun, 17 May 2026 10:35:01 -0500
+	id 1wOdXz-0000000CwGd-1vIZ;
+	Sun, 17 May 2026 15:36:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=R2
+	vdFoj/uYRCZ7Xe7zmYDyiQkstZgeSKUDsvCleEwA8=; b=J1W7Oelfr8fXM1QOFV
+	OLSE7F3bmId4/hJ3lCuusehbacu3aI22bzz6GSsbxXLsIs7XKmS4WG5w1nzLhrBM
+	+ACz8G2gMKxYu+bGePoOvmLSTY8m/SR7nVIUlTOBPoyiPxxiraNgfArSG8eTgiCD
+	f9aDA5ubkeAsVEBQWMOamO/EI=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wA3ylwO4AlqyKW7Bw--.10227S2;
+	Sun, 17 May 2026 23:34:39 +0800 (CST)
+From: Jinyu Tang <tjytimi@163.com>
+To: Anup Patel <apatel@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <radim.krcmar@oss.qualcomm.com>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Nutty Liu <nutty.liu@hotmail.com>,
+	Jinyu Tang <tjytimi@163.com>
+Subject: [PATCH 0/5] KVM: riscv: Speed up dirty logging write faults
+Date: Sun, 17 May 2026 23:34:22 +0800
+Message-ID: <20260517153427.94889-1-tjytimi@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Paul Walmsley <pjw@kernel.org>, 
- Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Brian Masney <bmasney@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>
-To: Chuanhong Guo <gch981213@gmail.com>
-In-Reply-To: <20260517-sf21-topcrm-v1-3-438f2e0513ff@gmail.com>
-References: <20260517-sf21-topcrm-v1-0-438f2e0513ff@gmail.com>
- <20260517-sf21-topcrm-v1-3-438f2e0513ff@gmail.com>
-Message-Id: <177903210154.62629.12426356915694314234.robh@kernel.org>
-Subject: Re: [PATCH 3/4] dt-bindings: clock: add doc for Siflower
- sf21-topcrm
+X-CM-TRANSID: _____wA3ylwO4AlqyKW7Bw--.10227S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uF48Cr1DKryUuFy3Ww45Wrg_yoW8Kr1UpF
+	WkWr4Fkws2gryxZ3s3C3WDCr909as3GrW7GF47X34DZFs0kry5Aayvg348XFZrJFyxXw12
+	vFW0y34fu34UA37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ziVbyZUUUUU=
+X-Originating-IP: [2408:823d:2011:b54:9f00:c5fa:7b13:491e]
+X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC0A8YkGoJ4A+wjQAA3m
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_083503_786639_6BA7AA9C 
-X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-CacheID: sfid-20260517_083655_960510_E5A5EF33 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,44 +88,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series speeds up the common dirty logging write fault path for
+RISC-V KVM.
 
-On Sun, 17 May 2026 22:12:57 +0800, Chuanhong Guo wrote:
-> Add a binding doc for the top clock and reset module found on Siflower
-> SF21 SoCs. This block provides the main PLLs, high-level clock
-> controls, and some reset lines.
-> 
-> Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
-> ---
->  .../bindings/clock/siflower,sf21-topcrm.yaml       | 69 ++++++++++++++++++++++
->  1 file changed, 69 insertions(+)
-> 
+When dirty logging is enabled, guest writes to write-protected G-stage
+4K leaves currently go through the full fault path and take mmu_lock for
+write.  That is expensive once the leaf already exists and
+only needs its permission and dirty state updated.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+The series first makes the existing MMU notifier locking contract
+explicit, switches RISC-V KVM to KVM's rwlock form of mmu_lock, adds an
+atomic G-stage PTE update helper, uses it for existing permission
+updates, and finally handles dirty logging write faults under the read
+side of mmu_lock when a 4K G-stage leaf is already present.
 
-yamllint warnings/errors:
+The locking and concurrency model follows existing KVM patterns from x86
+and arm64: use an rwlock mmu_lock, keep structural page-table changes on
+the write side, and use atomic PTE updates for permission-only changes
+that may race with another vCPU.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/siflower,sf21-topcrm.example.dtb: /: 'compatible' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/siflower,sf21-topcrm.example.dtb: /: 'model' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml
+The fast path marks the memslot page dirty before making the PTE writable
+again.  It also sets the PTE dirty bit, so systems that trap when D is
+clear do not fall back to the slow path for a writable-but-clean PTE.
 
-doc reference errors (make refcheckdocs):
+Performance was measured with KVM selftests inside a QEMU RISC-V host.
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260517-sf21-topcrm-v1-3-438f2e0513ff@gmail.com
+  dirty_log_perf_test -m 19 -v 4 -b 1G -i 3
+    base dirty memory avg, iterations 2-3: 53.262493s
+    patch 1-4 dirty memory avg, iterations 2-3: 52.735675s
+    patch 1-5 dirty memory avg, iterations 2-3: 26.422964s
+    patch 1-5 improvement over base: 50.4%
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+  dirty_log_perf_test -m 19 -v 4 -b 64M -i 3
+    base dirty memory avg, iterations 2-3: 3.203170s
+    patch 1-5 dirty memory avg, iterations 2-3: 1.762452s
+    improvement: 45.0%
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+Patch 1-4 are prerequisites for the read-side fast path. The
+main speedup comes from patch 5 avoiding the full fault path 
+for dirty logging write faults.
 
-pip3 install dtschema --upgrade
+Jinyu Tang (5):
+  KVM: riscv: Rely on common MMU notifier locking
+  KVM: riscv: Use an rwlock for mmu_lock
+  KVM: riscv: Add a G-stage PTE cmpxchg helper
+  KVM: riscv: Update G-stage PTE permissions atomically
+  KVM: riscv: Fast-path dirty logging write faults
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+ arch/riscv/include/asm/kvm_gstage.h |   4 ++
+ arch/riscv/include/asm/kvm_host.h   |   2 +
+ arch/riscv/kvm/gstage.c             |  35 +++++++---
+ arch/riscv/kvm/mmu.c                | 105 +++++++++++++++++++++++-----
+ 4 files changed, 122 insertions(+), 24 deletions(-)
+
+-- 
+2.43.0
 
 
 _______________________________________________
