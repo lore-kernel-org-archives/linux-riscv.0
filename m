@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 398F1CD4F25
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 07:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1946FCD4F25
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 08:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WXlt1igQi7ihEmZEKmC6SJFqewCJ+jjhnxljWgIWdvw=; b=w0HF+4lWNcFIWs
-	IujQ0/FcPF3pWPdot5BW3JxjesBL/E3MHdXHmjArefCnVhLovV7se2DuLDCXz2xhvBfmPbi4Qzehf
-	9SVrJAb7wpnG6mTd5J6jAB7IJwFfshONtEwF944JMtXTHsvQYm1cE62AHyvU+pKCcoy35fd40qbST
-	0htMln9Z9+ui+7jCr8WjVjgNMNB2lalT3V767bM0FyRf9Gc5zKElyLkKSj0sLcZ2aw8wmhGwJSlHe
-	hqh9ivq+T+jxJifh0MraQJk8dnGq331ZwDkr2AfUdofzkmdkleDIC5vfyNcENwSzNit+4zHhNsux+
-	L5blwXCA9BotVGhJsd2A==;
+	List-Owner; bh=33Rt2SvI0EN645FgcjOmAAghYH8/vX2yu4K3m98r6ZQ=; b=pfasgtWN1lv02b
+	Tbyo6QTMS7EqqtPTfaDEHcWdY8Uw5T9rGAf1PBLa2pYoltQqRJTaHj7lH61gFTlBEU7PQX4JEHGi7
+	/jZj9yNIiwqBDVgeofuZN/t6OPlrj0tkEp81zBLn8xL6Y3W7N2fpfnQNo4OUc9kQwsT5Lox8tMyXH
+	YDVi9ErpMyB5gWNcz9aBQadAsKLq6j89ttvlloGJEofTk9NO2EsuJlGlJVZfmd7cuYP7VMpolJjjv
+	pSaz9rTnyWUlBpVFd8uFBUF/s5x/5TV7IqOLdXhLJOFfJN/iURRXugYl8gBc9e7keIoyQo01lqIr5
+	IXSZ4y8pYjZPo3AuIKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOW5V-0000000CJBT-0U9G;
-	Sun, 17 May 2026 07:39:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOWZP-0000000CLkv-0SIv;
+	Sun, 17 May 2026 08:09:55 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOW5S-0000000CJAr-3Hsw
+	id 1wOWZM-0000000CLc6-0SXe
 	for linux-riscv@lists.infradead.org;
-	Sun, 17 May 2026 07:38:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0D984192D;
-	Sun, 17 May 2026 07:38:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 233CBC2BCB0;
-	Sun, 17 May 2026 07:38:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779003537;
-	bh=mz0YyvKbaoc6XCBeyQG6RvdKAicdcMQPsi1mL2zEflE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bzxt24WbxfJLarfJjsVq8eZ455EbF96WS3mkkR7S4rrVQEdtHjpPnvxL5y0IEoTmm
-	 73dBAUsdb/gmfJEBBYNnaDECi/Xix91558aQPluJ3FurUBZ69ymZwtGnBUrZz6Ggvp
-	 qkjbIRD2nY4EnAFn9Jvl8BeCNc2lfVvb6Lw/uUnHi2NHbCHJ4WrtMN081mhXQtNS1i
-	 ELEkiNtfLTDRInXiwyh4kWE4A35oxZesG00sf5NneGKKCR3r2a7zSlkVQH50VgEY1S
-	 1C37iPpFNnVUsqY4+6q1PIG2OM4Zy0TxkP7mWOlUM3Qgz2Zn7V605WqoKOEIBms0O8
-	 6WLmkeVK8mJ2g==
-Date: Sun, 17 May 2026 07:38:55 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, krzk+dt@kernel.org,
+	Sun, 17 May 2026 08:09:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779005392; x=1810541392;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=q4n6M7y1hdiajGaA5S3Dv718bzU2NlS/k4sv46Jo9PE=;
+  b=CGFdBMhs3DfTJuqGqB/Y7VaG0ewfIPh5YQbmB9HVhYeoLpRkflERdN3e
+   0bg/qMTt0raOsTMa5Ca0VEVuUHGZWK5JhGUc8H0Tw++no6mpB5GrKzmPt
+   Cjqw8PtHco7KbEmwhyqK/4SkG52YmvqposhLY7IHxruOzYEvP3KKT6Mbk
+   vtsekrh3dPLns7Zjm+hxAGEOb4+iquvcNPAtdWmicaeXXtVPNNkJWw5oI
+   /DiBa5pIy8q6XOH1gfQHTpoBuduwrWkNOVakN65kQkHyPgBjlx1o+RHbB
+   +XcydQJqy/PvJG5uRWELFWCHCOzZFHtL5F/Pp6PJ7N/oAq41KvaJ5LOhi
+   A==;
+X-CSE-ConnectionGUID: zrbD4OiZSJ6omVvIAV4vSA==
+X-CSE-MsgGUID: AmkzJqqpQbe2ORREsHZ2xg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11788"; a="90996052"
+X-IronPort-AV: E=Sophos;i="6.23,239,1770624000"; 
+   d="scan'208";a="90996052"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 May 2026 01:07:49 -0700
+X-CSE-ConnectionGUID: M99lICK9TzyYIdfFvW7whw==
+X-CSE-MsgGUID: jCiv8IbFQ96OYGlLHmFF1A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,239,1770624000"; 
+   d="scan'208";a="232735120"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.182])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 May 2026 01:07:42 -0700
+Date: Sun, 17 May 2026 11:07:40 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Senchuan Zhang <zhangsenchuan@eswincomputing.com>,
+	Alex Elder <elder@riscstar.com>, Nam Cao <namcao@linutronix.de>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Randolph Lin <randolph@andestech.com>,
+	Vidya Sagar <vidyas@nvidia.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	pjw@kernel.org, robh@kernel.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/1] riscv: dts: spacemit: enable QSPI for OrangePi RV2
-Message-ID: <20260517073855-GKB3679294@kernel.org>
-References: <177893657188.2456968.7429508961699495905.b4-ty@b4>
- <20260517070006.1836396-1-amadeus@jmu.edu.cn>
+	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v2 2/5] PCI: spacemit-k1: Add multiple PHY handles support
+Message-ID: <agl3TJrvJMtEpHyl@ashevche-desk.local>
+References: <20260517014841.254085-1-inochiama@gmail.com>
+ <20260517014841.254085-3-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260517070006.1836396-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260517014841.254085-3-inochiama@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_003858_844981_9FF6E75B 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260517_010952_182282_9F4D7E5C 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +108,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+On Sun, May 17, 2026 at 09:48:37AM +0800, Inochi Amaoto wrote:
+> The PCIe controller on Spacemit K3 may use multiple PHYs at the
+> same time. The feature is not support by the current driver.
+> So extend the PHY definition to support multiple PHY handles.
 
-On 15:00 Sun 17 May     , Chukun Pan wrote:
-> Hi,
-> 
-> > Applied, thanks!
-> 
-> Wow, you're so fast!
-> The robot report has one typo:
-> 
-> > +			uboot@a00000 {
-> > +				reg = <0xa0000 0x760000>;
-> > +			};
-> 
-> This should be:
-> ```
-> 			uboot@a0000 {
-> ```
-> 
-> Could you fix it? Or I can send the v2 patch.
-> 
-Ok, I will fix it
+...
+
+> +	k1->phy = devm_kmalloc_array(dev, 1, sizeof(*k1->phy), GFP_KERNEL);
+
+Hmm... What's the point in having _array(1) ? devm_kmalloc() should suffice.
+
+> +	if (!k1->phy)
+> +		return -ENOMEM;
 
 -- 
-Yixun Lan (dlan)
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
