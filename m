@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EAABCD4F21
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF237CD37AC
 	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 15:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5nnL0UgXSSYTlvLlH53/NTEVADeP2/QdxmA6gKrT0ZY=; b=d/YCoxDkkc4XG4
-	FRlyyRGM13l2qbykSxG78mnDQgDmgWcB7N8GwisGe9VpNGUHpi+o7EtRnfhIF9zAK1roHc/ldBjUE
-	kzmCgknFhHFreSNSEIYpLi5vFJiQExHMz3LVqaAfE7Vcbw0kp/aA2c8dn0fLyZBcKV4E3tnXOIFna
-	l+XhZWGZXb88jjjf8QarT6ULRo5T1QyGgfeW42pjU5gQR+uhNG6zMeeVdfBE85bRt1gEVyw6QTOEC
-	bevwPxtK6W+GhU/qYy1HtYe3wZntyZNcAWeDf2lxWsm+XCGkwXcN43SSAtZD1EgsHuAf74dy/Fa3j
-	NCfQ6XkQEbRQupKBEoWQ==;
+	List-Owner; bh=0m5nuAoo81JCkO0HD6OcYh129ZQT1HpFZU1pCdo9WAQ=; b=ZbyLg7m3m/BGmj
+	C6ZCx2DscQ6GL82hdZBIsVIdcetCjy4OV3jwTCzservFHNYqrpDJTJCdnhDSMOjaVoXdDDNCpYnfo
+	ELDm+lsZLq7+eixWV2NzoegkSTOWrwC4q5sxBKnaCHHM1p38O/oQpYWiAdGHqNaSQT7+zzpReEwyc
+	PzqeE2VpYvycn6knEFiayTJJM/Oi+wwfIRMVyynCVCYvpr0HR+JV44cbAaar6Av0yFWgekjbIVRxi
+	dro5R7tT8ey3t3eodwyQhnRVG6tsdr3GGrIf3pfxPbw22tPOZ6HMHKChDp2TvAfKkb2hdiki2ykmT
+	Lh0lW0bPQpiwfNQQXfcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOdY2-0000000CwIM-2JPX;
-	Sun, 17 May 2026 15:36:58 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1wOdYB-0000000CwQc-1JrJ;
+	Sun, 17 May 2026 15:37:07 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOdXz-0000000CwGZ-1zMF;
-	Sun, 17 May 2026 15:36:57 +0000
+	id 1wOdY8-0000000CwK8-0TK0;
+	Sun, 17 May 2026 15:37:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Lw
-	tr9qnrBOw3mc+mOndsjvgIabpD1HP/zVbnoBZ8j0o=; b=XCIRvp6+25uqtelPhd
-	08Wy2KLUDrQSxNSIHUpvOigbgi3wUDyDFiKJW51hkakkAyQJ04RJWSmC3e0+T8zb
-	q6MvZAApfU9ESbGtt5zdIHnBQWHtX46dU98CWhsvJ6fUa83f7mE/s4eXt6nbcxbl
-	khO7+/FtNysW2p0FwdtnQkjYM=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Js
+	QLXeUloxPxSDxUurZ8XAjjViIbjwSl2vEzwM1rPDs=; b=Ag3HJO3k8B2qchnUoR
+	9HXK3xEF+q/x78VQ12mLVpxXO8uIvXu82vwdwcH84Je4028gRVJ3/vXIkH4HvaMP
+	I1qxKZFHcNOBlOgUYLOHkfazAD6ypzCHTyDMvYT3pNapRJsdkDZISK/NYz5pWEnc
+	/ccQVlqHy8hFx3GraoNcGFwQc=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wA3ylwO4AlqyKW7Bw--.10227S7;
-	Sun, 17 May 2026 23:35:01 +0800 (CST)
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wA3ylwO4AlqyKW7Bw--.10227S3;
+	Sun, 17 May 2026 23:34:41 +0800 (CST)
 From: Jinyu Tang <tjytimi@163.com>
 To: Anup Patel <apatel@ventanamicro.com>,
 	Anup Patel <anup@brainfault.org>,
@@ -56,23 +56,24 @@ Cc: kvm@vger.kernel.org,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Nutty Liu <nutty.liu@hotmail.com>,
 	Jinyu Tang <tjytimi@163.com>
-Subject: [PATCH 5/5] KVM: riscv: Fast-path dirty logging write faults
-Date: Sun, 17 May 2026 23:34:27 +0800
-Message-ID: <20260517153427.94889-6-tjytimi@163.com>
+Subject: [PATCH 1/5] KVM: riscv: Rely on common MMU notifier locking
+Date: Sun, 17 May 2026 23:34:23 +0800
+Message-ID: <20260517153427.94889-2-tjytimi@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260517153427.94889-1-tjytimi@163.com>
 References: <20260517153427.94889-1-tjytimi@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wA3ylwO4AlqyKW7Bw--.10227S7
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuF4UKw1kCF4Uuw4rZryrJFb_yoW5uF1xpF
-	W7K3yY9rWFqF17W34ftwn2vr1Ygws7Wr17JrW3twn8Zrsrtr1Dua1kW347ZF15Jry8Zayf
-	ZFs8KrWUCrW093DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zEmFAXUUUUU=
+X-CM-TRANSID: _____wA3ylwO4AlqyKW7Bw--.10227S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Aw4fGw1xAFWxtw1DAF4UCFg_yoW8Arykpr
+	WjkrZ0krWrXr4DuFyUt3WkZryj9w4vgFn7X34rJaykJrs0q3s3Ga4vqas2gF15Jrs5XFZx
+	ZF40q3WrCry5AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piaFAZUUUUU=
 X-Originating-IP: [2408:823d:2011:b54:9f00:c5fa:7b13:491e]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC8gUelmoJ4CU-TgAA3o
+X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC0BEZkWoJ4BGw1wAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_083656_373274_B9FBECDA 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20260517_083704_578114_C0BE863A 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,120 +90,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With dirty logging enabled, guest writes often fault on an existing 4K
-G-stage leaf that was write-protected only for dirty tracking. The slow
-path still performs the full fault handling flow and takes mmu_lock for
-write, even though the page-table shape does not change.
+The common KVM invalidation paths call kvm_unmap_gfn_range() with
+mmu_lock already held for write.
 
-x86 handles the analogous case in its fast page fault path by atomically
-making a writable SPTE writable again when the fault is only a
-write-protection fault. Add the same style of fast path for RISC-V. If a
-write fault hits an existing 4K leaf in a writable dirty-log memslot,
-mark the page dirty and atomically set the PTE writable and dirty under
-the read side of mmu_lock.
+For the standard MMU notifier path, the call chain is:
 
-The dirty bitmap is updated before the PTE becomes writable again. The
-PTE D bit is also set so systems that trap on a clear D bit do not fall
-back to the slow path for a writable but clean PTE.
+  kvm_mmu_notifier_invalidate_range_start()
+    kvm_handle_hva_range()
+      kvm_unmap_gfn_range()
+
+kvm_mmu_notifier_invalidate_range_start() leaves range.lockless clear.
+kvm_handle_hva_range() therefore takes KVM_MMU_LOCK(kvm) before invoking
+the handler.
+
+The guest_memfd path has the same locking contract:
+
+  __kvm_gmem_invalidate_begin()
+    kvm_mmu_unmap_gfn_range()
+      kvm_unmap_gfn_range()
+
+__kvm_gmem_invalidate_begin() explicitly takes KVM_MMU_LOCK(kvm) before
+calling kvm_mmu_unmap_gfn_range().
+
+So remove the local trylock and make the common locking contract explicit 
+with lockdep_assert_held_write() like x86.
 
 Signed-off-by: Jinyu Tang <tjytimi@163.com>
 ---
- arch/riscv/kvm/mmu.c | 75 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ arch/riscv/kvm/mmu.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 48f16e52f..980059e09 100644
+index 2d3def024..0197e41fc 100644
 --- a/arch/riscv/kvm/mmu.c
 +++ b/arch/riscv/kvm/mmu.c
-@@ -419,6 +419,77 @@ static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
- 	return PAGE_SIZE;
+@@ -230,18 +230,16 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ {
+ 	struct kvm_gstage gstage;
+-	bool mmu_locked;
+ 
+ 	if (!kvm->arch.pgd)
+ 		return false;
+ 
++	lockdep_assert_held_write(&kvm->mmu_lock);
++
+ 	kvm_riscv_gstage_init(&gstage, kvm);
+-	mmu_locked = spin_trylock(&kvm->mmu_lock);
+ 	kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
+ 				     (range->end - range->start) << PAGE_SHIFT,
+ 				     range->may_block);
+-	if (mmu_locked)
+-		spin_unlock(&kvm->mmu_lock);
+ 	return false;
  }
  
-+static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
-+						     struct kvm_memory_slot *memslot,
-+						     gpa_t gpa,
-+						     struct kvm_gstage_mapping *out_map)
-+{
-+	struct kvm_gstage gstage;
-+	unsigned long mmu_seq;
-+	pte_t old_pte, new_pte;
-+	pte_t *ptep;
-+	gfn_t gfn = gpa >> PAGE_SHIFT;
-+	u32 ptep_level;
-+	bool dirty_marked = false;
-+	bool ret;
-+
-+	kvm_riscv_gstage_init(&gstage, kvm);
-+	mmu_seq = kvm->mmu_invalidate_seq;
-+
-+	read_lock(&kvm->mmu_lock);
-+
-+	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
-+		ret = false;
-+		goto out_unlock;
-+	}
-+
-+	if (!kvm_riscv_gstage_get_leaf(&gstage, gpa, &ptep, &ptep_level) ||
-+	    ptep_level) {
-+		ret = false;
-+		goto out_unlock;
-+	}
-+
-+	for (;;) {
-+		old_pte = ptep_get(ptep);
-+		if (!(pte_val(old_pte) & _PAGE_LEAF)) {
-+			ret = false;
-+			break;
-+		}
-+
-+		if (!dirty_marked) {
-+			mark_page_dirty_in_slot(kvm, memslot, gfn);
-+			dirty_marked = true;
-+		}
-+
-+		if ((pte_val(old_pte) & (_PAGE_WRITE | _PAGE_DIRTY)) ==
-+		    (_PAGE_WRITE | _PAGE_DIRTY)) {
-+			new_pte = old_pte;
-+			ret = true;
-+			break;
-+		}
-+
-+		new_pte = pte_mkdirty(pte_mkwrite_novma(old_pte));
-+
-+		if (kvm_riscv_gstage_try_update_pte(&gstage, ptep_level, gpa,
-+						    ptep, old_pte, new_pte)) {
-+			ret = true;
-+			break;
-+		}
-+		cpu_relax();
-+	}
-+
-+out_unlock:
-+	read_unlock(&kvm->mmu_lock);
-+
-+	if (ret) {
-+		out_map->addr = gpa & PAGE_MASK;
-+		out_map->level = 0;
-+		out_map->pte = new_pte;
-+	}
-+
-+	return ret;
-+}
-+
- int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 		      gpa_t gpa, unsigned long hva, bool is_write,
- 		      struct kvm_gstage_mapping *out_map)
-@@ -442,6 +513,10 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	/* Setup initial state of output mapping */
- 	memset(out_map, 0, sizeof(*out_map));
- 
-+	if (is_write && logging &&
-+	    kvm_riscv_mmu_dirty_log_write_fault_fast(kvm, memslot, gpa, out_map))
-+		return 0;
-+
- 	/* We need minimum second+third level pages */
- 	ret = kvm_mmu_topup_memory_cache(pcache, kvm->arch.pgd_levels);
- 	if (ret) {
 -- 
 2.43.0
 
