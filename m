@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888ACCD4F3D
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 19:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17D7CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 May 2026 20:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U6rf95lMNelbnPV0q+1xUUxZcxJEsMJHirk+7DkVmZk=; b=VgpfkxlU1Tt8xI
-	hvCuBdZQl4FLjI8fAnRLkR8j8m8dIWwXsjP0c1PloBM9Ui57veLenKN6r+pwBS3M9S14QuIkJ4uIu
-	pnlUfcq9x7ZF+a8i1sYtIiHUUSAkx+gxturJp4vDiJzIJpA4l1CWXj1TQrK1t7OUf5uX/TxfFAqaL
-	bvBYxHlHULY104GvYauJCj55MFVX1bIxUHCaWwCYA3LRz/80qACBiGMG2VvGS3GpWTL0IJ627ZagS
-	heEuWIwUfRhvaU2bFSx6BXi4wjJPVYYelVKJdGHh1g9pzRZoC+S5K9Ee8VHlypDp5FndJgPOD9DwM
-	Es1kPlHPNC4x5zbvdOTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UI1XjZ2lxq9NVF8MWP998tIxXS3R563zs5xBoKULniU=; b=Ygw/3CLeMfjuE6yDBo4zDnVZ6n
+	PrCbvGeK5PrP5VpFGuGmNT1/J4JaYmbqhCpf0f4ZCYNEcbxLlksoBOJfdVqJCYIhRlrQS4ntDRyGp
+	tyLXmtViH+vWJNR9+vKpTU/srOOn9bQ4acW2oeKGvKWz/c53vegLzof4OYqfyJLq0rne0VttLsYRz
+	XNO4nhFJ8okzdjxmlnxsGhIU+XFMrjlAu52Pm6XfgV+dFM+pv9zdZPrA44huPq1kk/gPOH3dctKVo
+	bo1+9x+y9zKm0cZk69OSXfprFTR5+vQ296z8cro16v0BfZx6962bqmbLBV+bzhTB3whl1CgE/79NZ
+	Ls6isrnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOh9z-0000000DKpE-23jY;
-	Sun, 17 May 2026 19:28:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOiOp-0000000DRH3-3WyL;
+	Sun, 17 May 2026 20:47:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOh9x-0000000DKoe-2r5D
+	id 1wOiOc-0000000DRG1-3H99
 	for linux-riscv@lists.infradead.org;
-	Sun, 17 May 2026 19:28:22 +0000
+	Sun, 17 May 2026 20:47:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D17244510;
-	Sun, 17 May 2026 19:28:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42D59C2BCB0;
-	Sun, 17 May 2026 19:28:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C6A52419AF;
+	Sun, 17 May 2026 20:47:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEDCDC2BCB8;
+	Sun, 17 May 2026 20:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779046100;
-	bh=lF7NVJE0CzMAThOmv6bq/zLJ9cj8ciPvjgG/RLA37/c=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=feX24+uhsjSYXJz5XTjfOYy3RBTMWgfylYudMqfKpqv6F7JHF0+QgHJQh1jOGGIU6
-	 UZTnMm15krdL68sUpiHSPV5q57FEiRJyOw0xnT/Utxo1eMwrX/tWH4T/azTVhBRFfI
-	 v0UIML4hgGokQwGGKlaPirKU9R1dNRjeCDe/6IjlZ0POyyH/Yb8KEod190cJ2sW99i
-	 atJfSCooKej1LurNNjelf0MT33cJVKCuUNX/XRLgU7CWUqJZGhIgCGfQYK5/JeXWZi
-	 Szxtsg0YCYFbXbsLLcwZmAh2QUGOIfAXKZjxSV82YmHSUucRjHslyDiZ1laCGpBPzW
-	 IDziKIYnNuxJw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939D33930B89;
-	Sun, 17 May 2026 19:28:33 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V updates for v7.1-rc4
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <95613c06-fa15-c5ae-cf7e-92fd91563e74@kernel.org>
-References: <95613c06-fa15-c5ae-cf7e-92fd91563e74@kernel.org>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <95613c06-fa15-c5ae-cf7e-92fd91563e74@kernel.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.1-rc4
-X-PR-Tracked-Commit-Id: b69bcb13ed7024a84d6cd8ad330f1e32782fcf28
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: f7c79949bef47ff93167c8ae85a07ac006ed7139
-Message-Id: <177904611210.673362.1363614580989146265.pr-tracker-bot@kernel.org>
-Date: Sun, 17 May 2026 19:28:32 +0000
-To: Paul Walmsley <pjw@kernel.org>
-Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1779050851;
+	bh=8l2JZyd0qp+/2cMhcZGlUMdUhecY4ayHyTnCgWxo6lM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s16+PkgxNgbz04nvSqZ1NDkGXVnt8BLgLnMZgZqS0bMkNjjYwi50NQmw82jxSor1x
+	 XIPe8iReQbPmWHNdscx3XyfeukMxW3afk5bk2L+PGNfl3N/SSJMw2kJr2ZPig+8A2z
+	 KZRPdsVGs1LhX/qVe0a35RnwClFRlKalewmTObatNIJsE4IQAQ/2bvJqWdylXiFYB7
+	 Tl+qCILAay+eLbI4zZxkWpYIeyB8wPa1YgS9I6UHKL+qNkIq8wXXFRezcEbOaPAyeF
+	 gHsCTQqXOX6z+3L8ddlCe8QzRrTaqshgTsyU/EIfxKYkAgCO/d78xzTyHmKkPAiT5q
+	 dTq2t1BhvCWrg==
+Date: Sun, 17 May 2026 21:47:26 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chuanhong Guo <gch981213@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/4] dt-bindings: clock: add binding header for
+ sf21-topcrm
+Message-ID: <20260517-cartoon-slather-ec5ad7605449@spud>
+References: <20260517-sf21-topcrm-v1-0-438f2e0513ff@gmail.com>
+ <20260517-sf21-topcrm-v1-2-438f2e0513ff@gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <20260517-sf21-topcrm-v1-2-438f2e0513ff@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_122821_733519_99DAC6E9 
-X-CRM114-Status: UNSURE (   3.13  )
+X-CRM114-CacheID: sfid-20260517_134734_841120_8B1122AB 
+X-CRM114-Status: UNSURE (   7.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,26 +77,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4367120823460212267=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 16 May 2026 18:58:23 -0600 (MDT):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.1-rc4
+--===============4367120823460212267==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NDNiJudJTjPz3l07"
+Content-Disposition: inline
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/f7c79949bef47ff93167c8ae85a07ac006ed7139
 
-Thank you!
+--NDNiJudJTjPz3l07
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+On Sun, May 17, 2026 at 10:12:56PM +0800, Chuanhong Guo wrote:
+> +#define SF21_CLK_PCIE_REFP		30
+> +#define SF21_CLK_MAX			31
+
+> +#define SF21_RESET_IROM			17
+> +#define SF21_RESET_MAX			18
+
+
+Having _MAX is not permitted, but is also really confusing that "max"
+appears to be max+1, so actually represents the count not the max?
+
+--NDNiJudJTjPz3l07
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagopXgAKCRB4tDGHoIJi
+0ryUAQDutzNna+dS1Srtfi1let6kex89J0o1R0P7Q0ufH5QsowD/QrELQWfp+sz7
+6qMbRiR/I1cEmEy9KpZW6LY936HAJws=
+=S1b8
+-----END PGP SIGNATURE-----
+
+--NDNiJudJTjPz3l07--
+
+
+--===============4367120823460212267==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4367120823460212267==--
+
