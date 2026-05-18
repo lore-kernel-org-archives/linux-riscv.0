@@ -4,71 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949BDCD4F3C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 16:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745F3CD4F50
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 18:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4+EKBXOLnPMwmbLyYfnw9XsCP5yPkidDd/o60hOAPhk=; b=ItdkeJZjnAtz9D
-	05wW2NK/wElTFwJZKQJFWOHM022oyamhlP0BPJ+pRfP7GQTj7nlJUIWnFFEJkXHzRNyvwHGkn60jQ
-	/yv95PJEwNloCtgIGi5ZWpLfk3uUChFOYRMSXiAkhB9QScp/Vr4qEyOqhoUxMOwgydiURGW2Xvs6K
-	NWJAcj4INMcBVoAr6IvJX1N3LTn4arJNm+0WujSRYlEsCuBJZK4tZno789Xoq7DtT775/60K1a/mj
-	jlIWQut3OOVvnFac1rkJxkKeB9s9pVXZmLAEVc3MSASgIxN4qsbENxQuZ/qJdvW28JHvLxXW/0Kd9
-	tSEYqjNX4r1gsCJY2uAg==;
+	List-Owner; bh=9Yfpf31tW0Me5PBEodzd7jm0mqOfu9eQgWquMJcUpn0=; b=AJ3TBFnxx5s67w
+	p//vUkOQcklPzQiBGFpIrQm7nOtFAG65m/XQ4gFeWG2E60OsYy6KaN1rN+3zIe2EXz6UVMZj6Qcja
+	i0WQtwgHLmlS02v10cgVik1xMtOhf8azpuRIwunxNUqZHyKlJ65JQXpqgVEqlOXGYrS1jPNDRSA+1
+	l9aNZ4IDcDh51Gb9W+cpmSx5pjzNnN9Oyg6Gxastfqk5GSiQpe/h6FacHgEeFT/J6FLrGKrsmEreT
+	8HeHKf8oTkjQt+qASBGdMd9KHglRtDG11+dj7B0yariq5X/Tqs+8gstKQteLq7bSL94HkYbDprLng
+	gGdnP2Ce2Lt/18LJsLMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0f3-0000000GHHm-3LRZ;
-	Mon, 18 May 2026 16:17:45 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wP2ny-0000000Ga48-2umg;
+	Mon, 18 May 2026 18:35:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0f2-0000000GHHE-2I5q;
-	Mon, 18 May 2026 16:17:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=GQ3AyNwcHkDwyotJKfmaIM16qng3evSu5qPs3Xeesp0=; b=fU3+SCOFfUUlkOUmyIuTsbnywe
-	89kqfFg93eDsIn1f4q6CEtRQBpKAuBqXFwczvVeUyK1MqiAmO/Is7GNS6SQajMkq/Ou4EEPXO5gjd
-	QG3X5RgIMMIHaZt2k6X7tQJKlMJUiidUWjRLLsCK96ufITmHS/etRFdCcKGXPu9m3Y/9455P1VY+7
-	yI95TKqa8/ath+SxD9IFOJNLaKt8Sstckq3piVjXElv/WkNhCMR7wKydSnX4sVdCnnWMjLyWBjQ2b
-	4vkZR2poj4v3QZS8BJi9xbkgnOoh2L9CaUbogqrM9GJMbxKImRWLaIAgDeo+jPw7Sed1HBtUwdBx+
-	aOLN/sjA==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0em-00000004wNm-3PR8;
-	Mon, 18 May 2026 16:17:28 +0000
-Date: Mon, 18 May 2026 17:17:28 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, surenb@google.com,
-	akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org,
-	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org,
-	mhocko@suse.com, jack@suse.cz, pfalcato@suse.de,
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com,
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org,
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com,
-	bhe@redhat.com, youngjun.park@lge.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <ags7mPK7Ong0ZsBf@casper.infradead.org>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+	id 1wP2nx-0000000Ga3u-09SB
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 May 2026 18:35:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F23B60120;
+	Mon, 18 May 2026 18:35:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D9AC2BCB7;
+	Mon, 18 May 2026 18:35:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1779129303;
+	bh=BBgdSEmquIQtG+Vd4wr31W7UJ/hyuPfdXKhRmNVBIjQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QkgeDcvYx/sBQZg0QJXxqsoGkJ/P/vbR4j0IO1OkYDDt7xuWVngrwN1HfDrrWcAlK
+	 mQ1W/DHxp9TMTTHoxBA+9exvTLN4SMYGwAaCA8FD044WZl7IafDyg01QOye9i2iunN
+	 VIqN+TIBMnXkesp51AJU7oKDIcS697b6GM0eRCqk=
+Date: Mon, 18 May 2026 11:35:02 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Dmitry Antipov <dmantipov@yandex.ru>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Charlie Jenkins
+ <thecharlesjenkins@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org
+Subject: Re: [PATCH v10 0/8] lib and lib/cmdline enhancements
+Message-Id: <20260518113502.11a2f420d48f79bb7de31c67@linux-foundation.org>
+In-Reply-To: <20260513134407.884033-1-dmantipov@yandex.ru>
+References: <20260513134407.884033-1-dmantipov@yandex.ru>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,24 +69,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 07:25:54PM +0800, Barry Song wrote:
-> We have clearly observed that the `fork()` operations of many
-> popular Android apps, such as iQiyi, Baidu Tieba, and 10086,
-> end up waiting on page-fault (PF) I/O when the VMA lock is
-> held during I/O operations. This has already become a
-> practical issue. I also believe this can lead to chained
-> waiting, since the global `mmap_lock` blocks all threads that
-> need to acquire it.
+On Wed, 13 May 2026 16:43:59 +0300 Dmitry Antipov <dmantipov@yandex.ru> wrote:
 
-It's always been a terrible idea to call fork() from a multithreaded
-application.  For example, this question:
+> This series is a merge of the recently posted [1] and [2]. The first
+> one is intended to adjust '_parse_integer_limit()' and 'memparse()' to
+> not ignore overflows, extend string to 64-bit integer conversion tests,
+> add KUnit-based test for 'memparse()' and fix kernel-doc glitches found
+> in lib/cmdline.c. The second one was originated from RISCV-specific
+> build fixes needed to integrate the former and now aims to provide
+> platform-specific double-word shifts and corresponding KUnit test.
+> 
+> This series was briefly tested on X86, RISCV32, ARM, and MIPS using QEMU.
+> 
+> Getting feedback from RISC-V core maintainers would be very helpful.
+> 
+> Special thanks to Andy Shevchenko, Charlie Jenkins, and Andrew Morton.
 
-https://stackoverflow.com/questions/53601200/calling-fork-on-a-multithreaded-process
+Thanks, I've added this to mm.git's mm-nonmm-unstable (and hence to
+linux-next) for testing.
 
-or this lwn thread: https://lwn.net/Articles/674660/
+AI review asked a few questions - please check these out and decide if
+any updates are desirable.
 
-Do we have any insight into why these applications are doing this
-horrible thing?
+	https://sashiko.dev/#/patchset/20260513134407.884033-1-dmantipov@yandex.ru
+
+Also, please cc linux-kernel on patchsets?  I'm not subscribed to
+linux-riscv or linux-efi so my "check lkml archive to see if I missed
+any emails" trick doesn't work.  linux-kernel's main purpose nowadays
+seems to be "the place to archive patchsets".
+
 
 _______________________________________________
 linux-riscv mailing list
