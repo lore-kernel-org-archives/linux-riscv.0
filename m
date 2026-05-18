@@ -4,91 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D202CD343F
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 06:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D7CCD4F4A
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 06:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NnqOaL1u4plvdh6YDkoYckdyivEPowpbGPhUbKVuCqU=; b=u8jjMN2rNZ7OZY
-	u3GPQGESVFo3MJpZ45LoMhtMYKDTkOopyKpiYR8ucHvoTS4cAnO5sfvm2bT6ogiL/yy1EnOhlB4Cm
-	Z9zUBK+9BGHRaBh+MZs5qPRS4Kd5F2l2994ZEpTqOcmihYQkIKe/Mba/BnqHD09Fa8W8jBeWqGddn
-	rsKkFYp2L+CQCtFfAvfv/DbjV1lfGpwLQOaD4Cgj+NXWw5S1mxwdlnYdthEFKyBMT2eBMpHOgEDZ4
-	10PK+nxCLYm7XB5SRkdBQ4dcXQ9IFenLPzL7pkIYqil8iepl36m5y4X4v+Y+QpvZsbqijcG7tyZax
-	oq8Q8WiNHue8foIkv1Xg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U6up7bGpBvId6EiELoXlcAIn0VbWztAZhk/YWJSd/10=; b=QsKor5v2Pf5/U1
+	Wmr2crdWz+r+72DlN3QzleZ86f5A5Sd6ObwsBCOpu/HyyNM4Y3J4PaCyESfQuw75lBN5ssrTC/1Pg
+	Tuxx9RRdzm7hj1zXTPya5DATIiexgVSzbw7iPsF7xA2cIVtbTdHEgAqMdSMW1Ym/EJMi2iT5kbCBG
+	XQ7v97ydColkeC/2g9mi4M1I4KI6SwcT+B0HY2Pvw3QA8q4n0kC99egwWO0A3ybQF+pTqZydle1iO
+	c7jLCBzD3mMmQRxpwhaavClKv/mFPz3oHTxVtpuebQKZdt2MZKu8qIGhLHHhQEZ6Mp3t/bRHz12KM
+	gFXdV8iRKGLEoqgKBmag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrMY-0000000EPgN-2he8;
-	Mon, 18 May 2026 06:22:02 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1wOrwv-0000000EVBv-3Ezh;
+	Mon, 18 May 2026 06:59:37 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrMV-0000000EPa0-3IP3
+	id 1wOrwt-0000000EVBR-3jfh
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 May 2026 06:22:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1779085288;
-	bh=MzLAGIAWkK+XCchAd4hGeXE2CHkEuJGkm4cHQuRIBJ0=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=jstzffJxK8VTfUEGmM5FnTWoPh/mmOmV9akrGQkPng+SOHZbd1YEISiXWOb+fO9vy
-	 yiV4Hr0btWdRMu9SqmYYaHnxT8lvxPymkUAomcgslCszm/uxeVLibZ1GcoSUStJ+yL
-	 Ac3NAq5P7cQVsYmzDhw3iKvNtUIukyS/GsG7A+NA=
-X-QQ-mid: zesmtpsz8t1779085280t3c7af7b1
-X-QQ-Originating-IP: E3Ys73emsUdUyf9XkmiQ0SIGqXhmKVAS1Gx4p/Hd35g=
-Received: from = ( [61.145.255.150])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 18 May 2026 14:21:17 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1184573455148698779
-EX-QQ-RecipientCnt: 11
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Mon, 18 May 2026 14:21:09 +0800
-Subject: [PATCH v3 2/2] ASoC: soc-pcm: constrain hw_params when DAIs share
- the same BCLK
+	Mon, 18 May 2026 06:59:37 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64I20uQo2303883
+	for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 06:59:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=NhVDdYbxD3mVbT1W28WUJ2s+19P1cuAWiBa
+	xeNYN9eM=; b=bgdqae3r9Ei6FuIeHRkMPTAZWR2Rn4H6IX+zmZMkqmE9b4DJPEe
+	6L+YUP9HLrFq75I0Gi7uxSOKsNCkVJBUD6q3GxSh7ihXbt/LtBgxRyZvFsE4LkYB
+	SlSC4Kb2Gv6pCR45BBwX/Gx3jWmAphADoPJyZGyAKuN8toO+/nLB/3q5kxChdgfB
+	BwTFdC2+B/2IizrhLVpGm7raenytMtTCAfmPFK6RVHgy8mVVuoa5VjN84eoXlJjN
+	nLv5MXC0txB59mVKZ1/sPbXiIxh1VG1jL7h1NffFpyFR8UrxEKyMp6QSmQ+A6cRV
+	xtmhpcOCYXz34K1lxuYHkB/kVFTWNrh7Nlg==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e6gvqw3qp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 06:59:34 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3662668b825so3816607a91.3
+        for <linux-riscv@lists.infradead.org>; Sun, 17 May 2026 23:59:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1779087573; x=1779692373; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NhVDdYbxD3mVbT1W28WUJ2s+19P1cuAWiBaxeNYN9eM=;
+        b=DZhvyh4lC9mDE1+6enPI20IKdDozTZOi0uGKjjujgANUSRmqEpX+V5jZz9Qfv+j44w
+         bKCmUO0AM3n55VIRrqNeD+ryKA65qoLlDTup3RrNm8CNvYtZwTdd5Zk4IlRWQw6kLPuL
+         vCzGRNiI0WFDIwYjYp4+XXsyKz3KNvdfBOjp7Wn+J38SksMM4Yu0N/ndjXTQf6LZ9beB
+         PHvhTCPiH/sggvaMJfzmF30Y580Pmqmmd82HH61+JcS+2XH5+E3wMA8Bk7B07KnI86GI
+         dd/FD09xCj6m8jtPaBtqcR9MPYr+AuD+uoGxQUJtYhv25kYwI7M/ZvmG6KqcQaldTPyC
+         W+Og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779087573; x=1779692373;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NhVDdYbxD3mVbT1W28WUJ2s+19P1cuAWiBaxeNYN9eM=;
+        b=dJ2KBZ1oQwscVtDLBJs4fobaJeaRCKqYlyNLBZTcaMjSUfbYtd+3UOg3TMAHFWOOUB
+         mysxmk8UZHJaKpPPjTNQpBmNzbA6k1e8bxxofYWbdfAGN0ClAEjXFB8i+d5EzVTjFB0P
+         fBg2vT2ue2LJqZEu1IyCvHrJ7EWp7pPdaOXI4eb8jkl1linxp2QdjnU1UkmDVdNRt+cH
+         P4aRp4V4JjdbounJS35hPX1wXm5KoSqu3CzNl6TyLZ6fUZMSz/w2VKRJutAhOZdd6nCd
+         GTGQu3F0wiUlaOyq7WrzADRuyLNGm4GnvHVbHEz6qOTChfLhasr2VZFxjdROy5KyXnLi
+         GyMg==
+X-Gm-Message-State: AOJu0YzeDWLJfD7OQ4rXxZcfN+iIoVu4XENSpWrZ+wXTUkgJpmR0qrlf
+	xJooCEwM+Qw+3TGSG1iloegOITlvm/JHcKo05kaqeH/NgryNUrt6F0LnfSIbUPVSZQvHum4STkP
+	nrMJzHbfi+ENWX8KRAP1EUavB153jzf8leIFBqxsAgaFuz9Fh0JkhMnr7wwfrozEJRS8QRWQgly
+	Ec5m4=
+X-Gm-Gg: Acq92OHneDKYH0fRVabfw/zg9NpyCfx/5I4tPrku6pAqYhoP0YEaFt0S4RRWa3VkhB8
+	5fksC1ZVzPEWV2jp5wq8XxCPA82RPmIkGHI3xNXxpuV5jnZVzZ8uUGsHz0t91bOLutPHqnHKFXa
+	gyb4ErhLJfXulfTnOEM4CLczJSnIgwlDz4ao/NCKfcEH2HpvLf3tjgAzCUEvdHBoqFar/gW137p
+	R5Sl7vrLrhrRNh5Ol6fLom2RqJRoTvBcI1SgpMWpGWNKkJrjzm7pSC4KcoYwRS7fRYAUwYRvvYs
+	HPZcedra3afFKyrYO3YQWjbWOQ/xHaXblLq0GiknEw4LP6CCVVJFQjdE0AxojoFrxy+2KHuMT7L
+	KVTSPdZf00ucQ6DRitlKav9jTyFjPS6VFAnNLJQ1HB+ox4wQpUGp+tJc727w8dD7x8u+7NVGCvA
+	mmnp9G3Ar9aoV9Pm6y2AnXFBsGbInLq6X7FYK/Fsqe0sYDHA==
+X-Received: by 2002:a17:90b:544c:b0:369:7ef6:2874 with SMTP id 98e67ed59e1d1-3697ef62f88mr7415977a91.4.1779087573560;
+        Sun, 17 May 2026 23:59:33 -0700 (PDT)
+X-Received: by 2002:a17:90b:544c:b0:369:7ef6:2874 with SMTP id 98e67ed59e1d1-3697ef62f88mr7415954a91.4.1779087573079;
+        Sun, 17 May 2026 23:59:33 -0700 (PDT)
+Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-369c5f0eb2bsm2058381a91.7.2026.05.17.23.59.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 17 May 2026 23:59:32 -0700 (PDT)
+From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+        alex@ghiti.fr, shuah@kernel.org
+Cc: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+Subject: [PATCH v4 0/2] riscv: Introduce support for hardware break/watchpoints
+Date: Mon, 18 May 2026 12:29:17 +0530
+Message-ID: <20260518065920.872131-1-himanshu.chauhan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Message-Id: <20260518-i2s-same-blk-v3-2-2ba1c4f41db9@linux.spacemit.com>
-References: <20260518-i2s-same-blk-v3-0-2ba1c4f41db9@linux.spacemit.com>
-In-Reply-To: <20260518-i2s-same-blk-v3-0-2ba1c4f41db9@linux.spacemit.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Yixun Lan <dlan@kernel.org>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- jinmei.wei@spacemit.com, Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779085269; l=5785;
- i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=dHcuwQewOQ91+lcIOJFibASbfSOLIkUa8mNyTgSGWBs=;
- b=6D8ZuFt4bPxPHExkd2VotXaHhHDkhYQIpQWWLctSzGnwYoo5vGnXrVA+KDrcBHyUi0VT6bZRN
- cCCTk/mVDvxA2/rSOjSYgWCjJbwhHGuyVCyIClLZ27dHpzhyBTdJd9J
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OcFnI1CoIwQYRA1yQVDrADRzvBuxzly4b/O9GzOrBTjZ5CCTvLm+4ZMU
-	RsTZ1jlUx+fi207Su7vlKwLrnDRFsipQyc1SVIE69myzeLHlPrZbEtrkI3DyRfswnAP4SrP
-	1pIlaft3S1d6UqPJD60tqM37lhBs9pMZwZAnaWLzvOREXuyhIODN+Mfv6bEneKEaPAF/Wrk
-	760WAi6WlCkSZCibSyPFS/H92975BLZxpFAzAvk+OU4aq9Uc/t5d4oBtwPXT+kXn5BFlOLW
-	i8lS92a3WV/C1iWN7VVi77vctKbygqgDAnqMyj7pbl364NbDuO/zOe+Wq5WXgYvql5Xa1j6
-	rSm+mmIgxaguHkPnxaLjp3uDFfS/5XWyXA+7bskauhfdD8PDtBK79bipfTBmozmYQZeCPlB
-	359OPbONXt3iLhg887gRmJoLNDT1x+y5b6Z6sG1X/AzwMQWW52kyI7CyXS4aynxG55p/l1+
-	wMbFOrwE9plfKhc+2fidOh6Re5aeygW3yzwGdC5VCVu1vvZjTFFoEpc/npn3UZicQulX0wc
-	Rwad62a4jRIykaGodaww46yRGBDG6K4fKez/8Lm4lEA8VqDLsSaKX8dgt4cyHSIIFA0fZOy
-	dgJk/uOz2XmoNjy7YXmlX3Rf2/T0lwEuQqh1PwC46LTiE7HPVUeMYOR7G4BHT8KNDzJk32r
-	r8pJkXJCu26WVJfWh9bFd6HZlT3t23JdwTwZNWpZTTaJmF1tNo19/FPqWv/EwIBfyYgcqWq
-	LAM3QAsZlNzZIXafAwywLfyL5A0v+uumJsofeKF9/q/PStPrC/xN4Jp7SutpYlWfWdkUjql
-	6x3ZRZWl3wP/Ht20kF7vyvwLpn1JpMZwJu7kvdJb/oevX9g2Lhh5cbEhgpcaJuoEawcfFg4
-	MIQ51CzEtsn1gRQUj9iA9Xgeya6xzh5diX6HPTtXMM03Q/ybfhdzXGb8N59jFpy31rAEoNi
-	RvHC85xDPZ6IKWL3QLZWavUk8WWRQhsuvI//BzZ7o0Kj+uvAOzXsHN+k9YUlcCfZcz1E7lw
-	owars6muFN/8Ttvhdq3ZZIby+CcZlvN9yphHEXi5l5ieLAhuzCmb1gA+/9lUzekshKa6//o
-	n+An9BPtlLK44t/p7bVrXTh+JFuhcb23q1kmt6gUyxHhC3ANSWMOIqaYSWnfv3uUw==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+X-Proofpoint-GUID: Y0XcY16URCzCAjNlEPt8dkfkSsECnWHz
+X-Proofpoint-ORIG-GUID: Y0XcY16URCzCAjNlEPt8dkfkSsECnWHz
+X-Authority-Analysis: v=2.4 cv=LKJWhpW9 c=1 sm=1 tr=0 ts=6a0ab8d6 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=V1jnuoLLAAAA:20
+ a=NEAV23lmAAAA:8 a=VXEou9BizgUDuBldTDUA:9 a=iS9zxrgQBfv6-_F4QbHw:22
+ a=bA3UWDv6hWIuX7UZL3qL:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE4MDA2NCBTYWx0ZWRfX+VSU+2vnNiSo
+ qKv0d10OTIAbf41ToESDxTUjuiSSDkL12XP7jjj64M4FqXtQ067LYYcEdp6pi7AwlVIHh99wnNC
+ VkjEh8reO4OppXtThE2km3T23/N1/BIiCMj4P/hbo2P+bHBxDSeeC/VvDyaPoSYcZm7TnV2S5n4
+ P6SmzcMi0SBO5bHR36Zo3t1vnees4qJkNEnNPEaAu+Ny9nINCCZOisGVTIwGFDvKCMcjau6p10K
+ gmVkhDjQc2iz5NocrOrjkZ9vy6ZHjmlewedy03Fl37WRxsrZfGf2KbN0PsX+ueVwKZ37v3pgCcE
+ 7545npeuDWMVIVwEPdEqrENXGCkyJpoGevTRCv/OvqGZazQnVEvsOdLNwWeuTnWVS/NvEw6sb7Y
+ 2+AlcPZfla6dyhhSVHyM3pLfTq5D+Om9mkLCruMSoP4geSU9NdP69+SGZtYNwTun+VLIPJPa2yZ
+ ot3tPjuHgLFIL5uvCaw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-18_01,2026-05-15_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 spamscore=0 adultscore=0 phishscore=0
+ clxscore=1015 lowpriorityscore=0 suspectscore=0 malwarescore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605130000
+ definitions=main-2605180064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_232200_355108_82E9E579 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20260517_235936_057470_EFF2A0E7 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,185 +141,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When multiple CPU DAIs on the same sound card share the same physical
-BCLK, add a hw_rule during PCM open that constrains the sample rate so
-the resulting BCLK rate stays consistent across all sharing DAIs.
+This patchset adds support of hardware breakpoints and watchpoints in RISC-V
+architecture. The framework is built on top of perf subsystem and SBI debug
+trigger extension.
 
-The hw_rule is registered unconditionally for every DAI that has a bclk
-clock pointer set. The actual peer scanning happens inside the rule
-callback at hw_refine time: it walks all DAIs on the card, looking for
-an active peer that shares the same physical BCLK (via clk_is_match())
-and has already completed hw_params (checked via dai->symmetric_rate
-!= 0). This ensures the constraint uses the real BCLK rate established
-by the peer's clk_set_rate() in hw_params, not a stale boot-time
-default.
+Currently following features are not supported and are in works:
+ - Ptrace support
+ - Single stepping
+ - Virtualization of debug triggers
 
-The first DAI to complete hw_params is unconstrained (no active peer
-yet); subsequent DAIs are constrained to match.
+The SBI debug trigger extension proposal can be found in Chapter-19 of SBI specification:
+https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3.0/riscv-sbi.pdf
 
-The rule supports two modes:
-- If the DAI has an explicit bclk_ratio set (e.g. for TDM where
-  BCLK = rate * slots * slot_width), the rate is constrained to
-  active_bclk_rate / bclk_ratio.
-- Otherwise, the default formula BCLK = rate * channels * sample_bits
-  is used to derive the valid rate range.
+The Sdtrig ISA is part of RISC-V debug specification which can be found at:
+https://github.com/riscv/riscv-debug-spec
 
-The constraint is purely additive: DAIs that do not set a bclk clock
-pointer are completely unaffected.
+Changes from v3:
+	- Rebased to v7.1-rc3.
+	- For watchpoints, check tdata1.hit via SBI_EXT_DBTR_TRIG_READ and
+	  keep STVAL-based matching as fallback.
+	- Improved watchpoint matching when STVAL reports the lowest accessed
+	  address for wider memory accesses.
+	- Program execute breakpoints with SIZE=0 (match any size) to avoid
+	  misses with 16-bit/compressed instruction addresses.
+	- Updated RISCV selftest to avoid deadlock by replacing unbounded
+	  sem_wait() with sem_timedwait() timeout handling.
+	- Updated RISCV selftest breakpoint function so it cannot be inlined
+	  or optimized away.
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
- sound/soc/soc-pcm.c | 119 ++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 119 insertions(+)
+Changes from v2:
+	- Rebased to v7.0-rc1
+	- Fixed the warnings from `checkpatch.pl --strict` run.
 
-diff --git a/sound/soc/soc-pcm.c b/sound/soc/soc-pcm.c
-index 9b12eedb77c3..e75c343b8d4e 100644
---- a/sound/soc/soc-pcm.c
-+++ b/sound/soc/soc-pcm.c
-@@ -12,6 +12,7 @@
- 
- #include <linux/kernel.h>
- #include <linux/init.h>
-+#include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/slab.h>
-@@ -467,6 +468,117 @@ static int soc_pcm_apply_symmetry(struct snd_pcm_substream *substream,
- 	return 0;
- }
- 
-+/*
-+ * Shared BCLK constraint: when multiple DAIs share the same physical BCLK,
-+ * constrain hw_params so that the BCLK rate (rate * channels * sample_bits,
-+ * or rate * slots * slot_width for TDM) remains consistent.
-+ */
-+
-+static int soc_pcm_shared_bclk_rule_rate(struct snd_pcm_hw_params *params,
-+					 struct snd_pcm_hw_rule *rule)
-+{
-+	struct snd_soc_dai *dai = rule->private;
-+	struct snd_soc_card *card = dai->component->card;
-+	struct snd_soc_pcm_runtime *rtd;
-+	struct snd_soc_dai *other_dai;
-+	unsigned long active_bclk_rate = 0;
-+	struct snd_interval *rate = hw_param_interval(params, SNDRV_PCM_HW_PARAM_RATE);
-+	struct snd_interval constraint = { .empty = 1 };
-+	unsigned int target_rate;
-+	int i;
-+
-+	/*
-+	 * Protect the rtd list traversal.  No nesting: this callback runs
-+	 * from snd_pcm_hw_refine() which does not hold card->mutex.
-+	 */
-+	guard(mutex)(&card->mutex);
-+
-+	/* Scan all DAIs on the card for an active peer sharing the same BCLK */
-+	for_each_card_rtds(card, rtd) {
-+		for_each_rtd_cpu_dais(rtd, i, other_dai) {
-+			if (other_dai == dai)
-+				continue;
-+			if (!other_dai->bclk)
-+				continue;
-+			if (!snd_soc_dai_active(other_dai))
-+				continue;
-+			/*
-+			 * Skip peers whose hw_params hasn't run yet.
-+			 * symmetric_rate is set by soc_pcm_set_dai_params()
-+			 * after snd_soc_dai_hw_params(), so non-zero means
-+			 * the DAI's clk_set_rate() has already executed.
-+			 */
-+			if (!other_dai->symmetric_rate)
-+				continue;
-+			if (!clk_is_match(dai->bclk, other_dai->bclk))
-+				continue;
-+
-+			active_bclk_rate = clk_get_rate(other_dai->bclk);
-+			if (active_bclk_rate)
-+				goto found;
-+		}
-+	}
-+
-+	return 0;
-+
-+found:
-+	if (dai->bclk_ratio) {
-+		/*
-+		 * Driver has set an explicit BCLK ratio (e.g. for TDM where
-+		 * BCLK = rate * slots * slot_width). The only valid rate is
-+		 * active_bclk_rate / bclk_ratio.
-+		 */
-+		target_rate = active_bclk_rate / dai->bclk_ratio;
-+
-+		constraint.min = target_rate;
-+		constraint.max = target_rate;
-+	} else {
-+		struct snd_interval *channels = hw_param_interval(params,
-+						SNDRV_PCM_HW_PARAM_CHANNELS);
-+		struct snd_interval *sample_bits = hw_param_interval(params,
-+						SNDRV_PCM_HW_PARAM_SAMPLE_BITS);
-+
-+		/*
-+		 * Default: BCLK = rate * channels * sample_bits.
-+		 * Calculate the range of valid rates given the current
-+		 * channel and sample_bits intervals.
-+		 */
-+		if (!channels->min || !sample_bits->min)
-+			return 0;
-+
-+		constraint.max = active_bclk_rate /
-+				 ((unsigned long)channels->min * sample_bits->min);
-+
-+		if (channels->max && sample_bits->max)
-+			constraint.min = active_bclk_rate /
-+					 ((unsigned long)channels->max * sample_bits->max);
-+		else
-+			constraint.min = constraint.max;
-+	}
-+
-+	constraint.integer = 1;
-+	constraint.empty = 0;
-+
-+	return snd_interval_refine(rate, &constraint);
-+}
-+
-+static int soc_pcm_apply_shared_bclk(struct snd_pcm_substream *substream,
-+				     struct snd_soc_dai *dai)
-+{
-+	if (!dai->bclk)
-+		return 0;
-+
-+	dev_dbg(dai->dev,
-+		"ASoC: registering shared BCLK rate constraint\n");
-+
-+	return snd_pcm_hw_rule_add(substream->runtime, 0,
-+		SNDRV_PCM_HW_PARAM_RATE,
-+		soc_pcm_shared_bclk_rule_rate, dai,
-+		SNDRV_PCM_HW_PARAM_CHANNELS,
-+		SNDRV_PCM_HW_PARAM_SAMPLE_BITS,
-+		-1);
-+}
-+
- static int soc_pcm_params_symmetry(struct snd_pcm_substream *substream,
- 				struct snd_pcm_hw_params *params)
- {
-@@ -903,6 +1015,13 @@ static int __soc_pcm_open(struct snd_soc_pcm_runtime *rtd,
- 		if (ret != 0)
- 			goto err;
- 	}
-+
-+	/* Shared BCLK constraint across DAIs on the same card */
-+	for_each_rtd_cpu_dais(rtd, i, dai) {
-+		ret = soc_pcm_apply_shared_bclk(substream, dai);
-+		if (ret != 0)
-+			goto err;
-+	}
- dynamic:
- 	snd_soc_runtime_activate(rtd, substream->stream);
- 	ret = 0;
+Changes from v1:
+	- The patch that adds the extension and the function IDs defined by the extension is
+	  already merged. So this patch builds on top of that.
+	- Added breakpoint test application in self tests to test debug triggers
+
+How to use:
+~~~~~~~~~~~
+OpenSBI:
+https://github.com/riscv-software-src/opensbi.git
+
+Qemu:
+https://github.com/qemu/qemu.git
+
+Linux Kernel:
+You can pull v7.1-rc3 branch from Linus' Tree and apply these patches.
+
+How to test:
+~~~~~~~~~~~
+From the Linux kernel directory issue the following command:
+make -C tools/testing/selftests/breakpoints/
+
+This will make a binary named breakpoint_test_riscv under the same directory.
+Load it on the machine and run. Sample output is given below:
+
+/ # /apps/breakpoint_test_riscv
+Breakpoint triggered!
+Breakpoint test passed!
+Watchpoint triggered!
+Watchpoint test passed!
+
+Himanshu Chauhan (2):
+  riscv: Introduce support for hardware break/watchpoints
+  riscv: Add breakpoint and watchpoint test for riscv
+
+ arch/riscv/Kconfig                            |   1 +
+ arch/riscv/include/asm/hw_breakpoint.h        | 332 ++++++++
+ arch/riscv/include/asm/kdebug.h               |   3 +-
+ arch/riscv/kernel/Makefile                    |   1 +
+ arch/riscv/kernel/hw_breakpoint.c             | 736 ++++++++++++++++++
+ arch/riscv/kernel/traps.c                     |   6 +
+ tools/testing/selftests/breakpoints/Makefile  |   5 +
+ .../breakpoints/breakpoint_test_riscv.c       | 214 +++++
+ 8 files changed, 1297 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
+ create mode 100644 arch/riscv/kernel/hw_breakpoint.c
+ create mode 100644 tools/testing/selftests/breakpoints/breakpoint_test_riscv.c
 
 -- 
-2.54.0
-
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
