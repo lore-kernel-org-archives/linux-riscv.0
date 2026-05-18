@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E752CD4F52
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 12:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA586CD4F50
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 13:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+PyMyQbmoYlhUanHXSHu8S0qUJO9A/+fSDYbkJYwX6A=; b=XZ8qS3ZwHPGAb3
-	80pu2xZOoj+0JMOdDN4ktf7cpx6LknwGRMHdfowGvwdTqdP+t9/X8fpqKabjGuONbA+6bkE77aQXe
-	NHO4gTBeCUlVHfYRXYfFh9fifIV3EdWQApdfdawlyEkOtKxVxgCOB6bf3J5LDOgrZT0Y998b1u56E
-	1JaBoGRx2aJo6crRdm/zKWhZFK+9oOumo/i9JRPVwg84d0FTwP7wiZeCqnzkZLAOvWui/1bbnkpWJ
-	fRnbN9oJUylB5yARFmLzS1NLAQ5tpkpRzbknOLzpp9tOLlUdyoDMqrxpPZkvh0yGGt9IMAALGeulU
-	z2VjJNM47ZQ2cWh8dvug==;
+	List-Owner; bh=lNTexWHv+NnzgDuJH1catwLApMZqSm9nLxYrEaKZ/TU=; b=iwjfzqG2e5Iaj1
+	QVmMFvtCrSa5PfbADKeXRHa3comtvSVcQePYdrQFN/U7klrNF+VANML9wLInKJfCzTRcAD85JPlf1
+	KEQy2wGUP4/WfPOxXJ6wwUi52u2y9Le9toqG+RcxTq1LaxHmJr/44YSV/6mw5P65ZI4K8odYocNG+
+	eBbWZpoHkPRHp61e3gXFVd1hQciUzp+DFhBAIyjyoIhvxCce04eo+HUPiyHpwM84IXQ67bgp8OZTz
+	779st7LpaD3IWt1VwxmpoENtoCxcX8FjDGZyqCXGqRZa9OKHgDJI4jnp+OqwYQPWxQ/rg99G7leqQ
+	/nqB5EWOWIpdmVULnPmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOxV2-0000000FiMi-22hJ;
-	Mon, 18 May 2026 12:55:12 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1wOxnz-0000000FmL6-1wi0;
+	Mon, 18 May 2026 13:14:47 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOxUw-0000000FiDY-3a4E;
-	Mon, 18 May 2026 12:55:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=CrDEAo7psewF/Zo6NTuk77pv1DJdNaLBNAD0ghaWzHc=;
-	b=lC427nXPvIjwiNmYFg/EZ/bY2f01kkqizgwT6ZxEcbkcVrzaAjXF5M7SV+IYPV
-	sXbPF76d/xj+TKNqP2aVu90z3McknrtM8SAd+IYUYWZY0ea6E6q1c6IlTl63PiPj
-	r+E/5byfzxXrboWTXGYok4Hd1XL2GITtdX1Je6vcqI/Mc=
-Received: from [IPV6:240e:38c:8516:b200:791b:8dc7:75fb:a430] (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgDnp4GVCwtqUaZZDw--.170S2;
-	Mon, 18 May 2026 20:52:40 +0800 (CST)
-Message-ID: <22e32ff9-3d79-4130-a3cb-3a4ec2efd498@163.com>
-Date: Mon, 18 May 2026 20:52:37 +0800
+	id 1wOxnx-0000000FmJz-2jLn
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 May 2026 13:14:46 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-488a9033b2cso17151105e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 06:14:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779110084; x=1779714884; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xKdZwHICxAcumd/0vYmGg6f5JCYmSEbXy5dzzVwJhKM=;
+        b=o4pL9tkWMAqIehl7JCZ2Rc9CdqrAGUSM6eL2Tl239DbqJQgMdDB7PYvSrCvRynD0EJ
+         0JinkmX0hJaHEva9FiCyE5Z01SDNbivWU4IoKJ2Fkosw4lFzxsVt13vRklWYGflRTXaD
+         gz4zZENO+ZdcrA/uljM2hueGwIfJY7l+Rw9McNuz7610ukGYLcLCtCsq49SXF27Omcga
+         o2EPQm1Cgv30EOGZ7abUafqyEHHybKHFkUqVvwzvDAHXi3xu1OeTj3rdczfDOj+JydI+
+         dztgAPoCppu4YNZ66tfe2XsdclRL5ODbysCpa2mWejQMAAtr+tl01CaKt0tmqF3eCj2z
+         SMoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779110084; x=1779714884;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=xKdZwHICxAcumd/0vYmGg6f5JCYmSEbXy5dzzVwJhKM=;
+        b=HCj+o782i/u4aIOo2quPekrsHBZdat2iIMthBxS3xeCEvjmaAEAsEISXIV+ohpmHuW
+         uvk22GLYK5hnaetNgVWMDzjWyxlQkXv/zqnZY2xZsHkSqW6xy/z8I7ScD1JL0IFYmdnm
+         MZbLqSJ3iFoK14hLP7xXAgN1XlKJwxhZvhLVGXIsUnvZztOQEhKM0d6y/829Lu/nDWbY
+         WUegLIQx+BM6dJmy+xnPvg0GQp3ECnngxhwD3ZhNZ25ppANfxYZYpyQ+ek8OricooEcU
+         Nrir6a652VTfMzuTc2xA5K/EDeTqw/qo9Zlqr1Dh7Cw0yNTenL+zQiiZ9xI1ZTeG5xm7
+         vszg==
+X-Gm-Message-State: AOJu0Yx+o/EVfvDZ7JXFAjphJjRdyev6ekPrGU2p9eOndw+k7kl8GNpZ
+	R4Q3PeiwIuvCrnhE4my6SciYuIR+HaWqWSdo3q6/v8UOAW8YkO2DRxFPXYiSDksl
+X-Gm-Gg: Acq92OHzYQCljverdxIiaiCJsEF2P0DoLBx833Kx735EtFlJ848N2vUHc3j9K36u6XK
+	/9sxN+N2shQQ0/uUTgwzeEUvHrgtvPoXXhN5PYTSb4c2GWdMYif/3NoZ+05MT7V9y9GhFZmyua1
+	A6ovVXpkSUktTeloyg6tuk1RW02tEtn4yz3HM+qC75LQNruxZ7fuztuvqL8HdIOpirCwhmaOwKg
+	FQmpl/UEFtC1LrZQhgkHcsuYU/doAp9UqEhCTJkYUN5If9WgTlp0S34kzfNQTkxF+sRrEpsIksV
+	2ix5NWl1GrXvo7kGVx4T9iPJqGEx64iR0rZRSvwFXu2+ah+I7yTNupedvbaRu61gw4GRd2hrV3f
+	YGJB0MWSLr+V3XiZocTuFiC4RzaU1ZogUdgY9PfHsuoxVvccszL5kYPCHxqT5hQP/pn390bJRfS
+	bHaguy6N5jL2CjDWWH8LMgiyFs6XHeOwfLQaXYGrHK
+X-Received: by 2002:a05:600c:8906:b0:48f:e3e7:3d39 with SMTP id 5b1f17b1804b1-48fe5fdd63fmr179436245e9.11.1779110083569;
+        Mon, 18 May 2026 06:14:43 -0700 (PDT)
+Received: from RTRKW671-LIN.domain.local ([95.86.49.225])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fffb9aac4sm249619265e9.9.2026.05.18.06.14.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 May 2026 06:14:43 -0700 (PDT)
+From: Milan Tripkovic <milant2002@gmail.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	kees@kernel.org,
+	andy@kernel.org,
+	linux-hardening@vger.kernel.org,
+	Dusan.Stojkovic@rt-rk.com,
+	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+Subject: [PATCH v4 1/2] riscv: lib: add memcmp() implementation
+Date: Mon, 18 May 2026 15:14:06 +0200
+Message-ID: <20260518131407.1026049-2-milant2002@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260518131407.1026049-1-milant2002@gmail.com>
+References: <20260518131407.1026049-1-milant2002@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] KVM: selftests: Add unit to dirty_log_test
-To: Sean Christopherson <seanjc@google.com>
-Cc: wu.fei9@sanechips.com.cn, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, anup@brainfault.org,
- atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, pbonzini@redhat.com, shuah@kernel.org
-References: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn>
- <202605111130.64BBUXDN013040@mse-fl2.zte.com.cn>
- <agO_0ejKd0x38_-E@google.com> <f64029bf-1f4c-40a7-860a-eb04fbe5317b@163.com>
- <agck1WqW-TyEqkqd@google.com>
-Content-Language: en-US
-From: Wu Fei <atwufei@163.com>
-In-Reply-To: <agck1WqW-TyEqkqd@google.com>
-X-CM-TRANSID: PigvCgDnp4GVCwtqUaZZDw--.170S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Jr4kKFyrCrWfWw18Cw4rZrb_yoW7AFWDpF
-	WSga47KFs7A345Cwn2yayDXryFkr43JFWDA34rt3s0k3s0gF1fXr1xKFy09F95Cr1rZr1S
-	vrZ0q347Zr1DuaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UYD7-UUUUU=
-X-Originating-IP: [240e:38c:8516:b200:791b:8dc7:75fb:a430]
-X-CM-SenderInfo: pdwz3wlhl6il2tof0z/xtbCzRlG52oLC5nAxgAA3A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_055507_477803_B55DE6E4 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20260518_061445_719480_987AACEA 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,137 +101,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/15/26 21:51, Sean Christopherson wrote:
-> On Wed, May 13, 2026, Wu Fei wrote:
->> On 5/13/26 08:03, Sean Christopherson wrote:
->>> On Mon, May 11, 2026, wu.fei9@sanechips.com.cn wrote:
->>>> Currently dirty_log_test hardcodes usleep 1ms in each interval, which
->>>> could be too short for guest to write and fault in enough pages, then
->>>> there is less chance to test the write protection mechanism, especially
->>>> in the case of (log_mode != LOG_MODE_DIRTY_RING).
->>>
->>> But when log_mode != LOG_MODE_DIRTY_RING, the individual sleep time is largely
->>> meaningless, because the test won't reap the bitmaps for iterations > 0.
->>>
->>> 			if (i && host_log_mode != LOG_MODE_DIRTY_RING)
->>> 				continue;
->>>
->> The first usleep  matters in the case of KVM_DIRTY_LOG_INITIALLY_SET. The
->> dirty bitmap is not precise in the first get_dirty_log, all pages are marked
->> as dirty but most of them are not populated in page table, this creates the
->> situation I mentioned in the cover letter.
-> 
-> I suspect something is messed up in your workflow, because the actual patches
-> aren't properly threaded with respect to the cover letter.  E.g. patch 1 has
-> 
->    In-Reply-To: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn>
-> 
-> but the cover letter has:
-> 
->    Message-Id: <202605111108.64BB8RFR010522@mse-db.zte.com.cn>
-> 
-> Copy+pasting the entirety of the cover letter for reference:
-> 
->   : The current gstage range walker unconditionally advances by 'page_size'
->   : when a leaf PTE is not found, e.g. when the range to wp is
->   : [0xfffff01fc000, 0xfffff023c000) , if found_leaf of 0xfffff01fc000
->   : returns false and page_size is 2MB, it skips the whole range, but it's
->   : possible to have valid entries in [0xfffff0200000, 0xfffff023c000), so
->   : only [0xfffff01fc000, 0xfffff0200000) can be skipped safely. Both
->   : wp/unamp have the same pattern.
->   :
->   : dirty_log_test intentionally sets up the unaligned guest physical
->   : address, after riscv kvm enabling KVM_DIRTY_LOG_INITIALLY_SET, it's easy
->   : to trigger this bug if there is a larger window for guest to write more
->   : pages before first collect_dirty_pages.
-> 
->> "when the range to wp is
->> [0xfffff01fc000, 0xfffff023c000) , if found_leaf of 0xfffff01fc000
->> returns false and page_size is 2MB, it skips the whole range, but it's
->> possible to have valid entries in [0xfffff0200000, 0xfffff023c000), so
->> only [0xfffff01fc000, 0xfffff0200000) can be skipped safely."
->>
->>>>
->>>> Unit is introduced to replace the default 1ms if specified in command
->>>> line. The following test can't trigger failure on my riscv vm:
->>>
->>> Failure of what?  And does the failure really not reproduce with a higher interval?
->>
->> On riscv, it fails to write protect some pages with valid page table entry
->> then loses track of dirty pages. Higher interval doesn't help because only
->> the first usleep matters, after the first collect_dirty_pages, all dirty
->> pages are tracked precisely then there is no such problem.
-> 
-> Ah, gotcha.  Rather than let (and force) the user to provide a larger sleep time,
-> what if we instead randomize the delay before the initial reaping of the dirty
-> bitmap/ring?  That should provide a good balance between coverage, complexity and
-> user-friendliness.
+From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
 
-I'm fine with your solution, I applied it and it did trigger the same issue.
+Add an assembly implementation of memcmp() for RISC-V. The implementation
+uses the ZBB extension for word-at-a-time comparison and an assembly
+fallback for non-ZBB systems.
 
-Thanks,
-Fei.
+Benchmark results (QEMU TCG, rv64, Aligned):
 
-> 
-> diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
-> index 12446a4b6e8d..74ca096bf976 100644
-> --- a/tools/testing/selftests/kvm/dirty_log_test.c
-> +++ b/tools/testing/selftests/kvm/dirty_log_test.c
-> @@ -694,7 +694,17 @@ static void run_test(enum vm_guest_mode mode, void *arg)
->          pthread_create(&vcpu_thread, NULL, vcpu_worker, vcpu);
->   
->          for (iteration = 1; iteration <= p->iterations; iteration++) {
-> -               unsigned long i;
-> +               unsigned long i, reap_i;
-> +
-> +               /*
-> +                * Select a random point in the time interval to reap the dirty
-> +                * bitmap/ring while the guest is running, i.e. randomize how
-> +                * long the guest gets to initially run and thus how many pages
-> +                * it can dirty, before collecting the dirty bitmap/ring.  See
-> +                * the loop below for details.
-> +                */
-> +               reap_i = random() % p->interval;
-> +               printf("Reaping after a %lu ms delay\n", reap_i);
->   
->                  sync_global_to_guest(vm, iteration);
->   
-> @@ -729,13 +739,17 @@ static void run_test(enum vm_guest_mode mode, void *arg)
->                           * that's effectively blocked.  Collecting while the
->                           * guest is running also verifies KVM doesn't lose any
->                           * state.
-> -                        *
-> +                        */
-> +                       if (i < reap_i)
-> +                               continue;
-> +
-> +                       /*
->                           * For bitmap modes, KVM overwrites the entire bitmap,
->                           * i.e. collecting the bitmaps is destructive.  Collect
-> -                        * the bitmap only on the first pass, otherwise this
-> -                        * test would lose track of dirty pages.
-> +                        * the bitmap while the guest is running only once,
-> +                        * otherwise this test would lose track of dirty pages.
->                           */
-> -                       if (i && host_log_mode != LOG_MODE_DIRTY_RING)
-> +                       if (i > reap_i && host_log_mode != LOG_MODE_DIRTY_RING)
->                                  continue;
->   
->                          /*
-> @@ -745,7 +759,7 @@ static void run_test(enum vm_guest_mode mode, void *arg)
->                           * the ring on every pass would make it unlikely the
->                           * vCPU would ever fill the fing).
->                           */
-> -                       if (i && !READ_ONCE(dirty_ring_vcpu_ring_full))
-> +                       if (i > reap_i && !READ_ONCE(dirty_ring_vcpu_ring_full))
->                                  continue;
->   
->                          log_mode_collect_dirty_pages(vcpu, TEST_MEM_SLOT_INDEX,
+  Len   | Default | NoZBB  | ZBB    | %NoZBB | %ZBB
+  ------|---------|--------|--------|--------|-------
+  1 B   | 20.3    | 25.0   | 20.9   | +23.2% | +3.0%
+  7 B   | 88.9    | 107.5  | 155.7  | +20.9% | +75.1%
+  8 B   | 89.6    | 110.9  | 176.2  | +23.8% | +96.7%
+  16 B  | 134.4   | 172.4  | 334.8  | +28.3% | +149.1%
+  31 B  | 163.5   | 220.5  | 606.2  | +34.9% | +270.8%
+  64 B  | 203.8   | 235.9  | 968.6  | +15.8% | +375.3%
+  127 B | 224.6   | 268.7  | 1362.8 | +19.6% | +506.8%
+  512 B | 235.7   | 271.1  | 1913.7 | +15.0% | +711.9%
+  1024 B| 256.8   | 290.6  | 2123.6 | +13.2% | +726.9%
+  4096 B| 263.8   | 302.9  | 2290.4 | +14.8% | +768.2%
+
+Benchmark results (QEMU TCG, rv64, Unaligned - Offset 3):
+
+  Len   | Default | NoZBB  | ZBB    | %NoZBB | %ZBB
+  ------|---------|--------|--------|--------|-------
+  1 B   | 20.7    | 21.7   | 21.5   | +4.8%  | +3.9%
+  7 B   | 96.2    | 99.1   | 96.9   | +3.0%  | +0.7%
+  8 B   | 97.5    | 118.5  | 110.5  | +21.5% | +13.3%
+  16 B  | 136.7   | 166.6  | 172.8  | +21.9% | +26.4%
+  31 B  | 167.6   | 206.5  | 211.9  | +23.2% | +26.4%
+  64 B  | 204.4   | 229.9  | 240.3  | +12.5% | +17.6%
+  127 B | 229.6   | 261.7  | 269.0  | +14.0% | +17.2%
+  512 B | 245.5   | 260.8  | 269.9  | +6.2%  | +9.9%
+  1024 B| 246.9   | 261.2  | 283.5  | +5.8%  | +14.8%
+  4096 B| 250.7   | 295.8  | 299.7  | +18.0% | +19.5%
+
+Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+---
+ arch/riscv/include/asm/string.h |   2 +
+ arch/riscv/lib/Makefile         |   1 +
+ arch/riscv/lib/memcmp.S         | 125 ++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |   5 +-
+ 4 files changed, 132 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/memcmp.S
+
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index 764ffe8f6..5c5299678 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -18,6 +18,8 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
+ #define __HAVE_ARCH_MEMMOVE
+ extern asmlinkage void *memmove(void *, const void *, size_t);
+ extern asmlinkage void *__memmove(void *, const void *, size_t);
++#define __HAVE_ARCH_MEMCMP
++extern asmlinkage int memcmp(const void *, const void *, size_t);
+ 
+ #if !(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
+ #define __HAVE_ARCH_STRCMP
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 6f767b2a3..b529e1be1 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -3,6 +3,7 @@ lib-y			+= delay.o
+ lib-y			+= memcpy.o
+ lib-y			+= memset.o
+ lib-y			+= memmove.o
++lib-y			+= memcmp.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+ lib-y			+= strcmp.o
+ lib-y			+= strlen.o
+diff --git a/arch/riscv/lib/memcmp.S b/arch/riscv/lib/memcmp.S
+new file mode 100644
+index 000000000..a531e481c
+--- /dev/null
++++ b/arch/riscv/lib/memcmp.S
+@@ -0,0 +1,125 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
++
++/* int memcmp(const void *cs, const void *ct, size_t n) */
++SYM_FUNC_START(memcmp)
++
++	__ALTERNATIVE_CFG("nop", "j memcmp_zbb", 0, RISCV_ISA_EXT_ZBB,
++		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
++/*
++ * Parameters
++ *	a0 - Pointer to first memory block (cs), also return value
++ *	a1 - Pointer to second memory block (ct)
++ *	a2 - Number of bytes to compare (n), transformed to end pointer (a0 + n)
++ *
++ * Returns
++ *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
++ *
++ * Clobbers
++ *	t0, t1
++ */
++	beqz	a2, 2f
++	add	a2, a0, a2
++1:
++	lbu	t0, 0(a0)
++	lbu	t1, 0(a1)
++	bne	t0, t1, 3f
++	addi	a0, a0, 1
++	addi	a1, a1, 1
++	bne	a0, a2, 1b
++2:
++	li	a0, 0
++	ret
++3:
++	sub	a0, t0, t1
++	ret
++
++#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
++memcmp_zbb:
++
++.option push
++.option arch,+zbb
++/*
++ * Parameters
++ *	a0 - Pointer to first memory block (cs), also return value
++ *	a1 - Pointer to second memory block (ct)
++ *	a2 - Number of bytes to compare (n), decremented during loop
++ *
++ * Returns
++ *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
++ *
++ * Clobbers
++ *	t0, t1, t2, t3, t4
++ */
++	add	t3, a0, a2
++	or	t0, a0, a1
++	andi	t0, t0, (SZREG - 1)
++	bnez	t0, 5f
++
++	addi	t4, t3, -SZREG
++	bltu	t4, a0, 7f
++
++1:
++	REG_L	t1, 0(a0)
++	REG_L	t2, 0(a1)
++	bne	t1, t2, 2f
++	addi	a0, a0, SZREG
++	addi	a1, a1, SZREG
++	bleu	a0, t4, 1b
++
++7:
++	beq	a0, t3, 4f
++	REG_L	t1, 0(a0)
++	REG_L	t2, 0(a1)
++
++	sub	t0, t3, a0
++	li	t4, SZREG
++	sub	t0, t4, t0
++	slli	t0, t0, 3
++
++#ifndef CONFIG_CPU_BIG_ENDIAN
++	rev8	t1, t1
++	rev8	t2, t2
++#endif
++	srl	t1, t1, t0
++	srl	t2, t2, t0
++
++	bne	t1, t2, 8f
++	li	a0, 0
++	ret
++5:
++	beq	a0, t3, 4f
++6:
++	lbu	t1, 0(a0)
++	lbu	t2, 0(a1)
++	bne	t1, t2, 3f
++	addi	a0, a0, 1
++	addi	a1, a1, 1
++	bne	a0, t3, 6b
++
++4:	li	a0, 0
++	ret
++2:
++#ifndef CONFIG_CPU_BIG_ENDIAN
++	rev8	t1, t1
++	rev8	t2, t2
++#endif
++8:
++	sltu	a0, t2, t1
++	sltu	t0, t1, t2
++	sub	a0, a0, t0
++	ret
++
++3:
++	sub	a0, t1, t2
++	ret
++
++.option pop
++#endif
++SYM_FUNC_END(memcmp)
++SYM_FUNC_ALIAS(__pi_memcmp, memcmp)
++EXPORT_SYMBOL(memcmp)
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index b0358a78f..456929971 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+-purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
++purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o memcmp.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+ purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
+ endif
+@@ -41,6 +41,9 @@ $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
+ $(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
+ 	$(call if_changed_rule,as_o_S)
+ 
++$(obj)/memcmp.o: $(srctree)/arch/riscv/lib/memcmp.S FORCE
++	$(call if_changed_rule,as_o_S)
++
+ CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
+ CFLAGS_string.o := -D__DISABLE_EXPORTS
+ CFLAGS_ctype.o := -D__DISABLE_EXPORTS
+-- 
+2.43.0
 
 
 _______________________________________________
