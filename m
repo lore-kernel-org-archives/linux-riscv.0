@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B6CCD4F3C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 12:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E752CD4F52
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 12:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H5fLYxTkFM5Sol6BosK1FGiqNQfjlyQI+zEmrbawwHc=; b=fMqx+4CFyQDQ2F
-	e0segSSZUUfHGuHux4kOQGeEh2S0abmInCHQLJYiqDHcEHZ2pvmSgAKzo74vlB78nuiGlsUfOQM0c
-	OGVcHg8+vFo/ekLsjKPu6u592HL1Z1hTJ04nxFZHRh0zFs9d3hKRXC49R7ntlyv5G+sk35qcmkhON
-	KIIE8AOf9yR5vmFyFqWFJq3SXozQWhCBZi7tB4i1rhpBMqNZ3SzQyy8c1nSl+rPxOBSGtaW65mo7b
-	7lDgfLuP+kebQBRQp9kxeMbjiWZwBrVdgxtULTXGlp+/Y0VRkW418ELVQF1O31ZWKFhHW/J8D6yBX
-	7GfQtsmjlZ2Gsupgmlog==;
+	List-Owner; bh=+PyMyQbmoYlhUanHXSHu8S0qUJO9A/+fSDYbkJYwX6A=; b=XZ8qS3ZwHPGAb3
+	80pu2xZOoj+0JMOdDN4ktf7cpx6LknwGRMHdfowGvwdTqdP+t9/X8fpqKabjGuONbA+6bkE77aQXe
+	NHO4gTBeCUlVHfYRXYfFh9fifIV3EdWQApdfdawlyEkOtKxVxgCOB6bf3J5LDOgrZT0Y998b1u56E
+	1JaBoGRx2aJo6crRdm/zKWhZFK+9oOumo/i9JRPVwg84d0FTwP7wiZeCqnzkZLAOvWui/1bbnkpWJ
+	fRnbN9oJUylB5yARFmLzS1NLAQ5tpkpRzbknOLzpp9tOLlUdyoDMqrxpPZkvh0yGGt9IMAALGeulU
+	z2VjJNM47ZQ2cWh8dvug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOx5U-0000000FdKh-1mD3;
-	Mon, 18 May 2026 12:28:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOxV2-0000000FiMi-22hJ;
+	Mon, 18 May 2026 12:55:12 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOx5T-0000000FdKE-19Eb
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 18 May 2026 12:28:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=le3jVWKWFfhs2Bh7uwp2bsCwo6wxH6tqo+u5P3QvLcI=; b=ppP4owzy7uoD2BmQbcUqlwP2QP
-	+eQ0AUuIQaPJ7Jt/O/3OOgCRlfysJp7NKGLRTSou8DZF6+/70Gydud1yqsf1tH48cAGFpxeHye9et
-	2lr2vemKBpO0UJnSyfRdbbvWqZ4SIwrtxeQBa/RkFOjjFKnlPebAT/mv8PLYESmZQi4vJyH8BjKTY
-	GoGwucC2bo2dWbH/Y3GwKNdLWViReJV77Qg8Ooy8FTY9Nmnu2j0ofeEiR4y+sd36y9D4IJ+yHlDKx
-	qxO0N/FKrmsnDCz4U78Aqs1OqQqFXLbQG2t5fM4ifsLNbJjjI3oNhy2cQ410Oi0mYHXMjh/S5OZB1
-	+BdDm9Iw==;
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOx5P-0000000B8G0-2Xv5
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 May 2026 12:28:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779107313; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SW3avIO7PHhCARW3Jpr8McY4KosYnH/k83cydUhMox6tXHl4rxjLW/TKyWWrWg5IJ+pG4GdSjh4YGwMQzG9k8ZSZ6cqm1sNPUMo2HYKZT0ImZq0l2ZMW+P7AmI//T4syB/Tbi1eQRzde0VZrbm3u+xW/B2Y+wsHF+9fUVaDuxe8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779107313; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=le3jVWKWFfhs2Bh7uwp2bsCwo6wxH6tqo+u5P3QvLcI=; 
-	b=OQKJKZWMGFbb4Cgr3gRGTFvDnCA6YotlSAwhvwVBZ003NSPQqRLokBpOpieLXoDZa+sLMdW5SXnJZPZo98VBpMjREDg2PjeamaIERPCKwSqivXk3beoigCUzgoxzH1EMO9BdS5oqlaGUdvvFQ3uzyh+e0FgksWCt/o+cDu4Gdgw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779107313;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
-	bh=le3jVWKWFfhs2Bh7uwp2bsCwo6wxH6tqo+u5P3QvLcI=;
-	b=Iz2B02KmiyGXtpk2uWlB56KwnBOE2SvemmUdDzBQ7zBhSy9HbCTaRVJIc653qXAh
-	H/hWun9uZpGhKPOsFScZgyHjYTYDhiWjFIPNbYisMl4X28S7dIz/eRm9Ii1LNWbTFHL
-	JrVJYZ8QI3jvjvJSIH9WQtFnfoAKe0MY6IvaJTgo=
-Received: by mx.zohomail.com with SMTPS id 1779107311092321.60245224509777;
-	Mon, 18 May 2026 05:28:31 -0700 (PDT)
-Date: Mon, 18 May 2026 12:28:19 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Chuanhong Guo <gch981213@gmail.com>, Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 3/4] dt-bindings: clock: add doc for Siflower sf21-topcrm
-Message-ID: <agsF47bixKvB8uUk@pie>
-References: <20260517-sf21-topcrm-v1-0-438f2e0513ff@gmail.com>
- <20260517-sf21-topcrm-v1-3-438f2e0513ff@gmail.com>
- <20260517-popper-rage-b675785e4d28@spud>
- <CAJsYDVK+tOUZcF7rzP+og5JV2gkNS4WfGhq_hJVNvfUvQLZZrg@mail.gmail.com>
+	id 1wOxUw-0000000FiDY-3a4E;
+	Mon, 18 May 2026 12:55:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=CrDEAo7psewF/Zo6NTuk77pv1DJdNaLBNAD0ghaWzHc=;
+	b=lC427nXPvIjwiNmYFg/EZ/bY2f01kkqizgwT6ZxEcbkcVrzaAjXF5M7SV+IYPV
+	sXbPF76d/xj+TKNqP2aVu90z3McknrtM8SAd+IYUYWZY0ea6E6q1c6IlTl63PiPj
+	r+E/5byfzxXrboWTXGYok4Hd1XL2GITtdX1Je6vcqI/Mc=
+Received: from [IPV6:240e:38c:8516:b200:791b:8dc7:75fb:a430] (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgDnp4GVCwtqUaZZDw--.170S2;
+	Mon, 18 May 2026 20:52:40 +0800 (CST)
+Message-ID: <22e32ff9-3d79-4130-a3cb-3a4ec2efd498@163.com>
+Date: Mon, 18 May 2026 20:52:37 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJsYDVK+tOUZcF7rzP+og5JV2gkNS4WfGhq_hJVNvfUvQLZZrg@mail.gmail.com>
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] KVM: selftests: Add unit to dirty_log_test
+To: Sean Christopherson <seanjc@google.com>
+Cc: wu.fei9@sanechips.com.cn, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, anup@brainfault.org,
+ atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, pbonzini@redhat.com, shuah@kernel.org
+References: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn>
+ <202605111130.64BBUXDN013040@mse-fl2.zte.com.cn>
+ <agO_0ejKd0x38_-E@google.com> <f64029bf-1f4c-40a7-860a-eb04fbe5317b@163.com>
+ <agck1WqW-TyEqkqd@google.com>
+Content-Language: en-US
+From: Wu Fei <atwufei@163.com>
+In-Reply-To: <agck1WqW-TyEqkqd@google.com>
+X-CM-TRANSID: PigvCgDnp4GVCwtqUaZZDw--.170S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Jr4kKFyrCrWfWw18Cw4rZrb_yoW7AFWDpF
+	WSga47KFs7A345Cwn2yayDXryFkr43JFWDA34rt3s0k3s0gF1fXr1xKFy09F95Cr1rZr1S
+	vrZ0q347Zr1DuaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UYD7-UUUUU=
+X-Originating-IP: [240e:38c:8516:b200:791b:8dc7:75fb:a430]
+X-CM-SenderInfo: pdwz3wlhl6il2tof0z/xtbCzRlG52oLC5nAxgAA3A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_132844_344068_649441CC 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20260518_055507_477803_B55DE6E4 
+X-CRM114-Status: GOOD (  31.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +74,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXkgMTgsIDIwMjYgYXQgMDg6MTI6MTRQTSArMDgwMCwgQ2h1YW5ob25nIEd1byB3
-cm90ZToKPiBIaSEKPiAKPiBPbiBNb24sIE1heSAxOCwgMjAyNiBhdCA0OjUw4oCvQU0gQ29ub3Ig
-RG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKCi4uLgoKPiA+ID4gK2V4YW1wbGVzOgo+
-ID4gPiArICAtIHwKPiA+ID4gKyAgICAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvY2xvY2svc2lmbG93
-ZXIsc2YyMS10b3Bjcm0uaD4KClRob3VnaCBpdCBpc24ndCBhIGJpZyBwcm9ibGVtLCB0aGUgaW5j
-bHVkZSBpcyB1bm5lY2Vzc2FyeSwgZWl0aGVyLCBzaW5jZQp5b3UgZG9uJ3QgbWFrZSB1c2Ugb2Yg
-YW55IGNvbnN0YW50cyBmcm9tIHRoZSBiaW5kaW5nIGhlYWRlciBpbiB0aGUKZXhhbXBsZS4KCj4g
-PiA+ICsgICAgLyB7Cj4gPgo+ID4gUmVwbGFjZSB0aGlzIC8gd2l0aCAic29jIi4KPiAKPiBXaWxs
-IGRvIHNvIGluIHYyLgo+IAo+ID4KPiA+ID4gKyAgICAgICAgI2FkZHJlc3MtY2VsbHMgPSA8MT47
-Cj4gPiA+ICsgICAgICAgICNzaXplLWNlbGxzID0gPDE+Owo+ID4gPiArCj4gPiA+ICsgICAgICAg
-IHhpbjI1bTogY2xvY2stMjUwMDAwMDAgewo+ID4gPiArICAgICAgICAgICAgY29tcGF0aWJsZSA9
-ICJmaXhlZC1jbG9jayI7Cj4gPiA+ICsgICAgICAgICAgICAjY2xvY2stY2VsbHMgPSA8MD47Cj4g
-PiA+ICsgICAgICAgICAgICBjbG9jay1mcmVxdWVuY3kgPSA8MjUwMDAwMDA+Owo+ID4gPiArICAg
-ICAgICB9Owo+ID4KPiA+IERlbGV0ZSB0aGlzIG5vZGUsIGl0J3Mgbm90IG5lZWRlZCBpbiB0aGUg
-ZXhhbXBsZS4gVGhlIHRvb2xpbmcgd2lsbCBmaWxsCj4gPiBpdCBpbi4KPiAKPiBPaCwgSSBkaWRu
-J3Qga25vdyB0aGF0LiBJJ2xsIGRyb3AgaXQgaW4gdjIuCj4gCj4gPgo+ID4gQWxzbywgcGxlYXNl
-IHRlc3QgeW91ciBiaW5kaW5ncyBzaW5jZSB0aGlzIGRvZXNuJ3QgcGFzcy4KPiA+Cj4gPiBwdy1i
-b3Q6IGNoYW5nZXMtcmVxdWVzdGVkCj4gCj4gSXQncyBmYWlsaW5nIG9uIHRoZSBleGFtcGxlIGFz
-IHJvb3Qgbm9kZSBtaXNzaW5nICJtb2RlbCIgYW5kICJjb21wYXRpYmxlIi4KPiBhbmQgaXQgd2ls
-bCBiZSBmaXhlZCBhZnRlciBjaGFuZ2luZyAiLyIgdG8gInNvYyIuCj4gSSdsbCByZW1lbWJlciB0
-byBydW4gdGhlIGZ1bGwgZHQgY2hlY2sgaW5zdGVhZCBvZiB1c2luZyBEVF9TQ0hFTUFfRklMRVMK
-PiBmb3IgbXkgc2luZ2xlIGZpbGUgbmV4dCB0aW1lLgoKQWx0ZXJuYXRpdmVseSB5b3UgY291bGQg
-Y2hvb3NlIHRvIGRyb3AgdGhlIG91dGVyIG5vZGUgYW5kIGtlZXAgdGhlCmNsb2NrLWNvbnRyb2xs
-ZXIgbm9kZSBvbmx5LgoKPiAKPiAtLSAKPiBSZWdhcmRzLAo+IENodWFuaG9uZyBHdW8KCkJlc3Qg
-cmVnYXJkcywKWWFvIFppCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On 5/15/26 21:51, Sean Christopherson wrote:
+> On Wed, May 13, 2026, Wu Fei wrote:
+>> On 5/13/26 08:03, Sean Christopherson wrote:
+>>> On Mon, May 11, 2026, wu.fei9@sanechips.com.cn wrote:
+>>>> Currently dirty_log_test hardcodes usleep 1ms in each interval, which
+>>>> could be too short for guest to write and fault in enough pages, then
+>>>> there is less chance to test the write protection mechanism, especially
+>>>> in the case of (log_mode != LOG_MODE_DIRTY_RING).
+>>>
+>>> But when log_mode != LOG_MODE_DIRTY_RING, the individual sleep time is largely
+>>> meaningless, because the test won't reap the bitmaps for iterations > 0.
+>>>
+>>> 			if (i && host_log_mode != LOG_MODE_DIRTY_RING)
+>>> 				continue;
+>>>
+>> The first usleep  matters in the case of KVM_DIRTY_LOG_INITIALLY_SET. The
+>> dirty bitmap is not precise in the first get_dirty_log, all pages are marked
+>> as dirty but most of them are not populated in page table, this creates the
+>> situation I mentioned in the cover letter.
+> 
+> I suspect something is messed up in your workflow, because the actual patches
+> aren't properly threaded with respect to the cover letter.  E.g. patch 1 has
+> 
+>    In-Reply-To: <202605111849442561v1a0B_7W1L2Z-ENusLaP@zte.com.cn>
+> 
+> but the cover letter has:
+> 
+>    Message-Id: <202605111108.64BB8RFR010522@mse-db.zte.com.cn>
+> 
+> Copy+pasting the entirety of the cover letter for reference:
+> 
+>   : The current gstage range walker unconditionally advances by 'page_size'
+>   : when a leaf PTE is not found, e.g. when the range to wp is
+>   : [0xfffff01fc000, 0xfffff023c000) , if found_leaf of 0xfffff01fc000
+>   : returns false and page_size is 2MB, it skips the whole range, but it's
+>   : possible to have valid entries in [0xfffff0200000, 0xfffff023c000), so
+>   : only [0xfffff01fc000, 0xfffff0200000) can be skipped safely. Both
+>   : wp/unamp have the same pattern.
+>   :
+>   : dirty_log_test intentionally sets up the unaligned guest physical
+>   : address, after riscv kvm enabling KVM_DIRTY_LOG_INITIALLY_SET, it's easy
+>   : to trigger this bug if there is a larger window for guest to write more
+>   : pages before first collect_dirty_pages.
+> 
+>> "when the range to wp is
+>> [0xfffff01fc000, 0xfffff023c000) , if found_leaf of 0xfffff01fc000
+>> returns false and page_size is 2MB, it skips the whole range, but it's
+>> possible to have valid entries in [0xfffff0200000, 0xfffff023c000), so
+>> only [0xfffff01fc000, 0xfffff0200000) can be skipped safely."
+>>
+>>>>
+>>>> Unit is introduced to replace the default 1ms if specified in command
+>>>> line. The following test can't trigger failure on my riscv vm:
+>>>
+>>> Failure of what?  And does the failure really not reproduce with a higher interval?
+>>
+>> On riscv, it fails to write protect some pages with valid page table entry
+>> then loses track of dirty pages. Higher interval doesn't help because only
+>> the first usleep matters, after the first collect_dirty_pages, all dirty
+>> pages are tracked precisely then there is no such problem.
+> 
+> Ah, gotcha.  Rather than let (and force) the user to provide a larger sleep time,
+> what if we instead randomize the delay before the initial reaping of the dirty
+> bitmap/ring?  That should provide a good balance between coverage, complexity and
+> user-friendliness.
+
+I'm fine with your solution, I applied it and it did trigger the same issue.
+
+Thanks,
+Fei.
+
+> 
+> diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
+> index 12446a4b6e8d..74ca096bf976 100644
+> --- a/tools/testing/selftests/kvm/dirty_log_test.c
+> +++ b/tools/testing/selftests/kvm/dirty_log_test.c
+> @@ -694,7 +694,17 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+>          pthread_create(&vcpu_thread, NULL, vcpu_worker, vcpu);
+>   
+>          for (iteration = 1; iteration <= p->iterations; iteration++) {
+> -               unsigned long i;
+> +               unsigned long i, reap_i;
+> +
+> +               /*
+> +                * Select a random point in the time interval to reap the dirty
+> +                * bitmap/ring while the guest is running, i.e. randomize how
+> +                * long the guest gets to initially run and thus how many pages
+> +                * it can dirty, before collecting the dirty bitmap/ring.  See
+> +                * the loop below for details.
+> +                */
+> +               reap_i = random() % p->interval;
+> +               printf("Reaping after a %lu ms delay\n", reap_i);
+>   
+>                  sync_global_to_guest(vm, iteration);
+>   
+> @@ -729,13 +739,17 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+>                           * that's effectively blocked.  Collecting while the
+>                           * guest is running also verifies KVM doesn't lose any
+>                           * state.
+> -                        *
+> +                        */
+> +                       if (i < reap_i)
+> +                               continue;
+> +
+> +                       /*
+>                           * For bitmap modes, KVM overwrites the entire bitmap,
+>                           * i.e. collecting the bitmaps is destructive.  Collect
+> -                        * the bitmap only on the first pass, otherwise this
+> -                        * test would lose track of dirty pages.
+> +                        * the bitmap while the guest is running only once,
+> +                        * otherwise this test would lose track of dirty pages.
+>                           */
+> -                       if (i && host_log_mode != LOG_MODE_DIRTY_RING)
+> +                       if (i > reap_i && host_log_mode != LOG_MODE_DIRTY_RING)
+>                                  continue;
+>   
+>                          /*
+> @@ -745,7 +759,7 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+>                           * the ring on every pass would make it unlikely the
+>                           * vCPU would ever fill the fing).
+>                           */
+> -                       if (i && !READ_ONCE(dirty_ring_vcpu_ring_full))
+> +                       if (i > reap_i && !READ_ONCE(dirty_ring_vcpu_ring_full))
+>                                  continue;
+>   
+>                          log_mode_collect_dirty_pages(vcpu, TEST_MEM_SLOT_INDEX,
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
