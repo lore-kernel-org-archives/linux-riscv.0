@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B93CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 05:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B2DBCD4F50
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 05:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9yyMke6wa4VM/MIsPDRTpOFjr9G2w0124/PNZXZQBWc=; b=2XlGIbzBcJ9L2R
-	vnVQILevvTDopqASVvSSjQdPSVpQKEQOyefN6d7BuZQLspm1ojQOCMWf1k1i8Inigxx0WysF0mEfq
-	+T1qThXvpWZVL/m7BBWpJnIRshvcUp8xCXR6Lnyn4WQJqELyoXLJux2F2gCOE6L8Q9cJm5MxS3rWt
-	idlgII2FF7adFV9OPToUdPaA3JVF1fSqW4khWQJZGvwlYQHw4R0ECT4BiHqB5jQlWpb/zQyMJubY0
-	S9mUxFcztGMlS9R17wxNHxSh0MRa3b0MppprcLFStHLzPbvhPTE8IzP+GdQ3xxpNcfwUMt1pfvI7r
-	Cn+DA5j0uyMG5FzA99RQ==;
+	List-Owner; bh=PWwsqaIl9UV0fjNNF5imXWHaD6M+NXsECaZHAHsyMeI=; b=0rZALkIu/Y0vsm
+	Et0qYzdWcl5YbFsSWmgAJcplH9cQLpP+VM3Y6zhtnoX/n1wG5xlxQA2Ftx+j8N/i+5zQBQdZbhKio
+	GiGHxQG/xpyWNokcjr0KjF55ZRRtnRHFU7dnGwMuTkEVhdzGEajoaFWuvGLmrOEuMANDqw1ehnOXK
+	DicL8+1IF81D8Y8SAwlXTwV5OZs5rg6FQtl/Wyi8+loVWfyz9lYvwPR1yzuipNhFkHs40Y3O7DeIT
+	hrZiD0KB6sYpZJuuQB9UCFrjhZB+QUgFWCH5uMCUYRGN8pE9R69iCT7dx1SqMdF4txWi1NMZfc+RC
+	+mvsYSpr1AWkm0M51iYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOqPa-0000000EHPK-1y8v;
-	Mon, 18 May 2026 05:21:06 +0000
+	id 1wOqPs-0000000EHeM-3azt;
+	Mon, 18 May 2026 05:21:24 +0000
 Received: from [2001:4bb8:2d1:6fdb:d67d:128c:34ba:85b8] (helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOqPX-0000000EH97-322d;
-	Mon, 18 May 2026 05:21:04 +0000
+	id 1wOqPo-0000000EHOH-1ZZ0;
+	Mon, 18 May 2026 05:21:21 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -70,9 +70,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: [PATCH 11/18] raid6: use static_call for gen_syndrom and xor_syndrom
-Date: Mon, 18 May 2026 07:17:54 +0200
-Message-ID: <20260518051804.462141-12-hch@lst.de>
+Subject: [PATCH 12/18] raid6: use static_call for raid6_recov_2data and raid6_recov_datap
+Date: Mon, 18 May 2026 07:17:55 +0200
+Message-ID: <20260518051804.462141-13-hch@lst.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260518051804.462141-1-hch@lst.de>
 References: <20260518051804.462141-1-hch@lst.de>
@@ -93,86 +93,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Avoid indirect calls for P/Q parity generation.
+Avoid expensive indirect calls for the recovery routines as well.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Tested-by: Ard Biesheuvel <ardb@kernel.org> # kunit only on arm64
 ---
- lib/raid/raid6/algos.c | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
+ lib/raid/raid6/algos.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/lib/raid/raid6/algos.c b/lib/raid/raid6/algos.c
-index 30d7cb34874f..ff99202cad46 100644
+index ff99202cad46..43e3309b5306 100644
 --- a/lib/raid/raid6/algos.c
 +++ b/lib/raid/raid6/algos.c
-@@ -14,6 +14,7 @@
- #include <linux/module.h>
- #include <linux/gfp.h>
- #include <linux/raid/pq.h>
-+#include <linux/static_call.h>
- #include <kunit/visibility.h>
- #include "algos.h"
- 
-@@ -23,7 +24,8 @@ static unsigned int raid6_nr_algos;
- static const struct raid6_recov_calls *raid6_recov_algo;
- 
+@@ -26,6 +26,8 @@ static const struct raid6_recov_calls *raid6_recov_algo;
  /* Selected algorithm */
--static struct raid6_calls raid6_call;
-+DEFINE_STATIC_CALL_NULL(raid6_gen_syndrome_impl, *raid6_intx1.gen_syndrome);
-+DEFINE_STATIC_CALL_NULL(raid6_xor_syndrome_impl, *raid6_intx1.xor_syndrome);
+ DEFINE_STATIC_CALL_NULL(raid6_gen_syndrome_impl, *raid6_intx1.gen_syndrome);
+ DEFINE_STATIC_CALL_NULL(raid6_xor_syndrome_impl, *raid6_intx1.xor_syndrome);
++DEFINE_STATIC_CALL_NULL(raid6_recov_2data_impl, *raid6_recov_intx1.data2);
++DEFINE_STATIC_CALL_NULL(raid6_recov_datap_impl, *raid6_recov_intx1.datap);
  
  /**
   * raid6_gen_syndrome - generate RAID6 P/Q parity
-@@ -48,7 +50,7 @@ void raid6_gen_syndrome(int disks, size_t bytes, void **ptrs)
+@@ -126,7 +128,7 @@ void raid6_recov_2data(int disks, size_t bytes, int faila, int failb,
+ 	WARN_ON_ONCE(bytes > PAGE_SIZE);
+ 	WARN_ON_ONCE(failb <= faila);
+ 
+-	raid6_recov_algo->data2(disks, bytes, faila, failb, ptrs);
++	static_call(raid6_recov_2data_impl)(disks, bytes, faila, failb, ptrs);
+ }
+ EXPORT_SYMBOL_GPL(raid6_recov_2data);
+ 
+@@ -151,7 +153,7 @@ void raid6_recov_datap(int disks, size_t bytes, int faila, void **ptrs)
  	WARN_ON_ONCE(bytes & 511);
- 	WARN_ON_ONCE(disks < RAID6_MIN_DISKS);
+ 	WARN_ON_ONCE(bytes > PAGE_SIZE);
  
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	static_call(raid6_gen_syndrome_impl)(disks, bytes, ptrs);
+-	raid6_recov_algo->datap(disks, bytes, faila, ptrs);
++	static_call(raid6_recov_datap_impl)(disks, bytes, faila, ptrs);
  }
- EXPORT_SYMBOL_GPL(raid6_gen_syndrome);
+ EXPORT_SYMBOL_GPL(raid6_recov_datap);
  
-@@ -85,7 +87,7 @@ void raid6_xor_syndrome(int disks, int start, int stop, size_t bytes,
- 	WARN_ON_ONCE(disks < RAID6_MIN_DISKS);
- 	WARN_ON_ONCE(stop < start);
+@@ -329,6 +331,8 @@ static int __init raid6_init(void)
+ 	 */
+ 	if (!raid6_recov_algo)
+ 		raid6_recov_algo = &raid6_recov_intx1;
++	static_call_update(raid6_recov_2data_impl, raid6_recov_algo->data2);
++	static_call_update(raid6_recov_datap_impl, raid6_recov_algo->datap);
+ 	pr_info("raid6: using %s recovery algorithm\n", raid6_recov_algo->name);
  
--	raid6_call.xor_syndrome(disks, start, stop, bytes, ptrs);
-+	static_call(raid6_xor_syndrome_impl)(disks, start, stop, bytes, ptrs);
- }
- EXPORT_SYMBOL_GPL(raid6_xor_syndrome);
- 
-@@ -96,7 +98,7 @@ EXPORT_SYMBOL_GPL(raid6_xor_syndrome);
-  */
- bool raid6_can_xor_syndrome(void)
- {
--	return !!raid6_call.xor_syndrome;
-+	return !!static_call_query(raid6_xor_syndrome_impl);
- }
- EXPORT_SYMBOL_GPL(raid6_can_xor_syndrome);
- 
-@@ -195,7 +197,8 @@ static int raid6_choose_gen(void *(*const dptrs)[RAID6_TEST_DISKS],
- 		return -EINVAL;
- 	}
- 
--	raid6_call = *best;
-+	static_call_update(raid6_gen_syndrome_impl, best->gen_syndrome);
-+	static_call_update(raid6_xor_syndrome_impl, best->xor_syndrome);
- 
- 	pr_info("raid6: using algorithm %s gen() %ld MB/s\n",
- 		best->name,
-@@ -240,7 +243,10 @@ static int __init raid6_select_algo(void)
- 	if (!IS_ENABLED(CONFIG_RAID6_PQ_BENCHMARK) || raid6_nr_algos == 1) {
- 		pr_info("raid6: skipped pq benchmark and selected %s\n",
- 			raid6_algos[raid6_nr_algos - 1]->name);
--		raid6_call = *raid6_algos[raid6_nr_algos - 1];
-+		static_call_update(raid6_gen_syndrome_impl,
-+				raid6_algos[raid6_nr_algos - 1]->gen_syndrome);
-+		static_call_update(raid6_xor_syndrome_impl,
-+				raid6_algos[raid6_nr_algos - 1]->xor_syndrome);
- 		return 0;
- 	}
- 
+ 	return raid6_select_algo();
 -- 
 2.53.0
 
