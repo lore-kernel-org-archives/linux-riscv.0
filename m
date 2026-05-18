@@ -4,65 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B42CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 03:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC73CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 03:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ik1nNtBMimOXBYeN7+Lm8+7wAU1JZykV7jXAXk09NbY=; b=txs/UjRarEtjYZ
-	hGp5W2xE3XRyfDCjznotuML8voQnINIu+vW8SRpbQ8URhTbKrHUYa4PFq+M0z4UkMtXoxI+lo+zNg
-	i08aVyVWhLFnvhUP9oud9A9L7d2DPidTuxNH4YEgsl8GgeJmwR4h7TpG280FXzyehe96Gzfs+znYj
-	2vg8rQBPU1yG8LSJ5j3HZcfAgapJUqNqCe4TBFDt46IIqV9unvG2rjSAbkyLLd9B5ZZvEiQ7lxad1
-	sANSshmZYtYDql7oBIK0DTIL0t94kXwGkdKsfxABeiJ8HAZEF7tSwTDmTvnBUh97Axk8AOO+NNIqu
-	fJGEJ5u2h2Kye+86VmJQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FSRBiSCNyV+FfjvI6gr6ScOxV4sXYHsAasHMdLX8Qhk=; b=4KckJUXKapk9mW
+	H+ZM6boieUv0rjuaiU6pA8EE62DVlA2Col9lm+9ROe2lT53zkwvCOasQRWiV+ZSFUCUv4oy9Ko4pJ
+	3VU7u52BvubbiBxx5PHzSPOk74/j7APWcW2bltexRQUAW8EWfbwAxn8lUL+DNHTWhb+IVRI6a6e+C
+	u/6R9yzSPQH4cBSU+7PvTyY8w7nWXxfWYyZuu/oSTMRjhtUythapY1p5IR+IReESpvnuWtAPaMYEv
+	TUUHnEKfsEV//wiWTLKewOWFxuO/lHWIjArVl8A16NgHnDyrrhtg2T3d8jeZNFOkyK1W4VYUayDgL
+	2rroZu2DekNBEFAjUYKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOobd-0000000E2oJ-17Q0;
-	Mon, 18 May 2026 03:25:25 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wOojN-0000000E3xP-2L9p;
+	Mon, 18 May 2026 03:33:25 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOobZ-0000000E2nN-1BBg
+	id 1wOojJ-0000000E3uH-3h5D
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 May 2026 03:25:23 +0000
-Received: from [10.213.6.27] (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowAAHlgmchgpqTj2WEA--.17406S2;
-	Mon, 18 May 2026 11:25:16 +0800 (CST)
-Message-ID: <f2709b23-769a-4694-8275-e601b1664b7f@iscas.ac.cn>
-Date: Mon, 18 May 2026 11:25:16 +0800
+	Mon, 18 May 2026 03:33:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1779075174;
+	bh=0lG//UW+nL0bVF6fLvPjKVtHMq7p9Uujc8wu21iQ3/w=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=qNxuxaseIiI1pf/6rMqCBx5vJF+conJh4lced9m76BEPSXZFYd/hDIuYlaF2Xmdso
+	 uBVLVy5ZUZj0xl24fnGS7D4edVeIvIuUxzxhnf5fHw4psYHTG/n/nR8MRtKYzAK/RM
+	 mpVTM1Pw2jLmO1wLD0+CSqWBb1E/mx3ERecd2k2o=
+X-QQ-mid: esmtpgz10t1779075165t2fa57b58
+X-QQ-Originating-IP: mx2jasJbyqyltMLsj9OqOTWy41Ajp5D7/7w5+wz3FeM=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 18 May 2026 11:32:41 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1709424969747522539
+EX-QQ-RecipientCnt: 21
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH v6 0/4] dmaengine: Add Peripheral DMA support for SpacemiT
+ K3 SoC
+Date: Mon, 18 May 2026 11:32:40 +0800
+Message-Id: <20260518-k3-pdma-v6-0-67fdf319a8f8@linux.spacemit.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Kernel Panic: Oops - store (or AMO) access fault in __memset
- during gcc/gentoo-sources compilation on riscv64 (JH7110 / Star64)
-To: =?UTF-8?B?0JDRgNGC0LXQvCDQnNCw0LrRlNGU0LI=?= <artemmakieiev@gmail.com>,
- linux-riscv@lists.infradead.org
-References: <CAB4LXH9MY8-2r4PH+ki_KtdmUXmjyWPe2rN5SnRoP1TU9s=knQ@mail.gmail.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <CAB4LXH9MY8-2r4PH+ki_KtdmUXmjyWPe2rN5SnRoP1TU9s=knQ@mail.gmail.com>
-X-CM-TRANSID: zQCowAAHlgmchgpqTj2WEA--.17406S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWr1fZw4rWFyfAFWxCw4kWFg_yoWrZry5pF
-	42yr1UGr40qr1Utw1jyw15AF1UAw40ya4UJr98tr15JF1UWr1UAr1SyayUAFnrCr4UWr12
-	vFnFvw40gFnrJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUyYb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s02
-	6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
-	I_JrWlx4CE17CEb7AF67AKxVWUXVWUAwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
-	6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
-	0_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
-	JbIYCTnIWIevJa73UjIFyTuYvjxUgmFCUUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XPzQ7CIAzA8VcxnMUALSCefA/jgbFOie4jQxfNs
+ neXeZmJevy3zS/pyBL1kRLbrUbW0xBTbJscZr1i4eybE/FY5mZKKCNAWn4B3pW15zZIC4ggEQz
+ L111PVXy8pcMx9zmmW9s/3/Ag5+m3MUgueQWuBHK20OD319jcH5vU+UB1vG1CW7MZG9QHoMwCK
+ C548A6Dt0Whnf4LwAKgwgWADFBVVopQohfbv4BeAC0+XtAZMIWzCAK2efsTmKbpBQdfrwhqAQA
+ A
+X-Change-ID: 20260317-k3-pdma-7c1734431436
+To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Guodong Xu <guodong@riscstar.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779075161; l=3651;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=U/ceIKjZFY01LMWlZnV2z7oRNT3AaZvlRAEcN9W12vM=;
+ b=o8lOYG5aXVodRXrfGBNGNT1VCeJDoqFQe0QGU1qddTVylWgSIMGoO90sTl0GxX+FPSuknU03H
+ bFKTw1P+1h1BcXnfs43q7Ilo/Kp7d3lrLFTFXsBU7idZ95fWjfMTmgx
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NxaXz+5yuHzbtGJvujyIbKBjBTDOyj03TQRW8SzitAHZvnHOShsTeIea
+	F1oC5gvtJ4TWucyh0AeMPHvDRrEyvDkmQj80DdzDq0HFKT5qO15MAX3vbh30TzRcE00dEWW
+	KJowm1MJOe8ZUts8S2J8WsD/pTZfYN+anKoYtbs6hGT8jZZo0BbEqpb+NoO3jdMB2s/yyJ9
+	E9MRlqHZq74SqZ6dUapJyqv6MhTFDWPy8iAh5BKhYuHwVtvkL2QAz0B7CVpoPpzM4yh7j16
+	Kcf2hpMDPF0BznQgHrEItCN+QTpmCFjfkqSoS3yTCcrrU/I9dNd1uFh3y9sOjIb1VhkoNU8
+	brUAUb3KdvQMQR2I+0v9MqV8Yk07dxGZYdbASb3E99jR+cE7zODiMHgvOnbT4smlcC/iu1a
+	Uj0u+lyC5QkzpFdhyWA+x6ahG+5Vsze3C6EFGNKqXmKSEf7VIzWYOcdi7kJD/tu/OyIBp7P
+	uUyu77qhILvzgmqbg3qN+rLjV6ZNcPeYK6ZdPuQOXRLMMaJr8VQobGhUSIh2K9Vq8mZldl5
+	51Wlr5KYyOcKMDh7O5HMXMQDCwCrAfSXeLg/s3fOw6x5lD7FywoKfU4fdaD7AAVZ8vyygAy
+	UotlQp6ZI2vhjAaef08Iw7r2FeNDFEHdmpormDWHEk59i+vJOGThJZOBASjgz+mEQslMPti
+	N7y2F7VR09AfXKaVf/cOF0BFPhIio8tA3zVMDBkxf9gRP77ZEly7zIoPTVvMEreczdzU3th
+	zr0ch/vBaS4kB1hKZiVaeUuY0DZN3CS3fStjKAs5XiL5x8IKpWjm3EWlRzIX+Q4km7t9+V0
+	AKMcFGWabooSEru0MHdJ4G1c+wnYCgOtqKAcWb7hQ3ZKN9CF9M9Gf7+JETdub7poZji1j/Y
+	PsBkhcfI7mEzun5iycJiWmsGRPnEi0pmzPO75LWiOxoZDSZyxqpGT4WGshJ9Q/DmCoydr9l
+	njG8hC5BCaNrGQMMATSd4y9/V4J0uZhwpEzWncCJjrrVTddEO9ECEL8eTtqKI6tSdP7+pgd
+	hrF/OSaeVGDIW4/noOJBEcy8fkYGBnNYZuQl6Khf+jiD2A4bcHbRN45A+AuhFBKP83v3pbl
+	Yaw30aSWMQ1/Y63Q0vnUOqnPVyd9PknHp2cUPsF4CITUW89A/j2hbb9ybiEwWm0K/u5/00r
+	cFz+EYMmEQhNbmg=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_202521_698012_37C1F39E 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20260517_203323_055459_F6D62716 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,87 +112,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkg0JDRgNGC0LXQvCDQnNCw0LrRlNGU0LIsCgpPbiA1LzE4LzI2IDAwOjQ1LCDQkNGA0YLQtdC8
-INCc0LDQutGU0ZTQsiB3cm90ZToKPiBIaSBhbGwuIFdhbnQgdG8gc2F5IHRoYXQgaXQncyBteSBm
-aXJzdCByZXBvcnQsIHNvIGlmIHlvdSBoYXZlCj4gY29tcGxhaW50cyBhYm91dCBzdHlsZSB3cml0
-aW5nLCBJIHdpbGwgYmUgaGFwcHkgdG8gcmVhZCBob3cgdG8gaW1wcm92ZQo+IG15c2VsZi4gQWxz
-byBJIGRvbid0IHJlYWxseSBnb29kIGF0IEVuZ2xpc2guIFNvcnJ5IGJlZm9yZWhhbmQuCj4KPiBJ
-IGFtIGV4cGVyaWVuY2luZyBhIGNvbnNpc3RlbnQgS2VybmVsIFBhbmljIHdoZW4gY29tcGlsaW5n
-Cj4gc3lzLWRldmVsL2djYy0xNi4xLjAgQU5EIHN5cy1rZXJuZWwvZ2VudG9vLXNvdXJjZXMtNy4w
-Ljggb24gYSBTdGFyRml2ZQo+IEpINzExMCAoUGluZTY0IFN0YXI2NCkgYm9hcmQgcnVubmluZyBH
-ZW50b28gTGludXguCj4KPiBUaGUgY3Jhc2ggb2NjdXJzIGR1cmluZyBjb21waWxhdGlvbiAob3Ig
-ZmlsZSBvcGVyYXRpb25zIGxpa2Ugcm0gb3IKPiBjcCksIGJ1dCBmb3JjZXMgdGhlIGVudGlyZSBz
-eXN0ZW0gaW50byBhIGtlcm5lbCBwYW5pYy4gSXQgcmVwcm9kdWNlcwo+IGJvdGggd2l0aCBacmFt
-IGVuYWJsZWQgYW5kIGRpc2FibGVkLCBhbmQgLWoxLi4tajQgZmxhZ3MuCj4KPiBIYXJkd2FyZTog
-UGluZTY0IFN0YXI2NCAoU29DIEpINzExMCwgOEdCIFJBTSkKPiBLZXJuZWwgdmVyc2lvbjogNi4x
-OS4xMi1nZW50b28gYW5kIDcuMC44LWdlbnRvbyAodGhhdCBJIGhhdmUKPiBjcm9zc2NvbXBpbGVk
-IHdpdGggTExWTT0xKQo+IFNwbCwgb3BlbnNiaSwgdS1ib290OiBzb21lIHByZWJ1aWxlZCBMVFMg
-dmVyc2lvbgoKSSB3b3VsZCBpbmRlZWQgYXBwcmVjaWF0ZSB0aGUgdmVyc2lvbiBpbmZvcm1hdGlv
-biBvZiB0aGVzZSBjb21wb25lbnRzLAphbmQgbW9yZSBkZXRhaWxzIG9mIHlvdXIgYm9vdCBmbG93
-LCBiZWNhdXNlLi4uCgo+IFsgMjExOS40OTIwODZdIENQVTogMSBVSUQ6IDI1MCBQSUQ6IDM1NzMg
-Q29tbTogY2MxcGx1cyBOb3QgdGFpbnRlZCA2LjE5LjEyLWdlbnRvby1pbm9yaS1yaXNjLXYgIzQg
-Tk9ORQo+IFsgMjExOS40OTIwOTVdIEhhcmR3YXJlIG5hbWU6IFBpbmU2NCBTdGFyNjQgKERUKQo+
-IFsgMjExOS40OTIwOThdIGVwYyA6IF9fbWVtc2V0KzB4NjAvMHhmYwo+IFsgMjExOS40OTIxMTJd
-ICByYSA6IGhhbmRsZV9tbV9mYXVsdCsweDdhMC8weDEwMGMKPiBbIDIxMTkuNDkyMTI0XSBlcGMg
-OiBmZmZmZmZmZjgwYmQxNTg0IHJhIDogZmZmZmZmZmY4MDIxMjNjYyBzcCA6IGZmZmZmZmM2MDNk
-ZGJkNDAKPiBbIDIxMTkuNDkyMTI4XSAgZ3AgOiBmZmZmZmZmZjgxODNjNzk4IHRwIDogZmZmZmZm
-ZDZjN2E2YjAwMCB0MCA6IGZmZmZmZmQ2MDAwMDAwMDAKPiBbIDIxMTkuNDkyMTMxXSAgdDEgOiAw
-MDAwMDAwMDAwMDAwMDAxIHQyIDogZmZmZmZmZmZmZmZmZmZmZiBzMCA6IGZmZmZmZmM2MDNkZGJl
-NzAKPiBbIDIxMTkuNDkyMTM1XSAgczEgOiBmZmZmZmZjNTAwMDAwMDAwIGEwIDogZmZmZmZmZDYw
-MDAwMDAwMCBhMSA6IDAwMDAwMDAwMDAwMDAwMDAKPiBbIDIxMTkuNDkyMTM5XSAgYTIgOiAwMDAw
-MDAwMDAwMDAxMDAwIGEzIDogZmZmZmZmZDYwMDAwMTAwMCBhNCA6IDAwMDAwMDAwMDAwMDAwMDAK
-PiBbIDIxMTkuNDkyMTQyXSAgYTUgOiAwMDAwMDAwMDAwMDAwMDAwIGE2IDogZmZmZmZmZmZmZmZm
-ZmZmZiBhNyA6IDAwMDAwMDAwMDAxZmZmZmYKPiBbIDIxMTkuNDkyMTQ2XSAgczIgOiBmZmZmZmZm
-ZjgxMzkwYjg4IHMzIDogMDAwMDAwMDAwMDAwMTI1NSBzNCA6IDAwMDAwMDNmMjNhYjQwMDAKPiBb
-IDIxMTkuNDkyMTUwXSAgczUgOiBmZmZmZmZkNmM3YTU5MzgwIHM2IDogZmZmZmZmZmY4MTM5MGQy
-NCBzNyA6IGZmZmZmZmZmODEzOTBkMjAKPiBbIDIxMTkuNDkyMTU0XSAgczggOiAwMDAwMDAwMDAw
-MDAwODAwIHM5IDogZmZmZmZmYzYwM2RkYmRlOCBzMTA6IGZmZmZmZmQ2YzdhNTkzODAKPiBbIDIx
-MTkuNDkyMTU3XSAgczExOiAwMDAwMDAwMDAwMDAwMDAwIHQzIDogMDAwMDAwMDAwMDAwMDAwMSB0
-NCA6IDAwMDAwMDAwMDAwMDAwMDEKPiBbIDIxMTkuNDkyMTYwXSAgdDUgOiAwMDAwMDAwMDAwMDAw
-MDA0IHQ2IDogZGVhZDAwMDAwMDAwMDA0MAo+IFsgMjExOS40OTIxNjNdIHN0YXR1czogMDAwMDAw
-MDIwMDAwMDEyMCBiYWRhZGRyOiBmZmZmZmZkNjAwMDAwMDAwIGNhdXNlOiAwMDAwMDAwMDAwMDAw
-MDA3Cj4gWyAyMTE5LjQ5MjE2OF0gWzxmZmZmZmZmZjgwYmQxNTg0Pl0gX19tZW1zZXQrMHg2MC8w
-eGZjCj4gWyAyMTE5LjQ5MjE3NV0gWzxmZmZmZmZmZjgwMDFlYjhhPl0gaGFuZGxlX3BhZ2VfZmF1
-bHQrMHgxYTIvMHg0YTAKPiBbIDIxMTkuNDkyMTg2XSBbPGZmZmZmZmZmODBiZDIzYmE+XSBkb19w
-YWdlX2ZhdWx0KzB4MWUvMHgzYwo+IFsgMjExOS40OTIxOTFdIFs8ZmZmZmZmZmY4MGJkZGNmOD5d
-IGhhbmRsZV9leGNlcHRpb24rMHgxNDgvMHgxNTYKPiBbIDIxMTkuNDkyMjA3XSBDb2RlOiAxMDA3
-IDgyYjMgNDBlMiAwNzk3IDAwMDAgODc5MyAwMGU3IDgzMDUgOTdiYSA4NzgyIChiMDIzKSAwMGIy
-Cj4gWyAyMTE5LjQ5MjIxM10gLS0tWyBlbmQgdHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCj4g
-WyAyMTE5LjQ5MjIxOV0gS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IEZhdGFsIGV4Y2VwdGlv
-biBpbiBpbnRlcnJ1cHQKPiBbIDIxMTkuNDkyMjIyXSBTTVA6IHN0b3BwaW5nIHNlY29uZGFyeSBD
-UFVzCj4gWyAyMTE5LjY4NTMyMV0gLS0tWyBlbmQgS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6
-IEZhdGFsIGV4Y2VwdGlvbiBpbiBpbnRlcnJ1cHQgXS0tLQoKSSBiZWxpZXZlIHRoaXMgaXMgY2F1
-c2VkIGJ5IHNvbWUgb2YgeW91ciBmaXJtd2FyZSBjb21wb25lbnRzIGZhaWxpbmcgdG8KcmVzZXJ2
-ZSB0aGUgYmVnaW5uaW5nIG9mIFJBTSBmb3IgT3BlblNCSS4gVGhpcyB3b3VsZCBjYXVzZSBjcmFz
-aGVzIHdoZW4KTGludXggdHJpZXMgdG8gYWxsb2NhdGUgdGhhdCBwYXJ0IG9mIFJBTSwgc2luY2Ug
-T3BlblNCSSBwcm90ZWN0cyBpdHNlbGYKc29tZXdoYXQgaW4gdGhhdCByZWdpb24gd2l0aCBQTVAu
-IFRoaXMgaXMgYWxzbyBjb25zaXN0ZW50IHdpdGggeW91cgpyZXBvcnRpbmcgdGhpcyBhcyBlYXNp
-bHkgcmVwcm9kdWNpYmxlIGR1cmluZyBoZWF2eSBmaWxlc3lzdGVtIG9yCmNvbXBpbGF0aW9uIHRh
-c2tzLCBzaW5jZSB0aGVzZSB0YXNrcyB3b3VsZCB1c2UgYSBsb3Qgb2YgUkFNIGZvcgpjb21wdXRh
-dGlvbiBvciBhcyBmaWxlc3lzdGVtIGNhY2hlLgoKV2VsbCwgT3BlblNCSSBpdHNlbGYgc2hvdWxk
-IG1hcmsgdGhhdCByZWdpb24gYXMgcmVzZXJ2ZWQgYmVmb3JlCmNvbnRpbnVpbmcgb253YXJkcywg
-YnV0IGl0IGlzIGxpa2VseSB0aGF0IHNvbWV0aGluZyBlbHNlIGluIHlvdXIgYm9vdApmbG93IGlz
-IGZhaWxpbmcgdG8gY29weSB0aGF0IGluZm8gZnVydGhlciB0byBsZXQgTGludXgga25vdy4KCkkn
-bSBub3Qgc3VyZSB3aGF0IHlvdSBtZWFuIGJ5ICJwcmUtYnVpbHQgTFRTIHZlcnNpb24iLCBidXQg
-aWYgaXQncyB0aGUKZmlybXdhcmUgeW91ciBib2FyZCBzaGlwcGVkIHdpdGgsIGl0IGNvdWxkIGJl
-IGxhY2tpbmcgdGhlIGNvZGUgaGFuZGxpbmcKdGhpcy4gSSB3b3VsZCBhcHByZWNpYXRlIGlmIHlv
-dSBjb3VsZCB0cnkgb3V0IGEgbW9yZSByZWNlbnQgbWFpbmxpbmUKdmVyc2lvbiBvZiBVLUJvb3Qg
-YW5kIE9wZW5TQkkuIFNlZSBVLUJvb3QgZG9jcyBbMV0gZm9yIGRldGFpbHMsIGJ1dCBkbwpub3Rl
-IHRoYXQgMjAyNS4xMCBvbndhcmRzIG5vIGxvbmdlciBzdXBwb3J0IGZpcm13YXJlLW9uLVNELWNh
-cmQsIGFuZCB5b3UKbWF5IG5lZWQgdG8gYWRqdXN0IHlvdXIgYm9vdCBjb25maWcgdG8gZG8gZXh0
-bGludXggYm9vdCAoSSBkb24ndCBrbm93CndoYXQgR2VudG9vIGRvZXMpLgoKSXQgd291bGQgYWxz
-byBoZWxwIGlmIHlvdSBjb3VsZCBwcm92aWRlIHRoZXNlIGluZm9ybWF0aW9uOgoKICAqIFZlcnNp
-b24gaW5mb3JtYXRpb24gb2YgVS1Cb290LCBPcGVuU0JJLCBldGMsIGFzIHRoZXkgd291bGQKICAg
-IHNlbGYtcmVwb3J0IG9uIHNlcmlhbCBwb3J0IG9uIGJvb3QuCiAgKiBGdWxsIGJvb3QgdGltZSBr
-ZXJuZWwgbG9ncy4gSXQgZG9lc24ndCBoYXZlIHRvIGJlIGFsbCB0aGUgd2F5IHRvIHRoZQogICAg
-cGFuaWM7IGp1c3QgdXAgdG8gYSBub3JtYWwgc3RhcnR1cCBpcyBlbm91Z2guCgpWaXZpYW4gImRy
-YW1mb3JldmVyIiBXYW5nCgpbMV06IGh0dHBzOi8vZG9jcy51LWJvb3Qub3JnL2VuL2xhdGVzdC9i
-b2FyZC9zdGFyZml2ZS9waW5lNjRfc3RhcjY0Lmh0bWwKCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi all,
+
+This patch series introduces Peripheral DMA (PDMA) support for the
+SpacemiT K3 SoC, leveraging the existing mmp_pdma driver.
+
+The K3 PDMA IP is largely based on the design found in the previous
+SpacemiT K1 SoC, but introduces a few key architectural differences:
+1. It features a variable extended DRCMR base address for DMA request
+   numbers (>= 64) depending on the hardware implementation.
+2. Unlike the K1 SoC, where some DMA masters had memory addressing
+   limitations (requiring a dedicated dma-bus), the K3 DMA masters
+   have full memory addressing capabilities.
+
+The series is structured as follows:
+- Patch 1: Introduce the necessary dt-bindings: K3 compatible string.
+- Patch 2-3: Refactor the mmp_pdma driver to support variable extended
+  DRCMR bases, and add the specific implementation/ops for the K3 SoC.
+- Patch 4: Fixes a critical clock issue where the DDR bus clock
+  (top_dclk) could be gated by CCF, which would cause DMA engines to
+  hang and lead to system instability.
+- Patch 5: Finally, instantiates the PDMA controller node in the
+  SpacemiT K3 device tree.
+
+---
+Changes in v6:
+- patch 2/4: rewrite commit message per Frank Li review (avoid "this patch",
+  use imperative mood, update subject to better describe the refactoring)
+- patch 3/4: rewrite commit message per Frank Li review (remove "This patch
+  adds", use imperative mood)
+- Link to v5: https://patch.msgid.link/20260507-k3-pdma-v5-0-6b9743038026@linux.spacemit.com
+
+Changes in v5:
+- drop patch 4/5 (has been merged)
+- add Conor's tag
+- Link to v4: https://lore.kernel.org/all/20260424-k3-pdma-v3-0-efdf2e414a08@linux.spacemit.com/
+
+Changes in v4:
+- patch 4/5:
+  - add Brian's RB tag
+- patch 1/5:
+  - update commit message
+Link to v3: https://lore.kernel.org/all/20260331-k3-pdma-v3-0-a4e60dd8b4b3@linux.spacemit.com/
+
+Changes in v3:
+- Removed the dt-bindings patches related to the DMA number.
+- patch 1/5:
+  - update commit message
+- patch 2-5: nothing
+- Link to v2: https://lore.kernel.org/r/20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com
+
+Changes in v2:
+- patch 1-6 are added in this version
+- patch 7/7
+  - update commit message
+  - using k3 compatible string
+  - Link to v1: https://lore.kernel.org/all/20260317-k3-pdma-v1-1-f39d3e97b53a@linux.spacemit.com/
+
+To: Vinod Koul <vkoul@kernel.org>
+To: Frank Li <Frank.Li@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: dmaengine@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: spacemit@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
+
+---
+Guodong Xu (3):
+      dt-bindings: dmaengine: Add SpacemiT K3 DMA compatible string
+      dmaengine: mmp_pdma: refactor DRCMR access with helper function
+      dmaengine: mmp_pdma: add SpacemiT K3 support
+
+Troy Mitchell (1):
+      riscv: dts: spacemit: Add PDMA controller node for K3 SoC
+
+ .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  |  4 ++-
+ arch/riscv/boot/dts/spacemit/k3.dtsi               | 11 +++++++
+ drivers/dma/mmp_pdma.c                             | 37 ++++++++++++++++++++--
+ 3 files changed, 48 insertions(+), 4 deletions(-)
+---
+base-commit: 02f90981a67f3b9ee7d6684e7503a4fed7aade0c
+change-id: 20260317-k3-pdma-7c1734431436
+
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
