@@ -4,99 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9058ACD4F3C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 01:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1B8CD4F3D
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 02:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+uQDns9Pg/xOipG6FW46xK5mGRDUYSYdbvJbtipMhOQ=; b=14i2rxBFn8K0VS
-	+KOnvzXzkXTkxLq18d45+eTBaNAk2dqsVxomDaMhfxO/BSufbXj5JOHPWxtw8BASSHYPSGpYXmKIJ
-	KMRtspQP6CMpUVaRjQ2gTQ2yHwPd3nVu4hfMbOZENbvv0YFxU2QJ11KEYT7ewUZ2aXE7lGn6nn0a6
-	RUpxbVLNQrTdK0xXac0D86fIr8UfsAf6BqwB7BEEutyKvBV/7iFeVM4BIjHZwz6q+SDxjZVsWxC95
-	kX6xifJBYY/qc8NG138naVdrOvzoY4Ut85uNd1zXSrJ/jEistldX4eBQuy6h/GNz33JcXSMR6aHgd
-	S/zWKoDQBQO/Yulxr3qw==;
+	List-Owner; bh=3MdjJWyWWzRzTlOiNlAoU4cNmAvy/b3ZMKR6U5b25Jg=; b=e9WC8eUt+9VaUY
+	Dnll1+5k3k9YbIA+0QQGjb0xFfVDzRqeVIjxgSS3YL7t7D/NCdd14HR0hzvXoeMFuVjTWhol4zb6e
+	N8aq89qnThbNZ4FrlZk50dVP9ROXyx4js7Eq2lDjGm48feh1CjhbDfqjnEHvCXoLBgfEsWKWhv2Xg
+	w9mpB0ObaoF8btYbeu9Tv5eMJ6i1ptuqr8YFlah2GigDkZhmdcBDYW7vh3IiILqJwYUoxjVIQ9lke
+	U+0rS/0hzLJjuxTGutmezZ2mt6U0CENjO6NdP6ovKX3gqIxaSdJlMWc474UfLUhoyO9nOo1UVgY+8
+	bD+IvsvPw8nHCz7uHzsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOmdA-0000000Dobd-2874;
-	Mon, 18 May 2026 01:18:52 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1wOoC7-0000000DzZw-2Dli;
+	Mon, 18 May 2026 02:59:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOmd7-0000000Dob2-379J
+	id 1wOoC4-0000000DzY4-0KQw
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 May 2026 01:18:50 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-838d0b7c950so1163959b3a.3
-        for <linux-riscv@lists.infradead.org>; Sun, 17 May 2026 18:18:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779067128; x=1779671928; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vrkXl/tb+VJX1ZNHX4vVsA7L7lm6KoE09cNj85XuTpU=;
-        b=UL9RHz0aO2nGOyEAP6zJzpmSXU2o1ZAGsqjwmjIHvQVKnhq2cKS2+SDaoYUOX5gelf
-         cE38gHOa/ICgbZw8x/oRoOMHzt11ASjJFe9aiQJ+0HO6LJUuTOCf4cCzO2mdWi9b5Zv1
-         a2yOmqvbQN4UDDnucaQpF23mNfpjNzZ19H+eBMlSEOTFBNpiU/WlTZZfCwB0xX9Pa/r2
-         NqXfVOR3H3sQCNQ3ZsLWxSo//k8rJnmIKWwc2JFre/vht+sHtl170Q+HLrhqszNU7JRH
-         32NuRICW5P3zcL/6PcXJ1aYF8IoTZJM0MX+OAjZJ0NJNgiMydjX0DixFPqIwjt5aLZHT
-         ByhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779067128; x=1779671928;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vrkXl/tb+VJX1ZNHX4vVsA7L7lm6KoE09cNj85XuTpU=;
-        b=RzrXMJJbWzGbsYRFAfLlTwyEnLLsZEYxJaQlVTsel4SD22PQMuV7l7FXOiFOpwkcRY
-         AW+uxaS3STZOHkHiZRD2GmHwq/fiqFoOhEx9RNeh7nlHBot2IrWH/Qw2znwHSrOEee0Q
-         6HNmCbOHyhtdjZbd6Dvkk2SfsNx/OJSxBLQoq6dJ3thSTEo7eyDmKHCUTnAjY1t/1EEQ
-         BkLV9BKB3h+ziZEtD5z7iNi8JlBOtr5nwJpyRVEZ6giq8npCDaTVZBk5fWsoOlmBTrsE
-         kgqoFkiCH/IWhxwT/Iqe4uxCLzzbBWr517MrDnbhauoq/AxtGw039laQrxvHrYyzJao1
-         /bGA==
-X-Forwarded-Encrypted: i=1; AFNElJ/qALohU9Kugw0JGP+oYvZYJ8ghTXrOXfFtj/yCTn3oXMdxvWofLU1mA381HF9Uq+6ZAYJQpHfzaVnaog==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfJlNe/22khhRbQfDfHQ5ihrDHupxD51Sz0MQlMGptgMnE3HHs
-	jtdlPp+X++FNebcjrmIR0aZiG+3SbR/3/JHHImhcTzCqFfMuaMTCsXnZ
-X-Gm-Gg: Acq92OEGSq1qlYohwBd+3EdQDufP/uUzp2K9Iiffo/wHlHS73+uI+LicfkfemCXuTwL
-	xSDagJp646vdVNM7y/RxSwuVI4TFJhVUQdDEJa5zX8kXKBe+b1JaJg6DGmBPk3Hox8lTOwxmf3T
-	EqcCCT8ySlPN56mK+dztxUudDdp+gbIvNZ7udzgou6Rr4xtkit8SrZHXIdAaWt5rCybXg31FqSq
-	lHdZgxGKlB4mIWLMG8Dyma9cR/yZMeBCgHaUMzjAKV+qaSilsfEIe2ZBNp9vmxN60TxZsTyh56k
-	6hqywrm0TbT3Uugz0ECemlxb0p/4uJRylz6JZWePcAXQL7SdazAxR9sPTcv5mpnz3mnTHhQYVr2
-	1D/4WzCLxEdxVT7/CLD2lhvz6GM6IyUja+341+8baMkhMW+ACce1UZ6rLghr3UlleQyiB1GOlMx
-	RUkN9RafuYwJXmJyLYaKefAgs=
-X-Received: by 2002:a05:6a00:2908:b0:82a:6461:6d15 with SMTP id d2e1a72fcca58-83f33f166f9mr13591304b3a.46.1779067127790;
-        Sun, 17 May 2026 18:18:47 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19778c87sm11922977b3a.19.2026.05.17.18.18.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 18:18:47 -0700 (PDT)
-Date: Mon, 18 May 2026 09:18:13 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Christian Bruel <christian.bruel@foss.st.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Senchuan Zhang <zhangsenchuan@eswincomputing.com>, 
-	Alex Elder <elder@riscstar.com>, Nam Cao <namcao@linutronix.de>, 
-	Siddharth Vadapalli <s-vadapalli@ti.com>, Randolph Lin <randolph@andestech.com>, 
-	Vidya Sagar <vidyas@nvidia.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v2 2/5] PCI: spacemit-k1: Add multiple PHY handles support
-Message-ID: <agpogZp46N_1B0ps@inochi.infowork>
-References: <20260517014841.254085-1-inochiama@gmail.com>
- <20260517014841.254085-3-inochiama@gmail.com>
- <agl3TJrvJMtEpHyl@ashevche-desk.local>
+	Mon, 18 May 2026 02:59:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AB3B60210;
+	Mon, 18 May 2026 02:58:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F4A5C2BCB3;
+	Mon, 18 May 2026 02:58:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779073139;
+	bh=glMTiY++tgALwLhBNGfpjYuRggBZLhInFSckW+5Ix54=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Jdn4qGUJ093iqa6byfUuPKv+ZEfIiA15pvmTXxxuGoAkEew7EWOLaZEYn2ETiVQLS
+	 2/T9tliso6CLyox925kQUIQyRS1ui97ShUwXnoAqpBVBwnjWEwJBJHf2czV1T7jbE5
+	 pl/oY81XrqNnmUN0EGXmvcdH1Lr+SmEM0ti60OJRhioyCgfdjr9MngNssjwSSi4HqV
+	 FfuOp5t/n+/yGvOtoxq5FfGHk/qhnMQ9teatGIWj2rTLKSjZKdEi37Cq/1/cFtK+UP
+	 VoKtuRz+zqtuZL9Z+K5wFFC4aoDWR7Rprx/hoGf6LJVVuYQRVDQJ7J6PzCbj+vgdHT
+	 Q9AwTwIYKSSKQ==
+From: Yixun Lan <dlan@kernel.org>
+Date: Mon, 18 May 2026 02:58:36 +0000
+Subject: [PATCH 1/2] clk: spacemit: k3: fix USB2 bus clock
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <agl3TJrvJMtEpHyl@ashevche-desk.local>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_181849_787499_5D14E6CF 
-X-CRM114-Status: GOOD (  15.00  )
+Message-Id: <20260518-06-clk-reset-usb-fix-v1-1-14fc235e692b@kernel.org>
+References: <20260518-06-clk-reset-usb-fix-v1-0-14fc235e692b@kernel.org>
+In-Reply-To: <20260518-06-clk-reset-usb-fix-v1-0-14fc235e692b@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Yixun Lan <dlan@kernel.org>, Junzhong Pan <panjunzhong@linux.spacemit.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1380; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=glMTiY++tgALwLhBNGfpjYuRggBZLhInFSckW+5Ix54=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqCoBnvVc5VsIJY3iE7FPBru751ARzOjXHZta3g
+ EHS7zkv1NWJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCagqAZxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+0lRxAAjzNNR56QG+N0hHf62fCU46L0GxPSLvwT7VcYBb/LLr7AuTJYWBV4B
+ pW6hC1Nv6mw8e2AMyV2awse1vGq2jsvN2HRpSFpg2S9c660o844B4pagh8sj5HZA0jKFKgGEufy
+ s4O8t6I+604uJ8TN5FSjBZn42rlUS3bXE0zNGJIsqQENFp3eR7U+SwIOsJuyVnMMc5olaJ82/lq
+ 8UTO9fSxjNjwiV1PPAopa5/VbBmu468pybNPuRfFBCyDU0ZsvOKGmcGWV/+fvXMGk7j1Q5VeWrB
+ SGVox32S/Qge6gI4OZBNp8YSK4+9wgi54jv1a4IJvUjwoTyUS2WNr4bjT9NblDQsLGiHBIRaIPt
+ I4dEpjdAegU0GB/AEI+aWrqteb4VQ6BRB1PsOsu+8jG/SV6kgT35pMVsbmLq7boOgC6w2jT1OaV
+ YEcCiCYR2Rf8O7TWA7EUTf3KT1luOTBSyLI8GF3qYNqNgltiWzOpmBw4Pv0VUY1BitciFVW29aa
+ 5N/h5MML++IuKZ/onDaIi4QvMVnxlXtqZMKksZ/zeTQmp8wHYiVYBMNw1zehTqmh9O2P67sIV6M
+ nwYicZDGkj5fa/xBXdX7tZvOjjk+utWV53Qgc6XnQtRD+bUVTers1uBZd3e29abCv+EhfVblMAj
+ 80S8aio8BojPVrVeVpo+GM7HKsGqIE=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,34 +89,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 17, 2026 at 11:07:40AM +0300, Andy Shevchenko wrote:
-> On Sun, May 17, 2026 at 09:48:37AM +0800, Inochi Amaoto wrote:
-> > The PCIe controller on Spacemit K3 may use multiple PHYs at the
-> > same time. The feature is not support by the current driver.
-> > So extend the PHY definition to support multiple PHY handles.
-> 
-> ...
-> 
-> > +	k1->phy = devm_kmalloc_array(dev, 1, sizeof(*k1->phy), GFP_KERNEL);
-> 
-> Hmm... What's the point in having _array(1) ? devm_kmalloc() should suffice.
-> 
+According to SpacemiT K3's updated docs, the USB2 ahb reset and USB2 bus
+clock enable bit was wrongly swapped, the correct one should be:
 
+Register : APMU_USB_CLK_RES_CTRL
+bit[1]   : usb2_port_bus_clk_en
+bit[0]   : usb2_port_ahb_rstn
 
-Yes, you are right, I forgot it is "struct phy *", so the devm_kmalloc()
-is enough, will fix in the next version.
+Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
+Reported-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+ drivers/clk/spacemit/ccu-k3.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Regards,
-Inochi
+diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
+index e98afd59f05c..3d430f11d608 100644
+--- a/drivers/clk/spacemit/ccu-k3.c
++++ b/drivers/clk/spacemit/ccu-k3.c
+@@ -777,7 +777,7 @@ static const struct clk_parent_data sdh2_parents[] = {
+ CCU_MUX_DIV_GATE_FC_DEFINE(sdh2_clk, sdh2_parents, APMU_SDH2_CLK_RES_CTRL, 8, 3,
+ 			   BIT(11), 5, 3, BIT(4), 0);
+ 
+-CCU_GATE_DEFINE(usb2_bus_clk, CCU_PARENT_HW(axi_clk), APMU_USB_CLK_RES_CTRL, BIT(0), 0);
++CCU_GATE_DEFINE(usb2_bus_clk, CCU_PARENT_HW(axi_clk), APMU_USB_CLK_RES_CTRL, BIT(1), 0);
+ CCU_GATE_DEFINE(usb3_porta_bus_clk, CCU_PARENT_HW(axi_clk), APMU_USB_CLK_RES_CTRL, BIT(4), 0);
+ CCU_GATE_DEFINE(usb3_portb_bus_clk, CCU_PARENT_HW(axi_clk), APMU_USB_CLK_RES_CTRL, BIT(8), 0);
+ CCU_GATE_DEFINE(usb3_portc_bus_clk, CCU_PARENT_HW(axi_clk), APMU_USB_CLK_RES_CTRL, BIT(12), 0);
 
-> > +	if (!k1->phy)
-> > +		return -ENOMEM;
-> 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
+-- 
+2.54.0
+
 
 _______________________________________________
 linux-riscv mailing list
