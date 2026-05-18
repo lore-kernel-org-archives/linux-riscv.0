@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 558CBCD4F3C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 05:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BAFCCD4F3C
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 06:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
+	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=is+WyhJhq2RxDC4TACu1NWyyieEjE0B/tXJlxXvb9yY=; b=2btlsrLbwz5E2X
-	mNOj3dsi64KLYZMw8Yc6dKo65aypWxA9Vhn+jGuWj/yz03cWSJl7vEluMy8bc8SfY+u7WsbhjmjIz
-	T4B5+bUneghmLBn4EYaRHTuTMYjLWnB4QM+DUu51gr0I0nB2LTNLjwePbQyT1kE3XfHQ9MqnJWXvX
-	3i/drxV0t77tpV9FaVu6wDhQZbYAiam6WzGYNXnoeU+s7jG/N8dwmjhBICZKd75N9BpALxXcAa0lh
-	QrHwU7Dwmkeit5VB7wGxmfO3Y1/8C/wFJ3ossqEjiNO8VFGcEiSpmuj81QP4kyHQvKNQORDQXEib0
-	o/ceaR6hHyvE313gYd6Q==;
+	List-Owner; bh=hJI2p95HmKOU4XOU2PhFpQrW1L2MtwcKEQKRHxTmtZA=; b=EtOAPgkbQpiAz4
+	W30ot7s/tJhVcxiGjRpLsYxFEMOT7c4Fc8NEvAMAMfUUjByilbmcbDj7DBVhPaEum2AvB9OlZ36TX
+	0kIpbZhZlPVPiIO6ZGAB1Be+7zv5Jh8v4Jyf9I3qNO/JTR5ngDM3v38FEITf2J80q5h+qcfC1AX5h
+	+kH5W3bfyBfUzsFYmtszRoYe0TyLRQfoVDlvCK6VI5sVVdTgFDK5Tcal5jbJv8PlpYrDmIOk8Jbpu
+	v5j/8qlXRTq/TrnqX+Kuko8DT5LtTT9PZ12rzTUa+aZrworfrO5a7hAO3OCdEMRw3NN/Wd+R9X3kf
+	8i4r3ZXVfmqIUH02Yazw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOqRG-0000000EIjs-3R9A;
-	Mon, 18 May 2026 05:22:50 +0000
-Received: from [2001:4bb8:2d1:6fdb:d67d:128c:34ba:85b8] (helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOqRD-0000000EIZD-1P94;
-	Mon, 18 May 2026 05:22:47 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: [PATCH 18/18] raid6_kunit: randomize buffer alignment
-Date: Mon, 18 May 2026 07:18:01 +0200
-Message-ID: <20260518051804.462141-19-hch@lst.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260518051804.462141-1-hch@lst.de>
-References: <20260518051804.462141-1-hch@lst.de>
-MIME-Version: 1.0
+	id 1wOr0v-0000000EN5f-3gJC;
+	Mon, 18 May 2026 05:59:41 +0000
+Received: from bg1.exmail.qq.com ([114.132.79.153])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOr0q-0000000EN4l-3Y6d
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 May 2026 05:59:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1779083937;
+	bh=ZBo6UzpGi2/48ish2J7eO+3r26XLemO1MJ804jDcqVQ=;
+	h=Mime-Version:Date:Message-Id:To:Subject:From;
+	b=SE8NNyjAbpjbvpghfI1tDrt0qParybV88H9Dw8OpOWZQXsjtAgj+3hf64OgrRSsVK
+	 PN6XasHMR87YhOvkX81OTPocT+IK4XMiAkhHvJbhbkBZnaeURb0aKtW5CIFVUvWP77
+	 u6j5H3izlY1JZcNYNtK0lsidGfrrRCOCbB77iIek=
+X-QQ-mid: esmtpgz10t1779083929t26c6620c
+X-QQ-Originating-IP: gvbpIGWnr3UB9vTsa+lepJJScjkrVuXQnqPryEVy31I=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 18 May 2026 13:58:46 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10797554963980711834
+EX-QQ-RecipientCnt: 17
+Mime-Version: 1.0
+Date: Mon, 18 May 2026 13:58:45 +0800
+Message-Id: <DILKM8GE0NN8.3TSFR8JVSIVHM@linux.spacemit.com>
+To: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Philipp Zabel" <p.zabel@pengutronix.de>,
+ "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
+Cc: <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Troy
+ Mitchell" <troy.mitchell@linux.spacemit.com>, "Brian Masney"
+ <bmasney@redhat.com>
+Subject: Re: [PATCH v5 1/6] clk: correct clk_div_mask() return value for
+ width == 32
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
+ <20260514-dr1v90-cru-v5-1-34f3021aab51@pigmoral.tech>
+In-Reply-To: <20260514-dr1v90-cru-v5-1-34f3021aab51@pigmoral.tech>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MavvAJs3NvAh8HafFBBD7IJBCUCyaM6WDFBx7A6nMAeaJWnDnqLGmAI8
+	Yu1nGggidzxqG67m9eO9HCEZFCvyrFphhcHJ6g6MdVEzS27TndSgVVc5+E+erslFSF656zR
+	bzvTfSzU6e3qsqXZ1dne5iJcsHAiJLOIYsFzwMo/IhA/W6CqQgG2GbnxiodX8UyG+ocdIij
+	eKr3ih36WDLjNQe3Y/ocgNijqVhGTBQV+0Z2jA3oX0TYkjBygbIubKQyeHq3weSansfHHQh
+	C/Tj+31LrLe+QTK/p9UOMoC6CIT99wLDJ+mAH8gFK6EijsRWZFEJdOT5Z5i3HEsdBk7dIyq
+	vAp6iGv/SRttDyvpQt6uou2+u2VcRp+iPUB8RVj0vKSDrPxf7Qh2h1HhrI8zxP5mC8FRpXf
+	NJqq1ZRjRcZrGL8NYroG/8GH/EY1LWLWm6q1r5kHlCGZoHBKavlNsPzO8FOUIqQpuLZwU4S
+	S75UINY0Tzi7WI47MMNYECwKXnxPviiUJC0wW3Oh9Za76avCn1goi2k1kWn7qlEPRnBFkuV
+	+ZyXGYw593AGrs7WyfyKtthKBt5KQ+/1dj+frbvM6i9Uu7p9HJyKH7tjERwXcf6ij5aM8sZ
+	zsO2Scrxwssr2quGrSd88d102gTMZNipetgHpXVpORRo732qytC6SEdGtThhOhDsE50XMuC
+	Jcv8rfotUwU4I/74TRmFcRYkdChEkRUWv00Rfv22o07zE2ZKVlZQkh+hmkZp4cOCnPb7Kq2
+	U7okTsrvASx+5jc2cfowvc78QZmSsrYPK0UnZz8ALj7o4uNOR8pjy5xkwHmzVY4NtjLbS+N
+	rOZiO80gP2eR4DSY1z+a00b296V/afyq7J/A5Smdk6YIfmbK/7gZych4Hmfc9ZYDfRv3gOC
+	bbqoE/ytef8VhsXXLvUqdx2kAtC8kzw8/PRbrg8tEkvuO0AdT1QNuS2Ti1X5OAhu1a1+ykL
+	AiG5RQ9xAhmHeqtOdxN6Oq7f/og46FTCR62kphzg7QXAV6962qNGsaTfx3WR5Lzr4DwvMCM
+	K6p7ppRuxpX0v+GB92VXpvycw9Me+tPMZtJXnLMQ==
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260517_225937_586394_7263F1BC 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,122 +102,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add code to add random alignment to the buffers to test the case where
-they are not page aligned, and to move the buffers to the end of the
-allocation so that they are next to the vmalloc guard page.
-
-This does not include the recovery buffers as the recovery requires
-page alignment.
-
-Signed-off-by: Christoph Hellwig <hch@lst.de>
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Tested-by: Ard Biesheuvel <ardb@kernel.org> # kunit only on arm64
----
- lib/raid/raid6/tests/raid6_kunit.c | 41 +++++++++++++++++++++++++-----
- 1 file changed, 35 insertions(+), 6 deletions(-)
-
-diff --git a/lib/raid/raid6/tests/raid6_kunit.c b/lib/raid/raid6/tests/raid6_kunit.c
-index 71adf8932e93..9f3e671a1224 100644
---- a/lib/raid/raid6/tests/raid6_kunit.c
-+++ b/lib/raid/raid6/tests/raid6_kunit.c
-@@ -21,6 +21,7 @@ MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
- 
- static struct rnd_state rng;
- static void *test_buffers[RAID6_KUNIT_MAX_BUFFERS];
-+static void *aligned_buffers[RAID6_KUNIT_MAX_BUFFERS];
- static void *test_recov_buffers[RAID6_KUNIT_MAX_FAILURES];
- static size_t test_buflen;
- 
-@@ -50,6 +51,14 @@ static unsigned int random_nr_buffers(void)
- 			RAID6_MIN_DISKS;
- }
- 
-+/* Generate a random alignment that is a multiple of 64. */
-+static unsigned int random_alignment(unsigned int max_alignment)
-+{
-+	if (max_alignment == 0)
-+		return 0;
-+	return (rand32() % (max_alignment + 1)) & ~63;
-+}
-+
- static void makedata(int start, int stop)
- {
- 	int i;
-@@ -80,7 +89,7 @@ static void test_recover_one(struct kunit *test, unsigned int nr_buffers,
- 	for (i = 0; i < RAID6_KUNIT_MAX_FAILURES; i++)
- 		memset(test_recov_buffers[i], 0xf0, test_buflen);
- 
--	memcpy(dataptrs, test_buffers, sizeof(dataptrs));
-+	memcpy(dataptrs, aligned_buffers, sizeof(dataptrs));
- 	dataptrs[faila] = test_recov_buffers[0];
- 	dataptrs[failb] = test_recov_buffers[1];
- 
-@@ -102,13 +111,13 @@ static void test_recover_one(struct kunit *test, unsigned int nr_buffers,
- 		ta->recov->data2(nr_buffers, len, faila, failb, dataptrs);
- 	}
- 
--	KUNIT_EXPECT_MEMEQ_MSG(test, test_buffers[faila], test_recov_buffers[0],
-+	KUNIT_EXPECT_MEMEQ_MSG(test, aligned_buffers[faila], dataptrs[faila],
- 			len,
- 			"faila miscompared: %3d[%c] buffers %u len %u (failb=%3d[%c])\n",
- 			faila, member_type(nr_buffers, faila),
- 			nr_buffers, len,
- 			failb, member_type(nr_buffers, failb));
--	KUNIT_EXPECT_MEMEQ_MSG(test, test_buffers[failb], test_recov_buffers[1],
-+	KUNIT_EXPECT_MEMEQ_MSG(test, aligned_buffers[failb], dataptrs[failb],
- 			len,
- 			"failb miscompared: %3d[%c] buffers %u len %u (faila=%3d[%c])\n",
- 			failb, member_type(nr_buffers, failb),
-@@ -152,9 +161,9 @@ static void test_rmw_one(struct kunit *test, unsigned int nr_buffers,
- {
- 	const struct test_args *ta = test->param_value;
- 
--	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, test_buffers);
-+	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, aligned_buffers);
- 	makedata(p1, p2);
--	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, test_buffers);
-+	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, aligned_buffers);
- 	test_recover(test, nr_buffers, len);
- }
- 
-@@ -178,13 +187,33 @@ static void raid6_test_one(struct kunit *test)
- 	const struct test_args *ta = test->param_value;
- 	unsigned int nr_buffers = random_nr_buffers();
- 	unsigned int len = random_length(RAID6_KUNIT_MAX_BYTES);
-+	unsigned int max_alignment;
-+	int i;
- 
- 	/* Nuke syndromes */
- 	memset(test_buffers[nr_buffers - 2], 0xee, test_buflen);
- 	memset(test_buffers[nr_buffers - 1], 0xee, test_buflen);
- 
-+	/*
-+	 * If we're not using the entire buffer size, inject randomize alignment
-+	 * into the buffer.
-+	 */
-+	max_alignment = RAID6_KUNIT_MAX_BYTES - len;
-+	if (rand32() % 2 == 0) {
-+		/* Use random alignments mod 64 */
-+		for (i = 0; i < nr_buffers; i++)
-+			aligned_buffers[i] = test_buffers[i] +
-+				random_alignment(max_alignment);
-+	} else {
-+		/* Go up to the guard page, to catch buffer overreads */
-+		unsigned int align = test_buflen - len;
-+
-+		for (i = 0; i < nr_buffers; i++)
-+			aligned_buffers[i] = test_buffers[i] + align;
-+	}
-+
- 	/* Generate assumed good syndrome */
--	ta->gen->gen_syndrome(nr_buffers, len, test_buffers);
-+	ta->gen->gen_syndrome(nr_buffers, len, aligned_buffers);
- 
- 	test_recover(test, nr_buffers, len);
- 
--- 
-2.53.0
-
+On Thu May 14, 2026 at 5:27 PM CST, Junhui Liu wrote:
+> The macro clk_div_mask() currently wraps to zero when width is 32 due to
+> 1 << 32 being undefined behavior. This leads to incorrect mask generation
+> and prevents correct retrieval of register field values for 32-bit-wide
+> dividers.
+>
+> Although it is unlikely to exhaust all U32_MAX div, some clock IPs may rely
+> on a 32-bit val entry in their div_table to match a div, so providing a
+> full 32-bit mask is necessary.
+>
+> Fix this by using the standard GENMASK() macro. This safely resolves the
+> undefined behavior on both 32-bit and 64-bit architectures, while also
+> benefiting from the built-in compile-time type and bounds checking
+> provided by the GENMASK() macro.
+>
+> Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Cc: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>
+> ---
+> Hi Troy and Brian, I dropped your Reviewed-by tags in this version
+> because the implementation has changed (to use GENMASK()) and requires
+> re-evaluation IMO.
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 _______________________________________________
 linux-riscv mailing list
