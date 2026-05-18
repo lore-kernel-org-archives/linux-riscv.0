@@ -4,103 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B98CCD4F50
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 19:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787EBCD343F
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 May 2026 19:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SIfFMIiGAwZbJ51gQmsHeOtnVB7FxbhivVrYsTpp8J0=; b=muTXN/iydJVIz2
-	DaHAqFhodzdH7jRzOnTPWvOVAn0RaBn8zSahMhnaUOHEf5v+aZCkEAiT7+Fggev1DXKUbPQ9E4Olj
-	XCh3+jHGcbYBQK7eNyaFbDRqnVzWhG1ELyBjfpFgMmVwLTjnYDNErmE1b9ZxPcIyl35NfIxAc/CZK
-	FGU4vdJtWEXwU1qr7+WmX+xWd+4n4+SdB2DUnW6oNdTeGPdBWCxXXDkGDNwn1i/HG7v6WDnSxhxq9
-	PjZnLjERoSiMHzR6PLEz/49MqB1s3njlwMMWwa6jn6GwDC9bZ3dzXDq/dRCtmDZ9hGkH/ydqOWkVZ
-	Rc3+MizpBHXtekWt5MQQ==;
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=G8yXuzQjbenCW1bKPUs/gvFKTPC2UbhfJ/8lOgCpF60=; b=y3biVM7eO3+Xb2
+	mYNDTB+naBpUmOnduDqKykY41AdBmJdPsQYxZ/XDjhqLCFicmMRTeWvjQXDbnGzZVQ7BP8FDO+nHC
+	Xpr7YS6+c2Af7RxpNWbnUy0H+/IUqZcbs6/6bJ7QLFUeH9X/qYPgD8jZxfIbsKui+ny04x5PO+ORs
+	n6M2q5wb+ShW4oB43cE83InshsGqP/Sx7MLP+63QXVMZn+54kkzrKCG2WYEkqbC3EtTouZPSSjQhR
+	ZeHtrDXK7428+gWpDelbExaSnL9lVaYRt18j6KAm/n0vVuCwQWV7GXyKNJWrSAEbyBXehGrb1Xbnc
+	5TwfdfrfFzVoPCN8bcCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3CE-0000000Gcts-3VK8;
-	Mon, 18 May 2026 19:00:10 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1wP3lM-0000000Ghbf-3E9t;
+	Mon, 18 May 2026 19:36:28 +0000
+Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3CB-0000000GcrN-0I6R
+	id 1wP3lK-0000000Ghay-1xoz
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 May 2026 19:00:08 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7dbec19732eso3249394a34.3
-        for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 12:00:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779130805; cv=none;
+	Mon, 18 May 2026 19:36:27 +0000
+Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-133466cf955so10195757c88.0
+        for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 12:36:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779132985; cv=none;
         d=google.com; s=arc-20240605;
-        b=blmLd9VmzclIxoTh8fi7oE7N6/J2ZRKIGhmWqZIWRolrqv007iaWOqg2/MISfaM2Xi
-         Ldte5JQ+cTNHe1KzPCSJ4gQco/8LVXiXA7wsJpbI2LppOv/foYKhlWm+B15xPmdMv8Kn
-         SQWII4wEQ9C4xr/o9uFq69UsqOo0dWaVNPsr/Kgq2c0SzJzkid2Lz8vnQR+qwznQ6BFV
-         Eoq5SCa7AohXomKwq7PjrS4cXm5nqnT8Mv6N+ZqGLRi+Gh6xDgXSwtziERHv03BXKqUg
-         xm2eFUM9oOkKR5TjMPL+20WOFy2tZnhm9DHiBz/j5atY7BHC/BUe0WUWLrn0tAJO5Njw
-         YwcA==
+        b=bUo3cbgsMEYB2kDWSDS0CZwa+SGjsJV6+mq9fQk2R+3nDo1X2zGg9/vZdYHvHxMhGc
+         XQzAOT8UkyjF1XB7stT8q+kM8a0iI278KLiLPXxSJInDv995jwLmwr3WEVEmY2CCz8Pt
+         qZO+EKbKqWiqe2HsxrdAl+ugsnYbM5ztj6NBoVhH+BeJR6IvM24LSUlqNLgG6eI5y2TV
+         8m8s9iVJqUn/tDHoJKZMmIFUWGD+R6gHlUeVNGKXMn943eauVIV50RyuWFwGe5ml/LeS
+         X8OjLML/EDzzECfO2J1lqWizL0UNPjqStrKPLzRiGa3cDmQKcHp2DAnjUYLmxTDBuxNs
+         19rA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=dN9lGLFTPIfMJmdzYT+BtnPWS2u85N9lXDRoCULArAs=;
-        fh=vr9neYN6eUNO9d+7D90/GgzRH+OxdgjV9rHya2qMVtk=;
-        b=c4UKJmL/ByYAYtlSReRIDOpgHGTOiTZmJWcl4v0UzifRNAjo7XIfIzDcMDrmj+A3BY
-         UpS9Dli63CmlNX6neCLmeWheKHytOjd+xZwxNoPZXV0UXCe+6hEktT6lFo/tRRvUFIM5
-         eKPiq/P8LcB1YHetoSwEEMofIAQOjZyv9oCd/uKkw0+tTZAy+CcloUK52I3jcALESN5i
-         QeGRQXAJMokLvRHg0PtSUifvzcVaIQGX+ryEXgnZkIcIJzNQP+k4awc+Jha23LYv07Nm
-         92i8pdfd78y1ZU4z+pW36GRV+0n6adAtZFPvB2vEZrnAeWRlTQm/UFyJunEa3kVfTw0h
-         qJXQ==;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=1BM6kKwgHy2xvm29KSFNMOHdSSP7Z2KyWhC+9ZklWk0=;
+        fh=qxyaLjx+R4a9i+p0iT4t3WTOnJmr/XEG6q4c7D/HQNs=;
+        b=NBlM16tae+6qbq1W5cNr8mqt7eA5sI9LLheDFDfLXE8zFZwuiqKWBKJJ7UojbNOvkY
+         F21SaGbUvvIz1HwySBoeXL0qMdGFIGbLiKpVULEO9GDoLZy0iOm79e9+qKoK81ufOpcA
+         NeDKEGUu9jvHuDQBpstOHEFRkjrNFtsSvI7omBMJt4th9yus8DrYSp7ZbhuUQBfvimHd
+         QpnmnMZoi0Yt0QmW8h/WwgFY9BDGPSjYfJN9EfxfjYBMl7/gSeqkvrOO3ORFbP1M+MBG
+         3yxO0P8UPd0Q7q0zWhP3yUA4OsY2OyxrpMyVfknDkgXr7bcuA+In19hsekdEYGFQRfyf
+         iAnQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779130805; x=1779735605; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dN9lGLFTPIfMJmdzYT+BtnPWS2u85N9lXDRoCULArAs=;
-        b=UcWpkL8pEyKIDVfQSjpgCP+YDHVStvqkxHIm0Vn0czFvEzWuEvWVWpZKQqcfg0kxW0
-         e0TQjCtQaOQeokb6zDQPawSpt/aQzbWBholw8bQ62H5NH5nhB5Ds2EckkuavfUB3CieW
-         x8dro8i5hc8maipxeWtfgyIWF8lvVhY7ZTQwKlBnvFpIRvlDvOC32MCHHMaCEEuXrxkY
-         mUCP28jfFcbWRyksKHaU0Z1cXi64NvkY3si4Xakb+mvemGBnvlHfFWH8oTipyTzCq2r0
-         i/8+XvfbjPdCebSJnNnRFFPsA4NFPdeARdkHF0/fbQo+hHlZh9Om6Jb52mB0Tc8i5bXu
-         EsNA==
+        d=gmail.com; s=20251104; t=1779132985; x=1779737785; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=1BM6kKwgHy2xvm29KSFNMOHdSSP7Z2KyWhC+9ZklWk0=;
+        b=JACFvgeeFRymQPlY6cEmzc1lp5I8uQyMM5Sl9wkepc8yEPVnXJTyx5nl7CU4wrDas2
+         avUMde3amYrXUojlF8PQpCz6oyhaEC8DYLvWYH5LJwKJ1eOWHoHe6Fc4/C38pgFpfXjy
+         6SxFb1mflkRbb7ju4At1EcXb0+5v61mRuglDyjhpJwPeV9b900+hHUPdu6nwCJgA6h9c
+         ZvcjUxHEcIkuVmnCCXKp+lRu/mgtnDFfqhEoXRygucc2fnqXE8A4uopLvAwM3x9MmP5t
+         phibPo6TK8Pxm3JXu83XrcxEKOevDqxy9i4bfdsdy+WhG21jwgIt876wXYMbQ6Gk0Ssi
+         BgOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779130805; x=1779735605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dN9lGLFTPIfMJmdzYT+BtnPWS2u85N9lXDRoCULArAs=;
-        b=ICclJI5p9MlSLVHj73ne2tIVosY25kzAZdO8yDe3Ok4Ykx3hYTNOdRhRUYt4WjZ2Mw
-         NaSmnLhOERSHv4EUmPMEcSOeXt0hpX+ChQ8p8uuv/2zUycGfpuW1l9PaCg6uB/7wgoDo
-         /qEDlFnxlJUqiSgCCgFSO+cdwVXwT+Z2zvVjrVNAa6Pn3p1Ywm8i/cksieANV45GbYe2
-         L5mLXQz19QWriCQkLqkMMoxBEilG1ZmjcKUw/aFeV9kMsRXkBERpg5RkGbSsmIVSTMds
-         h0BgGshDX0Tm/PdGlSECJNYQ30Lv9eKCBmp6CdBMAEJlvkPvFDr80m63ghA/8YRTx0Lv
-         2F4w==
-X-Forwarded-Encrypted: i=1; AFNElJ8OaMZSmIsLMotA6A8hNQNknWB/u824B6tQRQoYZDr7/fgGLs9juzV5QApYbC+cK97+mLK0aXFa9nzoJA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY4LdGNfusXVprq2VuzbE/nuzyBn+s350pemaO6/cn7y/6dgxW
-	12pALOQwkIYhR3nLGBQvsoyLC5rG8JG1pQgfeKZXaFEy353tCjwPpJxD3PuC62HVNcXW1kGyZAk
-	TcgJGNGjr2MpuuS3GrTb9L0XFwEPj0zQ=
-X-Gm-Gg: Acq92OHp43XF208e0efaWF4E/O/uY1ug1mY/jSA8TIXpwVBudfSSrTWVIbl69p45G59
-	QG4BvDFmqTRf55dbWKG22Ruj3Tfd6yA2itKYYlpTKTWNA8GK4LLOsN7qZ3T3hygJsBubBB02fcf
-	CoBdYHj9kVbach1MPHlo7TalLTaOtfEXg9C2doINNpQlDRhfCYXUwnltRGoEybBTf+lgyl+pGK0
-	y9qyxu8c1zx/MU1o5fHzbbIrGQcYnxX2mzrLS7nJrNrn4+HnYeopgP/qW5p4zJzf28vexruv1Eg
-	mHLThkO/
-X-Received: by 2002:a05:6830:2b10:b0:7dc:d7e8:cb30 with SMTP id
- 46e09a7af769-7e4fa076918mr10786794a34.26.1779130805592; Mon, 18 May 2026
- 12:00:05 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779132985; x=1779737785;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1BM6kKwgHy2xvm29KSFNMOHdSSP7Z2KyWhC+9ZklWk0=;
+        b=QhAnEkAHH05HOsfOGGky0HLPIobXnp3SgTduXtrQa+FrR4X2VV65PALFQSz0eTI41r
+         SKjJd04o24j+gp8AnsMxlU0cDZmPVYaOItkRYbkKvR+f88W+I2zPr17F5NCouziJiqXF
+         w39fHVXXiD5k6f2op0FoF3ypOZ63G8BvOJRknVtUb0BlgN4vC/kFhvDJ9KQ1OP0cpSXc
+         7V/HZfZfHnQODWVfR6Ulz5camyRgtK6nUBnKpKAhs+2UkDrKa7NLSpyKz9PFEqX7gvHr
+         VOYLRLmlqKGqMlsg2fJGnxT6chtXoBAXnB/Cr4JBC/ojKSmwSu8cnEw2cd+jPEwMZ9EY
+         q+rA==
+X-Gm-Message-State: AOJu0YwlpGGV7QWMPEuXtUdfB8tWHgRLXURnXNX5ayh5ZB9buGeV64Y3
+	WtW2bx29fIVdgaI9y7UYD9UkWpv6PpMufFIUO0J0FISVppf6I3EAdOEyG6QmKZbD8Hlu2o/aikG
+	GCmGerWWSIkfQuKMjdQXYR5sApFQNn+EGlgkW
+X-Gm-Gg: Acq92OFAD+FxzwFBWOJuRfEuWnzoKDm8sW3d1/KBZDE6CryiZjUX6VpBu7u4OJPqW5m
+	dpRyji5nlqoSJ39BqBvpCJZkHhXWtq+46DRm6X94pq72zlCbE6jjf7y12PjXkXpioQJGaHuy3YL
+	+NeBdfaXuol4oW+K0v18SFeCjKrwosbmjPZv/u0UCpuvQQg+fS/LmipAF26PWqeFJdDWsoCeKHp
+	0scdFN4VAIAx8qMUTh0eCcP7nTNEAEcCbe73GclKWRiu/yuAag5ETWUIYsW7RB9KC7ZhMZ/xdz1
+	qCnpSBw=
+X-Received: by 2002:a05:7022:7a2:b0:12d:ce36:8930 with SMTP id
+ a92af1059eb24-135044193aamr6618540c88.3.1779132984899; Mon, 18 May 2026
+ 12:36:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260514-reopen-purity-0e8914bf3c51@spud>
-In-Reply-To: <20260514-reopen-purity-0e8914bf3c51@spud>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 18 May 2026 13:59:54 -0500
-X-Gm-Features: AVHnY4L2v8Sl80JimJP69yA9JQF0doEbljbJ8NBr1DX3Sc7YDtYlhP0bw3nynKI
-Message-ID: <CABb+yY1LXYsmbEvcXJ_wjPHhD21BsBkcf9oC04dvcYT7oKvKkg@mail.gmail.com>
-Subject: Re: [PATCH v1] mailbox: mpfs: fix check for syscon presence in mpfs_mbox_inbox_isr()
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Valentina.FernandezAlanis@microchip.com
+From: Indrek Kruusa <indrek.kruusa@gmail.com>
+Date: Mon, 18 May 2026 22:36:12 +0300
+X-Gm-Features: AVHnY4JIj5mcfDbBjCTuHmPk4TSdB0pXwYy6_NAVcglEZZw7fy8onxmNpDNSvyc
+Message-ID: <CA+fTLhgLmTY+exGujKf8OYYQvcEW5X5NJ_5sLq2AYL6zER2c0A@mail.gmail.com>
+Subject: Booting v7.1-rc4 hangs on a single core CPU, bisected to ff1c0c5d07028
+To: linux-riscv@lists.infradead.org
+Cc: tglx@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_120007_119225_3CA10B57 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20260518_123626_509220_6FB1F570 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +105,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXkgMTQsIDIwMjYgYXQgMTE6MznigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWlj
-cm9jaGlwLmNvbT4KPgo+IG1wZnNfbWJveF9pbmJveF9pc3IoKSB3cml0ZXMgdG8gdGhlIHN5c3Jl
-ZyBzY2Igc3lzY29uLCBub3QgdGhlIGNvbnRyb2wKPiBzY2Igc3lzY29uLCBidXQgY2hlY2tzIGZv
-ciB0aGUgcHJlc2VuY2Ugb2YgdGhlIGxhdHRlci4gVWx0aW1hdGVseSB0aGlzCj4gbWFrZXMgbGl0
-dGxlIGRpZmZlcmVuY2UgYmVjYXVzZSBpZiBvbmUgc3lzY29uIGlzIHByZXNlbnQsIGJvdGggd2ls
-bCBiZS4KPgo+IEZpeGVzOiBhNDEyM2ZmYWI5ZWNlICgibWFpbGJveDogbXBmczogc3VwcG9ydCBu
-ZXcsIHN5c2NvbiBiYXNlZCwgZGV2aWNldHJlZSBjb25maWd1cmF0aW9uIikKPiBTaWduZWQtb2Zm
-LWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+IC0tLQo+IEND
-OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+IENDOiBEYWlyZSBN
-Y05hbWFyYSA8ZGFpcmUubWNuYW1hcmFAbWljcm9jaGlwLmNvbT4KPiBDQzogSmFzc2kgQnJhciA8
-amFzc2lzaW5naGJyYXJAZ21haWwuY29tPgo+IENDOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCj4gQ0M6IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcKPiBDQzogVmFsZW50aW5h
-LkZlcm5hbmRlekFsYW5pc0BtaWNyb2NoaXAuY29tCj4gLS0tCj4gIGRyaXZlcnMvbWFpbGJveC9t
-YWlsYm94LW1wZnMuYyB8IDIgKy0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAx
-IGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tYWlsYm94L21haWxib3gtbXBm
-cy5jIGIvZHJpdmVycy9tYWlsYm94L21haWxib3gtbXBmcy5jCj4gaW5kZXggZDVkOWVmZmVjZTk3
-OS4uZWY0MGZlMmJlMzBkNiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL21haWxib3gvbWFpbGJveC1t
-cGZzLmMKPiArKysgYi9kcml2ZXJzL21haWxib3gvbWFpbGJveC1tcGZzLmMKPiBAQCAtMjAxLDcg
-KzIwMSw3IEBAIHN0YXRpYyBpcnFyZXR1cm5fdCBtcGZzX21ib3hfaW5ib3hfaXNyKGludCBpcnEs
-IHZvaWQgKmRhdGEpCj4gICAgICAgICBzdHJ1Y3QgbWJveF9jaGFuICpjaGFuID0gZGF0YTsKPiAg
-ICAgICAgIHN0cnVjdCBtcGZzX21ib3ggKm1ib3ggPSAoc3RydWN0IG1wZnNfbWJveCAqKWNoYW4t
-PmNvbl9wcml2Owo+Cj4gLSAgICAgICBpZiAobWJveC0+Y29udHJvbF9zY2IpCj4gKyAgICAgICBp
-ZiAobWJveC0+c3lzcmVnX3NjYikKPiAgICAgICAgICAgICAgICAgcmVnbWFwX3dyaXRlKG1ib3gt
-PnN5c3JlZ19zY2IsIE1FU1NBR0VfSU5UX09GRlNFVCwgMCk7Cj4gICAgICAgICBlbHNlCj4gICAg
-ICAgICAgICAgICAgIHdyaXRlbF9yZWxheGVkKDAsIG1ib3gtPmludF9yZWcpOwo+IC0tCj4gMi41
-My4wCj4KQXBwbGllZCB0byBtYWlsYm94L2Zvci1uZXh0ClRoYW5rcwpKYXNzaQoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi,
+
+booting Linux 7.1-rc4 on my Allwinner D1 (single core RISC-V) board
+hangs during boot.
+The last messages are MMC related, but further testing revealed that
+the system hangs at  msleep()/usleep_range() calls.
+
+I did an assisted bisect which points to this merge commit:
+ff1c0c5d07028 Merge branch 'timers/urgent' into timers/core
+
+I tried the suggested workaround "revert clockevents.c to the version
+from 09c04714cb455" and it fixed the problem for me.
+
+Can anyone with a single-core (RISC-V?) system confirm this? It seems
+to be no issue on SMP.
+
+Best regards,
+Indrek
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
