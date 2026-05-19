@@ -4,87 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B601CD4851
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 09:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95972CD4F57
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 09:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4PFmefKW4uoIa0CEtYP6sTDUQiSDpXoydjWoguXm99E=; b=yoSdryX+uk2wio
-	7HizGX3VErB8Yiwmg2gzMVoEdp5ci2iRm6wxQZ/nkj3hoMdEAYitdOAVBuCr05frd3gKkl4uJ4eUb
-	IJAXxvxybKyEB9la/Nof5r6LDzYuuvDzt2quEAV4BxFpfanJgnx3m1IEr9rLSeg/yLoRULYyb6Y7T
-	aG5TAU7viLFtiSQMD7iJF2MZmM/oOCOsSWjcdWn/CDYg0BadUsvHCm9QymVhJR6KPw0XBT/2hslzR
-	wdIgKZb0eEtERnhttp/G1jNgQyX+xUZ+7DjH5x0Z2DBYVcxXuMyQpshXYNA/QVStLBeQ0xcdXVmUe
-	vnDhWI+9fV2ahNc2gZEw==;
+	List-Owner; bh=EUCs/YkovP9qeZcXXr7kxxfCXbop9jAHeXZpTOYfBto=; b=u29h0/h6WWULSr
+	UvjIL8hA9dAWgJXayFTIACJR8M0cUbEi1vmE2CGv0ZmtGA8+g2VttfiE8Gv5XmH/KhNCN7griPgkp
+	xdnnBTdeJTqAGk/875jFfvWtD96uRUJ7+N2fqX4wfJFeXFM2pZjcksj01jKnL6WmsyzQFvDLGuCi/
+	c+qNFYOYrugkD1fM2mtxfPnEeCoKi+HoC36BdqVudfE20imfTXJf2/XBjyCSYXxA/VET9sBqX9YyU
+	IruehdrJDFS0T+2ILd+SZfGipE9Kv/MjdA/NFw4ZxnzUnKpbhzU8lM7U1idoUlLo9Ma3JzMtqp5UW
+	fAYgVt5R0JrzNlTUwQRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGSO-00000000rad-1FDX;
-	Tue, 19 May 2026 09:09:44 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wPGcb-00000000tUD-0p4u;
+	Tue, 19 May 2026 09:20:17 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGSL-00000000rYo-2gaz
+	id 1wPGcZ-00000000tTV-0Yab
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 09:09:43 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-45e8a834cc2so367616f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 02:09:41 -0700 (PDT)
+	Tue, 19 May 2026 09:20:16 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-bd11a3729e8so559601666b.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 02:20:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779182413; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PkRoeTC2CKTbcUqfIN3ysylWQT1wA6lwAlBH+CAg05Z8l+ZfeKPA0EdxwJJ6lPw5Tl
+         GO09V2guoajlLQQBEwff6LZqnj+NzRKZIz3eBxPZusXJswz2EgTkmRReEbj4150qXWTh
+         R6BLOeHCouIdk1EIuO2R46uT7c1Tjb7+5I3T+wou/5xZIQiI6ij5HFqSPX5Rj5xwDxL+
+         jsuq70laZob8SjHvy+/Y3yE0V8wOGmTd01+8Q3LcP82secKnDXXOSORUFnFhrPsItpBe
+         T2NsleEf0LhPHWg2kq5W7uBlrmd3o59YbrCV97/oUDAuh/mm0GNZxTIQwiqnNxByB03Q
+         zoIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=dfWu/8vKto9CQAtt349R8n3C/VWlID9Bb/Ku/VCBeHI=;
+        fh=TTEW2Se0RDtJBu9UHA7IKsw47RYbz9iP7jnFk9MdTLU=;
+        b=f+qMN8F2wTqwQ80DI+xg+CkaHelGkwjnHacOmzhPP0lsJ3HKIvY9IFlFVd6zClVXhV
+         Mpeb1yQmboFPaYbH1aVyICJ124rl9azkbL0WqktRYwRG1i9Gulaai7VS/fiSLibb06XT
+         MFJiMYW3pOXzHesC5GVKVSfinkaSQ4vPolqZreX0XxsK205gXN/VQNtfjRkowA6pnlCF
+         XyDY0+CklKK//hQ1ma6q2ODoW/pt8YmlNxRXlIQRerKNLpP22ZT1UmTaWsNcKkKwpJAu
+         hI5wmeTB8FX4BhymsAOTsMAhmeQW/mNHnvWnhDXFt4jIkWDhLwjobF2qO1m65Ya50Wbf
+         Pv+A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779181780; x=1779786580; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1779182413; x=1779787213; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=h+iXZtTOejOCcBOlkcK88mcsIwo9JMpHwqyMFaYtyNQ=;
-        b=C/2l1M3HRdQOnzXhuazJhXGPJF1QZKs4CYyZzj9VkZ6olLJj2Nq0/YUggBJBOY9HAU
-         hhQSq6DZjDPOB+d1ogvBY5S9jeNi4TPstGx9Ta9et3jrAvv8rSfKoXj+mLrc8P6b5eQA
-         lbq9Y/FUrRj3yK4na60nxo6HOV8ylFRTRAL4+Cg1PmJXOjEOUtuQyDPc8EVN8izm5L4k
-         yWM/lcbVPmQgDrog+WxHNoMClvU3GFr5T/pWwRggWUaiVPvUnsyawjm7zm5ioCZefWdv
-         NY3G+zW1NJQd9nr5GHaVBvLLTck4X1ruRbQSI4To9/LsaTj3clRNQE6cL63mIwanLBsL
-         w8Ww==
+        bh=dfWu/8vKto9CQAtt349R8n3C/VWlID9Bb/Ku/VCBeHI=;
+        b=MXMXWBJUdC0psUEB9JL9twCFSsulKp6iRhdQ6+0b5jyTP6w91/oT9SybYzOGFsfd50
+         ywfAAOuMZ8D4jupYZ+NKApdjxrxCwbduLGARwmMmAWoGc1E1xtXQ86YItP79KH1hl43U
+         pN3SFpsWMDUW3MFR0jrfo9+U90rjCn3koRCJdC0M8Uuw3bt+JuNWgzI4GfR8HipY1USi
+         J3k//lzrHFbhmiVxUpdk1ONQlAs5AovJZh39ketdWco8jjf/lpvRR+FbGpne0ogGqTn0
+         eiYOO2+3cAcLqO3uTF7FrDOjMuNH7pXSTXSH+liQ2pSywZWwxYCEAFw7FHIP5Rl+ggcf
+         51sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779181780; x=1779786580;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20251104; t=1779182413; x=1779787213;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=h+iXZtTOejOCcBOlkcK88mcsIwo9JMpHwqyMFaYtyNQ=;
-        b=gKGdWTOTAhp83dowot1L8r8tiq+9gbUFflpCJX3GJZmPbkmFVIp6gt+rGeyAvsElQS
-         wUJotfHZa9NZTtwxXkE0muW6RkEWJ788xkhxRo+Rr4VXgsPRFAj4BQ7+vkgx0JuRqv5z
-         wYnM3mC6P+p5ta20HedGU7yoyEOEOpBVIonGmTUlomUlQM9h5kIEUGWoKuJa8mtsnIGH
-         pPxJfJWzxRMQL82FNZFqZGHqQdiQZTQd5S9JqrkR1t0doIT+31RtrVVHFhyuAkORbiFy
-         nBLJ57imz4ay8kUJ4aeNSHv4BEolkswLjANmPiCsk8U/t12yjz21d58irKpZlJTwoyY6
-         v5Zw==
-X-Gm-Message-State: AOJu0Yxgak7Xjrmy267gslG1mLkysAyk4hgRIBPvRBR3cAeF8OPi5zfU
-	ADqJOXZLmfI626L/aLF6PrwueESB4KLtSD1V2Em9KMG9zTIxEzLQFhlx
-X-Gm-Gg: Acq92OFcKhJzVq3LzBKrQy+STqGwCeqKU74t7n1k1XAYVEMkW9fhYzuaKWmrO/EfpCs
-	ghhnnBWO7yZz1cWJd/zcp5UIcxnLxOL+cCHKo+KZo06m+F2GGxPNQJJ3bHLypUcEW1A5sl1kxh0
-	KrIr7V07E0ahrvC+LcdEvrB6aui17vb5Vj9K9ltlvS44Zw2GKiLDdF14vaoW2uiysd6v2QpehsV
-	lXTnafNv1itV3s5pnVnGnSXdkjYEmCUopB6vaAHyf1w6hz/nJh9PAVMfjUrdQEOoJUD0ZdBG0eJ
-	l3yOoqUgvCx1emKoJrPQ9xjT1W8XwtSdr0yeXRLqdFgefqvNiiEzsGb1kFJj2FHcgnPMCpiERr0
-	HIq/zOw1pS5LL1zRhsesW13q5X4fUEVvvKk080Txp1JUm3b5Bz6WK5nw6SVz4iD+t79C7E1W4G0
-	KtxbYPuh6pRbnFtFIU3IJ03Rjwg1Zy1sqrmQrvJcA92Ndet9PR0lKKGpeStInizxcm
-X-Received: by 2002:a05:6000:2902:b0:43f:ea25:20ff with SMTP id ffacd0b85a97d-45e5c594d5dmr28915798f8f.29.1779181779524;
-        Tue, 19 May 2026 02:09:39 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a178adsm46500351f8f.18.2026.05.19.02.09.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 02:09:38 -0700 (PDT)
-Date: Tue, 19 May 2026 10:09:37 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Milan Tripkovic <milant2002@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- kees@kernel.org, andy@kernel.org, linux-hardening@vger.kernel.org,
- Dusan.Stojkovic@rt-rk.com, Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
-Subject: Re: [PATCH v4 1/2] riscv: lib: add memcmp() implementation
-Message-ID: <20260519100937.1a186752@pumpkin>
-In-Reply-To: <20260518131407.1026049-2-milant2002@gmail.com>
-References: <20260518131407.1026049-1-milant2002@gmail.com>
-	<20260518131407.1026049-2-milant2002@gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=dfWu/8vKto9CQAtt349R8n3C/VWlID9Bb/Ku/VCBeHI=;
+        b=X3VGLRnTl/NBETSr77LxfZTR0MzbkXkzBphFp4rfsLWkEi6xVcFMVEn+JaVoe1dj/l
+         l/mjm4fRCzapfuIv0NjJBQKyWRrdanWUxV1oBM/wKpbWv979X5ArSLh3Ee2vEvMX7tcg
+         h1r+CQoeKWyYlK77VA6KPPIjUCuYktrHlSsCo5CzKig9jgBm5MUbPjZnmWMB/Ck+tJb0
+         xCwB1RjpE9Jysosnf/AdTMF4RtEDkzjlfxUww8oRggw5dVr3TMzlbauUuvYYZyQY1kqC
+         Y9w553Ta88ukLv/+y4tiBVY+Kncd1kopF4kZzS1hH7v1MxOdfvuCC0Vqo5jp31x7EMa0
+         Pykg==
+X-Forwarded-Encrypted: i=1; AFNElJ9uoHA1qu/CH92gchbHsCO67skuovrEYeBVC/Y+DFPs0Pcb204Fd5nca7CObYmQ959X5ZOvvk8SKntNbw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQr5SDcgsOLDDRhC7HF7EfAa2RBSWHoIj6++aziogpz538HC5D
+	3e/G4VgKx3Mn2AcMFz/Jx7Mtlm99+vhDfPitn8rH5EcNKGz7poi6EJqeRZ8WcHadENAcw5Mq5z3
+	XRK6ZXeSM65bjR/TNlmQ0P6cmca6OwKI4/sNhvOsy5A==
+X-Gm-Gg: Acq92OGF8iNtviAmJe8OhGqWhNvl94AKz5RpNeWDDv9X9mzuHW/TgIA7L+TI9GLLiuX
+	hQC6mjMeOuLGFXn/2SmVEc0M1xynPqOCgxJ7HDtcNasG13C8SIzsYA6pqrynE1ebqUBPnzboVDv
+	Nk3rahVgJ3UhFzSwNyXSHdvCuNozugogW7ocOjvQVM0djhPAPAyXpoROq/fcKMvCiubipyfxQtO
+	0Mp64Rq55ROk4ebkqO0Anc2MJw1C9K4BR3uyElmB3TmbwHkrNewuSx8YVe69B2OGhh8tuu+ok0G
+	L4CRg7PQevv3MhonCmV6
+X-Received: by 2002:a17:907:d06:b0:bd3:c295:d76c with SMTP id
+ a640c23a62f3a-bd5177afe53mr1150389266b.1.1779182413155; Tue, 19 May 2026
+ 02:20:13 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260519071809.3823470-1-zong.li@sifive.com> <ccfe25b8-df25-49b6-a40e-d86630cbc407@w6rz.net>
+In-Reply-To: <ccfe25b8-df25-49b6-a40e-d86630cbc407@w6rz.net>
+From: Zong Li <zong.li@sifive.com>
+Date: Tue, 19 May 2026 17:20:01 +0800
+X-Gm-Features: AVHnY4LCj398HbecTnHOwODoKQ71KDZNFHkcN29xiK1Udm33Iv6v8Z1lxdIwsIc
+Message-ID: <CANXhq0rH+_FN+HcqK1_PwkgYfhN5KmcTRnk7pt8GzEhfiT4fpQ@mail.gmail.com>
+Subject: Re: [PATCH v5] riscv: cif: reduce shadow stack size limit from 4GB to 512MB
+To: Ron Economos <re@w6rz.net>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	debug@rivosinc.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, david.laight.linux@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_020941_728361_E8881149 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20260519_022015_202921_2905C5F4 
+X-CRM114-Status: GOOD (  29.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,250 +112,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2026 15:14:06 +0200
-Milan Tripkovic <milant2002@gmail.com> wrote:
-
-> From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
-> 
-> Add an assembly implementation of memcmp() for RISC-V. The implementation
-> uses the ZBB extension for word-at-a-time comparison and an assembly
-> fallback for non-ZBB systems.
-
-I think I mentioned before that the only ZBB bit I can see is the
-byte reverse at the end needed to get the correct sign.
-For non-ZBB it would be better to fall back to a byte compare
-at that point.
-
-Oh - and there should be change info for this patch in this email.
-
--- David
-
-> 
-> Benchmark results (QEMU TCG, rv64, Aligned):
-> 
->   Len   | Default | NoZBB  | ZBB    | %NoZBB | %ZBB
->   ------|---------|--------|--------|--------|-------
->   1 B   | 20.3    | 25.0   | 20.9   | +23.2% | +3.0%
->   7 B   | 88.9    | 107.5  | 155.7  | +20.9% | +75.1%
->   8 B   | 89.6    | 110.9  | 176.2  | +23.8% | +96.7%
->   16 B  | 134.4   | 172.4  | 334.8  | +28.3% | +149.1%
->   31 B  | 163.5   | 220.5  | 606.2  | +34.9% | +270.8%
->   64 B  | 203.8   | 235.9  | 968.6  | +15.8% | +375.3%
->   127 B | 224.6   | 268.7  | 1362.8 | +19.6% | +506.8%
->   512 B | 235.7   | 271.1  | 1913.7 | +15.0% | +711.9%
->   1024 B| 256.8   | 290.6  | 2123.6 | +13.2% | +726.9%
->   4096 B| 263.8   | 302.9  | 2290.4 | +14.8% | +768.2%
-> 
-> Benchmark results (QEMU TCG, rv64, Unaligned - Offset 3):
-> 
->   Len   | Default | NoZBB  | ZBB    | %NoZBB | %ZBB
->   ------|---------|--------|--------|--------|-------
->   1 B   | 20.7    | 21.7   | 21.5   | +4.8%  | +3.9%
->   7 B   | 96.2    | 99.1   | 96.9   | +3.0%  | +0.7%
->   8 B   | 97.5    | 118.5  | 110.5  | +21.5% | +13.3%
->   16 B  | 136.7   | 166.6  | 172.8  | +21.9% | +26.4%
->   31 B  | 167.6   | 206.5  | 211.9  | +23.2% | +26.4%
->   64 B  | 204.4   | 229.9  | 240.3  | +12.5% | +17.6%
->   127 B | 229.6   | 261.7  | 269.0  | +14.0% | +17.2%
->   512 B | 245.5   | 260.8  | 269.9  | +6.2%  | +9.9%
->   1024 B| 246.9   | 261.2  | 283.5  | +5.8%  | +14.8%
->   4096 B| 250.7   | 295.8  | 299.7  | +18.0% | +19.5%
-> 
-> Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
-> ---
->  arch/riscv/include/asm/string.h |   2 +
->  arch/riscv/lib/Makefile         |   1 +
->  arch/riscv/lib/memcmp.S         | 125 ++++++++++++++++++++++++++++++++
->  arch/riscv/purgatory/Makefile   |   5 +-
->  4 files changed, 132 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/lib/memcmp.S
-> 
-> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-> index 764ffe8f6..5c5299678 100644
-> --- a/arch/riscv/include/asm/string.h
-> +++ b/arch/riscv/include/asm/string.h
-> @@ -18,6 +18,8 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
->  #define __HAVE_ARCH_MEMMOVE
->  extern asmlinkage void *memmove(void *, const void *, size_t);
->  extern asmlinkage void *__memmove(void *, const void *, size_t);
-> +#define __HAVE_ARCH_MEMCMP
-> +extern asmlinkage int memcmp(const void *, const void *, size_t);
->  
->  #if !(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
->  #define __HAVE_ARCH_STRCMP
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 6f767b2a3..b529e1be1 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -3,6 +3,7 @@ lib-y			+= delay.o
->  lib-y			+= memcpy.o
->  lib-y			+= memset.o
->  lib-y			+= memmove.o
-> +lib-y			+= memcmp.o
->  ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
->  lib-y			+= strcmp.o
->  lib-y			+= strlen.o
-> diff --git a/arch/riscv/lib/memcmp.S b/arch/riscv/lib/memcmp.S
-> new file mode 100644
-> index 000000000..a531e481c
-> --- /dev/null
-> +++ b/arch/riscv/lib/memcmp.S
-> @@ -0,0 +1,125 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#include <linux/linkage.h>
-> +#include <asm/asm.h>
-> +#include <asm/alternative-macros.h>
-> +#include <asm/hwcap.h>
-> +
-> +/* int memcmp(const void *cs, const void *ct, size_t n) */
-> +SYM_FUNC_START(memcmp)
-> +
-> +	__ALTERNATIVE_CFG("nop", "j memcmp_zbb", 0, RISCV_ISA_EXT_ZBB,
-> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-> +/*
-> + * Parameters
-> + *	a0 - Pointer to first memory block (cs), also return value
-> + *	a1 - Pointer to second memory block (ct)
-> + *	a2 - Number of bytes to compare (n), transformed to end pointer (a0 + n)
-> + *
-> + * Returns
-> + *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
-> + *
-> + * Clobbers
-> + *	t0, t1
-> + */
-> +	beqz	a2, 2f
-> +	add	a2, a0, a2
-> +1:
-> +	lbu	t0, 0(a0)
-> +	lbu	t1, 0(a1)
-> +	bne	t0, t1, 3f
-> +	addi	a0, a0, 1
-> +	addi	a1, a1, 1
-> +	bne	a0, a2, 1b
-> +2:
-> +	li	a0, 0
-> +	ret
-> +3:
-> +	sub	a0, t0, t1
-> +	ret
-> +
-> +#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
-> +memcmp_zbb:
-> +
-> +.option push
-> +.option arch,+zbb
-> +/*
-> + * Parameters
-> + *	a0 - Pointer to first memory block (cs), also return value
-> + *	a1 - Pointer to second memory block (ct)
-> + *	a2 - Number of bytes to compare (n), decremented during loop
-> + *
-> + * Returns
-> + *	a0 - 0 if equal, positive if cs > ct, negative if cs < ct
-> + *
-> + * Clobbers
-> + *	t0, t1, t2, t3, t4
-> + */
-> +	add	t3, a0, a2
-> +	or	t0, a0, a1
-> +	andi	t0, t0, (SZREG - 1)
-> +	bnez	t0, 5f
-> +
-> +	addi	t4, t3, -SZREG
-> +	bltu	t4, a0, 7f
-> +
-> +1:
-> +	REG_L	t1, 0(a0)
-> +	REG_L	t2, 0(a1)
-> +	bne	t1, t2, 2f
-> +	addi	a0, a0, SZREG
-> +	addi	a1, a1, SZREG
-> +	bleu	a0, t4, 1b
-> +
-> +7:
-> +	beq	a0, t3, 4f
-> +	REG_L	t1, 0(a0)
-> +	REG_L	t2, 0(a1)
-> +
-> +	sub	t0, t3, a0
-> +	li	t4, SZREG
-> +	sub	t0, t4, t0
-> +	slli	t0, t0, 3
-> +
-> +#ifndef CONFIG_CPU_BIG_ENDIAN
-> +	rev8	t1, t1
-> +	rev8	t2, t2
-> +#endif
-> +	srl	t1, t1, t0
-> +	srl	t2, t2, t0
-> +
-> +	bne	t1, t2, 8f
-> +	li	a0, 0
-> +	ret
-> +5:
-> +	beq	a0, t3, 4f
-> +6:
-> +	lbu	t1, 0(a0)
-> +	lbu	t2, 0(a1)
-> +	bne	t1, t2, 3f
-> +	addi	a0, a0, 1
-> +	addi	a1, a1, 1
-> +	bne	a0, t3, 6b
-> +
-> +4:	li	a0, 0
-> +	ret
-> +2:
-> +#ifndef CONFIG_CPU_BIG_ENDIAN
-> +	rev8	t1, t1
-> +	rev8	t2, t2
-> +#endif
-> +8:
-> +	sltu	a0, t2, t1
-> +	sltu	t0, t1, t2
-> +	sub	a0, a0, t0
-> +	ret
-> +
-> +3:
-> +	sub	a0, t1, t2
-> +	ret
-> +
-> +.option pop
-> +#endif
-> +SYM_FUNC_END(memcmp)
-> +SYM_FUNC_ALIAS(__pi_memcmp, memcmp)
-> +EXPORT_SYMBOL(memcmp)
-> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> index b0358a78f..456929971 100644
-> --- a/arch/riscv/purgatory/Makefile
-> +++ b/arch/riscv/purgatory/Makefile
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  
-> -purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o
-> +purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memcpy.o memset.o memcmp.o
->  ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
->  purgatory-y += strcmp.o strlen.o strncmp.o strnlen.o strchr.o strrchr.o
->  endif
-> @@ -41,6 +41,9 @@ $(obj)/strchr.o: $(srctree)/arch/riscv/lib/strchr.S FORCE
->  $(obj)/strrchr.o: $(srctree)/arch/riscv/lib/strrchr.S FORCE
->  	$(call if_changed_rule,as_o_S)
->  
-> +$(obj)/memcmp.o: $(srctree)/arch/riscv/lib/memcmp.S FORCE
-> +	$(call if_changed_rule,as_o_S)
-> +
->  CFLAGS_sha256.o := -D__DISABLE_EXPORTS -D__NO_FORTIFY
->  CFLAGS_string.o := -D__DISABLE_EXPORTS
->  CFLAGS_ctype.o := -D__DISABLE_EXPORTS
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXkgMTksIDIwMjYgYXQgNDoyOOKAr1BNIFJvbiBFY29ub21vcyA8cmVAdzZyei5u
+ZXQ+IHdyb3RlOgo+Cj4gT24gNS8xOS8yNiAwMDoxOCwgWm9uZyBMaSB3cm90ZToKPiA+IFJhdGlv
+bmFsZToKPiA+Cj4gPiAxLiBTaGFkb3cgc3RhY2tzIG9ubHkgc3RvcmUgcmV0dXJuIGFkZHJlc3Nl
+cyAoOCBieXRlcyBwZXIgZW50cnkpLCBub3QKPiA+ICAgICBsb2NhbCB2YXJpYWJsZXMsIGZ1bmN0
+aW9uIHBhcmFtZXRlcnMsIG9yIHNhdmVkIHJlZ2lzdGVycy4gQSA1MTJNQgo+ID4gICAgIHNoYWRv
+dyBzdGFjayBpcyBmYXIgbW9yZSB0aGFuIHN1ZmZpY2llbnQgZm9yIGFueSBwcmFjdGljYWwKPiA+
+ICAgICBhcHBsaWNhdGlvbiwgZXZlbiB3aXRoIGV4dHJlbWVseSBkZWVwIHJlY3Vyc2lvbi4gVGhp
+cyBzaXplCj4gPiAgICAgbWFpbnRhaW5zIGFkZXF1YXRlIHdoaWxlIGJlaW5nIG1vcmUgcmVzb3Vy
+Y2UtZWZmaWNpZW50IG1hcmdpbgo+ID4KPiA+IDIuIE9uIG1lbW9yeS1jb25zdHJhaW5lZCBzeXN0
+ZW1zIChlLmcuLCBwbGF0Zm9ybXMgd2l0aCBvbmx5IDRHQiBvZgo+ID4gICAgIHBoeXNpY2FsIG1l
+bW9yeSwgd2hpY2ggaXMgYSBjb21tb24gY29uZmlndXJhdGlvbiksIGFsbG9jYXRpbmcgNEdCCj4g
+PiAgICAgb2YgdmlydHVhbCBhZGRyZXNzIHNwYWNlIGZvciBzaGFkb3cgc3RhY2sgcGVyIHByb2Nl
+c3MvdGhyZWFkIGNhbgo+ID4gICAgIGxlYWQgdG8gdmlydHVhbCBtZW1vcnkgYWxsb2NhdGlvbiBm
+YWlsdXJlcyB3aGVuIHRoZSBvdmVyY29tbWl0IG1vZGUKPiA+ICAgICBpcyBzZXQgdG8gT1ZFUkNP
+TU1JVF9HVUVTUyBvciBPVkVSQ09NTUlUX05FVkVSOgo+ID4gICAgIEVycm9yOiAiX192bV9lbm91
+Z2hfbWVtb3J5OiBub3QgZW5vdWdoIG1lbW9yeSBmb3IgdGhlIGFsbG9jYXRpb24iCj4gPgo+ID4g
+U3VnZ2VzdGVkLWJ5OiBEYXZpZCBMYWlnaHQgPGRhdmlkLmxhaWdodC5saW51eEBnbWFpbC5jb20+
+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPiAtLS0K
+PiA+Cj4gPiBDaGFuZ2VkIGluIHY0Ogo+ID4gLSBGaXggd3Jvbmcgc3ViamVjdC4gSXQgaXMgNTEy
+TUIgaW5zdGVhZCBvZiAyR0IKPiA+Cj4gPiBDaGFuZ2VkIGluIHYzOgo+ID4gLSBSZW1vdmUgbWF4
+KCkuIFBBR0VfQUxJR04oKSBhbHJlYWR5IHJvdW5kcyB1cAo+ID4gLSBDaGFuZ2Ugc3RhY2sgc2l6
+ZSB0byBSTElNSVRfU1RBQ0svOCB3aXRoIFNaXzUxMk0gY2FwLiBTdWdnZXN0ZWQgYnkgRGF2aWQg
+TGFpZ2h0Cj4gPgo+ID4gQ2hhbmdlZCBpbiB2MjoKPiA+IC0gQWRkIG1heCgpIGluIGNhc2UgUkxJ
+TUlUX1NUQUNLIGlzIHNtYWxsZXIgdGhhbiBQQUdFX1NJWkUuIFN1Z2dlc3RlZCBieQo+ID4gICAg
+UGF1bCBXYWxtc2xleSBhbmQgU2FzaGlrbwo+ID4KPiA+IENoYW5nZWQgaW4gdjE6Cj4gPiAtIFVz
+ZSBtaW4oKSBpbnN0ZWFkIG9mIG1pbl90KCkuIFN1Z2dlc3RlZCBieSBEYXZpZCBMYWlnaHQKPiA+
+Cj4gPiAgIGFyY2gvcmlzY3Yva2VybmVsL3VzZXJjZmkuYyB8IDYgKysrLS0tCj4gPiAgIDEgZmls
+ZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3VzZXJjZmkuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3Vz
+ZXJjZmkuYwo+ID4gaW5kZXggNmVhYTBkOTRmZGZlLi4yMDM2OTE4YTc3ZGIgMTAwNjQ0Cj4gPiAt
+LS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC91c2VyY2ZpLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2Vy
+bmVsL3VzZXJjZmkuYwo+ID4gQEAgLTEwOSwxNSArMTA5LDE1IEBAIHZvaWQgc2V0X2luZGlyX2xw
+X2xvY2soc3RydWN0IHRhc2tfc3RydWN0ICp0YXNrLCBib29sIGxvY2spCj4gPiAgICAgICB0YXNr
+LT50aHJlYWRfaW5mby51c2VyX2NmaV9zdGF0ZS51ZmNmaV9sb2NrZWQgPSBsb2NrOwo+ID4gICB9
+Cj4gPiAgIC8qCj4gPiAtICogSWYgc2l6ZSBpcyAwLCB0aGVuIHRvIGJlIGNvbXBhdGlibGUgd2l0
+aCByZWd1bGFyIHN0YWNrIHdlIHdhbnQgaXQgdG8gYmUgYXMgYmlnIGFzCj4gPiAtICogcmVndWxh
+ciBzdGFjay4gRWxzZSBQQUdFX0FMSUdOIGl0IGFuZCByZXR1cm4gYmFjawo+ID4gKyAqIFRoZSBz
+aGFkb3cgc3RhY2sgb25seSBzdG9yZXMgdGhlIHJldHVybiBhZGRyZXNzIGFuZCBub3QgYW55IHZh
+cmlhYmxlcwo+ID4gKyAqIDUxMk0gc2hvdWxkIGJlIG1vcmUgdGhhbiBzdWZmaWNpZW50IGZvciBt
+b3N0IGFwcGxpY2F0aW9ucy4KPiA+ICAgICovCj4gPiAgIHN0YXRpYyB1bnNpZ25lZCBsb25nIGNh
+bGNfc2hzdGtfc2l6ZSh1bnNpZ25lZCBsb25nIHNpemUpCj4gPiAgIHsKPiA+ICAgICAgIGlmIChz
+aXplKQo+ID4gICAgICAgICAgICAgICByZXR1cm4gUEFHRV9BTElHTihzaXplKTsKPiA+Cj4gPiAt
+ICAgICByZXR1cm4gUEFHRV9BTElHTihtaW5fdCh1bnNpZ25lZCBsb25nIGxvbmcsIHJsaW1pdChS
+TElNSVRfU1RBQ0spLCBTWl80RykpOwo+ID4gKyAgICAgcmV0dXJuIFBBR0VfQUxJR04obWluKHJs
+aW1pdChSTElNSVRfU1RBQ0spIC8gOCwgU1pfNTEyTSkpOwo+ID4gICB9Cj4gPgo+ID4gICAvKgo+
+Cj4gSnVzdCBGWUksIHlvdXIgVjIgdmVyc2lvbiBvZiB0aGlzIHBhdGNoIHdhcyBtZXJnZWQgaW4g
+TGludXggNy4xLXJjNCAoY29tbWl0IDZjNzY3NGI1YjdhZTUxM2NlY2FlMjJhYTlkY2RjZjUzMzg2
+MmNmNWMpLiBZb3UgbmVlZCB0bwo+IHJlYmFzZSwgb3RoZXJ3aXNlIHRoaXMgcGF0Y2ggd29uJ3Qg
+YXBwbHkuCgpUaGFuayB5b3UgZm9yIHBvaW50aW5nIHRoaXMgb3V0LiBQZXJoYXBzIGxldCdzIGRy
+b3AgdGhpcyBzZXJpZXMgYW5kCnNlbmQgYSBuZXcgb25lIHRvIGV4cGxhaW4gd2h5IHdlIHdhbnQg
+dG8gcmVkdWNlIHRoZSBzaXplIHRvIDUxMk1CCgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
