@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59429CD4F5B
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 16:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF85CCD4F5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 16:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ioIEUYl6lJ2dpvBePv4F6pbQUDJ04h5gxD3xHpUQT4w=; b=uVz5UEZ7EwYZBf
-	gvwiM6+EvAfd1uKH1rcOZ04tzUHtq1R2y+E4jeRyIaZACU0jeMRF0frHWNpcQ9sSM1+Jq2IRoU2zp
-	PrxGbsttv/6nJtpAuvhO7bpF4hjCOGiEc+vU/e/daQfzrTBb2gqDPs4cjw/mjLBmN0wqSX9C7FW5s
-	fC8wxgFw6YWkPNn9mGxzTCaPIsccOa1y0eOzKRjEe2kO3SoAqoRMp+TuPw60bIzArcu+bSC6Gbnwp
-	SJ5S8sfPvN1zrAkscAuy5dPSYOEH9AUPrR7IexpxoRT324dnTxNzMToqfX0lyg/ja1pMBdhQddTOq
-	1sES60ETmD7fV88OdMVw==;
+	List-Owner; bh=R7mBkjnwdWf5UAlYhqKOYBarmPRre1Lwq/27Zavpog4=; b=mcpt8NlSQXlmH+
+	HcvEaGIg5aq8TvNh1WDDOnShpw9Q8nGpqc1sGzrAOAMG+P/MHqqXMhhV40uaKfT0Vl7PIA8XwZjTy
+	Vfl8Rkr0E4dcnwfuJMU0NB4JyUC1Wy4srRBjmWTtP39bLmdcpCrWbyMjGB8GFoN/DrCYdDlYJhMzK
+	Clw79qrrWmf2bMpMKMewTLPFT2EODDgl0kaBeFudlCfFh6J+Bh/iV5lV46Z8Faw7VIzODsvNTsDQV
+	4yHvGEsZbpCi/yz8b5NeTuYxNy/XvioOlTmFrxl85/3EKtIIq8EG4oqoxiUatgfoHVkd+fbEywZ2c
+	YAq1n6ztRyvmrFOjPFhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPN6y-00000002CBV-1RUp;
-	Tue, 19 May 2026 16:16:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPNIY-00000002EPp-05GN;
+	Tue, 19 May 2026 16:28:02 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPN6v-00000002CAw-41cX;
-	Tue, 19 May 2026 16:16:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1015960210;
-	Tue, 19 May 2026 16:16:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1E7BC2BCB3;
-	Tue, 19 May 2026 16:15:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779207360;
-	bh=ZvyXX+KsWZ2Bty8hNC/PaNKLRJHR5CsnAEO1Bw4UQRQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uxLDXn/wxfxAUg+pVuo7jKn4NkGyioS5jTl2YNmfyEmCsXy5xxDdVtK06YpAswKZq
-	 ks7jNsn7Es1zSEJjDfqeg9j6M8qewHMXnjFLxdxUmxGsbY0Uu9E0e5GXeex4QfUCPU
-	 GMlCNqWktMub0bBKsVOFNbTOwP2V4BPNw8NleP6fInu0rOSsNv2DcXxoLtSKbrn6cY
-	 uV+t38OFIB6jqiz4Lu+fdOd7cHBSU7ekzV/JaZWvxr+HyqG31OvTL0ICP9vnUQBCrK
-	 xOsOlW+zW7oYXGb9DiHVb9Zfh25J3E6ZiG5RudqGahGfHIbxSjaCEDCrQXewTuOyug
-	 tgK7WlPMFlhkQ==
-Date: Tue, 19 May 2026 21:45:51 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	jingoohan1@gmail.com, mx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	id 1wPNIR-00000002ENZ-0zjl;
+	Tue, 19 May 2026 16:27:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=HEzVodalGePwQa0r0A0yc+dOQ9J8DF1f8pqfWHrsuSk=;
+	b=mkAQ+9qgGabS1i8OItgzH9nPB22PSXb1+d91WzICOmsEtS/r6QFeeHtqKA1W5/
+	m9VrN7fmFjkpo6vTEdLqaVrbjqtXsvmwIJodwhdIl3IMv7T2BavKmxqxify2H8uO
+	PjyXtOG+aBdv1+ITi0wqxv/8WztCkfwZOUJRUZNCESIyk=
+Received: from [IPV6:240e:b8f:91b3:d000:9130:b3d8:6241:39fd] (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDXEFBpjwxq6iYtCQ--.55083S2;
+	Wed, 20 May 2026 00:27:22 +0800 (CST)
+Message-ID: <3464ded9-721a-4eb2-afb6-bbca6fdc8a46@163.com>
+Date: Wed, 20 May 2026 00:27:21 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 0/3] PCI: dwc: Cache PCIe capability offset and simplify
  drivers
-Message-ID: <bejh7em2a67a6wohtakovbg6wqwhjoxkuqtdompsexfm5bbzrf@yqwcqeg6yugq>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ jingoohan1@gmail.com, mx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 References: <20260509135152.2241235-1-18255117159@163.com>
  <beqy5ykxgo4ianya6r4mahkkyujs6lly475u26vqaemgqsdnhp@2pn5ipczwc34>
  <5cc6fbcc-98eb-4da5-b123-2c04c4d39326@163.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5cc6fbcc-98eb-4da5-b123-2c04c4d39326@163.com>
+ <bejh7em2a67a6wohtakovbg6wqwhjoxkuqtdompsexfm5bbzrf@yqwcqeg6yugq>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <bejh7em2a67a6wohtakovbg6wqwhjoxkuqtdompsexfm5bbzrf@yqwcqeg6yugq>
+X-CM-TRANSID: _____wDXEFBpjwxq6iYtCQ--.55083S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJr47Gw4rWF47AFy3tr43Jrb_yoW8uryfpa
+	y3JF1Syr48XF4fXan2va1rZF4xt3ZxArWUZ395Cryavr9I9Fy3JrsY9ryYkF9rCFs2yr15
+	uF4Yqry29r15AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRiiSJUUUUU=
+X-Originating-IP: [240e:b8f:91b3:d000:9130:b3d8:6241:39fd]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxAubP2oMj2sFdQAA3Z
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_092755_716847_8EC19923 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,36 +77,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMjAsIDIwMjYgYXQgMTI6MDk6MjhBTSArMDgwMCwgSGFucyBaaGFuZyB3cm90
-ZToKPiAKPiAKPiBPbiA1LzE5LzI2IDIxOjU3LCBNYW5pdmFubmFuIFNhZGhhc2l2YW0gd3JvdGU6
-Cj4gPiBPbiBTYXQsIE1heSAwOSwgMjAyNiBhdCAwOTo1MTo0OVBNICswODAwLCBIYW5zIFpoYW5n
-IHdyb3RlOgo+ID4gPiBUaGUgRFdDIFBDSWUgY29yZSBhbmQgaXRzIG1hbnkgcGxhdGZvcm0gZHJp
-dmVycyByZXBlYXRlZGx5IGNhbGwKPiA+ID4gZHdfcGNpZV9maW5kX2NhcGFiaWxpdHkocGNpLCBQ
-Q0lfQ0FQX0lEX0VYUCkgdG8gb2J0YWluIHRoZSBvZmZzZXQgb2YgdGhlCj4gPiA+IFBDSSBFeHBy
-ZXNzIENhcGFiaWxpdHkgc3RydWN0dXJlLiBUaGlzIGlzIHdhc3RlZnVsIGFuZCBtYWtlcyB0aGUg
-Y29kZQo+ID4gPiB2ZXJib3NlLiBBbmQgc29tZSBldmVuIHNlYXJjaCBmb3IgdGhlIFBDSV9DQVBf
-SURfRVhQIG9mZnNldCB2YWx1ZSB3aXRoaW4KPiA+ID4gdGhlIHN1c3BlbmQvcmVzdW1lIGZ1bmN0
-aW9ucy4KPiA+ID4gCj4gPiAKPiA+IFNhc2hpa28gaGFzIGZsYWdnZWQgc29tZSByZWFsIGlzc3Vl
-cyB3aXRoIHRoaXMgc2VyaWVzIGluIGFjY2Vzc2luZyBEQkkgc3BhY2UKPiA+IHZlcnkgZWFybHkg
-YW5kICdwY2ktPnBjaWVfY2FwJyBiZWluZyAwLgo+IAo+IAo+IEhpIE1hbmksCj4gCj4gV2UgaGF2
-ZSBkaXNjdXNzZWQgdGhpcyBpc3N1ZSBpbiB0aGUgQ2FkZW5jZSBkcml2ZXIuIEkgdGhpbmsgaXQg
-d29uJ3QgY2F1c2UKPiBhbnkgcHJvYmxlbXMuIFNwZWNpZmljYWxseSBhcyBmb2xsb3dzOgo+IAo+
-IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXBjaS81ODIzZmFlYy1kOTcyLTRjNzctOTBl
-Yy1hMjE1YzY4NmUwYThAMTYzLmNvbS8KPiAiIiIKPiBBcyBwZXIgUENJZSByNy4wLCBzZWMgNy41
-LjEuMS4xMSwgU2luY2UgYWxsIFBDSSBFeHByZXNzIEZ1bmN0aW9ucyBhcmUKPiByZXF1aXJlZCB0
-byBpbXBsZW1lbnQgdGhlIFBDSSBFeHByZXNzIENhcGFiaWxpdHkgc3RydWN0dXJlLCB3aGljaAo+
-IG11c3QgYmUgaW5jbHVkZWQgc29tZXdoZXJlIGluIHRoaXMgbGlua2VkIGxpc3QuCj4gIiIiCj4g
-Cj4gCj4gCj4gQmpvcm4gYWxzbyByZXNwb25kZWQgYXMgZm9sbG93czoKPiBodHRwczovL2xvcmUu
-a2VybmVsLm9yZy9saW51eC1wY2kvMjAyNjA1MDUyMTIzMDYuR0E3NDQxNThAYmhlbGdhYXMvCj4g
-IiIiCj4gSXQncyB0cnVlIHRoYXQgYWxsIFJvb3QgUG9ydHMgbXVzdCBoYXZlIGEgUENJZSBDYXBh
-YmlsaXR5Lgo+ICIiIgo+IAoKT2ssIHdoYXQgYWJvdXQgcmVhZGluZyB0aGUgREJJIHJlZ2lzdGVy
-cyB2ZXJ5IGVhcmx5PwoKLSBNYW5pCgotLSAK4K6u4K6j4K6/4K614K6j4K+N4K6j4K6p4K+NIOCu
-muCupOCuvuCumuCuv+CuteCuruCvjQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+
+
+On 5/20/26 00:15, Manivannan Sadhasivam wrote:
+> On Wed, May 20, 2026 at 12:09:28AM +0800, Hans Zhang wrote:
+>>
+>>
+>> On 5/19/26 21:57, Manivannan Sadhasivam wrote:
+>>> On Sat, May 09, 2026 at 09:51:49PM +0800, Hans Zhang wrote:
+>>>> The DWC PCIe core and its many platform drivers repeatedly call
+>>>> dw_pcie_find_capability(pci, PCI_CAP_ID_EXP) to obtain the offset of the
+>>>> PCI Express Capability structure. This is wasteful and makes the code
+>>>> verbose. And some even search for the PCI_CAP_ID_EXP offset value within
+>>>> the suspend/resume functions.
+>>>>
+>>>
+>>> Sashiko has flagged some real issues with this series in accessing DBI space
+>>> very early and 'pci->pcie_cap' being 0.
+>>
+>>
+>> Hi Mani,
+>>
+>> We have discussed this issue in the Cadence driver. I think it won't cause
+>> any problems. Specifically as follows:
+>>
+>> https://lore.kernel.org/linux-pci/5823faec-d972-4c77-90ec-a215c686e0a8@163.com/
+>> """
+>> As per PCIe r7.0, sec 7.5.1.1.11, Since all PCI Express Functions are
+>> required to implement the PCI Express Capability structure, which
+>> must be included somewhere in this linked list.
+>> """
+>>
+>>
+>>
+>> Bjorn also responded as follows:
+>> https://lore.kernel.org/linux-pci/20260505212306.GA744158@bhelgaas/
+>> """
+>> It's true that all Root Ports must have a PCIe Capability.
+>> """
+>>
+> 
+> Ok, what about reading the DBI registers very early?
+
+Hi Mani,
+
+Yes. I have performed the DBI read register operation at the very 
+beginning of the following code.
+
+
+dw_pcie_ep_init()
+   dw_pcie_get_pcie_cap(pci);
+
+dw_pcie_host_init
+   dw_pcie_get_pcie_cap(pci);
+
+
+However, for some glue drivers, they need to configure the registers of 
+the PCIe Express Capability earlier than calling 
+dw_pcie_host_init()/dw_pcie_ep_init(). So, for example, in the file: 
+drivers/pci/controller/dwc/pcie-tegra194.c. Here, it is necessary to 
+find the value of 'pci->pcie_cap' earlier. Then, 
+dw_pcie_host_init()/dw_pcie_ep_init() will no longer search for the 
+offset value of the PCIe Express Capability.
+
+
+Best regards,
+Hans
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
