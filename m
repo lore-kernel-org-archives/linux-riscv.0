@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB57CD5BA4
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 12:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C000CD5BA6
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 12:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NifEsWBYv4hkzGHsJvbvgd0drIsujKkRiYs8dRAYIaQ=; b=HXYlM9ddAeR+/I
-	Nu2zTHaWDTmdT7jeG/mQYBTKpN2MeixK8ZK3klZN+12NzQASfBfDs1Z2mslByk+7Z00+1TX5IofuP
-	BdXzbHulprsFOwwa8/LaM59NaPPWT4/hJZIIJlOqRd00eXXV8GurN6HPm02THSYkzFXdLNIGhcgUm
-	Llo8Jj5H5I4dUMyEuQ6cvqsv4l+PL84qsoadXGDIxFIT7KmHEkWrj3SzZRRCyJGVKOY3+ebADtV2k
-	TPpj/oCWFhI6LVERUO7iTCPoQMSRG5fLMHuouHgBooE7ha8OZt//Gkw+ClsagUoIV3nutlzu9M8I+
-	W/o7F3//XTwPgb9su60Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pfjhZcISHtNO98P2fR6FTy1IK/9Zbv+qBTi6RkFs24I=; b=nrjgbXvsafObOJ
+	RP9a4Ab4oDSdXlAngA31FtbXq0IvcdoY3gkOTey3tbhplWjYLxFF532DJN6rnWfCdnFH56i++2tGk
+	3c6q+BCJZfYUk2NtipU7cVeAhCnA+pLiCFFhOo5k94eQfWuSWwprtIfzkE6zbOAPyjs5gU+DShCIS
+	BRBLOGavPeNze7+dTtQaKagOePZkY0fHb0q+zj5FKWcRrVinig8t8wIO9X/xguzdqHzE1Lwf/ztg+
+	SIYLyQmlsDvVItGs6Dg8ko9NKVtu1lHePZERufra8SGFY4HRW19uuK/jZ+AagJVCGJDpyTiw1Dq85
+	cT8ZO8XdP36pD5reg9Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJxE-00000001Y6F-2pvH;
-	Tue, 19 May 2026 12:53:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPK16-00000001Z4V-2jnI;
+	Tue, 19 May 2026 12:57:48 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJxD-00000001Y5g-1Ss0;
-	Tue, 19 May 2026 12:53:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C9E860210;
-	Tue, 19 May 2026 12:53:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72C81C2BCB3;
-	Tue, 19 May 2026 12:53:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779195226;
-	bh=TWIr4MBWXFvB87XL0FdioP0FNTIlJtiR/wiwlQFXNPk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MLI0FZjwvoL5JToMb00i26zGbDKR5eFTRY9x7LCaeGUN+sYUX8fzz+RnEI5gPwclG
-	 94gIHQBg5cOT7eMp2oQzs8eGOxkU1JO1Kcb+sxUNWdlfQYLhFP9l/TwBAiy20kt84O
-	 II+rfpB4Co8rMtxuvCVJIOREAlO6IJ8YUAuKE7eYLlErSw63NgBTZSC12q0IgIdIFV
-	 yyM5qbUtJcli+VfLGIS8ETLLylKZavBDZX7hHEAiuwPsjuPIavN0UPjxGKNCNPRKJl
-	 BlwtrnFUq9/ePp3NnvDShqo/+UYXBFU69SGJ0VF2IQoRPjHMIREZ4zRu4MIgZ6ZSoW
-	 N/xrCUg0I4CsA==
-Date: Tue, 19 May 2026 13:53:36 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
-	akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, liam@infradead.org, 
-	vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, 
-	liyangouwen1@oppo.com, chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <agxbq1TxJdniMQT3@lucifer>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+	id 1wPK13-00000001Z1x-1c9E
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 May 2026 12:57:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1779195457; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=ORsC3jjziczAoDhmvkQwijx70HMiWpP5k92grPFcmws=;
+	b=S5ntU5UrwJgfjg6O8GE0X8hgPBCkjjq0zA+9XJop3/JgVtQ6jSRBAho3/hbybYXKKVfOE4CtdlM1pPlr1S8Zzncuw4/WqfgWTFA47su6Wd8+oQD3aKqzpwj+L+6NEmDxxLgnx8vsFncu95/eOn6jDU54lrQnleOyBZ8Qzx6zH+k=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0X3FViH8_1779195442;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X3FViH8_1779195442 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 19 May 2026 20:57:23 +0800
+From: fangyu.yu@linux.alibaba.com
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	ajones@ventanamicro.com,
+	andrew.jones@oss.qualcomm.com
+Cc: guoren@kernel.org,
+	iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: [PATCH] iommu/riscv: prefer WSI on IGS=BOTH when wired IRQs are described
+Date: Tue, 19 May 2026 20:57:16 +0800
+Message-Id: <20260519125716.81594-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_055746_497523_D9871164 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,70 +77,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-> >
-> > I think we either need to fix `fork()`, or keep the current
-> > behavior of dropping the VMA lock before performing I/O.
->
-> I see. So, this problem arises from the fact that we are changing the
-> pagefaults requiring I/O operation to hold VMA lock...
-> And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
-> is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
-> anonymous and COW VMAs only while holding mmap_write_lock, preventing
-> any VMA modification. On the surface, that looks ok to me but I might
-> be missing some corner cases. If nobody sees any obvious issues, I
-> think it's worth a try.
+The RISC-V IOMMU spec defines IGS=BOTH as supporting both MSI and
+WSI, with software selecting the path. The DT path already behaves
+as expected by selecting WSI when wired IRQ resources are described.
+The ACPI path, however, currently falls back to MSI even when
+firmware describes wired IRQ resources.
 
-Not sure if you noticed but I did raise concerns ;)
+Use firmware-described wired IRQ resources as the trigger to select
+WSI for IGS=BOTH:
+  - DT: "interrupts" present, no "msi-parent"
+  - ACPI: DSDT _CRS Interrupt() descriptors
+    (mainline does not yet parse the RIMT Interrupt Wire Array)
 
-I wonder if you've confused the fault path and fork here, as I think Barry has
-been a little unclear on that.
+When triggered, rewrite igs to IGS_WSI and reuse the existing WSI
+handling. Keep the existing behaviour otherwise.
 
-What's being suggested in this thread is to fundamentally change fork behaviour
-so it's different from the entire history of the kernel (or - presumably - at
-least recent history :) and permit concurrent page faults to occur on a forking
-process.
+Fixes: d5f88acdd6ff ("iommu/riscv: Add support for platform msi")
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+---
+ drivers/iommu/riscv/iommu-platform.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-I absolutely object to this for being pretty crazy. I mean I'm not sure we
-really want to be simultaneously modifying page tables while invoking
-copy_page_range()? No?
+diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+index 399ba8fe1b3e..bd7712231140 100644
+--- a/drivers/iommu/riscv/iommu-platform.c
++++ b/drivers/iommu/riscv/iommu-platform.c
+@@ -71,6 +71,21 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+ 	iommu->irqs_count = RISCV_IOMMU_INTR_COUNT;
+ 
+ 	igs = FIELD_GET(RISCV_IOMMU_CAPABILITIES_IGS, iommu->caps);
++
++	/*
++	 * IGS=BOTH means the IOMMU supports either MSI or WSI;
++	 * the spec leaves the choice to software. Use the firmware-described
++	 * wired interrupt resources as the trigger:
++	 *   - DT  : "interrupts" property present, no "msi-parent"  -> WSI
++	 *   - ACPI: DSDT _CRS Interrupt() present  -> WSI
++	 * Otherwise default to the MSI path.
++	 */
++	if (igs == RISCV_IOMMU_CAPABILITIES_IGS_BOTH &&
++	    platform_irq_count(pdev) > 0) {
++		dev_info(dev, "firmware describes wired IRQs; preferring WSI on IGS=BOTH\n");
++		igs = RISCV_IOMMU_CAPABILITIES_IGS_WSI;
++	}
++
+ 	switch (igs) {
+ 	case RISCV_IOMMU_CAPABILITIES_IGS_BOTH:
+ 	case RISCV_IOMMU_CAPABILITIES_IGS_MSI:
+-- 
+2.50.1
 
-OK you cover anon and MAP_PRIVATE file-backed but hang on there's
-VM_COPY_ON_FORK too.. so PFN mapped, mixed map and (the accursed) UFFD W/P as
-well as possibly-guard region containing VMAs now can have page tables raced.
-
-That's not to mention anything else that relies on serialisation here (this
-would be changing how forking has been done in general) that we may or may not
-know about.
-
-The risk level is high, for what amounts to a hack to work around the fault
-issue.
-
-I suggest that if we have a problem with the fault path, let's look at the fault
-path :)
-
-So yeah I'm very opposed to this unless I'm somehow horribly mistaken here or a
-very convincing argument is made.
-
-
->
->
->
->
-> >
-> > >
-> > > I'd also like to get Suren's input, however.
-> >
-> > Yes. of course.
-> >
-> > >
-> > > Thanks, Lorenzo
-> >
-> > Best Regards
-> > Barry
-
-Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
