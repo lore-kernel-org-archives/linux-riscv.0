@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DF1CD4F52
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 08:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64A1CD4851
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 08:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8HUHwKDHvQJeFzfoKZlViO25F7oSMZDbGBxPMs7u+c=; b=sOMcQ9TJ2pOefNHq8Uo4VTb3Le
-	6jD/T+VUhn7VIdjvzLPp6p44v83jcAA+Y/OPh2xyLCOkb2nUiCDmAR73HkO9Uqwdcxu8ur1OQ6Ylm
-	XFJZJa/rmPOjhHV5THBZR2UpQDvvn1jCw3q++BG7FIQ8aRLhalPiLabCfAm/1piYI/oONEQndVMYc
-	wu4g0403N501plkNuVwLzh+y/MRiSUhP+2vTM/GXba/mTxdv5Zl9uzMwm5TZcRd7bum5P5KudELsO
-	zy37oQg6ZVpFeO6qKpmCcQCPFfAOJL1HNOnR9VxoxG4pgmDjKdKEFQ8tgduOv39yzjY92CA6mo1HZ
-	oeTJ4OiQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bWmo3QSXy0iNs5IwZFOsY70wIy5JxCppeiye6h1sT44=; b=cDWkt+/Y9hYEOeLTsZP70KP//9
+	7CsalYKNoFreRpearqJXs7CEbj9MsHnBiIuT5BmytopGNvokXFTgpJX8Q6SxtGZAQ8c0s89LUsDOe
+	ZJ4yECrYkgU77xdJivRrCxDRqMuJUk4e0FiYnkPmE04/FhBLstOyh+Gu6wRQyWc6q2iOjicStrYxI
+	M2ya6aR2zZGhWj1DlPF/0LjCeawV2cQ8bN5SV3ZLNbKUeLpF8ateZC9jyE0KmBmhDLsoGuzPbFkfY
+	8g4ZPYnYWGCyEBLsBa9WCuNH7aIHT4oBnBrdbNIJyGXT+IPmcs+C/5nGvSwwrL/ZlHgaI341fnVxh
+	oH1uJFNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPFoy-00000000g1I-1oeO;
-	Tue, 19 May 2026 08:29:00 +0000
-Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
+	id 1wPGBk-00000000kr4-3BGY;
+	Tue, 19 May 2026 08:52:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPFov-00000000fyS-2N5U
+	id 1wPGBi-00000000kpW-098U
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 08:28:59 +0000
-Received: from eig-obgw-6007b.ext.cloudfilter.net ([10.0.30.166])
-	by cmsmtp with ESMTPS
-	id P3aUwout1nv6VPFoiwhOXs; Tue, 19 May 2026 08:28:44 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id PFofwmZW2tuVJPFogwyce4; Tue, 19 May 2026 08:28:42 +0000
-X-Authority-Analysis: v=2.4 cv=BNWzrEQG c=1 sm=1 tr=0 ts=6a0c1f3a
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=7vwVE5O1G3EA:10 a=pGLkceISAAAA:8
- a=pFyQfRViAAAA:8 a=dOPtARG4wUHVzOZUDtUA:9 a=QEXdDO2ut3YA:10
- a=oJz5jJLG1JtSoe7EL652:22 a=L5EjiQpGQaFGZdqT14z7:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=dUVG5hW1tXzZ+39lX1QRkXzsTcX3CBxGtHk6r82iEg4=; b=YDPikdm4uUSuK87uwhvRyWshIH
-	xW/H5KRIDLw7GN00u9zUJw4FIR6/H9DH7nyWYiQoSzOvUFKIbKhayURyx5HXhPAJtg+zr5Ly+dqhq
-	Kko2AmUaq5YWSFk/tARHTraoAlunnmzPjhryfxHAHkmEwJUd2fpNtx6uQoO0HIainLcO0gN51Zgae
-	Xs3Z5Do0bYNfsxKnyMVRfMTUh1DxSpc40ZpKSBN84GwiRSVzYNbzJfGzgah/uVlmAlJCacAIsyAUR
-	ecqT9EA+GEY/QJEF37cC3dT3jBIG0afNVwdM1rZI47PBIy0GdVK2bfGoMmInmtYdtOK0PjTTgEwCP
-	/8gh1pog==;
-Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:35914 helo=[10.0.1.180])
-	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.99.2)
-	(envelope-from <re@w6rz.net>)
-	id 1wPFof-00000000mHd-2kFT;
-	Tue, 19 May 2026 02:28:41 -0600
-Message-ID: <ccfe25b8-df25-49b6-a40e-d86630cbc407@w6rz.net>
-Date: Tue, 19 May 2026 01:28:40 -0700
+	Tue, 19 May 2026 08:52:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D57140AF9;
+	Tue, 19 May 2026 08:52:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2447C2BCB3;
+	Tue, 19 May 2026 08:52:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779180749;
+	bh=+HfGak7yHuL/XgYwB0Bq0zu3smcoi8dm7pRi4GjPR8o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y2CO19EwhBh9ujMggPV1riiBBdFi0ZpZd4G6bSZiquF4m7Yj7ba1rTdZ/21o2nT/r
+	 mJUiJ2WVwaPjXjzPknmGinP2N5r+wa2t1EgcUyR6Ie2W8KIIkTAQdFngJxYhnxyzsY
+	 EI11iIQHMp8QNKwddp8rwcNP2xiH2BVlB90fu0fMcxA2SwjIxXikODspgdzf7nlZfY
+	 6RjdTGEoLu8EEPIzvYOTgurM+twW40ejwhCnRxv+SVv7ar4pl9RbCxpPM1/KTyZf5u
+	 x1LznxrbbM63VSdPi4kVrqOtXiRBwclF/rjYiEM6G7iFmSBghs1OBCHR/Tii6oW0g2
+	 Rwr0GnJXuxc9A==
+Date: Tue, 19 May 2026 09:52:22 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Zhengyu He <hezhy472013@gmail.com>
+Cc: Han Xu <han.xu@nxp.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	Cody Kang <cody.kang.hk@outlook.com>
+Subject: Re: [PATCH 1/3] spi: dt-bindings: fsl-qspi: support SpacemiT K3
+Message-ID: <c7833af4-eab0-4651-821a-68c53b9a62fc@sirena.org.uk>
+References: <20260519-k3-pico-itx-qspi-v1-v1-0-c32afeeaf741@gmail.com>
+ <20260519-k3-pico-itx-qspi-v1-v1-1-c32afeeaf741@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] riscv: cif: reduce shadow stack size limit from 4GB to
- 512MB
-To: Zong Li <zong.li@sifive.com>, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, debug@rivosinc.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- david.laight.linux@gmail.com
-References: <20260519071809.3823470-1-zong.li@sifive.com>
-Content-Language: en-US
-From: Ron Economos <re@w6rz.net>
-In-Reply-To: <20260519071809.3823470-1-zong.li@sifive.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.162.206.103
-X-Source-L: No
-X-Exim-ID: 1wPFof-00000000mHd-2kFT
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:35914
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 3
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfAu7gLWhTYfgZSu+cl2NGMDCXNK/EF17A5id7LFiRT7aODNcM1LWjVE4QwNnxHF5RR3n2Zg2ee/fdlISkPyFLhjOt5rWEie7AvTY7zb0M+xAX4caoGD5
- 1EInlLRm8r/FAWAfxEwB32ywsnzcwcW8hIbJ8VBAUL0qHbAsDtEFGpbgWxBsE6RdpDuyAvRYEUhuDknH9MYiZ6Y3/R4rR9W1Z/c=
+In-Reply-To: <20260519-k3-pico-itx-qspi-v1-v1-1-c32afeeaf741@gmail.com>
+X-Cookie: Huh?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_012857_705208_BAED304A 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20260519_015230_094812_DAD28337 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,77 +75,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3505812358700565545=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/19/26 00:18, Zong Li wrote:
-> Rationale:
->
-> 1. Shadow stacks only store return addresses (8 bytes per entry), not
->     local variables, function parameters, or saved registers. A 512MB
->     shadow stack is far more than sufficient for any practical
->     application, even with extremely deep recursion. This size
->     maintains adequate while being more resource-efficient margin
->
-> 2. On memory-constrained systems (e.g., platforms with only 4GB of
->     physical memory, which is a common configuration), allocating 4GB
->     of virtual address space for shadow stack per process/thread can
->     lead to virtual memory allocation failures when the overcommit mode
->     is set to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER:
->     Error: "__vm_enough_memory: not enough memory for the allocation"
->
-> Suggested-by: David Laight <david.laight.linux@gmail.com>
-> Signed-off-by: Zong Li <zong.li@sifive.com>
+
+--===============3505812358700565545==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8SblKUXhOngtSLCU"
+Content-Disposition: inline
+
+
+--8SblKUXhOngtSLCU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, May 19, 2026 at 02:15:55PM +0800, Zhengyu He wrote:
+> Add the SpacemiT K3 QSPI compatible to the fsl-qspi binding.
+>=20
+> K3 has its own SoC integration, so board DTs should describe it
+> with a K3-specific compatible instead of reusing the K1 string.
+>=20
+> Signed-off-by: Zhengyu He <hezhy472013@gmail.com>
+> Signed-off-by: Cody Kang <cody.kang.hk@outlook.com>
 > ---
->
-> Changed in v4:
-> - Fix wrong subject. It is 512MB instead of 2GB
->
-> Changed in v3:
-> - Remove max(). PAGE_ALIGN() already rounds up
-> - Change stack size to RLIMIT_STACK/8 with SZ_512M cap. Suggested by David Laight
->
-> Changed in v2:
-> - Add max() in case RLIMIT_STACK is smaller than PAGE_SIZE. Suggested by
->    Paul Walmsley and Sashiko
->
-> Changed in v1:
-> - Use min() instead of min_t(). Suggested by David Laight
->
->   arch/riscv/kernel/usercfi.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-> index 6eaa0d94fdfe..2036918a77db 100644
-> --- a/arch/riscv/kernel/usercfi.c
-> +++ b/arch/riscv/kernel/usercfi.c
-> @@ -109,15 +109,15 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
->   	task->thread_info.user_cfi_state.ufcfi_locked = lock;
->   }
->   /*
-> - * If size is 0, then to be compatible with regular stack we want it to be as big as
-> - * regular stack. Else PAGE_ALIGN it and return back
-> + * The shadow stack only stores the return address and not any variables
-> + * 512M should be more than sufficient for most applications.
->    */
->   static unsigned long calc_shstk_size(unsigned long size)
->   {
->   	if (size)
->   		return PAGE_ALIGN(size);
->   
-> -	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G));
-> +	return PAGE_ALIGN(min(rlimit(RLIMIT_STACK) / 8, SZ_512M));
->   }
->   
->   /*
 
-Just FYI, your V2 version of this patch was merged in Linux 7.1-rc4 (commit 6c7674b5b7ae513cecae22aa9dcdcf533862cf5c). You need to 
-rebase, otherwise this patch won't apply.
+The signoff of whoever is sending the patch should be last in the list
+of signoffs, each signoff is certifying the ones before.
 
+--8SblKUXhOngtSLCU
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoMJMUACgkQJNaLcl1U
+h9ChuQf+PprmNVxKDo7Qo1X+Me5eypSTZ1LJGD9uf589k2G4Z5l1SAIJ6UvdSCTC
+uNghM/uNx0j6KPxpgPYumiVC5kSiMpFCq3AAalBE+TyuIrQkSbUCsOFuE+2wyJfo
+vD6hBOUXU3r48JRY2YaZAnO51xdP8IpFTx09WpnWmsw9fgehpOGjumEgc7aK34VQ
+MMDyRi2ex/gRHqFw4dPhJt+LTtC1DAPUUMLNFH5f/uUiDlN9mE93qE3q99m1XLWz
+D7tTorYqemjTVt6XBmuodAeO0ubJFSEcPTp3QPdkRIfdCaYsCr04/+AcvT4DEHq0
+sDa6//E+EXqeM3SX6Aul9vW6hvlX1w==
+=VJUZ
+-----END PGP SIGNATURE-----
+
+--8SblKUXhOngtSLCU--
+
+
+--===============3505812358700565545==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3505812358700565545==--
+
