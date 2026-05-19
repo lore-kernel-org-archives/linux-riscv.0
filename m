@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344F1CD4851
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 06:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B08CD4851
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 06:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yvbLXaP4LJtDQ7dzD0yz6ROlLjbYS3PemxIgVIlJEOM=; b=CG5AHY131f5afc
-	0/vB+yL4Tf9OA2tqk8QZP9Y5673KZlru1rDI8i640BQSbRdzFUA3WtMxZoVUYPrxli8elsC0Q1zrL
-	HxqpqeyBmgZ7U5y7NUfD8roaNXzwFjqOfBS8tvXR0+pKaCxSKDP22wg1ynZfGoHW0csckUMZQncoZ
-	onwxGYeJdqQy45ERzyjocpYJh19BWhYRAbMH+WdRJ1uZFpX79054vU+BMCXqo6NsD7ljlrrKFD8Pl
-	7S297Du0p2StvW7OZOEhaPqGhgdeBo3+rIpDIu9ptfqb/icqrl6NAUQJvJdo9Byy0++4CEZKiApTK
-	OO7lCF0Gq+FD9izRoK6A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UfVjRQrklSGp488MOoBt8d9XGpgv1ZfOA+2mVCho7uE=; b=YbirM7waMno0sL
+	leVPnbsTDsZ1ge0t//wB7S04A/rpiUlb0yg6digr0JmKTGhUcWtcREL2Mq/jEBB1Drm9vR1HIapd0
+	ay31/3Kzqpp2/F4X+TtfG0vVakd1woqYowx88A/0acbpFxLSmdxBO0p04gnoP/lPvwsnJwlzX5DKT
+	QjdJ0jPGLICi7ShoZvnbjvJfO16Uobg4kiH5GnntDAAFIvO2SMY5bxuKG+4FPAPDkWNfvN153cxDz
+	Me5mcsUMf5DkWmXi/ZP8l6vXcF4BMVcaj6fGyJEUfFvy10GJuHezULbbhrM+DaTSB9jT6ml6z9vX4
+	lfmdI1yb5a9Yl+M/rJ+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDlM-00000000IZm-0d53;
-	Tue, 19 May 2026 06:17:08 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wPDlQ-00000000IbF-0zaR;
+	Tue, 19 May 2026 06:17:12 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDlJ-00000000IYz-0wsg
+	id 1wPDlN-00000000Ia1-2Cen
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 06:17:06 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-836ed29d1e5so1280842b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 23:17:04 -0700 (PDT)
+	Tue, 19 May 2026 06:17:10 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8353ca0f1f1so1341353b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 23:17:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779171424; x=1779776224; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=l4dJkPtRJlrakoxNtYsMbmeYzTOO5LSMpVcjFeyWMwk=;
-        b=ECvIIkqABi3BHDmG1EBAbgcrve5lhF6s+X5H7dH/4SGLnWwJhKd6nrYDmf8VuBIFuR
-         5DOTb3jNclfbqIBVTquT8Kc5xMkoXocXdQcfa7017iHtF+C8S2jQBYIhpbiTJo34tMD4
-         sfGFcrrs6dDsQ/UGmFO9Ay+CyUA8vPPbwEZFiaqGPQu/tjof6miGhWw32WKI6Lx2CfyC
-         ChOwa5seYpdSRDvw1RfoCvBQaGYoH41dUc5vC4d0Gv1nzix6sGrQeesUTxboTLt6B8R7
-         oAo9RokJQsYzaj+N5rxtv6+OAK+mneGt2nrmpGON3evGkknbOCtTo4v7UUzMvK3SHNzL
-         HHKA==
+        d=gmail.com; s=20251104; t=1779171429; x=1779776229; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RaFowDnArVikkzYWN4H3NcIqxYWPeQu705hcoouYIWU=;
+        b=gKzkCFs+vYgQWb9u9gpaKAKHnKWdtclAjGl38iJ182cfcZwnVM3crh3EmTp9kEaFwG
+         79NnKrRSZ6dR7v59FL7m3dwKyEAazyWy0n54NbRAjbufASRB1vlP913SrGSSzEFUXFa9
+         lDXOZB9l18/QuBMTZUPWD90V0X5s4hPo49E8mM8SAELnH5gXzTHFl1ZNG2EM6GuJvreo
+         OyyhLxN19xXUK4lLZ8IQQZumaZvgzqVnnp7f8s0qsKo9ewfxqG4BLi9yvjxdWY4+j5XG
+         AreusymFTu1HMMnYzLW0dg3Zsbs//g04I9r7DDgWi2Z7qAVV8xc6Ih9t1evr95+VZaMl
+         rvZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779171424; x=1779776224;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l4dJkPtRJlrakoxNtYsMbmeYzTOO5LSMpVcjFeyWMwk=;
-        b=qfvEN3Zspriik2hMJKDMPfpN+Ihc/JkevDC7VJ51PebnX/RFeDAe4ND7RaJd2f0h3V
-         trvh40kbqnMqsdmGP+CHT7Clz80/ab8/L4KBXgps8OAec/GN4OBR1Tw+0Gy5uCRAxjpR
-         RmZ7aYXe+xeh8uB3bl+qLZB2pnwQcT7ovP2o5cSI4h3MBsPcorD5rFrPIwOr5Akw4Oi/
-         6qW26RGvKMoeo+/vNKk+JjkG/fIvm8lxifAvLtsjMFrkFFYUf2QXmjNu86PNRz4REmJu
-         EpH0Xq/QmRrCuzoKW5foOzxuak3+ijEd8P/1nPYP83JiLmfJU7OqHWeiG5vFRZBepBPq
-         wpKw==
-X-Forwarded-Encrypted: i=1; AFNElJ8fU14IA0quXM82ZjHQ5Oj9iAU2p6Vth4Ch3lDgUkBgTbCPSvCtcQxdrpBD66lI2svrCD/ZqcolxmRveg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFHk+3wAv1NCYMvrRUCtTr7VYEF9kF3jw6JUHU0XXIFvBatj6/
-	Dg9lyqTICMtoSTzkub2RQ3t9wZVrrgS7XpwHscBH584iIvQ2WF/8nYEd
-X-Gm-Gg: Acq92OELgl2NmkcFJsrOUtwMmiZj32hDxSAMlJ2X/aHo7uioomAWKr67xc0vRl80yDm
-	/URHeGvJNcLJ89n0xAvIHfYeZQfg+vakDFnmxezkAmfaT/Hk1h+mjlhvxxuaJrnHC+ieicC0yJj
-	llykdiEmWxrod7AJE3vWzIKlWx0iQa4sIGuf+6Hbg6Dq18Gx2+9cD7qieyiNYVJMn6jrw8DqVwv
-	nnAjhXrUo924e8RqZz+k8mm//MoFeN+YrU9koEUMvQ2ubv7SzcfpnlXDx2+NWmCqAiLRRQzPCP+
-	R1lKFjING725yazd1aZp7JIFucOij0N8ul6s8NsTFK++7+nLkGAEc+wveScQeHkxrxNwKOZ+tDK
-	m4mc0xCrJMr5+wW2Av4jJVqJFG0xyqxSCdv84MhEkLzJYcCuVEzQSOP1aDi8EEdyy9FYKrBtvLz
-	Pn7vaV6KWNfgot7sGfbuONrGBOtpmLWhFzSphkN+Zy
-X-Received: by 2002:aa7:8882:0:b0:82a:6f69:7f72 with SMTP id d2e1a72fcca58-83f33f0fddcmr18309030b3a.47.1779171424126;
-        Mon, 18 May 2026 23:17:04 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779171429; x=1779776229;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=RaFowDnArVikkzYWN4H3NcIqxYWPeQu705hcoouYIWU=;
+        b=qQMIFvlxuiA/fq/dMObLf4U8VnenICseqXitX1StoQfglVEUW1fv1Yx5JLRXxG5v6Q
+         HUHVzO/mp/4ooml6dXHxrX7KgSD1j/95n1mLRFkC7Wf6xnEToWUY8QRZHBBunemCc4pt
+         0Es9R9cP/P+tgwtNF1c+pf+TvPNARR8oMkfJsa7N6uvvSbh+v6BCGn4F2oQAScgDqNY5
+         sDY4TkAoX/UCyrvYbt8gM/O3qCQLZFDMQ+CxOqwB1/TT5gLqvat+i1zBf7kyHd91CS11
+         nvnvPA1440WlqGmaQt6i4ZN5SH6UEH++KV6Ml7LICUYosjpLIVP7lub038h//XAt0B7t
+         FVIg==
+X-Forwarded-Encrypted: i=1; AFNElJ+HND7TdFHR3teSSxMaWDe3H7l7ZwnL7burNcck4ASI84XPq1HiQGUBul3wgNJ6fe4uPEJHFCxIFZdoEw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4BDiuYjYI0CyucEDVy5AlP5wmnuCllOjjUrWwf/KU28mLfRLH
+	ABDlkIGLPjOj7Ilr222FiF9bqbLQBc979Oz6007xf/aZHzh9YSrbFO2s
+X-Gm-Gg: Acq92OH2Qx+AichCtvB6zmvPGSXER84VjtjiywF+o2rO3WgXRSMHJZ/sRd6RpHwwvLt
+	I+PXt9ahrnOgseyDt+F07fux16qgz04+8JJMisCgzqjFheIlWE6hzVfgFvLefAW7+C3sOTM/9WG
+	ju4X4LaY2pfFnh3sAvpsJ5PO8Ysyo5aRyMRYusuTMG2JabfAwp6Wn77zLGgnq8I14Ura+OWQTI/
+	hFpguwUmcsaX8xsB18WvIKutJ7kHYo03ishy3Qay07BCCDhuvX4Fbq431WxRSQ4+SxTajz7XQdQ
+	lXdW3l64pQagwuQYuAZn3/WavBbsdkg/ljB3K2UYK8g5e2uwgVtXliq9+9bG3IZFiX6HxwBJXCl
+	8WYkcNkcDvGQcDtGSkIxIEUZfv99GDkmKZFYX0C07tg5CLa3OtTDrejEgotf7tVjD1afvGa1wyl
+	V7ipckDd9UzG1oJnAhCmGNVI/KH5JXinE6S8BMIsWE
+X-Received: by 2002:a05:6a00:6991:b0:82f:53f1:1937 with SMTP id d2e1a72fcca58-83f18ec2936mr13806616b3a.27.1779171428741;
+        Mon, 18 May 2026 23:17:08 -0700 (PDT)
 Received: from [10.240.146.115] ([2.27.148.101])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7f202sm16112266b3a.43.2026.05.18.23.16.59
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7f202sm16112266b3a.43.2026.05.18.23.17.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 23:17:03 -0700 (PDT)
+        Mon, 18 May 2026 23:17:08 -0700 (PDT)
 From: Zhengyu He <hezhy472013@gmail.com>
-Subject: [PATCH 0/3] spi: enable the SpacemiT K3 SoC QSPI
-Date: Tue, 19 May 2026 14:15:54 +0800
-Message-Id: <20260519-k3-pico-itx-qspi-v1-v1-0-c32afeeaf741@gmail.com>
+Date: Tue, 19 May 2026 14:15:55 +0800
+Subject: [PATCH 1/3] spi: dt-bindings: fsl-qspi: support SpacemiT K3
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvyJ7bkGtPPSV6BC21hKoaUgQ/j3pO
- AwzL2RKTBkm8UKiwpmDb6A6AfZY/U7IW2PQUhs5KoNnj5FtQL4fvHJkLAodyaFJbYfRQStjIsf
- Pf52XWj8cBcVXZQAAAA==
-X-Change-ID: 20260516-k3-pico-itx-qspi-v1-fe040512c45f
+Message-Id: <20260519-k3-pico-itx-qspi-v1-v1-1-c32afeeaf741@gmail.com>
+References: <20260519-k3-pico-itx-qspi-v1-v1-0-c32afeeaf741@gmail.com>
+In-Reply-To: <20260519-k3-pico-itx-qspi-v1-v1-0-c32afeeaf741@gmail.com>
 To: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
@@ -87,25 +86,25 @@ Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  Zhengyu He <hezhy472013@gmail.com>, Cody Kang <cody.kang.hk@outlook.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1315; i=hezhy472013@gmail.com;
- h=from:subject:message-id; bh=IRf66rMUn0EauExfU5hPO+7wssB+4ZO7/x8sY0FiJIk=;
- b=owEBbQKS/ZANAwAKAc32nDaAuA3YAcsmYgBqDABSfcnC9ZjpkklceVU1Dc84Db35p/VpVrwwE
- QDGds/SgceJAjMEAAEKAB0WIQS9XD2kxy1NmfC2u/XN9pw2gLgN2AUCagwAUgAKCRDN9pw2gLgN
- 2HqzD/0VAmqmljFG81AwhK9sHmx+W7G0+tQQEk/jObuf+VKS7IU2TNYECbcuBa/u6SMRj0B5R4v
- mas/Bvw0fsXZ8tUPIoblkQNY6illXhaf4Ptj+k/atW51oI7U/6A3o3Fm+3mypFodkn1bLzNoKXH
- SOuiD+fKWCg6LqOMKhkIGSwQ59akev0vQCKY3UV0u0fzC13IdjEFyVfadZ6pw1z8tYVQkPTmt0Y
- ryg3W44kH75nsUbpIEPp3gl35SpGNrK6eVAwUJn8rFryxFcIXiiyhNhvOQ6Szn5PtJrAcRJ/Vur
- fJwYIceLo3QSBxv9yFttP8SjD7Et9BFN2V9bC8htLx39j5Q53pqJWpfbW0/Ul1QuG+PNm92dbPD
- tliQeDh3FbQgvfX8HPO7Ca1c0AVh7+HolFliXHliJK13cDsN3rGTsljCdqtLJBjJ+wHtNsUk6/i
- qIFs2XgDOjBepZq2zwwndBURVG6gYRI7MBiqWPnraOjZgcJ083gVbxwiOXLlpf7unGoWDZ4C/ks
- INTULC98JS7VaoVJqBUGys8eIetJoB52S20S/JpxLCikDKkFXXh6hePzehXnIAYB0Hg1TxmIRvE
- 295eKmyvRMfiX7X//ERs8MSS9yCA/sg222P5Haf5mgRz+O1AAsRCVwi6Y54Pn3fWg5QSV5Lqzrd
- PiBjAzVbs7knGjw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1262; i=hezhy472013@gmail.com;
+ h=from:subject:message-id; bh=0zC6ZGIXjHpNBB1sjVLcQWNAen7uiFJc2m3aj6/r9EA=;
+ b=owEBbQKS/ZANAwAKAc32nDaAuA3YAcsmYgBqDABUc2W1VixzhH7hLpeaG6o8XOTrKg9U9NOHm
+ OXvYAI/y7iJAjMEAAEKAB0WIQS9XD2kxy1NmfC2u/XN9pw2gLgN2AUCagwAVAAKCRDN9pw2gLgN
+ 2KphEACkcxli9ExmjJegRfI1bpvaXx+M8VAeND8lil9wDppDx6p+6FMOJZ9viYEPB0O0AkvkSyX
+ Jig2zs5o8ncO/ccDhStDnS58EhQv+XRj3Tq/Zw08yH6BliD0E7JHdq8gXdDYR5N4wLYttZASKps
+ OjqlJujIacLz3vS8ifWe0PZ3MBJ6R++kW7Kmz2D0GsxNGLaDFCCARbTIMK3it2fLrSAN2VlRBGP
+ +aKHtkaQGVojtTEhYbidPNCg6TPmxLwe7l0G4u2aDBHvDg6TFKrMTKqeVZDNhVlh4oZT2qe096J
+ qRVdbTuHvIoyHKvI5MxvDjz/Fppzyz5a7QwW+CUc71fZG/AWSafSiVbTpDzgacMuyGB8m7gw307
+ Bb6I6eWd6aUW4GY+qIveZXZdKjTeOB1NbXVtoOTI89caH+fqU0P/3mgaIxPVJ85tW1fHU/AoU81
+ k2yHqhTLzmPnriSXaRgzsO+vpXB+2/QuozX49/1tPQFXnFOADETQq4S5Quq0Cb61ukIW1KTsEKc
+ SgRAWcM3YoKlfxFR1MpgarWEVJ4shSulpU0iD9bpyUVDivRvhONeJqXFamqTs0nnIY1l8lhLSnz
+ bIbHQxlv3Po94qYM8c7E5M9JQwiuCOSiD1VdMtDm/i4PD2ODh16w+RfCpyENNiS4aJgBX+MbkEc
+ J73oCNQLhERTs5w==
 X-Developer-Key: i=hezhy472013@gmail.com; a=openpgp;
  fpr=26CA97B1A229C229822278F254AF850165158959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_231705_271091_8434ABF3 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20260518_231709_570220_7BEE358A 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,38 +121,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the SpacemiT K3 SoC QSPI and enables
-the SPI NOR flash on the K3 Pico-ITX board.
+Add the SpacemiT K3 QSPI compatible to the fsl-qspi binding.
 
-The K3 QSPI controller can be supported by the existing fsl-qspi
-driver with K3-specific device type data.  The changes are:
-  - Documenting the SpacemiT K3 QSPI compatible
-  - Adding SpacemiT K3 device type data to the fsl-qspi driver
-  - Enabling the QSPI controller and SPI NOR flash on K3 Pico-ITX
-
-This series is available here:
-  https://github.com/imguoguo/linux/tree/k3-pico-itx-qspi-v1
+K3 has its own SoC integration, so board DTs should describe it
+with a K3-specific compatible instead of reusing the K1 string.
 
 Signed-off-by: Zhengyu He <hezhy472013@gmail.com>
+Signed-off-by: Cody Kang <cody.kang.hk@outlook.com>
 ---
-Zhengyu He (3):
-      spi: dt-bindings: fsl-qspi: support SpacemiT K3
-      spi: fsl-qspi: add SpacemiT K3 support
-      riscv: dts: spacemit: add QSPI support for K3 Pico-ITX
+ Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
- .../devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml  |  5 +-
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts       | 58 ++++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi       | 21 ++++++++
- arch/riscv/boot/dts/spacemit/k3.dtsi               | 16 ++++++
- drivers/spi/spi-fsl-qspi.c                         |  1 +
- 5 files changed, 100 insertions(+), 1 deletion(-)
----
-base-commit: 6916d5703ddf9a38f1f6c2cc793381a24ee914c6
-change-id: 20260516-k3-pico-itx-qspi-v1-fe040512c45f
+diff --git a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
+index 1d10cfbad86c..025f10ed242c 100644
+--- a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
++++ b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
+@@ -20,6 +20,7 @@ properties:
+           - fsl,ls1021a-qspi
+           - fsl,ls2080a-qspi
+           - spacemit,k1-qspi
++          - spacemit,k3-qspi
+       - items:
+           - enum:
+               - fsl,ls1043a-qspi
+@@ -72,7 +73,9 @@ allOf:
+         compatible:
+           not:
+             contains:
+-              const: spacemit,k1-qspi
++              enum:
++                - spacemit,k1-qspi
++                - spacemit,k3-qspi
+     then:
+       properties:
+         resets: false
 
-Best regards,
 -- 
-Zhengyu He <hezhy472013@gmail.com>
+2.53.0
 
 
 _______________________________________________
