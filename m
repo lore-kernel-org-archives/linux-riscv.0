@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DC7CD4F57
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 11:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2D0CD4851
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 12:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OcdEt/lbT8BJsbHY0czs9DBxEKrgA0aA2VocOjBlgIg=; b=PNAwHLoV/vlZMV
-	5cWeaKKIBPNfZs8Mqsx7qV6YOlIq8wX1IxiL2lQQxUL+iPkvlWhh9ZazKtCRxrxLcv7Wej0zELA3G
-	ga0IkKitNF172ffQiFAbt2jC5Nd77He4UBBylUDIZSWLBN5FP0mC2QbuqXQryzpEc2+apYjY2Yqx+
-	DJJm89yxB/WJNyWFXoiF0neiiqhGCBbUyzdfbCCCOpBg4keZDn74Mf0qKoo3QgAWBa/0+zZp0gY8B
-	VoatEKDjjtePWadtzdpBGuFV8vhuhUp+2bzM4xwBrGJPm3y2BX8xjKY56M1JCCnAbVrpkzFV+cCZE
-	dGLYjw7SjMSlU3Tt243w==;
+	List-Owner; bh=BppBk55z4NuOkmp+Dn3eTUGdQ7WDYnTblmwN7UVUIDQ=; b=B+g535CfNRBlHw
+	YdqfQ/zwmdWZ0dB/ZIYv5k6BKuy1Ha+zlkuMd97r5gGJaUaYxrUKnjerEzKJYw0mnVbi+onnZ5kFO
+	0zm24p5wqLhGzppgBBtigqM1XbRXTXTGTC5/I2XedpbaJaZocbMI+/4EDIzQ0xfmu2fy8jb3sW9Xz
+	oLaiL2jOGCgSZvza1zuTmePJc89RVzmuMw3jIWxgyw12hE5hio916uZCVxz7APipxH3bhqfWQpC1B
+	HJGNe8Z7LuPYw/SLVTe1NxRs9MIm8ZGflK3lZ1vXhDSu0u2yhb3OWuGENVYdrctNc8ZqN6wITF4E5
+	ggsqmgjBIYUpWFuDWfUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIIh-00000001GBX-2VhZ;
-	Tue, 19 May 2026 11:07:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPJCW-00000001PbZ-0pkl;
+	Tue, 19 May 2026 12:05:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIIg-00000001GB9-2DQs
+	id 1wPJCU-00000001PbM-377X
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 11:07:50 +0000
+	Tue, 19 May 2026 12:05:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE5D360126
-	for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 11:07:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F892C2BCB3
-	for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 11:07:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE19960207;
+	Tue, 19 May 2026 12:05:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AC23C2BCB3;
+	Tue, 19 May 2026 12:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779188869;
-	bh=AC6EG7Qy5QFar1m8+wNeC36/N8InyfKesUcYtXC1ZRw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=J6HZC9pCBVvKkq/Wxm2hTVYY1qvrimcGxO52O+8iIijmU2YZ84Y/Nc2nNJqOsODAB
-	 BA153SFiXfqJ0byR+6nV06yKp5+ucb39ErHO8HSupUS3liO24LSCSsqMNzOBPIwVoi
-	 Lj/QT11bmTYBhC1rPctv2NgtLGQ6M57TL4Ux01hnPIvSSr9n8bGcnZ7B7nD2N5Hij/
-	 T4MsexjvZRBhtKuWOI85twHBDHISBIjKE06XdV+Jy/d8X9knosht2r3HRGxpwV1E+u
-	 MMB1SzIwyBJD1C4Ps5JFTz0Sb1cRzaFig/nC4peanMKuuvQeAhTOmAPAIQoZYUPmXG
-	 PWDiK6Slkc3iw==
-Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-90f850473f9so362701385a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 04:07:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8zcVGYvoEzWRchwYukMnrJ1gb1RVrUPgoyX0NjTNZ7Bvl3ZGutpm1yRy8uLpikSPiHpCZFEihZ9teVfQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzheSyoeTphVL1i2rKq1CymVLGqnwB7HdbOf+DIkEkEbkqVfZhP
-	cAXwzwG4Dcwvpmpb71IjPiWVsxJmm5ACaZf0Z4noSNsVoUABUq/SdipHvTZJBBMB9ZuEgCY0n2j
-	IBT4w9lo1yBzzvG1FS3pHYMkmdK9qgmE=
-X-Received: by 2002:a05:620a:25cd:b0:8ca:123e:819b with SMTP id
- af79cd13be357-911ccd8bbe7mr2716864885a.13.1779188868655; Tue, 19 May 2026
- 04:07:48 -0700 (PDT)
+	s=k20201202; t=1779192329;
+	bh=THGyUvx4DC+KGoqXpVJngXBgtVzEKA1S3sgU9A6u/1w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IRoFchW3iBFqBKUSJ3Ia7349aT5CqS9B3euwBTMvelbbL/PcexWBR1qouA2nEPuSP
+	 Igz/FKuBs/1wKVmkZlYBl5XwhPU4C49j24hJ7UyB5haWJFUFbtBGZy4n+eEo9aQAEl
+	 2GNk188Y+dVhTohq82C4DMGw4EXr2EjypVFL8xVl9VNG34mLBg+VmybelafJwt1v8r
+	 pjx43SO5wsNzaraQAih7Q086uRK9Wh8UrQYAooca6IkW4rYgJwgQ7EviZd4tomRIeY
+	 NXgEJlqjLmtTDjmgsPTv7nKxjFgFDZZS6iNYbkSpSSuThYJbVuMagdOwvWU0/ndHeW
+	 BYFS520uC5qAA==
+Message-ID: <78e7f039-74a4-4499-a896-a20912ebc6fb@kernel.org>
+Date: Tue, 19 May 2026 22:05:21 +1000
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <CAHbLzkrOSoh-jmR=uaNvx73n_wn+vExoKY0UzH5zGcfdAiDbNg@mail.gmail.com>
-In-Reply-To: <CAHbLzkrOSoh-jmR=uaNvx73n_wn+vExoKY0UzH5zGcfdAiDbNg@mail.gmail.com>
-From: Barry Song <baohua@kernel.org>
-Date: Tue, 19 May 2026 19:07:37 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4w_-Y8qNLDeLX9OWpLpK01YG2bF-N6_mGypgsauvfCvkA@mail.gmail.com>
-X-Gm-Features: AVHnY4IMRz_ZQFDJjmEiieX1rlV8P0ieusFoUXzddUcOWyGa62kJgu1G0wGZ0I0
-Message-ID: <CAGsJ_4w_-Y8qNLDeLX9OWpLpK01YG2bF-N6_mGypgsauvfCvkA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Yang Shi <shy828301@gmail.com>
-Cc: Matthew Wilcox <willy@infradead.org>, surenb@google.com, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, david@kernel.org, ljs@kernel.org, liam@infradead.org, 
-	vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz, 
-	pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] riscv: track effective hardware PTE A/D updates
+To: Yunhui Cui <cuiyunhui@bytedance.com>, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, akpm@linux-foundation.org,
+ pasha.tatashin@soleen.com, andrew+kernel@donnellan.id.au,
+ rmclure@linux.ibm.com, debug@rivosinc.com, baolin.wang@linux.alibaba.com,
+ zhangchunyan@iscas.ac.cn, apopple@nvidia.com, namcao@linutronix.de,
+ wangruikang@iscas.ac.cn, apatel@ventanamicro.com, liu.xuemei1@zte.com.cn,
+ ajones@ventanamicro.com, cleger@rivosinc.com, charlie@rivosinc.com,
+ hui.wang@canonical.com, guodong@riscstar.com,
+ pincheng.plct@isrc.iscas.ac.cn, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Qingwei Hu <qingwei.hu@bytedance.com>
+References: <20260519031927.70683-1-cuiyunhui@bytedance.com>
+Content-Language: en-US
+From: Michael Ellerman <mpe@kernel.org>
+In-Reply-To: <20260519031927.70683-1-cuiyunhui@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,127 +73,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMTksIDIwMjYgYXQgNToyMeKAr0FNIFlhbmcgU2hpIDxzaHk4MjgzMDFAZ21h
-aWwuY29tPiB3cm90ZToKPgo+IE9uIFN1biwgTWF5IDE3LCAyMDI2IGF0IDE6NDXigK9BTSBCYXJy
-eSBTb25nIDxiYW9odWFAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gU2F0LCBNYXkgMiwg
-MjAyNiBhdCAxOjU44oCvQU0gTWF0dGhldyBXaWxjb3ggPHdpbGx5QGluZnJhZGVhZC5vcmc+IHdy
-b3RlOgo+ID4gPgo+ID4gPiBPbiBTYXQsIE1heSAwMiwgMjAyNiBhdCAwMTo0NDozNEFNICswODAw
-LCBCYXJyeSBTb25nIHdyb3RlOgo+ID4gPiA+IE9uIEZyaSwgTWF5IDEsIDIwMjYgYXQgMTA6NTfi
-gK9QTSBNYXR0aGV3IFdpbGNveCA8d2lsbHlAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPiA+ID4g
-Pgo+ID4gPiA+ID4gT24gRnJpLCBNYXkgMDEsIDIwMjYgYXQgMDY6NDk6NThBTSArMDgwMCwgQmFy
-cnkgU29uZyB3cm90ZToKPiA+ID4gPiA+ID4gMS4gVGhlcmUgaXMgbm8gZGV0ZXJtaW5pc3RpYyBs
-YXRlbmN5IGZvciBJL08gY29tcGxldGlvbi4gSXQgZGVwZW5kcyBvbgo+ID4gPiA+ID4gPiBib3Ro
-IHRoZSBoYXJkd2FyZSBhbmQgdGhlIHNvZnR3YXJlIHN0YWNrIChiaW8vcmVxdWVzdCBxdWV1ZXMg
-YW5kIHRoZQo+ID4gPiA+ID4gPiBibG9jayBzY2hlZHVsZXIpLiBTb21ldGltZXMgdGhlIGxhdGVu
-Y3kgaXMgc2hvcnQ7IGF0IG90aGVyIHRpbWVzIGl0IGNhbgo+ID4gPiA+ID4gPiBiZSBxdWl0ZSBs
-b25nLiBJbiBzdWNoIGNhc2VzLCBhIGhpZ2gtcHJpb3JpdHkgdGhyZWFkIHBlcmZvcm1pbmcgb3Bl
-cmF0aW9ucwo+ID4gPiA+ID4gPiBzdWNoIGFzIG1wcm90ZWN0LCB1bm1hcCwgcHJjdGxfc2V0X3Zt
-YSwgb3IgbWFkdmlzZSBtYXkgYmUgZm9yY2VkIHRvIHdhaXQKPiA+ID4gPiA+ID4gZm9yIGFuIHVu
-cHJlZGljdGFibGUgYW1vdW50IG9mIHRpbWUuCj4gPiA+ID4gPgo+ID4gPiA+ID4gQnV0IGRvZXMg
-dGhhdCBhY3R1YWxseSBoYXBwZW4/ICBJIGZpbmQgaXQgaGFyZCB0byBiZWxpZXZlIHRoYXQgdGhy
-ZWFkIEEKPiA+ID4gPiA+IHVubWFwcyBhIFZNQSB3aGlsZSB0aHJlYWQgQiBpcyBpbiB0aGUgbWlk
-ZGxlIG9mIHRha2luZyBhIHBhZ2UgZmF1bHQgaW4KPiA+ID4gPiA+IHRoYXQgc2FtZSBWTUEuICBt
-cHJvdGVjdCgpIGFuZCBtYWR2aXNlKCkgYXJlIG1vcmUgbGlrZWx5IHRvIGhhcHBlbiwgYnV0Cj4g
-PiA+ID4gPiBpdCBzdGlsbCBzZWVtcyByZWFsbHkgdW5saWtlbHkgdG8gbWUuCj4gPiA+ID4KPiA+
-ID4gPiBJdCBkb2VzbuKAmXQgaGF2ZSB0byBpbnZvbHZlIHVubWFwcGluZyBvciBhcHBseWluZyBt
-cHJvdGVjdCB0bwo+ID4gPiA+IHRoZSBlbnRpcmUgVk1B4oCUanVzdCBhIHBvcnRpb24gb2YgaXQg
-aXMgc3VmZmljaWVudC4KPiA+ID4KPiA+ID4gWWVzLCBidXQgdGhhdCBzdGlsbCBmYWlscyB0byBh
-bnN3ZXIgImRvZXMgdGhpcyBhY3R1YWxseSBoYXBwZW4iLiAgSG93IG11Y2gKPiA+ID4gcGVyZm9y
-bWFuY2UgaXMgYWxsIHRoaXMgY29tcGxleGl0eSBpbiB0aGUgcGFnZSBmYXVsdCBoYW5kbGVyIGJ1
-eWluZyB1cz8KPiA+ID4gSWYgeW91IGRvbid0IGFuc3dlciB0aGlzIHF1ZXN0aW9uLCBJJ20ganVz
-dCBnb2luZyB0byBnbyBpbiBhbmQgcmlwIGl0Cj4gPiA+IGFsbCBvdXQuCj4gPiA+Cj4gPgo+ID4g
-SGkgTWF0dGhldyAoYW5kIExvcmVuem8sIEphbiwgYW5kIGFueW9uZSBlbHNlIHdobyBtYXkgYmUK
-PiA+IHdhaXRpbmcgZm9yIGFuc3dlcnMpLAo+ID4KPiA+IEFzIHByb21pc2VkIGR1cmluZyBMU0Yv
-TU0vQlBGLCB3ZSBjb25kdWN0ZWQgdGhvcm91Z2gKPiA+IHRlc3Rpbmcgb24gQW5kcm9pZCBwaG9u
-ZXMgdG8gZGV0ZXJtaW5lIHdoZXRoZXIgcGVyZm9ybWluZwo+ID4gSS9PIGluIGBmaWxlbWFwX2Zh
-dWx0KClgIGNhbiBibG9jayBgdm1hX3N0YXJ0X3dyaXRlKClgLgo+ID4gSSB3YW50ZWQgdG8gZ2l2
-ZSBhIHF1aWNrIHVwZGF0ZSBvbiB0aGlzIHF1ZXN0aW9uLgo+ID4KPiA+IE5hbnpoZSBhdCBYaWFv
-bWkgY3JlYXRlZCB0cmFjaW5nIHNjcmlwdHMgYW5kIHJhbiB2YXJpb3VzCj4gPiBhcHBsaWNhdGlv
-bnMgb24gQW5kcm9pZCBkZXZpY2VzIHdpdGggSS9PIHBlcmZvcm1lZCB1bmRlcgo+ID4gdGhlIFZN
-QSBsb2NrIGluIGBmaWxlbWFwX2ZhdWx0KClgLiBXZSBmb3VuZCB0aGF0Ogo+ID4KPiA+IDEuIFRo
-ZXJlIGFyZSB2ZXJ5IGZldyBjYXNlcyB3aGVyZSB1bm1hcCgpIGlzIGJsb2NrZWQgYnkKPiA+ICAg
-IHBhZ2UgZmF1bHRzLiBJIGFzc3VtZSB0aGlzIGlzIGR1ZSB0byBidWdneSB1c2VyIGNvZGUKPiA+
-ICAgIG9yIHBvb3Igc3luY2hyb25pemF0aW9uIGJldHdlZW4gcmVhZHMgYW5kIHVubWFwKCkuCj4g
-PiBTbyBJIGFzc3VtZSBpdCBpcyBub3QgYSBwcm9ibGVtLgo+ID4KPiA+IDIuIFdlIG9ic2VydmVk
-IG1hbnkgY2FzZXMgd2hlcmUgYHZtYV9zdGFydF93cml0ZSgpYAo+ID4gICAgaXMgYmxvY2tlZCBi
-eSBwYWdlLWZhdWx0IEkvTyBpbiBzb21lIGFwcGxpY2F0aW9ucy4KPiA+ICAgIFRoZSBibG9ja2lu
-ZyBvY2N1cnMgaW4gdGhlIGBkdXBfbW1hcCgpYCBwYXRoIGR1cmluZwo+ID4gICAgZm9yaygpLgo+
-ID4KPiA+IFdpdGggU3VyZW4ncyBjb21taXQgZmI0OWM0NTUzMjNmZiAoImZvcms6IGxvY2sgVk1B
-cyBvZgo+ID4gdGhlIHBhcmVudCBwcm9jZXNzIHdoZW4gZm9ya2luZyIpLCB3ZSBub3cgYWx3YXlz
-IGhvbGQKPiA+IGB2bWFfd3JpdGVfbG9jaygpYCBmb3IgZWFjaCBWTUEuIE5vdGUgdGhhdCB0aGUK
-PiA+IGBtbWFwX2xvY2tgIHdyaXRlIGxvY2sgaXMgYWxzbyBoZWxkLCB3aGljaCBjb3VsZCBsZWFk
-IHRvCj4gPiBjaGFpbmVkIHdhaXRpbmcgaWYgcGFnZS1mYXVsdCBJL08gaXMgcGVyZm9ybWVkIHdp
-dGhvdXQKPiA+IHJlbGVhc2luZyB0aGUgVk1BIGxvY2suCj4gPgo+ID4gTXkgZ3V0IGZlZWxpbmcg
-aXMgdGhhdCBTdXJlbidzIGNvbW1pdCBtYXkgYmUgb3ZlcnNob290aW5nLAo+ID4gc28gbXkgcm91
-Z2ggaWRlYSBpcyB0aGF0IHdlIG1pZ2h0IHdhbnQgdG8gZG8gc29tZXRoaW5nIGxpa2UKPiA+IHRo
-ZSBmb2xsb3dpbmcgKHdlIGhhdmVuJ3QgdGVzdGVkIGl0IHlldCBhbmQgaXQgbWlnaHQgYmUKPiA+
-IHdyb25nKToKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvbW0vbW1hcC5jIGIvbW0vbW1hcC5jCj4gPiBp
-bmRleCAyMzExYWU3YzJmZjQuLjVkZGFmMjk3ZjMxYSAxMDA2NDQKPiA+IC0tLSBhL21tL21tYXAu
-Ywo+ID4gKysrIGIvbW0vbW1hcC5jCj4gPiBAQCAtMTc2Miw3ICsxNzYyLDEzIEBAIF9fbGF0ZW50
-X2VudHJvcHkgaW50IGR1cF9tbWFwKHN0cnVjdCBtbV9zdHJ1Y3QKPiA+ICptbSwgc3RydWN0IG1t
-X3N0cnVjdCAqb2xkbW0pCj4gPiAgICAgICAgIGZvcl9lYWNoX3ZtYSh2bWksIG1wbnQpIHsKPiA+
-ICAgICAgICAgICAgICAgICBzdHJ1Y3QgZmlsZSAqZmlsZTsKPiA+Cj4gPiAtICAgICAgICAgICAg
-ICAgcmV0dmFsID0gdm1hX3N0YXJ0X3dyaXRlX2tpbGxhYmxlKG1wbnQpOwo+ID4gKyAgICAgICAg
-ICAgICAgIC8qCj4gPiArICAgICAgICAgICAgICAgICogRm9yIGFub255bW91cyBvciB3cml0YWJs
-ZSBwcml2YXRlIFZNQXMsIHByZXZlbnQKPiA+ICsgICAgICAgICAgICAgICAgKiBjb25jdXJyZW50
-IENvVyBmYXVsdHMuCj4gPiArICAgICAgICAgICAgICAgICovCj4gPiArICAgICAgICAgICAgICAg
-aWYgKCFtcG50LT52bV9maWxlIHx8ICghKG1wbnQtPnZtX2ZsYWdzICYgVk1fU0hBUkVEKSAmJgo+
-ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIChtcG50LT52bV9mbGFn
-cyAmIFZNX1dSSVRFKSkpCj4gPiArICAgICAgICAgICAgICAgICAgICAgICByZXR2YWwgPSB2bWFf
-c3RhcnRfd3JpdGVfa2lsbGFibGUobXBudCk7Cj4gPiAgICAgICAgICAgICAgICAgaWYgKHJldHZh
-bCA8IDApCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBnb3RvIGxvb3Bfb3V0Owo+ID4gICAg
-ICAgICAgICAgICAgIGlmIChtcG50LT52bV9mbGFncyAmIFZNX0RPTlRDT1BZKSB7Cj4KPiBNYXli
-ZSBhIGxpdHRsZSBiaXQgb2ZmIHRvcGljLiBUaGlzIGlzIGFuIGludGVyZXN0aW5nIGlkZWEuIEl0
-IHNlZW1zCj4gcG9zc2libGUgd2UgZG9uJ3QgaGF2ZSB0byB0YWtlIHZtYSB3cml0ZSBsb2NrIHVu
-Y29uZGl0aW9uYWxseS4gSUlVQwo+IHRoZSB3cml0ZSBsb2NrIGlzIG1haW5seSB1c2VkIHRvIHNl
-cmlhbGl6ZSBhZ2FpbnN0IHBhZ2UgZmF1bHQgYW5kCj4gbWFkdmlzZSwgcmlnaHQ/IEkgZ290IGEg
-Y3JhenkgaWRlYSBvZmYgdGhlIHRvcCBvZiBteSBoZWFkLiBXZSBtYXkgYmUKPiBhYmxlIHRvIGp1
-c3QgdGFrZSB2bWEgd3JpdGUgbG9jayBpZmYgdm1hLT5hbm9uX3ZtYSBpcyBub3QgTlVMTC4KPgo+
-IEZpcnN0IG9mIGFsbCwgd3JpdGUgbW1hcF9sb2NrIGlzIGhlbGQsIHNvIHRoZSB2bWEgY2FuJ3Qg
-Z28gb3IgYmUKPiBjaGFuZ2VkIHVuZGVyIHVzLgo+Cj4gU2Vjb25kbHksIGlmIHZtYS0+YW5vbl92
-bWEgaXMgTlVMTCwgaXQgYmFzaWNhbGx5IG1lYW5zIGVpdGhlciBubyBwYWdlCj4gZmF1bHQgaGFw
-cGVuZWQgb3Igbm8gY293IGhhcHBlbmVkLCBzbyB0aGVyZSBpcyBubyBwYWdlIHRhYmxlIHRvIGNv
-cHksCj4gdGhpcyBpcyBhbHNvIHdoYXQgY29weV9wYWdlX3JhbmdlKCkgZG9lcyBjdXJyZW50bHku
-IFNvIHdlIGNhbiBzaHJpbmsKPiB0aGUgY3JpdGljYWwgc2VjdGlvbiB0bzoKPgo+IGlmICh2bWEt
-PmFub25fdm1hKSB7Cj4gICAgIHZtYV9zdGFydF93cml0ZV9raWxsYWJsZShzcmNfdm1hKTsKPiAg
-ICAgYW5vbl92bWFfZm9yayhkc3Rfdm1hLCBzcmNfdm1hKTsKPiAgICAgY29weV9wYWdlX3Jhbmdl
-KGRzdF92bWEsIHNyY192bWEpOwo+IH0KPgo+IEJ1dCBwYWdlIGZhdWx0IGNhbiBoYXBwZW4gYmVm
-b3JlIHdyaXRlIG1tYXBfbG9jayBpcyB0YWtlbiwgd2hlbiB3ZQo+IGNoZWNrIHZtYS0+YW5vbl92
-bWEsIGl0IGlzIHBvc3NpYmxlIGl0IGhhcyBub3QgYmVlbiBzZXQgdXAgeWV0LiBCdXQgaXQKPiBz
-ZWVtcyB0byBiZSBlcXVpdmFsZW50IHRvIHBhZ2UgZmF1bHQgYWZ0ZXIgZm9yayBhbmQgd29uJ3Qg
-YnJlYWsgdGhlCj4gc2VtYW50aWMuCgpSZS1yZWFkaW5nIFN1cmVuJ3MgY29tbWl0IGxvZyBmb3Ig
-ZmI0OWM0NTUzMjNmZjgKKCJmb3JrOiBsb2NrIFZNQXMgb2YgdGhlIHBhcmVudCBwcm9jZXNzIHdo
-ZW4gZm9ya2luZyIpLAppdCBzZWVtcyB0aGF0IHZtX3N0YXJ0X3dyaXRlKCkgaXMgdXNlZCB0byBw
-cm90ZWN0CmFnYWluc3QgYSByYWNlIHdoZXJlIGFub25fdm1hIGNoYW5nZXMgZnJvbSBOVUxMIHRv
-Cm5vbi1OVUxMIGR1cmluZyBmb3JrLiBJbiB0aGF0IHNjZW5hcmlvLCB3ZSBob2xkIHRoZQptbWFw
-X2xvY2sgd3JpdGUgbG9jaywgYnV0IG5vdCB2bWFfc3RhcnRfd3JpdGUoKSwgc28gYQpjb25jdXJy
-ZW50IGFub25fdm1hX3ByZXBhcmUoKSBjb3VsZCBzdGlsbCBpbnN0YWxsIGFuCmFub25fdm1hLgoK
-IiAgICBBIGNvbmN1cnJlbnQgcGFnZSBmYXVsdCBvbiBhIHBhZ2UgbmV3bHkgbWFya2VkIHJlYWQt
-b25seSBieSB0aGUgcGFnZQogICAgY29weSBtaWdodCB0cmlnZ2VyIHdwX3BhZ2VfY29weSgpIGFu
-ZCBhIGFub25fdm1hX3ByZXBhcmUodm1hKSBvbiB0aGUKICAgIHNvdXJjZSB2bWEsIGRlZmVhdGlu
-ZyB0aGUgYW5vbl92bWFfY2xvbmUoKSB0aGF0IHdhc24ndCBkb25lIGJlY2F1c2UgdGhlCiAgICBw
-YXJlbnQgdm1hIG9yaWdpbmFsbHkgZGlkbid0IGhhdmUgYW4gYW5vbl92bWEsIGJ1dCB3ZSBub3cg
-bWlnaHQgZW5kIHVwCiAgICBjb3B5aW5nIGEgcHRlIGVudHJ5IGZvciBhIHBhZ2UgdGhhdCBoYXMg
-b25lLgoiCgpJZiB0aGF0IGlzIHRoZSBjYXNlLCB0aGVuIHlvdXIgY2hhbmdlIGRvZXMgbm90IHdv
-cmsuCgpOb3dhZGF5cywgbm9ib2R5IGNhbGxzIGFub25fdm1hX3ByZXBhcmUodm1hKSBkaXJlY3Rs
-eS4KSW5zdGVhZCwgdm1mX2Fub25fcHJlcGFyZSgpIGlzIHVzZWQsIGFuZCB3ZSBhbHdheXMKcmVx
-dWlyZSB0aGUgbW1hcF9sb2NrIHJlYWQgbG9jayBiZWZvcmUgY2FsbGluZwpfX2Fub25fdm1hX3By
-ZXBhcmUoKS4gQXMgYSByZXN1bHQsIGFub25fdm1hIGNhbm5vdAp0cmFuc2l0aW9uIGZyb20gTlVM
-TCB0byBub24tTlVMTCBkdXJpbmcgZm9yay4KClNvIHRoZSBvcmlnaW5hbCByYWNlIGNvbmRpdGlv
-biBoYXMgZWZmZWN0aXZlbHkKZGlzYXBwZWFyZWQuCgpZb3UgYWxzbyBtZW50aW9uZWQgdGhlIG1h
-ZHZpc2UoKSBjYXNlLiBJZiBJIHVuZGVyc3RhbmQKY29ycmVjdGx5LCBtYWR2aXNlKCkgc2hvdWxk
-IHRha2UgbW1hcF9sb2NrIGJlZm9yZQptb2RpZnlpbmcgYW5vbl92bWEuIE9ubHkgc29tZSBwYXJ0
-cyBvZiBtYWR2aXNlKCkgY2FuCnN1cHBvcnQgcGVyLVZNQSBsb2NraW5nLiBUaGVyZWZvcmUsIHdl
-IHByb2JhYmx5IGRvIG5vdApuZWVkOgoKaWYgKHZtYS0+YW5vbl92bWEpIHsKdm1hX3N0YXJ0X3dy
-aXRlX2tpbGxhYmxlKHNyY192bWEpOwouLi4KfQoKPgo+IEFueXdheSwganVzdCBhIGNyYXp5IGlk
-ZWEsIEkgbWF5IG1pc3Mgc29tZSBjb3JuZXIgY2FzZXMuCgpUbyBtZSwgaXQgc2VlbXMgdGhhdCB3
-ZSBjb3VsZCByZW1vdmUgdm1hX3N0YXJ0X3dyaXRlKCkKZW50aXJlbHkgbm93LiBPciBpcyB0aGF0
-IGFuIGV2ZW4gY3JhemllciBpZGVhPwoKVGhhbmtzCkJhcnJ5CgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 19/5/2026 13:19, Yunhui Cui wrote:
+> Separate Svadu capability discovery from the host's effective ADUE
+> state. Enable SBI FWFT PTE A/D hardware updating on each online CPU
+> through CPUHP when both Svade and Svadu are present, use the resulting
+> runtime state for arch_has_hw_pte_young(), and fall back to
+> software-managed A/D updates when enabling the feature fails.
+> 
+> Platforms with Svadu but without Svade are treated as always using
+> hardware PTE A/D updates. Expose the runtime state through an inline
+> getter so hot MM paths avoid an out-of-line function call.
+
+I'm not sure what you mean here. The current code doesn't use an 
+out-of-line function call AFAICS? More comments below ...
+
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Reviewed-by: Qingwei Hu <qingwei.hu@bytedance.com>
+> ---
+>   arch/riscv/include/asm/cpufeature.h |  6 +++
+>   arch/riscv/include/asm/pgtable.h    |  8 ++--
+>   arch/riscv/kernel/cpufeature.c      | 73 ++++++++++++++++++++++++++---
+>   3 files changed, 77 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> index 739fcc84bf7b2..877d71a1ea755 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -128,6 +128,12 @@ struct riscv_isa_ext_data {
+>   extern const struct riscv_isa_ext_data riscv_isa_ext[];
+>   extern const size_t riscv_isa_ext_count;
+>   extern bool riscv_isa_fallback;
+> +extern bool riscv_hw_pte_ad_updating_enabled;
+> +
+> +static __always_inline bool riscv_has_hw_pte_ad_updating(void)
+> +{
+> +	return READ_ONCE(riscv_hw_pte_ad_updating_enabled);
+> +}
+>   
+>   unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+>   static __always_inline bool riscv_cpu_has_extension_likely(int cpu, const unsigned long ext)
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index a1a7c6520a095..20663a466cf6c 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -732,14 +732,14 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+>   #define pgprot_dmacoherent pgprot_writecombine
+>   
+>   /*
+> - * Both Svade and Svadu control the hardware behavior when the PTE A/D bits need to be set. By
+> - * default the M-mode firmware enables the hardware updating scheme when only Svadu is present in
+> - * DT.
+> + * Both Svade and Svadu control the hardware behavior when the PTE A/D bits
+> + * need to be set. The core MM code only cares whether hardware updating of
+> + * the accessed/dirty state is currently active.
+>    */
+>   #define arch_has_hw_pte_young arch_has_hw_pte_young
+>   static inline bool arch_has_hw_pte_young(void)
+>   {
+> -	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
+> +	return riscv_has_hw_pte_ad_updating();
+>   }
+
+riscv_has_extension_unlikely() uses an asm alternative, ie. it's patched 
+at boot so there's no runtime cost. But now you've changed it to just 
+test a bool.
+
+I'm not sure arch_has_hw_pte_young() is a particularly hot path, but 
+seems like you could use a static key, so that the code is patched to 
+avoid the runtime test?
+
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index f46aa5602d74d..e46b2d2b49eed 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -35,6 +35,8 @@
+>   static bool any_cpu_has_zicboz;
+>   static bool any_cpu_has_zicbop;
+>   static bool any_cpu_has_zicbom;
+> +bool riscv_hw_pte_ad_updating_enabled __read_mostly;
+> +EXPORT_SYMBOL_GPL(riscv_hw_pte_ad_updating_enabled);
+>   
+>   unsigned long elf_hwcap __read_mostly;
+>   
+> @@ -287,15 +289,74 @@ static int riscv_ext_zvfbfwma_validate(const struct riscv_isa_ext_data *data,
+...
+>   
+> +static int __init riscv_hw_pte_ad_updating_init(void)
+> +{
+> +	bool has_svade, has_svadu;
+> +	int state;
+> +
+> +	has_svade = riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADE);
+> +	has_svadu = riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
+> +
+> +	if (!has_svadu)
+> +		return 0;
+> +
+> +	if (!has_svade) {
+> +		riscv_set_hw_pte_ad_updating(true);
+> +		pr_info("riscv: hardware PTE A/D updating enabled\n");
+> +		return 0;
+
+This block is identical to the tail of the function. I'd probably use 
+"goto enable", with an "enable" label below.
+
+> +	}
+> +
+> +	state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> +				  "riscv/pte-ad:starting",
+> +				  riscv_hw_pte_ad_updating_starting,
+> +				  riscv_hw_pte_ad_updating_dying);
+> +	if (state < 0) {
+> +		pr_info("riscv: leave PTE A/D updates software-managed (%d)\n",
+> +			state);
+> +		return 0;
+> +	}
+> +
+> +	/*
+> +	 * A successful CPUHP_AP_ONLINE_DYN registration means the startup
+> +	 * callback has already succeeded on all online CPUs.
+> +	 */
+
+enable:
+> +	riscv_set_hw_pte_ad_updating(true);
+> +	pr_info("riscv: hardware PTE A/D updating enabled\n");
+
+pr_info() might be a bit verbose for this. I think printk(KERN_DEBUG ..) 
+would be better, that way the message is always available in dmesg but 
+isn't sent to the console
+
+>   	return 0;
+>   }
+> +arch_initcall(riscv_hw_pte_ad_updating_init);
+
+cheers
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
