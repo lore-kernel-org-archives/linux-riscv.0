@@ -4,89 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE698CD4851
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 07:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E5FCD4F57
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 07:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KNK6C630+se93h+XYJaiAAVx+wjs4y0LUmp0Ja31KnI=; b=HTSb0gTEmfvARr
-	/rHJgk1Mt6O1LYidn7DJetNaqwuqoE0SbNRbdfz4Xam38FRDvspY+pZBE28QTZJjzQ69BW21TlE89
-	ultWGC8uJVrwFAfWS9C40saZOEZW4C9h+aQDZokPnoNzYZ4byDCaeSAB9P8srOkyoXBlvAa1rcqyU
-	X+daFFXh0n05tbgEJJa1TWLQoFVQ5HiwJw/f+agVsm+gDL6GxsI6qFm5Z21M3BoNt7C31cBZQPiRE
-	BHF8ozWd7dxwMfBdJkkkJXxxo31Whjqd80oI2KawhfQ7/OTnKzzDqG3PoYKlkJzQlO4Fs0Ac0Bmth
-	Ytc2AJjf1RgouJgEj0bw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z4c1BF0NlG482qGeBD8DMFVMRFGUJSd/+5VGL6us0WU=; b=YLPj5BRQGZ3Mu2
+	GhWKRW9fmxjwDkb+l8qZU9mScj4sKuO+nvCQmW3UJk1JSyYXGtZe/hB9K7V1W4e1yWwYYFjVo4EQ/
+	AZwA9en4DVMGX6UwFfY2OhmUoK3i/kYJ/ZJU1zAolmkHdD38U0f5xennw/DGOHWvVD0GsG1ukyIHI
+	hGzmVO3kOTkKC2JjMPbMalpMIB0HjmOSsLhA1tcEWen/i7BKSK9vDQP1kldhWbBI46v1tbQHY/b49
+	piIdQ5BqYrgrT4xt2p4DrQhwqM2Hyn5flG419BpmamwuiwJHGhOwINyroyWsAtPq46Bw8txdRp7WM
+	orE1te7/PfxTTagEzzZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEiW-00000000SoH-2vcK;
-	Tue, 19 May 2026 07:18:16 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1wPEyJ-00000000WIW-3l15;
+	Tue, 19 May 2026 07:34:35 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEiT-00000000Sng-12zt
-	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 07:18:15 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-133466cf955so11998587c88.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 00:18:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1779175092; x=1779779892; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=g7y0FJyTHq8D7gcxyr7jUIMKaRAyJaeBHi7Q0uKpFT8=;
-        b=e0shMO5BsgYpFy2JH2yLAQybD2aUhFyy1W9bltuigvtnENSZBEXOSbhM+69JlMs4gd
-         NbPy6BQoTJVwssTI2Ra/+Y6e4CMhI+pDR13g5bFQ+Zi5Mmo6ZGrRQTQsuX4hH3lklNrE
-         ofpSYR+K4bgj0vrxqs1VP+kU6PsstUo4I+ECOP25NkdSZ5f2mV7VovJoJP16YN7qZbkU
-         h62znesAPikyKZwrO2/hIN9PJEQQLGwXc84L7KCdvB7CIYGJo9DhnmyqeCWMtlD40oab
-         lyJ+GPGUBjYeDcvijZQNKIwv4dk5oykaZS6Q8jhNEfnwo6FrD7PFU/RePxU//cIFOGXD
-         gEWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779175092; x=1779779892;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=g7y0FJyTHq8D7gcxyr7jUIMKaRAyJaeBHi7Q0uKpFT8=;
-        b=DQ68rb6xZRQIKo+Gje1ksdykz8/JBuTYQ6Nu9gOBNbNWH/+uh93SvOn+cvp0hzPAS2
-         vRz/sdr7CRmUj2TyMm67oCziiUBfbfW7SU+JMGgn1HSJxU4sgDYJoYJEvQhmdKO0vvgb
-         lT4DDr6wGWFksaKCLYlMPw9KMQB45s9+T9wFzvV8jlp9V8E5NcIIeT2a3ez83Q/sLRqS
-         Ev2KcyUF2rEbSJFERMQV+GYvvMG3MTJeQFTTp4mOxq7kuc3i76sNQEjfC1q7IZZ0ZvKi
-         9M+I3XakFdtB2KMo6igJHvDZIY92e0SrxBktzpz98+Y1mAClsKWJRSa3fMIOTO4I+b93
-         HgkQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8/JAQ22tb2x2hFJNj5yCvAEjBtpr2HJO5ZGMMUzgf38vDsXRo4KW8n44ff0APkpOsgalf6pe0TewOQlQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YywkeTf4yBzogMQK/m5Q9Na5naR+/Wogbr7FTIj1Dc18o9Q1wGU
-	jUlerSY8iqNmhCni8LIHNSeyZoA6obuvpZx0uFU8kBU8wFvxwxhyXHW9VHF2XCQhMotqXPvb/Z5
-	uyGXcRK25JA==
-X-Gm-Gg: Acq92OGGAgU5xhmrnWzGbzkonUKrSxeUGYoSlz/QTI8HrpnLpIm/dqSv60/ZFmcFfM0
-	cZj+KpF538K3JKz26kmSmjlDorCILhTbU6q4gIA6lJehKAz/ODyvE/PDxD2Ycug4yH5gBXrOT6t
-	IDHcS7L4B4rrhntyMVtXB4Cav431RyqhoiVHpXKSiljnwF+wFhkNau2ODqAa/V+EGszZG8kcBgH
-	QSGUSgeLcdRBGbbAWhUS9J7/bUnoSpZsQ9A3m2o34TsfjWr+8MkrilzafbnXcanCNWv6eleGuGA
-	nugfL6PnL1Hb8Xiiy3fQwuQMgpA/zK1BqwBlEY0UM42aVvGg4EZbnHSLXnOGSG2pm6hRmHzMTlS
-	V6o7AmsdLmrrn4kIjbr8OKAtvmmmf1lDP+W8FuXz+fmkjv86HdtI5OpZv1R6vxHVfqxe8qt9djV
-	k99auHPM3Z5u+h7aBAjdGvN+sVsQc0mckOOiTtDxvdVM1KrA==
-X-Received: by 2002:a05:7022:43a4:b0:134:a701:de8 with SMTP id a92af1059eb24-1350441871fmr8092871c88.5.1779175092219;
-        Tue, 19 May 2026 00:18:12 -0700 (PDT)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-134cbcb93f3sm23368188c88.3.2026.05.19.00.18.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 00:18:11 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	debug@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	david.laight.linux@gmail.com
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v5] riscv: cif: reduce shadow stack size limit from 4GB to 512MB
-Date: Tue, 19 May 2026 00:18:09 -0700
-Message-ID: <20260519071809.3823470-1-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
+	id 1wPEyG-00000000WE1-0ZX2;
+	Tue, 19 May 2026 07:34:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QZ9+ncGSM1WT2uORQmOVqHastnfhz8oZzylQ1gi8FqPTTWPXrdH+UuhX5Jksb4pnC1blAOSQksPkPgWFkzKiukB3xTzjKC5dSo7oJMuy9iIzHf99Kix+3JxA0eHpgJ+8ebGqyhL7+LRLkRJU+DdnLjIEfMGp4XnQp2fV8GMaiMT54Amr8/+pj7uytJCqKPMwIw9OJSG6GNrddRNvHuU4B5X9NJPDYUQdav//AyH3MfOtZPnwysPvmzHlTJksm27lgR+fNRp8R1FMUSwDRrsxWsiCDwc7qtFKrZMcMbUb3Q0AFnuD1dg7gR1yRJ9+ef8BLQV9nXo2gcaW6sBUX8iB5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ci93Zw1K7y2nw/A70fF71O8U4kqQoydrN4M1ada4NKM=;
+ b=L5rmaMvevK7Q1gOSyKsqq5SjiFxxo13KcBHS51gNtye34WyFmex1dTIpHQakN+me6aBXN9wMkT5IMfw4wZPub621yQHnJzJbcaSzFv/tfCM5r3lgA5N5RE2H+tUGjXkZVLQ7oPtI/btUgygmhK7v2KPoGV5qUriqQwJIPLsLaww/iS7+y1y4FBcqZUtvNERKG9J7BFHXWxeEnhCmnZi2X9KIYoWxuFhL817vwi7QLN2ZuucmEVwsHL8GBWlyf4DsHAcGWsjwCrCQaT8tY4tC3oQ/IMWk6Rbsk3BtB6cuZPjx0ULEp/5QTG8Kj0rE4xoilYKGidIrzgNzmyAEIlqArw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ci93Zw1K7y2nw/A70fF71O8U4kqQoydrN4M1ada4NKM=;
+ b=idWob8U5rhsLcEeX/OBPWT/QjTw69GD3G/nu5GHYjAnQbQCIMCuTIWHxVg4rM8fXsRUxRC1MgssFYwAuZRIkUaOVvSGITkulfnVS37db8pYLe2it8UkRFKJhsROrID22/4od4laojdTVWoEqoVjkKvxUmRurkUzZ5bDJc0EAXXo=
+Received: from BL1PR13CA0222.namprd13.prod.outlook.com (2603:10b6:208:2bf::17)
+ by DS7PR12MB9503.namprd12.prod.outlook.com (2603:10b6:8:251::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 07:34:05 +0000
+Received: from BL6PEPF0001AB59.namprd02.prod.outlook.com
+ (2603:10b6:208:2bf:cafe::9a) by BL1PR13CA0222.outlook.office365.com
+ (2603:10b6:208:2bf::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.13 via Frontend Transport; Tue, 19
+ May 2026 07:34:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BL6PEPF0001AB59.mail.protection.outlook.com (10.167.241.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 07:34:04 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 19 May
+ 2026 02:34:04 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 19 May
+ 2026 00:34:04 -0700
+Received: from [10.136.36.105] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Tue, 19 May 2026 02:33:59 -0500
+Message-ID: <e3d4c90f-6778-4df1-beef-245e256ff386@amd.com>
+Date: Tue, 19 May 2026 13:03:53 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/8] riscv/runtime-const: Introduce
+ runtime_const_mask_32()
+To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
+ Zijlstra" <peterz@infradead.org>, Sebastian Andrzej Siewior
+	<bigeasy@linutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
+	<guoren@kernel.org>
+CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	Charlie Jenkins <charlie@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>,
+	Charles Mirabile <cmirabil@redhat.com>
+References: <20260430094730.31624-1-kprateek.nayak@amd.com>
+ <20260430094730.31624-6-kprateek.nayak@amd.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20260430094730.31624-6-kprateek.nayak@amd.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB59:EE_|DS7PR12MB9503:EE_
+X-MS-Office365-Filtering-Correlation-Id: 64ab358d-5da3-414e-d336-08deb579012c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|4143699003|11063799003|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: aAu/Ba48gVsgrIekzsCD1NOOLQrJG2Ek2MNbAg2fXfkFkUFi/AaVma/q+y1eWlmDYBXa5Caulfg+zGjQbiezHAC7u479xDjXfh4NCoyqZvt+gYv23wSO00S4Fnt8/XM8Wd1OxB3YJItKUC4IC/CoetnFTKaEODEjkczZlZOkvvzVkBIxFMONaenHMObbTZCsH+/Qsue1W2cwAcMOj03zOD53trH+BJlYLqzUmMXSQrjphlBtMX1dB6y9f7duRHoESxIcffS+yxCqOGvIB0XF0KSu3/JxPKT5I0fBC9fsny5Bd6EIWu/t4N36x7GQRpED8vtQF27FW9bSd1Qbw6XgECceMuYLDkdLijQ6yC5Q62SJwP1YYV6b9GI4jEIFUKZHs+v1UTSTwsfDY4cX69g3ji/uCn/3tyiKa7pmewh4ConICHeiH+1Q1VeVRX6fZjngxmuGCn6YNzBpQ98P/VXi5aaA4w18Q/X9USQOY/Chnsb0KMoRt9zc46hiusyc/IsTmF//2Pbj80HnjVF8UusZpTfYh6sPac21fZFMrcDyRPivv1iNrlBwMmtd4KcLQm3HNDPmOWLzz2o1BDQ3cTVsurlG4PIr+LQ2UiCSceHdmSD5eErpFuQEOj640pmTzvl0tMi3Y1kvvfGTXVm/VwsyfZlO+ien1rqH255zqN4hQtqD1LDe0a4SwGQBZ02MMs8qOpe+HUJMRG9nE4gUtkOqeo1WczQkQRNMd1R0Y8OZN8A=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(4143699003)(11063799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: zykerzUCvjwG21a2da7SukRSYRhhT+lnmOJhKjAXNVhpbFKJYOyiKrZQsovANXJGvK9VBfjzmOh85OojB5VZXfv5plxqrDirfj3kpt3f8M8BH2qyc3NwohsjAayAgu/QiK6u8H7YDVMdaNRZ/3VBK7UXirngNJ2rq3lfeKvNyNynqYvMpF3RtrGBLLbERGWGDHsRJ9QN6YufUKWQ4jDmceIj7gFuKz9PkzjgnrObWAkfG7g++R54wgEJETYgdux4M5MszXWF+BYXMErajVqe34JY2HsuGBAx4zenph0Whzlnafes6PhBVvaFKniUfzaYuKBSDDEqjJ5vR2pfbJC1ItMet1jKd5DF7yyYDJ1sE7U2vDuWaJS92Zhce7OlqE69x6+aA2tQPNxq3jwsMW+nC7fSyqabgNObCnmgy1xNPih1cEIKa4KtSNSmsHQNkYTX
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 07:34:04.8215
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64ab358d-5da3-414e-d336-08deb579012c
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB59.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9503
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_001813_294753_6322F383 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260519_003432_185799_3CC97623 
+X-CRM114-Status: GOOD (  28.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,67 +135,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rationale:
+Hello folks,
 
-1. Shadow stacks only store return addresses (8 bytes per entry), not
-   local variables, function parameters, or saved registers. A 512MB
-   shadow stack is far more than sufficient for any practical
-   application, even with extremely deep recursion. This size
-   maintains adequate while being more resource-efficient margin
+On 4/30/2026 3:17 PM, K Prateek Nayak wrote:
+> Futex hash computation requires a mask operation with read-only after
+> init data that will be converted to a runtime constant in the subsequent
+> commit.
+> 
+> Introduce runtime_const_mask_32 to further optimize the mask operation
+> in the futex hash computation hot path. GCC generates a:
+> 
+>   lui   a0, 0x12346       # upper; +0x800 then >>12 for correct rounding
+>   addi  a0, a0, 0x678     # lower 12 bits
+>   and   a1, a1, a0        # a1 = a1 & a0
+> 
+> pattern to tackle arbitrary 32-bit masks and the same was also suggested
+> by Claude which is implemented here. The final (__ret & val) operation
+> is intentionally placed outside of asm block to allow compilers to
+> further optimize it if possible.
+> 
+> __runtime_fixup_ptr() already patches a "lui + addi" sequence which has
+> been reused to patch the same sequence for __runtime_fixup_mask().
+> 
+> Assisted-by: Claude:claude-sonnet-4-5
+> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
 
-2. On memory-constrained systems (e.g., platforms with only 4GB of
-   physical memory, which is a common configuration), allocating 4GB
-   of virtual address space for shadow stack per process/thread can
-   lead to virtual memory allocation failures when the overcommit mode
-   is set to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER:
-   Error: "__vm_enough_memory: not enough memory for the allocation"
+Gentle ping! I believe this is only missing Acks for the RISC-V bits.
+Any and all feedback are welcome. If you have concerns with Sashiko's
+comments, I'll answer them below:
 
-Suggested-by: David Laight <david.laight.linux@gmail.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
+> ---
+> changelog v3..v4:
+> 
+> o Reverted back to using __ret as the macro variable to prevent
+>   collision with local varaibles at callsite. (Sashiko)
+> 
+> o Separated out the & operation to prevent any confusion with operator
+>   precedence id "val" is an expression. (Sashiko)
+> ---
+>  arch/riscv/include/asm/runtime-const.h | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+> index 1ce02605d2e43..684641cb0fe82 100644
+> --- a/arch/riscv/include/asm/runtime-const.h
+> +++ b/arch/riscv/include/asm/runtime-const.h
+> @@ -159,6 +159,23 @@
+>  	__ret;							\
+>  })
+>  
+> +#define runtime_const_mask_32(val, sym)					\
+> +({									\
+> +	u32 __ret;							\
 
-Changed in v4:
-- Fix wrong subject. It is 512MB instead of 2GB
+>> Could this local variable shadow a variable from the caller? If the caller
+>> passes an expression for val that includes a variable named __ret, the
+>> inner declaration will shadow it, causing the macro to silently ignore the
+>> caller's value and unconditionally return the mask itself.
 
-Changed in v3:
-- Remove max(). PAGE_ALIGN() already rounds up
-- Change stack size to RLIMIT_STACK/8 with SZ_512M cap. Suggested by David Laight
+The "__ret" variable naming has been standard format for all the
+runtime constant macros and any future usage with a "__ret" already
+defined in the scope would fail build when compiled with -Werror for
+variable redeclaration.
 
-Changed in v2:
-- Add max() in case RLIMIT_STACK is smaller than PAGE_SIZE. Suggested by
-  Paul Walmsley and Sashiko
 
-Changed in v1:
-- Use min() instead of min_t(). Suggested by David Laight
+> +	asm_inline(".option push\n\t"					\
+> +		".option norvc\n\t"					\
+> +		"1:\t"							\
+> +		"lui	%[__ret], %%hi(" RUNTIME_MAGIC ")\n\t"		\
+> +		"addi	%[__ret],%[__ret], %%lo(" RUNTIME_MAGIC ")\n\t"	\
 
- arch/riscv/kernel/usercfi.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+>> Does using addi here violate the RISC-V psABI for 32-bit types on RV64?
 
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 6eaa0d94fdfe..2036918a77db 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -109,15 +109,15 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
- 	task->thread_info.user_cfi_state.ufcfi_locked = lock;
- }
- /*
-- * If size is 0, then to be compatible with regular stack we want it to be as big as
-- * regular stack. Else PAGE_ALIGN it and return back
-+ * The shadow stack only stores the return address and not any variables
-+ * 512M should be more than sufficient for most applications.
-  */
- static unsigned long calc_shstk_size(unsigned long size)
- {
- 	if (size)
- 		return PAGE_ALIGN(size);
- 
--	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G));
-+	return PAGE_ALIGN(min(rlimit(RLIMIT_STACK) / 8, SZ_512M));
- }
- 
- /*
+The immediate will be patched before the first usage and these only exist
+as place holders here for code generation. Patching sequence will handle
+it correctly and this is no different than a runtime_const_ptr() patching.
+
+> +		".option pop\n\t"					\
+> +		".pushsection runtime_mask_" #sym ",\"a\"\n\t"		\
+> +		".long 1b - .\n\t"					\
+> +		".popsection"						\
+> +		: [__ret] "=r" (__ret));				\
+> +	__ret &= val; /* Allow compiler to optimize & operation. */	\
+
+>> Is it safe to expand val without parentheses here? If a complex expression
+>> with lower precedence operators is passed as val, it might alter the
+>> evaluation order and introduce unexpected runtime behavior.
+
+&= has the lowest precedence with evaluation from right to left so this
+shouldn't pose a problem but if required I can add a parenthesis around
+the (val) and resend these bits if there are concerns still.
+
+> +	__ret;								\
+> +})
+> +
+>  #define runtime_const_init(type, sym) do {			\
+>  	extern s32 __start_runtime_##type##_##sym[];		\
+>  	extern s32 __stop_runtime_##type##_##sym[];		\
+> @@ -262,6 +279,12 @@ static inline void __runtime_fixup_shift(void *where, unsigned long val)
+>  	mutex_unlock(&text_mutex);
+>  }
+>  
+> +static inline void __runtime_fixup_mask(void *where, unsigned long val)
+> +{
+> +	__runtime_fixup_32(where, where + 4, val);
+> +	__runtime_fixup_caches(where, 2);
+> +}
+> +
+>  static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
+>  				       unsigned long val, s32 *start, s32 *end)
+>  {
+
+For the final review comment on the core futex bits:
+
+>> Can evaluating the runtime constant immediately after initialization cause a
+>> boot regression?
+
+The runtime constants are patched before the first usage and the patching
+function introduces sufficient barriers to ensure the following reads
+don't see the placeholders and in-order commits will always ensure that
+Read After Write hazards are dealt with correctly w.r.t. patching on
+BSP.
+
 -- 
-2.43.7
+Thanks and Regards,
+Prateek
 
 
 _______________________________________________
