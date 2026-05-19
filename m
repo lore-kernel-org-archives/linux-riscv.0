@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C954ECD4F3C
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 06:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE7BCD4F3C
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 06:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CwD0AveVvMxFTF77XVKgHYML8KVcuwRKCSqvBrAagTw=; b=b41ftUVLsgU1ci
-	+sS+yOR7s+KLQmFqGsuQu0Ix9NQOoIUuS/pOHmSWfHMDClNjUO6O9Ynztaof/9+y4xVUFDhq7VuJ3
-	h3smSnoe5p8Z9l+FVGd82GT+EQIeTNo1mLvEc5pQ2BHz7yiAuT6NpPOc0LjYZcTrgriFwpf7o1O/v
-	LiAo2Q+EvoXuPjM1L7mzRzohxGhptoedmZFc5qRwh4GYbz3D6AtAemgLrJzdud2XcNH+j2YDxnw/x
-	5+7CW8U2Y65r7fzd4lDXrTBl576729nJFoBCVyAsSxXXLGck/8mUYEeDDbwEVUzMOkZfekVy3ww2+
-	4W6/NKsumnMIw0qMwrqw==;
+	List-Owner; bh=DlyPbooZCGt2Su8iqYdeK234F97AROF2ydWxaPwmsyM=; b=FYBqYc3xpkpiKE
+	Ksy8HCzT3xnopqgFQfp4gVKDSHE9U1SJkMc0lgv5tMoaErZc3NIqLj1UkFtljmzKcpXH2ACCR6tg2
+	dKJiqHnrauixp11lxPm5kMWjSs8rRI38XMr1inc4YYPgHghWQTfEcuzjFiRwoznFNj8Pb/fAr/Eaa
+	6J/BQecQNS89H4Wyzr2UiAraqfb82Ge+IApG1YAMVCoHDSWKE2uIm1Sd3UCDquFHZ/uZ3ztNAOw2p
+	nL7ctLBuWFzzQ34mhO88gYWqRPPuOYKJjB1eQWVGCgXq7RiOfqLgPQPBTTpGMEzT6j8OipGOzMtQO
+	2rqQOONGmyDOP3GlGnWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDlU-00000000IdC-1Lei;
-	Tue, 19 May 2026 06:17:16 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wPDlZ-00000000IgW-1jpa;
+	Tue, 19 May 2026 06:17:21 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDlS-00000000Ibz-08OG
+	id 1wPDlW-00000000IeX-2qnX
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 06:17:15 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-835c98b659eso2721293b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 23:17:13 -0700 (PDT)
+	Tue, 19 May 2026 06:17:19 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82f9fdfc965so1334114b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 18 May 2026 23:17:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779171433; x=1779776233; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779171438; x=1779776238; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0chwJesI0BcvhVwn8jIR2v8RSVOpIFD5ULcDL4OMxNA=;
-        b=GKLK+xeFXib1xTzP6b+uG2K1NeT/xXXkzSFOVkwm584yGaGXY2P/NqprYVqi72JXch
-         g9LydzPmGyMCKHBLq0vvycPICQJS9alUDVSOGA9YoGuwKVRwEhplnDcrepqAgdDG9DCP
-         rhFi1Qcz/SOdmaCsTfQhixFIOASR3BjUhJ373K9pGGZazRE3HkYePQs/uBv8AIsbqNRv
-         uSEbhStC33zM5i0QZcwg/zXAOe7hl2bEh2scV+HdJ47FALMR1HVesAIZ4QdW1wyx5oSg
-         EtIegqpMBjgiFkL1ZREpoynhpksDhHNYrRIQEggnMt+mHlFnSOKtu6758wcEawsvpJ7U
-         zttA==
+        bh=mUJ15hFl2aQqTBGBClvDVjCEGpr2/Wz0MRwXGiLFc2Y=;
+        b=njU59u4x08uXczWZmIQg3TWnELdM4uCgXXFyVaVdSAllnoY0qQ8D7o8H4CfXii+JKX
+         rCYprsKbuO0VSZx5GUdYEhbDmapfGqwUUweZ6iRrMqZz87oTSxb7Mzrf+BlXTEhZ0XDq
+         6D0qLZtmlBAQjUaeHx9zAWfO89w3SJrozcxhYJ9gM9LZJLlPLlXJ9xpp7ecoQLu14Vbm
+         1yYrLRo/xUs7mmBA2se4MaHzWwXVmk3aDpkJrK0wdhy7KkofLcAdw2m3LU7UT/TtrM4u
+         6jrF0SB5PAPEvdNK6Oqs3WVWEUP6Yqeddv6BYWIMHBbAwcYU/03lmVwK+DwPq5GSQ3tX
+         0EOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779171433; x=1779776233;
+        d=1e100.net; s=20251104; t=1779171438; x=1779776238;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=0chwJesI0BcvhVwn8jIR2v8RSVOpIFD5ULcDL4OMxNA=;
-        b=DDqAfqjCmVeSx5Snu3gDu0b9SiVpY7D/2OcJ2ec8cTWrYLD312wUqNzQ3SljrB1tCl
-         5+V10LpIfudM1oFZ7FPgcXN8OV8c8IR50XLy5pFjmIWWhB960XLmuxnwWcS7ROKBJMBt
-         7TmcYqs/Em3xv2XO6U4KLr1jl6FlXtpC1kezVnS6i/d3XmWdH83aTZF5sb1lGsP1J9iE
-         grZYjeJ2HQR1/BpGue+tmeMSieZw8EnOpZG4sgQCywhyL5QP8FdQ3eaMKP93vVlVUmmy
-         WViKTwijEZtJZgNRYT+NVbg3OrDn/z0CKuQYp4WY+boH7JVMyr2l+6Ivyn/oeTFAMN1F
-         w6IQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9N6Al9UxZ+WIDaNGoXVIO//VEPEAT+45mhjxlzrX64tWCKPIeHXo8LC4/E0WuQKQmWIoQV8Aoe5lMO9A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YznLLCnV2ubAVxpGBCLooU5Ug6FXscjTjAo27Z/iAAQyvmWnrmN
-	wlCyfuMAlwIXoUQYabkwxeiOBB7G/yg4Mz0iWeNOlWOt8NU3hrb3SpBz
-X-Gm-Gg: Acq92OGATj+/scVvbxRHKCRdYRKxjNYccwFy/5T4fQT0YbG0IT2Y45GzRHahq/jFpPh
-	Oep2+yKP1pKqksxJVjPjkUuk/iGwzZHVLMi329qn7Li2KZp5RSowZZy7UXMjVHVWdzbj3ulXAKL
-	Mtl6aw0tMJNElND5h9ssbgNiVlnL00XgR5c2XL1ko9trNkMSsKkClxV8PEeYCsd6yj781tVgfzx
-	wOcbbZk87C3lUonmOt2ueCmcamO2swhjj5EiCyZkz8HoOZpoET6XUr/rbdGWpyR/5BQo/+JKPz+
-	vyJYA3wqXDAbMYATUxaJkdiIPkNjVNOG4svr6BbOHBOXkoCgf/8x+MynvUJkiBkpnHclMpXjxN0
-	KzG4vusxFwH9u22B1KgzTpDQcEbMfccW/w6Vsg5mVakvG/P1M2/gQ4NkltLgnk7SY2w66SAnh3u
-	qQ+a3BYnU3Pos4PA+Zl2FH8cyHYx9T5w==
-X-Received: by 2002:a05:6a00:1797:b0:835:5aa3:2dab with SMTP id d2e1a72fcca58-83f33c333f4mr18789859b3a.6.1779171433260;
-        Mon, 18 May 2026 23:17:13 -0700 (PDT)
+        bh=mUJ15hFl2aQqTBGBClvDVjCEGpr2/Wz0MRwXGiLFc2Y=;
+        b=aDr9daBAmxi/j+X39FQYGrJ6D7Au2w1LlkntzC7qoyIkNm4KK/0gnL1wkDDeNp77WZ
+         nA/kbXpJPv1zhW1nEK3TpqgbrKhNE6RPf6l0+lpFgxPx2ubE4W8WtyoOvyGZOhLIpe8G
+         XXmNfAT5jWSnWjAUC3zujo9fn79qfsVNY9nBxXXViESQCTOzIaGyYiyjOY11XCATeK1x
+         QOWfuw0bBLJfnY0ZBMMLONiAKyQF2dW34LNuNgj41aEr/syn+n4K3MlWlkTBO7NCKCQd
+         ZuiiIqHuyDB2+tYxfiTk9NrPytMPCw6u1CEtS12RJt8nYLQOP3G9sh0DAkQT2o55McS6
+         rz9g==
+X-Forwarded-Encrypted: i=1; AFNElJ/JUsihc47gwaoatbGJCK2alUHASxoNin7K2Vigj5j3pYMRgUePynO15vtc/psWOqGahMmlJ/c+glSWdQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrydhY538SAlpyuOJMsnN5Dtr90TrMAm9FhK1Ja61CemZZHpQ9
+	u0+o/nwKWV6E3455Rr0/ai6Qw/BxA+wmd8+HZur2WXzhDCXZ63JMBrcx
+X-Gm-Gg: Acq92OF5tcxAMBzDdtMTJJex4qlONeEm/gb2omBSSRrQVvaYz1TSGlUoF0E2wvZ34Xs
+	UBIRfGGdxpOLWR+ZxjP7ZbqGIzl0eTm4n1ghUmfUtMCQrAzFq/dDLgBZvEH3NP3Tz78NVXmcJrG
+	Uwjid4puaBDVXk7lYR1/Gi9msbqvHeQ5453CwOewJVEWnBy2dDvV8+27434RY3+VH6cMDGiDv8q
+	/8G6au547TQvYE4pLdRgSkNx2QpFc2nX9O3unsNQwSsTmJptgG8W9juUZk0IOnNcwju+wCEZMxo
+	k99NURUHFGjWa6Na9WDjKuo3tEHko8s6tqha1wlEFPoA8rOc4dnRmpYtpc9RhQcwGBbN+YrcGs8
+	O1ZxuhdZv5h5VEAj9m4lQ/fn2f5YfOCHSNHAAiz3eZPwopuuDjQ9KThpIR2mCNymotHKxL0JjKv
+	sS6gg4rJHCyAknQf6VHEMPiHEELv9aoQ==
+X-Received: by 2002:a05:6a00:8c2:b0:835:a682:a6d7 with SMTP id d2e1a72fcca58-83f33bae2camr18840919b3a.4.1779171437826;
+        Mon, 18 May 2026 23:17:17 -0700 (PDT)
 Received: from [10.240.146.115] ([2.27.148.101])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7f202sm16112266b3a.43.2026.05.18.23.17.09
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7f202sm16112266b3a.43.2026.05.18.23.17.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 23:17:12 -0700 (PDT)
+        Mon, 18 May 2026 23:17:17 -0700 (PDT)
 From: Zhengyu He <hezhy472013@gmail.com>
-Date: Tue, 19 May 2026 14:15:56 +0800
-Subject: [PATCH 2/3] spi: fsl-qspi: add SpacemiT K3 support
+Date: Tue, 19 May 2026 14:15:57 +0800
+Subject: [PATCH 3/3] riscv: dts: spacemit: add QSPI support for K3 Pico-ITX
 MIME-Version: 1.0
-Message-Id: <20260519-k3-pico-itx-qspi-v1-v1-2-c32afeeaf741@gmail.com>
+Message-Id: <20260519-k3-pico-itx-qspi-v1-v1-3-c32afeeaf741@gmail.com>
 References: <20260519-k3-pico-itx-qspi-v1-v1-0-c32afeeaf741@gmail.com>
 In-Reply-To: <20260519-k3-pico-itx-qspi-v1-v1-0-c32afeeaf741@gmail.com>
 To: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>, 
@@ -86,25 +86,25 @@ Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  Zhengyu He <hezhy472013@gmail.com>, Cody Kang <cody.kang.hk@outlook.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1005; i=hezhy472013@gmail.com;
- h=from:subject:message-id; bh=QQ5srJ1k52NpjI+Q3HaLSa9pVnjXdE8OZht6hpCEbfA=;
- b=owEBbQKS/ZANAwAKAc32nDaAuA3YAcsmYgBqDABXIRd9mve9a3LQBUJIUGDCj75EfmGr6SWgm
- EgLvgHfmoaJAjMEAAEKAB0WIQS9XD2kxy1NmfC2u/XN9pw2gLgN2AUCagwAVwAKCRDN9pw2gLgN
- 2B0UEACbVrBMVl9AKoDlOthIdXOqinDtkvcCtGfWilREm6uKD0VHDaDqUbYqUyyngN2LzVqqsbM
- 4fPTAtLTqOVySq3qbYFX3li10q48NOGWn5QFQ5v+JNkNd/Fe2l8mLhiSiKRtYG4M34VtWUBChoL
- L4FVnsJ7mLlU5zChZFZYySvPDRsgheMHCJpL1MUvfnB3Ln3iitWB2cyhV1Ir1LHYUnALTrVSzIU
- X7a/fAWMFmGN3z3Oiow1a11VMmZPFgW3jtrXMavZ3hVCYbUtnpZkwuYRUAReJqNEdFfm4m2WOYe
- +8PnK2BUOn2U7pnF4I8qnlcAqU2h1xxUGSXXywuRLuPigKDnpTAmhYwhtZqkpJTt4UDNkMbt57j
- JwzUhz1F16xy8nm2mHzgB2folx/0lKSpcxEz9VkjmixyFn6WA/SAUzBCQnK84kXdhFuJxavaN0v
- YeIJ9Fms027WtDd8alyE6tnGz5Nue//wz9sXiIcd9dbi/Y3vA6y5gMtXVsQ80hTZ9XkfEcm1n0S
- orR0nudtNEWioux2TH/BmzcDbRE/rxyUAzeC5Y6Be484DxyHtGdNjw1RxFS4WKD4ZJs8PaHivbf
- B0OcC9+Y6MuCpmZjh0N8Cb22uSIcdI9nfNP5iPdRJNBPgeWp0uaweU83FV4ew/fE7d6tYYYY267
- UwbX6qasCIKqbwQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3723; i=hezhy472013@gmail.com;
+ h=from:subject:message-id; bh=bU61JmNF1c+b4KWRcgOhA/JRURr6NwQdOpuIqG8oVJ4=;
+ b=owEBbQKS/ZANAwAKAc32nDaAuA3YAcsmYgBqDABauY3HTSzF9IaJjmTv1VlCI5XJKn47n09ne
+ KmVVyHfeyaJAjMEAAEKAB0WIQS9XD2kxy1NmfC2u/XN9pw2gLgN2AUCagwAWgAKCRDN9pw2gLgN
+ 2LWxEACmEhpN3JONYcq7jJHX5BvuRUB0L5LCma+xBmD6vLDsejxKAsYsj4bSMJH7uS86Nu93PB6
+ rvMXUOwBVqLAnumCrq+tNZFMJhMLQJaxVVf7bh8r6TJZvfbLmCzvl4MuZcBgVqAZqtqfdyBXLL0
+ Re9uZbYv6ljHvmt52PZtbP9nj/ubdZ4CmauirDVhKchu9NZr+/ZEWiq5CdfRMhKriMBx6JYkQ5P
+ A9tOrxhELRH+pHDWuSpCoMYayyZcFsuj1BbCziBG1/92yLzzjQNtKQFMTLehN3gEmZWBYKoBmBQ
+ ja4bHaSYSs1YoLHgKy/G5KeCenUxE2PWEpVRfaWebd4c+tQQCOhx+M/xoRRob+KbS7sY5avYAEL
+ Csv1PyAqYa6woB/tm9aaDBxGSR8a7a60q/C7KlYQPFVxF46s+SDr7u/6P76ZlW926hM1EC1WgLu
+ 4tibWXk8npcEO/rlfVF/QX9HcJn8grFS9ArAoL3C1XWGoIwTEWBsGbGRh64SHYK3pqIPrCG+tMz
+ C64OjXm5meqKr3zVeQrAnqyaw4FFtzKdW1Fyi7OV0YXwEOyM+4AH7v4FO7Ij0FMqy7KlBy5+7+J
+ YjiaP/FS40AjJTj86I8VSyEYguOroOdif5NVgdJMz6LnZ9Ic2liTq2jYy0AWZtR2jjrTzxuYpiR
+ OV9Z1ET8NUMcOQQ==
 X-Developer-Key: i=hezhy472013@gmail.com; a=openpgp;
  fpr=26CA97B1A229C229822278F254AF850165158959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_231714_081666_C14AA889 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20260518_231718_731507_FCDADCC3 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,29 +121,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K3 uses the FSL QSPI controller with the same programming model as the
-existing SpacemiT integration, but has its own compatible string.
+Describe the K3 QSPI controller and the pin configuration needed by
+boards.
 
-Add the match entry so DTs using the K3 compatible bind to the driver.
+Enable the bus on Pico-ITX because the board wires QSPI to NOR flash
+powered from the board 1.8 V QSPI rail.
 
 Signed-off-by: Zhengyu He <hezhy472013@gmail.com>
 Signed-off-by: Cody Kang <cody.kang.hk@outlook.com>
 ---
- drivers/spi/spi-fsl-qspi.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 58 ++++++++++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 21 ++++++++++
+ arch/riscv/boot/dts/spacemit/k3.dtsi         | 16 ++++++++
+ 3 files changed, 95 insertions(+)
 
-diff --git a/drivers/spi/spi-fsl-qspi.c b/drivers/spi/spi-fsl-qspi.c
-index 57358851029b..bb94fae32609 100644
---- a/drivers/spi/spi-fsl-qspi.c
-+++ b/drivers/spi/spi-fsl-qspi.c
-@@ -1015,6 +1015,7 @@ static const struct of_device_id fsl_qspi_dt_ids[] = {
- 	{ .compatible = "fsl,ls1021a-qspi", .data = &ls1021a_data, },
- 	{ .compatible = "fsl,ls2080a-qspi", .data = &ls2080a_data, },
- 	{ .compatible = "spacemit,k1-qspi", .data = &spacemit_k1_data, },
-+	{ .compatible = "spacemit,k3-qspi", .data = &spacemit_k1_data, },
- 	{ /* sentinel */ }
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index 4486dc1fe114..61cbf924830b 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -192,6 +192,64 @@ phy0: phy@1 {
+ 	};
  };
- MODULE_DEVICE_TABLE(of, fsl_qspi_dt_ids);
+ 
++&pinctrl {
++	qspi-cfg {
++		qspi-pins {
++			power-source = <1800>;
++		};
++
++		qspi-cs0-pins {
++			power-source = <1800>;
++		};
++	};
++};
++
++&qspi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&qspi_cfg>;
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <26500000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <4>;
++		vcc-supply = <&aldo2>; /* PMIC_VCC1V8_QSPI */
++		m25p,fast-read;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			bootinfo@0 {
++				reg = <0x0 0x20000>;
++			};
++
++			fsbl@20000 {
++				reg = <0x20000 0x80000>;
++			};
++
++			env@a0000 {
++				reg = <0xa0000 0x10000>;
++			};
++
++			esos@b0000 {
++				reg = <0xb0000 0x100000>;
++			};
++
++			opensbi@1b0000 {
++				reg = <0x1b0000 0x60000>;
++			};
++
++			uboot@210000 {
++				reg = <0x210000 0x5f0000>;
++			};
++		};
++	};
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_0_cfg>;
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+index 23899d3f308a..5d9763791180 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+@@ -56,6 +56,27 @@ i2c8-pins {
+ 		};
+ 	};
+ 
++	/omit-if-no-ref/
++	qspi_cfg: qspi-cfg {
++		qspi-pins {
++			pinmux = <K3_PADCONF(138, 0)>,	/* qspi dat0 */
++				 <K3_PADCONF(139, 0)>,	/* qspi dat1 */
++				 <K3_PADCONF(140, 0)>,	/* qspi dat2 */
++				 <K3_PADCONF(141, 0)>,	/* qspi dat3 */
++				 <K3_PADCONF(144, 0)>;	/* qspi clk */
++
++			bias-disable;
++			drive-strength = <25>;
++		};
++
++		qspi-cs0-pins {
++			pinmux = <K3_PADCONF(142, 0)>;	/* qspi cs0 */
++
++			bias-disable;
++			drive-strength = <25>;
++		};
++	};
++
+ 	/omit-if-no-ref/
+ 	uart0_0_cfg: uart0-0-cfg {
+ 		uart0-0-pins {
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index 815debd16409..800efc2929a4 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -836,6 +836,22 @@ pll: clock-controller@d4090000 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		qspi: spi@d420c000 {
++			compatible = "spacemit,k3-qspi";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0x0 0xd420c000 0x0 0x1000>,
++			      <0x0 0xb8000000 0x0 0xc00000>;
++			reg-names = "QuadSPI", "QuadSPI-memory";
++			clocks = <&syscon_apmu CLK_APMU_QSPI_BUS>,
++				 <&syscon_apmu CLK_APMU_QSPI>;
++			clock-names = "qspi_en", "qspi";
++			resets = <&syscon_apmu RESET_APMU_QSPI>,
++				 <&syscon_apmu RESET_APMU_QSPI_BUS>;
++			interrupts = <117 IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
++		};
++
+ 		syscon_apmu: system-controller@d4282800 {
+ 			compatible = "spacemit,k3-syscon-apmu";
+ 			reg = <0x0 0xd4282800 0x0 0x400>;
 
 -- 
 2.53.0
