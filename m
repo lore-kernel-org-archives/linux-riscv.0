@@ -4,65 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2245CD4F5B
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 17:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704A6CD4F5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 17:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jha/wTlf1LmuTYDgArRAKRpwI4UxybWRJAp1HHeN6uI=; b=CNfDxhFvfIcMdt
-	ULl15Qw3LtGO9/YlCr17byT0gTolbIOc2NhLP6F+PkK4pPLWwlo8APrHpun5XJIl8qwD2MwXYfZEJ
-	wPDO+D2+FBa3+lIFIRjFhGrvzEn148ngjvWdSylJWsBUdeFQ6hHFGuhFvW9tdQXHQeTtRAh/JbKwV
-	c6l5igEA3nQ74VTyhrxf/7H510TuW6FoGRFDNb4kvRlsOXIigEPcadvyCCVQUvxrhKPnBmLo748gk
-	RZhFrWd4MzP85Y3HJWDmxyUHTAZ3kuxXg8OTwONWqLld72Gs2Sjdh7EzpbpEqup9BJKYQOeMJ3dpe
-	1EHDBxoNiuHdTQo/1L6w==;
+	List-Owner; bh=+vEPvvbt6HFsZIR4fBlKnmQ595E6k6hNSeut721SDoA=; b=TStzUQ6eRBU05N
+	7RT0/aH4m2DbEY/JoiijbA0Wmo5S8oS8dpFQmdYxbYuTOjzrXyZAEDsNm+HjD7J3j0yFgbiJYAh8+
+	3H9/M6oouEOYUv/PmmUnEyU6P9UXNi+Uz2TVll57nmIwtCv0XymDV3730UmdcFyxsoMna61YGyy6Z
+	sGopok+1aVSPdjAH/6hSCWfl50rUVAnxDI14E7cIEd6SF6qX+oWjtoWUtrMOGfqhOO3MErb/6/3kU
+	xKm9xaDUIpACW6oFyuh+kbPH3TKobWyyS7awwrIV8+LnLIOZaznnt7fKSIdvtE12CphI7iQaMbQUS
+	ao2IcwggqeyUG4Xf2LUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPOA8-00000002NAc-0acL;
-	Tue, 19 May 2026 17:23:24 +0000
-Received: from forward103d.mail.yandex.net ([178.154.239.214])
+	id 1wPOHu-00000002P86-3gl7;
+	Tue, 19 May 2026 17:31:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPOA1-00000002N3X-3unp
+	id 1wPOHs-00000002P7W-3I9W
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 19 May 2026 17:31:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+M43gBW8YyjmiDrGj03/O7lQi+1aZT7Iw8k13I+uBgA=; b=TE+sVUN5Xi+E4vGqRcw8yC4bHc
+	l+3PfLhn+oyoMaFDVY1Q62gT4vOBr0FNpXzxY9a807iTsJvQ4GNHihj55JieFyF4kfQH8XpIUgXO5
+	MMeK8EhABp5za29pWdCSQHyTsHlAwqGHxZT8dR4cqpDuQF+9+tAbAISNhdUFbQ1a1WWnaZMSZgkYR
+	1pnYtDr/QXsCHJ1U+FQ1VlqE/z2YFxm4wsgzwAwmOhwymkvMg/VuX787YVbjazzEIkhnJD3oXscxX
+	/6okqZ0Iydd9H11pGHdCtSl0f6iPp0fl2L3aVeNhztkI/ZpWR4iGonlBNVPaGSHXK6cfJ0yZTMLVk
+	RrH3hNwg==;
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPOHp-0000000EwH6-1Sr2
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 17:23:19 +0000
-Received: from mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net [IPv6:2a02:6b8:c0c:190d:0:640:bab5:0])
-	by forward103d.mail.yandex.net (Yandex) with ESMTPS id C4C96C006C;
-	Tue, 19 May 2026 20:23:14 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net (smtp) with ESMTPSA id 0NVul40SU0U0-VgL9yf6V;
-	Tue, 19 May 2026 20:23:13 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1779211394; bh=xzG4XWRWYOhW+VDKKOYbDyFIDHXX/FS9o4Tjn79fogA=;
-	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=OXQq27gJ8UHBNAaXysC+DXwjIAc8+m6o3nLIUj7YpGKCSO1L/lZY++ZYhjtVHS5vf
-	 oRmrKhgLJbl4WwD6uuKjMuAP2uurxAaZE9SH5LwK9EGbLWPpMl+v5Xx2RBFo7yboZE
-	 /d+pDTXRsGfWRSZsb++7VsiouP4ItZGuF+UlLZ+Q=
-Authentication-Results: mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
-From: Dmitry Antipov <dmantipov@yandex.ru>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH v11 7/8] lib: kunit: add tests for __ashldi3(), __ashrdi3(), and __lshrdi3()
-Date: Tue, 19 May 2026 20:22:58 +0300
-Message-ID: <20260519172259.908980-8-dmantipov@yandex.ru>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260519172259.908980-1-dmantipov@yandex.ru>
-References: <20260519172259.908980-1-dmantipov@yandex.ru>
+	Tue, 19 May 2026 17:31:23 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-479ef2b78f3so3685331b6e.2
+        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 10:31:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1779211879; x=1779816679; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+M43gBW8YyjmiDrGj03/O7lQi+1aZT7Iw8k13I+uBgA=;
+        b=dZFiYlFP+XnlYwvWMwD2+PkFzFS1A1bB8aAttg/2FvmkCRkUNqKBQUzchwoSZL1KoF
+         rJJpW1RLt0NF9lKiR+1NrRo4GLVlscHU/0O03pjJHMfUI7oxs1fF2OD5+gSzXpl1dni0
+         3wn8T8wT5ml2XMb+PbCp9p09gyGIw4wiXqQtYkrqDbd85sisc6F0rLYeGE5YOi3BhW1Y
+         qciZ8+nqx6QlbIfrwk9HOu2/1/+dGnnGlsSU5hDXO0AZBYDtaQkQzcKIiRd1ndvEG4MZ
+         +4xKqgE/+ZTTUlogkSqRgMtadkCT/Vg5/A0cvR9CMaFiIDXVx4piMlgffuQEM7moLqL3
+         Fakg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779211879; x=1779816679;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+M43gBW8YyjmiDrGj03/O7lQi+1aZT7Iw8k13I+uBgA=;
+        b=pa8M5AHo3JWeWwfzMaNh0ObW0WND5WB/GNxJjaTH7vgPNztTih2Nsj39M6QjEAprod
+         sr11OFTvhSTrWx6azOs8k+Gn85GRr/DcFEzkFCZA8qwzRb7EWeF6mkw33VXVF6uhMQ8K
+         dKYw9C1UuZiFXzS47FvCEHSeOw9IHBtM6ZJsmdv92ZiNFVfORlGbd5EwholG5tUNcv02
+         uWMM7jZ0d70QW12Qs+xiB6CN+8RsEgGWV+vxZHAaPSMDmRgm8id5qKXt8ysD7dMBqhoM
+         YmKKYYSxY0tKa06W3EOgriA/A8dHlZrH/lY9rICVQvGYymag0Snb/g8l/mryFx+NpMGS
+         JLrA==
+X-Forwarded-Encrypted: i=1; AFNElJ/nJ39Nkdhr+VEEojOUlxbTAi93iSrFovdBlrzDIrxyFSnscpTOZZ36ZCPq7DOy0G7En3zlPcoXc478ow==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXpnijg6S1YelDHttBtRF8AMAh+756utAcx4Jw87mPgP22reGS
+	qaDBgDKaymzuKyOnAUI1xDV2MGNam5ecFeUL3NU5iPN87o4RwcAwfzqcpqS0lu0aNlE=
+X-Gm-Gg: Acq92OHbImL3/+86a75dt8sV5KMWja/9ujdQYWGw1AkKr8YSN+VEGzQPQNWJTDsvff9
+	mdj9S8as+gT0+ZnWSArEu+uHscbD8sxl7DSwqIOGRtk0yabciyadllDjpqqN6f5U0jQPlOt9C7+
+	U22KWsh+J8CX/+3HQdTyAILqisOHYypy+NEylLtw4HgzuD7OOCTwyfzHEmZGJBt8WIumUsqJuSE
+	OM3y8JSBMvW0wAufQuGcdxz9oQOTvdErrNv46nZUpMDR9Fl/OhWo9yhJTtgK7AF27Ux5YTh6baG
+	5c4Upc+tTrJI5HizILtfYoEoh87Y8U3+NtW3VEVRZvmehWs+x1kpkZpAkTP3Rr56AzrcMUfKMeR
+	Fw9lO5kFlwUyZcJ+lUDGQeUhn/13Q8VjwgmFzJBSRynaU8Ao+ZO1fCMb5rlov0114OtNCoD6OzG
+	z3VYtANorsguE1JtFklRHcquG9fpZ1yVe1XDgf8IWcVT/Tig==
+X-Received: by 2002:a05:6808:4fc8:b0:479:ead7:2a5a with SMTP id 5614622812f47-482e55ffbc1mr12525763b6e.11.1779211879045;
+        Tue, 19 May 2026 10:31:19 -0700 (PDT)
+Received: from [100.64.0.1] ([165.225.37.83])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-482ee0999f3sm6870174b6e.0.2026.05.19.10.31.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 May 2026 10:31:18 -0700 (PDT)
+Message-ID: <59bf4f1e-8d7f-44ff-836b-76b771542e92@sifive.com>
+Date: Tue, 19 May 2026 12:31:16 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] riscv: track effective hardware PTE A/D updates
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: Qingwei Hu <qingwei.hu@bytedance.com>, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, pasha.tatashin@soleen.com,
+ andrew+kernel@donnellan.id.au, rmclure@linux.ibm.com, debug@rivosinc.com,
+ baolin.wang@linux.alibaba.com, zhangchunyan@iscas.ac.cn, apopple@nvidia.com,
+ namcao@linutronix.de, wangruikang@iscas.ac.cn, apatel@ventanamicro.com,
+ liu.xuemei1@zte.com.cn, ajones@ventanamicro.com, cleger@rivosinc.com,
+ charlie@rivosinc.com, hui.wang@canonical.com, guodong@riscstar.com,
+ pincheng.plct@isrc.iscas.ac.cn, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260519031927.70683-1-cuiyunhui@bytedance.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20260519031927.70683-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_102318_324055_8BC36F7A 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20260519_183121_829233_841387AC 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,245 +124,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add KUnit tests for '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'
-helper functions used to implement 64-bit arithmetic shift left,
-arithmetic shift right and logical shift right, respectively,
-on a 32-bit CPUs.
+Hi Yunhui,
 
-Tested with 'qemu-system-riscv32 -M virt' and 'qemu-system-arm -M virt'.
+On 2026-05-18 10:19 PM, Yunhui Cui wrote:
+> Separate Svadu capability discovery from the host's effective ADUE
+> state. Enable SBI FWFT PTE A/D hardware updating on each online CPU
+> through CPUHP when both Svade and Svadu are present, use the resulting
+> runtime state for arch_has_hw_pte_young(), and fall back to
+> software-managed A/D updates when enabling the feature fails.
+> 
+> Platforms with Svadu but without Svade are treated as always using
+> hardware PTE A/D updates. Expose the runtime state through an inline
+> getter so hot MM paths avoid an out-of-line function call.
+> 
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Reviewed-by: Qingwei Hu <qingwei.hu@bytedance.com>
+> ---
+>  arch/riscv/include/asm/cpufeature.h |  6 +++
+>  arch/riscv/include/asm/pgtable.h    |  8 ++--
+>  arch/riscv/kernel/cpufeature.c      | 73 ++++++++++++++++++++++++++---
+>  3 files changed, 77 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> index 739fcc84bf7b2..877d71a1ea755 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -128,6 +128,12 @@ struct riscv_isa_ext_data {
+>  extern const struct riscv_isa_ext_data riscv_isa_ext[];
+>  extern const size_t riscv_isa_ext_count;
+>  extern bool riscv_isa_fallback;
+> +extern bool riscv_hw_pte_ad_updating_enabled;
+> +
+> +static __always_inline bool riscv_has_hw_pte_ad_updating(void)
+> +{
+> +	return READ_ONCE(riscv_hw_pte_ad_updating_enabled);
+> +}
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Assisted-by: Gemini:gemini-3.1-pro-preview sashiko
-Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
----
-v11: explicitly depends on arm/xtensa/microblaze or 32-bit riscv/sparc (Sashiko)
-v4-v10: bump version to match the series
-v3: more tests by Charlie Jenkins
-v2: include test-specific headers rather than generic linux/kernel.h
----
- lib/Kconfig.debug       |  10 +++
- lib/tests/Makefile      |   1 +
- lib/tests/shdi3_kunit.c | 175 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 186 insertions(+)
- create mode 100644 lib/tests/shdi3_kunit.c
+Should this use a static key, since it's only updated at boot, and you mention
+it is used in MM hot paths?
 
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index 8ff5adcfe1e0..7ca468c7d81d 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -2971,6 +2971,16 @@ config BITS_TEST
- 
- 	  If unsure, say N.
- 
-+config SHDI3_KUNIT_TEST
-+	tristate "KUnit test for __ashldi3(), __ashrdi3(), and __lshrdi3()"
-+	depends on KUNIT
-+	depends on ARM || XTENSA || MICROBLAZE || ((RISCV || SPARC) && !64BIT)
-+	help
-+	  This builds the unit test for __ashldi3(), __ashrdi3(), and
-+	  __lshrdi3() helper functions used to implement 64-bit arithmetic
-+	  shift left, arithmetic shift right and logical shift right,
-+	  respectively, on a 32-bit CPUs.
-+
- config SLUB_KUNIT_TEST
- 	tristate "KUnit test for SLUB cache error detection" if !KUNIT_ALL_TESTS
- 	depends on SLUB_DEBUG && KUNIT
-diff --git a/lib/tests/Makefile b/lib/tests/Makefile
-index 7e9c2fa52e35..4ead57602eac 100644
---- a/lib/tests/Makefile
-+++ b/lib/tests/Makefile
-@@ -8,6 +8,7 @@ obj-$(CONFIG_BASE64_KUNIT) += base64_kunit.o
- obj-$(CONFIG_BITOPS_KUNIT) += bitops_kunit.o
- obj-$(CONFIG_BITFIELD_KUNIT) += bitfield_kunit.o
- obj-$(CONFIG_BITS_TEST) += test_bits.o
-+obj-$(CONFIG_SHDI3_KUNIT_TEST) += shdi3_kunit.o
- obj-$(CONFIG_BLACKHOLE_DEV_KUNIT_TEST) += blackhole_dev_kunit.o
- obj-$(CONFIG_CHECKSUM_KUNIT) += checksum_kunit.o
- obj-$(CONFIG_CMDLINE_KUNIT_TEST) += cmdline_kunit.o
-diff --git a/lib/tests/shdi3_kunit.c b/lib/tests/shdi3_kunit.c
-new file mode 100644
-index 000000000000..44f65e66512b
---- /dev/null
-+++ b/lib/tests/shdi3_kunit.c
-@@ -0,0 +1,175 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR Apache-2.0
-+/*
-+ * Test cases for __ashldi3(), __ashrdi3(), and __lshrdi3().
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/module.h>
-+#include <linux/libgcc.h>
-+#include <kunit/test.h>
-+
-+struct shdi3_test_entry {
-+	long long input;
-+	int shift;
-+	long long result;
-+};
-+
-+static const struct shdi3_test_entry ashldi3_testdata[] = {
-+	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/ashldi3_test.c */
-+	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-+	{ 0x0123456789ABCDEFLL, 1, 0x2468ACF13579BDELL },
-+	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BCLL },
-+	{ 0x0123456789ABCDEFLL, 3, 0x91A2B3C4D5E6F78LL },
-+	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDEF0LL },
-+	{ 0x0123456789ABCDEFLL, 28, 0x789ABCDEF0000000LL },
-+	{ 0x0123456789ABCDEFLL, 29, 0xF13579BDE0000000LL },
-+	{ 0x0123456789ABCDEFLL, 30, 0xE26AF37BC0000000LL },
-+	{ 0x0123456789ABCDEFLL, 31, 0xC4D5E6F780000000LL },
-+	{ 0x0123456789ABCDEFLL, 32, 0x89ABCDEF00000000LL },
-+	{ 0x0123456789ABCDEFLL, 33, 0x13579BDE00000000LL },
-+	{ 0x0123456789ABCDEFLL, 34, 0x26AF37BC00000000LL },
-+	{ 0x0123456789ABCDEFLL, 35, 0x4D5E6F7800000000LL },
-+	{ 0x0123456789ABCDEFLL, 36, 0x9ABCDEF000000000LL },
-+	{ 0x0123456789ABCDEFLL, 60, 0xF000000000000000LL },
-+	{ 0x0123456789ABCDEFLL, 61, 0xE000000000000000LL },
-+	{ 0x0123456789ABCDEFLL, 62, 0xC000000000000000LL },
-+	{ 0x0123456789ABCDEFLL, 63, 0x8000000000000000LL },
-+};
-+
-+static void shdi3_test_ashldi3(struct kunit *test)
-+{
-+	const struct shdi3_test_entry *e;
-+	long long ret;
-+
-+	for (e = ashldi3_testdata;
-+	     e < ashldi3_testdata + ARRAY_SIZE(ashldi3_testdata); e++) {
-+		ret = __ashldi3(e->input, e->shift);
-+		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-+				    "    when evaluating __ashldi3(%lld, %d)",
-+				    e->input, e->shift);
-+	}
-+}
-+
-+static const struct shdi3_test_entry ashrdi3_testdata[] = {
-+	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/ashrdi3_test.c */
-+	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-+	{ 0x0123456789ABCDEFLL, 1, 0x91A2B3C4D5E6F7LL },
-+	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BLL },
-+	{ 0x0123456789ABCDEFLL, 3, 0x2468ACF13579BDLL },
-+	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDELL },
-+	{ 0x0123456789ABCDEFLL, 28, 0x12345678LL },
-+	{ 0x0123456789ABCDEFLL, 29, 0x91A2B3CLL },
-+	{ 0x0123456789ABCDEFLL, 30, 0x48D159ELL },
-+	{ 0x0123456789ABCDEFLL, 31, 0x2468ACFLL },
-+	{ 0x0123456789ABCDEFLL, 32, 0x1234567LL },
-+	{ 0x0123456789ABCDEFLL, 33, 0x91A2B3LL },
-+	{ 0x0123456789ABCDEFLL, 34, 0x48D159LL },
-+	{ 0x0123456789ABCDEFLL, 35, 0x2468ACLL },
-+	{ 0x0123456789ABCDEFLL, 36, 0x123456LL },
-+	{ 0x0123456789ABCDEFLL, 60, 0 },
-+	{ 0x0123456789ABCDEFLL, 61, 0 },
-+	{ 0x0123456789ABCDEFLL, 62, 0 },
-+	{ 0x0123456789ABCDEFLL, 63, 0 },
-+	{ 0xFEDCBA9876543210LL, 0, 0xFEDCBA9876543210LL },
-+	{ 0xFEDCBA9876543210LL, 1, 0xFF6E5D4C3B2A1908LL },
-+	{ 0xFEDCBA9876543210LL, 2, 0xFFB72EA61D950C84LL },
-+	{ 0xFEDCBA9876543210LL, 3, 0xFFDB97530ECA8642LL },
-+	{ 0xFEDCBA9876543210LL, 4, 0xFFEDCBA987654321LL },
-+	{ 0xFEDCBA9876543210LL, 28, 0xFFFFFFFFEDCBA987LL },
-+	{ 0xFEDCBA9876543210LL, 29, 0xFFFFFFFFF6E5D4C3LL },
-+	{ 0xFEDCBA9876543210LL, 30, 0xFFFFFFFFFB72EA61LL },
-+	{ 0xFEDCBA9876543210LL, 31, 0xFFFFFFFFFDB97530LL },
-+	{ 0xFEDCBA9876543210LL, 32, 0xFFFFFFFFFEDCBA98LL },
-+	{ 0xFEDCBA9876543210LL, 33, 0xFFFFFFFFFF6E5D4CLL },
-+	{ 0xFEDCBA9876543210LL, 34, 0xFFFFFFFFFFB72EA6LL },
-+	{ 0xFEDCBA9876543210LL, 35, 0xFFFFFFFFFFDB9753LL },
-+	{ 0xFEDCBA9876543210LL, 36, 0xFFFFFFFFFFEDCBA9LL },
-+	{ 0xAEDCBA9876543210LL, 60, 0xFFFFFFFFFFFFFFFALL },
-+	{ 0xAEDCBA9876543210LL, 61, 0xFFFFFFFFFFFFFFFDLL },
-+	{ 0xAEDCBA9876543210LL, 62, 0xFFFFFFFFFFFFFFFELL },
-+	{ 0xAEDCBA9876543210LL, 63, 0xFFFFFFFFFFFFFFFFLL },
-+};
-+
-+static void shdi3_test_ashrdi3(struct kunit *test)
-+{
-+	const struct shdi3_test_entry *e;
-+	long long ret;
-+
-+	for (e = ashrdi3_testdata;
-+	     e < ashrdi3_testdata + ARRAY_SIZE(ashrdi3_testdata); e++) {
-+		ret = __ashrdi3(e->input, e->shift);
-+		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-+				    "    when evaluating __ashrdi3(%lld, %d)",
-+				    e->input, e->shift);
-+	}
-+}
-+
-+static const struct shdi3_test_entry lshrdi3_testdata[] = {
-+	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/lshrdi3_test.c */
-+	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-+	{ 0x0123456789ABCDEFLL, 1, 0x91A2B3C4D5E6F7LL },
-+	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BLL },
-+	{ 0x0123456789ABCDEFLL, 3, 0x2468ACF13579BDLL },
-+	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDELL },
-+	{ 0x0123456789ABCDEFLL, 28, 0x12345678LL },
-+	{ 0x0123456789ABCDEFLL, 29, 0x91A2B3CLL },
-+	{ 0x0123456789ABCDEFLL, 30, 0x48D159ELL },
-+	{ 0x0123456789ABCDEFLL, 31, 0x2468ACFLL },
-+	{ 0x0123456789ABCDEFLL, 32, 0x1234567LL },
-+	{ 0x0123456789ABCDEFLL, 33, 0x91A2B3LL },
-+	{ 0x0123456789ABCDEFLL, 34, 0x48D159LL },
-+	{ 0x0123456789ABCDEFLL, 35, 0x2468ACLL },
-+	{ 0x0123456789ABCDEFLL, 36, 0x123456LL },
-+	{ 0x0123456789ABCDEFLL, 60, 0 },
-+	{ 0x0123456789ABCDEFLL, 61, 0 },
-+	{ 0x0123456789ABCDEFLL, 62, 0 },
-+	{ 0x0123456789ABCDEFLL, 63, 0 },
-+	{ 0xFEDCBA9876543210LL, 0, 0xFEDCBA9876543210LL },
-+	{ 0xFEDCBA9876543210LL, 1, 0x7F6E5D4C3B2A1908LL },
-+	{ 0xFEDCBA9876543210LL, 2, 0x3FB72EA61D950C84LL },
-+	{ 0xFEDCBA9876543210LL, 3, 0x1FDB97530ECA8642LL },
-+	{ 0xFEDCBA9876543210LL, 4, 0xFEDCBA987654321LL },
-+	{ 0xFEDCBA9876543210LL, 28, 0xFEDCBA987LL },
-+	{ 0xFEDCBA9876543210LL, 29, 0x7F6E5D4C3LL },
-+	{ 0xFEDCBA9876543210LL, 30, 0x3FB72EA61LL },
-+	{ 0xFEDCBA9876543210LL, 31, 0x1FDB97530LL },
-+	{ 0xFEDCBA9876543210LL, 32, 0xFEDCBA98LL },
-+	{ 0xFEDCBA9876543210LL, 33, 0x7F6E5D4CLL },
-+	{ 0xFEDCBA9876543210LL, 34, 0x3FB72EA6LL },
-+	{ 0xFEDCBA9876543210LL, 35, 0x1FDB9753LL },
-+	{ 0xFEDCBA9876543210LL, 36, 0xFEDCBA9LL },
-+	{ 0xAEDCBA9876543210LL, 60, 0xALL },
-+	{ 0xAEDCBA9876543210LL, 61, 0x5LL },
-+	{ 0xAEDCBA9876543210LL, 62, 0x2LL },
-+	{ 0xAEDCBA9876543210LL, 63, 0x1LL },
-+};
-+
-+static void shdi3_test_lshrdi3(struct kunit *test)
-+{
-+	const struct shdi3_test_entry *e;
-+	long long ret;
-+
-+	for (e = lshrdi3_testdata;
-+	     e < lshrdi3_testdata + ARRAY_SIZE(lshrdi3_testdata); e++) {
-+		ret = __lshrdi3(e->input, e->shift);
-+		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-+				    "    when evaluating __lshrdi3(%lld, %d)",
-+				    e->input, e->shift);
-+	}
-+}
-+
-+static struct kunit_case shdi3_test_cases[] = {
-+	KUNIT_CASE(shdi3_test_ashldi3),
-+	KUNIT_CASE(shdi3_test_ashrdi3),
-+	KUNIT_CASE(shdi3_test_lshrdi3),
-+	{}
-+};
-+
-+static struct kunit_suite shdi3_test_suite = {
-+	.name = "shdi3",
-+	.test_cases = shdi3_test_cases,
-+};
-+kunit_test_suite(shdi3_test_suite);
-+
-+MODULE_DESCRIPTION("Test cases for __ashldi3(), __ashrdi3(), and __lshrdi3()");
-+MODULE_LICENSE("GPL");
--- 
-2.54.0
+>  
+>  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+>  static __always_inline bool riscv_cpu_has_extension_likely(int cpu, const unsigned long ext)
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index a1a7c6520a095..20663a466cf6c 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -732,14 +732,14 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+>  #define pgprot_dmacoherent pgprot_writecombine
+>  
+>  /*
+> - * Both Svade and Svadu control the hardware behavior when the PTE A/D bits need to be set. By
+> - * default the M-mode firmware enables the hardware updating scheme when only Svadu is present in
+> - * DT.
+> + * Both Svade and Svadu control the hardware behavior when the PTE A/D bits
+> + * need to be set. The core MM code only cares whether hardware updating of
+> + * the accessed/dirty state is currently active.
+>   */
+>  #define arch_has_hw_pte_young arch_has_hw_pte_young
+>  static inline bool arch_has_hw_pte_young(void)
+>  {
+> -	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
+> +	return riscv_has_hw_pte_ad_updating();
+>  }
+>  
+>  /*
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index f46aa5602d74d..e46b2d2b49eed 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -35,6 +35,8 @@
+>  static bool any_cpu_has_zicboz;
+>  static bool any_cpu_has_zicbop;
+>  static bool any_cpu_has_zicbom;
+> +bool riscv_hw_pte_ad_updating_enabled __read_mostly;
+> +EXPORT_SYMBOL_GPL(riscv_hw_pte_ad_updating_enabled);
+>  
+>  unsigned long elf_hwcap __read_mostly;
+>  
+> @@ -287,15 +289,74 @@ static int riscv_ext_zvfbfwma_validate(const struct riscv_isa_ext_data *data,
+>  	return -EPROBE_DEFER;
+>  }
+>  
+> -static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
+> -				    const unsigned long *isa_bitmap)
+> +static void riscv_set_hw_pte_ad_updating(bool enabled)
+> +{
+> +	WRITE_ONCE(riscv_hw_pte_ad_updating_enabled, enabled);
+> +}
+> +
+> +static int riscv_hw_pte_ad_updating_starting(unsigned int cpu)
+> +{
+> +	int ret;
+> +
+> +	ret = sbi_fwft_set(SBI_FWFT_PTE_AD_HW_UPDATING, 1, 0);
+> +	if (ret) {
+> +		if (ret != -EOPNOTSUPP)
+> +			pr_err("CPU%u failed to enable hardware PTE A/D updating: %d\n",
+> +			       cpu, ret);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int riscv_hw_pte_ad_updating_dying(unsigned int cpu)
+>  {
+> -	/* SVADE has already been detected, use SVADE only */
+> -	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SVADE))
+> -		return -EOPNOTSUPP;
+> +	int ret;
+> +
+> +	ret = sbi_fwft_set(SBI_FWFT_PTE_AD_HW_UPDATING, 0, 0);
+> +	if (ret)
+> +		pr_warn("CPU%u failed to disable hardware PTE A/D updating: %d\n",
+> +			cpu, ret);
+
+Why bother disabling the feature when taking a CPU offline? It doesn't create
+any problems to leave it enabled.
+
+Regards,
+Samuel
+
+> +
+> +	return 0;
+> +}
+>  
+> +static int __init riscv_hw_pte_ad_updating_init(void)
+> +{
+> +	bool has_svade, has_svadu;
+> +	int state;
+> +
+> +	has_svade = riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADE);
+> +	has_svadu = riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
+> +
+> +	if (!has_svadu)
+> +		return 0;
+> +
+> +	if (!has_svade) {
+> +		riscv_set_hw_pte_ad_updating(true);
+> +		pr_info("riscv: hardware PTE A/D updating enabled\n");
+> +		return 0;
+> +	}
+> +
+> +	state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> +				  "riscv/pte-ad:starting",
+> +				  riscv_hw_pte_ad_updating_starting,
+> +				  riscv_hw_pte_ad_updating_dying);
+> +	if (state < 0) {
+> +		pr_info("riscv: leave PTE A/D updates software-managed (%d)\n",
+> +			state);
+> +		return 0;
+> +	}
+> +
+> +	/*
+> +	 * A successful CPUHP_AP_ONLINE_DYN registration means the startup
+> +	 * callback has already succeeded on all online CPUs.
+> +	 */
+> +	riscv_set_hw_pte_ad_updating(true);
+> +	pr_info("riscv: hardware PTE A/D updating enabled\n");
+>  	return 0;
+>  }
+> +arch_initcall(riscv_hw_pte_ad_updating_init);
+>  
+>  static int riscv_cfilp_validate(const struct riscv_isa_ext_data *data,
+>  				const unsigned long *isa_bitmap)
+> @@ -584,7 +645,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
+>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>  	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
+> -	__RISCV_ISA_EXT_DATA_VALIDATE(svadu, RISCV_ISA_EXT_SVADU, riscv_ext_svadu_validate),
+> +	__RISCV_ISA_EXT_DATA(svadu, RISCV_ISA_EXT_SVADU),
+>  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+>  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
 
 
 _______________________________________________
