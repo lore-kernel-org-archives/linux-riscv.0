@@ -4,140 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413A6CD4F54
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 22:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23513CD4F54
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 23:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XfTGVf6HjSslzP6Nd0pav/4qeHYmDKG0dEm3nWz0pcg=; b=w/O2tkkTvbv0nF
-	VTeombP09fUPOmgiKHP7vM/VaGGNX2x831jhrKCUakeHFLqcqhWP8+rYs+Rdk8I4maVT3TXFYWY0u
-	XrxJHoJUhY3kB3JfNZqhKlouMTod8mSUiA0bWVLhB95yTl9EQEmWNNuBbbiXvnC1Rekjbn24RmPml
-	TUiJFSpL78jQOT2/awvYurMHHiTvlj8Otvu/uHdo4MsXxApndjHH57b0Lpffe7snC90u8SOIgD472
-	l3kZ32rtfIj9I48lwkLjC+FigvzFvhWKridlE1VSm62rWkp4Vo/BBXfx+/TlS29Wv4H2eLdrUbG/x
-	pXKQ/9vjE4oHD1S4CH/g==;
+	List-Owner; bh=AXDfW7WRdL9TFvYp3RiCiDYu+ehztzV/GjJ+9cpSdyA=; b=qkjJHVnfLBLXiF
+	iSyYL+Xcgr0Qa6L0LXHFIbbYn70umF5SJDd0jvi6G4CXZYk7TrjqP6jRT8E3noVgmyZfNeLPehgk6
+	4p9+Cyg5CfRUZXDFkED7ry+FHSKclHcjQVqFChnTa8kLaQrd1rNegNtiu97ei1ySutxd43LVL5J+x
+	hEbeEH91/fuuQzARaDBWcZr4uHPGVNaikMqJ5qBCs3/MWXwRbILhlkyHBUi4jDxjbu94iNgrXrBR8
+	LlUgp6an2lQvT5Asa4hFWvb5JBW16jeO4w4yqPfu4ldkeKGrV+yliFg+jfUhPLL+jvuGV8xGQhozx
+	SQ6KNLJ6NsAqGI8Jw0KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSny-00000002vpz-3Zuz;
-	Tue, 19 May 2026 22:20:51 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wPTlB-000000032zL-2Fbd;
+	Tue, 19 May 2026 23:22:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSnv-00000002vpE-3aFD
+	id 1wPTl8-000000032ya-31Mv
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 22:20:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=amO/E1qcOBcO7991VUtJPTFISdqF2zz0n2hSsC86aU8pYulXJ+dg2czt/clbdgn43CUecqhJqkspVEqi5ApZatAyOzXKRj4PoGEsDa66bo4PLOOUflZCR9PUmTELKT77QS94EZktiDb3nDZctHVrqQnbapxi8JUQN+kVhy7KAK0l2TfFbEmczOOU170ts5G98M1SBasiF9UdsILbFwuhkr3dZIqlWT3xzfBqzHFVd/W+fWNTyhTneK1skLQghHjMVa7hBwQ7eiWSc0/EmDSbHjYqZ7NcYhKe8pOu9oGBroI9AQFtqq4skwkeawcdIKFmk2ys/qKiGHLxmNdOahFRMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+fLRspDa/V4h14IhzrXQrU61sukDf7J8bloJJUwW7aQ=;
- b=gj6EIX3p2iFv0nf1qhOJ3sEi558Rhlvj+M71/183xvdkVMXLWCPppjnAiyMvxav/KOLBus4Vtz1s5S/eEbMkZbNP0WCEOIa1X3raZutdaXBeltdCLH5KJDWoKGMPdpCIHsK1cG/B6vluLslktNbAMxXR9O8NuOVlXnjrgVdY5NTzq78bjX07wxKjrjIC7otk/Tg02tmW5izNWqkUgj/X9UkUVo/yCLABnL+o237UJOXb18WDJ8o200A8b6kmlP3gcNo1x+73kev+PaTeWiHXuezKVXij2ghBeW/avybgnSw6DfWuf/kfumu37Bs8GiDkQEERtWX22/rnkn/rrNCQSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+fLRspDa/V4h14IhzrXQrU61sukDf7J8bloJJUwW7aQ=;
- b=NauE23qUN3pO+T5YEA1N91Nedw8JF+c0OG2je6435sUfKu37LauHtO5SRd0N5KJVC7QpGbfD/zIMKCp1wE14tQgI8DxlZICqhgPH+WqhOZj0J0yN5ZjbuHgRPbWZbvYA3fgzDTPtwsyLOyNuT85e2GORHy0u1T0uQkT3ea/GbOtGG3qMeXyBwvG6xkFRt4laPTDl/ca95r9G6gmwPB7VFEz3EqH1b8dsr7Nn3FV6Mwo1TKR10y645MS3iWb7qx8aoUg9KtShF5+2UjvfKbiGw+Ktyv3OiOS2J5dNH0USAz72Sz53Rzg2TqjfdGVYnc0jn16pUSVFwpMhHmRkhC2+bg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by SN7PR12MB6766.namprd12.prod.outlook.com (2603:10b6:806:26a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Tue, 19 May
- 2026 22:20:38 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 22:20:38 +0000
-Date: Tue, 19 May 2026 18:20:34 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Arnd Bergmann <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] arch: select HAVE_ARCH_BITREVERSE conditionally
- on BITREVERSE
-Message-ID: <agziMgYIg96fTVst@yury>
-References: <20260506175207.110893-1-ynorov@nvidia.com>
- <20260506175207.110893-2-ynorov@nvidia.com>
- <agKPkFq6kuarikAJ@yury>
-Content-Disposition: inline
-In-Reply-To: <agKPkFq6kuarikAJ@yury>
-X-ClientProxiedBy: BY3PR10CA0024.namprd10.prod.outlook.com
- (2603:10b6:a03:255::29) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	Tue, 19 May 2026 23:22:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 619A844398;
+	Tue, 19 May 2026 23:21:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAA371F000E9;
+	Tue, 19 May 2026 23:21:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779232917;
+	bh=rTHVrMvCwYTZlktit7SkyBCR9EOe2m+vAOtAPQ7Cebk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OH0BZj/N3kGv0Krj7B8nAn/aKUUeD0Rg7L0DfA3kXFym101kBPtk07yt3Jc2y0wEQ
+	 KROqKjkHqzcqj1jdg6WGggS81iCbX82cmNxjrFIQnBjzyDL3lGnMvaXSC7XPteDOiX
+	 uhxE1jgpaqweBOkwjytfCsqa9pNKtLw/Fj1UVEGrmrsF9G+UVDARBvDCffthdh1lVw
+	 0upvOwMEx37iVh8MDYANV03I9xE4QhrU50ne/CHZse9O9N4hdg+vz/Yx1nxNMVgd0M
+	 lPaBjARuSL+j5X4e/RCrAddi4cZJpmYSapDsA+vMKbMEV/nt1aoikZ/6/Ah1nLsvMg
+	 n9p2nEbTpi3oQ==
+Date: Tue, 19 May 2026 23:21:54 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Linus Walleij <linusw@kernel.org>, Han Gao <gaohan@iscas.ac.cn>
+Subject: Re: [PATCH] pinctrl: spacemit: fix NULL check in
+ spacemit_pin_set_config
+Message-ID: <20260519232154-GKA3708537@kernel.org>
+References: <20260519164007.122574-1-gaohan@iscas.ac.cn>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SN7PR12MB6766:EE_
-X-MS-Office365-Filtering-Correlation-Id: a105c6bb-b885-4d06-49dc-08deb5f4da5e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|10070799003|3023799007|11063799006|921020|18002099003|22082099003|56012099003|4143699003;
-X-Microsoft-Antispam-Message-Info: qNGQ2tDmn0g/ixeiWw9Q6KkKEuRAFELhf14jHIp2Mc50M8epYdvqGKo3gJMpRzEc/rV+aYjtCb9uyOvxfv5TiMyJYC4QHZhE0BDTWzOs07UiFcklzDta1ZiD4iK2CwqTifGsqKt0BJ9qfm7ozItOaUSz2lloUSb2K848e3/4MoxBAEhyaFk6Ww60htpgzfUxcPW7AyzjjC+V4YazN52kcTM+RpJTlAfRvMthgNp1tkDItbSA2RhSej2E9jMrghWjdcIe1X03tV32jriNE8/4JcTV9o5ApHJPWt0w8/y6CTD5zaRfkLYzWyrku9Nx1s1S057Ztwd5pQuES+K4rFy6MAxkasWnXbPPntmArp2odKmXoMIZNLwiS9WkSRatCm6DOGj0E+CSBt0cUEsT5x+z/lWzjdIpP2CgfA8nDaMhXI6P9xofNHljlGKXKhDy0GA70HSn3Vig52hOWmq+nNT0j4eHZZZ3sidzH3qptcI+XnQ0p+mhF/MtswzD8iDmeVhBBXqiBV517lzScel7VwdxbZKf4jhFZLpzvHzMoO8OneRF+7/z7vLeSyPAWiECj4o6R/pHB7UCt4rDOh7OqpcBk7t0n4RH4jWLlDb5HR2V0k+LCbmtJ2/tISZF7qvbAwBCBvcLQXEwK1ZD7vxX5YUEI7pZKmMOba3oZ9bUX3fYstUazmxTNngpufblDL6bpJC2sOumH8a12AA+XzKwOYM3jjendPUHsAx/b0AwZT8zxyM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(10070799003)(3023799007)(11063799006)(921020)(18002099003)(22082099003)(56012099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?n3zVr3KUjFnXcLhxkIgmHyydTEs6vVfyZ8/3D/U5JOPxKhIbNzW/hwctEMS6?=
- =?us-ascii?Q?UzINV0RQOW5cbyEPEyQBxQ8oeipjax7L0jz4kPLTuo98Nw36Q6bwRZpjFfZa?=
- =?us-ascii?Q?c5cYRfImPTHBPBjQwUE+pQdma5Eb/F8p0wZ2qeOrfZtu6h++yW5w3+nPBKua?=
- =?us-ascii?Q?T85K/0K33ySnHYdxnqj7i995fHLn2iByimqGzQBl7qtQx0nbpo9WZbEKgWWk?=
- =?us-ascii?Q?hHnUMfOJxzCZA/TE1EVyiFx2e07pVz4Gd9sNvdtuPKgiRcnOUZbcg7+oWUYO?=
- =?us-ascii?Q?qbkip/9jpYWFQBrgHjM18FNF8tFDDs9+dQ5C/4CdUOc3OnOTAvQO6zzKNE6k?=
- =?us-ascii?Q?hzFmjZO4HD3O7R1d7gf51kYfjKJVKD09SLqAdXMY4c4ivEImzUaUX35Peglz?=
- =?us-ascii?Q?B/ngIlsRmReaLGFrvgACjMoj6Vlg3uMVsLwGOZ9ieI20TlpZ7aR8jgjPUvbf?=
- =?us-ascii?Q?4GOLt8x9wDfEAyjHYHEcd2438+gNNDcNEZazLseyNmPgAW1sGvcJgGIjilsr?=
- =?us-ascii?Q?JwFijrt9scvUDYw8lH09swBRM8+WLP1KMlHZ4ov9ahlnBBR8/vh/+oj5gUxf?=
- =?us-ascii?Q?yKWZP7erzXdwRFIYsNjP/fIfdUmGZ+r5tstgH1JeHk1eUsbWYVZq2M1Pt9Z/?=
- =?us-ascii?Q?96lO+l/qUgCoVQbAPpID+4tpv5SgieS1gLiHuoR9yBoiM6MLLjdoXnFR+lYs?=
- =?us-ascii?Q?3VGt1lGad7xTp+cTyV6fEUpRGXUKgKuyNNjkXRN3FP1c1r/cEzc2bARaEwdr?=
- =?us-ascii?Q?AbhQyYdh2yjeVQg2GwxITPK53xbZ30ba/QW6Km6prquc7ZtfE4oudL5QBOpQ?=
- =?us-ascii?Q?9hKGErNr6CQNqCvPKoe8dKmTYVIHPk0CvDt5oYUeWRh+joQpk59Qy6uiNQkr?=
- =?us-ascii?Q?h67k8V+YYPThVRtU/ItzwVAAngAQj9Kzrvg0uUIoGJ3qnOUOYeyerEsJKk72?=
- =?us-ascii?Q?bgS4eINJ1bIejmgSC2am+bDw9TH24Mx4TfTh0ypzOx0Kyky/++w7HtfyAMgg?=
- =?us-ascii?Q?rF+KgkYNDnbrj3AUoDlg97z4HbqyKPJderGAQSN5/kmQtQMnlLAUcoN92ESs?=
- =?us-ascii?Q?8R9AnwrQIf/mhv8VUSXX+qPS1AepOL6PE4lCJizhBEOeyXytQP8zxviUoHEB?=
- =?us-ascii?Q?ecwtNtSr/rxQcgeSLJBBpHRWeyRjpcLhFBm5yBF5fnsewuNFPmOWQkP3cn1P?=
- =?us-ascii?Q?+SRON5wq+7g7/cRGRh71wH7pmthZ5c+NP/RgXxmi4ffB1YuISc9VMa8ZCyP6?=
- =?us-ascii?Q?ILoNuPk9JI0X+q6yljvMIorGHHNZ6FKO8mP6Io0Jbnwbea4f1wq9kzA80A30?=
- =?us-ascii?Q?LYb1iJYkh75sZekNMeoTD5DMXuh4dX1YfZ1AU8BEmgxxeZmk5DzMxh775q2N?=
- =?us-ascii?Q?YnSDmcQDXiHPAnhGN1D/QcmH7hFTibiFgizTtLohD5rPe5XtyL1mzRnl+5/p?=
- =?us-ascii?Q?7fLXzKTRRR5fEmKVZr1GqkXGlHhUOjFYqgaS77WqkPBaaZgCW7c55LP/m8tK?=
- =?us-ascii?Q?t2oSwRFO7a37eKBmj7ZbSg87pJQohX/F+meYn1eDRElJDMbtIylZjynnVufz?=
- =?us-ascii?Q?eLopMYYfsHCwd2lbmm6JsGwk8+5JxXKmVuMfABD6/6Hs5DKU1QO2Dk+vgU8l?=
- =?us-ascii?Q?hjEXhOOm/GGLW/w+ekEvJoPBqJB1V/P7k02n2ybQcl4qN42HdjnR85QydihK?=
- =?us-ascii?Q?Y8aYXekTc5Gi4umc6Kqqgdee9PZ8ZwY5lXQF4iZgh3R2If/HspQRG5C7SFIq?=
- =?us-ascii?Q?JaRGvfFbv9apo3yDmzmHMG9c16XewYsv4S4FJcycy06nSJ89tC/Z?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a105c6bb-b885-4d06-49dc-08deb5f4da5e
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 22:20:37.6547
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yabbc+pAqkzzhfAGXpFZm7LKqLY65kqaQSqd0W0wzZZ5bW4vL4jAaUMiAQOia2GDqNAQWLaEyxMU9jQUGVJ0aQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6766
+Content-Disposition: inline
+In-Reply-To: <20260519164007.122574-1-gaohan@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_152047_909629_2638F8A2 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20260519_162158_781700_87E64882 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,96 +66,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Junhui Liu <junhui.liu@pigmoral.tech>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ping again?
+Hi Linus,
 
-On Mon, May 11, 2026 at 10:25:20PM -0400, Yury Norov wrote:
-> Ping?
+Can you take this as a fix for v7.1 cycle?
+
+On 00:40 Wed 20 May     , Han Gao wrote:
+> spacemit_pin_set_config() looks up the per-pin descriptor with
+> spacemit_get_pin() then checks the wrong variable for failure:
 > 
-> On Wed, May 06, 2026 at 01:52:02PM -0400, Yury Norov wrote:
-> > Architectures may have bit reversal instructions, but if the API not
-> > needed, the corresponding option should not be selected because it may
-> > lead to generating the unneeded code.
-> > 
-> > Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> > ---
-> >  arch/arm/Kconfig       | 2 +-
-> >  arch/arm64/Kconfig     | 2 +-
-> >  arch/loongarch/Kconfig | 2 +-
-> >  arch/mips/Kconfig      | 2 +-
-> >  lib/Kconfig            | 1 +
-> >  5 files changed, 5 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> > index 71fc5dd4123f..0e963e54fe06 100644
-> > --- a/arch/arm/Kconfig
-> > +++ b/arch/arm/Kconfig
-> > @@ -83,7 +83,7 @@ config ARM
-> >  	select HARDIRQS_SW_RESEND
-> >  	select HAS_IOPORT
-> >  	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
-> > -	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
-> > +	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6 && BITREVERSE
-> >  	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU && (!PREEMPT_RT || !SMP)
-> >  	select HAVE_ARCH_KFENCE if MMU && !XIP_KERNEL
-> >  	select HAVE_ARCH_KGDB if !CPU_ENDIAN_BE32 && MMU
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index fe60738e5943..f5bb62c2ba9c 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -150,7 +150,7 @@ config ARM64
-> >  	select HAVE_ACPI_APEI if (ACPI && EFI)
-> >  	select HAVE_ALIGNED_STRUCT_PAGE
-> >  	select HAVE_ARCH_AUDITSYSCALL
-> > -	select HAVE_ARCH_BITREVERSE
-> > +	select HAVE_ARCH_BITREVERSE if BITREVERSE
-> >  	select HAVE_ARCH_COMPILER_H
-> >  	select HAVE_ARCH_HUGE_VMALLOC
-> >  	select HAVE_ARCH_HUGE_VMAP
-> > diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-> > index 3b042dbb2c41..6c3444e31c0e 100644
-> > --- a/arch/loongarch/Kconfig
-> > +++ b/arch/loongarch/Kconfig
-> > @@ -115,7 +115,7 @@ config LOONGARCH
-> >  	select HAS_IOPORT
-> >  	select HAVE_ALIGNED_STRUCT_PAGE if 64BIT
-> >  	select HAVE_ARCH_AUDITSYSCALL
-> > -	select HAVE_ARCH_BITREVERSE if 64BIT
-> > +	select HAVE_ARCH_BITREVERSE if 64BIT && BITREVERSE
-> >  	select HAVE_ARCH_JUMP_LABEL
-> >  	select HAVE_ARCH_JUMP_LABEL_RELATIVE
-> >  	select HAVE_ARCH_KASAN if 64BIT
-> > diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> > index 4364f3dba688..7e1494e0dbfa 100644
-> > --- a/arch/mips/Kconfig
-> > +++ b/arch/mips/Kconfig
-> > @@ -2026,7 +2026,7 @@ config CPU_MIPSR6
-> >  	default y if CPU_MIPS32_R6 || CPU_MIPS64_R6
-> >  	select CPU_HAS_RIXI
-> >  	select CPU_HAS_DIEI if !CPU_DIEI_BROKEN
-> > -	select HAVE_ARCH_BITREVERSE
-> > +	select HAVE_ARCH_BITREVERSE if BITREVERSE
-> >  	select MIPS_ASID_BITS_VARIABLE
-> >  	select MIPS_SPRAM
-> >  
-> > diff --git a/lib/Kconfig b/lib/Kconfig
-> > index 00a9509636c1..d8e7e89ae320 100644
-> > --- a/lib/Kconfig
-> > +++ b/lib/Kconfig
-> > @@ -58,6 +58,7 @@ config BITREVERSE
-> >  config HAVE_ARCH_BITREVERSE
-> >  	bool
-> >  	default n
-> > +	depends on BITREVERSE
-> >  	help
-> >  	  This option enables the use of hardware bit-reversal instructions on
-> >  	  architectures which support such operations.
-> > -- 
-> > 2.51.0
+> 	const struct spacemit_pin *spin = spacemit_get_pin(pctrl, pin);
+> 	...
+> 	if (!pin)
+> 		return -EINVAL;
+> 
+> 	reg = spacemit_pin_to_reg(pctrl, spin->pin);
+> 
+> pin is an unsigned int pin id, where 0 (GPIO_0 / gmac0_rxdv on K3) is a
+> valid pin, so rejecting it here drops the PAD config write for the first
+> pin of every group. On K3 Pico-ITX the GMAC RGMII group lists pin 0 as
+> its first entry, so its drive-strength / bias configuration was silently
+> ignored.
+> 
+> The intended guard is against spacemit_get_pin() returning NULL when the
+> pin id isn't in the SoC's pin table. Check spin instead, which both
+> restores PAD setup for pin 0 and prevents a NULL deref on spin->pin.
+> 
+> Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+LGTM, thanks
+
+Reviewed-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  drivers/pinctrl/spacemit/pinctrl-k1.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
+> index b0be62b1c816..95024e2bb5a5 100644
+> --- a/drivers/pinctrl/spacemit/pinctrl-k1.c
+> +++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
+> @@ -795,7 +795,7 @@ static int spacemit_pin_set_config(struct spacemit_pinctrl *pctrl,
+>  	void __iomem *reg;
+>  	unsigned int mux;
+>  
+> -	if (!pin)
+> +	if (!spin)
+>  		return -EINVAL;
+>  
+>  	reg = spacemit_pin_to_reg(pctrl, spin->pin);
+> -- 
+> 2.47.3
+> 
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
