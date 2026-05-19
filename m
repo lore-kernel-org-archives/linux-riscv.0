@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56BDCD4F5B
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 17:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CF5CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 17:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5AiNSr1Szpq+7X+rhqi+TPRfjZ4q+f12kJ5G7YjBbYI=; b=O1AdvqkOjBs1iD
-	1IX/48gxl7ebqP4+XDmuBHTRD5p+CC4pBayWQ51o0RT0GpvPwYTylbb+q5OIPgPncG6lx3JPV1V1K
-	xzXc2qG5F1ZZJiK3pZMmw3LxyFTN+s0cKRNlsuy8SvMIepTRLpew/hmk1DtfbWefmCQHI7lNsj6VM
-	Nh+sqLx6CI319LBcCnNa+BEcOBw8yEximbd8QvxFtgK/YxtfK+gkkhg7ws1K8pwgVI82JN9SmLxOI
-	aAd2oglkPHhH5bkFCaLh+7bNbFJRDcKcRo7hAyXcM1KzfEHtJkd7Pl61LsPNo2KVPiG91yfwaR5yf
-	MDRG9UJTZBNEw/KhvT6g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MM8qDY7sTD79PsAAi5dd7kaOkekl3innXUUp/EltjuM=; b=VWv2X/Wqr/fALL
+	qURPs2zTZX0Jd4M2WCEpc6n9H1PupVfmK96qx1Scgt6gTF7+MvVzy6HHwNUPOQWSN/W1ucS5zmXt3
+	HU2v48IRPaVjMNfKKmmObt5T6iy3sdDiXJcuECZyP6bIzmew75i/YeTLZ/BSxTN7LUlIorWpvqU1w
+	kc8YIGl0ZI2IaN/6sfB6uuc9UuE0/diWd7ahUYkKq6dkc2AbIwSrX4vj6KAuO43gxHWDhdfHy8vem
+	70Q3ouG7L7BGsQ6AUpR5jbFVcRax4fjbqGIMYyMFwLHjqj0gM6dMFL5oUeFIJaf3C/WCE60wEw+Um
+	8cOoFBcza1p7zDsiJCEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPNuD-00000002Kav-3b2c;
-	Tue, 19 May 2026 17:06:57 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wPOA4-00000002N67-2OHe;
+	Tue, 19 May 2026 17:23:20 +0000
+Received: from forward100d.mail.yandex.net ([178.154.239.211])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPNuA-00000002KZ1-2zyy
+	id 1wPOA0-00000002N2U-0IgC
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 17:06:56 +0000
-Received: from localhost.localdomain (unknown [223.166.95.230])
-	by APP-03 (Coremail) with SMTP id rQCowAAHKN+kmAxqeRCREQ--.741S2;
-	Wed, 20 May 2026 01:06:44 +0800 (CST)
-From: Han Gao <gaohan@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>,
+	Tue, 19 May 2026 17:23:18 +0000
+Received: from mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net [IPv6:2a02:6b8:c0c:190d:0:640:bab5:0])
+	by forward100d.mail.yandex.net (Yandex) with ESMTPS id 01273C0051;
+	Tue, 19 May 2026 20:23:09 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net (smtp) with ESMTPSA id 0NVul40SU0U0-h1uA6rsG;
+	Tue, 19 May 2026 20:23:08 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1779211388; bh=6V25NbAI3/rMJ9o0WKC5Hikn/U0EkOQjDi4xZKCFUJ8=;
+	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
+	b=wM4ir5WgqIXnjYDbIyTg9dAD0zEBOQtMGJz5TaHG1TXnN65QbqlWTWHyaZObz0Mpt
+	 QjgQiiV2gjDDLTPKG/8k/+zr2/AxW91nyxIuFGkZLRS777skPEjId5yHX1BBU94Si3
+	 BEudjJf64ax3eLeRhYSKfswPGMyXn0On+U2hscZM=
+Authentication-Results: mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
+From: Dmitry Antipov <dmantipov@yandex.ru>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Breno Leitao <leitao@debian.org>,
-	Kees Cook <kees@kernel.org>,
-	Han Gao <gaohan@iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Han Gao <rabenda.cn@gmail.com>
-Subject: [PATCH] riscv: kexec_file: Constrain segment placement to direct map
-Date: Wed, 20 May 2026 01:06:41 +0800
-Message-ID: <20260519170641.123517-1-gaohan@iscas.ac.cn>
-X-Mailer: git-send-email 2.47.3
+	Dmitry Antipov <dmantipov@yandex.ru>
+Subject: [PATCH v11 2/8] lib: fix memparse() to handle overflow
+Date: Tue, 19 May 2026 20:22:53 +0300
+Message-ID: <20260519172259.908980-3-dmantipov@yandex.ru>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260519172259.908980-1-dmantipov@yandex.ru>
+References: <20260519172259.908980-1-dmantipov@yandex.ru>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAAHKN+kmAxqeRCREQ--.741S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tw43GrWUAr15Zw47CF1DAwb_yoW8Aw4rpa
-	n8CF18XrZ5ZrySyFWxZr109345Wws5Gw42qrWUuryFv3ZxKw1DJr4q93ZIqr1UKFsY9FnY
-	qryakFZIkrs5JaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
-	W8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUFg4SDUUUU
-X-Originating-IP: [223.166.95.230]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBwsMDGoMfGlJ3gAAso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_100655_130424_E0B596AA 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260519_102316_287983_BAF5FF15 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +79,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When kexec_file_load places segments with buf_max=ULONG_MAX and
-top_down=true, they land at the highest available physical addresses.
-On RISC-V the size of the linear mapping is determined by the active
-VM mode: SV39 caps the direct map at roughly 128GB, while SV48/SV57
-extend the range substantially further. When the installed physical
-memory exceeds the direct map size of the active mode, top-down
-placement puts DTB/initrd at physical addresses outside the linearly
-mapped region. The kexec'd kernel cannot reach them during early
-boot, triggering a page fault at memcmp in start_kernel.
+Since '_parse_integer_limit()' (and so 'simple_strtoull()') is now
+capable to handle overflow, adjust 'memparse()' to handle overflow
+(denoted by ULLONG_MAX) returned from 'simple_strtoull()'. Also
+use 'check_shl_overflow()' to catch an overflow possibly caused
+by processing size suffix and denote it with ULLONG_MAX as well.
 
-Fix by constraining buf_max to PFN_PHYS(max_low_pfn), which reflects
-the runtime direct map boundary for the active VM mode (SV39/SV48/
-SV57). This keeps all kexec segments within the linearly mapped
-region while preserving the upstream top_down allocation strategy.
-
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
 ---
- arch/riscv/kernel/machine_kexec_file.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+v9 and upwards: bump version to match the series
+v8: do not use temporary in check_shl_overflow()
+v7: do not double-adjust endptr and drop
+    redundant check against ULLONG_MAX
+v6: handle valid-suffix-only string like "k"
+    as unrecognized, minor style adjustments
+v5: initial version to join the series
+---
+ lib/cmdline.c | 23 +++++++++++++++--------
+ 1 file changed, 15 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-index 54e2d9552e93..59d4bbc848a8 100644
---- a/arch/riscv/kernel/machine_kexec_file.c
-+++ b/arch/riscv/kernel/machine_kexec_file.c
-@@ -13,6 +13,7 @@
- #include <linux/libfdt.h>
- #include <linux/types.h>
- #include <linux/memblock.h>
-+#include <linux/pfn.h>
- #include <linux/vmalloc.h>
- #include <asm/setup.h>
- #include <asm/insn.h>
-@@ -266,7 +267,7 @@ int load_extra_segments(struct kimage *image, unsigned long kernel_start,
+diff --git a/lib/cmdline.c b/lib/cmdline.c
+index 90ed997d9570..f6e4b113ca9f 100644
+--- a/lib/cmdline.c
++++ b/lib/cmdline.c
+@@ -150,39 +150,46 @@ EXPORT_SYMBOL(get_options);
+ unsigned long long memparse(const char *ptr, char **retptr)
+ {
+ 	char *endptr;	/* local pointer to end of parsed string */
+-
+ 	unsigned long long ret = simple_strtoull(ptr, &endptr, 0);
++	unsigned int shl = 0;
  
- 	kbuf.image = image;
- 	kbuf.buf_min = kernel_start + kernel_len;
--	kbuf.buf_max = ULONG_MAX;
-+	kbuf.buf_max = PFN_PHYS(max_low_pfn);
++	/* Consume valid suffix even in case of overflow. */
+ 	switch (*endptr) {
+ 	case 'E':
+ 	case 'e':
+-		ret <<= 10;
++		shl += 10;
+ 		fallthrough;
+ 	case 'P':
+ 	case 'p':
+-		ret <<= 10;
++		shl += 10;
+ 		fallthrough;
+ 	case 'T':
+ 	case 't':
+-		ret <<= 10;
++		shl += 10;
+ 		fallthrough;
+ 	case 'G':
+ 	case 'g':
+-		ret <<= 10;
++		shl += 10;
+ 		fallthrough;
+ 	case 'M':
+ 	case 'm':
+-		ret <<= 10;
++		shl += 10;
+ 		fallthrough;
+ 	case 'K':
+ 	case 'k':
+-		ret <<= 10;
+-		endptr++;
++		shl += 10;
+ 		fallthrough;
+ 	default:
+ 		break;
+ 	}
  
- #ifdef CONFIG_CRASH_DUMP
- 	/* Add elfcorehdr */
++	if (shl && likely(ptr != endptr)) {
++		/* Have valid suffix with preceding number. */
++		if (unlikely(check_shl_overflow(ret, shl, &ret)))
++			ret = ULLONG_MAX;
++		endptr++;
++	}
++
+ 	if (retptr)
+ 		*retptr = endptr;
+ 
 -- 
-2.47.3
+2.54.0
 
 
 _______________________________________________
