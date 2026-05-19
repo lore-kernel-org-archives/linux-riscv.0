@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC87CD4F5B
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 15:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADE5CD4F5B
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 16:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xSNR+4E/Z6WuQT8b7i915Ft6XhLq/puND60DrxUaIU0=; b=A0QLe+GWRBF5CG
-	DHt6GM1r8PnmacAz+hY98xY2wYCs1SdsCgk231vlT3edAbSZhuuhhhKEM96RzXJIBfKfhs8WZ04hS
-	76fhuXO9HNgcMGlPwpcr3mMOiZMG5InTx+dWGn/hM7BDpSpN4unWrCvDPlwCvsr6fSIaHVV9i9ERc
-	KUcm/fD8In721EUcKKW0zdlpYq+VXikzByPzIxCgXih7jqd41OZuiy7LaSNfw79Afc00BnxWjTNJQ
-	C6ot8GOVgaKiT5xkIdAS//aRP0+USoINZYjKW7si2Az10OC6aUEWPuYdsMmN/XCMPmyfJPsTMy1bz
-	2jZzYqcSP/aImegDLb/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8/bqXtTY9y2+09BnDi1FZJtx3WyNCUJOB9ze8l1XDKw=; b=KdhGGuIcC5O30k
+	4MpP92Q7CBHGJkat6s+JdPM95uCBNgmUNtRPS/JNnJXyjThYj8Nt6OHhQuMMgOxvYAmUu6foSsEHy
+	VZFBYKdz4r1Tz1Qw2D/RRroTmJOOhuwL0w+2rc57ZXXXlDDOhhxihxlOehdQQzbXhp+OJ0JjJ8piw
+	PIk5E/YriqKFkkFV/nd43+KstKTgdV86M3QTvVNFuXQvzejixfuAxbxo81RwW3yjDuJLx8usylMI0
+	mBsf3E013kBrhv34L4bxmSior+XcYwQTCjK+ilgfrIyqLnvvc4VOA7Vu1cM4EK04Dl25SCaHqB5/w
+	sMn9GWEEV00mqspimqfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMno-000000028oc-396x;
-	Tue, 19 May 2026 15:56:16 +0000
-Received: from mail-yx1-xb12b.google.com ([2607:f8b0:4864:20::b12b])
+	id 1wPN15-00000002BEs-1KZP;
+	Tue, 19 May 2026 16:09:59 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMnm-000000028nM-0diG
-	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 15:56:15 +0000
-Received: by mail-yx1-xb12b.google.com with SMTP id 956f58d0204a3-65c5361142fso3761001d50.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 08:56:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1779206170; x=1779810970; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=X5pMEAFe3b6igFTLOX4/fkLygT4dOyoxj6w53pTqSD4=;
-        b=bE4cVsE2UyioUWQ2gp1/YF8KinVTOju6QGZ15kok352LTw7468hk9f+juNqyo58spt
-         hg+soLBVu6Ty6dc1w8JiL0zE/jZ/rwtXuuNLPwxHk6CkfCw92ANeGDhyhrsPs2QAyCDN
-         vNLGKgyCC8OHHyjIe0irjMDNZef1HI00gUhSRRzob5Tahc4wkf4HwwBVa5miNMp+fqlL
-         jQj5qAMnM4Vo5nG4DXOdW/CsiIaFEb6qjDaWutNOhrrdFeLQpmQz0a96YQ66WTc22z75
-         ekluFD7QzSz7XldAg6NJo9RPEDpvIJa91SESVTXBDDH3EHrrB0cXeGHYS4+8N1kFIoR6
-         PfNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779206170; x=1779810970;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X5pMEAFe3b6igFTLOX4/fkLygT4dOyoxj6w53pTqSD4=;
-        b=r90Jf//LU3v2U/bnUuX8sfLZdM/+lybxQ5+XGWjM7fUXYFvjVwFV4BbCvmQxYXBz44
-         m3sM61QzR0DnIEEw90xnTAEt4od9jeSegMM5c4GqmgZSRWhVkrxHJE/R1ssYO0asSOBx
-         lXPbEO4v/IUf89/onKgpp4R6Tb6icJoiT8sbs+Fp6gIr/hcypR6m9QFqaq8QUqD1LNvZ
-         rmqYC5cXKhjyURkVYAldnps8O+NcNfgRuGOhMMKhzdrVYKldzZeXnMCr91+I0+rYAH/N
-         JNEWAJEnI6GNVzJ8ZOPAqmq4qcPpaiwD8ZJMPn7sNxu3nBmK9w3674+zpMoTINwB3jWm
-         0ehw==
-X-Forwarded-Encrypted: i=1; AFNElJ85elTUQqi8P/86SJ5o+HLmgvmhCni16G2775JS/xJr/WHsDh33lXuQay8cSNLTTbzw4yueDiOgMztPOA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgLS2x4fcZarkWyHgtlJfTAatrWZAxQzwTOm7gI9bvnkQSEVOM
-	gb2Y9KP7bEJRUnYaV89Nx8C0Bf/jRyktJdeM5jYB0IKcXXunvDzyc82yNPKtt4awAWdWtMML+jh
-	C0zcv
-X-Gm-Gg: Acq92OGEHi+p9KylwhPZwTy85xFsvYh3CuRaYTjS3VQHWhwro7WedLv8I8ux8xB2tTN
-	wB+UNtRKPAGSg8R7svrqKwq9WbD3VVYVZ1xqt76kXXNcSIUEwHHetaBj0DoBhVs2Ahpm09LetqK
-	/2k0z2E2ght1jUPAAWuxU8U6BjeoO/8ZablaqBQkvLgPn1LyXVI/4Ko/6zTtX7F+eYqbEaGH2HL
-	9MP8MwZNJGxtBeef32UMihdH4b8zcfpkw9PwH5A5MA9Ba8iOjYPHTLs5L4EZsjVJYdxLFH1fDcN
-	pemlu5Ltbmj2VGz/zlarHmF/Om6K2N/5ljJDFhKzxDBa9jFkJyjb15qjg1mvCPqTm+aTR5h+rzJ
-	umxXRIJcCfUnxhP9F1pi/9jd9eg3zaV4p0Jgvfv1/TWpg8WsIQXkaTfhyqyTMadWX+n8I5yD8km
-	/OKYp7//5CRq64ja9YuvZxgj0QlAiIEvo7FEjF2p9v+NyEBcQ6XVxP1GN12zhd8mx25DK412aGt
-	UXyO7soNgI=
-X-Received: by 2002:a05:690e:191b:b0:650:16fb:e7e0 with SMTP id 956f58d0204a3-65e2261a81cmr19691034d50.12.1779206170601;
-        Tue, 19 May 2026 08:56:10 -0700 (PDT)
-Received: from [10.200.56.73] ([12.55.13.134])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-65e0d87707csm8010706d50.3.2026.05.19.08.56.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 08:56:10 -0700 (PDT)
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Tue, 19 May 2026 10:55:54 -0500
-Subject: [PATCH] riscv: cfi: add generated vdso files to make clean
+	id 1wPN12-00000002BDQ-09hw;
+	Tue, 19 May 2026 16:09:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=JLeG6x1Y3dfOvgAW0mg1VnFVfEP9lZkOIYEiUHHIyoA=;
+	b=JUyt0G87rt7PYlK4QmM8e4B8RwvbyXFoil0YpiApMe3XoreMYWYuEqJf5cPfwf
+	qlBIVDUaQLyHq0JgoD73DUE643nlzgebsfiYDyj3SJ0JmWnZ7d0U+bjJkV9ql9SY
+	HGrtIli4iTrWBVdI6Ps9vODOFptHtzla5d5m36vbO5yK4=
+Received: from [IPV6:240e:b8f:91b3:d000:9130:b3d8:6241:39fd] (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wBXXrU4iwxqGKJPCQ--.44368S2;
+	Wed, 20 May 2026 00:09:29 +0800 (CST)
+Message-ID: <5cc6fbcc-98eb-4da5-b123-2c04c4d39326@163.com>
+Date: Wed, 20 May 2026 00:09:28 +0800
 MIME-Version: 1.0
-Message-Id: <20260519-vdso_cfi_makefile-v1-1-c129daba59f5@oss.tenstorrent.com>
-X-B4-Tracking: v=1; b=H4sIAAmIDGoC/yXMWwqDQAyF4a1Inh2IggO6lVJEJ5k21hsTFUHcu
- 2N9/A6c/wDlIKxQJQcE3kRlGiOyNAH3bcYPG6FoyDG3WGTWbKRT7bzUQ/NjLz0bKkpE60tCJIi
- /OcR9/zdf78e6th275Q7BeV6AQ9IxdQAAAA==
-X-Change-ID: 20260516-vdso_cfi_makefile-d59006f9d00d
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: thecharlesjenkins@gmail.com, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-X-Mailer: b4 0.15.1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] PCI: dwc: Cache PCIe capability offset and simplify
+ drivers
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ jingoohan1@gmail.com, mx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260509135152.2241235-1-18255117159@163.com>
+ <beqy5ykxgo4ianya6r4mahkkyujs6lly475u26vqaemgqsdnhp@2pn5ipczwc34>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <beqy5ykxgo4ianya6r4mahkkyujs6lly475u26vqaemgqsdnhp@2pn5ipczwc34>
+X-CM-TRANSID: _____wBXXrU4iwxqGKJPCQ--.44368S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGryfKrW8tFykKr18tF1fJFb_yoW5ArWkpa
+	y5tF4IyF18tF4S9a12v3WDuF13t3Z7AFyDJ39xW34SvFya9F17Wr10yrWftF97JrW2qr1a
+	kF45ta47uFs5JFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRiiSJUUUUU=
+X-Originating-IP: [240e:b8f:91b3:d000:9130:b3d8:6241:39fd]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7BqOMmoMizpQVQAA3Y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_085614_206710_9AE05150 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20260519_090956_436526_A17D64CA 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,41 +75,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The vdso files that are copied over from arch/riscv/kernel/vdso do not
-get cleaned up when make clean is run. Add a clean-files target to the
-makefile so that these files get cleaned up properly.
 
-Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
----
- arch/riscv/kernel/vdso_cfi/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/kernel/vdso_cfi/Makefile b/arch/riscv/kernel/vdso_cfi/Makefile
-index 10292498b7657..906023fb5c27c 100644
---- a/arch/riscv/kernel/vdso_cfi/Makefile
-+++ b/arch/riscv/kernel/vdso_cfi/Makefile
-@@ -20,6 +20,8 @@ $(vdso_S_objects): $(obj)/%.S: $(src)/%.S
- $(vdso_c_objects): $(obj)/%.c: $(src)/%.c
- 	$(Q)cp $< $@
- 
-+clean-files := $(notdir $(vdso_c_sources)) $(notdir $(vdso_S_sources))
-+
- # Include the main VDSO Makefile which contains all the build rules and sources
- # The VDSO_CFI_BUILD variable will be passed to it to enable CFI compilation
- include $(src)/Makefile
+On 5/19/26 21:57, Manivannan Sadhasivam wrote:
+> On Sat, May 09, 2026 at 09:51:49PM +0800, Hans Zhang wrote:
+>> The DWC PCIe core and its many platform drivers repeatedly call
+>> dw_pcie_find_capability(pci, PCI_CAP_ID_EXP) to obtain the offset of the
+>> PCI Express Capability structure. This is wasteful and makes the code
+>> verbose. And some even search for the PCI_CAP_ID_EXP offset value within
+>> the suspend/resume functions.
+>>
+> 
+> Sashiko has flagged some real issues with this series in accessing DBI space
+> very early and 'pci->pcie_cap' being 0.
 
----
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-change-id: 20260516-vdso_cfi_makefile-d59006f9d00d
+
+Hi Mani,
+
+We have discussed this issue in the Cadence driver. I think it won't 
+cause any problems. Specifically as follows:
+
+https://lore.kernel.org/linux-pci/5823faec-d972-4c77-90ec-a215c686e0a8@163.com/
+"""
+As per PCIe r7.0, sec 7.5.1.1.11, Since all PCI Express Functions are 
+required to implement the PCI Express Capability structure, which
+must be included somewhere in this linked list.
+"""
+
+
+
+Bjorn also responded as follows:
+https://lore.kernel.org/linux-pci/20260505212306.GA744158@bhelgaas/
+"""
+It's true that all Root Ports must have a PCIe Capability.
+"""
+
+
+
+Mani, should I continue to make the judgment that 'pci->pcie_cap' might 
+be 0 as per your instructions?
+
+
 
 Best regards,
---  
-Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Hans
+
+
+> 
+> Those needs to be fixed.
+> 
+> - Mani
+> 
+>> Add a cached pcie_cap field in struct dw_pcie and a helper
+>> dw_pcie_get_pcie_cap() to initialize it once at probe time. Then replace
+>> all explicit capability searches with the cached value across the
+>> entire dwc subtree.
+>>
+>> Hans Zhang (3):
+>>    PCI: dwc: Add pcie_cap field and helper in designware header
+>>    PCI: dwc: Use cached PCIe capability offset in core
+>>    PCI: dwc: Simplify platform drivers using cached capability offset
+>>
+>>   drivers/pci/controller/dwc/pci-imx6.c         |  6 +--
+>>   .../pci/controller/dwc/pci-layerscape-ep.c    |  4 +-
+>>   drivers/pci/controller/dwc/pci-meson.c        |  4 +-
+>>   .../pci/controller/dwc/pcie-designware-ep.c   |  4 +-
+>>   .../pci/controller/dwc/pcie-designware-host.c |  4 +-
+>>   drivers/pci/controller/dwc/pcie-designware.c  | 16 +++---
+>>   drivers/pci/controller/dwc/pcie-designware.h  | 17 +++++++
+>>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 +++---
+>>   drivers/pci/controller/dwc/pcie-eswin.c       |  3 +-
+>>   drivers/pci/controller/dwc/pcie-fu740.c       |  2 +-
+>>   drivers/pci/controller/dwc/pcie-intel-gw.c    |  2 +-
+>>   drivers/pci/controller/dwc/pcie-qcom-ep.c     | 11 ++--
+>>   drivers/pci/controller/dwc/pcie-qcom.c        | 24 ++++-----
+>>   drivers/pci/controller/dwc/pcie-sophgo.c      |  8 ++-
+>>   drivers/pci/controller/dwc/pcie-spacemit-k1.c |  5 +-
+>>   drivers/pci/controller/dwc/pcie-spear13xx.c   |  6 +--
+>>   drivers/pci/controller/dwc/pcie-tegra194.c    | 51 +++++++------------
+>>   17 files changed, 85 insertions(+), 97 deletions(-)
+>>
+>>
+>> base-commit: 70390501d1944d4e5b8f7352be180fceb3a44132
+>> -- 
+>> 2.34.1
+>>
+> 
 
 
 _______________________________________________
