@@ -4,103 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95972CD4F57
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 09:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F3BCD5BA4
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 09:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EUCs/YkovP9qeZcXXr7kxxfCXbop9jAHeXZpTOYfBto=; b=u29h0/h6WWULSr
-	UvjIL8hA9dAWgJXayFTIACJR8M0cUbEi1vmE2CGv0ZmtGA8+g2VttfiE8Gv5XmH/KhNCN7griPgkp
-	xdnnBTdeJTqAGk/875jFfvWtD96uRUJ7+N2fqX4wfJFeXFM2pZjcksj01jKnL6WmsyzQFvDLGuCi/
-	c+qNFYOYrugkD1fM2mtxfPnEeCoKi+HoC36BdqVudfE20imfTXJf2/XBjyCSYXxA/VET9sBqX9YyU
-	IruehdrJDFS0T+2ILd+SZfGipE9Kv/MjdA/NFw4ZxnzUnKpbhzU8lM7U1idoUlLo9Ma3JzMtqp5UW
-	fAYgVt5R0JrzNlTUwQRQ==;
+	List-Owner; bh=qcWE3+75fyXRHKCow7Oe3A4Vw+gEtJz1oRqvl3LsI+U=; b=A88x2f7PrXFJCP
+	upK/Pt0b4y5JuuU0rJsmFxYzNcGjoOK8YQuBqXrE9s2wsL8n+VOafsNYdxdVEc7AkVTtZLWZ70p/K
+	A5QPa+UnHfRwbM3sqDEo9scshO0Ou4Ar78URoprYn6LIszxjWIYXcaQnYE6pjQ/gPfXVitf5COWTm
+	oIoaDoXAowCNzVzoiMq98S5cmdaWjmj+/KEd6i1xkVGNYjpMqzF88H45R1xqhgiz/X9KD2HHxkFHM
+	H1s0z5dhKaZ6/r1akljfhuDHf0a+j04EYclnTW7pxyeYYovefBl6GcPPmmp3pxL6xJBYbzedSS9kU
+	GOajKssjBXGVyON45tVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGcb-00000000tUD-0p4u;
-	Tue, 19 May 2026 09:20:17 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1wPGtL-00000000wyg-245K;
+	Tue, 19 May 2026 09:37:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGcZ-00000000tTV-0Yab
+	id 1wPGtJ-00000000wxK-3Gh8
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 09:20:16 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-bd11a3729e8so559601666b.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 02:20:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779182413; cv=none;
-        d=google.com; s=arc-20240605;
-        b=PkRoeTC2CKTbcUqfIN3ysylWQT1wA6lwAlBH+CAg05Z8l+ZfeKPA0EdxwJJ6lPw5Tl
-         GO09V2guoajlLQQBEwff6LZqnj+NzRKZIz3eBxPZusXJswz2EgTkmRReEbj4150qXWTh
-         R6BLOeHCouIdk1EIuO2R46uT7c1Tjb7+5I3T+wou/5xZIQiI6ij5HFqSPX5Rj5xwDxL+
-         jsuq70laZob8SjHvy+/Y3yE0V8wOGmTd01+8Q3LcP82secKnDXXOSORUFnFhrPsItpBe
-         T2NsleEf0LhPHWg2kq5W7uBlrmd3o59YbrCV97/oUDAuh/mm0GNZxTIQwiqnNxByB03Q
-         zoIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=dfWu/8vKto9CQAtt349R8n3C/VWlID9Bb/Ku/VCBeHI=;
-        fh=TTEW2Se0RDtJBu9UHA7IKsw47RYbz9iP7jnFk9MdTLU=;
-        b=f+qMN8F2wTqwQ80DI+xg+CkaHelGkwjnHacOmzhPP0lsJ3HKIvY9IFlFVd6zClVXhV
-         Mpeb1yQmboFPaYbH1aVyICJ124rl9azkbL0WqktRYwRG1i9Gulaai7VS/fiSLibb06XT
-         MFJiMYW3pOXzHesC5GVKVSfinkaSQ4vPolqZreX0XxsK205gXN/VQNtfjRkowA6pnlCF
-         XyDY0+CklKK//hQ1ma6q2ODoW/pt8YmlNxRXlIQRerKNLpP22ZT1UmTaWsNcKkKwpJAu
-         hI5wmeTB8FX4BhymsAOTsMAhmeQW/mNHnvWnhDXFt4jIkWDhLwjobF2qO1m65Ya50Wbf
-         Pv+A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1779182413; x=1779787213; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dfWu/8vKto9CQAtt349R8n3C/VWlID9Bb/Ku/VCBeHI=;
-        b=MXMXWBJUdC0psUEB9JL9twCFSsulKp6iRhdQ6+0b5jyTP6w91/oT9SybYzOGFsfd50
-         ywfAAOuMZ8D4jupYZ+NKApdjxrxCwbduLGARwmMmAWoGc1E1xtXQ86YItP79KH1hl43U
-         pN3SFpsWMDUW3MFR0jrfo9+U90rjCn3koRCJdC0M8Uuw3bt+JuNWgzI4GfR8HipY1USi
-         J3k//lzrHFbhmiVxUpdk1ONQlAs5AovJZh39ketdWco8jjf/lpvRR+FbGpne0ogGqTn0
-         eiYOO2+3cAcLqO3uTF7FrDOjMuNH7pXSTXSH+liQ2pSywZWwxYCEAFw7FHIP5Rl+ggcf
-         51sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779182413; x=1779787213;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dfWu/8vKto9CQAtt349R8n3C/VWlID9Bb/Ku/VCBeHI=;
-        b=X3VGLRnTl/NBETSr77LxfZTR0MzbkXkzBphFp4rfsLWkEi6xVcFMVEn+JaVoe1dj/l
-         l/mjm4fRCzapfuIv0NjJBQKyWRrdanWUxV1oBM/wKpbWv979X5ArSLh3Ee2vEvMX7tcg
-         h1r+CQoeKWyYlK77VA6KPPIjUCuYktrHlSsCo5CzKig9jgBm5MUbPjZnmWMB/Ck+tJb0
-         xCwB1RjpE9Jysosnf/AdTMF4RtEDkzjlfxUww8oRggw5dVr3TMzlbauUuvYYZyQY1kqC
-         Y9w553Ta88ukLv/+y4tiBVY+Kncd1kopF4kZzS1hH7v1MxOdfvuCC0Vqo5jp31x7EMa0
-         Pykg==
-X-Forwarded-Encrypted: i=1; AFNElJ9uoHA1qu/CH92gchbHsCO67skuovrEYeBVC/Y+DFPs0Pcb204Fd5nca7CObYmQ959X5ZOvvk8SKntNbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQr5SDcgsOLDDRhC7HF7EfAa2RBSWHoIj6++aziogpz538HC5D
-	3e/G4VgKx3Mn2AcMFz/Jx7Mtlm99+vhDfPitn8rH5EcNKGz7poi6EJqeRZ8WcHadENAcw5Mq5z3
-	XRK6ZXeSM65bjR/TNlmQ0P6cmca6OwKI4/sNhvOsy5A==
-X-Gm-Gg: Acq92OGF8iNtviAmJe8OhGqWhNvl94AKz5RpNeWDDv9X9mzuHW/TgIA7L+TI9GLLiuX
-	hQC6mjMeOuLGFXn/2SmVEc0M1xynPqOCgxJ7HDtcNasG13C8SIzsYA6pqrynE1ebqUBPnzboVDv
-	Nk3rahVgJ3UhFzSwNyXSHdvCuNozugogW7ocOjvQVM0djhPAPAyXpoROq/fcKMvCiubipyfxQtO
-	0Mp64Rq55ROk4ebkqO0Anc2MJw1C9K4BR3uyElmB3TmbwHkrNewuSx8YVe69B2OGhh8tuu+ok0G
-	L4CRg7PQevv3MhonCmV6
-X-Received: by 2002:a17:907:d06:b0:bd3:c295:d76c with SMTP id
- a640c23a62f3a-bd5177afe53mr1150389266b.1.1779182413155; Tue, 19 May 2026
- 02:20:13 -0700 (PDT)
+	Tue, 19 May 2026 09:37:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D59F46020F;
+	Tue, 19 May 2026 09:37:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF393C2BCF5;
+	Tue, 19 May 2026 09:37:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779183452;
+	bh=29NbVoajZTtTH3m99IJaWbdrnfsufS249hOJeHdzXU8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=jMFgm7DlWGoa7FcFXbiQRhV9j8RlzxJgmeRJBLRuVhaqBejVJ/8z9J/lMaHtm2QnC
+	 R11PoknF+h93yNyjpJQ4ew5cakznV/a2eYDlUsSDo+G2ZmQa1VS9FLa0t9PAqa2/lu
+	 S/xwtETlFhe4WXerU3y/7Rd/Eex1xLjXOrl+/00KOMlDMIaENnF6rak2vkWHzqV8zX
+	 LF/k5gJr6VU4MWi+MrXbc5BknbfMIebrsNr/zsoNK4pL3SpGLBohmNsfOXxckHiqjC
+	 jIRVMoMj7fKrIX+Em8rUG5StGkHrZjOvM+AzGOu8a/2BWFMpLYDRrLsGrjuir8N5AJ
+	 1wTPWlwC20qzw==
+From: Conor Dooley <conor@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yixun Lan <dlan@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: [PATCH v2 2/4] pinctrl: add new generic groups/function creation function for pinmux
+Date: Tue, 19 May 2026 10:37:23 +0100
+Message-ID: <20260519-storm-karma-e457ea68904a@spud>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260519-germinate-ageless-631033d22797@spud>
+References: <20260519-germinate-ageless-631033d22797@spud>
 MIME-Version: 1.0
-References: <20260519071809.3823470-1-zong.li@sifive.com> <ccfe25b8-df25-49b6-a40e-d86630cbc407@w6rz.net>
-In-Reply-To: <ccfe25b8-df25-49b6-a40e-d86630cbc407@w6rz.net>
-From: Zong Li <zong.li@sifive.com>
-Date: Tue, 19 May 2026 17:20:01 +0800
-X-Gm-Features: AVHnY4LCj398HbecTnHOwODoKQ71KDZNFHkcN29xiK1Udm33Iv6v8Z1lxdIwsIc
-Message-ID: <CANXhq0rH+_FN+HcqK1_PwkgYfhN5KmcTRnk7pt8GzEhfiT4fpQ@mail.gmail.com>
-Subject: Re: [PATCH v5] riscv: cif: reduce shadow stack size limit from 4GB to 512MB
-To: Ron Economos <re@w6rz.net>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	debug@rivosinc.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, david.laight.linux@gmail.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_022015_202921_2905C5F4 
-X-CRM114-Status: GOOD (  29.77  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7907; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=m1LZQAbTBJymAR9P4E9u1jLAfhLsJ/LYRIX80WcFFg0=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFk8+kGvFH9+Xf4miyuntTJEiMfpaY/eK22BgxrpfT62W fdWxAp1lLIwiHExyIopsiTe7muRWv/HZYdzz1uYOaxMIEMYuDgFYCIFWYwMr/9bf90voBU99+/q 55On35M77einOqHqud+5hPmZ7LPPv2Fk+GK9/W2AVk1LzvR6dY7sqbsTl944K7BH+qr3TLaoPt1 7HAA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,62 +72,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMTksIDIwMjYgYXQgNDoyOOKAr1BNIFJvbiBFY29ub21vcyA8cmVAdzZyei5u
-ZXQ+IHdyb3RlOgo+Cj4gT24gNS8xOS8yNiAwMDoxOCwgWm9uZyBMaSB3cm90ZToKPiA+IFJhdGlv
-bmFsZToKPiA+Cj4gPiAxLiBTaGFkb3cgc3RhY2tzIG9ubHkgc3RvcmUgcmV0dXJuIGFkZHJlc3Nl
-cyAoOCBieXRlcyBwZXIgZW50cnkpLCBub3QKPiA+ICAgICBsb2NhbCB2YXJpYWJsZXMsIGZ1bmN0
-aW9uIHBhcmFtZXRlcnMsIG9yIHNhdmVkIHJlZ2lzdGVycy4gQSA1MTJNQgo+ID4gICAgIHNoYWRv
-dyBzdGFjayBpcyBmYXIgbW9yZSB0aGFuIHN1ZmZpY2llbnQgZm9yIGFueSBwcmFjdGljYWwKPiA+
-ICAgICBhcHBsaWNhdGlvbiwgZXZlbiB3aXRoIGV4dHJlbWVseSBkZWVwIHJlY3Vyc2lvbi4gVGhp
-cyBzaXplCj4gPiAgICAgbWFpbnRhaW5zIGFkZXF1YXRlIHdoaWxlIGJlaW5nIG1vcmUgcmVzb3Vy
-Y2UtZWZmaWNpZW50IG1hcmdpbgo+ID4KPiA+IDIuIE9uIG1lbW9yeS1jb25zdHJhaW5lZCBzeXN0
-ZW1zIChlLmcuLCBwbGF0Zm9ybXMgd2l0aCBvbmx5IDRHQiBvZgo+ID4gICAgIHBoeXNpY2FsIG1l
-bW9yeSwgd2hpY2ggaXMgYSBjb21tb24gY29uZmlndXJhdGlvbiksIGFsbG9jYXRpbmcgNEdCCj4g
-PiAgICAgb2YgdmlydHVhbCBhZGRyZXNzIHNwYWNlIGZvciBzaGFkb3cgc3RhY2sgcGVyIHByb2Nl
-c3MvdGhyZWFkIGNhbgo+ID4gICAgIGxlYWQgdG8gdmlydHVhbCBtZW1vcnkgYWxsb2NhdGlvbiBm
-YWlsdXJlcyB3aGVuIHRoZSBvdmVyY29tbWl0IG1vZGUKPiA+ICAgICBpcyBzZXQgdG8gT1ZFUkNP
-TU1JVF9HVUVTUyBvciBPVkVSQ09NTUlUX05FVkVSOgo+ID4gICAgIEVycm9yOiAiX192bV9lbm91
-Z2hfbWVtb3J5OiBub3QgZW5vdWdoIG1lbW9yeSBmb3IgdGhlIGFsbG9jYXRpb24iCj4gPgo+ID4g
-U3VnZ2VzdGVkLWJ5OiBEYXZpZCBMYWlnaHQgPGRhdmlkLmxhaWdodC5saW51eEBnbWFpbC5jb20+
-Cj4gPiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPiAtLS0K
-PiA+Cj4gPiBDaGFuZ2VkIGluIHY0Ogo+ID4gLSBGaXggd3Jvbmcgc3ViamVjdC4gSXQgaXMgNTEy
-TUIgaW5zdGVhZCBvZiAyR0IKPiA+Cj4gPiBDaGFuZ2VkIGluIHYzOgo+ID4gLSBSZW1vdmUgbWF4
-KCkuIFBBR0VfQUxJR04oKSBhbHJlYWR5IHJvdW5kcyB1cAo+ID4gLSBDaGFuZ2Ugc3RhY2sgc2l6
-ZSB0byBSTElNSVRfU1RBQ0svOCB3aXRoIFNaXzUxMk0gY2FwLiBTdWdnZXN0ZWQgYnkgRGF2aWQg
-TGFpZ2h0Cj4gPgo+ID4gQ2hhbmdlZCBpbiB2MjoKPiA+IC0gQWRkIG1heCgpIGluIGNhc2UgUkxJ
-TUlUX1NUQUNLIGlzIHNtYWxsZXIgdGhhbiBQQUdFX1NJWkUuIFN1Z2dlc3RlZCBieQo+ID4gICAg
-UGF1bCBXYWxtc2xleSBhbmQgU2FzaGlrbwo+ID4KPiA+IENoYW5nZWQgaW4gdjE6Cj4gPiAtIFVz
-ZSBtaW4oKSBpbnN0ZWFkIG9mIG1pbl90KCkuIFN1Z2dlc3RlZCBieSBEYXZpZCBMYWlnaHQKPiA+
-Cj4gPiAgIGFyY2gvcmlzY3Yva2VybmVsL3VzZXJjZmkuYyB8IDYgKysrLS0tCj4gPiAgIDEgZmls
-ZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAt
-LWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3VzZXJjZmkuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3Vz
-ZXJjZmkuYwo+ID4gaW5kZXggNmVhYTBkOTRmZGZlLi4yMDM2OTE4YTc3ZGIgMTAwNjQ0Cj4gPiAt
-LS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC91c2VyY2ZpLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2Vy
-bmVsL3VzZXJjZmkuYwo+ID4gQEAgLTEwOSwxNSArMTA5LDE1IEBAIHZvaWQgc2V0X2luZGlyX2xw
-X2xvY2soc3RydWN0IHRhc2tfc3RydWN0ICp0YXNrLCBib29sIGxvY2spCj4gPiAgICAgICB0YXNr
-LT50aHJlYWRfaW5mby51c2VyX2NmaV9zdGF0ZS51ZmNmaV9sb2NrZWQgPSBsb2NrOwo+ID4gICB9
-Cj4gPiAgIC8qCj4gPiAtICogSWYgc2l6ZSBpcyAwLCB0aGVuIHRvIGJlIGNvbXBhdGlibGUgd2l0
-aCByZWd1bGFyIHN0YWNrIHdlIHdhbnQgaXQgdG8gYmUgYXMgYmlnIGFzCj4gPiAtICogcmVndWxh
-ciBzdGFjay4gRWxzZSBQQUdFX0FMSUdOIGl0IGFuZCByZXR1cm4gYmFjawo+ID4gKyAqIFRoZSBz
-aGFkb3cgc3RhY2sgb25seSBzdG9yZXMgdGhlIHJldHVybiBhZGRyZXNzIGFuZCBub3QgYW55IHZh
-cmlhYmxlcwo+ID4gKyAqIDUxMk0gc2hvdWxkIGJlIG1vcmUgdGhhbiBzdWZmaWNpZW50IGZvciBt
-b3N0IGFwcGxpY2F0aW9ucy4KPiA+ICAgICovCj4gPiAgIHN0YXRpYyB1bnNpZ25lZCBsb25nIGNh
-bGNfc2hzdGtfc2l6ZSh1bnNpZ25lZCBsb25nIHNpemUpCj4gPiAgIHsKPiA+ICAgICAgIGlmIChz
-aXplKQo+ID4gICAgICAgICAgICAgICByZXR1cm4gUEFHRV9BTElHTihzaXplKTsKPiA+Cj4gPiAt
-ICAgICByZXR1cm4gUEFHRV9BTElHTihtaW5fdCh1bnNpZ25lZCBsb25nIGxvbmcsIHJsaW1pdChS
-TElNSVRfU1RBQ0spLCBTWl80RykpOwo+ID4gKyAgICAgcmV0dXJuIFBBR0VfQUxJR04obWluKHJs
-aW1pdChSTElNSVRfU1RBQ0spIC8gOCwgU1pfNTEyTSkpOwo+ID4gICB9Cj4gPgo+ID4gICAvKgo+
-Cj4gSnVzdCBGWUksIHlvdXIgVjIgdmVyc2lvbiBvZiB0aGlzIHBhdGNoIHdhcyBtZXJnZWQgaW4g
-TGludXggNy4xLXJjNCAoY29tbWl0IDZjNzY3NGI1YjdhZTUxM2NlY2FlMjJhYTlkY2RjZjUzMzg2
-MmNmNWMpLiBZb3UgbmVlZCB0bwo+IHJlYmFzZSwgb3RoZXJ3aXNlIHRoaXMgcGF0Y2ggd29uJ3Qg
-YXBwbHkuCgpUaGFuayB5b3UgZm9yIHBvaW50aW5nIHRoaXMgb3V0LiBQZXJoYXBzIGxldCdzIGRy
-b3AgdGhpcyBzZXJpZXMgYW5kCnNlbmQgYSBuZXcgb25lIHRvIGV4cGxhaW4gd2h5IHdlIHdhbnQg
-dG8gcmVkdWNlIHRoZSBzaXplIHRvIDUxMk1CCgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Conor Dooley <conor.dooley@microchip.com>
+
+Akin to my recently added pinctrl_generic_pins_functions_dt_node_to_map(),
+create an analogue that performs the same role of dynamically creating
+groups at runtime for controllers using the pinmux property.
+The pinmux property is freeform, so this function mandates that the
+upper 16 bits contain the pin and the lower 16 bits contains the mux
+setting. The group's data pointer is populated with an array of the mux
+settings for each pin it contains.
+
+Since the node parsing and subsequent pinctrl core function calls are
+practically identical to the pins + functions case, other than which
+properties are examined, it makes sense to extract the common code from
+pinctrl_generic_pins_function_dt_node_to_map() into a generic function
+that takes the case-specific devicetree parsing function as an argument.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/pinctrl/pinconf.h         |  14 ++++
+ drivers/pinctrl/pinctrl-generic.c | 119 ++++++++++++++++++++++++------
+ 2 files changed, 112 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/pinctrl/pinconf.h b/drivers/pinctrl/pinconf.h
+index b2fb757cc6ecb..2e40512fed776 100644
+--- a/drivers/pinctrl/pinconf.h
++++ b/drivers/pinctrl/pinconf.h
+@@ -173,6 +173,11 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 						 struct pinctrl_map **maps,
+ 						 unsigned int *num_maps);
+ 
++int pinctrl_generic_pinmux_dt_node_to_map(struct pinctrl_dev *pctldev,
++					  struct device_node *np,
++					  struct pinctrl_map **maps,
++					  unsigned int *num_maps);
++
+ int pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *parent,
+ 			   struct device_node *np, struct pinctrl_map **maps,
+ 			   unsigned int *num_maps, unsigned int *num_reserved_maps,
+@@ -188,6 +193,15 @@ pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 	return -ENOTSUPP;
+ }
+ 
++static inline int
++pinctrl_generic_pinmux_dt_node_to_map(struct pinctrl_dev *pctldev,
++				      struct device_node *np,
++				      struct pinctrl_map **maps,
++				      unsigned int *num_maps)
++{
++	return -ENOTSUPP;
++}
++
+ static inline int
+ pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *parent,
+ 		       struct device_node *np, struct pinctrl_map **maps,
+diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-generic.c
+index a3faad7911cbf..9759b0186bcc2 100644
+--- a/drivers/pinctrl/pinctrl-generic.c
++++ b/drivers/pinctrl/pinctrl-generic.c
+@@ -119,17 +119,64 @@ static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *p
+ 				      functions, pins, npins);
+ }
+ 
+-/*
+- * For platforms that do not define groups or functions in the driver, but
+- * instead use the devicetree to describe them. This function will, unlike
+- * pinconf_generic_dt_node_to_map() etc which rely on driver defined groups
+- * and functions, create them in addition to parsing pinconf properties and
+- * adding mappings.
+- */
+-int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+-						 struct device_node *np,
+-						 struct pinctrl_map **maps,
+-						 unsigned int *num_maps)
++static int pinctrl_generic_pinmux_dt_subnode_to_map(struct pinctrl_dev *pctldev,
++						    struct device_node *parent,
++						    struct device_node *np,
++						    struct pinctrl_map **maps,
++						    unsigned int *num_maps,
++						    unsigned int *num_reserved_maps,
++						    const char **group_names,
++						    unsigned int ngroups)
++{
++	struct device *dev = pctldev->dev;
++	unsigned int *pins, *muxes;
++	int npins, ret;
++
++	npins = of_property_count_u32_elems(np, "pinmux");
++
++	if (npins < 1) {
++		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
++			parent, np, npins);
++		return npins;
++	}
++
++	pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
++	if (!pins)
++		return -ENOMEM;
++
++	muxes = devm_kcalloc(dev, npins, sizeof(*muxes), GFP_KERNEL);
++	if (!muxes)
++		return -ENOMEM;
++
++	for (int i = 0; i < npins; i++) {
++		unsigned int pinmux;
++
++		ret = of_property_read_u32_index(np, "pinmux", i, &pinmux);
++		if (ret)
++			return ret;
++
++		pins[i] = pinmux >> 16;
++		muxes[i] = pinmux & GENMASK(15, 0);
++	}
++
++	return pinctrl_generic_to_map(pctldev, parent, np, maps, num_maps,
++				      num_reserved_maps, group_names, ngroups,
++				      muxes, pins, npins);
++}
++
++static int pinctrl_generic_dt_node_to_map(struct pinctrl_dev *pctldev,
++					  struct device_node *np,
++					  struct pinctrl_map **maps,
++					  unsigned int *num_maps,
++					  int (dt_subnode_to_map)(
++						  struct pinctrl_dev *,
++						  struct device_node *,
++						  struct device_node *,
++						  struct pinctrl_map **,
++						  unsigned int *,
++						  unsigned int *,
++						  const char **,
++						  unsigned int))
+ {
+ 	struct device *dev = pctldev->dev;
+ 	struct device_node *child_np;
+@@ -152,11 +199,8 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 	if (!group_names)
+ 		return -ENOMEM;
+ 
+-	ret = pinctrl_generic_pins_function_dt_subnode_to_map(pctldev, np, np,
+-							      maps, num_maps,
+-							      &num_reserved_maps,
+-							      group_names,
+-							      ngroups);
++	ret = dt_subnode_to_map(pctldev, np, np, maps, num_maps,
++				&num_reserved_maps, group_names, ngroups);
+ 	if (ret) {
+ 		pinctrl_utils_free_map(pctldev, *maps, *num_maps);
+ 		return dev_err_probe(dev, ret, "error figuring out mappings for %s\n", np->name);
+@@ -180,11 +224,8 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 
+ 	ngroups = 0;
+ 	for_each_available_child_of_node_scoped(np, child_np) {
+-		ret = pinctrl_generic_pins_function_dt_subnode_to_map(pctldev, np, child_np,
+-								      maps, num_maps,
+-								      &num_reserved_maps,
+-								      group_names,
+-								      ngroups);
++		ret = dt_subnode_to_map(pctldev, np, child_np, maps, num_maps,
++					&num_reserved_maps, group_names, ngroups);
+ 		if (ret) {
+ 			pinctrl_utils_free_map(pctldev, *maps, *num_maps);
+ 			return dev_err_probe(dev, ret, "error figuring out mappings for %s\n",
+@@ -202,4 +243,40 @@ int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 
+ 	return 0;
+ }
++
++/*
++ * For platforms that do not define groups or functions in the driver, but
++ * instead use the devicetree to describe them. This function will, unlike
++ * pinconf_generic_dt_node_to_map() etc which rely on driver defined groups
++ * and functions, create them in addition to parsing pinconf properties and
++ * adding mappings.
++ */
++int pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
++						 struct device_node *np,
++						 struct pinctrl_map **maps,
++						 unsigned int *num_maps)
++{
++	return pinctrl_generic_dt_node_to_map(pctldev, np, maps, num_maps,
++					      &pinctrl_generic_pins_function_dt_subnode_to_map);
++}
+ EXPORT_SYMBOL_GPL(pinctrl_generic_pins_function_dt_node_to_map);
++
++/*
++ * For platforms that do not define groups or functions in the driver, but
++ * instead use the devicetree to describe them. This function will, unlike
++ * pinconf_generic_dt_node_to_map() etc which rely on driver defined groups
++ * and functions, create them in addition to parsing pinconf properties and
++ * adding mappings.
++ *
++ * It assumes that the upper 16 bits of the pinmux items contain the pin
++ * and the lower 16 the mux setting.
++ */
++int pinctrl_generic_pinmux_dt_node_to_map(struct pinctrl_dev *pctldev,
++					  struct device_node *np,
++					  struct pinctrl_map **maps,
++					  unsigned int *num_maps)
++{
++	return pinctrl_generic_dt_node_to_map(pctldev, np, maps, num_maps,
++					      &pinctrl_generic_pinmux_dt_subnode_to_map);
++};
++EXPORT_SYMBOL_GPL(pinctrl_generic_pinmux_dt_node_to_map);
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
