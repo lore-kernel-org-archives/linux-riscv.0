@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72964CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 07:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F600CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 07:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5UYGGEk25RtrXwTVD7uBz0mip8JAJ4mOl8xDGzrPqD0=; b=ihOL38lHAHUdYn
-	w+WHmV1NEjgl7jzaIS5n+YwXmIQwMchUyD5FuO2TM22DPbq5XE8019FQAI49UuGcZhIPXrf/2F6sh
-	a4cZHH67O+cR5Bt6hXuCsur9a400XhdUv2VH5OBF+Dm/+DUYRR4nT94UGM3bB0R6k+hA0XRpWXDBI
-	m77R2kj87Zt3oJFYF0i/FpwFFa0NE7qqeCuxaTLBz+HFRkzBxqudrBapkPNNtPax4hsS0HefciKIE
-	T9bkElJ9V1RVBZHcVDJGjFvl5tO9c4AtyFn4XU5tOSC/LF9VFIP8PNiaROFL6CecuW/s6677iZhvV
-	ZdGSRUmLTFrg7X5xsWsQ==;
+	List-Owner; bh=5UYGGEk25RtrXwTVD7uBz0mip8JAJ4mOl8xDGzrPqD0=; b=bAIKbSHBr5OIP1
+	qvClmS6h7ivm6DlEos6r7QZKoHSgOBP0qHN1WOc+fxtuadVZ+EpVrGsgWekB+qtPjOIJHerfm/M1u
+	3B3meG7KZTq7+dPo1xL2PoXFY+2hOe4rMgaA/sJXfOLKEKj6n51I9EJElWWC7/80x6UO43LGQjLH7
+	QGNcRAT9/U0pgUiu4YuzLlGgIOA6CeNPautmf98nUjBVQgQ8Et0WB24V/aF/2qZ7xkoov0jMhbGDv
+	BCLwRcBeCmEeJXI4zU7gBuXa164Jzr3yFzQ8cSh3qTbroaYnGElz10RBEXOCgbgduFih+FuSzXVvs
+	IXhgAZDI7YPnSTUkaGDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEe3-00000000S0Z-3Qs7;
-	Tue, 19 May 2026 07:13:39 +0000
-Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
+	id 1wPEf3-00000000S9n-487W;
+	Tue, 19 May 2026 07:14:41 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEe1-00000000Rzw-0093
+	id 1wPEf2-00000000S9I-0ZhQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 07:13:38 +0000
-Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-2c156c4a9efso4123953eec.1
-        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 00:13:36 -0700 (PDT)
+	Tue, 19 May 2026 07:14:41 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-3025d725a05so9018258eec.1
+        for <linux-riscv@lists.infradead.org>; Tue, 19 May 2026 00:14:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1779174816; x=1779779616; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1779174879; x=1779779679; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
         bh=/v832jg02T0+h3BQvkKwAzJW+pkS6A9rgEMY10zaHwM=;
-        b=jtgZSoq24hvQr6e5oVlM6a8A/wP/KtEWEp4yUwdgD3kZZYP6NWHQLuNnGce9O+aFoF
-         gQlfZFV/HqqEeitc5E0jT1pK1OlKsfJc9srqzGaAH01auGQI4CITWwfFREntRLwTluJM
-         K8JEyjCLiGGWCTsx1FZIuBTTKQZKQHRVUdGnEw6zEQaLGFwl9rNKNrbepD5ePsvZH08O
-         pDaRo46hwawMKqNfXmtKllk+EELTi/v2sW90edNUPG0vupKPWwAV9bfCphkG9APSO38x
-         1Go16SMibnYqHOVBalMI/bg1KThUA7NgId2zn0ng/Jk6lEJ5wINAeyWlWLxe+msoGDpQ
-         dzVg==
+        b=E4vnBF5NGdN5iCoFEMOJsrol13Teu3V1gOn92+nmgwKkfKuHZGVd5Icx7gO91lZulW
+         WqVlBzHU7OKD78Jf85Q6VFyZBM9gqJSGKvgaM6VEEGg9+an8HU8ChAN+0iB5Zl01azEx
+         6WYl0uktkEMcaxBieaBzQA/zlImsYvzU+db3u3aMkOg5/okhtLJQ166ShY119JPU+b2m
+         kG1ZdJgQjuj6aqG8byEMl77Z3BvSzPlhl4P2VAkNfSsZxAUIrRxDrXF/uNlJfGgCMBrB
+         nrT50Qt6+vrPIUiobknu9Q1Vok4mBxcuR8/0uCumFbuEnr1y1avzG0FUwd/FTzr3Cogy
+         8ZDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779174816; x=1779779616;
+        d=1e100.net; s=20251104; t=1779174879; x=1779779679;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
         bh=/v832jg02T0+h3BQvkKwAzJW+pkS6A9rgEMY10zaHwM=;
-        b=E5bYzauf9aQTyyEbBrIUj0aj6YQ/bHrfS9JArCQcBdOsNHk2hvrDHKRnU2G0na1aIc
-         uck8HC/2lBfPdC2FVcqZ1BesaPW05N/j/qvucjvy7da56fXwSLjxYl+VToUrSRBoKy0j
-         dh11wnzkpdcGhrzQ6HxHnMEmLaT4m4X46/C94kmGFbcvzIkGjAVi1G2pCWGXSQVV0DGV
-         WEmxDNxP1/Hvk5+nIOs7g+cZGXiCYjOi3gNw7w0TPpb2Omso5EJQxka2VkhCgFsmaKUB
-         MtNwxTnsp6TwPAm06xvpLfav6xQeLhqlrCWwH066hJju445bnlgMbtVFGK2CfFfIjEDk
-         tNXQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9adKzQ9GAfxR2AUmDYmOdzWXxA/302zp9rDd6ulPg+CfUkOSXEYdAZ6o7vW4n8YOlNhvwt1jgkZrnfRw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc1j2+gDoLmR7DENMtR1bJgVWKNUpaGga9CnqKc2SqJx92ayZx
-	H+jtmF7yslsWSTx4DNvSS7Ob3rb+K3Bcv7axHVEiSgiRh+LijfsmAIKaI3w0Q4xtPKQ=
-X-Gm-Gg: Acq92OFBVfcOqJjwgCuNCLj10Yoi6+U5MIh0PGN4TNUFKEPYlI1WyIruuyNWC+Q2QHX
-	M+qFGy9Msf4dbbf1uWG8m01TPozL6XaV8OdjmAQaSPNHjjptcNbZv62iov8k887Pea+VapFDf9Q
-	5NjALPmiZX70N8/qUHz3RjMDsR3K9lecIsuqskraVgUtO3KJ8PKbzxYitqA817a3M9VJ0OH69XK
-	QHjz6xKWBZKBH4MgQuBPSBfwTZPB7tJu0Q/BXHn3QuvYO8hpfRemQ1MC4wyk3Mapv5z+vF80ub4
-	8UpBZ84tVaATqrQBd/liWua5wslWQGsQ6G7gkax94w8pRXue7fnbAJ5rNxW/XzlMMnO3WOJdNLN
-	5/JkHj4kB2gR7FTN8WyKaPQukQVw0qVAmu8NvEO/YMxuJtXBoB5IoK+er3HB9/7EwMPJI2KhDtU
-	qCASHxMHJ17KXoJhXDx4owvEQaWH7qDbWDNl68EQV2W+cBTg==
-X-Received: by 2002:a05:7300:2152:b0:2f2:b544:2fca with SMTP id 5a478bee46e88-303986950a4mr8945348eec.33.1779174816039;
-        Tue, 19 May 2026 00:13:36 -0700 (PDT)
+        b=XJA72kyPwRHORBUi5ABclYQaOyX2liHDcNpHYdNKLKOhhqcluIfxyHxEz9KHD6SueM
+         LELlfMZ4IxevFHUVaafHN8nJuO/XicM8c8exjwNrH8V0vuThS3KMwlS5OgLDMKp1xmkf
+         WOAECAqp+LrwdZ6dNmAFqDaybKCkwSbLZdNAzigfsWjAN/XHYPkjhqee4dElznpcfxUU
+         BmsdzMSkubc479+Ebztdq/sYjo281w6MTMx9N2/oLl20nULiuH/qrxYE2M/BBZbvoAPH
+         KReitL/g2vlySLdWQJWVRlIIctc/R7uRtgTTYT/RWINB1DsmUMKZQ7qHySwx2JqQnAq1
+         GnIw==
+X-Forwarded-Encrypted: i=1; AFNElJ/0RnHmAhVJExhVvnBTaWaodIgtgFRoD12tRTEiMVOe0XKPckBUyRW0W8KHFEjP7MAorMf5HQFnTIHsIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFvFS/mFaGtMce9d9VPTr3a0Vx+qitu55I0LwqN7dM7zwPDB7D
+	bs6h6MQTekTjW0cpv6aqYCcZhCv7X4DA/Ck92AzUGtOw9jtAAYmhagAZ95ofc3k0NQX0RDjiV+U
+	r4ebwT/NGwg==
+X-Gm-Gg: Acq92OFflJ20baMGzoNWIY5t7wKqEGuao5qryeuR+oP/GZqvBjCkfJ5DTWE+yfT2h7A
+	YEw7iVIS735tsE4t9xzEz/PzEjai1kmA0dOPQBtsGyOQW5jWg0qgZhfWwA8waIxpn0aysqdrSc3
+	r5mp5v18NTbg1FzVhHurJtkAJcFUzuB9I8EM3g2gNnxTNsjmjYuCxhnM3xXu4gb26+BsfJ556i5
+	EGmbLCGTyRgG4CVGddErlTY45Ha8y41JCZwGC0VHv7T1gkjfSev5fSh22GxmU5EPHsTZUzzb9QM
+	5VJfXqNByHq4fCEryujpnmrcJ5GdYVKsgfbcoKWntCV6QvnC69OFKA8c5jHnQpQ7MWXbh+d7gzU
+	UZcmX2FyuBMm5VypC1Hoiez3LtTA2jSs4BJRbzYKyQfK/3D6WwEVhVfudJCH4lFdekadwkIuWnQ
+	88n34gxYg4UZpSVqkOkpD29B45md4sYXx3AfI=
+X-Received: by 2002:a05:7301:169b:b0:2d9:32c8:2b69 with SMTP id 5a478bee46e88-3039865fe40mr7744836eec.28.1779174879153;
+        Tue, 19 May 2026 00:14:39 -0700 (PDT)
 Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-302977a9474sm15631673eec.25.2026.05.19.00.13.35
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30294500726sm14733801eec.10.2026.05.19.00.14.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 00:13:35 -0700 (PDT)
+        Tue, 19 May 2026 00:14:38 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -78,14 +79,14 @@ To: pjw@kernel.org,
 	linux-kernel@vger.kernel.org,
 	david.laight.linux@gmail.com
 Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v3] riscv: cif: reduce shadow stack size limit from 4GB to 2GB
-Date: Tue, 19 May 2026 00:13:33 -0700
-Message-ID: <20260519071333.3820429-1-zong.li@sifive.com>
+Subject: [PATCH v4] riscv: cif: reduce shadow stack size limit from 4GB to 2GB
+Date: Tue, 19 May 2026 00:14:36 -0700
+Message-ID: <20260519071436.3821558-1-zong.li@sifive.com>
 X-Mailer: git-send-email @GIT_VERSION@
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_001337_040510_470EFA38 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260519_001440_173987_733CB6A2 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
