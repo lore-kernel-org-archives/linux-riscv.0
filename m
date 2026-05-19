@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D9ECD5BAB
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 17:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB3ECD4F3C
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 17:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ko+Z+N0xl3FOTD9HAKjWf8/93tX+Ip/nfBu58KrpU28=; b=tm6mVqvVt8lQIl
-	l8RPTiK/J7/7Lg2TSiY+BmMc8M18/wxmkhzybTBOJDAcdp+8SQFKbN2YliSu6c3AM49CGVv5bqpDN
-	0e4ryF53EkZBDMI9AImI55metBKhrIA/w70uUxNpqmqrhnKGq4jEYPMUABfllnhaov0GVZelht2D2
-	DuDy3A4Fuy0xP7biGT2Mm/f81bXcbiAQrfv7f3KLkzSDpXbD4wOsN4rXQx+yW7ZVDDtOGKEEEMXE4
-	OnSSwFq/lqLlRzZqcbqhQ6OxhAaCbtiVoerRb5+sFiKaG1ONkeWDUZMFfVLmwRtwAPKLXJYtEZ7U8
-	rBOi9o4M9yjjYIzC8rqA==;
+	List-Owner; bh=DkcSy/oPDPvR6J4TpkSaAENokhQPZwnSyAxtIt+GSdY=; b=PZfivSHHu4ecSc
+	MJfvjzpJ4qPGY7qVuFHCnHm1A8S/Q1kJIlgth33FpawlJM4Emh+qvLYY2kfPimikLzn+z1wmfRWcs
+	kS4ZqZ0OXnsh5lwaNQyvuOZBhClSkcFQRYG3O9bYfdOIkB9bwI7Or2ZdSatEhKXCs65AF2djEG0O9
+	SVulsKHhzMYT0XrlnM6QE1D8dTTLk0zZEHMPKTCUQjE4w0sYjQnTBgVzyd9+lXTBpQuXDB+89JKaa
+	h0woiEFPaLJo4y8swG6bCxWu8Vb8t/HtlCKZDrHtwsoMz7GgYD3+d9Epc0+TQgLAdY4w6WrAIf4CJ
+	dnmi0NgADjakkldNwDag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPOA2-00000002N4Y-0EUl;
-	Tue, 19 May 2026 17:23:18 +0000
-Received: from forward101a.mail.yandex.net ([178.154.239.84])
+	id 1wPOA8-00000002NBJ-1ZZM;
+	Tue, 19 May 2026 17:23:24 +0000
+Received: from forward101b.mail.yandex.net ([2a02:6b8:c02:900:1:45:d181:d101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPO9y-00000002N2V-0Rht
+	id 1wPOA6-00000002N5G-0GHm
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 17:23:16 +0000
+	Tue, 19 May 2026 17:23:23 +0000
 Received: from mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net [IPv6:2a02:6b8:c0c:190d:0:640:bab5:0])
-	by forward101a.mail.yandex.net (Yandex) with ESMTPS id B238E80C08;
-	Tue, 19 May 2026 20:23:06 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net (smtp) with ESMTPSA id 0NVul40SU0U0-O5TK05PT;
-	Tue, 19 May 2026 20:23:05 +0300
+	by forward101b.mail.yandex.net (Yandex) with ESMTPS id AE87BC007F;
+	Tue, 19 May 2026 20:23:15 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net (smtp) with ESMTPSA id 0NVul40SU0U0-d8TIqb0q;
+	Tue, 19 May 2026 20:23:15 +0300
 X-Yandex-Fwd: 1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1779211385; bh=TBxNdS4HSxmdP1AXz5UGyX20Ie/mR2EERiHh7P+Kz6A=;
+	t=1779211395; bh=/FIawmucMp3alAanBUAmlLHzqCj+wCHK3Vge4Om/wTA=;
 	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=dUTNcOH1uMISJWvdP8WrZXM0GUPpIDaj0dDk6sINUnI6xIUmkCKSzMRtiSCChtyE+
-	 1YUplqdvxbK/69WsRNiwTMeq0muVSL7YWuI8rUc2ty94GCU78F1T99eA8PPpffxGJd
-	 K0QgDYJtKkZOWZ/Ygy+xtnGD8YkrON6LSeAAFZ4g=
+	b=YmepTDbLQjOK8OGza2J5im7u1kgbJqijMeIY2G8i75YT6X1kQLYAQQtjug/1Lq/Lz
+	 SowH3z5JqQ8f/PiXNg3wmtzYth7qEG+LbzHl6xlOtE4Vkkju4OoMT+W826vJxx+3jy
+	 eBc/dGg8azALrMOCbHutpop4Q8FXWo3xFf281Dj4=
 Authentication-Results: mail-nwsmtp-smtp-production-main-92.iva.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
 From: Dmitry Antipov <dmantipov@yandex.ru>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -53,16 +53,16 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	linux-efi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH v11 1/8] lib: fix _parse_integer_limit() to handle overflow
-Date: Tue, 19 May 2026 20:22:52 +0300
-Message-ID: <20260519172259.908980-2-dmantipov@yandex.ru>
+Subject: [PATCH v11 8/8] riscv: fix building compressed EFI image
+Date: Tue, 19 May 2026 20:22:59 +0300
+Message-ID: <20260519172259.908980-9-dmantipov@yandex.ru>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260519172259.908980-1-dmantipov@yandex.ru>
 References: <20260519172259.908980-1-dmantipov@yandex.ru>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_102314_433654_56DAC46C 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20260519_102322_286521_C280CD39 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,99 +79,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In '_parse_integer_limit()', adjust native integer arithmetic
-with near-to-overflow branch where 'check_mul_overflow()' and
-'check_add_overflow()' are used to check whether an intermediate
-result goes out of range, and denote such a case with ULLONG_MAX,
-thus making the function more similar to standard C library's
-'strtoull()'. Adjust comment to kernel-doc style as well.
+When building vmlinuz.efi with CONFIG_EFI_ZBOOT enabled,
+'__lshrdi3()' is also needed to fix yet another link error:
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+riscv32-linux-gnu-ld: drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
+__efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
+
+And since riscv64 can have CONFIG_EFI_ZBOOT but doesn't need
+these library routines, rely on CONFIG_32BIT to manage linking
+of lib-ashldi3.o and lib-lshrdi3.o on riscv32 only.
+
+Reported-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Closes: https://lore.kernel.org/linux-riscv/20260409050018.GA371560@inky.localdomain
+Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+Assisted-by: Gemini:gemini-3.1-pro-preview sashiko
 Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
 ---
-v9 and upwards: bump version to match the series
-v8: do not use explicit temporary in check_xxx_overflow()
-    calls and handle overflow flag using separate variable
-v7: drop redundant check against ULLONG_MAX and restore
-    original comment
-v6: more compact for-loop and minor style adjustments again
-v5: minor brace style adjustment
-v4: restore plain integer arithmetic and use check_xxx_overflow()
-    on near-to-overflow branch only
-v3: adjust commit message and comments as suggested by Andy
-v2: initial version to join the series
+v10 and upwards: bump version to match merged series
+v7: use lib-clz_ctz.o exactly once (Sashiko)
+v6: adjust to match recent upstream changes
+v5: rely on CONFIG_32BIT rather than dedicated Kconfig symbol (Ard)
+v4: use more meaningful CONFIG_EFI_ZBOOT_USE_LIBGCC and adjust tags (Andy)
+v3: initial version to join the series
 ---
- lib/kstrtox.c | 37 ++++++++++++++++++++++---------------
- 1 file changed, 22 insertions(+), 15 deletions(-)
+ drivers/firmware/efi/libstub/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/lib/kstrtox.c b/lib/kstrtox.c
-index 97be2a39f537..edc4eb7c1bca 100644
---- a/lib/kstrtox.c
-+++ b/lib/kstrtox.c
-@@ -39,25 +39,30 @@ const char *_parse_integer_fixup_radix(const char *s, unsigned int *base)
- 	return s;
- }
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index cfedb3025c26..251571d293c3 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -95,7 +95,8 @@ CFLAGS_zboot-decompress-gzip.o	+= -I$(srctree)/lib/zlib_inflate
+ zboot-obj-$(CONFIG_KERNEL_ZSTD)	:= zboot-decompress-zstd.o lib-xxhash.o
+ CFLAGS_zboot-decompress-zstd.o	+= -I$(srctree)/lib/zstd
  
--/*
-- * Convert non-negative integer string representation in explicitly given radix
-- * to an integer. A maximum of max_chars characters will be converted.
-+/**
-+ * _parse_integer_limit - Convert integer string representation to an integer
-+ * @s: Integer string representation
-+ * @base: Radix
-+ * @p: Where to store result
-+ * @max_chars: Maximum amount of characters to convert
-+ *
-+ * Convert non-negative integer string representation in explicitly given
-+ * radix to an integer. If overflow occurs, value at @p is set to ULLONG_MAX.
-  *
-- * Return number of characters consumed maybe or-ed with overflow bit.
-- * If overflow occurs, result integer (incorrect) is still returned.
-+ * This function is the workhorse of other string conversion functions and it
-+ * is discouraged to use it explicitly. Consider kstrto*() family instead.
-  *
-- * Don't you dare use this function.
-+ * Return: Number of characters consumed, maybe ORed with overflow bit
-  */
- noinline
- unsigned int _parse_integer_limit(const char *s, unsigned int base, unsigned long long *p,
- 				  size_t max_chars)
- {
-+	unsigned int rv, overflow = 0;
- 	unsigned long long res;
--	unsigned int rv;
+-zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o lib-ashldi3.o
++zboot-riscv-obj-$(CONFIG_32BIT)	+= lib-ashldi3.o lib-lshrdi3.o
++zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o $(zboot-riscv-obj-y)
+ zboot-obj-$(CONFIG_LOONGARCH)	+= lib-clz_ctz.o lib-ashldi3.o
+ lib-$(CONFIG_EFI_ZBOOT)		+= zboot.o $(zboot-obj-y)
  
- 	res = 0;
--	rv = 0;
--	while (max_chars--) {
-+	for (rv = 0; rv < max_chars; rv++, s++) {
- 		unsigned int c = *s;
- 		unsigned int lc = _tolower(c);
- 		unsigned int val;
-@@ -76,15 +81,17 @@ unsigned int _parse_integer_limit(const char *s, unsigned int base, unsigned lon
- 		 * it in the max base we support (16)
- 		 */
- 		if (unlikely(res & (~0ull << 60))) {
--			if (res > div_u64(ULLONG_MAX - val, base))
--				rv |= KSTRTOX_OVERFLOW;
-+			if (check_mul_overflow(res, base, &res) ||
-+			    check_add_overflow(res, val, &res)) {
-+				res = ULLONG_MAX;
-+				overflow = KSTRTOX_OVERFLOW;
-+			}
-+		} else {
-+			res = res * base + val;
- 		}
--		res = res * base + val;
--		rv++;
--		s++;
- 	}
- 	*p = res;
--	return rv;
-+	return rv | overflow;
- }
- 
- noinline
 -- 
 2.54.0
 
