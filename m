@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90743CD4F5B
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 19:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD9FCD4F54
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 May 2026 19:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UyfSAzLASmISlTKSIsOeVIpALJmykMTan+4dDeSkHd0=; b=iunOd052q2uNhL
-	847ur//xoms7F7qm5zZm9+JrwtjH4lSgeVuJUfqmNbzUSNWrtadJPOuYzS5kB1RDekpDQjgRtYFNJ
-	xyr6TRsFcTJhW4QjrT5TC8RgrbSccVQuv3xx3aZAC/MllIoUKxOJkIkNxWgO62Pw8TflhoYzblTAu
-	X/ZyjGs66VZTMVI28EW5LFvHVf842zLrcIGmgfYjDnJjHVe7jn5MKgpvTqf1zdBzHr06JR4yy47vg
-	TY99Toa7g5Txoo8+DWubiIZh0fh0ryAcb5cwWzGuA+muBvbCJdJKqhSiOrpvU7Z3HQTZXyeh03rWn
-	qQfrNZz2dOcuRjiWkuUQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SJWkZHtjb0cmzQlio7Tj+rrk5DUlQh2mx/MML4G+Xe0=; b=mqjpV8C3pZoVEbsxxWwaLNHq8J
+	7tBkdqoL6c3JzBBp2jH4YhW/T8WTwJQm/qkX25V8BAn1PJ+fVg1gH1RQ0ZBBxPQOjOZ0elfk3d2Bs
+	ANTr8adGj/BslpIhR2mixoZIbSz2P1+ZuLQvl9/f31Iq6DaMpVz6Fw4hPHQpEKaePPHxOO2e4LngW
+	JPHqQps2nah+tZ00mGuJkwkoC5NEnbaup+stgteHICjRHoh3O1ZObs5N7fXhbaT1Bx3KuNJWfMGC6
+	oMLhtgAhhd5xnqEk/uwUQyDhfX2h2tdIzGd9s0bD+H8Jr7buXeVze3Zx8ljxJn3rm7O5P0HT81FRw
+	noCgEHUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPPpr-00000002aU8-2y4b;
-	Tue, 19 May 2026 19:10:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPQIr-00000002dvQ-3eow;
+	Tue, 19 May 2026 19:40:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPPpq-00000002aTu-0FPQ
+	id 1wPQIp-00000002dug-1jeC
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 May 2026 19:10:34 +0000
-Received: from smtp.kernel.org (aws-us-west-2-korg-mail-alma10-1.taild15c8.ts.net [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8FC060221;
-	Tue, 19 May 2026 19:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 336F51F000E9;
-	Tue, 19 May 2026 19:10:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1779217832;
-	bh=fgNZdK3NJsaTp5IvqSVDZRft25fsIJfb+L1i4SHqdtA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ds7OmLDkvieL4R92S3Zhu9KQe+lkz4nqE5rwqXqvFxRW9Rc9cfTflUhCYGVpKwCG0
-	 auLpjWdgmZimtBBjpQje2vujXXAI5UfyXliSqdTHZXTKvAGvMvHLLWBOtOfTMX3PI3
-	 YLtBoq/8zqaAzKZpG4uqyrBcIN2LgMQStvd4aTtY=
-Date: Tue, 19 May 2026 12:10:31 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Dmitry Antipov <dmantipov@yandex.ru>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Charlie Jenkins
- <thecharlesjenkins@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Ard Biesheuvel <ardb@kernel.org>,
- linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 0/8] lib and lib/cmdline enhancements
-Message-Id: <20260519121031.95ff192c46f02eb05e847e42@linux-foundation.org>
-In-Reply-To: <20260519172259.908980-1-dmantipov@yandex.ru>
-References: <20260519172259.908980-1-dmantipov@yandex.ru>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Tue, 19 May 2026 19:40:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EB47243469;
+	Tue, 19 May 2026 19:40:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF7181F000E9;
+	Tue, 19 May 2026 19:40:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779219630;
+	bh=xL6f42+NZTDsw+OmkZm6LZWfUUP2ibmkWGqkJCR5vys=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DRaRiHvb7F0z7nWHXYLLUu/MlLVGCyqbcUgZpL6Xn52X7QNyXBw0NndeRzdkVxVXI
+	 fuDJj0mwdjpNHO++ycJ6oaLmG2CnJwtQdPvVzq1KeD8WUeFWcunA9Jwcly2159eSYF
+	 cV64ggWt6RVhfBpCZPN5+PmpDWflNUx+0ZdDnh2XERWlwRaEH2a3kr2lf1hh+GzYtr
+	 mSSr1ja+vrDgEPE854O9SmMkK/Ic30R1EHrzUdnuuUaRX+sIXyVzlmjPOWt2qy86gO
+	 LWPzyh5X8IQ58hyNdzuoAw+uBSalwmWpqWfDMfR4TD5bGepIJe5/Zzi6YEqYslzD0V
+	 PFb0Uw1UiRYwQ==
+Date: Tue, 19 May 2026 20:40:23 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Michael Ellerman <mpe@kernel.org>, Yunhui Cui <cuiyunhui@bytedance.com>,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, akpm@linux-foundation.org, pasha.tatashin@soleen.com,
+	andrew+kernel@donnellan.id.au, rmclure@linux.ibm.com,
+	debug@rivosinc.com, baolin.wang@linux.alibaba.com,
+	zhangchunyan@iscas.ac.cn, apopple@nvidia.com, namcao@linutronix.de,
+	wangruikang@iscas.ac.cn, apatel@ventanamicro.com,
+	liu.xuemei1@zte.com.cn, ajones@ventanamicro.com,
+	cleger@rivosinc.com, charlie@rivosinc.com, hui.wang@canonical.com,
+	guodong@riscstar.com, pincheng.plct@isrc.iscas.ac.cn,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Qingwei Hu <qingwei.hu@bytedance.com>
+Subject: Re: [PATCH 1/2] riscv: track effective hardware PTE A/D updates
+Message-ID: <20260519-uniformly-italicize-7559af43864a@spud>
+References: <20260519031927.70683-1-cuiyunhui@bytedance.com>
+ <78e7f039-74a4-4499-a896-a20912ebc6fb@kernel.org>
+ <20260519-justly-fragile-f0e298526b08@spud>
+ <66c1503a-5fc5-432d-8312-403b2999d9d4@sifive.com>
+MIME-Version: 1.0
+In-Reply-To: <66c1503a-5fc5-432d-8312-403b2999d9d4@sifive.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_124031_496437_4E40BB23 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,73 +79,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2063582730089872950=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 May 2026 20:22:51 +0300 Dmitry Antipov <dmantipov@yandex.ru> wrote:
 
-> This series is a merge of the recently posted [1] and [2]. The first
-> one is intended to adjust '_parse_integer_limit()' and 'memparse()' to
-> not ignore overflows, extend string to 64-bit integer conversion tests,
-> add KUnit-based test for 'memparse()' and fix kernel-doc glitches found
-> in lib/cmdline.c. The second one was originated from RISCV-specific
-> build fixes needed to integrate the former and now aims to provide
-> platform-specific double-word shifts and corresponding KUnit test.
-> 
-> This series was briefly tested on X86, RISCV32, ARM, and MIPS using QEMU,
-> and compile-tested for LoongArch32 as well.
-> 
-> Getting feedback from RISCV core maintainers would be very helpful.
-> 
-> Special thanks to Andy Shevchenko, Charlie Jenkins, and Andrew Morton.
-> 
-> [1] https://lore.kernel.org/linux-riscv/20260403103338.1122415-1-dmantipov@yandex.ru
-> [2] https://lore.kernel.org/linux-riscv/20260427090105.705529-1-dmantipov@yandex.ru
-
-Thanks.  I updated mm.git's mm-nonmm-unstable branch to this version.
-
-Below is how v11 altered mm.git.  Please note that it's conventional to
-changelog the updates in the [0/N].  I see it there in the [6/8] and
-[7/8] changelogs:
-
-v11: add prototypes to arch/riscv/include/asm/asm-prototypes.h (Sashiko)
-v11: explicitly depends on arm/xtensa/microblaze or 32-bit riscv/sparc (Sashiko)
+--===============2063582730089872950==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MJwb+OluF7oAJ/ZE"
+Content-Disposition: inline
 
 
- arch/riscv/include/asm/asm-prototypes.h |    4 ++++
- lib/Kconfig.debug                       |    2 +-
- 2 files changed, 5 insertions(+), 1 deletion(-)
+--MJwb+OluF7oAJ/ZE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
---- a/arch/riscv/include/asm/asm-prototypes.h~b
-+++ a/arch/riscv/include/asm/asm-prototypes.h
-@@ -5,6 +5,10 @@
- #include <linux/ftrace.h>
- #include <asm-generic/asm-prototypes.h>
- 
-+long long __lshrdi3(long long a, int b);
-+long long __ashrdi3(long long a, int b);
-+long long __ashldi3(long long a, int b);
-+
- long long __lshrti3(long long a, int b);
- long long __ashrti3(long long a, int b);
- long long __ashlti3(long long a, int b);
---- a/lib/Kconfig.debug~b
-+++ a/lib/Kconfig.debug
-@@ -2974,7 +2974,7 @@ config BITS_TEST
- config SHDI3_KUNIT_TEST
- 	tristate "KUnit test for __ashldi3(), __ashrdi3(), and __lshrdi3()"
- 	depends on KUNIT
--	depends on (32BIT || ARM)
-+	depends on ARM || XTENSA || MICROBLAZE || ((RISCV || SPARC) && !64BIT)
- 	help
- 	  This builds the unit test for __ashldi3(), __ashrdi3(), and
- 	  __lshrdi3() helper functions used to implement 64-bit arithmetic
-_
+On Tue, May 19, 2026 at 12:34:44PM -0500, Samuel Holland wrote:
 
+> >>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
+ature.c
+> >>> index f46aa5602d74d..e46b2d2b49eed 100644
+> >>> --- a/arch/riscv/kernel/cpufeature.c
+> >>> +++ b/arch/riscv/kernel/cpufeature.c
+> >>> @@ -35,6 +35,8 @@
+> >>>   static bool any_cpu_has_zicboz;
+> >>>   static bool any_cpu_has_zicbop;
+> >>>   static bool any_cpu_has_zicbom;
+> >>> +bool riscv_hw_pte_ad_updating_enabled __read_mostly;
+> >>> +EXPORT_SYMBOL_GPL(riscv_hw_pte_ad_updating_enabled);
+> >>>   unsigned long elf_hwcap __read_mostly;
+> >>> @@ -287,15 +289,74 @@ static int riscv_ext_zvfbfwma_validate(const st=
+ruct riscv_isa_ext_data *data,
+> >> ...
+> >>> +static int __init riscv_hw_pte_ad_updating_init(void)
+> >>> +{
+> >>> +	bool has_svade, has_svadu;
+> >>> +	int state;
+> >>> +
+> >>> +	has_svade =3D riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADE);
+> >>> +	has_svadu =3D riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
+> >>> +
+> >>> +	if (!has_svadu)
+> >>> +		return 0;
+> >>> +
+> >>> +	if (!has_svade) {
+> >>> +		riscv_set_hw_pte_ad_updating(true);
+> >>> +		pr_info("riscv: hardware PTE A/D updating enabled\n");
+> >>> +		return 0;
+> >>
+> >> This block is identical to the tail of the function. I'd probably use =
+"goto
+> >> enable", with an "enable" label below.
+> >=20
+> > Is this code correct though? On DT systems, !svade && !svadu means we
+> > don't actually know if it is hardware or software managed, so printing
+> > that it's hardware managed may not be correct.
+> >=20
+> > I don't understand the mm code enough to know if arch_has_hw_pte_young()
+> > returning true is problematic too, but it probably is?
+>=20
+> This block is for !svade && svadu (Svadu is present; we didn't return abo=
+ve), so
+> I think this block and Michael's comment are correct.
+
+D'oh... My bad!
+
+
+--MJwb+OluF7oAJ/ZE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagy8pwAKCRB4tDGHoIJi
+0tYdAQDSwXIk96jnbTkYs82xE6/iNsMCRId5KKPAJ+TtlglaOgEA7uFm9OpY0iJm
+oaGe2k2f6AY4AGPXB3cC1oauUwc+0w0=
+=PyLU
+-----END PGP SIGNATURE-----
+
+--MJwb+OluF7oAJ/ZE--
+
+
+--===============2063582730089872950==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2063582730089872950==--
+
