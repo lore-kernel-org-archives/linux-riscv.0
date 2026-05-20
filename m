@@ -4,80 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A234CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 09:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8126CD4F54
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 09:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z09/Mec3z7HNsNlpbluS8KAvOomgPYyPDbkCMnkVyN0=; b=cE0zIhsPL5DfQY
-	paWgkIKWpXN8ZW/aj0PWeooYlzvFkbRkc3jubHJjnFYUcgu5LxHpO43gr9rpNB3MMxOHzUSzpz6Ef
-	AsFvdquT1EkxIJ/P42lHnC8igLJHq2uLVGJRSm4I5WZEVgEjLQgz9AshmhICck2+XS35jVj8wqXyr
-	Ir4OCKwe/m75NJiJHrFGQVEKjgqjhH7hKo1DPhzpjPgjSkBiwGw9Y9U27uuuUaqJrd8s4SRLWnGzE
-	7RxYP9sGUCTzlMxXfyJKTRp6MXT3hRDUjY5zRyU9RJSfpe2esYo7/B0n4FxxmDtz2uUdbEcEvogdA
-	pMZZW8R8AvWJM8c6W2WA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8SYtck2dAZUJ8eSuqOHedgS7d/bTy/M3HHzvdUWEe2E=; b=yyGCj/KjqQyRSC
+	o1av4yVggzHZp/1L6wANuspRtv55QHDGuJ3ElWIZcaQOLnvviWr+/0G/y1vlGHyz4lEhyl7fBlj/G
+	UNq7BHcwxpjuM+Sdg6rCvhywrdFothw1d5rmxBx6+/WaJiqa2dLdzPBcoLFqc7OBv3YTdQ8NXfsF1
+	4JPF3YVvb0g6TxaAeYcBYznac8jwQ8dtqtUPWyx2c9a6Mo3iqo38FQkoyDY5scII0uUznl+CAo+z6
+	sUlNS4MCRLSs3ypfq+4ACx7dGxgtFkFcUKPLsohcc/zJiGyAFWeZjovl2PCgxpKyCMRkyi4tNBt77
+	e9Oje3526gVOrhCw/1YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPctp-000000044Cx-17jj;
-	Wed, 20 May 2026 09:07:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPd4y-00000004693-0l6f;
+	Wed, 20 May 2026 09:19:04 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcto-000000044CR-15u0
+	id 1wPd4v-0000000467n-2lN8
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 09:07:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A8AB60129
-	for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 09:07:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53DC11F00893
-	for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 09:07:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779268051;
-	bh=v4NWBagxYzHasGGEcU79T5ijVXX4z2pUOQ5qYXZ7jJc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=HBpj2TO2qA5Oor7OHt5Ye/pMrVKsAa+tgR47UAhIhwI3yvvVE0YC6Uki3M1ZSwg9X
-	 asyERscZ397Lo+0XizKdIs72Miu1IMnt3PRJZo3ougkZdBCWhlygkHaiUNzohh15IR
-	 vAhXqfXC3iF2RbQvfZPdWAgx6KAPH7jkop0CvuXrEWN21u49pHn8RQZD1BwA27fuvq
-	 Bt1H1Lj4ObEpuYoP93W/mda/nuhZ48Up1nhVyCOwnVaQZ1CLCPdw5a+spdcD5TWEp6
-	 0QGlED+uyIsjRv5jN30SuEcKCOlN+lu8whLsgH/GtAV5SFLkN7eCCxHzB79FTYk8Yj
-	 HlaNDYyigSwqA==
-Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-8b7f937ef44so29959216d6.0
-        for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 02:07:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8Wet00+3Kq7GmBWNgWHZQuMUaFVL2jCAmFjdOWo9ySR89wvvW6q3bGS1n95qOTMn4ErKVabE1GikbeLw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL/aq9emcwiq8L5z2zCt5S6ukx6QGrQM2OHcVZXpsu5yQll2+Y
-	fo20YM2xKJ00AmNb22+DmVbLgy7xb9xB3iN/DPr0lgbHC/+YRMIIoPlAodifRnVqBzI8wq4E1tD
-	b/CtzIrUpz/Gsz2nLNunaqtfmH8ZmEe4=
-X-Received: by 2002:a05:6214:29e1:b0:8cb:fd76:e904 with SMTP id
- 6a1803df08f44-8cbfd76eac8mr35985186d6.17.1779268050694; Wed, 20 May 2026
- 02:07:30 -0700 (PDT)
+	Wed, 20 May 2026 09:19:02 +0000
+Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-8383fb7143aso2046032b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 02:19:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779268740; x=1779873540; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mxzEWL1R2sDou1abx9yR2WoOGdqqnaGEsR/cU7KUoPM=;
+        b=rThKbcT7/XKF2v96OpBMLALAgvHsj0e1EvJKpNrLrsrhTovLRYGr8hVlcwlnVetKah
+         haGYjWFwW+tTTcnGwUvQjD/g6MmbsZRagSRBMH+OkkJafy6ZuvxT82E/qkPRBjfbWWdj
+         dkcWmuLRTYNiztqHlXlC1Hg6AcRtdBW4gr1C/Wp9692E2GhwhE2A1cLZFZ8mQwFsH3Zk
+         nor5Ts7yrzV9oNv8GJfoiA1dPpgVkE7LkcFwAfV3AJorBY3EXZRol0vTOPKhmkf/Zfc2
+         eAK5x7/dVJ8xBxhngMnZepI06aAcoatREgd8NzrgFNQZWUT83OBzElEt6blOK4aFwcoT
+         z6bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779268740; x=1779873540;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mxzEWL1R2sDou1abx9yR2WoOGdqqnaGEsR/cU7KUoPM=;
+        b=QIu4vzFss0ECsfCABYfb3JvTPFpgArliBiBu0tyYlZGT+CUOzvmLpUzxJ4AQSyYtRj
+         VkYZZvNwdYExoVjFZKuHRKwiBBBKrsmcID6QHw/z5Me/T8Slybpnwvk9oU7zy4F0VFTV
+         zQRb9pr9b4DO6rW5jeqFzYlWUhqgaRXUr/Ks4vwDSL9tBJavVi2fo/OSYmdhL6N+lBYf
+         UGJCQFH6jJ0j2cXt9f/uDO+SV3F7s9yfV+lBvzcy93e2xJPzsKZjQTG5QnvUTx53wwi2
+         fCMcQcyLinVXqgddZ6qvjy4qqQtZjrT0HFHmXIXAAkUKMua3v7KFaYsDOqJY5AXOxfMb
+         CXTw==
+X-Forwarded-Encrypted: i=1; AFNElJ+U2G+KpeDfRBnKfiwaI3/hXsz06IoiWvifWyoJS7SqLOCtslbhiTIpMZmdDh4lWe1L2NS2o51g1spPTA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuM1THdj70gxVW01mrAG9PiGLOKt+RcpfqQ9vzDGe3vfa7JvFF
+	Q6gbaUmMeA6wXv5kQV1OQB9IokYnCbnyoFYzeUIbYXZS4QjpOUB2Y/tv
+X-Gm-Gg: Acq92OGEbxyrKzcxN1Lb2t5iXL5HvqCb1LdRATAGpb3wUvVrgXoSshZ+R3ARmjj/bSg
+	SvV8k2WB7hy1qcqItKb/F6mugRngV/8qAl4RxibOQ38+HC469PK1ZwvThO/OaaE1O0ZInwlRbl6
+	VWq8gI8tVkPP7zQO4uw5HR5OMnZHTjieE1nNYoao4Y5PkD3WePKhL/btVfJD0k2JG0Kwfv9dDcX
+	PjOKqk/XyhShfR/FA3IzkcY2s4c1VLg1NUtlydH8TnXsw1mA91NR8BxniVRT7vMbfoIdQ6lRpbC
+	yi/3WFC8jctcXFOLyOGyRyUYkfdKUpZ/QdYJZ1GKXGHop/vDbJqz8qxjg21NmqwM+83wW2vQhKC
+	GPTtDc91j89rpJWVXI6GdMp919n0jvqtwl8LZM0th5OJRrBElpX2G0QgfREgUhDW7EJqSvL9c2T
+	WWbi0lx/CW5RRj2RDfySLm9wVAVZ+dGbVZ14BuOw==
+X-Received: by 2002:a05:6a00:2c95:b0:82c:e816:4135 with SMTP id d2e1a72fcca58-83f33de9724mr22532227b3a.47.1779268740373;
+        Wed, 20 May 2026 02:19:00 -0700 (PDT)
+Received: from intel.company.local ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f63bb986dsm10208967b3a.48.2026.05.20.02.18.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 May 2026 02:18:59 -0700 (PDT)
+From: Wandun Chen <chenwandun1@gmail.com>
+X-Google-Original-From: Wandun Chen <chenwandun@lixiang.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	kexec@lists.infradead.org,
+	iommu@lists.linux.dev,
+	zhaomeijing@lixiang.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	robh@kernel.org,
+	saravanak@kernel.org,
+	akpm@linux-foundation.org,
+	bhe@redhat.com,
+	rppt@kernel.org,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	ruirui.yang@linux.dev,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com,
+	leitao@debian.org,
+	kees@kernel.org,
+	coxu@redhat.com,
+	tangyouling@kylinos.cn,
+	songshuaishuai@tinylab.org
+Subject: [PATCH v2 0/8] kdump: reduce vmcore size and capture time
+Date: Wed, 20 May 2026 17:18:36 +0800
+Message-ID: <20260520091844.592753-1-chenwandun@lixiang.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer> <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <agxbq1TxJdniMQT3@lucifer> <CAGsJ_4zxyZP_xkFCGWfLyXkqomrX6DNqyMVirk=aggtwB1zExw@mail.gmail.com>
- <ag1mk2DSJsiORaxK@lucifer>
-In-Reply-To: <ag1mk2DSJsiORaxK@lucifer>
-From: Barry Song <baohua@kernel.org>
-Date: Wed, 20 May 2026 17:07:16 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4zN5ezh9vvvQDQdMF2KuuDGvkhNjTZWc0y0Lsa-P4Aahw@mail.gmail.com>
-X-Gm-Features: AVHnY4JPJjfMfRWu5irKuds8oTQCJquviUDQwK-7Iye_Xeif_N9I88YUISr9aq8
-Message-ID: <CAGsJ_4zN5ezh9vvvQDQdMF2KuuDGvkhNjTZWc0y0Lsa-P4Aahw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Suren Baghdasaryan <surenb@google.com>, Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, david@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_021901_700600_82237A24 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +121,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMjAsIDIwMjYgYXQgMzo1MOKAr1BNIExvcmVuem8gU3RvYWtlcyA8bGpzQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gV2VkLCBNYXkgMjAsIDIwMjYgYXQgMDU6MTg6NTJBTSAr
-MDgwMCwgQmFycnkgU29uZyB3cm90ZToKPiA+IE9uIFR1ZSwgTWF5IDE5LCAyMDI2IGF0IDg6NTPi
-gK9QTSBMb3JlbnpvIFN0b2FrZXMgPGxqc0BrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4g
-T24gTW9uLCBNYXkgMTgsIDIwMjYgYXQgMTI6NTY6NTlQTSAtMDcwMCwgU3VyZW4gQmFnaGRhc2Fy
-eWFuIHdyb3RlOgo+ID4gPgo+ID4gPiA+ID4KPiA+ID4gPiA+IEkgdGhpbmsgd2UgZWl0aGVyIG5l
-ZWQgdG8gZml4IGBmb3JrKClgLCBvciBrZWVwIHRoZSBjdXJyZW50Cj4gPiA+ID4gPiBiZWhhdmlv
-ciBvZiBkcm9wcGluZyB0aGUgVk1BIGxvY2sgYmVmb3JlIHBlcmZvcm1pbmcgSS9PLgo+ID4gPiA+
-Cj4gPiA+ID4gSSBzZWUuIFNvLCB0aGlzIHByb2JsZW0gYXJpc2VzIGZyb20gdGhlIGZhY3QgdGhh
-dCB3ZSBhcmUgY2hhbmdpbmcgdGhlCj4gPiA+ID4gcGFnZWZhdWx0cyByZXF1aXJpbmcgSS9PIG9w
-ZXJhdGlvbiB0byBob2xkIFZNQSBsb2NrLi4uCj4gPiA+ID4gQW5kIHlvdSB3YW50IHRvIGxvY2sg
-Vk1BIG9uIGZvcmsgb25seSBpZiB2bWFfaXNfYW5vbnltb3VzKHZtYSkgfHwKPiA+ID4gPiBpc19j
-b3dfbWFwcGluZyh2bWEtPnZtX2ZsYWdzKS4gU28sIHdlIHdpbGwgYmUgYmxvY2tpbmcgcGFnZSBm
-YXVsdHMgZm9yCj4gPiA+ID4gYW5vbnltb3VzIGFuZCBDT1cgVk1BcyBvbmx5IHdoaWxlIGhvbGRp
-bmcgbW1hcF93cml0ZV9sb2NrLCBwcmV2ZW50aW5nCj4gPiA+ID4gYW55IFZNQSBtb2RpZmljYXRp
-b24uIE9uIHRoZSBzdXJmYWNlLCB0aGF0IGxvb2tzIG9rIHRvIG1lIGJ1dCBJIG1pZ2h0Cj4gPiA+
-ID4gYmUgbWlzc2luZyBzb21lIGNvcm5lciBjYXNlcy4gSWYgbm9ib2R5IHNlZXMgYW55IG9idmlv
-dXMgaXNzdWVzLCBJCj4gPiA+ID4gdGhpbmsgaXQncyB3b3J0aCBhIHRyeS4KPiA+ID4KPiA+ID4g
-Tm90IHN1cmUgaWYgeW91IG5vdGljZWQgYnV0IEkgZGlkIHJhaXNlIGNvbmNlcm5zIDspCj4gPiA+
-Cj4gPiA+IEkgd29uZGVyIGlmIHlvdSd2ZSBjb25mdXNlZCB0aGUgZmF1bHQgcGF0aCBhbmQgZm9y
-ayBoZXJlLCBhcyBJIHRoaW5rIEJhcnJ5IGhhcwo+ID4gPiBiZWVuIGEgbGl0dGxlIHVuY2xlYXIg
-b24gdGhhdC4KPiA+Cj4gPiBJIHRoaW5rIEnigJl2ZSBiZWVuIGFic29sdXRlbHkgY2xlYXIgOi0p
-Cj4KPiBPbiB0aGlzIHBvaW50IHN1cmUsIEkgd291bGQgYXJndWUgbGVzcyBzbyBhcm91bmQgdGhl
-IGZvcmsgc3R1ZmYgYnV0IEkgcmVzcG9uZGVkCj4gb24gdGhhdCBzcGVjaWZpY2FsbHkgZWxzZXdo
-ZXJlIHNvIGxldCdzIGtlZXAgdGhpbmdzIG1vdmluZyA6PikKPgo+ID4gV2Ugc2hvdWxkIGVpdGhl
-ciBzdGljayB0byB0aGUgY3VycmVudCBiZWhhdmlvciAtIGRyb3AKPiA+IHRoZSBWTUEgbG9jayBi
-ZWZvcmUgZG9pbmcgSS9PLCBvciBjaGFuZ2UgZm9yaygpIHNvIHRoYXQgaXQKPiA+IGRvZXMgbm90
-IHdhaXQgb24gdm1hX3N0YXJ0X3dyaXRlKCkuCj4KPiBBZ2FpbiwgYXMgSSBzYWlkIGVsc2V3aGVy
-ZSwgSSB0aGluayB0aGVyZSBtaWdodCBiZSBhIDNyZCB3YXkgcG9zc2libHkuIEl0J3MgYQo+IGJp
-ZyBtaXN0YWtlIHRvIGFzc3VtZSB0aGF0IHRoZXJlIGFyZSBvbmx5IHNwZWNpZmljIHNvbHV0aW9u
-cyB0byBwcm9ibGVtcyBpbiB0aGUKPiBrZXJuZWwgdGhlbiB0byBwcmVzZW50IGEgZmFsc2UgZGlj
-aG90b215LgoKSSByZWNhbGxlZCB0aGF0IHdoZW4gd2UgZGlzY3Vzc2VkIHRoaXMgcGFydCBpbiBt
-eSBzbGlkZXM6CgrigJhGb3Igc2ltcGxpY2l0eSwgcmF0aGVyIHRoYW4gdXNpbmcgYSB3aGl0ZWxp
-c3QgbWVjaGFuaXNtIGZvcgpwZXItVk1BIHJldHJ5LCB3ZSBjb3VsZCB1c2UgYSBibGFja2xpc3Qg
-aW5zdGVhZDogZGVmYXVsdCB0bwphbHdheXMgcmV0cnkgdmlhIHRoZSBWTUEgbG9jaywgYW5kIG9u
-bHkgYWxsb3cgbW1hcF9sb2NrLWJhc2VkCnBhZ2UtZmF1bHQgcmV0cnkgZm9yIHNwZWNpZmljIGNh
-c2VzIHN1Y2ggYXMKX192bWZfYW5vbl9wcmVwYXJlKCku4oCZCgpTdXJlbiBtZW50aW9uZWQgaW50
-cm9kdWNpbmcgYSBGQUxMQkFDSyBmbGFnLiBXaXRoIHRoZQpGQUxMQkFDSyBmbGFnLCB3ZSB3b3Vs
-ZCByZXRyeSB2aWEgbW1hcF9sb2NrOyB3aXRoIHRoZSBSRVRSWQpmbGFnLCB3ZSB3b3VsZCByZXRy
-eSB2aWEgdGhlIFZNQSBsb2NrLgoKTm90IHN1cmUgd2hldGhlciB0aGlzIGNvdWxkIHJlYWxseSBi
-ZSBjYWxsZWQgYSDigJh0aGlyZCB3YXks4oCZCmJ1dCBpdCBzZWVtcyBtb3JlIGxpa2UgYSBzaGlm
-dCBmcm9tIGEgd2hpdGVsaXN0IG1vZGVsIHRvIGEKYmxhY2tsaXN0IG1vZGVsLCB3aXRob3V0IGNo
-YW5naW5nIHRoZSBmdW5kYW1lbnRhbCBkZXNpZ24sIGJ1dAppdCBkb2VzIGNoYW5nZSB3aGVyZSB3
-ZSB3b3VsZCBuZWVkIHRvIHRvdWNoIHRoZSBzb3VyY2UgY29kZS4KCj4KPiBXZSBhYnNvbHV0ZWx5
-IGhlYXIgeW91IG9uIHRoaXMgYmVpbmcgYSBwcm9ibGVtIGFuZCBpdCBXSUxMIGJlIGFkZHJlc3Nl
-ZCBvbmUgd2F5Cj4gb3IgYW5vdGhlci4KClRoYW5rcy4gVGhpcyBpcyBhIGJpdCBvZiBsaWdodCBp
-biB3aGF0IGhhcyBmZWx0IGxpa2UgYSBmYWlybHkKZGFyayBzaXR1YXRpb24uIEkgcmVhbGx5IGFw
-cHJlY2lhdGUgeW91ciB0aG91Z2h0ZnVsIGFuZApyZXNwb25zaWJsZSBhcHByb2FjaC4KCj4KPiBP
-ZiB0aGUgdHdvIGFwcHJvYWNoZXMsIGFzIEkgc2FpZCBlbHNld2hlcmUsIEkgcHJlZmVyIHdoYXQg
-eW91J3ZlIGRvbmUgaW4gdGhpcwo+IHNlcmllcyB0byBhbnl0aGluZyB0b3VjaGluZyBmb3JrLgo+
-Cj4gQnV0IGdpdmUgbWUgdGltZSB0byBsb29rIHRocm91Z2ggdGhlIHNlcmllcyBwbGVhc2UgKEkn
-ZCBhbHNvIHN1Z2dlc3QgUkZDJ2luZwo+IHdoZW4gaXQncyBzb21ldGhpbmcga2luZGEgZnVuZGFt
-ZW50YWwgdGhhdCBtaWdodCBnZW5lcmF0ZSBjb252ZXJhc3Rpb24sIG1ha2VzCj4gbGlmZSBhIGJp
-dCBlYXNpZXIgb24gdGhlIHJldmlldyBzaWRlIDopCgpUaGFua3MhIFN1cmUsIEnigJltIGhhcHB5
-IHRvIHdhaXQgYW5kIHRoZXJl4oCZcyBubyB1cmdlbmN5LgoKTGFzdCB5ZWFyIHlvdSBtYWRlIHF1
-aXRlIGEgc2lnbmlmaWNhbnQgY29udHJpYnV0aW9uIHRvIHRoZSB3b3JrCndoZW4gSSB0cmllZCB0
-byByZW1vdmUgbW1hcF9sb2NrIGluIG1hZHZpc2UuIEkgcmVhbGx5CmFwcHJlY2lhdGVkIGl0LiBO
-b3cgd2XigJlyZSBiYWNrIHRvIHRoZSBzYW1lIGxvY2sgYWdhaW4sIGp1c3QgaW4KZGlmZmVyZW50
-IHBsYWNlcy4KCkJlc3QgUmVnYXJkcwpCYXJyeQoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+This is v2 of the vmcore size optimization series.
+
+The original v1 [1] contains two parts of work:
+ - Bug fixes and small cleanups about reserved memory.
+ - A vmcore size optimization that excludes reserved memory out of
+   vmcore.
+
+For the convenience of review, I have split it into two independent
+patchsets. This patchset focuses on the vmcore size optimization.
+
+Motivation
+==========
+
+On SoCs that carve out large firmware-owned reserved memory (GPU
+firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
+those carveouts as part of system RAM even though their contents are
+firmware state that is not useful for kernel crash analysis.
+
+This series excludes /reserved-memory regions from vmcore by default,
+and also for /memreserve/ firmware regions. The corresponding kdump
+time has decreased, and the vmcore size has become smaller.
+
+v1 --> v2:
+1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+   feedback [2], v2 drop that property and exclude reserve memory
+   by default.
+2. Split some prepared patches from the original patches.
+3. Address coding-style comments on patch 5 from Rob.
+
+[1] https://lore.kernel.org/lkml/20260429065831.1510858-1-chenwandun@lixiang.com/
+[2] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+
+Wandun Chen (8):
+  of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
+  kexec/crash: provide crash_exclude_mem_range() stub when
+    CONFIG_CRASH_DUMP=n
+  of: reserved_mem: add dumpable flag to opt-in vmcore
+  of: reserved_mem: save /memreserve/ entries into the reserved_mem
+    array
+  of: reserved_mem: add kdump helpers to exclude non-dumpable regions
+  arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
+  riscv: kdump: exclude non-dumpable reserved memory regions from vmcore
+  loongarch: kdump: exclude non-dumpable reserved memory regions from
+    vmcore
+
+ arch/arm64/kernel/machine_kexec_file.c     |  6 ++
+ arch/loongarch/kernel/machine_kexec_file.c |  6 ++
+ arch/riscv/kernel/machine_kexec_file.c     |  4 +
+ drivers/of/fdt.c                           |  5 ++
+ drivers/of/of_private.h                    |  2 +
+ drivers/of/of_reserved_mem.c               | 92 +++++++++++++++++++++-
+ include/linux/crash_core.h                 |  6 ++
+ include/linux/of_reserved_mem.h            | 15 ++++
+ kernel/dma/contiguous.c                    |  1 +
+ 9 files changed, 136 insertions(+), 1 deletion(-)
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
