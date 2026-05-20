@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8C4CD4F5E
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 05:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3363CD4F5E
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 05:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C0GgdjzsFo+ejyg1VS1tsmruPNQgwY7SDOqpUm2n6gg=; b=qlIpAc1vDdbAxe
-	dMiRgoKHeUCwWxNaEC155r2LnLETV2LK3TOf+APFDt+7sO1TWvMw5XqAn96pqgXR03sck05k6MGVG
-	YR9Jp54i/BFR/RnO60FTii3senY4zwMDrVuWiHSHIDWtLXkEjUY49lqxteNYqqVM6/Xoqa8/ZRLOg
-	dgGPIjZdxLlYTOzWcj2QhwDC3eOAe3WcxfEkJsNQ2OBLaPnxXe8PW4/xKKrpO8Qp7OgHSAVUtT9kI
-	MiONrefwihiPc6k4DZTFagnoMz1N1Tae8t77EAWaZeJDFE4mmNb7MbQXO76XCz1UiyD2OarINRRo9
-	TmkJnmK9OoH6nL7n1rQg==;
+	List-Owner; bh=HI0+/D7P2lcfeGncKsQc8/MWFJg5eVD6hZaTJXoZlXU=; b=ilttnJgbPka2x9
+	+AwV/qbIKwBFWR1JydyHhnVg74TJuiQDPzvwaV9/b1haaK3nRM5lKy1sC96BJqTdlReQXxoxB08t3
+	Qnwi8ASPnqO7RZzOUJDaCRB0ulDTvFRmonQD/WfaiSx0qyTC/qpH9gz+fuPk3FD/NJJ8TJXQEZeh/
+	kUY1HwRJX1DpyuZTxVueYOToWyorOMWM1SuUiRyEPI9fcG/5SmeK/964I7cjHAEjt8gQdxGZuMJEH
+	F+lhU5pUIowRgWOEV168C2WF1FDyE5xbv+MctOFbJj94e2ZjsIktQ6DD6WUnJ+sODhnMhSdh+jFK9
+	unS0PMMWlcBgvNhUlDqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPZfV-00000003a9a-1aeL;
-	Wed, 20 May 2026 05:40:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPZfZ-00000003aAc-1yOh;
+	Wed, 20 May 2026 05:40:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPZfT-00000003a8s-2u6J
+	id 1wPZfY-00000003aA4-09LR
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 05:40:32 +0000
+	Wed, 20 May 2026 05:40:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C94B434F9;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2577960129;
+	Wed, 20 May 2026 05:40:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2752B1F000E9;
 	Wed, 20 May 2026 05:40:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6EC81F00893;
-	Wed, 20 May 2026 05:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779255631;
-	bh=hskoKxPxA+rLIeZyASuc/YUUv6op0WDEVVkfPNeqohk=;
+	s=k20260515; t=1779255634;
+	bh=cBiAOBqWBPw6WJam/PhetWRcYOFQszAvib0dqlXq/Us=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Dq83AZeRXJ4IcFOF7fZsAQD7mVhlOaxAPawFCNxJbqpm+AnIjPLgfVf8iVdNeSgul
-	 oRfW6PzvSmuXDzSB76Qqke2C9V+pUxsm8JmrlbgaNk6XjFvcL7x2rJOzugHyUVIhhq
-	 w9pXEOorlb3tcdkWitRjdnd3l0XYSJcnecVp2mRfQDqD858X7M4vQOIz/LaugYV+cO
-	 DNa+4D6IgBA5EBA7NTd8M9+ORGzLgi+qk6Eb1pYo6KGIO+VWqQB0tznS4AZicZ8sVR
-	 0ip0AO76j8KY4LaGn4xHKkNmZhSXFdvQAH/QzvQre7vAT7qs55lFZZ8z0wD3YhwcDt
-	 ND93SkUt7t0lA==
+	b=LOojaKv3t2d+4qbiHKoBgp/pFQlQt1PDoNL3XD6WNbGqEeEqqY7UFjLXMdSNuLaNP
+	 hy0HSDae0QpLAFg7yGDGoL93IXKP7+DPLcEYKn9FTrvDG1kCU9wl5l/ULK6WfVEk6t
+	 DYIO6964beul5ORUCeVOdz+EJJxEq0fGlc1+FM10RLoSB0/9TfN77K0zmGLDDpppGd
+	 aujnD/b5l6Ew9be3Pdoju62jIeTd4gQ1XLQTbfTXHEp49Mon51dyQ9gP3mP+QzXohs
+	 8beQ870LMboCwIZIDLlZh1n5pA9vUOvNvRUW+vku0rG09akH4wKcvAy8WA63zqDtZk
+	 ZXOW7+1c94Y9A==
 From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 20 May 2026 05:40:09 +0000
-Subject: [PATCH 1/2] dt-bindings: riscv: spacemit: Add K3 CoM260-IFX board
+Date: Wed, 20 May 2026 05:40:10 +0000
+Subject: [PATCH 2/2] riscv: dts: spacemit: k3: Initial support for
+ CoM260-IFX board
 MIME-Version: 1.0
-Message-Id: <20260520-02-k3-com260-ifx-v1-1-3e17055dd488@kernel.org>
+Message-Id: <20260520-02-k3-com260-ifx-v1-2-3e17055dd488@kernel.org>
 References: <20260520-02-k3-com260-ifx-v1-0-3e17055dd488@kernel.org>
 In-Reply-To: <20260520-02-k3-com260-ifx-v1-0-3e17055dd488@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -57,28 +58,24 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1309; i=dlan@kernel.org;
- h=from:subject:message-id; bh=PTWNrj2EOir8tvFCl0D2bADOwX8TZBknr7SRkq5Rz3I=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqDUlA0mQ0YFFU03ko5IeGqfkGdKZyHj2e4tjj7
- 5JjycfJ5oiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCag1JQBsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8327; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=VuooxCFR+YW8anJ4giZslVX0LMLOwsj+bJQuiWE6wPI=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqDUlE3qXGrOsMwfv3OROe8uIc+ksaK8wLFqw9j
+ S/gr1g4JKGJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCag1JRBsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1BYQ/9GHycg3ko7+ZDaIVjMyv3apvYP0IW0d6fArF0XVSEQJHyozmu1qQs/
- 5//wzFpfks0mG1n7e+/bimxn0XWleI2w6hIH7jY4/ReD11ZbxLVKq8zs1WadMwXvWRMMPoK9ig1
- 6ipSTUdSb4rbsgLJD/F3R7S7bElVbWUcgSIIUntU2SxIKCG0vz1iYQabFHwwq5LAysGAMTIIC62
- QUyxudWWO8S2WiSPPwh0lCDQOVEdJ1PeImqcEC1Pqv3cKuWwDezUFZONEQRZU+xYPC4pmN6tpzH
- L1+Wy1wTcM/nxwUg+5ZyRLt7gN2nwCzfjFx4xovfYw6CSyKwDOyB3mnHaWsifCea+EJYcBM54nR
- rSSFCNPWz8u+SRPa8rFI6SYEBmrfsqbAeZmC9NcPBkNRksimT83YbFZkAmx4f3jrocy002RAq/P
- fyNQuV6DRru7qsv8HuP3jVJj4O136OzHX83R2FYpIIy6C6QJDBbf3ABNzVJBdOKMvMV4asTIgTE
- LcGpsMjV6V8fLitWfFzAX8hqfVgx/LDSTGfdA+prHX6FZf8hB9lMx0OnvBETXo0pS+Q4YJcjMrw
- QKiWzVKQ/44u+T+wiHhkw3DzoY7FPT/8CQ+MbIfdafSuSGyzLI6YUgG2t507aAufyCBgdLTVhiY
- UadylKV5i7/xELaNsHrB0n5xnjdfpM=
+ QACgkQMarqR1lNu+0cnA/9GIpv3Qa90oUS9kTiBQv2yfET2dkfCnt/hnS9PyiF1jAb4ybexTgFE
+ Ge9SXMQQowxiOqgMAbEUbAGysK9fIRX/4vkfqqqbMRUaq4w3fi61hl08MHGumQiDYPo0WPwEFUs
+ UMjM/JMl+alxe0uiH/oNGRNKS5ZXj2PeXP9pGz4Zx2QNFvo1SMT/F20TlbhGE509zkl9a+Omazj
+ QFTeQrtMDhQ7Sw0RqBhwzFndyfTxUhu1dsoFiVIM1RiuyX4REf/0po4hFrEg9T9f9ky5TDldZOm
+ 9pnTB9GTyGGCeGWLxfUXBBm4npDVXillREXN0ICA6DNaIdAZQkZ2Fg7On4jKDLx+rWcBdcgqxPi
+ VhqgYgZSYH9AOFSHRKHXN5IKv9hRhLPZHelFT42neTusPD7Nm3TE4wWemx0GH9tCg9vRJqngmcZ
+ Cr9SHDp6MIwsK0wiIuUXqH4EdTnV5dL0C3SKj2Vmvm/+3Pq8FNVuG5rJBoFpZKoEc1EI3VIj08E
+ TEE8i9WqHoMkiD4LazAhVWOeJTKcG/eTJV5L2huNMy0NyEf0q+lbAK8IXUq1IxLL9piX8uej9Lt
+ rSXwmu7YPPSu51Lh8X5bI+2fRbL1F0+Aqxkk7xw4QUFudXWlAYh86O/qAENIQ1eR81JmMz188uw
+ FKg6nEVGlxX5vIU4qep2J7joQs6jtY=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_224031_772746_64FD1643 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +87,311 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIFNwYWNlbWlUIEszIENvTTI2MC1JRlggYm9hcmQgY29tYmluZXMgYSA2OS42IMOXIDQ1IG1t
-IGNvbXB1dGUgbW9kdWxlCndpdGggYSByZWZlcmVuY2UgY2FycmllciBib2FyZC4KClRoZSBtb2R1
-bGUgaW50ZWdyYXRlcyB1cCB0byAzMkdCIExQRERSNSBtZW1vcnksIFVGUyBzdG9yYWdlLCBNaWNy
-byBTRApjYXJkIHNsb3QgYW5kIGluY2x1ZGVzIGludGVyZmFjZXMgc3VjaCBhcyBkdWFsIE1JUEkg
-Q1NJLTIgY29ubmVjdG9ycywKTS4yIGV4cGFuc2lvbiwgVVNCIDMuMCwgR2lnYWJpdCBFdGhlcm5l
-dCwgRGlzcGxheVBvcnQsIGFuZCBhIDQwLXBpbgpleHBhbnNpb24gaGVhZGVyLgoKVGhlIGNhcnJp
-ZXIgYm9hcmQgaXMgaW50ZW5kZWQgYXMgYSBnZW5lcmFsLXB1cnBvc2UgZGV2ZWxvcG1lbnQgcGxh
-dGZvcm0KZm9yIENvTTI2MCBtb2R1bGUgYW5kIGV4cG9zZXMgaW50ZXJmYWNlcyBmb3IgYWxsIG9m
-IHN0b3JhZ2UsIGRpc3BsYXksCm5ldHdvcmtpbmcsIGFuZCBjYW1lcmEgY29ubmVjdGl2aXR5LgoK
-U2lnbmVkLW9mZi1ieTogWWl4dW4gTGFuIDxkbGFuQGtlcm5lbC5vcmc+Ci0tLQogRG9jdW1lbnRh
-dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L3NwYWNlbWl0LnlhbWwgfCA1ICsrKysrCiAx
-IGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlv
-bi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L3NwYWNlbWl0LnlhbWwgYi9Eb2N1bWVudGF0aW9u
-L2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3Yvc3BhY2VtaXQueWFtbAppbmRleCBhZjgwMzAyNDJi
-ZGMuLjMxMWJiY2NiYTBiYSAxMDA2NDQKLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
-bmRpbmdzL3Jpc2N2L3NwYWNlbWl0LnlhbWwKKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVl
-L2JpbmRpbmdzL3Jpc2N2L3NwYWNlbWl0LnlhbWwKQEAgLTMyLDYgKzMyLDExIEBAIHByb3BlcnRp
-ZXM6CiAgICAgICAgICAgICAgIC0gZGVlcGNvbXB1dGluZyxmbWwxM3YwNQogICAgICAgICAgICAg
-ICAtIHNwYWNlbWl0LGszLXBpY28taXR4CiAgICAgICAgICAgLSBjb25zdDogc3BhY2VtaXQsazMK
-KyAgICAgIC0gaXRlbXM6CisgICAgICAgICAgLSBlbnVtOgorICAgICAgICAgICAgICAtIHNwYWNl
-bWl0LGszLWNvbTI2MC1pZngKKyAgICAgICAgICAtIGNvbnN0OiBzcGFjZW1pdCxrMy1jb20yNjAK
-KyAgICAgICAgICAtIGNvbnN0OiBzcGFjZW1pdCxrMwogCiBhZGRpdGlvbmFsUHJvcGVydGllczog
-dHJ1ZQogCgotLSAKMi41NC4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+The K3 CoM260-IFX board combine with one 260 pins "Gold Finger" computer
+module with a carrier board. The module integrates the K3 SoC, LPDDR5,
+UFS storage, Gigabit Ethernet, Micro SD card, PMIC Chip. The board offers
+a comprehensive array of interfaces, including MIPI-DSI, MIPI-CSI,
+DisplayPort, SDIO, SPI, I2S, I2C, CAN-FD, PWM, UART, USB, PCIe, and GMAC.
+
+Add initial support for enabling Serial UART and ethernet.
+
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+ arch/riscv/boot/dts/spacemit/Makefile          |   1 +
+ arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts |  21 +++
+ arch/riscv/boot/dts/spacemit/k3-com260.dtsi    | 190 +++++++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi   |  33 +++++
+ 4 files changed, 245 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
+index acb993c452ba..28ec9e1e0a62 100644
+--- a/arch/riscv/boot/dts/spacemit/Makefile
++++ b/arch/riscv/boot/dts/spacemit/Makefile
+@@ -4,5 +4,6 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-r2s.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
++dtb-$(CONFIG_ARCH_SPACEMIT) += k3-com260-ifx.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k3-deepcomputing-fml13v05.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k3-pico-itx.dtb
+diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+new file mode 100644
+index 000000000000..238bb03d0e9e
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
++ * Copyright (c) 2026 Yixun Lan <dlan@kernel.org>
++ */
++
++#include "k3-com260.dtsi"
++
++/ {
++	model = "SpacemiT K3 CoM260 IFX";
++	compatible = "spacemit,k3-com260-ifx", "spacemit,k3-com260", "spacemit,k3";
++
++	aliases {
++		serial0 = &uart0;
++		ethernet0 = &eth1;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++};
+diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
+new file mode 100644
+index 000000000000..1801a44d4355
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
+@@ -0,0 +1,190 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
++ * Copyright (c) 2026 Yixun Lan <dlan@kernel.org>
++ */
++#include <dt-bindings/gpio/gpio.h>
++
++#include "k3.dtsi"
++#include "k3-pinctrl.dtsi"
++
++/ {
++	model = "SpacemiT K3 CoM260 Module";
++	compatible = "spacemit,k3-com260", "spacemit,k3";
++
++	memory@100000000 {
++		device_type = "memory";
++		reg = <0x1 0x00000000 0x4 0x00000000>;
++	};
++
++	reg_5v_sys: regulator-5v-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "P5V0_SYS";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++	};
++};
++
++&i2c8 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c8_cfg>;
++	status = "okay";
++
++	p1@41 {
++		compatible = "spacemit,p1";
++		reg = <0x41>;
++		interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
++		vin1-supply = <&reg_5v_sys>;
++		vin2-supply = <&reg_5v_sys>;
++		vin3-supply = <&reg_5v_sys>;
++		vin4-supply = <&reg_5v_sys>;
++		vin5-supply = <&reg_5v_sys>;
++		vin6-supply = <&reg_5v_sys>;
++		aldoin-supply = <&reg_5v_sys>;
++		dldoin1-supply = <&buck4>;
++		dldoin2-supply = <&buck4>;
++
++		regulators {
++			buck1: buck1 {
++				regulator-min-microvolt = <1050000>;
++				regulator-max-microvolt = <1050000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck2: buck2 {
++				regulator-min-microvolt = <1050000>;
++				regulator-max-microvolt = <1050000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck3: buck3 {
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <800000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck4: buck4 {
++				regulator-min-microvolt = <2100000>;
++				regulator-max-microvolt = <2100000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck5: buck5 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck6: buck6 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <500000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			aldo1: aldo1 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			aldo2: aldo2 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			aldo3: aldo3 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			aldo4: aldo4 {
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			dldo1: dldo1 {
++				regulator-min-microvolt = <1200000>;
++				regulator-max-microvolt = <1200000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			dldo2: dldo2 {
++				regulator-min-microvolt = <900000>;
++				regulator-max-microvolt = <900000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			dldo3: dldo3 {
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <800000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			dldo4: dldo4 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-boot-on;
++			};
++
++			dldo5: dldo5 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			dldo6: dldo6 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++
++			dldo7: dldo7 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-always-on;
++				regulator-boot-on;
++			};
++		};
++	};
++};
++
++&eth1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac1_rgmii_0_cfg>, <&gmac1_phy_0_cfg>;
++	phy-mode = "rgmii-id";
++	phy-handle = <&phy1>;
++	status = "okay";
++
++	mdio {
++		phy1: phy@1 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <1>;
++			reset-gpios = <&gpio 1 5 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <10000>;
++		};
++	};
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_0_cfg>;
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+index 23899d3f308a..04efe64b8a3a 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+@@ -45,6 +45,39 @@ gmac0-phy-0-pins {
+ 		};
+ 	};
+ 
++	gmac1_rgmii_0_cfg: gmac1-rgmii-0-cfg {
++		gmac1_base_pins: gmac1-0-pins {
++			pinmux = <K3_PADCONF(21, 1)>,	/* gmac1_rxdv  */
++				 <K3_PADCONF(22, 1)>,	/* gmac1 rx d0 */
++				 <K3_PADCONF(23, 1)>,	/* gmac1 rx d1 */
++				 <K3_PADCONF(24, 1)>,	/* gmac1 rx_clk */
++				 <K3_PADCONF(25, 1)>,	/* gmac1 rx d2 */
++				 <K3_PADCONF(26, 1)>,	/* gmac1 rx d3 */
++				 <K3_PADCONF(27, 1)>,	/* gmac1 tx d0 */
++				 <K3_PADCONF(28, 1)>,	/* gmac1 tx d1 */
++				 <K3_PADCONF(29, 1)>,	/* gmac1 tx clk */
++				 <K3_PADCONF(30, 1)>,	/* gmac1 tx d2 */
++				 <K3_PADCONF(31, 1)>,	/* gmac1 tx d3 */
++				 <K3_PADCONF(32, 1)>,	/* gmac1 tx_en */
++				 <K3_PADCONF(33, 1)>,	/* gmac1 mdc */
++				 <K3_PADCONF(34, 1)>;	/* gmac1 mdio */
++
++			bias-disable;
++			drive-strength = <25>;
++			power-source = <1800>;
++		};
++	};
++
++	gmac1_phy_0_cfg: gmac1-phy-0-cfg {
++		gmac1-phy-0-pins {
++			pinmux = <K3_PADCONF(35, 1)>;	/* gmac1 int */
++
++			bias-disable;
++			drive-strength = <25>;
++			power-source = <1800>;
++		};
++	};
++
+ 	/omit-if-no-ref/
+ 	i2c8_cfg: i2c8-cfg {
+ 		i2c8-pins {
+
+-- 
+2.54.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
