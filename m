@@ -4,122 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 069D8CD4F54
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 10:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4836CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 11:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mhTqFyyh3yrDdAaRcaBmq3opF6rEWZ0kTpyoa57V5Bs=; b=irpik344gLsWRR
-	24pHAoq+rm2IEOQk1gFOsrddNL94nNXD+Zc+y4O3Cvh0/w6huA2LIyVxoEweblZ9egYAWE1B+EM9j
-	i2QPHXmH9G6/2x35j3HmOmB3pXqCLwOFqZq9NJpT67a9kvxlU0jzp7d4seiXzjp5Yu+NRamPQhlME
-	mPolzuFoMkST22+A71DeL/iA/sT7568/KAS//Xms/EvHke6zXcwvj69tvozpuvqvr2ieG7AbKKv23
-	2b/EbKwA3yEXwEkIRZ1ipHGqeLU+M7DE42/5tJNhl/OxqUjVJyGEVIXd93gGey+N4IL98oTfySYHP
-	elwmyADI2l4nJwcdXInA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lSTZBbGtuBPM9IKEgmfQBMZyytiWM+p93gE60AYe+K8=; b=uhIYi9P36F6IH7cnzi4CUK2d/u
+	NlL8c1dY7+qxYETotqig6GrVGZJvDfEBkOh9d7xqG/Mi719wKO8vvWsRdnZV5ybk56GhOhJlWXI6V
+	vhwG7XBfUJINvJgmTgowKb2Nz2ON84yRzck9TgVG4e64wlirI+dOZvf9f+Wyj8tKYxehWGUHP3zsL
+	w3fnpZcV2vt7ToM/x2U9aTR+hGTm76tWkToqT08qfBH8WFKov1nuE4Xtmz5q3yJdYIQFTFtLzOdaH
+	5gPJauUjpnzFBnzO3WAwQ6M9MFEVBn1SQzXwb7Xknwisq0kfrZq2FEgEcxh/1ngP317Zd960W6r6k
+	dtJ6kUHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPeFh-00000004LHv-19wj;
-	Wed, 20 May 2026 10:34:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPepy-00000004Pto-1Jzq;
+	Wed, 20 May 2026 11:11:42 +0000
+Received: from mail-qk1-f179.google.com ([209.85.222.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPeFf-00000004LHB-01GX;
-	Wed, 20 May 2026 10:34:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA14843649;
-	Wed, 20 May 2026 10:34:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C1841F000E9;
-	Wed, 20 May 2026 10:33:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779273249;
-	bh=1LDWtyaODcbYP5iCV92+/8GVnwUqEJ5fHGR9cz0/w+U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=k0S3S/keSBLaGmyqupwK3Z1mvr66dN2JMGWF3ieVRlx99hH1pXaQueAW+z7vgQZ43
-	 FLddevi4zJjipFoHV8RO/xzDu2eW9Ph1tnMl9S5JrNxSfKr4IyUkNNUz/TuOjmvQ9P
-	 TfQSYdlPaCepQYkAi1wuPiRy349QjRGU+zQCiB3bmhODCk48llGycLn/gBzTK7mkYK
-	 eFYbb7rydTwhcEVglxFxRS1oGV5dyfP6l0CptCFYZUnF9mX1EEI1icTLZvmR+2Ap2G
-	 yD8FRNrZRvT5G47Y74X4p4e0ovLOLp6kYC3eA6xjU58ieE3ACOpqv7VnYaRg3b780f
-	 K35saKMpZRS4Q==
-Message-ID: <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
-Date: Wed, 20 May 2026 12:33:56 +0200
+	id 1wPepu-00000004Pt8-2E7x
+	for linux-riscv@lists.infradead.org;
+	Wed, 20 May 2026 11:11:40 +0000
+Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-911501a99feso612074485a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 04:11:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1779275496; x=1779880296; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lIkzPbGJvuJiBs7z1ji9U2DALkh6krIE8tTV4POiT4k=;
+        b=GEjfE9/IwubeA04rhvxYj/bk06H4mtYjNQ0g1kXu0bZ407jL7A+Mc2Qx63l+MzZrmJ
+         sQGBRYl8HIrCQ9cSUl7O1EQDrELB9BYYuSbfTIWt59yXljLLciolsLwrM10V6OHxSTfC
+         2h3F7CymurpAyciVXMD3ONxrRVWEe7aUs17tP3hEdtSTQGg3IGzF4AhNL+dCeMsnKFS9
+         cRlcOPLJZ/RqfZSCXBE7lu6V073V9Q1h/CPZHOKQRn/5apYLi7CzGkIh977LJTVPN0ek
+         ZK8FK4akyFysFKOKyJE9AP6A42fUvBuPQLhBxPzQMYMePHrcYe7SzQ0n0CF+yX7B2oyE
+         V5zA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779275496; x=1779880296;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lIkzPbGJvuJiBs7z1ji9U2DALkh6krIE8tTV4POiT4k=;
+        b=R4L1d/dA9o/WD2JJ4mhsKHhHtkKXZ9ljpulwBN/YOrNjQHHyXjNA11E6EAA/X4NK2A
+         kHwSwlPNqjE8tuGcgQz7jN6tCYflWOF4+J3MvY01XQA0/k9Sk+cen9ryT5h8GhbHosM2
+         60vVrG427kjIwlNjW+zcIEQ16MU1pfx9QUoRMAD2ddXFiDZsH0iBxO5SEw85eZLmAU2O
+         yL1pIALCfFTGHMqyhTcGExpefbPr7/VD9LSTGrReMIP1DwEp0ZXAtLb9JQKjtM1zQnRu
+         kPHRr9izQhYzslSVjwcqrr98gbJlwarX8RMl0UgybGrFIfakHpWLSW4QZvf0RwnHPZoT
+         dhsw==
+X-Forwarded-Encrypted: i=1; AFNElJ9luXreH0aAirjLdXxdOjcYmAtsFP7hLMO1HfzWyqoxiD+CQztm8n+GbkMDl4YanImpqTdJKxCfvU2Y7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXlpYF5V05eViaGfIogqrlWncDN8F6SJzdezMCM+sdvedMroFv
+	b87Shc85XJYxJNqyGLtE9xsU8YvtSDDJE9ffqYKGJScr6zzdv3Wf6HdjAFgxmU+tays=
+X-Gm-Gg: Acq92OFj6R69l9YoDdtW7Y15WSRrksgoi1HSZ0iYzb4lwp4y1thqQgSNIvfnFOfSflk
+	YIHUkFOQIiIAK/i0cZwmefHT/lCaDGj58qvqTXtLLkX8oHuCVttIVY0xNARdFgd4Sf5D77XuGe8
+	E8W7knOyQe7Tdq72/jseFCLlMV4wfD35JMOc2/kHFssgHYi/7Qtxj1d6hK3nEZd5+IP+GyyLipP
+	tPFiZkekA6zIwt1H8UVXrUBPNHTelLIODmbcZ+AEoe9FUQA30Aadnn6kVFpPTOnPDDfqnvIw0SJ
+	n1UGTOTgiOdAfiP+EoBl/k3mdMoV5XiYRqY+G7Crtd2cnO9nghDChOrErn3kV5mYpN0SscIoqOm
+	CCazNaabxFl5+RlS9lam2UAFD2dpGQ8LXYCqUDXK8PcfEmkrkwy08O7UGXyLzROXkQSz1z9KNtt
+	7AKULo+ViiPp8LEUeWl7Ud0EfksI96u6sEUuvDwSXgZfLOTMf743TsuGVguwVTemRN1VarDPkaZ
+	X3Y
+X-Received: by 2002:a05:620a:1a0a:b0:90f:6d8b:2654 with SMTP id af79cd13be357-911ce332987mr3395608885a.22.1779275496216;
+        Wed, 20 May 2026 04:11:36 -0700 (PDT)
+Received: from ?IPV6:2001:1970:3847:e000:9cf2:2d6b:fbf2:991c? ([2001:1970:3847:e000:9cf2:2d6b:fbf2:991c])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9138a830c89sm1320813985a.6.2026.05.20.04.11.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 May 2026 04:11:35 -0700 (PDT)
+Message-ID: <86ac46cd-b7bc-42cc-8c29-996ae21f3654@baylibre.com>
+Date: Wed, 20 May 2026 07:11:32 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>
-Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- akpm@linux-foundation.org, linux-mm@kvack.org, liam@infradead.org,
- vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz,
- pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn,
- lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com,
- chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com,
- nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Nanzhe Zhao <nzzhao@126.com>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <agxbq1TxJdniMQT3@lucifer>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: (subset) [PATCH v10 0/4] riscv: spacemit: enable SD card support
+ with UHS modes for OrangePi RV2
+To: Andre Heider <a.heider@gmail.com>, Yixun Lan <dlan@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Ulf Hansson <ulfh@kernel.org>, Iker Pedrosa <ikerpedrosam@gmail.com>
+References: <20260515-orangepi-sd-card-uhs-v10-0-094af27e310d@gmail.com>
+ <177889984452.2298656.1074391459031404894.b4-ty@b4>
+ <7e68e745-0d70-46db-9475-38d3dd5b9cf4@baylibre.com>
+ <6b945153-5a7b-415e-904a-1c350b7d52ee@gmail.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <agxbq1TxJdniMQT3@lucifer>
+From: Trevor Gamblin <tgamblin@baylibre.com>
+In-Reply-To: <6b945153-5a7b-415e-904a-1c350b7d52ee@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_033411_090970_D9C2D1ED 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260520_041138_680896_47C531F8 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,56 +104,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree@vger.kernel.org, Margherita Milani <margherita.milani@amarulasolutions.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, Troy Mitchell <troy.mitchell@linux.dev>, linux-mmc@vger.kernel.org, Javier Martinez Canillas <javierm@redhat.com>, linux-kernel@vger.kernel.org, Vincent Legoll <legoll@online.fr>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Aurelien Jarno <aurelien@aurel32.net>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/19/26 14:53, Lorenzo Stoakes wrote:
-> On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
-> 
->>>
->>> I think we either need to fix `fork()`, or keep the current
->>> behavior of dropping the VMA lock before performing I/O.
+
+On 2026-05-20 03:53, Andre Heider wrote:
+> Hi Trevor,
+>
+> On 16.05.26 2:35 PM, Trevor Gamblin wrote:
 >>
->> I see. So, this problem arises from the fact that we are changing the
->> pagefaults requiring I/O operation to hold VMA lock...
->> And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
->> is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
->> anonymous and COW VMAs only while holding mmap_write_lock, preventing
->> any VMA modification. On the surface, that looks ok to me but I might
->> be missing some corner cases. If nobody sees any obvious issues, I
->> think it's worth a try.
-> 
-> Not sure if you noticed but I did raise concerns ;)
-> 
-> I wonder if you've confused the fault path and fork here, as I think Barry has
-> been a little unclear on that.
-> 
-> What's being suggested in this thread is to fundamentally change fork behaviour
-> so it's different from the entire history of the kernel (or - presumably - at
-> least recent history :) 
-I don't want fork() to become different in that regard.
+>> On 2026-05-15 22:57, Yixun Lan wrote:
+>>> On Fri, 15 May 2026 12:48:58 +0200, Iker Pedrosa wrote:
+>>>> This series enables complete SD card support for the Spacemit K1-based
+>>>> OrangePi RV2 board, including UHS (Ultra High Speed) modes for
+>>>> high-performance SD card operation.
+>>>>
+>>>> Background
+>>>>
+>>>> The Spacemit K1 SoC includes an SDHCI controller capable of supporting
+>>>> SD cards up to UHS-I speeds (SDR104 at 208MHz). However, mainline
+>>>> currently lacks basic SD controller configuration, SDHCI driver
+>>>> enhancements for voltage switching and tuning, and power management
+>>>> infrastructure.
+>>>>
+>>>> [...]
+>>> Hi Iker,
+>>> I've picked patch 1-3, for [4/4] I think it should be merged after
+>>> https://lore.kernel.org/all/20260513071958.29574-1-a.heider@gmail.com/
+>>
+>> Hi Yixun,
+>>
+>> That makes sense. In response to your earlier feedback I had drafted 
+>> a more
+>> complete dts after another schematic comparison, but Iker and I 
+>> discussed it
+>> and opted to avoid changing scope too much. Andre's series includes 
+>> the bits I
+>> wanted to add and more, so that works out.
+>
+> I have 4/4 rebased on my series anyway, do you want me to send it?
 
-There is already a slight difference with vs. without per-VMA locks, because
-there is a window in-between us taking the write mmap_lock and all the per-VMA
-locks. I raised that previously [1] and assumed that it is probably fine.
+If you have an update to make, please do!
 
-I also raised in the past why I think we must not allow concurrent page faults,
-at least as soon as anonymous memory is involved [2].
+Trevor
 
-... and I raised that this is pretty much slower by design right now: "Well, the
-design decision that CONFIG_PER_VMA_LOCK made for now to make page faults fast
-and to make blocking any page faults from happening to  be slower ..." [3]
-
-[1] https://lore.kernel.org/all/970295ab-e85d-7af3-76e6-df53a5c52f8b@redhat.com/
-[2] https://lore.kernel.org/all/7e3f35cc-59b9-bf12-b8b1-4ed78223844a@redhat.com/
-[3] https://lore.kernel.org/all/2efa2c89-3765-721d-2c3c-00590054aa5b@redhat.com/
-
--- 
-Cheers,
-
-David
+>
+> Thanks,
+> Andre
+>
+>>
+>> Thanks!
+>>
+>> Trevor
+>>
+>>>
+>>> Applied, thanks!
+>>>
+>>> [1/4] riscv: dts: spacemit: k1: add SD card controller and pinctrl 
+>>> support
+>>> https://github.com/spacemit-com/linux/commit/2d77e577109967ef65f269c1fc1d6a659d4260fb
+>>> [2/4] riscv: dts: spacemit: k1-orangepi-rv2: add SD card support 
+>>> with UHS modes
+>>> https://github.com/spacemit-com/linux/commit/2585c60ce2f977b13f14a67d1e3ed9c73fd7f381
+>>> [3/4] riscv: dts: spacemit: k1-bananapi-f3: add SD card support with 
+>>> UHS modes
+>>> https://github.com/spacemit-com/linux/commit/c76e2f058cbcab84e4a703f26857a58bdf6a0042
+>>>
+>>> Best regards,
+>
 
 _______________________________________________
 linux-riscv mailing list
