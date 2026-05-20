@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C38CD4F3C
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 09:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEF1CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 09:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SmO2c4eJiNCx8IBwGWgjcyBNaggdS9oaKjoxou9gTfk=; b=OV0vAI4s+Q86oE
-	Gsebi+iNRiNlnuaCQyJhYvjoR/i9dWErv+L54SJ4pk4sL0l39naALw/zDhT/29OnGZPx+CHZtfNkm
-	rOi3PY9a+ab6QxYL+NyqFpcowlH1OfRBTd5E704yRj/gJVlOQsDaiiI3SyFOhJbT5Y9urZJOHiaD9
-	uyNt+mZtBGxsbZF4nUZP3jerC2v5UAAKf1JrPu9xQaRKLvKpEfiOkSOsezy71Cx07bjFneauV4N08
-	DaUJbjwUEiGcLtIFxbuXlSRIRPQ3gGVWTtUEv7XVH0gO0szrisQK/bWaHe9l9KMW3vMjQCVoaJU7N
-	a0qjnjd9Gb5BJDALrIuw==;
+	List-Owner; bh=UNxZk1zYvi6y7LqJ31MYNF2EVvDQmbsx1SKciRVqBNA=; b=i1EpQtt2scCSdD
+	UtU2ZRWxV1PoGVK71dJg8wCcZY3OMdGzNbdjBNhf1D1Q/6JYqUijQYT+bY/wG/gd59z3scmj2I/o9
+	sVCf7EnhKIo5g5DAj4aHYgiHOqa4EqcddH0Y1E826NOhW0TR5cnMOOq/BauGKLN8bPJjJzpDA9Fdr
+	cvFdKCi/jx2QH2VQkHT4iYigZ4+jl2frRqadj70xWDruoyveITDhdq+DV3ePmBOoSI1nPXk3uv4Bx
+	fJxer4E+CxoI/G2vvkCubKCnqxivzD1Lzsvlyp6GKtTe3szts1dd43LHm+pIllQf9UzasjSDW3pjZ
+	JPgpCANmbzEKlpFLr3Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPdd1-00000004Eqc-3Dap;
-	Wed, 20 May 2026 09:54:15 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wPddA-00000004Etx-3l6F;
+	Wed, 20 May 2026 09:54:24 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPdct-00000004Ep0-1ZWt;
-	Wed, 20 May 2026 09:54:11 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260520095359euoutp0198bcd0d30eb407a19ba86b2e2a0aa636~xPWbGPRHZ2283822838euoutp01G;
-	Wed, 20 May 2026 09:53:59 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260520095359euoutp0198bcd0d30eb407a19ba86b2e2a0aa636~xPWbGPRHZ2283822838euoutp01G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1779270839;
-	bh=ROuDJc1ckmzsUK3GQqF5RpUdIt3rHpwnZ651Dx4KTEU=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=XF5eoO6iIyP+yCtpP3A8TGvh7GdDuyqBUt33HERHmy0S7JjHZU25lGEQBRo1uI7yM
-	 xKjGjzOAnuX9sNbzBHZjYTMarbQoPJA/rfU7eI7SVQCO27LQ49kvWSeFQnoBkjwSrS
-	 lCkUYQMv8ZgGaOQMZ5JVsI8vM6NOOrcWXVPUsv64=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260520095358eucas1p1d5ec8fc83da4c9969214d9dbd4e59061~xPWajlDwS0908909089eucas1p1b;
-	Wed, 20 May 2026 09:53:58 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260520095357eusmtip1a47766f5000651b2ff2398051841ce3f~xPWZFRiKV1382913829eusmtip1U;
-	Wed, 20 May 2026 09:53:57 +0000 (GMT)
-Message-ID: <e5dbe092-1c28-4799-b7c6-a78f84065dd2@samsung.com>
-Date: Wed, 20 May 2026 11:53:56 +0200
+	id 1wPdd6-00000004Er6-1UEa
+	for linux-riscv@lists.infradead.org;
+	Wed, 20 May 2026 09:54:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1779270856; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=wHQ9qfRCExCn044qkCOJYBlx1vnsQcVgKurXXWpgTbI=;
+	b=lTNUu/sFCJgXbLOqEgRNwN9lpoqYzmT80bLFB1gCibsjvrYH1it7WMbtdF1VZkrJ8Ux4Nb1S3HiKROj5yZe0u4T0rUq2eXeauj5CNklhQP6MURgRjJgGDaONq+zB3ScwGBhyqtgJ9iAg3JXzDptLMlwciF6fUOClzbOuqe18xoo=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0X3IbTSf_1779270853;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X3IbTSf_1779270853 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 20 May 2026 17:54:14 +0800
+From: fangyu.yu@linux.alibaba.com
+To: sunilvl@oss.qualcomm.com
+Cc: ajones@ventanamicro.com,
+	alex@ghiti.fr,
+	andrew.jones@oss.qualcomm.com,
+	aou@eecs.berkeley.edu,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	joro@8bytes.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	tomasz.jeznach@linux.dev,
+	will@kernel.org
+Subject: Re: [PATCH] iommu/riscv: prefer WSI on IGS=BOTH when wired IRQs are described 
+Date: Wed, 20 May 2026 17:54:11 +0800
+Message-Id: <20260520095411.92045-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <CAB19ukGk2AUA3yjsrBxjsUsH9pUSeeu5F6vo1FFBcd504VQPzg@mail.gmail.com>
+References: <CAB19ukGk2AUA3yjsrBxjsUsH9pUSeeu5F6vo1FFBcd504VQPzg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v2 3/8] of: reserved_mem: add dumpable flag to opt-in
- vmcore
-To: Wandun Chen <chenwandun1@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	iommu@lists.linux.dev, zhaomeijing@lixiang.com
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, robh@kernel.org, saravanak@kernel.org,
-	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev,
-	robin.murphy@arm.com, leitao@debian.org, kees@kernel.org, coxu@redhat.com,
-	tangyouling@kylinos.cn, songshuaishuai@tinylab.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260520091844.592753-4-chenwandun@lixiang.com>
-X-CMS-MailID: 20260520095358eucas1p1d5ec8fc83da4c9969214d9dbd4e59061
-X-Msg-Generator: CA
-X-RootMTR: 20260520091935eucas1p1e3bd0cd7a5d2229acf937de3439571c7
-X-EPHeader: CA
-X-CMS-RootMailID: 20260520091935eucas1p1e3bd0cd7a5d2229acf937de3439571c7
-References: <20260520091844.592753-1-chenwandun@lixiang.com>
-	<CGME20260520091935eucas1p1e3bd0cd7a5d2229acf937de3439571c7@eucas1p1.samsung.com>
-	<20260520091844.592753-4-chenwandun@lixiang.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_025407_688653_A9F2D674 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20260520_025421_091572_2367C446 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,68 +74,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20.05.2026 11:18, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun1@gmail.com>
->
-> From: Wandun Chen <chenwandun@lixiang.com>
->
-> Add a 'dumpable' flag to struct reserved_mem so the kernel can decide
-> whether a reserved area should be included in the kdump vmcore. Most
-> reserved regions are owned by devices and do not contain data useful
-> for kernel crash analysis, so excluding them by default is the right
-> behaviour.
->
-> Reusable CMA regions are different: pages in a CMA region are handed
-> back to the buddy allocator and may contain key data for crash
-> analysis, so set dumpable to true in rmem_cma_setup().
->
-> Suggested-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-> Link: https://lore.kernel.org/all/20260506144542.GA2072596-robh@kernel.org/
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
->  include/linux/of_reserved_mem.h | 1 +
->  kernel/dma/contiguous.c         | 1 +
->  2 files changed, 2 insertions(+)
->
-> diff --git a/include/linux/of_reserved_mem.h b/include/linux/of_reserved_mem.h
-> index e8b20b29fa68..55a67cee41ea 100644
-> --- a/include/linux/of_reserved_mem.h
-> +++ b/include/linux/of_reserved_mem.h
-> @@ -15,6 +15,7 @@ struct reserved_mem {
->  	phys_addr_t			base;
->  	phys_addr_t			size;
->  	void				*priv;
-> +	bool				dumpable;
->  };
->  
->  struct reserved_mem_ops {
-> diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
-> index 03f52bd17120..eddec89eb414 100644
-> --- a/kernel/dma/contiguous.c
-> +++ b/kernel/dma/contiguous.c
-> @@ -579,6 +579,7 @@ static int __init rmem_cma_setup(unsigned long node, struct reserved_mem *rmem)
->  		dma_contiguous_default_area = cma;
->  
->  	rmem->priv = cma;
-> +	rmem->dumpable = true;
->  
->  	pr_info("Reserved memory: created CMA memory pool at %pa, size %ld MiB\n",
->  		&rmem->base, (unsigned long)rmem->size / SZ_1M);
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Pj4KPj4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4+Cj4+
+IFRoZSBSSVNDLVYgSU9NTVUgc3BlYyBkZWZpbmVzIElHUz1CT1RIIGFzIHN1cHBvcnRpbmcgYm90
+aCBNU0kgYW5kCj4+IFdTSSwgd2l0aCBzb2Z0d2FyZSBzZWxlY3RpbmcgdGhlIHBhdGguIFRoZSBE
+VCBwYXRoIGFscmVhZHkgYmVoYXZlcwo+PiBhcyBleHBlY3RlZCBieSBzZWxlY3RpbmcgV1NJIHdo
+ZW4gd2lyZWQgSVJRIHJlc291cmNlcyBhcmUgZGVzY3JpYmVkLgo+PiBUaGUgQUNQSSBwYXRoLCBo
+b3dldmVyLCBjdXJyZW50bHkgZmFsbHMgYmFjayB0byBNU0kgZXZlbiB3aGVuCj4+IGZpcm13YXJl
+IGRlc2NyaWJlcyB3aXJlZCBJUlEgcmVzb3VyY2VzLgo+Pgo+PiBVc2UgZmlybXdhcmUtZGVzY3Jp
+YmVkIHdpcmVkIElSUSByZXNvdXJjZXMgYXMgdGhlIHRyaWdnZXIgdG8gc2VsZWN0Cj4+IFdTSSBm
+b3IgSUdTPUJPVEg6Cj4+ICAgLSBEVDogImludGVycnVwdHMiIHByZXNlbnQsIG5vICJtc2ktcGFy
+ZW50Igo+PiAgIC0gQUNQSTogRFNEVCBfQ1JTIEludGVycnVwdCgpIGRlc2NyaXB0b3JzCj4+ICAg
+ICAobWFpbmxpbmUgZG9lcyBub3QgeWV0IHBhcnNlIHRoZSBSSU1UIEludGVycnVwdCBXaXJlIEFy
+cmF5KQo+Pgo+PiBXaGVuIHRyaWdnZXJlZCwgcmV3cml0ZSBpZ3MgdG8gSUdTX1dTSSBhbmQgcmV1
+c2UgdGhlIGV4aXN0aW5nIFdTSQo+PiBoYW5kbGluZy4gS2VlcCB0aGUgZXhpc3RpbmcgYmVoYXZp
+b3VyIG90aGVyd2lzZS4KPj4KPj4gRml4ZXM6IGQ1Zjg4YWNkZDZmZiAoImlvbW11L3Jpc2N2OiBB
+ZGQgc3VwcG9ydCBmb3IgcGxhdGZvcm0gbXNpIikKPj4gU2lnbmVkLW9mZi1ieTogRmFuZ3l1IFl1
+IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4+IC0tLQo+PiAgZHJpdmVycy9pb21tdS9y
+aXNjdi9pb21tdS1wbGF0Zm9ybS5jIHwgMTUgKysrKysrKysrKysrKysrCj4+ICAxIGZpbGUgY2hh
+bmdlZCwgMTUgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pb21tdS9y
+aXNjdi9pb21tdS1wbGF0Zm9ybS5jIGIvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS1wbGF0Zm9y
+bS5jCj4+IGluZGV4IDM5OWJhOGZlMWIzZS4uYmQ3NzEyMjMxMTQwIDEwMDY0NAo+PiAtLS0gYS9k
+cml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LXBsYXRmb3JtLmMKPj4gKysrIGIvZHJpdmVycy9pb21t
+dS9yaXNjdi9pb21tdS1wbGF0Zm9ybS5jCj4+IEBAIC03MSw2ICs3MSwyMSBAQCBzdGF0aWMgaW50
+IHJpc2N2X2lvbW11X3BsYXRmb3JtX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYp
+Cj4+ICAgICAgICAgaW9tbXUtPmlycXNfY291bnQgPSBSSVNDVl9JT01NVV9JTlRSX0NPVU5UOwo+
+Pgo+PiAgICAgICAgIGlncyA9IEZJRUxEX0dFVChSSVNDVl9JT01NVV9DQVBBQklMSVRJRVNfSUdT
+LCBpb21tdS0+Y2Fwcyk7Cj4+ICsKPj4gKyAgICAgICAvKgo+PiArICAgICAgICAqIElHUz1CT1RI
+IG1lYW5zIHRoZSBJT01NVSBzdXBwb3J0cyBlaXRoZXIgTVNJIG9yIFdTSTsKPj4gKyAgICAgICAg
+KiB0aGUgc3BlYyBsZWF2ZXMgdGhlIGNob2ljZSB0byBzb2Z0d2FyZS4gVXNlIHRoZSBmaXJtd2Fy
+ZS1kZXNjcmliZWQKPj4gKyAgICAgICAgKiB3aXJlZCBpbnRlcnJ1cHQgcmVzb3VyY2VzIGFzIHRo
+ZSB0cmlnZ2VyOgo+PiArICAgICAgICAqICAgLSBEVCAgOiAiaW50ZXJydXB0cyIgcHJvcGVydHkg
+cHJlc2VudCwgbm8gIm1zaS1wYXJlbnQiICAtPiBXU0kKPj4gKyAgICAgICAgKiAgIC0gQUNQSTog
+RFNEVCBfQ1JTIEludGVycnVwdCgpIHByZXNlbnQgIC0+IFdTSQo+PiArICAgICAgICAqIE90aGVy
+d2lzZSBkZWZhdWx0IHRvIHRoZSBNU0kgcGF0aC4KPj4gKyAgICAgICAgKi8KPj4gKyAgICAgICBp
+ZiAoaWdzID09IFJJU0NWX0lPTU1VX0NBUEFCSUxJVElFU19JR1NfQk9USCAmJgo+PiArICAgICAg
+ICAgICBwbGF0Zm9ybV9pcnFfY291bnQocGRldikgPiAwKSB7Cj4+ICsgICAgICAgICAgICAgICBk
+ZXZfaW5mbyhkZXYsICJmaXJtd2FyZSBkZXNjcmliZXMgd2lyZWQgSVJRczsgcHJlZmVycmluZyBX
+U0kgb24gSUdTPUJPVEhcbiIpOwo+PiArICAgICAgICAgICAgICAgaWdzID0gUklTQ1ZfSU9NTVVf
+Q0FQQUJJTElUSUVTX0lHU19XU0k7Cj4+ICsgICAgICAgfQo+PiArCj5Xb24ndCBpdCBjaGFuZ2Ug
+dGhlIERUIGJlaGF2aW9yIGFzIGl0IGRvZXNuJ3QgY2hlY2sgbXNpLXBhcmVudAo+YW55bW9yZT8g
+IElPVywgc2hvdWxkIHRoaXMgYmUgbWFkZSBzcGVjaWZpYyB0byBBQ1BJCj5ieSBjaGVja2luZyB3
+aGV0aGVyIHRoZSBkZXZpY2Ugbm9kZSBpcyBhY3BpIG5vZGU/Cj4KClRoYW5rcyBmb3IgdGhlIHJl
+dmlldywgeW91J3JlIHJpZ2h0IHRoYXQgdGhlIGN1cnJlbnQgY29uZGl0aW9uIHdvdWxkCmFmZmVj
+dCBEVCBhcyB3ZWxsLgoKTXkgYXNzdW1wdGlvbiB3YXMgdGhhdCBEVCB3b3VsZCBkZXNjcmliZSBl
+aXRoZXIgImludGVycnVwdHMiIGZvciBXU0kKb3IgIm1zaS1wYXJlbnQiIGZvciBNU0ksIGJ1dCBu
+b3QgYm90aCwgc28gcGxhdGZvcm1faXJxX2NvdW50KCkgPiAwCndvdWxkIGVmZmVjdGl2ZWx5IGlt
+cGx5ICJubyBtc2ktcGFyZW50IiBpbiBwcmFjdGljZS4KClRoYXQgc2FpZCwgSSBhZ3JlZSB0aGF0
+IHRoaXMgc2hvdWxkIGJlIGxpbWl0ZWQgdG8gdGhlIEFDUEkgcGF0aC4gVGhhdAptYXRjaGVzIHRo
+ZSBhY3R1YWwgYnVnIHNjb3BlIOKAlCBvbmx5IEFDUEkgd2FzIGZhbGxpbmcgYmFjayB0byBNU0kg
+d2hlbgp3aXJlZCBJUlFzIHdlcmUgZGVzY3JpYmVkIOKAlCBhbmQgbGVhdmVzIERUIHVuY2hhbmdl
+ZC4KCkknbGwgcmVzcGluIGEgdjIgdG8gc2NvcGUgdGhlIGZpeCB0byBBQ1BJIG9ubHksIGFuZCB0
+aWdodGVuIHRoZSBjb21taXQKbWVzc2FnZSBhY2NvcmRpbmdseS4KClRoYW5rcywKRmFuZ3l1Cgo+
+VGhhbmtzLAo+U3VuaWwKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
