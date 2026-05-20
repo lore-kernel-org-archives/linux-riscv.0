@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC44CD4F54
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 12:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6ED5CD4F54
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 12:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QLlIzQUHI6X2dOREi529fp117WmV1UJoqyksR2O953s=; b=0uOrxhTkweUSE5
-	HuU+cjJ7bMBtbIWMHDrhHG41SF9Q7nRuXq70yJVKsPcyiFfv/1Nhvwbp4YdovoazjiqvCQ2gXMcAP
-	vZFMhMUGnLindNtrXB82erNUKQ8W4TZQKkv+GSTQ/fY88tfLT5sOGou7PUOGBWgzkTRiiSt/NJTqN
-	6z2dimikt1lqkCF53YnS7mVB8JqP1+XJQZzdH5GxVfEi9nHEgpEcJfGNxIFprTk2ZL8JK7GOb6r6E
-	oz8wR2Z+zofWSawHWNE9m8WC9OMof/0dnGkij+MIkwacxXPGuSo75seX1BrKRizylRNCHAP5HpTmP
-	xf9zgqAYRE0jtUUT2+Vw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=P8pKrRLTdJmZiY2eH6Ern5qAGUUgrxth+lazwtOUr0U=; b=oGjlVSe7ECePxq
+	K730DQib6qckU+UfniIvOnDFm55uvUkwT+BiRf1M4+JiPfwiPiVbEX1fHfNKsYVLUGXNXbz6Fh356
+	BBCZj5fdYwwOw78q+itDG/XEUCFYhK0KhlCbvByGzjLcdBIywJruxrBzLPQDgtOEFmw7ibgXiZOjm
+	lJnfXN6eDOQiSkExHsYoMOBz52FRAJi3oTmqIM133s6+kK9ApoHRvhqKLr+yjoFxvXhrLJKSI1YT2
+	Ct3tGk+8ZBbdHyRtHwm4X6Ycd/9xuzp74YwRGHMTLjWSNlRfFjYbq4GfpSEa9FRIgKV3GQ7HET6Rv
+	MqRhDHVezCTs1Gye9CNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfzd-00000004YCQ-29hu;
-	Wed, 20 May 2026 12:25:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfza-00000004YBK-44EG
+	id 1wPgDX-00000004aSs-4C5Y;
+	Wed, 20 May 2026 12:40:08 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPgDV-00000004aRn-1F70
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 12:25:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 637E91AED;
-	Wed, 20 May 2026 05:25:34 -0700 (PDT)
-Received: from [10.57.34.79] (unknown [10.57.34.79])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0486B3F85F;
-	Wed, 20 May 2026 05:25:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779279939; bh=r4MdZFtowyPpupGPpQIEXdP9NBQqXiB54/OWs7koQOg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uFUScEO+VDFo1Yng4NuDnsMF/miGjHvXJ8FilngCJQqFJaq8eZFNKMBuuthzdAZER
-	 yLOCNQ6Bk3vnNMCN0LTgcENfRn5nQT5Zluxxfn08TTnF9G780N1uOURGxohyGZ1Frh
-	 Z7uXsD5a+7KNVc0oQdfVLv16yVcughVRGzLtFI/g=
-Message-ID: <7dc61855-d916-4659-8137-7f3457f6a56d@arm.com>
-Date: Wed, 20 May 2026 13:25:27 +0100
+	Wed, 20 May 2026 12:40:06 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-48e6db3ff7eso24653295e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 05:40:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779280803; x=1779885603; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SuH6Fo8n73X094Nx+BXIM9AYUCXKRRgGdAspq57tSsc=;
+        b=RpBeXLFmYX2iEgY79A21RulRNThEtqz8TngX1xlmEaBSKk6Ue2UTQ647ZzYGuQxfcj
+         luB80P3ByZC2adsq1lekcY00DrwggctUCkrRaJ6DzDrMd8s5VCsAIjULPzdBkec4po1H
+         2gh+vLshKnttw+JAEfmkvqNk+hN8EZ+n3YqibGhnJJgKoSHN5hcQSE1CGXTz9zPS13WW
+         khsRtF2LnHqq6Am9fzL63eC9PkR6lajffzCfhe/6X3lsOLP6M9eGKlGdf6qj62Mb3KeX
+         CCeCgwVGK+PWEkrjwkolY9DrkvHm+Zz68TbvrJRTk3Gix6g4r0dAAVnUOmz6MHGs54W/
+         DmGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779280803; x=1779885603;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SuH6Fo8n73X094Nx+BXIM9AYUCXKRRgGdAspq57tSsc=;
+        b=AoYIzmJ5puOslvMFS4NZlq+GUH7AKahMtohhTynPgH80vQ/ImyEYo42pZdU8FllkCp
+         X+k3Nc6NhP0tdwM7qU3ZWo01vFv/IfNvYxUKC/05IHdiUP5QrrRst+TDtG4QBBOGlkFL
+         G58EWxKF/vz5GK03AJXluKBttT/XxzZ+d2pZ+0VYYFpnp1PxfH4i/oIZXW+VzvipHtK+
+         AVwP0vHWDoxUHHtGNE0gk3Gmjzi4HAZtTYYFbjpZHjdskaxb9vl7Tifpz7jA9LKV/60Y
+         5XD3UaScp2lOKL84h6uDnUVfHNGm73bmkK7UNZ0CRa4lETzrUoG+oBA3GmYdeW5Rr+9t
+         XcbQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8AqoZoG40/kaSHmAWEyrTs+dL4X0CF5kdoO8+MVYdyoQJQBmhEYcO3AaZnlGwqA53Y7KEpcnsz9lLSIw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7N6jPnvLgGfCKnU03He8gnsJY7h+Or+KEfwspMByG90NdUnOM
+	9d2npsxwpA0GksT2FNF44iNNwh8K+Wk9OSgbgjOytJ6D3rv7C2QC4Sc5
+X-Gm-Gg: Acq92OFCli/aJG/+E6zpxQo+R1D2hLFtuhbL1rWRjo31M2PFHXh4oVaTKAJGmm1waTQ
+	+qihrKx/cZMxao9dVZFAIIO+92zeqKvQy/6Xv2FHLzwCn5SJ/qWveOZVIRW1dUe6ryRKeGAyZmt
+	wmfhMhgCFYfgD6b82+0QS1DpKoKlmKuLS5m3iO6SpoAXT++bLabZvAtG+37kVlJa1i7hyVUmYsy
+	neP44AXqhTdbkX+46orOI3aI/tB1sek7MD/I5HTxgGKBdiuC+borFO8EROCCd7wIdOXU9o8L5KM
+	0+2/Nxn9m9OejEbXskWLzpXvOIw/pJK07SqIfxE8/gTRrvhikj0MG7EyPZTSlrmvginWeDA8XOe
+	9kvnRpwVVl2lH0gwd5x2wsVtRxMzaiQvz27K0vSY5mKObmgSTvRduL+zX/pjsC1Vb7o3/J6AkE2
+	PSIJO0Y5QjIQVpghxfg6HVcdMv2Y9cstsiENx9WQCkEg==
+X-Received: by 2002:a05:600c:1d0d:b0:48f:da34:ec4e with SMTP id 5b1f17b1804b1-48fe632343dmr344264205e9.19.1779280803275;
+        Wed, 20 May 2026 05:40:03 -0700 (PDT)
+Received: from RTRKW671-LIN.domain.local ([89.216.37.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9ec3acf7sm54460252f8f.12.2026.05.20.05.40.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 May 2026 05:40:02 -0700 (PDT)
+From: Milan Tripkovic <milant2002@gmail.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	kees@kernel.org
+Cc: alex@ghiti.fr,
+	andy@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	Dusan.Stojkovic@rt-rk.com,
+	Milan Tripkovic <milant2002@gmail.com>,
+	Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+Subject: [PATCH v6 0/2] riscv: lib: add optimized memcmp() and extend KUnit tests
+Date: Wed, 20 May 2026 14:39:52 +0200
+Message-ID: <20260520123954.379630-1-milant2002@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/riscv: prefer WSI on IGS=BOTH when wired IRQs are
- described
-To: fangyu.yu@linux.alibaba.com, sunilvl@oss.qualcomm.com
-Cc: ajones@ventanamicro.com, alex@ghiti.fr, andrew.jones@oss.qualcomm.com,
- aou@eecs.berkeley.edu, guoren@kernel.org, iommu@lists.linux.dev,
- joro@8bytes.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org,
- tomasz.jeznach@linux.dev, will@kernel.org
-References: <CAB19ukGk2AUA3yjsrBxjsUsH9pUSeeu5F6vo1FFBcd504VQPzg@mail.gmail.com>
- <20260520095411.92045-1-fangyu.yu@linux.alibaba.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260520095411.92045-1-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_052543_198135_37171A72 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20260520_054005_353224_EDF05B3A 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,84 +100,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNi0wNS0yMCAxMDo1NCBhbSwgZmFuZ3l1Lnl1QGxpbnV4LmFsaWJhYmEuY29tIHdyb3Rl
-Ogo+Pj4KPj4+IEZyb206IEZhbmd5dSBZdSA8ZmFuZ3l1Lnl1QGxpbnV4LmFsaWJhYmEuY29tPgo+
-Pj4KPj4+IFRoZSBSSVNDLVYgSU9NTVUgc3BlYyBkZWZpbmVzIElHUz1CT1RIIGFzIHN1cHBvcnRp
-bmcgYm90aCBNU0kgYW5kCj4+PiBXU0ksIHdpdGggc29mdHdhcmUgc2VsZWN0aW5nIHRoZSBwYXRo
-LiBUaGUgRFQgcGF0aCBhbHJlYWR5IGJlaGF2ZXMKPj4+IGFzIGV4cGVjdGVkIGJ5IHNlbGVjdGlu
-ZyBXU0kgd2hlbiB3aXJlZCBJUlEgcmVzb3VyY2VzIGFyZSBkZXNjcmliZWQuCj4+PiBUaGUgQUNQ
-SSBwYXRoLCBob3dldmVyLCBjdXJyZW50bHkgZmFsbHMgYmFjayB0byBNU0kgZXZlbiB3aGVuCj4+
-PiBmaXJtd2FyZSBkZXNjcmliZXMgd2lyZWQgSVJRIHJlc291cmNlcy4KPj4+Cj4+PiBVc2UgZmly
-bXdhcmUtZGVzY3JpYmVkIHdpcmVkIElSUSByZXNvdXJjZXMgYXMgdGhlIHRyaWdnZXIgdG8gc2Vs
-ZWN0Cj4+PiBXU0kgZm9yIElHUz1CT1RIOgo+Pj4gICAgLSBEVDogImludGVycnVwdHMiIHByZXNl
-bnQsIG5vICJtc2ktcGFyZW50Igo+Pj4gICAgLSBBQ1BJOiBEU0RUIF9DUlMgSW50ZXJydXB0KCkg
-ZGVzY3JpcHRvcnMKPj4+ICAgICAgKG1haW5saW5lIGRvZXMgbm90IHlldCBwYXJzZSB0aGUgUklN
-VCBJbnRlcnJ1cHQgV2lyZSBBcnJheSkKPj4+Cj4+PiBXaGVuIHRyaWdnZXJlZCwgcmV3cml0ZSBp
-Z3MgdG8gSUdTX1dTSSBhbmQgcmV1c2UgdGhlIGV4aXN0aW5nIFdTSQo+Pj4gaGFuZGxpbmcuIEtl
-ZXAgdGhlIGV4aXN0aW5nIGJlaGF2aW91ciBvdGhlcndpc2UuCj4+Pgo+Pj4gRml4ZXM6IGQ1Zjg4
-YWNkZDZmZiAoImlvbW11L3Jpc2N2OiBBZGQgc3VwcG9ydCBmb3IgcGxhdGZvcm0gbXNpIikKPj4+
-IFNpZ25lZC1vZmYtYnk6IEZhbmd5dSBZdSA8ZmFuZ3l1Lnl1QGxpbnV4LmFsaWJhYmEuY29tPgo+
-Pj4gLS0tCj4+PiAgIGRyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUtcGxhdGZvcm0uYyB8IDE1ICsr
-KysrKysrKysrKysrKwo+Pj4gICAxIGZpbGUgY2hhbmdlZCwgMTUgaW5zZXJ0aW9ucygrKQo+Pj4K
-Pj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LXBsYXRmb3JtLmMgYi9k
-cml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LXBsYXRmb3JtLmMKPj4+IGluZGV4IDM5OWJhOGZlMWIz
-ZS4uYmQ3NzEyMjMxMTQwIDEwMDY0NAo+Pj4gLS0tIGEvZHJpdmVycy9pb21tdS9yaXNjdi9pb21t
-dS1wbGF0Zm9ybS5jCj4+PiArKysgYi9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LXBsYXRmb3Jt
-LmMKPj4+IEBAIC03MSw2ICs3MSwyMSBAQCBzdGF0aWMgaW50IHJpc2N2X2lvbW11X3BsYXRmb3Jt
-X3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4+PiAgICAgICAgICBpb21tdS0+
-aXJxc19jb3VudCA9IFJJU0NWX0lPTU1VX0lOVFJfQ09VTlQ7Cj4+Pgo+Pj4gICAgICAgICAgaWdz
-ID0gRklFTERfR0VUKFJJU0NWX0lPTU1VX0NBUEFCSUxJVElFU19JR1MsIGlvbW11LT5jYXBzKTsK
-Pj4+ICsKPj4+ICsgICAgICAgLyoKPj4+ICsgICAgICAgICogSUdTPUJPVEggbWVhbnMgdGhlIElP
-TU1VIHN1cHBvcnRzIGVpdGhlciBNU0kgb3IgV1NJOwo+Pj4gKyAgICAgICAgKiB0aGUgc3BlYyBs
-ZWF2ZXMgdGhlIGNob2ljZSB0byBzb2Z0d2FyZS4gVXNlIHRoZSBmaXJtd2FyZS1kZXNjcmliZWQK
-Pj4+ICsgICAgICAgICogd2lyZWQgaW50ZXJydXB0IHJlc291cmNlcyBhcyB0aGUgdHJpZ2dlcjoK
-Pj4+ICsgICAgICAgICogICAtIERUICA6ICJpbnRlcnJ1cHRzIiBwcm9wZXJ0eSBwcmVzZW50LCBu
-byAibXNpLXBhcmVudCIgIC0+IFdTSQo+Pj4gKyAgICAgICAgKiAgIC0gQUNQSTogRFNEVCBfQ1JT
-IEludGVycnVwdCgpIHByZXNlbnQgIC0+IFdTSQo+Pj4gKyAgICAgICAgKiBPdGhlcndpc2UgZGVm
-YXVsdCB0byB0aGUgTVNJIHBhdGguCj4+PiArICAgICAgICAqLwo+Pj4gKyAgICAgICBpZiAoaWdz
-ID09IFJJU0NWX0lPTU1VX0NBUEFCSUxJVElFU19JR1NfQk9USCAmJgo+Pj4gKyAgICAgICAgICAg
-cGxhdGZvcm1faXJxX2NvdW50KHBkZXYpID4gMCkgewo+Pj4gKyAgICAgICAgICAgICAgIGRldl9p
-bmZvKGRldiwgImZpcm13YXJlIGRlc2NyaWJlcyB3aXJlZCBJUlFzOyBwcmVmZXJyaW5nIFdTSSBv
-biBJR1M9Qk9USFxuIik7Cj4+PiArICAgICAgICAgICAgICAgaWdzID0gUklTQ1ZfSU9NTVVfQ0FQ
-QUJJTElUSUVTX0lHU19XU0k7Cj4+PiArICAgICAgIH0KPj4+ICsKPj4gV29uJ3QgaXQgY2hhbmdl
-IHRoZSBEVCBiZWhhdmlvciBhcyBpdCBkb2Vzbid0IGNoZWNrIG1zaS1wYXJlbnQKPj4gYW55bW9y
-ZT8gIElPVywgc2hvdWxkIHRoaXMgYmUgbWFkZSBzcGVjaWZpYyB0byBBQ1BJCj4+IGJ5IGNoZWNr
-aW5nIHdoZXRoZXIgdGhlIGRldmljZSBub2RlIGlzIGFjcGkgbm9kZT8KPj4KPiAKPiBUaGFua3Mg
-Zm9yIHRoZSByZXZpZXcsIHlvdSdyZSByaWdodCB0aGF0IHRoZSBjdXJyZW50IGNvbmRpdGlvbiB3
-b3VsZAo+IGFmZmVjdCBEVCBhcyB3ZWxsLgo+IAo+IE15IGFzc3VtcHRpb24gd2FzIHRoYXQgRFQg
-d291bGQgZGVzY3JpYmUgZWl0aGVyICJpbnRlcnJ1cHRzIiBmb3IgV1NJCj4gb3IgIm1zaS1wYXJl
-bnQiIGZvciBNU0ksIGJ1dCBub3QgYm90aCwgc28gcGxhdGZvcm1faXJxX2NvdW50KCkgPiAwCj4g
-d291bGQgZWZmZWN0aXZlbHkgaW1wbHkgIm5vIG1zaS1wYXJlbnQiIGluIHByYWN0aWNlLgo+IAo+
-IFRoYXQgc2FpZCwgSSBhZ3JlZSB0aGF0IHRoaXMgc2hvdWxkIGJlIGxpbWl0ZWQgdG8gdGhlIEFD
-UEkgcGF0aC4gVGhhdAo+IG1hdGNoZXMgdGhlIGFjdHVhbCBidWcgc2NvcGUg4oCUIG9ubHkgQUNQ
-SSB3YXMgZmFsbGluZyBiYWNrIHRvIE1TSSB3aGVuCj4gd2lyZWQgSVJRcyB3ZXJlIGRlc2NyaWJl
-ZCDigJQgYW5kIGxlYXZlcyBEVCB1bmNoYW5nZWQuCj4gCj4gSSdsbCByZXNwaW4gYSB2MiB0byBz
-Y29wZSB0aGUgZml4IHRvIEFDUEkgb25seSwgYW5kIHRpZ2h0ZW4gdGhlIGNvbW1pdAo+IG1lc3Nh
-Z2UgYWNjb3JkaW5nbHkuCgpXaHkgd291bGQgdGhpcyBiZSBzcGVjaWZpYyB0byBBQ1BJPyBBRkFJ
-Q1MgaWYgRFQgc3BlY2lmaWVzIGFuIAoibXNpLXBhcmVudCIgcHJvcGVydHkgc3VjaCB0aGF0IGFu
-IE1TSSBkb21haW4gZXhpc3RzLCB0aGVuIE1TSXMgd2lsbCBiZSAKcHJlZmVycmVkIGFzIHdlbGws
-IHNpbmNlIHRoZSBlbnRpcmUgZnVuY3Rpb24gaXMgc3RydWN0dXJlZCB0byBwcmVmZXIgCk1TSXMg
-aWYgYXZhaWxhYmxlLCBhbmQgZmFsbCBiYWNrIHRvIHdpcmVkIGlmIG5vdC4gSWYgdGhlIHN5c3Rl
-bSBkb2VzIApzdXBwb3J0IGJvdGggb3B0aW9ucyB0aGVuIERUIHNob3VsZCBkZXNjcmliZSB0aGF0
-LCBzYW1lIGFzIEFDUEk7IHdoYXQgCkxpbnV4IGNob29zZXMgdG8gdXNlIGlzIGVudGlyZWx5IExp
-bnV4J3Mgb3duIHBvbGljeS4KCkJ1dCBpZiB5b3UgZG8gd2FudCB0byBjaGFuZ2UgdGhlIExpbnV4
-IGRyaXZlcidzIHBvbGljeSBmb3Igc29tZSByZWFzb24gCnRoYXQgdGhlIGNvbW1pdCBtZXNzYWdl
-IGlzbid0IHJlYWxseSBleHBsYWluaW5nLCB0aGVuIHJlYXJyYW5nZSB0aGUgCndob2xlIHN3aXRj
-aCBzdGF0ZW1lbnQ7IGRvbid0IGp1c3QgYWRkIGEgd2VpcmQgaGFjayB0byB0cnkgdG8gZGVmZWF0
-IHRoZSAKZXhpc3RpbmcgbG9naWMgX2luIHRoZSBzYW1lIGZ1bmN0aW9uXy4uLgoKSW4gZ2VuZXJh
-bCB0aG91Z2gsIEkgd291bGQgaGF2ZSB0aG91Z2h0IHByZWZlcnJpbmcgTVNJcyBtYWtlcyB0aGUg
-bW9zdCAKc2Vuc2UsIHNpbmNlIE1TSSB2ZWN0b3JzIGFyZSBnZW5lcmFsbHkgY2hlYXBlciB0aGFu
-IHdpcmVzLCBzbyB0aGVyZSdzIGEgCmJldHRlciBjaGFuY2Ugb2YgYmVpbmcgYWJsZSB0byBoYXZl
-IHVuaXF1ZSBJUlFzIHBlciBpbnRlcnJ1cHQgc291cmNlLCAKd2hlcmVhcyB3aXRoIHdpcmVzIHlv
-dSBtYXkgYmUgc3R1Y2sgd2l0aCBhIGNvbWJpbmVkIElSUS4KCihBcyBhIHNpZGUgbm90ZSwgaXMg
-dGhlcmUgYSByZWFzb24gdGhpcyBpcyBjYWxsaW5nIG9mX21zaV9jb25maWd1cmUoKSBvbiAKYSBw
-bGF0Zm9ybSBkZXZpY2Ugd2hlbiBvZl9wbGF0Zm9ybV9kZXZpY2VfY3JlYXRlX3BkYXRhKCkgd2ls
-bCBoYXZlIGRvbmUgCnRoYXQgYWxyZWFkeT8pCgpUaGFua3MsClJvYmluLgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This v6 series provides an optimized RISC-V memcmp() implementation 
+along with extended KUnit tests for functional verification and 
+benchmarking
+
+The memcmp() implementation now uses word-aligned loads for the generic 
+path and leverages Zbb for fast sign resolution on supported hardware. 
+A robust fallback to byte-by-byte comparison is implemented for non-Zbb 
+systems to ensure correctness and stability across different toolchains 
+and hardware revisions.
+
+Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+
+---
+v6 changes:
+    - Fixed build errors kernel test robot noticed. 
+    - Link to v5: https://lore.kernel.org/all/20260519140029.1190381-1-milant2002@gmail.com/
+    
+v5 changes:
+    - Removed redundant warm-up from test case
+    - Optimized generic memcmp path with word-aligned loads.
+    - Implemented non-ZBB fallback to byte comparison per review.
+    - Link to v4: https://lore.kernel.org/all/20260518131407.1026049-2-milant2002@gmail.com/
+
+v4 changes:
+    - Fixed build error: call to undeclared function 'STRING_BENCH'
+    - Link to v3: https://lore.kernel.org/all/20260515141019.1234037-1-milant2002@gmail.com/
+
+v3 changes:
+    - Split memcmp benchmark into wrapper (string_bench_memcmp) and worker
+      function (do_string_bench_memcmp).
+    - Removed all C99 mixed declarations; moved all variable declarations
+      to the top of each function.
+    - Converted len, iterations and loop counters in the benchmark to u64
+      to avoid implicit casts.
+    - Cleaned up spacing, indentation and minor style issues.
+    - Added #if defined(CONFIG_RISCV_ISA_ZBB)... in  memcmp.S
+    - Link to v2: https://lore.kernel.org/all/20260514121359.931999-1-milant2002@gmail.com/
+
+v2 changes:
+    - Added alignment checks for buffers to avoid expensive misaligned loads.
+    - Optimized the loop using end-pointers to reduce per-iteration overhead.
+    - Implemented word-aligned tail handling using ZBB shifts.
+    - Removed redundant pointer equality (a0 == a1) check.
+    - Retained BE support via #ifndef; ZBB rev8 is used for the LE fast-path.
+    - Fixed KUnit build failures for Clang and non-benchmark configs.
+    - Link to v1: https://lore.kernel.org/all/20260512141007.1193033-1-milant2002@gmail.com/
+
+Milan Tripkovic (2):
+  riscv: lib: add memcmp() implementation
+  lib/string_kunit: extend benchmarks and unit test to memcmp()
+
+ arch/riscv/include/asm/string.h |   2 +
+ arch/riscv/lib/Makefile         |   1 +
+ arch/riscv/lib/memcmp.S         | 107 ++++++++++++++++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |   5 +-
+ lib/tests/string_kunit.c        | 106 +++++++++++++++++++++++++++++++
+ 5 files changed, 220 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/memcmp.S
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
