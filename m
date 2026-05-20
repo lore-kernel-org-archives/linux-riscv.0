@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F66CD4F54
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 06:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8EBCD4F54
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 06:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KvU4WUvmMicajVaEbJa4byaPy8ae35PAqy/fN/QG46w=; b=eSFvey7uiM9S9M
-	eiKzYh0m3g9GEs/daVO427nB7Eojri2givmMAWuzGrD3mXNaqa0SYPN3VSPMjAq9S/6DB6SZf0Q7l
-	Dw7sffmOWITOZ88HA2BxsaYL3RhnJ05IzlOGNEWfd2vOnHGaoUOsY2Hhz9FTjMGTQwpvBMKK5Cqlo
-	H5smE05oiFuZRoyN7yVIJ20QPwFePKWenuWmHtwwkybVONE2xl/8h9tu39zJB7LSe+Qt0R59GAoua
-	oJc+Hc6MLArpxtjXsBqq0rr3ToKTcDjgB4RhlBwwTiTNl1VSptxGJ7by29GSCW+qHvZZA8SFZ5puZ
-	ticvpn0Y8EiWo5jBYv3A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nFeFwuBK+xAAPp9k4PSEt7NXAIV9pV9y7bpM3tZEN64=; b=iKKTZd3Sw1YbUo
+	BAiVcM5YbmPJtbpbw8L4Lh/aBkVcCouaydn4c8lJwNUJj7suQGv4A/AsGHNKxaD7hnjueiL1BypIG
+	DWo9tXyUavnW5MmjQa5LUQl47lXFT4w6FDAi+JSuiKLckDfAq+csbhlFnyXnKcsSzM/74FUYr+jIv
+	ZiN2+b3Mwdiixe8fjLqZJn6QoPesiUXWGgx6M4GsZ1MRr2A/30DdJktxDxwsJjtT+9lhD9nNzTqSP
+	nkJ68XyGr9ti3TxHYhTu/uuRkQT+O+9qs28R77T9U0tUcdtKMw7AuGdwnkHDbF+ceFd5W/9LsexN4
+	japspwOVZV40bEr5oQfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaHm-00000003dpi-1DQj;
-	Wed, 20 May 2026 06:20:06 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1wPaKr-00000003eJ5-3VLX;
+	Wed, 20 May 2026 06:23:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaHg-00000003dm8-1hH9
+	id 1wPaKp-00000003eIC-2w0F
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 06:20:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1779257949;
-	bh=hg5KK2xUCyB4FLoYLYP8YswpRDV5uXbEMujGSGVHGUA=;
-	h=Mime-Version:Date:Message-Id:From:To:Subject;
-	b=a1tTMgD6pTfjaggmgL42RSaT4YhHoLKTs0wYqvr0xnhj3x0tx+wMEpBACCqwxgPb+
-	 l15qc8pd57Q+lIO4khmpkVi9gcRNSn/m3qPDycREwbzMb6OqIgNnpveqA8KMYeBWgw
-	 ch3qtxd1kJ2klhCiyixHE8cdoQmw6We6GPLSkUo4=
-X-QQ-mid: esmtpsz11t1779257947tda20d2be
-X-QQ-Originating-IP: 0xEUe3OK3WD/fOJoDhBLmRz2RyrACzSv+nYtYCmdgDQ=
-Received: from = ( [210.3.135.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 20 May 2026 14:19:04 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9958252558601639694
-EX-QQ-RecipientCnt: 12
-Mime-Version: 1.0
-Date: Wed, 20 May 2026 14:19:03 +0800
-Message-Id: <DINAAUZDL8PS.3KJXPTIHPXQQY@linux.spacemit.com>
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Han Gao" <gaohan@iscas.ac.cn>, "Linus Walleij" <linusw@kernel.org>,
- "Yixun Lan" <dlan@kernel.org>, "Hendrik Hamerlinck"
- <hendrik.hamerlinck@hammernet.be>, "Anand Moon" <linux.amoon@gmail.com>,
- "Junhui Liu" <junhui.liu@pigmoral.tech>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-Cc: <linux-gpio@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>, "Han Gao"
- <rabenda.cn@gmail.com>
-Subject: Re: [PATCH] pinctrl: spacemit: fix NULL check in
- spacemit_pin_set_config
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260519164007.122574-1-gaohan@iscas.ac.cn>
-In-Reply-To: <20260519164007.122574-1-gaohan@iscas.ac.cn>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: N1ZgNUtaKtmxFhz/8yV8b59Rf/Xjd5V4g197HXPXFy8kmwrfWjtJ1eLK
-	3AH+Khnk+xT4mCC0EnLVgIOAA/dy0hvU/uCH0qp7dcypvu7uNBmL5MHreik9gzPPiqaXC73
-	orfJ1tesQBQOVlx0vDg4TeCB7O72Yw0FmvFSjrFSxXw/D6sui1sUCNS3NQbsNi7qG9lWr72
-	ujoNKA5DXgWGwpl247SUH1JeyghyBxYjDq9EACVjPDHQS8Ptoef0H1QI6M4MfoGPjAvbqRv
-	0mDxEidEwMS5gcrJafSzOhuV2+tXuElJE17LHovA9RMStUf+kTh95AgC2GMmCTYCcbYq8No
-	8B2Mcvzh8v880nF4QHzwQ29N3yrZPjUrOJ/Kk8lrY05JUszC5EFROD2YNngFVSeMWQaT5rs
-	qaw+0QyzW8mXsOdgJL1YyHYCMtllFHcZeAyyjCcbIEPbJ4f0p1BWzZ8wE97j+fMD1iaqLt9
-	opgD18PY1qN91fvHPls/piU5sT9HVMnoCLaoKurj2u+nP7+q6PJjcaxtH3/JgoN4suHYUHh
-	HEMWdtuzZYI3cIX15Soax1OPqzcQiHB8QY+qv6jx6ogwhpmi4IuPxUElKYfBrBOj437nDbK
-	49sO2j2yZkwKxI5DZTqdKtsW7dXGqizZxFXVn+SnhE7kOcJdQ8EGM2Bw4hfiUzmiiN08gBc
-	7ObzDJQWFR0rb+elKWhNTQcjz1BMe2hBlfGaht6oh1Y/v5A/Rz3jJkbGMfmb4aG77lDDn32
-	NQ9yWNcplVXEBP/jEoWp9TaTpQCqncjs1nzDN+4OyueK253ged24JXTE6/k4ipbKwZM0P1/
-	BUCU8YZR1+UZWxfdeixFTvZt9DJRuZwzQZ5urRoBc+rn7Wmf4K0a6fwX8jaVrOBJDcQGSyI
-	wjHx5koIndeiU4d8/daoPgLvqpV+yuz235GeKjQzPU9GnzrhhKjuHjzzCNIU+wFQU95eG3V
-	KkE+r+5KUk4/HQJwxNBtAXcgxi90CW92rrOvc20lZ6abyKpYSb2LChg4YPiyTLyHroLLDuO
-	T99UBsz7HAn/5BBSKJ
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+	Wed, 20 May 2026 06:23:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CF1243A10;
+	Wed, 20 May 2026 06:23:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A05D91F000E9;
+	Wed, 20 May 2026 06:23:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779258193;
+	bh=OE2c8bPw7nhkBWpehAwsa5TVWWPe81JyALMv/ywT5ls=;
+	h=From:To:Cc:Subject:Date;
+	b=BawfeZcwx/l62q4AD+Bv9vp+17T1tfp7BSedNUh6JNX99A9lD+yUu3UI8Ek2m9sWa
+	 dBlToWhOXyN1uYRA5a3JUBw9crZ8V7/x8kkuqcZMIaYyVmkeN0YbBk8G04x0Ri+aTV
+	 JknkdWXDPCPH89ucQBAEyA2ZlxYtNNRfcw8A+Xp0tyGVyzEOhHk3Z99trgUtdZLCa3
+	 rQi7DGzZYsWVOcT5w/qN+RJPMo/lbcNlUq2RDPlCGbvpSbKtGvpUZ0bm4TuY/xVgsS
+	 H9cr8jVTfKLX/2jt5g1+ZvXBGaALxrHWvBiklSIV3GVrOsJMA8zVS3PICaNTnG3nIK
+	 4OknLK6HZbCdA==
+From: Drew Fustini <fustini@kernel.org>
+To: Tomasz Jeznach <tomasz.jeznach@linux.dev>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Drew Fustini <fustini@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Nicholas Piggin <npiggin@gmail.com>
+Subject: [PATCH v2] dt-bindings: iommu: riscv: Add bindings for Tenstorrent RISC-V IOMMU
+Date: Tue, 19 May 2026 23:16:28 -0700
+Message-ID: <20260520061855.1623468-4-fustini@kernel.org>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_232001_474584_A3D2B809 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_232315_778715_F0705C25 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +86,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed May 20, 2026 at 12:40 AM CST, Han Gao wrote:
-> spacemit_pin_set_config() looks up the per-pin descriptor with
-> spacemit_get_pin() then checks the wrong variable for failure:
->
-> 	const struct spacemit_pin *spin = spacemit_get_pin(pctrl, pin);
-> 	...
-> 	if (!pin)
-> 		return -EINVAL;
->
-> 	reg = spacemit_pin_to_reg(pctrl, spin->pin);
->
-> pin is an unsigned int pin id, where 0 (GPIO_0 / gmac0_rxdv on K3) is a
-> valid pin, so rejecting it here drops the PAD config write for the first
-> pin of every group. On K3 Pico-ITX the GMAC RGMII group lists pin 0 as
-> its first entry, so its drive-strength / bias configuration was silently
-> ignored.
->
-> The intended guard is against spacemit_get_pin() returning NULL when the
-> pin id isn't in the SoC's pin table. Check spin instead, which both
-> restores PAD setup for pin 0 and prevents a NULL deref on spin->pin.
->
-> Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-Thanks.
+From: Nicholas Piggin <npiggin@gmail.com>
 
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Extend the binding to cover details specific to the Tenstorrent RISC-V
+IOMMU. In particular, a second register range is added which contains
+M-privileged registers, e.g., PMAs and PMPs.
+
+The RISC-V spec S-privileged registers remain in the first register
+range and are compatible with "riscv,iommu" so the Linux driver does not
+notice any difference, but the binding will be used by OpenSBI and
+potentially other M-mode software.
+
+Reviewed-by: Joel Stanley <joel@jms.id.au>
+Acked-by: Joerg Roedel <joerg.roedel@amd.com>
+Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
+[fustini: fix dt_binding_check errors]
+Signed-off-by: Drew Fustini <fustini@kernel.org>
+---
+v2 changes:
+- Fix dt_binding_check errors
+- Add the Acked-by: from Joerg
+- Drop RFC prefix
+
+Link to v1:
+https://lore.kernel.org/lkml/20260310003850.3837030-1-npiggin@gmail.com/
+
+ .../bindings/iommu/riscv,iommu.yaml           | 62 ++++++++++++++++---
+ 1 file changed, 55 insertions(+), 7 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+index d4838c3b3741..5aad8cf67840 100644
+--- a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
++++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+@@ -32,22 +32,35 @@ properties:
+   # should be specified along with 'reg' property providing MMIO location.
+   compatible:
+     oneOf:
+-      - items:
++      - description: Platform (non-PCIe) IOMMU implementations
++        items:
+           - enum:
+               - qemu,riscv-iommu
+           - const: riscv,iommu
+-      - items:
++      - description: PCIe IOMMU implementations
++        items:
+           - enum:
+               - pci1efd,edf1
+           - const: riscv,pci-iommu
++      - description: Tenstorrent IOMMUs implementing "riscv,iommu"
++        items:
++          - enum:
++              - tenstorrent,riscv-iommu
++          - const: riscv,iommu
+ 
+   reg:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 2
+     description:
+-      For non-PCI devices this represents base address and size of for the
+-      IOMMU memory mapped registers interface.
+-      For PCI IOMMU hardware implementation this should represent an address
+-      of the IOMMU, as defined in the PCI Bus Binding reference.
++      For non-PCI devices the first item represents base address and size of
++      for the IOMMU memory mapped registers interface.
++      For PCI IOMMU hardware implementation the first item should represent
++      an address of the IOMMU, as defined in the PCI Bus Binding reference.
++
++  reg-names:
++    items:
++      - const: base
++      - const: machine
+ 
+   '#iommu-cells':
+     const: 1
+@@ -75,6 +88,31 @@ required:
+ 
+ additionalProperties: false
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - tenstorrent,riscv-iommu
++    then:
++      properties:
++        reg:
++          items:
++            - description: IOMMU base registers
++            - description: Tenstorrent IOMMU machine mode registers.
++        reg-names:
++          items:
++            - const: base
++            - const: machine
++              description:
++                Region containing platform specific MMRs for machine-mode
++                configuration, such as PMA and PMP registers.
++    else:
++      properties:
++        reg:
++          maxItems: 1
++
+ examples:
+   - |+
+     /* Example 1 (IOMMU device with wired interrupts) */
+@@ -145,3 +183,13 @@ examples:
+             };
+         };
+     };
++
++  - |+
++    /* Example 5 (Tenstorrent IOMMU device with MSIs) */
++    iommu5: iommu@d2020000 {
++        compatible = "tenstorrent,riscv-iommu", "riscv,iommu";
++        reg = <0xd2020000 0x10000 0xaa000000 0x10000>;
++        reg-names = "base", "machine";
++        msi-parent = <&imsics_smode>;
++        #iommu-cells = <1>;
++    };
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
