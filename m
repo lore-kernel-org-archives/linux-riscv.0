@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709A4CD5BAA
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 18:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154D8CD4F3D
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 20:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HDeLB5SSsdlNQfnbKspU2FdB1MgESzYSA4afPUj7OpM=; b=w6eVYMZ7duNScFCHuIE4yvCcCv
-	y3j1YfKrI8n7YUabbSBaLfUr7hSmKuvTvhOGNzZI7nSu3Swo3W/N46TW1fgj9QjjbiPk2ZGt1laku
-	wsgd2dHwL1EFO6FLtv2OgbZENAqOcXJp3fvzY1uSvcHmOgVlTN+rcPnEAu3ISrOO4e2t4qeFfCcbq
-	9Wfqh4gpRUdK76L2rrmV4mJdf/x8lWaP2SGxEFSlInz6SOkPCZWgu260KDEz5qnf4UwdeGHDl+5W8
-	62SMvHnvGJk0g7q3IvIPSUt35XuHb62kism2YyDbwAxTWA8Z+r47tNyCqutUHp0oUQbLp59QO4gsu
-	abTzsAmw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cThyRl0eW1P0n3xENDXT9ZkJu/8is3rzWSIqMc1NZbE=; b=ORXOpaqWgvZcPh
+	JLAte1bghITnNrI+DRF6oHJPkjCif5APNmfpdFndJU3UD3Vs2GVs/WdJxSQGM8ZXXW+KYjf73WqAD
+	pu/5YqfgHkOGGC90uwiT4nNVUhe29Emf2Yjnc7QHa22/dFix9RBUIsVvhBpHD1aXk6XVel9HwG+1B
+	Y7Y0sfI/xwLRK9JGuWipuXaahrU95kns++FKkxiuOFr/rffAlOG88mIsC7FjXlod2Df2IbqH1Vek+
+	XkBFWkkNrMw0oWsEu7Z8EUnQ5WitD5xzk3zFcuUQi5vThumGrpdyZ19gwk9HK1D/rh8yqWXc08R5n
+	s5A5eJWVTs58k3leCr1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPm4w-00000005Xbu-1emt;
-	Wed, 20 May 2026 18:55:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPnoD-00000005kh6-1syt;
+	Wed, 20 May 2026 20:46:29 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPm4t-00000005Xam-1PJJ
+	id 1wPno9-00000005kgE-3rZf
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 18:55:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C0744386F;
-	Wed, 20 May 2026 18:55:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 108B21F000E9;
-	Wed, 20 May 2026 18:55:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779303334;
-	bh=1T+Q/YxtQARU2EGQLE/zHDY4XgcSiULTKufiyFMk81o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d3HC1AWlxYQloLRdwFfkhaO9j224EwZJKTWuqbNerYPPwboNaP5Oz+iENzlzxFIap
-	 aB83fyHfHkO46WDersl/s2y9fMKNnVWY7cjunQ3dZWU8yCNtPQ19Yr5yJ/gO+07XZa
-	 nEA65mrqtesRALxniBsxDYR26TgwmwQbhOQ2kWquww7WOG+HhUp2rhuD0XkQpnUKl4
-	 3jcPM5N7E+loqNENnYvCO7XLTC/PSQpsIvSfJezjYB+z5Mb6JhpjxAe0MsCcyo7EgJ
-	 zbX+IR/im+BQAIPoSDd/EOu68/1bNkHfVz3edQcj3+K+CFV6P24opy4+L1dj3HWqu9
-	 P6iMyHvEgXW/g==
-Date: Wed, 20 May 2026 19:55:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Tomasz Jeznach <tomasz.jeznach@linux.dev>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Joel Stanley <joel@jms.id.au>, Joerg Roedel <joerg.roedel@amd.com>,
-	Nicholas Piggin <npiggin@gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: iommu: riscv: Add bindings for
- Tenstorrent RISC-V IOMMU
-Message-ID: <20260520-imminent-graded-6e1f0f4c54d0@spud>
-References: <20260520061855.1623468-4-fustini@kernel.org>
- <20260520-frayed-fervor-7c887193ab19@spud>
- <ag36CHVAERc3ZYmi@x1>
+	Wed, 20 May 2026 20:46:27 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 5EAF24E42D07;
+	Wed, 20 May 2026 20:46:23 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2B26260019;
+	Wed, 20 May 2026 20:46:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 47967107EA5AE;
+	Wed, 20 May 2026 22:46:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=dkim; t=1779309981;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=zGsSIqVq1ifCQ3rw/2r0Ry2eIkPRdWO9epBcJ1BYbFU=;
+	b=UnUPtGi/wplH2xPXVwCTFbU+qLHRfpwz13xUkIEC4Bmapzaz4OLWZ2t6TbuNMXqiD/MpnM
+	tMoaObuq4xPhxAPPdovjmFNT6deXqqz+oRPVgy+fJkHXZRfr4B8w3GaOwX7wEQ8Kl2Uwsu
+	wZHwxBp7kZ16ajYLEGYs1nUw91K01PirpogL7bg9telBmiVZs27KKBKPtzBkPhqCv+MA++
+	+GxcROYlbiYatK3NllvRgfboqpfyIjTce0xdoLcpdxhael5qayxqcYnelguyUzjmUsKuY6
+	48y68QR0lTZoFAx0ycwSFgqTMQL6bFzorNtEswEfNnPDeD1dqTsfEM3S+NNWKQ==
+Message-ID: <5354f909-438b-4994-808c-6d055c58c901@rootcommit.com>
+Date: Wed, 20 May 2026 22:46:14 +0200
 MIME-Version: 1.0
-In-Reply-To: <ag36CHVAERc3ZYmi@x1>
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, tglx@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org,
+ samuel.holland@sifive.com, unicorn_wang@outlook.com, inochiama@gmail.com,
+ daniel.lezcano@linaro.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, liujingqi@lanxincomputing.com, alexander.sverdlin@gmail.com,
+ rabenda.cn@gmail.com, dlan@kernel.org, chao.wei@sophgo.com,
+ anup@brainfault.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ sophgo@lists.linux.dev, Wang Jiayue <akaieurus@gmail.com>,
+ Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH v5 5/5] riscv64: dts: sophgo: add initial Milk-V Duo S
+ board support
+To: Gui-Dong Han <hanguidong02@gmail.com>, Joshua Milas <josh.milas@gmail.com>
+References: <20260403111516.379795-1-josh.milas@gmail.com>
+ <20260403111516.379795-6-josh.milas@gmail.com>
+ <CALbr=LYJKJREwh8KMqsgcXwd+jx0W7gFFFuBk-izNdgzkQU6Pg@mail.gmail.com>
+Content-Language: en-US
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+In-Reply-To: <CALbr=LYJKJREwh8KMqsgcXwd+jx0W7gFFFuBk-izNdgzkQU6Pg@mail.gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_115535_394566_C95AB068 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20260520_134626_095932_F5F1A915 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,77 +83,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3045520578166540994=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3045520578166540994==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XDMycSDARlTDf9SM"
-Content-Disposition: inline
-
-
---XDMycSDARlTDf9SM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, May 20, 2026 at 11:14:32AM -0700, Drew Fustini wrote:
-> On Wed, May 20, 2026 at 05:17:41PM +0100, Conor Dooley wrote:
-> > On Tue, May 19, 2026 at 11:16:28PM -0700, Drew Fustini wrote:
-> > > +allOf:
-> > > +  - if:
-> > > +      properties:
-> > > +        compatible:
-> > > +          contains:
-> > > +            enum:
-> > > +              - tenstorrent,riscv-iommu
-> > > +    then:
-> > > +      properties:
-> > > +        reg:
-> >=20
-> > > +          items:
-> > > +            - description: IOMMU base registers
-> > > +            - description: Tenstorrent IOMMU machine mode registers.
-> >=20
-> > Should this also have minItems: 2?
->=20
-> I think items: with 2 items implies minItems: 2 but I see your later
-> point about the description and names don't belong in the allOf: block.
-
-It would usually, but this is a conditional portion of a wider binding
-that you've modified to look like
-| reg:
-|  minItems: 1
-|  maxItems: 2
-outside the conditional section, and since you don't further constrain
-reg in the conditional section, this minItems: 1 applies.
-
---XDMycSDARlTDf9SM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCag4DoAAKCRB4tDGHoIJi
-0i52AQCcMVQtjCAMXGJzQtwBxYsFksRtUfjkaDGhaqziPvWuBQD/T3ApAlZSXRoR
-lowYATvKW0j7qswukibEBKJMYExAhgw=
-=Cpyi
------END PGP SIGNATURE-----
-
---XDMycSDARlTDf9SM--
-
-
---===============3045520578166540994==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3045520578166540994==--
-
+Sm9zaHVhLCBHdWktRG9uZwoKKG15IGFwb2xvZ2llcyBmb3IgbXkgcHJldmlvdXMtZW1haWwgd2l0
+aCBIVE1MIGNvbnRlbnQuLi4gYmFkIGRlZmF1bHQgClRodW5kZXJiaXJkIHNldHRpbmdzIQoKT24g
+NC8yMS8yNiA2OjEzIFBNLCBHdWktRG9uZyBIYW4gd3JvdGU6Cj4gT24gRnJpLCBBcHIgMywgMjAy
+NiBhdCA3OjE24oCvUE0gSm9zaHVhIE1pbGFzIDxqb3NoLm1pbGFzQGdtYWlsLmNvbT4gd3JvdGU6
+Cj4+IFRoaXMgYWRkcyBpbml0aWFsIHJpc2N2IHN1cHBvcnQgZm9yIHRoZSBNaWxrLVYgRHVvIFMg
+Ym9hcmQKPj4gWzFdIG1ha2luZyBpdCBwb3NzaWJsZSB0byBib290IExpbnV4IHRvIHRoZSBjb21t
+YW5kIGxpbmUuCj4+Cj4+IExpbms6IGh0dHBzOi8vbWlsa3YuaW8vZHVvLXMgWzFdCj4+Cj4+IFNp
+Z25lZC1vZmYtYnk6IEpvc2h1YSBNaWxhcyA8am9zaC5taWxhc0BnbWFpbC5jb20+Cj4gR3JlYXQg
+d29yaywgdGhhbmtzIEpvc2h1YSEgSSByZWFsbHkgbGlrZSB0aGlzIGJvYXJkLgo+Cj4gSSBlbmNv
+dW50ZXJlZCB0aGUgc2FtZSBpc3N1ZSBNaWNoYWVsIE9wZGVuYWNrZXIgc2F3IGluIHY0LCBidXQK
+PiBlbmFibGluZyB0aGUgTURJTy1yZWxhdGVkIGNvbmZpZ3MgcmVzb2x2ZWQgaXQuCj4KPiBJJ2xs
+IGtlZXAgdXNpbmcgYW5kIHRlc3RpbmcgdGhpcyBzZXJpZXMgYW5kIHByb3ZpZGUgZnVydGhlciBm
+ZWVkYmFjawo+IGlmIGFueXRoaW5nIGNvbWVzIHVwLiBOZXh0LCBJIHBsYW4gdG8gdGVzdCB0aGUg
+YXJtNjQgc2lkZSBhbmQgd2lsbAo+IGFsc28gdHJ5IGRldmVsb3BpbmcgYW4gZWZ1c2UgZHJpdmVy
+Lgo+Cj4gVGVzdGVkLWJ5OiBHdWktRG9uZyBIYW4gPGhhbmd1aWRvbmcwMkBnbWFpbC5jb20+Cj4g
+UmV2aWV3ZWQtYnk6IEd1aS1Eb25nIEhhbiA8aGFuZ3VpZG9uZzAyQGdtYWlsLmNvbT4KCldoYXQg
+YWJvdXQgc3VibWl0dGluZyBhIG5ldyBpdGVyYXRpb24gb2YgeW91ciBwYXRjaHNldD8gSSBndWVz
+cyB0aGUgbGFzdCAKb25lIHdhcyB0b28gY2xvc2UgdG8gdGhlIG1lcmdlIHdpbmRvdyB0byBtYWtl
+IGl0LCBidXQgaWYgeW91IHN1Ym1pdCBhIApuZXcgdmVyc2lvbiBub3QgdG9vIGxhdGUgYW5kIHJl
+dmlldyBpdCBxdWlja2x5IGVub3VnaCwgd2UgY291bGQgbWFrZSBpdCAKdGhpcyB0aW1lLgoKRG9u
+J3QgaGVzaXRhdGUgdG8gbGV0IHVzIGtub3cgaWYgeW91IG5lZWQgaGVscCAoaGFwcHkgdG8gcG9z
+dCB0aGUgbmV3IAppdGVyYXRpb24gaWYgeW91IGRvbid0IGhhdmUgdGltZSkuCgpUaGFua3MgaW4g
+YWR2YW5jZQpDaGVlcnMKTWljaGFlbC4KCi0tIApSb290IENvbW1pdApFbWJlZGRlZCBMaW51eCBU
+cmFpbmluZyBhbmQgQ29uc3VsdGluZwpodHRwczovL3Jvb3Rjb21taXQuY29tCgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
