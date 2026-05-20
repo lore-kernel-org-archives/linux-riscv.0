@@ -4,93 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5AFCD4F54
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 13:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B838ACD4F3D
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 13:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BStSvoik35Ud637ZYC6EiW7gMel1F0TktPQ4Zl/W5/o=; b=rny0i4ZPNlRAG4
-	eiOsw45zEEavsvCXjIfIsFhv0Flj3OzdTgyvBwqqnuIvp2OsDQdII6tgaH+RBt63GWd0kIA4zbqy0
-	bgMc3EPcq9HcKwHi/4QuwamdvxTAKmkZ9YJKXUS8Qn0FBnIdRYwBy81Vq2QrKBs2XmgSa3dIbml4r
-	TQNlSyJlzD+682pM/rMTpZm4knKK3Q0g/YF1QWeblr6Sk0Y1wKCBbYl90khCsAuLn8zpV8AA1Pq8h
-	d4xZwZc0cVxzQNA7jZRag+tdHgYTR68lViiLD03/UX12YFJTLAEPx0uVLR6ExYDCVsO+8UUhd7hWr
-	MFZQrshYe3T+bwZ+JrFw==;
+	List-Owner; bh=KWgQUglg63fKIMXhxNC2gLKajMh3JuXOCtNe3ZBVjwE=; b=bGbveqvFMcLF2u
+	8YtqT0h2rZA4co1XnkXaZK3cDKCgBXd8S4VtFVLouVP3rAQf6RoOYDL6WqVzSXhzf6T9z80vA86gB
+	oVCa/ivE69qId0Rt+97LdxsoTLxPl2EGKA+qlE1UUsHF4Y6PjrSzVkZXBYVPXlAI6dst/s24BxhBj
+	ejhcGZL7nxK9CCjGRrWzkjwdt7uDKSJtTRoiepz/haWqyrarog1Ex35lCltl99QhMkU577T/DNatR
+	mFT76B0Ii1eTyqesQxQDaM3ZHNJyyx5ur7d0mZ72KocNWF5sHTFwGFRUqE85LNSXWm2eZbgguwjPW
+	6cKNb/GaSKj4yINnIFwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgd5-00000004dhj-3msk;
-	Wed, 20 May 2026 13:06:31 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wPh9y-00000004hwY-1Xvu;
+	Wed, 20 May 2026 13:40:30 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgd3-00000004dh7-0IWw
+	id 1wPh9t-00000004huH-2vMA
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 13:06:30 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-44c350a5b87so2960812f8f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 06:06:28 -0700 (PDT)
+	Wed, 20 May 2026 13:40:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779282387; x=1779887187; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=quzmPB2mAFZ3y1nGKH7QHLGF8YVjh01j8l7CgpxBccw=;
-        b=mC5f/Rpolzr5gAwhJP53g5K+9S0Xd/QUICbjQXyFMtkq2skwv0/7w8Jm8Zstm4DP1L
-         eF0rsC8/mUuk/SOK/rTENuag9M61XZeFK2aY+XaPw3yDciJgh0OYsPiypCuFnXU9BhJU
-         FM6fvPoHUgfxHaHAwXjXF1vd4Da+MmSoZAbpLaZz+hVOj7V6pf/8zlHYHN3hUylAY/aT
-         1vbedbZcC00VBC37ygtW01McEEX9YkzXyKrSDlZ9fYA0tjI9vA/oKYNzmEFl/Acq5ctV
-         dLTZrq83rOS+Q82B5u/yXXktYdUYpoJe8T8ujm/zY45ENDaGjnrjYIpSsoKVSK5s7Kp5
-         pzwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779282387; x=1779887187;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=quzmPB2mAFZ3y1nGKH7QHLGF8YVjh01j8l7CgpxBccw=;
-        b=SVDNtYzGhSCYmIBR42KwCrQiiEBEiy1f/ka6M16DAm/leKX+6K1aLL8kX646nlKNT5
-         hkcss3dr0DtJoIntmdTqnKWQAJZZJXRxNfXgG1zpAEVFBX8J1dfVfkuSD7Ac562CfqxQ
-         dSBdq9moLSOSnGLziqOsmDfmC30/tNNMYk1d91jsET92dfJQ3INs0VqkNCLiqdX6XnxT
-         5WdCJDfqK8+uHFsbkAVniZ3mP9ZuDXI80RHAjAK1MtaTAZNI0P/1AetDcc6hRJeXZNrO
-         54e961WgGcKOJOGVh3ZLLOP0ErugAMug9B5t87fuYnDffIU+1MfKa7A2qRZv6x+Znnzo
-         q1Cw==
-X-Forwarded-Encrypted: i=1; AFNElJ/BOWAhdqH1vdVq/e5VuYzGOyvAn3a7r20m3iGGGp0VmvlPxZepU1luWA8QjDw6rdlUszyPMTFnCI9Z0Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTiJWLundK3nALMDxBXbMZzFGx6QXVvbk0J+j8xG4xQagPdoz/
-	y+BZurnAliXYupQHGUfLiBcbB5p4I9X5bfN+s1+TM3k1LKg1ziNo7BIu
-X-Gm-Gg: Acq92OHqFrehJ9Xb+g6SLA1nNDmLfwu6+b7tbOTa9sO29xxaezv7QYq49CjcG/CNDaB
-	wJZxLHGko0X5Rk6UgvljjC8LjGp5p+bzkmGRHr93jmIC8X7zf/+5f8atd1v3AW+P2tk5LHl5Eak
-	RbUqMLCn4RAztrgkIeRaWpDQYESF4JOQXYvTxGDIIl7S0iHW1Ic6Q4avYkmhjfFIOY7aMRy2Crb
-	z/e3yV4v1PF4uMOpS7NHlgwt6PaMXf3PITFtqDmEfHc4pWsDUM2TYi24NgIX0iEJRbckhb4JD4k
-	iufiN2cJEdjEF0oSje6Eoxr61BmdRvvtIBgpBQAQVU/XhDX64a8YpuTQH3MQSkkkb+ztoLd/A4x
-	iA/b2UnTLURSd5fWmffpUrjptP0dBGwQ0zJvzWuSECS99FlHS5OsLavXUXs5HjEwHcRekMC6nrH
-	oTydxd8/quiZ5f6hrd9B3XTOXHX2Ik/TCaz90eAV7z18hG0U6R8wtr+pGMVBvOFuqlIoxa
-X-Received: by 2002:a05:6000:2c09:b0:45e:73b9:fdeb with SMTP id ffacd0b85a97d-45e73b9fe1amr25795817f8f.8.1779282386765;
-        Wed, 20 May 2026 06:06:26 -0700 (PDT)
-Received: from mamamia.internal (a89-182-141-216.net-htp.de. [89.182.141.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0fe2464sm55001966f8f.32.2026.05.20.06.06.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 06:06:26 -0700 (PDT)
-From: Andre Heider <a.heider@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Trevor Gamblin <tgamblin@baylibre.com>,
-	Iker Pedrosa <ikerpedrosam@gmail.com>,
-	devicetree@vger.kernel.org,
+	d=linux.alibaba.com; s=default;
+	t=1779284417; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=zz6r7l/Raw9+q6fJMv+zgPcO9HIwuiNFYsMU6mgqg9I=;
+	b=NlMRlBkxv+/ioCJkO8tEc92XlWpzWMh98zzxBRZL6t7fP4A1iweo2LEX4LU03Pq5Xj0BlHi/FIpkd1FdiWA9d8YMpm8t8gJ7xm9ztfZ+3UR9Pzq48gfViYl09KJrH2CUExIBG7k7JkDfdqi4CNEijhRleqX1xluQbfteOAZNVVk=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0X3J2wot_1779284410;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X3J2wot_1779284410 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 20 May 2026 21:40:14 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com,
+	dapeng1.mi@linux.intel.com,
+	pjw@kernel.org,
+	alex@ghiti.fr,
+	guoren@kernel.org
+Cc: linux-perf-users@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v11] riscv: dts: spacemit: k1-musepi-pro: add SD card support with UHS modes
-Date: Wed, 20 May 2026 15:06:23 +0200
-Message-ID: <20260520130624.1763487-1-a.heider@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-kernel@vger.kernel.org,
+	Chen Pei <cp0613@linux.alibaba.com>
+Subject: [PATCH v3] perf riscv: Add SDT argument parsing for RISC-V
+Date: Wed, 20 May 2026 21:40:04 +0800
+Message-ID: <20260520134004.30573-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_060629_129227_54AA2AEA 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20260520_064026_572943_8B61EC28 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,85 +74,237 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Trevor Gamblin <tgamblin@baylibre.com>
+Implement __perf_sdt_arg_parse_op_riscv() to convert RISC-V GCC-generated
+SDT probe operands into uprobe-compatible format, and register it in the
+perf_sdt_arg_parse_op() dispatcher for EM_RISCV.
 
-Update the Muse Pi Pro devicetree with SD card support to match what
-was done for the OrangePi RV2 in [1]. More precisely:
+RISC-V GCC uses the 'nor' constraint for SDT arguments, producing operands
+in the following formats:
 
-- Enable sdhci0 controller with 4-bit bus width
-- Configure card detect GPIO with internal pull-up support
-- Connect vmmc-supply to buck4 for 3.3V card power
-- Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
-- Add dual pinctrl states for voltage-dependent pin configuration
-- Support UHS-I SDR25, SDR50, and SDR104 modes
-- Add stable MMC device aliases (mmc0 = eMMC, mmc1 = SD card)
+  Format       Example      Uprobe format
+  -----------  -----------  -------------
+  register     a0           %a0
+  memory (+)   8(a0)        +8(%a0)
+  memory (-)   -20(s0)      -20(%s0)
+  constant     99           (skip, not supported by uprobe)
 
-[1] https://lore.kernel.org/linux-riscv/20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com/T/#
+Key differences from other architectures:
+ - Register names use ABI aliases (a0-a7, t0-t6, s0-s11, sp, ra, etc.)
+   without any '%' prefix, unlike x86 (%rax) or arm64 (x0).
+ - Memory operands use OFFSET(REG) syntax where OFFSET may be negative,
+   unlike arm64's [sp, NUM] or powerpc's NUM(%rREG).
 
-Tested-by: Andre Heider <a.heider@gmail.com>
-Signed-off-by: Trevor Gamblin <tgamblin@baylibre.com>
-Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-Signed-off-by: Andre Heider <a.heider@gmail.com>
+Two regexes are used:
+ - SDT_OP_REGEX1: matches RISC-V ABI register names saved in pt_regs
+ - SDT_OP_REGEX2: matches [-]NUM(REG) memory operands
+
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+Reviewed-by: Ian Rogers <irogers@google.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
 
-Hi,
+Tested on RISC-V QEMU(rv64gc) with GCC-generated SDT probes.
+Requires systemtap-sdt-dev (provides <sys/sdt.h>) on the target system.
 
-this is just a rebase of Iker's v10 4/4 patch[0] on top of my merged
-musepi-pro series[1].
+  # cat sdt_test.c
+  #include <sys/sdt.h>
+  #include <stdio.h>
+  void my_func(int a, long b) {
+      DTRACE_PROBE2(myapp, my_probe, a, b);
+      printf("a=%d b=%ld\n", a, b);
+  }
+  int main() { my_func(42, -100); return 0; }
 
-[0] https://lore.kernel.org/all/20260515-orangepi-sd-card-uhs-v10-4-094af27e310d@gmail.com/
-[1] https://lore.kernel.org/all/20260513071958.29574-1-a.heider@gmail.com/
+  # gcc -O0 -Wl,--build-id -o sdt_test_O0 sdt_test.c  # stack args: -20(s0)
+  # gcc -O2 -Wl,--build-id -o sdt_test_O2 sdt_test.c  # reg args:   a0
+  # perf buildid-cache --add sdt_test_O0
+  # perf buildid-cache --add sdt_test_O2
+  # find ~/.debug -name "probes" | xargs cat
+  p:sdt_myapp/my_probe .../sdt_test_O0:0x530 arg1=-20(%s0):s32 arg2=-32(%s0):s64
+  p:sdt_myapp/my_probe .../sdt_test_O2:0x538 arg1=%a0:s32 arg2=%a1:s64
 
+Changes in v3:
+ - Add two Reviewed-by tags.
+ - No actual update, just to re-trigger sashiko's review.
 
- .../riscv/boot/dts/spacemit/k1-musepi-pro.dts | 22 ++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+Changes in v2:
+ - Remove 'zero' (x0) from register regexes.
+ - Fix sdt_init_op_regex() to return -ret on error.
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-index 4aef287353cab..0d809e4ad3b1f 100644
---- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-@@ -19,6 +19,8 @@ aliases {
- 		serial0 = &uart0;
- 		i2c2 = &i2c2;
- 		i2c8 = &i2c8;
-+		mmc0 = &emmc;
-+		mmc1 = &sdhci0;
- 	};
+ .../util/perf-regs-arch/perf_regs_riscv.c     | 128 ++++++++++++++++++
+ tools/perf/util/perf_regs.c                   |   3 +
+ tools/perf/util/perf_regs.h                   |   1 +
+ 3 files changed, 132 insertions(+)
+
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
+index 5b5f21fcba8c..bf769304c97c 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
+@@ -1,8 +1,136 @@
+ // SPDX-License-Identifier: GPL-2.0
  
- 	chosen {
-@@ -218,7 +220,7 @@ buck6 {
- 				regulator-always-on;
- 			};
- 
--			aldo1 {
-+			aldo1: aldo1 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-@@ -384,3 +386,21 @@ hub_3_0: hub@2 {
- 		reset-gpios = <&gpio K1_GPIO(123) GPIO_ACTIVE_LOW>; /* HUB_RST */
- 	};
- };
++#include <errno.h>
++#include <regex.h>
++#include <string.h>
++#include <linux/kernel.h>
++#include <linux/zalloc.h>
 +
-+&sdhci0 {
-+	pinctrl-names = "default", "uhs";
-+	pinctrl-0 = <&mmc1_cfg>;
-+	pinctrl-1 = <&mmc1_uhs_cfg>;
-+	bus-width = <4>;
-+	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	vmmc-supply = <&buck4_3v3>;
-+	vqmmc-supply = <&aldo1>;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
++#include "../debug.h"
+ #include "../perf_regs.h"
+ #include "../../arch/riscv/include/perf_regs.h"
+ 
++/*
++ * RISC-V SDT argument formats (GCC 'nor' constraint):
++ *
++ * Register:  REG        e.g. a0, t1, s0, sp
++ * Memory:    NUM(REG)   e.g. 8(a0), -20(s0)
++ * Constant:  NUM        e.g. 99  (not supported by uprobe, skip)
++ *
++ * Note: 'zero' (x0) is hardwired to 0 and not in pt_regs; skip it.
++ *
++ * Uprobe target format:
++ *   Register: %REG       e.g. %a0
++ *   Memory:   +NUM(%REG) or -NUM(%REG)
++ */
++
++/* RISC-V register ABI names: ra, sp, gp, tp, t0-t6, s0-s11, a0-a7 */
++#define SDT_OP_REGEX1  "^(ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])$"
++
++/* RISC-V memory operand: [-]NUM(REG) */
++#define SDT_OP_REGEX2  "^(\\-)?([0-9]+)\\((ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])\\)$"
++
++static regex_t sdt_op_regex1, sdt_op_regex2;
++
++static int sdt_init_op_regex(void)
++{
++	static int initialized;
++	int ret = 0;
++
++	if (initialized)
++		return 0;
++
++	ret = regcomp(&sdt_op_regex1, SDT_OP_REGEX1, REG_EXTENDED);
++	if (ret)
++		goto error;
++
++	ret = regcomp(&sdt_op_regex2, SDT_OP_REGEX2, REG_EXTENDED);
++	if (ret)
++		goto free_regex1;
++
++	initialized = 1;
++	return 0;
++
++free_regex1:
++	regfree(&sdt_op_regex1);
++error:
++	pr_debug4("Regex compilation error.\n");
++	return -ret;
++}
++
++/*
++ * Parse OP and convert it into uprobe format.
++ * Possible variants of OP (RISC-V, GCC 'nor' constraint):
++ *
++ *   Format         Example       Uprobe
++ *   ----------------------------------------
++ *   REG            a0            %a0
++ *   NUM(REG)       8(a0)         +8(%a0)
++ *   -NUM(REG)      -20(s0)       -20(%s0)
++ *   NUM            99            (skip, constant not supported)
++ */
++int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op)
++{
++	int ret, new_len;
++	regmatch_t rm[4];
++	char prefix;
++
++	/*
++	 * Constant argument: pure integer with no trailing '(' (e.g. "99", "-1").
++	 * uprobe does not support immediate values, so skip them.
++	 * Memory operands like "8(a0)" or "-20(s0)" contain '(' so are NOT
++	 * treated as constants here; they will be matched by REGEX2 below.
++	 */
++	if (strchr(old_op, '(') == NULL &&
++	    ((*old_op >= '0' && *old_op <= '9') ||
++	     (*old_op == '-' && old_op[1] >= '0' && old_op[1] <= '9'))) {
++		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
++		return SDT_ARG_SKIP;
++	}
++
++	ret = sdt_init_op_regex();
++	if (ret < 0)
++		return ret;
++
++	if (!regexec(&sdt_op_regex1, old_op, 2, rm, 0)) {
++		/* REG --> %REG */
++		new_len = 2;	/* % NULL */
++		new_len += (int)(rm[1].rm_eo - rm[1].rm_so);
++
++		*new_op = zalloc(new_len);
++		if (!*new_op)
++			return -ENOMEM;
++
++		scnprintf(*new_op, new_len, "%%%.*s",
++			(int)(rm[1].rm_eo - rm[1].rm_so), old_op + rm[1].rm_so);
++	} else if (!regexec(&sdt_op_regex2, old_op, 4, rm, 0)) {
++		/*
++		 * NUM(REG) or -NUM(REG) --> +NUM(%REG) or -NUM(%REG)
++		 * rm[1]: optional '-'
++		 * rm[2]: decimal offset
++		 * rm[3]: register name
++		 */
++		prefix = (rm[1].rm_so == -1) ? '+' : '-';
++
++		new_len = 5;	/* sign ( % ) NULL */
++		new_len += (int)(rm[2].rm_eo - rm[2].rm_so);
++		new_len += (int)(rm[3].rm_eo - rm[3].rm_so);
++
++		*new_op = zalloc(new_len);
++		if (!*new_op)
++			return -ENOMEM;
++
++		scnprintf(*new_op, new_len, "%c%.*s(%%%.*s)", prefix,
++			(int)(rm[2].rm_eo - rm[2].rm_so), old_op + rm[2].rm_so,
++			(int)(rm[3].rm_eo - rm[3].rm_so), old_op + rm[3].rm_so);
++	} else {
++		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
++		return SDT_ARG_SKIP;
++	}
++
++	return SDT_ARG_VALID;
++}
++
+ uint64_t __perf_reg_mask_riscv(bool intr __maybe_unused)
+ {
+ 	return PERF_REGS_MASK;
+diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
+index 5b8f34beb24e..57a1d227d1b2 100644
+--- a/tools/perf/util/perf_regs.c
++++ b/tools/perf/util/perf_regs.c
+@@ -19,6 +19,9 @@ int perf_sdt_arg_parse_op(uint16_t e_machine, char *old_op, char **new_op)
+ 	case EM_PPC64:
+ 		ret = __perf_sdt_arg_parse_op_powerpc(old_op, new_op);
+ 		break;
++	case EM_RISCV:
++		ret = __perf_sdt_arg_parse_op_riscv(old_op, new_op);
++		break;
+ 	case EM_386:
+ 	case EM_X86_64:
+ 		ret = __perf_sdt_arg_parse_op_x86(old_op, new_op);
+diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
+index 7c04700bf837..e0b51b514ee0 100644
+--- a/tools/perf/util/perf_regs.h
++++ b/tools/perf/util/perf_regs.h
+@@ -53,6 +53,7 @@ const char *__perf_reg_name_powerpc(int id);
+ uint64_t __perf_reg_ip_powerpc(void);
+ uint64_t __perf_reg_sp_powerpc(void);
+ 
++int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op);
+ uint64_t __perf_reg_mask_riscv(bool intr);
+ const char *__perf_reg_name_riscv(int id);
+ uint64_t __perf_reg_ip_riscv(void);
 -- 
-2.53.0
+2.50.1
 
 
 _______________________________________________
