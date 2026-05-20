@@ -4,60 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B838ACD4F3D
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 13:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5788ACD4F3C
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 13:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KWgQUglg63fKIMXhxNC2gLKajMh3JuXOCtNe3ZBVjwE=; b=bGbveqvFMcLF2u
-	8YtqT0h2rZA4co1XnkXaZK3cDKCgBXd8S4VtFVLouVP3rAQf6RoOYDL6WqVzSXhzf6T9z80vA86gB
-	oVCa/ivE69qId0Rt+97LdxsoTLxPl2EGKA+qlE1UUsHF4Y6PjrSzVkZXBYVPXlAI6dst/s24BxhBj
-	ejhcGZL7nxK9CCjGRrWzkjwdt7uDKSJtTRoiepz/haWqyrarog1Ex35lCltl99QhMkU577T/DNatR
-	mFT76B0Ii1eTyqesQxQDaM3ZHNJyyx5ur7d0mZ72KocNWF5sHTFwGFRUqE85LNSXWm2eZbgguwjPW
-	6cKNb/GaSKj4yINnIFwQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BbPfG0JPPlK9rAUaPwLfmEDgYgr1vF9CURkR/ljH7vQ=; b=Uv48fBc/vfJjFN
+	jIni455AHKVs3oiaajEnnZKQMb7cdFBHp8bVKLYP8vtd5c7WgCx9X3NTericL/pR2xH6P2V2M3PVY
+	uL9wXRNpRp2e7MN0GXKu8duJokljsziIQ4+2CTAo/go8/yjmk/GNTfsmq1iSAevtPvH0sWrwBJyyl
+	0g6X77E2SryIQOC0fB8q0r3peDA13Q1NbQ8O+lW9gPVCi60qVPAW4wuHKnlTVm4XNi+DukT4qChl2
+	tpBOX5NPwFicgpMjmxOwkCD3VuOU53eAvSsiIMs2XftLD0kWJQImH4+55kiNc284HaNnVdjBgJwxS
+	rDgIxktytf8Neg0eOgVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPh9y-00000004hwY-1Xvu;
-	Wed, 20 May 2026 13:40:30 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1wPhDa-00000004ihx-0xug;
+	Wed, 20 May 2026 13:44:14 +0000
+Received: from mail-westeuropeazon11023093.outbound.protection.outlook.com ([52.101.72.93] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPh9t-00000004huH-2vMA
+	id 1wPhDX-00000004ig6-1zu1
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 13:40:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1779284417; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=zz6r7l/Raw9+q6fJMv+zgPcO9HIwuiNFYsMU6mgqg9I=;
-	b=NlMRlBkxv+/ioCJkO8tEc92XlWpzWMh98zzxBRZL6t7fP4A1iweo2LEX4LU03Pq5Xj0BlHi/FIpkd1FdiWA9d8YMpm8t8gJ7xm9ztfZ+3UR9Pzq48gfViYl09KJrH2CUExIBG7k7JkDfdqi4CNEijhRleqX1xluQbfteOAZNVVk=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0X3J2wot_1779284410;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X3J2wot_1779284410 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 20 May 2026 21:40:14 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com,
-	dapeng1.mi@linux.intel.com,
-	pjw@kernel.org,
-	alex@ghiti.fr,
-	guoren@kernel.org
-Cc: linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Pei <cp0613@linux.alibaba.com>
-Subject: [PATCH v3] perf riscv: Add SDT argument parsing for RISC-V
-Date: Wed, 20 May 2026 21:40:04 +0800
-Message-ID: <20260520134004.30573-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 20 May 2026 13:44:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YXp4BIVPoAsJqTeAsCP0cbXNkVl+kDuLNKagWQ0yus6l5AWbT9AREc8WQiSZxoOVJkJ2vS0DvlSO3EoYUO/wdNSyvLECbIOQPqeWlkqCqd1BldWH7q0M+MK3Ek2utAFq9i4L6kizv7eFDNJgAJdbOudr3HvUX5hjlBRf4BVTRr0K/8APSaZEp9PxvutaKgMj79w6PP4cnqkPxLetZb1qspWAPTO3X4Sjl2JA8xyusi3bv2CQKA7nsTzmBX/adpsGU9fk1Bh/T0cNLTC3QPFLqw3uD18ndKlD2sNSrZyg0oHPa+ESwxW8EjeV3GcEnYH6CtbsoMcVmKQ2SpZm8sUS/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9F8x16aNyNqFY5GrkExZoG2coucmU5ZPKxYSJMgj9h0=;
+ b=b5Jpppg4hCPGxugO29yO/GENCehv5jo3k8YROgsA0E52tILX2/14OXrB/D99dmYjHzOIVTVlkkGV72D1Ak3chj58hszXFvfQMSjvkkwv0BKx59AL+nCgt2+VX/S+AQmn7RZifEpjtNySAw04rRbj0ODfbl+Bn+Gl02Dc2xXcs1Id692wwnSE2SxQDJuVt1VuM5jorq23V/70D5e1JddTQznysCwSl9t0NLMMzTJpz2mz8lEoar0/mLejgiye/KcNc2ZBbAkNe5f+rzGACS877DyNZsGHTf4E+GCdvzckMI0iz915Alxg1ffrjVoVShEVt4mjRFVWtxFOudPRlDIwuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=htecgroup.com; dmarc=pass action=none
+ header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9F8x16aNyNqFY5GrkExZoG2coucmU5ZPKxYSJMgj9h0=;
+ b=Kg7iBSd2izGgOBK5KHeG1vTadNSCpV7uGn15vaRpsAmjgssGW63gyJeppu/zdZRa96CaCZ4I7R8sruU440OeTX8gKwDAOMjBohX+T3ob2M84q64L/HNqa+beBeVupgo5AXmnsiNvA/WZejbsp2O8MjgtVJ6uup0xY3pgK1h8wr1oWuF/i5B0jjRtTJ33ITj0wgJdZdiPDyS6d84Th3TYoVaW3qQ+RDatJVhp2fTv8ihT52R67rroFVNOQOrkFzEf+JsiiaHHATsYVzbNi73YmT57aIM6B0seIQEK67NRVuRnENc1qtaS+bffPZnHzFD4jiZr9ZDz29BWBOy/N0kRjA==
+Received: from AS4PR09MB5681.eurprd09.prod.outlook.com (2603:10a6:20b:4fc::5)
+ by DB8PR09MB4025.eurprd09.prod.outlook.com (2603:10a6:10:12b::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 13:44:04 +0000
+Received: from AS4PR09MB5681.eurprd09.prod.outlook.com
+ ([fe80::8d2b:5798:928f:9faa]) by AS4PR09MB5681.eurprd09.prod.outlook.com
+ ([fe80::8d2b:5798:928f:9faa%6]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 13:44:02 +0000
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+To: "pjw@kernel.org" <pjw@kernel.org>
+CC: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, "alex@ghiti.fr"
+	<alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, Djordje
+ Todorovic <Djordje.Todorovic@htecgroup.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>
+Subject: Re: [PATCH] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
+ mips.pause
+Thread-Topic: [PATCH] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
+ mips.pause
+Thread-Index: AQHc4TShRVA0u1oQIEC9XFnIF1W2R7YMSXOAgAqxjYA=
+Date: Wed, 20 May 2026 13:44:02 +0000
+Message-ID: <12486c59-ecb6-4db6-b636-9859a6c41d66@htecgroup.com>
+References: <53299395-2e6a-a9d2-106b-8b857f64f7ba@kernel.org>
+In-Reply-To: <53299395-2e6a-a9d2-106b-8b857f64f7ba@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=htecgroup.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR09MB5681:EE_|DB8PR09MB4025:EE_
+x-ms-office365-filtering-correlation-id: ba605012-9c4b-4707-2863-08deb675da6b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|56012099003|3023799007|11063799006|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: aH7q7L6IaTbX3ZZl1l/CnbhLXvFDzxwIzNAvAtuwcICRqwJFb57TCGw79YihWZtDctvHDAw3o5WhwKx+JSBTHnuhD1O0wp8ZU3Y1TPF4wAn+5D+Bw2DNN/GVnMMPzB0LHfX0yJwBaIZsLfSGzX1VjOz1k2cTZqeTdx5Pzkx2rwKUnrW3I2UObu8c4FbVjfPpIouZRXMCEBNhGQmqDIQiSthVpE+Ds4ccVlPV1hWofUGsLywCvGVV1NJ8R84BW/inhnuBHlModUWzK1/Xu2B2u/WNKAUBJMjOJVDYkKrvsIs4ClUpPaOU399IoYIrbuH5h/+TB44gqOfgF4Dqb2LrWe9RxQ2JTgOLGsPmVxXjpFOO3f4JHF2a985JM9vF8MeTE4BYdDhE+7wvUEqej/bpnzC16Wp3Tj4fsNH+guDI/ubny3lBRklC5HJf0yoIzd9dziXnEn+FD7XgfKvghRfINwSfQxdyM8b6Dyhvi2YqhbAtDf+AdgErfcqBUElbPLj6fm2IOorOCU8h5AoA57iDmh0sgVwid+k9nZrkiKj5afI57lAGJNyOr9M48xEo8XWJzEGxk5PGCfs9sVZYQjnMqLIexZkJklJckInSeOwG1Yce/JbL289Fge5dCI/diOeWp+icx7xyEJdHIHQQHcDJyp9beIkTP9h9IRnLjOudDamIauIY+oYAWsVx8iTAIjjAIBLURK4+pcqAS5lR7S1VTBv2+Q2rTOvhPFy2KIMLpYB9HPupa6FMYknSpKcjRC90
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR09MB5681.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(56012099003)(3023799007)(11063799006)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZDh6d2YyQld5UWU0UDl4bHdOeVI0UTdDcGZxNEVrNGg4M1ROQmJxL0I5MDZn?=
+ =?utf-8?B?UHlrZkpxa2cwV2RNaHFPSFc2VlQ1c0lOU1duaDZTYXB1WTRFYkF0emJCR25Y?=
+ =?utf-8?B?MENucVdSYlRiT2d5a1JCWXc1dFFXYjRObVV4VWtQZ0YzYWs3bHJDakxpZ0Rr?=
+ =?utf-8?B?ZERJK2M1OEk4cHdCbkxlQVJGSWZRUnlsV2pnelVEeFdPN3JZVC9zUWFnV0du?=
+ =?utf-8?B?K1dBdkUrOUV1ZkMvUjc5Rmc4cG9raU4xYkpzbEYrZDFyTUVJbC9wd05WR0R1?=
+ =?utf-8?B?eUdLRWlmcFBWOGpEM1JkZ2pkMHNQQU9HZHJQcFZhbDk2ZXpmRm5oM3ZqWEo1?=
+ =?utf-8?B?N3BQdFdBYXdBaXFSN2hmcTJMVjJDMWFIemRrdUpNa01JREZpUHQxbWxzNFRR?=
+ =?utf-8?B?NDNHRk9kUm9pZjlRZW5oZjZNck1jc0FsVzN3UUpNRzB6MEQ1bUZmNERNUi9F?=
+ =?utf-8?B?a1JiZ2ZBWmJQK3YxYjVibjdPQXJNcjVnMkFOdk5FWGFpNHh1RlVOSVRxQmhK?=
+ =?utf-8?B?N29GZVZkYytHalo3cUQyRG9jN0hoSlNhL3FNN3oxVE1TQnBEUEtYaitvZzBS?=
+ =?utf-8?B?TWtSOFlXWFgyOC9IeEpWUTlmNGlQWDJ5OW4xaUVZcGJHS3JhR1pTTVRnTE5C?=
+ =?utf-8?B?UVNvYmZQaHR1L2V1emtLbGNzYUV3cGxvbGNMUGdwWmo5Z2pTemI5NmVrRGtL?=
+ =?utf-8?B?anAxb0ZvcHh0ZzhOWThXcEVmb1dNNjE5WnNTQzBpMGVESkRLSXpzZklob2Fn?=
+ =?utf-8?B?WjR0V1hZc25zWXo5Q2pacXRlQlJWbEpJU2o2WHpETit6K3ZVa3VQdXRUU21P?=
+ =?utf-8?B?RkdleXZKcW5iTzdqa0RyclZVTHE4b0U4WmJ2OThhSnJxZWpKenRZOXUrVE5l?=
+ =?utf-8?B?TmlCcTFWRTBtM1F1MUt0V3hkaEl6TTB2c1YyYllJN29WbzNnOU1XUGRJQlFi?=
+ =?utf-8?B?VjIwbWFIRUVQR0UraWZqT1Nyc3h4cHNZcXFpRG5WRDBqWndEeGt5WTh3Y0Z6?=
+ =?utf-8?B?SXVURWNtYko3UjdYWEJnNDM1MStaRSs0dnQvZ0ZDSlIvL0RueFVkdXNZRWtr?=
+ =?utf-8?B?Ukphbnlxc2ZNa0hIWGs5U3NJcktMNDVlRU5VRzFMNGF5U3RURmZQVUNlclBN?=
+ =?utf-8?B?ME9EdDNNSEt1TmNlc2IrWWRCY3hsak0vYWt3US82K2ZMNzVXblFEamZIeERB?=
+ =?utf-8?B?bm9GNVlFWFFDWVpFeU1BVWUwaFRPckw4eVQyU2hzbVlaYndTRXlmWmJSQy9I?=
+ =?utf-8?B?REJ6dEJCTWpaTE8xTkNPOUpTSERJNkpRRDZWOG9RRldLYkRmYlRzVGNRMnpt?=
+ =?utf-8?B?aTgxRXBkZGZzNkdhNlFaa2xQV3RtTWRyQVV6a0dQSm9IcWM2UGJ4dVNMMjZq?=
+ =?utf-8?B?QmxzeWF0bTJ4ZjAvRFpZQjdBZTh3MXdjMyt1Y3NzVjA2VnlyREZuTDVNTWlr?=
+ =?utf-8?B?clI2ODI3WHVIZVFSNFpEYlMzUUh1Y0RKOFE3K3NGbnlNTzFwNnltNTBzdUpG?=
+ =?utf-8?B?djJVSzdvamxoWFhldE5KOTluVnFoWXlCRUVHNHd3ckFIMTRseHJRR01RTGlI?=
+ =?utf-8?B?bGZPdmlMN0VWSE9BZys2elczU0hrdysvSExIUTNxdW4zeUxNd08veWFUVHNy?=
+ =?utf-8?B?R0V1RWY5UFVhRUJjUUxRdzNaMTNlL2dETGdsMWR0ekV0RHYrTW1MdmF4dzhy?=
+ =?utf-8?B?OUpxQlZoVUNISkYyUzYrdnJnVXEvSTRWeTcyd296TUp6ZUd2d3I2WFY0TUFQ?=
+ =?utf-8?B?Y3NPWUMxeW5ra1E4bjJyYkN2ZkJkWjZ2bnpSa245cDBtdXorWml2U2lLaTlj?=
+ =?utf-8?B?YmVtRS9sLy9HOGpOSW9lcW0xc2tKR0lWaVV3NndONWczMThudUJIZEZSTVRW?=
+ =?utf-8?B?b01ocEw3ZHBnSC9JdTJZZDlCNEVXdFBDUWFSTnlwaGxKNTdDRFBtMDVEVnE0?=
+ =?utf-8?B?UWFkTjRWaFd0SWtSdEVBYS9hZ1hxbmFOYkdMcTNnOXF6R0o0NkNJamJ0MFRM?=
+ =?utf-8?B?S2V1V1VTTlpCS3Mvbm94RXgwRVlCMGdSK1ZwcHRTNDZxTHNMTlJoYnlPVGFw?=
+ =?utf-8?B?bk9DRVFteVM3dXA1d0VNVUhvbStYMHUvdWJjQnBKakN6Ny9TcU5mN0hOa01Y?=
+ =?utf-8?B?L1Iwa1BhT2RqV29lS3h2blpPUlVxc2srU0R4TE5TQXB6dUdkQ0prTHlQR0Fi?=
+ =?utf-8?B?dG5sTEU5Qy9kTG9pVVRWdDZ0SjFhakxjaDQyTmJmeThVMytSNlplbjFsRS9N?=
+ =?utf-8?B?TS9nbEtkeEpxM1RONnppaUtjS3VtcFV5bUwzaGxjajJET2JmNUlaaVcyVUZq?=
+ =?utf-8?B?RHRUVkp4VFI0UitIbVdxc3Z0TEtZcEtaaDRIdXlyNlpjNW5hbGEyckh0RVph?=
+ =?utf-8?Q?tSy9q4MkH821QSp4=3D?=
+Content-ID: <2CEB7BBD98BB1249A121675D78871DB9@eurprd09.prod.outlook.com>
 MIME-Version: 1.0
+X-OriginatorOrg: htecgroup.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR09MB5681.eurprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba605012-9c4b-4707-2863-08deb675da6b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 May 2026 13:44:02.4426
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mpRFWFIzfIQxfvry+C0yZVCkpGCKfJaU+V4aZaUKxe1xXEw4Yi4L/eDnD+1OYmPZx3OKgN2CCNQODaHM/DxoCN3w9kDLNOoE4z0Ocjlq/Ic=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR09MB4025
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_064026_572943_8B61EC28 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260520_064411_537489_3CF67AF0 
+X-CRM114-Status: GOOD (  29.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,239 +154,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement __perf_sdt_arg_parse_op_riscv() to convert RISC-V GCC-generated
-SDT probe operands into uprobe-compatible format, and register it in the
-perf_sdt_arg_parse_op() dispatcher for EM_RISCV.
+Hi Paul,
 
-RISC-V GCC uses the 'nor' constraint for SDT arguments, producing operands
-in the following formats:
-
-  Format       Example      Uprobe format
-  -----------  -----------  -------------
-  register     a0           %a0
-  memory (+)   8(a0)        +8(%a0)
-  memory (-)   -20(s0)      -20(%s0)
-  constant     99           (skip, not supported by uprobe)
-
-Key differences from other architectures:
- - Register names use ABI aliases (a0-a7, t0-t6, s0-s11, sp, ra, etc.)
-   without any '%' prefix, unlike x86 (%rax) or arm64 (x0).
- - Memory operands use OFFSET(REG) syntax where OFFSET may be negative,
-   unlike arm64's [sp, NUM] or powerpc's NUM(%rREG).
-
-Two regexes are used:
- - SDT_OP_REGEX1: matches RISC-V ABI register names saved in pt_regs
- - SDT_OP_REGEX2: matches [-]NUM(REG) memory operands
-
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-Reviewed-by: Ian Rogers <irogers@google.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
----
-
-Tested on RISC-V QEMU(rv64gc) with GCC-generated SDT probes.
-Requires systemtap-sdt-dev (provides <sys/sdt.h>) on the target system.
-
-  # cat sdt_test.c
-  #include <sys/sdt.h>
-  #include <stdio.h>
-  void my_func(int a, long b) {
-      DTRACE_PROBE2(myapp, my_probe, a, b);
-      printf("a=%d b=%ld\n", a, b);
-  }
-  int main() { my_func(42, -100); return 0; }
-
-  # gcc -O0 -Wl,--build-id -o sdt_test_O0 sdt_test.c  # stack args: -20(s0)
-  # gcc -O2 -Wl,--build-id -o sdt_test_O2 sdt_test.c  # reg args:   a0
-  # perf buildid-cache --add sdt_test_O0
-  # perf buildid-cache --add sdt_test_O2
-  # find ~/.debug -name "probes" | xargs cat
-  p:sdt_myapp/my_probe .../sdt_test_O0:0x530 arg1=-20(%s0):s32 arg2=-32(%s0):s64
-  p:sdt_myapp/my_probe .../sdt_test_O2:0x538 arg1=%a0:s32 arg2=%a1:s64
-
-Changes in v3:
- - Add two Reviewed-by tags.
- - No actual update, just to re-trigger sashiko's review.
-
-Changes in v2:
- - Remove 'zero' (x0) from register regexes.
- - Fix sdt_init_op_regex() to return -ret on error.
-
- .../util/perf-regs-arch/perf_regs_riscv.c     | 128 ++++++++++++++++++
- tools/perf/util/perf_regs.c                   |   3 +
- tools/perf/util/perf_regs.h                   |   1 +
- 3 files changed, 132 insertions(+)
-
-diff --git a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
-index 5b5f21fcba8c..bf769304c97c 100644
---- a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
-+++ b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
-@@ -1,8 +1,136 @@
- // SPDX-License-Identifier: GPL-2.0
- 
-+#include <errno.h>
-+#include <regex.h>
-+#include <string.h>
-+#include <linux/kernel.h>
-+#include <linux/zalloc.h>
-+
-+#include "../debug.h"
- #include "../perf_regs.h"
- #include "../../arch/riscv/include/perf_regs.h"
- 
-+/*
-+ * RISC-V SDT argument formats (GCC 'nor' constraint):
-+ *
-+ * Register:  REG        e.g. a0, t1, s0, sp
-+ * Memory:    NUM(REG)   e.g. 8(a0), -20(s0)
-+ * Constant:  NUM        e.g. 99  (not supported by uprobe, skip)
-+ *
-+ * Note: 'zero' (x0) is hardwired to 0 and not in pt_regs; skip it.
-+ *
-+ * Uprobe target format:
-+ *   Register: %REG       e.g. %a0
-+ *   Memory:   +NUM(%REG) or -NUM(%REG)
-+ */
-+
-+/* RISC-V register ABI names: ra, sp, gp, tp, t0-t6, s0-s11, a0-a7 */
-+#define SDT_OP_REGEX1  "^(ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])$"
-+
-+/* RISC-V memory operand: [-]NUM(REG) */
-+#define SDT_OP_REGEX2  "^(\\-)?([0-9]+)\\((ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])\\)$"
-+
-+static regex_t sdt_op_regex1, sdt_op_regex2;
-+
-+static int sdt_init_op_regex(void)
-+{
-+	static int initialized;
-+	int ret = 0;
-+
-+	if (initialized)
-+		return 0;
-+
-+	ret = regcomp(&sdt_op_regex1, SDT_OP_REGEX1, REG_EXTENDED);
-+	if (ret)
-+		goto error;
-+
-+	ret = regcomp(&sdt_op_regex2, SDT_OP_REGEX2, REG_EXTENDED);
-+	if (ret)
-+		goto free_regex1;
-+
-+	initialized = 1;
-+	return 0;
-+
-+free_regex1:
-+	regfree(&sdt_op_regex1);
-+error:
-+	pr_debug4("Regex compilation error.\n");
-+	return -ret;
-+}
-+
-+/*
-+ * Parse OP and convert it into uprobe format.
-+ * Possible variants of OP (RISC-V, GCC 'nor' constraint):
-+ *
-+ *   Format         Example       Uprobe
-+ *   ----------------------------------------
-+ *   REG            a0            %a0
-+ *   NUM(REG)       8(a0)         +8(%a0)
-+ *   -NUM(REG)      -20(s0)       -20(%s0)
-+ *   NUM            99            (skip, constant not supported)
-+ */
-+int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op)
-+{
-+	int ret, new_len;
-+	regmatch_t rm[4];
-+	char prefix;
-+
-+	/*
-+	 * Constant argument: pure integer with no trailing '(' (e.g. "99", "-1").
-+	 * uprobe does not support immediate values, so skip them.
-+	 * Memory operands like "8(a0)" or "-20(s0)" contain '(' so are NOT
-+	 * treated as constants here; they will be matched by REGEX2 below.
-+	 */
-+	if (strchr(old_op, '(') == NULL &&
-+	    ((*old_op >= '0' && *old_op <= '9') ||
-+	     (*old_op == '-' && old_op[1] >= '0' && old_op[1] <= '9'))) {
-+		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
-+		return SDT_ARG_SKIP;
-+	}
-+
-+	ret = sdt_init_op_regex();
-+	if (ret < 0)
-+		return ret;
-+
-+	if (!regexec(&sdt_op_regex1, old_op, 2, rm, 0)) {
-+		/* REG --> %REG */
-+		new_len = 2;	/* % NULL */
-+		new_len += (int)(rm[1].rm_eo - rm[1].rm_so);
-+
-+		*new_op = zalloc(new_len);
-+		if (!*new_op)
-+			return -ENOMEM;
-+
-+		scnprintf(*new_op, new_len, "%%%.*s",
-+			(int)(rm[1].rm_eo - rm[1].rm_so), old_op + rm[1].rm_so);
-+	} else if (!regexec(&sdt_op_regex2, old_op, 4, rm, 0)) {
-+		/*
-+		 * NUM(REG) or -NUM(REG) --> +NUM(%REG) or -NUM(%REG)
-+		 * rm[1]: optional '-'
-+		 * rm[2]: decimal offset
-+		 * rm[3]: register name
-+		 */
-+		prefix = (rm[1].rm_so == -1) ? '+' : '-';
-+
-+		new_len = 5;	/* sign ( % ) NULL */
-+		new_len += (int)(rm[2].rm_eo - rm[2].rm_so);
-+		new_len += (int)(rm[3].rm_eo - rm[3].rm_so);
-+
-+		*new_op = zalloc(new_len);
-+		if (!*new_op)
-+			return -ENOMEM;
-+
-+		scnprintf(*new_op, new_len, "%c%.*s(%%%.*s)", prefix,
-+			(int)(rm[2].rm_eo - rm[2].rm_so), old_op + rm[2].rm_so,
-+			(int)(rm[3].rm_eo - rm[3].rm_so), old_op + rm[3].rm_so);
-+	} else {
-+		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
-+		return SDT_ARG_SKIP;
-+	}
-+
-+	return SDT_ARG_VALID;
-+}
-+
- uint64_t __perf_reg_mask_riscv(bool intr __maybe_unused)
- {
- 	return PERF_REGS_MASK;
-diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-index 5b8f34beb24e..57a1d227d1b2 100644
---- a/tools/perf/util/perf_regs.c
-+++ b/tools/perf/util/perf_regs.c
-@@ -19,6 +19,9 @@ int perf_sdt_arg_parse_op(uint16_t e_machine, char *old_op, char **new_op)
- 	case EM_PPC64:
- 		ret = __perf_sdt_arg_parse_op_powerpc(old_op, new_op);
- 		break;
-+	case EM_RISCV:
-+		ret = __perf_sdt_arg_parse_op_riscv(old_op, new_op);
-+		break;
- 	case EM_386:
- 	case EM_X86_64:
- 		ret = __perf_sdt_arg_parse_op_x86(old_op, new_op);
-diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
-index 7c04700bf837..e0b51b514ee0 100644
---- a/tools/perf/util/perf_regs.h
-+++ b/tools/perf/util/perf_regs.h
-@@ -53,6 +53,7 @@ const char *__perf_reg_name_powerpc(int id);
- uint64_t __perf_reg_ip_powerpc(void);
- uint64_t __perf_reg_sp_powerpc(void);
- 
-+int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op);
- uint64_t __perf_reg_mask_riscv(bool intr);
- const char *__perf_reg_name_riscv(int id);
- uint64_t __perf_reg_ip_riscv(void);
--- 
-2.50.1
+Thank you for taking the time to review the patch!
 
 
+On 5/13/26 20:25, Paul Walmsley wrote:
+> Hi,
+>
+> On Mon, 11 May 2026, Aleksa Paunovic via B4 Relay wrote:
+>
+>> From: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+>>
+>> The MIPS P8700 has bugs with the WFI instruction.
+> Has MIPS published an erratum for this?   If so, could you add a link to
+> it in the patch description?  If not, could you please briefly describe
+> the impact of the bug in the patch description, when WFI is used?
+
+MIPS has not published an erratum for this. Briefly, a WFI instruction
+after a mispredicted branch can result in erroneous address translation.
+>> This errata uses the RISC-V alternatives framework to patch all WFI
+>> instructions with the MIPS P8700 pause opcode (0x00501013) at runtime
+>> when running on P8700 hardware.
+>>
+>> Two call sites are patched:
+>>  - arch/riscv/kernel/head.S: secondary hart parking loop
+>>  - arch/riscv/include/asm/processor.h: wait_for_interrupt()
+>>
+>> Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+>> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+>> ---
+>> This patch was tested on QEMU configured with eight P8700 harts,
+>> as well as on the MIPS Boston board, configured with a single P8700 CPU.
+>> Errata application was tested by disassembling with GDB on QEMU
+>> and inserting an illegal instruction on the Boston board.
+>> Correctness was tested with a combination of kselftests
+>> and torture tests (rcu, locktorture), along with coremark testing.
+> This kind of test report is very helpful!  Thank you.
+>
+>> ---
+>>  arch/riscv/Kconfig.errata                    | 11 +++++++++++
+>>  arch/riscv/errata/mips/errata.c              | 14 ++++++++++++++
+>>  arch/riscv/include/asm/errata_list.h         | 27 +++++++++++++++++++++++++++
+>>  arch/riscv/include/asm/errata_list_vendors.h |  5 +++--
+>>  arch/riscv/include/asm/processor.h           |  3 ++-
+>>  arch/riscv/kernel/head.S                     |  4 +++-
+>>  6 files changed, 60 insertions(+), 4 deletions(-)
+>>
+> [ ... ]
+>
+>> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+>> index 6694b5ccdcf85cfe7e767ea4de981b34f2b17b04..cbe90b19556203e1462cfb345b164c9061887e74 100644
+>> --- a/arch/riscv/include/asm/errata_list.h
+>> +++ b/arch/riscv/include/asm/errata_list.h
+>> @@ -25,6 +25,16 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),                  \
+>>           __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),       \
+>>           SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,                    \
+>>           CONFIG_ERRATA_SIFIVE_CIP_453)
+>> +
+>> +#ifdef CONFIG_ERRATA_MIPS_P8700_WFI
+>> +#define ALT_WFI                                                              \
+>> +ALTERNATIVE("wfi; .rept 7; nop; .endr;",                             \
+>> +     ".rept 8; .insn 0x00501013; .endr;", MIPS_VENDOR_ID,            \
+>> +     ERRATA_MIPS_P8700_WFI, CONFIG_ERRATA_MIPS_P8700_WFI)
+> .insn only works on newer toolchains/binutils versions - this is why
+> CONFIG_AS_HAS_INSN was added.  See for example commit
+> dc20452e6caf962f04ede7f364267b0c37784ab4 ("riscv: Fix CONFIG_AS_HAS_INSN
+> for new .insn usage").  Can you please fix this
+
+Will fix this in v2!
+
+>
+> Please add some sort of code comment to describe why 8 MIPS PAUSE
+> instructions are needed, as opposed to a single MIPS PAUSE instruction.
+> An event that causes the first PAUSE to exit would then encounter the
+> subsequent PAUSEs, at which point, there could be additional latency
+> before the core can return to doing real work.  The P8700 Programmer's
+> Guide mentions a maximum number of cycles per PAUSE instruction, but
+> doesn't state what it is precisely.  Could you please add a comment here
+> to describe what it is?
+
+The number of PAUSE instructions was determined by testing on the Palladium
+board configured with a P8700 CPU. Coremark performance was measured on
+a one-core, two-harts setup. Coremark performance with eight PAUSE instructions
+was equivalent to what was measured with WFI.
+
+Kind regards,
+Aleksa Paunovic
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
