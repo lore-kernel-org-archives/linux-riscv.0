@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBDDCD4F54
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 08:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E760CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 08:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zi71oQeyDprFzZPyE+1lTAz0S9ShzoRuuP3/QiufLJE=; b=kuQEwCILXbAqtG
-	VZdSvxyQcorDZeW90+0Pma6J6+S/s10vGZZ3xhR5H4rf73IWYbJUYFyUiiplolpv5RnKIiI9laIdp
-	CShPfqhTK042r9YeVZcYu5jCsOXo3eC+LXtk5QszVYLSGKBFbnH3he5OqgFHeos+xBvseh4r0MjUA
-	FMFB1Un2kAKlFIlhZBG8FlM5kfZJjAB5jNphmMG/6JEAmsGwUq5gsjiromhG0/HTtqqnjD+c9/U5o
-	Sy6a4RIGRAj2G/PHl3mpHD7a3KEXZ5ugntxwvvYxDyI8D7msxOvDHtZozWUHfqUqp1F3CN6UOWQhO
-	LPZ6TklLN/xgGqgAQbxA==;
+	List-Owner; bh=ffzUBzVSDgHsRaicsTJj/F5dvDpzYpAt7ziKBkRUszI=; b=El18iW2P1863IO
+	5U1WmZvIogxqKXGbLV7T8OAvO5GRZcC7PJTXXb0jxMN0IauNOdDlFX4Eq6htk6Z9qaHreTjJaCc5I
+	Tdl0fVsv9HsRj06WCWNJrvZYP31m2Gn5wVLRaG9Z2+L42UV6Guf2adWTex4w3QskM/oEU5JA5vFuK
+	wnCygzK4R6q90zj158vjyS2bQETyJ4wsfgxwgCWEneDeSfqwt+5UvkN0UEw95p7GsXD2OCAJ1FB25
+	9ajeQjW7A9zbpFKBbIG+InfUInHiPqhcVtrgdK2IdZelDuMFKJJLuiCYxu5lynHHqHJp3ZXgEUSuG
+	hFoc4hjzxdP9EKP/9x0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPc2B-00000003uIS-43Hb;
-	Wed, 20 May 2026 08:12:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPcB4-00000003wXv-2H6t;
+	Wed, 20 May 2026 08:21:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPc29-00000003uHR-2oT3
+	id 1wPcB3-00000003wXb-1Q0c
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 08:12:07 +0000
+	Wed, 20 May 2026 08:21:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CB6742088;
-	Wed, 20 May 2026 08:12:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B77591F000E9;
-	Wed, 20 May 2026 08:12:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 77289600CB;
+	Wed, 20 May 2026 08:21:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A20691F000E9;
+	Wed, 20 May 2026 08:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779264725;
-	bh=p5jXKIXsDEpFifcmEEE6Bq+aFMDhGYXdAe/Ul0Di0wA=;
+	s=k20260515; t=1779265276;
+	bh=Po3Z5+mOkTPLwxcG4O1YIvwMOZN8HACWf+P1iZYwYdg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W3pFs3B+ttoH87zVNnXdVdSwOdN5ztY024RDDllGWHv/9eLtBDOHGrtiLSuk7P/f5
-	 pgHNfUSzeBsVt2sm3VuUFEw6cjUlrVe1Ud5oT17GMK28B1KWv2y8Ph97lTXBj2aKDz
-	 eOyn8Ig7PvmcL+zG87pEz1hIXLz3PuVhr36eUpmcAaLiN6p1vbuJrX4OY+hWOZPv2h
-	 La8vO8xBbOn7YRBBfbUgRdy8MhIFWmt7Xz2vGivr5vP/d0mTIywdM9gxt91TasO24g
-	 sm/7CLPSVoZ7BTVllwe86EYj391OAIjBRNOmPHA/4n6GpR5BWxTv2ZgWTLO1c3AB75
-	 tAfaw9skiERHg==
-Date: Wed, 20 May 2026 08:12:03 +0000
+	b=UUbvHMcyacHh2278Tx93WTf0EVpJu0QoLk3ddNYshHlawJfwzsM3vKUKzCEp6oYAE
+	 Qa39lSKeUiQuAYbWRx+GEwwPbRH2OjBJelDAF9P+gBQRgIAUSGDSGCN2WPxGLLbYM3
+	 2Atlx5f8tObEi0xhjyk4WaU8acipCKE0pTsPk2d2P9Q8WFbdq1/2lSQ3e4VzzT8qrz
+	 G7IiRS3hFIPpMiA9BMSXV0w+3Zbycx7OG7JcWrSqdbkcPayn+/pywkfA3N3mhH64UC
+	 Ym4IqA/eatExsTRQVzbEXA/MWeB7LqioV8TAd4NERCajtoeHrsRgDFetSflx3dhbj5
+	 Y0NanhEn3GEcQ==
+Date: Wed, 20 May 2026 08:21:12 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 1/1] riscv: dts: spacemit: enable USB3 on OrangePi R2S
-Message-ID: <20260520081203-GKB3708537@kernel.org>
-References: <20260518100030.2354606-1-amadeus@jmu.edu.cn>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v2 0/5] riscv: dts: spacemit: improve Milk-V Jupiter
+ device tree
+Message-ID: <20260520082112-GKA3717228@kernel.org>
+References: <20260519041458.3287843-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260518100030.2354606-1-amadeus@jmu.edu.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_011205_727831_3E204D02 
-X-CRM114-Status: GOOD (  13.94  )
+In-Reply-To: <20260519041458.3287843-1-aurelien@aurel32.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +73,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+Hi Aurelien, 
 
-On 18:00 Mon 18 May     , Chukun Pan wrote:
-> Enable the DWC3 USB3.0 controller and its associated PHY on the
-> OrangePi R2S. The USB regulator provides VBUS for USB2 and USB3
-> ports, but the USB2 ports are handled by a separate controller.
+On 06:12 Tue 19 May     , Aurelien Jarno wrote:
+> This patchset updates the Milk-V Jupiter device tree to align with the
+> changes recently done for other SpacemiT K1 based boards, including
+> enabling SD card support.
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> Changes in v2:
+> - Rebase on linux-next, which includes the SD card support series for
+>   the K1 SoC
+> - Mark the eMMC as non-removable
+> - Add patch to fix uboot partition offset
+> - Link to v1: https://lore.kernel.org/linux-riscv/20260514160356.1642075-1-aurelien@aurel32.net/
+> 
+Looks good to me, thanks
 
 Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-> ---
-> v2: Remove vin-supply for the vcc5v0_usb regulator.
-> ---
->  .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 23 +++++++++++++++++++
->  1 file changed, 23 insertions(+)
+> Aurelien Jarno (5):
+>   riscv: dts: spacemit: set console baud rate on Milk-V Jupiter
+>   riscv: dts: spacemit: sort aliases on Milk-V Jupiter
+>   riscv: dts: spacemit: enable eMMC on Milk-V Jupiter
+>   riscv: dts: spacemit: enable SD card support on Milk-V Jupiter
+>   riscv: dts: spacemit: fix uboot partition offset on Milk-V Jupiter
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> index de75f6aac740..1ecc40749e5a 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> @@ -21,6 +21,19 @@ aliases {
->  	chosen {
->  		stdout-path = "serial0";
->  	};
-> +
-> +	vcc5v0_usb: regulator-vcc5v0-usb {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpios = <&gpio K1_GPIO(126) GPIO_ACTIVE_HIGH>;
-> +		regulator-name = "vcc5v0_usb";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +	};
-> +};
-> +
-> +&combo_phy {
-> +	status = "okay";
->  };
->  
->  &emmc {
-> @@ -90,3 +103,13 @@ &uart0 {
->  	pinctrl-0 = <&uart0_2_cfg>;
->  	status = "okay";
->  };
-> +
-> +&usbphy2 {
-> +	status = "okay";
-> +};
-> +
-> +&usb_dwc3 {
-> +	dr_mode = "host";
-> +	vbus-supply = <&vcc5v0_usb>;
-> +	status = "okay";
-> +};
+>  .../boot/dts/spacemit/k1-milkv-jupiter.dts    | 38 +++++++++++++++++--
+>  1 file changed, 34 insertions(+), 4 deletions(-)
+> 
 > -- 
-> 2.34.1
+> 2.53.0
 > 
 
 -- 
