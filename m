@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023FACD5BA4
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 09:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64ACCCD4F54
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 09:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MDDjfzcNDLj3cfT0bnp3OOi/rKg82NAU3Mov5HWubBc=; b=q9uNeRIxhsfm8G
-	nHuMZFS6PuxAX2V+K+NIlYnrqaRmAyN/t8JWspHTfLyB96ar7ekt02OtUqPpu/uKiZMNGt1LIT3F2
-	t9KhrayZqvdb6Cc9HH+Nmuv15v7PYnpuc8eNp60+SUwiWBBX1YRp0608ei+1uXPAijUF1K431bq2R
-	H/hzlnF9FBpfd9LVg6CoM6PL/tCs8IkfcCHWCKBwOC5CNDURJhjucJjt5MJ0LFDv56WVr0NyE9X6Y
-	2VMu7oHdhNETMKHvTGXICU9l55wLqCp86O5OmO3o2+VvW79lshFLXKF1CzNRrRajTiT0dD3y2bKx3
-	fp82QMcXovZdQoiO1mPw==;
+	List-Owner; bh=/qxYF1frPyjh4/4DPVcLKQdcUh8Bl1OhhNS0gc8BDLk=; b=QEBPtb6Dr9Up6y
+	xEXecoYZ+Xn0xPZzDerr3Q+3cto4BTtdZ2SKFyA/H8xkftYQ45NGj5LCG9mWe97ySaZkB7h6BFRFz
+	8OWyMLSulrgMZW++crORRu6occcbs1tnn/vU7L1AWT6wXDKFaTCEzNGsQ8LCRiEr9XV6fKnUQ4y3E
+	MVDV0FGNg68zGgEL2ysxn6EAiGq+dEm9SIAFEFiH2hFWasSbLE0FSbmxHBtNjq3uv7GsqtvyqtiLd
+	IYO29psofPF0SR0xojAiu1RKyboog5qvfYRkEQSquPGfuLrdrIgTOPwXTKQ2TyzALB3SQOFp/1WUu
+	kuOPzCAOTV1NFQ9PoK9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd58-000000046Eu-2Xfm;
-	Wed, 20 May 2026 09:19:14 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1wPd5J-000000046Nm-12ny;
+	Wed, 20 May 2026 09:19:25 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd55-000000046CB-2uug
+	id 1wPd5F-000000046Jn-41un
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 09:19:12 +0000
-Received: by mail-pg1-x542.google.com with SMTP id 41be03b00d2f7-c70c112cb61so3819279a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 02:19:11 -0700 (PDT)
+	Wed, 20 May 2026 09:19:23 +0000
+Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-835386ff122so4772888b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 20 May 2026 02:19:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779268751; x=1779873551; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779268761; x=1779873561; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tlJTNnuSEkuOFcK//QE/3Ty9SdRnFwE8BVFotGGF+Qo=;
-        b=E/56IJnWJBxHQu872REyMYghclNbpooTl0ABm8iRv+ASC/2dGWn8nztpZCrmEQd4/F
-         D67huKi4ytU9P/jslK8j9EvX4M2IzX2w3uk8iXPvkS/tdrjL4GSA1q4LjAvDmE8JnFH5
-         usvLNgfhgP645BEwO/l6PfJ2rwxxEIuLlQ7CZ/oJyOCk4owDfitDiLdni/uswdR19vGt
-         5xRJD5k/XnP2/rExtr0NpYgCnuV2TWaJkcMkjHKVNPpnxjC4XROb1emJb5ZGRIVEZk8J
-         o+Qc8IeQRIWVs42QyPzooF/pc8DIm1tylfN9MbtHMMdrkHItRugH43c75GZ50xTyuhI7
-         DHmA==
+        bh=9oyw9vanLGG7tQ9dBSW9pJHSWXBGqZj5GxnQmef6pVg=;
+        b=F0BC7GrQ9gz40k05v4xdh2evvBiag1cSC9iop9xn53qN2aJDBmUbtCOjJ3najRlZBO
+         dTNzh8HkZtfRBLlvnVYwXhVpwMwW6E+EaiuJRB1jUspZO4CR5ZcR55WE/ZdNhRfzdf0e
+         CDL6n/IlvbaKj3aF2uFgKBiQrHDRey1tIDEBUqn6YhTETkiys5vX1loKSztemkzJbqAm
+         2RhwGH2paqIZENTEISkaNSHa7Cc69EF8LL7yu/13cBVT99+WBOH2XnXs2drZOPppQ5vX
+         gBgSVM4wKTS3xN17+JYpUtafJciJAwly/XBPN+GI1hGN2+Y5HKYmzjEXaDx7jcBMiMIx
+         +EPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779268751; x=1779873551;
+        d=1e100.net; s=20251104; t=1779268761; x=1779873561;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=tlJTNnuSEkuOFcK//QE/3Ty9SdRnFwE8BVFotGGF+Qo=;
-        b=bRJip7/3DUdd5hAaAIIQdkJUyMEMK5qKsZbPyhgK/c/T/0SRA6F0v2pyuAaD/pSiw+
-         VOLUYj/QDZxDBTZNmEtfh+tc0xI8k95UkqDfksRziF1kYyKlJzCgYUJ+TkZ+lpAVPj5z
-         D67A9w1Sdrixcm4rc0QFuCYOyWPaEx5D8+WPv2fK6cpeRm4mS33eq/Rh/RfCRasvspve
-         zX04VRIg7Amnm3XAE/wl2Akd6DZ/QmWSA5PQDU7EsdyHf8PzancCXCg3zZ/v0MyynOKU
-         9IUbvdokD6iPoRRTf/5/rzGp9JHwGZXH8OFjd0O1noKdwuaYCsqonUfYNXt1WZ+zg1pX
-         YWtw==
-X-Forwarded-Encrypted: i=1; AFNElJ9lc6a6cji5sztscdftqNYaJojXQN+0lROyrTIyNTnhFr14b3Jkyq7fvmTIPIIM3GEZlyXu3ujFXRvPEw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUd1E4b1UuXUwcWGnOKQGHnqrUoOBW7SSZaWyxZ2tZffZttuNR
-	fGhJ1MaVZlWCJImiRtGTX/eUv9MS5Mg2st+YgfIiN6n6WJmKZcBtNg2G
-X-Gm-Gg: Acq92OHl1DbY0q1XwcFTA0PCCyduT4KmdYi9D+4IOyx2Et2fjD2Ai4dvvLeBenk4ZKA
-	aDc6WqumdQif/K0l3AV4KaxGTFywrBgUNjKzKbyDluOpL8f1d80NOrmO127AsnNRxzFXI2gU8QJ
-	ldeb96zdxGemLq49tJ2Ig+E/6SNCHT1UgTBOsYUqr+uG0Ka0rZdnS7RdsBCGaqhzmU43Ehuo58F
-	MEmRNIUXgtCuS/ZVLovG+nxpulw2TRSEQtpIPoJReNHpRRVbPeKZkkAojeY/WOwetyzGKkoArGq
-	HFrYSb6CBCgt2/CEGijLk8ejqbeUHJk9H+ehc5uqpDHsU2UvKkgUTEF6JC+svJaoQGvKJY3ZpAB
-	1T2TlmyOOVo+UJ8D8ELxcvXIm+b7Yt2VOjq3wbdNQ1Dfi3/temG+cgfqUB76t5N09KFO/Hxp/0j
-	WT3HNmX/10CDboCINi6ysV6aTMEVH55eiUvT4Q8w==
-X-Received: by 2002:a05:6a20:2454:b0:3aa:ec28:edc6 with SMTP id adf61e73a8af0-3b22ec63eaamr26158763637.39.1779268750848;
-        Wed, 20 May 2026 02:19:10 -0700 (PDT)
+        bh=9oyw9vanLGG7tQ9dBSW9pJHSWXBGqZj5GxnQmef6pVg=;
+        b=I2IQ2lLNRS3+9H9Xfjn0nb/0x0AyWp/fXNRua1aSggnAxUc3N314YXzcnZjT9a4aW2
+         qeww6LGKTwWEopDG2mznoXUwC4+Bo6fa532CrhBL3Vp7LCFeJVWU3gW/yqsUVTftO7Ct
+         wYGGPbSZI6E745mJPgHokfL2AtsA7YTBWLjduXplCQ9txf5fu4IQHCmMCtbhSCG1G7Va
+         JWIxN+/oUZoiuY1AMNfyGrb7ABUXDU0SsI655tbhV+6/H4UR+vG24SVB47Q8DpIUrMkU
+         4ucHz5YQv8zUjIkxu0a2FtBrGAZ3iHlMHEOBpTqqh0DLswAK1AFHGhnDpHE7qLJQkQRJ
+         mDvw==
+X-Forwarded-Encrypted: i=1; AFNElJ/ZKuqrl8BcDjosCa59H6BYGSd2+xBQfHtuhwWH/xOK2TjK8gnpEUbhRwSRc9Vn3UoA9R82QuKIZponTw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOA/aCuAe5w2s6xM1UadHU1XQfo7xqs8agJzjX03+2giFwjxMV
+	kNxQmxCXn3PS8VlHOaOvH1Az4/N6u1Kfg+99COGvvbDL5o2fiZu4u5Zf
+X-Gm-Gg: Acq92OExpuU1QsIrMFOo3t5OtwbWaZkRO5fUSt4LCov7eo9OaAmXu49Mb00F08olpot
+	TsrTKYe383jO9r/aD+2lFqKrwQjKo24hQDRDc/hZcYMenWISVHjVCa1JWgGgBdCFLkeKQCgdrb5
+	1d3d4ELYxG8MpeYuQH0y+rkjX4cSiTtEPshF0FokJfVxaCF4gbjTLT5v+K9j8iMy+lPJYcAVucy
+	c4I1+f9PKn2sHYLe6K5yxf9bmeGcCTxnfeE36yu5403zXGWv/VLOo5s90Vwk8wdWJqXNOuV7Q0Y
+	1WXHtfNa1hX7UGov0PSLbvtCOaNwvzOsNmCh9s7yrPP7OCjbWznbvwA2Yt8SUHARJfIW0yfK1Ef
+	mv8MI8Rpz+29QPzUoq3ic51cJ1xvsSKYkrBwPihGP7L+KSR/Fnt3p0VKk7L5/24O71M9HehUwlC
+	pr9O1ExjAv+vDkLYErU4vCwJzrydh9ppVtNDlDSQ==
+X-Received: by 2002:a05:6a00:3289:b0:82a:7aa3:a2fb with SMTP id d2e1a72fcca58-83f33c9b2dcmr22248125b3a.37.1779268761111;
+        Wed, 20 May 2026 02:19:21 -0700 (PDT)
 Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f63bb986dsm10208967b3a.48.2026.05.20.02.19.00
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f63bb986dsm10208967b3a.48.2026.05.20.02.19.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 02:19:10 -0700 (PDT)
+        Wed, 20 May 2026 02:19:20 -0700 (PDT)
 From: Wandun Chen <chenwandun1@gmail.com>
 X-Google-Original-From: Wandun Chen <chenwandun@lixiang.com>
 To: linux-arm-kernel@lists.infradead.org,
@@ -102,16 +102,17 @@ Cc: catalin.marinas@arm.com,
 	coxu@redhat.com,
 	tangyouling@kylinos.cn,
 	songshuaishuai@tinylab.org
-Subject: [PATCH v2 1/8] of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
-Date: Wed, 20 May 2026 17:18:37 +0800
-Message-ID: <20260520091844.592753-2-chenwandun@lixiang.com>
+Subject: [PATCH v2 2/8] kexec/crash: provide crash_exclude_mem_range() stub when CONFIG_CRASH_DUMP=n
+Date: Wed, 20 May 2026 17:18:38 +0800
+Message-ID: <20260520091844.592753-3-chenwandun@lixiang.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260520091844.592753-1-chenwandun@lixiang.com>
 References: <20260520091844.592753-1-chenwandun@lixiang.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_021911_738486_581900D0 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260520_021922_001238_12C20058 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,30 +133,34 @@ From: Wandun Chen <chenwandun1@gmail.com>
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-Prepare for an upcoming change that appends /memreserve/ entries to
-reserved_mem[]; such entries have no name.
+Prepare for an upcoming change that excludes non-dumpable reserved
+regions from the kdump vmcore and will call crash_exclude_mem_range()
+from generic, non-arch code.
 
 No functional change.
 
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 ---
- drivers/of/of_reserved_mem.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ include/linux/crash_core.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-index 8d5777cb5d1b..313cbc57aa45 100644
---- a/drivers/of/of_reserved_mem.c
-+++ b/drivers/of/of_reserved_mem.c
-@@ -788,7 +788,8 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
+diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+index c1dee3f971a9..0033d4777648 100644
+--- a/include/linux/crash_core.h
++++ b/include/linux/crash_core.h
+@@ -87,6 +87,12 @@ static inline int kexec_should_crash(struct task_struct *p) { return 0; }
+ static inline int kexec_crash_loaded(void) { return 0; }
+ static inline void crash_save_cpu(struct pt_regs *regs, int cpu) {};
+ static inline int kimage_crash_copy_vmcoreinfo(struct kimage *image) { return 0; };
++static inline int crash_exclude_mem_range(struct crash_mem *mem,
++					  unsigned long long mstart,
++					  unsigned long long mend)
++{
++	return 0;
++}
+ #endif /* CONFIG_CRASH_DUMP*/
  
- 	name = kbasename(np->full_name);
- 	for (i = 0; i < reserved_mem_count; i++)
--		if (!strcmp(reserved_mem[i].name, name))
-+		if (reserved_mem[i].name &&
-+		    !strcmp(reserved_mem[i].name, name))
- 			return &reserved_mem[i];
- 
- 	return NULL;
+ #ifdef CONFIG_CRASH_DM_CRYPT
 -- 
 2.43.0
 
