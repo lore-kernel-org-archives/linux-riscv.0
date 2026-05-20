@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6EACD4F3C
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 16:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C12BCD4F3D
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 16:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cY/xWtGoAkjBFQeaP43L7xuwskj9mGafTmuzGJdmHn4=; b=MQ2GMxU+zjaJFs
-	BLi+j56tUBQLamWa+UgJ1gCXC0rcBPmsFXi4SofoLM31vJScIht5V9zGG983JXQteER/MiR5RCtw2
-	VD4E+GxvjC6rjTZC8o9i4HQybf2mdgvmESvJy3Iwr0MibLBmbQ9hBEms3r5NvtZRKsfUBoS0/NiJ8
-	mMwJHHxyjowwrrOZtmS5+g2RMucIWK+/xPUNikaQM37xxCmOzpc+ibcP3vGZzr5GL2yXuMLfepSi/
-	HladMNMBh44xuIZMrDL1bw4MeW0pSgHDavLZqlcrHLW09Dwg5Xa4SjgEeUsWbG4/Xx8LFsDMhIenF
-	is3O16C8iLvLasMJLBIg==;
+	List-Owner; bh=/Tg+9zKcRLAyQEUxlk6yC1X92zMS3mYM0+a8aoI4r6M=; b=xoizIKRuV22l3x
+	1hSFfEhalo96GDNjeeNn5mNrTFhEyAB6aNZawZ9Hj4YdDENxirJsp6RxQDOjeFfH0YXPRT4lvxmgg
+	VrRQ/85wR8VDIxh0vkx3M9a6pKn78hSvQD3E4TfJIATJikqdsWO3N952VcYxlAQyV2g8oN2JsgCSn
+	KqaUZ71EOIQLa0fxPCHJWMuto0lUQzocpEBv4pKGaM09GGzM83peSMLBaKpdCVlVUIUNEvuNNJCEe
+	JZSC2drOv9jVHEziKdhYI9tKbwTggZ1rJ7V0+hSFrsco0oNLogpuLi8qOqKs1+dt6GQ/cKslI3l9V
+	1G1wyxob/18Tj6sTDlGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjOr-000000057IP-2zMi;
-	Wed, 20 May 2026 16:04:01 +0000
+	id 1wPjYi-000000058OX-2yp5;
+	Wed, 20 May 2026 16:14:12 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPjYh-000000058O3-2W4C
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 20 May 2026 16:14:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=UA8TxjZbSTK65jKuLziFwGYU2QFvL6Uecv4q4a5fTNw=; b=rQMeid89T03p5cqieo3ekDAAG1
+	nazHmw4h/MCKo1SOSvterpSkVhrYKQos0vInk4m+Svu/aeOnBqXc2aW11PLymBtZyqJEyx3/0wqGp
+	BVjFtdl51FFTXBvLDB69APut5kJ2JYGFrycfZoTOJMHbJsWhv20PElf87jFCohgOClOkRpQBQpWGf
+	LjnBTnpLpc/jjN67pkT4JmoYhW8kZJ17ks0LUGXz6q22m0E71tshrU+e+R2iNJmy4yJ934BVXdVdI
+	draQEU/fTakh6NQnXyIujqTYkrwGgvXHlxr4yPyozqcdiZGfk/OyDyr3mvcB7YlHi36q8kOVPMrwV
+	0oY9qFXg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjOo-000000057He-22ze
+	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPjYd-00000007Mfm-3DTY
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 16:03:59 +0000
+	Wed, 20 May 2026 16:14:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DC282936;
-	Wed, 20 May 2026 09:03:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B94025DE;
+	Wed, 20 May 2026 09:13:59 -0700 (PDT)
 Received: from [10.57.34.79] (unknown [10.57.34.79])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 488A63F7B4;
-	Wed, 20 May 2026 09:03:53 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C12333F7B4;
+	Wed, 20 May 2026 09:14:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779293036; bh=wT0Kf9XYz5aihDzOJ28mIvVStKTBggksUVtIvMXrrBw=;
+	t=1779293644; bh=97SF2OTzJd/H1caJQialhgZHqe7kO84O/EEUdMecaHI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QFSHEz8huXoTn6S3CeR0sEceXExvaU7/foYh7978ty6GnYVdS0LLPBBXGYvYBCznB
-	 yJLIPZzsKmtk2mGKCTtI/v4udgKiawrimm6BQ7nTvfw7SP2mwg4vqqUdS5rodIT5U2
-	 86EwP5usGE3/+l/b82aaXBBjKIevxRTkCMXoTdZg=
-Message-ID: <c50a527c-83e7-439b-95a0-a38235c24de6@arm.com>
-Date: Wed, 20 May 2026 17:03:49 +0100
+	b=CG95ZInuIVPpUBu6Xfl19RNyqZf8H0QurnIU4lhIh81AZtdzbPoIzFa7ZVt+1V1eW
+	 Xz4irlUKZipY5f5jSKAiW2pE8SC2bC6mYQ65YaWwltJopwLzl8G9qLlWFS+Tx05VT6
+	 MsX5xoiJLkZxOBujejBKnr4V15lpQXkAFCWqidZo=
+Message-ID: <ccfcf795-4f9f-49c6-a891-c69c99c47198@arm.com>
+Date: Wed, 20 May 2026 17:13:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] iommu/riscv: prefer WSI on IGS=BOTH when wired IRQs are
  described
-To: fangyu.yu@linux.alibaba.com
-Cc: ajones@ventanamicro.com, alex@ghiti.fr, andrew.jones@oss.qualcomm.com,
- aou@eecs.berkeley.edu, guoren@kernel.org, iommu@lists.linux.dev,
- joro@8bytes.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org,
- sunilvl@oss.qualcomm.com, tomasz.jeznach@linux.dev, will@kernel.org
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>, fangyu.yu@linux.alibaba.com
+Cc: ajones@ventanamicro.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
+ guoren@kernel.org, iommu@lists.linux.dev, joro@8bytes.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, pjw@kernel.org, sunilvl@oss.qualcomm.com,
+ tomasz.jeznach@linux.dev, will@kernel.org
 References: <7dc61855-d916-4659-8137-7f3457f6a56d@arm.com>
  <20260520134416.28552-1-fangyu.yu@linux.alibaba.com>
+ <kkx6nqyc3evbfeutxkzwv6kbrotsbxopkvit2e2qh6hljicq5m@x4bb54loffkk>
 From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-In-Reply-To: <20260520134416.28552-1-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <kkx6nqyc3evbfeutxkzwv6kbrotsbxopkvit2e2qh6hljicq5m@x4bb54loffkk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_090358_687795_816ADE4F 
-X-CRM114-Status: GOOD (  29.99  )
+X-CRM114-CacheID: sfid-20260520_171407_979179_9BE5CE30 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,96 +86,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNi0wNS0yMCAyOjQ0IHBtLCBmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20gd3JvdGU6
-Cj4+Pj4gV29uJ3QgaXQgY2hhbmdlIHRoZSBEVCBiZWhhdmlvciBhcyBpdCBkb2Vzbid0IGNoZWNr
-IG1zaS1wYXJlbnQKPj4+PiBhbnltb3JlPyAgSU9XLCBzaG91bGQgdGhpcyBiZSBtYWRlIHNwZWNp
-ZmljIHRvIEFDUEkKPj4+PiBieSBjaGVja2luZyB3aGV0aGVyIHRoZSBkZXZpY2Ugbm9kZSBpcyBh
-Y3BpIG5vZGU/Cj4+Pj4KPj4+Cj4+PiBUaGFua3MgZm9yIHRoZSByZXZpZXcsIHlvdSdyZSByaWdo
-dCB0aGF0IHRoZSBjdXJyZW50IGNvbmRpdGlvbiB3b3VsZAo+Pj4gYWZmZWN0IERUIGFzIHdlbGwu
-Cj4+Pgo+Pj4gTXkgYXNzdW1wdGlvbiB3YXMgdGhhdCBEVCB3b3VsZCBkZXNjcmliZSBlaXRoZXIg
-ImludGVycnVwdHMiIGZvciBXU0kKPj4+IG9yICJtc2ktcGFyZW50IiBmb3IgTVNJLCBidXQgbm90
-IGJvdGgsIHNvIHBsYXRmb3JtX2lycV9jb3VudCgpID4gMAo+Pj4gd291bGQgZWZmZWN0aXZlbHkg
-aW1wbHkgIm5vIG1zaS1wYXJlbnQiIGluIHByYWN0aWNlLgo+Pj4KPj4+IFRoYXQgc2FpZCwgSSBh
-Z3JlZSB0aGF0IHRoaXMgc2hvdWxkIGJlIGxpbWl0ZWQgdG8gdGhlIEFDUEkgcGF0aC4gVGhhdAo+
-Pj4gbWF0Y2hlcyB0aGUgYWN0dWFsIGJ1ZyBzY29wZSDigJQgb25seSBBQ1BJIHdhcyBmYWxsaW5n
-IGJhY2sgdG8gTVNJIHdoZW4KPj4+IHdpcmVkIElSUXMgd2VyZSBkZXNjcmliZWQg4oCUIGFuZCBs
-ZWF2ZXMgRFQgdW5jaGFuZ2VkLgo+Pj4KPj4+IEknbGwgcmVzcGluIGEgdjIgdG8gc2NvcGUgdGhl
-IGZpeCB0byBBQ1BJIG9ubHksIGFuZCB0aWdodGVuIHRoZSBjb21taXQKPj4+IG1lc3NhZ2UgYWNj
-b3JkaW5nbHkuCj4+Cj4+IFdoeSB3b3VsZCB0aGlzIGJlIHNwZWNpZmljIHRvIEFDUEk/IEFGQUlD
-UyBpZiBEVCBzcGVjaWZpZXMgYW4KPj4gIm1zaS1wYXJlbnQiIHByb3BlcnR5IHN1Y2ggdGhhdCBh
-biBNU0kgZG9tYWluIGV4aXN0cywgdGhlbiBNU0lzIHdpbGwgYmUKPj4gcHJlZmVycmVkIGFzIHdl
-bGwsIHNpbmNlIHRoZSBlbnRpcmUgZnVuY3Rpb24gaXMgc3RydWN0dXJlZCB0byBwcmVmZXIKPj4g
-TVNJcyBpZiBhdmFpbGFibGUsIGFuZCBmYWxsIGJhY2sgdG8gd2lyZWQgaWYgbm90LiBJZiB0aGUg
-c3lzdGVtIGRvZXMKPj4gc3VwcG9ydCBib3RoIG9wdGlvbnMgdGhlbiBEVCBzaG91bGQgZGVzY3Jp
-YmUgdGhhdCwgc2FtZSBhcyBBQ1BJOyB3aGF0Cj4+IExpbnV4IGNob29zZXMgdG8gdXNlIGlzIGVu
-dGlyZWx5IExpbnV4J3Mgb3duIHBvbGljeS4KPj4KPj4gQnV0IGlmIHlvdSBkbyB3YW50IHRvIGNo
-YW5nZSB0aGUgTGludXggZHJpdmVyJ3MgcG9saWN5IGZvciBzb21lIHJlYXNvbgo+PiB0aGF0IHRo
-ZSBjb21taXQgbWVzc2FnZSBpc24ndCByZWFsbHkgZXhwbGFpbmluZywgdGhlbiByZWFycmFuZ2Ug
-dGhlCj4+IHdob2xlIHN3aXRjaCBzdGF0ZW1lbnQ7IGRvbid0IGp1c3QgYWRkIGEgd2VpcmQgaGFj
-ayB0byB0cnkgdG8gZGVmZWF0IHRoZQo+PiBleGlzdGluZyBsb2dpYyBfaW4gdGhlIHNhbWUgZnVu
-Y3Rpb25fLi4uCj4+Cj4+IEluIGdlbmVyYWwgdGhvdWdoLCBJIHdvdWxkIGhhdmUgdGhvdWdodCBw
-cmVmZXJyaW5nIE1TSXMgbWFrZXMgdGhlIG1vc3QKPj4gc2Vuc2UsIHNpbmNlIE1TSSB2ZWN0b3Jz
-IGFyZSBnZW5lcmFsbHkgY2hlYXBlciB0aGFuIHdpcmVzLCBzbyB0aGVyZSdzIGEKPj4gYmV0dGVy
-IGNoYW5jZSBvZiBiZWluZyBhYmxlIHRvIGhhdmUgdW5pcXVlIElSUXMgcGVyIGludGVycnVwdCBz
-b3VyY2UsCj4+IHdoZXJlYXMgd2l0aCB3aXJlcyB5b3UgbWF5IGJlIHN0dWNrIHdpdGggYSBjb21i
-aW5lZCBJUlEuCj4gCj4gVGhhbmtzLCBSb2Jpbi4KPiAKPiBUbyBjbGFyaWZ5LCB0aGUgZ29hbCBo
-ZXJlIGlzIG5vdCB0byBjaGFuZ2UgdGhlIGdlbmVyYWwgTVNJLXZzLVdTSQo+IHByZWZlcmVuY2Ug
-cG9saWN5LiBUaGUgYnVnIGlzIHRoYXQsIHdoZW4gdGhlIGhhcmR3YXJlIGFkdmVydGlzZXMKPiBJ
-R1M9Qk9USCwgRFQgYWxyZWFkeSBwcm92aWRlcyBhIHdheSB0byBzZWxlY3QgV1NJIGJ5IGRlc2Ny
-aWJpbmcgd2lyZWQKPiBJUlFzIHdpdGhvdXQgYW4gbXNpLXBhcmVudCwKCkFuZCBteSBwb2ludCBp
-cyB0aGF0IHRoYXQgc291bmRzIHdyb25nIC0gaWYgdGhlIHN5c3RlbSBjYW4gc3VwcG9ydCBib3Ro
-IAp0aGVuIERUIHNob3VsZCBoYXZlIGJvdGggcHJvcGVydGllcywgYmVjYXVzZSBEVCBkZXNjcmli
-ZXMgdGhlIHN5c3RlbSwgCm5vdCBMaW51eCBwb2xpY3kuIE9mIGNvdXJzZSBpdCBpcyBwcmVzdW1h
-Ymx5IHBvc3NpYmxlIHRvIGhhdmUgYSByZXVzYWJsZSAKSU9NTVUgSVAgdGhhdCBpdHNlbGYgc3Vw
-cG9ydHMgSUdTPUJPVEgsIGludGVncmF0ZWQgaW50byBzeXN0ZW1zIHdoaWNoIAplaXRoZXIgZG9u
-J3QgaGF2ZSBhbiBNU0kgY29udHJvbGxlciwgb3IgaGF2ZW4ndCBjb25uZWN0ZWQgdGhlIHdpcmVz
-LCBpbiAKd2hpY2ggY2FzZSBvbmx5IG9uZSBvciBvdGhlciBwcm9wZXJ0eSBpcyB2YWxpZCB0byBk
-ZXNjcmliZSBhbnl3YXksIGJ1dCAKdGhhdCdzIGZpbmUgLSBJR1MgZGVzY3JpYmVzIHdoYXQgdGhl
-IElPTU1VIGlzIGNhcGFibGUgb2Ygc2VuZGluZywgdGhlIApmaXJtd2FyZSBwcm9wZXJ0aWVzIGRl
-c2NyaWJlIHdoYXQgdGhlIHJlc3Qgb2YgdGhlIHN5c3RlbSBpcyBjYXBhYmxlIG9mIApyZWNlaXZp
-bmcsIGFuZCBpZiB0aGVyZSdzIGFueSBjaG9pY2UgbGVmdCBpbiB0aGUgaW50ZXJzZWN0aW9uIG9m
-IHRoZSB0d28gCnRoZW4gdGhhdCdzIHVwIHRvIHRoZSBPUy4KCj4gYnV0IHRoZSBBQ1BJIHBhdGgg
-ZG9lcyBub3QgY3VycmVudGx5IGhhdmUKPiBhbiBlcXVpdmFsZW50IHdheSB0byBzdGVlciB0aGUg
-ZHJpdmVyIHRvIFdTSS4KPiAKPiAgICAgIC0gRFQ6IGlmICJtc2ktcGFyZW50IiBpcyBvbWl0dGVk
-LCBvZl9tc2lfZ2V0X2RvbWFpbigpIHJldHVybnMgTlVMTCwKPiAgICAgICAgSUdTPUJPVEggdGhl
-biBmYWxscyB0aHJvdWdoIHRvIHRoZSBXU0kgcGF0aCwgc28gRFQgaGFzIGEgcmVhbCBrbm9iCj4g
-ICAgICAgICgiZG9uJ3QgZGVzY3JpYmUgTVNJIikgdG8gc2VsZWN0IFdTSS4KPiAgICAgIC0gQUNQ
-STogdGhlcmUgaXMgbm8gcGVyLWRldmljZSBlcXVpdmFsZW50LiBPbiBzeXN0ZW1zIHdpdGggSU1T
-SUMsIHRoZQo+ICAgICAgICBJR1M9Qk9USCBJT01NVSBhbHdheXMgZW50ZXJzIHRoZSBNU0kgYnJh
-bmNoIGFuZCByZXNvbHZlcyBhIG5vbi1OVUxMCj4gICAgICAgIG1zaV9kb21haW4sIHJlZ2FyZGxl
-c3Mgb2Ygd2hhdCBpdHMgb3duIF9DUlMgZGVzY3JpYmVzLiBUaGUgTVNJIGZhbGxiYWNrCj4gICAg
-ICAgIG9ubHkgdHJpZ2dlcnMgd2hlbiB0aGUgc3lzdGVtIGhhcyBubyBJTVNJQyBhdCBhbGwsIHdo
-aWNoIGlzIGEKPiAgICAgICAgZmlybXdhcmUtd2lkZSBkZWNpc2lvbiByYXRoZXIgdGhhbiBhIHBl
-ci1kZXZpY2Ugb25lLgo+IAo+IEFzIGEgcmVzdWx0LCB3aXRoIEFDUEkgYW5kIElHUz1CT1RILCB0
-aGUgZHJpdmVyIGFsd2F5cyB1c2VzIE1TSSBldmVuIHdoZW4KPiBmaXJtd2FyZSBkZXNjcmliZXMg
-d2lyZWQgSVJRcywgc28gdGhlIHBsYXRmb3JtIGNhbm5vdCBleHByZXNzIHRoZSBzYW1lCj4gaW50
-ZW50IGFzIGl0IGNhbiB3aXRoIERULgoKV2hhdCBkbyB5b3UgbWVhbiBieSAiaW50ZW50Ij8gQWdh
-aW4sIHBlb3BsZSBzaG91bGQgbm90IGJlIGhhY2tpbmcgCmZpcm13YXJlIGp1c3QgdG8gaW5mbHVl
-bmNlIE9TIGRyaXZlciBwb2xpY3kuCgpJZiB5b3UgbWVhbiB5b3UgaGF2ZSBhIGNhc2Ugd2hlcmUg
-YSBzeXN0ZW0gZG9lcyBoYXZlIGFuIE1TSSBjb250cm9sbGVyLCAKYW5kIGEgZGV2aWNlIHdoaWNo
-IGlzIGNhcGFibGUgb2YgZW1pdHRpbmcgTVNJcywgYnV0IHRoZSBkZXZpY2UncyBNU0kgCndyaXRl
-cyBjYW5ub3QgcmVhY2ggdGhhdCBNU0kgY29udHJvbGxlciwgYW5kIEFDUEkgaXMgaW5jYXBhYmxl
-IG9mIApkZXNjcmliaW5nIHRoYXQgc28gTGludXggZW5kcyB1cCBpbmNvcnJlY3RseSBhc3N1bWlu
-ZyB0aGF0IE1TSXMgc2hvdWxkIAp3b3JrLCB0aGVuIHlvdSBoYXZlIGEgc3BlYy1sZXZlbCBBQ1BJ
-IHByb2JsZW0gYW5kIHlvdSBuZWVkIHRvIGZpeCBSSU1UIAphbmQvb3IgYW55IG90aGVyIHJlbGV2
-YW50IHRhYmxlcy9wcm9wZXJ0aWVzIHRvIGJlIGFibGUgdG8gaW5kaWNhdGUgdGhhdCAKcHJvcGVy
-bHk7IGJvZGdpbmcgdGhlIExpbnV4IElPTU1VIGRyaXZlciBhbG9uZSBkb2VzIG5vdCBoZWxwIG90
-aGVyIE9TZXMsIApub3IgZXZlbiBvdGhlciBNU0ktY2FwYWJsZSBkZXZpY2VzIHVuZGVyIExpbnV4
-LgoKQW11c2luZ2x5LCB0aGF0IHdvdWxkIHRoZW4gYmUgdGhlIG9wcG9zaXRlIHByb2JsZW0gZnJv
-bSB3aGF0IHdlIGhhZCB3aXRoIApBcm0gU01NVSwgd2hlcmUgaW5pdGlhbGx5IHdlIGNvdWxkbid0
-IHVzZSBNU0lzIHdpdGggQUNQSSBhdCBhbGwgc2luY2UgCmVhcmx5IElPUlQgdmVyc2lvbiBoYWQg
-bm8gd2F5IHRvIGRlc2NyaWJlIHRoZSBuZWNlc3NhcnkgR0lDIERldmljZUlEIDopCgo+IFNvIHRo
-aXMgcGF0Y2ggaXMgbWVhbnQgdG8gZml4IHRoYXQgQUNQSSBnYXAgZm9yIElHUz1CT1RILCBub3Qg
-dG8gbWFrZQo+IFdTSSBnZW5lcmFsbHkgcHJlZmVycmVkIG92ZXIgTVNJLiBJIGFncmVlIHRoZSBj
-b21taXQgbWVzc2FnZSBzaG91bGQKPiBtYWtlIHRoYXQgYnVnIHNjb3BlIGV4cGxpY2l0LgoKQnV0
-IGV2ZW4gdGhlbiBpdCBkb2VzIGNoYW5nZSB0aGUgcG9saWN5IGluIGdlbmVyYWwgZm9yIGFsbCBB
-Q1BJIHN5c3RlbXMgCnRoYXQgZ2VudWluZWx5IGRvIGhhdmUgYm90aCBhbmQgY291bGQgaGFwcGls
-eSBzdGlsbCB1c2UgTVNJcy4KClRoYW5rcywKUm9iaW4uCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2026-05-20 5:03 pm, Andrew Jones wrote:
+> On Wed, May 20, 2026 at 09:44:16PM +0800, fangyu.yu@linux.alibaba.com wrote:
+> ...
+>>> (As a side note, is there a reason this is calling of_msi_configure() on
+>>> a platform device when of_platform_device_create_pdata() will have done
+>>> that already?)
+>>
+>> Good catch, agreed.
+>>
+> 
+> This is here for a device creation order issue. We have similar patterns
+> elsewhere, e.g. drivers/irqchip/irq-riscv-rpmi-sysmsi.c:268. When the
+> device is created the MSI controller may not yet have been probed, so
+> msi_domain will be NULL. The of_msi_configure() here ensures it gets a
+> second chance. Anup says he has a device driver framework solution to
+> avoid this pattern that he intends to post soon. I'll clean this up
+> after that.
+
+Ah, that sounds like something somewhere between of_msi_configure() and 
+platform_device_msi_init_and_alloc_irqs() needs to be able to return an 
+EPROBE_DEFER if a parent is specified but not ready yet, similar to 
+regular of_irq_get(). I guess this hasn't been noticed much yet since 
+most MSI controllers run off early initcalls rather than being regular 
+driver model drivers - OK, fair enough for now :)
+
+Cheers,
+Robin.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
