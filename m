@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3363CD4F5E
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 05:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13FFBCD4F5E
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 May 2026 05:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HI0+/D7P2lcfeGncKsQc8/MWFJg5eVD6hZaTJXoZlXU=; b=ilttnJgbPka2x9
-	+AwV/qbIKwBFWR1JydyHhnVg74TJuiQDPzvwaV9/b1haaK3nRM5lKy1sC96BJqTdlReQXxoxB08t3
-	Qnwi8ASPnqO7RZzOUJDaCRB0ulDTvFRmonQD/WfaiSx0qyTC/qpH9gz+fuPk3FD/NJJ8TJXQEZeh/
-	kUY1HwRJX1DpyuZTxVueYOToWyorOMWM1SuUiRyEPI9fcG/5SmeK/964I7cjHAEjt8gQdxGZuMJEH
-	F+lhU5pUIowRgWOEV168C2WF1FDyE5xbv+MctOFbJj94e2ZjsIktQ6DD6WUnJ+sODhnMhSdh+jFK9
-	unS0PMMWlcBgvNhUlDqQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AUBX6WeiMdVh8E7mOvWUHbe6jsNPgZ9YWJLda+447lA=; b=MhiCL3xsFyStct
+	T9MJlVX+HONJsfeQHXe3t0WE+jE3Ov/VEC95Rl2BUphwCOZGgNR8gM3Vl+qX/al70XhBgc1d71Xy4
+	gqhdXx0iawpFm5RfpZWbnMm249YfhU7IwUCGfL2N+svC5gq5M/DnZAsXgvfx4Ea6FrSiCdYTU25hE
+	cdF3HaFiO5WG8RB/MuRZwGNR/5BLPQS0t5L8NbaZj0+s9/ZHEHNFRWcdd2BK7Bp5Me5ZqSGNyGR4c
+	yFsXapbdayKdlefFqxiJDBsZY8qGOJq50W75A5w/p76pn/HHp5cdNXG1Fbx454vj5fRLvjrg0x/WJ
+	cJUdgI3fQIJocbH3aKZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPZfZ-00000003aAc-1yOh;
-	Wed, 20 May 2026 05:40:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPZfS-00000003a8n-1FTo;
+	Wed, 20 May 2026 05:40:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPZfY-00000003aA4-09LR
+	id 1wPZfP-00000003a8M-3luC
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 May 2026 05:40:36 +0000
+	Wed, 20 May 2026 05:40:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2577960129;
-	Wed, 20 May 2026 05:40:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2752B1F000E9;
-	Wed, 20 May 2026 05:40:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28410434F9;
+	Wed, 20 May 2026 05:40:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AAF61F000E9;
+	Wed, 20 May 2026 05:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779255634;
-	bh=cBiAOBqWBPw6WJam/PhetWRcYOFQszAvib0dqlXq/Us=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=LOojaKv3t2d+4qbiHKoBgp/pFQlQt1PDoNL3XD6WNbGqEeEqqY7UFjLXMdSNuLaNP
-	 hy0HSDae0QpLAFg7yGDGoL93IXKP7+DPLcEYKn9FTrvDG1kCU9wl5l/ULK6WfVEk6t
-	 DYIO6964beul5ORUCeVOdz+EJJxEq0fGlc1+FM10RLoSB0/9TfN77K0zmGLDDpppGd
-	 aujnD/b5l6Ew9be3Pdoju62jIeTd4gQ1XLQTbfTXHEp49Mon51dyQ9gP3mP+QzXohs
-	 8beQ870LMboCwIZIDLlZh1n5pA9vUOvNvRUW+vku0rG09akH4wKcvAy8WA63zqDtZk
-	 ZXOW7+1c94Y9A==
+	s=k20260515; t=1779255627;
+	bh=VXWU7r0c9VKxC/LLgGie8gWxBd1YPuZj7z3fEqvPJz0=;
+	h=From:Subject:Date:To:Cc;
+	b=HRJfWQkTrCwoF4h2BMFlzFSpVisS7rn8JLtYksB2VEf767X7mxqjrGaixOxJJDDP1
+	 xgJ+9RX+r6lcl88FCfn2pGpJlckWLfgkosAGqZXJCGpGWSDzydkUhiuJ/FuFTfBAgH
+	 C55OGfY0vemUoM4tUmUd4OeWCoC6WgSUpFGTRj1AYQ5WXGmGG3LwfEwbkH0ytXx4AS
+	 xwWFsRYM4vJC2s8PC79OSKDeHMjPEsYaxaJvm1oxNUsfbr1vFpzrgBGXRyNQqjVwR8
+	 7Q46oxyFdQx01te4la0DxnVlDnKqUDuYuPxNfhx5Jay9EGfnc7YXFrfkdbxQO89Ef4
+	 xuVeTABcFfNbw==
 From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 20 May 2026 05:40:10 +0000
-Subject: [PATCH 2/2] riscv: dts: spacemit: k3: Initial support for
- CoM260-IFX board
+Subject: [PATCH 0/2] spacemit: k3: Add support for CoM260-IFX board
+Date: Wed, 20 May 2026 05:40:08 +0000
+Message-Id: <20260520-02-k3-com260-ifx-v1-0-3e17055dd488@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260520-02-k3-com260-ifx-v1-2-3e17055dd488@kernel.org>
-References: <20260520-02-k3-com260-ifx-v1-0-3e17055dd488@kernel.org>
-In-Reply-To: <20260520-02-k3-com260-ifx-v1-0-3e17055dd488@kernel.org>
+X-B4-Tracking: v=1; b=H4sIADhJDWoC/yXMTQ5AMBBA4avIrE0yKghXEYuqwRA/aRGJuLti+
+ S3eu8CxFXZQBBdYPsTJMntEYQCm13PHKI03KFIpJVGOpHCM0SyTN0p7otaxojonTpMMfLZabuX
+ 8lmX12+31wGZ7P3DfDxH5wdl0AAAA
+X-Change-ID: 20260519-02-k3-com260-ifx-aa320b90e657
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -58,24 +59,28 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8327; i=dlan@kernel.org;
- h=from:subject:message-id; bh=VuooxCFR+YW8anJ4giZslVX0LMLOwsj+bJQuiWE6wPI=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqDUlE3qXGrOsMwfv3OROe8uIc+ksaK8wLFqw9j
- S/gr1g4JKGJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCag1JRBsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1135; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=Y8PjvZ7mPoBrPXkY4y6yoQNzP77kDpkGlwcWTLE9+kM=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqDUk9077NYFsddRGvdQNDUmaSQ0iEVX36QrNeQ
+ w1J1a08DxiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCag1JPRsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0cnA/9GIpv3Qa90oUS9kTiBQv2yfET2dkfCnt/hnS9PyiF1jAb4ybexTgFE
- Ge9SXMQQowxiOqgMAbEUbAGysK9fIRX/4vkfqqqbMRUaq4w3fi61hl08MHGumQiDYPo0WPwEFUs
- UMjM/JMl+alxe0uiH/oNGRNKS5ZXj2PeXP9pGz4Zx2QNFvo1SMT/F20TlbhGE509zkl9a+Omazj
- QFTeQrtMDhQ7Sw0RqBhwzFndyfTxUhu1dsoFiVIM1RiuyX4REf/0po4hFrEg9T9f9ky5TDldZOm
- 9pnTB9GTyGGCeGWLxfUXBBm4npDVXillREXN0ICA6DNaIdAZQkZ2Fg7On4jKDLx+rWcBdcgqxPi
- VhqgYgZSYH9AOFSHRKHXN5IKv9hRhLPZHelFT42neTusPD7Nm3TE4wWemx0GH9tCg9vRJqngmcZ
- Cr9SHDp6MIwsK0wiIuUXqH4EdTnV5dL0C3SKj2Vmvm/+3Pq8FNVuG5rJBoFpZKoEc1EI3VIj08E
- TEE8i9WqHoMkiD4LazAhVWOeJTKcG/eTJV5L2huNMy0NyEf0q+lbAK8IXUq1IxLL9piX8uej9Lt
- rSXwmu7YPPSu51Lh8X5bI+2fRbL1F0+Aqxkk7xw4QUFudXWlAYh86O/qAENIQ1eR81JmMz188uw
- FKg6nEVGlxX5vIU4qep2J7joQs6jtY=
+ QACgkQMarqR1lNu+3vWxAAjCKUOgm90oQlWZGUQxI/ihraT8IRK1N0SXpUK1u3JbIXywZWswUEn
+ k9pTcqiIceiG2wXlQL1klO32Oa5wfa8QnppBrMmiLBmxtrJ0fVIncVH2411s4yakpkC2VaTuOi1
+ WFFoSKiakNHB3NrVVSNqPy+KhW3GWzxmqZYIAGmv00qUOr7hUzUAoGqfkPZg7sLPbVZm758GUrk
+ N/uuXBrA0XcZFFRjUjSDnDbI3bncdyqiz6XTU7FnBT1Mfo+6CiuSkogRmXH/DdNQxd8BDLy+h9+
+ u0sPxkEqyFJNxR8ViGOhDNoO8coYKEeue6l+KpOcvUhrWYxw21lQpS7RhqTfxf//69Qrg9BCiLj
+ jQ9Ur85Rd8aOQ7FwM+OUO4QipLn1/d0GFxpIaY0+higZ34qQMHpmW21LffuEoHsYcoMOHW1xOn7
+ P+wDVFvsfUampNAl+bwqLQ7CHQihxrNvydHP3FI9r0S9nx27AKKr5nRr0AZtoIyAIz8rH3t+3B7
+ gn2OJFxYXM42eKZdsJ6YLK5KZqzXtxDPO1pE6yzjl2cd/wi1C0nBAPH4sf/50bLqiLMxbewCsWe
+ G+RJW8SJKNk6ULlC2ajH+KkUgAHeKSyPJB2OYv5s+JXDT8yxv3/fjrUdRgww/icTHMmFK32rXOn
+ h8hD7m7a9XJM7MdqgIovp2Rj2O3lQM=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_224027_982841_1D13487A 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,311 +92,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The K3 CoM260-IFX board combine with one 260 pins "Gold Finger" computer
-module with a carrier board. The module integrates the K3 SoC, LPDDR5,
-UFS storage, Gigabit Ethernet, Micro SD card, PMIC Chip. The board offers
-a comprehensive array of interfaces, including MIPI-DSI, MIPI-CSI,
-DisplayPort, SDIO, SPI, I2S, I2C, CAN-FD, PWM, UART, USB, PCIe, and GMAC.
-
-Add initial support for enabling Serial UART and ethernet.
-
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
- arch/riscv/boot/dts/spacemit/Makefile          |   1 +
- arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts |  21 +++
- arch/riscv/boot/dts/spacemit/k3-com260.dtsi    | 190 +++++++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi   |  33 +++++
- 4 files changed, 245 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
-index acb993c452ba..28ec9e1e0a62 100644
---- a/arch/riscv/boot/dts/spacemit/Makefile
-+++ b/arch/riscv/boot/dts/spacemit/Makefile
-@@ -4,5 +4,6 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-r2s.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
-+dtb-$(CONFIG_ARCH_SPACEMIT) += k3-com260-ifx.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k3-deepcomputing-fml13v05.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k3-pico-itx.dtb
-diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-new file mode 100644
-index 000000000000..238bb03d0e9e
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
-+ * Copyright (c) 2026 Yixun Lan <dlan@kernel.org>
-+ */
-+
-+#include "k3-com260.dtsi"
-+
-+/ {
-+	model = "SpacemiT K3 CoM260 IFX";
-+	compatible = "spacemit,k3-com260-ifx", "spacemit,k3-com260", "spacemit,k3";
-+
-+	aliases {
-+		serial0 = &uart0;
-+		ethernet0 = &eth1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-new file mode 100644
-index 000000000000..1801a44d4355
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-@@ -0,0 +1,190 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
-+ * Copyright (c) 2026 Yixun Lan <dlan@kernel.org>
-+ */
-+#include <dt-bindings/gpio/gpio.h>
-+
-+#include "k3.dtsi"
-+#include "k3-pinctrl.dtsi"
-+
-+/ {
-+	model = "SpacemiT K3 CoM260 Module";
-+	compatible = "spacemit,k3-com260", "spacemit,k3";
-+
-+	memory@100000000 {
-+		device_type = "memory";
-+		reg = <0x1 0x00000000 0x4 0x00000000>;
-+	};
-+
-+	reg_5v_sys: regulator-5v-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "P5V0_SYS";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&i2c8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c8_cfg>;
-+	status = "okay";
-+
-+	p1@41 {
-+		compatible = "spacemit,p1";
-+		reg = <0x41>;
-+		interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
-+		vin1-supply = <&reg_5v_sys>;
-+		vin2-supply = <&reg_5v_sys>;
-+		vin3-supply = <&reg_5v_sys>;
-+		vin4-supply = <&reg_5v_sys>;
-+		vin5-supply = <&reg_5v_sys>;
-+		vin6-supply = <&reg_5v_sys>;
-+		aldoin-supply = <&reg_5v_sys>;
-+		dldoin1-supply = <&buck4>;
-+		dldoin2-supply = <&buck4>;
-+
-+		regulators {
-+			buck1: buck1 {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck2: buck2 {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck3: buck3 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <800000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck4: buck4 {
-+				regulator-min-microvolt = <2100000>;
-+				regulator-max-microvolt = <2100000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck5: buck5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck6: buck6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <500000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			aldo1: aldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			aldo2: aldo2 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			aldo3: aldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo4: aldo4 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo1: dldo1 {
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo2: dldo2 {
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo3: dldo3 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo4: dldo4 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+			};
-+
-+			dldo5: dldo5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo6: dldo6 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo7: dldo7 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+		};
-+	};
-+};
-+
-+&eth1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_rgmii_0_cfg>, <&gmac1_phy_0_cfg>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&phy1>;
-+	status = "okay";
-+
-+	mdio {
-+		phy1: phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <1>;
-+			reset-gpios = <&gpio 1 5 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <10000>;
-+		};
-+	};
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_0_cfg>;
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-index 23899d3f308a..04efe64b8a3a 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-@@ -45,6 +45,39 @@ gmac0-phy-0-pins {
- 		};
- 	};
- 
-+	gmac1_rgmii_0_cfg: gmac1-rgmii-0-cfg {
-+		gmac1_base_pins: gmac1-0-pins {
-+			pinmux = <K3_PADCONF(21, 1)>,	/* gmac1_rxdv  */
-+				 <K3_PADCONF(22, 1)>,	/* gmac1 rx d0 */
-+				 <K3_PADCONF(23, 1)>,	/* gmac1 rx d1 */
-+				 <K3_PADCONF(24, 1)>,	/* gmac1 rx_clk */
-+				 <K3_PADCONF(25, 1)>,	/* gmac1 rx d2 */
-+				 <K3_PADCONF(26, 1)>,	/* gmac1 rx d3 */
-+				 <K3_PADCONF(27, 1)>,	/* gmac1 tx d0 */
-+				 <K3_PADCONF(28, 1)>,	/* gmac1 tx d1 */
-+				 <K3_PADCONF(29, 1)>,	/* gmac1 tx clk */
-+				 <K3_PADCONF(30, 1)>,	/* gmac1 tx d2 */
-+				 <K3_PADCONF(31, 1)>,	/* gmac1 tx d3 */
-+				 <K3_PADCONF(32, 1)>,	/* gmac1 tx_en */
-+				 <K3_PADCONF(33, 1)>,	/* gmac1 mdc */
-+				 <K3_PADCONF(34, 1)>;	/* gmac1 mdio */
-+
-+			bias-disable;
-+			drive-strength = <25>;
-+			power-source = <1800>;
-+		};
-+	};
-+
-+	gmac1_phy_0_cfg: gmac1-phy-0-cfg {
-+		gmac1-phy-0-pins {
-+			pinmux = <K3_PADCONF(35, 1)>;	/* gmac1 int */
-+
-+			bias-disable;
-+			drive-strength = <25>;
-+			power-source = <1800>;
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	i2c8_cfg: i2c8-cfg {
- 		i2c8-pins {
-
--- 
-2.54.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBwYXRjaCBzZXJpZXMgdHJ5IHRvIGFkZCBpbml0aWFsIHN1cHBvcnQgZm9yIFNwYWNlbWlU
+IEszIENvTTI2MC1JRlgKYm9hcmQgd2hpY2ggY29tYmluZXMgYSA2OS42IMOXIDQ1IG1tIGNvbXB1
+dGUgbW9kdWxlIHdpdGggYSByZWZlcmVuY2UgY2Fycmllcgpib2FyZC4KClRoZSBmaXJzdCBwYXRj
+aCBpbnRyb2R1Y2UgbmV3IGR0IGJpbmRpbmdzIGZvciB0aGUgbW9kdWxlIGFuZCBib2FyZCwgdGhl
+CnNlY29uZCBwYXRjaCBlbmFibGUgc3VwcG9ydCBmb3Igc2VyaWFsIGNvbnNvbGUgYW5kIGV0aGVy
+bmV0LgoKTGluazogaHR0cHM6Ly9zcGFjZW1pdC5jb20vY29tbXVuaXR5L2RvY3VtZW50L2luZm8/
+bGFuZz16aCZub2RlcGF0aD1oYXJkd2FyZS9lY28vazNfY29tMjYwL3Jvb3Rfb3ZlcnZpZXcubWQK
+U2lnbmVkLW9mZi1ieTogWWl4dW4gTGFuIDxkbGFuQGtlcm5lbC5vcmc+Ci0tLQpZaXh1biBMYW4g
+KDIpOgogICAgICBkdC1iaW5kaW5nczogcmlzY3Y6IHNwYWNlbWl0OiBBZGQgSzMgQ29NMjYwLUlG
+WCBib2FyZAogICAgICByaXNjdjogZHRzOiBzcGFjZW1pdDogazM6IEluaXRpYWwgc3VwcG9ydCBm
+b3IgQ29NMjYwLUlGWCBib2FyZAoKIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L3NwYWNl
+bWl0LnlhbWwgICAgICAgIHwgICA1ICsKIGFyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvTWFr
+ZWZpbGUgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQv
+azMtY29tMjYwLWlmeC5kdHMgICAgIHwgIDIxICsrKwogYXJjaC9yaXNjdi9ib290L2R0cy9zcGFj
+ZW1pdC9rMy1jb20yNjAuZHRzaSAgICAgICAgfCAxOTAgKysrKysrKysrKysrKysrKysrKysrCiBh
+cmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLXBpbmN0cmwuZHRzaSAgICAgICB8ICAzMyAr
+KysrCiA1IGZpbGVzIGNoYW5nZWQsIDI1MCBpbnNlcnRpb25zKCspCi0tLQpiYXNlLWNvbW1pdDog
+ZTI1MThlOGNiMWRkZTY0YWYyZDFiYjI0NjYzOWJiN2VmNzUyM2Y3YQpjaGFuZ2UtaWQ6IDIwMjYw
+NTE5LTAyLWszLWNvbTI2MC1pZngtYWEzMjBiOTBlNjU3CgpCZXN0IHJlZ2FyZHMsCi0tICAKWWl4
+dW4gTGFuIDxkbGFuQGtlcm5lbC5vcmc+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
