@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEB0CD4F3D
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 00:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4B0CD4F3D
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 00:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=44ujXUnZoSboESNw6P7nz7XVYQyPFUT/fIPAxbKCW6c=; b=CGs1vshidLY/z1
-	83J63vBvwfwS9cEdwc88403qr8+z5BOr4PJrjo4t36GEKDb7/cKge+CXgHY0/o3ljmDoZGc5z3IGN
-	8NWUI5UJQs0Ie5QNyMqAiKrCD6R1MgVVBPqGC4MV8MOwt07b0iJMboPSQ7OAELCLRDL3uQwg0ru+H
-	nsgTglGroxnfWAWEjlXwMiIBjwisnW0hbd3BlzNSpMvkXXnt+OxN/L+6+5ySlxaCkv8QEVYV1KVdQ
-	BS5wmb95Ssh/8ihkc/0370PZ7IuFOlxyzZdz3T4MhvX1rNiK54JhbA72mctx1gvZXajhRRaiEPpru
-	AQOyQSRVkeW4neuF3TQg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dzavzp6QTqkW1qHOCqCfue6MFd/5vMOrhoDrkLglZuk=; b=GcrRPb9uh0zpev
+	Ix7QjIw7nXBOq+iN+9uZt6CnhgMHJUn9Vy/rf2MF5D+6rnk0y0EDPrDVLdrh334RpqrWEChcEhTAr
+	cL4H7CKk5GIVi7C4/WqzqgkGAD0E906a8RC5gyLbL2fJjKKE2VGGgT8Jpt345VKc37K88VhT/Z3vB
+	hYyvqIWOPO4aoyh0biMlXYd1k6yGY2r7nmaOIC444Wy+EQrGeE0ApMEVd7Vlh2prLI0FsKpyT5ixg
+	uNCVErGV8xPCBkjIbM8rZbd1BVO2OOwuJD0iksXS/MAgPbD7fAITARoznT8wm6RdP2bwbjk31fBgF
+	dfXEGNQB1k1Bu7lOERxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrDd-00000006GhN-1HOa;
-	Thu, 21 May 2026 00:24:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPrGM-00000006Gyr-17Fh;
+	Thu, 21 May 2026 00:27:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrDc-00000006GhC-0Znz
+	id 1wPrGK-00000006Gyh-3bJm
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 21 May 2026 00:27:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LG7/uga8IlgKJYOVC2riqFsu9mWTNydmF9kswyelqro=; b=H7ZYoT4M7BQVspRU6+DLLFGjWL
+	hW4ruX0sJ8Br8hvOUqM2FTlPAOEpGsd67z1M3kjJEEbSXZ5POxDjR015ZqCVoeWwmGcgLIlYsF9lT
+	b18UYEgixJNKXNsEqHgFCq45SnQqPOFw6Ewk25NZGzT1uARO41xujroTba3uB5kegtp9raxfoLega
+	elQDyC2gUn8H9cmN+rlIJ5nmojjX/TtUk5Xm98XtDwEICXebdslvxcYs+36CZza01UHBoKO7fCy+T
+	QKJ5TNEwqKhf76N/jYabBFUrejQ+dHg2ufZsB81/brOZsU+2XaWIjMlE7aYuYGh3Rg5re05iqNXfJ
+	e81MbBvg==;
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPrGD-00000000gqW-1Anz
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 May 2026 00:24:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E4B6C60098;
-	Thu, 21 May 2026 00:24:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C5391F000E9;
-	Thu, 21 May 2026 00:24:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779323094;
-	bh=+WYaUkkSYMOJn/e4+V0KJlXczzijCVr67MFTqynTZb0=;
-	h=From:Date:Subject:To:Cc;
-	b=WvtT95RDXIjlIBdE0J7h1gZbZ0O7BrMcfbSgPQt34uebib2I4JRTKfLML0IpfFKRa
-	 vOLd3dhJxZBy2CrA5OL6u7tC3VW6MJpLRbvZ17+s+nLcgmtE1t66iGmILBd+Bb/mad
-	 50AU2mW2gQD65cjrq2C9a9QZodLJhPJSzRYcDGTz7CSVixfxPs2gbvO8ZIEQRbOyCO
-	 1ZQgQ0M2/6s56xp7cIQbEBrWs1Qnh2nKW6Ecl8Dly6ULwGjIAUJ8Sfx2x2sd62NTHs
-	 CRtYG+BvwAEHj5S8OYLbUcEVTK8mMnGsase44txRDYC4jtsQBap2SCPdQPjaEAWjIO
-	 rk5/XtnP+yYlQ==
-From: Yixun Lan <dlan@kernel.org>
-Date: Thu, 21 May 2026 00:24:41 +0000
-Subject: [PATCH v4] riscv: dts: spacemit: k3: Add pwm support
+	Thu, 21 May 2026 00:27:41 +0000
+Received: from [192.168.0.109] (unknown [123.118.218.47])
+	by APP-01 (Coremail) with SMTP id qwCowADXgGxsUQ5q0n72EA--.6636S2;
+	Thu, 21 May 2026 08:27:24 +0800 (CST)
+Message-ID: <cec3dd9c-37d8-4859-bfe0-a42ee3efdc97@iscas.ac.cn>
+Date: Thu, 21 May 2026 08:27:24 +0800
 MIME-Version: 1.0
-Message-Id: <20260521-04-k3-pwm-dts-v4-1-04d4de0f2fc8@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMhQDmoC/2XMSw6CMBSF4a2Yjq3pveVRHLkP4wD6gAYF0pKqI
- ezdghPE4TnJ90/Ea2e1J+fDRJwO1tu+iyM5Hohsyq7W1Kq4CTLMGEegLKEtp8PzQdXoKSjIMBW
- GKWQkmsFpY19r73qLu7F+7N17zQdY3m8phX0pAAUqwEilQeRgxKXVrtP3U+9qsqQCbrnYc4xcM
- imrMuGsrMwf5xuObM955EWelEpluUwL/OHzPH8AjVXg7CkBAAA=
-X-Change-ID: 20260321-04-k3-pwm-dts-1d16258f0d20
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=20031; i=dlan@kernel.org;
- h=from:subject:message-id; bh=Gl4nnKwURGYf5Q2UqyA0TWXkDSShTEK5B6sQRnloQHM=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqDlDQfrNDcqeedckV0s0vDSPvwMLIhZsH28t42
- Yx/mPsBzsyJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCag5Q0BsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0C4Q/6Aso6kK39dbknwRLHPAcHKLuut6eqLiFfJ6VutEmMFTWy21FTAO+Bt
- 2dyOl3ar8zT53RAFLVKOKrDAxoBZtvuhzjQd/QYDL5ypXdz9PXt6ekcLPReV8LKSJepefBRDULT
- HaumZAi/SMIsA7NUr6Cos1Z7aGP5V8RzQ0+6Ow4B7Le8i9Ge/DJpMc9T7Lj4m06/4bLc7WLmiMO
- YKSzoRkWxzZmPVfpsopPXk2wjWqIrfnGQyGYHgKIOpECzlHEe3AxqdJocKRKFguloTWhaOOAGyl
- SuLCi6NZeZBxcVeS/VCDe3O9u8D8WzgICINf93QhDgIIYOsmUmLmNeU2AG69SSOXIjGI25+x0FK
- srY4aEt4zwsmghNkxnH0q26pAfsQrpJ2EcfnDPRmbCy5hzH4ZQLhC6X7PxCRJG+gTQWHSoLjX7Q
- mAMabuUFBrJQVz65KUwJWxAbD0tbXGRiL9Da4uqbgg9iKn6W1vY1zhZj9dJ2wXLQ0OKpflzu7y9
- ZVnHgr5vxmJIq57mk13XH/TDUmEveu8dr2fMfx29mGf99MXu7STUA4aHySgH/ViOhvcPPrUIuOG
- SFV1LEggpgQMrn4XDZYTCPDjVeXgKi2kA7Wu8+Po0X/nGdnoEBXE4wDmAxwqjptK+X97kfQCQ7Y
- xJCKGQOMLXFdoG/KfNSmFZttKBTYO4=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] riscv: misaligned: Make enabling delegation depend on
+ NONPORTABLE
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+ Paul Walmsley <pjw@kernel.org>
+Cc: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andrew Jones <ajones@ventanamicro.com>, Conor Dooley <conor@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Songsong Zhang <U2FsdGVkX1@gmail.com>,
+ Michael Ellerman <mpe@kernel.org>, Drew Fustini <fustini@kernel.org>
+References: <20260401-riscv-misaligned-dont-delegate-v2-1-5014a288c097@iscas.ac.cn>
+ <nrvt74qnojaubiwjo37ums4lnclu466hovwrhmtbag6f5uhrql@q6msoe2oto4b>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <nrvt74qnojaubiwjo37ums4lnclu466hovwrhmtbag6f5uhrql@q6msoe2oto4b>
+X-CM-TRANSID: qwCowADXgGxsUQ5q0n72EA--.6636S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxKr4DKw13AryfGFyDKw1UAwb_yoW3Ar4Dpr
+	1UJrn0kr48Jw1Uur48t34YqFy5tw4qy3W7JrnrJw1F93Z8Wr1DZrWUKr4UGryDCrs5Xw12
+	yr4DKr4UKr4DAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjxUqiFxDUUUU
+X-Originating-IP: [123.118.218.47]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_012738_824235_152F2D05 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,884 +97,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Populate all pwm device tree nodes for SpacemiT K3 SoC, also documents
-the pinctrl info which would easily help to enable them in future.
-
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
-Although we have not enabled any specific pwm device in this patch..
-but should be easy to achieve that.
-
-For test purpose, we've used pwm11 as the instance to test functions.
-
-Please note, to make PWM work, it need to pull the change of K3's pwm
-driver which was already merged, see
-https://lore.kernel.org/all/agbgG00YENm388dd@monoceros/
----
-Changes in v4:
-- Fix all pwm pinctrl name..
-- Link to v3: https://patch.msgid.link/20260520-04-k3-pwm-dts-v3-1-974add67c592@kernel.org
-
-Changes in v3:
-- Again, fix pwm1_1 pinctrl info
-- Link to v2: https://patch.msgid.link/20260518-04-k3-pwm-dts-v2-1-c0ccba430abf@kernel.org
-
-Changes in v2:
-- Fix pwm1_1 pinctrl name
-- Link to v1: https://patch.msgid.link/20260511-04-k3-pwm-dts-v1-1-81fcde1871f8@kernel.org
----
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 590 +++++++++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k3.dtsi         | 220 ++++++++++
- 2 files changed, 810 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-index 23899d3f308a..252c64af76fe 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-@@ -56,6 +56,596 @@ i2c8-pins {
- 		};
- 	};
- 
-+	/omit-if-no-ref/
-+	pwm0_0_cfg: pwm0-0-cfg {
-+		pwm0-0-pins {
-+			pinmux = <K3_PADCONF(0, 3)>;	/* pwm0 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm0_1_cfg: pwm0-1-cfg {
-+		pwm0-1-pins {
-+			pinmux = <K3_PADCONF(42, 6)>;	/* pwm0 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm1_0_cfg: pwm1-0-cfg {
-+		pwm1-0-pins {
-+			pinmux = <K3_PADCONF(1, 3)>;	/* pwm1 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm1_1_cfg: pwm1-1-cfg {
-+		pwm1-1-pins {
-+			pinmux = <K3_PADCONF(43, 6)>;	/* pwm1 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm1_2_cfg: pwm1-2-cfg {
-+		pwm1-2-pins {
-+			pinmux = <K3_PADCONF(95, 6)>;	/* pwm1 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm2_0_cfg: pwm2-0-cfg {
-+		pwm2-0-pins {
-+			pinmux = <K3_PADCONF(2, 3)>;	/* pwm2 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm2_1_cfg: pwm2-1-cfg {
-+		pwm2-1-pins {
-+			pinmux = <K3_PADCONF(44, 6)>;	/* pwm2 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm2_2_cfg: pwm2-2-cfg {
-+		pwm2-2-pins {
-+			pinmux = <K3_PADCONF(96, 6)>;	/* pwm2 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm2_3_cfg: pwm2-3-cfg {
-+		pwm2-3-pins {
-+			pinmux = <K3_PADCONF(134, 4)>;	/* pwm2 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm3_0_cfg: pwm3-0-cfg {
-+		pwm3-0-pins {
-+			pinmux = <K3_PADCONF(3, 3)>;	/* pwm3 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm3_1_cfg: pwm3-1-cfg {
-+		pwm3-1-pins {
-+			pinmux = <K3_PADCONF(45, 6)>;	/* pwm3 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm3_2_cfg: pwm3-2-cfg {
-+		pwm3-2-pins {
-+			pinmux = <K3_PADCONF(97, 6)>;	/* pwm3 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm3_3_cfg: pwm3-3-cfg {
-+		pwm3-3-pins {
-+			pinmux = <K3_PADCONF(135, 4)>;	/* pwm3 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm4_0_cfg: pwm4-0-cfg {
-+		pwm4-0-pins {
-+			pinmux = <K3_PADCONF(4, 3)>;	/* pwm4 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm4_1_cfg: pwm4-1-cfg {
-+		pwm4-1-pins {
-+			pinmux = <K3_PADCONF(46, 6)>;	/* pwm4 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm4_2_cfg: pwm4-2-cfg {
-+		pwm4-2-pins {
-+			pinmux = <K3_PADCONF(136, 4)>;	/* pwm4 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm5_0_cfg: pwm5-0-cfg {
-+		pwm5-0-pins {
-+			pinmux = <K3_PADCONF(5, 3)>;	/* pwm5 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm5_1_cfg: pwm5-1-cfg {
-+		pwm5-1-pins {
-+			pinmux = <K3_PADCONF(47, 6)>;	/* pwm5 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm5_2_cfg: pwm5-2-cfg {
-+		pwm5-2-pins {
-+			pinmux = <K3_PADCONF(137, 4)>;	/* pwm5 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm6_0_cfg: pwm6-0-cfg {
-+		pwm6-0-pins {
-+			pinmux = <K3_PADCONF(6, 3)>;	/* pwm6 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm6_1_cfg: pwm6-1-cfg {
-+		pwm6-1-pins {
-+			pinmux = <K3_PADCONF(145, 3)>;	/* pwm6 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm6_2_cfg: pwm6-2-cfg {
-+		pwm6-2-pins {
-+			pinmux = <K3_PADCONF(48, 6)>;	/* pwm6 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm7_0_cfg: pwm7-0-cfg {
-+		pwm7-0-pins {
-+			pinmux = <K3_PADCONF(7, 3)>;	/* pwm7 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm7_1_cfg: pwm7-1-cfg {
-+		pwm7-1-pins {
-+			pinmux = <K3_PADCONF(146, 3)>;	/* pwm7 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm7_2_cfg: pwm7-2-cfg {
-+		pwm7-2-pins {
-+			pinmux = <K3_PADCONF(49, 6)>;	/* pwm7 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm8_0_cfg: pwm8-0-cfg {
-+		pwm8-0-pins {
-+			pinmux = <K3_PADCONF(8, 3)>;	/* pwm8 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm8_1_cfg: pwm8-1-cfg {
-+		pwm8-1-pins {
-+			pinmux = <K3_PADCONF(147, 3)>;	/* pwm8 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm8_2_cfg: pwm8-2-cfg {
-+		pwm8-2-pins {
-+			pinmux = <K3_PADCONF(50, 6)>;	/* pwm8 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm9_0_cfg: pwm9-0-cfg {
-+		pwm9-0-pins {
-+			pinmux = <K3_PADCONF(9, 3)>;	/* pwm9 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm9_1_cfg: pwm9-1-cfg {
-+		pwm9-1-pins {
-+			pinmux = <K3_PADCONF(148, 3)>;	/* pwm9 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm9_2_cfg: pwm9-2-cfg {
-+		pwm9-2-pins {
-+			pinmux = <K3_PADCONF(51, 6)>;	/* pwm9 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm10_0_cfg: pwm10-0-cfg {
-+		pwm10-0-pins {
-+			pinmux = <K3_PADCONF(10, 3)>;	/* pwm10 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm10_1_cfg: pwm10-1-cfg {
-+		pwm10-1-pins {
-+			pinmux = <K3_PADCONF(52, 6)>;	/* pwm10 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm10_2_cfg: pwm10-2-cfg {
-+		pwm10-2-pins {
-+			pinmux = <K3_PADCONF(141, 4)>;	/* pwm10 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm11_0_cfg: pwm11-0-cfg {
-+		pwm11-0-pins {
-+			pinmux = <K3_PADCONF(53, 6)>;	/* pwm11 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm11_1_cfg: pwm11-1-cfg {
-+		pwm11-1-pins {
-+			pinmux = <K3_PADCONF(140, 4)>;	/* pwm11 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm12_0_cfg: pwm12-0-cfg {
-+		pwm12-0-pins {
-+			pinmux = <K3_PADCONF(54, 6)>;	/* pwm12 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm12_1_cfg: pwm12-1-cfg {
-+		pwm12-1-pins {
-+			pinmux = <K3_PADCONF(139, 4)>;	/* pwm12 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm13_0_cfg: pwm13-0-cfg {
-+		pwm13-0-pins {
-+			pinmux = <K3_PADCONF(55, 6)>;	/* pwm13 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm13_1_cfg: pwm13-1-cfg {
-+		pwm13-1-pins {
-+			pinmux = <K3_PADCONF(138, 4)>;	/* pwm13 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm13_2_cfg: pwm13-2-cfg {
-+		pwm13-2-pins {
-+			pinmux = <K3_PADCONF(13, 3)>;	/* pwm13 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm14_0_cfg: pwm14-0-cfg {
-+		pwm14-0-pins {
-+			pinmux = <K3_PADCONF(56, 6)>;	/* pwm14 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm14_1_cfg: pwm14-1-cfg {
-+		pwm14-1-pins {
-+			pinmux = <K3_PADCONF(144, 4)>;	/* pwm14 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm14_2_cfg: pwm14-2-cfg {
-+		pwm14-2-pins {
-+			pinmux = <K3_PADCONF(14, 3)>;	/* pwm14 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm15_0_cfg: pwm15-0-cfg {
-+		pwm15-0-pins {
-+			pinmux = <K3_PADCONF(57, 6)>;	/* pwm15 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm15_1_cfg: pwm15-1-cfg {
-+		pwm15-1-pins {
-+			pinmux = <K3_PADCONF(142, 4)>;	/* pwm15 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm15_2_cfg: pwm15-2-cfg {
-+		pwm15-2-pins {
-+			pinmux = <K3_PADCONF(21, 3)>;	/* pwm15 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm16_0_cfg: pwm16-0-cfg {
-+		pwm16-0-pins {
-+			pinmux = <K3_PADCONF(58, 6)>;	/* pwm16 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm16_1_cfg: pwm16-1-cfg {
-+		pwm16-1-pins {
-+			pinmux = <K3_PADCONF(143, 4)>;	/* pwm16 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm16_2_cfg: pwm16-2-cfg {
-+		pwm16-2-pins {
-+			pinmux = <K3_PADCONF(22, 3)>;	/* pwm16 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm17_0_cfg: pwm17-0-cfg {
-+		pwm17-0-pins {
-+			pinmux = <K3_PADCONF(23, 3)>;	/* pwm17 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm17_1_cfg: pwm17-1-cfg {
-+		pwm17-1-pins {
-+			pinmux = <K3_PADCONF(59, 6)>;	/* pwm17 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm17_2_cfg: pwm17-2-cfg {
-+		pwm17-2-pins {
-+			pinmux = <K3_PADCONF(105, 6)>;	/* pwm17 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm18_0_cfg: pwm18-0-cfg {
-+		pwm18-0-pins {
-+			pinmux = <K3_PADCONF(24, 3)>;	/* pwm18 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm18_1_cfg: pwm18-1-cfg {
-+		pwm18-1-pins {
-+			pinmux = <K3_PADCONF(60, 6)>;	/* pwm18 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm18_2_cfg: pwm18-2-cfg {
-+		pwm18-2-pins {
-+			pinmux = <K3_PADCONF(106, 6)>;	/* pwm18 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm19_0_cfg: pwm19-0-cfg {
-+		pwm19-0-pins {
-+			pinmux = <K3_PADCONF(25, 3)>;	/* pwm19 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm19_1_cfg: pwm19-1-cfg {
-+		pwm19-1-pins {
-+			pinmux = <K3_PADCONF(61, 6)>;	/* pwm19 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm19_2_cfg: pwm19-2-cfg {
-+		pwm19-2-pins {
-+			pinmux = <K3_PADCONF(107, 6)>;	/* pwm19 */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	uart0_0_cfg: uart0-0-cfg {
- 		uart0-0-pins {
-diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-index e6faf8d8759e..e331adbcb11a 100644
---- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-@@ -797,6 +797,226 @@ i2c8: i2c@d401d800 {
- 			status = "disabled";
- 		};
- 
-+		pwm0: pwm@d401a000 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401a000 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM0>,
-+				 <&syscon_apbc CLK_APBC_PWM0_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM0>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm1: pwm@d401a400 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401a400 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM1>,
-+				 <&syscon_apbc CLK_APBC_PWM1_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM1>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2: pwm@d401a800 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401a800 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM2>,
-+				 <&syscon_apbc CLK_APBC_PWM2_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM2>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm3: pwm@d401ac00 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401ac00 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM3>,
-+				 <&syscon_apbc CLK_APBC_PWM3_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM3>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm4: pwm@d401b000 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401b000 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM4>,
-+				 <&syscon_apbc CLK_APBC_PWM4_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM4>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm5: pwm@d401b400 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401b400 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM5>,
-+				 <&syscon_apbc CLK_APBC_PWM5_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM5>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm6: pwm@d401b800 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401b800 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM6>,
-+				 <&syscon_apbc CLK_APBC_PWM6_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM6>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm7: pwm@d401bc00 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd401bc00 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM7>,
-+				 <&syscon_apbc CLK_APBC_PWM7_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM7>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm8: pwm@d4020000 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4020000 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM8>,
-+				 <&syscon_apbc CLK_APBC_PWM8_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM8>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm9: pwm@d4020400 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4020400 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM9>,
-+				 <&syscon_apbc CLK_APBC_PWM9_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM9>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm10: pwm@d4020800 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4020800 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM10>,
-+				 <&syscon_apbc CLK_APBC_PWM10_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM10>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm11: pwm@d4020c00 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4020c00 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM11>,
-+				 <&syscon_apbc CLK_APBC_PWM11_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM11>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm12: pwm@d4021000 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4021000 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM12>,
-+				 <&syscon_apbc CLK_APBC_PWM12_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM12>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm13: pwm@d4021400 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4021400 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM13>,
-+				 <&syscon_apbc CLK_APBC_PWM13_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM13>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm14: pwm@d4021800 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4021800 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM14>,
-+				 <&syscon_apbc CLK_APBC_PWM14_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM14>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm15: pwm@d4021c00 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4021c00 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM15>,
-+				 <&syscon_apbc CLK_APBC_PWM15_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM15>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm16: pwm@d4022000 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4022000 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM16>,
-+				 <&syscon_apbc CLK_APBC_PWM16_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM16>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm17: pwm@d4022400 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4022400 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM17>,
-+				 <&syscon_apbc CLK_APBC_PWM17_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM17>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm18: pwm@d4022800 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4022800 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM18>,
-+				 <&syscon_apbc CLK_APBC_PWM18_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM18>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm19: pwm@d4022c00 {
-+			compatible = "spacemit,k3-pwm", "marvell,pxa910-pwm";
-+			reg = <0x0 0xd4022c00 0x0 0x10>;
-+			clocks = <&syscon_apbc CLK_APBC_PWM19>,
-+				 <&syscon_apbc CLK_APBC_PWM19_BUS>;
-+			clock-names = "func", "bus";
-+			resets = <&syscon_apbc RESET_APBC_PWM19>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
- 		pinctrl: pinctrl@d401e000 {
- 			compatible = "spacemit,k3-pinctrl";
- 			reg = <0x0 0xd401e000 0x0 0x1000>;
-
----
-base-commit: f068b204555ad62d6a841a49feb4ea8c4f45b25c
-change-id: 20260321-04-k3-pwm-dts-1d16258f0d20
-
-Best regards,
---  
-Yixun Lan <dlan@kernel.org>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDUvMjAvMjYgMjM6NDcsIEFuaXJ1ZGggU3Jpbml2YXNhbiB3cm90ZToKPiBIaSBWaXZpYW4s
+IFBhdWwKPgo+IE9uIFdlZCwgQXByIDAxLCAyMDI2IGF0IDA5OjUzOjE3QU0gKzA4MDAsIFZpdmlh
+biBXYW5nIHdyb3RlOgo+PiBUaGUgdW5hbGlnbmVkIGFjY2VzcyBlbXVsYXRpb24gY29kZSBpbiBM
+aW51eCBoYXMgdmFyaW91cyBkZWZpY2llbmNpZXMuCj4+IEZvciBleGFtcGxlLCBpdCBkb2Vzbid0
+IGVtdWxhdGUgdmVjdG9yIGluc3RydWN0aW9ucyBbMV0gWzJdLCBhbmQgZG9lc24ndAo+PiBlbXVs
+YXRlIEtWTSBndWVzdCBhY2Nlc3Nlcy4gVGhlcmVmb3JlLCByZXF1ZXN0aW5nIG1pc2FsaWduZWQg
+ZXhjZXB0aW9uCj4+IGRlbGVnYXRpb24gd2l0aCBTQkkgRldGVCBhY3R1YWxseSByZWdyZXNzZXMg
+dmVjdG9yIGluc3RydWN0aW9ucycgYW5kIEtWTQo+PiBndWVzdHMnIGJlaGF2aW9yLgo+Pgo+PiBV
+bnRpbCBMaW51eCBjYW4gaGFuZGxlIGl0IHByb3Blcmx5LCBndWFyZCB0aGVzZSBzYmlfZndmdF9z
+ZXQoKSBjYWxscwo+PiBiZWhpbmQgUklTQ1ZfU0JJX0ZXRlRfREVMRUdBVEVfTUlTQUxJR05FRCwg
+d2hpY2ggaW4gdHVybiBkZXBlbmRzIG9uCj4+IE5PTlBPUlRBQkxFLiBUaG9zZSB3aG8gYXJlIHN1
+cmUgdGhhdCB0aGlzIHdvdWxkbid0IGJlIGEgcHJvYmxlbSBjYW4KPj4gZW5hYmxlIHRoaXMgb3B0
+aW9uLCBwZXJoYXBzIGdldHRpbmcgYmV0dGVyIHBlcmZvcm1hbmNlLgo+Pgo+PiBUaGUgcmVzdCBv
+ZiB0aGUgZXhpc3RpbmcgY29kZSBwcm9jZWVkcyBhcyBiZWZvcmUsIGV4Y2VwdCBhcyBpZgo+PiBT
+QklfRldGVF9NSVNBTElHTkVEX0VYQ19ERUxFRyBpcyBub3QgYXZhaWxhYmxlLCB0byBoYW5kbGUg
+YW55IHJlbWFpbmluZwo+PiBhZGRyZXNzIG1pc2FsaWduZWQgZXhjZXB0aW9ucyBvbiBhIGJlc3Qt
+ZWZmb3J0IGJhc2lzLiBUaGUgS1ZNIFNCSSBGV0ZUCj4+IGltcGxlbWVudGF0aW9uIGlzIGFsc28g
+bm90IHRvdWNoZWQsIGJ1dCBpdCBpcyBkaXNhYmxlZCBpZiB0aGUgZmlybXdhcmUKPj4gZW11bGF0
+ZXMgdW5hbGlnbmVkIGFjY2Vzc2VzLgo+IE9uIGEgVGVuc3RvcnJlbnQgQmxhY2tob2xlIHdpdGgg
+U2lGaXZlIHgyODAgY29yZXMsIHdpdGggT3BlblNCSSAxLjcgYW5kCj4gZGVmY29uZmlnIGtlcm5l
+bCwgSSdtIHNlZWluZyBhIGJ1bmNoIG9mIGhhbmdzL29wZW5zYmkgcHJpbnRzIGF0IGJvb3QgdGlt
+ZS4KPiBXaXRob3V0IHRoaXMgcGF0Y2gsIHRoZSBib290IHByaW50cyB0aGlzIGFuZCBjb250aW51
+ZXMgb24uCj4KPiBbICAgIDAuMjI2MzM5XSBTQkkgbWlzYWxpZ25lZCBhY2Nlc3MgZXhjZXB0aW9u
+IGRlbGVnYXRpb24gb2sKCllvdXIgT3BlblNCSSBsb29rcyB2ZXJ5IGJyb2tlbiAobW9yZSBvbiB3
+aGF0IEkgbWVhbiBsYXRlciksIGFuZCBpbiBhIHdheQp0aGF0IG1pZ2h0IG9ubHkgbWFuaWZlc3Qg
+aWYgaXQncyB0cnlpbmcgdG8gZW11bGF0ZSB2ZWN0b3IgbWlzYWxpZ25lZAppbnN0cnVjdGlvbnM/
+IEFuIGludGVyZXN0aW5nIHRoaW5nIEkgY2FuIHRoaW5rIG9mIGlzIG1heWJlIHlvdXIgU2lGaXZl
+CngyODAgaGFzIGEgdmVyeSBsb25nIFZMRU4gKDUxMj8gMTAyND8gSSBmb3Jnb3QpIHdoaWNoIG1h
+eSBoYXZlIGV4cG9zZWQKc29tZSBzdHVmZi4uLgoKSSBoYXZlIHR3byBpZGVhczoKCkZpcnN0bHks
+IHRyeSBidW1waW5nIHRoaXMgaW4gaW5jbHVkZS9zYmkvc2JpX3BsYXRmb3JtLmggdXAgdG8gNjU1
+MzYgb3IKc29tZXRoaW5nIGxpa2UgdGhhdC4gSWYgdGhhdCB3b3JrcyB5b3UgY2FuIGFsc28gc3Rh
+cnQgdHJ5aW5nIHRvIGxvd2VyIGl0CnRvIDE2Mzg0IG9yIHNvbWV0aGluZyBzaW1pbGFyLgoKI2Rl
+ZmluZSBTQklfUExBVEZPUk1fREVGQVVMVF9IQVJUX1NUQUNLX1NJWkXCoCDCoCA4MTkyCgpTZWNv
+bmRseSwgdGhlcmUncyBzb21lIGV4dHJhIG1pc2FsaWduZWQgZW11bGF0aW9uIHBhdGNoZXMgWzFd
+IGZyb20gQm8KR2FuIHRoYXQgbWlnaHQgaGVscC4gVGhlIHN0YWNrIHNpemUgYmVpbmcgdG9vIHNt
+YWxsIGlzIGFsc28gcmVwb3J0ZWQgdGhlcmUuCgo+IFdpdGggdGhpcyBwYXRjaCwgSSBzZWUgYSBi
+dW5jaCBvZiBsaW5lcyBsaWtlIHRoaXMKPgo+IFsgICAgMC40MzIyMjVdIGNwdTE6IHNjYWxhciB1
+bmFsaWduZWQgd29yZCBhY2Nlc3Mgc3BlZWQgaXMgMC4wMXggYnl0ZSBhY2Nlc3Mgc3BlZWQgKHNs
+b3cpCj4gWyAgICAwLjQzMjIzMl0gY3B1MDogc2NhbGFyIHVuYWxpZ25lZCB3b3JkIGFjY2VzcyBz
+cGVlZCBpcyAwLjAxeCBieXRlIGFjY2VzcyBzcGVlZCAoc2xvdykKPiBbICAgIDAuNDMyMjMyXSBj
+cHUzOiBzY2FsYXIgdW5hbGlnbmVkIHdvcmQgYWNjZXNzIHNwZWVkIGlzIDAuMDF4IGJ5dGUgYWNj
+ZXNzIHNwZWVkIChzbG93KQo+IFsgICAgMC40MzIyMzJdIGNwdTI6IHNjYWxhciB1bmFsaWduZWQg
+d29yZCBhY2Nlc3Mgc3BlZWQgaXMgMC4wMXggYnl0ZSBhY2Nlc3Mgc3BlZWQgKHNsb3cpCj4KPiBh
+bmQgZGVwZW5kaW5nIG9uIHRoZSBib290IEkgZWl0aGVyIHNlZQo+Cj4gc2JpX3RyYXBfZXJyb3I6
+IGhhcnQxOiB0cmFwMTogc3RvcmUgZmF1bHQgaGFuZGxlciBmYWlsZWQgKGVycm9yIC0zKQo+IHNi
+aV90cmFwX2Vycm9yOiBoYXJ0MTogdHJhcDE6IG1jYXVzZT0weDAwMDAwMDAwMDAwMDAwMDcgbXR2
+YWw9MHgwMDAwMDAwMDAwMDAwMDAwCj4gc2JpX3RyYXBfZXJyb3I6IGhhcnQxOiB0cmFwMTogbWVw
+Yz0weDAwMDA0MDAwMzAwMjQxZWMgbXN0YXR1cz0weDAwMDAwMDBhMDAwMDE5MjAKPiBzYmlfdHJh
+cF9lcnJvcjogaGFydDE6IHRyYXAxOiByYT0weDAwMDA0MDAwMzAwMjQxZWMgc3A9MHgwMDAwNDAw
+MDMwMDRhZDQwCj4gc2JpX3RyYXBfZXJyb3I6IGhhcnQxOiB0cmFwMTogZ3A9MHhmZmZmZmZmZjgx
+YTJiMDkwIHRwPTB4ZmZmZmFmODAwMjI3ZTQwMAo+IHNiaV90cmFwX2Vycm9yOiBoYXJ0MTogdHJh
+cDE6IHMwPTB4MDAwMDQwMDAzMDA0YWM4MCBzMT0weDAwMDA0MDAwMzAwMGVmNDIKPiBzYmlfdHJh
+cF9lcnJvcjogaGFydDE6IHRyYXAxOiBhMD0weDAwMDA0MDAwMzAwNGNlYjAgYTE9MHgwMDAwNDAw
+MDMwMDRhZDE4Cj4gc2JpX3RyYXBfZXJyb3I6IGhhcnQxOiB0cmFwMTogYTI9MHgwMDAwMDAwMDAw
+MDAwMDAwIGEzPTB4ZmZmZmFmODAwMjk0NDA4OQo+IHNiaV90cmFwX2Vycm9yOiBoYXJ0MTogdHJh
+cDE6IGE0PTB4MDAwMDQwMDAzMDAyNDFlYyBhNT0weDAwMDAwMDAwMDAwMDAwMDQKPiBzYmlfdHJh
+cF9lcnJvcjogaGFydDE6IHRyYXAxOiBhNj0weDAwMDA0MDAwMzAwNGNkZjAgYTc9MHgwMDAwNDAw
+MDMwMDEwZDY0Cj4gc2JpX3RyYXBfZXJyb3I6IGhhcnQxOiB0cmFwMTogczI9MHgwMDAwMDAwMDAw
+MDAwMDAxIHMzPTB4MDAwMDAwMDAwMDAwMDAwMAo+IHNiaV90cmFwX2Vycm9yOiBoYXJ0MTogdHJh
+cDE6IHM0PTB4MDAwMDQwMDAzMDA0YWViMCBzNT0weDAwMDAwMDAwMDAwMDBjMDEKPiBzYmlfdHJh
+cF9lcnJvcjogaGFydDE6IHRyYXAxOiBzNj0weDAwMDAwMDAwMDAwMDAwMDAgczc9MHhmZmZmOGY4
+MDAwMjliOTg4Cj4gc2JpX3RyYXBfZXJyb3I6IGhhcnQxOiB0cmFwMTogczg9MHhmZmZmZmZmZjgx
+MmIyZmIwIHM5PTB4ZmZmZjhmODAwMDI5YmFlOAo+IHNiaV90cmFwX2Vycm9yOiBoYXJ0MTogdHJh
+cDE6IHMxMD0weDAwMDAwMDAwMDAwMDAwMDAgczExPTB4MDAwMDAwMDAwMDAwMDAwMAo+IHNiaV90
+cmFwX2Vycm9yOiBoYXJ0MTogdHJhcDE6IHQwPTB4MDAwMDA0MDAwMDAwMDAwMCB0MT0weGZmZmY4
+ZjgwMDAyOWJhZTgKPiBzYmlfdHJhcF9lcnJvcjogaGFydDE6IHRyYXAxOiB0Mj0weGZmZmZmZmZm
+ODEwMDE1ZTAgdDM9MHhmZmZmZmZmZjgxOWU1Y2IwCj4gc2JpX3RyYXBfZXJyb3I6IGhhcnQxOiB0
+cmFwMTogdDQ9MHgwMDAwMDAwMDAwMDAwMDA3IHQ1PTB4MDAwMDAwMDAwMDAwMDAwMwo+IHNiaV90
+cmFwX2Vycm9yOiBoYXJ0MTogdHJhcDE6IHQ2PTB4ZmZmZmZmZmY4MTgxMWQwOAoKVGhhdCBsb29r
+cyB0byBiZSBhIG51bGwtcG9pbnRlciBkZXJlZiBpbiBNLW1vZGUsIGNhdXNlZCBieS4uLgoKPiBz
+YmlfdHJhcF9lcnJvcjogaGFydDE6IHRyYXAwOiBtY2F1c2U9MHgwMDAwMDAwMDAwMDAwMDAyIG10
+dmFsPTB4MDAwMDAwMDBjMDEwMjU3MwoKcmR0aW1lIGVtdWxhdGlvbi4gWW91ciBPcGVuU0JJIGlz
+IGNob2tpbmcgb24gcmR0aW1lIGVtdWxhdGlvbiB3aXRoIGEKbnVsbCBwb2ludGVyIGVycm9yLCB3
+aGljaCBpcyB2ZXJ5IG9kZCBzaW5jZSB0aGF0IHNob3VsZCBqdXN0IGJlIHJlYWRpbmcKZnJvbSAo
+QSlDTElOVCBtdGltZT8KCj4gWy4uLl0KPgo+IG9yCj4KPiBbICAgIDAuMjUyMTQyXSBPb3BzIC0g
+aW5zdHJ1Y3Rpb24gYWNjZXNzIGZhdWx0IFsjMV0KClRoYXQgbWFrZXMgZXZlbiBsZXNzIHNlbnNl
+Li4uIEkgdGhpbmsgdGhpcyB3YXMgYSBicm9rZW4gZXhjZXB0aW9uCnJlZGlyZWN0aW9uIGZyb20g
+T3BlblNCST8KCj4gWyAgICAwLjI1MjE1MF0gTW9kdWxlcyBsaW5rZWQgaW46Cj4gWyAgICAwLjI1
+MjE2MF0gQ1BVOiAyIFVJRDogMCBQSUQ6IDYzIENvbW06IGt3b3JrZXIvMjoxIE5vdCB0YWludGVk
+IDcuMS4wLXJjNC1uZXh0LTIwMjYwNTE5ICMxIFBSRUVNUFRMQVpZIAo+IFsgICAgMC4yNTIxNjdd
+IEhhcmR3YXJlIG5hbWU6IFRlbnN0b3JyZW50IEJsYWNraG9sZSAoRFQpCj4gWyAgICAwLjI1MjE3
+Ml0gV29ya3F1ZXVlOiBldmVudHMgY2hlY2tfdmVjdG9yX3VuYWxpZ25lZF9hY2Nlc3MKPiBbICAg
+IDAuMjUyMTg2XSBlcGMgOiBfX3Jpc2N2X2NvcHlfdmVjX3dvcmRzX3VuYWxpZ25lZCsweGUvMHgy
+NAo+IFsgICAgMC4yNTIxOTJdICByYSA6IG1lYXN1cmVfY3ljbGVzLmNvbnN0cHJvcC4wKzB4NWUv
+MHhhYwo+IFsgICAgMC4yNTIxOTddIGVwYyA6IGZmZmZmZmZmODAwMWE5MmUgcmEgOiBmZmZmZmZm
+ZjgwMDFhM2YyIHNwIDogZmZmZjhmODAwMDJmYmNhMAo+IFsgICAgMC4yNTIyMDFdICBncCA6IGZm
+ZmZmZmZmODFhMmIwOTAgdHAgOiBmZmZmYWY4MDAyYTQxOTAwIHQwIDogMDAwMDAwMDAwMDAwMDAw
+OAo+IFsgICAgMC4yNTIyMDRdICB0MSA6IGZmZmY4ZDgwMDAwYWI3MDggdDIgOiAwMDAwMDAwMDAw
+MDAwMDA4IHMwIDogZmZmZjhmODAwMDJmYmNlMAo+IFsgICAgMC4yNTIyMDhdICBzMSA6IDAwMDAw
+MDAwMWZiNWMyN2EgYTAgOiBmZmZmYWY4MDAyYWRkNTYxIGExIDogZmZmZmFmODAwMmFkZjU2Mwo+
+IFsgICAgMC4yNTIyMTFdICBhMiA6IDAwMDAwMDAwMDAwMDFmODAgYTMgOiBmZmZmYWY4MDAyYWRm
+ZjgzIGE0IDogMDAwMDAwMDAwMDAwMWY4MAo+IFsgICAgMC4yNTIyMTRdICBhNSA6IDAwMDAwMDAw
+MDAwMDAwNzIgYTYgOiBmZmZmZmZmZjgxMDM2ZDcwIGE3IDogZmZmZmZmZmY4MTllNWNhMAo+IFsg
+ICAgMC4yNTIyMTddICBzMiA6IGZmZmZmZmZmZmZmZmZmZmYgczMgOiAwMDAwMDAwMDBmMzdmMWNj
+IHM0IDogZmZmZmZmZmY4MDAxYTkyMAo+IFsgICAgMC4yNTIyMjBdICBzNSA6IGZmZmZhZjgwMDJh
+ZGMwMDEgczYgOiBmZmZmYWY4MDAyYWRlMDAzIHM3IDogMDAwMDAwMDAwMDAwMDQwMgo+IFsgICAg
+MC4yNTIyMjNdICBzOCA6IGZmZmZhZjgwZmUzYzIwODAgczkgOiAwMDAwMDAwMDAwMDAwMDAwIHMx
+MDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC4yNTIyMjddICBzMTE6IDAwMDAwMDAwMDAwMDAw
+MDAgdDMgOiBmZmZmZmZmZjgxOWU1Y2IwIHQ0IDogMDAwMDAwMDAwMDAwMDAwNwo+IFsgICAgMC4y
+NTIyMzBdICB0NSA6IDAwMDAwMDAwMDAyMDBiMjAgdDYgOiAwMDAwMDAwMDAwMDAwMDAxIHNzcCA6
+IDAwMDAwMDAwMDAwMDAwMDAKPiBbICAgIDAuMjUyMjMzXSBzdGF0dXM6IDgwMDAwMDAyMDAwMDA3
+MjAgYmFkYWRkcjogMDAwMDQwMDAzMDA0OGQzMCBjYXVzZTogMDAwMDAwMDAwMDAwMDAwMQoKWWVh
+aCwgdGhhdCdzIGEgTWFjaGluZSBtb2RlIGFkZHJlc3MuLi4gU29tZXRoaW5nIGlzIHJlZGlyZWN0
+aW5nIHRoZQpmYXVsdCB3aGlsZSBpdCBzaG91bGRuJ3QgYmUuIEV2ZW4gd2VpcmRlciBpcyBpdCBj
+YW1lIHVwIHRvIGJlIGFuCippbnN0cnVjdGlvbiogYWNjZXNzIGZhdWx0IC0gaXMgdGhpcyBhZGRy
+ZXNzIG91dHNpZGUgb2YgT3BlblNCSSBjb2RlPwpUaGUgT3BlblNCSSBib290IHByaW50cyBzaG91
+bGQgdGVsbCB5b3UgYWJvdXQgd2hpY2ggYWRkcmVzcyByYW5nZXMgYXJlCmNvZGUgYW5kIHdoaWNo
+IGFyZSBkYXRhLgoKSWYgdGhpcyBpcyBqdW1waW5nIHRvIHRoZSBzdGFjayBvciBzb21ldGhpbmcg
+dGhhdCdzIHZlcnkgYmFkIGluIE9wZW5TQkkuLi4KCj4gWyAgICAwLjI1MjIzN10gWzxmZmZmZmZm
+ZjgwMDFhOTJlPl0gX19yaXNjdl9jb3B5X3ZlY193b3Jkc191bmFsaWduZWQrMHhlLzB4MjQKPiBb
+ICAgIDAuMjUyMjQzXSBbPGZmZmZmZmZmODAwMWE0NmM+XSBjb21wYXJlX3VuYWxpZ25lZF9hY2Nl
+c3MrMHgyYy8weGFjCj4gWyAgICAwLjI1MjI0OF0gWzxmZmZmZmZmZjgwMDFhNmJjPl0gY2hlY2tf
+dmVjdG9yX3VuYWxpZ25lZF9hY2Nlc3MrMHhiNC8weDEzOAo+IFsgICAgMC4yNTIyNTNdIFs8ZmZm
+ZmZmZmY4MDA0N2Y2YT5dIHByb2Nlc3Nfb25lX3dvcmsrMHgxMGUvMHgzNTQKPiBbICAgIDAuMjUy
+MjU4XSBbPGZmZmZmZmZmODAwNDg4MjY+XSB3b3JrZXJfdGhyZWFkKzB4MTM2LzB4MjgwCj4gWyAg
+ICAwLjI1MjI2M10gWzxmZmZmZmZmZjgwMDUwMGNhPl0ga3RocmVhZCsweGRhLzB4ZmMKPiBbICAg
+IDAuMjUyMjcxXSBbPGZmZmZmZmZmODAwMTM1OGU+XSByZXRfZnJvbV9mb3JrX2tlcm5lbCsweDFh
+LzB4MTU0Cj4gWyAgICAwLjI1MjI3OV0gWzxmZmZmZmZmZjgwYmIzZDlhPl0gcmV0X2Zyb21fZm9y
+a19rZXJuZWxfYXNtKzB4MTYvMHgxOAo+IFsgICAgMC4yNTIyOTFdIENvZGU6IGVlZTMgZmFkNSA4
+MDgyIDc3MTMgZmUwNiBjZjE5IDg2YjMgMDBlNSA3MmQ3IGNkMzQgKGUwMDcpIDAyMDUgCj4gWyAg
+ICAwLjI1MjI5OF0gLS0tWyBlbmQgdHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCj4KPgo+IFNv
+dW5kcyBsaWtlIHByZXZpb3VzbHkgd2Ugd2VyZSByZWx5aW5nIG9uIG1pc2FsaWduZWQgdHJhcCBk
+ZWxlZ2F0aW9uCj4gd2l0aG91dCBrbm93aW5nIGl0LCBhbmQgbm93IHRoZXJlIHNlZW0gdG8gYmUg
+c29tZSBpc3N1ZXMgaW4gb3BlbnNiaQo+IGNhdXNpbmcgdGhlc2UgZXJyb3JzLgoKR2l2ZW4gdGhl
+IGFib3ZlIHZlcnkgd2VpcmQgc3ltcHRvbXMgSSdtIGluY2xpbmVkIHRvIGJlbGlldmUgaXQncwpz
+b21ldGhpbmcgYm90aCBiYWRseSBicm9rZW4gYW5kICJzaW1wbGUiIGxpa2UgcnVubmluZyBvdXQg
+b2Ygc3RhY2sgYW5kCnRoZSBkaWZmZXJlbnQgaGFuZGxlciBvdmVyd3JpdGluZyBlYWNoIG90aGVy
+J3Mgc3RhY2suIEhlbmNlIG15IGZpcnN0CnN1Z2dlc3Rpb24gYWJvdmUgdG8gYnVtcCB0aGUgc3Rh
+Y2sgc2l6ZSBqdXN0IHRvIGJlIHN1cmUuCgo+IEhhcyBhbnlvbmUgdGVzdGVkIHRoaXMgcGF0Y2gg
+b24gb3RoZXIgSFc/IFBhdWwsIGFueSBjaGFuY2UgeW91IGNvdWxkCj4gdGVzdCB0aGlzIG9uIG90
+aGVyIFNpRml2ZSBib2FyZHM/Cj4KPiBSZWdhcmRzCj4gQW5pcnVkaCBTcmluaXZhc2FuCgpUaGFu
+a3MsClZpdmlhbiAiZHJhbWZvcmV2ZXIiIFdhbmcKClsxXSBodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9vcGVuc2JpLzIwMjYwMjEwMDk0MDQ0LjcyNTkxLTEtZ2FuYm9pbmdAZ21haWwuY29tLwoKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
