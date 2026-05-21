@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF57CD4F3D
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 14:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3FDCD4F3D
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 14:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PK+E89pb70rInwVIUsgNcWhak1hU7VhD08QmekSb8N4=; b=y7rJPLgZd6aXhH
-	wNdp2eEDaTscnzdbrdwHnf5bPb058x/2xn0ORLeWQLVy5BbtdauI2T1fCxw9Ckb24o5B+wwj37UAa
-	J4qkpUlShHw6sE/jdnAfNEhOzmJISSsC+hOWJJqjCk3evAJLqQu4yWMX1VQQdIHiBsuys4AnVba+C
-	SwULJCcf55xHTduFPSERhk1qCNR7U0+7dPk2lTg7fF0Tc0qqAmyhzIb1yMG3Zdtj6o5MMuwPa5v+L
-	pSJGqKZjB6wYP2D07yLWChnQxvy2Tlv5tS4dK5Brn9EVuQDckKnSKfu211vYbfOP3QGck6qPKHg+k
-	9JY3lOU6/wA+tyobsveg==;
+	List-Owner; bh=sD8jrPVCOW38zFBBb0XNn3X1vjaOfEClQVsgkL/4zRw=; b=cpkl9/hEtJoQH9
+	7dQ8rRk4ilwiOngy8jM7x2nQyOkD4uhi0PR/umFHrBtXls+RkXA6iw2P9pIQeYpUGliVNrN6Ljfgk
+	D944Td+fAE+85u+gpHJkKC/XotjsNh4CpjhtOLeiI1LOhtkQDjYtDK2TPMYI95x3HanqXMeJ+CtMo
+	Gm7F+U8GeySX7T84RJcGn2NfRwhKk80Ye929B7K90WFRjuNB6/0wM7rssOcnJguKSKSXaBI6jVEjq
+	jjuaXQb9Pp+mrRx5uRaSbcLHHLo36eIJidlXy5Ru+OXODsszta84r7+joCD3fIcAAHgM1mgBu9hV5
+	zAgxdNvEyEneSaX9++cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4GX-000000082R7-1ByJ;
-	Thu, 21 May 2026 14:20:49 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wQ4eD-000000087ah-38vG;
+	Thu, 21 May 2026 14:45:17 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4GU-000000082OP-3Vn4;
-	Thu, 21 May 2026 14:20:48 +0000
-Received: from fric.. (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAA3UNewFA9qSZHSEQ--.27615S2;
-	Thu, 21 May 2026 22:20:32 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
-	Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: [PATCH] RISC-V: KVM: Fix TOCTOU race in SBI system suspend handler
-Date: Thu, 21 May 2026 14:20:30 +0000
-Message-Id: <20260521142030.1560861-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1wQ4e9-000000087ZO-3cSE
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 May 2026 14:45:16 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2bd80b3aa13so40118045ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 May 2026 07:45:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779374713; x=1779979513; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VWXyA/icX3UC/cu3pkBD8KPyWdonFkYMhFuMrf7NsXM=;
+        b=CIe8I1FfDqLWn5xZYF0KgVX5fInP/5elQFstsHKrBWXVcg70dmTPl6hRy7rYnugrJX
+         aK/cGL6iHnF1KEX4tmaLzIBDoViaxCaLO/3wxMxyRwOf8hP0N2q1+8Ruvs90MkRkIYLW
+         d1Kvmnd3laakRxxSqjT+7pi79stxVDwvTnwWT1a0NTZcGgbjCRcUYOdcPGYwfYzkDYKu
+         tDI3siBxdwueAcMCHAx98v1WNyPNfl4ImCIRZwg5kTFQch/BlHj8b9DrDoz5hT93sWNK
+         YE6heBH+Y5s+I4/DS/K9xtfx/uoAml0Hc+tQR8EPuoRvgsGXk/mmV5jin2wYeV3uZ3gB
+         nG8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779374713; x=1779979513;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VWXyA/icX3UC/cu3pkBD8KPyWdonFkYMhFuMrf7NsXM=;
+        b=EbMr6e33nx50wMehOeWeuqm9OpTooYZ43zyTxiQDHKW29DghI3judcrtg2jDReQPLM
+         NXWY0T8zIjukpGUUjdhD6tZq2pmtB13hCd+9iNo6m+IhlRQTDQ+tM4WZ4riK/dGVU+3Q
+         VZzqtEObZvEkTZEoN7VnUrfW4yUih4xH3BgsD4pbJOMtpi1pN5Iq/v1/r++pGEf2Lecp
+         32cYSOcnt9WB5ZmULQSSQ8tRL0kR/nHlfS0b+1srnRuhcL8dcAj4koUKonNc7vObEkGP
+         K6WHqEInQm2ECm9cmXzpJEs/k3soJn5y3E4WCgd/FzKwBMTGIqf/jfWH3i/NBHozZg9X
+         1eKQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+wFtysQaRquPHr+rk5Ey+zK7apUgXQQXsWVG5wWGkcZTCQoK6XswuT3/wuY2bB3Dl1RCV3N5053rhbXg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQycxYLO7pe9bJ38iOexO6l10v3NX0F5mz3OlJeqyr4ieJ0Iik
+	KjSDk54H2mNGiPHw+DHfdVfxjOebwzlVxcX9USdHxRiydTgAXsN/cNvk
+X-Gm-Gg: Acq92OFXdSJ1tp+CN68GtWwPsTC9LzwjyDDh79CLWvljlEiVqLWbzJTVqj0zL3lykE4
+	T4+02wKBZoL9oTee2dQ7xbZR/RswGvlKDBXXtBjidSpF93llz+KMzEt5qJQdpGJwujPinVt76TG
+	V/d4etuihrED3lX2beUj1G0ujWmVPC0AowJ4Gb1wLRpBDcvwudRWvtW7vZbaGw/qApspCOOO4hy
+	XSHUk8Xi7F2N+QxBhw4ijIPAyW/FI7Mvpv0FlQWWM5KnX9jzfxFPLKBo/SB5b4Rg/3aqlgJ+lSP
+	x/0Bpi558eOdHW8ezwHcfgIJDbrGsjmEqsBHO0ZuT+FBEdqBQy8iFF8cxE7BqPsBiMTsGca3TAq
+	McMcwiBvtXHvDfJK9JHVKaqUDg9lycCuCUnB6ic7GeFug4UF1BOsR+ujnyz5WGPavXSvSdkR9NI
+	O308ldDxO8cuzuR6IGes+Ce4x4U0VNMw==
+X-Received: by 2002:a17:903:37cd:b0:2bc:db91:f5a7 with SMTP id d9443c01a7336-2bea30a8697mr30793125ad.11.1779374712767;
+        Thu, 21 May 2026 07:45:12 -0700 (PDT)
+Received: from [10.240.146.115] ([2.27.148.101])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bea990f667sm13261475ad.62.2026.05.21.07.45.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 May 2026 07:45:12 -0700 (PDT)
+From: Zhengyu He <hezhy472013@gmail.com>
+Subject: [PATCH v2 0/2] spi: enable the SpacemiT K3 SoC QSPI
+Date: Thu, 21 May 2026 22:44:44 +0800
+Message-Id: <20260521-k3-pico-itx-qspi-v2-for-next-20260521-v2-0-52bce26e5fd8@gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAA3UNewFA9qSZHSEQ--.27615S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAF1fWrW8uF4DJry5Cr1fCrg_yoWrCF4DpF
-	Za9FsY9r4rGr1xAwnFyF4Dur4YgFs5Kr43ArWDurWrXr4YyryrXrsYkrW7XryDJFWFgF9a
-	9F1jka15uF15JFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBF14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x
-	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
-	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU6c_3UUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCRELCWoLKrae5wABsf
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/z2NwQqDMBAFf0X23AdxrRL9ldJD1dUuhSQmIgHx3
+ xt66HFgmDkpSVRJNFQnRTk0qXcF+FbR9H65VaBzYWLDnWm5xqdB0MlD94wtBcXBWHyEk7zjb1n
+ bj/29ZjPblkorRFk0/z6P53V9AWk2ROR3AAAA
+X-Change-ID: 20260521-k3-pico-itx-qspi-v2-for-next-20260521-889b94120d85
+To: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ Wei Fu <wefu@redhat.com>, Zhengyu He <hezhy472013@gmail.com>, 
+ Cody Kang <cody.kang.hk@outlook.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1441; i=hezhy472013@gmail.com;
+ h=from:subject:message-id; bh=5WzCzpQAfauvNBfuz2h93m3dBjmIB6B+A5Dq0d2HspY=;
+ b=owEBbQKS/ZANAwAKAc32nDaAuA3YAcsmYgBqDxptfRkZxF1rnjUhQ8FwCZSHP6DrxrqQCYuh3
+ peGvWJVYuKJAjMEAAEKAB0WIQS9XD2kxy1NmfC2u/XN9pw2gLgN2AUCag8abQAKCRDN9pw2gLgN
+ 2AmeD/9sN6/gePDDOupWgz5WRXZXq2IH9LVJ3VYVv0qO6fQoGTRp/dXRlj+B0jlX8Mbc+we9Ii2
+ f+XRROGfSiHjakxGUqSu/F6DpWRMkd28p28GN21cycRHdxeOTLOt76FG6xFNK4SQMFPHLbFa8M2
+ 80mgRd55xaK6M8sUeH9kOsHwp/xMWctxVaTMK1EHHDUnk+jJzIx2jXF4E353f2ZaebwhpXFJTjo
+ IgGw0Ab7qplYN53/QIp6GrY8UG7yOWOGVCCLsYWZI4TZ6mPTGXSuF43wo/alHvZVD9ys0EA5oMS
+ AN8f05AyVPtduTYxub51ooGB7er0I77C8rVUP324npcoZV80p55+hmAEMdCAjL5TLcw3HiwuyXL
+ 6hh+sERko1zGUVUs56yDEWjk8TTT0y2GLnWQUrDKBQc4h5zya5Ii1b9JIno3Z/oGZrTBm51IylW
+ yGuVUIa4OhWWEYggVqvQmatXOrHC2ZUfDn38/zC4ZrDPR1iodsL6nBfVZwHqqGr9t8E5X6gbUrI
+ fzh5vdU1vJ+S35Bkc/ZXR+zMUq7Ko3+kD+h0mX6C2+E3pFtsbrjHRX0HGhyuko1ECVxOJx1wf0N
+ 2SWk3UTaxyaoLm/+nDreQq3B84C24n1yGV+vPCnXhB3ggTqcCBgtlKwumHxcGMslxLQM1imOe/8
+ GeUeRkkJ6T+M0xA==
+X-Developer-Key: i=hezhy472013@gmail.com; a=openpgp;
+ fpr=26CA97B1A229C229822278F254AF850165158959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_072047_250892_53742345 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260521_074513_909483_AC14DA94 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,120 +124,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI SUSP handler kvm_sbi_ext_susp_handler() checks that all other
-vCPUs are stopped before entering system suspend, but it does not hold
-mp_state_lock during the iteration. A concurrent HSM HART_START from
-another vCPU can start a target vCPU after the SUSP handler has already
-checked it, violating the invariant that all vCPUs must be stopped
-before suspend.
+Add the SpacemiT K3 QSPI compatible and enable SPI NOR flash on the
+K3 Pico-ITX board.
 
-Fix this with a two-phase approach:
-1. Set a VM-wide suspend_in_progress flag before the iteration to block
-   concurrent HSM HART_START. The HSM start handler checks this flag
-   under its existing mp_state_lock, closing the race.
-2. Hold mp_state_lock during each per-vCPU stopped check so that
-   mp_state reads are ordered against concurrent power_on/power_off
-   writes on the other side of the lock.
+K3 and K1 use the same QSPI controller, so the K3 devicetree uses
+"spacemit,k1-qspi" as fallback.
 
-The flag is self-clearing: it resets when any vCPU re-enters
-kvm_arch_vcpu_ioctl_run after the suspend-resume cycle completes.
+With this, patch 2/3 in v1 is dropped.
 
-Fixes: 023c15151fbb ("RISC-V: KVM: Add SBI system suspend support")
-Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Assisted-by: YuanSheng:DeepSeek-V3.2
+This series is based on the for-next branch of:
+  https://github.com/spacemit-com/linux
+
+This series is available here:
+  https://github.com/imguoguo/linux/tree/k3-pico-itx-qspi-v2
+
+Version 2 addresses review comments on v1:
+  - Use "spacemit,k1-qspi" as fallback for the K3 QSPI compatible.
+  - Drop v1 patch 2, "spi: fsl-qspi: add SpacemiT K3 support".
+  - Reordered Signed-off-by trailers.
+
+Here is version 1:
+  https://lore.kernel.org/r/20260519-k3-pico-itx-qspi-v1-v1-0-c32afeeaf741@gmail.com
+
+Signed-off-by: Zhengyu He <hezhy472013@gmail.com>
 ---
- arch/riscv/include/asm/kvm_host.h |  3 +++
- arch/riscv/kvm/vcpu.c             |  8 ++++++++
- arch/riscv/kvm/vcpu_sbi_hsm.c     | 11 +++++++++++
- arch/riscv/kvm/vcpu_sbi_system.c  | 10 ++++++++++
- 4 files changed, 32 insertions(+)
+Zhengyu He (2):
+      spi: dt-bindings: fsl-qspi: support SpacemiT K3
+      riscv: dts: spacemit: add QSPI support for K3 Pico-ITX
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 75b0a951c1bc6..c4e710ec40f90 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -93,6 +93,9 @@ struct kvm_arch {
- 
- 	/* KVM_CAP_RISCV_MP_STATE_RESET */
- 	bool mp_state_reset;
-+
-+	/* Set by SBI SUSP to block concurrent HSM HART_START during system suspend */
-+	bool suspend_in_progress;
- };
- 
- struct kvm_cpu_trap {
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index a73690eda84b5..ea6f14244addb 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -838,6 +838,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 	/* Mark this VCPU ran at least once */
- 	vcpu->arch.ran_atleast_once = true;
- 
-+	/*
-+	 * Clear stale suspend flag from a previous suspend-resume cycle.
-+	 * The flag was set by kvm_sbi_ext_susp_handler() and persists
-+	 * across the userspace exit; clearing it here ensures subsequent
-+	 * HSM HART_START operations are not blocked after resume.
-+	 */
-+	WRITE_ONCE(vcpu->kvm->arch.suspend_in_progress, false);
-+
- 	kvm_vcpu_srcu_read_lock(vcpu);
- 
- 	switch (run->exit_reason) {
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-index f26207f84bab6..2f88d93768bc8 100644
---- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -31,6 +31,17 @@ static int kvm_sbi_hsm_vcpu_start(struct kvm_vcpu *vcpu)
- 		goto out;
- 	}
- 
-+	/*
-+	 * Reject HART_START while a system suspend is in progress.
-+	 * kvm_sbi_ext_susp_handler() sets this flag before checking
-+	 * that all vCPUs are stopped; checking it here under
-+	 * mp_state_lock closes the race.
-+	 */
-+	if (READ_ONCE(target_vcpu->kvm->arch.suspend_in_progress)) {
-+		ret = SBI_ERR_DENIED;
-+		goto out;
-+	}
-+
- 	kvm_riscv_vcpu_sbi_request_reset(target_vcpu, cp->a1, cp->a2);
- 
- 	__kvm_riscv_vcpu_power_on(target_vcpu);
-diff --git a/arch/riscv/kvm/vcpu_sbi_system.c b/arch/riscv/kvm/vcpu_sbi_system.c
-index c6f7e609ac794..b79c1cff7a996 100644
---- a/arch/riscv/kvm/vcpu_sbi_system.c
-+++ b/arch/riscv/kvm/vcpu_sbi_system.c
-@@ -35,13 +35,23 @@ static int kvm_sbi_ext_susp_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			return 0;
- 		}
- 
-+		/*
-+		 * Set the VM-wide flag to block concurrent HSM HART_START
-+		 * from racing with the per-vCPU stopped checks below.
-+		 */
-+		WRITE_ONCE(vcpu->kvm->arch.suspend_in_progress, true);
-+
- 		kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
- 			if (tmp == vcpu)
- 				continue;
-+			spin_lock(&tmp->arch.mp_state_lock);
- 			if (!kvm_riscv_vcpu_stopped(tmp)) {
-+				spin_unlock(&tmp->arch.mp_state_lock);
-+				WRITE_ONCE(vcpu->kvm->arch.suspend_in_progress, false);
- 				retdata->err_val = SBI_ERR_DENIED;
- 				return 0;
- 			}
-+			spin_unlock(&tmp->arch.mp_state_lock);
- 		}
- 
- 		kvm_riscv_vcpu_sbi_request_reset(vcpu, cp->a1, cp->a2);
+ .../devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml  |  3 ++
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts       | 58 ++++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi       | 21 ++++++++
+ arch/riscv/boot/dts/spacemit/k3.dtsi               | 17 +++++++
+ 4 files changed, 99 insertions(+)
+---
+base-commit: 6edd9a0d32e1ef81133b8cb5b3bb3157a44da4d1
+change-id: 20260521-k3-pico-itx-qspi-v2-for-next-20260521-889b94120d85
+
+Best regards,
 -- 
-2.34.1
+Zhengyu He <hezhy472013@gmail.com>
 
 
 _______________________________________________
