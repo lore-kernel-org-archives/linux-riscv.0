@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD552CD5BAB
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 20:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC34CD5BAF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 20:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pGpL4FT1BauFKSm1zT6M6GSEdE9zcbTaXPlzJ0ErMQg=; b=w3eWas9JQORzKi
-	RmYXobJtPCd5JIAIH2mDmZsLZRIbc4VAkfIrUOLtTXrkaJfu7JYas0le1FoRAtuyntXlGPt8GgM83
-	77WTaD45xMWYESMhKX0DirlDweWmM7UYHVrMfiGpvdunLmEjOYX91g3X0pf68Yi3J5CBSChdmJL3X
-	RXZ7FBUKgNw+7u0CVil0drSQpVUFEMyGWOKgFy5F5Uh+SmmY97RS7PLUn5evBZpV9MS6swKfR0+LV
-	V+5oGUhMng7zNCHkaS1yIS01sM9hFZXbjMAC1/Ao2mXr/qwRiNC8SsOP6HIO2phpTszEzDbKY91l9
-	L9ArEbsJsF1kPr3Md9iA==;
+	List-Owner; bh=12vCAN8/IKOj1B4OZtBm7q9KqdAAZZi9m7JapFY+2rE=; b=tLtQO8MWaqz4E1
+	tFkUwpuMWeFyWP14LMQ4JR4nlkcbTTbzD/g7nOtYWUQf3ZKcIKrwMIisCd5SX1cDEpxjbZ0R3F/lQ
+	c7l3hKj8s9oS3vKwFP3O0dBaYsTG/13yADymRrH7xk4xikNaoIl9CjoL8ie56XtdTExrXHl+oI0Fq
+	1nzRkLMTc3tQJrtH5dxskjbFu68v4sDEgDo6gBG29uIfPk7w8aEQ4EkI5uaeydqNEjqS0ahSIzLP1
+	XVxtOLXvPWlTexAt9IQ98XoVnkKJ17eBFn4iqTxjteUUiwxTtXVp1lKKaOOHCYV9jPo+Kx5+ScGo4
+	P9K7F/fdD8st432btttw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQATE-000000094lH-0v4u;
-	Thu, 21 May 2026 20:58:20 +0000
+	id 1wQAU4-000000094vh-1V3B;
+	Thu, 21 May 2026 20:59:12 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQASl-000000094fb-45No
+	id 1wQAU2-000000094v6-0N8P
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 May 2026 20:58:19 +0000
+	Thu, 21 May 2026 20:59:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 545D6434A9;
-	Thu, 21 May 2026 20:57:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72FF51F000E9;
-	Thu, 21 May 2026 20:57:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C9C8941E40;
+	Thu, 21 May 2026 20:59:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 039571F000E9;
+	Thu, 21 May 2026 20:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779397071;
-	bh=4MRxrVzpsK01ik90g9M2w+3BXjL6u4iHiruqkyeAGVs=;
+	s=k20260515; t=1779397149;
+	bh=JRXpWEig6IbgIhldDiRCEMAQ6F9oQTz24NXw/74K8mc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XF8Do9bHu/MYPEyY97yeJPH1ydtAgIAHjlfT1kLiXVbR+QfqXlEhhRsygi1On44+1
-	 aDccFlmBlzMlaN5/Mui2usNKFsCyxfTZrprxE3qK/0jDWoKlZ/R6OtyNbwgJpqL2T1
-	 bjsw4SsAQ5FJOuR8z/WtI8djvDPLteTqCYh2mTB/76B3ARcDujkIk4jiOifSuRRA9k
-	 bvPSKfAie4o0LZS3Ai+3o0zMQKaE8RtQUABibFOldMZbtVgqwbdLcbaSPPI6dYgc4N
-	 zZ6EGh1VMQ/kqNIBy8KH1u3Oz+XTUl+fiMAyrwWupXJ39WKhigrttbg0NMvnxSOhWw
-	 TXgCdQnH1ggkQ==
-Message-ID: <1b822b1e-cf1c-45c7-8109-3e0330911419@kernel.org>
-Date: Thu, 21 May 2026 22:57:45 +0200
+	b=fKYkeQtYytPYNhIhPJP87Uka/tb1YeGnCuv29j0jDp4xI31q0dS3IqvkmK1yUO7BG
+	 5oEK0wZEzLMlD0/wZHooDxLbi/zvfcc+H5y/YK2yWmlG1b5tHRK4c1BdK5L+WlPZ1i
+	 AYImOHBhtgNAy+Xj1zazjLBG1TPTnmgXcSoYLtpq2SI//HP4gGedoqzdu10invJp6s
+	 kZvirlkT3Q5mBRTD3e21hiTzUf+sT6vwcgp3+zG6JBF02wrdIOvQoUMFtitZXqLWhT
+	 I2llN08cx0GKsP2VshhxQi/qOMxPcLDIKbImF9mN37t/dg0zNyN30kQOXBSG4iryaz
+	 6/JAsI3Wx8pwQ==
+Message-ID: <1a4a54bc-1013-4ab0-85e9-7ad5cf7146cd@kernel.org>
+Date: Thu, 21 May 2026 22:59:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 9/9] riscv: defconfig: enable ARCH_ULTRARISC
+Subject: Re: [PATCH 7/9] riscv: dts: ultrarisc: add Rongda M0 board device
+ tree
 To: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
@@ -59,7 +60,7 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
 References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
- <20260515-ultrarisc-pinctrl-v1-9-bf559589ea8a@ultrarisc.com>
+ <20260515-ultrarisc-pinctrl-v1-7-bf559589ea8a@ultrarisc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,10 +106,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260515-ultrarisc-pinctrl-v1-9-bf559589ea8a@ultrarisc.com>
+In-Reply-To: <20260515-ultrarisc-pinctrl-v1-7-bf559589ea8a@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_135752_056268_663F51A5 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260521_135910_171376_AEFBD429 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,30 +129,163 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 15/05/2026 03:18, Jia Wang via B4 Relay wrote:
 > From: Jia Wang <wangjia@ultrarisc.com>
 > 
-> Enable `ARCH_ULTRARISC` in the default RISC-V defconfig.
-> 
-> Link: https://lore.kernel.org/lkml/20260427-ultrarisc-pcie-v4-1-98935f6cdfb5@ultrarisc.com/
-
-Drop link, not relevant here.
-
+> Rongda M0 is an mATX motherboard based on the UltraRISC DP1000 SoC.
 > 
 > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 > ---
->  arch/riscv/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/riscv/boot/dts/Makefile                       |   1 +
+>  arch/riscv/boot/dts/ultrarisc/Makefile             |   2 +
+>  .../dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi    |  85 ++++++++++++++++
+>  arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts | 111 +++++++++++++++++++++
+>  4 files changed, 199 insertions(+)
 > 
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index c2c37327b987..9fdc4d1831ed 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -32,6 +32,7 @@ CONFIG_SOC_STARFIVE=y
->  CONFIG_ARCH_SUNXI=y
->  CONFIG_ARCH_TENSTORRENT=y
->  CONFIG_ARCH_THEAD=y
-> +CONFIG_ARCH_ULTRARISC=y
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index 69d8751fb17c..702882974251 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -12,3 +12,4 @@ subdir-y += spacemit
+>  subdir-y += starfive
+>  subdir-y += tenstorrent
+>  subdir-y += thead
+> +subdir-y += ultrarisc
+> diff --git a/arch/riscv/boot/dts/ultrarisc/Makefile b/arch/riscv/boot/dts/ultrarisc/Makefile
+> new file mode 100644
+> index 000000000000..d01a770d3cba
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/ultrarisc/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_ARCH_ULTRARISC) += dp1000-rongda-m0.dtb
+> diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi
+> new file mode 100644
+> index 000000000000..101b416b1079
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi
+> @@ -0,0 +1,85 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
+> + */
+> +
+> +#include "dp1000.dtsi"
+> +
+> +&pmx0 {
+> +	i2c0_pins: i2c0-pins {
+> +		pins = "PA12", "PA13";
+> +		function = "func0";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	i2c1_pins: i2c1-pins {
+> +		pins = "PB6", "PB7";
+> +		function = "func0";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	i2c2_pins: i2c2-pins {
+> +		pins = "PC0", "PC1";
+> +		function = "func0";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	i2c3_pins: i2c3-pins {
+> +		pins = "PC2", "PC3";
+> +		function = "func0";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	pciex4a_link_pins: pciex4a-link-pins {
+> +		pins = "PC0";
+> +		function = "func1";
+> +		bias-pull-down;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	pciex4b_link_pins: pciex4b-link-pins {
+> +		pins = "PC1";
+> +		function = "func1";
+> +		bias-pull-down;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	spi0_pins: spi0-pins {
+> +		pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", "PD6", "PD7";
+> +		function = "func1";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	spi1_pins: spi1-pins {
+> +		pins = "PA0", "PA1", "PA2", "PA3";
+> +		function = "func0";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	uart0_pins: uart0-pins {
+> +		pins = "PA8", "PA9";
+> +		function = "func1";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	uart1_pins: uart1-pins {
+> +		pins = "PB4", "PB5";
+> +		function = "func0";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +
+> +	uart2_pins: uart2-pins {
+> +		pins = "PC4", "PC5";
+> +		function = "func0";
+> +		bias-pull-up;
+> +		drive-strength = <33>;
+> +	};
+> +};
+> diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts
+> new file mode 100644
+> index 000000000000..6f72d60ad55e
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts
+> @@ -0,0 +1,111 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
+> + */
+> +
+> +#include "dp1000-rongda-m0-pinctrl.dtsi"
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +/ {
+> +	model = "Rongda M0 Board";
+> +	compatible = "rongda,m0", "ultrarisc,dp1000";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +		serial1 = &uart1;
+> +		serial2 = &uart2;
+> +		serial3 = &uart3;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	gpio-poweroff {
+> +		compatible = "gpio-poweroff";
+> +		gpios = <&gpio_b 0 GPIO_ACTIVE_HIGH>;
+> +		active-delay-ms = <100>;
+> +
+> +		status = "disabled";
 
-This patch should be sent with with the patch adding that config option.
-
+Why is this disabled? You just added final board, so it cannot have any
+nodes disabled. Disabled at this point means you add dead code without
+explanation.
 
 
 Best regards,
