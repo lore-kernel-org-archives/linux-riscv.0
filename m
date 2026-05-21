@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 969F7CD4F5E
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 10:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CDBCD5BAC
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 10:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uJNUo7Cj0Gixj6LFS3u8hun29m5ejzfb3Kldrd3Jq80=; b=XMEsqSRysafg6Aki0MpCGXS1Ki
-	XXdntSKskU0UfCc1/8s8kkyvwyZTms7ZTo5O8bSHo9YQ8j7oqQT4TeXEsejYwfN92VyhuqTgiReAX
-	NG0uyTvJMF7LryaBYlvUFWvbif+QvH9iij9lKvn+eVo6RMj8K9ajSnMOz57cywMVsmF1FNRoVgHWw
-	RQFhc7+IIx+CWMt+INP8nkDcyvNe72z/DJSGoWxFJzxj6V6o31RvQzHm/VYacE2P88nOiESZor+qb
-	Ut3SVlrCcpJn7Ou4l9geJyl620OgbgvZGil0UwHylGZwqWuEOD2Kfl8UTw+EiFMEvT9qyzjpJAtuZ
-	brjVu9UQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wGFus//dpWeyWYWQS2dzhwu3li+w555Ge7RuYwDuEec=; b=i7RWMghGsbd9pl
+	KdrZ0eZJ5d2UT4lcqQlfcqLoQ5W4zR8LzPDC9uNt+U8DZDac635d3oAX5OiKMzuFDps/yKIPH+Kb+
+	exTdXWbvz3Zx1OnqOU/nD5M8ANWJu6FPd+sA8HVK+5dZo9Ww0LviukzAjHVc9THOVg3kCIx46Y4J5
+	aRwAAlu/1FC6ylt+6St3+R5v6WB6CLjQWxyJsiH97fB3O5SgLHisXgyyIpYZsX5szqKik87w8b7ze
+	i8qIPU3KTbe2AwIZ44t4nI8Y/lQGVGZlaHelVordMWOHkNZMH2+rZQylK6JyndBP/U7+nmIgidYca
+	sH6fuFM9PWgFtCqs8Btw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0Yq-00000007SP5-2yRD;
-	Thu, 21 May 2026 10:23:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQ0fj-00000007TUy-2jKL;
+	Thu, 21 May 2026 10:30:35 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0Yp-00000007SOV-0jSz
+	id 1wQ0fg-00000007TTu-1ngC
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 May 2026 10:23:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 80308601F4;
-	Thu, 21 May 2026 10:23:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB85C1F000E9;
-	Thu, 21 May 2026 10:23:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779359006;
-	bh=1XLqmK+7BKBioELVqL+LxlYtx2Up1tgCbtIMoH8w3eI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WwFAbBK2L35QJ8/re4MZfzHQF9H2m72u/cs6v8IxUrZTF8vAYwp6o7UevOuI4IVZh
-	 rwJbqcQPFLl5EWdwmICIi++lFEbSMeUYbzJ41xvzN3Hn2Ilfnd+1wnW/44Yi3aipvs
-	 o1mRIm+dw6AtyjvOqEvh4e9scoQ0g3f5okiOwzGrXTZFH6bVYtaf7X6L7nfvEcO302
-	 rArmtkH3UD9or+ifvfGS/tMhU1dPiAda0zaJjKme7FtKgG2Fohp53zXRh3hHrOwbIx
-	 NDo23AUktY5L6YmWPvcT/Z6u9H7gHCsW/3QH47kQdPZ7eIY7PdOx3iQARRqfvg7RrN
-	 BNWG0mjivn42Q==
-Date: Thu, 21 May 2026 11:23:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 0/9] riscv: ultrarisc: add DP1000 SoC DT and pinctrl
- support
-Message-ID: <20260521-trusting-busybody-15315a5955b7@spud>
-References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
- <20260515-brink-dealer-d0610c0dbc7b@wendy>
- <177935715446.943957.13292482270209644157.b4-reply@b4>
+	Thu, 21 May 2026 10:30:33 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-488b3f8fa2bso54382475e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 May 2026 03:30:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779359430; x=1779964230; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OVQEf9C3kTfOB3iadwi2yKy7Aw1jjCc/eVbtPJeGc38=;
+        b=kErWjn3E9SlsFTYtP0iusCebSZ5GuUyLeK+CNqQLJEBhckif68Mganr9e8QKn0STTD
+         Xmv4w4oP5mnEdZasmUjEnUjyYchzN/jPZsXYrG+EA8cWRs8My8tP/FN7KfPKCjkLad7m
+         /FtoaN9Man36uIRvpIsm+Pb1vmXUpFYJQ1a2Oc1+cu1EOsVC0lY70JUV2ENOnxV56+iB
+         yIr69dutEcYt+paSPLHXfn+D8Yove7NvOvW+gy+Wz7VvFi0hy+t5RxR8AhnWNYAS8n7C
+         Meg6OaJbpIbjOwRwHtD5Lup0oRGhBV5KzmynE/LtvBhHSE2bEVv46DinkTI1Hrq3XZj9
+         K1TA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779359430; x=1779964230;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OVQEf9C3kTfOB3iadwi2yKy7Aw1jjCc/eVbtPJeGc38=;
+        b=K3MPeHkGn3nb+jAtHDSzH25wqmZvAfmtwKMzVIFUeO8obRHxTudZhA185wXWMrHXcE
+         pKpJYjdcm6dLWC7DPDE3MTuKm71X5Gg84WtAId+e4db5SDGTixEL2qFrJMkaBn9RT5/4
+         J6BZaA/IM8eyePnzhB+CQM0zJF+9x+6svvO+FkAPB/IseXNdsmC0Ch32BpW2Ke54aNf3
+         Kd6nxZYXOjDTAjj9lHGIUuXrZws1anPc4HQC9Lqsku9pHgFI5dxXVPqeAiX69BhTAgJx
+         Y2EX/DAtzXgO4Edjr1sZSZtDR9YSPrb0SFQNlcQmGK6W3wrCeOwKmAebbPM2cVNejCTF
+         Q6ZA==
+X-Forwarded-Encrypted: i=1; AFNElJ9pEpppUc2qSQTU+Q5WI+VAUUWGLeCTGhfUVmTgfZbliyOQc94dI2KICsWYrNEAxfa+lxSXCK6NiQQB5Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+rBPABNxXDJXlULQzyinWD+gN8O6euyczRtGbV+xQk1nrdAl/
+	fG0JjG9U/DQdrfiZShl/WYZdZv4v0ndrQCiAz9lf+1tIY9JsNg/a/Cyo
+X-Gm-Gg: Acq92OEvDwdpqhFGce8lYXwWdub2QN/fgPB496KxzCkSwD0N2KudiL1+ykjoiihNyE/
+	ZNeHVvQ26TPafQ+QTKvNzTgPsIgjBo74B/bEZzc/rMegzSxYybBao+B11LFOdtT4m/EHRzrCliQ
+	G/ka0njADUnvrfk3yHyK1eXBxLeVbCuE5gdtbMW3nzjs1oSLV/IPMETUglui9N8s5rHXHxb1X/6
+	u27xN+7Fi/L1blUlKG3bcmmrj28lxMWGlYofolu8H46bFouXxN0MQhRe096pBt+HEXd+BfXvr4q
+	RcVW8cD//jzXqOOryCM7Lwmitli/Je6BNYDjpi1M5vswZ0eegAVOknngaMFhxASPf10FNVo52+r
+	0Z5k0ZupUb1YYn+tLjrsFvnGK0bKOuO1dm+FrbtbG147C8PXOqwAidIuTYgsd6tjeES9wXwSxne
+	qihHKIFnfblDDLwI+twq7/nG9h1cwGt3yM1uGzLuwthe++cFS1OttZDauo/DIU9nF0qvNhl0vQZ
+	AA=
+X-Received: by 2002:a05:600c:1c1d:b0:48a:79d8:a8d6 with SMTP id 5b1f17b1804b1-4903607fd1emr28479395e9.7.1779359429964;
+        Thu, 21 May 2026 03:30:29 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4903caf0967sm15914715e9.15.2026.05.21.03.30.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 May 2026 03:30:29 -0700 (PDT)
+Date: Thu, 21 May 2026 11:30:28 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Marco Elver <elver@google.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Implement _THIS_IP_ using inline asm
+Message-ID: <20260521113028.0f25ad8f@pumpkin>
+In-Reply-To: <20260521000436.3931067-1-elver@google.com>
+References: <20260521000436.3931067-1-elver@google.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-In-Reply-To: <177935715446.943957.13292482270209644157.b4-reply@b4>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_033032_480806_5242A2BD 
+X-CRM114-Status: UNSURE (   6.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,62 +97,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2761399710632249473=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 21 May 2026 02:04:33 +0200
+Marco Elver <elver@google.com> wrote:
 
---===============2761399710632249473==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qI5PxH+3C51E5Bgx"
-Content-Disposition: inline
+FYI the nios-II one will be "nextpc %0".
 
-
---qI5PxH+3C51E5Bgx
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, May 21, 2026 at 05:52:34PM +0800, Jia Wang wrote:
-> > Additionally, these pinctrl patches should be sent standalone to the
-> > pinctrl maintainers, they're likely to go through lots of revisions and
-> > a different maintainer applies them.
-> >=20
->=20
-> Just to confirm =E2=80=94 for v2, should I completely remove the pinctrl
-> binding/driver from this series and send them as a standalone pinctrl
-> series, while keeping only the pinctrl references in the DTS?
-
-IMO yes. And cite a link to the pinctrl patches in your cover letter.
-
-Probably you're better off submitting v2 of pinctrl as a higher priority
-anyway, since a) the biggest changes are needed there and b) the dts
-changes depend on a clock driver/binding being created.
-
---qI5PxH+3C51E5Bgx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCag7dGAAKCRB4tDGHoIJi
-0pEhAP9G/MtfS0MgoId8t3zIL/SxwWheoiCd4xseOlXWShSEhgEArKIHxRB+JF6M
-YzhEFU7vbS7mw+u51coQ+plNB5d+YQY=
-=esTN
------END PGP SIGNATURE-----
-
---qI5PxH+3C51E5Bgx--
-
-
---===============2761399710632249473==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- David
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2761399710632249473==--
-
