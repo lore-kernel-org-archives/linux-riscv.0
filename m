@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25541CD5BB1
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 13:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D41CD5BB1
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 May 2026 13:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OlnUCsuVlTQ84TMQU6MpXE029Uxz9myRIiX5feTEjxQ=; b=XVHC3R00QILgbJ
-	pMBCx9CKxm6VZlCRvrCX7/sjAgvVr6i+6Xxx35AP/6wVSdV2p5E9f+KLvY6a2CWeqWSF+ascfZFTi
-	kGxaeQnypMvQnmnmR+WggbyAFXIYtrBjr86VI2nV26sqQCA+eLBvajuoeGMnWXLc2uaoH7L8DqANQ
-	7UONAGPW6nBpAFecuHzSUaHmn8zBOUJRHmDR3POkRSJHrm/rGoEMUT2ALBedFMh/vz6XPnld5+eYT
-	/jw09yIW/JntSdaF0JwPU4DIPdGjzSCWUjlc0YD+FPnf4gGUF/3igNBMRmoy/bunefGxoP56613P6
-	2Ig55cDgbY7I5OeQweAA==;
+	List-Owner; bh=PBswE2pjf58LE5Kjm5SalHVH3BYHkzqfgZieki04g34=; b=CuWls8ixKZOqQ6
+	QoDX7piiRAKau1QEqQNU3HwEzlEbektDdBheY4BM1SJR4cT1Y8mFZCFFrCzgW8URvu2OoTEY1Yjxv
+	ZoqngXDeGXJhfDox1dHMAt5zbjSHqxmCp4R2OYya3aSkW3dwQLJ86pkZCvmJ0efGUX1paZQBrMpfs
+	11zPU/1vA8TiBnRPXZ+G0Cmb5SV5UqvZemj2SKIyXoYWYYFpyWvfAcEbvMOMAYgm9HwkfvPJZDTc2
+	X33ry7swo8/0kirN06QJ+YfkLPe0vmUn0u9d/u8CcRTb6f9Ogl0kAv/H+NkL6ZGgBwH43xTIIGBNF
+	hf8LyJf5GpODUyi4kjtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ31l-00000007nip-2pBJ;
-	Thu, 21 May 2026 13:01:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wQ3D4-00000007pav-28A4;
+	Thu, 21 May 2026 13:13:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ31i-00000007niL-0PZa
+	id 1wQ3D3-00000007paS-3kwB
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 May 2026 13:01:28 +0000
+	Thu, 21 May 2026 13:13:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 667BA41B17;
-	Thu, 21 May 2026 13:01:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E454B1F000E9;
-	Thu, 21 May 2026 13:01:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 33296601F4;
+	Thu, 21 May 2026 13:13:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FD4C1F000E9;
+	Thu, 21 May 2026 13:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779368485;
-	bh=YZ4Q3TUDO2GIop7GRyVIOG7OcA4OTXp7XlWjhqU8v/c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YQzDXNuydk9jwibHbEes12ds66ESkTE8eyo5qKVKsOw8bZclsMscV09t4FUiAnSoM
-	 5M64ai58AK16ClOm1Sf49PpUrAcfrPHjkYv/pQ0uS8LJQdve7+Y4gOo5iLTdokSpBC
-	 LPDLZqcwRMmUSCivmnekAB0cT98ufnYnPl5Gng4kjZiOiLbbAbaFF/sGFEEjJN1E0Y
-	 TYvc09KJIqjoU0x2J/CmwKybhFv8H1ELM/2W+NsoPQW+gFzQrlvoygYrBOWorEfzyP
-	 7pex8RxEPGnQTPpE1CGJwdK/QMn6z+bZxyl1a8BZSYDuhkHZ43N4HSLxivVeM4jwoy
-	 jdTyyg9Xhg45g==
+	s=k20260515; t=1779369188;
+	bh=igWpYRd7nceDsGMf2M6kAUT9G6B5P9tILKlWPpy71w0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Bp31nYHS+InA9kOjCwJNq2G2DxBetezP2RDP123toJzCTE6xUkye/TnRndYkVidmC
+	 WeJRnS8KjJLsb7bUWu5mq095zAELK/KSmzLEyfhLF0HKb5UBN9FLjxQtCG6MFbdhrj
+	 QXn8W5FEU60Jd2t/6jiOtf35im5SEXXPaOudwZyXoSF3y1vnJyNejVFo4p0nE780nU
+	 KtHd1dOFxc5pW/RjRwPWh62h+ce3kWHcnNjp5E/8Ck520yvCoeJ8Jfoz1Ee7Okx6R6
+	 jUNCvRgYvZVHExeDqyMsQ0ZSNAJ4iW3JVqc+SibgTYmnS/2PFhyW9mRjVTjX/fMb2k
+	 RCrCJ0Xlg95hA==
+Date: Thu, 21 May 2026 13:13:05 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Shuwei Wu <shuwei.wu@mailbox.org>
-Subject: Re: (subset) [PATCH v5 0/3] thermal: spacemit: Add support for SpacemiT K1 SoC thermal sensor
-Date: Thu, 21 May 2026 13:01:16 +0000
-Message-ID: <177936776325.387485.15662058076324687710.b4-ty@b4>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260427-k1-thermal-v5-0-df39187480ed@mailbox.org>
-References: <20260427-k1-thermal-v5-0-df39187480ed@mailbox.org>
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 1/1] riscv: dts: spacemit: enable USB3 on OrangePi R2S
+Message-ID: <20260521131305-GKA3727373@kernel.org>
+References: <20260518100030.2354606-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_060126_163770_8F37B6B1 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20260518100030.2354606-1-amadeus@jmu.edu.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +69,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, linux-pm@vger.kernel.org, Yao Zi <me@ziyao.cc>, Gong Shuai <gsh517025@gmail.com>, linux-kernel@vger.kernel.org, Vincent Legoll <legoll@online.fr>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Chukun,
 
-On Mon, 27 Apr 2026 15:15:14 +0800, Shuwei Wu wrote:
-> Introduce support for the on-die thermal sensor found
-> on the SpacemiT K1 SoC.
+On 18:00 Mon 18 May     , Chukun Pan wrote:
+> Enable the DWC3 USB3.0 controller and its associated PHY on the
+> OrangePi R2S. The USB regulator provides VBUS for USB2 and USB3
+> ports, but the USB2 ports are handled by a separate controller.
 > 
-> Include the device tree binding documentation in YAML format, the
-> thermal sensor driver implementation, and the device tree changes to
-> enable the sensor on K1 SoC.
-> 
-> [...]
-
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 Applied, thanks!
 
-[3/3] riscv: dts: spacemit: Add thermal sensor for K1 SoC
-      https://github.com/spacemit-com/linux/commit/247c77ff5806bcd6a5ff802718de1f0aa2bcba6c
+[1/1] riscv: dts: spacemit: enable USB3 on OrangePi R2S
+      https://github.com/spacemit-com/linux/commit/c5ad6737df88bd3c3e83145edb25737cb19f9a1f
 
-Best regards,
 -- 
-Yixun Lan <dlan@kernel.org>
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
