@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319EBCD5BAB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 03:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A242CD5BAB
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 03:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=74wGYUP7QFbK1evS19U+YeHRhWHTvwtPyRDIhexippk=; b=rCyzhQpZbjM5MU
-	OxQGCqhnJe2XmZ/X5VrmoGZQnyvAgDhOWjX8ggn8HsUq9lrEOz9T5Pus6qvV+831OxzAn6xRp8xJE
-	7FCO3iLvcPMKrlBc3tpbF4WlPSdYoFt1xLEgch/RQcnJKyQ7EFNFbEwKo6oS6HMGmvfpxeL0DJWZX
-	Ot3LIHsZobBgboN4h21AE2GpIo9IeSZEmhBKTJLhBKnPMdkAp+sHwTF25h2lLeZ/+FTcGVx/VKc8q
-	B5GIfnMkzYmPd2/I1XZsYhx4zCGSXTQxFn1qAYkMIR4D2cZFW46YsX7LLAY5bVbtXvh7B6D+5ESNv
-	xT4BjdOl03RN7Eyg1wBg==;
+	List-Owner; bh=qtNyfvO8RAAlEOGuBsYlcBrGG+F+25S+QYyMzFXx4vQ=; b=4QHgKvOezfXzXw
+	ogIc7f8Vupg8iopNfUdjNoBkgk2NOa9uenTLIU8XGqJnAkCvjXfG9CEf86/+tnj/iqy4H1oot69Mv
+	87/bsBXyJZ3umKXIH+ujduAnqLrSWZNTlB8LRT0Uu/Roddewr+tXS2R9P+UGiLkl739IzPa6cm3uX
+	VhsAlspKT9Q6Vl40bfhzbkgZ1T7Jvu8b0WAK9897SljgWAPRXYi+5dkjQTkKXJKHz6ZXLk3ueqctB
+	xhdhK9SsFurBMvxM8dVZNsjJL3vh1kE5l9KVddaaNzAwg+qJLvtUDQpi4QoKNlGm8IZ85AIE381ou
+	LOJtQj49nD/yh6/BXFJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGBC-00000009bmI-1knL;
-	Fri, 22 May 2026 03:04:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wQGEs-00000009c7I-3lpf;
+	Fri, 22 May 2026 03:07:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGBA-00000009bli-0dRf
+	id 1wQGEs-00000009c6h-02UJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 03:04:05 +0000
+	Fri, 22 May 2026 03:07:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F19ED41982;
-	Fri, 22 May 2026 03:04:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF8E41F000E9;
-	Fri, 22 May 2026 03:04:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2465960204;
+	Fri, 22 May 2026 03:07:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE3DB1F000E9;
+	Fri, 22 May 2026 03:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779419042;
-	bh=wY6yT+l6zGgvE9blOGuQ1pgMTzuImGpLaOcnv/U9o84=;
+	s=k20260515; t=1779419272;
+	bh=6kQrez1gnivfNNtB2gZIX9sMLH3yQ/lt7QrGi8nNRMk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=GzNtoVsBcmEsfY8jGhw9s7aDTAmISWtqc1nuPlEK0H8vNmLU5uh49CGfbmAUOe8p2
-	 jR4HmEwRiQCTFZlLUl4cz2xrCrBj/eeBwqFsQjnbKwbHtYg0dCpJop2XxcG3MZG2Y/
-	 VFk7oR3MNpBXRD0a8U55gxEHRiX+fUR9qvpr3xkVFdUQSyD7U2xwXLYI0/vtrLXAvG
-	 pSL464mIjdhuC5D80eeujWq64w4PyZL7Lv0SWQeiuuXbHdg1GBOKLzN0cgNjIsfYQ2
-	 PJLuLbAV4xN953QU8gl7+kkSXsEq0633AaIH5Uxj1Y4+EctZkK3jIjlra3gGAVStGu
-	 AfILh9gejYsog==
+	b=Rn6kQ0Paa5xI2I2AIxheHOXwZdj0qePhSZb8Y76bV4VoqIqJkePjQ67mpPbBw1J31
+	 +z1Epz3YSukDwbifKiO59MdIztjiXv+MJq0YjeK26MkIaLZpEGj2hfqikjSQZQq6cs
+	 NgipMrYytdC90ES20UrxDTt9gBLdoz8awCBAHuXXKjvctHSNuBDUEy3ZUXlgQJESKL
+	 pdUyH7ISVY7qQrMsAO+GDLhIn3UlGTiRnMYAx0L94i//ohdys07D+IrnybxhjA7+VW
+	 vqJGnKzzbpIcKFJaUY+KfdbwGqjhRfTC0hAY3wOcxtfnaErlu8oJPXi/fuM/D0uRuK
+	 5m3UEOjwugTpA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939F23930E40;
-	Fri, 22 May 2026 03:04:13 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939D03930E40;
+	Fri, 22 May 2026 03:08:03 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] irqchip/riscv-imsic: sync-up state before CPU offline
+Subject: Re: [PATCH] riscv: module: Use generic cmp_int() instead of custom
+ cmp_3way()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177941905239.602940.15678598632674221077.git-patchwork-notify@kernel.org>
-Date: Fri, 22 May 2026 03:04:12 +0000
-References: <20260508-imsic-v2-1-e9f08dd46cf5@sifive.com>
-In-Reply-To: <20260508-imsic-v2-1-e9f08dd46cf5@sifive.com>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-kernel@vger.kernel.org, greentime.hu@sifive.com,
- vincent.chen@sifive.com, zong.li@sifive.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_200404_208879_7D8C38D6 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <177941928214.602940.16428657104568986358.git-patchwork-notify@kernel.org>
+Date: Fri, 22 May 2026 03:08:02 +0000
+References: <20260512063231.708256-1-florian.schmaus@codasip.com>
+In-Reply-To: <20260512063231.708256-1-florian.schmaus@codasip.com>
+To: Florian Schmaus <florian.schmaus@codasip.com>
+Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
+ ajones@ventanamicro.com, conor.dooley@microchip.com, seanwascoding@gmail.com,
+ linmq006@gmail.com, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +76,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+This patch was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
 
-On Fri, 08 May 2026 02:31:21 -0700 you wrote:
-> The "move_prev" pointer in struct imsic_vector on the new CPU is
-> cleared only after the old CPU has cleared "move_next". But when
-> migrating all the interrupts out from an offling CPU, since the CPU
-> is already marked as "offlined", the IMSIC driver skip to sync-up the
-> interrupt vector in __imsic_remote_sync(). The "move_prev" pointer of
-> these interrupts can only be cleared after the old CPU backs to online.
-> Therefore, the affinity of interrupts originally targeting an offlined
-> CPU cannot be updated.
+On Tue, 12 May 2026 08:32:31 +0200 you wrote:
+> The module-sections.c file defines a custom cmp_3way() macro to perform
+> 3-way comparisons during relocation sorting.
+> 
+> Instead of maintaining our own implementation, use the generic
+> cmp_int() macro provided by the already included <linux/sort.h>. This
+> removes redundant code and relies on standard kernel interfaces.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] irqchip/riscv-imsic: sync-up state before CPU offline
-    https://git.kernel.org/riscv/c/cefafbd56140
+  - riscv: module: Use generic cmp_int() instead of custom cmp_3way()
+    https://git.kernel.org/riscv/c/7a6fbb72a489
 
 You are awesome, thank you!
 -- 
