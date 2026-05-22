@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 639E9CD5BB0
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 09:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1F4CD5BAC
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 10:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ag0aUQ3KNgUNVSdZFe734AJbcJa4xIid6zP8gH5nc1s=; b=SqXwUyeUSBvj33
-	jjUHavoUNSsUnNNXTyMgmmhHc23ZWDCjBcEOA9kHheOtBY1kj7tjr/p6qmducD8845GEqFJTnepPn
-	k87H1tJeY9CVmwnG31TbsMfKYPSeY9ZWxllZQv+T1hKPIBO9rAE7bjmjP0py96U/f3tsD6RRDeS9h
-	t74a37S4MXCQ+fx1hzBsT3knJHuadp+rOfqWG3YONFQpcHax86KjphDtUWWVw+kTFd51B4olM+Fe5
-	YJbEH2ZmZTfsPQ6aftDTpqsrZDpUxnqsZmjrkL4jcHls6Ouh+KdjlNqmVTRQ/4NwD/8A55ISegQZI
-	8QG/Mc2Wx2W/wVFNg/lQ==;
+	List-Owner; bh=O4l/1dU040VKOr6oXQ/GooVRJZ+h/ueFQI7/sX1A8hU=; b=dwYMTF3ctrKr95
+	XYZ5K075KAid9PIHXwLmlfxNArrgWOJ0KFAvpq117dZxsZ41Tit83BgD3hff/d8NMbKZ0jkOZFybw
+	xxjT0LY7As1UTqltB60jz8/6WYPFXo9zoCnty7k/74BFmCESRvo+cx44Mdrz3PRk4EEFL7T20dI8P
+	SRfa2IHSUtAWjhQK2K7U7ke1h9CGo7GlIIJ+dnk4htO/9pYaYh+WlcTAlF8xywwOkcx0GDnLAZBDP
+	+7rsGGY96BXf2FW6OPpUiYh2daytyGXUsZpMZ1Nt/Xf0svs4bR67+DJk4krrT8rftVTA/o5pIRkdG
+	ns/ecf3Sv2zfq9GwdyoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMJA-0000000ALea-0LzY;
-	Fri, 22 May 2026 09:36:44 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1wQMiV-0000000AQF6-03D7;
+	Fri, 22 May 2026 10:02:55 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMJ7-0000000ALdm-29Ol
+	id 1wQMiR-0000000AQEI-40lk
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 09:36:42 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-13663f68983so648691c88.0
-        for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 02:36:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1779442600; x=1780047400; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hqbz0O8aEWGA0yKkRsOUbhxvZ23lpVZ1rZzCE1TMpVs=;
-        b=alpEAVN7KWzrKqDWU0A1qgZ9/47tTtwvdTk9QhTY+qyRiR8rrjEn5vsbMJCGMgOg2w
-         nE/9yr/qi0v/CBIdLKDDtRpnEVPtmTGbWyEf9UOJemJj0XYLLtDuYga0LPi7nUMVjk88
-         9Fh9hBKsYE8qRXuURM+fGkF9PG55vG9qE0fNQvuiBW52qMTyWW9pvWbh0fVebTHMhZZW
-         wpwwmp8F7Kt+Xp4za8tObuBVid6bGvi1B4RZCY7hD8VaYyaZPzPoB/+KkPsSEGS2INwV
-         JUlIzo1H//MLBPgulSkxcjXLts0MAG/OeqM76da0xLBVZalb/rZQuL9sVx2X9S/8lTug
-         GqqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779442600; x=1780047400;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hqbz0O8aEWGA0yKkRsOUbhxvZ23lpVZ1rZzCE1TMpVs=;
-        b=Kg/QZRMk1ZVk5cpIXaEey1qzDHf1UmPXnXWCu8ynIPn6zMa5/uwY1Bq7rkFRBxLHOi
-         0/X1EB9R17OOEmfwj9VJtH6LGOnnjuZsFaCjVZaOSrmWiUgY20oTclMBWz96k49NPGx5
-         fU1yGqd6MlxGKnPZaN9VsLyVPL2oFVUBWymJQDjL5qicJDbYgPwsTfw28QwhCa3lGzaf
-         r92CssUHTleU+ZlnVvVB1MUjXT8ilIKAW/da8VUFcJx825MxmEUAm9a9XbODiMO8lihx
-         /YYtPooB9MUJPWcex13+HHDucRYx1oNaobB3vXNW7Q6ENT7IaTEu00K+uvrdsWU8RF/S
-         J49g==
-X-Forwarded-Encrypted: i=1; AFNElJ95WcOH+hzsybX0e0wGOPpwbWBFPsAx+OaZPy2q3MaB/MC3QrcHN/QlmQE6bIGy7w/jnH6rwgXGP+NTyg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/SCeaBKYEqlunNjkOx9Em9lL54PKUSG1FX1e3TVJStL0PEg4a
-	tWe4hPr6CqDNzF/7qciIcnhCLCP86IG+jFSyyqBxXGKLouvR3QIefOSmEx5TCPLW/qg=
-X-Gm-Gg: Acq92OFfDvUWo2XCK32eXMWhTJ5N/r8ck5fU7XQub/cgrsrUx1rSkUj6ssCwtLl8ZPh
-	UlF05ETlIJuLqzrWVpDAFj8Haqjy0JO4vx4QRiaiBnQ/c+sv4G1CTlr/BxQkMJoc6KOx+63EfnM
-	uUO6wofiFZ2Vu9TkSCWVIvRxwsdDZrA35BdrunktGip+i36PyQwthBUViAVpoeF/R6yVirw2Q/a
-	oqFCQn4q7vvRW7tshSXguIIohQiIlSaA8To5HzISYjNsNkI5qQrJD4gDKxCErP4Vcen23JoOMw7
-	2tg6wRaGyFV0V0bEvJD4py4b9jzt2cdmImRerPYuPZBhG6Qzoq3hcOdKS39LEydg9DRWh85Xzqs
-	+Y9JA1GXzDon9k+iXXV/Ir7az5ucFG1rg/8mFaWMbzg/Bi2O2ZFkwdWMe2mjWKP53Xw8QCsYhYs
-	X0PQsVQMJAKb2XkvCG4g64SXtdGCsQd2uzM4s=
-X-Received: by 2002:a05:7022:671f:b0:12b:f616:1a4e with SMTP id a92af1059eb24-1365fa45a25mr993856c88.23.1779442600181;
-        Fri, 22 May 2026 02:36:40 -0700 (PDT)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1366a2e672asm801474c88.3.2026.05.22.02.36.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 02:36:39 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	debug@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	david.laight.linux@gmail.com,
-	re@w6rz.net
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH] riscv: cfi: reduce shadow stack size limit from 2GB to 512MB
-Date: Fri, 22 May 2026 02:36:34 -0700
-Message-ID: <20260522093634.3530233-1-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
+	Fri, 22 May 2026 10:02:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1779444159; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=gHIq3ixD9bRmVE+/Sy63lp/TQO7Ryf7D8wlX2vPyr7+uuZ4QslwDZJgBJczdpquW5XS0dIzNHj19Oui/C0Q2vTF9rhcFvPoByBEeiwZK36Ajm2mjSapYU+p5WuTqbRtWrsn7OQrV1Og00T6SgXzkTO8hopawDTMNXjtk1O+naSI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1779444159; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=OSYRXWdgPQ0qpSaOzFwa2vTnVH0eSYVEuTRMqO5a4RE=; 
+	b=ha6VWbGe0WlLUFAEDT5QLxD0IhK7kreC1Zy0myB8I7DucaxOnkKM9HCoiIXRYZmv3j+TVdBPOOEv01sEQ01vHkcHdVSNJp7T6+JYWDG4pmOwd64wYVio8VP2PqhGbxwV7O8VYGXwQGT0E1/IBhbtqF4CPM+PxQ0zscLdu5VGsp4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779444159;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=OSYRXWdgPQ0qpSaOzFwa2vTnVH0eSYVEuTRMqO5a4RE=;
+	b=Mwbhf6szXkf7TRqc6+kAplUhx5h5cZQN2WdLJNVoBECygFyo1qdYh6ZBCURWj5i1
+	eIlcqpnZJAo31zgYXuYxAMsdYjiBuCknyM07z42+/gwX8jLD1Atc6jSzmVO4ThGUZZc
+	O9VVEQNUSit1RjYWGw+u7eVmHQDsJwm3w1Dlq5jM=
+Received: by mx.zohomail.com with SMTPS id 1779444155920672.4289544688394;
+	Fri, 22 May 2026 03:02:35 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH 0/3] spacemit: k1: Add support for Banana Pi BPI-CM6 IO
+ board
+Date: Fri, 22 May 2026 18:01:32 +0800
+Message-Id: <20260522-bpi-cm6-v1-0-707ef1917a30@pigmoral.tech>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMyw6CMBCF4Vchs7YJ0wEEX8WwaDtTnQUXWzQmh
+ He3keV3cvLvkCWpZLhVOyT5aNZlLsBLBeHp5ocY5WKwte3q1lrjVzVh6gwH6uOAQlEClPeaJOr
+ 3X7qPp5O83iW4nSN4l8WEZZp0u1WdMA+uZrKCEntEIt8H33rynrC9uqZh1zDCeBw/UJtQxaUAA
+ AA=
+X-Change-ID: 20260522-bpi-cm6-dc38f91e3fec
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, Paolo Abeni <pabeni@redhat.com>, 
+ Guodong Xu <guodong@riscstar.com>, Yangyu Chen <cyy@cyyself.name>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Junhui Liu <junhui.liu@pigmoral.tech>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779444139; l=1748;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=hEkh1Pczn0aaj0ONuR8AqCQA/Ha96EV3U5jPPt4y1oo=;
+ b=c8pKUtG6Qf7XIhK7Sdr0k30OlDYgbdTnu/F0hVFQmfvDz3owqof13prOwKJMPOi6HTbCieMUL
+ re3mGFGzlBlAiw+AG2QFyP+THrWLyGmAQreaPi2eiLoutuv4iIypg1v
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_023641_566921_AFC4C661 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20260522_030252_356734_6516F6DE 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,68 +96,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Change the shadow stack size calculation from RLIMIT_STACK/2 (capped at
-2GB) to RLIMIT_STACK/8 (capped at 512MB), following David Laight's
-analysis and recommendation.
+This adds initial support for the Banana Pi BPI-CM6 IO board. The
+BPI-CM6 is an industrial-grade RISC-V compute module powered by the
+SpacemiT K1 SoC, featuring board-to-board connectors similar to the
+Raspberry Pi CM4 form factor. For evaluation and development, the module
+is paired with a companion IO carrier board.
 
-Rationale:
+During the board bring-up, GPIO45 and GPIO46 were found to be used by
+the BPI-CM6 hardware as Ethernet PHY reset GPIOs, while the common K1
+GMAC pinctrl groups currently mux them as optional GMAC reference clock
+pins. Since the reference clock pins are not required on all K1 boards,
+the first patch separates them into independent pinctrl groups so board
+DTS files can select them only when the signal is actually wired.
 
-David Laight pointed out that the focus should be on the ratio between
-shadow stack size and the normal stack size, rather than just the
-absolute upper limit. His analysis showed that while there are many
-functions with small stack frames, the majority have stack deltas of
-over 64 bytes due to saved registers and local variables.
+This is based on the "dt-for-next" branch of the spacemit-com/linux.
 
-Shadow stacks only store return addresses (8 bytes per entry on 64-bit
-systems), whereas normal stack frames typically consume 64+ bytes. This
-8:64 byte ratio means that programs using a lot of stack space are
-dominated by large buffer allocations and local variables, not extreme
-recursion depths with minimal local data.
-
-For example, with the default RLIMIT_STACK of 8MB:
-- RLIMIT_STACK/2 gives a 4MB shadow stack supporting 512K nested calls
-- RLIMIT_STACK/8 gives a 1MB shadow stack supporting 128K nested calls
-
-Given typical stack frame sizes of 64+ bytes, RLIMIT_STACK/8 is still
-conservative and provides adequate depth for practical applications.
-David noted that this could even be safely halved again.
-
-This reduction also better accommodates memory-constrained platforms.
-On systems with limited physical memory, allocating large shadow stacks
-can cause virtual memory allocation failures when overcommit mode is set
-to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER.
-
-Suggested-by: David Laight <david.laight.linux@gmail.com>
-Link: https://lore.kernel.org/all/20260518105725.7afe7a4c@pumpkin/
-Signed-off-by: Zong Li <zong.li@sifive.com>
+Link: https://docs.banana-pi.org/en/BPI-CM6/BananaPi_BPI-CM6
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- arch/riscv/kernel/usercfi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Junhui Liu (3):
+      dt-bindings: riscv: spacemit: Add Banana Pi BPI-CM6 compatible
+      riscv: dts: spacemit: k1: Split gmac_clk_ref into independent pinctrl groups
+      riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO board
 
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index cbfb4e495e9f..adf97426a906 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -110,7 +110,7 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
- }
- /*
-  * The shadow stack only stores the return address and not any variables
-- * this should be more than sufficient for most applications.
-+ * 512M should be more than sufficient for most applications.
-  * Else PAGE_ALIGN it and return back
-  */
- static unsigned long calc_shstk_size(unsigned long size)
-@@ -118,7 +118,7 @@ static unsigned long calc_shstk_size(unsigned long size)
- 	if (size)
- 		return PAGE_ALIGN(size);
- 
--	return PAGE_ALIGN(min(rlimit(RLIMIT_STACK) / 2, SZ_2G));
-+	return PAGE_ALIGN(min(rlimit(RLIMIT_STACK) / 8, SZ_512M));
- }
- 
- /*
+ .../devicetree/bindings/riscv/spacemit.yaml        |   5 +
+ arch/riscv/boot/dts/spacemit/Makefile              |   1 +
+ .../riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts | 215 +++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi  | 227 +++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |  24 ++-
+ 5 files changed, 468 insertions(+), 4 deletions(-)
+---
+base-commit: 6edd9a0d32e1ef81133b8cb5b3bb3157a44da4d1
+change-id: 20260522-bpi-cm6-dc38f91e3fec
+
+Best regards,
 -- 
-2.43.7
+Junhui Liu <junhui.liu@pigmoral.tech>
 
 
 _______________________________________________
