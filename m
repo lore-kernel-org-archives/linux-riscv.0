@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5F1CD5BB0
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 20:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929C5CD4F3D
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 21:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6k4LSMAOZM18HIMGrwSgLgtkOg5SyfC4WvP9SjWT+U4=; b=RiXaPfTL8EpmBoPjyoq++97Kmo
-	pmd+BFCLbAn8zwUpF444l9rP3b7tuW5CXhT8HKRhI9eMND5Wuty0I0oZf+/q+gql+1DzBBqbWq/IF
-	SB2o2l8GMGdWmMQSWrrUkQ/oQDsDwuDaEOXyAVxVsDRRDfWkcrux/khgoUCRoEb7pntsZYxKZmkBL
-	yyVwn44HsD9z3uH8THsSjPZKHR8bYx/oz0x0yJIC/sSRO2BI6ZqwXWZxt0h3z72LsAwROM6iPqMdO
-	u/Sgbmw2RxbuxK9IR2CI/G5njZO9ZV0CCzr197/4/2O8B03Ly0C5IabO/Wcdc2v/1rpunOR8A4Blv
-	Fv64mEkQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s9JTuS82Ok3c+JRa/cmzJ/ojX5RsgGZau8dAmrkiOyo=; b=eqgAs/E2gTVtLV
+	uztH1EJB6ZH+tc6cxIKEobD4sK4gBvgx2VsZydgx8fYrEqCR3AmzcBj6VgLbvXlDBWTgvtaTXnRQo
+	KFSIz4MqiQi762hctk+ibcgh9Vb8+QLN/EsHv/9G2ZiBKzH2E21On+ANXEex0T3Cfz8VjWQT/ZGUK
+	g1XQBi7ANEaEP7uUUIObVq3KZRYzWOjNsvGSKOUryCYgEaz7QVn8wZHMB33FO0bytnD6JJA8w/xaZ
+	340Ou6V/9ctjF5BH9JsydghA1RftI9AW+jKG5jJWdB5kyqy3HzPIObwWdfzW5/1ViW3E6yxQxPOYj
+	2CRNCyvO//yMDMOnQoLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQWeb-0000000BtXX-1ZgW;
-	Fri, 22 May 2026 20:39:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQXSj-0000000Bzr9-1ioW;
+	Fri, 22 May 2026 21:31:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQWeZ-0000000BtXJ-3gBd
+	id 1wQXSg-0000000BzqD-40SL
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 20:39:31 +0000
+	Fri, 22 May 2026 21:31:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E86F60136;
-	Fri, 22 May 2026 20:39:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C6D1F000E9;
-	Fri, 22 May 2026 20:39:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DF4D445EB
+	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 21:31:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 557131F00A3E
+	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 21:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779482371;
-	bh=jzyuahkmJrkIfcmMx4CX9UsZ36wBGpvzYs+R4VQvaag=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W9eEG1/WTyNg852Hc717laNEoKKcGetjNVIvMZJe0jRfjVNwR/rtIROUZKnvsGopP
-	 UAsIwpCC55xZQz5WU4fJWt4UOjFxHIeki0sS4KRubt7IEFpIPxUlBVrWs6xKoBTxkl
-	 Oynw85NLsHrVPPLjafi4rqd5IeVMmt3nKlOhHO8Aj7n1kC/8T2M5lTYMF6OliO5TvE
-	 pyIwcZkYsvEccxYOjc9lSTfelbdPaWJhSO7jLJBmBo8qIuemIaFm1cvq8ZFLfa85sX
-	 8c1n7UzmHUzSTbGvh6w50rU6o+datR4+aNBlgcgPbsT5ozgQuwlR31R1fimQ5d5HOc
-	 NJvdmX5czQmZg==
-Date: Fri, 22 May 2026 21:39:25 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Xukai Wang <kingxukai@zohomail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Troy Mitchell <TroyMitchell988@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] clk: canaan: k230: Fix sparse warnings reported by LKP
-Message-ID: <20260522-removed-lyricism-7c879febc3b3@spud>
-References: <20260522-eligible-vivacious-3ce9bc30dd53@wendy>
- <dee4605ca30f9bbd55ccb4fcce9590ceee1fa10b.1779453284.git.kingxukai@zohomail.com>
+	s=k20260515; t=1779485478;
+	bh=C1JkI15vgeu08xV//dtK9AYlWM5a5o5EUbaFA14ty+I=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=BZkBhq1dEMkxCJHLGd9hHIZUnfovj2cBcOHoma7ZqB1sV0+I2O6Ds5hTpwlWo4Mft
+	 6cZWdkrBC8UapaBAwm7wTsgf6f8+bsxbXBKEVD6N264a0/eS6r2rdb08YfLVaVXRFl
+	 DCfthOwfboPEVZicSPecr1WRFLBuk1+P+LgQEe3wX84so6iEX2i0ZTBrRDglX2hSFx
+	 U8IUrYW8hVgwjP8B7VfqK2I0t+/0+rbDVSJLqQ9PbEvde4WIlEtliG3txUqHXy/bwe
+	 ykb+eAMoCx2v1OrYATTHe26u6dEHYIyLuKR8dX7rGXbs6//A4IoVMdKRjJahE4F5l7
+	 5hZy1XYN8h40Q==
+Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-50fb8e9a4edso92197661cf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 14:31:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/ilmZJe7b24+OH+ocpiQjGEn7IZEHvwtz9dXkMSL08kk06EVomPN27bvVdl60wlP21pPDtDAEwMv7brw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyveSSik0armbJVVfisU/f4TCtTDWygp5huPh4ccteudZI84B5G
+	SPXJZoDC/T5zVM+aWbl9NVVS9TvJYve+Bu3z9fl5DKkBXv7bsMeXhJfwJDBd/ImMI3cBbctkp3a
+	30Hp55PaczBxGC+rV7O9EHMG8HZ2JGOw=
+X-Received: by 2002:a05:620a:372a:b0:914:c100:6a0f with SMTP id
+ af79cd13be357-914c10072a4mr332092285a.23.1779485477280; Fri, 22 May 2026
+ 14:31:17 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <dee4605ca30f9bbd55ccb4fcce9590ceee1fa10b.1779453284.git.kingxukai@zohomail.com>
+References: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
+ <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+ <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+ <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com> <ahB6QyHgYq8ksj65@lucifer>
+In-Reply-To: <ahB6QyHgYq8ksj65@lucifer>
+From: Barry Song <baohua@kernel.org>
+Date: Sat, 23 May 2026 05:31:05 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+X-Gm-Features: AVHnY4IqrepDwpGO5qDQsSaxTVFULk1Thk0Uu8QgQ0mfUUrDDRbDPxaWPMcP1VU
+Message-ID: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Suren Baghdasaryan <surenb@google.com>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260522_143119_026234_40420D3C 
+X-CRM114-Status: GOOD (  18.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +94,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2531900281692637321=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+>
+> Again this is making me want to sit outside and sip on some lemonade and
+> ice :)
+>
+> Yes - android processes are aggressively multi-threaded, sure of course.
+>
+> The missing bit here is the forking - what, where, why, when?
+>
 
---===============2531900281692637321==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6w0P95clb1jZsxRa"
-Content-Disposition: inline
+I really want to know the what, where, why, and when
+as well. But since most applications are not
+open-source, it is basically a black hole for anyone
+other than the owners of those apps.
 
+Let me try to do more investigation to understand what
+is going on, although it is really hard.
+To be honest, I would rather the Android framework
+completely prohibit apps from calling fork(), if
+possible.
 
---6w0P95clb1jZsxRa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> And then you say zygote is sometimes multi-threaded but sometimes
+> single-threaded, which is adding a whole bunch of confusion on top of all
+> that.
+>
+> I don't find these stack trace dumps all that useful (though thanks of
+> course for taking the time to gather them), I think we'd be better off with
+> specific data on forking, in some _concise_ _summarised_ form, ideally with
+> numbers.
+>
+> There's such a thing as too much information :))
 
-On Fri, May 22, 2026 at 08:59:12PM +0800, Xukai Wang wrote:
-> Fix all sparse warnings detected during LKP randconfig testing:
-> - Replace plain integer 0 with NULL.
-> - Add static modifier to k230_plls and k230_pll_divs.
->=20
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202605220724.j4ZeM3KI-lkp@i=
-ntel.com/
-> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+This trace shows PF I/O in one thread overlapping
+with a fork() call in another thread.
+But as I explained, I really do not know what kind of
+user behavior is behind it.
 
-Forgot to reply earlier, but I went and squashed this in.
+>
+> Anyway, again, please let's see a new _RFC_ with the approach proposed by
+> Suren, with some _succinct_ data demonstrating _exactly_ what the problem
+> is, so we can make some headway here.
 
-Cheers,
-Conor.
+Okay, sure. Thanks for your patience.
 
---6w0P95clb1jZsxRa
-Content-Type: application/pgp-signature; name="signature.asc"
+>
+> And now I'm off for a cornetto! :)
 
------BEGIN PGP SIGNATURE-----
+Sounds good :) Enjoy your cornetto!
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahC+/QAKCRB4tDGHoIJi
-0hSIAQCWDWG3TSikZRlt68Uwd3kshWGbSzsv40UokBTQi61KAgD+LGC81U7fOT85
-ukUFrT5pG/T/xAV/bsq/DJl2h1YafAk=
-=tMpn
------END PGP SIGNATURE-----
-
---6w0P95clb1jZsxRa--
-
-
---===============2531900281692637321==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best Regards
+Barry
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2531900281692637321==--
-
