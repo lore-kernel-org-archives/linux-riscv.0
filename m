@@ -4,87 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 971EDCD4F5B
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 03:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F04CD4F5B
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 06:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vTbuKFB/uCgEbtTJhtNZU2a319F5FNjuMxdUc15uHBo=; b=xrHZbJ4LfSJgvj
-	poyTMa9+OnrWvVPI3xUadDBTm01HY35Ob1CGkLEiknMSfAn6vhn4sJ0JcqaDSTavdpTzXwpG0NPJ9
-	66RocAJwuGL8Y3BhWEama23nGKx+nhOlZrGmnaoEXjQBKPvLVWQxNjogCOy6uYXquFGdDqD71/yjk
-	2ZTbRQquDw7E3j3Pw+E9l/frcKAfsxz15l4Ai+FPFgfhRQvkydq8GC6EyRy/qE4LnQ8NGxMxulN5K
-	VpeViKV2y0hokgOBFigks+4JIyswtp+bqH8hqbtixTBa/n6ALewWmlU9yu7RQ2tVZWUN/XjsvIO5W
-	XTmGYk/uzEVCA86lqA1A==;
+	List-Owner; bh=aEkzJQtiqcJ1pjOYCQYVpnfbH2hyx4XkoK+cLepVIqw=; b=q0tguldEYRBk3C
+	wdUI9za/yPEvxY32MlMrPTQwR/E4nbjPga/ZxR5RASlLS9OHqWOxTR3WvnCiAeQMGdEco8hkSLorV
+	KaigFo/CvNurmN6V5bp1JPi7cj9QCaqxMl85OeJwl/hrZ9o6UmicytTiAMOLrSv5COxJUHxpZBTRG
+	DZtO9AFeUZqpw56HD/CBq+p0/gEULznVoWFcKcISvaD3Sg+NNWu6nNun1KKLLwNRR06VU4hGnRvjr
+	dU6weZpu8rsriFY+tIFXiOIi1xwPzRnxQObshW0hnLDCsxcw6xmHkJOQUAwRgq+nB2EDIfNfLr/O2
+	fnEJyRORn7eC+QQBoblg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGbM-00000009eFh-0UCU;
-	Fri, 22 May 2026 03:31:08 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1wQJQF-00000009ykg-3h4Z;
+	Fri, 22 May 2026 06:31:51 +0000
+Received: from mail-sh0chn02on20709.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::709] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGbJ-00000009eF1-0svs
+	id 1wQJQB-00000009yis-31aa
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 03:31:06 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-303f2fb7225so5407645eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 May 2026 20:31:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lixom-net.20251104.gappssmtp.com; s=20251104; t=1779420664; x=1780025464; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gtaHIZdTtoWRwcagu2t4Vb/Fs0NvogRICoTuD3wnfwg=;
-        b=FOt/B4/DkZVLsNzGyvzlBPwWl42CNv/nTPV/5EmO5GrMCuFll0hkUte91z6TCbEgs0
-         dgmA4yP9Tt1Ail3cAcgI/GlnpdzN6+ZT1FDeCv9+oCZMHxtP/sz/qKKJSne/xYXNIB2V
-         sTRtWl9zZixloVSPnaXiUb2wl0yn9qu1SXjUz55SyWsXUyIaCBt4NZesrYPhD5KAiP1w
-         Hx+75bSKHdZYghNlm9sujfybMXSKmEeY8FJ7r2dwh5CJDTqNOZk6BCQGZrU1tqqQB/wL
-         C1LJ8UNq3vu4cqhV/zs+kEfgJP6Axn69vTzODm+k0PY08QchUMe0S55Qw5znoal7uE93
-         3cAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779420664; x=1780025464;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gtaHIZdTtoWRwcagu2t4Vb/Fs0NvogRICoTuD3wnfwg=;
-        b=SmHvuYkfWj542J7MXsumv1t2zaNsE0we+r/tjaYWead8wY3jmhlqXLoyydllsTK8co
-         Y0U0VZkdEvbQQJLUNgK4kQ9DNgk6zJK29jAHNJMM7CU4DG5hzVl9J2YxnSboQ14E8Dki
-         dWsvBt0OYm0Y7I2DhefsSkfIAnmCrZ40hDuSnDLOrw2JuTUj2MjnyiGhaRs7+FkLp3X5
-         diTNWMlc50aQ31iAM50I6hrdPowQ6OWw/bGHd/olwrA2zPRcXUOlvMiYDDKvTNhTaOir
-         yhpZxLnLZ8cOa/6JN1Q/RACm0PX0w+VWdQcbZ+hOnwp1sz85MTp9OcFEoqAlamzM09Oe
-         osIg==
-X-Gm-Message-State: AOJu0YyWFfngxLQOAw7YyQvTe5EtWxA9Wvv50YzAMc8xCBsT7EWlA/cC
-	eusrd+WRFyb4AjYAR47ekgfGiahgf/9toYLZWchBC1q8PFDW+MWh3HvUk4/EGMJz31k=
-X-Gm-Gg: Acq92OFnUUzM7QDapS+QhZaHiClov/fUIANmC2nwS9zdIxlVU77qZFDvXq9T5ULP5ui
-	jb+a3PUL3K/1MSZ6FTywENSdA6N9LxdwdJLN6zegHrukp4raQkWF9qJzje8nGz4h7d9gbOBtrHv
-	iLx7+6j021/MO+J9Ned4aXuIdyYn2c8hqRmv2+exlZOQGUIXwUoKdBtmeEth2qamt3ZdImwFccS
-	j/YnE7nvlVxmgREqmUMillQ45EWjsmmEYoRKOEFAuW9AAZtXsQETtlL8TBwIQLRRHmp8JJ+YFBS
-	XMZZgUOzUFm0RS4u7UhvBIHtbsVmLJ2m2UwcuBhkp39datTmJqfLHQiMtCADlUC0IGHSz743zkf
-	4bf/WmvBWE+b97jD+8U8MdQril9Lop8KNzaT1eu+3eCLn4qw7OZtKJknVl8lLmxDX91/io8xPH1
-	OqK22sMrealtDe
-X-Received: by 2002:a05:7301:fa8b:b0:2c4:4363:3742 with SMTP id 5a478bee46e88-30448ffc881mr969872eec.9.1779420663873;
-        Thu, 21 May 2026 20:31:03 -0700 (PDT)
-Received: from localhost ([99.152.116.91])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-30451ef4af0sm30644eec.3.2026.05.21.20.31.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 20:31:02 -0700 (PDT)
-Date: Thu, 21 May 2026 20:30:56 -0700
-From: Olof Johansson <olof@lixom.net>
-To: Andy Chiu <tchiu@tenstorrent.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dfustini@oss.tenstorrent.com, bjorn@kernel.org,
-	greentime.hu@sifive.com, vincent.chen@sifive.com
-Subject: Re: Re: [PATCH v3 0/4] riscv: optimize Vector context restore on
- syscall
-Message-ID: <ag_N8H3e3YzjRb8j@chonkvm.lixom.net>
-References: <20260521162521.188629-1-tchiu@tenstorrent.com>
- <ag9Zu57zc4HhVLeZ@chonkvm.lixom.net>
- <ag90lLMZTg3-AvAs@Tao-Chiu's-Mac>
+	Fri, 22 May 2026 06:31:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=K3Zt7LEYfhpkikQa349/kHggubdPxwpX2oq1IsThW4qHT9AnJbhZkaWS+S1eumiSriiOdCLHpi4Yuu7GI3/vnP2fCBZQqVP1OJ5GllzMOo2SI6RIFwHACTJ2Kq5NW6J7sMkf9WfGAq9yG1f2lBnp/XXR/VEh02hZHzlNbRgM5IW8jmlczqmy2ISLwKMFCWvxNssEukZT7wKTe7CVNG4qMp6KyDpEXDD0Swr7FHUWiUzjLT9YyzxySAtU/DmP9F4fQyxlnrSrQgzoEYiw+jzfHCqPtH7z8Q1nrpflMD3W9ewZ4Zr/1c3zZVMG1VyRhGhkZT51n9wuBckQVUiUn+Q/Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/l3O6NYy5ZNayIgBc2X9wZa0bRo2S3WrfYc994/DdP0=;
+ b=Hqv+whv1vfrxTBKNyA0LznUjKYtQHks/l/cAbcJNNrgzCK0a5lcPDIK10yqFlQkDfWfKv7bUhmop1A6fNpNohv+YZhr+4aAVOMhgfGOVMbC6HucRaGsGqhRWtDL+2euEsIWCFrI+nQIxo10NfOQg+b4uPl9dQxNdKY9Pb66SNgpeVzoAS22n2DJO1A8a1seNSbKVRgmMVbR+yPNrEUKLGNiMCZ0mrs6uBNDC0BF3ZA/POvgEN1SV94xjpOj7DQLlDiDRpHR4/COzItJKOQUKUw1p6KLFUWiKyUcYYj9IKDWIrAuCs/IHOlicBhmDmup5/s80vyg9OMfgDPxDViKQDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:7::14) by ZQ2PR01MB1273.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:10::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Fri, 22 May
+ 2026 06:31:27 +0000
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::4386:5cc4:3bc4:4795]) by
+ ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn ([fe80::4386:5cc4:3bc4:4795%4])
+ with mapi id 15.21.0048.016; Fri, 22 May 2026 06:31:27 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: =?utf-8?B?VXdlIEtsZWluZS1Lw7ZuaWc=?= <ukleinek@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Changhuang
+ Liang <changhuang.liang@starfivetech.com>, "linux-pwm@vger.kernel.org"
+	<linux-pwm@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v18 1/3] dt-bindings: pwm: opencores: Drop starfive
+ compatibles and update maintainers
+Thread-Topic: [PATCH v18 1/3] dt-bindings: pwm: opencores: Drop starfive
+ compatibles and update maintainers
+Thread-Index: AQHc5C5S9fqR/+n1kECZdRj+yravLbYPDuOAgAqR+tA=
+Date: Fri, 22 May 2026 06:31:26 +0000
+Message-ID: <ZQ2PR01MB1307DA0D079BD2912D31F658E60F2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+References: <20260515054723.25024-1-hal.feng@starfivetech.com>
+ <20260515054723.25024-2-hal.feng@starfivetech.com>
+ <20260515-blinked-gigabyte-d2882372b616@spud>
+In-Reply-To: <20260515-blinked-gigabyte-d2882372b616@spud>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1273:EE_
+x-ms-office365-filtering-correlation-id: b978336d-87ae-4db6-6e7f-08deb7cbc096
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700021|18002099003|56012099003|22082099003|3023799007|4143699003;
+x-microsoft-antispam-message-info: WoHgJyI79tyDbokk9w95t4vYxO3JqZqnt2qkTyOask65TUlb8ccOr4CwqY1Wfwv6poKl3KNHslIWLtrS9sFmXJNV8bI21E1CKdK//0XcsMljW8wyWwCNUkpj7SsoGdjNexi28JVkVXSctX1IzblknXbPJrt1U1ldNqPgcELS1WdpfRPm+fFi8onpFeT38B4iV731//wHJcFsGYhSCwsA6+b/D5BOgc3Ty9nQLzb9RGr+gSOBjtU+jJsHjU/kb+Iaxq3Awz23Znz0daJehTwH93rvng2J/DaMpKAovCPtA8Eeob3Ur+AjqctHArp7/OA28Iuthqq/5xRulYLQGwLFv9b07oCFdabiD+MRZxYe5KRNebdLYTDoKCdJyMVBvxMI5JrCBY+RF0fktbtHrt0m9MDcXqbDsaDZG1RMwJOp2Dph8snDd4euAT7JZOxooFI3c/ijmGB6jWEzteF8jjVWd63I0q6XSWSLXWjjNQNPj22WprreXCs4Q6LE752QNCnxHytnAcvCFR4fjUzJux/3g1lmlITGrZGJ9PhEW07xeRe6u9r53GtPNZM/VwgcEY3X
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700021)(18002099003)(56012099003)(22082099003)(3023799007)(4143699003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?c1p5a3VwTWgvbzV2MkdxaUdXTlRvY1EwVHBXOVZaVjlUNEdOMXREcGV4WUxJ?=
+ =?utf-8?B?ejFXRXR2RGZnNUFuSVdCWmZLRnp6TkE2aHJ6Y3RmcFF2VTlnNU5nbzJmcUhk?=
+ =?utf-8?B?SkVaZTdHSE9nMmhHT0NrVjArb1FVaUtXaGJGRHI4Vy9WenMwTFNJbXZraGhS?=
+ =?utf-8?B?MVM0M3M3cmowa1hWd0s4c3JINlNTdytBdzdVUnVmc3ZCN3I0N2FPOENIc2Rv?=
+ =?utf-8?B?TmV0OWJ2NnFtVWJBcHA2ZGdacHJZNHptSGJxNkNpYkdSL0NCWnVJSS9pcUsr?=
+ =?utf-8?B?dWZ5M25aeUtIdDV1Si9ncmtVNEtHcVZybU9EOGlRaVkvOE44cFN1YlN6eDRt?=
+ =?utf-8?B?dWFTaXMrTFl5RmlZWFFicjJzSUtQS3kwR3hoM0t5ekQ5U2tBUWl1dHVBRENJ?=
+ =?utf-8?B?VjNlRVM3aERISXM5b2RxYmxKRmhaYTloRHJab1N0ZWxQYUFTcEI4aXgvcFRa?=
+ =?utf-8?B?cUtjTDlTc3A0MThMUlRvbzJsUjluR1lGaW9tRU1FbWhyekRLazVldzhpcVkv?=
+ =?utf-8?B?OXZMVS8xVUIzYStNaFFaM21lbEFlbUJhcTNWcDdpK0hlbWlkODYyYnVJZDlX?=
+ =?utf-8?B?L2hObVdjdUk2bTl5T3lnTHdaSFZ0L0hBdGpuR25ZL1ZRSlZjaHJEU2RIdEY3?=
+ =?utf-8?B?bzJ5WmFwcnVUTUdZelQxTER3Q05WY3Y2NlhwaVdCVnpzUVFzNEEwcGxsT1Bx?=
+ =?utf-8?B?dW05SGorK2xDcWw4aGNwamcrY1pxczJPeUpBR1gzL3RFVzhXeVA5MVM2dm5R?=
+ =?utf-8?B?YnpFZnMzRWk0NWNNbWpxOG9iNXVPSTBia1lKOFpmV0NHYTBSRm5manBGMTM3?=
+ =?utf-8?B?UERlSzRPTjdRTkZ2SUtMVGg2ZFZaNDduNFppbWZwVldOR2lsVnZnUDcrQno3?=
+ =?utf-8?B?clJ2bFpDSjVjWVhhNDBvYktPZ2J4QlpFZUVNQ2ZqWU5oa1FWNEdLVjBML0hD?=
+ =?utf-8?B?YmN3MmVWWnFES2FEeTBtWGVILy9SakErTGlxRmhPQWw4anQzVjRGSDlMdTda?=
+ =?utf-8?B?alBWZ053dmdRZXZSYnhtSjhHd2NGYnNhbFhkbDZncnB5RWFFMXRXZytzRzIv?=
+ =?utf-8?B?ai92TW4yQktidXFHK2VyeFdtekJmWkhRRnNvZVhkREZTZ0daMXl0UDV4dnl1?=
+ =?utf-8?B?WVBPaURIb1E4eUhXSGtUTGVDRlQ0K2Y5aXYwckVITzR0cGc5WWlTOGNtLzAy?=
+ =?utf-8?B?T0xXMTl5bDE0WW9CZkxKWFk0SHVYV2RES0VSTUJaL0dqL2U5UW5vN1VxZTlJ?=
+ =?utf-8?B?MDJlVjhIdUVvSEZqT3V5Z1ZBU2xOU3dXREJHZHRFTGQ3WVc4NTJwZURQWUox?=
+ =?utf-8?B?Y1B6cjcvNmdmTFl1TVRnYTZzNUx0YU5hbDdDMVA0UjdqcWNIcENscVlqY2tl?=
+ =?utf-8?B?Q1doUmxyMHU1K0d0SWNkbmhUN1hIZ240eEY2MURuWHpsN3E0K3VJRWxOVGgy?=
+ =?utf-8?B?a1NORy81MWk0M0hORTRjU0pZSVUrbmxySnN0aTYzNTBrOWJPV3A3cng2Sk92?=
+ =?utf-8?B?WEE3WFBNcUZjaHpyUDBoYjlIakllbk1qV3NRQmtBVHcwUldndldrNytaN3Az?=
+ =?utf-8?B?NGQ3c0crZG5qUUZjU3VkY0FGSXRFVjlZTjVCNTJlOFhnei9ibXk0NlRpUUdv?=
+ =?utf-8?B?Z2hFdGVabWZTdlI4YXhBZW5BWjBnUWQ2R2llY3cwR2hsZ2FZMnRubDVwRXBL?=
+ =?utf-8?B?NVUzQ2szQVZzYmp6OTg3eW41bzZEdHNjR0thR2g4bGMzVk9icGNXRytDSDU3?=
+ =?utf-8?B?RmlEd2kvaEtJOXlxQ1BuQkNYcWdFaEFhWXZFSFVpam1HTG9hTDJJMW1NZERp?=
+ =?utf-8?B?czlPc05LeXJiRlBOS2JyVlJCSmlyUENxSVNYTHU4bjVrdlFDVm5scmxESHF3?=
+ =?utf-8?B?aE1NNE5KbmR5R1ZCMm91dDRqUmxaWUxwUzZHeGZTT3BKdkU4TDEwRnc0Z1hx?=
+ =?utf-8?B?eklwNEFMSjNQQVRKT1JhRG56eXc1d0xGRkp5bXlLam90MXBNQ1BzbVBDZFBx?=
+ =?utf-8?B?eHVpRUhqYUtJcnRYM3NBWkNHczFZOElpUElqcVBFM2xMZGZFd0xZTmsrMjFW?=
+ =?utf-8?B?amVnL3FQNFpFUnBPT2RXQkhsVEp3K1d4YTVnUEtEU0ptNGh6RFBhNWtYbmkr?=
+ =?utf-8?B?R3hHWE94dVd2bzZWcTBDNS9kWTk4eGx5K2VIUzV2cnVxdG1ITisvZEVocitm?=
+ =?utf-8?B?RlBMVGo1eExFL3RqbEJBb3VpVGxvb2lpWll6dU9wNGdHeXVnWlNtclZwSHBv?=
+ =?utf-8?B?d1dIZU1yOFdSTnY5WHMvM3Z5Sml4UGhKWGc4S05oSlcyN2FQaGNwanVXNVkr?=
+ =?utf-8?B?RWI0TERLRWJiLytMelhHRGszQWsyMy9lajdkUUhCTEZBalpRcU5uZz09?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ag90lLMZTg3-AvAs@Tao-Chiu's-Mac>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: b978336d-87ae-4db6-6e7f-08deb7cbc096
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 May 2026 06:31:27.0158
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: URPhdUC1ehZuoVUfn1sYDOdgNm4TnA6oG2+GwJghIyya9GoVRrqHC4GD06JVEwKZdthpaJRgbIZ+5hR3PttjvAet1KLox5IvHi5DHkih+lw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1273
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_203105_505634_17DD1F6B 
-X-CRM114-Status: GOOD (  44.14  )
+X-CRM114-CacheID: sfid-20260521_233147_761807_4BED9D86 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,164 +153,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 04:09:40PM -0500, Andy Chiu wrote:
-> On Thu, May 21, 2026 at 12:15:07PM -0700, Olof Johansson wrote:
-> > Hi Andy,
-> > 
-> > On Thu, May 21, 2026 at 11:25:16AM -0500, Andy Chiu wrote:
-> > > This patch series optimizes riscv vector state handling across syscall
-> > > boundaries and context switches. The kernel now keeps track of the
-> > > INITIAL state in sstatus.vs to optimize unnecessary context management
-> > > operations.
-> > > 
-> > > This version merges daichengrong's RFC patch [1] for the state tracking
-> > > code as it looks cleaner than my v2/v1.
-> > > 
-> > > [1]: https://lore.kernel.org/linux-riscv/7ba2f4b7-8475-4ec3-ab31-58b332bda47e@iscas.ac.cn/#r
-> > > Link to v2: https://lore.kernel.org/linux-riscv/20260402043414.2421916-1-andybnac@gmail.com/
-> > 
-> > A patchset like this would be really helped by some kind of numbers in the
-> > cover letter to indicate how much performance moved, given a claim of
-> > optimization.
-> > 
+> On 25.05.15 21:06, Conor Dooley wrote:
+> On Fri, May 15, 2026 at 01:47:20PM +0800, Hal Feng wrote:
+> > Each of the StarFive JH7100/JH7110/JH8100 SoCs has 8 OpenCores PTC IP
+> > cores. One OpenCores PTC IP core can output one PWM channel. The only
+> > difference among them is the register base address. There is no need
+> > to add starfive compatibles to distinguish them.
 > 
-> Thanks for pointing it out, I totally agree with you. I had included a
-> test result on sifive's hardware in v2[1]. But that was on FPGA, I will
-> test it on a real silicon as soon as I have an access. Sorry for the
-> confusing claim here.
-> 
-> My test was running on a vector enabled version of lat_ctx. I modified
-> the main function to make sure the process touches vector, then run with
-> 2 threads. Since lat_ctx uses syscall interface to notify another
-> process, the kernel will trash their vector registers instead of wasting
-> cycles on saving/restoring them.
-> 
-> > 
-> > Just for kicks I tried a simple microbenchmark for syscalls from
-> > a vector-enabled process:
-> > 
-> > #define _GNU_SOURCE
-> > #include <stdio.h>
-> > #include <stdlib.h>
-> > #include <sys/syscall.h>
-> > #include <unistd.h>
-> > #include <time.h>
-> > #include <stdint.h>
-> > 
-> > static inline uint64_t ns_now(void) {
-> >     struct timespec t;
-> >     clock_gettime(CLOCK_MONOTONIC, &t);
-> >     return t.tv_sec * 1000000000ull + t.tv_nsec;
-> > }
-> > 
-> > int main(int argc, char **argv) {
-> >     int iters = argc > 1 ? atoi(argv[1]) : 10000000;
-> >     int use_v = argc > 2 ? atoi(argv[2]) : 1;
-> > 
-> >     if (use_v) {
-> >         asm volatile(
-> >             ".option push\n\t.option arch, +v\n\t"
-> >             "vsetivli x0, 1, e32, m1, ta, ma\n\t"
-> >             "vmv.v.i v0, 1\n\t"
-> >             ".option pop\n\t" ::: "memory");
-> >     }
-> > 
-> >     for (int i = 0; i < 10000; i++) syscall(SYS_getppid);  // warmup
-> > 
-> >     uint64_t t0 = ns_now();
-> >     for (int i = 0; i < iters; i++) syscall(SYS_getppid);
-> >     uint64_t t1 = ns_now();
-> > 
-> >     printf("V=%d %.1f ns/call (%lu ns / %d iters)\n",
-> >            use_v, (double)(t1 - t0) / iters, t1 - t0, iters);
-> >     return 0;
-> > }
-> > 
-> > 
-> > I compiled with gcc -O3, default GCC 14.2 on Debian 13. Host is x280
-> > (Blackhole). Base kernel sources is 7.1.0-rc4-next-20260520 defconfig. Ran
-> > with taskset to pin to one of the CPUs.
-> > 
-> > The testcase doesn't use vector inbetween each syscall, but will obviously
-> > have initiated the state (if started with '1' as second argument).
-> > 
-> > Without this patchset:
-> > V=1 242.9 ns/call (12144527848 ns / 50000000 iters)
-> > 
-> > With this patchset:
-> > V=1 264.5 ns/call (13226852900 ns / 50000000 iters)
-> 
-> This 9% regression is suprising to me as this patch set (without the fix
-> below) should be equivalent in performance on this code path (and better
-> if getpid takes one process switch).
-> 
-> Before the patch, nulling v resgisters happens at the entry point. After
-> this patchset we mark sstatus.vs to INITIAL at the entry and nulling
-> happens right before getting back to the user space.
-> 
-> > 
-> > Interestingly enough, with V=0 test it sped up slightly (194.3 -> 189.5 ns).
-> > 
-> 
-> This result is expected as with V=0 the kernel doesn't have to maintain
-> vstate at all. But we are also looking into ways to improve mode switch
-> latencies.
-> 
-> > I repeated the runs a few times, with similar results so I don't think it's
-> > explainable as noise.
-> > 
-> 
-> Thanks for carrying out the experiment, it's very sound! I actually
-> missed one thing on this patch for it to be optimized on this specific
-> case:
-> 
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> index 8c1e64e0dd0b..5d1282870a20 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -40,6 +40,15 @@
->  	_res;								\
->  })
->  
-> +#define __riscv_v_vstate_check_gt(_val, TYPE) ({			\
-> +	bool _res;							\
-> +	if (has_xtheadvector()) 					\
-> +		_res = ((_val) & SR_VS_THEAD) > SR_VS_##TYPE##_THEAD;	\
-> +	else								\
-> +		_res = ((_val) & SR_VS) > SR_VS_##TYPE;			\
-> +	_res;								\
-> +})
-> +
->  extern unsigned long riscv_v_vsize;
->  int riscv_v_setup_vsize(void);
->  bool insn_is_vector(u32 insn_buf);
-> @@ -323,7 +332,7 @@ static inline void riscv_v_vstate_set_restore(struct task_struct *task,
->  
->  static inline void riscv_v_vstate_discard(struct pt_regs *regs)
->  {
-> -	if (riscv_v_vstate_query(regs)) {
-> +	if (__riscv_v_vstate_check_gt(regs->status, INITIAL)) {
->  		riscv_v_vstate_set_restore(current, regs);
->  		riscv_v_vstate_init(regs);
->  	}
-> 
-> In this way if the user never touch vregs again then we will not null
-> out the context at syscall exit.
+> NAK, that's not an acceptable reason to remove soc-specific compatibles.
 
-Significantly better indeed, now ~191ns without vector, ~192ns with -- so
-a proper optimization.
+Got it, because it will break Device Tree ABI.
 
-> Again, I only have it functionally tested at the moment. I appreciate it
-> if you could get the number with the above diff. Meanwhile, I am going
-> souce and run on an actual hardware and hopefully find the reason for
-> the above regression, before rolling out v4.
+Best regards,
+Hal
 
-Sounds good.
-
-
-
--Olof
-
+> 
+> pw-bot: changes-requested
+> 
+> >
+> > I will maintain the pwm module in place of William.
+> >
+> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > ---
+> >  .../devicetree/bindings/pwm/opencores,pwm.yaml         | 10 +++-------
+> >  1 file changed, 3 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > index 52a59d245cdb..834fb17ec595 100644
+> > --- a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > +++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > @@ -7,7 +7,7 @@ $schema:
+> http://devicetree.org/meta-schemas/core.yaml#
+> >  title: OpenCores PWM controller
+> >
+> >  maintainers:
+> > -  - William Qiu <william.qiu@starfivetech.com>
+> > +  - Hal Feng <hal.feng@starfivetech.com>
+> >
+> >  description:
+> >    The OpenCores PTC ip core contains a PWM controller. When operating
+> > in PWM @@ -20,10 +20,6 @@ allOf:
+> >  properties:
+> >    compatible:
+> >      items:
+> > -      - enum:
+> > -          - starfive,jh7100-pwm
+> > -          - starfive,jh7110-pwm
+> > -          - starfive,jh8100-pwm
+> >        - const: opencores,pwm-v1
+> >
+> >    reg:
+> > @@ -48,8 +44,8 @@ additionalProperties: false
+> >  examples:
+> >    - |
+> >      pwm@12490000 {
+> > -        compatible = "starfive,jh7110-pwm", "opencores,pwm-v1";
+> > -        reg = <0x12490000 0x10000>;
+> > +        compatible = "opencores,pwm-v1";
+> > +        reg = <0x12490000 0x10>;
+> >          clocks = <&clkgen 181>;
+> >          resets = <&rstgen 109>;
+> >          #pwm-cells = <3>;
+> > --
+> > 2.43.2
+> >
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
