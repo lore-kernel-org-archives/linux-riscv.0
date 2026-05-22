@@ -4,149 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A314CD5BB0
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 13:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C377ECD5BB1
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 13:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=evur5CGLSMphZehIX7TdL1XxPJwdojMTgJbW8C2TggE=; b=Lp7z6GcZ0XKCXZ
-	uhLhpyFqDCs7CUkwcvvWytg0sWonE/MLV9Ao/7SVxGxmpptJetmdKRGXkaiFyKZRTf8/CyaCasA0q
-	DZuuC6H9CWUjdgL5A5I34SGqmb7UUshatilmMWuqlYWAaoOvJjiB2RCAYegEYqJw0Yk1ZeOgU+OSR
-	lPkF6IW02UfwMdEU+g+7Qi0EXshTvgxnZxjo3Ik+8393t7T6KJ4mn1Ot0ylz2BeCZ/xc+glBNTXGP
-	b8lC9RqFY5E+Z+EWUM7XT4zbPfClF5hTXW76vcqv680GcTILA4nA8wMmYw2hhLTUSTBf4URxSQIYR
-	MX12uUhiQnnb1gtaewHw==;
+	List-Owner; bh=HwIk4/9Bt9+uG5lT1noikbn5p/8jwpq9ZLxgGFQz9+k=; b=NFG1chlgfx+0e0
+	fRh6mQ9/+gDb+P+mMaDBtTg56K+0zuSoj2xijl0MTnaxiYLGKQxL3XUunQsTTc3YGRfEWDw9U4E3o
+	XabU+ofP9/quLrNTS+ndEBXDGDKDGCgM1TPhxwxS/cQezHVt0EptmSDONUgu1+gO/js04eYZQyDYp
+	ufmH5E/tX08Ri/JipDe0DKGAO5hED7G6imFNufOrOQa7XYYyjEq3V/zILWe3K2Xucblu44+1YBe1Z
+	pmneIZrOQ4LFwoCsB1MlIk1C7YOSO3sl4CckJx/dEyoZCEhtQVXViRMwdZIiJHVIf+x08uK0vv71w
+	zl80Lbi34POADVUd+MbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPga-0000000Av78-3uRX;
-	Fri, 22 May 2026 13:13:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wQPgi-0000000Av9H-1lbG;
+	Fri, 22 May 2026 13:13:16 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPgW-0000000Av6D-0STf
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 22 May 2026 13:13:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=t65ionl8HpKaWCmZ/9penLDqAimBDJ97VFtyn/fDbHA=; b=j7B5grIHOEIOvZjiDCLedEANdo
-	i4kRJn87MJLK4Gd8soCjTWZY212ayvS3nMj/8deCZ1Dz+cMbwKuICYWhfw7vTMR+oDoyywqN5pxRi
-	U+f2SeczA/qJliGvvt/C8tDHeo93Up36R54I4bdq3FvZ8ZkxD8tpMWVZTSaN4ETfbrNDqhUz4xOam
-	0aD7+kMN2rScgoisvS9X2LOaHNhQfyFjgs2n2FdEkoAVEqjR9u5+3nVPqKngGD8DXGflfR7NV7TSH
-	mnycom5DN0HDGY2Y5oJ6xZ/NqyaxvfM+tgmLZ60c0Pdv/DnTBxbtZHLgaOUEGuVN27uzeLYwwJAEL
-	9LBqQtsA==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPgS-00000004OfB-2OxT
+	id 1wQPgb-0000000Av5P-33QW
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 13:13:02 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64M989cI1815982
-	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 13:12:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	t65ionl8HpKaWCmZ/9penLDqAimBDJ97VFtyn/fDbHA=; b=p6OYK3Lu/23dJl+e
-	0Oz1t88nAjoKTeSDHwrxCEi27PR9hQ++3Lro9BrMfuNJosIARFADkp8NcZUySzMr
-	fqCbN9SNad2p9QLIE2Xb4A1B/6/+XnV0Ll3JKHteEz2Ox7pDqWPVontPS/wFcIRL
-	Q+evJu99SVUnmODpUNC7SECjr7vNYB8/jm++KcoC/nonEthZv5I9lP8H2IZpLR7/
-	gzfVJcUm+zxjYKrvJWAU+lexfrQVBnOta+FpxLIhpgOYtbGw2IbfMhMg27JpwtRn
-	F0MS+DmBNIJCvFXAmKfD+Lzph7b1/CxAKEyoC6hnVlI2LQ2gpZDAokg8l/9gwxai
-	zmimwg==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eafrm22ym-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 13:12:58 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-2f2d983d109so2601714eec.0
-        for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 06:12:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779455577; x=1780060377; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=t65ionl8HpKaWCmZ/9penLDqAimBDJ97VFtyn/fDbHA=;
-        b=g/dplB2i285LjbOp/z37Y4grode9QH8UOA+wNDmuDOKB3sHoVA+OghSi98OUEB3O9j
-         PflAmff9OLQM9fgrZVPqqsvVhl05bJ7qMKQSJ1vN9A4U2hO5ZS+RdwdlBdLDkkue2meb
-         BSCVBAFm7OjGOKQBcs4XkIryQjyBLMeXmaO82gNlkig7YiHfp10nXbMRmMoL0iFVRjZR
-         Rsiy9vYOVJ8Uureevz7zpBM/MMwtzHL5fjyUNLOWAG6Kwo+IuYzUWzmIjgsiip3nMtsg
-         wVmFc7q8EYjIZSfjxasYlHDkbhlQ2YqVRb6aYOSccQxr4w52ACwDxJ5U190iTby66XFQ
-         mWpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779455577; x=1780060377;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t65ionl8HpKaWCmZ/9penLDqAimBDJ97VFtyn/fDbHA=;
-        b=KJlX2LFsIhmNSPE4Fh37iaGENfgQJ5FKidk2G9Rn9OIt+i7JIx9r4xWBqkTLMVtLSJ
-         LMlKXsSj2DFNALF1kaXbusFEtrWqMS7AyfNjMlhobDphAET5sq6xyG6R/OnVrmR7Rox7
-         syHPhirQCDk6sEGCwtB0E7DS/5N9tKvit1oTCW27z4fdmnTXXp3Q+bO8SzeNmhdl02wT
-         4DNm9mL/y7RVfcHrkhIJ0iIE/H3dhRS03/76ttWjacnRZoNi7Kj4D0wnwqr0cfrCzDYM
-         cxzXKazkCJL0nOOdfFQHP7yJgQ/ZRUIfpNBBoI0XAXD3BDojV07xk2KX71mXUpjAPjTT
-         WR3w==
-X-Forwarded-Encrypted: i=1; AFNElJ82Gc1hlTzGDsSIDGv2RStlQiCVVQ1MwNIxycKmllsKpK5Q7jr8ltxj0SYl407DBXCGVJtIldEQ9UfAtg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1FXqWCnBHOePxIvoOjOtppXQqk+OcdKmrITOVi5S8siR2n+wH
-	AphuC2GdcMlY7e3ckmLoWdj2LY4j19mbo/sZ6QWbI9mji9fU52fCzH3tT/OSV/s5eeefpo5WEQM
-	BqEzSf8KogjsAmaJ5nw38OOo3JZP6jis9+JL0YIznRg4G59lHCSjmcpUTW5VbSwmtNRgeiAA=
-X-Gm-Gg: Acq92OGsud3UV47VmkDRKNq6E7gc9oLCHpmVcDeq6/vkj9mISXworo3khyWY3IPiWwD
-	YC5RoFue3664hsSk840dcEcoXXrWHUaE48uFcg/xB5lf3NgDL1MDivvO8CFJSGYkMwGKgyt9pt7
-	JxJtjfEnrl7weu+HuYI5OJbbTDMxjOIrEMNkVa8IvlcQsig+jg6/hm0NVzlENBMBztMnok9q2o2
-	KfbPcvl214kNviSN8KlmenS8Z5V59HFvBqA6nsg+g17s+/m2D3sdPO6seFzYB3lnEjQbNjghssh
-	MUxCCL6+6Hz62mNIZL0J4S1b2O2zeAhHI6nIYIS2BF7HMN7dofKeKBWxVxLa/w4pImdFAHBFACM
-	qmIkvP2A1YfZMXgYVi8CDRkvHQCJEJO4=
-X-Received: by 2002:a05:7300:ad2d:b0:2c7:ea98:d94 with SMTP id 5a478bee46e88-30448ffda4emr1702406eec.2.1779455577504;
-        Fri, 22 May 2026 06:12:57 -0700 (PDT)
-X-Received: by 2002:a05:7300:ad2d:b0:2c7:ea98:d94 with SMTP id 5a478bee46e88-30448ffda4emr1702391eec.2.1779455576994;
-        Fri, 22 May 2026 06:12:56 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30451f1fe3esm1328524eec.7.2026.05.22.06.12.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 06:12:56 -0700 (PDT)
-Date: Fri, 22 May 2026 08:12:55 -0500
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: ajones@ventanamicro.com, alex@ghiti.fr, anup@brainfault.org,
-        aou@eecs.berkeley.edu, atish.patra@linux.dev, jiakaiPeanut@gmail.com,
-        kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        palmer@dabbelt.com, pjw@kernel.org
-Subject: Re: [PATCH] RISC-V: KVM: Fix TOCTOU race in SBI system suspend
- handler
-Message-ID: <rqpv3mrcsxxdlaedbckb26bf5vfkj3xgd6m26me24nf4tbcqtb@jh62r2df3ur7>
-References: <yirnowpcfq6wqru3jshbbaicqftfj4ef3dcss65jdtuon6nzml@iyv45tnmmfha>
- <20260522031813.3429490-1-xujiakai2025@iscas.ac.cn>
- <y2nfuwydbx4wxk3optxr5bex2pubo5whqvk2bzsl7os2kdkwaq@yk36oa4kozfh>
+	Fri, 22 May 2026 13:13:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1779455549;
+	bh=TmI0UH8/e3iTldNLhwHi7B9I6Rl5C/JYONWEHU21eJ8=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=pELcRAcSzwyEdNvDISAm9w+laWWWV4ARa4q9MCRKT51J/ooXGGrmhyebnEVqlY+Vv
+	 H+NPT0gzuZIw61P4N5xISy7iR/PSyf4UjkBgBRF9tDGleHZrWPM0ztEhpQgdlZ/peM
+	 RUw+kOsjua5C8Mg6mkgD8mXlif9+7qE6DgHnK5LE=
+X-QQ-mid: esmtpgz11t1779455541te29f3b0a
+X-QQ-Originating-IP: VzNX9YRWRqB5R6Dems1eB3rbkqjzRrFXa6EG+p46DKo=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 22 May 2026 21:12:18 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 14195901067407488268
+EX-QQ-RecipientCnt: 15
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Fri, 22 May 2026 21:12:14 +0800
+Subject: [PATCH v3 1/2] ASoC: dt-bindings: add SpacemiT K3 SoC compatible
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <y2nfuwydbx4wxk3optxr5bex2pubo5whqvk2bzsl7os2kdkwaq@yk36oa4kozfh>
-X-Proofpoint-ORIG-GUID: axShhhbddiTTCmGUL0MftdtrQhRDW3Pn
-X-Authority-Analysis: v=2.4 cv=Zekt8MVA c=1 sm=1 tr=0 ts=6a10565a cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=z0nQUa4Di5ar0o3MZ30A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIyMDEzMSBTYWx0ZWRfX5yiags9AobL5
- eDLwh6UHaWp+cRYSicypsKHGGG9FFTAOxS4evN55nmtgwwVv/vPumusGY86th6UcXHRMPduXE1x
- Xf1fbAJvpx+u5oh8h2obti+Mru4wdYlTOdmeWr/i1U9QF862/obP95x+b23N3jRzzAb0rk03bas
- iSBHBPhZ+/cyBVbEWD0jHW7Tp7ijsWa891ZQeWAG5C6uz8X20Le1bXHhJbnK8WcAAAkrXJEfuJs
- Lh9PSA5vMnA3TiupyBmwAbnnHnFRZe0cynZgV0MW0YWNFcV1vi9EfP4JuRwHI/eiNuPe+iI0tvP
- R2dXypBazUhpnK9GckcdIdDce2Omxu20UCTQ/yXr6JqUGzgIlUDMps4ibPzm3qKPSdWlUhiRbfi
- qQah1oD8pxjBYOxrN0Oisqenmo67IRb1S0oXJLakMsOiSyERv0cHCTiHFlkvlNeLTNaieGEgsTK
- Vvml+4SxzwamT99bx6w==
-X-Proofpoint-GUID: axShhhbddiTTCmGUL0MftdtrQhRDW3Pn
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-22_03,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 phishscore=0
- suspectscore=0 spamscore=0 bulkscore=0 clxscore=1015 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605220131
+Message-Id: <20260522-k3-i2s-v3-1-08e3eb811d93@linux.spacemit.com>
+References: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
+In-Reply-To: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Yixun Lan <dlan@kernel.org>, Jinmei Wei <weijinmei@linux.spacemit.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779455534; l=2349;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=WCbZ8iopcLSLXkEHIgHHSSkd2u1qQfx30P4JpAz6ZKw=;
+ b=QQGi/9za3k+THqNYX5wU0DsXs1+iVxXoREo75GjalvipjhfOm0a5i8lVp1Da/Yokt0E9yMW6J
+ OEhPwxQkzo3BHTyDNudFOVH37fsHX9+5LkbI+1OfKW7Oinou3h/T7O2
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NGmIuw/XohCq2mSku+M4Aw1jKgCi381fcQlO75cMucl+aDv31Ngvtz52
+	slxH6y6vhQn6h6rWid7886d77VJspRCH0z+Vys6FZu2rZXHDGVt3fwIYAJ0xz7uEH7GVzey
+	Xs/loFFmy6U4MF6zRVZe5SPXJCw/SB73YXaTiyB6Gm/zGh9aAHgrZrSBu2r+sDmDhJrOo27
+	sggqQE+Fadc+BbYYKM2vdkGNm6oF2JY8qmROgcodCulGiAlmhw9aqYUC7IbSd5JTAPj/PHJ
+	W8zEWUbne0rkn5HfucjLoQx83/0oTyjRg42GWEzL8eYR/E0PQsIGwiQrWKe4IbawG9tR+oo
+	qh6nzVx37WmeDplBpCeadQ/lQsJrvMM9cLu0PhcxBskMuspzkJSf3147w1atiGP+x8n0TQ+
+	dy2YOGlm5YLlN0li6uMhePleGkqDblNjCbI6mveFXzUe5cJEu5Q141XLT8GzlJVhr3akkZC
+	9JhfLXXA1zA1y/w3r9q3xBHtE9pv/l6KF0Leh93jx0BXZkQ/k/F/6MILaVF1GnRjwR6dy19
+	Dx02sBA8J6sgvx15xYWx3VR/VWqKznERnAwhAjjmJ0Jiq2461JYa/KGgg+45RG5T42TSYhk
+	+VHdF11hRZtUiPOkvYbmNKlnRDFxDhHBMHImUDHIWoVFXu3odkpyAfndaHD5+G/MOZYSQ2P
+	uSLuICHceqi9sQht7U7o/sL5B4wMb/OcM8dvsT9UCDde6aEVpjW7KkBIR8rO8GIPEcH6d/K
+	dAOkxOUh34zVlwu1aHQi/+1Sd9t1pWyZdgr9x9HgWQAqql06Fwgi5nb7nwmghOJO6VSqU/k
+	Op6hK7xk0JHIqi/prq/XkoiAGAho32qpoN6uplD8I8P4RTkLd5zK1pfWrw/Kdh+gD1/Ea8+
+	ar0hoXwqKkbNEvl8XV04L8PuRx+z+WF/nRSIcfEJk3fjniRwoe6Hg2jTtAzi21I4rG6BXdd
+	JDCA9ja4w6CEdAPfWEbEaM50CAKiUd9ASSQk/gez6XM3x6cyKzt+YB6Og3WW6dMtoTdwtXh
+	AsXbI7ElctepstYis3Ko5xxKRVLX0ceppUzvTyaMwQwnJHs/YxopMEnfoOH+GnEY5vB345c
+	hU1lL4LMeuYpvqddQ+ZJ8IS7afaKIsQiRKYkRBXcFMt98IEv82dSTUhQDMXJxiL4E1OMgL5
+	DjxMBk9R5zXFIinDD+eSX0vpRveI1PbsTelk8ck0pvMByK52AYsIOoJOxA==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_141301_235409_3AB96F11 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20260522_061310_682207_9D4DA2EF 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,34 +104,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMjIsIDIwMjYgYXQgMDc6NTA6NDNBTSAtMDUwMCwgQW5kcmV3IEpvbmVzIHdy
-b3RlOgo+IE9uIEZyaSwgTWF5IDIyLCAyMDI2IGF0IDAzOjE4OjEzQU0gKzAwMDAsIEppYWthaSBY
-dSB3cm90ZToKPiA+IEhpLCBkcmV3IQo+ID4gCj4gPiBUaGFua3MgZm9yIHlvdXIgcmV2aWV3IQo+
-ID4gCj4gPiA+ID4gSSdtIG5vdCBhIGJpZyBmYW4gb2YgdGhpcyBhcHByb2FjaCBhbmQgSSBzZWUg
-c2FzaGlrbyBmb3VuZCBpdCBoYXMgZ2Fwc1sxXS4KPiA+IAo+ID4gSSByZWFkIHNhc2hpa28ncyBm
-ZWVkYmFjayBhbmQgSSB0aGluayBpdCBtYWtlcyBzZW5zZS4KPiA+IAo+ID4gPiA+IEknZCByYXRo
-ZXIgd2UgaW50cm9kdWNlIGEgbXV0ZXggdG8ga3ZtX2FyY2ggdG8gc2VyaWFsaXplIGNyb3NzLXZj
-cHUKPiA+ID4gCj4gPiA+IEVoLCBub3Qgc3VyZSB3aHkgSSBzYWlkICdpbnRyb2R1Y2UnIGhlcmUu
-IFdlIGNhbiBqdXN0IHVzZSBrdm0tPmxvY2suCj4gPiAKPiA+IEkgbG9va2VkIGludG8gdGhhdCwg
-YnV0IGl0IG1heSBiZSBub3Qgc3VpdGFibGUuIEhlcmUncyB3aHk6Cj4gPiAKPiA+IERvY3VtZW50
-YXRpb24vdmlydC9rdm0vbG9ja2luZy5yc3QgZXhwbGljaXRseSBzdGF0ZXM6IGt2bS0+bG9jayBp
-cyB0YWtlbiAKPiA+IG91dHNpZGUgdmNwdS0+bXV0ZXguIFRoZSBzdXNwIGhhbmRsZXIgcnVucyBp
-bnNpZGUga3ZtX2FyY2hfdmNwdV9pb2N0bF9ydW4oKSwgCj4gPiB3aGljaCBpcyBjYWxsZWQgZnJv
-bSBrdm1fdmNwdV9pb2N0bCgpIHdoZXJlIHZjcHUtPm11dGV4IGlzIGFscmVhZHkgaGVsZC4KPiA+
-IAo+ID4gVGFraW5nIGt2bS0+bG9jayBpbnNpZGUgdGhlIHN1c3AgaGFuZGxlciB3b3VsZCBwcm9k
-dWNlOiB2Y3B1LT5tdXRleCDihpIga3ZtLT5sb2NrLgo+ID4gU28gbWF5IGJlIHdlIHNob3VsZCBp
-bnRyb2R1Y2UgYSBtdXRleCB0byBrdm1fYXJjaCB0byBzZXJpYWxpemUgY3Jvc3MtdmNwdQo+ID4g
-bXAtc3RhdGUgb3BlcmF0aW9ucy4KPiA+IAo+ID4gV2hhdCBkbyB5b3UgdGhpbms/Cj4gCj4gR29v
-ZCBjYXRjaC4gSSBzaG91bGQgaGF2ZSB0cnVzdGVkIG15IGluaXRpYWwgaW5zdGluY3RzIHRvIGlu
-dHJvZHVjZSBhIG5ldwo+IG11dGV4IDotKQo+CgpCdXQuLi4gYmVmb3JlIHdlIGdldCB0b28gY2Fy
-cmllZCBhd2F5LiBVbmxlc3MgSSdtIG1pc3Npbmcgc29tZXRoaW5nLCB0aGlzCnJhY2UgcmVhbGx5
-IGxvb2tzIHRvbyB0aGVvcmV0aWNhbCB0byBqdXN0aWZ5IGFueSBjaGFuZ2UgYXQgYWxsLiBEbyB5
-b3UKaGF2ZSBhIHRlc3QgY2FzZSBpbiBtaW5kIHRoYXQgY291bGQgZm9yY2UgaXQ/CgpUaGFua3Ms
-CmRyZXcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Add the spacemit,k3-i2s compatible string for the K3 SoC I2S
+controller. The K3 I2S IP is the same as K1 but requires additional
+clocks: a dedicated sysclk_div clock, along with common_sysclk and
+common_bclk which are shared across multiple I2S controllers on K3.
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+ .../devicetree/bindings/sound/spacemit,k1-i2s.yaml | 31 ++++++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
+index 55bd0b307d22..240d90402e4f 100644
+--- a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
++++ b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
+@@ -4,7 +4,7 @@
+ $id: http://devicetree.org/schemas/sound/spacemit,k1-i2s.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: K1 I2S controller
++title: SpacemiT K1/K3 I2S controller
+ 
+ description:
+   The I2S bus (Inter-IC sound bus) is a serial link for digital
+@@ -15,27 +15,54 @@ maintainers:
+ 
+ allOf:
+   - $ref: dai-common.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: spacemit,k3-i2s
++    then:
++      properties:
++        clocks:
++          minItems: 7
++        clock-names:
++          minItems: 7
++    else:
++      properties:
++        clocks:
++          maxItems: 4
++        clock-names:
++          maxItems: 4
+ 
+ properties:
+   compatible:
+-    const: spacemit,k1-i2s
++    enum:
++      - spacemit,k1-i2s
++      - spacemit,k3-i2s
+ 
+   reg:
+     maxItems: 1
+ 
+   clocks:
++    minItems: 4
+     items:
+       - description: clock for I2S sysclk
+       - description: clock for I2S bclk
+       - description: clock for I2S bus
+       - description: clock for I2S controller
++      - description: clock for I2S sysclk divider
++      - description: clock for I2S common sysclk
++      - description: clock for I2S common bclk
+ 
+   clock-names:
++    minItems: 4
+     items:
+       - const: sysclk
+       - const: bclk
+       - const: bus
+       - const: func
++      - const: sysclk_div
++      - const: c_sysclk
++      - const: c_bclk
+ 
+   dmas:
+     minItems: 1
+
+-- 
+2.54.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
