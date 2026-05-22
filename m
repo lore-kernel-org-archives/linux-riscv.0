@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EB7CD5BB1
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 12:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49235CD5BB1
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 13:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZMzrLIszJUs/rCBvD7/1whWeu4/wbxk973Sv2nBwoQ=; b=WKSE4hpk3UZHJm+0Uavcyfzkca
-	YZkS3fZIQqdz/Z0wL3kjX7h6sgBNDmcMynN9/v7hRjwxzUzOd62VkMMPUHWNCO5RFLQ7eIhGDU9r1
-	RZ5AAkRFmlNzLwjH0v4Vz21fbtQif9uR7QDiyfrkRS7g5apC7ligG5QG8q8GACBCqRYA0Xp5xXm8+
-	TRT0L+lcHtGER0Z9AN9oElc4P6sY6+VCoB+0H1PpDvN1B7doYbrHBKDz+SGT037ocAptxXYbDmxiC
-	wpty9xeFbr/0+zBN+WoyOW/nuK86nMUlgiAD3GczlgLZVnt+ReRWhe+Nmz6LaXWyZ7VYOozw9Nk/c
-	+XxUHv7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kSixO6YWw+vQYMsYRRZSKZTGiUwlDxDkA0TL7GyKz0s=; b=ciLuzd7uk1Q5Cj
+	HELgUPeECIAbZrfp+6I4sk2hYv0hNFIUjsdtEtf8LHyW7SEw3GDVoFWM/JA3tje0Zg+rQSJ2P9Ghu
+	5tdSS4b1f2SiAbM7BmMwm30vrDgymlMRa+gfvzLiJ/lcaH0BqvYHluwbTfP4t0sC+1LXDQLuZaUeJ
+	ansQDplo+QokIRz0Z7fakWos7H1rH8eYj4+d4VPpzHPFWggHoM669A4jSC68KhUOszFTZs1PyRPUk
+	R1uNpp5lbhEN+wjLMG+SmIgOMPDNOMLfuvnYY3B1JMmsXhIfwRwUHI7B7JP9qus7H5+UYb62/dHu+
+	IKdtPrH0f7Edm5NEQCzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPSy-0000000AtDp-0Ro7;
-	Fri, 22 May 2026 12:59:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wQPUh-0000000AtTU-1Q73;
+	Fri, 22 May 2026 13:00:51 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPSv-0000000AtDD-3HYM
+	id 1wQPUd-0000000AtSh-3LIa
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 12:59:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C29340D5C;
-	Fri, 22 May 2026 12:59:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D8721F000E9;
-	Fri, 22 May 2026 12:58:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779454740;
-	bh=dwSUWSNVkWQiU2Ps9u08I+NkEf0pbbAy9oZawlGfs7E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AodPdG6kqN8TqpkCsUXCZOv+7MY36Qy89EI2xQcgUo7TTd0ky/v1q5VAVq0Rd/Ydu
-	 cITFfow0zhLSKsnzAzwugCTevD9e61iLHD7wSV/7E9cXXL6vthpMGOF1BAza5cz4Ly
-	 dA+PNm4ItVfQCaLWVDnnDEZQiwmgSPnG9Bgl8x27Bam0AZiMHeZjdOZeSXUtUq8Qzd
-	 PB5u1OwvAsGdWrtLtD0AEi5k5q/sjGruk/fjypCTUtL8+NMBgCMBP5zqAotooArzgk
-	 cvnnBfg3F0VjHR/2/tCB45NEP8/GQBm6+vcCOYYk01LCmbznedCj1MHyi9p9nIHZJB
-	 pnQ5iX+nbJuQg==
-Date: Fri, 22 May 2026 13:58:55 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Yixun Lan <dlan@kernel.org>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	jinmei.wei@spacemit.com
-Subject: Re: [PATCH v3 2/2] ASoC: soc-pcm: constrain hw_params when DAIs
- share the same BCLK
-Message-ID: <be91aacd-2e02-45d8-9293-e9551f688c68@sirena.org.uk>
-References: <20260518-i2s-same-blk-v3-0-2ba1c4f41db9@linux.spacemit.com>
- <20260518-i2s-same-blk-v3-2-2ba1c4f41db9@linux.spacemit.com>
+	Fri, 22 May 2026 13:00:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1779454836; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mXHalvZ2De87nqdd+Qu9KejK7X7MjBsUkinnEita0NpFch6ur7DdcDRoqF5KC5Fj2Omk3eO8X5XSy6IlZ6FHTc1qMRoWoKvCSOM2xNmqSoXRG9Z151NwXa/ZrEkNpJxzXONpLjgP5qtYE5n+/WFiun4t0GzFG9TtpQus8BHteIM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1779454836; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=JX4/HzHgr9Ln2K8EGkhp70E2oDhc6Dp0qS3CpdjxcfQ=; 
+	b=JEB+Q9kwAq8S+OunkVsGFsekfZ9tc+ZY9ZUMJmV+1qFYAqVV40vfTA/POq7At6oj0T26IfumIjLbAg5GyJtMeJbZPE+BTP4wW/psuUaiygKGa+C7vmIA7SbuyIZqA2UqH+8eKTWPuAyyt8LElyvywS9ai0Em995/TpUUQI5qzu4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779454836;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-Id:Message-Id:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Feedback-ID:Reply-To;
+	bh=JX4/HzHgr9Ln2K8EGkhp70E2oDhc6Dp0qS3CpdjxcfQ=;
+	b=LZNgU1UwZJKElt8ZqwmVKwQcyAxKscQZEb7E8wVgPi/WkeBfHNVYQnTs6MOWtlOc
+	BAI7vOXBBOJLSH2zzdyPXRvm8cGL1feHbggGYDzMDI4ECTwwOOE9R1hw18GPbhSWHrc
+	UKP6Xgu8diFjXdUgXtSu5j6JyS9wyLvvbZsq5C2Y=
+Received: by mx.zohomail.com with SMTPS id 1779454831935958.224223537089;
+	Fri, 22 May 2026 06:00:31 -0700 (PDT)
+From: Xukai Wang <kingxukai@zohomail.com>
+To: Conor Dooley <conor.dooley@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>,
+	Xukai Wang <kingxukai@zohomail.com>
+Cc: linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Troy Mitchell <TroyMitchell988@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] clk: canaan: k230: Fix sparse warnings reported by LKP
+Date: Fri, 22 May 2026 20:59:12 +0800
+Message-Id: <dee4605ca30f9bbd55ccb4fcce9590ceee1fa10b.1779453284.git.kingxukai@zohomail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260522-eligible-vivacious-3ce9bc30dd53@wendy>
+References: <20260522-eligible-vivacious-3ce9bc30dd53@wendy>
 MIME-Version: 1.0
-In-Reply-To: <20260518-i2s-same-blk-v3-2-2ba1c4f41db9@linux.spacemit.com>
-X-Cookie: Celebrity voices impersonated.
+Feedback-ID: zu08011227c6335346a63148b9f6cec2f70000b3c03c513edafb3405058bc9ea8ac70ec1c949f9169db7a4fa:ZohoMail
+X-Zoho-CM-AccountID: 2ee5dd3c83366259b2ba1e9826250ffebed1ef2dd213857d649ad25aba73b429
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_055901_842276_507F128B 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260522_060047_893680_3908CD96 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,64 +92,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3652098301364649752=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Fix all sparse warnings detected during LKP randconfig testing:
+- Replace plain integer 0 with NULL.
+- Add static modifier to k230_plls and k230_pll_divs.
 
---===============3652098301364649752==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="sKTSFcLS+m+I2M8w"
-Content-Disposition: inline
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202605220724.j4ZeM3KI-lkp@intel.com/
+Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+---
+ drivers/clk/clk-k230.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/clk/clk-k230.c b/drivers/clk/clk-k230.c
+index d883a1e1118e..cfc437038e4e 100644
+--- a/drivers/clk/clk-k230.c
++++ b/drivers/clk/clk-k230.c
+@@ -270,12 +270,12 @@ static const struct clk_ops k230_clk_ops_mul_div = {
+ 	.recalc_rate	= k230_clk_get_rate_mul_div,
+ };
+ 
+-K230_CLK_PLL_FORMAT(pll0, 0, CLK_IS_CRITICAL, 0);
+-K230_CLK_PLL_FORMAT(pll1, 1, CLK_IS_CRITICAL, 0);
+-K230_CLK_PLL_FORMAT(pll2, 2, CLK_IS_CRITICAL, 0);
+-K230_CLK_PLL_FORMAT(pll3, 3, CLK_IS_CRITICAL, 0);
++K230_CLK_PLL_FORMAT(pll0, 0, CLK_IS_CRITICAL, NULL);
++K230_CLK_PLL_FORMAT(pll1, 1, CLK_IS_CRITICAL, NULL);
++K230_CLK_PLL_FORMAT(pll2, 2, CLK_IS_CRITICAL, NULL);
++K230_CLK_PLL_FORMAT(pll3, 3, CLK_IS_CRITICAL, NULL);
+ 
+-struct k230_pll *k230_plls[] = {
++static struct k230_pll *k230_plls[] = {
+ 	&pll0,
+ 	&pll1,
+ 	&pll2,
+@@ -296,7 +296,7 @@ K230_CLK_FIXED_FACTOR_FORMAT(pll3_div2, 1, 2, 0, &pll3.hw);
+ K230_CLK_FIXED_FACTOR_FORMAT(pll3_div3, 1, 3, 0, &pll3.hw);
+ K230_CLK_FIXED_FACTOR_FORMAT(pll3_div4, 1, 4, 0, &pll3.hw);
+ 
+-struct clk_fixed_factor *k230_pll_divs[] = {
++static struct clk_fixed_factor *k230_pll_divs[] = {
+ 	&pll0_div2,
+ 	&pll0_div3,
+ 	&pll0_div4,
+-- 
+2.34.1
 
---sKTSFcLS+m+I2M8w
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, May 18, 2026 at 02:21:09PM +0800, Troy Mitchell wrote:
-> When multiple CPU DAIs on the same sound card share the same physical
-> BCLK, add a hw_rule during PCM open that constrains the sample rate so
-> the resulting BCLK rate stays consistent across all sharing DAIs.
-
-> +	/*
-> +	 * Protect the rtd list traversal.  No nesting: this callback runs
-> +	 * from snd_pcm_hw_refine() which does not hold card->mutex.
-> +	 */
-> +	guard(mutex)(&card->mutex);
-
-We have helpers for acquiring these mutexes which deal with some lockdep
-issues using subclasses.  Either use those or provide whatever's needed
-to have the equivalent thing in a guard.
-
---sKTSFcLS+m+I2M8w
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoQUw4ACgkQJNaLcl1U
-h9C7OQf+Jwocql2ZUuQWSU2AMaZmusiVEka81SMZdP6KS2iSwEL8pf6oWkxkCcTs
-jnHnBGKwmPtnApfDY+mN2FmkMrFjUGf5p4Q21j4YoXYA9I3tnj84SAyxP75mZ8DD
-c788haT1VvukP/xOi1aVmQAZDxrrZcM9c+bB4h1t1CPCSwFCTRs6Qy1Xunn971Kq
-l2gLaQOZNdPAUZrnzwUBRZp3m7vfF+AYSeONZlLmKWSwlSmZ9srpCSB8dRwj+oqo
-pKo6258W0y0dduExgblci93/+kft52DovE4X+RvJiYPi+dx+5A+5ir9nFbMvwNDZ
-rabUYy1fGILu3GuPhD89+3KrXeAEbg==
-=mDIW
------END PGP SIGNATURE-----
-
---sKTSFcLS+m+I2M8w--
-
-
---===============3652098301364649752==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3652098301364649752==--
-
