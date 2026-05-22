@@ -4,95 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E13CD5BB1
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 13:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8568FCD5BB0
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 13:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WzLW7OK0jWJNbY1Jq+5OMCXeEaebOL8a3eEmQEP9UTg=; b=0+KddnJxmT80js
-	fxWQ4AEue9RgRP4eTOoRCx404R5IR+FlNzdM0oyUC2LwpGl1CNA6k+EWk/a6HEaCaNoWQpU6IRn+k
-	FSQ8hWiH0rM0tCTRzD3o9bEN8uKraIh7S4ly63lf/HUEsdWIc+wvFKYuW7rFj7WBgLCuPj40+QO5x
-	/a03gcO3/u4L7AHQbxhlbVKCEB1o07Jr4iRuyKgLZla+w6B78FIc0h/BFs2qtmLXOePf3MZqGBWBP
-	felEDIH2xSlMIuHg3kH3s3CNjEONtiX2BP2KNblIRVZF7xpO+BiQHNRQOKVBwFaWfImFdihUyqIS4
-	1ODaO0mA2HOytht48O5Q==;
+	List-Owner; bh=uSdKy3Xg1SIvXRjpTd8mUivUdvYKWJEssyr9u3spjA0=; b=2wlOt0DX7nSZLL
+	4Ly8wpi5XMbZOjZnzXRVK8DAFIoKd7tnECo/XRHTgwlGdmPTtl1AuLEtFGyWJwuqbKxdxbZxg0YtK
+	CZdIX/OYo0PEnp6Q/IU4G/QKccJVv74ryOEks8cpc4hrr71mP6GyqCnRzqFxOQtzTm0hQmgmUH5d5
+	OTLLrA8b0+1ZnRPXKw+pF9trxyaesZ9o7jhK2mnipEQlY2l/TULvjZUA8NFQTjwubbmDd1Vk7zke/
+	zK6Fi/pOBS/7cLC5VKtk6vRWc3zLSL8pRP6Yl4MPIGbqjTD6r8iQgcS3qVl68Q4hRxUJ05gzfI/e2
+	r1up6xcC/E/3xUKTJccA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPhH-0000000AvKi-2gaf;
-	Fri, 22 May 2026 13:13:51 +0000
-Received: from bg1.exmail.qq.com ([114.132.74.132])
+	id 1wQPm5-0000000AvxI-0nyf;
+	Fri, 22 May 2026 13:18:49 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPhF-0000000AvJX-21v8
+	id 1wQPm1-0000000AvvG-1WhA
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 13:13:51 +0000
+	Fri, 22 May 2026 13:18:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1779455553;
-	bh=sNGKriiR40VmWfFFzwCnZIBf5B7xIayu130MyGqFNhk=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=oAAxla/WiXozQnqQOf9HGYXRLY0Iww9bfXADXWoyl5smol5EtJMcbh5pqyb81xSCX
-	 OcAsYCj2crm6RHa7fT9RJY1IPjcY7JKXWY15kZtGOjacpTPLPB4VrvgUKv4bp4kiHf
-	 I1iVXAathKsmXuVek2c+Lo8A3bQ2JOhMJfWKBPp0=
-X-QQ-mid: zesmtpgz7t1779455546t364b2750
-X-QQ-Originating-IP: cH+OXfIEeHuVZdMzFu6pI+Ce7vT+VIferESzO7hFrM0=
+	s=mxsw2412; t=1779455879;
+	bh=4RACIIvqwwKv5OCUQdl3TRRl83JS4BtgYtRCpIVcu3s=;
+	h=Mime-Version:Date:Message-Id:From:To:Subject;
+	b=pIKIhg09gROL4RrM6IF9QMiAOTuibpCjCOeDLpcmw/qk9+NlkEVtpXr1DVnpoxGk1
+	 d/TSAkY6lHswwupW1gYVxg8DHHM2hpr/orzJsnXx2qDmya3jF9vWhG7gIvYYlc0WGe
+	 Z9gsJa4wle7rRHHfFUWiYp3tU9XHrUZHgbv8o6t0=
+X-QQ-mid: esmtpgz12t1779455870t569a11c3
+X-QQ-Originating-IP: GqlVLBy8xuQxz5FB5yHZfEci69R+BINM8B+fRDdGZKQ=
 Received: from = ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 22 May 2026 21:12:22 +0800 (CST)
+	id ; Fri, 22 May 2026 21:17:49 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8738155976280777522
-EX-QQ-RecipientCnt: 15
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Fri, 22 May 2026 21:12:15 +0800
-Subject: [PATCH v3 2/2] ASoC: spacemit: add K3 SoC support with additional
- clocks
-MIME-Version: 1.0
-Message-Id: <20260522-k3-i2s-v3-2-08e3eb811d93@linux.spacemit.com>
-References: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
-In-Reply-To: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Yixun Lan <dlan@kernel.org>, Jinmei Wei <weijinmei@linux.spacemit.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779455534; l=3766;
- i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=JsTztEtOCXDQSlvZta39qdd0kWNPa/QXuRXyaf1EX7k=;
- b=hZhgyBa5r9WaBK6RB90JU4T4V6eX1l3KokC15CCQU7blElm1vNKU85QWeehz4Dx/RCd4MJWvS
- tMOXXzBkTHSDYMxzvvDWx1AQUMWHd/9N7WsZO2hUFjd1ATUcpO9Wn0K
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-BIZMAIL-ID: 3995857162579613603
+EX-QQ-RecipientCnt: 11
+Mime-Version: 1.0
+Date: Fri, 22 May 2026 21:17:47 +0800
+Message-Id: <DIP8GKFQOKZL.9JA38OXBFMIA@linux.spacemit.com>
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Mark Brown" <broonie@kernel.org>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+Cc: "Liam Girdwood" <lgirdwood@gmail.com>, "Jaroslav Kysela"
+ <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>, "Yixun Lan"
+ <dlan@kernel.org>, <linux-sound@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <jinmei.wei@spacemit.com>
+Subject: Re: [PATCH v3 2/2] ASoC: soc-pcm: constrain hw_params when DAIs
+ share the same BCLK
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260518-i2s-same-blk-v3-0-2ba1c4f41db9@linux.spacemit.com>
+ <20260518-i2s-same-blk-v3-2-2ba1c4f41db9@linux.spacemit.com>
+ <be91aacd-2e02-45d8-9293-e9551f688c68@sirena.org.uk>
+In-Reply-To: <be91aacd-2e02-45d8-9293-e9551f688c68@sirena.org.uk>
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: Of/Z+TGqbjgQVygLG12WQbX0SVuZmRAUlRMUuRkQrUCd5GxufkdW4ebN
-	7NF5NKlmyk3dtuLYY4BTSCu8ypXglTb0tcWIe6wwVv+eLVLiocXjrH74xLZMY5+r7t7MRRv
-	see/lmqm3XBi5MAgn8524niwhjcN6/W5qYxBQ0qohGI4igPcNItIP3G8yeNVki2sYduVRxL
-	cA1knCpA26rHERPYIy3IMoFe9a5qSgf6qhXqnwM39BAH60Tk7kYnua33Wkh/ai6JlYiaJdF
-	iTqIRmOEt7TRBMvKTVq/yroK0LIB+aAaafukMrFRv7x26FCV4x3ixAi39PnmYOSAj8ABsQl
-	GMzkuVA0uMgE9ppUqeFgb2KPEcxb4u4FO5iWVMxkp32HURbjXuzAdKahvAwXlchXHNLQnSj
-	Y2QMntTKMY7OVJkicJQ6nkjpijLI7ss5x7a5/1xgZci3MwZVZdmbWB3WQzn41L9n+AB4GI8
-	uozFe5dd7p9cG1EfrLV1LxzWuDyS2AXBgppPC/u3C1ph2YhE1Jxgt5lbUcrhIFP0zQ6cJC8
-	EPmD6h0jf6Q2Y5/Nqc6qD8mkRPoBW1ko3VyaMun0QD6dxDwdsCto4HD+5JgCzUQzzXG3CC/
-	7bhfDwUyvOo5NLea6aljQ/Q3oYfE5WH5cCRxlQ+Ubn+bdor45qm0BC0/w0I+7T4eF6v0tyg
-	GnDDSMNDSsNDnnVy51lU8Uc/9VbUv+MqxZjs0VOWF/3M1Qh6kbuR1zbPHDxTkAFkgwGLsSw
-	D5HWQh4HcscyvOmCjeqo5C4LGMGl1q08uPwfUEhbMEf1j/21cExKWYsitCvhcUNCV+e2lKG
-	7s7wcLL5oeI8+qnf+sKj63Z0ZeaQN3tzcbUXARBtOizy7PvIFWdaz2bmvJCBQ76mrXRnzpV
-	RtYQEse6qOBzXKQUlS/fpX/fTm45aahcVxTikBvyHTY7rgaAfDhLdt08QujuPnTsNE0SO7M
-	0kJoFU3subVXzpKK6nOeF6FH73wlxtdrIPZcdi/HwW0ptksaSDoXDLQynC/XFEdnh7akmJh
-	OiTRHS3hgOWhcpp0hJNgo0Q4L8QaEdre7KpWDXaFnAYd+QYs7szAJtNITQrEtjH+WX/ngxm
-	1nPDUOA9vneI8WwSCWFbac2kZTAxEdnDuGI84zjGIz5ukBK+B8sYkL5c+xPspX8Ki1rbv87
-	IJF8uGRUL89T6HI4Y5yQPPZ/UWmgA0j2WnaX1MQxKNyaCfkdzcluvOgglA==
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Mi0NhBPPe/4RLI2RuIhAfkCN6237JtruPC1Y0HM8JNh081CTP6BFBOEL
+	B5EWbccDmtX38n7OWDfXe8sS0RUyC8XVsqq6GeuGIiHIW6BvjnchrXUAZ/icvRiyeeP5aGB
+	fjq248nWBYALBn51JlW/cQMJ1UWaFu93f3hKEoaUJ59plpj2u++hAu1N7rc3CsBQrIE9wYJ
+	yANDhlWsIR2BplIgfx3YMWvIMsGMdYThxc2EXS4gYZJPJJufPtGvnwErLOSnH/FZzYzs1R6
+	PqkS6Eg9oasO5fuDizzAu9YS+MK+Lv1UAoJiaGFfLz5xBHWhEIno5kDJ8c2ehY2IF9wu5OV
+	cwbPhgLkzHFawxtAzDYMc7UTW0wrHGEpGWEQc9uzfM5nxgUYPCv3yvz8mb0HKZN/AeVEyec
+	y2nlU5RgR7LreONWwux8/SunxpaeRikBBwehvo4+qhuetbbOW7tOXUcW7zistLXqy3zdwCP
+	R/PT+WDGBDj4nBUt8RRAMVC7xkZ9NEvhIW19ustPrC+ndhs0X8lqq1ud/y8ysvQrxId6SwA
+	npsi6JMnTcgH2j8Pxl9rlyasjyqbU4Qqh8YCOzO2R4cRhXlG2i4DCjKo70nd9X8dc6oIw/p
+	LKz8KIR2zhFoSGX8xT90m+ksjvnXUEfeswpi9OZScTKN7eO8ymFAdMSv6pINKVOtOU41hoD
+	MOjOF5dcRcCIkGZief3tIu65E61hoDuF8XH45nN2SfbvPp+sDcvs/AKDvYsGa5WbAcK6WJN
+	ej837wLU6yyz4whksGCa4wvn17wFZ+7w8T7dQjkD8Of6M2Rc1zjB/yH/ZxVKlYkcK4zUpAz
+	RV64P22cbjsorrDoWwGkdzl18O34MSvRaWfhOvijADX7/D+KwhXYbK5GG4m/KdMSZWx4jcr
+	r/YUuBgf9aR7SxxfzXVg20eTlHBKq0Dmmu6P+ZXBQ+mGnUFqxc595UGrREjJ1J1dpKHeURX
+	ObpCMf/cCAjXpQYHhovz6Wiu/vSDgo+lFu0aQLp0YoG2pRq1Ahjpqq1EFuvCmUTxOYZXhTR
+	vt0oIO5jLOs5XOYFSzqDDCcRkXur4TDOBry27nIRscYYSIT6HIqBAcgdtJAyIa7LniwZpeP
+	8HcjL+9xNlb
 X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_061349_913411_BA666F6A 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260522_061846_269370_E279FBF0 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,110 +102,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the SpacemiT K3 SoC I2S controller, which shares the
-same IP as K1 but requires additional clocks: sysclk_div, c_sysclk,
-and c_bclk. These clocks only exist on K3 and are not present on K1.
-The sysclk_div clock is present on most K3 I2S controllers except I2S1.
-The c_sysclk and c_bclk clocks are shared across multiple I2S
-controllers on K3.
+On Fri May 22, 2026 at 8:58 PM CST, Mark Brown wrote:
+> On Mon, May 18, 2026 at 02:21:09PM +0800, Troy Mitchell wrote:
+>> When multiple CPU DAIs on the same sound card share the same physical
+>> BCLK, add a hw_rule during PCM open that constrains the sample rate so
+>> the resulting BCLK rate stays consistent across all sharing DAIs.
+>
+>> +	/*
+>> +	 * Protect the rtd list traversal.  No nesting: this callback runs
+>> +	 * from snd_pcm_hw_refine() which does not hold card->mutex.
+>> +	 */
+>> +	guard(mutex)(&card->mutex);
+>
+> We have helpers for acquiring these mutexes which deal with some lockdep
+> issues using subclasses.  Either use those or provide whatever's needed
+> to have the equivalent thing in a guard.
+Thanks for pointing that out. I've added a local DEFINE_GUARD wrapping
+snd_soc_card_mutex_lock()/snd_soc_card_mutex_unlock() so it picks up
+the SND_SOC_CARD_CLASS_RUNTIME subclass while still getting scope-based
+auto-release. Will be in v4.
 
-Use devm_clk_get_optional_enabled() to acquire these clocks so that
-the driver works on both K1 (where they are absent) and K3 without
-needing SoC-specific match data. For K3, the sysclk_div rate is set
-before sysclk in set_sysclk, and the common clock rates are configured
-in hw_params based on the sample rate.
-
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
- sound/soc/spacemit/k1_i2s.c | 36 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
-
-diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
-index 1cb99f1abc7c..4e655d714623 100644
---- a/sound/soc/spacemit/k1_i2s.c
-+++ b/sound/soc/spacemit/k1_i2s.c
-@@ -53,6 +53,9 @@ struct spacemit_i2s_dev {
- 	struct clk *sysclk;
- 	struct clk *bclk;
- 	struct clk *sspa_clk;
-+	struct clk *sysclk_div;
-+	struct clk *c_sysclk;
-+	struct clk *c_bclk;
- 
- 	struct snd_dmaengine_dai_dma_data capture_dma_data;
- 	struct snd_dmaengine_dai_dma_data playback_dma_data;
-@@ -189,6 +192,14 @@ static int spacemit_i2s_hw_params(struct snd_pcm_substream *substream,
- 		    params_rate(params) *
- 		    data_bits;
- 
-+	ret = clk_set_rate(i2s->c_sysclk, bclk_rate * 2);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_set_rate(i2s->c_bclk, bclk_rate);
-+	if (ret)
-+		return ret;
-+
- 	ret = clk_set_rate(i2s->bclk, bclk_rate);
- 	if (ret)
- 		return ret;
-@@ -200,10 +211,17 @@ static int spacemit_i2s_set_sysclk(struct snd_soc_dai *cpu_dai, int clk_id,
- 				   unsigned int freq, int dir)
- {
- 	struct spacemit_i2s_dev *i2s = dev_get_drvdata(cpu_dai->dev);
-+	int ret;
- 
- 	if (freq == 0)
- 		return 0;
- 
-+	if (i2s->sysclk_div) {
-+		ret = clk_set_rate(i2s->sysclk_div, freq);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	return clk_set_rate(i2s->sysclk, freq);
- }
- 
-@@ -418,6 +436,21 @@ static int spacemit_i2s_probe(struct platform_device *pdev)
- 		return dev_err_probe(i2s->dev, PTR_ERR(i2s->sspa_clk),
- 				     "failed to enable sspa clock\n");
- 
-+	i2s->sysclk_div = devm_clk_get_optional_enabled(i2s->dev, "sysclk_div");
-+	if (IS_ERR(i2s->sysclk_div))
-+		return dev_err_probe(i2s->dev, PTR_ERR(i2s->sysclk_div),
-+				     "failed to enable sysclk_div clock\n");
-+
-+	i2s->c_sysclk = devm_clk_get_optional_enabled(i2s->dev, "c_sysclk");
-+	if (IS_ERR(i2s->c_sysclk))
-+		return dev_err_probe(i2s->dev, PTR_ERR(i2s->c_sysclk),
-+				     "failed to enable c_sysclk clock\n");
-+
-+	i2s->c_bclk = devm_clk_get_optional_enabled(i2s->dev, "c_bclk");
-+	if (IS_ERR(i2s->c_bclk))
-+		return dev_err_probe(i2s->dev, PTR_ERR(i2s->c_bclk),
-+				     "failed to enable c_bclk clock\n");
-+
- 	i2s->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(i2s->base))
- 		return dev_err_probe(i2s->dev, PTR_ERR(i2s->base), "failed to map registers\n");
-@@ -444,6 +477,7 @@ static int spacemit_i2s_probe(struct platform_device *pdev)
- 
- static const struct of_device_id spacemit_i2s_of_match[] = {
- 	{ .compatible = "spacemit,k1-i2s", },
-+	{ .compatible = "spacemit,k3-i2s", },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, spacemit_i2s_of_match);
-@@ -458,4 +492,4 @@ static struct platform_driver spacemit_i2s_driver = {
- module_platform_driver(spacemit_i2s_driver);
- 
- MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("I2S bus driver for SpacemiT K1 SoC");
-+MODULE_DESCRIPTION("I2S bus driver for SpacemiT K1/K3 SoC");
-
--- 
-2.54.0
+                                      - Troy
 
 
 _______________________________________________
