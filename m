@@ -4,85 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929C5CD4F3D
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 21:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA0DCD5BB0
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 23:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s9JTuS82Ok3c+JRa/cmzJ/ojX5RsgGZau8dAmrkiOyo=; b=eqgAs/E2gTVtLV
-	uztH1EJB6ZH+tc6cxIKEobD4sK4gBvgx2VsZydgx8fYrEqCR3AmzcBj6VgLbvXlDBWTgvtaTXnRQo
-	KFSIz4MqiQi762hctk+ibcgh9Vb8+QLN/EsHv/9G2ZiBKzH2E21On+ANXEex0T3Cfz8VjWQT/ZGUK
-	g1XQBi7ANEaEP7uUUIObVq3KZRYzWOjNsvGSKOUryCYgEaz7QVn8wZHMB33FO0bytnD6JJA8w/xaZ
-	340Ou6V/9ctjF5BH9JsydghA1RftI9AW+jKG5jJWdB5kyqy3HzPIObwWdfzW5/1ViW3E6yxQxPOYj
-	2CRNCyvO//yMDMOnQoLg==;
+	List-Owner; bh=05yQvyZrN+1tFKJcXBBWzMRqRRnKFOPhLzm3w555CZc=; b=ManPotoR2X2kpL
+	QQ/psB1ltHyFxSBO8DL5bHP+UOUmRvs+gJpFvpDbrUpyjwXlCK7o+eCOwcmDhGLM+SulEXEOVNW/w
+	S8uAzJnN6vPEi7thOCBiRicNzNoFZHuGf2rfF5jRoowk49esdOHHS9W9fvlmHNN9ds82cpO2SKFUP
+	4e8+ukw1b0dwChPiCuNH2jLuxGe+YcZMx8kJsIdkxdIlhpcwNPwHrv80kkC3tjyRknP5EsC2/GjKd
+	CDyujBWiM0AEx2q6TCfKxkvPaykFpANuqlb92KMrt2yypGo7dS7aI2dmmpmVNOIpFzSoEbCyb0T+A
+	0Uy3hyvpDD91LLfTT9qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXSj-0000000Bzr9-1ioW;
-	Fri, 22 May 2026 21:31:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wQZ00-0000000CBz1-2xE9;
+	Fri, 22 May 2026 23:09:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXSg-0000000BzqD-40SL
+	id 1wQYzy-0000000CByp-3v3E
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 21:31:20 +0000
+	Fri, 22 May 2026 23:09:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DF4D445EB
-	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 21:31:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 557131F00A3E
-	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 21:31:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DE2F960103;
+	Fri, 22 May 2026 23:09:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9A7E1F000E9;
+	Fri, 22 May 2026 23:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779485478;
-	bh=C1JkI15vgeu08xV//dtK9AYlWM5a5o5EUbaFA14ty+I=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=BZkBhq1dEMkxCJHLGd9hHIZUnfovj2cBcOHoma7ZqB1sV0+I2O6Ds5hTpwlWo4Mft
-	 6cZWdkrBC8UapaBAwm7wTsgf6f8+bsxbXBKEVD6N264a0/eS6r2rdb08YfLVaVXRFl
-	 DCfthOwfboPEVZicSPecr1WRFLBuk1+P+LgQEe3wX84so6iEX2i0ZTBrRDglX2hSFx
-	 U8IUrYW8hVgwjP8B7VfqK2I0t+/0+rbDVSJLqQ9PbEvde4WIlEtliG3txUqHXy/bwe
-	 ykb+eAMoCx2v1OrYATTHe26u6dEHYIyLuKR8dX7rGXbs6//A4IoVMdKRjJahE4F5l7
-	 5hZy1XYN8h40Q==
-Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-50fb8e9a4edso92197661cf.1
-        for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 14:31:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/ilmZJe7b24+OH+ocpiQjGEn7IZEHvwtz9dXkMSL08kk06EVomPN27bvVdl60wlP21pPDtDAEwMv7brw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyveSSik0armbJVVfisU/f4TCtTDWygp5huPh4ccteudZI84B5G
-	SPXJZoDC/T5zVM+aWbl9NVVS9TvJYve+Bu3z9fl5DKkBXv7bsMeXhJfwJDBd/ImMI3cBbctkp3a
-	30Hp55PaczBxGC+rV7O9EHMG8HZ2JGOw=
-X-Received: by 2002:a05:620a:372a:b0:914:c100:6a0f with SMTP id
- af79cd13be357-914c10072a4mr332092285a.23.1779485477280; Fri, 22 May 2026
- 14:31:17 -0700 (PDT)
+	s=k20260515; t=1779491385;
+	bh=SRNn+HK5PU4+WE2ZZvd2N1n519hA+9ALeyWVGg6XpfE=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=YQZ8sveZ9qkjOvzrCCwjNmTRffNqCV1nLGIZzxyv54dBXtlgt7rvXhODy8FN2533q
+	 MiVnn1IVJEGDSSU7p/j2Pi1GyQ96ld3MVOKwlwEttGQc1E21+q0IvvFrl7Xo3XQQcS
+	 dOGAXA/PgwYeW3EotaFQSw76Pf7wl0KFW4sCNYdaxZQGlqo3tRgADMs0BFV/BcpfHK
+	 /0EElHRH15ECtSUPOPkOn7wVe384hNyH51ICHbG6Y8G1pQZksSjo/VZRhwEjFbRRfU
+	 RHDiqavjnifHfaVdLo0CCtWLTeIJmmOsKAlRfq7V+PXP9ZFQpj6gY+KrO2poLmzqZS
+	 I4YzsIhKjOfAw==
+Date: Fri, 22 May 2026 17:09:40 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+    tongtiangen@huawei.com, akpm@linux-foundation.org, 
+    pasha.tatashin@soleen.com, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: exclude invalid THP PMDs from page table
+ check
+In-Reply-To: <20260515065048.94564-1-cuiyunhui@bytedance.com>
+Message-ID: <252be770-4d9f-954a-9388-8f7b52a92d90@kernel.org>
+References: <20260515065048.94564-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-References: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
- <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
- <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
- <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
- <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
- <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com> <ahB6QyHgYq8ksj65@lucifer>
-In-Reply-To: <ahB6QyHgYq8ksj65@lucifer>
-From: Barry Song <baohua@kernel.org>
-Date: Sat, 23 May 2026 05:31:05 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
-X-Gm-Features: AVHnY4IqrepDwpGO5qDQsSaxTVFULk1Thk0Uu8QgQ0mfUUrDDRbDPxaWPMcP1VU
-Message-ID: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Suren Baghdasaryan <surenb@google.com>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_143119_026234_40420D3C 
-X-CRM114-Status: GOOD (  18.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +71,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->
-> Again this is making me want to sit outside and sip on some lemonade and
-> ice :)
->
-> Yes - android processes are aggressively multi-threaded, sure of course.
->
-> The missing bit here is the forking - what, where, why, when?
->
+On Fri, 15 May 2026, Yunhui Cui wrote:
 
-I really want to know the what, where, why, and when
-as well. But since most applications are not
-open-source, it is basically a black hole for anyone
-other than the owners of those apps.
+> RISC-V THP splitting uses a temporary invalid PMD state where
+> pmd_mkinvalid() clears _PAGE_PRESENT and _PAGE_PROT_NONE but leaves
+> _PAGE_LEAF set so the MM code can still recognize the PMD as a THP split
+> in-progress entry.
+> 
+> That temporary state no longer describes a user-accessible mapping, but
+> page_table_check currently treats it as one because the RISC-V PMD
+> user-accessibility test only checks whether the PMD is a leaf and has
+> user permissions.
+> 
+> As a result, when a PMD-sized anonymous THP is split during a COW fault,
+> page_table_check can account the invalid intermediate PMD as a live PMD
+> mapping, and then account the replacement PTE mappings again when the
+> split installs the PTE table. This leaves stale PMD accounting behind and
+> later triggers page_table_check failures such as a non-zero
+> anon_map_count when the folio is freed.
+> 
+> Fix this by tightening pmd_user_accessible_page() so PMD page-table-check
+> accounting only considers leaf PMDs that still carry either
+> _PAGE_PRESENT or _PAGE_PROT_NONE. This preserves the THP split semantics
+> required by the MM code while preventing page_table_check from treating
+> invalid split PMDs as live user mappings.
+> 
+> With CONFIG_PAGE_TABLE_CHECK=y and CONFIG_PAGE_TABLE_CHECK_ENFORCED=y,
+> tools/testing/selftests/mm/cow completes successfully on RISC-V after
+> this change.
+> 
+> Fixes: 3fee229a8eb9 ("riscv/mm: enable ARCH_SUPPORTS_PAGE_TABLE_CHECK")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 
-Let me try to do more investigation to understand what
-is going on, although it is really hard.
-To be honest, I would rather the Android framework
-completely prohibit apps from calling fork(), if
-possible.
+Thanks for the patch, but it doesn't apply as-is.  Could you fix it and 
+resend?
 
-> And then you say zygote is sometimes multi-threaded but sometimes
-> single-threaded, which is adding a whole bunch of confusion on top of all
-> that.
->
-> I don't find these stack trace dumps all that useful (though thanks of
-> course for taking the time to gather them), I think we'd be better off with
-> specific data on forking, in some _concise_ _summarised_ form, ideally with
-> numbers.
->
-> There's such a thing as too much information :))
 
-This trace shows PF I/O in one thread overlapping
-with a fork() call in another thread.
-But as I explained, I really do not know what kind of
-user behavior is behind it.
-
->
-> Anyway, again, please let's see a new _RFC_ with the approach proposed by
-> Suren, with some _succinct_ data demonstrating _exactly_ what the problem
-> is, so we can make some headway here.
-
-Okay, sure. Thanks for your patience.
-
->
-> And now I'm off for a cornetto! :)
-
-Sounds good :) Enjoy your cornetto!
-
-Best Regards
-Barry
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
