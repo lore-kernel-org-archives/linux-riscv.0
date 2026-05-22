@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1F4CD5BAC
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 10:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF4CCD5BB0
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 10:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=O4l/1dU040VKOr6oXQ/GooVRJZ+h/ueFQI7/sX1A8hU=; b=dwYMTF3ctrKr95
-	XYZ5K075KAid9PIHXwLmlfxNArrgWOJ0KFAvpq117dZxsZ41Tit83BgD3hff/d8NMbKZ0jkOZFybw
-	xxjT0LY7As1UTqltB60jz8/6WYPFXo9zoCnty7k/74BFmCESRvo+cx44Mdrz3PRk4EEFL7T20dI8P
-	SRfa2IHSUtAWjhQK2K7U7ke1h9CGo7GlIIJ+dnk4htO/9pYaYh+WlcTAlF8xywwOkcx0GDnLAZBDP
-	+7rsGGY96BXf2FW6OPpUiYh2daytyGXUsZpMZ1Nt/Xf0svs4bR67+DJk4krrT8rftVTA/o5pIRkdG
-	ns/ecf3Sv2zfq9GwdyoA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EvArNHjD9XZVS/eoRpe8BDp4e3fK7MYehpw/l8FIai0=; b=HV8ndiqxhdoDQY
+	cXksLQTu52zwof4QPf0e+rnmXt/imYuiCZHUrA13/hEoUTyzzsi05tXlb+Cm4o7tn6n5nMV2H93kA
+	jkGOZEIIFzlDJ6N53VUilC4/Kx9LyUA3cKXysweytNXDbKxazH83O3veSsdVKsNb6r1ggLACo6rrC
+	wmZVAzguTwAB8ZwiGPkoFpDnSWyWe6QP1Gw1zcir+wA/O6pB65tKoazg1hgz4MuuAYpx0+DnKbPtj
+	MyttbC/ilJDMFi2daYywymPKQQzuTYnYgzU4JVcQW9S3NcMZwPFJqSffiG7WYMikO49yk5fsxy13j
+	2RqC7i5IbpGo+7P5HLcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMiV-0000000AQF6-03D7;
-	Fri, 22 May 2026 10:02:55 +0000
+	id 1wQMih-0000000AQHH-0SN8;
+	Fri, 22 May 2026 10:03:07 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMiR-0000000AQEI-40lk
+	id 1wQMie-0000000AQGL-0F6W
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 10:02:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779444159; cv=none; 
+	Fri, 22 May 2026 10:03:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1779444173; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=gHIq3ixD9bRmVE+/Sy63lp/TQO7Ryf7D8wlX2vPyr7+uuZ4QslwDZJgBJczdpquW5XS0dIzNHj19Oui/C0Q2vTF9rhcFvPoByBEeiwZK36Ajm2mjSapYU+p5WuTqbRtWrsn7OQrV1Og00T6SgXzkTO8hopawDTMNXjtk1O+naSI=
+	b=Xc0m69owLNfANcQY0LWVnc1BjlfPQ9WXnXGvbMG23jXlQkfx0kFPTtrKMh+7aZZHAZjb7sRgbZAY8y6DPco7B85OILacZI1bDxaVTiE/tv3jCqoaPD92ZBUVVbwnRx4W4UD0PGCIaUSl4fpp8wyeJY8iYZSJ/Sd1dASMORUUbf8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779444159; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=OSYRXWdgPQ0qpSaOzFwa2vTnVH0eSYVEuTRMqO5a4RE=; 
-	b=ha6VWbGe0WlLUFAEDT5QLxD0IhK7kreC1Zy0myB8I7DucaxOnkKM9HCoiIXRYZmv3j+TVdBPOOEv01sEQ01vHkcHdVSNJp7T6+JYWDG4pmOwd64wYVio8VP2PqhGbxwV7O8VYGXwQGT0E1/IBhbtqF4CPM+PxQ0zscLdu5VGsp4=
+	t=1779444173; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=AlUtXwWUEIpdy2pCmMQSyi1r/hlhyzAXZ22qS4CeVmI=; 
+	b=aFtn+ZYpgQ2TYqRDwY3yFungqxXxXE2ovsV8LpzYaTExcTNMv0LFdwUhyHNJyNP/OvVedhWN3hEFjRxvLv4Ia63N39hs8pD8aklg9Skbbxjf/nPdSnX4zsFUsCzVVZr8bLF0KXQbDq0L/TiRmrh2LRtxtMdn19QziMpNOrEQLvY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779444159;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779444173;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=OSYRXWdgPQ0qpSaOzFwa2vTnVH0eSYVEuTRMqO5a4RE=;
-	b=Mwbhf6szXkf7TRqc6+kAplUhx5h5cZQN2WdLJNVoBECygFyo1qdYh6ZBCURWj5i1
-	eIlcqpnZJAo31zgYXuYxAMsdYjiBuCknyM07z42+/gwX8jLD1Atc6jSzmVO4ThGUZZc
-	O9VVEQNUSit1RjYWGw+u7eVmHQDsJwm3w1Dlq5jM=
-Received: by mx.zohomail.com with SMTPS id 1779444155920672.4289544688394;
-	Fri, 22 May 2026 03:02:35 -0700 (PDT)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=AlUtXwWUEIpdy2pCmMQSyi1r/hlhyzAXZ22qS4CeVmI=;
+	b=cdUwSwzbyCrCxMfGiqenriZvbjLAOoCA6S+BIhN7a39Fr4cMlqmehsjDjiviHkt4
+	xql0k9RSpo4YtFWZ6JI2ZDTqi0qiqLLNsn4mnzN0abK7Do2sUj0viiAo0jjT+/enwNB
+	FonfdsuhPmsfJZ8LaZdtW1YIwdcE4pJdHSUYrPG4=
+Received: by mx.zohomail.com with SMTPS id 1779444171827541.6484481209804;
+	Fri, 22 May 2026 03:02:51 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Subject: [PATCH 0/3] spacemit: k1: Add support for Banana Pi BPI-CM6 IO
- board
-Date: Fri, 22 May 2026 18:01:32 +0800
-Message-Id: <20260522-bpi-cm6-v1-0-707ef1917a30@pigmoral.tech>
+Date: Fri, 22 May 2026 18:01:33 +0800
+Subject: [PATCH 1/3] dt-bindings: riscv: spacemit: Add Banana Pi BPI-CM6
+ compatible
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMyw6CMBCF4Vchs7YJ0wEEX8WwaDtTnQUXWzQmh
- He3keV3cvLvkCWpZLhVOyT5aNZlLsBLBeHp5ocY5WKwte3q1lrjVzVh6gwH6uOAQlEClPeaJOr
- 3X7qPp5O83iW4nSN4l8WEZZp0u1WdMA+uZrKCEntEIt8H33rynrC9uqZh1zDCeBw/UJtQxaUAA
- AA=
-X-Change-ID: 20260522-bpi-cm6-dc38f91e3fec
+Message-Id: <20260522-bpi-cm6-v1-1-707ef1917a30@pigmoral.tech>
+References: <20260522-bpi-cm6-v1-0-707ef1917a30@pigmoral.tech>
+In-Reply-To: <20260522-bpi-cm6-v1-0-707ef1917a30@pigmoral.tech>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -68,17 +65,17 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Junhui Liu <junhui.liu@pigmoral.tech>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779444139; l=1748;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779444139; l=1196;
  i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=hEkh1Pczn0aaj0ONuR8AqCQA/Ha96EV3U5jPPt4y1oo=;
- b=c8pKUtG6Qf7XIhK7Sdr0k30OlDYgbdTnu/F0hVFQmfvDz3owqof13prOwKJMPOi6HTbCieMUL
- re3mGFGzlBlAiw+AG2QFyP+THrWLyGmAQreaPi2eiLoutuv4iIypg1v
+ bh=z5N+OVVT6EV6yZfhuO94zkxdbEVGsxfaKjRVmwzsiWI=;
+ b=cFHT3CkVUnmxwXwbI2bSYm2w/plb8ldyYCcHXucbIdz18H/HUccbB3xs7gEJgHDcm8RLfhIqq
+ d0uQH7WwjlXB6TuGOTOm7kordIbplY34lEglG9GVzBIq2s0zFYwvHEK
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_030252_356734_6516F6DE 
-X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-CacheID: sfid-20260522_030304_692402_4C0D1AFB 
+X-CRM114-Status: UNSURE (   7.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,42 +93,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds initial support for the Banana Pi BPI-CM6 IO board. The
-BPI-CM6 is an industrial-grade RISC-V compute module powered by the
-SpacemiT K1 SoC, featuring board-to-board connectors similar to the
-Raspberry Pi CM4 form factor. For evaluation and development, the module
-is paired with a companion IO carrier board.
+The Banana Pi BPI-CM6 IO board consists of the BPI-CM6 compute module
+plugged into an IO carrier board, which is used for evaluation and
+development.
 
-During the board bring-up, GPIO45 and GPIO46 were found to be used by
-the BPI-CM6 hardware as Ethernet PHY reset GPIOs, while the common K1
-GMAC pinctrl groups currently mux them as optional GMAC reference clock
-pins. Since the reference clock pins are not required on all K1 boards,
-the first patch separates them into independent pinctrl groups so board
-DTS files can select them only when the signal is actually wired.
+The core CM6 module is based on the SpacemiT K1 SoC and provides PMIC,
+DDR, the eth0 PHY and wireless connectivity. The carrier board extends
+this by adding the eth1 PHY and external interfaces including Ethernet,
+PCIe M.2, USB, MicroSD, QSPI, and serial console connectivity.
 
-This is based on the "dt-for-next" branch of the spacemit-com/linux.
-
-Link: https://docs.banana-pi.org/en/BPI-CM6/BananaPi_BPI-CM6
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
-Junhui Liu (3):
-      dt-bindings: riscv: spacemit: Add Banana Pi BPI-CM6 compatible
-      riscv: dts: spacemit: k1: Split gmac_clk_ref into independent pinctrl groups
-      riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO board
+ Documentation/devicetree/bindings/riscv/spacemit.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- .../devicetree/bindings/riscv/spacemit.yaml        |   5 +
- arch/riscv/boot/dts/spacemit/Makefile              |   1 +
- .../riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts | 215 +++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi  | 227 +++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |  24 ++-
- 5 files changed, 468 insertions(+), 4 deletions(-)
----
-base-commit: 6edd9a0d32e1ef81133b8cb5b3bb3157a44da4d1
-change-id: 20260522-bpi-cm6-dc38f91e3fec
+diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+index af8030242bdc..3e868383eb4a 100644
+--- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
++++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+@@ -19,6 +19,11 @@ properties:
+     const: '/'
+   compatible:
+     oneOf:
++      - items:
++          - enum:
++              - bananapi,bpi-cm6-io
++          - const: bananapi,bpi-cm6
++          - const: spacemit,k1
+       - items:
+           - enum:
+               - bananapi,bpi-f3
 
-Best regards,
 -- 
-Junhui Liu <junhui.liu@pigmoral.tech>
+2.54.0
 
 
 _______________________________________________
