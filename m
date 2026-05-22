@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9867CCD5BB1
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 13:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6DBCD5BB0
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 13:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dPMhGZCaZLkBNX/UUiYwISxav95pxEtmmlmfpSnIIHM=; b=RQVf3x6fxtR59a
-	/NHGcNEfWsjJ3AXKgcT8XJJ5FfDtvOkvtKC0f44et9+0KDIInY4aZY492fUi5sPBFRXoSa8QkbVOW
-	mqlfI4fWzwt+ySswmZyjfhqWJS2AJ9QshOhZexkE7ke3uct7Kb1Zh4FuyKSOSlZZSubKNuGvVmHqg
-	9EoehQoqmBja8J+ab9m2jcToqFRMA5SomyznJCmh4qjUuAh5hD1HIKf5Fr2zIROUn/7h/qESNH0kA
-	X/daxwJei6bRY2IuoNxr1LTddCPcbt6h9D7USnjqwVo+AR3bI6E/4AfYz/bm+0IDR0pUEGF5Uzd9X
-	IKs4L1J2YOykaZ2N84hw==;
+	List-Owner; bh=Khu9/cgTZQ9+RBIdVtkPgdn4ugTXUYDtuHumxyfMvOI=; b=SaKSwM5NeMYLGz
+	k9ECz/hqEWozRVVqmZ/aVp/0kC4aVRIIEQy0IdX5vFmI4oG6SrfE8IUOs3Bgj+IYUCOt5WjtTD2YN
+	IL7PvhiLnm6B9HUz84U7gptCSDAbZaUbmWuqDP78AtHYzdFQf7hgMsI9S/p1Kq6bx7IArQYSaCFFF
+	G5P66yhnvovSCnCpXhaUp6ylV2p596CMR+IPS08tARkCLpZO7gB1eHoHwRImjhooGX4l13Ah8Jw0R
+	jo1YDYDk5RPV2MF/G6MMrugOLa0jnX/nTLkvJnpsWL9iBFyRxoZ9enfP2cx6b8fc4KaAfUnsAGo2F
+	pmNArKNhohc+37TnPw8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ2F-0000000AzvE-2afJ;
-	Fri, 22 May 2026 13:35:31 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1wQQ3k-0000000B09c-42Jb;
+	Fri, 22 May 2026 13:37:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ2C-0000000AzqJ-47Er
+	id 1wQQ3i-0000000B08e-2vo3
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 13:35:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1779456854;
-	bh=IPfPFi70Qm+zWzKp1zbmboEkHwR9Rb5JOffwqU6/ztA=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=tKnDNVJ7zEhiKF66o7yt/onzdqS/shpqCn5DvSK+K2tNMixRWaWl/8/xOpDJj7/tX
-	 Q1mTp1MIfWad+Vb2qDZlkcoGtRwxbdGlyZkPetZ5pLQ+LgZsxFGTrB4Qlwe0Y/mPXK
-	 rezaYOZVUOOmM/7gffUQTmnKa0aGe5ptZ+FUL2aY=
-X-QQ-mid: zesmtpgz5t1779456847tc2efd188
-X-QQ-Originating-IP: ZC/rMsBumSkgZ+kt8SH8TmvM2M5XUU6pwGD4yaQ75XU=
-Received: from = ( [61.145.255.150])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 22 May 2026 21:34:04 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10530091963664582811
-EX-QQ-RecipientCnt: 11
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Fri, 22 May 2026 21:33:58 +0800
-Subject: [PATCH v4 2/3] ASoC: soc-pcm: add DEFINE_GUARD for
- snd_soc_card_mutex
+	Fri, 22 May 2026 13:37:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 189B2445E4
+	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 13:37:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0109B1F00ADF
+	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 13:37:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779457022;
+	bh=C7jCFBMio8K0Or68UFlDneGQgQYEn3dFY8g5R8vlQ3k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=dHCPS0j5rxrJjkB2TMCR0j4Cw/BEn0OeWtirMSUhWDXQKhyVGGimD90AnoqgaAi6V
+	 bdrBEAKNC9mA+eoiEzvLWvOtr4LeaTn66wBkp8Y6GpL0Z7mESarrh7f8m94qmNlnsD
+	 Lc1PyEqv9B+uZ70gVDPyB3Vmirnln+JgEklX/eC8dYG40GTKEjOETf/2Y4jh1BWhi2
+	 NOIihQ5qwhsBKs5WSjSiDQbFQPL/BWRfRbAAFcsGRXRnTemitBC3yESCzG2xaEvKEZ
+	 g9MgECdHZFjYQ7+P/2rqCKnOX2keCNa/7/kHWuqyMTnWKMGKhaDpfKitlNo7NRghta
+	 cej1OCj8WnMGw==
+Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-9125284a8ecso841344285a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 06:37:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8n8um0xfeXYtNu9RC7B53tnFUTshOFz5BAhmr63xfkJXXSbMS/3fZCgfDnzpqRWXYCTm4oGSN3ZVO9+Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyH0povzNddEVsENdI5yLjxZ3dbwbBKw2MSsMS4tHXChhE1i+d/
+	vNMcAV37Ff0Se7jc9JoTYBqe8M1CLbv05Ie5do82vF+j41IQCUDyOeUbuLyi11RFeGltQpF0ReS
+	EkSdJhPJ8xiKOaoRv4jKFZnjpO9Ds89k=
+X-Received: by 2002:a05:620a:6504:b0:8cd:b2e9:b964 with SMTP id
+ af79cd13be357-914b46c93e1mr518488285a.10.1779457020872; Fri, 22 May 2026
+ 06:37:00 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260522-i2s-same-blk-v4-2-a71a86faaa20@linux.spacemit.com>
-References: <20260522-i2s-same-blk-v4-0-a71a86faaa20@linux.spacemit.com>
-In-Reply-To: <20260522-i2s-same-blk-v4-0-a71a86faaa20@linux.spacemit.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Yixun Lan <dlan@kernel.org>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- jinmei.wei@spacemit.com, Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779456837; l=887;
- i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=4E68yMd3eSt5QcCRQ/X6OQqgriJicM8enmFAo74DqRk=;
- b=W138CBf31i6kdfNrlYIBg2W3QfM5Y52U4DJE0KvkIRyjXVR+gg7RlXoY5XOJ61Uwx6AJq4PrI
- RY1Buee0KFcDpY3EO/RKglrKmW0Tboh2jCVvnI3kwLFOFlvvYavC1ng
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NZu/AFmKGNRJQKOBYz618w5cy4ScexV6qZ2aboG33Hu8guIapLOb5UzR
-	UkOu1+aa6wv4/Zvb5fSIxQUcCDoYHziNZjTlUqUd6gjnj+dBQ0j9yYh3GzjCyyyXVarxwEl
-	Ow029fy2OofnpVd7Xw+r+ZFmSOxpZd9haKYXGE2Ddc09xTUBla4zV08Ov7fW264QEyyGOhy
-	LLFsdPVzYM1tP81yvfmxcHI69IWm/Y/1KbOzfzrMI6sAsMb4fEATHaAW4PGIQToeuNktm/K
-	S+1pYSO4SnZF67TXDRCEQuQaL8hsnia036vzE9kAhsJuk04qYUeFBIcgwNYI/jLHAXGw1OQ
-	fMWrNNLEB9XJRgCiB+QIeKSjiiRqYdX/KCHBbk4JXXuz+0xnE3o1JKuGuexxRqPODQ2AaEP
-	RiU9qyEGQf/BlA5I8Yqw1OKzOFNwbaDGCjC/KzxJt8kE+xp4B4HDWX2QKQpdw5tTvubcUrt
-	ZNRMjNv6mZBJ3wv7hlMsBExU2VKA3OAo2VDTb/otdvgFN0onyeG25T0ztH3OaDC9N6m2QQp
-	dpPwdF9KfnrA1ZuMzxgqHRmgfC8JwOVf+cMs6lvwgbh3wfS/g5wbSuD4xgPAF8gU5XBWzUd
-	X9Ots9j2ilCJxmVu2+Pcv6ax6fXF+EE1h3AYcc/LxzhnpZRv8ZsD+wEle5x21fUQBF2esoY
-	LLJAoIS0HuVKWNfeIumOgUurPNg9I/bpN1F6/+Dr6XZ646Fbcd4S2H9csYgnuqBpM0hb29k
-	iJGut4VG+DG3oLo7lx6XRqeouQXJd5VhMRUwk2/xLovIwovKPoDRYN+g4UZFUgZzYJVZahO
-	IiJb1YaH4epTtvrfijXWrqP0VRroZXF8k3bUA+bPEwsPWcfF4VUEx0Dlt8PmYxoQIgqjBep
-	ql/FdCQyLcreXyOy/MrUhZk6Y93McHitwRdhvE91YAQUFTxJDcDWk/om8dM0ud/toMYr7IS
-	GKaDlNab5bYfirLGhoEUrsPRZY1dRLGHmQNPwBstPQKaj+Z1huV/P8IW37OJJP+xjQ/L+Uc
-	Zn0/iJNGzUC8vXDieCCiP74WvAa70WuaQ5K60HR0wzw+ttbXOC6lQdPgIk52h0bMVsHSx6O
-	epAdGjstuS3kjA0hQAdPyHZZcEScrEkEi02INg6+TO8OAjwUb5ta99gMy04MVDkL4X7fl0w
-	kNBHy3Ktv10iv20=
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+References: <ag4kj84EcKqamdB-@casper.infradead.org> <20260522023305.98223-1-baohua@kernel.org>
+ <ahBVh4NM2uoyhPNm@casper.infradead.org>
+In-Reply-To: <ahBVh4NM2uoyhPNm@casper.infradead.org>
+From: Barry Song <baohua@kernel.org>
+Date: Fri, 22 May 2026 21:36:47 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4zQuJx1reJxgV387Gh0AqWF0KdoFn9KahQ1BNLPRm57TQ@mail.gmail.com>
+X-Gm-Features: AVHnY4LaSBeriPtvEQSWcigqMwNrFp0xeuPJ9HmpgpM3WX7gXW9tFi64IFdXgU8
+Message-ID: <CAGsJ_4zQuJx1reJxgV387Gh0AqWF0KdoFn9KahQ1BNLPRm57TQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Matthew Wilcox <willy@infradead.org>
+Cc: akpm@linux-foundation.org, bhe@redhat.com, chentao@kylinos.cn, 
+	chrisl@kernel.org, david@kernel.org, jack@suse.cz, kasong@tencent.com, 
+	kunwu.chan@gmail.com, liam@infradead.org, lianux.mm@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	liyangouwen1@oppo.com, ljs@kernel.org, loongarch@lists.linux.dev, 
+	mhocko@suse.com, nphamcs@gmail.com, nzzhao@126.com, pfalcato@suse.de, 
+	rppt@kernel.org, shikemeng@huaweicloud.com, surenb@google.com, 
+	vbabka@kernel.org, wanglian@kylinos.cn, youngjun.park@lge.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_063529_564896_0AB48EAC 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260522_063702_749884_F0B37EF5 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +87,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define a guard class wrapping snd_soc_card_mutex_lock() and
-snd_soc_card_mutex_unlock() so that scope-based locking can be used
-while still picking up the SND_SOC_CARD_CLASS_RUNTIME lockdep subclass.
-
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
- sound/soc/soc-pcm.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/sound/soc/soc-pcm.c b/sound/soc/soc-pcm.c
-index 9b12eedb77c3..25e494c4ed81 100644
---- a/sound/soc/soc-pcm.c
-+++ b/sound/soc/soc-pcm.c
-@@ -26,6 +26,9 @@
- #include <sound/soc-link.h>
- #include <sound/initval.h>
- 
-+
-+DEFINE_GUARD(snd_soc_card_mutex, struct snd_soc_card *,
-+	     snd_soc_card_mutex_lock(_T), snd_soc_card_mutex_unlock(_T))
- #define soc_pcm_ret(rtd, ret) _soc_pcm_ret(rtd, __func__, ret)
- static inline int _soc_pcm_ret(struct snd_soc_pcm_runtime *rtd,
- 			       const char *func, int ret)
-
--- 
-2.54.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXkgMjIsIDIwMjYgYXQgOTowOeKAr1BNIE1hdHRoZXcgV2lsY294IDx3aWxseUBp
+bmZyYWRlYWQub3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgTWF5IDIyLCAyMDI2IGF0IDEwOjMzOjA1
+QU0gKzA4MDAsIEJhcnJ5IFNvbmcgKFhpYW9taSkgd3JvdGU6Cj4gPiBuZWVkIHRvIHRvdWNoIGBm
+aWxlbWFwLmNgIGF0IGFsbCAocHJvYmFibHkgYmVjYXVzZSB5b3UgYXJlIGFscmVhZHkKPiA+IG1h
+aW50YWluaW5nIGBmaWxlbWFwLmNgIHBlcmZlY3RseSk6Cj4KPiBJJ20gZ29pbmcgdG8gZ2l2ZSB5
+b3Ugb25lIGNoYW5jZSB0byBhcG9sb2dpc2UgZm9yIHRoYXQuCgpBcG9sb2dpZXMgaWYgbXkgd29y
+ZGluZyBjYXVzZWQgYW55IG1pc3VuZGVyc3RhbmRpbmcuClRoYXQgd2FzIG5vdCBteSBpbnRlbnRp
+b24gYXQgYWxsLgoKV2hhdCBJIG1lYW50IGlzIHRoYXQgZmlsZW1hcC5jIGFscmVhZHkgaGFzIGEg
+dmVyeQpzb2xpZCBkZXNpZ24uCgpGb3IgbWVtb3J5LmMsIEkgaGFkIHRvIHRvdWNoIHNldmVyYWwg
+cGxhY2VzIGZvciB0aGUKYmxhY2tsaXN0OyBvdGhlcndpc2UsIHRoZSBrZXJuZWwgd291bGQgaGFu
+Zy4KCkJ1dCBmb3IgZmlsZW1hcC5jLCBJIGJhc2ljYWxseSBkaWRuJ3QgbmVlZCB0byB0b3VjaAph
+bnl0aGluZywgYW5kIHByZWxpbWluYXJ5IHRlc3Rpbmcgc2hvd3Mgbm8gaXNzdWVzIGFmdGVyCm1v
+dmluZyBpdCBmcm9tIHRoZSB3aGl0ZWxpc3QgdG8gdGhlIGJsYWNrbGlzdC4gVGhpcyBpcwpwcm9i
+YWJseSBiZWNhdXNlIHRoZSBjdXJyZW50IGZpbGVtYXAuYyBkZXNpZ24gaXMKYWxyZWFkeSBoYW5k
+bGluZyBzb21lIGFzcGVjdHMgcmVhbGx5IHdlbGwuCgpUaGF0IGlzIGFsbCBJIG1lYW50LgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
