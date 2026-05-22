@@ -4,133 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917F7CD5BAF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 00:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023C3CD5BAB
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 00:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QTliJHueVHg3s+BQaPp6ZEsmtfZIS2YCDSrAvO5vgfk=; b=c2EwEhfgkBGEBL
-	UHDjfyYs1GXjaQDQJItth3O73ckOxDfwPirXpGFieP6e3G0iN5uquoapFeQxyuOa3xnZ/DerLoDJF
-	vDvl9hR48/UrsV/Z+SEmP9hlcowLeZr9NNtD2onPTgqUJoch6CDgKS4OjuqsvPJ4cwVTCI2xp4LVF
-	zTlNPksGJ3/J+aVe1HR08C8bFPusftLVxbtkZVyzgYb72yBatws3Z2C3kmS8cVltrsyz4bnIJTX75
-	vn3rddlp4brMk10OhQZ7QHFpGAFmb4cK4k146s/FaYdgFxy9GwwyGE4JSZoUMXYrtQaDP5KNtYtOj
-	94xHg2h0B6AQwlhSScbQ==;
+	List-Owner; bh=ILZPM5jy+zPGJZMageJfgOn8M+OK3nnevCYUByo/0X0=; b=zuyReTr8Kw7KX4
+	EVQPtgBxFjbIgiYtMWZHEy9esgM/PNpgFA4vS/3MFLfVmRbz5k1u+jcZTRm4JGUy/YXumXz8x3UVf
+	KPT/mvhc5cW0wBzyZWsTcZm4QdCQIfrhan52D0NpkugbjL+0Qvmj31TZc+j68uwzZ6yL9hldYUYTE
+	5Gc1vHCnkKBBTIwgAvZnPpO6xi2WqaS2+D/GBCZCvMzKvTGF4aStThsVifC6RuzaAuglJZyCi67T9
+	AQe4p4acE6eMdoUz2Z8xiToqDpanr6f0zjjDGKC7aFDSMyVMxpT1bJrAzmhbQzMx8TkzGgbgPPG+O
+	BJqoc5kEzI/DgszqjN+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQDgJ-00000009OfR-3dfW;
-	Fri, 22 May 2026 00:24:03 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wQDjY-00000009P37-1fVC;
+	Fri, 22 May 2026 00:27:24 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQDgG-00000009OeN-2hEA
+	id 1wQDjV-00000009P2C-2hLh
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 00:24:02 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64LNxnKj778821
-	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 00:23:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=5GSON/0hiBS5ycqET1N4+CsB
-	MgT/hpoirbtpuxXnHDo=; b=j6nAgohe17YHjIEKj+Ihg75j5WfPN0JUsHLCk1Yq
-	qZ8MVDyv7FkQ7tR4l+tgBPPk1MWRU8xCFncqEpb1b4dLnOm259YGHK7jP4Sddtlx
-	Oqm2W+9Oqkw1P+V/m1Am5Xe1OPLUhgkFeGg5yqfrhBe3CMKR9fmBlqi5iPLIqLYs
-	CPhAqK7fQnWrrGaIyklLESc2g2NS1FZyjwPOQduckxvVH7f0VhrxaG+01rdVBh3P
-	H13GaMEw0iwD1Hrim42IcLFVC1wC40znGo4ksGamtn7JJCUnYMF75mPocrhkhBgj
-	BB3Um+efwSOQk5LDGgxnZ3pfhujoC/ayHtKXhOc/5eyBcg==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eac7ar22x-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 22 May 2026 00:23:59 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2bdd327d970so3634255eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 May 2026 17:23:59 -0700 (PDT)
+	Fri, 22 May 2026 00:27:23 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48fe26a177cso50695595e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 May 2026 17:27:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779409439; x=1780014239; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5GSON/0hiBS5ycqET1N4+CsBMgT/hpoirbtpuxXnHDo=;
-        b=A9yahcJbbkgbVtkuf5cGGsqtJwxZZR0DGAyMofQqviUwmRm4xAgof0OFkRpA3xAjWL
-         KJoGSMC+B71fHntMI0LOJorcM0TqAJSY6P0Kzj//1+iaJ2IVVCsarO22kit3ZaBPn93W
-         wWdnBxWhIFQhJPtJUVqn12c5JCOVTTh2ODs6CpCXW8pz7+nTwYzDLzt8sthnq8LbO/hR
-         Q6X6+u6uPglEmMDwDbCxVGfgPR1YXOyjG3yUSrYJk75zl6541bZ/AiITPVz7/2ZGQbgl
-         Gpv7uN/6cf0EZ2f7wD1JX7izt83M+LVeGcl4Ie2hQZ9UtZE2phrIUw8zrK7VKoDWz1lv
-         Fsxw==
+        d=suse.com; s=google; t=1779409639; x=1780014439; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Ay5nOcwCJCKL9kJTKSvIioIW4guYTs+JXkN6Y689XM=;
+        b=GHYhOr2it3LnK8lGChb8cpmpB6+pOPwBCTBaTh6YGFaR9VyGcTfkp1iewY35QcwvHT
+         QGypqHvN0EauhxCsiU4tYCDIDxb9o4daWPCUrUROwNgNPhiOVdhUeFBwm4M9608R4VOg
+         uGpitN0USI9e5AELO0s80Am6IpTJTY+p/4/mpXKYmK3GXD8Zs3Wh0TDqj3n0VKGRpS1r
+         FnpwveK1dacrziEft/jpCezOFTS3MRErH32TmTi2ybpbEBKOIo/nY583Ib9mFYvT7+wN
+         oY0MUy3slrL1agc5SAXJ2BjoCveahhSenCTkuqK1iAkzog/nckxLhAGpJvpiHY5bCwIW
+         E+uQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779409439; x=1780014239;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5GSON/0hiBS5ycqET1N4+CsBMgT/hpoirbtpuxXnHDo=;
-        b=Qh/7TMTjFYJZWObvWoXcqapTVcN5vcbLbQlpqxMcAkv22c6HoBXhcy3BA74QPJeEsa
-         FlEiBMav3P/TuwZ3yRFMiJU5aGt1iRFlKqQqrILWupicEHHe4Nh3O2u7uXD9TFGnPveW
-         zs7cz4+SHwEmn01DkROLgVwyBmw2d4L9C0iClZsIyyy4dbdQEUxcJ+bzicfl6GXRhHgD
-         LMJVWXKGFA7rXsfRaecNw3EszBnKaVH86i7ozzafVy2lrdgouC8iXhcM4nLPQfI/KrXQ
-         fN1mjcg5QrK8G6nzlIS8lenBGGKcSMuL2SwHKmj37K0SpcrrQfnfImVt35/8HimzRB4Z
-         kvFg==
-X-Forwarded-Encrypted: i=1; AFNElJ8XOYbsD57IUFOC+6z8XEOieEZBb1LmjfH1nk0ZRj68hxe4mdv6gpn/yv7NchMbnCFbbicjr5xltHrFjw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWs41fpvA8d0A1SAb99EYN+4R/n011m9U4r6RK1hZ1lndNwgBu
-	DGYtKP4WDD3BKozR+27AzHlRraGAQnP5LRKAjs05W9IyCv/ejqsJoCCFqhESV/TfNRx3uIpBdvK
-	2dAJimbZTqlhp3MrxixJYjbCTikZVmDdfOqfZVTxhkYWIWQsVZ3MGoEsXCj3yj5cZRmhV8y8=
-X-Gm-Gg: Acq92OG8ijIIsVDRDW4VMOCVIcfh3DRzls/ahHQIJ7Pb6i1Z/8O1EYwLZ127+JPUDio
-	B1Khg+poZDEIwPP1yp6z3EgUD8Pa/9Mfz7ty7ygh3y2d2Qb/Xdr61d+jBOQhidK+y9FMBUdp2l4
-	S40gGt8XvWEaLzwUIdP5aSh6HBy5I4O9OBW9q+wbd0relEvDcU2dei1T7RMjTYyytoNCMgf7AUW
-	mWP9ZOtd8eLsNcMEnj55tb2PlUEt9moJ2X3GhUaBr4hvqMCyasliGxpd1t25O8Ry4zxFK/RhgMD
-	Uz0zOI9m4l02ffyyEMHbZ6DktfVfEVBLlfckBqcmslQi13dqYIm19e9fUWgqn9Dwv11AAzeM+o1
-	Gp9KmmeQE2zCowsAUFG27f4fmnapJW8E=
-X-Received: by 2002:a05:7300:230d:b0:2d2:d5a3:e97c with SMTP id 5a478bee46e88-30430e40401mr2728645eec.12.1779409438524;
-        Thu, 21 May 2026 17:23:58 -0700 (PDT)
-X-Received: by 2002:a05:7300:230d:b0:2d2:d5a3:e97c with SMTP id 5a478bee46e88-30430e40401mr2728626eec.12.1779409437908;
-        Thu, 21 May 2026 17:23:57 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3044b6d16f9sm804742eec.2.2026.05.21.17.23.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 17:23:57 -0700 (PDT)
-Date: Thu, 21 May 2026 19:23:56 -0500
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Andrew Jones <ajones@ventanamicro.com>,
-        Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Fix TOCTOU race in SBI system suspend
- handler
-Message-ID: <yirnowpcfq6wqru3jshbbaicqftfj4ef3dcss65jdtuon6nzml@iyv45tnmmfha>
-References: <20260521142030.1560861-1-xujiakai2025@iscas.ac.cn>
- <zfvysxe5eqyogy3cesmp53omigq6a7cjajs3ffbrfyqq7huph4@bbfw7ro5zz7l>
+        d=1e100.net; s=20251104; t=1779409639; x=1780014439;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6Ay5nOcwCJCKL9kJTKSvIioIW4guYTs+JXkN6Y689XM=;
+        b=rXSEdjZlnKTKMuVJieTFTxyjdiQDqmXaKheoAQQQKOZT4cPAp0xCgUq6Oj8+VGQNq5
+         LIMUSkRw5lcRR9gTFdZkg0BNxbi0DNcR1fDzyiLG5IdGOZYw1Mw63kqN/RhfdOIFz92s
+         R5p/ORTR6wRqhckHvUDRdcIwUxRJbAiSna5EbHk4Zp3Y12AOpoHTHLgwfszlkVzD0lot
+         ItXxCDhF0nbdVOJ3G61AiFY19ZTjZWjKRrVofuC0VX4Bqp3kbUCf2i4BmmgrBwAQcl2j
+         Vvjuuh2MvdBp/Zn0CLFQtyPLM8UWZ1kgWwpMAaxc8N/6PZ1qZXaLtwleMXcbamJBku8q
+         Vh3A==
+X-Forwarded-Encrypted: i=1; AFNElJ/ruOFCU6uUMimWs86Nb8ZaAFgWZg+v2/TemTD2qv2+PJvgs9u4I1DPxOL1WO8efvs4AKNcHqd+e9YgnA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxtGUGVwGbXGNBnXiBgprWh3QdnIx2tWRycBJ35Gg7nkaZ8vRm
+	4aIVa4cq6iWJuNVZg8P8NsHkQKByz/Po7qH91bSx9mPRx3ecIEJF0RBW6Gbd3XycLyU=
+X-Gm-Gg: Acq92OGzwh9fq0CCDlqqVUfnFqQYq39gWu9YW80kJMZAIlAOPlzgGTRTpjw9VCw85bv
+	WsQCoo2FFAqcI/dk7gbVl3OQjbp9q4UAWKO3tl7Q2AvxnAv4JeZMofrVNdLy6EFIEhYnN8JhoMM
+	J4g392tUiMZRILIYJyqFtfpJ5RQuBSAS5q2MAjuF5JsbgSPStZ/hgAutFxO0+uO4Ho4ZgDgHS09
+	oIyC4l5UD6wWmd0xxZfsdcbJe4sKaZd9IPK6YPT21IyU2syL3rI8uniuXuCMC5uql3Ss4vboEyw
+	SO90JrCREE1bShuhFip68atSGlI/0He9yEwEzI1bbCRpgknwcEtF5ANPgv/Ele02cBVzICVWGHV
+	3GhUKCJd3RTbI51oShnr95A82p/mypZgy1JJd11mX2IZk4EJo6PvV/JUQpIZVCGDUYeajsZ1aDU
+	EvwrH/D1e1ZGBFdH+hrQ4Ukr0r1sZd7Wc62IVQpeNzLwUNNcDe6IZLlsXl6slVDnnLGfstYJZf4
+	7X69R3RbqbPxUw1JQCSsugOem5HUre0OXkEVa1ztenNtI+GoESRTn/ECg==
+X-Received: by 2002:a05:600c:4ecc:b0:490:3c90:2cda with SMTP id 5b1f17b1804b1-490426cef73mr10709345e9.20.1779409638952;
+        Thu, 21 May 2026 17:27:18 -0700 (PDT)
+Received: from ?IPV6:2403:580d:fda1:0:2bb5:f164:6e6a:38d8? (2403-580d-fda1-0-2bb5-f164-6e6a-38d8.ip6.aussiebb.net. [2403:580d:fda1:0:2bb5:f164:6e6a:38d8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb0f91bccsm4187125ad.36.2026.05.21.17.27.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 17:27:17 -0700 (PDT)
+Message-ID: <cced8d26-d846-470d-b112-344e53ec1b9c@suse.com>
+Date: Fri, 22 May 2026 09:57:00 +0930
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <zfvysxe5eqyogy3cesmp53omigq6a7cjajs3ffbrfyqq7huph4@bbfw7ro5zz7l>
-X-Proofpoint-ORIG-GUID: yEwpnV2Uwc2WeMrXiaFDGe7rEElKoogT
-X-Authority-Analysis: v=2.4 cv=JrbBas4C c=1 sm=1 tr=0 ts=6a0fa21f cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=kj9zAlcOel0A:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=c92rfblmAAAA:8 a=pGLkceISAAAA:8 a=xEbelNxs-k07UTx3eFkA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22 a=GvGzcOZaWPEFPQC_NcjD:22
-X-Proofpoint-GUID: yEwpnV2Uwc2WeMrXiaFDGe7rEElKoogT
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIyMDAwMiBTYWx0ZWRfXyWoXV+5AT4yX
- hh6UJ71SCa9zYdxolfVGktjU4Zne8mmOIquVPm1Y4abNvpgOzZSJw4UvKE62GyVU8EKediSoDMC
- EBE+aU3UO+PuMUziF7r+8iQvdl4EGCY7eyzu4buuYipvjFPUNpjwCQxyDq08SP9g35+o9B+lS16
- T4FebbacwM8eo5DBjqTIOSrWSj8xo5EX6vmEk3LPEXP9om8ys10mfYcaz9bcbH81gbwV5IRtdIr
- Y+OVh6CXr2DsS8vXdMsOyaSdI6ccIdXaAsf603J8wFfTFcE323x2QKZzJUZwCVXhvwKp//u7z+G
- q6W2iOkJtigfidezDbqaApox75z6HKHDue2i9D8MJeKX1w6KF2riSO+HnzgjtphTXY/LpDTv3NN
- ntYJOEFioGEo20JPdlWav7DrFZnN7YnKNKmvfVMDy5pwavsCn+rJ7RzHjw9j2ELYVVZJmZ5SE24
- 3u7+oPQuzvShIyPeWSA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-21_05,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 suspectscore=0 clxscore=1015 adultscore=0
- lowpriorityscore=0 spamscore=0 malwarescore=0 phishscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605220002
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
+To: Andrew Morton <akpm@linux-foundation.org>,
+ Qu Wenruo <quwenruo.btrfs@gmx.com>
+Cc: Christoph Hellwig <hch@lst.de>, "H. Peter Anvin" <hpa@zytor.com>,
+ kreijack@inwind.it, David Sterba <dsterba@suse.cz>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+ David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+ Song Liu <song@kernel.org>,
+ Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
+ Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-raid@vger.kernel.org
+References: <20260512052230.2947683-1-hch@lst.de>
+ <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz>
+ <20260513054742.GA1018@lst.de>
+ <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it>
+ <20260515043705.GA3855@lst.de>
+ <34C16854-1065-4542-8836-DDED58EC1844@zytor.com>
+ <20260518051207.GB9374@lst.de> <f46636c8-80ba-4802-a6a0-74cbc35e7bee@gmx.com>
+ <20260521171730.7872482df453975cf60ce7dc@linux-foundation.org>
+Content-Language: en-US
+From: Qu Wenruo <wqu@suse.com>
+Autocrypt: addr=wqu@suse.com; keydata=
+ xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
+ 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
+ 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
+ 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
+ gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
+ AAHNGFF1IFdlbnJ1byA8d3F1QHN1c2UuY29tPsLAlAQTAQgAPgIbAwULCQgHAgYVCAkKCwIE
+ FgIDAQIeAQIXgBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJnEXVgBQkQ/lqxAAoJEMI9kfOh
+ Jf6o+jIH/2KhFmyOw4XWAYbnnijuYqb/obGae8HhcJO2KIGcxbsinK+KQFTSZnkFxnbsQ+VY
+ fvtWBHGt8WfHcNmfjdejmy9si2jyy8smQV2jiB60a8iqQXGmsrkuR+AM2V360oEbMF3gVvim
+ 2VSX2IiW9KERuhifjseNV1HLk0SHw5NnXiWh1THTqtvFFY+CwnLN2GqiMaSLF6gATW05/sEd
+ V17MdI1z4+WSk7D57FlLjp50F3ow2WJtXwG8yG8d6S40dytZpH9iFuk12Sbg7lrtQxPPOIEU
+ rpmZLfCNJJoZj603613w/M8EiZw6MohzikTWcFc55RLYJPBWQ+9puZtx1DopW2jOwE0EWdWB
+ rwEIAKpT62HgSzL9zwGe+WIUCMB+nOEjXAfvoUPUwk+YCEDcOdfkkM5FyBoJs8TCEuPXGXBO
+ Cl5P5B8OYYnkHkGWutAVlUTV8KESOIm/KJIA7jJA+Ss9VhMjtePfgWexw+P8itFRSRrrwyUf
+ E+0WcAevblUi45LjWWZgpg3A80tHP0iToOZ5MbdYk7YFBE29cDSleskfV80ZKxFv6koQocq0
+ vXzTfHvXNDELAuH7Ms/WJcdUzmPyBf3Oq6mKBBH8J6XZc9LjjNZwNbyvsHSrV5bgmu/THX2n
+ g/3be+iqf6OggCiy3I1NSMJ5KtR0q2H2Nx2Vqb1fYPOID8McMV9Ll6rh8S8AEQEAAcLAfAQY
+ AQgAJgIbDBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJnEXWBBQkQ/lrSAAoJEMI9kfOhJf6o
+ cakH+QHwDszsoYvmrNq36MFGgvAHRjdlrHRBa4A1V1kzd4kOUokongcrOOgHY9yfglcvZqlJ
+ qfa4l+1oxs1BvCi29psteQTtw+memmcGruKi+YHD7793zNCMtAtYidDmQ2pWaLfqSaryjlzR
+ /3tBWMyvIeWZKURnZbBzWRREB7iWxEbZ014B3gICqZPDRwwitHpH8Om3eZr7ygZck6bBa4MU
+ o1XgbZcspyCGqu1xF/bMAY2iCDcq6ULKQceuKkbeQ8qxvt9hVxJC2W3lHq8dlK1pkHPDg9wO
+ JoAXek8MF37R8gpLoGWl41FIUb3hFiu3zhDDvslYM4BmzI18QgQTQnotJH8=
+In-Reply-To: <20260521171730.7872482df453975cf60ce7dc@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_172400_802073_C8D3E525 
-X-CRM114-Status: GOOD (  35.10  )
+X-CRM114-CacheID: sfid-20260521_172721_706515_2F7E3D50 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,150 +153,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 06:47:26PM -0500, Andrew Jones wrote:
-> On Thu, May 21, 2026 at 02:20:30PM +0000, Jiakai Xu wrote:
-> > The SBI SUSP handler kvm_sbi_ext_susp_handler() checks that all other
-> > vCPUs are stopped before entering system suspend, but it does not hold
-> > mp_state_lock during the iteration. A concurrent HSM HART_START from
-> > another vCPU can start a target vCPU after the SUSP handler has already
-> > checked it, violating the invariant that all vCPUs must be stopped
-> > before suspend.
-> > 
-> > Fix this with a two-phase approach:
-> > 1. Set a VM-wide suspend_in_progress flag before the iteration to block
-> >    concurrent HSM HART_START. The HSM start handler checks this flag
-> >    under its existing mp_state_lock, closing the race.
-> > 2. Hold mp_state_lock during each per-vCPU stopped check so that
-> >    mp_state reads are ordered against concurrent power_on/power_off
-> >    writes on the other side of the lock.
-> > 
-> > The flag is self-clearing: it resets when any vCPU re-enters
-> > kvm_arch_vcpu_ioctl_run after the suspend-resume cycle completes.
-> > 
-> > Fixes: 023c15151fbb ("RISC-V: KVM: Add SBI system suspend support")
-> > Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> > Assisted-by: YuanSheng:DeepSeek-V3.2
-> > ---
-> >  arch/riscv/include/asm/kvm_host.h |  3 +++
-> >  arch/riscv/kvm/vcpu.c             |  8 ++++++++
-> >  arch/riscv/kvm/vcpu_sbi_hsm.c     | 11 +++++++++++
-> >  arch/riscv/kvm/vcpu_sbi_system.c  | 10 ++++++++++
-> >  4 files changed, 32 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> > index 75b0a951c1bc6..c4e710ec40f90 100644
-> > --- a/arch/riscv/include/asm/kvm_host.h
-> > +++ b/arch/riscv/include/asm/kvm_host.h
-> > @@ -93,6 +93,9 @@ struct kvm_arch {
-> >  
-> >  	/* KVM_CAP_RISCV_MP_STATE_RESET */
-> >  	bool mp_state_reset;
-> > +
-> > +	/* Set by SBI SUSP to block concurrent HSM HART_START during system suspend */
-> > +	bool suspend_in_progress;
-> >  };
-> >  
-> >  struct kvm_cpu_trap {
-> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> > index a73690eda84b5..ea6f14244addb 100644
-> > --- a/arch/riscv/kvm/vcpu.c
-> > +++ b/arch/riscv/kvm/vcpu.c
-> > @@ -838,6 +838,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
-> >  	/* Mark this VCPU ran at least once */
-> >  	vcpu->arch.ran_atleast_once = true;
-> >  
-> > +	/*
-> > +	 * Clear stale suspend flag from a previous suspend-resume cycle.
-> > +	 * The flag was set by kvm_sbi_ext_susp_handler() and persists
-> > +	 * across the userspace exit; clearing it here ensures subsequent
-> > +	 * HSM HART_START operations are not blocked after resume.
-> > +	 */
-> > +	WRITE_ONCE(vcpu->kvm->arch.suspend_in_progress, false);
-> > +
-> >  	kvm_vcpu_srcu_read_lock(vcpu);
-> >  
-> >  	switch (run->exit_reason) {
-> > diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-> > index f26207f84bab6..2f88d93768bc8 100644
-> > --- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-> > +++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-> > @@ -31,6 +31,17 @@ static int kvm_sbi_hsm_vcpu_start(struct kvm_vcpu *vcpu)
-> >  		goto out;
-> >  	}
-> >  
-> > +	/*
-> > +	 * Reject HART_START while a system suspend is in progress.
-> > +	 * kvm_sbi_ext_susp_handler() sets this flag before checking
-> > +	 * that all vCPUs are stopped; checking it here under
-> > +	 * mp_state_lock closes the race.
-> > +	 */
-> > +	if (READ_ONCE(target_vcpu->kvm->arch.suspend_in_progress)) {
-> > +		ret = SBI_ERR_DENIED;
-> > +		goto out;
-> > +	}
-> > +
-> >  	kvm_riscv_vcpu_sbi_request_reset(target_vcpu, cp->a1, cp->a2);
-> >  
-> >  	__kvm_riscv_vcpu_power_on(target_vcpu);
-> > diff --git a/arch/riscv/kvm/vcpu_sbi_system.c b/arch/riscv/kvm/vcpu_sbi_system.c
-> > index c6f7e609ac794..b79c1cff7a996 100644
-> > --- a/arch/riscv/kvm/vcpu_sbi_system.c
-> > +++ b/arch/riscv/kvm/vcpu_sbi_system.c
-> > @@ -35,13 +35,23 @@ static int kvm_sbi_ext_susp_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >  			return 0;
-> >  		}
-> >  
-> > +		/*
-> > +		 * Set the VM-wide flag to block concurrent HSM HART_START
-> > +		 * from racing with the per-vCPU stopped checks below.
-> > +		 */
-> > +		WRITE_ONCE(vcpu->kvm->arch.suspend_in_progress, true);
-> > +
-> >  		kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
-> >  			if (tmp == vcpu)
-> >  				continue;
-> > +			spin_lock(&tmp->arch.mp_state_lock);
-> >  			if (!kvm_riscv_vcpu_stopped(tmp)) {
-> > +				spin_unlock(&tmp->arch.mp_state_lock);
-> > +				WRITE_ONCE(vcpu->kvm->arch.suspend_in_progress, false);
-> >  				retdata->err_val = SBI_ERR_DENIED;
-> >  				return 0;
-> >  			}
-> > +			spin_unlock(&tmp->arch.mp_state_lock);
-> >  		}
-> >  
-> >  		kvm_riscv_vcpu_sbi_request_reset(vcpu, cp->a1, cp->a2);
-> > -- 
-> > 2.34.1
-> >
-> 
-> I'm not a big fan of this approach and I see sashiko found it has gaps[1].
-> I'd rather we introduce a mutex to kvm_arch to serialize cross-vcpu
-
-Eh, not sure why I said 'introduce' here. We can just use kvm->lock.
-
-> mp-state operations. So it'd be taken in SUSP, HART_START, and also SRST
-
-And, even though SRST doesn't really need it - why not... Consistency has
-its merits.
-
-> (anywhere that reads or modifies another vcpu's mp-state). Operations that
-> only modify the calling vcpu's own state would still only use the per-vcpu
-> mp_state_lock.
-> 
-> [1] https://sashiko.dev/#/patchset/20260521142030.1560861-1-xujiakai2025%40iscas.ac.cn
-> 
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgrlnKggMjAyNi81LzIyIDA5OjQ3LCBBbmRyZXcgTW9ydG9uIOWGmemBkzoKPiBPbiBXZWQsIDIw
+IE1heSAyMDI2IDE4OjExOjA5ICswOTMwIFF1IFdlbnJ1byA8cXV3ZW5ydW8uYnRyZnNAZ214LmNv
+bT4gd3JvdGU6Cj4gCj4+Cj4+Cj4+IOWcqCAyMDI2LzUvMTggMTQ6NDIsIENocmlzdG9waCBIZWxs
+d2lnIOWGmemBkzoKPj4+IE9uIEZyaSwgTWF5IDE1LCAyMDI2IGF0IDEyOjU5OjM0UE0gLTA3MDAs
+IEguIFBldGVyIEFudmluIHdyb3RlOgo+Pj4+IEkgZG9uJ3QgdGhpbmsgdGhpcyBpcyBhIGdvb2Qg
+aWRlYS4gRXJyb3Igb3V0OyBpdCBpcyB0aGUgYnRyZnMgbWFpbnRhaW5lcnMnIGpvYiB0byBlbnN1
+cmUgdXNlciBkYXRhIGlzbid0IGxvc3QuCj4+Pj4KPj4+PiBUaGUgUkFJRC02IGNvZGUgaGFzICpu
+ZXZlciogc3VwcG9ydGVkIG9ubHkgMyB1bml0cywgYW5kIGlmIGl0IGV2ZXIgd29ya2VkIGZvciAq
+YW55KiBvZiB0aGUgaW1wbGVtZW50YXRpb25zIGl0IHdhcyBwdXJlbHkgYnkgYWNjaWRlbnQuIFNw
+ZWFraW5nIGFzIHRoZSBvcmlnaW5hbCBhdXRob3IgSSBzaG91bGQga25vdzsgdGhpcyB3YXMgZGVs
+aWJlcmF0ZSBhcyBpbiBzb21lIGNhc2VzIHRoZSBkZWdlbmVyYXRlIGNhc2UgKDMpIHdvdWxkIGhh
+dmUgcmVxdWlyZWQgZXh0cmEgdHJheXMgaW4gdGhlIGNvZGUgdG8gbm8gdXNlciBiZW5lZml0Lgo+
+Pj4+Cj4+Pj4gSSB3b3VsZCBub3QgYmUgc3VycHJpc2VkIGlmIHRoZSBrZXJuZWwgY3Jhc2hlZCBv
+ciBjb3JydXB0ZWQgdGhlIHBhZ2UgY2FjaGUgaW4gdGhhdCBjYXNlLgo+Pj4KPj4+IEl0IGRvZXMs
+IHRoYXQncyB3aHkgSSB3YW50ZWQgdG8gZXhjbHVkZSBpdC4gIEFueXdheSwgZm9yIHRoZSBhYm91
+dCB0byBiZQo+Pj4gcmVzZW50IHZlcnNpb24gSSdsbCBkcm9wIHRoaXMgYnRyZnMgcGF0Y2ggb3Zl
+ciB0aGUgc3RhdGVkIG9iamVjdGlvbiBhbmQKPj4+IHdpbGwgb3RoZXJ3aXNlIG5vdCBjaGFuZ2Ug
+YW55dGhpbmcuICBUaGlzIG1lYW5zIHRoZSAoSU1ITyBoeXBvdGhldGljYWwpCj4+PiB1c2VycyBv
+ZiB0aGlzIGNvbmZpZ3VyYXRpb24gd2lsbCBnZXQgYSBXQVJOX09OX09OQ0UgdHJpZ2dlcmVkLCBi
+dXQKPj4+IG90aGVyd2lzZSBrZWVwIHdvcmtpbmcgKG9yIHJhdGhlciBub3Qgd29ya2luZykgYXMg
+YmVmb3JlLgo+Pj4KPj4KPj4gRm9yIHRoZSBidHJmcyBwYXJ0LCBJIGJlbGlldmUgSSBjYW4gZ2V0
+IHRoZSBjdXJyZW50IDItZGlzay1yYWlkNSBhbmQKPj4gMy1kaXNrLXJhaWQ2IHRvIGZhbGxiYWNr
+IHRvIHJhaWQxIGluc2lkZSBidHJmcy4KPj4KPj4gSSBob3BlIHRoZSBidHJmcyBwYXJ0IGNhbiBi
+ZSBmaW5pc2hlZCBhbmQgcmVhY2ggdGhlIG5leHQgbWVyZ2Ugd2luZG93LAo+PiBidXQgSSdtIG5v
+dCAxMDAlIHN1cmUuCj4+Cj4+IFdoYXQgaXMgdGhlIHBsYW5uZWQgY3ljbGUgdG8gbWVyZ2UgdGhp
+cyByYWlkNS82IGNsZWFudXA/Cj4gCj4gQXQgcHJlc2VudCBpdCdzIG9uIHRyYWNrIGZvciB0aGUg
+Ny4yLXJjMSBtZXJnZSB3aW5kb3cuICBEb2VzIHRoYXQgc3VpdD8KClRoZSBjdXJyZW50IGJ0cmZz
+IGZpeCAoKikgaXMgcHJldHR5IHNtYWxsLCBJIGJlbGlldmUgd2UgY2FuIGdldCBpdCBpbnRvIAp0
+aGUgbmV4dCBtZXJnZSB3aW5kb3csIGFzIGxvbmcgYXMgd2UgZ290IGVub3VnaCByZXZpZXcgb24g
+aXQuCgoqOiAKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtYnRyZnMvYTFkNjM3MzM0NjUy
+Mjk5MzYzNTE4MDRmMzc2MDgwM2Q1ODk0YTk2Mi4xNzc5Mjc0NjMwLmdpdC53cXVAc3VzZS5jb20v
+VC8jdQoKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
