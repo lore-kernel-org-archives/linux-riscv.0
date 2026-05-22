@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A242CD5BAB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 03:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0097CCD5BAF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 03:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qtNyfvO8RAAlEOGuBsYlcBrGG+F+25S+QYyMzFXx4vQ=; b=4QHgKvOezfXzXw
-	ogIc7f8Vupg8iopNfUdjNoBkgk2NOa9uenTLIU8XGqJnAkCvjXfG9CEf86/+tnj/iqy4H1oot69Mv
-	87/bsBXyJZ3umKXIH+ujduAnqLrSWZNTlB8LRT0Uu/Roddewr+tXS2R9P+UGiLkl739IzPa6cm3uX
-	VhsAlspKT9Q6Vl40bfhzbkgZ1T7Jvu8b0WAK9897SljgWAPRXYi+5dkjQTkKXJKHz6ZXLk3ueqctB
-	xhdhK9SsFurBMvxM8dVZNsjJL3vh1kE5l9KVddaaNzAwg+qJLvtUDQpi4QoKNlGm8IZ85AIE381ou
-	LOJtQj49nD/yh6/BXFJw==;
+	List-Owner; bh=iSN5vGg4X6q0Xunz07+r4DQ3Gk7i0mdSIGo/IF7bSRQ=; b=KWEghYk+uy0Di4
+	PAoLcBUgmcWuzC9zUSYKkr0KrosNoT0aWCSFEUgb55mrzpIjkZNk7FDxdnhXU/Ul3lbBg2m0VSdgM
+	W6IrbJT4eXvky4wuwZW4c5nAWSLYIkjMHcmCJLNDkfE5DwqvgiHFWyBK60wWcyIGs61kDZEwIpSEV
+	NZ+e5pkZg5dVsvC/bzAa/41y/QPUiwj4iBdmFOpS287V8Wi+Prvd6gu6GOn4LAn1NXQmMPX5pz9xh
+	Z67sZWe8ZYy7BPeACGKgwuiUOfpdDGV9GJu7vmg4Dccg6XB6tvbt5dnwtvcRvylgc7/w1mtlnOhut
+	2qir/wACjWw1zachKO8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGEs-00000009c7I-3lpf;
+	id 1wQGEs-00000009c7E-3OyK;
 	Fri, 22 May 2026 03:07:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGEs-00000009c6h-02UJ
+	id 1wQGEq-00000009c6L-1LRp
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 03:07:54 +0000
+	Fri, 22 May 2026 03:07:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2465960204;
-	Fri, 22 May 2026 03:07:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE3DB1F000E9;
-	Fri, 22 May 2026 03:07:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 71C1941896;
+	Fri, 22 May 2026 03:07:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 541DF1F000E9;
+	Fri, 22 May 2026 03:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779419272;
-	bh=6kQrez1gnivfNNtB2gZIX9sMLH3yQ/lt7QrGi8nNRMk=;
+	s=k20260515; t=1779419271;
+	bh=5FG7KSvjKvo6OQmu17Ltjp3/qRFxGUfJVX6JnhSGvLU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Rn6kQ0Paa5xI2I2AIxheHOXwZdj0qePhSZb8Y76bV4VoqIqJkePjQ67mpPbBw1J31
-	 +z1Epz3YSukDwbifKiO59MdIztjiXv+MJq0YjeK26MkIaLZpEGj2hfqikjSQZQq6cs
-	 NgipMrYytdC90ES20UrxDTt9gBLdoz8awCBAHuXXKjvctHSNuBDUEy3ZUXlgQJESKL
-	 pdUyH7ISVY7qQrMsAO+GDLhIn3UlGTiRnMYAx0L94i//ohdys07D+IrnybxhjA7+VW
-	 vqJGnKzzbpIcKFJaUY+KfdbwGqjhRfTC0hAY3wOcxtfnaErlu8oJPXi/fuM/D0uRuK
-	 5m3UEOjwugTpA==
+	b=Ar4Nq8+9Jd68ONE0GOeo3VxrFeCzy55DkGzd3wTJIoFsqtSlJuPTv21tsC4PhI7YN
+	 qv6oPlru7Tize6b5Ff/bwXmKFp04n2N2LSxtIaBVXc+I+8nX1J6c9PdvA/cfXOSU9B
+	 xrLd+wOirbowSgRv7N8cdjgukcssXSGPP9Y105D4csGAulSiszB+Rsvcrd57FGB6PZ
+	 4cvckmqbuNjHP8PcaZLqJWJ0/uMUgsZ7OlOn7dQ1BCkS4ug9uMFyI7VvbgduU8FmNi
+	 55yBZ93ROCjt0G4YiApfZur2z7UI1i6UUdkB5svTOr9lQFrGW2NJkjQ4T/rhCMaabY
+	 g9AYJ7gseS02w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939D03930E40;
-	Fri, 22 May 2026 03:08:03 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 199293930E40;
+	Fri, 22 May 2026 03:08:02 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: module: Use generic cmp_int() instead of custom
- cmp_3way()
+Subject: Re: [PATCH RESEND v4] riscv: Implement ARCH_HAS_CC_CAN_LINK
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177941928214.602940.16428657104568986358.git-patchwork-notify@kernel.org>
-Date: Fri, 22 May 2026 03:08:02 +0000
-References: <20260512063231.708256-1-florian.schmaus@codasip.com>
-In-Reply-To: <20260512063231.708256-1-florian.schmaus@codasip.com>
-To: Florian Schmaus <florian.schmaus@codasip.com>
+Message-Id: <177941928064.602940.14455551713912931345.git-patchwork-notify@kernel.org>
+Date: Fri, 22 May 2026 03:08:00 +0000
+References: <20260316-cc-can-link-riscv-v4-1-64c072b456dd@linutronix.de>
+In-Reply-To: <20260316-cc-can-link-riscv-v4-1-64c072b456dd@linutronix.de>
+To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
 Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
- ajones@ventanamicro.com, conor.dooley@microchip.com, seanwascoding@gmail.com,
- linmq006@gmail.com, linux-kernel@vger.kernel.org
+ aou@eecs.berkeley.edu, alex@ghiti.fr, nathan@kernel.org,
+ nick.desaulniers+lkml@gmail.com, morbo@google.com, justinstitt@google.com,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_200752_380074_0102D71B 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +82,20 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Paul Walmsley <pjw@kernel.org>:
 
-On Tue, 12 May 2026 08:32:31 +0200 you wrote:
-> The module-sections.c file defines a custom cmp_3way() macro to perform
-> 3-way comparisons during relocation sorting.
+On Mon, 16 Mar 2026 16:46:14 +0100 you wrote:
+> The generic CC_CAN_LINK detection relies on -m32/-m64 compiler flags.
+> These are not supported by riscv compilers.
 > 
-> Instead of maintaining our own implementation, use the generic
-> cmp_int() macro provided by the already included <linux/sort.h>. This
-> removes redundant code and relies on standard kernel interfaces.
+> Use architecture-specific logic using -mabi instead.
+> 
+> Prefer the 'd' ABI variant when possible as todays toolchains are most
+> likely to provide a libc for that one.
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: module: Use generic cmp_int() instead of custom cmp_3way()
-    https://git.kernel.org/riscv/c/7a6fbb72a489
+  - [RESEND,v4] riscv: Implement ARCH_HAS_CC_CAN_LINK
+    https://git.kernel.org/riscv/c/c586c8394c6a
 
 You are awesome, thank you!
 -- 
