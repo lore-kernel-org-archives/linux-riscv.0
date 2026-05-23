@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68ED8CD5BB1
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 May 2026 11:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BDACD5BAC
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 May 2026 14:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
-	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jvMMiHi0MLgIGLagrcKRSRbye2kF769sMFRhfYKYFQ0=; b=dTEjwroiidABar
-	IzwMWOAvfqOINcrDYxqbr9kd0uQ2uJKlVQeFEg4erjbcfG2NkhWUOhZHejglcgVD6y7hYlXqj2toH
-	/nz6bkpBWPlRYDp9myOJTIHtpOSJo4MWaZzcAyJKfQoxlnckmqj/7XztvgQUPL8BrvCC7OXvkUbPD
-	6zDXC/vZvwsCU0Hsa65vS4usHosaIe8zJV8uUTuLUasloOSHGMfFDuVE5lytcF/bDTafO0ZPOQC32
-	lT9hp0Lu5fhNgCsVR3G1Rry9XnYRqLMV2g4rQo3xCVCdluijBOzI6ueWQAW5/baXQCc4pGNHutPtE
-	NMF6BgmA+UgupTs4Rgbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=no7ks+DKTEMuy+AzvtdHzqs1z1LG2FdKJACr/qvp0Mc=; b=fXW6aiJH9L5/l6Utx7dMkz6mGs
+	8JlHO2Y5VQ+jcWQhCy2Z9Go0pGifhoPoFH+6fpqeBZLsoPs5AOEG8Vmub06LDqoQ50e66TM0f15Yz
+	WoL9oVa7UlRRB8VY6Q8XXLzHDmF6OWm5nrHUs25msX4/yQdL9HsVCztzGeOtNdwO+M7FbBh6IgN8F
+	N4OBX8hFZP+//0pkgw0Blb3dvUD2bvIdc6LOSwGOQr/Id8L+bRYg9RWgOyx74EXwZNlkwlBiPGnEY
+	Mm0GtQii+S+CtxBoueWug6JcOqJ40WvCVrj+KT7W3NaOFZ8y1IhCE+cLTeiFSZRR7iRn1hSSkCYhq
+	VC7VyEyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQkdN-0000000DABn-1V3N;
-	Sat, 23 May 2026 11:35:13 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wQmw3-0000000DLpU-23W0;
+	Sat, 23 May 2026 14:02:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQkdK-0000000DAB8-14Y5
+	id 1wQmw1-0000000DLpI-3qko
 	for linux-riscv@lists.infradead.org;
-	Sat, 23 May 2026 11:35:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779536100; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KSzNKYuaa3e5J0d/DeX783yiDZ/NWeJPP/+Z0y/tlwWr1lDVevfIk8Ozo/8/qlzJCdCfTu2n36rGw3+Ggda7yq1liMhrUG9GY3VupqvNJ0PMze5wxmhCMVe10W/iiu28VBTFVB7isyoRUiOFla5A6koPvDr1SHuoQKFgkLGMdOI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779536100; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=RZDnaCsGlJVcUOKkn0LRGIu9RjSAcTOtBk9/WDFjI7Q=; 
-	b=foGzF455x/cc4KvIT51DKucrW3ls6kPNh/XySDe+aWsw2jc8X+9z/CX05khi3gz7pOxsqqzePtu1anV51EGAlD+Nfu0g6QsI7JEAqfs+DjOkcXWbfjgUVN9VgndLXa8dbhGdQtrjwEOQMiAtQyg+Sh6O3moGPVj3zjAjsoDgqpw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779536100;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:To:To:Cc:Cc:Subject:Subject:From:From:References:In-Reply-To:Reply-To;
-	bh=RZDnaCsGlJVcUOKkn0LRGIu9RjSAcTOtBk9/WDFjI7Q=;
-	b=nX4hMzv0OnrUIn2pzrseG8O/TYO5+1XuS1pjAP9FHYYTWIwAiMDuRVsmsLR61uvW
-	pj4SPW8HpPNKolM92Sey9VAcqKFKwIToZbPevzF2XDVjwYSCjTeP6/GFfkla0Dx0X5U
-	s/g8QgmLFRSVNM7dDQiND6S7BuYQizdOjkklTdR4=
-Received: by mx.zohomail.com with SMTPS id 1779536097814357.8361509975906;
-	Sat, 23 May 2026 04:34:57 -0700 (PDT)
-Mime-Version: 1.0
-Date: Sat, 23 May 2026 19:34:40 +0800
-Message-Id: <DIQ0W5OTB6DK.17PPFYJ2J5XS9@pigmoral.tech>
-To: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan" <dlan@kernel.org>, "Vivian
- Wang" <wangruikang@iscas.ac.cn>, "Paolo Abeni" <pabeni@redhat.com>,
- "Guodong Xu" <guodong@riscstar.com>, "Yangyu Chen" <cyy@cyyself.name>
-Cc: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO
- board
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.21.0
-References: <20260522-bpi-cm6-v1-0-707ef1917a30@pigmoral.tech>
- <20260522-bpi-cm6-v1-3-707ef1917a30@pigmoral.tech>
-In-Reply-To: <20260522-bpi-cm6-v1-3-707ef1917a30@pigmoral.tech>
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_043510_655014_F61F1761 
-X-CRM114-Status: GOOD (  14.44  )
+	Sat, 23 May 2026 14:02:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0602660141;
+	Sat, 23 May 2026 14:02:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B0371F000E9;
+	Sat, 23 May 2026 14:02:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779544956;
+	bh=IIacKpDclHTRBLaiqOMrmGgH+LLrVbpimm5Qii68Anc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Sk2JWHi2l8zhp4EWktwru01wUxnB93bDG5vPw/18e8Sd1WNwhHip84XD29fuJkrmO
+	 KtU5elrIdRaV6EJVbbm7N42d/A9O7YeT64W8x19mPJy6dJDxOinLgaqG2TtkuyGJOT
+	 8Z5f3RM7Rc33yoAUmlNyMxuZ6pGDmwhLcDYYgkSrD/f3qROmUsEEW0xUpICuFgUtDG
+	 CtxNvUcEU9HUnCiRfBotKMCcHWLrl++S7X5W5yJONS8SIZT5FjaasTFH0rDOmKK1ZC
+	 PekJRjEvmoz82oCWon1NKEF3uXKEvNSWm9GKa5QtiG1MjR8M8dahi0A2plFx8vRXjX
+	 RE6cFfa8peh0g==
+Date: Sat, 23 May 2026 15:02:31 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Xukai Wang <kingxukai@zohomail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Troy Mitchell <TroyMitchell988@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] clk: canaan: k230: Fix sparse warnings reported by LKP
+Message-ID: <20260523-punctual-backslid-712c06f0db61@spud>
+References: <20260522-eligible-vivacious-3ce9bc30dd53@wendy>
+ <dee4605ca30f9bbd55ccb4fcce9590ceee1fa10b.1779453284.git.kingxukai@zohomail.com>
+ <20260522-removed-lyricism-7c879febc3b3@spud>
+ <1f74efd2-444f-4330-a1e8-62f75e85ecfa@zohomail.com>
+MIME-Version: 1.0
+In-Reply-To: <1f74efd2-444f-4330-a1e8-62f75e85ecfa@zohomail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,94 +77,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4622097614895687281=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri May 22, 2026 at 6:01 PM CST, Junhui Liu wrote:
-> The Banana Pi BPI-CM6 IO board combines the BPI-CM6 compute module with
-> an IO carrier board. The core module integrates the SpacemiT K1 SoC,
-> PMIC, DDR, eMMC, the eth0 PHY, and wireless connectivity. The companion
-> IO carrier board extends it by providing the eth1 PHY and exposing
-> standard interfaces, including dual Gigabit Ethernet, MicroSD, two USB-A
-> ports, a USB Type-C port, two PCIe M.2 slots, and a serial console.
->
-> The board also has two I2C EEPROMs. One is on the core module, which
-> stores factory manufacturing data and is marked read-only. The other is
-> on the carrier board, which is shipped unprogrammed and left writable
-> for evaluation purposes.
->
-> Add initial support for UART console, eMMC, SD card, I2C, EEPROMs,
-> PCIe, USB, and dual Ethernet interfaces.
->
-> Link: https://docs.banana-pi.org/en/BPI-CM6/BananaPi_BPI-CM6
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  arch/riscv/boot/dts/spacemit/Makefile              |   1 +
->  .../riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts | 215 +++++++++++++++++++
->  arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi  | 227 +++++++++++++++++++++
->  3 files changed, 443 insertions(+)
->
 
-[...]
+--===============4622097614895687281==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Af5l50mgOj8YPBBG"
+Content-Disposition: inline
 
-> +
-> +&pcie1_port {
-> +	phys = <&pcie1_phy>;
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-> +};
-> +
-> +&pcie1 {
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
 
-Thanks for the reminder from Sashiko AI.
+--Af5l50mgOj8YPBBG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The vpcie3v3-supply property should be removed from the PCIe host
-controller node here. According to the binding, this supply belongs to
-the PCIe root port child node.
+On Sat, May 23, 2026 at 03:00:15PM +0800, Xukai Wang wrote:
+>=20
+> On 2026/5/23 04:39, Conor Dooley wrote:
+> > On Fri, May 22, 2026 at 08:59:12PM +0800, Xukai Wang wrote:
+> >> Fix all sparse warnings detected during LKP randconfig testing:
+> >> - Replace plain integer 0 with NULL.
+> >> - Add static modifier to k230_plls and k230_pll_divs.
+> >>
+> >> Reported-by: kernel test robot <lkp@intel.com>
+> >> Closes: https://lore.kernel.org/oe-kbuild-all/202605220724.j4ZeM3KI-lk=
+p@intel.com/
+> >> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+> > Forgot to reply earlier, but I went and squashed this in.
+> Thanks Conor!
 
-I have checked the driver side: devm_regulator_get_enable() eventually
-calls of_get_regulator(), which first looks up the supply in the current
-device node and then falls back to searching child nodes if it is not
-found there. I also verified on hardware that keeping vpcie3v3-supply
-only in the port node still lets the driver resolve the regulator
-correctly.
+I dunno if you saw my message about giving what I have in my
+branches a go, but if you could try what's in the riscv-soc-for-next
+branch, that'd be great. Just to make sure that I have all the bits in
+place.
 
-So I will drop the duplicate vpcie3v3-supply property here in the next
-version.
+Cheers,
+Conor.
 
-> +	status = "okay";
-> +};
-> +
-> +&pcie2_phy {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie2_4_cfg>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie2_port {
-> +	phys = <&pcie2_phy>;
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-> +};
-> +
-> +&pcie2 {
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+--Af5l50mgOj8YPBBG
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Same here.
+-----BEGIN PGP SIGNATURE-----
 
-> +	status = "okay";
-> +};
-> +
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahGzcwAKCRB4tDGHoIJi
+0it2AP9Odv1YYkRltRYXt+7xWjYef8Cn7xzyCA9K0jeiEUz5NAD/QpwJMe7lZfjs
+MZXMsNIopZd++T2/Iw93irRUB71e7wo=
+=XTJn
+-----END PGP SIGNATURE-----
 
-[...]
+--Af5l50mgOj8YPBBG--
 
--- 
-Best regards,
-Junhui Liu
 
+--===============4622097614895687281==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4622097614895687281==--
+
