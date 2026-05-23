@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC88ACD5BAC
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 May 2026 15:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD3CCD5BB8
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 May 2026 18:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3XAdlHKhfQ82twwMSR+7PR32QH/3gP/mwMjZhDCKCk0=; b=NJELNs5cMk4Zbh
-	nsOpQ9V607vdeN8Yz00pxEBDWiFqti04sHUFCTlvWDHQWBKGmFXt6GvNH6I5n/H7NidyqsIBjtGpW
-	edPSHqkag99Vwy6Dpe2nkSGcpGIMt92NhlYnM3+Bt5uZzeMpWeQYQVTDzKo3wB20IjF2HrUhTJoeA
-	0P4PRfvf3ZyWc2IxfOxGJT7dpIYTUqF63otoKyUogGUfAApHDK9DDqtpz+Y+AGk3jaTHolrY/BrZ0
-	DGDJUpqg0vbk0CdqBm+U70kx6uiK1yC4iAYHg44Mo9zVhwknKB0RIqN4qlU83moZ3ASXPEVSqVgj3
-	/G4Vf9sWbUGzEPMnOMIw==;
+	List-Owner; bh=WLjAmH0BGp69jc2JcZDNjVXH7pbwcsQAiGIlbRmYeb0=; b=Xdn8xbs+Vb/Fio
+	ymo2hJuOD2Q5GqwWMxzNJslZPaahvzmX91iGVC5TC1+s8WAzaw5Em+SHvCjuyGJkepr/J93ANREWJ
+	CuKkwgnk8eKKmQWQomAUu+B6ziGEmHIX5obCWzUVdXA9teEeqH60OooZ9FzllgU2x0teQ0K+x583f
+	VKe7htghdh6Lpju4F2BDywIqU9yuEoIMt5Yz5GIfkiade2+3J07Gm91qG/Etf1z8QPtmAFDBbFyLX
+	DgL5WwH/6653DhNXttZCKPRxfbnOMoRBcpcL6MxfRVq8+uC0clY3Sg4YDCfP5nDIkMqvMdhqc5H+Y
+	QiwcgyzGWC6cwzKRakzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQoEW-0000000DUfD-1kqh;
-	Sat, 23 May 2026 15:25:48 +0000
-Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
+	id 1wQrI5-0000000DjUg-2mGq;
+	Sat, 23 May 2026 18:41:41 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQoET-0000000DUei-3ybz
+	id 1wQrI1-0000000DjTa-2Igv
 	for linux-riscv@lists.infradead.org;
-	Sat, 23 May 2026 15:25:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779549940; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=UoJtSar+/fAJsaOXr0Zc6Z6ZWQtDCIiC3uMrHWrlHksB66qkLrbObXeLkFYg0cXY6bWgPaCjhrWvZdztBIp0bmPQnque7sL+abZLuPfF0X8iqb1VjsMyGgXq0vVtgDrSkPIBzHCB/BwyMm6YWGRnUbb4kHRX0t4dXgsd3iAer6E=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779549940; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ypvOXGHmPfwupkJQo0lkg7l8Xmzz75cpEihNyUsSVws=; 
-	b=IzPdXURskMJy9J2/DyTqVzJWpExN2QJYaWzYzqgNq6noNDkX5NwShdi8N/9ErzokoQBpJOVFOAiRTzoobvC+d1v3nkFV+KkJVYenxoKBP3hevW7HQZGgYQ64/S8vU0MI/wbGkUG4xUBt9sKFGUDg37NfawzCfld5XnWC8tSmHZQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779549940;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=Date:Date:From:From:To:To:CC:Subject:Subject:In-Reply-To:References:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To:Cc;
-	bh=ypvOXGHmPfwupkJQo0lkg7l8Xmzz75cpEihNyUsSVws=;
-	b=Fge9WiM64DkZTehzmzJ23k1OxthuLN4BfpU0Qn8wj1wn2ClZxiLlDPU877PS7prK
-	PtVECX/hWy1tGV8jK52goKSO06V3AEdqDZ/flpKUkZfTsC/dZyRZ4NZSeIcBGOfeWYK
-	ebVCLuzFoIqk7Y2QWpRUciOEvWJqK0yZY1GSEWKo=
-Received: by mx.zohomail.com with SMTPS id 1779549936497366.38328264930124;
-	Sat, 23 May 2026 08:25:36 -0700 (PDT)
-Date: Sat, 23 May 2026 23:25:18 +0800
-From: Xukai Wang <kingxukai@zohomail.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Samuel Holland <samuel.holland@sifive.com>,
- Troy Mitchell <TroyMitchell988@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH] clk: canaan: k230: Fix sparse warnings reported by LKP
-User-Agent: Thunderbird for Android
-In-Reply-To: <20260523-punctual-backslid-712c06f0db61@spud>
-References: <20260522-eligible-vivacious-3ce9bc30dd53@wendy> <dee4605ca30f9bbd55ccb4fcce9590ceee1fa10b.1779453284.git.kingxukai@zohomail.com> <20260522-removed-lyricism-7c879febc3b3@spud> <1f74efd2-444f-4330-a1e8-62f75e85ecfa@zohomail.com> <20260523-punctual-backslid-712c06f0db61@spud>
-Message-ID: <75285B3F-92FD-48A4-84D1-6C2BF2FBCE17@zohomail.com>
+	Sat, 23 May 2026 18:41:40 +0000
+Received: from [198.18.0.1] (unknown [113.227.3.159])
+	by APP-05 (Coremail) with SMTP id zQCowAB3BwvV9BFq6mFAEQ--.13013S2;
+	Sun, 24 May 2026 02:41:26 +0800 (CST)
+Message-ID: <6f54fc06-1a75-4910-82a5-172a42f34284@isrc.iscas.ac.cn>
+Date: Sun, 24 May 2026 02:41:26 +0800
 MIME-Version: 1.0
-Feedback-ID: zu08011227f17df843053cbf16afe5966500007938fc8c90888f46af5fc70e4e66e963e3d34c89acadaa1e39:ZohoMail
-X-Zoho-CM-AccountID: 2ee5dd3c83366259b2ba1e9826250ffebed1ef2dd213857d649ad25aba73b429
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] perf riscv: Fix discarded const qualifier in
+ _get_field()
+To: acme@kernel.org, namhyung@kernel.org
+Cc: irogers@google.com, adrian.hunter@intel.com, palmer@dabbelt.com,
+ pjw@kernel.org, linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260513154851.1085334-3-guanli.oerv@isrc.iscas.ac.cn>
+ <20260513180721.1179904-1-guanli.oerv@isrc.iscas.ac.cn>
+From: Li Guan <guanli.oerv@isrc.iscas.ac.cn>
+In-Reply-To: <20260513180721.1179904-1-guanli.oerv@isrc.iscas.ac.cn>
+X-CM-TRANSID: zQCowAB3BwvV9BFq6mFAEQ--.13013S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uFW8CF45urW3WFW7Cr4xXrb_yoW8Ar1rpr
+	Z7Crs0k345Xw15C340vFW29FWUurs3Xaya9F4rA347Zrs8Gw1rtr4ftanxK3ZrXryUCr18
+	ur13ury8Aw48AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkFb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42xK
+	82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGw
+	C20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48J
+	MIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMI
+	IF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E
+	87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07betCcUUUUU=
+X-Originating-IP: [113.227.3.159]
+X-CM-SenderInfo: hjxd0znlorv2ny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_082546_039965_AE20CBEC 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260523_114137_972553_77811999 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +76,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgrkuo4gMjAyNuW5tDXmnIgyM+aXpSBHTVQrMDg6MDAgMjI6MDI6MzHvvIxDb25vciBEb29sZXkg
-PGNvbm9yQGtlcm5lbC5vcmc+IOWGmemBk++8mgo+T24gU2F0LCBNYXkgMjMsIDIwMjYgYXQgMDM6
-MDA6MTVQTSArMDgwMCwgWHVrYWkgV2FuZyB3cm90ZToKPj4gCj4+IE9uIDIwMjYvNS8yMyAwNDoz
-OSwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+PiA+IE9uIEZyaSwgTWF5IDIyLCAyMDI2IGF0IDA4OjU5
-OjEyUE0gKzA4MDAsIFh1a2FpIFdhbmcgd3JvdGU6Cj4+ID4+IEZpeCBhbGwgc3BhcnNlIHdhcm5p
-bmdzIGRldGVjdGVkIGR1cmluZyBMS1AgcmFuZGNvbmZpZyB0ZXN0aW5nOgo+PiA+PiAtIFJlcGxh
-Y2UgcGxhaW4gaW50ZWdlciAwIHdpdGggTlVMTC4KPj4gPj4gLSBBZGQgc3RhdGljIG1vZGlmaWVy
-IHRvIGsyMzBfcGxscyBhbmQgazIzMF9wbGxfZGl2cy4KPj4gPj4KPj4gPj4gUmVwb3J0ZWQtYnk6
-IGtlcm5lbCB0ZXN0IHJvYm90IDxsa3BAaW50ZWwuY29tPgo+PiA+PiBDbG9zZXM6IGh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL29lLWtidWlsZC1hbGwvMjAyNjA1MjIwNzI0Lmo0WmVNM0tJLWxrcEBp
-bnRlbC5jb20vCj4+ID4+IFNpZ25lZC1vZmYtYnk6IFh1a2FpIFdhbmcgPGtpbmd4dWthaUB6b2hv
-bWFpbC5jb20+Cj4+ID4gRm9yZ290IHRvIHJlcGx5IGVhcmxpZXIsIGJ1dCBJIHdlbnQgYW5kIHNx
-dWFzaGVkIHRoaXMgaW4uCj4+IFRoYW5rcyBDb25vciEKPgo+SSBkdW5ubyBpZiB5b3Ugc2F3IG15
-IG1lc3NhZ2UgYWJvdXQgZ2l2aW5nIHdoYXQgSSBoYXZlIGluIG15Cj5icmFuY2hlcyBhIGdvLCBi
-dXQgaWYgeW91IGNvdWxkIHRyeSB3aGF0J3MgaW4gdGhlIHJpc2N2LXNvYy1mb3ItbmV4dAo+YnJh
-bmNoLCB0aGF0J2QgYmUgZ3JlYXQuIEp1c3QgdG8gbWFrZSBzdXJlIHRoYXQgSSBoYXZlIGFsbCB0
-aGUgYml0cyBpbgo+cGxhY2UuCk9LLCBJIHdpbGwgcHVsbCByaXNjdi1zb2MtZm9yLW5leHQgYnJh
-bmNoIGFuZCB0ZXN0IGl0IG9uIEsyMzAgaGFyZHdhcmUgaW1tZWRpYXRlbHkuIEFuZCB0aGVuIHJl
-cG9ydCBiYWNrIHRoZSB0ZXN0IHJlc3VsdHMgYXMgc29vbiBhcyBwb3NzaWJsZS4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Arnaldo, Namhyung,
+
+Just a gentle ping on this patch. It has received a Reviewed-by from Ian.
+Could you please consider picking it up for perf-tools-next?
+
+Thanks,
+Li Guan
+
+On 5/14/2026 2:07 AM, Li Guan wrote:
+> The assignment of strrchr() return values to non-const char * variables
+> triggers a -Werror=discarded-qualifiers warning when building with GCC 14.
+> This happens because in newer glibc versions, strrchr() returns a
+> const char * if the input string is const.
+>
+> Properly declare 'line2' and 'nl' as const char * to match the glibc
+> function signature and ensure type safety. This avoids the need for
+> explicit type casting and aligns with the design pattern of not
+> modifying read-only memory in the perf tool.
+>
+> Signed-off-by: Li Guan <guanli.oerv@isrc.iscas.ac.cn>
+> ---
+> v2:
+>   - Drop the auxtrace decoupling and weak stub approach as they interfered
+>     with the cross-platform analysis intent, per Ian's feedback.
+>   - Focus on a clean fix for the const qualifier issue in RISC-V header.c
+>     by properly declaring local variables as const.
+>   - Use Li Guan as the preferred name format for consistency.
+>   - Verified that this fix is not yet present in acme/perf-tools-next.
+>
+>   tools/perf/arch/riscv/util/header.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/tools/perf/arch/riscv/util/header.c b/tools/perf/arch/riscv/util/header.c
+> index 4b839203d4..891984e909 100644
+> --- a/tools/perf/arch/riscv/util/header.c
+> +++ b/tools/perf/arch/riscv/util/header.c
+> @@ -19,7 +19,7 @@
+>   
+>   static char *_get_field(const char *line)
+>   {
+> -	char *line2, *nl;
+> +	const char *line2, *nl;
+>   
+>   	line2 = strrchr(line, ' ');
+>   	if (!line2)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
