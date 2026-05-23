@@ -4,60 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BC2CD5BB0
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 May 2026 23:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7400CCD5BB0
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 May 2026 00:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ssvit+ZMs4zelD+v2yp66QHjrGPlhyh+l1UuJAyTf1U=; b=WLYps4uRJMplGi
-	Ej+uh9yBRFDoFEcO9BKP//tm64Pk9kBkkD9VsncrnP6qmCa0CX29YGtGT0jFDS0UHkJ9uaX5tkEno
-	/cuxyu2G8JCh2see3hnkm8OPvvzHKkqO8oQYtI+BxJJjSEQBfEPhnqUoh7C41kp9wiSSoZ/qb4Grf
-	bf0mf9gDcVHRe9gxmB6qKMLxdc0IOqqjxPe8O7esBI5agR+dCcuumOdbg7szxhDXaic1lBWOz25Du
-	hoAWv4SpESTjlWbPpfT76/s6oABVP+XYo0yHRwQgH5USPT80jr6L1CHd6yCNpLxI91nUuoFqT5umc
-	DunNPBi5xukGz5wSUCGA==;
+	List-Owner; bh=Ywnl1WT1mRmZhS2ATZ7o6YXFEsS0s2Arkxn08my9L08=; b=aH1SdT6tcsdoyH
+	FiZY4Iak9mgbJ+3aXTY5zL4BmYGUK1Bc+3Me0GrwmJt6+afqu+8lADFS13U22D+dNlXabISIrXMME
+	KPSraCXG+sYnSQcnc4P9P9T2aDQ8Kh+/+VscBQI/0k4KsOnrHOvDQA0S4QJ+qI8bVhEColwMNh9Xm
+	oc7gFwFAfvcTTIK7/hO9dbE/L9M9AbsJJ3nrC5RCFKXuUX8d1LGqpI5U3dJS4kOYZuGFjpsSdAt7T
+	qKgeWjA6WAxI/Le6ERjHKEHCrca0UvH6jtwgm0LCfSvmASzmfB7Aid66T0VWmOx2mIsQRIBTJIAUi
+	ZCL/hG1Bxw+gaiu82I3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQZed-0000000CGDw-3X7d;
-	Fri, 22 May 2026 23:51:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQZmu-0000000CGuQ-2WYP;
+	Sat, 23 May 2026 00:00:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQZeb-0000000CGDN-3j2q
+	id 1wQZmt-0000000CGuF-3ORN
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 May 2026 23:51:46 +0000
+	Sat, 23 May 2026 00:00:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6C8E40E42;
-	Fri, 22 May 2026 23:51:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9604C1F000E9;
-	Fri, 22 May 2026 23:51:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB66A60209;
+	Sat, 23 May 2026 00:00:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8E4A1F000E9;
+	Sat, 23 May 2026 00:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779493904;
-	bh=6g7V95ZW/7q5E25JeKj3G83kjhPIboZBdOl4zmD1wYI=;
+	s=k20260515; t=1779494418;
+	bh=E/NlWRMeE1Ore4wNHzrhkZQEWRS8TgfjqDTs24hzdNE=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=MSkbwJJE+8ADZbAMpTWSfMzpfI2UpWKiAri/D+dXhpPS6M0VmV9phPMn0qVppvbOE
-	 A+pfG4f2gLwW5dwljH7nAI/+IoW9ZSXG7bcZQdHCdYMITt2C9yluWf7iz1CGBnr54h
-	 B2yAAEHm2257M01PkrhK/WX2P15cnl8AI60Iz5jaXtOCEXPlvVtk3NxtmuabWUROoP
-	 whDXaUHzBK0Jq9gEnkUPudWJ+qGkXg35hrHECGI+XOWh88Teyf9uNIrcVwVwlpcN8w
-	 na+AGYuHGZBW762dMwxfEQ6q/ldpOMRx2ObK56MYhq1KQIc1FyrAiV1v0xxH2m4fmP
-	 +Bs6XqHnPLn7A==
-Date: Fri, 22 May 2026 17:51:43 -0600 (MDT)
+	b=HN5xSAkKk3DvU2dRt/R41Xo/c/jnIJs9v5e1oZ1O7KCH/zWcLeaLgRwnSLf+PkQmK
+	 Bov9XGOsZErvn2yD0qA2SY7nq5Kkgya8qM5xw5cDibv+m5/SL2w3uHi8KOqqZVIFMo
+	 gTu7KUxOLVubus/d7xHZZP78xdFXWht8ZMfNF/kWMjSvNcDcaesJj0b3P4TGU4fmXw
+	 gUXA+7lMv/UTF5Ik+9dncUD6+c1VABmzxsQjMZy9BXmZmOAjiO7SN3Dc1zItYuMFEh
+	 3mgHWIo2bpPrLD0O3mb/q6qwm+SdHz113QBeGNZoN/FFU8m0zlVmqhfS2a4kYZ+8pH
+	 SS6+yJDJ4sLGQ==
+Date: Fri, 22 May 2026 18:00:16 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Julian Braha <julianbraha@gmail.com>
-cc: charlie@rivosinc.com, mr.bossman075@gmail.com, palmer@rivosinc.com, 
-    alexghiti@rivosinc.com, pjw@kernel.org, aou@eecs.berkeley.edu, 
+To: Chen Pei <cp0613@linux.alibaba.com>
+cc: pjw@kernel.org, alex@ghiti.fr, andybnac@gmail.com, guoren@kernel.org, 
     linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dead code cleanup in kconfig for
- RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
-In-Reply-To: <20260329203249.563434-1-julianbraha@gmail.com>
-Message-ID: <add8b8a8-3aff-fde1-2fff-74763e3bce92@kernel.org>
-References: <20260329203249.563434-1-julianbraha@gmail.com>
+Subject: Re: [PATCH] riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT
+In-Reply-To: <20260409114736.907-1-cp0613@linux.alibaba.com>
+Message-ID: <d6ed1410-ec11-f11b-1066-914ea160e0ba@kernel.org>
+References: <20260409114736.907-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_165145_949292_955C3CEB 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +68,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 Mar 2026, Julian Braha wrote:
+On Thu, 9 Apr 2026, cp0613@linux.alibaba.com wrote:
 
-> The same Kconfig statement 'depends on RISCV_ISA_V' appears twice for
-> RISCV_PROBE_VECTOR_UNALIGNED_ACCESS. The first instance is in its choice
-> menu, "Vector unaligned Accesses Support", making the second instance in
-> its specific Kconfig definition dead code. I propose removing this second
-> instance.
+> From: Chen Pei <cp0613@linux.alibaba.com>
 > 
-> This dead code was found by kconfirm, a static analysis tool for Kconfig.
+> RISC-V already satisfies all prerequisites for build-time mcount sorting:
+> the sorttable host tool handles EM_RISCV in its machine-type dispatch, and
+> the __mcount_loc section entries are stored as direct virtual addresses in
+> the final vmlinux binary, so no relocation processing is required during
+> the sort step.
 > 
-> Signed-off-by: Julian Braha <julianbraha@gmail.com>
+> Select HAVE_BUILDTIME_MCOUNT_SORT so that BUILDTIME_MCOUNT_SORT is
+> automatically enabled when DYNAMIC_FTRACE is configured.  This allows
+> sorttable to sort the __mcount_loc section at link time, making the
+> run-time ftrace initialisation path skip the software sort and reducing
+> kernel startup overhead.
+> 
+> Verified with CONFIG_FTRACE_SORT_STARTUP_TEST=y, which confirms that
+> the section produced by the build is already in ascending order:
+> 
+>   [    0.000000] ftrace section at ffffffff81015a60 sorted properly
+> 
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 
 Thanks, queued for v7.2.
+
 
 - Paul
 
