@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB51CD4F54
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE595CD5BCB
 	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1Fvo2pGy5tORxdkKFkNXjtXz0PHk/N+YIMU0x+RxL0=; b=WPa0fEFgyEKfFS
-	UStNL+/m0D5ED5IC59aPLh8DdrkAd3we0lJeykNC8GTlO2y0Edea0/4s5rrLF5q8P3nVWMDR6fY1s
-	QgrIG50X+jE2shccrQV21Oufil7agBmBGSwbi98g6Rujx6c2hAgQHnnsWcwfjqMzuJ+b1zyuapUgQ
-	/d8tt05ayieVh97KFl6mn544qyiD6SWs98U8oczQslc2HgDeZ+pj0TEdVYPE/VFGXsYL6oe76w6oO
-	9NgRYzT6+OB3exwjXvjnW2a2Ftr64lzVCl212Bu4UTXQiDU9N5E1gBfom960JrD8m8IHgP/Mgun3L
-	BAzcBanwsIV4sYQCVFZA==;
+	List-Owner; bh=YTkuWsKDgj8tOt84jk2fOF+8m9OOIcgHuAgKCwu43ZI=; b=D2mi0yHyXRCoDE
+	DLpl2pVPcKD+xTztgoX8YL3eqWjguqu8Jiiu3ZNJcDwrj/LiCnHYu7hR+MJQH0br8PoMew915nfXu
+	BXb8itoYJR+KYW0cgkik0/GgJcVeG5/O1MmMBvWfeSin6t+SSSxq5bjPeeqCiVTM5DsRk0C0bVv0J
+	AsdHWcDYpyzj4aoSOfBijbz1oh6KeNvItCEdbS1UJcQnE8O35ybjcpL/oo7xQ8rBPYBuu1m/BcKtY
+	OpHrwUhPv0Ve1go0MQNG1s459KZPPwjzD53pdAXR+/U9rW6HRXk7m5IcoGOhwg4UbLHS7OBwmQA6/
+	/VTL9FWxygSFguq73Mtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhM-0000000FsV8-3n6p;
-	Sun, 24 May 2026 23:57:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRIhQ-0000000FsWk-2vq8;
+	Sun, 24 May 2026 23:57:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhJ-0000000FsSq-3uFK
+	id 1wRIhP-0000000FsVs-1p1h
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 May 2026 23:57:35 +0000
+	Sun, 24 May 2026 23:57:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 082544382D;
-	Sun, 24 May 2026 23:57:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C02F1F00ADE;
-	Sun, 24 May 2026 23:57:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D3D6460209;
+	Sun, 24 May 2026 23:57:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E39C41F01561;
+	Sun, 24 May 2026 23:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779667051;
-	bh=srvdFyNcKWrG6UhIb2zhEmit0iT5/TwfHnN+QzKDIL4=;
+	s=k20260515; t=1779667058;
+	bh=4cYMXP3oZ3Td10zGhSlxPHc2jDAhuHwiTxCNtEO8XOQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=W2Su/igKadIqci67UacoKE+u8//C9PB2ju7Cef0LHIP2P1VWObtw7HhqMSliKfHwy
-	 XVuR6Xb1xU/+WmbU/nhvuoYhManbaRTdwIAMuvgN6bk1g6BCUiL+SWruhRS9cmaepe
-	 RhgoCe0CF1z1kpqRBJIV3uKbNYn08+jYGsmJZ7VHhcatgFW/CAa991wJxYk2vf9w5S
-	 0On2PYMEZ+lOY722OOwmJDE3yvLiAlsCeyhPpXOmuP2/Pg7GGgzzw0OC2lxc2g8A8z
-	 6fonl6mHXq/No9R3wgKX+gt1DMCeqHIAp6S2XNdYHc47MNk0kyGbOZGQhtGbTOw8zs
-	 aAir32rp8oDCw==
+	b=YrASOulssRaEjYkhRuF+kyO/mfkF662TfZwFMDZ4WR5xYt/PT5nOV8+LdgofSgF1n
+	 oKAFldrlbWT1WLPk6ZN2Ne6WTCPzkOHrnmnLZQDf/d26sZhI0aj5x5OpGKFSfeeBm6
+	 xv+SanoWFyWZKeczZBPQdKnjlvqkd3lH1fpGwreD2O1A5a/MK9x2DKzTjNcVZ0xbNU
+	 tWYPnszTnyzAs6e2kkPGHUPmoMq4JezAth8SWh0oqzbLtGWniuxvNjdnl3tAwk/EQd
+	 0cAD6maEVCpfo5IVHup9COffqz1O534LWwN+1L+OBsWrxE3D24aqWAx6YKiwhE9ixF
+	 /MX+dGxBK9TKA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 24 May 2026 16:55:31 -0700
-Subject: [PATCH RFC v5 01/18] dt-bindings: riscv: Add Ssqosid extension
- description
+Date: Sun, 24 May 2026 16:55:40 -0700
+Subject: [PATCH RFC v5 10/18] riscv_cbqri: Add bandwidth controller
+ monitoring device ops
 MIME-Version: 1.0
-Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-1-78d3a7ba9dbe@kernel.org>
+Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-10-78d3a7ba9dbe@kernel.org>
 References: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 In-Reply-To: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,18 +86,14 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1227; i=fustini@kernel.org;
- h=from:subject:message-id; bh=oVWQwUJrVLgt2ds0hOtdw/u3HLWC21FLWSsgjsdIJHo=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8iwslR1ObpnyT/T+k1FzvUTbbhmvTtZJ3Xw6R6um
- 71sl7WKOkpZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQATmZTH8Ispzn7VqcY1Tzg+
- szlNXlD3qre1QF6m+N56t/rWg9IuUv4M/7PL7r4PusYU09DZZperPrG7PzjBb/XJZ99UGs3P3ki
- ZxQQA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7064; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=mUHa6+F/DHq9sHhd8mDFGHM5sAfkWDnb2VjA6lAzldE=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8jsWRV84zf3dvdzuq9fTT0571f4/N2ZV+wF9xqv5
+ b/BbXh0R0cpC4MYF4OsmCLLpg95F5Z4hX5dMP/FNpg5rEwgQxi4OAVgIgabGP7wimXn1jkatci+
+ VAsvl4q9/1yxfOebfW91LUOe6vnqFvxj+B/k7xbyoYfJ5XrK3nZlgQXiJQ96p3I2/Fr64LL6kn/
+ HwngA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_165734_013096_34027475 
-X-CRM114-Status: UNSURE (   7.34  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +110,201 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
-extension v1.0.
+Add the BC monitoring primitives. cbqri_init_bc_mon_counters() pre-arms
+each MCID with the TOTAL_READ_WRITE event and allocates the per-MCID
+software accumulator (struct cbqri_bc_mon_state) so subsequent reads can
+extend the 62-bit hardware counter to the 64-bit byte total resctrl
+expects. cbqri_bc_mon_overflow() recovers a single-wrap delta. The OVF
+bit signals multi-wrap and is the caller's concern.
 
-Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+cbqri_find_only_mon_bc() returns NULL when zero or more than one
+mon-capable BC is present. A BC's counter can only accurately back L3
+mbm_total_bytes when every memory request flows through that BC.
+
+Assisted-by: Claude:claude-opus-4-7
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/resctrl/cbqri_devices.c  | 75 ++++++++++++++++++++++++++++++++++++++++
+ drivers/resctrl/cbqri_internal.h | 50 ++++++++++++++++++++++++---
+ 2 files changed, 121 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 2b0a8a93bb21..1c6f091518d4 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -232,6 +232,12 @@ properties:
-             ratified at commit d70011dde6c2 ("Update to ratified state")
-             of riscv-j-extension.
+diff --git a/drivers/resctrl/cbqri_devices.c b/drivers/resctrl/cbqri_devices.c
+index 2a80197764a9..d4108ca1c08a 100644
+--- a/drivers/resctrl/cbqri_devices.c
++++ b/drivers/resctrl/cbqri_devices.c
+@@ -863,6 +863,80 @@ int cbqri_init_mon_counters(struct cbqri_controller *ctrl)
+ 	return 0;
+ }
  
-+        - const: ssqosid
-+          description: |
-+            The standard Ssqosid extension for Quality of Service ID is
-+            ratified as v1.0 in commit d9c616497fde ("Merge pull
-+            request #7 from ved-rivos/Ratified") of riscv-ssqosid.
++/*
++ * 62-bit BC counter delta. Inputs must be pre-masked to
++ * CBQRI_BC_MON_CTR_VAL_CTR_MASK. The shift promotes the modular
++ * subtraction into 64-bit so a single wrap (cur < prev) yields the
++ * correct delta. Multi-wrap is handled by the caller via the
++ * hardware OVF bit (CBQRI 4.3). This function only needs to recover
++ * from at most one wrap.
++ */
++u64 cbqri_bc_mon_overflow(u64 prev_ctr, u64 cur_ctr)
++{
++	const unsigned int shift = 64 - 62;
++	u64 chunks = (cur_ctr << shift) - (prev_ctr << shift);
 +
-         - const: ssstateen
-           description: |
-             The standard Ssstateen extension for supervisor-mode view of the
++	return chunks >> shift;
++}
++
++/*
++ * Allocate the per-MCID software accumulator and pre-arm every MCID
++ * with TOTAL_READ_WRITE so subsequent reads just snapshot the live
++ * counter.
++ *
++ * Caller responsibility: serialize concurrent invocations on the same
++ * single mon-capable BC (cbqri_resctrl uses cbqri_domain_list_lock for
++ * this).
++ */
++int cbqri_init_bc_mon_counters(struct cbqri_controller *bc)
++{
++	int i, err;
++
++	if (bc->mbm_total_states)
++		return 0;
++
++	bc->mbm_total_states = kcalloc(bc->mcid_count,
++				       sizeof(*bc->mbm_total_states),
++				       GFP_KERNEL);
++	if (!bc->mbm_total_states)
++		return -ENOMEM;
++
++	for (i = 0; i < bc->mcid_count; i++) {
++		mutex_lock(&bc->lock);
++		err = cbqri_mon_op(bc, CBQRI_BC_MON_CTL_OFF,
++				   CBQRI_BC_MON_CTL_OP_CONFIG_EVENT,
++				   i, CBQRI_BC_EVT_ID_TOTAL_READ_WRITE, NULL);
++		mutex_unlock(&bc->lock);
++		if (err) {
++			kfree(bc->mbm_total_states);
++			bc->mbm_total_states = NULL;
++			return err;
++		}
++	}
++	return 0;
++}
++
++/*
++ * Return the single mon-capable BC, NULL if zero or more than one. BC
++ * counters can only accurately surface as L3 mbm_total_bytes if every memory
++ * request flows through the same BC.
++ */
++struct cbqri_controller *cbqri_find_only_mon_bc(void)
++{
++	struct cbqri_controller *ctrl, *only_bc = NULL;
++
++	list_for_each_entry(ctrl, &cbqri_controllers, list) {
++		if (ctrl->type != CBQRI_CONTROLLER_TYPE_BANDWIDTH)
++			continue;
++		if (!ctrl->mon_capable)
++			continue;
++		if (only_bc)
++			return NULL;
++		only_bc = ctrl;
++	}
++	return only_bc;
++}
++
+ void cbqri_controller_destroy(struct cbqri_controller *ctrl)
+ {
+ 	/*
+@@ -874,6 +948,7 @@ void cbqri_controller_destroy(struct cbqri_controller *ctrl)
+ 		iounmap(ctrl->base);
+ 		release_mem_region(ctrl->addr, ctrl->size);
+ 	}
++	kfree(ctrl->mbm_total_states);
+ 	kfree(ctrl->mweight_cache);
+ 	kfree(ctrl->rbwb_cache);
+ 	kfree(ctrl);
+diff --git a/drivers/resctrl/cbqri_internal.h b/drivers/resctrl/cbqri_internal.h
+index 48f8a6e1923e..555512cf7eab 100644
+--- a/drivers/resctrl/cbqri_internal.h
++++ b/drivers/resctrl/cbqri_internal.h
+@@ -63,12 +63,26 @@
+ #define CBQRI_CC_MON_CTL_OP_CONFIG_EVENT 1
+ #define CBQRI_CC_MON_CTL_OP_READ_COUNTER 2
+ 
++#define CBQRI_BC_MON_CTL_OP_CONFIG_EVENT 1
+ #define CBQRI_BC_MON_CTL_OP_READ_COUNTER 2
+ 
+-/* mon_ctl field masks (CC and BC share an identical OP/MCID/EVT_ID/STATUS layout) */
+-#define CBQRI_MON_CTL_OP_MASK        GENMASK(4, 0)
+-#define CBQRI_MON_CTL_MCID_MASK      GENMASK(19, 8)
+-#define CBQRI_MON_CTL_EVT_ID_MASK    GENMASK(27, 20)
++/* Bandwidth usage monitoring event IDs (CBQRI spec Table 10) */
++#define CBQRI_BC_EVT_ID_TOTAL_READ_WRITE  1
++
++/* bc_mon_ctr_val layout (CBQRI spec section 4.3, Figure 7) */
++#define CBQRI_BC_MON_CTR_VAL_CTR_MASK    GENMASK_ULL(61, 0)
++#define CBQRI_BC_MON_CTR_VAL_INVALID     BIT_ULL(62)
++#define CBQRI_BC_MON_CTR_VAL_OVF         BIT_ULL(63)
++
++/*
++ * mon_ctl field masks (CC and BC share an identical OP/MCID/EVT_ID/STATUS
++ * layout). Keep all masks u64-wide so FIELD_MODIFY() on a u64 register
++ * never zero-extends a 32-bit ~mask and clobbers the WPRI/STATUS/BUSY
++ * fields in bits 63:32 for future support of RV32
++ */
++#define CBQRI_MON_CTL_OP_MASK        GENMASK_ULL(4, 0)
++#define CBQRI_MON_CTL_MCID_MASK      GENMASK_ULL(19, 8)
++#define CBQRI_MON_CTL_EVT_ID_MASK    GENMASK_ULL(27, 20)
+ #define CBQRI_MON_CTL_STATUS_MASK    GENMASK_ULL(38, 32)
+ #define CBQRI_MON_CTL_STATUS_SUCCESS 1
+ 
+@@ -90,6 +104,19 @@ struct riscv_cbqri_bandwidth_caps {
+ 	bool supports_alloc_at_code;
+ };
+ 
++/**
++ * struct cbqri_bc_mon_state - per-MCID software accumulator for BC bandwidth
++ * @prev_ctr: previous 62-bit hardware snapshot (already masked to CTR field)
++ * @chunks:   accumulated 64-bit byte total across hardware wraparounds
++ *
++ * Updated in resctrl_arch_rmid_read() under cbqri_controller::lock and
++ * zeroed by resctrl_arch_reset_rmid().
++ */
++struct cbqri_bc_mon_state {
++	u64 prev_ctr;
++	u64 chunks;
++};
++
+ /**
+  * enum cbqri_at - capacity controller access type for CDP
+  * @CBQRI_AT_DATA: data access (CBQRI Table 1, AT=0)
+@@ -159,6 +186,15 @@ struct cbqri_controller {
+ 	u16 *rbwb_cache;
+ 	u8  *mweight_cache;
+ 
++	/*
++	 * Per-MCID 64-bit software accumulator for the BC's mbm_total_bytes
++	 * event. Allocated by cbqri_init_bc_mon_counters() when this BC is
++	 * paired with an L3 monitoring domain, sized by ->mcid_count. NULL
++	 * on capacity controllers and on BCs that are not mon-paired.
++	 * Protected by ->lock along with the surrounding MMIO sequence.
++	 */
++	struct cbqri_bc_mon_state *mbm_total_states;
++
+ 	struct list_head list;
+ 
+ 	struct cache_controller {
+@@ -201,4 +237,10 @@ int cbqri_read_rbwb(struct cbqri_controller *ctrl, u32 closid, u64 *rbwb_out);
+ 
+ int cbqri_read_mweight(struct cbqri_controller *ctrl, u32 closid, u64 *mweight_out);
+ 
++u64 cbqri_bc_mon_overflow(u64 prev_ctr, u64 cur_ctr);
++
++int cbqri_init_bc_mon_counters(struct cbqri_controller *bc);
++
++struct cbqri_controller *cbqri_find_only_mon_bc(void);
++
+ #endif /* _DRIVERS_RESCTRL_CBQRI_INTERNAL_H */
 
 -- 
 2.43.0
