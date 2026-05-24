@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DF9CD5BCB
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9CBCD4F54
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NKKRa72+pmnt8casNX4DizqSvpB1DJdQ1Mrdvq6nim0=; b=VfU+qpzWRCf5v0
-	YRwqm5awrfd10Uwg9EmpM5aVXJOxoFM1EJCtsY6vzqTyBUKGI7QUESdsu15H5VsUxyxKXiygIgeV0
-	kkj1tWB5J6qUl3lPACKhkKyiYQxxSUGifga6Lqec9EARBlHQgF1aa69MnqPkTlBZAUpODb5elkxID
-	ThTinBIjtuoTOrPP4ss2uE+fOhTyqeqMqMXfB2wuC5FSMUMQHux21E+Yv0GV0qGsyVVqN+U337QAi
-	YyWNl4S2QUSnurnj+i1J9Qho+VFnIJHVDuvIWQ8vbSkw6hi9AxvJNaiqwvn3iIKN1ymO/fppAta+o
-	FeVpc5KJ3UfisuMA3QKg==;
+	List-Owner; bh=B6hzqMxOvFd1dpNVBQMAqPn0hg3BiV2L++TYUMv/i84=; b=TQgA4W2mKye2oY
+	hcZBy/8V14kgm1k3ujNl5nO5zyzBPZ3hniWfgm+OlZ4fFxH2k7CW/kqCV714gjOxH42QPR384NeRw
+	Mts1b/522EzCCtFTtwZ+OsurOkHDeqv4jze6CpJYy+ZyOK2gyW9fPWjDPZsJPMwRSBl7S6hZ9uCT1
+	N4zKNcqRSQkDNc5bfzTHQJsDL8z7FsEqPyzGCDWesqf/bXpGMyMrtS3CS2wpgklPAAafEeCVTdoWd
+	y/VgAHPaRN+cH+q5Tvq8sAQNDtB0w9BV9szMCI31eaLHQQrn+sTLbvBSITqWNpcHfRnnx/6kZWUi5
+	oiEzbmOO6jqhbWyZUSZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhY-0000000FsZ7-0GSU;
+	id 1wRIhY-0000000Fsac-3xfz;
 	Sun, 24 May 2026 23:57:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhS-0000000FsX4-1Wqe
+	id 1wRIhU-0000000FsYA-3l9b
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 May 2026 23:57:42 +0000
+	Sun, 24 May 2026 23:57:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7C7A60228;
-	Sun, 24 May 2026 23:57:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA8AC1F01565;
-	Sun, 24 May 2026 23:57:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F36F408D1;
+	Sun, 24 May 2026 23:57:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCC9A1F0155F;
+	Sun, 24 May 2026 23:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779667061;
-	bh=hdVl/+tyQos8I/C5ukqEi2Utow5uJHPasq4qcGSCBrc=;
+	s=k20260515; t=1779667064;
+	bh=U+t+EwaLSa9WOo0VEMTYqUakFDohqsI+NxBxDSmeLYo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=VGP9OnMNr0yCBjlHyljdSZMV4b13pSzUVQUURp2FBCkRXmnowEms5ELGIICP4CR66
-	 ol8ShUWl/dxn7rAKsbeY+DVTQLzZky4beP/DjW7DwfdLYvpdu7l4K77dgb+ms0+1c4
-	 o/Q+Lcb/ouVHKm7Voxknyw+ul4NwmLuvtLsuKYNTn+jkGEqffkd6dHC3fi8R0e6Bgu
-	 qER7Bs7q3Z7QAbOfQYzC6kkDRWD2FDzkEo7/HBR8spCyMNNhpeXD/GcCh/o/ga/T0U
-	 DQIGx7WOsMDueKE4wjGnEyv9onnO2bKp2LxUzXcPb0nHrh/Iwj/ACBq1nPyx6ehH+1
-	 N7uI+sXq7yPdw==
+	b=mfzq/ULd0DV+QNlVEhr9XFW6OF/x+rYk2V4xRINI5a4vvntHUe1d5IQBsxvrjPHXe
+	 vTjfwAIsq+prV5KLSkVzKKrVWBse4bVU6kAMzQMIhmlRTl5jEgUqvyj+ZGiMOLQ5W+
+	 7SRgcnBEongICe2JjaD6k0XP+oCc3MyXoCY/fD5H0r2eBZORdbC2PuPfF72w+V3DUX
+	 MfM9c1H0je9JAqe9gyfA9HHkYxGfaRWYUmvcOgbPw1ztAW0ukmSFt07csrn8FL2J7q
+	 8/u8iygz4nF1HXowICQc3nvnditlbmUwv5mz4HdpjE8ztpoE6TVXsKvhrI8g86P3jb
+	 w2YIufaWpjqaw==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 24 May 2026 16:55:44 -0700
-Subject: [PATCH RFC v5 14/18] riscv_cbqri: resctrl: Add MB_WGHT bandwidth
- allocation via Mweight
+Date: Sun, 24 May 2026 16:55:48 -0700
+Subject: [PATCH RFC v5 18/18] riscv: enable resctrl filesystem for Ssqosid
 MIME-Version: 1.0
-Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-14-78d3a7ba9dbe@kernel.org>
+Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-18-78d3a7ba9dbe@kernel.org>
 References: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 In-Reply-To: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,14 +85,18 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5240; i=fustini@kernel.org;
- h=from:subject:message-id; bh=vmtFHEULsJC3IiO748IREdCMzpe08urQp1XmUWYGmFU=;
- b=kA0DAAoW2+wsw9kosQwByyZiAGoTkGmhVR6yTIuFTkO5UZkvXJdJmfIA3lcmEJrilNj6s4WVi
- 4h1BAAWCgAdFiEEsvBu0KRKVfWgn+i22+wsw9kosQwFAmoTkGkACgkQ2+wsw9kosQza6gD/YRL1
- o+LihDooYDiNR9UkIftSnNfn+bvH3FQUUCT3fWIBANV0A8nE1MUBIjWl2sg/hrbZK4E7psJma3k
- /9xYbIzwG
+X-Developer-Signature: v=1; a=openpgp-sha256; l=876; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=6CzKXhV0tXNwm1l8Ur8ud/xHZoolzjjof2zwrYxGHkE=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8hyDui1m3n1++9tLquObCj3FNFK+lv+/BXfvtbPr
+ wWufH9xrKOUhUGMi0FWTJFl04e8C0u8Qr8umP9iG8wcViaQIQxcnAIwkXc8jAxTOVY9da/nfqT3
+ oMR4GleDhuuibZur1s+XTvXwSZ26aBofw/868d1sd85vcd29dUXEr61BEx3sfmU0GXgeyP285+d
+ auWJmAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260524_165744_991116_F697A17C 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,154 +113,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bandwidth allocation through Mweight (shared weight for unreserved
-bandwidth) exposed as the MB_WGHT resource. Mweight has no MBA
-equivalent, so it lands as a new RDT_RESOURCE_*.
+RISCV_ISA_SSQOSID selects RISCV_CBQRI_DRIVER unconditionally.
 
-Mweight is an integer in [0, 255]. A value of 0 disables work-
-conserving sharing for the group, capping its bandwidth at the
-MB_MIN reservation. Values 1..255 compete for the leftover pool in
-proportion to the weight.
+The resctrl filesystem integration is gated separately by
+RISCV_CBQRI_RESCTRL_FS, a silent option that defaults to y when both
+RISCV_CBQRI_DRIVER and RESCTRL_FS are enabled. Enabling the resctrl
+filesystem itself stays a user choice via the standard fs/Kconfig
+MISC_FILESYSTEMS menu.
 
-The same BC backs both MB_MIN and MB_WGHT and bc_bw_alloc packs Rbwb and
-Mweight in one register. cbqri_attach_cpu_to_bw_ctrl() attaches both
-rids to the picked BC.
-
-Reset gives every RCID the new-group default (max_bw = 255) for
-equal opportunistic shares.
-
-Assisted-by: Claude:claude-opus-4-7
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- drivers/resctrl/cbqri_resctrl.c | 60 ++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 56 insertions(+), 4 deletions(-)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/resctrl/cbqri_resctrl.c b/drivers/resctrl/cbqri_resctrl.c
-index 5d8389c58f4f..ba764bc6ef17 100644
---- a/drivers/resctrl/cbqri_resctrl.c
-+++ b/drivers/resctrl/cbqri_resctrl.c
-@@ -414,6 +414,8 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 	case RDT_RESOURCE_MB_MIN:
- 		/* sum(Rbwb) <= MRBWB validation runs inside cbqri_apply_rbwb(). */
- 		return cbqri_apply_rbwb(dom->hw_ctrl, closid, cfg_val, true);
-+	case RDT_RESOURCE_MB_WGHT:
-+		return cbqri_apply_mweight_config(dom->hw_ctrl, closid, cfg_val);
- 	default:
- 		return -EINVAL;
- 	}
-@@ -474,6 +476,14 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 			val = (u32)rbwb;
- 		break;
- 	}
-+	case RDT_RESOURCE_MB_WGHT: {
-+		u64 mweight;
-+
-+		err = cbqri_read_mweight(ctrl, closid, &mweight);
-+		if (err == 0)
-+			val = (u32)mweight;
-+		break;
-+	}
- 	default:
- 		break;
- 	}
-@@ -533,6 +543,18 @@ void resctrl_arch_reset_all_ctrls(struct rdt_resource *r)
- 							   rcid, rerr);
- 			}
- 			break;
-+		case RDT_RESOURCE_MB_WGHT:
-+			/* All RCIDs start at max weight (the new-group default). */
-+			for (i = 0; i < hw_res->ctrl->rcid_count; i++) {
-+				int rerr;
-+
-+				rerr = cbqri_apply_mweight_config(dom->hw_ctrl, i,
-+								  default_ctrl);
-+				if (rerr)
-+					pr_err_ratelimited("Mweight reset RCID %u failed (%d)\n",
-+							   i, rerr);
-+			}
-+			break;
- 		default:
- 			for (i = 0; i < hw_res->ctrl->rcid_count; i++) {
- 				for (t = 0; t < CDP_NUM_TYPES; t++) {
-@@ -597,6 +619,11 @@ static int cbqri_init_domain_ctrlval(struct rdt_resource *r, struct rdt_ctrl_dom
- 
- 			err = cbqri_apply_rbwb(dom->hw_ctrl, rcid, rbwb, false);
- 			break;
-+		case RDT_RESOURCE_MB_WGHT:
-+			/* Match the new-group default: equal weights across RCIDs. */
-+			err = cbqri_apply_mweight_config(dom->hw_ctrl, i,
-+							 resctrl_get_default_ctrl(r));
-+			break;
- 		default:
- 			/*
- 			 * Seed both DATA and CODE staged slots so a later
-@@ -739,6 +766,25 @@ static int cbqri_resctrl_control_init(struct cbqri_resctrl_res *cbqri_res)
- 		INIT_LIST_HEAD(&res->mon_domains);
- 		break;
- 
-+	case RDT_RESOURCE_MB_WGHT:
-+		res->name = "MB_WGHT";
-+		res->schema_fmt = RESCTRL_SCHEMA_RANGE;
-+		res->ctrl_scope = RESCTRL_L3_CACHE;
-+		/* Mweight is a dimensionless ratio. No delay/linear concept. */
-+		res->membw.throttle_mode = THREAD_THROTTLE_UNDEFINED;
-+		/*
-+		 * CBQRI section 4.5: Mweight is 0-255 (0 disables
-+		 * work-conserving). No sum constraint, so leave
-+		 * default_to_min false. Groups default to max_bw.
-+		 */
-+		res->membw.min_bw = 0;
-+		res->membw.max_bw = 255;
-+		res->membw.bw_gran = 1;
-+		res->alloc_capable = ctrl->alloc_capable;
-+		INIT_LIST_HEAD(&res->ctrl_domains);
-+		INIT_LIST_HEAD(&res->mon_domains);
-+		break;
-+
- 	default:
- 		break;
- 	}
-@@ -747,13 +793,12 @@ static int cbqri_resctrl_control_init(struct cbqri_resctrl_res *cbqri_res)
- }
- 
- /*
-- * Pick one BC to back MB_MIN.  Multiple BCs must agree on rcid_count
-- * and mrbwb.  Mismatch is fatal because resctrl exposes a single set
-- * of caps per rid.
-+ * Pick one BC to back both MB_MIN and MB_WGHT.
-  */
- static int cbqri_resctrl_pick_bw_alloc(void)
- {
- 	struct cbqri_resctrl_res *mb_min = &cbqri_resctrl_resources[RDT_RESOURCE_MB_MIN];
-+	struct cbqri_resctrl_res *mb_wght = &cbqri_resctrl_resources[RDT_RESOURCE_MB_WGHT];
- 	struct cbqri_controller *ctrl;
- 
- 	list_for_each_entry(ctrl, &cbqri_controllers, list) {
-@@ -772,6 +817,7 @@ static int cbqri_resctrl_pick_bw_alloc(void)
- 		}
- 
- 		mb_min->ctrl = ctrl;
-+		mb_wght->ctrl = ctrl;
- 	}
- 
- 	return 0;
-@@ -1019,7 +1065,13 @@ static int cbqri_attach_cpu_to_one_bw_res(struct cbqri_controller *ctrl,
- static int cbqri_attach_cpu_to_bw_ctrl(struct cbqri_controller *ctrl,
- 				       unsigned int cpu)
- {
--	return cbqri_attach_cpu_to_one_bw_res(ctrl, RDT_RESOURCE_MB_MIN, cpu);
-+	int err;
-+
-+	err = cbqri_attach_cpu_to_one_bw_res(ctrl, RDT_RESOURCE_MB_MIN, cpu);
-+	if (err)
-+		return err;
-+
-+	return cbqri_attach_cpu_to_one_bw_res(ctrl, RDT_RESOURCE_MB_WGHT, cpu);
- }
- 
- static void cbqri_detach_cpu_from_l3_mon(struct rdt_resource *res,
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 390353a6153a..dd65248df117 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -596,6 +596,7 @@ config RISCV_ISA_SSQOSID
+ 	depends on 64BIT
+ 	default n
+ 	select ARCH_HAS_CPU_RESCTRL
++	select RISCV_CBQRI_DRIVER
+ 	help
+ 	  Adds support for the Ssqosid ISA extension (Supervisor-mode
+ 	  Quality of Service ID).
 
 -- 
 2.43.0
