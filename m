@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C99CD5BAB
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 08:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 609CBCD5BC7
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 13:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h3C0HngyFERvu6/mnENqHY0O2hAPtTr1/QmJ7mqaIww=; b=hWqXhfX12hn/on
-	qBT4g2Xdf1SEVEVrzvXpBDZSyJCDhkaN0FT0sK1YEYYalNsWpwPgpNRK7vtpAhzjuyKDgOBgysidB
-	3kOORKlUMEwNwSpPlCxaN1pOKJCrQkVL5h8lQ/SA0UHQoLn5rNrBY1RhiFA05TLT2NfOMy9fyYXbp
-	Z+b3uNbEzllyqSVPGfrAk/sEqtQLNJTZiMh8ADUA6untbzkJv4+XeiDTYBKei17iEOsVZJkXeNoqb
-	jMcrkXA+R1Y8bt74DcbyAKl/RwdFfGveKojfETxQcCYY/2ZctaeVgEDQhEHgWwYXY9hrFtBiuZvsb
-	+u7BSuGbf+yOqhkY5jIw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=o3GLcf+1xAjR+6ShKl5iNv3tBjgurVc3Vp+Qq/0UUrE=; b=BmqMBPHQN7N8ek
+	zLyXMNDs1M0xrh0SF3SHr1qgVpsv+GFsY8JbUj9g/JIsKeM7YV+HldE0hogi87RSKSp2qKFQZQNgw
+	f8AFggvTAOwM8MxVNvqM7DQjSwivUZ/xMo+5zNSllfAIjOyl0qdT1SOdxNYt04HZ5CMaCHvuqvSXv
+	9vi6b07c6j9iXFWJmqxLejLnKaNhcJc4c3YACLuq3CCtwZDIAZ9qP+bdF3T4YWzpsqhA6h5fj7VPK
+	JwDNVSQ5I6JgjxfI9TLS1se9iQhcCJ+jk67r0JF6acqFW1lTGRozLuGoV/n6qeEcDxRLEEOsXnLWB
+	YDXgKbU8h/aeLXY7YaSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wR40l-0000000EfwJ-1GsH;
-	Sun, 24 May 2026 08:16:39 +0000
-Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
+	id 1wR8eN-0000000Ezw1-1igL;
+	Sun, 24 May 2026 13:13:51 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wR40i-0000000Efvp-1K9a
+	id 1wR8eK-0000000EzvW-0Z41
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 May 2026 08:16:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779610587; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cUOwPIx6qfiFmgLCH5f3QxNtUdUWMlcLeq+/824dVkd4j+AS+EcnDJcUlsA5KhfnowH+99Zu9asZcxv+8bIA9QeRGlb6ZGv1vb5oT78yQypTPlTSvT5qJYXJCl8cJMzfGNk7th7jwZemJFodGRFmgvWf/D2vUOypwO19e+xFB3w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779610587; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=f+BcqMfSRMkHNRkV+bnfbEWhWrwUx4sqId1SmAVeFZA=; 
-	b=dmC8iQDcB3WUrZgX9T0Pqs9fXuqSXhN/uRaXxOZqoFBMPVJMlFu93GJvpA5P1eYFw4PGhaqvFAY+yyd3OKsSjy8ILSDaCz12ReRf7U15trYjIaRd05QCw+U4ttOzXsgNrr4dZ0X1L2REYQSGRwEljQE5f3HRyVj7skKen8sg4mE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779610587;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
-	bh=f+BcqMfSRMkHNRkV+bnfbEWhWrwUx4sqId1SmAVeFZA=;
-	b=AedBdfyXsgDs6fl69lPu03X3jaQMDrHVby1SRFy69EV4IQjkerMKUcGdj/H+CU45
-	z8DRnGJ1oUKVPf2QqwGUhNEkiz8Z9L2L+J8f68+gUVurFwoHvyDGjPIAyTwsEhJbvU6
-	6yzaYu/R9fRE4HGsn4gMaQBDvmB5ys+wOrChUfLY=
-Received: by mx.zohomail.com with SMTPS id 1779610584243760.6124410802614;
-	Sun, 24 May 2026 01:16:24 -0700 (PDT)
-Message-ID: <89885938-f126-4e1b-aedb-3edb2da5df2d@zohomail.com>
-Date: Sun, 24 May 2026 16:16:06 +0800
+	Sun, 24 May 2026 13:13:49 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-83ea84df1d0so2880185b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 24 May 2026 06:13:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779628426; x=1780233226; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KH7lD2kPuCDnCeLXXndiPaFJorhGJZaX8sM6bkfuBZU=;
+        b=h5M5YXF7PpdeOsR1AX9LfKW9BLoXg6p3LuXHp9p7m17MT2O8TR1pC1FzNuBOSiF6Dh
+         OGcaAaEk3e4I4RKgkuryCEyebUhanX2+XaBVDUUl+eGF3ey081nNP7Q8H7tQ3UeVO3zy
+         zMafE1DleXNSpc8qgrKp16qc+tr+9ouKu6kkq35PbpCl3J7RLmzpNfafYjvakqrRqh1A
+         yi2n9D9KK5XcVJjPk3g0L66uYFEwKRspfbKKZ7KcM3XLKW9bhVL0eLt3OI470UXHqOsM
+         Lg4K8x0T7nyziDfT8TG1NyZEjKTqW4dv+msIXoagYgcsWB6T4O0Al1RBQucf7ydTN8fN
+         G82g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779628426; x=1780233226;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KH7lD2kPuCDnCeLXXndiPaFJorhGJZaX8sM6bkfuBZU=;
+        b=RckEKmamNLX64Jnpweirh7QIDOLDL2xZN8wTnCwi6WgqoYg3KV/RtIGB/VMmplRpp3
+         q0UETxVIC2QVVSpFegYVVLmpUczAN/7tTAm5dhJ5zIGldp+r5TiRttk6HOTb0dIP3f3/
+         3WlM//WOWyZytJhSkZ/6xEG+2avZx9xOf1Bd+f2mpmAFjbuxpO7UXeAQRo8ZBgdfXyol
+         Pclcwtfk7bbN7LnetH0Uhupfcx5rHx1xCnUP5iUeb+G9JEVIy3PiXGexta/LjOtdy58v
+         sejzRb/01JvpIcc3sd7y00/Gc4jFr1xl0JPBvUtwZpx3UPLXHRWvNdUKhf79epcs3zAO
+         uh6w==
+X-Gm-Message-State: AOJu0YwuCZgyhX2UuNS2yIEvoovpFN3I6ng9gRVlxXz44igffRQuymft
+	ilV8Ieh23EKCAXtVxln90rvUFPljpSyey3o3YSpm5eeODHEDJIhjR8HG
+X-Gm-Gg: Acq92OFlG8n7jXyGuaA5mnEVhVSMeN0XuVM2elS2W5OWs9swbrwKrUGnTjD2pUMHATp
+	/iVZQ69Ghoc8V66DxW2f/OmaFgHjARYypZ4QKKmn069PiAxxVV0ROqMou/T6YbWdmMGEBKfDSMI
+	kaF2aUwJdo5/uvOSUoI9ixadWarjfs1dkW7gRgwdtcqjW8dHCrVrShq0d+2T7xgkv0ILqQX6Dzx
+	cljlXZu/dU7Y+hkxTs1ztXIZcJnK5s9EfEXhWiROkzfsDpp5D9jmy3T0wM7Xi40p0KChfMCbPS4
+	BAUxIj5YErXeD0wvpaegPcdzMC6Byh/Z17z0/mGmySLWWuQFSGZCZlFxwwK7tzKd2m7vh0adJhW
+	fgPRMIQcpokxNOMRWdPZdVdemq0ULymqL6ilnTK85FSwVKFiTMMgdNysCPZq0Czp4G/UecQW1NJ
+	eDEz3Sze4cKiyKuGQ6s5SWi2cI5qQ=
+X-Received: by 2002:a05:6a00:a383:b0:82f:21ee:270e with SMTP id d2e1a72fcca58-8415f6d0bb4mr10541125b3a.42.1779628426474;
+        Sun, 24 May 2026 06:13:46 -0700 (PDT)
+Received: from guoguo-lecoo.lan ([104.28.159.63])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164fb28d5sm7163128b3a.41.2026.05.24.06.13.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 May 2026 06:13:46 -0700 (PDT)
+From: Chuanhong Guo <gch981213@gmail.com>
+Subject: [PATCH v2 0/3] clk: add Siflower SF21 topcrm support
+Date: Sun, 24 May 2026 21:13:05 +0800
+Message-Id: <20260524-sf21-topcrm-v2-0-4527aae05c3d@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: canaan: k230: Fix sparse warnings reported by LKP
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Samuel Holland <samuel.holland@sifive.com>,
- Troy Mitchell <TroyMitchell988@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-References: <20260522-eligible-vivacious-3ce9bc30dd53@wendy>
- <dee4605ca30f9bbd55ccb4fcce9590ceee1fa10b.1779453284.git.kingxukai@zohomail.com>
- <20260522-removed-lyricism-7c879febc3b3@spud>
- <1f74efd2-444f-4330-a1e8-62f75e85ecfa@zohomail.com>
- <20260523-punctual-backslid-712c06f0db61@spud>
-From: Xukai Wang <kingxukai@zohomail.com>
-Content-Language: en-US
-In-Reply-To: <20260523-punctual-backslid-712c06f0db61@spud>
-Feedback-ID: zu08011227a77cded047123cf15881bd2500005897bdee7dc29404c51879fd2aa9d5b7ee1f6dec0232dff2a8:ZohoMail
-X-Zoho-CM-AccountID: 2ee5dd3c83366259b2ba1e9826250ffebed1ef2dd213857d649ad25aba73b429
-X-ZohoMailClient: External
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/1XMTQrCMBCG4auUWTuSHxODK+8hXdSYtAOmKUkJS
+ sndjQUXLt8ZvmeD7BK5DJdug+QKZYpzC3HowE7DPDqkR2sQTGimuMLsBcc1LjYF5EZpy9Rdc2m
+ gLZbkPL127da3niivMb13vPDv9eec/5zCkeFJGi9c+0nvr2MY6Hm0MUBfa/0A4l5N6KYAAAA=
+X-Change-ID: 20260515-sf21-topcrm-1856c05b6138
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Yao Zi <me@ziyao.cc>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ Chuanhong Guo <gch981213@gmail.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_011636_416972_D8F0AD6B 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260524_061348_187818_EA536F11 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,31 +106,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Siflower SF21A6826 and SF21H8898 are RISC-V chips with quad-core
+T-Head C908 for home routers and gateways.
+This series adds the initial RISC-V Kconfig entry for Siflower SoCs and
+support for the toplevel clock and reset module on Siflower SF21 socs.
 
-On 2026/5/23 22:02, Conor Dooley wrote:
-> On Sat, May 23, 2026 at 03:00:15PM +0800, Xukai Wang wrote:
->> On 2026/5/23 04:39, Conor Dooley wrote:
->>> On Fri, May 22, 2026 at 08:59:12PM +0800, Xukai Wang wrote:
->>>> Fix all sparse warnings detected during LKP randconfig testing:
->>>> - Replace plain integer 0 with NULL.
->>>> - Add static modifier to k230_plls and k230_pll_divs.
->>>>
->>>> Reported-by: kernel test robot <lkp@intel.com>
->>>> Closes: https://lore.kernel.org/oe-kbuild-all/202605220724.j4ZeM3KI-lkp@intel.com/
->>>> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
->>> Forgot to reply earlier, but I went and squashed this in.
->> Thanks Conor!
-> I dunno if you saw my message about giving what I have in my
-> branches a go, but if you could try what's in the riscv-soc-for-next
-> branch, that'd be great. Just to make sure that I have all the bits in
-> place.
-I have successfully tested your riscv-soc-for-next branch on K230
-hardware. The clock controller probes correctly, and clk_summary shows
-all PLLs and clocks are running as expected.
+Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
+---
+Changes in v2:
+- drop "if TTY" condition in ARCH_SIFLOWER
+- drop "xin25m" in dt bindings for the possibility of a different
+  xtal frequency.
+- use index instead of fw_name for xtal clock in the driver.
+- drop unnecessary fixed-clock node in dt binding example.
+- name the top node "soc" instead of "/" to fix binding check
+  failure on missing "model" and "compatible".
+- drop SF21_RESET_MAX, rename SF21_CLK_MAX to SF21_NUM_CLKS and
+  define it in driver instead of binding header.
+- split dt binding header into separated clock and reset headers.
+- sort headers in the driver
+- add a shared sf21_dual_dividers for the two dividers in series
+  in CMNPLL and PCIEPLL.
+- multiply before divide for PLL VCO calculations.
+- change cpu and pic clock flags from ignore_unused to is_critical.
+- use guard macro for spinlocks.
+- split clock and reset locks and use raw_spinlock for clock lock.
+- select RATIONAL in Kconfig for clk driver.
+- use FIELD_MAX instead of BIT(x) - 1 for field max value.
 
--- 
+- Link to v1: https://lore.kernel.org/r/20260517-sf21-topcrm-v1-0-438f2e0513ff@gmail.com
+
+---
+Chuanhong Guo (3):
+      riscv: add Siflower RISC-V SoC family Kconfig support
+      dt-bindings: clock: add header/doc for Siflower sf21-topcrm
+      clk: add support for siflower sf21-topcrm
+
+ .../bindings/clock/siflower,sf21-topcrm.yaml       |   60 ++
+ arch/riscv/Kconfig.socs                            |    7 +
+ drivers/clk/Kconfig                                |    1 +
+ drivers/clk/Makefile                               |    1 +
+ drivers/clk/siflower/Kconfig                       |   23 +
+ drivers/clk/siflower/Makefile                      |    1 +
+ drivers/clk/siflower/clk-sf21-topcrm.c             | 1017 ++++++++++++++++++++
+ include/dt-bindings/clock/siflower,sf21-topcrm.h   |   42 +
+ include/dt-bindings/reset/siflower,sf21-topcrm.h   |   25 +
+ 9 files changed, 1177 insertions(+)
+---
+base-commit: c1ecb239fa3456529a32255359fc78b69eb9d847
+change-id: 20260515-sf21-topcrm-1856c05b6138
+
 Best regards,
-Xukai Wang
+-- 
+Chuanhong Guo <gch981213@gmail.com>
 
 
 _______________________________________________
