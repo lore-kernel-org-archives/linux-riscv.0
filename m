@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F458CD5BAB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0D1CD4F54
 	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lpNFmTzmTksl/tJuzTaAniDFEVgUyVeib6DRY9dBI54=; b=mKQFQxHd+zvJhM
-	KuUmLpzJSh+6dDryC9vAWfckH2EsqbBCkhBt6ze/Yg/sdoWwaoKgykAah3BR0CQFHXZtkr477i84v
-	QM4/QrN9t4XJCMTZBJG+Gk18Lqoet665Y8/CFBi3Eq6vu32vMBJc1RMWjDKm+Sve1vo9mQQvVwckE
-	uWlnbyzyG3uDCH+WRcjb5Zgvk2dwI1sObX2Zsn2n9/EB3XImT/NqhpnohFekROrcB10xiT6upE8w9
-	Hleh3LJdiEXs9RY6PJ+i+fUlqXVLN16Gt9RWgOY1Gt/RcPbVG0OaYCwhu4mPCHOhD1xUCBXPEZKbN
-	hgBv/Lmq4ajKdpXveJWg==;
+	List-Owner; bh=K/JZZC20+9BST0QLQfK15cyuqeZ4GBDvP+HuwN1DS8c=; b=0KI1tBZmb0nOLC
+	HqkTPkRvdxWt1AtHHLcK0kzIEDdl4GMilKwBRDymR38pVh32A14CSqicb64FKtSifAhVdlFHkT0zI
+	YsjDkYH8R/t9c9aeoo32w5tPOh8CtXOOlnKhPqpYyR1U82a22jgIA5vNY5cHpYgwq+6YPtJdq2axa
+	05V5AsRO9rhbCmvMHdpqnpfNoHDYGfQj2t/X2OydgjnOCQnyI66XHXbwH7WGXWVQoWTbUJSP2Sr6q
+	wbnUcVhl8c0dY2fckVbCo73Q7v8r8Ug2FCLiBergpSqAXyAidm1HpMXAmJIe3xP2c7o225AjzYlp3
+	cETiHZGxSng6HFwV851g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhQ-0000000FsW5-0YKK;
+	id 1wRIhQ-0000000FsW9-0vTR;
 	Sun, 24 May 2026 23:57:40 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhL-0000000FsTi-17MF
+	id 1wRIhM-0000000FsUE-028g
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 May 2026 23:57:36 +0000
+	Sun, 24 May 2026 23:57:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F22F640E01;
-	Sun, 24 May 2026 23:57:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B1D81F0155E;
+	by sea.source.kernel.org (Postfix) with ESMTP id B2C1844030;
+	Sun, 24 May 2026 23:57:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F04961F0155F;
 	Sun, 24 May 2026 23:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779667054;
-	bh=pLFiy62tMx7JeOsNO0x0pvKlEUaU3G7gNAtoyChnKRs=;
+	s=k20260515; t=1779667055;
+	bh=bMpLloap6PiHKBmR2q+lkFW8XbOS+M/R8KIqzK/QRe8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=GMg9Z8WaGByE/GnNqJ/v2cfgGtESFSyPLUaNDIReCmO38LfS7F5zxx6Mdi3PoNvFA
-	 mTxWGWS0DyBDzpFfDnOaFRcBRVdtj0xanHzRMS/s9jd6oiCa8SXcz5kFFF09z3ddq9
-	 8m9+M1dwKsuRMl9E1TreiB2AJzw5sii1awY/6Xg32v707KGMngtfVpPLr90A2vXPO8
-	 40ebvQ4rpht3duJmCmfB9BTRKbjjiPR7NMb7g53dd6FAe65UciQ1WoVsYIT9reacuE
-	 rSrSFW+RDixLG+TkaP+zk7OBW0bCFq+xjhPCNo7szPWJ/4SLaWXly5kx2WVmMnQmKl
-	 v9BI2o6iEn1Ag==
+	b=F+92C/1auw/zl+CcnOKmKGFuP9GPhmcl/vLhe3laue9CQuGhWoOfFF/nQimXkfQ61
+	 /fDfEVV3H3ey17QGZiCfdtf1UCnzWqnl8qJVc+HbyyfgIbeCzlAv1zD4smopZbk6E0
+	 4ou6vDn6KhWhJbC1Ln90oi0qYVymKH/tJzZR7ofm4oNhCeHo4LDu0v/TJkqBSnIClQ
+	 krXo7XF3lixAK2LDHStLRfjUWNDsKTpmGrh6bcYF+olJDxUDFETtnxNpwFccixp+lP
+	 OLzEIaDoNnbEvU4dimugTP9kOjRsZLCvkqKBGChLCv74P+xn4GPRL1FYqdpExRjNFZ
+	 /bt6ghIJHTxzA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 24 May 2026 16:55:35 -0700
-Subject: [PATCH RFC v5 05/18] fs/resctrl: Add RDT_RESOURCE_MB_MIN and
- RDT_RESOURCE_MB_WGHT
+Date: Sun, 24 May 2026 16:55:36 -0700
+Subject: [PATCH RFC v5 06/18] fs/resctrl: Let bandwidth resources default
+ to min_bw at reset
 MIME-Version: 1.0
-Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-5-78d3a7ba9dbe@kernel.org>
+Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-6-78d3a7ba9dbe@kernel.org>
 References: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 In-Reply-To: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,17 +86,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1641; i=fustini@kernel.org;
- h=from:subject:message-id; bh=ewfeCcD9Ot0T200VQaUyxNc64vTwsILDn7MzeFMv3kU=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8i4L/ydY8KSU09VjbvZmfctiXrecDDXPMmxPXJV8
- GfvN9sWd5SyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAm8v0rw//QkEaBp3e7PaeE
- TtdTND6ZwCN88/6vBVeP/rAzUQ35Of0kw/8y1jUzGHNOLd4dIBx0cZO0mNNUIS/2g+5hR0Tu/T8
- hoc0NAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=umPX9KI/Gk5be4QxBnpv0rW9Oy0Ozoiycv8rX5MjK6Y=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8icN8FsBbue+1+zLY+4pQ/vWcvN57mm+1lDU+Xmf
+ 2dkszXFOkpZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQATiVnB8IfbQziwwqh32U2D
+ l7tm2byf8pNh6g7OGQ8k932/zLziMLcUI8PkK4/yaiMbp9bt3bd/qdOT1mDrJkEmvj7WVsvM4gU
+ M3rwA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_165735_360091_C0BE6FDB 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260524_165736_090826_0267A0B7 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,54 +113,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce bandwidth controls which are semantically different from
-the throttle-based MB resource:
+Bandwidth resources reset to max_bw on group creation today, which is
+the right default for MBA and SMBA. However, it is the wrong default for
+hardware whose registers form a sum-constrained reservation: defaulting
+every new group to max_bw would immediately violate the sum on the first
+mkdir.
 
-- RDT_RESOURCE_MB_MIN: minimum reserved bandwidth
-- RDT_RESOURCE_MB_WGHT: weighted share of unreserved bandwidth
+When default_to_min is set, resctrl_get_default_ctrl() returns min_bw
+for the resource. The existing MBA and SMBA behavior is not changed.
 
 Assisted-by: Claude:claude-opus-4-7
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- fs/resctrl/rdtgroup.c   | 4 +++-
- include/linux/resctrl.h | 2 ++
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ include/linux/resctrl.h | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 0f331bf5ce82..02733b11e115 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -1555,7 +1555,7 @@ bool is_mba_sc(struct rdt_resource *r)
- 	return r->membw.mba_sc;
- }
- 
--/* RANGE schema is bandwidth (MBA/SMBA). BITMAP is cache. */
-+/* RANGE schema is bandwidth (MBA/SMBA/MB_MIN/MB_WGHT). BITMAP is cache. */
- bool resctrl_is_membw(struct rdt_resource *r)
- {
- 	return r->schema_fmt == RESCTRL_SCHEMA_RANGE;
-@@ -2402,6 +2402,8 @@ static unsigned long fflags_from_resource(struct rdt_resource *r)
- 		return RFTYPE_RES_CACHE;
- 	case RDT_RESOURCE_MBA:
- 	case RDT_RESOURCE_SMBA:
-+	case RDT_RESOURCE_MB_MIN:
-+	case RDT_RESOURCE_MB_WGHT:
- 		return RFTYPE_RES_MB;
- 	case RDT_RESOURCE_PERF_PKG:
- 		return RFTYPE_RES_PERF_PKG;
 diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 006e57fd7ca5..9529ed0d1fdf 100644
+index 9529ed0d1fdf..bcbc166412ef 100644
 --- a/include/linux/resctrl.h
 +++ b/include/linux/resctrl.h
-@@ -53,6 +53,8 @@ enum resctrl_res_level {
- 	RDT_RESOURCE_L2,
- 	RDT_RESOURCE_MBA,
- 	RDT_RESOURCE_SMBA,
-+	RDT_RESOURCE_MB_MIN,
-+	RDT_RESOURCE_MB_WGHT,
- 	RDT_RESOURCE_PERF_PKG,
+@@ -247,7 +247,13 @@ enum membw_throttle_mode {
+ /**
+  * struct resctrl_membw - Memory bandwidth allocation related data
+  * @min_bw:		Minimum memory bandwidth percentage user can request
+- * @max_bw:		Maximum memory bandwidth value, used as the reset value
++ * @max_bw:		Maximum memory bandwidth value a group can be
++ *			configured with
++ * @default_to_min:	When true, the default control value for new
++ *			groups and reset is @min_bw instead of @max_bw.
++ *			Drivers whose hardware enforces a sum constraint
++ *			across groups (e.g. CBQRI MB_MIN) set this so
++ *			mkdir does not overflow the sum.
+  * @bw_gran:		Granularity at which the memory bandwidth is allocated
+  * @delay_linear:	True if memory B/W delay is in linear scale
+  * @arch_needs_linear:	True if we can't configure non-linear resources
+@@ -259,6 +265,7 @@ enum membw_throttle_mode {
+ struct resctrl_membw {
+ 	u32				min_bw;
+ 	u32				max_bw;
++	bool				default_to_min;
+ 	u32				bw_gran;
+ 	u32				delay_linear;
+ 	bool				arch_needs_linear;
+@@ -405,7 +412,7 @@ static inline u32 resctrl_get_default_ctrl(struct rdt_resource *r)
+ 	case RESCTRL_SCHEMA_BITMAP:
+ 		return BIT_MASK(r->cache.cbm_len) - 1;
+ 	case RESCTRL_SCHEMA_RANGE:
+-		return r->membw.max_bw;
++		return r->membw.default_to_min ? r->membw.min_bw : r->membw.max_bw;
+ 	}
  
- 	/* Must be the last */
+ 	return WARN_ON_ONCE(1);
 
 -- 
 2.43.0
