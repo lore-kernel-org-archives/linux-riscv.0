@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0D1CD4F54
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC57CD5BB4
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K/JZZC20+9BST0QLQfK15cyuqeZ4GBDvP+HuwN1DS8c=; b=0KI1tBZmb0nOLC
-	HqkTPkRvdxWt1AtHHLcK0kzIEDdl4GMilKwBRDymR38pVh32A14CSqicb64FKtSifAhVdlFHkT0zI
-	YsjDkYH8R/t9c9aeoo32w5tPOh8CtXOOlnKhPqpYyR1U82a22jgIA5vNY5cHpYgwq+6YPtJdq2axa
-	05V5AsRO9rhbCmvMHdpqnpfNoHDYGfQj2t/X2OydgjnOCQnyI66XHXbwH7WGXWVQoWTbUJSP2Sr6q
-	wbnUcVhl8c0dY2fckVbCo73Q7v8r8Ug2FCLiBergpSqAXyAidm1HpMXAmJIe3xP2c7o225AjzYlp3
-	cETiHZGxSng6HFwV851g==;
+	List-Owner; bh=xHTyYsmdZjbAYPCkQYcl/XyF1m+xZqwC6x6xgBkp/pQ=; b=F6/zOOixKl/gda
+	6Lg+8fxPFotBq+6Xx+9EtkQlKvLlkFV20Er6NxUhTD8pqPTU+dKoKWl9NITjnamhB9CRbnhKht47A
+	EkdqKDmfClsKr5v465mrQmmjNHvm5bb9ZOc0p64jCdarY04m2atdN++Mehwz9NXAl+4s++LQBU4CD
+	tELciC2RGO0JlXJywZle7OFDkPkv+rt4oAVV//7iamVIUH6UmY+10bnlcwBPyPZdMkHOHMOP9mKAq
+	UqwgGuIsPghbhdigmquoPEPoPpbIcV3RDFqgyVUKgjlTCUOGPdsynxJ7c/yzPbW2A5BkwTCZ8hzMO
+	j2dQdpm9M+8+3+bYiHBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhQ-0000000FsW9-0vTR;
-	Sun, 24 May 2026 23:57:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRIhY-0000000FsaS-38Ja;
+	Sun, 24 May 2026 23:57:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhM-0000000FsUE-028g
+	id 1wRIhU-0000000FsXu-2ewV
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 May 2026 23:57:37 +0000
+	Sun, 24 May 2026 23:57:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2C1844030;
-	Sun, 24 May 2026 23:57:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F04961F0155F;
-	Sun, 24 May 2026 23:57:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE6574365B;
+	Sun, 24 May 2026 23:57:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A18A1F01568;
+	Sun, 24 May 2026 23:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779667055;
-	bh=bMpLloap6PiHKBmR2q+lkFW8XbOS+M/R8KIqzK/QRe8=;
+	s=k20260515; t=1779667063;
+	bh=6zw1YkJkBQFnyL3MGMXlh5Ks8e9UJTAJTqAov2MLs5U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=F+92C/1auw/zl+CcnOKmKGFuP9GPhmcl/vLhe3laue9CQuGhWoOfFF/nQimXkfQ61
-	 /fDfEVV3H3ey17QGZiCfdtf1UCnzWqnl8qJVc+HbyyfgIbeCzlAv1zD4smopZbk6E0
-	 4ou6vDn6KhWhJbC1Ln90oi0qYVymKH/tJzZR7ofm4oNhCeHo4LDu0v/TJkqBSnIClQ
-	 krXo7XF3lixAK2LDHStLRfjUWNDsKTpmGrh6bcYF+olJDxUDFETtnxNpwFccixp+lP
-	 OLzEIaDoNnbEvU4dimugTP9kOjRsZLCvkqKBGChLCv74P+xn4GPRL1FYqdpExRjNFZ
-	 /bt6ghIJHTxzA==
+	b=Ye5sMmL9MvPLy4QfN7iXXEipJR2VhITZAPpXP06Z2vvZ3c7qP4KCh5TTwrjB3RYZZ
+	 syHszdVVwc2HvZCoRdhhP2+L5acx8CYvrYmfc2tNqz1JpUg3L0ejflI+9+auQkvz60
+	 R4AaainoxWsKoi0bSxeUi2+a+QI1lBRNXj1unpLtN5Is0gmClse40PAFukhf3NiVW9
+	 IugmUW+jGdiL/TI6X3aRWd9Q54JODyqzujrLrp35eTKTamTfNeeJxILloeJ/9C7+xk
+	 e4Xn4mIr/rp9ztLfCX6nQmSnq5vhjC3GtjPQXbodfzUODlpluRKPgA9Uo92tSn1aCC
+	 3s9TOSQ8/QgFQ==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 24 May 2026 16:55:36 -0700
-Subject: [PATCH RFC v5 06/18] fs/resctrl: Let bandwidth resources default
- to min_bw at reset
+Date: Sun, 24 May 2026 16:55:47 -0700
+Subject: [PATCH RFC v5 17/18] ACPI: RISC-V: Add support for RISC-V Quality
+ of Service Controller (RQSC)
 MIME-Version: 1.0
-Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-6-78d3a7ba9dbe@kernel.org>
+Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-17-78d3a7ba9dbe@kernel.org>
 References: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 In-Reply-To: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,17 +86,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=fustini@kernel.org;
- h=from:subject:message-id; bh=umPX9KI/Gk5be4QxBnpv0rW9Oy0Ozoiycv8rX5MjK6Y=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8icN8FsBbue+1+zLY+4pQ/vWcvN57mm+1lDU+Xmf
- 2dkszXFOkpZGMS4GGTFFFk2fci7sMQr9OuC+S+2wcxhZQIZwsDFKQATiVnB8IfbQziwwqh32U2D
- l7tm2byf8pNh6g7OGQ8k932/zLziMLcUI8PkK4/yaiMbp9bt3bd/qdOT1mDrJkEmvj7WVsvM4gU
- M3rwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1706; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=J9k+kdxn9VBh2gcTNNCv4EIpVuWkTdzFDdzbka+fNg8=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8ha1/b1f0v1xHCW0Mk11ZqaUh9/9sS67OIQVFo/N
+ /f79n2CHaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJ8N5hZFjM41590WlqqzH/
+ H5/3POltdc0GcrN2dumIVPjMlGw61MjIsLPlglSu6ZGY+VeKnrVsdilbdPl9xL19ols7G25OfJh
+ eyQQA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_165736_090826_0267A0B7 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20260524_165744_718190_C1407A4E 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,57 +113,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Bandwidth resources reset to max_bw on group creation today, which is
-the right default for MBA and SMBA. However, it is the wrong default for
-hardware whose registers form a sum-constrained reservation: defaulting
-every new group to max_bw would immediately violate the sum on the first
-mkdir.
+Call acpi_parse_rqsc() from acpi_arch_init() to discover CBQRI
+controllers when an RQSC table is present.
 
-When default_to_min is set, resctrl_get_default_ctrl() returns min_bw
-for the resource. The existing MBA and SMBA behavior is not changed.
+Gate on CONFIG_RISCV_CBQRI_DRIVER rather than CONFIG_RISCV_ISA_SSQOSID
+so a kernel built with the ISA extension but without the driver (e.g.
+RESCTRL_FS=n) does not walk the table and print a misleading "found 0
+CBQRI controllers" line on every boot.
 
+Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
 Assisted-by: Claude:claude-opus-4-7
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- include/linux/resctrl.h | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ drivers/acpi/riscv/init.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 9529ed0d1fdf..bcbc166412ef 100644
---- a/include/linux/resctrl.h
-+++ b/include/linux/resctrl.h
-@@ -247,7 +247,13 @@ enum membw_throttle_mode {
- /**
-  * struct resctrl_membw - Memory bandwidth allocation related data
-  * @min_bw:		Minimum memory bandwidth percentage user can request
-- * @max_bw:		Maximum memory bandwidth value, used as the reset value
-+ * @max_bw:		Maximum memory bandwidth value a group can be
-+ *			configured with
-+ * @default_to_min:	When true, the default control value for new
-+ *			groups and reset is @min_bw instead of @max_bw.
-+ *			Drivers whose hardware enforces a sum constraint
-+ *			across groups (e.g. CBQRI MB_MIN) set this so
-+ *			mkdir does not overflow the sum.
-  * @bw_gran:		Granularity at which the memory bandwidth is allocated
-  * @delay_linear:	True if memory B/W delay is in linear scale
-  * @arch_needs_linear:	True if we can't configure non-linear resources
-@@ -259,6 +265,7 @@ enum membw_throttle_mode {
- struct resctrl_membw {
- 	u32				min_bw;
- 	u32				max_bw;
-+	bool				default_to_min;
- 	u32				bw_gran;
- 	u32				delay_linear;
- 	bool				arch_needs_linear;
-@@ -405,7 +412,7 @@ static inline u32 resctrl_get_default_ctrl(struct rdt_resource *r)
- 	case RESCTRL_SCHEMA_BITMAP:
- 		return BIT_MASK(r->cache.cbm_len) - 1;
- 	case RESCTRL_SCHEMA_RANGE:
--		return r->membw.max_bw;
-+		return r->membw.default_to_min ? r->membw.min_bw : r->membw.max_bw;
- 	}
+diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+index 7c00f7995e86..129ebfae28be 100644
+--- a/drivers/acpi/riscv/init.c
++++ b/drivers/acpi/riscv/init.c
+@@ -5,11 +5,32 @@
+  */
  
- 	return WARN_ON_ONCE(1);
+ #include <linux/acpi.h>
++#include <linux/cleanup.h>
+ #include "init.h"
++#include "rqsc.h"
+ 
+ void __init acpi_arch_init(void)
+ {
+ 	riscv_acpi_init_gsi_mapping();
++
+ 	if (IS_ENABLED(CONFIG_ACPI_RIMT))
+ 		riscv_acpi_rimt_init();
++
++	if (IS_ENABLED(CONFIG_RISCV_CBQRI_DRIVER)) {
++		struct acpi_table_header *rqsc __free(acpi_put_table) = NULL;
++		acpi_status status = acpi_get_table(ACPI_SIG_RQSC, 0, &rqsc);
++
++		if (status == AE_NOT_FOUND) {
++			/* RQSC is optional. Silence on systems without it. */
++		} else if (ACPI_FAILURE(status)) {
++			pr_err("RQSC: failed to get table: %s\n",
++			       acpi_format_exception(status));
++		} else {
++			int rc = acpi_parse_rqsc(rqsc);
++
++			if (rc < 0)
++				pr_err("RQSC: failed to parse table: %d\n",
++				       rc);
++		}
++	}
+ }
 
 -- 
 2.43.0
