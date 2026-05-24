@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC57CD5BB4
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A61CCD5BC9
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 May 2026 23:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xHTyYsmdZjbAYPCkQYcl/XyF1m+xZqwC6x6xgBkp/pQ=; b=F6/zOOixKl/gda
-	6Lg+8fxPFotBq+6Xx+9EtkQlKvLlkFV20Er6NxUhTD8pqPTU+dKoKWl9NITjnamhB9CRbnhKht47A
-	EkdqKDmfClsKr5v465mrQmmjNHvm5bb9ZOc0p64jCdarY04m2atdN++Mehwz9NXAl+4s++LQBU4CD
-	tELciC2RGO0JlXJywZle7OFDkPkv+rt4oAVV//7iamVIUH6UmY+10bnlcwBPyPZdMkHOHMOP9mKAq
-	UqwgGuIsPghbhdigmquoPEPoPpbIcV3RDFqgyVUKgjlTCUOGPdsynxJ7c/yzPbW2A5BkwTCZ8hzMO
-	j2dQdpm9M+8+3+bYiHBQ==;
+	List-Owner; bh=ddiTybOcdqbw7/uRBaCeFjEubnInqssBmcy36Aaj3zc=; b=rx6mAv92p9IzEP
+	mVy38SompV1U+ru5h5s4sVmP9nTYBlP7jYXQPXRf3/Y+mNQf8PmzpBwIliRFA8XWClL1ITcTu4Tr2
+	9NzpwF77CWlvtj/2wCDEqKcn4SCioDu/J2NbE9RVffyrL9RwvzYYRPvf+TkLxyuVs78QxiTDPZjhT
+	KvqyC+2q+XJ6TyXCy9RPGK+Z9W7u/KDkoIB5sOMRY9WLGaBLyDCRpGzh3Q5Y0PQ2MVr1lB9V7lFIF
+	lMvyViEZR4dFu+qHin/ahPkTGy1kNXKSkyy8Dc76OMvk2oQfzLmZBAJNnvnFWTvoACGh3M4H64bQt
+	zRH+7EBdgUz57wDj9VcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhY-0000000FsaS-38Ja;
-	Sun, 24 May 2026 23:57:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wRIhQ-0000000FsWE-1LFn;
+	Sun, 24 May 2026 23:57:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRIhU-0000000FsXu-2ewV
+	id 1wRIhN-0000000FsVR-3tkv
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 May 2026 23:57:45 +0000
+	Sun, 24 May 2026 23:57:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE6574365B;
-	Sun, 24 May 2026 23:57:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A18A1F01568;
-	Sun, 24 May 2026 23:57:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FAE7601FD;
+	Sun, 24 May 2026 23:57:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FC351F0155C;
+	Sun, 24 May 2026 23:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779667063;
-	bh=6zw1YkJkBQFnyL3MGMXlh5Ks8e9UJTAJTqAov2MLs5U=;
+	s=k20260515; t=1779667057;
+	bh=/gf5ocEMGVrm/gl7ucDMg1ohgBZccKNn9r/RVvyzqXg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Ye5sMmL9MvPLy4QfN7iXXEipJR2VhITZAPpXP06Z2vvZ3c7qP4KCh5TTwrjB3RYZZ
-	 syHszdVVwc2HvZCoRdhhP2+L5acx8CYvrYmfc2tNqz1JpUg3L0ejflI+9+auQkvz60
-	 R4AaainoxWsKoi0bSxeUi2+a+QI1lBRNXj1unpLtN5Is0gmClse40PAFukhf3NiVW9
-	 IugmUW+jGdiL/TI6X3aRWd9Q54JODyqzujrLrp35eTKTamTfNeeJxILloeJ/9C7+xk
-	 e4Xn4mIr/rp9ztLfCX6nQmSnq5vhjC3GtjPQXbodfzUODlpluRKPgA9Uo92tSn1aCC
-	 3s9TOSQ8/QgFQ==
+	b=C9uAaiZz/zX2CDRu42hJLbky7HPjkbqb5YRK7c6Q1uTXypfooC4CE3deaRQNzRY1c
+	 OhZ4ghQC0BaL6Z4g5bp2CJjaOBdWvrBJIe6AHbEL6w3n4lWKIcdEij0je8UvDZYiAS
+	 xsiC6OAC0Zr+Ugb5k4l76H9fc47zCys2WbDzE9pLBkyHlflH3IYjvvCUDWMbEqMYhb
+	 XLsvddymdoGOV0eKCB4yxzHDunATA8KPmNE41j0dsam+a4RBeZWE75D5a6k6igxCDo
+	 vGv4QbwatMwXL+hhGpfH9Oa6R08SZGexFAWz8DDkqxN4Yku66bhneQXJORKS7nr0jL
+	 7E0hJSjfCs0KA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 24 May 2026 16:55:47 -0700
-Subject: [PATCH RFC v5 17/18] ACPI: RISC-V: Add support for RISC-V Quality
- of Service Controller (RQSC)
+Date: Sun, 24 May 2026 16:55:38 -0700
+Subject: [PATCH RFC v5 08/18] riscv_cbqri: Add capacity controller
+ monitoring device ops
 MIME-Version: 1.0
-Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-17-78d3a7ba9dbe@kernel.org>
+Message-Id: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-8-78d3a7ba9dbe@kernel.org>
 References: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 In-Reply-To: <20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,17 +86,14 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1706; i=fustini@kernel.org;
- h=from:subject:message-id; bh=J9k+kdxn9VBh2gcTNNCv4EIpVuWkTdzFDdzbka+fNg8=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8ha1/b1f0v1xHCW0Mk11ZqaUh9/9sS67OIQVFo/N
- /f79n2CHaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJ8N5hZFjM41590WlqqzH/
- H5/3POltdc0GcrN2dumIVPjMlGw61MjIsLPlglSu6ZGY+VeKnrVsdilbdPl9xL19ols7G25OfJh
- eyQQA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6169; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=KSeuaYeV0iFU+JffHXhhJuQ12xnuLpzk0N1tloNJjn4=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQJT8g8fmD/jK+LOo+r/kozn2C1vS6x7aWa1cy/j+6tb
+ N21mvGWcUcpC4MYF4OsmCLLpg95F5Z4hX5dMP/FNpg5rEwgQxi4OAVgImm2DP+srCsZz83fdWNS
+ /1qv0OcmlYlLG3RPuBqxb3HyEVF0X7mDkeH9cUPLmk1hz16e+WPaLrvA/2rNvC6Th79rd7Qu8jg
+ vs5cFAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_165744_718190_C1407A4E 
-X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,59 +110,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Call acpi_parse_rqsc() from acpi_arch_init() to discover CBQRI
-controllers when an RQSC table is present.
+Add capacity monitoring operations. cbqri_init_mon_counters() pre-arms
+every MCID with the Occupancy event so a subsequent READ_COUNTER just
+snapshots the live counter without re-configuring the slot.
 
-Gate on CONFIG_RISCV_CBQRI_DRIVER rather than CONFIG_RISCV_ISA_SSQOSID
-so a kernel built with the ISA extension but without the driver (e.g.
-RESCTRL_FS=n) does not walk the table and print a misleading "found 0
-CBQRI controllers" line on every boot.
+cbqri_probe_cc() leaves ctrl->mon_capable false when cacheinfo has not
+given a non-zero cache_size, since the byte conversion would be
+meaningless. cbqri_mon_op() takes a reg_offset and serves both capacity
+and bandwidth mon_ctl registers as they share an identical layout.
 
-Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
-Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
 Assisted-by: Claude:claude-opus-4-7
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- drivers/acpi/riscv/init.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/resctrl/cbqri_devices.c  | 82 ++++++++++++++++++++++++++++++++++++++++
+ drivers/resctrl/cbqri_internal.h | 21 ++++++++++
+ 2 files changed, 103 insertions(+)
 
-diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
-index 7c00f7995e86..129ebfae28be 100644
---- a/drivers/acpi/riscv/init.c
-+++ b/drivers/acpi/riscv/init.c
-@@ -5,11 +5,32 @@
-  */
- 
- #include <linux/acpi.h>
-+#include <linux/cleanup.h>
- #include "init.h"
-+#include "rqsc.h"
- 
- void __init acpi_arch_init(void)
- {
- 	riscv_acpi_init_gsi_mapping();
-+
- 	if (IS_ENABLED(CONFIG_ACPI_RIMT))
- 		riscv_acpi_rimt_init();
-+
-+	if (IS_ENABLED(CONFIG_RISCV_CBQRI_DRIVER)) {
-+		struct acpi_table_header *rqsc __free(acpi_put_table) = NULL;
-+		acpi_status status = acpi_get_table(ACPI_SIG_RQSC, 0, &rqsc);
-+
-+		if (status == AE_NOT_FOUND) {
-+			/* RQSC is optional. Silence on systems without it. */
-+		} else if (ACPI_FAILURE(status)) {
-+			pr_err("RQSC: failed to get table: %s\n",
-+			       acpi_format_exception(status));
-+		} else {
-+			int rc = acpi_parse_rqsc(rqsc);
-+
-+			if (rc < 0)
-+				pr_err("RQSC: failed to parse table: %d\n",
-+				       rc);
-+		}
-+	}
+diff --git a/drivers/resctrl/cbqri_devices.c b/drivers/resctrl/cbqri_devices.c
+index a97511825eed..90a95fd11190 100644
+--- a/drivers/resctrl/cbqri_devices.c
++++ b/drivers/resctrl/cbqri_devices.c
+@@ -98,6 +98,43 @@ static int cbqri_cc_alloc_op(struct cbqri_controller *ctrl, int operation,
+ 	return 0;
  }
+ 
++/*
++ * Issue a monitoring op on a CC or BC controller's mon_ctl register at
++ * reg_offset (CBQRI_CC_MON_CTL_OFF or CBQRI_BC_MON_CTL_OFF). The CC and
++ * BC mon_ctl registers share an identical OP/MCID/EVT_ID/STATUS layout, so
++ * one helper covers both. Caller must hold ctrl->lock.
++ */
++int cbqri_mon_op(struct cbqri_controller *ctrl, int reg_offset,
++		 int operation, int mcid, int evt_id, u64 *out_reg)
++{
++	u64 reg;
++
++	lockdep_assert_held(&ctrl->lock);
++
++	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
++		pr_err_ratelimited("BUSY timeout before starting operation\n");
++		return -EIO;
++	}
++	FIELD_MODIFY(CBQRI_MON_CTL_OP_MASK, &reg, operation);
++	FIELD_MODIFY(CBQRI_MON_CTL_MCID_MASK, &reg, mcid);
++	FIELD_MODIFY(CBQRI_MON_CTL_EVT_ID_MASK, &reg, evt_id);
++	iowrite64(reg, ctrl->base + reg_offset);
++
++	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
++		pr_err_ratelimited("BUSY timeout\n");
++		return -EIO;
++	}
++
++	if (FIELD_GET(CBQRI_MON_CTL_STATUS_MASK, reg) !=
++	    CBQRI_MON_CTL_STATUS_SUCCESS)
++		return -EIO;
++
++	if (out_reg)
++		*out_reg = reg;
++
++	return 0;
++}
++
+ /*
+  * Apply a capacity block mask and verify via CONFIG_LIMIT + READ_LIMIT.
+  *
+@@ -318,6 +355,7 @@ static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
+ 
+ static int cbqri_probe_cc(struct cbqri_controller *ctrl)
+ {
++	bool has_mon_at_code = false;
+ 	int err, status;
+ 	u64 reg;
+ 
+@@ -369,6 +407,28 @@ static int cbqri_probe_cc(struct cbqri_controller *ctrl)
+ 	}
+ 	cpus_read_unlock();
+ 
++	/* Probe monitoring features */
++	err = cbqri_probe_feature(ctrl, CBQRI_CC_MON_CTL_OFF,
++				  CBQRI_CC_MON_CTL_OP_READ_COUNTER, &status,
++				  &has_mon_at_code);
++	if (err)
++		return err;
++
++	if (status == CBQRI_MON_CTL_STATUS_SUCCESS) {
++		/*
++		 * Occupancy is reported to userspace in bytes, computed as
++		 * cache_size * counter / ncblks by the resctrl glue. If
++		 * cacheinfo has no cache_size, leave mon_capable false so
++		 * the file is not exposed at all rather than silently
++		 * returning 0.
++		 */
++		if (!ctrl->cache.cache_size)
++			pr_debug("CC @%pa: cache_size unknown, occupancy monitoring disabled\n",
++				 &ctrl->addr);
++		else
++			ctrl->mon_capable = true;
++	}
++
+ 	/* Probe allocation features */
+ 	err = cbqri_probe_feature(ctrl, CBQRI_CC_ALLOC_CTL_OFF,
+ 				  CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT,
+@@ -436,6 +496,28 @@ static int cbqri_probe_controller(struct cbqri_controller *ctrl)
+ 	return err;
+ }
+ 
++/*
++ * Pre-arm every MCID with the Occupancy event so a subsequent READ_COUNTER
++ * just snapshots the live counter rather than re-configuring the slot.
++ * Called once per CC during resctrl-side cpuhp online for the L3 monitoring
++ * domain.
++ */
++int cbqri_init_mon_counters(struct cbqri_controller *ctrl)
++{
++	int i, err;
++
++	for (i = 0; i < ctrl->mcid_count; i++) {
++		mutex_lock(&ctrl->lock);
++		err = cbqri_mon_op(ctrl, CBQRI_CC_MON_CTL_OFF,
++				   CBQRI_CC_MON_CTL_OP_CONFIG_EVENT,
++				   i, CBQRI_CC_EVT_ID_OCCUPANCY, NULL);
++		mutex_unlock(&ctrl->lock);
++		if (err)
++			return err;
++	}
++	return 0;
++}
++
+ void cbqri_controller_destroy(struct cbqri_controller *ctrl)
+ {
+ 	/*
+diff --git a/drivers/resctrl/cbqri_internal.h b/drivers/resctrl/cbqri_internal.h
+index cce13026a11e..e776b0267837 100644
+--- a/drivers/resctrl/cbqri_internal.h
++++ b/drivers/resctrl/cbqri_internal.h
+@@ -11,6 +11,8 @@
+ 
+ /* Capacity Controller (CC) MMIO register offsets. */
+ #define CBQRI_CC_CAPABILITIES_OFF 0
++#define CBQRI_CC_MON_CTL_OFF      8
++#define CBQRI_CC_MON_CTL_VAL_OFF 16
+ #define CBQRI_CC_ALLOC_CTL_OFF   24
+ #define CBQRI_CC_BLOCK_MASK_OFF  32
+ 
+@@ -39,6 +41,20 @@
+ #define CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT   2
+ #define CBQRI_CC_ALLOC_CTL_STATUS_SUCCESS  1
+ 
++#define CBQRI_CC_MON_CTL_OP_CONFIG_EVENT 1
++#define CBQRI_CC_MON_CTL_OP_READ_COUNTER 2
++
++/* mon_ctl field masks (CC and BC share an identical OP/MCID/EVT_ID/STATUS layout) */
++#define CBQRI_MON_CTL_OP_MASK        GENMASK(4, 0)
++#define CBQRI_MON_CTL_MCID_MASK      GENMASK(19, 8)
++#define CBQRI_MON_CTL_EVT_ID_MASK    GENMASK(27, 20)
++#define CBQRI_MON_CTL_STATUS_MASK    GENMASK_ULL(38, 32)
++#define CBQRI_MON_CTL_STATUS_SUCCESS 1
++
++/* Capacity usage monitoring event IDs (CBQRI spec Table 4) */
++#define CBQRI_CC_EVT_ID_NONE         0
++#define CBQRI_CC_EVT_ID_OCCUPANCY    1
++
+ /* Capacity Controller hardware capabilities */
+ struct riscv_cbqri_capacity_caps {
+ 	u16 ncblks;
+@@ -125,4 +141,9 @@ int cbqri_apply_cache_config(struct cbqri_controller *ctrl, u32 closid,
+ int cbqri_read_cache_config(struct cbqri_controller *ctrl, u32 closid,
+ 			    enum cbqri_at at, u32 *cbm_out);
+ 
++int cbqri_mon_op(struct cbqri_controller *ctrl, int reg_offset,
++		 int operation, int mcid, int evt_id, u64 *out_reg);
++
++int cbqri_init_mon_counters(struct cbqri_controller *ctrl);
++
+ #endif /* _DRIVERS_RESCTRL_CBQRI_INTERNAL_H */
 
 -- 
 2.43.0
