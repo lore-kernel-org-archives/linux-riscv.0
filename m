@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A85FCD5BD0
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 May 2026 12:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF13CD5BB1
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 May 2026 13:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FnFYaGfBFJ+DPbXQ3ZMIBEssZ2gyy9t0D7EJoAwpYA4=; b=PThM7DAwbuhZ4o
-	DxX8nozhWQTpy5slkulxAXpIeeQ6afIvm3+F96TyQDkiRS99lSUnYZ05hHVdn7FAn/xQeU1Q5Vhoe
-	72seaCpIu0Rm1nzBfv3CwEcjVFSnW9mzkXw16bIJBjh7XHIyg2uc0KCVpBkcm2P+igv+UZgon0v1J
-	cDzs0nUSeAmEgkn8E166mlpWEGf0rltijhz6xNZWr6h8w2VXdWKDLB5kmrS4dZw1e6iIH5loEoAso
-	hI+cWqVaHUdug5mLkeD6/uahS2wXX8H8B96ggfBUELs7bUE9Q67KiE/voajcwksWt05FdxZfMgCbZ
-	kZzcNcIuZDdd6hxCIvVg==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6QDgOsaw9gs8JV+smsjqtMF2DMmughieiWMRMdglETE=; b=wdZgntiBnwfgmB
+	1vyssMvXzbB6cPyAncDL4KYNswESpfT3N3feBINT31dYNKJc7Ruadf8R6CZYUlay11Ztdcx4evAUs
+	vVXY23mRBpw/XDPFINOZT0KuuGL/eiAWeIY7vv6WHA/yJCIXPoC+/iq7sIMRxBoWfXdtLWSdlBVuT
+	LIPRrT/Y11U2qZ8/rn2v3czg2Y7hqIqOM4bHSC+SAOHjL3bzk9oVPLtXvcJaW7uSDjn4qChgE3vDp
+	1Ord7hFQKF9xhABByY8IaXVcS3R+dpAFdu6Wx3Qe1wKil5LGu7yy89Kq9ztDnCoq23XSe1wej97sE
+	XWSbFRkwb20m8i8wBmoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUUQ-0000000HCSM-3JE9;
-	Mon, 25 May 2026 12:33:02 +0000
+	id 1wRV5L-0000000HHMT-3OaB;
+	Mon, 25 May 2026 13:11:11 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUUN-0000000HCRj-3SxV
+	id 1wRV5J-0000000HHM4-2CwD
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 May 2026 12:33:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7196441B0;
-	Mon, 25 May 2026 12:32:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01F7B1F000E9;
-	Mon, 25 May 2026 12:32:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779712378;
-	bh=pcXHjhTpKtr1K6sv89ixblt4tmYGJwk9oE+oZa0GpaY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=jdICNlEULNzIr3Rk/p/u+/4YhqCEH/LuU26Nyaho9Acr7ozu2uMrx8ZNlfAgckhtF
-	 vYBZZb4nEBxaihsphGkX4UPGeqk6gpvHYn4kn/fSdeaDZUudGdY3rU3N+8CDYU0nY5
-	 +7SBY9rorJS8Nfdl/Sw4DFP/jsUQVufREJRwz+kRkxx5wasebV+zHH7Qsqw/RqMCzj
-	 x7Pz2iJVGrbVDFNXB0XkWc92wzKbOxfS+yqDMoN3W7uRTTog3y5uJaVyTTyakzNWa9
-	 jLlWRjAIwloYBm1Frkraku4hXOxHmjiJh8+qQPxMc0swG5gKjfSR8FXSKWo57y2eHI
-	 gb94xowLTdHVw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Yixun Lan <dlan@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- jinmei.wei@spacemit.com
-In-Reply-To: <20260522-i2s-same-blk-v4-0-a71a86faaa20@linux.spacemit.com>
-References: <20260522-i2s-same-blk-v4-0-a71a86faaa20@linux.spacemit.com>
-Subject: Re: [PATCH v4 0/3] ASoC: add shared BCLK rate constraint for
- cross-DAI coordination
-Message-Id: <177970577309.18223.13869981116408028929.b4-ty@b4>
-Date: Mon, 25 May 2026 11:42:53 +0100
+	Mon, 25 May 2026 13:11:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A7B8243BE0;
+	Mon, 25 May 2026 13:11:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 79A46C2BCB3;
+	Mon, 25 May 2026 13:11:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779714666;
+	bh=gJANdD9WR/rwlZqdxsUyvXHtL/APVzUZ/BRP6GSj70E=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=nPSwMGGIsREma719TJA2EZFDAyb0rfjfADB8MttgtWnho3snTSKEMuG7Es5ExXe5L
+	 F/ENqiqs8QQQAXAuCbgGL2CWjni2uFKqG/d/axxwpBe+yc/v0l7tCQhZjcHxwVM4Ir
+	 KEOvXlHgydqL7HbKqPawRnPKRI5K8SkybEwLqZpppoaZ9Hdb48QWWusuozIjxFPTOP
+	 vFOcFLITVEgS8Vm0xurjVISgOXkmw/iOjp9qriqRJLS1ChLewpoRnKGcvUoR6WvsuK
+	 4m3g0dK+8yBMtjYou+8e3454m+7sSM5ecpdxPEWOByW5NM6+LGEEEY3/IT8333U+cZ
+	 ce+hccCZ/cP2Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FF51CD5BC9;
+	Mon, 25 May 2026 13:11:06 +0000 (UTC)
+From: Maurice Hieronymus via B4 Relay <devnull+mhi.mailbox.org@kernel.org>
+Date: Mon, 25 May 2026 15:11:02 +0200
+Subject: [PATCH RESEND] pwm: th1520: Remove requirement for
+ mul_u64_u64_div_u64_roundup
 MIME-Version: 1.0
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1706; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Y62EjQrTI/wSasqd24Qm7vHOI5mLk5aLoaHjk20gWhs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqFEF4pfhTzer6xrAFujII+cjOcHF5tb35E97n0
- 85zunBrPBCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahRBeAAKCRAk1otyXVSH
- 0O8RB/9u7miaMTfVs5fjqarX6UWjqaL4JDrbNfzhpUFwSXpRq4DkeHyuk/PqW82XZJ55hsSO5g6
- U+jQWfVrlwZ4eLuJL7F9EJxN/LfxVjgMlgJNd6Cm0Zoq5R0OnITTehRHXkCe/aj3hCtmbDexYQn
- IxRutkM7yocacbO8W3yYy7BbFkBDcM2YDgHszoivDsLMVBo+WYSW74vC/O7BzgTPy8jj27lNXsK
- MuSzf7PSK5cH5x5MLbClOgT9UyXOx6EPObnupIuf5oaYpK7Iu644wuSyFYCTz0MPTD+pbdw84+L
- q4SpwcGaRjM4UfwKnaGyev2g68X/avE5/Ls/6maiLWXcW1i3
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Message-Id: <20260525-pwm-th1520-fix-v1-1-814e537c6812@mailbox.org>
+To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, Michal Wilczynski <m.wilczynski@samsung.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ Maurice Hieronymus <mhi@mailbox.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779714665; l=2775;
+ i=mhi@mailbox.org; s=20260525; h=from:subject:message-id;
+ bh=pPwMlhdLEIKx7tKQw28S2ur5hibHwE9OvuL0BMwNJFI=;
+ b=2CY1YOoHuBr6u2vNL2LHaCbZfS8c/Z4MpUQbK76cVxR4pFQ7J6JKYPOmCZp6RzS5uoV/ehCKe
+ ehBfc6H4FxyCb4WyrRuUDfbLeENx3YhhB4ifWpzHxSRGYx63rQBQft2
+X-Developer-Key: i=mhi@mailbox.org; a=ed25519;
+ pk=AHlEkGG3hpXZHntlEzF42Ip/LFyXWOgsNUvaHqAnV80=
+X-Endpoint-Received: by B4 Relay for mhi@mailbox.org/20260525 with
+ auth_id=790
+X-Original-From: Maurice Hieronymus <mhi@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_053259_904811_C1FA8F38 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20260525_061109_616356_09DBBC4C 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,52 +88,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: mhi@mailbox.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 May 2026 21:33:56 +0800, Troy Mitchell wrote:
-> ASoC: add shared BCLK rate constraint for cross-DAI coordination
-> 
-> On some SoCs (e.g. SpacemiT K3), multiple I2S controllers share the
-> same physical BCLK. When one controller is already streaming, the
-> others must use hw_params that result in the same BCLK rate, otherwise
-> the shared clock would be reconfigured and corrupt the active stream.
-> 
-> [...]
+From: Maurice Hieronymus <mhi@mailbox.org>
 
-Applied to
+The cycle register is always u32, so cycles_to_ns() can take a u32
+instead of a u64. With that narrowing, cycles * NSEC_PER_SEC is at most
+u32::MAX * 1e9 (~4.3e18), which fits in u64 without overflow. The
+saturating arithmetic is therefore no longer needed, and the ceiling
+division can use Rust's u64::div_ceil() directly instead of the
+open-coded numerator/denominator form.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+This also drops the TODO referring to a future
+mul_u64_u64_div_u64_roundup kernel helper, which is no longer required.
 
-Thanks!
+Signed-off-by: Maurice Hieronymus <mhi@mailbox.org>
+---
+Note: Resending v1 because my mail server (mailbox.org) was
+unable to deliver the original submission to @kernerl.org
+recipients. Going through the b4 web submission endpoint this
+time. No changes to the patch content.
+---
+ drivers/pwm/pwm_th1520.rs | 16 +++++-----------
+ 1 file changed, 5 insertions(+), 11 deletions(-)
 
-[1/3] ASoC: soc-dai: add shared BCLK clock for cross-DAI rate constraints
-      https://git.kernel.org/broonie/sound/c/94bdfad3a665
-[2/3] ASoC: soc-pcm: add DEFINE_GUARD for snd_soc_card_mutex
-      https://git.kernel.org/broonie/sound/c/2555c62275a1
-[3/3] ASoC: soc-pcm: constrain hw_params when DAIs share the same BCLK
-      https://git.kernel.org/broonie/sound/c/c8c2ffd722a6
+diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+index ddd44a5ce497..933c1ec59c2a 100644
+--- a/drivers/pwm/pwm_th1520.rs
++++ b/drivers/pwm/pwm_th1520.rs
+@@ -67,16 +67,10 @@ fn ns_to_cycles(ns: u64, rate_hz: u64) -> u64 {
+     ns.saturating_mul(rate_hz) / NSEC_PER_SEC_U64
+ }
+ 
+-fn cycles_to_ns(cycles: u64, rate_hz: u64) -> u64 {
++fn cycles_to_ns(cycles: u32, rate_hz: u64) -> u64 {
+     const NSEC_PER_SEC_U64: u64 = time::NSEC_PER_SEC as u64;
+ 
+-    // TODO: Replace with a kernel helper like `mul_u64_u64_div_u64_roundup`
+-    // once available in Rust.
+-    let numerator = cycles
+-        .saturating_mul(NSEC_PER_SEC_U64)
+-        .saturating_add(rate_hz - 1);
+-
+-    numerator / rate_hz
++    (u64::from(cycles) * NSEC_PER_SEC_U64).div_ceil(rate_hz)
+ }
+ 
+ /// Hardware-specific waveform representation for TH1520.
+@@ -192,15 +186,15 @@ fn round_waveform_fromhw(
+             return Ok(());
+         }
+ 
+-        wf.period_length_ns = cycles_to_ns(u64::from(wfhw.period_cycles), rate_hz);
++        wf.period_length_ns = cycles_to_ns(wfhw.period_cycles, rate_hz);
+ 
+-        let duty_cycles = u64::from(wfhw.duty_cycles);
++        let duty_cycles = wfhw.duty_cycles;
+ 
+         if (wfhw.ctrl_val & TH1520_PWM_FPOUT) != 0 {
+             wf.duty_length_ns = cycles_to_ns(duty_cycles, rate_hz);
+             wf.duty_offset_ns = 0;
+         } else {
+-            let period_cycles = u64::from(wfhw.period_cycles);
++            let period_cycles = wfhw.period_cycles;
+             let original_duty_cycles = period_cycles.saturating_sub(duty_cycles);
+ 
+             // For an inverted signal, `duty_length_ns` is the high time (period - low_time).
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+---
+base-commit: 3936b25815ee686a273ca7bbdc9ae19af5e608a3
+change-id: 20260521-pwm-th1520-fix-8e45558bbd31
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Best regards,
+-- 
+Maurice Hieronymus <mhi@mailbox.org>
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
 
 
 _______________________________________________
