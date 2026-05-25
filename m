@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EF8CD5BCF
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 May 2026 08:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C828CD5BD1
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 May 2026 08:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nPaSqV+rYI4EyaZjfTXu2IYi7u/t9wz+GARXZiGVXkE=; b=DkHl+5+VYgidVH
-	XRFTw2qZmnflng94/nuucEsGT8obyarVDa/Tg1iGSwUGv4cCDfbKyZdMH8IztCmS9LP/GNeblqPaO
-	NocFTy7r7BPjbfonBOHOvErJpH3BDG7c6wjfNJfb/Fg6JWnXs9BqCDI76S9VyrWwo5Zkk7a3YTaT6
-	s4PGFwpPIxp2aj69aImA4e8wK4LzaDgEMsJP9yiVH0OSSL3X8zArLP9IJYErQZAi33twuq18SYv3g
-	ih8PrxNzkXDG0J7P75lw40Ej1i6KkkD5lh9DQp0Z8mdPHYrJzfCsLlRG7g/3ariXrxllcgyxk66BH
-	m3dhHXhtgLnhJBgmCSCg==;
+	List-Owner; bh=9XBrsxf8J/6xotytRSJsOwEunBUWj5D0VxYXmwdlJGE=; b=o3dZfI9dOjVPTe
+	Yr395eDyh5A/+MtIAxSjM0TM+TocEc3I54/XqC7wrs9RGnoH08x4EPh3PwqOPBKbbTwfKSqObFjIL
+	vmujXU30PpMW1ZINYKGztGEKyYHuapf3dw0xMePjk8p9Z8wo5RyEhUQUF2v8gmwnanqJ0XGBvZCGo
+	WLsojuU1B/PmAZWMsMAQtbcc7V4roFKXx3/JHfQFXUpsOaNszJ3M+AaOK1/rMiGQXFhalCoNk8n2Q
+	C5AF2ECBd9rrIGo7QXE8t1iF0yMLTeMA7P3jI/SibjN1d3fUyO7SfQOYxVLRRzaXZHYeX+4X/lDrV
+	TiyPn4287cP/RqlvpK4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQzc-0000000GhgA-3gHp;
-	Mon, 25 May 2026 08:49:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRR11-0000000GhtT-1OWt;
+	Mon, 25 May 2026 08:50:27 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQzb-0000000Ghg0-2S9z
-	for linux-riscv@lists.infradead.org;
-	Mon, 25 May 2026 08:48:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0BF63600FF
-	for <linux-riscv@lists.infradead.org>; Mon, 25 May 2026 08:48:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73B91F00A3D
-	for <linux-riscv@lists.infradead.org>; Mon, 25 May 2026 08:48:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779698938;
-	bh=gtQuWTSxUSwTe1rnC1Bxe7ukjpoKqS4f+Z5r70b6Peg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MJppW/ydAq4+aqbVWJ3CYNAA1e8mfTFUs4rHAg+D6tuYfnBbo269TIKSLc78Znv8l
-	 XkQ7JF33YPTSl7ljzMih/o8YDPcegQa2AEqrf8JMDeTfwUdWphgP5ksT5C0v2VTSuR
-	 2sZYBAjGwanSXsAEZW7FGsJr5BE1nAC8fBpmxkjK+oiURk0jf7ZDIN4q5A/MKHMjmq
-	 6EbUgDeH80ir6/+elbZDpIF66HysTHPc3Wd+V1pgE9Ml4t4Vj5NCpoSzIGsyeA3A+n
-	 sl+v7do+xzv4lVucgQ7Ww6m0r0eEEdmLT0C6KSOs/r0htGp0U8mcT3J3YvLp5Lrd3m
-	 WP+kmMmLyb1fA==
-Received: by mail-oi1-f169.google.com with SMTP id 5614622812f47-479ef2b78f3so8653699b6e.2
-        for <linux-riscv@lists.infradead.org>; Mon, 25 May 2026 01:48:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+Y1CqmFK4fdJbr/+rn6ThATJwlWwSgvBLMsaLbOQ/AnEI7pijAx/FrjCfQLCgH/n+yJ/X2Q30PZcnCtw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeJyRLhHWxrZHKy0dajXKERq0Ktjzvbe+kJddvciNQMgRhtDHK
-	TiY5lSpGPJ00H88SYaIPrbkk3GfTUbeKdm56AQZkStnQkgKYCcsQw99yq2wWuqSTnrW/Ta1lRdl
-	zMn6Qs5xkqRcXIlMUe+FyMSp4mxJHPO0=
-X-Received: by 2002:a05:6808:4fe6:b0:462:aa0f:4375 with SMTP id
- 5614622812f47-4854a3afb48mr8047575b6e.39.1779698938186; Mon, 25 May 2026
- 01:48:58 -0700 (PDT)
+	id 1wRR0w-0000000GhqH-3FYu;
+	Mon, 25 May 2026 08:50:25 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+4ILLVBcCmgg2fmuluXGQIe+Wa8wvQwZl0q7wZ0b1wA=;
+	b=0MGx/T1EiFcOPTEH6lF1r992tIy/Q8e3PhaNOPVs5akFPcfXgZZ6oaexT4tzvH4ZpP20dlPf9
+	KVcFbe/8vDwYApyATtOgB5vKBU16tI0ouoHUG/USqZ07jxw5xL2PErsfNCNc1oomEwZaMLb35ce
+	K6f4ZiCeAlhnlGSH+5OhQ6U=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gP8X81kKpz1prlN;
+	Mon, 25 May 2026 16:42:32 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2373940561;
+	Mon, 25 May 2026 16:50:19 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 25 May
+ 2026 16:50:15 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <rppt@kernel.org>,
+	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <ruirui.yang@linux.dev>,
+	<rdunlap@infradead.org>, <pmladek@suse.com>, <feng.tang@linux.alibaba.com>,
+	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
+	<kuba@kernel.org>, <lirongqing@baidu.com>, <ebiggers@kernel.org>,
+	<paulmck@kernel.org>, <thuth@redhat.com>, <ardb@kernel.org>,
+	<masahiroy@kernel.org>, <mark.rutland@arm.com>, <maz@kernel.org>,
+	<james.morse@arm.com>, <leitao@debian.org>, <sourabhjain@linux.ibm.com>,
+	<yeoreum.yun@arm.com>, <coxu@redhat.com>, <jbohac@suse.cz>,
+	<ryan.roberts@arm.com>, <cfsworks@gmail.com>, <tangyouling@kylinos.cn>,
+	<ritesh.list@gmail.com>, <songshuaishuai@tinylab.org>,
+	<junhui.liu@pigmoral.tech>, <vishal.moola@gmail.com>, <kas@kernel.org>,
+	<debug@rivosinc.com>, <namcao@linutronix.de>, <liaoyuanhong@vivo.com>,
+	<fuqiang.wang@easystack.cn>, <seanjc@google.com>, <guoren@kernel.org>,
+	<chenjiahao16@huawei.com>, <hbathini@linux.ibm.com>, <bgwin@google.com>,
+	<takahiro.akashi@linaro.org>, <lizhengyu3@huawei.com>, <x86@kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v14 02/17] powerpc/crash: Fix possible memory leak in update_crash_elfcorehdr()
+Date: Mon, 25 May 2026 16:49:17 +0800
+Message-ID: <20260525084932.934910-3-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260525084932.934910-1-ruanjinjie@huawei.com>
+References: <20260525084932.934910-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-References: <20260519164007.122574-1-gaohan@iscas.ac.cn> <20260519232154-GKA3708537@kernel.org>
-In-Reply-To: <20260519232154-GKA3708537@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 25 May 2026 10:48:40 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=gAXc0oRg3RJCuaH0_oDXJ39aShAXtQz0tpt339mFB5Q@mail.gmail.com>
-X-Gm-Features: AVHnY4LjkE1u72Fg4ldi4cz_SRmret8T9tX1fPLbCSOaUNt9lHK5p1Z2W56miXY
-Message-ID: <CAD++jL=gAXc0oRg3RJCuaH0_oDXJ39aShAXtQz0tpt339mFB5Q@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: spacemit: fix NULL check in spacemit_pin_set_config
-To: Yixun Lan <dlan@kernel.org>
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260525_015023_112405_47F37FA4 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,17 +96,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Han Gao <gaohan@iscas.ac.cn>, Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Junhui Liu <junhui.liu@pigmoral.tech>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMjAsIDIwMjYgYXQgMToyMeKAr0FNIFlpeHVuIExhbiA8ZGxhbkBrZXJuZWwu
-b3JnPiB3cm90ZToKCj4gQ2FuIHlvdSB0YWtlIHRoaXMgYXMgYSBmaXggZm9yIHY3LjEgY3ljbGU/
-CgpPbmx5IGlmIHlvdSBjYW4gcHJvdmlkZSBwcm9vZiB0aGF0IGl0IGlzIGEgcmVncmVzc2lvbiwg
-aS5lIGNyYXNoZXMKc3lzdGVtcyB0aGF0IHdlcmUgd29ya2luZyB3aXRoIHY3LjAuCgpZb3VycywK
-TGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+In get_crash_memory_ranges(), if crash_exclude_mem_range() failed
+after realloc_mem_ranges() has successfully allocated the cmem
+memory, it just returns an error but leaves cmem pointing to
+the allocated memory, nor is it freed in the caller
+update_crash_elfcorehdr(), which cause a memory leak, goto out
+to free the cmem.
+
+Cc: Sourabh Jain <sourabhjain@linux.ibm.com>
+Cc: Hari Bathini <hbathini@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Fixes: 849599b702ef ("powerpc/crash: add crash memory hotplug support")
+Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/powerpc/kexec/crash.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/powerpc/kexec/crash.c b/arch/powerpc/kexec/crash.c
+index e6539f213b3d..a520f851c3a6 100644
+--- a/arch/powerpc/kexec/crash.c
++++ b/arch/powerpc/kexec/crash.c
+@@ -502,7 +502,7 @@ static void update_crash_elfcorehdr(struct kimage *image, struct memory_notify *
+ 	ret = get_crash_memory_ranges(&cmem);
+ 	if (ret) {
+ 		pr_err("Failed to get crash mem range\n");
+-		return;
++		goto out;
+ 	}
+ 
+ 	/*
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
