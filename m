@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE5ACD4F54
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 May 2026 01:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77C6CD5BAB
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 May 2026 01:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3EEjesDl9z8b5e3Q9ySoc2G8LlGCNF13ljrkFxeYSsI=; b=y2ZCggBkJYqUty
-	BVT6L8WcGlMD2grFAsy/YjDuQcThD/Ui7Y5bGY70+SXlSVRoy0A/N7a0em3mLCraUonJ8zzu2h2UX
-	YSIT60TvqAMjhqht9ME5eku8IyoH5iuKUx5mKpbForqqhn8CXVJ+l+PgChJxI6imnIwOMwW97QfhK
-	irquHz4NpHny/XQxDeT9MbmuYG/fLsy0TBpXTWRPGso0Qdp21htpD3o8J86a9Uvs4KFpcnwxK9l00
-	Lm6dpYUlIneWxq5Kz3LSDT4ItNLTwO3amCSbBrqNjqL2SR3h4Y4lirc06ac8sYNtAF6IgzoVlWHts
-	2E5Ip+NaFSRRHF5nDCbA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vet9sRSrsXEQM0ou6xlMAbRMFUm0J9ufMISyhlxRE28=; b=z0sFwuUUQl14F1
+	XRHyPaAMmun73z14v7VpG8u86dlTE8YwOigDFkQ5nrG7cRqlelGVIbnyacZzHXUQq65eoVZwRZDWw
+	H1bQYBFU72Rz9eflpaQKbyl5p/jwXZztCt76qGg3HkiXJM9ShDvP8XtOyMDWU5fMuNqVpdKW4Hgsw
+	nRuMa4n6GDBQEtlXD7JcwJXSW4V0F2+QcpmjLLa3JC7oMuTw7UCgHFL9bHv2EBMbgAgAAzUcoY4d2
+	jYEFhiZwkcNNmxpt+KIrwsYsGEghj2GLNc5Y/S3aWLfQwbBFqd3vLtMhzblwNtcX7X42NCGLSOoSf
+	qtCH8LEMIvjXoRXIzCQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRKFU-0000000G1NM-2aL0;
-	Mon, 25 May 2026 01:36:56 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wRKKZ-0000000G2i8-2VGw;
+	Mon, 25 May 2026 01:42:11 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRKFS-0000000G1Mm-0LCS;
-	Mon, 25 May 2026 01:36:55 +0000
-Received: from fric.. (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowABXcdirpxNquvA8Eg--.6572S2;
-	Mon, 25 May 2026 09:36:44 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
-	Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: [PATCH v2] RISC-V: KVM: Document a TOCTOU race in SBI system suspend handler
-Date: Mon, 25 May 2026 01:36:42 +0000
-Message-Id: <20260525013642.999187-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1wRKKW-0000000G2gn-1kj0
+	for linux-riscv@lists.infradead.org;
+	Mon, 25 May 2026 01:42:10 +0000
+Received: from [192.168.11.252] (unknown [121.237.245.238])
+	by APP-05 (Coremail) with SMTP id zQCowACXHgLpqBNq7LpfEQ--.3566S2;
+	Mon, 25 May 2026 09:42:02 +0800 (CST)
+Message-ID: <29c8ad17-8293-48ba-a79a-2520b9b58239@iscas.ac.cn>
+Date: Mon, 25 May 2026 09:42:01 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXcdirpxNquvA8Eg--.6572S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF45Ww4ruF48Ww4DXr15twb_yoW8AFW5pr
-	sYkFnIgws5Gr4Ika1IyanrXr1Sg3yvgF4aqrZ2yFW5Ww1qva40krs3urWUXryUAFZYqryf
-	Ar4jvF1ruwn8ZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBa14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] riscv: clarify vector state semantics on syscall and
+ context switch
+Content-Language: en-US
+To: Andy Chiu <tchiu@tenstorrent.com>, daichengrong@iscas.ac.cn
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, pjw@kernel.org, samuel.holland@sifive.com
+References: <20260319073709.18562-1-daichengrong@iscas.ac.cn>
+ <ag6n7gz8KwIpTZz8@Tao-Chiu's-Mac>
+From: daichengrong <daichengrong@iscas.ac.cn>
+In-Reply-To: <ag6n7gz8KwIpTZz8@Tao-Chiu's-Mac>
+X-CM-TRANSID: zQCowACXHgLpqBNq7LpfEQ--.3566S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGrykKry3Zw1DZr1Utr18Xwb_yoWrKw17pr
+	Z8GF4Yk3yUJF4xZ3sFqw4xXF9Yk3yrG3yYyrZxGay5JFy5Kr93Krn3t345CF4DAFy5CFy0
+	vw4qg34kuw4DAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvS14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
 	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F
-	4UJVW0owAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
-	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr
-	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8v
-	x2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20x
-	vY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I
-	3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIx
-	AIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAI
-	cVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2js
-	IEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUl-eOUUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAgSCWoTok4USQAAsX
+	4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	AVWUtwCY02Avz4vE14v_KwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43
+	ZEXa7VUjuWlPUUUUU==
+X-Originating-IP: [121.237.245.238]
+X-CM-SenderInfo: pgdluxxhqj201qj6x2xfdvhtffof0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_183654_501939_2A4FF444 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260524_184208_823288_B5678FC5 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,63 +77,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SUSP handler checks that all other vCPUs are stopped before
-entering system suspend, but a concurrent HSM HART_START can start
-a vCPU after it has already passed the check.
-
-This is a known TOCTOU race. We do not fix it because:
-1. Triggering it requires a pathological guest.
-2. Only guest state is at risk, not host integrity.
-3. Userspace can double-check vCPU states before suspend.
-
-Add a comment documenting the race and the rationale for not fixing it.
-
-Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Assisted-by: YuanSheng:DeepSeek-V3.2
----
-V1 -> V2:
-- Replaced the fix with a comment.
-Link: https://lore.kernel.org/linux-riscv/20260521142030.1560861-1-xujiakai2025@iscas.ac.cn/t/#u
----
- arch/riscv/kvm/vcpu_sbi_system.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/arch/riscv/kvm/vcpu_sbi_system.c b/arch/riscv/kvm/vcpu_sbi_system.c
-index c6f7e609ac794..6f64a59e5d3c4 100644
---- a/arch/riscv/kvm/vcpu_sbi_system.c
-+++ b/arch/riscv/kvm/vcpu_sbi_system.c
-@@ -35,6 +35,20 @@ static int kvm_sbi_ext_susp_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			return 0;
- 		}
- 
-+		/*
-+		 * Check that all other vCPUs are stopped before entering
-+		 * system suspend.
-+		 *
-+		 * There is a known TOCTOU race here: a concurrent HSM
-+		 * HART_START on another vCPU can start a vCPU after it
-+		 * has already passed this check, violating the invariant.
-+		 *
-+		 * We do not fix this because:
-+		 * 1. Triggering the race requires a pathological guest.
-+		 * 2. Only guest state is at risk, not host integrity.
-+		 * 3. Userspace can double-check vCPU states before
-+		 *    proceeding with suspend.
-+		 */
- 		kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
- 			if (tmp == vcpu)
- 				continue;
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA1LzIxLzI2IDE0OjQ4LCBBbmR5IENoaXUgd3JvdGU6Cj4gT24gVGh1LCBNYXIgMTksIDIw
+MjYgYXQgMDM6Mzc6MDlQTSArMDgwMCwgZGFpY2hlbmdyb25nIHdyb3RlOgo+PiBUaGUgUklTQy1W
+IHZlY3RvciBzcGVjaWZpY2F0aW9uIHN0YXRlcyB0aGF0IGV4ZWN1dGluZyBhIHN5c3RlbSBjYWxs
+Cj4+IGNhdXNlcyBhbGwgY2FsbGVyLXNhdmVkIHZlY3RvciByZWdpc3RlcnMgKHYwLXYzMSwgdmws
+IHZ0eXBlKSBhbmQgdnN0YXJ0Cj4+IHRvIGJlY29tZSB1bnNwZWNpZmllZC4KPj4KPj4gQ3VycmVu
+dGx5LCBhZnRlciBjYWxsaW5nIHJpc2N2X3ZfdnN0YXRlX2Rpc2NhcmQoKSwgdGhlIHZlY3RvciBz
+dGF0ZSAKPj4gbWF5IHN0aWxsIGJlIG1hcmtlZCBhcyBESVJUWSwgd2hpY2ggY2FuIG1pc2xlYWQg
+dGhlIGNvbnRleHQgc3dpdGNoIAo+PiBsb2dpYyBpbnRvIHRyZWF0aW5nIHRoZSByZWdpc3RlcnMg
+YXMgY29udGFpbmluZyB2YWxpZCB1c2VyIGRhdGEuCj4+Cj4+IFRoaXMgcGF0Y2ggY2xhcmlmaWVz
+IGFuZCB0aWdodGVucyB0aGUga2VybmVsLXNpZGUgc2VtYW50aWNzOgo+Pgo+PiAxLiBPbiBzeXNj
+YWxsIGVudHJ5LCB0aGUga2VybmVsIGNoZWNrcyB0aGUgdmVjdG9yIHN0YXRlIHZpYSBtc3RhdHVz
+Cj4+ICAgIGFuZCBkaXNjYXJkcyBpdCBpZiBuZWNlc3NhcnkuIEFmdGVyIGRpc2NhcmQsIHRoZSBz
+dGF0ZSBpcyBleHBsaWNpdGx5Cj4+ICAgIHNldCB0byBJTklUIGluc3RlYWQgb2YgRElSVFksIGlu
+ZGljYXRpbmcgdGhhdCB0aGUgdmVjdG9yIHJlZ2lzdGVycwo+PiAgICBubyBsb25nZXIgY29udGFp
+biBtZWFuaW5nZnVsIHVzZXIgZGF0YS4KPj4KPj4gMi4gRHVyaW5nIGNvbnRleHQgc3dpdGNoLCB0
+aGUgdmVjdG9yIHN0YXRlIGlzIGludGVycHJldGVkIGFzIGZvbGxvd3M6Cj4+ICAgIC0gSU5JVDog
+bm8gdmFsaWQgdXNlciBkYXRhIGlzIHByZXNlbnQsIHNvIHZlY3RvciByZWdpc3RlciBkYXRhIGRv
+ZXMKPj4gICAgICBub3QgbmVlZCB0byBiZSBzYXZlZC4KPj4gICAgLSBub24tSU5JVCAoZS5nLiBE
+SVJUWSk6IHZlY3RvciByZWdpc3RlciBkYXRhIG11c3QgYmUgc2F2ZWQuCj4+Cj4+IDMuIE9uIHJl
+c3RvcmUsIGlmIHRoZSBzdGF0ZSBpcyBJTklULCB0aGUgdmVjdG9yIHJlZ2lzdGVycyBhcmUgdHJl
+YXRlZAo+PiAgICBhcyBpbnZhbGlkIGFuZCBhcmUgbm90IHJlc3RvcmVkIGZyb20gbWVtb3J5LiBJ
+bnN0ZWFkLCB0aGV5IGFyZQo+PiAgICBvdmVyd3JpdHRlbiB3aXRoIGEga25vd24gaW5pdGlhbCB2
+YWx1ZSB0byBhdm9pZCBwb3RlbnRpYWwgZGF0YQo+PiAgICBsZWFrYWdlIGZyb20gYSBwcmV2aW91
+cyB0YXNrLgo+Pgo+PiBUaGlzIGFsaWducyB0aGUga2VybmVsJ3MgdmVjdG9yIHN0YXRlIHRyYWNr
+aW5nIHdpdGggdGhlIGFyY2hpdGVjdHVyYWwKPj4gInVuc3BlY2lmaWVkIiBzZW1hbnRpY3Mgd2hp
+bGUgZW5zdXJpbmcgY29ycmVjdCBsYXp5IGNvbnRleHQgc3dpdGNoaW5nCj4+IGFuZCBwcmV2ZW50
+aW5nIGNyb3NzLXRhc2sgZGF0YSBsZWFrYWdlLgo+IEhpIGRhaWNoZW5ncm9uZywKPiAKPiBHb29k
+IGNhdGNoIG9uIHNwb3R0aW5nIHRoaXMgb3B0aW1pemF0aW9uIG9wcG9ydHVuaXR5IQo+IAo+IEkg
+aGF2ZSBhIHBhdGNoIHNlcmllc1sxXSB0aGF0IGhhcHBlbnMgdG8gYmUgdmVyeSBzaW1pbGFyIGFz
+IHlvdXJzLCBidXQgSQo+IHRoaW5rIHlvdXIgY29kaW5nIHN0eWxlIG1ha2UgdGhlIGNvZGUgbW9y
+ZSByZWFkYWJsZSAoSSBsaWtlIHRoZSB3YXkgeW91Cj4gdXNlIF92c3RhdGVfY2hlY2sgZm9yIENM
+RUFOIG9uIHJlc3RvcmUgcGF0aCkuCj4gCj4gSGVyZSBhcmUgc29tZSBpc3N1ZXMgd2hlcmUgdGhp
+cyBwYXRjaCBicmVha3M6Cj4gLSBmaXJzdC11c2UgdHJhcCByZXR1cm5zIGRpc2NhcmRlZCB2cmVn
+cyBpbnN0ZWFkIG9mIHplcm8nZWQuCj4gLSBwdHJhY2UgZ2V0cyBzdGFsZSB2cmVncyBpbiBQVFJB
+Q0VfU1lTQ0FMTAo+IC0gY29udGV4dCBtb2RpZmljYXRpb25zIHRocm91Z2ggc2lnbmFsIGhhbmRs
+ZXIgYXJlIGRyb3BwZWQgYXQgc3lzY2FsbAo+ICAgc3RvcHMuCj4gCj4gSSB3aWxsIG1lcmdlIHlv
+dXIgcGF0Y2ggaW50byBteSB2MyB3aXRoIGFsbCB0aGUgYWJvdmUgZml4ZWQuIEhvcGUgdGhhdAo+
+IHNvdW5kcyBnb29kIHRvIHlvdSEKPiAKVGhhbmtzIGZvciB0aGUgZGV0YWlsZWQgYW5hbHlzaXMg
+YW5kIGZvciBwb2ludGluZyBvdXQgdGhlc2UgY29ybmVyIGNhc2VzLgoKSSBhZ3JlZSB0aGUgZmly
+c3QtdXNlIHRyYXAsIHB0cmFjZSBhbmQgc2lnbmFsLWhhbmRsZXIgaW50ZXJhY3Rpb25zIG5lZWQg
+dG8gYmUgaGFuZGxlZCBjb3JyZWN0bHkuIApHbGFkIHRvIGhlYXIgdGhlIG92ZXJhbGwgZGlyZWN0
+aW9uIG1ha2VzIHNlbnNlLCBhbmQgSeKAmW0gaGFwcHkgZm9yIHlvdSB0byBmb2xkIHRoZSBpZGVh
+IGludG8geW91ciB2MyBzZXJpZXMuCgpNeSBvcmlnaW5hbCBtb3RpdmF0aW9uIHdhcyB0byBleHBs
+b3JlIHdoZXRoZXIgdGhlIHN5c2NhbGwgYm91bmRhcnkgY291bGQgc2VydmUgYXMgYSBuYXR1cmFs
+IGVudHJ5IHBvaW50IGZvciBtYW5hZ2luZyB0aGUgUlZWIHN0YXRlIGxpZmVjeWNsZSBhY3Jvc3Mg
+dGhlIHdob2xlIHN5c3RlbSwgCmVzcGVjaWFsbHkgZm9yIHJlZHVjaW5nIHVubmVjZXNzYXJ5IHJl
+c3RvcmUvaW5pdCB3b3JrIG9uIHJlcGVhdGVkIHN5c2NhbGwgcGF0aHMgd2hpbGUgc3RpbGwgcHJl
+c2VydmluZyB0aGUgZXhwZWN0ZWQgdXNlcnNwYWNlIHNlbWFudGljcy4KPiBbMV06IGh0dHBzOi8v
+bG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjYwNDAyMDQzNDE0LjI0MjE5MTYtMi1hbmR5
+Ym5hY0BnbWFpbC5jb20vCj4gCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IGRhaWNoZW5ncm9uZyA8ZGFp
+Y2hlbmdyb25nQGlzY2FzLmFjLmNuPgo+PiAtLS0KPj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+dmVjdG9yLmggfCAxNSArKysrKysrLS0tLS0tLS0KPj4gIDEgZmlsZSBjaGFuZ2VkLCA3IGluc2Vy
+dGlvbnMoKyksIDggZGVsZXRpb25zKC0pCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL3ZlY3Rvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZWN0b3IuaAo+PiBp
+bmRleCAwMGNiOWMwOTgyYjEuLjkzYzY4YTU0OWI3MiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS92ZWN0b3IuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zl
+Y3Rvci5oCj4+IEBAIC0yOTgsOCArMjk4LDkgQEAgc3RhdGljIGlubGluZSB2b2lkIF9fcmlzY3Zf
+dl92c3RhdGVfZGlzY2FyZCh2b2lkKQo+PiAgc3RhdGljIGlubGluZSB2b2lkIHJpc2N2X3ZfdnN0
+YXRlX2Rpc2NhcmQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4+ICB7Cj4+ICAJaWYgKHJpc2N2X3Zf
+dnN0YXRlX3F1ZXJ5KHJlZ3MpKSB7Cj4+IC0JCV9fcmlzY3Zfdl92c3RhdGVfZGlzY2FyZCgpOwo+
+PiAtCQlfX3Jpc2N2X3ZfdnN0YXRlX2RpcnR5KHJlZ3MpOwo+IFdlIGNhbiBza2lwIGRpc2NhcmRp
+bmcgdnN0YXRlIGhlcmUgYXMgaXQgd2lsbCBiZSBkb25lIGluIHRoZSByZXN0b3JlIHBhdGgKPj4g
+KwkJaWYgKCFfX3Jpc2N2X3ZfdnN0YXRlX2NoZWNrKHJlZ3MtPnN0YXR1cywgSU5JVElBTCkpCj4+
+ICsJCQlfX3Jpc2N2X3ZfdnN0YXRlX2Rpc2NhcmQoKTsKPj4gKwkJcmlzY3Zfdl92c3RhdGVfb24o
+cmVncyk7Cj4+ICAJfQo+PiAgfQo+PiAgCj4+IEBAIC0zMTUsMTkgKzMxNiwxNyBAQCBzdGF0aWMg
+aW5saW5lIHZvaWQgcmlzY3Zfdl92c3RhdGVfc2F2ZShzdHJ1Y3QgX19yaXNjdl92X2V4dF9zdGF0
+ZSAqdnN0YXRlLAo+PiAgc3RhdGljIGlubGluZSB2b2lkIHJpc2N2X3ZfdnN0YXRlX3Jlc3RvcmUo
+c3RydWN0IF9fcmlzY3Zfdl9leHRfc3RhdGUgKnZzdGF0ZSwKPj4gIAkJCQkJICBzdHJ1Y3QgcHRf
+cmVncyAqcmVncykKPj4gIHsKPj4gLQlpZiAocmlzY3Zfdl92c3RhdGVfcXVlcnkocmVncykpIHsK
+Pj4gKwlpZiAoX19yaXNjdl92X3ZzdGF0ZV9jaGVjayhyZWdzLT5zdGF0dXMsIElOSVRJQUwpKQo+
+PiArCQlfX3Jpc2N2X3ZfdnN0YXRlX2Rpc2NhcmQoKTsKPj4gKwllbHNlIGlmIChfX3Jpc2N2X3Zf
+dnN0YXRlX2NoZWNrKHJlZ3MtPnN0YXR1cywgQ0xFQU4pKQo+PiAgCQlfX3Jpc2N2X3ZfdnN0YXRl
+X3Jlc3RvcmUodnN0YXRlLCB2c3RhdGUtPmRhdGFwKTsKPj4gLQkJX19yaXNjdl92X3ZzdGF0ZV9j
+bGVhbihyZWdzKTsKPj4gLQl9Cj4+ICB9Cj4+ICAKPj4gIHN0YXRpYyBpbmxpbmUgdm9pZCByaXNj
+dl92X3ZzdGF0ZV9zZXRfcmVzdG9yZShzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRhc2ssCj4+ICAJCQkJ
+CSAgICAgIHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+PiAgewo+PiAtCWlmIChyaXNjdl92X3ZzdGF0
+ZV9xdWVyeShyZWdzKSkgewo+PiArCWlmIChyaXNjdl92X3ZzdGF0ZV9xdWVyeShyZWdzKSkKPj4g
+IAkJc2V0X3Rza190aHJlYWRfZmxhZyh0YXNrLCBUSUZfUklTQ1ZfVl9ERUZFUl9SRVNUT1JFKTsK
+Pj4gLQkJcmlzY3Zfdl92c3RhdGVfb24ocmVncyk7Cj4+IC0JfQo+PiAgfQo+PiAgCj4+ICAjaWZk
+ZWYgQ09ORklHX1JJU0NWX0lTQV9WX1BSRUVNUFRJVkUKPj4gLS0gCj4+IDIuMjUuMQo+Pgo+Pgo+
+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+PiBsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+
+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cj4+Cj4gCj4gQ2hlZXJzLAo+IEFuZHkKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
