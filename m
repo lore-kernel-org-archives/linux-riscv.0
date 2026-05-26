@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A4ECD5BC8
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 12:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF5ACD5BB1
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 13:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bl4AFCGTjHWweZxult7bDcczFC1Ne2WMjjGfFpo7u+E=; b=02LqGoAxsd+gnt
-	XLo+rIOEbw5YhL3cOogpGwXF6LOYjymazwPZD39BVs9WFSvKdVg6ivUOefs/8B+IdQJxp67a4gwT5
-	6ckEx7pp8OKFg/hLRJNz2tzs0VcmBglaYJHIg7sBZ1K6bf2CJxc5SKk99LSJLSS1v7T2PFN9BXspU
-	UyPQUcWGUWbXJlCTHZ9Cl/ETeWoETCMKB/DR7qlcx0F5zkYLGy2TuR/MwVucVXXz9UkQp1ETJJ70w
-	iHLOyh44m0Ssfr6X5P/xoigPg1JwFAt9EDLerOHaACFR/rWtDAairjyHhA9O9guntX6ym42AUoLHy
-	Yi/IAnr5qmlW1qWFf48A==;
+	List-Owner; bh=DXQdCiZzxXCmbOmlLax/KFEPwqNBbeiUCuySuyamMyw=; b=qhvatHNrxg0tvP
+	gwOTxENUwvYDmE9Cc2PDLUbIS7YSrJ2MruIrTLMcvZyQYu9eOYL4bXY46CgFRBe6poe8sR7eegOBa
+	Lx+Of9BlytnMvoUc74mdaXkIQ5mkrj9arCh3MwqyPFwsfAiAHsm8EeCFPUpPdHWN3QCC3lLT8lvEx
+	8MG/CbuLnlrOkBM2bagLmYdM30bl6U+4Ku0BFjs2OQpE3UiGjtc6EVy5gw0+9FmjNSFHiFwnssEVr
+	XrQhw1FJ9YFWK9lNHdSAK9zXzvHDZa0M+lIdXpUpmAwVxVEsLVybTIhG2rqlZ8VONCDFlCf+GPO1S
+	e9fGhQ8/mttGyCVTUrPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrH4-00000001ydE-0rOt;
-	Tue, 26 May 2026 12:52:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRrl0-000000023Af-1Mdi;
+	Tue, 26 May 2026 13:23:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrH3-00000001ycz-2Bzd
+	id 1wRrkx-0000000239e-0r6D
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 May 2026 12:52:45 +0000
+	Tue, 26 May 2026 13:23:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8BCFB601F3
-	for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 12:52:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447031F00A3D
-	for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 12:52:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BF21443ED;
+	Tue, 26 May 2026 13:23:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21A441F00A3F;
+	Tue, 26 May 2026 13:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779799964;
-	bh=ZBXzqv/om0l+TyYWbq+zzUuQed/AxeNEWTs8z4A3i7M=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=F/1EExE1Ik6T+4iQV6Ae/Wo6jTNMjl53q0EPL61rJRStbgn+h1SiyNdG3UFZG27vt
-	 OkBgILLIh+XSnjyBhfys0mv5zsZiAnRMnlj23Yup++3+CycTyOZ9eKkkBRXfvYvZ/2
-	 A1z9JFJLVrY1U0n3CLfQ3zITRVTs/brbAmIpRJmGuN5NY/kUMIZSvB178ZzKSreiVy
-	 H3ROtr9c+DWV2VWqcIKUwUzwj+b5zJ6KHcoLSLDiDdIRNNsn+lic60XbgZEWDFQ6JX
-	 os43uSGYpNBJj4p64rQ+dQAbpSWCCFEPsogmeUV3vLxNQ3xqS9Q+2LvHJoO+kKSxqz
-	 XJkfxheFQLQFw==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5a8dc2606a0so10707752e87.2
-        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 05:52:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9m+Wn1aoxjwbr/xEGF4GrdRJI1xPXSssKs8zrhGTka/QlwMCUZrIMq1+j+qRPb/zvaWENfP4l6rvQhZg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiFMHkQI2i/b+buOD5A69NHPbKlCp9KtV9/MqfYZRgJw/Rb9Mq
-	L6CkOOZom/bYsxTF6+D4XlpEweMZhfm1QRx5RI9H3SIfOwwmb67X07qiH/UvtemEjddtuqTabJL
-	dK5ar3BzpudAZ7R7V7nPvRB+XUFYV4MI=
-X-Received: by 2002:ac2:511b:0:b0:5a8:9bb6:230a with SMTP id
- 2adb3069b0e04-5aa3234cbb9mr4007664e87.18.1779799962931; Tue, 26 May 2026
- 05:52:42 -0700 (PDT)
+	s=k20260515; t=1779801818;
+	bh=9fv80VV3utaUxsA1KkGnOso3BBAIoOuR6H5XCcuVXds=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oTi/aKLTZSU5m++odfVsqV0tvdnglLJGcUt1yQXeOcWjp16HnZX3gEzUPYFIJyFR4
+	 5/5PpS8OOhURwqtbi2RTL4jyoITqoLKMuxjr80SLTrhUA8WY0MZsz9IhlwLP6GD9bj
+	 AOfI255lVQnHYLngP29jtv7+RuCo60LxAK5xLpf9h+CZTZRl0rfKQ+xIZzaRRJyIyV
+	 4HnJJCthLDeZOZ8l4+rneOLIcfPjblzCIZ3dNWANSGt5vdgv8BZtdh/FV4ITlphWil
+	 Dj9bRVrDBoT0RmyGdvDdl5PhyWbv6pVGkYui+1c2kkXlSVpM6CkUdoidB9VaayVWJ/
+	 /99rRGxhRac7A==
+Date: Tue, 26 May 2026 13:23:35 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Junzhong Pan <panjunzhong@linux.spacemit.com>
+Subject: Re: [PATCH 2/2] reset: spacemit: k3: fix USB2 ahb reset
+Message-ID: <20260526132335-GKB3748271@kernel.org>
+References: <20260518-06-clk-reset-usb-fix-v1-0-14fc235e692b@kernel.org>
+ <20260518-06-clk-reset-usb-fix-v1-2-14fc235e692b@kernel.org>
 MIME-Version: 1.0
-References: <20260519-germinate-ageless-631033d22797@spud>
-In-Reply-To: <20260519-germinate-ageless-631033d22797@spud>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 26 May 2026 14:52:30 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=p2RS4BHawQ2msprbmCu=4n92QWeFXgo9fRmTFcxraCg@mail.gmail.com>
-X-Gm-Features: AVHnY4JgF2dwXSt4EuMCwBggSUmrP5Z_ATVf9jxCtANBQRza98t4Opi_-QI2VLg
-Message-ID: <CAD++jL=p2RS4BHawQ2msprbmCu=4n92QWeFXgo9fRmTFcxraCg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] generic pinmux dt_node_to_map implementation/spacemit
- driver converted to use it
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <20260518-06-clk-reset-usb-fix-v1-2-14fc235e692b@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_062339_264246_21357B6A 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +70,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMTksIDIwMjYgYXQgMTE6MzfigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
-cm5lbC5vcmc+IHdyb3RlOgoKPiBIZXJlJ3MgYSByZWFsIHZlcnNpb24gb2YgbXkgZ2VuZXJpYyBw
-aW5tdXggZHRfbm9kZV90b19tYXAKPiBpbXBsZW1lbnRhdGlvbi4gSSB0ZXN0ZWQgdGhpcyBvbiBt
-eSBicGlmMyBidXQgdGhlIGR0cyBpbiBtYWlubGluZSBpcwo+IHZlcnkgbGltaXRlZCBpbiB0ZXJt
-cyBvZiBwaW5jdHJsIHVzZSBzbyBJIHdvdWxkIHJlYWxseSBhcHByZWNpYXRlIGFueQo+IHRlc3Rp
-bmcgdGhhdCBjb3VsZCBiZSBkb25lIHdpdGggYSBtb3JlIGNvbXBsZXRlIHNldHVwLgo+Cj4gSWYg
-eW91IHRyeSB0byBhcHBseSB0aGlzLCBpdCdzIG9uIHRvcCBvZiBGcmFuaydzIG11eCBzZXJpZXMu
-IEl0J3MgYWxzbwo+IGhlcmUgaWYgYW55IG9mIHRoZSBzcGFjZW1pdC10ZXJzIHdhbnQgdG8gbG9v
-ayBhdCB3aGF0IEkgZGlkIHRvIHRoZWlyCj4gZHJpdmVyOgo+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5v
-cmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2Nvbm9yL2xpbnV4LmdpdC9sb2cvP2g9c3BhY2Vt
-aXQtcGluY3RybAoKSSBqdXN0IGFwcGxpZWQgaXQgYW5kIGl0IHNlZW1zIHRvIHdvcmssIGF0IGxl
-YXN0IGl0IGNvbXBpbGVzIQoKTm8gcG9pbnQgaW4gd2FpdGluZyBmb3IgbW9yZSByZXZpZXcgY29t
-bWVudHMsIGxldCdzIHNoaXAgaXQgYW5kIHNlZQp3aGF0IGhhcHBlbnMuCgpZb3VycywKTGludXMg
-V2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Philipp Zabel,
+
+On 02:58 Mon 18 May     , Yixun Lan wrote:
+> According to SpacemiT K3's updated docs, the USB2 ahb reset and USB2 bus
+> clock enable bit was wrongly swapped, the correct one should be:
+> 
+> Register : APMU_USB_CLK_RES_CTRL
+> bit[1]   : usb2_port_bus_clk_en
+> bit[0]   : usb2_port_ahb_rstn
+> 
+> Fixes: a0e0c2f8c5f3 ("reset: spacemit: k3: Decouple composite reset lines")
+> Reported-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+
+Would be it ok from your side to queue this patch for v7.2 cycle?
+or do you want me to combine it and go via clk tree when sending PR to
+Stephen? I think as long as they are accepted in same cycle, then should
+be no problem, otherwise will result a broken USB2 driver.
+
+P.S, we will activate USB2 driver for K3 in v7.2, so kicking this in
+same cycle should be a good reason, no necessary to rush for v7.1 fix..
+
+> ---
+>  drivers/reset/spacemit/reset-spacemit-k3.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/reset/spacemit/reset-spacemit-k3.c b/drivers/reset/spacemit/reset-spacemit-k3.c
+> index 9841f5e057b2..2e87f320cf11 100644
+> --- a/drivers/reset/spacemit/reset-spacemit-k3.c
+> +++ b/drivers/reset/spacemit/reset-spacemit-k3.c
+> @@ -112,7 +112,7 @@ static const struct ccu_reset_data k3_apmu_resets[] = {
+>  	[RESET_APMU_SDH0]	= RESET_DATA(APMU_SDH0_CLK_RES_CTRL,	0, BIT(1)),
+>  	[RESET_APMU_SDH1]	= RESET_DATA(APMU_SDH1_CLK_RES_CTRL,	0, BIT(1)),
+>  	[RESET_APMU_SDH2]	= RESET_DATA(APMU_SDH2_CLK_RES_CTRL,	0, BIT(1)),
+> -	[RESET_APMU_USB2_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(1)),
+> +	[RESET_APMU_USB2_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(0)),
+>  	[RESET_APMU_USB2_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(2)),
+>  	[RESET_APMU_USB2_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(3)),
+>  	[RESET_APMU_USB3_A_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(5)),
+> 
+> -- 
+> 2.54.0
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
