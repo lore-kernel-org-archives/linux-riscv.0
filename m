@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F0ACD5BB4
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 07:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01652CD5BCF
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 07:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y6Zseg28HXxJZ6tobQ1X4OZBHMWw9bt+C5I6y7pTnks=; b=vnFEdyJaX9DQW3
-	da3rGcMxJcSIX5SI10BvPfUifLG9HeSHdyEOZr8j0eaaPCyh90x/3KyjxkKkQhEVvLSn9nQI3GqwK
-	qo7O9lxJnRENPOUaGsHFyxptD+kQHSUOuidlILSch0RZ7HO4v/HMeVZ780+OM1a92rNWPVBwRndNB
-	C/YFbqS2ATHU7ZM4OXmiyUt0Nu/dwZ6g28i3VbZ6NheWWUPgCSood9OehhO+I6U/YilvWdNaepl42
-	X7MeSNqtNdslXaKSw5cg7ZIg1hVOxH4ME6RrOUWLCP69y99IJRXfHV216pNRltXcvizAvqY+KTpLo
-	IS0MdMaYrRNfLjyiQkwQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0uiSCCx9Up2Py4fhxggfHgBk2WqK9zzaUXMTcI2Dv78=; b=AxxJ09upXcR4OB
+	ySD7OMf9GKotNvXtNhkxtNg3mg5cWotdvN0ooB11n5/TFJB3pqjpBdJ89RBWv1tCS2h+pzZaWFYcb
+	luFy97B1PBEADDDqLLS+0w8YGkcR+mYhE4VtlfH17OW22W9FbR7BrTReljMsJvtZRPxt6hyN727du
+	COA+2fkJWcHZoL/1OYEQaH6QkROUXCzCyrdsylnxdmJb3SWWlGh7YH5qwh53LhGr8ZvR+VbXdfpac
+	nXRWBcu+unpNXPoFEJ+Dnr4Mr4ukhXyEtovGxAqb3NU+cXw+0VfBMZkAG+N4z11QToko+pIFyRORp
+	oB26p89dzPR0AMsFTPgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRlxm-00000001Enx-29wV;
-	Tue, 26 May 2026 07:12:30 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRlxf-00000001EmF-3KJZ
+	id 1wRm8Z-00000001Fvc-3CLO;
+	Tue, 26 May 2026 07:23:39 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRm8W-00000001Fv7-3NjR
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 May 2026 07:12:29 +0000
+	Tue, 26 May 2026 07:23:38 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2b9ea536877so67053315ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 00:23:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=xdLV9XCgYqsM5OHnHy0sw5i8Vew1uihlr
-	uMczZDwmYg=; b=ExW3m2pTqQLrnnqiAOLQ7nd6qeE6M0/6cZS8n2SwH18A73SCx
-	xV0UUjkrV4+HKQ/R50qrxcs8t/Z3kerAs9VWGT4S0JJ1KMNt76pZgynWVG2Ou8Lr
-	FvLVNXW/3owW5zRIOfARplQUdiYb5crOWkGHaRusrQnoovFBVegW3hgIGg=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkPrRxVq0gMGAA--.7913S2;
-	Tue, 26 May 2026 15:12:43 +0800 (CST)
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1779780216; x=1780385016; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kaTzZIrRiwO1RCeM2bN6zyMtDl6KOzXc9TYKEU25JF4=;
+        b=fe/TBYgSKEzTPQSIjxk0asVry2Km5uLhMcrgIt3djuHW5z8/+BDjsL7rC7leRp1lba
+         n2zgvCbnnWR+bRKE6qQnlH44d8oNhBPMzd5e2cQbrhFBM8BkCf+YYyO1hLZPudImVjjk
+         ozSrUXeYfrAyJKRiN/St08o4oOK43wTIusOkBGyFahln6/yK65E0h1dMNZuS2BSwGdg5
+         PIHi7CgxzlZW4E/hxjDRZJlUd97y8ktBjgejfitkckSvAddjgnajlHKVzFyOJKbd4N8j
+         1jIA+Ljbp3/Csdof8aMLIfMZ+1WnHoArXPxfCAGTlKZIeJG1u0WQbbekQ22xXpoFpMGF
+         UqEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779780216; x=1780385016;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kaTzZIrRiwO1RCeM2bN6zyMtDl6KOzXc9TYKEU25JF4=;
+        b=njSU8wOg+PPBEKmzVoxDsvEZMTbCsB+tagygIYGIpXcraNF1ATlGAalN57xmQN9yQL
+         ugg1pmEONMMP2P4ePpyB9q4OTFAUH7XvbBA7DNOWVMuuaxvolkaapYT4Wv1NaVqD+k8f
+         fXzC07MJUTqX+fJnT2XjwT1MFUSkHuBA2yh/s01L/HECPsWiOw2BTAFZmq9S555uLkfE
+         fjDmZEMQvVmQFdZhbr+1ilK5OQ4IpLzz7dGyhhw0+I2iDm6vMHZPgSMRKmXAuoqFSv21
+         /ekuENbeu9zZd/PdDlgjB5ojWwPH6C1BgOxaQRtQXyNzD5Lt+d8kkux+ZS+/J4ErssMu
+         vC2Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+fCK3/ex7HCbQbzrYn7ughPmxwa2Dkgzsg83OyPbFwOQMdzv2Z6VK86bVhKNONK8Peerpyf+LetWrfCw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOGcMS1IE/sMJcX/ti7nzmUmDvWEVA1oPu5u4k9GP3ZmMLz3l3
+	B+rn7gb3NcxCNJ0Ap6OPX4krElLSViaG6nVMEXEr6DfZBK/YRy7LrEkWRqOv6HSSy6Y=
+X-Gm-Gg: Acq92OHkn9IlIZMXtB6AHB+yRj5vwD3ixP/kUfTM2aa7bgZmahnMSx7kG7SuT0Jh+2o
+	NNVu3GrFehyMpaZZ2lWiKCds00iiVLCa6bvE7X+nr+FZw+twEGS6g77Vmn0PnuvT3DeoKbzA2Pe
+	H4rF5re6JuWOQ2zkag12ZSgsHWjvl29GVu+1brLn7dYC5dp9slzi2/9uvOqSWKq+XkbdSiGl9i9
+	mHiUTKpuZQbLY60Uf96JWxRqyCF/ugNfPmb/LAS3dfX9uUUNt1dQaHU/eR5uDyToh4QIs+as0yv
+	Uxy8tWpFpyVB8O4bqZOhtamNzR0RJrs/DYHfH7XFd80YEkwC+WcdzhrcrIrT/Th2iHrqBKpA9PP
+	j3AARpc/ayUOy/GYnngZKozoa5x0eh5a16cwxlbtB8tKY5IC/Z580mD8eg5EyUWfS8WlzdyRfmx
+	s8kzvUjZPydh26UR1ZgUsGeZz5HLmFrU8ZaEaZFK5ianE=
+X-Received: by 2002:a17:903:1a0d:b0:2b0:91e6:bc18 with SMTP id d9443c01a7336-2beb0878549mr150966255ad.14.1779780215657;
+        Tue, 26 May 2026 00:23:35 -0700 (PDT)
+Received: from [127.0.1.1] ([2a12:a305:4::40e2])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb591f63dsm148893365ad.83.2026.05.26.00.23.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 00:23:35 -0700 (PDT)
+From: Guodong Xu <guodong@riscstar.com>
+Date: Tue, 26 May 2026 15:22:58 -0400
+Subject: [PATCH] riscv: dts: spacemit: k3: Add Ziccrse extension for X100
+ cores
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/9] dt-bindings: vendor-prefixes: add Rongda
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-In-Reply-To: <51dfcffa-1f8f-4a51-afc4-2999748421a7@kernel.org>
-References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
- <20260515-ultrarisc-pinctrl-v1-1-bf559589ea8a@ultrarisc.com>
- <51dfcffa-1f8f-4a51-afc4-2999748421a7@kernel.org>
-Date: Tue, 26 May 2026 15:12:03 +0800
-Message-Id: <177977952368.1243441.14554680726787022592.b4-reply@b4>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779779524; l=686;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=Kxhh7KR6iwJWM3QD/Mg3E6gH0ENEw3j5HM3LIkiOX8M=;
- b=ti5d/XWaly+TePGbcsCTGPdS7xDmz9VMatjcxDzr3AFRI03LMtglkK2UiKuL0YX97CaHPaMxu
- y//z916nWBTAQHrrludAf8B9sIy+WZ6mx5fAakXRmQJ9nwSKCeCZmTw
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwAnEkPrRxVq0gMGAA--.7913S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7JF47XryUCr4xWw4xWrWrGrg_yoWxArg_ur
-	Z0y3sIva4DXFs3tan3AFs3G345tFsYvryY9348Xwn7C347Ary8uw4kCr4akwn3XF4UW3W2
-	kr4Svayq93W3ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb-AFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr
-	1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04k20xvY0x0EwIxGrwCFx2
-	IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v2
-	6r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67
-	AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IY
-	s7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr
-	0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRHUDLUUUUU=
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAOEWoOgUUACgASsm
+Message-Id: <20260526-k3-ziccrse-v1-1-c759792ca3a3@riscstar.com>
+X-B4-Tracking: v=1; b=H4sIABHzFWoC/yWMQQrCMBAAvxL27EK6KYr9ivSQJqsu0lQ3qRRL/
+ 25ojzMws0JmFc7QmRWUv5JlShWak4Hw9OnBKLEykKWzJXvBl8OfhKCZcXBMsY2t8xygBm/luyz
+ 77NYfrPyZ67McEgZfszCNo5TOJF4K7t+GrtBv2x/hkXa4jQAAAA==
+X-Change-ID: 20260207-k3-ziccrse-b3e2d4d43aec
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Guodong Xu <docularxu@outlook.com>, Guodong Xu <guodong@riscstar.com>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_001225_913560_790D2BF5 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20260526_002337_223852_6FA676CC 
+X-CRM114-Status: UNSURE (   7.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,33 +106,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-21 22:51 +0200, Krzysztof Kozlowski wrote:
-> On 15/05/2026 03:17, Jia Wang via B4 Relay wrote:
-> > From: Jia Wang <wangjia@ultrarisc.com>
-> > 
-> > Add Shenzhen Rongda Computer Co., Ltd. to the vendor prefixes.
-> > 
-> > Link: http://www.shenrongda.com/
-> 
-> So your prefix is shenrongda.
->
+Add the Ziccrse ISA extension to all eight X100 cores. Ziccrse
+provides a forward progress guarantee on LR/SC sequences in main
+memory regions with cacheability and coherence PMAs.
 
-Thanks for the clarification.
+The SpacemiT X100 core supports it per the SpacemiT K3 hardware
+specification.
 
-I'll update the vendor prefix to "shenrongda" and adjust the compatible
-accordingly in the next version.
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+ arch/riscv/boot/dts/spacemit/k3.dtsi | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-As discussed with Conor, this patchset will retain only the pinctrl binding
-and driver. The DTS and the related bindings will be split out and submitted
-separately. 
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index d4be8de8fc6cc..ccb483b439c5f 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -36,7 +36,7 @@ cpu_0: cpu@0 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
+@@ -77,7 +77,7 @@ cpu_1: cpu@1 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
+@@ -118,7 +118,7 @@ cpu_2: cpu@2 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
+@@ -159,7 +159,7 @@ cpu_3: cpu@3 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
+@@ -200,7 +200,7 @@ cpu_4: cpu@4 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
+@@ -241,7 +241,7 @@ cpu_5: cpu@5 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
+@@ -282,7 +282,7 @@ cpu_6: cpu@6 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
+@@ -323,7 +323,7 @@ cpu_7: cpu@7 {
+ 					       "zawrs", "zba", "zbb", "zbc", "zbs", "zca",
+ 					       "zcb", "zcd", "zcmop", "zfa", "zfbfmin",
+ 					       "zfh", "zfhmin", "zicbom", "zicbop", "zicboz",
+-					       "ziccamoa", "ziccif", "zicclsm", "zicntr",
++					       "ziccamoa", "ziccif", "zicclsm", "ziccrse", "zicntr",
+ 					       "zicond", "zicsr", "zifencei", "zihintntl",
+ 					       "zihintpause", "zihpm", "zimop", "zkt", "zvbb",
+ 					       "zvbc", "zvfbfmin", "zvfbfwma", "zvfh",
 
-> Best regards,
-> Krzysztof
-> 
+---
+base-commit: 5d67b1f204472df70f7c7189c01fa405f3ccb503
+change-id: 20260207-k3-ziccrse-b3e2d4d43aec
 
 Best regards,
-Jia Wang
-
+--  
+Guodong Xu <guodong@riscstar.com>
 
 
 _______________________________________________
