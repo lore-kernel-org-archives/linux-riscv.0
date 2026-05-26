@@ -4,60 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDE9CD5BC8
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 13:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5471DCD5BC8
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 14:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T7NcjysSCIZcOlBq1IT6f0rZq950T9x/+LWKYozh1Wo=; b=uvfIYyZvKcsbDL
-	oKik/dDBwaEGNhmU+C8L6VL/1JEUvbbNByzhsRYyRupV+mLcQEq8vBSFca1nLtgBcDeJWRrKrezxP
-	E1rUfDaP0m91nv6vbsGPlrcEIzR9U+lXcA7UbVKJD8i1DTvOI+7EL6FzKDayI3cyH6Tizv4sckDkB
-	vXdzMsNSvs4Db4anCGHgGiv77eLKkZ3EJjQmhC+1STf4IWkz+V6VEwxlhcvJf1O/ymXST4mNKmQTq
-	emQGUsDOlbocBNpugLAC1tYR3pxiLDBtGT2JYHVMtNP8XZX/QmigUpochvOpg4sqqXl0XKbkpXu/V
-	ChGQis55kcfFC8d11FmA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Q+cmdKyZaIje9QT4gMFuGJyRc5iniTKFfSxvnUvG6YY=; b=qbwFEoDZjfJjuF
+	IpA1Jsue0Ge/UIVc12ilvfPjQmsZUcxFZt00Sd2mDuGjt1b+1RQxx7aw3hx1u332ACiMrXwe9PQiL
+	91B+KDV6Hx1GxeQKw6BWrRIRSKUjuUGqpHgsbthw3H1Uu5+Y8sCvQjC1tKM5Au7XAbtz1lM4mOcdb
+	fT/tDFwiBg56QdAVQq//4AkChUxJTUYn4OY+jppse0wSb40gCHlEVyymfEoJpxm+L9ojMz1aczCuk
+	m763+2fkw2QCGKTJI2++J4SU6MOxWdKCbOkvrX6AgIRbFjMqk10Hvw3QjGhmXF5sKSoke6wG1SXMR
+	CGfBq1TniR8OiLxxDByg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrzG-000000024vE-1oCF;
-	Tue, 26 May 2026 13:38:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRtA5-00000002ERH-2IFo;
+	Tue, 26 May 2026 14:53:41 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrzE-000000024uo-2UVb
+	id 1wRtA2-00000002EPt-2Rlt
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 May 2026 13:38:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E20E8602F1;
-	Tue, 26 May 2026 13:38:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 164F71F00A3A;
-	Tue, 26 May 2026 13:38:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779802703;
-	bh=oOKcXaMosfo/owsXW+WMOSw10vIYBJ3tP8qIY78PgJA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oiu9R8RnVsntp+r4GoHbV3UbMUxnK42UzM7CQADH87umbw39O0GA9VnsLKsP66Dn1
-	 FsGGTeVGEjCIfPU46hirCe5shVz/ClDseF7VTqF22ml+vLSz4iay+Gv0BGK2joRee2
-	 Hm3S/PDdht6KVdBZCJ39zFgBbtVHVMmctVaoYRnc26S8bKIPpeh/IyT9L+78patlBg
-	 +PKbBcB+pOMEw48XmdhVY5R5ZP9kO70UKk+lH0yDWVKpr4L1N7hgtFIUPeX/MJjhPu
-	 KXORLa9eT94GCfBt6kUfzQfF/NBx7dZaARwhSfQE6DqbG5z3zWt05t9hoy8SoI9a9H
-	 /tESKaH/O46Eg==
-Date: Tue, 26 May 2026 13:38:21 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Andre Heider <a.heider@gmail.com>
-Subject: Re: (subset) [PATCH v10 0/4] riscv: spacemit: enable SD card support
- with UHS modes for OrangePi RV2
-Message-ID: <20260526133821-GKC3748271@kernel.org>
-References: <20260515-orangepi-sd-card-uhs-v10-0-094af27e310d@gmail.com>
- <177889984452.2298656.1074391459031404894.b4-ty@b4>
- <7e68e745-0d70-46db-9475-38d3dd5b9cf4@baylibre.com>
- <6b945153-5a7b-415e-904a-1c350b7d52ee@gmail.com>
- <86ac46cd-b7bc-42cc-8c29-996ae21f3654@baylibre.com>
- <CABdCQ=M_E1uHU5WTXCn2mXaxf3-+7M9gXCL=tp1qBW50jf7d5Q@mail.gmail.com>
- <8b9c613c-df1a-4f44-b15d-cdcc21905bc5@gmail.com>
+	Tue, 26 May 2026 14:53:40 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64QDFiMb2437640;
+	Tue, 26 May 2026 14:52:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=DtEI7WfC5+U62ltVi9RfCYz6d6BvUdBEhCw
+	V0F2LcJ0=; b=VDJqhJKHNju8IKcn9t1qu43G/VBPuu9ARS2y2EHvztuTyMiyhFf
+	rgfRLg3okTLGVE+M5WkAJO/YtpNKW3OSPPoBWDKXkfKpB8qm669C+M4QwHET92wt
+	1twqVleeMF5w82rDDpTDX1fH2WvkAifaCtMhcAV4ZopkCPHBboXxR5oNoixkJdBX
+	ZnHAgBFrJy85LCwpOCfPfg+2HxGCovmUyCfnadbgqUUsPdhxMVmWawVtAWO7rzWK
+	g+PcqmqN/7R+p6P37XDhEgGVJKrKCp3drYp2/0qZ1CB/hXSz/zo6yD8f3g+FJiD8
+	FWEhWjco2Me5GT3f9prBfmnZnd+qI+QVE8Q==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ecnhs5ay0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 May 2026 14:52:51 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 64QEqlWb017831;
+	Tue, 26 May 2026 14:52:47 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 4eb5aj97q3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 May 2026 14:52:47 +0000 (GMT)
+Received: from APBLRPPMTA01.qualcomm.com (APBLRPPMTA01.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 64QEqlkU017823;
+	Tue, 26 May 2026 14:52:47 GMT
+Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 64QEql8L017820
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 May 2026 14:52:47 +0000 (GMT)
+Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
+	id 6A81F21A82; Tue, 26 May 2026 20:22:46 +0530 (+0530)
+From: Anup Patel <anup.patel@oss.qualcomm.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Danilo Krummrich <dakr@kernel.org>,
+        Tomasz Jeznach <tomasz.jeznach@linux.dev>,
+        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>
+Cc: Saket Dumbre <saket.dumbre@intel.com>, Rahul Pathak <rahul@summations.net>,
+        Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        driver-core@lists.linux.dev, iommu@lists.linux.dev,
+        acpica-devel@lists.linux.dev, Anup Patel <anup.patel@oss.qualcomm.com>,
+        Sunil V L <sunilvl@oss.qualcomm.com>
+Subject: [PATCH] driver core: platform: Setup device MSI domain just before driver probe
+Date: Tue, 26 May 2026 20:22:40 +0530
+Message-ID: <20260526145240.1627200-1-anup.patel@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8b9c613c-df1a-4f44-b15d-cdcc21905bc5@gmail.com>
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Authority-Analysis: v=2.4 cv=Vd3H+lp9 c=1 sm=1 tr=0 ts=6a15b3c3 cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8 a=XO0VMO9KiYcrIKbrk7YA:9
+X-Proofpoint-GUID: lty04NSPDty1OQPPj3lse-ZDKCwr8rqX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI2MDEyNyBTYWx0ZWRfXybDV0cdVrn9a
+ cW4JY0oYmLmSW9VtMnddMU+ogYKG7BxrIRKYvaGEdEC24+aqrpRRl4JBanv5SINeJSvLH8ll+5D
+ yKrHOhKDhbIOnFw3o5jQLT6FqfoQDT/gWpPZV53pZu5IETVaw1dWVvSmPakzpBiVuYC6CuymSA6
+ j0ZBjZuldEWEOyzxl7/Nlpje0izBxmun/cuDxVlI0kNkWfyO9uWU+o/yFxEuWijsDqn/o+ChRp6
+ NwbALiSEe1r+goStmolCJFb3ib/JdXldKU2Uffx1j4/uyK4/UC5zq3dHlcUAMobJXwkawa/a5DF
+ LL7PcUxQLWK2DWPChqb657ugZiqoxeldJBznayQzhdLvgITOr6/YcYOzyxkEPs7UphfEuHSV5G1
+ l5aduVCwtbflDAT0VstEzFFmDbql4XqsoZ2nIuzq4f89BpdqazopkvOwqHYYU9xgpAqeNzfbk8p
+ 61D9FGO5KBYoXt5pYPQ==
+X-Proofpoint-ORIG-GUID: lty04NSPDty1OQPPj3lse-ZDKCwr8rqX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-05-26_03,2026-05-26_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 malwarescore=0 spamscore=0 clxscore=1011
+ lowpriorityscore=0 phishscore=0 adultscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605260127
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_075338_752523_77873B8B 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,32 +121,334 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Trevor Gamblin <tgamblin@baylibre.com>, Troy Mitchell <troy.mitchell@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, Javier Martinez Canillas <javierm@redhat.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, spacemit@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Iker Pedrosa <ikerpedrosam@gmail.com>, Margherita Milani <margherita.milani@amarulasolutions.com>, Alexandre Ghiti <alex@ghiti.fr>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulfh@kernel.org>, Vincent Legoll <legoll@online.fr>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Aurelien Jarno <aurelien@aurel32.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-HI All,
+On RISC-V, the MSI controller (aka RISC-V IMSIC) is probed as a regular
+platform device and MSI client drivers are always probed after the MSI
+controller driver using fw_devlink. Unfortunately, this is not sufficient
+to ensure device MSI domain is set for MSI client devices before driver
+probe because OF framework sets device MSI domain at the time of platform
+device creation whereas ACPI framework expects arch specific code to set
+the device MSI domain at the time of platform device creation.
 
-On 18:45 Mon 25 May     , Andre Heider wrote:
-> Hi Iker,
-> 
-> On 25.05.26 11:36 AM, Iker Pedrosa wrote:
-..
-> > 
-> > So, how has this turned out in the end? Andre, will you take care of
-> > sending the latest version for the MUSE Pi Pro?
-> 
-> Yes, in fact I already sent it last week:
-> https://lore.kernel.org/spacemit/20260520130624.1763487-1-a.heider@gmail.com/T/#u
-> 
-Ok, I will take it
-> You should have received that (unless I messed something up) ;)
-> 
-P.S, please bear with me, I'm currently on travel now, so may slow on this
+Currently, to work-around the problem of missing device MSI domain,
+various RISC-V MSI client drivers explicitly set device MSI domain
+in the driver probe function using below code pattern:
+
+	/*
+	 * The device MSI domain for platform devices on RISC-V architecture
+	 * is only available after the MSI controller driver is probed so,
+	 * explicitly configure here.
+	 */
+	if (!dev_get_msi_domain(dev)) {
+		/*
+		 * The device MSI domain for OF devices is only set at the
+		 * time of populating/creating OF device. If the device MSI
+		 * domain is discovered later after the OF device is created
+		 * then we need to set it explicitly before using any platform
+		 * MSI functions.
+		 */
+		if (is_of_node(fwnode)) {
+			of_msi_configure(dev, dev_of_node(dev));
+		} else if (is_acpi_device_node(fwnode)) {
+			struct irq_domain *msi_domain;
+			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
+							      DOMAIN_BUS_PLATFORM_MSI);
+			dev_set_msi_domain(dev, msi_domain);
+		}
+
+		if (!dev_get_msi_domain(dev))
+			return -EPROBE_DEFER;
+	}
+
+Instead of the above approach, extend the platform_dma_configure() to set
+device MSI domain for both OF and ACPI based platform devices before driver
+probe and remove the duplicate code pattern from RISC-V MSI client drivers.
+
+Co-developed-by: Sunil V L <sunilvl@oss.qualcomm.com>
+Signed-off-by: Sunil V L <sunilvl@oss.qualcomm.com>
+Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+---
+ drivers/acpi/riscv/irq.c                | 13 +++++++++++
+ drivers/acpi/scan.c                     | 10 +++++++++
+ drivers/base/platform.c                 |  4 ++++
+ drivers/iommu/riscv/iommu-platform.c    |  9 --------
+ drivers/irqchip/irq-riscv-aplic-msi.c   | 27 -----------------------
+ drivers/irqchip/irq-riscv-rpmi-sysmsi.c | 29 -------------------------
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c   | 29 -------------------------
+ include/acpi/acpi_bus.h                 |  1 +
+ include/linux/acpi.h                    | 10 +++++++++
+ 9 files changed, 38 insertions(+), 94 deletions(-)
+
+diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
+index 9b88d0993e88..17fa5dcdd2c0 100644
+--- a/drivers/acpi/riscv/irq.c
++++ b/drivers/acpi/riscv/irq.c
+@@ -5,8 +5,11 @@
+  */
+ 
+ #include <linux/acpi.h>
++#include <linux/device.h>
+ #include <linux/sort.h>
+ #include <linux/irq.h>
++#include <linux/irqdomain.h>
++#include <linux/irqchip/riscv-imsic.h>
+ 
+ #include "init.h"
+ 
+@@ -397,6 +400,16 @@ static u32 riscv_acpi_add_irq_dep(acpi_handle handle)
+ 	return count;
+ }
+ 
++void acpi_arch_msi_configure(struct device *dev)
++{
++	struct irq_domain *msi_domain;
++
++	msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
++					      DOMAIN_BUS_PLATFORM_MSI);
++	if (msi_domain)
++		dev_set_msi_domain(dev, msi_domain);
++}
++
+ u32 arch_acpi_add_auto_dep(acpi_handle handle)
+ {
+ 	if (acpi_has_method(handle, "_PRT"))
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 530547cda8b2..e50e5d246a54 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -1648,6 +1648,16 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+ 
+ #endif /* !CONFIG_IOMMU_API */
+ 
++/**
++ * acpi_msi_configure - Set-up MSI domain for the device.
++ * @dev: The pointer to the device
++ */
++void acpi_msi_configure(struct device *dev)
++{
++	acpi_arch_msi_configure(dev);
++}
++EXPORT_SYMBOL_GPL(acpi_msi_configure);
++
+ /**
+  * acpi_dma_configure_id - Set-up DMA configuration for the device.
+  * @dev: The pointer to the device
+diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+index a19dd22deef2..225e33080bc6 100644
+--- a/drivers/base/platform.c
++++ b/drivers/base/platform.c
+@@ -1470,8 +1470,12 @@ static int platform_dma_configure(struct device *dev)
+ 	int ret = 0;
+ 
+ 	if (is_of_node(fwnode)) {
++		if (!dev_get_msi_domain(dev))
++			of_msi_configure(dev, dev->of_node);
+ 		ret = of_dma_configure(dev, to_of_node(fwnode), true);
+ 	} else if (is_acpi_device_node(fwnode)) {
++		if (!dev_get_msi_domain(dev))
++			acpi_msi_configure(dev);
+ 		attr = acpi_get_dma_attr(to_acpi_device_node(fwnode));
+ 		ret = acpi_dma_configure(dev, attr);
+ 	}
+diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+index 399ba8fe1b3e..ddc6370b96b0 100644
+--- a/drivers/iommu/riscv/iommu-platform.c
++++ b/drivers/iommu/riscv/iommu-platform.c
+@@ -48,7 +48,6 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+ 	enum riscv_iommu_igs_settings igs;
+ 	struct device *dev = &pdev->dev;
+ 	struct riscv_iommu_device *iommu = NULL;
+-	struct irq_domain *msi_domain;
+ 	struct resource *res = NULL;
+ 	int vec, ret;
+ 
+@@ -74,14 +73,6 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+ 	switch (igs) {
+ 	case RISCV_IOMMU_CAPABILITIES_IGS_BOTH:
+ 	case RISCV_IOMMU_CAPABILITIES_IGS_MSI:
+-		if (is_of_node(dev_fwnode(dev))) {
+-			of_msi_configure(dev, to_of_node(dev->fwnode));
+-		} else {
+-			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
+-							      DOMAIN_BUS_PLATFORM_MSI);
+-			dev_set_msi_domain(dev, msi_domain);
+-		}
+-
+ 		if (!dev_get_msi_domain(dev)) {
+ 			dev_warn(dev, "failed to find an MSI domain\n");
+ 			goto msi_fail;
+diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
+index fb8d1838609f..2cf5d42cd66a 100644
+--- a/drivers/irqchip/irq-riscv-aplic-msi.c
++++ b/drivers/irqchip/irq-riscv-aplic-msi.c
+@@ -175,7 +175,6 @@ static const struct msi_domain_template aplic_msi_template = {
+ int aplic_msi_setup(struct device *dev, void __iomem *regs)
+ {
+ 	const struct imsic_global_config *imsic_global;
+-	struct irq_domain *msi_domain;
+ 	struct aplic_priv *priv;
+ 	struct aplic_msicfg *mc;
+ 	phys_addr_t pa;
+@@ -245,32 +244,6 @@ int aplic_msi_setup(struct device *dev, void __iomem *regs)
+ 	/* Setup global config and interrupt delivery */
+ 	aplic_init_hw_global(priv, true);
+ 
+-	/* Set the APLIC device MSI domain if not available */
+-	if (!dev_get_msi_domain(dev)) {
+-		/*
+-		 * The device MSI domain for OF devices is only set at the
+-		 * time of populating/creating OF device. If the device MSI
+-		 * domain is discovered later after the OF device is created
+-		 * then we need to set it explicitly before using any platform
+-		 * MSI functions.
+-		 *
+-		 * In case of APLIC device, the parent MSI domain is always
+-		 * IMSIC and the IMSIC MSI domains are created later through
+-		 * the platform driver probing so we set it explicitly here.
+-		 */
+-		if (is_of_node(dev->fwnode)) {
+-			of_msi_configure(dev, to_of_node(dev->fwnode));
+-		} else {
+-			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
+-							      DOMAIN_BUS_PLATFORM_MSI);
+-			if (msi_domain)
+-				dev_set_msi_domain(dev, msi_domain);
+-		}
+-
+-		if (!dev_get_msi_domain(dev))
+-			return -EPROBE_DEFER;
+-	}
+-
+ 	if (!msi_create_device_irq_domain(dev, MSI_DEFAULT_DOMAIN, &aplic_msi_template,
+ 					  priv->nr_irqs + 1, priv, priv)) {
+ 		dev_err(dev, "failed to create MSI irq domain\n");
+diff --git a/drivers/irqchip/irq-riscv-rpmi-sysmsi.c b/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+index 612f3972f7af..e6cdb4b635a6 100644
+--- a/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
++++ b/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+@@ -260,35 +260,6 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
+ 			riscv_acpi_update_gsi_range(priv->gsi_base, priv->nr_irqs);
+ 	}
+ 
+-	/*
+-	 * The device MSI domain for platform devices on RISC-V architecture
+-	 * is only available after the MSI controller driver is probed so,
+-	 * explicitly configure here.
+-	 */
+-	if (!dev_get_msi_domain(dev)) {
+-		/*
+-		 * The device MSI domain for OF devices is only set at the
+-		 * time of populating/creating OF device. If the device MSI
+-		 * domain is discovered later after the OF device is created
+-		 * then we need to set it explicitly before using any platform
+-		 * MSI functions.
+-		 */
+-		if (is_of_node(fwnode)) {
+-			of_msi_configure(dev, dev_of_node(dev));
+-		} else if (is_acpi_device_node(fwnode)) {
+-			struct irq_domain *msi_domain;
+-
+-			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
+-							      DOMAIN_BUS_PLATFORM_MSI);
+-			dev_set_msi_domain(dev, msi_domain);
+-		}
+-
+-		if (!dev_get_msi_domain(dev)) {
+-			mbox_free_channel(priv->chan);
+-			return -EPROBE_DEFER;
+-		}
+-	}
+-
+ 	if (!msi_create_device_irq_domain(dev, MSI_DEFAULT_DOMAIN,
+ 					  &rpmi_sysmsi_template,
+ 					  priv->nr_irqs, priv, priv)) {
+diff --git a/drivers/mailbox/riscv-sbi-mpxy-mbox.c b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+index 7c9c006b7244..759512aba19f 100644
+--- a/drivers/mailbox/riscv-sbi-mpxy-mbox.c
++++ b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+@@ -902,35 +902,6 @@ static int mpxy_mbox_probe(struct platform_device *pdev)
+ 
+ 	/* Setup MSIs for mailbox (if required) */
+ 	if (mbox->msi_count) {
+-		/*
+-		 * The device MSI domain for platform devices on RISC-V architecture
+-		 * is only available after the MSI controller driver is probed so,
+-		 * explicitly configure here.
+-		 */
+-		if (!dev_get_msi_domain(dev)) {
+-			struct fwnode_handle *fwnode = dev_fwnode(dev);
+-
+-			/*
+-			 * The device MSI domain for OF devices is only set at the
+-			 * time of populating/creating OF device. If the device MSI
+-			 * domain is discovered later after the OF device is created
+-			 * then we need to set it explicitly before using any platform
+-			 * MSI functions.
+-			 */
+-			if (is_of_node(fwnode)) {
+-				of_msi_configure(dev, dev_of_node(dev));
+-			} else if (is_acpi_device_node(fwnode)) {
+-				struct irq_domain *msi_domain;
+-
+-				msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
+-								      DOMAIN_BUS_PLATFORM_MSI);
+-				dev_set_msi_domain(dev, msi_domain);
+-			}
+-
+-			if (!dev_get_msi_domain(dev))
+-				return -EPROBE_DEFER;
+-		}
+-
+ 		mbox->msi_index_to_channel = devm_kcalloc(dev, mbox->msi_count,
+ 							  sizeof(*mbox->msi_index_to_channel),
+ 							  GFP_KERNEL);
+diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
+index c41d9a7565cf..b31ba661245e 100644
+--- a/include/acpi/acpi_bus.h
++++ b/include/acpi/acpi_bus.h
+@@ -744,6 +744,7 @@ bool acpi_dma_supported(const struct acpi_device *adev);
+ enum dev_dma_attr acpi_get_dma_attr(struct acpi_device *adev);
+ int acpi_iommu_fwspec_init(struct device *dev, u32 id,
+ 			   struct fwnode_handle *fwnode);
++void acpi_msi_configure(struct device *dev);
+ int acpi_dma_get_range(struct device *dev, const struct bus_dma_region **map);
+ int acpi_dma_configure_id(struct device *dev, enum dev_dma_attr attr,
+ 			   const u32 *input_id);
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 67effb91fa98..e8829be3ca55 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -260,6 +260,12 @@ acpi_numa_processor_affinity_init(struct acpi_srat_cpu_affinity *pa) { }
+ 
+ void acpi_numa_x2apic_affinity_init(struct acpi_srat_x2apic_cpu_affinity *pa);
+ 
++#if defined(CONFIG_RISCV)
++void acpi_arch_msi_configure(struct device *dev);
++#else
++static inline void acpi_arch_msi_configure(struct device *dev) { }
++#endif
++
+ #if defined(CONFIG_ARM64) || defined(CONFIG_LOONGARCH)
+ void acpi_arch_dma_setup(struct device *dev);
+ #else
+@@ -1058,6 +1064,10 @@ static inline int acpi_dma_get_range(struct device *dev, const struct bus_dma_re
+ 	return -ENODEV;
+ }
+ 
++static inline void acpi_msi_configure(struct device *dev)
++{
++}
++
+ static inline int acpi_dma_configure(struct device *dev,
+ 				     enum dev_dma_attr attr)
+ {
 -- 
-Yixun Lan (dlan)
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
