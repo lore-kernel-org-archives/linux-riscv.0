@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D4DACD6E42
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 15:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4F5CD5BB1
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 15:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,113 +13,113 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Subject:From:To:Message-ID:Reply-To:Cc:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=ovEaywrsjB/+fOJG62PWSj4sclSZKoQ3rA0lon0wyQg=; b=MsbKGzatNvB09UGcA6ACIdAZ+p
-	+S1dbuXi71iW3ywOl15Hwup8tLZ1fJDQMznCjfZdb3NMYk5pLoUn4jLlSXYAYoroPw+X46fbC6M2m
-	HNsZ+5sxZ7yH3BG8Y0VL1RnOEK2QRvFexrYWP7nVNIReL/zXkRXoo7bsRcBIlDcrTF7rn4y4aqrFI
-	A0NY2QcmBpu8MheOZnRIvIuJRgkMUsk7MsTEwqK54x9QT0s/IgfUp4EScrrvNZLpSHaVtIlQ/NiNS
-	OQAJjmfYhl1J+sNpSGh/vorFcpuDaLLoIXS90msgy1vELU8VdwRfOtSZX1V0birxpx2/XnDHMLJt0
-	GJ+2wZCg==;
+	bh=rZStdBYr/ajO4BgBuWDWZRzfgT/zCI4ymP1ZCM6ilDU=; b=mWCkN1qzFz2TKQdlR5p4WKYFbZ
+	zImbt6voggkMmhq5SQEOPfFJ/HkdO8JVp6Y2B3hpxP6qLi8J80wkCFQGqMqvoghJihy9hjar2vSxF
+	FOYYxaK9RI0yUX4utdhn5Vu0dE8xDCQ/glJSe47aZl8napFbDRbK6LAPar3sjgL1zNJ3YE+moOhgl
+	R4cGimv7gDeGUPJVfDEriNFxba+iQXBnTgnSlICawgBIu2AVeqaAZ2Hi8kMWqgIQLrE5FoHmvEZMu
+	IEn6xw7oKv/eQb++5xYX+hDaYKTcnv3dKKqFKc5pcS3d1fNPDWi2lIeXBikl/qn/EaVgLaClZOot1
+	hCRxGOYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtKy-00000002Ipj-0Xqv;
-	Tue, 26 May 2026 15:04:56 +0000
-Received: from mail-japaneastazon11011004.outbound.protection.outlook.com ([52.101.125.4] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1wRtKz-00000002IrJ-0LsD;
+	Tue, 26 May 2026 15:04:57 +0000
+Received: from mail-japaneastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c405::] helo=TY3P286CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRh4A-00000000opk-1pO3;
-	Tue, 26 May 2026 01:58:47 +0000
+	id 1wRh6J-00000000p9d-0arH;
+	Tue, 26 May 2026 02:01:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yl6lgQmDcomn2ppPqWZxW1WCbBS91yUOL0VHN38FTqBg+IqTiY+HyEAQ6XrHAio/5F8YfrZbeMJ5ZtHB1fqdtz2rf3pDJr9Mpxmh1y7YiVXc37HSg65pvtrMnMPX1WaUR9uXdV/n1hHhuMPXYXvk9fDkVd6qhti8DL/ZDITEQNvlwL1bsLIhb/a1MCtUFr8JbzO4O+LEvsjPFOzUYVbjeRA0IJaUsEsqRiHg9NxSYQgmCh1MQGMs5bRP+7R+EgwMwYmkwhUiKuC9M2EVqBLzpE4/EY+qVQ/vNgaG2jnH277cJPicPtJ+qVlGfRLdGV/fU57efK1vmmIJi6ufKRcJ9w==
+ b=S5eSrpSr+JzM1ccmbzBzdErwNEayDFfUJMZdlPACZyhboLirBt2E97LmirOxntmsFh7ENFw2iz0Kfigff/IgRhv1D+hpEtVq05BVHjoQHbotMd/e3R+7BA7PLrNCOBI4mHJdVN5x2bN6zoJBK/1m7Y3ybwabo2s8+kKyIz7cE1+yyQSYMNVj7ZAo/x4gvXOTLa8CWmJ684j4MGeMSNRhwmMIoMvXD0YbO2s4u/+VRRO2iQFE5fz69aOTfqoXm/DIU1iMZScznzENFTdbrijcsVohM39M521r5DlNral+XyB1iBPxmOyG8sPKwvR28pDn0GQdseB4P4zp8N64uv6+Rg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/E9NxPTSmS++qYOweZjYs/I8aBfiOLsdwU/kmVdWGW4=;
- b=mFneJY4plHIMsfEzSeqZKKDBji31KNyOoMG2iA9X8h5W+mBXvBmaRvFw0wuIaJIYotuRwW7d6XemRu1zB+EKrcSwudrVtt3vzmUUs24yKQNj/8Gz5QmVsTMkQBCbcXXO1BR0JmXy2n2kjKGjTA5yxuvJ9+mVWaiROfxuXa6h3vC4ikGkypnjEKq18gb7EekjvoEwHRlYSvBkTn/xSeADfZBUZ4yrW2m6t7PtNMawjtc3mWh3ghV7BTcuyuz6gznGXt60rg5mUaUAhF6rj8lx6lqAsEYfUXM2Gse4qHEQDWB1Q9P0YBCWpTdqy7iMAT9EqAQKbY6eB47ids2W5LP1rg==
+ bh=71yAKmp/+y7ngJnvPouZyc8NVs2I7VtMWPThQtEBJqA=;
+ b=VoPMdtXOys0lsdyzpHXygTIqHsfJsPRl0uLFRlQDc6pDLHwZyi9MDtP8XDJGgJSOPeq7Z2hLdwwX/ZyW+BmhaHMJT532VYbJQyxnVuq3o7WbAT4XPC9QP1+L0LPZ0H/8aq0tY1L/LIrZ7WDmk3Bns7qQbFv5pjMV4CrX/VZY38Sb9Y5qpJy5bPiD1XrSQwNZ5BL2anZW/YAQ1YyeCzEXtBScBCKZsONRpgobEA0u1vh4P+vDAVnKbiYxvxXvvnBCCPbnks1yE5j2UtJ1/nJK2q1u53WPEfurioclOZ/8VwRxSQptVPeLfRERqdqOftG240hnSzhdbzRfxHo0UR1ecg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
  dkim=pass header.d=renesas.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/E9NxPTSmS++qYOweZjYs/I8aBfiOLsdwU/kmVdWGW4=;
- b=Xd4AMlWZq9BjaYdCx5yalCLmymTtgnPFlGA2oGZeYMBXYyeFX9Jgtqpuxlh03k0g+c08Bx61TYEx8SCWWETfLgL+BRRcHby4HfSbAb7j6fbjM2uFRln7BwxUNLHhgAANbTAKCdID9TIyIE6Xl5f6HetFlNFwKAZ7qnYjVvrRZ0c=
+ bh=71yAKmp/+y7ngJnvPouZyc8NVs2I7VtMWPThQtEBJqA=;
+ b=ljZR4VNyDyDmWOnyvzCSR3GD+ylMS2dWFuHSA2tzzSgjAraPaqAl16673gzdZUvFOqTuTSKGEPqzL2BWiA3zhzO5t2SfhtBpG2XvpX0MRKlJypI9qzou31wZsttIS984AbobLy0ft/hGH9eR+KtpQrxRhaV0dGOc9uhbwahZ4zs=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=renesas.com;
 Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com (2603:1096:400:373::8)
- by OSZPR01MB6599.jpnprd01.prod.outlook.com (2603:1096:604:112::13) with
+ by OS9PR01MB15186.jpnprd01.prod.outlook.com (2603:1096:604:3ba::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
- 2026 01:58:32 +0000
+ 2026 02:00:54 +0000
 Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com
  ([fe80::1868:c915:c230:a383]) by TY3PR01MB11797.jpnprd01.prod.outlook.com
  ([fe80::1868:c915:c230:a383%5]) with mapi id 15.21.0048.019; Tue, 26 May 2026
- 01:58:32 +0000
-Message-ID: <871pezj5iy.wl-kuninori.morimoto.gx@renesas.com>
+ 02:00:54 +0000
+Message-ID: <87qzmzhquk.wl-kuninori.morimoto.gx@renesas.com>
 To: =?ISO-8859-2?Q?=22Alvin_=A9ipraga=22?= <alsi@bang-olufsen.dk>, "J.M.B. Downing" <jonathan.downing@nautel.com>, =?ISO-8859-2?Q?=22Martin_?= =?ISO-8859-2?Q?Povi=B9er=22?= <povik+lin@cutebit.org>, =?ISO-8859-1?Q?=22Nuno_S=E1=22?= <nuno.sa@analog.com>, =?ISO-8859-1?Q?=22?= =?ISO-8859-1?Q?Uwe_Kleine-K=F6nig_=28The_Capable_Hub=29=22?= <u.kleine-koenig@baylibre.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Baojun Xu <baojun.xu@ti.com>, Bartosz Golaszewski <brgl@kernel.org>, Ben Bright <ben.bright@cirrus.com>, Benson Leung <bleung@chromium.org>, Biju Das <biju.das.jz@bp.renesas.com>, Binbin Zhou <zhoubinbin@loongson.cn>, Bram Vlerick <bram.vlerick@openpixelsystems.org>, Charles Keepax <ckeepax@opensource.cirrus.com>, Chen-Yu Tsai <wens@kernel.org>, Cheng-Yi Chiang <cychiang@chromium.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Daniel Mack <daniel@zonque.org>, Dario Binacchi <dario.binacchi@amarulasolutions.com>, David Rhodes <david.rhodes@cirrus.com>, Fabio Estevam <festevam@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Frank Li <Frank.Li@nxp.com>, Fred Treven <fred.treven@cirrus.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Guenter Roeck <groeck@chromium.org>, Guoqing Jiang <guoqing.jiang@canonical.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, HariKrishna Sagala <hariconscious@gmail.com>, Heiko Stuebner <heiko@sntech.de>, Herve Codina <herve.codina@bootlin.com>, Hsieh Hung-En <hungen3108@gmail.com>, James Ogletree <jogletre@opensource.cirrus.com>, Jarkko Nikula <jarkko.nikula@bitmer.com>, Jaroslav Kysela <perex@perex.cz>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jerome Brunet <jbrunet@baylibre.com>, Jihed Chaibi <jihed.chaibi.dev@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Kevin Cernekee <cernekee@chromium.org>, Kevin Hilman <khilman@baylibre.com>, Kevin Lu <kevin-lu@ti.com>, Kirill Marinushkin <k.marinushkin@gmail.com>, Kiseok Jo <kiseok.jo@irondevice.com>, Krzysztof Kozlowski <krzk@kernel.org>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Lars-Peter Clausen <lars@metafoo.de>, Liam Girdwood <lgirdwood@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, M R Swami Reddy <mr.swami.reddy@ti.com>, Mark Brown <broonie@kernel.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Masami Hiramatsu <mhiramat@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, Oder Chiou <oder_chiou@realtek.com>, Olivier Moysan <olivier.moysan@foss.st.com>, Paul Cercueil <paul@crapouillou.net>, Peter Rosin <peda@lysator.liu.se>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, Qianfeng Rong <rongqianfeng@vivo.com>, Ray Jui <rjui@broadcom.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, Robert Jarzmik <robert.jarzmik@free.fr>, Samuel Holland <samuel@sholland.org>, Sascha Hauer <s.hauer@pengutronix.de>, Scott Branden <sbranden@broadcom.com>, Sen Wang <sen@ti.com>, Sharique Mohammad <sharq0406@gmail.com>, Shenghao Ding <shenghao-ding@ti.com>, Shengjiu Wang <shengjiu.wang@gmail.com>, Steven Eckhoff <steven.eckhoff.opensource@gmail.com>, Support Opensource <support.opensource@diasemi.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Takashi Iwai <tiwai@suse.com>, Thierry Reding <thierry.reding@kernel.org>, Tim Bird <tim.bird@sony.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Tzung-Bi Shih <tzungbi@kernel.org>, Venkata Prasad Potturu <venkataprasad.potturu@amd.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>, Vishwas A Deshpande <vishwas.a.deshpande@ti.com>, Vladimir Zapolskiy <vz@mleia.com>, Xiubo Li
  <Xiubo.Lee@gmail.com>, Yixun Lan <dlan@kernel.org>, Zhang Yi <zhangyi@everest-semi.com>, chrome-platform@lists.linux.dev, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org, linux-sound@vger.kernel.org, spacemit@lists.linux.dev
 From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Subject: [PATCH 01/83] ASoC: remove SND_SOC_POSSIBLE_xBx_xFx
+Subject: [PATCH 08/83] ASoC: update auto format selection method
 In-Reply-To: <8733zfj5jj.wl-kuninori.morimoto.gx@renesas.com>
 References: <8733zfj5jj.wl-kuninori.morimoto.gx@renesas.com>
-Date: Tue, 26 May 2026 01:58:29 +0000
-X-ClientProxiedBy: OS0PR01CA0159.jpnprd01.prod.outlook.com
- (2603:1096:604:26::10) To TY3PR01MB11797.jpnprd01.prod.outlook.com
+Date: Tue, 26 May 2026 02:00:52 +0000
+X-ClientProxiedBy: OS0PR01CA0091.jpnprd01.prod.outlook.com
+ (2603:1096:604:9a::14) To TY3PR01MB11797.jpnprd01.prod.outlook.com
  (2603:1096:400:373::8)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY3PR01MB11797:EE_|OSZPR01MB6599:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9675b627-f1e4-4cf3-9e5b-08debaca49ee
+X-MS-TrafficTypeDiagnostic: TY3PR01MB11797:EE_|OS9PR01MB15186:EE_
+X-MS-Office365-Filtering-Correlation-Id: 30bcac89-0b54-4c1f-b25e-08debaca9eeb
 X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014|921020|18002099003|56012099003|22082099003|6133799003|11063799006|41080700001;
-X-Microsoft-Antispam-Message-Info: MkCphqqWYENXcE5ciINo93K5nJ4aeeX7Bos3aKtsu7Ot9r96MmEtmzU2au0hK1RF0oMajxdDCJ86CzO+b4E59hTDtJYsudpeF0hPJjrRNEhNjhdE4yKJCr9OQzIZyfii7RYfvG6+3xVTqCOBGOpO3msdb6Z2fCyJ92x6SrDy6skZjoVASEXAx0c/5U3J5OXBhbHIL06EVWQ/8g+0d9XhEGSGS7mnApMAAl5K2DaS/72eHgaugVtvBc26NN2YxOFmPCvoCF+ccwS3RSFe65xxNpX8vsp5PpNXGRXtZXR7i+LDnfms/IBhX7TmFTYdnYqrYPmy/j2jbBANfemTGErG8+yL70gm/BwBFVAqnThmmHSbwAsLs7b1Cj/eGfkWBdxQ3tZPyxOybBmqDmVSHdXPpiGOmqvpcLfa9+i8DKh8vpL/gnYkUhdIvAm6P3C2GZneVa3MjwCGqUeCDsPHPdqLKw8O5H+/q0NFS8cr4L/BOeUuUyFzWKIbVeZq2qdQPCkLZjI7H8M6/CXEVzAjKmNgcMmf/EXJpE2m4zF5R6RxiYKJVp+HiD6pPR8xo5QfBdlv/rSs6edR3Iouy8qV6Q/1tABU4n4bkA6Z36JcWngj9uEgjmY5q/SWnw0vAI0FLpXxE4PWNsiOG1SD6V9netiPL+rE+L66cmCL+dF28V6v9lTlkGZ2/EtWpZKAWJ9jkPgVSRsBicpwm1FiA6xDtizajnQJ+vkpI8KMqTjkJkDeF9N5N3zfVVx2hvrsSp7ztOrrmBUo0jX4g18sqlmzZHfesbRy+p7lT2atsfAA4vWwg7c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11797.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014)(921020)(18002099003)(56012099003)(22082099003)(6133799003)(11063799006)(41080700001);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|921020|38350700014|11063799006|18002099003|22082099003|56012099003|41080700001;
+X-Microsoft-Antispam-Message-Info: INWY3PL09MJ0rB4vhE6hu7e0mrL1KWSzTbEuhP5xHcPqjR11YifQcQYHf0J49ZXCb1uf0QHXDgIZsWODecK++OQLOj1b5+rdthHQLz7qGeAPjJAfPJVJFLevP03i7YmHUF41zWZNLWwPYB/LV8zESrXaPx44Y6n4F58vE09qaIebOjGiJXyhcJnpknpn9bZJEZKg8bWvQP3icjpGmLb85RM4fTWHQs7JposBOYabLQe0Iai3PSezfpAd9YXcrQNKK01SZN7DtRQkgAEW1OV+jQGwq1mLV4u+SJK0sTUkvvZUb2d54zFzGhci6FKxH7HCmvX3Yn43ZP/41rC+i0oMeRZ8XgfgKR05lnMTWQjnhtYUoRq6YPi/yj5c+o+y+xOO8sGzPU8isSlVP3tt2ZmcCvCMFAAmTzmLuh8lEg5/Zr2t/V9pKmh64dj7I1nWJOV4W6Pzzn4qq0Cd5t9cdYHr0DkzpPl2XT5RZg6ACQANw4gyX/zLJ8o8DghklXDwHgu6C0RRkd7cM9S/MrNRwdIANhdg7uO+76iRG2Y++KeFy53GjfMP4X4Xhrl4LKJz4yLp9PjqwLJOGg0XcyefF40zkIFDALdM/sYatYVpy03T7Lj0ioU149ts8qC0XddnPYvegNcQOz7SI4NE7rsxIb+3UdKHthsmcs0R3HJEY6Mw9trSVkZdfCg1JakNxeQsmdbNpRVXB4IDfbvTGhohT56WmKzVRviSNBA0Oi5IRyfCVL3wsv59WvQU0gCgpY5+rX2IekGcb/6LAoaId8anbZllckr8zWurPOYgElyCeK1a1vE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11797.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(921020)(38350700014)(11063799006)(18002099003)(22082099003)(56012099003)(41080700001);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j3xUQbl84/UOxC4UWjWfnkXcHs0qF2kWeZ+RYMSxeggX7IZWsxWWevxUv6mw?=
- =?us-ascii?Q?BtDFerxxxNYyVBbTVCBgrnUSeS3TBgUgMPOAYoBsCQ5q1R+38r9SGMroJbtu?=
- =?us-ascii?Q?NlgoFG3jizDsJYk0wni/Ojv71CWStkc0Tnm6S88EK1vBRtVKt+JeuJhy/1cW?=
- =?us-ascii?Q?rXD5loICxr6BEsdZUyROax4wVDEW1Epl11W6HjCOQeTUGxhn+zZAtWgDhlg+?=
- =?us-ascii?Q?qWQ3xHUqBx9lhSaixE2cU8qtsrF8ACsONdOh5yNDc4X4WjKE56uICeCFHWR+?=
- =?us-ascii?Q?a4rGN/kM8EFqFT7Q6mM5SMic7WMSUtUqEwJAaGO3BWrzGr0mb0OHz9LQ6kOT?=
- =?us-ascii?Q?yhM8dIOLGCg1bLO/DBj5p6dNlgpqT3l++QzE1sJjOpZfAKT4BuZyfpsruBkR?=
- =?us-ascii?Q?uARcerWt9BbcD1rbphIBGlrAN52JbTVU/6odl/1ja6yesdZTiKd1ZVgG4Viv?=
- =?us-ascii?Q?6L+pzFGeeR7hdKMTwhYoe3HQpdmgRONr14pPxxavKV8L6Zbi+N/jA8q6blR7?=
- =?us-ascii?Q?75050V7aut2T807Z18PA6pSEEqfVNpBi0PgXdZ33Amp0IGn6QwX3lRKQ0FKk?=
- =?us-ascii?Q?7FQSrubBaZXVLV5DF9VVJEt+7+F6CKAZPBqnt9h+Sy+J0qmA/5tth5TYMEDV?=
- =?us-ascii?Q?kmMXSJnAdF9CiASPu7mLhJbuu8Y2OQrGp5dtDmXcuG+iFqTzc7mOykLxRZT3?=
- =?us-ascii?Q?sHEyTiuW0jPW7L1/FnSx6BOhwJBvW7Qjzh7+vQIfZ8AIo3kXWWC+Kehv2hlO?=
- =?us-ascii?Q?z4WkHCIVkRFriIkqBXLTf+PyfoyZkrFtqmBjEjW4oqMwweBsfX7pF3BjkWZZ?=
- =?us-ascii?Q?byGrURi4C0iBskB1KUCYl1vUFYZ8JGrnD2GzaaETlN6w3xypkbSIkSDP4dIU?=
- =?us-ascii?Q?hNPw3/diNzHuke+C07Dzc7FDO0Rhkk7Ks2jpQTg9WKIFu12qTdMLs+2+ezlm?=
- =?us-ascii?Q?vnjSwfRKiZI30tECSKcgNkZwRSjdwlgE6Kb18zlgJgyOV8qr+OJUcdbPnmaz?=
- =?us-ascii?Q?GtESUQgvgar1lJER2E+cSFbcMg6OpL9zud7qsouAfYjsDu//8JEAmURXWueh?=
- =?us-ascii?Q?7/BwS/KBa0WNATpCo5JEb84t/r+Pe3Idtb3zu4HRviTKZg8qNUAUl4WmJnT3?=
- =?us-ascii?Q?pteeg4HO6H4VDpCa1X4Pn9zZmPm7gpE4y7JzXkme/oCc+LlKSyKnQqNhgmGC?=
- =?us-ascii?Q?QNM0I6BCDpci1vmDjRe2bw9lmpVmlYWWtpiDCMszbEQDOAQss2QGTlXzysOP?=
- =?us-ascii?Q?V9KtpV0zVPM7x4gWaFvti8NCijApphhetySnzJkpoz37WYtQVqNdz+9zp4Bm?=
- =?us-ascii?Q?N/BCTh4xR+l7gGHkYbgTgPpfjyR3oT2d6W5+ny/5B/UBm1ynIC4+af/KZ+LL?=
- =?us-ascii?Q?Tu5fdcqh5hf6UrdGRKn/97qIiu3MRYINgc7xfKjLK0/Iu55LGCVS1ceYwwoV?=
- =?us-ascii?Q?FqtBHHoSAf0Xd4ZM/AaeURXuGkb+jj10BHKl/dGqd+ZeiT4TBfGncg0Pc1mB?=
- =?us-ascii?Q?byi98u4X1mrNwLV9Q8xNjRAXAreoLDeUArl8Q/o8dTwZfWHj9EZHoIri5EvH?=
- =?us-ascii?Q?Pik3M/NPLUPnrpEg7KX2/QhzOaHnUAAkRj/sSuRVS27E72mpVjW+dULaNdl1?=
- =?us-ascii?Q?hfRDvIwULQj75oaOdHTDx3lM1Tjzk+bJSSLUgJevyshMsrXkG4RlX3BRnuuG?=
- =?us-ascii?Q?7RKnmIsPcLjT0Fuw2aRlFaRueggAOjnjCoJhBaMLE6GQCr+/UhNEEK6kDOx4?=
- =?us-ascii?Q?is1u4G+wqIL27FYdureZeYp+DIpF1r3SsfhTGPEpHQ4CNvltMblb?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cm704Y2zL/DrvcVK9zhYtnJYBCkZPcfOElCYDbmph/qX+fNIvmME02Gzyrrp?=
+ =?us-ascii?Q?J6IQCydM4jCHcoZqPd0X3vlRH3zDzVu9SlMeB0PylGoBnb1VoeN8ywZh7Kux?=
+ =?us-ascii?Q?k+D+MJnVm2G60GZLlHCzUXodQtseQsSbI+i/rRteODh8obYw79X2yD+6MsDB?=
+ =?us-ascii?Q?0/KTt0WQ4RoUp3EOK65IlMI+r8/hTSnAubJ90W8xMLT7j7IFLeUz7o9srov/?=
+ =?us-ascii?Q?GGOEK+U/UclJGj4jABUfQS7/He9TYN5FQgC/sKikl0futj1d7pT8cBXt+YzO?=
+ =?us-ascii?Q?bU/pG573l/sUs1LeOsbdMad9L766NCsbKnftIfcUX/hcGee/1pmZl4MKKlCv?=
+ =?us-ascii?Q?k/VZ+9SVZASLiKefE40FyrH9VQ/aY+HllD8M9gdGH3lfSwxYknYxAbkrqBGZ?=
+ =?us-ascii?Q?XcePEaTyO7Pur86FaizufeP9CBL09lXzhBFuvXmJvpr1z6FLu5wss0FGFuGc?=
+ =?us-ascii?Q?4c2si8pN+0yUwg6IdKeS30pqrznoavXfrBstYhs0niu6fTamn8AA+001KZ9k?=
+ =?us-ascii?Q?J4krO/A1rdvhNneWRlaNiIzr/c8tjRGNEen/mxXrPNtRwKP4v2T+6LHEdTck?=
+ =?us-ascii?Q?+6C7ZezpWKEJXnzD520cyeWtPa5RE2HvHmXZowx48Dypo6u32NGosOtHYw3k?=
+ =?us-ascii?Q?6DNqxHK8h1HtTpCT6TCCZHajruzIzVccXPOSA8qQWcdvX8Pew4XZmjlgm4fo?=
+ =?us-ascii?Q?2LIrMt3f1AwVEh4CjALCE+VV8tJG5zSCHy5ZigFfMERPfUCFBCyfaQvrM5T5?=
+ =?us-ascii?Q?xDasA4sRBhomi2ZwdhbBc76BM5jl/dnrT36IoXlDVI2eo77kvlI/ldB9ZSg8?=
+ =?us-ascii?Q?Qq0kJOb0oqMtDgYFrSY9EoV/Oz0IuO94mJfHWHU7Dsfu4UO2wlqaDjdPY+kO?=
+ =?us-ascii?Q?MSPBBizu2tY9qIT62MleQjt5cieMhuITYZoHmb9POn+P/c5m1DvhYFpobCOQ?=
+ =?us-ascii?Q?wnjBD3hOflXTp1WE3IIRBHbvTMXyz1jnyqRLhrNJSiVfBzmucIBvNOFlo2oZ?=
+ =?us-ascii?Q?vLQZBKw1ESKDRs0gzm0fMl4dN+Zsnid04G055YldF2qk1Qbt+ufNjB9ISUx3?=
+ =?us-ascii?Q?ipQw65ITUB4RcOVAysBHMflVf9cl5klPzCYvkgy+MHsoF5HJ9dXUPMzvwQQi?=
+ =?us-ascii?Q?u5epbFK+aVEyE1JCysPn4yabcRlZGjME1ozh/JYTUwAAwV++WC4jnthMppBI?=
+ =?us-ascii?Q?ykf9j1WcC4OU0KMQlDJTALn9lhFffWwszigwethsQiQ9Ba8MBjciOZK5gigQ?=
+ =?us-ascii?Q?Mw5Lg+s6HLvbfS+KORASds7xJ5UX/NyY2VFsKU35H9w4jdzE5+sahJVQ0sb4?=
+ =?us-ascii?Q?lF7hwGavuCDXzA7Qcc+t9gOJumrVoZxEVGB5ptad3m4/1VPq9hE0rAW8JhU6?=
+ =?us-ascii?Q?uorMXXWS8fFI16BlRGQdCBczEYiJEd+Ni/Dz+Lu+dd8dMO6mjXxfmQ1OpAra?=
+ =?us-ascii?Q?bJLu7XWbcHtd6dzAknYXofTt+X4pGgxpIfo6e7QMepkWbyZUv45CdxRg+1vA?=
+ =?us-ascii?Q?uafu3u/Sn1qjjk2OSjAgFOLuq/Q56ZyYRPvvaGffsx+DqIAxXNnygYAPgrrX?=
+ =?us-ascii?Q?p6sXD6ut1KcwI+LAfSMpuaqlo9QbXfK/E9HW8b+dfA1fhuDhgAuL3MsB1btO?=
+ =?us-ascii?Q?BrS6fj/8pyI18PyLQmShcSMy414s3N4Lp7J1SbvvLxvSp7qV/cjDhJfOk43A?=
+ =?us-ascii?Q?gO+l8SGLjF2aeV5LOk1TrxwqfQAu8pc7UIVV6skkDgIc7qq6/Zl0sIWwD8Lg?=
+ =?us-ascii?Q?H6/UIxTFr/htqsLC9rdfimY8guYhcRIhxnxdZPtNMDNAJ2Rl1mrk?=
 X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9675b627-f1e4-4cf3-9e5b-08debaca49ee
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30bcac89-0b54-4c1f-b25e-08debaca9eeb
 X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11797.jpnprd01.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 01:58:32.1907
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 02:00:54.7202
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LnwLUGiIYJy6c9bWsYCD4iNkXjWYKtemIEP6nTI5xwZWOLSVG8Z9EvMSgMB8MzxgK1tZoRLv48Q7rdQT0JLBo+gRcEsOAwFd/Qhi+eWqwX4S5DtR6DIJufQW8PqS4mrQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZPR01MB6599
+X-MS-Exchange-CrossTenant-UserPrincipalName: q1O0ybSiqTZEuPRcznyukMuOM4qbrS8qwaqTSdUFG1oLh1h8Q4fV409zqRsOKft5I/TdY2Xalset6Kpprd9E80lSOpsqW9Wjis28suY5aES5Pe6plGJ5uDHzvkVcc4k4
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB15186
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_185846_585708_33A3AA01 
-X-CRM114-Status: GOOD (  11.89  )
-X-Mailman-Approved-At: Tue, 26 May 2026 08:04:53 -0700
+X-CRM114-CacheID: sfid-20260525_190059_309822_6C64C49A 
+X-CRM114-Status: GOOD (  14.38  )
+X-Mailman-Approved-At: Tue, 26 May 2026 08:04:54 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,217 +136,474 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Clock provider / consumer selection is based on board, we can't select
-automatically from software. Let's remove SND_SOC_POSSIBLE_xBx_xFx.
+Current DAI supports auto format selection. It allow to have array like
+below.
+
+(X)	static u64 xxx_auto_formats[] = {
+(A)		/* First Priority */
+		SND_SOC_POSSIBLE_DAIFMT_I2S	|
+		SND_SOC_POSSIBLE_DAIFMT_LEFT_J,
+
+		/* Second Priority */
+(B)		SND_SOC_POSSIBLE_DAIFMT_DSP_A	|
+		SND_SOC_POSSIBLE_DAIFMT_DSP_B,
+	};
+
+It try to find available format from I2S/LEFT_J first (A).
+Then, try to find from I2S/LEFT_J/DSP_A/DSP_B if couldn't find (A)+(B).
+(OR:ed)
+
+In this method, it can't handle if there is format combination.
+For example, some driver has pattern.
+
+Pattern1
+	I2S/RIFHT_J/LEFT_J (FORMAT) and NB_NF/IB_IF/IB_NF/NB_IF (INV)_
+Pattern2
+	DSP_A/DSP_B        (FORMAT) and NB_NF/      IB_NF
+
+Because it will try to OR Pattern1 and Pattern2, un-supported
+pattern might be selected.
+
+This patch update method not to use OR, and assumes full format array.
+Above sample (X) need to be
+
+	static u64 xxx_auto_formats[] = {
+		/* First Priority */
+		SND_SOC_POSSIBLE_DAIFMT_I2S	|
+		SND_SOC_POSSIBLE_DAIFMT_LEFT_J,
+
+		/* Second Priority */
+		SND_SOC_POSSIBLE_DAIFMT_I2S	|
+		SND_SOC_POSSIBLE_DAIFMT_LEFT_J	|
+		SND_SOC_POSSIBLE_DAIFMT_DSP_A	|
+		SND_SOC_POSSIBLE_DAIFMT_DSP_B,
+	};
 
 Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 ---
- include/sound/soc-dai.h            |  8 --------
- sound/soc/codecs/ak4613.c          |  5 -----
- sound/soc/codecs/ak4619.c          |  6 ------
- sound/soc/codecs/da7213.c          |  5 -----
- sound/soc/codecs/pcm3168a.c        |  6 ------
- sound/soc/generic/test-component.c |  7 -------
- sound/soc/renesas/fsi.c            |  5 -----
- sound/soc/renesas/rcar/core.c      |  3 ---
- sound/soc/renesas/rcar/msiof.c     |  5 -----
- sound/soc/soc-core.c               | 15 ---------------
- sound/soc/soc-utils.c              |  7 -------
- 11 files changed, 72 deletions(-)
+ include/sound/soc-dai.h |   7 +-
+ sound/soc/soc-core.c    | 145 +----------------------------
+ sound/soc/soc-dai.c     | 201 +++++++++++++++++++++++++++++++---------
+ 3 files changed, 159 insertions(+), 194 deletions(-)
 
 diff --git a/include/sound/soc-dai.h b/include/sound/soc-dai.h
-index 6a42812bba8ca..06ed6774229bc 100644
+index 06ed6774229bc..d9947a4595d74 100644
 --- a/include/sound/soc-dai.h
 +++ b/include/sound/soc-dai.h
-@@ -139,14 +139,6 @@ struct snd_compr_stream;
- #define SND_SOC_DAIFMT_BP_FC		SND_SOC_DAIFMT_CBP_CFC
- #define SND_SOC_DAIFMT_BC_FC		SND_SOC_DAIFMT_CBC_CFC
+@@ -80,10 +80,10 @@ struct snd_compr_stream;
+ /*
+  * define GATED -> CONT. GATED will be selected if both are selected.
+  * see
+- *	snd_soc_runtime_get_dai_fmt()
++ *	soc_dai_convert_possiblefmt_to_daifmt()
+  */
+ #define SND_SOC_POSSIBLE_DAIFMT_CLOCK_SHIFT	16
+-#define SND_SOC_POSSIBLE_DAIFMT_CLOCK_MASK	(0xFFFF	<< SND_SOC_POSSIBLE_DAIFMT_CLOCK_SHIFT)
++#define SND_SOC_POSSIBLE_DAIFMT_CLOCK_MASK	(0xFFFFULL << SND_SOC_POSSIBLE_DAIFMT_CLOCK_SHIFT)
+ #define SND_SOC_POSSIBLE_DAIFMT_GATED		(0x1ULL	<< SND_SOC_POSSIBLE_DAIFMT_CLOCK_SHIFT)
+ #define SND_SOC_POSSIBLE_DAIFMT_CONT		(0x2ULL	<< SND_SOC_POSSIBLE_DAIFMT_CLOCK_SHIFT)
  
--/* Describes the possible PCM format */
--#define SND_SOC_POSSIBLE_DAIFMT_CLOCK_PROVIDER_SHIFT	48
--#define SND_SOC_POSSIBLE_DAIFMT_CLOCK_PROVIDER_MASK	(0xFFFFULL << SND_SOC_POSSIBLE_DAIFMT_CLOCK_PROVIDER_SHIFT)
--#define SND_SOC_POSSIBLE_DAIFMT_CBP_CFP			(0x1ULL    << SND_SOC_POSSIBLE_DAIFMT_CLOCK_PROVIDER_SHIFT)
--#define SND_SOC_POSSIBLE_DAIFMT_CBC_CFP			(0x2ULL    << SND_SOC_POSSIBLE_DAIFMT_CLOCK_PROVIDER_SHIFT)
--#define SND_SOC_POSSIBLE_DAIFMT_CBP_CFC			(0x4ULL    << SND_SOC_POSSIBLE_DAIFMT_CLOCK_PROVIDER_SHIFT)
--#define SND_SOC_POSSIBLE_DAIFMT_CBC_CFC			(0x8ULL    << SND_SOC_POSSIBLE_DAIFMT_CLOCK_PROVIDER_SHIFT)
--
- #define SND_SOC_DAIFMT_FORMAT_MASK		0x000f
- #define SND_SOC_DAIFMT_CLOCK_MASK		0x00f0
- #define SND_SOC_DAIFMT_INV_MASK			0x0f00
-diff --git a/sound/soc/codecs/ak4613.c b/sound/soc/codecs/ak4613.c
-index 3b198b9b46051..3e0696b5abf52 100644
---- a/sound/soc/codecs/ak4613.c
-+++ b/sound/soc/codecs/ak4613.c
-@@ -748,11 +748,6 @@ static int ak4613_dai_trigger(struct snd_pcm_substream *substream, int cmd,
- 	return 0;
- }
+@@ -181,8 +181,7 @@ int snd_soc_dai_set_pll(struct snd_soc_dai *dai,
+ int snd_soc_dai_set_bclk_ratio(struct snd_soc_dai *dai, unsigned int ratio);
  
--/*
-- * Select below from Sound Card, not Auto
-- *	SND_SOC_DAIFMT_CBC_CFC
-- *	SND_SOC_DAIFMT_CBP_CFP
-- */
- static const u64 ak4613_dai_formats =
- 	SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 	SND_SOC_POSSIBLE_DAIFMT_LEFT_J;
-diff --git a/sound/soc/codecs/ak4619.c b/sound/soc/codecs/ak4619.c
-index 755c002f0f159..192b0c3413968 100644
---- a/sound/soc/codecs/ak4619.c
-+++ b/sound/soc/codecs/ak4619.c
-@@ -778,12 +778,6 @@ static int ak4619_dai_startup(struct snd_pcm_substream *substream,
- }
+ /* Digital Audio interface formatting */
+-int snd_soc_dai_get_fmt_max_priority(const struct snd_soc_pcm_runtime *rtd);
+-u64 snd_soc_dai_get_fmt(const struct snd_soc_dai *dai, int priority);
++unsigned int snd_soc_dai_auto_select_format(const struct snd_soc_pcm_runtime *rtd);
+ int snd_soc_dai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt);
  
- static u64 ak4619_dai_formats[] = {
--	/*
--	 * Select below from Sound Card, not here
--	 *	SND_SOC_DAIFMT_CBC_CFC
--	 *	SND_SOC_DAIFMT_CBP_CFP
--	 */
--
- 	/* First Priority */
- 	SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 	SND_SOC_POSSIBLE_DAIFMT_LEFT_J,
-diff --git a/sound/soc/codecs/da7213.c b/sound/soc/codecs/da7213.c
-index 98b8858ded025..4bf91ab2553a2 100644
---- a/sound/soc/codecs/da7213.c
-+++ b/sound/soc/codecs/da7213.c
-@@ -1720,11 +1720,6 @@ static int da7213_set_component_pll(struct snd_soc_component *component,
- 	return _da7213_set_component_pll(component, pll_id, source, fref, fout);
- }
- 
--/*
-- * Select below from Sound Card, not Auto
-- *	SND_SOC_DAIFMT_CBC_CFC
-- *	SND_SOC_DAIFMT_CBP_CFP
-- */
- static const u64 da7213_dai_formats =
- 	SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 	SND_SOC_POSSIBLE_DAIFMT_LEFT_J	|
-diff --git a/sound/soc/codecs/pcm3168a.c b/sound/soc/codecs/pcm3168a.c
-index c8617a488b11c..7c570efaa1ea3 100644
---- a/sound/soc/codecs/pcm3168a.c
-+++ b/sound/soc/codecs/pcm3168a.c
-@@ -563,12 +563,6 @@ static int pcm3168a_hw_params(struct snd_pcm_substream *substream,
- }
- 
- static const u64 pcm3168a_dai_formats[] = {
--	/*
--	 * Select below from Sound Card, not here
--	 *	SND_SOC_DAIFMT_CBC_CFC
--	 *	SND_SOC_DAIFMT_CBP_CFP
--	 */
--
- 	/*
- 	 * First Priority
- 	 */
-diff --git a/sound/soc/generic/test-component.c b/sound/soc/generic/test-component.c
-index fc40d024152e6..6f9f498c4c5c1 100644
---- a/sound/soc/generic/test-component.c
-+++ b/sound/soc/generic/test-component.c
-@@ -191,13 +191,6 @@ static int test_dai_trigger(struct snd_pcm_substream *substream, int cmd, struct
- }
- 
- static const u64 test_dai_formats =
--	/*
--	 * Select below from Sound Card, not auto
--	 *	SND_SOC_POSSIBLE_DAIFMT_BP_FP
--	 *	SND_SOC_POSSIBLE_DAIFMT_BC_FP
--	 *	SND_SOC_POSSIBLE_DAIFMT_BP_FC
--	 *	SND_SOC_POSSIBLE_DAIFMT_BC_FC
--	 */
- 	SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 	SND_SOC_POSSIBLE_DAIFMT_RIGHT_J	|
- 	SND_SOC_POSSIBLE_DAIFMT_LEFT_J	|
-diff --git a/sound/soc/renesas/fsi.c b/sound/soc/renesas/fsi.c
-index 8cbd7acc26f49..1eb3e83c0616c 100644
---- a/sound/soc/renesas/fsi.c
-+++ b/sound/soc/renesas/fsi.c
-@@ -1694,11 +1694,6 @@ static int fsi_dai_hw_params(struct snd_pcm_substream *substream,
- 	return 0;
- }
- 
--/*
-- * Select below from Sound Card, not auto
-- *	SND_SOC_DAIFMT_CBC_CFC
-- *	SND_SOC_DAIFMT_CBP_CFP
-- */
- static const u64 fsi_dai_formats =
- 	SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 	SND_SOC_POSSIBLE_DAIFMT_LEFT_J	|
-diff --git a/sound/soc/renesas/rcar/core.c b/sound/soc/renesas/rcar/core.c
-index 2dc078358612d..abf2059985162 100644
---- a/sound/soc/renesas/rcar/core.c
-+++ b/sound/soc/renesas/rcar/core.c
-@@ -1042,9 +1042,6 @@ static const u64 rsnd_soc_dai_formats[] = {
- 	 * 1st Priority
- 	 *
- 	 * Well tested formats.
--	 * Select below from Sound Card, not auto
--	 *	SND_SOC_DAIFMT_CBC_CFC
--	 *	SND_SOC_DAIFMT_CBP_CFP
- 	 */
- 	SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 	SND_SOC_POSSIBLE_DAIFMT_RIGHT_J	|
-diff --git a/sound/soc/renesas/rcar/msiof.c b/sound/soc/renesas/rcar/msiof.c
-index 2671abc028cce..128543fc4fc97 100644
---- a/sound/soc/renesas/rcar/msiof.c
-+++ b/sound/soc/renesas/rcar/msiof.c
-@@ -363,11 +363,6 @@ static int msiof_dai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
- 	return 0;
- }
- 
--/*
-- * Select below from Sound Card, not auto
-- *	SND_SOC_DAIFMT_CBC_CFC
-- *	SND_SOC_DAIFMT_CBP_CFP
-- */
- static const u64 msiof_dai_formats = SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 				     SND_SOC_POSSIBLE_DAIFMT_LEFT_J	|
- 				     SND_SOC_POSSIBLE_DAIFMT_NB_NF;
+ int snd_soc_dai_set_tdm_slot(struct snd_soc_dai *dai,
 diff --git a/sound/soc/soc-core.c b/sound/soc/soc-core.c
-index 2c05299604b33..04a2d64d977b3 100644
+index 04a2d64d977b3..691fd7fc5030d 100644
 --- a/sound/soc/soc-core.c
 +++ b/sound/soc/soc-core.c
-@@ -1401,21 +1401,6 @@ static void snd_soc_runtime_get_dai_fmt(struct snd_soc_pcm_runtime *rtd)
- 		case SND_SOC_POSSIBLE_DAIFMT_IB_IF:
- 			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_IB_IF;
- 			break;
+@@ -1284,148 +1284,6 @@ int snd_soc_add_pcm_runtimes(struct snd_soc_card *card,
+ }
+ EXPORT_SYMBOL_GPL(snd_soc_add_pcm_runtimes);
+ 
+-static void snd_soc_runtime_get_dai_fmt(struct snd_soc_pcm_runtime *rtd)
+-{
+-	struct snd_soc_dai_link *dai_link = rtd->dai_link;
+-	struct snd_soc_dai *dai, *not_used;
+-	u64 pos, possible_fmt;
+-	unsigned int mask = 0, dai_fmt = 0;
+-	int i, j, priority, pri, until;
+-
+-	/*
+-	 * Get selectable format from each DAIs.
+-	 *
+-	 ****************************
+-	 *            NOTE
+-	 * Using .auto_selectable_formats is not mandatory,
+-	 * we can select format manually from Sound Card.
+-	 * When use it, driver should list well tested format only.
+-	 ****************************
+-	 *
+-	 * ex)
+-	 *	auto_selectable_formats (= SND_SOC_POSSIBLE_xxx)
+-	 *		 (A)	 (B)	 (C)
+-	 *	DAI0_: { 0x000F, 0x00F0, 0x0F00 };
+-	 *	DAI1 : { 0xF000, 0x0F00 };
+-	 *		 (X)	 (Y)
+-	 *
+-	 * "until" will be 3 in this case (MAX array size from DAI0 and DAI1)
+-	 * Here is dev_dbg() message and comments
+-	 *
+-	 * priority = 1
+-	 * DAI0: (pri, fmt) = (1, 000000000000000F) // 1st check (A) DAI1 is not selected
+-	 * DAI1: (pri, fmt) = (0, 0000000000000000) //               Necessary Waste
+-	 * DAI0: (pri, fmt) = (1, 000000000000000F) // 2nd check (A)
+-	 * DAI1: (pri, fmt) = (1, 000000000000F000) //           (X)
+-	 * priority = 2
+-	 * DAI0: (pri, fmt) = (2, 00000000000000FF) // 3rd check (A) + (B)
+-	 * DAI1: (pri, fmt) = (1, 000000000000F000) //           (X)
+-	 * DAI0: (pri, fmt) = (2, 00000000000000FF) // 4th check (A) + (B)
+-	 * DAI1: (pri, fmt) = (2, 000000000000FF00) //           (X) + (Y)
+-	 * priority = 3
+-	 * DAI0: (pri, fmt) = (3, 0000000000000FFF) // 5th check (A) + (B) + (C)
+-	 * DAI1: (pri, fmt) = (2, 000000000000FF00) //           (X) + (Y)
+-	 * found auto selected format: 0000000000000F00
+-	 */
+-	until = snd_soc_dai_get_fmt_max_priority(rtd);
+-	for (priority = 1; priority <= until; priority++) {
+-		for_each_rtd_dais(rtd, j, not_used) {
+-
+-			possible_fmt = ULLONG_MAX;
+-			for_each_rtd_dais(rtd, i, dai) {
+-				u64 fmt = 0;
+-
+-				pri = (j >= i) ? priority : priority - 1;
+-				fmt = snd_soc_dai_get_fmt(dai, pri);
+-				possible_fmt &= fmt;
+-			}
+-			if (possible_fmt)
+-				goto found;
+-		}
+-	}
+-	/* Not Found */
+-	return;
+-found:
+-	/*
+-	 * convert POSSIBLE_DAIFMT to DAIFMT
+-	 *
+-	 * Some basic/default settings on each is defined as 0.
+-	 * see
+-	 *	SND_SOC_DAIFMT_NB_NF
+-	 *	SND_SOC_DAIFMT_GATED
+-	 *
+-	 * SND_SOC_DAIFMT_xxx_MASK can't notice it if Sound Card specify
+-	 * these value, and will be overwrite to auto selected value.
+-	 *
+-	 * To avoid such issue, loop from 63 to 0 here.
+-	 * Small number of SND_SOC_POSSIBLE_xxx will be Hi priority.
+-	 * Basic/Default settings of each part and above are defined
+-	 * as Hi priority (= small number) of SND_SOC_POSSIBLE_xxx.
+-	 */
+-	for (i = 63; i >= 0; i--) {
+-		pos = 1ULL << i;
+-		switch (possible_fmt & pos) {
 -		/*
--		 * for clock provider / consumer
+-		 * for format
 -		 */
--		case SND_SOC_POSSIBLE_DAIFMT_CBP_CFP:
--			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK) | SND_SOC_DAIFMT_CBP_CFP;
+-		case SND_SOC_POSSIBLE_DAIFMT_I2S:
+-		case SND_SOC_POSSIBLE_DAIFMT_RIGHT_J:
+-		case SND_SOC_POSSIBLE_DAIFMT_LEFT_J:
+-		case SND_SOC_POSSIBLE_DAIFMT_DSP_A:
+-		case SND_SOC_POSSIBLE_DAIFMT_DSP_B:
+-		case SND_SOC_POSSIBLE_DAIFMT_AC97:
+-		case SND_SOC_POSSIBLE_DAIFMT_PDM:
+-			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_FORMAT_MASK) | i;
 -			break;
--		case SND_SOC_POSSIBLE_DAIFMT_CBC_CFP:
--			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK) | SND_SOC_DAIFMT_CBC_CFP;
+-		/*
+-		 * for clock
+-		 */
+-		case SND_SOC_POSSIBLE_DAIFMT_CONT:
+-			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_CLOCK_MASK) | SND_SOC_DAIFMT_CONT;
 -			break;
--		case SND_SOC_POSSIBLE_DAIFMT_CBP_CFC:
--			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK) | SND_SOC_DAIFMT_CBP_CFC;
+-		case SND_SOC_POSSIBLE_DAIFMT_GATED:
+-			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_CLOCK_MASK) | SND_SOC_DAIFMT_GATED;
 -			break;
--		case SND_SOC_POSSIBLE_DAIFMT_CBC_CFC:
--			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK) | SND_SOC_DAIFMT_CBC_CFC;
+-		/*
+-		 * for clock invert
+-		 */
+-		case SND_SOC_POSSIBLE_DAIFMT_NB_NF:
+-			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_NB_NF;
 -			break;
- 		}
- 	}
+-		case SND_SOC_POSSIBLE_DAIFMT_NB_IF:
+-			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_NB_IF;
+-			break;
+-		case SND_SOC_POSSIBLE_DAIFMT_IB_NF:
+-			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_IB_NF;
+-			break;
+-		case SND_SOC_POSSIBLE_DAIFMT_IB_IF:
+-			dai_fmt = (dai_fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_IB_IF;
+-			break;
+-		}
+-	}
+-
+-	/*
+-	 * Some driver might have very complex limitation.
+-	 * In such case, user want to auto-select non-limitation part,
+-	 * and want to manually specify complex part.
+-	 *
+-	 * Or for example, if both CPU and Codec can be clock provider,
+-	 * but because of its quality, user want to specify it manually.
+-	 *
+-	 * Use manually specified settings if sound card did.
+-	 */
+-	if (!(dai_link->dai_fmt & SND_SOC_DAIFMT_FORMAT_MASK))
+-		mask |= SND_SOC_DAIFMT_FORMAT_MASK;
+-	if (!(dai_link->dai_fmt & SND_SOC_DAIFMT_CLOCK_MASK))
+-		mask |= SND_SOC_DAIFMT_CLOCK_MASK;
+-	if (!(dai_link->dai_fmt & SND_SOC_DAIFMT_INV_MASK))
+-		mask |= SND_SOC_DAIFMT_INV_MASK;
+-	if (!(dai_link->dai_fmt & SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK))
+-		mask |= SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK;
+-
+-	dai_link->dai_fmt |= (dai_fmt & mask);
+-}
+-
+ /**
+  * snd_soc_runtime_set_dai_fmt() - Change DAI link format for a ASoC runtime
+  * @rtd: The runtime for which the DAI link format should be changed
+@@ -1504,8 +1362,7 @@ static int soc_init_pcm_runtime(struct snd_soc_card *card,
+ 	if (ret < 0)
+ 		return ret;
  
-diff --git a/sound/soc/soc-utils.c b/sound/soc/soc-utils.c
-index c8adfff826bd4..d1937fc217dc7 100644
---- a/sound/soc/soc-utils.c
-+++ b/sound/soc/soc-utils.c
-@@ -182,13 +182,6 @@ static const struct snd_soc_component_driver dummy_codec = {
- 			SNDRV_PCM_FMTBIT_U32_LE | \
- 			SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE)
+-	snd_soc_runtime_get_dai_fmt(rtd);
+-	ret = snd_soc_runtime_set_dai_fmt(rtd, dai_link->dai_fmt);
++	ret = snd_soc_runtime_set_dai_fmt(rtd, snd_soc_dai_auto_select_format(rtd));
+ 	if (ret)
+ 		goto err;
  
--/*
-- * Select these from Sound Card Manually
-- *	SND_SOC_POSSIBLE_DAIFMT_CBP_CFP
-- *	SND_SOC_POSSIBLE_DAIFMT_CBP_CFC
-- *	SND_SOC_POSSIBLE_DAIFMT_CBC_CFP
-- *	SND_SOC_POSSIBLE_DAIFMT_CBC_CFC
+diff --git a/sound/soc/soc-dai.c b/sound/soc/soc-dai.c
+index 2f370fda12665..21943d7b5ef35 100644
+--- a/sound/soc/soc-dai.c
++++ b/sound/soc/soc-dai.c
+@@ -120,68 +120,177 @@ int snd_soc_dai_set_bclk_ratio(struct snd_soc_dai *dai, unsigned int ratio)
+ }
+ EXPORT_SYMBOL_GPL(snd_soc_dai_set_bclk_ratio);
+ 
+-int snd_soc_dai_get_fmt_max_priority(const struct snd_soc_pcm_runtime *rtd)
++static int soc_dai_fmt_match_cnt(u64 fmt)
+ {
+-	struct snd_soc_dai *dai;
+-	int i, max = 0;
++	int cnt = 0;
+ 
+-	/*
+-	 * return max num if *ALL* DAIs have .auto_selectable_formats
+-	 */
+-	for_each_rtd_dais(rtd, i, dai) {
+-		if (dai->driver->ops &&
+-		    dai->driver->ops->num_auto_selectable_formats)
+-			max = max(max, dai->driver->ops->num_auto_selectable_formats);
+-		else
+-			return 0;
+-	}
++	if (fmt & SND_SOC_POSSIBLE_DAIFMT_FORMAT_MASK)
++		cnt++;
++	if (fmt & SND_SOC_POSSIBLE_DAIFMT_CLOCK_MASK)
++		cnt++;
++	if (fmt & SND_SOC_POSSIBLE_DAIFMT_INV_MASK)
++		cnt++;
+ 
+-	return max;
++	return cnt;
+ }
+ 
+-/**
+- * snd_soc_dai_get_fmt - get supported audio format.
+- * @dai: DAI
+- * @priority: priority level of supported audio format.
+- *
+- * This should return only formats implemented with high
+- * quality by the DAI so that the core can configure a
+- * format which will work well with other devices.
+- * For example devices which don't support both edges of the
+- * LRCLK signal in I2S style formats should only list DSP
+- * modes.  This will mean that sometimes fewer formats
+- * are reported here than are supported by set_fmt().
 - */
- static const u64 dummy_dai_formats =
- 	SND_SOC_POSSIBLE_DAIFMT_I2S	|
- 	SND_SOC_POSSIBLE_DAIFMT_RIGHT_J	|
+-u64 snd_soc_dai_get_fmt(const struct snd_soc_dai *dai, int priority)
++static void soc_dai_auto_select_format(u64 fmt, const struct snd_soc_pcm_runtime *rtd,
++				      int idx, u64 *best_fmt)
+ {
+-	const struct snd_soc_dai_ops *ops = dai->driver->ops;
+-	u64 fmt = 0;
+-	int i, max = 0, until = priority;
++	struct snd_soc_dai *dai;
++	const struct snd_soc_dai_ops *ops;
++	int max_idx = rtd->dai_link->num_cpus + rtd->dai_link->num_codecs;
++	u64 available_fmt;
++
++	if (idx >= max_idx)
++		return;
++
++	dai = rtd->dais[idx];
++	ops = dai->driver->ops;
++
++	/* zero chance of auto select format */
++	if (!ops || !ops->num_auto_selectable_formats)
++		return;
+ 
+ 	/*
+-	 * Collect auto_selectable_formats until priority
++	 ****************************
++	 *            NOTE
++	 ****************************
++	 * Using .auto_selectable_formats is not mandatory,
++	 * It try to find best formats as much as possible, but automatically selecting the
++	 * perfect format is impossible. So you can select full or missing format manually
++	 * from Sound Card.
+ 	 *
+ 	 * ex)
+-	 *	auto_selectable_formats[] = { A, B, C };
+-	 *	(A, B, C = SND_SOC_POSSIBLE_DAIFMT_xxx)
++	 * CPU					Codec
++	 * (A)[0] I2S/LEFT_J : IB_NF/IB_IF	(X)[0] I2S/DSP_A: NB_NF : GATED
++	 * (B)[1] DSP_A/DSP_B: NB_NF/IB_NF	(Y)[1] LEFT_J:    NB_NF : GATED
++	 * (C)[2] ...
+ 	 *
+-	 * priority = 1 :	A
+-	 * priority = 2 :	A | B
+-	 * priority = 3 :	A | B | C
+-	 * priority = 4 :	A | B | C
++	 * 1. (A) -> (X) : I2S		:update best format
++	 * 2. (A) -> (Y) : LEFT_J
++	 * 3. (B) -> (X) : DSP_A/NB_NF	:update best format
++	 * 4. (B) -> (Y) : NB_NF
++	 * 5. (C) -> (X) ...
++	 * 6. (C) -> (Y) ...
+ 	 * ...
++	 *
++	 * In above case GATED will not be selected
+ 	 */
+-	if (ops)
+-		max = ops->num_auto_selectable_formats;
+ 
+-	if (max < until)
+-		until = max;
++	/* find best formats */
++	for (int i = 0; i < ops->num_auto_selectable_formats; i++) {
++		available_fmt = fmt & ops->auto_selectable_formats[i];
+ 
+-	if (ops && ops->auto_selectable_formats)
+-		for (i = 0; i < until; i++)
+-			fmt |= ops->auto_selectable_formats[i];
++		/* In case of last DAI */
++		if (idx + 1 >= max_idx) {
++			int cnt1 = soc_dai_fmt_match_cnt(*best_fmt);
++			int cnt2 = soc_dai_fmt_match_cnt(available_fmt);
+ 
+-	return fmt;
++			if (cnt1 < cnt2)
++				*best_fmt = available_fmt;
++		}
++		/* parse with next DAI */
++		else {
++			soc_dai_auto_select_format(available_fmt, rtd, idx + 1, best_fmt);
++		}
++	}
++}
++
++static unsigned int soc_dai_convert_possiblefmt_to_daifmt(u64 possible_fmt, unsigned int configured_fmt)
++{
++	unsigned int fmt = 0;
++	unsigned int mask = 0;
++
++	/*
++	 * convert POSSIBLE_DAIFMT to DAIFMT
++	 *
++	 * Some basic/default settings on each is defined as 0.
++	 * see
++	 *	SND_SOC_DAIFMT_NB_NF
++	 *	SND_SOC_DAIFMT_GATED
++	 *
++	 * SND_SOC_DAIFMT_xxx_MASK can't notice it if Sound Card specify
++	 * these value, and will be overwrite to auto selected value.
++	 *
++	 * To avoid such issue, loop from 63 to 0 here.
++	 * Small number of SND_SOC_POSSIBLE_xxx will be Hi priority.
++	 * Basic/Default settings of each part and above are defined
++	 * as Hi priority (= small number) of SND_SOC_POSSIBLE_xxx.
++	 */
++	for (int i = 63; i >= 0; i--) {
++		u64 pos = 1ULL << i;
++
++		switch (possible_fmt & pos) {
++		/*
++		 * for format
++		 */
++		case SND_SOC_POSSIBLE_DAIFMT_I2S:
++		case SND_SOC_POSSIBLE_DAIFMT_RIGHT_J:
++		case SND_SOC_POSSIBLE_DAIFMT_LEFT_J:
++		case SND_SOC_POSSIBLE_DAIFMT_DSP_A:
++		case SND_SOC_POSSIBLE_DAIFMT_DSP_B:
++		case SND_SOC_POSSIBLE_DAIFMT_AC97:
++		case SND_SOC_POSSIBLE_DAIFMT_PDM:
++			fmt = (fmt & ~SND_SOC_DAIFMT_FORMAT_MASK) | i;
++			break;
++		/*
++		 * for clock
++		 */
++		case SND_SOC_POSSIBLE_DAIFMT_CONT:
++			fmt = (fmt & ~SND_SOC_DAIFMT_CLOCK_MASK) | SND_SOC_DAIFMT_CONT;
++			break;
++		case SND_SOC_POSSIBLE_DAIFMT_GATED:
++			fmt = (fmt & ~SND_SOC_DAIFMT_CLOCK_MASK) | SND_SOC_DAIFMT_GATED;
++			break;
++		/*
++		 * for clock invert
++		 */
++		case SND_SOC_POSSIBLE_DAIFMT_NB_NF:
++			fmt = (fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_NB_NF;
++			break;
++		case SND_SOC_POSSIBLE_DAIFMT_NB_IF:
++			fmt = (fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_NB_IF;
++			break;
++		case SND_SOC_POSSIBLE_DAIFMT_IB_NF:
++			fmt = (fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_IB_NF;
++			break;
++		case SND_SOC_POSSIBLE_DAIFMT_IB_IF:
++			fmt = (fmt & ~SND_SOC_DAIFMT_INV_MASK) | SND_SOC_DAIFMT_IB_IF;
++			break;
++		}
++	}
++
++	/*
++	 * Some driver might have very complex limitation.
++	 * In such case, user want to auto-select non-limitation part,
++	 * and want to manually specify complex part.
++	 *
++	 * Or for example, if both CPU and Codec can be clock provider,
++	 * but because of its quality, user want to specify it manually.
++	 *
++	 * Ignore already configured format if exist
++	 */
++	if (!(configured_fmt & SND_SOC_DAIFMT_FORMAT_MASK))
++		mask |= SND_SOC_DAIFMT_FORMAT_MASK;
++	if (!(configured_fmt & SND_SOC_DAIFMT_CLOCK_MASK))
++		mask |= SND_SOC_DAIFMT_CLOCK_MASK;
++	if (!(configured_fmt & SND_SOC_DAIFMT_INV_MASK))
++		mask |= SND_SOC_DAIFMT_INV_MASK;
++	if (!(configured_fmt & SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK))
++		mask |= SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK;
++
++	return configured_fmt | (fmt & mask);
++}
++
++unsigned int snd_soc_dai_auto_select_format(const struct snd_soc_pcm_runtime *rtd)
++{
++	struct snd_soc_dai_link *dai_link = rtd->dai_link;
++	u64 possible_fmt = 0;
++
++	soc_dai_auto_select_format(~0, rtd, 0, &possible_fmt);
++
++	return soc_dai_convert_possiblefmt_to_daifmt(possible_fmt, dai_link->dai_fmt);
+ }
+ 
+ /**
 -- 
 2.43.0
 
