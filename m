@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CC2CD5BB1
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 11:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDFECD5BC8
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 12:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uzTPwz0nKsO+UrGIPfMpPgRxeW1rUpnihUUVHMaekG0=; b=sq95+mCRakabhV
-	ZPDLLLIrXPB5RJog0+zhV3KKJNPTwvphr9aroSDb8/e7unVdegxN3vf35go4fFMpolITUDku/uQQz
-	m5J6O7EoSQErvnJ2suuXuSUSXskmgdXtjwv0MUx/qTYehWlmwltY0lkSknKyTAVvtj3k5AckI8ncX
-	zG61Z8guyDjngS3s25s3V38XYCuvnyrkFrocvB1aMC2hSFmCPu/j9pUqUp9Vpxkci6DOm5/NOQCc4
-	XcsiiiBVWMt74Jzsq9AIksBs1ZNeOgXbCS3xC7rTUqz/GkVBuDBBKpA047ARFVgYv/MUAn8QTYaU6
-	REW6yOjdnzm/9wEuN5Lg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lLpy1QThOiQquiuM03LVFTFf/SohGti9V4ghTWAf4F8=; b=Bo43fgEOVyMyyd
+	ORytI2qi95QI1USoJXiPK3FbbSb0cgzt6GTj85fq42qNfM2Q6MCzpU+gtPzdYIkObX2KWxcvM8e0S
+	9NKz9bk8AZWwQkn3hVXJtPRHpLi2oGvL6z0uZFtARTYeoiX8iIKNRfJkyotW0gc1FZlOa+LO2qKQp
+	taEU8BJzgqhEIOVl3N8pMWoC7ROYU2KplrususFtODw3lY0Sr5PedScNyZYYK56CWrQtVLKLNjrEU
+	vhSG4epQpLnH41S+bonnbQB2OrPOqIwCixUDXAmOWmGv52GS8686Hy4/dwiRaB+O2ypMnbyqBThoz
+	sCEMzlkly/2QrxJctmOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRq7N-00000001ouS-1Eii;
-	Tue, 26 May 2026 11:38:41 +0000
-Received: from smtp-relay-canonical-1.canonical.com ([185.125.188.121])
+	id 1wRrEx-00000001xjs-0Svu;
+	Tue, 26 May 2026 12:50:35 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRq7J-00000001otF-3vLg
-	for linux-riscv@lists.infradead.org;
-	Tue, 26 May 2026 11:38:40 +0000
-Received: from hwang4-g16.. (unknown [120.244.199.213])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-canonical-1.canonical.com (Postfix) with ESMTPSA id 2A2FB3F83E;
-	Tue, 26 May 2026 11:38:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1779795515;
-	bh=4GdQPoNzrwihLEfvx3BYpzWDBscKHYn7iQ3om5+0sa4=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
-	b=dxnQ5SlFCVD0iWw7Sm7OIDPQoxjwn6c7mC/ZXylhfi0PJc2g+8FXcj4kvAyoSmmu1
-	 ouUeYfyTlHrM7urZ/J+SSiVTLnYHbicmo7NG/9C7ppcktDczDVQQkce7w+dDpX9ZRZ
-	 FRUyVJa/inF2+9dyZjeyQNuYKQzj3wsidvJTXZv2qpypqEzkIAdHWHEELsldzd36zO
-	 KkttMeQG3lzKhDjCxmvMfiJ9EX4TlCln1Tlh9ALkqtkM7a6V+bVi9vUxWy7cKBo858
-	 HEjbKuKhx9f4UGJS86WATogHE6oaW4prSK3wttnFJWiDxtTHBuJmmClz8LRUqlsmqb
-	 R6+V3C5Dkz/Y4MKmTYHBn820byBoO1b9sHuGJqKaGF9HrI4tQzpvDKr6kgipkpH+q2
-	 +AQBsKVs6cH++f0nMFeEZt6VB06C66Usv42zehGYWQU7lb0BBC9FUCHC50FRMV39Mx
-	 eiT3vKYuuGdtmo3bsoS1vyld2iJjvV0y8GaU1NdaDhK/bOb6PMqaCqno6+g51OdUhe
-	 ol8bEMn9BbxCqRIdXPMVPwItT931S7mgQV7dFmNpyyEIlx9GG18lNsx1oPRsHwGmMp
-	 WQX+vQv60tT2opJ+AWbKndHA0hJ3vUCRW17ngp+fu3J2O8CVbvUGGDjqeOGcM/GAvR
-	 cCFtBjkjOzJhobha47wS1/pk=
-From: Hui Wang <hui.wang@canonical.com>
-To: linux-riscv@lists.infradead.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	vincent.chen@sifive.com,
-	stable@vger.kernel.org
-Cc: hui.wang@canonical.com
-Subject: [PATCH] riscv: kgdb: Fix a missing irq restore issue on an early-return path
-Date: Tue, 26 May 2026 19:38:29 +0800
-Message-ID: <20260526113829.115007-1-hui.wang@canonical.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wRrEp-00000001xcB-0kwt;
+	Tue, 26 May 2026 12:50:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1779799821; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=DvfO0VeeEacS9q7ZhAuHErWFEWy3R6Vu+rVPY71B4m0=;
+	b=YFUxxZsEg3TL69wygoYTOkVhurcT1GLGf+EVtPbndq37jUdyCOAb+JcgYwd3/cy4ED8dr3KKvuTTEf4wjCeKw5Qfa9bjd+bJ/Y0bGw58TfceU9uPkCt+WEY2lSqiIsNTi00uehdUp5UvvRuObjSU03YbCUvRBGTxqu3q8A5SsBw=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R561e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X3gDNKm_1779799818;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X3gDNKm_1779799818 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 26 May 2026 20:50:19 +0800
+From: fangyu.yu@linux.alibaba.com
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Nick Kossifidis <mick@ics.forth.gr>
+Cc: Song Shuai <songshuaishuai@tinylab.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Richard Lyu <richard.lyu@suse.com>,
+	Nam Cao <namcao@linutronix.de>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	guoren@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: [PATCH v2 3/7] riscv: kexec: Build trampoline page tables for crash kernel entry
+Date: Tue, 26 May 2026 20:50:05 +0800
+Message-Id: <20260526125009.2404-4-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260526125009.2404-1-fangyu.yu@linux.alibaba.com>
+References: <20260526125009.2404-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_043838_437846_0BC8D33F 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260526_055027_823078_4EBD1094 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +86,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If kgdb_handle_exception() fails, the local_irq_restore() is not
-called and the function returns to the caller with interrupts still
-disabled. To fix it, add the missing irq restore here.
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Fixes: fe89bd2be866 ("riscv: Add KGDB support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hui Wang <hui.wang@canonical.com>
+Crash kexec uses riscv_kexec_norelocate as a trampoline to jump into
+the crashkernel. Add a small helper to build dedicated 4KB page tables
+that map the trampoline page as executable.
+
+Two mappings are installed:
+  - VA(__kexec_tramp_text_start) -> PA(__kexec_tramp_text_start)
+  - PA(__kexec_tramp_text_start) -> PA(__kexec_tramp_text_start)
+
+This allows the trampoline to run regardless of whether it is entered
+via its linked virtual address or its physical address.
+
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- arch/riscv/kernel/kgdb.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/machine_kexec.c | 67 +++++++++++++++++++++++++++++++
+ 1 file changed, 67 insertions(+)
 
-diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-index 0bf629204c76..1956e4840a30 100644
---- a/arch/riscv/kernel/kgdb.c
-+++ b/arch/riscv/kernel/kgdb.c
-@@ -337,8 +337,10 @@ static int kgdb_riscv_notify(struct notifier_block *self, unsigned long cmd,
- 	local_irq_save(flags);
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 2306ce3e5f22..9b4b495e7c15 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -18,6 +18,65 @@
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
  
- 	if (kgdb_handle_exception(type == KGDB_SW_SINGLE_STEP ? 0 : 1,
--				  args->signr, cmd, regs))
-+				  args->signr, cmd, regs)) {
-+		local_irq_restore(flags);
- 		return NOTIFY_DONE;
++static pgd_t kexec_tramp_pgd[PTRS_PER_PGD] __aligned(PAGE_SIZE);
++static p4d_t kexec_tramp_p4d[PTRS_PER_P4D] __aligned(PAGE_SIZE);
++static pud_t kexec_tramp_pud[PTRS_PER_PUD] __aligned(PAGE_SIZE);
++static pmd_t kexec_tramp_pmd[PTRS_PER_PMD] __aligned(PAGE_SIZE);
++static pte_t kexec_tramp_pte[PTRS_PER_PTE] __aligned(PAGE_SIZE);
++static p4d_t kexec_tramp_p4d2[PTRS_PER_P4D] __aligned(PAGE_SIZE);
++static pud_t kexec_tramp_pud2[PTRS_PER_PUD] __aligned(PAGE_SIZE);
++static pmd_t kexec_tramp_pmd2[PTRS_PER_PMD] __aligned(PAGE_SIZE);
++static pte_t kexec_tramp_pte2[PTRS_PER_PTE] __aligned(PAGE_SIZE);
++
++static void map_tramp_page(p4d_t *p4ds, pud_t *puds, pmd_t *pmds, pte_t *ptes,
++			   unsigned long va, unsigned long pa)
++{
++	pgd_t *pgd = (pgd_t *)kexec_tramp_pgd + pgd_index(va);
++	pmd_t *pmd;
++
++	if (pgtable_l5_enabled) {
++		p4d_t *p4d;
++
++		set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa_symbol(p4ds)), PAGE_TABLE));
++		p4d = (p4d_t *)p4ds + p4d_index(va);
++		if (pgtable_l4_enabled)
++			set_p4d(p4d, pfn_p4d(PFN_DOWN(__pa_symbol(puds)),
++				PAGE_TABLE));
++		else
++			set_p4d(p4d, pfn_p4d(PFN_DOWN(__pa_symbol(pmds)),
++				PAGE_TABLE));
++	} else {
++		set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa_symbol(puds)), PAGE_TABLE));
 +	}
++
++	if (pgtable_l4_enabled) {
++		pud_t *pud = (pud_t *)puds + pud_index(va);
++
++		set_pud(pud, pfn_pud(PFN_DOWN(__pa_symbol(pmds)), PAGE_TABLE));
++		pmd = (pmd_t *)pmds + pmd_index(va);
++	} else {
++		pmd = (pmd_t *)puds + pmd_index(va);
++	}
++	set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa_symbol(ptes)), PAGE_TABLE));
++
++	set_pte((pte_t *)ptes + pte_index(va),
++		pfn_pte(PFN_DOWN(pa), PAGE_KERNEL_EXEC));
++}
++
++static void riscv_kexec_build_tramp(unsigned long va, unsigned long pa)
++{
++	/* VA -> PA: map the trampoline page via its kernel VA. */
++	map_tramp_page(kexec_tramp_p4d,  kexec_tramp_pud,
++		       kexec_tramp_pmd,  kexec_tramp_pte,  va, pa);
++
++	/*
++	 * PA -> PA: identity-map the same page so the second-pass code
++	 * can keep executing after the kernel VA mapping is dropped.
++	 */
++	map_tramp_page(kexec_tramp_p4d2, kexec_tramp_pud2,
++		       kexec_tramp_pmd2, kexec_tramp_pte2, pa, pa);
++}
++
+ /*
+  * machine_kexec_prepare - Initialize kexec
+  *
+@@ -73,6 +132,14 @@ machine_kexec_prepare(struct kimage *image)
  
- 	if (type == KGDB_COMPILED_BREAK)
- 		regs->epc += 4;
+ 		/* Mark the control page executable */
+ 		set_memory_x((unsigned long) control_code_buffer, 1);
++	} else {
++		/*
++		 * Crash kexec uses riscv_kexec_norelocate as a trampoline.
++		 * Pre-build the trampoline page tables here so the panic
++		 * path only has to switch satp and jump.
++		 */
++		riscv_kexec_build_tramp((unsigned long)__kexec_tramp_text_start,
++					__pa_symbol(__kexec_tramp_text_start));
+ 	}
+ 
+ 	return 0;
 -- 
-2.43.0
+2.50.1
 
 
 _______________________________________________
