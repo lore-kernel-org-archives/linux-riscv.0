@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC0FCD5BC8
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 12:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A4ECD5BC8
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 May 2026 12:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=299ga7QBhDmuJ23JVzkhzuehsOK/gIOlb6Yir7Y9W74=; b=P7P6FLrTIOP0rj
-	iboVhPP0wHddL90eGOGJZ/JHISuWrOB/CtH2aCTES3osdtNoyCe1G2to9m4j2tHIqYwFYGIOwgwvr
-	fQM6R1QmqdqKhqDOumjMRbPW0p9xaviD1Ml+/QudKVupMVKbh1W/9iU5axjuY2S7W91NYurcn2HVl
-	5h8IudXjIh1aUxguN+3ah/ViMVtslMOGSufIQLQOkJutHdKhsNb5AZ49QtTBIjV5L341fSdc0hgqT
-	bxKLxPbKZBmVSdKdCRQQ3vzlM3w7tE1Df3GtUMapTURioURGDnE7SO7+IpuqqA7kg1WfFVEacxzW4
-	/+gV+1EHE+RFNC4zrsXQ==;
+	List-Owner; bh=bl4AFCGTjHWweZxult7bDcczFC1Ne2WMjjGfFpo7u+E=; b=02LqGoAxsd+gnt
+	XLo+rIOEbw5YhL3cOogpGwXF6LOYjymazwPZD39BVs9WFSvKdVg6ivUOefs/8B+IdQJxp67a4gwT5
+	6ckEx7pp8OKFg/hLRJNz2tzs0VcmBglaYJHIg7sBZ1K6bf2CJxc5SKk99LSJLSS1v7T2PFN9BXspU
+	UyPQUcWGUWbXJlCTHZ9Cl/ETeWoETCMKB/DR7qlcx0F5zkYLGy2TuR/MwVucVXXz9UkQp1ETJJ70w
+	iHLOyh44m0Ssfr6X5P/xoigPg1JwFAt9EDLerOHaACFR/rWtDAairjyHhA9O9guntX6ym42AUoLHy
+	Yi/IAnr5qmlW1qWFf48A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrFA-00000001xyz-2Xrz;
-	Tue, 26 May 2026 12:50:48 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1wRrH4-00000001ydE-0rOt;
+	Tue, 26 May 2026 12:52:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRrEw-00000001xfe-2aD8;
-	Tue, 26 May 2026 12:50:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1779799831; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=RmDJAqGKM/ksShAqBTWgLgvF5EBn9yG49TTpjD3uJ+Y=;
-	b=dKK6B1RDu+2d8sU5TLuJAL+N8LDRj2/tOMMDkQo8iaPuuZ5+wUfa3tu/VHRZKi0TvjsXaGgFnq70uk81vwNQwlAnw/uPuNtN64l92qdvJDSh8RJPeG+6p58NBBCfPegP3zYiXdgh7kbudJ/CTs2DicURgZIOm7N0KgauhUJ1e0Y=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R291e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X3gDNLy_1779799821;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X3gDNLy_1779799821 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 26 May 2026 20:50:22 +0800
-From: fangyu.yu@linux.alibaba.com
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Nick Kossifidis <mick@ics.forth.gr>
-Cc: Song Shuai <songshuaishuai@tinylab.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Richard Lyu <richard.lyu@suse.com>,
-	Nam Cao <namcao@linutronix.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	guoren@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kexec@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [PATCH v2 5/7] riscv: kexec: Always build the trampoline page table
-Date: Tue, 26 May 2026 20:50:07 +0800
-Message-Id: <20260526125009.2404-6-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20260526125009.2404-1-fangyu.yu@linux.alibaba.com>
-References: <20260526125009.2404-1-fangyu.yu@linux.alibaba.com>
+	id 1wRrH3-00000001ycz-2Bzd
+	for linux-riscv@lists.infradead.org;
+	Tue, 26 May 2026 12:52:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BCFB601F3
+	for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 12:52:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447031F00A3D
+	for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 12:52:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779799964;
+	bh=ZBXzqv/om0l+TyYWbq+zzUuQed/AxeNEWTs8z4A3i7M=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=F/1EExE1Ik6T+4iQV6Ae/Wo6jTNMjl53q0EPL61rJRStbgn+h1SiyNdG3UFZG27vt
+	 OkBgILLIh+XSnjyBhfys0mv5zsZiAnRMnlj23Yup++3+CycTyOZ9eKkkBRXfvYvZ/2
+	 A1z9JFJLVrY1U0n3CLfQ3zITRVTs/brbAmIpRJmGuN5NY/kUMIZSvB178ZzKSreiVy
+	 H3ROtr9c+DWV2VWqcIKUwUzwj+b5zJ6KHcoLSLDiDdIRNNsn+lic60XbgZEWDFQ6JX
+	 os43uSGYpNBJj4p64rQ+dQAbpSWCCFEPsogmeUV3vLxNQ3xqS9Q+2LvHJoO+kKSxqz
+	 XJkfxheFQLQFw==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5a8dc2606a0so10707752e87.2
+        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 05:52:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9m+Wn1aoxjwbr/xEGF4GrdRJI1xPXSssKs8zrhGTka/QlwMCUZrIMq1+j+qRPb/zvaWENfP4l6rvQhZg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiFMHkQI2i/b+buOD5A69NHPbKlCp9KtV9/MqfYZRgJw/Rb9Mq
+	L6CkOOZom/bYsxTF6+D4XlpEweMZhfm1QRx5RI9H3SIfOwwmb67X07qiH/UvtemEjddtuqTabJL
+	dK5ar3BzpudAZ7R7V7nPvRB+XUFYV4MI=
+X-Received: by 2002:ac2:511b:0:b0:5a8:9bb6:230a with SMTP id
+ 2adb3069b0e04-5aa3234cbb9mr4007664e87.18.1779799962931; Tue, 26 May 2026
+ 05:52:42 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_055034_862857_109A3CE0 
-X-CRM114-Status: GOOD (  11.39  )
+References: <20260519-germinate-ageless-631033d22797@spud>
+In-Reply-To: <20260519-germinate-ageless-631033d22797@spud>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 26 May 2026 14:52:30 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=p2RS4BHawQ2msprbmCu=4n92QWeFXgo9fRmTFcxraCg@mail.gmail.com>
+X-Gm-Features: AVHnY4JgF2dwXSt4EuMCwBggSUmrP5Z_ATVf9jxCtANBQRza98t4Opi_-QI2VLg
+Message-ID: <CAD++jL=p2RS4BHawQ2msprbmCu=4n92QWeFXgo9fRmTFcxraCg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] generic pinmux dt_node_to_map implementation/spacemit
+ driver converted to use it
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,76 +77,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-
-The trampoline page table and the kexec_tramp_satp value are
-currently built only on the crash path. A follow-up patch needs
-the same infrastructure for the normal kexec path.
-
-Pull the trampoline build and the WRITE_ONCE() that publishes the
-SATP value out of the crash-only else branch in
-machine_kexec_prepare(). The crash path keeps recording its own
-riscv_kexec_norelocate_pa; the normal path keeps its existing
-control_code_buffer copy.
-
-No functional change.
-
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
----
- arch/riscv/kernel/machine_kexec.c | 21 ++++++++++-----------
- 1 file changed, 10 insertions(+), 11 deletions(-)
-
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 00fdc42d650d..556b76bcf96e 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -119,6 +119,16 @@ machine_kexec_prepare(struct kimage *image)
- 		return -EINVAL;
- 	}
- 
-+	/*
-+	 * Build the trampoline page table and capture its SATP value.
-+	 * The crash path consumes it today; the non-crash kexec path
-+	 * will use the same setup as well.
-+	 */
-+	riscv_kexec_build_tramp((unsigned long)__kexec_tramp_text_start,
-+				__pa_symbol(__kexec_tramp_text_start));
-+	WRITE_ONCE(kexec_tramp_satp,
-+		   PFN_DOWN(__pa_symbol(kexec_tramp_pgd)) | satp_mode);
-+
- 	/* Copy the assembler code for relocation to the control page */
- 	if (image->type != KEXEC_TYPE_CRASH) {
- 		control_code_buffer = page_address(image->control_code_page);
-@@ -135,19 +145,8 @@ machine_kexec_prepare(struct kimage *image)
- 		/* Mark the control page executable */
- 		set_memory_x((unsigned long) control_code_buffer, 1);
- 	} else {
--		/*
--		 * Crash kexec uses riscv_kexec_norelocate as a trampoline.
--		 * Pre-build the trampoline page tables and capture the
--		 * trampoline SATP value plus the physical address of
--		 * riscv_kexec_norelocate so that the panic path only has
--		 * to switch satp and jump.
--		 */
--		riscv_kexec_build_tramp((unsigned long)__kexec_tramp_text_start,
--					__pa_symbol(__kexec_tramp_text_start));
- 		WRITE_ONCE(riscv_kexec_norelocate_pa,
- 			   __pa_symbol(&riscv_kexec_norelocate));
--		WRITE_ONCE(kexec_tramp_satp,
--			   PFN_DOWN(__pa_symbol(kexec_tramp_pgd)) | satp_mode);
- 	}
- 
- 	return 0;
--- 
-2.50.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXkgMTksIDIwMjYgYXQgMTE6MzfigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
+cm5lbC5vcmc+IHdyb3RlOgoKPiBIZXJlJ3MgYSByZWFsIHZlcnNpb24gb2YgbXkgZ2VuZXJpYyBw
+aW5tdXggZHRfbm9kZV90b19tYXAKPiBpbXBsZW1lbnRhdGlvbi4gSSB0ZXN0ZWQgdGhpcyBvbiBt
+eSBicGlmMyBidXQgdGhlIGR0cyBpbiBtYWlubGluZSBpcwo+IHZlcnkgbGltaXRlZCBpbiB0ZXJt
+cyBvZiBwaW5jdHJsIHVzZSBzbyBJIHdvdWxkIHJlYWxseSBhcHByZWNpYXRlIGFueQo+IHRlc3Rp
+bmcgdGhhdCBjb3VsZCBiZSBkb25lIHdpdGggYSBtb3JlIGNvbXBsZXRlIHNldHVwLgo+Cj4gSWYg
+eW91IHRyeSB0byBhcHBseSB0aGlzLCBpdCdzIG9uIHRvcCBvZiBGcmFuaydzIG11eCBzZXJpZXMu
+IEl0J3MgYWxzbwo+IGhlcmUgaWYgYW55IG9mIHRoZSBzcGFjZW1pdC10ZXJzIHdhbnQgdG8gbG9v
+ayBhdCB3aGF0IEkgZGlkIHRvIHRoZWlyCj4gZHJpdmVyOgo+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5v
+cmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2Nvbm9yL2xpbnV4LmdpdC9sb2cvP2g9c3BhY2Vt
+aXQtcGluY3RybAoKSSBqdXN0IGFwcGxpZWQgaXQgYW5kIGl0IHNlZW1zIHRvIHdvcmssIGF0IGxl
+YXN0IGl0IGNvbXBpbGVzIQoKTm8gcG9pbnQgaW4gd2FpdGluZyBmb3IgbW9yZSByZXZpZXcgY29t
+bWVudHMsIGxldCdzIHNoaXAgaXQgYW5kIHNlZQp3aGF0IGhhcHBlbnMuCgpZb3VycywKTGludXMg
+V2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
