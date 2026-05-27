@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F3B9CD6E45
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 05:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF38CD6E41
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 07:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tKdsS1VIuy9KGTSDLAyZhhxFFH05PTmOO4PK9Qj5GhE=; b=Zp5g7i+ZTPirTa
-	0xkM/7SUxukXgaf5NP+6T0eDoRoh2XRIKujQzHz4hoEAm33YMPraQ7Y6f2rg/P15gWJquQo4IV3FF
-	bvk0qm0+Wt88epSo2BJ2qqldAp8/A+Mhs86DdxIp+EGMx8z8Vk/gNH6Evpp2701UqT8xQ3E95wk8L
-	fuca/fEk6XP4s3KSO4onP5/UyNMrKpSz2vnBk4kbYAVXu8qmu49C4ilQkYw4cxR9Xq8TQH4neE+Gh
-	P3hgLfdR81MMvkKvtn4QVnGTkC59nsFJK5SzLmdyjmDxSEWgKC2ebNO++kccvfId9s2W9PVx33Kko
-	1QnqJs8w/KiJeBVetW0w==;
+	List-Owner; bh=n3OoqNVOKB6aHN4Rn0/dtYlImXtL0TTKz77H1jlEIJ8=; b=NzDQDnNTsseoIc
+	tcvNq/NxXiFcVEfxCA7RBcS/jLpmUYiv6s6K57kuHJflTGoGUUE4j55ohlK4/+23V1+O0TNWFVKTu
+	6VsWe8xrkYqxh5LVoBr0hwNrmaPQoKZl2kRkbK6ofhYLaRdY7rdaq+VzE2QUQH+17obs0vywk8bOG
+	sOw/J36gis/MN2j8uoBPjecZqdKuIGPTKQXJ3nQsk6YD0954qH/NBUWW1Z4mU7Y9SKxwaFxae3eIR
+	J5xzRn4bWuIdkLGFRgJRWJhRiKYjpFyqKncBZfUWxK8tCPjbZ2IhMgkWLQdPpSy0qB8tfyB92zPIL
+	ffukw+7Jrb1qlLfmDfPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS7CX-00000003Mmz-0ExA;
-	Wed, 27 May 2026 05:53:09 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS7CT-00000003MkZ-1LQ3
+	id 1wS8Jg-00000003R7f-3qUp;
+	Wed, 27 May 2026 07:04:36 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS8Jc-00000003R6H-1TTG
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 May 2026 05:53:07 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2f0ad52830cso14446096eec.1
-        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 22:53:05 -0700 (PDT)
+	Wed, 27 May 2026 07:04:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1779861184; x=1780465984; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Wp1oswXj3dj/ue+2mbG75NTENINWm5S4spwl9AqmaA8=;
-        b=R1YjFD5qnJoiFgfcpXJr85JHpdkknevT5beZxN0HGUfUx50eQl7YYJLCOZx+QL6G/Q
-         LEZKGvf86YMU66K+nJyzNQRtEnf90knSaG6bNxvxCVt5Zb1+HpwMVITzuCSoJ2tDl8hz
-         6KLOgQZyAO+vjNyn41cNDqZoZi+xFjhpP8TV0Vo1XzaRold9MNLtOpJ9aEunUaay2YnW
-         VuVW4VoynwnuY7ldc2M+QAaXeNBwdD2t5+FlCeVstx0jkvkQSYitIDv/bO/BOitkbtzn
-         HLxnWJbiUCApEVAkfiFOUWTli7Bd8cvzjYt3MJ/xqzekrQ1Lkypx/fuVH5khx6fx7IFv
-         GTrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779861184; x=1780465984;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Wp1oswXj3dj/ue+2mbG75NTENINWm5S4spwl9AqmaA8=;
-        b=PhPDBXnl9n/lwvr55kBvjkhvGghP4ftegvQCmsFqc2/0INHHm7+JsG2vVjv5Q8CgRV
-         g7D8/TQ15rzd6G115uXCJPddKh9KyJmzSLGcYFA8TGv97EYKFwQl7h6W9PL4edOQ+y3o
-         yigiJ6es8HxvrllNFBGx2HtxbSC05ZGhrdtsaP0EuNxyUxFz9XT9E1PlZzduLmY/MmEk
-         V7n1oDZQTjN1fxVr8slmLhqgZtL0a/U5IVdXkQKNdLJ59BH7EsTcRw7MqpDKkdkr2ZyF
-         LPN3dJT1WUoZvAFp9t+XcuTCzZzA1TkNBY6lH1CvnHAWRya6KY12AB3cc/qmzSznZOE0
-         K8BA==
-X-Forwarded-Encrypted: i=1; AFNElJ+9SKsm73oOvl9B3AvmS3Wao9N8CjPNepCeO52MpTMVD9YGGa9Rgo/AUeTk6gcD5Lj8bxu5nWbBoOLkxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMXVbHhoH9y+/6XtlI7fjSTsQIto2tJRR62lgK+4bwCtLq6XpP
-	L0TJpnusADD80zfG2L9yyKcIb1xilPirp+Ren+1ICqY3Omk8gdYw0xH00q2obCoemsY=
-X-Gm-Gg: Acq92OH8wR8yndM6DnpHITySvWI2t+Lf8vAFwMpA2BR8nrdQx5a2tA2mrLstiA6y4DV
-	RPVvk5crVhmuIf1u+sOhgFS1CtCx7iJzQCHIvqnPHj9IGGbrPxvbK3IejGOo2a//OQLVj8u07sW
-	3/OSNtZGqJH6HXPWrifKaa5tDXMdBxeLSmkASIAlHVBESVz2GH9b88uSqLGrjRIxEZg1E/vRsRz
-	2kp/RnP8PJjFGib26bN0Kvtt+3GLjSP6v0MG+sewmUpDLRaz3MjNYLfS/t+MOPu5ypszns64hcO
-	nL1bNYZDwUgr3n2v7wqcqq5ziTImyt169YVIEmNwgcy7y5z+QMvc+EZA8te0JDdLaEfohitGTKz
-	beNweih/GL9waCsgC75RISrfPr6oyTX6lJOP+9BBOVlDQ9zS9HfyZlEmowN6cbMkkMdrTrhkzPo
-	GzIuwxKV8cLikooj83PbgLYzEWMC6RcQ0XHPLK0mwA4pXr3w7mlOQo6g==
-X-Received: by 2002:a05:7300:e826:b0:304:8881:b82 with SMTP id 5a478bee46e88-30488810bd7mr4633718eec.1.1779861184313;
-        Tue, 26 May 2026 22:53:04 -0700 (PDT)
-Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304be0851c9sm613202eec.23.2026.05.26.22.53.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 22:53:03 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Date: Tue, 26 May 2026 22:52:40 -0700
-Subject: [PATCH v2 3/3] KVM: riscv: selftests: Split SBI FWFT into separate
- feature-specific sublists
+	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	References:Date:Message-Id; bh=1WM/39//WGvXHW1V0RC8H+uIQUK0lDDH9
+	5c7F7QKUkc=; b=OOYXhsgEop6fWzrQZ2+wRysohytXyUu0TBcwJqX4JNINKm4aX
+	5k+1/pV3RLB26wjjvEmZxhHyCJdV1idxQeSVkQCXvQslru/9xxmYP2iose21o4Re
+	obfnX0WFwEvggvIBnF4CVDhacz9E0Pl/zB3sMDGrbvMczeKJ7x1jjMWKVE=
+Received: from [127.0.0.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cUKWlxZqrVUGAA--.7991S2;
+	Wed, 27 May 2026 15:04:54 +0800 (CST)
 MIME-Version: 1.0
-Message-Id: <20260526-kvm-get_reg_list-v2-v2-3-7940a401454a@sifive.com>
-References: <20260526-kvm-get_reg_list-v2-v2-0-7940a401454a@sifive.com>
-In-Reply-To: <20260526-kvm-get_reg_list-v2-v2-0-7940a401454a@sifive.com>
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
- Andrew Jones <ajones@ventanamicro.com>, Paolo Bonzini <pbonzini@redhat.com>, 
- Shuah Khan <shuah@kernel.org>
-Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Yong-Xuan Wang <yongxuan.wang@sifive.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779861178; l=7898;
- i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
- bh=PU3MvdV8tam4q1KMdiajihMJ3i8qhlgrfETzPE8HD/Y=;
- b=Rf/Bxb/Y6dVq19o6khyGvrIhnmWe6YPFVdkxBIChoeXeDEbJ5eD7cToZTzm/Vs3esy/8MC97k
- 1y2/g4v/RwICUXDg73dHFNGlE0YaXfV2hGe0iNJyWyk9lFzoRaXUW+j
-X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
- pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
+Subject: Re: [PATCH 5/9] riscv: dts: ultrarisc: Add initial device tree for
+ UltraRISC DP1000
+From: Jia Wang <wangjia@ultrarisc.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
+In-Reply-To: <2d7b660c-97d4-4896-97df-7868b1d2fb50@kernel.org>
+References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
+ <20260515-ultrarisc-pinctrl-v1-5-bf559589ea8a@ultrarisc.com>
+ <2d7b660c-97d4-4896-97df-7868b1d2fb50@kernel.org>
+Date: Wed, 27 May 2026 15:04:14 +0800
+Message-Id: <177986545456.2389245.4189212092340927900.b4-reply@b4>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779865454; l=14219;
+ i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
+ bh=tGdFSqzMEN3NmxQwAjal9tpkjB0+/g95acl0NbBI+Jk=;
+ b=0zqjQQ3oPHK466iw08X4uM2f7R/QiRS81acc5nydWc/5nzQR/ki4e9kKfDpvmahypsBZx9a8Z
+ MCxEnVpGBWvDJX1LpE+uTvnOXLNyo6jkobYL4C6boKdnmE75GqJEv2c
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
+X-CM-TRANSID: AQAAfwA3cUKWlxZqrVUGAA--.7991S2
+X-Coremail-Antispam: 1UD129KBjvAXoW3ZrWxGrW8Jw1kAr1fur4DArb_yoW8JrWruo
+	Zxtrs3GF48Ga4UJFn5t347tF4jkrWvga13KrW5GF13JF1Yga48Gw1rJr4jyr45WrWYyFyq
+	y3y293WUAayqyrs5n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUYH7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20EY4v20xva
+	j40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2
+	x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8
+	JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
+	W8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRidbbtUUUUU==
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAAEWoVGMYADgAFs6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_225305_375745_064925DC 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260527_000432_963950_119E28D0 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,205 +104,446 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Divide the monolithic SBI FWFT (Firmware Features) register list into
-separate sublists, each testing a specific FWFT feature independently
-with proper dependency checking.
+On 2026-05-21 23:05 +0200, Krzysztof Kozlowski wrote:
+> On 15/05/2026 03:18, Jia Wang via B4 Relay wrote:
+> > +
+> > +		cluster0_l3: l3-cache0 {
+> > +			/* L3 cache:
+> 
+> Use Linux coding style. In other places as well. Even netdev does not
+> use that style anymore!
+>
 
-Previously, all FWFT features were tested together in a single sublist.
-This caused issues because:
-1. Not all FWFT features are available on all platforms
-2. Some features depend on specific ISA extensions (e.g., pointer_masking
-requires Smnpm)
-3. Tests would fail if any single feature was unavailable
+Will fix comment style, thanks!
+ 
+> > +			 * cache-unified, block-size 64B
+> > +			 * 16-way set associative, size 4MB
+> > +			 * per-cluster.
+> > +			 */
+> > +			compatible = "cache";
+> > +			cache-block-size = <64>;
+> > +			cache-level = <3>;
+> > +			cache-size = <0x400000>;
+> > +			cache-sets = <0x1000>;
+> > +			cache-unified;
+> > +			next-level-cache = <&l4_cache>;
+> > +		};
+> > +
+> > +		cluster1_l3: l3-cache1 {
+> > +			/* L3 cache:
+> > +			 * cache-unified, block-size 64B
+> > +			 * 16-way set associative, size 4MB
+> > +			 * per-cluster.
+> > +			 */
+> > +			compatible = "cache";
+> > +			cache-block-size = <64>;
+> > +			cache-level = <3>;
+> > +			cache-size = <0x400000>;
+> > +			cache-sets = <0x1000>;
+> > +			cache-unified;
+> > +			next-level-cache = <&l4_cache>;
+> > +		};
+> > +	};
+> > +
+> > +	clocks {
+> > +		device_clk: device_clk {
+> 
+> You need to follow DTS coding style.
+> 
+> Anyway, something like "device clock" is completely uninformative or
+> even incorrect. I really doubt such thing as "device clock" exists...
+> 
+> Please use name for all fixed clocks which matches current format
+> recommendation: 'clock-<freq>' (see also the pattern in the binding for
+> any other options).
+> 
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
+> 
 
-Add the feature-specific SBI FWFT sublists with the following
-improvements:
-- Add check_supported_reg() function to validate register availability
-  based on required ISA extensions
-- Add check_fwft_feature() helper to verify FWFT feature availability
-  at runtime
-- Update filter_reg() to handle per-feature FWFT register filtering
+Will fix the clock naming.
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
----
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 92 +++++++++++++++++++++---
- 1 file changed, 82 insertions(+), 10 deletions(-)
+As discussed with Conor, I will also introduce a separate read-only clock
+driver and binding in a separate series to replace the current fixed-clock
+usage. The DTS will be updated accordingly once this new clock is in place.
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index cb16c638ce1a..6a34320be78c 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -26,7 +26,21 @@ enum {
- 	KVM_RISC_V_REG_OFFSET_MAX,
- };
- 
--static bool isa_ext_cant_disable[KVM_RISCV_ISA_EXT_MAX];
-+static bool isa_ext_enabled[KVM_RISCV_ISA_EXT_MAX];
-+
-+bool check_supported_reg(struct kvm_vcpu *vcpu, __u64 reg)
-+{
-+	switch (reg & ~REG_MASK) {
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.enable):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.flags):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.value):
-+		return isa_ext_enabled[KVM_RISCV_ISA_EXT_SMNPM];
-+	default:
-+		break;
-+	}
-+
-+	return true;
-+}
- 
- bool filter_reg(__u64 reg)
- {
-@@ -148,7 +162,12 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siph):
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1h):
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2h):
--		return isa_ext_cant_disable[KVM_RISCV_ISA_EXT_SSAIA];
-+		return isa_ext_enabled[KVM_RISCV_ISA_EXT_SSAIA];
-+	/* KVM misaligned delegation registers are always visible when the host supports it */
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.enable):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.flags):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.value):
-+		return true;
- 	default:
- 		break;
- 	}
-@@ -193,15 +212,39 @@ static int override_vector_reg_size(struct kvm_vcpu *vcpu, struct vcpu_reg_subli
- 	return 0;
- }
- 
-+void check_fwft_feature(struct kvm_vcpu *vcpu, struct vcpu_reg_sublist *s, u64 feature)
-+{
-+	unsigned long value;
-+	int rc;
-+
-+	/* Enable SBI FWFT extension so that we can check the supported register */
-+	rc = __vcpu_set_reg(vcpu, feature, 1);
-+	if (rc)
-+		return;
-+
-+	for (int i = 0; i < s->regs_n; i++) {
-+		if ((s->regs[i] & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_SBI_STATE) {
-+			rc = __vcpu_get_reg(vcpu, s->regs[i], &value);
-+			__TEST_REQUIRE(!rc, "%s not available, skipping tests", s->name);
-+		}
-+	}
-+
-+	/* We should assert if disabling failed here while enabling succeeded before */
-+	vcpu_set_reg(vcpu, feature, 0);
-+}
-+
- void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- {
--	unsigned long isa_ext_state[KVM_RISCV_ISA_EXT_MAX] = { 0 };
-+	unsigned long isa_ext_state;
- 	struct vcpu_reg_sublist *s;
- 	u64 feature;
- 	int rc;
- 
--	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++)
--		__vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(i), &isa_ext_state[i]);
-+	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++) {
-+		rc = __vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(i), &isa_ext_state);
-+		if (!rc)
-+			isa_ext_enabled[i] = !!isa_ext_state;
-+	}
- 
- 	/*
- 	 * Disable all extensions which were enabled by default
-@@ -209,8 +252,10 @@ void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- 	 */
- 	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++) {
- 		rc = __vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(i), 0);
--		if (rc && isa_ext_state[i])
--			isa_ext_cant_disable[i] = true;
-+		if (rc && isa_ext_enabled[i])
-+			isa_ext_enabled[i] = true;
-+		else
-+			isa_ext_enabled[i] = false;
- 	}
- 
- 	for (int i = 0; i < KVM_RISCV_SBI_EXT_MAX; i++) {
-@@ -229,9 +274,15 @@ void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- 				goto skip;
- 		}
- 
-+		if (s->feature == KVM_RISCV_SBI_EXT_FWFT) {
-+			feature = RISCV_SBI_EXT_REG(KVM_RISCV_SBI_EXT_FWFT);
-+			check_fwft_feature(vcpu, s, feature);
-+		}
-+
- 		switch (s->feature_type) {
- 		case VCPU_FEATURE_ISA_EXT:
- 			feature = RISCV_ISA_EXT_REG(s->feature);
-+			isa_ext_enabled[s->feature] = true;
- 			break;
- 		case VCPU_FEATURE_SBI_EXT:
- 			feature = RISCV_SBI_EXT_REG(s->feature);
-@@ -897,11 +948,15 @@ static __u64 sbi_sta_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_STA | KVM_REG_RISCV_SBI_STA_REG(shmem_hi),
- };
- 
--static __u64 sbi_fwft_regs[] = {
-+static __u64 sbi_fwft_misaligned_deleg_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_FWFT,
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.enable),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.flags),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.value),
-+};
-+
-+static __u64 sbi_fwft_pointer_masking_regs[] = {
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_FWFT,
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.enable),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.flags),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.value),
-@@ -1129,7 +1184,6 @@ KVM_SBI_EXT_SIMPLE_CONFIG(pmu, PMU);
- KVM_SBI_EXT_SIMPLE_CONFIG(dbcn, DBCN);
- KVM_SBI_EXT_SIMPLE_CONFIG(susp, SUSP);
- KVM_SBI_EXT_SIMPLE_CONFIG(mpxy, MPXY);
--KVM_SBI_EXT_SUBLIST_CONFIG(fwft, FWFT);
- 
- KVM_ISA_EXT_SUBLIST_CONFIG(aia, SSAIA);
- KVM_ISA_EXT_SUBLIST_CONFIG(fp_f, F);
-@@ -1206,6 +1260,23 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zvksed, ZVKSED);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvksh, ZVKSH);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvkt, ZVKT);
- 
-+static struct vcpu_reg_list config_sbi_fwft_misaligned_deleg = {
-+	.sublists = {
-+		SUBLIST_BASE,
-+		SUBLIST_SBI(fwft_misaligned_deleg, FWFT),
-+		{0},
-+	},
-+};
-+
-+static struct vcpu_reg_list config_sbi_fwft_pointer_masking = {
-+	.sublists = {
-+		SUBLIST_BASE,
-+		SUBLIST_ISA(smnpm, SMNPM),
-+		SUBLIST_SBI(fwft_pointer_masking, FWFT),
-+		{0},
-+	},
-+};
-+
- struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_sbi_base,
- 	&config_sbi_sta,
-@@ -1213,7 +1284,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_sbi_dbcn,
- 	&config_sbi_susp,
- 	&config_sbi_mpxy,
--	&config_sbi_fwft,
-+	&config_sbi_fwft_misaligned_deleg,
-+	&config_sbi_fwft_pointer_masking,
- 	&config_aia,
- 	&config_fp_f,
- 	&config_fp_d,
+> > +			compatible = "fixed-clock";
+> > +			clock-frequency = <62500000>;
+> > +			#clock-cells = <0>;
+> > +		};
+> > +
+> > +		timer_clk: timer_clk {
+> > +			compatible = "fixed-clock";
+> > +			clock-frequency = <50000000>;
+> > +			#clock-cells = <0>;
+> > +		};
+> > +
+> > +		csr_clk: csr_clk {
+> > +			compatible = "fixed-clock";
+> > +			clock-frequency = <250000000>;
+> > +			#clock-cells = <0>;
+> > +		};
+> > +	};
+> > +
+> > +	l4_cache: l4-cache {
+> > +		/* L4 cache:
+> > +		 * cache-unified, block-size 64B
+> > +		 * 16-way set associative, size 16MB
+> > +		 * shared by the SoC.
+> > +		 */
+> > +		compatible = "cache";
+> > +		cache-block-size = <64>;
+> > +		cache-level = <4>;
+> > +		cache-size = <0x1000000>;
+> > +		cache-sets = <0x4000>;
+> > +		cache-unified;
+> > +	};
+> > +
+> > +	memory@80000000 {
+> > +		device_type = "memory";
+> > +		reg = <0x00 0x80000000 0x4 0x00000000>;
+> > +	};
+> > +
+> > +	soc {
+> > +		compatible = "simple-bus";
+> > +		ranges;
+> > +		#address-cells = <0x02>;
+> > +		#size-cells = <0x02>;
+> 
+> <2> This is not hex and definitely does not need padding with 0.
+> 
+> > +
+> > +		clint: clint@8000000 {
+> > +			compatible = "sifive,clint0", "riscv,clint0";
+> > +			reg = <0x00 0x8000000 0x00 0x100000>;
+> > +			interrupts-extended = <&cpu0_intc 0x03>, <&cpu0_intc 0x07>,
+> > +					      <&cpu1_intc 0x03>, <&cpu1_intc 0x07>,
+> > +					      <&cpu2_intc 0x03>, <&cpu2_intc 0x07>,
+> > +					      <&cpu3_intc 0x03>, <&cpu3_intc 0x07>,
+> > +					      <&cpu4_intc 0x03>, <&cpu4_intc 0x07>,
+> > +					      <&cpu5_intc 0x03>, <&cpu5_intc 0x07>,
+> > +					      <&cpu6_intc 0x03>, <&cpu6_intc 0x07>,
+> > +					      <&cpu7_intc 0x03>, <&cpu7_intc 0x07>;
+> > +		};
+> > +
+> > +		plic: plic@9000000 {
+> > +			compatible = "ultrarisc,dp1000-plic", "ultrarisc,cp100-plic";
+> > +			reg = <0x00 0x9000000 0x00 0x4000000>;
+> > +			#interrupt-cells = <1>;
+> > +			#address-cells = <0>;
+> 
+> So hex or not hex? Please fix your DTS so it is consistent.
+> 
 
--- 
-2.43.7
+I will clean up the inconsistent hex/decimal formatting across the DTS and
+remove the unnecessary padding in the next version.
+
+> > +			interrupt-controller;
+> > +			interrupts-extended = <&cpu0_intc 0xb>, <&cpu0_intc 0x9>, <&cpu0_intc 0xa>,
+> > +					      <&cpu1_intc 0xb>, <&cpu1_intc 0x9>, <&cpu1_intc 0xa>,
+> > +					      <&cpu2_intc 0xb>, <&cpu2_intc 0x9>, <&cpu2_intc 0xa>,
+> > +					      <&cpu3_intc 0xb>, <&cpu3_intc 0x9>, <&cpu3_intc 0xa>,
+> > +					      <&cpu4_intc 0xb>, <&cpu4_intc 0x9>, <&cpu4_intc 0xa>,
+> > +					      <&cpu5_intc 0xb>, <&cpu5_intc 0x9>, <&cpu5_intc 0xa>,
+> > +					      <&cpu6_intc 0xb>, <&cpu6_intc 0x9>, <&cpu6_intc 0xa>,
+> > +					      <&cpu7_intc 0xb>, <&cpu7_intc 0x9>, <&cpu7_intc 0xa>;
+> > +			riscv,ndev = <160>;
+> > +		};
+> > +
+> > +		pmx0: pinmux@11081000 {
+> > +			compatible = "ultrarisc,dp1000-pinctrl";
+> > +			reg = <0x0 0x11081000  0x0 0x1000>;
+> > +			#pinctrl-cells = <2>;
+> > +		};
+> > +
+> > +		gpio: gpio@20200000 {
+> > +			compatible = "snps,dw-apb-gpio";
+> > +			reg = <0x0 0x20200000 0x0 0x1000>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +			clock-names = "bus", "db";
+> > +			clocks = <&csr_clk>, <&device_clk>;
+> > +
+> > +			gpio_a: gpio-port@0 {
+> > +				compatible = "snps,dw-apb-gpio-port";
+> > +				reg = <0>;
+> > +				gpio-controller;
+> > +				#gpio-cells = <2>;
+> > +				snps,nr-gpios = <16>;
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <2>;
+> > +				interrupt-parent = <&plic>;
+> > +				interrupts = <34>;
+> > +				gpio-ranges = <&pmx0 0 0 16>;
+> > +			};
+> > +
+> > +			gpio_b: gpio-port@1 {
+> > +				compatible = "snps,dw-apb-gpio-port";
+> > +				reg = <1>;
+> > +				gpio-controller;
+> > +				#gpio-cells = <2>;
+> > +				snps,nr-gpios = <8>;
+> > +				gpio-ranges = <&pmx0 16 0 8>;
+> > +			};
+> > +
+> > +			gpio_c: gpio-port@2 {
+> > +				compatible = "snps,dw-apb-gpio-port";
+> > +				reg = <2>;
+> > +				gpio-controller;
+> > +				#gpio-cells = <2>;
+> > +				snps,nr-gpios = <8>;
+> > +				gpio-ranges = <&pmx0 24 0 8>;
+> > +			};
+> > +
+> > +			gpio_d: gpio-port@3 {
+> > +				compatible = "snps,dw-apb-gpio-port";
+> > +				reg = <3>;
+> > +				gpio-controller;
+> > +				#gpio-cells = <2>;
+> > +				snps,nr-gpios = <8>;
+> > +				gpio-ranges = <&pmx0 32 0 8>;
+> > +			};
+> > +		};
+> > +
+> > +		uart0: serial@20300000 {
+> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
+> > +			reg = <0x00 0x20300000 0x00 0x10000>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <17>;
+> > +			clock-frequency = <62500000>;
+> > +			reg-io-width = <0x04>;
+> > +			reg-shift = <0x02>;
+> > +		};
+> > +
+> > +		uart1: serial@20310000 {
+> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
+> > +			reg = <0x00 0x20310000 0x00 0x10000>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <18>;
+> > +			clock-frequency = <62500000>;
+> > +			reg-io-width = <0x04>;
+> > +			reg-shift = <0x02>;
+> > +		};
+> > +
+> > +		uart2: serial@20400000 {
+> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
+> > +			reg = <0x00 0x20400000 0x00 0x10000>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <25>;
+> > +			clock-frequency = <62500000>;
+> > +			reg-io-width = <0x04>;
+> > +			reg-shift = <0x02>;
+> > +		};
+> > +
+> > +		uart3: serial@20410000 {
+> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
+> > +			reg = <0x00 0x20410000 0x00 0x10000>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <26>;
+> > +			clock-frequency = <62500000>;
+> > +			reg-io-width = <0x04>;
+> > +			reg-shift = <0x02>;
+> > +		};
+> > +
+> > +		spi0: spi@20320000 {
+> > +			compatible = "snps,dw-apb-ssi";
+> > +			reg = <0x0 0x20320000 0x0 0x1000>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +			clocks = <&device_clk>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <19>;
+> > +			num-cs = <3>;
+> > +		};
+> > +
+> > +		spi1: spi@20420000 {
+> > +			compatible = "snps,dw-apb-ssi";
+> > +			reg = <0x0 0x20420000 0x0 0x1000>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +			clocks = <&device_clk>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <27>;
+> > +			num-cs = <3>;
+> > +		};
+> > +
+> > +		i2c0: i2c@20330000 {
+> > +			compatible = "snps,designware-i2c";
+> > +			reg = <0x0 0x20330000 0x0 0x100>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +			clock-frequency = <400000>;
+> > +			clocks = <&device_clk>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <20>;
+> > +		};
+> > +
+> > +		i2c1: i2c@20340000 {
+> > +			compatible = "snps,designware-i2c";
+> > +			reg = <0x0 0x20340000 0x0 0x100>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +			clock-frequency = <400000>;
+> > +			clocks = <&device_clk>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <21>;
+> > +		};
+> > +
+> > +		i2c2: i2c@20430000 {
+> > +			compatible = "snps,designware-i2c";
+> > +			reg = <0x0 0x20430000 0x0 0x100>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +			clock-frequency = <400000>;
+> > +			clocks = <&device_clk>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <28>;
+> > +		};
+> > +
+> > +		i2c3: i2c@20440000 {
+> > +			compatible = "snps,designware-i2c";
+> > +			reg = <0x0 0x20440000 0x0 0x100>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +			clock-frequency = <400000>;
+> > +			clocks = <&device_clk>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <29>;
+> > +		};
+> > +
+> > +		pcie_x16: pcie@21000000 {
+> > +			compatible = "ultrarisc,dp1000-pcie";
+> > +			reg = <0x0 0x21000000 0x0 0x01000000>,
+> > +			      <0x0 0x4fff0000 0x0 0x00010000>;
+> > +			reg-names = "dbi", "config";
+> > +			ranges = <0x81000000  0x0 0x4fbf0000  0x0 0x4fbf0000  0x0 0x00400000>,
+> > +				 <0x82000000  0x0 0x40000000  0x0 0x40000000  0x0 0x0fbf0000>,
+> > +				 <0xc3000000 0x40 0x00000000 0x40 0x00000000  0xd 0x00000000>;
+> > +			#address-cells = <3>;
+> > +			#size-cells = <2>;
+> > +			#interrupt-cells = <1>;
+> > +			device_type = "pci";
+> > +			dma-coherent;
+> > +			bus-range = <0x0 0xff>;
+> > +			num-lanes = <16>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <43>, <44>, <45>, <46>, <47>;
+> > +			interrupt-names = "msi", "inta", "intb", "intc", "intd";
+> > +			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
+> > +			interrupt-map = <0x0 0x0 0x0 0x1 &plic 44>,
+> > +					<0x0 0x0 0x0 0x2 &plic 45>,
+> > +					<0x0 0x0 0x0 0x3 &plic 46>,
+> > +					<0x0 0x0 0x0 0x4 &plic 47>;
+> 
+> Why PCIe without any devices is enabled? That's a bus.
+> 
+> Please look how other DTS are written because you created something
+> pretty different than entire kernel style.
+> 
+
+I will review the PCIe node and update it to align with existing DTS
+conventions in the next version.
+
+> > +		};
+> > +
+> > +		pcie_x4a: pcie@23000000 {
+> > +			compatible = "ultrarisc,dp1000-pcie";
+> > +			reg = <0x0 0x23000000 0x0 0x01000000>,
+> > +			      <0x0 0x6fff0000 0x0 0x00010000>;
+> > +			reg-names = "dbi", "config";
+> > +			ranges = <0x81000000  0x0 0x6fbf0000  0x0 0x6fbf0000  0x0 0x00400000>,
+> > +				 <0x82000000  0x0 0x60000000  0x0 0x60000000  0x0 0x0fbf0000>,
+> > +				 <0xc3000000 0x80 0x00000000 0x80 0x00000000  0xd 0x00000000>;
+> > +			#address-cells = <3>;
+> > +			#size-cells = <2>;
+> > +			#interrupt-cells = <1>;
+> > +			device_type = "pci";
+> > +			dma-coherent;
+> > +			bus-range = <0x0 0xff>;
+> > +			num-lanes = <4>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <63>, <64>, <65>, <66>, <67>;
+> > +			interrupt-names = "msi", "inta", "intb", "intc", "intd";
+> > +			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
+> > +			interrupt-map = <0x0 0x0 0x0 0x1 &plic 64>,
+> > +					<0x0 0x0 0x0 0x2 &plic 65>,
+> > +					<0x0 0x0 0x0 0x3 &plic 66>,
+> > +					<0x0 0x0 0x0 0x4 &plic 67>;
+> > +		};
+> > +
+> > +		pcie_x4b: pcie@24000000 {
+> > +			compatible = "ultrarisc,dp1000-pcie";
+> > +			reg = <0x0 0x24000000 0x0 0x01000000>,
+> > +			      <0x0 0x7fff0000 0x0 0x00010000>;
+> > +			reg-names = "dbi", "config";
+> > +			ranges = <0x81000000  0x0 0x7fbf0000  0x0 0x7fbf0000 0x0 0x00400000>,
+> > +				 <0x82000000  0x0 0x70000000  0x0 0x70000000 0x0 0x0fbf0000>,
+> > +				 <0xc3000000 0xc0 0x00000000 0xc0 0x00000000 0xd 0x00000000>;
+> > +			#address-cells = <3>;
+> > +			#size-cells = <2>;
+> > +			#interrupt-cells = <1>;
+> > +			device_type = "pci";
+> > +			dma-coherent;
+> > +			bus-range = <0x0 0xff>;
+> > +			num-lanes = <4>;
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <73>, <74>, <75>, <76>, <77>;
+> > +			interrupt-names = "msi", "inta", "intb", "intc", "intd";
+> > +			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
+> > +			interrupt-map = <0x0 0x0 0x0 0x1 &plic 74>,
+> > +					<0x0 0x0 0x0 0x2 &plic 75>,
+> > +					<0x0 0x0 0x0 0x3 &plic 76>,
+> > +					<0x0 0x0 0x0 0x4 &plic 77>;
+> > +		};
+> > +
+> > +		ethernet: ethernet@38000000 {
+> > +			compatible = "snps,dwmac", "snps,dwmac-5.10a";
+> > +			reg = <0x00 0x38000000 0x00 0x1000000>;
+> > +			clocks = <&csr_clk>;
+> > +			clock-names = "stmmaceth";
+> > +			interrupt-parent = <&plic>;
+> > +			interrupts = <84>;
+> > +			interrupt-names = "macirq";
+> > +			local-mac-address = [ff ff ff ff ff ff];
+> 
+> Drop. Not a property of the SoC.
+>
+
+Will drop it in the next version.
+ 
+> > +			max-speed = <1000>;
+> > +			phy-mode = "rgmii-id";
+> > +			snps,txpbl = <8>;
+> > +			snps,rxpbl = <8>;
+> 
+> I doubt that Ethernet is complete on the SoC - without MAC and all other
+> resources. IOW, it is very weird that this is enabled here. Please explain.
+>
+
+I will move the PHY configuration to the board DTS and keep only the MAC
+controller description in the SoC dtsi in the next version.
+ 
+> > +		};
+> > +
+> > +		dmac: dma-controller@39000000 {
+> > +			compatible = "snps,axi-dma-1.01a";
+> > +			reg = <0x0 0x39000000 0x0 0x400>;
+> 
+> <0x0 here but why in other places is <0x00?
+> 
+> Write consistent code.
+>
+
+Will fix to use consistent hex formatting across the DTS. Thanks!
+ 
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
+
+Best regards,
+Jia Wang
+
 
 
 _______________________________________________
