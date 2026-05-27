@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8672ECD5BD1
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 03:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52717CD5BD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 03:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hrBH/gcluFVigX5cMBCguteH4u8oNzOlu6bCYwMyZfI=; b=C7hUgFR6303mZ1
-	B0VNH6ed9vge1gtYRqnia6VMRFgG769D1o5FOzpDIEtrLV9nSFuAr2zHNoGAECOjIQP/99mLGC0j5
-	CB43BZfdgV8kaAggR42ccEkZyAvHk5WY1mvKq/7t2IUy/BHyGAvjy/tCFnmzpUQqQtWs9hk8gnb21
-	zCIyXNJp8BT2Axvj9VCu8uwDEJrFxf7Q21ySY1cUaIhQQZWRImgVsI3QoVRDF8PKOgodrckrLBGZQ
-	+dsFgh01hD2SVpAxDAJmqRWhH9RoR9oidDM2V4sJZ4Zo8Ue3xfGfVfMae3+oLMo4qIeaGll2uFk8b
-	Tr2hXbpBQ1MViG4QEPjw==;
+	List-Owner; bh=Paa9XxkiR3sPuDzXPsCQ5my9NXPsdP+LHDPWuQulWn4=; b=Y4ayu2KeKeag5O
+	GbViufbzU5nFJG1s9biI0Hzz5fw/NHtCpiGh4J0QvQJmfbt5L6kupZIC3f1atCZy0n4+JflcWYC/K
+	t1xdXgskftN6bNA9HSRMTl5g47vayvKV0M20mVzalmM9Dsdwg+/2wE5z2HUZA90Z8cfhdKJFNdjCD
+	Eb5fjB3+I+CznSVR8+3GlVU5AfYgBehET2UYcOlQsg2/GxyzCDUY77JIK4Qh2Emb4n5MMlB1pbzKV
+	3E85x+FNEC5El0HWN99TDjz1vq0d7q83Bt0lvXfO4oPVFb0npHmQ01tdtlj/c0pk7wg7Fqa3SjJzh
+	LcxQMYkzbA1Eu4VZjV4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4y3-00000003EiU-2gGx;
-	Wed, 27 May 2026 03:30:03 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1wS4yH-00000003Ews-1FjP;
+	Wed, 27 May 2026 03:30:19 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4y0-00000003EeZ-2G8C
+	id 1wS4yD-00000003EsH-2Qbd
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 May 2026 03:30:02 +0000
-Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-841513664bbso3083543b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 20:30:00 -0700 (PDT)
+	Wed, 27 May 2026 03:30:15 +0000
+Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-8353c9f24d2so5657235b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 20:30:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779852600; x=1780457400; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779852613; x=1780457413; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nz17AGesBxrxvpMg+ldtjUwMkbrsU+FQ5Omh3mR+f58=;
-        b=DeBO29+M+CzT4Lkw0NUu6t2Gth0Q7AKYXm+4qwlmp8A0HbuNGpTQDkQR4f/2q2N1Wq
-         Wue5sUhI3aFKsgL7O8WWPrVMCeAuEa4ldu77jcr8/Pga6rb+Qw3DcQ/OIjlS0I+TtBwY
-         ktarfE/Uv64Aq9WpQogtKsF1r/c43hKPQEmDgXSiVZPJNTFEBzxCQzDRiK2U3napV1gY
-         ZihMMg5BKR9M3uRUgyGmnEOkQiY5GhxRslFS6XfdS/jLpRjpXd8BIh24EA4kB4zraBww
-         gUQKKuOlV1dLv9rHyNNAnvoIyg9O+SVoxFtY4sGwRECRQMTAqRK//D9Vhnx1KlP0IBgz
-         /ebA==
+        bh=PmAA5z5t6XdNPHFYJxkTDYvo5Zq4DgJyNWi+6SrmBDo=;
+        b=Nvpb4OiQWFRiw+DRbtPTduevhZTJBs4DFUgMWvYx1xSQ8X8ssT3gDxyVjvZSlUIeFj
+         dERvAJs/jAGhmLbE5QvCmTEYoHy6fkIdSjmC2uSffKT+i61e0rwD+6D1TvJ45WNQ6Vru
+         YbH8UuSPLwyyw0jIRbvaWd2xOvX1rEsj5Xv6pWxPO3GqFF2z5Axw05wa6D8+i5aWJY7J
+         Fvk/fv44Fv8/Cm43cHlrjHfkbKT+Xbc/itho0s/D+zzr9q+g8wlab4CknYCaLEXlegRn
+         ZIXHYpWoMO86LQ8OKJ7/tYATSmPbXQ0p+shpfUpar7nO3SLKqaASrbm+LgVGmmOoa5dB
+         76Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779852600; x=1780457400;
+        d=1e100.net; s=20251104; t=1779852613; x=1780457413;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=nz17AGesBxrxvpMg+ldtjUwMkbrsU+FQ5Omh3mR+f58=;
-        b=S9iBr5r1tLhtyHyHdWtWLfTE4Udi5B4oM2F+zhI1RkFt3TXlHLGvZHVPN9wZ4+ENkR
-         tijaBzHVTbiPjoU00+oPwslYNI3U0833ft441fz5ScxvFU/G1CL2vYfAXnGBUTYY5uVk
-         ug6oYC1es61cV4edC4+33/CcHwwy5fyK9hJsoPYP40dd2nubaa2t+jE9BXjsXgK8Bn7x
-         4froqspeXO6f5ecFeLD8ZDL7yQrIktqFzMDDFIZJhY96jA6pv+3ABLWeLXKoHMipSoBP
-         xq7fjzzVn0orJnUpeQQZZRyqk3MVZhB4R98HxXO0tbojP8eoZ5llVRATZwrSD0Tyew3L
-         Batw==
-X-Forwarded-Encrypted: i=1; AFNElJ+ZCQeB5NmdIABnNWv/o9swTkxo+oUKWQEHdhUUr4aI8pmurGu7MgOWqAWf4HaxHq6NJA9AwpCBXkO57Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/5iPHHe2EkkUMPyrf2UcEhqILiwO7a03ca2nX1gqRaHDNgy7q
-	juU6IGfxVpodrLoZUQIV1iLiBVknCuJrxa2wMHfr7gpePANL1kmt6LtA
-X-Gm-Gg: Acq92OETPA7hexCXay3pIpQa0Z7BAuuTUQ3uKZlwqSZxb+e6oBId4ReEEQ93UMqBgR6
-	nDZyiVqwjlRsFYipTKoKYCGJtmitBcOnLn1IcMUTKmB97B8NcUjFs7fRizwNXCUSA6oE9jbXgOa
-	AZsLpY0zHCc5IplHFjDuCF5MX4HrgO4YoteOn0JPfhSjx++Lc1YfppLe975ggmJ6zlAnT252Cg8
-	sQDXddI7BIDeYq2QnU3ZMRG7CF+79B5LQ+5/8U8S3u7FpP32FbFn75oaRylEmHKWDtRmjBhkPfF
-	orp2qkfmRSlO0+jr8Ibv92zrTNPgvh1f2xkeiXCfP8UoTRtxmDfX7g7ICcL3O7qI0q8XDCNR+l/
-	84tBleqFvdKLsctd9cmCmPXJE3cqztszdVx1NHpfab9IMB3Qtx8JHfd3HV1m56wZ1Dr6d8PuDSc
-	uCgnmuIusWH1/+rF7qU+F4KtyEQ8suuUKbQEMC2I6WefKSI2U=
-X-Received: by 2002:a05:6a00:ab86:b0:82f:7cb7:63c7 with SMTP id d2e1a72fcca58-8414b427c3emr17125755b3a.11.1779852599870;
-        Tue, 26 May 2026 20:29:59 -0700 (PDT)
+        bh=PmAA5z5t6XdNPHFYJxkTDYvo5Zq4DgJyNWi+6SrmBDo=;
+        b=cPJ30efCXCUk6+La/u25EyNHsvcOU3SHnFxsb3oMv3tPIR6R9rJ4+VGkpyFsncqoLj
+         9HQ3OznAud4fGvolwGXz4GNK0P/KwrxPEv5h0FwJRDvwc1Di66Isz3qpwx7NPoS2r3UC
+         7ePkdh+bD+rcI9VqgGmZb9aG3y8HSc9g2v9z+JFawIpV5UvO5g5QywF/gV5EZ2w6d+Eb
+         3wpTpCeyf1a7imWX+zu/LKP3b2dG3JycPbuIRlxNXQatswaDcB9sPYqZyx8ZZDeQCIkN
+         ILtg0Js/KwUrRO/OE1ZJsBttq4n80A99/pFxfv6OOu21bCVxP/tfLYdIXKZTF8zZao6w
+         bpFQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+RVpcmSKU/7ORmJlN8v5HvMLnty3SMmFw5Rf86eLwP2DmHbLJQUMZDM5UDf2wwU2YfumyBtE3jSe/n4g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsIARyuqsWGT4Er3yL/jOmW790t1S5qfUvZ74OGv87qLzls7WN
+	cuKhmUgQgoz1cXfe94iAbEv6xltTNz+j6wSKGp9DRqITESskEFQTe0kiYNHTjw7exXA0pg==
+X-Gm-Gg: Acq92OEqKR5jNoYGIjM/nABkFVTlAanc5bDixZ7Od4qYPCL7C4N3c5hr3MVNjwqz9/q
+	rb4A66SFl00a7X91EWVsvT2+PA7qdQpn83vLx02s24h/wA5KSznnOrhL5icgBGgGOqOBgw+N7Gm
+	xHJye7FLxDJJcJy0LGuc0qoEWZcFl6dfs8HbVpJ/UIqg0hbdovphUGmE/7AU6a91ScvUIhkhOCG
+	EYNC8NM2SX1xkIzeiWB/F2tUwcJLJVrnp3trvlBEikWQwYY2qkCV/KmFpwoFpv9TOe1VUqbq5iJ
+	XdeUdycaf8ksPrGbHP/d1QlydGv+ykn8VU4lA5AwUnzzg6aomM1YwiVXluehzBYHp7LAtzPavJU
+	OPS26xjIfyX9s3Z6a+0n5RZhnW19Jxodw+Km/O7q/1+KBxzLfJctpOtRjEhGIriNByRomZQx3iR
+	mBqqc6t4U3E2wB4ngf9k49XOqxwbBrwMw9MVI1LNOMOvjS2Q0=
+X-Received: by 2002:a05:6a00:1407:b0:838:c01a:7a50 with SMTP id d2e1a72fcca58-8415f406e6emr20083726b3a.30.1779852612592;
+        Tue, 26 May 2026 20:30:12 -0700 (PDT)
 Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7307596sm749688b3a.59.2026.05.26.20.29.51
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7307596sm749688b3a.59.2026.05.26.20.30.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 20:29:59 -0700 (PDT)
+        Tue, 26 May 2026 20:30:12 -0700 (PDT)
 From: Wandun Chen <chenwandun1@gmail.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -97,16 +97,16 @@ Cc: catalin.marinas@arm.com,
 	m.szyprowski@samsung.com,
 	robin.murphy@arm.com,
 	quic_obabatun@quicinc.com
-Subject: [PATCH v3 03/11] of: reserved_mem: avoid post-init UAF when alloc_reserved_mem_array() fails
-Date: Wed, 27 May 2026 11:29:09 +0800
-Message-ID: <20260527032917.3385849-4-chenwandun1@gmail.com>
+Subject: [PATCH v3 04/11] of: reserved_mem: zero total_reserved_mem_cnt if no valid /reserved-memory entry
+Date: Wed, 27 May 2026 11:29:10 +0800
+Message-ID: <20260527032917.3385849-5-chenwandun1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260527032917.3385849-1-chenwandun1@gmail.com>
 References: <20260527032917.3385849-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_203000_580425_E32BA39F 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20260526_203013_647242_AA42685B 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,84 +125,39 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-The global pointer 'reserved_mem' continues to reference the
-reserved_mem_array which lives in __initdata if
-alloc_reserved_mem_array() fails. of_reserved_mem_lookup() is
-exported for post-init use, that would dereference freed memory
-and trigger a use-after-free.
+Prepare for storing /memreserve/ entries in the reserved_mem array.
+Zero total_reserved_mem_cnt if no valid /reserved-memory entry,
+instead of keeping it's initial value of MAX_RESERVED_REGIONS, this
+allows accounting /memreserve entries based on total_reserved_mem_cnt
+in a follow-up patch.
 
-So reset reserved_mem_count to 0 when alloc_reserved_mem_array()
-fails.
+No functional change.
 
-Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically allocate reserved_mem array")
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 ---
- drivers/of/of_reserved_mem.c | 20 ++++++++++++++------
- 1 file changed, 14 insertions(+), 6 deletions(-)
+ drivers/of/of_reserved_mem.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-index 313cbc57aa45..6d479381ff1f 100644
+index 6d479381ff1f..05defc91e901 100644
 --- a/drivers/of/of_reserved_mem.c
 +++ b/drivers/of/of_reserved_mem.c
-@@ -69,29 +69,31 @@ static int __init early_init_dt_alloc_reserved_memory_arch(phys_addr_t size,
-  * the initial static array is copied over to this new array and
-  * the new array is used from this point on.
-  */
--static void __init alloc_reserved_mem_array(void)
-+static bool __init alloc_reserved_mem_array(void)
- {
- 	struct reserved_mem *new_array;
- 	size_t alloc_size, copy_size, memset_size;
+@@ -329,11 +329,14 @@ int __init fdt_scan_reserved_mem(void)
+ 	const void *fdt = initial_boot_params;
  
-+	if (!total_reserved_mem_cnt)
-+		return true;
-+
- 	alloc_size = array_size(total_reserved_mem_cnt, sizeof(*new_array));
- 	if (alloc_size == SIZE_MAX) {
- 		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
--		return;
-+		goto fail;
- 	}
+ 	node = fdt_path_offset(fdt, "/reserved-memory");
+-	if (node < 0)
++	if (node < 0) {
++		total_reserved_mem_cnt = 0;
+ 		return -ENODEV;
++	}
  
- 	new_array = memblock_alloc(alloc_size, SMP_CACHE_BYTES);
- 	if (!new_array) {
- 		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -ENOMEM);
--		return;
-+		goto fail;
- 	}
- 
- 	copy_size = array_size(reserved_mem_count, sizeof(*new_array));
- 	if (copy_size == SIZE_MAX) {
- 		memblock_free(new_array, alloc_size);
--		total_reserved_mem_cnt = MAX_RESERVED_REGIONS;
- 		pr_err("Failed to allocate memory for reserved_mem array with err: %d", -EOVERFLOW);
--		return;
-+		goto fail;
- 	}
- 
- 	memset_size = alloc_size - copy_size;
-@@ -100,6 +102,11 @@ static void __init alloc_reserved_mem_array(void)
- 	memset(new_array + reserved_mem_count, 0, memset_size);
- 
- 	reserved_mem = new_array;
-+	return true;
-+
-+fail:
-+	reserved_mem_count = 0;
-+	return false;
- }
- 
- static void fdt_init_reserved_mem_node(unsigned long node, const char *uname,
-@@ -266,7 +273,8 @@ void __init fdt_scan_reserved_mem_late(void)
- 	}
- 
- 	/* Attempt dynamic allocation of a new reserved_mem array */
--	alloc_reserved_mem_array();
-+	if (!alloc_reserved_mem_array())
-+		return;
- 
- 	if (__reserved_mem_check_root(node)) {
+ 	if (__reserved_mem_check_root(node) != 0) {
  		pr_err("Reserved memory: unsupported node format, ignoring\n");
++		total_reserved_mem_cnt = 0;
+ 		return -EINVAL;
+ 	}
+ 
 -- 
 2.43.0
 
