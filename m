@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF10CD5BD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 03:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C650CD5BD1
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 03:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XAqKNWGf/+DeZ2AltWmh8Az892VJMmFR1NhdnNYOlG8=; b=3m4ESIFRiNiClU
-	u9PDXw/5A8MUbgENzZdLnV1mhK0PbeetIOWoy3dGynnyzbhf2x9fNlkNgXs/Frq7oMsrRoxIgTPJ7
-	l3UjCvatmDB6dp0H2vtbVPJ3fOhkgRjEzjZr1KKDhfqsE9zmsB7FWItSaQLERdbBDlbODABsNgrhf
-	a/OulIgOIuQsFpSw+kHQYzlMAkxbnA0hE6xE7RZ+s1x2N1CXw0f+7vwROLBifRQ+Ky2gG2YTMWAXd
-	jkzH6Q/yN/Zsw+Ztm0en9kWW10n4Jnvutq7m7HE1bnRN/EW1nTmEgh9E1eFwzXWF4vBuxr/EjfFpN
-	bOL7mU54qXmBiajP6ZMQ==;
+	List-Owner; bh=+PiFwdfHHyyZT2YBnZa+bg05G5wNLZyU+v61v1N/wi4=; b=I0oxKIYM+0HGt9
+	1ze1rSCMCQvZKcC4HJ8Em89cFrYCQAZRJVQpl0kcs9NJDIE377NDlMd441GeDjN5W8gPWU+MPkGoJ
+	xz0P8HNDoFpeiyJ50p5kObpILzrCZzN+5sD0HyaAEJ8yGzkzGJ4YpBdu9Xy5Gtp8xMai6l4yqaywQ
+	dAIu3MSKfmj9bh66rHyTZjmQE3ngJVitrZi7qo1aNzIRZgZCS12X32KNVW7DZUz8MHCap3TDjws7X
+	Ux4xuMdN4xW/mM/n6V/c09JiWXYn49wRzOkUzgZ089C3ir0skgGem+vxdKof8g7EyNbmrE4U4tKPS
+	XvKqCyg16LzC54dm5AEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4z3-00000003FfU-1hEU;
-	Wed, 27 May 2026 03:31:05 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1wS4zN-00000003FvL-0rr0;
+	Wed, 27 May 2026 03:31:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4z0-00000003Fch-3Zwu
+	id 1wS4zH-00000003FrW-1nev
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 27 May 2026 03:31:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=e5OPTsG2OKxcjvVozOjImSDH+Fj8Htwruv9sukUXajw=; b=e0spCvquzZQPXqph2kY82TnRre
+	mkao4/FTzxcor+ARZZSrd+DZv7qsy5xKWSb0et3giGDQrDByrRSYxSk2xTrjfc3UOUZGHhxPpgs61
+	2T4bXG2pTNqP7xlLPhARnUChh36vb5QL1+koUpUx+dsynziMWNUNOcf+PuCh8LHY98xwwYqnG3EVS
+	ilCcISdVlG35vwSy8Fabox2IPrjQiJUi+B/PJYvGIMFU1PWmF6zWaq9eyOkLpLykNYSREit2Lu0iS
+	dX3AWD8U0c5x2/FQ/dAySyJGV8O6fNHS74RYkuoisCXlM1SYILGraD+yWNop6kDTu8Xxxe3ZogQB4
+	5fnGgwqA==;
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wS4zD-0000000CqrW-0Udu
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 May 2026 03:31:04 +0000
-Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-83659d38e38so4604413b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 20:31:02 -0700 (PDT)
+	Wed, 27 May 2026 03:31:17 +0000
+Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-835b78c3797so4915482b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 20:31:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779852662; x=1780457462; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779852673; x=1780457473; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hrSylNUfVMz9fGhknfQmD+9F4TfLhiOlPkwxJFsVly8=;
-        b=nxPcgQ8oJOQcf27vLO2kH1+W7vmwjlB1JMpnSPG4JLll7iPRYjUh6fCIwaf47qus8B
-         C1jGtShK6ooEl4PMSsw9RXs0nhlr1KVOTQ4gosp9vdJCvAhhWu/TcG3deMQKUXK41C83
-         +SGT95Eg4w5vQq/ABZCkEVJ6s9rutCCCmBf2GfRXUv4/FTSajieGLG0iZuEnNKKLhduH
-         DVtfXXLfeaLihzpQNT6slvTmNiU6WGLAWGjnYhhgsun2Pbp4nwiEECaZ5auxyOjP9/3u
-         3nSk0/MtnjyrLt883cTqFfVqeS/EzAav4uNWXQNxS6MjGuYQCXhTgcbn8qmuqHLWsCYp
-         ZE/A==
+        bh=e5OPTsG2OKxcjvVozOjImSDH+Fj8Htwruv9sukUXajw=;
+        b=Km46P8GY9MhY4ifTCAW3pWic16G3/1Xs6IY6YdKHrpL43Eunt8YXpaMnfIqy+Bu37V
+         vJiSY6P1+8coC5lq14eob7aRSRQwOYJxo/Mu9CtGex+/aMJNxTjQ8Ogenos3WhchF17F
+         tQmzlppudEXS2E0k9P5Zz4Qc6zfa34iephhc0i6zn3AdyZT6awnkcYpw0wSvHYu+M9YO
+         o7H5PcxofFyHkdCLguaXroB+3aPFwPTgOQ2c6j6PBQvc8ZkO3zz7pUuR+wAh1+bmRk1i
+         Ww49JlYoerODD6jiX6SmrF4m4oR/O12v8odazw2DAKDPCDMLiLtbaDsmW/H2vIg/lOpH
+         fySg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779852662; x=1780457462;
+        d=1e100.net; s=20251104; t=1779852673; x=1780457473;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=hrSylNUfVMz9fGhknfQmD+9F4TfLhiOlPkwxJFsVly8=;
-        b=WJGsLbfYiPHEKpWOwFWij3RHRYVN6x0AtbKYK1r4bAqm/+/T42SZj4Ho2P7ff10xGb
-         iSqXqNA/41aN12Y4Il4STi/agbv9HddBshniIXujQS+17WuCHWflwRqtjNlzAYSiP0wJ
-         M5PLKOnNlkmHxxUDqvBRS8SiCD38zz3lG31C6tyD+wzEnXMSZbZuW2grRc2RQAuABxEF
-         U8y+FBDpS52GVQATs3SPnh+bqxt2Tc7sNH7h3PzAJfPXWmL7LKwS4caS2SwSdo+JLVQ3
-         ntwGtDlT0DzKQ+i/fYYnNcYnAySdWJSs6k3POGjutIOqCR8CRqqJOvpqttDNp02+ijuD
-         pU8w==
-X-Forwarded-Encrypted: i=1; AFNElJ8/3PhvinsAvMwn/myAq0Q2r55z5SM59O7HWF/Xa5l4dTzz66kHMmHAqh8uXioZX4W+QLFBBlPxozMoNw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoihUqMZHJt3SGaWZHZbzKIaCY0XCiLGCkEtN0TdUyo9OYY0ss
-	vfQ42MJqlPaSF5WvOQ8f7pACZc1X+er5/KX5CmNEzdfCFcqB52Yc1WgS
-X-Gm-Gg: Acq92OGExXp/vomWNqCVEaMYxjumO8z2c4R3bRlSo3467KyPGlDAyWEaDIwKQ0ix4dm
-	U9aQs1eHFwk0jSlb7jlV3q0VdPEFUxvPlBEhB0Ie2sPDTLp+Hjo3VwJ24n1niVyl+vjZPDcsNY9
-	4JnPplW2GOajHsZXJ4TsCojUmEt/bunbaFPIXJp/XtFmU86jLq4p/cssbJtqg6xMy61h7SJa8f5
-	GWfxpgfkWgQA+pyIVz8ZUeIfc+M6eRqXnbc2pC8m4tQSNYCL4VZenjmhCmNvNqelmECm4mhyL59
-	aYSaSssGrRiiAdgrWjCbepqjbgTvtPDQHIhKLf2SOmSmmQYZlVq3TCVqyytBJoDByyy7yfHRwmg
-	bduoNX2eEQ/TtCjuo3X1DuM84tas1QZH/HqbVxHSpk1b73ecKb2kq3pE8tmbDZNSLut0vQBp+h3
-	iuDBDuFoOGyFMS93YnlAHIECHWudyZLeoUJpiRgiBvCjK7w34=
-X-Received: by 2002:a05:6a00:13a6:b0:83e:b22f:373a with SMTP id d2e1a72fcca58-8415f31db44mr19548057b3a.11.1779852662047;
-        Tue, 26 May 2026 20:31:02 -0700 (PDT)
+        bh=e5OPTsG2OKxcjvVozOjImSDH+Fj8Htwruv9sukUXajw=;
+        b=JWgF6owfSykonmp+5EbHlLtBzWPzTbxxQMvgKcSCE/4x+aYZwaWe3UXoJP4elGrZBa
+         UOhXcdBOzEbinVmVb1EEb1Kw3w6lXvIGRKSBdVRvAd3/qPxxTim4foONx/krddBvK5+r
+         KcpN24RdVVZGc9KlU7VBQp4TwO5wS7kgoSvR0+Q3TNPxiumTk7UO+BVja6BZnGl6343p
+         Va/3VIRX2pN2aadregLfGYWtqdB6FYZw1MBc+eo6j/n4AmAjgzLzA8xd0RPoFo9KuNmA
+         0vOlGENKt07I1Mzoay8/JFguHF0zE8PQGDGojJkKoUnl7EaWqmFPHiFECL+tbe5ZIW4x
+         hmbQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9xlDe8W0sqFdllcZatx7jtW931NEtS6iBK2DIrSs5TP+oVoqkhZM+dECYEKSctQ8JzZEe9KWUu18TsIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1zRnU82b6lQNLBv96wXU+AiuoXL8GOBalqzp+a7z5vjo5/UA2
+	r8SKfMQ+SJ6zPPBO148r++2brUa3h+e/LpPh6QTqxfwUa7rAjc2+x7Do
+X-Gm-Gg: Acq92OG4QPYoXyO1kt6md2C0+Eascu/ULiBZPfag2tKuy2FKzvHhcIibyXUj5b2DUYG
+	Rgj8Zg3MkjTW+jz6vysHjtiaseJ1AuyoxXxD7NlILzgouG9mttc1+xlydqg1vVhKJ9fblGCd+F9
+	kl1xvXC0igD0edOPUOud6KWgPRhGHpWXkj8PcwZfU9zSi/WaR1d2321VHWlmjwJWFezLqDZOPVk
+	E89d7wtKSYpJK20y2NjA+w8v4KsoELJtWwCnGeX4IH+BHfhIgCky3tpuj2qGde+5uOiN5dMWwec
+	3yB6RiQzT3ZL3k9YCqc6zpvYEWh/BXuCy+d8XFymeOL5eTULZf0AvgiEvil+k1s9twGYZmBn1GW
+	zATNIZtQHYEOlux99MYxjjlW1DDzVYeNsWFfXZyQo8fbIKXamNT/gIL72kodNHSSVqF6ClhlP8J
+	7+hTUcmnTpKFvA2f2dbj69fpktxWJRyO/j7kgyFW6iGucq6WY=
+X-Received: by 2002:a05:6a00:2ea7:b0:835:4291:6975 with SMTP id d2e1a72fcca58-8415f363b30mr20565995b3a.39.1779852673468;
+        Tue, 26 May 2026 20:31:13 -0700 (PDT)
 Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7307596sm749688b3a.59.2026.05.26.20.30.50
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7307596sm749688b3a.59.2026.05.26.20.31.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 20:31:01 -0700 (PDT)
+        Tue, 26 May 2026 20:31:13 -0700 (PDT)
 From: Wandun Chen <chenwandun1@gmail.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -97,16 +112,16 @@ Cc: catalin.marinas@arm.com,
 	m.szyprowski@samsung.com,
 	robin.murphy@arm.com,
 	quic_obabatun@quicinc.com
-Subject: [PATCH v3 08/11] of: reserved_mem: add kdump helpers to exclude non-dumpable regions
-Date: Wed, 27 May 2026 11:29:14 +0800
-Message-ID: <20260527032917.3385849-9-chenwandun1@gmail.com>
+Subject: [PATCH v3 09/11] arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
+Date: Wed, 27 May 2026 11:29:15 +0800
+Message-ID: <20260527032917.3385849-10-chenwandun1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260527032917.3385849-1-chenwandun1@gmail.com>
 References: <20260527032917.3385849-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_203102_900630_463D69E1 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20260527_043116_108827_A66A0834 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,115 +140,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-Add two helpers to exclude non-dumpable regions for arch-specific
-code.
+Reserved memory regions are excluded from vmcore by default unless
+marked dumpable. Honor the dumpable flag to filter out device firmware
+regions (e.g., GPU, DSP, modem) reserved via device tree, since they
+typically contain data not useful for kernel crash analysis and can
+significantly increase vmcore size.
 
- - of_reserved_mem_kdump_nr_ranges() returns the count of regions
-   that are not dumpable. Each excluded region may split an existing
-   crash_mem range into two, so callers use this to calculate
-   crash_mem allocation size.
-
- - of_reserved_mem_kdump_exclude() walks reserved_mem[] and calls
-   crash_exclude_mem_range() for every non-dumpable region.
+Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
+pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
 
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
 ---
- drivers/of/of_reserved_mem.c    | 34 +++++++++++++++++++++++++++++++++
- include/linux/of_reserved_mem.h | 14 ++++++++++++++
- 2 files changed, 48 insertions(+)
+ arch/arm64/kernel/machine_kexec_file.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-index 5e27f9403786..1d9aa332325b 100644
---- a/drivers/of/of_reserved_mem.c
-+++ b/drivers/of/of_reserved_mem.c
-@@ -24,6 +24,7 @@
- #include <linux/slab.h>
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index e31fabed378a..1d65320c6ba4 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -17,6 +17,7 @@
  #include <linux/memblock.h>
- #include <linux/kmemleak.h>
-+#include <linux/crash_core.h>
+ #include <linux/of.h>
+ #include <linux/of_fdt.h>
++#include <linux/of_reserved_mem.h>
+ #include <linux/slab.h>
+ #include <linux/string.h>
+ #include <linux/types.h>
+@@ -51,6 +52,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 	nr_ranges = 2; /* for exclusion of crashkernel region */
+ 	for_each_mem_range(i, &start, &end)
+ 		nr_ranges++;
++	nr_ranges += of_reserved_mem_kdump_nr_ranges();
  
- #include "of_private.h"
+ 	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
+ 	if (!cmem)
+@@ -75,6 +77,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 			goto out;
+ 	}
  
-@@ -858,6 +859,39 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
- }
- EXPORT_SYMBOL_GPL(of_reserved_mem_lookup);
++	ret = of_reserved_mem_kdump_exclude(cmem);
++	if (ret)
++		goto out;
++
+ 	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
  
-+/*
-+ * Count non-dumpable reserved regions. Excluding each one may split a
-+ * crash_mem range in two, callers use this to size the allocation.
-+ */
-+unsigned int of_reserved_mem_kdump_nr_ranges(void)
-+{
-+	unsigned int i, n = 0;
-+
-+	for (i = 0; i < reserved_mem_count; i++)
-+		if (reserved_mem[i].size && !reserved_mem[i].dumpable)
-+			n++;
-+	return n;
-+}
-+
-+/* Exclude non-dumpable reserved regions from @cmem. */
-+int of_reserved_mem_kdump_exclude(struct crash_mem *cmem)
-+{
-+	unsigned int i;
-+	int ret;
-+
-+	for (i = 0; i < reserved_mem_count; i++) {
-+		struct reserved_mem *r = &reserved_mem[i];
-+
-+		if (!r->size || r->dumpable)
-+			continue;
-+		ret = crash_exclude_mem_range(cmem, r->base,
-+					      r->base + r->size - 1);
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
- /**
-  * of_reserved_mem_region_to_resource() - Get a reserved memory region as a resource
-  * @np:		node containing 'memory-region' property
-diff --git a/include/linux/of_reserved_mem.h b/include/linux/of_reserved_mem.h
-index 55a67cee41ea..70db99f1fbff 100644
---- a/include/linux/of_reserved_mem.h
-+++ b/include/linux/of_reserved_mem.h
-@@ -8,6 +8,7 @@
- struct of_phandle_args;
- struct reserved_mem_ops;
- struct resource;
-+struct crash_mem;
- 
- struct reserved_mem {
- 	const char			*name;
-@@ -48,6 +49,9 @@ int of_reserved_mem_region_to_resource_byname(const struct device_node *np,
- 					      const char *name, struct resource *res);
- int of_reserved_mem_region_count(const struct device_node *np);
- 
-+unsigned int of_reserved_mem_kdump_nr_ranges(void);
-+int of_reserved_mem_kdump_exclude(struct crash_mem *cmem);
-+
- #else
- 
- #define RESERVEDMEM_OF_DECLARE(name, compat, ops)			\
-@@ -92,6 +96,16 @@ static inline int of_reserved_mem_region_count(const struct device_node *np)
- {
- 	return 0;
- }
-+
-+static inline unsigned int of_reserved_mem_kdump_nr_ranges(void)
-+{
-+	return 0;
-+}
-+
-+static inline int of_reserved_mem_kdump_exclude(struct crash_mem *cmem)
-+{
-+	return 0;
-+}
- #endif
- 
- /**
+ out:
 -- 
 2.43.0
 
