@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD05DCD5BD1
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 03:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3082CD5BD1
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 03:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zpExiiRTRkXxCjgon1nKJ6Q6b/DNCVMpksGOiOj3hbQ=; b=hhY6WZu0r+xEcw
-	6QDR0oRdGzEKSm1fgWfoz+YsJvFIEWBxhJR7vmEPS3eTICQP6y5MD5WWhMVod9HHZ88fBGQ9l0oWW
-	1ieqbT1VOJhfNaaVRogACbtqWbsiGuuSE1jxAotSX21DLo/Nt7D95oKOyDUaHXryWyiAEcuFDHvqJ
-	Jaj6xdlogfwU35hDNQR/YUTIM4Ae4NlVK+YoAqO8dIvdUWpdsYU57F2jiDahZvKTwfV0A4HGHN9OW
-	TXe93/sVrf8v9d3t8Ld4U6gJQ2yKg9suIoL4A05HvonPrVO92I7Fzh3h1GEugAb13w2yJbaA2PDgm
-	XrcdhbJZ8jgyYUWJebAg==;
+	List-Owner; bh=G4w+8pj8JDTxeE7iGgaeutqGZu8nCMB1dLUHsa9M+bs=; b=eEF4/g5/DdsVZF
+	6AdhPxaamYEf85xiipiuAb2TNJUnaMvq5BHn6DVP5sguFeGvDUNpagHjPpyc6bcqPbDibQx3hhVyF
+	pw4+oEbUQ5dTPIqc318g+UpADW/3eIunpCBSr4M77iEkNAv6NtdIJlBAXrdTxKbaBTDyT3mMM8PNo
+	kVb0k9ZfMT+jv3IJNgA5x4LYEsjWpjzMWmzdpsoope9bHvG0CHMNRL939135YXrf3AotewyTm0Rsr
+	aRtSmtg9EIhb6yWwEacNbdCLr8uby1998m4lShfqe6W0KcsMVIndoWvudsz0mvdlvsgKLSUr+CVcK
+	BQSLCkiEuaVRZOZuHa/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4zW-00000003G4I-2Yhj;
-	Wed, 27 May 2026 03:31:34 +0000
+	id 1wS4zh-00000003GDK-0M5C;
+	Wed, 27 May 2026 03:31:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4zU-00000003G1u-3ha8
+	id 1wS4zc-00000003G9v-3jW2
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 27 May 2026 03:31:33 +0000
+	Wed, 27 May 2026 03:31:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=k8s9mNy4kJhUtRbiL4bvIShEI3qrMLQ/X11k1pNjAUs=; b=BXs0LtiU87Jjh6tyA4Ium25Jhq
-	p2kuJ1EpSvgzH+/PC3Yj3nayIVOGnuA+4DStXIvxz9YPuRBEFxSZl7xWyXiSGNw4dklgoosGlAQad
-	ds2tDYyWExoAdhS1l2whBmq0iltVQQe0/puh7N/MBzF9hfUq5NI+vI/v6SsrICZV70nw0xtKDfoKe
-	VeoUnGrih9sYxWVuxnpi5P1wkZ9mTiw4Pt+dwPRMiWxYwmIBiIwpKJSLAWRQsompVUNrO54UwXjlz
-	vhMMtZHJ7nmomj2Stpc5941+8i3G6gEo2piLBN8OukZ9uTRbBzdwhrMZPL9SxD7QEFu0v7sNrkUXD
-	T2KYJHoA==;
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	bh=HcszoUDc7316A03Dx3QXGOd8FcU7DWvjuNUEWPnVcI4=; b=D/cFipoL+i8syv7pdls6sanpjz
+	PS7IYw7P5gmsUv1IrKaMkVFWDPSco9VCSelGpXAGtDvX2egFXMrjoiiPRlczH36VFc9UibdArATAm
+	e807iUxlLhpNMsywq7l0PXDvv6XvUh8lSrQIE5wQ0LT5tdxDnU0/46vQ7nXlZbNFfBGLZiXVInfcr
+	JGZAsLIbmazC9gTwP7OXjmZHt/u2imowKcLg+6f/hzPjlW7Yh97zPkfRw696spjX044OI2XgUz0LV
+	amvjqU8Utp1yZnEneQhCg2j0uPhSDvLqzfN1ZoGiDFogWfmYJjit05omvOpT+VUFDgUfcycgELKPD
+	Fgnc+l2Q==;
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS4zO-0000000Cquk-3thd
+	id 1wS4zZ-0000000CqyZ-2nwQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 May 2026 03:31:31 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-8353c9f24d2so5657515b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 20:31:27 -0700 (PDT)
+	Wed, 27 May 2026 03:31:39 +0000
+Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-8419ab3a297so1122874b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 26 May 2026 20:31:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779852686; x=1780457486; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779852696; x=1780457496; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=k8s9mNy4kJhUtRbiL4bvIShEI3qrMLQ/X11k1pNjAUs=;
-        b=Qr2Akwyj5/mzYejjhagI1EE7oCqZAFvI8LGHuWvWWSSCo0VD98TjxbexOeG7rBdcmo
-         5303X7YQ+YWbIawu344EyulZU4vrpbIS5r+xwAFcneiIE/KEgreqkiU2Af/ORxnxejq8
-         /y3WVj3HlRi0kCbMiCkH4gRb0v7QfGyF9lFSwW3Besznva01hEb6A3ChrGW+LbmMfxae
-         wyMgRF/CAZHE+j3HTg+1mTYjOvnD1XpDijG55c2nr35hcrcHgC5+mr646HGSV7SCX581
-         oMJJ2/IAKNRyvIqhUuu2uZVLZY/FIRSUYB8xW8DmEClu6rgMMPRYj1aMbC887m2VGz7X
-         iV8Q==
+        bh=HcszoUDc7316A03Dx3QXGOd8FcU7DWvjuNUEWPnVcI4=;
+        b=blf/MMtZ4GsUxGzz2WFUPCJ/Y+JiH80/1wfva7NQ9KlfDRI22vmrFMVYHu+I2HCybB
+         Y7tbubCdC9bJnNH3NSY1RzXEIZUysu+g5aOQV/uer95zx+3gzAWjO5pLs8esjHyVdz4H
+         FGoLEcBFymAN0jaFDa7RKMf8GfBJA9dYihsTlPGL4pAO10mXZTy7TW3nMmHeXBRSVZK7
+         RRnt1wPbW32iSpxZbFTvUDyVcy2+O0WNrwxjSlt8gN2vvVpbqsdQCLGgnagjmNcFvb2E
+         N7PtozNe1LDxyhq6kXNwASa+ua/rWmEO5BNdFRenl3RLIqvwlmCz6XWKY2Z7j7lbaAOW
+         RuVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779852686; x=1780457486;
+        d=1e100.net; s=20251104; t=1779852696; x=1780457496;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=k8s9mNy4kJhUtRbiL4bvIShEI3qrMLQ/X11k1pNjAUs=;
-        b=Mi69LlqSUHGlo+x/BjTtDmtVgPfQlx3FpSmfSODPOVS1UJdsjuYPV86WIC3srb28ZP
-         8Lwj38UTrFdnVDBQ3YejM7ypvIqgfAEXh/LOtnMEaz6AhMcIbylzI/TyAsdRwwsIpdpH
-         XX/af61azLYY0NQqdWFEiPq8n1pu87wu66Zg8iDYEew13tsi5y8Ej3jUfwzzrLZnrzLA
-         dhC/D+j4ruvXW+YM2FMuKryZori3Gy8+4zU4XpxXBfOSDPkzxFHXpWDwOzyq0UIRVwRC
-         EpwXrlFWxILdnX+NMg114cgdLnC4hoIG7A92pFiIDQS8jlPWVbQWjrHoeCs8OVJx9wvQ
-         QQdg==
-X-Forwarded-Encrypted: i=1; AFNElJ/zbPuhI4ojhhEIhiF4x5PaNUSsnAItaDzcPqeTp6myQiS0LPTcCFWS77U/MnxZ27CmMEIrLlZfpBRMmQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNASu3w5/fpVqqPLrlBJiA/X7k3HiGlO6Ep03LAa/4kkmB/sDR
-	l4Pb/3D7TBcamfLIYj+KM0OP+TEE3ydBGXgxZ4Z10x1HHXLpN3rPwvhm
-X-Gm-Gg: Acq92OF/dz1ntbTHftObsFHBgJQYbdXwqwK/plyCNhoJGPre25Cq+feAtbDBhxJWH/9
-	vIaz61LRYZtKeQcc8q+6PC6VBKS37yzCergNSHn0uC8rKuNvLXK+EmxYnt/udNYtWz84lBOaaaU
-	k7qEj6LffadvGbKyQjh2mp7e0FbXCSeVTu1lDJXPPaMtH+6z1YjbZJ2iRWPjYG/AbsowNO7cMj7
-	aKp46qlXAfTM6rh2ieqEy60jEvs0SlzQgXy3OiTIN9uOW6lGB4rBeD15A1x/aJBgSAV1K+ko7YU
-	A3EL01nKx8tsb0DrBiy27aNPVL7jMDc0D2AfT2zvp4nb2kym/Y24dDjTdD5fMXaqmmCoKmWF/Zo
-	G1bgvAsvUafHzRs3GObmIfJaDCjXJVQZk7UvVSSrLSgrT8ssA/wUNwffHETDH5hBBWXVl++S+F+
-	UR6T32rgu/48HnQi7mXmyti5qW7g6QDZNhAU1e
-X-Received: by 2002:a05:6a00:8c6:b0:83e:d957:e5b6 with SMTP id d2e1a72fcca58-8415f544641mr20524215b3a.36.1779852685640;
-        Tue, 26 May 2026 20:31:25 -0700 (PDT)
+        bh=HcszoUDc7316A03Dx3QXGOd8FcU7DWvjuNUEWPnVcI4=;
+        b=fB1SFd9m5zncPufKkT5SWIOREIyTQX58gzR9Si2MaG2hU+0kCTJWKt/qqn9/4B894o
+         PdDZyb1hFnZIJ+IxkhxBG3++tFH04DjD3S55YSfGbch33BZa/fBprWQBGymLC19wZHfK
+         v42OTAAh7DfczpQrAHVPkbxN4AZVs3Wq6cMr1Ee5Yu4GeX40SSIVT1Yg9vjx9vAD+6aq
+         EX0xNYxOthC4hVgQSF2/XuZ/Tkf8GlBrUBmcg1NF4q86vaCxgsoga7YvxbfRUyUfkdEW
+         355zxq64aD9xMfy1+/golSYP9h76L9+JKs0sSR3UXiUaEtAFtftgNeWyPIgFCDkOuCXg
+         bBnA==
+X-Forwarded-Encrypted: i=1; AFNElJ8XMDLGUNlRaffq2s/NVTCSGTTDbyepQPsH9yWmPkKJMe4/MKZ3QPPW/FSwnK0ssvdLE1sJWv6cxMAHJA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqCGazu7EegqjPfzNWMhtQWj8z8XcsDXNk5wiFCdc9q8RdRlbf
+	EpOY1NbtCfIV9YoaAjSEXZN7cwu+XQLm8Ph3zri7KlQf7Z1riuz8f0x9
+X-Gm-Gg: Acq92OHqnVCYAo2rLiWVmoPcIDKt5WfXBJEpykB/f4WTPT7ZFjC7J5pPIAiDLrngaWe
+	eei+LRqrpXKwTZIx/gN67JC+Tkx0Zyy4FoC9VqgI1RO5J8/fUhPgL6olgPSiHG8ouZ1KznlOLB7
+	qclJN3Is6JwlTs/SeJJQIxsAnMo+OK+ws8HDWPgi7esogGmiTEJ9GiZb64Is5jKuDlozVOpqjRu
+	RYHy9zUJUNlxlOzOtHrejdhV3SpNOk0myija+34wHUGJl6pmdkGETD96tadyEhhhHvpAcmVG5//
+	FV2dqBur7dgaSs8N02eRH8O0d72OF7Mpj7Pu2UxkjpCwoNdp0o0VSpwD6DUdqn8CPo6GZ6532+/
+	E+jWe24S8/lwacmzq0zaqs/P9RTVfnbrxneeNc3awsrNVg/Svyqq5Mnuat0uq0Uq5T4ch/PAW8o
+	5lG+lO10uU2DktTEPmVJf8Yis7428yN7AxXFAyvJXTDxlDxVhfrbE0Vv4luw==
+X-Received: by 2002:a05:6a00:3a0d:b0:837:8c8f:8f51 with SMTP id d2e1a72fcca58-8415f3bdb92mr20798104b3a.47.1779852696430;
+        Tue, 26 May 2026 20:31:36 -0700 (PDT)
 Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7307596sm749688b3a.59.2026.05.26.20.31.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-841d7307596sm749688b3a.59.2026.05.26.20.31.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2026 20:31:25 -0700 (PDT)
+        Tue, 26 May 2026 20:31:35 -0700 (PDT)
 From: Wandun Chen <chenwandun1@gmail.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -112,16 +112,16 @@ Cc: catalin.marinas@arm.com,
 	m.szyprowski@samsung.com,
 	robin.murphy@arm.com,
 	quic_obabatun@quicinc.com
-Subject: [PATCH v3 10/11] riscv: kdump: exclude non-dumpable reserved memory regions from vmcore
-Date: Wed, 27 May 2026 11:29:16 +0800
-Message-ID: <20260527032917.3385849-11-chenwandun1@gmail.com>
+Subject: [PATCH v3 11/11] loongarch: kdump: exclude non-dumpable reserved memory regions from vmcore
+Date: Wed, 27 May 2026 11:29:17 +0800
+Message-ID: <20260527032917.3385849-12-chenwandun1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260527032917.3385849-1-chenwandun1@gmail.com>
 References: <20260527032917.3385849-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_043128_489387_CBA0822E 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260527_043138_106638_E416E701 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,45 +140,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-Apply the same non-dumpable reserved memory filtering to RISC-V kdump
-as was done for arm64. Use of_reserved_mem_kdump_exclude() to drop
-flagged regions from the elfcorehdr PT_LOAD segments, and
+Apply the same non-dumpable reserved memory filtering to LoongArch
+kdump as was done for arm64. Use of_reserved_mem_kdump_exclude() to
+drop flagged regions from the elfcorehdr PT_LOAD segments, and
 of_reserved_mem_kdump_nr_ranges() to pre-size the crash_mem array.
 
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 ---
- arch/riscv/kernel/machine_kexec_file.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/loongarch/kernel/machine_kexec_file.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-index 54e2d9552e93..c359cf714c79 100644
---- a/arch/riscv/kernel/machine_kexec_file.c
-+++ b/arch/riscv/kernel/machine_kexec_file.c
-@@ -10,6 +10,7 @@
- #include <linux/elf.h>
- #include <linux/slab.h>
- #include <linux/of.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/libfdt.h>
- #include <linux/types.h>
+diff --git a/arch/loongarch/kernel/machine_kexec_file.c b/arch/loongarch/kernel/machine_kexec_file.c
+index 5584b798ba46..4b918c3d4a28 100644
+--- a/arch/loongarch/kernel/machine_kexec_file.c
++++ b/arch/loongarch/kernel/machine_kexec_file.c
+@@ -14,6 +14,7 @@
+ #include <linux/kernel.h>
+ #include <linux/kexec.h>
  #include <linux/memblock.h>
-@@ -63,6 +64,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 
- 	nr_ranges = 1; /* For exclusion of crashkernel region */
- 	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
++#include <linux/of_reserved_mem.h>
+ #include <linux/slab.h>
+ #include <linux/string.h>
+ #include <linux/types.h>
+@@ -67,6 +68,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 	nr_ranges = 2; /* for exclusion of crashkernel region */
+ 	for_each_mem_range(i, &start, &end)
+ 		nr_ranges++;
 +	nr_ranges += of_reserved_mem_kdump_nr_ranges();
  
  	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
  	if (!cmem)
-@@ -76,6 +78,8 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+@@ -91,6 +93,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 			goto out;
+ 	}
  
- 	/* Exclude crashkernel region */
- 	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
-+	if (!ret)
-+		ret = of_reserved_mem_kdump_exclude(cmem);
- 	if (!ret)
- 		ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
++	ret = of_reserved_mem_kdump_exclude(cmem);
++	if (ret)
++		goto out;
++
+ 	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
  
+ out:
 -- 
 2.43.0
 
