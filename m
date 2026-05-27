@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF38CD6E41
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 07:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7BECD5BDE
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 07:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n3OoqNVOKB6aHN4Rn0/dtYlImXtL0TTKz77H1jlEIJ8=; b=NzDQDnNTsseoIc
-	tcvNq/NxXiFcVEfxCA7RBcS/jLpmUYiv6s6K57kuHJflTGoGUUE4j55ohlK4/+23V1+O0TNWFVKTu
-	6VsWe8xrkYqxh5LVoBr0hwNrmaPQoKZl2kRkbK6ofhYLaRdY7rdaq+VzE2QUQH+17obs0vywk8bOG
-	sOw/J36gis/MN2j8uoBPjecZqdKuIGPTKQXJ3nQsk6YD0954qH/NBUWW1Z4mU7Y9SKxwaFxae3eIR
-	J5xzRn4bWuIdkLGFRgJRWJhRiKYjpFyqKncBZfUWxK8tCPjbZ2IhMgkWLQdPpSy0qB8tfyB92zPIL
-	ffukw+7Jrb1qlLfmDfPw==;
+	List-Owner; bh=uzTEdX0uMoB67lMVkC6+qlr1F3dLSQ51vcnZqGjdWa8=; b=uYT5eNvUy5R2+a
+	pJQgSM8QOfUxtKMr+TikWi7PgEzx++m5ghFKa/CdAhEqv7MGaKNeR3J8durSbrRuGYn4EBhM5Guge
+	sXW3IZ3WJ52pMpPwJnlSALicOVNYgKz+/71NoeY6890RbhSFFwydV2Y4WM1OxOXBi35hQWY+tvyjV
+	Jp0DQLO+Z3aspYtTRGQU0TlfN69J9h/REsMk4UxibJXCEeR3kOXqj316mV262Zgryvu2tB17ilG3m
+	CYOA5n0iL22QezPmb7ZntbcCOyerFrNDiu3AAgu6xagQr0o6SUFdtbQabQmjaHhb7x/7tn+3aT501
+	WgqiFLhRbFHM6hSwXZNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8Jg-00000003R7f-3qUp;
-	Wed, 27 May 2026 07:04:36 +0000
+	id 1wS8N1-00000003RN4-1JJ1;
+	Wed, 27 May 2026 07:08:03 +0000
 Received: from [218.76.62.146] (helo=ultrarisc.com)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS8Jc-00000003R6H-1TTG
+	id 1wS8Mx-00000003RMb-491C
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 May 2026 07:04:35 +0000
+	Wed, 27 May 2026 07:08:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=1WM/39//WGvXHW1V0RC8H+uIQUK0lDDH9
-	5c7F7QKUkc=; b=OOYXhsgEop6fWzrQZ2+wRysohytXyUu0TBcwJqX4JNINKm4aX
-	5k+1/pV3RLB26wjjvEmZxhHyCJdV1idxQeSVkQCXvQslru/9xxmYP2iose21o4Re
-	obfnX0WFwEvggvIBnF4CVDhacz9E0Pl/zB3sMDGrbvMczeKJ7x1jjMWKVE=
+	References:Date:Message-Id; bh=GrkdnLxxHv8YIvPubjc6p6My4VJbmJABi
+	hnyu1kLnF4=; b=f6y0p/itMSBnWyOeyv0+MbYR+y9LGfe+kROBtiSD3kcVZuYJx
+	A0tdOps83EJ7su1HcwX2nnphw22UtHjcmel82j10czaBFhep7ZsCLgEkyaO69tpE
+	QsvVLr6l01xFjrIZNSb+A1b+D7YTQf9arye15iZgkOFTX4xPhh+oi66PrA=
 Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cUKWlxZqrVUGAA--.7991S2;
-	Wed, 27 May 2026 15:04:54 +0800 (CST)
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cUJtmBZq3lUGAA--.7992S2;
+	Wed, 27 May 2026 15:08:29 +0800 (CST)
 MIME-Version: 1.0
-Subject: Re: [PATCH 5/9] riscv: dts: ultrarisc: Add initial device tree for
- UltraRISC DP1000
+Subject: Re: [PATCH 6/9] pinctrl: ultrarisc: Add UltraRISC DP1000 pinctrl
+ driver
 From: Jia Wang <wangjia@ultrarisc.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>, 
@@ -53,41 +53,41 @@ Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>,
  Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-In-Reply-To: <2d7b660c-97d4-4896-97df-7868b1d2fb50@kernel.org>
+In-Reply-To: <e3e5768d-f1b4-4fe6-a182-0210c9b7f784@kernel.org>
 References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
- <20260515-ultrarisc-pinctrl-v1-5-bf559589ea8a@ultrarisc.com>
- <2d7b660c-97d4-4896-97df-7868b1d2fb50@kernel.org>
-Date: Wed, 27 May 2026 15:04:14 +0800
-Message-Id: <177986545456.2389245.4189212092340927900.b4-reply@b4>
+ <20260515-ultrarisc-pinctrl-v1-6-bf559589ea8a@ultrarisc.com>
+ <e3e5768d-f1b4-4fe6-a182-0210c9b7f784@kernel.org>
+Date: Wed, 27 May 2026 15:07:49 +0800
+Message-Id: <177986566963.2389245.12578653384241891971.b4-reply@b4>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779865454; l=14219;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779865669; l=3472;
  i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=tGdFSqzMEN3NmxQwAjal9tpkjB0+/g95acl0NbBI+Jk=;
- b=0zqjQQ3oPHK466iw08X4uM2f7R/QiRS81acc5nydWc/5nzQR/ki4e9kKfDpvmahypsBZx9a8Z
- MCxEnVpGBWvDJX1LpE+uTvnOXLNyo6jkobYL4C6boKdnmE75GqJEv2c
+ bh=Gs8J/HTrooh7vlCoNCD99YT0nkQfL16PdFAdpCjFrF4=;
+ b=EHl/iBcvMVss/1speuDjpJmuTe8+T95MLa0mG+LEqxIo7mG21AivhtwS+kRLVbhsyuVPVT5J0
+ dR1jbaFWbbqBMwPpfJGhigxC+xKOYHCnXJvDOvoEHa7j/+DBwZ9oemc
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwA3cUKWlxZqrVUGAA--.7991S2
-X-Coremail-Antispam: 1UD129KBjvAXoW3ZrWxGrW8Jw1kAr1fur4DArb_yoW8JrWruo
-	Zxtrs3GF48Ga4UJFn5t347tF4jkrWvga13KrW5GF13JF1Yga48Gw1rJr4jyr45WrWYyFyq
-	y3y293WUAayqyrs5n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUYH7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20EY4v20xva
-	j40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2
-	x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8
-	JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
-	W8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMx
-	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
-	wI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
-	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
-	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
-	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRidbbtUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAAEWoVGMYADgAFs6
+X-CM-TRANSID: AQAAfwA3cUJtmBZq3lUGAA--.7992S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCFyfuFWrKry5uF1kCr48Zwb_yoW5uryxpF
+	WfGFW3AFy3JF47K3yfta45uFy3J3WIyryY93WUt34qqFW5ZFyDAr98K3yrXF4qkr4UCrW5
+	tFn8Ca47Ca15Xa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
+	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
+	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
+	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
+	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
+	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRRBT5DUUUU
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAAEWoVGMYADgAJs2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_000432_963950_119E28D0 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260527_000800_812277_A86E38D7 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,437 +104,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-21 23:05 +0200, Krzysztof Kozlowski wrote:
+On 2026-05-21 23:09 +0200, Krzysztof Kozlowski wrote:
 > On 15/05/2026 03:18, Jia Wang via B4 Relay wrote:
-> > +
-> > +		cluster0_l3: l3-cache0 {
-> > +			/* L3 cache:
+> > From: Jia Wang <wangjia@ultrarisc.com>
+> > 
+> > Add pinctrl driver for UltraRISC DP1000 pinctrl controller.
+> > 
+> > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+> > ---
+> >  MAINTAINERS                                   |   1 +
+> >  drivers/pinctrl/Kconfig                       |   1 +
+> >  drivers/pinctrl/Makefile                      |   1 +
+> >  drivers/pinctrl/ultrarisc/Kconfig             |  23 +
+> >  drivers/pinctrl/ultrarisc/Makefile            |   4 +
+> >  drivers/pinctrl/ultrarisc/pinctrl-dp1000.c    | 112 ++++
+> >  drivers/pinctrl/ultrarisc/pinctrl-ultrarisc.c | 746 ++++++++++++++++++++++++++
+> >  drivers/pinctrl/ultrarisc/pinctrl-ultrarisc.h |  71 +++
+> >  8 files changed, 959 insertions(+)
 > 
-> Use Linux coding style. In other places as well. Even netdev does not
-> use that style anymore!
+> Organize your patchset correctly. Such style:
+> DTS
+> pinctrl
+> DTS
+> 
+> is very confusing and discouraged. See submitting patches in DT directory.
+> 
 >
 
-Will fix comment style, thanks!
- 
-> > +			 * cache-unified, block-size 64B
-> > +			 * 16-way set associative, size 4MB
-> > +			 * per-cluster.
-> > +			 */
-> > +			compatible = "cache";
-> > +			cache-block-size = <64>;
-> > +			cache-level = <3>;
-> > +			cache-size = <0x400000>;
-> > +			cache-sets = <0x1000>;
-> > +			cache-unified;
-> > +			next-level-cache = <&l4_cache>;
-> > +		};
-> > +
-> > +		cluster1_l3: l3-cache1 {
-> > +			/* L3 cache:
-> > +			 * cache-unified, block-size 64B
-> > +			 * 16-way set associative, size 4MB
-> > +			 * per-cluster.
-> > +			 */
-> > +			compatible = "cache";
-> > +			cache-block-size = <64>;
-> > +			cache-level = <3>;
-> > +			cache-size = <0x400000>;
-> > +			cache-sets = <0x1000>;
-> > +			cache-unified;
-> > +			next-level-cache = <&l4_cache>;
-> > +		};
-> > +	};
-> > +
-> > +	clocks {
-> > +		device_clk: device_clk {
-> 
-> You need to follow DTS coding style.
-> 
-> Anyway, something like "device clock" is completely uninformative or
-> even incorrect. I really doubt such thing as "device clock" exists...
-> 
-> Please use name for all fixed clocks which matches current format
-> recommendation: 'clock-<freq>' (see also the pattern in the binding for
-> any other options).
-> 
-> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
-> 
+Got it. I will reorganize the patchset in v2.
 
-Will fix the clock naming.
-
-As discussed with Conor, I will also introduce a separate read-only clock
-driver and binding in a separate series to replace the current fixed-clock
-usage. The DTS will be updated accordingly once this new clock is in place.
-
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <62500000>;
-> > +			#clock-cells = <0>;
-> > +		};
-> > +
-> > +		timer_clk: timer_clk {
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <50000000>;
-> > +			#clock-cells = <0>;
-> > +		};
-> > +
-> > +		csr_clk: csr_clk {
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <250000000>;
-> > +			#clock-cells = <0>;
-> > +		};
-> > +	};
-> > +
-> > +	l4_cache: l4-cache {
-> > +		/* L4 cache:
-> > +		 * cache-unified, block-size 64B
-> > +		 * 16-way set associative, size 16MB
-> > +		 * shared by the SoC.
-> > +		 */
-> > +		compatible = "cache";
-> > +		cache-block-size = <64>;
-> > +		cache-level = <4>;
-> > +		cache-size = <0x1000000>;
-> > +		cache-sets = <0x4000>;
-> > +		cache-unified;
-> > +	};
-> > +
-> > +	memory@80000000 {
-> > +		device_type = "memory";
-> > +		reg = <0x00 0x80000000 0x4 0x00000000>;
-> > +	};
-> > +
-> > +	soc {
-> > +		compatible = "simple-bus";
-> > +		ranges;
-> > +		#address-cells = <0x02>;
-> > +		#size-cells = <0x02>;
+> > 
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 832e01898ae5..ecd87d58f28c 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -27364,6 +27364,7 @@ M:	Jia Wang <wangjia@ultrarisc.com>
+> >  L:	linux-gpio@vger.kernel.org
+> >  S:	Maintained
+> >  F:	Documentation/devicetree/bindings/pinctrl/ultrarisc,dp1000-pinctrl.yaml
+> > +F:	drivers/pinctrl/ultrarisc/*
+> >  F:	include/dt-bindings/pinctrl/ultrarisc,dp1000-pinctrl.h
+> >  
+> >  ULTRATRONIK BOARD SUPPORT
+> > diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+> > index 03f2e3ee065f..76105be8b395 100644
+> > --- a/drivers/pinctrl/Kconfig
+> > +++ b/drivers/pinctrl/Kconfig
+> > @@ -711,5 +711,6 @@ source "drivers/pinctrl/ti/Kconfig"
+> >  source "drivers/pinctrl/uniphier/Kconfig"
+> >  source "drivers/pinctrl/visconti/Kconfig"
+> >  source "drivers/pinctrl/vt8500/Kconfig"
+> > +source "drivers/pinctrl/ultrarisc/Kconfig"
 > 
-> <2> This is not hex and definitely does not need padding with 0.
+> u < v
 > 
-> > +
-> > +		clint: clint@8000000 {
-> > +			compatible = "sifive,clint0", "riscv,clint0";
-> > +			reg = <0x00 0x8000000 0x00 0x100000>;
-> > +			interrupts-extended = <&cpu0_intc 0x03>, <&cpu0_intc 0x07>,
-> > +					      <&cpu1_intc 0x03>, <&cpu1_intc 0x07>,
-> > +					      <&cpu2_intc 0x03>, <&cpu2_intc 0x07>,
-> > +					      <&cpu3_intc 0x03>, <&cpu3_intc 0x07>,
-> > +					      <&cpu4_intc 0x03>, <&cpu4_intc 0x07>,
-> > +					      <&cpu5_intc 0x03>, <&cpu5_intc 0x07>,
-> > +					      <&cpu6_intc 0x03>, <&cpu6_intc 0x07>,
-> > +					      <&cpu7_intc 0x03>, <&cpu7_intc 0x07>;
-> > +		};
-> > +
-> > +		plic: plic@9000000 {
-> > +			compatible = "ultrarisc,dp1000-plic", "ultrarisc,cp100-plic";
-> > +			reg = <0x00 0x9000000 0x00 0x4000000>;
-> > +			#interrupt-cells = <1>;
-> > +			#address-cells = <0>;
-> 
-> So hex or not hex? Please fix your DTS so it is consistent.
-> 
-
-I will clean up the inconsistent hex/decimal formatting across the DTS and
-remove the unnecessary padding in the next version.
-
-> > +			interrupt-controller;
-> > +			interrupts-extended = <&cpu0_intc 0xb>, <&cpu0_intc 0x9>, <&cpu0_intc 0xa>,
-> > +					      <&cpu1_intc 0xb>, <&cpu1_intc 0x9>, <&cpu1_intc 0xa>,
-> > +					      <&cpu2_intc 0xb>, <&cpu2_intc 0x9>, <&cpu2_intc 0xa>,
-> > +					      <&cpu3_intc 0xb>, <&cpu3_intc 0x9>, <&cpu3_intc 0xa>,
-> > +					      <&cpu4_intc 0xb>, <&cpu4_intc 0x9>, <&cpu4_intc 0xa>,
-> > +					      <&cpu5_intc 0xb>, <&cpu5_intc 0x9>, <&cpu5_intc 0xa>,
-> > +					      <&cpu6_intc 0xb>, <&cpu6_intc 0x9>, <&cpu6_intc 0xa>,
-> > +					      <&cpu7_intc 0xb>, <&cpu7_intc 0x9>, <&cpu7_intc 0xa>;
-> > +			riscv,ndev = <160>;
-> > +		};
-> > +
-> > +		pmx0: pinmux@11081000 {
-> > +			compatible = "ultrarisc,dp1000-pinctrl";
-> > +			reg = <0x0 0x11081000  0x0 0x1000>;
-> > +			#pinctrl-cells = <2>;
-> > +		};
-> > +
-> > +		gpio: gpio@20200000 {
-> > +			compatible = "snps,dw-apb-gpio";
-> > +			reg = <0x0 0x20200000 0x0 0x1000>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			clock-names = "bus", "db";
-> > +			clocks = <&csr_clk>, <&device_clk>;
-> > +
-> > +			gpio_a: gpio-port@0 {
-> > +				compatible = "snps,dw-apb-gpio-port";
-> > +				reg = <0>;
-> > +				gpio-controller;
-> > +				#gpio-cells = <2>;
-> > +				snps,nr-gpios = <16>;
-> > +				interrupt-controller;
-> > +				#interrupt-cells = <2>;
-> > +				interrupt-parent = <&plic>;
-> > +				interrupts = <34>;
-> > +				gpio-ranges = <&pmx0 0 0 16>;
-> > +			};
-> > +
-> > +			gpio_b: gpio-port@1 {
-> > +				compatible = "snps,dw-apb-gpio-port";
-> > +				reg = <1>;
-> > +				gpio-controller;
-> > +				#gpio-cells = <2>;
-> > +				snps,nr-gpios = <8>;
-> > +				gpio-ranges = <&pmx0 16 0 8>;
-> > +			};
-> > +
-> > +			gpio_c: gpio-port@2 {
-> > +				compatible = "snps,dw-apb-gpio-port";
-> > +				reg = <2>;
-> > +				gpio-controller;
-> > +				#gpio-cells = <2>;
-> > +				snps,nr-gpios = <8>;
-> > +				gpio-ranges = <&pmx0 24 0 8>;
-> > +			};
-> > +
-> > +			gpio_d: gpio-port@3 {
-> > +				compatible = "snps,dw-apb-gpio-port";
-> > +				reg = <3>;
-> > +				gpio-controller;
-> > +				#gpio-cells = <2>;
-> > +				snps,nr-gpios = <8>;
-> > +				gpio-ranges = <&pmx0 32 0 8>;
-> > +			};
-> > +		};
-> > +
-> > +		uart0: serial@20300000 {
-> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-> > +			reg = <0x00 0x20300000 0x00 0x10000>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <17>;
-> > +			clock-frequency = <62500000>;
-> > +			reg-io-width = <0x04>;
-> > +			reg-shift = <0x02>;
-> > +		};
-> > +
-> > +		uart1: serial@20310000 {
-> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-> > +			reg = <0x00 0x20310000 0x00 0x10000>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <18>;
-> > +			clock-frequency = <62500000>;
-> > +			reg-io-width = <0x04>;
-> > +			reg-shift = <0x02>;
-> > +		};
-> > +
-> > +		uart2: serial@20400000 {
-> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-> > +			reg = <0x00 0x20400000 0x00 0x10000>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <25>;
-> > +			clock-frequency = <62500000>;
-> > +			reg-io-width = <0x04>;
-> > +			reg-shift = <0x02>;
-> > +		};
-> > +
-> > +		uart3: serial@20410000 {
-> > +			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-> > +			reg = <0x00 0x20410000 0x00 0x10000>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <26>;
-> > +			clock-frequency = <62500000>;
-> > +			reg-io-width = <0x04>;
-> > +			reg-shift = <0x02>;
-> > +		};
-> > +
-> > +		spi0: spi@20320000 {
-> > +			compatible = "snps,dw-apb-ssi";
-> > +			reg = <0x0 0x20320000 0x0 0x1000>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			clocks = <&device_clk>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <19>;
-> > +			num-cs = <3>;
-> > +		};
-> > +
-> > +		spi1: spi@20420000 {
-> > +			compatible = "snps,dw-apb-ssi";
-> > +			reg = <0x0 0x20420000 0x0 0x1000>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			clocks = <&device_clk>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <27>;
-> > +			num-cs = <3>;
-> > +		};
-> > +
-> > +		i2c0: i2c@20330000 {
-> > +			compatible = "snps,designware-i2c";
-> > +			reg = <0x0 0x20330000 0x0 0x100>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			clock-frequency = <400000>;
-> > +			clocks = <&device_clk>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <20>;
-> > +		};
-> > +
-> > +		i2c1: i2c@20340000 {
-> > +			compatible = "snps,designware-i2c";
-> > +			reg = <0x0 0x20340000 0x0 0x100>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			clock-frequency = <400000>;
-> > +			clocks = <&device_clk>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <21>;
-> > +		};
-> > +
-> > +		i2c2: i2c@20430000 {
-> > +			compatible = "snps,designware-i2c";
-> > +			reg = <0x0 0x20430000 0x0 0x100>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			clock-frequency = <400000>;
-> > +			clocks = <&device_clk>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <28>;
-> > +		};
-> > +
-> > +		i2c3: i2c@20440000 {
-> > +			compatible = "snps,designware-i2c";
-> > +			reg = <0x0 0x20440000 0x0 0x100>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			clock-frequency = <400000>;
-> > +			clocks = <&device_clk>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <29>;
-> > +		};
-> > +
-> > +		pcie_x16: pcie@21000000 {
-> > +			compatible = "ultrarisc,dp1000-pcie";
-> > +			reg = <0x0 0x21000000 0x0 0x01000000>,
-> > +			      <0x0 0x4fff0000 0x0 0x00010000>;
-> > +			reg-names = "dbi", "config";
-> > +			ranges = <0x81000000  0x0 0x4fbf0000  0x0 0x4fbf0000  0x0 0x00400000>,
-> > +				 <0x82000000  0x0 0x40000000  0x0 0x40000000  0x0 0x0fbf0000>,
-> > +				 <0xc3000000 0x40 0x00000000 0x40 0x00000000  0xd 0x00000000>;
-> > +			#address-cells = <3>;
-> > +			#size-cells = <2>;
-> > +			#interrupt-cells = <1>;
-> > +			device_type = "pci";
-> > +			dma-coherent;
-> > +			bus-range = <0x0 0xff>;
-> > +			num-lanes = <16>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <43>, <44>, <45>, <46>, <47>;
-> > +			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-> > +			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-> > +			interrupt-map = <0x0 0x0 0x0 0x1 &plic 44>,
-> > +					<0x0 0x0 0x0 0x2 &plic 45>,
-> > +					<0x0 0x0 0x0 0x3 &plic 46>,
-> > +					<0x0 0x0 0x0 0x4 &plic 47>;
-> 
-> Why PCIe without any devices is enabled? That's a bus.
-> 
-> Please look how other DTS are written because you created something
-> pretty different than entire kernel style.
-> 
-
-I will review the PCIe node and update it to align with existing DTS
-conventions in the next version.
-
-> > +		};
-> > +
-> > +		pcie_x4a: pcie@23000000 {
-> > +			compatible = "ultrarisc,dp1000-pcie";
-> > +			reg = <0x0 0x23000000 0x0 0x01000000>,
-> > +			      <0x0 0x6fff0000 0x0 0x00010000>;
-> > +			reg-names = "dbi", "config";
-> > +			ranges = <0x81000000  0x0 0x6fbf0000  0x0 0x6fbf0000  0x0 0x00400000>,
-> > +				 <0x82000000  0x0 0x60000000  0x0 0x60000000  0x0 0x0fbf0000>,
-> > +				 <0xc3000000 0x80 0x00000000 0x80 0x00000000  0xd 0x00000000>;
-> > +			#address-cells = <3>;
-> > +			#size-cells = <2>;
-> > +			#interrupt-cells = <1>;
-> > +			device_type = "pci";
-> > +			dma-coherent;
-> > +			bus-range = <0x0 0xff>;
-> > +			num-lanes = <4>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <63>, <64>, <65>, <66>, <67>;
-> > +			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-> > +			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-> > +			interrupt-map = <0x0 0x0 0x0 0x1 &plic 64>,
-> > +					<0x0 0x0 0x0 0x2 &plic 65>,
-> > +					<0x0 0x0 0x0 0x3 &plic 66>,
-> > +					<0x0 0x0 0x0 0x4 &plic 67>;
-> > +		};
-> > +
-> > +		pcie_x4b: pcie@24000000 {
-> > +			compatible = "ultrarisc,dp1000-pcie";
-> > +			reg = <0x0 0x24000000 0x0 0x01000000>,
-> > +			      <0x0 0x7fff0000 0x0 0x00010000>;
-> > +			reg-names = "dbi", "config";
-> > +			ranges = <0x81000000  0x0 0x7fbf0000  0x0 0x7fbf0000 0x0 0x00400000>,
-> > +				 <0x82000000  0x0 0x70000000  0x0 0x70000000 0x0 0x0fbf0000>,
-> > +				 <0xc3000000 0xc0 0x00000000 0xc0 0x00000000 0xd 0x00000000>;
-> > +			#address-cells = <3>;
-> > +			#size-cells = <2>;
-> > +			#interrupt-cells = <1>;
-> > +			device_type = "pci";
-> > +			dma-coherent;
-> > +			bus-range = <0x0 0xff>;
-> > +			num-lanes = <4>;
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <73>, <74>, <75>, <76>, <77>;
-> > +			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-> > +			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-> > +			interrupt-map = <0x0 0x0 0x0 0x1 &plic 74>,
-> > +					<0x0 0x0 0x0 0x2 &plic 75>,
-> > +					<0x0 0x0 0x0 0x3 &plic 76>,
-> > +					<0x0 0x0 0x0 0x4 &plic 77>;
-> > +		};
-> > +
-> > +		ethernet: ethernet@38000000 {
-> > +			compatible = "snps,dwmac", "snps,dwmac-5.10a";
-> > +			reg = <0x00 0x38000000 0x00 0x1000000>;
-> > +			clocks = <&csr_clk>;
-> > +			clock-names = "stmmaceth";
-> > +			interrupt-parent = <&plic>;
-> > +			interrupts = <84>;
-> > +			interrupt-names = "macirq";
-> > +			local-mac-address = [ff ff ff ff ff ff];
-> 
-> Drop. Not a property of the SoC.
+> Do not add to the end of files. You are messing how this file is sorted.
 >
 
-Will drop it in the next version.
- 
-> > +			max-speed = <1000>;
-> > +			phy-mode = "rgmii-id";
-> > +			snps,txpbl = <8>;
-> > +			snps,rxpbl = <8>;
+Thanks, will fix the ordering.
+
+> >  
+> >  endif
+> > diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+> > index f7d5d5f76d0c..4df3e52518ea 100644
+> > --- a/drivers/pinctrl/Makefile
+> > +++ b/drivers/pinctrl/Makefile
+> > @@ -98,3 +98,4 @@ obj-y				+= ti/
+> >  obj-$(CONFIG_PINCTRL_UNIPHIER)	+= uniphier/
+> >  obj-$(CONFIG_PINCTRL_VISCONTI)	+= visconti/
+> >  obj-$(CONFIG_ARCH_VT8500)	+= vt8500/
+> > +obj-$(CONFIG_ARCH_ULTRARISC)	+= ultrarisc/
 > 
-> I doubt that Ethernet is complete on the SoC - without MAC and all other
-> resources. IOW, it is very weird that this is enabled here. Please explain.
+> Missing compile test. Don't use that style. See other decent SoC vendors
+> how they solved that problem.
+> 
+> Also, do not add to the end of the files. Keep things sorted, more or less.
+> 
 >
 
-I will move the PHY configuration to the board DTS and keep only the MAC
-controller description in the SoC dtsi in the next version.
+Will fix the ordering and follow the recommended SoC build style in v2.
  
-> > +		};
+> > diff --git a/drivers/pinctrl/ultrarisc/Kconfig b/drivers/pinctrl/ultrarisc/Kconfig
+> > new file mode 100644
+> > index 000000000000..ba8747b90127
+> > --- /dev/null
+> > +++ b/drivers/pinctrl/ultrarisc/Kconfig
+> > @@ -0,0 +1,23 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only
 > > +
-> > +		dmac: dma-controller@39000000 {
-> > +			compatible = "snps,axi-dma-1.01a";
-> > +			reg = <0x0 0x39000000 0x0 0x400>;
-> 
-> <0x0 here but why in other places is <0x00?
-> 
-> Write consistent code.
->
-
-Will fix to use consistent hex formatting across the DTS. Thanks!
- 
+> > +config PINCTRL_ULTRARISC
+> > +	tristate
+> > +	depends on OF
+> > +	select PINMUX
+> > +	select GENERIC_PINCTRL_GROUPS
+> > +	select GENERIC_PINCONF
+> > +	select GENERIC_PINMUX_FUNCTIONS
+> > +	select GPIOLIB
+> > +	select IRQ_DOMAIN_HIERARCHY
+> > +	select MFD_SYSCON
+> > +
 > 
 > 
 > Best regards,
@@ -543,7 +211,6 @@ Will fix to use consistent hex formatting across the DTS. Thanks!
 
 Best regards,
 Jia Wang
-
 
 
 _______________________________________________
