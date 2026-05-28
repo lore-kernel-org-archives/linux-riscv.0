@@ -4,107 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D625ECD5BD1
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 05:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73146CD5BD5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 05:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oZzu9/5y4p63RwvDWX9gTIq0LxicLBAIh+za1HH8yxk=; b=IZ77CPdy+CUQCb
-	slUEdvs5T4xcuf5yTXWiov4Vc9ZaQCNN/RsCwGoZ2C0fR1tmT13MJSm4RlEhRqDay5zEy9BfsISQH
-	IphBLyOrRcmYfhvUKoMD/cMImgfYoPV7aY+HbCO3JPfab0u/kATz9J/zYEqRq5m8hOWmGf8dkDHoN
-	MqPQXeRPIYT2k8c8Y5w6FKD/k/Gulb3fYtaWkRZQMfj7qrzX9xCgBfGXOCKSCGQghDZL/VCA9rcje
-	R/xTGM3pxqYPKChmvAPJuZ2A4vuj2MKb9bCVboeMXUPSQuw08WNw+HJDpA5Rp40K/c5I4UaOD1iDi
-	znazNC03bfeBS27Bji0g==;
+	List-Owner; bh=wI2KXr0nV60vgkswQQ/4y7aBc3oLWbuQa1sjsJL1KRM=; b=1aJokZpbUwwtxb
+	b1l+W6Yl248yTK1i0AbldeCeLJe+//4gk0VAhSpuPtqN+90AwAZe8AMMjptwdFeS4vymJb//Jd0Be
+	N/MoId+X/HI7lHKWP7sEsJdxdpGli/dpYFT6v99SlCKSY7nJA9V0Ku6QzqJji3yJBb4EnxgW2H0rz
+	I2Ruo8G2B2Mw+2NGuFaP0t5TpB6E/LUQYNF6qhfodFXTqHHO5d98CvoFpYVH6MoxUSbf5fLe7PQsR
+	vJnvh+LMZTxII8vDugBwRKO7OuOvCnY0ZJTTNCN4JV7oUjYzmne8zJOcxQO9SSJdoGquHdbjsTeQA
+	sQYrnYUgLPck2WapiauQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wST8x-0000000589d-2QAH;
-	Thu, 28 May 2026 05:18:55 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1wSTEP-000000058Zb-2IR7;
+	Thu, 28 May 2026 05:24:33 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wST8u-00000005897-2UfB
+	id 1wSTEN-000000058YS-1zxf
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 05:18:54 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-7cd35604a95so119704897b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 May 2026 22:18:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779945531; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ICtI0ulbsYE0LMQSpfkm3+eitjBskEfpKcjP2kKUNHxg+WN9NAJTm9vEdySFkrhwA8
-         AWcg1pIOB0YBq0j0BSLMkHHjfkz6acF63LahE34zctscF5jU/lwj2xZZ2Tqqzolf8kMv
-         DNdgkR1rfV88dOV7SDXuCW+UGGC3vtFRIUnlUNVwd0I9zihuJ3TBd21FeO+GkGwMQwje
-         He9wyqsPjIMUynJqD7youKov2YAQ2Xv5xp4TDRyROt6xddWzOScsQSvuXivilINL5UwP
-         3PtjEfajrHRnx7ausIuN3C/q/6Bume3MVNaTeTHyqx5X92nOaNLE3PZk+MKeweBnbG3N
-         huGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WTNofcIOZbXjLpaLD+DL3cOLpKPj2wtfgJ0EVk0XvKg=;
-        fh=YGSIDhwkNBTcM5TR/awERx6l4KmoX+lHm1/H/TTSld4=;
-        b=Sig1pbeWRCCy824j7k8qO9EvmK7B1PyRumq1BBt6GGRW55E660rKApASNCs4Q1+wi9
-         JtPbgvIN/ueEQofFd131Ta03LHQFGM/8ELUdbfL8qlQs5oRwHjownqMpYnVZlPIkvNBA
-         2Y6eCb7XLgB5paoX2i8r9I0tikke27mJLa3Vz1nCvEbi7fGnOVqo3eCT+U6q3q8RQz/u
-         pRMGrVVCbGNggf+MVkmNnAhK4XofIidV6M3xLwmLQ7m5oJ8ukesqrC2CoyYGx9t139L9
-         3DhP1NyzccaZbtUqnHAvf1QLPy3cH9fVkd3lO86oaAaakk01XfVgbdPyEuhAH+nW+onk
-         vwYA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1779945531; x=1780550331; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WTNofcIOZbXjLpaLD+DL3cOLpKPj2wtfgJ0EVk0XvKg=;
-        b=KEI6iAvH51LBjGKCr3+9xI/PMtTtThs7D0EkWsWN/dwT73597Qdvcph9ecwbnYqvqL
-         Rrbm2w2qgao3ezF7rFh/8ckUmG0bHT1tp+NjrFvwJ6foySq60A7237h22OEls4zR2bFD
-         rFoyDGztDUyue3Hze7YXBxLIwInF5+4qZj+mR1TYpCGBuGbbuvG4ao8eUjLCb6z3FVka
-         kaJ8/HOyIrubKHfsXOoZDwSfG5RVPTEuOvvoe37/MqRSWrn6Q+lBiUAzE3e/lpqNpOr5
-         PWZgFnXoEQfV48Y4EaxfBOXLwl63xpBSN+5ct6pB7i/Pb6fUUgEjTlQ8avorD16gQjJX
-         nKEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779945531; x=1780550331;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WTNofcIOZbXjLpaLD+DL3cOLpKPj2wtfgJ0EVk0XvKg=;
-        b=pAW9JaKKAFyf+O89B+80NLOLfQRL40mep6WahODf/+XB5goxVvAqiCDeuVnYAiV6KG
-         NbIBavhiopqufeFgrTaACYlclPYkO6/1Oe1Wh9F3lwXWzZGtut/V7ONLGqoPjqvn76ZO
-         I3HZx/l81Z7v6/QYtF7QmijYmBGuDz3v5rrJ2pRPNHzHpukGd1tRW2zeDKk8w8E3J2a5
-         Ql88RE4q7+pChoCiX6erP2zcBhk0oWVoW2v2sr1MTf3PnzsEUOHVfIZ/dTv8aWUjkQFp
-         FH83Ve2OqbaZHMf3n7j5oPxPf3zXdG44J/WmPt0QM+ix4u87ht63GPDavuKW0O0KiI8u
-         xuCQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+388YIx1qU6XtT1YTH0eb/rm339gl7A54UTqTkZVkrU9Yaw/kf2vmWHdpL522UuRdge4SsxqTPjfcuzg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCaSGmAgH4q6Z77CsmYQ3yBHSnoO8YpOYVSw8svYd/PUtcz2bs
-	LCcQaLrAyANLvYEKrgWmyLCqV8sxDWoMMrTc+WAXXnqUykRFKhaCu580UFq5N2/TKO4HWUukhS5
-	eJihEvoiatrfBHb3HnhPTkT/XPUo5Yixp6ycX+MDi3w==
-X-Gm-Gg: Acq92OG5K+uDfGw3eQnV4hQf7N+wChjKcyGYqpQQHIifLdwm+cXZq2NX4udBlHw1+WQ
-	dwFyvc+c6rTD5/zaBs5qxXHwrUfvbQg5Q8QVjFPEUAsuBhjqOWf7cV5t7QGOqIAMtklIwU3ZxgO
-	x0439NwMi2/CQZHoLuj0o0MDCe8bo3wyo07NrXfNoMmiJDU184zhIyfhN0xQxCB0rrlstNvmoYA
-	keY214UtBzwg/ByctafqsWnq1bgLzAcrp0vCDkdc0ih7FBtSDCkL7dfgkf/y/jy8c00tepDOhN2
-	3dtxMDJhfvsX3xJyccg9TV6EEQTS/EQX3Cj70y1MyIGxt6CsDI+D2ju499obcfxrttcBMaA+43M
-	SRw==
-X-Received: by 2002:a05:690e:1181:b0:654:6450:19f7 with SMTP id
- 956f58d0204a3-6604471b0bdmr104584d50.0.1779945530981; Wed, 27 May 2026
- 22:18:50 -0700 (PDT)
+	Thu, 28 May 2026 05:24:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1779945861; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YYYg3rVkUnOtrn50Rjd8COGW0fIxQV75ZZiBpapTYp3HgJNzBFwLAjMX1hUP50k9kkwQInv+9nXcnxkKzLg1Xd/k4UCaGKtKGn4mS1slT6ibSzarjVJsB1O9wIiwmlbFg19sNUDyh8wkRnuHs9pNiEZ+nUZl8k9CiYN4yCIwe1M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1779945861; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jnYH/T7uiauyZSq6GbAqeNmqIkQ5afnNxa3jXoVrECg=; 
+	b=Hx+/enCh898s5FKmNVsvzN2MtrKGni3vIEuiMIRn0TdGdHFTS/7xcqqcXAQc15jMIlddPNUg0kgD2odXlf30BVyXoMXb5Z7H74ygrLW6eb2czJtZYFxL5a52hKwoIA4Ey0rzg3i+v/M4If2etXf1bZA97Me52IzFPdKFDE2Mfus=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779945861;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=jnYH/T7uiauyZSq6GbAqeNmqIkQ5afnNxa3jXoVrECg=;
+	b=A8087KU6dDiLq+bIG8BbLHApZIwVr+vYo0nxcPHZ3KnGOntonRG4JXqJJIR3b/9Z
+	GHZ/5L6h2G8hHVd7VH6aCpxBIsJxKvMoB03HFhFvkTWXPwqibSAV4cy2vQ1of2S28xE
+	BYqB+sEsoVYu9AIWE0/0MZROQiIa0RcDBrh8NQjE=
+Received: by mx.zohomail.com with SMTPS id 1779945859990355.3956654305638;
+	Wed, 27 May 2026 22:24:19 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Date: Thu, 28 May 2026 13:22:48 +0800
+Subject: [PATCH v2 2/3] riscv: dts: spacemit: k1: Split gmac_clk_ref into
+ independent pinctrl groups
 MIME-Version: 1.0
-References: <20260526-k3-ziccrse-v1-1-c759792ca3a3@riscstar.com>
-In-Reply-To: <20260526-k3-ziccrse-v1-1-c759792ca3a3@riscstar.com>
-From: Guodong Xu <guodong@riscstar.com>
-Date: Thu, 28 May 2026 13:18:39 +0800
-X-Gm-Features: AVHnY4KOywjUf4xyXWLMCKeI0N-wdBoPItg6KtOmuhSwAAW2j9qgS8Kea3oyUX8
-Message-ID: <CAH1PCMa_RJ0NVNyxkqsXPfrF4tz_69ZbWeqkh8xRCu7bLDkr-A@mail.gmail.com>
-Subject: Re: [PATCH] riscv: dts: spacemit: k3: Add Ziccrse extension for X100 cores
+Message-Id: <20260528-bpi-cm6-v2-2-d0eb3f236cea@pigmoral.tech>
+References: <20260528-bpi-cm6-v2-0-d0eb3f236cea@pigmoral.tech>
+In-Reply-To: <20260528-bpi-cm6-v2-0-d0eb3f236cea@pigmoral.tech>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, Paolo Abeni <pabeni@redhat.com>, 
+ Guodong Xu <guodong@riscstar.com>, Yangyu Chen <cyy@cyyself.name>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Guodong Xu <docularxu@outlook.com>
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Junhui Liu <junhui.liu@pigmoral.tech>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779945818; l=5834;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=rPbiI+ilu0sWLrlMfU9HzlanUD+8Jf5nKjJmEKXu0F8=;
+ b=1mQYY2xTcO+DDWebUtj2X3kbiSMbJ9X2a3RloGTPAZTG8qLyeWVCIIl4zm26gSqEDvn2U9jdC
+ sDGtBEWadDJBCXwhIwCesmOJbu6hbg8foG9n2AUzbrn9g4Em9kb/Vgg
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_221852_896546_AF35D9C9 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260527_222431_592512_B4D99DC0 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +87,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMjYsIDIwMjYgYXQgMzoyM+KAr1BNIEd1b2RvbmcgWHUgPGd1b2RvbmdAcmlz
-Y3N0YXIuY29tPiB3cm90ZToKPgo+IEFkZCB0aGUgWmljY3JzZSBJU0EgZXh0ZW5zaW9uIHRvIGFs
-bCBlaWdodCBYMTAwIGNvcmVzLiBaaWNjcnNlCj4gcHJvdmlkZXMgYSBmb3J3YXJkIHByb2dyZXNz
-IGd1YXJhbnRlZSBvbiBMUi9TQyBzZXF1ZW5jZXMgaW4gbWFpbgo+IG1lbW9yeSByZWdpb25zIHdp
-dGggY2FjaGVhYmlsaXR5IGFuZCBjb2hlcmVuY2UgUE1Bcy4KPgo+IFRoZSBTcGFjZW1pVCBYMTAw
-IGNvcmUgc3VwcG9ydHMgaXQgcGVyIHRoZSBTcGFjZW1pVCBLMyBoYXJkd2FyZQo+IHNwZWNpZmlj
-YXRpb24uCgpGb3IgdGhlIHJlY29yZCwgSSBoYXZlIHRlc3RlZCB0aGlzIGNoYW5nZSBvbiBTcGFj
-ZW1pVCBLMyBQaWNvLUlUWC4KClRoZSBzdHJlc3MgdGVzdCBpcyBydW4gYnkgZW5hYmxpbmcgQ09O
-RklHX0xPQ0tfVE9SVFVSRV9URVNUPXkgdGhlbgpib290cyB0aGUga2VybmVsIHdpdGg6CgogIGxv
-Y2t0b3J0dXJlLnRvcnR1cmVfdHlwZT1zcGluX2xvY2sgbG9ja3RvcnR1cmUubndyaXRlcnNfc3Ry
-ZXNzPTE2Cgpkcml2aW5nIGFsbCA4IGhhcnRzLiBJdCBzdXJ2aXZlZCBzdXN0YWluZWQgdG9ydHVy
-ZSBbcmFuIGZvciB+MTAgbWludXRlc10Kd2l0aCAwIEZhaWwuCgouLi4gLi4uClsgIDczNS41ODg5
-NDddIHRvcnR1cmVfc3Bpbl9sb2NrX3dyaXRlX2RlbGF5OiBkZWxheSA9IDI1IGppZmZpZXMuClsg
-IDczOC4wMTUwOTZdIHRvcnR1cmVfc3Bpbl9sb2NrX3dyaXRlX2RlbGF5OiBkZWxheSA9IDI1IGpp
-ZmZpZXMuClsgIDczOS4yMDQ3MTNdIHRvcnR1cmVfc3Bpbl9sb2NrX3dyaXRlX2RlbGF5OiBkZWxh
-eSA9IDI1IGppZmZpZXMuClsgIDc0MS4xOTUyMTFdIFdyaXRlczogIFRvdGFsOiA3MTQzMTk0MjAg
-IE1heC9NaW46IDQ1OTQ2NTk5LzQzNjc5ODc2ICAgRmFpbDogMAoKVGhhbmtzLApHdW9kb25nIC8g
-ZG9jdWxhcnh1CmRvY3VsYXJ4dUBvdXRsb29rLmNvbQoKPgo+IFNpZ25lZC1vZmYtYnk6IEd1b2Rv
-bmcgWHUgPGd1b2RvbmdAcmlzY3N0YXIuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRz
-L3NwYWNlbWl0L2szLmR0c2kgfCAxNiArKysrKysrKy0tLS0tLS0tCj4gIDEgZmlsZSBjaGFuZ2Vk
-LCA4IGluc2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9y
-aXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMy5kdHNpIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFj
-ZW1pdC9rMy5kdHNpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+The gmac_clk_ref signal is optional for the GMAC controller and is not
+strictly required for all hardware designs. The pins for gmac0_clk_ref
+(GPIO 45) and gmac1_clk_ref (GPIO 46) may also be used as GPIOs for
+other functions even when the Ethernet controller is active.
+
+Split the refclk pins into independent pinctrl groups so boards can
+request them only when the reference clock path is actually needed.
+
+Among the already mainlined boards, BPI-F3, Jupiter and MusePi Pro have
+optional hardware paths for the GMAC refclk pins. BPI-F3 and Jupiter
+route both GMAC refclk pins to the PHYs through NC/0R option resistors,
+while MusePi Pro only does so for GMAC0. Keep referencing the new
+clk-ref pinctrl groups on these boards so the optional hardware paths
+remain usable if the option resistors are populated.
+
+OrangePi R2S has no publicly available schematic, so also keep the
+clk-ref groups there to preserve the previous pinmux behavior.
+
+Fixes: 60775f28cfb7 ("riscv: dts: spacemit: Add Ethernet support for K1")
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+---
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   |  4 ++--
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  4 ++--
+ arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    |  2 +-
+ arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  |  4 ++--
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi      | 24 +++++++++++++++++++----
+ 5 files changed, 27 insertions(+), 11 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 72f77e9edd63..e6ab43be301a 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -101,7 +101,7 @@ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+ 	status = "okay";
+@@ -124,7 +124,7 @@ &eth1 {
+ 	phy-handle = <&rgmii1>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
++	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <250>;
+ 	status = "okay";
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+index 2fc8d6533786..b61f5995ec77 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+@@ -121,7 +121,7 @@ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+ 	status = "okay";
+@@ -144,7 +144,7 @@ &eth1 {
+ 	phy-handle = <&rgmii1>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
++	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <250>;
+ 	status = "okay";
+diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+index 0d809e4ad3b1..3078ffb5cb87 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+@@ -102,7 +102,7 @@ &combo_phy {
+ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	pinctrl-names = "default";
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+index 1ecc40749e5a..018072722d55 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+@@ -50,7 +50,7 @@ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+ 	status = "okay";
+@@ -74,7 +74,7 @@ &eth1 {
+ 	phy-handle = <&rgmii1>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
++	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <250>;
+ 	status = "okay";
+diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+index 4e9a62d0e85b..8c57ca05dabd 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+@@ -27,8 +27,16 @@ gmac0-pins {
+ 				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
+ 				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
+ 				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
+-				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
+-				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
++				 <K1_PADCONF(14, 1)>;	/* gmac0_int_n */
++
++			bias-pull-up = <0>;
++			drive-strength = <21>;
++		};
++	};
++
++	gmac0_clk_ref_cfg: gmac0-clk-ref-cfg {
++		gmac0-clk-ref-pins {
++			pinmux = <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
+ 
+ 			bias-pull-up = <0>;
+ 			drive-strength = <21>;
+@@ -51,8 +59,16 @@ gmac1-pins {
+ 				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
+ 				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
+ 				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
+-				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
+-				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
++				 <K1_PADCONF(43, 1)>;	/* gmac1_int_n */
++
++			bias-pull-up = <0>;
++			drive-strength = <21>;
++		};
++	};
++
++	gmac1_clk_ref_cfg: gmac1-clk-ref-cfg {
++		gmac1-clk-ref-pins {
++			pinmux = <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
+ 
+ 			bias-pull-up = <0>;
+ 			drive-strength = <21>;
+
+-- 
+2.54.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
