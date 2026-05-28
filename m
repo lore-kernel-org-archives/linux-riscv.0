@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF17CD6E45
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 08:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A42CD5BD1
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 11:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q9sdrebIWthCjO3NlbNZGBqwPcnrtT8T7o42HwLJ2Mc=; b=dExS1wUOBBp9X6M7gTPe5+5lyW
-	z2HBFJmHIa0Qgik6pVAsG/FMKLs/rt20EClSplve29idkKz14sRDLZFOBeWXF0v/UYDFapWnCgww+
-	ZlXr+filXK0pXjrgml1tQEyH5wSDzIvLIxPct4c4XGUSBhp2a5gRHJAmxp6NTJJEX6OuQTPVS/O1J
-	OnJzLrEGswgUI4W4pbfk1FhqR3qP5Lc+o6t85E6KEFGGralbFY9S+hej+LdrPiKP3ar2qixeb76M7
-	bLwflDA43ctTxIKDll38s/pEoqo0ugS28AmMbjaztRu4/bnr0CrGo/eFqHmB5OxUSIrrbxx26HA0S
-	LbUennBg==;
+	bh=kuQvfXVsuzsaK6C3sIHAr8iepG8cwrFFikOF6j4r3Fc=; b=MhADWt51sqVl+nxmI0o3jj53vz
+	sx+NZ8Ur4lpQJs71iSuW3DsxpnnLZUjjKOabEMz14dfqgGv6DGGiOGiRzR3Ql5/AtbP4s+tNrD78L
+	FexTfS9i3b7Qq8VjAx2nGuluqPjUh31+otCmdVrgql1olCz5mtBiIeUVTwZTwAIpBcqovmyXRP7pG
+	H3THlwuWECEnNIdqAAZdurSa/qDNMayOUr8/UgCYKJyccSaJmdBR8DdVughkj6HoPS9pyLXBO4z7y
+	TAQD8jNOJDqNC1LYhQqujtRki6uIeHhw/z6PT7wSm9yt45Yh2fHJOtRfAMpl8hmq7+d09V5yTm8uJ
+	FORLKjxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWWn-00000005Re6-36Nm;
-	Thu, 28 May 2026 08:55:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wSYhj-00000005eOo-2uH6;
+	Thu, 28 May 2026 11:15:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSWWm-00000005Rdq-22fo
+	id 1wSYhg-00000005eOK-21I9
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 08:55:44 +0000
+	Thu, 28 May 2026 11:15:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCC04605D5;
-	Thu, 28 May 2026 08:55:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA7C1F000E9;
-	Thu, 28 May 2026 08:55:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 59D3F43FB5;
+	Thu, 28 May 2026 11:15:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8A9A1F000E9;
+	Thu, 28 May 2026 11:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779958543;
-	bh=xdKssTSNM7AOFuPAbzDLnKCNlm55Cioqd2vEDuyV+b0=;
+	s=k20260515; t=1779966907;
+	bh=RaSwjjwY7L43Pt4ifGaOyS+rmXcHainlqC5wj7d6FGs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=J0osnToIbEr/6J9Gs8+MDzWlrXC16S0yconHV2qb5UaSwSzWKXrGDqbfeuqiZI6dc
-	 bxdYJ3imyK5loQXCLvR36BQG0NR9QJr0AT4atZ8DaVJqYoGKpCFOjFYIfoLJ1jFYh6
-	 BoYRbNKiPD0pGFMjkrLIoW8GI2nEg6W+HEQeUIgLWq92o2uEZp1ROjsJcbcRhv2S/U
-	 DWMVai3DGW+e8XaK9KcxQ+kO6rahaYDk9IneNpuWdJpsrdDrQMQoZcrt8HNqIhggI6
-	 GfL9E/HJ3tmN8ZxFenBnyilgzM71JTjvpOgap3L13zA7q1IWLVU4E2PKUSQ7IAadYW
-	 ClYJ5BvMEuoQg==
-Date: Thu, 28 May 2026 09:55:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 6/9] pinctrl: ultrarisc: Add UltraRISC DP1000 pinctrl
- driver
-Message-ID: <20260528-broiling-naturist-78401ecbb870@spud>
-References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
- <20260515-ultrarisc-pinctrl-v1-6-bf559589ea8a@ultrarisc.com>
- <CAD++jLn=RX2rZ33kD427wR1KBo=YPzCqFaaSot22nJL4Emn_=A@mail.gmail.com>
- <20260525-turbojet-theorize-3a7b49f41af0@spud>
- <177995438556.929162.1470247666821673655.b4-reply@b4>
+	b=mgOTK2Tft+6PLu9lmoRUPtk/Covdhptd2aIBEiCAbB4KS+mC/Ggcdk3AYo9nn0YID
+	 pyVmK6rCiJjlQxkPIspfbl4dVtNfa8cFVsZQO7dUENjzAEAc3qYSWTgNObGZwFZmJP
+	 jWCQSvrQRM6x80T+mns2eIF4XBmQDWAGojFXUpS/8RFeHg3lh8wzPRPYY2JaJpi1GP
+	 9pUR7jfLS2AueVJQlSKr3Sn/9VAow19enmSF6f/DrWQkGxe0t+Woid6fiPnQXUuUyu
+	 2BXImcsBz2vlDi2d1GbpHZj9FF0tyGmwGElNHBlSVCzqiM+UviFgLkdC/1KnhbloZ9
+	 mX7PxqDoHeHcg==
+Date: Thu, 28 May 2026 12:15:01 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Zong Li <zong.li@sifive.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, debug@rivosinc.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, david.laight.linux@gmail.com,
+	re@w6rz.net, catalin.marinas@arm.com, szabolcs.nagy@arm.com
+Subject: Re: [PATCH] riscv: cfi: reduce shadow stack size limit from 2GB to
+ 512MB
+Message-ID: <6fac30db-c87f-4242-a858-54d4467ade85@sirena.org.uk>
+References: <20260522093634.3530233-1-zong.li@sifive.com>
+ <CANXhq0pfU1+Qv-SdJRzwvSDQw010+QovUH-OuG4tcwwsjf90MQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <177995438556.929162.1470247666821673655.b4-reply@b4>
+In-Reply-To: <CANXhq0pfU1+Qv-SdJRzwvSDQw010+QovUH-OuG4tcwwsjf90MQ@mail.gmail.com>
+X-Cookie: Someone is speaking well of you.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260528_041508_560923_752D488D 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,149 +71,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5266086262002072784=="
+Content-Type: multipart/mixed; boundary="===============1757367002352734947=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5266086262002072784==
+--===============1757367002352734947==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IgXyLvpczIplp3dR"
+	protocol="application/pgp-signature"; boundary="umKIjHoEp01llVfM"
 Content-Disposition: inline
 
 
---IgXyLvpczIplp3dR
-Content-Type: text/plain; charset=utf-8
+--umKIjHoEp01llVfM
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, May 28, 2026 at 03:46:25PM +0800, Jia Wang wrote:
-> On 2026-05-25 11:10 +0100, Conor Dooley wrote:
-> > On Mon, May 25, 2026 at 11:28:51AM +0200, Linus Walleij wrote:
-> > > On Fri, May 15, 2026 at 3:18=E2=80=AFAM Jia Wang via B4 Relay
-> > > <devnull+wangjia.ultrarisc.com@kernel.org> wrote:
-> >=20
-> > > > +static int ur_legacy_parse_prop(struct pinctrl_dev *pctldev,
-> > > > +                               struct device_node *np,
-> > > > +                               const char *propname,
-> > > > +                               struct ur_legacy_prop_data *prop)
-> > > > +static const char *ur_legacy_get_function_name(const struct ur_pin=
-ctrl_match_data *match_data,
-> > > > +                                              u32 mode)
-> > > > +static int ur_legacy_conf_to_configs(struct pinctrl_dev *pctldev, =
-u32 conf,
-> > > > +                                    unsigned long **configs,
-> > > > +                                    unsigned int *num_configs)
-> > > > +static int ur_legacy_add_pinconf_maps(struct pinctrl_dev *pctldev,
-> > > > +                                     struct pinctrl_map **map,
-> > > > +                                     unsigned int *reserved_maps,
-> > > > +                                     unsigned int *num_maps,
-> > > > +                                     const struct ur_legacy_prop_d=
-ata *prop)
-> > > > +static int ur_legacy_dt_node_to_map(struct pinctrl_dev *pctldev,
-> > > > +                                   struct device_node *np,
-> > > > +                                   struct pinctrl_map **map,
-> > > > +                                   unsigned int *num_maps)
-> > >=20
-> > > What's up with all this legacy stuff?
-> > >=20
-> > > What is this a legacy of?
-> > >=20
-> > > I thought this was a *new* driver so how can it be "legacy"?
-> >=20
-> > Jia already agreed to drop this stuff :)
-> >=20
-> > >=20
-> > > > +static int ur_generic_dt_node_to_map(struct pinctrl_dev *pctldev,
-> > > > +                                    struct device_node *np_config,
-> > > > +                                    struct pinctrl_map **map,
-> > > > +                                    unsigned int *num_maps)
-> > > > +{
-> > > > +       return pinconf_generic_dt_node_to_map(pctldev, np_config, m=
-ap, num_maps,
-> > > > +                                             PIN_MAP_TYPE_INVALID);
-> > > > +}
-> > >=20
-> > > Hm I think Conor has new helpers for this so you don't need to wrap
-> > > it like this.
-> >=20
-> > Yeah, although "more importantly" the new helpers mean that drivers
-> > shouldn't need to do things like calling these home-rolled functions in
-> > probe, just so that they can try to use pinconf_generic_dt_node_to_map(=
-):
-> > | static int ur_add_pin_groups(struct ur_pinctrl *pctldata)
-> > | {
-> > | 	for (u32 i =3D 0; i < pctldata->match_data->npins; i++) {
-> > | 		int ret;
-> > |=20
-> > | 		pctldata->group_names[i] =3D pctldata->match_data->pins[i].name;
-> > | 		pctldata->group_pins[i] =3D pctldata->match_data->pins[i].number;
-> > |=20
-> > | 		ret =3D pinctrl_generic_add_group(pctldata->pctl_dev, pctldata->gro=
-up_names[i],
-> > | 						&pctldata->group_pins[i], 1, NULL);
-> > | 		if (ret < 0)
-> > | 			return dev_err_probe(pctldata->dev, ret,
-> > | 					     "failed to add pin group %s\n",
-> > | 					     pctldata->group_names[i]);
-> > | 	}
-> > |=20
-> > | 	return 0;
-> > | }
-> > |=20
-> > | static int ur_add_functions(struct ur_pinctrl *pctldata)
-> > | {
-> > | 	for (u32 i =3D 0; i < pctldata->match_data->num_functions; i++) {
-> > | 		const struct ur_function_desc *desc =3D &pctldata->match_data->func=
-tions[i];
-> > | 		struct pinfunction func =3D desc->gpio ?
-> > | 			PINCTRL_GPIO_PINFUNCTION(desc->name, pctldata->group_names,
-> > | 						 pctldata->match_data->npins) :
-> > | 			PINCTRL_PINFUNCTION(desc->name, pctldata->group_names,
-> > | 					    pctldata->match_data->npins);
-> > | 		int ret;
-> > |=20
-> > | 		ret =3D pinmux_generic_add_pinfunction(pctldata->pctl_dev, &func, (=
-void *)desc);
-> > | 		if (ret < 0)
-> > | 			return dev_err_probe(pctldata->dev, ret,
-> > | 					     "failed to add function %s\n",
-> > | 					     desc->name);
-> > | 	}
-> > |=20
-> > | 	return 0;
-> > | }
-> > (If I had more time, I would probably go looking to see if there are
-> > more candidates for conversion)
-> >=20
-> > Jia, the helper in question is pinctrl_generic_pins_functions_dt_node_t=
-o_map().
-> >
->=20
-> I found pinctrl_generic_pins_function_dt_node_to_map() in mainline, but
-> there is no pinctrl_generic_pins_functions_dt_node_to_map() as mentioned.
-> Did you mean the singular version, and is that the one I should use?
+On Thu, May 28, 2026 at 09:07:04AM +0800, Zong Li wrote:
 
-I did, the s was a typo.
+> Because the RISC-V shadow stack stores very similar data to GCS, I
+> also reduced the RISC-V shadow stack size to 2G in my recent patch.
+> You can find the reasons for this change here:
+> https://lists.infradead.org/pipermail/linux-riscv/2026-May/091308.html
 
-Sorry about that,
-Conor.
+> In the same thread, we discussed if we could make the size even
+> smaller. Thank David for his helpful analysis on this topic.
 
---IgXyLvpczIplp3dR
+> Since GCS has been merged for a few years now, we'd like to learn from
+> your experience. We want to make sure we are not missing any important
+> impacts or issues. Therefore, we would really appreciate it if you
+> could share your thoughts with us. This will give us the confidence to
+> move forward with the patch
+
+Nobody has reported it causing them a problem, but there's not really
+much practical use yet due to hardware availability so that might change
+and I'm not sure how much inference you can draw there - there is much
+more test use than production use at this stage.  I would be astonished
+if anyone wanted the shadow stack to be bigger, the more likely problem
+is excessive VA usage but we felt it was better to err on the side of
+using too much memory.  The general feedback from userspace people was
+that they weren't too concerned about issues.
+
+--umKIjHoEp01llVfM
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahgDCgAKCRB4tDGHoIJi
-0ikVAQCQ/aGd/v7ZtmAcujbqa2qSy5/xPp1bjYWVHPfaCt+Z8gEAga87XWn7zpkq
-9+LxyzRIJol0/UxmZtRob2kFwDfUaww=
-=poIP
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoYI7UACgkQJNaLcl1U
+h9DhlAf+NNLL/XYPMhBMBlBhdSv8JTY9UApiXNcNa3NVxS0sy6e7VkWLkBio++47
+pLNaTi1nSoBZYKb7K9UL8WIlH/cV+5GUYp04DCLl6yM4GgClFmsFEt7EWwatb0hS
+v/RIn7n53SGPKE4B+/lVPQ2uiG+djViOth3rpGH7S3Phz9asS/MvfG2siYgP+Udt
+BGtULtKTPVFJlZ/ROG0xh82CuHfHrxTuXa7KMjasGi/V6sytBKZEcOYEEe1gp3Rx
+tOiDsFQlPFh1fHmmrf96ZUICZosEOfv5wt9zvgE8p5v+ufzqBjHdzuZ2ES2bWdc5
+fMoRLXJshcTxKDLX45nohEtSnSrLcA==
+=JDS8
 -----END PGP SIGNATURE-----
 
---IgXyLvpczIplp3dR--
+--umKIjHoEp01llVfM--
 
 
---===============5266086262002072784==
+--===============1757367002352734947==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -230,5 +140,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5266086262002072784==--
+--===============1757367002352734947==--
 
