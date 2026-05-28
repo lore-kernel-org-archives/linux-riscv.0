@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47EBCD6E45
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 08:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF8DCD5BD1
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 08:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J81JJwr4Mc+ZJGO7ZzVG5mXISsYm0xDXyDFY5YdmkRY=; b=R4X/xr/TRu/Cgj
-	/6Xm7KBueLWdf7C7U6naQcJ23EWN8mdmD1gQW+3PeB35Y5Z48GfJsblOIK+Gs7P8KK6OIA4pf77Kw
-	2PFQWFeV0cwYHBnrR7tnIIaPYUcZvYNF09zqN5vcPfMDWmCzRUIzhHUKOvVUyMCzvmhCuZ/pOYf4I
-	m5FnKAq/pw+k+MomlPpClQHa5EquRBQXLQSRw9cLMJK4W/blyo2vX0xrsxa80TEc2ARrtA0a7zePe
-	SatDhgL+vhBzmukuHi07T5e99prVzzevKd3VkkQdLG6claWD8TkmH+u//pgaURUog6tEO98gUOnJQ
-	+JghVLy8I7tCoI8jnTTw==;
+	List-Owner; bh=qt1Xq67fPNw26QpX92xHkvrR8k74jZyWLSwgXi0BHU0=; b=KIHScZIIBUs8sZ
+	9r7qJNoFpvXo8vFRQ0hRW+W+KVa08c84fkRVK2axbTetKukg32wdRk0lr6/yygedw99dB2PBxqVcD
+	zPSAMAHxE/Pzj02nMPjJazIDXJddxWmUlb/hJ/bDGpFPydfK7vKXX8SyBc3EcACz0lTxL/Lxs9Xzn
+	K1UeGBEOVVWuffyKzLds6LHLjIOehkkynfBMA3i6Ih2wjUZZTLJpCED6b4imOx+VVaJ7HkN4+h1vf
+	nAFIP7KZlVJpm87nu9l97BUoXq8VXcZtzSWnGfH47MXaNwbwl8M+4tdTmd91Bu8+GLsVBrjYBnKrm
+	qs3mssNkyTC7jRUiE1nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSW1a-00000005N1G-0qhA;
-	Thu, 28 May 2026 08:23:30 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1wSW1e-00000005N5q-3KCX;
+	Thu, 28 May 2026 08:23:34 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSW1V-00000005Mxf-2e5S
+	id 1wSW1Z-00000005N0D-461o
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 08:23:27 +0000
+	Thu, 28 May 2026 08:23:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1779956603; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=PWXhWzyCALmai/5XB1OyTOO1hzuVkcfr5CK2JaR3L3w=;
-	b=UXGvcZtuprzZYzzALiiTH1ZO+JzQU4Mn7lcUtJYpPUN2uNFBiy7BW0/zfz4Hko86Xq+dFXCtAJNEUVXyLhpui8BH1Mlsws/hQcl+3F0a+bNKBx830TPxQvlRW/S9iSwn7Xkp7f/yhOK2AbHk+/MeW+hwaoQ+XoAxnzo1Wzs9i4I=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X3lxQP5_1779956600;
-Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X3lxQP5_1779956600 cluster:ay36)
+	t=1779956607; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=maEd3fP452xbwDQt8y5z93ErC5Xch2tj81t6Keb7XOE=;
+	b=fJMH7oEnHPvspsM4QLMaOCuABlQwBLe+55DTBxv4fuO7gwabIIs0wY/4xizLtEyBI7Zafe1eL7Y3m7PwdLZZc9wT+Zt+sNLxs2tNr9+MToeSie/Fqk96hW87HXvX0j6394wto/fj23zUBLmCA3qoF84Cq+8oNninptcV9Riw/2Y=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X3lxQRE_1779956605;
+Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X3lxQRE_1779956605 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 28 May 2026 16:23:21 +0800
+          Thu, 28 May 2026 16:23:26 +0800
 From: Wang Han <wanghan@linux.alibaba.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -71,16 +71,17 @@ Cc: Steven Rostedt <rostedt@goodmis.org>,
 	live-patching@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-perf-users@vger.kernel.org
-Subject: [PATCH v2 5/8] riscv: stacktrace: introduce stack-bound tracking helpers
-Date: Thu, 28 May 2026 16:23:07 +0800
-Message-ID: <20260528082310.1994388-6-wanghan@linux.alibaba.com>
+Subject: [PATCH v2 8/8] selftests/livepatch: Add RISC-V syscall wrapper prefix
+Date: Thu, 28 May 2026 16:23:10 +0800
+Message-ID: <20260528082310.1994388-9-wanghan@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
 References: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_012326_218000_99B2EF7D 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20260528_012330_221070_F1D4FCB7 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,290 +98,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A reliable unwinder needs to validate that every frame record it reads
-is fully contained in a known kernel stack, and it needs to refuse to
-walk back into a stack it has already left. Add the building blocks
-for that:
+The syscall livepatch selftest resolves and patches a syscall wrapper
+symbol. To use that test for RISC-V livepatch validation, add the
+RISC-V FN_PREFIX definition for ARCH_HAS_SYSCALL_WRAPPER.
 
-  * struct stack_info / struct unwind_state in a new
-    asm/stacktrace/common.h, modelled on the arm64 reference
-    implementation.
-  * stackinfo_get_irq() / stackinfo_get_task() / stackinfo_get_overflow()
-    plus the corresponding on_*_stack() predicates in asm/stacktrace.h,
-    so callers can ask "is this object on stack X?" by stack kind
-    rather than open-coded address arithmetic.
-  * unwind_init_common(), unwind_find_stack() and
-    unwind_consume_stack() helpers that enforce the
-    forward-progress-only invariant required for reliability.
-
-No existing user is wired up to these helpers in this commit; the
-unwinder switch comes in a follow-up. The header changes leave
-on_thread_stack() with the same semantics as before, just expressed in
-terms of the new helpers.
+Without this macro, the syscall livepatch selftest cannot resolve the
+RISC-V target symbol, and the syscall-related livepatch test fails on
+RISC-V.
 
 Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
 ---
- arch/riscv/include/asm/stacktrace.h        |  65 ++++++++-
- arch/riscv/include/asm/stacktrace/common.h | 159 +++++++++++++++++++++
- 2 files changed, 222 insertions(+), 2 deletions(-)
- create mode 100644 arch/riscv/include/asm/stacktrace/common.h
+ .../testing/selftests/livepatch/test_modules/test_klp_syscall.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
-index b1495a7e06ce..bc87c4940379 100644
---- a/arch/riscv/include/asm/stacktrace.h
-+++ b/arch/riscv/include/asm/stacktrace.h
-@@ -3,8 +3,13 @@
- #ifndef _ASM_RISCV_STACKTRACE_H
- #define _ASM_RISCV_STACKTRACE_H
- 
-+#include <linux/percpu.h>
- #include <linux/sched.h>
-+#include <linux/sched/task_stack.h>
-+
-+#include <asm/irq_stack.h>
- #include <asm/ptrace.h>
-+#include <asm/stacktrace/common.h>
- 
- struct stackframe {
- 	unsigned long fp;
-@@ -16,14 +21,70 @@ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *re
- extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
- 			   const char *loglvl);
- 
--static inline bool on_thread_stack(void)
-+/*
-+ * IRQ stack accessors
-+ */
-+static inline struct stack_info stackinfo_get_irq(void)
-+{
-+	unsigned long low = (unsigned long)raw_cpu_read(irq_stack_ptr);
-+	unsigned long high = low + IRQ_STACK_SIZE;
-+
-+	return (struct stack_info) {
-+		.low = low,
-+		.high = high,
-+	};
-+}
-+
-+static inline bool on_irq_stack(unsigned long sp, unsigned long size)
-+{
-+	struct stack_info info = stackinfo_get_irq();
-+
-+	return stackinfo_on_stack(&info, sp, size);
-+}
-+
-+/*
-+ * Task stack accessors
-+ */
-+static inline struct stack_info stackinfo_get_task(const struct task_struct *tsk)
- {
--	return !(((unsigned long)(current->stack) ^ current_stack_pointer) & ~(THREAD_SIZE - 1));
-+	unsigned long low = (unsigned long)task_stack_page(tsk);
-+	unsigned long high = low + THREAD_SIZE;
-+
-+	return (struct stack_info) {
-+		.low = low,
-+		.high = high,
-+	};
-+}
-+
-+static inline bool on_task_stack(const struct task_struct *tsk,
-+				 unsigned long sp, unsigned long size)
-+{
-+	struct stack_info info = stackinfo_get_task(tsk);
-+
-+	return stackinfo_on_stack(&info, sp, size);
- }
- 
-+/*
-+ * Cast is necessary since current->stack is an opaque ptr.
-+ */
-+#define on_thread_stack()	(on_task_stack(current, current_stack_pointer, 1))
- 
-+/*
-+ * Overflow stack accessors
-+ */
- #ifdef CONFIG_VMAP_STACK
- DECLARE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
-+
-+static inline struct stack_info stackinfo_get_overflow(void)
-+{
-+	unsigned long low = (unsigned long)raw_cpu_ptr(overflow_stack);
-+	unsigned long high = low + OVERFLOW_STACK_SIZE;
-+
-+	return (struct stack_info) {
-+		.low = low,
-+		.high = high,
-+	};
-+}
- #endif /* CONFIG_VMAP_STACK */
- 
- #endif /* _ASM_RISCV_STACKTRACE_H */
-diff --git a/arch/riscv/include/asm/stacktrace/common.h b/arch/riscv/include/asm/stacktrace/common.h
-new file mode 100644
-index 000000000000..87d6d40672f3
---- /dev/null
-+++ b/arch/riscv/include/asm/stacktrace/common.h
-@@ -0,0 +1,159 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * RISC-V common stack unwinder types and helpers.
-+ *
-+ * See: arch/arm64/include/asm/stacktrace/common.h for the reference
-+ * implementation.
-+ *
-+ * Copyright (C) 2024
-+ */
-+#ifndef __ASM_RISCV_STACKTRACE_COMMON_H
-+#define __ASM_RISCV_STACKTRACE_COMMON_H
-+
-+#include <linux/compiler.h>
-+#include <linux/errno.h>
-+#include <linux/types.h>
-+
-+#include <asm/stacktrace/frame.h>
-+
-+/**
-+ * struct stack_info - describes the bounds of a stack.
-+ *
-+ * @low:  The lowest valid address on the stack.
-+ * @high: The highest valid address on the stack.
-+ */
-+struct stack_info {
-+	unsigned long low;
-+	unsigned long high;
-+};
-+
-+/**
-+ * struct unwind_state - state used for robust unwinding.
-+ *
-+ * @fp:        The fp value in the frame record (or the real fp).
-+ * @pc:        The ra value in the frame record (or the real ra).
-+ *
-+ * @stack:     The stack currently being unwound.
-+ * @stacks:    An array of stacks which can be unwound.
-+ * @nr_stacks: The number of stacks in @stacks.
-+ */
-+struct unwind_state {
-+	unsigned long fp;
-+	unsigned long pc;
-+
-+	struct stack_info stack;
-+	struct stack_info *stacks;
-+	int nr_stacks;
-+};
-+
-+/**
-+ * stackinfo_get_unknown() - Get an unknown stack_info.
-+ *
-+ * Return: a stack_info with low and high set to 0.
-+ */
-+static inline struct stack_info stackinfo_get_unknown(void)
-+{
-+	return (struct stack_info) {
-+		.low = 0,
-+		.high = 0,
-+	};
-+}
-+
-+/**
-+ * stackinfo_on_stack() - Check whether an object is fully within a stack.
-+ *
-+ * @info: The stack to check against.
-+ * @sp:   The base address of the object.
-+ * @size: The size of the object.
-+ *
-+ * Return: true if the object is fully contained within the stack.
-+ */
-+static inline bool stackinfo_on_stack(const struct stack_info *info,
-+				      unsigned long sp, unsigned long size)
-+{
-+	if (!info->low)
-+		return false;
-+
-+	if (sp < info->low || sp + size < sp || sp + size > info->high)
-+		return false;
-+
-+	return true;
-+}
-+
-+/**
-+ * unwind_init_common() - Initialize the common parts of the unwind state.
-+ *
-+ * @state: the unwind state to initialize.
-+ */
-+static inline void unwind_init_common(struct unwind_state *state)
-+{
-+	state->stack = stackinfo_get_unknown();
-+}
-+
-+/**
-+ * unwind_find_stack() - Find the accessible stack which entirely contains an
-+ * object.
-+ *
-+ * @state: the current unwind state.
-+ * @sp:    the base address of the object.
-+ * @size:  the size of the object.
-+ *
-+ * Return: a pointer to the relevant stack_info if found; NULL otherwise.
-+ */
-+static inline struct stack_info *unwind_find_stack(struct unwind_state *state,
-+						   unsigned long sp,
-+						   unsigned long size)
-+{
-+	struct stack_info *info = &state->stack;
-+
-+	if (stackinfo_on_stack(info, sp, size))
-+		return info;
-+
-+	for (int i = 0; i < state->nr_stacks; i++) {
-+		info = &state->stacks[i];
-+		if (stackinfo_on_stack(info, sp, size))
-+			return info;
-+	}
-+
-+	return NULL;
-+}
-+
-+/**
-+ * unwind_consume_stack() - Update stack boundaries so that future unwind steps
-+ * cannot consume this object again.
-+ *
-+ * @state: the current unwind state.
-+ * @info:  the stack_info of the stack containing the object.
-+ * @sp:    the base address of the object.
-+ * @size:  the size of the object.
-+ *
-+ * Stack transitions are strictly one-way, and once we've
-+ * transitioned from one stack to another, it's never valid to
-+ * unwind back to the old stack.
-+ *
-+ * Note that stacks can nest in several valid orders, e.g.
-+ *
-+ *   TASK -> IRQ -> OVERFLOW
-+ *
-+ * ... so we do not check the specific order of stack
-+ * transitions.
-+ */
-+static inline void unwind_consume_stack(struct unwind_state *state,
-+					struct stack_info *info,
-+					unsigned long sp,
-+					unsigned long size)
-+{
-+	struct stack_info tmp;
-+
-+	tmp = *info;
-+	*info = stackinfo_get_unknown();
-+	state->stack = tmp;
-+
-+	/*
-+	 * Future unwind steps can only consume stack above this frame record.
-+	 * Update the current stack to start immediately above it.
-+	 */
-+	state->stack.low = sp + size;
-+}
-+
-+#endif /* __ASM_RISCV_STACKTRACE_COMMON_H */
+diff --git a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
+index dd802783ea84..275e4b10cf59 100644
+--- a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
++++ b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
+@@ -18,6 +18,8 @@
+ #define FN_PREFIX __s390x_
+ #elif defined(__aarch64__)
+ #define FN_PREFIX __arm64_
++#elif defined(__riscv)
++#define FN_PREFIX __riscv_
+ #else
+ /* powerpc does not select ARCH_HAS_SYSCALL_WRAPPER */
+ #define FN_PREFIX
 -- 
 2.43.0
 
