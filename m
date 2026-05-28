@@ -4,65 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048FBCD4F54
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 May 2026 19:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D50CD5BC9
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 00:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O1fgo1cB8vdNLUG2+yq00J95gvR4X6927KnLxcDdMVo=; b=SlydoD4jDidhnf
-	5Hje9WrQabwSMlsYgw1yHq9S7LfxgctGw5sZWmYrY0Z21pxgnI+VjfPmoGpauDxJOXFJH3zFuyxDj
-	s16lqmHNnsi5vINZRmOCE1d4TpsTKjrScvHmSWWzTbsRp9HpL2E5m/5vJo4TsV9x2cbiilgitwOZ5
-	r6+jinftUtqNdnipHBLAw6sGIz6PfGgOBx2w/6vl07U2SD/Ozc1e3acFhq61evM/SUV79TauHoSbu
-	YJHAMixC9vhaveWsmiAxv5JWDp3iKbgpdMJlv4owXu+Rc4gz+qhLhyP8NS8aVZdXEcbJaJroLK7CX
-	G+KSfKvl29+W05y3KJvg==;
+	List-Owner; bh=DJT0mRPgmWHJ/sSj4TEA5ahdwUTfUwETBwi8yx32tV8=; b=Ldof7udzBbYqP5
+	bNbw0ZjgJNbFImWjSP2F58ibVxfkxzutT4FTD2azy1olx+DlOZwCcmcbwg4/Vjc1D7pmtASnfKEW8
+	0YGWqhVt7fOn9sucSVm0dFAFVZ2mZyKt7JgJXILQBuKCeH+Y2sY3k05PGTV+mzRXudoLMDtUzcUC7
+	Gv/f1VSpsrVGZ3kHmdqNw5XYwUVhnDvUHbtDf00cdnQglG28MU1sfM8iXoqCYVWKxY86/SKBF70d8
+	Hk+9ianiFO9/V42PJrPC/p9iAnVm00/2ny7lftzwvp37P+8YGwLawUIPdAhCB2y5vV0s0MlJZ7lbx
+	PR99TB2UppQ8eQBstkrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSKG1-00000004ghm-19Xi;
-	Wed, 27 May 2026 19:49:37 +0000
+	id 1wSOTw-00000004r7J-0ndy;
+	Thu, 28 May 2026 00:20:16 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSKFy-00000004ggf-1epM
+	id 1wSOTt-00000004r7B-3nFc
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 May 2026 19:49:35 +0000
+	Thu, 28 May 2026 00:20:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2AC7605A0;
-	Wed, 27 May 2026 19:49:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CB771F000E9;
-	Wed, 27 May 2026 19:49:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D4019605C2;
+	Thu, 28 May 2026 00:20:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABBD1F000E9;
+	Thu, 28 May 2026 00:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779911373;
-	bh=pu7xqlq2OaICPvGzPV5z7jHq+aFQ9JV6gbbIjqn2Q4g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JaZO8ylC/5fvCdxaq7M7KTHvJeO8cMHqdjZM5ejBN11jH68kvmtn3I24WnNf8lBIW
-	 z99ZtUjigIhQfT4bAxbrIu20fKv0oHAg2zdivxAHwvahxr1KdFPU+W2rmZVq3aj/D3
-	 KwbSTVpC952x+UNfADfc7TlKXtsAlRhrgF6jwbHgP1rnllKg6yizJXaWO2vu2Xv5oA
-	 LLv6KxLe0lXmPkTisccycJ9YPsh3kZOnWcDYOyUVz0631Kh83+YqLF3ArxiYxmFlYz
-	 87jTyYhlNVi1DfVloB3JRSEBrS/S45fXxSJz7xyAsRYkLoh/GwTRJqhvHy5Eq8eAnK
-	 5P4+kUEGPoSCw==
-From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org,
-	gregkh@linuxfoundation.org
-Cc: Sasha Levin <sashal@kernel.org>,
-	pulehui@huawei.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	bjorn@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	kernel test robot <lkp@intel.com>,
-	Gyokhan Kochmarla <gyokhan@amazon.de>
-Subject: Re: [PATCH 6.12] riscv: fgraph: Select HAVE_FUNCTION_GRAPH_TRACER depends on HAVE_DYNAMIC_FTRACE_WITH_ARGS
-Date: Wed, 27 May 2026 15:49:07 -0400
-Message-ID: <20260527-agent5-item015-riscv-kconfig@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260526192636.83171-1-gyokhan@amazon.de>
-References: <20260526192636.83171-1-gyokhan@amazon.de>
+	s=k20260515; t=1779927612;
+	bh=WwwxV04ucNWP/tbOhyJJVXjgJC8Fz+ra97PBKv7ZdNw=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=Pfuxs5+8QC5Cq7qioyxBl1g5TmeXmzeGqR4deuf/Yr6m7fqHjyaeIey0DaiDws7da
+	 aWaYz/Nv0zdxV+PGz4Lj1JMJGh9B7XynaBDexpV9wQZ7cCF/phi94iecTVICs9twjD
+	 hrgYDLQTUfSvd4zpxc8sCPyzrhYjjYO3X3Ejr8Sbs8PeAYF2HIrzxzBYKPuxvE7E67
+	 vIWBHYj6ZBAjVhbdVOtxhL9lgwbBPYJquBShSpjTI3JXPRviWbLtDx4vxs2TqFbWk1
+	 4XW6/5fjouKi7vWFxL/HXfJZGEbtd5Kbt5p2fPQRK5JEyBcqDn6eE6xq6myJ1E/216
+	 4A943bmfn+JyA==
+Date: Wed, 27 May 2026 18:20:07 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Hui Wang <hui.wang@canonical.com>
+cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com, 
+    aou@eecs.berkeley.edu, alex@ghiti.fr, vincent.chen@sifive.com, 
+    stable@vger.kernel.org
+Subject: Re: [PATCH] riscv: kgdb: Fix a missing irq restore issue on an
+ early-return path
+In-Reply-To: <20260526113829.115007-1-hui.wang@canonical.com>
+Message-ID: <994d9b89-b1d9-e642-0ef0-66a8cad538d5@kernel.org>
+References: <20260526113829.115007-1-hui.wang@canonical.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,13 +70,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> commit e8eb8e1bdae94b9e003f5909519fd311d0936890 upstream.
+Hi,
 
-Queued for 6.12.y, thanks.
+On Tue, 26 May 2026, Hui Wang wrote:
 
---
-Thanks,
-Sasha
+> If kgdb_handle_exception() fails, the local_irq_restore() is not
+> called and the function returns to the caller with interrupts still
+> disabled. To fix it, add the missing irq restore here.
+> 
+> Fixes: fe89bd2be866 ("riscv: Add KGDB support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hui Wang <hui.wang@canonical.com>
+
+Was this found using an LLM or some other static analysis tool?  If so, 
+please add an Assisted-by: tag, according to the directions documented 
+here:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst#n637 
+
+and here:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-assistants.rst
+
+
+- Paul
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
