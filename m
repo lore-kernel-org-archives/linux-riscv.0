@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8484CCD5BD5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 08:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA736CD5BD5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 08:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GvmKkjwSXjFM4h5U0O4cOCc5TlqIrjR1/+Y0Qh73c9o=; b=YozcAqYlczOh4q
-	17crvytFEvw50+51leKZn2lejCpklZEB8EdwbLe40TkjtxUGP1UCBaSEk+LPcBJtUMXi20OVcAkUK
-	vF0Ja6ZZLUslc1zeyzA08yaq8Xu7ajxjG8wYoboWC91zOI4KfWnTOq4WcQA3u1JvLapKYL2R7cT6U
-	gZgndwsFqzAGixIH+YzY4thynVaREiyFYqV5fiWayhhw4ep4SNFPiB2WlMafH26c3wHLnnFZksBvd
-	zUY8T+Dzsp+8JiO9dHfFfvmiXcZTD8AVx6+2jvGua72uJkqZlnxqlGaOwlP4q5QlYPojoesozksEy
-	fJU+BalCv+yUMYEEHiww==;
+	List-Owner; bh=6tPReqHjP7kHIpFtCDH03TMvckmJPyXqqQ0gUi0gLCA=; b=ZDEvhAC4NN5eoZ
+	whNQUMKJ4k+QwBz3vZ9bV7dc4NOY+U6m9zZaiBpe7tXRjy3D5Fh6ZsWYEifEfbs6vMo31n+650w7W
+	XZqEi5fApAjCFFEdnmueE6JWg0/4okkaT5eONCioNb9qLKMuGMnRQ90ZKTihOAZahWBUJyG3Ce/lA
+	lBkGStAvL8rtThpVJZcDkwTRBLAC85c7+tNZ0Ri3XaBgpa5P9VZzWovZBaDeU51YKY02yLXXE6OVC
+	e37IvJ1wPsTvdDqBCSiBhg6Cr6xZZDyj+h4dPpflphj938saCaK+1c9UyV+0JLP7jFcX7UTcO096/
+	rwFqngySBy69/B7J4seA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVll-00000005LLg-41DU;
-	Thu, 28 May 2026 08:07:09 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSVli-00000005LKo-3o6K
+	id 1wSW1T-00000005Mxd-2ijw;
+	Thu, 28 May 2026 08:23:23 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wSW1P-00000005Mvp-0sqJ
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 08:07:09 +0000
+	Thu, 28 May 2026 08:23:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=qTyBdHXdVTvD5p7mBh3Y3ebiYH14OcrNA
-	ZjgSGACkUE=; b=K0pJTyW1jpEVqB6hu5Z+gfurAFWl+hqy28OzKtTt6jJaomtA2
-	L83VGQCadGGfiW79QmCrDFhMLRviM/tyE3NOY7SjndjYzRNbMjXqk//zSClPF/oP
-	D6fp2M7dr3BVzWtUPhivUJaAJdJh3UyuE0fKRiwHbmuqnshbkNTelIkGd0=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkPC9hdqkqcGAA--.7964S2;
-	Thu, 28 May 2026 16:03:14 +0800 (CST)
+	d=linux.alibaba.com; s=default;
+	t=1779956595; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=hx/IyZLsW3yP4Odj5A1dY32lM9lXE7p/KdxI82QGF2I=;
+	b=Nmd+atahfbcuBbXv9KnvNcI4hrQ4COTPUUNMEWTKts9eQkJXi1htpqpz/w042MyMaQH0iCo3i+D0W3DgLw4XGc5B+lMfBoLNDM0U5uRqs1SrJKcZzzHqHV/e+dXf8GSOfANW+cSfXZYy6gl30NVnJd1+vhc1eeJy3qJwNSxOMo8=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R321e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X3lxQM3_1779956593;
+Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X3lxQM3_1779956593 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 28 May 2026 16:23:14 +0800
+From: Wang Han <wanghan@linux.alibaba.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Andy Chiu <andybnac@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jiri Kosina <jikos@kernel.org>,
+	Miroslav Benes <mbenes@suse.cz>,
+	Petr Mladek <pmladek@suse.com>,
+	Joe Lawrence <joe.lawrence@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	oliver.yang@linux.alibaba.com,
+	xueshuai@linux.alibaba.com,
+	zhuo.song@linux.alibaba.com,
+	jkchen@linux.alibaba.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH v2 1/8] scripts/sorttable: Handle RISC-V patchable ftrace entries
+Date: Thu, 28 May 2026 16:23:03 +0800
+Message-ID: <20260528082310.1994388-2-wanghan@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
+References: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 7/9] riscv: dts: ultrarisc: add Rongda M0 board device
- tree
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-In-Reply-To: <1a4a54bc-1013-4ab0-85e9-7ad5cf7146cd@kernel.org>
-References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
- <20260515-ultrarisc-pinctrl-v1-7-bf559589ea8a@ultrarisc.com>
- <1a4a54bc-1013-4ab0-85e9-7ad5cf7146cd@kernel.org>
-Date: Thu, 28 May 2026 16:02:34 +0800
-Message-Id: <177995535495.929162.14360417218918332099.b4-reply@b4>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779955355; l=4993;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=QW9gXVGW6LlKeGowDKXk0ycOCa1aUIqKcc9+r0dKpFY=;
- b=78XIM9TKCYrIwTTdVasxyRqtRZrTHxEkM6mLN/IjmBDW8NQhk69ZA64gHbrvbpxqCSI6HixEe
- Cw7xbF1LDK2CEZbeeJ/2UA93kAQTqeXkQ5ZuqFuFRBVVikC9qbPlCDI
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwAnEkPC9hdqkqcGAA--.7964S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXryrAF1fJF47urykAw1fWFg_yoWrtrWDpa
-	nrCrs8ua9ruw12934Iv345JFnxJr48Wa4ru3W7tFyIyrs8Zr48CrZaq3s0gFn3Xrn8J348
-	Cr15uFyIkFnakaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNJ5oDUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAAEWoWakYABgAKsM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_010707_554696_6873D8C9 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20260528_012319_805863_240FEF00 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,179 +97,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-21 22:59 +0200, Krzysztof Kozlowski wrote:
-> On 15/05/2026 03:18, Jia Wang via B4 Relay wrote:
-> > From: Jia Wang <wangjia@ultrarisc.com>
-> > 
-> > Rongda M0 is an mATX motherboard based on the UltraRISC DP1000 SoC.
-> > 
-> > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> > ---
-> >  arch/riscv/boot/dts/Makefile                       |   1 +
-> >  arch/riscv/boot/dts/ultrarisc/Makefile             |   2 +
-> >  .../dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi    |  85 ++++++++++++++++
-> >  arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts | 111 +++++++++++++++++++++
-> >  4 files changed, 199 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> > index 69d8751fb17c..702882974251 100644
-> > --- a/arch/riscv/boot/dts/Makefile
-> > +++ b/arch/riscv/boot/dts/Makefile
-> > @@ -12,3 +12,4 @@ subdir-y += spacemit
-> >  subdir-y += starfive
-> >  subdir-y += tenstorrent
-> >  subdir-y += thead
-> > +subdir-y += ultrarisc
-> > diff --git a/arch/riscv/boot/dts/ultrarisc/Makefile b/arch/riscv/boot/dts/ultrarisc/Makefile
-> > new file mode 100644
-> > index 000000000000..d01a770d3cba
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/ultrarisc/Makefile
-> > @@ -0,0 +1,2 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +dtb-$(CONFIG_ARCH_ULTRARISC) += dp1000-rongda-m0.dtb
-> > diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi
-> > new file mode 100644
-> > index 000000000000..101b416b1079
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0-pinctrl.dtsi
-> > @@ -0,0 +1,85 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
-> > + */
-> > +
-> > +#include "dp1000.dtsi"
-> > +
-> > +&pmx0 {
-> > +	i2c0_pins: i2c0-pins {
-> > +		pins = "PA12", "PA13";
-> > +		function = "func0";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	i2c1_pins: i2c1-pins {
-> > +		pins = "PB6", "PB7";
-> > +		function = "func0";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	i2c2_pins: i2c2-pins {
-> > +		pins = "PC0", "PC1";
-> > +		function = "func0";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	i2c3_pins: i2c3-pins {
-> > +		pins = "PC2", "PC3";
-> > +		function = "func0";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	pciex4a_link_pins: pciex4a-link-pins {
-> > +		pins = "PC0";
-> > +		function = "func1";
-> > +		bias-pull-down;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	pciex4b_link_pins: pciex4b-link-pins {
-> > +		pins = "PC1";
-> > +		function = "func1";
-> > +		bias-pull-down;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	spi0_pins: spi0-pins {
-> > +		pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", "PD6", "PD7";
-> > +		function = "func1";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	spi1_pins: spi1-pins {
-> > +		pins = "PA0", "PA1", "PA2", "PA3";
-> > +		function = "func0";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	uart0_pins: uart0-pins {
-> > +		pins = "PA8", "PA9";
-> > +		function = "func1";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	uart1_pins: uart1-pins {
-> > +		pins = "PB4", "PB5";
-> > +		function = "func0";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +
-> > +	uart2_pins: uart2-pins {
-> > +		pins = "PC4", "PC5";
-> > +		function = "func0";
-> > +		bias-pull-up;
-> > +		drive-strength = <33>;
-> > +	};
-> > +};
-> > diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts
-> > new file mode 100644
-> > index 000000000000..6f72d60ad55e
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/ultrarisc/dp1000-rongda-m0.dts
-> > @@ -0,0 +1,111 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
-> > + */
-> > +
-> > +#include "dp1000-rongda-m0-pinctrl.dtsi"
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +
-> > +/ {
-> > +	model = "Rongda M0 Board";
-> > +	compatible = "rongda,m0", "ultrarisc,dp1000";
-> > +
-> > +	aliases {
-> > +		serial0 = &uart0;
-> > +		serial1 = &uart1;
-> > +		serial2 = &uart2;
-> > +		serial3 = &uart3;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path = "serial0:115200n8";
-> > +	};
-> > +
-> > +	gpio-poweroff {
-> > +		compatible = "gpio-poweroff";
-> > +		gpios = <&gpio_b 0 GPIO_ACTIVE_HIGH>;
-> > +		active-delay-ms = <100>;
-> > +
-> > +		status = "disabled";
-> 
-> Why is this disabled? You just added final board, so it cannot have any
-> nodes disabled. Disabled at this point means you add dead code without
-> explanation.
-> 
+RISC-V uses -fpatchable-function-entry=8,4 when the compressed ISA is
+enabled and -fpatchable-function-entry=4,2 otherwise. In both cases, the
+patchable NOP area starts 8 bytes before the function symbol address.
+The __mcount_loc entries therefore point at the patchable NOP area
+associated with a function, while nm reports the function symbol at the
+entry address used for the function range check.
 
-Will drop them, reset/poweroff is handled via OpenSBI SRST. Thanks!
+After RISC-V selected HAVE_BUILDTIME_MCOUNT_SORT, sorttable started
+applying that range check at build time. Without allowing entries just
+before the reported function address, the mcount sorter treats valid
+RISC-V ftrace callsites as invalid weak-function entries and writes
+them back as zero. The resulting kernel boots with no ftrace entries,
+breaking dynamic ftrace and users such as livepatch.
 
-> 
-> Best regards,
-> Krzysztof
-> 
+The failure is silent during the final link because zeroing weak-function
+entries is an expected sorttable operation. At boot, those zero entries
+are skipped by ftrace_process_locs(), so the only obvious symptom is that
+the vmlinux ftrace table has lost valid callsites and ftrace users cannot
+attach to them.
 
-Best regards,
-Jia Wang
+CONFIG_FTRACE_SORT_STARTUP_TEST also reports the table as sorted in this
+state: it only checks that the __mcount_loc entries are in ascending
+order, which a fully zeroed table trivially satisfies. The original
+commit relied on this check and did not see the regression.
 
+On an affected RISC-V QEMU boot with both CONFIG_FTRACE_SORT_STARTUP_TEST
+and CONFIG_FTRACE_STARTUP_TEST enabled, the sort check still passes
+while ftrace reports zero usable entries and the early selftests fail:
+
+  [    0.000000] ftrace section at ffffffff8101da98 sorted properly
+  [    0.000000] ftrace: allocating 0 entries in 128 pages
+  [    0.054999] Testing tracer function: .. no entries found ..FAILED!
+  [    0.172407] tracer: function failed selftest, disabling
+  [    0.178186] Failed to init function_graph tracer, init returned -19
+
+Handle RISC-V like arm64 for the function-range check and allow
+patchable entries up to 8 bytes before the function address.
+
+With this fix, a RISC-V QEMU smoke boot with ftrace startup tests shows
+the vmlinux ftrace table is populated and dynamic ftrace still works:
+
+  [    0.000000] ftrace: allocating 46749 entries in 184 pages
+  [    0.051115] Testing tracer function: PASSED
+  [    1.283782] Testing dynamic ftrace: PASSED
+  [    6.275456] Testing tracer function_graph: PASSED
+
+Fixes: 0ca1724b56af ("riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT")
+Suggested-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Link: https://lore.kernel.org/all/20260527113028.4b21a5de@fedora/
+Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
+---
+ scripts/sorttable.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index e8ed11c680c6..4c10e85bb5af 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -891,17 +891,21 @@ static int do_file(char const *const fname, void *addr)
+ 	table_sort_t custom_sort = NULL;
+ 
+ 	switch (elf_map_machine(ehdr)) {
+-	case EM_AARCH64:
+ #ifdef MCOUNT_SORT_ENABLED
++	case EM_AARCH64:
+ 		sort_reloc = true;
+ 		rela_type = 0x403;
+-		/* arm64 uses patchable function entry placing before function */
++		/* fallthrough */
++	case EM_RISCV:
++		/* arm64 and RISC-V place patchable entries before the function */
+ 		before_func = 8;
++#else
++	case EM_AARCH64:
++	case EM_RISCV:
+ #endif
+ 		/* fallthrough */
+ 	case EM_386:
+ 	case EM_LOONGARCH:
+-	case EM_RISCV:
+ 	case EM_S390:
+ 	case EM_X86_64:
+ 		custom_sort = sort_relative_table_with_data;
+-- 
+2.43.0
 
 
 _______________________________________________
