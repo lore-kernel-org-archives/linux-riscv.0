@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A42CD5BD1
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 11:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75DCCD6E44
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 11:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuQvfXVsuzsaK6C3sIHAr8iepG8cwrFFikOF6j4r3Fc=; b=MhADWt51sqVl+nxmI0o3jj53vz
-	sx+NZ8Ur4lpQJs71iSuW3DsxpnnLZUjjKOabEMz14dfqgGv6DGGiOGiRzR3Ql5/AtbP4s+tNrD78L
-	FexTfS9i3b7Qq8VjAx2nGuluqPjUh31+otCmdVrgql1olCz5mtBiIeUVTwZTwAIpBcqovmyXRP7pG
-	H3THlwuWECEnNIdqAAZdurSa/qDNMayOUr8/UgCYKJyccSaJmdBR8DdVughkj6HoPS9pyLXBO4z7y
-	TAQD8jNOJDqNC1LYhQqujtRki6uIeHhw/z6PT7wSm9yt45Yh2fHJOtRfAMpl8hmq7+d09V5yTm8uJ
-	FORLKjxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0nZJ2tZBXjUfdlTy5tW5BjQ5YRgz/HLUlfuPB93+FVI=; b=goajBFyqU/E60s
+	UAPJwMvPmBrohaMY0mgXEvLLJRtqQPl9R6OA3V+2XUg++DEhk/0e6drHI+eElMJQsKZr/SL9ILUAB
+	qIKF+BuiW6AO8/lLM4ZclhxujswbQJiC1So0Xxz7u1ZNubbWKVyFq/ThoEiIhE5ytb3lmSpLSlYny
+	0BOPRe+5kWzDFAkW7Z4u/LAR77OBY3LQ29IeckpcAYjz4+FxfjJCkcqCfNOxfmkNQP+TydjeBWENL
+	PneGPElImwZfIQm7r0eHtMKUfLXgEimbQ9I3Xq94N4PQzMLiTqpizDfMk+sQgVdUHpzuUVGRRSaCf
+	H6o2CIgKZ3pfv76fv7XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYhj-00000005eOo-2uH6;
-	Thu, 28 May 2026 11:15:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wSZ4j-00000005fx7-3WxH;
+	Thu, 28 May 2026 11:38:57 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSYhg-00000005eOK-21I9
+	id 1wSZ4i-00000005fwA-0Bsq
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 11:15:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 59D3F43FB5;
-	Thu, 28 May 2026 11:15:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8A9A1F000E9;
-	Thu, 28 May 2026 11:15:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779966907;
-	bh=RaSwjjwY7L43Pt4ifGaOyS+rmXcHainlqC5wj7d6FGs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mgOTK2Tft+6PLu9lmoRUPtk/Covdhptd2aIBEiCAbB4KS+mC/Ggcdk3AYo9nn0YID
-	 pyVmK6rCiJjlQxkPIspfbl4dVtNfa8cFVsZQO7dUENjzAEAc3qYSWTgNObGZwFZmJP
-	 jWCQSvrQRM6x80T+mns2eIF4XBmQDWAGojFXUpS/8RFeHg3lh8wzPRPYY2JaJpi1GP
-	 9pUR7jfLS2AueVJQlSKr3Sn/9VAow19enmSF6f/DrWQkGxe0t+Woid6fiPnQXUuUyu
-	 2BXImcsBz2vlDi2d1GbpHZj9FF0tyGmwGElNHBlSVCzqiM+UviFgLkdC/1KnhbloZ9
-	 mX7PxqDoHeHcg==
-Date: Thu, 28 May 2026 12:15:01 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Zong Li <zong.li@sifive.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, debug@rivosinc.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, david.laight.linux@gmail.com,
-	re@w6rz.net, catalin.marinas@arm.com, szabolcs.nagy@arm.com
-Subject: Re: [PATCH] riscv: cfi: reduce shadow stack size limit from 2GB to
- 512MB
-Message-ID: <6fac30db-c87f-4242-a858-54d4467ade85@sirena.org.uk>
-References: <20260522093634.3530233-1-zong.li@sifive.com>
- <CANXhq0pfU1+Qv-SdJRzwvSDQw010+QovUH-OuG4tcwwsjf90MQ@mail.gmail.com>
+	Thu, 28 May 2026 11:38:57 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2bd2051167eso63035345ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 28 May 2026 04:38:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779968334; x=1780573134; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HQOVqn7f6Wpqd2/fSU+ahSddV1Hbd7ryZ20yjrjfDWg=;
+        b=CFC07ySTihtviezZ3g/T4SLbKxSoP+qe3/UPigu/rMp/DCI3QqQasdmW7gdqWkyWBM
+         lxFZNfQzu+7SBIwl+pf5IQxtwV1y0rvjE0dsz2hAZXvTMUOvrhe/kjHVlFL7f5kTXsUb
+         an/o8zkUJwl3u0p/gWdLeOiTaV/m20TQYg2kGu/OUTpbhQetasmKsNSfA5lzJr9jmZBZ
+         bJMHBlU9wTttIIvQ0bhPtJ85T30+ftBHoYS1PYuuSNiXi6pc3c9gIh9yodkg/aMynNef
+         QjfdyK6+WbW+7ShcoisegJ8aMkNFvz1hV8ErNUSm0RdAiKI/bqc31UY61HP3SVOEbdWJ
+         Dzog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779968334; x=1780573134;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HQOVqn7f6Wpqd2/fSU+ahSddV1Hbd7ryZ20yjrjfDWg=;
+        b=gPVV47MlLZj1B9jTKZ8xU7wn/xHhF6v6th9Hy6rvnVLmNy61kz8+uIsgnTaaVgxF6M
+         E7Zknvi0ilB0VyO5wS8QsDa3pdGws3EsFTrRQz3Wh97ZgwIlqgsK/gPgUs4/qSpAFL+G
+         /U3L0swok3gFLiMBWzxjHkfcOL5lB8JDBkUOk8AgfBt/gBDx8WbJC4dVx9g8+JDgseyu
+         ffI2Vq8z3CmUd6yYCv6SMb1uuSYKnf+hVLebDMbzWXlbmqCkYKvpAcpGlGBylJbiuGx4
+         pfExM1Y5H7FfZ23UDWMZD/TQ/8zkhEnJNLR6Y/KIoJ5LLv2Cg+GrqRCxutepcF/YyF0D
+         +hGw==
+X-Forwarded-Encrypted: i=1; AFNElJ8laGPF+XtylOEGEhcpFaWld0coyC5AOy6yJOZnzkhQ0PlYboHcZvyP9ZHF23J7O2r/Ng3Fml7k1gHJEA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyY9Wn2Y+14/y83KZRyy2uAn/HCaM6WpGf4axT55OgQr7SldcIA
+	kiSaLBdECD2kH/DnAz8Nwy4t0ZcyPckFdB3Kl31eeb+FnigwItU6A3JQMKiUtA==
+X-Gm-Gg: Acq92OHRoBj63hqIhHYCjXjk02iz9LaeVRLxfdKGdFHUtl10TSRUmQ5VixYWlhmfzDC
+	YpMPPbE83C28S1bSZkOtMdtnxJc9QVMdokyF5w06UjWDN28mDRM8J7grus5+TBTXTmfRzUfIMvm
+	n2TErMF51/fCypUkMN5VhbkNleXy8y+CKOfFydzt57gm55dPdhhJ/Vpw0kQtdwING0Uce5vQIO0
+	lZnd/9J3dU0N/J3xL20QtgbaCKfjH0ag8wWOrZ4ieYMkjv1vzCM+aCvLulJX9SDp6xrueEbaLnU
+	6qFyI8W4l+9ZLnMcHCayOZY15mwWPhZkVU25qNEiu+JH7f0qpDAPEjPloX3U1rfnYQZqMvOPaOD
+	VXNNr6qZHK9pmqQBQq7TUOhDUEVeDbK8/Gi8iyCcn4HoSFLLsDZbyOVx07ntZc3VyAimPta7Epg
+	rPg1ZjPD2oXnoOueg/oO5gA+6J5QOoGuWJfA==
+X-Received: by 2002:a17:902:cec7:b0:2b2:ccfb:8387 with SMTP id d9443c01a7336-2beb0613c3bmr312598815ad.28.1779968334356;
+        Thu, 28 May 2026 04:38:54 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56958d3sm170611355ad.12.2026.05.28.04.38.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 04:38:53 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Enhance the logging check for mmu mapping
+Date: Thu, 28 May 2026 19:38:39 +0800
+Message-ID: <20260528113840.2629186-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-In-Reply-To: <CANXhq0pfU1+Qv-SdJRzwvSDQw010+QovUH-OuG4tcwwsjf90MQ@mail.gmail.com>
-X-Cookie: Someone is speaking well of you.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_041508_560923_752D488D 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260528_043856_085571_F6E8C9FE 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,74 +101,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1757367002352734947=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+When enabling dirty ring, the dirty bitmap is disable, and the logging
+check is always false as the RISC-V architecture does not select
+"NEED_KVM_DIRTY_RING_WITH_BITMAP". Although the dirty log is recorded
+since the write path already trying to add the dirty log, the logic for
+logging check is broken and some side effect will occurs.
 
---===============1757367002352734947==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="umKIjHoEp01llVfM"
-Content-Disposition: inline
+Enhance the logging check for mmu mapping so it can check both the dirty
+ring and the dirty bitmap.
 
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ arch/riscv/kvm/mmu.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
---umKIjHoEp01llVfM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 2d3def024270..b5873bca9dce 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -142,9 +142,8 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+ 				enum kvm_mr_change change)
+ {
+ 	/*
+-	 * At this point memslot has been committed and there is an
+-	 * allocated dirty_bitmap[], dirty pages will be tracked while
+-	 * the memory slot is write protected.
++	 * At this point memslot has been committed and dirty pages will be
++	 * tracked while the memory slot is write protected.
+ 	 */
+ 	if (change != KVM_MR_DELETE && new->flags & KVM_MEM_LOG_DIRTY_PAGES) {
+ 		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
+@@ -433,8 +432,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	struct vm_area_struct *vma;
+ 	struct kvm *kvm = vcpu->kvm;
+ 	struct kvm_mmu_memory_cache *pcache = &vcpu->arch.mmu_page_cache;
+-	bool logging = (memslot->dirty_bitmap &&
+-			!(memslot->flags & KVM_MEM_READONLY)) ? true : false;
++	bool logging = kvm_slot_dirty_track_enabled(memslot) &&
++		       !(memslot->flags & KVM_MEM_READONLY);
+ 	unsigned long vma_pagesize, mmu_seq;
+ 	struct kvm_gstage gstage;
+ 	struct page *page;
+-- 
+2.54.0
 
-On Thu, May 28, 2026 at 09:07:04AM +0800, Zong Li wrote:
-
-> Because the RISC-V shadow stack stores very similar data to GCS, I
-> also reduced the RISC-V shadow stack size to 2G in my recent patch.
-> You can find the reasons for this change here:
-> https://lists.infradead.org/pipermail/linux-riscv/2026-May/091308.html
-
-> In the same thread, we discussed if we could make the size even
-> smaller. Thank David for his helpful analysis on this topic.
-
-> Since GCS has been merged for a few years now, we'd like to learn from
-> your experience. We want to make sure we are not missing any important
-> impacts or issues. Therefore, we would really appreciate it if you
-> could share your thoughts with us. This will give us the confidence to
-> move forward with the patch
-
-Nobody has reported it causing them a problem, but there's not really
-much practical use yet due to hardware availability so that might change
-and I'm not sure how much inference you can draw there - there is much
-more test use than production use at this stage.  I would be astonished
-if anyone wanted the shadow stack to be bigger, the more likely problem
-is excessive VA usage but we felt it was better to err on the side of
-using too much memory.  The general feedback from userspace people was
-that they weren't too concerned about issues.
-
---umKIjHoEp01llVfM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoYI7UACgkQJNaLcl1U
-h9DhlAf+NNLL/XYPMhBMBlBhdSv8JTY9UApiXNcNa3NVxS0sy6e7VkWLkBio++47
-pLNaTi1nSoBZYKb7K9UL8WIlH/cV+5GUYp04DCLl6yM4GgClFmsFEt7EWwatb0hS
-v/RIn7n53SGPKE4B+/lVPQ2uiG+djViOth3rpGH7S3Phz9asS/MvfG2siYgP+Udt
-BGtULtKTPVFJlZ/ROG0xh82CuHfHrxTuXa7KMjasGi/V6sytBKZEcOYEEe1gp3Rx
-tOiDsFQlPFh1fHmmrf96ZUICZosEOfv5wt9zvgE8p5v+ufzqBjHdzuZ2ES2bWdc5
-fMoRLXJshcTxKDLX45nohEtSnSrLcA==
-=JDS8
------END PGP SIGNATURE-----
-
---umKIjHoEp01llVfM--
-
-
---===============1757367002352734947==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1757367002352734947==--
-
