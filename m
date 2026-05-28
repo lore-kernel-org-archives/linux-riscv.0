@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF25CD6E4A
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 08:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF17CD6E45
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 08:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Df51/zM5AgKn7xn48Q68oI2GWnP3saKTrLWjhotH+Gs=; b=n6xfdfM8Egg6bT
-	hrbVCe/HVPUvwNQyXCwGE2bdHhRi55QGnKqeZUs+nInL2X2GFNhFDIGxKD3iKjM/7Y5WyhPuoUpcc
-	xIcLg1cubbQgb9yU1jUtr2hMi4Kky17/oXY57eXkeGJ8VxhdeFJ7NBOxmELCH4R6kzzSXVym2U/52
-	i6g+R1dOkNCbL8WP+lszxEemQm+pWCKF8D8toQnhesTU9ulxP6BEUPtdPUa9A2u2vyNfKkjv50LcK
-	CFXQqsrzO+xwdg7Zjw7BXg/Ia5Q0cscemJOYddxX/NGy0/WiPEKOmfjT7oWl//zYHrma0RbJJwA/W
-	gNoXnXviAvP7ux2pVhpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q9sdrebIWthCjO3NlbNZGBqwPcnrtT8T7o42HwLJ2Mc=; b=dExS1wUOBBp9X6M7gTPe5+5lyW
+	z2HBFJmHIa0Qgik6pVAsG/FMKLs/rt20EClSplve29idkKz14sRDLZFOBeWXF0v/UYDFapWnCgww+
+	ZlXr+filXK0pXjrgml1tQEyH5wSDzIvLIxPct4c4XGUSBhp2a5gRHJAmxp6NTJJEX6OuQTPVS/O1J
+	OnJzLrEGswgUI4W4pbfk1FhqR3qP5Lc+o6t85E6KEFGGralbFY9S+hej+LdrPiKP3ar2qixeb76M7
+	bLwflDA43ctTxIKDll38s/pEoqo0ugS28AmMbjaztRu4/bnr0CrGo/eFqHmB5OxUSIrrbxx26HA0S
+	LbUennBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSW1e-00000005N5g-2VNS;
-	Thu, 28 May 2026 08:23:34 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1wSWWn-00000005Re6-36Nm;
+	Thu, 28 May 2026 08:55:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSW1Y-00000005Myy-0m2J
+	id 1wSWWm-00000005Rdq-22fo
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 08:23:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1779956606; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=uOIFhnbfyUrG6uFjeBjHnCSmlcH4pBCMjyX4IXFTvXI=;
-	b=V+effJdHDcpboBbFdzUTEqOBfOb/cnevd7eGh3WPXR/HSvafxPCsTh6e5KSNrpB8TXLvtmtIcfuWNSeLX8N0WOeP+soFs2hIgeEoV2YN9N+a+0OHJMfuNOHVMEiU+gKCZ2MGdO3LiYgAn9qWP/1SpUZRzwHY+ecKAKH6malzIWg=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X3lxQQU_1779956603;
-Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X3lxQQU_1779956603 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 28 May 2026 16:23:25 +0800
-From: Wang Han <wanghan@linux.alibaba.com>
-To: Paul Walmsley <pjw@kernel.org>,
+	Thu, 28 May 2026 08:55:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCC04605D5;
+	Thu, 28 May 2026 08:55:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA7C1F000E9;
+	Thu, 28 May 2026 08:55:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779958543;
+	bh=xdKssTSNM7AOFuPAbzDLnKCNlm55Cioqd2vEDuyV+b0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=J0osnToIbEr/6J9Gs8+MDzWlrXC16S0yconHV2qb5UaSwSzWKXrGDqbfeuqiZI6dc
+	 bxdYJ3imyK5loQXCLvR36BQG0NR9QJr0AT4atZ8DaVJqYoGKpCFOjFYIfoLJ1jFYh6
+	 BoYRbNKiPD0pGFMjkrLIoW8GI2nEg6W+HEQeUIgLWq92o2uEZp1ROjsJcbcRhv2S/U
+	 DWMVai3DGW+e8XaK9KcxQ+kO6rahaYDk9IneNpuWdJpsrdDrQMQoZcrt8HNqIhggI6
+	 GfL9E/HJ3tmN8ZxFenBnyilgzM71JTjvpOgap3L13zA7q1IWLVU4E2PKUSQ7IAadYW
+	 ClYJ5BvMEuoQg==
+Date: Thu, 28 May 2026 09:55:38 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jia Wang <wangjia@ultrarisc.com>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Pei <cp0613@linux.alibaba.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jiri Kosina <jikos@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Petr Mladek <pmladek@suse.com>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	oliver.yang@linux.alibaba.com,
-	xueshuai@linux.alibaba.com,
-	zhuo.song@linux.alibaba.com,
-	jkchen@linux.alibaba.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: [PATCH v2 7/8] riscv: Kconfig: enable HAVE_RELIABLE_STACKTRACE and HAVE_LIVEPATCH
-Date: Thu, 28 May 2026 16:23:09 +0800
-Message-ID: <20260528082310.1994388-8-wanghan@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
-References: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH 6/9] pinctrl: ultrarisc: Add UltraRISC DP1000 pinctrl
+ driver
+Message-ID: <20260528-broiling-naturist-78401ecbb870@spud>
+References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com>
+ <20260515-ultrarisc-pinctrl-v1-6-bf559589ea8a@ultrarisc.com>
+ <CAD++jLn=RX2rZ33kD427wR1KBo=YPzCqFaaSot22nJL4Emn_=A@mail.gmail.com>
+ <20260525-turbojet-theorize-3a7b49f41af0@spud>
+ <177995438556.929162.1470247666821673655.b4-reply@b4>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_012328_379590_97A3D11C 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <177995438556.929162.1470247666821673655.b4-reply@b4>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,61 +77,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5266086262002072784=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the metadata frame records, the kunwind state machine and
-arch_stack_walk_reliable() are all in place, advertise the capability
-to the rest of the kernel:
 
-  * select HAVE_RELIABLE_STACKTRACE under FRAME_POINTER && 64BIT, so
-    only the configurations that actually have the metadata records
-    and the FP-based reliable walker enable it.
-  * select HAVE_LIVEPATCH under the same condition and source
-    kernel/livepatch/Kconfig so the livepatch menu is reachable from
-    the RISC-V configuration.
+--===============5266086262002072784==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IgXyLvpczIplp3dR"
+Content-Disposition: inline
 
-This is split out from the unwinder change so the policy decision and
-the implementation can be reviewed and reverted independently.
 
-Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
----
- arch/riscv/Kconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+--IgXyLvpczIplp3dR
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 674044754378..2921680d2132 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -185,6 +185,7 @@ config RISCV
- 	select HAVE_KRETPROBES
- 	# https://github.com/ClangBuiltLinux/linux/issues/1881
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
-+	select HAVE_LIVEPATCH if FRAME_POINTER && 64BIT
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PAGE_SIZE_4KB
-@@ -195,6 +196,7 @@ config RISCV
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_PREEMPT_DYNAMIC_KEY
- 	select HAVE_REGS_AND_STACK_ACCESS_API
-+	select HAVE_RELIABLE_STACKTRACE if FRAME_POINTER && 64BIT
- 	select HAVE_RETHOOK
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
-@@ -1394,3 +1396,5 @@ endmenu # "CPU Power Management"
- source "arch/riscv/kvm/Kconfig"
- 
- source "drivers/acpi/Kconfig"
-+
-+source "kernel/livepatch/Kconfig"
--- 
-2.43.0
+On Thu, May 28, 2026 at 03:46:25PM +0800, Jia Wang wrote:
+> On 2026-05-25 11:10 +0100, Conor Dooley wrote:
+> > On Mon, May 25, 2026 at 11:28:51AM +0200, Linus Walleij wrote:
+> > > On Fri, May 15, 2026 at 3:18=E2=80=AFAM Jia Wang via B4 Relay
+> > > <devnull+wangjia.ultrarisc.com@kernel.org> wrote:
+> >=20
+> > > > +static int ur_legacy_parse_prop(struct pinctrl_dev *pctldev,
+> > > > +                               struct device_node *np,
+> > > > +                               const char *propname,
+> > > > +                               struct ur_legacy_prop_data *prop)
+> > > > +static const char *ur_legacy_get_function_name(const struct ur_pin=
+ctrl_match_data *match_data,
+> > > > +                                              u32 mode)
+> > > > +static int ur_legacy_conf_to_configs(struct pinctrl_dev *pctldev, =
+u32 conf,
+> > > > +                                    unsigned long **configs,
+> > > > +                                    unsigned int *num_configs)
+> > > > +static int ur_legacy_add_pinconf_maps(struct pinctrl_dev *pctldev,
+> > > > +                                     struct pinctrl_map **map,
+> > > > +                                     unsigned int *reserved_maps,
+> > > > +                                     unsigned int *num_maps,
+> > > > +                                     const struct ur_legacy_prop_d=
+ata *prop)
+> > > > +static int ur_legacy_dt_node_to_map(struct pinctrl_dev *pctldev,
+> > > > +                                   struct device_node *np,
+> > > > +                                   struct pinctrl_map **map,
+> > > > +                                   unsigned int *num_maps)
+> > >=20
+> > > What's up with all this legacy stuff?
+> > >=20
+> > > What is this a legacy of?
+> > >=20
+> > > I thought this was a *new* driver so how can it be "legacy"?
+> >=20
+> > Jia already agreed to drop this stuff :)
+> >=20
+> > >=20
+> > > > +static int ur_generic_dt_node_to_map(struct pinctrl_dev *pctldev,
+> > > > +                                    struct device_node *np_config,
+> > > > +                                    struct pinctrl_map **map,
+> > > > +                                    unsigned int *num_maps)
+> > > > +{
+> > > > +       return pinconf_generic_dt_node_to_map(pctldev, np_config, m=
+ap, num_maps,
+> > > > +                                             PIN_MAP_TYPE_INVALID);
+> > > > +}
+> > >=20
+> > > Hm I think Conor has new helpers for this so you don't need to wrap
+> > > it like this.
+> >=20
+> > Yeah, although "more importantly" the new helpers mean that drivers
+> > shouldn't need to do things like calling these home-rolled functions in
+> > probe, just so that they can try to use pinconf_generic_dt_node_to_map(=
+):
+> > | static int ur_add_pin_groups(struct ur_pinctrl *pctldata)
+> > | {
+> > | 	for (u32 i =3D 0; i < pctldata->match_data->npins; i++) {
+> > | 		int ret;
+> > |=20
+> > | 		pctldata->group_names[i] =3D pctldata->match_data->pins[i].name;
+> > | 		pctldata->group_pins[i] =3D pctldata->match_data->pins[i].number;
+> > |=20
+> > | 		ret =3D pinctrl_generic_add_group(pctldata->pctl_dev, pctldata->gro=
+up_names[i],
+> > | 						&pctldata->group_pins[i], 1, NULL);
+> > | 		if (ret < 0)
+> > | 			return dev_err_probe(pctldata->dev, ret,
+> > | 					     "failed to add pin group %s\n",
+> > | 					     pctldata->group_names[i]);
+> > | 	}
+> > |=20
+> > | 	return 0;
+> > | }
+> > |=20
+> > | static int ur_add_functions(struct ur_pinctrl *pctldata)
+> > | {
+> > | 	for (u32 i =3D 0; i < pctldata->match_data->num_functions; i++) {
+> > | 		const struct ur_function_desc *desc =3D &pctldata->match_data->func=
+tions[i];
+> > | 		struct pinfunction func =3D desc->gpio ?
+> > | 			PINCTRL_GPIO_PINFUNCTION(desc->name, pctldata->group_names,
+> > | 						 pctldata->match_data->npins) :
+> > | 			PINCTRL_PINFUNCTION(desc->name, pctldata->group_names,
+> > | 					    pctldata->match_data->npins);
+> > | 		int ret;
+> > |=20
+> > | 		ret =3D pinmux_generic_add_pinfunction(pctldata->pctl_dev, &func, (=
+void *)desc);
+> > | 		if (ret < 0)
+> > | 			return dev_err_probe(pctldata->dev, ret,
+> > | 					     "failed to add function %s\n",
+> > | 					     desc->name);
+> > | 	}
+> > |=20
+> > | 	return 0;
+> > | }
+> > (If I had more time, I would probably go looking to see if there are
+> > more candidates for conversion)
+> >=20
+> > Jia, the helper in question is pinctrl_generic_pins_functions_dt_node_t=
+o_map().
+> >
+>=20
+> I found pinctrl_generic_pins_function_dt_node_to_map() in mainline, but
+> there is no pinctrl_generic_pins_functions_dt_node_to_map() as mentioned.
+> Did you mean the singular version, and is that the one I should use?
 
+I did, the s was a typo.
+
+Sorry about that,
+Conor.
+
+--IgXyLvpczIplp3dR
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahgDCgAKCRB4tDGHoIJi
+0ikVAQCQ/aGd/v7ZtmAcujbqa2qSy5/xPp1bjYWVHPfaCt+Z8gEAga87XWn7zpkq
+9+LxyzRIJol0/UxmZtRob2kFwDfUaww=
+=poIP
+-----END PGP SIGNATURE-----
+
+--IgXyLvpczIplp3dR--
+
+
+--===============5266086262002072784==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5266086262002072784==--
+
