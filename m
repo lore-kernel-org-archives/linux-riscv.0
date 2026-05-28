@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCFCCD5BD5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 19:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049E0CD4F54
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 19:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c9GYo+zhU6JbDBEoIq5iaEKbyZJecR5pCew3AblJ/pI=; b=qWSuZ98/k9dKYK
-	jYtBPLuvseIf0Hwq+SYw6TOro75yXhqgLwZThQzItB+Q5l0hMmRIKwptvzgOQhAibSlVB4NxRZGAg
-	nR+lGk/afTy0RLY2lOtyZ0sAAB2c51VqztpxhR8dCG+7MeVhTkQ5VRiG9H7DJA1hLaBrFI7trTrEq
-	LNASftZZ6+x/abT8p0Z5ajvtUJgEdT/bhkibb2ly/6OWI92Xb7O0bQyjCYsYtQJZFbjBKyrZASz6X
-	ov8greAGuKm3OwlvhK821YRhUooPbp5cXGV/RYEjNMdAD5YsMx4LmOoGUxOMhwCzXbna1MG9IUWk1
-	CF0VRbOyxcwTreNtL+nQ==;
+	List-Owner; bh=KYQTcKdp3PrS1JTx+0DxKb+OxFu7SHlqG+UvvSaiY28=; b=iAIqge8IbEhfag
+	Yl0u4mJLgyD1kwfNKwQjYNeZxDGJymSCf9bbmVWFRSQsrGpFxK/8Q9aUNz3JGYftBILDHWQI9SEMa
+	yu2P8G+CDvE7bibR+bKxxeNDv0w1gBBoX+x2NLsZMcR/2TbKRnLZpUvpbayQ1GCriMd0e60AspJMy
+	Msl9AgQGVTRddLiiOA/EnDM3omlR64yxRdEMLgRA8bWcx+L2VzIutOo8cQuQkz2F5dHbOhNBSpCN2
+	8SRgBfoALjtUoI1x52wCsLFz76PxW0oT2SzOIpt2MHtlT8sMhArqAy82UbUyXPSVncuGbDzEfyld/
+	hg7eEE2BGst71fVP7AuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSg8M-00000006Fzf-1QGB;
-	Thu, 28 May 2026 19:11:10 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1wSg8Q-00000006G1W-2J46;
+	Thu, 28 May 2026 19:11:14 +0000
+Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSg8K-00000006Fyn-37Ff
+	id 1wSg8O-00000006G0A-12mR
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 19:11:09 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7e5fd39cf11so6016651a34.0
-        for <linux-riscv@lists.infradead.org>; Thu, 28 May 2026 12:11:08 -0700 (PDT)
+	Thu, 28 May 2026 19:11:13 +0000
+Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7e603d0ee0aso4174220a34.2
+        for <linux-riscv@lists.infradead.org>; Thu, 28 May 2026 12:11:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1779995468; x=1780600268; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1779995471; x=1780600271; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=So1Dot4XH9WMIAQdwvqn+C0MDAzA9ANdxsQAk9WKwiw=;
-        b=RZa1+AiIZhLMhBytsyR0NcyMmyYAblXh77xgfKNgt/clxtoTfT9pli0b5tztNR4Z8I
-         kcx7mFgEW3MXMvGIWYlMeVfudIEEplggRfhDwdIbgzZQtXBzuK+51TzP2ZaGtmdSIz95
-         DdcMX2eUAaqqjiouej7rduCjUPuEEF4rOL4r3gnGiUjB8lVCK7NBM9BXCBvwjJpwaGo4
-         8jvjQQBPZORANlrYN7QoOgNIrGDcO05x1QNFoUv3r5NOYlKVkcs3tnykHAFYUQ51NNmH
-         +sbr8PbOB5vOemfTNbnUk5lTDcMZ4Ih6lY61HeADWciGll3lih6ns5TWhyWOCA5Vzpuv
-         TuxQ==
+        bh=X/QDiiTKu3K2r9kN9VcSykUb1oKinEk0QB+FBuhXU7A=;
+        b=Wg6YrFerixRja33f9wGHu/zbsQtZLWszJkH1Yr3AJgkYU1vZ11L75r1ZUhO5Mewvc4
+         HN+qrpeBLc5VmXn3wEdhBcb9VGF2e1cKb5c5kCNmcH0xaW4TH3+l8KItIsKv+anJYlNs
+         Rx+vD/PCY+97z/VeUn/NHel35BO9ecy/uUJWXVadSjUvob/UIFuRCBWBZqoX8q3CYm1l
+         GJb5zQ750qNZIW35cu9rvNRJUXsT5AE/eNFxb21K2QvIF4HqykTrQ8C0GPxotlth3uZZ
+         tgEbeD0Am1FqnpsQxYdbkensXFel0KpJcUO5G0A5a1g6hH0dd2V8440cEWWe8eDzl1Bl
+         Br0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779995468; x=1780600268;
+        d=1e100.net; s=20251104; t=1779995471; x=1780600271;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=So1Dot4XH9WMIAQdwvqn+C0MDAzA9ANdxsQAk9WKwiw=;
-        b=L+g6B9um+UzkjBKL0bTqYD7RQ6Gsk7KuNSJKCZg5AEJ6TRWAHB7nf3gX84wjJ2D1ou
-         D7uTwupMpr40GmsSMdReVxbD/4e9TqIcKVniez7Xt9UdYzp1f5CELlsJeg2pOV5CSbf0
-         DPPqPEun43MOIlbJic9+oUkzdo2z+QcTjjTUHw3UHpsDgndeHGnQW3dn6NeLPCiI89MF
-         k+YlUygKL+sEdblyc9EEh+HCBjt57WCNH+KCVfMTo58Nk4KKO3wy4rAfUy3zuFUnGc01
-         kc9Szo5+mwTwWzyAjvz1IkFMhaYooFgYLcog3YA/9jUEfp/trSAhD8BNNFwE3qGZ8o9U
-         9ibw==
-X-Forwarded-Encrypted: i=1; AFNElJ/nxxIcrog55NqrqJEEt7QgDMr3pgAUEjPwsLeXMO/slkklL0+f/5bJdvekILK9g4IjzsP+a1JQLuFuZg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCiK9H8vwlX7sGHacqYK6hEwf1yx4FFW+6RZ6jp9BRLftXtHfj
-	XlnvqYVKUzdlZKgLm/6Him3pEn9ytJFLBB4/sdb8c+znsXRpXVNMCCrxoumZsWYF0AA=
-X-Gm-Gg: Acq92OF944NG+wF21tzttHhul96fv2DZSJBjc2vILmJ/UNZFWj8Z0jJ2ZjTcSXTXeIQ
-	hNTdNosXSjGDVFhnaHlnmHnkviNQAy45qNx9KYtw/r6a16hzZ7pV2pNoKJ692oPXsDdmy69F1lZ
-	7X002NBOW+w8CbTs2UyP+DKBz1yLNi2TpcqRCsn5Hs/FAgPrlGI43jr5JAhEjBUwgtA1QoAmg5M
-	k9tUBZA0x/IM2HaO4hrpPzrVTY4eROJ7Xhh6McKDGlf8SEKT99aFL8xtZAx8NhvO00JYqtRVSCz
-	XalOoYZXVQgUOnyfxLWROX+k9K5LV5+WLcCYzoaYK0O4OfA66g7EFKsMgTg3AyA8bivjybpiLfZ
-	6jwvCs0X6JHRP7dtuKzCaO22e+BaxIXbHboGrQeoE4YnxoWnpK/US7RTdCma3Vn9tbQKdOwrIGO
-	W84p+NTvuKSHANXO147jfzPbDLEoagoIqROJHsZFUc07C57Gg66sasjubN4UEp7WYU/nM=
-X-Received: by 2002:a05:6830:3698:b0:7dc:e37b:b5d3 with SMTP id 46e09a7af769-7e694499e54mr8407a34.7.1779995467759;
-        Thu, 28 May 2026 12:11:07 -0700 (PDT)
+        bh=X/QDiiTKu3K2r9kN9VcSykUb1oKinEk0QB+FBuhXU7A=;
+        b=flGtru1avdfepxZMQMbVFupbSujyCauHaIJnTEdzc9qj/xZE/lvisF2wo1Tn/1UyCX
+         68bNZuWKJZsFtWDHhYdQ0NGtY2Jsmb8Cuo47rLj560qTmpNoJDqKhPjcr290/itrQ5tV
+         GumZDOIbDzhnCGpVmEW89/0FUB/er+oFlQNsl4lpPewwSUO6tgNSC3a8L1ena6aA8UUe
+         raTmxnFiVBF37+b1u13hJWhW13sbSN8URQp5WTk6AyiuCvAtzw1yMWxE9F9hyuAkkHAh
+         hksJBQNEa0AdxjNygGKdJ918i7i4ODgFFuu9Q5+jt4aNNMChEtf2k9OdxHv14OJR/Dbq
+         YVBA==
+X-Forwarded-Encrypted: i=1; AFNElJ9gx8YieTFVTlO+ed/df3SPN1AEI+ivLWtB0X0+CjDoeFvZJRRrUOS9hxNmANUmRyBlTgot3S1umwaJ0w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMKMLPCjwv5VXv0OkXEAxv0O/UF1ytMW8iZUc7kM6WZsuibfR4
+	dtF1wRQSpcjFIYiE+dX9zgOmcT7wafVf0rJlooyimjwdHdjTpzRMwQFU/3vo+2gJoXs=
+X-Gm-Gg: Acq92OEhMCMGuWnt3xNrDiUrcSAvIaD38T5FNU7xFcqSNACwyfLShw6v9wzDVyWiWKA
+	Nm0x/50A9L2ssPsOPikwuE8rhb9MlLP4sWGhi462fNOM4EjWyO1HMGppY7ywTc1+h8EZLFiv7so
+	hffq5pR5KStViCQ6BRNgRCkuezUKCpFTIEzCxwhjprty1UYPBHKShyr8iCxrlLGV6gOlDV514fB
+	CH23ZqPDBs0eSWQYtA8VIu3YYiORHNSJ+Vx4lzRgJAStyuFuN2jjpgErg/CN4P/wDdFt/mCXyA5
+	af+FsQcMrXsOloq1HdtALvhhpEX9Z/YPAlgJ/xZlepkwMwMhirIpzueGpWNUg4hdRn5EUAijE+r
+	JU2rQgcpYuwC4YMoEZSlrZdwZZssdLJRYLi1og6rCXUDl9SdTwk4uYOQJuNh8S9BxUBU40chOEk
+	wvft9yI1eNAO7HtBO9aBcJuq3c5jT+oBLvHWLx4wubGg8jr2OxW2KUnrR5NdEfbE3AFMk=
+X-Received: by 2002:a05:6830:498d:b0:7e4:411:7ad with SMTP id 46e09a7af769-7e5fef39070mr19908749a34.24.1779995470769;
+        Thu, 28 May 2026 12:11:10 -0700 (PDT)
 Received: from lima-default.tail89d63.ts.net ([12.55.13.134])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e606482b65sm14849267a34.10.2026.05.28.12.11.06
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e606482b65sm14849267a34.10.2026.05.28.12.11.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 12:11:07 -0700 (PDT)
+        Thu, 28 May 2026 12:11:10 -0700 (PDT)
 From: Andy Chiu <tchiu@tenstorrent.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Cc: Andy Chiu <tchiu@tenstorrent.com>,
+Cc: daichengrong <daichengrong@iscas.ac.cn>,
+	Andy Chiu <tchiu@tenstorrent.com>,
 	dfustini@oss.tenstorrent.com,
 	greentime.hu@sifive.com,
-	daichengrong <daichengrong@iscas.ac.cn>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Han Gao <rabenda.cn@gmail.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Subject: [[PATCH] v4 1/4] riscv: vector: refactor vector context operations
-Date: Thu, 28 May 2026 14:09:12 -0500
-Message-ID: <20260528190927.886558-2-tchiu@tenstorrent.com>
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Sergey Matyukevich <geomatsi@gmail.com>
+Subject: [[PATCH] v4 2/4] riscv: clarify vector state semantics on syscall and context switch
+Date: Thu, 28 May 2026 14:09:13 -0500
+Message-ID: <20260528190927.886558-3-tchiu@tenstorrent.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260528190927.886558-1-tchiu@tenstorrent.com>
 References: <ag_N8H3e3YzjRb8j@chonkvm.lixom.net>
  <20260528190927.886558-1-tchiu@tenstorrent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_121108_801109_C70E9E65 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20260528_121112_308741_38B5636C 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,244 +111,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Lift riscv_v_{enable,disable} out of __*vstate_{save,restore,discard} so
-that we can reuse some functions without repeatedly turning on/off
-vector.
+From: daichengrong <daichengrong@iscas.ac.cn>
 
-Also, refactor and document about the user context save in preempt_v to
-make code more readable.
+The RISC-V vector specification states that executing a system call
+causes all caller-saved vector registers (v0-v31, vl, vtype) and vstart
+to become unspecified.
 
+Currently, after calling riscv_v_vstate_discard(), the vector state
+may still be marked as DIRTY, which can mislead the context switch
+logic into treating the registers as containing valid user data.
+
+This patch clarifies and tightens the kernel-side semantics:
+
+1. On syscall entry, the kernel checks the vector state via sstatus
+   and set it to INIT if not already, indicating that the vector
+   registers no longer contain meaningful user data. Context
+   invalidation is required on restore.
+
+   If the state is already set to INIT, it means that the user has not
+   touched vector since the last invalidation. So no further action is
+   required on restore.
+
+2. During context switch, the vector state is saved only if the state is
+   DIRTY. (no change)
+
+3. On restore, if invalidation is required, the vector registers are
+   overwritten with a known initial value and the state is set to INIT.
+
+Performance improvements on Blackhole x280:
+
+Latency of getpid() with different status.VS upon syscall entry in ns:
+status.VS	Before Patch	After Patch	Improvement
+DIRTY		235.9		242.4		+6.5 (+2.7%) # regress
+INIT		234.8		174.4		-60.4 (-25.7%)
+OFF		178.2		174.5		-3.7 (-2.1%)
+
+Context switch latencies in us:
+Metric		Before Patch	After Patch	Improvement
+Mean Latency	14.19		11.62		-2.57 (-18.1%)
+Median Latency	13.51		11.01		-2.50 (-18.5%)
+Max Latency	27.76		21.92		-5.84 (-21.0%)
+Min Latency	8.99		8.12		-0.87 (-9.7%)
+
+The metrics on context switch latencies are obtained by running the
+following command 100 times:
+$ taskset 0x2 ./lat_ctx_v -N 10000 -s 512 2
+
+The program lat_ctx_v is a modified lat_ctx where benchmark processes
+(parent/child) do a `vsetvli` to dirtify VS before making each write
+syscall.
+
+Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
+Co-developed-by: Andy Chiu <tchiu@tenstorrent.com>
 Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
 ---
 Changelog v4:
- - fix an unused variable warning (Olof)
+ - Provide performance meassurement (Olof)
+ - Aggregate riscv_v_{enable,disable} for better performance (reduces to
+   ~240 ns/call when the user touches vector)
+ - Do not invalidate again if user doesn't touch vector
 Changelog v3:
- - new patch since v3
+ - rename vstate_on to vstate_init to prevent confusion
+ - set context as clean at first-use trap to return zero'ed context
+ - reduce context nulling operations by defering __vstate_discard to
+   exit_to_user_mode_prepare.
 ---
- arch/riscv/include/asm/kvm_vcpu_vector.h |  8 +++++--
- arch/riscv/include/asm/vector.h          | 15 ++++++------
- arch/riscv/kernel/kernel_mode_vector.c   | 29 +++++++++++++++++++-----
- arch/riscv/kvm/vcpu_vector.c             |  8 +++----
- 4 files changed, 41 insertions(+), 19 deletions(-)
+ arch/riscv/include/asm/vector.h | 44 +++++++++++++++++++--------------
+ arch/riscv/kernel/vector.c      |  2 +-
+ 2 files changed, 26 insertions(+), 20 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_vector.h b/arch/riscv/include/asm/kvm_vcpu_vector.h
-index 57a798a4cb0d..e679869e2ba3 100644
---- a/arch/riscv/include/asm/kvm_vcpu_vector.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_vector.h
-@@ -16,14 +16,18 @@
- #include <asm/vector.h>
- #include <asm/kvm_host.h>
- 
--static __always_inline void __kvm_riscv_vector_save(struct kvm_cpu_context *context)
-+static __always_inline void kvm_riscv_vector_save(struct kvm_cpu_context *context)
- {
-+	riscv_v_enable();
- 	__riscv_v_vstate_save(&context->vector, context->vector.datap);
-+	riscv_v_disable();
- }
- 
--static __always_inline void __kvm_riscv_vector_restore(struct kvm_cpu_context *context)
-+static __always_inline void kvm_riscv_vector_restore(struct kvm_cpu_context *context)
- {
-+	riscv_v_enable();
- 	__riscv_v_vstate_restore(&context->vector, context->vector.datap);
-+	riscv_v_disable();
- }
- 
- void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu);
 diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 00cb9c0982b1..45820cd900d6 100644
+index 45820cd900d6..c699cec27c79 100644
 --- a/arch/riscv/include/asm/vector.h
 +++ b/arch/riscv/include/asm/vector.h
-@@ -198,7 +198,6 @@ static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
- {
- 	unsigned long vl;
+@@ -40,6 +40,15 @@
+ 	_res;								\
+ })
  
--	riscv_v_enable();
- 	__vstate_csr_save(save_to);
- 	if (has_xtheadvector()) {
- 		asm volatile (
-@@ -227,7 +226,6 @@ static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
- 			".option pop\n\t"
- 			: "=&r" (vl) : "r" (datap) : "memory");
- 	}
--	riscv_v_disable();
++#define __riscv_v_vstate_check_gt(_val, TYPE) ({			\
++	bool _res;							\
++	if (has_xtheadvector())						\
++		_res = ((_val) & SR_VS_THEAD) > SR_VS_##TYPE##_THEAD;	\
++	else								\
++		_res = ((_val) & SR_VS) > SR_VS_##TYPE;			\
++	_res;								\
++})
++
+ extern unsigned long riscv_v_vsize;
+ int riscv_v_setup_vsize(void);
+ bool insn_is_vector(u32 insn_buf);
+@@ -95,7 +104,7 @@ static inline void riscv_v_vstate_off(struct pt_regs *regs)
+ 	regs->status = __riscv_v_vstate_or(regs->status, OFF);
  }
  
- static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *restore_from,
-@@ -235,7 +233,6 @@ static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *restore_
+-static inline void riscv_v_vstate_on(struct pt_regs *regs)
++static inline void riscv_v_vstate_init(struct pt_regs *regs)
  {
- 	unsigned long vl;
- 
--	riscv_v_enable();
- 	if (has_xtheadvector()) {
- 		asm volatile (
- 			"mv t0, %0\n\t"
-@@ -264,14 +261,12 @@ static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *restore_
- 			: "=&r" (vl) : "r" (datap) : "memory");
- 	}
- 	__vstate_csr_restore(restore_from);
--	riscv_v_disable();
+ 	regs->status = __riscv_v_vstate_or(regs->status, INITIAL);
  }
- 
- static inline void __riscv_v_vstate_discard(void)
- {
- 	unsigned long vl, vtype_inval = 1UL << (BITS_PER_LONG - 1);
- 
--	riscv_v_enable();
- 	if (has_xtheadvector())
- 		asm volatile (THEAD_VSETVLI_T4X0E8M8D1 : : : "t4");
- 	else
-@@ -291,14 +286,14 @@ static inline void __riscv_v_vstate_discard(void)
- 		"vsetvl		%0, x0, %1\n\t"
- 		".option pop\n\t"
+@@ -288,16 +297,6 @@ static inline void __riscv_v_vstate_discard(void)
  		: "=&r" (vl) : "r" (vtype_inval));
--
--	riscv_v_disable();
  }
  
- static inline void riscv_v_vstate_discard(struct pt_regs *regs)
- {
- 	if (riscv_v_vstate_query(regs)) {
-+		riscv_v_enable();
- 		__riscv_v_vstate_discard();
-+		riscv_v_disable();
- 		__riscv_v_vstate_dirty(regs);
- 	}
- }
-@@ -307,7 +302,9 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
+-static inline void riscv_v_vstate_discard(struct pt_regs *regs)
+-{
+-	if (riscv_v_vstate_query(regs)) {
+-		riscv_v_enable();
+-		__riscv_v_vstate_discard();
+-		riscv_v_disable();
+-		__riscv_v_vstate_dirty(regs);
+-	}
+-}
+-
+ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
  				       struct pt_regs *regs)
  {
- 	if (__riscv_v_vstate_check(regs->status, DIRTY)) {
-+		riscv_v_enable();
- 		__riscv_v_vstate_save(vstate, vstate->datap);
-+		riscv_v_disable();
- 		__riscv_v_vstate_clean(regs);
- 	}
- }
-@@ -316,7 +313,9 @@ static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
+@@ -312,20 +311,26 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
+ static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
  					  struct pt_regs *regs)
  {
- 	if (riscv_v_vstate_query(regs)) {
-+		riscv_v_enable();
+-	if (riscv_v_vstate_query(regs)) {
+-		riscv_v_enable();
++	riscv_v_enable();
++	if (__riscv_v_vstate_check(regs->status, INITIAL))
++		__riscv_v_vstate_discard();
++	else if (__riscv_v_vstate_check(regs->status, CLEAN))
  		__riscv_v_vstate_restore(vstate, vstate->datap);
-+		riscv_v_disable();
- 		__riscv_v_vstate_clean(regs);
+-		riscv_v_disable();
+-		__riscv_v_vstate_clean(regs);
+-	}
++	riscv_v_disable();
+ }
+ 
+ static inline void riscv_v_vstate_set_restore(struct task_struct *task,
+ 					      struct pt_regs *regs)
+ {
+-	if (riscv_v_vstate_query(regs)) {
++	if (riscv_v_vstate_query(regs))
+ 		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
+-		riscv_v_vstate_on(regs);
++}
++
++static inline void riscv_v_vstate_discard(struct pt_regs *regs)
++{
++	if (__riscv_v_vstate_check_gt(regs->status, INITIAL)) {
++		riscv_v_vstate_set_restore(current, regs);
++		riscv_v_vstate_init(regs);
  	}
  }
-@@ -378,8 +377,10 @@ static inline void __switch_to_vector(struct task_struct *prev,
- 			prev->thread.riscv_v_flags |= RISCV_PREEMPT_V_IN_SCHEDULE;
- 		}
- 		if (riscv_preempt_v_dirty(prev)) {
-+			riscv_v_enable();
- 			__riscv_v_vstate_save(&prev->thread.kernel_vstate,
- 					      prev->thread.kernel_vstate.datap);
-+			riscv_v_disable();
- 			riscv_preempt_v_clear_dirty(prev);
+ 
+@@ -396,6 +401,7 @@ static inline void __switch_to_vector(struct task_struct *prev,
+ 			riscv_preempt_v_set_restore(next);
  		}
  	} else {
-diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
-index 99972a48e86b..21127b33fea8 100644
---- a/arch/riscv/kernel/kernel_mode_vector.c
-+++ b/arch/riscv/kernel/kernel_mode_vector.c
-@@ -123,7 +123,7 @@ static int riscv_v_stop_kernel_context(void)
- 
- static int riscv_v_start_kernel_context(bool *is_nested)
- {
--	struct __riscv_v_ext_state *kvstate, *uvstate;
-+	struct __riscv_v_ext_state *kvstate;
- 
- 	kvstate = &current->thread.kernel_vstate;
- 	if (!kvstate->datap)
-@@ -134,20 +134,35 @@ static int riscv_v_start_kernel_context(bool *is_nested)
- 		*is_nested = true;
- 		get_cpu_vector_context();
- 		if (riscv_preempt_v_dirty(current)) {
-+			riscv_v_enable();
- 			__riscv_v_vstate_save(kvstate, kvstate->datap);
-+			riscv_v_disable();
- 			riscv_preempt_v_clear_dirty(current);
- 		}
- 		riscv_preempt_v_set_restore(current);
- 		return 0;
- 	}
- 
--	/* Transfer the ownership of V from user to kernel, then save */
--	riscv_v_start(RISCV_PREEMPT_V | RISCV_PREEMPT_V_DIRTY);
-+	/*
-+	 * Skip saving user's context if it is not DIRTY. We would have to start KMV in "dirty" if
-+	 * this check is performed after KMV starts, to protect user's ctx. Then, we could waste
-+	 * time saving already "clean" context once KMV is started in "dirty".
-+	 */
- 	if (__riscv_v_vstate_check(task_pt_regs(current)->status, DIRTY)) {
--		uvstate = &current->thread.vstate;
--		__riscv_v_vstate_save(uvstate, uvstate->datap);
-+		/* Transfer the ownership of V from user to kernel, then save */
-+		riscv_v_start(RISCV_PREEMPT_V | RISCV_PREEMPT_V_DIRTY);
-+		/*
-+		 * Calling the guarded version of vstate_save to make the code cleaner. Also, the
-+		 * vstate check within the call is necessary as context switch may happen between
-+		 * __riscv_v_vstate_check and riscv_v_start. In such case we are not supposed to
-+		 * save the context again.
-+		 */
-+		riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
-+		riscv_preempt_v_clear_dirty(current);
-+		return 0;
- 	}
--	riscv_preempt_v_clear_dirty(current);
-+
-+	riscv_v_start(RISCV_PREEMPT_V);
- 	return 0;
- }
- 
-@@ -180,7 +195,9 @@ asmlinkage void riscv_v_context_nesting_end(struct pt_regs *regs)
- 	depth = riscv_v_ctx_get_depth();
- 	if (depth == 0) {
- 		if (riscv_preempt_v_restore(current)) {
-+			riscv_v_enable();
- 			__riscv_v_vstate_restore(vstate, vstate->datap);
-+			riscv_v_disable();
- 			__riscv_v_vstate_clean(regs);
- 			riscv_preempt_v_reset_flags();
- 		}
-diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
-index 62d2fb77bb9b..da6c6db846c1 100644
---- a/arch/riscv/kvm/vcpu_vector.c
-+++ b/arch/riscv/kvm/vcpu_vector.c
-@@ -46,7 +46,7 @@ void kvm_riscv_vcpu_guest_vector_save(struct kvm_cpu_context *cntx,
- {
- 	if ((cntx->sstatus & SR_VS) == SR_VS_DIRTY) {
- 		if (riscv_isa_extension_available(isa, v))
--			__kvm_riscv_vector_save(cntx);
-+			kvm_riscv_vector_save(cntx);
- 		kvm_riscv_vcpu_vector_clean(cntx);
++		/* VS is never DIRTY at this point, there's no need to alter vstate here */
+ 		riscv_v_vstate_set_restore(next, task_pt_regs(next));
  	}
  }
-@@ -56,7 +56,7 @@ void kvm_riscv_vcpu_guest_vector_restore(struct kvm_cpu_context *cntx,
- {
- 	if ((cntx->sstatus & SR_VS) != SR_VS_OFF) {
- 		if (riscv_isa_extension_available(isa, v))
--			__kvm_riscv_vector_restore(cntx);
-+			kvm_riscv_vector_restore(cntx);
- 		kvm_riscv_vcpu_vector_clean(cntx);
+@@ -421,7 +427,7 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
+ #define riscv_v_vstate_restore(vstate, regs)	do {} while (0)
+ #define __switch_to_vector(__prev, __next)	do {} while (0)
+ #define riscv_v_vstate_off(regs)		do {} while (0)
+-#define riscv_v_vstate_on(regs)			do {} while (0)
++#define riscv_v_vstate_init(regs)		do {} while (0)
+ #define riscv_v_thread_free(tsk)		do {} while (0)
+ #define  riscv_v_setup_ctx_cache()		do {} while (0)
+ #define riscv_v_thread_alloc(tsk)		do {} while (0)
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index b112166d51e9..4eef51f6d432 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -221,7 +221,7 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
+ 		return true;
  	}
- }
-@@ -65,13 +65,13 @@ void kvm_riscv_vcpu_host_vector_save(struct kvm_cpu_context *cntx)
- {
- 	/* No need to check host sstatus as it can be modified outside */
- 	if (!kvm_riscv_isa_check_host(V))
--		__kvm_riscv_vector_save(cntx);
-+		kvm_riscv_vector_save(cntx);
- }
  
- void kvm_riscv_vcpu_host_vector_restore(struct kvm_cpu_context *cntx)
- {
- 	if (!kvm_riscv_isa_check_host(V))
--		__kvm_riscv_vector_restore(cntx);
-+		kvm_riscv_vector_restore(cntx);
- }
+-	riscv_v_vstate_on(regs);
++	__riscv_v_vstate_clean(regs);
+ 	riscv_v_vstate_set_restore(current, regs);
  
- int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu)
+ 	return true;
 -- 
 2.43.0
 
