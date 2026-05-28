@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B918CD5BC9
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 00:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A6FCD5BC9
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 00:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HFdkxGcJF1+24HcyLEXv2i5e3+j4YWn1I6dg/bJwiQc=; b=zKbFXsYzU8s7tU
-	a+X0yr3nNwYikfxrr7h8VVcQJ6AiHjsYjKlTpw5TwppHT0u8ovSmCvaEYJDHOOiMPs335pe0YxY/p
-	EcqZxEklA5kSsYDypwusUoY2/dha+wf5cSWcBdRQpmrOLgXUd0X3cTIzjRJgVpB+tVPpx6rwlxW54
-	kzLnv2gqnphKBP/Vkc3XFvC1DEOwtfgpODf6raIjq22qL4dROZ28nQ4N6Iyjk0oNeybZxALqUVLgY
-	in6eYF0sZUvuBLw8BMttKZ+n+l1OXoxiBH+IbslTH4zz1b5jBs0e96KNupRm5oQZYYl1M8Qvo/L12
-	x4t+QXLnGjGkytbplpMQ==;
+	List-Owner; bh=yQTWa0HMDVjCUNGJC1bRqZlAPk9s/bklGpKZKJuSbs4=; b=qq6NIItaGxBcbr
+	MjNiuhDMRCOaq32+FCQnoquIiT5UaM58mcTY2vqJLiiV6w4c1flwKQGHTmfGPUBAcQU/qrRtQLoJW
+	BigQEE9nj0qNc4AUEPpNJSmWpSwEhk6mB5/ONRJUClZnyKKLBJSC2pcDW0akrYeGmTPNqAYzIy4E4
+	Sia6fvyhT980Pku/97ItxSo6nebcFRjLwTJkYJYQJ+X2bzttOefg5q1trHWddO4SP09aqJPmvg93E
+	ZaNCCaoVTJxva5IUD0BlidrDusfzcf5eWSjpxIqDb/y+vINioi3NhOI+63PM7DhZcni4X3Pdz3Q9g
+	25IGKzxxA7jvSYlFG3Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOZo-00000004rSs-3Xcb;
-	Thu, 28 May 2026 00:26:20 +0000
+	id 1wSOnk-00000004rro-110i;
+	Thu, 28 May 2026 00:40:44 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSOZn-00000004rSU-0fJA
+	id 1wSOnh-00000004rrK-39H3
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 00:26:20 +0000
+	Thu, 28 May 2026 00:40:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE64A40799;
-	Thu, 28 May 2026 00:26:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 470D01F000E9;
-	Thu, 28 May 2026 00:26:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 05EB443589;
+	Thu, 28 May 2026 00:40:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1D351F000E9;
+	Thu, 28 May 2026 00:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779927977;
-	bh=VqfZ9WMdjxj8/FGU70IdSGKs6hSYKYxzIqkpTg2PEqE=;
+	s=k20260515; t=1779928840;
+	bh=tG/XbpBTWLccePGRYNDqANTMLFU+201Aq8Yk0wCxIGI=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=iiHKZu5Fxrg98QzPSD2DPNIAGdeih+0v7TbrLEapGLmR9zzjsa/PMGsi8FERuXlwn
-	 6G6O3z3XayisAKg9BIHAqbg6cpEnWaIy9WqDd0fKnKc15JP1D4N9SnNBQYfxtjiwmn
-	 4zpyqdaPXxKPdD2AQqTm5COS/Rwdvi1vk1MWOOwKwVfy+LmupOhZSHiBxTS/+ua2Ep
-	 3+6jxx+MaywgIk6kgBs0EOBh/IYaBTtjzWh+QiQR+pNuiWM0hf1WFXIG5ryHhz8pP2
-	 IwwtQMoDlJeZ+LKHFiUbrYMVuM+zzdTpo/psE836xa2MXH7bpDy+9AYyzDmVQ52ZlH
-	 raG5MItkc/8aw==
-Date: Wed, 27 May 2026 18:26:16 -0600 (MDT)
+	b=a2Ii6QTcINR7cWAEyE/SM/pxdcdqo0QRirABpphjq2gaort+oEPNz/o3cvTWkcVQ8
+	 oFpbLYYNbpajc+xhHC4PAcyRf8YL0Vh7cr5c8XFmmt6+q5F0zAo+e1GO0U96sGq4om
+	 URCZEHqpjnZYnaqLUmH0+Lfho46D1ZdF61Qs6JM3KZeOOcePJXfmksT4ISkDAyBZwW
+	 XuqFD0oE47VbOSg/20F1mL+YUl03kfNeJqRue7UoZswTUCfYJNHlDrl4E7WrNcel1o
+	 tANNzRVPeFwkp3f6KqnjmL8zK4njmzYOkGdWTtNNUB+UGEA/gum0qL4GA5WFLTPgGU
+	 ss37Mbzyz9OJA==
+Date: Wed, 27 May 2026 18:40:36 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Hui Wang <hui.wang@canonical.com>
 cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com, 
-    aou@eecs.berkeley.edu, alex@ghiti.fr, leitao@debian.org, 
-    akpm@linux-foundation.org
-Subject: Re: [PATCH] riscv: kexec_elf: Remove unused pr_fmt definition
-In-Reply-To: <20260525115159.100177-1-hui.wang@canonical.com>
-Message-ID: <aede4c5f-b732-a1c5-2207-6eeddca6c21f@kernel.org>
-References: <20260525115159.100177-1-hui.wang@canonical.com>
+    aou@eecs.berkeley.edu, alex@ghiti.fr, danil.skrebenkov@cloudbear.ru, 
+    ajones@ventanamicro.com, atish.patra@linux.dev
+Subject: Re: [PATCH v1 2/2] riscv: cpu_ops_sbi: No need to be bothered to
+ check ret.error
+In-Reply-To: <20260413123515.48423-2-hui.wang@canonical.com>
+Message-ID: <a201a559-3346-1f56-4d8d-432933054993@kernel.org>
+References: <20260413123515.48423-1-hui.wang@canonical.com> <20260413123515.48423-2-hui.wang@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_172619_218593_4BF22396 
-X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-CacheID: sfid-20260527_174041_811508_BD64B5C4 
+X-CRM114-Status: UNSURE (   6.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,12 +74,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 May 2026, Hui Wang wrote:
+On Mon, 13 Apr 2026, Hui Wang wrote:
 
-> Remove the pr_fmt macro as no pr_*() calls exist in this file. The
-> prefix string "kexec_image: " is also not appropriate for kexec_elf.c,
-> if pr_fmt is needed in the future, referring to kexec_image.c, a more
-> appropriate prefix like "kexec_file(elf): " can be added at that time.
+> If the ret.error equals to 0, the sbi_err_map_linux_errno() can also
+> handle it, i.e. if ret.error is SBI_SUCCESS, it will return 0
+> immediately, so no need to be bothered to check ret.error here.
 > 
 > Signed-off-by: Hui Wang <hui.wang@canonical.com>
 
