@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73146CD5BD5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 05:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3135CD5BD1
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 05:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wI2KXr0nV60vgkswQQ/4y7aBc3oLWbuQa1sjsJL1KRM=; b=1aJokZpbUwwtxb
-	b1l+W6Yl248yTK1i0AbldeCeLJe+//4gk0VAhSpuPtqN+90AwAZe8AMMjptwdFeS4vymJb//Jd0Be
-	N/MoId+X/HI7lHKWP7sEsJdxdpGli/dpYFT6v99SlCKSY7nJA9V0Ku6QzqJji3yJBb4EnxgW2H0rz
-	I2Ruo8G2B2Mw+2NGuFaP0t5TpB6E/LUQYNF6qhfodFXTqHHO5d98CvoFpYVH6MoxUSbf5fLe7PQsR
-	vJnvh+LMZTxII8vDugBwRKO7OuOvCnY0ZJTTNCN4JV7oUjYzmne8zJOcxQO9SSJdoGquHdbjsTeQA
-	sQYrnYUgLPck2WapiauQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qsYL4eIeHOB8rfsCosWQykyGXI8Ju+czUZeEcX8bN9s=; b=FSszAHQmYr00TU
+	nByecg6BA762NwS8gPbjm+83+mldBwb6nH8JvLlkfLnQsEwsIQoVedtQ/GeOpWk5X7U+l05u1RSn2
+	fRcNnVJ5IXMdKqnJ7WNVpulw6PLvX7T1NsdI3ugLrvWXbXz8JQ8TD35G0ovALW4mPFRNDQAe7TxCz
+	ahw8faxRCwhhNHS5KxAJoIb6QaweJfO930LfsjhvkVaRwgOtf9rKtaT9Xk6XZbvQ61vdadoj40ch1
+	gbMDwZV1LK2GTT4mytLYHN1N/iyYVPVxPyUE8syY7mt7iR1MYt6Zolil0dDsuQuApKf8WPDDxDKxc
+	XvZdomRxfAvbJAcE+AmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTEP-000000058Zb-2IR7;
-	Thu, 28 May 2026 05:24:33 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wSTEM-000000058YM-1wYE;
+	Thu, 28 May 2026 05:24:30 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSTEN-000000058YS-1zxf
+	id 1wSTEI-000000058XS-0Hea
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 05:24:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779945861; cv=none; 
+	Thu, 28 May 2026 05:24:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1779945837; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=YYYg3rVkUnOtrn50Rjd8COGW0fIxQV75ZZiBpapTYp3HgJNzBFwLAjMX1hUP50k9kkwQInv+9nXcnxkKzLg1Xd/k4UCaGKtKGn4mS1slT6ibSzarjVJsB1O9wIiwmlbFg19sNUDyh8wkRnuHs9pNiEZ+nUZl8k9CiYN4yCIwe1M=
+	b=Lewwv/E5GzToO6cwJ6qFAQjwPR3Tepy8489G9ze+/TW3pwkSZXhaf3JngsOo56ETKwhOfj808rpAm0+jaeW+rbKgKs/06uP3Guy0TKyTGXGaDXvlJeMbRnW7MVKYI6U0nvbWfA4kc1UTf8jhS8ti3mScww+tpHisJrr06wvtFpU=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779945861; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=jnYH/T7uiauyZSq6GbAqeNmqIkQ5afnNxa3jXoVrECg=; 
-	b=Hx+/enCh898s5FKmNVsvzN2MtrKGni3vIEuiMIRn0TdGdHFTS/7xcqqcXAQc15jMIlddPNUg0kgD2odXlf30BVyXoMXb5Z7H74ygrLW6eb2czJtZYFxL5a52hKwoIA4Ey0rzg3i+v/M4If2etXf1bZA97Me52IzFPdKFDE2Mfus=
+	t=1779945837; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Lzm3YWrKP2JFz/K4efBOj3ww3Vn5sEbCNURK4uiazgU=; 
+	b=GoHFDTkwXTxbYptD6is3LgwfxmPJZ40ilAZ28sgmDxlARpPWkJKe4iliTrTlbuq81K8gbjRkxQcFng8ECf8Ap1XtI4F8C81byfQ+Mx3uIXUud24WFeLvbvY6NJz3+230SnwJ5gYZf7gw6HAenYZXsQIvO5svdwUPHJBDyVJQfoQ=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779945861;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779945837;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=jnYH/T7uiauyZSq6GbAqeNmqIkQ5afnNxa3jXoVrECg=;
-	b=A8087KU6dDiLq+bIG8BbLHApZIwVr+vYo0nxcPHZ3KnGOntonRG4JXqJJIR3b/9Z
-	GHZ/5L6h2G8hHVd7VH6aCpxBIsJxKvMoB03HFhFvkTWXPwqibSAV4cy2vQ1of2S28xE
-	BYqB+sEsoVYu9AIWE0/0MZROQiIa0RcDBrh8NQjE=
-Received: by mx.zohomail.com with SMTPS id 1779945859990355.3956654305638;
-	Wed, 27 May 2026 22:24:19 -0700 (PDT)
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=Lzm3YWrKP2JFz/K4efBOj3ww3Vn5sEbCNURK4uiazgU=;
+	b=hjYKjbxPTSUqcPo4vIfxLEctXjILEQ6WGd4CbtyaD9eJBpOhe2yuXwtQ8BQzaKjG
+	f1oFYmj4THMHW2BcZqjq99wqTIcPDPAO4jfnVzjocP4jVpz2XYtuPAvP862UTpaDVkj
+	esWKTQEi9Wt8IqbplrEYZaSm9SJn2D0neOliHNVc=
+Received: by mx.zohomail.com with SMTPS id 1779945833882509.0231225374149;
+	Wed, 27 May 2026 22:23:53 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Thu, 28 May 2026 13:22:48 +0800
-Subject: [PATCH v2 2/3] riscv: dts: spacemit: k1: Split gmac_clk_ref into
- independent pinctrl groups
+Subject: [PATCH v2 0/3] spacemit: k1: Add support for Banana Pi BPI-CM6 IO
+ board
+Date: Thu, 28 May 2026 13:22:46 +0800
+Message-Id: <20260528-bpi-cm6-v2-0-d0eb3f236cea@pigmoral.tech>
 MIME-Version: 1.0
-Message-Id: <20260528-bpi-cm6-v2-2-d0eb3f236cea@pigmoral.tech>
-References: <20260528-bpi-cm6-v2-0-d0eb3f236cea@pigmoral.tech>
-In-Reply-To: <20260528-bpi-cm6-v2-0-d0eb3f236cea@pigmoral.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WOyw6CMBBFf4XM2po+hCIr/8OwKGUKk1jAFomG8
+ O9WWLo8N/e1QsRAGKHKVgi4UKRxSCBPGdjeDB0yahOD5LLguZSsmYhZX7DWqtJdBSqHFpJ7Cuj
+ ovTfd64MDPl+pcD5EaExEZkfvaa6yMseLzbVSttXw8/cU5zF89iOL2AN/m4tgnGmu0Ymr0Ebx2
+ 0SdH4N5nGe0PdTbtn0BQUHBKdIAAAA=
+X-Change-ID: 20260522-bpi-cm6-dc38f91e3fec
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -63,19 +66,21 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Guodong Xu <guodong@riscstar.com>, Yangyu Chen <cyy@cyyself.name>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Junhui Liu <junhui.liu@pigmoral.tech>
+ Junhui Liu <junhui.liu@pigmoral.tech>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779945818; l=5834;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779945818; l=2323;
  i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=rPbiI+ilu0sWLrlMfU9HzlanUD+8Jf5nKjJmEKXu0F8=;
- b=1mQYY2xTcO+DDWebUtj2X3kbiSMbJ9X2a3RloGTPAZTG8qLyeWVCIIl4zm26gSqEDvn2U9jdC
- sDGtBEWadDJBCXwhIwCesmOJbu6hbg8foG9n2AUzbrn9g4Em9kb/Vgg
+ bh=J7f2wQORWMO7HgLfF+c02eIZh8ngHo2O6iOfc1N+TAY=;
+ b=1SnXTx7VIrfVrpucpNpMyxNBnAH1+6J0bVAg83wpH/aXVz7mSfyftCijL0pgzTJJnHp2oCvPd
+ D7VDck2e2iVB6fXVeCcYQpjgT06vVrK8Vwdsow8LcshIYBQmC6KLbMB
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260527_222431_592512_B4D99DC0 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260527_222426_514792_70B185CD 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,158 +97,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gmac_clk_ref signal is optional for the GMAC controller and is not
-strictly required for all hardware designs. The pins for gmac0_clk_ref
-(GPIO 45) and gmac1_clk_ref (GPIO 46) may also be used as GPIOs for
-other functions even when the Ethernet controller is active.
+This adds initial support for the Banana Pi BPI-CM6 IO board. The
+BPI-CM6 is an industrial-grade RISC-V compute module powered by the
+SpacemiT K1 SoC, featuring board-to-board connectors similar to the
+Raspberry Pi CM4 form factor. For evaluation and development, the module
+is paired with a companion IO carrier board.
 
-Split the refclk pins into independent pinctrl groups so boards can
-request them only when the reference clock path is actually needed.
+During the board bring-up, GPIO45 and GPIO46 were found to be used by
+the BPI-CM6 hardware as Ethernet PHY reset GPIOs, while the common K1
+GMAC pinctrl groups currently mux them as optional GMAC reference clock
+pins. Since the reference clock pins are not required on all K1 boards,
+the second patch separates them into independent pinctrl groups so board
+DTS files can select them only when the signal is actually wired.
 
-Among the already mainlined boards, BPI-F3, Jupiter and MusePi Pro have
-optional hardware paths for the GMAC refclk pins. BPI-F3 and Jupiter
-route both GMAC refclk pins to the PHYs through NC/0R option resistors,
-while MusePi Pro only does so for GMAC0. Keep referencing the new
-clk-ref pinctrl groups on these boards so the optional hardware paths
-remain usable if the option resistors are populated.
+This is based on the "dt-for-next" branch of the spacemit-com/linux.
 
-OrangePi R2S has no publicly available schematic, so also keep the
-clk-ref groups there to preserve the previous pinmux behavior.
-
-Fixes: 60775f28cfb7 ("riscv: dts: spacemit: Add Ethernet support for K1")
+Link: https://docs.banana-pi.org/en/BPI-CM6/BananaPi_BPI-CM6
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   |  4 ++--
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  4 ++--
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    |  2 +-
- arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  |  4 ++--
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi      | 24 +++++++++++++++++++----
- 5 files changed, 27 insertions(+), 11 deletions(-)
+Changes in v2:
+- Keep gmac_clk_ref pinctrl groups referenced on existing boards where
+  the pins are routed to optional PHY refclk paths
+- Remove duplicate vpcie3v3-supply property from pcie1 and pcie2 nodes
+- Collect tags
+- Link to v1: https://lore.kernel.org/r/20260522-bpi-cm6-v1-0-707ef1917a30@pigmoral.tech
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 72f77e9edd63..e6ab43be301a 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -101,7 +101,7 @@ &eth0 {
- 	phy-handle = <&rgmii0>;
- 	phy-mode = "rgmii-id";
- 	pinctrl-names = "default";
--	pinctrl-0 = <&gmac0_cfg>;
-+	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
- 	rx-internal-delay-ps = <0>;
- 	tx-internal-delay-ps = <0>;
- 	status = "okay";
-@@ -124,7 +124,7 @@ &eth1 {
- 	phy-handle = <&rgmii1>;
- 	phy-mode = "rgmii-id";
- 	pinctrl-names = "default";
--	pinctrl-0 = <&gmac1_cfg>;
-+	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
- 	rx-internal-delay-ps = <0>;
- 	tx-internal-delay-ps = <250>;
- 	status = "okay";
-diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-index 2fc8d6533786..b61f5995ec77 100644
---- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-@@ -121,7 +121,7 @@ &eth0 {
- 	phy-handle = <&rgmii0>;
- 	phy-mode = "rgmii-id";
- 	pinctrl-names = "default";
--	pinctrl-0 = <&gmac0_cfg>;
-+	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
- 	rx-internal-delay-ps = <0>;
- 	tx-internal-delay-ps = <0>;
- 	status = "okay";
-@@ -144,7 +144,7 @@ &eth1 {
- 	phy-handle = <&rgmii1>;
- 	phy-mode = "rgmii-id";
- 	pinctrl-names = "default";
--	pinctrl-0 = <&gmac1_cfg>;
-+	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
- 	rx-internal-delay-ps = <0>;
- 	tx-internal-delay-ps = <250>;
- 	status = "okay";
-diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-index 0d809e4ad3b1..3078ffb5cb87 100644
---- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-@@ -102,7 +102,7 @@ &combo_phy {
- &eth0 {
- 	phy-handle = <&rgmii0>;
- 	phy-mode = "rgmii-id";
--	pinctrl-0 = <&gmac0_cfg>;
-+	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
- 	pinctrl-names = "default";
- 	rx-internal-delay-ps = <0>;
- 	tx-internal-delay-ps = <0>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-index 1ecc40749e5a..018072722d55 100644
---- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-@@ -50,7 +50,7 @@ &eth0 {
- 	phy-handle = <&rgmii0>;
- 	phy-mode = "rgmii-id";
- 	pinctrl-names = "default";
--	pinctrl-0 = <&gmac0_cfg>;
-+	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
- 	rx-internal-delay-ps = <0>;
- 	tx-internal-delay-ps = <0>;
- 	status = "okay";
-@@ -74,7 +74,7 @@ &eth1 {
- 	phy-handle = <&rgmii1>;
- 	phy-mode = "rgmii-id";
- 	pinctrl-names = "default";
--	pinctrl-0 = <&gmac1_cfg>;
-+	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
- 	rx-internal-delay-ps = <0>;
- 	tx-internal-delay-ps = <250>;
- 	status = "okay";
-diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-index 4e9a62d0e85b..8c57ca05dabd 100644
---- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-@@ -27,8 +27,16 @@ gmac0-pins {
- 				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
- 				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
- 				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
--				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
--				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
-+				 <K1_PADCONF(14, 1)>;	/* gmac0_int_n */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <21>;
-+		};
-+	};
-+
-+	gmac0_clk_ref_cfg: gmac0-clk-ref-cfg {
-+		gmac0-clk-ref-pins {
-+			pinmux = <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
- 
- 			bias-pull-up = <0>;
- 			drive-strength = <21>;
-@@ -51,8 +59,16 @@ gmac1-pins {
- 				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
- 				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
- 				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
--				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
--				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
-+				 <K1_PADCONF(43, 1)>;	/* gmac1_int_n */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <21>;
-+		};
-+	};
-+
-+	gmac1_clk_ref_cfg: gmac1-clk-ref-cfg {
-+		gmac1-clk-ref-pins {
-+			pinmux = <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
- 
- 			bias-pull-up = <0>;
- 			drive-strength = <21>;
+---
+Junhui Liu (3):
+      dt-bindings: riscv: spacemit: Add Banana Pi BPI-CM6 compatible
+      riscv: dts: spacemit: k1: Split gmac_clk_ref into independent pinctrl groups
+      riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO board
 
+ .../devicetree/bindings/riscv/spacemit.yaml        |   5 +
+ arch/riscv/boot/dts/spacemit/Makefile              |   1 +
+ .../riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts | 213 +++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi  | 227 +++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |   4 +-
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts  |   4 +-
+ arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts     |   2 +-
+ arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts   |   4 +-
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |  24 ++-
+ 9 files changed, 473 insertions(+), 11 deletions(-)
+---
+base-commit: 85e4c5733cd7efa39f10d7200095c016ce4a2815
+change-id: 20260522-bpi-cm6-dc38f91e3fec
+
+Best regards,
 -- 
-2.54.0
+Junhui Liu <junhui.liu@pigmoral.tech>
 
 
 _______________________________________________
