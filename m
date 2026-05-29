@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B11ACD6E49
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 May 2026 06:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF191CD5BD2
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 May 2026 06:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y/xG8y9M/6Ur1ECXJJVOxI++6uqgFJ4+lL2NRWlY8Pg=; b=ribzLUnXo00hoX
-	50uQkgvR+sNyBQ95UDBlps8JfkeLjYyQqpFIuHzD+EgSw/3lMziLU/S7w9dckfXLy1KMbo21y3T/1
-	7mseA3mAhPkYAC+3HMrYeYopc+MQrWvX6N0UDVGJ+vzy49sR+at17YkAUanW4oPJrb9eCGhK3fOGz
-	1AdFFPxKCdz8uzPCSjHWaAzndySH90s6wfV1z/e+4GuB8kgFgDrbNNotQfq1W9BSeCARhGFrOIhLK
-	mmp7AmPiyswBHH2f3X1DuSl+gjEwO1JRN2acbiHytCVWkTcUgPAYV02znlGUF6jqKr7RCnJuyV383
-	5v+mNQRPkUqLyo+nI/cw==;
+	List-Owner; bh=MXjJu6wtLMuujGsOilhdkaWGRt5VFfe+kmV8nXyzG2k=; b=NUifkwfB3dze0M
+	IkzOyPZ7EQ2yIXKALeBQjwEs5KkQsj/qLp6ychlhbT8JWGDNOMwHE7PyZETytWSMBEYSxX0TEMfnb
+	DNzWTeh90ZOf0lgk6d736HjOwabRq/ATy744FyxLpB4tXTa1KL7F0bgvswxkK2JakrQAXfC+RxNYU
+	F/isyzuwn+F5gPD8jpBSKjOocvQRXVTTcc0RgCHz13AJr3KLci67f5rMqMVuf+DyqEtYthb5WfxRq
+	6e5LuBJKvSPnImhTzgRtyf0irWP6KvdzFXO9kXQfpYMV0Rilw426UNKUpGXgRmHzTQ55iBt/4u2Ap
+	xo5voElqp/mmTirsvCJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSqiB-00000006oEh-1rvV;
-	Fri, 29 May 2026 06:28:51 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+	id 1wSqiA-00000006oDY-1BNE;
+	Fri, 29 May 2026 06:28:50 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSqi7-00000006oB9-1U7C
+	id 1wSqi5-00000006o9W-07uQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 May 2026 06:28:48 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-3045c195251so7484105eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 28 May 2026 23:28:47 -0700 (PDT)
+	Fri, 29 May 2026 06:28:46 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-304f0039c02so137634eec.1
+        for <linux-riscv@lists.infradead.org>; Thu, 28 May 2026 23:28:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1780036127; x=1780640927; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1780036124; x=1780640924; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gxMETX/1hxmLpjZh8E8SUrLwKpabU2lfgKz/6O/A+s8=;
-        b=SM0OzeVLvZc1bkZndHK3aaPlZwE+1Z9BQwHFhc2IBXl/AiYvxjSSa9MV1ukBk0AnID
-         lvekRtoxtoyvFPWR8tiOsm+o4gZD8sxYhnwqL8X1QUbiwTnApeaaxQAcDUMMfGRQEdfa
-         kremmQRW8ZK+8g7Wh5KJR4sU2UgSMn+eOaOxx15V9v0Vy6YHpYPGN4IhhawBQ4mhZMQ1
-         krbSPpsHWHQBVmMrQbiDG+hANbpu0uLJxA4IzzDYPPlenFDIrioqd5NpjhQ4HasQKC+P
-         HGK8xN/OECwlnjSXUJydGhOR0emcbSy6YXx73zktakdeTVgKwMUkNX5cf2VbCEuAF0Jt
-         Ozlg==
+        bh=NB+TMW9/jFeVQq09mC6JlH7aNglQQ/HmhdkvMfkdL10=;
+        b=Uzi+/xq5BL+2jLQybLJSfbS/5rZOk3wnP41M0Ud3w0qJFSrwx1xKZB6aRpxORf4uXn
+         r5Hcd8bkBtd30Gs7TOM1Ma7nrK21m3BviFlCPGHZ30B2gg6SLPyEwmoPOVwfyVWnMaPB
+         gAZp42vpfqRk7/+p07B+U6hsG1Mq0zh7H+Gtjb9kMgD2yIzouczbhdnhdVpAcs9BBquT
+         81oG5lQyEVp0lH4MHX9fLSv9BYk3L8iatkB1TD9axaM1lvDK1Bw2KKMjVCZI/LyXrDau
+         9Rj8eIAznV1kp01eDInuMtD4Qr8FsBPv4v5JzX32jTyT/2PHajU+7mpsnfNSaBuINTa4
+         ylHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780036127; x=1780640927;
+        d=1e100.net; s=20251104; t=1780036124; x=1780640924;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=gxMETX/1hxmLpjZh8E8SUrLwKpabU2lfgKz/6O/A+s8=;
-        b=d7bnQzoOQ9vOMzBM+turYgue0oaNx9EgIy3nKppgnmoVkzygWNBcP6AT91f7yYaOYn
-         xYZ6UGTazxQU6NGDk7y0m8CFTtj9a2lgPTpJP6edpaPP8eR1JYecf6fg7ZkPE9AgVlul
-         QVvbnJgT8k3TFiqvq5qdQBORdSP6ZJHdoYdgqUTeTVr+8tQwIowx34tLzgCq18QJZycN
-         zRdoYVjYOVmArDslmjboVHfydR6Mjp1tcCEy5yAV93ks9QOCQP4BmxqzE91y5wpSGeEG
-         TEylm0pZMzzs7N66nGOKLqk+Fm6rm+Uxx6xllwuEeN4U9hoTLAidO5Y5KN9WWGGmu/Ss
-         8kgw==
-X-Forwarded-Encrypted: i=1; AFNElJ90Mnr6BnkLhyl7gwWVfciGXsBjKb3fRQJ+fQK1BGP7zpBTQThSDAsa0u5s7yu8B7SjbepDdfhojymv0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YywoOqtSYwlMB5m34BHkJRA1ylFoaA0HMCDUl3uhPSk3sdE1E0x
-	EI64OylbTLNbaD5nf+32zy9PoMK7WtZANdqV/T8owq1i5K9OWBj+lojj6qAhrrb3iSk=
-X-Gm-Gg: Acq92OFC6NrZR0MqwMCAzt/HYNnY5KTayRnWKGSX7J1YFK/eI0j+zDfRN0yu1fqUHYR
-	/ntSzpsw/t+QhEmsHTmGqNpj0JPC3TkPBQi4XbcfJPhx7ThsMWDY/z+T8/uvZut5vZ/vyZOX9uR
-	yujTURff+9yRbyaXXpn8oNHG/+uhrflzClQU62i3cxLqgYxGmReizYYruXUiWLciIYA5RxkZ6hr
-	9XEp6H7LA+QtY/gtVtGYIiXBKHOkfGwJvQ3RBjc/bUDR3o0LL+mVzMDc9beUGFj5ZcKV4POn3I2
-	vLaPH/QsgSAo808O8UYiccADD4BluNMlmfWpmtKtmHM5G9U2E4vh+TLguUMPJ9MkC8DFQcvgAVw
-	gOwQSvo871jJ3AwHZcUqr48TuA9kxpEKgpywR/lKiToPCJ/EcbVgjcSIGtMi/hYToJNc33fVwCh
-	YdWoi9OubygXtYkKajQW1BifAEqnZ7ZGaAoHqQyo0K1nCqB3E2/wPtgw==
-X-Received: by 2002:a05:7300:2154:b0:304:b93a:511a with SMTP id 5a478bee46e88-304eb204f20mr625767eec.28.1780036126724;
-        Thu, 28 May 2026 23:28:46 -0700 (PDT)
+        bh=NB+TMW9/jFeVQq09mC6JlH7aNglQQ/HmhdkvMfkdL10=;
+        b=cpRMFbNU8KQzd/KpPCgLKOcWoNQ6M8rWKgRW+9OcrT2/MDrIWjIZtKqddWpvQ5laap
+         vqa9dcjiDwmMIwsPvutjCytNniM0e1vLLpaxu26qh0RXlBqiULixZXe68fExDY6uhbfr
+         p+CYQVndemGnzzb/fkWOPy5EC6qKLD27zNQJJROtBV7qO+sba6J2w6Lx/CCfieqQAPfH
+         zeFVFvB8aP7yb1JSC3Rcz6fRdTyURcr8tyQ2F1U7W+hZ1Miy9FXRirK9tXMZWdxHtV1T
+         Co7ZzVaGd8GAfwPJtvdBQBDQdAr82JwFUCBIm9bTscApKjlZmIIQeWusqq12TMR845pm
+         eLXQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/ncO5jNUum8CzOvzBiVcs7xkB0yW6JRBIHkB5zJYSiEba0nAUPqEEBNEAcLois8laAmJXunVZ+Q28jPw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/Y1N1a9rmE7je/XIgHLDQIZDInE6xfhn45vSLw1DcRbGinjYq
+	aAykvBrPCfIsntkI+NjivTFd67ccpbZoTB6NzHg14R+Y9MFr4/kGDq9pd0+WFaU6vcM=
+X-Gm-Gg: Acq92OFFfppyHHmpZX9NF02bDmszekZ3GvnI4gjs0L07Crgok0eAN1Tn32q64gZ9HHE
+	ObWvkZUpf2dEgAUhLjURp4GS+DPUetrFFnPsuBGm9idwe04wP1jzE1V8ZQPK26HCIHm84ViZhBA
+	BWkRfnWLGrzObvwXZnJ/Q1Motx/OOcpANDPkc4Wrr0qJLmJzqs3SgeWyUfWDDPuruiJR3XxsOJK
+	Orq2MdPr8+a8Rwn21RpZssFYaD/xnnYpQ7TicBocpV2COu7M9FyNTudz3krNuyJaG/evoiJIJZS
+	1ly7w096wehDIZzrkqiZ6mkO5jH/KvMHImZ4nxSduiaGyP++3EVr2ENnxK8dQ+6xRpBikxYIIVY
+	7PqW8fUgH3PM4yqprONutzoFfN//sq2z1orrhKBK6yLuaIuDeaCeGb113EcKPIolQnNAhogiAv4
+	O2VLWtj6KH00SD8+jxLh35qgYOM66BWZp0k4D59Cu/3kZCiFtIagTzNQ==
+X-Received: by 2002:a05:7301:3e18:b0:2e7:c701:aa85 with SMTP id 5a478bee46e88-304eb1fbfeemr788995eec.17.1780036124198;
+        Thu, 28 May 2026 23:28:44 -0700 (PDT)
 Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304ed3358b1sm694607eec.13.2026.05.28.23.28.45
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304ed3358b1sm694607eec.13.2026.05.28.23.28.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 23:28:46 -0700 (PDT)
+        Thu, 28 May 2026 23:28:43 -0700 (PDT)
 From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Date: Thu, 28 May 2026 23:28:29 -0700
-Subject: [PATCH v3 3/3] KVM: riscv: selftests: Split SBI FWFT into separate
- feature-specific sublists
+Date: Thu, 28 May 2026 23:28:27 -0700
+Subject: [PATCH v3 1/3] KVM: RISC-V: SBI FWFT: Fix stale feature exposure
+ after runtime extension changes
 MIME-Version: 1.0
-Message-Id: <20260528-kvm-get_reg_list-v2-v3-3-170969a8599f@sifive.com>
+Message-Id: <20260528-kvm-get_reg_list-v2-v3-1-170969a8599f@sifive.com>
 References: <20260528-kvm-get_reg_list-v2-v3-0-170969a8599f@sifive.com>
 In-Reply-To: <20260528-kvm-get_reg_list-v2-v3-0-170969a8599f@sifive.com>
 To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
@@ -88,16 +88,16 @@ Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-kselftest@vger.kernel.org, Yong-Xuan Wang <yongxuan.wang@sifive.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780036122; l=7950;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780036122; l=5665;
  i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
- bh=3uThBhNaY+zRvOn064pZTF8raJgmTDzDgSiNvxgnqt0=;
- b=UJt9lgaaEV/6X0Wm2ZL+TKZkFJtdMJtIVecgcG006PE6wBq8pql2yEe41adYrKAvTbyBu6A4f
- Cqk7TgKtm+kAvoqekaex5imWd74p16LOhGAiiZ36mjnuiU3bTwdENQ9
+ bh=gufrfTZMS1eYNpCVXosGyGtRLMto/FMoEgCvhEzoK+g=;
+ b=WWBCwq4jwkp6SRoxOcz1Jqdq+qxsnLAk5+EHEMyZpoZoggSowU9LIrRhG1Qp2dAA/kMgX6pIr
+ cPdeKvX0qchBNiYTAP5ttS8UXUQdcjMuvfybLhSsR98eOz9wk6ya0ST
 X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
  pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_232847_408180_8CAB3DAA 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20260528_232845_098709_1DF41B96 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,201 +114,141 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Divide the monolithic SBI FWFT (Firmware Features) register list into
-separate sublists, each testing a specific FWFT feature independently
-with proper dependency checking.
+Fix a bug where FWFT features could be incorrectly exposed to guests
+after userspace disables their dependent ISA extensions at runtime.
 
-Previously, all FWFT features were tested together in a single sublist.
-This caused issues because:
-1. Not all FWFT features are available on all platforms
-2. Some features depend on specific ISA extensions (e.g., pointer_masking
-requires Smnpm)
-3. Tests would fail if any single feature was unavailable
+The 'supported' field in kvm_sbi_fwft_config was set once during vCPU
+initialization based on the initial hardware/extension availability.
+However, when userspace subsequently disables ISA extensions via the KVM
+ONE_REG interface, the 'supported' field was not updated. This caused
+the following issues:
+1. FWFT features would remain visible and accessible to guests even
+   after their prerequisite ISA extensions were disabled
+2. Guests could configure FWFT features that depend on disabled
+   extensions, leading to undefined behavior
+3. The static 'supported' flag and the dynamic supported() callback
+   could disagree about feature availability
 
-Add the feature-specific SBI FWFT sublists with the following
-improvements:
-- Add check_supported_reg() function to validate register availability
-  based on required ISA extensions and SBI extensions
-- Add check_fwft_feature() helper to verify FWFT feature availability
-  at runtime
-- Update filter_reg() to handle per-feature FWFT register filtering
+The fix introduces a two-layer checking mechanism:
+1. Add an optional init() callback to the kvm_sbi_fwft_feature structure
+   for features that require hardware probing during initialization. This
+   separates the one-time hardware detection logic from the runtime
+   availability check.
+2. Add runtime checks in all FWFT-related functions that call
+   feature->supported(vcpu) if the callback exists. This ensures feature
+   availability is re-evaluated based on the current ISA extension state.
+
+This approach maintains the cached 'supported' field for initialization-
+time decisions while ensuring runtime availability is always determined
+by the current vCPU configuration, not initialization-time snapshots.
+
+Fixes: 6b72fd170592 ("RISC-V: KVM: add support for FWFT SBI extension")
 
 Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 ---
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 90 ++++++++++++++++++++++--
- 1 file changed, 83 insertions(+), 7 deletions(-)
+ arch/riscv/kvm/vcpu_sbi_fwft.c | 32 +++++++++++++++++++++++++++++---
+ 1 file changed, 29 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 5033c09201ef..7ae55fbad29a 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -27,6 +27,23 @@ enum {
- };
- 
- static bool isa_ext_cant_disable[KVM_RISCV_ISA_EXT_MAX];
-+static bool isa_ext_enabled[KVM_RISCV_ISA_EXT_MAX];
-+static bool sbi_ext_enabled[KVM_RISCV_SBI_EXT_MAX];
-+
-+bool check_supported_reg(struct kvm_vcpu *vcpu, __u64 reg)
-+{
-+	switch (reg & ~REG_MASK) {
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.enable):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.flags):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.value):
-+		return sbi_ext_enabled[KVM_RISCV_SBI_EXT_FWFT] &&
-+		       isa_ext_enabled[KVM_RISCV_ISA_EXT_SMNPM];
-+	default:
-+		break;
-+	}
-+
-+	return true;
-+}
- 
- bool filter_reg(__u64 reg)
- {
-@@ -149,6 +166,14 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1h):
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2h):
- 		return isa_ext_cant_disable[KVM_RISCV_ISA_EXT_SSAIA];
-+	/*
-+	 * FWFT misaligned delegation registers are always visible when the SBI FWFT
-+	 * extension is enable and the host supports the misaligned delegation.
-+	 */
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.enable):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.flags):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.value):
-+		return sbi_ext_enabled[KVM_RISCV_SBI_EXT_FWFT];
- 	default:
- 		break;
- 	}
-@@ -193,15 +218,39 @@ static int override_vector_reg_size(struct kvm_vcpu *vcpu, struct vcpu_reg_subli
- 	return 0;
- }
- 
-+void check_fwft_feature(struct kvm_vcpu *vcpu, struct vcpu_reg_sublist *s, u64 feature)
-+{
-+	unsigned long value;
-+	int rc;
-+
-+	/* Enable SBI FWFT extension so that we can check the supported register */
-+	rc = __vcpu_set_reg(vcpu, feature, 1);
-+	if (rc)
-+		return;
-+
-+	for (int i = 0; i < s->regs_n; i++) {
-+		if ((s->regs[i] & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_SBI_STATE) {
-+			rc = __vcpu_get_reg(vcpu, s->regs[i], &value);
-+			__TEST_REQUIRE(!rc, "%s not available, skipping tests", s->name);
-+		}
-+	}
-+
-+	/* We should assert if disabling failed here while enabling succeeded before */
-+	vcpu_set_reg(vcpu, feature, 0);
-+}
-+
- void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- {
--	unsigned long isa_ext_state[KVM_RISCV_ISA_EXT_MAX] = { 0 };
-+	unsigned long isa_ext_state;
- 	struct vcpu_reg_sublist *s;
- 	u64 feature;
- 	int rc;
- 
--	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++)
--		__vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(i), &isa_ext_state[i]);
-+	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++) {
-+		rc = __vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(i), &isa_ext_state);
-+		if (!rc)
-+			isa_ext_enabled[i] = !!isa_ext_state;
-+	}
- 
- 	/*
- 	 * Disable all extensions which were enabled by default
-@@ -209,8 +258,10 @@ void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
+diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
+index 2eab15339694..dde6e39aab5e 100644
+--- a/arch/riscv/kvm/vcpu_sbi_fwft.c
++++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
+@@ -35,6 +35,16 @@ struct kvm_sbi_fwft_feature {
  	 */
- 	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++) {
- 		rc = __vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(i), 0);
--		if (rc && isa_ext_state[i])
-+		if (rc && isa_ext_enabled[i])
- 			isa_ext_cant_disable[i] = true;
-+		else
-+			isa_ext_enabled[i] = false;
+ 	bool (*supported)(struct kvm_vcpu *vcpu);
+ 
++	/**
++	 * @init: Probe and initialize the feature on the vcpu
++	 *
++	 * This callback is optional. If provided, it will be called during
++	 * vcpu initialization to probe the feature availability and perform
++	 * any necessary initialization. Returns true if the feature is supported
++	 * and initialized successfully, false otherwise.
++	 */
++	bool (*init)(struct kvm_vcpu *vcpu);
++
+ 	/**
+ 	 * @reset: Reset the feature value irrespective whether feature is supported or not
+ 	 *
+@@ -137,10 +147,12 @@ static bool try_to_set_pmm(unsigned long value)
+ 
+ static bool kvm_sbi_fwft_pointer_masking_pmlen_supported(struct kvm_vcpu *vcpu)
+ {
+-	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
++	return riscv_isa_extension_available(vcpu->arch.isa, SMNPM);
++}
+ 
+-	if (!riscv_isa_extension_available(vcpu->arch.isa, SMNPM))
+-		return false;
++static bool kvm_sbi_fwft_pointer_masking_pmlen_init(struct kvm_vcpu *vcpu)
++{
++	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
+ 
+ 	fwft->have_vs_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
+ 	fwft->have_vs_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
+@@ -231,6 +243,7 @@ static const struct kvm_sbi_fwft_feature features[] = {
+ 		.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, pointer_masking.enable) /
+ 				 sizeof(unsigned long),
+ 		.supported = kvm_sbi_fwft_pointer_masking_pmlen_supported,
++		.init = kvm_sbi_fwft_pointer_masking_pmlen_init,
+ 		.reset = kvm_sbi_fwft_reset_pointer_masking_pmlen,
+ 		.set = kvm_sbi_fwft_set_pointer_masking_pmlen,
+ 		.get = kvm_sbi_fwft_get_pointer_masking_pmlen,
+@@ -281,6 +294,8 @@ static int kvm_fwft_get_feature(struct kvm_vcpu *vcpu, u32 feature,
+ 
+ 	if (!tconf->supported || !tconf->enabled)
+ 		return SBI_ERR_NOT_SUPPORTED;
++	else if (tconf->feature->supported && !tconf->feature->supported(vcpu))
++		return SBI_ERR_NOT_SUPPORTED;
+ 
+ 	*conf = tconf;
+ 
+@@ -365,6 +380,9 @@ static int kvm_sbi_ext_fwft_init(struct kvm_vcpu *vcpu)
+ 		else
+ 			conf->supported = true;
+ 
++		if (conf->supported && feature->init)
++			conf->supported = feature->init(vcpu);
++
+ 		conf->enabled = conf->supported;
+ 		conf->feature = feature;
  	}
+@@ -408,6 +426,8 @@ static unsigned long kvm_sbi_ext_fwft_get_reg_count(struct kvm_vcpu *vcpu)
+ 		conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
+ 		if (!conf || !conf->supported)
+ 			continue;
++		else if (conf->feature->supported && !conf->feature->supported(vcpu))
++			continue;
  
- 	for (int i = 0; i < KVM_RISCV_SBI_EXT_MAX; i++) {
-@@ -232,9 +283,13 @@ void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- 		switch (s->feature_type) {
- 		case VCPU_FEATURE_ISA_EXT:
- 			feature = RISCV_ISA_EXT_REG(s->feature);
-+			isa_ext_enabled[s->feature] = true;
- 			break;
- 		case VCPU_FEATURE_SBI_EXT:
- 			feature = RISCV_SBI_EXT_REG(s->feature);
-+			if (s->feature == KVM_RISCV_SBI_EXT_FWFT)
-+				check_fwft_feature(vcpu, s, feature);
-+			sbi_ext_enabled[s->feature] = true;
- 			break;
- 		default:
- 			TEST_FAIL("Unknown feature type");
-@@ -897,11 +952,15 @@ static __u64 sbi_sta_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_STA | KVM_REG_RISCV_SBI_STA_REG(shmem_hi),
- };
+ 		ret++;
+ 	}
+@@ -430,6 +450,8 @@ static int kvm_sbi_ext_fwft_get_reg_id(struct kvm_vcpu *vcpu, int index, u64 *re
+ 		conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
+ 		if (!conf || !conf->supported)
+ 			continue;
++		else if (conf->feature->supported && !conf->feature->supported(vcpu))
++			continue;
  
--static __u64 sbi_fwft_regs[] = {
-+static __u64 sbi_fwft_misaligned_deleg_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_FWFT,
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.enable),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.flags),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.value),
-+};
-+
-+static __u64 sbi_fwft_pointer_masking_regs[] = {
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_FWFT,
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.enable),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.flags),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.value),
-@@ -1129,7 +1188,6 @@ KVM_SBI_EXT_SIMPLE_CONFIG(pmu, PMU);
- KVM_SBI_EXT_SIMPLE_CONFIG(dbcn, DBCN);
- KVM_SBI_EXT_SIMPLE_CONFIG(susp, SUSP);
- KVM_SBI_EXT_SIMPLE_CONFIG(mpxy, MPXY);
--KVM_SBI_EXT_SUBLIST_CONFIG(fwft, FWFT);
+ 		if (index == idx) {
+ 			*reg_id = KVM_REG_RISCV |
+@@ -465,6 +487,8 @@ static int kvm_sbi_ext_fwft_get_reg(struct kvm_vcpu *vcpu, unsigned long reg_num
+ 	conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
+ 	if (!conf || !conf->supported)
+ 		return -ENOENT;
++	else if (conf->feature->supported && !conf->feature->supported(vcpu))
++		return -ENOENT;
  
- KVM_ISA_EXT_SUBLIST_CONFIG(aia, SSAIA);
- KVM_ISA_EXT_SUBLIST_CONFIG(fp_f, F);
-@@ -1206,6 +1264,23 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zvksed, ZVKSED);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvksh, ZVKSH);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvkt, ZVKT);
+ 	switch (reg_num - feature->first_reg_num) {
+ 	case 0:
+@@ -502,6 +526,8 @@ static int kvm_sbi_ext_fwft_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num
+ 	conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
+ 	if (!conf || !conf->supported)
+ 		return -ENOENT;
++	else if (conf->feature->supported && !conf->feature->supported(vcpu))
++		return -ENOENT;
  
-+static struct vcpu_reg_list config_sbi_fwft_misaligned_deleg = {
-+	.sublists = {
-+		SUBLIST_BASE,
-+		SUBLIST_SBI(fwft_misaligned_deleg, FWFT),
-+		{0},
-+	},
-+};
-+
-+static struct vcpu_reg_list config_sbi_fwft_pointer_masking = {
-+	.sublists = {
-+		SUBLIST_BASE,
-+		SUBLIST_ISA(smnpm, SMNPM),
-+		SUBLIST_SBI(fwft_pointer_masking, FWFT),
-+		{0},
-+	},
-+};
-+
- struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_sbi_base,
- 	&config_sbi_sta,
-@@ -1213,7 +1288,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_sbi_dbcn,
- 	&config_sbi_susp,
- 	&config_sbi_mpxy,
--	&config_sbi_fwft,
-+	&config_sbi_fwft_misaligned_deleg,
-+	&config_sbi_fwft_pointer_masking,
- 	&config_aia,
- 	&config_fp_f,
- 	&config_fp_d,
+ 	switch (reg_num - feature->first_reg_num) {
+ 	case 0:
 
 -- 
 2.43.7
