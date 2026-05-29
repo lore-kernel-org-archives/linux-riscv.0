@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD212CD5BD1
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 May 2026 03:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3B9CD5BD1
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 May 2026 03:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HY+g/UAzOZ9SHyYNo1W/x8GJ+n/eSupNaLZamtcqZLg=; b=LJpjkK4ClE6afN
-	7IiHwFL8XXAQZeFXcF1qQhqmlntp8+sMXOkmNHHHoUJdC3Y0v+5QH8xdvKENoVY9E7AmFoF1Pr1w7
-	RzCZNg3SKRPhyryBjYXjGYmoKW3aCztTaf23LPI+DpxFJTR+kOwlBVqZ+jfUmsHKHGqozTLZfVDfv
-	4m/bStLDduAojlsdMGSeS/DwYSotgqPiXL7Q1+cFM6/9XeiFtKrxlsJDDu1X7spo9osKO2iXu2i4U
-	59q7UlI33vWeNQL3s+FO+eidfcZKvuZtmjzRuhoGP1336ynIkbfImGHYYAjLsOJzopAFu4kI+f1EC
-	EM+03723d0bbv/fI+w+Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ou2Ehf/krwJeYU2Yr56/YZgVE16V2AhBU4z2LMT2G2Y=; b=MgDxYhzVeTDwsP
+	DL8Xffq/+7WnSFf0Cb7romRmendMz8yiPOdMPgS/L2BV2bFeBtGJd+mx2Nslpsy/YsVSd0WjSAy7Q
+	K8R02+rpA/eOD+OZC2YZK5p5qk5sT+7uCFG5LKYR62MbFO/zduN8+jt+iLIvYyYvUMbCSIVEQwbyg
+	d9QDx/J/hE40Jx+DygC6oTfi2ugvJz3RjJiMsobFy/lzDtT6PDLYHrluwob6/+UXk0PpNL2VYTgsl
+	H9+u1OQx3utIo+ovQSMisWVkZEDuDx6iH7wX5UyIQt56KFPrb1DbECrKtXtj9FNAJTKN/tRuU6v/+
+	RR/KEm5C8ZdissHYqaeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSng7-00000006gBP-2Va3;
-	Fri, 29 May 2026 03:14:31 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wSo0p-00000006hfx-0Es4;
+	Fri, 29 May 2026 03:35:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSng4-00000006gAj-1he2
+	id 1wSo0m-00000006hfR-0M6L
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 May 2026 03:14:30 +0000
-Received: from [10.213.6.54] (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAB3XON4BBlqAXjOEg--.479S2;
-	Fri, 29 May 2026 11:14:00 +0800 (CST)
-Message-ID: <302dfaf7-4a38-408f-997e-68ed27de2341@iscas.ac.cn>
-Date: Fri, 29 May 2026 11:14:00 +0800
+	Fri, 29 May 2026 03:35:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1780025750;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XEOXrlXIFa5puYqMTeXlt8Febheaa3WcQMFr82h5UHg=;
+	b=DTTmz/vQ5siuLkMuMvA1Sq79UP/lGN6LtNOlyTeASOF8cIbFk4SuQmmeDYToVh5oo41eeS
+	5JJVhsRYBs+/sLxBIJxfdKjVFpxeDHjfEIE4tVhW8fpf0zX63v+D34eHzDDXqJ/wOCodo1
+	DllnVi6NQ9g2cE5M9tcKErBM3+8bWd0=
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com
+ [209.85.215.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-126-qn2yM4neMNi6X5DIZXVqgg-1; Thu, 28 May 2026 23:35:48 -0400
+X-MC-Unique: qn2yM4neMNi6X5DIZXVqgg-1
+X-Mimecast-MFC-AGG-ID: qn2yM4neMNi6X5DIZXVqgg_1780025748
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c827bda3052so17770761a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 28 May 2026 20:35:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780025748; x=1780630548;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XEOXrlXIFa5puYqMTeXlt8Febheaa3WcQMFr82h5UHg=;
+        b=jLrtj7pv7OPtUuSg4lCE5CtugF5t2zYm3tmjLiLa0UlZNLd8xiTxrV4EYo0yLcNi4r
+         +tkgl8KqQKyAnzrjBbBcADuAguFwj+8NeEhg6aMn5DEgwG+j8ITNlrmzceievITYxVAH
+         J0sMS1WZIfmBUPg4lPjEfXzT8b9IWaGPGNOD1uptrTOooH3qsSdBz183KjF1bHLwKnOf
+         yD0uZ6mfi8Kn0WjzMu09MtBQMD/aZ7ZaagwjUJBew0SH+ctQAYdiVgMrZZnSQDb6Kots
+         qzEmx8v0Jcrw2z4ntQ+jkvebf4wEEfUCKw1MBTy4T2m8zo0WHll+4zWnwSeFia7/wlfR
+         skyw==
+X-Gm-Message-State: AOJu0Yyj13/ICNMBmF03aU1fxLA5LCgB/X8iDPGE68mvodloT8rJP2xR
+	eAl42/nlE3yIjuShB9XlVlcYCbJvcR0IgPJpF1uxtE5ixHHcV5ePUoFoxXmg12sNK3iVG3REktv
+	IB4KmICD5Qk583mY27BawQCW7RNRaMA7LOECYzRHI7r5x6rzBFejPm+0w+04t931gIkM0TQ==
+X-Gm-Gg: Acq92OEswBx4hWU0NDvQBJKn8tuh4QsKBYGJYaXNDq9Ell9A+/lWAaYmMYY+C5uglLd
+	Yipseqp72IlR+n2VwlLe9y60bSxJ0yjkgFoTOagI/DZUdo61piQN1NKwDagXkGIzLLY0ry62GQb
+	DwR174xD5IR0/7hBskKLSZ4xpur2jyMqD2HtrrsS8yCznZ1K/V5eJdldOQIsrWl1FBitgeLkvCZ
+	w5EARVFFTbXtx/xmm/+yWmA1VbVLUUB8Z0fSHtNt8fGV/HqK5atxsXJvi8mJMF2NSdDnSHtou6u
+	k4qZ0qYNvCV3QuL3j2aUo9CUls61aOXwf7VT6J/3SRld+BbeN9t3fYp5yo7XMRfo3EwVKGsUpwB
+	6voZIjZ1oClXVMjm4xYY2fksmRZmnpoA9OWuOFqZ1kfa9uGcUevWoPh4Vv3iJcd7yHoPAAuC9hg
+	==
+X-Received: by 2002:a17:903:2384:b0:2bf:160f:7043 with SMTP id d9443c01a7336-2bf20cde0fbmr15857115ad.34.1780025747651;
+        Thu, 28 May 2026 20:35:47 -0700 (PDT)
+X-Received: by 2002:a17:903:2384:b0:2bf:160f:7043 with SMTP id d9443c01a7336-2bf20cde0fbmr15856795ad.34.1780025747223;
+        Thu, 28 May 2026 20:35:47 -0700 (PDT)
+Received: from localhost.localdomain (122-63-64-114.mobile.spark.co.nz. [122.63.64.114])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf23b011d3sm2617945ad.52.2026.05.28.20.35.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 May 2026 20:35:46 -0700 (PDT)
+From: Tao Liu <ltao@redhat.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Tao Liu <ltao@redhat.com>
+Subject: [PATCH] riscv: Fix a NULL pointer reference in machine_kexec_prepare
+Date: Fri, 29 May 2026 15:27:40 +1200
+Message-ID: <20260529032739.13264-2-ltao@redhat.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] riscv: cpufeature: Add Zic64b ISA extension support
-To: Qingwei Hu <qingwei.hu@bytedance.com>, linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>,
- Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,
- Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Hui Wang <hui.wang@canonical.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Xu Lu <luxu.kernel@bytedance.com>, Guodong Xu <guodong@riscstar.com>
-References: <20260528141630.2741710-1-qingwei.hu@bytedance.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260528141630.2741710-1-qingwei.hu@bytedance.com>
-X-CM-TRANSID: rQCowAB3XON4BBlqAXjOEg--.479S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJFW8tr4kXw1kJry5WrW3Jrb_yoW5trWkpr
-	Z3Crs5Cr45X34fuwnFyrWkWr1rXw4UK395Kw18W34rJFy2yrWxWr1vya43Cw4DJa40qr1Y
-	9a1Fgr4fZ3yUC37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU5qeHPUUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: hbLa3DhYSeNjJYR9LHfHjGpyFwk2DvA2WuZ_InOn94M_1780025748
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_201428_817898_2FDBD9B6 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20260528_203552_194727_B0465707 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,81 +110,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/28/26 22:16, Qingwei Hu wrote:
-> Zic64b describes a platform with 64-byte cache block sizes. It is a
-> mandatory part of RVA23U64, but a system may provide 64-byte CMO block
-> sizes without satisfying all profile requirements.
->
-> The ISA string parser currently ignores Zic64b because the extension is
-> not present in the cpufeature table. Add an ISA extension ID and table
-> entry for Zic64b so it can be reported in /proc/cpuinfo when firmware
-> advertises it.
+A NULL pointer reference issue is noticed in riscv's machine_kexec_prepare,
+where image->segment[i].buf might be NULL and copied unchecked.
 
-I'd like to understand: What is the motivation to doing this, given that
-the very same information is already available as riscv,cbo*-block-size
-and hwprobe?
+The NULL buf comes from security/integrity/ima/ima_kexec.c:
+ima_add_kexec_buffer(), where kbuf is added by kexec_add_buffer(),
+but kbuf.buffer is NULL.
 
-> Validate the entry against the CBO block sizes discovered from firmware.
-> Only check CBO block sizes that are present, since Zic64b constrains
-> implemented CBO extensions to use 64-byte blocks but does not require all
-> CBO extensions to exist.
->
-> Signed-off-by: Qingwei Hu <qingwei.hu@bytedance.com>
-> ---
->  arch/riscv/include/asm/hwcap.h |  1 +
->  arch/riscv/kernel/cpufeature.c | 14 ++++++++++++++
->  2 files changed, 15 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 7ef8e5f55c8d..b17cae75c295 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -112,6 +112,7 @@
->  #define RISCV_ISA_EXT_ZCLSD		103
->  #define RISCV_ISA_EXT_ZICFILP		104
->  #define RISCV_ISA_EXT_ZICFISS		105
-> +#define RISCV_ISA_EXT_ZIC64B		106
->  
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
->  
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index f46aa5602d74..510ea6aa66ae 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -136,6 +136,19 @@ static int riscv_ext_zicbop_validate(const struct riscv_isa_ext_data *data,
->  	return 0;
->  }
->  
-> +static int riscv_ext_zic64b_validate(const struct riscv_isa_ext_data *data,
-> +				     const unsigned long *isa_bitmap)
-> +{
-> +	if ((riscv_cbom_block_size && riscv_cbom_block_size != 64) ||
-> +	    (riscv_cbop_block_size && riscv_cbop_block_size != 64) ||
-> +	    (riscv_cboz_block_size && riscv_cboz_block_size != 64)) {
-> +		pr_err("Zic64b detected in ISA string, disabling as a present CBO block size is not 64 bytes\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int riscv_ext_f_validate(const struct riscv_isa_ext_data *data,
->  				const unsigned long *isa_bitmap)
->  {
-> @@ -499,6 +512,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->  	__RISCV_ISA_EXT_SUPERSET(c, RISCV_ISA_EXT_c, riscv_c_exts),
->  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(v, RISCV_ISA_EXT_v, riscv_v_exts, riscv_ext_vector_float_validate),
->  	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
-> +	__RISCV_ISA_EXT_DATA_VALIDATE(zic64b, RISCV_ISA_EXT_ZIC64B, riscv_ext_zic64b_validate),
->  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_xlinuxenvcfg_exts, riscv_ext_zicbom_validate),
->  	__RISCV_ISA_EXT_DATA_VALIDATE(zicbop, RISCV_ISA_EXT_ZICBOP, riscv_ext_zicbop_validate),
->  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts, riscv_ext_zicboz_validate),
+Fix this by simply adding a check before copy.
 
-If an extension is what we want to go with, then
-Documentation/devicetree/bindings/riscv/extensions.yaml also needs
-updating to match.
+Signed-off-by: Tao Liu <ltao@redhat.com>
+---
+ arch/riscv/kernel/machine_kexec.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Vivian "dramforever" Wang
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 2306ce3e5f22..d81d576f9cb5 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -41,6 +41,9 @@ machine_kexec_prepare(struct kimage *image)
+ 		if (image->segment[i].memsz <= sizeof(fdt))
+ 			continue;
+ 
++		if (image->segment[i].buf == NULL)
++			continue;
++
+ 		if (image->file_mode)
+ 			memcpy(&fdt, image->segment[i].buf, sizeof(fdt));
+ 		else if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
+-- 
+2.47.0
 
 
 _______________________________________________
