@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9EECD5BD5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 May 2026 22:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CAD8CD6E43
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 May 2026 02:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YNtusp0Smykv9YD2n2WXortwWwM7bcM9edz63PaKXM8=; b=XpJZJwnkdmh3i1
-	bzqMIRUhimQwSHkczGUV1BJxuqhJYW/vla/dwmavvDsRhO7KFw4mnsa8xjL/ox7/Sdsvw4wV8IqD+
-	Bb6BqGd2HFroyr/AZltvsYEGP0+nYCOViQah0Qdru/COzY+uLAjR7JkFZKVnxs8Z0mXm7rF8hhw0I
-	72FczMdX2BdlgVatIsYBoe0BejK1uJJXMBUhMtKUDEyucUeH4e88/uWcnhDfyKVv0XQPJ8SNfmFE5
-	QX0K4DLjFnrX2PsVK6WNbqelg8XecaQwYKG9a0FNapqyyS5P5agcks8HVB78YOZKF/SWnRLR8Ssny
-	LD3FevH0Do6yoGxRLvvw==;
+	List-Owner; bh=5C1AJp+1hREIlpY+qVbJrWAw0WTHW6cs+SrVWDd0JAY=; b=RPYYuW74RTLLDl
+	g5rJZqP/Q0CdfVGPJKX1R6GsJFccgNVWTcAnf3MtS2tQfnXCA5X+4eQ7nYZ2h/65rzm0CQJwkQl0S
+	X5ecUIp5hhVxHw2TndSO/2S1quKRx8yrRw+akqa8xDW2emhUkHZqMNNT0UhPIFNSH5CeXAkaaQAzK
+	ag0sWFiSjEFhOcGCBQWGXX4RM7TcBsRJhiaqXSFdKAPq7w9Hjhmi1AwLWUfa473EwhES4zXWywxB7
+	KlSFkbcsmYzpog76JjkpeoqopVqaPr5bNKaTj325j7lDkMTvRgzegXKkd7n4APAQB8xtcIYjpKlIh
+	lHR6XirKnC19wvF8hg4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjKk-00000006UYm-06ZN;
-	Thu, 28 May 2026 22:36:10 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wSn7w-00000006fBR-2dBC;
+	Fri, 29 May 2026 02:39:12 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wSjKh-00000006UXu-34bh
+	id 1wSn7s-00000006fB2-3TrL
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 May 2026 22:36:09 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2b458ca2296so99826455ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 28 May 2026 15:36:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780007767; x=1780612567; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=j6G7TGbV2srXAXSbKsGpAGcrEaEACN1hpS7t4zOGNfc=;
-        b=e0CIJB2NNVVFWqW2PHWng6ArbmVHFxq4Q4E+zSD4uYqeCN8Thh7G439GvFeDoAwA8n
-         Rrzr7MUmygNQVu/zLpkGVkS/L5sX7YzT+QRAqoljrKjXaFGyrnZcaUue+fWNMeSh6el4
-         rjm6E3mtHrhxbI7b/r7ymUPqHv1Ofqcmg02hBzwDT86gFfRgtN3JZYItN4FK+TzKOrfY
-         24z+civOEDIMJuyF+8nqVSEri9J+OXrII0GefpQiOxNRz8Pu3Mu1tlP3sAWCvZ1r6s0M
-         nDdpjtodRzop+nIVh2JrjamnISoGlVtAwKd74RC6O2rbHGExPov5B7sR2zBMZTktsNJH
-         Og+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780007767; x=1780612567;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=j6G7TGbV2srXAXSbKsGpAGcrEaEACN1hpS7t4zOGNfc=;
-        b=VYX2FC1xPCb59aNuZbqTNdPazAibg3TQXlNGQ7H6XnW1zxHnoczpOuN2hByIcppTIY
-         mVD0GKyR/NpGjsAlaJK5lvQcQk74l6OAaAzifl6zxAk0y0GT5mw2x0EBrvMTyQvT01Vs
-         kV8z/OsPsMWxHY3Ji4WQgKp58d0KLNpHQwChsG/lTjeS4vOy1UeA8yXgrzuUdq5oyxpP
-         tpJGZr+VWdURSTucLfzRh6jOU+K9xyfrUKstHkTlBX1kJUHqND9DgOgclboxlZ7akIoP
-         JArYO8jZtJwMy5yMnl7f7FyvRcRrB8FIDB0LWxg19KFDZn/rloKFtL5zgdgT/VRREehz
-         VyEg==
-X-Forwarded-Encrypted: i=1; AFNElJ+PdBCVwP6hnsAwYpS2Y8q5c5wqH1MY+eCe0iGrnJuKCnH3Egmw3Hg9Bm4ORSxt7dV7hYyVtFT29zugcA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPoGrNvLFBjZZcvsk/+R3aXUFmpRRlIuHyBbHdtacdMzXCEWr/
-	fm4kK49XzpRm6hxnCttZRSeZNs0A2Bz4Gw2BmsFyK+IpBjCAAzzK0e9u
-X-Gm-Gg: Acq92OGI9IvwaJNyxZC0pJwBQnn1oTS5OWFVYfjLBcYk1frEA8oO41ABJxYTd+uygQO
-	SNKa2NTLo2Qx4ng+CliN4jqyxi3/Ix0MKz9GSZz7tH6X4OBhKsej3c7Ufl04oZRFOdRADoJU3Q2
-	Ue3Dq1l/tpTPAe1zz3BRpr0cqOzAYV+EACLuTjiFwRkfEyby9e5zP6V7EZBBO7Dr7bbHuw3VTSy
-	5Mz156fABTwouwKwuVHNosuR6NEXcqURlct4R2H/EeDgi/7r7L3Y6kjSMU/lb1R55B5zm4/j1BP
-	axZ5Rf+WHYFQ/+BoqoJRDUvBz5c42t3fmRoOI2ej1mXjGWBG51HCVsCEgKaxxUkjDCZryDTfeLt
-	2ZY+5Y1nf+vi/v/dRW2pKbgpFjpuLTHaeHaltOw/ILUkeM4fhW8/w7giVgX1nQoVJ3qaCNrYrNu
-	Fob+0zblmB0bFZ07EOcOVTkTvKw90tha5Vqw==
-X-Received: by 2002:a17:902:fc8f:b0:2b9:ec37:2977 with SMTP id d9443c01a7336-2bf20cf15a1mr3611585ad.38.1780007766821;
-        Thu, 28 May 2026 15:36:06 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf218a2535sm855155ad.29.2026.05.28.15.36.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2026 15:36:05 -0700 (PDT)
-Date: Fri, 29 May 2026 06:35:54 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Jinyu Tang <tjytimi@163.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>, Andrew Jones <andrew.jones@oss.qualcomm.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
-	Nutty Liu <nutty.liu@hotmail.com>
-Subject: Re: [PATCH 5/5] KVM: riscv: Fast-path dirty logging write faults
-Message-ID: <ahjBHptPfNgDfncW@inochi.infowork>
-References: <20260517153427.94889-1-tjytimi@163.com>
- <20260517153427.94889-6-tjytimi@163.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260517153427.94889-6-tjytimi@163.com>
+	Fri, 29 May 2026 02:39:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1780022337; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=giyP3l0BARjwV15MaD3ByOc48OVlaO+H1pfwiKo+JWthAO63lPjWa2i0cqtCk7asgsIqz78LyEEWF2uyfT3ZKDsogU/Sss4FLGjSLuG+OwPrsJcTIPDQSD673NuqmRgAaj0rJjje8lukR+rPKjf8CKP/Plk/7jpKoVC+PRt/LC0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1780022337; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1l7GHRNeIy9vc/Rt447hMzgbRk0U1YWWPSN6x53wVYA=; 
+	b=WhMFoT8Ck6GLWtfOmPuGyPzj1AGvnyeWsapa+5wdZcs5IieyBUmM9nuqysEYfU3p3g7NxPALKCt3oANib2TWTTFVq1JKsISZv2DCGPCncvWPFJI7B1/ztPzgBm5wzlbsmXX/B5NQ+Pcsh+lmOvvM33YFWQUy2+VFEqHz5tUIN58=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780022337;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
+	bh=1l7GHRNeIy9vc/Rt447hMzgbRk0U1YWWPSN6x53wVYA=;
+	b=DVbRBlppbQg5/6AEZ+mozmpZRFQAego/NoV9P7RWYIyInmHed9UDsvXnpbhBQ2sL
+	v+gALEluOCS5cYtmZrRDQHPAgN2xLInOAXmDWhVIU6XEw56sVWKPellABudZ4ebFXDl
+	knoeQpq3693RNWsmq3/E9jMUokGSL0GDmPof8fbM=
+Received: by mx.zohomail.com with SMTPS id 178002233430168.40681398454296;
+	Thu, 28 May 2026 19:38:54 -0700 (PDT)
+Mime-Version: 1.0
+Date: Fri, 29 May 2026 10:38:38 +0800
+Message-Id: <DIUT907819JD.MG7B60VQLZ8L@pigmoral.tech>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan"
+ <dlan@kernel.org>, "Vivian Wang" <wangruikang@iscas.ac.cn>, "Paolo Abeni"
+ <pabeni@redhat.com>, "Guodong Xu" <guodong@riscstar.com>, "Yangyu Chen"
+ <cyy@cyyself.name>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 2/3] riscv: dts: spacemit: k1: Split gmac_clk_ref
+ into independent pinctrl groups
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Conor Dooley" <conor@kernel.org>, "Junhui Liu"
+ <junhui.liu@pigmoral.tech>
+X-Mailer: aerc 0.21.0
+References: <20260528-bpi-cm6-v2-0-d0eb3f236cea@pigmoral.tech>
+ <20260528-bpi-cm6-v2-2-d0eb3f236cea@pigmoral.tech>
+ <20260528-mushily-suffrage-5162d4ffdaf2@spud>
+In-Reply-To: <20260528-mushily-suffrage-5162d4ffdaf2@spud>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260528_153607_763911_A4F2A69B 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20260528_193909_251651_3AF5617D 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,150 +89,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 17, 2026 at 11:34:27PM +0800, Jinyu Tang wrote:
-> With dirty logging enabled, guest writes often fault on an existing 4K
-> G-stage leaf that was write-protected only for dirty tracking. The slow
-> path still performs the full fault handling flow and takes mmu_lock for
-> write, even though the page-table shape does not change.
-> 
-> x86 handles the analogous case in its fast page fault path by atomically
-> making a writable SPTE writable again when the fault is only a
-> write-protection fault. Add the same style of fast path for RISC-V. If a
-> write fault hits an existing 4K leaf in a writable dirty-log memslot,
-> mark the page dirty and atomically set the PTE writable and dirty under
-> the read side of mmu_lock.
-> 
-> The dirty bitmap is updated before the PTE becomes writable again. The
-> PTE D bit is also set so systems that trap on a clear D bit do not fall
-> back to the slow path for a writable but clean PTE.
-> 
-> Signed-off-by: Jinyu Tang <tjytimi@163.com>
-> ---
->  arch/riscv/kvm/mmu.c | 75 ++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 75 insertions(+)
-> 
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 48f16e52f..980059e09 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -419,6 +419,77 @@ static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
->  	return PAGE_SIZE;
->  }
->  
-> +static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
-> +						     struct kvm_memory_slot *memslot,
-> +						     gpa_t gpa,
-> +						     struct kvm_gstage_mapping *out_map)
-> +{
-> +	struct kvm_gstage gstage;
-> +	unsigned long mmu_seq;
-> +	pte_t old_pte, new_pte;
-> +	pte_t *ptep;
-> +	gfn_t gfn = gpa >> PAGE_SHIFT;
-> +	u32 ptep_level;
-> +	bool dirty_marked = false;
-> +	bool ret;
-> +
-> +	kvm_riscv_gstage_init(&gstage, kvm);
-> +	mmu_seq = kvm->mmu_invalidate_seq;
-> +
-> +	read_lock(&kvm->mmu_lock);
-> +
-> +	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
-> +		ret = false;
-> +		goto out_unlock;
-> +	}
-> +
+Hi Conor,
 
-> +	if (!kvm_riscv_gstage_get_leaf(&gstage, gpa, &ptep, &ptep_level) ||
-> +	    ptep_level) {
-> +		ret = false;
-> +		goto out_unlock;
-> +	}
-> +
+On Fri May 29, 2026 at 1:13 AM CST, Conor Dooley wrote:
+> On Thu, May 28, 2026 at 01:22:48PM +0800, Junhui Liu wrote:
+>> The gmac_clk_ref signal is optional for the GMAC controller and is not
+>> strictly required for all hardware designs. The pins for gmac0_clk_ref
+>> (GPIO 45) and gmac1_clk_ref (GPIO 46) may also be used as GPIOs for
+>> other functions even when the Ethernet controller is active.
+>> 
+>> Split the refclk pins into independent pinctrl groups so boards can
+>> request them only when the reference clock path is actually needed.
+>> 
+>> Among the already mainlined boards, BPI-F3, Jupiter and MusePi Pro have
+>> optional hardware paths for the GMAC refclk pins. BPI-F3 and Jupiter
+>> route both GMAC refclk pins to the PHYs through NC/0R option resistors,
+>> while MusePi Pro only does so for GMAC0. Keep referencing the new
+>> clk-ref pinctrl groups on these boards so the optional hardware paths
+>> remain usable if the option resistors are populated.
+>> 
+>> OrangePi R2S has no publicly available schematic, so also keep the
+>> clk-ref groups there to preserve the previous pinmux behavior.
+>> 
+>> Fixes: 60775f28cfb7 ("riscv: dts: spacemit: Add Ethernet support for K1")
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>
+>> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+>> index 4e9a62d0e85b..8c57ca05dabd 100644
+>> --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+>> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+>> @@ -27,8 +27,16 @@ gmac0-pins {
+>>  				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
+>>  				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
+>>  				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
+>> -				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
+>> -				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
+>
+> The point sashiko made here seems valid, odd that these aren't added to
+> another group.
 
-Add a check here: if this is a huge page and is a logging page, 
-we should fallback to slow path to apply page spltting.
+Do you mean Sashiko's point about not adding these groups to the
+OrangePi RV2 board? That is because GPIO45 and GPIO46 are used as
+TP_RST_1V8 and TP_INT_1V8 respectively on the OrangePi RV2. These are
+the reset and interrupt signals for the touch panel, and are not
+connected to the optional GMAC PHY refclk path. So with this patch,
+GPIO45/46 can be properly used by the touch panel without pinmux
+conflicts once display/tp support is added in the future.
 
-> +	for (;;) {
-> +		old_pte = ptep_get(ptep);
-> +		if (!(pte_val(old_pte) & _PAGE_LEAF)) {
+I have added the new gmac_clk_ref groups to all boards where I found
+these signals may actually be used.
 
-Use pmd_present() here.
+Best regards,
+Junhui Liu
 
-> +			ret = false;
-> +			break;
-> +		}
-> +
+>
+>> +				 <K1_PADCONF(14, 1)>;	/* gmac0_int_n */
+>> +
+>> +			bias-pull-up = <0>;
+>> +			drive-strength = <21>;
+>> +		};
+>> +	};
+>> +
+>> +	gmac0_clk_ref_cfg: gmac0-clk-ref-cfg {
+>> +		gmac0-clk-ref-pins {
+>> +			pinmux = <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
+>>  
+>>  			bias-pull-up = <0>;
+>>  			drive-strength = <21>;
+>> @@ -51,8 +59,16 @@ gmac1-pins {
+>>  				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
+>>  				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
+>>  				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
+>> -				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
+>> -				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
+>> +				 <K1_PADCONF(43, 1)>;	/* gmac1_int_n */
+>> +
+>> +			bias-pull-up = <0>;
+>> +			drive-strength = <21>;
+>> +		};
+>> +	};
+>> +
+>> +	gmac1_clk_ref_cfg: gmac1-clk-ref-cfg {
+>> +		gmac1-clk-ref-pins {
+>> +			pinmux = <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
+>>  
+>>  			bias-pull-up = <0>;
+>>  			drive-strength = <21>;
+>> 
+>> -- 
+>> 2.54.0
+>> 
 
-> +		if (!dirty_marked) {
-> +			mark_page_dirty_in_slot(kvm, memslot, gfn);
-> +			dirty_marked = true;
-> +		}
-
-Only log dirty entry when the updating is success, otherwise
-the page could be record twice in both fast and slow path.
-
-> +
-> +		if ((pte_val(old_pte) & (_PAGE_WRITE | _PAGE_DIRTY)) ==
-> +		    (_PAGE_WRITE | _PAGE_DIRTY)) {
-
-I think only pte_write is required, for write-protected path,
-only write permission is needed to be checked, as we always
-set dirty bit. For the future dirty log hardware extension,
-the Svadu will update the dirty bit so no need for this logic.
-
-> +			new_pte = old_pte;
-> +			ret = true;
-> +			break;
-> +		}
-> +
-
-> +		new_pte = pte_mkdirty(pte_mkwrite_novma(old_pte));
-
-pte_mkyoung is also needed.
-
-> +
-> +		if (kvm_riscv_gstage_try_update_pte(&gstage, ptep_level, gpa,
-> +						    ptep, old_pte, new_pte)) {
-> +			ret = true;
-> +			break;
-> +		}
-> +		cpu_relax();
-> +	}
-> +
-> +out_unlock:
-> +	read_unlock(&kvm->mmu_lock);
-> +
-> +	if (ret) {
-> +		out_map->addr = gpa & PAGE_MASK;
-> +		out_map->level = 0;
-> +		out_map->pte = new_pte;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
->  int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
->  		      gpa_t gpa, unsigned long hva, bool is_write,
->  		      struct kvm_gstage_mapping *out_map)
-> @@ -442,6 +513,10 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
->  	/* Setup initial state of output mapping */
->  	memset(out_map, 0, sizeof(*out_map));
->  
-> +	if (is_write && logging &&
-> +	    kvm_riscv_mmu_dirty_log_write_fault_fast(kvm, memslot, gpa, out_map))
-> +		return 0;
-> +
->  	/* We need minimum second+third level pages */
->  	ret = kvm_mmu_topup_memory_cache(pcache, kvm->arch.pgd_levels);
->  	if (ret) {
-> -- 
-> 2.43.0
-> 
-
-Regards,
-Inochi
 
 _______________________________________________
 linux-riscv mailing list
