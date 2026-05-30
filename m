@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5475CD5BD0
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 May 2026 22:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960A4CD5BD0
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 May 2026 22:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7w05dBGxspOGJsE9vzsyFppAcOccmXffZIlRSDzP++c=; b=rK89abAiblXF6K
-	b8ZcKN52cI6s/5UZTz09SCnkT/vCOVAcVLhZvMuF7rfi10/OXyB3jHmhzbpe0nSgCRBmYu/rFkhAT
-	/4VpWSRyHKfTM+NrXD12rteUUHUoDKdqJDY0UIBEGpeGNzbJ1i+mdfMtKmL22v85waxnJCAQ7Cwhu
-	9lwZ0ObWkkNf5D94xRElxqEtyRrxg88hxiv9Md+CN75ynCSR50BVkr7+nkK4Rb6YmbICxtEK4XDru
-	WM64dJFr9JDyehTe9Av2VOsx3/IMLHqudgPIZgAviih7Cn42ZJ+BqX/KTBCRDP8KTl021LsIUtzjp
-	5ESjN303O3USCPfzlz7A==;
+	List-Owner; bh=Dp2rjT0jRJ88wN+J+CAXo6sADFlcCq+hM9EKoh5ti70=; b=od6YljrYqAXaTH
+	VGRM93ZeBoeksxHapjQA4G8YlXwOHRA3Hx7PcK4tGSbQoZqGVp/zMlWX3hYIOnEEq1wRYOBUrJVl3
+	yd3zFpMFQJAw2EHRQR/fTjdkSSYX0hw35GV7vuFNc3c9KvucFaiKoii1IvDD3VRn5oQY6J14RrTMR
+	6N/Fzpphp1nl2hQ8DtecarkjaG1/oXPpN4YfE4S1O01mUrVZuSptuf+Dsw3qy1rHsffxIRiKP/MQa
+	admHJgss9hgCP7R8g5X2gRPNajCFQuMKl7iOymkh5Z62SW/iO7Fbs0vn6YNLNU6ZQ1s+pckHoh+pr
+	Wl3CvBuvUAd0zhlT2HUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTRkY-000000095Ha-2STO;
-	Sat, 30 May 2026 22:01:46 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1wTRle-000000095NS-35U1;
+	Sat, 30 May 2026 22:02:54 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTRkW-000000095HG-2l7w
+	id 1wTRlc-000000095N6-2Eje
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 May 2026 22:01:45 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-36d8b644473so242141a91.3
-        for <linux-riscv@lists.infradead.org>; Sat, 30 May 2026 15:01:44 -0700 (PDT)
+	Sat, 30 May 2026 22:02:53 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-36b8e1760ccso1718721a91.0
+        for <linux-riscv@lists.infradead.org>; Sat, 30 May 2026 15:02:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780178504; x=1780783304; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780178571; x=1780783371; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7n4onNHcUGonSFh3iTX+9p1SOqH/aLpn6mI3I4XkfLM=;
-        b=ia2nK6tauhOLFWS/X+bcKKdSlDvu0PicQUE9JOB25/a79psIBWxamlKN7ktdcbqwwy
-         Av6DLcsr4UTHKNXGqVWpxrX7KC/CSizMMID3NIPKFvD6Nv+krTAqy2hf7LoKkxKCrfhY
-         N5To7dIOOrr0oAe0BDzvOqHuiCsSDDwsE1Vfh+ur9ToEukX8nkt9CyF1EbxCgTyz3tgT
-         jkH0wdXqvoorB/sKYe0DKAOKQ5WY6aGnsZVnS2Ph4i6wfBoing+FDw4Gkltgza8uLfl2
-         Typ2UVEBUha+WMgk/qDfJFrYQr2xb/7FvgRt5Gr+ByKWwS5ZS/bo8WmYGo8sDrB4j+T8
-         6xhQ==
+        bh=jULRM7QTG3bd40X4f9y14bjufv7DH+YwiBBgZzfKYuo=;
+        b=YBqepKIotbgscHanUlEapNHFBL68LPVAm7BHzTbv7p1n17O+K6/SFWLUIScsg5OpV+
+         iQtnGIhKowYzuGs+wYCnhRFXk69PKZ9nrw7KB3zpjkermpRdQ2K3y7SR7MC1u0deDpWq
+         Kw0HycBvCYgnmMn6Vobn/XdycOtGA0na794KpDNo+6UjjBczlB0g1DwBfzNtFeKvPMKW
+         C9L0ztV1+vHM8VYs3rbvnEBi3ioYjvYr8zOSAB6mu82oWJJKunw7PvyF1zGcH5byDSFo
+         kNgGMssWHg+Zzpzq2HqeCezlS21b11E74jwyxKQhGUBfik4rK2QA7zZcejxbLrOWqoQl
+         sBfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780178504; x=1780783304;
+        d=1e100.net; s=20251104; t=1780178571; x=1780783371;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7n4onNHcUGonSFh3iTX+9p1SOqH/aLpn6mI3I4XkfLM=;
-        b=DmgLDu4SiBXlNBmm0nbTVC0KLj4En6LfTK2iBqQrEDE6GrO+Yc1fQnaziwqqs826hh
-         eJ43ZS9eqwbFnguiNuWzsb8Wgf4YD0cVJKEneC4np/UH4bhNPs2z1WHa2dAwq0zMft3u
-         nFmjI8D3yHAjF5BjMmgthEdwxomaGh5pd1EEoP2flMVyIaqyOSMuCc4odOMg7mfrKtty
-         fusR3tt/SxNX1zL1tXxLv4j6chptgSIJwFunTcJPvHq0K39oiRkdqikauLN9jjEcbSVj
-         YUvBs39NMaNTx6q74sNfUC6bLI9xFI390BhA8yCx840UOmabhag0W/Qe9YejfopitfHJ
-         WojA==
-X-Forwarded-Encrypted: i=1; AFNElJ+avp0tpA1sNRv9Azhm1UYdKJ83xN9d3x3gv/AZTwHWXUxgGtJ+B0Vnq53R2umEO/JgEeNf0Qml1D436Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyENWaCAc/KTR0HyTGGJ/aFFoYpXWA5U69zckIopL+hLCUdnMnv
-	vvQUdmQVPJ5rcVER+uLI6pWTlWv8bwz/8PQw/0dfMTGbAiDn4go1gfjH
-X-Gm-Gg: Acq92OHHOhjyXRfnbnqX1gaatY8KFEmewFgjWFLASQxlGPFynPVCwow59AmynZbCIEL
-	ksGDtgRZwwzQBle4sE8wAcklZEOsuoJViT9VdrCBs8Oi7743vWLTlAbO3Ef4jdrj3CzMRj8SOIU
-	I6O6EM+P7p/EULCZnY+JtzITWPJ8E2vSUCsZwoUoUKc6oZNEYBwPKT9rvNOj33rH0CM7ijA+A6D
-	xa3PGcTYB6UczGO1PCnIza93COhoslyun2G22+lMY5i+mndUhEPxerZxI6Y6saR04EBQII6Mh7B
-	V4JO1BW4mKDqwsZyrX/G0Oiqv0gy9DprWhpxmQ4+fXv5w8ZAFcFZwf2EKdpSzcLGKa583QQi28u
-	0vbEPPI0aTwXZOEMsiVejc5v+vv4txj+TNkgyLXr7WaJvfghc/uo+K2r+td7TDGmk4RthlWKD1t
-	EW7qVf6xa21Ueoe4I4xz4aKTJ/dIJIk6NhpQ==
-X-Received: by 2002:a17:90b:2383:b0:36d:6315:1de5 with SMTP id 98e67ed59e1d1-36d63151e6amr2613775a91.18.1780178503719;
-        Sat, 30 May 2026 15:01:43 -0700 (PDT)
+        bh=jULRM7QTG3bd40X4f9y14bjufv7DH+YwiBBgZzfKYuo=;
+        b=IRBgb6tmMJZXWzGSF2hRU34F+/CIG32qguBJRhADSWOoBfiwMFMVbyLaeGJy9EbtL9
+         acYCnIPsHWjsevwudRR+p8wEJD9WruTVi7037LQU58/UtnG30tTuVSMNFJgiy+p7GQir
+         8rYhvbH+iZW50C8USvnXMiG/4dRPzxjg9ID4WvH90HrzvnxBQ5MHIadxi26uoCjaodSS
+         zVk1CTtFgJnrH6Xc0Vs6HvvslvdibbzcatyOdJ9Z8eD7E5ys2oCk1s9hVVVXkXXlgaH5
+         2fPgNgl9WCqyQ/OeSwjcNSXj38OgJECQRfxh8b9BEnCqrfzv773PAYXUNnKL0C2Pxydi
+         bxGg==
+X-Forwarded-Encrypted: i=1; AFNElJ+jhboIExYMzF3wxvsTzXKCdCAOl8g6NscNm5HPWJ5iknjg2afJeiC6pct/1AdN99FuP+ck4cEmBGpmTw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyomnyh2mrE1CI52gnv7bH/xmBBJiS5CowNYN9u7KnducyNYflt
+	zxG331nAC5iYeA0IMw4dKBCfrJg2pE40JkJb+KWi5tSZ4xtXfu0SCfzd
+X-Gm-Gg: Acq92OHq0PmJxQrGEbfCITNhQH/fpCEaOunJ388/s3bWV8NmzPi82VvS067fnnVb5P8
+	g99ZqphBkbuE84pw5VoJjd2/my/RuDm7H4JSfrNNiGwIoE4vLWLNvsDMVRGo7fe7qKWJfPp+R7C
+	XCsSX2cwzOBftIXYtV8ju+EJDVMzWqR4K07Ksexlv5rZbuaBmF2x+i2YWkqE6qw/0W8ii/FZkCW
+	McHCW0Zd9J6YS6ROBc+JpISRKXrZX9EkzJL1YR+3+TvATAgt/SaOPHrXwKPT2BmzoNvtXVg/8il
+	kp909C9XLm7g7BvHZ4rjTa+aEBepto3l9LJV3Ps3LBzSs//VNxuOBCj9ZE38wVG+pTnTMumq/Ig
+	Ksfx1yCN6AIQVYjob+ISMOitP1NJa6l5PQkWqKzRfRmCgFjF3/yHBlk0UsJY0lPxjANI1UPhdw/
+	EuBIJwa3+ZoSCT3IfGhU6rEssLD3bygWxPxg==
+X-Received: by 2002:a05:6a00:8cb:b0:835:3949:3c22 with SMTP id d2e1a72fcca58-8422543dc0bmr4619329b3a.27.1780178571566;
+        Sat, 30 May 2026 15:02:51 -0700 (PDT)
 Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bc6b7c178sm5814986a91.15.2026.05.30.15.01.43
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84214ce54b8sm5485197b3a.48.2026.05.30.15.02.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 May 2026 15:01:43 -0700 (PDT)
-Date: Sun, 31 May 2026 06:01:30 +0800
+        Sat, 30 May 2026 15:02:51 -0700 (PDT)
+Date: Sun, 31 May 2026 06:02:38 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Joshua Milas <josh.milas@gmail.com>, tglx@kernel.org, robh@kernel.org, 
 	krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org, samuel.holland@sifive.com, 
@@ -79,17 +79,15 @@ To: Joshua Milas <josh.milas@gmail.com>, tglx@kernel.org, robh@kernel.org,
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, hanguidong02@gmail.com, 
 	michael.opdenacker@rootcommit.com
-Subject: Re: [PATCH v5 RESEND 2/5] arm64: dts: sophgo: add initial Milk-V Duo
- S board support
-Message-ID: <ahteG0AtGbTLexVu@inochi.infowork>
+Subject: Re: [PATCH v5 RESEND 0/5] Add initial Milk-V Duo S board support
+Message-ID: <ahteTfYC5QMlpjF2@inochi.infowork>
 References: <20260530173347.33533-1-josh.milas@gmail.com>
- <20260530173347.33533-3-josh.milas@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260530173347.33533-3-josh.milas@gmail.com>
+In-Reply-To: <20260530173347.33533-1-josh.milas@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260530_150144_695413_7035F646 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260530_150252_573828_8EAA9789 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,127 +104,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 30, 2026 at 01:33:44PM -0400, Joshua Milas wrote:
-> Adds initial arm64 support for the Milk-V Duo S board
-> [1] making it possible to boot Linux to the command line.
+On Sat, May 30, 2026 at 01:33:42PM -0400, Joshua Milas wrote:
+> This adds an initial device tree for the Milk-V Duo S board
+> with support for reading from the SD card and network over
+> Ethernet. This is continued work from Michael Opdenacker's
+> v6 series [1] on the ARM64 and RISCV side. It has been tested
+> with ARM64 and RISCV64 to boot from an SD card, have networking,
+> and read I2C slave devices over i2c4.
 > 
-> Link: https://milkv.io/duo-s [1]
-> 
-> Signed-off-by: Joshua Milas <josh.milas@gmail.com>
 > ---
+> 
+> v5
+> - Fixes spaces at beginning of line in &usb node of DTS
+> 
+> v4: https://lore.kernel.org/sophgo/20260328173450.219664-2-josh.milas@gmail.com/
+> - Rebased to latest sophogo/for-next
+> - Added usb node to arm64 and riscv DTS
+> - Removed sg200x link in commit messages
+> - Added missing change to v3 and removed link from v2
+> 
+> v3: https://lore.kernel.org/sophgo/20251029001052.36774-1-josh.milas@gmail.com/
+> - Added sg2000 interrupt controller and timer to documentation
+> - Added sg2000.dtsi for RISCV and moved DTS over to use it
+> - remove devices from DTS's to match what is available in the
+>   default pinmux config. spi0-2, i2c0-3, uart1-4
+> - Added i2c4 and spi3 aliases
+> - Removed milkv,duo-s from sophgo,cv1812h in documentation
+> 
+> v2: https://lore.kernel.org/sophgo/20251011014811.28521-1-josh.milas@gmail.com/
+> - Made new entry in docs to avoid DTC error
+> - "Milk-V DuoS" -> "Milk-V Duo S"
+> - Sorting of aliases
+> - Added uart*, emmc, mdio, gmac0, i2c*, spi*, dmac, saradc
+>   to device tree matching what is available on the pinout
+> - Removal of 'no-mmc' and 'no-sdio' for sdhci0 as it works without
+> - Added riscv device tree
+> 
+> v1: https://lore.kernel.org/sophgo/20250927173619.89768-1-josh.milas@gmail.com/
+> 
+> Link: https://lore.kernel.org/linux-riscv/20240421055710.143617-1-michael.opdenacker@bootlin.com/ [1]
+> 
+> Joshua Milas (5):
+>   dt-bindings: soc: sophgo: add Milk-V Duo S board compatibles
+>   arm64: dts: sophgo: add initial Milk-V Duo S board support
+>   dt-bindings: soc: sophgo: add sg2000 plic and clint documentation
+>   riscv64: dts: sophgo: add SG2000 dtsi
+>   riscv64: dts: sophgo: add initial Milk-V Duo S board support
+> 
+>  .../sifive,plic-1.0.0.yaml                    |  1 +
+>  .../bindings/soc/sophgo/sophgo.yaml           |  4 +
+>  .../bindings/timer/sifive,clint.yaml          |  1 +
 >  arch/arm64/boot/dts/sophgo/Makefile           |  1 +
 >  .../boot/dts/sophgo/sg2000-milkv-duo-s.dts    | 85 +++++++++++++++++++
->  2 files changed, 86 insertions(+)
+>  arch/riscv/boot/dts/sophgo/Makefile           |  1 +
+>  .../boot/dts/sophgo/sg2000-milkv-duo-s.dts    | 85 +++++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/sg2000.dtsi        | 53 ++++++++++++
+>  8 files changed, 231 insertions(+)
 >  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2000.dtsi
 > 
-> diff --git a/arch/arm64/boot/dts/sophgo/Makefile b/arch/arm64/boot/dts/sophgo/Makefile
-> index 94f52cd7d994b..68aace728223a 100644
-> --- a/arch/arm64/boot/dts/sophgo/Makefile
-> +++ b/arch/arm64/boot/dts/sophgo/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-module-01-evb.dtb
-> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-s.dtb
-> diff --git a/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
-> new file mode 100644
-> index 0000000000000..8632470f43ab0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
-> @@ -0,0 +1,85 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include "sg2000.dtsi"
-> +
-> +/ {
-> +	model = "Milk-V Duo S";
-> +	compatible = "milkv,duo-s", "sophgo,sg2000";
-> +
-> +	aliases {
-> +		i2c4 = &i2c4;
-> +		mmc0 = &sdhci0;
-> +		serial0 = &uart0;
-> +		spi3 = &spi3;
-
-Apply the same change for the reply on v5.
-
-Regards,
-Inochi
-
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +};
-> +
-> +&osc {
-> +	clock-frequency = <25000000>;
-> +};
-> +
-> +&dmac {
-> +	status = "okay";
-> +};
-> +
-> +&emmc {
-> +	bus-width = <4>;
-> +	no-1-8-v;
-> +	cap-mmc-hw-reset;
-> +	no-sd;
-> +	no-sdio;
-> +	non-removable;
-> +	status = "okay";
-> +};
-> +
-> +&gmac0 {
-> +	status = "okay";
-> +};
-> +
-> +&i2c4 {
-> +	status = "okay";
-> +};
-> +
-> +&mdio {
-> +	status = "okay";
-> +};
-> +
-> +&saradc {
-> +	status = "okay";
-> +};
-> +
-> +&sdhci0 {
-> +	bus-width = <4>;
-> +	no-1-8-v;
-> +	disable-wp;
-> +	status = "okay";
-> +};
-> +
-> +&sdhci1 {
-> +	bus-width = <4>;
-> +	cap-sdio-irq;
-> +	no-mmc;
-> +	no-sd;
-> +	non-removable;
-> +	status = "okay";
-> +};
-> +
-> +&spi3 {
-> +	status = "okay";
-> +};
-> +
-> +&uart0 {
-> +	status = "okay";
-> +};
-> +
-> +&usb {
-> +	dr_mode = "host";
-> +	status = "okay";
-> +};
-> +
+> 
+> base-commit: 9aa6068586a9b4cd34cf04f8dee72a7283ab4ae4
 > -- 
 > 2.53.0
 > 
+
+You resend drop all the tags, always send a new version with
+all tags applied in this case.
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
