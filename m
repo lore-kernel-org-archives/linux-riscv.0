@@ -4,116 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACA1CD6E56
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 10:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DE8CD6E56
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 11:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pCCrimwl0md3g3Y3xbWfdd0kpRVLCEWETsvfwAzCaf0=; b=DxYcdCjZ1bc5ju
-	QG0uu0QaKTw44JJbYToABlDG6Iz0wYgOtWkG6HOdG4P8XMIEqKM3n6rdcNF+2V1uPPlxOVzI9W7xM
-	L5XoHsVNxOzDU0JWJrc5Fl6JZ4Q9aLB7IWa3nlmub/heFYlvcFpjjc5XKW6jftcNHQ+8cedHllDiQ
-	fUawRMAWXIa/JXD5vBpctJ4VgjJsHPVtFk1PJ6fEdwBhLb+40DSEePM5IF0Dpx5Hbw2GL8+8ld69R
-	IRoObM7jbUGDmLKSWbDWa5LRIJ6FszOLePAgl/PQgHALLImmMVy8RR07rlvXzJXy6CY6fMmg44bUd
-	FfYUpqG8SPo3TpGbYatg==;
+	List-Owner; bh=b37N7vAAUfSGNcY/zweqBBDG9PdCD2ed/DDUBt9ASKA=; b=olDxyd47gQ1g7Q
+	I4R0c9YIAUEQBYfAbWjFQYDCu1lGftqyDPju0yk/P6rWLBif3RtC4iGF50VyJwaWooG+v3MHFIpfD
+	4reJ0QVglJB1ArjdAIL42GRl3bUeqLFsjV+WpAZHfne7DdITdO51f3IJ869OiaBSY88OZ6vx9m1Oa
+	F30h8kDfcBXRk4oAwc+JX46vUXKMVeFlhAZTzSm6vIycS/OgN6xCERsRNDfCpQgMt/GKi17Iwl3Dy
+	ZllyYCWInMZL0v/+k++P6A0id5r/kNmJtdCf+wJnMb+vMDNkwb7sgLcCn/4SKOYEy8L5mlYcexLtI
+	A0g/f9+hYhNoCtHbTEgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzr6-0000000AcB8-09Wd;
-	Mon, 01 Jun 2026 10:26:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wU0d2-0000000AiPn-0rFk;
+	Mon, 01 Jun 2026 11:16:20 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzr3-0000000Ac8J-0zXZ
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 01 Jun 2026 10:26:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZpUjEIn4ZuMPGVsNdGCP5Htku1Dpr8xmIsStUVmQFFI=; b=aSpZM4eDVCUZsUiFElXTkfMNGy
-	hSNVGtJM4SUK14rMuIeOszGHshzdE6BtcXdMfr09BLkyS2tREdXgAXcU0McXdWxVWWU2Eb475Ntqk
-	9O5RSEoAPlYuauKHPJyR0Rn23xNl/Me28laSGFELxafjMNZX5gBa90JpyWVaOtE4ATzgouTidTir1
-	IHri1ZeRjfQUsSvv4J4RbctA+FuXy1tmK+6Re6xCKe2Rsmy+M5UJShRwNTEQO3FMnUbQCPlcxEGze
-	Y/senqcjIljViaB7nCOw5XFPR4CAp/m/JnPt5e5liLfxa1jEk3JjFCYiexER+VLoF0aOL2fl9EdEO
-	I2PfL0yQ==;
-Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzr0-00000006Nof-0tNQ
+	id 1wU0cz-0000000AiP0-3th3
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 10:26:44 +0000
-Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-307263ad0cbso464187eec.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Jun 2026 03:26:42 -0700 (PDT)
+	Mon, 01 Jun 2026 11:16:19 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-36dac5d5da0so432035a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jun 2026 04:16:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1780309600; x=1780914400; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZpUjEIn4ZuMPGVsNdGCP5Htku1Dpr8xmIsStUVmQFFI=;
-        b=Z3sqlaa9K23ydv0GDxW9zpxWJJqJ/SNlqypOTY+mHiChiaxP4Fz5ADPtDt1a9pFRW3
-         J1LkcOrGfmAdamj29yj7ZFiqciIbneAknxUbzmvgaDGJUQzf4awIyK7MUnKMlGIS0yz2
-         VH8AWG8Up4HJlP+uzGHufHOw4xy5xv0temx8nvvG2+1PvN3Il+0TfYJAFb3UjOtIkplm
-         nbDZS1jBoP+gJ4I3e3UQamuquS6VOMQn5teY/MWmT2paD9H1Oe6TIRw9NaM5afLInWK3
-         dck5Ew8AKLqSNfNB2H1JHpYzCiFivBtWugBOmDmo2wGySR2lLfywg7KHqmLtktqaKlls
-         A6Yw==
+        d=gmail.com; s=20251104; t=1780312577; x=1780917377; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=A0RvTxX98K/pUu8wDZcU84mvng4xT6uAwNgRwaMuMuo=;
+        b=V4u81qKDVEx1mOMTRZLsHcW9uyTmcSrYP73qHXF0eOCEqokqVj625NCFIaXHd2/zs8
+         zdZdMxmNfNSZ2F5d8DhN7zbICYin+3MYGAPZeIizhhcXFk5ffmtq/yuEyVuBHFYoczap
+         P5EQAbsya+OwONdTsP/MzhevrgPMsOON7KBUJX6anH+M1xZGtUSNG5Sn/mOHjxRNl1B9
+         VP0mjcV8M0yXaq1hMOEttp+mBbNfKH5rYr4x5l9eKe3szhz0ZhOa8/4YMLRum08apHSs
+         3MMgrXM7ZmqXKru8lcMvboa0jzPGfJjKM+sZ+ddIk0mc1k08mK3b4/lDOzrvKX9ICdwr
+         5bgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780309600; x=1780914400;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ZpUjEIn4ZuMPGVsNdGCP5Htku1Dpr8xmIsStUVmQFFI=;
-        b=ndHAo0TRSGzGdLC9tlkH1ZMVenGYDXiwoEbLWyEoFGR6C4GSZNZb+vy6l6LdQwMIqd
-         ZYIw2HAVZmQYv+AWkCmtgh/zV1MaGrtJtVIfUQPS+WDP7Hy2B9jF9Jhep4tI+30IAJ1a
-         e0RPd2RBtA6MVLQIj0iGdBvZ8DRXSMe9GV2pxdTrNW0KCW+ISdLLqK53ZmBuF9NW87RO
-         5rUzW8xi4uIUHAq0OFYXVNYsWnR73V+8zHIbgomXNRZ0KABL5TEuw3cnN3bVQ2/jYgi4
-         21g73yz2uZDkRJiYPLb1/waN49iET34Q7dJw4AazT6rspcqs5O09xZaKbW2dcXPtj1IE
-         A1Ug==
-X-Forwarded-Encrypted: i=1; AFNElJ/X47l5MWZ1NCwxurFGt50gfj6Ih08rMuWzYU2dFz3apY6TwR81Vu7jKrmMPXRCnOXDuJtR7qGUKOE1Ig==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4Il/opO0zGPoSHEp9i18Jkl7fYhta+Q6g7xL11+O73JnS2OHc
-	bg2ddIx2Tecg4wj8MwnOzjjS8kSgaOQlwQBxKa3wedjluXK+HeeB46r3QexkCxKy8wA=
-X-Gm-Gg: Acq92OEMUa7HMFAUv3lwRVy5ps78VXFHcG77e8x+rPAUErd1+ktEF+icVYwI1+mvaW0
-	ial4Kga9KIMaJwtZzSop4Z+GIDaOt0u57w0ASdB5UJqrzvo7YX5LmbPJkwEzBAJkgyroPc8Vz6B
-	tjs0h3MgxU7hoO4v1mL5sLvro9NTxtj/FSrisPrKUZFNEo4luS4z2qiHVlHmzWxlOcPFQamP2xu
-	vRCY7dI/UaHguYxSHUDEl7ZvE66N+y8lVnzjV6y+2VAdtbHAlIMpptr0Af92dcmlV27Z09D3SFr
-	HTIv4+/Bk8JBZNMOZ/iSinhK9FH3NQytBRdNMzC4ElrRxTSytWMIrRFTK1O1vQliK5SY6jZDwGz
-	gcA4c/+PFAHFOArn9YOMXy81t5UJNmGBg18WY4PMbHGrd7f2i5PJh/EveZyvXruhibF6kOCbmK6
-	ebCCct3MYKQYkVCPEfV+DKFpZRgltzRBmme6dRtWSjgKZvc3PKKnXEEQ==
-X-Received: by 2002:a05:7300:a44c:b0:2da:2ec2:64e5 with SMTP id 5a478bee46e88-304fa5e320cmr3916930eec.18.1780309600522;
-        Mon, 01 Jun 2026 03:26:40 -0700 (PDT)
-Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304ed5b9be7sm8176001eec.27.2026.06.01.03.26.39
+        d=1e100.net; s=20251104; t=1780312577; x=1780917377;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=A0RvTxX98K/pUu8wDZcU84mvng4xT6uAwNgRwaMuMuo=;
+        b=ATlY/PQnZ9hw1rLx6eiOPNcc1pMfkVL6Qjw6KFcXuDF6tHyWU9RlAgudf6GyB0zW20
+         5sNiyrQ7XCLYjjT2e/KXqS9ijPVqhynEVTjkCghpAgCVmcO/TmXtVVJChjFlmVG14Rzl
+         QTqBkZ4SxRfmHJBbzCCluwuj+5W/t/siH4vaOU7l5u4C2xUxLqH2JHmtB3QX0mBgpqnP
+         6M1qiB6ibWKhNNlfGrLeAsOE4XFVg/EK1/yFuDy4EM18bmqhSL+e1h2MC7GYOZdpIl79
+         iE5BcKK/QAfYDkN899gUHXGayfmSv9GT1djwGtOHIl6T2p6OYErj+gBrFj5ziod7yUMu
+         2zHQ==
+X-Gm-Message-State: AOJu0Yyux7FoHaw16t76oR/WUhNfh8BREHXRgNz9r61zNcda9V1mKuqa
+	ZrXWG0AXb9JuYFFmxJ58pcxtQKttrq2aVziCG0pOcbrdfOGfqpgpJbLV
+X-Gm-Gg: Acq92OEX5lLHIVmsVAge7bI9FaHLwjVV+QfKyxMAKiEUNEODjEynGlAMf9BQPfeAoEL
+	SYKkUjThHTfWUN9BaZTs7tKjZduGw0qZg/+JQwNJTZ4QSHZW6TiqZ2/OElJI+LIp2AFdmz60+zc
+	8gaXxK/6YSgMK9iSJzhmfgdLs+X26z9YTu9QM9Sjjjpg18mCSwmW+/wWA5fDVbuTYqaB50skCW3
+	KDQ3iSHJgvdMYGy5F6yWi5ZzUj+K6P+Au1nQGNqASuuhhtkqESUv+mWfUtPBujdLuNyDhwPpPJ6
+	qlCIp1Vmrq1mXqwRuUYmYF2xUEBRVQl4COWl0ytT7kWrAuyKnB4ZUGzHQIr1rT5Y8MAXdb/NUfj
+	RhZjTW3xjxrrj+AQI/zHLxNOB8fUxDKx1B6xo5TTQnQY9CniISpjWMxoICtgwvl58VPPAKGUPQf
+	tJJsGD4vnoWp3St+hH/YUbJ+ZGwZNxZa5PCA==
+X-Received: by 2002:a17:90a:d403:b0:36d:649a:39f7 with SMTP id 98e67ed59e1d1-36d649a3a91mr8902054a91.22.1780312576930;
+        Mon, 01 Jun 2026 04:16:16 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36bc660da67sm10402142a91.6.2026.06.01.04.16.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 03:26:39 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Date: Mon, 01 Jun 2026 03:26:26 -0700
-Subject: [PATCH v5 5/5] KVM: riscv: selftests: Split SBI FWFT into separate
- feature-specific sublists
+        Mon, 01 Jun 2026 04:16:16 -0700 (PDT)
+Date: Mon, 1 Jun 2026 19:16:00 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Deepak Gupta <debug@rivosinc.com>, 
+	Thomas Huth <thuth@redhat.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Sergey Matyukevich <geomatsi@gmail.com>, Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
+	Quan Zhou <zhouquan@iscas.ac.cn>
+Subject: Re: [PATCH v2 4/7] RISC-V: KVM: Allow Zicfiss/Zicfilp extensions for
+ Guest/VM
+Message-ID: <ah1pgb4S-UoSWhC_@inochi.infowork>
+References: <20260601084336.2601675-1-inochiama@gmail.com>
+ <20260601084336.2601675-5-inochiama@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20260601-kvm-get_reg_list-v2-v5-5-415d08a2813b@sifive.com>
-References: <20260601-kvm-get_reg_list-v2-v5-0-415d08a2813b@sifive.com>
-In-Reply-To: <20260601-kvm-get_reg_list-v2-v5-0-415d08a2813b@sifive.com>
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
- Andrew Jones <ajones@ventanamicro.com>, Paolo Bonzini <pbonzini@redhat.com>, 
- Shuah Khan <shuah@kernel.org>
-Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, inochiama@gmail.com, 
- Yong-Xuan Wang <yongxuan.wang@sifive.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780309592; l=6157;
- i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
- bh=dvopGRgDaRky18g/xnQDE1UFxOqmLWbk1vHTjPzPMBI=;
- b=Olw29Tmd5roLVBLWWP49d+h5thdSBlPI0OZxQt2vjWmCkx7EuWs1TdMjVMOQKpouSKkjMyimr
- wTecLpqPhRoCpumKzUBuxJhFUA60FQQDmUile8JquKjB1uNad5HoPnR
-X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
- pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
+Content-Disposition: inline
+In-Reply-To: <20260601084336.2601675-5-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_112642_622943_C26FB176 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20260601_041617_969966_2A4C8ECF 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,156 +106,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Divide the monolithic SBI FWFT (Firmware Features) register list into
-separate sublists, each testing a specific FWFT feature independently
-with proper dependency checking.
+On Mon, Jun 01, 2026 at 04:43:32PM +0800, Inochi Amaoto wrote:
+> Extend the KVM ISA extension array to allow KVM userspace to
+> detect and enable Zicfiss/Zicfilp extensions for Guest/VM.
+> 
+> Assisted-by: YuanSheng:claude-4.7-opus
+> Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  arch/riscv/include/uapi/asm/kvm.h | 2 ++
+>  arch/riscv/kvm/isa.c              | 2 ++
+>  2 files changed, 4 insertions(+)
+> 
 
-Previously, all FWFT features were tested together in a single sublist.
-This caused issues because:
-1. Not all FWFT features are available on all platforms
-2. Some features depend on specific ISA extensions (e.g., pointer_masking
-requires Smnpm)
-3. Tests would fail if any single feature was unavailable
+I have forgot to add CSR_SSP to the context, will add in the next
+version. But I have a small question for it: could I reuse the 
+generic subtype or use a new CSR subtype?
 
-Add the feature-specific SBI FWFT sublists with the following
-improvements:
-- Add check_fwft_feature() helper to verify FWFT feature availability
-  at runtime
-- Update filter_reg() to handle per-feature FWFT register filtering
+Regards,
+Inochi
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
----
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 60 ++++++++++++++++++++++--
- 1 file changed, 57 insertions(+), 3 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 5033c09201ef..cb86cb6b3635 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -27,6 +27,7 @@ enum {
- };
- 
- static bool isa_ext_cant_disable[KVM_RISCV_ISA_EXT_MAX];
-+static bool sbi_ext_enabled[KVM_RISCV_SBI_EXT_MAX];
- 
- bool filter_reg(__u64 reg)
- {
-@@ -149,6 +150,14 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1h):
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2h):
- 		return isa_ext_cant_disable[KVM_RISCV_ISA_EXT_SSAIA];
-+	/*
-+	 * FWFT misaligned delegation registers are always visible when the SBI FWFT
-+	 * extension is enable and the host supports the misaligned delegation.
-+	 */
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.enable):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.flags):
-+	case KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.value):
-+		return sbi_ext_enabled[KVM_RISCV_SBI_EXT_FWFT];
- 	default:
- 		break;
- 	}
-@@ -193,6 +202,27 @@ static int override_vector_reg_size(struct kvm_vcpu *vcpu, struct vcpu_reg_subli
- 	return 0;
- }
- 
-+void check_fwft_feature(struct kvm_vcpu *vcpu, struct vcpu_reg_sublist *s, u64 feature)
-+{
-+	unsigned long value;
-+	int rc;
-+
-+	/* Enable SBI FWFT extension so that we can check the supported register */
-+	rc = __vcpu_set_reg(vcpu, feature, 1);
-+	if (rc)
-+		return;
-+
-+	for (int i = 0; i < s->regs_n; i++) {
-+		if ((s->regs[i] & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_SBI_STATE) {
-+			rc = __vcpu_get_reg(vcpu, s->regs[i], &value);
-+			__TEST_REQUIRE(!rc, "%s not available, skipping tests", s->name);
-+		}
-+	}
-+
-+	/* We should assert if disabling failed here while enabling succeeded before */
-+	vcpu_set_reg(vcpu, feature, 0);
-+}
-+
- void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- {
- 	unsigned long isa_ext_state[KVM_RISCV_ISA_EXT_MAX] = { 0 };
-@@ -235,6 +265,9 @@ void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- 			break;
- 		case VCPU_FEATURE_SBI_EXT:
- 			feature = RISCV_SBI_EXT_REG(s->feature);
-+			if (s->feature == KVM_RISCV_SBI_EXT_FWFT)
-+				check_fwft_feature(vcpu, s, feature);
-+			sbi_ext_enabled[s->feature] = true;
- 			break;
- 		default:
- 			TEST_FAIL("Unknown feature type");
-@@ -897,11 +930,15 @@ static __u64 sbi_sta_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_STA | KVM_REG_RISCV_SBI_STA_REG(shmem_hi),
- };
- 
--static __u64 sbi_fwft_regs[] = {
-+static __u64 sbi_fwft_misaligned_deleg_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_FWFT,
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.enable),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.flags),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(misaligned_deleg.value),
-+};
-+
-+static __u64 sbi_fwft_pointer_masking_regs[] = {
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_FWFT,
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.enable),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.flags),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.value),
-@@ -1129,7 +1166,6 @@ KVM_SBI_EXT_SIMPLE_CONFIG(pmu, PMU);
- KVM_SBI_EXT_SIMPLE_CONFIG(dbcn, DBCN);
- KVM_SBI_EXT_SIMPLE_CONFIG(susp, SUSP);
- KVM_SBI_EXT_SIMPLE_CONFIG(mpxy, MPXY);
--KVM_SBI_EXT_SUBLIST_CONFIG(fwft, FWFT);
- 
- KVM_ISA_EXT_SUBLIST_CONFIG(aia, SSAIA);
- KVM_ISA_EXT_SUBLIST_CONFIG(fp_f, F);
-@@ -1206,6 +1242,23 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zvksed, ZVKSED);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvksh, ZVKSH);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvkt, ZVKT);
- 
-+static struct vcpu_reg_list config_sbi_fwft_misaligned_deleg = {
-+	.sublists = {
-+		SUBLIST_BASE,
-+		SUBLIST_SBI(fwft_misaligned_deleg, FWFT),
-+		{0},
-+	},
-+};
-+
-+static struct vcpu_reg_list config_sbi_fwft_pointer_masking = {
-+	.sublists = {
-+		SUBLIST_BASE,
-+		SUBLIST_ISA(smnpm, SMNPM),
-+		SUBLIST_SBI(fwft_pointer_masking, FWFT),
-+		{0},
-+	},
-+};
-+
- struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_sbi_base,
- 	&config_sbi_sta,
-@@ -1213,7 +1266,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_sbi_dbcn,
- 	&config_sbi_susp,
- 	&config_sbi_mpxy,
--	&config_sbi_fwft,
-+	&config_sbi_fwft_misaligned_deleg,
-+	&config_sbi_fwft_pointer_masking,
- 	&config_aia,
- 	&config_fp_f,
- 	&config_fp_d,
-
--- 
-2.43.7
-
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> index 501e4fc60dd2..9f9c5ababd1e 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -199,6 +199,8 @@ enum KVM_RISCV_ISA_EXT_ID {
+>  	KVM_RISCV_ISA_EXT_ZCLSD,
+>  	KVM_RISCV_ISA_EXT_ZILSD,
+>  	KVM_RISCV_ISA_EXT_ZALASR,
+> +	KVM_RISCV_ISA_EXT_ZICFILP,
+> +	KVM_RISCV_ISA_EXT_ZICFISS,
+>  	KVM_RISCV_ISA_EXT_MAX,
+>  };
+>  
+> diff --git a/arch/riscv/kvm/isa.c b/arch/riscv/kvm/isa.c
+> index 1132d909cc25..9852a91fdecc 100644
+> --- a/arch/riscv/kvm/isa.c
+> +++ b/arch/riscv/kvm/isa.c
+> @@ -65,6 +65,8 @@ static const unsigned long kvm_isa_ext_arr[] = {
+>  	KVM_ISA_EXT_ARR(ZICBOP),
+>  	KVM_ISA_EXT_ARR(ZICBOZ),
+>  	KVM_ISA_EXT_ARR(ZICCRSE),
+> +	KVM_ISA_EXT_ARR(ZICFILP),
+> +	KVM_ISA_EXT_ARR(ZICFISS),
+>  	KVM_ISA_EXT_ARR(ZICNTR),
+>  	KVM_ISA_EXT_ARR(ZICOND),
+>  	KVM_ISA_EXT_ARR(ZICSR),
+> -- 
+> 2.54.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
