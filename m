@@ -4,49 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5F0CD6E56
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 12:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DD6CD6E56
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 12:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V7Pga0jlgQ3Wqn26iCXv/hpukLak1wcb7QHlit4YZdE=; b=YjPM+JXAWOR4tD
-	NCEI561OT62Itw9JVrKRfmSG2psCqqW6BIGfwBXah9E4howaHiwmUVQL5AjjoKGc/ST5US/acj6Df
-	O/2b8CB/hfnMOOt27v0qeYCZberqg2bcr247qfaEqw24oDdwoq1tzI7WUEQbdMM9XjFJ9uVCdu+p1
-	GtuFH9H0Z0iwyd4dfc4jUp/aHB3orvcUtOClCp1qO+ne3rZZZFPXLwa21oEKdyb0qx4BR5rL6A87y
-	FsTZoyXDc0xDmRIvFD0T5T8JGMyr7XlEP6LkWK1ajlQW1IB/2b+beKglgV+W2DjLXmD5yq4PVaW8C
-	UUDQz2ad1XtH0EF3qnbg==;
+	List-Owner; bh=LY2faWq8IlHVgBbJiAvnqwcq335umNmFH2KwOw1BBQs=; b=IbfTHQGvLGkHk3
+	cZc7UOadIJ8XXELH0BMQ6akKvw2HG+xFj/vtQiEQXQQHaJSyIXqshal3TP61x2sXwUUvqsWBsUm0h
+	ub6agwOXG2c+jjgBekRtB8GkaPwWgDBVTfZVS2tCdEYUd/YwveJXREb4U3gFSWWZx09GRo2skVDh4
+	8zBxfnCBM09RfVCgE0jiUrXYb7tYELPVGw91AYJb2owOOy5Aq6p6eGFy4oPOi6KCOjB1802KMT8CH
+	O6L4wh7gedlhtE8LvBHJYsK8mQ1bfqyqBBTMa+AZHSRj9Zwj99whELn2IVrjLD9w08Fq/R0UEaYG1
+	0LGaRvDu3DOee54IUZMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1g7-0000000B725-49nM;
-	Mon, 01 Jun 2026 12:23:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wU1hN-0000000B7Lo-1T2h;
+	Mon, 01 Jun 2026 12:24:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1g6-0000000B70m-0I6j;
-	Mon, 01 Jun 2026 12:23:35 +0000
+	id 1wU1hL-0000000B7Ko-2pUj;
+	Mon, 01 Jun 2026 12:24:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=fcuOYNxk791F5phRxcJhyOXalMxWmtZOwcs6ao7FDp4=; b=mNA7u/GHvScU9aObe2j0nwBq2r
+	ez3U70y5D+0Fr/5Mys13w1VhwuQPkyBaYeTIgBjW+8/ZsF6BoJfmxIF+9Q8q79qSnXpOJnIuG1Zpr
+	hSlvlvBtoSHoF7DAGF9a6XGc0ZORyENCji6FTFkin/fhppnKVUa4lKfLUGMaxoiw0RJMZ5qsZa7iz
+	1byWnsdJp7zH1+mzEeP/Zi/0F5HNxZ76hXMgm8c2VPThnfaFxBJSFjafMIjTKgZV6Mx9QbcKcY+1h
+	mPesBzdMoRdLOlN8LV9ffrAdC8+t4BzOJjwMOO6Q/aQ/rcxZOO5K0W2iGN5vLgkeh7TO0NZrn2PgU
+	PvQdf5lQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wU1hH-00000006gCc-2Mwo;
+	Mon, 01 Jun 2026 12:24:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7EE840732;
-	Mon,  1 Jun 2026 12:23:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A36061F00898;
-	Mon,  1 Jun 2026 12:23:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 51B7440121;
+	Mon,  1 Jun 2026 12:24:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8C2A1F00893;
+	Mon,  1 Jun 2026 12:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780316613;
-	bh=2jL9F3lhDa+fKvFgKIGzLd1nrDxZ1QfJTb/ldHq2VUY=;
+	s=k20260515; t=1780316686;
+	bh=fcuOYNxk791F5phRxcJhyOXalMxWmtZOwcs6ao7FDp4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=d+eMkbxiEzNQVN3beMSGIxtTo/UBQjNwIb0lTvrLMpXxhwlmOdQP+/MUDVWLqaZ7b
-	 jZHZeBlkXMSGV+Y0K+J9yo0l0nLfknUtjh7yDEt+OCTHeIWOTb8Q83PG2hyAPwjZN0
-	 Qu0818JbsOuhfgLEpwAmPevpFkSFqsZ1uPrvkWgertlNVlh38Ine7hDv/3m+OVV7M7
-	 Ov4iEl6zMTBGlddA5gMxDK/kA4Kol1XeirMPSCP0V/F4ajKZpMSgM6WWU1Try/0ViS
-	 Svdtf2/4gYRCFE+oFNXU/ofIDkG/z4bw+VQqaRuBsvfoxOJopm2UsDtI7k0Xzy+liO
-	 fGXvRG/MqfyBQ==
-Message-ID: <87985f48-2668-4fd0-aae9-3754d2f6bd93@kernel.org>
-Date: Mon, 1 Jun 2026 14:23:26 +0200
+	b=GC/gRRypNO4Nl2crsnc1yh8KH4CZ2CTYtOgVJCcD6HY9cbk4h26lAeZLnsAEhV8+Z
+	 R2ux5FJc6G8c5I0dEWFnNtewHs7ybgmCPOZGJy2UBrYG6RiTbF9grpTAR1PhnQyGaj
+	 rq75IwCuHOQRNq+ccOl0wXtosg/JiSh5UGhuJTENhPXHGkHVa2/YzONyKVVn+bgH9A
+	 lh4SDGRhqxfdF+VNv/nZ7LXvbPnbC+2fhVV1AOqrexDH4DbWiVRGud2HIGluNaUX3l
+	 0d7RPohnvinFGjRFpOW1HXyCoOzA1EKxfbAl0Fd9ZdLU+Ro6/8fbsuSkQu6YThem4i
+	 yGhl0VbgAJgxg==
+Message-ID: <8c60f9bb-7a4a-4340-b414-9f7fbef4150c@kernel.org>
+Date: Mon, 1 Jun 2026 14:24:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] riscv/mm: drop vmemmap_pmd helpers and use generic
- code
+Subject: Re: [PATCH v3 4/5] loongarch/mm: drop vmemmap_check_pmd helper and
+ use generic code
 To: Muchun Song <songmuchun@bytedance.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -62,7 +76,7 @@ Cc: Muchun Song <muchun.song@linux.dev>, linux-mm@kvack.org,
  Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
  Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
 References: <20260601084845.3792171-1-songmuchun@bytedance.com>
- <20260601084845.3792171-4-songmuchun@bytedance.com>
+ <20260601084845.3792171-5-songmuchun@bytedance.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,10 +123,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260601084845.3792171-4-songmuchun@bytedance.com>
+In-Reply-To: <20260601084845.3792171-5-songmuchun@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_052334_150850_ADAF1F7C 
-X-CRM114-Status: UNSURE (   5.65  )
+X-CRM114-CacheID: sfid-20260601_132448_214736_FDE2341D 
+X-CRM114-Status: UNSURE (   4.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,10 +145,10 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 6/1/26 10:48, Muchun Song wrote:
-> The generic implementations now suffice; remove the riscv copies.
-> 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> ---
+> The generic implementations now suffice; remove the loongarch copies.
+
+You are only removing a single function? So "copy"
+
 
 Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
