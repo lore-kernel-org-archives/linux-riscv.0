@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31541CD5BD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF3FCD6E55
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JGn5YKd11wU/o4rRzZBzjhbIS4GaufPfzYKbWcTP3uQ=; b=OhiRNtaU4Q2ua6
-	hATBIr6isjwKaz93MrLtIjSFXM4aDWsN294HTDx8dH5jBcb56834c9CKFvbNvPZNTrCntYjP3EKF5
-	hFgRMMDoVAzJLryMjhiYaTVswt7VM2fOl8DljHnveRSu83HZ3l+WSdirb9JQws8qGMCrIzxWJGoSE
-	Q2pdH6Fr9tlcdl/TTk3Ump4fmkYIa9h9PIWAtqTL932g8pb2zXyqnW0G7stVdE2ibkjQ/Oz10D24W
-	+krXqRemVi8R80NUw7BFnJ7d1CVQCPApllGccdgl2EV5RrCq/mifU8N4csPlH0+gNsDF6+fLp7Eah
-	7GSznGUw0w7Td/f2mtUg==;
+	List-Owner; bh=okMdCRdINcozZpcddqW8n5o+H5B5w3zjqDoWmVt8aUM=; b=w2zFPkBH/LBshi
+	ndsvVJx4cSHJuLaptNweOeCUiMGEkRTvr2Vpv5LrwMITzSkhiBs03et1cTSkfOKxmSfWombiLFBpg
+	tJ+JJ7dlEzmu68L27Ea9blotPYxruOIdB2d7UtHQSEt0mFEtXhCTwKkAGfZwTmcHvqh595AuPgwlW
+	AAVkhvxaQ2KrNQJyuXr990qsIuICxztrRtH7fJXLGKf2YDFewTvMu4WMV1RDSH+6sgDRwucX+Dk3l
+	sNAtkU7JVSKmkRbDDQwXcQ8U6mdlRCp9m6I8wBizlCkdDKY1O8A+QisTW3DV6633W5sWnPJgTcT5u
+	Q+kzOnGQsSHgTiD//xgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N7-0000000Bmrn-3t2p;
-	Mon, 01 Jun 2026 20:36:29 +0000
+	id 1wU9N8-0000000Bms3-0nhw;
+	Mon, 01 Jun 2026 20:36:30 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N2-0000000Bmpa-4AQO
+	id 1wU9N5-0000000BmqN-1CTL
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 20:36:26 +0000
+	Mon, 01 Jun 2026 20:36:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C5CD432BF;
-	Mon,  1 Jun 2026 20:36:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A21FA1F008A3;
-	Mon,  1 Jun 2026 20:36:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E9B9143247;
+	Mon,  1 Jun 2026 20:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BE1E1F008A3;
+	Mon,  1 Jun 2026 20:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780346184;
-	bh=SoMF0NvEK/nHml8RMjqK0ASTpVqLJvBd+3O6LznwQbI=;
+	s=k20260515; t=1780346186;
+	bh=f9ZOFiPohiYSKhbWWzIEk2xjvwSzBQ/tKoIQXjkNAxw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=GXMOM7SnhidoV1UMUeJNclAeD8OoXOwUzUM0FxZsmvCRDTWp4Xsl9JxJSUpQiqj2B
-	 OL+YZDxxgJvujB6PC547tkvruKBnWjXn5N2kvWJpOFSre96R5K8FmRQJMDb27vTVPd
-	 fhMvdvsXx0cezQJWpkjx7i4HunOe+HV38BTi5YyQs4hbx0M9wASblLoWWMzQueFi4f
-	 IlfyNYuJGcV7KUuTtkvNx/nX5bTe9r1CjUvMsO2fB15MdmDbIeBGANzU3UG1C8yK06
-	 /h/sfXS1Zwvn/i3LqHIMCY73aQmmakwdVSwKkxj9WmXOG70kmqAqRuC7M+clEp7dfP
-	 twwVejwSDmvig==
+	b=m3SVo7zyq96FMlVQkDyefmhThVvqpBHzYEwM01u/+hQQorVfnMQIJU0Tis2CFRaeC
+	 QIVEkTgLTtss2oupuozZKDtPnAMcNq8zePDPeGvD8ksvBalYIIXHA10w+u8gTam8G4
+	 JAQ3cvFJKmwg0L3vUCUxJwazAZYYaXUroPdGSeN9P84OQFcaQIDtpJ6RQHUMr4Q2xK
+	 uuTEpUWKO7XP3JG/qrJRQlrfQ66drKDKVxQdKFPJseEqBOc5n+RUT97HqctFfL+Bx2
+	 9HBetHTXHlWWgMHgMA72OT0io/s2GByTMz52JjsBQvnzkFuV2sgjrBDmZr7lSa8+El
+	 3pEdX3lSUKNDg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 01 Jun 2026 13:35:56 -0700
-Subject: [PATCH RFC v6 02/18] riscv: detect the Ssqosid extension
+Date: Mon, 01 Jun 2026 13:35:59 -0700
+Subject: [PATCH RFC v6 05/18] fs/resctrl: Add RDT_RESOURCE_MB_MIN and
+ RDT_RESOURCE_MB_WGHT
 MIME-Version: 1.0
-Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-2-baf00f50028a@kernel.org>
+Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-5-baf00f50028a@kernel.org>
 References: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 In-Reply-To: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -85,18 +86,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1637; i=fustini@kernel.org;
- h=from:subject:message-id; bh=58g1568NRL7/SI4d2HoFSQSOKccqgmn0k03hr3pJQEU=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnVimy0sp5b18t78Bc8Vli++r7SgZEbCi1fn81/a3
- w6LnbGyo6OUhUGMi0FWTJFl04e8C0u8Qr8umP9iG8wcViaQIQxcnAIwkfZ/jAwr7OwO8FQWc02T
- +Zb1ceVzyTvMN93PteSIO3CpzRDL7+Fk+B9xQ8RvmvLRLU++icV1Bi2NFPjvIZGanTMvqnhvTNB
- OFg4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1643; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=5R/JdWFi++9znbUpG3cGFvBtrlKO+JDslGJA+1+iOLc=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnWam3v/ImetyEH5AsFixXvqZ3++YV6yT2LF/ymfJ
+ p1/2bJ0XUcpC4MYF4OsmCLLpg95F5Z4hX5dMP/FNpg5rEwgQxi4OAVgIr+vMPxmPb4qM2Z59kSF
+ hqP2RsHVp6/P+Ma6wme/VmPcv6pyvg/vGBm2PPA/O+31e86133K6dTclNsue+bbfw+n95idC65k
+ 0ZMRYAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_133625_084429_5DDD39A7 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260601_133627_379539_58E4DD69 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +108,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U3Nxb3NpZCBpcyB0aGUgUklTQy1WIFF1YWxpdHktb2YtU2VydmljZSAoUW9TKSBJZGVudGlmaWVy
-cyBzcGVjaWZpY2F0aW9uCndoaWNoIGRlZmluZXMgdGhlIFN1cGVydmlzb3IgUmVzb3VyY2UgTWFu
-YWdlbWVudCBDb25maWd1cmF0aW9uIChzcm1jZmcpCnJlZ2lzdGVyLgoKTGluazogaHR0cHM6Ly9n
-aXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFnL3YxLjAKQ28tZGV2ZWxv
-cGVkLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFsQHNlbWloYWxmLmNvbT4KU2lnbmVkLW9mZi1i
-eTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+ClNpZ25lZC1vZmYtYnk6IERy
-ZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vaHdjYXAuaCB8IDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIHwgMSArCiAy
-IGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAppbmRl
-eCA3ZWY4ZTVmNTVjOGQuLmI4M2RhZTVjZWJiOSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9od2NhcC5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaApAQCAt
-MTEyLDYgKzExMiw3IEBACiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkNMU0QJCTEwMwogI2RlZmlu
-ZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJTFAJCTEwNAogI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJ
-U1MJCTEwNQorI2RlZmluZSBSSVNDVl9JU0FfRVhUX1NTUU9TSUQJCTEwNgogCiAjZGVmaW5lIFJJ
-U0NWX0lTQV9FWFRfWExJTlVYRU5WQ0ZHCTEyNwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
-cm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKaW5kZXgg
-ZjQ2YWE1NjAyZDc0Li42NjhhN2U3MWZmMWMgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
-L2NwdWZlYXR1cmUuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKQEAgLTU4
-Miw2ICs1ODIsNyBAQCBjb25zdCBzdHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9l
-eHRbXSA9IHsKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzc2FpYSwgUklTQ1ZfSVNBX0VYVF9TU0FJ
-QSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3Njb2ZwbWYsIFJJU0NWX0lTQV9FWFRfU1NDT0ZQ
-TUYpLAogCV9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNFVChzc25wbSwgUklTQ1ZfSVNBX0VYVF9TU05Q
-TSwgcmlzY3ZfeGxpbnV4ZW52Y2ZnX2V4dHMpLAorCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzcW9z
-aWQsIFJJU0NWX0lTQV9FWFRfU1NRT1NJRCksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3N0Yywg
-UklTQ1ZfSVNBX0VYVF9TU1RDKSwKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzdmFkZSwgUklTQ1Zf
-SVNBX0VYVF9TVkFERSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEFfVkFMSURBVEUoc3ZhZHUsIFJJ
-U0NWX0lTQV9FWFRfU1ZBRFUsIHJpc2N2X2V4dF9zdmFkdV92YWxpZGF0ZSksCgotLSAKMi40My4w
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Introduce bandwidth controls which are semantically different from
+the throttle-based MB resource:
+
+ - RDT_RESOURCE_MB_MIN: minimum reserved bandwidth
+ - RDT_RESOURCE_MB_WGHT: weighted share of unreserved bandwidth
+
+Assisted-by: Claude:claude-opus-4-7
+Signed-off-by: Drew Fustini <fustini@kernel.org>
+---
+ fs/resctrl/rdtgroup.c   | 4 +++-
+ include/linux/resctrl.h | 2 ++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+index 0f331bf5ce82..02733b11e115 100644
+--- a/fs/resctrl/rdtgroup.c
++++ b/fs/resctrl/rdtgroup.c
+@@ -1555,7 +1555,7 @@ bool is_mba_sc(struct rdt_resource *r)
+ 	return r->membw.mba_sc;
+ }
+ 
+-/* RANGE schema is bandwidth (MBA/SMBA). BITMAP is cache. */
++/* RANGE schema is bandwidth (MBA/SMBA/MB_MIN/MB_WGHT). BITMAP is cache. */
+ bool resctrl_is_membw(struct rdt_resource *r)
+ {
+ 	return r->schema_fmt == RESCTRL_SCHEMA_RANGE;
+@@ -2402,6 +2402,8 @@ static unsigned long fflags_from_resource(struct rdt_resource *r)
+ 		return RFTYPE_RES_CACHE;
+ 	case RDT_RESOURCE_MBA:
+ 	case RDT_RESOURCE_SMBA:
++	case RDT_RESOURCE_MB_MIN:
++	case RDT_RESOURCE_MB_WGHT:
+ 		return RFTYPE_RES_MB;
+ 	case RDT_RESOURCE_PERF_PKG:
+ 		return RFTYPE_RES_PERF_PKG;
+diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+index 006e57fd7ca5..9529ed0d1fdf 100644
+--- a/include/linux/resctrl.h
++++ b/include/linux/resctrl.h
+@@ -53,6 +53,8 @@ enum resctrl_res_level {
+ 	RDT_RESOURCE_L2,
+ 	RDT_RESOURCE_MBA,
+ 	RDT_RESOURCE_SMBA,
++	RDT_RESOURCE_MB_MIN,
++	RDT_RESOURCE_MB_WGHT,
+ 	RDT_RESOURCE_PERF_PKG,
+ 
+ 	/* Must be the last */
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
