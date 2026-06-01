@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A0DCD6E60
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 09:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 551ACCD5BD1
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 09:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NADBeacsjShkrdqldRG6zJXu8PZtS8zMK+Nf3xBF9Yw=; b=c+WxbYCpuMDr5e
-	983JiPbDlLIVmJM8Br36XlO3zpY5vNzqDjeMiSPyT0XLv6Fl0AeghHotXPWCqJeDdNahzP1oCIODj
-	W0MYsVcMAiISijy5Ck8IY4XAwD61YLWU7bwEzrXoZJLZGG5MiIPFJ/qeQCMShzBOzas+iVX90JYrd
-	wc3/HO1bGYgL4Ic4owKTcN8gX6E4VcoAVZkCYb+SkO7KA/pt5K5ym7HFSug4z4XsamzIUnTvJ+1HS
-	UAOwWlHmXgY9i5bnC97J2ljrH1GmjP5LDKVhczOmuVME3ylw1XDEDtS9zgnJrEwOg22V4mwRED3fd
-	od+6MraYulWXjt4fNNUQ==;
+	List-Owner; bh=GU+hqrI9qeFQCmfwhGrItJIIMcbAMOiFUyonfayu1Sk=; b=jtEXYjceupdYP+
+	WU/x75kATf2WqUYF8kbPbNLyVmmtTTPFdevZyZiv6vLZ2BdkWrlHBNaxTVq/ma3DwCCD6ANo6luiN
+	ukIJLNM6IAuoLO0QgSMRLTswHRsY46v+byBKs65It6A7eaW3xSs9nRNMJYVAqP4dn9aouktUEpXGb
+	nLA1cOCNFOdO4Tn7RJVrAYbtBe/84bx30Tp5s7PlgBdYD4BYoklJLOe1uT5/Kf6ZrLMHwV81ymOT9
+	uGRr/ByasKcokhJQ7ZIow/LWfrVAFYpSWxEScbLaDfm+MR2/4A1yJ9mA4Hiyxqk0EvUnWzin2wHLp
+	1PKam5hRNp4JXqfSigcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzGw-0000000AXL5-42mp;
-	Mon, 01 Jun 2026 09:49:26 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wTzH2-0000000AXRE-0xif;
+	Mon, 01 Jun 2026 09:49:32 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzGt-0000000AXF1-1MS1;
-	Mon, 01 Jun 2026 09:49:24 +0000
+	id 1wTzGy-0000000AXJr-11Kx;
+	Mon, 01 Jun 2026 09:49:30 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=QhxWEZ3D4GGmGtUoAYImLv2QXaO4Fc0oYtFF+i9F/fc=;
-	b=qbYRLeHp3CzOuhWLmUVjc/xI4t8fsvMlwzgt1dRaPPKlK0ILnR1NVoezIWLnyFHrMqcX9XWXR
-	aJWfn6s6A2rP16ZYwfYMzQIICou/TDBgX545GfSH2FJqVO+duRvfcuAWg4mGi3DrFogTtSokT0a
-	TQhPrfCFCeC3vzkMl0Jc+WM=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gTTVr2VM7z12LGX;
-	Mon,  1 Jun 2026 17:41:24 +0800 (CST)
+	bh=s72FvUjFSjSJ20RjP7SnGlVB1x5o5hIMnFQNqmBErV8=;
+	b=VhBDZrFR76i+VElm85yQCdwAmgLAAAj/GvMjgfKMrBNw8K6sW8djbL99FteZAzdBUPwmwpKFk
+	D4rYAMPPIAddb5+2EpnwbeiRUn1efqXA6Jhh4h/Ib5wbAcxehRl+0QOXweoQyRt6xn/C6WYYscJ
+	hWU4wb+ZmFTyxSIQZRnfEyA=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gTTWL17qkzpStn;
+	Mon,  1 Jun 2026 17:41:50 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2E70F201E9;
-	Mon,  1 Jun 2026 17:49:21 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 1440340569;
+	Mon,  1 Jun 2026 17:49:25 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 1 Jun
- 2026 17:49:17 +0800
+ 2026 17:49:21 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
@@ -77,9 +77,9 @@ To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<kexec@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v15 12/23] arm64: kexec_file: Fix TOCTOU buffer overflow via memory region padding
-Date: Mon, 1 Jun 2026 17:47:54 +0800
-Message-ID: <20260601094805.2928614-13-ruanjinjie@huawei.com>
+Subject: [PATCH v15 13/23] riscv: kexec_file: Fix TOCTOU buffer overflow via memory region padding
+Date: Mon, 1 Jun 2026 17:47:55 +0800
+Message-ID: <20260601094805.2928614-14-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260601094805.2928614-1-ruanjinjie@huawei.com>
 References: <20260601094805.2928614-1-ruanjinjie@huawei.com>
@@ -88,8 +88,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_024923_680837_C9C8993E 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260601_024928_586727_A26CBF2A 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,50 +113,51 @@ If a memory hotplug event occurs between these two steps, the number of
 memory regions may increase, causing an out-of-bounds write to
 the cmem->ranges[] array.
 
-Fix this fundamentally by using `CRASH_HOTPLUG_SAFETY_PADDING`
-(128 slots) to expand the flexible array allocation ceiling upfront.
-This safely absorbs any concurrent memory region expansion. Concurrently,
-add a defensive boundary check to return -EAGAIN on unexpected overrun,
-fully eradicating the overflow window and ensuring system stability.
+Fix this fundamentally by using `CRASH_HOTPLUG_SAFETY_PADDING` (128 slots)
+to expand the flexible array allocation ceiling upfront. This safely
+absorbs any concurrent memory region expansion. Concurrently, add
+a defensive boundary check inside the callback to return -EAGAIN on
+unexpected overrun, fully eradicating the overflow window and ensuring
+system stability.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will.deacon@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Baoquan He <bhe@redhat.com>
-Cc: Breno Leitao <leitao@debian.org>
-Cc: stable@vger.kernel.org
-Fixes: 3751e728cef2 ("arm64: kexec_file: add crash dump support")
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: songshuaishuai@tinylab.org
+Cc: bjorn@rivosinc.com
+Cc: leitao@debian.org
+Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
+Reviewed-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/kernel/machine_kexec_file.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/machine_kexec_file.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index 4cbb71e1f8ed..8a96fb68b88d 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -48,7 +48,8 @@ int prepare_elf_headers(void **addr, unsigned long *sz)
- 	u64 i;
- 	phys_addr_t start, end;
+diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+index 3f7766057cac..f3576dc0513f 100644
+--- a/arch/riscv/kernel/machine_kexec_file.c
++++ b/arch/riscv/kernel/machine_kexec_file.c
+@@ -48,6 +48,9 @@ static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+ {
+ 	struct crash_mem *cmem = arg;
  
--	nr_ranges = 2; /* for exclusion of crashkernel region */
-+	/* for exclusion of crashkernel region */
-+	nr_ranges = 2 + CRASH_HOTPLUG_SAFETY_PADDING;
- 	for_each_mem_range(i, &start, &end)
- 		nr_ranges++;
- 
-@@ -59,6 +60,11 @@ int prepare_elf_headers(void **addr, unsigned long *sz)
- 	cmem->max_nr_ranges = nr_ranges;
- 	cmem->nr_ranges = 0;
- 	for_each_mem_range(i, &start, &end) {
-+		if (unlikely(cmem->nr_ranges >= cmem->max_nr_ranges)) {
-+			ret = -EAGAIN;
-+			goto out;
-+		}
++	if (unlikely(cmem->nr_ranges >= cmem->max_nr_ranges))
++		return -EAGAIN;
 +
- 		cmem->ranges[cmem->nr_ranges].start = start;
- 		cmem->ranges[cmem->nr_ranges].end = end - 1;
- 		cmem->nr_ranges++;
+ 	cmem->ranges[cmem->nr_ranges].start = res->start;
+ 	cmem->ranges[cmem->nr_ranges].end = res->end;
+ 	cmem->nr_ranges++;
+@@ -61,7 +64,8 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 	unsigned int nr_ranges;
+ 	int ret;
+ 
+-	nr_ranges = 2; /* For exclusion of crashkernel region */
++	/* For exclusion of crashkernel region */
++	nr_ranges = 2 + CRASH_HOTPLUG_SAFETY_PADDING;
+ 	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
+ 
+ 	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
 -- 
 2.34.1
 
