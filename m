@@ -4,106 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BD5CD6E62
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 09:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB0ECD6E64
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 10:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=agCAWDzrmoYeFmiDaqJ4KZkL5c1507/TsuUZyHG2e7k=; b=GVNLhRqDY0S9Fc
-	Q+utKwjzW1T4Xw6oPZFT6u73Gvj9ZeKduYOeHjXGyDnjYOhamnOP2asTcUU/3tlQ0ESatL++8ACvY
-	85cGMkVFNnRsMqXkWC3IgtYlBp2HPKDkiRmh+P8lL9ZaJXpaBcG2dfIJbfjzBQY/P2dptnRgNjKAv
-	xbvwITjxttPh7uTfw6JSyVYpzei2bu9dY9Ie54jhwncGwbfi7imU9vy7rpVFwghwhW1S3lbrv734K
-	tIG28/HBDlfHibcd13oDuJkaz/KGQhl89sXJK7w7CpoPI628lSivYGvFkjJEMlIg6S0YWkg50e9do
-	fJHT1kL9VN6LRCc474Dw==;
+	List-Owner; bh=6HItYfLdwO9YiPeEFVhCIRanvxw1tDyq1I/rTO8LWlA=; b=2ab9hR3cyKBdnF
+	TL9Lld9OyKT9sFZ8BdV269LPkSLRjBQEO1VDLW1qFZZ3ZbtTmM5DyYh/jJP4KCeoldwUTktcwLeih
+	8+MUzozWAJrdGmns6tBrwiqsMfPAC+vc9bpOdULVlltf1xzZrIzJQJB2jItD5l2blAE/xQ5Oe0F49
+	KpZQGzn+xyemhjLyJNKWatXGW+/huidJYLK96xdLOg7TJBtS7q+0BrhaUhJVuAsEymhHa/4gAoCFo
+	EvBOs+MyQI6H4hxD7lDYlajOYb0zMwSwgwPzL7Xya5gxf1CgF7NovYw5XWlsmECKoghSMhMAjl745
+	dTP96I2YguwdBdojOjsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzHT-0000000AXwT-3TIx;
-	Mon, 01 Jun 2026 09:49:59 +0000
+	id 1wTzr2-0000000Ac7C-0hFH;
+	Mon, 01 Jun 2026 10:26:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzHS-0000000AXta-1VQo;
-	Mon, 01 Jun 2026 09:49:58 +0000
+	id 1wTzr0-0000000Ac5I-2PLY
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 01 Jun 2026 10:26:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=oARwP823mK2svk8EHr8oSkwE0woOoobvi75Jpwji2lk=; b=hacwXjRZS11Bdr0Cgqs38d4dCO
-	mYy0lolfxChVAD6z2kwwe/d7oA+e2gUIIGrwzNkyDNcHZGr3tKJ+pm/qdHAMpVOKdapEn225Agwub
-	dsDrk259a313emocsqtl/PeYBAYTLcYjhQ29ccVs6d47lPOOL7gVlfi0iHYmR3yRFDSy8lHxl4ib+
-	q0FSMNF9q84T5OlFwUMYFYMm6i2Gbb9mUXd9LQhz/AYoiNsSwnIiggt6Qs2dMRbQbguQee2906ROw
-	WQyMtjyDfyIq01m3kika1skgsBvibfnI6MpMURCVCPDKgYw+m3OOA0H8MCwSIe6s1gDHgML0wGRql
-	unmZ/3GA==;
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=vZcJSSPPDZRD9m7u0WYcrKJNavTPlRfNheNSPldKeYQ=; b=jD/aeh0g2kQepaUXC+ftDNwYy3
+	CuarV7epybU6Fw3n7W3ZgSVB7RvCnpQ5JdIi3fl0B6WG5CxO/FVib1Pkrdk6Ph/IhB7pOYaKoFvuk
+	WwH//wMtB5nEcSFtP/mSFjNV/UZz+HzZH+t8u39JvimpN1qZacF/Vbd1HuVhTfhwICen1xZmLNsWd
+	5zkeyGnk+43QyNQE2DF8rrIDghgA6Nz+J7NFhPDUI6lqtgl8PQ89koKtuRG9ucBU8BG+XVY6bqv0O
+	IXGczGI5orOXG4sDOt90m7PimePEyCAjUxF410ZjvLICUcf/yGC1/rNWY2xxnKpl9X7JbhMdHs9jL
+	0F3v12lQ==;
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTzHO-00000006I6j-39o6;
-	Mon, 01 Jun 2026 09:49:57 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=oARwP823mK2svk8EHr8oSkwE0woOoobvi75Jpwji2lk=;
-	b=Z9/j+bvJ1QagwfLQ90H92i9ZbEtUnC8y/PaMvTnHcNbZycj4IoqqkPoI16NF4TDoPzXVtU4xB
-	GKnbAXGH3mebCz5ExVBk8+Tetn/jfQe/Q3vNEMijJeD+d4bBG+ORjAublvi/LhHL4O7w9Vw+nFM
-	rpqZTUoayxLQhW1WrZFZiUk=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gTTWR4Kbbz12Lcs;
-	Mon,  1 Jun 2026 17:41:55 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7050D201E9;
-	Mon,  1 Jun 2026 17:49:52 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 1 Jun
- 2026 17:49:48 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <rppt@kernel.org>,
-	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <ruirui.yang@linux.dev>,
-	<rdunlap@infradead.org>, <feng.tang@linux.alibaba.com>,
-	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
-	<kuba@kernel.org>, <lirongqing@baidu.com>, <ebiggers@kernel.org>,
-	<paulmck@kernel.org>, <sourabhjain@linux.ibm.com>, <thuth@redhat.com>,
-	<ardb@kernel.org>, <masahiroy@kernel.org>, <gshan@redhat.com>,
-	<james.morse@arm.com>, <maz@kernel.org>, <leitao@debian.org>,
-	<yeoreum.yun@arm.com>, <coxu@redhat.com>, <suzuki.poulose@arm.com>,
-	<cfsworks@gmail.com>, <osandov@fb.com>, <jbohac@suse.cz>,
-	<ryan.roberts@arm.com>, <tangyouling@kylinos.cn>, <ritesh.list@gmail.com>,
-	<adityag@linux.ibm.com>, <hbathini@linux.ibm.com>, <bjorn@rivosinc.com>,
-	<songshuaishuai@tinylab.org>, <vishal.moola@gmail.com>,
-	<junhui.liu@pigmoral.tech>, <djordje.todorovic@htecgroup.com>,
-	<austin.kim@lge.com>, <namcao@linutronix.de>, <djbw@kernel.org>,
-	<chao.gao@intel.com>, <seanjc@google.com>, <fuqiang.wang@easystack.cn>,
-	<liaoyuanhong@vivo.com>, <makb@juniper.net>, <graf@amazon.com>,
-	<piliu@redhat.com>, <rafael.j.wysocki@intel.com>,
-	<mario.limonciello@amd.com>, <jbouron@amazon.com>, <chenjiahao16@huawei.com>,
-	<guoren@kernel.org>, <bauerman@linux.ibm.com>, <bgwin@google.com>,
-	<takahiro.akashi@linaro.org>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v15 20/23] powerpc/kexec_file: Use crash_exclude_core_ranges() helper
-Date: Mon, 1 Jun 2026 17:48:02 +0800
-Message-ID: <20260601094805.2928614-21-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260601094805.2928614-1-ruanjinjie@huawei.com>
-References: <20260601094805.2928614-1-ruanjinjie@huawei.com>
+	id 1wTzqv-00000006Nm1-2zGL
+	for linux-riscv@lists.infradead.org;
+	Mon, 01 Jun 2026 10:26:41 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-304f590dd91so2332944eec.0
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jun 2026 03:26:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1780309595; x=1780914395; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vZcJSSPPDZRD9m7u0WYcrKJNavTPlRfNheNSPldKeYQ=;
+        b=lbEAtvWxjZuzCnb+TVp3xIXQWJYq1g72/Z7SN0CKxdfUw2EQzGc5iF8Ixr/FS/64Tg
+         G1C1ksE4qhDAdktRDa+xtygUjT9XE2ObQQIUV8UiR9prEP9Cv8Sn8cfYdz0U7lmH/Pnv
+         OtgEFX7XiNDW6Q0q+MmPqTZmO/NLdPEHzH0GflDyJ5m6YeHw9MTrv12bx6y7CFZnnvrW
+         RQnpQ/JTV8HRp75GLZ3C2jnOMnXs64SJO225e0A/8ZyUx5eUdvLkFTMdm82dq6qnDpxN
+         1kYv4ymrIJ++8ia/mpSI+m+WRZl2Eets9aETNC70apKYX/dHRnFE9b9iRcrGku/TExDO
+         xJvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780309595; x=1780914395;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vZcJSSPPDZRD9m7u0WYcrKJNavTPlRfNheNSPldKeYQ=;
+        b=e5fiD5Ch8/hwnH5NuHUJCPf5ddTGRP0sWwQ3vIE1AYNWqgHbsfNbHSYRb1yx93Y5yN
+         Ep3mu8twHXClLbk0TTGQf2aaGpwozSbVc6IpxvUKb/4+xch9yPdj2KStTSAIi3rVyeFY
+         B3zjzg5gy5TolS+cN9chUI6Qwaon5SK+H7/iDJav5Xd2e6UQy52m4w8vBeuoNm+hblPE
+         YfMSySumREPTHyXXaLQv3lGRpZOtFEF8eYm6+noVLW7yXW6nErHHATwd8RmT9xE2qQiS
+         sSwHzLoE1uQd3GXEOxJr5VucEhh3ijkq3SV9UHykDAY7fUZmWLUecfFJ6gI5Ycq/fkib
+         cwgw==
+X-Forwarded-Encrypted: i=1; AFNElJ+yuQW06KZgkdeYhMZlhO3zzJXNILXpUn0MTPIOR2QHFK470XNBhtOvPYUMK1/6ipz/TStbi6vqaZ4t2g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoQpeFgPn8LlrtgNiLf+oi6ngkbQ/oS7cJk+Gm45HCPY9rdIQr
+	Kg77YMj6RZPoL9OLNvOoLT8lUJ3vr1mkkE7QSoLRVybV5F+50l/a86x9EtqcNxKvDDE=
+X-Gm-Gg: Acq92OEqBukdDcijMBSJCQKIjYBl93l5p3wDlKxAjuR9t4oRolndoAsRQxDtstFYUc8
+	D+9lM0WEoJKcHdzO9Un8EtRzPZ1GS/Bv9bgHZcHciNCpkIlDD5WVEEtW5F8d0FjY8hvFPipZGU7
+	kvH/zIz1V4WhiVxdbQ29PAOSDSZD7sunskBGfmW7PxiJMDZI0XVMbVQr4hzZT+nrDblAprGeEIZ
+	XMoVgTZmosFy2I/FbQGZDyOxWX70gm1gc1h3JMRbwAd8AzW7mB2q/CEYtLVRCnRUUHSJPa9yKCR
+	zHtMc5oN1/f7INHKhmSJfr1u/LQ1CRc/hg+hfYZNWJNKnxf9Ag1By48cwqDjoQOxJavz5zW1ftt
+	/3Os/0VE/3LVtCvz/CvH5Zz8WxORGXRkDpNA1VbVimGv+XL+ne03iAMNC3voS9PczjJZhYUpTvM
+	ZRPtRx19muNzo04rghRWxT8LB2BFVYUH9tXOLSMuOAMoRJ+nnoHWHrKA==
+X-Received: by 2002:a05:7301:1695:b0:304:de94:1c2c with SMTP id 5a478bee46e88-304fa75092dmr5279923eec.34.1780309594882;
+        Mon, 01 Jun 2026 03:26:34 -0700 (PDT)
+Received: from sw07.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-304ed5b9be7sm8176001eec.27.2026.06.01.03.26.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 03:26:34 -0700 (PDT)
+From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Date: Mon, 01 Jun 2026 03:26:22 -0700
+Subject: [PATCH v5 1/5] KVM: RISC-V: SBI FWFT: Mark vCPU CSRs dirty after
+ setting feature value
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Message-Id: <20260601-kvm-get_reg_list-v2-v5-1-415d08a2813b@sifive.com>
+References: <20260601-kvm-get_reg_list-v2-v5-0-415d08a2813b@sifive.com>
+In-Reply-To: <20260601-kvm-get_reg_list-v2-v5-0-415d08a2813b@sifive.com>
+To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
+ Andrew Jones <ajones@ventanamicro.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, inochiama@gmail.com, 
+ Yong-Xuan Wang <yongxuan.wang@sifive.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780309592; l=970;
+ i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
+ bh=XMF0XSIyNuy4j6kTqZpEJUq1eyLTItJ7528vJLaFCY0=;
+ b=i4mw/AFm7VlveGu7MUnkidG4GqKblWsIvDKpDapvBtMbjsymQ2BViwqrFhpQVOJj/B8/0HHfM
+ 1eIuk0srt6vBTpBQi2sl9VIkC6pNQBVnanp9bwOiLrdd6aUCUVh1h+H
+X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
+ pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_104955_764958_C37F06C3 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20260601_112638_500406_25F9F931 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,172 +131,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The crash memory exclude of crashk_res and crashk_cma memory on powerpc
-are almost identical to the generic crash_exclude_core_ranges().
+Mark the vCPU CSRs as dirty after successfully setting an FWFT feature
+value. FWFT features may modify CSRs (e.g., pointer masking modifies
+henvcfg.PMM), and failing to mark them dirty can lead to the guest
+observing stale CSR state after vCPU scheduling or migration.
 
-By introducing the architecture-specific arch_crash_exclude_mem_range()
-function with a default implementation of crash_exclude_mem_range(),
-and using crash_exclude_mem_range_guarded as powerpc's separate
-implementation, the generic crash_exclude_core_ranges() helper function
-can be reused.
+Fixes: 1323a5cfe52c ("KVM: riscv: Skip CSR restore if VCPU is reloaded on the same core")
 
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Hari Bathini <hbathini@linux.ibm.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Mahesh Salgaonkar <mahesh@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-Cc: Shivang Upadhyay <shivangu@linux.ibm.com>
-Acked-by: Baoquan He <bhe@redhat.com>
-Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 ---
- arch/powerpc/include/asm/kexec_ranges.h |  3 ---
- arch/powerpc/kexec/crash.c              |  2 +-
- arch/powerpc/kexec/ranges.c             | 16 ++++------------
- include/linux/crash_core.h              |  4 ++++
- kernel/crash_core.c                     | 19 +++++++++++++------
- 5 files changed, 22 insertions(+), 22 deletions(-)
+ arch/riscv/kvm/vcpu_sbi_fwft.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/powerpc/include/asm/kexec_ranges.h b/arch/powerpc/include/asm/kexec_ranges.h
-index ad95e3792d10..8489e844b447 100644
---- a/arch/powerpc/include/asm/kexec_ranges.h
-+++ b/arch/powerpc/include/asm/kexec_ranges.h
-@@ -7,9 +7,6 @@
- void sort_memory_ranges(struct crash_mem *mrngs, bool merge);
- struct crash_mem *realloc_mem_ranges(struct crash_mem **mem_ranges);
- int add_mem_range(struct crash_mem **mem_ranges, u64 base, u64 size);
--int crash_exclude_mem_range_guarded(struct crash_mem **mem_ranges,
--				    unsigned long long mstart,
--				    unsigned long long mend);
- int get_exclude_memory_ranges(struct crash_mem **mem_ranges);
- int get_reserved_memory_ranges(struct crash_mem **mem_ranges);
- int get_crash_memory_ranges(struct crash_mem **mem_ranges);
-diff --git a/arch/powerpc/kexec/crash.c b/arch/powerpc/kexec/crash.c
-index d634db67becc..775895f31037 100644
---- a/arch/powerpc/kexec/crash.c
-+++ b/arch/powerpc/kexec/crash.c
-@@ -513,7 +513,7 @@ static void update_crash_elfcorehdr(struct kimage *image, struct memory_notify *
- 		base_addr = PFN_PHYS(mn->start_pfn);
- 		size = mn->nr_pages * PAGE_SIZE;
- 		end = base_addr + size - 1;
--		ret = crash_exclude_mem_range_guarded(&cmem, base_addr, end);
-+		ret = arch_crash_exclude_mem_range(&cmem, base_addr, end);
- 		if (ret) {
- 			pr_err("Failed to remove hot-unplugged memory from crash memory ranges\n");
- 			goto out;
-diff --git a/arch/powerpc/kexec/ranges.c b/arch/powerpc/kexec/ranges.c
-index b2fb78562cdc..539061d14a77 100644
---- a/arch/powerpc/kexec/ranges.c
-+++ b/arch/powerpc/kexec/ranges.c
-@@ -551,9 +551,9 @@ int get_usable_memory_ranges(struct crash_mem **mem_ranges)
- #endif /* CONFIG_KEXEC_FILE */
- 
- #ifdef CONFIG_CRASH_DUMP
--int crash_exclude_mem_range_guarded(struct crash_mem **mem_ranges,
--					   unsigned long long mstart,
--					   unsigned long long mend)
-+int arch_crash_exclude_mem_range(struct crash_mem **mem_ranges,
-+				 unsigned long long mstart,
-+				 unsigned long long mend)
- {
- 	struct crash_mem *tmem = *mem_ranges;
- 
-@@ -602,18 +602,10 @@ int get_crash_memory_ranges(struct crash_mem **mem_ranges)
- 			sort_memory_ranges(*mem_ranges, true);
- 	}
- 
--	/* Exclude crashkernel region */
--	ret = crash_exclude_mem_range_guarded(mem_ranges, crashk_res.start, crashk_res.end);
-+	ret = crash_exclude_core_ranges(mem_ranges);
- 	if (ret)
- 		goto out;
- 
--	for (i = 0; i < crashk_cma_cnt; ++i) {
--		ret = crash_exclude_mem_range_guarded(mem_ranges, crashk_cma_ranges[i].start,
--					      crashk_cma_ranges[i].end);
--		if (ret)
--			goto out;
--	}
--
- 	/*
- 	 * FIXME: For now, stay in parity with kexec-tools but if RTAS/OPAL
- 	 *        regions are exported to save their context at the time of
-diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-index 43baf9c87355..1ae2c0eb2eb3 100644
---- a/include/linux/crash_core.h
-+++ b/include/linux/crash_core.h
-@@ -67,6 +67,7 @@ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_ma
- 				       void **addr, unsigned long *sz);
- extern int crash_prepare_headers(int need_kernel_map, void **addr,
- 				 unsigned long *sz, unsigned long *nr_mem_ranges);
-+extern int crash_exclude_core_ranges(struct crash_mem **cmem);
- 
- struct kimage;
- struct kexec_segment;
-@@ -87,6 +88,9 @@ extern int kimage_crash_copy_vmcoreinfo(struct kimage *image);
- extern unsigned int arch_get_system_nr_ranges(void);
- extern int arch_crash_populate_cmem(struct crash_mem *cmem);
- extern int arch_crash_exclude_ranges(struct crash_mem *cmem);
-+extern int arch_crash_exclude_mem_range(struct crash_mem **mem,
-+					unsigned long long mstart,
-+					unsigned long long mend);
- 
- #else /* !CONFIG_CRASH_DUMP*/
- struct pt_regs;
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 481babc29131..2b36aa9fade0 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -285,24 +285,31 @@ unsigned int __weak arch_get_system_nr_ranges(void) { return 0; }
- int __weak arch_crash_populate_cmem(struct crash_mem *cmem) { return -1; }
- int __weak arch_crash_exclude_ranges(struct crash_mem *cmem) { return 0; }
- 
--static int crash_exclude_core_ranges(struct crash_mem *cmem)
-+int __weak arch_crash_exclude_mem_range(struct crash_mem **mem,
-+					unsigned long long mstart,
-+					unsigned long long mend)
-+{
-+	return crash_exclude_mem_range(*mem, mstart, mend);
-+}
-+
-+int crash_exclude_core_ranges(struct crash_mem **cmem)
- {
- 	int ret, i;
- 
- 	/* Exclude crashkernel region */
--	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
-+	ret = arch_crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
- 	if (ret)
- 		return ret;
- 
- 	if (crashk_low_res.end) {
--		ret = crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
-+		ret = arch_crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
- 		if (ret)
- 			return ret;
- 	}
- 
- 	for (i = 0; i < crashk_cma_cnt; ++i) {
--		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
--					      crashk_cma_ranges[i].end);
-+		ret = arch_crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
-+						   crashk_cma_ranges[i].end);
- 		if (ret)
- 			return ret;
- 	}
-@@ -329,7 +336,7 @@ int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
- 	if (ret)
- 		goto out;
- 
--	ret = crash_exclude_core_ranges(cmem);
-+	ret = crash_exclude_core_ranges(&cmem);
- 	if (ret)
- 		goto out;
- 
+diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
+index 2eab15339694..5e4aafb0cbf1 100644
+--- a/arch/riscv/kvm/vcpu_sbi_fwft.c
++++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
+@@ -521,6 +521,7 @@ static int kvm_sbi_ext_fwft_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num
+ 		break;
+ 	case 2:
+ 		ret = conf->feature->set(vcpu, conf, true, value);
++		vcpu->arch.csr_dirty = true;
+ 		break;
+ 	default:
+ 		return -ENOENT;
+
 -- 
-2.34.1
+2.43.7
 
 
 _______________________________________________
