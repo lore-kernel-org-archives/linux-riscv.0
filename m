@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C4BCD5BD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619BECD6E61
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vqAu7s3ND8slpN4Iz9IfAaREcnOk1NMyKCQAYbqp5D8=; b=YOrsU47jY33IaV
-	sFODEnvlN4bt3ZDvQ1N20h0nHkXHx5DKoRwJrLqTDrWbIvocLzF8dLTmorsTT4aw08Rt+5ga+pxvV
-	fNygGMj5rnWh3uIYvjfupkH8LupnX7LSAkgO8FhEQeLNsfFu07lwzcRUYSzqAbyisn6DFGVdfrs0S
-	NSupd1o3PHs+G2FCuMc3dKzAGwmnEJ6XYGWoKLqwhro3tKX5jeQuRmEPsOOdJUVi2eDJSDnLqGeoy
-	dfzYxarPvBjtLuTSAJPysdJHTxSX01PW57QQiN66juIrUr/JRmrXj05weUEP6fR2xEnf5d4j48lkr
-	gJhWQto8FOMvqSsWHfZA==;
+	List-Owner; bh=Wo2u4ifLVbYkIb3hCE89O3Kg9uZ5X7E56Cu8bGq2Zrg=; b=rw0UyPELfMlZFx
+	lLxdQC8AtI2wApwmjjKGlhRgDVAnIux7hI2Y4EZUc93w7PCvOaY8C1Jr9cdKbOwVJzarkC+Vg+IUP
+	1/8/rlUfQNjeiSF2bbnMRYj5cM+asNrbGud87Hbh+E9LDM7BEbc6hBeySVFWxQx9m5hMJa4h5rY+Y
+	F3AoQDfHqI7pPTVwhuxndW94rjPn7/Woj7qBenzNW/TmTc5YAt/Ud0tWA5v29V2ygvsbcFoXGMxld
+	T0aPMdSnXzf/uNn2mZlennGteXv8HFscF+u/ZZtXdHiLUHZoAwG1eXEC+9xADUT5RiAbBfN69tZD7
+	JXdNGYHSN150B0mt4seA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N7-0000000Bmrj-3Ly1;
-	Mon, 01 Jun 2026 20:36:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wU9NI-0000000Bn6T-1D6U;
+	Mon, 01 Jun 2026 20:36:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N4-0000000Bmpw-1nVN
+	id 1wU9NE-0000000Bmy2-3e3A
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 20:36:26 +0000
+	Mon, 01 Jun 2026 20:36:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 80B13601F4;
-	Mon,  1 Jun 2026 20:36:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ACD21F008A4;
-	Mon,  1 Jun 2026 20:36:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 71E8F40637;
+	Mon,  1 Jun 2026 20:36:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D3931F008A5;
+	Mon,  1 Jun 2026 20:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780346185;
-	bh=jacBUw3TuL0Ul9vWo6PSgvG0qXFvI3P77dpHaOwM/Oo=;
+	s=k20260515; t=1780346196;
+	bh=mTwwl+ig+fjJ0sELrhOzw5k5khRQRR/9+wVPF6kCj4I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=SetxcZgwBa61Znsw/andtsI/wEL/fwV3kb1y0EtGOJQ8fKWx8xDJ4sbQJdm+oiyS1
-	 31O0U/SyMEX/JOv+o3QXPhkdJzoX2iqjsfILoyyDfj/29hyXwcYdVEDwfIt5b7vrQR
-	 K6bikkb8b8xFgQ69TUzXG5H33QUFjn+RlJWk0h/FKIAjmkBzSRAect4Mx4SlGu8BA7
-	 oAJJa0kk/fbGSdUi4mpE1xQDU1Q2gt/9SxpiO/ExQ3Xv3RKUO1CuyWYob/Z6Qk8H95
-	 y1g8rqVO8Le6phuvtb+AFU8YqSNxzW9Soe4Hvvow64qyOMpwH/6eAcIVKnzahjWXO7
-	 X7P5czQ/Sp8ow==
+	b=gJTT7vLPU4zZnX8MnBUpUg7DnP8Gw3cbMJA/yE9dAjwRlgBvq6fIxvTWOLUmoQzSx
+	 mEYqGmHv9Ii9kpr8q1DlXWgt9ahqj1iAmvNL0/Dc2CC6bGxcdKAXj1IbW9iWFS0DCn
+	 rcxCSOik56cE65ESRwMV1JX2/eEMDnNkEejAfbYcWtNKWTdAH1X4WZ1V92fIIvqVj9
+	 +d1k1PDuEHyEsKwqiwdDbXp68/ZqY0b2KEbWc10ZITb3NV2NB7mcbDR3ZTv40hdvau
+	 t3p0iy/I+oWJmqVJlmeg7E/I6n7OdTZRMOtuRwBMe3PksLYVR4ttTJdLQtCx2arVs6
+	 mlQ1/jq0wlsVg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 01 Jun 2026 13:35:57 -0700
-Subject: [PATCH RFC v6 03/18] riscv: add support for srmcfg CSR from
- Ssqosid extension
+Date: Mon, 01 Jun 2026 13:36:10 -0700
+Subject: [PATCH RFC v6 16/18] ACPI: RISC-V: Parse RISC-V Quality of Service
+ Controller (RQSC) table
 MIME-Version: 1.0
-Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-3-baf00f50028a@kernel.org>
+Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-16-baf00f50028a@kernel.org>
 References: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 In-Reply-To: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,14 +86,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12220; i=fustini@kernel.org;
- h=from:subject:message-id; bh=Ru8n+b2Nb9I06Iq/XueF55Kvar2HGUuz3aKE1Dt+uzs=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnWSt55dPK3/TdVB24uTToboBP8X+H5QRf7z1jX7u
- VWmsBaYdZSyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmoqTAyHCZvXbpnqXbZkYd
- f/sq02nhghW7lv/Uvqv54Eb5A+lNGdbvGBkWOlnKKlc5Nri/0Dl65eCpvOOeG4oE2DtafcMWvK+
- Q12QBAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11871; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=wQO5+pAF5VjZ/zebqBozq+z2BXVrC/YcBMlOHb+h3/g=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnVZI3Fk5W15+e4SMR5ZeX6P13FLDSJXMJj/XLI9Z
+ 9LrtCrmjlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBEXuYy/JVj31r1dBnLhP8e
+ VYt/zW89EfdxQlRvTPHm8hStvCvuD6YwMixxUCmTe/j0evMc38RHptve+SeX17x5IFU0/bjl6Ud
+ Md7gA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_133637_010833_1A1C95E9 
+X-CRM114-Status: GOOD (  29.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,220 +108,360 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIHN1cHBvcnQgZm9yIHRoZSBzcm1jZmcgQ1NSIGRlZmluZWQgaW4gdGhlIFNzcW9zaWQgSVNB
-IGV4dGVuc2lvbi4KVGhlIENTUiBjb250YWlucyB0d28gZmllbGRzOgoKICAtIFJlc291cmNlIENv
-bnRyb2wgSUQgKFJDSUQpIGZvciByZXNvdXJjZSBhbGxvY2F0aW9uCiAgLSBNb25pdG9yaW5nIENv
-dW50ZXIgSUQgKE1DSUQpIGZvciB0cmFja2luZyByZXNvdXJjZSB1c2FnZQoKUmVxdWVzdHMgZnJv
-bSBhIGhhcnQgdG8gc2hhcmVkIHJlc291cmNlcyBhcmUgdGFnZ2VkIHdpdGggdGhlc2UgSURzLAph
-bGxvd2luZyByZXNvdXJjZSB1c2FnZSB0byBiZSBhc3NvY2lhdGVkIHdpdGggdGhlIHJ1bm5pbmcg
-dGFzay4KCkFkZCBhIHNybWNmZyBmaWVsZCB0byB0aHJlYWRfc3RydWN0IHdpdGggdGhlIHNhbWUg
-Zm9ybWF0IGFzIHRoZSBDU1Igc28KdGhlIHNjaGVkdWxlciBjYW4gc2V0IHRoZSBSQ0lEIGFuZCBN
-Q0lEIGZvciBlYWNoIHRhc2sgb24gY29udGV4dApzd2l0Y2guIEEgcGVyLWNwdSBjcHVfc3JtY2Zn
-IHZhcmlhYmxlIG1pcnJvcnMgdGhlIENTUiBzdGF0ZSB0byBhdm9pZApyZWR1bmRhbnQgd3JpdGVz
-LiBMMUQtaG90IG1lbW9yeSBhY2Nlc3MgaXMgZmFzdGVyIHRoYW4gYSBDU1IgcmVhZCBhbmQKYXZv
-aWRzIHRyYXBzIHVuZGVyIHZpcnR1YWxpemF0aW9uLgoKQSBwZXItY3B1IGNwdV9zcm1jZmdfZGVm
-YXVsdCBob2xkcyB0aGUgZGVmYXVsdCBzcm1jZmcgZm9yIGVhY2ggQ1BVIGFzCnNldCBieSByZXNj
-dHJsIENQVSBncm91cCBhc3NpZ25tZW50LiBPbiBjb250ZXh0IHN3aXRjaCwgUkNJRCBhbmQgTUNJ
-RAppbmhlcml0IGZyb20gdGhlIENQVSBkZWZhdWx0IGluZGVwZW5kZW50bHk6IGEgdGFzayB3aG9z
-ZSB0aHJlYWQgUkNJRApmaWVsZCBpcyB6ZXJvIHRha2VzIHRoZSBDUFUgZGVmYXVsdCdzIFJDSUQs
-IGFuZCBsaWtld2lzZSBmb3IgTUNJRC4KCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9y
-aXNjdi1zc3Fvc2lkL3JlbGVhc2VzL3RhZy92MS4wCkFzc2lzdGVkLWJ5OiBDbGF1ZGU6Y2xhdWRl
-LW9wdXMtNC03CkNvLWRldmVsb3BlZC1ieTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFs
-Zi5jb20+ClNpZ25lZC1vZmYtYnk6IEtvcm5lbCBEdWzEmWJhIDxtaW5kYWxAc2VtaWhhbGYuY29t
-PgpTaWduZWQtb2ZmLWJ5OiBEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVsLm9yZz4KLS0tCiBN
-QUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICAgIHwgIDggKysrKwogYXJjaC9yaXNjdi9L
-Y29uZmlnICAgICAgICAgICAgICAgICB8IDE4ICsrKysrKysKIGFyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vY3NyLmggICAgICAgfCAgNSArKwogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3Iu
-aCB8ICAzICsrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oICAgICAgIHwgODcgKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRj
-aF90by5oIHwgIDMgKysKIGFyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlICAgICAgICAgfCAgMiAr
-CiBhcmNoL3Jpc2N2L2tlcm5lbC9xb3MuYyAgICAgICAgICAgIHwgOTggKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysKIDggZmlsZXMgY2hhbmdlZCwgMjI0IGluc2VydGlvbnMo
-KykKCmRpZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCmluZGV4IGMyYzZkNzky
-NzVjNi4uZTY5NGZiMmEyMmQyIDEwMDY0NAotLS0gYS9NQUlOVEFJTkVSUworKysgYi9NQUlOVEFJ
-TkVSUwpAQCAtMjMwMTcsNiArMjMwMTcsMTQgQEAgRjoJZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5j
-CiBGOglkcml2ZXJzL3BlcmYvcmlzY3ZfcG11X2xlZ2FjeS5jCiBGOglkcml2ZXJzL3BlcmYvcmlz
-Y3ZfcG11X3NiaS5jCiAKK1JJU0MtViBRT1MgUkVTQ1RSTCBTVVBQT1JUCitNOglEcmV3IEZ1c3Rp
-bmkgPGZ1c3RpbmlAa2VybmVsLm9yZz4KK1I6CXl1bmh1aSBjdWkgPGN1aXl1bmh1aUBieXRlZGFu
-Y2UuY29tPgorTDoJbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZworUzoJU3VwcG9ydGVk
-CitGOglhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oCitGOglhcmNoL3Jpc2N2L2tlcm5lbC9x
-b3MuYworCiBSSVNDLVYgUlBNSSBBTkQgTVBYWSBEUklWRVJTCiBNOglSYWh1bCBQYXRoYWsgPHJh
-aHVsQHN1bW1hdGlvbnMubmV0PgogTToJQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4K
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwppbmRl
-eCBjNTc1NDk0MmNmODUuLjZhYmJiMjFmM2EwZCAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9LY29u
-ZmlnCisrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwpAQCAtNTkxLDYgKzU5MSwyNCBAQCBjb25maWcg
-UklTQ1ZfSVNBX1NWTkFQT1QKIAogCSAgSWYgeW91IGRvbid0IGtub3cgd2hhdCB0byBkbyBoZXJl
-LCBzYXkgWS4KIAorY29uZmlnIFJJU0NWX0lTQV9TU1FPU0lECisJYm9vbCAiU3Nxb3NpZCBleHRl
-bnNpb24gc3VwcG9ydCBmb3Igc3VwZXJ2aXNvciBtb2RlIFF1YWxpdHkgb2YgU2VydmljZSBJRCIK
-KwlkZXBlbmRzIG9uIDY0QklUCisJZGVmYXVsdCBuCisJaGVscAorCSAgQWRkcyBzdXBwb3J0IGZv
-ciB0aGUgU3Nxb3NpZCBJU0EgZXh0ZW5zaW9uIChTdXBlcnZpc29yLW1vZGUKKwkgIFF1YWxpdHkg
-b2YgU2VydmljZSBJRCkuCisKKwkgIFNzcW9zaWQgZGVmaW5lcyB0aGUgc3JtY2ZnIENTUiB3aGlj
-aCBhbGxvd3MgdGhlIHN5c3RlbSB0byB0YWcgdGhlCisJICBydW5uaW5nIHByb2Nlc3Mgd2l0aCBh
-biBSQ0lEIChSZXNvdXJjZSBDb250cm9sIElEKSBhbmQgTUNJRAorCSAgKE1vbml0b3JpbmcgQ291
-bnRlciBJRCkuIFRoZSBSQ0lEIGlzIHVzZWQgdG8gZGV0ZXJtaW5lIHJlc291cmNlCisJICBhbGxv
-Y2F0aW9uLiBUaGUgTUNJRCBpcyB1c2VkIHRvIHRyYWNrIHJlc291cmNlIHVzYWdlIGluIGV2ZW50
-CisJICBjb3VudGVycy4KKworCSAgRm9yIGV4YW1wbGUsIGEgY2FjaGUgY29udHJvbGxlciBtYXkg
-dXNlIHRoZSBSQ0lEIHRvIGFwcGx5IGEKKwkgIGNhY2hlIHBhcnRpdGlvbmluZyBzY2hlbWUgYW5k
-IHVzZSB0aGUgTUNJRCB0byB0cmFjayBob3cgbXVjaAorCSAgY2FjaGUgYSBwcm9jZXNzLCBvciBh
-IGdyb3VwIG9mIHByb2Nlc3NlcywgaXMgdXNpbmcuCisKIGNvbmZpZyBSSVNDVl9JU0FfU1ZQQk1U
-CiAJYm9vbCAiU3ZwYm10IGV4dGVuc2lvbiBzdXBwb3J0IGZvciBzdXBlcnZpc29yIG1vZGUgcGFn
-ZS1iYXNlZCBtZW1vcnkgdHlwZXMiCiAJZGVwZW5kcyBvbiA2NEJJVCAmJiBNTVUKZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2Nzci5oCmluZGV4IDMxYjg5ODhmNDQ4OC4uN2JjZTkyOGU1ZGFhIDEwMDY0NAotLS0gYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3Ny
-LmgKQEAgLTg0LDYgKzg0LDEwIEBACiAjZGVmaW5lIFNBVFBfQVNJRF9NQVNLCV9BQygweEZGRkYs
-IFVMKQogI2VuZGlmCiAKKy8qIFNSTUNGRyBmaWVsZHMgKi8KKyNkZWZpbmUgU1JNQ0ZHX1JDSURf
-TUFTSwlHRU5NQVNLKDExLCAwKQorI2RlZmluZSBTUk1DRkdfTUNJRF9NQVNLCUdFTk1BU0soMjcs
-IDE2KQorCiAvKiBFeGNlcHRpb24gY2F1c2UgaGlnaCBiaXQgLSBpcyBhbiBpbnRlcnJ1cHQgaWYg
-c2V0ICovCiAjZGVmaW5lIENBVVNFX0lSUV9GTEFHCQkoX0FDKDEsIFVMKSA8PCAoX19yaXNjdl94
-bGVuIC0gMSkpCiAKQEAgLTMyOCw2ICszMzIsNyBAQAogI2RlZmluZSBDU1JfU1RWQUwJCTB4MTQz
-CiAjZGVmaW5lIENTUl9TSVAJCQkweDE0NAogI2RlZmluZSBDU1JfU0FUUAkJMHgxODAKKyNkZWZp
-bmUgQ1NSX1NSTUNGRwkJMHgxODEKIAogI2RlZmluZSBDU1JfU1RJTUVDTVAJCTB4MTRECiAjZGVm
-aW5lIENTUl9TVElNRUNNUEgJCTB4MTVECmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3Byb2Nlc3Nvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAppbmRl
-eCA4MTI1MTdiMmNlYzEuLjQ5YTM4NmQ3NGNkMyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9wcm9jZXNzb3IuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nv
-ci5oCkBAIC0xMjMsNiArMTIzLDkgQEAgc3RydWN0IHRocmVhZF9zdHJ1Y3QgewogCS8qIEEgZm9y
-Y2VkIGljYWNoZSBmbHVzaCBpcyBub3QgbmVlZGVkIGlmIG1pZ3JhdGluZyB0byB0aGUgcHJldmlv
-dXMgY3B1LiAqLwogCXVuc2lnbmVkIGludCBwcmV2X2NwdTsKICNlbmRpZgorI2lmZGVmIENPTkZJ
-R19SSVNDVl9JU0FfU1NRT1NJRAorCXUzMiBzcm1jZmc7CisjZW5kaWYKIH07CiAKIC8qIFdoaXRl
-bGlzdCB0aGUgZnN0YXRlIGZyb20gdGhlIHRhc2tfc3RydWN0IGZvciBoYXJkZW5lZCB1c2VyY29w
-eSAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9xb3MuaCBiL2FyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vcW9zLmgKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAw
-MDAwLi43MjdkNDM4NDU0ZjMKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3Fvcy5oCkBAIC0wLDAgKzEsODcgQEAKKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBH
-UEwtMi4wICovCisjaWZuZGVmIF9BU01fUklTQ1ZfUU9TX0gKKyNkZWZpbmUgX0FTTV9SSVNDVl9R
-T1NfSAorCisjaW5jbHVkZSA8bGludXgvcGVyY3B1LWRlZnMuaD4KKworI2lmZGVmIENPTkZJR19S
-SVNDVl9JU0FfU1NRT1NJRAorCisjaW5jbHVkZSA8bGludXgvYml0ZmllbGQuaD4KKyNpbmNsdWRl
-IDxsaW51eC9jcHVmZWF0dXJlLmg+CisjaW5jbHVkZSA8bGludXgvc2NoZWQuaD4KKworI2luY2x1
-ZGUgPGFzbS9jc3IuaD4KKyNpbmNsdWRlIDxhc20vZmVuY2UuaD4KKyNpbmNsdWRlIDxhc20vaHdj
-YXAuaD4KKworLyogY2FjaGVkIHZhbHVlIG9mIHNybWNmZyBjc3IgZm9yIGVhY2ggY3B1ICovCitE
-RUNMQVJFX1BFUl9DUFUodTMyLCBjcHVfc3JtY2ZnKTsKKworLyogZGVmYXVsdCBzcm1jZmcgdmFs
-dWUgZm9yIGVhY2ggY3B1LCBzZXQgdmlhIHJlc2N0cmwgY3B1IGFzc2lnbm1lbnQgKi8KK0RFQ0xB
-UkVfUEVSX0NQVSh1MzIsIGNwdV9zcm1jZmdfZGVmYXVsdCk7CisKK3N0YXRpYyBpbmxpbmUgdm9p
-ZCBfX3N3aXRjaF90b19zcm1jZmcoc3RydWN0IHRhc2tfc3RydWN0ICpuZXh0KQoreworCXUzMiB0
-aHJlYWRfc3JtY2ZnLCBkZWZhdWx0X3NybWNmZzsKKworCXRocmVhZF9zcm1jZmcgPSBSRUFEX09O
-Q0UobmV4dC0+dGhyZWFkLnNybWNmZyk7CisJZGVmYXVsdF9zcm1jZmcgPSBfX3RoaXNfY3B1X3Jl
-YWQoY3B1X3NybWNmZ19kZWZhdWx0KTsKKworCS8qCisJICogUkNJRCBhbmQgTUNJRCBpbmhlcml0
-IGZyb20gY3B1X3NybWNmZ19kZWZhdWx0IGluZGVwZW5kZW50bHkuCisJICogUkVTQ1RSTF9SRVNF
-UlZFRF9DTE9TSUQgYW5kIFJFU0NUUkxfUkVTRVJWRURfUk1JRCBhcmUgYm90aCAwLAorCSAqIHNv
-IGEgcGVyLWZpZWxkIHplcm8gbWVhbnMgIm5vIHRhc2sgYXNzaWdubWVudCBmb3IgdGhpcworCSAq
-IGRpbWVuc2lvbiIgYW5kIHRoZSBDUFUgZGVmYXVsdCBzdXBwbGllcyB0aGF0IGZpZWxkLiBNYXRj
-aGVzCisJICogeDg2IFJEVCdzIF9fcmVzY3RybF9zY2hlZF9pbigpIHBlci1maWVsZCBsb2dpYy4g
-VGhlIGZ1bGx5CisJICogdW5hc3NpZ25lZCAodGhyZWFkLnNybWNmZyA9PSAwKSBhbmQgZnVsbHkg
-YXNzaWduZWQgKGJvdGgKKwkgKiBmaWVsZHMgbm9uLXplcm8pIGNhc2VzIHNob3J0LWNpcmN1aXQg
-dGhlIGZpZWxkIG1hdGguCisJICovCisJaWYgKHRocmVhZF9zcm1jZmcgPT0gMCkgeworCQl0aHJl
-YWRfc3JtY2ZnID0gZGVmYXVsdF9zcm1jZmc7CisJfSBlbHNlIHsKKwkJdTMyIHJjaWQgPSBGSUVM
-RF9HRVQoU1JNQ0ZHX1JDSURfTUFTSywgdGhyZWFkX3NybWNmZyk7CisJCXUzMiBtY2lkID0gRklF
-TERfR0VUKFNSTUNGR19NQ0lEX01BU0ssIHRocmVhZF9zcm1jZmcpOworCisJCWlmIChyY2lkID09
-IDAgfHwgbWNpZCA9PSAwKSB7CisJCQlpZiAocmNpZCA9PSAwKQorCQkJCXJjaWQgPSBGSUVMRF9H
-RVQoU1JNQ0ZHX1JDSURfTUFTSywgZGVmYXVsdF9zcm1jZmcpOworCQkJaWYgKG1jaWQgPT0gMCkK
-KwkJCQltY2lkID0gRklFTERfR0VUKFNSTUNGR19NQ0lEX01BU0ssIGRlZmF1bHRfc3JtY2ZnKTsK
-KwkJCXRocmVhZF9zcm1jZmcgPSBGSUVMRF9QUkVQKFNSTUNGR19SQ0lEX01BU0ssIHJjaWQpIHwK
-KwkJCQkJRklFTERfUFJFUChTUk1DRkdfTUNJRF9NQVNLLCBtY2lkKTsKKwkJfQorCX0KKworCWlm
-ICh0aHJlYWRfc3JtY2ZnICE9IF9fdGhpc19jcHVfcmVhZChjcHVfc3JtY2ZnKSkgeworCQkvKgor
-CQkgKiBEcmFpbiBzdG9yZXMgZnJvbSB0aGUgb3V0Z29pbmcgdGFzayBiZWZvcmUgdGhlIENTUiB3
-cml0ZQorCQkgKiBzbyB0aGV5IHJldGFpbiB0aGUgcHJldmlvdXMgUkNJRC9NQ0lEIHRhZyBhdCB0
-aGUgY2FjaGUKKwkJICogaW50ZXJjb25uZWN0LgorCQkgKi8KKwkJUklTQ1ZfRkVOQ0UocncsIG8p
-OworCisJCV9fdGhpc19jcHVfd3JpdGUoY3B1X3NybWNmZywgdGhyZWFkX3NybWNmZyk7CisJCWNz
-cl93cml0ZShDU1JfU1JNQ0ZHLCB0aHJlYWRfc3JtY2ZnKTsKKwkJLyoKKwkJICogT3JkZXIgdGhl
-IGNzcncgYmVmb3JlIHRoZSBuZXcgdGFzaydzIGxvYWRzL3N0b3JlcyBzbyB0aGV5CisJCSAqIHBp
-Y2sgdXAgdGhlIG5ldyB0YWcuIFppY3NyIDYuMS4xIG1ha2VzIENTUiB3cml0ZXMgd2Vha2x5CisJ
-CSAqIG9yZGVyZWQgKGRldmljZS1vdXRwdXQpIHZzIG1lbW9yeSBvcHMuIFNzcW9zaWQgdjEuMCBp
-cworCQkgKiBzaWxlbnQgc28gaG9ub3IgdGhlIGdlbmVyYWwgQ1NSIHJ1bGUuCisJCSAqLworCQlS
-SVNDVl9GRU5DRShvLCBydyk7CisJfQorfQorCitzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wg
-aGFzX3NybWNmZyh2b2lkKQoreworCXJldHVybiByaXNjdl9oYXNfZXh0ZW5zaW9uX3VubGlrZWx5
-KFJJU0NWX0lTQV9FWFRfU1NRT1NJRCk7Cit9CisKKyNlbHNlIC8qICEgQ09ORklHX1JJU0NWX0lT
-QV9TU1FPU0lEICAqLworCitzdHJ1Y3QgdGFza19zdHJ1Y3Q7CitzdGF0aWMgX19hbHdheXNfaW5s
-aW5lIGJvb2wgaGFzX3NybWNmZyh2b2lkKSB7IHJldHVybiBmYWxzZTsgfQorc3RhdGljIGlubGlu
-ZSB2b2lkIF9fc3dpdGNoX3RvX3NybWNmZyhzdHJ1Y3QgdGFza19zdHJ1Y3QgKm5leHQpIHsgfQor
-CisjZW5kaWYgLyogQ09ORklHX1JJU0NWX0lTQV9TU1FPU0lEICovCisjZW5kaWYgLyogX0FTTV9S
-SVNDVl9RT1NfSCAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hf
-dG8uaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKaW5kZXggMGU3MWViODJm
-OTIwLi4xYzdlYTUzZWMwMTIgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dp
-dGNoX3RvLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaApAQCAtMTQs
-NiArMTQsNyBAQAogI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KICNpbmNsdWRlIDxhc20vcHRy
-YWNlLmg+CiAjaW5jbHVkZSA8YXNtL2Nzci5oPgorI2luY2x1ZGUgPGFzbS9xb3MuaD4KIAogI2lm
-ZGVmIENPTkZJR19GUFUKIGV4dGVybiB2b2lkIF9fZnN0YXRlX3NhdmUoc3RydWN0IHRhc2tfc3Ry
-dWN0ICpzYXZlX3RvKTsKQEAgLTExOSw2ICsxMjAsOCBAQCBkbyB7CQkJCQkJCVwKIAkJX19zd2l0
-Y2hfdG9fZnB1KF9fcHJldiwgX19uZXh0KTsJXAogCWlmIChoYXNfdmVjdG9yKCkgfHwgaGFzX3h0
-aGVhZHZlY3RvcigpKQkJXAogCQlfX3N3aXRjaF90b192ZWN0b3IoX19wcmV2LCBfX25leHQpOwlc
-CisJaWYgKGhhc19zcm1jZmcoKSkJCQkJXAorCQlfX3N3aXRjaF90b19zcm1jZmcoX19uZXh0KTsJ
-CVwKIAlpZiAoc3dpdGNoX3RvX3Nob3VsZF9mbHVzaF9pY2FjaGUoX19uZXh0KSkJXAogCQlsb2Nh
-bF9mbHVzaF9pY2FjaGVfYWxsKCk7CQlcCiAJX19zd2l0Y2hfdG9fZW52Y2ZnKF9fbmV4dCk7CQkJ
-XApkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tl
-cm5lbC9NYWtlZmlsZQppbmRleCBjYWJiOTljYWRmYjYuLmViZTFjMzU4ODE3NyAxMDA2NDQKLS0t
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvTWFr
-ZWZpbGUKQEAgLTEyOCwzICsxMjgsNSBAQCBvYmotJChDT05GSUdfQUNQSV9OVU1BKQkrPSBhY3Bp
-X251bWEubwogCiBvYmotJChDT05GSUdfR0VORVJJQ19DUFVfVlVMTkVSQUJJTElUSUVTKSArPSBi
-dWdzLm8KIG9iai0kKENPTkZJR19SSVNDVl9VU0VSX0NGSSkgKz0gdXNlcmNmaS5vCisKK29iai0k
-KENPTkZJR19SSVNDVl9JU0FfU1NRT1NJRCkgKz0gcW9zLm8KZGlmZiAtLWdpdCBhL2FyY2gvcmlz
-Y3Yva2VybmVsL3Fvcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcW9zLmMKbmV3IGZpbGUgbW9kZSAx
-MDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwLi5kMThiOTliMTk1ZTcKLS0tIC9kZXYvbnVsbAorKysg
-Yi9hcmNoL3Jpc2N2L2tlcm5lbC9xb3MuYwpAQCAtMCwwICsxLDk4IEBACisvLyBTUERYLUxpY2Vu
-c2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5CisjaW5jbHVkZSA8bGludXgvY3B1Lmg+CisjaW5j
-bHVkZSA8bGludXgvY3B1X3BtLmg+CisjaW5jbHVkZSA8bGludXgvY3B1aG90cGx1Zy5oPgorI2lu
-Y2x1ZGUgPGxpbnV4L25vdGlmaWVyLmg+CisjaW5jbHVkZSA8bGludXgvcGVyY3B1LWRlZnMuaD4K
-KyNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgorCisjaW5jbHVkZSA8YXNtL2NwdWZlYXR1cmUtbWFj
-cm9zLmg+CisjaW5jbHVkZSA8YXNtL2h3Y2FwLmg+CisjaW5jbHVkZSA8YXNtL3Fvcy5oPgorCisv
-KgorICogQ2FjaGVkIHZhbHVlIG9mIHNybWNmZyBjc3IgZm9yIGVhY2ggY3B1LiBTZWVkZWQgdG8g
-VTMyX01BWCBzbyB0aGUgbmV4dAorICogX19zd2l0Y2hfdG9fc3JtY2ZnKCkgdW5jb25kaXRpb25h
-bGx5IHdyaXRlcyB0aGUgQ1NSOyB0aGUgZW5jb2RpbmcKKyAqIE1DSUQgPDwgMTYgfCBSQ0lEIHdp
-dGggYm90aCBmaWVsZHMgd2VsbCB1bmRlciAxNiBiaXRzIGNhbiBuZXZlcgorICogcHJvZHVjZSB0
-aGlzIHNlbnRpbmVsLiBUaGlzIGNvdmVycyBlYXJseS1ib290IGNvbnRleHQgc3dpdGNoZXMgdGhh
-dAorICogaGFwcGVuIGJlZm9yZSByaXNjdl9zcm1jZmdfaW5pdCgpIHJ1bnMgYXMgYW4gYXJjaF9p
-bml0Y2FsbC4KKyAqLworREVGSU5FX1BFUl9DUFUodTMyLCBjcHVfc3JtY2ZnKSA9IFUzMl9NQVg7
-CisKKy8qIGRlZmF1bHQgc3JtY2ZnIHZhbHVlIGZvciBlYWNoIGNwdSwgc2V0IHZpYSByZXNjdHJs
-IGNwdSBhc3NpZ25tZW50ICovCitERUZJTkVfUEVSX0NQVSh1MzIsIGNwdV9zcm1jZmdfZGVmYXVs
-dCk7CisKKy8qCisgKiBTZWVkIHRoZSBwZXItQ1BVIHNybWNmZyBjYWNoZSB0byBhIHNlbnRpbmVs
-IHRoYXQgbm8gcmVhbCBzcm1jZmcgZW5jb2RpbmcKKyAqIGNhbiBwcm9kdWNlIChNQ0lEIDw8IDE2
-IHwgUkNJRCwgYm90aCBmaWVsZHMgd2VsbCB1bmRlciAxNiBiaXRzKSBzbyB0aGUKKyAqIG5leHQg
-X19zd2l0Y2hfdG9fc3JtY2ZnKCkgdW5jb25kaXRpb25hbGx5IHdyaXRlcyB0aGUgQ1NSLiBTc3Fv
-c2lkIHYxLjAKKyAqIGxlYXZlcyBDU1Igc3RhdGUgYWNyb3NzIGhhcnQgc3RvcC9zdGFydCBpbXBs
-ZW1lbnRhdGlvbi1kZWZpbmVkLCBzbyB0aGUKKyAqIGNhY2hlZCB2YWx1ZSBjYW5ub3QgYmUgdHJ1
-c3RlZCBhZnRlciBvbmxpbmUuCisgKi8KK3N0YXRpYyBpbnQgcmlzY3Zfc3JtY2ZnX29ubGluZSh1
-bnNpZ25lZCBpbnQgY3B1KQoreworCXBlcl9jcHUoY3B1X3NybWNmZywgY3B1KSA9IFUzMl9NQVg7
-CisJcmV0dXJuIDA7Cit9CisKKy8qCisgKiBJbnZhbGlkYXRlIHRoZSBjYWNoZSBvbiBvZmZsaW5l
-IHRvby4gVGhlIHNlbnRpbmVsIHBlcnNpc3RzIGFjcm9zcyB0aGUKKyAqIG9mZmxpbmUgcGVyaW9k
-LCBzbyBhIENQVSBicm91Z2h0IGJhY2sgb25saW5lIGZpbmRzIHRoZSBjYWNoZSBhbHJlYWR5Cisg
-KiBpbnZhbGlkYXRlZCBiZWZvcmUgaXQgaXMgc2NoZWR1bGFibGUuIFRoaXMgY2xvc2VzIHRoZSB3
-aW5kb3cgd2hlcmUgYQorICogdGFzayBzY2hlZHVsZWQgYmVmb3JlIHJpc2N2X3NybWNmZ19vbmxp
-bmUoKSBydW5zIGNvdWxkIG1hdGNoIGEgc3RhbGUKKyAqIGNhY2hlIGFuZCBza2lwIHRoZSBDU1Ig
-d3JpdGUgd2hpbGUgdGhlIGhhcmR3YXJlIENTUiB3YXMgcmVzZXQgYWNyb3NzCisgKiBoYXJ0IHN0
-b3Avc3RhcnQuCisgKi8KK3N0YXRpYyBpbnQgcmlzY3Zfc3JtY2ZnX29mZmxpbmUodW5zaWduZWQg
-aW50IGNwdSkKK3sKKwlwZXJfY3B1KGNwdV9zcm1jZmcsIGNwdSkgPSBVMzJfTUFYOworCXJldHVy
-biAwOworfQorCisvKgorICogQ1BVIFBNIG5vdGlmaWVyOiBpbnZhbGlkYXRlIHRoZSBjYWNoZWQg
-c3JtY2ZnIG9uIHJlc3VtZSBmcm9tIGEgZGVlcAorICogaWRsZSAvIHN1c3BlbmQuIFNzcW9zaWQg
-djEuMCBsZWF2ZXMgQ1NSX1NSTUNGRyBzdGF0ZSBhY3Jvc3MgbG93LXBvd2VyCisgKiB0cmFuc2l0
-aW9ucyBpbXBsZW1lbnRhdGlvbi1kZWZpbmVkLCBhbmQgdGhlIGJvb3QgQ1BVIG5ldmVyIGdvZXMK
-KyAqIHRocm91Z2ggdGhlIGNwdWhwIG9ubGluZSBjYWxsYmFjayBkdXJpbmcgc3lzdGVtIHN1c3Bl
-bmQsIHNvIHdpdGhvdXQKKyAqIHRoaXMgaG9vayBfX3N3aXRjaF90b19zcm1jZmcoKSB3b3VsZCBz
-a2lwIHRoZSBDU1Igd3JpdGUgd2hlbiB0aGUKKyAqIG91dGdvaW5nIHRhc2sgaGFwcGVucyB0byBz
-aGFyZSBpdHMgc3JtY2ZnIHdpdGggdGhlIHByZS1zdXNwZW5kIGNhY2hlLgorICovCitzdGF0aWMg
-aW50IHJpc2N2X3NybWNmZ19wbV9ub3RpZnkoc3RydWN0IG5vdGlmaWVyX2Jsb2NrICpuYiwKKwkJ
-CQkgIHVuc2lnbmVkIGxvbmcgYWN0aW9uLCB2b2lkICp1bnVzZWQpCit7CisJc3dpdGNoIChhY3Rp
-b24pIHsKKwljYXNlIENQVV9QTV9FWElUOgorCWNhc2UgQ1BVX1BNX0VOVEVSX0ZBSUxFRDoKKwkJ
-X190aGlzX2NwdV93cml0ZShjcHVfc3JtY2ZnLCBVMzJfTUFYKTsKKwkJYnJlYWs7CisJfQorCXJl
-dHVybiBOT1RJRllfT0s7Cit9CisKK3N0YXRpYyBzdHJ1Y3Qgbm90aWZpZXJfYmxvY2sgcmlzY3Zf
-c3JtY2ZnX3BtX25iID0geworCS5ub3RpZmllcl9jYWxsID0gcmlzY3Zfc3JtY2ZnX3BtX25vdGlm
-eSwKK307CisKK3N0YXRpYyBpbnQgX19pbml0IHJpc2N2X3NybWNmZ19pbml0KHZvaWQpCit7CisJ
-aW50IGVycjsKKworCWlmICghcmlzY3ZfaGFzX2V4dGVuc2lvbl91bmxpa2VseShSSVNDVl9JU0Ff
-RVhUX1NTUU9TSUQpKQorCQlyZXR1cm4gMDsKKworCS8qCisJICogY3B1aHBfc2V0dXBfc3RhdGUo
-KSBpbnZva2VzIHRoZSBzdGFydHVwIGNhbGxiYWNrIGxvY2FsbHkgb24gZXZlcnkKKwkgKiBhbHJl
-YWR5LW9ubGluZSBDUFUsIHNvIG5vIHNlcGFyYXRlIHNlZWQgbG9vcCBpcyBuZWVkZWQgaGVyZS4K
-KwkgKi8KKwllcnIgPSBjcHVocF9zZXR1cF9zdGF0ZShDUFVIUF9BUF9PTkxJTkVfRFlOLCAicmlz
-Y3Yvc3JtY2ZnOm9ubGluZSIsCisJCQkJcmlzY3Zfc3JtY2ZnX29ubGluZSwgcmlzY3Zfc3JtY2Zn
-X29mZmxpbmUpOworCWlmIChlcnIgPCAwKSB7CisJCXByX3dhcm4oInNybWNmZyBjcHVocCByZWdp
-c3RyYXRpb24gZmFpbGVkICglZCksIGNwdXMgYnJvdWdodCBvbmxpbmUgYWZ0ZXIgYm9vdCB3aWxs
-IG5vdCBpbnZhbGlkYXRlIHRoZSBDU1JfU1JNQ0ZHIGNhY2hlXG4iLAorCQkJZXJyKTsKKwkJcmV0
-dXJuIGVycjsKKwl9CisKKwljcHVfcG1fcmVnaXN0ZXJfbm90aWZpZXIoJnJpc2N2X3NybWNmZ19w
-bV9uYik7CisJcmV0dXJuIDA7Cit9CithcmNoX2luaXRjYWxsKHJpc2N2X3NybWNmZ19pbml0KTsK
-Ci0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+Add a parser for the ACPI RQSC table, which describes the CBQRI
+controllers in a system. For each table entry, populate a
+cbqri_controller_info descriptor and hand it to the CBQRI driver via
+riscv_cbqri_register_controller(). The driver owns all subsequent state,
+including cpumask resolution at cbqri_resctrl_setup() time.
+
+Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
+Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+Assisted-by: Claude:claude-opus-4-7
+Signed-off-by: Drew Fustini <fustini@kernel.org>
+---
+ MAINTAINERS                   |   2 +
+ arch/riscv/include/asm/acpi.h |  10 +++
+ drivers/acpi/riscv/Makefile   |   1 +
+ drivers/acpi/riscv/rqsc.c     | 202 ++++++++++++++++++++++++++++++++++++++++++
+ drivers/acpi/riscv/rqsc.h     |  66 ++++++++++++++
+ 5 files changed, 281 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7821dd5159cb..eab31c7b5e91 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23025,6 +23025,8 @@ S:	Supported
+ F:	arch/riscv/include/asm/qos.h
+ F:	arch/riscv/include/asm/resctrl.h
+ F:	arch/riscv/kernel/qos.c
++F:	drivers/acpi/riscv/rqsc.c
++F:	drivers/acpi/riscv/rqsc.h
+ F:	drivers/resctrl/cbqri_devices.c
+ F:	drivers/resctrl/cbqri_internal.h
+ F:	drivers/resctrl/cbqri_resctrl.c
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index 26ab37c171bc..3cfd0102085e 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -67,6 +67,16 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
+ 
+ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
+ 			     u32 *cboz_size, u32 *cbop_size);
++
++#ifdef CONFIG_RISCV_CBQRI_DRIVER
++int __init acpi_parse_rqsc(struct acpi_table_header *table);
++#else
++static inline int acpi_parse_rqsc(struct acpi_table_header *table)
++{
++	return -EINVAL;
++}
++#endif /* CONFIG_RISCV_CBQRI_DRIVER */
++
+ #else
+ static inline void acpi_init_rintc_map(void) { }
+ static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
+index 1284a076fa88..77f8f0101b7e 100644
+--- a/drivers/acpi/riscv/Makefile
++++ b/drivers/acpi/riscv/Makefile
+@@ -1,5 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-y					+= rhct.o init.o irq.o
++obj-$(CONFIG_RISCV_CBQRI_DRIVER)	+= rqsc.o
+ obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
+ obj-$(CONFIG_ACPI_CPPC_LIB)		+= cppc.o
+ obj-$(CONFIG_ACPI_RIMT)			+= rimt.o
+diff --git a/drivers/acpi/riscv/rqsc.c b/drivers/acpi/riscv/rqsc.c
+new file mode 100644
+index 000000000000..1b1ae2e353a5
+--- /dev/null
++++ b/drivers/acpi/riscv/rqsc.c
+@@ -0,0 +1,202 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#define pr_fmt(fmt) "ACPI: RQSC: " fmt
++
++#include <linux/acpi.h>
++#include <linux/bits.h>
++#include <linux/riscv_cbqri.h>
++
++#include "rqsc.h"
++
++#define CBQRI_CTRL_SIZE 0x1000
++
++int __init acpi_parse_rqsc(struct acpi_table_header *table)
++{
++	struct acpi_table_rqsc *rqsc = (struct acpi_table_rqsc *)table;
++	struct acpi_rqsc_node *end, *node;
++	int num_controllers = 0;
++
++	/*
++	 * Reject revisions newer than this parser was written against. A
++	 * future revision could extend the fixed RQSC header before the
++	 * first node, which would shift the resource subtables and cause the
++	 * sizeof(*node)-based offset below to point into the wrong place.
++	 */
++	if (rqsc->header.revision != ACPI_RQSC_REVISION) {
++		pr_err("RQSC table revision %u, expected %u, aborting\n",
++		       rqsc->header.revision, ACPI_RQSC_REVISION);
++		return -EINVAL;
++	}
++
++	/* Reject tables shorter than the fixed RQSC header. */
++	if (rqsc->header.length < sizeof(struct acpi_table_rqsc)) {
++		pr_err("RQSC table truncated: length %u < %zu, aborting\n",
++		       rqsc->header.length, sizeof(struct acpi_table_rqsc));
++		return -EINVAL;
++	}
++
++	end = ACPI_ADD_PTR(struct acpi_rqsc_node, rqsc, rqsc->header.length);
++
++	for (node = ACPI_ADD_PTR(struct acpi_rqsc_node, rqsc,
++				 sizeof(struct acpi_table_rqsc));
++	     node < end;
++	     node = ACPI_ADD_PTR(struct acpi_rqsc_node, node, node->length)
++	) {
++		const struct acpi_rqsc_resource *res0;
++		struct cbqri_controller_info info = {};
++		int ret;
++
++		if ((void *)node + sizeof(*node) > (void *)end) {
++			pr_err("truncated entry at end of table, aborting\n");
++			riscv_cbqri_unregister_last(num_controllers);
++			return -EINVAL;
++		}
++
++		if (node->length < sizeof(*node)) {
++			pr_err("malformed RQSC entry: length %u < %zu, aborting\n",
++			       node->length, sizeof(*node));
++			riscv_cbqri_unregister_last(num_controllers);
++			return -EINVAL;
++		}
++
++		/*
++		 * Without this check, a node whose length claims to extend
++		 * past the end of the table would advance the loop cursor
++		 * past 'end' and silently terminate. Flag the corruption
++		 * explicitly so a malformed firmware table cannot truncate
++		 * the controller list without noise.
++		 */
++		if ((void *)node + node->length > (void *)end) {
++			pr_err("RQSC entry length %u overruns table end, aborting\n",
++			       node->length);
++			riscv_cbqri_unregister_last(num_controllers);
++			return -EINVAL;
++		}
++
++		/* GAS must describe system memory. ioremap() consumes it later. */
++		if (node->reg.space_id != ACPI_ADR_SPACE_SYSTEM_MEMORY) {
++			pr_warn("controller has unsupported address space_id=%u, skipping\n",
++				node->reg.space_id);
++			continue;
++		}
++
++		if (!node->reg.address) {
++			pr_warn("controller has zero address, skipping\n");
++			continue;
++		}
++
++		info.type = node->type;
++		/* RQSC section 2 Table 2: 12-byte GAS-format register interface address */
++		info.addr = node->reg.address;
++		info.size = CBQRI_CTRL_SIZE;
++		info.rcid_count = node->rcid;
++		info.mcid_count = node->mcid;
++
++		/* See CBQRI_MAX_RCID/MCID in <linux/riscv_cbqri.h> for the rationale. */
++		if (info.rcid_count > CBQRI_MAX_RCID) {
++			pr_warn("controller at %pa: rcid_count %u exceeds CBQRI_MAX_RCID %u, skipping\n",
++				&info.addr, info.rcid_count, CBQRI_MAX_RCID);
++			continue;
++		}
++
++		if (info.mcid_count > CBQRI_MAX_MCID) {
++			pr_warn("controller at %pa: mcid_count %u exceeds CBQRI_MAX_MCID %u, skipping\n",
++				&info.addr, info.mcid_count, CBQRI_MAX_MCID);
++			continue;
++		}
++
++		/*
++		 * RQSC Table 2: at least one of RCID Count or MCID Count must be non-zero.
++		 */
++		if (!info.rcid_count && !info.mcid_count) {
++			pr_warn("controller at %pa: both rcid_count and mcid_count are zero, skipping\n",
++				&info.addr);
++			continue;
++		}
++
++		if (node->nres == 0) {
++			pr_warn("controller at %pa has no resource descriptors, skipping\n",
++				&info.addr);
++			continue;
++		}
++
++		/*
++		 * Resources follow the node header in-line. Only res[0] is
++		 * consumed. Bound it against end before reading its prefix so
++		 * a table that ends partway through a resource subtable is
++		 * rejected rather than read past the mapping.
++		 */
++		res0 = (const struct acpi_rqsc_resource *)
++		       ((const u8 *)node + sizeof(*node));
++		if ((void *)res0 + sizeof(*res0) > (void *)end ||
++		    node->length < sizeof(*node) + sizeof(*res0) ||
++		    res0->length < sizeof(*res0)) {
++			pr_warn("controller at %pa: node too short for resource descriptor, skipping\n",
++				&info.addr);
++			continue;
++		}
++
++		if (node->nres > 1)
++			pr_warn("controller at %pa has %u resource descriptors, using first\n",
++				&info.addr, node->nres);
++
++		/*
++		 * id1 is u64 but it is used for cache_id and prox_dom
++		 * which are only u32. Reject rather than truncate, so a
++		 * too large id is not silently mapped to the wrong PPTT
++		 * entry or NUMA node.
++		 */
++		if (res0->id1 > U32_MAX) {
++			pr_warn("controller at %pa: id1 0x%llx exceeds u32, skipping\n",
++				&info.addr, res0->id1);
++			continue;
++		}
++
++		/*
++		 * Pair the QoS controller type with the resource descriptor
++		 * fields that index id1. RQSC Table 4 defines the mapping:
++		 * Capacity controller indexes a Processor Cache via PPTT
++		 * cache_id, a Bandwidth controller indexes a Memory Range
++		 * via SRAT proximity domain. Mismatched pairings  (e.g. a
++		 * CC whose first resource is Memory) would otherwise route
++		 * id1 into the wrong downstream lookup.
++		 */
++		switch (info.type) {
++		case CBQRI_CONTROLLER_TYPE_CAPACITY:
++			if (res0->type != ACPI_RQSC_RESOURCE_TYPE_CACHE ||
++			    res0->id_type != ACPI_RQSC_RESOURCE_ID_TYPE_PROCESSOR_CACHE) {
++				pr_warn("CC at %pa: resource type=%u id_type=%u not (cache, processor cache), skipping\n",
++					&info.addr, res0->type, res0->id_type);
++				continue;
++			}
++			info.cache_id = (u32)res0->id1;
++			break;
++		case CBQRI_CONTROLLER_TYPE_BANDWIDTH:
++			if (res0->type != ACPI_RQSC_RESOURCE_TYPE_MEMORY ||
++			    res0->id_type != ACPI_RQSC_RESOURCE_ID_TYPE_MEMORY_RANGE) {
++				pr_warn("BC at %pa: resource type=%u id_type=%u not (memory, memory range), skipping\n",
++					&info.addr, res0->type, res0->id_type);
++				continue;
++			}
++			info.prox_dom = (u32)res0->id1;
++			break;
++		default:
++			pr_warn("controller at %pa: unknown type %u, skipping\n",
++				&info.addr, info.type);
++			continue;
++		}
++
++		pr_debug("registering controller type=%u addr=%pa rcid=%u mcid=%u\n",
++			 info.type, &info.addr, info.rcid_count, info.mcid_count);
++
++		ret = riscv_cbqri_register_controller(&info);
++		if (ret == 0)
++			num_controllers++;
++		else
++			pr_warn("controller at %pa: registration failed (%d), skipping\n",
++				&info.addr, ret);
++	}
++
++	pr_info("found %d CBQRI controllers\n", num_controllers);
++	return 0;
++}
+diff --git a/drivers/acpi/riscv/rqsc.h b/drivers/acpi/riscv/rqsc.h
+new file mode 100644
+index 000000000000..fa0d96e267e1
+--- /dev/null
++++ b/drivers/acpi/riscv/rqsc.h
+@@ -0,0 +1,66 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Local definitions for the RISC-V Quality of Service Controller (RQSC)
++ * ACPI table. Will move to ACPICA's include/acpi/actbl2.h once the spec
++ * is ratified.
++ */
++#ifndef _DRIVERS_ACPI_RISCV_RQSC_H
++#define _DRIVERS_ACPI_RISCV_RQSC_H
++
++#include <linux/types.h>
++#include <acpi/actbl.h>
++
++#define ACPI_SIG_RQSC	"RQSC"	/* RISC-V Quality of Service Controller */
++
++/* RQSC Table 1: current revision number. */
++#define ACPI_RQSC_REVISION	1
++
++/* RQSC Table 4: Resource Type values for acpi_rqsc_resource.type. */
++#define ACPI_RQSC_RESOURCE_TYPE_CACHE	0
++#define ACPI_RQSC_RESOURCE_TYPE_MEMORY	1
++
++/* RQSC Table 4: Resource ID Type values for .id_type. */
++#define ACPI_RQSC_RESOURCE_ID_TYPE_PROCESSOR_CACHE	0
++#define ACPI_RQSC_RESOURCE_ID_TYPE_MEMORY_RANGE		1
++#define ACPI_RQSC_RESOURCE_ID_TYPE_MEMORY_SIDE_CACHE	2
++#define ACPI_RQSC_RESOURCE_ID_TYPE_ACPI_DEVICE		3
++#define ACPI_RQSC_RESOURCE_ID_TYPE_PCI_DEVICE		4
++
++/*
++ * Byte-packed: u64 id1 would otherwise pad to 8-byte alignment and inflate
++ * sizeof(*res) from the spec's 20 bytes to 24, mis-sizing resource subtables.
++ */
++struct acpi_rqsc_resource {
++	u8 type;
++	u8 resv;
++	u16 length;
++	u16 flags;
++	u8 resv2;
++	u8 id_type;
++	u64 id1;
++	u32 id2;
++} __packed;
++
++struct acpi_rqsc_node {
++	u8 type;
++	u8 resv;
++	u16 length;
++	/* RQSC section 2 Table 2: 12-byte GAS-format register interface address */
++	struct acpi_generic_address reg;
++	u16 rcid;
++	u16 mcid;
++	u16 flags;
++	u16 nres;
++	/*
++	 * Followed by nres acpi_rqsc_resource subtables. Walk them via
++	 * each resource's own length field so a future RQSC revision that
++	 * extends the resource layout cannot misalign older parsers.
++	 */
++} __packed;
++
++struct acpi_table_rqsc {
++	struct acpi_table_header header;	/* Common ACPI table header */
++	u32 num;
++} __packed;
++
++#endif /* _DRIVERS_ACPI_RISCV_RQSC_H */
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
