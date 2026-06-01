@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DDBCD5BD1
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 22:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE92FCD5BD1
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 22:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uJFUN5041O0VRR8YwRg5D6HORS6VVrtR2/LKo3Fi/NE=; b=oLBJUshGBQFO6S
-	S9J8oNyMRA3TmDtdP+4ajQzpjGJY9IY+YjYG7DUgSjcwfXkJmmekNEMsfL2H32pXUSpqvbcEKBiNG
-	YQHYOlj1yHP+tqMPpdYWyCD7GsZEqHvgACyIuP1PZ6OVwdyC0zkGh8Zy4LFole/Mr9dp4+ZqVHf9a
-	hpv3NrR65oQjB0UbG6ors5Z8rysyiSTWnIJYwsNZxMQZ606TZLETAFyUlqwIIZ1sH0RicwtVZi+kU
-	vQPtWfUVQjsyD8w6uqce6Q61ABh+tFhC6FPVmZ7ERSF687Scmy5ODrh4bI5qY3ThAMFiU/Xyr5/8t
-	2Lp7CBJ4O4EeoUV0dblw==;
+	List-Owner; bh=bo24R4ZVS6GCa2rLhRyzBRBmySZdJuoeccD8rbc2zZ4=; b=jP9yoDeZ2ZDXrt
+	HQHs7zeksk8OemP7Fq2k0zTsO37Y9xCa7QoLqNQbhTjfs1rxnjgLmuyafx5rPM70mFk7ft/962998
+	nwWmPIBUHF9D1pPhuq9qgnrFjlHQO1mZbOeko7EmCrjWOPlst0aKcXVbth1wVnRSDVbbzFJgAjnvb
+	LNywNPpUp7NoiGmdFOrI/QOqHwT4HAkzunRK00g3Bl2/FTUaHjYI/x1bg86xPP2hZOefl3G7dTTUN
+	JK498ANkIhLQKrV5EdziUgBdWeb3NewyrbZOfFKMZIXtF5a+TsZGv43fZ3P+SLdtDL5hP9yXjOtG5
+	2IE+3uo2+rkj6M04Uy9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUXGc-0000000Drc5-2QWf;
+	id 1wUXGc-0000000Drc9-2rgx;
 	Tue, 02 Jun 2026 22:07:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRudI-00000002VpS-0ZKE;
-	Tue, 26 May 2026 16:27:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B42743CB5;
-	Tue, 26 May 2026 16:27:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289D31F000E9;
-	Tue, 26 May 2026 16:27:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779812875;
-	bh=uX6weQ63PycMa+NiIwkaE0lKXtL5D7cf5slQyEH4uVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WCPBslFBHlD18xXQc3r4cfXRi6NRqMWZgpFMn1cIbrapYoU4c4gRwNK1+7uVsqGAy
-	 60v2BCHvTRcdS1tVvGPbqfVfdwwcJp1FHFNfktx1fkX0Wbx1RZrVm0KBNermhINrKf
-	 T9lX4lpoqb8ZTQ988HCILQXzmPKZjen7JnhZ0OVSRmfeZwap0kKaSy4gg8etm5udnf
-	 udcU0Sgi7luz1Cc1OPvSW+2ubz9qCszQO2AwKg/qp69fZ72CdWGJzB5e9f6nHF0uBd
-	 ldc80qXMC/DUvHJCNvAW1ArbfI1EfmFu9YdmZYAerVhlmQZOEcNqDEor/Ir+l9+s8j
-	 e4sx9r+STyxUg==
-Date: Tue, 26 May 2026 17:27:52 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Takahiro Itazuri <itazur@amazon.com>
-Cc: seanjc@google.com, Liam.Howlett@oracle.com, ackerleytng@google.com, 
-	agordeev@linux.ibm.com, ajones@ventanamicro.com, akpm@linux-foundation.org, 
-	alex@ghiti.fr, andrii@kernel.org, aou@eecs.berkeley.edu, ast@kernel.org, 
-	baolu.lu@linux.intel.com, borntraeger@linux.ibm.com, bp@alien8.de, bpf@vger.kernel.org, 
-	catalin.marinas@arm.com, chenhuacai@kernel.org, corbet@lwn.net, coxu@redhat.com, 
-	daniel@iogearbox.net, dave.hansen@linux.intel.com, david@kernel.org, 
-	derekmn@amazon.com, dev.jain@arm.com, eddyz87@gmail.com, 
-	gerald.schaefer@linux.ibm.com, gor@linux.ibm.com, haoluo@google.com, hca@linux.ibm.com, 
-	hpa@zytor.com, itazur@amazon.co.uk, jackabt@amazon.co.uk, jackmanb@google.com, 
-	jannh@google.com, jgg@ziepe.ca, jgross@suse.com, jhubbard@nvidia.com, 
-	jiayuan.chen@shopee.com, jmattson@google.com, joey.gouly@arm.com, 
-	john.fastabend@gmail.com, jolsa@kernel.org, jthoughton@google.com, kalyazin@amazon.co.uk, 
-	kas@kernel.org, kernel@xen0n.name, kpsingh@kernel.org, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, lenb@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org, linux-pm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, loongarch@lists.linux.dev, 
-	lorenzo.stoakes@oracle.com, luto@kernel.org, maobibo@loongson.cn, martin.lau@linux.dev, 
-	maz@kernel.org, mhocko@suse.com, mingo@redhat.com, mlevitsk@redhat.com, 
-	nikita.kalyazin@linux.dev, oupton@kernel.org, palmer@dabbelt.com, patrick.roy@linux.dev, 
-	pavel@kernel.org, pbonzini@redhat.com, peterx@redhat.com, peterz@infradead.org, 
-	pfalcato@suse.de, pjw@kernel.org, prsampat@amd.com, rafael@kernel.org, 
-	riel@surriel.com, rppt@kernel.org, ryan.roberts@arm.com, sdf@fomichev.me, 
-	shijie@os.amperecomputing.com, skhan@linuxfoundation.org, song@kernel.org, surenb@google.com, 
-	suzuki.poulose@arm.com, svens@linux.ibm.com, tabba@google.com, tglx@kernel.org, 
-	thuth@redhat.com, urezki@gmail.com, vannapurve@google.com, vbabka@kernel.org, 
-	will@kernel.org, willy@infradead.org, wu.fei9@sanechips.com.cn, x86@kernel.org, 
-	yang@os.amperecomputing.com, yangyicong@hisilicon.com, yonghong.song@linux.dev, 
-	yosry@kernel.org, yu-cheng.yu@intel.com, yuzenghui@huawei.com, 
-	zhengqi.arch@bytedance.com
-Subject: Re: [PATCH v12 00/16] Direct Map Removal Support for guest_memfd
-Message-ID: <ahXJoHNoeCcaupzN@lucifer>
-References: <aeennZlV60k81OBf@google.com>
- <20260506080753.14517-1-itazur@amazon.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260506080753.14517-1-itazur@amazon.com>
+	id 1wTwiL-0000000AGvr-0n94;
+	Mon, 01 Jun 2026 07:05:34 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gTQ2k5x09z57KTr;
+	Mon, 01 Jun 2026 15:05:18 +0800 (CST)
+Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
+	by mse-fl2.zte.com.cn with SMTP id 65175AlE087119;
+	Mon, 1 Jun 2026 15:05:10 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxl2zmapp07[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Mon, 1 Jun 2026 15:05:12 +0800 (CST)
+X-Zmail-TransId: 2b096a1d2f28ce9-70dc3
+X-Mailer: Zmail v1.0
+Message-ID: <20260601150512301NeokJXDe2YUikK2-C1yKG@zte.com.cn>
+In-Reply-To: <CAAhSdy2qqpZ6qucwsuRZWnKgno03Ok4czv8RTgpjA73i+yFhng@mail.gmail.com>
+References: 20260429173002565bdp1o7P0bvOs6yTz64yNx@zte.com.cn,20260429173534386Dfz8RALJT73-jMfif0nSb@zte.com.cn,CAAhSdy2qqpZ6qucwsuRZWnKgno03Ok4czv8RTgpjA73i+yFhng@mail.gmail.com
+Date: Mon, 1 Jun 2026 15:05:12 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>
+Cc: <atish.patra@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+        <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <kvm@vger.kernel.org>,
+        <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: =?UTF-8?B?UmU6IMKgW1BBVENIIHYyIDIvM10gUklTQy1WOiBLVk06IGFkZCB0cmFjZXBvaW50cyBmb3IgZ3Vlc3QgcGFnZSBmYXVsdHM=?=
+X-MAIL: mse-fl2.zte.com.cn 65175AlE087119
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Mon, 01 Jun 2026 15:05:18 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A1D2F2E.001/4gTQ2k5x09z57KTr
+X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_092756_215984_CF315FFA 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20260601_000533_382188_1E33F4F3 
+X-CRM114-Status: UNSURE (   5.69  )
+X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Tue, 02 Jun 2026 15:07:21 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,41 +77,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMDYsIDIwMjYgYXQgMDg6MDc6NTJBTSArMDAwMCwgVGFrYWhpcm8gSXRhenVy
-aSB3cm90ZToKPiBIaSBMb3JlbnpvIGFuZCBTZWFuLAo+Cj4gQXBvbG9naWVzIGZvciB0aGUgZGVs
-YXllZCByZXBseSDigJQgTmlraXRhIGlzIGxlYXZpbmcgQW1hem9uLCBhbmQgSSdtCj4gdGFraW5n
-IG92ZXIgdGhpcyBzZXJpZXMgZ29pbmcgZm9yd2FyZC4gVGhhbmtzIGZvciB5b3VyIHBhdGllbmNl
-LgoKSGV5LAoKVGhhbmtzIGZvciBsZXR0aW5nIHVzIGtub3chIEFuZCB0aGFua3MgdG8gTmlraXRh
-IGZvciBhbGwgaGlzIHdvcmssIHdpbGwKa2VlcCBhbiBleWUgb3V0IGZvciB0aGUgcmVzcGluIQoK
-Q2hlZXJzLCBMb3JlbnpvCgo+Cj4gT24gVHVlLCBBcHIgMjEsIDIwMjYgYXQgMDE6NDA6MDBQTSAr
-MDAwMCwgTG9yZW56byBTdG9ha2VzIHdyb3RlOgo+ID4gSG0sIGdpdmVuIHRoaXMgdG91Y2hlcyBh
-IGZhaXIgYml0IG9mIG1tLCBJIHdvbmRlciBpZiB3ZSBzaG91bGRuJ3QgdHJ5IHRvIGRvIHRoaXMK
-PiA+IHRocm91Z2ggdGhlIG1tIHRyZWU/Cj4KPiBPbiBUdWUsIEFwciAyMSwgMjAyNiBhdCAwNDoz
-NjowMFBNICswMDAwLCBTZWFuIENocmlzdG9waGVyc29uIHdyb3RlOgo+ID4gWWVhaCwgd2hlbiB0
-aGUgdGltZSBjb21lcywgdGhlIG1tIHBpZWNlcyBkZWZpbml0ZWx5IG5lZWQgdG8gZ28gdGhyb3Vn
-aCB0aGUgbW0KPiA+IHRyZWUuICBJZGVhbGx5LCBJIHRoaW5rIHRoaXMgd291bGQgYmUgbWVyZ2Vk
-IGluIHR3byBzZXBhcmF0ZSBwYXJ0cywgd2l0aCBhbGwgbW0KPiA+IGNoYW5nZXMgZ29pbmcgdGhy
-b3VnaCB0aGUgbW0gdHJlZSwgYW5kIHRoZW4gdGhlIEtWTSBjaGFuZ2VzIHRocm91Z2ggdGhlIEtW
-TSB0cmVlCj4gPiB1c2luZyBhIHN0YWJsZSB0b3BpYyBicmFuY2gvdGFnIGZyb20gQW5kcmV3Lgo+
-Cj4gVGhhbmtzIGZvciB0aGUgZ3VpZGFuY2UuIFRoZSBzcGxpdCBtYWtlcyBzZW5zZSB0byBtZTsg
-SSdtIHBsYW5uaW5nIHRvCj4gZm9sbG93IHRoaXMgYXBwcm9hY2ggd2l0aCBwYXRjaGVzIDEtNiAo
-bW0pIGdvaW5nIHRocm91Z2ggdGhlIG1tIHRyZWUKPiBhbmQgcGF0Y2hlcyA3LTE2IChLVk0pIHRo
-cm91Z2ggdGhlIEtWTSB0cmVlIG9uIHRvcCBvZiBhIHN0YWJsZQo+IGJyYW5jaC90YWcgZnJvbSBt
-bS4gSSdsbCBjb25maXJtIHRoZSBleGFjdCBib3VuZGFyeSBhbmQgY29vcmRpbmF0aW9uCj4gZGV0
-YWlscyBhcyBJIHByZXBhcmUgdGhlIHJlcG9zdC4KPgo+IE9uIFR1ZSwgQXByIDIxLCAyMDI2IGF0
-IDAxOjQwOjAwUE0gKzAwMDAsIExvcmVuem8gU3RvYWtlcyB3cm90ZToKPiA+IEluIGFueSBjYXNl
-LCB3ZSBkZWZpbml0ZWx5IG5lZWQgYSByZWJhc2Ugb24gc29tZXRoaW5nIG5vdC1uZXh0IDopIGlm
-IG5vdCBtbSB0aGVuCj4gPiBMaW51cydzIHRyZWUgYXQgbGVhc3QgbWF5YmU/Cj4gPgo+ID4gSSdt
-IHNlZWluZyBhIGxvdCBvZiBjb25mbGljdHMgYWdhaW5zdCBtbS11bnN0YWJsZSwgaXQgY2FuJ3Qg
-YjQgc2hhemFtIGV2ZW4gcGF0Y2gKPiA+IDEgYW5kIGluIExpbnVzJ3MgdHJlZSBpdCdzIGZhaWxp
-bmcgYXQgYW4gbW0gcGF0Y2ggKG1tOiBpbnRyb2R1Y2UKPiA+IEFTX05PX0RJUkVDVF9NQVApLgo+
-Cj4gSSdsbCByZWJhc2Ugb250byB2Ny4xLXJjMSBhbmQgcmVzb2x2ZSB0aGUgY29uZmxpY3RzIGFz
-IHBhcnQgb2YgdGhlIHNwbGl0Lgo+Cj4gVGFrYWhpcm8KPgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+> > From: Wang Yechao <wang.yechao255@zte.com.cn>
+> >
+> >
+> > Add the kvm_page_fault event tracepoints to count the number of KVM
+> >
+> > guest page faults.
+> >
+> >
+> > Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+> 
+> Lot of redundant newlines in this patch. Looks like this patch
+> was not sent using "git send-email".
+> 
+Sorry for the messy formatting. I'll resend the patch properly with git send-email
+in the next version.
+
+Best regards,
+Yechao
+
+> Regards,
+> Anup
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
