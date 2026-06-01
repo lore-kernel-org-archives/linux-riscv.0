@@ -4,58 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098ECCD5BD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 08:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCE3CD6E4C
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 08:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RZGY2uMIr4rvWfa4fNBLuzT59+S5FRqcd7Ug2aXvKKc=; b=H0IfJLM4+doMdP
-	0tAl291wyYuqdUT+GZW48/GHbetP2WijaJrURsTbapZAchf5SOBC5gcrrzKCweGhwSoCdhRWl9Ksu
-	xeDdBApQUCGqSWYWnq1Hp9NcI72cYroD6McBf2q8zItJcnIrZyCHejMY/nJoo/x+0TFh/Gk2QLzeQ
-	24EYqkl9k+Uu6zH4c6y0E3kZXdpsbeANxNFrYW4bTPDxknksMI22q5p99nFRkF5KseBScWQ/uUTlf
-	H8HMMLeaAUg5PkZ5/TYSqUgHmwsmTC4U+5vHV3aUZr1lUvJVBjCegyBlo7i3G6k4R6YF6kdM3Gf10
-	xLctuwF3tjWFjckGwgWw==;
+	List-Owner; bh=p5iUTcfJSldyyKqUOzU0Q409E14BOBGijnRHcuv7SXE=; b=C9MLmCTxW+HIE3
+	4j6UM06SC5qZDg72FPuiwAfc4fKWVhQb0QGfmCbTYsP/weq6KDHtQZ76MZxnvRhOj+a5y2x0fa7C2
+	2++esexzrc382q6GGTgd72vaQE6+bwowolPkO75jAxPczoRjO8z3tOdoiOcn1CeAHK+GX2Va5pfa3
+	XJrpsz6jT++LQ5IIQK8U3yx04RSiCfjqkoqvv6HspOdJ7bO0iIPdlZmH6HvqhUPUcro+eVuDl2BbY
+	YTvtDZfqS1XoQDf6SG19dpA4pY8fX8gXcIhhfjjWtlGCdh0O7Y0F9Iy7O+CMIby6SwYU47kiFOcjQ
+	e3Og4M6y/T3qTUsyrE3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyHT-0000000AOwr-2VBA;
-	Mon, 01 Jun 2026 08:45:55 +0000
-Received: from out28-103.mail.aliyun.com ([115.124.28.103])
+	id 1wTyKa-0000000APo0-0C1D;
+	Mon, 01 Jun 2026 08:49:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wTyHP-0000000AOvL-3uxt
+	id 1wTyKY-0000000APm5-07IP
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 01 Jun 2026 08:49:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=8iZQN+oxehRhbRDFp2Djf7RG6EvHlnyDB08mWf0NvrQ=; b=UIYCJn0yZqA46vUy2vlTXT/jPi
+	LDk/sJmVYd43rsfPZCfY2fWgp0/dvrTqN0EREkVpmfshfniSfELUtmr5UbGqJw+hPx5v6LAq/6evH
+	D/KEPJ34Oq4f3CdZCvKS3f6q8AbCu9StYzhOKhJ+NIdyalUmRFkkZBKxmENWMXpkSC/eEw/2oDBbU
+	9XgjSKp+5AvaQnmLaoUatlh95ZO1dIEtAbaUYtj+mDGaXYDkPx0JlnzMaFOR6TJKRGN30l3e6L6Zs
+	/fbupH5IU6MPweyqeKZbioi2SB1ZNGNCZZcNmoy4z0wMpyufut9IPDxuamzCXOySNhrt4q/aVj+UU
+	YGjfNKiA==;
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wTyKU-000000067cL-3NL0
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 08:45:54 +0000
+	Mon, 01 Jun 2026 08:49:04 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8422524cb38so470773b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jun 2026 01:49:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=bosc.ac.cn; s=default;
-	t=1780303546; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=1n2+ipqM3e8+vxn9kaB6VbQ8wefScd0Kh0wlomEGpLs=;
-	b=rrQL9peXM+nEe6dxiOz7/u3zqVSeuUm7ZWJExsbErl/wxf4IF/PdTelnJp1CNc/iHaj9lf4UpeCW3bmUoTHkn5qKSB/K1hokDhxgb8jED8Uzf/c+3FpuoqrdS25yNaw48bJzIgnwRpuWKqiDgsF5DWIQzKF862mt4ZaERaxTr14uqIIEvRmRr3G5/r+pOsXu+NJfGDR4rdlcIRsiOLtWnMvN9Hg60j6hrTdR4QETOt37nzYLb2cZqg9tUWc0bsl0LFWXeX2Uda/WaBMAb6OIPUdYpVJ65+Qxk7oOeFnKIuTTV0SLOmU/CF2eQGVgU7nH7kl42SAYLInKsem5AZrg9A==
-X-Alimail-AntiSpam: AC=CONTINUE;BC=0.08405478|-1;BR=01201311R121S60rulernew998_84748_2000303;CH=blue;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0544653-0.00359158-0.941943;FP=10805633012820484158|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033023018039;MF=guoyaxing@bosc.ac.cn;NM=1;PH=DS;RN=9;RT=9;SR=0;TI=SMTPD_---.hm0Q-2b_1780303525;
-Received: from guoyaxing..(mailfrom:guoyaxing@bosc.ac.cn fp:SMTPD_---.hm0Q-2b_1780303525 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Mon, 01 Jun 2026 16:45:45 +0800
-From: Yaxing Guo <guoyaxing@bosc.ac.cn>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <pjw@kernel.org>,
+        d=bytedance.com; s=google; t=1780303741; x=1780908541; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8iZQN+oxehRhbRDFp2Djf7RG6EvHlnyDB08mWf0NvrQ=;
+        b=CAohNwVT3FgCYvmkTgvtbsvTn7ogfms7JZaqbS0o/B2cRw1QhKWTc94iWPJjoNBmS3
+         6jqtrEPJbGlcDAormnUJW19PGjuALnAjLGSBA0TE3Rm2inRivAkUVykjO3n9ikzNW8b3
+         oRRsfLjrJhSnKGIK1eDWMuSIN4MCTN45wic44B2mpY1kN7tlxg157nQoqrrFhoDHmUrY
+         LRO0CmqP8EZBqi3eDfgUqmNj4Tu0Du6qkT6y87NHV/FaEt44Dsfu3K9m2v3u08slmaZq
+         pHbbwZUQp+nw+y5RwEPW+uFq4GjfRggXb1usuHLD6EuVIadOOmsyeSgJL0AGOY4LMWLa
+         tlFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780303741; x=1780908541;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8iZQN+oxehRhbRDFp2Djf7RG6EvHlnyDB08mWf0NvrQ=;
+        b=fkWM+XrIuBw2pCJRDgPkicSamxX2HTfqlPqK5enMVCFiKx4GJ5HjbBShcz+M9jppW9
+         IHWEkA3w+ct6ui4LegDWjx2bUg1S/aUn0KY+V9pgKOrKFxFSSOGRqDJqDJfWAGV7Phm7
+         9COYZKDd3fMofS2eAbrvFNQj/46Ul2brvljjXIfc1U1qCMMMUumhbxgxVNsSYryulTug
+         W4fsixSXpHqYFscFqtbyHN7ID2eFP80t2nR9gwgDWmiqy7rdHJArzahSgzKAHytjOp7n
+         ar4cWhjmHwFhvHgjxPLa0n3Qt99qOnaeN19sHwBTdT6ecHCLZl8b3868Ys2iwTA/rOr/
+         eXkQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8OxpAbO8xRMYCbO003AsXJGW945i0vudkM7tAvpLjLRC2A7/GtQ/f4u3ghQqaUXfWCB85SUibqBc+9pg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL5NKWCyxchj9H3DUZu+qkMRU4m82lIrd7lNMkxtyeaZ1nVDWW
+	rXc9aBjupYPIFZV5ZeyyBB4r9ewm2Ao6b3RjF/Kz/tKy/ilknkThwqewDyD8nsgiMq8=
+X-Gm-Gg: Acq92OH2jjxBsuNk/U4MFHdqQ2gtM3fb+JJlOp/xQNRvvRM7/svWkGg6vx4Xjji40tZ
+	0Oe9BM0G5oDK8g2S/8F8jHhDkwclljqE0SiZm8tX1CJC/5WoR1WBtVVOJeB4My9Wk1FSH5fh0Bi
+	kLoBbdPsVczMSL4s6BenyQ+I5aozXXygNvGmu8T9FX7M/cVc6t22H61hYXcV8ihgupXYKmQW0e8
+	DnBrzUQdJ/w7XZkZNNS1MaM5UxEepR4XnR2X1zCO9hoUmMqMFNy1HeUJBh2cYD92iKMBoj19N/V
+	HjURjiREmCJw13ZUg/BES+a/3HxP6UNgME0eEk8pM0U43Z6qiAwH9gMIh2hSfl1LoN9rPJ8nNtP
+	fTUU3D6IeCooJ6RTmq4HW/zdgnrNBxo4hdO20Hn/G6skVqXr3x/mYkYjV559I+xdLvQjTZM0FYT
+	DyVjXAcvnDWTwaudYlO0we/1HCFsLW0C2LwGHOxC6C+r+s4K9mIbUGwA==
+X-Received: by 2002:aa7:9a86:0:b0:83c:928:6e5a with SMTP id d2e1a72fcca58-84225376b00mr9579300b3a.13.1780303741104;
+        Mon, 01 Jun 2026 01:49:01 -0700 (PDT)
+Received: from n232-176-004.byted.org ([36.110.163.96])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84232ef8172sm6316230b3a.12.2026.06.01.01.48.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 01:49:00 -0700 (PDT)
+From: Muchun Song <songmuchun@bytedance.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	linux-riscv@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Muchun Song <muchun.song@linux.dev>,
+	Muchun Song <songmuchun@bytedance.com>,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	guoyaxing@bosc.ac.cn,
-	majiuyue@bosc.ac.cn
-Subject: Re: [PATCH v4 3/4] riscv: Stop emitting preventive sfence.vma for new vmalloc mappings
-Date: Mon,  1 Jun 2026 16:45:24 +0800
-Message-ID: <20260601084524.34584-1-guoyaxing@bosc.ac.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240717060125.139416-4-alexghiti@rivosinc.com>
-References: <20240717060125.139416-4-alexghiti@rivosinc.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>
+Subject: [PATCH v3 1/5] mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and vmemmap_check_pmd()
+Date: Mon,  1 Jun 2026 16:48:40 +0800
+Message-ID: <20260601084845.3792171-2-songmuchun@bytedance.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260601084845.3792171-1-songmuchun@bytedance.com>
+References: <20260601084845.3792171-1-songmuchun@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_014552_476364_6E9CCE3D 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260601_094903_473413_6553D2D0 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,65 +137,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
+The two weak functions are currently no-ops on every architecture,
+forcing each platform that needs them to duplicate the same handful
+of lines.  Provide a generic implementation:
 
-We are looking at commit 503638e0babf ("riscv: Stop emitting
-preventive sfence.vma for new vmalloc mappings") and ran into a case
-that I do not think the current early new_vmalloc_check covers.
+- vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
 
-The commit removes the preventive sfence.vma after installing a vmalloc
-mapping and relies on a later kernel page fault to run
-new_vmalloc_check. That works if the first stale-translation fault is
-taken while sscratch is still zero. On our core, however, invalid PTE
-results may be cached/prefetched before the vmalloc PTE is installed.
-Without an sfence.vma, an old negative translation for the vmalloc VA can
-remain cached for ASID A.
+- vmemmap_check_pmd() verifies that the PMD is present and leaf,
+  then calls the existing vmemmap_verify() helper.
 
-A sequence we can reproduce is:
+Architectures that need special handling can continue to override the
+weak symbols; everyone else gets the standard version for free.
 
-  1. Before the vmalloc PTE is installed, the walker/prefetcher observes
-     the VA and caches an invalid result for ASID A.
-  2. The vmalloc PTE is installed as a global kernel mapping, but no
-     sfence.vma is issued.
-  3. A different task/ASID B accesses the same VA and installs a valid
-     global translation.
-  4. The same hart later has both the stale invalid result for ASID A and
-     the valid global translation available for that VA. Which one is used
-     is implementation-dependent until an sfence.vma is executed.
+Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+---
+v2->v3:
+- Replace BUG_ON() with WARN_ON_ONCE() in vmemmap_set_pmd()
+---
+ mm/sparse-vmemmap.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-The failure we see happens in ret_from_exception while returning to user
-mode:
+diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
+index 112ccf9c71ca..99e2be39671b 100644
+--- a/mm/sparse-vmemmap.c
++++ b/mm/sparse-vmemmap.c
+@@ -386,12 +386,17 @@ int __meminit vmemmap_populate_hvo(unsigned long addr, unsigned long end,
+ void __weak __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
+ 				      unsigned long addr, unsigned long next)
+ {
++	WARN_ON_ONCE(!pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL));
+ }
+ 
+ int __weak __meminit vmemmap_check_pmd(pmd_t *pmd, int node,
+ 				       unsigned long addr, unsigned long next)
+ {
+-	return 0;
++	if (!pmd_leaf(pmdp_get(pmd)))
++		return 0;
++	vmemmap_verify((pte_t *)pmd, node, addr, next);
++
++	return 1;
+ }
+ 
+ int __meminit vmemmap_populate_hugepages(unsigned long start, unsigned long end,
+-- 
+2.54.0
 
-  ret_from_exception:
-      REG_L s0, PT_STATUS(sp)   /* succeeds via the valid global entry */
-      ...
-      csrw CSR_SCRATCH, tp      /* returning to user; sscratch is now non-zero */
-  1:
-      REG_L a0, PT_STATUS(sp)   /* hits the stale invalid entry and faults */
-
-The second load takes a kernel page fault on the vmalloc stack. But
-because sscratch has already been restored to tp for the upcoming return
-to user mode, handle_exception takes the bnez tp, .Lsave_context path and
-does not execute new_vmalloc_check. The fault is then not converted into
-the intended sfence.vma + retry path.
-
-Our understanding is that this CPU behavior is allowed: without an
-sfence.vma after changing the PTE, software cannot require the MMU to stop
-using a stale invalid translation result. Caching invalid translation
-results can also be useful for performance.
-
-Is the delayed-vmalloc-fence scheme intended to rely on stale invalid
-entries not coexisting with a later valid global entry for the same VA?
-Or should new_vmalloc_check also cover the short return-to-user window
-after sscratch is made non-zero but before the final sret?
-
-If the latter, would you prefer a fix that delays writing sscratch until
-after the last access through the vmalloc stack in ret_from_exception, or
-a fix that detects this S-mode vmalloc fault even when sscratch is
-non-zero?
-
-Thanks,
-Yaxing
 
 _______________________________________________
 linux-riscv mailing list
