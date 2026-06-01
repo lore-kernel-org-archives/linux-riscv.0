@@ -4,103 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9C3CD5BD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22271CD6E55
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 23:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PTtv/T6snizJ+8FRWDMzYSpK8Fh9V3p/GKkkP71+Kz0=; b=A6JI7AY0STp5PP
-	meJz5UrGr2DTHPA6ZOV+wIcqFH8lsQ67CdzqdkeoCOX5RCiFSVNBezS/denOLsrTpYavpgHLjOJtE
-	SyX5bM+1mgOqxjHW+UdYf1DZI85jS7w220LoNM6DblKAJ8IuTLRViEowKSUZFFl6WT3RYw7ujwyUE
-	d5cDDJwdxVxLBso7Bw2WEnIqvEIR/0fKFtkjZSOGSHl5XFljuPLLSxQ3Hx5zP+lOzb1XzD8uv+zpW
-	lZo20s+mbYUahGX4yB5rCrqoa7ghgJrk8MrfcTdEVy66eJQ43yhYp15BmXbqxWw5pe1GUwtD+q1VN
-	mE0U3SpG1j/JMXdKvi0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5WxiyWAtGsNVF3hnu1naBg5vkNDfhR8T4mSBMarDr74=; b=x/yRW/BdMoExJG
+	BdDa3iBwQA2Tza7jOsizPYgOnK0oHNIN98PtLrMJd063Ad7oG2thbG1xmdPjcG8XykY/CpDyC7GZL
+	UqfxRt9wpQz1MGRA0ukmqmyTVLyOLx0U/upyTzSM8JvMA8VQ3fOYCet2cc/7U/m1hm8tJgd22yJKS
+	ps4tY/KkxdFr0TebVkIPPYbDcpGHjl4PpI+p9rTzWQOQurg5KNUllrt7aJ6A7GzWeokm7WPQmuBWx
+	bTkT/8hLsxIl/SqmL1Fx8pR028zh1/fwHuiPpqZKvIApQ0iE3AnS0QJJCyiiMBO6D6tyManH81lg0
+	mAS32CbE1+iVvcHSKSjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9j6-0000000BpwR-0N9a;
-	Mon, 01 Jun 2026 20:59:12 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1wUBiU-0000000C2Di-2MNI;
+	Mon, 01 Jun 2026 23:06:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9j2-0000000Bpue-25ur
+	id 1wUBiT-0000000C2DX-1IXI
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 20:59:10 +0000
-Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.9])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4gTmXn29XPz1r5Sh;
-	Mon,  1 Jun 2026 22:59:05 +0200 (CEST)
-Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4gTmXb1NBBz1r5Sf;
-	Mon,  1 Jun 2026 22:58:55 +0200 (CEST)
-Received: from localhost (dynscan3.mnet-online.de [192.168.6.87])
-	by mail.m-online.net (Postfix) with ESMTP id 4gTmXZ2s9rz1qqlS;
-	Mon,  1 Jun 2026 22:58:54 +0200 (CEST)
-X-Virus-Scanned: amavis at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.6.182])
- by localhost (dynscan3.mail.m-online.net [192.168.6.87]) (amavis, port 10024)
- with ESMTP id StDKLQCMjWpS; Mon,  1 Jun 2026 22:58:52 +0200 (CEST)
-X-Auth-Info: FqnxIDPc+CejjKHAe9u56JUkf8btEszKYhyFrkdtC5LkcdNUzyTOWALY7FYpYrLU
-Received: from igel.home (aftr-82-135-83-133.dynamic.mnet-online.de [82.135.83.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mnet-online.de (Postfix) with ESMTPSA;
-	Mon,  1 Jun 2026 22:58:52 +0200 (CEST)
-Received: by igel.home (Postfix, from userid 1000)
-	id 6F0742C16DB; Mon,  1 Jun 2026 22:58:52 +0200 (CEST)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>,
-  Thomas Gleixner <tglx@linutronix.de>,  Ingo Molnar <mingo@redhat.com>,
-  Borislav Petkov <bp@alien8.de>,  Dave Hansen
- <dave.hansen@linux.intel.com>,  x86@kernel.org,  "H. Peter Anvin"
- <hpa@zytor.com>,  Andrew Morton <akpm@linux-foundation.org>,  "Liam R.
- Howlett" <Liam.Howlett@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,
-  Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,  Paul Walmsley
- <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert
- Ou <aou@eecs.berkeley.edu>,  Conor Dooley <conor@kernel.org>,  Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Arnd
- Bergmann <arnd@arndb.de>,  Christian Brauner <brauner@kernel.org>,  Peter
- Zijlstra <peterz@infradead.org>,  Oleg Nesterov <oleg@redhat.com>,  Eric
- Biederman <ebiederm@xmission.com>,  Kees Cook <kees@kernel.org>,  Jonathan
- Corbet <corbet@lwn.net>,  Shuah Khan <shuah@kernel.org>,  Jann Horn
- <jannh@google.com>,  Conor Dooley <conor+dt@kernel.org>,  Miguel Ojeda
- <ojeda@kernel.org>,  Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
- <boqun.feng@gmail.com>,  Gary Guo <gary@garyguo.net>,  =?utf-8?Q?Bj=C3=B6?=
- =?utf-8?Q?rn?= Roy Baron
- <bjorn3_gh@protonmail.com>,  Andreas Hindborg <a.hindborg@kernel.org>,
-  Alice Ryhl <aliceryhl@google.com>,  Trevor Gross <tmgross@umich.edu>,
-  Benno Lossin <lossin@kernel.org>,  linux-kernel@vger.kernel.org,
-  linux-fsdevel@vger.kernel.org,  linux-mm@kvack.org,
-  linux-riscv@lists.infradead.org,  devicetree@vger.kernel.org,
-  linux-arch@vger.kernel.org,  linux-doc@vger.kernel.org,
-  linux-kselftest@vger.kernel.org,  alistair.francis@wdc.com,
-  richard.henderson@linaro.org,  jim.shu@sifive.com,  andybnac@gmail.com,
-  kito.cheng@sifive.com,  charlie@rivosinc.com,  atishp@rivosinc.com,
-  evan@rivosinc.com,  cleger@rivosinc.com,  alexghiti@rivosinc.com,
-  samitolvanen@google.com,  broonie@kernel.org,
-  rick.p.edgecombe@intel.com,  rust-for-linux@vger.kernel.org,  Zong Li
- <zong.li@sifive.com>
-Subject: Re: [PATCH v23 06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ
- | VM_WRITE
-In-Reply-To: <CAKC1njR+dTdvp+BmLGPtgd8dufiUwBtkQ9a-qinELT_Fmi13sQ@mail.gmail.com>
-	(Deepak Gupta's message of "Mon, 1 Jun 2026 10:57:41 -0700")
-References: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
-	<20251112-v5_user_cfi_series-v23-6-b55691eacf4f@rivosinc.com>
-	<87jyslndo4.fsf@igel.home>
-	<CAKC1njS=AHu6uHrH4ae8VxcdEbhgiPXYCAoN3F_mnppBd3SwOA@mail.gmail.com>
-	<875x44o9hj.fsf@igel.home>
-	<CAKC1njSn_rtCj8ii876PNQTk0nsCTfWsb4DzdymufHVthh1Rkg@mail.gmail.com>
-	<871peqgp9v.fsf@igel.home>
-	<CAKC1njR+dTdvp+BmLGPtgd8dufiUwBtkQ9a-qinELT_Fmi13sQ@mail.gmail.com>
-Date: Mon, 01 Jun 2026 22:58:52 +0200
-Message-ID: <87wlwif04z.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Mon, 01 Jun 2026 23:06:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C1256001A;
+	Mon,  1 Jun 2026 23:06:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76A81F00893;
+	Mon,  1 Jun 2026 23:06:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780355200;
+	bh=i1Iq/t7YJ3lzwEzZSDZNa3Rv0CFkmzQDeIArbCfLbks=;
+	h=Date:From:To:Cc:Subject;
+	b=ZaggX0ENXZ/NpWeqheKbjjq2533fbiCDgwuO/RZLYpUcvYdkGvAtm8kHPLdNVNDHt
+	 M8bhgZ9I9G2az1quJHDfgku1K7qxAFZSWodmteMB1BoAJfX1VQobDaLK/W8/HnNiNN
+	 ioR4XXRs7TZoCUa75ASKMWYGKExcq7ruPqVPa1DwFWmMdHLXYWdw4BcKh9SL9wALqo
+	 BE1ImbY2tn8ljHsYP4r3+surVR2hfTnlnupB41iE1Kx9/JWMsjWGPDUdeixyxW0LBZ
+	 psvHmcS7VZblM9IKvPSp7q3eUnq8rvOUKeQUKppvrUHuUjMA+60+lOKBK7RrgDp5tT
+	 CBi4c5I308Mhg==
+Date: Mon, 1 Jun 2026 16:06:38 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: soc@kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <anup@brainfault.org>, Joel Stanley <joel@jms.id.au>,
+	Joel Stanley <jms@oss.tenstorrent.com>,
+	Nicholas Piggin <npiggin@oss.tenstorrent.com>,
+	Michael Neuling <mikey@neuling.org>,
+	Michael Ellerman <mpe@kernel.org>, Andy Gross <agross@kernel.org>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Drew Fustini <dfustini@oss.tenstorrent.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V Tenstorrent devicetree changes for v7.2
+Message-ID: <ah4Qfro/wUyhByF8@x1>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_135908_834357_AB35C72F 
-X-CRM114-Status: GOOD (  11.52  )
+Content-Disposition: inline
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,21 +83,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jun 01 2026, Deepak Gupta wrote:
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-> riscv uses `VM_SHADOW_STACK`. It's just very simple to use `protection_map`
-> with just `VM_WRITE`. On RISC-V, `-W-` is a shadow stack mapping. It's not same
-> on x86 or arm64. So `protection_map[VM_WRITE]` simply picks shadow stack
-> encoding. We just ensure that PROT_WRITE is converted to
-> "VM_READ | VM_WRITE" at vma level.
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-That does not explain _why_ you need to make that user visible change,
-when others can get away without it.
+are available in the Git repository at:
 
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+  git://git.kernel.org/pub/scm/linux/kernel/git/tenstorrent/linux.git tags/tenstorrent-dt-for-v7.2
+
+for you to fetch changes up to 33583baeb1ba7d328e6a9775d889036900b74cdb:
+
+  dt-bindings: iommu: riscv: Add bindings for Tenstorrent RISC-V IOMMU (2026-05-23 17:14:35 -0700)
+
+----------------------------------------------------------------
+Tenstorrent device tree for v7.2
+
+Add a riscv,pmu node to the Tenstorrent Blackhole SoC device tree. This
+enables OpenSBI to expose the SBI PMU extension, allowing Linux perf to
+use the 4 programmable counters (mhpmcounter3-6) across 3 event classes:
+instruction commit, microarchitectural, and memory system events.
+
+Extend the RISC-V IOMMU device tree bindings to document the Tenstorrent
+IOMMU used in the Tenstorrent Atlantis SoC. A second register range is
+added which contains M-mode only registers like PMAs and PMPs. The
+binding will be used by OpenSBI and potentially other M-mode software.
+
+----------------------------------------------------------------
+Michael Neuling (1):
+      riscv: dts: tenstorrent: Add PMU node to blackhole for Linux perf support
+
+Nicholas Piggin (1):
+      dt-bindings: iommu: riscv: Add bindings for Tenstorrent RISC-V IOMMU
+
+ .../devicetree/bindings/iommu/riscv,iommu.yaml     | 59 +++++++++++++++++++---
+ arch/riscv/boot/dts/tenstorrent/blackhole.dtsi     | 48 ++++++++++++++++++
+ 2 files changed, 99 insertions(+), 8 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
