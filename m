@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B16CD6E4A
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 11:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67ABCCD6E60
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 12:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aMbefIGFTs30qrx69ciqQ1esFFn1+jv/owuYPs/PGck=; b=QLfJU+JMDUvptu
-	/mSgDyHOtvE4mz3qEL9Ot1BEO6Hns9lHr7dYzJMCu8o+OjNvsUjISQ8wH7Zz6pP+kYvfE8G9dshzO
-	ouy2mlphsLr2lnx6NVGbGGSrFpEnQUbJeF4nJCKN7AYFkoWdd+y8omiBDeFluQwmVexVS+mPB63R7
-	rJi5gr+OFJeGspvnCgWT0Sh5x2uX8FuYxkY9PEi2mF7hZNHy+oYs3h5boCZl3BsJtQn3Sz1w0l3ke
-	zwODn0k2OHJ8B/9zbpUVU896E8XtNmodVXdQsXHKElWQaTTLdSmZ6SwiE5/ApG0zwdiY3sFKaI7V4
-	OyqoRiwnyI7yjI1mSQZQ==;
+	List-Owner; bh=gS83Nj4jCwClcGU0FfZtDE/8OH+bRdtYRCQCL8fwVVk=; b=FDVdXCOOgGnsbG
+	G+B3yQ4t5oNyieTAFYAcrxktKCKBTXEq6X7UF7GZWctyOI9M8T/zPElvp+6lnmYbykXyl2jQfgBab
+	ITzlzoq6kDCxaWE9xudSim6b0aCto87mBg6viAZRDlpKJ3firNerkMV2cKpn/ElbVvB8SKB/TNsie
+	lBUNKFXJiQp5RjRZkQFwg0Ot/hQM+4Wr2RI/ekxQYUQ/lQKFM6+ZebgsYP98WXjz5TgPovOUPjwRT
+	Mep6fpsc/zygkNRHAXb1mS6EWMM+e+e3ns/Uhw9DHMjnAzmuciw3b509HlHR4FU2yX36HCA/OAHwW
+	jzEMc2eKaZ00A6OTYRoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNR8-0000000CtcR-3Mt8;
-	Tue, 02 Jun 2026 11:37:34 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1wUNu0-0000000CwK0-08ce;
+	Tue, 02 Jun 2026 12:07:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNR5-0000000Ctbl-42TN
+	id 1wUNtx-0000000CwJg-2ju1
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jun 2026 11:37:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1780400248; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=185K9IDgIj/Feo66qKQnCyRFQ1fH9VLKwHJVJJOu/ts=;
-	b=vwotUiYDpASiJ9IaEOoBQJvZhQroxl5futEA+zan9w/t6r4g2F5uP73i4Ke8L0EqgA2K+k7GKRgvHYTAa+FOt1GcFIOke6LdsgWxea/nRz8PURJbz4NWavmWufie7JeqbAMVhwBufPCwumw3x00v6Svv3JnzbspCnWcpMA01MK4=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R321e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X44RHXL_1780400244;
-Received: from 30.100.154.88(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X44RHXL_1780400244 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 02 Jun 2026 19:37:26 +0800
-Message-ID: <d0ea70d2-f38b-4ec9-9522-d2d5b6d92f5c@linux.alibaba.com>
-Date: Tue, 2 Jun 2026 19:37:23 +0800
+	Tue, 02 Jun 2026 12:07:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D4499436FE;
+	Tue,  2 Jun 2026 12:07:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B1D71F00893;
+	Tue,  2 Jun 2026 12:07:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780402040;
+	bh=pEBanZXD28yLbzyFMoCw8vpjCe8PBdySKqmDHHVxhBo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=UuZgpxr4Bz6wK4Y/umHh3809GRuLo2prrzI8tybC7jqf0MyNIYnVdCKjEJJX9Fbxf
+	 Dot6L7mXi22VU0qRQB9/uMScKzhYulT9pEzNEH6+LUoJNit2YWc6qs79tJupg4fAq5
+	 Zd66Nfp9I6aCs/D/vjLvbvR7On48YV+2X/vMH4i9/6+m5duLzdL+9k/CHc1jm3QW/i
+	 Z5MPGZ+KxfWHpBtxnV9P5Yka0g8FDMitu+twjlnNXjnW0r1tRjuSwY+RTjkGF4JJ9f
+	 rELLAHdUk/jGWBjgpoLxfUqgGjyxAypRDN4nVhC7+lcKHi81iL7SuJ7D8EYcjsAatO
+	 ggcI8/TURz6ow==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Yixun Lan <dlan@kernel.org>, 
+ Jinmei Wei <weijinmei@linux.spacemit.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org
+In-Reply-To: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
+References: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
+Subject: Re: [PATCH v3 0/2] ASoC: spacemit: add K3 SoC support
+Message-Id: <178032605224.44654.17377992015065063925.b4-ty@b4>
+Date: Mon, 01 Jun 2026 16:00:52 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/8] riscv: ftrace: always preserve s0 in dynamic
- ftrace register frame
-To: Wang Han <wanghan@linux.alibaba.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Alexandre Ghiti <alex@ghiti.fr>,
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chen Pei <cp0613@linux.alibaba.com>, Andy Chiu <andybnac@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Deepak Gupta <debug@rivosinc.com>, Puranjay Mohan <puranjay@kernel.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Jiri Kosina <jikos@kernel.org>,
- Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
- Joe Lawrence <joe.lawrence@redhat.com>, Shuah Khan <shuah@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, oliver.yang@linux.alibaba.com,
- zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, live-patching@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-perf-users@vger.kernel.org
-References: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
- <20260528082310.1994388-5-wanghan@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20260528082310.1994388-5-wanghan@linux.alibaba.com>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1548; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=hLZrVWdpgEiigLLE1L+kDHlZRBGb2UU6XAcUIO8GOa0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqHsd0rI4ckJ7Hm165gVtJqeWD+VGtD9cXsVPN3
+ dejlbxrFqaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCah7HdAAKCRAk1otyXVSH
+ 0Ie+B/9kXwOMyqDW7DQB2QR+IlYPuicwCYo7eHYZsh0vcs7GVf49egNza5+h7CGQ3u7VPy2vVyl
+ IPesk2nJs0c3CYCeZSBG7amhiSp2cAPlx2yjVW0z4AOXGaQY5KglIZRuDoJl5h4h9ACEY29QcjQ
+ 9Lnu9yCyqWbzM/Jaw9Cthe7oU7XRAgwuFWaOtW51mYmma+uO1TaR9Hs/LZ3bTwiLxO9nf53Z7yB
+ IMNLLH60ifiy7cpsx/6NZR8/szyte7mITd8zaRF4AgytSbkXeGWr/z17Cgytn40A3uFD73ONTvm
+ YRyhrUq/i6uSawoa8P9dEZYNQFi20YgYD2wqQl9BtIKYFIOM
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_043732_239452_B5EEF6CD 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_050721_733488_EDE83AA5 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +84,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 22 May 2026 21:12:13 +0800, Troy Mitchell wrote:
+> ASoC: spacemit: add K3 SoC support
+> 
+> This series adds K3 SoC support for the SpacemiT I2S controller driver.
+> 
+> Patch 1 adds the dt-bindings for the spacemit,k3-i2s compatible. The K3
+> SoC uses the same I2S IP as K1 but requires additional clocks
+> (sysclk_div, c_sysclk, c_bclk) that are shared across multiple I2S
+> controllers.
+> 
+> [...]
 
+Applied to
 
-On 5/28/26 4:23 PM, Wang Han wrote:
-> The dynamic ftrace entry/exit only saved s0 (the architectural frame
-> pointer) when HAVE_FUNCTION_GRAPH_FP_TEST was selected. The upcoming
-> reliable frame-pointer unwinder needs s0 to be present in
-> ftrace_regs unconditionally so it can use the frame pointer as the
-> function-graph return-address cookie regardless of FP_TEST.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
-Nit: A prefered commit log:
+Thanks!
 
-struct __arch_ftrace_regs declares s0 unconditionally, and both
-ftrace_regs_get_frame_pointer() and ftrace_partial_regs() read it
-unconditionally. But the SAVE_ABI_REGS / RESTORE_ABI_REGS macros in
-mcount-dyn.S only stored s0 under HAVE_FUNCTION_GRAPH_FP_TEST
-(CONFIG_FUNCTION_GRAPH_TRACER && CONFIG_FRAME_POINTER). With
-CONFIG_FRAME_POINTER=n the slot held whatever was on the stack before,
-so any callback going through ftrace_partial_regs() saw a garbage
-regs->s0. RISC-V kernels default to FRAME_POINTER=y, which is why
-this has not bitten in practice.
+[1/2] ASoC: dt-bindings: add SpacemiT K3 SoC compatible
+      https://git.kernel.org/broonie/sound/c/6bc6b28c0314
+[2/2] ASoC: spacemit: add K3 SoC support with additional clocks
+      https://git.kernel.org/broonie/sound/c/1c6ca2ca5c1b
 
-Save and restore s0 unconditionally in the dynamic ftrace ABI register
-frame. This fixes the latent garbage-s0 case, brings the dynamic ftrace
-path in line with the static _mcount path (mcount.S SAVE_ABI_STATE
-already saves s0 unconditionally), and matches the frame layout already
-documented in the comment above SAVE_ABI_REGS. It is also a
-prerequisite for the upcoming reliable unwinder, which reads
-ftrace_regs_get_frame_pointer(fregs) directly.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Save and restore s0 unconditionally in the dynamic ftrace ABI register
-frame. This fixes the latent garbage-s0 case, brings the dynamic ftrace
-path in line with the static _mcount path (mcount.S SAVE_ABI_STATE
-already saves s0 unconditionally), and matches the frame layout already
-documented in the comment above SAVE_ABI_REGS. It is also a
-prerequisite for the upcoming reliable unwinder, which reads
-ftrace_regs_get_frame_pointer(fregs) directly.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-The cost is one extra REG_S/REG_L pair per traced call, negligible
-compared to the overall ftrace cost; the existing FREGS_SIZE_ON_STACK
-already reserved the slot, so no extra stack space is used.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-Thanks.
-Shuai
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
