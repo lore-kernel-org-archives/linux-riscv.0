@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC350CD5BD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F70FCD6E55
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=74QrUNqayd87PmoxrHOhYUsezJ4iH1wIw56mWCFcuH0=; b=bRrNPGYoJE1CCb
-	BD0fBN19V0VCUKWIOorS9y4dp8aXQ0NhleC52z0BNRFkU3Ousi/KJGAswNh9NQ5zzhKh+1YWNdUPU
-	YoUujZIaZ9JmZpQkOXSCQ1RVo3ErzN2F8stSlzJpOk1jE3PVJsVq9XznmxEyPhAhNuU9UYfv5seou
-	z+2gx2HyVkQtH+yd0KH12j27L+TWKdFwjC8OEhoQuOd0onJxEpTEBcd5H20oGeJgG8pIMwoq/Dqj/
-	waYiWitKVF+d1narFeIDOrl5xA6ku1Btlqq88Kn4Q+IgdqCqmeFgVsQGpIzJW536KDI4XsjLvrRa+
-	dYB0B8M1aA0sj49yCUBQ==;
+	List-Owner; bh=K/JZZC20+9BST0QLQfK15cyuqeZ4GBDvP+HuwN1DS8c=; b=ueb9LNfDGqiZrO
+	ywF9pGauCOmMH8OJDiV1Q6VNZprkDiKBnVzPinXB9ki0VqvbFw5srjbNGQOkwJ8xPzs6bBn8PzjFU
+	aap537KNJVdrYBImMSbXkjY/qiYMCvaD8QDd23HTQ4GSp7bCMXSxAAIvdJ4DiVyVuPKUzvSFKtAPn
+	ZXCec7EnLx6CzrYUk/V6McFfhsl8ZrCOqpnoQOGsc28SXTrJneGzPd4+MHlfdWUu/Or6ZouAXUGC0
+	eUNukhO4JABP80HptczV4hJXbvX/gwvLMZ8iZBrVtyHCaZz0vK/AacmG8LBqPlz1tcHvlDImhr5om
+	M3st6eVnjco53uZxJB+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N8-0000000Bmrr-08YZ;
-	Mon, 01 Jun 2026 20:36:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wU9NB-0000000Bmu5-1TUf;
+	Mon, 01 Jun 2026 20:36:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N5-0000000BmqG-0ncV
+	id 1wU9N6-0000000Bmqk-1IO1
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 20:36:27 +0000
+	Mon, 01 Jun 2026 20:36:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 500D8601E3;
+	by sea.source.kernel.org (Postfix) with ESMTP id BC2A044617;
+	Mon,  1 Jun 2026 20:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7EC71F008A5;
 	Mon,  1 Jun 2026 20:36:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 509C81F008A2;
-	Mon,  1 Jun 2026 20:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780346186;
-	bh=04z5b3ENFFStDILh5daSgPFr7SyjhKEetoj74bl6s2o=;
+	s=k20260515; t=1780346187;
+	bh=bMpLloap6PiHKBmR2q+lkFW8XbOS+M/R8KIqzK/QRe8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=N4EDcD/494hQTJe4Z54xn8R31VLX1tGYAWu/wOvCv15H+JZ5j/quW+JmTtNI/6zPT
-	 UIG1axiDwdSzkpAizwBy+WWc+N9OhUdlEKFYmcH+hRh9DaqV7e0cn+j+upHN9dR770
-	 VwkMT4qcD3K2H54TgD2cUCKCl8MajpxOdTilhoxUc0BNMxY0j8QXYLB/l0d5oC/W/f
-	 7skH61tjyhUdzxhXDe2acfesYtrQsEypUb8v+0MOFwXE7wBLWNKx5PGNJ1bZOn3TXp
-	 LpoCOLqr0/l9vfg7qAJWaD/ZHRw7NY9nCd+XOWQmRAkJytXPVmS4YBJWOPiyiQLpO7
-	 vsXa6CsrAHg8g==
+	b=IdM9AEMz5E5ImmoO2m5gDZ4DU4xHBhRRkMCrCSOBVEt/9OjvRP5aD4zTy/1kvNBgu
+	 AuN7tEt7FHvcksMKxRaNnZz2dYOBaTR95HeuXfQU6yK6ZT3MuMUhHGDIxH/tHWAgah
+	 KZd8AXXoZNQs4z+pkHiFeLZvv30gwHA2MfCrv3OLD0nIFyq9atgPgLeRF0MF628hbm
+	 nq71w5h6686v9pNmOTYTcCWeP7nl9RyELQ2WW5FRHhocacyObGfL/dsiivDGd+Zj5U
+	 da17UP5VWp/0j4GTunnmV8RszPCSQ+foGaot3B5F3KhISze6JmSUXb6Cw7Bsuuo/+4
+	 TM3/m4u/4uVvQ==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 01 Jun 2026 13:35:58 -0700
-Subject: [PATCH RFC v6 04/18] fs/resctrl: Add resctrl_is_membw() helper
+Date: Mon, 01 Jun 2026 13:36:00 -0700
+Subject: [PATCH RFC v6 06/18] fs/resctrl: Let bandwidth resources default
+ to min_bw at reset
 MIME-Version: 1.0
-Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-4-baf00f50028a@kernel.org>
+Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-6-baf00f50028a@kernel.org>
 References: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 In-Reply-To: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -85,14 +86,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3572; i=fustini@kernel.org;
- h=from:subject:message-id; bh=AWRHihJSBi+LIrOoIsOzoxnsBG0+4NVU5YSaIMOxEs8=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnX68MtA7IdD/cyz767HerOHxIhE6sfutTnEfs3oR
- mJ01wHrjlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBEgrYwMvzUmfE49KbQ7Iyv
- 0b+u21xhnyWd9+TlY6mvFv5hHfNnzqxmZDjwJKXw+hqerg8nAy8cKz+07eu6bTGbZyh7i1x3PMk
- 3qYkBAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=umPX9KI/Gk5be4QxBnpv0rW9Oy0Ozoiycv8rX5MjK6Y=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnWSlbogxnP79dej/1bd9WIR37Ty8sHVDk2yYYd9N
+ i++trzVsKOUhUGMi0FWTJFl04e8C0u8Qr8umP9iG8wcViaQIQxcnAIwkYOaDP9Us8xffjt+JEPb
+ Izaz3MwuYWe1ApeG9f+LGWEl73y37/FkZFh1JvmK7ZXIpEXLNsdP3xXJ8czT1smrcse0ZI+Pctd
+ ehbMDAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_133628_395893_89020E99 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,102 +113,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Four sites in fs/resctrl distinguish bandwidth resources (MBA, SMBA)
-from cache resources by explicit rid match:
+Bandwidth resources reset to max_bw on group creation today, which is
+the right default for MBA and SMBA. However, it is the wrong default for
+hardware whose registers form a sum-constrained reservation: defaulting
+every new group to max_bw would immediately violate the sum on the first
+mkdir.
 
-  fs/resctrl/ctrlmondata.c parse_line()
-  fs/resctrl/rdtgroup.c    rdtgroup_mode_test_exclusive()
-  fs/resctrl/rdtgroup.c    rdtgroup_size_show()
-  fs/resctrl/rdtgroup.c    rdtgroup_init_alloc()
-
-Replace the open-coded MBA/SMBA tests with a single resctrl_is_membw()
-helper keyed on schema_fmt (RESCTRL_SCHEMA_RANGE). No functional change:
-every existing RESCTRL_SCHEMA_RANGE resource is MBA or SMBA today.
-
-This isolates fs/resctrl from the addition of further bandwidth resource
-types so the four call sites do not have to be updated for each new rid.
+When default_to_min is set, resctrl_get_default_ctrl() returns min_bw
+for the resource. The existing MBA and SMBA behavior is not changed.
 
 Assisted-by: Claude:claude-opus-4-7
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- fs/resctrl/ctrlmondata.c |  3 +--
- fs/resctrl/internal.h    |  2 ++
- fs/resctrl/rdtgroup.c    | 14 +++++++++-----
- 3 files changed, 12 insertions(+), 7 deletions(-)
+ include/linux/resctrl.h | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index 9a7dfc48cb2e..d9f052700941 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -245,8 +245,7 @@ static int parse_line(char *line, struct resctrl_schema *s,
- 	if (WARN_ON_ONCE(!parse_ctrlval))
- 		return -EINVAL;
- 
--	if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP &&
--	    (r->rid == RDT_RESOURCE_MBA || r->rid == RDT_RESOURCE_SMBA)) {
-+	if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP && resctrl_is_membw(r)) {
- 		rdt_last_cmd_puts("Cannot pseudo-lock MBA resource\n");
- 		return -EINVAL;
+diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+index 9529ed0d1fdf..bcbc166412ef 100644
+--- a/include/linux/resctrl.h
++++ b/include/linux/resctrl.h
+@@ -247,7 +247,13 @@ enum membw_throttle_mode {
+ /**
+  * struct resctrl_membw - Memory bandwidth allocation related data
+  * @min_bw:		Minimum memory bandwidth percentage user can request
+- * @max_bw:		Maximum memory bandwidth value, used as the reset value
++ * @max_bw:		Maximum memory bandwidth value a group can be
++ *			configured with
++ * @default_to_min:	When true, the default control value for new
++ *			groups and reset is @min_bw instead of @max_bw.
++ *			Drivers whose hardware enforces a sum constraint
++ *			across groups (e.g. CBQRI MB_MIN) set this so
++ *			mkdir does not overflow the sum.
+  * @bw_gran:		Granularity at which the memory bandwidth is allocated
+  * @delay_linear:	True if memory B/W delay is in linear scale
+  * @arch_needs_linear:	True if we can't configure non-linear resources
+@@ -259,6 +265,7 @@ enum membw_throttle_mode {
+ struct resctrl_membw {
+ 	u32				min_bw;
+ 	u32				max_bw;
++	bool				default_to_min;
+ 	u32				bw_gran;
+ 	u32				delay_linear;
+ 	bool				arch_needs_linear;
+@@ -405,7 +412,7 @@ static inline u32 resctrl_get_default_ctrl(struct rdt_resource *r)
+ 	case RESCTRL_SCHEMA_BITMAP:
+ 		return BIT_MASK(r->cache.cbm_len) - 1;
+ 	case RESCTRL_SCHEMA_RANGE:
+-		return r->membw.max_bw;
++		return r->membw.default_to_min ? r->membw.min_bw : r->membw.max_bw;
  	}
-diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
-index 1a9b29119f88..76187987b2ee 100644
---- a/fs/resctrl/internal.h
-+++ b/fs/resctrl/internal.h
-@@ -397,6 +397,8 @@ void mbm_handle_overflow(struct work_struct *work);
  
- bool is_mba_sc(struct rdt_resource *r);
- 
-+bool resctrl_is_membw(struct rdt_resource *r);
-+
- void cqm_setup_limbo_handler(struct rdt_l3_mon_domain *dom, unsigned long delay_ms,
- 			     int exclude_cpu);
- 
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 5dfdaa6f9d8f..0f331bf5ce82 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -1412,7 +1412,7 @@ static bool rdtgroup_mode_test_exclusive(struct rdtgroup *rdtgrp)
- 
- 	list_for_each_entry(s, &resctrl_schema_all, list) {
- 		r = s->res;
--		if (r->rid == RDT_RESOURCE_MBA || r->rid == RDT_RESOURCE_SMBA)
-+		if (resctrl_is_membw(r))
- 			continue;
- 		has_cache = true;
- 		list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
-@@ -1555,6 +1555,12 @@ bool is_mba_sc(struct rdt_resource *r)
- 	return r->membw.mba_sc;
- }
- 
-+/* RANGE schema is bandwidth (MBA/SMBA). BITMAP is cache. */
-+bool resctrl_is_membw(struct rdt_resource *r)
-+{
-+	return r->schema_fmt == RESCTRL_SCHEMA_RANGE;
-+}
-+
- /*
-  * rdtgroup_size_show - Display size in bytes of allocated regions
-  *
-@@ -1616,8 +1622,7 @@ static int rdtgroup_size_show(struct kernfs_open_file *of,
- 					ctrl = resctrl_arch_get_config(r, d,
- 								       closid,
- 								       type);
--				if (r->rid == RDT_RESOURCE_MBA ||
--				    r->rid == RDT_RESOURCE_SMBA)
-+				if (resctrl_is_membw(r))
- 					size = ctrl;
- 				else
- 					size = rdtgroup_cbm_to_size(r, d, ctrl);
-@@ -3648,8 +3653,7 @@ static int rdtgroup_init_alloc(struct rdtgroup *rdtgrp)
- 
- 	list_for_each_entry(s, &resctrl_schema_all, list) {
- 		r = s->res;
--		if (r->rid == RDT_RESOURCE_MBA ||
--		    r->rid == RDT_RESOURCE_SMBA) {
-+		if (resctrl_is_membw(r)) {
- 			rdtgroup_init_mba(r, rdtgrp->closid);
- 			if (is_mba_sc(r))
- 				continue;
+ 	return WARN_ON_ONCE(1);
 
 -- 
 2.43.0
