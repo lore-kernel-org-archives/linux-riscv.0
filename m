@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0583FCD5BD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 12:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5F0CD6E56
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 12:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6+9NFBg/aAUi9HYwjHvL0ijfQlZ1gqmMOke4oGlkUL0=; b=g2MPZ5c2s50zaI
-	6R5Hcb8V655dEKrvKFQVhdhOs5biGm/skF2x26yh/eJsGSMtbfZoyBjV5kZx38LVkayjh5DUvrhAS
-	Xt0iNnbZWAAQAiSKsIt3nuI3e/dmss0w15jJyNtePq+AtZjUrSww2LwLz2d13ov3Q+/Qhj6a8Berd
-	VQGl7lTsa1MdDzT5ol717cQxEeyEUFUH1PxXc3yiNVro9LvGZi/AM4eGamQ4FIs3xXQAX0rhk90fS
-	yyFrCP5mAEaiAmqK8gZ7un/kWyb5Pxm2aUivVRfT2nmXyYpGwzyVEpoyj9ukAYLy9j9w2kvz5W2Y5
-	2B+A10SzXysUWs1P2/uA==;
+	List-Owner; bh=V7Pga0jlgQ3Wqn26iCXv/hpukLak1wcb7QHlit4YZdE=; b=YjPM+JXAWOR4tD
+	NCEI561OT62Itw9JVrKRfmSG2psCqqW6BIGfwBXah9E4howaHiwmUVQL5AjjoKGc/ST5US/acj6Df
+	O/2b8CB/hfnMOOt27v0qeYCZberqg2bcr247qfaEqw24oDdwoq1tzI7WUEQbdMM9XjFJ9uVCdu+p1
+	GtuFH9H0Z0iwyd4dfc4jUp/aHB3orvcUtOClCp1qO+ne3rZZZFPXLwa21oEKdyb0qx4BR5rL6A87y
+	FsTZoyXDc0xDmRIvFD0T5T8JGMyr7XlEP6LkWK1ajlQW1IB/2b+beKglgV+W2DjLXmD5yq4PVaW8C
+	UUDQz2ad1XtH0EF3qnbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1fq-0000000B6vb-3I6x;
-	Mon, 01 Jun 2026 12:23:18 +0000
+	id 1wU1g7-0000000B725-49nM;
+	Mon, 01 Jun 2026 12:23:35 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1fo-0000000B6uN-1NHY;
-	Mon, 01 Jun 2026 12:23:17 +0000
+	id 1wU1g6-0000000B70m-0I6j;
+	Mon, 01 Jun 2026 12:23:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 831F440B63;
-	Mon,  1 Jun 2026 12:23:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4FAC1F00893;
-	Mon,  1 Jun 2026 12:23:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A7EE840732;
+	Mon,  1 Jun 2026 12:23:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A36061F00898;
+	Mon,  1 Jun 2026 12:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780316595;
-	bh=nJCaoM91VpKZfWQWP/5PUdBhVElKt1iDyT7TnkO/j00=;
+	s=k20260515; t=1780316613;
+	bh=2jL9F3lhDa+fKvFgKIGzLd1nrDxZ1QfJTb/ldHq2VUY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=J6Qh0QtILNf67i7Bca2/p59Xf4vTiAbfvsb2nezebefYadRAp0p9yWFug/E12s1jD
-	 RQvXWD4MSepeDA9QX0uC2wG4HjENaCS8GNifYaTqB/bY2KdWthhslFdCnMWk29pUCC
-	 R2vdEDETX2GkLw5N7k5vZNZgflMkksMyLL8nKCJ/NYml9hBve0TEEPXWkRMTCYKgMj
-	 ssQLCkU/O8+jBOXJu57NfQ2Mkr2UG00LCi304riFqeGL54E02Y/p4omgSdNe167K5t
-	 ZLrz/YoHBzIslYWCLKvZm6gUWzbNW2QfPhsgg1CKk89OYjLHIlyFF5tBV4MJlshJhM
-	 ezMshiJz2UAMQ==
-Message-ID: <c9783e61-cbc0-449a-9a0b-db40fb335e99@kernel.org>
-Date: Mon, 1 Jun 2026 14:23:08 +0200
+	b=d+eMkbxiEzNQVN3beMSGIxtTo/UBQjNwIb0lTvrLMpXxhwlmOdQP+/MUDVWLqaZ7b
+	 jZHZeBlkXMSGV+Y0K+J9yo0l0nLfknUtjh7yDEt+OCTHeIWOTb8Q83PG2hyAPwjZN0
+	 Qu0818JbsOuhfgLEpwAmPevpFkSFqsZ1uPrvkWgertlNVlh38Ine7hDv/3m+OVV7M7
+	 Ov4iEl6zMTBGlddA5gMxDK/kA4Kol1XeirMPSCP0V/F4ajKZpMSgM6WWU1Try/0ViS
+	 Svdtf2/4gYRCFE+oFNXU/ofIDkG/z4bw+VQqaRuBsvfoxOJopm2UsDtI7k0Xzy+liO
+	 fGXvRG/MqfyBQ==
+Message-ID: <87985f48-2668-4fd0-aae9-3754d2f6bd93@kernel.org>
+Date: Mon, 1 Jun 2026 14:23:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/5] arm64/mm: drop vmemmap_pmd helpers and use generic
+Subject: Re: [PATCH v3 3/5] riscv/mm: drop vmemmap_pmd helpers and use generic
  code
 To: Muchun Song <songmuchun@bytedance.com>,
  Andrew Morton <akpm@linux-foundation.org>,
@@ -62,7 +62,7 @@ Cc: Muchun Song <muchun.song@linux.dev>, linux-mm@kvack.org,
  Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
  Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
 References: <20260601084845.3792171-1-songmuchun@bytedance.com>
- <20260601084845.3792171-3-songmuchun@bytedance.com>
+ <20260601084845.3792171-4-songmuchun@bytedance.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,10 +109,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260601084845.3792171-3-songmuchun@bytedance.com>
+In-Reply-To: <20260601084845.3792171-4-songmuchun@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_052316_409675_7CC6EB63 
-X-CRM114-Status: UNSURE (   5.75  )
+X-CRM114-CacheID: sfid-20260601_052334_150850_ADAF1F7C 
+X-CRM114-Status: UNSURE (   5.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,10 +131,9 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 6/1/26 10:48, Muchun Song wrote:
-> The generic implementations now suffice; remove the arm64 copies.
+> The generic implementations now suffice; remove the riscv copies.
 > 
 > Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> Acked-by: Will Deacon <will@kernel.org>
 > ---
 
 Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
