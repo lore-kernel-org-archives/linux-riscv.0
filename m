@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F70FCD6E55
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35428CD6E66
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K/JZZC20+9BST0QLQfK15cyuqeZ4GBDvP+HuwN1DS8c=; b=ueb9LNfDGqiZrO
-	ywF9pGauCOmMH8OJDiV1Q6VNZprkDiKBnVzPinXB9ki0VqvbFw5srjbNGQOkwJ8xPzs6bBn8PzjFU
-	aap537KNJVdrYBImMSbXkjY/qiYMCvaD8QDd23HTQ4GSp7bCMXSxAAIvdJ4DiVyVuPKUzvSFKtAPn
-	ZXCec7EnLx6CzrYUk/V6McFfhsl8ZrCOqpnoQOGsc28SXTrJneGzPd4+MHlfdWUu/Or6ZouAXUGC0
-	eUNukhO4JABP80HptczV4hJXbvX/gwvLMZ8iZBrVtyHCaZz0vK/AacmG8LBqPlz1tcHvlDImhr5om
-	M3st6eVnjco53uZxJB+A==;
+	List-Owner; bh=vISYkl1IEHXdd0V++6JWBNzf5bzjCUHrj/aDZ16qGvI=; b=V1UhBdf5p0uY6M
+	IxtC1luPCOrTSg9xzk3pX6f72rdgnYVvDP3NU2R6a1UdAmXiHJaJ5iXJ4Z1uW3eAZ1rfR9KAu93fq
+	xuoM7Wd3IW3lPTItoRaAuPrrWHwr1RsN5TNG30sP6HJX68LWLfPRPlY11oO3Ptg4cejTLW8cBQ7PM
+	YL8Y6l1xmLIF+iT3wED5lg+VpV9oUhOfpz3D6aZAbYoClBca6El4glIKhO4zmZhts06GIxmAYeHJw
+	KaFr8nVejgKiargznOesGuJZE653XhWWhcjbI+BL9+j3DhB+mZ9xSLk+J/jlv06wXIr4VVk+qc5ex
+	vqZCvXpxSzkVlOaR8K2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9NB-0000000Bmu5-1TUf;
+	id 1wU9NB-0000000Bmuv-351f;
 	Mon, 01 Jun 2026 20:36:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N6-0000000Bmqk-1IO1
+	id 1wU9N7-0000000Bmrc-46wN
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 20:36:29 +0000
+	Mon, 01 Jun 2026 20:36:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC2A044617;
-	Mon,  1 Jun 2026 20:36:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7EC71F008A5;
-	Mon,  1 Jun 2026 20:36:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 94F4D441CE;
+	Mon,  1 Jun 2026 20:36:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3FF1F008A2;
+	Mon,  1 Jun 2026 20:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780346187;
-	bh=bMpLloap6PiHKBmR2q+lkFW8XbOS+M/R8KIqzK/QRe8=;
+	s=k20260515; t=1780346189;
+	bh=rEo6Boe1f4U6J69bplZaagznip1xGYS4k0AxEWh7bSg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=IdM9AEMz5E5ImmoO2m5gDZ4DU4xHBhRRkMCrCSOBVEt/9OjvRP5aD4zTy/1kvNBgu
-	 AuN7tEt7FHvcksMKxRaNnZz2dYOBaTR95HeuXfQU6yK6ZT3MuMUhHGDIxH/tHWAgah
-	 KZd8AXXoZNQs4z+pkHiFeLZvv30gwHA2MfCrv3OLD0nIFyq9atgPgLeRF0MF628hbm
-	 nq71w5h6686v9pNmOTYTcCWeP7nl9RyELQ2WW5FRHhocacyObGfL/dsiivDGd+Zj5U
-	 da17UP5VWp/0j4GTunnmV8RszPCSQ+foGaot3B5F3KhISze6JmSUXb6Cw7Bsuuo/+4
-	 TM3/m4u/4uVvQ==
+	b=Q/CK1X2rY8jP1eiaXjNZK1292cWzD9n1bNUfa14c8m7WoBei4nTvGz0HznSYPOYpg
+	 bVm4FdFr8x3rL1Kl4btvZU5HXxXwYhQr8dY+DUT/bzxFm47W12O26x+u0+F5Zx9IST
+	 B6mAVOpNCxnHemCuCoHlCCD/GvGXDxO8qIa02Cd0lU08/WFh+PH/QksYsaMW4QrBT+
+	 vgW5exUG9rmwxiKZS04Mu4NZu/sK0n0kjUJOmWXibmp2fRLan1avSfQ79xdeKBkWAA
+	 WHCPtLxCVj/6kq7DRWbNWQhUcJc5ijBAuT64wQ7OcXGQjVjsDV9Ub9KJg4M1KOWh5N
+	 av/5/GoNon42A==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 01 Jun 2026 13:36:00 -0700
-Subject: [PATCH RFC v6 06/18] fs/resctrl: Let bandwidth resources default
- to min_bw at reset
+Date: Mon, 01 Jun 2026 13:36:02 -0700
+Subject: [PATCH RFC v6 08/18] riscv_cbqri: Add capacity controller
+ monitoring device ops
 MIME-Version: 1.0
-Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-6-baf00f50028a@kernel.org>
+Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-8-baf00f50028a@kernel.org>
 References: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 In-Reply-To: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -86,17 +86,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=fustini@kernel.org;
- h=from:subject:message-id; bh=umPX9KI/Gk5be4QxBnpv0rW9Oy0Ozoiycv8rX5MjK6Y=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnWSlbogxnP79dej/1bd9WIR37Ty8sHVDk2yYYd9N
- i++trzVsKOUhUGMi0FWTJFl04e8C0u8Qr8umP9iG8wcViaQIQxcnAIwkYOaDP9Us8xffjt+JEPb
- Izaz3MwuYWe1ApeG9f+LGWEl73y37/FkZFh1JvmK7ZXIpEXLNsdP3xXJ8czT1smrcse0ZI+Pctd
- ehbMDAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9666; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=6pGb65kUi8C4rTI8Gu7TEGZMX7qYRHql0RDoSYaXCBA=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnXe9+mSpW1VwpGCF8t+67FJ3FCacuoAR1wW2+Ug5
+ UCP+UsPd5SyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmcv8YI8M27bXHp1vMUJ90
+ 4N1LwQB1DefyGRNqS+fPe6bH0XdPupuD4Z9GUusE8b0Gn9Y2WS7eLP3FpLTpVPn7TVcOFMYVFxY
+ sWMICAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_133628_395893_89020E99 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260601_133630_143861_7C18E4CB 
+X-CRM114-Status: GOOD (  26.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,57 +113,258 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Bandwidth resources reset to max_bw on group creation today, which is
-the right default for MBA and SMBA. However, it is the wrong default for
-hardware whose registers form a sum-constrained reservation: defaulting
-every new group to max_bw would immediately violate the sum on the first
-mkdir.
+Add capacity monitoring operations. cbqri_init_mon_counters() pre-arms
+every MCID with the Occupancy event so a subsequent READ_COUNTER just
+snapshots the live counter without re-configuring the slot.
 
-When default_to_min is set, resctrl_get_default_ctrl() returns min_bw
-for the resource. The existing MBA and SMBA behavior is not changed.
+cbqri_probe_cc() leaves ctrl->mon_capable false when cacheinfo has not
+given a non-zero cache_size, since the byte conversion would be
+meaningless. cbqri_mon_op() takes a reg_offset and serves both capacity
+and bandwidth mon_ctl registers as they share an identical layout.
 
 Assisted-by: Claude:claude-opus-4-7
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- include/linux/resctrl.h | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ drivers/resctrl/cbqri_devices.c  | 124 ++++++++++++++++++++++++++++++++++-----
+ drivers/resctrl/cbqri_internal.h |  14 +++++
+ 2 files changed, 124 insertions(+), 14 deletions(-)
 
-diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 9529ed0d1fdf..bcbc166412ef 100644
---- a/include/linux/resctrl.h
-+++ b/include/linux/resctrl.h
-@@ -247,7 +247,13 @@ enum membw_throttle_mode {
- /**
-  * struct resctrl_membw - Memory bandwidth allocation related data
-  * @min_bw:		Minimum memory bandwidth percentage user can request
-- * @max_bw:		Maximum memory bandwidth value, used as the reset value
-+ * @max_bw:		Maximum memory bandwidth value a group can be
-+ *			configured with
-+ * @default_to_min:	When true, the default control value for new
-+ *			groups and reset is @min_bw instead of @max_bw.
-+ *			Drivers whose hardware enforces a sum constraint
-+ *			across groups (e.g. CBQRI MB_MIN) set this so
-+ *			mkdir does not overflow the sum.
-  * @bw_gran:		Granularity at which the memory bandwidth is allocated
-  * @delay_linear:	True if memory B/W delay is in linear scale
-  * @arch_needs_linear:	True if we can't configure non-linear resources
-@@ -259,6 +265,7 @@ enum membw_throttle_mode {
- struct resctrl_membw {
- 	u32				min_bw;
- 	u32				max_bw;
-+	bool				default_to_min;
- 	u32				bw_gran;
- 	u32				delay_linear;
- 	bool				arch_needs_linear;
-@@ -405,7 +412,7 @@ static inline u32 resctrl_get_default_ctrl(struct rdt_resource *r)
- 	case RESCTRL_SCHEMA_BITMAP:
- 		return BIT_MASK(r->cache.cbm_len) - 1;
- 	case RESCTRL_SCHEMA_RANGE:
--		return r->membw.max_bw;
-+		return r->membw.default_to_min ? r->membw.min_bw : r->membw.max_bw;
+diff --git a/drivers/resctrl/cbqri_devices.c b/drivers/resctrl/cbqri_devices.c
+index 65453e614a43..c44bc50c31ba 100644
+--- a/drivers/resctrl/cbqri_devices.c
++++ b/drivers/resctrl/cbqri_devices.c
+@@ -98,6 +98,43 @@ static int cbqri_cc_alloc_op(struct cbqri_controller *ctrl, int operation,
+ 	return 0;
+ }
+ 
++/*
++ * Issue a monitoring op on a CC or BC controller's mon_ctl register at
++ * reg_offset (CBQRI_CC_MON_CTL_OFF or CBQRI_BC_MON_CTL_OFF). The CC and
++ * BC mon_ctl registers share an identical OP/MCID/EVT_ID/STATUS layout, so
++ * one helper covers both. Caller must hold ctrl->lock.
++ */
++int cbqri_mon_op(struct cbqri_controller *ctrl, int reg_offset,
++		 int operation, int mcid, int evt_id, u64 *out_reg)
++{
++	u64 reg;
++
++	lockdep_assert_held(&ctrl->lock);
++
++	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
++		pr_err_ratelimited("BUSY timeout before starting operation\n");
++		return -EIO;
++	}
++	FIELD_MODIFY(CBQRI_MON_CTL_OP_MASK, &reg, operation);
++	FIELD_MODIFY(CBQRI_MON_CTL_MCID_MASK, &reg, mcid);
++	FIELD_MODIFY(CBQRI_MON_CTL_EVT_ID_MASK, &reg, evt_id);
++	iowrite64(reg, ctrl->base + reg_offset);
++
++	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
++		pr_err_ratelimited("BUSY timeout\n");
++		return -EIO;
++	}
++
++	if (FIELD_GET(CBQRI_MON_CTL_STATUS_MASK, reg) !=
++	    CBQRI_MON_CTL_STATUS_SUCCESS)
++		return -EIO;
++
++	if (out_reg)
++		*out_reg = reg;
++
++	return 0;
++}
++
+ /*
+  * Apply a capacity block mask and verify via CONFIG_LIMIT + READ_LIMIT.
+  *
+@@ -230,7 +267,8 @@ int cbqri_read_cache_config(struct cbqri_controller *ctrl, u32 closid,
+ }
+ 
+ static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
+-			       int operation, int *status, bool *access_type_supported)
++			       int operation, int evt_id, int *status,
++			       bool *access_type_supported)
+ {
+ 	const u64 active_mask = CBQRI_CONTROL_REGISTERS_OP_MASK |
+ 				CBQRI_CONTROL_REGISTERS_AT_MASK |
+@@ -242,9 +280,11 @@ static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
+ 	/*
+ 	 * Default the output to false so the status==0 (feature not
+ 	 * implemented) path returns a deterministic value to the caller
+-	 * rather than leaving an uninitialized bool.
++	 * rather than leaving an uninitialized bool. mon_ctl probes pass
++	 * NULL: the register has no AT field, so the AT probe is skipped.
+ 	 */
+-	*access_type_supported = false;
++	if (access_type_supported)
++		*access_type_supported = false;
+ 
+ 	/* Keep the initial register value to preserve the WPRI fields */
+ 	reg = ioread64(ctrl->base + reg_offset);
+@@ -257,15 +297,14 @@ static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
  	}
  
- 	return WARN_ON_ONCE(1);
+ 	/*
+-	 * Execute the requested operation with all active fields
+-	 * (OP/AT/RCID/EVT_ID) zeroed except OP itself. The same builder
+-	 * works for ALLOC_CTL and MON_CTL because every bit not in
+-	 * active_mask is WPRI and gets carried over from saved_reg. The
+-	 * AT and EVT_ID positions are reserved for the other register
+-	 * type, where writing zero is harmless.
++	 * Execute the requested operation with the active fields
++	 * (OP/AT/RCID/EVT_ID) cleared, then set OP and, for mon_ctl, the
++	 * probe-safe evt_id. WPRI bits outside active_mask carry over from
++	 * saved_reg. alloc_ctl callers pass evt_id 0.
+ 	 */
+ 	reg = (saved_reg & ~active_mask) |
+-	      FIELD_PREP(CBQRI_CONTROL_REGISTERS_OP_MASK, operation);
++	      FIELD_PREP(CBQRI_CONTROL_REGISTERS_OP_MASK, operation) |
++	      FIELD_PREP(CBQRI_MON_CTL_EVT_ID_MASK, evt_id);
+ 	iowrite64(reg, ctrl->base + reg_offset);
+ 	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
+ 		pr_err_ratelimited("BUSY timeout during operation\n");
+@@ -276,10 +315,11 @@ static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
+ 	*status = FIELD_GET(CBQRI_CONTROL_REGISTERS_STATUS_MASK, reg);
+ 
+ 	/*
+-	 * Check for the AT support if the register is implemented
+-	 * (if not, the status value will remain 0)
++	 * Probe AT support only on alloc_ctl registers (mon_ctl has no AT
++	 * field, so access_type_supported is NULL there). Skipped when the
++	 * register is unimplemented (status stays 0).
+ 	 */
+-	if (*status != 0) {
++	if (access_type_supported && *status != 0) {
+ 		/*
+ 		 * Re-issue operation with AT=CODE so the controller
+ 		 * latches AT=CODE on supported hardware (or resets it to 0
+@@ -372,9 +412,31 @@ static int cbqri_probe_cc(struct cbqri_controller *ctrl)
+ 	}
+ 	cpus_read_unlock();
+ 
++	/* Probe monitoring features */
++	err = cbqri_probe_feature(ctrl, CBQRI_CC_MON_CTL_OFF,
++				  CBQRI_CC_MON_CTL_OP_CONFIG_EVENT,
++				  CBQRI_CC_EVT_ID_NONE, &status, NULL);
++	if (err)
++		return err;
++
++	if (status == CBQRI_MON_CTL_STATUS_SUCCESS) {
++		/*
++		 * Occupancy is reported to userspace in bytes, computed as
++		 * cache_size * counter / ncblks by the resctrl glue. If
++		 * cacheinfo has no cache_size, leave mon_capable false so
++		 * the file is not exposed at all rather than silently
++		 * returning 0.
++		 */
++		if (!ctrl->cache.cache_size)
++			pr_debug("CC @%pa: cache_size unknown, occupancy monitoring disabled\n",
++				 &ctrl->addr);
++		else
++			ctrl->mon_capable = true;
++	}
++
+ 	/* Probe allocation features */
+ 	err = cbqri_probe_feature(ctrl, CBQRI_CC_ALLOC_CTL_OFF,
+-				  CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT,
++				  CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT, 0,
+ 				  &status, &ctrl->cc.supports_alloc_at_code);
+ 	if (err)
+ 		return err;
+@@ -439,6 +501,28 @@ static int cbqri_probe_controller(struct cbqri_controller *ctrl)
+ 	return err;
+ }
+ 
++/*
++ * Pre-arm every MCID with the Occupancy event so a subsequent READ_COUNTER
++ * just snapshots the live counter rather than re-configuring the slot.
++ * Called once per CC during resctrl-side cpuhp online for the L3 monitoring
++ * domain.
++ */
++int cbqri_init_mon_counters(struct cbqri_controller *ctrl)
++{
++	int i, err;
++
++	for (i = 0; i < ctrl->mcid_count; i++) {
++		mutex_lock(&ctrl->lock);
++		err = cbqri_mon_op(ctrl, CBQRI_CC_MON_CTL_OFF,
++				   CBQRI_CC_MON_CTL_OP_CONFIG_EVENT,
++				   i, CBQRI_CC_EVT_ID_OCCUPANCY, NULL);
++		mutex_unlock(&ctrl->lock);
++		if (err)
++			return err;
++	}
++	return 0;
++}
++
+ void cbqri_controller_destroy(struct cbqri_controller *ctrl)
+ {
+ 	/*
+@@ -518,6 +602,18 @@ int riscv_cbqri_register_controller(const struct cbqri_controller_info *info)
+ 		return -EINVAL;
+ 	}
+ 
++	/*
++	 * mon_ctl encodes MCID in 12 bits. acpi_parse_rqsc() caps
++	 * info->mcid_count at CBQRI_MAX_MCID (1024), but a future discovery
++	 * path could bypass that. Reject an out-of-range count so
++	 * cbqri_init_mon_counters() iterates a trusted bound and no MCID
++	 * aliases another slot through FIELD_MODIFY(MON_CTL_MCID_MASK).
++	 */
++	if (WARN_ON_ONCE(ctrl->mcid_count > FIELD_MAX(CBQRI_MON_CTL_MCID_MASK) + 1)) {
++		cbqri_controller_destroy(ctrl);
++		return -EINVAL;
++	}
++
+ 	switch (info->type) {
+ 	case CBQRI_CONTROLLER_TYPE_CAPACITY: {
+ 		int level;
+diff --git a/drivers/resctrl/cbqri_internal.h b/drivers/resctrl/cbqri_internal.h
+index 518955963403..1d2007a0c15b 100644
+--- a/drivers/resctrl/cbqri_internal.h
++++ b/drivers/resctrl/cbqri_internal.h
+@@ -11,6 +11,8 @@
+ 
+ /* Capacity Controller (CC) MMIO register offsets. */
+ #define CBQRI_CC_CAPABILITIES_OFF 0
++#define CBQRI_CC_MON_CTL_OFF      8
++#define CBQRI_CC_MON_CTL_VAL_OFF 16
+ #define CBQRI_CC_ALLOC_CTL_OFF   24
+ #define CBQRI_CC_BLOCK_MASK_OFF  32
+ 
+@@ -45,6 +47,9 @@
+ #define CBQRI_CC_ALLOC_CTL_OP_READ_LIMIT   2
+ #define CBQRI_CC_ALLOC_CTL_STATUS_SUCCESS  1
+ 
++#define CBQRI_CC_MON_CTL_OP_CONFIG_EVENT 1
++#define CBQRI_CC_MON_CTL_OP_READ_COUNTER 2
++
+ /* mon_ctl field masks (CC and BC share an identical OP/MCID/EVT_ID/STATUS layout) */
+ #define CBQRI_MON_CTL_OP_MASK        GENMASK_ULL(4, 0)
+ #define CBQRI_MON_CTL_MCID_MASK      GENMASK_ULL(19, 8)
+@@ -52,6 +57,10 @@
+ #define CBQRI_MON_CTL_STATUS_MASK    GENMASK_ULL(38, 32)
+ #define CBQRI_MON_CTL_STATUS_SUCCESS 1
+ 
++/* Capacity usage monitoring event IDs (CBQRI spec Table 4) */
++#define CBQRI_CC_EVT_ID_NONE         0
++#define CBQRI_CC_EVT_ID_OCCUPANCY    1
++
+ /* Capacity Controller hardware capabilities */
+ struct riscv_cbqri_capacity_caps {
+ 	u16 ncblks;
+@@ -138,4 +147,9 @@ int cbqri_apply_cache_config(struct cbqri_controller *ctrl, u32 closid,
+ int cbqri_read_cache_config(struct cbqri_controller *ctrl, u32 closid,
+ 			    enum cbqri_at at, u32 *cbm_out);
+ 
++int cbqri_mon_op(struct cbqri_controller *ctrl, int reg_offset,
++		 int operation, int mcid, int evt_id, u64 *out_reg);
++
++int cbqri_init_mon_counters(struct cbqri_controller *ctrl);
++
+ #endif /* _DRIVERS_RESCTRL_CBQRI_INTERNAL_H */
 
 -- 
 2.43.0
