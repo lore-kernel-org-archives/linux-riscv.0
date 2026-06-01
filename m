@@ -4,130 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA65CD5BD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 17:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC350CD5BD1
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GbTaIDipshZ28f3rTT4WX+Xgq1xTj6kh2q75n6zCi0w=; b=xv2d8rp/65Wt4z
-	HfQq9mLfy5/bpi6qYZd3duLCJmJtq+J1ed0fWJTYas59d/Eg7o/cCNXFXmNLsvLWaci8x54uQuv4Q
-	EQoy4JA9PvTcifzym5aLx5XerIJfyWGdigcr9kUyO9JWXCfzxhnh3/6hmz9eOQyvJzyW1IKUpEa9Y
-	B/mB8Eo6Fyl72Ef+oIEex79Vx1Q+L9NiKSFMfDA9Ep8XA/AUJa4DhkOMXGwBngT7vjpEAjHbFp9nL
-	e7jTYlZMlaH1X8P7db6B22PPa6lNeCl925bytfkQ3x34JicWUWt8c1+ECSKkCuN3Jfew5BgWS7jks
-	vp0sJ25xyWXtiSoMFgAw==;
+	List-Owner; bh=74QrUNqayd87PmoxrHOhYUsezJ4iH1wIw56mWCFcuH0=; b=bRrNPGYoJE1CCb
+	BD0fBN19V0VCUKWIOorS9y4dp8aXQ0NhleC52z0BNRFkU3Ousi/KJGAswNh9NQ5zzhKh+1YWNdUPU
+	YoUujZIaZ9JmZpQkOXSCQ1RVo3ErzN2F8stSlzJpOk1jE3PVJsVq9XznmxEyPhAhNuU9UYfv5seou
+	z+2gx2HyVkQtH+yd0KH12j27L+TWKdFwjC8OEhoQuOd0onJxEpTEBcd5H20oGeJgG8pIMwoq/Dqj/
+	waYiWitKVF+d1narFeIDOrl5xA6ku1Btlqq88Kn4Q+IgdqCqmeFgVsQGpIzJW536KDI4XsjLvrRa+
+	dYB0B8M1aA0sj49yCUBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6tf-0000000Bclq-3Pql;
-	Mon, 01 Jun 2026 17:57:55 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1wU9N8-0000000Bmrr-08YZ;
+	Mon, 01 Jun 2026 20:36:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU6td-0000000BclI-1M5D
+	id 1wU9N5-0000000BmqG-0ncV
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 17:57:54 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-7e3b2a435ecso14760727b3.1
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Jun 2026 10:57:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780336672; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ifoSBwKXK46k+UwLBRJxQ7eSaURK8gZUrhjvpdKCqNwPr9QnLtAvHPmm1dTVCS4dg2
-         DHn3QjNEVPOQl+EHQEc3lB35dEv27uvuGqBKh8rSpwVbgjKC8lwMB02HBbGT+7sfK37u
-         xLCv8er5AOxC8jtozdB918AK5EDdoZm6ssFnPIb1+RxOrJQHIeZtJL91N8yocFXJdZcF
-         4fWlednvq08OaQLftY3MfH0kSIltBxkeD9oC9RD1Kq3yXLjMBGNyCov6S0T5BUut0O2e
-         dEtEsr3ESoV388Sz7etlhaT1SqU6KrnZWjFd+YMPRZz4Qeb5mVp57+nE8AYR1NuTF6hx
-         wCiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=FfE0OEt10KoqyrBxkVX83evIZS2y+17Dt49yMyisaOQ=;
-        fh=Bg9obNmthggIMVRcTN5DL3+fSNE8P1k6K7mR3jLs5n4=;
-        b=jnzqMTCKxFQP3hfnanRD3QcEI2Y5nyPzzbOiEFq5429fsVfnlnYrMjaXDlqxRXPJQn
-         R5zuvoC7QWMhUZLhv61CpKJICFfdYa5APfR3cJia0inAZdpADxSLN1q5K4mhoCGfGLTP
-         5cjQHEOKoDmGSorcfjuMQ8x8loqnQlmQGvlojxyf8hrXAApSkPecTFTt+FfmMcwK9LtM
-         q7ga2hwOwVc3RVF8sEWFnQmHh1MrXzch19jSFoj3/lHFKFUExHEPvN7PK8lnAser9MV5
-         wsLvv5thyArJD/vNIzWlLD5QfmLFwV/9dhdJc9LX1WDerHoJJu8sQhDEy+vCC5Tltlg2
-         zE0w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1780336672; x=1780941472; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FfE0OEt10KoqyrBxkVX83evIZS2y+17Dt49yMyisaOQ=;
-        b=eUoQZ5lBb3eto+MixvJDqd6OHpA/8aG5fN//lmqPo6wazSgjGpOPQbUQRblzx0XfOQ
-         gaEmnZTrkziWyK1jkgLyc3LDFlDAeK2QNPLMPrFEzigAohDVnqd//7Gc0P5KFEYfVB8A
-         E3zo4H/bS+t6wQ90wNGCC0tot58XoKR2uTeBZlFHspqt79bGfOZcn7y/0pPWoE3+pydS
-         BUku85SWXtqmRIgADNhe5SyzICQmPcwIyVWyaFD51mFRC3mHe3kgQQcNs87PX9jtLK4V
-         BsKk8omPyXfWaPGQRzjshendCnxrAfq29NA0w5O1UVE+jdQVGchOaNLXqtg3HNXl+nSg
-         bqtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780336672; x=1780941472;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=FfE0OEt10KoqyrBxkVX83evIZS2y+17Dt49yMyisaOQ=;
-        b=AehY4PkSMscgEaL+0Eg4AukqjALt3K72Wjfl7cILrlRKpQzcw/YPzDSgxcO/vtNO9b
-         TAas61midpleNeHvQJxrElAi0Kv1+8uFIyF1X03l132lA2caGgDmutvrHu7kpf8XLbV8
-         u8GS/aAoLspHYCjqLv5Pe0lWQe6/EPaBzWY2abwjVcGqkf7gHL4L0RqW1te+oLlRvAaI
-         ZLsc+BH8jpKPZT0binLvdA2JUms0ephWI8uvGXZpZuwd6rVH/d4w8EMzin+MsdL8wWrH
-         FZTZ1yyJcw2NHRk8698vAzpAKDJ+EeQPJUN/+NvjoKFj12+1gsiclBIy95LAvWZiLHT9
-         FQew==
-X-Forwarded-Encrypted: i=1; AFNElJ90pHRZvybSUwhCcKBBtaiBYrh9G8ANO5DDS5DGJmlF0yfQ5GqXFz+HXS2qThk/JNcnfEX6Qeqmat+UhA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwxbfsHo22VE6OLK/7DjTZmoZgXINhYpcCaFny3rlPzauZrsHD
-	z/5mA3K5AsKZhrQ5sg6c9mxpU/KuAJuQxL4rkHktOv2FPuHSLgLTwkPDgUYIOBwmdrwGKIPj+ff
-	Xs8oY4VGJXPPXRBkncD3eWiCkegUWkThr/NPxpzq36A==
-X-Gm-Gg: Acq92OFaGNc1vuV6EG1oPlEQhUztbNXNgrFnHRbqvhJiOJUDCn9Vk/noDvmYLXh6rqJ
-	2dSialUsL1KVbP3DgVKg870j+aCsqg1bLVxWei3nxV+1veOcluQ8UqUs3InZJt+oz/4QdSk3z6K
-	hsDzmBKc/S5Pqn2CDAKbauk15gnkf9vX0x8FtRagyca9LmceTIKVKCYVASLKDr5OoUIKwxx9E92
-	gnhOMMP7JVmTcHjRnV3vCmZaK4nn1jW/NVNDlOARZgpukcVjEBzHLjezLfiUwsvvcegABKdjAyQ
-	RU6r4gbNsIoKJvgLXtuyD68b/xXF+K8DyfmjHUqmZ76v+oGt2jg=
-X-Received: by 2002:a05:690c:30a:b0:7be:5f3e:5309 with SMTP id
- 00721157ae682-7e05e853e5amr107636127b3.38.1780336672104; Mon, 01 Jun 2026
- 10:57:52 -0700 (PDT)
+	Mon, 01 Jun 2026 20:36:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 500D8601E3;
+	Mon,  1 Jun 2026 20:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 509C81F008A2;
+	Mon,  1 Jun 2026 20:36:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780346186;
+	bh=04z5b3ENFFStDILh5daSgPFr7SyjhKEetoj74bl6s2o=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=N4EDcD/494hQTJe4Z54xn8R31VLX1tGYAWu/wOvCv15H+JZ5j/quW+JmTtNI/6zPT
+	 UIG1axiDwdSzkpAizwBy+WWc+N9OhUdlEKFYmcH+hRh9DaqV7e0cn+j+upHN9dR770
+	 VwkMT4qcD3K2H54TgD2cUCKCl8MajpxOdTilhoxUc0BNMxY0j8QXYLB/l0d5oC/W/f
+	 7skH61tjyhUdzxhXDe2acfesYtrQsEypUb8v+0MOFwXE7wBLWNKx5PGNJ1bZOn3TXp
+	 LpoCOLqr0/l9vfg7qAJWaD/ZHRw7NY9nCd+XOWQmRAkJytXPVmS4YBJWOPiyiQLpO7
+	 vsXa6CsrAHg8g==
+From: Drew Fustini <fustini@kernel.org>
+Date: Mon, 01 Jun 2026 13:35:58 -0700
+Subject: [PATCH RFC v6 04/18] fs/resctrl: Add resctrl_is_membw() helper
 MIME-Version: 1.0
-References: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
- <20251112-v5_user_cfi_series-v23-6-b55691eacf4f@rivosinc.com>
- <87jyslndo4.fsf@igel.home> <CAKC1njS=AHu6uHrH4ae8VxcdEbhgiPXYCAoN3F_mnppBd3SwOA@mail.gmail.com>
- <875x44o9hj.fsf@igel.home> <CAKC1njSn_rtCj8ii876PNQTk0nsCTfWsb4DzdymufHVthh1Rkg@mail.gmail.com>
- <871peqgp9v.fsf@igel.home>
-In-Reply-To: <871peqgp9v.fsf@igel.home>
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Mon, 1 Jun 2026 10:57:41 -0700
-X-Gm-Features: AVHnY4J9AUNhuz056EYoPs-ULzO8_fe_9tgwbVh_N3bHNsdR65FJv6ifxqCKuXk
-Message-ID: <CAKC1njR+dTdvp+BmLGPtgd8dufiUwBtkQ9a-qinELT_Fmi13sQ@mail.gmail.com>
-Subject: Re: [PATCH v23 06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Jann Horn <jannh@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-	richard.henderson@linaro.org, jim.shu@sifive.com, andybnac@gmail.com, 
-	kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
-	evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
-	samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com, 
-	rust-for-linux@vger.kernel.org, Zong Li <zong.li@sifive.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_105753_376828_9E66122A 
-X-CRM114-Status: GOOD (  16.02  )
+Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-4-baf00f50028a@kernel.org>
+References: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
+In-Reply-To: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Adrien Ricciardi <aricciardi@baylibre.com>, 
+ Nicolas Pitre <npitre@baylibre.com>, 
+ =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
+ Atish Patra <atish.patra@linux.dev>, 
+ Atish Kumar Patra <atishp@rivosinc.com>, 
+ Vasudevan Srinivasan <vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ yunhui cui <cuiyunhui@bytedance.com>, Chen Pei <cp0613@linux.alibaba.com>, 
+ Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, Weiwei Li <liwei1518@gmail.com>, 
+ guo.wenjia23@zte.com.cn, Gong Shuai <gong.shuai@sanechips.com.cn>, 
+ Gong Shuai <gsh517@gmail.com>, liu.qingtao2@zte.com.cn, 
+ Reinette Chatre <reinette.chatre@intel.com>, 
+ Tony Luck <tony.luck@intel.com>, Babu Moger <babu.moger@amd.com>, 
+ Peter Newman <peternewman@google.com>, Fenghua Yu <fenghua.yu@intel.com>, 
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+ Dave Martin <Dave.Martin@arm.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Robert Moore <robert.moore@intel.com>, Sunil V L <sunilvl@ventanamicro.com>, 
+ Drew Fustini <fustini@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ x86@kernel.org, linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
+ devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3572; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=AWRHihJSBi+LIrOoIsOzoxnsBG0+4NVU5YSaIMOxEs8=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnX68MtA7IdD/cyz767HerOHxIhE6sfutTnEfs3oR
+ mJ01wHrjlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBEgrYwMvzUmfE49KbQ7Iyv
+ 0b+u21xhnyWd9+TlY6mvFv5hHfNnzqxmZDjwJKXw+hqerg8nAy8cKz+07eu6bTGbZyh7i1x3PMk
+ 3qYkBAA==
+X-Developer-Key: i=fustini@kernel.org; a=openpgp;
+ fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,40 +104,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMSwgMjAyNiBhdCAxMDoxMOKAr0FNIEFuZHJlYXMgU2Nod2FiIDxzY2h3YWJA
-bGludXgtbTY4ay5vcmc+IHdyb3RlOgo+Cj4gT24gSnVuIDAxIDIwMjYsIERlZXBhayBHdXB0YSB3
-cm90ZToKPgo+ID4gVGhpcyB3YXMgc2V0dGxlZCB3aGVuIHg4NiBpbnRyb2R1Y2VkIHNoYWRvdyBz
-dGFjay4gSW5zdGVhZCBvZiBoYXZpbmcKPiA+IG5ldyBgUFJPVF9gLCBpdCB3YXMgYWdyZWVkIHRv
-IGNyZWF0ZSBhIG5ldyBzeXNjYWxsIGZvciBtYXBwaW5nIHNoYWRvdwo+ID4gc3RhY2sgbWVtb3J5
-IChzeXNjYWxsOiBgbWFwX3NoYWRvd19zdGFja2ApLiBTY2VuYXJpb3MgbGlrZSBgY2xvbmUzYCBv
-cgo+ID4gY28tcm91dGluZXMgcmVxdWlyZWQgbWFudWZhY3R1cmluZyBhIHNoYWRvdyBzdGFjaywg
-dGh1cyBuZWNlc3NpdGF0aW5nIGEKPiA+IG5ldyBtZWNoYW5pc20gdG8gY3JlYXRlIHNoYWRvdyBz
-dGFjayBzdHlsZSBtZW1vcnkgaW4gZGVtYW5kLiBJbnN0ZWFkCj4gPiBvZiBoYXZpbmcgYSBuZXcg
-UFJPVF8gZmxhZywgIGEgbmV3IHN5c2NhbGwgd2FzIGNyZWF0ZWQuCj4KPiBTbyB3aGF0IHByZXZl
-bnRzIHJpc2N2IGZyb20gbWFraW5nIHVzZSBvZiBWTV9TSEFET1dfU1RBQ0sgc2ltaWxhciBhcwo+
-IHg4Niwgd2l0aG91dCB0aGUgdXNlciB2aXNpYmxlIGVmZmVjdHM/CgpyaXNjdiB1c2VzIGBWTV9T
-SEFET1dfU1RBQ0tgLiBJdCdzIGp1c3QgdmVyeSBzaW1wbGUgdG8gdXNlIGBwcm90ZWN0aW9uX21h
-cGAKd2l0aCBqdXN0IGBWTV9XUklURWAuIE9uIFJJU0MtViwgYC1XLWAgaXMgYSBzaGFkb3cgc3Rh
-Y2sgbWFwcGluZy4gSXQncyBub3Qgc2FtZQpvbiB4ODYgb3IgYXJtNjQuIFNvIGBwcm90ZWN0aW9u
-X21hcFtWTV9XUklURV1gIHNpbXBseSBwaWNrcyBzaGFkb3cgc3RhY2sKZW5jb2RpbmcuIFdlIGp1
-c3QgZW5zdXJlIHRoYXQgUFJPVF9XUklURSBpcyBjb252ZXJ0ZWQgdG8KIlZNX1JFQUQgfCBWTV9X
-UklURSIgYXQgdm1hIGxldmVsLgoKc2VlIGNvbW1pdCBtZXNzYWdlCgoiIiIKRWFybGllciBgcHJv
-dGVjdGlvbl9tYXBbVk1fV1JJVEVdYCB1c2VkIHRvIHBpY2sgcmVhZC13cml0ZSBQVEUgZW5jb2Rp
-bmdzLgpOb3cgYHByb3RlY3Rpb25fbWFwW1ZNX1dSSVRFXWAgd2lsbCBhbHdheXMgcGljayBQQUdF
-X1NIQURPV1NUQUNLIFBURQplbmNvZGluZ3MgZm9yIHNoYWRvdyBzdGFjay4gQWJvdmUgY2hhbmdl
-cyBlbnN1cmUgdGhhdCBleGlzdGluZyBhcHBzCmNvbnRpbnVlIHRvIHdvcmsgYmVjYXVzZSB1bmRl
-cm5lYXRoIGtlcm5lbCB3aWxsIGJlIHBpY2tpbmcKYHByb3RlY3Rpb25fbWFwW1ZNX1dSSVRFfFZN
-X1JFQURdYCBQVEUgZW5jb2RpbmdzLgoiIiIKCkFzIEkgc2FpZCBvdGhlciBhcmNoZXMgaGF2ZSBh
-IFZNQSBmbGFnIGZvciBzaGFkb3cgc3RhY2sgcmFuZ2UgYnV0IFBURSBlbmNvZGluZ3MKYW5kIG92
-ZXJsYXlzIGFyZSBjb21wbGljYXRlZC4KCj4KPiAtLQo+IEFuZHJlYXMgU2Nod2FiLCBzY2h3YWJA
-bGludXgtbTY4ay5vcmcKPiBHUEcgS2V5IGZpbmdlcnByaW50ID0gNzU3OCBFQjQ3IEQ0RTUgNEQ2
-OSAyNTEwICAyNTUyIERGNzMgRTc4MCBBOURBIEFFQzEKPiAiQW5kIG5vdyBmb3Igc29tZXRoaW5n
-IGNvbXBsZXRlbHkgZGlmZmVyZW50LiIKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+Four sites in fs/resctrl distinguish bandwidth resources (MBA, SMBA)
+from cache resources by explicit rid match:
+
+  fs/resctrl/ctrlmondata.c parse_line()
+  fs/resctrl/rdtgroup.c    rdtgroup_mode_test_exclusive()
+  fs/resctrl/rdtgroup.c    rdtgroup_size_show()
+  fs/resctrl/rdtgroup.c    rdtgroup_init_alloc()
+
+Replace the open-coded MBA/SMBA tests with a single resctrl_is_membw()
+helper keyed on schema_fmt (RESCTRL_SCHEMA_RANGE). No functional change:
+every existing RESCTRL_SCHEMA_RANGE resource is MBA or SMBA today.
+
+This isolates fs/resctrl from the addition of further bandwidth resource
+types so the four call sites do not have to be updated for each new rid.
+
+Assisted-by: Claude:claude-opus-4-7
+Signed-off-by: Drew Fustini <fustini@kernel.org>
+---
+ fs/resctrl/ctrlmondata.c |  3 +--
+ fs/resctrl/internal.h    |  2 ++
+ fs/resctrl/rdtgroup.c    | 14 +++++++++-----
+ 3 files changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
+index 9a7dfc48cb2e..d9f052700941 100644
+--- a/fs/resctrl/ctrlmondata.c
++++ b/fs/resctrl/ctrlmondata.c
+@@ -245,8 +245,7 @@ static int parse_line(char *line, struct resctrl_schema *s,
+ 	if (WARN_ON_ONCE(!parse_ctrlval))
+ 		return -EINVAL;
+ 
+-	if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP &&
+-	    (r->rid == RDT_RESOURCE_MBA || r->rid == RDT_RESOURCE_SMBA)) {
++	if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP && resctrl_is_membw(r)) {
+ 		rdt_last_cmd_puts("Cannot pseudo-lock MBA resource\n");
+ 		return -EINVAL;
+ 	}
+diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
+index 1a9b29119f88..76187987b2ee 100644
+--- a/fs/resctrl/internal.h
++++ b/fs/resctrl/internal.h
+@@ -397,6 +397,8 @@ void mbm_handle_overflow(struct work_struct *work);
+ 
+ bool is_mba_sc(struct rdt_resource *r);
+ 
++bool resctrl_is_membw(struct rdt_resource *r);
++
+ void cqm_setup_limbo_handler(struct rdt_l3_mon_domain *dom, unsigned long delay_ms,
+ 			     int exclude_cpu);
+ 
+diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+index 5dfdaa6f9d8f..0f331bf5ce82 100644
+--- a/fs/resctrl/rdtgroup.c
++++ b/fs/resctrl/rdtgroup.c
+@@ -1412,7 +1412,7 @@ static bool rdtgroup_mode_test_exclusive(struct rdtgroup *rdtgrp)
+ 
+ 	list_for_each_entry(s, &resctrl_schema_all, list) {
+ 		r = s->res;
+-		if (r->rid == RDT_RESOURCE_MBA || r->rid == RDT_RESOURCE_SMBA)
++		if (resctrl_is_membw(r))
+ 			continue;
+ 		has_cache = true;
+ 		list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
+@@ -1555,6 +1555,12 @@ bool is_mba_sc(struct rdt_resource *r)
+ 	return r->membw.mba_sc;
+ }
+ 
++/* RANGE schema is bandwidth (MBA/SMBA). BITMAP is cache. */
++bool resctrl_is_membw(struct rdt_resource *r)
++{
++	return r->schema_fmt == RESCTRL_SCHEMA_RANGE;
++}
++
+ /*
+  * rdtgroup_size_show - Display size in bytes of allocated regions
+  *
+@@ -1616,8 +1622,7 @@ static int rdtgroup_size_show(struct kernfs_open_file *of,
+ 					ctrl = resctrl_arch_get_config(r, d,
+ 								       closid,
+ 								       type);
+-				if (r->rid == RDT_RESOURCE_MBA ||
+-				    r->rid == RDT_RESOURCE_SMBA)
++				if (resctrl_is_membw(r))
+ 					size = ctrl;
+ 				else
+ 					size = rdtgroup_cbm_to_size(r, d, ctrl);
+@@ -3648,8 +3653,7 @@ static int rdtgroup_init_alloc(struct rdtgroup *rdtgrp)
+ 
+ 	list_for_each_entry(s, &resctrl_schema_all, list) {
+ 		r = s->res;
+-		if (r->rid == RDT_RESOURCE_MBA ||
+-		    r->rid == RDT_RESOURCE_SMBA) {
++		if (resctrl_is_membw(r)) {
+ 			rdtgroup_init_mba(r, rdtgrp->closid);
+ 			if (is_mba_sc(r))
+ 				continue;
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
