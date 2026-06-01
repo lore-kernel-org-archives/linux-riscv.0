@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEBB9CD6E55
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 13:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C025CD6E55
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 13:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RdvqVgp9c89RSUQzo4wk63mQ8ALFKMAV0aHaGI5ZbUI=; b=nYIAU+n1//Qy1n
-	kQm1QorHIBhBmZWtBi8vdX8+/eGnMWGYuGzayaj5ImlZYDvsj57R6OHScGM5ZUtTcoYfLYD1kSa4b
-	Txj31y8beCtWBIt38loVr68NNv6S51eptg6zhMcAPUSbDzwmS/jbqdMrQirIy84bTEW6NkbwffMy1
-	ygcZ3Gkutw5KCytOa1fgEtPJHnTdcEJ4Y7lb17N84RbwqhMfL4JzH994XHKhP8Bh5LUOIg0BZFyBO
-	zWLCZGGstfouaJsDM4h2rA2UJhGnUNQuHT7iHmfxx4nthF07E2ZxC7A5CryvxzZJuqgszDpOfmRHp
-	EAdIxd3ANgQ+Va7jUsqg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u2Oui/jr6IMPhrylp89O7AFqgU6JZcfVXQ4ySARWmis=; b=FwPQzyUq/W3s5l
+	N3FmWVhoy7uCs13C5Eynk0PqdM/lTdSq3vrrwnZuFTDihTvD/R1h+pnt7XcLCN8BaHu+EKY68CFuk
+	4vAx+fnfxA+1LBKEfMGKWtNdXOQuyLVNm1y/GBMvl3yS8BXo9TCp4Z02EbwZOH+SkvflKadV1ZEr5
+	npRI46tPLZPQNAlzpbS07G0t2xohrwYQTxhxprhoZk9zN1X7SFJO4MZ9IlGJXmmTp9K6bsu4qdQLE
+	7lXonvIHp61mhLdg8pJTWNOiQ6AuMsDG+fSBcsvo9zirTVMTOKcmZHGqsWh4virVAesNarwVmJu85
+	rZ0r3UfyVVK5ooOoEIZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2o8-0000000BDTs-40UH;
-	Mon, 01 Jun 2026 13:35:56 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wU2t2-0000000BDkR-36K1;
+	Mon, 01 Jun 2026 13:41:00 +0000
+Received: from out-171.mta1.migadu.com ([2001:41d0:203:375::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU2o6-0000000BDTY-1BVg
+	id 1wU2sz-0000000BDjS-3gNB
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 13:35:55 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2c0aa420401so11603585ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Jun 2026 06:35:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780320953; x=1780925753; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IbcsOvpeEjozPZH+4z97yjnc522GeGwDhfuuOcja+k0=;
-        b=CnFIBlZFCq+G14NSyTIffzxvb8FLjHylyITjlvVEdIgPG0jQaIQ1FlDZHw1WLVqzV0
-         sDVX97ctEOMCLu6pNaPV+5Z0ddddw5sJwX2A0KjV8QbdA1uNrDTQZUY80BnBzCKW/s10
-         fllT6AICCf87by5xZTR+NBPCx/E/UI29gNZxyum2/4bCkUvrn93MJ5YB6ggzgOqnoi/B
-         nqXFYYtlL8c7QeMS4yw7m0nKLleSxUzyhQf5BljWLnt3KOTPY2hboz67Ifhob8keZDf0
-         Ea5m6d2G7452o6Voyz+A0CAqhGSQyzP4WLev7zjDs9vKEmcGJTF+qhXiGEjuOtByeLNV
-         dRLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780320953; x=1780925753;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IbcsOvpeEjozPZH+4z97yjnc522GeGwDhfuuOcja+k0=;
-        b=gAKg6raJJKwCn6RJIbyx/yQFHd1K068e4QU2JQuLkrbfCPHY8pkwzrT1weEynwQdMY
-         vGTtM5V03A/ookoX7Mg6sMfSwFD8M9UdRjiLvLt/chVjA90OLdRz3hI+6zIY45Yra453
-         HghQprMkW/qDNzo/9X4wMihTvX4OO7PFktSlBlkUAT8P99/WVSO6lVF2xmUnsbM64tYe
-         CSjbs36IrfaGQvSFmj3nddkKFlFHQtSajhYj8+9IfJa5lEpudChWxh//uZDH0qaWBBZq
-         tJ7yidayArBJXihMaZB8lQ3yxV/Dc/m/9YQcfeiWvXcsEVDJ8aELuF9srJujBg9vR1ji
-         MTUw==
-X-Forwarded-Encrypted: i=1; AFNElJ/rVOPZfISMGFcIzgPrZlJy3M+FrUr3vYEgFTtO5riN7R4oHG95HqD4Ux3lRUiENHcxczXtYnfamuRnIA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhmJkFV1wftUIzzEh4Jdq0gfdazc2D73YzTiLTLRqPZlh65pDc
-	tukZgwv81TkmN50DGRupBB4F6/S8u0ufbo3d58mi8CEr0RpSVcnJK+0s
-X-Gm-Gg: Acq92OF+WVWQTHK/hBkvpEBsPrn12Rdp0BVm6oQLSDiOWEnjVic0uC390FaryF/DA1X
-	Hk9pzGu20D7nbADrZBSCaR9IBXJxtsNO3c6Ochxgz5kE7xwPrZNaxKWcentPIPAaIV0J8UiWItn
-	0agfqvWGQBYozCd9YhK+v9F7CtWbRMG/HXHaYpItsBITViXTKSqAwdgmLvBbQxOgfecs3YocAuP
-	G+sSIC4LO/Sx0htuEHzyyYRS7jvHMaKnrSNUifqpN+mlRe976rWQf2u+goX21+hF8X8FeIoSFOD
-	DDrfHcGTu2BBlQElsWeDhekcfA4yCTOH4NqpmFPJR/ethbW30Vu/FrjExCY7MUoo2cFTBBVuKSB
-	qoEHjnLBgFYdzht6lDqmnwZ0DM1WLaYA2a3M54YP4os2+gj7hFJFm60aK7j3qjN5LiZhMdcF3Fn
-	z0pZj/escDPQ==
-X-Received: by 2002:a17:903:244e:b0:2c0:d097:51ba with SMTP id d9443c01a7336-2c0d0975470mr58699645ad.26.1780320953126;
-        Mon, 01 Jun 2026 06:35:53 -0700 (PDT)
-Received: from [127.0.1.1] ([2a12:a305:4::40e8])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf23b011f7sm143136885ad.41.2026.06.01.06.35.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jun 2026 06:35:52 -0700 (PDT)
-From: Guodong Xu <docular.xu@gmail.com>
-Date: Mon, 01 Jun 2026 21:35:06 -0400
-Subject: [PATCH] MAINTAINERS: add entry for SpacemiT reset controller
- driver
+	Mon, 01 Jun 2026 13:40:59 +0000
+Date: Mon, 1 Jun 2026 21:40:23 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1780321243;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iQyez31M9+cqRzG0mNDzNeBP+DcO+f5iCUnGf0mcB+I=;
+	b=l024WfFK8H8TZslgd1la8pP0IMsoUoHk+D958dcQtK1139z2FcW6CgT8NHAq1ryBrn3ISC
+	V49yjHdscTNNkULL8sndRFN7LTiUJk2zYEHRJL798tKylrp/xi8IhXqWxmbEYljH9QzlNC
+	GwALMjU5E7e0JSkUMqYW/poOjE9natY=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Baoquan He <baoquan.he@linux.dev>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
+	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
+	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, robh@kernel.org, saravanak@kernel.org,
+	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	ruirui.yang@linux.dev, rdunlap@infradead.org,
+	feng.tang@linux.alibaba.com, dapeng1.mi@linux.intel.com,
+	kees@kernel.org, elver@google.com, kuba@kernel.org,
+	lirongqing@baidu.com, ebiggers@kernel.org, paulmck@kernel.org,
+	sourabhjain@linux.ibm.com, thuth@redhat.com, ardb@kernel.org,
+	masahiroy@kernel.org, gshan@redhat.com, james.morse@arm.com,
+	maz@kernel.org, leitao@debian.org, yeoreum.yun@arm.com,
+	coxu@redhat.com, suzuki.poulose@arm.com, cfsworks@gmail.com,
+	osandov@fb.com, jbohac@suse.cz, ryan.roberts@arm.com,
+	tangyouling@kylinos.cn, ritesh.list@gmail.com,
+	adityag@linux.ibm.com, hbathini@linux.ibm.com, bjorn@rivosinc.com,
+	songshuaishuai@tinylab.org, vishal.moola@gmail.com,
+	junhui.liu@pigmoral.tech, djordje.todorovic@htecgroup.com,
+	austin.kim@lge.com, namcao@linutronix.de, djbw@kernel.org,
+	chao.gao@intel.com, seanjc@google.com, fuqiang.wang@easystack.cn,
+	liaoyuanhong@vivo.com, makb@juniper.net, graf@amazon.com,
+	piliu@redhat.com, rafael.j.wysocki@intel.com,
+	mario.limonciello@amd.com, jbouron@amazon.com,
+	chenjiahao16@huawei.com, guoren@kernel.org, bauerman@linux.ibm.com,
+	bgwin@google.com, takahiro.akashi@linaro.org, x86@kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org
+Subject: Re: [PATCH v15 00/23] arm64/riscv: Add support for crashkernel CMA
+ reservation
+Message-ID: <ah2Lx7KHI60tzd0v@MiWiFi-R3L-srv>
+References: <20260601094805.2928614-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Message-Id: <20260601-b4-spacemit-reset-maintainers-v1-1-1ab3014e9a35@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAEkzHmoC/yXMQQrCMBBG4auUWTuQlKYYryIukvRXR2gsmShC6
- d2NdfEW3+atpCgCpVO3UsFbVJ65wR46SveQb2CZmqk3/WhGYzkOrEtImKVygaLyHCTXForyEF3
- w1nnvjo7aYym4ymf/ny9/6ys+kOpvStv2BbDluqCBAAAA
-X-Change-ID: 20260601-b4-spacemit-reset-maintainers-4b5a91599585
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Yixun Lan <dlan@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>, 
- Alex Elder <elder@riscstar.com>, Guodong Xu <docular.xu@gmail.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1868; i=docular.xu@gmail.com;
- h=from:subject:message-id; bh=U81JaS+uVsOCq5xH8KHw7CF8Re1+ZOxCZXh7B8IuBNE=;
- b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhiw543Cn5BU3Fq/3y9acfvJ192yRmf3GW2/tSJ72OW1Fz
- ITTgfKrO0pZGMS4GGTFFFkOH23J3vrKJ9r3OecPmDmsTCBDGLg4BWAihxYy/C8LDnoeba06o9/Z
- oPDTZB25Fx8us7wqecOn0vRuyyw7n1aGf+p5F5NKPRlOGMhrS3Ra3NO/v6Lg8Xff2LmOy9IDVov
- P4QYA
-X-Developer-Key: i=docular.xu@gmail.com; a=openpgp;
- fpr=90B1DC3DF0BD10FD1227BD6344F254AF42F143EE
+Content-Disposition: inline
+In-Reply-To: <20260601094805.2928614-1-ruanjinjie@huawei.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_063554_349795_E3EF57A8 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260601_064058_068741_3B6719E4 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,57 +100,175 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SpacemiT reset controller driver under drivers/reset/spacemit/
-(common code plus the K1 and K3 SoC instances) and its reset-ID header
-have no dedicated MAINTAINERS entry; today they fall only under the
-broad drivers/reset/ entry of the reset subsystem and the N:/K:
-catch-all of the RISC-V SpacemiT SoC umbrella.
+Hi Jinjie,
 
-Add a dedicated entry and list myself as maintainer. I introduced the
-drivers/reset/spacemit/ subdirectory, moved and refactored the existing
-K1 reset support (originally written by Alex Elder) into it, and wrote
-the K3 reset driver. The series that created this directory and these
-files is archived at [1].
+On 06/01/26 at 05:47pm, Jinjie Ruan wrote:
+...snip... 
+> Changes in v15:
+> - Unify the subject prefix formats as Huacai suggested.
+> - Fix powerpc pre-existing NULL pointer dereference [Sashiko [1]]
+> - Fix powerpc pre-existing __merge_memory_ranges() memory range
+>   truncation [Sashiko [1]].
+> - Fix pre-existing arm64 CMA page leaks [Sashiko[2]].
+> - Fix pre-existing crash_load_dm_crypt_keys() Use-After-Free and
+>   Double Free issue [Sashiko[3]].
+> - Fix vfree(headers) and uninitialized variables issue
+>   and simplify the fix [Sashiko[2]].
+> - As walk_system_ram_res() and for_each_mem_range() use different
+>   lock, unify and simplify the fix of TOCTOU buffer overflow via memory
+>   region padding [Sashiko[4]].
+> - Fix the arm64 crash dump issues in Sashiko[5].
+> - Link to v14: https://lore.kernel.org/all/20260525084932.934910-1-ruanjinjie@huawei.com/
 
-[1] https://lore.kernel.org/spacemit/20260120-k3-reset-v3-0-effe87f4bdbe@riscstar.com/
+Do these Fixes have anything with the main target of this patch series
+you mentioned in cover-letter:"arm64/riscv: Add support for crashkernel CMA"?
+The patches become more and more in each new version, I am wondering if
+it relies on these Fixes patches to implement your adding support for
+crashkernel CMA on arm64/risc-v.
 
-Signed-off-by: Guodong Xu <docular.xu@gmail.com>
----
-I contributed this driver as Guodong Xu <guodong@riscstar.com>;
-docular.xu@gmail.com is my current address. A matching .mailmap update
-has been submitted at
-https://lore.kernel.org/all/20260601-b4-mailmap-guodong-xu-v1-1-ee9eff1e57ba@gmail.com/
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+If not relying on them, could you split them into different patchset
+on different purpose? 
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9ec290e38b44a..c9d87244c1715 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25119,6 +25119,13 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
- F:	drivers/i2c/busses/i2c-k1.c
- 
-+SPACEMIT RESET CONTROLLER DRIVER
-+M:	Guodong Xu <docular.xu@gmail.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	drivers/reset/spacemit/
-+F:	include/dt-bindings/reset/spacemit,k3-resets.h
-+
- SPANISH DOCUMENTATION
- M:	Carlos Bilbao <carlos.bilbao@kernel.org>
- R:	Avadhut Naik <avadhut.naik@amd.com>
+Thanks
+Baoquan
 
----
-base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
-change-id: 20260601-b4-spacemit-reset-maintainers-4b5a91599585
-
-Best regards,
---  
-Guodong Xu <docular.xu@gmail.com>
-
+> 
+> [1]: https://lore.kernel.org/all/20260525092207.96B9D1F000E9@smtp.kernel.org/
+> [2]: https://lore.kernel.org/all/20260525091149.1A1E01F00A3D@smtp.kernel.org/
+> [3]: https://lore.kernel.org/all/20260525105227.3C2421F000E9@smtp.kernel.org/
+> [4]: https://lore.kernel.org/all/20260525095447.944E11F000E9@smtp.kernel.org/
+> [5]: https://lore.kernel.org/all/20260525101746.9959D1F000E9@smtp.kernel.org/
+> 
+> Changes in v14:
+> - Fix image->elf_headers memory leak during retry loop for arm64 as Sashiko
+>   AI code review pointed out.
+> - Solve the hotplug notifier arch_crash_handle_hotplug_event() AA
+>   self-deadlock problem as Sashiko AI code review pointed out.
+> - Fix the TOCTOU issue in prepare_elf_headers() by get_online_mems().
+> - -ENOMEM -> -EAGAIN as Breno suggested.
+> - Add support for arm64 crash hotplug.
+> - Link to v13: https://lore.kernel.org/all/20260511030454.1730881-1-ruanjinjie@huawei.com/
+> 
+> Changes in v13:
+> - Rebased on v7.1-rc1.
+> - Update the commit message.
+> - Add Reviewed-by.
+> - Link to v12: https://lore.kernel.org/all/20260402072701.628293-1-ruanjinjie@huawei.com/
+> 
+> Changes in v12:
+> - Remove the unused "nr_mem_ranges" for x86.
+> - Add "Fix crashk_low_res not exclude bug" test log.
+> - Provide a separate patch for each architecture for using
+>   crash_prepare_headers(), which will make the review more convenient.
+> - Add Reviewed-by and Tested-by.
+> - Link to v11: https://lore.kernel.org/all/20260328074013.3589544-1-ruanjinjie@huawei.com/
+> 
+> Changes in v11:
+> - Avoid silently drop crash memory if the crash kernel is built without
+>   CONFIG_CMA.
+> - Remove unnecessary "cmem->nr_ranges = 0" for arch_crash_populate_cmem()
+>   as we use kvzalloc().
+> - Provide a separate patch for each architecture to fix the existing
+>   buffer overflow issue.
+> - Add Acked-bys for arm64.
+> 
+> Changes in v10:
+> - Fix crashk_low_res not excluded bug in the existing
+>   RISC-V code.
+> - Fix an existing memory leak issue in the existing PowerPC code.
+> - Fix the ordering issue of adding CMA ranges to
+>   "linux,usable-memory-range".
+> - Fix an existing concurrency issue. A Concurrent memory hotplug may occur
+>   between reading memblock and attempting to fill cmem during kexec_load()
+>   for almost all existing architectures.
+> - Link to v9: https://lore.kernel.org/all/20260323072745.2481719-1-ruanjinjie@huawei.com/
+> 
+> Changes in v9:
+> - Collect Reviewed-by and Acked-by, and prepare for Sashiko AI review.
+> - Link to v8: https://lore.kernel.org/all/20260302035315.3892241-1-ruanjinjie@huawei.com/
+> 
+> Changes in v8:
+> - Fix the build issues reported by kernel test robot and Sourabh.
+> - Link to v7: https://lore.kernel.org/all/20260226130437.1867658-1-ruanjinjie@huawei.com/
+> 
+> Changes in v7:
+> - Correct the inclusion of CMA-reserved ranges for kdump kernel in of/kexec
+>   for arm64 and riscv.
+> - Add Acked-by.
+> - Link to v6: https://lore.kernel.org/all/20260224085342.387996-1-ruanjinjie@huawei.com/
+> 
+> Changes in v6:
+> - Update the crash core exclude code as Mike suggested.
+> - Rebased on v7.0-rc1.
+> - Add acked-by.
+> - Link to v5: https://lore.kernel.org/all/20260212101001.343158-1-ruanjinjie@huawei.com/
+> 
+> Jinjie Ruan (22):
+>   riscv: kexec_file: Fix crashk_low_res not exclude bug
+>   powerpc/crash: Fix possible memory leak in update_crash_elfcorehdr()
+>   powerpc/kexec_file: Fix NULL pointer dereference in
+>     kexec_extra_fdt_size_ppc64()
+>   powerpc/kexec_file: Fix memory range truncation in
+>     __merge_memory_ranges()
+>   kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
+>   arm64: kexec_file: Fix CMA page leaks during segment placement retry
+>     loops
+>   arm64: kexec_file: Fix image->elf_headers memory leak during retry
+>     loop
+>   kexec: Fix UAF and Double Free in crash_load_dm_crypt_keys()
+>   crash_core: Introduce CRASH_HOTPLUG_SAFETY_PADDING for memory hotplug
+>     safety
+>   x86: kexec_file: Fix TOCTOU buffer overflow via memory region padding
+>   arm64: kexec_file: Fix TOCTOU buffer overflow via memory region
+>     padding
+>   riscv: kexec_file: Fix TOCTOU buffer overflow via memory region
+>     padding
+>   LoongArch: kexec_file: Fix TOCTOU buffer overflow via memory region
+>     padding
+>   crash: Add crash_prepare_headers() to exclude crash kernel memory
+>   arm64: kexec_file: Use crash_prepare_headers() helper to simplify code
+>   x86: kexec_file: Use crash_prepare_headers() helper to simplify code
+>   riscv: kexec_file: Use crash_prepare_headers() helper to simplify code
+>   LoongArch: kexec_file: Use crash_prepare_headers() helper to simplify
+>     code
+>   powerpc/kexec_file: Use crash_exclude_core_ranges() helper
+>   arm64: kexec_file: Add support for crashkernel CMA reservation
+>   riscv: kexec_file: Add support for crashkernel CMA reservation
+>   arm64: crash: Add crash hotplug support
+> 
+> Sourabh Jain (1):
+>   powerpc/crash: sort crash memory ranges before preparing elfcorehdr
+> 
+>  .../admin-guide/kernel-parameters.txt         |  16 +-
+>  arch/arm64/Kconfig                            |   3 +
+>  arch/arm64/include/asm/kexec.h                |  13 ++
+>  arch/arm64/kernel/Makefile                    |   2 +-
+>  arch/arm64/kernel/crash.c                     | 152 ++++++++++++++++++
+>  arch/arm64/kernel/kexec_image.c               |  34 ++++
+>  arch/arm64/kernel/machine_kexec_file.c        |  78 ++-------
+>  arch/arm64/mm/init.c                          |   5 +-
+>  arch/loongarch/kernel/machine_kexec_file.c    |  44 ++---
+>  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
+>  arch/powerpc/kexec/crash.c                    |   7 +-
+>  arch/powerpc/kexec/file_load_64.c             |   3 +
+>  arch/powerpc/kexec/ranges.c                   | 113 ++-----------
+>  arch/riscv/kernel/machine_kexec_file.c        |  43 ++---
+>  arch/riscv/mm/init.c                          |   5 +-
+>  arch/x86/kernel/crash.c                       |  92 ++---------
+>  drivers/of/fdt.c                              |   9 +-
+>  drivers/of/kexec.c                            |   9 ++
+>  include/linux/crash_core.h                    |  15 ++
+>  include/linux/crash_reserve.h                 |   4 +-
+>  include/linux/kexec.h                         |   2 +
+>  kernel/crash_core.c                           |  89 +++++++++-
+>  kernel/crash_dump_dm_crypt.c                  |   4 +-
+>  kernel/kexec_core.c                           |  25 +--
+>  24 files changed, 430 insertions(+), 338 deletions(-)
+>  create mode 100644 arch/arm64/kernel/crash.c
+> 
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
