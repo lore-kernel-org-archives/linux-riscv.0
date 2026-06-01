@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4688CD6E60
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5FACD6E55
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 20:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=j5SXvgFSbQWlBxA7GnzlzTM69TufFMrLaIoI943lpjg=; b=PENHRQiKh82PY7
-	WZ2vePXaPS5wN/946RQ8XyJuOuNGDdGkm/yFJF2gT9VPZWJqcGYeFTiR4ZHpCH2OlA+yOJUA8/uVg
-	fFWAkdJAfZhQ9+Q3krkTQ7cCjNezpXy4kfvhM7WLxqbIAGRAPFivilW6qtznTDJkKbUDihSVJpYcH
-	fupgy2+hflKZLoDJXTN7s7S/WdZNerFpCrgWYOm3MlO4o+Mibh28HyIQPSw00UDDEc2OY8GKIAbAv
-	X/ECLhomTy2Yu2rBLJgzzDNepBLFBlT9u/kMLtETBubbnR2/xIhSD4W9iv23uXEfOjc5DtCJiA8G2
-	LvOyUmOKoHLtOaL3VDhw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xHTyYsmdZjbAYPCkQYcl/XyF1m+xZqwC6x6xgBkp/pQ=; b=OIXhZqMJ1w3AHJ
+	oohI37/ZvWyHemvrFZ5I37SMpDby2CWZXB7HOtpe9V8CKqJ1o9Sw4h6gJYgl4B9HQM50XQESlDj2x
+	wZRjaV2s+I9N3mz45J+ISw4rDMITJhxkDEKxbHGxAe3VlAIW+z3gYnSWpX5nXJOOGRyVcN0YP93Kv
+	Ky4NnAOqrcyJDw+J8VAjvmzbqX1/mMhTa/ZWBGfl23l3vjQE1G3ZLT5En76dF49z7fFnnUUbL7Pl3
+	T2wsTxNNYJVbjyfKhB9ZzNH+q2MdZ1rU7GOOSBcmQSrZqDZdZOjQKgHkwc0G1MHCj3xKQlMDGY4AX
+	UkhRbO5I3K3hsNk/tAsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N7-0000000Bmrb-2rq5;
-	Mon, 01 Jun 2026 20:36:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wU9NI-0000000Bn67-0lGs;
+	Mon, 01 Jun 2026 20:36:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU9N2-0000000Bmoy-008w
+	id 1wU9NG-0000000Bn13-0K9m
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 20:36:26 +0000
+	Mon, 01 Jun 2026 20:36:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA8AB42BCE;
-	Mon,  1 Jun 2026 20:36:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D10C1F00893;
-	Mon,  1 Jun 2026 20:36:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BE8A601E8;
+	Mon,  1 Jun 2026 20:36:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FE861F008A2;
+	Mon,  1 Jun 2026 20:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780346182;
-	bh=iks4Q03GwTiBFK892w6lj5hBG3OU8wqEvXJurPqfi8Q=;
-	h=From:Subject:Date:To:Cc;
-	b=IxNvRVC7Un9TMOAiG24OEqZ9Wf+0PDfBOQPpCsOjNtZ0TnmH/3wlfHch2zSE8wXFU
-	 5bqAo2wWcW7uG2v2jgubGgB+bx5DqNA/fY97gOTkXdi1h1j9i6Bme8/xC8KViQV1YE
-	 mMp+zJA7/jYtG4EFm3gEF+qGdWaemlobqRzuttYh/EUQS6Tz8upEhkby1qUGUOlTJ+
-	 5H/rlxk2fKsGX545VMocww0Va8rARwqoDupiXT55/LPr6Ya8F/ck+rGtwRhNq6SVJO
-	 z/kyt3nR+zzE+b5i8hkX1Vb3sKoO+7CdvEyNc2bUuwwAtf4FBvHt2MGnCp+UKD665k
-	 phvys3tSGNOWA==
+	s=k20260515; t=1780346197;
+	bh=6zw1YkJkBQFnyL3MGMXlh5Ks8e9UJTAJTqAov2MLs5U=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=EjEVZgO5AQLGfNQ7aScZUx87ZdJYswihpQzcWMZZQuPlhoi2tnoB0KR1PPb0j6Iqj
+	 wr+l/gIFy2z9I+lRYHbmulwPxQETmhnJ1q7nE3DT7NhbwQR9t8IbRjJ/CBjZ8hFcuV
+	 Hrmr/5VmiDL+bwWxMK3oQcMos3FwHFVsDYo6FW9gFIR+2PfZk9vMcUV84N1LF+KFYm
+	 51NZzD9koISz6UXrmyViqNr0tQYW7eC/zow9Zrdqe8m1W9ISr/APConh2pjVZYBTc4
+	 xJo4B6gvth0JVcq1pgGCsys3XFJrXRLmDASaOUUNI2BjW1m/Rwjig12G4Cr4zo+fp7
+	 lDsjJL23LGBKg==
 From: Drew Fustini <fustini@kernel.org>
-Subject: [PATCH RFC v6 00/18] riscv: add Ssqosid and CBQRI resctrl support
-Date: Mon, 01 Jun 2026 13:35:54 -0700
-Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
+Date: Mon, 01 Jun 2026 13:36:11 -0700
+Subject: [PATCH RFC v6 17/18] ACPI: RISC-V: Add support for RISC-V Quality
+ of Service Controller (RQSC)
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIACvtHWoC/33OwQrCMAwG4FcZPVvp2m7tPAmCD+BVPLRbthVld
- a0UZezdrb2oyLwE/oR8yYQ8OAMebbIJOQjGGzvEUK4yVPdq6ACbJmZECS0JoxX2frTeNLjWozP
- Yjb7GQWCCNamFlFppLhWK21cHrbkn+YgO+x06xWZv/M26R7oWWBolmOd8EQ7spTNNQUAluVDbM
- 7gBLmvruoQG/oaKnCxDPBbQBZMsh7aU7AcqPiD656MiFiEbpoRWVaPhC5rn+Qnsg6utVgEAAA=
- =
-X-Change-ID: 20260329-ssqosid-cbqri-rqsc-v7-0-b0c788bab48a
+Message-Id: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-17-baf00f50028a@kernel.org>
+References: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
+In-Reply-To: <20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
@@ -89,17 +86,14 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Conor Dooley <conor@kernel.org>, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=15319; i=fustini@kernel.org;
- h=from:subject:message-id; bh=lhmbiLVrva2CdzV0jSi5X7Gy7nereRDKCriVZxgx/c4=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnXMPLllh1SIxpT7LXHbd+WqSwo+3ftz8unH8rYMK
- 5/zvfB/1VHKwiDGxSArpsiy6UPehSVeoV8XzH+xDWYOKxPIEAYuTgGYyIlTjAzLc7QCJj1foPZi
- 7/+ydTq+vXo3ZogI9M3J2ByqecTLzXUZI0NrwCv7xjNKpTuPvvj3sDeK+Vy2to6klfRTg8SP/yz
- OdjIDAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1706; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=J9k+kdxn9VBh2gcTNNCv4EIpVuWkTdzFDdzbka+fNg8=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTJvnW5EnBOVuGM9dw7i1t+JossSmJa3bls+hyV5zZia
+ xw+PDfK7ihlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBMhOUqI8MFLenMt4F71tQv
+ WjeNX+H1iXdX0u1W9/rO2tN3e9NZDYsCRoZNPLI1KXeC9J+mn7NZJiib31hRsN64LXFrs8eVc3O
+ EfzAAAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_133624_104557_A280AC13 
-X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,313 +110,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This RFC series adds RISC-V QoS support: the Ssqosid extension [1]
-(srmcfg CSR), the CBQRI controller interface [2] integrated with
-resctrl [3], and ACPI RQSC [4] for controller discovery. DT support
-is possible but no platform drivers are included. The series is
-also available as a branch [5].
+Call acpi_parse_rqsc() from acpi_arch_init() to discover CBQRI
+controllers when an RQSC table is present.
 
-QEMU support for Ssqosid and CBQRI lives in [6], with ACPI RQSC as
-a follow-on series [7]. There is also a combined branch [8].
+Gate on CONFIG_RISCV_CBQRI_DRIVER rather than CONFIG_RISCV_ISA_SSQOSID
+so a kernel built with the ISA extension but without the driver (e.g.
+RESCTRL_FS=n) does not walk the table and print a misleading "found 0
+CBQRI controllers" line on every boot.
 
-Series organization
--------------------
-01      DT binding for Ssqosid extension
-02-03   Ssqosid ISA support (detection, srmcfg CSR, switch_to)
-04-06   fs/resctrl helpers and resource type additions
-07-10   CBQRI device ops (cbqri_devices.c): capacity probe +
-        allocation, capacity monitoring, bandwidth probe +
-        allocation, bandwidth monitoring
-11-15   CBQRI resctrl integration (cbqri_resctrl.c): cache
-        allocation, L3 cache occupancy monitoring, MB_MIN
-        bandwidth allocation, MB_WGHT bandwidth allocation,
-        mbm_total_bytes monitoring
-16-17   ACPI RQSC parser and init
-18      Enable resctrl filesystem for Ssqosid (Kconfig)
-
-Refer to the v3 cover letter [9] for the test setup including the
-reference SoC layout and the corresponding QEMU command line.
-
-[1] https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-[2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
-[3] https://docs.kernel.org/filesystems/resctrl.html
-[4] https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
-[5] https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=b4/ssqosid-cbqri-rqsc
-[6] https://lore.kernel.org/qemu-devel/20260105-riscv-ssqosid-cbqri-v4-0-9ad7671dde78@kernel.org/
-[7] https://lore.kernel.org/qemu-devel/20260202-riscv-rqsc-v1-0-dcf448a3ed73@kernel.org/
-[8] https://github.com/tt-fustini/qemu/tree/b4/riscv-rqsc
-[9] https://lore.kernel.org/r/20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org
-
-Key design decisions
---------------------
- - Create new resource types as RDT_RESOURCE_MBA cannot represent the
-   semantics of the CBQRI bandwidth controllers:
-
-   - RDT_RESOURCE_MB_MIN matches CBQRI Rbwb (reserved bandwidth
-     blocks). The sum of Rbwb across all control groups must be
-     <= MRBWB (maximum number of reserved bandwidth blocks).
-
-   - RDT_RESOURCE_MB_WGHT matches CBQRI Mweight, the weighted share of
-     the remaining bandwidth blocks. Values are in [0, 255]: 0 disables
-     work-conserving sharing for the group, 1..255 compete for the
-     leftover pool.
-
- - mbm_total_bytes is supported only when the platform exposes exactly
-   one mon-capable bandwidth controller and exactly one L3 domain.
-   Pairing a single BC across multiple L3 domains would let standard
-   userspace tools overcount system bandwidth by summing the same
-   counter across domains.
-
-Open issues
------------
- - RDT_RESOURCE_MB_MIN and RDT_RESOURCE_MB_WGHT are intended to drive
-   discussion, not as the final solution. Reinette has recently posted
-   a generic schema proof of concept. I will based the next revision on
-   that.
-
- - resctrl monitoring scope limitations:
-   - monitor-only L3 capacity controllers are not supported.
-   - CBQRI capacity controllers can monitor any cache level, but resctrl
-     only supports occupancy on L3.
-   - resctrl needs to gain a non-CPU scope level for mbm_total_bytes
-     to be supported on platforms with multiple bandwidth controllers
-     or multiple L3 domains.
-
- - When a control group is freed, rbwb_cache[closid] is not reset,
-   so the MB_MIN sum check can count the stale reservation against
-   MRBWB. Fixing this requires a new resctrl_arch_* callback in
-   fs/resctrl invoked on group destroy, which is out of scope for
-   this arch-driver series.
-
- - cc_cunits is not supported. cc_block_mask maps well onto resctrl's
-   existing CBM schema, but there is no existing equivalent for
-   capacity units.
-
- - RQSC structs live in drivers/acpi/riscv/rqsc.h until the spec is
-   ratified and the ACPICA upstream submission lands. They will then move
-   to include/acpi/actbl2.h. The spec is in the final phase
-   before ratification.
-
-Changes in v6:
---------------
-The changes in this revision are based on the feedback in the Sashiko
-review of v5 and Sunil V L's review of the RQSC parser.
-
-riscv_cbqri device: 
- - Widen the remaining CBQRI_CONTROL_REGISTERS_OP/AT/RCID and the RBWB /
-   MWEIGHT field masks to GENMASK_ULL, so FIELD_MODIFY and ~mask on a
-   u64 register stay correct if RV32 support is ever added.
- - Reject an rcid_count or mcid_count larger than 12-bits can encode.
- - Probe monitoring with CONFIG_EVENT and a probe-safe event id rather
-   than READ_COUNTER. Run the AT probe only for allocation registers
- - cbqri_bc_alloc_op() clears AT, matching the capacity path.
- - cbqri_apply_bc_field() waits for BUSY=0 before staging the new value
-   so an in-flight op cannot consume a half-updated register.
- - cbqri_read_rbwb() and cbqri_read_mweight() stage a sentinel in the
-   unread field, so a silent READ_LIMIT no-op is detected instead of
-   returning stale data.
-
-resctrl:
- - cbqri_resctrl_online_cpu() and cbqri_resctrl_offline_cpu() seed the
-   per-CPU default RCID/MCID.
- - Partial attach failure detaches the CPU from every domain it reached.
- - resctrl_arch_reset_rmid() no longer re-arms occupancy. Occupancy
-   counters are armed once and run free.
- - The BC is paired and initialized only when mbm_total_bytes is enabled,
-   so a controller left unpicked on a system with multiple L3 domains
-   is not allocated and no longer clamps the occupancy rmid space.
- - num_rmid is reported as the system-wide minimum mcid_count.
-
-ACPI:
- - Skip controllers whose RCID Count and MCID Count are both zero, as
-   RQSC requires at least one to be non-zero.
- - Add the Memory-Side Cache, ACPI device and PCI device resource id
-   type constants.
-
-Sashiko review:
-https://sashiko.dev/#/patchset/20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe%40kernel.org
-
-Link to v5:
-https://lore.kernel.org/all/20260524-ssqosid-cbqri-rqsc-v7-0-v5-0-78d3a7ba9dbe@kernel.org/
-
-Changes in v5:
---------------
-The changes in this revision are based on the feedback in the Sashiko
-review of the series.
-
-Ssqosid:
- - Seed cpu_srmcfg to U32_MAX in DEFINE_PER_CPU so early-boot context
-   switches always write the CSR rather than matching a zero-initialised
-   cache before riscv_srmcfg_init() runs.
- - __switch_to_srmcfg() evaluates RCID and MCID against
-   cpu_srmcfg_default independently. A task in the default RCID group
-   with a specific MCID previously bypassed the CPU default.
- - Register a CPU PM notifier that invalidates cpu_srmcfg on
-   CPU_PM_EXIT / CPU_PM_ENTER_FAILED so resume-from-suspend on the boot
-   CPU writes the CSR.
- - Drop the for_each_online_cpu pre-seed loop in riscv_srmcfg_init().
-   cpuhp_setup_state() already covers already-online CPUs.
-
-CBQRI:
- - Add mweight_cache. cbqri_apply_bc_field() seeds both fields of
-   bc_bw_alloc from the software caches, so that stale data can not leak
-   into the unmodified field.
- - Seed mweight_cache to FIELD_MAX(MWEIGHT_MASK) at probe so the first
-   MB_MIN domain init does not commit Mweight=0 to every RCID. A weight
-   of 0 is a hard cap on opportunistic bandwidth, which would starve
-   every RCID until the subsequent MB_WGHT domain init catches up.
- - cbqri_apply_mweight_config() rejects mweight > WEIGHT_MASK at entry
-   rather than letting it truncate and trigger a verify mismatch.
- - cbqri_apply_bc_field() updates per-RCID cache only after verifying.
- - cbqri_controller_destroy() now iounmaps and releases the mem region
-   from rollback paths, gated on ctrl->base.
- - cbqri_probe_feature() clears OP, AT, RCID and EVT_ID on every write,
-   so the probe never writes stale bits into the register.
- - cbqri_apply_cache_config() clears cc_block_mask before the initial
-   READ_LIMIT that captures saved_cbm.
- - Drop the ctrl->faulted early return from controller ops.
- - Reject a second bandwidth controller when sharing a proximity domain.
- - Rejects ctrl->rcid_count > SRMCFG_RCID_MASK so the schedule-in
-   fast path cannot silently truncate the RCID.
- - Widen CBQRI_MON_CTL_OP/MCID/EVT_ID masks to GENMASK_ULL so
-   FIELD_MODIFY on a u64 register stays safe if RV32 support is added.
-
-resctrl:
- - Switch the L3 mon_domain teardown paths from cancel_delayed_work_sync
-   to cancel_delayed_work to avoid potential deadlock.
- - Guard the mbm_over cancel on QOS_L3_MBM_TOTAL_EVENT_ID, so a system
-   without a paired BC does not cancel a zeroed work struct.
- - cbqri_attach_cpu_to_cap_ctrl() rolls back cpumask_set_cpu and any
-   freshly created ctrl_domain when cbqri_attach_cpu_to_l3_mon() fails.
- - Restrict mbm_total_bytes to platforms with exactly one L3 domain.
- - Pair the L3 mon domain with its BC and initialise the BC's
-   per-MCID accumulators before resctrl_online_mon_domain() exposes
-   the domain, so a concurrent mbm_total_bytes read cannot race with
-   paired_bc init.
- - Hold cbqri_domain_list_lock across the MMIO paths in
-   resctrl_arch_rmid_read() and resctrl_arch_reset_rmid() so a
-   concurrent CPU hotplug detach cannot free hw_dom mid-read.
- - cbqri_resctrl_setup() rolls back exposed_alloc_capable /
-   exposed_mon_capable on resctrl_init() failure so
-   resctrl_arch_*_capable() does not report stale state to callers.
- - Drop the cacheinfo_ready wait queue in cbqri_resctrl_setup() and
-   the RCU annotations on the ctrl_domain list. cacheinfo runs at
-   device_initcall_sync, strictly before late_initcall, and the list
-   is mutated only from cpuhp callbacks under cbqri_domain_list_lock.
-
-Kconfig:
- - RISCV_ISA_SSQOSID selects RISCV_CBQRI_DRIVER unconditionally. resctrl
-   is gated separately by the silent RISCV_CBQRI_RESCTRL_FS option. 
-
-ACPI:
- - acpi_parse_rqsc() rejects tables with the wrong header.revision,
-   validates res0->type and res0->id_type, and checks that node->length
-   does not overrun the table end.
-
-Sashiko review:
-https://sashiko.dev/#/patchset/20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683%40kernel.org
-
-Link to v4:
-https://lore.kernel.org/all/20260510-ssqosid-cbqri-rqsc-v7-0-v4-0-eb53831ef683@kernel.org/
-
-Changes in v4:
---------------
-resctrl:
- - Add RDT_RESOURCE_MB_MIN and RDT_RESOURCE_MB_WGHT
- - Add default_to_min to resctrl_membw so MB_MIN defaults to min_bw
- - Add L3 cache occupancy monitoring for L3-scoped capacity controllers
- - Add mbm_total_bytes bandwidth monitoring when there is a single
-   bandwidth controller
- - Move domain creation into cpuhp callbacks so that cpu_mask reflects
-   only online CPUs
- - resctrl_arch_reset_rmid() returns early when called with IRQs
-   disabled.
-
-CBQRI:
- - Replace per-controller spinlock with mutex. Each CBQRI op is a
-   write-then-poll-busy cycle of up to 1 ms. A sleeping mutex paired
-   with readq_poll_timeout() keeps preemption enabled across the
-   busy-wait. All resctrl-arch entry points run in process context.
- - Replace struct cbqri_config with direct params in helper functions.
- - max_rmid = min(max_rmid, ctrl->mcid_count) now gated on
-   ctrl->mon_capable.
- - Validate that the sum of Rbwb does not exceed MRBWB.
- - Move CDP enable state from file-scope globals to per-resource
-   cdp_enabled / cdp_capable.
- - Configure both AT_CODE and AT_DATA limits when CDP is supported but
-   not enabled.
-
-Ssqosid:
- - __switch_to_srmcfg() emits RISCV_FENCE(rw, o) before and (o, rw)
-   after csrw to drain old-task stores and order new-task loads.
- - Invalidate per-cpu cpu_srmcfg on hart online via CPUHP_AP_ONLINE_DYN.
-   Also seed already-online CPUs synchronously at init.
-
-ACPI:
- - Drop the PPTT helper patch and resolve cache_size via cacheinfo at
-   cbqri_resctrl_setup() time.
- - ACPI driver now calls riscv_cbqri_register_controller() and the
-   cbqri_controller internals stay in cbqri_internal.h.
-
-Refer to v3 for previous change logs:
-https://lore.kernel.org/r/20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org
-
+Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
+Assisted-by: Claude:claude-opus-4-7
+Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
-Drew Fustini (18):
-      dt-bindings: riscv: Add Ssqosid extension description
-      riscv: detect the Ssqosid extension
-      riscv: add support for srmcfg CSR from Ssqosid extension
-      fs/resctrl: Add resctrl_is_membw() helper
-      fs/resctrl: Add RDT_RESOURCE_MB_MIN and RDT_RESOURCE_MB_WGHT
-      fs/resctrl: Let bandwidth resources default to min_bw at reset
-      riscv_cbqri: Add capacity controller probe and allocation device ops
-      riscv_cbqri: Add capacity controller monitoring device ops
-      riscv_cbqri: Add bandwidth controller probe and allocation device ops
-      riscv_cbqri: Add bandwidth controller monitoring device ops
-      riscv_cbqri: resctrl: Add cache allocation via capacity block mask
-      riscv_cbqri: resctrl: Add L3 cache occupancy monitoring
-      riscv_cbqri: resctrl: Add MB_MIN bandwidth allocation via Rbwb
-      riscv_cbqri: resctrl: Add MB_WGHT bandwidth allocation via Mweight
-      riscv_cbqri: resctrl: Add mbm_total_bytes bandwidth monitoring
-      ACPI: RISC-V: Parse RISC-V Quality of Service Controller (RQSC) table
-      ACPI: RISC-V: Add support for RISC-V Quality of Service Controller (RQSC)
-      riscv: enable resctrl filesystem for Ssqosid
+ drivers/acpi/riscv/init.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
- .../devicetree/bindings/riscv/extensions.yaml      |    6 +
- MAINTAINERS                                        |   15 +
- arch/riscv/Kconfig                                 |   20 +
- arch/riscv/include/asm/acpi.h                      |   10 +
- arch/riscv/include/asm/csr.h                       |    5 +
- arch/riscv/include/asm/hwcap.h                     |    1 +
- arch/riscv/include/asm/processor.h                 |    3 +
- arch/riscv/include/asm/qos.h                       |   87 ++
- arch/riscv/include/asm/resctrl.h                   |  152 ++
- arch/riscv/include/asm/switch_to.h                 |    3 +
- arch/riscv/kernel/Makefile                         |    2 +
- arch/riscv/kernel/cpufeature.c                     |    1 +
- arch/riscv/kernel/qos.c                            |   98 ++
- drivers/acpi/riscv/Makefile                        |    1 +
- drivers/acpi/riscv/init.c                          |   21 +
- drivers/acpi/riscv/rqsc.c                          |  202 +++
- drivers/acpi/riscv/rqsc.h                          |   66 +
- drivers/resctrl/Kconfig                            |   32 +
- drivers/resctrl/Makefile                           |    6 +
- drivers/resctrl/cbqri_devices.c                    | 1154 +++++++++++++++
- drivers/resctrl/cbqri_internal.h                   |  247 ++++
- drivers/resctrl/cbqri_resctrl.c                    | 1520 ++++++++++++++++++++
- fs/resctrl/ctrlmondata.c                           |    3 +-
- fs/resctrl/internal.h                              |    2 +
- fs/resctrl/rdtgroup.c                              |   16 +-
- include/linux/resctrl.h                            |   13 +-
- include/linux/riscv_cbqri.h                        |   60 +
- 27 files changed, 3737 insertions(+), 9 deletions(-)
----
-base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
-change-id: 20260329-ssqosid-cbqri-rqsc-v7-0-b0c788bab48a
+diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+index 7c00f7995e86..129ebfae28be 100644
+--- a/drivers/acpi/riscv/init.c
++++ b/drivers/acpi/riscv/init.c
+@@ -5,11 +5,32 @@
+  */
+ 
+ #include <linux/acpi.h>
++#include <linux/cleanup.h>
+ #include "init.h"
++#include "rqsc.h"
+ 
+ void __init acpi_arch_init(void)
+ {
+ 	riscv_acpi_init_gsi_mapping();
++
+ 	if (IS_ENABLED(CONFIG_ACPI_RIMT))
+ 		riscv_acpi_rimt_init();
++
++	if (IS_ENABLED(CONFIG_RISCV_CBQRI_DRIVER)) {
++		struct acpi_table_header *rqsc __free(acpi_put_table) = NULL;
++		acpi_status status = acpi_get_table(ACPI_SIG_RQSC, 0, &rqsc);
++
++		if (status == AE_NOT_FOUND) {
++			/* RQSC is optional. Silence on systems without it. */
++		} else if (ACPI_FAILURE(status)) {
++			pr_err("RQSC: failed to get table: %s\n",
++			       acpi_format_exception(status));
++		} else {
++			int rc = acpi_parse_rqsc(rqsc);
++
++			if (rc < 0)
++				pr_err("RQSC: failed to parse table: %d\n",
++				       rc);
++		}
++	}
+ }
 
-Best regards,
---  
-Drew Fustini <fustini@kernel.org>
+-- 
+2.43.0
 
 
 _______________________________________________
