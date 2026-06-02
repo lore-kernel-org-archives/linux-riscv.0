@@ -4,67 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22271CD6E55
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 23:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29149CD6E55
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 00:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5WxiyWAtGsNVF3hnu1naBg5vkNDfhR8T4mSBMarDr74=; b=x/yRW/BdMoExJG
-	BdDa3iBwQA2Tza7jOsizPYgOnK0oHNIN98PtLrMJd063Ad7oG2thbG1xmdPjcG8XykY/CpDyC7GZL
-	UqfxRt9wpQz1MGRA0ukmqmyTVLyOLx0U/upyTzSM8JvMA8VQ3fOYCet2cc/7U/m1hm8tJgd22yJKS
-	ps4tY/KkxdFr0TebVkIPPYbDcpGHjl4PpI+p9rTzWQOQurg5KNUllrt7aJ6A7GzWeokm7WPQmuBWx
-	bTkT/8hLsxIl/SqmL1Fx8pR028zh1/fwHuiPpqZKvIApQ0iE3AnS0QJJCyiiMBO6D6tyManH81lg0
-	mAS32CbE1+iVvcHSKSjw==;
+	List-Owner; bh=45hACDchWy8Rx5Wdf6vlGBRtBYrA6txZzcRx2WVqqHY=; b=ZBy8rI4lubZmxQ
+	r4FAuGXFJZmWwdri/iPhpbT5AOBbX+zj3ybce4D+aRTjux42mCemL9iuI+BMUJaY1E0LE5B25qw2C
+	TBVAlSKu5wGOQgQ1WKgldg+tHO8o4Qmqzkunvb8hR4YSSbn7DndwRW6pM+VQgYqKKa3IvO1Xlr1Cq
+	FBHbuikDmznGgAiSXQyVLqkDTfLVUuiE7rHjAr2lhHLZVLVJy9NbK2HTwhNaEEVek7ITIL2qStEMw
+	1ct7N0KLknkpyolFY8/3bY3vY8PrOmAIlGJGl3Odkdy8Nwo9OKlyH6NkRAgeNa59m5Extlk7vvauj
+	NcEVKmtOQn0AI1p8Vfzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBiU-0000000C2Di-2MNI;
-	Mon, 01 Jun 2026 23:06:42 +0000
+	id 1wUD7V-0000000C6x7-2ZyD;
+	Tue, 02 Jun 2026 00:36:37 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUBiT-0000000C2DX-1IXI
+	id 1wUD7U-0000000C6x0-1d7G
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 23:06:41 +0000
+	Tue, 02 Jun 2026 00:36:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C1256001A;
-	Mon,  1 Jun 2026 23:06:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76A81F00893;
-	Mon,  1 Jun 2026 23:06:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B61606001A;
+	Tue,  2 Jun 2026 00:36:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26D0C1F00893;
+	Tue,  2 Jun 2026 00:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780355200;
-	bh=i1Iq/t7YJ3lzwEzZSDZNa3Rv0CFkmzQDeIArbCfLbks=;
+	s=k20260515; t=1780360595;
+	bh=y/dxwY1WEpokhgJ5nQvecX7jCg2OKT5h+ULfFFtw4ik=;
 	h=Date:From:To:Cc:Subject;
-	b=ZaggX0ENXZ/NpWeqheKbjjq2533fbiCDgwuO/RZLYpUcvYdkGvAtm8kHPLdNVNDHt
-	 M8bhgZ9I9G2az1quJHDfgku1K7qxAFZSWodmteMB1BoAJfX1VQobDaLK/W8/HnNiNN
-	 ioR4XXRs7TZoCUa75ASKMWYGKExcq7ruPqVPa1DwFWmMdHLXYWdw4BcKh9SL9wALqo
-	 BE1ImbY2tn8ljHsYP4r3+surVR2hfTnlnupB41iE1Kx9/JWMsjWGPDUdeixyxW0LBZ
-	 psvHmcS7VZblM9IKvPSp7q3eUnq8rvOUKeQUKppvrUHuUjMA+60+lOKBK7RrgDp5tT
-	 CBi4c5I308Mhg==
-Date: Mon, 1 Jun 2026 16:06:38 -0700
+	b=XSqJrRZFQ/lNGszqIDOMOixI2WwSTbcm41JHgyLifD/Vya7Yp+5wPVG3yZx4Dd0D7
+	 zufZFqc4R/rIFT2AmPjqXBsj4AVAinOA5DVgzTnzfttuXAgR+Pl3spCMKkSPiTDeFo
+	 nFv7eldwT+0qsNkSc4c4VBiz4tx9SN1XyBPWb2PeXm62KJYfXcDPBXIB7ZnnCs9I7M
+	 x+MXNKCvlNe7EiwMJJlyF6+/fX9CuL+KQ1FYGZ74kXoac1VxxsT8jLDLd/eGDM+ieq
+	 Q0PcgoO7bN1gRwFI7vEwQZ7hwmlBSAf+NQ6hTAOWv7SIvxfEzTMKqZJrophHqYHcKk
+	 Ph0oLOY9uxBig==
+Date: Mon, 1 Jun 2026 17:36:33 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: soc@kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>, Joel Stanley <joel@jms.id.au>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
-	Nicholas Piggin <npiggin@oss.tenstorrent.com>,
-	Michael Neuling <mikey@neuling.org>,
-	Michael Ellerman <mpe@kernel.org>, Andy Gross <agross@kernel.org>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Drew Fustini <dfustini@oss.tenstorrent.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V Tenstorrent devicetree changes for v7.2
-Message-ID: <ah4Qfro/wUyhByF8@x1>
+	Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	MoeLeak <i@leak.moe>,
+	Thomas Gerner <thomas.gerner@muenchen-mail.de>
+Subject: [GIT PULL] RISC-V T-HEAD devicetree changes for v7.2
+Message-ID: <ah4lkWh2eD6l7W7n@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -89,35 +78,34 @@ The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tenstorrent/linux.git tags/tenstorrent-dt-for-v7.2
+  git://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git tags/thead-dt-for-v7.2
 
-for you to fetch changes up to 33583baeb1ba7d328e6a9775d889036900b74cdb:
+for you to fetch changes up to 3a5791956edbfa84d7256224167941931cbc46e7:
 
-  dt-bindings: iommu: riscv: Add bindings for Tenstorrent RISC-V IOMMU (2026-05-23 17:14:35 -0700)
-
-----------------------------------------------------------------
-Tenstorrent device tree for v7.2
-
-Add a riscv,pmu node to the Tenstorrent Blackhole SoC device tree. This
-enables OpenSBI to expose the SBI PMU extension, allowing Linux perf to
-use the 4 programmable counters (mhpmcounter3-6) across 3 event classes:
-instruction commit, microarchitectural, and memory system events.
-
-Extend the RISC-V IOMMU device tree bindings to document the Tenstorrent
-IOMMU used in the Tenstorrent Atlantis SoC. A second register range is
-added which contains M-mode only registers like PMAs and PMPs. The
-binding will be used by OpenSBI and potentially other M-mode software.
+  riscv: dts: thead: Enable wifi on the BeagleV-Ahead (2026-05-25 01:36:56 -0700)
 
 ----------------------------------------------------------------
-Michael Neuling (1):
-      riscv: dts: tenstorrent: Add PMU node to blackhole for Linux perf support
+T-HEAD Devicetrees for 7.2
 
-Nicholas Piggin (1):
-      dt-bindings: iommu: riscv: Add bindings for Tenstorrent RISC-V IOMMU
+Enable wifi on two TH1520 boards: BeagleV Ahead and Lichee Pi 4a.
 
- .../devicetree/bindings/iommu/riscv,iommu.yaml     | 59 +++++++++++++++++++---
- arch/riscv/boot/dts/tenstorrent/blackhole.dtsi     | 48 ++++++++++++++++++
- 2 files changed, 99 insertions(+), 8 deletions(-)
+The BeagleV Ahead board uses an AP6203BM WiFi module connected to SDIO1.
+The Lichee Pi 4A has an RTL8723DS WiFi module also connected to SDIO1.
+The module reset line is driven through a PCA9557 GPIO expander on the
+I2C1 bus.
+
+----------------------------------------------------------------
+MoeLeak (2):
+      riscv: dts: thead: Add TH1520 I2C1 controller
+      riscv: dts: thead: Enable WiFi on Lichee Pi 4A
+
+Thomas Gerner (1):
+      riscv: dts: thead: Enable wifi on the BeagleV-Ahead
+
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 48 ++++++++++++++++++++++
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts  | 47 +++++++++++++++++++++
+ arch/riscv/boot/dts/thead/th1520.dtsi              | 11 +++++
+ 3 files changed, 106 insertions(+)
 
 _______________________________________________
 linux-riscv mailing list
