@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B3CCD5BD1
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 20:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7290BCD6E5D
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 20:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dItWhopgUPPODEjE6TsXn1Pk2qHw3wyhqymXxb/aGs4=; b=VorXafffIEbbME
-	M2TFVtvpr3qM1IlNfu5YRcAVZP7W97W/L+E6v3jGjRrKeZbSyjBcVpkPtJCUNyM9IjU0w4E2E4pTQ
-	9+q320HeXJd5z/eJZuClclP74QB6nTlzEd0o6qdWjY5cU1tQrp0eCJzwuAllzm+XeQ51LtemO6G6f
-	NzPVFsCp0CBtGjXVWHOyJXdIF/2UdvcMx8QE0m80+lzbb1V4l9APD+4vfRsTpNJ/xxyMCqPpdXbI1
-	jGjcInRea3nPwWYWEEtj53gp6BmPy0yv5ou3dU0Wsx61IH2a+w2y+gfsOrmAnvE+LFG8EnF3Zru77
-	LQxPPhW3X7bvfAGP+hHw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pN+SlcsECL7PtL5YsiZuOYGwmNd3mdzdvOAu8ATrShc=; b=jzEx5mlS2FhT/8
+	oT4egN/SHBx+HCAGeNRtq48xfsPDxGtp7DfK4zO0Mg4Bs+vFuyCOs6g4psinxMSwBU6Nno2b9eaB0
+	kVPMA5Bd7FLoJDPRRMJoOAy2Lx2aJJNFGHkCBIAoKeLSyFikDqYrsSLIDS2k61MkcTAcos6rmOzLa
+	vxk9S8Hpwh+TcnRE4XCmNDi+GxqfT3qEXuWp9LL18CkWW4h2UyQJ2n+ojg7T6mUVOnk/wu6tF/HQd
+	bcAYsGK5v9zZDT0jJ8Yu+HE0iMOagp6Vc8ebW4i5oLXkmn3+QnEjeQk34CZt2HNNqCDQ6h5I52+Jl
+	Cq46tmnIJvKQB0z8Erow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWCf-0000000Dmpc-2R45;
-	Tue, 02 Jun 2026 20:59:13 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1wUWCr-0000000Dmqq-2p0v;
+	Tue, 02 Jun 2026 20:59:25 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUWCd-0000000Dmp7-0MS2
+	id 1wUWCp-0000000DmqS-3n5V
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jun 2026 20:59:12 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c85893bce34so1376769a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Jun 2026 13:59:10 -0700 (PDT)
+	Tue, 02 Jun 2026 20:59:25 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-36babe2c4bdso3035371a91.1
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Jun 2026 13:59:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780433950; x=1781038750; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0LsFwosRJQ7xuFenuTgaUzNnNnhs7WZU/8+qcwovvf0=;
-        b=JIyejkSY++Q+/29umgERRHvI/wc3wSWnzQ5YpHb+nzE/FT0skjy6mcMCTTv7l1oZVx
-         qh0lM9JqlkoG3MzmfwBFYVaLQah18lgfH3FPUdv+YmNIa/scSV/d2pV474t5Up05G7y/
-         SQiG26VUf4cJWrZ6BK3qnKoIx1VtD1F5bW5ebhMmvdqsjoggjV/LsHF8zkXhysMUrbTZ
-         Sobna+gTfwDDIIc4nEXuFrRtrR/hHwu2gGhNuWMNmt4NQhkzovuMOjmcNG27JcZstr+a
-         HKMQx/MU0mcAXEb/GzK8ejI9F4Gw3hWDNWCy9NIZL8/Bt2K6d461iRNFTxPNzqw819ms
-         dxHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780433950; x=1781038750;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1780433963; x=1781038763; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0LsFwosRJQ7xuFenuTgaUzNnNnhs7WZU/8+qcwovvf0=;
-        b=XKlUQdYpVr4E7FkeQeQv+fxhmlv1I7E3BpSqHhvg5uwVkODZUlnub/VutZ6Cp+jf+0
-         RGVNOPKwrS5a6JqzLVyw+ALDKdXfiK7uVDX+bCPGznDQ9vbvD5LjkdDtYNO9yG2PptNH
-         Hd+EobZaVnJo7J9lhhHR20apmsnsSlZ9436moUUqdGlNzp697d/ACxjmnu2rA4PbwGfx
-         TtgBs/NgZH2rQCdjcz/mxFm0H7tzo3E8SGkx+pIHMunzHvt8rZqiq+ZXodLpREQZxauW
-         oqIkH+gBSjcZY6T482zQVJ7Y1UVdC7/ppsq/BEWUGWDxRO1DXN2OPEVw9ojlUy61BHGC
-         54Yg==
-X-Forwarded-Encrypted: i=1; AFNElJ/TdIxiep6ubXgCMj0hEyHp7mx5trB9VA668n6W2gwLeXIh/G2fdGvz/bCpRlcr9O4dWuOlTIx3+E5vYQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwZUjADvRXA2vKUHMu+hE9uqv8uPZPB8mGzuUe8mxfMlDuAGnh
-	PX9WTVka8jzG/Qh9M76dUVly1W9b6AUX1iltnRw7DcI+4cyhz1slX4vg
-X-Gm-Gg: Acq92OF1N5tL1vBdejtTbANlmgEHZLWYw8IHjT8DJUP6/zWrZlxhKq4zRxJx3WUTeK3
-	hp2OOa7C7pjD4j7raCMZ6rmIz9dDOPiw+6xLatVHZw7yCbDXT5Mfn/PSYRWpNGXdLL/r58m4vSG
-	/295rribA72lQqxeozlhB872WtPq82whgn+nuvpsZNRBJmVsDlxthDR6xqi1G56Ma6XKo9VNpSV
-	mWMR1dUxp9ysVIQqTFVeS9p3lIjeXhG/3v7yhafKQH/Cd2FJoaWzcC1EqZECl/c/2YNxF0SunI/
-	R7iiQvSZtuhDhFBLnGtGtiwniZQWnubltJFoK5S7Duq6u43b48tcjU6t1XP/2WtLzlIVup3V5ww
-	IzDHG1xGYv3F1MAFd7dreiNiAi/scH15TzZVbfigI3dQn/26jYlm8JMpIwTluNBlyr2msxCxR2C
-	zwszwpCMUW1pqdRcQLZ3bEalGdQJIRBiVA6NJxxtnfTq8WB0M1gVdpLvDeSiLy6YsA1wkD8AbA9
-	zzasw==
-X-Received: by 2002:a05:6a21:6c11:b0:3b0:7771:ca57 with SMTP id adf61e73a8af0-3b497669eacmr475117637.38.1780433949708;
-        Tue, 02 Jun 2026 13:59:09 -0700 (PDT)
+        bh=ea3yw5dmVH/Wal3jfG05beYzbzDpKpyYIVD2MX/4oR4=;
+        b=Y47Zto6Z6aqK7iKa7SnvMlpp1fgAa9MOXHhRgFlBd6cS3YKur/LYgiwSkf8KQWaAFE
+         ZzqTxmId996gXIg5NUPJ8My4r411i9UQrwsxUXk81YQtE1nzerQWsxvPCObmguIGX2zU
+         eLPXQGpccdzo8aOTQZ1RIhOVQH/jKEqnva58JLQtJjDQ/sk7Skq9rM8qcb8Rme2Fy9mP
+         Jd9f4ZSmnfMxYnG7M4M/LqbwxAFsHRVyzTz/zX4bhQKfJc+Jtw/lBE2+bWLM/Q3AEN0z
+         xXnPFeWCKzqHQlVVpxGVe/DyvMjJkn5UdIf7oX7QPgLimIlBQcpYRCtoN8R0x9AW+yQj
+         T5jA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780433963; x=1781038763;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ea3yw5dmVH/Wal3jfG05beYzbzDpKpyYIVD2MX/4oR4=;
+        b=Wtwn5CiL5Myx6NAnzhqX5mP9uTxuo3MZUUAOM+W2yL4IOpdlosJfQr0GO0JJ5OVbja
+         zNSfq6c1xFraEykDzL36pCnN+jnVixeEjtBlsrajsRNr3i37PZPV37/Nsk/5p8xzW3wY
+         CIfQrkYxsshDasQxoVSFg2GY/lbWlYvhFege3qlQ6OrHKDs5TO/IBJ16baneO3tIrEJv
+         swn52sKB26EUMQAYDzPoqwtqQ5EGh5hJyTkMFj2UI0GJ4Yh5By7eZOJoDMlSPcZVokz9
+         bEq9eN/p3FHb/360RbKQWAnra5cc/m4SQtObVTH1GKjFmGqaTUZnheNAh582jZyKHG1j
+         4V9A==
+X-Forwarded-Encrypted: i=1; AFNElJ8v31bd2cD7cUoJ+xF08+2qsXIJ3pr5+0HCh+pV8t2xhj0HuEfVvFyLvmXMXK3HfeNsGwCzp6wfNfdrgQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyn653F3kRzEGYdZOcj1PmU+v8i0WiGjZ88ll20ocOHct2S/3zC
+	8rMGc6X+JhwL9NVenKJbdxsPJnnMIf+4yT7tmt0gpPdRpf2qh6hL97Gn
+X-Gm-Gg: Acq92OGPRA8KprOToeYQWNZy1quuKZ+hxyiiRQmJYgJE/jKc2VhgnyTa2LtKj+9aP0F
+	9WcxaN4XIcCSsMkwMcUwPNdms0caoAOxHyXC7EVxzeEOHhmvEKCjYGuXrDHddkip2Rdkzmabg8r
+	7kFpzP0ZF6lDdVJg1jlAEeMM5hz9EucZnpovGArpkRqxvkNNR45LGiZxLnpHcv937iLe4mmHgLW
+	eQWitSgMlDoe9r6k5Rp3eW19oQKdhFzLA0xn6gpZrbgKrz/pIH+EE1YnkZdhsEeMlJcVxqSbUij
+	4QhELIWZNo8YF3C9o9bZrZmAjDTooANgjLULspw5ggB4v6xaMoeqqD5hVhmbX5Lb7kF09zQO39J
+	pVNfDBGe8lVnA76F5UgSG97rAOPKFsnkSAYujm0a1lqYreo/BjCqeAc7M/arEb+K+gzlwaHiCDL
+	e5SlVm7arCKsaB1rU1CalaJrxWEb28h5lb9Y7TxTNoj7+NsshGZD4ZqETeZPcFlFhii7hVXD4Zz
+	Rt1pO5MXKO9eCxB
+X-Received: by 2002:a17:90a:b401:b0:36b:5b82:4834 with SMTP id 98e67ed59e1d1-36e30c213bfmr311928a91.7.1780433963026;
+        Tue, 02 Jun 2026 13:59:23 -0700 (PDT)
 Received: from computer.goose-salary.ts.net ([2a09:bac5:3b4a:11cd::1c6:2])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df043223sm157354a12.8.2026.06.02.13.58.58
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85df043223sm157354a12.8.2026.06.02.13.59.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 13:59:09 -0700 (PDT)
+        Tue, 02 Jun 2026 13:59:22 -0700 (PDT)
 From: Varun R Mallya <varunrmallya@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -92,15 +93,16 @@ Cc: martin.lau@linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	varunrmallya@gmail.com
-Subject: [PATCH bpf-next 0/2] RISC-V JIT support for bpf_get_current_task/_btf
-Date: Wed,  3 Jun 2026 02:28:45 +0530
-Message-ID: <20260602205847.102825-1-varunrmallya@gmail.com>
+Subject: [PATCH bpf-next 1/2] selftests/bpf: use host CPU features in JIT disassembler
+Date: Wed,  3 Jun 2026 02:28:46 +0530
+Message-ID: <20260602205847.102825-2-varunrmallya@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260602205847.102825-1-varunrmallya@gmail.com>
+References: <20260602205847.102825-1-varunrmallya@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_135911_134330_1A82696F 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_135923_945866_F0D75BDB 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,34 +119,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These two patches add support for the bpf_get_current_task and
-bpf_get_current_task_btf kfuncs in RISC-V JIT and add a selftest.
+Pass the host CPU name and feature string to
+LLVMCreateDisasmCPUFeatures() instead of using LLVMCreateDisasm(), so
+the disassembler correctly decodes CPU-specific instructions and
+extensions such as RISC-V compressed and vector instructions.
 
-The first patch adds support for cpu and feature detection on
-the JIT disassembly helper function as RISC-V JITed code was not
-being disassembled using `LLVMCreateDisasm` as it was missing the
-"+c" CPU feature and JITed code contained RISC-V Compressed (C)
-Extension. This patch generalizes that to detect CPU features and
-enables testing on more RISC-V JIT work ahead.
+Signed-off-by: Varun R Mallya <varunrmallya@gmail.com>
+---
+ tools/testing/selftests/bpf/jit_disasm_helpers.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
-The second patch, which actually adds this support has been benchmarked
-on QEMU RISC-V and shows significant improvements.
-It was benchmarked using a simple loop inside a bpf program that ran
-bpf_get_current_task() and execution time was measured. It used
-bpf_prog_test_run_opts() to repeatedly trigger the BPF program. The loop
-ran in 1 second intervals and it kept firing bpf_prog_test_run_opts() as
-fast as possible until a second had elapsed and then reported statistics.
-
-Varun R Mallya (2):
-  selftests/bpf: use host CPU features in JIT disassembler
-  bpf, riscv: inline bpf_get_current_task() and
-    bpf_get_current_task_btf()
-
- arch/riscv/net/bpf_jit_comp64.c                     |  9 +++++++++
- tools/testing/selftests/bpf/jit_disasm_helpers.c    | 13 +++++++++++--
- .../selftests/bpf/progs/verifier_jit_inline.c       |  2 ++
- 3 files changed, 22 insertions(+), 2 deletions(-)
-
+diff --git a/tools/testing/selftests/bpf/jit_disasm_helpers.c b/tools/testing/selftests/bpf/jit_disasm_helpers.c
+index 364c557c5115..3558fe10e28c 100644
+--- a/tools/testing/selftests/bpf/jit_disasm_helpers.c
++++ b/tools/testing/selftests/bpf/jit_disasm_helpers.c
+@@ -96,10 +96,19 @@ static int disasm_one_func(FILE *text_out, uint8_t *image, __u32 len)
+ 	__u32 *label_pc, pc;
+ 	int i, cnt, err = 0;
+ 	char buf[64];
++	char *cpu, *features;
+ 
+ 	triple = LLVMGetDefaultTargetTriple();
+-	ctx = LLVMCreateDisasm(triple, &labels, 0, NULL, lookup_symbol);
+-	if (!ASSERT_OK_PTR(ctx, "LLVMCreateDisasm")) {
++
++	cpu = LLVMGetHostCPUName();
++	features = LLVMGetHostCPUFeatures();
++
++	ctx = LLVMCreateDisasmCPUFeatures(triple, cpu, features, &labels, 0, NULL, lookup_symbol);
++
++	LLVMDisposeMessage(cpu);
++	LLVMDisposeMessage(features);
++
++	if (!ASSERT_OK_PTR(ctx, "LLVMCreateDisasmCPUFeatures")) {
+ 		err = -EINVAL;
+ 		goto out;
+ 	}
 -- 
 2.54.0
 
