@@ -4,79 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F26CD6E5D
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 12:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEBB9CD6E55
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jun 2026 13:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sP5isdPeJU1jnHDI8HxS1d3AF/JiCtL1S23DvMBmD0k=; b=v9LHM3jbWWO3fL
-	Ln39cs+63l9qhYd+K4qHZPB/R/awXqnn/laVr6Lz3zZqmPE/oEKDc5y4BDZXwDp8WMJfruj9sKwVo
-	1BFd6xqexCBaGxjIZQdBB0/2rTsGPp2HZvx5uV8zoOMXtleJW00TbQyrly0duvvktgYtaXK1E8IKe
-	f1GibqNaEdqETJE71+fI1LauKPTRKpeZZmHEp8qnVrFB/LhwzsNEvC4R9rEBO4DMABZnK+goR/c0q
-	9TNRvT9ExMPznyoUV9bAmF5i2UCvfkryufTxIzCFJXWDRbx4uSwkHzkHM2UElcpTktZOmOhFJmVNN
-	HdKKjXdgKI75qexHg5aw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RdvqVgp9c89RSUQzo4wk63mQ8ALFKMAV0aHaGI5ZbUI=; b=nYIAU+n1//Qy1n
+	kQm1QorHIBhBmZWtBi8vdX8+/eGnMWGYuGzayaj5ImlZYDvsj57R6OHScGM5ZUtTcoYfLYD1kSa4b
+	Txj31y8beCtWBIt38loVr68NNv6S51eptg6zhMcAPUSbDzwmS/jbqdMrQirIy84bTEW6NkbwffMy1
+	ygcZ3Gkutw5KCytOa1fgEtPJHnTdcEJ4Y7lb17N84RbwqhMfL4JzH994XHKhP8Bh5LUOIg0BZFyBO
+	zWLCZGGstfouaJsDM4h2rA2UJhGnUNQuHT7iHmfxx4nthF07E2ZxC7A5CryvxzZJuqgszDpOfmRHp
+	EAdIxd3ANgQ+Va7jUsqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1ui-0000000B9SE-0Hxe;
-	Mon, 01 Jun 2026 12:38:40 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1wU2o8-0000000BDTs-40UH;
+	Mon, 01 Jun 2026 13:35:56 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wU1uf-0000000B9RE-1817
+	id 1wU2o6-0000000BDTY-1BVg
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jun 2026 12:38:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780317513;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Y8Q9MsGaEY5Id3cDoyk/LMPpb+cY3ipFpIzkjqGDFMo=;
-	b=t9X+k6PkHR5WsisChw0O5VpIHYqYLwjr9DFuC/tgFLuN5u0rKS+6y8bhT2MX1ghqTZTr+n
-	DuMVk9niJvJLHdW7PBgKF1COtMWreGWe69fkyAbs03os4PWMGg/jK82UDtSe59liiNNRDy
-	2uJ7I61UVj726QpKC4J0NufWJLLoJoQ=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH v3 1/5] mm/sparse-vmemmap: provide generic
- vmemmap_set_pmd() and vmemmap_check_pmd()
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <db8d440d-c8a1-4f77-b5d9-00bab8737f12@kernel.org>
-Date: Mon, 1 Jun 2026 20:37:42 +0800
-Cc: Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Andreas Larsson <andreas@gaisler.com>,
- "David S. Miller" <davem@davemloft.net>,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org,
- loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org,
- Alexandre Ghiti <alex@ghiti.fr>,
- Albert Ou <aou@eecs.berkeley.edu>,
- WANG Xuerui <kernel@xen0n.name>,
- Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>
-Message-Id: <0D4AF42F-37C5-4A76-9703-44ACC6374C48@linux.dev>
-References: <20260601084845.3792171-1-songmuchun@bytedance.com>
- <20260601084845.3792171-2-songmuchun@bytedance.com>
- <db8d440d-c8a1-4f77-b5d9-00bab8737f12@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 01 Jun 2026 13:35:55 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2c0aa420401so11603585ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jun 2026 06:35:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780320953; x=1780925753; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IbcsOvpeEjozPZH+4z97yjnc522GeGwDhfuuOcja+k0=;
+        b=CnFIBlZFCq+G14NSyTIffzxvb8FLjHylyITjlvVEdIgPG0jQaIQ1FlDZHw1WLVqzV0
+         sDVX97ctEOMCLu6pNaPV+5Z0ddddw5sJwX2A0KjV8QbdA1uNrDTQZUY80BnBzCKW/s10
+         fllT6AICCf87by5xZTR+NBPCx/E/UI29gNZxyum2/4bCkUvrn93MJ5YB6ggzgOqnoi/B
+         nqXFYYtlL8c7QeMS4yw7m0nKLleSxUzyhQf5BljWLnt3KOTPY2hboz67Ifhob8keZDf0
+         Ea5m6d2G7452o6Voyz+A0CAqhGSQyzP4WLev7zjDs9vKEmcGJTF+qhXiGEjuOtByeLNV
+         dRLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780320953; x=1780925753;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IbcsOvpeEjozPZH+4z97yjnc522GeGwDhfuuOcja+k0=;
+        b=gAKg6raJJKwCn6RJIbyx/yQFHd1K068e4QU2JQuLkrbfCPHY8pkwzrT1weEynwQdMY
+         vGTtM5V03A/ookoX7Mg6sMfSwFD8M9UdRjiLvLt/chVjA90OLdRz3hI+6zIY45Yra453
+         HghQprMkW/qDNzo/9X4wMihTvX4OO7PFktSlBlkUAT8P99/WVSO6lVF2xmUnsbM64tYe
+         CSjbs36IrfaGQvSFmj3nddkKFlFHQtSajhYj8+9IfJa5lEpudChWxh//uZDH0qaWBBZq
+         tJ7yidayArBJXihMaZB8lQ3yxV/Dc/m/9YQcfeiWvXcsEVDJ8aELuF9srJujBg9vR1ji
+         MTUw==
+X-Forwarded-Encrypted: i=1; AFNElJ/rVOPZfISMGFcIzgPrZlJy3M+FrUr3vYEgFTtO5riN7R4oHG95HqD4Ux3lRUiENHcxczXtYnfamuRnIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhmJkFV1wftUIzzEh4Jdq0gfdazc2D73YzTiLTLRqPZlh65pDc
+	tukZgwv81TkmN50DGRupBB4F6/S8u0ufbo3d58mi8CEr0RpSVcnJK+0s
+X-Gm-Gg: Acq92OF+WVWQTHK/hBkvpEBsPrn12Rdp0BVm6oQLSDiOWEnjVic0uC390FaryF/DA1X
+	Hk9pzGu20D7nbADrZBSCaR9IBXJxtsNO3c6Ochxgz5kE7xwPrZNaxKWcentPIPAaIV0J8UiWItn
+	0agfqvWGQBYozCd9YhK+v9F7CtWbRMG/HXHaYpItsBITViXTKSqAwdgmLvBbQxOgfecs3YocAuP
+	G+sSIC4LO/Sx0htuEHzyyYRS7jvHMaKnrSNUifqpN+mlRe976rWQf2u+goX21+hF8X8FeIoSFOD
+	DDrfHcGTu2BBlQElsWeDhekcfA4yCTOH4NqpmFPJR/ethbW30Vu/FrjExCY7MUoo2cFTBBVuKSB
+	qoEHjnLBgFYdzht6lDqmnwZ0DM1WLaYA2a3M54YP4os2+gj7hFJFm60aK7j3qjN5LiZhMdcF3Fn
+	z0pZj/escDPQ==
+X-Received: by 2002:a17:903:244e:b0:2c0:d097:51ba with SMTP id d9443c01a7336-2c0d0975470mr58699645ad.26.1780320953126;
+        Mon, 01 Jun 2026 06:35:53 -0700 (PDT)
+Received: from [127.0.1.1] ([2a12:a305:4::40e8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bf23b011f7sm143136885ad.41.2026.06.01.06.35.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jun 2026 06:35:52 -0700 (PDT)
+From: Guodong Xu <docular.xu@gmail.com>
+Date: Mon, 01 Jun 2026 21:35:06 -0400
+Subject: [PATCH] MAINTAINERS: add entry for SpacemiT reset controller
+ driver
+MIME-Version: 1.0
+Message-Id: <20260601-b4-spacemit-reset-maintainers-v1-1-1ab3014e9a35@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAEkzHmoC/yXMQQrCMBBG4auUWTuQlKYYryIukvRXR2gsmShC6
+ d2NdfEW3+atpCgCpVO3UsFbVJ65wR46SveQb2CZmqk3/WhGYzkOrEtImKVygaLyHCTXForyEF3
+ w1nnvjo7aYym4ymf/ny9/6ys+kOpvStv2BbDluqCBAAAA
+X-Change-ID: 20260601-b4-spacemit-reset-maintainers-4b5a91599585
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Alex Elder <elder@riscstar.com>, Guodong Xu <docular.xu@gmail.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1868; i=docular.xu@gmail.com;
+ h=from:subject:message-id; bh=U81JaS+uVsOCq5xH8KHw7CF8Re1+ZOxCZXh7B8IuBNE=;
+ b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhiw543Cn5BU3Fq/3y9acfvJ192yRmf3GW2/tSJ72OW1Fz
+ ITTgfKrO0pZGMS4GGTFFFkOH23J3vrKJ9r3OecPmDmsTCBDGLg4BWAihxYy/C8LDnoeba06o9/Z
+ oPDTZB25Fx8us7wqecOn0vRuyyw7n1aGf+p5F5NKPRlOGMhrS3Ra3NO/v6Lg8Xff2LmOy9IDVov
+ P4QYA
+X-Developer-Key: i=docular.xu@gmail.com; a=openpgp;
+ fpr=90B1DC3DF0BD10FD1227BD6344F254AF42F143EE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_053837_517685_EABFFC64 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260601_063554_349795_E3EF57A8 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +112,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The SpacemiT reset controller driver under drivers/reset/spacemit/
+(common code plus the K1 and K3 SoC instances) and its reset-ID header
+have no dedicated MAINTAINERS entry; today they fall only under the
+broad drivers/reset/ entry of the reset subsystem and the N:/K:
+catch-all of the RISC-V SpacemiT SoC umbrella.
 
+Add a dedicated entry and list myself as maintainer. I introduced the
+drivers/reset/spacemit/ subdirectory, moved and refactored the existing
+K1 reset support (originally written by Alex Elder) into it, and wrote
+the K3 reset driver. The series that created this directory and these
+files is archived at [1].
 
-> On Jun 1, 2026, at 20:22, David Hildenbrand (Arm) <david@kernel.org> wrote:
-> 
-> On 6/1/26 10:48, Muchun Song wrote:
->> The two weak functions are currently no-ops on every architecture,
->> forcing each platform that needs them to duplicate the same handful
->> of lines.  Provide a generic implementation:
->> 
->> - vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
->> 
->> - vmemmap_check_pmd() verifies that the PMD is present and leaf,
->>  then calls the existing vmemmap_verify() helper.
->> 
->> Architectures that need special handling can continue to override the
->> weak symbols; everyone else gets the standard version for free.
->> 
->> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->> ---
->> v2->v3:
->> - Replace BUG_ON() with WARN_ON_ONCE() in vmemmap_set_pmd()
->> ---
->> mm/sparse-vmemmap.c | 7 ++++++-
->> 1 file changed, 6 insertions(+), 1 deletion(-)
->> 
->> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
->> index 112ccf9c71ca..99e2be39671b 100644
->> --- a/mm/sparse-vmemmap.c
->> +++ b/mm/sparse-vmemmap.c
->> @@ -386,12 +386,17 @@ int __meminit vmemmap_populate_hvo(unsigned long addr, unsigned long end,
->> void __weak __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
->>       unsigned long addr, unsigned long next)
->> {
->> + 	WARN_ON_ONCE(!pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL));
-> 
-> 
-> Not sure if a VM_WARN_ON_ONCE() would be appropriate. (then, we have to move the
-> pmd_set_huge() out of the statement).
+[1] https://lore.kernel.org/spacemit/20260120-k3-reset-v3-0-effe87f4bdbe@riscstar.com/
 
-I think it might be better to keep WARN_ON_ONCE here. This way, we can still
-monitor for warnings in production while keeping the code simple.
+Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+---
+I contributed this driver as Guodong Xu <guodong@riscstar.com>;
+docular.xu@gmail.com is my current address. A matching .mailmap update
+has been submitted at
+https://lore.kernel.org/all/20260601-b4-mailmap-guodong-xu-v1-1-ee9eff1e57ba@gmail.com/
+---
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-> 
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 9ec290e38b44a..c9d87244c1715 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25119,6 +25119,13 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+ F:	drivers/i2c/busses/i2c-k1.c
+ 
++SPACEMIT RESET CONTROLLER DRIVER
++M:	Guodong Xu <docular.xu@gmail.com>
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	drivers/reset/spacemit/
++F:	include/dt-bindings/reset/spacemit,k3-resets.h
++
+ SPANISH DOCUMENTATION
+ M:	Carlos Bilbao <carlos.bilbao@kernel.org>
+ R:	Avadhut Naik <avadhut.naik@amd.com>
 
-Thanks.
+---
+base-commit: e43ffb69e0438cddd72aaa30898b4dc446f664f8
+change-id: 20260601-b4-spacemit-reset-maintainers-4b5a91599585
 
-> 
-> 
-> -- 
-> Cheers,
-> 
-> David
-
+Best regards,
+--  
+Guodong Xu <docular.xu@gmail.com>
 
 
 _______________________________________________
