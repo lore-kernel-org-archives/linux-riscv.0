@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9A5CD6E4A
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 04:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4C5CD6E4A
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 04:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qkfygo02Nvxa/PzYHSnyqbkNu+ib3AHzW30nTH8Uvuo=; b=XQ55B8iaUThGGX
-	QVREE9kH7WmSw0K/Z5tGGDiSqLQSC5rtihyky8OKDH0XE/wiQeIWFlHXte1V+wG8HMNt5Pqlh9U6C
-	fHjRT7Xg2bxDPM/T+ZPtw7JHM6B8vlc+IEIzXfaZGvvrGo1LlKW6lj0dPrfKMTWAkIEI4a/jh7f9m
-	Na0DW3tCS1jI/6U9osITKCUXL+gLT/ONgj8GoM3e0c1loD4lR8fb4NmXD7/luBANM1mvJfq9ZXgV9
-	op2o0cy14SoPvnuxSsojUtZbqpI6ZN9+A6n5z/hluSv/55wCIqAC01Jq1ABl3QpTIEpYR3gTpC+2f
-	ZskjSx2Q+mhM0/kKwMwQ==;
+	List-Owner; bh=TwrfgxU06x2R07UaF8n2XkZgg+h+O54OgDac5z4+HT0=; b=tDUQ/C876ZoA8F
+	KTFrhGA4W3fJu6k2MWGlbZd2fEhwGZKWCnxx13iydtNZPZNvOOyHFTu257PxJRH51wHBaZLUB1CZU
+	h8C9wZbfk2aattmseETZFLsotpgxOJUjZbTUSNJdwa3GN0SrxL/fkiO4BZYyakEhw9CMOBwo96+dp
+	UtMQ8DSPCvDPi3kr6xSfNrqlpQbjGCTcYHM+pLln2ynL7gZlPyG5wBboBJytvDbjGN4jknU7Ws2TR
+	TZR2sys6d44Lz7N9pjJwFAiPXnZ9eva5L/6msxmrIy8vvtc/Gn8Os6qBdmI3dpgF/hAtSiSnGvYfe
+	r2YluNAyfTcnEwm4rsig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGxu-0000000CHtY-09pL;
-	Tue, 02 Jun 2026 04:42:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wUGzn-0000000CI4p-23W6;
+	Tue, 02 Jun 2026 04:44:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUGxr-0000000CHsi-0VcD;
-	Tue, 02 Jun 2026 04:42:56 +0000
+	id 1wUGzl-0000000CI4H-1Bbu;
+	Tue, 02 Jun 2026 04:44:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3EBE56001A;
-	Tue,  2 Jun 2026 04:42:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 758F31F00893;
-	Tue,  2 Jun 2026 04:42:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DA99243951;
+	Tue,  2 Jun 2026 04:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39F821F00893;
+	Tue,  2 Jun 2026 04:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780375374;
-	bh=q5LjwyqHv+cuF7cox7QKxMaKT1u+xe8DMZ1+K1paDkg=;
+	s=k20260515; t=1780375492;
+	bh=HBcSho0hyTBOiz46tMOdOloLT1LDWsfZliq97z/1xao=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NX7UIQafey5Ppn3S4T1W8ulKWcx4GVHL15p4QQacar67iFhuJ0SNvibBo7j5gjswm
-	 JcsAqP7zzZJzRnXqBdU6QzcN+4R7VKIeX8Xdykkre0iNXgb6t953myJbsK50zpg649
-	 HE0ZA2rzhJDVPZNjRWV9WaDh9YH2eHkyATGegZvIUvbXG5v8xMKnkL74KMQNC/kNlZ
-	 KmgKKRYH1J5c1mXc7/VgzS/aLHeNKUEj83ZfX+Ne/KdABkR9otndfuDAiJoe5YDyPi
-	 XDsF7iWnVbPKMaoX/HaJJ0jS+/fBdjlRU2RNdW2K5dYPOAPsoYmXIasV6MVTYSvymN
-	 PNjrjnre0i6Pw==
-Date: Tue, 2 Jun 2026 06:42:45 +0200
+	b=dscgPlENCGbnky2yH/Uf26BENDpdZmCNYagwcRFJUhTkMydO+/0JasfnOfb6k/Pz8
+	 5Kzg5CgZ3DbhA3mk2MbFQw+6FBTCNen++P5Ul6oWqo4nLZ0F8LX+Or0ibTfPSHM5q7
+	 VfxD+jIYyPQaIgwUc0Qq+IGRrA8unrZIUZ/goWhu4AnrDEtaHvsU8DR4APQe89ehJI
+	 Ef7lCvRcfISQj6222jsW7gGQ3StuP09wXeRJcybPZyOM3plqWfZQkRzqMEQsgXqOBp
+	 lYD3IJ9ivvNM271iJK88fZ/7GtgwWeYa7TKfKYoD+b1skZ4AZdek6Gtue2J4+n5NIg
+	 jja0YigGJim0Q==
+Date: Tue, 2 Jun 2026 06:44:42 +0200
 From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
 To: Muchun Song <songmuchun@bytedance.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -62,14 +62,18 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Mike Rapoport <rppt@kernel.org>,
 	Suren Baghdasaryan <surenb@google.com>,
 	Michal Hocko <mhocko@suse.com>
-Subject: Re: [PATCH v3 2/5] arm64/mm: drop vmemmap_pmd helpers and use
+Subject: Re: [PATCH v3 3/5] riscv/mm: drop vmemmap_pmd helpers and use
  generic code
-Message-ID: <ah5fRXPvpOSmKoxl@localhost.localdomain>
+Message-ID: <ah5fusGeBmwsZuIm@localhost.localdomain>
 References: <20260601084845.3792171-1-songmuchun@bytedance.com>
- <20260601084845.3792171-3-songmuchun@bytedance.com>
+ <20260601084845.3792171-4-songmuchun@bytedance.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260601084845.3792171-3-songmuchun@bytedance.com>
+In-Reply-To: <20260601084845.3792171-4-songmuchun@bytedance.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260601_214453_344409_9812FFE8 
+X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +90,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 01, 2026 at 04:48:41PM +0800, Muchun Song wrote:
-> The generic implementations now suffice; remove the arm64 copies.
+On Mon, Jun 01, 2026 at 04:48:42PM +0800, Muchun Song wrote:
+> The generic implementations now suffice; remove the riscv copies.
 > 
 > Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> Acked-by: Will Deacon <will@kernel.org>
 
 Reviewed-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
 
-> ---
-> v2->v3:
-> - Collect Acked-by from Will Deacon
-> ---
->  arch/arm64/mm/mmu.c | 14 --------------
->  1 file changed, 14 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 24388e5c727d..ea10b0ebecd7 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1776,20 +1776,6 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
->  }
->  #endif
->  
-> -void __meminit vmemmap_set_pmd(pmd_t *pmdp, void *p, int node,
-> -			       unsigned long addr, unsigned long next)
-> -{
-> -	pmd_set_huge(pmdp, __pa(p), __pgprot(PROT_SECT_NORMAL));
-> -}
-> -
-> -int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
-> -				unsigned long addr, unsigned long next)
-> -{
-> -	vmemmap_verify((pte_t *)pmdp, node, addr, next);
-> -
-> -	return pmd_leaf(READ_ONCE(*pmdp));
-> -}
-> -
->  int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->  		struct vmem_altmap *altmap)
->  {
-> -- 
-> 2.54.0
-> 
-> 
+ 
 
 -- 
 Oscar Salvador
