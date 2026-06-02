@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F34CD6E56
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 03:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D80CD6E4A
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 04:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g6NrMp6WMNgJvnoLU+I+FLkFHI8inbWHhCQkfRyx2bc=; b=meoeX9BrVVqi9w
-	2jz7WkaV3tfsy09V4ATS5B0BVhiZWzYBveogFT7O0CerttZ/m3YhEyts+mIBCaNKnvPei9KOC4+85
-	3R1QLegdeOjh4U/MA2AkiCnIbqf6hy/JbzFHhMaOFrNv6tOxsCbn0FH9F022qu2gl6AS5Pfa2b10O
-	ccjz+2dzPIsupfzXHX85S0DzYS5lYklIECzH3kacckQ7h55R62wHs22D67VNKt5FDhoZEXRRuDvXa
-	8w37AoiC5temvdlE9SexhdYt0ddilWq5bS3kj04miR5uq0mnwSQL+LwZ+u/rvmrNzkITSyZVsNYi4
-	x9tDPNNIcl+FgQC2k15g==;
+	List-Owner; bh=D85h7Jmw5CXPXwjTOhAgf3h0lP+OxTB1x+r7tpJ5XZc=; b=ileeuIZ2AzkjjI
+	ZR4XUlOMkF5aRKLq71hefJplQ2btYmOR1rbyl9e+5oEHMgnyerI4V5KBrFxlh+1uDBYtEsC8Bz8wj
+	89hhkN4HgbIlWyRhKH6APYL94CFPlkOv+kaChC2E7Z7UFD6wfq5axf0QreMbafRVaBkgeQl5r3xcp
+	i+RX7Mp+z1gvcOo/PRtWK1KoYB0JFLqvs9aeVvxqRQZ6f3APEO2zoICe5n3MmMJSN0oiMUUW7vb5f
+	NZgmH6XV7Mum8FLWb7lknyVvph8mUNhyBYcnLWUb24RYSRuC/rF+D4+wf7as2zqqB7xs1F3UnSbVw
+	VrG7c6D3KlNI+SqchdVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUFSr-0000000CCr7-0Dep;
-	Tue, 02 Jun 2026 03:06:49 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1wUGvb-0000000CHYo-1B3A;
+	Tue, 02 Jun 2026 04:40:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUFSn-0000000CCpy-3SiP
-	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jun 2026 03:06:47 +0000
-Date: Tue, 2 Jun 2026 11:06:11 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780369591;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P70qjRmAyMymwJPTMfOq+4DYcvFmuGavpK8tS3QAMZ8=;
-	b=FfbPNmSqGFBVUXMW60W8WZklD/5OswTsE3vOOKJWBoPQkE+ieiKrsI/w+0/boUf1oyoQTr
-	a6KYsX23L/elGm5bXPqfLcPYLugymhGemNGpdBX9bswHkYCZ207Y83Ojwb0HZ4Gy7cbZDl
-	Ei0P5PYrgBGvOUgIoJMhYqqLwwkMndo=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Baoquan He <baoquan.he@linux.dev>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
-	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
-	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, robh@kernel.org, saravanak@kernel.org,
-	akpm@linux-foundation.org, bhe@redhat.com, rppt@kernel.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, rdunlap@infradead.org,
-	feng.tang@linux.alibaba.com, dapeng1.mi@linux.intel.com,
-	kees@kernel.org, elver@google.com, kuba@kernel.org,
-	lirongqing@baidu.com, ebiggers@kernel.org, paulmck@kernel.org,
-	sourabhjain@linux.ibm.com, thuth@redhat.com, ardb@kernel.org,
-	masahiroy@kernel.org, gshan@redhat.com, james.morse@arm.com,
-	maz@kernel.org, leitao@debian.org, yeoreum.yun@arm.com,
-	coxu@redhat.com, suzuki.poulose@arm.com, cfsworks@gmail.com,
-	osandov@fb.com, jbohac@suse.cz, ryan.roberts@arm.com,
-	tangyouling@kylinos.cn, ritesh.list@gmail.com,
-	adityag@linux.ibm.com, hbathini@linux.ibm.com, bjorn@rivosinc.com,
-	songshuaishuai@tinylab.org, vishal.moola@gmail.com,
-	junhui.liu@pigmoral.tech, djordje.todorovic@htecgroup.com,
-	austin.kim@lge.com, namcao@linutronix.de, djbw@kernel.org,
-	chao.gao@intel.com, seanjc@google.com, fuqiang.wang@easystack.cn,
-	liaoyuanhong@vivo.com, makb@juniper.net, graf@amazon.com,
-	piliu@redhat.com, rafael.j.wysocki@intel.com,
-	mario.limonciello@amd.com, jbouron@amazon.com,
-	chenjiahao16@huawei.com, guoren@kernel.org, bauerman@linux.ibm.com,
-	bgwin@google.com, takahiro.akashi@linaro.org, x86@kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org
-Subject: Re: [PATCH v15 00/23] arm64/riscv: Add support for crashkernel CMA
- reservation
-Message-ID: <ah5Ioxs9aLxKIKWg@MiWiFi-R3L-srv>
-References: <20260601094805.2928614-1-ruanjinjie@huawei.com>
- <ah2Lx7KHI60tzd0v@MiWiFi-R3L-srv>
- <1a459706-80db-43d8-b163-76fc09da338d@huawei.com>
+	id 1wUGva-0000000CHYX-0wj5;
+	Tue, 02 Jun 2026 04:40:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 568BC6001A;
+	Tue,  2 Jun 2026 04:40:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43B6F1F00893;
+	Tue,  2 Jun 2026 04:40:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780375233;
+	bh=srXwF/yhg+rbIcHkVtsiegnwql9Xlps6nvacpPywWg4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AVxln0DQCY1PNRUb9aWahhA0PjWLTKukZTz6gcf/R6ukpUVkqFE8CWcIeAncWYn7N
+	 9SVxYIW6aEFeLIlpyYOFHeaEHecDbIuH3q+g5YLAKEHaNn6ZRrgsqJihYLcXVkdG1x
+	 u8LM5FkmNtBFW2jPuWRqGDHrJbv/cHyD11bDv+X/qQmKmosro2X4Pg0c151+Y8SSAv
+	 hQWSIBG7Hk+uobN/a+cvh066m33eGdPyJnddbAG+dmD9IyBZMt1CDCndeajD7bKPSP
+	 7X0uyZ4JancSZq6PFTUoH3q4q3QPPvxzUudeqGg4m53tr/brD9qU9izIXKAOHQBjPp
+	 P3lcfQWN227kQ==
+Date: Tue, 2 Jun 2026 06:40:24 +0200
+From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
+To: Muchun Song <muchun.song@linux.dev>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+	Muchun Song <songmuchun@bytedance.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	"David S. Miller" <davem@davemloft.net>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, WANG Xuerui <kernel@xen0n.name>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>
+Subject: Re: [PATCH v3 1/5] mm/sparse-vmemmap: provide generic
+ vmemmap_set_pmd() and vmemmap_check_pmd()
+Message-ID: <ah5euKU9l3pP_8Ty@localhost.localdomain>
+References: <20260601084845.3792171-1-songmuchun@bytedance.com>
+ <20260601084845.3792171-2-songmuchun@bytedance.com>
+ <db8d440d-c8a1-4f77-b5d9-00bab8737f12@kernel.org>
+ <0D4AF42F-37C5-4A76-9703-44ACC6374C48@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1a459706-80db-43d8-b163-76fc09da338d@huawei.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260601_200646_180740_5D338A4C 
-X-CRM114-Status: GOOD (  30.59  )
+In-Reply-To: <0D4AF42F-37C5-4A76-9703-44ACC6374C48@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,76 +88,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/02/26 at 09:43am, Jinjie Ruan wrote:
+On Mon, Jun 01, 2026 at 08:37:42PM +0800, Muchun Song wrote:
 > 
 > 
-> On 6/1/2026 9:40 PM, Baoquan He wrote:
-> > Hi Jinjie,
+> > On Jun 1, 2026, at 20:22, David Hildenbrand (Arm) <david@kernel.org> wrote:
 > > 
-> > On 06/01/26 at 05:47pm, Jinjie Ruan wrote:
-> > ...snip... 
-> >> Changes in v15:
-> >> - Unify the subject prefix formats as Huacai suggested.
-> >> - Fix powerpc pre-existing NULL pointer dereference [Sashiko [1]]
-> >> - Fix powerpc pre-existing __merge_memory_ranges() memory range
-> >>   truncation [Sashiko [1]].
-> >> - Fix pre-existing arm64 CMA page leaks [Sashiko[2]].
-> >> - Fix pre-existing crash_load_dm_crypt_keys() Use-After-Free and
-> >>   Double Free issue [Sashiko[3]].
-> >> - Fix vfree(headers) and uninitialized variables issue
-> >>   and simplify the fix [Sashiko[2]].
-> >> - As walk_system_ram_res() and for_each_mem_range() use different
-> >>   lock, unify and simplify the fix of TOCTOU buffer overflow via memory
-> >>   region padding [Sashiko[4]].
-> >> - Fix the arm64 crash dump issues in Sashiko[5].
-> >> - Link to v14: https://lore.kernel.org/all/20260525084932.934910-1-ruanjinjie@huawei.com/
+> > On 6/1/26 10:48, Muchun Song wrote:
+> >> The two weak functions are currently no-ops on every architecture,
+> >> forcing each platform that needs them to duplicate the same handful
+> >> of lines.  Provide a generic implementation:
+> >> 
+> >> - vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
+> >> 
+> >> - vmemmap_check_pmd() verifies that the PMD is present and leaf,
+> >>  then calls the existing vmemmap_verify() helper.
+> >> 
+> >> Architectures that need special handling can continue to override the
+> >> weak symbols; everyone else gets the standard version for free.
+> >> 
+> >> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> >> ---
+> >> v2->v3:
+> >> - Replace BUG_ON() with WARN_ON_ONCE() in vmemmap_set_pmd()
+> >> ---
+> >> mm/sparse-vmemmap.c | 7 ++++++-
+> >> 1 file changed, 6 insertions(+), 1 deletion(-)
+> >> 
+> >> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
+> >> index 112ccf9c71ca..99e2be39671b 100644
+> >> --- a/mm/sparse-vmemmap.c
+> >> +++ b/mm/sparse-vmemmap.c
+> >> @@ -386,12 +386,17 @@ int __meminit vmemmap_populate_hvo(unsigned long addr, unsigned long end,
+> >> void __weak __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
+> >>       unsigned long addr, unsigned long next)
+> >> {
+> >> + 	WARN_ON_ONCE(!pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL));
 > > 
-> > Do these Fixes have anything with the main target of this patch series
-> > you mentioned in cover-letter:"arm64/riscv: Add support for crashkernel CMA"?
-> > The patches become more and more in each new version, I am wondering if
-> > it relies on these Fixes patches to implement your adding support for
-> > crashkernel CMA on arm64/risc-v.
 > > 
-> > If not relying on them, could you split them into different patchset
-> > on different purpose? 
+> > Not sure if a VM_WARN_ON_ONCE() would be appropriate. (then, we have to move the
+> > pmd_set_huge() out of the statement).
 > 
-> Hi Baoquan,
-> 
-> Thank you for your valuable guidance.
-> 
-> You are absolutely right. Most of these fix patches are indeed not
-> strictly related to the core implementation of the crashkernel CMA
-> support. They are pre-existing bugs in the surrounding kexec/crash code
-> that were flagged during our review.
-> 
-> Previously, Andrew suggested taking a look at the code review comments
-> from the Sashiko AI system, which is why these fixes kept expanding. I
-> completely agree with your advice that there is no need to keep them
-> together. I will split them into two completely different patchsets
-> based on their purpose:
-> 
-> 1. A cleaner version of this series, strictly focused on adding the core
-> crashkernel CMA support for arm64/riscv.
-> 
-> 2. One standalone bugfix patchset dedicated entirely to fixing these
-> pre-existing issues.
-> 
-> By the way, I would also appreciate some advice on how to handle further
-> AI reviews. It seems that the more code we touch or refactor to fix
-> these pre-existing issues, the more tangential bugs the AI flags in the
-> newly exposed areas, making the series extremely difficult to converge.
-> 
-> Should I continue to address all AI-reported bugs associated with the
-> surrounding code in this series, or should we draw a strict line
-> and only focus on the core CMA logic moving forward?
+> I think it might be better to keep WARN_ON_ONCE here. This way, we can still
+> monitor for warnings in production while keeping the code simple.
 
-Then please post patches to focus on the core implementation of the
-crashkernel CMA support. If any AI reported bugs are raised but not
-relatd to it, you can add note in cover-letter or explain somewhere
-to tell whehter it's caused by the core code and how you want
-to deal with it. Otherwise, you could go round and round of new posting
-and still can't see when it ends up.
+IIRC there was a discussion about this some time ago, given the fact that quite
+some people out there tend to have 'panic_on_warn', but then again, if we fail to
+set a PMD here it means something pretty nasty happened, so I am ok with that.
 
+ 
+
+-- 
+Oscar Salvador
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
