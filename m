@@ -4,75 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67ABCCD6E60
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 12:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 629F7CD6E60
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 13:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gS83Nj4jCwClcGU0FfZtDE/8OH+bRdtYRCQCL8fwVVk=; b=FDVdXCOOgGnsbG
-	G+B3yQ4t5oNyieTAFYAcrxktKCKBTXEq6X7UF7GZWctyOI9M8T/zPElvp+6lnmYbykXyl2jQfgBab
-	ITzlzoq6kDCxaWE9xudSim6b0aCto87mBg6viAZRDlpKJ3firNerkMV2cKpn/ElbVvB8SKB/TNsie
-	lBUNKFXJiQp5RjRZkQFwg0Ot/hQM+4Wr2RI/ekxQYUQ/lQKFM6+ZebgsYP98WXjz5TgPovOUPjwRT
-	Mep6fpsc/zygkNRHAXb1mS6EWMM+e+e3ns/Uhw9DHMjnAzmuciw3b509HlHR4FU2yX36HCA/OAHwW
-	jzEMc2eKaZ00A6OTYRoA==;
+	List-Owner; bh=+peWR9mlSXLpmWrOqjopU07pCJ2vbKrekeeg8JIji3k=; b=katy/TjseYnNHK
+	ABkx6/Cj/5vKzjxyp95LQZqcmgAK6tT0WdTinXRRDhn+3I4ODi60wiY5KVs9VsYwuNXuSu0o4/KHq
+	jswRCKGe/fw6n6VHC4Y3ZZKvTYafIMgg5wExzPIsXALyJYL0c+WW+/VS2bBOt1cmBJxubWhphhj3H
+	AeDwQ3I9/PzSvaNdJHCdJ6U6S81fzxA2e+zY1GXiEi3dmdL27yKeEacVK2wUuXzhaSBF1abZt3WRC
+	hCT59dqREdUvegeYzdjkIBCzo2u8CLbQ5bR/UUeAkTWahWOTN6NRMmIe+csarbFGMazfiwFT1fBbk
+	h2/O3vBOEVWJ16kSnNEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNu0-0000000CwK0-08ce;
-	Tue, 02 Jun 2026 12:07:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUOwd-0000000D3Zk-11Nl;
+	Tue, 02 Jun 2026 13:14:11 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUNtx-0000000CwJg-2ju1
+	id 1wUOwa-0000000D3ZL-17bg
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jun 2026 12:07:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D4499436FE;
-	Tue,  2 Jun 2026 12:07:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B1D71F00893;
-	Tue,  2 Jun 2026 12:07:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780402040;
-	bh=pEBanZXD28yLbzyFMoCw8vpjCe8PBdySKqmDHHVxhBo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=UuZgpxr4Bz6wK4Y/umHh3809GRuLo2prrzI8tybC7jqf0MyNIYnVdCKjEJJX9Fbxf
-	 Dot6L7mXi22VU0qRQB9/uMScKzhYulT9pEzNEH6+LUoJNit2YWc6qs79tJupg4fAq5
-	 Zd66Nfp9I6aCs/D/vjLvbvR7On48YV+2X/vMH4i9/6+m5duLzdL+9k/CHc1jm3QW/i
-	 Z5MPGZ+KxfWHpBtxnV9P5Yka0g8FDMitu+twjlnNXjnW0r1tRjuSwY+RTjkGF4JJ9f
-	 rELLAHdUk/jGWBjgpoLxfUqgGjyxAypRDN4nVhC7+lcKHi81iL7SuJ7D8EYcjsAatO
-	 ggcI8/TURz6ow==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Yixun Lan <dlan@kernel.org>, 
- Jinmei Wei <weijinmei@linux.spacemit.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org
-In-Reply-To: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
-References: <20260522-k3-i2s-v3-0-08e3eb811d93@linux.spacemit.com>
-Subject: Re: [PATCH v3 0/2] ASoC: spacemit: add K3 SoC support
-Message-Id: <178032605224.44654.17377992015065063925.b4-ty@b4>
-Date: Mon, 01 Jun 2026 16:00:52 +0100
+	Tue, 02 Jun 2026 13:14:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XXOVbDt4rZTdH7Et9xN8RAoP1HAXIa43LVIJZGns0YCfGR46EZh5V8p1d/+539uAubqhBh58Gj8PsJ3KM3hYtHfg+IgIwmLowcX4Ygl276/v95VWwJGGgmYm/VScUgWmRN3LGw64y66B1Ak114JWqYIiNBOA8K/EYgvUWkcSmoBeCAYiM5bNyy9Byy1eovFBYE+jCXeEnKTwI5qp5pgcjXqnkuelKMK1ZnEwN/VHTVgN0O5P2BjwiTDLSXvLL8G8zaU5jWBK1VCqBaiUaj5807QP/O4vDN9h/ZiucbWByanho6CKJtndVZoaUQqj2ZK6rd9phfwqSsh42afd9yTCJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6EA76C5KYieIJ6SkXAZzpiVgOKIM5nr79cwPlHjpGcM=;
+ b=dqpEXXZoUXELt+EXDovoTNyTduJrwOZ+y4VufV+n9BvsLaCoH7vbFwgsgmr04FdwKJGs4H6y17agXLBQqwLt03xLc6BwMl3sMmokjafMZawxEEW/BklUhDcFEhqm41RP2twvA37AePMHOOZiiNLyKUjsaf3X78Mdf8PG8/sIo3FuwD0tt8lPJzMUnYU2pPVe2rtCMnCGJYrkiQwXV7fuaqHm3hOMbNjgNBUEMS2vUMke3mV12/Ff4FEs/4IUv+xO2GrD0uFavMZQIi2/9V0jehJ5lJxY6BTzcNGojX2SSxKtOG/k7trrurGHvkM0/tp4mDyls3eEq35WlGDBJtBytQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6EA76C5KYieIJ6SkXAZzpiVgOKIM5nr79cwPlHjpGcM=;
+ b=AxQJ/7dNCdM+ocSucK637ypSPgCGqNAQLs5Kh8YJ2GNLEJHIS2lS+Sjg7FL18ZLypyHAPgO9xbUqC36qYNjvNiPbtXG5avF6eiUDcq9dYsiED64ZucoU5xeNUCEHYuoNA7uU9y1jfOgjgnu0J9Ovp1yWGWW3AEKKd7TJkfAcMbC9BDazIPd6QJl5VR+8j0OQPMG68jBkDU6zk9hrU0W8okE0ekpnvsxhgkIxGm7+MaHWYDsQdkIyU3TGKBwuX9/LXw0OKkS0gZ9cM2N4luwc8WGvz0J4vRR1RqthYa88lLkkvgRbgxE3xTFo968deOeFHw+oNNgdeHAS42RncC4KNA==
+Received: from DS0PR11MB8739.namprd11.prod.outlook.com (2603:10b6:8:1bb::19)
+ by PHXPR11MB9664.namprd11.prod.outlook.com (2603:10b6:510:3cb::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.17; Tue, 2 Jun 2026
+ 13:14:02 +0000
+Received: from DS0PR11MB8739.namprd11.prod.outlook.com
+ ([fe80::16c9:73db:2df7:cb9d]) by DS0PR11MB8739.namprd11.prod.outlook.com
+ ([fe80::16c9:73db:2df7:cb9d%6]) with mapi id 15.21.0092.006; Tue, 2 Jun 2026
+ 13:14:02 +0000
+From: <Valentina.FernandezAlanis@microchip.com>
+To: <conor@kernel.org>, <linux-riscv@lists.infradead.org>
+CC: <Conor.Dooley@microchip.com>, <stable@vger.kernel.org>,
+	<Daire.McNamara@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<linux-rtc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<Valentina.FernandezAlanis@microchip.com>
+Subject: Re: [PATCH v1] rtc: mpfs: fix counter upload completion condition
+Thread-Topic: [PATCH v1] rtc: mpfs: fix counter upload completion condition
+Thread-Index: AQHc4wHZsdW2vX0SwUuStMWJgxUlwLYrYgAA
+Date: Tue, 2 Jun 2026 13:14:02 +0000
+Message-ID: <fa8c35eb-7572-4413-867d-db42df92790f@microchip.com>
+References: <20260513-panhandle-ashy-70c6abf84d59@spud>
+In-Reply-To: <20260513-panhandle-ashy-70c6abf84d59@spud>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla Thunderbird
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS0PR11MB8739:EE_|PHXPR11MB9664:EE_
+x-ms-office365-filtering-correlation-id: 020bf556-a0ac-4039-c79d-08dec0a8d0f4
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021|22082099003|18002099003|56012099006|11063799006;
+x-microsoft-antispam-message-info: P3bCjDGuBIcujfyE41Oz4pQDW4Q2pz4m4AdKUG6NLJ+gujAfvCGwlExEeMezZPuw/vfhxZwHYqlOYhCeNDbqdn2uezHYU1rm3xO61goWZSHwLoYBR91x+jIUoDrJKobLihBwG2ZAtV9j/jIUH9xMjOeuge54upsAY7pt0SI6lWYYb67MM7gM+KEynYT4rTMA62vOekQLQPcsoA3hXqseGAL7uetlE1zeP7X5KUrg3mtajSe7vAQDDflv8I/8C7jZWMdvjjVQputLFkAw0oEA+JvNyAPu+OmwyDEbxWpoJypJp7LF8M4EObBKUdycm+XuBzJLXPdpPFRoOy4h+Rrk6vG7t3FNON3IjdbArqHoLb8u9fnD1502dOwVxAMpLlgRvskP3evCAVZt8gcdsV9W+O8CiDCcyhLHS4KmAkigYKIlx5+Pjig4KvFI91lHH8O40NlkCYf9e2VPqX94T+JDWy3Oxcco4V0yr8u89rjDAzczhUct+IgCj4fZMEFmLaZvr5GALXaEEwiXmMO1ovGBNNGGTEG0PDDzYxY/Db1+qw2YWFU4WQB7eszMibHOYJFsP4YbKCk16vwGiLR1Yiu2+ai7x6WRa25joKuRAO7fb8MiF1YzRGthe6/rG0P37rtjJRXNbonrYoyjICUKr5LeVmPG0EIoTZb5V+J+8Z2iFfQny3ZOvgRq21URCG5IIdTWRXFEIWnjpN9w49SNtR8UPAvOc0CmeADS42tzXFLCbVPHk5UfPLRN1wr4WQbT7FjU
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8739.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NDlmOURoQnB0WDdNUnJUNThrNTV2V3hkSU04bWQwMG56dEx0NlRqMUpLMWUw?=
+ =?utf-8?B?bTBkZkN3NDdBNnlHV2pXSHRZc2lmYTNQVkRLSzRzeDFGN3pyWXhCdDV3RGJB?=
+ =?utf-8?B?UGs4bERxeDhSZUdHVmVpZ2YrQU1FTGJjZXZVaExGV0pvcjM1bFJNQitqaUpY?=
+ =?utf-8?B?eXIrNzRjb1RlVit5WFd5WFJCeUtsNWhZY1RNLzhDS1llbXR3ekR5c25rY0NN?=
+ =?utf-8?B?UzNqeCtlNTBha0FCZUhGN1c0Y2NFUllqSGppbTAybCtvcDVRODNpVmkybFI3?=
+ =?utf-8?B?YWZyOGs0MXZZem1UM3k3MnNybW0xaWIyNzZBSENFdEJXSld0RmtSd0Fsc3No?=
+ =?utf-8?B?dmpiQmtWZFczbWFJR3dTcnF2UDNTQjJuZ01pczg5QUVXaEVSTHhqUWVPeUFw?=
+ =?utf-8?B?U3VtVUtXR3Jqek5tbEdXUEJKdlJobmUwWEdRSmpSbWpVa0Q3akppbXdVbFg4?=
+ =?utf-8?B?ck9zekVYMnlidmpkNy9Ed2crbE9KTjJvRjY2VEJvWWorU0dlMEhvanpnV05H?=
+ =?utf-8?B?dHM2L3dlWFRGVGo5bWRPOS9MODlJOVo4UVRZakMrVmlpeThQRm9Dc2Z2elpu?=
+ =?utf-8?B?c0Z3NFIwRkRNSTNSSmRiYTY1RmlOMmFtRWY5Um1mRjlZQVl6cXFoZkk0eXFW?=
+ =?utf-8?B?TGRWSkdxbmduS2ZuQXhzYm54cjNLdUtqOERZSnZ4MEVvTGtaMlFxT3VQc2JE?=
+ =?utf-8?B?V0RvTEV5bExRSXlkbk0rUDZxQjBuWFMwb2pvRmEzb2tFTHk0ZUdZdk13bnFK?=
+ =?utf-8?B?bU53YWJBOUZBVU9FNlpCdlphazhXc3EwbE1oODFQWS9vT3lnMXN2MkJVaFps?=
+ =?utf-8?B?ZFlONmhwdDdXWHI3cVpjc1YxS3JYRGhCK3pTNVd0ZTBjQlJvQm9aRkJUQnk5?=
+ =?utf-8?B?bk9GQU8xYXlQTnorcTB4ZFRORHpxTlZnRE0yOFBlZHg4RmdDMlRqZFJZMHV4?=
+ =?utf-8?B?MTNuTWc4UlVDc2dZbk9kdXk1K2JIZlg0cVQrMXFmWUlkbncyRzBFYmF0a21T?=
+ =?utf-8?B?SGtlWi8ycVMwSlArZnUvQVpST25kODNXS29RV1pXa0VxQ1Y2SnF2WFlDUThj?=
+ =?utf-8?B?eEJ5VDQ2eUZBc2N5bGxYL3FsTVFSUHV0cndCcDQvZC9pbTFjSFB4dHRFWmxo?=
+ =?utf-8?B?ZitTWHhoUEpubSsyaUJtT21QdEhoekk2RFBFdHV5bWdwY29MOCtZVG5IaGRV?=
+ =?utf-8?B?S3JVNEEvM0pkV3FMVllCOUlpQXBkQS9Hb01BUjR6ZmNaeFBBdEpZbGVLejQx?=
+ =?utf-8?B?S0wzS0dURjgxMmk0dHVqRkNtNU1JQ1ZBdlpYaUVFN2JnZTBFSzVUbCtsQkV1?=
+ =?utf-8?B?MGZXOEZhR3phRjhPOElzMkVWaGEvQmRBZGo0cEdCOVlub1lpRTgzTy8weXVU?=
+ =?utf-8?B?N2hEdDZWSEVPNlFrV1FiUElpaTBHS3JJQWZsbEs0ekFRelY4RE9IN0JkdXp5?=
+ =?utf-8?B?NmkrVmJUQ0xjSkxxUWd0YmIyODhVaU1QWXRyQ1NNTk15TW9QaXJHUkh2MG5B?=
+ =?utf-8?B?V0t5MEtuQUdpTDVBaG80OXZSK3huWHdRNnZvaG5mTXpKdExnRUJ0aGdZT25I?=
+ =?utf-8?B?VXA3UU1ZZ1R0R0M2S3p6Um5nYzZJVDN6U2xDUzhEZUhwUWNyZ3dtQUhqMUJn?=
+ =?utf-8?B?amVGMHhXS29tZFVpTWkrdmU3TWV6MnAxTUdSZXdlYjk4bEhBbW9JVFFSRG1r?=
+ =?utf-8?B?TWRqQ1Y4TWQ2ZThqM21LSXJXcm5XemdCME1ibGw1WjdUTXFnY2Z3Q3NnRVRh?=
+ =?utf-8?B?UEdzaStIRDZLOTFKRjExR0xTRERKbCtpdHB0WStoUFJZR0VMNS90ZXQ2clZP?=
+ =?utf-8?B?d2EyVlZDRDgxQVZYWDBQVzNuRVpPWE9wdHJ3Lzd1Mk1IcXZadnIvTzAvNGdi?=
+ =?utf-8?B?ejI5SkF6dmFNanl5Nk5jZ1h0MTZKSFFKUnh4cGQzZmc0eVpPZUtIUFAyK2FL?=
+ =?utf-8?B?a2x3MnMrVG9PQnhzRnVoTFB1NWRvZFhVRWxRV1g0OFFubVgwbVRwR213QjdF?=
+ =?utf-8?B?MzA1d3MyNEk4UWJNWGVhS0tkSFdvWWVCdE52Y0NoU1M4RjBIUjlzZkVoc244?=
+ =?utf-8?B?SDlEc2pTanZYTmV5cGlHSnZPZnFhcGFCQ2VXL1B1ZytQek9VZm1KTUExUnRy?=
+ =?utf-8?B?RHR2R01CUFdqRGVzVFdpMUQ5ZGZxdlBWMkFENTk5cUp6NkZtMHcvY2NobzZl?=
+ =?utf-8?B?WU04QWVxcHBGa2J4MCtaWE1uYkRsRlg2Q1p6cXlidSs2RGhVcCt3SzJDVWdh?=
+ =?utf-8?B?QjRYeDd4UmowOXNYMDFZdkt2SEVneHgzbnB2eXZhZEFJTzNKRVhqT0ZvMWw5?=
+ =?utf-8?B?Y1JxOWlXRDFKMGxVd2pYaHNwSzhtem94M3Q1cE5uZWo4bjArSEFmKzBudGJt?=
+ =?utf-8?Q?OlN72akSqFxg63V3wiDfFyaf3CYvbAQnBa11Q?=
+Content-ID: <9601449ABA6B554F8EED6A916DA7B3EC@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1548; i=broonie@kernel.org;
- h=from:subject:message-id; bh=hLZrVWdpgEiigLLE1L+kDHlZRBGb2UU6XAcUIO8GOa0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqHsd0rI4ckJ7Hm165gVtJqeWD+VGtD9cXsVPN3
- dejlbxrFqaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCah7HdAAKCRAk1otyXVSH
- 0Ie+B/9kXwOMyqDW7DQB2QR+IlYPuicwCYo7eHYZsh0vcs7GVf49egNza5+h7CGQ3u7VPy2vVyl
- IPesk2nJs0c3CYCeZSBG7amhiSp2cAPlx2yjVW0z4AOXGaQY5KglIZRuDoJl5h4h9ACEY29QcjQ
- 9Lnu9yCyqWbzM/Jaw9Cthe7oU7XRAgwuFWaOtW51mYmma+uO1TaR9Hs/LZ3bTwiLxO9nf53Z7yB
- IMNLLH60ifiy7cpsx/6NZR8/szyte7mITd8zaRF4AgytSbkXeGWr/z17Cgytn40A3uFD73ONTvm
- YRyhrUq/i6uSawoa8P9dEZYNQFi20YgYD2wqQl9BtIKYFIOM
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-OriginatorOrg: microchip.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8739.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 020bf556-a0ac-4039-c79d-08dec0a8d0f4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Jun 2026 13:14:02.5334
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8zcbx74NI80djYa6F7n3pknoeKKW9VtIsm2NDw6HVetjZJKRnaMBDmP3AxtoZPMr2gVWVENegMblTjHxJEp/zGIfflGwGXVCfOgCslRyEnksxh47uRGixFYxLnCYW2sA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PHXPR11MB9664
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_050721_733488_EDE83AA5 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260602_061408_410571_776A3D86 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +152,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 May 2026 21:12:13 +0800, Troy Mitchell wrote:
-> ASoC: spacemit: add K3 SoC support
-> 
-> This series adds K3 SoC support for the SpacemiT I2S controller driver.
-> 
-> Patch 1 adds the dt-bindings for the spacemit,k3-i2s compatible. The K3
-> SoC uses the same I2S IP as K1 but requires additional clocks
-> (sysclk_div, c_sysclk, c_bclk) that are shared across multiple I2S
-> controllers.
-> 
-> [...]
-
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
-
-Thanks!
-
-[1/2] ASoC: dt-bindings: add SpacemiT K3 SoC compatible
-      https://git.kernel.org/broonie/sound/c/6bc6b28c0314
-[2/2] ASoC: spacemit: add K3 SoC support with additional clocks
-      https://git.kernel.org/broonie/sound/c/1c6ca2ca5c1b
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+On 13/05/2026 18:55, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> The condition that needs to be checked for upload completion is the
+> UPLOAD bit in the completion register going low. The original iterations
+> of this driver used a do-while and this was converted to a
+> read_poll_timeout() during upstreaming without the condition being
+> inverted as it should have been.
+>
+> I suspect that this went unnoticed until now because a) the first read
+> was done when the bit was still set, immediately completing the
+> read_poll_timeout() and b) because the RTC doesn't hold time when power
+> is removed from the SoC reducing its utility (I for one keep it
+> disabled). If my first suspicion was true when the driver was
+> upstreamed, it's not true any longer though, hence the detection of the
+> problem.
+>
+> Fixes: 0b31d703598dc ("rtc: Add driver for Microchip PolarFire SoC")
+> CC: stable@vger.kernel.org
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> ---
+> CC: Valentina.FernandezAlanis@microchip.com
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: Daire McNamara <daire.mcnamara@microchip.com>
+> CC: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-rtc@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>   drivers/rtc/rtc-mpfs.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/rtc/rtc-mpfs.c b/drivers/rtc/rtc-mpfs.c
+> index 6aa3eae575d2a..ece6de4a6adbd 100644
+> --- a/drivers/rtc/rtc-mpfs.c
+> +++ b/drivers/rtc/rtc-mpfs.c
+> @@ -112,7 +112,7 @@ static int mpfs_rtc_settime(struct device *dev, struct rtc_time *tm)
+>   	ctrl |= CONTROL_UPLOAD_BIT;
+>   	writel(ctrl, rtcdev->base + CONTROL_REG);
+>   
+> -	ret = read_poll_timeout(readl, prog, prog & CONTROL_UPLOAD_BIT, 0, UPLOAD_TIMEOUT_US,
+> +	ret = read_poll_timeout(readl, prog, !(prog & CONTROL_UPLOAD_BIT), 0, UPLOAD_TIMEOUT_US,
+>   				false, rtcdev->base + CONTROL_REG);
+>   	if (ret) {
+>   		dev_err(dev, "timed out uploading time to rtc");
 
 
 _______________________________________________
