@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683FACD6E55
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 15:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD4D8CD6E57
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 15:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3HNIid5xwhmCXQK/d4zlyx1Ex40BiwUXDVuyNI83H+A=; b=YhzgUQ47dbzRsF
-	aDLa69RSIfRsnOLMwdumug8PfMCJZ4IYAOUTAlG9Pabe0R62tAW/yu7tShDkJWcmuxCjnhMV803Ab
-	q4SxoHvhazcmCA14gpVSRu+NPhias3t85M/R76RSQ40YxZTez9LN9eMPZlNOBTFezz5Zhqd/wHQOE
-	2XjRxuaKQlcikJ/YJkQQyJHKrNxuVp1QF2TgUx3M+KYnQ/YUQ6CRlVWwq8OpNLqtMzCNgbESrwhYL
-	eLMiZ6522nryehkxKrHt1jzinH70x2NUj9XUIlgxZHZWYG3mUhmucXcY/1irfZVEjaTp2h9zjglch
-	qoFDiJuu4QDTf2ivTDdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D7C21LJ7LPjqcQUk2IOxjUEQ/izYNi2THgCImdc4prY=; b=TkhlNuv94QeKQ7qQg+PN5RMfzD
+	dhrp8AhlmBbk5jfiMrZdY8LGJbeUozAVCG/UDbB605mCpSuH+1beUb9GFatGfQ90BTjKMbK/OglEQ
+	pponhTryoc3PCR0lF4HBYh12GqQmr+/llWyBLTlDEsrXYGLMIa3Epf9X+K+Cw571/aWUGIR1ySwyp
+	CqYisMPfQo8rDVv2kq43HeQ9kFjdUrYgtR81lb8Vo6qNT5veavQLNiVWVzzpqh3Qs69URV/G45tPO
+	BfecUZp+coLZ02AXvGNJU6Lw8wifqLCunsLlVbPRCtJxy8LUZoa/a8mr6KMR7IDZ/mHAMl6sVb+oD
+	J9UatVTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnLe-0000000FLy7-2kGa;
-	Wed, 03 Jun 2026 15:17:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wUnMX-0000000FMRw-3Ycw;
+	Wed, 03 Jun 2026 15:18:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiN0-0000000El7S-2wwQ;
-	Wed, 03 Jun 2026 09:58:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Subject:Cc:To:From:
-	Mime-Version:Date:References:In-Reply-To:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=cKOd+ckXvEpyxGOvmPUT88FhSK2RRA+R3CMNEo/86Ns=; b=WiS4JyP0i5rwKC+DXZO/JkyWj6
-	hK2z0gKi+ZQgJkTv7oeiNS/5fDJQC9tkV/d8dDIbK4A4vAfwR+Jy8tgHEYXcwWQ0q+oAtaJetaVw/
-	a1g4AthSKIiiZ9ZJRgHSklSMSnyaioGGc+q9zzDoKxCxGWmUB18AHae7/U3kCUB3IvMkWj6H70YtL
-	X0YqQYKHkFPw4uUNgkIQ3G62J/jhWJKLo8tbj6CYkn+CsVJdJoV08+sKaSVRULSvKk1cz+eNHenqk
-	e6quBZoBettkYu+ILTW/i74kXF0JsUfxXOWA1urW8bzEgLi4y6YWPZsxY43Li2VPN8gOrbsXzxO9W
-	fcK3bpoA==;
-Received: from mxhk.zte.com.cn ([160.30.148.35])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUiMx-0000000BmRY-1dGp;
-	Wed, 03 Jun 2026 09:58:41 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gVjnm2Zk0z8Xrrn;
-	Wed, 03 Jun 2026 17:58:36 +0800 (CST)
-Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
-	by mse-fl2.zte.com.cn with SMTP id 6539wQFX009049;
-	Wed, 3 Jun 2026 17:58:26 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxlzmapp04[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Wed, 3 Jun 2026 17:58:29 +0800 (CST)
-X-Zmail-TransId: 2b066a1ffac536f-f9cd5
-X-Mailer: Zmail v1.0
-Message-ID: <20260603175829412hzKDF23RSPIQCliiSiIwg@zte.com.cn>
-In-Reply-To: <20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn>
-References: 20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn
-Date: Wed, 3 Jun 2026 17:58:29 +0800 (CST)
-Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <wang.yechao255@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIHYyIDMvNF0gUklTQy1WOiBLVk06IFNwbGl0IGh1Z2UgcGFnZXMgZHVyaW5nIEtWTV9DTEVBUl9ESVJUWV9MT0c=?=
-X-MAIL: mse-fl2.zte.com.cn 6539wQFX009049
-X-TLS: YES
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 03 Jun 2026 17:58:36 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A1FFACC.000/4gVjnm2Zk0z8Xrrn
-X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_105839_756317_DAC92DFC 
-X-CRM114-Status: UNSURE (   5.14  )
-X-CRM114-Notice: Please train this message.
-X-Mailman-Approved-At: Wed, 03 Jun 2026 08:17:36 -0700
+	id 1wUnMX-0000000FMRW-02JM
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Jun 2026 15:18:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 762E0601DD;
+	Wed,  3 Jun 2026 15:18:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 138891F00893;
+	Wed,  3 Jun 2026 15:18:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780499912;
+	bh=gqLubRzDZskEA9R3dJXzcbqYgA5a+l8atiBeOr7IMyo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GRiwEnU0BcFdjpGIldWYYQNw1LEa2mwix99tP6yfOXlV79rEJOB706J70/mTY05WO
+	 Fz1N4FnNxlXkC8iT00hRocwYuYiQ5TdCqPT2sydp/zX7/EtIjkEamLOgG9Uf6fdbpb
+	 oGi23KdbA4opEgs1lk7n5Jsa/6NUpOWTCPx9yFQxztl221UC/bIjG7AsWjvK/b7p03
+	 c0KELW386SW/8QhA+/m2JjqAXvzwZN1LOmyw6K7ZLMi6AZwX2CAimlJaxAS1Rs5ilf
+	 z+BLZBYg6nT7r0qb+eKhvwVVyI/Tcz5OsTOaLIn0fMWIWeofmdWBCvnXIsEfctLaEW
+	 VftYIXSfp4npQ==
+Date: Wed, 3 Jun 2026 16:18:27 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v3 02/21] pinctrl: pinconf-generic: Add property
+ 'input-debounce-ns'
+Message-ID: <20260603-sinless-mooing-48a37d3d05ea@spud>
+References: <20260603055347.66845-1-changhuang.liang@starfivetech.com>
+ <20260603055347.66845-3-changhuang.liang@starfivetech.com>
+MIME-Version: 1.0
+In-Reply-To: <20260603055347.66845-3-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +75,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2177844032985643479=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wang Yechao <wang.yechao255@zte.com.cn>
 
-Split huge pages on the range specified using KVM_CLEAR_DIRTY_LOG.
-And do not split when enabling dirty logging if
-KVM_DIRTY_LOG_INITIALLY_SET is set.
+--===============2177844032985643479==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UxFbr67Tboxoi01J"
+Content-Disposition: inline
 
-Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/kvm/mmu.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 51bd1db74e1a..d04680687f4a 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -149,6 +149,9 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	kvm_riscv_gstage_init(&gstage, kvm);
+--UxFbr67Tboxoi01J
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- 	kvm_riscv_gstage_wp_range(&gstage, start, end);
-+
-+	if (kvm_dirty_log_manual_protect_and_init_set(kvm))
-+		mmu_split_huge_pages(&gstage, start, end, true);
- }
+Linus,
 
- void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
--- 
-2.43.5
+On Tue, Jun 02, 2026 at 10:53:28PM -0700, Changhuang Liang wrote:
+> Add 'input-debounce-ns' to the generic parameters used for parsing DT
+> files, along with the corresponding configuration parameter
+> PIN_CONFIG_INPUT_DEBOUNCE_NS. This allows debounce time to be specified
+> in nanoseconds as an alternative to the existing 'input-debounce'
+> property which uses microseconds
+>=20
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  drivers/pinctrl/pinconf-generic.c       | 2 ++
+>  include/linux/pinctrl/pinconf-generic.h | 5 +++++
+>  2 files changed, 7 insertions(+)
+>=20
+> diff --git a/drivers/pinctrl/pinconf-generic.c b/drivers/pinctrl/pinconf-=
+generic.c
+> index 64ed28309788..9d67e2d26e28 100644
+> --- a/drivers/pinctrl/pinconf-generic.c
+> +++ b/drivers/pinctrl/pinconf-generic.c
+> @@ -43,6 +43,7 @@ static const struct pin_config_item conf_items[] =3D {
+>  	PCONFDUMP(PIN_CONFIG_DRIVE_STRENGTH, "output drive strength", "mA", tru=
+e),
+>  	PCONFDUMP(PIN_CONFIG_DRIVE_STRENGTH_UA, "output drive strength", "uA", =
+true),
+>  	PCONFDUMP(PIN_CONFIG_INPUT_DEBOUNCE, "input debounce", "usec", true),
+> +	PCONFDUMP(PIN_CONFIG_INPUT_DEBOUNCE_NS, "input debounce", "nsec", true),
+>  	PCONFDUMP(PIN_CONFIG_INPUT_ENABLE, "input enabled", NULL, false),
+>  	PCONFDUMP(PIN_CONFIG_INPUT_SCHMITT, "input schmitt trigger", NULL, fals=
+e),
+>  	PCONFDUMP(PIN_CONFIG_INPUT_SCHMITT_UV, "input schmitt threshold", "uV",=
+ true),
+> @@ -185,6 +186,7 @@ static const struct pinconf_generic_params dt_params[=
+] =3D {
+>  	{ "drive-strength", PIN_CONFIG_DRIVE_STRENGTH, 0 },
+>  	{ "drive-strength-microamp", PIN_CONFIG_DRIVE_STRENGTH_UA, 0 },
+>  	{ "input-debounce", PIN_CONFIG_INPUT_DEBOUNCE, 0 },
+> +	{ "input-debounce-ns", PIN_CONFIG_INPUT_DEBOUNCE_NS, 0 },
+>  	{ "input-disable", PIN_CONFIG_INPUT_ENABLE, 0 },
+>  	{ "input-enable", PIN_CONFIG_INPUT_ENABLE, 1 },
+>  	{ "input-schmitt", PIN_CONFIG_INPUT_SCHMITT, 0 },
+> diff --git a/include/linux/pinctrl/pinconf-generic.h b/include/linux/pinc=
+trl/pinconf-generic.h
+> index a5d4b2d8633a..1df63c732b99 100644
+> --- a/include/linux/pinctrl/pinconf-generic.h
+> +++ b/include/linux/pinctrl/pinconf-generic.h
+> @@ -71,6 +71,10 @@ struct pinctrl_map;
+>   *	which means it will wait for signals to settle when reading inputs. T=
+he
+>   *	argument gives the debounce time in usecs. Setting the
+>   *	argument to zero turns debouncing off.
+> + * @PIN_CONFIG_INPUT_DEBOUNCE_NS: this will configure the pin to debounc=
+e mode,
+> + *	which means it will wait for signals to settle when reading inputs. T=
+he
+> + *	argument gives the debounce time in nsecs. Setting the
+> + *	argument to zero turns debouncing off.
+>   * @PIN_CONFIG_INPUT_ENABLE: enable the pin's input.  Note that this doe=
+s not
+>   *	affect the pin's ability to drive output.  1 enables input, 0 disables
+>   *	input.
+> @@ -143,6 +147,7 @@ enum pin_config_param {
+>  	PIN_CONFIG_DRIVE_STRENGTH,
+>  	PIN_CONFIG_DRIVE_STRENGTH_UA,
+>  	PIN_CONFIG_INPUT_DEBOUNCE,
+> +	PIN_CONFIG_INPUT_DEBOUNCE_NS,
+>  	PIN_CONFIG_INPUT_ENABLE,
+>  	PIN_CONFIG_INPUT_SCHMITT,
+>  	PIN_CONFIG_INPUT_SCHMITT_ENABLE,
+
+Should this grow a mutual exclusion check in parse_fw_cfg()?
+Part of me says yes for consistency, but also as this is a new property
+that's going to have had exclusion in the binding from the start part of
+me says that it is unnecessary to add that.
+
+
+
+--UxFbr67Tboxoi01J
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiBFwgAKCRB4tDGHoIJi
+0shdAQDVn1y7zJ5GetjXm2OW2sQdptXIBXriOfUWzTJBsBzXhAEAqbwd03uZvPIu
+EdG/j/Pj6pCWlzrc4wAopEkRvGV20gs=
+=uhlk
+-----END PGP SIGNATURE-----
+
+--UxFbr67Tboxoi01J--
+
+
+--===============2177844032985643479==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2177844032985643479==--
+
