@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D262CD6E4A
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 07:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F4BCD6E4A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 07:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w4FIwyItl29eLdrhEuThbdB3To5cC7BWg4qzxo2vW58=; b=PQ8FEeV/VvL455
-	3h5elUSG6fgL0E3JEXk9v+8mVXxtZz4xoYC5VdXMBBQx2tXDr1zjko6XP2dUAEHoLnuSqniH3hCoo
-	4wd2Ufc0T63DRnzX5VyDFzhkxX8q+jIY4Kb8OSz/BelNTPFF7hLCUMVY3iQ7xRukKkasgMnnzEMfL
-	a2keg9Ufh57wXeEBLKgrZILhgCaWpb0jtFGIVmmwENYtfx+PH4rKuEMnGxOy8YTFFTLJMoAFo/9jx
-	1G3eM9uPMNtB3HisuxlrXjoczr31vFtzF40GcU1lRXgoo+zrdxw0L70oM5N+hBTb3UAfw7LE7lqtO
-	mb5VYjpVvpzUSEF0WL6Q==;
+	List-Owner; bh=F6GJqiLBuJCebayYlO1fuJgbcbJrLWz9w2t1zCXPSYg=; b=rryUcbRObJ31NQ
+	zT7v6t12vDowi7MR3erjyOLk+sYiZsZU/cWBvFMEVb5DSgYysZQGY/DKg8kmH+2TlbQJqb4iO0U5J
+	FQCCDONaRGLVu6jQRdJe+0Xn3RI9RJxyWg3BiaEeDB+G7w6yFuw+Cv0tEJAAHJb559ZYdqQOHvVOS
+	xvFCZ/0ss5+v8B2X1mH3MRWVtNhKseOTCpFmgBDzpxZpxlEr2op35efbTLsoC0qazCqy1dXyhP/Cs
+	RQ6/PfClAGq8HtdzWiLHCSmJO1Tr4w6w6s5yABlW6zrGauwMPFUTLBv34FN5IuVLaPA5/Wlad3xU5
+	A/cqP50ubxrTTfvBTcwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgFv-0000000EV9o-3Qwa;
-	Wed, 03 Jun 2026 07:43:15 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wUgG0-0000000EVCx-3vBr;
+	Wed, 03 Jun 2026 07:43:20 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgFt-0000000EV8V-21c6
+	id 1wUgFy-0000000EVBQ-1v0h
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jun 2026 07:43:14 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-8423f1e2f8eso2591904b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jun 2026 00:43:13 -0700 (PDT)
+	Wed, 03 Jun 2026 07:43:19 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-8423f1e2f8eso2591943b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jun 2026 00:43:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780472593; x=1781077393; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780472597; x=1781077397; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YEUznx6q1xgPyacCOOmKA9VXsKVblZvEIF1KohfNbRU=;
-        b=YYtf+IncnoQVE8SPVKi0y8JQZEFQvZ2wvmG7Xk8CuL8Fs42VYgkh5by7ZA2/aRgzkO
-         zk2d3IEgR/cftLRzjy+4x/d6PwYuqJi3HlaxARqyKM8PwVCJ/vJpJMZ0bfpGcKw8dFz+
-         EyPM1no4ySidkpLvXDT9rr/yDJ+RGl/aZR6HQvRzSU9x8fXVjDs3aXYHXT11Id6bHXmJ
-         pXmbjkQW1WwFbAySHNFMcd1idMVRDpS4zGXOze1GA+JmeNYeJcauk4i4MOoWE93pE6GN
-         Jer2yDvZD8w24eNbTGCv1FcgztFMlTxL3gO/uMDjwkyqWUtze6IPSr6+QnWysCoAN4h6
-         0bdA==
+        bh=JjWZny3fo/wBnNwX/9+lDVbtn9cYqFM4uHEPeKu4K6A=;
+        b=Jf6Gy1bsyFcsUgNdjnfNgDoRuIFLjX10WBM32oFCgTGj7Bmy/U7gkbvHKgNwfMxQJo
+         1Rkx9xLkTq1irgMvxS9B9VKTCrOXT9azR9+lwiSZ+PARJQSibmjW6rwTIMULk+RFUlMZ
+         wzmHIjT7oYpNl9xtoRIyYLLwN7H2I1U6oEemIOGxaOiGuxMD1Yf6gqshBtQhuO/Nr8B6
+         gtg9tCYPrCr4Zr8tN8mV+w53YL0ggO85y8oub7xIRKd2AVlRZKCXloAK80pj3rQbdzSl
+         7jfeMPIVM24DvGJAEcyIF5TW7QP30vaV6EyvMy88hbmknoPSu+/bmi8kyPTSsUvELwa+
+         90QA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780472593; x=1781077393;
+        d=1e100.net; s=20251104; t=1780472597; x=1781077397;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YEUznx6q1xgPyacCOOmKA9VXsKVblZvEIF1KohfNbRU=;
-        b=ZpTDAhIWSym5z1RgyoU0kLHian2y+XA66h5IFIYieXhGLTscYm/sbuw6QorW+pqNB7
-         wqniWHQNQ67TeoBIPlKQy+oyhIyck1dAIBd+asEHudpTHcf3tO8pb5ihKupeUHy8tl1H
-         bhX/d5WLEa8UmKd1ZH1PzYcgKzTExE7d8OJbElT+wj7hLTSUX91127Svmv24OaGxRLTf
-         jo75fAg9CBpknYadFXTo34fTSDmJGMIBbdul1Sxt95yb2HqA7w5Cg0YulRvc3mk3A0uC
-         FX3y33felXsaWK5tKCdQ3IRhfLWPcAwo9WV3niX5l/HGI9Lc+2pHK/BuBPeDyf8pHGZP
-         Tm4w==
-X-Forwarded-Encrypted: i=1; AFNElJ+vEoyhcrxKiBnsL61CIq6xmEecf9ss/rnwRmnrcfls5hSI/5TFXence/fJ/iruk6KyneEAhopNT8MVpw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA1ss/4vWhTzcPk1ZybKDJMMT1Ko3hMDrDYuq2xf5blpLo4D6o
-	ojMYRW3pLY3TjbBWyf4EIt8ZUUUfoFX0hpRhXZHSNSKFxIgSJVSLizxq
-X-Gm-Gg: Acq92OEX8JLbhjUI08X2H7tML1FWTO8zPk9HERBbpwEXZYMroyqWOl5rrGAs1TFLbLA
-	VGfDmBkAfvv0tNf7hfbIuSAT5oybRa1jkjmFa3FIPt1KWa03L0zJtfGTTe+By7gKiOiKH5y7j8l
-	QxaKQCDULfQbdU2cjQd6n+xd0hS3CHVYu83AWjokFAjLiHLXK6iEx8MQFRCLVJQxJOP+ZgqQQ6A
-	JsKz0Uimd4SMCmbgyiUvpId6HuMy3TiK1MgAPX/RPLerSVkT99uyKvMLiiYwde5CVMlSes4+hD1
-	A/6tY2CblKr7tjc82HFgJGq+y026eL6C3Qp6brHQUQHonXscRfi/251wMoHXunwzWCgLWuWpgHF
-	ZJPeuANneWuPmHqJUlcAEl7OnMt7xslKsAY3ipPpZQZBc18jx5bkZfF4L4/1it//iAgyKGSowz5
-	+2YxYjdNJazb/woqwzw9/RD6wq4PRQqji5QsZBDBCzfTZMeLSYFkGzoPcXlbjr4erZdW0Zpuw3p
-	Y4kdyNbEVmcEM39642m/NF/s/Thnc2XPlHPSUS6QIGTzaEBHQaheajvNgJpdj+8
-X-Received: by 2002:a05:6a00:2350:b0:842:6099:c55c with SMTP id d2e1a72fcca58-84284dcf4cemr2355605b3a.3.1780472592719;
-        Wed, 03 Jun 2026 00:43:12 -0700 (PDT)
+        bh=JjWZny3fo/wBnNwX/9+lDVbtn9cYqFM4uHEPeKu4K6A=;
+        b=XUpy/dzizKu8y9p/KEuB1SXn8HPWuuVWN+vGHxoZMVvKGYaTFlLjdEjuWdfpJBQzjV
+         Eo2pPsOkzUIrPImlYNtFfifn765oWKIUGxXDiXIH1kkjgykGT/S4DdaiCWxiqAGyt2lc
+         bCY4a9OprMryEEC7kmWG+8Dd8GwRSP5sJrkHx9Z10ilwurQdpMsC5KI81WD/jkgZlEwd
+         u0dywD1cZ3hmxtRjJTMDQG0FojDYRDAOnMLOTelmkUbSMLcrF+Gmyq0kJDNL7hr2gMnk
+         eKP0IeSeXvYX3IIn7xnVXsLvwfEdCaxl55woTNe+oAYqPD69mefnMOocWfedM2IeEPgp
+         3NvQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8YusKjp3XYZg5tMpL8FZpDuawhbHRmkJ+2OVooLaQpp23Ke80AS2MtfdVJY+lhX9Q+T3NyqWfsm+en/Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxI+psHjiZAzlK+S3ifFto/D3QMphCxbDwl/doBpPW0O9E+0sJ5
+	OteJC+ddMUAEJYXJ2XN0GUHhiZGk7l+vNANN26IIEjYdtK5+wttl4JNy
+X-Gm-Gg: Acq92OFs80A7xHJrDOhBZTy7i6UAqy/aXVod4Mx72BGTrETepQSlwdCIfk12ibZxiJb
+	YEmHcsFBBd9VxUu3nGE0SGGVPg6nutWCGnwkPnyhMs5mv2+RRlYvFy4SZ368A0T4Bnl0bj9rXrQ
+	yzFfl9OOKdUngjEjZnWqJwlHFAGZIouD4Zc+sL8cFgLXBnI63/0fb7R93EwYxdHoZWZl0mdR5M3
+	YBKimswwud9JNbhsD57qEen3c19CC3NGjNtLSPi+ni4UuKz90wV8Yo7vzb2ssPm5Ev+Z7AXR1/j
+	htmb0UH8SQtI42jD9RVMHjl0CkPFq0ac8eFZrtmgIYIQcxYozD4ylQL0GR1s9CGTqeCibU4g0Dj
+	YxUhjbmgGF0+Z+NlGls+FyFyeqrAUmwGJWip2ALI1xAxUWcy4sTbEZQZI7arF0nnQuUBYoRaw+x
+	YRYeCKv2J4tJ2t2Aan8mRsbP8fR4veUbsAC6KO01EbQ4n3qKRnYNQPH5N/bCGPVDTw0zemKanFq
+	v+0A+TOw/uHsRTGPY4yylFjRRdqCUL7/Vf7X1BLQrWyD+spkN7zZBJMsGHl00sg
+X-Received: by 2002:a05:6a00:288c:b0:842:6e9f:9cd with SMTP id d2e1a72fcca58-84284fafa22mr2316123b3a.49.1780472597647;
+        Wed, 03 Jun 2026 00:43:17 -0700 (PDT)
 Received: from donnager-debian.. ([45.124.203.15])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828daf76sm2161223b3a.42.2026.06.03.00.43.08
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828daf76sm2161223b3a.42.2026.06.03.00.43.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 00:43:12 -0700 (PDT)
+        Wed, 03 Jun 2026 00:43:17 -0700 (PDT)
 From: Joel Stanley <joel@jms.id.au>
 To: Paul Walmsley <pjw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Anup Patel <anup@brainfault.org>,
+Cc: Drew Fustini <fustini@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Michael Ellerman <mpe@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH 4/7] dt-bindings: timer: Add RISC-V ACLINT bindings
-Date: Wed,  3 Jun 2026 17:12:16 +0930
-Message-ID: <20260603074222.593243-5-joel@jms.id.au>
+Subject: [PATCH 5/7] dt-bindings: riscv: add Smrnmi extension description
+Date: Wed,  3 Jun 2026 17:12:17 +0930
+Message-ID: <20260603074222.593243-6-joel@jms.id.au>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260603074222.593243-1-joel@jms.id.au>
 References: <20260603074222.593243-1-joel@jms.id.au>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_004313_528754_1F6E48D9 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20260603_004318_505825_301276FE 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,86 +110,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the bindings for the RISC-V ACLINT.
+From: Drew Fustini <fustini@kernel.org>
+
+Add description for the Smrnmi extension (Resumable Non-Maskable
+Interrupts) as ratified in 35eb3948bf0b ("Merge pull request #1492 from
+riscv/smrnmi-ratified") of the riscv-isa-manual.
 
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 Signed-off-by: Joel Stanley <joel@jms.id.au>
 ---
- MAINTAINERS                                   |  1 +
- .../bindings/timer/riscv,aclint-mtimer.yaml   | 52 +++++++++++++++++++
- 2 files changed, 53 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2fb1c75afd16..43dd9873bbc5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23005,6 +23005,7 @@ M:	Joel Stanley <jms@oss.tenstorrent.com>
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git https://github.com/tenstorrent/linux.git
-+F:	Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
- F:	Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm-rcpu.yaml
- F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
- F:	arch/riscv/boot/dts/tenstorrent/
-diff --git a/Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml b/Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
-new file mode 100644
-index 000000000000..192ff3fcf79f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
-@@ -0,0 +1,52 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/timer/riscv,aclint-mtimer.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 2b0a8a93bb21..3e3b4481724f 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -193,6 +193,12 @@ properties:
+             ratified at commit d70011dde6c2 ("Update to ratified state")
+             of riscv-j-extension.
+ 
++        - const: smrnmi
++          description: |
++            The standard Smrnmi extension for Resumable Non-Maskable Interrupts
++            as ratified in commit 35eb3948bf0b ("Merge pull request #1492 from
++            riscv/smrnmi-ratified") of the riscv-isa-manual.
 +
-+title: RISC-V Advanced Core Local Interruptor (ACLINT)
-+
-+maintainers:
-+  - Joel Stanley <jms@oss.tenstorrent.com>
-+
-+description:
-+  This RISC-V ACLINT specification defines a set of memory mapped devices which
-+  provide inter-processor interrupts (IPI) and timer functionalities for each
-+  HART on a multi-HART RISC-V platform. The specification can be found at
-+  https://github.com/riscvarchive/riscv-aclint/
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - tenstorrent,atlantis-aclint
-+          - qemu,aclint-mtimer
-+      - const: riscv,aclint-mtimer
-+
-+  reg:
-+    minItems: 1
-+    maxItems: 4095
-+
-+  interrupts-extended:
-+    minItems: 1
-+    maxItems: 4095
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    // Example 1
-+
-+    timer@ac000000 {
-+      compatible = "tenstorrent,atlantis-aclint", "riscv,aclint-mtimer";
-+      interrupts-extended = <&cpu1intc 7>,
-+                            <&cpu2intc 7>,
-+                            <&cpu3intc 7>,
-+                            <&cpu4intc 7>;
-+      reg = <0xac000000 0x00010000>;
-+    };
-+...
+         - const: smstateen
+           description: |
+             The standard Smstateen extension for controlling access to CSRs
 -- 
 2.47.3
 
