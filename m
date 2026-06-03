@@ -4,64 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 055CBCD6E57
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 22:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1A6CD6E5D
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 23:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OCiEPFaAoQRzc+bt/S+pGz8fKOOEIdlqokndQhP2sZs=; b=OWYxs3VBvAA97k
-	IDUEW+IjBosVF/ne0HTYsEQ5GAKFfTQhyUNPR8ymF1o1mXt9f8aMPaoZ8yd4RQE76oY42FETD27t8
-	k3/gA6G7updU325lbmwkiDorSM5Bk+pnXKX6I6R2ricO0lehfgPeY1gh4mm8w8ZWoJnSAe50PrI6r
-	iNcCIHuKhJmTiQQL+QWvSq5MpP5MSYsGgugWrxurM2AbWrAzRTX84cCks8jFOt95ANLh7m3IukuRs
-	E4cMvQ9hrGByjg7fFfbKO2Qayd3BPBlW9UoDYTiY9MGQ/bqb/f0Vibp52cWMva5cYyBSXDRiNt7Bn
-	QuM33n77SNGgOdZ5q4zw==;
+	List-Owner; bh=sNZcy46fxyV+gnA6+Ss7tVz0WFHGJfgrCAOis6hxfQ8=; b=ELRfVwDixQnLto
+	SVqV7vDL02lsNjDOzfWP7Oc/m8UDRKWgwkRYnVWQWHAcGRGBOu4gJO5g8o2tSKSa9AlfxMPv44pvE
+	43EkiSTeG27lb775qv1pNWJH3YILJWismGusEv8vC0jAiMKP+gMRgO7bDb0Y4wpT56efviVGr6Zyx
+	HA8/Lu9qaB2URIGcObFTkAWmYPR/3lsgJYdB0mp0P+ZfJoJhPlWwsPGEnfG4aJE2VEE95631GhN7p
+	UulrOHvBVSYPGErZB3f/FslaMYcXqFhFdFPX11bBDjjifC6xon8tkDmv9Ltw0JRCZfoIOET+mIGE/
+	lv9oluYTh2X1FLgAZK8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUXvC-0000000DuCB-0ufF;
-	Tue, 02 Jun 2026 22:49:18 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wUYI1-0000000DvBx-1dhO;
+	Tue, 02 Jun 2026 23:12:53 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUXv9-0000000DuBC-0Jf2
+	id 1wUYHx-0000000DvB3-1D4L
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jun 2026 22:49:16 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780440550;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xTOuacRFqf7jRiO8aj4MgPqi+i+IVWIh9egGsHuyaHw=;
-	b=MTZHuGG16xFHjwh8YRObibc+qHri/oFeWwccfRwxatMgxCdI1sfe5Yg7zte9PSgvNZHNAC
-	l/hhMlpfVGOOqNxrlB192BaKaR85P4Dy/yvxegls7Hfh5I44juISra3CRgBr6jezQoTt1P
-	XoMhraNz9u5nEGHDMw2i2hDNOklzl0k=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Breno Leitao <leitao@debian.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Alexander Graf <graf@amazon.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] riscv: kexec: use min to simplify riscv_kexec_elf_load
-Date: Wed,  3 Jun 2026 00:47:22 +0200
-Message-ID: <20260602224725.1088385-3-thorsten.blum@linux.dev>
+	Tue, 02 Jun 2026 23:12:52 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2bf20f6be6bso28649435ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Jun 2026 16:12:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780441968; x=1781046768; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dVN3EYHVbww+tgJzqqdTHZZxq1gelgNV3Kq1kXyz7N8=;
+        b=j9JtP6ZQraj+wN2Qhz3siNJoAWjT5FHBRHVgfieydSKyD9o+zvH8eweqVOgZVgdGJs
+         3z2TDMhtSLSLPXva873/seBY2fzIEmCiHi3nfhQ2P2tZIB8C17t2VyM0J+GwIchugf7F
+         zwKYBzb/eAGYjtDW/fOE2OwbGP6HYw3Lj4QUeUpBHyVheBP84RlrVLpCTYnYojD1x83s
+         CXasctmrYdZQmE4sWhsVuBQmGMMxkagmNx89E95/EabI97wUq22QdMfZtek2xUTAtccq
+         TZmcRjjgdP4PZcAJcOLbD19r1p/DXaC4xoe250XukPI7+tu3cAwVYOAWKyClX/iT22Tg
+         0KiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780441968; x=1781046768;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dVN3EYHVbww+tgJzqqdTHZZxq1gelgNV3Kq1kXyz7N8=;
+        b=cEVzBIEsFB8iILD2Mm9O4tvZVXioAG1PW09GSPRByEjybTCO829ArVE3stcW3TEfRR
+         5EREoht3gjgMxaRIPu5yg8GT8uyJpZdZRDE3aOPVm7iPmVeb6lVQ6lW2w9M5SBQGy1fm
+         SCI7lxhm8ygQiaNwDElVIdhD30K7QuPC/7IJCOEokWtW+cGpJYKRG/EA2QE4wgQ9VxR1
+         XFVhWxrNAaiKMonFm5kXjAp77KUDOPd17DsrYIhEr8eKtgrpWIz6Zbgu2G3/HLckbOAm
+         VWdt4O3RX9SU3EaEui0Oa4Cl0JKdBj0KpqP9rWINLtXrpJdWlZHti9mpD8DkcgE43sb7
+         603Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/erSKybR9hAQIwnl1T+pvt8YD8Jo9Ml4AE9H5LOBaxZpUhOUqZGzz3I9oZpHZ+SZROuqvc2xNSsxkN6A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE08Cr9awR7+1Zl0svc+A/nfVFJ5d5ur/K2zUP1dl0aJce2/Hd
+	YodH7o2XuObmASgsvATo5R+PBHoirgkmqigQm8HHsDSGzwWT1NYjqXOE
+X-Gm-Gg: Acq92OHftegIoDUeLuNWEPAg42igivV4BoB3xhXOdbWqRWCI8HjzAg2mR4u9ZqDqi5j
+	E619143Q04TrKgjbOtMrz/bCf9r29nrtrq9SyZbNdkB9gdeTeHTjnGzpztCAudNfQn80ML/y4mr
+	14HdXzsDxxkK46mJytujLwYeYpnHkHHITwNMLkJXrMnfFNwTVr1heBiTTCRJNSyFMbZNPAz4O3A
+	CzmXpEphRvdyFezblZJZL9xW6xKSP2s9yWyu0BhD7o3UbQ5xEX/DJ16jvWABPnTbGPqdat9cTil
+	6Z0Hf29OJkNDLDnqVC6PyYlaRc80nd9yHop7YeUwBJb2fsfyb6PiFH1oGk52kKOSJg602tg6XBH
+	UJeC+jftfS6dFiLGvRPprfIrpu2ROu+KqNWwH52V+autM2eIzc2rBFEWvCco3ExrD1HbTVYgloQ
+	uiL6p+x/5w9A==
+X-Received: by 2002:a17:903:2410:b0:2c0:b6c7:2273 with SMTP id d9443c01a7336-2c163a257e8mr7287705ad.3.1780441968266;
+        Tue, 02 Jun 2026 16:12:48 -0700 (PDT)
+Received: from [127.0.1.1] ([2a12:a305:4::40e9])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16649d2dfsm3302965ad.75.2026.06.02.16.12.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2026 16:12:47 -0700 (PDT)
+From: Guodong Xu <docular.xu@gmail.com>
+Subject: [PATCH v3 00/15] riscv: hwprobe: Expose RVA23U64 base behavior
+Date: Wed, 03 Jun 2026 07:11:55 -0400
+Message-Id: <20260603-rva23u64-hwprobe-v2-v3-0-5529a7b28384@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1420; i=thorsten.blum@linux.dev; h=from:subject; bh=tH5WJ66QRToRkxKMi5CzlJ8nS5W/lCMqd4UDM9GQwkU=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFnysbX62efmu2TG/wxgcXQQPfLKY67qGmGj+t8KR/QnH JabmRbRUcrCIMbFICumyPJg1o8ZvqU1lZtMInbCzGFlAhnCwMUpABOpiWRkaPa3Tt+0bBHjkSW/ 2yZHzJ78fsmFw5bFnzfd4a8/se3gk7OMDBOPpvjVyHtvULD1LmtNaHzBZ6O0fkMtf+G2Mq0TrFN 3MwEA
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-X-Migadu-Flow: FLOW_OUT
+X-B4-Tracking: v=1; b=H4sIAPsLIGoC/22NzQ6CMBCEX8Xs2Zp2+RE9+R6GQ1sWqYmUbKFqC
+ O9uQY8mc/mSmflmCMSOApx3MzBFF5zvE2T7HdhO9zcSrkkMKLGUhawER43ZVOaiew7sDYmIQjU
+ oj9nJGlMRpOXA1LrX9nqtvxwmcyc7rldro3Nh9PzetBHX3s+g1F9DihSobKGLPG9VYy/sgg2j5
+ oP1D6iXZfkANr3jGMsAAAA=
+X-Change-ID: 20260508-rva23u64-hwprobe-v2-1d20739cbb8e
+To: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Zong Li <zong.li@sifive.com>, 
+ Deepak Gupta <debug@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atish.patra@linux.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Shuah Khan <shuah@kernel.org>, 
+ Christian Brauner <brauner@kernel.org>
+Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, spacemit@lists.linux.dev, 
+ sophgo@lists.linux.dev, linux-kselftest@vger.kernel.org, 
+ Andrew Jones <andrew.jones@oss.qualcomm.com>, 
+ Charles Jenkins <thecharlesjenkins@gmail.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Guodong Xu <docular.xu@gmail.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+ Jesse Taube <jesse@rivosinc.com>, Andy Chiu <andybnac@gmail.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7134; i=docular.xu@gmail.com;
+ h=from:subject:message-id; bh=q0l6SoLkv/OD4ArhEhudd5OJ0i0bPlCDCgP82G86E4s=;
+ b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhiwFHiaF06kiMa1Kiy0zbuyNSVT7qqLeOaNk6YykAxei6
+ u9/fbato5SFQYyLQVZMkeXw0Zbsra98on2fc/6AmcPKBDKEgYtTACZy/Ccjw790801hQT1c4sK/
+ Pym/+tP+PHPu5KvHDoWXmPR5P3bMncbwz+hu34eN54tOTEkwuCf9xntq0dXV6aYeZVzmuXPOJHU
+ pMgIA
+X-Developer-Key: i=docular.xu@gmail.com; a=openpgp;
+ fpr=90B1DC3DF0BD10FD1227BD6344F254AF42F143EE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260602_154915_320735_4CF45A97 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260602_161249_329186_7ADE235A 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +128,168 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use min() to replace the open-coded version and assign the result
-directly to kbuf.bufsz. Drop the now-unused local size variable.
+This series builds on Andrew Jones's earlier RFC [1]. It lets
+userspace check for RVA23U64 conformance in one call, instead of
+walking hwprobe + prctl across every mandatory extension.
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+The series adds a small framework that resolves profile-class
+bases (IMA and RVA23U64) from the kernel's ISA extension bitmap at
+init time, and surfaces the result through both /proc/cpuinfo and
+hwprobe. Later patches can add RVA23S64, and backward RVA22 / RVA20
+detection, to riscv_set_isa_bases() without changes to the
+surrounding code.
+
+Changes in v3 came from these sources:
+1. A rebase from v7.1-rc2 to v7.1-rc6;
+2. hwprobe.rst clean-up is moved to first;
+3. Zic64b is added as a first-class ISA extension (dt-binding,
+   cpufeature parsing, and hwprobe export);
+4. Resolve review comments from v2.
+
+V3 Series outline:
+
+  1-3. hwprobe.rst clean-ups: normalize indentation first, then
+       document EXT_ZICFISS / EXT_ZICFILP, and standardize single-letter
+       extension capitalization.
+
+   4.  Zicclsm: cpufeature parsing + hwprobe export.
+   5.  Ziccamoa, Ziccif, Ziccrse, Za64rs: cpufeature parsing + hwprobe export.
+   6.  B: cpuufeature pasrsing + hwprobe export, as the Zba/Zbb/Zbs set.
+
+   7.  Zic64b: dt-bindings, with a schema check.
+   8.  Zic64b: cpufeature parsing + hwprobe export.
+ 9-11. dts: Declare zic64b in the SpacemiT K3, SpacemiT K1, and Sophgo
+       SG2044 device trees.
+
+  12.  riscv_have_user_pmlen(): arch-level accessor for user
+       pointer-masking PMLEN support, used by RVA23U64 detection.
+
+  13.  cpufeature: per-hart and host-wide isa_bases bitmaps,
+       populated at init time. IMA and RVA23U64 detection lives
+       here.
+
+  14.  /proc/cpuinfo: print "isa bases:" and "hart isa bases:", eg. rva23u64.
+  15.  hwprobe: expose RVA23U64.
+
+Tested on both K3 Pico ITX and Qemu with -cpu rva23s64,sv39=on:
+  - /proc/cpuinfo reports "isa bases : rv64ima rva23u64" on both the
+    aggregated and per-hart lines.
+  - hwprobe RISCV_HWPROBE_KEY_BASE_BEHAVIOR returns
+    BASE_BEHAVIOR_IMA | BASE_BEHAVIOR_RVA23U64.
+
+Based on v7.1-rc6 plus [2]; happy to rebase onto another tree if needed.
+A branch is available for all patches in the series: [3].
+
+Note: [2] is only required in order to save the merge effort for adding
+      'Zic64b' and 'Ziccrse' into the same k3.dtsi.
+
+Link: https://lore.kernel.org/linux-riscv/20260206002349.96740-1-andrew.jones@oss.qualcomm.com/ [1]
+Link: https://lore.kernel.org/all/20260602070257-KYC5031219@kernel.org/ [2]
+Link: https://github.com/docularxu/linux/commits/b4/rva23u64-hwprobe/ [3]
 ---
- arch/riscv/kernel/kexec_elf.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+Changes in v3:
+- Add Zic64b as a first-class ISA extension: dt-binding, cpufeature
+  parsing with a validate check, hwprobe export, and device-tree
+  declarations for K3/K1/SG2044.
+- Patch 1 is now a clean up of hwprobe.rst indentation.
+- Document RISCV_HWPROBE_EXT_ZICFILP alongside ZICFISS.
+- Move the Zicclsm hwprobe.rst entry to the IMA_EXT_1 section to match
+  its bit allocation.
+- Collect Anup Patel's Acked-by/Reviewed-by on Patch 3, the capitalization.
+- In cpufeature.c, set the local ext_mask with __set_bit().
+- Update Guodong Xu's email to docular.xu@gmail.com.
 
-diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
-index 531d348db84d..528141df90ba 100644
---- a/arch/riscv/kernel/kexec_elf.c
-+++ b/arch/riscv/kernel/kexec_elf.c
-@@ -19,6 +19,7 @@
- #include <linux/libfdt.h>
- #include <linux/types.h>
- #include <linux/memblock.h>
-+#include <linux/minmax.h>
- #include <asm/setup.h>
- 
- static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
-@@ -27,7 +28,6 @@ static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
- {
- 	int i;
- 	int ret = 0;
--	size_t size;
- 	struct kexec_buf kbuf = {};
- 	const struct elf_phdr *phdr;
- 
-@@ -38,12 +38,8 @@ static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
- 		if (phdr->p_type != PT_LOAD)
- 			continue;
- 
--		size = phdr->p_filesz;
--		if (size > phdr->p_memsz)
--			size = phdr->p_memsz;
--
- 		kbuf.buffer = (void *) elf_info->buffer + phdr->p_offset;
--		kbuf.bufsz = size;
-+		kbuf.bufsz = min(phdr->p_filesz, phdr->p_memsz);
- 		kbuf.buf_align = phdr->p_align;
- 		kbuf.mem = phdr->p_paddr - old_pbase + new_pbase;
- 		kbuf.memsz = phdr->p_memsz;
+- Link to v2: https://patch.msgid.link/20260511-rva23u64-hwprobe-v2-v2-0-21c5a544f1dc@riscstar.com
+
+Changes in v2 (since Andrew's RFC v1):
+- Rebased onto v7.1-rc2.
+- Reworked rva23u64 detection into per-hart and host isa_bases bitmaps,
+  shared by /proc/cpuinfo and hwprobe.
+- Scoped to IMA and RVA23U64 (RVA23S64, RVA20/RVA22 cpuinfo output deferred).
+
+- Link to v1:  https://lore.kernel.org/linux-riscv/20260206002349.96740-1-andrew.jones@oss.qualcomm.com
+
+BR,
+Guodong Xu
+
+To: Jonathan Corbet <corbet@lwn.net>
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+To: Shuah Khan <shuah@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+To: Atish Patra <atish.patra@linux.dev>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Deepak Gupta <debug@rivosinc.com>
+To: Zong Li <zong.li@sifive.com>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Cc: Charles Jenkins <thecharlesjenkins@gmail.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-doc@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+Cc: kvm@vger.kernel.org
+Cc: kvm-riscv@lists.infradead.org
+Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+
+---
+Andrew Jones (4):
+      riscv: hwprobe.rst: Make indentation consistent
+      riscv: Add Ziccamoa, Ziccif, Ziccrse, and Za64rs to cpufeature and hwprobe
+      riscv: Add B to hwcap and hwprobe
+      riscv: Add a getter for user PMLEN support
+
+Charlie Jenkins (1):
+      riscv: Standardize extension capitalization
+
+Guodong Xu (9):
+      riscv: hwprobe.rst: Document EXT_ZICFISS and EXT_ZICFILP
+      dt-bindings: riscv: Add Zic64b extension description
+      riscv: Add Zic64b to cpufeature and hwprobe
+      riscv: dts: spacemit: k3: Add Zic64b ISA extension
+      riscv: dts: spacemit: k1: Add Zic64b ISA extension
+      riscv: dts: sophgo: sg2044: Add Zic64b ISA extension
+      riscv: cpufeature: Introduce ISA bases bitmap and rva23u64 detection
+      riscv: cpu: Output isa bases lines in cpuinfo
+      riscv: hwprobe: Introduce rva23u64 base behavior
+
+Jesse Taube (1):
+      riscv: Add Zicclsm to cpufeature and hwprobe
+
+ Documentation/arch/riscv/hwprobe.rst               | 239 ++++++++++++---------
+ .../devicetree/bindings/riscv/extensions.yaml      |  20 ++
+ arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi        | 128 +++++------
+ arch/riscv/boot/dts/spacemit/k1.dtsi               |  80 +++----
+ arch/riscv/boot/dts/spacemit/k3.dtsi               |  48 ++---
+ arch/riscv/include/asm/cpufeature.h                |  14 ++
+ arch/riscv/include/asm/hwcap.h                     |  24 ++-
+ arch/riscv/include/asm/processor.h                 |   4 +
+ arch/riscv/include/asm/switch_to.h                 |   4 +-
+ arch/riscv/include/uapi/asm/hwcap.h                |   1 +
+ arch/riscv/include/uapi/asm/hwprobe.h              |  10 +-
+ arch/riscv/kernel/cpu.c                            |  26 +++
+ arch/riscv/kernel/cpufeature.c                     | 182 ++++++++++++++--
+ arch/riscv/kernel/process.c                        |  12 ++
+ arch/riscv/kernel/sys_hwprobe.c                    |  34 ++-
+ arch/riscv/kvm/isa.c                               |  16 +-
+ arch/riscv/kvm/main.c                              |   2 +-
+ arch/riscv/kvm/vcpu_fp.c                           |  20 +-
+ arch/riscv/kvm/vcpu_onereg.c                       |   6 +-
+ arch/riscv/kvm/vcpu_vector.c                       |  10 +-
+ tools/testing/selftests/riscv/hwprobe/which-cpus.c |   2 +-
+ 21 files changed, 586 insertions(+), 296 deletions(-)
+---
+base-commit: a04586b3d291a349301c2463bc485d05a3968383
+change-id: 20260508-rva23u64-hwprobe-v2-1d20739cbb8e
+
+Best regards,
+--  
+Guodong Xu <docular.xu@gmail.com>
+
 
 _______________________________________________
 linux-riscv mailing list
