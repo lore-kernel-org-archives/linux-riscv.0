@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13D7CD6E57
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 15:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB30CD6E6C
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 15:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JTr4mSb8Z/0SN37udE3+tBsmoiWpEDSaUNUF98WVk+E=; b=b366Alm2SwEHT3
-	1/xGjejAqfDp8AQce1oEV4dj1mvDnXrjtVUWuQc8ycbxVQ3X4q1yRsYx5xEJJ6L06O7iLwQolEzNf
-	yMRHd3m6A03p6W/4QqozwTgqzKsaaqKRU+jPlPl3YXkBuPJ1LQpM+Id8ogts0yB2iiM62aJAypH/y
-	7RlCr4dVottwurRMmbO/WBwcuchbSTX2m3/6CmvLjrQLG3g2t5xPwt6DVAN33pvcSziO0rASLhGtM
-	iJcgZqYh362lvccGraJmjuNbCnm7hVT6pe1d7jlX/1yzA4gQaqSHK7XNUYht623rOw+z9MDmv4aGi
-	zsmdgzln0IGQ3yXj0U3w==;
+	List-Owner; bh=SHI5d+y1LxgXE3mETVrQmA8hz24574VinORFw4nAod0=; b=gCaxdznSWNetJn
+	P78QYbSrdK2e4Ugv1o8kM0tkFPgpLbQ9zRKfNgh4P9J9LJ27LIMfQwU0FxTRYdN3blyjoNcfdkqor
+	KO77pRF7yckk+GH8dN/F6EvI56T4isROdbG+m+3Tgpp6UsbnWgalylZqj61cjN+Cdq6Llz8tspxGi
+	/7B0gpM1L8y8A9w2lOyxY9OIUGQIMK2qKr3kS3/XoHriMnX2kdyPrGJVeF8JpldC5dH3tNhNMNEHb
+	kQzwxz0V5puO82iphTPiuRk+p9OserHAG+bwyhYiiARJNLTgwKUJRZYGlbud3UoZwHmrxToMx6GWg
+	Uhjjb2Q3MiP8j4k2cBTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnLf-0000000FM02-1uiH;
-	Wed, 03 Jun 2026 15:17:39 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wUnLe-0000000FLxz-1qA1;
+	Wed, 03 Jun 2026 15:17:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUkYZ-0000000F3OR-2yvK
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jun 2026 12:18:50 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id D90E04E40108;
-	Wed,  3 Jun 2026 12:18:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8A67C6073E;
-	Wed,  3 Jun 2026 12:18:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AA06610888413;
-	Wed,  3 Jun 2026 14:17:58 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780489120; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=zFi/fGH5JDn5JO2RB9yxgU6c2Ow81xQ2uZUvm6i/E1g=;
-	b=oDjwgWv0v2GgyX3pUULcD12EPMMUfgyJz9dBcXuV+rHROoWzoTs8xUfKvHan7sDmS4CabP
-	L+IrQHrvnK0vVMlJcr6wVI29ruHN0LlRTpSAbksHJDQU4x6/AUscYD365MmPH4Ai9RHUD3
-	INZ8kgugtku7ob0NW+Ab7SNI9LVONJhSV2/Jk11qsbj+crVHJ9NJj1exILul60PuVPHkKS
-	HfTz8P9kfZEod84fwQjR8JESyd/TGvwRHW/nVKN9n20yx7yviIrbsYx2VG2qWDRMnUj3ZS
-	NEQxmhhJHdJjDyxCCsVL18Z9rUUNa16rIZrNpUha+f5Agkx9HJ0YQZpZ489vRg==
-Date: Wed, 3 Jun 2026 14:17:57 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Subject: Re: [PATCH 04/83] ASoC: codecs: peb2466: don't use array if single
- pattarn
-Message-ID: <20260603141757.451cad7b@bootlin.com>
-In-Reply-To: <87wlwrhqxf.wl-kuninori.morimoto.gx@renesas.com>
-References: <8733zfj5jj.wl-kuninori.morimoto.gx@renesas.com>
-	<87wlwrhqxf.wl-kuninori.morimoto.gx@renesas.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
-MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1wUiJO-0000000Ekpv-3Tp2;
+	Wed, 03 Jun 2026 09:54:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Subject:Cc:To:From:
+	Mime-Version:Date:References:In-Reply-To:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=qnPFxC7Hphl5XSbHLNMyCvcdyO0h1Pnz/kUL/RPdqrc=; b=hfl5g70SvpQwCJu4/W+Gz9MfYi
+	RYaB+IlGlOVL2+9BAdjAUoP8gcY33wRjvQn3mViVR+6a6tlJlnH+AVEC91IfQ3IV5YLbITTzff5k9
+	jVCR6bFg18ZPdIDfXCN27KdS4q2bTVpzWWXGPTiN86x+9flr9gxIH4sXAeHtiKoYLprpWBFrk0jGv
+	rsApxGdDw6iY6BI9D6XZZSHzjq04ZyBlR21KtVjhSHz1TBIKcDXIdETEAJ3PENphV8urKE1pZjQCy
+	rQAA8QpS7z3URHYVl/A9nir4yNPZH192UPZoTWvG3D3UH4MrG3fDiL41D3Rx/1HXbxwG9oiYUlzOR
+	ZvFpdrXA==;
+Received: from mxct.zte.com.cn ([183.62.165.209])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wUiJL-0000000Blo5-0yZD;
+	Wed, 03 Jun 2026 09:54:57 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gVjjH10FWz58fdM;
+	Wed, 03 Jun 2026 17:54:43 +0800 (CST)
+Received: from szxlzmapp04.zte.com.cn ([10.5.231.166])
+	by mse-fl1.zte.com.cn with SMTP id 6539sa0H073074;
+	Wed, 3 Jun 2026 17:54:36 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxlzmapp02[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Wed, 3 Jun 2026 17:54:39 +0800 (CST)
+X-Zmail-TransId: 2b046a1ff9df49a-28dd2
+X-Mailer: Zmail v1.0
+Message-ID: <20260603175439237VrPTLz6fG79fXRYAu-JFW@zte.com.cn>
+In-Reply-To: <20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn>
+References: 20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn
+Date: Wed, 3 Jun 2026 17:54:39 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <wang.yechao255@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYyIDEvNF0gUklTQy1WOiBLVk06IEFkZCB0aGUgc3BsaXQgcGFnZSBjYWNoZSBmb3IgaW9jdGwgY29udGV4dA==?=
+X-MAIL: mse-fl1.zte.com.cn 6539sa0H073074
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Wed, 03 Jun 2026 17:54:43 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A1FF9E3.000/4gVjjH10FWz58fdM
+X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_051848_013750_9A8C74A2 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260603_105455_707350_17604C24 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Wed, 03 Jun 2026 08:17:36 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,24 +91,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Heiko Stuebner <heiko@sntech.de>, Geert Uytterhoeven <geert+renesas@glider.be>, Xiubo Li <Xiubo.Lee@gmail.com>, Peter Rosin <peda@lysator.liu.se>, Jaroslav Kysela <perex@perex.cz>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Cheng-Yi Chiang <cychiang@chromium.org>, Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, Vishwas A Deshpande <vishwas.a.deshpande@ti.com>, Olivier Moysan <olivier.moysan@foss.st.com>, Yixun Lan <dlan@kernel.org>, Martin =?UTF-8?B?UG92acWhZXI=?= <povik+lin@cutebit.org>, Jihed Chaibi <jihed.chaibi.dev@gmail.com>, Baojun Xu <baojun.xu@ti.com>, Kirill Marinushkin <k.marinushkin@gmail.com>, Bartosz Golaszewski <brgl@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, linux-sound@vger.kernel.org, Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, Scott Branden <sbranden@broadcom.com>, Masami Hiramatsu <mhiramat@kernel.org>, Sharique Mohammad <sharq0406@gmail.com>, David Rhodes <david.rhodes@cirrus.com>, Jarkko Nikula <jarkko.nikula@bitmer.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Max Filippov <jcmvbkbc@gmail.com>, M R Swami Reddy <mr.swami.reddy@ti.com>, Guenter Roeck <groeck@chromium.org>, Dario Binacchi <dario.binacchi@amarulasolutions.com>, chrome-platform@lists.linux.dev, Thierry Reding <thierry.reding@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jonathan Hunter <jonathanh@nvidia.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>, Jerome Brunet <jbrunet@baylibre.com>, Steven Eckhoff <steven.eckhoff.opensource@gmail.com>, Charles Keepax <ckeepax@opensource.cirrus.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Tim Bird <tim.bird@sony.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, Zhang Yi <zhangyi@everest-semi.com>, Biju Das <biju.das.jz@bp.renesas.com>, Chen-Yu Tsai <wens@kernel.org>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Kiseok Jo <kiseok.jo@irondevice.com>, linux-renesas-soc@vger.kernel.org, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Bram Vlerick <bram.vlerick@openpixelsystems.org>, imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Kevin Lu <kevin-lu@ti.com>, Krzysztof Kozlowski <krzk@kernel.org>, Fred Treven <fred.treven@cirrus.com>, Fabio Estevam <festevam@gmail.com>, Binbin Zhou <zhoubinbin@loongson.cn>, Jernej Skrabec <jernej.skrabec@gmail.com>, Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Ray Jui <rjui@broadcom.com>, Vladimir Zapolskiy <vz@mleia.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, Mark Brown <broonie@kernel.org>, Kevin Cernekee <cernekee@chromium.org>, Benson Leung <bleung@chromium.org>, Support Opensource <support.opensource@diasemi.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, spacemit@lists.linux.dev, Liam Girdwood <lgirdwood@gmail.com>, Guoqing Jiang <guoqing.jiang@canonical.com>, Venkata Prasad Potturu <venkataprasad.potturu@amd.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, Paul Cercueil <paul@crapouillou.net>, HariKrishna Sagala <hariconscious@gmail.com>, linux-riscv@lists.infradead.org, Shengjiu Wang <shengjiu.wang@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Robert Jarzmik <robert.jarzmik@free.fr>, "J.M.B. Downing" <jonathan.downing@nautel.com>, Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, Hsieh Hung-En <hungen3108@gmail.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Shenghao Ding <shenghao-ding@ti.com>, Nicolin Chen <nicoleotsuka@gmail.com>, "Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= \(The Capable Hub\)" <u.kleine-koenig@baylibre.com>, Tzung-Bi Shih <tzungbi@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Qianfeng Rong <rongqianfeng@vivo.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, James Ogletree <jogletre@opensource.cirrus.com>, linux-mips@vger.kernel.org, Takashi Iwai <tiwai@suse.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Alvin =?UTF-8?B?xaBpcHJhZ2E=?= <alsi@bang-olufsen.dk>, Ben Bright <ben.bright@cirrus.com>, Daniel Mack <daniel@zonque.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgS3VuaW5vcmksCgpPbiBUdWUsIDI2IE1heSAyMDI2IDAxOjU5OjA4ICswMDAwCkt1bmlub3Jp
-IE1vcmltb3RvIDxrdW5pbm9yaS5tb3JpbW90by5neEByZW5lc2FzLmNvbT4gd3JvdGU6Cgo+IEJl
-Y2F1c2UgaXQgaXMgY29uZnVzYWJsZSBkdXJpbmcgZGVidWdnaW5nIEFTb0MgRlcgdXBkYXRlLCB0
-aWR5dXAKPiBhdXRvIGZvcm1hdCBzdHlsZSBub3QgdG8gdXNlIGFycmF5IGlmIHNpbmdsZSBwYXR0
-ZXJuIGNhc2UuCj4gCj4gU2lnbmVkLW9mZi1ieTogS3VuaW5vcmkgTW9yaW1vdG8gPGt1bmlub3Jp
-Lm1vcmltb3RvLmd4QHJlbmVzYXMuY29tPgo+IC0tLQo+ICBzb3VuZC9zb2MvY29kZWNzL3BlYjI0
-NjYuYyB8IDkgKysrKy0tLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDUg
-ZGVsZXRpb25zKC0pCj4gCgpTYW1lIHR5cG8gaW4gdGhlIGNvbW1pdCB0aXRsZSBhcyBpbiBwYXRj
-aCAyOgpzL3BhdHRhcm4vcGF0dGVybi8KCk9yIGV2ZW4Kcy9wYXR0YXJuL2l0ZW0vCgpXaXRoIHRo
-YXQgZml4ZWQsCgpSZXZpZXdlZC1ieTogSGVydmUgQ29kaW5hIDxoZXJ2ZS5jb2RpbmFAYm9vdGxp
-bi5jb20+CgpCZXN0IHJlZ2FyZHMsCkhlcnbDqQoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+From: Wang Yechao <wang.yechao255@zte.com.cn>
+
+Add the split page cache for dirty logging enablement and the
+KVM_CLEAR_DIRTY_LOG ioctl.
+
+Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+---
+ arch/riscv/include/asm/kvm_host.h | 1 +
+ arch/riscv/kvm/mmu.c              | 3 +++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 75b0a951c1bc..0ee778f0f086 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -84,6 +84,7 @@ struct kvm_arch {
+ 	pgd_t *pgd;
+ 	phys_addr_t pgd_phys;
+ 	unsigned long pgd_levels;
++	struct kvm_mmu_memory_cache pgd_split_page_cache;
+
+ 	/* Guest Timer */
+ 	struct kvm_guest_timer timer;
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 2d3def024270..0676937bd9a1 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -549,6 +549,7 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
+ 	kvm->arch.pgd = page_to_virt(pgd_page);
+ 	kvm->arch.pgd_phys = page_to_phys(pgd_page);
+ 	kvm->arch.pgd_levels = kvm_riscv_gstage_max_pgd_levels;
++	kvm->arch.pgd_split_page_cache.gfp_zero = __GFP_ZERO;
+
+ 	return 0;
+ }
+@@ -572,6 +573,8 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+
+ 	if (pgd)
+ 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
++
++	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
+ }
+
+ void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
+-- 
+2.43.5
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
