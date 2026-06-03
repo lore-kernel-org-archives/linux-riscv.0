@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3DECD6E6A
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 11:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F0BCD6E4A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 11:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:To:Mime-Version:Subject:Cc:
-	Message-Id:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=eGLHrQPLrGvxjaLXu3Z74IrmuexlOJbbTz5l9ciIOxE=; b=ed1
-	1jq1vE/Csuit/+b7Jacc3KjRf3Df3QJ0g6mVE8bRxSwtCnkwjfOpgGcHXjAQqcD6C5ryFuhsuzXPm
-	rvgV18v8dMHodXCzits1I8ZOH3B5rq1/piS1k4jBjeURJ4DEOz060zc3EFcypRJo3GbqvMdJMhb01
-	Bebzs5hmB+Lk0mzSL8x1AwrDbulouQAZfuROrQv94kujIjZ7Pe1/mbDYnc76elVdg4oJPzhgWkltm
-	19bGHzJVH+MaBSF+YoMqV/9dIbVX2ivCSsCn8uWC0fSHlup8E+npb3qKwFMK7zlZJcvhXfNjh4tFd
-	jWZ+gNJImhYMbjya1W6k9DqfLuwswLA==;
+	List-Archive:List-Unsubscribe:List-Id:From:References:In-Reply-To:
+	Mime-Version:Subject:Cc:Date:Message-Id:To:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=rVoWMHoKGlE7nZYradATr9GaNwUWDNTGffX6/Dvx3Ac=; b=z80TVXSt9FJoIuhOocBnLnzSiB
+	vwJ3qfRNAyvzoR7U7y/CbGqJk34tuqGqQadCLgw9X+pHJorbg/JbecMkm3BS/ZmQ+XgNSIyD0e5lq
+	F8bPuX84WNUenNodcxZ7pZLWlBDc3NDDiZfBj9g9HPAELZDBd+wq2L2B4KF3aCTevv5Z9bXZamtbi
+	2GWDYzTwrEnPDWue5iyOGRrco1t9s9FCpKIGfmL2gTj+SxO61cDYdo0X8Y/9rk1xb0HLFBwOiteza
+	C6CS7NKpnqY3FKWpn1v3mYtlGZOdcaao+ywi9u3AnY6Zpfh6+1zrrYp17iru6KRl47JQNu0K8M11T
+	0Jq80muQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUkAT-0000000EzKb-2EGF;
-	Wed, 03 Jun 2026 11:53:53 +0000
-Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
+	id 1wUkAj-0000000EzRA-3i9y;
+	Wed, 03 Jun 2026 11:54:09 +0000
+Received: from va-1-113.ptr.blmpb.com ([209.127.230.113])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUkAQ-0000000EzJe-3175
+	id 1wUkAh-0000000EzPI-2PvA
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jun 2026 11:53:52 +0000
+	Wed, 03 Jun 2026 11:54:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1780487623; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1780487642; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=xGiu9TiOZp/oKM+WuZaW+ml4C/uM143RPoovoqYsIpU=;
- b=cZco4PE9rqcTz1avzxkdRAIiDvWSD2RTcx8A+3/z9mRjrdyP80To96ty+9TdAFjDFJUrja
- 4YfZZednp+SQCvgiX/UBvJPN2kmvHc0VNhqP+hJWr1sQyh9pZHVbBD1huuNIgtTL1S/zHB
- nZLXIzkLHzHHmCSvyMj8bsfMMXjIMjlKbCDniOg6IZPecMibapaXe17J3pBV33JHu/vSs5
- 3yDbFmLfuFILFM16weOtugEHZxA4lJPrv3a4zQqWEm3C7VDptdh0vifn0NvMAC9yLH3gv2
- Z36cEM1jKpGpUhdm3XGfHFe8u9pcOENdtV0/dQA8EqjSHKQdVd7zqSzzS1K92Q==
-From: "Rui Qi" <qirui.001@bytedance.com>
-Message-Id: <20260603115329.791603-1-qirui.001@bytedance.com>
+ bh=BP6MKTedQDfeKoLFnuCL3wxv2kHIK4oguFbN4oqvk/8=;
+ b=mF5qV1B63u0J5WypTntOfCE60mNqAj4uJ38fTE35DqrjL3fHJkcM1fwFgJdKKrlRz9thwt
+ UI3xyJ2iQBP/3ftTHeL9+hDMcTBvTpEAhBH85papDBwimOsV4L6VqpKr4Fy0kngbp5o20n
+ g0wcKXnYxMj+7a1cSa7jTL+giMDPbgHEVDC35uTh9OyuwG8oAmKPFha9evHnO64T/qXG5n
+ S/bRPGaULqvwokG5/nKdB7SbFYlaSpwNfjVntevEcFQts/6ZACotnEhjYadOe8eBLq7MKw
+ tpynu4M33T21gB9XUgO0HicIf12mMQn0TFGJumTE3xdGUuZ2JKuu7miRAWExVg==
+X-Mailer: git-send-email 2.20.1
 X-Original-From: Rui Qi <qirui.001@bytedance.com>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>
-Subject: [PATCH v1 0/2] riscv: stacktrace: Fix return address handling in non-FP unwinder
-X-Lms-Return-Path: <lba+26a2015c5+194470+lists.infradead.org+qirui.001@bytedance.com>
-Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26a2015d8+dd4b1f+lists.infradead.org+qirui.001@bytedance.com>
 To: "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
 	"Albert Ou" <aou@eecs.berkeley.edu>
-Date: Wed,  3 Jun 2026 19:53:27 +0800
-X-Mailer: git-send-email 2.20.1
+Message-Id: <20260603115329.791603-3-qirui.001@bytedance.com>
+Date: Wed,  3 Jun 2026 19:53:29 +0800
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>
+Subject: [PATCH v1 2/2] riscv: stacktrace: Use %pB for backtrace display
+Mime-Version: 1.0
+In-Reply-To: <20260603115329.791603-1-qirui.001@bytedance.com>
+References: <20260603115329.791603-1-qirui.001@bytedance.com>
+From: "Rui Qi" <qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_045350_833274_26BA520E 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20260603_045407_684330_EE0681DB 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,91 +71,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This 2-patch series fixes how the non-frame-pointer version of
-walk_stackframe handles return addresses, addressing both the
-unwinder layer and the display layer.
+The print_trace_address callback uses print_ip_sym which formats
+addresses with %pS. This does not adjust the address before symbol
+lookup, so when a noreturn function (e.g. panic, do_exit) is the last
+call in a function, the saved return address can point to the start of
+the next function, and kallsyms resolves it to the wrong symbol.
 
-Background
-==========
+The kernel provides %pB (sprint_backtrace) specifically for this
+purpose: it subtracts 1 from the address before symbol lookup, which
+is sufficient to fall back into the calling function range. x86 uses
+%pB in its printk_stack_address for the same reason.
 
-In the original RISC-V stacktrace code (commit 5d8544e2d007), both
-the FP and non-FP versions of walk_stackframe subtracted 0x4 from
-return addresses read from the stack:
+Replace print_ip_sym with a direct printk using %pB, matching the
+pattern used by x86.
 
-  FP version:      pc = frame->ra - 0x4;
-  Non-FP version:  pc = (*ksp++) - 0x4;
+Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+---
+ arch/riscv/kernel/stacktrace.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-The intent was to convert the return address (the instruction after
-a call) back to the call site for better symbol resolution. However,
-this is incorrect on RISC-V because the RVC (compressed instruction)
-extension allows 2-byte instructions (e.g. c.jal). Subtracting a
-fixed 0x4 assumes all call instructions are 4 bytes, which produces
-a wrong address for compressed calls.
-
-Commit b785ec129bd9 ("riscv/ftrace: Add HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
-support") fixed the FP version by replacing "pc = frame->ra - 0x4"
-with ftrace_graph_ret_addr(). The commit message explicitly noted:
-
-  "the original calculation, pc = frame->ra - 4, is buggy when the
-   instruction at the return address happened to be a compressed inst."
-
-Later, commit 877425424d6c removed the fallback "#else" branch
-entirely since HAVE_FUNCTION_GRAPH_RET_ADDR_PTR is always defined
-for RISC-V. However, the non-FP version was simply overlooked and
-still carries the bogus -0x4 offset.
-
-Patch 1: Remove -0x4 from the unwinder
-=======================================
-
-Remove the -0x4 offset from the non-FP walk_stackframe so it reports
-raw return addresses, consistent with the FP version and with other
-architectures (ARM64, x86, ARM all report return addresses as-is).
-
-Patch 2: Use %pB for backtrace display
-========================================
-
-With the -0x4 removed, a pre-existing issue becomes more visible:
-when a noreturn function (e.g. panic, do_exit) is the last call in
-a function, the saved return address points to the start of the next
-function, and kallsyms resolves it to the wrong symbol.
-
-This is not a new problem -- the FP version has the same issue since
-it also does not subtract from return addresses. And it is not
-specific to RISC-V; other architectures face it too.
-
-The kernel provides sprint_backtrace() (invoked via %pB) specifically
-for this purpose: it subtracts 1 from the address before symbol
-lookup, which is sufficient to fall back into the calling function's
-range. x86 uses %pB in its printk_stack_address() for this reason.
-
-Replace print_ip_sym() (which uses %pS) with a direct printk using
-%pB, matching the pattern used by x86.
-
-Design principle
-================
-
-The two patches follow a clear separation of concerns:
-
-  - The unwinder reports raw return addresses (no offset adjustment)
-  - The display layer handles symbol resolution adjustments (%pB)
-
-This matches the convention used by other architectures and ensures
-consistent behavior between the FP and non-FP unwinders.
-
-Jiakai Xu [1] and Wang Han [2] have separate patch series in flight
-for other stacktrace issues; these patches are orthogonal to their
-work.
-
-  [1] https://lore.kernel.org/all/20260517143704.659416-1-xujiakai2025@iscas.ac.cn/
-  [2] https://lore.kernel.org/all/20260528082310.1994388-1-wanghan@linux.alibaba.com/
-
-Rui Qi (2):
-  riscv: stacktrace: Remove bogus -0x4 offset in non-FP walk_stackframe
-  riscv: stacktrace: Use %pB for backtrace display
-
- arch/riscv/kernel/stacktrace.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index c7555447149b..f4eb65bf53ef 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -139,7 +139,7 @@ static bool print_trace_address(void *arg, unsigned long pc)
+ {
+ 	const char *loglvl = arg;
+ 
+-	print_ip_sym(loglvl, pc);
++	printk("%s[<%px>] %pB\n", loglvl, (void *)pc, (void *)pc);
+ 	return true;
+ }
+ 
 -- 
 2.20.1
 
