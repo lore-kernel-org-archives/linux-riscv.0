@@ -4,126 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A3CCD6E5D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jun 2026 23:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DF5CD6E5D
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 01:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vI5UPPIX7nD2CxA8zDUB8ZKVxLI2RKEy2eoshKSTJGQ=; b=pq5wLSIqcN21D3
-	oQ91wnx1tbMSRAQtWT9k42xjl6uDx7SQfC8C3yxYsUumygm7EhZXyj+isqzzUL45bE2VbIID7LM2P
-	tvGQ7d1H8xytWx6qpNWo4sNUpcYHLxbn55Ob7j6FaTbgT+co8nMgxzYaRwyfe3Uvr4d72Gab1iXNY
-	2HHkyCbY1KYdA7OutF+RB1jVRvcAav2Qw0B8pNdlgIRh8fjf/XflVnQYi25JawYraTQGFv0m/BCrW
-	TljTZQovaih+kIRZd6b6RzpL2nr8MidWPM1Ccepzyi542+sH4rS+557HL2grGR4gCfNCWu85zvCBh
-	L0cL8tQAyHvr33Y8wsAw==;
+	List-Owner; bh=yEQvxu/m9tEZSYK3U9WxJTLycz6japrISgrXJvx17NY=; b=T/jFgkzcTLvbXE
+	7dMdffHqq5rp/9ADUlACrx2Fzvxx5CJ7aExTxnRwDeievkQrZVoOzaj8hymxOqm+Uu9PmHOoO2Znu
+	MZC76FZb4tPQ9WqswzeDBGETYS9jCI2ilyDMvFoUWeOyvWuKHlY2jTU0i/MC7GpCTMgYpqPctYQJI
+	4aaVrWcyhg590RBhNP3hWGimxMF4ybzJi6VbGcdmF4yK85lhie36Xyn+aOEOOFqoavv+FAoCQPkFL
+	6pres2LaWbWmorGtq1YGr9VuH+5khYvSqqNyHmiLuMh/8tsPEQ7dib/89Qwodmm6CYCXURPP89FAG
+	cvqcO7gvg/E6DKRjKwXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUYL1-0000000Dwfj-2nUt;
-	Tue, 02 Jun 2026 23:15:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wUaKG-0000000E2ZK-1tQg;
+	Wed, 03 Jun 2026 01:23:20 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUYL0-0000000Dwf7-0czO
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 02 Jun 2026 23:15:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=elAeolCTc2IAaRv5GDeM52BjkVLUXqNe1DIyzckEuoM=; b=DuqaVLUy4XASouAtSrJGsXiqFE
-	GWvndgqOaOt0ZFf1rEv3CWLqdK3fmtS7w9Ja+tFckrQUrBbEKo6teCFi0D5CL89akH6JlsVxWXE6I
-	CcZR1EGlOfBac0MXjiRaPNeVqPDXDNwxdnWpzZVWSYp0DQenoPhZUFXuNaPT/+4SOma405o6WAzlY
-	ESfxTwxhsXdCjk88cOFndzTk6IXDv3dwQ4j89f9O/oc+Ye+SM3S9LK1AwWMUTu/wFNZRmrTprmIr1
-	YOwsVoAr1jnwS356b1M4QBUYxLAm3NBjBCk5YSalr9M3z8v6XTZ4xXuRvdXwcshfHsOJefrBoj5na
-	XxWnV8EQ==;
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wUYKe-0000000Afy4-1OQx
+	id 1wUaKC-0000000E2Yq-3ZjW
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jun 2026 23:15:56 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c0c1e0d00bso30240235ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Jun 2026 16:15:33 -0700 (PDT)
+	Wed, 03 Jun 2026 01:23:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780442131; x=1781046931; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=elAeolCTc2IAaRv5GDeM52BjkVLUXqNe1DIyzckEuoM=;
-        b=TLIYRA8TaDYKf8N2ZLQV+0mOBKFNlaVyiE+yJkleROCNfcsLfFp+YDiPJCe/BCORga
-         gC4L+YVYKg9MGpZEAgjO/jZzE1UwYurXn2SdyNTRllsRFcULqQrEQg5kNufN2355eL7V
-         XrMt+eswt4cP2xn07Ihcv9lmVpoHxPQK9pNcYtz9zONncT/2ZMVDIQe21fJU6SnDHU8e
-         0v30DniFzfkQRlPkhOrjxagIRZkZab52zQbwR8W9JRGgiHNFKRgxHyZcSmiBoICfMwMc
-         P6n/0xoLWsmpAKPHAE83da9uluGDME/8VwKbY8QB+PRtetThCPcCWdEXEvhM+TNVLJFn
-         l9+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780442131; x=1781046931;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=elAeolCTc2IAaRv5GDeM52BjkVLUXqNe1DIyzckEuoM=;
-        b=Yqu5URYcs90RKtOPJW4AVs3O1T8vvBZlI/is3VfTjuE7SH/qSNopl6UKPQCYwdeIDo
-         G07ukKtAtbvZPcyfXc8nGXc1rSrD2ekLHMJHlmOfMe6icZGT1B/vkUDt2bkftU4vVLch
-         KRCGCEUwa06Nwj7OQ0yh+jNZtRU5TL53VZYfg2/VOEge4E7MbUYG5hNE7FE5aqdZAwL9
-         H8iftWLYWzl68N+Ej9qfbj+yYFEq+mgMECYhh6XCsrdsm7v3Hwq2AS9UWgZXFfJcoT2i
-         wx/1oPZzkZuEmc4ZYWdVC4pEWDvO+q02YDoBPOLXwWXmITpgVpfedWql0uf3Rq0HdKeP
-         IZJQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/l7TqB6F6462UT6drT26bNSBMXAYHL2rS7wEj1Mx3NPZ+wLSnD1jii9M6IVP/FW3KUiAzR5vF/pjhRnw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEMqzzEq7j+AD6pMMpjbPD198GFEzQksvOjUV6wbDXLUB1H8FK
-	m/SSmTnmPJHeBwZ7DxzIr/aV5QViumo8BeCpUhOp2cx6iwI17NK0P4NS
-X-Gm-Gg: Acq92OFSeEOXSNcMuYa+hChfKsnz5Ke40rGlwE+M4zLlr/XqIv//EwUDIOioY7iN/2e
-	mJ8D8xBMX551Op8XinfNK/eLntBvfr5kBW7xmfMQnTj/eQ816v9fhdrFFKM5oFqqOoRlryogbDT
-	qPYV3YlLFC11hMYZvf3SltrwFvHYHdX3bL6vHvFcggGrDEkXqRlGERbaHWLCwLiU85o3udTfDUl
-	fpicW+djs/4i0/WGZXsGyQg0oy8asC+CH+6qgXoU5BAQhEEqvuEE0do/7ktHv1+th2/0Js58aYY
-	AGd5agSzxMexKZoIrA5Z0Tl3G/vOcP6338H4d0DsyPNBe2QobZ27tB4Ir1wu3kY8JHw3Hak70cj
-	AHWlRluegVL17bnDEXZi/TZGHWFBb0lT8jOdiUyuayztmkOckhqdbg6lCWPy7fzcq9MmgBNeNbp
-	sY0pes/RpHKg==
-X-Received: by 2002:a17:902:f547:b0:2b0:c59f:3b58 with SMTP id d9443c01a7336-2c163a3d1b6mr7203385ad.9.1780442131511;
-        Tue, 02 Jun 2026 16:15:31 -0700 (PDT)
-Received: from [127.0.1.1] ([2a12:a305:4::40e9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16649d2dfsm3302965ad.75.2026.06.02.16.15.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2026 16:15:31 -0700 (PDT)
-From: Guodong Xu <docular.xu@gmail.com>
-Date: Wed, 03 Jun 2026 07:12:10 -0400
-Subject: [PATCH v3 15/15] riscv: hwprobe: Introduce rva23u64 base behavior
+	d=linux.alibaba.com; s=default;
+	t=1780449793; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=aOvj40vd9kLAuQk7SPrErsDX1z7W+8ls3a4xdTv8HMg=;
+	b=v0T79xHV3oyjexi2kUcB99zuD5zwCChUQcTVtyIWMr3NH9jrcttg/i8bENMBpmTU4ojqs99qJ/DiYt0y4XpxpAlOlFzc2eksLaM+X+El8GqP1IacuXySYZAUxwZT3NYi9uHv04Tye7ITyKr1UuDvozuqDldk3ota9UN4GRvw/S0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R361e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X45kknw_1780449789;
+Received: from 30.246.177.175(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X45kknw_1780449789 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 03 Jun 2026 09:23:11 +0800
+Message-ID: <461a727f-e2cd-4192-9e19-16172500053c@linux.alibaba.com>
+Date: Wed, 3 Jun 2026 09:23:08 +0800
 MIME-Version: 1.0
-Message-Id: <20260603-rva23u64-hwprobe-v2-v3-15-5529a7b28384@gmail.com>
-References: <20260603-rva23u64-hwprobe-v2-v3-0-5529a7b28384@gmail.com>
-In-Reply-To: <20260603-rva23u64-hwprobe-v2-v3-0-5529a7b28384@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zong Li <zong.li@sifive.com>, 
- Deepak Gupta <debug@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atish.patra@linux.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Shuah Khan <shuah@kernel.org>, 
- Christian Brauner <brauner@kernel.org>
-Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, spacemit@lists.linux.dev, 
- sophgo@lists.linux.dev, linux-kselftest@vger.kernel.org, 
- Andrew Jones <andrew.jones@oss.qualcomm.com>, 
- Charles Jenkins <thecharlesjenkins@gmail.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Guodong Xu <docular.xu@gmail.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4827; i=docular.xu@gmail.com;
- h=from:subject:message-id; bh=O+m6esE1h2WCRNa4TSXJ8l0GsbEGYg/n4liKpqmrez8=;
- b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhiwFHvYP001VTd0EX7Jtz/r1fX1MpPDfafPEZD+aHd25Y
- k/yjFD7jlIWBjEuBlkxRZbDR1uyt77yifZ9zvkDZg4rE8gQBi5OAZiIdQkjQ8cd3dI3NxoXfthj
- fUXAwaAgPdVj8ZIbF5tKmY5ZCLtMvsfIsIYrRmnaLyfmpTIiSa2u0svvnnrlZeYgUrt9jafMDDt
- 1HgA=
-X-Developer-Key: i=docular.xu@gmail.com; a=openpgp;
- fpr=90B1DC3DF0BD10FD1227BD6344F254AF42F143EE
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] riscv: stacktrace: introduce stack-bound tracking
+ helpers
+To: Wang Han <wanghan@linux.alibaba.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Alexandre Ghiti <alex@ghiti.fr>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chen Pei <cp0613@linux.alibaba.com>, Andy Chiu <andybnac@gmail.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ Deepak Gupta <debug@rivosinc.com>, Puranjay Mohan <puranjay@kernel.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Josh Poimboeuf <jpoimboe@kernel.org>, Jiri Kosina <jikos@kernel.org>,
+ Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Shuah Khan <shuah@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, oliver.yang@linux.alibaba.com,
+ zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-perf-users@vger.kernel.org
+References: <20260527123530.2593918-1-wanghan@linux.alibaba.com>
+ <20260528082310.1994388-6-wanghan@linux.alibaba.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20260528082310.1994388-6-wanghan@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_001551_600686_44770392 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20260602_182317_417951_9449CCA1 
+X-CRM114-Status: GOOD (  24.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,123 +79,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a hwprobe base-behavior bit so userspace can check RVA23U64
-support in one call.  Without it, a consumer needs five hwprobe
-calls and four prctl calls, which is error-prone to require of every
-caller.  Most software treats RVA23U64 as a new base anyway, so
-expose it directly.
 
-Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Signed-off-by: Guodong Xu <docular.xu@gmail.com>
----
-v3: No change.
-v2:
-- Detect RVA23U64 by reading from the cached hart_isa[].isa_bases
-  bitmap populated by riscv_init_isa_bases() at init time, sharing
-  one source of truth with /proc/cpuinfo.
----
- Documentation/arch/riscv/hwprobe.rst               |  8 ++++++++
- arch/riscv/include/uapi/asm/hwprobe.h              |  3 ++-
- arch/riscv/kernel/sys_hwprobe.c                    | 23 +++++++++++++++-------
- tools/testing/selftests/riscv/hwprobe/which-cpus.c |  2 +-
- 4 files changed, 27 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 601e81f561421..d6712259946e9 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -67,6 +67,14 @@ The following keys are defined:
-       programs (it may still be executed in userspace via a
-       kernel-controlled mechanism such as the vDSO).
- 
-+  * :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_RVA23U64`: Support for all mandatory
-+    extensions of RVA23U64, as defined in the RISC-V Profiles specification
-+    starting from commit 0273f3c921b6 ("rva23/rvb23 ratified").
-+
-+    The RVA23U64 base is based upon the IMA base and therefore IMA extension
-+    keys (e.g. :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`:) may be used to probe
-+    optional extensions.
-+
- * :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`: A bitmask containing extensions
-   that are compatible with the :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`:
-   base system behavior.
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 36ec8ab470423..50733d3db7633 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -21,7 +21,8 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_MARCHID	1
- #define RISCV_HWPROBE_KEY_MIMPID	2
- #define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
--#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
-+#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA		(1 << 0)
-+#define		RISCV_HWPROBE_BASE_BEHAVIOR_RVA23U64	(1 << 1)
- #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
- #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
- #define		RISCV_HWPROBE_IMA_C		(1 << 1)
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 3e80e5551ae0d..3f66f2e99d41a 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -226,6 +226,17 @@ static bool hwprobe_ext0_has(const struct cpumask *cpus, u64 ext)
- 	return (pair.value & ext);
- }
- 
-+static bool hwprobe_has_isa_base(const struct cpumask *cpus, unsigned int base)
-+{
-+	int cpu;
-+
-+	for_each_cpu(cpu, cpus) {
-+		if (!test_bit(base, hart_isa[cpu].isa_bases))
-+			return false;
-+	}
-+	return true;
-+}
-+
- #if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
- static u64 hwprobe_misaligned(const struct cpumask *cpus)
- {
-@@ -308,14 +319,12 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 	case RISCV_HWPROBE_KEY_MIMPID:
- 		hwprobe_arch_id(pair, cpus);
- 		break;
--	/*
--	 * The kernel already assumes that the base single-letter ISA
--	 * extensions are supported on all harts, and only supports the
--	 * IMA base, so just cheat a bit here and tell that to
--	 * userspace.
--	 */
- 	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
--		pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
-+		pair->value = 0;
-+		if (hwprobe_has_isa_base(cpus, RISCV_ISA_BASE_IMA))
-+			pair->value |= RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
-+		if (hwprobe_has_isa_base(cpus, RISCV_ISA_BASE_RVA23U64))
-+			pair->value |= RISCV_HWPROBE_BASE_BEHAVIOR_RVA23U64;
- 		break;
- 
- 	case RISCV_HWPROBE_KEY_IMA_EXT_0:
-diff --git a/tools/testing/selftests/riscv/hwprobe/which-cpus.c b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-index 587feb198c049..f8c797b1d0fd9 100644
---- a/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-+++ b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-@@ -105,7 +105,7 @@ int main(int argc, char **argv)
- 	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, };
- 	rc = riscv_hwprobe(pairs, 1, 0, NULL, 0);
- 	assert(rc == 0 && pairs[0].key == RISCV_HWPROBE_KEY_BASE_BEHAVIOR &&
--	       pairs[0].value == RISCV_HWPROBE_BASE_BEHAVIOR_IMA);
-+	       (pairs[0].value & RISCV_HWPROBE_BASE_BEHAVIOR_IMA));
- 
- 	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, };
- 	rc = riscv_hwprobe(pairs, 1, 0, NULL, 0);
+On 5/28/26 4:23 PM, Wang Han wrote:
+> A reliable unwinder needs to validate that every frame record it reads
+> is fully contained in a known kernel stack, and it needs to refuse to
+> walk back into a stack it has already left. Add the building blocks
+> for that:
+> 
+>    * struct stack_info / struct unwind_state in a new
+>      asm/stacktrace/common.h, modelled on the arm64 reference
+>      implementation.
+>    * stackinfo_get_irq() / stackinfo_get_task() / stackinfo_get_overflow()
+>      plus the corresponding on_*_stack() predicates in asm/stacktrace.h,
+>      so callers can ask "is this object on stack X?" by stack kind
+>      rather than open-coded address arithmetic.
+>    * unwind_init_common(), unwind_find_stack() and
+>      unwind_consume_stack() helpers that enforce the
+>      forward-progress-only invariant required for reliability.
+> 
+> No existing user is wired up to these helpers in this commit; the
+> unwinder switch comes in a follow-up. The header changes leave
+> on_thread_stack() with the same semantics as before, just expressed in
+> terms of the new helpers.
+> 
+> Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
+> ---
+>   arch/riscv/include/asm/stacktrace.h        |  65 ++++++++-
+>   arch/riscv/include/asm/stacktrace/common.h | 159 +++++++++++++++++++++
+>   2 files changed, 222 insertions(+), 2 deletions(-)
+>   create mode 100644 arch/riscv/include/asm/stacktrace/common.h
+> 
+> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+> index b1495a7e06ce..bc87c4940379 100644
+> --- a/arch/riscv/include/asm/stacktrace.h
+> +++ b/arch/riscv/include/asm/stacktrace.h
+> @@ -3,8 +3,13 @@
+>   #ifndef _ASM_RISCV_STACKTRACE_H
+>   #define _ASM_RISCV_STACKTRACE_H
+>   
+> +#include <linux/percpu.h>
+>   #include <linux/sched.h>
+> +#include <linux/sched/task_stack.h>
+> +
+> +#include <asm/irq_stack.h>
+>   #include <asm/ptrace.h>
+> +#include <asm/stacktrace/common.h>
+>   
+>   struct stackframe {
+>   	unsigned long fp;
+> @@ -16,14 +21,70 @@ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *re
+>   extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+>   			   const char *loglvl);
+>   
+> -static inline bool on_thread_stack(void)
+> +/*
+> + * IRQ stack accessors
+> + */
+> +static inline struct stack_info stackinfo_get_irq(void)
+> +{
+> +	unsigned long low = (unsigned long)raw_cpu_read(irq_stack_ptr);
+> +	unsigned long high = low + IRQ_STACK_SIZE;
+> +
+> +	return (struct stack_info) {
+> +		.low = low,
+> +		.high = high,
+> +	};
+> +}
+> +
+> +static inline bool on_irq_stack(unsigned long sp, unsigned long size)
+> +{
+> +	struct stack_info info = stackinfo_get_irq();
+> +
+> +	return stackinfo_on_stack(&info, sp, size);
+> +}
+> +
+> +/*
+> + * Task stack accessors
+> + */
+> +static inline struct stack_info stackinfo_get_task(const struct task_struct *tsk)
+>   {
+> -	return !(((unsigned long)(current->stack) ^ current_stack_pointer) & ~(THREAD_SIZE - 1));
+> +	unsigned long low = (unsigned long)task_stack_page(tsk);
+> +	unsigned long high = low + THREAD_SIZE;
+> +
+> +	return (struct stack_info) {
+> +		.low = low,
+> +		.high = high,
+> +	};
+> +}
+> +
+> +static inline bool on_task_stack(const struct task_struct *tsk,
+> +				 unsigned long sp, unsigned long size)
+> +{
+> +	struct stack_info info = stackinfo_get_task(tsk);
+> +
+> +	return stackinfo_on_stack(&info, sp, size);
+>   }
+>   
+> +/*
+> + * Cast is necessary since current->stack is an opaque ptr.
+> + */
+> +#define on_thread_stack()	(on_task_stack(current, current_stack_pointer, 1))
+>   
+> +/*
+> + * Overflow stack accessors
+> + */
+>   #ifdef CONFIG_VMAP_STACK
+>   DECLARE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
+> +
+> +static inline struct stack_info stackinfo_get_overflow(void)
+> +{
+> +	unsigned long low = (unsigned long)raw_cpu_ptr(overflow_stack);
+> +	unsigned long high = low + OVERFLOW_STACK_SIZE;
+> +
+> +	return (struct stack_info) {
+> +		.low = low,
+> +		.high = high,
+> +	};
+> +}
+>   #endif /* CONFIG_VMAP_STACK */
+>   
+>   #endif /* _ASM_RISCV_STACKTRACE_H */
+> diff --git a/arch/riscv/include/asm/stacktrace/common.h b/arch/riscv/include/asm/stacktrace/common.h
+> new file mode 100644
+> index 000000000000..87d6d40672f3
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/stacktrace/common.h
+> @@ -0,0 +1,159 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * RISC-V common stack unwinder types and helpers.
+> + *
+> + * See: arch/arm64/include/asm/stacktrace/common.h for the reference
+> + * implementation.
+> + *
+> + * Copyright (C) 2024
 
--- 
-2.43.0
+Nit: The new common.h carries "Copyright (C) 2024", but this is a 2026
+submission.
+
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Thanks.
+Shuai
 
 
 _______________________________________________
