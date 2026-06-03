@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75619CD6E69
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 07:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AFE9CD6E55
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 07:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uzkl72/TxK0v3tcW98PmkWyJFj36D4nR6+Afog1BiSQ=; b=E9iR0/GwPWdXVo
-	yDmj2UvN6xLSD/3Qjt5Z6gk+yLZrMzYvbIKIA4mLqJRzwiaCB4idoPRqsd9NAt817nIC9z0uAe3ES
-	z8OGMsZiefzbSqxIzulX9p4oPUcIrplWoP379u2w0z/FPmry+0Ty9EpQygdFeQExeaHyBDDuRVYPL
-	X6EGyZunUCjWvfJO6Zs2ZEetF1xRvumWd7nTMelmEvm5u27efQCCn+H0XkOdt6rcQZUgeL8hkBWHw
-	FnF1IipQ9mrLvk6wbba8U+RJ97oqYibY2xnDLZ5xekpxOwrBuN/Six9ZCZTAxDReWeVWchvIv50u2
-	jJS2yzZirA9q8UDY1JYw==;
+	List-Owner; bh=FdRXkKkB0m82ywfdPbT1ODx9083+ACf2JfQaNtqVVWs=; b=rN1S3XjCObqxit
+	w4gYuENPtzk0kqu/0XaJ2B2+lXHWlKaETQfpHYdvQvnDoBtW68bBqwORaNnYJ940Qe9WQ+MtjhgmQ
+	fuhit1qBEs50V4NqasjNyCASFpPOJ7gNKlXvwUVLd1hGxWyi25sbhs9YAleQuDg5YFsTQflClQb8J
+	48VKi3+1UgURia0DjpPIqLoYdaxGZQaEVIpfyE5+Rcg/N1a5ORTusRaJZb8AtkcdK9ljS6BLJOlXI
+	asC0oLj/2GLy08ZSTEFInWO9yaPzg5DslalhAn35O/RZ+LD/1aLGEsMYxqidOZzHqokStLjRiBFAR
+	cm3L7pF5NzIVNTLbgXqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgFi-0000000EV3v-2D25;
-	Wed, 03 Jun 2026 07:43:02 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1wUgFl-0000000EV4u-2aL4;
+	Wed, 03 Jun 2026 07:43:05 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUgFe-0000000EV2v-3rDj
+	id 1wUgFj-0000000EV4I-2YWg
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jun 2026 07:43:00 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-842264dde84so185252b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jun 2026 00:42:58 -0700 (PDT)
+	Wed, 03 Jun 2026 07:43:04 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36b9d265355so3580514a91.2
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jun 2026 00:43:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780472578; x=1781077378; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1780472583; x=1781077383; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=l7yqFw0tWdchIDC7Bn/I4SbgaqSJ84oj4eVuugZh2/Y=;
-        b=i4FZtLFJzYRzD1sOnIH/tABq2m3RCBLNLn08X7KnzJw03WnrpkQu9mdCBuT76q/dBK
-         Z9exxGPGtue8x/Tk08212sRlQcKLY8+bnomxOMUGMc9slYaAofNN6KTK0qD8jZW/O82q
-         HANt8QPkm8lu529XA3Q++51J/DFzAK/ow5Ak9bPJtwOYGzrkQITK/nwkRvIN4/7jLTgC
-         TMJS4dCXyNAGXojBXbaX7g0/MF+IRjCQyqPi2xx+DePSIORkXAsqYXlnngS4iflUE90l
-         kQl7Y8pu/JrAVOQRRQ5AVHb59R/GMUt/8ugVZfpO3bq4+nr3FRU74M0/DXCFm5TQqyy2
-         wQNQ==
+        bh=CYwjqTH3WPvxIZCafdNOD9YOFH6+ZvKtdV4vpuopIps=;
+        b=YZmqxmvm42dH9nMS7pnkilTdf14Ngu/8cZCWGkSOV9IoognIBT6qNsVpXj55SVetdO
+         JekEHPcQtiWHD733XIQbQ/cEHGkCekh33ZkNPLq/S8axLaGq6gJAAjvneWwl7WSee0qC
+         kgSu9uo5bkd/8L5d3QdbX/m+bJK0QUVW3vpW/+idMTwfU4nWRlGgGWKgWkaNqcschDpz
+         gM1dWHyI2QFxJ/KwW4ae+bi5lWXhhTZyQ0/Z+BeZQTzRBdorASZJVftdKWUIm9j6Jzp4
+         y7Vtwh8tUvmecYFqTFhLPKbiE/RNbCoL9tBPofMMeHUAfgE/CROb4reRwIBm5w2izMHo
+         rsWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780472578; x=1781077378;
+        d=1e100.net; s=20251104; t=1780472583; x=1781077383;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=l7yqFw0tWdchIDC7Bn/I4SbgaqSJ84oj4eVuugZh2/Y=;
-        b=jrFg7uOG8lRWwJrtB3vBbT3Vzgnz2Q6SMuyeXu5IbKL7p+8LE9ovqjvUdm78ue/eGE
-         FUZfSBY9Tny68eyHtO23wGJJbyQp1uup8VvGctdv55Ur4ZvYCahw9UgvFiHZqUqG2BQz
-         +QZgkc6wCO0EQvL9/A+QeqCtUam6/x7/db56rS35Oqf8Rxu6iLi+Muh9MT00V4Av8mBa
-         6d2kUtNyWcUHb+pWKp7YklKUgJQ7Z+sGy9OWrsp+AWTbnDu7rBF4yqaH8RUbRPI391YY
-         2AdxFnLnEnyDmZEXiqOoNS5RdUu4R/TdSwYUV96ssKYP3lcxcc0f7MRkVaNmFC8LjZgW
-         EK3Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+Gigr6tXf8PAhEQPHdpu9Kh8i//kz78eWEuMmEm+tL3HhySOV8j1TtPnm7RHhaGEWzAsocZl0BiTTpgw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvICNXcPh2WocNPnMmQrYKu12Na6pybGzjZ65qOGGliqimcgNX
-	my+gq8GdibqmFbOm0ixwrYauFlXWrwzPTU3AK07Cnq8+M8X/fG2uDjiZ
-X-Gm-Gg: Acq92OEdRegh9U9imPjh6LreBrZjN9WSyWuFw487+a2lgy7wrrKsl9YQ0L+8XKIsNK7
-	4CJ1VUVomFY+zNW9qk7wxC7Yih9wNMTyzhGLkLOJX14FCFKUAeWvqo3LOEQCBQ4FYsJ7J02w0im
-	m6w0mGD6krK1xSoqXjR3XoJcFfGDBI/cB+D/fru9UH23R0TtUL6k5uqSxxqtdT3CvVMLZMfruyM
-	iKIMB2BQDa6/zsTfxljLgglKiFUR9EhG5zvEhM/Wk0vJ4n1fTOsW9OJgv36jyzFlJPe4hXFx/Jh
-	+AZi6keuKnOaX/4s8XYg0CHD0mWtgcEh1EDuXYKhe/n9lNMt2Jm064pfeqmQNf2zXyDqkGjUveU
-	nQ9v1tlyYmTfcrAnMaQ5o98lMDDWtpJakVuBwpNgojp3W5ifUbi+NC/PwAvht9zmGDOrdvvNwNJ
-	8qb4pzXjxNak1FhMJMKqezVrxFY3Fa4h2DVeLC+t4CRzt52smWInVhCPJrEeZJMJISN8zVDSHFJ
-	PJdfqeRpuKvhrthyfybAc6OY4kvdAU+BjG29JlERGlgwT4idP0crC/nKUB0vDOJ
-X-Received: by 2002:a05:6a00:90aa:b0:842:6344:f33a with SMTP id d2e1a72fcca58-8428596369amr1682866b3a.3.1780472577913;
-        Wed, 03 Jun 2026 00:42:57 -0700 (PDT)
+        bh=CYwjqTH3WPvxIZCafdNOD9YOFH6+ZvKtdV4vpuopIps=;
+        b=JFoyvA5V7XGDzFkYs1n+tdRLTtva5HIrryJG3XkJHp5VnmHix+feqvc0zK+R9cPcTn
+         Gex5V7YLJw8C2yrq9Tum4llxy2fWaEPh7qtQcJNLbV4D0CNhkyPoRQCj9Z4ae3AxKuUK
+         1cIAOGie4xqWBXhVWWbNfhgyyyRjVIfrYBlDI90gC4DJL5ZTAeSVeOoABtl5dnGzKFDt
+         Z3z+vYPKP/5VyOWZWgQ/O/ydbcicC+gevLySBto61Uj7WebgiYmfzerugRDc1r041qFz
+         aqLsZZz4ckX4WSSR8+SqvOwcb3xjObcaU2V5fEtpR8CYeHknV8ZWRkdYeCoDz56RBSPU
+         Edog==
+X-Forwarded-Encrypted: i=1; AFNElJ/eA6ozdXh0mL98S/nsu+FTHdcJtnbWVx/Mwre44YMvBalL/6i2pwDfPhgEK1/JbMbQgcNeC90BE/4G9Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiTqoLpkpO/4wit3QI5SADDhgQLquX05sDnQlCr8twt/V9eQ3m
+	05nKUFjrAkc6XipMGRCmJW2P1shnDBBuJf77gdAeUlnUOCdM+waiJUBn
+X-Gm-Gg: Acq92OGTqtC17h8OPTWTrblVYwsDDGSRa86oxZh4r5DkvCLFMq0tO08nuCTTUX5oh21
+	ILjNI0lrxbtgI28reDRZITEcqWd++cJ6WrmCY08co6Wwb0OFeEUjk4BpN2G6nqIcuHFmiviHGst
+	5b+MFabktqAVHWvIKoHUVyOeqBdWvFXUcv5bi/fXIS4p8iQwMM8HRvBXONFaYINViMPytlcwZht
+	UT0SbyAG+wgEguZcgeG82I85jvpBjvHQA9HU0a0IG+DvgOIDbSu0Pdf0Jd5K38Gk/3OKC0s4PWo
+	K8dn+zBbKAULWMl+g0HswGbseoxRdcm/vKLeku3gkwC9Bpo9i5cb5ui4yczr+2imZZ0AY4tdsS8
+	iRCyA1qHedUWfP8XdYS3N/Y4YGMFe+ERo5R9F/fDKsThjv8kx7OLjKxtWnBdBjJBriLJ17u6KdP
+	JYd7Z8meea6Ow58IMoy+3c5Qnx5sZxMBVL8v1Wi0BZQg2Ran0dz55BcYcqsE1QyZ9T7vloIQs+g
+	f1QTZSz5ViiLjNxg93XQO+m4EqOGhLetFauOzkft1JPtbN+2Prd9Eakw2qTwSPF
+X-Received: by 2002:a05:6a20:c783:b0:3b4:72bc:5b86 with SMTP id adf61e73a8af0-3b4977e30c7mr2399869637.16.1780472582830;
+        Wed, 03 Jun 2026 00:43:02 -0700 (PDT)
 Received: from donnager-debian.. ([45.124.203.15])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828daf76sm2161223b3a.42.2026.06.03.00.42.53
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828daf76sm2161223b3a.42.2026.06.03.00.42.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2026 00:42:57 -0700 (PDT)
+        Wed, 03 Jun 2026 00:43:02 -0700 (PDT)
 From: Joel Stanley <joel@jms.id.au>
 To: Paul Walmsley <pjw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -83,15 +83,15 @@ Cc: Anup Patel <anup@brainfault.org>,
 	Drew Fustini <fustini@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH 1/7] dt-bindings: aplic: Add Tenstorrent Atlantis compatible
-Date: Wed,  3 Jun 2026 17:12:13 +0930
-Message-ID: <20260603074222.593243-2-joel@jms.id.au>
+Subject: [PATCH 2/7] dt-bindings: imsics: Add Tenstorrent Atlantis compatible
+Date: Wed,  3 Jun 2026 17:12:14 +0930
+Message-ID: <20260603074222.593243-3-joel@jms.id.au>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260603074222.593243-1-joel@jms.id.au>
 References: <20260603074222.593243-1-joel@jms.id.au>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_004259_714407_20A39D8C 
+X-CRM114-CacheID: sfid-20260603_004303_649668_EB34CA36 
 X-CRM114-Status: UNSURE (   7.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -110,24 +110,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible for APLIC in Tenstorrent Atlantis SoC.
+Add compatible for IMSICS in Tenstorrent Atlantis SoC.
 
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 Signed-off-by: Joel Stanley <joel@jms.id.au>
 ---
- .../devicetree/bindings/interrupt-controller/riscv,aplic.yaml    | 1 +
+ .../devicetree/bindings/interrupt-controller/riscv,imsics.yaml   | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-index 0718071444d2..d4e17861eda4 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-@@ -29,6 +29,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
+index feec122bddde..442b8870f9c5 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
+@@ -49,6 +49,7 @@ properties:
        - enum:
-           - qemu,aplic
-           - spacemit,k3-aplic
-+          - tenstorrent,atlantis-aplic
-       - const: riscv,aplic
+           - qemu,imsics
+           - spacemit,k3-imsics
++          - tenstorrent,atlantis-imsics
+       - const: riscv,imsics
  
    reg:
 -- 
