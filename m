@@ -4,103 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEF2CD6E57
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 15:23:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6146CD6E57
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 16:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bo0YGKDsyhc4MF5ye0suV5i7yVq5BXJA8IeQzEerOC8=; b=EAM0wU5yTl8kTg
-	9lVBp7jlz9BK+g54cgUs1kpS+sI3j1QwFfPQANFkqZg8Ga+WRqzGKG8rOvvxQJh5ImIAuBrp1QpOy
-	Z5vYf5KTfzh5g7knJlfDJjLMH1WVqZO7Y1pvQr10QT5IXxx+svySDUZF+i8kHNqSkes+ferRHFpS4
-	Oa+DQlepkBg1MIcuW5jRajCHs+CUGLM0/R3tIu556n4qcRiUeyS9+skb+4P3qDoh1LwqghTXCJ0Lp
-	Z4RRSj5yFdH7XicDLHwfrz3VCp2aoyf5J63o1F4PhLmCJeDivrfibtbWnpZlfEzhxoZ8Y13tTEMpn
-	T8bgXwMK4cpplFgX0Wgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9GCp0RC/VHr375C3FXC3Sp6dSLwQEcldbJyZ9jrOfeY=; b=qAv/XUovSV9CCWKoQXZPLhVL3m
+	RFhIeqoBq8mMvnw0hciwpvLNzHfzRv/pu0tzftmGVPzqgnIlCjmQjLKFtlZXHapcYqQzRHCj9C8fD
+	G8vTHgzdEavi9JLvPeIXhWtEOoomDwz6GNVatkoLvXRbkUMJKhggMUh829ibsodrPeC4k1LMPDyBl
+	OCPfxnCPPSWtyIPU3m7OAjfcEMZTwAcwHYbK83sZh5fAbfagpJuaVXt67e7lQUT1ecHhdDHtmuVPD
+	/0ep4QUJtz+TBs+yslbUd33ZTnBG9Ln9i18qKPEq2VQokWwkolepEtWE6Ov+dw85cewAZmAaF8jPf
+	doGEYaEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnR9-0000000FPAG-3mwt;
-	Wed, 03 Jun 2026 15:23:19 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1wUoHS-0000000FVI1-0DyB;
+	Wed, 03 Jun 2026 16:17:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnR5-0000000FP98-1nps
+	id 1wUoHR-0000000FVHn-2B6J
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jun 2026 15:23:18 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-84231305a80so2373770b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jun 2026 08:23:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1780500194; x=1781104994; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zGkogaykdbkQUwLgnToIhwQcdd85nSk3N1F0msvZsIQ=;
-        b=Ad7EwSZodHHTIFBit/PvhzuU8f7flAr7Zucn6bi3x5DfTVEAPTju/D+eoquA6ieGGu
-         XZ3P+rYkt/mFSD3ZhPOxBAiuu1Mv9oNgkE2ltyhxV8H5VmbcLOGfwtIfAgWNFZu0uN7C
-         FUHGq7bRmcLmi4sH0hN8k/lVb9q/sNhQ2z/G7LJjf/XM3Q3AuLNCBBcuvSZLVS4UT1mQ
-         2bWB3iuNPKFHFIKeVia2wQNt+4IbumxMnq2NqW1OYAgRDEztHWeRkEDfjcNZHUdOjfYd
-         GNZiR44JFiZxXQz5PqP76YKxqquJjc3JkjgkJfnP7HpDkq9uha7Pj78hHQRF8gn6NyIE
-         TsRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780500194; x=1781104994;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zGkogaykdbkQUwLgnToIhwQcdd85nSk3N1F0msvZsIQ=;
-        b=VIghj7iFZ576SJru8M7npQz6RBFSFuShxWfZw8PoHtlp5X5HZpDhzaC27l32oy1KQm
-         XuyJywAA66kFxLber5HcxVahyKJ6RW/U9zwjVOK3FcXhqeGfrGsjlnUWZq8P6KLfNNTN
-         vW2yUAbGcfqbWXMXgVPn693i8WedULAKepIgZU2K8NQCy4VBWIWZOjQte7HdEJGfA/Jn
-         xkrJfORyRCgA5h/VrfFroNfp80gMC1wTT1GhZsM9dyUQxACtM+tvG8zbH+Eapx/hIN/j
-         BqXlxoDySlL4uu+cF2uJVhnAOeaIZIkzpD7LaLAcsmOiFtYSUcMEFQ5vVlvk/Ib0KDK9
-         rmUQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/ocQevJ7sMuOcSCCIWQDF8s6/LK8bhYgjLH5evV7xuPn+G7CG87BmWlka7uGaHbZXJ9Vj644p4DF6dSA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJCRcFpl4G56w+JYbswlJKJqsOciAAOc/ghLkpGV/pV6Nyf5q5
-	msDZpqEzk4hl8rEG/GavArAnLgjniTSV1IAM118rcd5Ip/L/q/qNGUBmHNB/OuLRgII=
-X-Gm-Gg: Acq92OHKDJF2o6oFBBscAIaG6iVvBVYIVl0ZKR+4x7XgyUJAAN7tvdbOzznqjqtstg1
-	+0giF0F5IoPNvxsXgKpyLaCgd8NFwETTPze5bRAspb28zd5MlqM3D+Dx6a3h9bWVw3EiU1Sqo//
-	ZEQyAoQ2WskvIlIch3xy98eoskJ70KpZ36euIfH9x64JBuVwiJqIONbI8SxGDiYQbveK2/tguXk
-	w0TOVcYNboUmShbDq2JK7aET2Zk78BNCcdiuAsgjGYtl/rlwlFCrQPTbPg6FbBDrJZ4FxLNS9ZN
-	snfsMedIAAgzYjFH4lKSBbu7zj3j0yAxMG5f7laB9jaTvZc6LehfPWD6LXf0kh7JBQU+Uc6U7vO
-	221K4yPTFreu6QCRc1+eO+Kc6gBwMP2gCsf/D7nnLfFdclVhW5IzMI+/f69rRTjQcdnv8srh/b9
-	6ebQPGTJgFSKv2revSkzp2kV3ZLvMNdzDIRkPw+GY0IDMu1jYOvC0GHlcBPK+tzLs=
-X-Received: by 2002:a05:6a00:4211:b0:842:6004:3fbe with SMTP id d2e1a72fcca58-84284e7cc23mr4416556b3a.25.1780500194384;
-        Wed, 03 Jun 2026 08:23:14 -0700 (PDT)
-Received: from smtpclient.apple ([139.177.225.251])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-842828e02f9sm3265909b3a.48.2026.06.03.08.23.08
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 03 Jun 2026 08:23:14 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [External] [PATCH v1] riscv: cpufeature: Add Zic64b ISA extension
- support
-From: Qingwei Hu <qingwei.hu@bytedance.com>
-In-Reply-To: <20260603-scanner-justly-51cd1160460c@spud>
-Date: Wed, 3 Jun 2026 23:22:39 +0800
-Cc: Vivian Wang <wangruikang@iscas.ac.cn>,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Deepak Gupta <debug@rivosinc.com>,
- Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,
- Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
- Hui Wang <hui.wang@canonical.com>,
- =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Xu Lu <luxu.kernel@bytedance.com>,
- Guodong Xu <guodong@riscstar.com>
-Message-Id: <6D41F25C-DF17-4206-A811-A0917E342C91@bytedance.com>
-References: <20260528141630.2741710-1-qingwei.hu@bytedance.com>
- <302dfaf7-4a38-408f-997e-68ed27de2341@iscas.ac.cn>
- <752F28EA-9255-4DBE-8007-F57947305D71@bytedance.com>
- <20260530-spoils-studied-d0858257c982@spud>
- <68DF4B69-6693-447A-ADAC-E943F96CFB77@bytedance.com>
- <20260603-scanner-justly-51cd1160460c@spud>
-To: Conor Dooley <conor@kernel.org>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_082315_481774_6E111B75 
-X-CRM114-Status: GOOD (  20.92  )
+	Wed, 03 Jun 2026 16:17:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 99177601F0;
+	Wed,  3 Jun 2026 16:17:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4D2D1F00893;
+	Wed,  3 Jun 2026 16:17:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780503440;
+	bh=STmgb4eCzuj3QUyDrbNGukfTitiuFEoTNqL7diLYpq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cPFnGYX6kVV8XG6BLqIDkBOCao6GfzWE+EYujXj0F9bPVTufgayrsW6wml0EvBTuq
+	 lPb05VYOm4DgU3piQv6n+E8SHaWec9nrD6rvja3+QRgX4JLklmHr+xL6vrkDprZja/
+	 lab+aaZx8TsP7JPoXxkenEOgeczeOcXmHCp8puokw+E2G9ln35YAzQl3e/Sn2bSf0X
+	 GhEfRUM4kZSzAlQ+/zsHeWMTTHbK2ht0wGQ+cm5+ic5X7A2p0U2vChiq4vVy3qbqH7
+	 VgdaKwq52yvE4NyvZwST0GumYyIr9qe2dXyG1AINQ57m1P2S/ahHOBGSKGzJJwTa30
+	 qDYWaP5mgxerg==
+Date: Wed, 3 Jun 2026 17:17:15 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Joel Stanley <joel@jms.id.au>
+Cc: Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Drew Fustini <fustini@kernel.org>, Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Michael Ellerman <mpe@kernel.org>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 5/7] dt-bindings: riscv: add Smrnmi extension description
+Message-ID: <20260603-deviate-steadier-9ff6a23c5e57@spud>
+References: <20260603074222.593243-1-joel@jms.id.au>
+ <20260603074222.593243-6-joel@jms.id.au>
+MIME-Version: 1.0
+In-Reply-To: <20260603074222.593243-6-joel@jms.id.au>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,98 +70,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6654876979145619012=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-
-> On Jun 3, 2026, at 21:17, Conor Dooley <conor@kernel.org> wrote:
-> 
-> On Wed, Jun 03, 2026 at 08:32:14PM +0800, Qingwei Hu wrote:
->> 
->> 
->>> On May 31, 2026, at 07:09, Conor Dooley <conor@kernel.org> wrote:
->>> 
->>> On Sat, May 30, 2026 at 11:36:11AM +0800, Qingwei Hu wrote:
->>>> Hi Vivian,
->>>> 
->>>> Thanks for the feedback.
->>>> 
->>>>> On May 29, 2026, at 11:14, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
->>>>> 
->>>>> On 5/28/26 22:16, Qingwei Hu wrote:
->>>>>> Zic64b describes a platform with 64-byte cache block sizes. It is a
->>>>>> mandatory part of RVA23U64, but a system may provide 64-byte CMO block
->>>>>> sizes without satisfying all profile requirements.
->>>>>> 
->>>>>> The ISA string parser currently ignores Zic64b because the extension is
->>>>>> not present in the cpufeature table. Add an ISA extension ID and table
->>>>>> entry for Zic64b so it can be reported in /proc/cpuinfo when firmware
->>>>>> advertises it.
->>>>> 
->>>>> I'd like to understand: What is the motivation to doing this, given that
->>>>> the very same information is already available as riscv,cbo*-block-size
->>>>> and hwprobe?
->>>> 
->>>> The motivation here is not to replace riscv,cbo*-block-size or hwprobe.
->>>> Those are still the right interfaces for software that needs the actual
->>>> CBO block size.
->>>> 
->>>> This is more about preserving the ISA extension name reported by
->>>> firmware. Some platforms report zic64b in the ISA string, but Linux
->>>> currently drops it because there is no cpufeature entry, so cpuinfo no
->>>> longer matches what firmware advertised. That makes profile/ISA-string
->>>> comparison tools a bit awkward.
->>>> 
->>>> So the patch only makes zic64b visible as a named ISA extension when
->>>> firmware reports it, while still validating it against any CBO block
->>>> sizes that firmware provides.
->>>> 
->>>>> If an extension is what we want to go with, then
->>>>> Documentation/devicetree/bindings/riscv/extensions.yaml also needs
->>>>> updating to match.
->>>> 
->>>> And yes, if we keep this direction, I agree extensions.yaml should be
->>>> updated in v2.
->>> 
->>> And make sure that having zic64b makes the cbo*-block-size properties
->>> mandatory so that people don't confuse themselves and omit them and
->>> wonder why stuff doesn't work.
->>> 
->>> Does zic64b mean that all of the zicbo* extensions are supported, or
->>> does it just mean that the supported ones use 64-byte block sizes?
->>> The answer to that will impact how you make the cbo*-block-size
->>> properties mandatory.
->>> 
->>> Cheers,
->>> Conor.
->> 
->> Thanks, I will check this with the RISC-V unprivileged/ISA folks first,
->> and then handle the binding accordingly in v2.
-> 
-> I noticed that there's another series that's adding zic64b support:
-> https://lore.kernel.org/all/20260603-rva23u64-hwprobe-v2-v3-0-5529a7b28384@gmail.com/
-> 
-> Probably you should coordinate with Guodong, as your zic64b effort seems
-> to predate theirs.
-
-Thanks Conor.
-
-Yes, I noticed Guodong's series as well. I will coordinate with Guodong
-before sending v2, and check whether this should be folded into that
-work or kept as a small separate patch.
-
-I will also clarify the intended Zic64b/Zicbo* relationship with the
-RISC-V unprivileged/ISA folks before updating the binding.
-
-Best regards,
-Qingwei Hu
+--===============6654876979145619012==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yNASxG9BLdH4uAVz"
+Content-Disposition: inline
 
 
+--yNASxG9BLdH4uAVz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+--yNASxG9BLdH4uAVz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiBTiwAKCRB4tDGHoIJi
+0kbSAP9kgT70mva4v9V2xH/K4hakrtleDSRqYCgMGRnprAgEIQEAr9YGD/YVGhxM
+pOWj8Tps+sLahUnos02ypNnRWaqJ5Qs=
+=2eh+
+-----END PGP SIGNATURE-----
+
+--yNASxG9BLdH4uAVz--
+
+
+--===============6654876979145619012==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6654876979145619012==--
+
