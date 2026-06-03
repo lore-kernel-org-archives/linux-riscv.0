@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8E2CD6E6C
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 15:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683FACD6E55
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 15:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7y6kQz438wzHOOjPLao5GY3+g8YWeA0z7ufMVH+p3QU=; b=KmLerX0MfabDAo
-	EPCX4hhhYxgsOOhsBBv7nExvFEmXms8JAAseZdy5b9w6nz2pdDZ7BPT009PvINeiyEx2DAanuODab
-	i0sDZQnHXdYU+k3HnFRrJ3mYHx2VSIlyB0Wb0tHkoPmyLJWtAIwDufUv0YmDk6xxTTN0xARZjZCj9
-	/V4h5aCMuh7AwfU+Ve+mTRlQC+0eOhsTgnM308JcHibhfoGxy1R4ILpZfdda+m/Gp6wrTxwvCAEUr
-	fmEKX4M+wsd/jEveC0Of+ZTbcOeqO6GlvmEqwJwWA8+G3nFfu7mouRr/vj7l/d/zA3Homk7GK9ypj
-	eTvCNe/dwVANpgYnpqLw==;
+	List-Owner; bh=3HNIid5xwhmCXQK/d4zlyx1Ex40BiwUXDVuyNI83H+A=; b=YhzgUQ47dbzRsF
+	aDLa69RSIfRsnOLMwdumug8PfMCJZ4IYAOUTAlG9Pabe0R62tAW/yu7tShDkJWcmuxCjnhMV803Ab
+	q4SxoHvhazcmCA14gpVSRu+NPhias3t85M/R76RSQ40YxZTez9LN9eMPZlNOBTFezz5Zhqd/wHQOE
+	2XjRxuaKQlcikJ/YJkQQyJHKrNxuVp1QF2TgUx3M+KYnQ/YUQ6CRlVWwq8OpNLqtMzCNgbESrwhYL
+	eLMiZ6522nryehkxKrHt1jzinH70x2NUj9XUIlgxZHZWYG3mUhmucXcY/1irfZVEjaTp2h9zjglch
+	qoFDiJuu4QDTf2ivTDdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUnLf-0000000FLzH-0nY0;
-	Wed, 03 Jun 2026 15:17:39 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wUnLe-0000000FLy7-2kGa;
+	Wed, 03 Jun 2026 15:17:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUkSU-0000000F2YR-26GN
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jun 2026 12:12:31 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 195381A0108;
-	Wed,  3 Jun 2026 12:12:28 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DFA0C6073E;
-	Wed,  3 Jun 2026 12:12:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 48FB510888413;
-	Wed,  3 Jun 2026 14:11:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1780488742; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=48ypl4N/Z9PEOrZi5s882vnkw+L0W6ufixnULaCX8wY=;
-	b=WqS1SiX8JxgfCWjKbfGrN6L6Q3QYEVKtX9eatJz9iVzPqdb59EF2wfORgl6E1oiCCYOL6h
-	61ETQH6hQR3Buc4PxFXV8xJT2J5xNuIRWeEXwCZRhaxs5XLVqNUthCgehn5gJAgDWr5D+V
-	EDn8WSCnJ0fr/3eDUJx++tiwrZ5WSI35nVYVUdYn3doe/iUdJ7p9DoQU59Ef1MvT6hoBjc
-	7jEjYscg5qvEtTKsFwWeeKNcZMVVM6zgOvZnXTK6b1ZDBo1eLL0VN631t+RjK9av9NXAVA
-	YYmM055EJj11NnypQXGQ/iJgKGei6RU0g5MfNttmfc+5/XNEQ2JJEvOyMVoU4Q==
-Date: Wed, 3 Jun 2026 14:11:47 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Subject: Re: [PATCH 03/83] ASoC: codecs: idt821034: don't use array if
- single pattarn
-Message-ID: <20260603141147.61943cf0@bootlin.com>
-In-Reply-To: <87y0h7hqxo.wl-kuninori.morimoto.gx@renesas.com>
-References: <8733zfj5jj.wl-kuninori.morimoto.gx@renesas.com>
-	<87y0h7hqxo.wl-kuninori.morimoto.gx@renesas.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
-MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1wUiN0-0000000El7S-2wwQ;
+	Wed, 03 Jun 2026 09:58:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Subject:Cc:To:From:
+	Mime-Version:Date:References:In-Reply-To:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=cKOd+ckXvEpyxGOvmPUT88FhSK2RRA+R3CMNEo/86Ns=; b=WiS4JyP0i5rwKC+DXZO/JkyWj6
+	hK2z0gKi+ZQgJkTv7oeiNS/5fDJQC9tkV/d8dDIbK4A4vAfwR+Jy8tgHEYXcwWQ0q+oAtaJetaVw/
+	a1g4AthSKIiiZ9ZJRgHSklSMSnyaioGGc+q9zzDoKxCxGWmUB18AHae7/U3kCUB3IvMkWj6H70YtL
+	X0YqQYKHkFPw4uUNgkIQ3G62J/jhWJKLo8tbj6CYkn+CsVJdJoV08+sKaSVRULSvKk1cz+eNHenqk
+	e6quBZoBettkYu+ILTW/i74kXF0JsUfxXOWA1urW8bzEgLi4y6YWPZsxY43Li2VPN8gOrbsXzxO9W
+	fcK3bpoA==;
+Received: from mxhk.zte.com.cn ([160.30.148.35])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wUiMx-0000000BmRY-1dGp;
+	Wed, 03 Jun 2026 09:58:41 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gVjnm2Zk0z8Xrrn;
+	Wed, 03 Jun 2026 17:58:36 +0800 (CST)
+Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
+	by mse-fl2.zte.com.cn with SMTP id 6539wQFX009049;
+	Wed, 3 Jun 2026 17:58:26 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxlzmapp04[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Wed, 3 Jun 2026 17:58:29 +0800 (CST)
+X-Zmail-TransId: 2b066a1ffac536f-f9cd5
+X-Mailer: Zmail v1.0
+Message-ID: <20260603175829412hzKDF23RSPIQCliiSiIwg@zte.com.cn>
+In-Reply-To: <20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn>
+References: 20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn
+Date: Wed, 3 Jun 2026 17:58:29 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <wang.yechao255@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYyIDMvNF0gUklTQy1WOiBLVk06IFNwbGl0IGh1Z2UgcGFnZXMgZHVyaW5nIEtWTV9DTEVBUl9ESVJUWV9MT0c=?=
+X-MAIL: mse-fl2.zte.com.cn 6539wQFX009049
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 03 Jun 2026 17:58:36 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A1FFACC.000/4gVjnm2Zk0z8Xrrn
+X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_051230_665871_4E5447A0 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260603_105839_756317_DAC92DFC 
+X-CRM114-Status: UNSURE (   5.14  )
+X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Wed, 03 Jun 2026 08:17:36 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,42 +91,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Heiko Stuebner <heiko@sntech.de>, Geert Uytterhoeven <geert+renesas@glider.be>, Xiubo Li <Xiubo.Lee@gmail.com>, Peter Rosin <peda@lysator.liu.se>, Jaroslav Kysela <perex@perex.cz>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Cheng-Yi Chiang <cychiang@chromium.org>, Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, Vishwas A Deshpande <vishwas.a.deshpande@ti.com>, Olivier Moysan <olivier.moysan@foss.st.com>, Yixun Lan <dlan@kernel.org>, Martin =?UTF-8?B?UG92acWhZXI=?= <povik+lin@cutebit.org>, Jihed Chaibi <jihed.chaibi.dev@gmail.com>, Baojun Xu <baojun.xu@ti.com>, Kirill Marinushkin <k.marinushkin@gmail.com>, Bartosz Golaszewski <brgl@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, linux-sound@vger.kernel.org, Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, Scott Branden <sbranden@broadcom.com>, Masami Hiramatsu <mhiramat@kernel.org>, Sharique Mohammad <sharq0406@gmail.com>, David Rhodes <david.rhodes@cirrus.com>, Jarkko Nikula <jarkko.nikula@bitmer.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Max Filippov <jcmvbkbc@gmail.com>, M R Swami Reddy <mr.swami.reddy@ti.com>, Guenter Roeck <groeck@chromium.org>, Dario Binacchi <dario.binacchi@amarulasolutions.com>, chrome-platform@lists.linux.dev, Thierry Reding <thierry.reding@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jonathan Hunter <jonathanh@nvidia.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>, Jerome Brunet <jbrunet@baylibre.com>, Steven Eckhoff <steven.eckhoff.opensource@gmail.com>, Charles Keepax <ckeepax@opensource.cirrus.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Tim Bird <tim.bird@sony.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, Zhang Yi <zhangyi@everest-semi.com>, Biju Das <biju.das.jz@bp.renesas.com>, Chen-Yu Tsai <wens@kernel.org>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Kiseok Jo <kiseok.jo@irondevice.com>, linux-renesas-soc@vger.kernel.org, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Bram Vlerick <bram.vlerick@openpixelsystems.org>, imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Kevin Lu <kevin-lu@ti.com>, Krzysztof Kozlowski <krzk@kernel.org>, Fred Treven <fred.treven@cirrus.com>, Fabio Estevam <festevam@gmail.com>, Binbin Zhou <zhoubinbin@loongson.cn>, Jernej Skrabec <jernej.skrabec@gmail.com>, Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Ray Jui <rjui@broadcom.com>, Vladimir Zapolskiy <vz@mleia.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, Mark Brown <broonie@kernel.org>, Kevin Cernekee <cernekee@chromium.org>, Benson Leung <bleung@chromium.org>, Support Opensource <support.opensource@diasemi.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, spacemit@lists.linux.dev, Liam Girdwood <lgirdwood@gmail.com>, Guoqing Jiang <guoqing.jiang@canonical.com>, Venkata Prasad Potturu <venkataprasad.potturu@amd.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, Paul Cercueil <paul@crapouillou.net>, HariKrishna Sagala <hariconscious@gmail.com>, linux-riscv@lists.infradead.org, Shengjiu Wang <shengjiu.wang@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Robert Jarzmik <robert.jarzmik@free.fr>, "J.M.B. Downing" <jonathan.downing@nautel.com>, Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, Hsieh Hung-En <hungen3108@gmail.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Shenghao Ding <shenghao-ding@ti.com>, Nicolin Chen <nicoleotsuka@gmail.com>, "Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= \(The Capable Hub\)" <u.kleine-koenig@baylibre.com>, Tzung-Bi Shih <tzungbi@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Qianfeng Rong <rongqianfeng@vivo.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, James Ogletree <jogletre@opensource.cirrus.com>, linux-mips@vger.kernel.org, Takashi Iwai <tiwai@suse.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Alvin =?UTF-8?B?xaBpcHJhZ2E=?= <alsi@bang-olufsen.dk>, Ben Bright <ben.bright@cirrus.com>, Daniel Mack <daniel@zonque.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgS3VuaW5vcmksCgpPbiBUdWUsIDI2IE1heSAyMDI2IDAxOjU4OjU5ICswMDAwCkt1bmlub3Jp
-IE1vcmltb3RvIDxrdW5pbm9yaS5tb3JpbW90by5neEByZW5lc2FzLmNvbT4gd3JvdGU6Cgo+IEJl
-Y2F1c2UgaXQgaXMgY29uZnVzYWJsZSBkdXJpbmcgZGVidWdnaW5nIEFTb0MgRlcgdXBkYXRlLCB0
-aWR5dXAKPiBhdXRvIGZvcm1hdCBzdHlsZSBub3QgdG8gdXNlIGFycmF5IGlmIHNpbmdsZSBwYXR0
-ZXJuIGNhc2UuCj4gCj4gU2lnbmVkLW9mZi1ieTogS3VuaW5vcmkgTW9yaW1vdG8gPGt1bmlub3Jp
-Lm1vcmltb3RvLmd4QHJlbmVzYXMuY29tPgo+IC0tLQo+ICBzb3VuZC9zb2MvY29kZWNzL2lkdDgy
-MTAzNC5jIHwgOSArKysrLS0tLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwg
-NSBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvc291bmQvc29jL2NvZGVjcy9pZHQ4MjEw
-MzQuYyBiL3NvdW5kL3NvYy9jb2RlY3MvaWR0ODIxMDM0LmMKPiBpbmRleCAzOWJhZmVmYTZhMTg2
-Li4wODQwOTBjY2VmNzdhIDEwMDY0NAo+IC0tLSBhL3NvdW5kL3NvYy9jb2RlY3MvaWR0ODIxMDM0
-LmMKPiArKysgYi9zb3VuZC9zb2MvY29kZWNzL2lkdDgyMTAzNC5jCj4gQEAgLTg2MCwxOCArODYw
-LDE3IEBAIHN0YXRpYyBpbnQgaWR0ODIxMDM0X2RhaV9zdGFydHVwKHN0cnVjdCBzbmRfcGNtX3N1
-YnN0cmVhbSAqc3Vic3RyZWFtLAo+ICAJcmV0dXJuIDA7Cj4gIH0KPiAgCj4gLXN0YXRpYyBjb25z
-dCB1NjQgaWR0ODIxMDM0X2RhaV9mb3JtYXRzW10gPSB7Cj4gK3N0YXRpYyBjb25zdCB1NjQgaWR0
-ODIxMDM0X2RhaV9mb3JtYXRzID0KPiAgCVNORF9TT0NfUE9TU0lCTEVfREFJRk1UX0RTUF9BCXwK
-PiAtCVNORF9TT0NfUE9TU0lCTEVfREFJRk1UX0RTUF9CLAo+IC19Owo+ICsJU05EX1NPQ19QT1NT
-SUJMRV9EQUlGTVRfRFNQX0I7Cj4gIAo+ICBzdGF0aWMgY29uc3Qgc3RydWN0IHNuZF9zb2NfZGFp
-X29wcyBpZHQ4MjEwMzRfZGFpX29wcyA9IHsKPiAgCS5zdGFydHVwICAgICAgPSBpZHQ4MjEwMzRf
-ZGFpX3N0YXJ0dXAsCj4gIAkuaHdfcGFyYW1zICAgID0gaWR0ODIxMDM0X2RhaV9od19wYXJhbXMs
-Cj4gIAkuc2V0X3RkbV9zbG90ID0gaWR0ODIxMDM0X2RhaV9zZXRfdGRtX3Nsb3QsCj4gIAkuc2V0
-X2ZtdCAgICAgID0gaWR0ODIxMDM0X2RhaV9zZXRfZm10LAo+IC0JLmF1dG9fc2VsZWN0YWJsZV9m
-b3JtYXRzICAgICA9IGlkdDgyMTAzNF9kYWlfZm9ybWF0cywKPiAtCS5udW1fYXV0b19zZWxlY3Rh
-YmxlX2Zvcm1hdHMgPSBBUlJBWV9TSVpFKGlkdDgyMTAzNF9kYWlfZm9ybWF0cyksCj4gKwkuYXV0
-b19zZWxlY3RhYmxlX2Zvcm1hdHMgICAgID0gJmlkdDgyMTAzNF9kYWlfZm9ybWF0cywKPiArCS5u
-dW1fYXV0b19zZWxlY3RhYmxlX2Zvcm1hdHMgPSAxLAo+ICB9Owo+ICAKPiAgc3RhdGljIHN0cnVj
-dCBzbmRfc29jX2RhaV9kcml2ZXIgaWR0ODIxMDM0X2RhaV9kcml2ZXIgPSB7CgpTYW1lIHR5cG8g
-aW4gdGhlIGNvbW1pdCB0aXRsZSBhcyBpbiBwYXRjaCAyOgpzL3BhdHRhcm4vcGF0dGVybi8KCk9y
-IGV2ZW4Kcy9wYXR0YXJuL2l0ZW0vCgpXaXRoIHRoYXQgZml4ZWQsCgpSZXZpZXdlZC1ieTogSGVy
-dmUgQ29kaW5hIDxoZXJ2ZS5jb2RpbmFAYm9vdGxpbi5jb20+CgpCZXN0IHJlZ2FyZHMsCkhlcnbD
-qQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Wang Yechao <wang.yechao255@zte.com.cn>
+
+Split huge pages on the range specified using KVM_CLEAR_DIRTY_LOG.
+And do not split when enabling dirty logging if
+KVM_DIRTY_LOG_INITIALLY_SET is set.
+
+Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+---
+ arch/riscv/kvm/mmu.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 51bd1db74e1a..d04680687f4a 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -149,6 +149,9 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 	kvm_riscv_gstage_init(&gstage, kvm);
+
+ 	kvm_riscv_gstage_wp_range(&gstage, start, end);
++
++	if (kvm_dirty_log_manual_protect_and_init_set(kvm))
++		mmu_split_huge_pages(&gstage, start, end, true);
+ }
+
+ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+-- 
+2.43.5
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
