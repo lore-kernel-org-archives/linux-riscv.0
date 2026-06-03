@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B73CD6E55
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 09:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9B7CD6E55
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2026 09:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLJcGZUtJ7KCQ2fcJSKXLTIBVX8oX6VzsQ7+skwLE2I=; b=GDsFP4BtQMq+PAQqHuoWYLhJKK
-	+/sgv2m8lI2OgXob3N3F+teQW4INMqvWgjEeVp4IPGnbDQenl49RZDO4sJNX3zGmMET7YLcbUIWpF
-	KyWVvXEtU2+/CM49Vl4pbgVC3DhZYJmEBwNSmRav83oN+nnBAYqSV4h0f1Zp8HQ7MJnWN0O0cFEnc
-	JBviMCTRvaa5QsAZFOpj7AcgQFIzc+ZkYU/19sN9XLXS7Fw7nHmmfsgCWg/7y+L/9S1m7c06QYLEI
-	Vug47VjAl4amyC4ZPUZ58tLODb4/f9rRB6f8afH10de9nJpPl5lrz4gudai3oIKTIIhQ5GYM6WFuy
-	gyXw+e0w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=86vjNzp66RTShWqH7kO4UDPJIAIgpJ9oo/yM3Cov3kA=; b=vxQspkaLVp0wH0
+	aXJ7VCRK85J4inKmyIebiJ8BvdC2bLLI/noEVOgYOFSqDtVlzd+MqmGMGZjjdF5JY5rrPOdRuygbo
+	XeurjcZQM0IEISrhezxZ3xiyvYEQUxRHwaE0sIthSKaCKaoNdU7OUlbyKqzMRfnFus4NKysC2tAqo
+	RW4SooKaJ2iJm3ijQ1IaAERXB/n4S3WoIuLE/QlK3Ur83mPiOtFN0igOXUlZUD41UU3Xhywc3KMuL
+	oRg3QdeO86510Uck8ZDkzT2XffjAWOtqhIoYl3a79F59xrPYn5RySsYJUO+Sco7tCQ3rnr1Av0bt5
+	aJ3ufNcaiykwTiO1lf0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiG4-0000000EkN6-0fTZ;
-	Wed, 03 Jun 2026 09:51:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wUiHh-0000000EkZX-1k4E;
+	Wed, 03 Jun 2026 09:53:13 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wUiG1-0000000EkMN-3RD9
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jun 2026 09:51:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2922D40BF1;
-	Wed,  3 Jun 2026 09:51:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447461F00893;
-	Wed,  3 Jun 2026 09:51:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780480289;
-	bh=ek6If8iIULmbg70W21YYTSyl9q1BfVHkqFh5wqvnLik=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Vqt9Drl1Yp9Gu3QtiREuNq5BUYiJ/3z5lVfDB2s7J+34ZRlYA2dAHVI4W01dTJGsD
-	 fb3Fm4uL8KlfI6a7EIGDYWKyPP0SOqHC8pDQRiLz5NOSFWIEdzcL7mTbO7CB/57Ffd
-	 sb2g9E6FMJJMspE3oWNX8G23MAYNtk5cZSE4A5FcVy+uVu7bFZ6AXNvdnQovlOTMu6
-	 YuaHiwveM9h1suQww1Ktd5qskNvEpbvBk0fgxmx+7KG1vwTbc4M6cVqM2io4Dp6Uz0
-	 hAOrfaQHWM8d3Lw1j4auAQr1zh2/IPIlRxI0xOKwggOHk5pg7QQdnVkzGGVyY+fZrG
-	 OM0NmVnrvzZTw==
-Date: Wed, 3 Jun 2026 10:51:25 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: pjw@kernel.org, alexghiti@rivosinc.com, cleger@rivosinc.com,
-	conor.dooley@microchip.com, anup@brainfault.org, guoren@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: cpufeature: Validate H extension via CSR_HGATP
- probe
-Message-ID: <20260603-fantasy-stiffen-5df518d9a3f5@spud>
-References: <20260603093301.89430-1-cp0613@linux.alibaba.com>
-MIME-Version: 1.0
-In-Reply-To: <20260603093301.89430-1-cp0613@linux.alibaba.com>
+	id 1wUiHe-0000000EkYY-3vY9;
+	Wed, 03 Jun 2026 09:53:12 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gVjgP4191z8Xrrs;
+	Wed, 03 Jun 2026 17:53:05 +0800 (CST)
+Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
+	by mse-fl1.zte.com.cn with SMTP id 6539qrTn070631;
+	Wed, 3 Jun 2026 17:52:53 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxl2zmapp06[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Wed, 3 Jun 2026 17:52:56 +0800 (CST)
+X-Zmail-TransId: 2b086a1ff978a96-d6420
+X-Mailer: Zmail v1.0
+Message-ID: <20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn>
+Date: Wed, 3 Jun 2026 17:52:56 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <wang.yechao255@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYyIDAvNF0gSW1wbGVtZW50IEVhZ2VyIFBhZ2UgU3BsaXR0aW5nIGZvciBSSVNDLVY=?=
+X-MAIL: mse-fl1.zte.com.cn 6539qrTn070631
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Wed, 03 Jun 2026 17:53:05 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A1FF981.001/4gVjgP4191z8Xrrs
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_025129_901938_D4F98A1B 
-X-CRM114-Status: GOOD (  29.61  )
+X-CRM114-CacheID: sfid-20260603_025311_134934_00999239 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,153 +73,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7032075060776033620=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Wang Yechao <wang.yechao255@zte.com.cn>
 
---===============7032075060776033620==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zvOMhiamFSkjOhw6"
-Content-Disposition: inline
+Eager Page Splitting is implemented on x86 and ARM. It improves the
+performance of dirty logging (used in live migrations) when guest memory
+is backed by huge pages.
 
+This series implement Eager Page Splitting for RISC-V. The Implementation
+similar to x86 and ARM. It provides two ways to split huge pages in ioctl
+context instead of on fault in vCPU context:
 
---zvOMhiamFSkjOhw6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+- Split huge pages when dirty logging is enabled when
+  KVM_DIRTY_LOG_INITIALLY_SET is not set. This happens when enabling the
+  KVM_MEM_LOG_DIRTY_PAGES flag of a memslot, and splits the whole memslot
+  into 4K mappings.
 
-On Wed, Jun 03, 2026 at 05:33:01PM +0800, Chen Pei wrote:
-> The H extension is advertised to S-mode through three channels --
-> the DT "riscv,isa" string, the DT "riscv,isa-extensions" list, and
-> the ACPI RHCT ISA string -- all of which converge in
-> riscv_resolve_isa().  The H entry has no validate callback today,
-> so the kernel trusts the description unconditionally.
->=20
-> When firmware advertises H but the hardware does not actually
-> implement it (common during early bring-up, e.g. QEMU), kvm.ko
-> reaches kvm_riscv_gstage_mode_detect() and oopses on the first
-> CSR_HGATP access with an illegal instruction.
->=20
-> Add a validate callback for H that probes CSR_HGATP under an
-> exception-table fixup.  If the read traps, the H bit is cleared
-> during ISA resolution and the rest of the kernel sees H as
-> unavailable.  Because the probe runs in riscv_resolve_isa(), it
-> covers all three advertisement sources.
+- Split huge pages during KVM_CLEAR_DIRTY_LOG when
+  KVM_DIRTY_LOG_INITIALLY_SET is set. This happens when enabling dirty log
+  in small chunks. It does not split the whole memslot, but only the
+  requested chunk range.
 
-The point of validate callbacks is twofold: checking that the kernel
-configuration supports the extension and that extensions that the kernel
-depends on to support the one in question are present.
-It is not the kernel's job to check that the devicetree matches the
-hardware. I can only assume that ACPI has the same policy. Firmware must
-not report supporting extensions that hardware does not actually support.
+Changes in v2:
+ - Rename the split_page_cache.
+ - Rename the kvm_riscv_split_huge_pages and
+   kvm_riscv_split_memory_region.
+ - Add lockdep_assert_held check before split huge pages.
+ - Update Documentation/admin-guide/kernel-parameters.txt.
 
-NAK, fix your firmware instead please.
+ - Link to v1:
+ https://lore.kernel.org/linux-riscv/20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn/
 
-Thanks,
-Conor.
+Wang Yechao (4):
+  RISC-V: KVM: Add the split page cache for ioctl context
+  RISC-V: KVM: Split huge pages when dirty logging is enabled
+  RISC-V: KVM: Split huge pages during KVM_CLEAR_DIRTY_LOG
+  RISC-V: KVM: Add the eager_page_split module parameter
 
+ .../admin-guide/kernel-parameters.txt         |  7 +-
+ arch/riscv/include/asm/kvm_host.h             |  1 +
+ arch/riscv/kvm/mmu.c                          | 77 +++++++++++++++++++
+ 3 files changed, 83 insertions(+), 2 deletions(-)
 
->=20
-> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-> ---
->  arch/riscv/kernel/cpufeature.c | 30 +++++++++++++++++++++++++++++-
->  1 file changed, 29 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index f46aa5602d74..b34dd789e94e 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -17,9 +17,11 @@
->  #include <linux/of.h>
->  #include <asm/acpi.h>
->  #include <asm/alternative.h>
-> +#include <asm/asm-extable.h>
->  #include <asm/bugs.h>
->  #include <asm/cacheflush.h>
->  #include <asm/cpufeature.h>
-> +#include <asm/csr.h>
->  #include <asm/hwcap.h>
->  #include <asm/text-patching.h>
->  #include <asm/hwprobe.h>
-> @@ -163,6 +165,32 @@ static int riscv_ext_d_validate(const struct riscv_i=
-sa_ext_data *data,
->  	return 0;
->  }
-> =20
-> +static int riscv_ext_h_validate(const struct riscv_isa_ext_data *data,
-> +				const unsigned long *isa_bitmap)
-> +{
-> +	unsigned long val, ret =3D 1;
-> +
-> +	/*
-> +	 * The H extension may be advertised by firmware (DT/ACPI) even
-> +	 * when the underlying hardware does not implement it, or when
-> +	 * M-mode firmware has not delegated hypervisor CSR access to
-> +	 * S-mode.  Probe CSR_HGATP under an exception-table fixup: if
-> +	 * the read traps with an illegal instruction, ret stays 1.
-> +	 */
-> +	asm volatile(
-> +		"1:	csrr	%0, " __stringify(CSR_HGATP) "\n"
-> +		"	li	%1, 0\n"
-> +		"2:\n"
-> +		_ASM_EXTABLE(1b, 2b)
-> +		: "=3Dr" (val), "+r" (ret));
-> +
-> +	if (ret) {
-> +		pr_err("H detected in ISA string, disabling as CSR_HGATP is not access=
-ible\n");
-> +		return -EINVAL;
-> +	}
-> +	return 0;
-> +}
-> +
->  static int riscv_ext_vector_x_validate(const struct riscv_isa_ext_data *=
-data,
->  				       const unsigned long *isa_bitmap)
->  {
-> @@ -498,7 +526,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_q),
->  	__RISCV_ISA_EXT_SUPERSET(c, RISCV_ISA_EXT_c, riscv_c_exts),
->  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(v, RISCV_ISA_EXT_v, riscv_v_exts, ris=
-cv_ext_vector_float_validate),
-> -	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
-> +	__RISCV_ISA_EXT_DATA_VALIDATE(h, RISCV_ISA_EXT_h, riscv_ext_h_validate),
->  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_x=
-linuxenvcfg_exts, riscv_ext_zicbom_validate),
->  	__RISCV_ISA_EXT_DATA_VALIDATE(zicbop, RISCV_ISA_EXT_ZICBOP, riscv_ext_z=
-icbop_validate),
->  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_x=
-linuxenvcfg_exts, riscv_ext_zicboz_validate),
-> --=20
-> 2.50.1
->=20
-
---zvOMhiamFSkjOhw6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCah/5HQAKCRB4tDGHoIJi
-0h+AAQC/d6lDNdAEa1o/AOSJamhDNm1Q/Ph0J2SDUbmn5trhBQD/XanzC4fjlDoG
-bAJgF9q5uXrniDA96M4S6B3E+4A2mgA=
-=jsko
------END PGP SIGNATURE-----
-
---zvOMhiamFSkjOhw6--
-
-
---===============7032075060776033620==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+2.43.5
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7032075060776033620==--
-
