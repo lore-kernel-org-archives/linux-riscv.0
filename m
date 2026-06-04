@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D329CD6E77
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 13:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468DCCD6E6B
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 13:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mk5kXGm0AGisu/zPRgo4gcc9I+RRl1iaG3OSbtlrF8w=; b=yu/pggNVaecu2j
-	esR5a490wcYPAqMzWllPj4X7nFdPCcLATWMUY/kR+xhZY4CLbmBmuT/7cE1ZM4myTNNMjzmJ/wbUx
-	6mvfue8hVxKV8iAiljOt4Hk4iwk8sy+BkIrRjTFqTWlV+LnuJmHG7aNki98ynLxF4pojrtCNkKLRg
-	I+oM0XvA/E5qeQ2Hd5LgkkIrnloLPfO8kPoPJtQ6ovcj+NfTVxFe6rPMTPspA909bXmNXrPtqJnb1
-	7n+65reAECZLtwyuLD/tU+vzvqtrLG614DoKJ+W43Hdm+f5VJf2J698lWbGHkSMWhrbtoPmVM1Ewk
-	jzu40dd6oaiOO5fQyFKg==;
+	List-Owner; bh=HEv5Vkh+OsEHxOGsxeZs/ZK9yh2wtqO9yq053GU5bOM=; b=3Pj8X455drsiuk
+	csoG9NAlGRZjtvjlyjp92qqT6f3fh67JWjNzzwVn+DA/tpdw/L+VKL82E8qawbjYGmpujgr1iYf/7
+	E1ExtdcJujFFS4cPhbLlxct8EQw2wLyklhicpRaRyFfUDEhDnjcqJL+4HD9D6v5c91MpXvofS2n6y
+	i1z0W3dpGo6ONv9u4cEjco/+bGYhQYfPGsaWSPlJoEtrdsKRsl0XwKLLAsZ+znYn2jSRqiUu9s29t
+	vv+0y1T/PqPRxkynaZzFbJiMpcdtqPVMgrdc38917WkzyIqPox9AKGbf2JxGAM6sqqJobkuay+4ie
+	M2MkRZ8TU89QfvoFssDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV83t-0000000GmE1-1j7e;
-	Thu, 04 Jun 2026 13:24:41 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1wV83y-0000000GmNO-1qNn;
+	Thu, 04 Jun 2026 13:24:46 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV83p-0000000GmAY-1cMO;
-	Thu, 04 Jun 2026 13:24:40 +0000
+	id 1wV83s-0000000GmBE-29Lj;
+	Thu, 04 Jun 2026 13:24:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1780579466; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=/yMhiuP+Blm+ANy4YIKSZBeqw55+G0nlxi+JWHCA5d8=;
-	b=S8zh3jHOwUiHsWACoJKv6JVNLtLsvCrJhu7d8rU5vx/KF3zGLtb1Nh/hf6/HYTJmmzWegcdwPEau4KHnNF3l1Xxyhj+9K3FduVHeyyfmU6dueM48fHSNdOk3/ywVcZ0Iit+2ojKOwysy2GBLUO+DEo08Pa3Uz/zg0hwt/OWsYRg=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X4AKnWu_1780579463;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X4AKnWu_1780579463 cluster:ay36)
+	t=1780579475; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=ty4UCAjaMaaFpW8tBxA2htrUnTdUo90caPb79emu5xY=;
+	b=cuLVNW+YByY/txgJulUVZNv71Nmwnvq1nq4IIzu3DLNPa/gqQjH88JKn1Ro+LxmzlqxyX8MPSeU+LqvGJPcYdpNrsG2eUo+kKrvI5qq3CpiGmwrJG/kaPY21Ig6p0B2CrDYzrLt3E+z0vNYHgiENnsKG4m5Or1cXir/W35vvqTs=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X4AKnZm_1780579472;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X4AKnZm_1780579472 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 04 Jun 2026 21:24:24 +0800
+          Thu, 04 Jun 2026 21:24:33 +0800
 From: fangyu.yu@linux.alibaba.com
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -60,16 +60,16 @@ Cc: Song Shuai <songshuaishuai@tinylab.org>,
 	kvm-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [PATCH v3 1/9] riscv: kexec: Reset executable bit on the control code page in cleanup
-Date: Thu,  4 Jun 2026 21:24:10 +0800
-Message-Id: <20260604132418.15725-2-fangyu.yu@linux.alibaba.com>
+Subject: [PATCH v3 7/9] riscv: kexec: Always build the trampoline page table
+Date: Thu,  4 Jun 2026 21:24:16 +0800
+Message-Id: <20260604132418.15725-8-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260604132418.15725-1-fangyu.yu@linux.alibaba.com>
 References: <20260604132418.15725-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_062437_999894_22A1CE3B 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260604_062440_760068_FE8C5C3C 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +88,64 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-machine_kexec_prepare() calls set_memory_x() on the per-image
-control_code_page so the relocate stub copied into it can be executed
-during a normal kexec. machine_kexec_cleanup() is empty, so when the
-image is freed (via kexec -u, or because a later step in load failed)
-the page is returned to the buddy allocator with its executable bit
-still set. Once the page is reallocated for arbitrary kernel data,
-the W^X invariant is broken: a writable page also marked executable.
+The trampoline page table and the kexec_tramp_satp value are
+currently built only on the crash path. A follow-up patch needs
+the same infrastructure for the normal kexec path.
 
-Implement the architecture cleanup hook to call set_memory_nx() on
-the control code page for non-crash images, mirroring the
-set_memory_x() in prepare().
+Pull the trampoline build and the WRITE_ONCE() that publishes the
+SATP value out of the crash-only else branch in
+machine_kexec_prepare(). The crash path keeps recording its own
+riscv_kexec_norelocate_pa; the normal path keeps its existing
+control_code_buffer copy.
 
-The crash path does not call set_memory_x() (the crash kernel is
-loaded into the reserved crashkernel region whose pages are not in
-the buddy allocator) and so does not need the cleanup.
+No functional change.
 
-Fixes: fba8a8674f68 ("RISC-V: Add kexec support")
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- arch/riscv/kernel/machine_kexec.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ arch/riscv/kernel/machine_kexec.c | 21 ++++++++++-----------
+ 1 file changed, 10 insertions(+), 11 deletions(-)
 
 diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 2306ce3e5f22..ea6794c9f4c2 100644
+index 72817bba5d3b..d82f45fb44b6 100644
 --- a/arch/riscv/kernel/machine_kexec.c
 +++ b/arch/riscv/kernel/machine_kexec.c
-@@ -91,6 +91,19 @@ machine_kexec_prepare(struct kimage *image)
- void
- machine_kexec_cleanup(struct kimage *image)
- {
-+	void *control_code_buffer;
-+
-+	if (image->type == KEXEC_TYPE_CRASH || !image->control_code_page)
-+		return;
-+
+@@ -139,6 +139,16 @@ machine_kexec_prepare(struct kimage *image)
+ 		return -EINVAL;
+ 	}
+ 
 +	/*
-+	 * machine_kexec_prepare() called set_memory_x() on the control
-+	 * code page for non-crash images. Revert it before kimage_free()
-+	 * returns the page to the buddy allocator, so we do not leak an
-+	 * executable page back into general allocation.
++	 * Build the trampoline page table and capture its SATP value.
++	 * The crash path consumes it today; the non-crash kexec path
++	 * will use the same setup as well.
 +	 */
-+	control_code_buffer = page_address(image->control_code_page);
-+	set_memory_nx((unsigned long)control_code_buffer, 1);
- }
++	riscv_kexec_build_tramp((unsigned long)__kexec_tramp_text_start,
++				__pa_symbol(__kexec_tramp_text_start));
++	WRITE_ONCE(kexec_tramp_satp,
++		   PFN_DOWN(__pa_symbol(kexec_tramp_pgd)) | satp_mode);
++
+ 	/* Copy the assembler code for relocation to the control page */
+ 	if (image->type != KEXEC_TYPE_CRASH) {
+ 		control_code_buffer = page_address(image->control_code_page);
+@@ -155,19 +165,8 @@ machine_kexec_prepare(struct kimage *image)
+ 		/* Mark the control page executable */
+ 		set_memory_x((unsigned long) control_code_buffer, 1);
+ 	} else {
+-		/*
+-		 * Crash kexec uses riscv_kexec_norelocate as a trampoline.
+-		 * Pre-build the trampoline page tables and capture the
+-		 * trampoline SATP value plus the physical address of
+-		 * riscv_kexec_norelocate so that the panic path only has
+-		 * to switch satp and jump.
+-		 */
+-		riscv_kexec_build_tramp((unsigned long)__kexec_tramp_text_start,
+-					__pa_symbol(__kexec_tramp_text_start));
+ 		WRITE_ONCE(riscv_kexec_norelocate_pa,
+ 			   __pa_symbol(&riscv_kexec_norelocate));
+-		WRITE_ONCE(kexec_tramp_satp,
+-			   PFN_DOWN(__pa_symbol(kexec_tramp_pgd)) | satp_mode);
+ 	}
  
- 
+ 	return 0;
 -- 
 2.50.1
 
