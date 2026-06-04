@@ -4,61 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F8ECD6E6B
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 06:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6851CD6E4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 07:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Yw0ZJdMQynOVFUeFiZGW9wmAO8pTfi5KDo3bduizo+M=; b=OQelU+DDXIqnrL
-	LqcG4QbBar/TQDquP9XnSnnN8h0ImTXy/vWADQALSbsb8jP26JrPqVZSzNWlgs4zhrNJWK+QJYqXE
-	yYJyzyyDPzPe4wvECDqDXXVZy33RGM+3BmuP1Awehg1FVJDIb35ga+ugKNNKgVS+ivJXQdw0hXZpK
-	oaizAv8gj/bfdShEQNafKthEzxnaQmj1u8d2DtoWzcfCjQRVPY/4kjCtkmiQve6mpv+VU8Dd9krWn
-	zKY6qGA585F4BufHDOuyKtgEyyy2LI/TGK3lbFLntwiSU43yIZ3/rcn4kvYDhs/YXFB1W6XcM8g9C
-	RwnRMwhWAxJkphbA7ckg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SDSOpBpdfYITwiuz1qDXxA6MKPPZsn6AtA+hov6WNAQ=; b=whMhNZiAZDmco1
+	zifiATC+otRo13naEa6p1q5YRdNXfbKYY00/6R8u3gMbcnwiymo9SdRrIg5GcKUtj9O8B8rAD53hJ
+	V3SnVZkC52hAEN8HMIpkj39ECX72Gmr9ZfL7ckWyuyTWq7l5cs8m7Jzr8XVehHSCDirM0BmC2buE4
+	+BLT9Xt02DxIkQLaIaynqcYAdzCCwL2Tt9GZZBQSLrfkU4MhR0dHSj35oWKGdntbBKYGIWf94K1wn
+	BDBSF2c9M9yrPh6ox13S6ckvbkAYMF7MPFWiSEGpYePJUZDrhffT+/MWSqEcO1Dn5DKGRTGs8VOMn
+	mDhefBtck8O+eRbykuNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1zA-0000000GFvl-3MlD;
-	Thu, 04 Jun 2026 06:55:24 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.34])
+	id 1wV2sz-0000000GL4m-2dNP;
+	Thu, 04 Jun 2026 07:53:05 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1z6-0000000GFv0-3sb4
+	id 1wV2sv-0000000GL2d-2Ulc
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jun 2026 06:55:23 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gWFgn4Mv7z5B13c;
-	Thu, 04 Jun 2026 14:55:17 +0800 (CST)
-Received: from szxlzmapp01.zte.com.cn ([10.5.231.85])
-	by mse-fl2.zte.com.cn with SMTP id 6546t9Gn017570;
-	Thu, 4 Jun 2026 14:55:09 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxlzmapp04[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Thu, 4 Jun 2026 14:55:10 +0800 (CST)
-X-Zmail-TransId: 2b066a21214ec27-b4cdb
-X-Mailer: Zmail v1.0
-Message-ID: <20260604145510898G2kTwM2Pr25QE5H8T4Wh6@zte.com.cn>
-Date: Thu, 4 Jun 2026 14:55:10 +0800 (CST)
-Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <linux-acpi@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>
-Subject: =?UTF-8?B?W1BBVENIXSBpb21tdS9yaXNjdjogQWRkIGRlcGVuZGVuY3kgYmV0d2VlbiBpb21tdSBhbmQgZGV2aWNlcw==?=
-X-MAIL: mse-fl2.zte.com.cn 6546t9Gn017570
-X-TLS: YES
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Thu, 04 Jun 2026 14:55:17 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A212155.001/4gWFgn4Mv7z5B13c
+	Thu, 04 Jun 2026 07:53:03 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-69e4483cfe9so712910eaf.0
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jun 2026 00:53:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780559580; cv=none;
+        d=google.com; s=arc-20240605;
+        b=G/RxtHCFjitV4NPTHnmGoWf7Z2secNXqxo9UIaxIapdkBXptrKMDZAuGFprm/oOsxk
+         UZ9vpnnwiAmt2IZ2D/GBniYkTPjnl008uDUch3WQaS7k/fY4hnCd2sO3JcbhwAWi28jh
+         SmNFkEZNrTKTXVCAI5FZMeIaJNdSR5vObP/4SzkjYPqvfkb6FoZB6lEa/JIY5t2LR0mX
+         JmDHDrvA8uXi4r/42uzqT3Rr9vFpffwPVQ14pZy89KBGgFm83UBjhO7N9wLJ0LU8WCst
+         ZLpVu0eg/xn/6P0WSCKHe4Hb3d2bVfMkHoLeNNAgjb2iLsXEzX2G7h3nKYq6kvmVqdGS
+         wnTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=OqAVryQ+sSJ2qvei7sWyBycSvMmltoGs0O/9YnbcysQ=;
+        fh=o0cR3As0T3q3jQUIe8beQ76NsMoqtidpIV2pSwsl8GU=;
+        b=f7e/St5np6Q/lm1/F1XeDSmn0TJNa2J0prkAgQSNmsgKFyor60ibt+lRqc7ibv0OXR
+         QK9B1yvCuyp3bVbIRYmpkULfpI9GF0bLGDjEwTr6QV9NuckSKzdoRGQPoOLRbVdR31BW
+         F+DiiwQSQtCq8fsCCacTgsdd23+xQS04FPnlY5WFYXuEwOAGXBihY+AQogPDqi9E8QNM
+         cy3lpVn0IQRwlhuWfKYp3kNQZVv+nrv5E/GFiZoqcPvdOrGUjWTDfZEC5rfuBpYjrHCY
+         MZTnOLNtBQPyK7QYPO7PQz9Gfz4+1WJtL35Xk3WzirPWp9LC0yTGRx57xtB/qS7O+QR4
+         jqGQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20251104.gappssmtp.com; s=20251104; t=1780559580; x=1781164380; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OqAVryQ+sSJ2qvei7sWyBycSvMmltoGs0O/9YnbcysQ=;
+        b=qa9xY3h+uPl0j89WLnr6MnnYB6ZBp0Z8qOAccYSp8bQGnRsPUoYtg7s/dwwh/U4vNx
+         2m/rm1hNRztNtXQJgoAbgf1p9ojuSb1oul++FgeiJbYxocay9GPX8z8DPsFZs4pIAuCJ
+         C++xr2q9oZb0FQTUNxCWUV2NbPwkmS9fL3I7bSs/wZu0w5TAbu9OkMvf5v9gSlZVoDcx
+         3K84Y3ybEMgmBzNmUTKQbMvft/HuTezd2vfGbutVk/2r5YDdAYX6W5FcLNGQktt9g4vQ
+         u0taNp0ODj7WRCa/27CTUzLdQtoqc0tcDp3Bbn5wLagezsQTXtZ2oR85FFAaTEnUZQVS
+         gQag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780559580; x=1781164380;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OqAVryQ+sSJ2qvei7sWyBycSvMmltoGs0O/9YnbcysQ=;
+        b=lnbbTm5M9Xek/WwbfAgrMR0H6PjDbESWQmtDakfCtK10WwBfiLy8sHzCirquol5u/E
+         qeKB3vtcN74wsS45PiitjtTmR1jbceFdNHrct8TQKPImp2dmp+H4Ho6MsWy6V27pKxHI
+         6rfoqU96y9mKFr+s1cUoL8Oz8PI+1vjyU80SX3Zak82KYWv2RD5xYF86RpyDDlfJOuf9
+         mdFc7WLEhAZ5qlS9qYFR1gcsMH+5VLtuCUANWbmTbqBdBxgYV2iYf4Qq0yqvUY44Yy7A
+         0y67uffDsm9+9izP0BlroqjrqWlB5hmqvsiVZ+hVPzfQWesIfau3IVzpCc9MCPt2pd26
+         mCrw==
+X-Forwarded-Encrypted: i=1; AFNElJ9xXUw1mW1BZXOrUoE+UeSoPJJrYX2hI3QZhVOrn6Vo/2MrY0nAhV/wKf7cbb0zHnAYHPhOznhFAnUXLw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZ2iGIEAE6BVUknlp/fXBR2e14d5hSuDczb9TyFSXt9uHFS7+u
+	l7ffb5hmX5miawEdYvdmLjYGfAuEYPzclo0mvZbhZvzWEr8FAGydvSkr2svIzkPNbyZi+63SCAb
+	parWoaP54k6qHIF3laus4yS0BnpFBg1M+4k2IdcmjiA==
+X-Gm-Gg: Acq92OEaBsCefEhQzY66CnkjF4pJqlIbpQ07qWCiiLtM/QWNXUt4SIdFeJg5FCNEFwm
+	zcnXJathBKlPg1hDwkv0QprS1HF7x0XkCP6FoQ45RHIx22h/5IasT7qPz/u/MyF1UcIVAdJIdJU
+	w7rC2XN5G0vSbcvmHSqWCBJb9NgrSYrBJgANXcQy1VB6Joqk3+5wDK8Ur19YPC5ZfNtk8mWIFKw
+	0vA5Ah3lIdpBSM67PKiXsst/MMpwqZLDz/o7QCK4juIt6tGIqclKJ1AU90NZQvJXnCK5G4XJcGc
+	PfMNpRnOlRCJkCrBIh+Weu9OrMEObDmytEu5rJkMEMTJPJ7TkoUsnCYBIPF3A2/UT5SzTj+OsUE
+	bb3Seg553xvY7mDIXddsCNu348U/eY0fkcbRQDAG4F4Qf9+g=
+X-Received: by 2002:a05:6820:180a:b0:69e:8d4:28b8 with SMTP id
+ 006d021491bc7-69e590bafefmr1397926eaf.32.1780559580298; Thu, 04 Jun 2026
+ 00:53:00 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260526075544.796396-1-maqianga@uniontech.com>
+In-Reply-To: <20260526075544.796396-1-maqianga@uniontech.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 4 Jun 2026 13:22:49 +0530
+X-Gm-Features: AVHnY4IC89pVbBq6__qpDj1Dq7LuA6tOCD1DQTi9OxR8RUuRHdUDSjYF2_D39Rc
+Message-ID: <CAAhSdy2GwXZ+qDdnNYe6Ykunvoa8-okQepxBNffGMFXu0U8Mig@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Fix timer state restore
+To: Qiang Ma <maqianga@uniontech.com>
+Cc: atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_235521_332214_95F9555E 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20260604_005301_777314_F9F5BCD1 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,112 +114,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, tomasz.jeznach@linux.dev, alex@ghiti.fr, rafael@kernel.org, palmer@dabbelt.com, pjw@kernel.org, lenb@kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wang Yechao <wang.yechao255@zte.com.cn>
-
-Commit 9156585280f1 ("ACPI: RIMT: Add dependency between iommu and
-devices") adds the dependency between iommu and devices on ACPI
-systems. On devicetree systems, the incorrect removal order also
-occurs.
-
-It can be reproduced on the QEMU RISC-V machine if the kernel enables
-IOMMU_DMA:
-
-[  635.081530] e1000e: EEE TX LPI TIMER: 00000000
-[  656.100306] rcu: INFO: rcu_sched self-detected stall on CPU
-[  656.101374] rcu:     5-....: (5250 ticks this GP) idle=d774/1/0x4000000000000000 softirq=5173/5185 fqs=2625
-[  656.102237] rcu:     (t=5251 jiffies g=36825 q=101 ncpus=16)
-[  656.103801] CPU: 5 UID: 0 PID: 1958 Comm: reboot Tainted: G        W           7.1.0-rc5 #31 PREEMPTLAZY
-[  656.104127] Tainted: [W]=WARN
-[  656.104182] Hardware name: QEMU QEMU Virtual Machine, BIOS 2.7 02/02/2022
-[  656.104339] epc : riscv_iommu_cmd_sync.constprop.0+0xb8/0x148
-[  656.105352]  ra : riscv_iommu_cmd_sync.constprop.0+0xa8/0x148
-[  656.105433] epc : ffffffff807ca980 ra : ffffffff807ca970 sp : ff60000085dbf960
-[  656.105475]  gp : ffffffff81e0d798 tp : ff60000084b58e00 t0 : ffffffff80021048
-[  656.105514]  t1 : ff60000081b18400 t2 : 45203a6530303031 s0 : ff60000085dbf9c0
-[  656.105554]  s1 : 00000098c92a567c a0 : 00000098c03986f0 a1 : ff60000085dbf970
-[  656.105594]  a2 : 000024bb5cac6aee a3 : ff200000004f1000 a4 : ff6000008140a040
-[  656.105632]  a5 : 0000000000000669 a6 : 0000000000000000 a7 : 00000000ffffa000
-[  656.105669]  s2 : 0000000000000000 s3 : 00000098c0398308 s4 : 000000000000066a
-[  656.105706]  s5 : 0000000008f0d180 s6 : 000000a8d08b8de9 s7 : 0000000000001fff
-[  656.105743]  s8 : ff6000008140a040 s9 : ff6000008484cb00 s10: ff200000005cc000
-[  656.105781]  s11: ff600000814652a0 t3 : 000000f000000000 t4 : 0000000000000000
-[  656.105845]  t5 : 0000000000000003 t6 : ff600000841666b0 ssp : 0000000000000000
-[  656.105883] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
-[  656.106072] riscv_iommu_cmd_sync.constprop.0+0xb8/0x148
-[  656.106321] riscv_iommu_iotlb_inval+0x120/0x160
-[  656.106373] riscv_iommu_iotlb_sync+0x48/0x60
-[  656.106422] __iommu_dma_unmap+0xca/0xf8
-[  656.106470] iommu_dma_unmap_phys+0x58/0xc8
-[  656.106517] dma_unmap_phys+0x15c/0x248
-[  656.106564] dma_unmap_page_attrs+0x1e/0x30
-[  656.106915] e1000_clean_rx_ring+0x1d2/0x200 [e1000e]
-[  656.107668] e1000e_down+0x168/0x1c8 [e1000e]
-[  656.107995] e1000e_pm_freeze+0x94/0x128 [e1000e]
-[  656.108328] e1000_shutdown+0x28/0x48 [e1000e]
-[  656.108652] pci_device_shutdown+0x34/0x48
-[  656.108706] device_shutdown+0x104/0x1e8
-[  656.108752] kernel_restart+0x46/0xb8
-[  656.108797] __do_sys_reboot+0xc0/0x1c8
-[  656.108840] __riscv_sys_reboot+0x22/0x38
-[  656.108882] do_trap_ecall_u+0x236/0x3f8
-[  656.108947] handle_exception+0x15a/0x166
-
-So move the device link into the iommu driver to fix both ACPI and
-devicetree systems.
-
-Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
-Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
----
- drivers/acpi/riscv/rimt.c   | 7 -------
- drivers/iommu/riscv/iommu.c | 7 +++++++
- 2 files changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
-index 906282b0e63c..229c4a0d47a3 100644
---- a/drivers/acpi/riscv/rimt.c
-+++ b/drivers/acpi/riscv/rimt.c
-@@ -263,13 +263,6 @@ static int rimt_iommu_xlate(struct device *dev, struct acpi_rimt_node *node, u32
- 	if (!rimt_fwnode)
- 		return -EPROBE_DEFER;
-
--	/*
--	 * EPROBE_DEFER ensures IOMMU is probed before the devices that
--	 * depend on them. During shutdown, however, the IOMMU may be removed
--	 * first, leading to issues. To avoid this, a device link is added
--	 * which enforces the correct removal order.
--	 */
--	device_link_add(dev, rimt_fwnode->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
- 	return acpi_iommu_fwspec_init(dev, deviceid, rimt_fwnode);
- }
-
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index a31f50bbad35..f9368e977346 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1385,6 +1385,13 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
-
- 	dev_iommu_priv_set(dev, info);
-
-+	/*
-+	 * During shutdown, however, the IOMMU may be removed first, leading
-+	 * to issues. To avoid this, a device link is added which enforces
-+	 * the correct removal order.
-+	 */
-+	device_link_add(dev, fwspec->iommu_fwnode->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
-+
- 	return &iommu->iommu;
- }
-
--- 
-2.43.5
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXkgMjYsIDIwMjYgYXQgMToyNuKAr1BNIFFpYW5nIE1hIDxtYXFpYW5nYUB1bmlv
+bnRlY2guY29tPiB3cm90ZToKPgo+IFRoZSBLVk1fUkVHX1JJU0NWX1RJTUVSX1JFRyhzdGF0ZSkg
+b25lLXJlZyB3cml0ZSBwYXNzZXMgdGhlIHZhbHVlCj4gd3JpdHRlbiBieSB1c2Vyc3BhY2UgdG8g
+a3ZtX3Jpc2N2X3ZjcHVfdGltZXJfbmV4dF9ldmVudCgpIHdoZW4KPiByZS1lbmFibGluZyB0aGUg
+dGltZXIuCj4KPiBUaGF0IHZhbHVlIGlzIHRoZSB0aW1lciBzdGF0ZSwgS1ZNX1JJU0NWX1RJTUVS
+X1NUQVRFX09OLCBub3QgdGhlCj4gdGltZXIgY29tcGFyZSB2YWx1ZS4gRHVyaW5nIG1pZ3JhdGlv
+biBvciBzdGF0ZSByZXN0b3JlLCB1c2Vyc3BhY2UKPiByZXN0b3JlcyB0aGUgY29tcGFyZSByZWdp
+c3RlciBzZXBhcmF0ZWx5LCB3aGljaCBzdG9yZXMgdGhlIHRhcmdldAo+IGN5Y2xlIGluIHQtPm5l
+eHRfY3ljbGVzLiBSZS1hcm1pbmcgdGhlIHRpbWVyIHdpdGggdGhlIHN0YXRlIHZhbHVlCj4gc2No
+ZWR1bGVzIHRoZSBuZXh0IGV2ZW50IGF0IGN5Y2xlIDEgaW5zdGVhZCBvZiB0aGUgcmVzdG9yZWQg
+Y29tcGFyZQo+IHZhbHVlLCBjYXVzaW5nIHRoZSB2aXJ0dWFsIHRpbWVyIHRvIGZpcmUgdG9vIGVh
+cmx5Lgo+Cj4gVXNlIHRoZSByZXN0b3JlZCBjb21wYXJlIHZhbHVlIGZyb20gdC0+bmV4dF9jeWNs
+ZXMgd2hlbiB0dXJuaW5nIHRoZQo+IHRpbWVyIGJhY2sgb24uCj4KPiBGaXhlczogM2E5ZjY2Y2Iy
+NWUxICgiUklTQy1WOiBLVk06IEFkZCB0aW1lciBmdW5jdGlvbmFsaXR5IikKPgo+IFNpZ25lZC1v
+ZmYtYnk6IFFpYW5nIE1hIDxtYXFpYW5nYUB1bmlvbnRlY2guY29tPgoKTEdUTS4KClJldmlld2Vk
+LWJ5OiBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgoKUXVldWVkIHRoaXMgcGF0Y2gg
+Zm9yIExpbnV4LTcuMgoKVGhhbmtzLApBbnVwCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1
+X3RpbWVyLmMgfCAyICstCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxl
+dGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfdGltZXIuYyBiL2Fy
+Y2gvcmlzY3Yva3ZtL3ZjcHVfdGltZXIuYwo+IGluZGV4IDk4MTdmZjgwMjgyMS4uYWU1MzEzM2M3
+YWIwIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfdGltZXIuYwo+ICsrKyBiL2Fy
+Y2gvcmlzY3Yva3ZtL3ZjcHVfdGltZXIuYwo+IEBAIC0yMzEsNyArMjMxLDcgQEAgaW50IGt2bV9y
+aXNjdl92Y3B1X3NldF9yZWdfdGltZXIoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAo+ICAgICAgICAg
+ICAgICAgICBicmVhazsKPiAgICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9USU1FUl9SRUcoc3Rh
+dGUpOgo+ICAgICAgICAgICAgICAgICBpZiAocmVnX3ZhbCA9PSBLVk1fUklTQ1ZfVElNRVJfU1RB
+VEVfT04pCj4gLSAgICAgICAgICAgICAgICAgICAgICAgcmV0ID0ga3ZtX3Jpc2N2X3ZjcHVfdGlt
+ZXJfbmV4dF9ldmVudCh2Y3B1LCByZWdfdmFsKTsKPiArICAgICAgICAgICAgICAgICAgICAgICBy
+ZXQgPSBrdm1fcmlzY3ZfdmNwdV90aW1lcl9uZXh0X2V2ZW50KHZjcHUsIHQtPm5leHRfY3ljbGVz
+KTsKPiAgICAgICAgICAgICAgICAgZWxzZQo+ICAgICAgICAgICAgICAgICAgICAgICAgIHJldCA9
+IGt2bV9yaXNjdl92Y3B1X3RpbWVyX2NhbmNlbCh0KTsKPiAgICAgICAgICAgICAgICAgYnJlYWs7
+Cj4gLS0KPiAyLjIwLjEKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
