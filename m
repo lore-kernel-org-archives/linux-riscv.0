@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73620CD6E6E
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 11:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF25BCD6E4A
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 11:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m9Kwd15/XhfljGS8CJHjEZlGlOBhhl8hUtOrzY784O8=; b=d+JgQmyjqLXWbj
-	KU9OxrIL6lNzHzQf90NoZcIjD5TjU/gtQuQpiMRDCgC5yESlKhbZWJl50WdHHXDVc77F0XilJMwor
-	J1wQlHr0dzhswS2y6TASnljpQT5WGqi5DzK2wTdz5DXDAMCZatpBV0AuKUKDYcOi0lDZmMJuOhKoB
-	1WnamKuCdinnk8/ycBUndAnfIO9H/+vXqb1fKph23syjdNXASJ8jW70Ezm8BoSXbtMqEMht5RfojL
-	4TDWjE+oZanrLypz8qEcBwop8ItFDrhwe/TtbuxoRBjZ5nfuiD2jHNQQdQ7KDMooznhyAhVi4Zotc
-	S09GCbqUpYofAprYVeNA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BTiCxJExd1M8RWAyuOs4zALN8nDhz4EALYCuB2JrfzM=; b=sMbznGzJbr1yAm
+	RU1bFYnJsHNNKyK/nQ/C4jx9yaajNGxylK+mYxRl/Gt9szaHTdWwGZvGn3T6M9C0HHjmDxrBqdsNg
+	9OstZBQUF8MBNszUjaPnhxnebW7qCfgRJp54/dzk9oHzCIJ5Pym/k/CRgvpJnz4kA+i9lpo6RhweQ
+	EeqZ9eWhBo2XQH8e1AFAygerKfccI3OPUBcKkOqzWADPg6iti5UfaC2oqCEO0tkuMskL0yDQKSg8e
+	mznJJk7eW3EcbYzhKbTptbxTRBHHVZzfgAkC3X9ac3mZG61m6x8JSsHcbMFt/pPS7s4Ngs4Ia/K5r
+	BylSzkLV2hqCC1EONRJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV6dh-0000000Gfgn-0AUV;
+	id 1wV6dh-0000000GfhD-1vdN;
 	Thu, 04 Jun 2026 11:53:33 +0000
 Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV6dd-0000000GffJ-1syQ;
-	Thu, 04 Jun 2026 11:53:30 +0000
+	id 1wV6dd-0000000GffU-3Gch;
+	Thu, 04 Jun 2026 11:53:31 +0000
 dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding;
-	bh=oWMn64nYBWSIvUnLnrokvGf+sjSPmoshxyBWnGTXZ/E=;
-	b=EM/tXpU1wlQHYFGsc/bUXmHgoo59oVfIKpgMEhB4dC3NlM3mPBkClH2fl95cIFZItsMAMGoZKnacPbFGf73FHd2Np1JvjyOHu3qraYCA+4GCPpXhfNYXc1YCW/ckbq9DhzJucu1OI3m+oJHfUqgejF//Z7oWi3SEHVnV5hLVGVw=
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
+	bh=gTs0cZaUUQQv4ViGpAM8i/wK3g92g6IK/a+nwJZu5P4=;
+	b=qvZzV3UICDOkFCgY7HLwcx+xedy4EswQyrOGkTbE6euAjZINm+iEalinxyciLZlrOqMBeJ36d2RQ1yCRBSj2i4FHGW6MqMvblQV2kWIPzeBqreLHarfy7Xns+vnG2B8VDni+XRGP7VL5RIcbR1ba5xwQkdLrsbOW3IQJWhkf51w=
 Received: from lukas-hpz440workstation.lan.sk100508.local (194-166-56-114.hdsl.highway.telekom.at [194.166.56.114])
 	by mail.netcube.li with ESMTPA
-	; Thu, 4 Jun 2026 13:53:06 +0200
+	; Thu, 4 Jun 2026 13:53:10 +0200
 From: Lukas Schmid <lukas.schmid@netcube.li>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,14 +51,16 @@ Cc: Lukas Schmid <lukas.schmid@netcube.li>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 0/3] Add support for NetCube Systems OpenNMC (dobermann)
-Date: Thu,  4 Jun 2026 13:52:31 +0200
-Message-ID: <20260604115241.1358528-1-lukas.schmid@netcube.li>
+Subject: [PATCH v1 2/3] riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl required by NetCube Systems OpenNMC
+Date: Thu,  4 Jun 2026 13:52:33 +0200
+Message-ID: <20260604115241.1358528-3-lukas.schmid@netcube.li>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260604115241.1358528-1-lukas.schmid@netcube.li>
+References: <20260604115241.1358528-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_045329_798195_B2DDB9E5 
-X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-CacheID: sfid-20260604_045330_119902_669FAEB6 
+X-CRM114-Status: UNSURE (   8.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,22 +78,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the NetCube Systems OpenNMC
+Added the "uart4_pb_pins" pinctrl used by the OpenNMC
 
 Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 ---
-Lukas Schmid (3):
-  dt-bindings: arm: sunxi: Add NetCube Systems OpenNMC (dobermann)
-  riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl required by NetCube
-    Systems OpenNMC
-  ARM: dts: sunxi: add support for NetCube Systems OpenNMC (dobermann)
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../devicetree/bindings/arm/sunxi.yaml        |   1 +
- .../sun8i-t113s-netcube-dobermann.dts         | 149 ++++++++++++++++++
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |   6 +
- 3 files changed, 156 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
-
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index 82cc85acccb1..00fddedfa36f 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -191,6 +191,12 @@ uart3_pb_pins: uart3-pb-pins {
+ 				pins = "PB6", "PB7";
+ 				function = "uart3";
+ 			};
++
++			/omit-if-no-ref/
++			uart4_pb_pins: uart4-pb-pins {
++				pins = "PB2", "PB3";
++				function = "uart4";
++			};
+ 		};
+ 
+ 		ccu: clock-controller@2001000 {
 -- 
 2.47.3
 
