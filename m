@@ -4,40 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88668CD6E6E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852F0CD6E57
 	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 11:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wQPYqGVu3GsWNq5p/ZLj2Dwtq5w4RIWKxL7PcQ14fN0=; b=apFuF3TqVGByGm
-	0rfecjbtSYO615B3yLCbCySg8yQgSrYjTBW0G54lVI70Ppn94hjePX6nYpWFJ7iZoV6f31Tsaz7du
-	l5M394JgikGpBKicvdQ/32a7ehIqXRPqIn8skYTowVJU9QGLMU399065vsAEQsMelmhbSr/kJJeeM
-	mhj8i43sz7iLo2CknhXJ69lmCQeGf3PYVCIXGAVDpCJawrB9sNmf2asv6WnqSSxKKNQEysaJ1v1Qg
-	dle/fWdstivJqqDTHruMgFkvXYOfwAMXm+8pIJqz8g3Wahmhwm0jLwz6f44y1hu8yIjWzlZ/a1azU
-	Y7itKTDxopKQsX70Q+gA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MbISz+8tgmeP6rmiLHpJK73b0+WUD1oqV/5c4QjrmYY=; b=v32Fh1pbLaQxGg
+	QT8cPDN0uY1sBpwwCfbVYkgJ7LR7yCj7IuzHKqaETdjr6sViYUpmigqmRT3S0hEragnGUoXwcSMuX
+	HKybEM8Nl6yjJgoZhoqyyr/tBS4fCIIWXpY+z32IKoy1nHhX2FaoFY8wqCjyBCZUU5BpeUb6YIFfO
+	6r5DMJfGkLMy5lst7D+5MoksfyJ20xAYltI3YeuRsjjUGF1IrpH73aaL3JQ9pdvpZwfQ4STVvGuXn
+	M/NhlFab3SwCUYAN68EYulK4KdGkKNE7RJUbLzwQBYP/KCCEylBfeVGtutpHpT2GH+o2GPd7fEox8
+	ItDIc1ACM6zQFuJjsXGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV60U-0000000GcTv-2cSC;
-	Thu, 04 Jun 2026 11:13:02 +0000
+	id 1wV60T-0000000GcTp-2Ge8;
+	Thu, 04 Jun 2026 11:13:01 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV60P-0000000GcSg-1uYF
+	id 1wV60P-0000000GcSh-1rrG
 	for linux-riscv@lists.infradead.org;
 	Thu, 04 Jun 2026 11:13:00 +0000
 Received: from [127.0.0.2] (unknown [123.118.218.239])
-	by APP-01 (Coremail) with SMTP id qwCowABX+tKpXSFqnS2YAA--.469S3;
+	by APP-01 (Coremail) with SMTP id qwCowABX+tKpXSFqnS2YAA--.469S2;
 	Thu, 04 Jun 2026 19:12:43 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Thu, 04 Jun 2026 19:11:54 +0800
-Subject: [PATCH v2 1/2] mm/vmemmap: Add a post-population hook for
- architectures
+Subject: [PATCH v2 0/2] riscv: mm: Avoid spurious fault after hotplugging
+ vmemmap
+Date: Thu, 04 Jun 2026 19:11:53 +0800
+Message-Id: <20260604-mark-after-vmemmap-populate-v2-0-ab6a7d03b434@iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <20260604-mark-after-vmemmap-populate-v2-1-ab6a7d03b434@iscas.ac.cn>
-References: <20260604-mark-after-vmemmap-populate-v2-0-ab6a7d03b434@iscas.ac.cn>
-In-Reply-To: <20260604-mark-after-vmemmap-populate-v2-0-ab6a7d03b434@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAH1dIWoC/42Q3U6EMBCFX4X02iEtCFuIMb6HWZPSDm5dSmv/o
+ iG8u13WCy+9PMnJd76ZjQT0GgMZq414zDpou5bQPFREXsT6jqBVyaShTU+7pgMj/BXEHNFDNmi
+ McOCsS4uICD2f1GmgvB3kQArBeZz110F/Pd9zSNMHynhD/jY8fqYyG+81MomAIK0xOo5VPtUMv
+ GRv235rGwxBHEpj9XQYtbSFoqkWhOuMq0Rw3sYyAMElr20KMIu0RMgNUJg5VbztHouketFBilA
+ LWcv1mdzsLjpE67+PV2R2yPzr6syAAfYDV7wbJsH6v2hy3vf9BzfYnjxmAQAA
+X-Change-ID: 20260525-mark-after-vmemmap-populate-68bd790839c9
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
  David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
@@ -47,29 +51,29 @@ To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-mm@kvack.org, Vivian Wang <wangruikang@iscas.ac.cn>
 X-Mailer: b4 0.15.2
-X-CM-TRANSID: qwCowABX+tKpXSFqnS2YAA--.469S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7WFW5XFy3CF18Zr1kGw4xCrg_yoW8GFyxpF
-	yj9w43KF4UXFy7uw4xC3Wrury3tF1vgayxG3WfK34fXw13JFyjgryrt3WUKrW5JrWfAa4x
-	X3Z0y34jk3WDAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
-	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
-	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
-	AFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
-	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI
-	1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
-	Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
-	CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0
-	I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
-	8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73
-	UjIFyTuYvjfU8XdbUUUUU
+X-CM-TRANSID: qwCowABX+tKpXSFqnS2YAA--.469S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zw4DGr4fCr18GFy8Kr1fXrb_yoW8Crykpr
+	W7Kr43WrWrJw4Igan7uw4aqFW7G3ZYkrWFgr1jk3yrZrWjqF4UZan3Kw40vrW3Xr15Ga4v
+	qrs8AayrCryDAa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
 X-Originating-IP: [123.118.218.239]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_041257_870304_B95D5873 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20260604_041257_868696_FB097BA4 
+X-CRM114-Status: UNSURE (   6.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +90,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-section_activate() does not flush TLB after populating new vmemmap
-pages. On most architectures, this is okay, however it is a problem on
-RISC-V since there TLB caching non-present entries is permitted, which
-causes spurious faults on some hardwares.
+Patch 1 adds a hook and should be no functional change on its own,
+whereas patch 2 is the actual fix, which depends on my earlier kfence
+fixes for mark_new_valid_map() [1].
 
-Add a hook vmemmap_populate_finalize() in __populate_section_memmap()
-after population, to allow architectures to handle such situations as
-needed.
+Found while testing AMD_HSA/ZONE_DEVICE on SpacemiT K3. Using
+ZONE_DEVICE requires another fix [2].
 
-No functional change intended for now, but a hook implementation for
-RISC-V will be added in a later patch.
+[1]: https://lore.kernel.org/linux-riscv/20260303-handle-kfence-protect-spurious-fault-v2-0-f80d8354d79d@iscas.ac.cn
+[2]: https://lore.kernel.org/linux-riscv/20260309-riscv-sparsemem-vmemmap-limits-v1-2-f40efe18e3cd@iscas.ac.cn
 
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 ---
- mm/sparse-vmemmap.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes in v2:
+- Split patch in two, hook point and riscv hook 
+- Explain hook necessity in patch 1 message (Mike)
+- Make hook #define based (Mike)
+- Call finalize hook only on populate success
+- Link to v1: https://patch.msgid.link/20260525-mark-after-vmemmap-populate-v1-1-e698d859ba16@iscas.ac.cn
 
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 6eadb9d116e4..2a8b923fabe8 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -544,6 +544,12 @@ static int __meminit vmemmap_populate_compound_pages(unsigned long start_pfn,
- 
- #endif
- 
-+#ifndef vmemmap_populate_finalize
-+static void __meminit vmemmap_populate_finalize(void)
-+{
-+}
-+#endif
-+
- struct page * __meminit __populate_section_memmap(unsigned long pfn,
- 		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
- 		struct dev_pagemap *pgmap)
-@@ -564,6 +570,8 @@ struct page * __meminit __populate_section_memmap(unsigned long pfn,
- 	if (r < 0)
- 		return NULL;
- 
-+	vmemmap_populate_finalize();
-+
- 	return pfn_to_page(pfn);
- }
- 
+---
+Vivian Wang (2):
+      mm/vmemmap: Add a post-population hook for architectures
+      riscv: mm: Avoid spurious fault after hotplugging vmemmap
 
--- 
-2.54.0
+ arch/riscv/include/asm/pgtable.h | 4 ++++
+ arch/riscv/mm/init.c             | 6 ++++++
+ mm/sparse-vmemmap.c              | 8 ++++++++
+ 3 files changed, 18 insertions(+)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260525-mark-after-vmemmap-populate-68bd790839c9
+prerequisite-message-id: <20260303-handle-kfence-protect-spurious-fault-v2-0-f80d8354d79d@iscas.ac.cn>
+prerequisite-patch-id: fdc42f2647e21d111f44a6532887a6705cd470a9
+prerequisite-patch-id: 096fa339c84c36643ae4311fd8362dc63e23d950
+prerequisite-patch-id: 305c876a5f4a23a840a8142aea79b796ed297545
+prerequisite-patch-id: d78cb55d6a616b1170f06a401c8fd44acd11e5d5
+prerequisite-patch-id: b02b4a76e94f3e2821291d4c23b46f6e5ecf5203
+
+Best regards,
+--  
+Vivian Wang <wangruikang@iscas.ac.cn>
 
 
 _______________________________________________
