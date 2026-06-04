@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDC2CD6E75
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 17:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8DACD6E74
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 17:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OdicnPCTl8D6cFzsykj5CSby3xPF+slvq9sae5l+KtE=; b=qGR68OqPb1G9yfgcV1dCa9tsIR
-	iscThAw3G6+UDoApC/UMozwDdsJ2jdFYfBnVk6TYprPou++y1CRqUh7+U+Zil/n2w1JuXXK4hggzb
-	Q/IE1ULx40bVDoH7zl00Eoytr4dXbIJLUnsBDn33CXYWutDcDGzz9TmuNVauD6aXUAcpbIUwR1gHw
-	UBo2jNCkANAuBVT9vxRhnMpmr/pH60Faa+Tenb0whhq9otm+DtFzbge5PUUfu8rA+pV3ClrZxbNM+
-	C8J64U+PO2JUaMUhRKz3DUNEe4pOcobLQD+hTvMLW4m2JmXlUyhtMResulJV1suGS4qtA/nW+zQfL
-	TU4mn1cw==;
+	bh=AhRPEnc52b3Yyfgvl4WSVFswTWv52oPZ5dF17a0HRfE=; b=OhhGtGKWuEHGujKO8zBdR9diPE
+	/msigG/IGwLFwQOsx4FLEKU00rsWP2wjCoAFFSUV/nbdor0ftUet0n4PoeqtepS+NoLASmCl9uuuO
+	RZ53147GSzcoQm1AusCohWKPq1cfadgfBa552DzS7t5VoIw97tgGR66C90q+TmgELNrqAqil/zg9Y
+	JnIsTyNs2nN3PPpWl8SEnMJRHSCwc4cpZVk3MVfVGgbmqYWjOo75UXvTy7dqlSXaHIw8ji67laMa7
+	f8IZFVxXricDhWaTg6JoT/W21p4vsvkNShu2JaxV1eOMEtZUVDp6wQKeTj1/75sqDBHtKsEUOTVvP
+	I4V+43GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBWk-0000000H7fe-1RyK;
-	Thu, 04 Jun 2026 17:06:42 +0000
+	id 1wVBdG-0000000H85j-097s;
+	Thu, 04 Jun 2026 17:13:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBWj-0000000H7fW-1y3G
+	id 1wVBdE-0000000H85X-40xC
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jun 2026 17:06:41 +0000
+	Thu, 04 Jun 2026 17:13:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E7E0143D43;
-	Thu,  4 Jun 2026 17:06:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD0581F00893;
-	Thu,  4 Jun 2026 17:06:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B3A54181C;
+	Thu,  4 Jun 2026 17:13:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 231EA1F00893;
+	Thu,  4 Jun 2026 17:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780592800;
-	bh=THDk6fTtan6fuBzI69SEywQVTp9gJKd2GNHSC2lTvFs=;
+	s=k20260515; t=1780593204;
+	bh=3mNke4DPpjdjtMGcSKZlm7XTAekMgE3bOVU/KndyzOI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TITIy85JoinwJOkeT5cbUxS/Vc16E4lfxP7pIaD+by7otBrL5scyE0dw/MHtsFjfT
-	 BWnjXNl402YIxvA+X6fqqtX7VPAbhzOYFQd/rX2/xhtWtntIg+68nzjnDY4q9mmqgH
-	 uTG05lAUAOKwGUNbdxI79lFxAkT4bZqdg4bOmB9qoccvuaaxOlbO55ijuq+C9Q3SyM
-	 A+YqCOwt9n+uIrGqeBYZFtNWLA35/G/aznjyGmkFGoINwv/ZNsEfZacjIftDlPiY13
-	 t4cRtRPjwalb1xr/DYiIkE89mRuUGrk2k0AbteQSoKqLSQYqT3Ek8C5ZRCZosVqxFp
-	 9Fhs5n5Vfwh6A==
-Date: Thu, 4 Jun 2026 18:06:35 +0100
+	b=PVJyKJwiKn4E+C2SFTGIzj7eZ0Pfz8EP9cwAr4kKCEOszyGFgTbErgFQUsdUm56hr
+	 j4MFUxmPCMVR7CuieAhrJEFRlowxFkZK21I/gA2ohkxEJq5SLxSpEMVUWu4/NmhmVF
+	 cB6zsftZUDCZyqbsRSepsPxbeYMHsKriG96aznk/2a8vNPE1V59Y+W81M40xOmjqkT
+	 u/Oc5IwDzDJ6UG5bt2ih+hx4v87eP8j7JimkOqJDMi2fyiPZBEVJ/nVCWMUB7YhSmK
+	 sKZxiO2rUIqnz6hdvX+x9kjlD+sZpM0ykNqMkj2qqDERYLCUGKRzBNmdxJG3nUiXEK
+	 qo5+YOx6oJ5hQ==
+Date: Thu, 4 Jun 2026 18:13:19 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -53,21 +53,17 @@ Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v3 03/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Message-ID: <20260604-sprout-zips-c2c29e26fe1d@spud>
+Subject: Re: [PATCH v3 09/21] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys2-pinctrl
+Message-ID: <20260604-veggie-constrain-16a72066e82f@spud>
 References: <20260603055347.66845-1-changhuang.liang@starfivetech.com>
- <20260603055347.66845-4-changhuang.liang@starfivetech.com>
- <20260603-groin-valid-a1d4445f7a6b@spud>
- <ZQ4PR01MB12022B5C460A34260ABFCE9FF2102@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260603055347.66845-10-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <ZQ4PR01MB12022B5C460A34260ABFCE9FF2102@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <20260603055347.66845-10-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,74 +75,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3741596314145982295=="
+Content-Type: multipart/mixed; boundary="===============4130870096251437989=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3741596314145982295==
+--===============4130870096251437989==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MzAYvu0zafqbmMzc"
+	protocol="application/pgp-signature"; boundary="7KP5dV2MCZU0dpPN"
 Content-Disposition: inline
 
 
---MzAYvu0zafqbmMzc
+--7KP5dV2MCZU0dpPN
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jun 04, 2026 at 01:37:00AM +0000, Changhuang Liang wrote:
-> Hi, Conor
->=20
-> Thanks for the review.
->=20
-> > On Tue, Jun 02, 2026 at 10:53:29PM -0700, Changhuang Liang wrote:
-> >=20
-> > > +          slew-rate:
-> > > +            enum: [ 0, 1 ]
-> > > +            default: 0
-> > > +            description: |
-> > > +                0: slow (half frequency)
-> >=20
-> > Half frequency? Slew rates are usually measured in volts per second, no=
-t hertz.
-> > Do you know what the slew rates actually are and could put them in here=
- as
-> > the real units? Or is it just "slow" and "fast" in your docs with no pr=
-ecise
-> > numbers?
->=20
-> Yes, there are no precise numbers in our documentation. I will remove "(h=
-alf frequency)" in the next version.
+On Tue, Jun 02, 2026 at 10:53:35PM -0700, Changhuang Liang wrote:
+> +          power-source:
+> +            enum: [ 0, 2 ]
+> +            description: |
+> +                0: power supply of 3.3V
+> +                2: power supply of 1.8V
 
-If the rate is actually half, then you can say that. It's just
-"frequency" I was objecting to.
+I'd rather these were given in e.g. microvolts, rather than what look
+like register values, that have no meaning when looking at the dts.
 
->=20
-> > I've got no questions other than this, so once this question is sorted,=
- I'll be
-> > happy to ack all the bindings provided they're effectively the same.
-> >=20
-> > > +                1: fast
->=20
-> Best Regards,
-> Changhuang
-
---MzAYvu0zafqbmMzc
+--7KP5dV2MCZU0dpPN
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGwmwAKCRB4tDGHoIJi
-0nJAAQDvcEDwiD+3GTqQxZ57p33w5TBg+tRlXUgDnfGimF7w0wEApwva9vTpq3gk
-vsB+mH5qfJJ7+KJ91nAQQG2RyRvuiQ0=
-=h0/2
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGyLwAKCRB4tDGHoIJi
+0qJ/AQCQ/vPUMhGA0s99RrlfmIhY43MmG9ypad6INnfVMc+/ogD/XOOCyrLph3nG
+xf3MOhu5OXndhUYDq+Zw0JVREEKimwI=
+=gfH/
 -----END PGP SIGNATURE-----
 
---MzAYvu0zafqbmMzc--
+--7KP5dV2MCZU0dpPN--
 
 
---===============3741596314145982295==
+--===============4130870096251437989==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -157,5 +125,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3741596314145982295==--
+--===============4130870096251437989==--
 
