@@ -4,67 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78269CD6E75
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 23:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F36ECD6E75
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 23:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+fPj3cZsJ+lgqAusnZYBIj65RmT/ruz9s5jTK6sICrE=; b=Y5csUqdE5wLc3n
-	rawGUiGMC0aZuJVwC2CExnYQp9rPIiK7zT6blgBtWpFCx6mt0h8lJYpsXDh8NAAyzoQfJR5VteUud
-	gvMneg8MVxVSHLBQ/JPLf/UZdzVtjiRhVIiqgP0qckNd8rLsA9TG4qqjjoJKItIn5VMo4glbwsZeo
-	Dox/PoR+qaG9OLwB2BmCO8KVWX9kX9/dNFz0dCDAM1T+mnumhoTrS9R48BxLXN93Yo7O8eSvvpRYj
-	nLnHLA5uccfXtOHHW38WDy15bNrdhJwfMOoDEfDHoihjBFjALJlMm0Su30V/LupcCwWKVZPdTXk43
-	cqeWgZ868D+uCu7NfUYQ==;
+	List-Owner; bh=3toXCc6cOE8IV6V92ag8kv0rGQ2xCLneXR+H+iO/VUw=; b=XkA7AEyw8M43CX
+	pavsDTwuL1iaFJxhniLD5HA9YXQk8DxHa0zLF2CckcG97C1URJorgQUdhQHXFtoi0T9Y/ZJ90+ykH
+	nOsHb5Ou0+otJgYxG5oXaUYzgXUybnv1P3HInIfly67nrGVGDNNMiSsDKukSBncoS+xfW3HO6zDQh
+	yufs7wGD9tXqXsTCJWJc1+A9dc6YTMu+o7wRd+iDxtKQHjTGXx2Vbm/M1SWQK8dLuEW+QwPFT7srk
+	pSJj4AxGpvX/35YNZ801IPepfDnLelWrHJFiMNcRa0mW4rR+XVVeswB1zT741CRU0Zd/qN82We9Gt
+	ENLUjJgh042Asc93WEgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVH7X-0000000HQfG-3bZ7;
-	Thu, 04 Jun 2026 23:05:03 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1wVHgX-0000000HRec-3RJx;
+	Thu, 04 Jun 2026 23:41:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVH7T-0000000HQcn-3lop;
-	Thu, 04 Jun 2026 23:05:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=hp
-	TAP1nL3qYWFA5TtGpFod5MmlFUh4wPDF/QkCHoWUc=; b=NZzRJ8hBgx1Ee/7eDq
-	EEqgbdBUD3+vOM0UApoX2xdWpSOtiTFsq+hQczw+r8w+VhbVRMOSpxvZLKW193bQ
-	PsBFRlp3jXkHZ0Gj6sobNR+YZjyu/+sNRufkXxQrS+RYM4cnmOE6V7czWDTiPpxc
-	Q+LAbbHYMBrsxzF97BNiC1r4o=
-Received: from wufei (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wA3H9tJBCJqsfP6BQ--.26783S4;
-	Fri, 05 Jun 2026 07:03:52 +0800 (CST)
-From: atwufei@163.com
-To: seanjc@google.com,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Wu Fei <wu.fei9@sanechips.com.cn>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] RISC-V: KVM: Fix skip of valid pages in kvm_riscv_gstage_unmap_range
-Date: Fri,  5 Jun 2026 07:03:15 +0800
-Message-ID: <20260604230317.30501-3-atwufei@163.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260604230317.30501-1-atwufei@163.com>
-References: <20260604230317.30501-1-atwufei@163.com>
+	id 1wVHgW-0000000HReW-1olt
+	for linux-riscv@lists.infradead.org;
+	Thu, 04 Jun 2026 23:41:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D61A3407FB;
+	Thu,  4 Jun 2026 23:41:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461CC1F00893;
+	Thu,  4 Jun 2026 23:41:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780616471;
+	bh=0QHV2vYtmnptSefCqHx+b7ZWaXLYqZiwKrxHa/B0vT4=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=XObhX4epIbXAvf4gJLVS2l7go87WDWpatv71tnGat+lNo1Cl4lOdhKzQI/3Tyxu9U
+	 VfhuMd3xkHIWgOEUUEgX7o3s0uTc8aPUIPTovR9xS+bLvt75MWHjaXRferZhBkaII6
+	 U6mhXvJucoNgYf8Whg+1D+sTDTgSFmQACJTBc8d+D6rZHqxknMkd1gHJ+KV0BsX0Sh
+	 EdvfHJXRdp5Yi7Fl3Y0rJXU5BV/+zxHS99E55xeJHN5PMOBwJeFZ/uvzQI8X5XhbCP
+	 HUSzKRs0X93xryrvAPMbgLe/3V7WhtRQM9FGgxZF2Ej6JD/ZA8mbuiBSC04wTRbm4R
+	 jxZt2BEUUyt+A==
+Date: Thu, 4 Jun 2026 17:41:10 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Rui Qi <qirui.001@bytedance.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/2] riscv: stacktrace: Remove bogus -0x4 offset in
+ non-FP walk_stackframe
+In-Reply-To: <20260603115329.791603-2-qirui.001@bytedance.com>
+Message-ID: <f04aa9b7-9118-d9f6-6431-75234dc2a207@kernel.org>
+References: <20260603115329.791603-1-qirui.001@bytedance.com> <20260603115329.791603-2-qirui.001@bytedance.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wA3H9tJBCJqsfP6BQ--.26783S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7WF4xKw1kXFWrGrW7JFykuFg_yoW8GF1Upr
-	sxCas3Cr1rtwsxZF13tFWkuwsxGrs3KF43try7Za4v9Fn8Xw48Arn7Xr929rW3XF97XayD
-	uFWDGFyrur4IqwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jsYFAUUUUU=
-X-Originating-IP: [240e:38c:8516:b200:1f3:8926:223c:5bc8]
-X-CM-SenderInfo: pdwz3wlhl6il2tof0z/xtbCzRg622oiBFjtWwAA3W
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_160500_338853_2D28DFFD 
-X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +70,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wu Fei <wu.fei9@sanechips.com.cn>
+On Wed, 3 Jun 2026, Rui Qi wrote:
 
-Same as kvm_riscv_gstage_wp_range, the possible valid pages should not
-be skipped if !found_leaf. Different from wp case, which can
-write-protect more than asked, unmap can't do that, no splitting is
-added right now but a warning is logged instead.
+> In the non-frame-pointer version of walk_stackframe, each value read
+> from the stack is treated as a potential return address and has 0x4
+> subtracted before being used as the program counter. This was intended
+> to convert the return address (the instruction after a call) back to
+> the call site, but it is incorrect:
+> 
+> 1. RISC-V has variable-length instructions due to the RVC (compressed
+>    instruction) extension. A call instruction can be either 4 bytes
+>    (regular) or 2 bytes (compressed, e.g. c.jal). Subtracting a fixed
+>    0x4 assumes all call instructions are 4 bytes, which is wrong for
+>    compressed instructions.
+> 
+> 2. Stack traces conventionally report return addresses, not call sites.
+>    Other architectures (ARM64, x86, ARM) do not subtract instruction
+>    size from return addresses in their stack unwinding code.
+> 
+> 3. The frame-pointer version of walk_stackframe already dropped the
+>    -0x4 offset. Commit b785ec129bd9 ("riscv/ftrace: Add
+>    HAVE_FUNCTION_GRAPH_RET_ADDR_PTR support") replaced "pc =
+>    frame->ra - 0x4" with ftrace_graph_ret_addr(), and the commit
+>    message explicitly noted that "the original calculation, pc =
+>    frame->ra - 4, is buggy when the instruction at the return address
+>    happened to be a compressed inst." The non-FP version was simply
+>    overlooked.
+> 
+> Remove the bogus -0x4 offset to match the FP version and the
+> conventions used by other architectures.
 
-Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
----
- arch/riscv/kvm/gstage.c | 20 ++++++++++++--------
- 1 file changed, 12 insertions(+), 8 deletions(-)
+Thanks for the very clear commit message and for the fix.  Queued for 
+v7.1-rc.
 
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index 2b141a78ecac..d78f5aeb8b40 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -395,15 +395,19 @@ void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 		if (ret)
- 			break;
- 
--		if (!found_leaf)
--			goto next;
--
--		if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
--			kvm_riscv_gstage_op_pte(gstage, addr, ptep,
--						ptep_level, GSTAGE_OP_CLEAR);
-+		if (!found_leaf) {
-+			addr = ALIGN(addr + 1, page_size);
-+		} else {
-+			if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
-+				kvm_riscv_gstage_op_pte(gstage, addr, ptep,
-+							ptep_level, GSTAGE_OP_CLEAR);
-+			else {
-+				WARN_ONCE(1, "Skip unmap range addr: %#llx, end: %#llx, page_size: %#lx\n",
-+						addr, end, page_size);
-+			}
- 
--next:
--		addr += page_size;
-+			addr += page_size;
-+		}
- 
- 		/*
- 		 * If the range is too large, release the kvm->mmu_lock
--- 
-2.51.0
 
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
