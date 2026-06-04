@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5BDCD6E75
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 16:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02C4CD6E77
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 16:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67SKHxV7LoSKwj0MbTU0TGPYRj6+L0vY+ouKGFWBTAs=; b=MF7YymmxIW/hSTTXFnzQMIYfeZ
-	LXUPIyh/OUP+crphNzo+GRMzYMi1ok+sRilBOjBNBdTF3e1ai4vvtreMWn8bg/WwgU+koHGrmXG9p
-	4oHE97U23k8vSKpBW7h+d3MiQLsUX0zx4q55xU8HUST0ygBG5smIRusn61qwoPe9lobR0e+RUSgak
-	wEzFU9Ra2qpj9J8mrHgU0kLar+szAQhnViJgffwqBc6PeUMGdzkEv0Jc4fs8S5OeQLGMybyhYG8g1
-	06R/1bAvkDfYXfo2MKehRUUw6aebpCLchvb4Cw37OSzg/T9V46YGA2yzl/NzKzg3F7I23rwWNiMn0
-	BvMS2Rqw==;
+	bh=mAEh+wv8VvEwfDDfihrN3gNON5JAJQTB3sFUK1P7MAE=; b=vMHtO6tRVtp4cRC3mRLBsv7JPo
+	EnPodi7ubKEKYq//1bW988wsn0TSBMxKIioHoQOwqn0Em45j4PzgNvoRPEqLLkf8dd3E4hoBIUhgm
+	TZCSJdsQTiWJTpS8tRwGBOEWYSbBLZrEb1absMnlEZGOpphed/6EyfzKrFHqZlCIcsqvdDST2Pl0M
+	+Nr3Yp6/CSVFbmF9zma9d3GfWmAxUKESY5MzLS+idWibIZ7Wwz81A0gajI8KK+VhFZATK4tTieObU
+	Q9rq1OVC0BH038S61tIxdAhMnjM086VLzKL5cP4wMgr9Dw4yWGeP4i0FuCq4UtgHac6FSMXGrypc4
+	82mj3m6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBB5-0000000H5dS-0ByY;
-	Thu, 04 Jun 2026 16:44:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wVBBM-0000000H5iS-0cxk;
+	Thu, 04 Jun 2026 16:44:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBB3-0000000H5d2-10Nl
+	id 1wVBBL-0000000H5i9-0red
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jun 2026 16:44:17 +0000
+	Thu, 04 Jun 2026 16:44:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 051D84412C;
-	Thu,  4 Jun 2026 16:44:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CF6C1F00893;
-	Thu,  4 Jun 2026 16:44:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 11AF3436D8;
+	Thu,  4 Jun 2026 16:44:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FEC11F00893;
+	Thu,  4 Jun 2026 16:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780591456;
-	bh=xpfCQb0f0RQ9VM7+cHYIDy/L/aEeP4pps5RxAlULLvY=;
+	s=k20260515; t=1780591474;
+	bh=8a0IF6l905nH3u/zr72w5HQfVtZnwmPx1haQ1LiLIQ4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fg5Lk2zVDgIbt0983DWzuNz5E9iTFH8YDgTIrfgvw3jszyYMQk3NdJl7MgcbrQgvH
-	 eCoS/rOwdVYzZkXlO1bMyAEgoy0YjSPtamFqFX9RBPYfGsISVYCnR37ykDSQbbr6qH
-	 bnDHers69O8hb+J1/MzVqqKD1c8y/beN0p3ChXr5iCX9YZhPcZSc/PD0YGJNfIq4dn
-	 uP+RBFkij5CGf1PZQnqRF+fOdE6kmBUHI6C6T+1BXZTD0N6/6QkLEgg+vBg45gKf/6
-	 GtN/lNDOckNwE5/nDaW/DjLfFDLfZ8T2vm+rzuibXH+/pf6zQE+bjZdlM4x63mx5KZ
-	 Mv0n7lohQX4SA==
-Date: Thu, 4 Jun 2026 17:44:12 +0100
+	b=Gs3SgD5ZrG6j5EMq7clPzS83LmH9wTNWWXuRuQOfVm7UnW5sLkFXiTE5HygEuC9sq
+	 9GLkxvU/sJQ+NnNJbK1dFe2clcsRXES6cecbSA4G5Dp8XQSIFOaiMAubE4ofUqZ9fg
+	 ECuyUtEM6RlxewWHxNvIkqD3UFGrewGGiWQ1Ec0Y+DDf9iHecs7H3Q5ZN3CGwej/nb
+	 Mf96U3EvcyEVcb/BG7/qBDuYv7WK4JlX0flEVag/7qH03UmR48k3bfXXAJYgudlBmr
+	 kmcivHjOkAamR42o/qDdLDaR2+VHQn14SToLtVCGEIt1hNaxRVuth0d3Y87TK1sdf+
+	 elmvMSynYSB9w==
+Date: Thu, 4 Jun 2026 17:44:29 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Joel Stanley <joel@jms.id.au>
 Cc: Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -55,12 +55,13 @@ Cc: Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>,
 	Michael Ellerman <mpe@kernel.org>,
 	Drew Fustini <fustini@kernel.org>, linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 3/7] dt-bindings: riscv: cpus: Add Tenstorrent Ascalon
-Message-ID: <20260604-ravioli-expansion-cf5215234bab@spud>
+Subject: Re: [PATCH v2 2/7] dt-bindings: imsics: Add Tenstorrent Atlantis
+ compatible
+Message-ID: <20260604-preview-cofounder-a9e6cd24a106@spud>
 References: <20260604143957.668047-1-joel@jms.id.au>
- <20260604143957.668047-4-joel@jms.id.au>
+ <20260604143957.668047-3-joel@jms.id.au>
 MIME-Version: 1.0
-In-Reply-To: <20260604143957.668047-4-joel@jms.id.au>
+In-Reply-To: <20260604143957.668047-3-joel@jms.id.au>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +73,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8082531542888128767=="
+Content-Type: multipart/mixed; boundary="===============8705623592763082488=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8082531542888128767==
+--===============8705623592763082488==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1yPvnAK5LiPXdjaq"
+	protocol="application/pgp-signature"; boundary="6vPzludfjj+bRdTk"
 Content-Disposition: inline
 
 
---1yPvnAK5LiPXdjaq
+--6vPzludfjj+bRdTk
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---1yPvnAK5LiPXdjaq
+--6vPzludfjj+bRdTk
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGrXAAKCRB4tDGHoIJi
-0gy7APwIkV8QZB6pyK9SrYi8NFGK3QBzxZergUQIMWqX2XRNpQEA0Lhw/PgdYacX
-dxegYUg1eO65xisg5PDFbEbMlo3v4gk=
-=LWbO
+iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGrbQAKCRB4tDGHoIJi
+0kwUAPYzMTFGrgNX7hjRyuMLJeqclo87j0Uq8SO+kJREBwEzAQC2L6zP7/wbgv9P
+HhuIxoNs71kjt0+mbUJoS74vBhFBDA==
+=f9/G
 -----END PGP SIGNATURE-----
 
---1yPvnAK5LiPXdjaq--
+--6vPzludfjj+bRdTk--
 
 
---===============8082531542888128767==
+--===============8705623592763082488==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -115,5 +116,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8082531542888128767==--
+--===============8705623592763082488==--
 
