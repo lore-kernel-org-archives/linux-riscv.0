@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03F4CD6E6D
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 16:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A07CD6E75
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 16:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VKCdGmCAmyuib2otnzicHHNT3N1FYTdqBbTNWLEc5AQ=; b=EcZ+21PACP+BHVXZKQkt8MS4Kc
-	8fwL/eb0mHuhKwp9ToJ8lBLeCwoOa632BDq0xGmK11tc6DIdaRFUxsVxk2VRB/ceiJncnoCgkR6OD
-	Lt0sCI/x9HWl5T0t2rMkzG5GvFYewwB3pNpVP08XL9NeGASlodE/OQD6tOBMF0NRq/vgoYtp9foNq
-	MebymHxTjhESpkWZ/dT1t5V8BwPjnIh2JL+6uM1tUbT/1JGNsv5Lsw1hbAVu5V8ZOPElNuGhhOhre
-	nzqm0A+JDIC4HN6/99y7HFEnK9DcBtFs3dfDsuEg1zox4yv6+FrVl2UAJWlvojf0Ck+PVd/1kJIIm
-	87w/KpBQ==;
+	bh=7aUo0GSqBFNUT7N0aaRA+U+T+6DKwc/EMcMMJHRlBL8=; b=DUHBTqxObgYWhLDrJa+BPF69gR
+	6IlfRA9UjZtjAuRzVup9t0HOzhCsQUrqLMd08hxcAON1NLKQ4+ywRLBHQQ7Jbrbjd8/LJQPYVxJ3M
+	av+aM/2HGIQjzBOfw2pI3HsteIB5IO3BXulshGdSjSgovp8Ixen+PUkPJoN+om4ERIMaFrZ0LNJts
+	7f5waBENKEsFEn5uu+2Rt9glGRVE0jU1B7skWUMz42ioVYxsk9YSaR72GfaejDwyxzwDtc/+UwDjW
+	hfLvhNd9nBKPLkNEEYzjBxuvdNoIBl03oV1uqAMBl062R6mHbssXNBC4Xnkvnbk5BLLUCN+/v23YD
+	4Jd44UGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVAps-0000000H3lq-1Qaz;
-	Thu, 04 Jun 2026 16:22:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wVBAW-0000000H5WD-3Urt;
+	Thu, 04 Jun 2026 16:43:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVApr-0000000H3ld-0aAh;
-	Thu, 04 Jun 2026 16:22:23 +0000
+	id 1wVBAV-0000000H5W6-48U4
+	for linux-riscv@lists.infradead.org;
+	Thu, 04 Jun 2026 16:43:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B4ED600AE;
-	Thu,  4 Jun 2026 16:22:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914261F00893;
-	Thu,  4 Jun 2026 16:22:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D9A4440D92;
+	Thu,  4 Jun 2026 16:43:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 279021F00893;
+	Thu,  4 Jun 2026 16:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780590141;
-	bh=F2TSuSy2fzh9HuIAd56pwrl0AaEkrI23dzAjyDp0t9A=;
+	s=k20260515; t=1780591422;
+	bh=HLCWcs/na7YJynx39JPn6MJEQr7kg0k6sXWmzUfmZ58=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ViiY4wnouQ9k6t1sxmqMVFMCul6eUzunF8oKW0rsiW/ZTfAivON+rEvptHkvOW4uD
-	 TlktGmGVUAJjYF39NnCL2WFkTS4og2KJPMJS46w1Nn/p3Rmk3ob3AGoWKt33Mflioc
-	 TAYaFyB47q7z3p2KtWMb2N8/6Hn0dRH7HxtmBeEIS59BUIyqgMs/vfVgiKCNlCxsWt
-	 aBks9x6b8hSHQsdh5d+ducLM5LillQ6kxM0VlrNv3y3VQliF3d1z3Vc+W0Qex2r5G1
-	 geh5DRYhVLNpRPu21Gs0PcWAEcIAha7agUbWKXVI88AyRMpgdCsoZkTXCdbrUgfEfQ
-	 RQNWbN7VfJ+Kw==
-Date: Thu, 4 Jun 2026 17:22:15 +0100
+	b=CqoVroeqkoPZXwFvExF3urqgSSPcEenmAjd1Zmtfr7/t1rg3sYsSKMW8NWWKiG6tX
+	 syAd1uEaKqNJlwoTe5OOV1AYnA2mWb9mYf07EXl1S4z+u8Rlsx3kjSGQMlKw/i3Wjr
+	 CG4EqSnjLVR3DKZzT2jD8PvNKgENVS6xgI65RK+yoxHwn7ZyiHgwInRcY3r02dFMQe
+	 VnYyFclxZwUAe0i3LcKFkecfiDQkq1E6qYWL1ZCgWWXwbSEdUtZOFh2+PNAiJOWLi+
+	 mdwwZ+zPnpT9cuyVA0DPOSfL0DEw7lGzzV13VDsTNhywMGqav/WpCfRi/m2Gz26dti
+	 eadTKkPXD3oqg==
+Date: Thu, 4 Jun 2026 17:43:38 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: Guodong Xu <guodong@riscstar.com>, Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Shuah Khan <shuah@kernel.org>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Deepak Gupta <debug@rivosinc.com>, Zong Li <zong.li@sifive.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	Guodong Xu <docularxu@outlook.com>
-Subject: Re: [PATCH v2 08/10] riscv: cpufeature: Introduce ISA bases bitmap
- and rva23u64 detection
-Message-ID: <20260604-decency-salaried-4cb69e1c9fa9@spud>
-References: <20260511-rva23u64-hwprobe-v2-v2-0-21c5a544f1dc@riscstar.com>
- <20260511-rva23u64-hwprobe-v2-v2-8-21c5a544f1dc@riscstar.com>
- <5tjmypgyxbhgxfjub5q6ne475uysse6yl473sxisjoammkdvbu@yebejqbiy6e3>
- <CAH1PCMa-5W9PsX8cDLUk6-MkcM53HOz2QtaxCHd+XOr7DgH5+w@mail.gmail.com>
- <ug2cipududshcbv24ruicqpugzinujnamvdcuy6pubkwh67bfp@2fysrplz3nr4>
+To: Joel Stanley <joel@jms.id.au>
+Cc: Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Michael Ellerman <mpe@kernel.org>,
+	Drew Fustini <fustini@kernel.org>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 4/7] dt-bindings: timer: Add RISC-V ACLINT mtimer
+ bindings
+Message-ID: <20260604-refill-atonable-efa4867a6e89@spud>
+References: <20260604143957.668047-1-joel@jms.id.au>
+ <20260604143957.668047-5-joel@jms.id.au>
 MIME-Version: 1.0
-In-Reply-To: <ug2cipududshcbv24ruicqpugzinujnamvdcuy6pubkwh67bfp@2fysrplz3nr4>
+In-Reply-To: <20260604143957.668047-5-joel@jms.id.au>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,149 +73,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5392804479159008309=="
+Content-Type: multipart/mixed; boundary="===============8158814827140221884=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5392804479159008309==
+--===============8158814827140221884==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5cyPpCm7a4usSWqT"
+	protocol="application/pgp-signature"; boundary="Sy7c6x+d+Pr/tvI9"
 Content-Disposition: inline
 
 
---5cyPpCm7a4usSWqT
-Content-Type: text/plain; charset=utf-8
+--Sy7c6x+d+Pr/tvI9
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jun 04, 2026 at 10:29:19AM -0500, Andrew Jones wrote:
-> On Sat, May 30, 2026 at 08:42:29AM +0800, Guodong Xu wrote:
-> > On Thu, May 28, 2026 at 12:35=E2=80=AFAM Andrew Jones
-> > > Sashiko points out a few things about this patch which I think I
-> > > agree with
-> > >
-> > > https://sashiko.dev/#/patchset/20260511-rva23u64-hwprobe-v2-v2-0-21c5=
-a544f1dc%40riscstar.com?part=3D8
-> >=20
-> > Quote the following from Sashiko.dev:
-> > > Should this mask specify the individual subset extensions required by=
- the
-> > > profile instead of the superset extensions like RISCV_ISA_EXT_B,
-> > > RISCV_ISA_EXT_C, and RISCV_ISA_EXT_V?
-> >=20
-> > My preference is to leave the mask on B/C/V (and A) as-is. I'd prefer to
-> > keep matching on the single-letter, rather than expanding them. Here is=
- why:
-> >=20
-> > - The RVA23 profile lists A, B, C and V as single-letter mandatory
-> >   extensions; it doesn't enumerate Zaamo/Zalrsc, Zba/Zbb/Zbs, Zc* or the
-> >   Zve*/Zvl* subsets in the mandatory set.
-> >=20
-> > - In current merged code, hwprobe_isa_ext0() is already using
-> >   riscv_isa_extension_available() signle letter checking for C and V.
-> >=20
-> > PS:
-> > B maybe a special one, just in case anybody raise it. As the community
-> > discussed when I adding it into the bindings, because B comes later than
-> > its sub-components zba/zbb/zbs, so, when I added B, I cleaned up all
-> > in-tree dts files which declared zba/zbb/zbs but not B and made them de=
-clare
-> > both.
-> >=20
-> > Link: https://lore.kernel.org/linux-riscv/20260115-adding-b-dtsi-v2-0-2=
-54dd61cf947@riscstar.com/
-> > [1]
-> >=20
-> > Also, in the bindings: extensions.yaml, a schema rule is added which re=
-quires
-> > a node listing zba, zbb and zbs to also list b (and the reverse). Movin=
-g on,
-> > new dtsi/dts fils, a node with only the subsets fails dtbs_check.
-> >=20
-> > One may argue that the schema check doesn't cover ACPI path. But again,
-> > shouldn't the vendor who publishs RVA23 hardware be conformant to the
-> > extensions wording in RVA23 v1.0 spec?
-> >=20
-> > What do you think?
+On Fri, Jun 05, 2026 at 12:09:50AM +0930, Joel Stanley wrote:
+> The mtimer hardware is described in The RISC-V Instruction Set Manual,
+> Volume II Privileged Architecture, 3.2.1. Machine Timer (mtime and
+> mtimecmp) Registers.
+>=20
+> The ACLINT was a standalone spec that made it to v1.0-rc4, but was never
+> ratified. As explained by Anup:
+>=20
+> > Only the timer defined by ACLINT specification is relevant but the
+> > RISC-V privileged specification already provides a high-level
+> > definition of mtime and mtimecmp MMIO registers (see section "Machine
+> > Timer (mtime and mtimecmp) Registers").
 > >
+> > Due to the above reasons, we dropped our plans to ratify ACLINT
+> > specification in-favor of AIA IMSIC and RISC-V Privileged
+> > specification.
 >=20
-> I certainly see a case for the kernel staying out of the extension
-> dependency validation game. I think it makes sense for an ISA string
-> validation tool to exist for vendors to do sanity checks on their
-> ISA strings, but that's not the kernel's role. OTOH, whether or not
-> the kernel wants to try and detect inconsistencies with the ISA
-> string in order to build confidence in using what it sees there
-> and publishing what it sees there to usermode, through hwprobe, might
-> still be worth debating.
-
-On the dt front, our policy is that it is not the kernel's job to
-check that the dt matches the hardware. It is the firmware's job to
-accurately report what the hardware is. There's definitely some
-exceptions to that already (*cough thead vector cough*) but that's in
-part because we failed to come up with concrete descriptions in the
-first place.
-
-Yesterday I commented on a patch that was adding this kind of thing:
-| The point of validate callbacks is twofold: checking that the kernel
-| configuration supports the extension and that extensions that the kernel
-| depends on to support the one in question are present.
-
-The latter is because you could depend on an extension that is affected
-by the former.
-Looking at the list of validate callbacks, I think there are some that
-actually don't follow this policy (I saw riscv_ext_zca_depends() that
-has no real purpose, but didn't look much further).
-I'm not even sure that the validate callback added in this series for
-zic64b should be added, it's borderline for me. I'm only really not
-objecting to it because it outputs a warning if someone has the
-retroactively added extension without the relevant dt/acpi properties
-and expects things to work.
-
-> Without CPUID / ID_* registers for Linux to be able to check an
-> authoritative source of truth about what is and isn't supported by
-> the CPU, riscv Linux has to decide to either blindly trust the
-> hardware description or do sanity checks / probes in order to
-> confirm what it sees there. Maybe we can assume that any extension
-> used by the kernel will trip over itself quickly, alerting vendors
-> to fix their ISA strings, but I'm not sure we can make that assumption
-> for usermode extensions that Linux doesn't use, but does expose
-> through hwprobe. What apps need to run in testing to exercise them?
-> How long will those apps need to run before they trip over something?
+> Link: https://lists.riscv.org/g/tech-aia/topic/connections_between_aia_an=
+d/107177435
+> Signed-off-by: Joel Stanley <joel@jms.id.au>
+> ---
+> v2:
+>  - Use priv spec as reference
+>  - Add soc name to tenstorrent compatible
+>  - Fix reg property description
+> ---
+>  MAINTAINERS                                   |  1 +
+>  .../bindings/timer/riscv,aclint-mtimer.yaml   | 56 +++++++++++++++++++
+>  2 files changed, 57 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/riscv,aclint-=
+mtimer.yaml
 >=20
-> The more I think I about it, the more I think the lack of CPUID / ID_*
-> registers puts Linux in a tight spot. If Linux trustingly publishes
-> what firmware tells it to to userspace and userspace blows up, Linux
-> will have to share some of the blame for having misled it. So, should
-> Linux validate everything it publishes somehow? Or, should it at least
-> do relatively cheap sanity checks on everything it publishes in order
-> to build some confidence?
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 2fb1c75afd16..43dd9873bbc5 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -23005,6 +23005,7 @@ M:	Joel Stanley <jms@oss.tenstorrent.com>
+>  L:	linux-riscv@lists.infradead.org
+>  S:	Maintained
+>  T:	git https://github.com/tenstorrent/linux.git
+> +F:	Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
+>  F:	Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm-rcp=
+u.yaml
+>  F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+>  F:	arch/riscv/boot/dts/tenstorrent/
+> diff --git a/Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.=
+yaml b/Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
+> new file mode 100644
+> index 000000000000..1d645570b191
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
+> @@ -0,0 +1,56 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/riscv,aclint-mtimer.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RISC-V Advanced Core Local Interruptor (ACLINT) Machine-level Tim=
+er
+> +
+> +maintainers:
+> +  - Joel Stanley <jms@oss.tenstorrent.com>
+> +
+> +description:
+> +  The RISC-V machine-level timer exposes the memory-mapped mtime and per=
+-hart
+> +  mtimecmp registers defined in The RISC-V Instruction Set Manual, Volum=
+e II
+> +  Privileged Architecture, 3.2.1. Machine Timer (mtime and mtimecmp) Reg=
+isters.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - tenstorrent,atlantis-aclint-mtimer
+> +          - qemu,aclint-mtimer
+> +      - const: riscv,aclint-mtimer
 
-Part of me wants to know why we should be going to a bunch of effort to
-cover up for inaccurate devicetrees etc. Garbage in -> garbage out and let
-them keep the pieces.
-That said, if we were to do something with checks, we can't actually
-even check everything and my opinion is that either we certify that
-everything is VerifiedTM or we don't certify at all.
+Guess your v3 beat my reply to v2, but what I didn't want was the
+riscv,aclint-mtimer compatible not the reference to the spec that you
+actually implemented.
+pw-bot: changes-requested
+
+And that reminded me, there's a thead,c900-aclint-mtimer binding already
+in the kernel, can't you piggy-back off that file instead of making a
+new one?
 
 Cheers,
 Conor.
 
---5cyPpCm7a4usSWqT
+> +
+> +  reg:
+> +    items:
+> +      - description: MTIMECMP registers, one per hart
+> +      - description: MTIME register
+> +
+> +  reg-names:
+> +    items:
+> +      - const: mtimecmp
+> +      - const: mtime
+> +
+> +  interrupts-extended:
+> +    minItems: 1
+> +    maxItems: 4095
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    timer@ac000000 {
+> +      compatible =3D "tenstorrent,atlantis-aclint-mtimer", "riscv,aclint=
+-mtimer";
+> +      reg =3D <0xac000000 0x8000>, <0xac008000 0x8000>;
+> +      reg-names =3D "mtimecmp", "mtime";
+> +      interrupts-extended =3D <&cpu1intc 7>,
+> +                            <&cpu2intc 7>,
+> +                            <&cpu3intc 7>,
+> +                            <&cpu4intc 7>;
+> +    };
+> +...
+> --=20
+> 2.47.3
+>=20
+
+--Sy7c6x+d+Pr/tvI9
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGmNwAKCRB4tDGHoIJi
-0hptAP4n8/eEpWp31Uijt9FDzlcZE1va/I9dJJ5pHP5ldvSQNgD/aPo4Nice+Y6x
-WG57+HLwQioheX4qt2I60jJ46gTx7wE=
-=5ZRN
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGrOgAKCRB4tDGHoIJi
+0n3DAQDqwd8w6WYcGP265FQJmzgpRZ/y83mWE+vmPMWn9v/aJwD/aR5rzrRqco27
+ymXGgzNkkU0EUvOsIzhr+EAV1+MpKws=
+=kAHu
 -----END PGP SIGNATURE-----
 
---5cyPpCm7a4usSWqT--
+--Sy7c6x+d+Pr/tvI9--
 
 
---===============5392804479159008309==
+--===============8158814827140221884==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -233,5 +244,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5392804479159008309==--
+--===============8158814827140221884==--
 
