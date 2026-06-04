@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB58BCD6E68
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 06:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F8ECD6E6B
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 06:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nnupjBmQVeEgQxkQb575XYzD3w750xa7HyAtTk5TfQk=; b=yd3TdxuRME8jn5
-	cJyBk8ZHYWNdbYwLGiEiJFjVazNKlbsw8m6vUWzD4wJJOrM2aTqLOsfmJFROC2qDkJpf5TctwmKRR
-	2/gP6Th0JccDie2r2gQCAVMFK0/8EW1su7UBXIDsiAs4Pnx9FCiZsk/tFRp7T6euGrSz89Retd2PY
-	K1zY12PWq4P9tGi+TbokTvuXc8ACOqAnHMX1Arw4mkR9Uzzt0S79j2c9etDEBHmGk4lLZhxm2uYiM
-	JVqzQqroRTx8JIl9ZDZzg2iXczu7WOnOp2y/Cf3/bg47hC37tAhPb7iizlnovgxb9e5M1DB5VF+o6
-	/XaYe4uttfPkwSm8O4Ng==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Yw0ZJdMQynOVFUeFiZGW9wmAO8pTfi5KDo3bduizo+M=; b=OQelU+DDXIqnrL
+	LqcG4QbBar/TQDquP9XnSnnN8h0ImTXy/vWADQALSbsb8jP26JrPqVZSzNWlgs4zhrNJWK+QJYqXE
+	yYJyzyyDPzPe4wvECDqDXXVZy33RGM+3BmuP1Awehg1FVJDIb35ga+ugKNNKgVS+ivJXQdw0hXZpK
+	oaizAv8gj/bfdShEQNafKthEzxnaQmj1u8d2DtoWzcfCjQRVPY/4kjCtkmiQve6mpv+VU8Dd9krWn
+	zKY6qGA585F4BufHDOuyKtgEyyy2LI/TGK3lbFLntwiSU43yIZ3/rcn4kvYDhs/YXFB1W6XcM8g9C
+	RwnRMwhWAxJkphbA7ckg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1Ib-0000000GDF4-1qL9;
-	Thu, 04 Jun 2026 06:11:25 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1wV1zA-0000000GFvl-3MlD;
+	Thu, 04 Jun 2026 06:55:24 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wV1IX-0000000GDES-1H4J
+	id 1wV1z6-0000000GFv0-3sb4
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jun 2026 06:11:23 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	Thu, 04 Jun 2026 06:55:23 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gWDhy3TK1z9tYd;
-	Thu,  4 Jun 2026 08:11:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1780553474;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CBYbMz5FezKMMS2rtw4TjIxhbup+kPw5i/fGW3S+F4U=;
-	b=r7Y7EfoOtMPl3kOml41+BEJJVGO63Tm/g1xvvvFAu24KxYiqLXDzSVVAfyzouEAbM3uO1c
-	yJDB1+Z6RadzKaCn3XAjDE6a1ztN83lAYsU5XuI4zQEQZHaQB1iW3x0LrW3bHn708Lx2XN
-	kA5ZUwKc29oC5WzcD/spCQ8gaS/XDysZSZ33W1/c3bu36mlipkdfGuhlBRL7C5tCLNv22c
-	mKhUsgK125Tspi/48lcNWSO8dIV0K+8xXa4LLrvG/2s4WzFENqSUU1PpzMR14OlunV9/pY
-	PkiXiX6ohvHINxue6aevNjoUDLDCwtaMO+wCM4SB9dgZfWxcL0Tze6p/cyMl0Q==
-Message-ID: <50095a4839fdaaf9522a2ccf26d19e3f7bb98866.camel@mailbox.org>
-Subject: Re: [PATCH 0/2] rust: clk: Add ExclusiveClk and use it in pwm-th1520
-From: Maurice Hieronymus <mhi@mailbox.org>
-To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>,  Miguel Ojeda <ojeda@kernel.org>, Boqun Feng
- <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,  =?ISO-8859-1?Q?Bj=F6rn?=
- Roy Baron	 <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl
- <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich
- <dakr@kernel.org>, Drew Fustini	 <fustini@kernel.org>, Guo Ren
- <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Michal Wilczynski
- <m.wilczynski@samsung.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
- <ukleinek@kernel.org>
-Cc: linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-pwm@vger.kernel.org
-Date: Thu, 04 Jun 2026 08:11:06 +0200
-In-Reply-To: <20260526-rate-exclusive-get-th1520-v1-0-34cf034e1764@mailbox.org>
-References: <20260526-rate-exclusive-get-th1520-v1-0-34cf034e1764@mailbox.org>
-MIME-Version: 1.0
-X-MBO-RS-ID: b569da53ff35be8ec8c
-X-MBO-RS-META: okhenwescwhzk8xbub6q5gdfgio1gcqx
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gWFgn4Mv7z5B13c;
+	Thu, 04 Jun 2026 14:55:17 +0800 (CST)
+Received: from szxlzmapp01.zte.com.cn ([10.5.231.85])
+	by mse-fl2.zte.com.cn with SMTP id 6546t9Gn017570;
+	Thu, 4 Jun 2026 14:55:09 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxlzmapp04[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Thu, 4 Jun 2026 14:55:10 +0800 (CST)
+X-Zmail-TransId: 2b066a21214ec27-b4cdb
+X-Mailer: Zmail v1.0
+Message-ID: <20260604145510898G2kTwM2Pr25QE5H8T4Wh6@zte.com.cn>
+Date: Thu, 4 Jun 2026 14:55:10 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <linux-acpi@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>
+Subject: =?UTF-8?B?W1BBVENIXSBpb21tdS9yaXNjdjogQWRkIGRlcGVuZGVuY3kgYmV0d2VlbiBpb21tdSBhbmQgZGV2aWNlcw==?=
+X-MAIL: mse-fl2.zte.com.cn 6546t9Gn017570
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Thu, 04 Jun 2026 14:55:17 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A212155.001/4gWFgn4Mv7z5B13c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260603_231121_486866_AF6EE84B 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260603_235521_332214_95F9555E 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +70,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: aou@eecs.berkeley.edu, tomasz.jeznach@linux.dev, alex@ghiti.fr, rafael@kernel.org, palmer@dabbelt.com, pjw@kernel.org, lenb@kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI2LTA1LTI2IGF0IDE5OjA0ICswMjAwLCBNYXVyaWNlIEhpZXJvbnltdXMgdmlh
-IEI0IFJlbGF5Cndyb3RlOgo+IEFkZCBhIFJ1c3QgYmluZGluZyBmb3IgY2xrX3JhdGVfZXhjbHVz
-aXZlX2dldCgpIC8KPiBjbGtfcmF0ZV9leGNsdXNpdmVfcHV0KCkKPiBhbmQgdXNlIGl0IGluIHB3
-bS10aDE1MjAsIHdoaWNoIHByZXZpb3VzbHkgY2FycmllZCBhIFRPRE8gbm90aW5nIHRoZQo+IG1p
-c3NpbmcgYmluZGluZy4KPiAKPiBCYXNlZCBvbiBwd20vZm9yLW5leHQuCj4gCj4gU2lnbmVkLW9m
-Zi1ieTogTWF1cmljZSBIaWVyb255bXVzIDxtaGlAbWFpbGJveC5vcmc+Cj4gLS0tCj4gTWF1cmlj
-ZSBIaWVyb255bXVzICgyKToKPiDCoMKgwqDCoMKgIHJ1c3Q6IGNsazogQWRkIEV4Y2x1c2l2ZUNs
-ayB3cmFwcGVyIGZvciBjbGtfcmF0ZV9leGNsdXNpdmVfZ2V0Cj4gwqDCoMKgwqDCoCBwd206IHRo
-MTUyMDogTG9jayBjbG9jayByYXRlIHdpdGggY2xrX3JhdGVfZXhjbHVzaXZlX2dldAo+IAo+IMKg
-ZHJpdmVycy9wd20vcHdtX3RoMTUyMC5ycyB8wqAgOCArKystLS0KPiDCoHJ1c3Qva2VybmVsL2Ns
-ay5yc8KgwqDCoMKgwqDCoMKgIHwgNjUKPiArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKwo+IMKgMiBmaWxlcyBjaGFuZ2VkLCA2OCBpbnNlcnRpb25zKCspLCA1
-IGRlbGV0aW9ucygtKQo+IC0tLQo+IGJhc2UtY29tbWl0OiAwZTVlMGRiM2U5NTRiMzJhNDEwYWI0
-Zjc0YTRmYWFjN2EwZTg4ODlmCj4gY2hhbmdlLWlkOiAyMDI2MDUyNi1yYXRlLWV4Y2x1c2l2ZS1n
-ZXQtdGgxNTIwLTc2NGE5NDlkZTE4ZQo+IAo+IEJlc3QgcmVnYXJkcywKCkFueSBvcGluaW9ucyBv
-biB0aGlzIHBhdGNoPwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+From: Wang Yechao <wang.yechao255@zte.com.cn>
+
+Commit 9156585280f1 ("ACPI: RIMT: Add dependency between iommu and
+devices") adds the dependency between iommu and devices on ACPI
+systems. On devicetree systems, the incorrect removal order also
+occurs.
+
+It can be reproduced on the QEMU RISC-V machine if the kernel enables
+IOMMU_DMA:
+
+[  635.081530] e1000e: EEE TX LPI TIMER: 00000000
+[  656.100306] rcu: INFO: rcu_sched self-detected stall on CPU
+[  656.101374] rcu:     5-....: (5250 ticks this GP) idle=d774/1/0x4000000000000000 softirq=5173/5185 fqs=2625
+[  656.102237] rcu:     (t=5251 jiffies g=36825 q=101 ncpus=16)
+[  656.103801] CPU: 5 UID: 0 PID: 1958 Comm: reboot Tainted: G        W           7.1.0-rc5 #31 PREEMPTLAZY
+[  656.104127] Tainted: [W]=WARN
+[  656.104182] Hardware name: QEMU QEMU Virtual Machine, BIOS 2.7 02/02/2022
+[  656.104339] epc : riscv_iommu_cmd_sync.constprop.0+0xb8/0x148
+[  656.105352]  ra : riscv_iommu_cmd_sync.constprop.0+0xa8/0x148
+[  656.105433] epc : ffffffff807ca980 ra : ffffffff807ca970 sp : ff60000085dbf960
+[  656.105475]  gp : ffffffff81e0d798 tp : ff60000084b58e00 t0 : ffffffff80021048
+[  656.105514]  t1 : ff60000081b18400 t2 : 45203a6530303031 s0 : ff60000085dbf9c0
+[  656.105554]  s1 : 00000098c92a567c a0 : 00000098c03986f0 a1 : ff60000085dbf970
+[  656.105594]  a2 : 000024bb5cac6aee a3 : ff200000004f1000 a4 : ff6000008140a040
+[  656.105632]  a5 : 0000000000000669 a6 : 0000000000000000 a7 : 00000000ffffa000
+[  656.105669]  s2 : 0000000000000000 s3 : 00000098c0398308 s4 : 000000000000066a
+[  656.105706]  s5 : 0000000008f0d180 s6 : 000000a8d08b8de9 s7 : 0000000000001fff
+[  656.105743]  s8 : ff6000008140a040 s9 : ff6000008484cb00 s10: ff200000005cc000
+[  656.105781]  s11: ff600000814652a0 t3 : 000000f000000000 t4 : 0000000000000000
+[  656.105845]  t5 : 0000000000000003 t6 : ff600000841666b0 ssp : 0000000000000000
+[  656.105883] status: 0000000200000120 badaddr: 0000000000000000 cause: 8000000000000005
+[  656.106072] riscv_iommu_cmd_sync.constprop.0+0xb8/0x148
+[  656.106321] riscv_iommu_iotlb_inval+0x120/0x160
+[  656.106373] riscv_iommu_iotlb_sync+0x48/0x60
+[  656.106422] __iommu_dma_unmap+0xca/0xf8
+[  656.106470] iommu_dma_unmap_phys+0x58/0xc8
+[  656.106517] dma_unmap_phys+0x15c/0x248
+[  656.106564] dma_unmap_page_attrs+0x1e/0x30
+[  656.106915] e1000_clean_rx_ring+0x1d2/0x200 [e1000e]
+[  656.107668] e1000e_down+0x168/0x1c8 [e1000e]
+[  656.107995] e1000e_pm_freeze+0x94/0x128 [e1000e]
+[  656.108328] e1000_shutdown+0x28/0x48 [e1000e]
+[  656.108652] pci_device_shutdown+0x34/0x48
+[  656.108706] device_shutdown+0x104/0x1e8
+[  656.108752] kernel_restart+0x46/0xb8
+[  656.108797] __do_sys_reboot+0xc0/0x1c8
+[  656.108840] __riscv_sys_reboot+0x22/0x38
+[  656.108882] do_trap_ecall_u+0x236/0x3f8
+[  656.108947] handle_exception+0x15a/0x166
+
+So move the device link into the iommu driver to fix both ACPI and
+devicetree systems.
+
+Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
+Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+---
+ drivers/acpi/riscv/rimt.c   | 7 -------
+ drivers/iommu/riscv/iommu.c | 7 +++++++
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
+index 906282b0e63c..229c4a0d47a3 100644
+--- a/drivers/acpi/riscv/rimt.c
++++ b/drivers/acpi/riscv/rimt.c
+@@ -263,13 +263,6 @@ static int rimt_iommu_xlate(struct device *dev, struct acpi_rimt_node *node, u32
+ 	if (!rimt_fwnode)
+ 		return -EPROBE_DEFER;
+
+-	/*
+-	 * EPROBE_DEFER ensures IOMMU is probed before the devices that
+-	 * depend on them. During shutdown, however, the IOMMU may be removed
+-	 * first, leading to issues. To avoid this, a device link is added
+-	 * which enforces the correct removal order.
+-	 */
+-	device_link_add(dev, rimt_fwnode->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
+ 	return acpi_iommu_fwspec_init(dev, deviceid, rimt_fwnode);
+ }
+
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index a31f50bbad35..f9368e977346 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1385,6 +1385,13 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
+
+ 	dev_iommu_priv_set(dev, info);
+
++	/*
++	 * During shutdown, however, the IOMMU may be removed first, leading
++	 * to issues. To avoid this, a device link is added which enforces
++	 * the correct removal order.
++	 */
++	device_link_add(dev, fwspec->iommu_fwnode->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
++
+ 	return &iommu->iommu;
+ }
+
+-- 
+2.43.5
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
