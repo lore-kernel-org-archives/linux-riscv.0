@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0145CD6E77
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 16:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDC2CD6E75
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 17:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flW9tWoHu18bA//K4SjEYEvggPbqw/np683lkmYHe1c=; b=s8bU7JX+B+mDMqUmRRVDVJS5IR
-	xjw21+uMH1DQwUtYswuBSV5P3Qdd8nFP+79XG0RW/jMJFl9+RY6NPGcZaqHDQG+QXif1kumaYuIpT
-	N8YPzc09bEAslSgSQ8xXBkCknv67BfY+zoA5H7taYllMGO4S5OkYblbYmLbk5hj1VpQ9+qr5bF/m7
-	fS+sdX1zxqTou43JiDGxgEtY2NUXkMf9t6JMiIay0GZC5giyMdy6sl0w1aHBw+/6zD9rLcFSI/UO0
-	2zIXhr7desMu4wv6+SgUf2FcqKfPraatxdx2lRFlgQD8z3jIsjalTy2sBJLIKO47uo8Bxbw4iPdvE
-	nO9YMnyA==;
+	bh=OdicnPCTl8D6cFzsykj5CSby3xPF+slvq9sae5l+KtE=; b=qGR68OqPb1G9yfgcV1dCa9tsIR
+	iscThAw3G6+UDoApC/UMozwDdsJ2jdFYfBnVk6TYprPou++y1CRqUh7+U+Zil/n2w1JuXXK4hggzb
+	Q/IE1ULx40bVDoH7zl00Eoytr4dXbIJLUnsBDn33CXYWutDcDGzz9TmuNVauD6aXUAcpbIUwR1gHw
+	UBo2jNCkANAuBVT9vxRhnMpmr/pH60Faa+Tenb0whhq9otm+DtFzbge5PUUfu8rA+pV3ClrZxbNM+
+	C8J64U+PO2JUaMUhRKz3DUNEe4pOcobLQD+hTvMLW4m2JmXlUyhtMResulJV1suGS4qtA/nW+zQfL
+	TU4mn1cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBEb-0000000H6D8-0yAx;
-	Thu, 04 Jun 2026 16:47:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wVBWk-0000000H7fe-1RyK;
+	Thu, 04 Jun 2026 17:06:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVBEZ-0000000H6Cf-2X2l
+	id 1wVBWj-0000000H7fW-1y3G
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jun 2026 16:47:55 +0000
+	Thu, 04 Jun 2026 17:06:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7EFD460052;
-	Thu,  4 Jun 2026 16:47:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 976151F00893;
-	Thu,  4 Jun 2026 16:47:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E7E0143D43;
+	Thu,  4 Jun 2026 17:06:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD0581F00893;
+	Thu,  4 Jun 2026 17:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780591674;
-	bh=nasvWE4HN6FoYWPjRuasq47sL/PqP5x+XqWIasfwnkI=;
+	s=k20260515; t=1780592800;
+	bh=THDk6fTtan6fuBzI69SEywQVTp9gJKd2GNHSC2lTvFs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HgWfs5EtBRK3Zvzs3hNPbxFaPrdIqthSWJg27cbrhryRmcLyxQ07Trc46m973UL9h
-	 MeBnnHcPgMdWGdfRjgVJQImhLInOl+8PE96XrEHLQpKLKlUR5Y4cWDf9ma2tNjXUwi
-	 NehfmOM4cKVdZzPG5isbSZ2OzgX/mEIg6LpX3moOBFNZa/pKjZlxU/8LOYHXF+Akap
-	 HX8yy0XE5pCfypTZ80wtSuzQRJ0z68WL6h77gR5BP4fUrC/rpXhseLibj7IK+58KwC
-	 62PLLswizXoGdarT6JuXzTTiWUZuL/i+ODBXqf5bK2ltqHzae9PttvwLfMDTYFksum
-	 036BEUSDCZrWQ==
-Date: Thu, 4 Jun 2026 17:47:49 +0100
+	b=TITIy85JoinwJOkeT5cbUxS/Vc16E4lfxP7pIaD+by7otBrL5scyE0dw/MHtsFjfT
+	 BWnjXNl402YIxvA+X6fqqtX7VPAbhzOYFQd/rX2/xhtWtntIg+68nzjnDY4q9mmqgH
+	 uTG05lAUAOKwGUNbdxI79lFxAkT4bZqdg4bOmB9qoccvuaaxOlbO55ijuq+C9Q3SyM
+	 A+YqCOwt9n+uIrGqeBYZFtNWLA35/G/aznjyGmkFGoINwv/ZNsEfZacjIftDlPiY13
+	 t4cRtRPjwalb1xr/DYiIkE89mRuUGrk2k0AbteQSoKqLSQYqT3Ek8C5ZRCZosVqxFp
+	 9Fhs5n5Vfwh6A==
+Date: Thu, 4 Jun 2026 18:06:35 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Joel Stanley <joel@jms.id.au>
-Cc: Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>,
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Michael Ellerman <mpe@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 7/7] riscv: dts: tenstorrent: Add Atlantis platform
-Message-ID: <20260604-pacifier-sludge-196f47ab3c11@spud>
-References: <20260604143957.668047-1-joel@jms.id.au>
- <20260604143957.668047-8-joel@jms.id.au>
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v3 03/21] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+Message-ID: <20260604-sprout-zips-c2c29e26fe1d@spud>
+References: <20260603055347.66845-1-changhuang.liang@starfivetech.com>
+ <20260603055347.66845-4-changhuang.liang@starfivetech.com>
+ <20260603-groin-valid-a1d4445f7a6b@spud>
+ <ZQ4PR01MB12022B5C460A34260ABFCE9FF2102@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-In-Reply-To: <20260604143957.668047-8-joel@jms.id.au>
+In-Reply-To: <ZQ4PR01MB12022B5C460A34260ABFCE9FF2102@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,117 +79,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2138886191601745225=="
+Content-Type: multipart/mixed; boundary="===============3741596314145982295=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2138886191601745225==
+--===============3741596314145982295==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7nOzAiGyNegD+Wr6"
+	protocol="application/pgp-signature"; boundary="MzAYvu0zafqbmMzc"
 Content-Disposition: inline
 
 
---7nOzAiGyNegD+Wr6
+--MzAYvu0zafqbmMzc
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Jun 05, 2026 at 12:09:53AM +0930, Joel Stanley wrote:
-> Add initial support for the Tenstorrent Atlantis platform, based on the
-> Atlantis SoC featuring 8x RVA23-compliant Tenstorrent Ascalon-XG cores.
+On Thu, Jun 04, 2026 at 01:37:00AM +0000, Changhuang Liang wrote:
+> Hi, Conor
 >=20
-> The evb machine represents an internal bringup vehicle with just the
-> interrupt controllers and a UART. This will be replaced in time with a
-> full featured machine once details are available.
+> Thanks for the review.
 >=20
-> Co-developed-by: Drew Fustini <fustini@kernel.org>
-> Signed-off-by: Drew Fustini <fustini@kernel.org>
-> Signed-off-by: Joel Stanley <joel@jms.id.au>
-> ---
-> v2:
->  - Update mtimer compatible
->  - Add Drew's co-developed-by
->  - Correct aplic num-sources count
-> ---
->  arch/riscv/boot/dts/tenstorrent/Makefile      |   1 +
->  .../boot/dts/tenstorrent/atlantis-evb.dts     |  33 ++
->  .../boot/dts/tenstorrent/atlantis-soc.dtsi    | 471 ++++++++++++++++++
->  3 files changed, 505 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts
->  create mode 100644 arch/riscv/boot/dts/tenstorrent/atlantis-soc.dtsi
+> > On Tue, Jun 02, 2026 at 10:53:29PM -0700, Changhuang Liang wrote:
+> >=20
+> > > +          slew-rate:
+> > > +            enum: [ 0, 1 ]
+> > > +            default: 0
+> > > +            description: |
+> > > +                0: slow (half frequency)
+> >=20
+> > Half frequency? Slew rates are usually measured in volts per second, no=
+t hertz.
+> > Do you know what the slew rates actually are and could put them in here=
+ as
+> > the real units? Or is it just "slow" and "fast" in your docs with no pr=
+ecise
+> > numbers?
 >=20
-> diff --git a/arch/riscv/boot/dts/tenstorrent/Makefile b/arch/riscv/boot/d=
-ts/tenstorrent/Makefile
-> index 2c81faaba462..92d8bb1a683f 100644
-> --- a/arch/riscv/boot/dts/tenstorrent/Makefile
-> +++ b/arch/riscv/boot/dts/tenstorrent/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_ARCH_TENSTORRENT) +=3D blackhole-card.dtb
-> +dtb-$(CONFIG_ARCH_TENSTORRENT) +=3D atlantis-evb.dtb
-> diff --git a/arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts b/arch/risc=
-v/boot/dts/tenstorrent/atlantis-evb.dts
-> new file mode 100644
-> index 000000000000..06259cca8357
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts
-> @@ -0,0 +1,33 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/dts-v1/;
-> +
-> +#include "atlantis-soc.dtsi"
-> +
-> +/ {
-> +	model =3D "Tenstorrent Atlantis development platform";
-> +	compatible =3D "tenstorrent,atlantis-evb", "tenstorrent,atlantis";
-> +
-> +	#address-cells =3D <2>;
-> +	#size-cells =3D <2>;
-> +
-> +	memory@0 {
-> +		device_type =3D "memory";
-> +		reg =3D <0x0 0x00000000 0x0 0x80000000>,
-> +		      <0x1 0x80000000 0x0 0x80000000>;
-> +	};
-> +
-> +	aliases {
-> +		serial0 =3D &uart1;
-> +	};
-> +
-> +	chosen {
-> +		bootargs =3D "earlycon console=3DttyS0";
+> Yes, there are no precise numbers in our documentation. I will remove "(h=
+alf frequency)" in the next version.
 
-FYI, this should not be in here.
+If the rate is actually half, then you can say that. It's just
+"frequency" I was objecting to.
 
-> +		stdout-path =3D "serial0";
-> +	};
-> +};
-> +
-> +&uart1 {
-> +	/delete-property/ clocks;
+>=20
+> > I've got no questions other than this, so once this question is sorted,=
+ I'll be
+> > happy to ack all the bindings provided they're effectively the same.
+> >=20
+> > > +                1: fast
+>=20
+> Best Regards,
+> Changhuang
 
-Why are you doing this? Looks kinda suspect!
-
-> +	clock-frequency =3D <5000000>;
-> +	status =3D "okay";
-> +};
-
---7nOzAiGyNegD+Wr6
+--MzAYvu0zafqbmMzc
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGsNQAKCRB4tDGHoIJi
-0k11APoC9uyXuvUKHUahGQCA8rahOvHmjS5NyUcgIE0C3qEMzQEAh+rjnggmJGjZ
-X3am5MjUhIm+dr8M92IwCqWuPfr+7gA=
-=PLbm
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiGwmwAKCRB4tDGHoIJi
+0nJAAQDvcEDwiD+3GTqQxZ57p33w5TBg+tRlXUgDnfGimF7w0wEApwva9vTpq3gk
+vsB+mH5qfJJ7+KJ91nAQQG2RyRvuiQ0=
+=h0/2
 -----END PGP SIGNATURE-----
 
---7nOzAiGyNegD+Wr6--
+--MzAYvu0zafqbmMzc--
 
 
---===============2138886191601745225==
+--===============3741596314145982295==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -193,5 +157,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2138886191601745225==--
+--===============3741596314145982295==--
 
