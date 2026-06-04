@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E49ECD6E6E
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 22:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6803CD6E75
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2026 23:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s6XCnLrle/1vnvWrMXT54yqFG4bLdvE9Jirx+EWNrLM=; b=GQFtzSOLg1uaUz
-	R1CkTAvu18nEiFTLQMp2r15q28DTm2d5Ojnd83n/EqcAT7kLyCvq8gerRBTod3GH+0q3yhp+gIipX
-	0S4t1+LkPVcl2uDbPYnR/HSgJ9CaCxsah+gR+JKrYjLMxCIgBTvJHNquPDDhDmVbgoOJSZZN4WTTf
-	DKJ1qcw1zz5H7XTFxyqrcbZW2R2GI/EevSo1XbD6QdnL9uzAps/8KLvJS5YyqU4f1Qdi1+I7iTUMZ
-	wjY3JFaEWOmvwhzc4xwQ/eh6b7CJxgF/rmzcO7Kqo2RFrGPKHeSjhaTyTUJsmxBvysGhln6pVNNvJ
-	hDrPKsK0gPD/8NOhCXrg==;
+	List-Owner; bh=3bTTVYl7aundxvE3dIZzbxALYDAoNSxWJg64nOCKes4=; b=QZGoPf9B9BHw1Y
+	N//8bmoSAMrN4StR/OEb+CmZLwmiiFix3IH8S/7GOh4O50nMemkvtYEFMYg4CeuruwOgQHa3NStQa
+	tQWMiSbbHr3FB/VN8Pc3x5Si7DWVJeYHPA4LYkFtO73OIqqL6fjWmbANerEMRFy9OAn9GNKc+5M3Q
+	uc5BfZzl9vwB2SKhkviVUFniZPX0kIJ4a8yz+OIt0PBuEM1QiaocVg4b7n6DrPUjCWEVgEZbnes/p
+	50Ml+Utibvz/x3NZfRDQ4jtZLTkpGfSB/hKfnElmqvaWayR+5vaP5r6sjayB2ISCRiuFMQ8OGiuxW
+	OepQodJh3ttLhQCp4pkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVGjr-0000000HPdu-1aFm;
-	Thu, 04 Jun 2026 22:40:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wVH7X-0000000HQf4-2z7q;
+	Thu, 04 Jun 2026 23:05:03 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVGjq-0000000HPdn-0xGA
-	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jun 2026 22:40:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E556445BD;
-	Thu,  4 Jun 2026 22:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA00C1F00893;
-	Thu,  4 Jun 2026 22:40:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780612833;
-	bh=pcf+/TQHSC1lT4PMAPLFzMjabSqrHnTT7tT2IMtCJBI=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=JjQkOmxZJM/3c7vpeiNFCYBI3RPfO6e2JyqEIQmTb9vf6Lj9nW3Mr6jVox9VLHe+N
-	 wk4saK2/au2ta8MS77MYbw8fgxK0J+yYlqizalZODqNVhD0JxZ/1tQVFAQHrsl/88i
-	 CdxkclQQVTniXlQhFor/J2Eb2pFmVF8Oc27oANcjer7nbet69bNRIIaDZSh19TglAr
-	 VDmjQUw6AkAMDPC5W17fp6kFvThRzNEZgb4ayUgUHBY4VIg7QFUIDGrtmFEwRShkj0
-	 6hEwugdka3lCEveyulV6YpWndGBtvItmEwutPNoLy8xYj4Iv2f99WO/y8HS0UDI5iV
-	 zgyQTnBRTUKcg==
-Date: Thu, 4 Jun 2026 16:40:31 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Richard Patel <ripatel@wii.dev>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Deepak Gupta <debug@rivosinc.com>, Zong Li <zong.li@sifive.com>, 
-    Charlie Jenkins <charlie@rivosinc.com>, Shuah Khan <shuah@kernel.org>, 
-    linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: cfi: reject unknown flags in PR_SET_CFI
-In-Reply-To: <20260518183918.322545-1-ripatel@wii.dev>
-Message-ID: <3f2d4628-a95d-89c3-2fd7-3e1a407d698a@kernel.org>
-References: <20260518183918.322545-1-ripatel@wii.dev>
+	id 1wVH7T-0000000HQcm-0Hh9;
+	Thu, 04 Jun 2026 23:05:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=vw
+	XeKstSB0GbnzZJywYDxzZVE02bB56coa++tH6Xf6I=; b=JWmUvWsUWhRUWhvgrG
+	mUpTBPvQUiyJlJl4SY6AcOVJOP4thhMdMTfftnpKd6PJo+5GcD0vmU9AcfUcTtQG
+	q3w+1jl9V8KmeslOTJlg9djUHxt9ux4QrLhTY0OonghIrr1eI32IUUHKeGejcsU3
+	QR3g+SMABNecfP6vNbPtkP1SE=
+Received: from wufei (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wA3H9tJBCJqsfP6BQ--.26783S3;
+	Fri, 05 Jun 2026 07:03:49 +0800 (CST)
+From: atwufei@163.com
+To: seanjc@google.com,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Wu Fei <wu.fei9@sanechips.com.cn>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/2] RISC-V: KVM: Fix skip of valid pages in kvm_riscv_gstage_wp_range
+Date: Fri,  5 Jun 2026 07:03:14 +0800
+Message-ID: <20260604230317.30501-2-atwufei@163.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260604230317.30501-1-atwufei@163.com>
+References: <20260604230317.30501-1-atwufei@163.com>
 MIME-Version: 1.0
+X-CM-TRANSID: _____wA3H9tJBCJqsfP6BQ--.26783S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7GFyUtrW8Cw4fKFWUKF47XFb_yoW8JF1rpF
+	sxuFy5Cr1rJFs3CF13tFZ8ZwsxKrs8Ka15KryUCa409Fn0grWUtrn7XrW29rW3Xr1kXrW3
+	uFZ0qFy5ur4xKaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jxgAwUUUUU=
+X-Originating-IP: [240e:38c:8516:b200:1f3:8926:223c:5bc8]
+X-CM-SenderInfo: pdwz3wlhl6il2tof0z/xtbC7xU52moiBFXcQgAA3e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260604_160459_488654_E8DA9ACB 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,26 +81,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Wu Fei <wu.fei9@sanechips.com.cn>
 
-On Mon, 18 May 2026, Richard Patel wrote:
+The current gstage range walker unconditionally advances by 'page_size'
+when a leaf PTE is not found, e.g. when the range to wp is
+[0xfffff01fc000, 0xfffff023c000) and page_size is 2MB, if found_leaf of
+0xfffff01fc000 returns false, it skip the whole range, but it's possible
+to have valid entries in [0xfffff0200000, 0xfffff023c000).
 
-> prctl(PR_SET_CFI,PR_CFI_BRANCH_LANDING_PADS) silently ignored
-> unknown control values. Only PR_CFI_{ENABLE,DISABLE,LOCK} should
-> be permitted.
-<
-> This is a uABI breaking change (fails previously accepted bits
-> with EINVAL).
+Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+---
+ arch/riscv/kvm/gstage.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-Thanks for the patch.  However, I'm not convinced that this actually 
-breaks anything.  The behavior of the interface changes when unknown flags 
-are specified, but I'm not aware of anything that relies on this specific 
-behavior.
-
-Does that match your understanding?
-
-
-- Paul
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index d9fe8be2a151..2b141a78ecac 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -429,14 +429,14 @@ void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end
+ 		if (ret)
+ 			break;
+ 
+-		if (!found_leaf)
+-			goto next;
+-
+-		addr = ALIGN_DOWN(addr, page_size);
+-		kvm_riscv_gstage_op_pte(gstage, addr, ptep,
+-					ptep_level, GSTAGE_OP_WP);
+-next:
+-		addr += page_size;
++		if (!found_leaf) {
++			addr = ALIGN(addr + 1, page_size);
++		} else {
++			addr = ALIGN_DOWN(addr, page_size);
++			kvm_riscv_gstage_op_pte(gstage, addr, ptep,
++						ptep_level, GSTAGE_OP_WP);
++			addr += page_size;
++		}
+ 	}
+ }
+ 
+-- 
+2.51.0
 
 
 _______________________________________________
