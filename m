@@ -4,106 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0043DCD6E5D
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 06:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6178CD6E6B
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 07:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TMgWU0r2qPFrEa90/e8vShdS89OxSPV01N/eK4Fcqyg=; b=ORYnI+RYxgjM7F
-	juJlNFPv6UaqX4/KKRxEbLeS90oB4nVm+S1eGSyo1ldFAp7Xkndi7C59Fj2A0faDOLraosgB9kTYP
-	Jq3CEbBzG/sWc0x1vT1JwtrAj4M9QvzAVM9gzNjcr9LhK5CAVU8wG0jJs+Y/wfuUj0tlz7rkOWqMT
-	8eXMa0ZjI+jdFV9K2I2JqrW8ZHstUI5gkjnL2xco6RkQRE0hRVsmoax/NhDz6ykUnWPjA8vqwUkaF
-	tz5zJuZwiWA9yG+j1PfjpWM73KfDlW1Ke3QSWRqpPYbfDcdAN35YS7WMvWxAPAukkUml9zpp00uvv
-	e9k6bJFB+N2zU1EgAOkA==;
+	List-Owner; bh=TmZyN0Dqt8o7LW9StOV4mJo99SWPKn3ztfu6ZNp2hpU=; b=Z/94tssIC7dzeb
+	dR2rvZPKPVHGe/lIE1JoZsZyLzJnlxq50maOhzYWT4zXGgpsoXvq4XGozdJsGKeNRBUwOBoyZ367K
+	870oyrOi0RZUz3hn7Hy0sxvZTHZjxsfGzBAXjvQZk3WL0FSIE6AKGxZp+XRNZL3+MDmIypIG+UC+S
+	d9vPRjLyzRmW03HZIaFYRrpeImDJ+tIMFoYLkzkyaj8lAt6zqhH4sAdpRHAuvzGdJxeqJRoeaEd53
+	TojcajeH6VNM6uzEDpruv9MD1KMyPE2vI5ms/YhkW5diGRahMcOFZANCQGClBNCpuDW/3F9FGkJ5e
+	rc+NYrEihsjUxy/X7glA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVOMo-00000000BWE-47em;
-	Fri, 05 Jun 2026 06:49:19 +0000
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
+	id 1wVOYF-00000000CB1-1GY6;
+	Fri, 05 Jun 2026 07:01:07 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVOMm-00000000BV5-0p7e
+	id 1wVOYC-00000000CAP-0Gwj
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jun 2026 06:49:17 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-69e1eacc41fso1115313eaf.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jun 2026 23:49:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780642154; cv=none;
-        d=google.com; s=arc-20240605;
-        b=GmxfEmlRDcDl2YhWc7TFYFLggBDB2lVAOKHN+Kn/N3b/Lcxa0xzAnxCD/wXoYx+PoP
-         kijnsfW72ei74+RzmnJUA/pkRmvTFU9PeYa1iYrY330VdvWcgF5Gk9thbrYPOkld7qmo
-         DFAUdHOlDn/2qeR/gGVRHBf8ltCThFHXp1oBQa+mKyUG8d/z/G4lbf9vea/t6lUntjbX
-         0OsxsA+qQz1C41+HcSd/S8/AR/ItWunFWrW3Kmg4/AuB4C0vB65j8TqSn8ppbQHb8fhs
-         RERHX23Rlq8Cw89vB5s1P/GxaIHxHdocc7MSjUrNNVoxQxZfXR9P89FORcx2dhHReEGg
-         21tQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6XDq1xh1XzOsuKw97N0TVXndgcJC/tzYgMFv9LJzmno=;
-        fh=3eP4LO91dduv29xkBqnvggK3AVn5fUfKdPQ/lqjIGZY=;
-        b=PRC0ojCEsMcXbDiJtqlNePZNSkSCjGbsFfQ3NJSmiVyg1xSZdYM485CCQdcGuw9F78
-         v/H3py1rO6kPxoKUK3ezBl8jgVnIY6O8HIoSDhZhGQGdck0LwFD4M0rGpVXEkqZAlueE
-         3pmnXw/jK4CfR6p+bd0V7QYe7l8u0krqM6xkQztT+durVXJwm/WviZkgCwoOcwgDzoCN
-         dUnE+JI6LOuS8S/vYyGgODrSlf6aU9oBMsc2QcfjTrt/2s2qKMoU09RJK3e8CAU1QLAv
-         AByr9UY9i/zNBFLNHu2zejG6uUxVNcB9ocmqTGNH1T3rtQgiOSeYZupcG1VRXBHIj6AK
-         xhjw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20251104.gappssmtp.com; s=20251104; t=1780642154; x=1781246954; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6XDq1xh1XzOsuKw97N0TVXndgcJC/tzYgMFv9LJzmno=;
-        b=O2Df4XSY0FYXmc+cBNOGFqlPaTHEWTHDEADw+YfrPpJ0RtaCXzhgXJxEqmMALxKURM
-         hIX0HRZCDTxpyVn5R8+r7GyeXOho/w6O/IJ87ayvG07pC7Rde98uOnnc3yMyeRpvjkcs
-         DZYcpVd2UbQkog6SccwGqu+x/NjUUmoQeQLLSwzohy8KHaZp5dbOAc2iImAfvD3kRubg
-         19vCr7pOD6du7Q3Mnyj7YZmsEtYsVyLsN01Uxi6Tgh6S+uiNWTR3ZLbDae2JR0blzP4o
-         nUoYrzSQXwCf/rvW8GM20Yj43pSaXsxe2AdqfiJn/KAYv0NaSbxbiuE9tot+YG3LEUxV
-         RGTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780642154; x=1781246954;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6XDq1xh1XzOsuKw97N0TVXndgcJC/tzYgMFv9LJzmno=;
-        b=ZJaPmsQ5nDiadNLUZwTQ6KRNycRYOE3EOAsktYqVZB5gW+JCEvW/LqrxNq5Knn4zI/
-         0Q1emmXQJ+ol2+s2zWMFHrT5lJaLRlkWmtQ+ZOdbJZ/mFUJxenpaE8TwkCz2ttGnL2KZ
-         bv2HRHs6njDhDXFfbDuQUyV+sKJlxqlVvrVpDjoru7+ffXC2ZN6JbPJis/1Ek93JiBV9
-         70ZMmsw7z/xl0oWzVWum8VYM7MpsmvE/BhZsfdO5btmbKBlt1KsJtU3vjn4EU+6Na369
-         P3RbVgzzv9wX5A7eKmzsVhRobGsfq+b4cUdQHKUifKyNiQ2Uy1yiam8BqECntb+P8OZt
-         9HYA==
-X-Forwarded-Encrypted: i=1; AFNElJ9n/uMQCivbt47LdDjUejweSRPWbQctzjF2D9i3gCTB6Xqmj1rR3VPDdSF/jJCzDtz2ppwA1l5NHXcDNg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWv5u0r790fNXEhj4nDY4Icdfs9UfkWmeBrp4OD2J/VxnR144z
-	THUk+cJmRAF5Jx+TXppuyrPTGOouXgxNJjoyU/SmIS/Vq3ndISNp95SAD9SsKpDx+r35gBRWr3s
-	wVVFe3hHdsYeH8gFLyGFaZfVBzVKIZ92c6JNFJbVrag==
-X-Gm-Gg: Acq92OHBzmM8GrGABoqsObwF63bLBXATo9NOuiVUKrhdxLTOD0lO13BEZYsHhuNRLAp
-	0+pjPhp3kIgbcCZHiD4w4EKilze2Y4QnjxD4zvS7lNJ44pzf2xUznkro5O7GBYYiI8Z/PhYnUgG
-	F0I2h2CZ9MoGu3cj37eQJJpMVYjhMbl4etFqct05Yhm6M7TBBfG6QTe0WWE5yprr+0iuU0MJM/b
-	seFyHmhghxYMOf/bzbf9jaAyNffyrWnMvNyi32zhUSO/mQ6F0zsFl3i3HEJBWrXF/JD6HrrEbyp
-	jwutn9ttLwU+dVfOJQA7WXznlA6xLnhNfRdEpAe6Ez6NV2QoCkcrR8tNnuYuuiEyZmvfxAJlUVz
-	p/gaoRODZK1DFHnrFHQV5oJggRcU4s3wVdQ6+
-X-Received: by 2002:a05:6820:561c:b0:69b:6d47:8180 with SMTP id
- 006d021491bc7-69e68c23141mr771817eaf.39.1780642154512; Thu, 04 Jun 2026
- 23:49:14 -0700 (PDT)
+	Fri, 05 Jun 2026 07:01:05 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gWslx34H3z9v3Q;
+	Fri,  5 Jun 2026 09:01:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1780642861;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OpNBtlw9n2UCJW3D0hBUmygvSZ9hYaw7j0NNMC94AK4=;
+	b=GGaoMEEQI3Xwgau5/KSpvAySoomQK91gLt491999CJTJ6qWIxbsGyRWlpefLN9VdkpzswO
+	JGAcgDUAzmc7UgPYlp4OKVWP4tJKbFhq5wsvnqMJ6OUU3pK0gOALDBwQFrNC6szaYKMIw2
+	6krzfuD35LZwtB+Qdtm5yuWQztwa6NpqaGvu4htpakZpnkGwh6M8ntZSXp2/9r5OfXQY03
+	FMMKyGXZi6x7fr28Nb5AfT9rYeJI8seAq2HSlQQiIHMZGwOwKE+5JUwwHWvy9ykS7kaP15
+	VRUvl/pXHMPpDyO6kFED+yZTmSRkanpNWF+zRJP6Pf3KK0NkF4iOUSH4HqUnFg==
+From: Maurice Hieronymus <mhi@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1780642859;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OpNBtlw9n2UCJW3D0hBUmygvSZ9hYaw7j0NNMC94AK4=;
+	b=h4ZJD7pWeiBrHP178TiWZuxtX1fdKlYrIYx1VcSOMs+fzU84EYqGbu5FcO9uzIEgn91tcS
+	Jn5LZ2ope1hnWhoapqqxQyz/frTp8TYH0gFRD5hSu0z9fFZxcx5oZRFn2FphEN4y86L+Oz
+	fr6v2oGNgsu3TatoZA7Cm9zbjwpwIShCh6Qt9G9a1z4VOqsku+joy1N4jRACQlNvi9g7hf
+	Hm4rcBOOLU7Wgoqddlr3fTTyQbz00s+Hv6+R8c3LLyTgDkYXMMcQAKoqm3OQPJkzyAYRd+
+	3wgGQiQ1dBDrTr66YS16GVW+Q4Hs7zg1EsKk/MLGVaCo6DkfRtOL9lXNx+T13Q==
+Date: Fri, 05 Jun 2026 08:59:59 +0200
+Subject: [PATCH v2 1/2] rust: clk: Add ExclusiveClk wrapper for
+ clk_rate_exclusive_get
 MIME-Version: 1.0
-References: <20260528113840.2629186-1-inochiama@gmail.com>
-In-Reply-To: <20260528113840.2629186-1-inochiama@gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 5 Jun 2026 12:19:03 +0530
-X-Gm-Features: AVVi8CeHnuM2CioMa5An9kIeCY2Cck7qIHe-9yB0iUqpIPQzrG2HNoEWHmj4vmY
-Message-ID: <CAAhSdy096z4SdwQKBxM0ZtE5=i3UZrhMD-BcES9UdP5OgajqEA@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Enhance the logging check for mmu mapping
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Message-Id: <20260605-rate-exclusive-get-th1520-v2-1-695640bf7249@mailbox.org>
+References: <20260605-rate-exclusive-get-th1520-v2-0-695640bf7249@mailbox.org>
+In-Reply-To: <20260605-rate-exclusive-get-th1520-v2-0-695640bf7249@mailbox.org>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-pwm@vger.kernel.org, Maurice Hieronymus <mhi@mailbox.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780642818; l=3552;
+ i=mhi@mailbox.org; s=20260525; h=from:subject:message-id;
+ bh=Eq2/FqQK+/3GGvQH1jgzjXllW8SOFixYwWstqkvt+Ks=;
+ b=EnPdbF7ZbiSZsoiQzpqVV642CEH+9nF8nNVKGzxReY0KS0hzY5ErgB16n/ogDC4ZIgDHlnxRs
+ 3pOhFWYN/TeBhXC4PYk2qu9FhThAApgBG4qR+jGpgZpndrfq7TktHcu
+X-Developer-Key: i=mhi@mailbox.org; a=ed25519;
+ pk=AHlEkGG3hpXZHntlEzF42Ip/LFyXWOgsNUvaHqAnV80=
+X-MBO-RS-META: btqxt863ejstfjtaxooubyxo1r5tg14c
+X-MBO-RS-ID: 46288b54c5fc677ce46
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260604_234916_375996_5B114477 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20260605_000104_256633_8252E401 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,52 +101,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXkgMjgsIDIwMjYgYXQgNTowOOKAr1BNIElub2NoaSBBbWFvdG8gPGlub2NoaWFt
-YUBnbWFpbC5jb20+IHdyb3RlOgo+Cj4gV2hlbiBlbmFibGluZyBkaXJ0eSByaW5nLCB0aGUgZGly
-dHkgYml0bWFwIGlzIGRpc2FibGUsIGFuZCB0aGUgbG9nZ2luZwo+IGNoZWNrIGlzIGFsd2F5cyBm
-YWxzZSBhcyB0aGUgUklTQy1WIGFyY2hpdGVjdHVyZSBkb2VzIG5vdCBzZWxlY3QKPiAiTkVFRF9L
-Vk1fRElSVFlfUklOR19XSVRIX0JJVE1BUCIuIEFsdGhvdWdoIHRoZSBkaXJ0eSBsb2cgaXMgcmVj
-b3JkZWQKPiBzaW5jZSB0aGUgd3JpdGUgcGF0aCBhbHJlYWR5IHRyeWluZyB0byBhZGQgdGhlIGRp
-cnR5IGxvZywgdGhlIGxvZ2ljIGZvcgo+IGxvZ2dpbmcgY2hlY2sgaXMgYnJva2VuIGFuZCBzb21l
-IHNpZGUgZWZmZWN0IHdpbGwgb2NjdXJzLgo+Cj4gRW5oYW5jZSB0aGUgbG9nZ2luZyBjaGVjayBm
-b3IgbW11IG1hcHBpbmcgc28gaXQgY2FuIGNoZWNrIGJvdGggdGhlIGRpcnR5Cj4gcmluZyBhbmQg
-dGhlIGRpcnR5IGJpdG1hcC4KPgo+IFNpZ25lZC1vZmYtYnk6IElub2NoaSBBbWFvdG8gPGlub2No
-aWFtYUBnbWFpbC5jb20+Cj4gLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL21tdS5jIHwgOSArKysrLS0t
-LS0KPiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgNSBkZWxldGlvbnMoLSkKPgo+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS9tbXUuYyBiL2FyY2gvcmlzY3Yva3ZtL21tdS5j
-Cj4gaW5kZXggMmQzZGVmMDI0MjcwLi5iNTg3M2JjYTlkY2UgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9y
-aXNjdi9rdm0vbW11LmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS9tbXUuYwo+IEBAIC0xNDIsOSAr
-MTQyLDggQEAgdm9pZCBrdm1fYXJjaF9jb21taXRfbWVtb3J5X3JlZ2lvbihzdHJ1Y3Qga3ZtICpr
-dm0sCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbnVtIGt2bV9tcl9jaGFuZ2Ug
-Y2hhbmdlKQo+ICB7Cj4gICAgICAgICAvKgo+IC0gICAgICAgICogQXQgdGhpcyBwb2ludCBtZW1z
-bG90IGhhcyBiZWVuIGNvbW1pdHRlZCBhbmQgdGhlcmUgaXMgYW4KPiAtICAgICAgICAqIGFsbG9j
-YXRlZCBkaXJ0eV9iaXRtYXBbXSwgZGlydHkgcGFnZXMgd2lsbCBiZSB0cmFja2VkIHdoaWxlCj4g
-LSAgICAgICAgKiB0aGUgbWVtb3J5IHNsb3QgaXMgd3JpdGUgcHJvdGVjdGVkLgo+ICsgICAgICAg
-ICogQXQgdGhpcyBwb2ludCBtZW1zbG90IGhhcyBiZWVuIGNvbW1pdHRlZCBhbmQgZGlydHkgcGFn
-ZXMgd2lsbCBiZQo+ICsgICAgICAgICogdHJhY2tlZCB3aGlsZSB0aGUgbWVtb3J5IHNsb3QgaXMg
-d3JpdGUgcHJvdGVjdGVkLgo+ICAgICAgICAgICovCj4gICAgICAgICBpZiAoY2hhbmdlICE9IEtW
-TV9NUl9ERUxFVEUgJiYgbmV3LT5mbGFncyAmIEtWTV9NRU1fTE9HX0RJUlRZX1BBR0VTKSB7Cj4g
-ICAgICAgICAgICAgICAgIGlmIChrdm1fZGlydHlfbG9nX21hbnVhbF9wcm90ZWN0X2FuZF9pbml0
-X3NldChrdm0pKQo+IEBAIC00MzMsOCArNDMyLDggQEAgaW50IGt2bV9yaXNjdl9tbXVfbWFwKHN0
-cnVjdCBrdm1fdmNwdSAqdmNwdSwgc3RydWN0IGt2bV9tZW1vcnlfc2xvdCAqbWVtc2xvdCwKPiAg
-ICAgICAgIHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hOwo+ICAgICAgICAgc3RydWN0IGt2bSAq
-a3ZtID0gdmNwdS0+a3ZtOwo+ICAgICAgICAgc3RydWN0IGt2bV9tbXVfbWVtb3J5X2NhY2hlICpw
-Y2FjaGUgPSAmdmNwdS0+YXJjaC5tbXVfcGFnZV9jYWNoZTsKPiAtICAgICAgIGJvb2wgbG9nZ2lu
-ZyA9IChtZW1zbG90LT5kaXJ0eV9iaXRtYXAgJiYKPiAtICAgICAgICAgICAgICAgICAgICAgICAh
-KG1lbXNsb3QtPmZsYWdzICYgS1ZNX01FTV9SRUFET05MWSkpID8gdHJ1ZSA6IGZhbHNlOwoKV2h5
-IGlzIHRoaXMgbm90IGNvcnJlY3QgYXBwcm9hY2ggdG8gZGV0ZXJtaW5lIHdoZXRoZXIgbG9nZ2lu
-ZyBpcyBlbmFibGVkID8KCktWTSBBUk02NCBkb2VzIGEgdmVyeSBzaW1pbGFyIHRoaW5nIChSZWZl
-ciwgbWVtc2xvdF9pc19sb2dnaW5nKCkgaW4KYXJjaC9hcm02NC9rdm0vbW11LmMpLgoKPiArICAg
-ICAgIGJvb2wgbG9nZ2luZyA9IGt2bV9zbG90X2RpcnR5X3RyYWNrX2VuYWJsZWQobWVtc2xvdCkg
-JiYKPiArICAgICAgICAgICAgICAgICAgICAgICEobWVtc2xvdC0+ZmxhZ3MgJiBLVk1fTUVNX1JF
-QURPTkxZKTsKPiAgICAgICAgIHVuc2lnbmVkIGxvbmcgdm1hX3BhZ2VzaXplLCBtbXVfc2VxOwo+
-ICAgICAgICAgc3RydWN0IGt2bV9nc3RhZ2UgZ3N0YWdlOwo+ICAgICAgICAgc3RydWN0IHBhZ2Ug
-KnBhZ2U7Cj4gLS0KPiAyLjU0LjAKPgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add Rust bindings for clk_rate_exclusive_get() and
+clk_rate_exclusive_put().
+
+Clk::rate_exclusive_get() consumes the Clk and returns an ExclusiveClk;
+the matching put is issued from its Drop impl. ExclusiveClk derefs to
+Clk so existing rate / prepare / enable APIs remain available on the
+locked handle.
+
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
+Signed-off-by: Maurice Hieronymus <mhi@mailbox.org>
+---
+ rust/kernel/clk.rs | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
+
+diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
+index 7abbd0767d8c..f834f4833f18 100644
+--- a/rust/kernel/clk.rs
++++ b/rust/kernel/clk.rs
+@@ -249,6 +249,22 @@ pub fn set_rate(&self, rate: Hertz) -> Result {
+             // [`clk_set_rate`].
+             to_result(unsafe { bindings::clk_set_rate(self.as_raw(), rate.as_hz()) })
+         }
++
++        /// Acquire exclusive control over the clock's rate.
++        ///
++        /// Consumes the [`Clk`] and returns an [`ExclusiveClk`] that releases the exclusivity
++        /// when dropped. While held, no other consumer may change the clock's rate.
++        ///
++        /// Equivalent to the kernel's [`clk_rate_exclusive_get`] API. Must not be called from
++        /// atomic context.
++        ///
++        /// [`clk_rate_exclusive_get`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_rate_exclusive_get
++        pub fn rate_exclusive_get(self) -> Result<ExclusiveClk> {
++            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
++            // [`clk_rate_exclusive_get`].
++            to_result(unsafe { bindings::clk_rate_exclusive_get(self.as_raw()) })?;
++            Ok(ExclusiveClk(self))
++        }
+     }
+ 
+     impl Drop for Clk {
+@@ -329,6 +345,50 @@ fn deref(&self) -> &Clk {
+             &self.0
+         }
+     }
++
++    /// A [`Clk`] with exclusive control over its rate.
++    ///
++    /// While an [`ExclusiveClk`] exists, no other consumer of the same clock may change its rate.
++    /// Obtained by calling [`Clk::rate_exclusive_get`]; the exclusivity is released automatically
++    /// when the value is dropped, after which the inner [`Clk`] is dropped as usual.
++    ///
++    /// # Invariants
++    ///
++    /// An [`ExclusiveClk`] instance owns a [`Clk`] for which `clk_rate_exclusive_get` has been
++    /// called and the matching `clk_rate_exclusive_put` has not yet been called.
++    ///
++    /// # Examples
++    ///
++    /// ```
++    /// use kernel::clk::{Clk, ExclusiveClk};
++    /// use kernel::device::Device;
++    /// use kernel::error::Result;
++    ///
++    /// fn lock_rate(dev: &Device) -> Result<ExclusiveClk> {
++    ///     let clk = Clk::get(dev, None)?;
++    ///     clk.prepare_enable()?;
++    ///     clk.rate_exclusive_get()
++    /// }
++    /// ```
++    pub struct ExclusiveClk(Clk);
++
++    // Make [`ExclusiveClk`] behave like [`Clk`].
++    impl Deref for ExclusiveClk {
++        type Target = Clk;
++
++        fn deref(&self) -> &Clk {
++            &self.0
++        }
++    }
++
++    impl Drop for ExclusiveClk {
++        fn drop(&mut self) {
++            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
++            // [`clk_rate_exclusive_put`] and balances the [`clk_rate_exclusive_get`] call from
++            // [`Clk::rate_exclusive_get`].
++            unsafe { bindings::clk_rate_exclusive_put(self.as_raw()) };
++        }
++    }
+ }
+ 
+ #[cfg(CONFIG_COMMON_CLK)]
+
+-- 
+2.51.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
