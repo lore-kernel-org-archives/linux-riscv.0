@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DF3CD6E5D
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 08:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FF0CD6E5D
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 08:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Mime-Version:Subject:
-	In-Reply-To:Message-Id:From:Date:Cc:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=si9Qy9CNq8csy05Su6mUKK4SNIisR5dFe0zBjp30cMw=; b=XOVfP38cb6Pest
-	+DMQI5i+LUhbVtgqqnRcTZAx7bVTx8vHy2xtQdSSQvI2LWjNqteK3JoO02koMKSV1Ma5MyBBc0l/a
-	A/fQevDS7WUce/0cC5lp1s/zGheXZhTuJcGq9f/L1nrcCWTjb3TqResi3QpA90ME0f61SfPiy3lqz
-	otio4nawDU/sbSUnMnyqo4+js6XGVmz571NgpX5Se+KJD7KR5NvSY7LU2M9pWVunYZ8X3SAePCeVg
-	GNfYqID4Ons6N6QNUGQiTyk1cNHGqv98ahuVQXOJCGlwAbLwkisMEcMsBKhiZp4TgXcdPxquFS7+g
-	TCth+oAPao19qu5f/B3Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:From:To:
+	Message-Id:Date:Cc:References:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eMnxKxEpFUE7wKzpUYqDXYdrjS/UgWVWKf763sttThI=; b=NL5/GnrAXsd7uA
+	ELdlzvg4hJ54os/Vfoy2k/0H54GwCCPCbSQf0icQMdhE6Psh1mc8P7Y6Rhp+M4uAduRpmSHNOo/Rw
+	//mXmsygdeFVk2ico6S37lmPK4unPKiKtogkEqd9DbTaoK8k1zTszVNm2P00+ZjVriPhiv2uUcurE
+	oH2T7w+uQclKg+ZnO1GtDV61xUjruT8xvG2eV0lPik04HxiyBZPWzqVh3zw6lnETQe3bmgjLJAxoH
+	DmWGgTlsOZD9iIGg28E6FyD46L3PFyahlx6t/wdqqzxwUOtGpSgmdmALHjmHJdk1JZ7yW8vTXcmhJ
+	oIZEzyK9pkmSmtUWxkbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPg1-00000000IGg-12JB;
-	Fri, 05 Jun 2026 08:13:13 +0000
-Received: from va-1-115.ptr.blmpb.com ([209.127.230.115])
+	id 1wVPnY-00000000Ih8-1L5M;
+	Fri, 05 Jun 2026 08:21:00 +0000
+Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPfx-00000000IGE-1uv4
+	id 1wVPnV-00000000IgX-1BRA
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jun 2026 08:13:11 +0000
+	Fri, 05 Jun 2026 08:20:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1780647180; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1780647651; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=xYTHDl2AajBOqR+4sy4po6w/RbkMf3J7YI6AkJg4pU8=;
- b=OsbFaj1Htl7RtRr1AhYVwO72Q7rmq/39SAMI+ZIK5YspR6iHkMH6sJsuSl++O+oDayYH1W
- QS3N7evby93Qe4Ytmz+5vqvgZiNlGKH508NcliP7WH2TCZKChOdYRMy+LKeL4n4vGAhg/V
- X9PEG8TgogqP7BC/A4GnrSzVKgavYWnm2BIBXSPGCWHqeHUBjzywvEBND2pux2qnt1Uv/M
- GZXKihJKFEQDNGDofkxcxWIdRFNA2W6EosS9Sc0AUb7tNUfBX6uyCP5VP9GIAtFi+U/23u
- 3NKBwuenAWFwt6LlamqciT2tFfag0U6LMcaoVqB8nJ4CB6djMUCzVJycCJNFLw==
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Date: Fri, 5 Jun 2026 16:12:42 +0800
-From: "Rui Qi" <qirui.001@bytedance.com>
-Message-Id: <226fe0d0-3d05-4c6b-95fb-a058da2d4169@bytedance.com>
-In-Reply-To: <4197ee54-6c69-cb72-5966-c60ba321a6fa@kernel.org>
-User-Agent: Mozilla Thunderbird
+ bh=MYfkWTUstYcNpdvoLH3h1FlzPK6bZfHl0b50Ga0IhQs=;
+ b=bPWhQ1nIGGEgik3W3NnZTC1kk0e1gyuCCQ5SqJ2tMk2Pn/aU9wFfwK/LzeV0puu27UyX9s
+ sGiVMDOjY/CUjru0lxix+umRaMRtsEuHgBnDLiLH73XxD/CyWtH3oQV5AkReO3NSamJd2W
+ yRuIF37eIKN/DhqnNWLZG+K9AwOOXMmrkirMnlqK2sqXDREFEwOLnG4PeyEwI5SysNZpaI
+ H+8RVxj0zzhn2Vb7nTyKoYyzmLrkgLdwMv8LlVV5uYc9mmZqsLXgIAF0opJx2Zlg7nia1+
+ sQRqI2UdBhcdv19cXxyHlnai19S/jo0XaPVVyoO6p4kg59Z9fbvNOMFZ4nTbhw==
+Subject: [PATCH v2 0/2] riscv: stacktrace: Fix return address handling in non-FP unwinder
 X-Original-From: Rui Qi <qirui.001@bytedance.com>
-Subject: Re: [PATCH v1 2/2] riscv: stacktrace: Use %pB for backtrace display
+References: <20260603115329.791603-1-qirui.001@bytedance.com>
+Cc: "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	"Rui Qi" <qirui.001@bytedance.com>
+Date: Fri,  5 Jun 2026 16:20:32 +0800
+Message-Id: <20260605082034.1426923-1-qirui.001@bytedance.com>
+X-Mailer: git-send-email 2.20.1
+To: "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>
+From: "Rui Qi" <qirui.001@bytedance.com>
 Mime-Version: 1.0
-References: <20260603115329.791603-1-qirui.001@bytedance.com> <20260603115329.791603-3-qirui.001@bytedance.com> <4197ee54-6c69-cb72-5966-c60ba321a6fa@kernel.org>
-To: "Paul Walmsley" <pjw@kernel.org>
-X-Lms-Return-Path: <lba+26a22850a+64a7b7+lists.infradead.org+qirui.001@bytedance.com>
+X-Lms-Return-Path: <lba+26a2286e1+fba3e7+lists.infradead.org+qirui.001@bytedance.com>
+In-Reply-To: <20260603115329.791603-1-qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_011309_593961_D6100619 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20260605_012057_395935_2E51CE6F 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,75 +70,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/5/26 8:33 AM, Paul Walmsley wrote:
-> On Wed, 3 Jun 2026, Rui Qi wrote:
-> 
->> The print_trace_address callback uses print_ip_sym which formats
->> addresses with %pS. This does not adjust the address before symbol
->> lookup, so when a noreturn function (e.g. panic, do_exit) is the last
->> call in a function, the saved return address can point to the start of
->> the next function, and kallsyms resolves it to the wrong symbol.
->>
->> The kernel provides %pB (sprint_backtrace) specifically for this
->> purpose: it subtracts 1 from the address before symbol lookup, which
->> is sufficient to fall back into the calling function range. x86 uses
->> %pB in its printk_stack_address for the same reason.
->>
->> Replace print_ip_sym with a direct printk using %pB, matching the
->> pattern used by x86.
->>
->> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
-> 
-> The Sashiko review mentions that the x86 backtrace code uses %pS for exact 
-> instruction pointers coming from registers (show_regs_if_on_stack()), vs. 
-> %pB for return addresses on the stack (printk_stack_address()):
-> 
->     https://sashiko.dev/#/patchset/20260603115329.791603-1-qirui.001%40bytedance.com
-> 
-> Do we need to incorporate similar logic?
-> 
-> 
-> - Paul
+This 2-patch series fixes how the non-frame-pointer version of
+walk_stackframe handles return addresses, addressing both the
+unwinder layer and the display layer.
 
-Hi Paul,
+Background
+==========
 
-Yes, you are right. The Sashiko review raises a valid point that I
-should have addressed in the original patch.
+In the original RISC-V stacktrace code (commit 5d8544e2d007), both
+the FP and non-FP versions of walk_stackframe subtracted 0x4 from
+return addresses read from the stack:
 
-%pB subtracts 1 from the address before symbol lookup, which is correct
-for return addresses but wrong for exact instruction pointers: if the
-exact IP happens to be at offset 0 of a function, subtracting 1 causes
-kallsyms to resolve it to the preceding function.
+  FP version:      pc = frame->ra - 0x4;
+  Non-FP version:  pc = (*ksp++) - 0x4;
 
-In walk_stackframe(), two kinds of addresses are passed to the callback:
+The intent was to convert the return address (the instruction after
+a call) back to the call site for better symbol resolution. However,
+this is incorrect on RISC-V because the RVC (compressed instruction)
+extension allows 2-byte instructions (e.g. c.jal). Subtracting a
+fixed 0x4 assumes all call instructions are 4 bytes, which produces
+a wrong address for compressed calls.
 
-Exact instruction pointers: instruction_pointer(regs) and the epc
-from exception frames found during unwinding (when the return
-address points into handle_exception..ret_from_exception_end).
-These should use %pS.
+Commit b785ec129bd9 ("riscv/ftrace: Add HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
+support") fixed the FP version by replacing "pc = frame->ra - 0x4"
+with ftrace_graph_ret_addr(). The commit message explicitly noted:
 
-Return addresses: frame->ra, regs->ra, task->thread.ra. These
-should use %pB.
+  "the original calculation, pc = frame->ra - 4, is buggy when the
+   instruction at the return address happened to be a compressed inst."
 
-I have updated the patch to add an 'is_ra' parameter to the
-walk_stackframe callback, indicating whether the address is a return
-address.  print_trace_address() then uses %pB when is_ra is true and
-%pS when is_ra is false, matching the x86 approach.
+Later, commit 877425424d6c removed the fallback "#else" branch
+entirely since HAVE_FUNCTION_GRAPH_RET_ADDR_PTR is always defined
+for RISC-V. However, the non-FP version was simply overlooked and
+still carries the bogus -0x4 offset.
 
-For the generic arch_stack_walk() path, since stack_trace_consume_fn
-has a fixed 2-parameter signature, a thin wrapper (stack_walk_wrapper)
-adapts between the two callback types, discarding the is_ra flag since
-the generic stack trace infrastructure only records raw addresses.
+Patch 1: Remove -0x4 from the unwinder
+=======================================
 
-One known limitation: the non-FP version of walk_stackframe() scans
-the stack blindly and cannot distinguish pt_regs->epc values from
-return addresses, so all stack-scanned values are treated as return
-addresses (is_ra = true).  This means epc values from pt_regs
-encountered during the scan may still use %pB incorrectly.  This is
-an inherent limitation of the non-FP unwinder and not introduced by
-this change; the FP version handles the epc case correctly.
+Remove the -0x4 offset from the non-FP walk_stackframe so it reports
+raw return addresses, consistent with the FP version and with other
+architectures (ARM64, x86, ARM all report return addresses as-is).
 
-The updated patch will be in v2.
+Patch 2: Use %pB for return addresses and %pS for exact IPs
+=============================================================
+
+With the -0x4 removed, a pre-existing issue becomes more visible:
+when a noreturn function (e.g. panic, do_exit) is the last call in
+a function, the saved return address points to the start of the next
+function, and kallsyms resolves it to the wrong symbol.
+
+The kernel provides sprint_backtrace() (invoked via %pB) specifically
+for this purpose: it subtracts 1 from the address before symbol
+lookup, which is sufficient to fall back into the calling function's
+range. x86 uses %pB in its printk_stack_address() for this reason.
+
+However, %pB must only be used for return addresses. walk_stackframe
+passes two kinds of addresses to its callback: exact instruction
+pointers (instruction_pointer(regs) and epc from exception frames)
+and return addresses (frame->ra, regs->ra, task->thread.ra). For
+exact IPs, subtracting 1 can cause kallsyms to resolve to the
+preceding function if the IP is at offset 0 of a function.
+
+Add an 'is_ra' parameter to the walk_stackframe callback to indicate
+whether the address is a return address.  Then use %pB for return
+addresses and %pS for exact instruction pointers, matching the x86
+approach which uses %pS for regs->ip via show_ip() and %pB for
+stack return addresses via printk_stack_address().
+
+Known limitation: the non-FP version of walk_stackframe() scans the
+stack blindly and cannot distinguish pt_regs->epc values from return
+addresses, so all stack-scanned values are treated as return addresses
+(is_ra = true).  This means epc values from pt_regs encountered during
+the scan may still use %pB incorrectly.  The FP version handles this
+case correctly by detecting exception frames explicitly.
+
+Changes since v1
+================
+
+- Patch 2: Split %pB usage to only apply to return addresses (is_ra =
+  true), using %pS for exact instruction pointers (is_ra = false).
+  This addresses the review feedback from Paul Walmsley and the
+  Sashiko review noting that x86 uses %pS for exact IPs and %pB only
+  for return addresses.
+
+- Patch 2: Add 'is_ra' parameter to walk_stackframe callback, update
+  the declaration in asm/stacktrace.h, and adapt all callers
+  (print_trace_address, save_wchan, fill_callchain_walk wrapper for
+  perf, stack_walk_wrapper for arch_stack_walk).
+
+Design principle
+================
+
+The two patches follow a clear separation of concerns:
+
+  - The unwinder reports raw return addresses (no offset adjustment)
+  - The display layer handles symbol resolution adjustments (%pB for
+    return addresses, %pS for exact IPs)
+
+This matches the convention used by other architectures and ensures
+consistent behavior between the FP and non-FP unwinders.
+
+Jiakai Xu [1] and Wang Han [2] have separate patch series in flight
+for other stacktrace issues; these patches are orthogonal to their
+work.
+
+  [1] https://lore.kernel.org/all/20260517143704.659416-1-xujiakai2025@iscas.ac.cn/
+  [2] https://lore.kernel.org/all/20260528082310.1994388-1-wanghan@linux.alibaba.com/
+
+Rui Qi (2):
+  riscv: stacktrace: Remove bogus -0x4 offset in non-FP walk_stackframe
+  riscv: stacktrace: Use %pB for return addresses and %pS for exact IPs
+
+ arch/riscv/include/asm/stacktrace.h |  2 +-
+ arch/riscv/kernel/perf_callchain.c  |  7 +++-
+ arch/riscv/kernel/stacktrace.c      | 56 +++++++++++++++++++++++------
+ 3 files changed, 53 insertions(+), 12 deletions(-)
+
+--
+2.20.1
 
 _______________________________________________
 linux-riscv mailing list
