@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F09CDE00B
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 21:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03F0CDE014
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 21:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
 	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uZs3rfxcdHN6/YhtSu8DDIHGZuUn/4OTpvgyYOiDYxA=; b=TXf4cRU+H/SEz+
-	XGhUYNW9LOc51jrZMRuRO7bmtphUAJJ07zfl7NHMAUTaSvZAAc/Px16E4AOKcr5CDLd2xF4crGK61
-	j9fX6qHPFYfI4pdS6i08rMulpfoluliWswI46YnNwVUPcOJnaIicf+pe6hDCPUGM6Pido1gaec1Z7
-	KNbRPjzUV7SdfS6bmybnEW35vlPFBzj7M7Jpx/tFuPzkLJFYzlWfUfpbNzp5Z8wuorb711a5jaOhK
-	i6FRDg42m0H9KhOJs1vnGIKEEYTZWKRwDQ7mWNDMM7DERngb3Jz1Wl5TUvgbpO5mk5Rbbe05C/0DN
-	ofPIq6KeX2xEyhaJ3Ivw==;
+	List-Owner; bh=WhTo5DPlerUbXxPRRzNG1mgEB1C6Nu2cAAlzgfBrEdg=; b=4lI+kMh+k+zOsI
+	GJEZJv3TvhxQ72nXVX4HMsMjp5mOQubGPZlKaXYF3J0YDm+Wn5nhZTGE0RwgP2Wuhc9pSsJk4SQjY
+	RBju9vv2iolqsvJhRVl9xfOkUtXrNZp6iOF6NNZXual8Mhv37LsFv2g6Z07PMRs6VP7BXBvtSu7tO
+	DzgqEGwqElW2IX4KbuX1Bjqzt8Y1vrnUqGfqAMvWxxj6WIksDIoNltEndoHviTgWeUsJBSbd5qV2z
+	fw/+HDLM2O2IIqRgH/qa55tO/1CaCpMfc1kO40icIACOwu8cQVQ/xqGqzl90JXg72esa2/1knraJx
+	XRFtFtfJk0T+8CLKZqBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcrGx-00000009q4F-18NL;
-	Thu, 25 Jun 2026 21:06:07 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1wcrGw-00000009q3c-0bQg;
+	Thu, 25 Jun 2026 21:06:06 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIg6-00000007NMc-1wsj;
-	Wed, 24 Jun 2026 08:09:47 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	id 1wVPUv-00000000HJc-0Ij6;
+	Fri, 05 Jun 2026 08:01:46 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4glZNR5X33z8Xrrd;
-	Wed, 24 Jun 2026 16:09:43 +0800 (CST)
-Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
-	by mse-fl2.zte.com.cn with SMTP id 65O89VmN002647;
-	Wed, 24 Jun 2026 16:09:31 +0800 (+08)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gWv5y3hqrz5B109;
+	Fri, 05 Jun 2026 16:01:42 +0800 (CST)
+Received: from szxlzmapp04.zte.com.cn ([10.5.231.166])
+	by mse-fl1.zte.com.cn with SMTP id 65581Z1f033421;
+	Fri, 5 Jun 2026 16:01:35 +0800 (+08)
 	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxlzmapp04[null])
+Received: from mapi (szxl2zmapp06[null])
 	by mapi (Zmail) with MAPI id mid12;
-	Wed, 24 Jun 2026 16:09:33 +0800 (CST)
-X-Zmail-TransId: 2b066a3b90bdafe-1c3f8
+	Fri, 5 Jun 2026 16:01:37 +0800 (CST)
+X-Zmail-TransId: 2b086a228261472-039e2
 X-Mailer: Zmail v1.0
-Message-ID: <20260624160933260NTWchyx5a1-4pAhy9HVE4@zte.com.cn>
-In-Reply-To: <20260624160054463wcDvJaMoydSggcNOWgcfB@zte.com.cn>
-References: 20260624160054463wcDvJaMoydSggcNOWgcfB@zte.com.cn
-Date: Wed, 24 Jun 2026 16:09:33 +0800 (CST)
+Message-ID: <20260605160137530cIDib0Zv5Mx0IT77MeO0p@zte.com.cn>
+In-Reply-To: <20260605160019772GJy5SDmWQQF7sSqvJ0JtC@zte.com.cn>
+References: 20260605160019772GJy5SDmWQQF7sSqvJ0JtC@zte.com.cn
+Date: Fri, 5 Jun 2026 16:01:37 +0800 (CST)
 Mime-Version: 1.0
 From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <kvm@vger.kernel.org>,
-        <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <atish.patra@linux.dev>, <alex@ghiti.fr>, <wang.yechao255@zte.com.cn>
-Subject: =?UTF-8?B?wqBbUEFUQ0ggdjMgUkVTRU5EIDMvNV0gUklTQy1WOiBLVk06IFJlbW92ZSByZWR1bmRhbnQgVExCIGZsdXNoIG9wZXJhdGlvbnM=?=
-X-MAIL: mse-fl2.zte.com.cn 65O89VmN002647
+To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <wang.yechao255@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYzIDEvM10gUklTQy1WOiBLVk06IFJlZmFjdG9yIGt2bV9hcmNoX2NvbW1pdF9tZW1vcnlfcmVnaW9uKCk=?=
+X-MAIL: mse-fl1.zte.com.cn 65581Z1f033421
 X-TLS: YES
 X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 24 Jun 2026 16:09:43 +0800
+X-SOURCE-IP: 10.5.228.132 unknown Fri, 05 Jun 2026 16:01:42 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A3B90C7.001/4glZNR5X33z8Xrrd
+X-Fangmail-MID-QID: 6A228266.001/4gWv5y3hqrz5B109
 X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_010946_658767_5450D6D2 
-X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-CacheID: sfid-20260605_010145_265394_3D808962 
+X-CRM114-Status: UNSURE (   8.82  )
 X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Thu, 25 Jun 2026 14:06:04 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -84,37 +84,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wang Yechao <wang.yechao255@zte.com.cn>
 
-The function kvm_arch_mmu_enable_log_dirty_pt_masked() is called by
-kvm_vm_ioctl_reset_dirty_pages() and kvm_clear_dirty_log_protect().
-Both callers already perform a TLB flush after enabling dirty logging,
-so the TLB flush inside kvm_arch_mmu_enable_log_dirty_pt_masked() is
-unnecessary. Remove it.
+Refactor kvm_arch_commit_memory_region() as a preparation for a future
+commit to look cleaner and more understandable. Also, it looks more
+like its arm64 counterparts.
 
 Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
 ---
- arch/riscv/kvm/mmu.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ arch/riscv/kvm/mmu.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 95e83c50addf5..bc3bad67d507b 100644
+index c847b101c73e..5645e247e198 100644
 --- a/arch/riscv/kvm/mmu.c
 +++ b/arch/riscv/kvm/mmu.c
-@@ -160,14 +160,10 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
- 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
-
- 	kvm_riscv_gstage_init(&gstage, kvm);
-
--	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
--	if (flush)
--		kvm_flush_remote_tlbs_range(kvm, start >> PAGE_SHIFT,
--					    (end - start) >> PAGE_SHIFT);
-+	kvm_riscv_gstage_wp_range(&gstage, start, end);
- }
-
- void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+@@ -156,12 +156,17 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+ 				const struct kvm_memory_slot *new,
+ 				enum kvm_mr_change change)
+ {
++	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
++
+ 	/*
+ 	 * At this point memslot has been committed and there is an
+ 	 * allocated dirty_bitmap[], dirty pages will be tracked while
+ 	 * the memory slot is write protected.
+ 	 */
+-	if (change != KVM_MR_DELETE && new->flags & KVM_MEM_LOG_DIRTY_PAGES) {
++	if (log_dirty_pages) {
++		if (change == KVM_MR_DELETE)
++			return;
++
+ 		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
+ 			return;
+ 		mmu_wp_memory_region(kvm, new->id);
 -- 
 2.43.5
 
