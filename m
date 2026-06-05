@@ -4,91 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE854CD6E5D
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 11:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 607AFCD6E7C
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 12:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tekr+oWaB63cKHaiKnkbvKm1rbYQiegJey0ODk7jcic=; b=goScxtWHNs3DMk
-	SixJ0pO32PnnMt/xki/O0+j9UHD6KMGBkDDPPnzNPf2ay2yO0pCtxWHu8xj6fVQhWziLgAd2qECIf
-	yoSrL4tz3uBNQzcXE7d1iFHEylUiFVgnr7vLGqnW7WgTgrXwo9xHZqZfxM+xTPFgQp5Rk6C+5Boz+
-	iQ86m6To1aK8Mr7oMvKGlwn2ZLNo1gXwjisFB1tQL/UXbMfCgn76f7PDZzGRoaMpstfFhfWQ9Vw0j
-	lgp1oJ9AfC7pzX+8es+C+fGBeId3iPsBXey8UbF8cmhn8gotUrKWCDi9v4FHsD4giAwvPv/7ZqT+J
-	2+tlmJuCddWQZ5SA/qIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qEonbNrrVXlkHBkePffVI5bMvu5SlySYB0KTRdCcAbc=; b=kEEzHGV8Wv3IRLkVYmG655/mRF
+	a1EDw3qeUoN5SuZ2BnI/jZnQemkB+AfFj/xvkC25KZ96Yv4N5X78FZiPqdgaOf1d7hOJIAIWDvR10
+	h/0ZAOrHnkgyON7OmmfCI4W2UlxHZ0SqrieHRh7G1OucrDqcy5h6wnC7PhPIwOfQt+C+NQNW3uxIA
+	bedDfn066W2Qplblz2UcM9571pajI4l7ivEl0ct4LOAnfIXcZjpoYkV+xy21OuNTUNkeHKrq/24uR
+	UX358lY5lXW1EUnps8Wx2ga4QhRtqkOZKGgmz52NRGkkjIHCqjMh4dD6pdNhTniBuocGPX7HTxO3v
+	qYJmWOJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVSy9-00000000Z9W-2gMx;
-	Fri, 05 Jun 2026 11:44:09 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1wVTLI-00000000arS-1XH5;
+	Fri, 05 Jun 2026 12:08:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVSy6-00000000Z9A-2xKK
+	id 1wVTLG-00000000arL-3soY
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jun 2026 11:44:08 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8423f52af13so1291013b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Jun 2026 04:44:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780659846; x=1781264646; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gMNKh8FX3BpICK82C0IcgqwADrmONDwFxBNWibd71SU=;
-        b=J3Zb7Vcfv8bX449B32HBW3PBDih1R/Abo2zJGhHoptaHTS3UDOqOW6Pv1d7yRvw42M
-         dqr7JKg96YH7ZgnKITUX8QI0bLeKG5BOEsNNJLqJPZRJ745Df5CuRXI6cDpu4jVTdC+7
-         vf0E+SfMqRknJj5izcyg0z9OR3TlpxnFbYYlsA86yMzVvualkRtvaA4AaHuGLLxK/KBs
-         7HCsZN27T541e3LhXbDS2ulP8x41/0Ldv+UeYrEFJgY3QsmZRaW0qAMbvL/Dv39tpdIK
-         JbM+fRo0w5HtB1Pj/H0l7ML0EVhhXuo0rhmU0DEcQw9KYnDzsLG3Tjk3M/98tN8pSYiP
-         7trw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780659846; x=1781264646;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gMNKh8FX3BpICK82C0IcgqwADrmONDwFxBNWibd71SU=;
-        b=NqWkEMBZNeX6fZ6C5SZ3JUxoSLOK5Ld4ohFQqkkTtT95vJe0cst1XSU/tF0DwFr2WH
-         rxMj9YXmC9enW5PZKkPhP0RlzYvJ2q3YmehXAVYFcQkDrQfOqxFr7F8Wh1vvmZANcl95
-         XsZQC04HPXOLwJUz/I/eil5tfXi2LnENeg5eWcrlcQ5rGIwXjnBYttAEUFZnfyc2Ly/X
-         taChd+G/Ey8CHYEKgz4KL/cTMyky8p3OAZZBeoxZqscY8ePANpHaFUf0wfeeSeUq47aA
-         eR5gFI3KsicPx9XndejTpXmqM6T7r3hV9LrHzSlVfc1ALd2RDsIRXQQHGhH4zIbpCwc/
-         Dbcg==
-X-Forwarded-Encrypted: i=1; AFNElJ/JlDpKrMxqYYYpFOLXttiP2nlSfPPl0NqGHtJ+kVGPd0Rfya3ro6J1e6DzJu6jX8DidPOzfS2SGHGlYA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIUGDinyN6h8nfkQWre6aOpx5B4QyW8D1iist9v4H/DE8SfUQl
-	rnZWCJdgMd2Siygao1euv+jmgPhtaSyDGHsXUEVvPVRGQNTlpr1Oekc4
-X-Gm-Gg: Acq92OGx7m0ypxrELgkMfOVgr+Qpb7pHVFeFrh7Z6cAiZ7xecxyzoetjB5YfuYhe1oa
-	FfMgF/j3Z0whaSyIKl+R2meukSi+x7nFhVLHHXkmVyhzq4+KL7dLzlY+SBKZlqkvqPSNTDzEyk9
-	MFZia/PXMSCKPT6whfxn8+gPMlLj7hTzqq+uWapgqNa1HJ6/YAFLXL877yIq7kvkyXXE3nvCcRE
-	S0It2undctdqFafsyttVMr/GxX4NcMA+eGfku18OvXqUVHWECZrkE11/qRXFTIOrYcME8NNdTDC
-	BggaaKANFY6pcLih6SbNaHGlzbdlKhp/KILcRT0dqcBv2jjSDgnT+3upTUGLSWab3Zxkm3BU0Mn
-	6xDIPR3GKza9rXcU/vjOlx+0PSMtTWZbC4+foOFYzjD4hpymoRk6x+O2B6oqicOopF7xARfztvi
-	jxpSCy1Q6iCk53Vjr5vi9C
-X-Received: by 2002:a05:6a00:ab8b:b0:842:57e8:1bdb with SMTP id d2e1a72fcca58-842b0e95864mr2991555b3a.20.1780659845679;
-        Fri, 05 Jun 2026 04:44:05 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84282883647sm10866367b3a.36.2026.06.05.04.44.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Jun 2026 04:44:05 -0700 (PDT)
-Date: Fri, 5 Jun 2026 19:44:03 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Yunhui Cui <cuiyunhui@bytedance.com>, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, akpm@linux-foundation.org, 
-	pasha.tatashin@soleen.com, andrew+kernel@donnellan.id.au, rmclure@linux.ibm.com, 
-	debug@rivosinc.com, baolin.wang@linux.alibaba.com, zhangchunyan@iscas.ac.cn, 
-	apopple@nvidia.com, namcao@linutronix.de, wangruikang@iscas.ac.cn, 
-	apatel@ventanamicro.com, liu.xuemei1@zte.com.cn, ajones@ventanamicro.com, 
-	cleger@rivosinc.com, charlie@rivosinc.com, hui.wang@canonical.com, 
-	guodong@riscstar.com, pincheng.plct@isrc.iscas.ac.cn, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Cc: Qingwei Hu <qingwei.hu@bytedance.com>
-Subject: Re: [PATCH v2 1/2] riscv: track effective hardware PTE A/D updates
-Message-ID: <aiK2WPERUEvVMZqY@inochi.infowork>
-References: <20260522142358.87589-1-cuiyunhui@bytedance.com>
+	Fri, 05 Jun 2026 12:08:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id 59A6A404A7;
+	Fri,  5 Jun 2026 12:08:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 592CE1F00893;
+	Fri,  5 Jun 2026 12:08:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780661282;
+	bh=87M3kBakEBJVQQ4M0v2n+8FD2QjfthNbE3uBbHgwWWs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hB+BrAF3+R5c1NEuBb/NrRCTTQsVA3PghmjDLi3rsyIajeXQ48OUQkTQ2+1B/Td67
+	 DichNuHaIDLGezakbz2Yg7EF6VcfOAXNOJuPATAZXJ4LAb1QBFbgIJy/Pe7h3N5Uca
+	 Rm7Aj80rYylraNt4JOldab5Hzj/EyGjKcLE3HDpX/m2Nusowv4XOu6HxNBSErg7FXm
+	 pSoH9O3BxMadxmu/+5ujbjhszft7bKRzAMq4UyovFbh+dMgYKEZMfax6wdimh7xuhL
+	 tlid06yV591Bn/P/jhthHwhpbvJVqrWk/xQnVT/aAO1U7+THXg5tybthh/aCB6c8cR
+	 dDDqbtbeyMHHA==
+Date: Fri, 5 Jun 2026 14:07:58 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Maurice Hieronymus <mhi@mailbox.org>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Michal Wilczynski <m.wilczynski@samsung.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v2] pwm: th1520: Remove requirement for
+ mul_u64_u64_div_u64_roundup
+Message-ID: <aiK7i_bblFzHDiH2@monoceros>
+References: <20260605-pwm-th1520-fix-v2-1-5921e3a595f7@mailbox.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260522142358.87589-1-cuiyunhui@bytedance.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_044406_753013_1C090DC3 
-X-CRM114-Status: GOOD (  29.97  )
+In-Reply-To: <20260605-pwm-th1520-fix-v2-1-5921e3a595f7@mailbox.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,190 +70,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4373996600851910119=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 10:23:57PM +0800, Yunhui Cui wrote:
-> Track the effective hardware PTE A/D update mode separately from
-> Svadu capability discovery. When both Svade and Svadu are present,
-> enable SBI FWFT PTE A/D hardware updating on each online CPU via
-> CPUHP and use the resulting runtime state for arch_has_hw_pte_young().
-> Fall back to software-managed A/D updates if enabling hardware updates
-> fails.
-> 
-> When Svadu is present without Svade, assume hardware PTE A/D updating
-> is enabled from boot, and document that boot-time behavior in the DT
-> binding.
-> 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> Reviewed-by: Qingwei Hu <qingwei.hu@bytedance.com>
-> ---
->  .../devicetree/bindings/riscv/extensions.yaml |  6 +-
->  arch/riscv/include/asm/cpufeature.h           |  6 ++
->  arch/riscv/include/asm/pgtable.h              |  8 +--
->  arch/riscv/kernel/cpufeature.c                | 58 +++++++++++++++++--
->  4 files changed, 65 insertions(+), 13 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> index 2b0a8a93bb214..b09888e9988de 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -294,10 +294,10 @@ properties:
->                 of the PTE A/D bits or page faults when they need updated.
->              2) Only Svade present in DT => Supervisor must assume Svade to be
->                 always enabled.
-> -            3) Only Svadu present in DT => Supervisor must assume Svadu to be
-> -               always enabled.
-> +            3) Only Svadu present in DT => Supervisor must assume Svadu is
-> +               enabled at boot.
->              4) Both Svade and Svadu present in DT => Supervisor must assume
-> -               Svadu turned-off at boot time. To use Svadu, supervisor must
-> +               Svadu is disabled at boot time. To use Svadu, supervisor must
->                 explicitly enable it using the SBI FWFT extension.
->  
->          - const: svadu
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-> index 739fcc84bf7b2..ad9fad6eee55d 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -128,6 +128,12 @@ struct riscv_isa_ext_data {
->  extern const struct riscv_isa_ext_data riscv_isa_ext[];
->  extern const size_t riscv_isa_ext_count;
->  extern bool riscv_isa_fallback;
-> +DECLARE_STATIC_KEY_FALSE(riscv_hw_pte_ad_updating);
-> +
 
-I think a EXPORT_SYMBOL is required, otherwise the kvm is failed to be
-built as module.
-
-Regards,
-Inochi
+--===============4373996600851910119==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gqwi5irkxvviovzj"
+Content-Disposition: inline
 
 
-> +static __always_inline bool riscv_has_hw_pte_ad_updating(void)
-> +{
-> +	return static_branch_unlikely(&riscv_hw_pte_ad_updating);
-> +}
->  
->  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
->  static __always_inline bool riscv_cpu_has_extension_likely(int cpu, const unsigned long ext)
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index a1a7c6520a095..20663a466cf6c 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -732,14 +732,14 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
->  #define pgprot_dmacoherent pgprot_writecombine
->  
->  /*
-> - * Both Svade and Svadu control the hardware behavior when the PTE A/D bits need to be set. By
-> - * default the M-mode firmware enables the hardware updating scheme when only Svadu is present in
-> - * DT.
-> + * Both Svade and Svadu control the hardware behavior when the PTE A/D bits
-> + * need to be set. The core MM code only cares whether hardware updating of
-> + * the accessed/dirty state is currently active.
->   */
->  #define arch_has_hw_pte_young arch_has_hw_pte_young
->  static inline bool arch_has_hw_pte_young(void)
->  {
-> -	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
-> +	return riscv_has_hw_pte_ad_updating();
->  }
->  
->  /*
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index f46aa5602d74d..831dd6a7c1a06 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -35,6 +35,7 @@
->  static bool any_cpu_has_zicboz;
->  static bool any_cpu_has_zicbop;
->  static bool any_cpu_has_zicbom;
-> +DEFINE_STATIC_KEY_FALSE(riscv_hw_pte_ad_updating);
->  
->  unsigned long elf_hwcap __read_mostly;
->  
-> @@ -287,15 +288,60 @@ static int riscv_ext_zvfbfwma_validate(const struct riscv_isa_ext_data *data,
->  	return -EPROBE_DEFER;
->  }
->  
-> -static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
-> -				    const unsigned long *isa_bitmap)
-> +static void riscv_set_hw_pte_ad_updating(void)
-> +{
-> +	static_branch_enable(&riscv_hw_pte_ad_updating);
-> +}
-> +
-> +static int riscv_hw_pte_ad_updating_starting(unsigned int cpu)
-> +{
-> +	int ret;
-> +
-> +	ret = sbi_fwft_set(SBI_FWFT_PTE_AD_HW_UPDATING, 1, 0);
-> +	if (ret) {
-> +		if (ret != -EOPNOTSUPP)
-> +			pr_err("CPU%u failed to enable hardware PTE A/D updating: %d\n",
-> +			       cpu, ret);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int __init riscv_hw_pte_ad_updating_init(void)
->  {
-> -	/* SVADE has already been detected, use SVADE only */
-> -	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SVADE))
-> -		return -EOPNOTSUPP;
-> +	bool has_svade, has_svadu;
-> +	int state;
->  
-> +	has_svade = riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADE);
-> +	has_svadu = riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
-> +
-> +	if (!has_svadu)
-> +		return 0;
-> +
-> +	if (!has_svade)
-> +		goto enable;
-> +
-> +	state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> +				  "riscv/pte-ad:starting",
-> +				  riscv_hw_pte_ad_updating_starting,
-> +				  NULL);
-> +	if (state < 0) {
-> +		pr_info("riscv: leave PTE A/D updates software-managed (%d)\n",
-> +			state);
-> +		return 0;
-> +	}
-> +
-> +	/*
-> +	 * A successful CPUHP_AP_ONLINE_DYN registration means the startup
-> +	 * callback has already succeeded on all online CPUs.
-> +	 */
-> +enable:
-> +	riscv_set_hw_pte_ad_updating();
-> +	pr_debug("riscv: hardware PTE A/D updating enabled\n");
->  	return 0;
->  }
-> +arch_initcall(riscv_hw_pte_ad_updating_init);
->  
->  static int riscv_cfilp_validate(const struct riscv_isa_ext_data *data,
->  				const unsigned long *isa_bitmap)
-> @@ -584,7 +630,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->  	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
->  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
->  	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
-> -	__RISCV_ISA_EXT_DATA_VALIDATE(svadu, RISCV_ISA_EXT_SVADU, riscv_ext_svadu_validate),
-> +	__RISCV_ISA_EXT_DATA(svadu, RISCV_ISA_EXT_SVADU),
->  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
->  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> -- 
-> 2.39.5
-> 
+--gqwi5irkxvviovzj
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] pwm: th1520: Remove requirement for
+ mul_u64_u64_div_u64_roundup
+MIME-Version: 1.0
+
+Hello,
+
+On Fri, Jun 05, 2026 at 09:03:59AM +0200, Maurice Hieronymus wrote:
+> The cycle register is always u32, so cycles_to_ns() can take a u32
+> instead of a u64. With that narrowing, cycles * NSEC_PER_SEC is at most
+> u32::MAX * 1e9 (~4.3e18), which fits in u64 without overflow. The
+> saturating arithmetic is therefore no longer needed, and the ceiling
+> division can use Rust's u64::div_ceil() directly instead of the
+> open-coded numerator/denominator form.
+>=20
+> This also drops the TODO referring to a future
+> mul_u64_u64_div_u64_roundup kernel helper, which is no longer required.
+>=20
+> Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> Signed-off-by: Maurice Hieronymus <mhi@mailbox.org>
+
+Applied to
+
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+
+Thanks
+Uwe
+
+--gqwi5irkxvviovzj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoivBsACgkQj4D7WH0S
+/k7R6wgAuMzZA+55AkXQeRINO6VINuOHL8cJptc2DiHB8jHkCpe/lCHO6md0D9SA
+0WQQrBea3pb9DGRf1z0u8iWJpaMzFL0tg3SCUyM1MjHnr9uj37y7O+37ahRiWogT
+ovotIzIy3UAZdUel9DA+9yxbooZ6JpkvH77chf9rYYIwtmtorfa1/LSKKryueJ7i
+46K3fN5hYuGbkV/QnHLtt6AqEtPv1Hvo5RuZC4ynvE0aIN68NVcvLnahDqGwaRcg
+2Dcwq3dOWNzxAuylmH7fa0oR5ur/O5YydLDELBX8++m2Zm4+9I1codmLjeYkF0tX
+PHV64hYGR7riLxW3UnGBGX6WFD6fnA==
+=lOKo
+-----END PGP SIGNATURE-----
+
+--gqwi5irkxvviovzj--
+
+
+--===============4373996600851910119==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4373996600851910119==--
+
