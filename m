@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 607AFCD6E7C
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 12:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6126CD6E79
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 12:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEonbNrrVXlkHBkePffVI5bMvu5SlySYB0KTRdCcAbc=; b=kEEzHGV8Wv3IRLkVYmG655/mRF
-	a1EDw3qeUoN5SuZ2BnI/jZnQemkB+AfFj/xvkC25KZ96Yv4N5X78FZiPqdgaOf1d7hOJIAIWDvR10
-	h/0ZAOrHnkgyON7OmmfCI4W2UlxHZ0SqrieHRh7G1OucrDqcy5h6wnC7PhPIwOfQt+C+NQNW3uxIA
-	bedDfn066W2Qplblz2UcM9571pajI4l7ivEl0ct4LOAnfIXcZjpoYkV+xy21OuNTUNkeHKrq/24uR
-	UX358lY5lXW1EUnps8Wx2ga4QhRtqkOZKGgmz52NRGkkjIHCqjMh4dD6pdNhTniBuocGPX7HTxO3v
-	qYJmWOJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BFbP3INI7K5ZTm57p/JPeXFYSx45zkkOsWiFFqj2wyk=; b=cy/a+IU81Hb1om
+	vqk/+6LG9vmJntG9+fZJh4b8QH9Mkj7JlYIzssptipnoN9VdNwTqz+B3CHHJBius3cq8MYJ0CGLob
+	vrO61V0ft4xxXtfHHYpjRI8FKWze0GXadVRVK1ugF3HLR1TfqP14c+hyvK51mGPNCqIiYd3f/Gj6B
+	a2YYUxPgo9Fq6I9sJp5I6Vz5YULUavsrSVR7EDtuV3dWju5m2xM4avfAbxmqzBxxfqXRm5eT2limu
+	YLN7eILKSt65KFbana578xpH5VCZgwrkiYpwyS6uVVUHL4w5tNs9JxftYcrdBMFZmzCYUWosnWLuS
+	pk3KIV3XmF7/uAlTU/BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTLI-00000000arS-1XH5;
-	Fri, 05 Jun 2026 12:08:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wVTUM-00000000bJZ-2sh8;
+	Fri, 05 Jun 2026 12:17:26 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVTLG-00000000arL-3soY
+	id 1wVTUK-00000000bJ8-0lgz
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jun 2026 12:08:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 59A6A404A7;
-	Fri,  5 Jun 2026 12:08:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 592CE1F00893;
-	Fri,  5 Jun 2026 12:08:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780661282;
-	bh=87M3kBakEBJVQQ4M0v2n+8FD2QjfthNbE3uBbHgwWWs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hB+BrAF3+R5c1NEuBb/NrRCTTQsVA3PghmjDLi3rsyIajeXQ48OUQkTQ2+1B/Td67
-	 DichNuHaIDLGezakbz2Yg7EF6VcfOAXNOJuPATAZXJ4LAb1QBFbgIJy/Pe7h3N5Uca
-	 Rm7Aj80rYylraNt4JOldab5Hzj/EyGjKcLE3HDpX/m2Nusowv4XOu6HxNBSErg7FXm
-	 pSoH9O3BxMadxmu/+5ujbjhszft7bKRzAMq4UyovFbh+dMgYKEZMfax6wdimh7xuhL
-	 tlid06yV591Bn/P/jhthHwhpbvJVqrWk/xQnVT/aAO1U7+THXg5tybthh/aCB6c8cR
-	 dDDqbtbeyMHHA==
-Date: Fri, 5 Jun 2026 14:07:58 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Maurice Hieronymus <mhi@mailbox.org>
-Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v2] pwm: th1520: Remove requirement for
- mul_u64_u64_div_u64_roundup
-Message-ID: <aiK7i_bblFzHDiH2@monoceros>
-References: <20260605-pwm-th1520-fix-v2-1-5921e3a595f7@mailbox.org>
+	Fri, 05 Jun 2026 12:17:25 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c0c2d8b95bso12282455ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Jun 2026 05:17:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1780661843; cv=none;
+        d=google.com; s=arc-20240605;
+        b=T3vBc0DvEFxrLFTAqe51+Ccpkv4nWh1B03WabiyvyRdkNBX6AX6+gUKTMsediQ2b+0
+         gnc1GCGsipGwEvFno9OgTGtZY9I6uxE8TNRPaQYkBBDfUGcx1My1pTLE6moWHTB8XZoz
+         Q44acyKh9U/zqKHccn8cIJ6LogFw3UHOWozocN3Hdmmwi2+l5WpRU+r+rQSznyuz1PSA
+         mJemzOUoyJczFXmLvWi8YYxhvitXbAAO96esUuzP1v2wYvC9PYYS+eoz0FqEUZwLwLwx
+         gwCSc4P3UwULqp/QAn2N2mX2YPKTBZL3H4IZm5G21CZopPkrpP2J/Uj2xO4uYiZGd4Py
+         d5YA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=O1D7q+cAZBnaFGgiAedXXkbxBpbfjB/B2YThNrAJHNA=;
+        fh=eQHIlwQXPBLIW/wC/xZNKojZqriDkOlP4mNtVBBPkNQ=;
+        b=Ov/skSnlMDaFRl+20B3f/KOuKqE1s2vAtdpiz/X3PAaxGxjQE6HOEWGhlQuJ/F9G6x
+         uXezO1qcXXww6RfW+5B2uMwHT+AkmDO6oztczArkrhAW0ky0eJw2lJpNfHbGX5YX6dro
+         XZn0xunfoHnsNuxZ+MBN/qwV5B5dpADUT/Vo1kFM3rPUKyUxNrLjmqFqRX0AjA7D9VjB
+         I30WbeOcuzGFAINe2HDeGz6XOLDH0XBqilVRRGJgowvPHY4FCzptuK4gGgr4PVQj1xmn
+         yyqa9GkW/BwBH3zycPx/6GjxkuI6MFdTDTzP2FMSdbuwsQnniVq2rko0lVp9OWcuS0aq
+         99lw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780661843; x=1781266643; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O1D7q+cAZBnaFGgiAedXXkbxBpbfjB/B2YThNrAJHNA=;
+        b=X/rwIOBK8ckYzWWpqbixZqCjBrLyecIMtzGU6+m6iMO2zzqwkY6IqP1A7QFOayeYFC
+         zu7eypxpJldpFMLAlWNDPyWdQvScybEIv6NG5X3ZGQ9GeqXb9j2+ZRwvVxkhrcOP31Mu
+         n9lMPzFA4Hs69WNA4TY02pBQr+00dXaW6bcCuLpBcjSOCk5YsSXLYB1wfN3fPKVHS7m8
+         uI07lcOpppWLNGGBIpEahYFBVvbIfqRVzL+ijvwTiLd98+Kr/oojq0OpGjCSL+N3g6fZ
+         5srUzAH3tIRiEmRa74SqGkau0jExKH6Ii5vUHDBo20mDFo1IODTrKHQohuGAZrxt1eOj
+         Pj4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780661843; x=1781266643;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=O1D7q+cAZBnaFGgiAedXXkbxBpbfjB/B2YThNrAJHNA=;
+        b=sQ6OcL4rsYCATvS3VZhPhtfyQJQ6HRntZMZkl2fbroisw5jMyper81kgyhUG0Iyx/8
+         IlqBzZQc/K1SUcnZWcYBYm7fkVEawuE96lK0jBVZSatw4I4KzVh54Pmf6HUKBW3FwD/v
+         Wnv4vwfiNfZfFhBp3HZtTwCiGtCNhkNh52MYSYnid5/6z2C2p9Jb3C2860aljbiqMtLh
+         LO8cYA1IdZ/EBUOB/719QKcwrb4j0oqn6IBxUGecljq4unNYuU/77IpPHc0dI4RNQyGL
+         Kgn5Jqs6lDBzYxkbBJI2p4ZLXkpxbycQIHBv0pAIuV+exyiaLNy2KQv7wToHnCIwA2Mj
+         6FCQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9g2ceCvay7Hcfx1CBAMKvAGm58julSh9neV3E3HDtiPW/5spxl60+aj0n9bVLfgOBrqPFc9p4MEXxMAA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNZuNtgSZzEp0xzJ2bTllOJI6kPcHDc79izi5cOm5GVlO3b+EQ
+	A+te2/tJuIQrpxBzotr+EVDZsWXyV7GKorexBrt9OBfRgCj+cEZ5M+z7jNRLnHPsejMfFed2CUy
+	IHTcRsHvIvoy0kSt3oOP3foJF0VFKHv4=
+X-Gm-Gg: Acq92OFXlC6Q2Dp7aWFW+Go4hluCK5Ypc024/zIdq/IJWUaM2sZZjyqv4eteVjjuzSo
+	EFqiDyvPnn9zPxzYkV+MruRWIiRhM/bu9f+uUpxcUSsWDC/HQCewkMYgiO1Fnr0jw04mVHN5GB7
+	J/NOr7aR/ksume0HGek8BIoxiJKpE52PdQHWQ7YHY0GxEXPN300W60OuO9ZPujlRcfefFmajyHh
+	ZWHzZNRUyMJywOVvmQ/3hhrNVlRampDeXp3hNBQ0s+VlHzNdNFZOyv3chCqsIjMhF0inkRefyKe
+	AnfC63uyauM3AmVJy8T+xa42xIMgiQYcU5W13v0+ErH25vHEFtSEaZX4MMRCqmZAFdUeViiAN2Y
+	=
+X-Received: by 2002:a17:902:e752:b0:2c1:737:bed9 with SMTP id
+ d9443c01a7336-2c1e893d479mr35069085ad.30.1780661842733; Fri, 05 Jun 2026
+ 05:17:22 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20260605-pwm-th1520-fix-v2-1-5921e3a595f7@mailbox.org>
+References: <20260321-th1520-v1-0-ec877197770d@gmail.com> <4180689d3426882dcac2eb74209d398477f88b90.camel@iscas.ac.cn>
+In-Reply-To: <4180689d3426882dcac2eb74209d398477f88b90.camel@iscas.ac.cn>
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Fri, 5 Jun 2026 20:17:11 +0800
+X-Gm-Features: AVHnY4ILOfLjHFNJyQ_dDaX-IoRogY7VjEEX1-rTSKRis09oXxcE00pq7WQJTBw
+Message-ID: <CAN4SLj09F+bSQFk4x3POGrh6hh2s8ssk1CmTDvrDzBCswZJBuQ@mail.gmail.com>
+Subject: Re: [PATCH 0/2] drm/bridge: th1520-dw-hdmi: Two fixes
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260605_051724_227983_C6C3FB25 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,77 +119,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4373996600851910119=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4373996600851910119==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gqwi5irkxvviovzj"
-Content-Disposition: inline
-
-
---gqwi5irkxvviovzj
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] pwm: th1520: Remove requirement for
- mul_u64_u64_div_u64_roundup
-MIME-Version: 1.0
-
-Hello,
-
-On Fri, Jun 05, 2026 at 09:03:59AM +0200, Maurice Hieronymus wrote:
-> The cycle register is always u32, so cycles_to_ns() can take a u32
-> instead of a u64. With that narrowing, cycles * NSEC_PER_SEC is at most
-> u32::MAX * 1e9 (~4.3e18), which fits in u64 without overflow. The
-> saturating arithmetic is therefore no longer needed, and the ceiling
-> division can use Rust's u64::div_ceil() directly instead of the
-> open-coded numerator/denominator form.
->=20
-> This also drops the TODO referring to a future
-> mul_u64_u64_div_u64_roundup kernel helper, which is no longer required.
->=20
-> Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> Signed-off-by: Maurice Hieronymus <mhi@mailbox.org>
-
-Applied to
-
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-
-Thanks
-Uwe
-
---gqwi5irkxvviovzj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoivBsACgkQj4D7WH0S
-/k7R6wgAuMzZA+55AkXQeRINO6VINuOHL8cJptc2DiHB8jHkCpe/lCHO6md0D9SA
-0WQQrBea3pb9DGRf1z0u8iWJpaMzFL0tg3SCUyM1MjHnr9uj37y7O+37ahRiWogT
-ovotIzIy3UAZdUel9DA+9yxbooZ6JpkvH77chf9rYYIwtmtorfa1/LSKKryueJ7i
-46K3fN5hYuGbkV/QnHLtt6AqEtPv1Hvo5RuZC4ynvE0aIN68NVcvLnahDqGwaRcg
-2Dcwq3dOWNzxAuylmH7fa0oR5ur/O5YydLDELBX8++m2Zm4+9I1codmLjeYkF0tX
-PHV64hYGR7riLxW3UnGBGX6WFD6fnA==
-=lOKo
------END PGP SIGNATURE-----
-
---gqwi5irkxvviovzj--
-
-
---===============4373996600851910119==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4373996600851910119==--
-
+T24gU2F0LCBNYXIgMjEsIDIwMjYgYXQgMTowNeKAr1BNIEljZW5vd3kgWmhlbmcgPHpoZW5neGlu
+Z2RhQGlzY2FzLmFjLmNuPiB3cm90ZToKPgo+IOWcqCAyMDI2LTAzLTIx5YWt55qEIDAzOjEyICsw
+ODAw77yMRmVsaXggR3XlhpnpgZPvvJoKPiA+IFNpZ25lZC1vZmYtYnk6IEZlbGl4IEd1IDx1c3Rj
+Lmd1QGdtYWlsLmNvbT4KPiA+IC0tLQo+ID4gRmVsaXggR3UgKDIpOgo+ID4gICAgICAgZHJtL2Jy
+aWRnZTogdGgxNTIwLWR3LWhkbWk6IEZpeCBlcnJvciBjaGVjayBvbiBkd19oZG1pX3Byb2JlKCkK
+PiA+IHJldHVybiB2YWx1ZQo+ID4gICAgICAgZHJtL2JyaWRnZTogdGgxNTIwLWR3LWhkbWk6IEZp
+eCByZW1vdmUoKSBjYWxsYmFjawo+Cj4gQm90aCBmaXhlcyBsb29rIHRyaXZpYWwgYW5kIGxldCBt
+ZSBzdGFydCB0byBkb3VidCBob3cgY291bGQgSSBtYWtlIHN1Y2gKPiBtaXN0YWtlcy4KPgo+IFJl
+dmlld2VkLWJ5OiBJY2Vub3d5IFpoZW5nIDx6aGVuZ3hpbmdkYUBpc2Nhcy5hYy5jbj4KPgpIaSwK
+R2VudGxlIHBpbmcgb24gdGhpcy4KCkJlc3QgcmVnYXJkcywKRmVsaXgKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
