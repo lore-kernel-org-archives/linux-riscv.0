@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A84CD6E7B
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 19:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9D3CD6E7E
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 19:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C4ZiJxxotWO63whWWf+wynNrrwWmNF4HR3HGS+frZhg=; b=ZGPUj9RODYnRKJ
-	mKwc3VM25Rtmwl2k2cFBQNoQUvfCEtBQuLMqIp3DCby6yhS1dibQzWV/AqVNWpxzuGGOgAo7q/K/n
-	MYqQxIk7JkyKoFo3qVx5dYGwpFGObJTGgn/t+l0kOBpReZYL3DRzCuQihV4EbvJQ+UXh45TPt70D2
-	bMd0p79cCnrZZIX5zRGkvsgjjifdR9CsYdkj7UpcNrdNO6EbBBBpvoqucLk306AHlr5oDB/mVTYEa
-	tkuCPfuPbiH+qxGk+x1f49KlW6xf/UNsclUrErhx2ck5V+pHh4BHE95pgZy+xGR9zKEIjBbCLwncX
-	S6gbnjOLhFCkqHQV61nw==;
+	List-Owner; bh=/YWkpWAhJSyZguHsoBgQPUtdUS2gzdxIRZiw44ZpOYo=; b=pZjOntAjjEwN5f
+	a9R/KLN5ZEuYPSm47G77yaCYNkbPaFJQ/+gN5ER5bkpgnfc7AI1UMZjsHlZYTTEh1Dgf8YAxNS4S/
+	07Op4S8AvPvliDuZtLtSDcBk5spoKLZlc1GfByS1P0/S1e9xfu3cZ8BFc9mcE29NooCOX5Vizc5dH
+	hEQAo1WVjJrAdXDr1jGXeGH/hzpu/qrMXLRMqNEQaPIwXFvGK8MkgCgjKwAF/laE0W8kc2DcNJZ5N
+	gLGJ6LWIvJf1Gr3u5cAyzo9y7XdSxPagztB5zt5NxxxT/DkcqcDAOS0XvTNF3CUBc9ams4COTRRiI
+	HuM9+RQG2hxF0Z7Y3rAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZzz-0000000168Z-1LDy;
-	Fri, 05 Jun 2026 19:14:31 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1wVacQ-000000018Le-2E1U;
+	Fri, 05 Jun 2026 19:54:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVZzw-0000000165z-2GUO;
-	Fri, 05 Jun 2026 19:14:29 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=xgNX3BfF0sHR956gYPtFqiQRwqATyVW0rwVI7QS8mHU=;
-	b=YJzz/5vBlwx7hPqGyZX8pBBWsNwfEMrzwPWls6nFnV6qkSpbeJm7yG8G6s32Dg4oaKOzIAqeJ4AtYCxAGfUnJvVGA+B2tS4Sy+W0MLRxCJxuAKalh9oINWhQeuHIMZJkT3w0/xG9qGkQr9MiT90w2ZwsZEWkZXbyiRk9R+D1MYg=
-Received: from lukas-hpz440workstation.lan.sk100508.local (194-166-56-114.hdsl.highway.telekom.at [194.166.56.114])
-	by mail.netcube.li with ESMTPA
-	; Fri, 5 Jun 2026 21:14:02 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1wVacP-000000018LX-2iPk
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 Jun 2026 19:54:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B99C4600AE;
+	Fri,  5 Jun 2026 19:54:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41E8C1F00893;
+	Fri,  5 Jun 2026 19:54:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780689252;
+	bh=p/pcvISMdGSURalgNXTgQExEqZketLGMU2kKzQ/4vPI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZzZCVn5kRIZSOzAFvVFc7wpjuGPGTJANdMjAMquYGdsX4iP1uzOZ5LDBCxW5pKt5T
+	 h/3J1We9d9O3h+GXBFhP4dpim17XAvcjZYbIKD4HjhbNbFpNDGOb/1SyewVOcVJ8xe
+	 gKsnt8cJJw3ZxiEPXW6WRmnFgrss5y5u1+H55PV5YM6pgpWGwXUOFiNFPsbCM2oe6O
+	 4c+WfH0Bw+VbTAU+XC8xeEb6i8DWeE1FyMzgfa47J16BXe8oXgrpjeijbXfKpM3719
+	 S/a83dTOMaNVseYpwYHJVvQWRAWzQGCaMZK0U7Kj5t5nHzc6Pl8d5xaENwwO3sxg0k
+	 XKAKaUHVYb3Qg==
+Date: Fri, 5 Jun 2026 12:54:11 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Joel Stanley <joel@jms.id.au>
+Cc: Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 1/3] dt-bindings: arm: sunxi: Add NetCube Systems OpenNMC (dobermann)
-Date: Fri,  5 Jun 2026 21:13:13 +0200
-Message-ID: <20260605191322.1920944-2-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260605191322.1920944-1-lukas.schmid@netcube.li>
-References: <20260605191322.1920944-1-lukas.schmid@netcube.li>
+	Nicholas Piggin <npiggin@gmail.com>,
+	Michael Ellerman <mpe@kernel.org>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/7] dt-bindings: aplic: Add Tenstorrent Atlantis
+ compatible
+Message-ID: <aiMpY6tjGhv/cRWI@x1>
+References: <20260604143957.668047-1-joel@jms.id.au>
+ <20260604143957.668047-2-joel@jms.id.au>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_121428_878928_FF51DC0C 
-X-CRM114-Status: UNSURE (   8.14  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20260604143957.668047-2-joel@jms.id.au>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +78,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The OpenNMC is an open replacement for APC SmartSlot management cards
-based on the Nagami System-on-Module.
+On Fri, Jun 05, 2026 at 12:09:47AM +0930, Joel Stanley wrote:
+> Add compatible for APLIC in Tenstorrent Atlantis SoC.
+> 
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Joel Stanley <joel@jms.id.au>
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- Documentation/devicetree/bindings/arm/sunxi.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
-index e6443c266fa1..077b65507645 100644
---- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-+++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-@@ -598,6 +598,7 @@ properties:
-       - description: NetCube Systems Nagami SoM based boards
-         items:
-           - enum:
-+              - netcube,dobermann
-               - netcube,nagami-basic-carrier
-               - netcube,nagami-keypad-carrier
-           - const: netcube,nagami
--- 
-2.47.3
-
-
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
