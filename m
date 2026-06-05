@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6178CD6E6B
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 07:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F704CD6E74
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 07:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TmZyN0Dqt8o7LW9StOV4mJo99SWPKn3ztfu6ZNp2hpU=; b=Z/94tssIC7dzeb
-	dR2rvZPKPVHGe/lIE1JoZsZyLzJnlxq50maOhzYWT4zXGgpsoXvq4XGozdJsGKeNRBUwOBoyZ367K
-	870oyrOi0RZUz3hn7Hy0sxvZTHZjxsfGzBAXjvQZk3WL0FSIE6AKGxZp+XRNZL3+MDmIypIG+UC+S
-	d9vPRjLyzRmW03HZIaFYRrpeImDJ+tIMFoYLkzkyaj8lAt6zqhH4sAdpRHAuvzGdJxeqJRoeaEd53
-	TojcajeH6VNM6uzEDpruv9MD1KMyPE2vI5ms/YhkW5diGRahMcOFZANCQGClBNCpuDW/3F9FGkJ5e
-	rc+NYrEihsjUxy/X7glA==;
+	List-Owner; bh=Tna3CTqLzCnrlgLwnToGsm0+BCSWUHX5g711IwCKVLE=; b=St6reiLOBcvifr
+	oXLFDdI2HBbsNvZZEvX9E5wgiueUlhGUA6TfUH6bYsnpPajlrbbeTrUQonFTVB42Hj3abRVYnac8Y
+	6NQ13XK4U62rUonwabSW4PHL5XGmyX6DpvyIrCrfFZDLg8VRoLNB5vKmwt9xzxrQ0WNsCVAwD/WXU
+	R9auuFUieZmrHE+Q6IZVYR4D5Way+64BqU7YksXw77u3LV4FK0o5pJ+F81vgWtZ6ntpLMBzxMZaKE
+	k7QgXZ3stYslJfX2e11Sg7yRXdwxd0VCfZB2wK1Neo4dpKEL6PSwNI0qZERSXlB4SUH89+Pqehgk9
+	7NYxmalXLE9D6AAuG5mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVOYF-00000000CB1-1GY6;
-	Fri, 05 Jun 2026 07:01:07 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
+	id 1wVOYN-00000000CCZ-1frf;
+	Fri, 05 Jun 2026 07:01:15 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVOYC-00000000CAP-0Gwj
+	id 1wVOYL-00000000CBt-0Wt5
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jun 2026 07:01:05 +0000
+	Fri, 05 Jun 2026 07:01:14 +0000
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gWslx34H3z9v3Q;
-	Fri,  5 Jun 2026 09:01:01 +0200 (CEST)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gWsm66mFWz9vJQ;
+	Fri,  5 Jun 2026 09:01:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1780642861;
+	t=1780642871;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OpNBtlw9n2UCJW3D0hBUmygvSZ9hYaw7j0NNMC94AK4=;
-	b=GGaoMEEQI3Xwgau5/KSpvAySoomQK91gLt491999CJTJ6qWIxbsGyRWlpefLN9VdkpzswO
-	JGAcgDUAzmc7UgPYlp4OKVWP4tJKbFhq5wsvnqMJ6OUU3pK0gOALDBwQFrNC6szaYKMIw2
-	6krzfuD35LZwtB+Qdtm5yuWQztwa6NpqaGvu4htpakZpnkGwh6M8ntZSXp2/9r5OfXQY03
-	FMMKyGXZi6x7fr28Nb5AfT9rYeJI8seAq2HSlQQiIHMZGwOwKE+5JUwwHWvy9ykS7kaP15
-	VRUvl/pXHMPpDyO6kFED+yZTmSRkanpNWF+zRJP6Pf3KK0NkF4iOUSH4HqUnFg==
+	bh=5AisOK8s0MrDK37/TSGMnTNdk0xSn+SbMsbMUZ0nmfk=;
+	b=JdHrpnDOYCj2thOK1j2uixDXieb+46nyuy9pggdoRq9ZmunnyGBU4yK4sQwIvzHXYpxMnU
+	/jYA2ihhzuwJR9d2mhWdVOLRuYmfOCCBucoYXa5khSwDTK+GWNoeh0MkpJ9fqpdWLhGkqz
+	ZjKRFTqNSHSseMskqKqmsS5e4nOgpKQue4rjiDG0kenW0Q2qx5m2SDCnaZQMXNP+JpXFlD
+	GroEL7ugJNhbViNlNupCZyOUJqoMKXpnR91GYZyNUeddBAVFquBt38bgBWQivA4XRijC5r
+	DaPoQHdXAqL3rJzQuazzo4JzVDQYihRXzuFmrtX08+gP0eKnMpjEbg7d9bn5WQ==
 From: Maurice Hieronymus <mhi@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1780642859;
+	t=1780642869;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OpNBtlw9n2UCJW3D0hBUmygvSZ9hYaw7j0NNMC94AK4=;
-	b=h4ZJD7pWeiBrHP178TiWZuxtX1fdKlYrIYx1VcSOMs+fzU84EYqGbu5FcO9uzIEgn91tcS
-	Jn5LZ2ope1hnWhoapqqxQyz/frTp8TYH0gFRD5hSu0z9fFZxcx5oZRFn2FphEN4y86L+Oz
-	fr6v2oGNgsu3TatoZA7Cm9zbjwpwIShCh6Qt9G9a1z4VOqsku+joy1N4jRACQlNvi9g7hf
-	Hm4rcBOOLU7Wgoqddlr3fTTyQbz00s+Hv6+R8c3LLyTgDkYXMMcQAKoqm3OQPJkzyAYRd+
-	3wgGQiQ1dBDrTr66YS16GVW+Q4Hs7zg1EsKk/MLGVaCo6DkfRtOL9lXNx+T13Q==
-Date: Fri, 05 Jun 2026 08:59:59 +0200
-Subject: [PATCH v2 1/2] rust: clk: Add ExclusiveClk wrapper for
+	bh=5AisOK8s0MrDK37/TSGMnTNdk0xSn+SbMsbMUZ0nmfk=;
+	b=eYEFdiXUTttRaoD+Afyd77elgOXcd3PbYltjw5qY1wPSxqjrh0bAcBU4fi8ViG/wGiFoLL
+	WLB95UAcV9UXQr7AmrW3OmfvHzbLVw2IzxSDelnbt4EIMddcPPNU7v+oM4+AxEgVEKdmUv
+	AEhf0qkm0ASOCl0fsmfyH4ztqA5UDc47pAFHR8iZzNTLgJPGNcvKjvVX8U42QESQnIX6Iz
+	BdcWageqTOo3PEwTcK9ysLezZjHQ4P2EgUWjUi8i8ivnHWGrQDYtnuP3Xr3q77hb+bcIU7
+	ITtyQF7JJNn5kCWc4ZYqpXBIP8CbKST5L8+nkNQtsSCOWgX40kpsjR5H2+PPMQ==
+Date: Fri, 05 Jun 2026 09:00:00 +0200
+Subject: [PATCH v2 2/2] pwm: th1520: Lock clock rate with
  clk_rate_exclusive_get
 MIME-Version: 1.0
-Message-Id: <20260605-rate-exclusive-get-th1520-v2-1-695640bf7249@mailbox.org>
+Message-Id: <20260605-rate-exclusive-get-th1520-v2-2-695640bf7249@mailbox.org>
 References: <20260605-rate-exclusive-get-th1520-v2-0-695640bf7249@mailbox.org>
 In-Reply-To: <20260605-rate-exclusive-get-th1520-v2-0-695640bf7249@mailbox.org>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -78,18 +78,18 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  linux-pwm@vger.kernel.org, Maurice Hieronymus <mhi@mailbox.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1780642818; l=3552;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1780642818; l=1573;
  i=mhi@mailbox.org; s=20260525; h=from:subject:message-id;
- bh=Eq2/FqQK+/3GGvQH1jgzjXllW8SOFixYwWstqkvt+Ks=;
- b=EnPdbF7ZbiSZsoiQzpqVV642CEH+9nF8nNVKGzxReY0KS0hzY5ErgB16n/ogDC4ZIgDHlnxRs
- 3pOhFWYN/TeBhXC4PYk2qu9FhThAApgBG4qR+jGpgZpndrfq7TktHcu
+ bh=60xrDe66k4ro+KvVbaFJv2mj9P8kpFvqUKywbpSaqwI=;
+ b=WGnFX7PcxbBDEWUXjmEwNTBR0kSfl2DufCpeg/+PtLA111qvEc4g/HvbvGFUtb8xe+w8VJkIJ
+ ajVQyrtia3FCoSl7ss/PX3cylicvjwS9bby/KwyEGzgtYLN+c49u4L1
 X-Developer-Key: i=mhi@mailbox.org; a=ed25519;
  pk=AHlEkGG3hpXZHntlEzF42Ip/LFyXWOgsNUvaHqAnV80=
-X-MBO-RS-META: btqxt863ejstfjtaxooubyxo1r5tg14c
-X-MBO-RS-ID: 46288b54c5fc677ce46
+X-MBO-RS-ID: 0b9247bacab9cefd338
+X-MBO-RS-META: 3b51q85kj4buq3xszfzwttb54czpc51w
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_000104_256633_8252E401 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20260605_000113_323726_A0F37982 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,98 +106,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Rust bindings for clk_rate_exclusive_get() and
-clk_rate_exclusive_put().
-
-Clk::rate_exclusive_get() consumes the Clk and returns an ExclusiveClk;
-the matching put is issued from its Drop impl. ExclusiveClk derefs to
-Clk so existing rate / prepare / enable APIs remain available on the
-locked handle.
+The driver derives period and duty cycle from the clock rate read at
+probe, so a later rate change would silently miscompute waveforms.
+Switch to the new ExclusiveClk wrapper to hold the rate for the lifetime
+of the driver data and drop the corresponding TODO.
 
 Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 Signed-off-by: Maurice Hieronymus <mhi@mailbox.org>
 ---
- rust/kernel/clk.rs | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
+ drivers/pwm/pwm_th1520.rs | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
-index 7abbd0767d8c..f834f4833f18 100644
---- a/rust/kernel/clk.rs
-+++ b/rust/kernel/clk.rs
-@@ -249,6 +249,22 @@ pub fn set_rate(&self, rate: Hertz) -> Result {
-             // [`clk_set_rate`].
-             to_result(unsafe { bindings::clk_set_rate(self.as_raw(), rate.as_hz()) })
-         }
-+
-+        /// Acquire exclusive control over the clock's rate.
-+        ///
-+        /// Consumes the [`Clk`] and returns an [`ExclusiveClk`] that releases the exclusivity
-+        /// when dropped. While held, no other consumer may change the clock's rate.
-+        ///
-+        /// Equivalent to the kernel's [`clk_rate_exclusive_get`] API. Must not be called from
-+        /// atomic context.
-+        ///
-+        /// [`clk_rate_exclusive_get`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_rate_exclusive_get
-+        pub fn rate_exclusive_get(self) -> Result<ExclusiveClk> {
-+            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-+            // [`clk_rate_exclusive_get`].
-+            to_result(unsafe { bindings::clk_rate_exclusive_get(self.as_raw()) })?;
-+            Ok(ExclusiveClk(self))
-+        }
-     }
+diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+index ddd44a5ce497..19e8621bc52c 100644
+--- a/drivers/pwm/pwm_th1520.rs
++++ b/drivers/pwm/pwm_th1520.rs
+@@ -22,7 +22,7 @@
  
-     impl Drop for Clk {
-@@ -329,6 +345,50 @@ fn deref(&self) -> &Clk {
-             &self.0
-         }
-     }
-+
-+    /// A [`Clk`] with exclusive control over its rate.
-+    ///
-+    /// While an [`ExclusiveClk`] exists, no other consumer of the same clock may change its rate.
-+    /// Obtained by calling [`Clk::rate_exclusive_get`]; the exclusivity is released automatically
-+    /// when the value is dropped, after which the inner [`Clk`] is dropped as usual.
-+    ///
-+    /// # Invariants
-+    ///
-+    /// An [`ExclusiveClk`] instance owns a [`Clk`] for which `clk_rate_exclusive_get` has been
-+    /// called and the matching `clk_rate_exclusive_put` has not yet been called.
-+    ///
-+    /// # Examples
-+    ///
-+    /// ```
-+    /// use kernel::clk::{Clk, ExclusiveClk};
-+    /// use kernel::device::Device;
-+    /// use kernel::error::Result;
-+    ///
-+    /// fn lock_rate(dev: &Device) -> Result<ExclusiveClk> {
-+    ///     let clk = Clk::get(dev, None)?;
-+    ///     clk.prepare_enable()?;
-+    ///     clk.rate_exclusive_get()
-+    /// }
-+    /// ```
-+    pub struct ExclusiveClk(Clk);
-+
-+    // Make [`ExclusiveClk`] behave like [`Clk`].
-+    impl Deref for ExclusiveClk {
-+        type Target = Clk;
-+
-+        fn deref(&self) -> &Clk {
-+            &self.0
-+        }
-+    }
-+
-+    impl Drop for ExclusiveClk {
-+        fn drop(&mut self) {
-+            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-+            // [`clk_rate_exclusive_put`] and balances the [`clk_rate_exclusive_get`] call from
-+            // [`Clk::rate_exclusive_get`].
-+            unsafe { bindings::clk_rate_exclusive_put(self.as_raw()) };
-+        }
-+    }
+ use core::ops::Deref;
+ use kernel::{
+-    clk::Clk,
++    clk::{Clk, ExclusiveClk},
+     device::{Bound, Core, Device},
+     devres,
+     io::{
+@@ -93,7 +93,7 @@ struct Th1520WfHw {
+ struct Th1520PwmDriverData {
+     #[pin]
+     iomem: devres::Devres<IoMem<TH1520_PWM_REG_SIZE>>,
+-    clk: Clk,
++    clk: ExclusiveClk,
  }
  
- #[cfg(CONFIG_COMMON_CLK)]
+ impl pwm::PwmOps for Th1520PwmDriverData {
+@@ -328,10 +328,8 @@ fn probe(
+         let clk = Clk::get(dev, None)?;
+ 
+         clk.prepare_enable()?;
++        let clk = clk.rate_exclusive_get()?;
+ 
+-        // TODO: Get exclusive ownership of the clock to prevent rate changes.
+-        // The Rust equivalent of `clk_rate_exclusive_get()` is not yet available.
+-        // This should be updated once it is implemented.
+         let rate_hz = clk.rate().as_hz();
+         if rate_hz == 0 {
+             dev_err!(dev, "Clock rate is zero\n");
 
 -- 
 2.51.2
