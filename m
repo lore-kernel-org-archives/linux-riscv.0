@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC8CCD6E6B
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 08:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58FFCD6E6B
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 08:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Mime-Version:
-	Message-Id:Date:Subject:From:Cc:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:From:Cc:Mime-Version:Message-Id:Date:
+	Subject:To:In-Reply-To:References:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J/59D/XTJbB82vETpSEcBlFaBBvfCAUcc0k3gYLJqOA=; b=TjN2LivOtdXcOn
-	O1m3UTib1D9asQFQRzDXD3VZAqYdMOzmnX+XWOnujAN+dHMqa7Fm2ZxLNqjsEVwhbGlI6qh4pOC0M
-	7Z8HlHytEOrK0fbuPenx4LmUKlmPeRgAhYW3LiJdlo2QwkU0wvslMPyFKFNk9Cpjkcpr8nx6AEREJ
-	r0cnd8TERK+pc7XGLop43yFQaAz0+hCxQ2er9BweuiFJlyLS6J1xJweiyC+l8WXfUOss6s6g2RoAg
-	nP8IYA3YnvICUSBijCDhX9R72t72v5jQgE4YihH/wb6A19ga2jyLS5JJUTbWIK89O5AVaDUqQrjJ+
-	5CiYOfh0lzDgIxeOhWRA==;
+	List-Owner; bh=TpyMMp9UjIJ8KVNIDuK5V9DgwwEYc42gtL6/DbN+dnU=; b=u+W9WvnEwEZ0qt
+	cmvRqRBpNCWpNuF4w3RjxXsttDpga+q0hd2KR02miogI0EI8EfL9Xa9tQE7sZi6p7Zl0U0s7Mll6C
+	d2u7O7my2HTTAKmS3W0GW0hGwTALMOs/id36nJzLH6+i2JREp/fJJad0apoxiwt2SROhYJ/R4i/TO
+	IJD0P3r3/SMp+XDrB1pHb5f6lvviOYJgJxbMDEUBDrsLebA/x9mWcj+spGvcqNMpSgD6pNyX3D3pz
+	j+fFEPdxKlssLnyOMXq6WribVBg3m4HgOQm5Q+sZhHVwXjLC70JcB8Y1xfGFuxPZyi05mu47wyHsu
+	vCNetqNFKgYGd64IGwTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPng-00000000Iip-1iJy;
-	Fri, 05 Jun 2026 08:21:08 +0000
-Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
+	id 1wVPno-00000000IlB-25FW;
+	Fri, 05 Jun 2026 08:21:16 +0000
+Received: from va-1-114.ptr.blmpb.com ([209.127.230.114])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPnd-00000000Ii9-1yow
+	id 1wVPnm-00000000IkA-41Q0
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jun 2026 08:21:06 +0000
+	Fri, 05 Jun 2026 08:21:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1780647660; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1780647669; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=joVqT0sbeZstg7foR7ZySXhhdOS5ZDwWEcSwH6D6Mjs=;
- b=OmOHZw7bGeEhePfGfGJ0Q2BdkX0A83G8XQ5OZh5G36mHYp+wx+54qazVmY7oHWObacR9iq
- UKzGRa3bDyNUBnIWEJoQKem4iIrKKj5VMJHVdV14mXzGAV5ah14ZZJiW15BzK5HGP27UK5
- /hvsJDg8i+3sIk2zzcnBIXQZY9uLSyBB5hO7eYBxOfo9ekYcODUABWK/9/cj1tsVjRnDbm
- cPqLTbRLkVPhJ3iKfpurIVwU7N7FTane3sltpD8Z9rOtrC0iSWt2PpqpUjJG9t89fVQ7lY
- CtfKfNlF7xXSSJamr3vcA72kjDAu+tq13J+B8YO6WEz0c/uy00WV7yUVFT4olA==
+ bh=BGE6tDrPFGqUs4MaoKsNPVSUNEuhQZ4U3v9K5VelGYg=;
+ b=fzxg6w3xjLCRz5aIflxQ7d5X4B0vHihsRj3W1NrzQsKR1Ot5Q8eUu/vtGSHSjINMzZ8l16
+ Jq/bgF+CoBhvrUo6nZzYoKn4dA4jlUQ8Oij9wHE+sGt7G3qe+Q/5sYZ3SrpJeUgN7EB7wF
+ 6WLjDZ9V8ay/h6SKrb3FMrMxT6xDhkzHQeb5KLhGvzKmZWdezo/z8doOQqz54KB81zH64i
+ HWcgnFVGNKMSAHbEXzp3nR0j4DM1M9JPKECL4BNGVCQs2MhDcyqR28J1cZFfLlI9lynDBQ
+ oqxs1ppsF5qjU72dxCYaHr2OlOesGz9yjx5QTINR2AvZPeBX3PmpepRuaNKjPw==
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+References: <20260603115329.791603-1-qirui.001@bytedance.com> <20260605082034.1426923-1-qirui.001@bytedance.com>
+In-Reply-To: <20260605082034.1426923-1-qirui.001@bytedance.com>
+X-Lms-Return-Path: <lba+26a2286f3+b68696+lists.infradead.org+qirui.001@bytedance.com>
 To: "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>
+Subject: [PATCH v2 2/2] riscv: stacktrace: Use %pB for return addresses and %pS for exact IPs
+Date: Fri,  5 Jun 2026 16:20:34 +0800
+Message-Id: <20260605082034.1426923-3-qirui.001@bytedance.com>
+Mime-Version: 1.0
 Cc: "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
 	"Rui Qi" <qirui.001@bytedance.com>
 From: "Rui Qi" <qirui.001@bytedance.com>
-Subject: [PATCH v2 1/2] riscv: stacktrace: Remove bogus -0x4 offset in non-FP walk_stackframe
-Date: Fri,  5 Jun 2026 16:20:33 +0800
 X-Mailer: git-send-email 2.20.1
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-X-Lms-Return-Path: <lba+26a2286ea+307c11+lists.infradead.org+qirui.001@bytedance.com>
-Message-Id: <20260605082034.1426923-2-qirui.001@bytedance.com>
-Mime-Version: 1.0
-In-Reply-To: <20260605082034.1426923-1-qirui.001@bytedance.com>
-References: <20260603115329.791603-1-qirui.001@bytedance.com> <20260605082034.1426923-1-qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_012105_574518_CE2A1398 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260605_012115_071385_FE595B7E 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +70,241 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the non-frame-pointer version of walk_stackframe, each value read
-from the stack is treated as a potential return address and has 0x4
-subtracted before being used as the program counter. This was intended
-to convert the return address (the instruction after a call) back to
-the call site, but it is incorrect:
+The print_trace_address callback uses print_ip_sym which formats
+addresses with %pS. This does not adjust the address before symbol
+lookup, so when a noreturn function (e.g. panic, do_exit) is the last
+call in a function, the saved return address can point to the start of
+the next function, and kallsyms resolves it to the wrong symbol.
 
-1. RISC-V has variable-length instructions due to the RVC (compressed
-   instruction) extension. A call instruction can be either 4 bytes
-   (regular) or 2 bytes (compressed, e.g. c.jal). Subtracting a fixed
-   0x4 assumes all call instructions are 4 bytes, which is wrong for
-   compressed instructions.
+The kernel provides %pB (sprint_backtrace) specifically for this
+purpose: it subtracts 1 from the address before symbol lookup, which
+is sufficient to fall back into the calling function range.
 
-2. Stack traces conventionally report return addresses, not call sites.
-   Other architectures (ARM64, x86, ARM) do not subtract instruction
-   size from return addresses in their stack unwinding code.
+However, %pB must only be used for return addresses. walk_stackframe
+passes two kinds of addresses to its callback:
+- Exact instruction pointers: instruction_pointer(regs) and the epc
+  from exception frames on the stack. These should use %pS since they
+  are not return addresses and subtracting 1 could cause kallsyms to
+  resolve them to the preceding function.
+- Return addresses: frame->ra, regs->ra, and task->thread.ra. These
+  should use %pB for correct symbol resolution, especially after
+  noreturn calls.
 
-3. The frame-pointer version of walk_stackframe already dropped the
-   -0x4 offset. Commit b785ec129bd9 ("riscv/ftrace: Add
-   HAVE_FUNCTION_GRAPH_RET_ADDR_PTR support") replaced "pc =
-   frame->ra - 0x4" with ftrace_graph_ret_addr(), and the commit
-   message explicitly noted that "the original calculation, pc =
-   frame->ra - 4, is buggy when the instruction at the return address
-   happened to be a compressed inst." The non-FP version was simply
-   overlooked.
+Add an 'is_ra' parameter to the walk_stackframe callback to indicate
+whether the address is a return address, then use %pB for return
+addresses and %pS for exact instruction pointers. This matches the x86
+approach which uses %pS for regs->ip via show_ip() and %pB for stack
+return addresses via printk_stack_address().
 
-Remove the bogus -0x4 offset to match the FP version and the
-conventions used by other architectures.
+Also update the walk_stackframe() declaration in asm/stacktrace.h and
+the fill_callchain() callback in perf_callchain.c to match the new
+signature.
 
-Fixes: 5d8544e2d007 ("RISC-V: Generic library routines and assembly")
 Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 ---
- arch/riscv/kernel/stacktrace.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/stacktrace.h |  2 +-
+ arch/riscv/kernel/perf_callchain.c  |  7 +++-
+ arch/riscv/kernel/stacktrace.c      | 54 ++++++++++++++++++++++++-----
+ 3 files changed, 52 insertions(+), 11 deletions(-)
 
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index b1495a7e06ce..6771d0e0f656 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -12,7 +12,7 @@ struct stackframe {
+ };
+ 
+ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+-				    bool (*fn)(void *, unsigned long), void *arg);
++				    bool (*fn)(void *, unsigned long, bool), void *arg);
+ extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+ 			   const char *loglvl);
+ 
+diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+index b465bc9eb870..0a5678f0d400 100644
+--- a/arch/riscv/kernel/perf_callchain.c
++++ b/arch/riscv/kernel/perf_callchain.c
+@@ -11,6 +11,11 @@ static bool fill_callchain(void *entry, unsigned long pc)
+ 	return perf_callchain_store(entry, pc) == 0;
+ }
+ 
++static bool fill_callchain_walk(void *entry, unsigned long pc, bool is_ra)
++{
++	return fill_callchain(entry, pc);
++}
++
+ /*
+  * This will be called when the target is in user mode
+  * This function will only be called when we use
+@@ -44,5 +49,5 @@ void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
+ 		return;
+ 	}
+ 
+-	walk_stackframe(NULL, regs, fill_callchain, entry);
++	walk_stackframe(NULL, regs, fill_callchain_walk, entry);
+ }
 diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 2692d3a06afa..c7555447149b 100644
+index c7555447149b..502729ab257b 100644
 --- a/arch/riscv/kernel/stacktrace.c
 +++ b/arch/riscv/kernel/stacktrace.c
-@@ -129,7 +129,7 @@ void notrace walk_stackframe(struct task_struct *task,
- 	while (!kstack_end(ksp)) {
- 		if (__kernel_text_address(pc) && unlikely(!fn(arg, pc)))
+@@ -46,32 +46,36 @@ static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+ }
+ 
+ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+-			     bool (*fn)(void *, unsigned long), void *arg)
++			     bool (*fn)(void *, unsigned long, bool), void *arg)
+ {
+ 	unsigned long fp, sp, pc;
+ 	int graph_idx = 0;
+ 	int level = 0;
++	bool is_ra;
+ 
+ 	if (regs) {
+ 		fp = frame_pointer(regs);
+ 		sp = user_stack_pointer(regs);
+ 		pc = instruction_pointer(regs);
++		is_ra = false;	/* exact instruction pointer */
+ 	} else if (task == NULL || task == current) {
+ 		fp = (unsigned long)__builtin_frame_address(0);
+ 		sp = current_stack_pointer;
+ 		pc = (unsigned long)walk_stackframe;
++		is_ra = false;	/* function entry address */
+ 		level = -1;
+ 	} else {
+ 		/* task blocked in __switch_to */
+ 		fp = task->thread.s[0];
+ 		sp = task->thread.sp;
+ 		pc = task->thread.ra;
++		is_ra = true;	/* return address */
+ 	}
+ 
+ 	for (;;) {
+ 		struct stackframe *frame;
+ 
+-		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
++		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc, is_ra))))
  			break;
--		pc = READ_ONCE_NOCHECK(*ksp++) - 0x4;
-+		pc = READ_ONCE_NOCHECK(*ksp++);
+ 
+ 		if (unlikely(!fp_is_valid(fp, sp)))
+@@ -84,18 +88,21 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			/* We hit function where ra is not saved on the stack */
+ 			fp = frame->ra;
+ 			pc = regs->ra;
++			is_ra = true;	/* return address */
+ 		} else {
+ 			fp = READ_ONCE_TASK_STACK(task, frame->fp);
+ 			pc = READ_ONCE_TASK_STACK(task, frame->ra);
+ 			pc = ftrace_graph_ret_addr(task, &graph_idx, pc,
+ 						   &frame->ra);
++			is_ra = true;	/* return address */
+ 			if (pc >= (unsigned long)handle_exception &&
+ 			    pc < (unsigned long)&ret_from_exception_end) {
+-				if (unlikely(!fn(arg, pc)))
++				if (unlikely(!fn(arg, pc, is_ra)))
+ 					break;
+ 
+ 				pc = ((struct pt_regs *)sp)->epc;
+ 				fp = ((struct pt_regs *)sp)->s0;
++				is_ra = false;	/* exact instruction pointer */
+ 			}
+ 		}
+ 
+@@ -105,41 +112,58 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ #else /* !CONFIG_FRAME_POINTER */
+ 
+ void notrace walk_stackframe(struct task_struct *task,
+-	struct pt_regs *regs, bool (*fn)(void *, unsigned long), void *arg)
++	struct pt_regs *regs, bool (*fn)(void *, unsigned long, bool), void *arg)
+ {
+ 	unsigned long sp, pc;
+ 	unsigned long *ksp;
++	bool is_ra;
+ 
+ 	if (regs) {
+ 		sp = user_stack_pointer(regs);
+ 		pc = instruction_pointer(regs);
++		is_ra = false;	/* exact instruction pointer */
+ 	} else if (task == NULL || task == current) {
+ 		sp = current_stack_pointer;
+ 		pc = (unsigned long)walk_stackframe;
++		is_ra = false;	/* function entry address */
+ 	} else {
+ 		/* task blocked in __switch_to */
+ 		sp = task->thread.sp;
+ 		pc = task->thread.ra;
++		is_ra = true;	/* return address */
+ 	}
+ 
+ 	if (unlikely(sp & 0x7))
+ 		return;
+ 
++	/*
++	 * Scan the stack for kernel text addresses.  Without frame pointers
++	 * we cannot distinguish return addresses from other saved text
++	 * addresses (e.g. pt_regs->epc), so all stack values are treated
++	 * as return addresses (is_ra = true).  This means pt_regs->epc
++	 * values found during the scan may be displayed with %pB instead
++	 * of the correct %pS, which can cause misattribution when the
++	 * exact IP is at offset 0 of a function.
++	 */
+ 	ksp = (unsigned long *)sp;
+ 	while (!kstack_end(ksp)) {
+-		if (__kernel_text_address(pc) && unlikely(!fn(arg, pc)))
++		if (__kernel_text_address(pc) && unlikely(!fn(arg, pc, is_ra)))
+ 			break;
+ 		pc = READ_ONCE_NOCHECK(*ksp++);
++		is_ra = true;
  	}
  }
  
+ #endif /* CONFIG_FRAME_POINTER */
+ 
+-static bool print_trace_address(void *arg, unsigned long pc)
++static bool print_trace_address(void *arg, unsigned long pc, bool is_ra)
+ {
+ 	const char *loglvl = arg;
+ 
+-	print_ip_sym(loglvl, pc);
++	if (is_ra)
++		printk("%s[<%px>] %pB\n", loglvl, (void *)pc, (void *)pc);
++	else
++		printk("%s[<%px>] %pS\n", loglvl, (void *)pc, (void *)pc);
+ 	return true;
+ }
+ 
+@@ -155,7 +179,7 @@ void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
+ 	dump_backtrace(NULL, task, loglvl);
+ }
+ 
+-static bool save_wchan(void *arg, unsigned long pc)
++static bool save_wchan(void *arg, unsigned long pc, bool is_ra)
+ {
+ 	if (!in_sched_functions(pc)) {
+ 		unsigned long *p = arg;
+@@ -176,10 +200,22 @@ unsigned long __get_wchan(struct task_struct *task)
+ 	return pc;
+ }
+ 
++struct stack_walk_cookie {
++	stack_trace_consume_fn consume;
++	void *cookie;
++};
++
++static bool stack_walk_wrapper(void *arg, unsigned long pc, bool is_ra)
++{
++	struct stack_walk_cookie *ctx = arg;
++	return ctx->consume(ctx->cookie, pc);
++}
++
+ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
+ 		     struct task_struct *task, struct pt_regs *regs)
+ {
+-	walk_stackframe(task, regs, consume_entry, cookie);
++	struct stack_walk_cookie ctx = { .consume = consume_entry, .cookie = cookie };
++	walk_stackframe(task, regs, stack_walk_wrapper, &ctx);
+ }
+ 
+ /*
 -- 
 2.20.1
 
