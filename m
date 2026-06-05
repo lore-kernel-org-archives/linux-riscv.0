@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5925CD6E7B
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 08:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DF3CD6E5D
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 08:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=u7xFYIsrye1AVzKRrZpTyirjWgEydbJ8Z2IuGwnhHFE=; b=UvdASWRWUn8tDQ
-	cKx4vAkQLbnVC2DPlfy0ElwNdm2u7pAaZkrfeolgAQTJ5iFaJXXyvVZ8yodHE0Ke/YgTPQFIepH4R
-	0ajRpit3+tvZh6sWcKsXnChpCOk9RW7IqrncEt7IXSTqEcfkQSvZVe736KMVzh+Kb25BjL9HPu6fq
-	KUqNQEqqRlUpUAp1gsDlteW8hzEloZmKJIs1P2RkTlU6mx5maeEFi/OhBD0BbUGdLVo5DJhI16R2s
-	cNqApf905+iP9n/K+AKIEoU+Zfj8J4TXBDpYmEY6CE1Db7tzXgogBYvODAQkYeO5d6IA/EXiy3ouU
-	HB8hdB1OYpnlsS2MvyoQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Mime-Version:Subject:
+	In-Reply-To:Message-Id:From:Date:Cc:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=si9Qy9CNq8csy05Su6mUKK4SNIisR5dFe0zBjp30cMw=; b=XOVfP38cb6Pest
+	+DMQI5i+LUhbVtgqqnRcTZAx7bVTx8vHy2xtQdSSQvI2LWjNqteK3JoO02koMKSV1Ma5MyBBc0l/a
+	A/fQevDS7WUce/0cC5lp1s/zGheXZhTuJcGq9f/L1nrcCWTjb3TqResi3QpA90ME0f61SfPiy3lqz
+	otio4nawDU/sbSUnMnyqo4+js6XGVmz571NgpX5Se+KJD7KR5NvSY7LU2M9pWVunYZ8X3SAePCeVg
+	GNfYqID4Ons6N6QNUGQiTyk1cNHGqv98ahuVQXOJCGlwAbLwkisMEcMsBKhiZp4TgXcdPxquFS7+g
+	TCth+oAPao19qu5f/B3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPTm-00000000H8K-0fa6;
-	Fri, 05 Jun 2026 08:00:34 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1wVPg1-00000000IGg-12JB;
+	Fri, 05 Jun 2026 08:13:13 +0000
+Received: from va-1-115.ptr.blmpb.com ([209.127.230.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVPTj-00000000H7B-0xK1;
-	Fri, 05 Jun 2026 08:00:33 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gWv4T0CLgz8XrrM;
-	Fri, 05 Jun 2026 16:00:25 +0800 (CST)
-Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
-	by mse-fl1.zte.com.cn with SMTP id 65580Hva031765;
-	Fri, 5 Jun 2026 16:00:17 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxlzmapp04[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Fri, 5 Jun 2026 16:00:19 +0800 (CST)
-X-Zmail-TransId: 2b066a228213591-1cae8
-X-Mailer: Zmail v1.0
-Message-ID: <20260605160019772GJy5SDmWQQF7sSqvJ0JtC@zte.com.cn>
-Date: Fri, 5 Jun 2026 16:00:19 +0800 (CST)
+	id 1wVPfx-00000000IGE-1uv4
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 Jun 2026 08:13:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1780647180; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=xYTHDl2AajBOqR+4sy4po6w/RbkMf3J7YI6AkJg4pU8=;
+ b=OsbFaj1Htl7RtRr1AhYVwO72Q7rmq/39SAMI+ZIK5YspR6iHkMH6sJsuSl++O+oDayYH1W
+ QS3N7evby93Qe4Ytmz+5vqvgZiNlGKH508NcliP7WH2TCZKChOdYRMy+LKeL4n4vGAhg/V
+ X9PEG8TgogqP7BC/A4GnrSzVKgavYWnm2BIBXSPGCWHqeHUBjzywvEBND2pux2qnt1Uv/M
+ GZXKihJKFEQDNGDofkxcxWIdRFNA2W6EosS9Sc0AUb7tNUfBX6uyCP5VP9GIAtFi+U/23u
+ 3NKBwuenAWFwt6LlamqciT2tFfag0U6LMcaoVqB8nJ4CB6djMUCzVJycCJNFLw==
+Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Date: Fri, 5 Jun 2026 16:12:42 +0800
+From: "Rui Qi" <qirui.001@bytedance.com>
+Message-Id: <226fe0d0-3d05-4c6b-95fb-a058da2d4169@bytedance.com>
+In-Reply-To: <4197ee54-6c69-cb72-5966-c60ba321a6fa@kernel.org>
+User-Agent: Mozilla Thunderbird
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+Subject: Re: [PATCH v1 2/2] riscv: stacktrace: Use %pB for backtrace display
 Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <wang.yechao255@zte.com.cn>
-Subject: =?UTF-8?B?wqBbUEFUQ0ggdjMgMC8zXSBSSVNDLVY6IEtWTTogSHVnZSBwYWdlIHJlY292ZXJ5IGR1cmluZyBkaXNhYmxlLWRpcnR5LWxvZw==?=
-X-MAIL: mse-fl1.zte.com.cn 65580Hva031765
-X-TLS: YES
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Fri, 05 Jun 2026 16:00:25 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A228219.000/4gWv4T0CLgz8XrrM
+References: <20260603115329.791603-1-qirui.001@bytedance.com> <20260603115329.791603-3-qirui.001@bytedance.com> <4197ee54-6c69-cb72-5966-c60ba321a6fa@kernel.org>
+To: "Paul Walmsley" <pjw@kernel.org>
+X-Lms-Return-Path: <lba+26a22850a+64a7b7+lists.infradead.org+qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260605_010031_427498_AA7254F6 
-X-CRM114-Status: UNSURE (   7.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260605_011309_593961_D6100619 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +70,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wang Yechao <wang.yechao255@zte.com.cn>
+On 6/5/26 8:33 AM, Paul Walmsley wrote:
+> On Wed, 3 Jun 2026, Rui Qi wrote:
+> 
+>> The print_trace_address callback uses print_ip_sym which formats
+>> addresses with %pS. This does not adjust the address before symbol
+>> lookup, so when a noreturn function (e.g. panic, do_exit) is the last
+>> call in a function, the saved return address can point to the start of
+>> the next function, and kallsyms resolves it to the wrong symbol.
+>>
+>> The kernel provides %pB (sprint_backtrace) specifically for this
+>> purpose: it subtracts 1 from the address before symbol lookup, which
+>> is sufficient to fall back into the calling function range. x86 uses
+>> %pB in its printk_stack_address for the same reason.
+>>
+>> Replace print_ip_sym with a direct printk using %pB, matching the
+>> pattern used by x86.
+>>
+>> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+> 
+> The Sashiko review mentions that the x86 backtrace code uses %pS for exact 
+> instruction pointers coming from registers (show_regs_if_on_stack()), vs. 
+> %pB for return addresses on the stack (printk_stack_address()):
+> 
+>     https://sashiko.dev/#/patchset/20260603115329.791603-1-qirui.001%40bytedance.com
+> 
+> Do we need to incorporate similar logic?
+> 
+> 
+> - Paul
 
-When dirty logging is enabled, the gstage mappings are split into
-4K pages to track dirty pages. If the migration fails or is canceled,
-in order to keep the VM's performance consistent with that before
-dirty logging was enabled, we need to recover the gstage huge page mappings
-when dirty logging is disabled.
+Hi Paul,
 
-With this series, dirty_log_perf_test shows a decrease in the number of
-vCPU faults:
+Yes, you are right. The Sashiko review raises a valid point that I
+should have addressed in the original patch.
 
-$ perf stat -e kvm:kvm_page_fault \
-/dirty_log_perf_test -s anonymous_hugetlb_1gb -v 1 -e -b 1G
+%pB subtracts 1 from the address before symbol lookup, which is correct
+for return addresses but wrong for exact instruction pointers: if the
+exact IP happens to be at offset 0 of a function, subtracting 1 causes
+kallsyms to resolve it to the preceding function.
 
-Before: 524,819      kvm:kvm_page_fault
-After : 263,211      kvm:kvm_page_fault
+In walk_stackframe(), two kinds of addresses are passed to the callback:
 
-Changes in v3:
- - Rebased on https://github.com/kvm-riscv/linux/tree/riscv_kvm_queue
- - Add support to recover 1GB mappings for gstage.
- - Refactor kvm_arch_commit_memory_region to be identical to arm64.
- (sashiko AI Reviews)
- - Scan the child page table for the first valid leaf PTE to recover.
- - Add the memslot boundaries check when recover hugepages.
- - Move the cond_resched_lock to the start loop iteration.
- - The kvm_page_fault tracepoint be placed before the conditional block.
- - Remove the fault_supports_gstage_huge_mapping check.
+Exact instruction pointers: instruction_pointer(regs) and the epc
+from exception frames found during unwinding (when the return
+address points into handle_exception..ret_from_exception_end).
+These should use %pS.
 
-Changes in v2:
- - Rebased on Linux v7.1-rc1.
- - Skip recovering huge pte if the first child pte is not leaf.
- - Link to v2:
- https://lore.kernel.org/linux-riscv/20260429173002565bdp1o7P0bvOs6yTz64yNx@zte.com.cn/
+Return addresses: frame->ra, regs->ra, task->thread.ra. These
+should use %pB.
 
- - Link to v1:
- https://lore.kernel.org/linux-riscv/20260407171052241tmZDFGusMP_wlEsBVVtJo@zte.com.cn/
+I have updated the patch to add an 'is_ra' parameter to the
+walk_stackframe callback, indicating whether the address is a return
+address.  print_trace_address() then uses %pB when is_ra is true and
+%pS when is_ra is false, matching the x86 approach.
 
-Wang Yechao (3):
-  RISC-V: KVM: Refactor kvm_arch_commit_memory_region()
-  RISC-V: KVM: add tracepoint for guest page faults
-  RISC-V: KVM: Recover gstage huge page mappings during
-    disable-dirty-log
+For the generic arch_stack_walk() path, since stack_trace_consume_fn
+has a fixed 2-parameter signature, a thin wrapper (stack_walk_wrapper)
+adapts between the two callback types, discarding the is_ra flag since
+the generic stack trace infrastructure only records raw addresses.
 
- arch/riscv/include/asm/kvm_gstage.h |   4 +
- arch/riscv/kvm/gstage.c             |  61 +++++++++++++++
- arch/riscv/kvm/mmu.c                | 112 +++++++++++++++++++++++++++-
- arch/riscv/kvm/trace.h              |  25 +++++++
- arch/riscv/kvm/vcpu_exit.c          |   3 +
- 5 files changed, 204 insertions(+), 1 deletion(-)
+One known limitation: the non-FP version of walk_stackframe() scans
+the stack blindly and cannot distinguish pt_regs->epc values from
+return addresses, so all stack-scanned values are treated as return
+addresses (is_ra = true).  This means epc values from pt_regs
+encountered during the scan may still use %pB incorrectly.  This is
+an inherent limitation of the non-FP unwinder and not introduced by
+this change; the FP version handles the epc case correctly.
 
--- 
-2.43.5
+The updated patch will be in v2.
 
 _______________________________________________
 linux-riscv mailing list
