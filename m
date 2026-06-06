@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB29CD6E7C
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2026 22:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 296DECD8C85
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Jun 2026 19:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=knugQqj5dJE3s/htbkF0lLWiD8dkaXfbbcG0hSoUyAk=; b=TWLW0VqeR3CKJW
-	Lq08ZISlEBGoidyQdVBYqXO0hiMUntONGC5+A/MkwkKQVj8JGnSj8VDbHKnC0P7TE84vYuXbDHYdB
-	+ZGUXTw7E4tTWetPYJ2O2SQxfGIld04WnvNIzwAyxMrclHfFN3gjqsob6GDzSV85Cl5oiqSc74Cjj
-	5U5KN4TRxKL/ZoKL6sqr+yv88c7jvnJHJILzsPcJR3xgv84AS/SDYak42WXxErX9nxNNVE4U0JzSz
-	dVXuweLZOMS1HNFRXTdJRXjfLDZDMgUJMARodO53hKD6iSD61ExUfDH5zsPJG2/gDyuTD41HBY1h8
-	GCxtoiuU5yufHo44lYTg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2sF2muPe0kqxGmtuQG8zbO1Cq4UNoZkvURSu3qXKQ8o=; b=Cb74G8Tv0asR3+
+	e+DdIM8ynage4LEnMr3c/0z+h07AOqAIn7NC9dEuLVHVh5gMFOiuBSoprQFqdKAl5mVfjdd6kDmCR
+	SV/7c1ZL8msqlgbAVptgdX2S8GLoBS4baDKx3YfZfsjnWNJd1KhgfqhE4kkNyozaeQJmwwtoFnXb1
+	+fcA565HZHjQ0Qhv6+UP3SFPTPBQTsyGrmyCGQnJI5F6l7hCLIzcUIC5arKyqv8bCxb0w1SlCbH2O
+	HgesknNHYuRQXQM5zkdfTg3tozOc7mZ+PSKcOxQfQ6UCV6nzbmpSbNt2GpfYPtTJ9oi/gTeeHcjod
+	FchNNo4z53V/k+ikMFgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVd3Y-00000001Gyw-2jHY;
-	Fri, 05 Jun 2026 22:30:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wVwWP-00000001m4J-3c2E;
+	Sat, 06 Jun 2026 19:17:29 +0000
+Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wVd3W-00000001Gyn-3U7C
-	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jun 2026 22:30:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B143F600AE;
-	Fri,  5 Jun 2026 22:30:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640C01F00898;
-	Fri,  5 Jun 2026 22:30:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780698621;
-	bh=d1FS9jRxbt15zPdczeD3jqROF2JzOH7zVfMIxmBfRbY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=oRpNEoqHwJR0aIbFlw0Z6jVbqjRW+3aA3rriM/Y5FhdDDqMOxW8qkm1BpVzJuuJFJ
-	 n2zVzaz0HmJU++aI0eyjd5gZ0b3zCOCLuj2JPV0zwsPO8EUiwKCWn711qPkmm2Tqs0
-	 8t7oWa9ZdI412ucaLNxF4Wf+WvcvE83LEWZNgzvDFRZvkNIjIssoqo3up6IZieWzf5
-	 cAbhFizwyU6d0ATp5VqC9e1NgUXwZEneUm0S9AFYDFr9v+IRirqZDMs+o2+pnljwZ0
-	 8h8t2U+DmG9v2sJLEgFRlWXo6xBEvP2c6VgRnts8j5A+wbokIQP6wxUazesE2MWqaJ
-	 dU4ag2XV1tVOQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0AB73930C04;
-	Fri,  5 Jun 2026 22:30:22 +0000 (UTC)
+	id 1wVwWN-00000001m2h-2fAI;
+	Sat, 06 Jun 2026 19:17:29 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding;
+	bh=WbCTOBAz0hMs5qLKWoWlLYd4WkBDo6+l7gdm17WIIAA=;
+	b=gf+kDDP/p5tBNakn8jZPJHzj9SJXxRCOolKH5/zQ3xwQTEv1lpr1w/ReWDppj4Qd5MO+geftEOCGP0stTFsE4Gl4qgpFDkagSTzycqiij6yIZwbSVAVoC+YBeBSdCmSNZeazOUb1qSy2GZT/570CGfSkq8mJw5X8f1APYVulOM4=
+Received: from lukas-hpz440workstation.lan.sk100508.local (194-166-56-114.hdsl.highway.telekom.at [194.166.56.114])
+	by mail.netcube.li with ESMTPA
+	; Sat, 6 Jun 2026 21:17:09 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Lukas Schmid <lukas.schmid@netcube.li>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 0/3] Add support for NetCube Systems OpenNMC (dobermann)
+Date: Sat,  6 Jun 2026 21:16:38 +0200
+Message-ID: <20260606191649.2347704-1-lukas.schmid@netcube.li>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next 0/2] RISC-V JIT support for
- bpf_get_current_task/_btf
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178069862138.3943503.16397384527889534334.git-patchwork-notify@kernel.org>
-Date: Fri, 05 Jun 2026 22:30:21 +0000
-References: <20260602205847.102825-1-varunrmallya@gmail.com>
-In-Reply-To: <20260602205847.102825-1-varunrmallya@gmail.com>
-To: Varun R Mallya <varunrmallya@gmail.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, ast@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- bjorn@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- puranjay@kernel.org, menglong8.dong@gmail.com, martin.lau@linux.dev,
- song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
- pulehui@huawei.com, alex@ghiti.fr, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260606_121727_998736_30FF9E5D 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +76,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+This series adds support for the NetCube Systems OpenNMC
 
-This series was applied to bpf/bpf-next.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
+Changes in v3:
+ - actually add the Makefile changes
 
-On Wed,  3 Jun 2026 02:28:45 +0530 you wrote:
-> These two patches add support for the bpf_get_current_task and
-> bpf_get_current_task_btf kfuncs in RISC-V JIT and add a selftest.
-> 
-> The first patch adds support for cpu and feature detection on
-> the JIT disassembly helper function as RISC-V JITed code was not
-> being disassembled using `LLVMCreateDisasm` as it was missing the
-> "+c" CPU feature and JITed code contained RISC-V Compressed (C)
-> Extension. This patch generalizes that to detect CPU features and
-> enables testing on more RISC-V JIT work ahead.
-> 
-> [...]
+Changes in v2:
+ - fixed ordering of compatible enum
+ - fixed gpio line names
 
-Here is the summary with links:
-  - [bpf-next,1/2] selftests/bpf: use host CPU features in JIT disassembler
-    https://git.kernel.org/bpf/bpf-next/c/557d0cc3f252
-  - [bpf-next,2/2] bpf, riscv: inline bpf_get_current_task() and bpf_get_current_task_btf()
-    https://git.kernel.org/bpf/bpf-next/c/6d13ddb1d465
+Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+---
+Lukas Schmid (3):
+  dt-bindings: arm: sunxi: Add NetCube Systems OpenNMC (dobermann)
+  riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl required by NetCube
+    Systems OpenNMC
+  ARM: dts: sunxi: add support for NetCube Systems OpenNMC (dobermann)
 
-You are awesome, thank you!
+ .../devicetree/bindings/arm/sunxi.yaml        |   1 +
+ arch/arm/boot/dts/allwinner/Makefile          |   2 +
+ .../sun8i-t113s-netcube-dobermann.dts         | 149 ++++++++++++++++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |   6 +
+ 4 files changed, 158 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-dobermann.dts
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+2.47.3
 
 
 
