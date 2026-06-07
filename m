@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE88CCD8C8C
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 07:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2220ECD8C88
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 07:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cf3rcgFzMkYeOW23vr3C7I+X/rGXAck57iw9tNgWpmU=; b=AeV09WhzWKg86D
-	EomSV8T0A0+KvBwGyQ9ofvuCkXVq69Jka5GHHRmREL9PbsBDJY9ooacHWsBuNqSFRvp9rz7kXG3pJ
-	IwiyZQ/k3ueQyaxWyDf1Q5h7JSugRqxQm+vlOQ2GgPFAREqVqshp/RhNETrhwOg+NIlI7Tul8yDZ3
-	4cjbkBnP8lzExMbLJGT2Eo2vZdYLh8AGBIlpYGpeNvxD/D4ogqRzv6OcXupmKrGGbHKv33swWXACo
-	LXuJCgYMoWHtL2PIGOkc/zy4lj1ec9YJIZvgZxn18ZP/vc4s9ZgV/23KV/vMhbeBfflfGoeAQvlAs
-	qlgttRQ7LX7dgA0PXsSA==;
+	List-Owner; bh=ssPyswOzvsNII+li7K+XpNmql4E9aOyPBwtBHJF4aVs=; b=Xu1pBo+wJISW3F
+	0DaQqdzOj5d9pcOCXbH8qvS4xZhNdVMck1y89BJE5qU3STT/Ski6//qQTBYAKtyNvvn/wn0eGF1Po
+	uPTG59ZiLODE/cMQ9sE02z84jHTR5jyR4cBH7dnHujSSZ0piYp+V76D1Qwkr0SgtBEDPujV1BNQM0
+	aLoCip+x46pi75d/q/8dtewt62DNllTVrQLpGlcABKqEMLjOdVu7iQfWu+PUOL4N5ysba8Z3MrlEj
+	T1y2vvmsMQoh4uezTcTn2H0CHbGSc9yqv/x1XorSBDepRllfjN2h4BBG1DEO8MHa1WtUEhVC9h9SK
+	hTk5S458cnUzP/DMW4HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW7U8-00000002586-1tXJ;
-	Sun, 07 Jun 2026 06:59:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wW7cT-000000025VG-1T8K;
+	Sun, 07 Jun 2026 07:08:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW7U7-0000000257y-1qzL
+	id 1wW7cS-000000025VA-1A2d
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jun 2026 06:59:51 +0000
+	Sun, 07 Jun 2026 07:08:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A22A60008;
-	Sun,  7 Jun 2026 06:59:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC831F00893;
-	Sun,  7 Jun 2026 06:58:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 55D9B60008;
+	Sun,  7 Jun 2026 07:08:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D4C1F00893;
+	Sun,  7 Jun 2026 07:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780815590;
-	bh=kPU1bNy/4Q4HxkbeU6Yk2EwGc2AfSDBCEGpK3v68MsA=;
+	s=k20260515; t=1780816107;
+	bh=7Lk/BJ+FNHkTV0i1JhIvCK15HQJofq8L46ZVpVscuzU=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=UXVVKMWpbyYpxZaqvMx8s8a+zAQ0MGhTNM/WT8LrMYu4WRGif5Ib3yEUgxrbDPwFm
-	 XVzCvsoz3zNKujsbg8YZ2AvQ5ScZkJsLX3mD7Y7ePLezR2VWT3eM4vJ8LA75iS2LpP
-	 5Z6+P51w/k33oojPoh8b/6CvR/9dUW1qLnh9BA2MR76b9sM4G7tRVT/qnGwUoXGpD3
-	 gEZdYf/BhT03ro6cQvCaoFcEIkGfIEk5TkKB2fz26ycuGCHTvkQ3sessVuY2bXQiXg
-	 b/srVJrL4VBwIur/ZRxAOUQiyvjJTNCQPZgXm/1hR7nU58gMNiCCmexoLEuPojuzSb
-	 NCVB4T5xCFe2w==
-Date: Sun, 7 Jun 2026 00:57:46 -0600 (MDT)
+	b=G71QmPBVtxjory1rgGBFynSY3lXDXHNwLYPr6drfxp2qwYkdmreGaEE3sQ4Ow8bZA
+	 kIb3FN2OlTZ8R5dtOBhWRuLfAp/oPky7xTlsg2iR6CfcGa5a1ybDCGR7AmoAuYCBPT
+	 lPOs/eoBanRXLep8H61ooMHpZRJtRpXxcuYcuv6PUgRfszBYAIZQ3tOaJAu91Z1YWd
+	 xChW5y/Kioveq6bFSzpcvq095++AwzsaRpVplc2fT30cc2ey4yFJlHsL1S/vjmORYC
+	 BkxEDRxSU+JvpbdszvTTE9MZlAALrqfPaj+1lFPYCSIc9ftPF4b+Jpsnx1KNfvVwfl
+	 owI1nypezJhyw==
+Date: Sun, 7 Jun 2026 01:08:02 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Thorsten Blum <thorsten.blum@linux.dev>, Breno Leitao <leitao@debian.org>
 cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
     Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-    Thomas Gleixner <tglx@kernel.org>, linux-riscv@lists.infradead.org, 
+    Andrew Morton <akpm@linux-foundation.org>, 
+    Pasha Tatashin <pasha.tatashin@soleen.com>, 
+    Alexander Graf <graf@amazon.com>, Baoquan He <baoquan.he@linux.dev>, 
+    Song Shuai <songshuaishuai@tinylab.org>, linux-riscv@lists.infradead.org, 
     linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: panic if IRQ handler stacks cannot be
- allocated
-In-Reply-To: <20260404185522.21767-1-osama.abdelkader@gmail.com>
-Message-ID: <773527c2-760d-60c6-23c3-0f1f60cc3fea@kernel.org>
-References: <20260404185522.21767-1-osama.abdelkader@gmail.com>
+Subject: Re: [PATCH RESEND] riscv: kexec: use min to simplify
+ riscv_kexec_elf_load
+In-Reply-To: <ah_0fOD8mNWTKz9f@gmail.com>
+Message-ID: <b5de86e2-68a4-33b5-d1a3-62ca52f9a5cd@kernel.org>
+References: <20260602224725.1088385-3-thorsten.blum@linux.dev> <ah_0fOD8mNWTKz9f@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,15 +74,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 4 Apr 2026, Osama Abdelkader wrote:
+On Wed, 3 Jun 2026, Breno Leitao wrote:
 
-> init_irq_stacks() and init_irq_scs() may fail when arch_alloc_vmap_stack
-> or scs_alloc return NULL, call panic() in this case.
+> On Wed, Jun 03, 2026 at 12:47:22AM +0200, Thorsten Blum wrote:
+> > Use min() to replace the open-coded version and assign the result
+> > directly to kbuf.bufsz. Drop the now-unused local size variable.
+> > 
+> > Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 > 
-> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+> Reviewed-by: Breno Leitao <leitao@debian.org>
 
 Thanks, queued for v7.2.
-
 
 - Paul
 
