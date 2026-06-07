@@ -4,101 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED98CD8C89
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 17:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D94CD8C90
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 20:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kclLb2GGPV6zLUQnR0zml9ubW1U6EhBOu3lCwF5K1A4=; b=WCj1eC1YjiqGpk
-	R4GOLSj7MyZzzymGdFjBLJT00hDepWDlS0PAsspICO0RSmtjOZfjoU4/elBkIeOtn4vW257YkV4ZD
-	reO8FyPJo+G2Mi7K75Fg5hSG53vYLIcKZalodk4TITHRVaJgIqXDuJxbSjEY/eJT61zdjUJK7isVG
-	kVbRmRE35/HxVqr4nHFVGM4sXELwIriKS0GZfHjw1jwDhYzGf8dBnO4JNdeZ0Nf1fYt/Fb/d+S8Gq
-	PzgdA3lY7dECQwfvuJrVmJn8Ypia6uw3ah+YUYESWOdH+wJQxqxhnNgb+Mn3zadqpO4l+qP9wdH4z
-	3m9R9RA80F6MXGbZ5GTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r5nq6DiGJQ9HoRDxq4Z+QtP4nVVCfw811ZRB3SNrLSg=; b=jJrBmHnoYmy5n1G/kqEvA7Rtsp
+	tu7rXAbcxFiBrJUoq7FA8RBFlWGRrPl4uxDCSjDoJgRwmSuohZIwZ98Z+zMuV+QnkjjLQfLEuMB9r
+	bZbLWjl3ydKjJMiV584/BECA3euxVQokOM3EqniGsZE8U0xW7Il4pt073GU39lyWHmyskMgWAVLHc
+	gMj8Tq3sPrqWq219CXKwhFNBU0vBkhBKWs2VIe78oZFhuHgvoBkiRxc4AW9OpXnS4kWDpTUOteiHk
+	4A3aULFquhK8WDccdTL4+LIid940iqGnJ7wwjrDprNwTNZI77siuVNxu+iPBcKHZmGlqtNhGq55Vz
+	v4pDn5Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHXL-00000002N2b-0K22;
-	Sun, 07 Jun 2026 17:43:51 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wWKGD-00000002Tlu-06C2;
+	Sun, 07 Jun 2026 20:38:21 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHXI-00000002N2D-1kPt
+	id 1wWKGA-00000002Tky-0ism
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jun 2026 17:43:49 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2bf1cda2b17so25312905ad.1
-        for <linux-riscv@lists.infradead.org>; Sun, 07 Jun 2026 10:43:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780854226; x=1781459026; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ljEzNr/52XcURxVXWbkwKLpno+BGAmwJA55/cYldv40=;
-        b=r1FRgtcSphWcCSDSRMAljs632tukPNDcTo1i95YRJPbBgWNS7w9uHM+PGp4Lt1ZPXx
-         DVG/WYv/6Kuy6q5YmLWzO5yo6E8Ta7JfE7sBJyGj/asJAqRCYb5LMvSsKxJvo+dNoH2f
-         th23zWlyG8tg8nogF1jotUWappgpiZCzxgTbGaow64vb1xQ2jhHgUMQCU1e1jsyjqlMX
-         sGP/Y+aJP5uDt4YsUzDF6bbVtyfA264i9vGPBlWF8C7EVs9N61Uv21Gc2YnLGgTW/EYM
-         n8iec4y3ITtz5eDvKsLAA9qmbXAfNIEUQJHfO+Q2oH+bulmbo+bqXjxzpvf/GRDi1fBR
-         pvBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780854226; x=1781459026;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ljEzNr/52XcURxVXWbkwKLpno+BGAmwJA55/cYldv40=;
-        b=CMnWEnNCMFGyOYoUADgBRECS5lAPjqM8x+CjKQi2HJxV/PCTvGaiegQPVyMn6EJUsq
-         FslmiBlPmbb7EYF0RMT/7S530fHe3owh490mJdorsgV4OcF/WrluMjqDNl0aa2lz7ZsP
-         FgHIDUq+gVaItF8BN+RxAloR7irFrDxlb2pJiVva/AeXrU/m8B6mUVC7dylB0VqLh1iE
-         geAY1OceyArvZ9ck3LnnRxLtCW+mtkk23FLTg4vcsIP35RtKyrQKvDGeu4EIBVPXpDkF
-         PQUKAnf5RgMx2Pu7vpip1XknRu6Eh/xM5CVg06g9vygnZ3YCvWRBLOX7xFdIp0aib4Kw
-         Mvdw==
-X-Forwarded-Encrypted: i=1; AFNElJ9KO1aNuKNKaNlbIcZf0WdXBHAwrFIYSiFkmHc5EuNzK5PvkmjE4RmPrGTw6WtnXfY9qGbmjMoxHwXgZQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywgtn3TZHsY9rK0wCJIX1UL6uPDRt7GkYF3YKmzBUF2Bp7yi4QV
-	142Wj9DiuvVyUYoLA2sk4BCW+iwtnXyV0+X5LHf2+Nw60t/E+wEfwOo+
-X-Gm-Gg: Acq92OFKGgi1ZbAuW+sxcJeaLdEvsjoaLvVA9O1jXenT6v2PP7kmNxEyVeuxhGAANV8
-	GLr6GujfLtM1j8QVlBe1nAed3NEqR83+K0bJSnUdSlXxCZ1BMJEr5MDTUzE/Zgpqri8amSkFMy0
-	veDDqTQ2g3zLoE3JZyEaKqDGh9pHTX8Vd76Bny/XijDkE5gtdBKTp0t0hYp2mYgtCkZaeweV728
-	xSsDgGd9gZj76SWD8kS5AHV5e1NBgrJYUNHCsZ567fz+m6w06Af0Bs495G/J6nYPfnFHwBLKGou
-	fb1DA4bcWM+ku23AfyeyAGK5WWnXcuFS3cEf3FCjvswIIQrqTfSBuWvCjGj/9u477X5pqdeWDD9
-	YBMidYmFD8fY1fPCbTGkHI8PE0b7Gshw+c4MdBPxPEqIw6HtkbOboKi9IT3G5uO1lPRC7vfAPaj
-	zrtdNK5Lpv
-X-Received: by 2002:a17:903:2385:b0:2c0:dc5c:9069 with SMTP id d9443c01a7336-2c1ec54cc43mr105352365ad.2.1780854226544;
-        Sun, 07 Jun 2026 10:43:46 -0700 (PDT)
-Received: from [127.0.1.1] ([2a12:a305:4::305d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16649ab01sm149171185ad.71.2026.06.07.10.43.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Jun 2026 10:43:46 -0700 (PDT)
-From: Guodong Xu <docular.xu@gmail.com>
-Subject: [PATCH 0/2] dt-bindings: Add SpacemiT K1 PDMA request-number
- header and use it in DT
-Date: Sun, 07 Jun 2026 13:41:29 -0400
-Message-Id: <20260607-b4-k1-pdma-req-macros-v1-0-5b2a3955007c@gmail.com>
+	Sun, 07 Jun 2026 20:38:19 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gYRnr4yqsz9tSw;
+	Sun,  7 Jun 2026 22:38:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mssola.com; s=MBO0001;
+	t=1780864688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mIGX2vLPaySQ+YHOkpYztytA+Unn1qR/6yK9NhrEodo=;
+	b=fDu1MHAQP9rk9bXNBg7aTb+lIOBQjMdRMGtXh5bRe3hiHklRPY8Yv92JczRWQ9ZOM22aRY
+	oKqpu8VtyBR+mGcb05swEE71CBSPC38VnNLSOQib9qbU5ZzXZkp4M+q7hyVLZ01UOuZTT+
+	ybXBgqoTuVVsS3z7z/1Z9aHzdgplEN+17yfv/dIGUxZpPL410WhUA6YHiQQ4gJEhl5MhBD
+	BpDnIYPE4lO8iv/CiYDntxtTTwuoWvOWdOIWjNo6565dIYHweacdbAPeNL/olbql7DNeKo
+	XjrOUd9FGDmu9HkgsLYbnRla3tFqmY5cJLWfZkwvCe7mBDhPggcQCBI6y7oGcw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=temperror (outgoing_mbo_mout: error in processing during lookup of mssola@mssola.com: DNS error) smtp.mailfrom=mssola@mssola.com
+From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mssola@mssola.com>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org,  corbet@lwn.net,
+  skhan@linuxfoundation.org,  palmer@dabbelt.com,  alex@ghiti.fr,
+  linux-doc@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND] riscv: enable HAVE_CMPXCHG_{DOUBLE,LOCAL}
+In-Reply-To: <f63eefc9-769d-409c-4099-274254432129@kernel.org> (Paul
+	Walmsley's message of "Sat, 6 Jun 2026 18:50:55 -0600 (MDT)")
+References: <20260605141247.253315-1-mssola@mssola.com>
+	<f63eefc9-769d-409c-4099-274254432129@kernel.org>
+Date: Sun, 07 Jun 2026 22:38:05 +0200
+Message-ID: <87a4t6w0gi.fsf@>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEmtJWoC/yXMTQ6CQAxA4auQrm0yMzED8SrGxTAtUgg/tmhMC
- Hd31OW3eG8HYxU2uFQ7KL/EZJkL/KmC3Kf5zihUDMGF6KKrsT3j6HGlKaHyA6eUdTFsKNSRnA+
- ROijtqtzJ+/e93v62Zztw3r4zOI4Pd+e503kAAAA=
-X-Change-ID: 20260607-b4-k1-pdma-req-macros-8d276d0126df
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, Guodong Xu <docular.xu@gmail.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1161; i=docular.xu@gmail.com;
- h=from:subject:message-id; bh=i0ja/GMMnsxqkiiz4bzIDMyK41VkQXbc7b1PuWg5hTs=;
- b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhizVtcf+RTEYiyef1bl9dN0G04D/ube/TrVbUX45bs733
- K+z78tqd5SyMIhxMciKKbIcPtqSvfWVT7Tvc84fMHNYmUCGMHBxCsBEioQZ/srpuqX/tzrjbmTV
- Hr3FuMZ4eYexo2uVd2LgE8FAgdZzHAz/AwM7/+b+yk9NPjLj5yf1wG6HYpPr3pKrI1d/PHeppE2
- aAQA=
-X-Developer-Key: i=docular.xu@gmail.com; a=openpgp;
- fpr=90B1DC3DF0BD10FD1227BD6344F254AF42F143EE
+X-Rspamd-Queue-Id: 4gYRnr4yqsz9tSw
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_104348_465006_586A5A18 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260607_133818_368280_B09A52B4 
+X-CRM114-Status: GOOD (  31.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,42 +75,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3175845312397404393=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, K1 device trees specify PDMA peripheral requests as raw numbers.
-Add a dt-bindings header naming those request lines, point the binding's
-dma-cells description at it, and convert the current user (the K1 SPI3
-node) to the new K1_PDMA_* macros.
+--===============3175845312397404393==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 
-Patch 1 adds include/dt-bindings/dma/spacemit,k1-pdma.h with the
-  K1_PDMA_* request-number macros and update the spacemit,k1-pdma binding's
-  dma-cells description.
-Patch 2 updates the current pdma user in k1.dtsi to use these request
-  number macros.
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Guodong Xu <docular.xu@gmail.com>
----
-Guodong Xu (2):
-      dt-bindings: dmaengine: Add SpacemiT K1 PDMA request numbers
-      riscv: dts: spacemit: Use symbolic PDMA request numbers on K1
+Hi,
 
- .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  |  4 +-
- arch/riscv/boot/dts/spacemit/k1.dtsi               |  3 +-
- include/dt-bindings/dma/spacemit,k1-pdma.h         | 56 ++++++++++++++++++++++
- 3 files changed, 61 insertions(+), 2 deletions(-)
----
-base-commit: 793cc54475b49b5b558902b5c13e4bfe66530a50
-change-id: 20260607-b4-k1-pdma-req-macros-8d276d0126df
+Paul Walmsley @ 2026-06-06 18:50 -06:
 
-Best regards,
---  
-Guodong Xu <docular.xu@gmail.com>
+> Hi,
+>
+> On Fri, 5 Jun 2026, Miquel Sabat=C3=A9 Sol=C3=A0 wrote:
+>
+>> Support for atomic Compare-And-Swap instructions has been in the RISC-V
+>> port of the Linux kernel for a long time. That being said, we apparently
+>> never bothered to set HAVE_CMPXCHG_DOUBLE and HAVE_CMPXCHG_LOCAL in the
+>> Kconfig, despite having all the framework to support them.
+>>
+>> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mssola@mssola.com>
+>> ---
+>> This is a resend of [1], rebased on top of the latest commit from the
+>> for-next branch.
+>>
+>> I have built this patch with multiple configurations and ran it with KVM
+>> (the VisionFive2 board that I have lacks the needed extensions). All see=
+ms
+>> to work, but I do wonder if we did not enable these for a reason or this
+>> just slipped through. So far in the code I believe everything is in plac=
+e,
+>> and I haven't seen any commit in the git log stating otherwise.
+>>
+>> [1] https://lore.kernel.org/all/20260220074449.8526-1-mssola@mssola.com/
+>
+> Thanks for the patch.  Your comments above are why I've been hesitant to
+> merge it.  I'm not aware of any publicly available hardware that supports
+> Zacas/Zabha.  No one has stepped forward to provide any Tested-by:s on
+> hardware that hasn't been released yet.  You mention that you tested on
+> your VisionFive2 board, but it would not have exercised those code paths.
 
+No, I mention that I ran it _only_ on KVM, as my VisionFive2 board lacks
+these extensions and hence I couldn't possible have tested this there :)
+
+>
+> Of course, we already have Zacas/Zabha support, merged back in 2024, in
+> cmpxchg.h.  I assume (?) that it was tested in QEMU, but I don't see any
+> comments about that in the patch series.  No one sent any Tested-by:s
+> then, either.
+>
+> It would be good if you (and ideally others) could put this patch through
+> some testing on QEMU with Zacas and Zabha enabled, before we merge it.
+> The affected code paths for HAVE_CMPXCHG_LOCAL seem to primarily involve
+> per-CPU counters and MM zone counters, so those would be the areas to
+> focus.  HAVE_CMPXCHG_DOUBLE seems to do nothing useful other than
+> preventing the AMD IOMMU driver from being selected if it's not present,
+> so that part of the patch seems fairly useless.  In fact I'd suggest
+> dropping that from the patch and just sending a separate patch to remove
+> HAVE_CMPXCHG_DOUBLE from the kernel completely.
+
+To be fair, on QEMU I only "tested" it by booting it, running a few
+things for some time and ensuring that nothing got totally broken in the
+process while taking a look at the kernel logs.
+
+In any case, let me double check with QEMU with these extensions enabled
+and I'll try to be more thorough about it. I'll do just that whenever I
+have some spare time during the following week :)
+
+As for HAVE_CMPXCHG_DOUBLE, removing it makes sense. Let me just take
+another look and I will send a separate patch whenever I'm ready for it.
+
+>
+>
+> - Paul
+
+Thanks for your input!
+Miquel
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJiBAEBCgBMFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmol1q0bFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyEhxtc3NvbGFAbXNzb2xhLmNvbQAKCRCWvoxv2J1l
+ZbPMEAC7Y/Qp2rixtfdlr2FQG6bybg7g9iwMX1kUJvH3I7LtZHORk6OQ3N46OSmY
+NR7FZVTWRilOz8C1YfIAt2tOuPFaMUSuLKnFJoTk4ENQVmeMt+FDxxA77qKYidq2
+OZ0YulnWXcmteR/GOur88J+t2V4DzzBbJkLOMq8El4aiX3hWOhKbRgzcdxDg658Q
+vbVSYwD06+1SqzpUqxPBOXDrSKjXVLHLiGxpkcLvNLuvsB/qP8xFfa1R+8sQFCZK
+bILM9RR2Uhq7dZ4DWKiHuMNgvt328Wo5yneHS+2qfxWmtwg8d7Q9iM4vIw/V9fq3
+xfH1dbByDUtXEV+0oL9276XfYfyfry3bh9Q0CoFdu+62h22u9TfhbKMuzhgoVdif
+idzkep6eVRoRONUIlAAoSiW4qUGTQnWQHmQz8JCY4B7INDUnvSLrylKHioFPvrhf
+otCB9/slsAOLK5eMKpnmFqHYPfHpIMv6wZVPGGKmzI/pRvgLbUutF1ldOY5rP4hx
+Y+7dRm/7FjY5fjbIzflN58CUL8Zh+Avm72KH/lGnZnxpFd2zRYzpi+IB+p2trn4v
+XwfqGxP2KCBSorspaeHSNNgiYtJzcQ5b3Mbw+smQRjRGglSMkmtFsNSwqrJTbnUv
+6w4XcMyj7RD6BjvbFHw0eHKchFgUUv1zCa0SnNt53fNqQKWvWw==
+=/8zA
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+
+--===============3175845312397404393==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3175845312397404393==--
+
