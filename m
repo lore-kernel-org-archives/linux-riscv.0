@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C150CD8C85
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 00:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC9BDCD8C88
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 05:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:Content-Type:
-	MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4XuWDN7t1I5G1sqdQ8rTaTSlqqor3pQBW17S5+OzPI=; b=dQDEPxVZa+YjCekRV0VgTGuggi
-	BFeYu3ZHzIL4N7899MTcFI/6C+QrGbw6D+1h5gI+xX4vTrHy/aAjbEkt/IUJkEoOtpjrHBVbDeKSs
-	OJY+Rpv6bRy9/eDVMcsp+Fi+4Aoi6ZaX0ZM2FmrigctiQEvKXFiJmmiUlzbU5zMEOsIDjgbGs1Kw1
-	/BKyhBsZxnOvKvx+a1N3VJ3jc3xlycXtEZvb+LHOK3cl4+zux+kOVx5WLo/lThqoe1uCEjUnXXacE
-	kwd1gO+/U6dWzwPg1epzU88apziX7V+ef/ksPuXMFrWqQiLUZ4DEV1D1/hrvgqlzPfJvSK24m5uRb
-	d+u+4iLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pDuK5DbCLdzcKFqiEM0R31xYPYjACMejUBw4+K1OPKg=; b=i9iwPIE+wFq/bB
+	kPUkkq3jgd173gfkc3QvL0gXKVXbFE64/IG7LuEVBxbOE/akrz1s60bV7/M+oqFzZGDZaN5DUWXai
+	e+Pdnj+BdY5TaJy8sE0b0z3EH5qziSHgPTiXXcDctr99pfenKqAQpo1HN1NpYNy9QW+VWsVTmuErN
+	DeOIVWg4wOmwZp5obvNRNH/DuzlqBxqnbuXqMW5hRczI0lqYzM80ry1tboX3FkW7i7QM6UhkA2s+W
+	QOZGN785PSwU9xjz2KtwFFgrAja+W3KpuCtqFrz/ctCK4C9r9dEmGulD/Nsm4gK9YLQpM7XHmIv4E
+	XLzJB9HcQ/sPSXlSYTXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW1jG-00000001xCC-2YY3;
-	Sun, 07 Jun 2026 00:51:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wW5m3-0000000221p-2N3I;
+	Sun, 07 Jun 2026 05:10:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wW1jC-00000001xBZ-0YUf
+	id 1wW5m2-0000000221f-1lCT
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jun 2026 00:51:03 +0000
+	Sun, 07 Jun 2026 05:10:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 88F5360008;
-	Sun,  7 Jun 2026 00:50:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBE571F00893;
-	Sun,  7 Jun 2026 00:50:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72C1343F63;
+	Sun,  7 Jun 2026 05:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 473D31F00893;
+	Sun,  7 Jun 2026 05:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780793459;
-	bh=DBgS/IeCcJwTQBGQhv8ELU0KEo6N/7Ws5o60dsxB8Lg=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=oMmoJEjKw0xCvmUahHG0oLab5Eko7Yg5SUOvguR1eJIvYLSbU2gIlU6BcJFcwHYan
-	 FVn+47gECBhDwEf9tPwwPOVvYyLYYtrIyC/SKX0byIMM6xIJbu8dG17qfUQxbIZ93K
-	 vLwLtjIrxtVmu0rS9AyoRrEUyJ11D/F/7H+DJOG4K7+D5mm3A0n2qGDdIImKHBxvOr
-	 DCflpYTRgLkT0bBZbAoFuNjgaNhwitpR41+syjrxajpnoXUbtgdbKgG0qBzUG3BXXe
-	 JT9m7pyLIIv7RXy9uLCMHITotL78jY+A6dTNKzSuilhtMF1luPnzn8iM8UIKCbOPOT
-	 Ef63FyHb+7frA==
-Date: Sat, 6 Jun 2026 18:50:55 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: =?ISO-8859-15?Q?Miquel_Sabat=E9_Sol=E0?= <mssola@mssola.com>
-cc: linux-riscv@lists.infradead.org, corbet@lwn.net, skhan@linuxfoundation.org, 
-    pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, 
-    linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND] riscv: enable HAVE_CMPXCHG_{DOUBLE,LOCAL}
-In-Reply-To: <20260605141247.253315-1-mssola@mssola.com>
-Message-ID: <f63eefc9-769d-409c-4099-274254432129@kernel.org>
-References: <20260605141247.253315-1-mssola@mssola.com>
+	s=k20260515; t=1780809013;
+	bh=FhxLVLV7boFVF3rVaqt0wvqfHLkviyFEXdpRZw9osbk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=HoOY4/k6kZLk4VObrc4IZpk1BrXUnWQKwMCNqQzI1wxtBiecN131M7LAsQncVbs8e
+	 T8do8P/w2Y/g/4DPsD+JzyKr7OtST8nP0+3gmedzexkn5s9qQ3c5sgWA5PA3mA1ofB
+	 jbOBDRztbQoGea2/zwfb2yaEcfPm5bJvG4jojqZ6q0VHJ6kl2xGvaz/FYbik2cgeR5
+	 BOKpazgTFo3Nac8aALZ03Az0nG/LBDXyqUGQJsp291kcVFo6e7z47UGJRkzh97Dj78
+	 BelZo1NaIPvbCp/CvXY/r5Qs3JkpZBZVNNsrNuyDougR0ldjYeYeoYj/U+bvmIuP2b
+	 WR7U/BV383sRA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1987B3930C3F;
+	Sun,  7 Jun 2026 05:10:14 +0000 (UTC)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323329-331715424-1780791531=:1833245"
-Content-ID: <4f54938e-d337-ae77-26a3-588b02bb1cdf@kernel.org>
+Subject: Re: [PATCH v2 0/2] riscv: stacktrace: Fix return address handling in
+ non-FP unwinder
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <178080901279.114658.9003538182499897339.git-patchwork-notify@kernel.org>
+Date: Sun, 07 Jun 2026 05:10:12 +0000
+References: <20260605082034.1426923-1-qirui.001@bytedance.com>
+In-Reply-To: <20260605082034.1426923-1-qirui.001@bytedance.com>
+To: Rui Qi <qirui.001@bytedance.com>
+Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,72 +67,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hello:
 
---8323329-331715424-1780791531=:1833245
-Content-Type: text/plain; CHARSET=ISO-8859-15
-Content-Transfer-Encoding: 8BIT
-Content-ID: <d56e784a-c6ea-d849-a556-126111a2ab60@kernel.org>
+This series was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
 
-Hi,
-
-On Fri, 5 Jun 2026, Miquel Sabaté Solà wrote:
-
-> Support for atomic Compare-And-Swap instructions has been in the RISC-V
-> port of the Linux kernel for a long time. That being said, we apparently
-> never bothered to set HAVE_CMPXCHG_DOUBLE and HAVE_CMPXCHG_LOCAL in the
-> Kconfig, despite having all the framework to support them.
+On Fri,  5 Jun 2026 16:20:32 +0800 you wrote:
+> This 2-patch series fixes how the non-frame-pointer version of
+> walk_stackframe handles return addresses, addressing both the
+> unwinder layer and the display layer.
 > 
-> Signed-off-by: Miquel Sabaté Solà <mssola@mssola.com>
-> ---
-> This is a resend of [1], rebased on top of the latest commit from the
-> for-next branch.
+> Background
+> ==========
 > 
-> I have built this patch with multiple configurations and ran it with KVM
-> (the VisionFive2 board that I have lacks the needed extensions). All seems
-> to work, but I do wonder if we did not enable these for a reason or this
-> just slipped through. So far in the code I believe everything is in place,
-> and I haven't seen any commit in the git log stating otherwise.
-> 
-> [1] https://lore.kernel.org/all/20260220074449.8526-1-mssola@mssola.com/
+> [...]
 
-Thanks for the patch.  Your comments above are why I've been hesitant to 
-merge it.  I'm not aware of any publicly available hardware that supports 
-Zacas/Zabha.  No one has stepped forward to provide any Tested-by:s on 
-hardware that hasn't been released yet.  You mention that you tested on 
-your VisionFive2 board, but it would not have exercised those code paths.
+Here is the summary with links:
+  - [v2,1/2] riscv: stacktrace: Remove bogus -0x4 offset in non-FP walk_stackframe
+    https://git.kernel.org/riscv/c/73b6d019c851
+  - [v2,2/2] riscv: stacktrace: Use %pB for return addresses and %pS for exact IPs
+    (no matching commit)
 
-Of course, we already have Zacas/Zabha support, merged back in 2024, in 
-cmpxchg.h.  I assume (?) that it was tested in QEMU, but I don't see any 
-comments about that in the patch series.  No one sent any Tested-by:s 
-then, either.
-
-It would be good if you (and ideally others) could put this patch through 
-some testing on QEMU with Zacas and Zabha enabled, before we merge it.  
-The affected code paths for HAVE_CMPXCHG_LOCAL seem to primarily involve 
-per-CPU counters and MM zone counters, so those would be the areas to 
-focus.  HAVE_CMPXCHG_DOUBLE seems to do nothing useful other than 
-preventing the AMD IOMMU driver from being selected if it's not present, 
-so that part of the patch seems fairly useless.  In fact I'd suggest 
-dropping that from the patch and just sending a separate patch to remove 
-HAVE_CMPXCHG_DOUBLE from the kernel completely.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-- Paul
---8323329-331715424-1780791531=:1833245
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-331715424-1780791531=:1833245--
-
