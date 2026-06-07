@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E9FCD8C8C
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 17:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED98CD8C89
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jun 2026 17:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQY4CuFoO3nqqZnePOLbqqt2tIL53ZDUZDUlx9KxXJQ=; b=vMGxOc2k9CexBu
-	vpTvyuFCWjZzEvu5lY5Cij6PD6tl8i6oXdLhjyfD+IBu4wRnsJAKSX0drnMaMncP6RYTrJQhkRmcK
-	TrXP4HCqrEmgoMn4lxeUn0JtpFazJ7cf/9LJXfJ2b7M2B4a5terr4akJxH8oUoq7lAcWNQN0m5HoD
-	ZBBfJIS+MUerlOq3yKqjEcAJJwxe2eOTCtlSNZKVp79LSLvl7F1q0LyV8AeVeRD4Fug4LEIG/x/j8
-	0sMN24CQQrH5Wla8V1RVewxvVWIYrl5clc7Z+91mV+vsdTCLz36NdtNDb8JDOMAqAxvqrvfBt5tyz
-	tu1HSXe5HOFOi2i4TMMw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kclLb2GGPV6zLUQnR0zml9ubW1U6EhBOu3lCwF5K1A4=; b=WCj1eC1YjiqGpk
+	R4GOLSj7MyZzzymGdFjBLJT00hDepWDlS0PAsspICO0RSmtjOZfjoU4/elBkIeOtn4vW257YkV4ZD
+	reO8FyPJo+G2Mi7K75Fg5hSG53vYLIcKZalodk4TITHRVaJgIqXDuJxbSjEY/eJT61zdjUJK7isVG
+	kVbRmRE35/HxVqr4nHFVGM4sXELwIriKS0GZfHjw1jwDhYzGf8dBnO4JNdeZ0Nf1fYt/Fb/d+S8Gq
+	PzgdA3lY7dECQwfvuJrVmJn8Ypia6uw3ah+YUYESWOdH+wJQxqxhnNgb+Mn3zadqpO4l+qP9wdH4z
+	3m9R9RA80F6MXGbZ5GTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHXT-00000002N4I-19GX;
-	Sun, 07 Jun 2026 17:43:59 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wWHXL-00000002N2b-0K22;
+	Sun, 07 Jun 2026 17:43:51 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWHXQ-00000002N3l-1uVz
+	id 1wWHXI-00000002N2D-1kPt
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jun 2026 17:43:57 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2bf1f074a12so37157345ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 07 Jun 2026 10:43:56 -0700 (PDT)
+	Sun, 07 Jun 2026 17:43:49 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2bf1cda2b17so25312905ad.1
+        for <linux-riscv@lists.infradead.org>; Sun, 07 Jun 2026 10:43:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780854236; x=1781459036; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=51hCQtNZoxXJgbeY5Zuo3sa2yEFucyY7phuZ1UaRfZ4=;
-        b=rE1TmyeZ6Ya8JuQz+GntoQLUqP1Ko/ryYl39ChkiO1uBZfQ8EUJWiRjXBKbMK8jBpQ
-         ER+9JZsrxCG2Pq4NhCT+S/w4V9Ao1BEPNOfkkZQCuFpNzLFpm1mI+qnh5eWn+hF99lfy
-         YBc9z5BrHRzrYAzt25Po1l360TQEXY/qPbosfkbmi10aXjUdrbde5QxWg8P3ZsGL2iTE
-         2Jk/KUELYbb7zGaAOXJFEGRojuX6yodVvvKn+NEPHwwJyaOlEpiqPKLr004GTUbupagR
-         TVMcTndmBlc3JlXgLLrzJVg2LVO/Gfu+XbBI/Sn06I9bdDOlzxMpQxMWU5xjvUXsiVHe
-         lSEA==
+        d=gmail.com; s=20251104; t=1780854226; x=1781459026; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ljEzNr/52XcURxVXWbkwKLpno+BGAmwJA55/cYldv40=;
+        b=r1FRgtcSphWcCSDSRMAljs632tukPNDcTo1i95YRJPbBgWNS7w9uHM+PGp4Lt1ZPXx
+         DVG/WYv/6Kuy6q5YmLWzO5yo6E8Ta7JfE7sBJyGj/asJAqRCYb5LMvSsKxJvo+dNoH2f
+         th23zWlyG8tg8nogF1jotUWappgpiZCzxgTbGaow64vb1xQ2jhHgUMQCU1e1jsyjqlMX
+         sGP/Y+aJP5uDt4YsUzDF6bbVtyfA264i9vGPBlWF8C7EVs9N61Uv21Gc2YnLGgTW/EYM
+         n8iec4y3ITtz5eDvKsLAA9qmbXAfNIEUQJHfO+Q2oH+bulmbo+bqXjxzpvf/GRDi1fBR
+         pvBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780854236; x=1781459036;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=51hCQtNZoxXJgbeY5Zuo3sa2yEFucyY7phuZ1UaRfZ4=;
-        b=Pv8xy95pFaHIklt1aquZS81seSR9uVLdsMOl0BqDvVJPy9KV08rK+F/anTf5rgDouS
-         105UFA8VW4QGxdgSvpqPz0RvNn29BBEfyDsEd5yNzw53lf73EaEYGbfxEhlrMOabkRpX
-         0G6JIgdHpJ7Sh8lJIgLUzWMLwLL2mmfoXtGad+HfVe+tLKfruNRtY6WnKG6RPmrecKik
-         Q6beSuMXx/cQVRzHZ/LBk4KUPA0Sm3fpsmTOExnEbYkK4kl7qy2oHZ2LM9BvR+mU8GH1
-         QaqGyHhOMHfeQgAlJyV9eRxkVg94FCvNDqW7btLGxO1Hj4xwpITGBRHsy+Vct/QpaqII
-         Aagw==
-X-Forwarded-Encrypted: i=1; AFNElJ+qR91Tf+n4kShBDeRjSlE06q0t1IS0fnEvZEBEMlkStMImaf8U32Q/6F4T8tqFmclH2ZclQ79vzeCMFw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1kfV8Cd3r20/EIkFNYVA5ITIlvCaeOERMYYZGDK/CJ9FL+cIP
-	NaxjVAFfSgNQ8xGdskNei/a8Jn3sDxG9v2kV/d2XtRxeby7NDeHkAW4t
-X-Gm-Gg: Acq92OEXN7IoZgfYGQhEoqB6FrKlCfKOY+nW8pFtbGvMqJTMxtKNgcBZpJfLur8dY9L
-	LOWLV0pKq/SpKT9gNtslIVvj+CX3hsAlNaMWDaEf+0qaWpiQIWJ+QeqCyBaHw6wDYGatEgrxdfN
-	t1ENnFb1HJeXEoBUfnIuNtSehZ39+IDUKqRQooV2OCGP0Jetyi4LCXz8bmiS7pRTwlARi2c2vWF
-	lL8g9CjUmradQnR+usuHHgxL3Q149sK+WZltyXbTxjMk54JVeMkOAcC18VV/LQfmuEC0KA6C7UM
-	OsRYYis5C60Z8b2NeIExuwpW/xAeoptE+N9CbeF8tp/8QFStikGYZ1BkBtqyC5SqlpD+ifXHfam
-	Jx2g9LgSTMCratyEs2hXk7ZnOjNaKZWF8S+95hnFUphE+nenx/ZOYK4rMxBFf+tIuBQS9sfqTLc
-	FuTpyK5jK6T9tdnVSRxzw=
-X-Received: by 2002:a17:903:291:b0:2c0:c940:dc32 with SMTP id d9443c01a7336-2c1e821dde8mr144525455ad.16.1780854235665;
-        Sun, 07 Jun 2026 10:43:55 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780854226; x=1781459026;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ljEzNr/52XcURxVXWbkwKLpno+BGAmwJA55/cYldv40=;
+        b=CMnWEnNCMFGyOYoUADgBRECS5lAPjqM8x+CjKQi2HJxV/PCTvGaiegQPVyMn6EJUsq
+         FslmiBlPmbb7EYF0RMT/7S530fHe3owh490mJdorsgV4OcF/WrluMjqDNl0aa2lz7ZsP
+         FgHIDUq+gVaItF8BN+RxAloR7irFrDxlb2pJiVva/AeXrU/m8B6mUVC7dylB0VqLh1iE
+         geAY1OceyArvZ9ck3LnnRxLtCW+mtkk23FLTg4vcsIP35RtKyrQKvDGeu4EIBVPXpDkF
+         PQUKAnf5RgMx2Pu7vpip1XknRu6Eh/xM5CVg06g9vygnZ3YCvWRBLOX7xFdIp0aib4Kw
+         Mvdw==
+X-Forwarded-Encrypted: i=1; AFNElJ9KO1aNuKNKaNlbIcZf0WdXBHAwrFIYSiFkmHc5EuNzK5PvkmjE4RmPrGTw6WtnXfY9qGbmjMoxHwXgZQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywgtn3TZHsY9rK0wCJIX1UL6uPDRt7GkYF3YKmzBUF2Bp7yi4QV
+	142Wj9DiuvVyUYoLA2sk4BCW+iwtnXyV0+X5LHf2+Nw60t/E+wEfwOo+
+X-Gm-Gg: Acq92OFKGgi1ZbAuW+sxcJeaLdEvsjoaLvVA9O1jXenT6v2PP7kmNxEyVeuxhGAANV8
+	GLr6GujfLtM1j8QVlBe1nAed3NEqR83+K0bJSnUdSlXxCZ1BMJEr5MDTUzE/Zgpqri8amSkFMy0
+	veDDqTQ2g3zLoE3JZyEaKqDGh9pHTX8Vd76Bny/XijDkE5gtdBKTp0t0hYp2mYgtCkZaeweV728
+	xSsDgGd9gZj76SWD8kS5AHV5e1NBgrJYUNHCsZ567fz+m6w06Af0Bs495G/J6nYPfnFHwBLKGou
+	fb1DA4bcWM+ku23AfyeyAGK5WWnXcuFS3cEf3FCjvswIIQrqTfSBuWvCjGj/9u477X5pqdeWDD9
+	YBMidYmFD8fY1fPCbTGkHI8PE0b7Gshw+c4MdBPxPEqIw6HtkbOboKi9IT3G5uO1lPRC7vfAPaj
+	zrtdNK5Lpv
+X-Received: by 2002:a17:903:2385:b0:2c0:dc5c:9069 with SMTP id d9443c01a7336-2c1ec54cc43mr105352365ad.2.1780854226544;
+        Sun, 07 Jun 2026 10:43:46 -0700 (PDT)
 Received: from [127.0.1.1] ([2a12:a305:4::305d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16649ab01sm149171185ad.71.2026.06.07.10.43.51
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c16649ab01sm149171185ad.71.2026.06.07.10.43.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Jun 2026 10:43:55 -0700 (PDT)
+        Sun, 07 Jun 2026 10:43:46 -0700 (PDT)
 From: Guodong Xu <docular.xu@gmail.com>
-Date: Sun, 07 Jun 2026 13:41:31 -0400
-Subject: [PATCH 2/2] riscv: dts: spacemit: Use symbolic PDMA request
- numbers on K1
+Subject: [PATCH 0/2] dt-bindings: Add SpacemiT K1 PDMA request-number
+ header and use it in DT
+Date: Sun, 07 Jun 2026 13:41:29 -0400
+Message-Id: <20260607-b4-k1-pdma-req-macros-v1-0-5b2a3955007c@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20260607-b4-k1-pdma-req-macros-v1-2-5b2a3955007c@gmail.com>
-References: <20260607-b4-k1-pdma-req-macros-v1-0-5b2a3955007c@gmail.com>
-In-Reply-To: <20260607-b4-k1-pdma-req-macros-v1-0-5b2a3955007c@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAEmtJWoC/yXMTQ6CQAxA4auQrm0yMzED8SrGxTAtUgg/tmhMC
+ Hd31OW3eG8HYxU2uFQ7KL/EZJkL/KmC3Kf5zihUDMGF6KKrsT3j6HGlKaHyA6eUdTFsKNSRnA+
+ ROijtqtzJ+/e93v62Zztw3r4zOI4Pd+e503kAAAA=
+X-Change-ID: 20260607-b4-k1-pdma-req-macros-8d276d0126df
 To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
@@ -86,17 +87,17 @@ Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, Guodong Xu <docular.xu@gmail.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1132; i=docular.xu@gmail.com;
- h=from:subject:message-id; bh=Q0lqw13/3gF4uns/WKal2h1G/je064L1lnG61X5XfIc=;
- b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhizVtWev3/p2qE70xoZFWnK+a9Nkv64uWXbxuO0Xs59CM
- 17P77Pe0VHKwiDGxSArpshy+GhL9tZXPtG+zzl/wMxhZQIZwsDFKQATOanD8E/llLyc8+xv4ap7
- lqx+WP1YXLL/+rrE2w1Hn+2+XBGgkOXL8E+5QpKjef/Eml8TXLN3fjjz6l3ghYft2oXfXErfnNX
- csoAJAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1161; i=docular.xu@gmail.com;
+ h=from:subject:message-id; bh=i0ja/GMMnsxqkiiz4bzIDMyK41VkQXbc7b1PuWg5hTs=;
+ b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhizVtcf+RTEYiyef1bl9dN0G04D/ube/TrVbUX45bs733
+ K+z78tqd5SyMIhxMciKKbIcPtqSvfWVT7Tvc84fMHNYmUCGMHBxCsBEioQZ/srpuqX/tzrjbmTV
+ Hr3FuMZ4eYexo2uVd2LgE8FAgdZzHAz/AwM7/+b+yk9NPjLj5yf1wG6HYpPr3pKrI1d/PHeppE2
+ aAQA=
 X-Developer-Key: i=docular.xu@gmail.com; a=openpgp;
  fpr=90B1DC3DF0BD10FD1227BD6344F254AF42F143EE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_104356_505055_2ADFD680 
-X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-CacheID: sfid-20260607_104348_465006_586A5A18 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,42 +115,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The K1 SPI3 node's "dmas" property hard-codes its PDMA request numbers.
-Include <dt-bindings/dma/spacemit,k1-pdma.h> and use the K1_PDMA_SPI3_RX/TX
-macros instead, for better code readability and easy for future
-maintenance.
+Currently, K1 device trees specify PDMA peripheral requests as raw numbers.
+Add a dt-bindings header naming those request lines, point the binding's
+dma-cells description at it, and convert the current user (the K1 SPI3
+node) to the new K1_PDMA_* macros.
 
-No functional change.
+Patch 1 adds include/dt-bindings/dma/spacemit,k1-pdma.h with the
+  K1_PDMA_* request-number macros and update the spacemit,k1-pdma binding's
+  dma-cells description.
+Patch 2 updates the current pdma user in k1.dtsi to use these request
+  number macros.
 
 Signed-off-by: Guodong Xu <docular.xu@gmail.com>
 ---
- arch/riscv/boot/dts/spacemit/k1.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Guodong Xu (2):
+      dt-bindings: dmaengine: Add SpacemiT K1 PDMA request numbers
+      riscv: dts: spacemit: Use symbolic PDMA request numbers on K1
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 08a0f28d011fe..c413a64d5560c 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -4,6 +4,7 @@
-  */
- 
- #include <dt-bindings/clock/spacemit,k1-syscon.h>
-+#include <dt-bindings/dma/spacemit,k1-pdma.h>
- #include <dt-bindings/phy/phy.h>
- 
- /dts-v1/;
-@@ -1094,7 +1095,7 @@ spi3: spi@d401c000 {
- 				clock-names = "core", "bus";
- 				resets = <&syscon_apbc RESET_SSP3>;
- 				interrupts = <55>;
--				dmas = <&pdma 20>, <&pdma 19>;
-+				dmas = <&pdma K1_PDMA_SPI3_RX>, <&pdma K1_PDMA_SPI3_TX>;
- 				dma-names = "rx", "tx";
- 				status = "disabled";
- 			};
+ .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  |  4 +-
+ arch/riscv/boot/dts/spacemit/k1.dtsi               |  3 +-
+ include/dt-bindings/dma/spacemit,k1-pdma.h         | 56 ++++++++++++++++++++++
+ 3 files changed, 61 insertions(+), 2 deletions(-)
+---
+base-commit: 793cc54475b49b5b558902b5c13e4bfe66530a50
+change-id: 20260607-b4-k1-pdma-req-macros-8d276d0126df
 
--- 
-2.43.0
+Best regards,
+--  
+Guodong Xu <docular.xu@gmail.com>
 
 
 _______________________________________________
