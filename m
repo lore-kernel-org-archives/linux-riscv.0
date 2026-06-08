@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8D0CD6E79
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 21:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2232CD6E79
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 21:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GbPgm2dpMXgyvSAckXxRsVNeN0UUvOCSHXm0/cI0M0k=; b=X0rh66nc9bEFAq
-	wI+xxs+lzTCyQWEb+31lE01nbrLxaexD918qjJKqtTORqHPfdgAjBY9xlZztwcrTcYBZ8z6EXqLsQ
-	6c0o5sC1rjRUXJcDzNO6Odbwqz6YvUOpxJHHSohG68IK2bJ+nzO/97iWN/WJaoP7sxZeWlA+GRigJ
-	NaCE9J5goVm0nLzocG3pgbTqVVREzcBbF4zMX8wTZe+w0geeuilasvXfZ8N0LjqZ5RBd28KKwUpYb
-	ZVWUK0zdtDct5ztoR4LOMJU80LTVsT/titEj/znq3Bp3mhJy6qIfDQ2hG1vMj+xGVO12KjZg6aRcX
-	pBRidDQqGDMpIws8UPvQ==;
+	List-Owner; bh=sPRFa1U2pCbiCetxpfUklnHx3ENlQZUPQX96RZH77zQ=; b=g+ZbDPrpncZm45
+	4xPtFRKkQhdK07w3/p8mZqC3ExmN9LAY3O8R7q1L+SG8oeBeo3lJtOo8Tm9g7WYqlRM0bj6fJQi9n
+	MXOcvTc/XzZrvHsA3yIGB/Op+hj6Oa49fAKardF8SuB/6LvYPbbn5447sOJGv/ZLUO6V696nPRb2W
+	a0dYynPEzlUOg15qkcPKfYkYbxVmCyFypWjdrgf9J85+Man4WCiwCPhIijuDLnO3cPTQ808ToXPIy
+	BKlfC0Hxi5MYXFPAodmVPK8FNZDTSSNpU2CvODCuqhxFLssFn5kTdpBvjRc0RnTdwAjdnst5WfhAp
+	kjHzcWufdJ2FzLucF7LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWh4g-00000004PAd-0ARt;
-	Mon, 08 Jun 2026 20:59:58 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1wWhR0-00000004QOP-3HvX;
+	Mon, 08 Jun 2026 21:23:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWh4d-00000004PAG-3mDj
+	id 1wWhQz-00000004QOH-2eY3
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 20:59:57 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gZ4DP2HrGz9tgY;
-	Mon,  8 Jun 2026 22:59:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1780952389;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U+OfQweIOD1gShe2+QuxUov9IeGEl5ViBFprqcyr6fc=;
-	b=t+EDzGgfSG0GZyqmiau5dOYEo2iquULVn1WY5kaoOiTUQLbnyd+XOiLbbHhU+PSqDz+LPx
-	F0x3PnkQYGji0n60ArWtDXnCapCtxIyEUvslOaayKtf8gwY3CE85Fv4MQFF5I5ZxLcu+8d
-	dHPTHBD10/43Cy7LXLo+kZTOxlV5nz5hrDHZ2nCADHPrKwYGhcUmk2aWXIo/QD93eMTTaL
-	WuLTjOuQ0l2QcUBjij1awUA5Tso8H/7a/35ZEHxSRl2utkFR5hqIN4u5hwzsaA70lsrfVi
-	LCiDpv/KkEhuBwur7VfmQpGwXDP7sr7usxqhJs+o93vDOqiIZ+VXFj/HCaSUsQ==
-Message-ID: <e99b78d7aea835ab2960517e0c308b08538146ea.camel@mailbox.org>
-Subject: Re: [PATCH v2 0/2] rust: clk: Add ExclusiveClk and use it in
- pwm-th1520
-From: Maurice Hieronymus <mhi@mailbox.org>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>,  Miguel Ojeda <ojeda@kernel.org>, Boqun Feng
- <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,  =?ISO-8859-1?Q?Bj=F6rn?=
- Roy Baron	 <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl
- <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich
- <dakr@kernel.org>, Drew Fustini	 <fustini@kernel.org>, Guo Ren
- <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Michal Wilczynski
- <m.wilczynski@samsung.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
- <ukleinek@kernel.org>, 	linux-clk@vger.kernel.org,
- rust-for-linux@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, 	linux-pwm@vger.kernel.org
-Date: Mon, 08 Jun 2026 22:59:36 +0200
-In-Reply-To: <140FE1B3-73CA-45EA-B978-648A1A48B577@collabora.com>
-References: <20260605-rate-exclusive-get-th1520-v2-0-695640bf7249@mailbox.org>
-	 <140FE1B3-73CA-45EA-B978-648A1A48B577@collabora.com>
-MIME-Version: 1.0
-X-MBO-RS-ID: 4419fd374748a8af19f
-X-MBO-RS-META: 8quwtpkkm6yeim94go9bw3qkw9e67cnd
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_135956_111016_65ABBCAC 
-X-CRM114-Status: GOOD (  10.59  )
+	Mon, 08 Jun 2026 21:23:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D732140A67;
+	Mon,  8 Jun 2026 21:23:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9D21F00893;
+	Mon,  8 Jun 2026 21:23:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1780953780;
+	bh=5r8KYgeziJLoINJNNFem1kGIFqYvCyKRP4AgGvX1XNE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DDsdTSA5rUbZKCWNzLHJo7zF5CUdBD48WlZqNC1MGpV4T7hK/jsvhF/1sImwuRX8U
+	 ZRT+67GqqjbhB9yzavNdqlt7SwU9Gs+Ped/8Nw2q/45UmjeW2PNiA1DxWxm37608IE
+	 lukA8HrLwC1Dw3YqC1HYPDbyQv0GeVu8uB5VR9UI=
+Date: Mon, 8 Jun 2026 14:22:58 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Andrey Smirnov <andrey.smirnov@siderolabs.com>
+Cc: pasha.tatashin@soleen.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ syzbot+2b5fe617654be3d8848b@syzkaller.appspotmail.com, Thomas Gleixner
+ <tglx@linutronix.de>, Thomas =?ISO-8859-1?Q?Wei=DFschuh?=
+ <thomas.weissschuh@linutronix.de>, Andrei Vagin <avagin@gmail.com>, Andy
+ Lutomirski <luto@kernel.org>, Vincenzo Frascino
+ <vincenzo.frascino@arm.com>, stable@vger.kernel.org
+Subject: Re: [PATCH] mm/page_table_check: do not track special (PFN-mapped)
+ PTEs
+Message-Id: <20260608142258.5028187b1d245b46554eb2dc@linux-foundation.org>
+In-Reply-To: <20260608155758.1220420-1-andrey.smirnov@siderolabs.com>
+References: <20260608155758.1220420-1-andrey.smirnov@siderolabs.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,21 +68,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI2LTA2LTA4IGF0IDA4OjA4IC0wMzAwLCBEYW5pZWwgQWxtZWlkYSB3cm90ZToK
-PiBIaSBNYXVyaWNlLAo+IAo+IFRoZXJlIGlzIHNvbWUgb25nb2luZyB3b3JrIHRvIGNvbnZlcnQg
-Q2xrcyB0byBhIHR5cGUgc3RhdGUgcGF0dGVybgo+IFswXQo+IAo+IEkgd29uZGVyIGlmIHlvdSB3
-b3VsZCBiZSB3aWxsaW5nIHRvIHJlYmFzZSBvbiB0b3Agb2YgdGhhdD8KPiBJIGNhbiBwdXNoIGEg
-bmV3IHZlcnNpb24gaWYgc28uCkRlZmluaXRlbHkhIEp1c3QgbGV0IG1lIGtub3cgd2hlbiB5b3Ug
-cHVzaGVkIGEgbmV3IHZlcnNpb24uIFRoYW5rcyBmb3IKdGhhdC4KPiAKPiBJdCBzZWVtcyBsaWtl
-IHdlIGFyZSBtb3N0bHkgaW4gYWdyZWVtZW50IHdpdGggdGhhdCBzZXJpZXMsIGFuZCBvbmx5Cj4g
-YSBmZXcgbml0cyBhcmUgbWlzc2luZy4KPiAKPiDigJQgRGFuaWVsCj4gCj4gWzBdOgo+IGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL3J1c3QtZm9yLWxpbnV4LzIwMjYwMTA3LWNsay10eXBlLXN0YXRl
-LXYzLTAtNzdkM2UzZWU1OWMyQGNvbGxhYm9yYS5jb20vCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon,  8 Jun 2026 19:57:58 +0400 Andrey Smirnov <andrey.smirnov@siderolabs.com> wrote:
+
+> The vDSO data store ("[vvar]") special mapping is created as a VM_PFNMAP
+> mapping and its pages are installed into userspace with vmf_insert_pfn(),
+> which produces special PTEs (pte_special()). On x86 and arm64 (and riscv)
+> pte_user_accessible_page() only tests the PRESENT/USER bits and does not
+> exclude special PTEs, so page_table_check accounts these PFN mappings in
+> the per-page anon/file map counters even though they are not rmap-managed
+> pages (vm_normal_page() returns NULL for them).
+> 
+> Most of these data pages live in the kernel image and are never freed, so
+> the stray accounting is invisible. The time-namespace VVAR page is the
+> exception: it is a real alloc_page() page that is released with
+> __free_page() in free_time_ns() when the last task of a time namespace
+> exits. Across the map / unmap / vdso_join_timens() zap transitions the
+> special-PTE accounting is not balanced for this page, so a non-zero
+> file_map_count survives to the free path and trips:
+> 
+>   kernel BUG at mm/page_table_check.c:143!
+>   __page_table_check_zero+0xfb/0x130
+>   __free_frozen_pages+0x52f/0x650
+>   free_time_ns+0x85/0xc0
+>   free_nsproxy+0x7f/0x130
+>   do_exit+0x313/0xa60
+>   do_group_exit+0x77/0x90
+> 
+> This is reliably reproducible on x86_64 and arm64 under heavy container/CI
+> churn that rapidly creates and destroys time namespaces (CLONE_NEWTIME via
+> runc / docker-init / tini), and was independently reported by syzbot on
+> riscv. It only manifests when CONFIG_PAGE_TABLE_CHECK is active.
+> 
+> Special PTEs have no struct-page rmap semantics and must never have been
+> tracked by page table check. Skip them in both the set and clear paths so
+> the counters stay balanced (always zero) for PFN-mapped pages, regardless
+> of how the architecture defines pte_user_accessible_page(). pte_special()
+> is available generically (it is a no-op returning false on architectures
+> without ARCH_HAS_PTE_SPECIAL), so this is a single, arch-independent fix.
+> 
+> Note that the v7.0 generic vDSO datastore rework in commit 05988dba1179
+> ("vdso/datastore: Allocate data pages dynamically") incidentally avoids
+> the problem by switching the mapping to VM_MIXEDMAP + vmf_insert_page()
+> with balanced struct-page accounting. This patch fixes the still-affected
+> VM_PFNMAP path used by 6.18.y and earlier, and additionally makes
+> page_table_check robust against any future PFN-mapped user pages.
+
+Thanks.
+
+The patch isn't applicable to current -linus mainline.  I reworked it
+as below, then deleted it.  It would be better if this rework came from
+yourself (tested), please.  And a patch which applies will get checked
+by Sashiko AI review.
+
+--- a/mm/page_table_check.c~mm-page_table_check-do-not-track-special-pfn-mapped-ptes
++++ a/mm/page_table_check.c
+@@ -151,7 +151,15 @@ void __page_table_check_pte_clear(struct
+ 	if (&init_mm == mm)
+ 		return;
+ 
+-	if (pte_user_accessible_page(mm, addr, pte))
++	/*
++	 * PFN-mapped (special) PTEs - e.g. the vDSO/time-namespace "[vvar]"
++	 * mapping installed via vmf_insert_pfn() - are not rmap-managed and
++	 * must not be tracked here. Tracking them can leave a non-zero map
++	 * count on a struct page that is later freed (the time namespace VVAR
++	 * page in free_time_ns()), tripping the BUG_ON() in
++	 * __page_table_check_zero().
++	 */
++	if (pte_user_accessible_page(mm, addr, pte) && !pte_special(pte))
+ 		page_table_check_clear(pte_pfn(pte), PAGE_SIZE >> PAGE_SHIFT);
+ }
+ EXPORT_SYMBOL(__page_table_check_pte_clear);
+@@ -208,7 +216,7 @@ void __page_table_check_ptes_set(struct
+ 
+ 	for (i = 0; i < nr; i++)
+ 		__page_table_check_pte_clear(mm, addr + PAGE_SIZE * i, ptep_get(ptep + i));
+-	if (pte_user_accessible_page(mm, addr, pte))
++	if (pte_user_accessible_page(mm, addr, pte) && !pte_special(pte))
+ 		page_table_check_set(pte_pfn(pte), nr, pte_write(pte));
+ }
+ EXPORT_SYMBOL(__page_table_check_ptes_set);
+_
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
