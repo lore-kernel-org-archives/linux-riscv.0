@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9552CD8C9F
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 14:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F3FCD8C9D
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 15:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=aY23BxAnvkpZhBOXtb1FIdhgLw+V6d7RtKnTX53JJio=; b=SCPm3ZNLsQ1NWWNz5D1HSGUns+
-	xPYpY8B0wuVdJSHkzA9BzL6zdbwXUTSIzZupfyFHLMvsTy1Pv4fLDLoSJQpz2/Slk9pfZrIGOendr
-	nu0qDxlY11gy3cupsjRAwCP9ELzGjHbp41+rdeyEUUamI8k9Pb4CHqXTRuZ1F6gvHRY6ga/RTheaq
-	MSNyJfc5aEoisKUyLGRBz/pu8g7Hbiiv7mvCcd8ncdn3RfYS/nMcHWBGTVbqU+cCfdWYZoxVAtogS
-	2Imij15MwXgoZsyZGewi6MViPR/TKEL0xAa3NseE24deOFel1sg1XDYGo8wARU/f1yHiDvf3UgvBx
-	5mpBtVDg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vjEJPtliLv3e3yZt/XpZWkoEYP0iXR2FBLJhDlZjnys=; b=M4iCukPS9OTe5Z
+	7AlerWXj1gCkb4eRhablKEKvPEwbKbQNVhQec6yoZkzNG5aGSooekr1eEFvLdxbh2o4IaeGp4e/Fl
+	LPCZdTlfgKt2hnSBa8A/MQwpUzyGJqmcWlNE7lprYk3YI/MI+wJSJ97HPEDHlMG5TU+dmoUC3hI4Z
+	TDBMxtzyqsSdaEWdZ2TWaEXyfNePhCriaAfraPVvm2tMUcvaGojT8gNossUX+EmyGOSy4tpWtVmDv
+	tjJGiHQU8hgY1TV50qPPNM/dFFhylqTPJTs6qyatAjUHfKLSVXovmde2antbPsnzYcRVElrAra15f
+	8u1igdz4P5xlbKvMX19A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbEc-00000003qwG-3hrp;
-	Mon, 08 Jun 2026 14:45:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWbZp-00000003vHw-3mgX;
+	Mon, 08 Jun 2026 15:07:45 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWbEb-00000003qvt-1a3T
+	id 1wWbZm-00000003vHX-3AVL
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 14:45:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8290444BC
-	for <linux-riscv@lists.infradead.org>; Mon,  8 Jun 2026 14:45:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABA591F00899
-	for <linux-riscv@lists.infradead.org>; Mon,  8 Jun 2026 14:45:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780929948;
-	bh=C1ZKRAk+v5D8Fo7M4WzkBwmvVcnvQs40wfLDkqAg74g=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=J0UML/X22q0xYMiMs+IBBC3yMy6GhyTPNIY4OZORGxP3k9qC0xR7U9KjrkcgiJetY
-	 ppDrnKbYUHR0grKD/gtHfBbaWHV1f/29NHjEKZMuMPD98M33kaT7QPqS1QocaMPlsk
-	 4k/9g7BpFMuOpjwL968hRyx/ICOjJTZwJcFq7LYdh/Lh6D9HZCJp7Lxq5CNnQlOy8O
-	 6OGE3VVWaK/YgCp+HHGMmCWnUxQszo2zkKOx11B85al9ynxEkyHuqf67wH8UPlISJa
-	 qQnUPotuOs2PsXyOjwH4ciHg3mvCDuaLh7Ado8PwqrJrYo49GYvMvR0evlD4MojljK
-	 9MwvUdEYYbiDw==
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-137dd523634so6863102c88.1
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Jun 2026 07:45:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+nbugjAMRpOKoeZE0LvND+NJvoHcmdsluAALV+4QdQhiYVkjSZ1RvD9t572L/Vsme1fS6o68apDWFzbA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDT2+8aMgsod8Q3fiBkqGPzi81cXq7khMSuJF9VfLngC1qBm3B
-	5YrhxtcIOMc3Z8CvtJ6ZqLWjr2XtGhVCutMidfm+qLpNKbD8T41AqtKDn2+SnXmdkBZF+4X0cbM
-	x4FvlaQsXsoPtO1FEjvW8obxXZHnHhGc1yIwRZ+BhUA==
-X-Received: by 2002:a05:7022:43a9:b0:137:f58c:3cae with SMTP id
- a92af1059eb24-138066b75femr7099909c88.1.1780929948188; Mon, 08 Jun 2026
- 07:45:48 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 8 Jun 2026 07:45:44 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 8 Jun 2026 07:45:44 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260603055347.66845-19-changhuang.liang@starfivetech.com>
+	Mon, 08 Jun 2026 15:07:45 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-4864abba33fso3329344b6e.0
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Jun 2026 08:07:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1780931261; x=1781536061; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GPW/j2H7etURcdgtP0gwsW6mmFXkT98v44Yo7M5DhUk=;
+        b=enz3maWtYGgSVYPBUpasg0evn8MSRLwYylgcn8t2HnaqxgJb6dz+gYhh7wiwr/kC9h
+         ZHgNweBZQevpX4a62ZpT4IOVlhZcpYLqGY3xjH5AyLDTt+pTdxy3XZi4hAUPMJ/iClWp
+         nAtjTj9AGXpcETK1Fds4ywU6xSm+COdKYnvwyRBTR/T1KE+U8BhfeVhEW3GKEgc1wLB4
+         +3/GD7gX7h3mc0mvMbiRCaMTG03IS7QU0lHtLVM+iicGoHbhk+0SoTXWYs719oNqFkjD
+         3TtICTYXwFWUnnrFdOKvk02muRBOoRUt1/IMtdm4RxDw/winlWjW0PpEr63Z/O1ID6/y
+         H/6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780931261; x=1781536061;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GPW/j2H7etURcdgtP0gwsW6mmFXkT98v44Yo7M5DhUk=;
+        b=nKaHbB6oY0WfmoyWcWER5GvjXZMT1MKhDXFKCGziJRVXk6X1fly7DSr2DSAZgekxeX
+         gcorp/6NlmsJGdBx1bS94pao2XHmAhoJfGjFYyRw/5R424b+UuNVPLTms6MMAmSAFrTU
+         PnvpAGHcemiCB+hPWyqSYwDgySWJ5apFHPEdVpAYu1393kZFqtJ0ybg1ctIeRhuLMNEv
+         5jSOgyrDIQqNXZgxphJxlocHz8ukszaNbHnX/352sDzmoJWxv1IqvDhn7bSerzlR103O
+         3JSVZ9ensrf/rWy68z0pzN+kv8cWII3+R5WSZaVbIzMp0H/z/d5F9qK0KKn14ii68EfT
+         sUNg==
+X-Forwarded-Encrypted: i=1; AFNElJ+yYvK9bdleXHOUnW5RTBkN9YikK+vTXN7D8ZOXFuWSXpsowKi2HPcE5JegIOa+k4qsUe78yi9QaXFb3w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzzPIuuSnvidxYVAQ/vpl7k0RqJrkEGXTdL2nkouQJvJQxbHJ2
+	LzhC5TxUzjF7WiJrAfYZr//PKC2SwBNNmrV3ur+iLnU8YcHkgnYzxVAOWfzFqduPS1w=
+X-Gm-Gg: Acq92OFMitXRy45SsZ4jW5oZFIRg0cdeD1p20LS8y8qjYqH4zxbDdGtdnJmFGB38/wG
+	3WypjpK2YLH8EzuZvv5hr+WKYIEQe2zid/Q3lHOSTyDop/EZhX7njVaMPyaysAZPWFBwHptrydC
+	equl55xs04LY2iQHHzTLY2Dz6NTYnigjiyiv6jbe9qxDDhDlMLgvgCfuZmp0wsXAlwK66R2LD0z
+	3SowRN4pnS6iw6bWQrEiKsIHtVPhL+Vj2wFd7IhiQVHacL0oPOSiX8vtu+XQv3TQ/yzKGlcfPjh
+	meOwCRYP/vj0Ks7sLQxNoACXu9koVX15wbDh6cY5BanS5obADThTCxXXXw2BR+VTqA/aaY/GKTj
+	aBGz3C77Q326jVLlHKuPYMb9lcnQhVAmazsTFaHGerxJECpI3pX6ldhm+CdCa2BydIlOHFUVF93
+	R/Ty2Ile56jn244ZEV0r0/6WRA0dLcJMThJHbmXtWOGkt+0Oc06G0WC/ImtokRSdjAfa84RNML2
+	w==
+X-Received: by 2002:a05:6808:1925:b0:485:50e:5899 with SMTP id 5614622812f47-48692abc2c6mr6386070b6e.2.1780931261172;
+        Mon, 08 Jun 2026 08:07:41 -0700 (PDT)
+Received: from toolbox ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4865b6ec694sm13657032b6e.5.2026.06.08.08.07.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 08:07:40 -0700 (PDT)
+Date: Mon, 8 Jun 2026 10:07:25 -0500
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Wenhui Fan <fanwenhui@masscore.cn>
+Cc: anup@brainfault.org, tglx@kernel.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/riscv-imsic: Fix IPI target CPU mapping for
+ sparse hartid topology
+Message-ID: <pbh34jxjqrwjdkavt43h3gaizdghjweq6jhcxs44knm76uaqwv@qqmmdelvb7ce>
+References: <20260608115935.2194813-1-fanwenhui@masscore.cn>
 MIME-Version: 1.0
-References: <20260603055347.66845-1-changhuang.liang@starfivetech.com> <20260603055347.66845-19-changhuang.liang@starfivetech.com>
-Date: Mon, 8 Jun 2026 07:45:44 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Md1z52A_JzMG=3Ce5nN-HMvwH0TO=t2jEqC3kdCQK8EwA@mail.gmail.com>
-X-Gm-Features: AVVi8CfaVNjKqTQIxP4uDH7miQgJxqhIv2ueyrqcnqutmjGTDV0cuJZ3ZuCNFUc
-Message-ID: <CAMRc=Md1z52A_JzMG=3Ce5nN-HMvwH0TO=t2jEqC3kdCQK8EwA@mail.gmail.com>
-Subject: Re: [PATCH v3 18/21] pinctrl: starfive: Add StarFive JHB100 per2pok
- controller driver
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>, Linus Walleij <linusw@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20260608115935.2194813-1-fanwenhui@masscore.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_080742_982127_A1184E0E 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +101,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 3 Jun 2026 07:53:44 +0200, Changhuang Liang
-<changhuang.liang@starfivetech.com> said:
-> Add pinctrl driver for StarFive JHB100 SoC Peripheral-2 Power OK
-> (per2pok) pinctrl controller.
->
-> Co-developed-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-> Signed-off-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+On Mon, Jun 08, 2026 at 07:59:35PM +0800, Wenhui Fan wrote:
+> When the system has sparse hartid topology (e.g., only hart0 and hart8
+> are online), the current IMSIC driver incorrectly calculates the MSI
+> MMIO offset for each CPU. This causes IPIs targeting hart8 to be
+> misdirected to hart1.
+> 
+> The root cause is that in imsic_setup_state(), the MMIO offset is
+> calculated using the parent interrupt index 'i' rather than the actual
+> hartid:
+>     reloff = i * BIT(global->guest_index_bits) * IMSIC_MMIO_PAGE_SZ;
+> 
+> This assumes a contiguous hartid space, which is not guaranteed in all
+> systems. When only hart0 and hart8 are online, the driver receives
+> nr_parent_irqs=2, with i=0 for hart0 and i=1 for hart8.
+> 
+> Using i=1 for hart8 results in using the wrong offset which is intended
+> for hart1, and causes the MSI configured for hart8 to incorrectly access
+> hart1's MSI page.
+> 
+> Fix this by using the actual hartid for offset calculation:
+>     reloff = hartid * BIT(global->guest_index_bits) * IMSIC_MMIO_PAGE_SZ;
+
+The IMSIC binding [1] says that multiple groups can be used if the IMSIC
+files for different groups of harts aren't located contiguously in MMIO
+space. I believe that this approach must be used here, rather than
+patching the kernel like this. The same quirk exists with OpenSBI
+(you'll need a patch similar to yours). So rather than patching both
+linux and OpenSBI, you can try this solution below.
+
+You'd have to change your IMSIC node in the DT from something like this
+
+/* Assuming per HART IMSIC file size is 0x1000*/
+interrupt-controller@28000000 {
+      compatible = "riscv,imsics";
+      reg = <0x28000000 0x9000>;
+};
+
+to something like this
+
+interrupt-controller@28000000 {
+      compatible = "riscv,imsics";
+      reg = <0x28000000 0x1000>, <0x28008000 0x1000>;
+};
+
+and the existing implementation in the kernel (and opensbi) should work.
+
+
+[1] https://elixir.bootlin.com/linux/v7.0/source/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml#L28
+
+> 
+> Fixes: 21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early driver")
+> Signed-off-by: Wenhui Fan <fanwenhui@masscore.cn>
 > ---
->  drivers/pinctrl/starfive/Kconfig              | 12 +++
->  drivers/pinctrl/starfive/Makefile             |  1 +
->  .../pinctrl-starfive-jhb100-per2pok.c         | 97 +++++++++++++++++++
->  3 files changed, 110 insertions(+)
->  create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per2pok.c
->
-> diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-> index edc3b6d9c8d7..bf5915e0a5f2 100644
-> --- a/drivers/pinctrl/starfive/Kconfig
-> +++ b/drivers/pinctrl/starfive/Kconfig
-> @@ -91,6 +91,18 @@ config PINCTRL_STARFIVE_JHB100_PER2
->  	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
->  	  and interrupts on input changes.
->
-> +config PINCTRL_STARFIVE_JHB100_PER2POK
-> +	tristate "StarFive JHB100 SoC Peripheral-2 Power OK pinctrl and GPIO driver"
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	depends on OF
-
-I don't see any real dependency on CONFIG_OF here, am I missing something? The
-OF ID matching is available even with !CONFIG_OF.
-
-Same elsewhere.
-
-Bart
+>  drivers/irqchip/irq-riscv-imsic-state.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+> index e3ed874d8..5f737ec36 100644
+> --- a/drivers/irqchip/irq-riscv-imsic-state.c
+> +++ b/drivers/irqchip/irq-riscv-imsic-state.c
+> @@ -894,7 +894,7 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
+>  
+>  		/* Find MMIO location of MSI page */
+>  		index = nr_mmios;
+> -		reloff = i * BIT(global->guest_index_bits) *
+> +		reloff = hartid * BIT(global->guest_index_bits) *
+>  			 IMSIC_MMIO_PAGE_SZ;
+>  		for (j = 0; nr_mmios; j++) {
+>  			if (reloff < resource_size(&mmios[j])) {
+> -- 
+> 2.43.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
