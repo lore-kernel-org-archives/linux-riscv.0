@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F34CD8C8E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 07:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8941ACD8C8E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 07:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wfUGq1rLfRzCDRpMRdd+DRMtMdTi6IwVWZRExHv5gzo=; b=jCD/12gjIQgoJ8
-	yp13wJwrI9kaOJ3G8YEW+YwlVS9pvSEG2I9KHvPBNoCBDkVW0hPQ15quCf4edILn04D357JQckLbQ
-	EzfB7UpF47gzt4GRu4499z3i4/Ia75OB6G/HCghhoiH3KF2TwUskGY9VPWldnHW42w0+2gEw1XGG5
-	gVrMiajkJyPyQx0lM1H/A+8N4/Kgk2Ng4HuJYP0J0+B9SR9tdpB2j8r9kJsyaIsAKwYN0XKlceYS6
-	wUhN+chVU0uhkd4RsFG3qsDq8HHmRxgk34X4dM0MtxM3Few7rstQ11Mx1gQ3PJYgLLPZNQF24BT/c
-	ekNAm4naMq7FxdxadAVQ==;
+	List-Owner; bh=gIeca7YCZ7sb83d5wBA+2gQH1AJrYCVLpYmvZMSuiu4=; b=JLkgz0e1ZJ6BKM
+	O1frmY7FStkruRYFSSu6mNPx/KpuhNOCSqhJ/cpAusHse86axsEODToOzeHR9N4Qsk+5yy6aH06jq
+	6RHAU2kCNxCKLEHdlIeIxDe/KS93dlmRZAfhqP8hESKW+vygKWzkk4AGhNqQE3txisnrjLrWqIVZA
+	t1/8YBTc2gDBAY6UJKOF3RU1wFa/kOSjStJsGamLLWRd+1vVZSRw+nEnV6f9w5zmvZDAq4fpPBfjs
+	UHyl3vAiRz66uTTO8vg/CNAdiPweC6zG7+bVaEFjLVZoNg6UOq74PFCICeQ+ndao4IF+2zT7lE92h
+	i6KppuVfBIC01hXEmfog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUPU-00000002yhY-3OGP;
-	Mon, 08 Jun 2026 07:28:36 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1wWUXD-00000002z7u-2tR1;
+	Mon, 08 Jun 2026 07:36:35 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUPO-00000002yg6-43PB
-	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 07:28:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1780903696;
-	bh=YRxEs7wKiqRBJ3TzHh8zfI1hjIUUljuWBmJPiK37GXo=;
-	h=Message-ID:Date:MIME-Version:To:Subject:From;
-	b=mYxCjkQsrCuylMwnRPE6DnQAzgGPka0SKkmKjNODdCnW2ECWAw4YLnESMtNhHRvWr
-	 bjg8ZWXFvyJ+5h8tRITWOT+KdWz+CsdGHWdaQTNjwLSKp9ET9mL+vYyc9S/SUVcLXG
-	 XDd0A1N/YQaM6ZbODjyJ9csbFsuw/zjRoLfLUUms=
-X-QQ-mid: esmtpgz15t1780903694t5b45206f
-X-QQ-Originating-IP: AaZNpuSktHh8DwCVhQ4nK9VMvK/D4vmaEGq3cCOt62g=
-Received: from [127.0.0.1] ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 08 Jun 2026 15:28:10 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4561199684526648779
-EX-QQ-RecipientCnt: 30
-Message-ID: <5C63EC7A33D2DA48+643f07be-c1e1-4527-9d4a-17faf646a8f5@linux.spacemit.com>
-Date: Mon, 8 Jun 2026 15:28:10 +0800
+	id 1wWUX8-00000002z5N-1SAr;
+	Mon, 08 Jun 2026 07:36:33 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=o2MfIbIpab6sBV5thXVrF9AYDGvnd3HG9zD/Hp4jR/4=;
+	b=MKsW01v71lyzHBKuxcUCGXDG3iC+LjXlgBljdiGZ5GNea3mwcKjmTJ3Sna5AEeAIXHbUyKd7I
+	FfGFcBsOdG4OwgLPgjq9m/d4R5wCaqfhOVZrxcAR19U5sPQm8CYu8Of5fG2WJvOnTcVHE47Biyz
+	xff7YUvgHUdXIRUyeUgoNLE=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gYkDF675Qz1prlM;
+	Mon,  8 Jun 2026 15:28:29 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 54EDA40538;
+	Mon,  8 Jun 2026 15:36:25 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 8 Jun
+ 2026 15:36:21 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <rppt@kernel.org>,
+	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <ruirui.yang@linux.dev>,
+	<rdunlap@infradead.org>, <peterz@infradead.org>,
+	<feng.tang@linux.alibaba.com>, <dapeng1.mi@linux.intel.com>,
+	<kees@kernel.org>, <elver@google.com>, <kuba@kernel.org>,
+	<lirongqing@baidu.com>, <ebiggers@kernel.org>, <paulmck@kernel.org>,
+	<ruanjinjie@huawei.com>, <leitao@debian.org>, <coxu@redhat.com>,
+	<Liam.Howlett@oracle.com>, <ryan.roberts@arm.com>, <osandov@fb.com>,
+	<jbohac@suse.cz>, <cfsworks@gmail.com>, <tangyouling@kylinos.cn>,
+	<sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
+	<adityag@linux.ibm.com>, <liaoyuanhong@vivo.com>, <seanjc@google.com>,
+	<fuqiang.wang@easystack.cn>, <ardb@kernel.org>, <chenjiahao16@huawei.com>,
+	<guoren@kernel.org>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kexec@lists.infradead.org>
+Subject: [PATCH v16 03/10] crash: Add crash_prepare_headers() to exclude crash kernel memory
+Date: Mon, 8 Jun 2026 15:34:52 +0800
+Message-ID: <20260608073459.3119290-4-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260608073459.3119290-1-ruanjinjie@huawei.com>
+References: <20260608073459.3119290-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: liangzhen@linux.spacemit.com
-Cc: adrian.hunter@intel.com, alexander.shishkin@linux.intel.com,
- andrew.jones@oss.qualcomm.com, anup.patel@oss.qualcomm.com,
- anup@brainfault.org, atish.patra@linux.dev, conor+dt@kernel.org,
- coresight@lists.linaro.org, gregkh@linuxfoundation.org, irogers@google.com,
- jolsa@kernel.org, kan.liang@linux.intel.com, krzk+dt@kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- mark.rutland@arm.com, mayuresh.chitale@oss.qualcomm.com, mchitale@gmail.com,
- mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com,
- peterz@infradead.org, pjw@kernel.org, robh@kernel.org,
- sunilvl@oss.qualcomm.com, zhuangqiubin@linux.spacemit.com,
- mike.leach@linaro.org, james.clark@linaro.org, Bo Gan <ganboing@gmail.com>
-References: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
-Subject: Re: [RFC PATCH 00/12] Add Linux RISC-V trace support via CoreSight
-From: Zane Leung <liangzhen@linux.spacemit.com>
-In-Reply-To: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NPR7uEA6bBhoVW0BXuFQUHFAdw6nqbRdyxSlSO1Eh3eDdWrfTm4Kq2iG
-	5L3vAk8bNya94gPSGIqq3YcbaG4VDCznXq1Df2zAE+qELaDKXgQNFY+U0dqzeAJpuIY+hzi
-	B9cwgIuGWH59nYdtlVxetOAHJDud1VWGNREkXuPB0SA+z7pQ/e6txixwcE7OrVo6bLvA6Wb
-	EoUcm0NK6kA0PGCJJHkl63Coh1s3gqTLC/RIgtOaRy0rb3x5R/OG59ULtE/LHXFQjwb0p7m
-	fsav1VHtkrooUHHRUPM0g1MIkLSfxHDOWm2iEZTK6is/ZjBgv9Shdyny5l5KXRMTJsoSJ7n
-	/C11TvScKKwYItWG3ytmaF6Z8h8tG1YD0YYhefE67RKrpXeNYuAXZLJDh+a/QGLG3hYVG03
-	fzlKpcyCjU1RHEc6pQbaqvJVJjuMUkPJwU/z2BSF9iIkqsgoga6FcKKwEucNEkaXo6xEZ98
-	/nc80mKVR4SEGBJhM04ZZVRvqc6rXpUeeqhMBqXbPjFccmjb8kjlZZzUih2xXUQwiogMIRd
-	MRO0AFUEw8YIiMurPtb9Rzq0RV9E3MDP+kasKwhTv4j9oMuy3wHvNkLNOYmwyEGEahPvMBV
-	9n3Bt8MGgkjEug/GyaDO96AOPTnA6Nvjr/GlseBexnpfuL/GQdpt/dT6wzAA1BSsGHI8Bp6
-	3KUwitwgGfIcgWDp8V5oR2VQBcZDQllGTbS150dIyOMstCleiz0NVBekArE4rtsCbj9ba7I
-	oV9PS21OjnM5TulRt/hW1lpbEkpv8ocOj+qN4Hoc9BJosFlArj2fMZlesfoBT2TTfbUvLdL
-	JFMkHTWRb9lYB7KDtaGd68dsb18rd2bWA2c87o27/m4pg3bRKwOPwfGMmnTVbNE1cv0hfCF
-	gCX1/O9ByNFP4q9pToNJvJpb9ZwMTC8jbgbhSpn/3+4BlINbSu7GZYlFSCS3tCKyOjWMnXp
-	w22GrJn+A0ZIKaq7L+sf56ykH2+ll4bCgmatrt6v/M1ohIB4UEawOjIuBEojKvr5ldV+fPS
-	7/8wx4djrtgX8s+KHVcAw3bEJFjSU=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-X-QQ-RECHKSPAM: 0
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_002831_973720_A83F7289 
-X-CRM114-Status: UNSURE (   3.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260608_003631_094255_713E8BD4 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +92,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIGFsbApJIHBsYW4gdG8gZXh0cmFjdGluZyBDb3JlU2lnaHQncyBhcmNoaXRlY3R1cmUtaW5k
-ZXBlbmRlbnQgZnJhbWV3b3JrIGNvZGUKaW50byBhIHNoYXJlZCBsYXllciAoZHJpdmVycy9od3Ry
-YWNpbmcvdHJhY2UtY29tbW9uLykgdG8gc3VwcG9ydCBtdWx0aXBsZQp0cmFjZSBpbXBsZW1lbnRh
-dGlvbnMgKEFSTSBDb3JlU2lnaHQsIFJJU0MtViB0cmFjZSwgZXRjLikuCgrCoCAjIyBQcm9wb3Nl
-ZCBTdHJ1Y3R1cmUKCsKgIGRyaXZlcnMvaHd0cmFjaW5nLwrCoCDilJzilIDilIAgdHJhY2UtY29t
-bW9uL8KgIMKgIMKgIMKgIMKgICMgTmV3OiBHZW5lcmljIGZyYW1ld29yayBsYXllcgrCoCDilILC
-oCDCoOKUnOKUgOKUgCB0cmFjZS1jb3JlLmPCoCDCoCDCoCDCoCMgRGV2aWNlIHJlZywgcGF0aCBi
-dWlsZGluZy9lbmFibGUvZGlzYWJsZQrCoCDilILCoCDCoOKUnOKUgOKUgCB0cmFjZS1jb3JlLmjC
-oCDCoCDCoCDCoCMgUHVibGljIGludGVyZmFjZXMKwqAg4pSCwqAgwqDilJTilIDilIAgTWFrZWZp
-bGUvS2NvbmZpZyAoQ09ORklHX1RSQUNFX0ZSQU1FV09SSykKwqAg4pSCCsKgIOKUnOKUgOKUgCBj
-b3Jlc2lnaHQvwqAgwqAgwqAgwqAgwqAgwqAgwqAjIE1vZGlmaWVkOiBBUk0tc3BlY2lmaWMgb25s
-eQrCoCDilILCoCDCoOKUnOKUgOKUgCBjb3Jlc2lnaHQtY29yZS5jwqAgwqAjIEFSTSBDVEksIGNs
-YWltL2Rpc2NsYWltLCBtb2R1bGUgaW5pdArCoCDilILCoCDCoOKUnOKUgOKUgCBNYWtlZmlsZS9L
-Y29uZmlnwqAgwqAjIHNlbGVjdCBUUkFDRV9GUkFNRVdPUksKwqAg4pSCwqAgwqDilJTilIDilIAg
-W2V4aXN0aW5nIEFSTSBkcml2ZXJzXQrCoCDilIIKwqAg4pSU4pSA4pSAIHJ2dHJhY2UvwqAgwqAg
-wqAgwqAgwqAgwqAgwqAgwqAjIE5ldzogUklTQy1WIHRyYWNlCsKgIMKgIMKgIOKUnOKUgOKUgCBb
-UklTQy1WIGNvbXBvbmVudHNdCsKgIMKgIMKgIOKUlOKUgOKUgCBNYWtlZmlsZS9LY29uZmlnwqAg
-wqAjIHNlbGVjdCBUUkFDRV9GUkFNRVdPUksKCklzIHRoaXMgYXJjaGl0ZWN0dXJhbCBkaXJlY3Rp
-b24gYWNjZXB0YWJsZT8gQW55IGNvbW1lbnRzIG9yIHN1Z2dlc3Rpb25zIGFyZSB3ZWxjb21lLgoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The crash memory alloc, and the exclude of crashk_res, crashk_low_res
+and crashk_cma memory are almost identical across different architectures,
+handling them in the crash core would eliminate a lot of duplication, so
+add crash_prepare_headers() helper to handle them in the common code.
+
+To achieve the above goal, three architecture-specific functions are
+introduced:
+
+- arch_get_system_nr_ranges(). Pre-counts the max number of memory ranges.
+
+- arch_crash_populate_cmem(). Collects the memory ranges and fills them
+  into cmem.
+
+- arch_crash_exclude_ranges(). Architecture's additional crash memory
+  ranges exclusion, defaulting to empty.
+
+Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+Acked-by: Baoquan He <bhe@redhat.com>
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ include/linux/crash_core.h |  5 +++
+ kernel/crash_core.c        | 82 ++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 84 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+index c1dee3f971a9..583ffcc703d4 100644
+--- a/include/linux/crash_core.h
++++ b/include/linux/crash_core.h
+@@ -59,6 +59,8 @@ extern int crash_exclude_mem_range(struct crash_mem *mem,
+ 				   unsigned long long mend);
+ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+ 				       void **addr, unsigned long *sz);
++extern int crash_prepare_headers(int need_kernel_map, void **addr,
++				 unsigned long *sz, unsigned long *nr_mem_ranges);
+ 
+ struct kimage;
+ struct kexec_segment;
+@@ -76,6 +78,9 @@ int kexec_should_crash(struct task_struct *p);
+ int kexec_crash_loaded(void);
+ void crash_save_cpu(struct pt_regs *regs, int cpu);
+ extern int kimage_crash_copy_vmcoreinfo(struct kimage *image);
++extern unsigned int arch_get_system_nr_ranges(void);
++extern int arch_crash_populate_cmem(struct crash_mem *cmem);
++extern int arch_crash_exclude_ranges(struct crash_mem *cmem);
+ 
+ #else /* !CONFIG_CRASH_DUMP*/
+ struct pt_regs;
+diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+index 4f21fc3b108b..481babc29131 100644
+--- a/kernel/crash_core.c
++++ b/kernel/crash_core.c
+@@ -168,9 +168,6 @@ static inline resource_size_t crash_resource_size(const struct resource *res)
+ 	return !res->end ? 0 : resource_size(res);
+ }
+ 
+-
+-
+-
+ int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+ 			  void **addr, unsigned long *sz)
+ {
+@@ -272,6 +269,85 @@ int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+ 	return 0;
+ }
+ 
++static struct crash_mem *alloc_cmem(unsigned int nr_ranges)
++{
++	struct crash_mem *cmem;
++
++	cmem = kvzalloc_flex(*cmem, ranges, nr_ranges);
++	if (!cmem)
++		return NULL;
++
++	cmem->max_nr_ranges = nr_ranges;
++	return cmem;
++}
++
++unsigned int __weak arch_get_system_nr_ranges(void) { return 0; }
++int __weak arch_crash_populate_cmem(struct crash_mem *cmem) { return -1; }
++int __weak arch_crash_exclude_ranges(struct crash_mem *cmem) { return 0; }
++
++static int crash_exclude_core_ranges(struct crash_mem *cmem)
++{
++	int ret, i;
++
++	/* Exclude crashkernel region */
++	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
++	if (ret)
++		return ret;
++
++	if (crashk_low_res.end) {
++		ret = crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
++		if (ret)
++			return ret;
++	}
++
++	for (i = 0; i < crashk_cma_cnt; ++i) {
++		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
++					      crashk_cma_ranges[i].end);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
++			  unsigned long *nr_mem_ranges)
++{
++	unsigned int max_nr_ranges;
++	struct crash_mem *cmem;
++	int ret;
++
++	max_nr_ranges = arch_get_system_nr_ranges();
++	if (!max_nr_ranges)
++		return -ENOMEM;
++
++	cmem = alloc_cmem(max_nr_ranges);
++	if (!cmem)
++		return -ENOMEM;
++
++	ret = arch_crash_populate_cmem(cmem);
++	if (ret)
++		goto out;
++
++	ret = crash_exclude_core_ranges(cmem);
++	if (ret)
++		goto out;
++
++	ret = arch_crash_exclude_ranges(cmem);
++	if (ret)
++		goto out;
++
++	/* Return the computed number of memory ranges, for hotplug usage */
++	if (nr_mem_ranges)
++		*nr_mem_ranges = cmem->nr_ranges;
++
++	ret = crash_prepare_elf64_headers(cmem, need_kernel_map, addr, sz);
++
++out:
++	kvfree(cmem);
++	return ret;
++}
++
+ /**
+  * crash_exclude_mem_range - exclude a mem range for existing ranges
+  * @mem: mem->range contains an array of ranges sorted in ascending order
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
