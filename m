@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC093CD8C8E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 07:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD78CD8C8E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 07:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xgp6JxjSjX5WliyckvhgdUxWEiqJ+GIFpga2ORrZW4k=; b=FcT1dwD/Sss0Wx
-	QGAbcq4vARlqE8ti5/I8Dn8ipF7n0aGetuRVCakQ6ci944ptOKMmd+DeFQ0gqcIGWrBSsmxiYzyy6
-	iFNQExecA6FMdOmKL/XgEnB2VBuDVvX9KgFTvCfHe3R30BuEb2xveewb5RO8hPf5IWHqkqS+FIyJ5
-	IZFzgsSiPIuHpGEOO6tRuCANMViu+KVQTMOoHeamzXi55lxXvLpvJ/GsDa861XjvSQGyEaQLsxci7
-	bzMTfh626exbO7srfV7MwVsG4zAY6kVlPPJqwH+OObXCc1VXb1qipt+qRBDpJleP0bOjpzmHIcChy
-	0bIgS/oqsRPP2I/FpgvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=cWzUkK36mb8+mPDIw1GLUulelZExT2Yeq94ocNhWj0U=; b=XBjCYELgkyv6Rk
+	mU5//oKggn2W1vzhoYa2r0k4W9tPq/NROMsb0J9V+2STHoleXY8gsCSORDwfLuld5HLIZamEe9FoI
+	mbCOJ1FM7T/XLM9B3YzhhPl/e+/2aXXZ5Athl9qotwIoA4wGf7nMpDeszs5aTP7valJk2jBf+iLuX
+	AjSoyj028pdrA5k9uEBTfSUPWpgSMF7yNPyJ41hK/YS3CxTtpIAID9Kg69mV5lYn9w/BVnbNXUMLw
+	KAGnqsYycHZXLF0b4tdp7HKRRTvNPuDTTDS2HGRrn8XjfDaGl9ZRY5maR0cFIy22RVJBdTIWvvHyb
+	5v8L785dG/cnPy5WxESA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUZQ-0000000301m-36oS;
-	Mon, 08 Jun 2026 07:38:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWUZN-0000000301J-2erg;
-	Mon, 08 Jun 2026 07:38:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69BFD3290;
-	Mon,  8 Jun 2026 00:38:40 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A3393F86F;
-	Mon,  8 Jun 2026 00:38:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1780904325; bh=SPAws/lhAws7/ucS0FCjJ/F5kS84Kk0lmu1Zg1EIo3o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=enkpkK0uHHmW8awAneqEDFejZ0kEggRsSBDbMx0mOgu3hvlnfAQsOK6MnZtO7rCyB
-	 lhDi55Irjlqw7gBNpxx7yGMk3cH0mwjQysRCNGiFuRiVAUdrgwHq+hzMlQPEJHZ9nP
-	 KvljUJERgtgGKShZ09nsW6xZ7Jos1I3Aa1HavV+s=
-Message-ID: <aa0e1539-cc59-4d3c-a0c5-a4f7cc1fe7c5@arm.com>
-Date: Mon, 8 Jun 2026 09:38:35 +0200
+	id 1wWUbz-000000030KM-3GqY;
+	Mon, 08 Jun 2026 07:41:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wWUby-000000030Jz-0Zma
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 08 Jun 2026 07:41:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description:In-Reply-To;
+	bh=d+LGia6BRCpn+6sp11xiCdpjBF97jXBcQxKthDSlXFk=; b=qP2OW5+EDKYTB3Jo7ot/WwvRtW
+	zsw5XczNwJhkaEADhNK3sKbIzkPyzOP/lxrbSgsjg/8gZCJYQQH4tzBYSU33yDopGFVGXv09tX8Zx
+	w9KFhsyTUG5gaxN+VLKXyrx82p4+6T3n/1qW3e4jCAHXtqD+hjGca5pe+djT2Eb4SOEA1O37TqPfW
+	mXNHZDYmF4CuBfe476pp4nzORUhQszq6O9+ZqLe15pmsYlOg3yO4hU99MKUT4P6AYNNQFEAAOpjtX
+	KXXD6oDHEN7WB+Ko7QW5tppHwJoLZJf2jSu66lFtWwn2U9Rqm6JqD8l5xFes7kE/WUZn2V0Io/riV
+	+kL3LIFg==;
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wWUbu-00000000epf-1KP3
+	for linux-riscv@lists.infradead.org;
+	Mon, 08 Jun 2026 07:41:28 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260608074116euoutp0207bbfbbd2fa843376b05be49bd6aa327~3Cy_jAVbT0813908139euoutp02d
+	for <linux-riscv@lists.infradead.org>; Mon,  8 Jun 2026 07:41:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260608074116euoutp0207bbfbbd2fa843376b05be49bd6aa327~3Cy_jAVbT0813908139euoutp02d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1780904476;
+	bh=d+LGia6BRCpn+6sp11xiCdpjBF97jXBcQxKthDSlXFk=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=flCKLUXIN1fNst18o3lkAFBdkg8/BP6ovc510nunGxL/5FqecIQAXBHEQJhZ9v6JB
+	 Ig3mWcuf1PCFwHY4H5ZQV96U+cVI1saUtWjxv8tV5MIvVDH9NkdTKzdtoyv5+QmSow
+	 dbUMp23k06zdoBxiZWpr/8FaRoTZtud3GVdZDBjE=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260608074116eucas1p15c0f84c280d8645d778e42777bd238d1~3Cy_VC3aj2851428514eucas1p10;
+	Mon,  8 Jun 2026 07:41:16 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260608074114eusmtip114308ce4c07c9abd405e796bcc15e854~3Cy8Z63YN1469214692eusmtip1s;
+	Mon,  8 Jun 2026 07:41:14 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: linux-riscv@lists.infradead.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Drew Fustini
+	<fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>
+Subject: [PATCH v2] riscv: defconfig: thead: enable PCA953X GPIO driver
+Date: Mon,  8 Jun 2026 09:41:04 +0200
+Message-Id: <20260608074104.2198409-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl
- required by NetCube Systems OpenNMC
-To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20260606205452.2386930-1-lukas.schmid@netcube.li>
- <20260606205452.2386930-3-lukas.schmid@netcube.li>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260606205452.2386930-3-lukas.schmid@netcube.li>
+X-CMS-MailID: 20260608074116eucas1p15c0f84c280d8645d778e42777bd238d1
+X-Msg-Generator: CA
+X-RootMTR: 20260608074116eucas1p15c0f84c280d8645d778e42777bd238d1
+X-EPHeader: CA
+X-CMS-RootMailID: 20260608074116eucas1p15c0f84c280d8645d778e42777bd238d1
+References: <CGME20260608074116eucas1p15c0f84c280d8645d778e42777bd238d1@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_003849_814184_F2639E7E 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260608_084126_602814_E4378CEA 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,46 +93,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Enable PCA953X GPIO driver to properly probe Wifi pwrseq driver on
+LicheePi4a board.
 
-On 6/6/26 22:54, Lukas Schmid wrote:
-> Added the "uart4_pb_pins" pinctrl used by the OpenNMC
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+v2:
+- copile GPIO_PCA953X as a module
+v1:
+https://lore.kernel.org/all/20260603082132.3200787-1-m.szyprowski@samsung.com/
+---
+ arch/riscv/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Checked against the datasheet:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> 
-> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> ---
->   arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 6 ++++++
->   1 file changed, 6 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> index 82cc85acccb1..00fddedfa36f 100644
-> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> @@ -191,6 +191,12 @@ uart3_pb_pins: uart3-pb-pins {
->   				pins = "PB6", "PB7";
->   				function = "uart3";
->   			};
-> +
-> +			/omit-if-no-ref/
-> +			uart4_pb_pins: uart4-pb-pins {
-> +				pins = "PB2", "PB3";
-> +				function = "uart4";
-> +			};
->   		};
->   
->   		ccu: clock-controller@2001000 {
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 08445df56006..a51a423d53f4 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -174,6 +174,8 @@ CONFIG_PINCTRL_SOPHGO_SG2002=y
+ CONFIG_GPIO_DWAPB=y
+ CONFIG_GPIO_SIFIVE=y
+ CONFIG_GPIO_SPACEMIT_K1=y
++CONFIG_GPIO_PCA953X=m
++CONFIG_GPIO_PCA953X_IRQ=y
+ CONFIG_POWER_RESET_GPIO_RESTART=y
+ CONFIG_SENSORS_SFCTEMP=m
+ CONFIG_CPU_THERMAL=y
+-- 
+2.34.1
 
 
 _______________________________________________
