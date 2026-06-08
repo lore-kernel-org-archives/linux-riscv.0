@@ -4,77 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FE3CD6E79
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 19:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DC1CD8CA4
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 20:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bha9jNrVh5TlBTQrry+r/rtc8xNm1RCjAM1XOiN8jcg=; b=RYV1B/UrL+OuHj
-	njpEWmHD2XhRGKQCkLVYFg5LxK0GdUSXRr1YCzNg9gmv1nwssY8OUQITpTkpgQLV5I0uGJVQe3HEu
-	ySgrbnkWf2ifPiMduXdqnASz/Iq3jqdyQnFNhE+zTix79jX8K1QBkBK9iCMvQZ02ZHVq0QyqsBtAj
-	NacC2C1NpQN0YRgVHMAxP5jrwPMR7XIkXrPg9fiM+92SsXPEicVSBa/rbVH3Jv8IbxLgfrWTf/Ay1
-	FMcsunTjVudu2SEK6sdGoJJiJANMPu/gRB1ut/unSyyk9ahuzmQixecR1GadRZ/+AC7jVib8sCCEK
-	Y3+mYpgpXVy1URCyHrWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wsvYLLmENIrxhseCmhN/JgWrGDaZVkP8iL3KIgeQKCw=; b=4ghi/b1wO4AoNR
+	PB8umBHR4i6WGfxYhEalQaC/DHE3I15Hyp/GyBO01EvzLsU25XHgK4ODrqscsdxJmnTHBfBk/JXCq
+	xjAKVJ/zwcrhEropEiBIO7lsNUXHlnmpFbOeOYwm7rTlt8TL6aPtTtCmDXIWXH4Thvj1UHXItWRkw
+	BdbxT9SwFX5NIDS7dZYbEfXI6/Wh57Af04LKP/wOcC1D86i4mfQHWzGW9i1swLgpwwG/JCuxvlBuh
+	PZXXhcYqCuI0ERoJ3ynH25772Doq2mhzbnbVv6wfyfFNBxb93LEDCW96FDU8irHfzFxynn3r5GiK4
+	uM/glu7GfkKCQGlJXfXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWfDN-00000004IUN-0yui;
-	Mon, 08 Jun 2026 19:00:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWgRf-00000004LzL-0nBT;
+	Mon, 08 Jun 2026 20:19:39 +0000
+Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWfDK-00000004ITl-2kCh;
-	Mon, 08 Jun 2026 19:00:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FA2A43B45;
-	Mon,  8 Jun 2026 19:00:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 086C71F00893;
-	Mon,  8 Jun 2026 19:00:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780945245;
-	bh=BoJRT4fDwZJIZj1sKJWduqL1Uc3KtHVy4pz1d5Skq5E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KfHoG14jTkmfniNdtVxNENuQMvpWd/NiZFxhjbAOH2qflTZKJQmKrpo5v28Wi+WAs
-	 KVXrcoLV9U6kz2x6PapzUAFAESu9QX1LfppzjVC8N46Zjz4Z7sNH1yZ4d/WStaY/Db
-	 /X0KZN7bD6W6UX1cOzLU6ci7UDbYfFPVdFgj4ieVJdmN5wwduOPBAUYDy3CVZ0PKTV
-	 7jDWA8qALbwrzMysH63nL/ognc+jgZzyQkks66irzQLutLZp6uiVnUjco/Ovf8T61F
-	 Hl+i3nfOLaRFfs63ImgogaFfuCOgrM1qeCvRY3e4N9d9jlLv5gNamEcIoZ6c2B1GDW
-	 t1bYS9/awuJHw==
-Date: Mon, 8 Jun 2026 22:00:22 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, corbet@lwn.net,
-	skhan@linuxfoundation.org, catalin.marinas@arm.com, will@kernel.org,
-	chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
-	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, robh@kernel.org,
-	saravanak@kernel.org, bhe@redhat.com, pasha.tatashin@soleen.com,
-	pratyush@kernel.org, ruirui.yang@linux.dev, rdunlap@infradead.org,
-	peterz@infradead.org, feng.tang@linux.alibaba.com,
-	dapeng1.mi@linux.intel.com, kees@kernel.org, elver@google.com,
-	kuba@kernel.org, lirongqing@baidu.com, ebiggers@kernel.org,
-	paulmck@kernel.org, leitao@debian.org, coxu@redhat.com,
-	Liam.Howlett@oracle.com, ryan.roberts@arm.com, osandov@fb.com,
-	jbohac@suse.cz, cfsworks@gmail.com, tangyouling@kylinos.cn,
-	sourabhjain@linux.ibm.com, ritesh.list@gmail.com,
-	adityag@linux.ibm.com, liaoyuanhong@vivo.com, seanjc@google.com,
-	fuqiang.wang@easystack.cn, ardb@kernel.org, chenjiahao16@huawei.com,
-	guoren@kernel.org, x86@kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org
-Subject: Re: [PATCH v16 00/10] arm64/riscv: Add support for crashkernel CMA
- reservation
-Message-ID: <aicRRrAmuCkTI68e@kernel.org>
-References: <20260608073459.3119290-1-ruanjinjie@huawei.com>
- <20260608091000.d88d7f5cc1bc4fa17f5774fe@linux-foundation.org>
+	id 1wWgRc-00000004Lyx-2eCs
+	for linux-riscv@lists.infradead.org;
+	Mon, 08 Jun 2026 20:19:37 +0000
+Received: from ipservice-092-209-184-216.092.209.pools.vodafone-ip.de ([92.209.184.216] helo=nb282.user.codasip.com)
+	by akranes.kaiser.cx with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <martin@kaiser.cx>)
+	id 1wWgRT-00000001vbF-2T2A;
+	Mon, 08 Jun 2026 22:19:27 +0200
+From: Martin Kaiser <martin@kaiser.cx>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Chen Pei <cp0613@linux.alibaba.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Martin Kaiser <martin@kaiser.cx>
+Subject: [PATCH] riscv: ftrace: sorttable: fix mcount sorting
+Date: Mon,  8 Jun 2026 22:18:27 +0200
+Message-ID: <20260608201904.715374-1-martin@kaiser.cx>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260608091000.d88d7f5cc1bc4fa17f5774fe@linux-foundation.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_131936_693717_C9EEB8CE 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,27 +66,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 08, 2026 at 09:10:00AM -0700, Andrew Morton wrote:
-> On Mon, 8 Jun 2026 15:34:49 +0800 Jinjie Ruan <ruanjinjie@huawei.com> wrote:
-> 
-> > The crash memory allocation, and the exclude of crashk_res, crashk_low_res
-> > and crashk_cma memory are almost identical across different architectures,
-> > This patch set handle them in crash core in a general way, which eliminate
-> > a lot of duplication code.
-> > 
-> > And add support for crashkernel CMA reservation for arm64 and riscv.
-> 
-> fyi, AI review might have found a bunch of issues in arch-specific
-> code, all of them pre-existing.
+Commit de04fca5d2f8 ("riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT")
+enabled mcount sorting for risc-v. On my system, the sorting changes all
+entries to address 0. The startup test reports that the mcount section is
+properly sorted, but no traceable functions are registered at boot time.
 
-v15 grew to 23 patches because of them and Baoquan suggested to split the
-fixes into a separate series.
- 
-> 	https://sashiko.dev/#/patchset/20260608073459.3119290-1-ruanjinjie@huawei.com
+[    0.000000] ftrace section at ffffffff8101bba0 sorted properly
+[    0.000000] ftrace: allocating 0 entries in 128 pages
+[    0.000000] ftrace: allocated 128 pages with 1 groups
 
+The sorttable helper program does not take into account that the
+-fpatchable-function-entry compiler flag reserves an additional 8 bytes
+before each traceable function. (The size in bytes is the same for
+RV32/64 or compressed/uncompressed instructions).
+
+Define before_func = 8 to fix the mcount sorting for risc-v, share this
+setting with arm64.
+
+Fixes: de04fca5d2f8 ("riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT")
+Signed-off-by: Martin Kaiser <martin@kaiser.cx>
+---
+ scripts/sorttable.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index e8ed11c680c6..da70f0938d04 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -895,13 +895,19 @@ static int do_file(char const *const fname, void *addr)
+ #ifdef MCOUNT_SORT_ENABLED
+ 		sort_reloc = true;
+ 		rela_type = 0x403;
+-		/* arm64 uses patchable function entry placing before function */
++#endif
++		/* fallthrough */
++	case EM_RISCV:
++#ifdef MCOUNT_SORT_ENABLED
++		/*
++		 * risc-v and arm64 use patchable function entry that stores
++		 * 8 bytes of nops before the function
++		 */
+ 		before_func = 8;
+ #endif
+ 		/* fallthrough */
+ 	case EM_386:
+ 	case EM_LOONGARCH:
+-	case EM_RISCV:
+ 	case EM_S390:
+ 	case EM_X86_64:
+ 		custom_sort = sort_relative_table_with_data;
 -- 
-Sincerely yours,
-Mike.
+2.43.7
+
 
 _______________________________________________
 linux-riscv mailing list
