@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0493CD8C90
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 01:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B153CD8C90
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 01:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
 	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HJ2gfAhH4UhUbuRx7TEFaazXRMAKD2543pnpUGsR4wY=; b=UIpU7NLsQZGN8k
-	TSEhFjEczLIEjnQoXlUKO+ALNP54SCow30vaUzjWJJ99lTlxY4r5rAKLkuXxglzo25X7p/IWZopeU
-	Jklt6/KYo+HuvbbdgCJ0LBo/1dlHu3aVJefX2jNQDxevKmc4ZUjVLT9TzxTy7xOsbZy05rKT3N271
-	Q7rkvOIIgVHhkdtsLHhn+UOTfddzqZX6j6uRYBWtPX6Xg1rCpZKdtOft3nLZr023E1f/GbjslocwN
-	1Fh9/sltQVtjRiOiZAoVMvAQ778GpErWCDC8i24qmbKqt0Htpc55yuIAgIRj3mEroITx26WkSo46p
-	t+YeMDMrbyA1CUSyiheQ==;
+	List-Owner; bh=xpIksN4vQyssbzvwQXsDrDWlEVt0Rew6V+UycXlYuhE=; b=SgE1lD29JM4Wr5
+	jxbB7CsR2cQOoIqJK8bzlfBzKfCrI0gdIL17YVdWjPovMhCGv7SCYrHKgAXQDh1DKhYYiUgvF6qF4
+	KfnJNZQD7MnEnKdin1qt+DOCt/TOT0mSqiN3f8nXKMHwPcQJIpnovDTS9AxCOmwiJTr0163kGRQpv
+	sbc2/6/WpuxqRzmhjbtKsJ6VkDEOA+4zszcd+dh/rNwC1QwET3ybBcU8Ht9aNrXf/Mq/go1XsgYVm
+	BbqC+2ewvL3L3B8SHrkqo7y9FH975Gb5yYGRkWKKZ7a45Slob/+WhXPJfD7XRFJKK5tch7iIvUABl
+	RqzDVOgydeOPPu7y+D4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWOgM-00000002g8L-3Ibu;
-	Mon, 08 Jun 2026 01:21:38 +0000
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
+	id 1wWOgw-00000002gB4-3mRZ;
+	Mon, 08 Jun 2026 01:22:14 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWOgJ-00000002g7O-2roo
+	id 1wWOgu-00000002gAV-2oHC
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 01:21:38 +0000
+	Mon, 08 Jun 2026 01:22:14 +0000
 Mime-Version: 1.0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780881680;
+	t=1780881730;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=IxEvUfH9QoMBWe5UKI9XOfbgGKkqlVzL0+nWkvvLnp0=;
-	b=cG082HsAL/LltPk8sH5lS49pkSdIyH/gCKie6DiDgLYw5M+G1NAIviv4LSBHrFS+4WYdBK
-	GThT9HEjxG9irElzwkn/MnlxqyDKA2QzyH05mAzPGYmifYY6+2CabcDCj+NvV5ODOCPJL8
-	JPbdKe/Z6FcDKpqB3nyb8Ovjxg2CrhU=
-Date: Mon, 08 Jun 2026 09:21:01 +0800
-Message-Id: <DJ39V0ZUPDG5.3UJO3VMV0J502@linux.dev>
+	bh=96KtDTogFLQcqNpJ1tNB2dZyyE30C3Sd5kqsXZAmqvk=;
+	b=CA+q6FXiJFlJAxwgb+M1iN4Q+TVJsUXxoBZRyopR7hwZcOc7SQyXN8B5NlVhkT7RbEh1ry
+	z11kILWKwNcfojiY0pF3yBPlAmPa1ooIQ6YoCJWJzSIIEHk3C3eIX7fL8J8T3yoHBcrwIh
+	GExbygnctX0vFikpM6tUMerHxPlsHzQ=
+Date: Mon, 08 Jun 2026 09:22:03 +0800
+Message-Id: <DJ39VTKU26KY.108UFYXIALHBC@linux.dev>
 Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <spacemit@lists.linux.dev>, "Aurelien Jarno" <aurelien@aurel32.net>
-Subject: Re: [PATCH v3] riscv: disable local interrupts and stop other CPUs
- before reboot/shutdown
+ <spacemit@lists.linux.dev>, "Anirudh Srinivasan"
+ <asrinivasan@oss.tenstorrent.com>
+Subject: Re: [PATCH v2] riscv: mm: fix SWIOTLB initialization for systems
+ with DRAM above 4GB
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: "Troy Mitchell" <troy.mitchell@linux.dev>
-To: "Troy Mitchell" <troy.mitchell@linux.dev>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>
-References: <20260330-v7-0-rc1-rv-dis-int-before-restart-v3-1-5a0577fcd136@linux.spacemit.com> <DI5M2DY419FY.7DUCXZDHR22V@linux.dev>
-In-Reply-To: <DI5M2DY419FY.7DUCXZDHR22V@linux.dev>
+To: "Troy Mitchell" <troy.mitchell@linux.dev>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
+References: <20260429-fix-riscv-swiotlb-v2-1-fa99dfdfc94d@linux.dev>
+In-Reply-To: <20260429-fix-riscv-swiotlb-v2-1-fa99dfdfc94d@linux.dev>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_182136_419573_94428A3C 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260607_182212_864632_39290C5E 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +72,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 29, 2026 at 7:44 PM CST, Troy Mitchell wrote:
-> Hi all,
+On Wed Apr 29, 2026 at 7:41 PM CST, Troy Mitchell wrote:
+> On RISC-V platforms where the entire physical memory (DRAM) resides
+> above the 32-bit address space (i.e., above dma32_phys_limit), the
+> current SWIOTLB initialization logic fails.
 >
-> On Mon Mar 30, 2026 at 5:58 PM CST, Troy Mitchell wrote:
->> From: Troy Mitchell <troy.mitchell@linux.dev>
->>
->> Currently, the RISC-V implementation of machine_restart(), machine_halt(),
->> and machine_power_off() invokes the kernel teardown chains (e.g.,
->> do_kernel_restart()) with local interrupts enabled and other CPUs still
->> running.
->>
->> This implementation fails to provide a deterministic execution environment
->> for registered handlers in the restart or power-off notifier chains. These
->> chains are intended to be executed in a strict atomic and single-threaded
->> context.
->>
->> Specifically, under CONFIG_PREEMPT_RCU, rcu_read_lock() does not increment
->> the preempt_count. If local interrupts remain enabled, the environment
->> is not guaranteed to be atomic. This can lead to a context misidentification
->> within generic kernel teardown code, causing it to incorrectly enter
->> non-atomic paths (such as attempting to acquire sleeping locks), which
->> results in fatal "scheduling while atomic" splats or system hangs.
->>
->> Additionally, stopping other CPUs ensures the primary CPU has exclusive
->> access to the hardware state during the final teardown phase, preventing
->> unpredictable interference from other active cores.
->>
->> Align RISC-V with other major architectures by disabling local interrupts
->> and stopping other CPUs at the beginning of the shutdown sequences. This
->> guarantees the architectural expectations of the kernel's restart and
->> power-off handlers are met.
->>
->> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
->> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-> Gentle ping on this patch. Is there anything I should change or any
-> concerns with the approach?
+> This patch addresses two interconnected issues on such platforms:
+>
+> 1. Incorrect 32-bit DMA bounce assumption:
+> The existing condition `max_pfn > PFN_DOWN(dma32_phys_limit)` assumes
+> that a 32-bit DMA bounce buffer is required simply because the maximum
+> PFN exceeds the 32-bit limit. However, if all DRAM starts above 4GB,
+> no memory exists below the limit to satisfy this allocation. Fix
+> this by adding a check to ensure `memblock_start_of_DRAM()` is actually
+> below the 32-bit limit before enforcing 32-bit SWIOTLB.
+>
+> 2. kmalloc() bounce buffer allocation failure on non-coherent systems:
+> For non-coherent hardware, a bounce buffer is still mandatory for
+> cache-line-aligned kmalloc(), even if 32-bit DMA bouncing is skipped.
+> Without the `SWIOTLB_ANY` flag, swiotlb_init() defaults to allocating
+> from low memory, which fails completely when DRAM only exists in high
+> memory. By appending `SWIOTLB_ANY` to swiotlb_flags, the allocator is
+> permitted to allocate this alignment buffer from high memory.
+>
+> With this patch, systems with non-coherent DMA and DRAM entirely above
+> 4GB can successfully map the software IO TLB in high memory and boot
+> normally.
+>
+> Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
 Just a gentle ping on this series. 
 
 Please let me know if anyone has any feedback or if there is anything 
