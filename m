@@ -4,51 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CE3CD8C9D
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 11:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F6ACD8C9F
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 12:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=32ow2guhJZl+WrxUBECjrnoJQN+FT1kyIwo6kzd9Qjs=; b=fL2
-	fSTOh1S2wYst7mrHiuBC0lXzgtLDf7W67P40JqgTnGaq6VRDLhnh/CZxjWAxjb/5T4F+DnRLEpJpD
-	ci2dmFh2euDFdSaL0pU5TYp9lW7C7xEUCkfrFTFUx5sm9Rmh/kzJgmSTiuRQCstqRirnuFOE+vofC
-	kpJrYso9rt6pvIXUg2o7/ROyOD6bY7LK9w6PTaFS1Bq74J2dFP9+gmhK8aqIqXnW8fgLZ/F5sbsi3
-	1XvIioRnBZ7Tn+gCgcxiC8CgRzFWFHEbn90PWKg4VdMCLIU9lyNTyl4DftDL0GcnHmSX7nl/QMdoe
-	E1GDT8EjXx7uyeo3Cq8n18mADasZvyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OsbRsZy+uHRU5LQL6Vdqv6PFP8CF3ET58OMoMSfW9KU=; b=Ox6R2l5EPvAS/9
+	Q3x6cAb9RoTc3V3xeS89qnDZldyEmRf17GJnBdQ2Rm0ZmCH0eDOtE/6GHHQYioXI8M5ytrbd6sP3g
+	1/0P/VIPMdrOzWFhklq+E4WpvH6XjGvBIjo/E2P6YU14g3usL2cgHjdHgTktUjuvb9Wd+ZJ/kHUjk
+	gjSAJZ03qkL/wzwMzjK3uynosUYz/Sgg9V+vjmgL4GjCXNTki2r4d0BDfhifxfDn9IZipysUbN7/R
+	14PC0NwEL0ogIFoY5H/Xbdk2W+YT4GNBCJBBicQK9R7JWzk9XVUJIEdPDytCutwBvVpb5M1t6cY7z
+	KCLYyLNNsWqGucqwuILg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWXxw-00000003P9j-3AuR;
-	Mon, 08 Jun 2026 11:16:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWYe0-00000003TZ6-1mV2;
+	Mon, 08 Jun 2026 11:59:52 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWXxv-00000003P9D-310C
+	id 1wWYdv-00000003TYA-0dsq
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 11:16:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2007842D7C
-	for <linux-riscv@lists.infradead.org>; Mon,  8 Jun 2026 11:16:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37CD21F00893;
-	Mon,  8 Jun 2026 11:16:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780917383;
-	bh=SWeNawLNhjULISRTxxyiDbsmHwEMxRPRgtI7FlyYxgg=;
-	h=Date:From:To:Cc:Subject;
-	b=IU6Ph3/wOHLQkTZo5izOY5o7O28nPZD9bznAMBRPPuPaPQASjs0wSiz+fZ/J3qA0o
-	 Jqqq91JDDzEFpDzwjgiMGTvhJYZnWj3iuqubW9UpmA3BubNW1V682GgEFbaGtdTHie
-	 YQrKh8FPf8ssd3B6h/R/i7iUt63uEnpTElDj1UrzlfD4u+HbsTpya7/8NLalw9bAoC
-	 K3wEkQOGQxX3rxOGefDs0k2XPrh8A6ICfGfvZg8ZICvk8dEfSNNdxURUR8Pei6Fqke
-	 7P24dL0+E9vwZF7rzdvZCagnRDr5QWa6VL6LE29Bq2JuU+nxMWitB7KBoTKdDH/dkg
-	 sjQdk74n2MOaA==
-Date: Mon, 8 Jun 2026 12:16:19 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] Microchip RISC-V soc drivers for v7.2
-Message-ID: <20260608-vacant-slit-9499ba5eb8f2@spud>
+	Mon, 08 Jun 2026 11:59:51 +0000
+Received: from Ubuntu2204-XLH.hygon.cn (unknown [222.209.92.76])
+	by APP-05 (Coremail) with SMTP id zQCowABnus2priZqKgm0Eg--.38680S2;
+	Mon, 08 Jun 2026 19:59:37 +0800 (CST)
+From: Wenhui Fan <fanwenhui@masscore.cn>
+To: anup@brainfault.org,
+	tglx@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Wenhui Fan <fanwenhui@masscore.cn>
+Subject: [PATCH] irqchip/riscv-imsic: Fix IPI target CPU mapping for sparse hartid topology
+Date: Mon,  8 Jun 2026 19:59:35 +0800
+Message-ID: <20260608115935.2194813-1-fanwenhui@masscore.cn>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowABnus2priZqKgm0Eg--.38680S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4kZFykZw18ZrW5WFW3Wrg_yoW8Aw1Dpr
+	4rWwn29r4xZw4IqFsFqa18uFyfK3ZYyrZ8KryUtw1rXFW3AFyDZFnFkw1rua18Grs5Aa4F
+	9F45ta48Ka1UZFUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvl14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r1j
+	6r4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr
+	0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v2
+	6r1q6r43MxkIecxEwVAFwVW8KwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x0JUDb1nUUUUU=
+X-Originating-IP: [222.209.92.76]
+X-CM-SenderInfo: 5idq4vpqkxxq5pdv2uxruhhubq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_045947_568742_3897BCA1 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,78 +78,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5465909717040316876=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+When the system has sparse hartid topology (e.g., only hart0 and hart8
+are online), the current IMSIC driver incorrectly calculates the MSI
+MMIO offset for each CPU. This causes IPIs targeting hart8 to be
+misdirected to hart1.
 
---===============5465909717040316876==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/r+1Y7YsIXScGctB"
-Content-Disposition: inline
+The root cause is that in imsic_setup_state(), the MMIO offset is
+calculated using the parent interrupt index 'i' rather than the actual
+hartid:
+    reloff = i * BIT(global->guest_index_bits) * IMSIC_MMIO_PAGE_SZ;
 
+This assumes a contiguous hartid space, which is not guaranteed in all
+systems. When only hart0 and hart8 are online, the driver receives
+nr_parent_irqs=2, with i=0 for hart0 and i=1 for hart8.
 
---/r+1Y7YsIXScGctB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Using i=1 for hart8 results in using the wrong offset which is intended
+for hart1, and causes the MSI configured for hart8 to incorrectly access
+hart1's MSI page.
 
-Hey folks,
+Fix this by using the actual hartid for offset calculation:
+    reloff = hartid * BIT(global->guest_index_bits) * IMSIC_MMIO_PAGE_SZ;
 
-Another single patch PR here, this time with a binding change.
+Fixes: 21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early driver")
+Signed-off-by: Wenhui Fan <fanwenhui@masscore.cn>
+---
+ drivers/irqchip/irq-riscv-imsic-state.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Cheers,
-Conor.
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index e3ed874d8..5f737ec36 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -894,7 +894,7 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
+ 
+ 		/* Find MMIO location of MSI page */
+ 		index = nr_mmios;
+-		reloff = i * BIT(global->guest_index_bits) *
++		reloff = hartid * BIT(global->guest_index_bits) *
+ 			 IMSIC_MMIO_PAGE_SZ;
+ 		for (j = 0; nr_mmios; j++) {
+ 			if (reloff < resource_size(&mmios[j])) {
+-- 
+2.43.0
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
-
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-soc-drivers-for-v7.2
-
-for you to fetch changes up to 17d9064987ca4e0b05b670da48ca93edb0796810:
-
-  dt-bindings: soc: microchip: document irqmux on pic64gx (2026-05-21 11:00:05 +0100)
-
-----------------------------------------------------------------
-Microchip RISC-V soc drivers for v7.2
-
-A single dt-binding compatible addition for the irqmux on pic64gx.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (1):
-      dt-bindings: soc: microchip: document irqmux on pic64gx
-
- .../devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.yaml    | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
---/r+1Y7YsIXScGctB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiakgwAKCRB4tDGHoIJi
-0kcrAP9cpEQRIO74ZkX+A/x/04CoXO+GBWKwUdefvC+Ua09nfAEA6hBz7rT9hqoo
-LVcmf1tBYT8JUivr1+Hwq00c3bRIqgE=
-=gA5l
------END PGP SIGNATURE-----
-
---/r+1Y7YsIXScGctB--
-
-
---===============5465909717040316876==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5465909717040316876==--
-
