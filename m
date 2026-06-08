@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC368CD8C90
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 02:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F34CD8C8E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 07:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tS+OxHNMGNcJF4pSOjZPVSVa5H5xVzPmCFwyMdtjceI=; b=ohrd8pmNnh+qev
-	3xNqE2C0FQKrfXj6aVtD7KWKfVS5JE3lImQyrIOit49brwDlGckTa6qbr67euR+tZXj4eme/JmfK9
-	zStiTUUJ7gg7y0zH7E3R1hkCQQ22+EiDiVxEBIZTtJbTE6qxexOm2MUlxKxI+hxyxe3sRiqR3jNpy
-	Cf8epEkTMKqpHgHNMuJUhzeaG8SnMzGz3ZxWHTJB3Mnn1uVXuHkKjJ+bfKWjpsG+DYhZeR41tzeff
-	v4ei4qVB8lGgJasUoMcsjXdGLOIr0ZyAIz+/Kv0so/yEsr00Pk8nn26cDh4FfAHeJWe7YPPkxqKmv
-	Hyjx6xMocm7hguWK+nmQ==;
+	List-Owner; bh=wfUGq1rLfRzCDRpMRdd+DRMtMdTi6IwVWZRExHv5gzo=; b=jCD/12gjIQgoJ8
+	yp13wJwrI9kaOJ3G8YEW+YwlVS9pvSEG2I9KHvPBNoCBDkVW0hPQ15quCf4edILn04D357JQckLbQ
+	EzfB7UpF47gzt4GRu4499z3i4/Ia75OB6G/HCghhoiH3KF2TwUskGY9VPWldnHW42w0+2gEw1XGG5
+	gVrMiajkJyPyQx0lM1H/A+8N4/Kgk2Ng4HuJYP0J0+B9SR9tdpB2j8r9kJsyaIsAKwYN0XKlceYS6
+	wUhN+chVU0uhkd4RsFG3qsDq8HHmRxgk34X4dM0MtxM3Few7rstQ11Mx1gQ3PJYgLLPZNQF24BT/c
+	ekNAm4naMq7FxdxadAVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPfY-00000002ieL-1Y0Z;
-	Mon, 08 Jun 2026 02:24:52 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wWUPU-00000002yhY-3OGP;
+	Mon, 08 Jun 2026 07:28:36 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWPfT-00000002idf-36FL
+	id 1wWUPO-00000002yg6-43PB
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 02:24:50 +0000
-Received: from [10.213.6.59] (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowABnTOPhJyZqff_8Ew--.21152S2;
-	Mon, 08 Jun 2026 10:24:33 +0800 (CST)
-Message-ID: <953d7a60-456d-4629-b133-afce62cc5b3e@iscas.ac.cn>
-Date: Mon, 8 Jun 2026 10:24:33 +0800
+	Mon, 08 Jun 2026 07:28:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1780903696;
+	bh=YRxEs7wKiqRBJ3TzHh8zfI1hjIUUljuWBmJPiK37GXo=;
+	h=Message-ID:Date:MIME-Version:To:Subject:From;
+	b=mYxCjkQsrCuylMwnRPE6DnQAzgGPka0SKkmKjNODdCnW2ECWAw4YLnESMtNhHRvWr
+	 bjg8ZWXFvyJ+5h8tRITWOT+KdWz+CsdGHWdaQTNjwLSKp9ET9mL+vYyc9S/SUVcLXG
+	 XDd0A1N/YQaM6ZbODjyJ9csbFsuw/zjRoLfLUUms=
+X-QQ-mid: esmtpgz15t1780903694t5b45206f
+X-QQ-Originating-IP: AaZNpuSktHh8DwCVhQ4nK9VMvK/D4vmaEGq3cCOt62g=
+Received: from [127.0.0.1] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 08 Jun 2026 15:28:10 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4561199684526648779
+EX-QQ-RecipientCnt: 30
+Message-ID: <5C63EC7A33D2DA48+643f07be-c1e1-4527-9d4a-17faf646a8f5@linux.spacemit.com>
+Date: Mon, 8 Jun 2026 15:28:10 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] riscv: mm: Avoid spurious fault after hotplugging
- vmemmap
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20260605-mark-after-vmemmap-populate-v3-1-a06001ac9264@iscas.ac.cn>
- <da19ffcf-8042-4f96-9c2d-649468dc6a0a@kernel.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <da19ffcf-8042-4f96-9c2d-649468dc6a0a@kernel.org>
-X-CM-TRANSID: rQCowABnTOPhJyZqff_8Ew--.21152S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCryrGr45AFWxGFy8JF4ktFb_yoWrAFW8pF
-	WUWFs5KF45Jrn3uws2vw17WF1rKwnYgr1xKw15G348ZrW3Ary8Wrn5KayYqry3XF4kua40
-	v3WY9ry5Ca4DAa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F
-	4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
-	wI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxUqdHjUUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+To: liangzhen@linux.spacemit.com
+Cc: adrian.hunter@intel.com, alexander.shishkin@linux.intel.com,
+ andrew.jones@oss.qualcomm.com, anup.patel@oss.qualcomm.com,
+ anup@brainfault.org, atish.patra@linux.dev, conor+dt@kernel.org,
+ coresight@lists.linaro.org, gregkh@linuxfoundation.org, irogers@google.com,
+ jolsa@kernel.org, kan.liang@linux.intel.com, krzk+dt@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ mark.rutland@arm.com, mayuresh.chitale@oss.qualcomm.com, mchitale@gmail.com,
+ mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com,
+ peterz@infradead.org, pjw@kernel.org, robh@kernel.org,
+ sunilvl@oss.qualcomm.com, zhuangqiubin@linux.spacemit.com,
+ mike.leach@linaro.org, james.clark@linaro.org, Bo Gan <ganboing@gmail.com>
+References: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
+Subject: Re: [RFC PATCH 00/12] Add Linux RISC-V trace support via CoreSight
+From: Zane Leung <liangzhen@linux.spacemit.com>
+In-Reply-To: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NPR7uEA6bBhoVW0BXuFQUHFAdw6nqbRdyxSlSO1Eh3eDdWrfTm4Kq2iG
+	5L3vAk8bNya94gPSGIqq3YcbaG4VDCznXq1Df2zAE+qELaDKXgQNFY+U0dqzeAJpuIY+hzi
+	B9cwgIuGWH59nYdtlVxetOAHJDud1VWGNREkXuPB0SA+z7pQ/e6txixwcE7OrVo6bLvA6Wb
+	EoUcm0NK6kA0PGCJJHkl63Coh1s3gqTLC/RIgtOaRy0rb3x5R/OG59ULtE/LHXFQjwb0p7m
+	fsav1VHtkrooUHHRUPM0g1MIkLSfxHDOWm2iEZTK6is/ZjBgv9Shdyny5l5KXRMTJsoSJ7n
+	/C11TvScKKwYItWG3ytmaF6Z8h8tG1YD0YYhefE67RKrpXeNYuAXZLJDh+a/QGLG3hYVG03
+	fzlKpcyCjU1RHEc6pQbaqvJVJjuMUkPJwU/z2BSF9iIkqsgoga6FcKKwEucNEkaXo6xEZ98
+	/nc80mKVR4SEGBJhM04ZZVRvqc6rXpUeeqhMBqXbPjFccmjb8kjlZZzUih2xXUQwiogMIRd
+	MRO0AFUEw8YIiMurPtb9Rzq0RV9E3MDP+kasKwhTv4j9oMuy3wHvNkLNOYmwyEGEahPvMBV
+	9n3Bt8MGgkjEug/GyaDO96AOPTnA6Nvjr/GlseBexnpfuL/GQdpt/dT6wzAA1BSsGHI8Bp6
+	3KUwitwgGfIcgWDp8V5oR2VQBcZDQllGTbS150dIyOMstCleiz0NVBekArE4rtsCbj9ba7I
+	oV9PS21OjnM5TulRt/hW1lpbEkpv8ocOj+qN4Hoc9BJosFlArj2fMZlesfoBT2TTfbUvLdL
+	JFMkHTWRb9lYB7KDtaGd68dsb18rd2bWA2c87o27/m4pg3bRKwOPwfGMmnTVbNE1cv0hfCF
+	gCX1/O9ByNFP4q9pToNJvJpb9ZwMTC8jbgbhSpn/3+4BlINbSu7GZYlFSCS3tCKyOjWMnXp
+	w22GrJn+A0ZIKaq7L+sf56ykH2+ll4bCgmatrt6v/M1ohIB4UEawOjIuBEojKvr5ldV+fPS
+	7/8wx4djrtgX8s+KHVcAw3bEJFjSU=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260607_192448_164200_BCFF20F2 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20260608_002831_973720_A83F7289 
+X-CRM114-Status: UNSURE (   3.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,110 +98,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/5/26 17:16, David Hildenbrand (Arm) wrote:
-> On 6/5/26 07:23, Vivian Wang wrote:
->> section_activate() does not flush TLB after populating new vmemmap
->> pages. On most architectures, this is okay. However it is a problem on
->> RISC-V since there the TLB caching non-present entries is permitted,
->> which causes spurious faults on some hardwares.
->>
->> This seems to be most easily reproduced with DEBUG_VM=y and
->> PAGE_POISONING=y, which causes these newly mapped struct pages to be
->> poisoned i.e. written to immediately after mapping.
->>
->> Add a hook vmemmap_populate_finalize() in __populate_section_memmap()
->> after population, to allow architectures to handle such situations as
->> needed. Then implement it on RISC-V to arrange for the existing
->> exception handler code to deal with these faults if they happen.
->>
->> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
->> ---
->> Depends on my earlier kfence fixes for mark_new_valid_map() [1].
->>
->> Found while testing AMD_HSA/ZONE_DEVICE on SpacemiT K3. Using
->> ZONE_DEVICE requires another fix [2].
->>
->> [1]: https://lore.kernel.org/linux-riscv/20260303-handle-kfence-protect-spurious-fault-v2-0-f80d8354d79d@iscas.ac.cn
->> [2]: https://lore.kernel.org/linux-riscv/20260309-riscv-sparsemem-vmemmap-limits-v1-2-f40efe18e3cd@iscas.ac.cn
->> ---
->> Changes in v3:
->> - Merged back into one patch (Mike)
->> - (No code changes otherwise.)
->> - Link to v2: https://patch.msgid.link/20260604-mark-after-vmemmap-populate-v2-0-ab6a7d03b434@iscas.ac.cn
->>
->> Changes in v2:
->> - Split patch in two, hook point and riscv hook 
->> - Explain hook necessity in patch 1 message (Mike)
->> - Make hook #define based (Mike)
->> - Call finalize hook only on populate success
->> - Link to v1: https://patch.msgid.link/20260525-mark-after-vmemmap-populate-v1-1-e698d859ba16@iscas.ac.cn
->> ---
->>  arch/riscv/include/asm/pgtable.h | 4 ++++
->>  arch/riscv/mm/init.c             | 6 ++++++
->>  mm/sparse-vmemmap.c              | 8 ++++++++
->>  3 files changed, 18 insertions(+)
->>
->> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->> index a1a7c6520a09..aa0f50e3d534 100644
->> --- a/arch/riscv/include/asm/pgtable.h
->> +++ b/arch/riscv/include/asm/pgtable.h
->> @@ -1243,6 +1243,10 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
->>  #define TASK_SIZE	FIXADDR_START
->>  #endif
->>  
->> +/* Needed on SPARSEMEM_VMEMMAP */
->> +#define vmemmap_populate_finalize vmemmap_populate_finalize
->> +void __meminit vmemmap_populate_finalize(void);
->> +
->>  #else /* CONFIG_MMU */
->>  
->>  #define PAGE_SHARED		__pgprot(0)
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index 706f43523935..cf9ae4099f82 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -1360,6 +1360,12 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>  	 */
->>  	return vmemmap_populate_hugepages(start, end, node, altmap);
->>  }
->> +
->> +void __meminit vmemmap_populate_finalize(void)
->> +{
->> +	/* Avoid faults on cached non-present TLB entries. */
->> +	mark_new_valid_map();
->> +}
->>  #endif
-> How does mark_new_valid_map() handle concurrent access?
->
-> There is some comment in there, but I am not sure if that actually implies that
-> mark_new_valid_map() can be called concurrently from arbitrary context?
-
-AFAICT, yes, it is intended to be used concurrently from arbitrary
-context, and this is why I used them.
-
-I had not originally written the code, so some riscv maintainer can
-maybe chime in on this, but as I understand it the idea is that we only
-ever set bits in the bitmap in mark_new_valid_map() while "allocating",
-whereas the assembly code in handle_exception in
-arch/riscv/kernel/entry.S only ever clears individual bits. So at least
-the access to the bitmap itself should be fine.
-
-This was added in commit 503638e0babf ("riscv: Stop emitting preventive
-sfence.vma for new vmalloc mappings").
-
-Do you think the mark_new_valid_map() function needs extra
-synchronization like smp_wmb()?
-
-Regards,
-Vivian "dramforever" Wang
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIGFsbApJIHBsYW4gdG8gZXh0cmFjdGluZyBDb3JlU2lnaHQncyBhcmNoaXRlY3R1cmUtaW5k
+ZXBlbmRlbnQgZnJhbWV3b3JrIGNvZGUKaW50byBhIHNoYXJlZCBsYXllciAoZHJpdmVycy9od3Ry
+YWNpbmcvdHJhY2UtY29tbW9uLykgdG8gc3VwcG9ydCBtdWx0aXBsZQp0cmFjZSBpbXBsZW1lbnRh
+dGlvbnMgKEFSTSBDb3JlU2lnaHQsIFJJU0MtViB0cmFjZSwgZXRjLikuCgrCoCAjIyBQcm9wb3Nl
+ZCBTdHJ1Y3R1cmUKCsKgIGRyaXZlcnMvaHd0cmFjaW5nLwrCoCDilJzilIDilIAgdHJhY2UtY29t
+bW9uL8KgIMKgIMKgIMKgIMKgICMgTmV3OiBHZW5lcmljIGZyYW1ld29yayBsYXllcgrCoCDilILC
+oCDCoOKUnOKUgOKUgCB0cmFjZS1jb3JlLmPCoCDCoCDCoCDCoCMgRGV2aWNlIHJlZywgcGF0aCBi
+dWlsZGluZy9lbmFibGUvZGlzYWJsZQrCoCDilILCoCDCoOKUnOKUgOKUgCB0cmFjZS1jb3JlLmjC
+oCDCoCDCoCDCoCMgUHVibGljIGludGVyZmFjZXMKwqAg4pSCwqAgwqDilJTilIDilIAgTWFrZWZp
+bGUvS2NvbmZpZyAoQ09ORklHX1RSQUNFX0ZSQU1FV09SSykKwqAg4pSCCsKgIOKUnOKUgOKUgCBj
+b3Jlc2lnaHQvwqAgwqAgwqAgwqAgwqAgwqAgwqAjIE1vZGlmaWVkOiBBUk0tc3BlY2lmaWMgb25s
+eQrCoCDilILCoCDCoOKUnOKUgOKUgCBjb3Jlc2lnaHQtY29yZS5jwqAgwqAjIEFSTSBDVEksIGNs
+YWltL2Rpc2NsYWltLCBtb2R1bGUgaW5pdArCoCDilILCoCDCoOKUnOKUgOKUgCBNYWtlZmlsZS9L
+Y29uZmlnwqAgwqAjIHNlbGVjdCBUUkFDRV9GUkFNRVdPUksKwqAg4pSCwqAgwqDilJTilIDilIAg
+W2V4aXN0aW5nIEFSTSBkcml2ZXJzXQrCoCDilIIKwqAg4pSU4pSA4pSAIHJ2dHJhY2UvwqAgwqAg
+wqAgwqAgwqAgwqAgwqAgwqAjIE5ldzogUklTQy1WIHRyYWNlCsKgIMKgIMKgIOKUnOKUgOKUgCBb
+UklTQy1WIGNvbXBvbmVudHNdCsKgIMKgIMKgIOKUlOKUgOKUgCBNYWtlZmlsZS9LY29uZmlnwqAg
+wqAjIHNlbGVjdCBUUkFDRV9GUkFNRVdPUksKCklzIHRoaXMgYXJjaGl0ZWN0dXJhbCBkaXJlY3Rp
+b24gYWNjZXB0YWJsZT8gQW55IGNvbW1lbnRzIG9yIHN1Z2dlc3Rpb25zIGFyZSB3ZWxjb21lLgoK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
