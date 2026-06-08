@@ -4,52 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DC1CD8CA4
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 20:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8D0CD6E79
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 21:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wsvYLLmENIrxhseCmhN/JgWrGDaZVkP8iL3KIgeQKCw=; b=4ghi/b1wO4AoNR
-	PB8umBHR4i6WGfxYhEalQaC/DHE3I15Hyp/GyBO01EvzLsU25XHgK4ODrqscsdxJmnTHBfBk/JXCq
-	xjAKVJ/zwcrhEropEiBIO7lsNUXHlnmpFbOeOYwm7rTlt8TL6aPtTtCmDXIWXH4Thvj1UHXItWRkw
-	BdbxT9SwFX5NIDS7dZYbEfXI6/Wh57Af04LKP/wOcC1D86i4mfQHWzGW9i1swLgpwwG/JCuxvlBuh
-	PZXXhcYqCuI0ERoJ3ynH25772Doq2mhzbnbVv6wfyfFNBxb93LEDCW96FDU8irHfzFxynn3r5GiK4
-	uM/glu7GfkKCQGlJXfXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GbPgm2dpMXgyvSAckXxRsVNeN0UUvOCSHXm0/cI0M0k=; b=X0rh66nc9bEFAq
+	wI+xxs+lzTCyQWEb+31lE01nbrLxaexD918qjJKqtTORqHPfdgAjBY9xlZztwcrTcYBZ8z6EXqLsQ
+	6c0o5sC1rjRUXJcDzNO6Odbwqz6YvUOpxJHHSohG68IK2bJ+nzO/97iWN/WJaoP7sxZeWlA+GRigJ
+	NaCE9J5goVm0nLzocG3pgbTqVVREzcBbF4zMX8wTZe+w0geeuilasvXfZ8N0LjqZ5RBd28KKwUpYb
+	ZVWUK0zdtDct5ztoR4LOMJU80LTVsT/titEj/znq3Bp3mhJy6qIfDQ2hG1vMj+xGVO12KjZg6aRcX
+	pBRidDQqGDMpIws8UPvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWgRf-00000004LzL-0nBT;
-	Mon, 08 Jun 2026 20:19:39 +0000
-Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
+	id 1wWh4g-00000004PAd-0ARt;
+	Mon, 08 Jun 2026 20:59:58 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWgRc-00000004Lyx-2eCs
+	id 1wWh4d-00000004PAG-3mDj
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 20:19:37 +0000
-Received: from ipservice-092-209-184-216.092.209.pools.vodafone-ip.de ([92.209.184.216] helo=nb282.user.codasip.com)
-	by akranes.kaiser.cx with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <martin@kaiser.cx>)
-	id 1wWgRT-00000001vbF-2T2A;
-	Mon, 08 Jun 2026 22:19:27 +0200
-From: Martin Kaiser <martin@kaiser.cx>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Chen Pei <cp0613@linux.alibaba.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Martin Kaiser <martin@kaiser.cx>
-Subject: [PATCH] riscv: ftrace: sorttable: fix mcount sorting
-Date: Mon,  8 Jun 2026 22:18:27 +0200
-Message-ID: <20260608201904.715374-1-martin@kaiser.cx>
-X-Mailer: git-send-email 2.43.7
+	Mon, 08 Jun 2026 20:59:57 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gZ4DP2HrGz9tgY;
+	Mon,  8 Jun 2026 22:59:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1780952389;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U+OfQweIOD1gShe2+QuxUov9IeGEl5ViBFprqcyr6fc=;
+	b=t+EDzGgfSG0GZyqmiau5dOYEo2iquULVn1WY5kaoOiTUQLbnyd+XOiLbbHhU+PSqDz+LPx
+	F0x3PnkQYGji0n60ArWtDXnCapCtxIyEUvslOaayKtf8gwY3CE85Fv4MQFF5I5ZxLcu+8d
+	dHPTHBD10/43Cy7LXLo+kZTOxlV5nz5hrDHZ2nCADHPrKwYGhcUmk2aWXIo/QD93eMTTaL
+	WuLTjOuQ0l2QcUBjij1awUA5Tso8H/7a/35ZEHxSRl2utkFR5hqIN4u5hwzsaA70lsrfVi
+	LCiDpv/KkEhuBwur7VfmQpGwXDP7sr7usxqhJs+o93vDOqiIZ+VXFj/HCaSUsQ==
+Message-ID: <e99b78d7aea835ab2960517e0c308b08538146ea.camel@mailbox.org>
+Subject: Re: [PATCH v2 0/2] rust: clk: Add ExclusiveClk and use it in
+ pwm-th1520
+From: Maurice Hieronymus <mhi@mailbox.org>
+To: Daniel Almeida <daniel.almeida@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>,  Miguel Ojeda <ojeda@kernel.org>, Boqun Feng
+ <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,  =?ISO-8859-1?Q?Bj=F6rn?=
+ Roy Baron	 <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl
+ <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich
+ <dakr@kernel.org>, Drew Fustini	 <fustini@kernel.org>, Guo Ren
+ <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Michal Wilczynski
+ <m.wilczynski@samsung.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+ <ukleinek@kernel.org>, 	linux-clk@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 	linux-pwm@vger.kernel.org
+Date: Mon, 08 Jun 2026 22:59:36 +0200
+In-Reply-To: <140FE1B3-73CA-45EA-B978-648A1A48B577@collabora.com>
+References: <20260605-rate-exclusive-get-th1520-v2-0-695640bf7249@mailbox.org>
+	 <140FE1B3-73CA-45EA-B978-648A1A48B577@collabora.com>
 MIME-Version: 1.0
+X-MBO-RS-ID: 4419fd374748a8af19f
+X-MBO-RS-META: 8quwtpkkm6yeim94go9bw3qkw9e67cnd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_131936_693717_C9EEB8CE 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20260608_135956_111016_65ABBCAC 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,65 +83,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit de04fca5d2f8 ("riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT")
-enabled mcount sorting for risc-v. On my system, the sorting changes all
-entries to address 0. The startup test reports that the mcount section is
-properly sorted, but no traceable functions are registered at boot time.
-
-[    0.000000] ftrace section at ffffffff8101bba0 sorted properly
-[    0.000000] ftrace: allocating 0 entries in 128 pages
-[    0.000000] ftrace: allocated 128 pages with 1 groups
-
-The sorttable helper program does not take into account that the
--fpatchable-function-entry compiler flag reserves an additional 8 bytes
-before each traceable function. (The size in bytes is the same for
-RV32/64 or compressed/uncompressed instructions).
-
-Define before_func = 8 to fix the mcount sorting for risc-v, share this
-setting with arm64.
-
-Fixes: de04fca5d2f8 ("riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT")
-Signed-off-by: Martin Kaiser <martin@kaiser.cx>
----
- scripts/sorttable.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/scripts/sorttable.c b/scripts/sorttable.c
-index e8ed11c680c6..da70f0938d04 100644
---- a/scripts/sorttable.c
-+++ b/scripts/sorttable.c
-@@ -895,13 +895,19 @@ static int do_file(char const *const fname, void *addr)
- #ifdef MCOUNT_SORT_ENABLED
- 		sort_reloc = true;
- 		rela_type = 0x403;
--		/* arm64 uses patchable function entry placing before function */
-+#endif
-+		/* fallthrough */
-+	case EM_RISCV:
-+#ifdef MCOUNT_SORT_ENABLED
-+		/*
-+		 * risc-v and arm64 use patchable function entry that stores
-+		 * 8 bytes of nops before the function
-+		 */
- 		before_func = 8;
- #endif
- 		/* fallthrough */
- 	case EM_386:
- 	case EM_LOONGARCH:
--	case EM_RISCV:
- 	case EM_S390:
- 	case EM_X86_64:
- 		custom_sort = sort_relative_table_with_data;
--- 
-2.43.7
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyMDI2LTA2LTA4IGF0IDA4OjA4IC0wMzAwLCBEYW5pZWwgQWxtZWlkYSB3cm90ZToK
+PiBIaSBNYXVyaWNlLAo+IAo+IFRoZXJlIGlzIHNvbWUgb25nb2luZyB3b3JrIHRvIGNvbnZlcnQg
+Q2xrcyB0byBhIHR5cGUgc3RhdGUgcGF0dGVybgo+IFswXQo+IAo+IEkgd29uZGVyIGlmIHlvdSB3
+b3VsZCBiZSB3aWxsaW5nIHRvIHJlYmFzZSBvbiB0b3Agb2YgdGhhdD8KPiBJIGNhbiBwdXNoIGEg
+bmV3IHZlcnNpb24gaWYgc28uCkRlZmluaXRlbHkhIEp1c3QgbGV0IG1lIGtub3cgd2hlbiB5b3Ug
+cHVzaGVkIGEgbmV3IHZlcnNpb24uIFRoYW5rcyBmb3IKdGhhdC4KPiAKPiBJdCBzZWVtcyBsaWtl
+IHdlIGFyZSBtb3N0bHkgaW4gYWdyZWVtZW50IHdpdGggdGhhdCBzZXJpZXMsIGFuZCBvbmx5Cj4g
+YSBmZXcgbml0cyBhcmUgbWlzc2luZy4KPiAKPiDigJQgRGFuaWVsCj4gCj4gWzBdOgo+IGh0dHBz
+Oi8vbG9yZS5rZXJuZWwub3JnL3J1c3QtZm9yLWxpbnV4LzIwMjYwMTA3LWNsay10eXBlLXN0YXRl
+LXYzLTAtNzdkM2UzZWU1OWMyQGNvbGxhYm9yYS5jb20vCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
