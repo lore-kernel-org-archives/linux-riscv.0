@@ -4,145 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7A6CD6E79
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 16:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D672CD6E79
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 17:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BVnnslGhhrUDqZcTm0uB3p33vTJ4mAXUMiNgmd/GcgI=; b=W15sq2reX5JOsM
-	2y8qj1AKlKpBMOzK0D9a5qGmvo43IZcH4E6Boe/fx0kWvKTYZUEpXC6195IBWQKfGoWhItlYlzt4Q
-	uT+TIr4y3MAZPJCy6K14NgQIfeVHASUfSrp7RVL3x9ffJcr7UwTi3V+b2UTzX0Dts9J3IXltp3O3Q
-	8GQ7oDO4BolRJaPzoffLd3J4L6tBxcI2D+svnCY/+QIgYV1YGjIsSmSKyjPDKtO9mq+UKxwA2Yd7X
-	s4Yo+/zh6TgpUqkbHLTjNnU8XqiVPH06afnn1Gko/sCGu99mBXsvN1uf4SSWZgWauco8wX5XqhOk5
-	Y1Paq0aVbWeYsb/RuEwA==;
+	List-Owner; bh=rA7TCesEcf7u6+Z/JeWOaVVTdDf6QWe1LDoCILU6ll8=; b=kFgeE5EIOeLoGq
+	tzdHBJwh4DBqRulF6o3iuBOGQ8tGZJD8N3gxF/+l7OS34Y2sTYbnBhkfX+SFVtAhR5sbwNd/XGrmh
+	ZS0meW1/08xBNR7W61cwrIttvIK7/Mhp/GqZDCJ+6tJ3P9N6y0LHj5WdBE7gvFWw+8VyGhbm/ldKW
+	eZx1rkwXG4FC3mpzJA01E3QGJXc0nIaQmAqBk+yzj4mSNaP5qYRJzQgpr4qzBYBX5H4EMsrXtg0PP
+	/a04cu2wm3P3UE6lFJFOHjDYwVfhOGAphUVsDpy0R8PgIMRp4KjBeUfYkkylPsLHl5Q3KxuhTkvbi
+	yLS5k1xnMy/LcPx/L7kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWcze-000000045dj-45g3;
-	Mon, 08 Jun 2026 16:38:30 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wWdOF-000000048mP-0zkA;
+	Mon, 08 Jun 2026 17:03:55 +0000
+Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWczb-000000045cU-44at
+	id 1wWdOB-000000048lk-2S85
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 16:38:29 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 658FFcIp3593031
-	for <linux-riscv@lists.infradead.org>; Mon, 8 Jun 2026 16:38:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:to; s=
-	qcppdkim1; bh=c+auThQZxPAjxDc0fMSepBAYMkGW6rfzA+iCSa7438U=; b=aL
-	VN1rGk2GnCSWpr/C5mhI7V/5mo7au+DRCD5bCtE/56VkmF3zZDD5S4QGK7eSdi5N
-	UDkPQvz/UwKEQ20ogLUtz1AcvotEMA2huV18YXdRP65okCDNEJ6s1EDD3/5TwpDE
-	4uwuNiz1cEICsvSq5yq0VanLSarRqXHJ5Z/nihGen/hbOw+rv0BrlL6ic+AjCYVB
-	sC3pDYPM5qOzS5R4T2Oa4Mft44f38yL7Ok/A+AK4478fvwXX47e5FexQBHRoHG9G
-	JUvnodwGcFbbiUaiSjH374OIWgz7p5hfDSJLtjjr8OF4szDFHS7ga8B9VfPqNUN+
-	Cbh3tK++gPAtQHfjYzqg==
-Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4enw5m1ddy-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 08 Jun 2026 16:38:27 +0000 (GMT)
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-7e9234db3bfso79325447b3.2
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Jun 2026 09:38:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1780936707; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LhB9bXcHikdsxcy9eANxt9ms1FZuW/p3SoUoYzTZ4z/IK0IEFoK1nEyV91KwtBCM5P
-         ZDn7mBGjfZwx3hPQPHFs9Q0FBxlq+6uPs4v9k8MUz7cQa9Rf/Jy6QntZP2+gyEO7JirR
-         UrlyRUAlkhQvtH3IwaWKTjEzxzm6lUCtP6z5sZMJcAAOIzdWb4eK80twAoYWYQBkfr3D
-         wKDo0Wj94uF5Ge9XJJacbpzEuYuPyK/q08jrxtqEnTOEHbX8qeWJ40qzBufl2Bm1pAUB
-         iegceitdY2ZneRcrsEmpVDCEYSy1JCZ5Sb1U+TnIheKsosAtUqYxTIn5jM/FKXY0OQye
-         LCNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:dkim-signature;
-        bh=c+auThQZxPAjxDc0fMSepBAYMkGW6rfzA+iCSa7438U=;
-        fh=GtpBVLB1vxAjgqcWYh52rZijSnZLkh2NO8K83yGTzbA=;
-        b=MyBCtPpprW2lOLfq0+1XnKGtK0XC0U0gqfzZOF6fN4z9xiFrIL0JHJg4DrCTZDvn9Y
-         jKJOPV8IQbv6VlSNi+1UlLO8LCBUNVjibmAY3ABDgoDL7yXv1oHm/3bJkyxjYgtqeeBI
-         KjOI8TuZUu0A8gPuneM3xj44g+2x6ClphyUcW7hcg3gH1E2kL1OlbXt0kXzCN9MJnoks
-         lD7usMNsNi/Q6d3UoQAlaIVf6yVebd8E/j9lBG8mWDdZZbhKguTPkl21afYL8M7yBoWE
-         EkxdEugZhDsX14wVQtaPYKCUnnyfFk1Sk/EJXUigEnlwmI4+TqxQTJN25HMUXEYiSBME
-         gu2A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 08 Jun 2026 17:03:53 +0000
+Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-3075ce9c05aso8320331eec.1
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Jun 2026 10:03:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1780936707; x=1781541507; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=c+auThQZxPAjxDc0fMSepBAYMkGW6rfzA+iCSa7438U=;
-        b=Zenw7uPdviSMdaxRTw3ts2JRt5xTnocwaZytRD9KHTKcbTntvnA5K5I3krMW9icDiv
-         n91p4Sh9cJ79WTjVEo/Oab3s9AsYVVTXGyRFQAaOJ8llMXMhFAA8M1RbrHEaq89ULelY
-         7YV2UyaKq35WrHiD653eNWYrE4qJs7HOBHRmnf5LBDATnhUdc9vpHgaAqbBp2jjgLwR+
-         M7wDihsMWGASlDeaPioqzj/iMOZIk6HmaEDlOuP698drPlmrg1GXR9Ga2QEA3p5ZWs56
-         gUqTz8CvJIUBYTemThZOySN2cJJqMqfj2QiDj8qb97eZzvk5i/ghqtCeBna3lXHd5Sx9
-         ymLw==
+        d=gmail.com; s=20251104; t=1780938231; x=1781543031; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=E0XM//N+d5pSuxJ9P8F/TyQWRalQCCYsnNO2V1rSMvc=;
+        b=WVW94+NrsNIOiEHjmYYEbJ9ULhL7bXVMcBB49Jux548cS2J9v/LaMfC3MVCADE/r61
+         N5X5TZAoyminq6rSTWpHAN2zK0Z4RuuLpWZh6id0b7bwMdip0xSb+8+PGKsdOGct+t/l
+         HVhMzWBD/uhzvgtxWInTVqF24YwXm9wHXRIGDrQ+JqkxohGWVtMrZsayMGvZB1GYH6hg
+         s/e7ofauUbd9/cxy+z9sHJtxsAb05ArRaIeuWFumeECvxnGYOT28B/JOM4XwM7nB2hMS
+         qHJvHpCvYy1cACkWGku2mcfvv7qJeRZXLPOsntynC8Y2Y0MdakcGv5rCXK/URwGAWf1h
+         hLFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780936707; x=1781541507;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c+auThQZxPAjxDc0fMSepBAYMkGW6rfzA+iCSa7438U=;
-        b=p9pVmnn+3OBDyb06lqVl6aex1/p623grg78i2VCglgJKSyfwSYPAmXq7qNw18qLwsK
-         4vl7DR4F7MJOJYb7U3pUg9muyuI4XXBjKzSiMGKmBztW6IT4ueOZdmyoQqQmPG8kxlur
-         vAVbgnldpMAy5DRmXlh5Eo27uw5avm3bemQHSW8iWUOylWiLferUWDfFzSzMPbYtFv/v
-         CrxOMgT9Ar6ybe5RcBqR2pBfH5PybSpAPoOLBoe/X+2K+OF+mpsEoLCkFJbox4tMXKUp
-         UDh6MSRDqNTTjUwvJZeTxjXaR1HQB53qQ34M18652cEKiz0in+8utqGpHaQbM+5wsqrj
-         zHUQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/YWAHkD+cNDURLOn7yxhNvyADyrTu2eQe+hbrXvtSj0BdSHckZ1j0AjpheHZZENIGc+rytUlQArxaPbA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMo1+lLAnlnRnqV/jirC6UEI2ZyCANETfC4JTF68FYKvLWLPAU
-	OpHDkgmwO1Xf20HU1Fz56ToteuEI8KefiSInsgPXjSqFBu5PFI27sHIpOqzTz2crnohepRomL2Z
-	lTF0GmwM6YqiBKYW9i3jyfwLE8C3rZjXu+G7180bRk1kZcPGgnRT1ZLxQCXZVKBHwnj8i3X/sOD
-	jxx0tcoatblAARLzkYZnKtjmd3VJ+NDV/QXgYUEb1J4022rA==
-X-Gm-Gg: Acq92OG5nRp8wqf1WbbQDd1u0oQm8tjI9IzakTACfMYBzRDSJhMeI2TqD5m5kBJL+MA
-	woQi8qOJ397BLLKSfbkhvOFihz49NCBveMpzXli4M/7NwhA6prB+aj9P8r2M6CcaB5q4x6IKTdu
-	fdkzMAUfjFyYSoCykZuT5lTeGzOLsDr4kEBmuE3uzUcrd6d2RVFr0PBB/MqDBOtWHMQMFFAHgRa
-	3gOnaqKoq6j10fr9Q==
-X-Received: by 2002:a05:690c:e3d1:b0:79a:60f6:c5ed with SMTP id 00721157ae682-7ed0d3cbcc4mr155717387b3.6.1780936706567;
-        Mon, 08 Jun 2026 09:38:26 -0700 (PDT)
-X-Received: by 2002:a05:690c:e3d1:b0:79a:60f6:c5ed with SMTP id
- 00721157ae682-7ed0d3cbcc4mr155716897b3.6.1780936706088; Mon, 08 Jun 2026
- 09:38:26 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1780938231; x=1781543031;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=E0XM//N+d5pSuxJ9P8F/TyQWRalQCCYsnNO2V1rSMvc=;
+        b=cOBJqr0rrysQLrtCJMrWhiZSq7xvNVOVZv+IS/K1T39UVpvAKrsHuIqTEnUukx8Cnx
+         sxQP/NwOaBtR5AyzeqcTOKA6lbZcizNxIXbXtCcNm5qVA1iO1P8RleCKOezUh9BOw/Z1
+         xPyUi/Vn7GYXzkiI4a2pWZW6H5tOlrZSdUxkZvO+JHOKVgAtw7Z25JcArrSUg5N1JIbi
+         P/QrJILOul78uymkdsPqR+6me1wh9HWPdBzJXyaV8tOtHsC+Y8kf+uuhQ1gta7TFq27p
+         nTAIRQ4hG2QMzNVqOUrRXoAmr7zldInlLDhPNJEsIBhkN+0DvFw+yMbFo7BrudWs0HK9
+         ldnQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8Xzjp9KDnhWcowi2b5UbNz53J44FksvomKIMnwikJXFG2l9lKXOPM1s084ybsbdUoeragWc0YZeMc2Og==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwiaYAElrMB87dx9IRVTP71G8exhfpnSaa+l7E0fqoALdMckkt
+	0taxsjKk0GUcyyeLPVhSUlhDqY2rvIRd7UDmB3Li3yVgbS8fZcu/QhqC
+X-Gm-Gg: Acq92OERvQggiXjHpcUsW/yxnmkYZr8tq7on36reUOfLdamzTy2VrD+xhCQkaxqUKs0
+	B/uODMngrbxliGK4IsjCc1bWfN3l6pVs0xpQ1+JFDsdtzB0z0YOZ3OCh6GZSU9OX0wPErMI+WE3
+	7oouhU4gLjL47c1u/d0ujHWamQ+H4ian19qIBnCTPRqJMz+kdugoIr3Vh/9eRqI9bKzlzROA10n
+	Zy2Rj9cs7qo5Hqg61N5XyEcb1/upVE4TnnWk3/KJvrPLNhcx4RkVhZgnN66O+WkNyJluoO5Z5PO
+	dlxeU4Cg+F0pNhi/Ri4r6aJQ4PyJg3h8xKB9gRnKG1C8jcOLuKiHVLPmwhWRh1/TaTHsZ/vpjRp
+	Y3sIkMABFTnoTllSQQuoTrqmEbfrjdCC1pk2mHeiJcrLVjiYJqObgU5DhF7aWkMvztII/axSltg
+	hoTBp+eHP7Vt5Cza51ft0zgnikv+mYkXMlBTuNWBgXiuJ8QMT2Oz6IwkaTldREYIZFV8KutH8ri
+	Q2eocItmUwF8WruIynu+Q==
+X-Received: by 2002:a05:7300:3216:b0:2c8:6361:ab2e with SMTP id 5a478bee46e88-3077af39140mr9150935eec.8.1780938230264;
+        Mon, 08 Jun 2026 10:03:50 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3074dcbe995sm22473601eec.13.2026.06.08.10.03.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Jun 2026 10:03:49 -0700 (PDT)
+Message-ID: <fd92d7c9-9594-47b9-bd84-a6bd5ebae66d@roeck-us.net>
+Date: Mon, 8 Jun 2026 10:03:48 -0700
 MIME-Version: 1.0
-References: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
- <20260603-gic-v5-acpi-iwb-probe-deferral-v2-4-23ffa16b6ebb@kernel.org>
-In-Reply-To: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-4-23ffa16b6ebb@kernel.org>
-From: Sunil V L <sunilvl@oss.qualcomm.com>
-Date: Mon, 8 Jun 2026 22:08:15 +0530
-X-Gm-Features: AVVi8CdP_PRc1DJjUVOc0gMS_HHZf1oDGc6wp_gUILbiw5JbF5QWPmOsllQtoVM
-Message-ID: <CAB19ukH5hx_kfpfcRiuPFrUmvFxMk3B08RNjcaxx3C6fDBS0dw@mail.gmail.com>
-Subject: Re: [PATCH v2 4/6] ACPI: irq: Move RISC-V interrupt controllers
- autodep to ACPI IRQ code
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA4MDE1OSBTYWx0ZWRfX7DfAoP4DoBIa
- F8th5ahvz2DmTr5MwAh04qVgUzIJvMugjLPJ+ysyO0UWUc9kI9N9ArrBnQ+6zFMZX1QHwuC89V4
- 5C8IWK/J5ZKksxxbhRQ7mipydG0ZFPHAk/IbK5IaawgLSdHUe4P1UIJzlKrRGip2Czz8hu6uJS+
- AjhWLqLTmRnOqXnx1jwtjT9Vbo5xQulVi0J8tdJ3eqRUnFKcMitrNrYq7YDr2YADoSJGVdmMO6a
- H8pHQAJFdmcktc3EluxOIpo66B1OCcgZOp8mt9hGPgYdCIZ6Se6CW9p02Mb4MD2pp+Rq4VFpYAg
- cwCL60LLYntWIsvcvix8HVBbUIExGHBcJPGJbPZB01vc8RpMRMXzZ2P4BXTIFGut0vy/WKoaEV4
- t04ywALnxF+ejSjbfvkuw/s2nxAnnBw3DzouQzloiFY+Eh0l/vQSn/IwfaF85vHK8oj2GwefXHl
- xGwXmwoOi1/SjUGHEjA==
-X-Proofpoint-ORIG-GUID: HHiTHZDXIoC_x-peH6mXhBCLcdvSCf1b
-X-Authority-Analysis: v=2.4 cv=UptT8ewB c=1 sm=1 tr=0 ts=6a26f003 cx=c_pps
- a=0mLRTIufkjop4KoA/9S1MA==:117 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8 a=W-_n0kkjAAAA:8 a=bDdBU3oEAAAA:8
- a=EUspDBNiAAAA:8 a=bDd8DhsF2Ke-o0a1jUUA:9 a=QEXdDO2ut3YA:10
- a=WgItmB6HBUc_1uVUp3mg:22 a=qeNa2pbTr82C0GpJEZFS:22 a=DN7SgORnOiO7RqxRx1GC:22
-X-Proofpoint-GUID: HHiTHZDXIoC_x-peH6mXhBCLcdvSCf1b
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-08_04,2026-06-05_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- clxscore=1015 malwarescore=0 impostorscore=0 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606080159
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] hwmon: add a driver for the temp/voltage sensor on
+ PolarFire SoC
+To: Conor Dooley <conor@kernel.org>, linux-hwmon@vger.kernel.org
+Cc: Lars Randers <lranders@mail.dk>, Conor Dooley
+ <conor.dooley@microchip.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>,
+ Daire McNamara <daire.mcnamara@microchip.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Valentina.FernandezAlanis@microchip.com
+References: <20260603-ongoing-brunette-51e35be6d93e@spud>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20260603-ongoing-brunette-51e35be6d93e@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_093828_140142_23B0CC1A 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260608_100351_664757_F4516349 
+X-CRM114-Status: GOOD (  37.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,43 +145,621 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: sunilvl@oss.qualcomm.com
-Cc: Catalin Marinas <catalin.marinas@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@kernel.org>, linux-acpi@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, loongarch@lists.linux.dev, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdW4gMywgMjAyNiBhdCAxOjU04oCvUE0gTG9yZW56byBQaWVyYWxpc2kgPGxwaWVy
-YWxpc2lAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBSSVNDLVYgaW1wbGVtZW50cyBhcmNoIGNvZGUg
-dG8gZGV0ZWN0IHByb2JlIGRlcGVuZGVuY2llcyBmb3IgZGV2aWNlcyBhbmQKPiB0aGUgaW50ZXJy
-dXB0IGNvbnRyb2xsZXIgdGhlIGRldmljZXMgR1NJcyBhcmUgcm91dGVkIHRvLgo+Cj4gVGhlIGNv
-ZGUgaXRzZWxmIGlzIGFyY2ggYWdub3N0aWMgYXBhcnQgZnJvbSBhbiBhcmNoIHNwZWNpZmljIGhl
-bHBlcgo+IGZ1bmN0aW9uIHJlcXVpcmVkIHRvIHJldHJpZXZlIHRoZSBhY3BpX2hhbmRsZSBvZiB0
-aGUgaW50ZXJydXB0IGNvbnRyb2xsZXIKPiB0aGF0IG1hbmFnZXMgdGhlIGRldmljZSBHU0kgaW50
-ZXJydXB0Lgo+Cj4gSW4gb3JkZXIgdG8gZW5hYmxlIElSUSBwcm9iZSBkZXBlbmRlbmNpZXMgZGV0
-ZWN0aW9uIG9uIG90aGVyIGFyY2hpdGVjdHVyZXMsCj4gbW92ZSBSSVNDLVYgSVJRIHByb2JlIGRl
-cGVuZGVuY3kgZGV0ZWN0aW9uIGNvZGUgdG8gZ2VuZXJpYyBBQ1BJIElSUSBjb2RlLgo+Cj4gQWxs
-b3cgaW50ZXJydXB0IGNvbnRyb2xsZXIgZHJpdmVycyB0byByZWdpc3RlciBhbiBhcmNoIHNwZWNp
-ZmljIGZ1bmN0aW9uIHRvCj4gZGV0ZXJtaW5lIHRoZSBhY3BpX2hhbmRsZSBmb3IgYSBzcGVjaWZp
-YyBHU0kgbnVtYmVyIHRvIHVzZSB0aGUgbWVjaGFuaXNtIGlmCj4gbmVlZGVkIGJ5IHRoZSByZXNw
-ZWN0aXZlIGludGVycnVwdCBjb250cm9sbGVyIGRyaXZlcnMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBM
-b3JlbnpvIFBpZXJhbGlzaSA8bHBpZXJhbGlzaUBrZXJuZWwub3JnPgo+IENjOiBIdWFjYWkgQ2hl
-biA8Y2hlbmh1YWNhaUBrZXJuZWwub3JnPgo+IENjOiBUaG9tYXMgR2xlaXhuZXIgPHRnbHhAa2Vy
-bmVsLm9yZz4KPiBDYzogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KPiBDYzogIlJh
-ZmFlbCBKLiBXeXNvY2tpIiA8cmFmYWVsQGtlcm5lbC5vcmc+Cj4gQ2M6IFN1bmlsIFYgTCA8c3Vu
-aWx2bEB2ZW50YW5hbWljcm8uY29tPgo+IENjOiBNYXJjIFp5bmdpZXIgPG1hekBrZXJuZWwub3Jn
-Pgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FjcGkuaCAgICAgICB8ICAgMSArCj4g
-IGRyaXZlcnMvYWNwaS9pcnEuYyAgICAgICAgICAgICAgICAgIHwgMTcyICsrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrLQo+ICBkcml2ZXJzL2FjcGkvcmlzY3YvaXJxLmMgICAgICAg
-ICAgICB8IDE1NiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ICBkcml2ZXJzL2ly
-cWNoaXAvaXJxLWdpYy12My5jICAgICAgICB8ICAgMiArLQo+ICBkcml2ZXJzL2lycWNoaXAvaXJx
-LWdpYy12NS5jICAgICAgICB8ICAgMiArLQo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLWdpYy5jICAg
-ICAgICAgICB8ICAgMiArLQo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLWxvb25nYXJjaC1jcHUuYyB8
-ICAgMiArLQo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYyAgICB8ICAgMyArLQo+
-ICBpbmNsdWRlL2xpbnV4L2FjcGkuaCAgICAgICAgICAgICAgICB8ICAgNSArLQo+ICA5IGZpbGVz
-IGNoYW5nZWQsIDE4MSBpbnNlcnRpb25zKCspLCAxNjQgZGVsZXRpb25zKC0pCj4KTEdUTS4KClJl
-dmlld2VkLWJ5OiBTdW5pbCBWIEwgPHN1bmlsdmxAb3NzLnF1YWxjb21tLmNvbT4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 6/3/26 06:19, Conor Dooley wrote:
+> From: Lars Randers <lranders@mail.dk>
+> 
+> Add a driver for the temperature and voltage sensors on PolarFire SoC.
+> The temperature reports how hot the die is, and the voltages are the
+> SoC's 1.05, 1.8 and 2.5 volt rails respectively.
+> 
+> The hardware supports alarms in theory, but there is an erratum that
+> prevents clearing them once triggered, so no support is added for them.
+> 
+> The hardware measures voltage with 16 bits, of which 1 is a sign bit and
+> the remainder holds the voltage as a fixed point integer value. It's
+> improbable that the hardware will work if the voltages are negative, so
+> the driver ignores the sign bits.
+> 
+> There's no dt support etc here because this is the child of a simple-mfd
+> syscon.
+> 
+> Signed-off-by: Lars Randers <lranders@mail.dk>
+> Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+Comments inline.
+
+Thanks,
+Guenter
+
+
+> ---
+> 
+> v2:
+> - Fix some minor things pointed out by Sashiko including inaccurate
+>    comments, bounds checking of values read from sysfs and Kconfig
+>    dependencies.
+> - Make update_interval use milliseconds instead of microseconds
+>    (I'll add update_interval_us support when that lands, there's a
+>    proposed workaround for the erratum circulating internally, so it'll
+>    probably come alongside alarm support).
+> 
+> CC: Guenter Roeck <linux@roeck-us.net>
+> CC: Jonathan Corbet <corbet@lwn.net>
+> CC: Shuah Khan <skhan@linuxfoundation.org>
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: Daire McNamara <daire.mcnamara@microchip.com>
+> CC: linux-hwmon@vger.kernel.org
+> CC: linux-doc@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: Valentina.FernandezAlanis@microchip.com
+> ---
+>   Documentation/hwmon/index.rst    |   1 +
+>   Documentation/hwmon/tvs-mpfs.rst |  53 +++++
+>   MAINTAINERS                      |   1 +
+>   drivers/hwmon/Kconfig            |  13 +
+>   drivers/hwmon/Makefile           |   1 +
+>   drivers/hwmon/tvs-mpfs.c         | 394 +++++++++++++++++++++++++++++++
+>   6 files changed, 463 insertions(+)
+>   create mode 100644 Documentation/hwmon/tvs-mpfs.rst
+>   create mode 100644 drivers/hwmon/tvs-mpfs.c
+> 
+> diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+> index 8b655e5d6b68..84a5339e1d6f 100644
+> --- a/Documentation/hwmon/index.rst
+> +++ b/Documentation/hwmon/index.rst
+> @@ -262,6 +262,7 @@ Hardware Monitoring Kernel Drivers
+>      tps53679
+>      tps546d24
+>      tsc1641
+> +   tvs-mpfs
+>      twl4030-madc-hwmon
+>      ucd9000
+>      ucd9200
+> diff --git a/Documentation/hwmon/tvs-mpfs.rst b/Documentation/hwmon/tvs-mpfs.rst
+> new file mode 100644
+> index 000000000000..ff445844d07c
+> --- /dev/null
+> +++ b/Documentation/hwmon/tvs-mpfs.rst
+> @@ -0,0 +1,53 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +Kernel driver tvs-mpfs
+> +======================
+> +
+> +Supported chips:
+> +
+> +  * PolarFire SoC
+> +
+> +Authors:
+> +
+> +   - Conor Dooley <conor.dooley@microchip.com>
+> +   - Lars Randers <lranders@mail.dk>
+> +
+> +Description
+> +-----------
+> +
+> +This driver implements support for the temperature and voltage sensors on
+> +PolarFire SoC. The temperature reports how hot the die is, and the voltages are
+> +the SoC's 1.05, 1.8 and 2.5 volt rails respectively.
+> +
+> +
+> +Usage Notes
+> +-----------
+> +
+> +update_interval has a permitted range of 0 to 8.
+> +
+> +
+
+It might make sense to document what "0" means.
+
+Temperatures are read in millidegrees Celsius, but the hardware measures in
+> +degrees Kelvin, storing the result as 11.4 fixed point data, for a maximum
+> +value of 2047.9375 degrees Kelvin.
+> +
+> +Voltages are read in millivolts. The hardware measures in millivolts, storing
+> +the value as 12.3 fixed point data, for a maximum of 4095.875 millivolts.
+> +The minimum value reportable by the driver is 0 volts, although the hardware
+> +is capable of measuring negative values.
+> +
+> +Sysfs entries
+> +-------------
+> +
+> +The following attributes are supported. update_interval is read-write, as are
+> +the enables. All other attributes are read only.
+> +
+> +======================= ====================================================
+> +temp1_label		Fixed name for channel.
+> +temp1_input		Measured temperature for channel.
+> +temp1_enable		Enable/disable for channel.
+> +
+> +in[0-2]_label		Fixed name for channel.
+> +in[0-2]_input		Measured voltage for channel.
+> +in[0-2]_enable		Enable/disable for channel.
+> +
+> +update_interval		The interval at which the chip will update readings.
+> +======================= ====================================================
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 2fb1c75afd16..a492cf5ad0fc 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22938,6 +22938,7 @@ F:	drivers/char/hw_random/mpfs-rng.c
+>   F:	drivers/clk/microchip/clk-mpfs*.c
+>   F:	drivers/firmware/microchip/mpfs-auto-update.c
+>   F:	drivers/gpio/gpio-mpfs.c
+> +F:	drivers/hwmon/tvs-mpfs.c
+>   F:	drivers/i2c/busses/i2c-microchip-corei2c.c
+>   F:	drivers/mailbox/mailbox-mpfs.c
+>   F:	drivers/pci/controller/plda/pcie-microchip-host.c
+> diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+> index 14e4cea48acc..2b9622b1db95 100644
+> --- a/drivers/hwmon/Kconfig
+> +++ b/drivers/hwmon/Kconfig
+> @@ -930,6 +930,19 @@ config SENSORS_JC42
+>   	  This driver can also be built as a module. If so, the module
+>   	  will be called jc42.
+>   
+> +config SENSORS_POLARFIRE_SOC_TVS
+> +	tristate "PolarFire SoC (MPFS) temperature and voltage sensor"
+> +	depends on POLARFIRE_SOC_SYSCONS || COMPILE_TEST
+> +	depends on MFD_SYSCON
+> +	help
+> +	  This driver adds support for the PolarFire SoC (MPFS) Temperature and
+> +	  Voltage Sensor.
+> +
+> +	  To compile this driver as a module, choose M here. the
+> +	  module will be called tvs-mpfs.
+> +
+> +	  If unsure, say N.
+> +
+>   config SENSORS_POWERZ
+>   	tristate "ChargerLAB POWER-Z USB-C tester"
+>   	depends on USB
+> diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+> index 4788996aa137..b58d249e4cf4 100644
+> --- a/drivers/hwmon/Makefile
+> +++ b/drivers/hwmon/Makefile
+> @@ -194,6 +194,7 @@ obj-$(CONFIG_SENSORS_NZXT_SMART2) += nzxt-smart2.o
+>   obj-$(CONFIG_SENSORS_PC87360)	+= pc87360.o
+>   obj-$(CONFIG_SENSORS_PC87427)	+= pc87427.o
+>   obj-$(CONFIG_SENSORS_PCF8591)	+= pcf8591.o
+> +obj-$(CONFIG_SENSORS_POLARFIRE_SOC_TVS)  += tvs-mpfs.o
+>   obj-$(CONFIG_SENSORS_POWERZ)	+= powerz.o
+>   obj-$(CONFIG_SENSORS_POWR1220)  += powr1220.o
+>   obj-$(CONFIG_SENSORS_PT5161L)	+= pt5161l.o
+> diff --git a/drivers/hwmon/tvs-mpfs.c b/drivers/hwmon/tvs-mpfs.c
+> new file mode 100644
+> index 000000000000..f086f178b4ba
+> --- /dev/null
+> +++ b/drivers/hwmon/tvs-mpfs.c
+> @@ -0,0 +1,394 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Author: Lars Randers <lranders@mail.dk>
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/err.h>
+> +#include <linux/freezer.h>
+> +#include <linux/hwmon.h>
+> +#include <linux/io.h>
+> +#include <linux/kthread.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of_address.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#define MPFS_TVS_CTRL 0x08
+> +#define MPFS_TVS_OUTPUT0 0x24
+> +#define MPFS_TVS_OUTPUT1 0x28
+> +
+> +#define MPFS_TVS_CTRL_TEMP_VALID	BIT(19)
+> +#define MPFS_TVS_CTRL_V2P5_VALID	BIT(18)
+> +#define MPFS_TVS_CTRL_V1P8_VALID	BIT(17)
+> +#define MPFS_TVS_CTRL_V1P05_VALID	BIT(16)
+> +
+> +#define MPFS_TVS_CTRL_TEMP_ENABLE	BIT(3)
+> +#define MPFS_TVS_CTRL_V2P5_ENABLE	BIT(2)
+> +#define MPFS_TVS_CTRL_V1P8_ENABLE	BIT(1)
+> +#define MPFS_TVS_CTRL_V1P05_ENABLE	BIT(0)
+> +#define MPFS_TVS_CTRL_ENABLE_ALL	GENMASK(3, 0)
+> +
+> +/*
+> + * For all of these the value in millivolts is stored in 16 bits, with an upper
+> + * sign bit and a lower 3 bits of decimal. These masks discard the sign bit and
+> + * decimal places, because if Linux is running these voltages cannot be negative
+> + * and so avoid having to convert to two's complement.
+> + */
+> +#define MPFS_OUTPUT0_V1P8_MASK	GENMASK(30, 19)
+> +#define MPFS_OUTPUT0_V1P05_MASK	GENMASK(14, 3)
+> +#define MPFS_OUTPUT1_V2P5_MASK	GENMASK(14, 3)
+> +
+> +/*
+> + * The register map claims that the temperature is stored in bits 31:16, but
+> + * application note "AN4682: PolarFire FPGA Temperature and Voltage Sensor"
+> + * says that 31 is reserved. Temperature is in kelvin, so what's probably a
+> + * sign bit has no value anyway.
+> + */
+> +#define MPFS_OUTPUT1_TEMP_MASK GENMASK(30, 16)
+> +
+> +#define MPFS_TVS_INTERVAL_MASK GENMASK(15, 8)
+> +#define MPFS_TVS_INTERVAL_OFFSET 8
+> +/* The interval register is in increments of 32 us */
+> +#define MPFS_TVS_INTERVAL_SCALE 32
+> +
+> +/* 273.1875 in 11.4 fixed-point notation */
+> +#define MPFS_TVS_K_TO_C 0x1113
+> +
+> +enum mpfs_tvs_sensors {
+> +	SENSOR_V1P05 = 0,
+> +	SENSOR_V1P8,
+> +	SENSOR_V2P5,
+> +};
+> +
+> +static const char * const mpfs_tvs_voltage_labels[] = { "1P05", "1P8", "2P5" };
+> +
+> +struct mpfs_tvs {
+> +	struct regmap *regmap;
+> +};
+> +
+> +static int mpfs_tvs_voltage_read(struct mpfs_tvs *data, u32 attr,
+> +				 int channel, long *val)
+> +{
+> +	u32 tmp, control;
+> +
+> +	if (attr != hwmon_in_input && attr != hwmon_in_enable)
+> +		return -EOPNOTSUPP;
+> +
+> +	regmap_read(data->regmap, MPFS_TVS_CTRL, &control);
+> +
+> +	switch (channel) {
+> +	case SENSOR_V2P5:
+> +		if (attr == hwmon_in_enable) {
+> +			*val = FIELD_GET(MPFS_TVS_CTRL_V2P5_ENABLE, control);
+> +			break;
+> +		}
+> +
+> +		if (!(control & MPFS_TVS_CTRL_V2P5_VALID))
+> +			return -EINVAL;
+> +
+> +		regmap_read(data->regmap, MPFS_TVS_OUTPUT1, &tmp);
+> +		*val = FIELD_GET(MPFS_OUTPUT1_V2P5_MASK, tmp);
+> +		break;
+> +	case SENSOR_V1P8:
+> +		if (attr == hwmon_in_enable) {
+> +			*val = FIELD_GET(MPFS_TVS_CTRL_V1P8_ENABLE, control);
+> +			break;
+> +		}
+> +
+> +		if (!(control & MPFS_TVS_CTRL_V1P8_VALID))
+> +			return -EINVAL;
+> +
+> +		regmap_read(data->regmap, MPFS_TVS_OUTPUT0, &tmp);
+> +		*val = FIELD_GET(MPFS_OUTPUT0_V1P8_MASK, tmp);
+> +		break;
+> +	case SENSOR_V1P05:
+> +		if (attr == hwmon_in_enable) {
+> +			*val = FIELD_GET(MPFS_TVS_CTRL_V1P05_ENABLE, control);
+> +			break;
+> +		}
+> +
+> +		if (!(control & MPFS_TVS_CTRL_V1P05_VALID))
+> +			return -EINVAL;
+> +
+> +		regmap_read(data->regmap, MPFS_TVS_OUTPUT0, &tmp);
+> +		*val = FIELD_GET(MPFS_OUTPUT0_V1P05_MASK, tmp);
+> +		break;
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_tvs_voltage_write(struct mpfs_tvs *data, u32 attr,
+> +				  int channel, long val)
+> +{
+> +	u32 tmp;
+> +
+> +	if (attr != hwmon_in_enable)
+> +		return -EOPNOTSUPP;
+> +
+> +	switch (channel) {
+> +	case SENSOR_V2P5:
+> +		if (val > 1 || val < 0)
+> +			return -EINVAL;
+> +
+
+Range check should happen only once. The -EOPNOTSUPP
+is theoretic (channel is always valid), so duplicating
+the range check to handle that theoretic case does not add value.
+
+> +		tmp = FIELD_PREP(MPFS_TVS_CTRL_V2P5_ENABLE, val);
+> +		regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
+> +				   MPFS_TVS_CTRL_V2P5_ENABLE, tmp);
+> +		break;
+> +	case SENSOR_V1P8:
+> +		if (val > 1 || val < 0)
+> +			return -EINVAL;
+> +
+> +		tmp = FIELD_PREP(MPFS_TVS_CTRL_V1P8_ENABLE, val);
+> +		regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
+> +				   MPFS_TVS_CTRL_V1P8_ENABLE, tmp);
+> +		break;
+> +	case SENSOR_V1P05:
+> +		if (val > 1 || val < 0)
+> +			return -EINVAL;
+> +
+> +		tmp = FIELD_PREP(MPFS_TVS_CTRL_V1P05_ENABLE, val);
+> +		regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
+> +				   MPFS_TVS_CTRL_V1P05_ENABLE, tmp);
+> +		break;
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_tvs_temp_read(struct mpfs_tvs *data, u32 attr, long *val)
+> +{
+> +	u32 tmp, control;
+> +
+> +	if (attr != hwmon_temp_input && attr != hwmon_temp_enable)
+> +		return -EOPNOTSUPP;
+> +
+> +	regmap_read(data->regmap, MPFS_TVS_CTRL, &control);
+> +
+> +	if (attr == hwmon_temp_enable) {
+> +		*val = FIELD_GET(MPFS_TVS_CTRL_TEMP_ENABLE, control);
+> +		return 0;
+> +	}
+> +
+> +	if (!(control & MPFS_TVS_CTRL_TEMP_VALID))
+> +		return -EINVAL;
+> +
+"Invalid argument" can not be correct for data read from the chip.
+I don't know what this means. It should be either -ENODATA (no data available)
+if this is transient or -EIO (I/O error) if it is a permanent problem.
+The same applies to other validation checks.
+
+> +	regmap_read(data->regmap, MPFS_TVS_OUTPUT1, &tmp);
+> +	*val = FIELD_GET(MPFS_OUTPUT1_TEMP_MASK, tmp);
+> +	*val -= MPFS_TVS_K_TO_C;
+> +	*val = (1000 * *val) >> 4; /* fixed point (11.4) to millidegrees */
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_tvs_temp_write(struct mpfs_tvs *data, u32 attr, long val)
+> +{
+> +	u32 tmp;
+> +
+> +	if (attr != hwmon_temp_enable)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (val > 1 || val < 0)
+> +		return -EINVAL;
+> +
+> +	tmp = FIELD_PREP(MPFS_TVS_CTRL_TEMP_ENABLE, val);
+> +	regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
+> +			   MPFS_TVS_CTRL_TEMP_ENABLE, tmp);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_tvs_interval_read(struct mpfs_tvs *data, u32 attr, long *val)
+> +{
+> +	u32 tmp;
+> +
+> +	if (attr != hwmon_chip_update_interval)
+> +		return -EOPNOTSUPP;
+> +
+> +	regmap_read(data->regmap, MPFS_TVS_CTRL, &tmp);
+> +	*val = FIELD_GET(MPFS_TVS_INTERVAL_MASK, tmp);
+> +	*val *= MPFS_TVS_INTERVAL_SCALE;
+> +	*val /= 1000;
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_tvs_interval_write(struct mpfs_tvs *data, u32 attr, long val)
+> +{
+> +	unsigned long temp = val;
+> +
+> +	if (attr != hwmon_chip_update_interval)
+> +		return -EOPNOTSUPP;
+> +
+> +	temp *= 1000;
+
+This is likely to result in overflow issues (for example if val == LONG_MAX).
+
+> +	temp /= MPFS_TVS_INTERVAL_SCALE;
+> +
+> +	/*
+> +	 * The value is 8 bits wide, but 255 is described as
+> +	 * "255= Do single set of transfers when scoverride set"
+> +	 * but there's no scoverride bit in the tvs register region.
+> +	 * Ban using 255 since its behaviour is suspect.
+> +	 */
+> +	if (temp > 254)
+> +		return -EINVAL;
+
+Hardware monitoring drivers should use clamp() and not return -EINVAL
+for ranges such as this. Since the valid range (in ms) is 0..8, I would
+suggest to clamp val to (0, 8) before any calculations to also avoid
+the overflow issue mentioned above. That makes me wonder: What does "0"
+stand for ? 32 us or 0 us ? It does not make a difference here, but it
+may be relevant when microsecond intervals are implemented.
+
+> +
+> +	temp <<= MPFS_TVS_INTERVAL_OFFSET;
+> +	regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
+> +			   MPFS_TVS_INTERVAL_MASK, temp);
+
+If regmap never returns errors this needs to be documented in the driver.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static umode_t mpfs_tvs_is_visible(const void *data,
+> +				   enum hwmon_sensor_types type,
+> +				   u32 attr, int channel)
+> +{
+> +	if (type == hwmon_chip && attr == hwmon_chip_update_interval)
+> +		return 0644;
+> +
+> +	if (type == hwmon_temp) {
+> +		switch (attr) {
+> +		case hwmon_temp_enable:
+> +			return 0644;
+> +		case hwmon_temp_input:
+> +		case hwmon_temp_label:
+> +			return 0444;
+> +		default:
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	if (type == hwmon_in) {
+> +		switch (attr) {
+> +		case hwmon_in_enable:
+> +			return 0644;
+> +		case hwmon_in_input:
+> +		case hwmon_in_label:
+> +			return 0444;
+> +		default:
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_tvs_read(struct device *dev, enum hwmon_sensor_types type,
+> +			 u32 attr, int channel, long *val)
+> +{
+> +	struct mpfs_tvs *data = dev_get_drvdata(dev);
+> +
+> +	switch (type) {
+> +	case hwmon_temp:
+> +		return mpfs_tvs_temp_read(data, attr, val);
+> +	case hwmon_in:
+> +		return mpfs_tvs_voltage_read(data, attr, channel, val);
+> +	case hwmon_chip:
+> +		return mpfs_tvs_interval_read(data, attr, val);
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +
+> +static int mpfs_tvs_write(struct device *dev, enum hwmon_sensor_types type,
+> +			  u32 attr, int channel, long val)
+> +{
+> +	struct mpfs_tvs *data = dev_get_drvdata(dev);
+> +
+> +	switch (type) {
+> +	case hwmon_temp:
+> +		return mpfs_tvs_temp_write(data, attr, val);
+> +	case hwmon_in:
+> +		return mpfs_tvs_voltage_write(data, attr, channel, val);
+> +	case hwmon_chip:
+> +		return mpfs_tvs_interval_write(data, attr, val);
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +
+> +static int mpfs_tvs_read_labels(struct device *dev,
+> +				enum hwmon_sensor_types type,
+> +				u32 attr, int channel,
+> +				const char **str)
+> +{
+> +	switch (type) {
+> +	case hwmon_temp:
+> +		*str = "Die Temp";
+> +		return 0;
+> +	case hwmon_in:
+> +		*str = mpfs_tvs_voltage_labels[channel];
+> +		return 0;
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +
+> +static const struct hwmon_ops mpfs_tvs_ops = {
+> +	.is_visible = mpfs_tvs_is_visible,
+> +	.read_string = mpfs_tvs_read_labels,
+> +	.read = mpfs_tvs_read,
+> +	.write = mpfs_tvs_write,
+> +};
+> +
+> +static const struct hwmon_channel_info *mpfs_tvs_info[] = {
+> +	HWMON_CHANNEL_INFO(chip,
+> +			   HWMON_C_REGISTER_TZ | HWMON_C_UPDATE_INTERVAL),
+> +	HWMON_CHANNEL_INFO(temp,
+> +			   HWMON_T_INPUT | HWMON_T_LABEL | HWMON_T_ENABLE),
+> +	HWMON_CHANNEL_INFO(in,
+> +			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_ENABLE,
+> +			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_ENABLE,
+> +			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_ENABLE),
+> +	NULL
+> +};
+> +
+> +static const struct hwmon_chip_info mpfs_tvs_chip_info = {
+> +	.ops = &mpfs_tvs_ops,
+> +	.info = mpfs_tvs_info,
+> +};
+> +
+> +static int mpfs_tvs_probe(struct platform_device *pdev)
+> +{
+> +	struct device *hwmon_dev;
+> +	struct mpfs_tvs *data;
+> +
+> +	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +
+> +	data->regmap = device_node_to_regmap(pdev->dev.parent->of_node);
+> +	if (IS_ERR(data->regmap))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(data->regmap),
+> +				     "Failed to find syscon regmap\n");
+> +
+> +	regmap_write(data->regmap, MPFS_TVS_CTRL, MPFS_TVS_CTRL_ENABLE_ALL);
+> +
+> +	hwmon_dev = devm_hwmon_device_register_with_info(&pdev->dev, "mpfs_tvs",
+> +							 data,
+> +							 &mpfs_tvs_chip_info,
+> +							 NULL);
+> +	if (IS_ERR(hwmon_dev))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(hwmon_dev),
+> +				     "hwmon device registration failed.\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static struct platform_driver mpfs_tvs_driver = {
+> +	.probe = mpfs_tvs_probe,
+> +	.driver = {
+> +		.name = "mpfs-tvs",
+> +	},
+> +};
+> +module_platform_driver(mpfs_tvs_driver);
+> +
+> +MODULE_AUTHOR("Lars Randers <lranders@mail.dk>");
+> +MODULE_DESCRIPTION("PolarFire SoC temperature & voltage sensor driver");
+> +MODULE_LICENSE("GPL");
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
