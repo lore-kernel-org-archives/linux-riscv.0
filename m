@@ -4,74 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7462CD8C9D
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 11:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CE3CD8C9D
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 11:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tpi5ua/xdlRNFXmwrF6b7RHlcjnunrnfithMJEsoJUQ=; b=tU41Yk9/5OxH0d
-	Xxk63f3DvECwpRhqRnn06hxcnj+3alOqKIYtZ0qU5B7GozhILxWivufdWTxiVyXSGpxPzxJyADUAX
-	kvb05QI/mDe6cR4pEK6/SFknA5EqRSm+hE3eV+Bp0oJ1CA5GCJZSvPSCfTjLG9og9Q6hAyGraXYYK
-	YqEh8azkPTd6BJwNgZoiRfg4sDixmxlZ2r/gQz+8TKQ0DqDCsuqFb4qR9CJj3/567t84x9/k+oZw8
-	1NGWfeQ6XPNnSWAqo4pJQoypkUUwtAF0s3QjTnxdx/1rWwHAC2DcAWtQUER10gCcNC4WlnFg52ld1
-	fqiM6ySlaCnJMdbJMonQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=32ow2guhJZl+WrxUBECjrnoJQN+FT1kyIwo6kzd9Qjs=; b=fL2
+	fSTOh1S2wYst7mrHiuBC0lXzgtLDf7W67P40JqgTnGaq6VRDLhnh/CZxjWAxjb/5T4F+DnRLEpJpD
+	ci2dmFh2euDFdSaL0pU5TYp9lW7C7xEUCkfrFTFUx5sm9Rmh/kzJgmSTiuRQCstqRirnuFOE+vofC
+	kpJrYso9rt6pvIXUg2o7/ROyOD6bY7LK9w6PTaFS1Bq74J2dFP9+gmhK8aqIqXnW8fgLZ/F5sbsi3
+	1XvIioRnBZ7Tn+gCgcxiC8CgRzFWFHEbn90PWKg4VdMCLIU9lyNTyl4DftDL0GcnHmSX7nl/QMdoe
+	E1GDT8EjXx7uyeo3Cq8n18mADasZvyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWXrK-00000003OY3-2tTA;
-	Mon, 08 Jun 2026 11:09:34 +0000
-Received: from mail-244107.protonmail.ch ([109.224.244.107])
+	id 1wWXxw-00000003P9j-3AuR;
+	Mon, 08 Jun 2026 11:16:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWXrG-00000003OX5-19My
+	id 1wWXxv-00000003P9D-310C
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 11:09:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onurozkan.dev;
-	s=protonmail; t=1780916965; x=1781176165;
-	bh=yE0kow4cPVmFeFmEU4SXwVIDnwzfPDzpouaEmX4Fpfg=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=NsXeS3L04i15iimqeQaZUZYdMfXHdM6AtyVzrrKg6DzkZAeUqnoVni7BzJWv9tRFy
-	 md3+OCdXghTfJSoR7pe0a32hH6HbsE3/WiSon673+Vzdp7zjehk0QrZuFh8V7JUADg
-	 VagBPktDkP4duqhHP0LKSf3pbngkzHAxrYI/+t66RRB2Nbbi/cMmjkNTxluw+wB1sz
-	 EqHNtng0Aw6ptyHkF0y/b0/bBKW/ke9ZZxYQ0Sym5HHdXGxDoN8veFLY/PYa/aUXO+
-	 QXLE2vECd+/1NoVCBvSNLCAPl+xobUREhrcqv0ZNrJ1kW7+EgxZHeVY7vGViw7Bi+N
-	 haetP5ApFakYg==
-X-Pm-Submission-Id: 4gYq755lFlz2ScNk
-From: =?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>
-To: Maurice Hieronymus <mhi@mailbox.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	=?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	linux-clk@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-pwm@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] rust: clk: Add ExclusiveClk wrapper for clk_rate_exclusive_get
-Date: Mon,  8 Jun 2026 14:09:13 +0300
-Message-ID: <20260608110920.422773-1-work@onurozkan.dev>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20260605-rate-exclusive-get-th1520-v2-1-695640bf7249@mailbox.org>
-References: <20260605-rate-exclusive-get-th1520-v2-0-695640bf7249@mailbox.org> <20260605-rate-exclusive-get-th1520-v2-1-695640bf7249@mailbox.org>
+	Mon, 08 Jun 2026 11:16:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2007842D7C
+	for <linux-riscv@lists.infradead.org>; Mon,  8 Jun 2026 11:16:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37CD21F00893;
+	Mon,  8 Jun 2026 11:16:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1780917383;
+	bh=SWeNawLNhjULISRTxxyiDbsmHwEMxRPRgtI7FlyYxgg=;
+	h=Date:From:To:Cc:Subject;
+	b=IU6Ph3/wOHLQkTZo5izOY5o7O28nPZD9bznAMBRPPuPaPQASjs0wSiz+fZ/J3qA0o
+	 Jqqq91JDDzEFpDzwjgiMGTvhJYZnWj3iuqubW9UpmA3BubNW1V682GgEFbaGtdTHie
+	 YQrKh8FPf8ssd3B6h/R/i7iUt63uEnpTElDj1UrzlfD4u+HbsTpya7/8NLalw9bAoC
+	 K3wEkQOGQxX3rxOGefDs0k2XPrh8A6ICfGfvZg8ZICvk8dEfSNNdxURUR8Pei6Fqke
+	 7P24dL0+E9vwZF7rzdvZCagnRDr5QWa6VL6LE29Bq2JuU+nxMWitB7KBoTKdDH/dkg
+	 sjQdk74n2MOaA==
+Date: Mon, 8 Jun 2026 12:16:19 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] Microchip RISC-V soc drivers for v7.2
+Message-ID: <20260608-vacant-slit-9499ba5eb8f2@spud>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_040931_084477_55404308 
-X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,122 +60,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5465909717040316876=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Jun 2026 08:59:59 +0200
-Maurice Hieronymus <mhi@mailbox.org> wrote:
 
-> Add Rust bindings for clk_rate_exclusive_get() and
-> clk_rate_exclusive_put().
-> 
-> Clk::rate_exclusive_get() consumes the Clk and returns an ExclusiveClk;
-> the matching put is issued from its Drop impl. ExclusiveClk derefs to
-> Clk so existing rate / prepare / enable APIs remain available on the
-> locked handle.
-> 
-> Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-> Signed-off-by: Maurice Hieronymus <mhi@mailbox.org>
-> ---
->  rust/kernel/clk.rs | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 60 insertions(+)
-> 
-> diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
-> index 7abbd0767d8c..f834f4833f18 100644
-> --- a/rust/kernel/clk.rs
-> +++ b/rust/kernel/clk.rs
-> @@ -249,6 +249,22 @@ pub fn set_rate(&self, rate: Hertz) -> Result {
->              // [`clk_set_rate`].
->              to_result(unsafe { bindings::clk_set_rate(self.as_raw(), rate.as_hz()) })
->          }
-> +
-> +        /// Acquire exclusive control over the clock's rate.
-> +        ///
-> +        /// Consumes the [`Clk`] and returns an [`ExclusiveClk`] that releases the exclusivity
-> +        /// when dropped. While held, no other consumer may change the clock's rate.
-> +        ///
-> +        /// Equivalent to the kernel's [`clk_rate_exclusive_get`] API. Must not be called from
-> +        /// atomic context.
-> +        ///
-> +        /// [`clk_rate_exclusive_get`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_rate_exclusive_get
-> +        pub fn rate_exclusive_get(self) -> Result<ExclusiveClk> {
-> +            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> +            // [`clk_rate_exclusive_get`].
-> +            to_result(unsafe { bindings::clk_rate_exclusive_get(self.as_raw()) })?;
-> +            Ok(ExclusiveClk(self))
-> +        }
+--===============5465909717040316876==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/r+1Y7YsIXScGctB"
+Content-Disposition: inline
 
-We usually inline FFI wrappers.
 
->      }
->  
->      impl Drop for Clk {
-> @@ -329,6 +345,50 @@ fn deref(&self) -> &Clk {
->              &self.0
->          }
->      }
-> +
-> +    /// A [`Clk`] with exclusive control over its rate.
-> +    ///
-> +    /// While an [`ExclusiveClk`] exists, no other consumer of the same clock may change its rate.
-> +    /// Obtained by calling [`Clk::rate_exclusive_get`]; the exclusivity is released automatically
-> +    /// when the value is dropped, after which the inner [`Clk`] is dropped as usual.
-> +    ///
-> +    /// # Invariants
-> +    ///
-> +    /// An [`ExclusiveClk`] instance owns a [`Clk`] for which `clk_rate_exclusive_get` has been
-> +    /// called and the matching `clk_rate_exclusive_put` has not yet been called.
-> +    ///
-> +    /// # Examples
-> +    ///
-> +    /// ```
-> +    /// use kernel::clk::{Clk, ExclusiveClk};
-> +    /// use kernel::device::Device;
-> +    /// use kernel::error::Result;
-> +    ///
-> +    /// fn lock_rate(dev: &Device) -> Result<ExclusiveClk> {
-> +    ///     let clk = Clk::get(dev, None)?;
-> +    ///     clk.prepare_enable()?;
-> +    ///     clk.rate_exclusive_get()
-> +    /// }
-> +    /// ```
-> +    pub struct ExclusiveClk(Clk);
-> +
-> +    // Make [`ExclusiveClk`] behave like [`Clk`].
-> +    impl Deref for ExclusiveClk {
-> +        type Target = Clk;
-> +
-> +        fn deref(&self) -> &Clk {
-> +            &self.0
-> +        }
-> +    }
-> +
-> +    impl Drop for ExclusiveClk {
-> +        fn drop(&mut self) {
-> +            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> +            // [`clk_rate_exclusive_put`] and balances the [`clk_rate_exclusive_get`] call from
-> +            // [`Clk::rate_exclusive_get`].
+--/r+1Y7YsIXScGctB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I think [`...`] wouldn't work on regular comments. They are only for
-doc-comments.
+Hey folks,
 
-Thanks,
-Onur
+Another single patch PR here, this time with a binding change.
 
-> +            unsafe { bindings::clk_rate_exclusive_put(self.as_raw()) };
-> +        }
-> +    }
->  }
->  
->  #[cfg(CONFIG_COMMON_CLK)]
-> 
-> -- 
-> 2.51.2
-> 
+Cheers,
+Conor.
+
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-soc-drivers-for-v7.2
+
+for you to fetch changes up to 17d9064987ca4e0b05b670da48ca93edb0796810:
+
+  dt-bindings: soc: microchip: document irqmux on pic64gx (2026-05-21 11:00:05 +0100)
+
+----------------------------------------------------------------
+Microchip RISC-V soc drivers for v7.2
+
+A single dt-binding compatible addition for the irqmux on pic64gx.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Conor Dooley (1):
+      dt-bindings: soc: microchip: document irqmux on pic64gx
+
+ .../devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.yaml    | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+--/r+1Y7YsIXScGctB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiakgwAKCRB4tDGHoIJi
+0kcrAP9cpEQRIO74ZkX+A/x/04CoXO+GBWKwUdefvC+Ua09nfAEA6hBz7rT9hqoo
+LVcmf1tBYT8JUivr1+Hwq00c3bRIqgE=
+=gA5l
+-----END PGP SIGNATURE-----
+
+--/r+1Y7YsIXScGctB--
+
+
+--===============5465909717040316876==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5465909717040316876==--
+
