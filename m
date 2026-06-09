@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D861CD8CB9
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 06:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8B0CD8CB9
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 06:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ytdCqkxz1USBii8DOED71A8Uc2sj21RgaRHH3x7Ea7o=; b=d/31MNOWDQ3K58
-	zsQGrY7KjEnAtN+gIBuagUaKcmkNnOPwEG0mFVPT0Tx58x/YDkyoPfcsfNo8z5E4MFUTouEzMlgS+
-	z2MyzQRabk//FQQEsNQEDRazKYgqpIksmuxElhS/ZjMEGjq7UAOnn6RH9NmoLBbB3JOJdUiLh7PhF
-	U7ON19g4LXt+t39fnR4Xzz+Q3C0lyOEdT6NnoK3wLZfAOLHa1GUb9kOCN/kVFZ/8kei61cz13MktK
-	2kFfE9NxpLNPE+s5ngNNuyNIkjvzrqc7itlJ9fbxkzcTIcA77DXr5KAogo3ho1owzMXYryhwEdGS1
-	pkedtEmeXwRZLgpy4dlA==;
+	List-Owner; bh=+3V24yu11xlEFOVx6YZz96jiEJNheU8EcLG/ATla4F0=; b=XZZlf1pGvkYVbJ
+	dFalEum62SSQIdTK5PDaBgIR+ZT1axWaZcwJUJQdCU8KWkabEr9eAEd9LQORQuNslZU1yX5+6Be54
+	QJFRDfUNehLusr8NGFsIxE5uEsRj4kuJgKSEmfn9oJXqsGVNPuY9IgX/zabjgUkCLpTcq2r06DHF9
+	wrXF/S9J/js6kfj8/U4Afn0eM0IX+N6Il5Lr+MujN7KBHN080Q7Nn3JApgHH2h4QNSJSrJfC8pKeN
+	ogh0ity+JEgEq9kBR4XE8/K/qZOcFmKu8WGHDCKtW8L8wREENx86supfv3hd0tbKqUck2TeoUyJnV
+	JBirJ+oF7DKaqH+5qlZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpWy-00000004mOr-1zis;
-	Tue, 09 Jun 2026 06:01:44 +0000
-Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
+	id 1wWpX3-00000004mTO-34oy;
+	Tue, 09 Jun 2026 06:01:49 +0000
+Received: from out-173.mta1.migadu.com ([95.215.58.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWpWu-00000004mLK-3tNm
+	id 1wWpX0-00000004mOu-0wX3
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jun 2026 06:01:42 +0000
+	Tue, 09 Jun 2026 06:01:48 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1780984898;
+	t=1780984904;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=UiQdcLZt3TDwJvzued5odyBBsjPd7XdI6I5xzQS3xEM=;
-	b=sw3aDZVdPfe7llAGxyxlkoeaj+NZpqQ/1TJM1oDrs+kUR3wvHtJBHbN1vZstxRbklghJic
-	rWrY5YxoeQ5ifGmmA6R1Nv+8t2fDwbJSDpCAFMwNpY8pxwetZhFooBdJ0YArhjPejNqGuh
-	AwS5gfWT188HhM3CpvbwxQ+bkjvke7E=
+	bh=Vu7UaTVidpWvsx9wHZ3XDd5Hh0ON6Lo1UHqkFEyPu34=;
+	b=WT6OhiolxkqKy78e365lfBny3qt/Y9J9QpcCcbQCiUH4bVvJ1B7zNHjqqhd4DdLpaYR80E
+	A2QRg/b7jfIiLkugqJ/E/q3b+J14jz5G1N2XO1RBuYwGMyZ1/+yk37nEPvFTrczG6IUSNi
+	bdMcj6deKuZJV7MmAtHWwZ1q8pPNb7Q=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Mon, 08 Jun 2026 23:01:17 -0700
-Subject: [PATCH v6 03/21] dt-bindings: riscv: add Sxcsrind ISA extension
- description
+Date: Mon, 08 Jun 2026 23:01:18 -0700
+Subject: [PATCH v6 04/21] RISC-V: Define indirect CSR access helpers
 MIME-Version: 1.0
-Message-Id: <20260608-counter_delegation-v6-3-285b72ed65a9@meta.com>
+Message-Id: <20260608-counter_delegation-v6-4-285b72ed65a9@meta.com>
 References: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
 In-Reply-To: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
 To: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -58,8 +57,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_230141_152858_CD461238 
-X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-CacheID: sfid-20260608_230146_409004_463E40C6 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,48 +78,64 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Atish Patra <atishp@rivosinc.com>
 
-Add the S[m|s]csrind ISA extension description.
+The indriect CSR requires multiple instructions to read/write CSR.
+Add a few helper functions for ease of usage.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/include/asm/csr_ind.h | 44 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 2b0a8a93bb21..4be557dc215d 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -181,6 +181,14 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
- 
-+        - const: smcsrind
-+          description: |
-+            The standard Smcsrind supervisor-level extension extends the
-+            indirect CSR access mechanism defined by the Smaia extension. This
-+            extension allows other ISA extension to use indirect CSR access
-+            mechanism in M-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
+diff --git a/arch/riscv/include/asm/csr_ind.h b/arch/riscv/include/asm/csr_ind.h
+new file mode 100644
+index 000000000000..6fd7d44dc640
+--- /dev/null
++++ b/arch/riscv/include/asm/csr_ind.h
+@@ -0,0 +1,44 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2024 Rivos Inc.
++ */
 +
-         - const: smmpm
-           description: |
-             The standard Smmpm extension for M-mode pointer masking as
-@@ -199,6 +207,14 @@ properties:
-             added by other RISC-V extensions in H/S/VS/U/VU modes and as
-             ratified at commit a28bfae (Ratified (#7)) of riscv-state-enable.
- 
-+        - const: sscsrind
-+          description: |
-+            The standard Sscsrind supervisor-level extension extends the
-+            indirect CSR access mechanism defined by the Ssaia extension. This
-+            extension allows other ISA extension to use indirect CSR access
-+            mechanism in S-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
++#ifndef _ASM_RISCV_CSR_IND_H
++#define _ASM_RISCV_CSR_IND_H
 +
-         - const: ssaia
-           description: |
-             The standard Ssaia supervisor-level extension for the advanced
++#include <linux/irqflags.h>
++
++#include <asm/csr.h>
++
++#define csr_ind_read(iregcsr, iselbase, iseloff) ({		\
++	unsigned long __value = 0;				\
++	unsigned long __flags;					\
++	local_irq_save(__flags);				\
++	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
++	__value = csr_read(iregcsr);				\
++	local_irq_restore(__flags);				\
++	__value;						\
++})
++
++#define csr_ind_write(iregcsr, iselbase, iseloff, value) ({	\
++	unsigned long __flags;					\
++	local_irq_save(__flags);				\
++	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
++	csr_write(iregcsr, (value));				\
++	local_irq_restore(__flags);				\
++})
++
++#define csr_ind_warl(iregcsr, iselbase, iseloff, warl_val) ({	\
++	unsigned long __old_val = 0, __value = 0;		\
++	unsigned long __flags;					\
++	local_irq_save(__flags);				\
++	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
++	__old_val = csr_read(iregcsr);				\
++	csr_write(iregcsr, (warl_val));				\
++	__value = csr_read(iregcsr);				\
++	csr_write(iregcsr, __old_val);				\
++	local_irq_restore(__flags);				\
++	__value;						\
++})
++
++#endif
 
 -- 
 2.53.0-Meta
