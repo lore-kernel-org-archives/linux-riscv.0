@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 311E6CD8C85
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 05:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC4FCD8CAE
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 05:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=W5dwWYL+fkR1hkNxwKaFrPypD1odrqz8zt4kD879BPE=; b=DMWxGBzLY/ON3W
-	qUD2FzdEYJ/H0Uuk6O8ErQM21a3D9VNYzvaCwpThiNyQ4vOMArUny1YtQZ/HDzjEfWX4H/+ew30Rp
-	WscqhL7CF3L6hfAgOCvIKRbkUnec6Hfb8lxouLVozXIk+om1LuLjWAiWAqVq2Q8ZwhYmOv6G+tBVn
-	BTmiiFxkRlLSbLulnzXB634GS7x+h2seWGskCl9aRXZsIKhdYGxjT55IwThcK+RiCAvfDj0kbcK1j
-	Q7UKUz4F7Vc5sD9nkktDc/EmWdOW52MetpGNTuFfqOTkVYQnjAjXjac2i4wtlvttPzX1SkDs4GJAf
-	pAcONuWmVvodBFVIdWUA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rtALvfuz7dqO+mTwlv7j9qO8whbL9u5/IQpAp87dqto=; b=SnwyG/AXva9AmT
+	M9BvhlVa9uhVImWIDi1OrMRQNpNlZuT4JD4Bu5i5WkoyRF3x8q5Amq5px8ryQD4l7SyVjhESY7QLu
+	Ne9f5w3u1wdq/ztPfWlzRudV56js5EcwR+oEbwKzZToUpNGusOkw+SfdgowJGXHF6YFMqjMu5syxk
+	jD1QqZi46ZGKuZf0E39Bn66HK46stSrKgBGgj9BS39DkFbMblXTFcrCZ2pWwvm4OaqiYOCYkh3uWu
+	bKCHmOjBIFoaf1Im5oyL8N9jAZh9WLJZVNUzkgZ+97/62UO+K26ecW9VbYV5v/ZZqHHFvdBFyVQa2
+	faNETFhCxgzrily0CMbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWp0c-00000004ks6-0rpW;
-	Tue, 09 Jun 2026 05:28:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWp7m-00000004lEg-3X0p;
+	Tue, 09 Jun 2026 05:35:42 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWp0a-00000004kro-1MrP
-	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jun 2026 05:28:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B088601E1;
-	Tue,  9 Jun 2026 05:28:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A41301F00893;
-	Tue,  9 Jun 2026 05:28:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780982895;
-	bh=pWm1PQaUMUu2vYKwEIHJbUmNHXUOxaLWmpXmVmHx+1w=;
-	h=From:To:Cc:Subject:Date;
-	b=lk2ZNslH4On4YST7so7b0SIDEVSio8kaBlWk3qlMejvv57HauWBeXtrvz2uiqoq6F
-	 8SrfCX5eFNsbu9SC8hSIPn4KCp1lRHWclQir7BnsVkmS/uSmFtGcF1aa7zKzh732kr
-	 ondmSQIqAghzzYSFUiyUbDKQlkYBllqY1QuDmFduaCUKVHNFsitExKRGx8W1vYA6HN
-	 cOJKjwak8hR2IWsmU6mvtoJG3RZwaWqNow7nqYLvtj82bkTQ7O6dTFWdxmcyDgaEDE
-	 shYBPkSpOLzUlcTmkLoilIXGlMJdbqxAQ/dDBkaBvD/MvWcSkd0U9hxj6EBqzlmqfp
-	 lbAgU88aMwGzw==
-From: Yixun Lan <dlan@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Yixun Lan <dlan@gentoo.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	linux-clk@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] clk: spacemit: Updates for v7.2
-Date: Tue,  9 Jun 2026 05:28:09 +0000
-Message-ID: <20260609052422-KYC4837748@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	id 1wWp7k-00000004lEE-129B;
+	Tue, 09 Jun 2026 05:35:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1780983323; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PVW9w59KiqODY+5AC3EOr1QN4kqQw1VMcG020fokPnJ6vmQinqKfDpnipyU4S3JznovbCVzKCRTUOzFPLo7bNAHMNhFf48e5M+6jfEFMOPPPwg/O4+eRvMm6lvtBKWKJzGKa98ePF1+qTA81dPBXrNRmwaD/Z815Biyvc1WnRuo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1780983323; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=aeyRk661Z8pMzzMr6vizd11aGoPyzX0vz8JfiH5ebRs=; 
+	b=X0l1rbTmOwFsso0BkZxalGmfPDVUdnnSSkv+fW86sbVCKL0N63dm2xcr0e/Qf3gE4zW79W5fyL0lCYRcvbp23jQwzBHnDTNjCZOrZUCdqfrqqTx2ra4pJr6n3o3SncObsiTvfOeIpUXReO1FPJ/RiPm4h0jWEfBArHjY2K5gxtg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780983322;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=aeyRk661Z8pMzzMr6vizd11aGoPyzX0vz8JfiH5ebRs=;
+	b=GBX+wSO/sD6gTvgRkNoKNACIb8KP2A1OCKjUn03fEQ9YRERDNuPHy70jdqBQizJe
+	E16Td4uLRmNwu6fRtEBLihtpmsiW1StMTgH/m+2dGRNCEW8c9B6L2rjese5buX459eK
+	nz9l1ky0avX/B4XDOg7G5jBFAP1UfRYZ8AtsGbCW/RfLjOnEK5lLRXbR63IoHvaZrq6
+	4EL/nx1CdthUtyQC0fXrjf6PDj2VrVww3bQ/JXQUws18HScCYGrKlgCQf1DA7Tp4pVw
+	bYEhJHUsM5H12u7Td+vR7msim8kEoGU4wehoThgnmJJF+/++Akso6zBoY8eFkKp6UAC
+	gl3+OlNeYQ==
+Received: by mx.zohomail.com with SMTPS id 178098332120521.424882624077895;
+	Mon, 8 Jun 2026 22:35:21 -0700 (PDT)
+Message-ID: <67790d90737c13127100510020262d6921810e34.camel@icenowy.me>
+Subject: Re: [PATCH 03/12] riscv: dts: thead: add device tree node for MISC
+ clock controller
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Michael Turquette
+	 <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, Neil Armstrong	
+ <neil.armstrong@linaro.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,  Paul Walmsley	 <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Jisheng Zhang	 <jszhang@kernel.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, 	linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-gpio@vger.kernel.org,
+ linux-phy@lists.infradead.org, 	linux-usb@vger.kernel.org, Han Gao
+ <rabenda.cn@gmail.com>, Yao Zi	 <ziyao@disroot.org>
+Date: Tue, 09 Jun 2026 13:35:11 +0800
+In-Reply-To: <aiehUzl-qZeZDjXP@thelio>
+References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
+	 <20260507081710.4090814-4-zhengxingda@iscas.ac.cn>
+	 <aiehUzl-qZeZDjXP@thelio>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_223540_386559_86903E28 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,53 +90,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yixun Lan <dlan@gentoo.org>
-
-Hi Stephen,
-
-   Please pull SpacemiT's clock changes for v7.2
-All clock changes are related to PCIe for K3 SoC.
-   Hope this isn't too late..
-
-Yixun Lan
-
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
-
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
-
-are available in the Git repository at:
-
-  https://github.com/spacemit-com/linux spacemit-clk-for-7.2-1
-
-for you to fetch changes up to a37c75d7b5bb7f3344b0e639b313ac5ace6244ff:
-
-  clk: spacemit: k3: Add PCIe DBI clock (2026-06-02 07:16:59 +0000)
-
-----------------------------------------------------------------
-RISC-V SpacemiT clock changes for 7.2
-
-- Switch parent clock of PCIe
-- Fix PCIe clock register offset
-- Add PCIe DBI clock
-
-----------------------------------------------------------------
-Yixun Lan (4):
-      clk: spacemit: k3: Switch to pll2_d6 as parent for PCIe clock
-      clk: spacemit: k3: Fix PCIe clock register offset
-      dt-bindings: soc: spacemit: k3: Add PCIe DBI clock IDs
-      clk: spacemit: k3: Add PCIe DBI clock
-
- drivers/clk/spacemit/ccu-k3.c                  | 30 +++++++++++++++++---------
- include/dt-bindings/clock/spacemit,k3-clocks.h |  5 +++++
- include/soc/spacemit/k3-syscon.h               |  4 ++--
- 3 files changed, 27 insertions(+), 12 deletions(-)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMDYtMDjkuIDnmoQgMjI6MTQgLTA3MDDvvIxEcmV3IEZ1c3RpbmnlhpnpgZPvvJoK
+PiBPbiBUaHUsIE1heSAwNywgMjAyNiBhdCAwNDoxNzowMVBNICswODAwLCBJY2Vub3d5IFpoZW5n
+IHdyb3RlOgo+ID4gVGhlIE1JU0NfU1VCU1lTIGNsb2NrIGNvbnRyb2xsZXIgb24gVEgxNTIwIFNv
+QyBpcyBhIGNsb2NrCj4gPiBjb250cm9sbGVyCj4gPiBtYWlubHkgY29udHJvbGxpbmcgVVNCLXJl
+bGF0ZWQgY2xvY2tzICh3aGljaCBpc24ndCB1dGlsaXplZCB5ZXQpCj4gPiBhbmQKPiA+IE1NQy9T
+RCBjb250cm9sbGVycycgQUhCIGJ1cyBjbG9ja3MuCj4gPiAKPiA+IEFkZCB0aGUgZGV2aWNlIHRy
+ZWUgbm9kZSBmb3IgaXQgYWxvbmcgd2l0aCB0aGUgbWlzc2luZyBidXMgY2xvY2sKPiA+IHJlZmVy
+ZW5jZXMgZm9yIE1NQy9TRCBjb250cm9sbGVycy4KPiAKPiBJcyB0aGVyZSBhIGZ1bmN0aW9uYWwg
+cmVhc29uIHRvIG1vZGlmeSB0aGUgbW1jIG5vZGVzIGluIHRoaXMgc2VyaWVzPwoKV2hlbiB0aGUg
+Y2xvY2sgaXNuJ3QgcmVmZXJlbmNlZCwgTGludXggd2lsbCBkaXNhYmxlIGl0IHVubGVzcwpgY2xr
+X2lnbm9yZV91bnVzZWRgIHBhcmFtZXRlciBpcyBwYXNzZWQuCgpUaGFua3MsCkljZW5vd3kKCj4g
+Cj4gVGhhbmtzLAo+IERyZXcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
