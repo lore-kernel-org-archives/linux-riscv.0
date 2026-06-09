@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8634CD8CB9
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 16:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34FEBCD98C5
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 16:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzoayDcsXnsWSM7B8LKQxrfhSxsdBLoQIr+h0vKqC/U=; b=ZRNFLIpCLRFl30VMp5sypUHBRT
-	Ao9J40SAcE7H8Zv9k2MDveZunK2CU+VAP6sU2Wge2TJy1Zn6sFIvNrHLuAwdBvuM1wROhYG5983QL
-	wCVfyS2tPzoHaqBZjkUmpmmQ870Q738b82ATRh1wc4Wzg4SI8qw67V81wP3F/qrMHUASjA38r+vb/
-	dzap6Bf3zjw5mk2MH54BU7VluL3OB4PBOYbXL0NDW+xX47ADSuCo53JDI9lpcrs0MsQmMuuTJ2f71
-	qiD3P/XT5KkRgxfMY3MnoUG1n05oxVDjLz4yXhRaclkTh30XAHKLDp9kDheESNW6MxsB6NwQxTWSY
-	lQ/efgmQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U1Y9HUuETJ97Ut8cdSSBCJ0LofmycT8NNW1B7TDEakU=; b=Oh+5H6si6lbow2
+	V8XkF8LnTDdG9YDva0hkQpPjhdjWtqsle2xCqefO772hWY+a7OnkdSxaQ2WqqFCmclVfFWWygthFO
+	6hGRcXDhX2mWknoS2jRj9LJyN8ACjiv3exeocOWznJUAv3ak4v7EYTbrIlt5AoXjIrbdnqZKO+bFi
+	d0CKwi8BcX4VU/Uz60QaV1uqgOPwUBNEn8RNyt5EJJFWGiAyJarTdcSHZJfSOyJOupC70pNbINfXT
+	qcQ5ziBdBRuUZX2UBvQnajOtFtNbDMzMAuzbg3WOQeSaAGcFV+KnUX6S5u/mbldhvFW0SWuz+SUKn
+	1GTEZcU04SuPLWbmqMHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWz0e-00000005zx8-3dkR;
-	Tue, 09 Jun 2026 16:09:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWz2v-000000060Ii-2EK2;
+	Tue, 09 Jun 2026 16:11:21 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWz0c-00000005zwo-2plU
+	id 1wWz2t-000000060Ho-02Cj
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jun 2026 16:08:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C35256020B;
-	Tue,  9 Jun 2026 16:08:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E931F00893;
-	Tue,  9 Jun 2026 16:08:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781021337;
-	bh=Jx0m1CTbUVR7hcsktvXo2yEe+jD7bQ3IVimdzKeqnnY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hLbL7nRMN5Lln+OBoytoF8Fb4JIUzl2MvtqQlK+PsH/G2qO3P3fkIT5cBfi3u9ZbI
-	 ACdbEsusPxCoygmPffviS2zuOcAnJ5fav55YdsIq1RxXwFn513YqBPmJyPCDIRixx3
-	 ig8u6zCIs07WGvFsFJY88hIciHv7mgeaVnK51uAcIrHIRxyB0mxzjumUQVSRoMnNX2
-	 +/4UYH13kVOCW2T1PRhUh9g5QGloQO5ilZ+1ksfRdv+YAzwQHL//LNVWT40Pd4hdV2
-	 JQo/nsfSCQJv+LybS1uArM1ZsiDprBl2VeNx6pcIveQKzWJVwp/kBAI9noahsxXnL0
-	 d/j3jCHGVZrBQ==
-Date: Tue, 9 Jun 2026 17:08:49 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: akpm@linux-foundation.org, alex@ghiti.fr, andrew+kernel@donnellan.id.au,
-	aou@eecs.berkeley.edu, apatel@ventanamicro.com, apopple@nvidia.com,
-	atishp@rivosinc.com, baolin.wang@linux.alibaba.com,
-	cleger@rivosinc.com, conor+dt@kernel.org, debug@rivosinc.com,
-	devicetree@vger.kernel.org, guodong@riscstar.com,
-	hui.wang@canonical.com, krzk+dt@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	liu.xuemei1@zte.com.cn, namcao@linutronix.de, nick.hu@sifive.com,
-	palmer@dabbelt.com, pincheng.plct@isrc.iscas.ac.cn, pjw@kernel.org,
-	qingwei.hu@bytedance.com, ritesh.list@gmail.com,
-	rmclure@linux.ibm.com, robh@kernel.org, wangruikang@iscas.ac.cn,
-	zhangchunyan@iscas.ac.cn, zong.li@sifive.com
-Subject: Re: [PATCH v3 1/3] dt-bindings: riscv: clarify Svadu boot-time
- behavior
-Message-ID: <20260609-washboard-fantasize-ddf0a9752df8@spud>
-References: <20260609130021.99899-1-cuiyunhui@bytedance.com>
- <20260609130021.99899-2-cuiyunhui@bytedance.com>
+	Tue, 09 Jun 2026 16:11:20 +0000
+Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-48657fc84a3so5116508b6e.3
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Jun 2026 09:11:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1781021477; x=1781626277; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pq2jric+p38fa4KyXkbxPznlex9Z4eaGY3w5MG1zr2w=;
+        b=HH3rpgntm16IXFVaQ4qdUYTVbm4Ezs/hh5/LE/zREuuqHNXaoz6uXmQ19a/sj74Dpr
+         0CZO5ABmJI+Ly9yNLApAYQvGpbmDAqcbXXn1xUP2UGDfdlfu9FR2tm6QEXzqgRJ3cCIM
+         oqCE1HxfiWXs7IhC6ZA4505vNnFZBF+Lq2D5XTApp3t5sxw5of+mEG7ECDrdWqlgck15
+         WMK/F6YNl8Gg5UtwmVAUTV5O6/2pCrykcUjt1GjFoJirDHNg83L8fSM49UJIAXc1jYWu
+         bHCyjq6pye+79+9factbtso6Ed8tuABKaFFgO5h94pkzXdvBVmhoFfYLyHE/vjPTeElV
+         2W+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781021477; x=1781626277;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pq2jric+p38fa4KyXkbxPznlex9Z4eaGY3w5MG1zr2w=;
+        b=aysnZe6SSg3xmBV5vZagnX3oK05ACccqfhwfqA1nKOodzpV5WmilJe/yXpMb3b2o0k
+         zUO103MTrpkRUWJibBXT91+ykAs0BYI5M7xBquxNtEubeCj0w5Wdk0lqV/sj/d5c4END
+         ZTHxZA/59T/knUAZ8Ip1xw0kP3M9hIIsEu3IDx8AIDj9aKPqc4/HAGzvbhODRxH4usCM
+         gjkf4Q6gAV2tYFh4ISrnKAFZE5+xTcFAyOyQHs8G/4Qrq21YpwVkPTGJLEz/OGYhQrdr
+         dEBZApkM7+aRRCPgac72U56fEwXxIwS459l3D44Kiu5Z3Hj0ebolSV8ZhvRPTQLN3ttC
+         yqRw==
+X-Forwarded-Encrypted: i=1; AFNElJ+nAu/TrCqrDKgEOjCNy07YTs7vfEVWkq39TIU+4jHEgUn8wFKCB7zJEUZ4N1mKFHU+oKPxykUBTLrIEw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLk092LeM9jgKcYodbf6UBv2Q1uxHFxecKQlY8nkAwi5jKAnnd
+	AlcOrktlLd0dkxSQzcDHZaCko3uni2bavSfIDIbhTzfC0UrzPlPhNr2zBZ+iA57kW6o=
+X-Gm-Gg: Acq92OEGvLq2QDGqusHXnsqByJa4S9ne2Ki9C2qoNr/3XFOUlhjEnTqK0/3/7J29DHt
+	KxpWQU1DwntYvyrl7K1qubjnAF+uBvBs5mLDDiUzgU88O97vfJGNJpYPomLe5tBC+7Wrvm+wlON
+	aOx5el4TaGobURIhYBw2pSP47jMaoomJue2cRa37JqA6wlSCSPIgfV54ufTXYloDkZkGxgH+KPL
+	w+2K9TwbWtqb3kFCjGHedYNoS5i1Sg66LjHFQgWIEVaqPXjhWtuTYawvEPJmSLPQ6cPKJyczZeL
+	dWkDAtz/1gOKyMqHoRPT9xv9Q2gw1FqxvxTnc/W0/Qke9EdloK3moDViyKkxy5cPq0vcYRwkOJb
+	1+9pRC6LG8YjhikQBnYYRZW5iHID37/u+fH3dgFTVT48m1jcQg+usMuXJncbBZmINY0UfgSPAEJ
+	/decFe5W9p32vFjwunWrRUxQNoyQC6bCZgGg==
+X-Received: by 2002:a05:6808:180c:b0:479:db65:8dbc with SMTP id 5614622812f47-486f01d5030mr2399484b6e.30.1781021477577;
+        Tue, 09 Jun 2026 09:11:17 -0700 (PDT)
+Received: from [172.22.22.28] ([73.62.185.64])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4865b91f944sm16430240b6e.9.2026.06.09.09.11.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Jun 2026 09:11:17 -0700 (PDT)
+Message-ID: <433e917b-16e3-4744-a614-6372ef22825c@riscstar.com>
+Date: Tue, 9 Jun 2026 11:11:14 -0500
 MIME-Version: 1.0
-In-Reply-To: <20260609130021.99899-2-cuiyunhui@bytedance.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] PCI: spacemit-k1: Add multiple PHY handles support
+To: Inochi Amaoto <inochiama@gmail.com>, Jingoo Han <jingoohan1@gmail.com>,
+ Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Christian Bruel <christian.bruel@foss.st.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Senchuan Zhang <zhangsenchuan@eswincomputing.com>,
+ Nam Cao <namcao@linutronix.de>, Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Randolph Lin <randolph@andestech.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Vidya Sagar <vidyas@nvidia.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
+ Longbin Li <looong.bin@gmail.com>
+References: <20260517014841.254085-1-inochiama@gmail.com>
+ <20260517014841.254085-3-inochiama@gmail.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20260517014841.254085-3-inochiama@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_091119_312746_C1B523B4 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,98 +114,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5761851500447420671=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5761851500447420671==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XXuB5ejAtQyRxm8b"
-Content-Disposition: inline
-
-
---XXuB5ejAtQyRxm8b
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jun 09, 2026 at 09:00:18PM +0800, Yunhui Cui wrote:
-> Clarify that systems which advertise only Svadu have hardware PTE A/D
-> updating enabled at boot, while systems advertising both Svade and Svadu
-> must enable Svadu explicitly with SBI FWFT.
->=20
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> Reviewed-by: Qingwei Hu <qingwei.hu@bytedance.com>
+On 5/16/26 8:48 PM, Inochi Amaoto wrote:
+> The PCIe controller on Spacemit K3 may use multiple PHYs at the
+> same time. The feature is not support by the current driver.
+> So extend the PHY definition to support multiple PHY handles.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index 2b0a8a93bb214..b09888e9988de 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -294,10 +294,10 @@ properties:
->                 of the PTE A/D bits or page faults when they need updated.
->              2) Only Svade present in DT =3D> Supervisor must assume Svad=
-e to be
->                 always enabled.
-> -            3) Only Svadu present in DT =3D> Supervisor must assume Svad=
-u to be
-> -               always enabled.
-> +            3) Only Svadu present in DT =3D> Supervisor must assume Svad=
-u is
-> +               enabled at boot.
+>   drivers/pci/controller/dwc/pcie-spacemit-k1.c | 16 ++++++++++++----
+>   1 file changed, 12 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> index 1b519d49dcc0..7f6f1df31cd8 100644
+> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> @@ -51,7 +51,8 @@
+>   
+>   struct k1_pcie {
+>   	struct dw_pcie pci;
+> -	struct phy *phy;
+> +	struct phy **phy;
 
-Commit message is missing an explanation of why this behaviour change is
-not problematic. Although, to be honest, I am not sure what the changed text
-actually means. If only Svadu is present, then the hardware doesn't support
-Svade, and therefore Svadu would never be anything other than enabled so
-changing the wording to specify "at boot" seems less clear?
+I haven't looked further at this series yet, but do you have
+any interest in making this a flexible array of pointers
+(counted_by(phy_count))?
 
->              4) Both Svade and Svadu present in DT =3D> Supervisor must a=
-ssume
-> -               Svadu turned-off at boot time. To use Svadu, supervisor m=
-ust
-> +               Svadu is disabled at boot time. To use Svadu, supervisor =
-must
+> +	int phy_count;
+>   	void __iomem *link;
+>   	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
+>   	u32 pmu_off;
+> @@ -171,7 +172,7 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
+>   	 */
+>   	regmap_set_bits(k1->pmu, reset_ctrl, DEVICE_TYPE_RC | PCIE_AUX_PWR_DET);
+>   
+> -	ret = phy_init(k1->phy);
+> +	ret = phy_init(k1->phy[0]);
 
-This change doesn't actually do anything, "turned-off" and "disabled"
-are the same thing - although the latter is more desirable wording I
-think. I have no problems with this portion of the patch.
+If you're going to have an array you should probably put in place
+a loop to initialize all phy_count elements of the array here
+(as is done for phy_exit(), below).
 
->                 explicitly enable it using the SBI FWFT extension.
-> =20
->          - const: svadu
-> --=20
-> 2.39.5
->=20
+>   	if (ret) {
+>   		k1_pcie_disable_resources(k1);
+>   
+> @@ -191,12 +192,14 @@ static void k1_pcie_deinit(struct dw_pcie_rp *pp)
+>   {
+>   	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+>   	struct k1_pcie *k1 = to_k1_pcie(pci);
+> +	int i;
+>   
+>   	/* Assert fundamental reset (drive PERST# low) */
+>   	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
+>   			PCIE_RC_PERST);
+>   
+> -	phy_exit(k1->phy);
+> +	for (i = 0; i < k1->phy_count; i++)
+> +		phy_exit(k1->phy[i]);
+>   
+>   	k1_pcie_disable_resources(k1);
+>   }
+> @@ -277,7 +280,12 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+>   	if (IS_ERR(phy))
+>   		return PTR_ERR(phy);
 
---XXuB5ejAtQyRxm8b
-Content-Type: application/pgp-signature; name="signature.asc"
+Andy said something different about this.
 
------BEGIN PGP SIGNATURE-----
+But it seems to me you are intentionally allocating an
+*array* of PHY pointers, which happens to have only one entry.
+But your objective is that you want to allocate an array of
+them so you can support more than just one PHY, right?
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaig6kQAKCRB4tDGHoIJi
-0qsZAPwId/1zTcbLJx60ON63GfqhF2b8UvLVSnZudmSdT6UhsQD/XAQQJuzW96SR
-XFKW40bbtydXx+nfrNFUAL10XllnQgI=
-=8vKN
------END PGP SIGNATURE-----
+> -	k1->phy = phy;
+> +	k1->phy = devm_kmalloc_array(dev, 1, sizeof(*k1->phy), GFP_KERNEL);
 
---XXuB5ejAtQyRxm8b--
+Probably should use the kzalloc variant.
+
+> +	if (!k1->phy)
+> +		return -ENOMEM;
+> +
+> +	k1->phy[0] = phy;
+
+I think what's wrong is the above assignment.
+
+If you are truly allocating an array of PHY *pointers*,
+then you need to also allocate the phy structure that
+each entry in the array points to.
+
+The above assignment is erroneously assigning the first entry in the
+array to point to the array, and not a new entry.
+
+					-Alex
 
 
---===============5761851500447420671==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +	k1->phy_count = 1;
+>   
+>   	return 0;
+>   }
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5761851500447420671==--
-
