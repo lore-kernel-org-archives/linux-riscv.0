@@ -4,54 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4727CD6E79
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 03:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61625CD8CAC
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 04:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E5h7LGG8JJIg7Z8Z8x84CfWJCDK8xO+qUAC2TFgFcNE=; b=LsemINK81wXUgF
-	MjkMqBBYNRNahuLt56JgENMrBejIWWaD8dN++yi2BAihJRoM6k2gGTWXVQNQrS1yBcss+on8EdMAw
-	UHzOwN7kox5/slVCktKf8vQdy2TmNghFCelzqS2iTknvx/Hn3oh5xyEtjXa3jfaQEk1iR692JO33Q
-	SHHbLvC1W1WipFD4HsZ2hGR3OZEAdormoFJSKmEdBKX3Js5Cn/PeT2tfEW4p+7mGelkNTmZTeiJPN
-	zDFO+Pa8kP8mucudQgsyOAj90CWZK7Esfx3mw48y25gq6Wh/g4z8Pri6oB4A5VjYctR/PDg6ETy0X
-	kRvnTWKqt1mStViIU/JQ==;
+	List-Owner; bh=1j3fTNjaF9VQAC0os2SXnDZXjRrM5RNQ7Iz6ZGnmlNg=; b=26SrHv/sTicGT+
+	3hUlgetu5QiDigv+C7EIlp/r3V3krzjOz9hHgDN1+ZqAqWQ968b3qQRGqoyuIN9g7CMQzxaupGIV3
+	viThfzIxwiZkS5/p5iNxbCrsRVV8S2e99VtiweVY2tWKIJdsRGeJ8lW6mLAYIyVFMwFrpFWkBwETk
+	M1YmM7IxPG/rtBaSQ6G9nOBhv3iyO0VE6YgnALUqlOPZbr/GOqA878z08/7XhsLZDwlSgxhC6fvP7
+	okjV9C9DzBQ0VEwv/vlBxHkmpQNkS7z7gkasn8K27oQhrS6lCvbrXitRawxeDg4NbXEmaYT2ubgD+
+	K7kWi2fhaFz4yKpnx3rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWn6P-00000004fTQ-3qW6;
-	Tue, 09 Jun 2026 03:26:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wWnuI-00000004iGR-37Yj;
+	Tue, 09 Jun 2026 04:17:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWn6P-00000004fTC-01NY;
-	Tue, 09 Jun 2026 03:26:09 +0000
+	id 1wWnuH-00000004iG4-08ve;
+	Tue, 09 Jun 2026 04:17:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96BEB601E1;
-	Tue,  9 Jun 2026 03:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9B731F00893;
-	Tue,  9 Jun 2026 03:26:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CFB9E601FC;
+	Tue,  9 Jun 2026 04:17:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251481F00893;
+	Tue,  9 Jun 2026 04:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780975566;
-	bh=DTwyV+49fLCBDx2v0KMlJ6TqGe0qDGgv9OAfvSH0tYE=;
+	s=k20260515; t=1780978659;
+	bh=4/Ifnzy+i2GJg0cvs6T4Vau8bHcoPyc7f0xcmVw8DhE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iFmxC3RkKrUAh3QAMl5gVzb8HdROjdH5oT0UbWEJI/omLbuPjezupcvYRxHysTALW
-	 PwBym09KYsmIImspBm9kvoe39DehTn/5wtF7q1Io3gED0Cnmmlvjb8E2ctQSAEz04x
-	 S1jJSWnl+tOFBaMa4X8sI12BBltgG1aA1kjT9IIN/BxI4czNurrj8HWr6lzvroPith
-	 u4asF+F3VomimsF7xgZzwEF0OOZ30gNyvRVyJwKN8Gk5Zh/sAgDNGWVNEACoAeXGnQ
-	 ydNvQXYNvRuEnUaMI6AyrlDvqlBmnbAsReI7IN5Gap0o4bCQSzO/kz+3QF/vogd6Is
-	 M56LbLVzROnmQ==
-Date: Mon, 8 Jun 2026 20:26:04 -0700
+	b=PjG9L5kIoMIxAs+d4+r0Rr3uPbfTciXU4Ls0+SI6JF3tAJudlSpLAopxQHkjE0ebe
+	 YAxBDaUPs492cLN3lFx9sL+8+LWKPoe2VbO8zq8v+RthKELA0CFUqBBwy0usR7mFfg
+	 OstadHjKQQ6VIDpeoqXg5Ps4i3Y4lXVrHra7sO7QdKKXo1NfPt/OzPADXQFJEpthsK
+	 gtaWg9Gf78U4XLRFCztpDPnP1ZwEAuA1sTWotC0aMcNmB5BSXxkg9bSUvGHm+OMwaq
+	 BhKoFqf/rlyb/BSoF/NlKVQjwAEBdBML68q25jard/X4ZfOBia5CCzbz1Oh/OU6tvs
+	 s7QaPVz/NOL0A==
+Date: Mon, 8 Jun 2026 21:17:37 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH 01/12] dt-bindings: clock: thead: add TH1520 MISC subsys
- clock controller
-Message-ID: <aieHzC76oys5ejWT@thelio>
+Subject: Re: [PATCH 00/12] Add TH1520 USB support
+Message-ID: <aieT4WmWK9416M9E@thelio>
 References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
- <20260507081710.4090814-2-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260507081710.4090814-2-zhengxingda@iscas.ac.cn>
+In-Reply-To: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,23 +67,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 04:16:59PM +0800, Icenowy Zheng wrote:
-> TH1520 has a subsystem clock controller called MISC_SUBSYS in its
-> manual, mainly controlling clocks for USB and MMC/SD in non-TEE
-> environment.
+On Thu, May 07, 2026 at 04:16:58PM +0800, Icenowy Zheng wrote:
+> This patchset adds support for T-Head TH1520's USB functionality, and
+> enabled it on the Lichee Pi 4A board.
 > 
-> Add device tree binding for it.
+> The first 3 patches add support for the MISC subsystem clock
+> contrtoller, which contains some USB clocks.
 > 
-> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> ---
->  .../devicetree/bindings/clock/thead,th1520-clk-ap.yaml |  5 +++--
->  include/dt-bindings/clock/thead,th1520-clk-ap.h        | 10 ++++++++++
->  2 files changed, 13 insertions(+), 2 deletions(-)
+> The next 2 patches add support for the USB PHY of T-Head TH1520, which
+> is a wrapped Synopsys USB3.0 FemtoPHY with a little integration quirk;
+> the controller itself is a properly configured DWC3 controller with sane
+> default register values set.
+> 
+> Then one patch adds the USB PHY and controller nodes to the TH1520 DTSI
+> file.
+> 
+> The remaining half of this patchset dedicates to enablement of USB on
+> TH1520, because of the onboard hub of that board -- its USB2 signals are
+> behind a switch that needs to be toggled on, and Vbus supplies for both
+> the hub itself and downstream ports are managed via I2C-expanded GPIOs
+> (because the SoC does not have enough GPIO pins).
 
-Thanks for working on USB and sorry for the delay in reviewing this series.
+Hi, thanks for working on USB. I tried to apply it to next-20260601 and
+several of the dts patches no longer apply cleanly. Could you rebase?
 
-Reviewed-by: Drew Fustini <fustini@kernel.org>
+In the meantime, I'll apply to 7.1-rc7 for testing.
 
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
