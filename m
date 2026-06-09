@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28D2CD6E79
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 09:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F35CD8CAA
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 11:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbmqVF4mBzLprXx7ZEVd7C6oJilSQ3yNaE536rz6cY4=; b=wbwBNRvmSETxb8XfbDcKXHD7YD
-	0HjTYIrPye2tWdapVF2sJtOILq7ncA0Z91uWMpEGswi5CSof9X5QhRDlqAZwxLg28ITNTx54w4Oka
-	UBRvx1yVbWtb1B52QNUbSvY+Xj11h92duk3gg7VWSw23NUPm6GC87Six2QYm0DxEJiCVeHC5DaBiR
-	LnoYSx/0EZcPeFALhZl/tnMJ+efr8HhsYMn3XUO1979HPXRv3oznIdk6ro68KcPwHUdpFLnclwGuI
-	agZmJ/F+WYNrDCBPvnVOzdc6xuwvINfaejnWoqxbLmMl3/KtMJjO0jWUnut8JylBQH639R6iykLl/
-	JiKF9bgw==;
+	bh=uLLqDjmPadPkutpVJ3GWRSpxOU9Qs/fl5yBwTLLMZUk=; b=HGZXTR5opXxZIbA6vsTjsSOMsA
+	Z0imvnG5bXlXGvm9AoTG+x27CgqitRzBBBRUnRZXciG+0dN9XQ6TuxrfW/ZpxRJPjeTVwOFmXQSLQ
+	OPZ51xVKasWykhIqNWDTJylkJO4iIiN9N0doUPWNVfK9Pwmi3hM8QRJK6bYQjgnfvf76aJhmaNAEN
+	6R4NJw5jWMKOi99NZKBNmDhxjJpQSIOskaTCqM8RKvJOawUXQ1GhPfPld8N4BjMe9E40ZOZpzekOP
+	Fb2tFS8DEyibOQSZpiMmjYq6r5DNROlOvxM8QC9SMgwwik5DFGAizz/RL3L6PnkUjURzyrtgoF9b0
+	gLkpZzBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWszj-00000005ENZ-1gJV;
-	Tue, 09 Jun 2026 09:43:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wWuTv-00000005Qne-0idc;
+	Tue, 09 Jun 2026 11:18:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWszi-00000005ENT-3VGA
+	id 1wWuTt-00000005QnT-40k1
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jun 2026 09:43:38 +0000
+	Tue, 09 Jun 2026 11:18:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89FAD43426;
-	Tue,  9 Jun 2026 09:43:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B0B1F00893;
-	Tue,  9 Jun 2026 09:43:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 24A67601D6;
+	Tue,  9 Jun 2026 11:18:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3A1D1F00893;
+	Tue,  9 Jun 2026 11:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780998218;
-	bh=O5Y3IHSB2es0DwjOEGfsA5aQhEUjmXmXwYAnXUoXcek=;
+	s=k20260515; t=1781003932;
+	bh=TFFIXcnQZZx62aSyIM+X6wDjPZycN0CvCtma+zign5s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=faFNyHLxIy7xEUYbUvKuYmcID6Llt0Nvwpc7cIL5c47GiHRlKCnX+7RcfNRNtpoNj
-	 LwcsckOYLmBQ6AaCyvlAIMu4ORDmyffA+VqeXfJ5HG8P5RQsrDTLCPUrL6WxPous47
-	 PqEmRU5w2j2ZEiq6NciFg3uZjliMbtyPwMDp4egeL+h38yu54CQ1E2plLWGU64AbTp
-	 KHGNfq+AxdlXg/7GvFv9+CQCT0uH2eoaQ21L3hRejFLCoZFo6r4NK6w6BiRyZue1Bm
-	 VhUTRF5yZAmksRYmcttwbb9qFonCpYHA8gSEMPb4TWG3Z9hluv1m+HDjXfrIF8u/zG
-	 b+kdRrvxYpHkg==
-Date: Tue, 9 Jun 2026 10:43:33 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: linux-hwmon@vger.kernel.org, Lars Randers <lranders@mail.dk>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Valentina.FernandezAlanis@microchip.com
-Subject: Re: [PATCH v2] hwmon: add a driver for the temp/voltage sensor on
- PolarFire SoC
-Message-ID: <20260609-estrogen-entangled-da00ac932481@spud>
-References: <20260603-ongoing-brunette-51e35be6d93e@spud>
- <fd92d7c9-9594-47b9-bd84-a6bd5ebae66d@roeck-us.net>
+	b=KCusuz/HGquGDhveLDguINQ5iAuKTnSPBrxt2are7fq7HQveCWyO8klgItVYc3V87
+	 zZ2mSe4KmaXmGuA0LXstS4n3WoUQEuFquzkQRoU2a7KHrlff4pdxZtUpic6M+Wggu1
+	 0S71hq+Ib3jI8HWkb44fgxuYA1iTnMmJzxYQFNWM+vRfZSbEjLjh1s6No5HhW7kA4/
+	 LNZmI77qa0W+42xBaxjxTwwd40mUCD2Frc+E0afmXANst+UzvyuFapbQi+6PsT/Yvy
+	 Mc1lJ16dwVCiYZ/IaAy56vvBORjN8RtjWC+zKHhctK9tE64SxW/JJRlCL1i/xc8c7w
+	 aIXnv3xt7/kgg==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id F30B81AC56AD; Tue, 09 Jun 2026 12:18:50 +0100 (BST)
+Date: Tue, 9 Jun 2026 12:18:50 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
+Cc: linux-next@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	linux-riscv@lists.infradead.org
+Subject: Re: Add fustini riscv-config to linux-next
+Message-ID: <aif2mpLE3n6lJwLa@sirena.co.uk>
+References: <aie/DAyvda4bcdLm@x1>
 MIME-Version: 1.0
-In-Reply-To: <fd92d7c9-9594-47b9-bd84-a6bd5ebae66d@roeck-us.net>
+In-Reply-To: <aie/DAyvda4bcdLm@x1>
+X-Cookie: Leave no stone unturned.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,186 +67,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1526894350247680436=="
+Content-Type: multipart/mixed; boundary="===============7952479621873518203=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1526894350247680436==
+--===============7952479621873518203==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="V9s2SO0z6RG2A/Gf"
+	protocol="application/pgp-signature"; boundary="Tp7hiC/TaeW4+oTL"
 Content-Disposition: inline
 
 
---V9s2SO0z6RG2A/Gf
+--Tp7hiC/TaeW4+oTL
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jun 08, 2026 at 10:03:48AM -0700, Guenter Roeck wrote:
-> On 6/3/26 06:19, Conor Dooley wrote:
-> > From: Lars Randers <lranders@mail.dk>
-> >=20
-> > Add a driver for the temperature and voltage sensors on PolarFire SoC.
-> > The temperature reports how hot the die is, and the voltages are the
-> > SoC's 1.05, 1.8 and 2.5 volt rails respectively.
-> >=20
-> > The hardware supports alarms in theory, but there is an erratum that
-> > prevents clearing them once triggered, so no support is added for them.
-> >=20
-> > The hardware measures voltage with 16 bits, of which 1 is a sign bit and
-> > the remainder holds the voltage as a fixed point integer value. It's
-> > improbable that the hardware will work if the voltages are negative, so
-> > the driver ignores the sign bits.
-> >=20
-> > There's no dt support etc here because this is the child of a simple-mfd
-> > syscon.
-> >=20
-> > Signed-off-by: Lars Randers <lranders@mail.dk>
-> > Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+On Tue, Jun 09, 2026 at 12:21:48AM -0700, Drew Fustini wrote:
+
+> Please add these to linux-next:
 >=20
-> Comments inline.
+> riscv-config https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linu=
+x.git#riscv-config-for-next
+> riscv-config-fixes https://git.kernel.org/pub/scm/linux/kernel/git/fustin=
+i/linux.git#riscv-config-fixes
 
-Cheers.
+These should be added from today.
 
-> > v2:
-> > - Fix some minor things pointed out by Sashiko including inaccurate
-> >    comments, bounds checking of values read from sysfs and Kconfig
-> >    dependencies.
-> > - Make update_interval use milliseconds instead of microseconds
-> >    (I'll add update_interval_us support when that lands, there's a
-> >    proposed workaround for the erratum circulating internally, so it'll
-> >    probably come alongside alarm support).
-> >=20
-> > CC: Guenter Roeck <linux@roeck-us.net>
-> > CC: Jonathan Corbet <corbet@lwn.net>
-> > CC: Shuah Khan <skhan@linuxfoundation.org>
-> > CC: Conor Dooley <conor.dooley@microchip.com>
-> > CC: Daire McNamara <daire.mcnamara@microchip.com>
-> > CC: linux-hwmon@vger.kernel.org
-> > CC: linux-doc@vger.kernel.org
-> > CC: linux-kernel@vger.kernel.org
-> > CC: linux-riscv@lists.infradead.org
-> > CC: Valentina.FernandezAlanis@microchip.com
+Thanks for adding your subsystem tree as a participant of linux-next.  As
+you may know, this is not a judgement of your code.  The purpose of
+linux-next is for integration testing and to lower the impact of
+conflicts between subsystems in the next merge window.
 
-> > +Usage Notes
-> > +-----------
-> > +
-> > +update_interval has a permitted range of 0 to 8.
-> > +
-> > +
->=20
-> It might make sense to document what "0" means.
+You will need to ensure that the patches/commits in your tree/series have
+been:
+     * submitted under GPL v2 (or later) and include the Contributor's
+        Signed-off-by,
+     * posted to the relevant mailing list,
+     * reviewed by you (or another maintainer of your subsystem tree),
+     * successfully unit tested, and
+     * destined for the current or next Linux merge window.
 
-Sure. The interval governs how much of a delay there is between the end
-of one measurement and the start of the next one. Zero means no delay,
-both here and in the register. Think that answers your question below
-too?
+Basically, this should be just what you would send to Linus (or ask him
+to fetch).  It is allowed to be rebased if you deem it necessary.
 
-> > +static int mpfs_tvs_temp_read(struct mpfs_tvs *data, u32 attr, long *v=
-al)
-> > +{
-> > +	u32 tmp, control;
-> > +
-> > +	if (attr !=3D hwmon_temp_input && attr !=3D hwmon_temp_enable)
-> > +		return -EOPNOTSUPP;
-> > +
-> > +	regmap_read(data->regmap, MPFS_TVS_CTRL, &control);
-> > +
-> > +	if (attr =3D=3D hwmon_temp_enable) {
-> > +		*val =3D FIELD_GET(MPFS_TVS_CTRL_TEMP_ENABLE, control);
-> > +		return 0;
-> > +	}
-> > +
-> > +	if (!(control & MPFS_TVS_CTRL_TEMP_VALID))
-> > +		return -EINVAL;
-> > +
-> "Invalid argument" can not be correct for data read from the chip.
-> I don't know what this means. It should be either -ENODATA (no data avail=
-able)
-> if this is transient or -EIO (I/O error) if it is a permanent problem.
-> The same applies to other validation checks.
-
--ENODATA then. It's realistically only possible to hit this when the
-channel is disabled, although in you can also hit it in the gap
-between the channel being enabled and the first measurement becoming
-available.
-
-
-> > +	regmap_read(data->regmap, MPFS_TVS_OUTPUT1, &tmp);
-> > +	*val =3D FIELD_GET(MPFS_OUTPUT1_TEMP_MASK, tmp);
-> > +	*val -=3D MPFS_TVS_K_TO_C;
-> > +	*val =3D (1000 * *val) >> 4; /* fixed point (11.4) to millidegrees */
-> > +
-> > +	return 0;
-> > +}
-
-> > +static int mpfs_tvs_interval_write(struct mpfs_tvs *data, u32 attr, lo=
-ng val)
-> > +{
-> > +	unsigned long temp =3D val;
-> > +
-> > +	if (attr !=3D hwmon_chip_update_interval)
-> > +		return -EOPNOTSUPP;
-> > +
-> > +	temp *=3D 1000;
->=20
-> This is likely to result in overflow issues (for example if val =3D=3D LO=
-NG_MAX).
->=20
-> > +	temp /=3D MPFS_TVS_INTERVAL_SCALE;
-> > +
-> > +	/*
-> > +	 * The value is 8 bits wide, but 255 is described as
-> > +	 * "255=3D Do single set of transfers when scoverride set"
-> > +	 * but there's no scoverride bit in the tvs register region.
-> > +	 * Ban using 255 since its behaviour is suspect.
-> > +	 */
-> > +	if (temp > 254)
-> > +		return -EINVAL;
->=20
-> Hardware monitoring drivers should use clamp() and not return -EINVAL
-> for ranges such as this. Since the valid range (in ms) is 0..8, I would
-> suggest to clamp val to (0, 8) before any calculations to also avoid
-
-Sure, I'll do that.
-
-> the overflow issue mentioned above. That makes me wonder: What does "0"
-> stand for ? 32 us or 0 us ? It does not make a difference here, but it
-> may be relevant when microsecond intervals are implemented.
-
-I think I answered this above, but 0 means 0 us between the end of a
-measurement/conversion and the start of the next one.=20
-
-> > +
-> > +	temp <<=3D MPFS_TVS_INTERVAL_OFFSET;
-> > +	regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
-> > +			   MPFS_TVS_INTERVAL_MASK, temp);
->=20
-> If regmap never returns errors this needs to be documented in the driver.
-
-It's an mmio regmap via a syscon, it evaluates to readl()/writel() so
-there's nothing that can fail /and/ return an error.
-I mean, I can add if (ret) return ret, there's not a clean place to put
-a comment about it I don't think.
-
-
---V9s2SO0z6RG2A/Gf
+--Tp7hiC/TaeW4+oTL
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaifgRQAKCRB4tDGHoIJi
-0nq+AQCW3GCcqCPvY3ZyM5DZlJqxBXeuu68yTxmuMIeBl3Q+SQD+I+d/5QHgNtT6
-ZxGg5/6q4WVGvDdHIsS5xulYSSC94Qg=
-=131q
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmon9poACgkQJNaLcl1U
+h9CRoAf/b7tvISSqsdsBz79Iwhxzjn+zFEnsjXDRjfMnct5ead6s7W+KHHmtT9N7
+eEsnNOsGZZKa6K3B28gQNu+3rXC5jQZSvZqnCRuHmkMxkRy7CE3aPoXoImLAI0J5
+YSiSziauZI1uJVe05HQZMR+VcdR1NHb6G3A6Ka5ZmXl+FsmB1BkToh/Nj+vUyE+F
+mCiqhXIK0a8UjABMyRIQ88ISceMyXwyBzjJ/xAt4FXhrgSQaiUSqqGMw4Eq3VXsa
+rjELB3qgiYsl/bzihGu2g8FyMEb/oGYEDVrUT6H+pxrwUwLJVDu/Z8RS6XnxVsS4
+5LypB0Zj8jkqFk9XQ/CLrh8ef2gPQQ==
+=bszZ
 -----END PGP SIGNATURE-----
 
---V9s2SO0z6RG2A/Gf--
+--Tp7hiC/TaeW4+oTL--
 
 
---===============1526894350247680436==
+--===============7952479621873518203==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -261,5 +140,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1526894350247680436==--
+--===============7952479621873518203==--
 
