@@ -4,144 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B853ECD8CAA
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 14:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95103CD8CA4
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 14:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s17FdwvtBpKZt+6oWyn77N0hyr3C9aYcgrGdvU3LIH8=; b=VLk9697PvFocTu
-	VIlIbpn3MGqJBbn+YLf4RlQWuJqqP4sYo2P0R6jer7wiYtSJCeYfRDU47/9XRKqmzaXq1Iq/BAzod
-	eu5bbRy6c76rN6pzcrMAI95x0E6NH/hD2pmuSldKh4YMWe8vNw8jkupSknzGTSjAI1VvNA5O2CrEs
-	hbF+bNoxSdmkD3Hmav/qOhlrHcgoWLLi/dRuHIJwzkVY0KpF2RRs0XtToQwTEYWoIrqd7Wcx8oUgW
-	6zvro9h6v0q9+biZcSf01V4wgQRXvbjz1cPNJ1UquNUENadyZ0IVsQM9vHlyKN7oRr4FeKycgCOQ+
-	Rhm0IWkikttuBbgy5pNQ==;
+	List-Owner; bh=B94xvRKC50UWji+tsZtkjKiBUkKUmlcf79nwfTW5HEA=; b=ABHsRosIffyMc0
+	6uUm7zmgn073qgVsJ50gKGmHj/AbveIhgJ9gsCP+uqa2q2D8r/aAZOJ5eUTaEwKu5tlgX6fY7nVt6
+	g20PNPEmXQQKUwM4zHp76dc6rojKP0EJbuQqN1yzF6fufq4c1XQyBuGqEmZShdJe1B618jUXih9eG
+	faob4jhwSDMybQl5gwph/mgGAyaXqfFb1KErMm8e3vSTDdXt7b88sZSRUeQeVnPBWxt9UQsXzN/57
+	TQ+ZS+skQuifX77sqIm1bFm2auvz9eJMbOKhUBobE6mJXI9Bc84X3tmW+RgEru7/930lUVcItY/O1
+	WJZ4JWONW7+LR4uzP4Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxiQ-00000005oXk-1f9r;
-	Tue, 09 Jun 2026 14:46:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wWxln-00000005pBZ-2ohi;
+	Tue, 09 Jun 2026 14:49:36 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWxiO-00000005oWY-1DRG
+	id 1wWxll-00000005pB1-0S7i
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jun 2026 14:46:05 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 659ClU452286831
-	for <linux-riscv@lists.infradead.org>; Tue, 9 Jun 2026 14:46:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:to; s=
-	qcppdkim1; bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=; b=YU
-	qcfUNUaOVUkovl/5AssMnAttWPY7SDezAdkO+w640KWrdDbDpxlMFLt8DDCQtOjc
-	+GKx50SzLMy8zXgyM7r6SadFmanGTCCh7Y6CNvOHlCuk5QzVyVhgliKcnHKdVXmD
-	LHJOQTbG1Jl9u1IVSLFyut3VMqBblidslvPIklCQxjOKdvhp+hQKHcPB1D48e31v
-	xP0VHjZ6VJo8RfJSRmq929I3fyQ45t0Xb3iClFnOMwR0OPWnJ4pZGWf1y+awNqtD
-	LPFHaxwjMu5LiQ2a/EO+zXdnCzNmY2kzen8bQG/C0g/roSiKTi0NDEoSqxzcFxPM
-	AGOBDDAAltAUPagEOjNQ==
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4epg3jsjkj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Tue, 09 Jun 2026 14:46:03 +0000 (GMT)
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-7e90f879daaso99997627b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Jun 2026 07:46:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781016363; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HaOqBOfwSGsVq+aM1Vrt9qW6+PTL7Ucp7ID7tUxl6ZKgBL48RRdmjuXO2aPMkulIpw
-         +ZjkocIGqU5vwjizA58nR1/X4830ePbjVB8h9eMcghidNuu1u8KISpfDopU2MWDgzExe
-         zHvklr2eA/TP4sex30KoGphDWCUGKDmoy9yzoF5uenFHuSQ4dRdLsdCv6wMaX4DJdhrI
-         s7m7uaC+1sqPVPzeC9XzrisvWFn/GRlUoew659MlRuw0ZPQwJwUa3Nc8YQ8i5YZVcCH8
-         nEFjy58/XcdoTQN4Ck9O8zWFOf9BwkICKf0vNXJCrXkwSLzgL05d3nvjvBjSFcB5kqoj
-         0k1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:dkim-signature;
-        bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=;
-        fh=J/uD/kFOvNM8E0fHT7SmMbaKX4eM4g3ZJKJB0Cz9PF0=;
-        b=l15QxtBREgXb70y12xLFKsUPdAQWvZuhZloRHGUhSJ9eQ/5tHIqFGfzwAY8fbzUJEP
-         utDuOgSG+zuMdxJ6CCMAEe8I9u45sZFYdpojtlmmwpgTFyxH69QAelrsRomaFxb9+lW3
-         z/cn4UTyiltgMvQsotk9sjBcycSKTAZmW8MNHLfKk3D+1TTOvqnvHWIbi0kxLq7ActtB
-         iucZeoJdakA3gfNoFbUXMIEbIjQqGDMZB65LZ95v/KjbExfDHp2HppXglkqBMAL6FZG4
-         wBK13b07ojcv1dA0JZSc+QRLWzXC2YWZeieE9nqLWx5MeXEDfM4BFxSeQytwENoiVw8y
-         sNHg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781016363; x=1781621163; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=;
-        b=UT5iqQJdBjh2EvTu6iq9XUV220is7djhH0y5zRRPf/MncV9XdSDbbhdefoi6UizX7G
-         zW+femH/nuqTUe4mh24jV3pvJztPJO/Kqu6Wb4e4+iqTw7+hKaMCsWkch/KJPP6TecAA
-         PkUbbFJeE13sLd6BPCpEO5QtDiC1Qvf+mXR2hm7z+yq7ouuD+Rc76lhygGmxjFBHv9aN
-         jwUtCIgjjlX9+//awDl83xYQE0Sb6Ka2FQS3XFZBtG3IdM6YTSEv/98bTA5E9frBXfwe
-         yvDXMEhICEDGJR+R7M2AipFy2PNXeuS/KfWfQeRgOeNbb4+T3unvhMghBfhqaY0ZDsAN
-         XN1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781016363; x=1781621163;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BkSambIUQitGRlTvVm9rbPHKE+ioSB6QhEypVQhx7ss=;
-        b=VSJIrEElelQ2n5Xz5d7annSb4mq3SalLTcy6AnDFxbVLW1Di20F/+cRO/wncdGqQu1
-         WfxW4s3OzGksQQTQHZjTd8IeR9gYTgekmeS+X8fOkqcw6X27L7Wjx0o9t73VI8IbHQJd
-         rUUbuklqGK0gRB3oCNVXTOf2gZXEsU7oHM5/vUZ/BFdH4tt3lQBepBGol3wNxUUddnNx
-         Jp6I28N+Y1d5D0vMskf8WmUZld3v7+KiYGyablXooFbafAv9T2IPJEG2gCZCsa1Z+pwB
-         lK5QL+8MVLJO2OJILwcWa4NhzicjFWo9nDyPRqN/wwgRdnbyA3fNGgVMNXF/F8i0LIC9
-         2wIQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/uWwDsa1LuljmprvFGWf1agagoWNGQcmWGZvinTYlgngihpCoJyoR1hewNg8I0/t2LWTUTZoGgRvzLMg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVgUWK/i3DcnauRnKsy28rSGNJ5osKfxazeaDHRr+P8TcaVs2a
-	8VzmXKBmWYq/PgwGxd4rQtb97XnjOWTdgnMwadPRE94/8hNlEcoP4f2gl3PJ11m+CzxUghRLB/k
-	ZAReTFUQ5oCihCNmFRpL3tXUM/GK7BRX7qeohj5mhvdI/MG606Z/Jp2W9HUmsBl2r8m7s9bZJcE
-	1GnkEtyFjzpgMaYmzgUDftm83WyjAp3RKsK1wuhsrkQOF8FYHdrpZE2tr9
-X-Gm-Gg: Acq92OHlBXanhyzohX1E44HfRNU9pt9+aYoPEMCtv3e+3u9bYXjGVYYIk5Z2YszoWoW
-	DBzDZYoO/tdXV70ifNaVSyQx1evaIZuuX6YNiu63tS7dGJI3+U+42ifzt4tCAL90r1JI5Yoe/CA
-	l1wbSAkYBExiUZLW9veytsduqgLc5t2+IiAy0cVZouQPR1v8FoquXzmULFIXimPHLjCaitrQQdC
-	mbaQhnx0hBetXLjLA==
-X-Received: by 2002:a05:690c:600a:b0:7dd:35fb:a529 with SMTP id 00721157ae682-7ed0f826fb1mr175041167b3.25.1781016362728;
-        Tue, 09 Jun 2026 07:46:02 -0700 (PDT)
-X-Received: by 2002:a05:690c:600a:b0:7dd:35fb:a529 with SMTP id
- 00721157ae682-7ed0f826fb1mr175040657b3.25.1781016362226; Tue, 09 Jun 2026
- 07:46:02 -0700 (PDT)
+	Tue, 09 Jun 2026 14:49:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781016574; x=1812552574;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=7Z2e8ukGc3KhQzq9CXL9zA+rmMjw439SLKHDG9lz3kA=;
+  b=dWde64V7BEMuAMat7h68IOaF3/V9LnDEWMn5+mefFiHprlyk29uUk3a0
+   QvqsOoxG2GjoZ5X8MIp+x2pIiW83BVU/6y4UHlpYDLOoMqlQEovj5WT1d
+   HxGC670XcwhFQWUX7XW0MYk62Zjn+d8USNLK1PLvNP1W/lYi/yNeL2ElP
+   bfXamy9ZMaggpV83Q1FiHnc6K4EbHqjc3E4F5oWstrHaFxaby80PSXElX
+   tcUWmFUAdfl43SsJSe2IDAaffOqgRWFvt24zTcI6Eq/VIw1TiKtIMG4hr
+   9dze4oxKCmS88jccmat6FbNw8Ps/gynGVTur24JxMQEe/AW1xQHrXpp1N
+   Q==;
+X-CSE-ConnectionGUID: QDBfs3lbQZSYCTyTRTkTWQ==
+X-CSE-MsgGUID: WXBP/M5GSsCoMcHa2WYxFw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11812"; a="81527065"
+X-IronPort-AV: E=Sophos;i="6.24,196,1774335600"; 
+   d="scan'208";a="81527065"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 07:49:33 -0700
+X-CSE-ConnectionGUID: Vor5LSMvR1y7lXA9Z9vPLg==
+X-CSE-MsgGUID: JO+VAp6lR9Kw7gZOYCCT5Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,196,1774335600"; 
+   d="scan'208";a="242923218"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.162])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2026 07:49:26 -0700
+Date: Tue, 9 Jun 2026 17:49:23 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Inochi Amaoto <inochiama@gmail.com>, Jingoo Han <jingoohan1@gmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Senchuan Zhang <zhangsenchuan@eswincomputing.com>,
+	Alex Elder <elder@riscstar.com>, Nam Cao <namcao@linutronix.de>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Randolph Lin <randolph@andestech.com>,
+	Vidya Sagar <vidyas@nvidia.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v2 5/5] PCI: spacemit-k1: Add Spacemit K3 PCIe host
+ controller support
+Message-ID: <aign88JV3k_wn2HK@ashevche-desk.local>
+References: <20260517014841.254085-1-inochiama@gmail.com>
+ <20260517014841.254085-6-inochiama@gmail.com>
+ <wztjdv4t5cn7djj3jyvheest7rn5nr2g3efzwods2fz3yy5wn2@hbl644sd6fst>
 MIME-Version: 1.0
-References: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
- <20260603-gic-v5-acpi-iwb-probe-deferral-v2-1-23ffa16b6ebb@kernel.org>
- <CAB19ukFFwm3ehzkBFr+oXRjA7VK_4_=XHFSuqdEpbVqUz8Do4Q@mail.gmail.com> <aifahCtdj8GpHN/v@lpieralisi>
-In-Reply-To: <aifahCtdj8GpHN/v@lpieralisi>
-From: Sunil V L <sunilvl@oss.qualcomm.com>
-Date: Tue, 9 Jun 2026 20:15:51 +0530
-X-Gm-Features: AVVi8Cd9pzTcVntwOkdct8eFjOpuS2Xxx1qo-G3imlUBB7gP99ylMuHrty8LTZg
-Message-ID: <CAB19ukHAAHp5kmm+5KBDqtn969h3V4LBr2put9hJSWphPS8jmw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] ACPI: RISC-V: Fix riscv_acpi_irq_get_dep() loop termination
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Proofpoint-GUID: sQldFjXNOLPCNbZk6_ziVZqE8w_PIg3I
-X-Authority-Analysis: v=2.4 cv=aa9RWxot c=1 sm=1 tr=0 ts=6a28272b cx=c_pps
- a=NMvoxGxYzVyQPkMeJjVPKg==:117 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=45POYx1-RFdywSfKWh4A:9 a=QEXdDO2ut3YA:10 a=kLokIza1BN8a-hAJ3hfR:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDE0MCBTYWx0ZWRfX80tJOKVq5f7q
- fHTLU730xIXjfKf/lB2uizwuiqBxc+lLvhgPccR27fna603BGIuL+HjsjFg9h1ZC/IYRHQ+iyz5
- sACPEV3Fl+5ldWridOQbTNGMY+hmVW7FU6sIbOyrYD4qoTYddiP3bbkkW+bpfpGau6Q8xQL4T9k
- Gd/7x4PhbC69tCKskEKZaEa7vtokMsFYbx5GOkwL+EWH0/TLfaG6ahZzEGP1oLXCJR5PUJUeH5f
- LOUnj+WZnRT2WUy6josdm5zWOXaOR6y7t7FChSbkW5O8mCL8jZZnhcp30Jd9OLWv8vXuT8TdA3y
- zBUgLejhg0N60+Zc9dguSJ00TVtee4t/2lKB8kYP1ORWVAM/STsBMvdNhFWsC6tUUlZjiOP3YHK
- 8pMFfVQI74qsHzC4RRNK+EImDht8QrLuVsagyGYGaW5rAhYFFKoSqQRv8ozWjY28nCPpiGwT4RC
- mbYHOFf5bdcLwAwR+Hg==
-X-Proofpoint-ORIG-GUID: sQldFjXNOLPCNbZk6_ziVZqE8w_PIg3I
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-09_03,2026-06-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 priorityscore=1501 impostorscore=0 adultscore=0
- spamscore=0 bulkscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606090140
+Content-Disposition: inline
+In-Reply-To: <wztjdv4t5cn7djj3jyvheest7rn5nr2g3efzwods2fz3yy5wn2@hbl644sd6fst>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_074604_362879_CA65BAA5 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260609_074933_276168_16B8B9ED 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,25 +104,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: sunilvl@oss.qualcomm.com
-Cc: Catalin Marinas <catalin.marinas@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@kernel.org>, linux-acpi@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, loongarch@lists.linux.dev, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdW4gOSwgMjAyNiBhdCAyOjQ54oCvUE0gTG9yZW56byBQaWVyYWxpc2kgPGxwaWVy
-YWxpc2lAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBNb24sIEp1biAwOCwgMjAyNiBhdCAwOTo1
-NDoyOFBNICswNTMwLCBTdW5pbCBWIEwgd3JvdGU6Cj4gPiBIaSBMb3JlbnpvLAo+ID4KPiA+IE9u
-IFdlZCwgSnVuIDMsIDIwMjYgYXQgMTo1MeKAr1BNIExvcmVuem8gUGllcmFsaXNpIDxscGllcmFs
-aXNpQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPgpbLi4uXQo+ID4gRG8gdGhlc2UgZml4ZXMgbmVl
-ZCB0aGUgRml4ZXMgdGFnPwo+Cj4gSSBjYW4gYWRkIGEgRml4ZXM6IHRhZyBidXQgSSB3YW50ZWQg
-Zmlyc3Qgc29tZSBoZWxwIHRlc3RpbmcgdGhlbSwgaXQKPiBpcyBjb2RlIHBlcnVzYWwgdGhhdCBn
-b3QgbWUgdGhlcmUuCj4KT2gsIHllcy4gSSB0ZXN0ZWQgdGhlc2UgY2hhbmdlcyBvbiB0aGUgUklT
-Qy1WIHZpcnQgcGxhdGZvcm0uCgpTbyBmb3IgUklTQy1WIHRlc3RpbmcsCgpUZXN0ZWQtYnk6IFN1
-bmlsIFYgTCA8c3VuaWx2bEBvc3MucXVhbGNvbW0uY29tPgoKPiA+IE90aGVyd2lzZSwgTEdUTS4K
-PiA+IFJldmlld2VkLWJ5OiBTdW5pbCBWIEwgPHN1bmlsdmxAb3NzLnF1YWxjb21tLmNvbT4KPgo+
-IFRoYW5rcywKPiBMb3JlbnpvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On Tue, Jun 09, 2026 at 07:48:12PM +0530, Manivannan Sadhasivam wrote:
+> On Sun, May 17, 2026 at 09:48:40AM +0800, Inochi Amaoto wrote:
+> > The PCIe controller on Spacemit K3 is almost a standard Synopsys
+> > DesignWare PCIe IP with extra link and reset control. Unlike
+> > the PCIe controller on K1, this controller supports external MSI
+> > interrupt controller and can use multiple PHYs at the same time.
+> > 
+> > Add driver to support PCIe controller on Spacemit K3 PCIe.
+
+...
+
+> > +static int k3_pcie_enable_phy(struct k1_pcie *pcie)
+> > +{
+> > +	int i, ret;
+
+No need to have i signed.
+
+> > +
+> > +	for (i = 0; i < pcie->phy_count; i++) {
+> > +		ret = phy_init(pcie->phy[i]);
+> > +		if (ret)
+> > +			goto err_phy;
+> > +	}
+> > +
+> > +	return 0;
+> > +
+> > +err_phy:
+> > +	while (--i >= 0)
+
+	while (i--)
+
+is shorter form of the same.
+
+> > +		phy_exit(pcie->phy[i]);
+> > +
+
+...
+
+> > +	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
+> > +			PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT);
+> > +	usleep_range(1000, 2000);
+
+fsleep(1 * USEC_PER_MSEC)
+
+> > +	regmap_clear_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC, PCIE_PERSTN_OUT);
+> > +
+> > +	msleep(PCIE_T_PVPERL_MS);
+
+...
+
+> > +	int i;
+
+Why is 'i' signed?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
