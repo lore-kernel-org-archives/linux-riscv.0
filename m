@@ -4,52 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61625CD8CAC
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 04:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FD4CD8CAD
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 05:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1j3fTNjaF9VQAC0os2SXnDZXjRrM5RNQ7Iz6ZGnmlNg=; b=26SrHv/sTicGT+
-	3hUlgetu5QiDigv+C7EIlp/r3V3krzjOz9hHgDN1+ZqAqWQ968b3qQRGqoyuIN9g7CMQzxaupGIV3
-	viThfzIxwiZkS5/p5iNxbCrsRVV8S2e99VtiweVY2tWKIJdsRGeJ8lW6mLAYIyVFMwFrpFWkBwETk
-	M1YmM7IxPG/rtBaSQ6G9nOBhv3iyO0VE6YgnALUqlOPZbr/GOqA878z08/7XhsLZDwlSgxhC6fvP7
-	okjV9C9DzBQ0VEwv/vlBxHkmpQNkS7z7gkasn8K27oQhrS6lCvbrXitRawxeDg4NbXEmaYT2ubgD+
-	K7kWi2fhaFz4yKpnx3rw==;
+	List-Owner; bh=a+64OoX6WamvIzgFzU2RTOwK1vUucFkEpaZjHP/oH9I=; b=H3Kx9pahGI5WOM
+	DB8sWMd7SDzPcS8d9ZT/69CQGTNmQ/rfBF34sbOvE/3mw6JQtXOZB0qLpOe2zMqNxJNOaT5Tg9+4M
+	hrKFPC9semibU37qaq5mFRA59/tGv4IDuMqC/Qp/r6iajb7mb8+8k735iAhg+un4Sr4c90xy7pPbA
+	7ryYiztNJmmlu5FE6ycu+X6dJJV9kHwf07MLnvRqLnlRhXDRf5k7/xQIZXhii9dnmtWFzwQ1GzzJ+
+	+ZHq2I8aT4fGd6l0Y8RGuvE5QB16RkC2qpyly2MkS7MoitgXyU8YFrx/iOPM6tAI9MVzwvSUwzXIh
+	NU1E6JoGJ0Zir4QqlbGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWnuI-00000004iGR-37Yj;
-	Tue, 09 Jun 2026 04:17:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wWokC-00000004jz0-1Dno;
+	Tue, 09 Jun 2026 05:11:20 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWnuH-00000004iG4-08ve;
-	Tue, 09 Jun 2026 04:17:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CFB9E601FC;
-	Tue,  9 Jun 2026 04:17:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251481F00893;
-	Tue,  9 Jun 2026 04:17:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1780978659;
-	bh=4/Ifnzy+i2GJg0cvs6T4Vau8bHcoPyc7f0xcmVw8DhE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PjG9L5kIoMIxAs+d4+r0Rr3uPbfTciXU4Ls0+SI6JF3tAJudlSpLAopxQHkjE0ebe
-	 YAxBDaUPs492cLN3lFx9sL+8+LWKPoe2VbO8zq8v+RthKELA0CFUqBBwy0usR7mFfg
-	 OstadHjKQQ6VIDpeoqXg5Ps4i3Y4lXVrHra7sO7QdKKXo1NfPt/OzPADXQFJEpthsK
-	 gtaWg9Gf78U4XLRFCztpDPnP1ZwEAuA1sTWotC0aMcNmB5BSXxkg9bSUvGHm+OMwaq
-	 BhKoFqf/rlyb/BSoF/NlKVQjwAEBdBML68q25jard/X4ZfOBia5CCzbz1Oh/OU6tvs
-	 s7QaPVz/NOL0A==
-Date: Mon, 8 Jun 2026 21:17:37 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+	id 1wWok9-00000004jyX-2G7Y;
+	Tue, 09 Jun 2026 05:11:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1780981855; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=A/UWqSIgnGtvXOLP4BBnY3FE7VuGSiuGjdfDqWQlKItkmHTwtGQfbXVGAyLMk68i41HF8m0Pr1ihkLXvybsReWYCHb8lEnoRdKUUt5CUbMSTU3dJ9D+gdUeYinI7u/3mOdv0YCa8eTt8fyK25q5piyzX62GL8/hd3mW7ECYjXBw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1780981855; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=LnM4xxDaTA6sPdy7VmjbiznxS/a0dU1GXd9YzU2Jenc=; 
+	b=JozwoV0QlRRH7schWe8oMPFwJ2QO6cp/v+vLOf/qBmbWSkWpgUPwQubYJi4vl0Dw110PHkUVGFZzjC9GytUDu50I81rLS8fTy+J18Xl5qMYpdfOXBP5zVuGvbIottNLD5pYN5C2RWe5EoecwtZkFB28LroC6G/1lJKCFf4KRa5w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780981855;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=LnM4xxDaTA6sPdy7VmjbiznxS/a0dU1GXd9YzU2Jenc=;
+	b=N2MDDFGDLjgRjA2UtlUSuiJlLzCqU98xulMPqUnXDDuOh6Bjs4qDXaWeAKtZOj7l
+	YmKyi0JlpfkvcCSoLCIoj7HjY/1wKpgemkaLFx6Oaaqw2KOCpMOnLPD3ax45yG26ar4
+	Yw4jaH0dbl967ohZx3ldZH12hAwLZsDU5Gv5BOLqFRyv/Vf6/VihDpc8uff4oWlkGhg
+	S7y0guMF2zhRPxk5Rdnyj4zJBmXfCiqoSuROEpnCoyb10X3sOY2agzGMVctouzkSGGX
+	J2vUmf0kXp1gkjbc5vtk4gcZ/GP+48XOW1vAMvKMaUicETtT2MleSZOyf5xLYuesrCW
+	oCSfeQN0mw==
+Received: by mx.zohomail.com with SMTPS id 1780981852365784.4413352514897;
+	Mon, 8 Jun 2026 22:10:52 -0700 (PDT)
+Message-ID: <a8dc863b1692b4d327b4b9700dd56a4754120561.camel@icenowy.me>
 Subject: Re: [PATCH 00/12] Add TH1520 USB support
-Message-ID: <aieT4WmWK9416M9E@thelio>
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Michael Turquette
+	 <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, Neil Armstrong	
+ <neil.armstrong@linaro.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,  Paul Walmsley	 <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Jisheng Zhang	 <jszhang@kernel.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, 	linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-gpio@vger.kernel.org,
+ linux-phy@lists.infradead.org, 	linux-usb@vger.kernel.org, Han Gao
+ <rabenda.cn@gmail.com>, Yao Zi	 <ziyao@disroot.org>
+Date: Tue, 09 Jun 2026 13:10:41 +0800
+In-Reply-To: <aieT4WmWK9416M9E@thelio>
 References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
+	 <aieT4WmWK9416M9E@thelio>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_221117_854695_C09D9CE4 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,42 +88,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Michael Turquette <mturquette@baylibre.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Yao Zi <ziyao@disroot.org>, linux-gpio@vger.kernel.org, Paul Walmsley <pjw@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 04:16:58PM +0800, Icenowy Zheng wrote:
-> This patchset adds support for T-Head TH1520's USB functionality, and
-> enabled it on the Lichee Pi 4A board.
-> 
-> The first 3 patches add support for the MISC subsystem clock
-> contrtoller, which contains some USB clocks.
-> 
-> The next 2 patches add support for the USB PHY of T-Head TH1520, which
-> is a wrapped Synopsys USB3.0 FemtoPHY with a little integration quirk;
-> the controller itself is a properly configured DWC3 controller with sane
-> default register values set.
-> 
-> Then one patch adds the USB PHY and controller nodes to the TH1520 DTSI
-> file.
-> 
-> The remaining half of this patchset dedicates to enablement of USB on
-> TH1520, because of the onboard hub of that board -- its USB2 signals are
-> behind a switch that needs to be toggled on, and Vbus supplies for both
-> the hub itself and downstream ports are managed via I2C-expanded GPIOs
-> (because the SoC does not have enough GPIO pins).
-
-Hi, thanks for working on USB. I tried to apply it to next-20260601 and
-several of the dts patches no longer apply cleanly. Could you rebase?
-
-In the meantime, I'll apply to 7.1-rc7 for testing.
-
-Thanks,
-Drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMDYtMDjkuIDnmoQgMjE6MTcgLTA3MDDvvIxEcmV3IEZ1c3RpbmnlhpnpgZPvvJoK
+PiBPbiBUaHUsIE1heSAwNywgMjAyNiBhdCAwNDoxNjo1OFBNICswODAwLCBJY2Vub3d5IFpoZW5n
+IHdyb3RlOgo+ID4gVGhpcyBwYXRjaHNldCBhZGRzIHN1cHBvcnQgZm9yIFQtSGVhZCBUSDE1MjAn
+cyBVU0IgZnVuY3Rpb25hbGl0eSwKPiA+IGFuZAo+ID4gZW5hYmxlZCBpdCBvbiB0aGUgTGljaGVl
+IFBpIDRBIGJvYXJkLgo+ID4gCj4gPiBUaGUgZmlyc3QgMyBwYXRjaGVzIGFkZCBzdXBwb3J0IGZv
+ciB0aGUgTUlTQyBzdWJzeXN0ZW0gY2xvY2sKPiA+IGNvbnRydG9sbGVyLCB3aGljaCBjb250YWlu
+cyBzb21lIFVTQiBjbG9ja3MuCj4gPiAKPiA+IFRoZSBuZXh0IDIgcGF0Y2hlcyBhZGQgc3VwcG9y
+dCBmb3IgdGhlIFVTQiBQSFkgb2YgVC1IZWFkIFRIMTUyMCwKPiA+IHdoaWNoCj4gPiBpcyBhIHdy
+YXBwZWQgU3lub3BzeXMgVVNCMy4wIEZlbXRvUEhZIHdpdGggYSBsaXR0bGUgaW50ZWdyYXRpb24K
+PiA+IHF1aXJrOwo+ID4gdGhlIGNvbnRyb2xsZXIgaXRzZWxmIGlzIGEgcHJvcGVybHkgY29uZmln
+dXJlZCBEV0MzIGNvbnRyb2xsZXIgd2l0aAo+ID4gc2FuZQo+ID4gZGVmYXVsdCByZWdpc3RlciB2
+YWx1ZXMgc2V0Lgo+ID4gCj4gPiBUaGVuIG9uZSBwYXRjaCBhZGRzIHRoZSBVU0IgUEhZIGFuZCBj
+b250cm9sbGVyIG5vZGVzIHRvIHRoZSBUSDE1MjAKPiA+IERUU0kKPiA+IGZpbGUuCj4gPiAKPiA+
+IFRoZSByZW1haW5pbmcgaGFsZiBvZiB0aGlzIHBhdGNoc2V0IGRlZGljYXRlcyB0byBlbmFibGVt
+ZW50IG9mIFVTQgo+ID4gb24KPiA+IFRIMTUyMCwgYmVjYXVzZSBvZiB0aGUgb25ib2FyZCBodWIg
+b2YgdGhhdCBib2FyZCAtLSBpdHMgVVNCMgo+ID4gc2lnbmFscyBhcmUKPiA+IGJlaGluZCBhIHN3
+aXRjaCB0aGF0IG5lZWRzIHRvIGJlIHRvZ2dsZWQgb24sIGFuZCBWYnVzIHN1cHBsaWVzIGZvcgo+
+ID4gYm90aAo+ID4gdGhlIGh1YiBpdHNlbGYgYW5kIGRvd25zdHJlYW0gcG9ydHMgYXJlIG1hbmFn
+ZWQgdmlhIEkyQy1leHBhbmRlZAo+ID4gR1BJT3MKPiA+IChiZWNhdXNlIHRoZSBTb0MgZG9lcyBu
+b3QgaGF2ZSBlbm91Z2ggR1BJTyBwaW5zKS4KPiAKPiBIaSwgdGhhbmtzIGZvciB3b3JraW5nIG9u
+IFVTQi4gSSB0cmllZCB0byBhcHBseSBpdCB0byBuZXh0LTIwMjYwNjAxCj4gYW5kCj4gc2V2ZXJh
+bCBvZiB0aGUgZHRzIHBhdGNoZXMgbm8gbG9uZ2VyIGFwcGx5IGNsZWFubHkuIENvdWxkIHlvdSBy
+ZWJhc2U/CgpJIHRoaW5rIHRoZSByZWFzb24gaXMgdGhhdCBvbmUgb2YgdGhlIEdQSU8gZXhwYW5z
+aW9uIGNoaXAgaXMgYWRkZWQgdG8KdGhlIERUIGZvciBlbmFibGluZyBXaS1GaS4KCkkgYW0gbm90
+IHN1cmUgd2hldGhlciB0aGUgbmV4dCByZXZpc2lvbiBvZiB0aGlzIHBhdGNoc2V0IHdpbGwgY29u
+dGFpbgphbGwgdGhpbmdzLCBtYXliZSBJIHdpbGwgc3BsaXQgb3V0IGF0IGxlYXN0IHRoZSBVU0Ig
+UEhZIHBhcnQuCgpUaGFua3MsCkljZW5vd3kKCj4gCj4gSW4gdGhlIG1lYW50aW1lLCBJJ2xsIGFw
+cGx5IHRvIDcuMS1yYzcgZm9yIHRlc3RpbmcuCj4gCj4gVGhhbmtzLAo+IERyZXcKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
