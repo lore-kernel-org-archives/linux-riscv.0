@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2232CD6E79
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 21:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8422CD8C9D
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 01:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sPRFa1U2pCbiCetxpfUklnHx3ENlQZUPQX96RZH77zQ=; b=g+ZbDPrpncZm45
-	4xPtFRKkQhdK07w3/p8mZqC3ExmN9LAY3O8R7q1L+SG8oeBeo3lJtOo8Tm9g7WYqlRM0bj6fJQi9n
-	MXOcvTc/XzZrvHsA3yIGB/Op+hj6Oa49fAKardF8SuB/6LvYPbbn5447sOJGv/ZLUO6V696nPRb2W
-	a0dYynPEzlUOg15qkcPKfYkYbxVmCyFypWjdrgf9J85+Man4WCiwCPhIijuDLnO3cPTQ808ToXPIy
-	BKlfC0Hxi5MYXFPAodmVPK8FNZDTSSNpU2CvODCuqhxFLssFn5kTdpBvjRc0RnTdwAjdnst5WfhAp
-	kjHzcWufdJ2FzLucF7LA==;
+	List-Owner; bh=G9iZHnMBWlwB5lX++0NShTWWLIeNV4kDxDIjk6E48lw=; b=MEpxZHy98QZ9My
+	DKU5l7JXKJdRpCba8mKSwQxnUP5r57WH/eo/qX/BKVJRUy01lX3BGOEWKTOMmWjSjPOEEgjNu9LSi
+	1u6Tk0lST6Fo7oiC2DzntCvSzGebYrelnG74jzyimoJ1XynIX0XTnm9ooe1f4pCVJd+kLK6KI0dam
+	Le6y5Ef+iRy+t4v2R1R24Xjsgn9C8PPwnSbHIqzcM0JyPb9Ni1kzl/fPXNh701NykBL8g3MBn7jWA
+	l06xdcFNJvNQ6i3xc0q0SzZAsJcyfpRs0xAN8Tt0pgJuPXvvRLjONthZeXDiMFOKhnvf9ZVqMg33y
+	Zmgj1aaMhrozGEbS5FcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWhR0-00000004QOP-3HvX;
-	Mon, 08 Jun 2026 21:23:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wWlIY-00000004as1-1uOZ;
+	Tue, 09 Jun 2026 01:30:34 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWhQz-00000004QOH-2eY3
+	id 1wWlIM-00000004arL-2hWe
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 21:23:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D732140A67;
-	Mon,  8 Jun 2026 21:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9D21F00893;
-	Mon,  8 Jun 2026 21:23:00 +0000 (UTC)
+	Tue, 09 Jun 2026 01:30:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1780953780;
-	bh=5r8KYgeziJLoINJNNFem1kGIFqYvCyKRP4AgGvX1XNE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=DDsdTSA5rUbZKCWNzLHJo7zF5CUdBD48WlZqNC1MGpV4T7hK/jsvhF/1sImwuRX8U
-	 ZRT+67GqqjbhB9yzavNdqlt7SwU9Gs+Ped/8Nw2q/45UmjeW2PNiA1DxWxm37608IE
-	 lukA8HrLwC1Dw3YqC1HYPDbyQv0GeVu8uB5VR9UI=
-Date: Mon, 8 Jun 2026 14:22:58 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Andrey Smirnov <andrey.smirnov@siderolabs.com>
-Cc: pasha.tatashin@soleen.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- syzbot+2b5fe617654be3d8848b@syzkaller.appspotmail.com, Thomas Gleixner
- <tglx@linutronix.de>, Thomas =?ISO-8859-1?Q?Wei=DFschuh?=
- <thomas.weissschuh@linutronix.de>, Andrei Vagin <avagin@gmail.com>, Andy
- Lutomirski <luto@kernel.org>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>, stable@vger.kernel.org
-Subject: Re: [PATCH] mm/page_table_check: do not track special (PFN-mapped)
- PTEs
-Message-Id: <20260608142258.5028187b1d245b46554eb2dc@linux-foundation.org>
-In-Reply-To: <20260608155758.1220420-1-andrey.smirnov@siderolabs.com>
-References: <20260608155758.1220420-1-andrey.smirnov@siderolabs.com>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	d=linux.alibaba.com; s=default;
+	t=1780968615; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=S8CasrBqDcSvnwLoPc7FFTVmuO9W7HXHe082ZFLE2Nk=;
+	b=pW6KUnXF61waTme2fMzIFf/gTcVmCVBKi1h2TcHP1raNil4M2tlk0n6m9vyq1Sp/ystqwweqvWjfMHBO536us7re+BviOVCMa1qNeEfBLrx5NLZtV38seQ9pKQ9Ag5YEf7LwjEXA3WSGL88ffKSyGzUb73gJihAM6oIc89ESZTY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0X4UCqPr_1780968608;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X4UCqPr_1780968608 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 09 Jun 2026 09:30:12 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: martin@kaiser.cx
+Cc: cp0613@linux.alibaba.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	mhiramat@kernel.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	rostedt@goodmis.org
+Subject: Re: [PATCH] riscv: ftrace: sorttable: fix mcount sorting
+Date: Tue,  9 Jun 2026 09:30:08 +0800
+Message-ID: <20260609013008.6868-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260608201904.715374-1-martin@kaiser.cx>
+References: <20260608201904.715374-1-martin@kaiser.cx>
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260608_183025_811241_8D5CF241 
+X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +72,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon,  8 Jun 2026 19:57:58 +0400 Andrey Smirnov <andrey.smirnov@siderolabs.com> wrote:
+On Mon,  8 Jun 2026 22:18:27 +0200, martin@kaiser.cx wrote:
 
-> The vDSO data store ("[vvar]") special mapping is created as a VM_PFNMAP
-> mapping and its pages are installed into userspace with vmf_insert_pfn(),
-> which produces special PTEs (pte_special()). On x86 and arm64 (and riscv)
-> pte_user_accessible_page() only tests the PRESENT/USER bits and does not
-> exclude special PTEs, so page_table_check accounts these PFN mappings in
-> the per-page anon/file map counters even though they are not rmap-managed
-> pages (vm_normal_page() returns NULL for them).
+> The sorttable helper program does not take into account that the
+> -fpatchable-function-entry compiler flag reserves an additional 8 bytes
+> before each traceable function. (The size in bytes is the same for
+> RV32/64 or compressed/uncompressed instructions).
 > 
-> Most of these data pages live in the kernel image and are never freed, so
-> the stray accounting is invisible. The time-namespace VVAR page is the
-> exception: it is a real alloc_page() page that is released with
-> __free_page() in free_time_ns() when the last task of a time namespace
-> exits. Across the map / unmap / vdso_join_timens() zap transitions the
-> special-PTE accounting is not balanced for this page, so a non-zero
-> file_map_count survives to the free path and trips:
+> Define before_func = 8 to fix the mcount sorting for risc-v, share this
+> setting with arm64.
 > 
->   kernel BUG at mm/page_table_check.c:143!
->   __page_table_check_zero+0xfb/0x130
->   __free_frozen_pages+0x52f/0x650
->   free_time_ns+0x85/0xc0
->   free_nsproxy+0x7f/0x130
->   do_exit+0x313/0xa60
->   do_group_exit+0x77/0x90
-> 
-> This is reliably reproducible on x86_64 and arm64 under heavy container/CI
-> churn that rapidly creates and destroys time namespaces (CLONE_NEWTIME via
-> runc / docker-init / tini), and was independently reported by syzbot on
-> riscv. It only manifests when CONFIG_PAGE_TABLE_CHECK is active.
-> 
-> Special PTEs have no struct-page rmap semantics and must never have been
-> tracked by page table check. Skip them in both the set and clear paths so
-> the counters stay balanced (always zero) for PFN-mapped pages, regardless
-> of how the architecture defines pte_user_accessible_page(). pte_special()
-> is available generically (it is a no-op returning false on architectures
-> without ARCH_HAS_PTE_SPECIAL), so this is a single, arch-independent fix.
-> 
-> Note that the v7.0 generic vDSO datastore rework in commit 05988dba1179
-> ("vdso/datastore: Allocate data pages dynamically") incidentally avoids
-> the problem by switching the mapping to VM_MIXEDMAP + vmf_insert_page()
-> with balanced struct-page accounting. This patch fixes the still-affected
-> VM_PFNMAP path used by 6.18.y and earlier, and additionally makes
-> page_table_check robust against any future PFN-mapped user pages.
+> Fixes: de04fca5d2f8 ("riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT")
 
-Thanks.
+Hi Martin,
 
-The patch isn't applicable to current -linus mainline.  I reworked it
-as below, then deleted it.  It would be better if this rework came from
-yourself (tested), please.  And a patch which applies will get checked
-by Sashiko AI review.
+Thanks for the patch.
 
---- a/mm/page_table_check.c~mm-page_table_check-do-not-track-special-pfn-mapped-ptes
-+++ a/mm/page_table_check.c
-@@ -151,7 +151,15 @@ void __page_table_check_pte_clear(struct
- 	if (&init_mm == mm)
- 		return;
- 
--	if (pte_user_accessible_page(mm, addr, pte))
-+	/*
-+	 * PFN-mapped (special) PTEs - e.g. the vDSO/time-namespace "[vvar]"
-+	 * mapping installed via vmf_insert_pfn() - are not rmap-managed and
-+	 * must not be tracked here. Tracking them can leave a non-zero map
-+	 * count on a struct page that is later freed (the time namespace VVAR
-+	 * page in free_time_ns()), tripping the BUG_ON() in
-+	 * __page_table_check_zero().
-+	 */
-+	if (pte_user_accessible_page(mm, addr, pte) && !pte_special(pte))
- 		page_table_check_clear(pte_pfn(pte), PAGE_SIZE >> PAGE_SHIFT);
- }
- EXPORT_SYMBOL(__page_table_check_pte_clear);
-@@ -208,7 +216,7 @@ void __page_table_check_ptes_set(struct
- 
- 	for (i = 0; i < nr; i++)
- 		__page_table_check_pte_clear(mm, addr + PAGE_SIZE * i, ptep_get(ptep + i));
--	if (pte_user_accessible_page(mm, addr, pte))
-+	if (pte_user_accessible_page(mm, addr, pte) && !pte_special(pte))
- 		page_table_check_set(pte_pfn(pte), nr, pte_write(pte));
- }
- EXPORT_SYMBOL(__page_table_check_ptes_set);
-_
+This has already been addressed by Wang Han here:
+https://lore.kernel.org/linux-riscv/20260527123530.2593918-2-wanghan@linux.alibaba.com/
 
+Thanks,
+Pei
 
 _______________________________________________
 linux-riscv mailing list
