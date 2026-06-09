@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016EBCD8C92
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 13:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE5CCD8CA8
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 13:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DUzFEaNx44hMDe1FIzOnUihJ5xcHs7GkssW88kOhVJ0=; b=B9GStzDp7n0tL2
-	ffAQIR38M0VoelbO+wjhUeHcUNshieiZohhRagqd51hpy1vrSD/2ptEtsA8f7qmZjB7LkR9E5FREQ
-	ffKA8JuUJtFcw8kDGnsXFpS9h5mYTYLFkBhmo0HGa8cpc2jKSu5mlzNrFnWEqg+GyZFPG4cuwP7Ob
-	/pmZ1wTw0BvetYfWWiiB0mhUvsGyUNXYctWRUSuj3qGjfR0wdhFH8pGDJ0ZVyveQbEaJdbaXn3JAO
-	dg7wEEicvA/uFw7IJBzdfZpY6M9x9/qxm3pJ0K+U2OPC0XDzS+BQDjC6kE1dvCSCu+9mFtogcMIIF
-	dcAWxsipFZ5YeMzeMO1Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qSoghCWNMpdEhtN7rHpPOU5zrkPixdHkU9pZ1DFtvEo=; b=hD+nberwCnOil4
+	Nbvb04LgY/B9feU70l92pp2YBhMHiN8lzft1A/h8aKe6QlWkSuiByXvYLonKHsRICuh6UWSvm/nuz
+	0buk1/NAHqIWY/sddJCIh0gPygIjHSAGm09NXff8h4cPV/HeU0IkBXYgrDBLgrt0ibFfxhzZKGqsc
+	VtX40Et65937YpEMMVoRMOCqmkyRa8fUV+W4WrbsyhHudWtgFWwQ42tBqQDArBvIzfbg67nZ+UOz5
+	SVEt35i8gPnEj/JkA29vCiHkv/9N63uDCqbaq8FMTpGZrgFA8Yyqa9HnfHVaI3T7Olc2bQTEP62kk
+	eLe/O6vG2FeWAkYYuJCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWw4q-00000005c8y-32ZZ;
-	Tue, 09 Jun 2026 13:01:08 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1wWw50-00000005cAZ-22gG;
+	Tue, 09 Jun 2026 13:01:18 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWw4m-00000005c8J-2hRG
+	id 1wWw4w-00000005c9p-1UUj
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jun 2026 13:01:05 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-36bb3551f6eso4837724a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Jun 2026 06:01:04 -0700 (PDT)
+	Tue, 09 Jun 2026 13:01:16 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-36dd65b95f2so3905793a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Jun 2026 06:01:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1781010063; x=1781614863; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mA+1iToTuolWzR4VNZJJfQmxeczHbXjnH8cwuBOXmUA=;
-        b=CPrBYVW6CP10/zXcQQthSo5cSZkWIv2C3l+adI1tv3bub5sQKW4SZvuR5NeJIu4qr3
-         Xkc9D9ZcifefHdi23cbNrVOZwsYJISABHf07f7Atz8IKWJVQULmpBmVZ3FzGQb47xFuw
-         grWt9EIzmqQBlyCmSDLfKVwQHLhrWMuta2dNYWKCweCYjwOzLzY578kemgEUexwVGILb
-         TEPA9/kvUpw+xy9y/MSiBM7tSeyU5xPwIV7ASne1tNLrc76gsFedzNdxoTL84pZovTHz
-         hqjk++Whqz6qmNiuCuQQi4T9nsXhHmq+txEYLYRRJYN2+u5fjvqU2WDlosqpcJtzVqbO
-         7naQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781010063; x=1781614863;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=bytedance.com; s=google; t=1781010073; x=1781614873; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=mA+1iToTuolWzR4VNZJJfQmxeczHbXjnH8cwuBOXmUA=;
-        b=nrZr6sB+jNmvhmp8Op0Kleo5EnX7IN/GIn3xWkd8jSNhvrnmbdeOst9wtju4HwwNUY
-         eZSMG8mbTRM9thkUmipNZLJF0OEiIpYTpfkV0SzYLd1nTUbwXEgVTQ88MvXVceRriqGs
-         yDsIopaGoh9fE4vvyiIdgcT49v0O2JBuCXQmqleQM7bzuUHbnFRu7RrseOY0pfNvQa5D
-         X0/KxGEeHFyL/n2iaQtkOd+1gV32QCDYA+cKbw8mLqD8p79VUcZG6mRSIlL2FHSKs2y7
-         6rh0KkIUaKcukWKTNKjtnSlIxE5zujpIAV9NtiHnwXxbOUdheI0tc6NDP9NdVltwJHKk
-         NLQA==
-X-Forwarded-Encrypted: i=1; AFNElJ/0rDCsRjkvqQMAOpdAA3dQYGGwkqcGW+1xnPNGS0EFfq2y32OBGT5zGN0pOhYycvIZmMxYA5F+9c9LTw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv7HEAHTfEGNSdooo9yGn0LsM7BDwPYgqejVmd6CFNuJ9K/zOa
-	KvQp/iFPq0nHxkVKbCTaQxbaa7iTbLDSzsM+ix9T3YS74JPzbQmSpc/L5YshVfytWkw=
-X-Gm-Gg: Acq92OEdvV9L08d4cB/xEOIg1B4//ZkD7qhcJ+OAnbhGISprKdW2zLCOAYFqtDmkouT
-	hO1/gaMeoJktZTgYy44D8RrBGf0U+P2OwEBiDz773ZJxxfHr9W0mWk3IHcMFoPz1Rwb+W/F6QTO
-	WfSis75vcAWmvZTeVNE3xy4XaCeICnjchW0gZR7v8qGL25pjF7b+TO6WqMwcOmCBwzJcLgZBwKS
-	U48O0Ipst4vyYp21R8MdC4aBViUQNONky5YCnAQA0eP14END/5IK9fxBTHRwNRuTMKa2rA7KXu3
-	GLTp0icjHCoMtBf5P95Rf9rC3xoJZ5v+0iOKTHrib19GxLSG1jdYhivtBd4TdFf512zBEBw2c9L
-	ozUj90u9b6Tue8kkyXU7hrKqXiNd10iBbgxU5g66HhtMGi5A2gAxP+zofJQbwpfJuxUbECjaDbx
-	Rp6jU6iMRt+nLWol5SXnvIU7L4NfEHn193bp7sbIWjEpC+9Vx9TAmD1r5sEQE80LROVIk=
-X-Received: by 2002:a17:90b:5906:b0:36a:5d1f:7ac with SMTP id 98e67ed59e1d1-370ee344dc4mr21272633a91.3.1781010061860;
-        Tue, 09 Jun 2026 06:01:01 -0700 (PDT)
+        bh=bBjioe1/b2Df8x5Ip9K6/oumGB4ZieiSVwwEXmL7mog=;
+        b=ko0reSednd/SF8dPz1GgjcnolTB4LW7U52wABMumtSi1FW4oLd/zKI8Nl304kjmQjk
+         C8bDlqdqWrB2n5byg9TSNR7zk2bkPevCc3goBoPdUcMPC4uaFKwYRk6WMx5SPUG84Mwb
+         vg/9UN+Hs67/votej7oGElhQuYFsIMeLQiQlw4xBnz7NNBZVsAVwX8xRMVw4Tt4xoTmB
+         X+lk4KVX5N7QKhAvAj/cwRWNfyFfW29aVcwqt1zoL+yb9z+0NUkBsAhhymxCyPEDcyqj
+         QwWwmhfS21YpEli28VwVA2qjBvdyWtq55XoDFZzBIzb+NfJsmbjnVP/GlW4aSak1mig9
+         /4zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781010073; x=1781614873;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bBjioe1/b2Df8x5Ip9K6/oumGB4ZieiSVwwEXmL7mog=;
+        b=P94NT1TSGNohiVJqwbDb9whO+epvu6Kyp/EWUnPq3s7VeH9RIbnmYOPR3kC9cvBWSL
+         g1ZvFSU/77MmxExMjkHwJ/6HrNukTroMzNUbjHjsB8gT+c7VgJEyhgvKGTz87OcPhvao
+         R6lh42z7mC63EQeOW+evb1HLC2KWvqHgBO6IzYEwd0IKzfkXll/tFw+Tlk9D1Ayjzl9R
+         aRoluEvA8i3ANRr9BbBh3TRsH18GLUiMrI2fJ2wp1FK0YwLI6077ARSsmhlsBuEkPcuF
+         Ebm+muiSrUo83q27tL+NwN9VjDSGg2T9NDwGNZIGfxb8wJg27FtoboonOY2GMSqNeJIf
+         EOhA==
+X-Forwarded-Encrypted: i=1; AFNElJ/8Us9RBzJw9LfubpPFT30UyWvPV2uWHxn9TirtnI5C88bvCFn5x0R4Ejsvf1hJ3ZHG75Farcg8sCCGEQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIAqqNsksKQcBnCJtrXdgVGCg8/yId86kjQeMZJbjbn/MDD9lS
+	mleIV3cMY3b7+hqvz7MMfxX8i8s9+LUIH9A1WO3g7ufvSg6H1IynkKBWIhbud7lSp70=
+X-Gm-Gg: Acq92OEzw2VqWqu+8eapcTXdbxxP8HCUFNFTmPNd0nKs9w+0ME/N+ux+PJxHSzoDoHL
+	tgoLQamtMN8WLHOAeOp3suJsNFQI3FvY1MQopQiD6LmJmAsbBWZ+MW0eVeqGE0AiUbUi4SzREJy
+	XGW/k2JL0ya9ojU9lk9P8cKPoOMwoW7JpHh9laP8iv3vvtqw8xG+ov737fSuwJfm4m/50GAgdv2
+	CnpncroqXfJDKKYFVWSKPLfptOW6E0DkW9Kk9//a3in8Akw1flsDkDSUHjhh2/nC060GYQ51QF6
+	JHS7YtjgIS541oWdoN1+z3SnMXjVoWVZi5bVlEgGSaOsrmt+7DHPGH32GSUJy3HeyJYZ4xhm5Un
+	kGncd4DW6GpnOU+p4ZnwOKpYtJWQ4yZ8KtDaBsGFjzF8TEfex1tg+ZmhOnJyi1dcC9W6zcER+x4
+	hXFBdW/SfeDWYw/nok3tGw4luWIj6Ava1ehQHmMK6z4OfrlyOCKM5lFmu49X9eMcb93cU=
+X-Received: by 2002:a17:90b:570f:b0:36b:877c:42e5 with SMTP id 98e67ed59e1d1-37133372f4emr14653761a91.17.1781010072907;
+        Tue, 09 Jun 2026 06:01:12 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.240])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf8284dsm23267889a91.4.2026.06.09.06.00.51
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf8284dsm23267889a91.4.2026.06.09.06.01.02
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 09 Jun 2026 06:01:01 -0700 (PDT)
+        Tue, 09 Jun 2026 06:01:12 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: akpm@linux-foundation.org,
 	alex@ghiti.fr,
@@ -100,14 +101,16 @@ To: akpm@linux-foundation.org,
 	wangruikang@iscas.ac.cn,
 	zhangchunyan@iscas.ac.cn,
 	zong.li@sifive.com
-Subject: [PATCH v3 0/3] riscv: support effective hardware PTE A/D updates
-Date: Tue,  9 Jun 2026 21:00:17 +0800
-Message-Id: <20260609130021.99899-1-cuiyunhui@bytedance.com>
+Subject: [PATCH v3 1/3] dt-bindings: riscv: clarify Svadu boot-time behavior
+Date: Tue,  9 Jun 2026 21:00:18 +0800
+Message-Id: <20260609130021.99899-2-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+In-Reply-To: <20260609130021.99899-1-cuiyunhui@bytedance.com>
+References: <20260609130021.99899-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_060104_690823_3CA93953 
-X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-CacheID: sfid-20260609_060115_210625_6799D07E 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,44 +128,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series makes RISC-V track hardware PTE A/D updating by the
-effective runtime state instead of treating Svadu discovery alone as
-enough.
+Clarify that systems which advertise only Svadu have hardware PTE A/D
+updating enabled at boot, while systems advertising both Svade and Svadu
+must enable Svadu explicitly with SBI FWFT.
 
-When both Svade and Svadu are present, Svadu is disabled at boot and
-must be enabled through SBI FWFT.  The series enables FWFT PTE A/D
-hardware updating on all currently online CPUs before enabling the
-global static key, and enables it for later hotplug CPUs early in
-smp_callin(), before they are marked online.  If FWFT setup fails, the
-kernel falls back to software-managed A/D updates.
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+Reviewed-by: Qingwei Hu <qingwei.hu@bytedance.com>
+---
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-It also makes live PTE access/permission updates use cmpxchg-based
-merges so that software updates do not lose concurrently
-hardware-updated accessed, dirty, or soft-dirty state.
-
-Changes since v2:
-- Split the devicetree binding clarification into a separate patch.
-- Avoid CPUHP_AP_ONLINE_DYN for FWFT setup; enable FWFT for current
-  online CPUs during init and for hotplug CPUs early in smp_callin().
-- Export riscv_hw_pte_ad_updating for modular KVM.
-- Preserve _PAGE_SOFT_DIRTY together with A/D bits and rename the helper
-  variable to avoid implying only hardware bits are preserved.
-
-Yunhui Cui (3):
-  dt-bindings: riscv: clarify Svadu boot-time behavior
-  riscv: track effective hardware PTE A/D updating
-  riscv: preserve A/D and soft-dirty state across PTE updates
-
- .../devicetree/bindings/riscv/extensions.yaml |  6 +-
- arch/riscv/include/asm/cpufeature.h           |  8 ++
- arch/riscv/include/asm/pgtable.h              | 27 ++++--
- arch/riscv/kernel/cpufeature.c                | 89 +++++++++++++++++--
- arch/riscv/kernel/smpboot.c                   |  4 +
- arch/riscv/mm/pgtable.c                       | 68 +++++++++++---
- 6 files changed, 175 insertions(+), 27 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 2b0a8a93bb214..b09888e9988de 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -294,10 +294,10 @@ properties:
+                of the PTE A/D bits or page faults when they need updated.
+             2) Only Svade present in DT => Supervisor must assume Svade to be
+                always enabled.
+-            3) Only Svadu present in DT => Supervisor must assume Svadu to be
+-               always enabled.
++            3) Only Svadu present in DT => Supervisor must assume Svadu is
++               enabled at boot.
+             4) Both Svade and Svadu present in DT => Supervisor must assume
+-               Svadu turned-off at boot time. To use Svadu, supervisor must
++               Svadu is disabled at boot time. To use Svadu, supervisor must
+                explicitly enable it using the SBI FWFT extension.
+ 
+         - const: svadu
 -- 
 2.39.5
+
 
 _______________________________________________
 linux-riscv mailing list
