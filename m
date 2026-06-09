@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D030CCD8CAD
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 23:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 364AECD8CAD
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 23:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yAGio+5kXCRaorJq3jR6syO7ZmOy73BFq8H+EP4dpV4=; b=mF6bmuxXPiFLTxS6niM/a9xYos
-	0a/kFxo/ceR1Xwdb1Th441ldj54TAfI3EX9QIcBwCN2semfAZAp5K/wP4Yi1P36VKpVJTj3dPBS0e
-	g+WO3pfFTYOY1N3QvqW1MFW2vwwe0D/2d0OHtC/jbHTGqUw37RPwbiTHz30wFIgumtAZCRzkKhQay
-	qmbTsU7DE4xbAtBjCYfhoObHNFeKql63Zce/pPKnn0SZhmZ2rocDCBfW5m1HY27c46wKxCnWvv67e
-	MVo7vhzD4/6CZqbd3LZDeG/whD5NF1hU4VVJz/b/k8usqtEKVmCKSLyT0V2XCFjFO21L3fdyVDt4o
-	hdlJxq6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UT8HGbRz0+D18wVPRO70//z1a7xSGI5LTYi9SEiXFdA=; b=UZN23anDrEPUE9
+	1Jw8C2H7MTMZOVyZWt3pM+fwrJNNFBJGNorU3UhA22rC1z6OLeSnE41LHi0N7Qyc7v1MT30eCFyZM
+	5NU3S8xefdQQermwY/HToq/GUG/KrkWwbWWBkJw108Pow7B4Pt5GBKa7xq5xWGYntiicmALYskcCS
+	drzc++tpaOpulQ0Q0D1xnFRjFdLHrtwnwjMD95dRier+5xkHHF2VPV8lLlKsoZjV7wAWCLNOo3UUw
+	f8P0YKu5Zn14QezAU09vUowz1cWr27Mr3eTO5cdJA8WQyYkyNGpHnrMN1kQae7AP2OdAxsk2LI+qx
+	xxMiZ4fZ3U/u+IWeM1mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX5bT-00000006V8Y-0wbO;
-	Tue, 09 Jun 2026 23:11:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wX5f2-00000006VN6-38Vk;
+	Tue, 09 Jun 2026 23:15:08 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX5bS-00000006V8B-0K8n
+	id 1wX5ez-00000006VMl-34Kb
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jun 2026 23:11:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22EB3602C4;
-	Tue,  9 Jun 2026 23:11:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D908C1F00893;
-	Tue,  9 Jun 2026 23:11:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781046684;
-	bh=RTQ7Dfa+YIedQNlrk2pBh0acv1cJxf0hqLHt+u/Ia8k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OQLqyvEXsQZCwc5mO4VNP1T5EDWq5EHl3fArZI4AsaiVQjoGwHMLSdaYH3feXYArf
-	 fA6x7Iqa5b1Vdz7luA+0gDRuJ1XmAEUkt/r7ywxYQMlscO7jIp85Mn7Bt/a3Vkib/K
-	 XHkJTs3ngEVXcvWR3YkCRbm7FYaE6fnBJbU/D1fQUNY1YbBiR8reElwFHflN+o5FMC
-	 2kGiJh2HfnxFpucnbb1auSIIVjs9G8jtku5/p/NM7tHSgcKrFaYMvunEtSYvxtPMY4
-	 VlIIKbCjTFTIquDLJGrYzR9sMbZaVxpIwo4E11M6Qj9dFtBTdmz5wZnGVN4e4fMzNB
-	 U3k49y4B9I9PA==
-Date: Wed, 10 Jun 2026 00:11:19 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Guodong Xu <docular.xu@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 1/2] dt-bindings: dmaengine: Add SpacemiT K1 PDMA
- request numbers
-Message-ID: <20260610-atrophy-gullible-938789978f76@spud>
-References: <20260609-b4-k1-pdma-req-macros-v2-0-5d5d7b997b54@gmail.com>
- <20260609-b4-k1-pdma-req-macros-v2-1-5d5d7b997b54@gmail.com>
+	Tue, 09 Jun 2026 23:15:06 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2c0c1e0b0faso42208475ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Jun 2026 16:15:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781046905; x=1781651705; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ae/32RAlZzOkrMKZrBalt4ZXi3T3OToTPv5Duv2/6FA=;
+        b=pLcN9Zowhs4EAjN17EX3fH649MN9VJOHurF1XCw6vTWRyQA6SMXVY8NxmPeUj95xVy
+         7VMDIK/tXfJ+JuZJEQBPgFEzrHE9kPoDKgPbBCdBbiKO9AO8dYhjrfdeA/zproab6w4Q
+         467cKNNLXguQ2WD1JX11k2dbfRZ+cy877Vh+79lQPAmUbp67yCelaCmHAZGJpnxFUvfq
+         +Fmv3DFq77YGEjQu1dHXSO8M933HCuL6u039kaktVREMBo6m4MJPTkyExE2/rNHVdhll
+         PHWcLpC0BaOH2rKrZ9b9z9SmdkAB6p3X34/XxqGTts3lSFwNCC2npw9uFBSXrA+gSo0Y
+         ST0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781046905; x=1781651705;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ae/32RAlZzOkrMKZrBalt4ZXi3T3OToTPv5Duv2/6FA=;
+        b=ImfM0FwCxqIIHBWAO0shJe/cI+yMfqXIN0k7XI/W42Pd2vYwVjaSfOlw6uWppJDz0s
+         l/eXm9Fc69PfKlq3490aSrqJ6Mfjittxaz3mFs3ArlzkGf1IVkHX9GuBOWuyvP/gGxTu
+         vAy1r3AVxkf+Puiq/DMymE712u23LU8UudTxRfC/Rv11uFUXMbAd3q+r9ggckw6T2VXw
+         8+vHjixjPYrJjzw2L9W1nL3IpkB7G9AHbumDu+rDefPXM5WlXtXoGwaTCvcgCJZJgumB
+         MSx5Ah4BS9+lLyp50U65MbQAu4llQpApYF0LG4zDj65RWRhkLVRD4NGZc1NWA4qXyBmu
+         syLA==
+X-Forwarded-Encrypted: i=1; AFNElJ/nyFCqLg5JLyQPIaTzPsWGVoPT5ArjIv1ge0WJQRoSctxfBhmjjkFhC06gHXqnIjvRgZAu5hHT7TmmUQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxamVv16RcdJaMPK3vcz9XqEeN9z+xyadS90mDBhuz3pDCObiKb
+	LfXUmnDR84NUTaenXAOwu8Y3DiPFimIHVGK4Y6gSpfV3HXY5sJYqrV/n3lIabjLs
+X-Gm-Gg: Acq92OH6PsarkpWTZRvplu9XWWuBxIOsvQGxBbBN+KAFX/DN/78JpQxOF7I/TZoogoC
+	EtSjRcuALQ2Kf2RfXtK7C/rcWGcCw9MKqUMeyPhH7g+uuK0w/lpxwMQxfLaga/aZF9B/2WXi4h7
+	c297xu7y+YKgAnl8ZwNu/zvxj96XupYUXGUZAjZpYeCeSDyaU9gcNMPKEWa9RbXlvatJ9I+NOrQ
+	Ax9IQ8w6oaQI2RnDsXDVjVierj+tcbRjHPm16Zp2ZIt/Bhh/ItKlmNZbw27sQmeCv1qUMmCHdwh
+	hxY5K+6hN2w0DC9aPLUwp8RiNeAqOT0buiKQzuRsvg6R3NF/zW1milqonvsHT/6EHsq1T/VjEDT
+	FEJzKbHjVuGI3BDVVgwB7fecWO9fZNSH1l0BZ/Frj6qjLzJXp33KJYcEN6TShqLEWyR9vvWjCLd
+	/Z9aZBwx+Byg==
+X-Received: by 2002:a17:903:19ef:b0:2c1:5667:2740 with SMTP id d9443c01a7336-2c1e810bd1fmr284368035ad.21.1781046904581;
+        Tue, 09 Jun 2026 16:15:04 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f6d1e5sm211741165ad.12.2026.06.09.16.15.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Jun 2026 16:15:04 -0700 (PDT)
+Date: Wed, 10 Jun 2026 07:14:56 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Rembrandt <kernel@rembrandt.dev>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: spacemit: k3-pico-itx: Fix non-functional
+ ethernet TX timing
+Message-ID: <aiid4Y6x6Dbbwszf@inochi.infowork>
+References: <20260608182358.170489-1-kernel@rembrandt.dev>
+ <aiemGajqcQeY9avz@inochi.infowork>
+ <aihYftGNcpUd4UUR@mcmanus>
 MIME-Version: 1.0
-In-Reply-To: <20260609-b4-k1-pdma-req-macros-v2-1-5d5d7b997b54@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <aihYftGNcpUd4UUR@mcmanus>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260609_161505_775375_1BD9E6BC 
+X-CRM114-Status: GOOD (  24.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,138 +97,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1497377576815049771=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 09, 2026 at 08:24:46PM +0200, Andrew Rembrandt wrote:
+> On Tue, Jun 09, 2026 at 01:37:56 pm Inochi Amaoto wrote:
+> > You should set tx-internal-delay-ps of the phy instead of
+> > the controller. This is a phy in "rgmii-id" mode.
+> Thanks for the review. I don't think that works on this board, but
+> please let me know if I'm missing something.
+> 
+> The PHY is a Realtek RTL8211F. Its driver only toggles the chip's fixed
+> ~2ns delay on/off from phy-mode, and per the datasheet that's a hardware
+> limit, not a driver one -- the RTL8211F has no tunable delay, so a ps
+> value on the PHY node has nothing to act on.
+> 
+> The only configurable delay element on K3 is the SoC RGMII delay line,
+> and dwmac-spacemit programs it from tx-/rx-internal-delay-ps read off
+> the controller node (spacemit_dwmac_probe()), so that is where the
+> property has to live to take effect. This is the MAC "fine tuning ...
+> values expected here are small" case described in
+> Documentation/devicetree/bindings/net/ethernet-controller.yaml: the
+> RTL8211F supplies the fixed ~2ns via rgmii-id and the MAC adds a 400ps
+> trim on top. Ideally the PHY would own the delay, but as Andrew Lunn
+> noted reviewing dwmac-meson8b, that requires the PHY to implement a
+> configurable delay, which not all do.
+> 
+> The already-merged k1-bananapi-f3 does the same thing: eth1 combines
+> phy-mode = "rgmii-id" with tx-internal-delay-ps = <250> on the
+> controller node (via the K1 EMAC rather than dwmac, but the same DT
+> pattern).
+> 
+> Would you be OK keeping it on the controller given the above? 
 
---===============1497377576815049771==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mDjp111cseA+tWiA"
-Content-Disposition: inline
-
-
---mDjp111cseA+tWiA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jun 09, 2026 at 03:46:38PM -0400, Guodong Xu wrote:
-> Add a dt-bindings header that gives symbolic names to the SpacemiT K1
-> PDMA request lines of the non-secure peripherals. Device trees can use
-> these K1_PDMA_* macros instead of magic numbers.
->=20
-> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
-> ---
-> V2: Drop the #dma-cells description change in spacemit,k1-pdma.yaml; the
->     request numbers are hardware-fixed and unused by the driver.
-
-Worth noting that while this wasn't the change I wanted, I didn't
-express myself clearly and Guodong is going to send a v3 after I
-clarified:
-https://lore.kernel.org/all/6ycdvhpgygnelzp3ot63xtzcnlvac7emngvj7tviiclst4a=
-7km@kjq7oqvecnxx/
-
-ta,
-Conor.
-
-> ---
->  include/dt-bindings/dma/spacemit,k1-pdma.h | 56 ++++++++++++++++++++++++=
-++++++
->  1 file changed, 56 insertions(+)
->=20
-> diff --git a/include/dt-bindings/dma/spacemit,k1-pdma.h b/include/dt-bind=
-ings/dma/spacemit,k1-pdma.h
-> new file mode 100644
-> index 0000000000000..491976516550a
-> --- /dev/null
-> +++ b/include/dt-bindings/dma/spacemit,k1-pdma.h
-> @@ -0,0 +1,56 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * This header provides DMA request number for non-secure peripherals of
-> + * SpacemiT K1 PDMA.
-> + *
-> + * Copyright (c) 2026 Guodong Xu <docular.xu@gmail.com>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_DMA_SPACEMIT_K1_PDMA_H_
-> +#define _DT_BINDINGS_DMA_SPACEMIT_K1_PDMA_H_
-> +
-> +#define K1_PDMA_UART0_TX	3
-> +#define K1_PDMA_UART0_RX	4
-> +#define K1_PDMA_UART2_TX	5
-> +#define K1_PDMA_UART2_RX	6
-> +#define K1_PDMA_UART3_TX	7
-> +#define K1_PDMA_UART3_RX	8
-> +#define K1_PDMA_UART4_TX	9
-> +#define K1_PDMA_UART4_RX	10
-> +#define K1_PDMA_I2C0_TX		11
-> +#define K1_PDMA_I2C0_RX		12
-> +#define K1_PDMA_I2C1_TX		13
-> +#define K1_PDMA_I2C1_RX		14
-> +#define K1_PDMA_I2C2_TX		15
-> +#define K1_PDMA_I2C2_RX		16
-> +#define K1_PDMA_I2C4_TX		17
-> +#define K1_PDMA_I2C4_RX		18
-> +#define K1_PDMA_SPI3_TX		19
-> +#define K1_PDMA_SPI3_RX		20
-> +#define K1_PDMA_I2S0_TX		21
-> +#define K1_PDMA_I2S0_RX		22
-> +#define K1_PDMA_I2S1_TX		23
-> +#define K1_PDMA_I2S1_RX		24
-> +#define K1_PDMA_UART5_TX	25
-> +#define K1_PDMA_UART5_RX	26
-> +#define K1_PDMA_UART6_TX	27
-> +#define K1_PDMA_UART6_RX	28
-> +#define K1_PDMA_UART7_TX	29
-> +#define K1_PDMA_UART7_RX	30
-> +#define K1_PDMA_UART8_TX	31
-> +#define K1_PDMA_UART8_RX	32
-> +#define K1_PDMA_UART9_TX	33
-> +#define K1_PDMA_UART9_RX	34
-> +#define K1_PDMA_I2C5_TX		35
-> +#define K1_PDMA_I2C5_RX		36
-> +#define K1_PDMA_I2C6_TX		37
-> +#define K1_PDMA_I2C6_RX		38
-> +#define K1_PDMA_I2C7_TX		39
-> +#define K1_PDMA_I2C7_RX		40
-> +#define K1_PDMA_I2C8_TX		41
-> +#define K1_PDMA_I2C8_RX		42
-> +#define K1_PDMA_CAN0_RX		43
-> +#define K1_PDMA_QSPI_RX		44
-> +#define K1_PDMA_QSPI_TX		45
-> +
-> +#endif /* _DT_BINDINGS_DMA_SPACEMIT_K1_PDMA_H_ */
->=20
-> --=20
-> 2.43.0
->=20
-
---mDjp111cseA+tWiA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaiidlwAKCRB4tDGHoIJi
-0gqdAQDHkJNkld9XKOrvHNTBvPSzUlW9HGCxoEAZz+aOul9PggD/ZoDUW2fCKmZW
-bBkaF7fEvO7Fd+9eaehZv6GsOP6twgU=
-=vNgE
------END PGP SIGNATURE-----
-
---mDjp111cseA+tWiA--
+Yes, it is good for me.
 
 
---===============1497377576815049771==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> For v2 I can add an explicit rx-internal-delay-ps = <0> to match 
+> the other SpacemiT boards (k1-bananapi-f3 included) and spell this
+> reasoning out in the commit message.
+> 
+
+Do not do this, just leave the rx-internal-delay-ps untouched.
+
+For this patch
+
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+
+Regards,
+Inochi.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1497377576815049771==--
-
