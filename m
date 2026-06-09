@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC4FCD8CAE
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 05:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EB7CD8CAE
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jun 2026 05:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rtALvfuz7dqO+mTwlv7j9qO8whbL9u5/IQpAp87dqto=; b=SnwyG/AXva9AmT
-	M9BvhlVa9uhVImWIDi1OrMRQNpNlZuT4JD4Bu5i5WkoyRF3x8q5Amq5px8ryQD4l7SyVjhESY7QLu
-	Ne9f5w3u1wdq/ztPfWlzRudV56js5EcwR+oEbwKzZToUpNGusOkw+SfdgowJGXHF6YFMqjMu5syxk
-	jD1QqZi46ZGKuZf0E39Bn66HK46stSrKgBGgj9BS39DkFbMblXTFcrCZ2pWwvm4OaqiYOCYkh3uWu
-	bKCHmOjBIFoaf1Im5oyL8N9jAZh9WLJZVNUzkgZ+97/62UO+K26ecW9VbYV5v/ZZqHHFvdBFyVQa2
-	faNETFhCxgzrily0CMbA==;
+	List-Owner; bh=O+2hQotd7uzbFa6wvaSi1HtzSnyeuXTJxSBpKXZCG4Q=; b=Q1HI5UrRb110X3
+	PMA5b/qE7iP9reO0xv1r4ghwM1F17qzOT1uGmi+n6TwRQab6ARrMnzf4xKczpysByvzt7vhgI2KP6
+	kjdVWeGhokUEgmdFT0HJJhUQUIZq7khsQv7piRGtFr7/h49n6h1XSTlP+vTcxPdJsD7avwV/IPg0c
+	uPJ2WGNnQcwl5A9iUK4r+sj6k03Rsc9OpKItqbR8KhnDw8iD+pkOPmo3KaXydLzTDWmk+wAV6Q9nI
+	91TLSqt18svh5tkpA442sDpN+g0lxWiYxaQZQAgdP0KGNYYfZQ12gvF4pl1Mgdm4vr8VDLbyjb4Q6
+	U75Zh4xIZir5Ls4U3pvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWp7m-00000004lEg-3X0p;
-	Tue, 09 Jun 2026 05:35:42 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1wWpAE-00000004lOs-1G4n;
+	Tue, 09 Jun 2026 05:38:14 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWp7k-00000004lEE-129B;
-	Tue, 09 Jun 2026 05:35:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1780983323; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=PVW9w59KiqODY+5AC3EOr1QN4kqQw1VMcG020fokPnJ6vmQinqKfDpnipyU4S3JznovbCVzKCRTUOzFPLo7bNAHMNhFf48e5M+6jfEFMOPPPwg/O4+eRvMm6lvtBKWKJzGKa98ePF1+qTA81dPBXrNRmwaD/Z815Biyvc1WnRuo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1780983323; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=aeyRk661Z8pMzzMr6vizd11aGoPyzX0vz8JfiH5ebRs=; 
-	b=X0l1rbTmOwFsso0BkZxalGmfPDVUdnnSSkv+fW86sbVCKL0N63dm2xcr0e/Qf3gE4zW79W5fyL0lCYRcvbp23jQwzBHnDTNjCZOrZUCdqfrqqTx2ra4pJr6n3o3SncObsiTvfOeIpUXReO1FPJ/RiPm4h0jWEfBArHjY2K5gxtg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1780983322;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=aeyRk661Z8pMzzMr6vizd11aGoPyzX0vz8JfiH5ebRs=;
-	b=GBX+wSO/sD6gTvgRkNoKNACIb8KP2A1OCKjUn03fEQ9YRERDNuPHy70jdqBQizJe
-	E16Td4uLRmNwu6fRtEBLihtpmsiW1StMTgH/m+2dGRNCEW8c9B6L2rjese5buX459eK
-	nz9l1ky0avX/B4XDOg7G5jBFAP1UfRYZ8AtsGbCW/RfLjOnEK5lLRXbR63IoHvaZrq6
-	4EL/nx1CdthUtyQC0fXrjf6PDj2VrVww3bQ/JXQUws18HScCYGrKlgCQf1DA7Tp4pVw
-	bYEhJHUsM5H12u7Td+vR7msim8kEoGU4wehoThgnmJJF+/++Akso6zBoY8eFkKp6UAC
-	gl3+OlNeYQ==
-Received: by mx.zohomail.com with SMTPS id 178098332120521.424882624077895;
-	Mon, 8 Jun 2026 22:35:21 -0700 (PDT)
-Message-ID: <67790d90737c13127100510020262d6921810e34.camel@icenowy.me>
-Subject: Re: [PATCH 03/12] riscv: dts: thead: add device tree node for MISC
- clock controller
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Michael Turquette
-	 <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, Neil Armstrong	
- <neil.armstrong@linaro.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>,  Paul Walmsley	 <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Jisheng Zhang	 <jszhang@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, 	linux-riscv@lists.infradead.org,
- linux-clk@vger.kernel.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-gpio@vger.kernel.org,
- linux-phy@lists.infradead.org, 	linux-usb@vger.kernel.org, Han Gao
- <rabenda.cn@gmail.com>, Yao Zi	 <ziyao@disroot.org>
-Date: Tue, 09 Jun 2026 13:35:11 +0800
-In-Reply-To: <aiehUzl-qZeZDjXP@thelio>
-References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
-	 <20260507081710.4090814-4-zhengxingda@iscas.ac.cn>
-	 <aiehUzl-qZeZDjXP@thelio>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.58.3 
+	id 1wWpA7-00000004lOL-3JRO
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 Jun 2026 05:38:12 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36d8b644473so5030741a91.3
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Jun 2026 22:38:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780983485; x=1781588285; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f0Ar/8R/e3J60CqzzrjWc5oNGKXlmxhAN8jEmzPMJ3c=;
+        b=WMXMeYuQbJCxSLmrS1mBmPc5+ykaZQIBDqk2xBAVZr8kBd6NQOdQjDbAQFw06ISqUJ
+         Zpt5p1uhDinkgvr/QiruQuvwc6lL8cgvqmhLjz8FwIPJYeUVWkRSqF7eg30D7G3s+KMh
+         7yZwNNIcrGoNmWA/R4M3XapP4oHt52ElxF99fqbvuq3Zk5CVOTV/6z32F2qtzNS/6Law
+         emMLx0HmULGUG/LV5zqp6e4l0E7RT0BDgNYKnjI0cCq8nAPP1hDJY29t7Pfi5f1qpOtD
+         s98rH9N8w+O3TTvEB+F+Pnk642+e96kyLLql101qinQ/z09ANh/ybse87mJKEXXMGPWd
+         +3rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780983485; x=1781588285;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=f0Ar/8R/e3J60CqzzrjWc5oNGKXlmxhAN8jEmzPMJ3c=;
+        b=PkooW7N3v/TyfENmOLZxrZyTorFOLCiXAGiJtBBH96XRlg+Ox0UQUm5++xVxh3vCMD
+         ddt+eIDT5ReLBYq4cwy/2URroUm6xBmdOnjLMPZPS7XJ67eEsnY2hv6HFjTy6v5meO+Y
+         FD4LozG6v0UctYxcGynTgcOeNWJBakiNN23EgB7U5xUsxHZ4U83gEUoIFSW4sMAQOFoR
+         2DSBc+9xE1kiyx7gT72mcHB2N8FEvLNqPI5+1IpTYnmeeOpnHXJ80qqLU8l63IAhdVH1
+         yM9a9EvnpRlPJY5BxImUMlaUuejlGLba81lso7C8Ec/H4c5/6zyVUUyd3lfVJP1LNOe7
+         3o3g==
+X-Gm-Message-State: AOJu0YyafeoePYeUHtSpc9fK1759Vn119ISAvKxgzWUdO45KY6Z2BbMa
+	Ox31oHXPT7P57JTHEwJTAC70b1iCTFDpd41tGUBLB2XG2PCYQRk+Nbocc3Ginw==
+X-Gm-Gg: Acq92OGlX5vgSgUrA+ftwdbTCtRqbWbFW8M0KNN5BDxhap+rPam1kEaHs+KanN78aLK
+	vVjexBnxwX6v/GJW1dkdI/gFGb3RbIL2WwGdY/5r9kVfqAZxtpzIQnHMj4KBwait2nb18JdxqVa
+	rEYb0qH+kX2Zireklj5MlAhQFOd6ABgzFhvd9TcotoDOkUhvMvNUoeDVFDCN+DSnaOg1Yspe5s6
+	xVWgTrhg4EO+ym77Iam0E7Cd4Yrd9iV+rgau7hXpDXJFNftob06lo3taegPtKbRn9MF2l8fWmst
+	h+8QFKYdIQl2xwFjzNvGSBMkqQ8BHgkuLEFYMeN/3SR2Ee7bfoskjHpimcbBP3fFeTsbduDoNHx
+	K6nvb5Xzf2Kelq/deejbj3PXDrux8bMYWdJURdAwdsW8MchwqfqIQBnqNh1P0d9p+PZDum0QykH
+	SiTL7S13ZD2Q==
+X-Received: by 2002:a17:90b:4b84:b0:36b:9c4a:e05d with SMTP id 98e67ed59e1d1-370f0772022mr19530435a91.17.1780983485272;
+        Mon, 08 Jun 2026 22:38:05 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36f6bf82fecsm18042826a91.3.2026.06.08.22.38.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2026 22:38:04 -0700 (PDT)
+Date: Tue, 9 Jun 2026 13:37:56 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Rembrandt <kernel@rembrandt.dev>, Yixun Lan <dlan@kernel.org>
+Cc: linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: spacemit: k3-pico-itx: Fix non-functional
+ ethernet TX timing
+Message-ID: <aiemGajqcQeY9avz@inochi.infowork>
+References: <20260608182358.170489-1-kernel@rembrandt.dev>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <20260608182358.170489-1-kernel@rembrandt.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_223540_386559_86903E28 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260608_223811_411883_347649BB 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +93,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDYtMDjkuIDnmoQgMjI6MTQgLTA3MDDvvIxEcmV3IEZ1c3RpbmnlhpnpgZPvvJoK
-PiBPbiBUaHUsIE1heSAwNywgMjAyNiBhdCAwNDoxNzowMVBNICswODAwLCBJY2Vub3d5IFpoZW5n
-IHdyb3RlOgo+ID4gVGhlIE1JU0NfU1VCU1lTIGNsb2NrIGNvbnRyb2xsZXIgb24gVEgxNTIwIFNv
-QyBpcyBhIGNsb2NrCj4gPiBjb250cm9sbGVyCj4gPiBtYWlubHkgY29udHJvbGxpbmcgVVNCLXJl
-bGF0ZWQgY2xvY2tzICh3aGljaCBpc24ndCB1dGlsaXplZCB5ZXQpCj4gPiBhbmQKPiA+IE1NQy9T
-RCBjb250cm9sbGVycycgQUhCIGJ1cyBjbG9ja3MuCj4gPiAKPiA+IEFkZCB0aGUgZGV2aWNlIHRy
-ZWUgbm9kZSBmb3IgaXQgYWxvbmcgd2l0aCB0aGUgbWlzc2luZyBidXMgY2xvY2sKPiA+IHJlZmVy
-ZW5jZXMgZm9yIE1NQy9TRCBjb250cm9sbGVycy4KPiAKPiBJcyB0aGVyZSBhIGZ1bmN0aW9uYWwg
-cmVhc29uIHRvIG1vZGlmeSB0aGUgbW1jIG5vZGVzIGluIHRoaXMgc2VyaWVzPwoKV2hlbiB0aGUg
-Y2xvY2sgaXNuJ3QgcmVmZXJlbmNlZCwgTGludXggd2lsbCBkaXNhYmxlIGl0IHVubGVzcwpgY2xr
-X2lnbm9yZV91bnVzZWRgIHBhcmFtZXRlciBpcyBwYXNzZWQuCgpUaGFua3MsCkljZW5vd3kKCj4g
-Cj4gVGhhbmtzLAo+IERyZXcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On Mon, Jun 08, 2026 at 08:23:58PM +0200, Andrew Rembrandt wrote:
+> The "rgmii-id" PHY mode applies a symmetric 2ns internal delay in the
+> PHY. On the Pico-ITX board this leaves insufficient TX timing margin and
+> no ethernet traffic passes.
+> 
+> Add a 400ps MAC-side TX internal delay on top of the PHY's delay to
+> correct the TX clock/data skew. The value follows the vendor fork's
+> asymmetric tuning (tx-phase 73 x 33.3ps - 2000ps ID ~= 400ps); the
+> driver rounds tx-internal-delay-ps to the nearest supported step.
+> 
+> This builds on commit 3ea695eb111f ("dts: riscv: spacemit: k3: Fix I/O
+> power settings"), which fixed the GMAC0 1.8V/3.3V I/O switch
+> 
+> Tested on Pico-ITX hardware with iperf3: 60s TCP each direction and 60s
+> UDP, all at 1Gbps with no TX/RX errors on the interface.
+> 
+> Fixes: 74657a376960 ("riscv: dts: spacemit: Add ethernet device for K3")
+> Signed-off-by: Andrew Rembrandt <kernel@rembrandt.dev>
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> index b89c1521e664..59aecaa2d32a 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -186,6 +186,7 @@ &eth0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&gmac0_rgmii_0_cfg>, <&gmac0_phy_0_cfg>;
+>  	phy-mode = "rgmii-id";
+> +	tx-internal-delay-ps = <400>;
+>  	phy-handle = <&phy0>;
+>  	status = "okay";
+>  
+
+You should set tx-internal-delay-ps of the phy instead of
+the controller. This is a phy in "rgmii-id" mode.
+
+Regards,
+Inochi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
