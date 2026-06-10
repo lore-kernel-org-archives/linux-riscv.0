@@ -4,99 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E94CD8CB2
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 12:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D85CD8CB2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 12:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ewmnr9CONa1CM3bR6mgcBSSsYh5jpLhrWKSrhwvUvhQ=; b=s3Nz0gmfMJNTGp
-	Hle0R+FrvyDn+ROIBAe0Zo9yfaPRlBeaLMqqyvCH/9Iodcs1gIKyECCJ++M6/inMoZhzj/P9f1Ea3
-	uJshnOpndnOUId7DFgsCHeaPqKUeilNH7MM67PRTBAlzGVZ/U2gxYmtJ/llscPz+UIE5BO88zUqyA
-	VjtDGV2ERSWkzSjne0OeYUr+yNXMagPP23MDeGsjBwTzezII+QxTWkNzAbSWkexuJsVTWtpf/NwNX
-	hFsQrsdXc74vWgvqOIoPzPz0v8JMExFkvcGVgWfwK6x5du++smJXJR0MhJWQhtqWb7MQg0J2Qm5aB
-	0JswKyi4plZXwi6wuY7g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2QioxEQJBIM7yDqF+0uQkjGXqx4581gHtWCJwZeAh5c=; b=maP5WilySMPBY9
+	T57K8DI0hzInbbWNMJ75LXzDEe6QKmzgMtFj8qb3mFZBkXQ4c16otXxpuHdQhjBZmxo5G7Y9un0t/
+	7L+MeYfW9oMeTRJQJg2kr51DxcbIdohVr42YSIrZjvdBEvSX0sbH4qpp7DM6cGSYVq8L5zYrDdfDx
+	ZmGDASaCqE13N7SechjEplWptgSsif7/KJUWDUxkmoFc0HoTSvyzkcN8qRyei+DFbbjHBPmR2cGfY
+	WdoZP7Bu3fXg8UAsGxQKwwGIna2Fp1UmlkyNOApz27cygbmuSx6Bho+lMUKYnJiGdMfRIraMJCcXV
+	FAxUhQywguA7I+A1bMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXHm8-00000007cWf-1qqw;
-	Wed, 10 Jun 2026 12:11:16 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wXI8s-00000007eFl-2UUB;
+	Wed, 10 Jun 2026 12:34:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXHm4-00000007cVc-0JRe
+	id 1wXI8s-00000007eFb-0U4Z
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jun 2026 12:11:16 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2bf258aba12so12483505ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Jun 2026 05:11:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781093471; x=1781698271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gwId8hSTsYhCm9cW+cozWhD85/5ipdH4k4BKIr8DdEc=;
-        b=m39sY1auCS2CMFC5XS9FWZXx9ehqZnKsVLZ/vbvBS+pYt7qxE1gd1VhFhHo8LbXmmD
-         65b+20u+BCCtcaNMz8XLV0BkxK7e50Sz2Xbey699SpoUTOuN4n5coFCd2XIi0ktpB3HT
-         xDqGITMOlaKUpZbcgeJrwJ2xY7qKpl4fbx1y0VURGcc4MkN61kf/lyBJ0XXCpE150GOr
-         zQ5pPlsZ3bJRGMsUflpXUpO4G2o2BYQGF/F00UUcCTAo26cOaATsC3gsrMYX0TjbQXJD
-         g+1/+ReyzV1dIij5n1iX1Ttl/NU2VNF9POE7bIffBl80PUWug8nG11/SW1eSz/ZIi9AA
-         fh1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781093471; x=1781698271;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gwId8hSTsYhCm9cW+cozWhD85/5ipdH4k4BKIr8DdEc=;
-        b=tBmX7kLz6HYbdDwCSMXvkUH8RZ5/27NG8GIrTsQ1B4EtmoiNx6aj2UMUBs34O5kVWr
-         1t7mUPZ0lOMuHKYKgT1qPuNHE1SguTdUC0qXjUAIk1VoZaoCuvdPkRG3D2ePNxSzSxMA
-         TR9Y1DTJZvEm/m+IQLZmOo2j6P8p97v/JpkS43ghP+izMqo/rXMF13FT3bQgTRSFbF8E
-         6G8eTgQxAbWSKPXtnxM0MjGBoDlMZQv1xrdZjxDykQB+V0NA+AmbTo8n+ap9Gqzb5J40
-         xUATfOrSh2sZAmKngCOar9+XuAmuPQA2v5YeGM8dwrdnebLUXmi6DH5YSY09YyI8xIQv
-         MyAA==
-X-Forwarded-Encrypted: i=1; AFNElJ/5ct26LhAvOiNfaOGzSC7wxIYd4n0afH9CFLlWvT7ziZjwSdmeNl3Bwzo1txS52Ivw6lanljH7HVJXyg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGCaHktgEfDq9YZ5nnHr54zKYJfy4fFXDAFkKA6tiGHdrejdLk
-	zuSGJJ4V/3W+Od6x1OdN8urY0hhWBUBWsNFkiD5fqbwHZoMyGLaGyUKD
-X-Gm-Gg: Acq92OEUgMxMh9txpjkQnnJeWCpqO/T54sega8uibmiVvTnsdsXs3GB7CirwmJjqLY7
-	tsviItb+8CA0lc+hC6qGI8p+sR0A6xujdsEzcvO4Jm9Msm1A5HXXzjbHqnmm2uoA9ucfRIELsAn
-	7F5GQI16bCCG1SS2JhsD+BsAvm9IqqNcN808Sw4wbHjld0S13uJdi+4zrfRpBJ2BPREKrAKreCS
-	kgfcFPShF7Wsir+/ipc8+drDeeAYTGxjsPFiZGyMulrwuZedG+9IPQNYro+cmYLeeFIKbZN73VQ
-	kW7RPvs23ZMgRUcjj1xfu4P4G/P8Q9OSD23ryaWw30hWSMO50rVYATKo2B7uSuGfgP99VazmIAA
-	kI+Z2zSjsHrW+C/kT03rJMz+1+hgrBQ6/dOL61OgAchaKl3OkJSiMVjhI3i9wkUSJbON6eWPSUV
-	2Ad5LSw8OxSFuKciQPiEmjl7hTgxcIMBlzEcg3
-X-Received: by 2002:a17:902:da8c:b0:2ba:1e94:d03b with SMTP id d9443c01a7336-2c2a1948011mr39804155ad.6.1781093471133;
-        Wed, 10 Jun 2026 05:11:11 -0700 (PDT)
-Received: from chenyou.. ([140.116.39.229])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f890b2sm245738445ad.26.2026.06.10.05.11.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2026 05:11:10 -0700 (PDT)
-From: Chen-Yu Yeh <chenyou910331@gmail.com>
-To: unicorn_wang@outlook.com,
-	inochiama@gmail.com
-Cc: Chen-Yu Yeh <chenyou910331@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Han Gao <rabenda.cn@gmail.com>,
-	Nutty Liu <liujingqi@lanxincomputing.com>,
-	Longbin Li <looong.bin@gmail.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
-	sophgo@lists.linux.dev (open list:SOPHGO DEVICETREES and DRIVERS),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v2 2/2] riscv: dts: sophgo: Add Milk-V Duo 256M board support
-Date: Wed, 10 Jun 2026 20:10:10 +0800
-Message-ID: <20260610121026.1517621-2-chenyou910331@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260610121026.1517621-1-chenyou910331@gmail.com>
-References: <20260610121026.1517621-1-chenyou910331@gmail.com>
+	Wed, 10 Jun 2026 12:34:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E1286001D;
+	Wed, 10 Jun 2026 12:34:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 556F91F00898;
+	Wed, 10 Jun 2026 12:34:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781094885;
+	bh=ZaI6xM8qV9yj7Kk8/veyhQXGEM9b9uFkMLsDWbN/Mno=;
+	h=From:Date:Subject:To:Cc;
+	b=WAW7EbX3zLsR9uS+VOMh5DykdskbOLwyT8fEpY8eH1jPSkGFGlEGrrEkUq2MA8LEp
+	 SUgchyz5j41en1mKBYTwskhxzorj56A9EFytSpAQtKttLCRG269Key+AMt6PHVSu4v
+	 3acvLXzRaWjqJ8mu0d/G6S4TbjcOzRZ+6xvvsduRLhEiRm//djuoJGJUzuV46q5u7h
+	 CS9GIoFYGOrK0KLH8Gvzs+vddsMWPU0qVgjBKY6dtxJqoOOnPaSnWcIXMI1hia0Hfm
+	 H0Cru6rZX9PgF5JXX7fruidszfHXm6Ms/SIqTNJFmeuw91ArRYX2vSeqhExp0JR0XP
+	 hKFZiAwL4Yf0Q==
+From: Yixun Lan <dlan@kernel.org>
+Date: Wed, 10 Jun 2026 12:34:32 +0000
+Subject: [PATCH] riscv: dts: spacemit: k3: Enable SD card support
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_051112_117512_A7F6D665 
-X-CRM114-Status: GOOD (  15.84  )
+Message-Id: <20260610-07-k3-enable-sd-v1-1-196ae29bd091@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANdZKWoC/yXMSwqDQBBF0a1IjVNQGvC3lZCB2q+1TGhDl0pA3
+ Hs6yfAM7j3IEBVGbXZQxK6mS0jILxkNUxdGsLpkKqQopZSGpeLHlRG6/gk2x8id89II6spTql4
+ RXt+/4+3+t239jGH9bug8P50aqNBzAAAA
+X-Change-ID: 20260609-07-k3-enable-sd-e1ddf090e87f
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3734; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=APunAFCOhvnEPzJn8enVpgW8mKtpnQazcb7rHmyqvDI=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqKVneuUjSmx5vCKm2/SFZfUIpAQ2MpJfBx6JSI
+ VJxnUXRqWSJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCailZ3hsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+3HuQ/+P2iFsk7XJHMo45AkR6GasC+7AEF/qC+dAN1wf1ASvGjoe24mvYQ9z
+ /hiJYhC3bqJ+Cgl1O9whbN4O8kIrfKaAgYbXj97QAo7IvF+97ooVC31IMdFJtit63lsLFXTSTRV
+ Ezp9ddk/vbQ3bFDl8RhbT2mG4mst7+1UHeTN1evs9dRLIKYHzALeXegGr9ORwxYXG9NLIdKWWKj
+ Eg7kIJuBkmTYnKivzaR9FygAPim/v9jSz9MouqWf/MAw8/1Iqcf4brp1Q3DEC00xLCUbVWfxAGq
+ iOB+xH29bkuzqZgQ+kys1QGp3KIDRNnn3e0yomN5z5/64vNotuaYmy13qOfK0y86KXQemK1opAl
+ wX0BovgoRef40Fc6LoZ06F71ErPPsTh7pBunoM4VrgQ9upgF8svHFNLHugIBS2l8a/Tho1pmRoK
+ aOCit+zYjKwHnNjUCQ1j+EtXQ4TuQDxtvEsMHLgmK060OrvquHbUvLxzfdupF28rfBz8ih5XEvp
+ 4Db+j7BoHZ+2gf4v5/Kh1Dd3QH0qPghtLkFlCgmQm4UH8XgcrFLFvrVWh8rJRwObZ6X+mlLJLXh
+ m28ryakiYGqHUfcqmNjfQvofHaqSpvyIb7CQ8gK4yEIfXld7ZbqFfHV/FuIxC3wR8FYqIJWbbO2
+ 3m+t66UJaB531DO//Uh522eqUGV7BM=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,162 +93,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Milk-V Duo 256M is a small form factor development board based on
-the Sophgo SG2002 SoC.
+Add the device tree node of SDHCI-0 controller which found on CoM260-IFX
+board, it's currenty used for Micro SD card slot, and one GPIO pin is
+configured as card insertion/removal detection pin, the slot use 4-bit
+data bus, and up support to SDR104 speed mode.
 
-This patch adds basic device tree support for the board, including:
-- UART console
-- SD/MMC controller
-- USB host
-- Onboard blue status LED (connected to PWR_GPIO[2] / porte 2)
-
-Tested on actual Milk-V Duo 256M hardware, verified boot to shell and
-heartbeat LED functionality.
-
-Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
-Changes since v1:
-- Removed the leds node because &porte is not yet supported in cv180x.dtsi,
-  which would cause a dtc compilation error.
-- Retained the &usb node because it is already defined in cv180x.dtsi.
-- Cleaned up the trailing blank line in the Makefile.
+ arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts | 18 +++++++++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi   | 44 ++++++++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k3.dtsi           | 13 ++++++++
+ 3 files changed, 75 insertions(+)
 
- arch/riscv/boot/dts/sophgo/Makefile           |   3 +-
- .../boot/dts/sophgo/sg2002-milkv-duo256m.dts  | 108 ++++++++++++++++++
- 2 files changed, 110 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
-
-diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-index 6f65526d4193..f9415c30a2c5 100644
---- a/arch/riscv/boot/dts/sophgo/Makefile
-+++ b/arch/riscv/boot/dts/sophgo/Makefile
-@@ -2,7 +2,8 @@
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-licheerv-nano-b.dtb
-+dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-milkv-duo256m.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v1.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v2.dtb
--dtb-$(CONFIG_ARCH_SOPHGO) += sg2044-sophgo-srd3-10.dtb
-+dtb-$(CONFIG_ARCH_SOPHGO) += sg2044-sophgo-srd3-10.dtb
-\ No newline at end of file
-diff --git a/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
-new file mode 100644
-index 000000000000..4cf441ab3790
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ */
-+
-+/dts-v1/;
-+
-+#include "sg2002.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	model = "Milk-V Duo 256M";
-+	compatible = "milkv,duo256m", "sophgo,sg2002";
-+
-+	aliases {
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+		serial4 = &uart4;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		coprocessor_rtos: region@83f40000 {
-+			reg = <0x83f40000 0xc0000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <25000000>;
-+};
-+
-+&pinctrl {
-+	uart0_cfg: uart0-cfg {
-+		uart0-pins {
-+			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-+				 <PINMUX(PIN_UART0_RX, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+
-+	sdhci0_cfg: sdhci0-cfg {
-+		sdhci0-clk-pins {
-+			pinmux = <PINMUX(PIN_SD0_CLK, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <16100>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-cmd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CMD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-data-pins {
-+			pinmux = <PINMUX(PIN_SD0_D0, 0)>,
-+				 <PINMUX(PIN_SD0_D1, 0)>,
-+				 <PINMUX(PIN_SD0_D2, 0)>,
-+				 <PINMUX(PIN_SD0_D3, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-cd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+};
+diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+index 238bb03d0e9e..e7f76cd24b90 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+@@ -19,3 +19,21 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ };
 +
 +&sdhci0 {
-+	pinctrl-0 = <&sdhci0_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
++	pinctrl-names = "default","uhs";
++	pinctrl-0 = <&mmc1_cfg>;
++	pinctrl-1 = <&mmc1_uhs_cfg>;
 +	bus-width = <4>;
-+	no-1-8-v;
++	cd-gpios = <&gpio K3_GPIO(4) GPIO_ACTIVE_HIGH>;
 +	no-mmc;
 +	no-sdio;
 +	disable-wp;
-+};
-+
-+&uart0 {
-+	pinctrl-0 = <&uart0_cfg>;
-+	pinctrl-names = "default";
++	cap-sd-highspeed;
++	vmmc-supply = <&aldo4>;
++	vqmmc-supply = <&aldo1>;
++	sd-uhs-sdr25;
++	sd-uhs-sdr50;
++	sd-uhs-sdr104;
 +	status = "okay";
 +};
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+index 3ee1471f3798..6b808f890a28 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+@@ -689,4 +689,48 @@ uart0-0-pins {
+ 			drive-strength = <25>;
+ 		};
+ 	};
 +
-+&usb {
-+	dr_mode = "host";
-+	status = "okay";
-+};
--- 
-2.43.0
++	mmc1_cfg: mmc1-cfg {
++		mmc1-data-cmd-pins {
++			pinmux = <K3_PADCONF(132, 0)>,	/* mmc1 dat3 */
++				 <K3_PADCONF(133, 0)>,	/* mmc1 dat2 */
++				 <K3_PADCONF(134, 0)>,	/* mmc1 dat1 */
++				 <K3_PADCONF(135, 0)>,	/* mmc1 dat0 */
++				 <K3_PADCONF(136, 0)>;	/* mmc1 cmd */
++
++			bias-pull-up = <0>;
++			drive-strength = <25>;
++			power-source = <3300>;
++		};
++
++		mmc1-clk-pins {
++			pinmux = <K3_PADCONF(137, 0)>;	/* mmc1 clk */
++
++			bias-pull-down;
++			drive-strength = <25>;
++			power-source = <3300>;
++		};
++	};
++
++	mmc1_uhs_cfg: mmc1-uhs-cfg {
++		mmc1-uhs-data-cmd-pins {
++			pinmux = <K3_PADCONF(132, 0)>,	/* mmc1 dat3 */
++				 <K3_PADCONF(133, 0)>,	/* mmc1 dat2 */
++				 <K3_PADCONF(134, 0)>,	/* mmc1 dat1 */
++				 <K3_PADCONF(135, 0)>,	/* mmc1 dat0 */
++				 <K3_PADCONF(136, 0)>;	/* mmc1 cmd */
++
++			bias-pull-up = <0>;
++			drive-strength = <21>;
++			power-source = <1800>;
++		};
++
++		mmc1-uhs-clk-pins {
++			pinmux = <K3_PADCONF(137, 0)>;	/* mmc1 clk */
++
++			bias-pull-down;
++			drive-strength = <21>;
++			power-source = <1800>;
++		};
++	};
+ };
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index 19fc9b49668e..dabb0d5e6bad 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -1099,6 +1099,19 @@ pll: clock-controller@d4090000 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		sdhci0: mmc@d4280000 {
++			compatible = "spacemit,k3-sdhci";
++			reg = <0x0 0xd4280000 0x0 0x200>;
++			clocks = <&syscon_apmu CLK_APMU_SDH_AXI>,
++				 <&syscon_apmu CLK_APMU_SDH0>;
++			clock-names = "core", "io";
++			resets = <&syscon_apmu RESET_APMU_SDH_AXI>,
++				 <&syscon_apmu RESET_APMU_SDH0>;
++			reset-names = "axi", "sdh";
++			interrupts = <99 IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
++		};
++
+ 		syscon_apmu: system-controller@d4282800 {
+ 			compatible = "spacemit,k3-syscon-apmu";
+ 			reg = <0x0 0xd4282800 0x0 0x400>;
+
+---
+base-commit: 38d5f73d1f5af60d87047b981736b89521e49213
+change-id: 20260609-07-k3-enable-sd-e1ddf090e87f
+
+Best regards,
+--  
+Yixun Lan <dlan@kernel.org>
 
 
 _______________________________________________
