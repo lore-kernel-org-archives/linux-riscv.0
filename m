@@ -4,91 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5E8CD8CA8
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 01:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4849DCD8CA8
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 02:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8IfXU0KT4w1YqsLvdloiqB/7dH8PNP6V5aaicks5qPM=; b=eTEytT94SsiaUA
-	MDBuhcD5AMNSLb9XJKRehDbmxeaA9umazqX8wMpkfoe0neoTM5U7SXLDVDE6Qw+MdN9ZHSr7PtJBS
-	Xs2JDJiff0bVH1VuFbaoEbQpRsf6l7hJ98woUehi4dSKTUGdtQPm4uVZuy8Rl+dU0H1IZ6YMK2Pwt
-	5d9ZP5aZv59M0LX5eAW/XKUAC0Bv7dvmMRWNQJgSzoJGQUlRQOY4qNAb2Rt1Frr7nNx7iaRJZD12N
-	tjInCIiZxwlD7g1fzaHPZW+RI1hpuOR2V+VMrGhb7DUj1M2SIXlwUDF2bOAcAnbEFbF9p35FQeOvC
-	T2fGUsopjQhzk/lFFCTQ==;
+	List-Owner; bh=yIkFNpqZoCn0hhlc2ILinscR83GcO0ZEO7/jLHR/elI=; b=49rBLbsgiXKrfh
+	ibaNqrNxTfUL59pxLik1k8HF6gy5mGwAdKGcH/cZPrTPovd0ZnUliUPg7ic2MnAQ2chPS8hA7GlA9
+	CA1lVUKQktLeZMXUD8qPexrt9gws/zcmSN7pMpQqkMw+Nk5WeBmPwZDnWm+J4+ktnCGP15fYPeSUE
+	KpPJsCA5QZOj6cvMSV5sqMuKV6weVrLlcMvYU1MHi1eQR3O5KVW3Ch7kwKwu9QA3sodwY5G+wBX3b
+	ik+YVeP8F5ptj/ZjFEDMz5ZiyQ9AfXbLnCDFP+HWqusw7txvQl/K3Z+A+WI4fztDASLvcXHfYn4Fj
+	NOZ0u9wmqLp5rQX0Hn0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7oA-00000006e4D-2MUV;
-	Wed, 10 Jun 2026 01:32:43 +0000
-Received: from mail.eswincomputing.com ([123.124.195.78])
+	id 1wX8Hm-00000006fxN-3DI4;
+	Wed, 10 Jun 2026 02:03:19 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wX7o6-00000006e20-1dmR;
-	Wed, 10 Jun 2026 01:32:41 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app1 (Coremail) with SMTP id TAJkCgA32XKnvihqQJQlAA--.2890S2;
-	Wed, 10 Jun 2026 09:32:25 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	horms@kernel.org,
-	lee@kernel.org,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net-next v8 6/6] riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet controller
-Date: Wed, 10 Jun 2026 09:32:23 +0800
-Message-ID: <20260610013223.972-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
-In-Reply-To: <20260610012727.848-1-lizhi2@eswincomputing.com>
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
+	id 1wX8Hi-00000006fwu-1oLQ
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Jun 2026 02:03:16 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7e71198e0adso1768312a34.2
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Jun 2026 19:03:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781056993; cv=none;
+        d=google.com; s=arc-20240605;
+        b=F1iMGNPxrvcz9ZW8C3VO9k5gjZOH8Heq/tDH+ns/nC7PXr1Y0kdeEx2Rsmq2gyOMEB
+         MYZKGGdI+WIUnqBoj40+mRK0FuHt1Z7z5Lggy4WPmVyr2bMyYEa1TEEtC8o890wQNGIr
+         K2R4vqKl7ZRKYaP+1pH3uRazAg1cDQwEs3Fppw+E6YI/o/PxMsMQY+rUSedwW00Fx5ee
+         LpNvzx71FcIrWrVToRc11OF/Ow3haepbvuU3HBYaDJyN3inbBQ9NBQd87i4CSP2EK2Cu
+         5qoL+rBQsx1DBbNb2xPIcMtRYdPDdxz7RR+uq93xZkfEXw5F731J5HSPN/PmdTn7naUc
+         qC7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UVLKzHHipOPmzpzXCQLBwTllh/qtjlZjlrowYfX4R2g=;
+        fh=xzpcqBUZMXFWlobf0StPAMMJv9+hhXr3th3Ht6lJvDU=;
+        b=B3BdjRbgiTzAlIndmgNEEXsrn6gcpaeHB4KGeZCFoyQuGkJ9QLGgrfHRSTHe62qZma
+         AH8UUskQDqJyAIZfy1rrUgRbIU9e1BFx57JjB3/2mQo3Y+ATOK6T9l3TXbiHLYFTQkzD
+         mlmZjibmLeIaqeXaTKLswqIcAK+aBhNdeEUDWF7dWOMAJvMjabrDrinbSHXefh+Y/rXD
+         b2xJ0ETb6+HMz2Va3CMGySQR7sktyRird5IRFjBvpPq10ZA5O+SK4EUTs9UXipVwzBdN
+         I7CKUhygPnJQYjKrfuvQjv1lzOhhdm9Z6X9oP/3y37jyMlhZk24W3bRSuq/AWg8wUZqU
+         vjOQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1781056993; x=1781661793; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UVLKzHHipOPmzpzXCQLBwTllh/qtjlZjlrowYfX4R2g=;
+        b=T5z3ruCKb2AbUhIDm/ov9GmGcqHqsdWkEoQDg/lh5puDK3Rb9S9TW/YjKj72tXP1W/
+         ipoHJGKeZMFhJkydaEAyFB7XB5ytExpFdkgzTizg5nGtQkhQ3tiAGt/ylumTGyRxLtqe
+         T45NGUlbmqTgqypV1NHWziRW9R97ThxZtTiBpew8QMquT0n5FxEYwgKFl7pMTd5ziaMr
+         rKfbpbi2Jw1CmS8hhmvUenl/sl8Ktd/6Qqjq4WzD58DId1myArQ4HdIlNMXPJ0fzUm0L
+         QA65x8xkrTRvaTbKX/2C0A33rzpKqOnuSZa7o8wpbnnbJcW9/oxFihoyvksEtqhcwHNa
+         8nwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781056993; x=1781661793;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UVLKzHHipOPmzpzXCQLBwTllh/qtjlZjlrowYfX4R2g=;
+        b=NoIHosKKjz1vSlKbUro7/py4j+dSR8mSY/NrxkrDItCM/hSgbfR2lg5ez1idW2VWnQ
+         VAB1f+IRKLk0EzrvunTAqYdQCttPbKJecQwr/hLKuH7ZyIaBxzZOh3oonXna1QtD8WvW
+         ifSB3SyTFKuDMzT6mKi03OjkEJbvNJ1LTYKUmRwIH0SJoNHbxkMUYhkr1tMzdIsKqXds
+         wY69aIVrcwIj/rASCMeG0aC/2ytCjVFaaSZr4p/oOyI+CUIlJI21pfHNyY+/SEA6IYR6
+         tWgwU7IRkPrsZaR3UUTFLX2POIzUD3moX/Y3Lp3QwtIGTtWVso1Eep89qzQ2qpLWjAwM
+         qcVA==
+X-Forwarded-Encrypted: i=1; AFNElJ8MA+Ptz4XalidRtq9DEY8rRNCZtcXURGBbtX58peNcOHBsC703vX5v5Bk10XW2XGCNu8YRpP4++SjR/w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmfck8xqmcAd2DonmalhfptlC72xIENX/CRGa/HHVfsMuDfv3J
+	cF/I8K0Nk1/qXAnpgax1/hHIG0nblYLxuwAEibZTcSaym7vmkfu8JNtmUlLQDLRZx+Sbd/jPCR/
+	rk5yvfm3I3e64yxOvzFMj8DdY5dFJvNWD9TreHfF5uQ==
+X-Gm-Gg: Acq92OHPaYIfOAlRx/lKzvcAWxIQJJDDhkfBdiC/WCP0Czx0YsIORVPyno7NpbBqOzA
+	L75f3AYe86du48OhRoj09JRZ0sa1yOVrsut2Ydc4rZsrR2tcQE2iWV+dFYZ8/5q6qE3Z8oLIVKR
+	NNHJIHLYiOBymjX3zO4UUXm8FXNHPFDax56WCeeItLWu+wqlocJIFDhwtt4/IPktUc0rf9jGbtt
+	v1wrv86Ff1DxzqnuwItfcI4JRiIo1Pv+qMKtX/iZko3Fl18kuiOFpx2RQLQ80ABIfkvHigmvP/M
+	QGlqCBXc6QCkWsmIFRZLoRT67Q2NbvJ5KFo=
+X-Received: by 2002:a05:6830:81d8:b0:7e7:31c:c121 with SMTP id
+ 46e09a7af769-7e70c78fc87mr14626623a34.12.1781056993185; Tue, 09 Jun 2026
+ 19:03:13 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: TAJkCgA32XKnvihqQJQlAA--.2890S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3JF45GryxJr1fXr1DGFWkXrb_yoW3Kr4kpa
-	13urWfJr4kZFWSvw4jvF40kFZrGan7KFykCrnrtFy8Jw1v9FnYk34jqFy5XF1DZrW5Xw13
-	XFnrJ34IyF1Iy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4U
-	JVW0owA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4U
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRQ6p9UUUUU=
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+References: <20260609130021.99899-1-cuiyunhui@bytedance.com>
+ <20260609130021.99899-2-cuiyunhui@bytedance.com> <20260609-washboard-fantasize-ddf0a9752df8@spud>
+In-Reply-To: <20260609-washboard-fantasize-ddf0a9752df8@spud>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Wed, 10 Jun 2026 10:03:01 +0800
+X-Gm-Features: AVVi8CdRlV_dg_ea73FD1rM-qQA_K4_GqKNrryZYAfOnnfoVb9mqcROreM8Nqss
+Message-ID: <CAEEQ3w=C_z8awtevLhceTgqLW79ONzKTm5MRJeoSTLB9q_CeiQ@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 1/3] dt-bindings: riscv: clarify Svadu
+ boot-time behavior
+To: Conor Dooley <conor@kernel.org>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, andrew+kernel@donnellan.id.au, 
+	aou@eecs.berkeley.edu, apatel@ventanamicro.com, apopple@nvidia.com, 
+	atishp@rivosinc.com, baolin.wang@linux.alibaba.com, cleger@rivosinc.com, 
+	conor+dt@kernel.org, debug@rivosinc.com, devicetree@vger.kernel.org, 
+	guodong@riscstar.com, hui.wang@canonical.com, krzk+dt@kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	liu.xuemei1@zte.com.cn, namcao@linutronix.de, nick.hu@sifive.com, 
+	palmer@dabbelt.com, pincheng.plct@isrc.iscas.ac.cn, pjw@kernel.org, 
+	qingwei.hu@bytedance.com, ritesh.list@gmail.com, rmclure@linux.ibm.com, 
+	robh@kernel.org, wangruikang@iscas.ac.cn, zhangchunyan@iscas.ac.cn, 
+	zong.li@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260609_183238_800513_AF5CA2B1 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260609_190315_053551_C485B40E 
+X-CRM114-Status: GOOD (  23.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,419 +122,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
-
-Enable the on-board Gigabit Ethernet controller on the
-HiFive Premier P550 development board.
-
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
----
- .../dts/eswin/eic7700-hifive-premier-p550.dts | 240 ++++++++++++++++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 105 ++++++++
- 2 files changed, 345 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-index 131ed1fc6b2e..edd91b04e251 100644
---- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-+++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-@@ -13,11 +13,251 @@ / {
- 
- 	aliases {
- 		serial0 = &uart0;
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 	};
- 
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-+
-+	vcc_1v8: vcc1v8 {
-+		 compatible = "regulator-fixed";
-+		 regulator-name = "vcc1v8";
-+		 regulator-always-on;
-+		 regulator-boot-on;
-+		 regulator-min-microvolt = <1800000>;
-+		 regulator-max-microvolt = <1800000>;
-+	 };
-+};
-+
-+&xtal24m {
-+	clock-frequency = <24000000>;
-+	clock-output-names = "xtal24m";
-+};
-+
-+&pinctrl {
-+	status = "okay";
-+	vrgmii-supply = <&vcc_1v8>;
-+
-+	pinctrl_gpio0: gpio0-grp {
-+		gpio0-pins {
-+			pins = "gpio0";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio5: gpio5-grp {
-+		gpio5-pins {
-+			pins = "gpio5";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio11: gpio11-grp {
-+		gpio11-pins {
-+			pins = "gpio11";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio14: gpio14-grp {
-+		gpio14-pins {
-+			pins = "mode_set1";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio15: gpio15-grp {
-+		gpio15-pins {
-+			pins = "mode_set2";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio28: gpio28-grp {
-+		gpio28-pins {
-+			pins = "gpio28";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio43: gpio43-grp {
-+		gpio43-pins {
-+			pins = "usb1_pwren";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio71: gpio71-grp {
-+		gpio71-pins {
-+			pins = "mipi_csi0_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio74: gpio74-grp {
-+		gpio74-pins {
-+			pins = "mipi_csi1_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio76: gpio76-grp {
-+		gpio76-pins {
-+			pins = "mipi_csi2_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio77: gpio77-grp {
-+		gpio77-pins {
-+			pins = "mipi_csi2_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio79: gpio79-grp {
-+		gpio79-pins {
-+			pins = "mipi_csi3_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio80: gpio80-grp {
-+		gpio80-pins {
-+			pins = "mipi_csi3_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio82: gpio82-grp {
-+		gpio82-pins {
-+			pins = "mipi_csi4_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio84: gpio84-grp {
-+		gpio84-pins {
-+			pins = "mipi_csi4_mclk";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio85: gpio85-grp {
-+		gpio85-pins {
-+			pins = "mipi_csi5_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio94: gpio94-grp {
-+		gpio94-pins {
-+			pins = "s_mode";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio106: gpio106-grp {
-+		gpio106-pins {
-+			pins = "gpio106";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio111: gpio111-grp {
-+		gpio111-pins {
-+			pins = "gpio111";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+};
-+
-+&gmac0 {
-+	phy-handle = <&gmac0_phy0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio106>;
-+	rx-internal-delay-ps = <20>;
-+	tx-internal-delay-ps = <100>;
-+	status = "okay";
-+};
-+
-+&gmac0_mdio {
-+	gmac0_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 10 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
-+};
-+
-+&gmac1 {
-+	phy-handle = <&gmac1_phy0>;
-+	/*
-+	 * The MAC silicon unconditionally introduces an ~2 ns TX clock-to-data
-+	 * skew (MAC-side TX internal delay). The PHY provides the standard
-+	 * ~2 ns RX internal delay. The driver additionally inverts the RX
-+	 * clock at 1000 Mb/s to correct a silicon RX sampling timing issue.
-+	 * phy-mode is "rgmii-id": TX delay from the MAC silicon, RX delay
-+	 * from the PHY.
-+	 */
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio111>;
-+	rx-internal-delay-ps = <200>;
-+	tx-internal-delay-ps = <2200>;
-+	status = "okay";
-+};
-+
-+&gmac1_mdio {
-+	gmac1_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 15 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
- };
- 
- &uart0 {
-diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-index c3ed93008bca..c77bc8b1b7bc 100644
---- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-+++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -5,6 +5,9 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/reset/eswin,eic7700-reset.h>
-+
- / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
-@@ -202,6 +205,11 @@ pmu {
- 				<0x00000000 0x0000000f 0xfffffffc 0x000000ff 0x00000078>;
- 	};
- 
-+	xtal24m: oscillator {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
-@@ -245,6 +253,85 @@ plic: interrupt-controller@c000000 {
- 			#interrupt-cells = <1>;
- 		};
- 
-+		hsp_power_domain: bus@50400000 {
-+			compatible = "simple-pm-bus";
-+			ranges;
-+			clocks = <&clk 171>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+
-+			hsp_sp_csr: hsp-sp-top-csr@50440000 {
-+				compatible = "eswin,eic7700-syscfg", "syscon";
-+				reg = <0x0 0x50440000 0x0 0x2000>;
-+			};
-+
-+			gmac0: ethernet@50400000 {
-+				compatible = "eswin,eic7700-qos-eth",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50400000 0x0 0x10000>;
-+				interrupts = <61>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 193>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH0_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac0>;
-+				status = "disabled";
-+
-+				gmac0_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac0: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+
-+			gmac1: ethernet@50410000 {
-+				compatible = "eswin,eic7700-qos-eth-clk-inversion",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50410000 0x0 0x10000>;
-+				interrupts = <70>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 194>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH1_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x200 0x208 0x218 0x214 0x21c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac1>;
-+				status = "disabled";
-+
-+				gmac1_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac1: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+		};
-+
- 		uart0: serial@50900000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x50900000 0x0 0x10000>;
-@@ -341,5 +428,23 @@ gpioD: gpio-port@3 {
- 				#gpio-cells = <2>;
- 			};
- 		};
-+
-+		pinctrl: pinctrl@51600080 {
-+			compatible = "eswin,eic7700-pinctrl";
-+			reg = <0x0 0x51600080 0x0 0x1fff80>;
-+		};
-+
-+		clk: clock-controller@51828000 {
-+			compatible = "eswin,eic7700-clock";
-+			reg = <0x0 0x51828000 0x0 0x300>;
-+			clocks = <&xtal24m>;
-+			#clock-cells = <1>;
-+		};
-+
-+		reset: reset-controller@51828300 {
-+			compatible = "eswin,eic7700-reset";
-+			reg = <0x0 0x51828300 0x0 0x200>;
-+			#reset-cells = <1>;
-+		};
- 	};
- };
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBXZWQsIEp1biAxMCwgMjAyNiBhdCAxMjowOeKAr0FNIENvbm9yIERvb2xl
+eSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIEp1biAwOSwgMjAyNiBhdCAw
+OTowMDoxOFBNICswODAwLCBZdW5odWkgQ3VpIHdyb3RlOgo+ID4gQ2xhcmlmeSB0aGF0IHN5c3Rl
+bXMgd2hpY2ggYWR2ZXJ0aXNlIG9ubHkgU3ZhZHUgaGF2ZSBoYXJkd2FyZSBQVEUgQS9ECj4gPiB1
+cGRhdGluZyBlbmFibGVkIGF0IGJvb3QsIHdoaWxlIHN5c3RlbXMgYWR2ZXJ0aXNpbmcgYm90aCBT
+dmFkZSBhbmQgU3ZhZHUKPiA+IG11c3QgZW5hYmxlIFN2YWR1IGV4cGxpY2l0bHkgd2l0aCBTQkkg
+RldGVC4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0ZWRh
+bmNlLmNvbT4KPiA+IFJldmlld2VkLWJ5OiBRaW5nd2VpIEh1IDxxaW5nd2VpLmh1QGJ5dGVkYW5j
+ZS5jb20+Cj4gPiAtLS0KPiA+ICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvcmlz
+Y3YvZXh0ZW5zaW9ucy55YW1sIHwgNiArKystLS0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMyBpbnNl
+cnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0
+aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1sIGIvRG9jdW1lbnRh
+dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lvbnMueWFtbAo+ID4gaW5kZXgg
+MmIwYThhOTNiYjIxNC4uYjA5ODg4ZTk5ODhkZSAxMDA2NDQKPiA+IC0tLSBhL0RvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwKPiA+ICsrKyBiL0Rv
+Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwKPiA+
+IEBAIC0yOTQsMTAgKzI5NCwxMCBAQCBwcm9wZXJ0aWVzOgo+ID4gICAgICAgICAgICAgICAgIG9m
+IHRoZSBQVEUgQS9EIGJpdHMgb3IgcGFnZSBmYXVsdHMgd2hlbiB0aGV5IG5lZWQgdXBkYXRlZC4K
+PiA+ICAgICAgICAgICAgICAyKSBPbmx5IFN2YWRlIHByZXNlbnQgaW4gRFQgPT4gU3VwZXJ2aXNv
+ciBtdXN0IGFzc3VtZSBTdmFkZSB0byBiZQo+ID4gICAgICAgICAgICAgICAgIGFsd2F5cyBlbmFi
+bGVkLgo+ID4gLSAgICAgICAgICAgIDMpIE9ubHkgU3ZhZHUgcHJlc2VudCBpbiBEVCA9PiBTdXBl
+cnZpc29yIG11c3QgYXNzdW1lIFN2YWR1IHRvIGJlCj4gPiAtICAgICAgICAgICAgICAgYWx3YXlz
+IGVuYWJsZWQuCj4gPiArICAgICAgICAgICAgMykgT25seSBTdmFkdSBwcmVzZW50IGluIERUID0+
+IFN1cGVydmlzb3IgbXVzdCBhc3N1bWUgU3ZhZHUgaXMKPiA+ICsgICAgICAgICAgICAgICBlbmFi
+bGVkIGF0IGJvb3QuCj4KPiBDb21taXQgbWVzc2FnZSBpcyBtaXNzaW5nIGFuIGV4cGxhbmF0aW9u
+IG9mIHdoeSB0aGlzIGJlaGF2aW91ciBjaGFuZ2UgaXMKPiBub3QgcHJvYmxlbWF0aWMuIEFsdGhv
+dWdoLCB0byBiZSBob25lc3QsIEkgYW0gbm90IHN1cmUgd2hhdCB0aGUgY2hhbmdlZCB0ZXh0Cj4g
+YWN0dWFsbHkgbWVhbnMuIElmIG9ubHkgU3ZhZHUgaXMgcHJlc2VudCwgdGhlbiB0aGUgaGFyZHdh
+cmUgZG9lc24ndCBzdXBwb3J0Cj4gU3ZhZGUsIGFuZCB0aGVyZWZvcmUgU3ZhZHUgd291bGQgbmV2
+ZXIgYmUgYW55dGhpbmcgb3RoZXIgdGhhbiBlbmFibGVkIHNvCj4gY2hhbmdpbmcgdGhlIHdvcmRp
+bmcgdG8gc3BlY2lmeSAiYXQgYm9vdCIgc2VlbXMgbGVzcyBjbGVhcj8KClRoZSAiZW5hYmxlZCBh
+dCBib290IiB3b3JkaW5nIGNhbWUgZnJvbSBBbmRyZXcncyBmZWVkYmFjayBvbiB0aGUgcHJldmlv
+dXMKdmVyc2lvbjogImFsd2F5cyIgaXMgYSBzZW5zaXRpdmUgdGVybSBoZXJlIGJlY2F1c2UgQURV
+RSBpcyB3cml0YWJsZSB3aGVuClN2YWR1IGlzIGltcGxlbWVudGVkLCBhbmQgQURVRT0wIGJlaGF2
+ZXMgYXMgdGhvdWdoIFN2YWRlIHdlcmUgaW1wbGVtZW50ZWQuCgpXb3VsZCB0aGlzIHdvcmRpbmcg
+d29yaz8KCjMpIE9ubHkgU3ZhZHUgcHJlc2VudCBpbiBEVCA9PiBTdXBlcnZpc29yIG11c3QgYXNz
+dW1lIGhhcmR3YXJlIFBURSBBL0QKICAgIHVwZGF0aW5nIGlzIGVuYWJsZWQgYnkgZGVmYXVsdC4K
+Cj4KPiA+ICAgICAgICAgICAgICA0KSBCb3RoIFN2YWRlIGFuZCBTdmFkdSBwcmVzZW50IGluIERU
+ID0+IFN1cGVydmlzb3IgbXVzdCBhc3N1bWUKPiA+IC0gICAgICAgICAgICAgICBTdmFkdSB0dXJu
+ZWQtb2ZmIGF0IGJvb3QgdGltZS4gVG8gdXNlIFN2YWR1LCBzdXBlcnZpc29yIG11c3QKPiA+ICsg
+ICAgICAgICAgICAgICBTdmFkdSBpcyBkaXNhYmxlZCBhdCBib290IHRpbWUuIFRvIHVzZSBTdmFk
+dSwgc3VwZXJ2aXNvciBtdXN0Cj4KPiBUaGlzIGNoYW5nZSBkb2Vzbid0IGFjdHVhbGx5IGRvIGFu
+eXRoaW5nLCAidHVybmVkLW9mZiIgYW5kICJkaXNhYmxlZCIKPiBhcmUgdGhlIHNhbWUgdGhpbmcg
+LSBhbHRob3VnaCB0aGUgbGF0dGVyIGlzIG1vcmUgZGVzaXJhYmxlIHdvcmRpbmcgSQo+IHRoaW5r
+LiBJIGhhdmUgbm8gcHJvYmxlbXMgd2l0aCB0aGlzIHBvcnRpb24gb2YgdGhlIHBhdGNoLgo+Cj4g
+PiAgICAgICAgICAgICAgICAgZXhwbGljaXRseSBlbmFibGUgaXQgdXNpbmcgdGhlIFNCSSBGV0ZU
+IGV4dGVuc2lvbi4KPiA+Cj4gPiAgICAgICAgICAtIGNvbnN0OiBzdmFkdQo+ID4gLS0KPiA+IDIu
+MzkuNQo+ID4KClRoYW5rcywKWXVuaHVpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
