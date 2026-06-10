@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0469CCD8CB2
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 15:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0889DCD8CB9
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 16:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OSGUCNzFRIkV/Miq+J7MrD5rzq0wzkT1QxV4WluT2RM=; b=2M5LzGAdpgW0Oh
-	VO+oklPl2/g3qPb3xJBojrgB/dkyHGQw2jMzv6Oq431LC8lOsACxOYxrNce58KWIFkRAJRqD8+9UM
-	q8ujPDWynnAtMScUn4kpm3SM/Y2Pd8X9LwW/7XKIjL8zqLjRQ5dgu7+mOcLnpidxFhiwuSPovBAVY
-	lSNQYNTnDN8fkYzZ6B9uocZgxCthTksPQxKowIzuDx3555GY49oUjxsNeXVK4nz/UEotffviAxHsw
-	6zcVY/htLuJGG+NQwHkVT3ChJUa+h+Np4oq6PXxnB5rPxUz7bw5ha9PEijByYelm1W0to6/faPslC
-	d4w2C9FyK4GUzbzAYY6A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v6Hvui2T4zABe4QZuJ/TB73gJgyzOrnBQIPOdojVUuQ=; b=3lun7J2MeOHskuSJ09zrBvqwRO
+	yiPv6q6S/NSubvUBg0xtmPO/OK1JGhJvtgR0jzmJsVawkWQJC1Hf6s8iaKVWdoYiofxspC5UsCQxD
+	Q9pVYHpTyhxNxelv3WzGMKDdxG77jQ0YBcwzPbqeWeVi+GmFV4GUCPeAKOZi82WGvIvU/7dsnuiit
+	Fe3GbrP5jARtFIfMEuJvYmVudGHBXiCAZEJUbvmYM+kP3NWsej4tm5RAhteQi0lyGMJ2JbbYG1pQT
+	Q3Ur3hnC6/gF4ikfmr5NyoC8Q4po57kPFiMJhWY7ocZyT+W6dyxLPlFdqJrcvcoyziyNv31wH1K+S
+	ZQMwGs4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXLIC-000000084Ur-0MYh;
-	Wed, 10 Jun 2026 15:56:36 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wXMAY-00000008A1z-43fN;
+	Wed, 10 Jun 2026 16:52:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXLI8-000000084UF-0fZC;
-	Wed, 10 Jun 2026 15:56:33 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1781106986;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=msjhwjsuJi/htIU80DZBT36GfATEuBVhKi4XiG52gs8=;
-	b=Evzdm+SMUac0KWBp/cSjFK4ibPrgnP+r5mKRPgQnPivfV4ERX9NRAyOQ5yu543SPvXmg5h
-	yJAtK1t0KzFg+b8Uv9bz/Whm8ORmqCXerfUfGAoBvEOHHqpG1ZjMl/DVGIWUUgw3ehKjA8
-	YEuA5NKVOeL7SEE3qt2+QH/88E7UkZ1cxv4/gt82Sr8lUYPK5RaqDIpz/AnAQJNjdr6dz0
-	b79Kc4fVb6yQFzfE4F37jsmNrWmbm3yNKG89hEqFJNpAAoPhDfGnPl47moLlUPZpX2sgTO
-	ZX02s59l5CieC6vsqboDL1jvp/5At+Yu0wlxI5s1r6RrDBUdXrTe4621WGAIJQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1781106986;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=msjhwjsuJi/htIU80DZBT36GfATEuBVhKi4XiG52gs8=;
-	b=HzG5JS6iQRXS2PQdNGQVgSzLFt0ZH82WyaHCRre7c3gkPL0HlgAN+iMasP7WUDwalbAl1s
-	ZM7DaVfLKgoCAYBg==
-To: Charlie Jenkins via B4 Relay
- <devnull+thecharlesjenkins.gmail.com@kernel.org>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
- <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra
- <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Shuah
- Khan <shuah@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kselftest@vger.kernel.org, Charlie Jenkins
- <thecharlesjenkins@gmail.com>
-Subject: Re: [PATCH 01/16] riscv: Introduce instruction table generation
-In-Reply-To: <20260407-riscv_insn_table-v1-1-54b4736a1e77@gmail.com>
-References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
- <20260407-riscv_insn_table-v1-1-54b4736a1e77@gmail.com>
-Date: Wed, 10 Jun 2026 17:56:25 +0200
-Message-ID: <878q8m1j9y.fsf@yellow.woof>
+	id 1wXMAX-00000008A1q-2eKT
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Jun 2026 16:52:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A091543ACD;
+	Wed, 10 Jun 2026 16:52:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15BB01F00899;
+	Wed, 10 Jun 2026 16:52:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781110364;
+	bh=addipIcASq3ojF947fNGWGLp5EDvGsVvNqYOwdn+Y1Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ndpOyF82eA+xOjW5IzWLC7LUa1XjR9E5RHRbpUi4QeAz9O9yQKJR6eZ+q0jkjX1lE
+	 IznSN9OLG1/pRwRazbqe4Bl7Ijs8W0K43j910rTWKZgBL1uhyFQrMOEB2gN73WIad2
+	 3k8/T6zIb7XlyOd5PtWBlCUmUzge6vtVqlIiZTwbR+lbFwSAB7RTDZ26DoI7avhmoo
+	 tYAPB/6EXHvtA0EbGtdwb4BxLjVx9fAIdvi4EPcOh58fA6nCrp6eRKydkllHxsNHXn
+	 l3BDB8IZ1kCrukPFQzymwQindpr6e2dlcHJUheURsKH6fxEJYh3zJRZMl5HH/Aa+Rs
+	 sC89fzkV+VRzQ==
+Date: Wed, 10 Jun 2026 17:52:37 +0100
+From: Conor Dooley <conor@kernel.org>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, andrew+kernel@donnellan.id.au,
+	aou@eecs.berkeley.edu, apatel@ventanamicro.com, apopple@nvidia.com,
+	atishp@rivosinc.com, baolin.wang@linux.alibaba.com,
+	cleger@rivosinc.com, conor+dt@kernel.org, debug@rivosinc.com,
+	devicetree@vger.kernel.org, guodong@riscstar.com,
+	hui.wang@canonical.com, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	liu.xuemei1@zte.com.cn, namcao@linutronix.de, nick.hu@sifive.com,
+	palmer@dabbelt.com, pincheng.plct@isrc.iscas.ac.cn, pjw@kernel.org,
+	qingwei.hu@bytedance.com, ritesh.list@gmail.com,
+	rmclure@linux.ibm.com, robh@kernel.org, wangruikang@iscas.ac.cn,
+	zhangchunyan@iscas.ac.cn, zong.li@sifive.com
+Subject: Re: [External] Re: [PATCH v3 1/3] dt-bindings: riscv: clarify Svadu
+ boot-time behavior
+Message-ID: <20260610-prompter-fever-db3f6a200051@spud>
+References: <20260609130021.99899-1-cuiyunhui@bytedance.com>
+ <20260609130021.99899-2-cuiyunhui@bytedance.com>
+ <20260609-washboard-fantasize-ddf0a9752df8@spud>
+ <CAEEQ3w=C_z8awtevLhceTgqLW79ONzKTm5MRJeoSTLB9q_CeiQ@mail.gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_085632_363961_4942D388 
-X-CRM114-Status: GOOD (  13.10  )
+In-Reply-To: <CAEEQ3w=C_z8awtevLhceTgqLW79ONzKTm5MRJeoSTLB9q_CeiQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,97 +77,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2616821448781683700=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Charlie Jenkins via B4 Relay
-<devnull+thecharlesjenkins.gmail.com@kernel.org> writes:
-> From: Charlie Jenkins <thecharlesjenkins@gmail.com>
->
-> Eliminate the need to hand-write riscv instructions by using a shell
-> script to autogenerate a header from an instruction table. This is modeled
-> after the syscall table infrastructure.
->
-> The table is generated externally by riscv-unified-db [1], but is
-> in a simple format to make it possible to use other tools or modify
-> manually.
->
-> [1] https://github.com/riscv-software-src/riscv-unified-db
->
-> Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Thanks for the work, I really like the idea. This will make it much
-easier to maintain the instruction stuffs.
+--===============2616821448781683700==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jW3aBPRv62t26xHn"
+Content-Disposition: inline
 
-> +c.ld common,32 011<13|00<0 imm<3=6-5|12-10 xd!1!3!5!7=4-2 xs1=9-7
-> +c.ld common,64 011<13|00<0 imm<3=6-5|12-10 xd=4-2 xs1=9-7
 
-Not sure if I confuse something, but the spec says "C.LD is an
-RV64C-only instruction". Why do we have 32 here?
+--jW3aBPRv62t26xHn
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +echo "#define COMMA ," >> $outfile
-> +echo "#define SEMICOLON ;" >> $outfile
-> +echo "#define SINGLE_ARG(...) __VA_ARGS__" >> $outfile
+On Wed, Jun 10, 2026 at 10:03:01AM +0800, yunhui cui wrote:
+> Hi Conor,
+>=20
+> On Wed, Jun 10, 2026 at 12:09=E2=80=AFAM Conor Dooley <conor@kernel.org> =
+wrote:
+> >
+> > On Tue, Jun 09, 2026 at 09:00:18PM +0800, Yunhui Cui wrote:
+> > > Clarify that systems which advertise only Svadu have hardware PTE A/D
+> > > updating enabled at boot, while systems advertising both Svade and Sv=
+adu
+> > > must enable Svadu explicitly with SBI FWFT.
+> > >
+> > > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> > > Reviewed-by: Qingwei Hu <qingwei.hu@bytedance.com>
+> > > ---
+> > >  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 +++---
+> > >  1 file changed, 3 insertions(+), 3 deletions(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
+b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > index 2b0a8a93bb214..b09888e9988de 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > @@ -294,10 +294,10 @@ properties:
+> > >                 of the PTE A/D bits or page faults when they need upd=
+ated.
+> > >              2) Only Svade present in DT =3D> Supervisor must assume =
+Svade to be
+> > >                 always enabled.
+> > > -            3) Only Svadu present in DT =3D> Supervisor must assume =
+Svadu to be
+> > > -               always enabled.
+> > > +            3) Only Svadu present in DT =3D> Supervisor must assume =
+Svadu is
+> > > +               enabled at boot.
+> >
+> > Commit message is missing an explanation of why this behaviour change is
+> > not problematic. Although, to be honest, I am not sure what the changed=
+ text
+> > actually means. If only Svadu is present, then the hardware doesn't sup=
+port
+> > Svade, and therefore Svadu would never be anything other than enabled so
+> > changing the wording to specify "at boot" seems less clear?
+>=20
+> The "enabled at boot" wording came from Andrew's feedback on the previous
+> version: "always" is a sensitive term here because ADUE is writable when
+> Svadu is implemented, and ADUE=3D0 behaves as though Svade were implement=
+ed.
 
-Aren't these macro unused?
+Whether or not it is writeable, the current wording means that it is not
+allowed to be changed. I think that's reasonable because there's nothing
+else supported by the hardware so changing it makes no sense.
 
-> +echo >> $outfile
-> +
-> +grep -E "^[a-z\.0-9]+[[:space:]]+" "$infile" | {
-> +    while read name base fixed variables; do
-> +        echo "/* $name */"
-> +
-> +        compressed_name=${name##c.*}
-	   ^^^^^^^^^^^^^^^
-	   this name is misleading
+> Would this wording work?
 
-> +        invalid_inst_functions=""
-> +        variable_params=""
-> +        constraints=""
-> +        match=""
-> +        mask=""
-> +        make=""
-> +
-> +        # All compressed instructions start with "c."
-> +        size=${compressed_name:+32};
-> +        size=${size:-16};
-> +
-> +        # Replace all . with _
-> +        formatted_inst_name=$name
-> +        while [ ! ${formatted_inst_name##*.*} ]; do
-> +            prefix=${formatted_inst_name%.*}
-> +            suffix=${formatted_inst_name##*.}
-> +            contains_dot=${formatted_inst_name##*.*}
-> +            formatted_inst_name=${contains_dot:-${prefix}_${suffix}}
-> +        done
+--jW3aBPRv62t26xHn
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Does the simplier
-     formatted_inst_name=$(echo $name | tr '.' '_')
-work?
+-----BEGIN PGP SIGNATURE-----
 
-> +            echo "static __always_inline ${type}${size} riscv_insn_${formatted_inst_name}_extract_${variable_name}(u${size} ${insn})"
-> +            echo "{"
-> +            echo "\treturn ${extract};"
-> +            echo "}"
-> +            echo "static __always_inline void riscv_insn_${formatted_inst_name}_insert_${variable_name}(u${size} *${insn}, ${type}32 ${var})"
-> +            echo "{"
-> +            echo "\t*_insn &= ${insert_mask# & };"
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaimWVAAKCRB4tDGHoIJi
+0ovZAQDsdOevqi/mtgvfG2Qem6astQNxL/Naaik96bOqN+kdhwEAjqLaOVF0cYio
+hODsSogD1Y2nfNF0rw7vz7r1zbKzPAU=
+=gMgp
+-----END PGP SIGNATURE-----
 
-Why is this required? Isn't this part always zero at this point?
+--jW3aBPRv62t26xHn--
 
-> +            echo "\t*_insn |= ${insert# | };"
-> +            echo "}"
-> +
-> +            if [ "${only_base}" ]; then
-> +                invalid_inst_functions="${invalid_inst_functions}static __always_inline ${type}${size} riscv_insn_${formatted_inst_name}_extract_${variable_name}(u${size} ${insn}) {\n\tpanic(\"${name} is not supported on non ${only_base}-bit systems.\");\n}\n"
 
-Instead of panic(), can we do BUILD_BUG() instead?
-
-Nam
+--===============2616821448781683700==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2616821448781683700==--
+
