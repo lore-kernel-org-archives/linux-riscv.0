@@ -4,97 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B355CD8CB9
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 09:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AF0CD8CB9
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 09:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nzkuYZfMZRyKifP+itG3F7MzsyeJtVQMZODY1pRI+CM=; b=DEUoRPpIF8oLhY
-	w59/pb1OjRJRboh96enp5bjTN1KznXC7bbdLMx0lAu9oEYjkkPJYl9kULgRgu2PztnZV7d8rfeMej
-	sQaN6fRe2EuAK3a65Sl0cmkVSlz1pSJv5cIHZtNSd9BfihFbqYWlBqKuEyF8M4RnRrAyFD3kUZ0kz
-	pmfwRTdnn7Bvu3GB0Lj2vjjfRs4/5W+cj0NtoPpyqBGMjzrGo4NQw0G9ggn43dsGphzJc/Zrfz0Aa
-	LoaLEH8wAIlLf52ID/2B8DvIQLoZL+xrwLjFVqjCzJQEROHjSTHiiqi9CMd78wGf4sYDatdCXHOw9
-	PEyggVWr0fYrloR44n5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9XX8h9dmlp6Sl7uY9cx8Ah2/FRgsipsLmf23m+1JQGA=; b=Nr7/AEYgMQ0enx
+	+Leixn06bcZpklOBoErCbZlyN/Zw1uxeYep1Wn6j4stOJmCoA62FwwGjHm37aRWyEhpnZ3Rirjr7M
+	TXIa5lLFvR9s1qVpEF+DOsbEbOPkCHfZutR4ff0qV3YLj9tsyDiWhs1VIXitLZ59KTCCCxKkYYKPZ
+	FtWmPA+e1/9diddwfK14Tfb9E0efcT8RFFH+LQ0cy/EgthFR/EjBQ+zIMeAnlKZAuoaahjAoEtzJV
+	0Tx+IO02ExKaBrxrspxKp0Vbx312jfQESeanQ3Z6Gz/DVndua4jyMGfXxKp5CpoJDU19J39p5ax9B
+	e3cg0vFoFyUGOUmLDGsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEsK-00000007AuS-2TfZ;
-	Wed, 10 Jun 2026 09:05:28 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1wXFPY-00000007I2t-0nMH;
+	Wed, 10 Jun 2026 09:39:48 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEsH-00000007Au7-3qWa
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jun 2026 09:05:27 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 60EA214000AF;
-	Wed, 10 Jun 2026 05:05:24 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Wed, 10 Jun 2026 05:05:24 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rembrandt.dev;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1781082324; x=
-	1781168724; bh=JAlaVnjyPfxtCQ+F1tfSPATwilC1zLcKiaeqvCkm9BM=; b=K
-	RzJ22Zds8BI/NZV8ycJIO2yH5rTNLEai2f57YKc2MECpWvZTt3eGjdpWnzF2LLnm
-	BM9qPPtFmItP3KfMvFW8l6LQj/ZNlS6JK4G5KiydlYf1cyoVRvgJYG8Z/dOgJ0Mc
-	NtcI8Ut+RKmdbrO7kVhd4j13moNfJYCzbMcQRg+HJs3wiiCZRhTDTED9h13EF0XJ
-	Efy8BPeFS/M03LX2jtbqox2ctsIXb+mM9yucR9SLOpFQDvohvIzYkaD+AMXy5Lp/
-	Frie5ViDPRuNZTpvolgMqK9/5tVS6T2mpNfihW8Pd5X/vcDuVzDMpweEj1qO+p6j
-	+IbrF78JiAShXEKrAnB8g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1781082324; x=1781168724; bh=JAlaVnjyPfxtCQ+F1tfSPATwilC1zLcKiae
-	qvCkm9BM=; b=iIz1e+Pwf97Qh+jlKEQAB5Quxv7gUQjtxtDzMZ1q9VrtET/Sa4Q
-	243I4WMtIps44gCK8nwtAfKl5D8epWJ5TrTWhDkMeBM65Uc3JSAI3m3mouNRDXyo
-	kkrE6TWV/DKvKGbUG6t5MX4IafvQTvop12j87d2bL9FXq7GNL4u+D/mUw0WE7Ps0
-	QcgR1hByV4tM+DRoVe6/a85cMcwwxI9rbDzFHSEGzUHIy+lrnsE7URsOcb7QyugZ
-	w4NU8roPxA9RuLMv/0ontae/Ig5Uze8IsRrlpMyXlR0S4vhssfAHvJ8UO4uUimM+
-	23lKR5Qj9YF9T7FIRfVemHgjjDRsVqrMkVg==
-X-ME-Sender: <xms:0ygpaq9WV2Gxd20BWhgU_WLYXUAs4kkZYcUSMaszlwbk9vYE5gjChg>
-    <xme:0ygpajp8YZlATZJsyecf47ZY2Om-3wpdJ5ULycSyBa6hBlrc0jSrSJs9_YZg0OCde
-    axlBMew9kTRpHd6hLwFSUFTLTLDiuY8eHZDE_D2TEl4B23uzCY5rW4>
-X-ME-Received: <xmr:0ygparlIzwvHa7ui4Wguj6LB1Orxwd1WLHy_3EhU0b9xVQkca-F5ZjGpebo>
-X-ME-Proxy-Cause: dmFkZTFEL2d6g9IZGj/RA7JvevIshyosZJdvIAocBRfpMf8lDE6YngnrCJJlXX7lB/FpTM
-    2SuPMGYafK360S6+wj9c5tlIJiLgpTwqS+EyzPluUfWWAoHPnhcREoYejyZdmfBtwtuZd2
-    /S5j/BOI7dRnGNmahxNQ4QdsfCFgRPxTBhC1kY9ftcZMNBNyG3/976Gyq8x2MZTWEEmAu6
-    4THMQgyKynVhbhEVC0i90RBHYKcer0txEroFLWb6yBQwnK3PptorQONWojJq53haWiNRAT
-    Rga8NxCrfEI2JUlRwvKhIMLDePsJ4lD6Z8MAvNBzYdTnnw3g8lMnZOkd4FU1d4ryOZ0hs2
-    daTybr1NNFz3Yq9qlAoTIXakFjCz7dD1EtqtHvRJuXdLD4D2oIEHf30zFkV5JZRi8+WlY/
-    /dQhgpmxLb4jH5lQHxfvoGIzly2jgXEQHfytjkWXunP0JrCdd4gtjU/zlNyQgj0WSGCjq1
-    pyZH9RPf9zDFKQo3Yfq0EEc6xcCXeTrLfw5Xd11h86dCXxLjfORdwxR4YL+bgfri9lIr29
-    jcMKpHwHDKAAB8X1KYzD997A541c6a9UMZuyfKIGTTqi4O3PXIt0Zud7gf22XQOzOuqxdJ
-    XIF4sC+IvxtOq4ymbyHS0mlYlpv4g3T3LMgRP2sdVhqCJOtXW7u7tDVOxvfw
-X-ME-Proxy: <xmx:0ygpaihulbIoErmhGmHna6Ow_LiX7fgXIBRrMUzyx5aXwll4VhXc8Q>
-    <xmx:1CgparcxO9C3j4wyx5jlvDd-dxQc6VrCOvW93YoIlHnU3mKtMDd9Pg>
-    <xmx:1CgpaqgEgEIOjzEEzScI-ooAFVmQx8VvzFKqjZetWTPqHgxx7vNUEQ>
-    <xmx:1Cgpary6BrY4XznFq6WCtWVh-JvMkhNsaRKiaHKSCbZzzXUn8atlQQ>
-    <xmx:1CgpauPfVk6WoV4396MYp8YLTZHaIrVe0orj4Q8NVvmCAlKbQoHXg_A9>
-Feedback-ID: iec564b6b:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 10 Jun 2026 05:05:23 -0400 (EDT)
-Date: Wed, 10 Jun 2026 11:05:14 +0200
-From: Andrew Rembrandt <kernel@rembrandt.dev>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: spacemit: k3-pico-itx: Fix non-functional
- ethernet TX timing
-Message-ID: <aikmOfazxdrhpty7@mcmanus>
-References: <20260608182358.170489-1-kernel@rembrandt.dev>
- <aiemGajqcQeY9avz@inochi.infowork>
- <aihYftGNcpUd4UUR@mcmanus>
- <aiid4Y6x6Dbbwszf@inochi.infowork>
+	id 1wXFPS-00000007I1T-1oDQ;
+	Wed, 10 Jun 2026 09:39:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1781084373; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=GyfQE1u5dCjMDM2v0WiYWSshT6A2JnI5znH7LSfoXSk=;
+	b=FMVQ1XPI2plEtu2DorVyHUiEeNbhAwRNmcTefns0i/+FxsCJFasfV2h9vKGw/nuK657buvwZm/n+C4HAGdyH7X18QDVRqIBVzt3TdICiky0hF/6wH69cCmarcxhYaBLfwJrK4HPSiTJ9df6xmQkBDmPha0vNWE+SoHSUkSvOGFs=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0X4aGPG._1781084366;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X4aGPG._1781084366 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 10 Jun 2026 17:39:28 +0800
+From: fangyu.yu@linux.alibaba.com
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>
+Cc: guoren@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: [PATCH] RISC-V: KVM: Avoid redundant page-table allocations in ioremap topup
+Date: Wed, 10 Jun 2026 17:39:22 +0800
+Message-Id: <20260610093922.51617-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aiid4Y6x6Dbbwszf@inochi.infowork>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_020526_455201_74F8AA77 
-X-CRM114-Status: UNSURE (   5.36  )
+X-CRM114-CacheID: sfid-20260610_023942_814227_AAFC0071 
+X-CRM114-Status: UNSURE (   7.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,14 +73,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 07:14:56 am Inochi Amaoto wrote:
-> Do not do this, just leave the rx-internal-delay-ps untouched.
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Sounds good, I'll leave v1 as-is. Many thanks for the review.
+kvm_riscv_mmu_ioremap() currently tops up its on-stack page-table
+cache via kvm_mmu_topup_memory_cache(), which allocates up to
+KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE (32) objects per topup.
 
-Regards,
+ioremap only consumes non-leaf page-table pages, at most
+pgd_levels - 1 (1 to 4) per call, and for contiguous mappings
+within the same huge page the non-leaf pages are allocated once
+and reused by subsequent pages. Topping up to 32 objects therefore
+triggers many unnecessary GFP_KERNEL_ACCOUNT allocations on every
+call, all of which are freed when the function returns. In hot
+paths (such as vCPU migration), this creates avoidable allocator
+churn and wastes CPU cycles.
 
-Andrew
+Use __kvm_mmu_topup_memory_cache() with a capacity of pgd_levels so
+the on-stack cache is sized to the maximum demand of a single
+mapping. This removes the redundant allocations and reduces per-call
+overhead without changing behavior.
+
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+---
+ arch/riscv/kvm/mmu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 2d3def024270..873a5dde4b92 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -39,6 +39,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+ 	pgprot_t prot;
+ 	unsigned long pfn;
+ 	phys_addr_t addr, end;
++	unsigned long pgd_levels = kvm->arch.pgd_levels;
+ 	struct kvm_mmu_memory_cache pcache = {
+ 		.gfp_custom = (in_atomic) ? GFP_ATOMIC | __GFP_ACCOUNT : 0,
+ 		.gfp_zero = __GFP_ZERO,
+@@ -61,7 +62,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+ 		if (!writable)
+ 			map.pte = pte_wrprotect(map.pte);
+ 
+-		ret = kvm_mmu_topup_memory_cache(&pcache, kvm->arch.pgd_levels);
++		ret = __kvm_mmu_topup_memory_cache(&pcache, pgd_levels, pgd_levels);
+ 		if (ret)
+ 			goto out;
+ 
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
