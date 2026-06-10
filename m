@@ -4,51 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD87CD8CB2
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 13:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0469CCD8CB2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 15:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nnLum260c5fh1KyThFpmWD9NcBrP8obqgKa/St/1xqQ=; b=yhPPz1mdXpezq1
-	usPuCz4Prfvn1T05sofH9EurpXwlCOphKNBcRotZoVlz8PGsI28dk50xpHzvSMHwg2Ktx0gyEU7cQ
-	qZ5OMh/dDR3mxF05dXsKwD6A/gU+djorZBD1XtQVQHjUf61KRo/u/d5v6EFWzdheusq+DTtmDUu1W
-	KUf4sb5XkiptuZ8KEUaWz/GlJD+5Gp5m/0tffXMqUuAtkN6xsFh4RjPc7lXMa/bur3TvaGcOHPXEU
-	fwjjco4hZcA5jIYZuj55gQbObbJcdw76iWAXZPTlzueByO2gIE07a7Tavt3yVfWQ37WAHPeHOy5nS
-	jD6xkS61QdlG3lSwGQbQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OSGUCNzFRIkV/Miq+J7MrD5rzq0wzkT1QxV4WluT2RM=; b=2M5LzGAdpgW0Oh
+	VO+oklPl2/g3qPb3xJBojrgB/dkyHGQw2jMzv6Oq431LC8lOsACxOYxrNce58KWIFkRAJRqD8+9UM
+	q8ujPDWynnAtMScUn4kpm3SM/Y2Pd8X9LwW/7XKIjL8zqLjRQ5dgu7+mOcLnpidxFhiwuSPovBAVY
+	lSNQYNTnDN8fkYzZ6B9uocZgxCthTksPQxKowIzuDx3555GY49oUjxsNeXVK4nz/UEotffviAxHsw
+	6zcVY/htLuJGG+NQwHkVT3ChJUa+h+Np4oq6PXxnB5rPxUz7bw5ha9PEijByYelm1W0to6/faPslC
+	d4w2C9FyK4GUzbzAYY6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXJNl-00000007oay-3T4q;
-	Wed, 10 Jun 2026 13:54:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wXLIC-000000084Ur-0MYh;
+	Wed, 10 Jun 2026 15:56:36 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXJNj-00000007oar-3sjh
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jun 2026 13:54:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0848F600AB;
-	Wed, 10 Jun 2026 13:54:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB13E1F00893;
-	Wed, 10 Jun 2026 13:54:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781099650;
-	bh=8QSHoW2zLX0oNe4UWCDvapCeq4OUxvmDv1wcVHhGoek=;
-	h=Date:From:To:cc:Subject;
-	b=Uan/sbO8x0C1+2lqsqaHN4aKSX1bf0PaJ2ZWRFkzGezd3XpLAxirWtDb0b29ggMyd
-	 jQoFLKhqAgbIZvHpl7BN5/Pyy+yP7j0u1W/eaV1rQLXiEwFcXSqy+3CbNbACKWNzii
-	 iXzW/GrnmGDkPr1dL9SLrid+10qzBkH8BHyhw7cgJJSgBmk0LBv84emFHKwmFJVAPB
-	 m/9bVXTstBSdbOgk2nX70GEADz+VkW3uof2I72u30z63gYcppEsrOE9mNaXLDijowX
-	 Im7aIPXn6ZOrIONY50M125XTPbZXq0NPIoRBGHgeES+E2bKL5QHEjeMY1CQ3TmUj5P
-	 j8JqHkYZLuFHQ==
-Date: Wed, 10 Jun 2026 07:54:04 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v7.1-rc8
-Message-ID: <740336ea-a076-86e0-0fad-2264f0448da2@kernel.org>
+	id 1wXLI8-000000084UF-0fZC;
+	Wed, 10 Jun 2026 15:56:33 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1781106986;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=msjhwjsuJi/htIU80DZBT36GfATEuBVhKi4XiG52gs8=;
+	b=Evzdm+SMUac0KWBp/cSjFK4ibPrgnP+r5mKRPgQnPivfV4ERX9NRAyOQ5yu543SPvXmg5h
+	yJAtK1t0KzFg+b8Uv9bz/Whm8ORmqCXerfUfGAoBvEOHHqpG1ZjMl/DVGIWUUgw3ehKjA8
+	YEuA5NKVOeL7SEE3qt2+QH/88E7UkZ1cxv4/gt82Sr8lUYPK5RaqDIpz/AnAQJNjdr6dz0
+	b79Kc4fVb6yQFzfE4F37jsmNrWmbm3yNKG89hEqFJNpAAoPhDfGnPl47moLlUPZpX2sgTO
+	ZX02s59l5CieC6vsqboDL1jvp/5At+Yu0wlxI5s1r6RrDBUdXrTe4621WGAIJQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1781106986;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=msjhwjsuJi/htIU80DZBT36GfATEuBVhKi4XiG52gs8=;
+	b=HzG5JS6iQRXS2PQdNGQVgSzLFt0ZH82WyaHCRre7c3gkPL0HlgAN+iMasP7WUDwalbAl1s
+	ZM7DaVfLKgoCAYBg==
+To: Charlie Jenkins via B4 Relay
+ <devnull+thecharlesjenkins.gmail.com@kernel.org>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
+ <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra
+ <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Shuah
+ Khan <shuah@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, Charlie Jenkins
+ <thecharlesjenkins@gmail.com>
+Subject: Re: [PATCH 01/16] riscv: Introduce instruction table generation
+In-Reply-To: <20260407-riscv_insn_table-v1-1-54b4736a1e77@gmail.com>
+References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
+ <20260407-riscv_insn_table-v1-1-54b4736a1e77@gmail.com>
+Date: Wed, 10 Jun 2026 17:56:25 +0200
+Message-ID: <878q8m1j9y.fsf@yellow.woof>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_085632_363961_4942D388 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,87 +83,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
+Charlie Jenkins via B4 Relay
+<devnull+thecharlesjenkins.gmail.com@kernel.org> writes:
+> From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+>
+> Eliminate the need to hand-write riscv instructions by using a shell
+> script to autogenerate a header from an instruction table. This is modeled
+> after the syscall table infrastructure.
+>
+> The table is generated externally by riscv-unified-db [1], but is
+> in a simple format to make it possible to use other tools or modify
+> manually.
+>
+> [1] https://github.com/riscv-software-src/riscv-unified-db
+>
+> Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Please pull these fixes for late v7.1-rc.  The most important fix
-is for a performance regression in the RISC-V-specific 
-implementation of the checksumming code, related
-to when RISC-V systems probe unaligned access performance during boot.  
-There is another fix to return -EinVaL when invalid flags are
-passed to the CFI landing pad control prctl(); no existing software should 
-rely on the previously-incorrect behavior.  Finally there is a fix for a 
-warning when dumping core, also CFI-related.   
+Thanks for the work, I really like the idea. This will make it much
+easier to maintain the instruction stuffs.
 
-thanks,
+> +c.ld common,32 011<13|00<0 imm<3=6-5|12-10 xd!1!3!5!7=4-2 xs1=9-7
+> +c.ld common,64 011<13|00<0 imm<3=6-5|12-10 xd=4-2 xs1=9-7
 
-- Paul
+Not sure if I confuse something, but the spec says "C.LD is an
+RV64C-only instruction". Why do we have 32 here?
 
+> +echo "#define COMMA ," >> $outfile
+> +echo "#define SEMICOLON ;" >> $outfile
+> +echo "#define SINGLE_ARG(...) __VA_ARGS__" >> $outfile
 
-The following changes since commit 5200f5f493f79f14bbdc349e402a40dfb32f23c8:
+Aren't these macro unused?
 
-  Linux 7.1-rc4 (2026-05-17 13:59:58 -0700)
+> +echo >> $outfile
+> +
+> +grep -E "^[a-z\.0-9]+[[:space:]]+" "$infile" | {
+> +    while read name base fixed variables; do
+> +        echo "/* $name */"
+> +
+> +        compressed_name=${name##c.*}
+	   ^^^^^^^^^^^^^^^
+	   this name is misleading
 
-are available in the Git repository at:
+> +        invalid_inst_functions=""
+> +        variable_params=""
+> +        constraints=""
+> +        match=""
+> +        mask=""
+> +        make=""
+> +
+> +        # All compressed instructions start with "c."
+> +        size=${compressed_name:+32};
+> +        size=${size:-16};
+> +
+> +        # Replace all . with _
+> +        formatted_inst_name=$name
+> +        while [ ! ${formatted_inst_name##*.*} ]; do
+> +            prefix=${formatted_inst_name%.*}
+> +            suffix=${formatted_inst_name##*.}
+> +            contains_dot=${formatted_inst_name##*.*}
+> +            formatted_inst_name=${contains_dot:-${prefix}_${suffix}}
+> +        done
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linux-7.1-rc8
+Does the simplier
+     formatted_inst_name=$(echo $name | tr '.' '_')
+work?
 
-for you to fetch changes up to 15b4155138505669d3d43d7692459ee8ea2a86e7:
+> +            echo "static __always_inline ${type}${size} riscv_insn_${formatted_inst_name}_extract_${variable_name}(u${size} ${insn})"
+> +            echo "{"
+> +            echo "\treturn ${extract};"
+> +            echo "}"
+> +            echo "static __always_inline void riscv_insn_${formatted_inst_name}_insert_${variable_name}(u${size} *${insn}, ${type}32 ${var})"
+> +            echo "{"
+> +            echo "\t*_insn &= ${insert_mask# & };"
 
-  riscv: cfi: reject unknown flags in PR_SET_CFI (2026-06-06 20:17:05 -0600)
+Why is this required? Isn't this part always zero at this point?
 
-----------------------------------------------------------------
-RISC-V updates for v7.1-rc8
+> +            echo "\t*_insn |= ${insert# | };"
+> +            echo "}"
+> +
+> +            if [ "${only_base}" ]; then
+> +                invalid_inst_functions="${invalid_inst_functions}static __always_inline ${type}${size} riscv_insn_${formatted_inst_name}_extract_${variable_name}(u${size} ${insn}) {\n\tpanic(\"${name} is not supported on non ${only_base}-bit systems.\");\n}\n"
 
-- Fix the implementation of the CFI branch landing pad control
-  prctl()s to return -EINVAL if unknown control bits are set, rather
-  than silently ignoring the request; and add a kselftest for this
-  case
+Instead of panic(), can we do BUILD_BUG() instead?
 
-- Fix unaligned access performance testing to happen earlier in boot,
-  which fixes a performance regression in the lib/checksum code
-
-- Fix a binfmt_elf warning when dumping core (due to missing
-  .core_note_name for CFI registers)
-
-----------------------------------------------------------------
-Andreas Schwab (1):
-      riscv/ptrace: Use USER_REGSET_NOTE_TYPE for REGSET_CFI
-
-Nam Cao (1):
-      riscv: Fix fast_unaligned_access_speed_key not getting initialized
-
-Richard Patel (1):
-      riscv: cfi: reject unknown flags in PR_SET_CFI
-
- arch/riscv/include/asm/usercfi.h             |  1 +
- arch/riscv/kernel/ptrace.c                   |  2 +-
- arch/riscv/kernel/unaligned_access_speed.c   | 15 ++++-----------
- arch/riscv/kernel/usercfi.c                  |  3 +++
- tools/testing/selftests/riscv/cfi/cfitests.c |  6 ++++++
- 5 files changed, 15 insertions(+), 12 deletions(-)
-
-vmlinux size differences in bytes (from 5200f5f493f7):
-text  data  bss   dec  hex  filename                             
- -12  +120    .  +108  +6c  vmlinux.defconfig.gcc-15             
-  -8   +88    .   +80  +50  vmlinux.nosmp_defconfig.gcc-15       
- -20   +64    .   +44  +2c  vmlinux.rv32_defconfig.gcc-15        
- -20   +32    .   +12   +c  vmlinux.rv32_nosmp_defconfig.gcc-15  
- -40   +56    .   +16  +10  vmlinux.nommu_virt_defconfig.gcc-15  
- -20   +24    .    +4   +4  vmlinux.defconfig.clang-20           
-  -8   +24    .   +16  +10  vmlinux.nosmp_defconfig.clang-20     
- -36   +64    .   +28  +1c  vmlinux.rv32_defconfig.clang-20      
-  -8   +32    .   +24  +18  vmlinux.rv32_nosmp_defconfig.clang-20
- -28    -8    .   -36  -24  vmlinux.nommu_virt_defconfig.clang-20
- -28   +56    .   +28  +1c  vmlinux.defconfig.clang-17           
- -20   +88    .   +68  +44  vmlinux.nosmp_defconfig.clang-17     
- -24  +128    .  +104  +68  vmlinux.rv32_defconfig.clang-17      
- -20  +128    .  +108  +6c  vmlinux.rv32_nosmp_defconfig.clang-17
- -36   +56    .   +20  +14  vmlinux.nommu_virt_defconfig.clang-17
- -16   +56    .   +40  +28  vmlinux.defconfig.gcc-11             
- -24   +56    .   +32  +20  vmlinux.nosmp_defconfig.gcc-11       
- -20   +64    .   +44  +2c  vmlinux.rv32_defconfig.gcc-11        
- -24   +96    .   +72  +48  vmlinux.rv32_nosmp_defconfig.gcc-11  
- -44  +248    .  +204  +cc  vmlinux.nommu_virt_defconfig.gcc-11  
+Nam
 
 _______________________________________________
 linux-riscv mailing list
