@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 364A3CD98C7
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 08:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B355CD8CB9
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jun 2026 09:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l5EuNUJCW7AaWMoJCoek2LCnPY3Fy6Emu4RUk5IAZDE=; b=t+Ed+7AbHGl5kO
-	Zql0qmNC632J/Q8VuQ4dOd7GpuZ2ftffuRKTBTBuzVQ3KoVSvO+IXgvqAHucaBQccwUBtXozDlkOY
-	zd4lE87SGRl8cMGehGbf63tyPeusmTM5ABwfOMb9E5uGd9TYFSkytupwyebyQeJxbl7T0T3K6bujv
-	dr/eOV0JffHm1zlIF7JiY+TWvfNM+bVmeBZJMh1/+pV7mvVd1yc+NDn0u54sOSkQoYfQEQj9zaEGe
-	A4jODDnav51s9l8GzBR7yB5/3LVpzgjFE1YYG5rv0tmICGI1IHOs+KCGeIWDQKOM10kf3muqajOQz
-	CT9Slh0NDEUVQPKNYvRw==;
+	List-Owner; bh=nzkuYZfMZRyKifP+itG3F7MzsyeJtVQMZODY1pRI+CM=; b=DEUoRPpIF8oLhY
+	w59/pb1OjRJRboh96enp5bjTN1KznXC7bbdLMx0lAu9oEYjkkPJYl9kULgRgu2PztnZV7d8rfeMej
+	sQaN6fRe2EuAK3a65Sl0cmkVSlz1pSJv5cIHZtNSd9BfihFbqYWlBqKuEyF8M4RnRrAyFD3kUZ0kz
+	pmfwRTdnn7Bvu3GB0Lj2vjjfRs4/5W+cj0NtoPpyqBGMjzrGo4NQw0G9ggn43dsGphzJc/Zrfz0Aa
+	LoaLEH8wAIlLf52ID/2B8DvIQLoZL+xrwLjFVqjCzJQEROHjSTHiiqi9CMd78wGf4sYDatdCXHOw9
+	PEyggVWr0fYrloR44n5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEHH-000000074aM-3dct;
-	Wed, 10 Jun 2026 08:27:11 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wXEsK-00000007AuS-2TfZ;
+	Wed, 10 Jun 2026 09:05:28 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXEHF-000000074ZQ-0SKK
+	id 1wXEsH-00000007Au7-3qWa
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jun 2026 08:27:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id BAA9C1A369C;
-	Wed, 10 Jun 2026 08:27:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8A7325FFC9;
-	Wed, 10 Jun 2026 08:27:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81A4F106B9056;
-	Wed, 10 Jun 2026 10:26:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781080022; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Whfl4QLl7rlDdWuJnD1FYGrTxAzK/P2e2aQDPSeDeSQ=;
-	b=1JqGYNOOL1Pl5I9EUrbk8Gh6N8JpYRafqUk235S6QQUxecR7HLECmGB54SN7PPv4uNYCcf
-	0N503XbHO4hBTdwsh/tzzj5j7oLUxc8Wlt5VT0aBcomUHRwC44BrID/CP2VW4ZlcrIR/l7
-	wPrerAVivv5Dta96h0JcuCaS69Uul6GoEWqp+ilBENCM90FKwZ187AmYNy7K0Z5VNUKIFO
-	KSaURLkQpn7Ml/WV93S/y4viL5xCmFxdk1GYve8IGrdpBGpgUdF5oGnAx1oB1X3ictlFE8
-	Ft7rQMA58/2cDT0y4WGvLyyQ8k5f3inDbfI6/9BvuK72Nzrb5G9RbANHO60Ibw==
-Message-ID: <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
-Date: Wed, 10 Jun 2026 10:26:50 +0200
+	Wed, 10 Jun 2026 09:05:27 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 60EA214000AF;
+	Wed, 10 Jun 2026 05:05:24 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Wed, 10 Jun 2026 05:05:24 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rembrandt.dev;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1781082324; x=
+	1781168724; bh=JAlaVnjyPfxtCQ+F1tfSPATwilC1zLcKiaeqvCkm9BM=; b=K
+	RzJ22Zds8BI/NZV8ycJIO2yH5rTNLEai2f57YKc2MECpWvZTt3eGjdpWnzF2LLnm
+	BM9qPPtFmItP3KfMvFW8l6LQj/ZNlS6JK4G5KiydlYf1cyoVRvgJYG8Z/dOgJ0Mc
+	NtcI8Ut+RKmdbrO7kVhd4j13moNfJYCzbMcQRg+HJs3wiiCZRhTDTED9h13EF0XJ
+	Efy8BPeFS/M03LX2jtbqox2ctsIXb+mM9yucR9SLOpFQDvohvIzYkaD+AMXy5Lp/
+	Frie5ViDPRuNZTpvolgMqK9/5tVS6T2mpNfihW8Pd5X/vcDuVzDMpweEj1qO+p6j
+	+IbrF78JiAShXEKrAnB8g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1781082324; x=1781168724; bh=JAlaVnjyPfxtCQ+F1tfSPATwilC1zLcKiae
+	qvCkm9BM=; b=iIz1e+Pwf97Qh+jlKEQAB5Quxv7gUQjtxtDzMZ1q9VrtET/Sa4Q
+	243I4WMtIps44gCK8nwtAfKl5D8epWJ5TrTWhDkMeBM65Uc3JSAI3m3mouNRDXyo
+	kkrE6TWV/DKvKGbUG6t5MX4IafvQTvop12j87d2bL9FXq7GNL4u+D/mUw0WE7Ps0
+	QcgR1hByV4tM+DRoVe6/a85cMcwwxI9rbDzFHSEGzUHIy+lrnsE7URsOcb7QyugZ
+	w4NU8roPxA9RuLMv/0ontae/Ig5Uze8IsRrlpMyXlR0S4vhssfAHvJ8UO4uUimM+
+	23lKR5Qj9YF9T7FIRfVemHgjjDRsVqrMkVg==
+X-ME-Sender: <xms:0ygpaq9WV2Gxd20BWhgU_WLYXUAs4kkZYcUSMaszlwbk9vYE5gjChg>
+    <xme:0ygpajp8YZlATZJsyecf47ZY2Om-3wpdJ5ULycSyBa6hBlrc0jSrSJs9_YZg0OCde
+    axlBMew9kTRpHd6hLwFSUFTLTLDiuY8eHZDE_D2TEl4B23uzCY5rW4>
+X-ME-Received: <xmr:0ygparlIzwvHa7ui4Wguj6LB1Orxwd1WLHy_3EhU0b9xVQkca-F5ZjGpebo>
+X-ME-Proxy-Cause: dmFkZTFEL2d6g9IZGj/RA7JvevIshyosZJdvIAocBRfpMf8lDE6YngnrCJJlXX7lB/FpTM
+    2SuPMGYafK360S6+wj9c5tlIJiLgpTwqS+EyzPluUfWWAoHPnhcREoYejyZdmfBtwtuZd2
+    /S5j/BOI7dRnGNmahxNQ4QdsfCFgRPxTBhC1kY9ftcZMNBNyG3/976Gyq8x2MZTWEEmAu6
+    4THMQgyKynVhbhEVC0i90RBHYKcer0txEroFLWb6yBQwnK3PptorQONWojJq53haWiNRAT
+    Rga8NxCrfEI2JUlRwvKhIMLDePsJ4lD6Z8MAvNBzYdTnnw3g8lMnZOkd4FU1d4ryOZ0hs2
+    daTybr1NNFz3Yq9qlAoTIXakFjCz7dD1EtqtHvRJuXdLD4D2oIEHf30zFkV5JZRi8+WlY/
+    /dQhgpmxLb4jH5lQHxfvoGIzly2jgXEQHfytjkWXunP0JrCdd4gtjU/zlNyQgj0WSGCjq1
+    pyZH9RPf9zDFKQo3Yfq0EEc6xcCXeTrLfw5Xd11h86dCXxLjfORdwxR4YL+bgfri9lIr29
+    jcMKpHwHDKAAB8X1KYzD997A541c6a9UMZuyfKIGTTqi4O3PXIt0Zud7gf22XQOzOuqxdJ
+    XIF4sC+IvxtOq4ymbyHS0mlYlpv4g3T3LMgRP2sdVhqCJOtXW7u7tDVOxvfw
+X-ME-Proxy: <xmx:0ygpaihulbIoErmhGmHna6Ow_LiX7fgXIBRrMUzyx5aXwll4VhXc8Q>
+    <xmx:1CgparcxO9C3j4wyx5jlvDd-dxQc6VrCOvW93YoIlHnU3mKtMDd9Pg>
+    <xmx:1CgpaqgEgEIOjzEEzScI-ooAFVmQx8VvzFKqjZetWTPqHgxx7vNUEQ>
+    <xmx:1Cgpary6BrY4XznFq6WCtWVh-JvMkhNsaRKiaHKSCbZzzXUn8atlQQ>
+    <xmx:1CgpauPfVk6WoV4396MYp8YLTZHaIrVe0orj4Q8NVvmCAlKbQoHXg_A9>
+Feedback-ID: iec564b6b:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 10 Jun 2026 05:05:23 -0400 (EDT)
+Date: Wed, 10 Jun 2026 11:05:14 +0200
+From: Andrew Rembrandt <kernel@rembrandt.dev>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: spacemit: k3-pico-itx: Fix non-functional
+ ethernet TX timing
+Message-ID: <aikmOfazxdrhpty7@mcmanus>
+References: <20260608182358.170489-1-kernel@rembrandt.dev>
+ <aiemGajqcQeY9avz@inochi.infowork>
+ <aihYftGNcpUd4UUR@mcmanus>
+ <aiid4Y6x6Dbbwszf@inochi.infowork>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII delay
- properties optional
-To: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
- pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
- weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
- <20260610012937.911-1-lizhi2@eswincomputing.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260610012937.911-1-lizhi2@eswincomputing.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Disposition: inline
+In-Reply-To: <aiid4Y6x6Dbbwszf@inochi.infowork>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_012709_280632_0E692CC8 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20260610_020526_455201_74F8AA77 
+X-CRM114-Status: UNSURE (   5.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +112,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jun 10, 2026 at 07:14:56 am Inochi Amaoto wrote:
+> Do not do this, just leave the rx-internal-delay-ps untouched.
 
-On 6/10/26 03:29, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
-> 
-> Make rx-internal-delay-ps and tx-internal-delay-ps optional in the
-> EIC7700 DWMAC driver.
-> 
-> The driver previously required both properties to be present and would
-> fail probe when they were missing. This restricts valid hardware
-> configurations where RGMII timing is instead provided by the PHY or
-> board design.
-> 
-> Update the driver to treat missing delay properties as zero delay,
-> allowing systems without explicit MAC-side delay tuning to operate
-> correctly.
-> 
-> This aligns the driver behavior with the updated device tree binding
-> and provides a safe default configuration when MAC-side delay
-> programming is not required.
-> 
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c | 6 ------
->  1 file changed, 6 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> index 4ac979d874d6..ec99b597aeaf 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> @@ -165,9 +165,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
->  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
->  		dwc_priv->eth_clk_dly_param |=
->  				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-> -	} else {
-> -		return dev_err_probe(&pdev->dev, -EINVAL,
-> -			"missing required property rx-internal-delay-ps\n");
->  	}
->  
->  	/* Read tx-internal-delay-ps and update tx_clk delay */
-> @@ -187,9 +184,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
->  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
->  		dwc_priv->eth_clk_dly_param |=
->  				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-> -	} else {
-> -		return dev_err_probe(&pdev->dev, -EINVAL,
-> -			"missing required property tx-internal-delay-ps\n");
->  	}
+Sounds good, I'll leave v1 as-is. Many thanks for the review.
 
-I think then you need to handle RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID,
-by using default delays for these (usually around 2ns), as here all delays
-will be set to 0, regardless of the RGMII mode in use.
+Regards,
 
-
-Maxime
-
->  
->  	dwc_priv->eic7700_hsp_regmap =
-
+Andrew
 
 _______________________________________________
 linux-riscv mailing list
