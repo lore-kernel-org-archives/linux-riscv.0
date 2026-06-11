@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC590CD98C6
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 06:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BC6CD98C6
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 06:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yo27vOZ2B/ReYZ7vUPwOz/Ci0Sm92H+ObjOpRWEeLvg=; b=PbtpyO3YCVQ25i
-	RBXDgZ8Uf/O8cCWBqjibE0uaIpr2OihU64EhVin7j2JU2X6rioyNYiCz0hjSQI+Yly12FPfoej7WJ
-	8RI5cybMRk6j7KnK/uHhw53Ar3t0lWd+avIb6MPy2Azomq6JMFErUps4NaaBMFbyLcws83SGuJwl3
-	rJikyGfdoBAK/MeRwteGO6ORLmgT2IKGngxnsP+adNL9GdBvjrCWGP8hl4hL3PYudVRoyOo8Qrw9D
-	0XGwabJptGthItPvqTrWu3wnODbeqfjYlbwyFcOuPXkrsQbtLWTjQChMdWNDnlOv5UTK50v4fHpms
-	iX0SMP1NnqxBMb7pFsNQ==;
+	List-Owner; bh=9IR47YHRL8VdZ5g+Jm53JPMlF1Ge186xq+wHMsOWfMM=; b=u5PzItsrij7Y18
+	uE79WG2x184uwyFbUAlwOgJWOEaQ1Q1OHU+UcbGLJQ80hXGXsHscIlc/G1mH/4MiM3OjrOXeKSIWD
+	/ZfAOKvP8bhqp8O+y2s7U3JESNEIjwbbscz6Wg0JqWQca1vdtbDWPOCSarnHcJ1c3Qa7O1C0WgW+O
+	Ag/+xPjKG2EY0c2dJavbLcjNmljVmhMYO8gmJohSM7hoEHpGcxRFJ8ZNGo1B+7FL4H/Icqxz2LM+h
+	qvnajECkTBf7WCOUikZIdRpkcWjRA4mOkHVk9i0yxnMnrB2BjzvaDZGlOQ+Jnm6Jx6Lj3wBu4TSu9
+	MgBLKuTEWJpZY9P/ebxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZGn-00000008pp9-3dTz;
-	Thu, 11 Jun 2026 06:52:05 +0000
+	id 1wXZIw-00000008q1s-0nCU;
+	Thu, 11 Jun 2026 06:54:18 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXZGm-00000008pot-282t
+	id 1wXZIu-00000008q1j-0g2V
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jun 2026 06:52:04 +0000
+	Thu, 11 Jun 2026 06:54:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7AB2960209;
-	Thu, 11 Jun 2026 06:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 050691F00893;
-	Thu, 11 Jun 2026 06:51:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 982D6600AA;
+	Thu, 11 Jun 2026 06:54:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 147741F00893;
+	Thu, 11 Jun 2026 06:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781160723;
-	bh=waFRDunX19MrGlEZZxG+5l/XxiJ8c8/XJagA8YhYhsQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=OCJqFsn2ob+4tILYfmztHj7uNiNZqquftBn+5X3RVRfyHPnHPZKdWQWE+ykTXXNPN
-	 cMpNmw+lAgbe7uRcj2Epz0xvZX3yAvZx0KW4ITDrFKSWjlV20LZtkWR7pr57zrh5Jy
-	 0n6UQsu3vqRb066pcNIMA/myZDExB8YarlAsQoFpcBEmhyTeElWI66ACYblWcjosER
-	 qyaSn7hT804RWu/zbzopkfDX3RlN/rwNzcEEnwwB7NhV1PXGO3ipU/40mtZAkYtdDl
-	 m/aitpDimxetn8Tn6vhSLfxHrHLy/2oz1kEuWSprDQkOI9TdbEMZ7n+lOXGN7FsNgP
-	 STDtqxBemuTlw==
-Message-ID: <5e36909c-caf3-4078-b8ec-a77e385d20cf@kernel.org>
-Date: Thu, 11 Jun 2026 08:51:57 +0200
+	s=k20260515; t=1781160855;
+	bh=pXixa372b14KKbySQMTQlSQy82hIaK1jH6zCVzAv1rU=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=mEmu3rxnEI93mltW7ykfywO6UE37j+L2ZCngnegSkQfIt+1E5LxydBQChdbmtD1ql
+	 Cb7Ddlmq36vBUkpVuVpZ63F709VSuKEpmMZycc5G000XMbhUryymLN0gBcmezaDIE6
+	 FkfKUTcSPINu3S/CPl/Aj3oGM/p548MwHOMXpxwjnoTzzjN2y5QjVGNpr0Shvdw5jW
+	 QK0TCzgh1ETbU1e1IB7oqXTPMK6+c3yK/x5ZRB+SAPJi961gR0oZYbrwFEl+7U1NlC
+	 CcrYMuoVqatLSZ6PTtkQgQ5UcG6RBuF87782Xxrsg9H3w078Y4X8j0tUBoXh6EIfun
+	 l5u62UYiphgGQ==
+Message-ID: <eda67f3d-9395-4386-9311-d6f6b1c62304@kernel.org>
+Date: Thu, 11 Jun 2026 08:54:09 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v8 1/3] dt-bindings: timer: mips,p8700-gcru
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: aleksa.paunovic@htecgroup.com, Daniel Lezcano
  <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -61,7 +62,7 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  Chao-ying Fu <cfu@mips.com>, Conor Dooley <conor.dooley@microchip.com>
 References: <20260610-riscv-time-mmio-v8-0-a865206675c6@htecgroup.com>
  <20260610-riscv-time-mmio-v8-1-a865206675c6@htecgroup.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <5e36909c-caf3-4078-b8ec-a77e385d20cf@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -106,7 +107,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260610-riscv-time-mmio-v8-1-a865206675c6@htecgroup.com>
+In-Reply-To: <5e36909c-caf3-4078-b8ec-a77e385d20cf@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,20 +124,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2026 10:22, Aleksa Paunovic via B4 Relay wrote:
-> From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+On 11/06/2026 08:51, Krzysztof Kozlowski wrote:
+> On 10/06/2026 10:22, Aleksa Paunovic via B4 Relay wrote:
+>> From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+>>
+>> Add dt-bindings for the GCR.U memory mapped timer device for RISC-V
+>> platforms. The GCR.U memory region contains shadow copies of the RISC-V
+>> mtime register and the hrtime Global Configuration Register.
+>>
+>> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 > 
-> Add dt-bindings for the GCR.U memory mapped timer device for RISC-V
-> platforms. The GCR.U memory region contains shadow copies of the RISC-V
-> mtime register and the hrtime Global Configuration Register.
+> You keep ignoring reviews you received (14th May!) and sending same mistake.
 > 
-> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+> Can you address the emails?
+> 
+> NAK for this patch.
 
-You keep ignoring reviews you received (14th May!) and sending same mistake.
+Hm, maybe it's b4 relay issue, so here is the report:
 
-Can you address the emails?
-
-NAK for this patch.
+https://lore.kernel.org/all/20260514055333.A29B8C2BCB7@smtp.kernel.org/
 
 Best regards,
 Krzysztof
