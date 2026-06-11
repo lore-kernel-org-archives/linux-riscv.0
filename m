@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 791A0CD98C6
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 01:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E96CD98C5
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 02:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yp530OVFowiCElOqNxM8r6wfDLLNYfNiK8WI9PEmTXM=; b=FkVCVJziLW6YAP
-	2xdJIw5CTpeTmn97wLJf1h6uhB+l9rOf11+eZtdNbfs+5mjTO7Br2dlQQZXk6PnhnRtHM+HVK5932
-	kl4qmDmsPd94yycsqyYKyWXhE8owU7YZV8JTU6OyemDv3xOcfqRwCfRnXL+9oViBnmi23K2yd+BQj
-	k72yAMPbs4cYSeyG5sIeFeMzRDO6fuooxrfoQufrEn5DOKqWtJluHC4rqX/H5cEGPW89IxZR32Zsw
-	jzOxdYpu07xYQJyJp+iHXU0wEy8Fnxb2FklAfUTITVgLP84pixdcr9JKYwG71P2qouhYvJQeZsP7E
-	fZJeSN7W/p8XfWHD0xTQ==;
+	List-Owner; bh=rL3HAInSdUKuGMSs8myVBzg5GX6FR8qQ0jhHLEgyP90=; b=0efjLv9Mk++qsN
+	dLka3YWG1uF+UrA3JhRNudWturgPyqPf9hSJDM1Muvdm20hTOHQ/35oh5w9SWZQBnYnLMnXUTbJAu
+	FTOFMjjB8nZK8o4fBJm8kZRhrYUm9n6ejkRIlqJFPDkhwtcBHWctT+aPLEsbGLGzr7f9uLlt9Yjx9
+	MyFTffqFIVeoSTVKYr/egcMiUeoT1ac6gK3iXIBmAYOaBw2NWwLuSf1ZcZfaoOU/LkMzBXfpAbMwA
+	XMVuoPF17SFcNMitFXDMyn73AQvqAzPM7TqQqzaNsOIunnZzTpbQoujQA0MwwzRys3WL9a5THpBVk
+	4mRQMifjgoG44gsOKFqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXUGK-00000008WjL-0UVS;
-	Thu, 11 Jun 2026 01:31:16 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wXUri-00000008YAo-2Kki;
+	Thu, 11 Jun 2026 02:09:54 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXUGF-00000008Wif-3VPx;
-	Thu, 11 Jun 2026 01:31:14 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=RBlgvudl+cGjprXWFObeeRS2MUnS8N5YzsCKOc0pnqk=;
-	b=3gZH/hNn+g7QWrpLfYH3VIVhOi+KC+luwjGIe9WtEed6xfgF9PTswIocwyjpaWEgUrlrl483x
-	xRsRvhaB6WhwMvFr8+me5PjwErrqXqd54SKqfYa3Ow2i+D3OOZmZcCexoeWlyy5YNsYoV0Xjm9e
-	xyc3UBr9eQflKVxitdNqgYY=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gbPys18dZzcb1Y;
-	Thu, 11 Jun 2026 09:22:45 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4E7252025F;
-	Thu, 11 Jun 2026 09:30:58 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 11 Jun 2026 09:30:55 +0800
-Message-ID: <37f31716-095b-477c-9b0b-946a15275c2e@huawei.com>
-Date: Thu, 11 Jun 2026 09:30:54 +0800
+	id 1wXUre-00000008Y95-2EJs
+	for linux-riscv@lists.infradead.org;
+	Thu, 11 Jun 2026 02:09:53 +0000
+Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-2c0c2d8b95bso53980005ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Jun 2026 19:09:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781143789; x=1781748589; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=rrKKxjQkCCq7BO+0b9GvAXj1oVgaGXMfePrho45byEA=;
+        b=CVgEsQyn8p3i+wQXvcwzqsMJCig1u3MK4JEwYNHK7OSqGpG276McCNVZN1osSUpNPD
+         k2EniKOnF4c/JT5zYQKI4oIuu2Cclz78zxLo/qLwj49Hodq3KoThsgGrhGXdD9qQBHRa
+         nYtUulLPid3jsO37bnArjwXtKuY/my9KiKQbboHXxXCFySr5O2iaV8rjxeXq7gY4bfgc
+         SFfLhZdJUxMra/fkIJRPDK/KaQ3tIUsMWjvjfFRpStu7VQPr/hBp0vxVcykpKg5OeEiP
+         L/QgXZBeYdWYYfA9+OLL/7WUcTlY2onPJeisrXQVEHBcoov2vZoWIp5iddq2fsAlKwx1
+         xbsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781143789; x=1781748589;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rrKKxjQkCCq7BO+0b9GvAXj1oVgaGXMfePrho45byEA=;
+        b=bjhDeuDZbC3dV2vUStj8yBobqwGvIe0+NPDNIqLIGAGfvy8WYia7+8RiYNfVJ9YVUJ
+         pTMZ+o6Fgotka/DdNsk5IJy5V5Aj2Deotfg4TtD9IHEWxifXgjPQ4+XJ2D7G2VoN2lrn
+         +mBlTuFPVxnmT7GOwp0tWfE/xc8Df2DpCD/JJyRVA9MHdmqoc5tBDid7dbApN35uPMM0
+         RAxw8X35OF2WH8Hm0bUe6cG81yQsy7SjV/ONqlN8h51KMrxtziT/DSl+7WP7Z+tZewEA
+         1JCcpuNBjz3nV7w/ddY/xVg1/g8//plHrE6z2IR5oBm1SD/PK43uhJ4JmVAZDF6yhng+
+         LwiA==
+X-Forwarded-Encrypted: i=1; AFNElJ+RS1G9zQOGq7SZ9UnM2O3ulLgALN3mM99ygk4ESyqD/2L5JaJBKmn3ctW5oPy6mZnAnlOSB7PBh41xbg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMWiJ4KLtjfY4ZyYavNeaWMWkT76fnxQdhu//8Q5RQN1PDZ4iT
+	7Kcn95vh+y0G3M+TpVcFdddPotlSE9/PFnimggyUFktcNwuivhcwH9w6
+X-Gm-Gg: Acq92OGl5oTgCoqycU65Nj8Ts4Ov9MJLLRWwgSDWWgP8wUAtNZvOj8P6iwjxzgu8Yw9
+	xXflRElOPAz23WsdqhkjSfOwRLjL7r1Oycqp90U0hSfMOli6lLCoFEXnuS7AgoqsbNseuhZx77v
+	Rpu90Jz5jHfX2pdp43UWctiB5F0WKs4vW1kHUCJTPRfEijl7HyepU3RbcU3bHB7GIwWd2/8s3fo
+	BUudrQLbc2a1e78cuvXeNrCdcBQQXV1yGaD2BKHmhKZGWTQvwgm8/WcaGDOuYn9/5l02dfAFjD6
+	SsiKScuDJNWStNeaRhXArsVMs7oVfIJeKX3jqldI73gsXmYzVp3LRY6aRDwKuo463/xJP7ZJCns
+	Vqvrc55X+8CsYrO6jsmWPggzDVyDef/YB4CufMiWtRX3e6woPO4IJR5hWAF5tMvXwrRNfSnx1yY
+	a9S5S3SuyMetgxJ6FjRZufA1aSTavBj1D/eWkLLR9Ncg==
+X-Received: by 2002:a17:903:acd:b0:2c1:f29a:b554 with SMTP id d9443c01a7336-2c2f21a11f5mr7037195ad.21.1781143789049;
+        Wed, 10 Jun 2026 19:09:49 -0700 (PDT)
+Received: from [10.125.112.20] ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164fa404fsm256644005ad.37.2026.06.10.19.09.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Jun 2026 19:09:48 -0700 (PDT)
+Message-ID: <7ed207fa-4c86-426a-8570-495902ce04c3@gmail.com>
+Date: Thu, 11 Jun 2026 10:09:37 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 00/10] arm64/riscv: Add support for crashkernel CMA
- reservation
-To: Andrew Morton <akpm@linux-foundation.org>
-CC: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>, <bhe@redhat.com>,
-	<rppt@kernel.org>, <pasha.tatashin@soleen.com>, <pratyush@kernel.org>,
-	<ruirui.yang@linux.dev>, <rdunlap@infradead.org>, <peterz@infradead.org>,
-	<feng.tang@linux.alibaba.com>, <dapeng1.mi@linux.intel.com>,
-	<kees@kernel.org>, <elver@google.com>, <kuba@kernel.org>,
-	<lirongqing@baidu.com>, <ebiggers@kernel.org>, <paulmck@kernel.org>,
-	<leitao@debian.org>, <coxu@redhat.com>, <Liam.Howlett@oracle.com>,
-	<ryan.roberts@arm.com>, <osandov@fb.com>, <jbohac@suse.cz>,
-	<cfsworks@gmail.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
-	<ritesh.list@gmail.com>, <adityag@linux.ibm.com>, <liaoyuanhong@vivo.com>,
-	<seanjc@google.com>, <fuqiang.wang@easystack.cn>, <ardb@kernel.org>,
-	<chenjiahao16@huawei.com>, <guoren@kernel.org>, <x86@kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
-References: <20260608073459.3119290-1-ruanjinjie@huawei.com>
- <20260608091000.d88d7f5cc1bc4fa17f5774fe@linux-foundation.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260608091000.d88d7f5cc1bc4fa17f5774fe@linux-foundation.org>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Subject: Re: [PATCH v3 00/11] kdump: reduce vmcore size and capture time
+From: Wandun <chenwandun1@gmail.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org,
+ iommu@lists.linux.dev, zhaomeijing@lixiang.com, Rob Herring
+ <robh@kernel.org>, saravanak@kernel.org, bhe@redhat.com, rppt@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ chenhuacai@kernel.org, kernel@xen0n.name
+Cc: catalin.marinas@arm.com, will@kernel.org, alex@ghiti.fr,
+ akpm@linux-foundation.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ ruirui.yang@linux.dev, m.szyprowski@samsung.com, robin.murphy@arm.com
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20260527032917.3385849-1-chenwandun1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260610_183112_542750_069A1099 
-X-CRM114-Status: UNSURE (   7.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260610_190950_580937_7D19FC77 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +102,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA2LzkvMjAyNiAxMjoxMCBBTSwgQW5kcmV3IE1vcnRvbiB3cm90ZToKPiBPbiBNb24sIDgg
-SnVuIDIwMjYgMTU6MzQ6NDkgKzA4MDAgSmluamllIFJ1YW4gPHJ1YW5qaW5qaWVAaHVhd2VpLmNv
-bT4gd3JvdGU6Cj4gCj4+IFRoZSBjcmFzaCBtZW1vcnkgYWxsb2NhdGlvbiwgYW5kIHRoZSBleGNs
-dWRlIG9mIGNyYXNoa19yZXMsIGNyYXNoa19sb3dfcmVzCj4+IGFuZCBjcmFzaGtfY21hIG1lbW9y
-eSBhcmUgYWxtb3N0IGlkZW50aWNhbCBhY3Jvc3MgZGlmZmVyZW50IGFyY2hpdGVjdHVyZXMsCj4+
-IFRoaXMgcGF0Y2ggc2V0IGhhbmRsZSB0aGVtIGluIGNyYXNoIGNvcmUgaW4gYSBnZW5lcmFsIHdh
-eSwgd2hpY2ggZWxpbWluYXRlCj4+IGEgbG90IG9mIGR1cGxpY2F0aW9uIGNvZGUuCj4+Cj4+IEFu
-ZCBhZGQgc3VwcG9ydCBmb3IgY3Jhc2hrZXJuZWwgQ01BIHJlc2VydmF0aW9uIGZvciBhcm02NCBh
-bmQgcmlzY3YuCj4gCj4gZnlpLCBBSSByZXZpZXcgbWlnaHQgaGF2ZSBmb3VuZCBhIGJ1bmNoIG9m
-IGlzc3VlcyBpbiBhcmNoLXNwZWNpZmljCj4gY29kZSwgYWxsIG9mIHRoZW0gcHJlLWV4aXN0aW5n
-LgoKSGksIEFuZHJld++8jAoKQXMgTWlrZSBjb252ZXllZCwgQmFvcXVhbiBwcm9wb3NlZCBzcGxp
-dHRpbmcgb3V0IHRoZSB1bnJlbGF0ZWQgYnVnIGZpeGVzCmludG8gYSBzZXBhcmF0ZSBwYXRjaCBz
-ZXQsIGluIG9yZGVyIHRvIGtlZXAgdjE2IGZyb20gZ3Jvd2luZyBleGNlc3NpdmVseS4KCkxpbms6
-IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9haDJMeDdLSEk2MHR6ZDB2QE1pV2lGaS1SM0wt
-c3J2LwoKQmVzdCBSZWdhcmRzLApKaW5qaWUKCj4gCj4gCWh0dHBzOi8vc2FzaGlrby5kZXYvIy9w
-YXRjaHNldC8yMDI2MDYwODA3MzQ1OS4zMTE5MjkwLTEtcnVhbmppbmppZUBodWF3ZWkuY29tCj4g
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 5/27/26 11:29, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+>
+> On SoCs that carve out large firmware-owned reserved memory (GPU
+> firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
+> those carveouts as part of system RAM even though their contents are
+> firmware state that is not useful for kernel crash analysis.
+>
+> This series introduces an opt-in 'dumpable' flag [1] on struct
+> reserved_mem and uses it to filter the elfcorehdr PT_LOAD ranges on
+> DT-based architectures (arm64, riscv, loongarch). By default reserved
+> regions are treated as non-dumpable; CMA regions are explicitly opted
+> in because their pages are returned to the buddy allocator and may
+> carry key crash-analysis data.
+>
+> The series is organized as follows:
+> Patches 1-3: Pre-existing fixes and a small prep change.
+> Patches 4-5: Restructure to allow appending /memreserve/ entries.
+> Patches 6-7: Add a dumpable flag and append /memreserve/ entries.
+> Patch 8: Add generic kdump helpers.
+> Patches 9-11: Wire the helpers into arm64, riscv and loongarch kdump
+>                elfcorehdr preparation.
+Hi,
+
+Gentle ping on this series.
+
+Status summary:
+-patch 03: respun separately per Rob's suggestion, picked up for 7.2
+-patch 06: Acked-by: Marek Szyprowski -patch 09: Acked-by: Will Deacon 
+The remaining patches (01, 02, 04, 05, 07, 08, 10, 11) are still 
+awaiting review. your feedback would be greately appreciated. I know we 
+are at the end of 7.1 -rc cycle, I don't want to rush this series, just 
+collecting more feedback, and will send next version based on 7.2-rc1. 
+If spliting the series into smaller logical group would make review 
+easier, please let me know. Best regards, Wandun
+>
+> v2 --> v3:
+> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.[2]
+> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+> 3. Add some prepare patches.
+>
+> v1 --> v2:
+> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>     feedback [1], v2 drop that property and exclude reserve memory
+>     by default.
+> 2. Split some prepared patches from the original patches.
+> 3. Address coding-style comments on patch 5 from Rob.
+>
+> [1] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+> [2] https://sashiko.dev/#/patchset/20260520091844.592753-1-chenwandun%40lixiang.com?part=4
+>
+> Wandun Chen (11):
+>    of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
+>    kexec/crash: provide crash_exclude_mem_range() stub when
+>      CONFIG_CRASH_DUMP=n
+>    of: reserved_mem: avoid post-init UAF when alloc_reserved_mem_array()
+>      fails
+>    of: reserved_mem: zero total_reserved_mem_cnt if no valid
+>      /reserved-memory entry
+>    of: reserved_mem: split alloc_reserved_mem_array() from
+>      fdt_scan_reserved_mem_late()
+>    of: reserved_mem: add dumpable flag to opt-in vmcore
+>    of: reserved_mem: save /memreserve/ entries into the reserved_mem
+>      array
+>    of: reserved_mem: add kdump helpers to exclude non-dumpable regions
+>    arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
+>    riscv: kdump: exclude non-dumpable reserved memory regions from vmcore
+>    loongarch: kdump: exclude non-dumpable reserved memory regions from
+>      vmcore
+>
+>   arch/arm64/kernel/machine_kexec_file.c     |   6 ++
+>   arch/loongarch/kernel/machine_kexec_file.c |   6 ++
+>   arch/riscv/kernel/machine_kexec_file.c     |   4 +
+>   drivers/of/fdt.c                           |  11 +-
+>   drivers/of/of_private.h                    |   3 +
+>   drivers/of/of_reserved_mem.c               | 117 +++++++++++++++++++--
+>   include/linux/crash_core.h                 |   6 ++
+>   include/linux/of_reserved_mem.h            |  15 +++
+>   kernel/dma/contiguous.c                    |   1 +
+>   9 files changed, 157 insertions(+), 12 deletions(-)
+>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
