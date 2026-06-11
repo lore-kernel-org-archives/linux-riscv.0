@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A92ACD98C6
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 05:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85073CD8CB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 06:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=arw8969bT8R5uHUCfBp2ZemZbYp3GgwrkL19J2EY+wI=; b=Q1FBtFQmYuPM+1
-	7j0pgkywCrD1PY0ryWOxh/tL2KKkHoFubL9u8nG2pQNE3Ka7CXRMFjvBUYVBLnKCToPs4XXnXuseG
-	31OldBBCnMUN+0NF9rkI0Nx18zTDzAV3vYY9dUaslCnjK8XsdPJQ0DUOos+RR7tZtcRz3iZhcSqbM
-	VTIIOPw2RdZALINj+eYu3zt6i7Khih/kS1p6pRtUjH2umVY5v8JReyZc6N1XxRioBw2EBdloFBz6w
-	NF0AmhFgz3Hvl/3fHDnvCvTedr4GXsa7DFDEeAhannEM6kYXZUndJyOXwtRQUriorPdDWRNcX7jhL
-	0EVo+Z0vKx8PuafAYPwQ==;
+	List-Owner; bh=XGkpWMi9AjUqezigSItvvIJjB+iwAB9UFEwjC84ku9A=; b=myvXZPZDVuQ3x0
+	oUCQLJkTQbJ8isqCT96WbJU+JkwfFvSWItVH3JJzV1n6rQpPY8XEsW0nh+c1zmPGbNrXJQn14GGnE
+	2XKk5+ZodgHO1KVooQ8/Y0l0aHrGVg7hRXXv4/uAS+LLepwR/ThfdhUNgFsegL0+BazMI2UUfl85H
+	f1YslR59jBQ/gHE7QItOLjqiqdosHwRqYKlWPkis83CvCwX1evqAifylrqCZPdiZOqJeJXgMH0g/G
+	3C36ckoMmoYbsj0nKP+EXuCEKw/Kzc7WktF6s5wSl5coOytc0wG6sim6SGe+eC2BR+4FSgb8JPVID
+	wihRGGUgOS3M1rWPFp8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXYKR-00000008lSc-3pAG;
-	Thu, 11 Jun 2026 05:51:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wXYan-00000008mVI-19dy;
+	Thu, 11 Jun 2026 06:08:41 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXYKR-00000008lSL-2evW
-	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jun 2026 05:51:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1261F41804;
-	Thu, 11 Jun 2026 05:51:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9BAA1F00893;
-	Thu, 11 Jun 2026 05:51:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781157106;
-	bh=S23IQtI+0tBaqos80d73BR9DJks0cOyIqYTP5LT43OU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=fV4a9xpbGgjpXYucAriw0MR4zES15K73fOTJ7woaPNhczfKJF2/iCCbBualBPzIaQ
-	 YxJfyqhMhLqqORx5xpXnLYgvoxoAheqj3vWAGbpJsPyv5gAUzZuz3ilDRYF0UFQxg3
-	 Z/ouqYRohzFJj9n6WO8Lw2HtoKYtB8pGr/Ue1v+/gBQPVZnSwQgvxbtMXoTAgLck7K
-	 mfzrqsuLBzcubFYj4Pm19fbzaOcelXbiNOUXjBucRn2fD7UiehoXxfT27xFF9w/85U
-	 q1SQCW29f8JR7rWfCD93jKLYrPlikTv2By/KMf8Gw3uXi5pus6iTgMhxqyqov83K56
-	 /LfctOd12e2GQ==
-From: Vinod Koul <vkoul@kernel.org>
-To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Frank Li <Frank.Li@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
- Longbin Li <looong.bin@gmail.com>, Yixun Lan <dlan@kernel.org>, 
- "Anton D. Stavinskii" <stavinsky@gmail.com>, 
- Inochi Amaoto <inochiama@gmail.com>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
- linux-riscv@lists.infradead.org, Yixun Lan <dlan@kernel.org>
-In-Reply-To: <20260511063818.463877-1-inochiama@gmail.com>
-References: <20260511063818.463877-1-inochiama@gmail.com>
-Subject: Re: (subset) [PATCH v6 0/2] riscv: sophgo: allow DMA multiplexer
- set channel number for DMA controller
-Message-Id: <178115710130.468137.1246445545709441202.b4-ty@kernel.org>
-Date: Thu, 11 Jun 2026 11:21:41 +0530
+	id 1wXYal-00000008mUi-09Bj;
+	Thu, 11 Jun 2026 06:08:40 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1781158116;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z2N870od5dbjdxJsDLvMUG2Jj7B/cBTMlD10x/Fp9YA=;
+	b=U3P0PQAZcOs4DKD8mWRTVpkHZEs0WFNFuoLwloC7pnNcuqgYlw90J28+42/iuYQD2Dkee6
+	ziCaCEKYimlTRTF06vVP+ebJU/T7LthjmujbqRF7j9shg6tiROyTKRAtWERJ6tkFHlorNX
+	gBPUNWxz2L9By1mODgzY+MTNQxLQXPbTKRDSk+lkKJU2ZMXDG7k/qSS0HeEzJbYcDXuT93
+	bAadlqxY0jkuDB+OJzhpaNiMwjrrJ5VxmdFxtOucyvr1JcpOhsHbuC/3DZdNhMiuyukJXc
+	lWZBMzCMnp2rd8hpxnSAbUWyDlbl5dBY6mdbtPfk1IPkaHcFB29aaefLU/jzBQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1781158116;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z2N870od5dbjdxJsDLvMUG2Jj7B/cBTMlD10x/Fp9YA=;
+	b=PDWstf/CDMJGJqVyGfRsqfzxtCs8JjSX1BNIaweI8CHW4iQ5o458ziY2pDQmMdOQEnYDuX
+	7hxO8TvYay6RiPCQ==
+To: Charlie Jenkins via B4 Relay
+ <devnull+thecharlesjenkins.gmail.com@kernel.org>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
+ <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra
+ <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Shuah
+ Khan <shuah@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, Charlie Jenkins
+ <thecharlesjenkins@gmail.com>
+Subject: Re: [PATCH 03/16] riscv: kgdb: Use generated instruction headers
+In-Reply-To: <20260407-riscv_insn_table-v1-3-54b4736a1e77@gmail.com>
+References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
+ <20260407-riscv_insn_table-v1-3-54b4736a1e77@gmail.com>
+Date: Thu, 11 Jun 2026 08:08:35 +0200
+Message-ID: <87pl1xehi4.fsf@yellow.woof>
 MIME-Version: 1.0
-X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260610_230839_219416_AC9D9B6E 
+X-CRM114-Status: UNSURE (   2.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +84,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Charlie Jenkins via B4 Relay
+<devnull+thecharlesjenkins.gmail.com@kernel.org> writes:
+> +#define riscv_insn_branch(_insn, regs_ptr, _opcode, _pc, _comparison, type)     \
+> +	({                                                                      \
+> +		unsigned long _ret;                                             \
+> +		if ((type)riscv_insn_reg_get_val(                               \
+> +			    regs_ptr,                                           \
+> +			    riscv_insn_##_insn##_extract_xs1(_opcode))          \
+> +			    _comparison(type) riscv_insn_reg_get_val(           \
+> +				    regs_ptr,                                   \
+> +				    riscv_insn_##_insn##_extract_xs2(_opcode))) \
+> +			_ret = riscv_insn_##_insn##_extract_imm(_opcode);       \
 
-On Mon, 11 May 2026 14:38:15 +0800, Inochi Amaoto wrote:
-> As the DMA controller on Sophgo CV1800 series SoC only has 8 channels,
-> the SoC provides a dma multiplexer to reuse the DMA channel. However,
-> the dma multiplexer also controlls the DMA interrupt multiplexer, which
-> means that the dma multiplexer needs to know the channel number.
-> 
-> Change the DMA phandle args parsing logic so it can use handshake
-> number as channel number if necessary.
-> 
-> [...]
+Should be
+		_ret = _pc + riscv_insn_##_insn##_extract_imm(_opcode);
 
-Applied, thanks!
-
-[1/2] dt-bindings: dma: snps,dw-axi-dmac: Add fallback compatible for CV1800B
-      commit: 7524fe142b5a772f8421aeee2132cf7e21a00103
-
-Best regards,
--- 
-~Vinod
-
-
+> +		else                                                            \
+> +			_ret = _pc + 4;                                         \
+> +		_ret;                                                           \
+> +	})
+> +
 
 _______________________________________________
 linux-riscv mailing list
