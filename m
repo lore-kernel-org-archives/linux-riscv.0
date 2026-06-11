@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93BA4CD98CE
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 13:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B00ECD98CE
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 15:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WTfv/67bpbeIlw6GWcq4pglnmBVddCaMbMZaDlyU0z8=; b=IU7I6NX8A5KdIE
-	uaeyzlKtf/QCgj7imxP0WWsMAA6JoONP7wfpPevEyv0pHxXgKLfyTId3Kj/E8rCT5+jjVILBx4OQv
-	hhaBZ34Tar4H9bdK262Anm79a1LA6Yr+AGx0sbZykKO8O3X9k4b4WTBHnWaSz6CiD2ikT2NBg98ms
-	xJ7cxB51gGRFo38MX8C8X+AGSnJNV0UsK+FBJnlqnsW5yw7E5fiJOs9QJXlekbCfCcHQj7w26+QB8
-	f42VydL5bTckp1RNCPvIZnxvkzkjREaXteL19Q6fmT3HIVznKIVysS5V+6svunYS1TH9TETiQfcfo
-	KqU81Qfrqf1jFBte4FSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=69rO4Bbo5tXQty28/s4f/U6J/wAL4gfXBt0hfTE+WX8=; b=ueEkkMwN+rPdKZ
+	k75SCOdPjF3WGaKCnWL3aBLnKN3/9bt3lMAoONcEXgL4efDDk4WzRRLQSHZc5XwDqPutirNLLfQEZ
+	3n8/WlKafflXw5J2uok0+FaHVv4dArkwGUAdGy2zDVr+wnfmfC2w5x1AhoX08mGJAvi5mmsWzYdlG
+	u4+WqaoPqoV6+8iQComU7n5jhq1bmg+mUdaGNu7jnFszHZxsuOAOZ3KqBGAgLys/stNNZTLB2wwSR
+	R5x0z8AFXeUVl07go6d2ZjNH6rbN2rQ4D4BHZhh+WtuFaLDiaoxpET6iXKg79FvA/9v7sNFiWxzgc
+	lTjRj6E+8NEA0KoF0iCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfcJ-00000009XCB-0Y1k;
-	Thu, 11 Jun 2026 13:38:43 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wXguZ-00000009e8v-0VXk;
+	Thu, 11 Jun 2026 15:01:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXfcF-00000009X8J-1UWC;
-	Thu, 11 Jun 2026 13:38:41 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=N9ITyskFUfN9sQHxb9WrWtrq50c6nS4WUtOGvawk140=;
-	b=gu2tKDqFgDiTar0rxDam+VGeZ78nKR1ppnEAzEx5OXstOulBcmo0+DNNaChry6Y+Q6tx2WAIz
-	xzcKNg0jcA1osbs2KKxKrrd4jhab4owa7C3Z03s/cJ64tumWgSRv2Sddam0Ewkzfts6dE87t96z
-	JQ0KahOs7NO6q/VfRn4LA0E=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gbk682Mfmz1T4K2;
-	Thu, 11 Jun 2026 21:30:08 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id F11464056D;
-	Thu, 11 Jun 2026 21:38:30 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 11 Jun
- 2026 21:38:29 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <peterz@infradead.org>,
-	<kees@kernel.org>, <nathan@kernel.org>, <linusw@kernel.org>,
-	<ojeda@kernel.org>, <ruanjinjie@huawei.com>, <david.kaplan@amd.com>,
-	<lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>, <maz@kernel.org>,
-	<timothy.hayes@arm.com>, <lpieralisi@kernel.org>, <thuth@redhat.com>,
-	<oupton@kernel.org>, <yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>,
-	<broonie@kernel.org>, <kevin.brodsky@arm.com>, <james.clark@linaro.org>,
-	<tabba@google.com>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
-	<anshuman.khandual@arm.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
-Date: Thu, 11 Jun 2026 21:38:09 +0800
-Message-ID: <20260611133809.3854977-4-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260611133809.3854977-1-ruanjinjie@huawei.com>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+	id 1wXguX-00000009e8X-3hDC
+	for linux-riscv@lists.infradead.org;
+	Thu, 11 Jun 2026 15:01:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C9F3442AED;
+	Thu, 11 Jun 2026 15:01:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 636D21F00898;
+	Thu, 11 Jun 2026 15:01:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781190096;
+	bh=Z0GqAAPTQKBPzIIt8uafV8BDYHl2vHkEVMrjmDmaxGE=;
+	h=From:To:Cc:Subject:Date;
+	b=VKScpbVNCk6sDIkegam5ps5HgPFy8FMGqebxBD7jp0amyveZ7/1cjO4pnXETtL9YY
+	 HninzylNzJNiwZSOVEP/BUq0LD0DoWJtsssV7iX5WbtX6v3fK7V3UL1N5FwXM3UmBQ
+	 cVstckZ4wTA5ShWO+qAzV2IE3JM6J+xDGKMMb4DUCFgAsSWeOaCh9RNRijsNbN1gNq
+	 5PThwsxdWKQqJAzYgmcJST0cUPKVOrRbzYkCDqxvtSDf9pTUXrijBIhncIfS0FlDG9
+	 6I0lK+cunT54p7+lRCqnzBc9mLZ7yfK90uNMAlJg1RtuTWSkkBBGV1CncO9LRjHY0u
+	 6bB1cj4VeUCsw==
+From: Conor Dooley <conor@kernel.org>
+To: linux-hwmon@vger.kernel.org
+Cc: conor@kernel.org,
+	Lars Randers <lranders@mail.dk>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Valentina.FernandezAlanis@microchip.com
+Subject: [PATCH v3] hwmon: add a driver for the temp/voltage sensor on PolarFire SoC
+Date: Thu, 11 Jun 2026 16:00:42 +0100
+Message-ID: <20260611-blank-footprint-5504b819baec@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_063839_736335_975094C1 
-X-CRM114-Status: GOOD (  18.52  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=16852; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=qtmy05In3vdCzGWaGfNJEe5AhieGnHLdbOqAXu/bJdQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFlaZ2fZzrH3Pe9YmGJ8i4eVp/PhO7kZO9YL6v1lt8vqu FSza15aRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACYyI4GRoWH5gkdqpb9P/LC0 K6hu+9HHeqpiV/Y87uSUn4n3n3nevsXIMPVXDOOzE7v/KfPdVBdk7S8Oa7/7yMpZZqfOAfFL66Y mMwMA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,194 +78,579 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Support for parallel secondary CPU bringup is already utilized by x86,
-MIPS, and RISC-V. This patch brings this capability to the arm64
-architecture.
+From: Lars Randers <lranders@mail.dk>
 
-Rework the global `secondary_data` accessed during early boot into
-a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
-enabling the early boot code in head.S to resolve each secondary CPU's
-logical ID concurrently.
+Add a driver for the temperature and voltage sensors on PolarFire SoC.
+The temperature reports how hot the die is, and the voltages are the
+SoC's 1.05, 1.8 and 2.5 volt rails respectively.
 
-To fully enable HOTPLUG_PARALLEL, this patch implements:
-1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
-2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
+The hardware supports alarms in theory, but there is an erratum that
+prevents clearing them once triggered, so no support is added for them.
 
-Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
+The hardware measures voltage with 16 bits, of which 1 is a sign bit and
+the remainder holds the voltage as a fixed point integer value. It's
+improbable that the hardware will work if the voltages are negative, so
+the driver ignores the sign bits.
 
-|     test kernel	   | secondary CPUs boot time |
-|  ---------------------   |	--------------------  |
-|   Without this patch     |		155.672	      |
-|   cpuhp.parallel=0	   |		62.897	      |
-|   cpuhp.parallel=1	   |		166.703	      |
+There's no dt support etc here because this is the child of a simple-mfd
+syscon.
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Signed-off-by: Lars Randers <lranders@mail.dk>
+Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/arm64/Kconfig           |  1 +
- arch/arm64/include/asm/smp.h |  8 ++++++++
- arch/arm64/kernel/head.S     | 23 +++++++++++++++++++++++
- arch/arm64/kernel/smp.c      | 27 +++++++++++++++++++++++++++
- 4 files changed, 59 insertions(+)
+v3:
+- clamp interval values
+- note that 0-8 ms is the range for update_interval
+- return -ENODATA for invalid data
+- do write bounds checking once
+- comment on MMIO regmap return value checks
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 9091c67e1cc2..8735e9d8ed13 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -113,6 +113,7 @@ config ARM64
- 	select CPUMASK_OFFSTACK if NR_CPUS > 256
- 	select DCACHE_WORD_ACCESS
- 	select HAVE_EXTRA_IPI_TRACEPOINTS
-+	select HOTPLUG_PARALLEL if SMP && HOTPLUG_CPU
- 	select DYNAMIC_FTRACE if FUNCTION_TRACER
- 	select DMA_BOUNCE_UNALIGNED_KMALLOC
- 	select DMA_DIRECT_REMAP
-diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-index e2151a01731f..c39d4c0f8a37 100644
---- a/arch/arm64/include/asm/smp.h
-+++ b/arch/arm64/include/asm/smp.h
-@@ -92,6 +92,10 @@ struct secondary_data {
- 	long status;
- };
- 
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+extern struct secondary_data cpu_boot_data[NR_CPUS];
-+#endif
+v2:
+- Fix some minor things pointed out by Sashiko including inaccurate
+  comments, bounds checking of values read from sysfs and Kconfig
+  dependencies.
+- Make update_interval use milliseconds instead of microseconds
+  (I'll add update_interval_us support when that lands, there's a
+  proposed workaround for the erratum circulating internally, so it'll
+  probably come alongside alarm support).
+
+CC: Guenter Roeck <linux@roeck-us.net>
+CC: Jonathan Corbet <corbet@lwn.net>
+CC: Shuah Khan <skhan@linuxfoundation.org>
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: linux-hwmon@vger.kernel.org
+CC: linux-doc@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
+CC: Valentina.FernandezAlanis@microchip.com
+---
+ Documentation/hwmon/index.rst    |   1 +
+ Documentation/hwmon/tvs-mpfs.rst |  53 +++++
+ MAINTAINERS                      |   1 +
+ drivers/hwmon/Kconfig            |  13 ++
+ drivers/hwmon/Makefile           |   1 +
+ drivers/hwmon/tvs-mpfs.c         | 388 +++++++++++++++++++++++++++++++
+ 6 files changed, 457 insertions(+)
+ create mode 100644 Documentation/hwmon/tvs-mpfs.rst
+ create mode 100644 drivers/hwmon/tvs-mpfs.c
+
+diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+index 8b655e5d6b68..84a5339e1d6f 100644
+--- a/Documentation/hwmon/index.rst
++++ b/Documentation/hwmon/index.rst
+@@ -262,6 +262,7 @@ Hardware Monitoring Kernel Drivers
+    tps53679
+    tps546d24
+    tsc1641
++   tvs-mpfs
+    twl4030-madc-hwmon
+    ucd9000
+    ucd9200
+diff --git a/Documentation/hwmon/tvs-mpfs.rst b/Documentation/hwmon/tvs-mpfs.rst
+new file mode 100644
+index 000000000000..1035812f363a
+--- /dev/null
++++ b/Documentation/hwmon/tvs-mpfs.rst
+@@ -0,0 +1,53 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
- extern struct secondary_data secondary_data;
- extern long __early_cpu_boot_status;
- extern void secondary_entry(void);
-@@ -124,7 +128,11 @@ static inline void __noreturn cpu_park_loop(void)
- 
- static inline void update_cpu_boot_status(unsigned int cpu, int val)
- {
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+	WRITE_ONCE(cpu_boot_data[cpu].status, val);
-+#else
- 	WRITE_ONCE(secondary_data.status, val);
-+#endif
- 	/* Ensure the visibility of the status update */
- 	dsb(ishst);
- }
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 87a822e5c4ca..8f6c1c5e66d2 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -12,6 +12,7 @@
- #include <linux/linkage.h>
- #include <linux/init.h>
- #include <linux/pgtable.h>
-+#include <linux/threads.h>
- 
- #include <asm/asm_pointer_auth.h>
- #include <asm/assembler.h>
-@@ -391,7 +392,29 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
- 	msr	vbar_el1, x5
- 	isb
- 
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+	mrs	x0, mpidr_el1
-+	mov_q	x1, MPIDR_HWID_BITMASK
-+	and	x0, x0, x1
++Kernel driver tvs-mpfs
++======================
 +
-+	adr_l	x1, __mpidr_to_cpuid_table
-+	mov	x19, #0
-+.Lfind_cpuid:
-+	ldr	x3, [x1, x19, lsl #3]
-+	cmp	x3, x0
-+	b.eq	.Lfound_cpuid
-+	add	x19, x19, #1
-+	cmp	x19, #NR_CPUS
-+	b.ne	.Lfind_cpuid
-+	b	.
++Supported chips:
 +
-+.Lfound_cpuid:
-+	adr_l	x0, cpu_boot_data
-+	lsl	x3, x19, #4
-+	add	x0, x0, x3
-+#else
- 	adr_l	x0, secondary_data
-+#endif
- 	ldr	x2, [x0, #CPU_BOOT_TASK]
- 	cbz	x2, __secondary_too_slow
++  * PolarFire SoC
++
++Authors:
++
++   - Conor Dooley <conor.dooley@microchip.com>
++   - Lars Randers <lranders@mail.dk>
++
++Description
++-----------
++
++This driver implements support for the temperature and voltage sensors on
++PolarFire SoC. The temperature reports how hot the die is, and the voltages are
++the SoC's 1.05, 1.8 and 2.5 volt rails respectively.
++
++
++Usage Notes
++-----------
++
++update_interval has a permitted range of 0 to 8 milliseconds.
++
++Temperatures are read in millidegrees Celsius, but the hardware measures in
++degrees Kelvin, storing the result as 11.4 fixed point data, for a maximum
++value of 2047.9375 degrees Kelvin.
++
++Voltages are read in millivolts. The hardware measures in millivolts, storing
++the value as 12.3 fixed point data, for a maximum of 4095.875 millivolts.
++The minimum value reportable by the driver is 0 volts, although the hardware
++is capable of measuring negative values.
++
++Sysfs entries
++-------------
++
++The following attributes are supported. update_interval is read-write, as are
++the enables. All other attributes are read only.
++
++======================= ====================================================
++temp1_label		Fixed name for channel.
++temp1_input		Measured temperature for channel.
++temp1_enable		Enable/disable for channel.
++
++in[0-2]_label		Fixed name for channel.
++in[0-2]_input		Measured voltage for channel.
++in[0-2]_enable		Enable/disable for channel.
++
++update_interval		The interval at which the chip will update readings.
++======================= ====================================================
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2fb1c75afd16..a492cf5ad0fc 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22938,6 +22938,7 @@ F:	drivers/char/hw_random/mpfs-rng.c
+ F:	drivers/clk/microchip/clk-mpfs*.c
+ F:	drivers/firmware/microchip/mpfs-auto-update.c
+ F:	drivers/gpio/gpio-mpfs.c
++F:	drivers/hwmon/tvs-mpfs.c
+ F:	drivers/i2c/busses/i2c-microchip-corei2c.c
+ F:	drivers/mailbox/mailbox-mpfs.c
+ F:	drivers/pci/controller/plda/pcie-microchip-host.c
+diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+index 14e4cea48acc..2b9622b1db95 100644
+--- a/drivers/hwmon/Kconfig
++++ b/drivers/hwmon/Kconfig
+@@ -930,6 +930,19 @@ config SENSORS_JC42
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called jc42.
  
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 6bc90ee4820a..c909bf1c5119 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -61,6 +61,12 @@
-  * where to place its SVC stack
-  */
- struct secondary_data secondary_data;
++config SENSORS_POLARFIRE_SOC_TVS
++	tristate "PolarFire SoC (MPFS) temperature and voltage sensor"
++	depends on POLARFIRE_SOC_SYSCONS || COMPILE_TEST
++	depends on MFD_SYSCON
++	help
++	  This driver adds support for the PolarFire SoC (MPFS) Temperature and
++	  Voltage Sensor.
 +
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+struct secondary_data cpu_boot_data[NR_CPUS] ____cacheline_aligned __ro_after_init;
-+unsigned long __mpidr_to_cpuid_table[NR_CPUS] ____cacheline_aligned;
-+#endif
++	  To compile this driver as a module, choose M here. the
++	  module will be called tvs-mpfs.
 +
- /* Number of CPUs which aren't online, but looping in kernel text. */
- static int cpus_stuck_in_kernel;
- 
-@@ -106,8 +112,19 @@ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
- 	return -EOPNOTSUPP;
- }
- 
-+#ifndef CONFIG_HOTPLUG_PARALLEL
- static DECLARE_COMPLETION(cpu_running);
-+#endif
++	  If unsure, say N.
 +
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
+ config SENSORS_POWERZ
+ 	tristate "ChargerLAB POWER-Z USB-C tester"
+ 	depends on USB
+diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+index 4788996aa137..b58d249e4cf4 100644
+--- a/drivers/hwmon/Makefile
++++ b/drivers/hwmon/Makefile
+@@ -194,6 +194,7 @@ obj-$(CONFIG_SENSORS_NZXT_SMART2) += nzxt-smart2.o
+ obj-$(CONFIG_SENSORS_PC87360)	+= pc87360.o
+ obj-$(CONFIG_SENSORS_PC87427)	+= pc87427.o
+ obj-$(CONFIG_SENSORS_PCF8591)	+= pcf8591.o
++obj-$(CONFIG_SENSORS_POLARFIRE_SOC_TVS)  += tvs-mpfs.o
+ obj-$(CONFIG_SENSORS_POWERZ)	+= powerz.o
+ obj-$(CONFIG_SENSORS_POWR1220)  += powr1220.o
+ obj-$(CONFIG_SENSORS_PT5161L)	+= pt5161l.o
+diff --git a/drivers/hwmon/tvs-mpfs.c b/drivers/hwmon/tvs-mpfs.c
+new file mode 100644
+index 000000000000..48de8d98b344
+--- /dev/null
++++ b/drivers/hwmon/tvs-mpfs.c
+@@ -0,0 +1,388 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Author: Lars Randers <lranders@mail.dk>
++ */
++
++#include <linux/bitfield.h>
++#include <linux/err.h>
++#include <linux/freezer.h>
++#include <linux/hwmon.h>
++#include <linux/io.h>
++#include <linux/kthread.h>
++#include <linux/mfd/syscon.h>
++#include <linux/minmax.h>
++#include <linux/module.h>
++#include <linux/of_address.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++#define MPFS_TVS_CTRL 0x08
++#define MPFS_TVS_OUTPUT0 0x24
++#define MPFS_TVS_OUTPUT1 0x28
++
++#define MPFS_TVS_CTRL_TEMP_VALID	BIT(19)
++#define MPFS_TVS_CTRL_V2P5_VALID	BIT(18)
++#define MPFS_TVS_CTRL_V1P8_VALID	BIT(17)
++#define MPFS_TVS_CTRL_V1P05_VALID	BIT(16)
++
++#define MPFS_TVS_CTRL_TEMP_ENABLE	BIT(3)
++#define MPFS_TVS_CTRL_V2P5_ENABLE	BIT(2)
++#define MPFS_TVS_CTRL_V1P8_ENABLE	BIT(1)
++#define MPFS_TVS_CTRL_V1P05_ENABLE	BIT(0)
++#define MPFS_TVS_CTRL_ENABLE_ALL	GENMASK(3, 0)
++
++/*
++ * For all of these the value in millivolts is stored in 16 bits, with an upper
++ * sign bit and a lower 3 bits of decimal. These masks discard the sign bit and
++ * decimal places, because if Linux is running these voltages cannot be negative
++ * and so avoid having to convert to two's complement.
++ */
++#define MPFS_OUTPUT0_V1P8_MASK	GENMASK(30, 19)
++#define MPFS_OUTPUT0_V1P05_MASK	GENMASK(14, 3)
++#define MPFS_OUTPUT1_V2P5_MASK	GENMASK(14, 3)
++
++/*
++ * The register map claims that the temperature is stored in bits 31:16, but
++ * application note "AN4682: PolarFire FPGA Temperature and Voltage Sensor"
++ * says that 31 is reserved. Temperature is in kelvin, so what's probably a
++ * sign bit has no value anyway.
++ */
++#define MPFS_OUTPUT1_TEMP_MASK GENMASK(30, 16)
++
++#define MPFS_TVS_INTERVAL_MASK GENMASK(15, 8)
++#define MPFS_TVS_INTERVAL_OFFSET 8
++/* The interval register is in increments of 32 us */
++#define MPFS_TVS_INTERVAL_SCALE 32
++/* with 254 usable increments of 32 us available, 8 ms is the integer limit */
++#define MPFS_TVS_INTERVAL_MAX_MS 8U
++
++/* 273.1875 in 11.4 fixed-point notation */
++#define MPFS_TVS_K_TO_C 0x1113
++
++enum mpfs_tvs_sensors {
++	SENSOR_V1P05 = 0,
++	SENSOR_V1P8,
++	SENSOR_V2P5,
++};
++
++static const char * const mpfs_tvs_voltage_labels[] = { "1P05", "1P8", "2P5" };
++
++struct mpfs_tvs {
++	struct regmap *regmap;
++};
++
++static int mpfs_tvs_voltage_read(struct mpfs_tvs *data, u32 attr,
++				 int channel, long *val)
 +{
-+	cpu_boot_data[cpu].task = tidle;
-+	update_cpu_boot_status(cpu, CPU_MMU_OFF);
- 
-+	return boot_secondary(cpu, tidle);
-+}
-+#else
- int __cpu_up(unsigned int cpu, struct task_struct *idle)
- {
- 	int ret;
-@@ -172,6 +189,7 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
- 
- 	return -EIO;
- }
-+#endif /* CONFIG_HOTPLUG_PARALLEL */
- 
- static void init_gic_priority_masking(void)
- {
-@@ -206,6 +224,10 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	mmgrab(mm);
- 	current->active_mm = mm;
- 
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+	cpuhp_ap_sync_alive();
-+#endif
++	u32 tmp, control;
 +
- 	/*
- 	 * TTBR0 is only used for the identity mapping at this stage. Make it
- 	 * point to zero page to avoid speculatively fetching new entries.
-@@ -254,7 +276,9 @@ asmlinkage notrace void secondary_start_kernel(void)
- 					 read_cpuid_id());
- 	update_cpu_boot_status(cpu, CPU_BOOT_SUCCESS);
- 	set_cpu_online(cpu, true);
-+#ifndef CONFIG_HOTPLUG_PARALLEL
- 	complete(&cpu_running);
-+#endif
- 
- 	/*
- 	 * Secondary CPUs enter the kernel with all DAIF exceptions masked.
-@@ -762,6 +786,9 @@ void __init smp_init_cpus(void)
- 	 */
- 	for (i = 1; i < nr_cpu_ids; i++) {
- 		if (cpu_logical_map(i) != INVALID_HWID) {
-+#ifdef CONFIG_HOTPLUG_PARALLEL
-+			__mpidr_to_cpuid_table[i] = cpu_logical_map(i);
-+#endif
- 			if (smp_cpu_setup(i))
- 				set_cpu_logical_map(i, INVALID_HWID);
- 		}
++	if (attr != hwmon_in_input && attr != hwmon_in_enable)
++		return -EOPNOTSUPP;
++
++	regmap_read(data->regmap, MPFS_TVS_CTRL, &control);
++
++	switch (channel) {
++	case SENSOR_V2P5:
++		if (attr == hwmon_in_enable) {
++			*val = FIELD_GET(MPFS_TVS_CTRL_V2P5_ENABLE, control);
++			break;
++		}
++
++		if (!(control & MPFS_TVS_CTRL_V2P5_VALID))
++			return -ENODATA;
++
++		regmap_read(data->regmap, MPFS_TVS_OUTPUT1, &tmp);
++		*val = FIELD_GET(MPFS_OUTPUT1_V2P5_MASK, tmp);
++		break;
++	case SENSOR_V1P8:
++		if (attr == hwmon_in_enable) {
++			*val = FIELD_GET(MPFS_TVS_CTRL_V1P8_ENABLE, control);
++			break;
++		}
++
++		if (!(control & MPFS_TVS_CTRL_V1P8_VALID))
++			return -ENODATA;
++
++		regmap_read(data->regmap, MPFS_TVS_OUTPUT0, &tmp);
++		*val = FIELD_GET(MPFS_OUTPUT0_V1P8_MASK, tmp);
++		break;
++	case SENSOR_V1P05:
++		if (attr == hwmon_in_enable) {
++			*val = FIELD_GET(MPFS_TVS_CTRL_V1P05_ENABLE, control);
++			break;
++		}
++
++		if (!(control & MPFS_TVS_CTRL_V1P05_VALID))
++			return -ENODATA;
++
++		regmap_read(data->regmap, MPFS_TVS_OUTPUT0, &tmp);
++		*val = FIELD_GET(MPFS_OUTPUT0_V1P05_MASK, tmp);
++		break;
++	default:
++		return -EOPNOTSUPP;
++	}
++
++	return 0;
++}
++
++static int mpfs_tvs_voltage_write(struct mpfs_tvs *data, u32 attr,
++				  int channel, long val)
++{
++	u32 tmp;
++
++	if (attr != hwmon_in_enable)
++		return -EOPNOTSUPP;
++
++	if (val > 1 || val < 0)
++		return -EINVAL;
++
++	switch (channel) {
++	case SENSOR_V2P5:
++		tmp = FIELD_PREP(MPFS_TVS_CTRL_V2P5_ENABLE, val);
++		regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
++				   MPFS_TVS_CTRL_V2P5_ENABLE, tmp);
++		break;
++	case SENSOR_V1P8:
++		tmp = FIELD_PREP(MPFS_TVS_CTRL_V1P8_ENABLE, val);
++		regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
++				   MPFS_TVS_CTRL_V1P8_ENABLE, tmp);
++		break;
++	case SENSOR_V1P05:
++		tmp = FIELD_PREP(MPFS_TVS_CTRL_V1P05_ENABLE, val);
++		regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
++				   MPFS_TVS_CTRL_V1P05_ENABLE, tmp);
++		break;
++	default:
++		return -EOPNOTSUPP;
++	}
++
++	return 0;
++}
++
++static int mpfs_tvs_temp_read(struct mpfs_tvs *data, u32 attr, long *val)
++{
++	u32 tmp, control;
++
++	if (attr != hwmon_temp_input && attr != hwmon_temp_enable)
++		return -EOPNOTSUPP;
++
++	regmap_read(data->regmap, MPFS_TVS_CTRL, &control);
++
++	if (attr == hwmon_temp_enable) {
++		*val = FIELD_GET(MPFS_TVS_CTRL_TEMP_ENABLE, control);
++		return 0;
++	}
++
++	if (!(control & MPFS_TVS_CTRL_TEMP_VALID))
++		return -ENODATA;
++
++	regmap_read(data->regmap, MPFS_TVS_OUTPUT1, &tmp);
++	*val = FIELD_GET(MPFS_OUTPUT1_TEMP_MASK, tmp);
++	*val -= MPFS_TVS_K_TO_C;
++	*val = (1000 * *val) >> 4; /* fixed point (11.4) to millidegrees */
++
++	return 0;
++}
++
++static int mpfs_tvs_temp_write(struct mpfs_tvs *data, u32 attr, long val)
++{
++	u32 tmp;
++
++	if (attr != hwmon_temp_enable)
++		return -EOPNOTSUPP;
++
++	if (val > 1 || val < 0)
++		return -EINVAL;
++
++	tmp = FIELD_PREP(MPFS_TVS_CTRL_TEMP_ENABLE, val);
++	regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
++			   MPFS_TVS_CTRL_TEMP_ENABLE, tmp);
++
++	return 0;
++}
++
++static int mpfs_tvs_interval_read(struct mpfs_tvs *data, u32 attr, long *val)
++{
++	u32 tmp;
++
++	if (attr != hwmon_chip_update_interval)
++		return -EOPNOTSUPP;
++
++	regmap_read(data->regmap, MPFS_TVS_CTRL, &tmp);
++	*val = FIELD_GET(MPFS_TVS_INTERVAL_MASK, tmp);
++	*val *= MPFS_TVS_INTERVAL_SCALE;
++	*val /= 1000;
++
++	return 0;
++}
++
++static int mpfs_tvs_interval_write(struct mpfs_tvs *data, u32 attr, long val)
++{
++	unsigned long temp = val;
++
++	if (attr != hwmon_chip_update_interval)
++		return -EOPNOTSUPP;
++
++	temp = clamp(temp, 0U, MPFS_TVS_INTERVAL_MAX_MS);
++
++	temp *= 1000;
++	temp /= MPFS_TVS_INTERVAL_SCALE;
++
++	temp <<= MPFS_TVS_INTERVAL_OFFSET;
++	regmap_update_bits(data->regmap, MPFS_TVS_CTRL,
++			   MPFS_TVS_INTERVAL_MASK, temp);
++
++	return 0;
++}
++
++static umode_t mpfs_tvs_is_visible(const void *data,
++				   enum hwmon_sensor_types type,
++				   u32 attr, int channel)
++{
++	if (type == hwmon_chip && attr == hwmon_chip_update_interval)
++		return 0644;
++
++	if (type == hwmon_temp) {
++		switch (attr) {
++		case hwmon_temp_enable:
++			return 0644;
++		case hwmon_temp_input:
++		case hwmon_temp_label:
++			return 0444;
++		default:
++			return 0;
++		}
++	}
++
++	if (type == hwmon_in) {
++		switch (attr) {
++		case hwmon_in_enable:
++			return 0644;
++		case hwmon_in_input:
++		case hwmon_in_label:
++			return 0444;
++		default:
++			return 0;
++		}
++	}
++
++	return 0;
++}
++
++static int mpfs_tvs_read(struct device *dev, enum hwmon_sensor_types type,
++			 u32 attr, int channel, long *val)
++{
++	struct mpfs_tvs *data = dev_get_drvdata(dev);
++
++	switch (type) {
++	case hwmon_temp:
++		return mpfs_tvs_temp_read(data, attr, val);
++	case hwmon_in:
++		return mpfs_tvs_voltage_read(data, attr, channel, val);
++	case hwmon_chip:
++		return mpfs_tvs_interval_read(data, attr, val);
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
++static int mpfs_tvs_write(struct device *dev, enum hwmon_sensor_types type,
++			  u32 attr, int channel, long val)
++{
++	struct mpfs_tvs *data = dev_get_drvdata(dev);
++
++	switch (type) {
++	case hwmon_temp:
++		return mpfs_tvs_temp_write(data, attr, val);
++	case hwmon_in:
++		return mpfs_tvs_voltage_write(data, attr, channel, val);
++	case hwmon_chip:
++		return mpfs_tvs_interval_write(data, attr, val);
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
++static int mpfs_tvs_read_labels(struct device *dev,
++				enum hwmon_sensor_types type,
++				u32 attr, int channel,
++				const char **str)
++{
++	switch (type) {
++	case hwmon_temp:
++		*str = "Die Temp";
++		return 0;
++	case hwmon_in:
++		*str = mpfs_tvs_voltage_labels[channel];
++		return 0;
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
++static const struct hwmon_ops mpfs_tvs_ops = {
++	.is_visible = mpfs_tvs_is_visible,
++	.read_string = mpfs_tvs_read_labels,
++	.read = mpfs_tvs_read,
++	.write = mpfs_tvs_write,
++};
++
++static const struct hwmon_channel_info *mpfs_tvs_info[] = {
++	HWMON_CHANNEL_INFO(chip,
++			   HWMON_C_REGISTER_TZ | HWMON_C_UPDATE_INTERVAL),
++	HWMON_CHANNEL_INFO(temp,
++			   HWMON_T_INPUT | HWMON_T_LABEL | HWMON_T_ENABLE),
++	HWMON_CHANNEL_INFO(in,
++			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_ENABLE,
++			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_ENABLE,
++			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_ENABLE),
++	NULL
++};
++
++static const struct hwmon_chip_info mpfs_tvs_chip_info = {
++	.ops = &mpfs_tvs_ops,
++	.info = mpfs_tvs_info,
++};
++
++static int mpfs_tvs_probe(struct platform_device *pdev)
++{
++	struct device *hwmon_dev;
++	struct mpfs_tvs *data;
++
++	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->regmap = device_node_to_regmap(pdev->dev.parent->of_node);
++	if (IS_ERR(data->regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(data->regmap),
++				     "Failed to find syscon regmap\n");
++
++	/*
++	 * It's an MMIO regmap with no resources, there's nothing that can fail
++	 * and return an error
++	 */
++	regmap_write(data->regmap, MPFS_TVS_CTRL, MPFS_TVS_CTRL_ENABLE_ALL);
++
++	hwmon_dev = devm_hwmon_device_register_with_info(&pdev->dev, "mpfs_tvs",
++							 data,
++							 &mpfs_tvs_chip_info,
++							 NULL);
++	if (IS_ERR(hwmon_dev))
++		return dev_err_probe(&pdev->dev, PTR_ERR(hwmon_dev),
++				     "hwmon device registration failed.\n");
++
++	return 0;
++}
++
++static struct platform_driver mpfs_tvs_driver = {
++	.probe = mpfs_tvs_probe,
++	.driver = {
++		.name = "mpfs-tvs",
++	},
++};
++module_platform_driver(mpfs_tvs_driver);
++
++MODULE_AUTHOR("Lars Randers <lranders@mail.dk>");
++MODULE_DESCRIPTION("PolarFire SoC temperature & voltage sensor driver");
++MODULE_LICENSE("GPL");
 -- 
-2.34.1
+2.53.0
 
 
 _______________________________________________
