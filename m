@@ -4,122 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EADF4CD98C7
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 20:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 410E9CD98C7
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2026 20:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BL2qW3dtaPIIKxo1CKYYACNvZbQ9OY+7qugJyPhEqog=; b=ZqfdSYgQaXo1nJ
-	4hgTUa7ggvT0tikAH7c5sFlI7oqg/fRcWrTJp5GCer7nwKoejqkGd99lzlr45eMZIekgQLQYoUfNC
-	Luo+sm9mIt9AQV+9v2DJaSnEG18ZkMD2WTCx7UbW7WwRPfwIjZxW0LpWpuNDdDRB0rWwM95GB5tw6
-	2aFneogy8agRFgPhT6q9gwkMGNnbkhkBQlsbMgEmsWSGvS2eB/wDm/LvKDLzk0chCq6/+bB6+bFpO
-	2+6JE8ZiZ/nHTKw713Sq4IrwJ8JEDQfplY0/6QIU/GOGXVssZ1oyQgpLdbV98SQyIXM5y9GJXdZW4
-	Gjpp4DVzIe2h8bI37WPg==;
+	List-Owner; bh=GqfQQVm5qpdHLl6jNVnx6Rks2tXX6YoXKyV8I14osG4=; b=3bH81Pnsoo2GgL
+	f07iJTqzLs4OfXYHpgmIEPbGOsXV8md2eEqvagJZBf5OXcWwcF5jO46vNfb+nDsTMt7woH32AlxUH
+	c/FG0felyI05tfkPc66PTtjbYlI+ANa51NLYqNhAXHP3RSJ0uGatlSG/5qdaCmpRwyx2yOXj10fNG
+	PJJDlV+uTbsWp7/p2gnRc/K6TYuvcYgBQzZfC/VUdb2Pe8F3skgm9+5U6BWrDTpiV6yNnkTaq7AXE
+	jIyQ0z3g4RGsAyhE3mTTjB48CFGMzCzpyAPOgMNmSpLJaYdquWXRtX+pVcmD5pP5DUak0+ozuPvDX
+	/yngQcx8ge9IIErPHzVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXloG-0000000A1nI-2XcK;
-	Thu, 11 Jun 2026 20:15:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wXmLw-0000000A4CG-0kgv;
+	Thu, 11 Jun 2026 20:50:16 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXloF-0000000A1lg-1TEL
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 11 Jun 2026 20:15:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=m265EV302HRo7Gs5HUB3XDJdYi9da1UqwB9AyAJDJRw=; b=W/a7ToFUQOxB2we7lWbCVvx7dR
-	XDSj33TDiVgscuRg+NXd92pDBHKmdTIA8wmVgYbeU4YH+qCupuSqdcdMAksYF/pAQm71ddg9WBniK
-	EZfEG8Q48d0G071eLN1DUduft1I9i5JJ7ERUF+cu8dnicwuGZwSUvcnyDYfEwMAC55/C36+4oZj04
-	s2PdC3INdWJjReDDNNDY1Nm8fqL75dWHoVAgKvTt1P/Wy9rTRSAjM3kaKXQRM6fPH83k1IGzxutog
-	ZV6SDj9fEKI8FwscX4fMQ8/d/QL77YvzFBt/BX9nNOHKyCAY+kKynjLSsVsxWzzGVPDD3GtYl92Z/
-	EgaiRxzA==;
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wXlo1-00000005dpH-2AEr
+	id 1wXmLs-0000000A4BY-39PV
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jun 2026 20:15:21 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-36d9794d82aso236520a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2026 13:15:12 -0700 (PDT)
+	Thu, 11 Jun 2026 20:50:14 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65BJ3LWi1478989
+	for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2026 20:50:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=7U12GqzKZ3dJsiu7QWLZpQE1
+	HJAiLvJ1NIcLGrlb2b8=; b=b33fGFdmUmHrcWlfymGF3o/dulCmz3LRdm9ooGYr
+	A74OgzAgDg/YYlewa5wd14Nlzi8BIlGZdEwQLu8DshZF2rFrVdHDjT79f50f+TrP
+	6CbQOBykIMAXFDZTspCj7K/q8nPzO5C6xm2zOkOOttY8Ocny8Nv5Ng1PcefMWFHC
+	Gb/Mk2sY4arsQ2Ky7NAQcahmI9qHgIhxy1jq4sCwmo58UWIXkNtFkeUwbd94VwL/
+	nbuQRkMk+0/Wx/2RWCDCRUuYaa7NoIqiBSN4XSvQckfGYI1dhYmxEhusqZFO3tat
+	ryxAxSA5vJsmH18JS/KiFRlhXVzh8vv1ZUqwq9/8xFcEzg==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4er1cbgvk9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2026 20:50:10 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-304dd917645so599980eec.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2026 13:50:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781208911; x=1781813711; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m265EV302HRo7Gs5HUB3XDJdYi9da1UqwB9AyAJDJRw=;
-        b=qwotzUe1YlAPhGtZnwQkArJ92X0WtgquuEgJyhTpCqPqzxglxutM0fjYOemhuUsfdD
-         QHByjRMkwJOHGHZsN42sELIXQg1CA1W8n2YkuXUNuNTKIVHokNw9847I/9SL9QJx/9kI
-         0g/aMS0IGJ/Y/XJCHktf184X3q+P/R4JLrGYhjZAGz2VL1qi3JoHUPQVDsgptaLcnOiJ
-         Scearjk9y0Kj4O6srGwsuM4toBcje4PKMnwoW+svnha01X+gwJTFzVPNPYife2jQfaFO
-         z0iITRyX/yRbJkOxKk+13+6usrAam6+2JzBmgG8Z8XU1wbR+qk8JJVUkfQprMQ1LchMW
-         1kEA==
+        d=oss.qualcomm.com; s=google; t=1781211010; x=1781815810; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7U12GqzKZ3dJsiu7QWLZpQE1HJAiLvJ1NIcLGrlb2b8=;
+        b=bsz9bfyJ3u5NMlTf1csIBzjc31zPs4NN0fqC/WO3ujM/TlRv8kksGGQ5NwgiVV1bXW
+         tijzcr5bIaFyPaEIOnNxi2nNMZJKaAKzM+pl0+EH3emeWR3DEMtgvOPoCrAipoMC498H
+         kEvptadvP98fZ3YmOwp0nIfjtA7GJdbqwIArQvLuau8WQ+3r5L8zmaGwNWyqq/DSWlis
+         k/BNi7oaMYUtBKFPwH4WS8TMYo2j4tdFVMkqVjkFPDHLS6b58ej7DTn0vjOXW0UDsmYB
+         vGilaLvn4Ro5yTeEOR10rUsqHVScWiaeKCbsdEgh0Pj9FZeyT0C8w3uyUhgINLyffBlT
+         2zDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781208911; x=1781813711;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=m265EV302HRo7Gs5HUB3XDJdYi9da1UqwB9AyAJDJRw=;
-        b=I1UcR+bKx7Ag7U71p5+jX+uv/5aap+ETwnpaxTNrsTjtEW60G4qVOIqvUQHQgZwu3Y
-         4qunL+bWtYst26PlnlDMJoPqiQUoAFHWhMrPEDEABawvqaS+ZHuoz2dTHbxHgwPBvnxj
-         UhB8FlRmUpWU3DrDeDgJSaJkS9hrHnOE4YdtfHGuDmyWOC/iHIqb70wGyl0pSuBMnv+t
-         PQQh1/JMuqC/Q1/FFvZ+eAldTEUkOhkiBQek5CVkMAvQsrI7A5IZtsacCvL+QumXkMjx
-         qYyMt1hqtTzZUSSovPSeHa2TrgTHSgHjFMknk630EdJBmpA1OTgG7hboK1yfpFrUKizn
-         QFSw==
-X-Forwarded-Encrypted: i=1; AFNElJ/QXWOIKY3QfTXila8uFv1aL4gMwWBR/svC2u9WqaY3iUXPJAhs27fqw1Drxeu6YBtVev11nnGfXm+VPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywjsf6g0pBf0+Pb7cppu7/6O1D6fdcnt8OnifP7RnuMS27Sthre
-	RVy0s8ubgubFO8Q4xRU3WCaDDhGrFADwBOa7Ij2qE6Jfl2hfGs8FIa0U
-X-Gm-Gg: Acq92OEymIRweF7AledwOVxyJzm4rhWRwFMkPxlaYO11OT0n7TKMtsGhhgPM6tPh7ar
-	fVoyby0AwhU2pgiceLutRgW0y5T5Zju2MrwXlFW6g+qSRsGMXRPAqGd0BxncypKJ3HqZOYHtMWL
-	qwzA28ngkRqjdLJGPWJytGdCIFb1UA4LbGfBUmD2nbuYwOurwiCGTEat/6TtZ/yGjoBdamuyHx2
-	MqY7dAa/9NB9PBXWSdUtUJ5rwzJ+KsSj+oz5P8UjAcRFVsEAHI7mf2E/OYq4U5TgrVvivFkqvTW
-	8MgntkKSC4Ed9zvieAn8CGc6mF1ZombzBhhD0ty9vDjqX6NzPpjhoHWWMTYcHcP25/iWMr3QB/6
-	zCGTmV3JT3yhtPkD+mHuQ3XZ7ATlGo5D7mgQSUaHYY2IK/Koy8wOBqKCcVupKF3BvazuKFkWYww
-	==
-X-Received: by 2002:a17:902:ebc6:b0:2c0:c940:dc1e with SMTP id d9443c01a7336-2c2f2c64838mr48032165ad.20.1781208911134;
-        Thu, 11 Jun 2026 13:15:11 -0700 (PDT)
-Received: from [127.0.1.1] ([2a12:a305:4::302d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c164f875casm288730475ad.22.2026.06.11.13.15.03
+        d=1e100.net; s=20251104; t=1781211010; x=1781815810;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7U12GqzKZ3dJsiu7QWLZpQE1HJAiLvJ1NIcLGrlb2b8=;
+        b=nkCP+Y3Mw92Ad9TWnxdhbWLQh84H+J6GswBv4SZU+DAMnjO01LY0a60jo3FAEZnMlp
+         1h8Oka8XkyMm5FfOrxC836BqFfSpsrNF34+x/+cf9VycK4z65JRagjRiXJPpjrpeNK/y
+         VrIx5van/aCaPR5gJgLpqrdFmMAKSucQ/YQ5XiCsaAlyyDw50qpUXYgUKN8OUa+8bkvN
+         R8I0PSa9D3qNinCXPty3oNaPJz8D10GWsT+YBlPpS/b+OwpNgyNU5XMO3JgXv5/PI8wG
+         y1p1gxzI5wBHeucJEU3xuOttGqeSKlmSk5XqGfNJgXgf9zVG7NoOiqGQXmOGUSnUj7kY
+         SvRQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8+AIuqpmwXGVBR+4WGVHKHmkoguGa9SqFj3eIcQReHuquWS6lV5VAx2vAnb0cu19N/Gu/HUc5XVDZAig==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz42lKnRy32PGJOK3RPyJUX0H2Z0V6ug+HYJZYJ6mzs0A7VRYXh
+	JzfnRKItRiTCeG3/aSkkVCvbcP8aGTEj+hNf5RvZs2lndC+/IW+oNIIFfRGJ6mJ4gcIcfOlcet0
+	9/wY8YYX7B6KFAoBVeocRwUUhhsPg6Wn9/DVNp4TqunKKQoQW+DosyoR+OjLqRG1+4wJfV0o=
+X-Gm-Gg: Acq92OFSt4K2t9eTmOVI6EVq1WaE64j6x8AtUqYSLMDz+Lje/IATEq98sUmtGOXpc6h
+	veXRlXb2CoaW0Hd0Ocsb2RAhfMvAotCw6QzjeqL8Z4drp9onGUuVP/gA7N/StQjJJVJFU2A2twt
+	m/KT/SCMTCsrNlC1xITVAwyh6okm8+1VVF3T5BjpBLaEPgy6sxd/PMxCxhGsPUkdMeNhXzmt2SC
+	xuz0J2uDR3EiR0CLrDYxIk4E394ZWGaHG0EFzArGLQ/uMvgEEgQquiGj+ZHNC2wL7k5VBrzy253
+	A25JD50CtCIXd1fX6Zxp2MHcSlJSrCc1lqBAL6QxgevuGOesqTZ2TLVL3lz5K7SYRkUNc0TpKo3
+	KoMHaMnGTAeOnGq2uQnKoUt8GJJu0+Q==
+X-Received: by 2002:a05:7300:1481:b0:2d9:6373:ad0a with SMTP id 5a478bee46e88-308047729dcmr3430147eec.11.1781211009840;
+        Thu, 11 Jun 2026 13:50:09 -0700 (PDT)
+X-Received: by 2002:a05:7300:1481:b0:2d9:6373:ad0a with SMTP id 5a478bee46e88-308047729dcmr3430111eec.11.1781211009350;
+        Thu, 11 Jun 2026 13:50:09 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081ea4fe55sm303031eec.25.2026.06.11.13.50.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2026 13:15:10 -0700 (PDT)
-From: Guodong Xu <docular.xu@gmail.com>
-Date: Thu, 11 Jun 2026 16:12:52 -0400
-Subject: [PATCH v4 15/16] riscv: cpu: Output isa bases lines in cpuinfo
-MIME-Version: 1.0
-Message-Id: <20260611-rva23u64-hwprobe-v2-v4-15-3f01a2449488@gmail.com>
+        Thu, 11 Jun 2026 13:50:08 -0700 (PDT)
+Date: Thu, 11 Jun 2026 15:50:07 -0500
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Guodong Xu <docular.xu@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>,
+        Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+        Chen Wang <unicorn_wang@outlook.com>,
+        Inochi Amaoto <inochiama@gmail.com>, linux-doc@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
+        spacemit@lists.linux.dev, sophgo@lists.linux.dev,
+        linux-kselftest@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+        Qingwei Hu <qingwei.hu@bytedance.com>
+Subject: Re: [PATCH v4 09/16] riscv: Add Zic64b to cpufeature and hwprobe
+Message-ID: <uttb7qknse5hk6suato3nelqatkrkoyo7r342pqay4wh6vyr4x@xestyyhoygtn>
 References: <20260611-rva23u64-hwprobe-v2-v4-0-3f01a2449488@gmail.com>
-In-Reply-To: <20260611-rva23u64-hwprobe-v2-v4-0-3f01a2449488@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zong Li <zong.li@sifive.com>, 
- Deepak Gupta <debug@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atish.patra@linux.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
- spacemit@lists.linux.dev, sophgo@lists.linux.dev, 
- linux-kselftest@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>, 
- Guodong Xu <docular.xu@gmail.com>, 
- Andrew Jones <andrew.jones@oss.qualcomm.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2817; i=docular.xu@gmail.com;
- h=from:subject:message-id; bh=6uRwmcArNmpcYHUxfVzJ1KUTNe7nDEt3Iouczp4pFJc=;
- b=owGbwMvMwCXWtEl1Z3CGpCDjabUkhixtscP8W/I7a44KTu7eNGUm/x/V9O7U55x9jvfX8IaI1
- ssc8jHtKGVhEONikBVTZDl8tCV76yufaN/nnD9g5rAygQxh4OIUgIloMTD8T3wWVc9/4Hm9Y7yr
- eVbGq8q1TtuvXvyga7K41THqj6TMdYb/nt9nPzbeIJA1uXnNe+Wgo6cy8mddueVw6fH5C27BBTP
- 2cwAA
-X-Developer-Key: i=docular.xu@gmail.com; a=openpgp;
- fpr=90B1DC3DF0BD10FD1227BD6344F254AF42F143EE
+ <20260611-rva23u64-hwprobe-v2-v4-9-3f01a2449488@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260611-rva23u64-hwprobe-v2-v4-9-3f01a2449488@gmail.com>
+X-Proofpoint-GUID: -uB9dRDK3RW6e7m7phtCbusTAgjlAKuX
+X-Proofpoint-ORIG-GUID: -uB9dRDK3RW6e7m7phtCbusTAgjlAKuX
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjExMDIwOSBTYWx0ZWRfX6Ek2LBgWiRC4
+ QbjqkhtoMz3KDYhMbiSgW0ITYMPU6NleitTvadWCYMkSPAr1OJMQyjcA/FXMXDymnB4qQPUqeDb
+ nwNom3dx02HCMWT5gCxDh0zea+b28q8=
+X-Authority-Analysis: v=2.4 cv=S57pBosP c=1 sm=1 tr=0 ts=6a2b1f82 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
+ a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=HwFc7jivAAAA:8 a=968KyxNXAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8
+ a=acXkj6VtvC73PAOtBy8A:9 a=CjuIK1q_8ugA:10 a=PxkB5W3o20Ba91AHUih5:22
+ a=kr7TZk85JJIQSqC0cl8G:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjExMDIwOSBTYWx0ZWRfX5v1ipZ10zE67
+ 2iwl+TJ6Ik8GcB81D5Cnpc5k8l2hUGZPOEat6I8rKBOXh+CfCkBH98DZV8dQ8qE5gz4eJUiK3D4
+ MWQ/Bh9FGx605yOP4n7lcy9NM5K3l88yor7wuillPO7NbiQgpWLGDPy2qZJvvrimXg/VDsvg/Pf
+ fhxmKRnrBubRelHtCHu9xOdd9ObWEVqR06LbrBppagzBH+vnMQo0p9uRnOnncx0wETl+aht3+ag
+ jdyl1BTm6HsmjtP1BIj2WoZ6UdxUuHg5merhjUKm+S3L7m5qQvfR+4cZUK7EWaHK7c/R3kCEsb/
+ O6QroaQ9HbvW3iAv/PPpOaNq8HTemDasfrLO564CITEVs6cuu8OfWJl7wNo/8t6UFZuFh/BXzeF
+ fq43/eFnFi2ZCe5hotdZStwzrcNZoOkwunKK2GfaO0QiH+joFo7rEnOuGtWnZpjDGU9sTKrYFrw
+ ft+eI+IWlt+u7URbnjg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-11_04,2026-06-11_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 adultscore=0 phishscore=0 bulkscore=0
+ lowpriorityscore=0 priorityscore=1501 malwarescore=0 clxscore=1015
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606040000
+ definitions=main-2606110209
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260611_211519_028920_CD09F140 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20260611_135012_915115_33DF7FD4 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,95 +161,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Output two new lines per processor in /proc/cpuinfo:
+On Thu, Jun 11, 2026 at 04:12:46PM -0400, Guodong Xu wrote:
+> From: Qingwei Hu <qingwei.hu@bytedance.com>
+> 
+> Zic64b mandates 64-byte naturally aligned cache blocks and is a
+> mandatory extension of the RVA22 and RVA23 profiles.  Allocate a
+> RISCV_ISA_EXT_ZIC64B id, parse "zic64b" from the ISA string with a
+> validate callback that requires each cbom/cbop/cboz cache block size to
+> be 64 bytes when it is present, and export it through hwprobe.
+> 
+> Link: https://lists.riscv.org/g/tech-unprivileged/topic/question_about_zic64b_and/119631059
+> Signed-off-by: Qingwei Hu <qingwei.hu@bytedance.com>
+> Co-developed-by: Guodong Xu <docular.xu@gmail.com>
+> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+> ---
+> v4:
+> - Credit Qingwei Hu's earlier Zic64b cpufeature patch: set him as
+>   author, with Co-developed-by (Guodong Xu).
+> - Validate only the cbom/cbop/cboz block sizes that are present; Zic64b
+>   does not imply the CMO extensions (Conor, Qingwei, Greg).
+> - Add a Link: to Greg's confirmation on the tech-unprivileged list.
+> - Add the missing blank line before the ZIC64B hwprobe.rst entry
+>   (Andrew).
+> - Did not carry Andrew Jones's v3 Reviewed-by: the validation was
+>   rewritten (present block sizes only) and the patch is now authored by
+>   Qingwei, so it warrants a fresh review.
+> v3: New patch.
+> ---
+>  Documentation/arch/riscv/hwprobe.rst  |  4 ++++
+>  arch/riscv/include/asm/hwcap.h        |  1 +
+>  arch/riscv/include/uapi/asm/hwprobe.h |  1 +
+>  arch/riscv/kernel/cpufeature.c        | 19 +++++++++++++++++++
+>  arch/riscv/kernel/sys_hwprobe.c       |  1 +
+>  5 files changed, 26 insertions(+)
+>
 
-  isa bases       : <bases that all harts conform to>
-  hart isa bases  : <bases that this specific hart conforms to>
-
-These read directly from the cached riscv_isa_bases and
-hart_isa[cpu].isa_bases bitmaps populated at boot by
-riscv_init_isa_bases().
-
-Example output on qemu booted with -cpu rva23s64,sv39=on,pmp=on
-(showing only the new lines plus their neighbors for context):
-
-  processor       : 0
-  hart            : 4
-  isa bases       : rv64ima rva23u64
-  isa             : rv64imafdcbvh_zicbom_zicbop_...
-  mmu             : sv39
-  ...
-  mimpid          : 0x0
-  hart isa bases  : rv64ima rva23u64
-  hart isa        : rv64imafdcbvh_zicbom_zicbop_...
-
-Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Signed-off-by: Guodong Xu <docular.xu@gmail.com>
----
-v4: No change.
-v3: No change.
-v2:
-- Read from the cached riscv_isa_bases and hart_isa[cpu_id].isa_bases
-  bitmaps populated by riscv_init_isa_bases() at init time.
----
- arch/riscv/kernel/cpu.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
-
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 3dbc8cc557dd1..31e2857dcdcf1 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -305,6 +305,26 @@ static void print_mmu(struct seq_file *f)
- 	seq_printf(f, "mmu\t\t: %s\n", sv_type);
- }
- 
-+static const char * const riscv_isa_base_names[] = {
-+#ifdef CONFIG_32BIT
-+	[RISCV_ISA_BASE_IMA] = "rv32ima",
-+#else
-+	[RISCV_ISA_BASE_IMA] = "rv64ima",
-+#endif
-+	[RISCV_ISA_BASE_RVA23U64] = "rva23u64",
-+};
-+
-+static void print_isa_bases(struct seq_file *m, const unsigned long *isa_bases)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < RISCV_NR_ISA_BASES; i++) {
-+		if (test_bit(i, isa_bases))
-+			seq_printf(m, " %s", riscv_isa_base_names[i]);
-+	}
-+	seq_puts(m, "\n");
-+}
-+
- static void *c_start(struct seq_file *m, loff_t *pos)
- {
- 	if (*pos == nr_cpu_ids)
-@@ -336,6 +356,9 @@ static int c_show(struct seq_file *m, void *v)
- 	seq_printf(m, "processor\t: %lu\n", cpu_id);
- 	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
- 
-+	seq_puts(m, "isa bases\t:");
-+	print_isa_bases(m, riscv_isa_bases);
-+
- 	/*
- 	 * For historical raisins, the isa: line is limited to the lowest common
- 	 * denominator of extensions supported across all harts. A true list of
-@@ -360,6 +383,9 @@ static int c_show(struct seq_file *m, void *v)
- 	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
- 	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
- 
-+	seq_puts(m, "hart isa bases\t:");
-+	print_isa_bases(m, hart_isa[cpu_id].isa_bases);
-+
- 	/*
- 	 * Print the ISA extensions specific to this hart, which may show
- 	 * additional extensions not present across all harts.
-
--- 
-2.43.0
-
+Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 
 _______________________________________________
 linux-riscv mailing list
