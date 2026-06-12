@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4906ACD98CF
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 16:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57ABFCD98CF
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 18:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PMztvIhbwCtw3eymOqdTFrswE12aXMBZZmlmROt/kGA=; b=v7EOIkkQDw10Pd
-	TZ5WlZZDNfHqUzZfnR6jeDgjWWF+Fed4L30/A2zoScpxNoa8+gIJighya4ss3scMMpkLe3tEyolhx
-	6SCs+CCzenQbje6ucDf138+zdY/k356jhtnXxzoTANy7SpZ+02ECS7SIKeHby78PHIJcpz4oPl4Uz
-	QxAk3lh5Hd/78yhhFS/zWTquXTAUKLbBx9Co64NSZ3oN0gOCqflL2iEzAzT2waFxfp5XpVxqCD+dT
-	4F5Q/bSm14GPEg4RjIMEhVr0UoJtbJnFngiUbtLSh0tZgcrsOdo9PRppqRaojE2PElszWWIWiYm9J
-	gPSyBcBRdQEJRFDuuAZA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CC4vCEMXxzspm3g+1naOdxx3NqQrQldMBXtZ1AR9Oiw=; b=hws0s70XiVCIAf
+	lXgk4VfF6r5eAPflD9XF1y+Sv++/lfmGkKVhAr3+qHc/Z+ASQl2mQWFglWLoDksmjReDwnhTB8Mfs
+	Z7/Uj2EuwcXyHTe8Nd9OtYi9Nwc70hZDv0+UmmojAP4ZN8Rz+7VSPr3ED/lNuYj3ArWg78trA9twM
+	tOBjTaL0tTyWbS9gaQm2t/Omw49Tlb5DJXv4i5Dj5OU8jjdVT5hO2z6SiQpX/Ribr+wBZ93VyZNfE
+	NBFvUKXqYr6JpwZC4U0ZKaH3WztzUZmfgV17AKYKmvGfwXwZHt4sv6/vTZefvy2VJ6PHdizaqRtX+
+	H/y1pfgjG96GTdm7VtIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4kd-0000000BHWW-3A13;
-	Fri, 12 Jun 2026 16:28:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wY6kY-0000000BPdn-3m7f;
+	Fri, 12 Jun 2026 18:37:02 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4kc-0000000BHW7-231g;
-	Fri, 12 Jun 2026 16:28:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E674E600B0;
-	Fri, 12 Jun 2026 16:28:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 721D61F00A3A;
-	Fri, 12 Jun 2026 16:28:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781281737;
-	bh=+YkxKUKI+ttSACYhasK/qyZ52eMUZtHTMnbDNaJgTnY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eMyYsFKVUI/AjLu4yjm2YPH2WCOHHt0vmajj/lYGVjak2UUxMEoPXOfcSQd6EBfR9
-	 aOjYNII68yBM3a4I/TCiIw3bRZKAN+l6K6VvvUqD8aN53ypgvtHXwSyKJUGBj8P0S3
-	 r5Z21FsWp3P5LFTPi5nbgn4RFu1fKWS8vAqAPIT8fwAmc4Oljdi8XoSaJqg32wn65u
-	 pAfPPEonX3LBEnxBELdEb1nRhciHC6EM5SDFFzTqOLezeUD7OxvInbS7j/0U8jF45e
-	 mCHqUhc167JQC28Br+UXJfsFJpOyjYK2/yr1BZX5jRJAx8qDNiG89SIj0ROK6QV0oh
-	 2nIxjNmVpkwYA==
-Date: Fri, 12 Jun 2026 11:28:56 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: pritesh.patel@einfochips.com, linux-stm32@st-md-mailman.stormreply.com,
-	devicetree@vger.kernel.org, edumazet@google.com,
-	linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
-	pabeni@redhat.com, weishangjuan@eswincomputing.com,
-	linux-riscv@lists.infradead.org, ningyu@eswincomputing.com,
-	krzk+dt@kernel.org, pinkesh.vaghela@einfochips.com,
-	linux-kernel@vger.kernel.org, alex@ghiti.fr, andrew+netdev@lunn.ch,
-	alexandre.torgue@foss.st.com, kuba@kernel.org,
-	aou@eecs.berkeley.edu, horms@kernel.org, mcoquelin.stm32@gmail.com,
-	conor+dt@kernel.org, netdev@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk, palmer@dabbelt.com, lee@kernel.org,
-	maxime.chevallier@bootlin.com, linmin@eswincomputing.com,
-	davem@davemloft.net
-Subject: Re: [PATCH net-next v8 1/6] dt-bindings: ethernet: eswin: relax
- internal delay model to range-based constraints
-Message-ID: <178128173639.1162200.4235173600332300329.robh@kernel.org>
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
- <20260610012849.874-1-lizhi2@eswincomputing.com>
+	id 1wY6kU-0000000BPdB-3F2X
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 Jun 2026 18:37:01 +0000
+Received: from [192.168.0.112] (unknown [123.118.218.239])
+	by APP-01 (Coremail) with SMTP id qwCowAB3HNXEUSxqd19uAQ--.14241S2;
+	Sat, 13 Jun 2026 02:36:53 +0800 (CST)
+Message-ID: <edcf9101-8ae5-49c8-a2be-82fd7a5cb3a8@iscas.ac.cn>
+Date: Sat, 13 Jun 2026 02:36:51 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260610012849.874-1-lizhi2@eswincomputing.com>
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: riscv: Heads up: If 7.1 hangs on boot near "vector unaligned word
+ access speed"
+X-CM-TRANSID: qwCowAB3HNXEUSxqd19uAQ--.14241S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAF4xtw17ArW7Xr47tF4UCFg_yoW5Wryrpr
+	W3uFs29r4DGryIyr47J34IqFWrZ395Kry7GFWkJ3yfZ3s8CF1FvrWv9a18uFyDGrZ8Ww1j
+	yrZ2qrnFk3WDZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUy2b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I
+	3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxV
+	WUGVWUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAF
+	wI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcI
+	k0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j
+	6r4UYxBIdaVFxhVjvjDU0xZFpf9x07bOoGdUUUUU=
+X-Originating-IP: [123.118.218.239]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260612_113659_189863_E83956E4 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +72,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 10 Jun 2026 09:28:49 +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
-> 
-> Relax internal delay constraints for EIC7700 Ethernet binding.
-> 
-> Replace fixed enumeration of rx-internal-delay-ps and tx-internal-delay-ps
-> with a range-based definition (0-2540 ps, 20 ps steps) to reflect actual
-> hardware capability.
-> 
-> Mark rx/tx internal delay properties as optional, as they are board-
-> specific tuning parameters rather than mandatory configuration.
-> 
-> Update the device tree example to align with the relaxed constraint model
-> and remove delay properties from the example to avoid implying they are
-> required.
-> 
-> No functional change to existing DT users.
-> 
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> ---
->  .../bindings/net/eswin,eic7700-eth.yaml       | 25 ++++++++++---------
->  1 file changed, 13 insertions(+), 12 deletions(-)
-> 
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTGludXggNy4xIG9uIHJpc2N2IHVzZXJzLAoKSWYgeW91IGdldCBib290IGhhbmdzIGFuZC9v
+ciBwYW5pY3MgbmVhciB3aGVyZSB0aGUga2VybmVsIHNheXM6CgogICAgY3B1TjogdmVjdG9yIHVu
+YWxpZ25lZCB3b3JkIGFjY2VzcyBzcGVlZCBpcyAwLjAxeCBieXRlIGFjY2VzcyBzcGVlZCAoc2xv
+dykKClBvc3NpYmx5IHdpdGggYWRkaXRpb25hbCBtZXNzYWdlcyBzdWNoIGFzIHRoZXNlOgoKICAg
+IHNiaV90cmFwX2Vycm9yOiBoYXJ0MTogdHJhcDE6IGxvYWQgZmF1bHQgaGFuZGxlciBmYWlsZWQg
+KGVycm9yIC0zKQoKICAgIHNiaV90cmFwX2Vycm9yOiBoYXJ0MTogdHJhcDE6IHN0b3JlIGZhdWx0
+IGhhbmRsZXIgZmFpbGVkIChlcnJvciAtMykKCiAgICBbICAgIDAuMjUyMTQyXSBPb3BzIC0gaW5z
+dHJ1Y3Rpb24gYWNjZXNzIGZhdWx0IFsjMV0KCllvdSdyZSBsaWtlbHkgcnVubmluZyBpbnRvIGEg
+bm93IGV4cG9zZWQgT3BlblNCSSBzdGFjayBvdmVycnVuIGJ1ZyBpbgptaXNhbGlnbmVkIHZlY3Rv
+ciBhY2Nlc3MgZW11bGF0aW9uLgoKQXMgYSBxdWljayBmaXgsIGFwcGx5IHRoaXMgcGF0Y2ggdG8g
+T3BlblNCSSAxLjcgb3IgMS44IHRvIGluY3JlYXNlIHRoZQpzdGFjayBzaXplOgoKwqAgwqAgaHR0
+cHM6Ly9sb3JlLmtlcm5lbC5vcmcvb3BlbnNiaS9lZGJjZTc4Yy03MWE3LTQxZDctYWE4MS0zZmE1
+NzI0MTY0NGFAaXNjYXMuYWMuY24KCldoYXQgaGFwcGVuZWQ/Ci0tLS0tLS0tLS0tLS0tCgpDb21t
+aXQgYjY5YmNiMTNlZDcwICgicmlzY3Y6IG1pc2FsaWduZWQ6IE1ha2UgZW5hYmxpbmcgZGVsZWdh
+dGlvbiBkZXBlbmQKb24gTk9OUE9SVEFCTEUiKSBtYWRlIGl0IHNvIHRoYXQgdGhlIGluLWtlcm5l
+bCBtaXNhbGlnbmVkIGFjY2VzcwplbXVsYXRpb24gaGFuZGxlciBpcyBkaXNhYmxlZCBmb3Igbm93
+LCBzaW5jZSBpdCBpcyB2ZXJ5CmZlYXR1cmUtaW5jb21wbGV0ZSBhbmQgY3Jhc2hlcyBLVk0gZ3Vl
+c3RzLCBhbmQgdXNlcnNwYWNlIGFuZCBrZXJuZWwKdmVjdG9yIHVzZXJzLgoKSG93ZXZlciwgdGhp
+cyBtZWFucyB0aGF0IHRoZSBmaXJtd2FyZSBlbXVsYXRpb24gaXMgbm93IGluIHVzZSwgd2hpY2gK
+ZXhwb3NlZCB0aGlzIGxhdGVudCBpc3N1ZS4gSXQgdHVybnMgb3V0IHRoZSB2ZWN0b3IgbWlzYWxp
+Z25lZCBhY2Nlc3MKaGFuZGxlciB1c2VzIGEgODE5Mi1ieXRlIHN0YWNrIGJ1ZmZlciwgd2hlcmVh
+cyB0aGUgZW50aXJlIHBlci1oYXJ0IHN0YWNrCmluIE9wZW5TQkkgZGVmYXVsdHMgdG8gODE5MiBi
+eXRlcy4gVGhpcyBpcyBhIHN0cmFpZ2h0Zm9yd2FyZCBzdGFjawpvdmVycnVuIGFuZCBlaXRoZXIg
+Y3Jhc2hlcyBPcGVuU0JJIG9yIHdvcnNlLCBjYXVzZXMgaXQgdG8gbWlzYmVoYXZlIGFuZApjcmVh
+dGluZyBmdXJ0aGVyIGVycm9ycy4KCkN1cnJlbnRseSwgSSBiZWxpZXZlIGl0IGlzIHRoZSByaWdo
+dCB0aGluZyB0byBhc2sgYWZmZWN0ZWQgdXNlcnMgdG8gZml4CnRoZWlyIE9wZW5TQkksIHNpbmNl
+IGFzIGZhciBhcyBJIGNhbiBmaW5kLCBubyBnZW5lcmFsbHkgYXZhaWxhYmxlCmhhcmR3YXJlIHNo
+aXBzIHdpdGggdGhlIGFmZmVjdGVkIE9wZW5TQkkgdmVyc2lvbnMgKHNwZWNpZmljYWxseSwgMS43
+Kwp3aXRoIHN0YWNrIHNpemUgODE5MiksIG5laXRoZXIgYXMgZmFjdG9yeSBkZWZhdWx0IG5vciBh
+cyBzZXBhcmF0ZWx5CnByb3ZpZGVkIGJ5IHRoZSB2ZW5kb3IuIEFsbCBwb3NzaWJsZSBjYXNlcyBJ
+J3ZlIGJlZW4gYWJsZSB0byBnYXRoZXIKYWZmZWN0IGVpdGhlciBpbi1kZXZlbG9wbWVudCBwbGF0
+Zm9ybXMsIG9yIGJvYXJkcyB3aGVyZSB0aGUgdXNlciBoYXMKcmVwbGFjZWQgdGhlaXIgZmlybXdh
+cmUgdG8gaGF2ZSBuZXcgT3BlblNCSSAoZS5nLiBTcGFjZW1pVCBLMSkuCgpXaGF0IGRvIEkgZG8g
+bm93PwotLS0tLS0tLS0tLS0tLS0tLQoKQXBwbHkgdGhhdCBwYXRjaCBhbmQgcmVwbGFjZSB5b3Vy
+IGZpcm13YXJlJ3MgT3BlblNCSSwgcHJvYmFibHkgdGhlIHNhbWUKd2F5IHlvdSBwdXQgaXQgdGhl
+cmUgaW4gdGhlIGZpcnN0IHBsYWNlLiBJZiB5b3UgY2FuJ3Qgb3IgZG9uJ3Qga25vdyBob3csCnBs
+ZWFzZSBnZXQgaW4gdG91Y2guCgpJZiBpdCBpcyBjb252ZW5pZW50IGZvciB5b3UsIEkgd291bGQg
+YXBwcmVjaWF0ZSBpZiBhbnlvbmUgd2hvIHJ1bnMgaW50bwp0aGlzIGNhbiBnZXQgaW4gdG91Y2gg
+d2l0aCBtZSBpZiB5b3UgaGF2ZW4ndCBkb25lIHNvLiBGZWVkYmFjayBmcm9tCmFmZmVjdGVkIHVz
+ZXJzIG9uIGhvdyB0byBwcm9jZWVkIGlzIGFwcHJlY2lhdGVkLgoKQWxzbyBwb3NzaWJsZSBjaGVj
+ayBvdXQgcHJldmlvdXMgZGlzY3Vzc2lvbnM6CgotIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xp
+bnV4LXJpc2N2L25ydnQ3NHFub2phdWJpd2pvMzd1bXM0bG5jbHU0NjZob3Z3cmhtdGJhZzZmNXVo
+cnFsQHE2bXNvZTJvdG80Yi9UCi0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvb3BlbnNiaS9lZGJj
+ZTc4Yy03MWE3LTQxZDctYWE4MS0zZmE1NzI0MTY0NGFAaXNjYXMuYWMuY24vVAoKRnVydGhlcm1v
+cmUsIHRoZXJlIGlzIHdvcmsgaW4gcHJvZ3Jlc3MgdG8gbWFrZSB0aGUgdmVjdG9yIG1pc2FsaWdu
+ZWQKYWNjZXNzIGhhbmRsZXIgbm90IHRvIHVzZSBzbyBtdWNoIHN0YWNrLCB0aGFua3MgdG8gQm8g
+R2FuOgoKLSBodHRwczovL2xvcmUua2VybmVsLm9yZy9vcGVuc2JpLzIwMjYwNjA5MDYwMDI0Ljcw
+Ni0xLWdhbmJvaW5nQGdtYWlsLmNvbS8KClRoYW5rcyBhbmQgd2l0aCBhcG9sb2dpZXMsClZpdmlh
+biAiZHJhbWZvcmV2ZXIiIFdhbmcKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
