@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80CBDCD98CE
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 14:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87437CD98CE
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 14:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kVGZ4edT5cZdTeggbym7AToQby+TGe+hBI8vC0BVrdw=; b=Z3dcJz3R/txzjJ
-	u6eBFlfITtK8nnhGIS4l9xvwLIeYmJyOB4VK69fF+/9OsiOKy63X3GT8AFrYAhFT3v8szZ3LXwtUC
-	UYpu5ShRbNyXW37cpbi3na6f4f9qx6kxXa9ttJ/CKT7rBsivS8Hgh+VNRb3l3RH+IUUQtxyq2kLXf
-	LVJJw7QaNMj3ZNP7u6/5ZDPa7hjKq2YBVxPsL7IHXOzEl7PAlebJS6o3kGmQRrLAeW8I2sYDFtETA
-	OiSXLO7I2La7RiJAL8giPNSs18KuEZlkPcbHQS7GiXlAOv4CoMrTvac4eOHCcwnpLl0OuyOR3eDEW
-	BvXYsfCSgLRiWyzghsxw==;
+	List-Owner; bh=86C2QvUJeLQcKxZDw1L8goGAup+SZ/zefXANS6vPiM8=; b=S9YgQPJCgIBEPv
+	kwFuZK5bWXdMH5PUs2uYBU9NWggcWjW5SIiIaCLfUQRCGCaIpNZD4fj8IdzvhEveGgRBZPCCjCNAw
+	/ZvtqSyUTKJvobGoXSW4Cdug6S5VjUR4ofs0gD/5w0fUX06xzKFJlNwZqqBs6J9K1RKtQpRo6MsM/
+	0V2aefivKwpeeDCd4aPqLETC7nX1sZFPMWqbSKse4GEEW5zSe/fhFu6VDDe+baTPBlIj4hlF3PDaN
+	sjPh+j5TQP7O5G5WJUORjpxy2MY6oLbTdbtjnSAgxf308Iy5tpslrJ950F99uePtEr+Qb8GURExCx
+	wQVALLRqjJjOlRqa+5+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY34Y-0000000B5lW-14ik;
-	Fri, 12 Jun 2026 14:41:26 +0000
+	id 1wY35z-0000000B65b-3KnK;
+	Fri, 12 Jun 2026 14:42:55 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY34W-0000000B5kn-2gzD;
-	Fri, 12 Jun 2026 14:41:24 +0000
+	id 1wY35y-0000000B64Z-1QY7;
+	Fri, 12 Jun 2026 14:42:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A4AC66008A;
-	Fri, 12 Jun 2026 14:41:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A1B61F00A3A;
-	Fri, 12 Jun 2026 14:41:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C1FAF6008A;
+	Fri, 12 Jun 2026 14:42:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 500E61F00A3A;
+	Fri, 12 Jun 2026 14:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781275283;
-	bh=hmAXHxNUwUqsynWpUSTF048mwQXqT/HeYN0OxRXzNeU=;
+	s=k20260515; t=1781275373;
+	bh=8pFVODsK8nCijCDNDLMgxkikkdJrQAhHnV+T+5T5zWc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fpZHwZpFSlFKHdhrHL86Fm31xIkwf0H4w8rmAoLhBCpFarhQbgz1y1KdDDny+d2sW
-	 susCcVgWIy78O5jtOqfUedAA7WR1FePmSBXfBRk+R1QpKN865CL2/9Pu1gxXaTRBD1
-	 zVRchja2vC9CymI6zJsjihLL+LMuUvIVbPrgKZSeG3uuI/D1jJUHlOVfSsVmfMT5ua
-	 nvq7iwjkRhZlpWc+G09dcxbLATjEYGRqCZsCf/wSws1+zdTthAh4aZ/aM3NkufQA/8
-	 U+EsuVdjp/ODco/aPFY0X3QPqSkhWFg1aUTUQNjzMarRSr1pV2t7Syd1vl9wvU8qB4
-	 FaocY33c9ejVg==
-Date: Fri, 12 Jun 2026 09:41:22 -0500
+	b=Ym/KchFKUOtSqs03zw7p0bBmd751BWdKhFtBdtk19PaYskXhLxCiU2wKH8lvRvWHo
+	 gawVbS1RIGNl4PlNWJihz03okzNq9/cp6Ww5XKra5xbbcZYHNQxGCJ0q49orkQAj4O
+	 JuLqTbP3nCbWkFMcgWB1ax5EpO+Yvbszkg2J7nRwE6cp4YrWjLJE4Uw3zRwtSxj2zQ
+	 Mky2klprkntTIwKWcITUf5mHQeauSd798W7i3fnaExQYmYxPtva2ty6QfcfSaMh22m
+	 cuE8Pq1IJy/flcs5MBzQsONPlcb+IxnY5oTx1zADRCEiFV2M8MzGlLx8BMD5waisk/
+	 BKTkWBakHuGjw==
+Date: Fri, 12 Jun 2026 09:42:52 -0500
 From: Rob Herring <robh@kernel.org>
 To: Wandun Chen <chenwandun1@gmail.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -55,14 +55,12 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	pasha.tatashin@soleen.com, pratyush@kernel.org,
 	ruirui.yang@linux.dev, m.szyprowski@samsung.com,
 	robin.murphy@arm.com, quic_obabatun@quicinc.com
-Subject: Re: [PATCH v3 05/11] of: reserved_mem: split
- alloc_reserved_mem_array() from fdt_scan_reserved_mem_late()
-Message-ID: <20260612144122.GA974326-robh@kernel.org>
+Subject: Re: [PATCH v3 00/11] kdump: reduce vmcore size and capture time
+Message-ID: <20260612144252.GB974326-robh@kernel.org>
 References: <20260527032917.3385849-1-chenwandun1@gmail.com>
- <20260527032917.3385849-6-chenwandun1@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260527032917.3385849-6-chenwandun1@gmail.com>
+In-Reply-To: <20260527032917.3385849-1-chenwandun1@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,52 +77,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 11:29:11AM +0800, Wandun Chen wrote:
+On Wed, May 27, 2026 at 11:29:06AM +0800, Wandun Chen wrote:
 > From: Wandun Chen <chenwandun@lixiang.com>
 > 
-> Prepare for storing /memreserve/ entries in the reserved_mem array.
-> alloc_reserved_mem_array is skipped if the device tree lacks a
-> /reserved-memory node, pointer 'reserved_mem' continues to reference
-> the reserved_mem_array which lives in __initdata, storing
-> /memreserve/ entries into reserved_mem_array would result in metadata
-> loss, and an out-of-bounds memory access will occur if the device
-> tree contains more than MAX_RESERVED_REGIONS /memreserve/ entries.
+> On SoCs that carve out large firmware-owned reserved memory (GPU
+> firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
+> those carveouts as part of system RAM even though their contents are
+> firmware state that is not useful for kernel crash analysis.
 > 
-> So split alloc_reserved_mem_array() from fdt_scan_reserved_mem_late(),
-> and call alloc_reserved_mem_array() whether or not there is a
-> /reserved-memory node.
+> This series introduces an opt-in 'dumpable' flag [1] on struct
+> reserved_mem and uses it to filter the elfcorehdr PT_LOAD ranges on
+> DT-based architectures (arm64, riscv, loongarch). By default reserved
+> regions are treated as non-dumpable; CMA regions are explicitly opted
+> in because their pages are returned to the buddy allocator and may
+> carry key crash-analysis data.
 > 
-> No functional change.
-> The actual /memreserve/ population is added in a follow-up patch.
+> The series is organized as follows:
+> Patches 1-3: Pre-existing fixes and a small prep change.
+> Patches 4-5: Restructure to allow appending /memreserve/ entries.
+> Patches 6-7: Add a dumpable flag and append /memreserve/ entries.
+> Patch 8: Add generic kdump helpers.
+> Patches 9-11: Wire the helpers into arm64, riscv and loongarch kdump
+>               elfcorehdr preparation.
 > 
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> ---
->  drivers/of/fdt.c             | 7 +++++--
->  drivers/of/of_private.h      | 1 +
->  drivers/of/of_reserved_mem.c | 6 +-----
->  3 files changed, 7 insertions(+), 7 deletions(-)
+> v2 --> v3:
+> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.[2]
+> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+> 3. Add some prepare patches.
 > 
-> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-> index 82f7327c59ea..83a2a474831e 100644
-> --- a/drivers/of/fdt.c
-> +++ b/drivers/of/fdt.c
-> @@ -1284,8 +1284,11 @@ void __init unflatten_device_tree(void)
->  {
->  	void *fdt = initial_boot_params;
->  
-> -	/* Save the statically-placed regions in the reserved_mem array */
-> -	fdt_scan_reserved_mem_late();
-> +	/* Attempt dynamic allocation of a new reserved_mem array */
-> +	if (fdt && alloc_reserved_mem_array()) {
-> +		/* Save the statically-placed regions in the reserved_mem array */
-> +		fdt_scan_reserved_mem_late();
+> v1 --> v2:
+> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>    feedback [1], v2 drop that property and exclude reserve memory
+>    by default.
+> 2. Split some prepared patches from the original patches.
+> 3. Address coding-style comments on patch 5 from Rob.
+> 
+> [1] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+> [2] https://sashiko.dev/#/patchset/20260520091844.592753-1-chenwandun%40lixiang.com?part=4
+> 
+> Wandun Chen (11):
+>   of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
 
-Can we make this just:
+>   of: reserved_mem: zero total_reserved_mem_cnt if no valid
+>     /reserved-memory entry
 
-alloc_reserved_mem_array();
-fdt_scan_reserved_mem_late();
-
-We already check !fdt in fdt_scan_reserved_mem_late().
+I applied these 2 for 7.2.
 
 Rob
 
