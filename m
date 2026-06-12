@@ -4,92 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A97CD98CE
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 09:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CD2CD98CE
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 13:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ynyk8z/+Z557HOSUivfn0MYN95NKE4RJCyX52pulPwI=; b=Mq82EhgnH4k5yi
-	DhcsV04g+pSp5mrQNINsoUl/GNEN8qTGP5pKKSaohI2d+yJFbJy1C3NdpEfCicVXBwwPmJW1hBvH+
-	w6cyD2dxtEvp8Wc+xX7l5mNpmcvudZ8lzfpPJP49ynTYVZg0d27h1pcZG462UNoGk/J04b2cJN2xY
-	T3WkQ8C2c7t9ZcQzQklzm360DkaLRaZDGIdgkznuT+IN93ypQVtnp/5lv3rKLaVdkylM73n3oX2GY
-	+6UP2jp4ioz8wB+I0d+1Z5wCmHRl+te6wi58WvRenMhqcFi3zrn0rou67iizQEqrtlnksDjxZs+Nj
-	+TrAam3cYTTJhy70s0Ng==;
+	List-Owner; bh=JlfH8JLXrrzIzbqb5FTd7U8rlNesdtmXEPtf+xLHQxE=; b=j2W48fwLs8zYM9
+	RJrAGcFCY8d2S+mmGMjtihOIWY7v/9+HOaYw3rSmCImq3nynqCub/FhO6IwYvCNk2GqTKnwZx5iBt
+	TfoMyNTuuTfn/R4ty9H5emvPwpkE/HNtBp3YMdcEBq1cpiYuggSyiRwpM34i6dP0eccoSDPxB4h7i
+	aG82RFJGt0O9bqIgRrzaEJ8MeblTg1sNM467o9/E8n7vzu9fT4aTunyuTlaLaD0k2msWhetF6xzW4
+	48fJ09mitkW/Y+pVxIk0VoYzima38Uh5loFltJBqfHDgWPRBbqZlDUKfQW5lTk+FPHOKfuUlQkuj9
+	FuJcKJ6mO3yRp4NgLbUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyYT-0000000AhWU-0Npz;
-	Fri, 12 Jun 2026 09:52:01 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1wY2IT-0000000B0qV-3rlh;
+	Fri, 12 Jun 2026 13:51:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXyYQ-0000000AhVE-1All
+	id 1wY2IQ-0000000B0pe-3rrr
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jun 2026 09:51:59 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gcFCw3RThz9tpN;
-	Fri, 12 Jun 2026 11:51:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781257916;
+	Fri, 12 Jun 2026 13:51:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1781272300;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Zfe/dJqFfrMrhmEzQiIVU+r4LtnZx/69uLFhmgVm3jQ=;
-	b=tT7kVdOEYN0LqfPUDL413lWeNxqI+/6uJWUGW5KslSuMaNG7E3n1oZ5SDbjs1/hozJX5vT
-	4A0NgftunkyhpJZPuH0HUyYShouOp/GSXFJaMmcV7X0sPXT1Z6A4Qo9WzB1bPfuZzspr64
-	L7Ws1sF3N9pBr2jkrQCMQuDR6OBEA3y/edJQ/CwZ/BeCC8nkisyzQtp7jfdsiBrDbaeu0q
-	Ol//wNue89IXNZXzGXrcYIXwrkgX88gubgdz3XSSB36/vAWQVUDYnAO1XaaQbiHQeUbbHk
-	9+UO7O2K0N+iaI1Y6Yh34qJ196xXadi3SWYP4kdsMUf7iOCdVb80D4+qfNMWYQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=jrcr2scJ;
-	spf=pass (outgoing_mbo_mout: domain of shuwei.wu@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=shuwei.wu@mailbox.org
-From: Shuwei Wu <shuwei.wu@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781257914;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Zfe/dJqFfrMrhmEzQiIVU+r4LtnZx/69uLFhmgVm3jQ=;
-	b=jrcr2scJwWan4crijrU3QtEOUNAKBSj15cGswWgFkGhHn2qsgEgvDoTKVw/vKuW4T4DFIb
-	O70Xi8WJiiaXOnKShEueNLU5rydIcYGz2saxns0R/9mGVU311OZPL23XWLlBgspkShn5AF
-	Y9Krr6nGqPCREasabZ7E8ZTXVwZ3JFi84Gyx4FaRLbEqUCbZqrnNc5aF6585PIajKzD4Y9
-	/uALLUL/s+/QQX1+VFsrmNgrtBfO0NUAPJq1fcRLNPF2RrMKHfREk89hQmqp6WeayfWmVf
-	S477EQuFsIkJTMzOP2cz9z9XE8L+DS0ULaJQJj1omNoxwsVGQF7a00ZdaK3+cA==
-Date: Fri, 12 Jun 2026 17:51:02 +0800
-Subject: [PATCH v3 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
+	bh=Iy/v7kxpOlqBCTDcC4jlmM2w9KphND71Hvl/We9DfQ4=;
+	b=OynQW16gkfYLqs+w3Vswg0Xt8Eoc7NhdUHEqeE6VkZ7HJt2NCXTKoAvnLpRBGp39Eeuz5b
+	7tGDlNMUqMYTUlMwiExsgcXwQK9lNNojaldLy+gOXxoMtpA51riBQWy5zXGM1lKQZzkQyc
+	hWe2mV/NQN1s4Hr/XMohPxSOjBNMBQE=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-112-Bx5gbODtNcGbh1QwOwYH5g-1; Fri, 12 Jun 2026 09:51:35 -0400
+X-MC-Unique: Bx5gbODtNcGbh1QwOwYH5g-1
+X-Mimecast-MFC-AGG-ID: Bx5gbODtNcGbh1QwOwYH5g_1781272295
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-915c1997732so236718785a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Jun 2026 06:51:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781272295; x=1781877095;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Iy/v7kxpOlqBCTDcC4jlmM2w9KphND71Hvl/We9DfQ4=;
+        b=ss62AS+iBFzAsNASp8tXxrsCzeUkkiVN/EbklIWHXT19nqWQhnW4PwVhIwOYHDtzSA
+         bu36cMPzHfYDJGzqeB16ELeUdtZoCdjB5PiTzo6OVu8/T3BVGkzXUfjeEaaeihAOmOMI
+         h46QBBK5qLCoiHqMwVLK9d2h84pDEIkH3rBdWE7L0V1xh7XGTOjXtVZxCyAkIT7MZ+gH
+         nfhqDD1xrXz+HhJDERknrxMEy3i7akVrshvEcb6F1DNM+8IZRCMi28iaQ1uS++sPlclb
+         VNJTMi3kr7OxS/LZmpLKvAlGY6GNNU6EIjEF7/mSW5C6szzlWjCIKmAPVfyZSrcNCnI5
+         i9ew==
+X-Forwarded-Encrypted: i=1; AFNElJ8eJCxId0EftxfA5gjDIaE5NDDyb/J6UFnxl5s8QUkUXdtP4tY0sDRMT2ved6fLGEg08wRhg5FpatxATQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy45aiLyzYRXZN7K96+G8gzIwbo3lomSZR9cuT5mgI2fUOn+4a1
+	r3ivmaO3a6PgA1M+/rFyRaj/jrzI/luZBD6a0Q6W5kUJyYSOdUQUYY11ghzjgJPHH8408lWfKO/
+	eMm9z3ySda0cEW1kZgXWiPu5JSn3kZkq169iQEXNLk9N2tHxzNC1id9rNCCb8dAZL9QykyBxl3W
+	T+V/Nnra+hwhmxyT5FSE2XEj9u7ltijMUpGk3IkJACC5TX
+X-Gm-Gg: Acq92OHRkIkMsoGo5+6WkxYNVoes/IYA+EHS1OutQn/At5ID+iEMrVSaFj0ouK4T70d
+	Axli1Pm6o4fv6WcUVpwQ1nWuDRL625Cw9sij5fX5QD4xkv/A876nA9i5Kak+3ry3LaeHuuiQFYC
+	GuvIawwEkUisWn6dYUgsoiDpYIGhTjMT4F7ujHGwB/oHCcIMPecg3BPNAyB77e91pgcsHvDH+th
+	9/vQ8iQSWAHPEF7/QcvI5GW1VY6AtMDeBmo9g==
+X-Received: by 2002:a05:620a:4149:b0:915:d5cd:8cce with SMTP id af79cd13be357-9161bc02c6bmr425214185a.22.1781272295128;
+        Fri, 12 Jun 2026 06:51:35 -0700 (PDT)
+X-Received: by 2002:a05:620a:4149:b0:915:d5cd:8cce with SMTP id
+ af79cd13be357-9161bc02c6bmr425204785a.22.1781272294560; Fri, 12 Jun 2026
+ 06:51:34 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260612-shadow-deps-v3-2-2f3ba88611ff@mailbox.org>
-References: <20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org>
-In-Reply-To: <20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
- Yixun Lan <dlan@kernel.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- devicetree@vger.kernel.org, Shuwei Wu <shuwei.wu@mailbox.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781257883; l=7264;
- i=shuwei.wu@mailbox.org; s=20251125; h=from:subject:message-id;
- bh=kMk70jSxtb3MD3cA34JzN4CJWO0HzPs0M08gJr1gSr0=;
- b=R8lUg0Ck/5RNYU+5FwX9zIpHYKFMuRl28uMk31qF020V2HHOw5tMB/6X3/CDqkdrm7adyeLLH
- Lf4KOaLz98wBBs1pFM6Q8jVQFaNBidqxNl7UUcVvlrz6VfHdM42cQZP
-X-Developer-Key: i=shuwei.wu@mailbox.org; a=ed25519;
- pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
-X-MBO-RS-META: pkdxdm4u4y1dubcmy3i5fjwcjecejtby
-X-MBO-RS-ID: 372acceaeecb71d3147
-X-Rspamd-Queue-Id: 4gcFCw3RThz9tpN
+References: <20260611-rva23u64-hwprobe-v2-v4-0-3f01a2449488@gmail.com> <20260611-rva23u64-hwprobe-v2-v4-5-3f01a2449488@gmail.com>
+In-Reply-To: <20260611-rva23u64-hwprobe-v2-v4-5-3f01a2449488@gmail.com>
+From: Jesse Taube <jtaubepe@redhat.com>
+Date: Fri, 12 Jun 2026 09:51:22 -0400
+X-Gm-Features: AVVi8Cei37Nc7wEh-QPxeO4jIlCv0ZbORPC259y2xDJU0379i8L_rI91Rp2DJbE
+Message-ID: <CADRr4bd10AYwAZwHxEiuSJEOwD5qv68L1r5DRjxXFM8pmrG+WA@mail.gmail.com>
+Subject: Re: [PATCH v4 05/16] riscv: Add Zicclsm to cpufeature and hwprobe
+To: Guodong Xu <docular.xu@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Yixun Lan <dlan@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, linux-doc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
+	spacemit@lists.linux.dev, sophgo@lists.linux.dev, 
+	linux-kselftest@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>, 
+	Jesse Taube <jesse@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Charlie Jenkins <charlie@rivosinc.com>, Andrew Jones <andrew.jones@oss.qualcomm.com>, 
+	Andy Chiu <andybnac@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 5HykYQ_D2Sd2KcePWFid8rGOUgZTSOY9Wf-mFEgL2D0_1781272295
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_025158_481783_5F02906C 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20260612_065143_035974_02F9E69B 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,241 +112,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use one shared CPU OPP table for all CPUs and add CPU clock properties
-for the two CPU clock clusters.
-
-Enable CPU DVFS on Banana Pi BPI-F3 by including the OPP table and
-wiring the CPU nodes to the CPU regulator supply.
-
-Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
----
-Changes in v3:
-- Use one shared CPU OPP table for all CPUs
-
-Changes in v2:
-- Add k1-opp.dtsi with OPP tables for both CPU clusters
-- Assign CPU supplies and include OPP table for Banana Pi BPI-F3
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 35 ++++++++++++-
- arch/riscv/boot/dts/spacemit/k1-opp.dtsi        | 70 +++++++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k1.dtsi            |  8 +++
- 3 files changed, 112 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 444c3b1e6f44..81ab5f70176b 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -5,6 +5,7 @@
- 
- #include "k1.dtsi"
- #include "k1-pinctrl.dtsi"
-+#include "k1-opp.dtsi"
- 
- / {
- 	model = "Banana Pi BPI-F3";
-@@ -86,6 +87,38 @@ &combo_phy {
- 	status = "okay";
- };
- 
-+&cpu_0 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
-+&cpu_1 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
-+&cpu_2 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
-+&cpu_3 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
-+&cpu_4 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
-+&cpu_5 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
-+&cpu_6 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
-+&cpu_7 {
-+	cpu-supply = <&buck1_0v9>;
-+};
-+
- &emmc {
- 	bus-width = <8>;
- 	mmc-hs400-1_8v;
-@@ -201,7 +234,7 @@ pmic@41 {
- 		dldoin2-supply = <&buck5>;
- 
- 		regulators {
--			buck1 {
-+			buck1_0v9: buck1 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3450000>;
- 				regulator-ramp-delay = <5000>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-opp.dtsi b/arch/riscv/boot/dts/spacemit/k1-opp.dtsi
-new file mode 100644
-index 000000000000..3627812e1344
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k1-opp.dtsi
-@@ -0,0 +1,70 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/ {
-+	cpu_opp_table: opp-table-cpu {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp-614400000 {
-+			opp-hz = /bits/ 64 <614400000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-819000000 {
-+			opp-hz = /bits/ 64 <819000000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1000000000 {
-+			opp-hz = /bits/ 64 <1000000000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1228800000 {
-+			opp-hz = /bits/ 64 <1228800000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1600000000 {
-+			opp-hz = /bits/ 64 <1600000000>;
-+			opp-microvolt = <1050000>;
-+			clock-latency-ns = <200000>;
-+		};
-+	};
-+};
-+
-+&cpu_0 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu_1 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu_2 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu_3 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu_4 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu_5 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu_6 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-+
-+&cpu_7 {
-+	operating-points-v2 = <&cpu_opp_table>;
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 529ec68e9c23..bdd109b81730 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -54,6 +54,7 @@ cpu_0: cpu@0 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <0>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -84,6 +85,7 @@ cpu_1: cpu@1 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <1>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -114,6 +116,7 @@ cpu_2: cpu@2 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <2>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -144,6 +147,7 @@ cpu_3: cpu@3 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <3>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -174,6 +178,7 @@ cpu_4: cpu@4 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <4>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -204,6 +209,7 @@ cpu_5: cpu@5 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <5>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -234,6 +240,7 @@ cpu_6: cpu@6 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <6>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -264,6 +271,7 @@ cpu_7: cpu@7 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <7>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdW4gMTEsIDIwMjYgYXQgNDoxNOKAr1BNIEd1b2RvbmcgWHUgPGRvY3VsYXIueHVA
+Z21haWwuY29tPiB3cm90ZToKPgo+IEZyb206IEplc3NlIFRhdWJlIDxqZXNzZUByaXZvc2luYy5j
+b20+Cj4KPiBaaWNjbHNtIHJlcXVpcmVzIG1pc2FsaWduZWQgc3VwcG9ydCBmb3IgYWxsIHJlZ3Vs
+YXIgbG9hZCBhbmQgc3RvcmUKPiBpbnN0cnVjdGlvbnMsIGJvdGggc2NhbGFyIGFuZCB2ZWN0b3Is
+IGJ1dCBub3QgQU1PcyBvciBvdGhlcgo+IHNwZWNpYWxpemVkIGZvcm1zIG9mIG1lbW9yeSBhY2Nl
+c3MsIHRvIG1haW4gbWVtb3J5IHJlZ2lvbnMgd2l0aCBib3RoCj4gdGhlIGNhY2hlYWJpbGl0eSBh
+bmQgY29oZXJlbmNlIFBNQXMsIGFzIGRlZmluZWQgaW4gdGhlIHByb2ZpbGVzIHNwZWMuCj4gRXZl
+biB0aG91Z2ggbWFuZGF0ZWQsIG1pc2FsaWduZWQgbG9hZHMgYW5kIHN0b3JlcyBtaWdodCBleGVj
+dXRlCj4gZXh0cmVtZWx5IHNsb3dseS4gU3RhbmRhcmQgc29mdHdhcmUgZGlzdHJpYnV0aW9ucyBz
+aG91bGQgYXNzdW1lIHRoZWlyCj4gZXhpc3RlbmNlIG9ubHkgZm9yIGNvcnJlY3RuZXNzLCBub3Qg
+Zm9yIHBlcmZvcm1hbmNlLgo+Cj4gUmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9v
+bGV5QG1pY3JvY2hpcC5jb20+Cj4gUmV2aWV3ZWQtYnk6IEFuZHkgQ2hpdSA8YW5keS5jaGl1QHNp
+Zml2ZS5jb20+Cj4gUmV2aWV3ZWQtYnk6IENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2lu
+Yy5jb20+Cj4gVGVzdGVkLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29t
+Pgo+IFNpZ25lZC1vZmYtYnk6IEplc3NlIFRhdWJlIDxqZXNzZUByaXZvc2luYy5jb20+CgpUaGFu
+a3MgZm9yIHRoZSB1cGRhdGUhIEp1c3QgYW4gZnlpIGVtYWlsIGhhcyBjaGFuZ2VkIHRvCmp0YXVi
+ZXBlQHJlZGhhdC5jb20gdGhvdWdoLgpObyBuZWVkIHRvIGNoYW5nZSB0aGUgc2lnbm9mZiB0aG91
+Z2guCgpUaGFua3MsCkplc3NlIFRhdWJlCgo+IFtSZWJhc2VkLCByZXdyb3RlIGRvYyB0ZXh0LCBt
+aW5vciBjb21taXQgbWVzc2FnZSByZXZpc2lvbnNdCj4gU2lnbmVkLW9mZi1ieTogQW5kcmV3IEpv
+bmVzIDxhbmRyZXcuam9uZXNAb3NzLnF1YWxjb21tLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBHdW9k
+b25nIFh1IDxkb2N1bGFyLnh1QGdtYWlsLmNvbT4KPgo+IC0tLQo+IHY0OiBObyBjaGFuZ2UuCj4g
+djM6Cj4gLSBNb3ZlIHRoZSBod3Byb2JlLnJzdCBlbnRyeSB0byB0aGUgSU1BX0VYVF8xIHNlY3Rp
+b24gc28gaXRzCj4gICBkb2N1bWVudGF0aW9uIG1hdGNoZXMgdGhlIElNQV9FWFRfMSBiaXQgaXQg
+d2FzIGFsbG9jYXRlZCBpbiB2Mgo+ICAgKFNhc2hpa28sIGFncmVlZCBieSBBbmRyZXcpLgo+IHYy
+Ogo+IC0gUmViYXNlZCBvbnRvIHY3LjEtcmMyOyBtb3ZlZCBaSUNDTFNNIHRvIElNQV9FWFRfMSBh
+bmQKPiAgIGFsbG9jYXRlZCBhIG5ldyBiaXQgZm9yIGl0Cj4gLS0tCj4gIERvY3VtZW50YXRpb24v
+YXJjaC9yaXNjdi9od3Byb2JlLnJzdCAgfCA0ICsrKysKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9od2NhcC5oICAgICAgICB8IDEgKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdw
+cm9iZS5oIHwgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyAgICAgICAgfCAx
+ICsKPiAgYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAgICB8IDEgKwo+ICA1IGZp
+bGVzIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRp
+b24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdCBiL0RvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3By
+b2JlLnJzdAo+IGluZGV4IGQ5OTI4NjQxZGViOTkuLjQ5ZDlmYjY4NjMyZDAgMTAwNjQ0Cj4gLS0t
+IGEvRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0Cj4gKysrIGIvRG9jdW1lbnRh
+dGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0Cj4gQEAgLTQwMSwzICs0MDEsNyBAQCBUaGUgZm9s
+bG93aW5nIGtleXMgYXJlIGRlZmluZWQ6Cj4gICAgICBhcyBkZWZpbmVkIGluIHZlcnNpb24gMS4w
+IG9mIHRoZSBSSVNDLVYgQ29udHJvbC1mbG93IEludGVncml0eSAoQ0ZJKQo+ICAgICAgZXh0ZW5z
+aW9ucyBzcGVjaWZpY2F0aW9uLCByYXRpZmllZCBpbiBjb21taXQgMzAyYTJkNDVjMjQzCj4gICAg
+ICAoIlVwZGF0ZSBidWlsZC1wZGYueW1sIikgb2YgcmlzY3YtY2ZpLgo+ICsKPiArICAqIDpjOm1h
+Y3JvOmBSSVNDVl9IV1BST0JFX0VYVF9aSUNDTFNNYDogVGhlIFppY2Nsc20gZXh0ZW5zaW9uIGlz
+IHN1cHBvcnRlZCwKPiArICAgIGFzIGRlZmluZWQgaW4gdGhlIFJJU0MtViBQcm9maWxlcyBzcGVj
+aWZpY2F0aW9uIHN0YXJ0aW5nIGZyb20gY29tbWl0Cj4gKyAgICBiMWQ4MDY2MCAoIlVwZGF0ZWQg
+dG8gcmF0aWZpZWQgc3RhdGUuIikKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9od2NhcC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gaW5kZXggNDRiZjhj
+N2Q4YWNjNS4uZThmNGE3ZGQ5NmE5MyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2h3Y2FwLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiBAQCAt
+MTEyLDYgKzExMiw3IEBACj4gICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQ0xTRCAgICAgICAgICAg
+IDEwMwo+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklDRklMUCAgICAgICAgICAxMDQKPiAgI2Rl
+ZmluZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJU1MgICAgICAgICAgMTA1Cj4gKyNkZWZpbmUgUklTQ1Zf
+SVNBX0VYVF9aSUNDTFNNICAgICAgICAgIDEwNgo+Cj4gICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9Y
+TElOVVhFTlZDRkcgICAgIDEyNwo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS91
+YXBpL2FzbS9od3Byb2JlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5o
+Cj4gaW5kZXggOTEzOWVkYmEwYWVjYi4uNjgxOWRmMTU5YzUxZSAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNs
+dWRlL3VhcGkvYXNtL2h3cHJvYmUuaAo+IEBAIC0xMTYsNiArMTE2LDcgQEAgc3RydWN0IHJpc2N2
+X2h3cHJvYmUgewo+ICAjZGVmaW5lIFJJU0NWX0hXUFJPQkVfS0VZX1pJQ0JPUF9CTE9DS19TSVpF
+ICAgIDE1Cj4gICNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9LRVlfSU1BX0VYVF8xICAgICAgICAgICAg
+MTYKPiAgI2RlZmluZSAgICAgICAgICAgICAgICBSSVNDVl9IV1BST0JFX0VYVF9aSUNGSVNTICAg
+ICAgICgxVUxMIDw8IDApCj4gKyNkZWZpbmUgICAgICAgICAgICAgICAgUklTQ1ZfSFdQUk9CRV9F
+WFRfWklDQ0xTTSAgICAgICAoMVVMTCA8PCAxKQo+Cj4gIC8qIEluY3JlYXNlIFJJU0NWX0hXUFJP
+QkVfTUFYX0tFWSB3aGVuIGFkZGluZyBpdGVtcy4gKi8KPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMK
+PiBpbmRleCA2ODZkZGUzY2UzYjk4Li4xZmI1OTU1ODFhZGNmIDEwMDY0NAo+IC0tLSBhL2FyY2gv
+cmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZl
+YXR1cmUuYwo+IEBAIC01MDIsNiArNTAyLDcgQEAgY29uc3Qgc3RydWN0IHJpc2N2X2lzYV9leHRf
+ZGF0YSByaXNjdl9pc2FfZXh0W10gPSB7Cj4gICAgICAgICBfX1JJU0NWX0lTQV9FWFRfU1VQRVJT
+RVRfVkFMSURBVEUoemljYm9tLCBSSVNDVl9JU0FfRVhUX1pJQ0JPTSwgcmlzY3ZfeGxpbnV4ZW52
+Y2ZnX2V4dHMsIHJpc2N2X2V4dF96aWNib21fdmFsaWRhdGUpLAo+ICAgICAgICAgX19SSVNDVl9J
+U0FfRVhUX0RBVEFfVkFMSURBVEUoemljYm9wLCBSSVNDVl9JU0FfRVhUX1pJQ0JPUCwgcmlzY3Zf
+ZXh0X3ppY2JvcF92YWxpZGF0ZSksCj4gICAgICAgICBfX1JJU0NWX0lTQV9FWFRfU1VQRVJTRVRf
+VkFMSURBVEUoemljYm96LCBSSVNDVl9JU0FfRVhUX1pJQ0JPWiwgcmlzY3ZfeGxpbnV4ZW52Y2Zn
+X2V4dHMsIHJpc2N2X2V4dF96aWNib3pfdmFsaWRhdGUpLAo+ICsgICAgICAgX19SSVNDVl9JU0Ff
+RVhUX0RBVEEoemljY2xzbSwgUklTQ1ZfSVNBX0VYVF9aSUNDTFNNKSwKPiAgICAgICAgIF9fUklT
+Q1ZfSVNBX0VYVF9EQVRBKHppY2Nyc2UsIFJJU0NWX0lTQV9FWFRfWklDQ1JTRSksCj4gICAgICAg
+ICBfX1JJU0NWX0lTQV9FWFRfU1VQRVJTRVRfVkFMSURBVEUoemljZmlscCwgUklTQ1ZfSVNBX0VY
+VF9aSUNGSUxQLCByaXNjdl94bGludXhlbnZjZmdfZXh0cywKPiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICByaXNjdl9jZmlscF92YWxpZGF0ZSksCj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3Yva2VybmVsL3N5c19od3Byb2JlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9z
+eXNfaHdwcm9iZS5jCj4gaW5kZXggZjhmNjhiYTc4MWI0NS4uOWNmNjIyNjZmMTg5MCAxMDA2NDQK
+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCj4gKysrIGIvYXJjaC9yaXNj
+di9rZXJuZWwvc3lzX2h3cHJvYmUuYwo+IEBAIC0yMDUsNiArMjA1LDcgQEAgc3RhdGljIHZvaWQg
+aHdwcm9iZV9pc2FfZXh0MShzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSAqcGFpciwKPiAgICAgICAgICAg
+ICAgICAgICogaW4gdGhlIGhhcnRfaXNhIGJpdG1hcCwgYXJlIG1hZGUuCj4gICAgICAgICAgICAg
+ICAgICAqLwo+ICAgICAgICAgICAgICAgICBFWFRfS0VZKGlzYWluZm8tPmlzYSwgWklDRklTUywg
+cGFpci0+dmFsdWUsIG1pc3NpbmcpOwo+ICsgICAgICAgICAgICAgICBFWFRfS0VZKGlzYWluZm8t
+PmlzYSwgWklDQ0xTTSwgcGFpci0+dmFsdWUsIG1pc3NpbmcpOwo+ICAgICAgICAgfQo+Cj4gICAg
+ICAgICAvKiBOb3cgdHVybiBvZmYgcmVwb3J0aW5nIGZlYXR1cmVzIGlmIGFueSBDUFUgaXMgbWlz
+c2luZyBpdC4gKi8KPgo+IC0tCj4gMi40My4wCj4KPgo+IF9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPgoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
