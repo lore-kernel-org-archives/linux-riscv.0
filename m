@@ -4,84 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A132CD98CF
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 08:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C41CD8CA8
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 09:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=musGTOKAX+u3NmU0nCgpFE6VVcrr7wCUaTtIMDyN82I=; b=StewxMUOKKCJyaQIqNbN7ldyYE
-	2A5d6VgJ+9gin4/C+XiC3vIUqMfSV0RynDpRG9kZpi2V6tsJIy5I4ywO6wP5b7XgI5wpRQCI1xzBf
-	cqDVAdmmyaGaWWw+wqtlpH7k68Nq4hL5laGViEooPzbktE1UJ7OpA2F+KFVHRy0469Bu6lgz/PXeJ
-	OdBO2y2On1VxuhMy54NORSJbiqAO2w0b9ysyfas3wH10Ot+uuLJn73RENRSAVSisu8pa2AcfSWd9p
-	3Ka0hMuqvyCQ+uNYc6sQKwH7HFVoPNz1u1vtEbhCfbwifcY7QQKNr2ZHprUOk++J08cILi1ZNw2At
-	zSiYbvxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XiAmnLys+kgTkpNx1dNIjjprSW8IF+iCcrEE+IvR7M0=; b=SvqB2HkudavJES
+	v0RJqGY6G2mKfkcU/lxkiAM7Vj4YmECGWpg1gb/qVSWKz9xA2bKyFMuAU3Qyc/qSg0otcJaAranzO
+	kfSwBWOhkhI+Mm73fVmlErW0c//vFO4rKw0WJQiy/rh96484uscXvd7NzwCKW9or0jb1JJz2qczLM
+	PNO2LiddbFcMECEO4XY/KbTHgSInh4HK4H7TM44pdw8UbzVCiiwctIX//k5Rx1PMhDUSPVV4AY2yv
+	q5NOhzYw8f2lBN4dEY6CBhuX+kBUPaKSrij3HyNm6nkRQr8b8DB2MmnMMXzsANthW+DQ2XjwdWKBi
+	nzguoocgdfegAaFvDx0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxSh-0000000AauT-01lh;
-	Fri, 12 Jun 2026 08:41:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wXyYC-0000000AhTK-3ekU;
+	Fri, 12 Jun 2026 09:51:44 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wXxSd-0000000Aatt-2K5v;
-	Fri, 12 Jun 2026 08:41:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1781253717; x=1812789717;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cJS4+U+Lvd9JiTFvDEcycO1GrMxgHTDXXvhAFBUdHBY=;
-  b=rn5Vab6uWHYXd1rjInpzacx/i9ApDbJQIQ7WtIOeC3zQXDO+WTCSL/a+
-   p8tVZiSkk53fQr0hMwaWkiCfTqyj+tSTWG6evFK5wnJgtSGrrd/B/fsFQ
-   f2ckYMxMvl2UA97xxXtQwX2TjjjptF4gvHouvS4N3RhEKjj8zsbF+ltXj
-   9rqfMuWoIEn/z9XDbDR8/f3XP2LvUmOTtHbJfS78rxYptrns5AJ1bSC9/
-   YNUnsYYU5R2bfBWTKkvujfVUD6RWoE2G82RS63PMLdDROFgY818ER3qoN
-   QZ2l/rwwwX0LrYToVVAPfxLfG7QnIC0Vtb9NEUPKX0nQM4Y8t0F/8d9sd
-   Q==;
-X-CSE-ConnectionGUID: XuaeUrWDQs68NJpIlx5NwQ==
-X-CSE-MsgGUID: /IzbyA5FSWGqN1HaIZcVPg==
-X-IronPort-AV: E=Sophos;i="6.24,200,1774335600"; 
-   d="asc'?scan'208";a="59017390"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Jun 2026 01:41:56 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 12 Jun 2026 01:41:53 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 12 Jun 2026 01:41:48 -0700
-Date: Fri, 12 Jun 2026 09:41:02 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Guodong Xu <docular.xu@gmail.com>
-CC: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert
- Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Zong Li
-	<zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>, Anup Patel
-	<anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Chen Wang
-	<unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>,
-	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>,
-	<kvm-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Conor Dooley <conor@kernel.org>, <devicetree@vger.kernel.org>,
-	<spacemit@lists.linux.dev>, <sophgo@lists.linux.dev>,
-	<linux-kselftest@vger.kernel.org>, Palmer Dabbelt <palmer@sifive.com>,
-	Qingwei Hu <qingwei.hu@bytedance.com>
-Subject: Re: [PATCH v4 09/16] riscv: Add Zic64b to cpufeature and hwprobe
-Message-ID: <20260612-frays-feast-e631e3aa047d@wendy>
-References: <20260611-rva23u64-hwprobe-v2-v4-0-3f01a2449488@gmail.com>
- <20260611-rva23u64-hwprobe-v2-v4-9-3f01a2449488@gmail.com>
+	id 1wXyYA-0000000AhSl-2HSF
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 Jun 2026 09:51:44 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gcFCY2mDvz9tpN;
+	Fri, 12 Jun 2026 11:51:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781257897;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=230pkd5gomLN4/5M7G+ooajqrscGYkDpD19KGlJrTRg=;
+	b=Oo0IgB5r3ksGBAThpOfySeXrKCRRmELReBH3Odn9VtitrMt2Wz20hKA0VzpoU5BazzcZv1
+	CqJ54u7JINJGM52n7T7dzklhkNB9KrO5gxcbOU91la5KuR1AIYLctvmLtXKqMfn188OsIO
+	l+dIx6nxVq0qYFE51DJfyg3zkKWdol101tZb1Cb//t372t04SZeU0ftYaDbcz5P0mrkRGh
+	E8Quj03poEf3EIQW48QNnl/exZPqQ88i1LbItwSptET8UGDd7sSwuH2mzMJ9qD52GJn4D4
+	pQtOtr/SrdwQZlMmpsUwqY+Ke612Ixiq/6yJL8u6Ml/wm2pYRUhGiK0rrtkhVw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=k1aUJ+NV;
+	spf=pass (outgoing_mbo_mout: domain of shuwei.wu@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=shuwei.wu@mailbox.org
+From: Shuwei Wu <shuwei.wu@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781257895;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=230pkd5gomLN4/5M7G+ooajqrscGYkDpD19KGlJrTRg=;
+	b=k1aUJ+NV2szgplo0Sn+DduSpYWa/wOoY1PPgzbQpis+xhG+ypdmFvA+rwbmYWb1rvIh92n
+	obDFVdHs/k3KZX9QM7ihRNULZf1PVv8rY3uhnkJqb0qZo6+Uk6PxmfIsy3BAscWV8znjLh
+	Z+w8L8ZCbxpdzLxETikza08wQwwsmLTKofUODrW2gkfDfIh7nyaJEUjwUD44OCY3NkGEmP
+	Igxqz79X1kskHkbjIPBwYF00xDvFsgHDRUTERooVIyY4cnIV0XRZ8BJ3Dyc81qKLhl9mzX
+	T4n3w4LuoQbYZssfhnb3tQujoLzJ27OKlecUBZm4ZdGTSfyCdeNwpwshv39ydw==
+Subject: [PATCH v3 0/2] cpufreq: spacemit: Add cpufreq support for K1 SoC
+Date: Fri, 12 Jun 2026 17:51:00 +0800
+Message-Id: <20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org>
 MIME-Version: 1.0
-In-Reply-To: <20260611-rva23u64-hwprobe-v2-v4-9-3f01a2449488@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAIbWK2oC/22Q22rDMBAFf8X4uRt08UqyKSX/UfqgyzoRiWNXc
+ t2UkH+v4hTaQB9XMKPhXOpMKVKuu+pSJ1pijuOpHPKpqv3ennYEMZS7FkwoJpmGvLdh/IRAUwa
+ JRlhtrNWo6kJMifp4Xm2vb/c70ftHkc73x3qys98XZVdxbFxoei2YJ2QKAxrXGhPI9EJLwbRrG
+ tSCbt6BcrZrSlc9ryWCKciT9TTEGSYOSwMMTK9aDK00nNM2xezzbNPGj8PL/xLJEA4c/PEAJRs
+ WDhys89ZgUCSU2g42Ht143oxptyqczQTFVz7tKuSqoRaxpMs+IDMFtC1K5FLIHjVXoXclqL4ts
+ Y95HtPXOvPC1yl+EszDoqWBQVnEodeeaXJ/G1bTIn7phrNHWhS6Ia6c8axXjB7p6/X6DSLYL3D
+ wAQAA
+X-Change-ID: 20260307-shadow-deps-3582a78aa756
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+ Yixun Lan <dlan@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ devicetree@vger.kernel.org, Shuwei Wu <shuwei.wu@mailbox.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781257883; l=3367;
+ i=shuwei.wu@mailbox.org; s=20251125; h=from:subject:message-id;
+ bh=8WwzrHxgFv4Bql+YAmkeQAyvc/z04SQjiw3ZFs2Csq0=;
+ b=SBdk/P5ptowOOfdxAdM9FnB6FHVS/Td8pSYqPYn4Jqll8MN1REG8DlcGXmQtjIdxg4H9txoPE
+ mYcsdd6V9ZkDHiFX+JxFeXE4jdXiTlgYjBobVMxxppMlOiuAdHYQo3U
+X-Developer-Key: i=shuwei.wu@mailbox.org; a=ed25519;
+ pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
+X-MBO-RS-ID: 450bb4674b0fe0811f4
+X-MBO-RS-META: ksxe7amy6wpsowkxf67gdmiyxsukc1j3
+X-Rspamd-Queue-Id: 4gcFCY2mDvz9tpN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_014155_886836_5425DA21 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260612_025142_749760_DAE2B6AF 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,85 +106,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2200072793137523145=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2200072793137523145==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="yeEbaUwKYQ4BJ0tH"
-Content-Disposition: inline
+This series enables CPU frequency scaling for the SpacemiT K1 SoC.
 
---yeEbaUwKYQ4BJ0tH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+K1 has two CPU cluster clocks but one shared CPU voltage rail. Add a
+small K1-specific cpufreq driver so the two clocks and the shared OPP
+transition can be handled together.
 
-On Thu, Jun 11, 2026 at 04:12:46PM -0400, Guodong Xu wrote:
-> From: Qingwei Hu <qingwei.hu@bytedance.com>
->=20
-> Zic64b mandates 64-byte naturally aligned cache blocks and is a
-> mandatory extension of the RVA22 and RVA23 profiles.  Allocate a
-> RISCV_ISA_EXT_ZIC64B id, parse "zic64b" from the ISA string with a
-> validate callback that requires each cbom/cbop/cboz cache block size to
-> be 64 bytes when it is present, and export it through hwprobe.
->=20
-> Link: https://lists.riscv.org/g/tech-unprivileged/topic/question_about_zi=
-c64b_and/119631059
-> Signed-off-by: Qingwei Hu <qingwei.hu@bytedance.com>
-> Co-developed-by: Guodong Xu <docular.xu@gmail.com>
-> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+Tested on Banana Pi BPI-F3. The system boots with all eight CPUs online,
+the K1 cpufreq driver registers one policy for CPUs 0-7, and both CPU
+cluster clocks follow the selected cpufreq rate.
 
-> +static int riscv_ext_zic64b_validate(const struct riscv_isa_ext_data *da=
-ta,
-> +				     const unsigned long *isa_bitmap)
-> +{
-> +	/*
-> +	 * Zic64b mandates 64-byte naturally aligned cache blocks; cross-check =
-the
-> +	 * cbom/cbop/cboz block-size (when declared) device-tree properties to
-> +	 * avoid inconsistency.
-> +	 */
-> +	if ((riscv_cbom_block_size && riscv_cbom_block_size !=3D 64) ||
-> +	    (riscv_cbop_block_size && riscv_cbop_block_size !=3D 64) ||
-> +	    (riscv_cboz_block_size && riscv_cboz_block_size !=3D 64)) {
-> +		pr_err("Zic64b detected in ISA string, disabling as a CBO block size i=
-s not 64 bytes\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
+~ # cat /sys/devices/system/cpu/online
+0-7
 
-I'm inclined to object to this, but we don't have validation on ACPI
-stuff to be able to mandate that people fill in the rhct entries.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+~ # ls /sys/devices/system/cpu/cpufreq
+policy0
 
+~ # cat /sys/devices/system/cpu/cpufreq/policy0/affected_cpus
+0 1 2 3 4 5 6 7
 
---yeEbaUwKYQ4BJ0tH
-Content-Type: application/pgp-signature; name="signature.asc"
+~ # cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
+614400 819000 1000000 1228800 1600000
 
------BEGIN PGP SIGNATURE-----
+With the userspace governor:
+----------------------------------------------------------------------------
+Frequency    | scaling_cur | cpu_c0_core | cpu_c1_core | Real    | User
+(kHz)        | (kHz)       | (Hz)        | (Hz)        | (s)     | (s)
+-------------+-------------+-------------+-------------+---------+----------
+1,600,000    | 1,600,000   | 1600000000  | 1600000000  | 1.80s   | 1.80s
+1,228,800    | 1,228,800   | 1228800000  | 1228800000  | 2.33s   | 2.33s
+1,000,000    | 1,000,000   | 1000000000  | 1000000000  | 2.88s   | 2.87s
+  819,000    |   819,000   |  819200000  |  819200000  | 3.53s   | 3.52s
+  614,400    |   614,400   |  614400000  |  614400000  | 4.72s   | 4.72s
+----------------------------------------------------------------------------
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaivGHgAKCRB4tDGHoIJi
-0lFLAQDha3cantxsp/CPLOnAf10qvhl6aJAKsPOLD54gW9K0AQD+I9ggy4JDJWBL
-AjJkB9ffVB058Go53e93Vc4lz51wNQw=
-=4eTb
------END PGP SIGNATURE-----
+Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+---
+Changes in v3:
+- Add a K1-specific cpufreq driver for the shared-rail, dual-clock topology
+- Use one shared CPU OPP table and one cpufreq policy for all CPUs
+- Link to v2: https://lore.kernel.org/r/20260410-shadow-deps-v2-0-4e16b8c0f60e@mailbox.org
 
---yeEbaUwKYQ4BJ0tH--
+Changes in v2:
+- Move OPP tables to dedicated k1-opp.dtsi
+- Enable OPP only on BPI-F3 with cpu-supply present
+- Link to v1: https://lore.kernel.org/r/20260308-shadow-deps-v1-0-0ceb5c7c07eb@mailbox.org
 
+---
+Shuwei Wu (2):
+      cpufreq: spacemit: Add K1 cpufreq driver
+      riscv: dts: spacemit: Add cpu scaling for K1 SoC
 
---===============2200072793137523145==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  35 +++-
+ arch/riscv/boot/dts/spacemit/k1-opp.dtsi        |  70 +++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi            |   8 +
+ drivers/cpufreq/Kconfig                         |   4 +
+ drivers/cpufreq/Kconfig.riscv                   |  15 ++
+ drivers/cpufreq/Makefile                        |   3 +
+ drivers/cpufreq/cpufreq-dt-platdev.c            |   2 +
+ drivers/cpufreq/spacemit-k1-cpufreq.c           | 251 ++++++++++++++++++++++++
+ 8 files changed, 387 insertions(+), 1 deletion(-)
+---
+base-commit: 5164e95565d3fd508ca8a95351323f5716dfb695
+change-id: 20260307-shadow-deps-3582a78aa756
+prerequisite-patch-id: 154bd4f720ce5065d58b988de8f273207b44572e
+prerequisite-message-id: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
+prerequisite-patch-id: 5da3e75b18291a5540d4f66d7a0600fb8975ef62
+prerequisite-patch-id: bcf41917414ecef8cf743095d130f6004c32f6a5
+prerequisite-patch-id: cfe3800f8c791ec4c63e070af9628e88e0fc31b9
+prerequisite-message-id: <20260305-k1-clk-fix-v1-1-abca85d6e266@mailbox.org>
+prerequisite-patch-id: 7c7fb9f87dba019ece4c97c45750349a7cd28f3a
+
+Best regards,
+-- 
+Shuwei Wu <shuwei.wu@mailbox.org>
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2200072793137523145==--
-
