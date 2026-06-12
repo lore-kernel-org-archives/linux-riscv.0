@@ -4,155 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46EDACD98CF
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 15:52:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CF7CD98CE
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 16:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ihP0+3gQsDCZuEl/rMIMEgHiv8zfRKQRwd2ghiVYOMw=; b=aMLCZPoi9mzrWf
-	4EYPhfJKAa0wOiDlXfB92+PCU+KiEKBN6pIIJ+eymOZUnomNYKmppRhq680h4UykBrVaGsEabtqH0
-	7kxXtTKvb1AXEQx8q6nTJ4mDW/CRK41Z8PZgQtPwL+yhgMwjDNLLAsxXbYwQMgVFqYJM5iwDsvzYI
-	ESHP+DKVQGU74O5Nezet/YPnOsy/Gf/RFW+TzTd2ROUu0pJDgbYpa8fAOAfvQBShYaI3hhtvk8ulG
-	lF6Aj7JARhPfeGUMv+AVvrMiRy29TWILSxc71UUx0VwXF+eFS50vHAGVaXtqKrHqB2lM1V7Mh8zIB
-	08tNhP/hTvWXOGBPTq2Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9M8ViS7/27oJuHOABvMzTS1jDNk9zj4bV0O/BOgDyGk=; b=Do7QApaE8+ylhL
+	y0k6QWptB1XkAD3SbhSTVPTJMcmGs6iFlBQD/jNrXdE8867hlhvAYc/0vEkQUci/F9ilADafdjcZa
+	xquApvkTF51XZhsMbnqCfpy0RlV7hn/Jf3asDe4JKFeW1Bpv5Y1MwNCWAy3RE2KaDCypuPjIHZW53
+	XE4JBfIPhOPql+XaXslaqXezTx31WLE8by+rp3kO0PQk27BazIXUz/ZXOwiojQLnOxClwoD7Q8+8G
+	qzgyXEh/flJn2u29wCesjVy7mcn1VlWzipXcGT6alKS0BIo+ceCqcfBc8HlsZd4KgTGtDWZmSmd4g
+	mU14eQcqr6IwmMgAzn3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4Ao-0000000BBeM-3fot;
-	Fri, 12 Jun 2026 15:51:58 +0000
-Received: from mail-eastusazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d100::1] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wY4h1-0000000BGxd-2GFs;
+	Fri, 12 Jun 2026 16:25:15 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY4Am-0000000BBds-29OJ;
-	Fri, 12 Jun 2026 15:51:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MXTzVGiBNA86ENHH8G1hAPZW5VafoydiFwxyiHFJgckqZw9Izp/XZS5SPIbtqqc4DB+Me+XV1R/Tc8ryNsGJjK9vNiO18oC4mgv/3JTNusydBfaT4gijdxAoudOuIU+afTZA4w/nEtgtcS3NX3eyP4O9YQStEx2U3HzZgbK9qG4gBraOJ2kRyA/IvY87CpvegPNUINeLsqaT7VQsKltHXzD0tajbkFozh8R7IKU6pok305OBK1yEJMLwjCpMiSj77J2z2bM5/FRSVvcgaerlCiTjfm4xNDO2LTr6zJN0Hl9AMxXaP/N/JYeqQR54b1Jt0ZZYYtP0b49xTNz/grbMHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H5aT4tkM4iVgKvx6jGN4RkQwvFk6bLKdjT//I8KvwEo=;
- b=c9t4gqJQSW7/af3BOdkGHymDdSKaDNjY0sLRqsmjLBekw/Se7fWjCFSwnyCw5t89VSPQD5fGYxnvP/HwDPREV9jMCVF4eF3GItlw3uKr2neCycTWbxx5K/kF3RttVUgzLITm7IJKbhTgB0t/DP/GkP2/2kT/Sd3+T5eUcPDKP8YCWTzDEHmH9yToKd2AmAqsAK98cxjv1cUrkwBfOheEySg8vB/Jm9A/UhU51KV0/ioawZ0VwyFi3vSNDPKIqjgyVZiBv9ZqIBWzJQDgJdPrRFEMKq0dP/qUVlqyMxwrZS/7/2J7DefviqwDpQTxZ5ZBj+mLmUqtfe4E6Yo12e44CA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H5aT4tkM4iVgKvx6jGN4RkQwvFk6bLKdjT//I8KvwEo=;
- b=L45RGv90s6qbF1pP4zySTDPFUhysaG29KGVdshErVgNGEGDGKt+M9r5StTmg6jBDYbcOgHN/Wv6bGvXr3EFJf3hE3az3fXrqMCSiqZUTSdlBZLvnZSaEJb6WO66oTyU7Mqz62fgSh3HDcx4cl9zR3gTJvPcYSdpQbwIuA2irpdvXZuDW8Ly/L5nUHE8QjDEuFljYW0tbYAWqYRg587hGudleVbdqCY8d+H8qHxBuLB1vghnwuUxWOBav148ULwCKDVMKfUGH5Q1pHXHWDjB/9+frS/kxLjuUQ8CVr6/Eu7/jSgQ6DO+Fr78c1zuoKg1RbUPIA2PkFqSuF9gvLr9YCA==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by CH2PR02MB7078.namprd02.prod.outlook.com (2603:10b6:610:80::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.15; Fri, 12 Jun
- 2026 15:51:51 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%3]) with mapi id 15.21.0113.013; Fri, 12 Jun 2026
- 15:51:51 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>, "pjw@kernel.org"
-	<pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
-	<alex@ghiti.fr>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "peterz@infradead.org" <peterz@infradead.org>,
-	"kees@kernel.org" <kees@kernel.org>, "nathan@kernel.org" <nathan@kernel.org>,
-	"linusw@kernel.org" <linusw@kernel.org>, "ojeda@kernel.org"
-	<ojeda@kernel.org>, "david.kaplan@amd.com" <david.kaplan@amd.com>,
-	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"timothy.hayes@arm.com" <timothy.hayes@arm.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "thuth@redhat.com" <thuth@redhat.com>,
-	"oupton@kernel.org" <oupton@kernel.org>, "yeoreum.yun@arm.com"
-	<yeoreum.yun@arm.com>, "miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"broonie@kernel.org" <broonie@kernel.org>, "kevin.brodsky@arm.com"
-	<kevin.brodsky@arm.com>, "james.clark@linaro.org" <james.clark@linaro.org>,
-	"tabba@google.com" <tabba@google.com>, "mrigendra.chaubey@gmail.com"
-	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
-	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH RFC 0/3] arm64: Add HOTPLUG_PARALLEL support for secondary
- CPUs
-Thread-Topic: [PATCH RFC 0/3] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-Thread-Index: AQKOA8X39m4tY91Ji20k4ddnJ9pPpLTY/WbA
-Date: Fri, 12 Jun 2026 15:51:51 +0000
-Message-ID: <SN6PR02MB41575CD5883C01FCB7F35E2DD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
-In-Reply-To: <20260611133809.3854977-1-ruanjinjie@huawei.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CH2PR02MB7078:EE_
-x-ms-office365-filtering-correlation-id: 9157891e-a0e6-4662-f432-08dec89a84f8
-x-microsoft-antispam: BCL:0;ARA:14566002|19101099003|15080799012|19110799012|31061999003|8060799015|13091999003|8062599012|37011999003|51005399006|3412199025|440099028|102099032|40105399003|19061999003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?IU+D0S7Le3TUv3ZIEy0WMwum551TCsDMh8Y2NTmxpZAu2aOWKvz5pDRti2g5?=
- =?us-ascii?Q?BQwCoJNy7DnukChYvcZ3ZHlzcK5DuL4hB9sJHzd9Eje0DoA5IhqHcfl7kEq4?=
- =?us-ascii?Q?h2nq3pCSJz9SCZH8gm/UiBOuZLNSUUUzDigwNB0dHTMazeUt6Yx0wqqbZ6JZ?=
- =?us-ascii?Q?eswu2k5o4oQDxOOLbJaUzSLYOEqx1rDEEAIhpGi97tXYOwHmlWEHsM1gqszI?=
- =?us-ascii?Q?TnsxhnHme+Sj5eDi8QFRjM/uMniGjF9JzhO2rF5v0sXQPzgp2qxvSeYL1ovM?=
- =?us-ascii?Q?KG91z65LYBnpeNoctCXyilA2y6ejwTkkvCxqVMI7x83GASwQ3TNdBdYuA0Dt?=
- =?us-ascii?Q?0S7W+SJge9uUXLBp/k2qJ2CBVdI1fxjRUe7CHtZGUdl/OZr/UnC1hwpupuA9?=
- =?us-ascii?Q?Rhe037FreLNIR4DmX0YslO6T8OtzpMfB6ShzXfEKE06WvsWHru8+fnmNeNnW?=
- =?us-ascii?Q?39tT5npF5p7799BVKnwfTIl11jktn97uM9hnZrZFU6hzVTKiG/VkxCy/Zhmi?=
- =?us-ascii?Q?JG9+amfupg8yoqqoz/Wte1ta0fAq4ptUxsr56Zz+fjnj+biTtLxzzi55FeFp?=
- =?us-ascii?Q?c/vg7d4N5Z/iyypYdC2Kl+M0DJl+LAgrsVzuwbQSCEQIfHMbuX00i6FHX0wE?=
- =?us-ascii?Q?JZ1OhXLBb7qhX8tvjdJImL/MNzIx5szMLhxsImwxque9MPw2HkBhmTH7LGkQ?=
- =?us-ascii?Q?qd+PXi0Clb9oOCdq7T+1a2wvhpRPgMHyjk5wq1g87lHEF/H+Esuumx2f6kPX?=
- =?us-ascii?Q?SsfCtAmmdQvdl7SuMtudlOvo9F+tnpr97kFDd/R5CFrU1FQcyzvoRwNxzgJg?=
- =?us-ascii?Q?aoue1ZBu+TKXyjhWl9wupD67ZP6Yn1iFNcxlzTjbiaSUl0kRnBZrJE6rR9Tv?=
- =?us-ascii?Q?CB/n4zgdKlc3TI7YtQAZ3viQ0EZE/ALm4Ao+zHRWhSCCRmLyov4XRzBIVpOn?=
- =?us-ascii?Q?qEzOfcwZys413ln1x+kV4KyKy7HOKCQDT8aUPi2comcf9EXh2jdYMw0HJ+7Y?=
- =?us-ascii?Q?Z7IG3cw38wC75EiTFg/6lZHfbA=3D=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Msi3MtqWWsVQ9ucSfcfGyFiL8QDE041KBo/XbkHw4OQ0keXJlAtopnl8lMfo?=
- =?us-ascii?Q?xuTZ9y4Z0IKvRjyyMxAfBSLQ0AfGtkLlAOFyy463hYHxjbx2yQ7Kp4id0DiR?=
- =?us-ascii?Q?qZ4WSv3VyAmjjW6hriTerjHgJ5G+FVaw9P8FUMnPmVqmsPaCXZsN3ws6QIlR?=
- =?us-ascii?Q?tcputxTP9DUlFIfWquoB5QBq+lfIMWbOESxWEE8Rzj8kmrLTYR4GUuCVRvBQ?=
- =?us-ascii?Q?mz0vtBh6jHoOAKFlwhM02iO7yLm5catzSreg5F0WOMwTsxCaWHmpvXVmcu5Y?=
- =?us-ascii?Q?Gh8k2+P4qj/ktvCsWcS6BpA0whyApVLpR+3gJ0tqyTlTzQnzesBghoLOCL5n?=
- =?us-ascii?Q?vDUICWaaST/NWjttR27n13NIiF6GF/SJ9kopozIwd8jy5TKQOSVNh7sDLvpt?=
- =?us-ascii?Q?WVXt1E2ZiMQIZhKyeUl3XHUS1mzTtKckhPXn+eM4CdgJ8tuXdUARjO8mEFzZ?=
- =?us-ascii?Q?zZWKZNsK+UeWcln4LMrpi1XawPhBi9Kk2l2NpAe5PlrKd3VXCq4FZOADa+D0?=
- =?us-ascii?Q?VzeR/IcSe48pXie6reMUSozTdSQ6woUBgUJAWtrdlsV7BxV+IF652U+M+NNO?=
- =?us-ascii?Q?de57H/2gpPuwtiO7orJUDeN7oHmWfwdvh+Ci/N4H2qYWgTHp54PoI9/OPfyX?=
- =?us-ascii?Q?fZakFEp56bKRESXGGqqofX2nQP0jVLkE2b10zl/XHQmtZLUzqeHl/5FM7P2Q?=
- =?us-ascii?Q?eoNPVNZjy6LXGH7pvum0IM2/X3IXH8Y99Ixsa6f2H5+pHLAvlfLC0UeyrcSs?=
- =?us-ascii?Q?sZWFxQRORjsyBXZpGv3WuhT1LTpUiBSR5av2stpp1NDKBds60t3EfjrGnjV1?=
- =?us-ascii?Q?ajgcO4O8uVvavYfDfNZiRbhROYFfab42aV6pH5nB9aQWouugJahrP+3Gke6D?=
- =?us-ascii?Q?0l6sq7/IYNy5Dv0iNdAtpS1ALE+r0LbNkWmez6QI4bg/xie9UDxw6xMjH97+?=
- =?us-ascii?Q?ONaj0gLJ99EnOYa58l4eCXnIO66c6bsbW5SAQNLHkeaaozK7wrA1lQXW5owu?=
- =?us-ascii?Q?5agMCTHynTi9SvZ7QF41SeF0BbhgsAwovHIQSW18pGqkiP2TmnrhwRIqjAze?=
- =?us-ascii?Q?Ifuiokp9fCiQf7HJHYX9P5DBtSxYegxDuF2BYA7QsPw+Lc1pj/y3l49BRdst?=
- =?us-ascii?Q?LPcgv/FepKx7m60Bs0tUM+EZNuwN8BJb74NjhmzO362eYLEDeFlLZ85eplG6?=
- =?us-ascii?Q?uwQ8ygW4FKhZM4biI4hambtXADabrqiFXp0uaM2XBQ1fSDrQ+843dIYqhXFC?=
- =?us-ascii?Q?4dm/FbeD1tbDqwQBwUDHUv9yVBtG9+FGT1PK4oF/A00zR9mZD3OxdmwVmGLj?=
- =?us-ascii?Q?FZa0pkmYgyZUvOdZI8NWQ/fsKuA9ZH3Yx3+ADG8qSLF8f4/qMe2Z7GX8dDk+?=
- =?us-ascii?Q?OdalN4Y=3D?=
+	id 1wY4gy-0000000BGwQ-1tfX
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 Jun 2026 16:25:13 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-7e8833c99fcso12640267b3.3
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Jun 2026 09:25:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1781281511; x=1781886311; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zRa+eFmdh/5sce8LPeVABmcbTpIdXzK8hhJ5rYpTZ9I=;
+        b=AiuA3GL+yiPN8t0xjYcTHh+NklKvr/b/7w2hKDPjOrb0sLehlik932nwVJ+4ct29VK
+         QIEork7/tpx4/ASvzE4+OR2ZIJwWrpl++CfMr8PzxzjkYk5K1cdzlGnEHiJ4eWusq5n5
+         WQDhFZ8RRcSEKsi9pvhLUPfZYydB8zSD9CbJ7NG9QP23AVUr9ZH6ggxBWZzaWf36qSzM
+         8h+L68P/l4vxtiw9Ped57f4amojPBH6+FisCTtzn4NYCg1kGv3my7PhCkptnNBxa48ad
+         kDNByaulqPMcEsiN620jT/+CUU4WE4ezYOwxXFWDLwKLs2WvZorYVi1QmQCe3nJLWqyy
+         h7KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781281511; x=1781886311;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zRa+eFmdh/5sce8LPeVABmcbTpIdXzK8hhJ5rYpTZ9I=;
+        b=ae8GLzHvo5PCqS6KLLTBwa9QKC4bd+oeDh1gfHz/WKnoxG1/V1f7tGUO3uAD5FivEM
+         PEl1WB2Muep5+ZVHI+ZF+A5YmC61RJ3Er44/73MAEOroxZ+9t8ecjsU9Ax7vNXrImyVM
+         JQvI6j8KD3TLT9ix/vnsz6KA/EF4So40HFF3GqWBewofKO+oBYN/EhSWdqgnOvj8UCsz
+         /rdRYoTprwSpCX6IUdQJCngYI2EQlob35o7AGkY+ocNXXPZrmXOH7yWcf57MLmYLU++v
+         I0IXe+8R7Jw/Qx5qulSFa+kfCzYv18d3RaLdOgtEDyAxmP4VV+b246L0re9AwDz73owm
+         ViLQ==
+X-Gm-Message-State: AOJu0YzIeWiJxsMZhnw2u7RMCv42R0M57mTJQjSP4uTr4mbIp047Ozaw
+	Ghezsn+Et61yvNxqXik9lSB0egQeH+jYdMioGgGXrcLFcudIhnhoaEbWoyoNR0t6RT2xdhkyibr
+	RScjY
+X-Gm-Gg: Acq92OF2VUQFKzLjEzt/qkdhnjIt1mpdUwWewqkcrr2d+Mr1iODlTcGVgVwXEP+XIDj
+	dSngNWAYwVX5ndwZUVL+FvNuYi54pOpaJFCYQEH7KvSPtSk50GkRJBrVEZSUfZZg7v/yqq8EaVK
+	ElFLwcu1jyc57SQ1qkDB87UVN4xLO5oD3h15ef2ZpNyRxsOlrJH4hlESoxGgXREob+YyAiX9qek
+	h5IXbBuUo+34DZxQx0hK3YrSF8LNj9FGSk+33KTj7RM2DBS1/4Er03wUm/6XJfVzZEQ3n7aKaH9
+	lFBXAhmGGcUEWj7dr0RDbd00W4fl2J3C1izHI2/vnbdzHq3nIXoHT2oVlXg0WOD/1y6oLRXrk/S
+	Brn7BS0VZfdFZZlpd4otgXT69w9fR8vwmNLzbH3Hcklpd1SSaSB06eJqyqke/CRDq2ymPuk0hn4
+	j4CjjjWMaq4jxvpjgrO/8KKMpbJ/Rys50bOWveZuWCC8uGXcbcOYp9B22y3YnILb6WxWJTgLxvu
+	CQxWX4=
+X-Received: by 2002:a05:690c:e3c3:b0:7d0:6155:480d with SMTP id 00721157ae682-7f7bac02d50mr33640807b3.5.1781281510966;
+        Fri, 12 Jun 2026 09:25:10 -0700 (PDT)
+Received: from [192.168.2.129] ([2600:1700:220:59e0:ca4b:99ba:db0b:3666])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-7f76e2b5564sm12457887b3.6.2026.06.12.09.25.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Jun 2026 09:25:10 -0700 (PDT)
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Date: Fri, 12 Jun 2026 11:24:43 -0500
+Subject: [PATCH] riscv: drop __init from
+ vec_check_unaligned_access_speed_all_cpus
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9157891e-a0e6-4662-f432-08dec89a84f8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Jun 2026 15:51:51.4152
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR02MB7078
+Message-Id: <20260612-vec_unaligned_drop_init-v1-1-df969210ae34@oss.tenstorrent.com>
+X-B4-Tracking: v=1; b=H4sIAMoyLGoC/yXMQQqDMBBG4avIrBuIESP0KqWENPnVKWWURKUg3
+ t20Lr/FeztlJEame7VTwsaZJymobxWF0csAxbGYjDZW29qoDcGt4j88CKKLaZodCy8qdL5vtfV
+ N14JKPSf0/P2fH8/LeX29EZbfjo7jBCRCek17AAAA
+X-Change-ID: 20260612-vec_unaligned_drop_init-c7af506a375e
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ andrew.jones@oss.qualcomm.com, ganboing@gmail.com, 
+ Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_085156_581227_6830B31A 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20260612_092512_603032_0CC211C2 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,57 +105,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
-> 
-> Support for parallel secondary CPU bringup is already utilized by x86,
-> MIPS, and RISC-V. This patch brings this capability to the arm64
-> architecture.
-> 
-> Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to avoid primary SMT threads
-> to boot first constraint.
-> 
-> And Add a 'cpu' parameter to update_cpu_boot_status() to allow updating the
-> boot status at a per-CPU granularity during parallel bringup.
-> 
-> Rework the global `secondary_data` accessed during early boot into
-> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
-> enabling the early boot code in head.S to resolve each secondary CPU's
-> logical ID concurrently.
+This function runs within a kthread and need not necessarily finish
+before system finishes boot and free_initmem() unmaps the .init.text
+section. This function makes calls to SBI for probing unaligned access
+speed, and if this is slow for some reason (say some debug prints were
+added to SBI), the kthread can still be running at this point and result
+in an instruction page fault when trying to fetch from the freed region.
 
-I tested the series on an ARM64 VM running on Hyper-V in the Azure cloud.
-Tested with 16 vCPUs in the VM and with 96 vCPUs in the VM. No issues.
-I mainly wanted to make sure nothing expected happened with Hyper-V as
-the host.
+[   25.642087] Unable to handle kernel paging request at virtual address ffffffff80a04ef8
+[   25.646694] Current vec_check_unali pgtable: 4K pagesize, 48-bit VAs, pgdp=0x00004000316e9000
+[   25.653170] [ffffffff80a04ef8] pgd=000010004be7e401, p4d=000010004be7e401, pud=000010004be7e001, pmd=000010000c3000e3
+[   25.661244] Oops [#1]
+[   25.662997] Modules linked in:
+[   25.665357] CPU: 3 UID: 0 PID: 42 Comm: vec_check_unali Not tainted 7.0.0-tt-blackhole-asrinivasan-00007-g30ff73f18211 #570 PREEMPTLAZY
+[   25.674669] Hardware name: Tenstorrent Blackhole (DT)
+[   25.678545] epc : vec_check_unaligned_access_speed_all_cpus+0x18/0x2c
+[   25.683458]  ra : vec_check_unaligned_access_speed_all_cpus+0x18/0x2c
+[   25.688372] epc : ffffffff80a04ef8 ra : ffffffff80a04ef8 sp : ffff8f8000203e20
+[   25.693874]  gp : ffffffff814dc168 tp : ffffaf8001ad9900 t0 : 0000000000000000
+[   25.699401]  t1 : fffffffffffffff0 t2 : ffffaf8001ad9a10 s0 : ffff8f8000203e30
+[   25.704912]  s1 : ffffaf80018dc780 a0 : 0000000000000000 a1 : 0000000000000002
+[   25.710407]  a2 : 00000000000001f0 a3 : 0000000000000018 a4 : 0000000000000000
+[   25.715917]  a5 : 0000000000000000 a6 : ffffaf8001c03d98 a7 : ffffaf8001c03e30
+[   25.721419]  s2 : ffff8f8000023c98 s3 : ffffaf8001aa1240 s4 : ffffffff80a04ee0
+[   25.726937]  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
+[   25.732450]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
+[   25.737944]  s11: 0000000000000000 t3 : 0000000000000002 t4 : 0000000000000402
+[   25.743481]  t5 : 0000000000000040 t6 : 0000000000000004 ssp : 0000000000000000
+[   25.749024] status: 0000000200000120 badaddr: ffffffff80a04ef8 cause: 000000000000000c
+[   25.755060] [<ffffffff80a04ef8>] vec_check_unaligned_access_speed_all_cpus+0x18/0x2c
+[   25.760964] [<ffffffff80047a10>] kthread+0xd8/0xfc
+[   25.764660] [<ffffffff80010c48>] ret_from_fork_kernel+0x18/0x1c4
+[   25.769220] [<ffffffff80895fe6>] ret_from_fork_kernel_asm+0x16/0x18
+[   25.774018] Code: cccc cccc cccc cccc cccc cccc cccc cccc cccc cccc (cccc) cccc
 
-With 96 vCPUs, the secondary CPU startup time drops from ~140 milliseconds
-to ~130 milliseconds. That improvement is not as dramatic as you saw on
-QEMU, so I presume the difference is due to the hypervisor implementation
-of the PSCI calls.
+Drop __init from its signature so that this doesn't happen.
 
-Tested-by: Michael Kelley <mhklinux@outlook.com>
+Fixes: a00e022be531 ("riscv: Annotate unaligned access init functions")
+Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Assisted-by: Claude:claude-opus-4-6
+---
+ arch/riscv/kernel/unaligned_access_speed.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> 
-> Jinjie Ruan (3):
->   cpu/hotplug: Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST
->   arm64: smp: Pass CPU ID to update_cpu_boot_status()
->   arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
-> 
->  arch/Kconfig                   |  4 ++++
->  arch/arm64/Kconfig             |  1 +
->  arch/arm64/include/asm/smp.h   | 14 +++++++++++---
->  arch/arm64/kernel/cpufeature.c |  2 +-
->  arch/arm64/kernel/head.S       | 23 ++++++++++++++++++++++
->  arch/arm64/kernel/smp.c        | 35 ++++++++++++++++++++++++++++++----
->  arch/arm64/mm/context.c        |  2 +-
->  arch/mips/Kconfig              |  1 +
->  arch/riscv/Kconfig             |  1 +
->  arch/x86/Kconfig               |  1 +
->  kernel/cpu.c                   |  6 +++++-
->  11 files changed, 80 insertions(+), 10 deletions(-)
-> 
-> --
-> 2.34.1
-> 
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index 485ab1d105d36..366baca73dc27 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -325,7 +325,7 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
+ }
+ 
+ /* Measure unaligned access speed on all CPUs present at boot in parallel. */
+-static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
++static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+ {
+ 	schedule_on_each_cpu(check_vector_unaligned_access);
+ 	riscv_hwprobe_complete_async_probe();
+@@ -333,7 +333,7 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
+ 	return 0;
+ }
+ #else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
+-static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
++static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+ {
+ 	return 0;
+ }
+
+---
+base-commit: 863f9b49d618e02e3ecadeb89ebd39064ba8c2fd
+change-id: 20260612-vec_unaligned_drop_init-c7af506a375e
+
+Best regards,
+--  
+Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 
 
 _______________________________________________
