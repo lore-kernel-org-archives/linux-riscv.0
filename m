@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73349CD8CA8
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jun 2026 07:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC53CD8CA8
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jun 2026 11:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=katzmFr49Jdv/OmsB4TQrYQXQIjZpyH5CBDbRuZdkUs=; b=f2APgjOsKSosB1
-	3qTkQ8grL/chJcJO+T6aKrD+XXrLSkPSHbItnVv8xsJj6PKle95vcxaAmPdAyLx3hUzmeAUhz+nHA
-	YM+QfCGzM93JhLSOMuHGBtqUpqmnVeI2RtJhm/CXzG79Zd3vaWN6V2/4AJxyDnyuaaOjZJUhxNy56
-	57atBntwVruCZO6u2huddXHyRjsTwKZ05TQYxHL1jJDH2pj4NDBAo3r2EP2CFtFy1oiRp1nuwH+jU
-	eSgoA5dYJK5xcmQx3iKxcPGv4PBzqlKkli+17NsTFkD0/hZeJzgW6KLUe86KdFRXL21UPk6wb3gUT
-	MiyBWmpXkB5xU4DUHetA==;
+	List-Owner; bh=VcPHl4rjCObSvuoAn9NomRSx2nvOLSAuMYv0MLuHg5M=; b=Q/9BkiUXRUPc9m
+	GZiGezNS8RMRZ1bFBIFQyFqdqDMlUPFtiqnSI0SWljBXdQR3czHwELBQ+FTtQqG+siD3GzMtbwyxQ
+	9eFy3osnDnVu+n45lgRUjsgM/FU+MWb/CKfgN8ZpLKLNDi+WwSZICoBkadESYXL7dNaqexOCdAVvT
+	cmpoKWEDH7XEfnOT+yZEF9vvvnmrE78xsyYICH0AzDrf+YS1uLI+yZU1SVdpNA7G8zLJA4Bk65JSk
+	yiAAhdfppNtGwmM6pfS4na1ma732iGahMGtHwUPKYVbXukCclkhm+PcntzgpAefBO7ublnwzsPjLm
+	mAgqs8pU5hGwt/FRBM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJ7A-0000000C3dD-1L9J;
-	Sat, 13 Jun 2026 07:49:12 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wYMAe-0000000CDcg-0MoZ;
+	Sat, 13 Jun 2026 11:05:00 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYJ77-0000000C3cM-3PBS;
-	Sat, 13 Jun 2026 07:49:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ijozv1/zYB/1FW5r3iA6BSCWEsMm1mHuR8XAqmCPWx4=; b=IQpKBRcqQLSbefm3KDuxhfWcFc
-	BgLCoBRK4g/QV7+3gQR1kTDZyHg3RUkT0NcxAdhym2ecnyz7JtlbTzqr/rVGg3fbKd4Dv5KM4aBmG
-	BtIjToxReUvu8qIlJIKCuzKB8oKl7oarePJmPKIP0sco0QIbFQ1XdAbyZjytECiCpw80=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wYJ6k-007RqY-AP; Sat, 13 Jun 2026 09:48:46 +0200
-Date: Sat, 13 Jun 2026 09:48:46 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
-Subject: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII delay
- properties optional
-Message-ID: <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
- <20260610012937.911-1-lizhi2@eswincomputing.com>
- <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
+	id 1wYMAc-0000000CDbz-16pi
+	for linux-riscv@lists.infradead.org;
+	Sat, 13 Jun 2026 11:04:59 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-490b3637b90so13431645e9.3
+        for <linux-riscv@lists.infradead.org>; Sat, 13 Jun 2026 04:04:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781348696; x=1781953496; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nBEHkzqVLw482vGdz5GT4uuKqoZ91h8lkYDukdrN6Gk=;
+        b=AD64WDj8jSsX/ZVa6yfFTQcln7zn8a2YKqozn5gJeM1x9M62CFDgXAEsQKdZhj7cfE
+         UGmv08aDl/r8U0lz+EUzHaU8EYRaEAy45yhckeTSPuBlejA9Zbgxe03CiG5UyEbNXlyi
+         0Bz7Ke/4w6rGu5XvqWpXsGTJo4IH9Pa+oudFQA25G9kqlIyia8e64rII8jn74ordJs8G
+         63xowiJ1wQ7a9K3xXBS8JX9FdH18nUQ1OarB1+UKum5cya6xXADjyj3e56qvoC7fpqdc
+         g6hYLQNdcpUecaXaxuR49ASjD8NC7SnIHYPm65YP52dG0sEZlDXG13h0aVJkr9ant+V4
+         r5tA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781348696; x=1781953496;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=nBEHkzqVLw482vGdz5GT4uuKqoZ91h8lkYDukdrN6Gk=;
+        b=LtWxXPd4d/ig9uf0963vWVbSN6U8oJznnWVV62oy/m74u+2jVPO43v1SaVcDW+CsRB
+         wZ0k5TkIv9M4gxNiFkl0STOFY1If6ledNogBTom0WHHmfg2j9+KYGqdfqC7VFnHE+3eB
+         dJK8zMLMdvNJHttSDLV+lDjDOwJogIMkWrWCp2rRO6vGHCaCA6IJLM/OrhArMuhxWx6d
+         zQwivhQm5bEg5y+Xeyx/qVoqduMcxGctICBz1uINiPygyeGtnuJwsSTmQMo/1O5XkwOd
+         1DJYGr0do7CVQv0BvWGS2X/CJ7+ZI+uUo78aKnCPdC89kBIIB7HVFn4VExrLK/2uUm56
+         fpEA==
+X-Forwarded-Encrypted: i=1; AFNElJ9mtdWgRStwUXXEOsYLVZCaTUvsb07yf8a8bS67ele47WpvYB3E75v9S35dlykQq4MswUXb7F/hB+hMTQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMOkwdbRDjAaXjGjgZDunS8D3biv1DAm+LvpFq/l2YAbYTzhYG
+	CyfVMPX1DU1mWjsKh9L9EzEcUi+fq00UevVR+ALwWr1yjqLWQOhhZfrW
+X-Gm-Gg: Acq92OGcwY+pIOdivCvd3w+/TvnQlOjLZB/8/vZcB8czkVnLJ+Uyar0GtosUNGKKsBP
+	QUah71/iHQpJ3xEPA+cycmuSvepWQo01MMhOZfmDk5hZQF5+KyE5ibezGU/4R6oSd/pbS+dlYNR
+	TdnPAq94w97EBurnOwbfYCRbKHFopo8/4vx6dQB8AtBAzkKwcIEIYc3Tt0CKNFQA2bKnIzpXELL
+	sgLNCDxb0ihYYSvPbMhmcixndCFXr0+ZSB/8RHhrjYEiAycYBS/HzaaJqYzU+lTeUxjMVXijSvb
+	L6CP/NV3nkBb1qx+7uk0UeCsFx686i81xrLX2hFLNnCP8NUeS9MfzqsGCaYYhUxWgpCyxmZbbUy
+	HUKhWcZ9xu/MDBCik0T6IHWFN5/8JeLlMFyGF4nguyYW3+RwXaFVeMKHWGeAIrErTaarGRglB5D
+	jVqpniOgbOVHRrOPKGMWCw/DTuDUw9LNJ16axicOALj9qD
+X-Received: by 2002:a7b:c8ca:0:b0:490:6237:521d with SMTP id 5b1f17b1804b1-49220092e7dmr27202205e9.13.1781348696232;
+        Sat, 13 Jun 2026 04:04:56 -0700 (PDT)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49220310a58sm75036335e9.4.2026.06.13.04.04.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Jun 2026 04:04:55 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
+ Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Lukas Schmid <lukas.schmid@netcube.li>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 3/3] ARM: dts: sunxi: add support for NetCube Systems OpenNMC
+ (dobermann)
+Date: Sat, 13 Jun 2026 13:04:54 +0200
+Message-ID: <sTX6E5Y2SsWfe6WORpTiCA@gmail.com>
+In-Reply-To: <20260606205452.2386930-4-lukas.schmid@netcube.li>
+References: <20260606205452.2386930-1-lukas.schmid@netcube.li>
+ <20260606205452.2386930-4-lukas.schmid@netcube.li>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260613_004909_856087_DFFB12B2 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20260613_040458_309961_6FE0AD05 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,75 +102,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 10:26:50AM +0200, Maxime Chevallier wrote:
-> Hi,
-> 
-> On 6/10/26 03:29, lizhi2@eswincomputing.com wrote:
-> > From: Zhi Li <lizhi2@eswincomputing.com>
-> > 
-> > Make rx-internal-delay-ps and tx-internal-delay-ps optional in the
-> > EIC7700 DWMAC driver.
-> > 
-> > The driver previously required both properties to be present and would
-> > fail probe when they were missing. This restricts valid hardware
-> > configurations where RGMII timing is instead provided by the PHY or
-> > board design.
-> > 
-> > Update the driver to treat missing delay properties as zero delay,
-> > allowing systems without explicit MAC-side delay tuning to operate
-> > correctly.
-> > 
-> > This aligns the driver behavior with the updated device tree binding
-> > and provides a safe default configuration when MAC-side delay
-> > programming is not required.
-> > 
-> > Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c | 6 ------
-> >  1 file changed, 6 deletions(-)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > index 4ac979d874d6..ec99b597aeaf 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > @@ -165,9 +165,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
-> >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-> >  		dwc_priv->eth_clk_dly_param |=
-> >  				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-> > -	} else {
-> > -		return dev_err_probe(&pdev->dev, -EINVAL,
-> > -			"missing required property rx-internal-delay-ps\n");
-> >  	}
-> >  
-> >  	/* Read tx-internal-delay-ps and update tx_clk delay */
-> > @@ -187,9 +184,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
-> >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-> >  		dwc_priv->eth_clk_dly_param |=
-> >  				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-> > -	} else {
-> > -		return dev_err_probe(&pdev->dev, -EINVAL,
-> > -			"missing required property tx-internal-delay-ps\n");
-> >  	}
-> 
-> I think then you need to handle RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID,
-> by using default delays for these (usually around 2ns), as here all delays
-> will be set to 0, regardless of the RGMII mode in use.
-
-No. By default, the MAC adds 0ns delay, and passes the phy-mode to the
-PHY. It will then add the 2ns delay. It is possible to use the
-tx-internal-delay-ps and rx-internal-delay-ps in the MAC to add small
-tuning delays, but not the full 2ns.
-
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
-
-	Andrew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RG5lIHNvYm90YSwgNi4ganVuaWogMjAyNiBvYiAyMjo1NDo0MyBTcmVkbmplZXZyb3Bza2kgcG9s
+ZXRuaSDEjWFzIGplIEx1a2FzIFNjaG1pZCBuYXBpc2FsKGEpOgo+IE5ldEN1YmUgU3lzdGVtcyBP
+cGVuTk1DIGlzIGFuIG9wZW4gcmVwbGFjZW1lbnQgZm9yIEFQQyBTbWFydFNsb3QgTWFuYWdlbWVu
+dAo+IENhcmRzLiBJdCBpcyBiYXNlZCBvbiB0aGUgTmFnYW1pIFN5c3RlbS1vbi1Nb2R1bGUuIEl0
+IGJyZWFrcyBvdXQgdGhlCj4gZm9sbG93aW5nIGludGVyZmFjZXM6Cj4gCj4gLSAxMC8xMDAgTWJw
+cyBFdGhlcm5ldAo+IC0gVVNCIFR5cGUtQyBPVEcgdXNpbmcgYSBUVVNCMzIwICh1c2IwKQo+IC0g
+VVNCIFR5cGUtQyBDb25zb2xlIFBvcnQgdXNpbmcgYSBDSDM0MCAodWFydDMpCj4gLSBVU0IgVHlw
+ZS1BIEhvc3Qgd2l0aCBpbnRlcm5hbCBDSDMzNCBVU0ItSHViICh1c2IxKQo+IC0gTWljcm9TRCBT
+bG90IHdpdGggQ2FyZC1EZXRlY3QgKG1tYzApCj4gLSBXaUZpL0JsdWV0b290aCB1c2luZyB0aGUg
+bW9kdWxlcyBidWlsdC1pbiBFU1AzMgo+IC0gU21hcnRTbG90IHNlcmlhbCBpbnRlcmZhY2UgKHVh
+cnQ0KQo+IC0gRFMzMjMyIFJUQyB3aXRoIENSMTIyMCBCYXR0ZXJ5IEJhY2t1cAo+IC0gRXh0ZW5z
+aW9uIGNvbm5lY3RvciBwcm92aWRpbmcgU1BJLEkyQyxVU0IsQ0FOLFVBUlQgZm9yIGZ1dHVyZSB1
+c2UuCj4gCj4gU2lnbmVkLW9mZi1ieTogTHVrYXMgU2NobWlkIDxsdWthcy5zY2htaWRAbmV0Y3Vi
+ZS5saT4KCkRUIENoZWNrIHBhc3Nlcywgc286CkFja2VkLWJ5OiBKZXJuZWogU2tyYWJlYyA8amVy
+bmVqLnNrcmFiZWNAZ21haWwuY29tPgoKQmVzdCByZWdhcmRzLApKZXJuZWoKCgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
