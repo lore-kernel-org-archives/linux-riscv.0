@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C691CD98CF
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jun 2026 21:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73349CD8CA8
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jun 2026 07:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M0cl1Oi21xmnzX6pXX9+mtWmB4s12GQct4MienUjgWo=; b=q1rkKDkjU8vy9M
-	Gnvqvo4F1VK+QzZAymylPsAaMY7QM7UI5ETBS/8Nn4As/Qy8fGwdfzp1//aQ9uTZTHyGYFTGnqTWm
-	vriob5jSUDhiTzSroTPqz7RWM7RnQay7kOeifqrXFybxO5AoF1yKQCujlMngPH4U3aItrT0epNRP3
-	EnRHwUALHl6SRrzzFfbmyO8r5/tgWdhX7uVCWqrtEZQoRZWS2rO0yj6vfjqqdMbVEoclZPqRha/u/
-	uSFAj09ZtKdkYMDYzAPPdKanhLgQUgHkHqbQFRin+bsPoaEXN7t6uroc9Wa6jEVrNk7kjcx/YE0WZ
-	N5DJAiwSLZ2ox5BwMz0w==;
+	List-Owner; bh=katzmFr49Jdv/OmsB4TQrYQXQIjZpyH5CBDbRuZdkUs=; b=f2APgjOsKSosB1
+	3qTkQ8grL/chJcJO+T6aKrD+XXrLSkPSHbItnVv8xsJj6PKle95vcxaAmPdAyLx3hUzmeAUhz+nHA
+	YM+QfCGzM93JhLSOMuHGBtqUpqmnVeI2RtJhm/CXzG79Zd3vaWN6V2/4AJxyDnyuaaOjZJUhxNy56
+	57atBntwVruCZO6u2huddXHyRjsTwKZ05TQYxHL1jJDH2pj4NDBAo3r2EP2CFtFy1oiRp1nuwH+jU
+	eSgoA5dYJK5xcmQx3iKxcPGv4PBzqlKkli+17NsTFkD0/hZeJzgW6KLUe86KdFRXL21UPk6wb3gUT
+	MiyBWmpXkB5xU4DUHetA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY9lc-0000000Bcis-2Hll;
-	Fri, 12 Jun 2026 21:50:20 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wYJ7A-0000000C3dD-1L9J;
+	Sat, 13 Jun 2026 07:49:12 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wY9lZ-0000000Bchi-1sqN
-	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jun 2026 21:50:18 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1781301014;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wv0xct+57Ue2a/VO8M2fraJlUjgNe/Mx/nXgrjheBmQ=;
-	b=jT2HqeJvTAChpz/vTwwMDaAb+ggh7oYZ5EKhVpho/5fy0mBzjS8Rkkn7jPjGvx/tlpQg0i
-	YcbEDp0w/7v9eq7j2lUAWNTxoDzQraD2eQg5/UKP3f0nt1iMUY3mlOUNtiA6Tcu1l3Ds5F
-	7xmfd6j2ltMW9+y52fCwPXDYY53CJaZHELQTTR7nNolIqIhfllwNI0G5GKckh03Ozwj5Mh
-	0FXuVk0X0ym7diaGGUjFgaocYGko8x//F2R/p9lQp9sjiKdbCiMwNgAtN4jAtz9TiGWEFc
-	3kj4aEJOGA1thtuJVJLjYMxU1CINgHAfzxTF3DCiQBGjwQgqvU2L/T//e8bi/A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1781301014;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wv0xct+57Ue2a/VO8M2fraJlUjgNe/Mx/nXgrjheBmQ=;
-	b=HdDhQKJoAnlmcqzFVDk+q+0QyNtSfNC8RKbcoizrfrpFTdlUjPFGIlhCVUDVzR3Fp5eNp8
-	lqTP55cnl3R3/0BQ==
-To: Mark Harris <mark.hsj@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Mark Harris <mark.hsj@gmail.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: hwprobe: Avoid uninitialized read in
- hwprobe_get_cpus()
-In-Reply-To: <20260612045502.70850-1-mark.hsj@gmail.com>
-References: <20260612045502.70850-1-mark.hsj@gmail.com>
-Date: Fri, 12 Jun 2026 23:50:13 +0200
-Message-ID: <87qzmbe8dm.fsf@yellow.woof>
+	id 1wYJ77-0000000C3cM-3PBS;
+	Sat, 13 Jun 2026 07:49:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=ijozv1/zYB/1FW5r3iA6BSCWEsMm1mHuR8XAqmCPWx4=; b=IQpKBRcqQLSbefm3KDuxhfWcFc
+	BgLCoBRK4g/QV7+3gQR1kTDZyHg3RUkT0NcxAdhym2ecnyz7JtlbTzqr/rVGg3fbKd4Dv5KM4aBmG
+	BtIjToxReUvu8qIlJIKCuzKB8oKl7oarePJmPKIP0sco0QIbFQ1XdAbyZjytECiCpw80=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wYJ6k-007RqY-AP; Sat, 13 Jun 2026 09:48:46 +0200
+Date: Sat, 13 Jun 2026 09:48:46 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
+Subject: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII delay
+ properties optional
+Message-ID: <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
+References: <20260610012727.848-1-lizhi2@eswincomputing.com>
+ <20260610012937.911-1-lizhi2@eswincomputing.com>
+ <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260612_145017_761256_E56DAE3D 
-X-CRM114-Status: UNSURE (   4.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260613_004909_856087_DFFB12B2 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,16 +81,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mark Harris <mark.hsj@gmail.com> writes:
-> When cpusetsize < cpumask_size(), hwprobe_get_cpus() did not fully
-> initialize its copy of the cpu mask, which could cause non-deterministic
-> results from the riscv_hwprobe syscall on a system with more than 8 CPUs
-> when the supplied cpu mask is empty.  Address this by fully initializing
-> the cpu mask.
->
-> Signed-off-by: Mark Harris <mark.hsj@gmail.com>
+On Wed, Jun 10, 2026 at 10:26:50AM +0200, Maxime Chevallier wrote:
+> Hi,
+> 
+> On 6/10/26 03:29, lizhi2@eswincomputing.com wrote:
+> > From: Zhi Li <lizhi2@eswincomputing.com>
+> > 
+> > Make rx-internal-delay-ps and tx-internal-delay-ps optional in the
+> > EIC7700 DWMAC driver.
+> > 
+> > The driver previously required both properties to be present and would
+> > fail probe when they were missing. This restricts valid hardware
+> > configurations where RGMII timing is instead provided by the PHY or
+> > board design.
+> > 
+> > Update the driver to treat missing delay properties as zero delay,
+> > allowing systems without explicit MAC-side delay tuning to operate
+> > correctly.
+> > 
+> > This aligns the driver behavior with the updated device tree binding
+> > and provides a safe default configuration when MAC-side delay
+> > programming is not required.
+> > 
+> > Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> > ---
+> >  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c | 6 ------
+> >  1 file changed, 6 deletions(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> > index 4ac979d874d6..ec99b597aeaf 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> > @@ -165,9 +165,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
+> >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
+> >  		dwc_priv->eth_clk_dly_param |=
+> >  				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
+> > -	} else {
+> > -		return dev_err_probe(&pdev->dev, -EINVAL,
+> > -			"missing required property rx-internal-delay-ps\n");
+> >  	}
+> >  
+> >  	/* Read tx-internal-delay-ps and update tx_clk delay */
+> > @@ -187,9 +184,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
+> >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
+> >  		dwc_priv->eth_clk_dly_param |=
+> >  				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
+> > -	} else {
+> > -		return dev_err_probe(&pdev->dev, -EINVAL,
+> > -			"missing required property tx-internal-delay-ps\n");
+> >  	}
+> 
+> I think then you need to handle RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID,
+> by using default delays for these (usually around 2ns), as here all delays
+> will be set to 0, regardless of the RGMII mode in use.
 
-Reviewed-by: Nam Cao <namcao@linutronix.de>
+No. By default, the MAC adds 0ns delay, and passes the phy-mode to the
+PHY. It will then add the 2ns delay. It is possible to use the
+tx-internal-delay-ps and rx-internal-delay-ps in the MAC to add small
+tuning delays, but not the full 2ns.
+
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
