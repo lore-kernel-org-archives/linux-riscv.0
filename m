@@ -4,85 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99296CD98C5
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 08:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F178DCD98DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 08:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8i6NhK4K31pNpE/jiAL+Oc4hhZbv1kptMk3LZGlYw00=; b=iZF4tJyGGOUN+nCFpj5s0GFqr3
-	Gi/t+9YEZtMIm9NaAFX19r/j0z/uBZtQbRE7AbYwg1z2Eessnv5RzcTiBHKliKL81iOVNKFlh9sn2
-	+37+7jn4rAdpwTH6muEVx2WzhGWXPRfUc8sH6VLXSPzkao7OmGu3zK6wVaSRJ3sHA2FFBTR0M7rO8
-	LQoZxbuS/42uFV9DlvEVxeW/x1rKkZm+NrDD+Oq9jIAsvrThZ2LjsTYkRCFCcGne4NLEFAOR9H5QX
-	hwLL368AjqSiL28fKTKslDOuIY2h6omySKNUx8aKN+FovhRnZ7w/ljgV2ZdFdHptO1R9p1sPA+3ic
-	wD1Lvx6A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BdDGQYV3YPg2beVR07hbc8ReJWR2FBkh6h5e1J5ox6w=; b=W3pv+5wGQtKywt
+	JIfG1gyX3imYNBCpB24Ky0VepXVuos5mJFrSXLbZJoeHDvoaQYE2dWqBF+2bfXhKHyt9yBKvqNbaz
+	jm3/Uo0k+aGU4K3HrAdG4GJG9K0nIGeATZbIzfuFl9g+hGsJwvp0v6JZ6ciwVSfq1jDDf3zJLrnHo
+	57Q9Tj4tOD4dfQwsEcSaeOxW1nMKcQ1g+dQE6GQigZlKnsdRBb7/ulzG0+1uy0qxVG7Mq6Rg0wTm4
+	RX7VaOBM80313HIWWMVH1Cv8y/H6dp6muNI8965jSWVHUFj2JwxSLaFZKrmNHSLxwElwWWoB48xf9
+	LPlsxKkj6Y6aieiGvhfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ2Gf-0000000DpXO-0iEK;
-	Mon, 15 Jun 2026 08:02:01 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1wZ2ZM-0000000Dr54-1ULY;
+	Mon, 15 Jun 2026 08:21:20 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ2Gb-0000000DpWx-3uzy
+	id 1wZ2ZJ-0000000Dr4A-3ebh
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 08:01:59 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-84236f9b638so1447808b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jun 2026 01:01:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781510517; x=1782115317; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dYd01TaLWp+b1weWv03OfjwDWGyIew+KlNl179rn/70=;
-        b=JM78eqLMIcd2R3NWUUXhgdLp2fSgRcWw69sXOxwz2uYvRdt3kr8+RSEIk3rpfg7zwv
-         Bx+wlgF5r2v96BgtXuZ8sMvCDBPm0btiXol7cWByANP7HBhF3qSjLJrMKnl84K5RZeIc
-         K5lBfXUK5OIIEolniuJ1kd8cGXaMLYvW0f8fH9Ez79w6HvP9coqpZWWEzWv4kCP/0u9K
-         SoJX7yiSe+MMpS/ym7+6U0hQ2XCtGAsYuY3mScVwoOHhaWIdXG//st52QIqT/uAieEIX
-         /ROsAdHg2sqs9i0aYRKgt/zaVY/b539v7kzgltegNAmK807Fl8djFvf83j2Bx6LyJyhg
-         n/Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781510517; x=1782115317;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dYd01TaLWp+b1weWv03OfjwDWGyIew+KlNl179rn/70=;
-        b=rSBeyKZq+BlD9kR2t5aEl/aMmeAVzm91OoWf++kudGvmmbcoJ8ift1ooDG4whnSYby
-         fxo07VI0Oe2rDvzchQYwGb4Ql62TvPLNMMM4sQYAr6Z09GGwJOoPvDh27/3cz36iMx8S
-         Tu81bPZ8iDL18iYn2I0E1/Alx64eRXCQT3rEv1hRQz0jhwsmka3Uwnvzmpkq3Kd3cIs8
-         v3KxCTyIFfaOYnnDU3DxccMSoGV5qY3LKMvdXq9O0ekYVQT+9nO15LHCW2RIg28qgDU2
-         oKvqSz7z9R8cI0Y0Gymsm9KHfT/lm5ChGZwojnm7tMAjCnYZVq0U/DYzWKpvGvsmWpYX
-         VEMQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+jY4a+1KhJHBba10b8rf931vTNe7IOfDAwTd7yzk8W3xCni0KNY+UqUEojRE3A39vzi+fEfsaIR+R/uA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhQOS71Lah4K4e55g0KAZr3LaVzXetk0cYExeljUCEna6Uday1
-	mLoM3jpueyC6mERqBY6vUsxSwQnjzVXrhm2UsJdfbwNr9olti58/x3Za
-X-Gm-Gg: Acq92OG6bD6d0m6hRdOXjLwjQsLocm2CX6/GvzAI/FWrmUsoHGuSI4wf6WQlVnjTith
-	1AE652o39XqBbFcYrKL48odxkzZgj9/p4VjbuWxrFVP3tkER4IHIf1TryelphnO44bk4yuyhtFj
-	PlUkS5tpdz/80EZIX85Zp1yq6n5N3vgfYW/9Js1zWzgnGzSVsS0Fmi9AngzTQZk0AKOD8WZPThw
-	q75+md4A0onbksFbdd7SnRYUt5lklSBMTHZZRLn7cMqMeN4tNhthPoqxw82eEiTjThUHoX8YBCs
-	HWv14IiqiqFTeK8XogOxMtoFtvyOsH3urUr3dKiJOBIySwKE5cyMuCvJnCwhelNBIIQPI+5aLDF
-	pTTgXJxDYVZV3dLnqKeGP6nB2j5ovWKw8MD7D2WhgngTq0HD3Rj4d+WSeeprcuSHWhJHwwXA=
-X-Received: by 2002:a05:6a00:984:b0:82f:72e6:ed4 with SMTP id d2e1a72fcca58-844e1596c86mr10840924b3a.0.1781510516767;
-        Mon, 15 Jun 2026 01:01:56 -0700 (PDT)
-Received: from localhost ([2a12:a305:4::302d])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b055095sm10890663b3a.57.2026.06.15.01.01.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 01:01:56 -0700 (PDT)
-Date: Mon, 15 Jun 2026 04:01:43 -0400
-From: Guodong Xu <docular.xu@gmail.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
-	Yixun Lan <dlan@kernel.org>, Guodong Xu <guodong@riscstar.com>, dmaengine@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH] dmaengine: mmp_pdma: fix wrong extended DRCMR base for
- SpacemiT K3
-Message-ID: <4wo2ylvv2v2kmec4vzycgide3orx2zwjzdjunfm23t6pclknbl@pqtb7lw2parx>
-References: <20260615-k3-pdma-fix-drcmr-base-v1-1-ee1af124199f@linux.spacemit.com>
+	Mon, 15 Jun 2026 08:21:19 +0000
+Received: from hawking.suse.de (unknown [10.168.4.11])
+	by smtp-out2.suse.de (Postfix) with ESMTP id 7C99475B27;
+	Mon, 15 Jun 2026 08:21:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1781511673; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rEMFmt8TpTChnVBW1oINDFeDbvwK5qg/ts+tVGLgFE4=;
+	b=00SmjGQekfRMI2a4nPcidhWzQO4m7IPrhZVXXZ0pHvCBq6N+LYKe+xTzr6SqlGjjBSxsKY
+	piMJRE7l+TfaiHmiLnJzWeNmoQ01935RbFgf1Dxiwf89ZGkVNdHrPuG33qPFgDl/rzIpHT
+	t5PLj79/U0jmo9OBm7kkSZvzf0sWzZw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1781511673;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rEMFmt8TpTChnVBW1oINDFeDbvwK5qg/ts+tVGLgFE4=;
+	b=IGSmQ3dHMCSQ8Bt17qqsNwVWBKpei51aqPvK5cvI2gH0E69XOCIL7uqt+waacWYJ+Pwlmo
+	zGOao01C0axraCBA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1781511672; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rEMFmt8TpTChnVBW1oINDFeDbvwK5qg/ts+tVGLgFE4=;
+	b=O+0Zf1Kede23tZObEsMJ500IJAklAJhZ+rH6jDgDQ4dByMfbiL+1pzWP+jhl5Jku6rSNct
+	9FCDpgX/Ke/Q7KDHXQ1aD4L+BjHTC76BOzI6nXd7vXQyBfVcXvka7uuApKclSKfaw9RZ44
+	tjjo9EssNNiP+RJ10KsRg6z6VpVOe8E=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1781511672;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rEMFmt8TpTChnVBW1oINDFeDbvwK5qg/ts+tVGLgFE4=;
+	b=5uKPv/xxuYQO7zwWyAaQ6rr3x7B1IywxUSWbY2LfgbvIx9vVzIzJMmYGh7Swr7O/3sIpOv
+	Np6H4wb7ewmD24Cw==
+Received: by hawking.suse.de (Postfix, from userid 17005)
+	id 6B1124A056F; Mon, 15 Jun 2026 10:21:12 +0200 (CEST)
+From: Andreas Schwab <schwab@suse.de>
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: Tomasz Jeznach <tjeznach@rivosinc.com>,  Joerg Roedel <joro@8bytes.org>,
+  Will Deacon <will@kernel.org>,  Robin Murphy <robin.murphy@arm.com>,
+  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>,
+  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,
+  iommu@lists.linux.dev,  linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  Xu Lu <luxu.kernel@bytedance.com>,
+  cuiyunhui@bytedance.com,  yuanzhu@bytedance.com
+Subject: Re: [PATCH v1] iommu/riscv: Support 32-bit register accesses
+In-Reply-To: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
+	(Zhanpeng Zhang's message of "Mon, 15 Jun 2026 14:48:55 +0800")
+References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
+Date: Mon, 15 Jun 2026 10:21:12 +0200
+Message-ID: <mvmik7kz01z.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260615-k3-pdma-fix-drcmr-base-v1-1-ee1af124199f@linux.spacemit.com>
+X-Spamd-Result: default: False [-4.18 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.18)[-0.910];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_NO_TLS_LAST(0.10)[];
+	RCPT_COUNT_TWELVE(0.00)[15];
+	RCVD_COUNT_ONE(0.00)[1];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	R_RATELIMIT(0.00)[from(RLajr16mudzow8bnf6sy)];
+	FROM_HAS_DN(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FROM_EQ_ENVFROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,hawking.suse.de:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_010157_976568_476F859E 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260615_012118_061467_D4490B3D 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +117,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+On Jun 15 2026, Zhanpeng Zhang wrote:
 
-Thanks for the patch.
+> +config RISCV_IOMMU_32BIT_ACCESS
+> +	bool "Use 32-bit accesses for RISC-V IOMMU registers"
+> +	depends on RISCV_IOMMU
+> +	help
+> +	  Say Y when the RISC-V IOMMU MMIO window cannot be accessed
+> +	  using naturally aligned 64-bit loads and stores.
+> +
+> +	  When enabled, 64-bit IOMMU registers are accessed as paired
+> +	  32-bit MMIO operations. This option does not describe an RV32
+> +	  kernel or a 32-bit IOMMU architecture.
 
-On 2026-06-15 10:53, Troy Mitchell wrote:
->K3 PDMA shares the same DRCMR layout as K1, where the extended DRCMR
+What is the expected setting in a generic kernel?
 
-K1 never touches DMA request numbers higher than 45. It's not K1 who needs
-the extended DRCMR. PXAxx needs them.
-
->base address is 0x1100. Commit 6587b8661a0b ("dmaengine: mmp_pdma: add
->SpacemiT K3 support") incorrectly defined DRCMR_EXT_BASE_K3 as 0x1000,
-
-The SpacemiT K3 datasheet still 'incorrectly' carries the base 0x1000.
-Refer to [1], Section 16.1.4.6 DMA Connectivity & Assignments
-which still states 0x1000 as the base:
-
-0x1004 Request for SSP0 TxReq 0xD4040000
-0x1008 Request for SSP0 RxReq 0xD4040000
-
-I would recommend you double check with the SpacemiT team to make sure.
-It's better SpacemiT can fix both the online document and downloadable PDF
-as well.
-
-[1]: https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/16_peripherals/dma.md
-
->causing all DRCMR accesses for channels >= 64 to be off by 0x100.
->
->Drop the bogus DRCMR_EXT_BASE_K3 macro and reuse DRCMR_EXT_BASE_DEFAULT
->for the K3 ops.
-
->
->Fixes: 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support")
->Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
->---
->This is a minimal fix for the wrong DRCMR_EXT_BASE_K3 value introduced
->by commit 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support").
->K3 PDMA shares the same extended DRCMR base (0x1100) as K1, so the K3
->ops now reuses DRCMR_EXT_BASE_DEFAULT.
-
-Before we flip it, could you please confirm your source fo truth:
-did you confirm 0x1100 on k3 silicon with a real DMA transaction,
-or from the datasheet? It would help if you could share your
-test setup.
-
-BR,
-Guodong Xu
-
->Best regards,
->--
->Troy Mitchell <troy.mitchell@linux.spacemit.com>
->
->
->_______________________________________________
->linux-riscv mailing list
->linux-riscv@lists.infradead.org
->http://lists.infradead.org/mailman/listinfo/linux-riscv
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
