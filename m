@@ -4,56 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E6ACD98DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 16:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52D0CD98DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 17:05:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wNsvhZjEQxcs69/xGFZwx4acZ/mA+D42zvJ5Y65beY0=; b=Xvm3qRwzrsE5Bw
-	kEKUKhjMXg+XBHT/aq0ZyrTeYP9t0w7Bt5w+sJmeKn0v9TJwK/shPmEkff/6CLOwEnGJ9Xdhnn4Ns
-	PbhiYy/hqZSArFEHl0MjnBUxEcOT4itL8AsQYZLdi3wBlVgQ1ibLi8G+KgLQOUxB2zddgBcwOky92
-	5IMyRWl4SxczSF8McjY8eD0+gTR5ecSWE2MvvtJvos5lTtnwN3JxonrFHoP2alUPb6nCTzhNPBx7B
-	BI3bANwfBLqpcJY1NSOwHgckjUIK6mbcqaN7UW9rsCxPsOgE6mTlr0+KmqV0JnRnK4iMYpvHEY3iz
-	w39bgbvdkpG0RKaqLH2A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z/nAjZX8sKg2k9Ronxf4OeSUo3X1PDfRqM4y7BGLWxM=; b=NNH7zTwhzcnq8r
+	/BP2xlSbjx3CtK9zxqVh2pUGoAAkY9IGfjxsewrSRquA3CIM+AHYSijW5hFpYgnTsvkcdmc/gxl2Z
+	tPvkBZopW49i9MihS3H900p+UoOKLQzwonkhgeZ4nOIqnYjiANpluxd9QTslJc2J7Php3wE3H3ft+
+	et4iqmUbgi3Pmth0gXnWZrdx9RNp4P69i7IgxizwNg8FRjV9onwLg9p8EtCi7uR5XBbDZpi82xJPC
+	TEotBEIccXn4gDAwQjNkmMtG5GUuVlvQP110tKH9MrORf0QCh9W4Y2ANCpEUyT6lNaqDDA4zRlWIr
+	K4RUcH2bqu/r8Jn/WZow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZAYN-0000000EboY-0Mpc;
-	Mon, 15 Jun 2026 16:52:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZAjz-0000000Eced-2dWk;
+	Mon, 15 Jun 2026 17:04:51 +0000
+Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZAYM-0000000EboP-1HUI
-	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 16:52:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 09244407C0;
-	Mon, 15 Jun 2026 16:52:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C36891F000E9;
-	Mon, 15 Jun 2026 16:52:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781542369;
-	bh=bP7ChGpxyRiB4mXS8hZE8VD5rxmZWWniItxxswm0PHs=;
-	h=Date:From:To:Cc:Subject;
-	b=KwGSJco2JrXS5nmKp/vYZ6UBePAxCoh9RM/GIDUTjIQDSVoGBYCBl0ZfQ2C+U0ms0
-	 Ui4pJ5i2XGzvaxH7JFknkWgltRkFvgdnpKfVYg7GuSwVsSqXe0LK3opKn643KBU6tq
-	 yPrG/HhYAWu39qNJD4MI1mXa9wwIkOsYT2rxIRZa3DCW4/c0114YhbWjTEZUPLW8QE
-	 ilSNay3WC5OicEXnWXeBXIXPZvVs2UF+v3tAfnukUriyrCbxKMKknTdYyVorUN4GmT
-	 WwnEOTB/mRQmNLOFvMdFQ+4Vim3JALauH5lG8xxcDDtPV56zSB1eRSGzPrrA3e2q3P
-	 Vt0tDabgB47fA==
-Date: Mon, 15 Jun 2026 09:52:46 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: soc@kernel.org
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V defconfig changes for v7.2
-Message-ID: <ajAt3ml9pMIMTLTq@x1>
+	id 1wZAjw-0000000EccV-1LFM;
+	Mon, 15 Jun 2026 17:04:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description;
+	bh=be/KypQX5Q9fujajARM6Q7r9w26ilWIZmzbrtGfAKys=; b=SLabnQnxi8RKG6kB4YLIrRrIte
+	+jYEaBgX5DOoDOdPOU6k6ypOK6lDxxOMXQzKEUszFj5yTLPDASBaagrmnsOk8tUGdmzHw2XGk68HM
+	2J1tv7+pE0CjbBOIjeYCz0TsyHOIrqFb8Mb1LadfEs+3t0bUVsavfv//KIZ2S3hmTXIBIqEbnE3qn
+	zsd3Hxu29/Ylu8C3lRKI+WwMxWxUWcLIz0u0fTGyYSKAR/XPPXo0Rkv03xUIJElu5cOtap9hCSZj1
+	74eb7LaTsGudBKuTsb4/IH254uFPRDECMTh8XzLqKRh9ykQzpGUZV9OECxDmxcCHO22vobRU+rK1T
+	RNRNGWLQ==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wZAjg-00000000Vxn-0xg6;
+	Mon, 15 Jun 2026 17:04:32 +0000
+Date: Mon, 15 Jun 2026 18:04:32 +0100
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Vincent Mailhol <mailhol@kernel.org>
+Cc: Jens Axboe <axboe@kernel.dk>, Davidlohr Bueso <dave@stgolabs.net>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-kernel@vger.kernel.org, linux-block@vger.kernel.org,
+	linux-efi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>, linux-alpha@vger.kernel.org,
+	Vineet Gupta <vgupta@kernel.org>,
+	linux-snps-arc@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	linux-s390@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+Subject: Re: [PATCH 00/19] init: discoverable root partitions, a.k.a. an
+ omittable "root=" cmdline option
+Message-ID: <20260615170432.GW2636677@ZenIV>
+References: <20260615-discoverable-root_partitions-v1-0-39c78fac42e2@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
+In-Reply-To: <20260615-discoverable-root_partitions-v1-0-39c78fac42e2@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260615_100448_361505_AF6F34A6 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,46 +94,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, this is a late pull request so no problem if it misses this window.
-It is just a single patch for the WiFi driver on the TH1520-based LPi4a.
+On Mon, Jun 15, 2026 at 06:08:56PM +0200, Vincent Mailhol wrote:
 
-I recently setup new branches for riscv defconfig patches and they have
-been added to linux-next. I talked with Conor and this seemed like a
-good way to pull in defconfig patches that RISC-V SoCs need without
-adding more to the plate of the arch maintainer (Paul).
+> Tested with GRUB, which implements the LoaderDevicePartUUID EFI variable
+> in its bli module [3]. With this, I was able to boot a kernel with a
+> completely empty cmdline and no initrd.
+> =
 
-Thanks,
-Drew
+> [1] The Discoverable Partitions Specification (DPS)
+> Link: https://uapi-group.org/specifications/specs/discoverable_partitions=
+_specification/
+> =
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+> [2] systemd-gpt-auto-generator
+> Link: https://www.freedesktop.org/software/systemd/man/latest/systemd-gpt=
+-auto-generator.html
+> =
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+> [3] GRUB -- =A716.2 bli
+> Link: https://www.gnu.org/software/grub/manual/grub/html_node/bli_005fmod=
+ule.html
 
-are available in the Git repository at:
+So what does that thing, tied to EFI as it is, have to do with architecture=
+s where
+	* firmware is rather unlike EFI
+	* firmware wouldn't know what to do with GPT
+	* GRUB is *not* ported to, let alone used
+such as, say it, the very first one mentioned at your [1]?
 
-  git@github.com:tenstorrent/linux.git riscv-config-for-v7.2
-
-for you to fetch changes up to fb266bbe9aef17d547db468a1a7187b59ed33e9a:
-
-  riscv: defconfig: thead: enable PCA953X GPIO driver (2026-06-08 11:31:26 -0700)
-
-----------------------------------------------------------------
-RISC-V defconfig changes for 7.2
-
-Enable PCA953X GPIO driver to properly probe Wifi pwrseq driver on
-the Sipeed Lichee Pi 4a board which is based on the T-HEAD TH1520 SoC.
-
-----------------------------------------------------------------
-Marek Szyprowski (1):
-      riscv: defconfig: thead: enable PCA953X GPIO driver
-
- arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+Or is that conditional upon "if anyone wants to design replacement firmware
+for those, and if they agree to follow our wishlist"?
 
 _______________________________________________
 linux-riscv mailing list
