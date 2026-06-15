@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C6DCD98C5
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 00:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A763BCD8CA8
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 01:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iiVHfNWuZVmgQ9JLvjleUw1h/I8bUh1IWeWhCWD1WRQ=; b=ZBmwc01tF4qU1K
-	7mYFTQNM4znsh7A5gOpKvvH/pENeMc5qW276ZfPeTfFFe22b/JBYkOcT0ljHNfqmKj9hATwYzlvyf
-	EoIyz7OJ1nTZByNTVmgslziAuwY0KiEk/x6+wnLDB0HrxDbWpmDG/Q5/khLyFhKiBVqSVRJKKX5bY
-	95cxgDYWIOmwwDylBM/oizHq++cvkDop/H8vXC0uspbkQ+iD/zL/N1+Kl7yiN101omcgJtV/XguWa
-	0YMR/A8huF2FRkW3JTvH2civF77DUo9uMG8sY7abUwuqSX3YJGOHVI7iBeP5LU8UMk5m3UDX36MxL
-	yZb14jZStQ2ueGUUOH/A==;
+	List-Owner; bh=UOBet3ILduNMg2DYDDI9do1DkryADGARWRlgWL8qTW8=; b=lDPBNWS6dNo+Uo
+	pUm9PWJG0LL3IZMh/q5qOIL4HUBO7vdIVunZ31N9uD+Kw7yfy+RunwlQc8TlM3MJUH16SbPr9qf6Q
+	8L9Dbk+KuiZBNkAPCjOna6UPeorTa2evgtVxO9/dn9IGJh9a7FGuivnk4AeUKs//hPJ8QMsvkUdfx
+	Ek3kWWVtG4kZ7JgNjEmAoBNkEF99uI135TkELxNoKfQt1/jisofU8LQg1Pq6pEzHVgP+zEE0Zdlcn
+	fRW16NKmgCKfJRQvtpcBdryDKxGmecNAOyxIXb0ZkWcbjs4GpJpG0RliIXuV+fdJIe4caL9qX39Xh
+	hOCKOVJ8tSOHDp0ZgvNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYvO7-0000000DQ7Q-2JDV;
-	Mon, 15 Jun 2026 00:41:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wYvv6-0000000DQyL-1K1L;
+	Mon, 15 Jun 2026 01:15:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYvO5-0000000DQ7K-2C2Q
+	id 1wYvv5-0000000DQyE-1oGw
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 00:41:13 +0000
+	Mon, 15 Jun 2026 01:15:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CED260132;
-	Mon, 15 Jun 2026 00:41:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A3C51F000E9;
-	Mon, 15 Jun 2026 00:41:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AE1E943B8D;
+	Mon, 15 Jun 2026 01:15:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18ED21F000E9;
+	Mon, 15 Jun 2026 01:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781484071;
-	bh=wO+xhrsIY7D9Za7HFA+jcdc+uFRy9vZxo0r3ijKBOMc=;
+	s=k20260515; t=1781486118;
+	bh=hGK8hBUI3VJwq85vtwBACfkguai9KZPSsva45uV6o8M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BDJkSnLbAydbROsU/w2Ao1u7vkhvlnf3yIcWpGa1NWsj8v5WM9EcqfOVe4YyBmuVI
-	 4TAIi1DEyQLis8OJ2a9o0m5m/5xOttqUMDDlZMifak7lBIF0OvzDkrSn0xkPHuPy3D
-	 GDRpDK9IqkFHPoQdtRfP3Xm7F2ZokVnFtiKhx1LR0bF4rFQXVa3IQE9QKo4F1WJ9cc
-	 Q54rzjNKu05r57NAcppKGIdufMCywYyjJmCW+weODbbymyxXpkZUgA3W4snx1b7506
-	 zgp8fr53R27uqgBTo6+a+pjfv6bgiCzQ23MC5KWviAUGYoqtxE9TJnluyFbC7FGXPb
-	 iQuEX01208Vrw==
-Date: Mon, 15 Jun 2026 00:41:08 +0000
+	b=fsEMYjGjf5tatKUMlRl+xWUzn0TKC1A34OI58zH3ZiUeMP2E8i4XmYEF87azothCT
+	 9ek/9edj0jdsw9MFuK0kdpL20DR/mrms3qf470wYg2dgDQMMLKuGiT+wtQC2CJ1Irt
+	 96X//sIvLVuP+AkmQ0rprEtDV7ONEE16OC7YKbdfa/4SJQpcPKU3GG6uXYfpjXgY+f
+	 I1Dmgx/k3D8GpNaVwMuXYGflsHsWx4bWJeJJncMX1cWGQlBwSC8HCkXKIj+MO+ipx2
+	 DDfVNbPIp01h4wy3Ycnx1wRs7HXgWPn6Sr/emkSffsx9YueSBT6T8VPHDqHIq2NVf1
+	 RSOoraI21QF8Q==
+Date: Mon, 15 Jun 2026 01:15:16 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: Vincent Legoll <legoll@online.fr>
-Cc: Shuwei Wu <shuwei.wu@mailbox.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
+To: Guodong Xu <docular.xu@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: spacemit: orangepi-rv2: Add cpu scaling for
- K1, SoC
-Message-ID: <20260615004108-GKA1002079@kernel.org>
-References: <20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org>
- <f031e13e-d9f5-414a-b90e-a3d5a60b8d05@online.fr>
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v3] riscv: dts: spacemit: Use symbolic PDMA request
+ numbers on K1
+Message-ID: <20260615011516-GKB1002079@kernel.org>
+References: <20260611-b4-k1-pdma-req-macros-v3-1-ae8416052571@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <f031e13e-d9f5-414a-b90e-a3d5a60b8d05@online.fr>
+In-Reply-To: <20260611-b4-k1-pdma-req-macros-v3-1-ae8416052571@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,83 +72,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVmluY2VudCwKCiBQbGVhc2Ugc2VuZCB0aGUgcGF0Y2ggZGlyZWN0bHkgaW5zdGVhZCBvZiBh
-dHRhY2hlZCBmaWxlLCBpdCdzIG1vcmUKZWFzeSBmb3IgcGVvcGxlIHRvIHJldmlldyBhbmQgYXBw
-bHksIHN1Z2dlc3QgdG8gdXNlIGI0LCBvcgogImdpdCBzZW5kLWVtYWlsIiAob2xkIHdheSkKCgpP
-biAwODo1MCBTdW4gMTQgSnVuICAgICAsIFZpbmNlbnQgTGVnb2xsIHdyb3RlOgo+IFtSRVNFTkRd
-IGFzIEkgY2Fubm90IHNlZSB5ZXN0ZXJkYXkncwo+IAo+IAo+IEhlbGxvLAo+IAo+IAo+IAo+IEkg
-dGVzdGVkIChvbiBPcmFuZ2VQaSBSVjIpIHRoZSBhdHRhY2hlZCBwYXRjaCBhcHBsaWVkIG92ZXIK
-PiAKPiBzcGFjZW1pdC9mb3ItbmV4dCArIFNodXdlaSBXdSdzIFYzIHNlcmllcy4KPiAKPiAKPiBU
-aGlzIGlzIGEgY29weS9wYXN0ZSBvZiBTaHV3ZWkgV3UncyB3b3JrLCBzbyBJIGRvbid0IGtub3cK
-PiAKPiBpZiBJIGNhbiBzdWJtaXQgdGhpcyB3aXRoIG15IFNvQiBvciBpZiBpdCBzaG91bGQgYmUg
-ZG9uZQo+IApJdCdzIG9rIHRvIGFkZCB5b3VyIFNvQiB3aGlsZSBhZGRpbmcgc3VwcG9ydCBmb3Ig
-bmV3IGJvYXJkCgo+IGRpZmZlcmVudGx5LCBwbGVhc2UgYWR2aXNlLgo+IAo+IAo+IEFueXdheXMs
-IHlvdSBjYW4gYWRkIG15Ogo+IAo+IFRlc3RlZC1ieTogVmluY2VudCBMZWdvbGwgPHZpbmNlbnQu
-bGVnb2xsQGdtYWlsLmNvbT4gIyBPcmFuZ2VQaS1SVjIKPiAKPiAKPiBUbyB0aGUgcmVsZXZhbnQg
-cGF0Y2hlcyBmcm9tIHlvdXIgc2VyaWVzLCBpZiB0aGF0J3MgdXNlZnVsLAo+IAo+IGJlY2F1c2Ug
-aXQgbG9va3MgbGlrZSBpdCBpcyB3b3JraW5nIHByb3Blcmx5Ogo+IAo+IAo+IE9uIFZvaWQgbGlu
-dXggKG11c2wgbGliYyk6Cj4gCj4gCj4gdW5hbWUgLWEKPiBMaW51eCBvcGlydjIgNy4xLjAtcmMx
-LTAwMDQzLWdiODYwYmNhMTNiZTQgIzE0IFNNUCBQUkVFTVBUIFNhdCBKdW4gMTMgCj4gMTE6MDI6
-MTMgQ0VTVCAyMDI2IHJpc2N2NjQgR05VL0xpbnV4Cj4gCj4gYXdrIC0tdmVyc2lvbiB8IGhlYWQg
-LTEKPiBHTlUgQXdrIDUuMy4yLCBBUEkgNC4wCj4gCj4gZWNobyB1c2Vyc3BhY2UgPiAvc3lzL2Rl
-dmljZXMvc3lzdGVtL2NwdS9jcHVmcmVxL3BvbGljeTAvc2NhbGluZ19nb3Zlcm5vcgo+IAo+IGVj
-aG8gMTYwMDAwMCA+IC9zeXMvZGV2aWNlcy9zeXN0ZW0vY3B1L2NwdTAvY3B1ZnJlcS9zY2FsaW5n
-X3NldHNwZWVkCj4gdGltZSBhd2sgJ0JFR0lOe2ZvcihpPTA7aTwxMDAwMDAwO2krKyl7fX0nCj4g
-cmVhbMKgIMKgIDBtMC4zMDBzCj4gdXNlcsKgIMKgIDBtMC4yOTlzCj4gc3lzwqAgwqAgwqAwbTAu
-MDAxcwo+IAo+IGVjaG8gMTIyODgwMCA+IC9zeXMvZGV2aWNlcy9zeXN0ZW0vY3B1L2NwdTAvY3B1
-ZnJlcS9zY2FsaW5nX3NldHNwZWVkCj4gdGltZSBhd2sgJ0JFR0lOe2ZvcihpPTA7aTwxMDAwMDAw
-O2krKyl7fX0nCj4gcmVhbMKgIMKgIDBtMC40MzJzCj4gdXNlcsKgIMKgIDBtMC40MjlzCj4gc3lz
-wqAgwqAgwqAwbTAuMDA0cwo+IAo+IGVjaG8gMTAwMDAwMCA+IC9zeXMvZGV2aWNlcy9zeXN0ZW0v
-Y3B1L2NwdTAvY3B1ZnJlcS9zY2FsaW5nX3NldHNwZWVkCj4gdGltZSBhd2sgJ0JFR0lOe2Zvcihp
-PTA7aTwxMDAwMDAwO2krKyl7fX0nCj4gcmVhbMKgIMKgIDBtMC40NzZzCj4gdXNlcsKgIMKgIDBt
-MC40NzZzCj4gc3lzwqAgwqAgwqAwbTAuMDAxcwo+IAo+IGVjaG8gODE5MDAwID4gL3N5cy9kZXZp
-Y2VzL3N5c3RlbS9jcHUvY3B1MC9jcHVmcmVxL3NjYWxpbmdfc2V0c3BlZWQKPiB0aW1lIGF3ayAn
-QkVHSU57Zm9yKGk9MDtpPDEwMDAwMDA7aSsrKXt9fScKPiByZWFswqAgwqAgMG0wLjU4MnMKPiB1
-c2VywqAgwqAgMG0wLjU4MXMKPiBzeXPCoCDCoCDCoDBtMC4wMDFzCj4gCj4gZWNobyA2MTQ0MDAg
-PiAvc3lzL2RldmljZXMvc3lzdGVtL2NwdS9jcHUwL2NwdWZyZXEvc2NhbGluZ19zZXRzcGVlZAo+
-IHRpbWUgYXdrICdCRUdJTntmb3IoaT0wO2k8MTAwMDAwMDtpKyspe319Jwo+IHJlYWzCoCDCoCAw
-bTAuNzc4cwo+IHVzZXLCoCDCoCAwbTAuNzczcwo+IHN5c8KgIMKgIMKgMG0wLjAwNXMKPiAKPiAt
-LSAKPiAKPiBWaW5jZW50IExlZ29sbAo+IAoKPiBGcm9tIDk5MjQ3ODk2NTVhZTVmNGY5OGU3YTVj
-ZGMzZGYzZjM0ZTdiZmI2NTkgTW9uIFNlcCAxNyAwMDowMDowMCAyMDAxCj4gRnJvbTogVmluY2Vu
-dCBMZWdvbGwgPHZpbmNlbnQubGVnb2xsQGdtYWlsLmNvbT4KPiBEYXRlOiBTYXQsIDEzIEp1biAy
-MDI2IDEwOjQ5OjM0ICswMjAwCj4gU3ViamVjdDogW1BBVENIXSByaXNjdjogZHRzOiBzcGFjZW1p
-dDogb3JhbmdlcGktcnYyOiBBZGQgY3B1IHNjYWxpbmcgZm9yIEsxCj4gIFNvQwo+IAo+IEVuYWJs
-ZSBDUFUgRFZGUyBvbiBPcmFuZ2VQaSBSVjIKPiAKLi4KPiBUaGlzIGlzIGEgY29weS9wYXN0ZSBm
-cm9tIFNodXdlaSBXdSdzIEJQSS1GMyBEVFMgbW9kaWZpY2F0aW9ucwo+IApJdCdzIHF1aXRlIGNv
-bW1vbiB0aGF0IHBlb3BsZSBkbyBjb3B5L3Bhc3RlIGZvciBhZGRpdGlvbmFsIGJvYXJkCnN1cHBv
-cnQsIG5vIG5lZWQgdG8gbWVudGlvbiBpdCBpbiBjb21taXQgbWVzc2FnZSB3aGljaCBJIHRoaW5r
-IGl0Cmlzbid0IHJlYWxseSB1c2VmdWwKCgo+IFNpZ25lZC1vZmYtYnk6IFZpbmNlbnQgTGVnb2xs
-IDx2aW5jZW50LmxlZ29sbEBnbWFpbC5jb20+Cj4gLS0tCj4gIC4uLi9ib290L2R0cy9zcGFjZW1p
-dC9rMS1vcmFuZ2VwaS1ydjIuZHRzICAgICB8IDM1ICsrKysrKysrKysrKysrKysrKy0KPiAgMSBm
-aWxlIGNoYW5nZWQsIDM0IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1vcmFuZ2VwaS1ydjIuZHRzIGIv
-YXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1vcmFuZ2VwaS1ydjIuZHRzCj4gaW5kZXgg
-N2M0OWJjZTQyN2YzLi42MmQyNWY1NzlhZjYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290
-L2R0cy9zcGFjZW1pdC9rMS1vcmFuZ2VwaS1ydjIuZHRzCj4gKysrIGIvYXJjaC9yaXNjdi9ib290
-L2R0cy9zcGFjZW1pdC9rMS1vcmFuZ2VwaS1ydjIuZHRzCj4gQEAgLTgsNiArOCw3IEBACj4gIAo+
-ICAjaW5jbHVkZSAiazEuZHRzaSIKPiAgI2luY2x1ZGUgImsxLXBpbmN0cmwuZHRzaSIKPiArI2lu
-Y2x1ZGUgImsxLW9wcC5kdHNpIgprZWVwIGFscGhhYmV0IHNvcnRlZAo+ICAKPiAgLyB7Cj4gIAlt
-b2RlbCA9ICJPcmFuZ2VQaSBSVjIiOwo+IEBAIC04MCw2ICs4MSwzOCBAQCAmY29tYm9fcGh5IHsK
-PiAgCXN0YXR1cyA9ICJva2F5IjsKPiAgfTsKPiAgCj4gKyZjcHVfMCB7Cj4gKyAgICAgICBjcHUt
-c3VwcGx5ID0gPCZidWNrMV8wdjk+Owo+ICt9Owo+ICsKPiArJmNwdV8xIHsKPiArICAgICAgIGNw
-dS1zdXBwbHkgPSA8JmJ1Y2sxXzB2OT47Cj4gK307Cj4gKwo+ICsmY3B1XzIgewo+ICsgICAgICAg
-Y3B1LXN1cHBseSA9IDwmYnVjazFfMHY5PjsKPiArfTsKPiArCj4gKyZjcHVfMyB7Cj4gKyAgICAg
-ICBjcHUtc3VwcGx5ID0gPCZidWNrMV8wdjk+Owo+ICt9Owo+ICsKPiArJmNwdV80IHsKPiArICAg
-ICAgIGNwdS1zdXBwbHkgPSA8JmJ1Y2sxXzB2OT47Cj4gK307Cj4gKwo+ICsmY3B1XzUgewo+ICsg
-ICAgICAgY3B1LXN1cHBseSA9IDwmYnVjazFfMHY5PjsKPiArfTsKPiArCj4gKyZjcHVfNiB7Cj4g
-KyAgICAgICBjcHUtc3VwcGx5ID0gPCZidWNrMV8wdjk+Owo+ICt9Owo+ICsKPiArJmNwdV83IHsK
-PiArICAgICAgIGNwdS1zdXBwbHkgPSA8JmJ1Y2sxXzB2OT47Cj4gK307Cj4gKwo+ICAmZW1tYyB7
-Cj4gIAlidXMtd2lkdGggPSA8OD47Cj4gIAltbWMtaHM0MDAtMV84djsKPiBAQCAtMTYyLDcgKzE5
-NSw3IEBAIHBtaWNANDEgewo+ICAJCWRsZG9pbjItc3VwcGx5ID0gPCZidWNrNT47Cj4gIAo+ICAJ
-CXJlZ3VsYXRvcnMgewo+IC0JCQlidWNrMSB7Cj4gKwkJCWJ1Y2sxXzB2OTogYnVjazEgewo+ICAJ
-CQkJcmVndWxhdG9yLW1pbi1taWNyb3ZvbHQgPSA8NTAwMDAwPjsKPiAgCQkJCXJlZ3VsYXRvci1t
-YXgtbWljcm92b2x0ID0gPDM0NTAwMDA+Owo+ICAJCQkJcmVndWxhdG9yLXJhbXAtZGVsYXkgPSA8
-NTAwMD47Cj4gLS0gCj4gMi41NC4wCj4gCgoKLS0gCllpeHVuIExhbiAoZGxhbikKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Guodong,
+ The patch itself looks good to me, only few minor comments
+
+On 09:17 Thu 11 Jun     , Guodong Xu wrote:
+> Add a local DTS header, k1-pdma.h, that gives symbolic names to the K1
+> PDMA request numbers. These request numbers are hardware-fixed; their
+> allocation can be found in K1 manual.
+> 
+..
+> Replace the hard-coded numbers in the SPI3 "dmas" property with the
+> K1_PDMA_SPI3_RX/TX macros.
+> 
+As it's too obvious that people can tell from the diff, then I feel it's
+unnecessary to repeat in commit message..
+
+> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+> ---
+> Add a local DTS header naming the K1 PDMA request lines and convert the
+> current user (the K1 SPI3 node) to the new K1_PDMA_* macros.
+..
+> The request
+> numbers come from the SpacemiT K1 User Manual [1], Chapter 9.4.3 DMA
+> Connectivity & Assignments.
+> 
+I'd suggest to put above into commit message, as more detailed description.
+Here is my attempt to slightly reconstruct the commit message:
+
+The PDMA request numbers (DRQ) are fixed values specific to the SoC from a
+hardware perspective. The detailed definition can be found in K1 User Manual,
+Chapter 9.4.3 DMA Connectivity & Assignments. Add a DTS header file to define
+the symbolic names for the DRQs of non-secure DMA peripherals.
+
+> [1]: https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k1/k1_docs/k1_usermanual/9.Top_System.md
+> 
+> Changes in v3:
+> - Move the request-number macros from include/dt-bindings/dma/ to a local
+>   DTS header arch/riscv/boot/dts/spacemit/k1-pdma.h (Conor).
+> - Squash the header and its user into a single patch.
+> - Link to v2: https://patch.msgid.link/20260609-b4-k1-pdma-req-macros-v2-0-5d5d7b997b54@gmail.com
+> 
+> Changes in v2:
+> - Drop the #dma-cells description change in spacemit,k1-pdma.yaml; the request
+>   numbers are hardware-fixed and unused by the driver (Conor)
+> - Link to v1: https://patch.msgid.link/20260607-b4-k1-pdma-req-macros-v1-0-5b2a3955007c@gmail.com
+> 
+> BR,
+> Guodong Xu
+> ---
+>  arch/riscv/boot/dts/spacemit/k1-pdma.h | 56 ++++++++++++++++++++++++++++++++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi   |  4 ++-
+>  2 files changed, 59 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-pdma.h b/arch/riscv/boot/dts/spacemit/k1-pdma.h
+> new file mode 100644
+> index 0000000000000..65112d5847add
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/spacemit/k1-pdma.h
+> @@ -0,0 +1,56 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * This header provides DMA request number for non-secure peripherals of
+> + * SpacemiT K1 PDMA.
+slightly less redundant,
+  DMA request number (DRQ) defintion for non-secure peripherals
+
+> + *
+> + * Copyright (c) 2026 Guodong Xu <docular.xu@gmail.com>
+> + */
+> +
+> +#ifndef _DTS_SPACEMIT_K1_PDMA_H
+> +#define _DTS_SPACEMIT_K1_PDMA_H
+> +
+> +#define K1_PDMA_UART0_TX	3
+> +#define K1_PDMA_UART0_RX	4
+> +#define K1_PDMA_UART2_TX	5
+> +#define K1_PDMA_UART2_RX	6
+> +#define K1_PDMA_UART3_TX	7
+> +#define K1_PDMA_UART3_RX	8
+> +#define K1_PDMA_UART4_TX	9
+> +#define K1_PDMA_UART4_RX	10
+> +#define K1_PDMA_I2C0_TX		11
+> +#define K1_PDMA_I2C0_RX		12
+> +#define K1_PDMA_I2C1_TX		13
+> +#define K1_PDMA_I2C1_RX		14
+> +#define K1_PDMA_I2C2_TX		15
+> +#define K1_PDMA_I2C2_RX		16
+> +#define K1_PDMA_I2C4_TX		17
+> +#define K1_PDMA_I2C4_RX		18
+> +#define K1_PDMA_SPI3_TX		19
+> +#define K1_PDMA_SPI3_RX		20
+> +#define K1_PDMA_I2S0_TX		21
+> +#define K1_PDMA_I2S0_RX		22
+> +#define K1_PDMA_I2S1_TX		23
+> +#define K1_PDMA_I2S1_RX		24
+> +#define K1_PDMA_UART5_TX	25
+> +#define K1_PDMA_UART5_RX	26
+> +#define K1_PDMA_UART6_TX	27
+> +#define K1_PDMA_UART6_RX	28
+> +#define K1_PDMA_UART7_TX	29
+> +#define K1_PDMA_UART7_RX	30
+> +#define K1_PDMA_UART8_TX	31
+> +#define K1_PDMA_UART8_RX	32
+> +#define K1_PDMA_UART9_TX	33
+> +#define K1_PDMA_UART9_RX	34
+> +#define K1_PDMA_I2C5_TX		35
+> +#define K1_PDMA_I2C5_RX		36
+> +#define K1_PDMA_I2C6_TX		37
+> +#define K1_PDMA_I2C6_RX		38
+> +#define K1_PDMA_I2C7_TX		39
+> +#define K1_PDMA_I2C7_RX		40
+> +#define K1_PDMA_I2C8_TX		41
+> +#define K1_PDMA_I2C8_RX		42
+> +#define K1_PDMA_CAN0_RX		43
+> +#define K1_PDMA_QSPI_RX		44
+> +#define K1_PDMA_QSPI_TX		45
+> +
+> +#endif /* _DTS_SPACEMIT_K1_PDMA_H */
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index 08a0f28d011fe..7d414e15d2cc2 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> @@ -6,6 +6,8 @@
+>  #include <dt-bindings/clock/spacemit,k1-syscon.h>
+>  #include <dt-bindings/phy/phy.h>
+>  
+> +#include "k1-pdma.h"
+> +
+>  /dts-v1/;
+>  / {
+>  	#address-cells = <2>;
+> @@ -1094,7 +1096,7 @@ spi3: spi@d401c000 {
+>  				clock-names = "core", "bus";
+>  				resets = <&syscon_apbc RESET_SSP3>;
+>  				interrupts = <55>;
+> -				dmas = <&pdma 20>, <&pdma 19>;
+> +				dmas = <&pdma K1_PDMA_SPI3_RX>, <&pdma K1_PDMA_SPI3_TX>;
+>  				dma-names = "rx", "tx";
+>  				status = "disabled";
+>  			};
+> 
+> ---
+> base-commit: 793cc54475b49b5b558902b5c13e4bfe66530a50
+> change-id: 20260607-b4-k1-pdma-req-macros-8d276d0126df
+> 
+> Best regards,
+> --  
+> Guodong Xu <docular.xu@gmail.com>
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
