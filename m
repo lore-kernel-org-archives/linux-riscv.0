@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43C8CD98C7
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 12:04:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E38CD98C7
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 12:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z7qaZ/PfiV1YAAw+kRFqBtYv3BH5UZw2uvalZUy4a1c=; b=VNthlIjI/UzWr4
-	vdnNhLF9P8XSkNsjlgonvb1MrrvHGd3pbX2qfpXGxPLJQMwIxrWmr1JYZ5qcCRyprVQMEBAh37XHL
-	+wO6U17Ovr0sUk7RFsM3/nxwzxMUU3TJTe0Gux/aWwa2FVeN2v8U9K/V/yiPpjqo8WH0vsKATCfpu
-	pCZInJfuGhzsGDRwc3D0t1tcYLN4HhdyCIt3hXAAtWhKLgpNqlboMXon8Tw0UmGrYOQBGcCRqSzLV
-	BstyMgcZmXSqyjYOuzG/JAQ6lrB795olCRwvwj0fRYEerM1QsCRulilQa15t9/YKTgYiNmiAO1+pO
-	/fWW7/aGRaJSx2dvVgog==;
+	List-Owner; bh=AZVB47RPKbmwntqq2uFPBCkTNjhmqdIn/D8HxLlOwkE=; b=D6/56l31Ccmbme
+	wYLVUWAqXdH3BR6JBEYiYenUmuGD7NqMH8W6SJj70WjRitvK3Pz5fyOIErUxmQ6gytELEDH4+BUAS
+	Avh/2cmPpcuW94TNY1pYDoB2zrMCXrnCBSZjxGZYXQrMTo6ksSmBMLeVXKgDHJdSvkdqJ4D4VLIEh
+	KOOdMVfXZNzqTwzyRKYgZiXmB19oZjg4bnznFvEuoRdxEZSUgYtfOswDqwW1AY6dTOz7rZIXhu4FN
+	gDWjd9kNJ9k43Dn+11LHRLIPkkOalxsJ9cMUkuxoLfuSS6fPt8Q+0BNbe6gbffi04uVDJyxWznSkv
+	xft6JUXvhiXVrU90lKZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ639-0000000E8jY-3ofO;
-	Mon, 15 Jun 2026 12:04:19 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1wZ69x-0000000E9FP-2KBf;
+	Mon, 15 Jun 2026 12:11:21 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ636-0000000E8hw-49Mv
+	id 1wZ69t-0000000E9Eb-2ENq
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 12:04:18 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-517863a2edfso26076341cf.1
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jun 2026 05:04:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781525056; x=1782129856; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VaaLk3EgsloTd17mTIl3bCyAeJenYIahR3avArgMblQ=;
-        b=LnjpruExxKVcbVBrzp8+70RL1VRS/C83ChOsoXZ7MTbYxkv4P8DDQbnfpIEj2801F+
-         DtJlltSzyc5kERYgHYj0eGrKtD/XjT5bnu/FzkrKmcdCQ+7NubdLgSNc91553CyVOI8O
-         yzmWXI5ihPri0tNsTecbghd0Y4U+1JP0USEnf2QfYk/ONStGDfbT/LmwCw5CuarX5Zg6
-         fkuxqkoZ+VThPZYGykOs7250J/f1UKtB+ELPbSfLOat6VVkKXdglMlRME9eiPtlGoZto
-         Tp1O2u9Xl/VT4W76MTJL9w46pWr2Dex3Ei98Pq8+7boDs7B27LlJD1bwDW00UfKLx7zA
-         TAMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781525056; x=1782129856;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VaaLk3EgsloTd17mTIl3bCyAeJenYIahR3avArgMblQ=;
-        b=MvVrIkmQBrHY01aEXUuerT6hR3suCEGaUokWEHbadi+jRk5nj4gLCQBN9BYJ1gY652
-         Y2qsbX2DVny83GlYkOXFyapQXfKGqbGrSAcM9gAuUeFPy5EZP1EQsQuKVZ/zs1fqmnqF
-         7A7Kk1LaV25P5vIszmtT1ywjb2+cfFmy+Knyt6UqBpUQJ9qOaEHMxoaq9MHyfr8WAUa+
-         ue6E3pUNVUq7qxaxufM4DA19LAmcsMek0mwv563g2e8mBXgjGmJLQjRow6mmQJWP/dUu
-         USKOTEXFwqp+jpfJzGtI8DdRqlLDbuFzzc7fV1lPUl4+6ZqtH/s/mmlup9GINkLxaOU8
-         k0Zw==
-X-Forwarded-Encrypted: i=1; AFNElJ8Ly+jeBkbnqu+DEaerhVZoYjm6kPJ/a6tZY9EQ/jPvyV5ZjuuQVmnEMFyMP3no59Zf6VqAYCp/mYzQ3A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCOVVJQrl/geWazOHsM6iJ1tZ/nbNpmCAK2JkynxM+KyYK/LJi
-	MELK1MwBIxD5TotEZYXC+3vTmkHKAyIfHsMaPkGa7qzNNLRWgunbks/C
-X-Gm-Gg: Acq92OFnfP3KB6WYwYalNEKJwyhxLi2tlUR5sTR0bphj2ty3kitMX/wFs3YwXNyaRpb
-	uEZEvgKhT8Hm5v+sxwxcaNwbXrRdl7TZmQMdsTu/bn6PobcIW6W6e1WYjEUDdZOkoyMT+d0cfBe
-	abinR8wkwhgKuMBZ+N8Giq/k5PFSzjlHBXziHEtU4EfUZBPmcTOoXOL2XpjLLPGWl5k95yCdW/N
-	VhC9kowCYJYscXVYpxIV4mky1Dp3zNWpPdI4kBe869yFwHo2oV62BmKl3AIU7D8FQDrWkR/ciev
-	k080J8CelkSDLmYdUITsWJDlekYrsFUtYJjqE5a2NjCnwfJhiKpFv5wMWrEZXmUTZIe3x0dqa4R
-	cewl6VDB+Fa94G3wgxYyrAY44n0pC2ghiAqancdZY7+qNmqxlNHR89nCjz6pQ+bKjzzTySH6rRq
-	X15qnKo7mc9cU4+9pnvkVnw2RaQtQdGyyIiD27nXqTXSI4FFJT3qMRATul
-X-Received: by 2002:a05:622a:229f:b0:517:8242:5bc1 with SMTP id d75a77b69052e-517fe200008mr205748761cf.15.1781525055524;
-        Mon, 15 Jun 2026 05:04:15 -0700 (PDT)
-Received: from sleek (d-23-244-200-70.nh.cpe.atlanticbb.net. [23.244.200.70])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51975955956sm25184311cf.17.2026.06.15.05.04.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 05:04:15 -0700 (PDT)
-From: Joshua Milas <josh.milas@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	pjw@kernel.org,
-	chen.wang@linux.dev,
-	inochiama@gmail.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	liujingqi@lanxincomputing.com,
-	alexander.sverdlin@gmail.com,
-	rabenda.cn@gmail.com,
-	hanguidong02@gmail.com
-Cc: josh.milas@gmail.com,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	michael.opdenacker@rootcommit.com
-Subject: [PATCH v6 3/3] riscv64: dts: sophgo: add initial Milk-V Duo S board support
-Date: Mon, 15 Jun 2026 08:03:24 -0400
-Message-ID: <20260615120324.1527881-4-josh.milas@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260615120324.1527881-1-josh.milas@gmail.com>
-References: <20260615120324.1527881-1-josh.milas@gmail.com>
-MIME-Version: 1.0
+	Mon, 15 Jun 2026 12:11:20 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gf89D2qK2z9vCH;
+	Mon, 15 Jun 2026 14:11:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781525472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C2ni2HKLJTKwWZDPeU4N3Yd1IXA3apJPvhe3IpmDCyc=;
+	b=Lrd3GhbCEc5wkRYKdr2J366BSm0U6EkvUYfCptFiN9eJRq+LITYHf3+5N8ANNvuNXLOJ6k
+	8lvR3SYktrUnYFp4ZOWQibYOL1iVpIFxe/rD6QJzOFERqj4qbSQN94qDW6hXWEmF+JJ29b
+	DPO2Yvp45sdI2YgMxR+Y+EWn8gkC9KuME+ViX54t222iAWcm4PJnydxnAzL7KW0aaytNZp
+	ymhDbnOF9Xjo6It6uDPDKzgCDQcVaXews96bYjsd78yjj4BQUodKP6WiKVCJO/c8sug//A
+	JpRmUJkSCPmMxotQUfUn/fyX8KiZnmeE5JhH2Z0OsnlMqpf4e/P845hOCqbr/g==
+Mime-Version: 1.0
+Date: Mon, 15 Jun 2026 20:11:01 +0800
+Message-Id: <DJ9M2IDYE6XZ.20RN5AFBYNB9Y@mailbox.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan" <dlan@kernel.org>,
+ <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v3 1/2] cpufreq: spacemit: Add K1 cpufreq driver
+From: "Shuwei Wu" <shuwei.wu@mailbox.org>
+To: "Viresh Kumar" <viresh.kumar@linaro.org>
+References: <20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org>
+ <20260612-shadow-deps-v3-1-2f3ba88611ff@mailbox.org>
+ <bd4s2icqgusnuujvrpoag4cniy3g2e4bumecqxt5yffl77aqpq@kxg4dj4c2wk3>
+ <DJ9EFPG561VZ.1WGRYYHJ2W9J9@mailbox.org>
+ <wjwkykv555gkeqxabsqcdfn4lomcopawsv7bgm4bydc5likhjs@p3ca3p7wbri5>
+In-Reply-To: <wjwkykv555gkeqxabsqcdfn4lomcopawsv7bgm4bydc5likhjs@p3ca3p7wbri5>
+X-MBO-RS-ID: 8f80bbf1dd5291ba946
+X-MBO-RS-META: edisx4wchww8awjnyt6qkyss1w8jk1uh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_050417_049412_1C2EFB93 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20260615_051118_863080_4AA3DDB1 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,284 +86,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds initial riscv support for the Milk-V Duo S board
-[1] making it possible to boot Linux to the command line.
+Hi Viresh,
 
-Link: https://milkv.io/duo-s [1]
+Thanks for pointing it out.
 
-Signed-off-by: Joshua Milas <josh.milas@gmail.com>
----
- arch/riscv/boot/dts/sophgo/Makefile           |   1 +
- .../boot/dts/sophgo/sg2000-milkv-duo-s.dts    | 245 ++++++++++++++++++
- 2 files changed, 246 insertions(+)
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+On Mon Jun 15, 2026 at 2:34 PM CST, Viresh Kumar wrote:
+> Hi Shuwei,
+>
+> On 15-06-26, 14:12, Shuwei Wu wrote:
+>> The clusters have separate clocks, but they share the same voltage supply.[1]
+>> So two independent policies would be unsafe: one policy could lower the shared
+>> voltage while the other cluster is still running at a higher frequency.
+>
+> No, both will vote for the regulator contraints using CPU device and the
+> regulator core will make sure it doesn't break any of them. This is what all
+> frameworks do, regulator, clk, etc.
+>
+>> This means they can't use different policies.
+>
+> This is incorrect.
+>
+>> From a hardware perspective, the eight cores of the K1 are homogeneous,
+>> so using the same policy for them is relatively reasonable.
+>
+> Right, but this is inefficient. One cluster can be idle, or in low freq mode
+> while other can be in higher. They MUST be two policies.
 
-diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-index 6f65526d4193..58cc6b70d8de 100644
---- a/arch/riscv/boot/dts/sophgo/Makefile
-+++ b/arch/riscv/boot/dts/sophgo/Makefile
-@@ -1,6 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
-+dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-s.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-licheerv-nano-b.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v1.dtb
-diff --git a/arch/riscv/boot/dts/sophgo/sg2000-milkv-duo-s.dts b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duo-s.dts
-new file mode 100644
-index 000000000000..f56bfddeacc4
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duo-s.dts
-@@ -0,0 +1,245 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/pinctrl/pinctrl-sg2000.h>
-+#include "sg2000.dtsi"
-+
-+/ {
-+	model = "Milk-V Duo S";
-+	compatible = "milkv,duo-s", "sophgo,sg2000";
-+
-+	aliases {
-+		i2c4 = &i2c4;
-+		mmc0 = &sdhci0;
-+		mmc1 = &emmc;
-+		mmc2 = &sdhci1;
-+		serial0 = &uart0;
-+		serial4 = &uart4;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&porta 15 GPIO_ACTIVE_LOW>;
-+		power-off-delay-us = <50000>;
-+		post-power-on-delay-ms = <200>;
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <25000000>;
-+};
-+
-+&pinctrl {
-+	emmc_cfg: emmc-cfg {
-+		emmc-rstn-pins {
-+			pinmux = <PINMUX(PIN_EMMC_RSTN, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <1800>;
-+		};
-+
-+		emmc-clk-pins {
-+			pinmux = <PINMUX(PIN_EMMC_CLK, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <1800>;
-+		};
-+
-+		emmc-cmd-pins {
-+			pinmux = <PINMUX(PIN_EMMC_CMD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <1800>;
-+		};
-+
-+		emmc-data-pins {
-+			pinmux = <PINMUX(PIN_EMMC_DAT0, 0)>,
-+				 <PINMUX(PIN_EMMC_DAT1, 0)>,
-+				 <PINMUX(PIN_EMMC_DAT2, 0)>,
-+				 <PINMUX(PIN_EMMC_DAT3, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <1800>;
-+		};
-+	};
-+
-+	i2c4_cfg: i2c4-cfg {
-+		i2c4-pins {
-+			pinmux = <PINMUX(PIN_VIVO_D1, 7)>,
-+				 <PINMUX(PIN_VIVO_D0, 7)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <4000>;
-+			power-source = <1800>;
-+		};
-+	};
-+
-+	sdhci0_cfg: sdhci0-cfg {
-+		sdhci0-cd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-clk-pins {
-+			pinmux = <PINMUX(PIN_SD0_CLK, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <16100>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-cmd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CMD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-data-pins {
-+			pinmux = <PINMUX(PIN_SD0_D0, 0)>,
-+				 <PINMUX(PIN_SD0_D1, 0)>,
-+				 <PINMUX(PIN_SD0_D2, 0)>,
-+				 <PINMUX(PIN_SD0_D3, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+
-+	sdhci1_cfg: sdhci1-cfg {
-+		sdhci1-clk-pins {
-+			pinmux = <PINMUX(PIN_MIPI_TXM4, 1)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <1800>;
-+		};
-+
-+		sdhci1-cmd-pins {
-+			pinmux = <PINMUX(PIN_MIPI_TXP4, 1)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <1800>;
-+		};
-+
-+		sdhci1-data-pins {
-+			pinmux = <PINMUX(PIN_MIPI_TXM3, 1)>,
-+				 <PINMUX(PIN_MIPI_TXP3, 1)>,
-+				 <PINMUX(PIN_MIPI_TXM2, 7)>,
-+				 <PINMUX(PIN_MIPI_TXP2, 7)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <1800>;
-+		};
-+	};
-+
-+	uart0_cfg: uart0-cfg {
-+		uart0-pins {
-+			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-+				 <PINMUX(PIN_UART0_RX, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+
-+	uart4_cfg: uart4-cfg {
-+		uart4-data-pins {
-+			pinmux = <PINMUX(PIN_UART2_TX, 5)>,
-+				 <PINMUX(PIN_UART2_RX, 5)>;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		uart4-control-pins {
-+			pinmux = <PINMUX(PIN_UART2_CTS, 5)>,
-+				 <PINMUX(PIN_UART2_RTS, 5)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+};
-+
-+&dmac {
-+	status = "okay";
-+};
-+
-+&emmc {
-+	bus-width = <4>;
-+	no-1-8-v;
-+	cap-mmc-hw-reset;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	pinctrl-0 = <&emmc_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&gmac0 {
-+	status = "okay";
-+};
-+
-+&i2c4 {
-+	pinctrl-0 = <&i2c4_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&mdio {
-+	status = "okay";
-+};
-+
-+&saradc {
-+	status = "okay";
-+};
-+
-+&sdhci0 {
-+	bus-width = <4>;
-+	disable-wp;
-+	no-1-8-v;
-+	pinctrl-0 = <&sdhci0_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&sdhci1 {
-+	bus-width = <4>;
-+	cap-sdio-irq;
-+	cap-sd-highspeed;
-+	keep-power-in-suspend;
-+	no-mmc;
-+	no-sd;
-+	non-removable;
-+	max-frequency = <150000000>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	pinctrl-0 = <&sdhci1_cfg>;
-+	pinctrl-names = "default";
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-0 = <&uart0_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&uart4 {
-+	pinctrl-0 = <&uart4_cfg>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&usb {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
+Yes, you're right. Two policies are not inherently unsafe.
+The regulator framework handles multi-consumer voting correctly.
+
+The actual problem was using single value opp-microvolt. With one cluster at
+a low frequency holding a precise [950000, 950000] on the shared rail, and the
+other requesting [1050000, 1050000] for 1.6 GHz, the regulator finds no
+intersection:
+
+~ # echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
+[  544.744195] buck1: Restricting voltage, 1050000-950000uV
+[  544.757073] cpu cpu0: _set_opp_voltage: failed to set
+              voltage (1050000 1050000 1050000 mV): -22
+[  544.771304] cpufreq: __target_index: Failed to change
+              cpu frequency: -22
+
+The fix is to use the <target min max> triplet for the lower OPPs so the
+regulator always has a valid intersection:
+
+-    cpu_opp_table: opp-table-cpu {
++    cluster0_opp_table: opp-table-cluster0 {
+         compatible = "operating-points-v2";
+         opp-shared;
+         opp-614400000 {
+-            opp-microvolt = <950000>;
++            opp-microvolt = <950000 950000 1050000>;
+         };
+         opp-819000000 {
+-            opp-microvolt = <950000>;
++            opp-microvolt = <950000 950000 1050000>;
+         };
+         ...
+         opp-1600000000 {
+             opp-microvolt = <1050000>;
+         };
+     };
++    cluster1_opp_table: opp-table-cluster1 {
++        // same OPP entries and voltage ranges as above
++    };
+-    &cpu_0 { operating-points-v2 = <&cpu_opp_table>; };
++    &cpu_0 { operating-points-v2 = <&cluster0_opp_table>; };
+     ...
+-    &cpu_7 { operating-points-v2 = <&cpu_opp_table>; };
++    &cpu_3 { operating-points-v2 = <&cluster0_opp_table>; };
++    &cpu_4 { operating-points-v2 = <&cluster1_opp_table>; };
+     ...
++    &cpu_7 { operating-points-v2 = <&cluster1_opp_table>; };
+
+This way the low frequency cluster accepts up to 1.05 V on the rail.
+That is safe: high voltage at low frequency costs power but does not cause
+instability.
+
+With two cpufreq-dt policies (one per cluster) and these ranges, neither cluster
+blocks the other. Tested on BPI-F3 and OrangePi Rv2 boards, works as expected.
+
+Does this look good to you, or would you prefer a different approach?
+>
+>> I used a K1-specific driver because cpufreq-dt only manages one CPU clock
+>> through the CPU device used for the OPP transition.
+>> On K1, the policy needs to control two independent cluster clocks and one shared
+>> regulator, so the driver has to update the second cluster clock explicitly and
+>> keep the ordering safe: raise voltage before raising either cluster, and lower
+>> both cluster clocks before lowering the shared voltage.
+>> 
+>> [1] https://lore.kernel.org/spacemit/aeaXszeaE62rM6BJ@aurel32.net/
+
 -- 
-2.54.0
-
+Best regards,
+Shuwei Wu
 
 _______________________________________________
 linux-riscv mailing list
