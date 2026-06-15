@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4981CD98DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 12:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84A9CD98C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 12:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gm3fGPubvZiDuXlfjkTbt2TBLL85CZdFt5JMxvPRCSk=; b=JPGuqtTaThjtyT
-	80nt9h/PWs6EvQxrFoMAOe/R2LoP8yZ71+OU1PlHONpAdZ1Bb631843wcjVZ/7xSHC0rSIXUrA3M/
-	sNWta4hgGpEt6VVQEGFeVzMtVDHdRmEZy33A+81eciMUuyBDt/+u6jzfgl5VSYy7yeCuLhi6cjE6P
-	b/HnDNK6gI1gQwz3QB87n/kmvtG2Wl2P8A0SQDmMgH6Qt6QJL5qqYHdMHW2WhxExqVRx0Ljnduqti
-	5aRsPu4X6Howe4/vl3J/TGL+0Go/UMuvueOjJjeeIgcuLkXRbLhsh0QSYGTBtlDNvIdCSf5YMER9A
-	ErmLA9ZTf99By9/yWzfQ==;
+	List-Owner; bh=X4ZsL6/mgxFlfJClBh4kQpSiIJj6WaK87JBm/3icXFw=; b=nat3KV6HVp0x3o
+	/sWh1l+EgarkhddXcA0N0LKs0AWUh78Pdyp73SQy4N6gNfkGpm5TrgFOPcUKcGMS+cRmfvCtXPKzB
+	Ps9XrGvNw3SZAVcvfgYP1FcDXR+CBvPcVmR4K6kke8W6EA3WhwJ9OcIYo8rdjhvoSXCZ3EvnfELZN
+	rwXOMY2PI2RJhqXsF1usj7hJQdv1P2BhClS0yWhusFnIbBAS5jrDodph0RIgGiIz3jILPTh/K3Eft
+	/xUH5jIapp+Gj4SbRrD2tqdJ/MRZkQRrVR7zpAa15mORLvPZhCmg/X2E15Z8xNjQfRc/VdJPl5s1p
+	hJp6XL+i97Ckzfvp1UUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6Io-0000000E9wh-1d1Y;
-	Mon, 15 Jun 2026 12:20:30 +0000
+	id 1wZ6Il-0000000E9uV-0Vbr;
+	Mon, 15 Jun 2026 12:20:27 +0000
 Received: from naesa05.arrow.com ([216.150.161.26])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6Ik-0000000E9rh-0LLU
+	id 1wZ6Ii-0000000E9rh-0A9f
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 12:20:28 +0000
+	Mon, 15 Jun 2026 12:20:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=einfochips.com; i=@einfochips.com; l=6367; q=dns/txt;
-  s=NAESA-Selector1; t=1781526026; x=1813062026;
+  d=einfochips.com; i=@einfochips.com; l=20144;
+  q=dns/txt; s=NAESA-Selector1; t=1781526024;
+  x=1813062024;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=h8KdvRyvHHTj2syROXivFVLOUiLh0AiF2uqplzqCgi0=;
-  b=tFnyMQjruhBOKeTVYWv3ItfjI433k1obj64+1SKTS4E0eXwj/NY+5+d/
-   DdFX2q5L/1odywFzg/EVBvJTSFa2YnMLVo2fCWXvKSR+gTY47sss6pzEQ
-   IL9a96rohrKm+0penU1HepjDu8d3pl4lXjCRZ2Qtk5R5J4XXzqssphlTE
-   AF9NEHDYcj9LK4fd9A5iTHNldyuYHehZYWa04VD6+icRRveACVRn6vsro
-   fPkEitFuz8Q8fGzmFCn156jlLNX7oC4jOCBNulVxE/4J6VFr04/k13690
-   U0pkmQQD2zDFZuS/z9tTwX4/WVM+Q1QAUdDWP7SLy+Kv0ZtOj5PyqLKt7
-   w==;
-X-CSE-ConnectionGUID: fD36XT/ZQlKboJTYAlGWew==
-X-CSE-MsgGUID: dqubscyUQIGhQdzeiw5j8Q==
+  bh=TGSWM9Md57ijWr6tRxxvtwfQQ6aP6n4Vv/mfrED8Bok=;
+  b=YINZZVW14VNasC1WYdP0F7JvUEV/8VoYH6YNnwiChZl44GrHsaezsfKw
+   Zpbv8aT5/kvLTCHaveeipO+1xGmF2Tu1FihE9xXRlOC3Zt5EVmvzKUnCu
+   vYvLlHGakOJ73efSQObLy+vRW7NHAVNFhwUl3vqTtZclF8XmV4cbxIIK4
+   quexR9WQzNKYYUC2y0cbOtlzJjV6SColqVOnJU71EsPlNOy1Pjjyork6V
+   znTus71EZ8EpvoJEgP3fJro0MBF87F8mgkq1cuI4kFw4IAH/VKsJInmSM
+   CDE7D449x7LwLtea6z2s32Qq80rqNPVlFID2xF31CxW5C7C7H8mDF/Pbi
+   A==;
+X-CSE-ConnectionGUID: dK1qTsdGRDGEwVHZmY/jjA==
+X-CSE-MsgGUID: buQM2su5SmerWYYxTFuJOA==
 X-IronPort-AV: E=Sophos;i="6.24,206,1774332000"; 
-   d="scan'208";a="55984209"
+   d="scan'208";a="55984203"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa05out.arrow.com with ESMTP; 15 Jun 2026 06:20:24 -0600
+  by naesa05out.arrow.com with ESMTP; 15 Jun 2026 06:20:21 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.20348.1);
-	 Mon, 15 Jun 2026 17:50:17 +0530
+	 Mon, 15 Jun 2026 17:50:16 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 To: Lee Jones <lee@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -66,18 +67,17 @@ Cc: Yulin Lu <luyulin@eswincomputing.com>,
 	Darshan Prajapati <darshan.prajapati@einfochips.com>,
 	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
 	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: [PATCH 6/7] riscv: dts: eswin: add I2C controller support
-Date: Mon, 15 Jun 2026 17:50:15 +0530
-Message-Id: <20260615122016.1110206-7-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH 3/7] riscv: dts: eswin: eic7700: add pinctrl support
+Date: Mon, 15 Jun 2026 17:50:12 +0530
+Message-Id: <20260615122016.1110206-4-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
 References: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 15 Jun 2026 12:20:17.0052 (UTC) FILETIME=[534A05C0:01DCFCC1]
+X-OriginalArrivalTime: 15 Jun 2026 12:20:16.0910 (UTC) FILETIME=[53345AE0:01DCFCC1]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_052026_181611_1803D2B0 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_052024_180319_A2BD0376 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,249 +94,1065 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pritesh Patel <pritesh.patel@einfochips.com>
+From: Yulin Lu <luyulin@eswincomputing.com>
 
-Add I2C nodes for EIC7700 SoC.
-Also add nodes for corresponding slave devices in dts file and
-enable them for HiFive Premier P550 board
+Add pinctrl node and related pin configuration for EIC7700 SoC
 
+Co-developed-by: Pritesh Patel <pritesh.patel@einfochips.com>
 Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+Signed-off-by: Yulin Lu <luyulin@eswincomputing.com>
 Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 ---
- .../dts/eswin/eic7700-hifive-premier-p550.dts |  52 ++++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 156 ++++++++++++++++++
- 2 files changed, 208 insertions(+)
+ .../dts/eswin/eic7700-hifive-premier-p550.dts | 109 +++
+ .../riscv/boot/dts/eswin/eic7700-pinctrl.dtsi | 888 ++++++++++++++++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        |   5 +
+ 3 files changed, 1002 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
 
 diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-index e7bb96e14958..0f0c98474c62 100644
+index 1fb92f0e7c55..e7bb96e14958 100644
 --- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
 +++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-@@ -130,6 +130,58 @@ &gpio111_pins {
- 	input-disable;
+@@ -6,6 +6,7 @@
+ /dts-v1/;
+ 
+ #include "eic7700.dtsi"
++#include "eic7700-pinctrl.dtsi"
+ 
+ / {
+ 	compatible = "sifive,hifive-premier-p550", "eswin,eic7700";
+@@ -18,6 +19,15 @@ aliases {
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
++
++	vcc_1v8: vcc1v8 {
++		 compatible = "regulator-fixed";
++		 regulator-name = "vcc1v8";
++		 regulator-always-on;
++		 regulator-boot-on;
++		 regulator-min-microvolt = <1800000>;
++		 regulator-max-microvolt = <1800000>;
++	 };
  };
  
-+&aon_i2c0 {
-+	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c02";
-+		reg = <0x50>;
-+	};
-+};
-+
-+&aon_i2c1 {
-+	status = "okay";
-+
-+	pac1934@10 {
-+		compatible = "microchip,pac1934";
-+		reg = <0x10>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		channel@1 {
-+			reg = <0x1>;
-+			shunt-resistor-micro-ohms = <1000>;
-+			label = "VDD_SOM";
-+		};
-+
-+		channel@2 {
-+			reg = <0x2>;
-+			shunt-resistor-micro-ohms = <1000>;
-+			label = "VDD_SOC";
-+		};
-+
-+		channel@3 {
-+			reg = <0x3>;
-+			shunt-resistor-micro-ohms = <1000>;
-+			label = "VDD_CPU";
-+		};
-+
-+		channel@4 {
-+			reg = <0x4>;
-+			shunt-resistor-micro-ohms = <1000>;
-+			label = "VDD_LPDDR";
-+		};
-+	};
-+
-+	ina226@44 {
-+		compatible = "ti,ina226";
-+		reg = <0x44>;
-+		#io-channel-cells = <1>;
-+		label = "sys_power";
-+		shunt-resistor = <1000>;
-+	};
-+};
-+
- &pinctrl {
- 	vrgmii-supply = <&vcc_1v8>;
+ &xtal {
+@@ -25,6 +35,105 @@ &xtal {
+ 	clock-output-names = "xtal24m";
  };
+ 
++&gpio0_pins {
++	bias-disable;
++	input-enable;
++};
++
++&gpio5_pins {
++	bias-disable;
++	input-enable;
++};
++
++&gpio11_pins {
++	bias-disable;
++	input-enable;
++};
++
++&gpio14_pins {
++	bias-pull-up;
++	input-disable;
++};
++
++&gpio15_pins {
++	bias-disable;
++	input-enable;
++};
++
++&gpio28_pins {
++	bias-disable;
++	input-enable;
++};
++
++&gpio43_pins {
++	bias-disable;
++	input-disable;
++};
++
++&gpio71_pins {
++	bias-pull-up;
++	input-disable;
++};
++
++&gpio74_pins {
++	bias-pull-up;
++	input-disable;
++};
++
++&gpio76_pins {
++	bias-disable;
++	input-disable;
++};
++
++&gpio77_pins {
++	bias-pull-up;
++	input-disable;
++};
++
++&gpio79_pins {
++	bias-disable;
++	input-disable;
++};
++
++&gpio80_pins {
++	bias-pull-up;
++	input-disable;
++};
++
++&gpio82_pins {
++	bias-pull-up;
++	input-disable;
++};
++
++&gpio84_pins {
++	bias-disable;
++	input-disable;
++};
++
++&gpio85_pins {
++	bias-pull-up;
++	input-disable;
++};
++
++&gpio94_pins {
++	bias-disable;
++	input-disable;
++};
++
++&gpio106_pins {
++	bias-disable;
++	input-disable;
++};
++
++&gpio111_pins {
++	bias-disable;
++	input-disable;
++};
++
++&pinctrl {
++	vrgmii-supply = <&vcc_1v8>;
++};
++
+ &uart0 {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi b/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
+new file mode 100644
+index 000000000000..7293df146aa7
+--- /dev/null
++++ b/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
+@@ -0,0 +1,888 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (c) 2025 Beijing ESWIN Computing Technology Co., Ltd.
++ *
++ * ESWIN's EIC7700 SoC pin-mux and pin-config options are listed as
++ * device tree nodes in this file.
++ *
++ * Authors: Yulin Lu <luyulin@eswincomputing.com>
++ */
++
++&pinctrl{
++	default-pins-grp {
++		sata_act_led_pins: sata-act-led-pins{
++			pins = "gpio27";
++			function = "sata";
++		};
++
++		emmc_led_ctrl_pins: emmc-led-ctrl-pins {
++			pins = "gpio29";
++			function = "emmc";
++		};
++
++		sd0_led_ctrl_pins: sd0-led-ctrl-pins {
++			pins = "gpio34";
++			function = "sdio";
++		};
++
++		sd1_led_ctrl_pins: sd1-led-ctrl-pins {
++			pins = "spi1_d2";
++			function = "sdio";
++		};
++
++		i2c6_pins: i2c6-pins {
++			pins = "uart1_cts", "uart1_rts";
++			function = "i2c";
++		};
++
++		i2c7_pins: i2c7-pins {
++			pins = "uart2_tx", "uart2_rx";
++			function = "i2c";
++		};
++
++		i2c9_pins: i2c9-pins {
++			pins = "spi1_d0", "spi1_d1";
++			function = "i2c";
++		};
++
++		pwm1_pins: pwm1-pins {
++			pins = "spi1_d3";
++			function = "pwm";
++		};
++
++		pwm2_pins: pwm2-pins {
++			pins = "spi1_cs1_n";
++			function = "pwm";
++		};
++
++		mipi_csi_xtrig0_pins: mipi-csi-xtrig0-pins {
++			pins = "gpio92";
++			function = "mipi_csi";
++		};
++
++		mipi_csi_xtrig1_pins: mipi-csi-xtrig1-pins {
++			pins = "gpio93";
++			function = "mipi_csi";
++		};
++
++		dual_spi2_pins: dual-spi2-pins {
++			pins = "spi2_cs0_n", "jtag0_tck", "jtag0_tms", "jtag0_tdi";
++			function = "spi";
++		};
++
++		quad_spi2_pins: quad-spi2-pins {
++			pins = "spi2_cs0_n", "spi2_cs1_n", "jtag0_tck", "jtag0_tms",
++			       "jtag0_tdi", "jtag0_tdo", "gpio5";
++			function = "spi";
++		};
++
++		gpio1_pins: gpio1-pins {
++			pins = "jtag0_tck";
++			function = "gpio";
++		};
++
++		gpio2_pins: gpio2-pins {
++			pins = "jtag0_tms";
++			function = "gpio";
++		};
++
++		gpio3_pins: gpio3-pins {
++			pins = "jtag0_tdi";
++			function = "gpio";
++		};
++
++		gpio4_pins: gpio4-pins {
++			pins = "jtag0_tdo";
++			function = "gpio";
++		};
++
++		gpio6_pins: gpio6-pins {
++			pins = "spi2_cs0_n";
++			function = "gpio";
++		};
++
++		gpio7_pins: gpio7-pins {
++			pins = "jtag1_tck";
++			function = "gpio";
++		};
++
++		gpio8_pins: gpio8-pins {
++			pins = "jtag1_tms";
++			function = "gpio";
++		};
++
++		gpio9_pins: gpio9-pins {
++			pins = "jtag1_tdi";
++			function = "gpio";
++		};
++
++		gpio10_pins: gpio10-pins {
++			pins = "jtag1_tdo";
++			function = "gpio";
++		};
++
++		gpio12_pins: gpio12-pins {
++			pins = "spi2_cs1_n";
++			function = "gpio";
++		};
++
++		gpio13_pins: gpio13-pins {
++			pins = "mode_set0";
++			function = "gpio";
++		};
++
++		gpio14_pins: gpio14-pins {
++			pins = "mode_set1";
++			function = "gpio";
++		};
++
++		gpio15_pins: gpio15-pins {
++			pins = "mode_set2";
++			function = "gpio";
++		};
++
++		gpio16_pins: gpio16-pins {
++			pins = "mode_set3";
++			function = "gpio";
++		};
++
++		gpio17_pins: gpio17-pins {
++			pins = "jtag2_trst";
++			function = "gpio";
++		};
++
++		gpio18_pins: gpio18-pins {
++			pins = "i2s0_bclk";
++			function = "gpio";
++		};
++
++		gpio19_pins: gpio19-pins {
++			pins = "i2s0_wclk";
++			function = "gpio";
++		};
++
++		gpio20_pins: gpio20-pins {
++			pins = "i2s0_sdi";
++			function = "gpio";
++		};
++
++		gpio21_pins: gpio21-pins {
++			pins = "i2s0_sdo";
++			function = "gpio";
++		};
++
++		gpio22_pins: gpio22-pins {
++			pins = "i2s_mclk";
++			function = "gpio";
++		};
++
++		gpio23_pins: gpio23-pins {
++			pins = "i2s2_bclk";
++			function = "gpio";
++		};
++
++		gpio24_pins: gpio24-pins {
++			pins = "i2s2_wclk";
++			function = "gpio";
++		};
++
++		gpio25_pins: gpio25-pins {
++			pins = "i2s2_sdi";
++			function = "gpio";
++		};
++
++		gpio26_pins: gpio26-pins {
++			pins = "i2s2_sdo";
++			function = "gpio";
++		};
++
++		gpio29_pins: gpio29-pins {
++			pins = "gpio29";
++			function = "gpio";
++		};
++
++		gpio30_pins: gpio30-pins {
++			pins = "i2s1_bclk";
++			function = "gpio";
++		};
++
++		gpio31_pins: gpio31-pins {
++			pins = "i2s1_wclk";
++			function = "gpio";
++		};
++
++		gpio32_pins: gpio32-pins {
++			pins = "i2s1_sdi";
++			function = "gpio";
++		};
++
++		gpio33_pins: gpio33-pins {
++			pins = "i2s1_sdo";
++			function = "gpio";
++		};
++
++		gpio34_pins: gpio34-pins {
++			pins = "gpio34";
++			function = "gpio";
++		};
++
++		gpio35_pins: gpio35-pins {
++			pins = "spi1_cs0_n";
++			function = "gpio";
++		};
++
++		gpio36_pins: gpio36-pins {
++			pins = "spi1_clk";
++			function = "gpio";
++		};
++
++		gpio37_pins: gpio37-pins {
++			pins = "spi1_d0";
++			function = "gpio";
++		};
++
++		gpio38_pins: gpio38-pins {
++			pins = "spi1_d1";
++			function = "gpio";
++		};
++
++		gpio39_pins: gpio39-pins {
++			pins = "spi1_d2";
++			function = "gpio";
++		};
++
++		gpio40_pins: gpio40-pins {
++			pins = "spi1_d3";
++			function = "gpio";
++		};
++
++		gpio41_pins: gpio41-pins {
++			pins = "spi1_cs1_n";
++			function = "gpio";
++		};
++
++		gpio42_pins: gpio42-pins {
++			pins = "usb0_pwren";
++			function = "gpio";
++		};
++
++		gpio43_pins: gpio43-pins {
++			pins = "usb1_pwren";
++			function = "gpio";
++		};
++
++		gpio44_pins: gpio44-pins {
++			pins = "i2c0_scl";
++			function = "gpio";
++		};
++
++		gpio45_pins: gpio45-pins {
++			pins = "i2c0_sda";
++			function = "gpio";
++		};
++
++		gpio46_pins: gpio46-pins {
++			pins = "i2c1_scl";
++			function = "gpio";
++		};
++
++		gpio47_pins: gpio47-pins {
++			pins = "i2c1_sda";
++			function = "gpio";
++		};
++
++		gpio48_pins: gpio48-pins {
++			pins = "i2c2_scl";
++			function = "gpio";
++		};
++
++		gpio49_pins: gpio49-pins {
++			pins = "i2c2_sda";
++			function = "gpio";
++		};
++
++		gpio50_pins: gpio50-pins {
++			pins = "i2c3_scl";
++			function = "gpio";
++		};
++
++		gpio51_pins: gpio51-pins {
++			pins = "i2c3_sda";
++			function = "gpio";
++		};
++
++		gpio52_pins: gpio52-pins {
++			pins = "i2c4_scl";
++			function = "gpio";
++		};
++
++		gpio53_pins: gpio53-pins {
++			pins = "i2c4_sda";
++			function = "gpio";
++		};
++
++		gpio54_pins: gpio54-pins {
++			pins = "i2c5_scl";
++			function = "gpio";
++		};
++
++		gpio55_pins: gpio55-pins {
++			pins = "i2c5_sda";
++			function = "gpio";
++		};
++
++		gpio56_pins: gpio56-pins {
++			pins = "uart0_tx";
++			function = "gpio";
++		};
++
++		gpio57_pins: gpio57-pins {
++			pins = "uart0_rx";
++			function = "gpio";
++		};
++
++		gpio58_pins: gpio58-pins {
++			pins = "uart1_tx";
++			function = "gpio";
++		};
++
++		gpio59_pins: gpio59-pins {
++			pins = "uart1_rx";
++			function = "gpio";
++		};
++
++		gpio60_pins: gpio60-pins {
++			pins = "uart1_cts";
++			function = "gpio";
++		};
++
++		gpio61_pins: gpio61-pins {
++			pins = "uart1_rts";
++			function = "gpio";
++		};
++
++		gpio62_pins: gpio62-pins {
++			pins = "uart2_tx";
++			function = "gpio";
++		};
++
++		gpio63_pins: gpio63-pins {
++			pins = "uart2_rx";
++			function = "gpio";
++		};
++
++		gpio64_pins: gpio64-pins {
++			pins = "jtag2_tck";
++			function = "gpio";
++		};
++
++		gpio65_pins: gpio65-pins {
++			pins = "jtag2_tms";
++			function = "gpio";
++		};
++
++		gpio66_pins: gpio66-pins {
++			pins = "jtag2_tdi";
++			function = "gpio";
++		};
++
++		gpio67_pins: gpio67-pins {
++			pins = "jtag2_tdo";
++			function = "gpio";
++		};
++
++		gpio68_pins: gpio68-pins {
++			pins = "fan_pwm";
++			function = "gpio";
++		};
++
++		gpio69_pins: gpio69-pins {
++			pins = "fan_tach";
++			function = "gpio";
++		};
++
++		gpio70_pins: gpio70-pins {
++			pins = "mipi_csi0_xvs";
++			function = "gpio";
++		};
++
++		gpio71_pins: gpio71-pins {
++			pins = "mipi_csi0_xhs";
++			function = "gpio";
++		};
++
++		gpio72_pins: gpio72-pins {
++			pins = "mipi_csi0_mclk";
++			function = "gpio";
++		};
++
++		gpio73_pins: gpio73-pins {
++			pins = "mipi_csi1_xvs";
++			function = "gpio";
++		};
++
++		gpio74_pins: gpio74-pins {
++			pins = "mipi_csi1_xhs";
++			function = "gpio";
++		};
++
++		gpio75_pins: gpio75-pins {
++			pins = "mipi_csi1_mclk";
++			function = "gpio";
++		};
++
++		gpio76_pins: gpio76-pins {
++			pins = "mipi_csi2_xvs";
++			function = "gpio";
++		};
++
++		gpio77_pins: gpio77-pins {
++			pins = "mipi_csi2_xhs";
++			function = "gpio";
++		};
++
++		gpio78_pins: gpio78-pins {
++			pins = "mipi_csi2_mclk";
++			function = "gpio";
++		};
++
++		gpio79_pins: gpio79-pins {
++			pins = "mipi_csi3_xvs";
++			function = "gpio";
++		};
++
++		gpio80_pins: gpio80-pins {
++			pins = "mipi_csi3_xhs";
++			function = "gpio";
++		};
++
++		gpio81_pins: gpio81-pins {
++			pins = "mipi_csi3_mclk";
++			function = "gpio";
++		};
++
++		gpio82_pins: gpio82-pins {
++			pins = "mipi_csi4_xvs";
++			function = "gpio";
++		};
++
++		gpio83_pins: gpio83-pins {
++			pins = "mipi_csi4_xhs";
++			function = "gpio";
++		};
++
++		gpio84_pins: gpio84-pins {
++			pins = "mipi_csi4_mclk";
++			function = "gpio";
++		};
++
++		gpio85_pins: gpio85-pins {
++			pins = "mipi_csi5_xvs";
++			function = "gpio";
++		};
++
++		gpio86_pins: gpio86-pins {
++			pins = "mipi_csi5_xhs";
++			function = "gpio";
++		};
++
++		gpio87_pins: gpio87-pins {
++			pins = "mipi_csi5_mclk";
++			function = "gpio";
++		};
++
++		gpio88_pins: gpio88-pins {
++			pins = "spi3_cs_n";
++			function = "gpio";
++		};
++
++		gpio89_pins: gpio89-pins {
++			pins = "spi3_clk";
++			function = "gpio";
++		};
++
++		gpio90_pins: gpio90-pins {
++			pins = "spi3_di";
++			function = "gpio";
++		};
++
++		gpio91_pins: gpio91-pins {
++			pins = "spi3_do";
++			function = "gpio";
++		};
++
++		gpio92_pins: gpio92-pins {
++			pins = "gpio92";
++			function = "gpio";
++		};
++
++		gpio93_pins: gpio93-pins {
++			pins = "gpio93";
++			function = "gpio";
++		};
++
++		gpio94_pins: gpio94-pins {
++			pins = "s_mode";
++			function = "gpio";
++		};
++
++		gpio95_pins: gpio95-pins {
++			pins = "gpio95";
++			function = "gpio";
++		};
++
++		gpio96_pins: gpio96-pins {
++			pins = "spi0_cs_n";
++			function = "gpio";
++		};
++
++		gpio97_pins: gpio97-pins {
++			pins = "spi0_clk";
++			function = "gpio";
++		};
++
++		gpio98_pins: gpio98-pins {
++			pins = "spi0_d0";
++			function = "gpio";
++		};
++
++		gpio99_pins: gpio99-pins {
++			pins = "spi0_d1";
++			function = "gpio";
++		};
++
++		gpio100_pins: gpio100-pins {
++			pins = "spi0_d2";
++			function = "gpio";
++		};
++
++		gpio101_pins: gpio101-pins {
++			pins = "spi0_d3";
++			function = "gpio";
++		};
++
++		gpio102_pins: gpio102-pins {
++			pins = "i2c10_scl";
++			function = "gpio";
++		};
++
++		gpio103_pins: gpio103-pins {
++			pins = "i2c10_sda";
++			function = "gpio";
++		};
++
++		gpio104_pins: gpio104-pins {
++			pins = "i2c11_scl";
++			function = "gpio";
++		};
++
++		gpio105_pins: gpio105-pins {
++			pins = "i2c11_sda";
++			function = "gpio";
++		};
++
++		gpio107_pins: gpio107-pins {
++			pins = "boot_sel0";
++			function = "gpio";
++		};
++
++		gpio108_pins: gpio108-pins {
++			pins = "boot_sel1";
++			function = "gpio";
++		};
++
++		gpio109_pins: gpio109-pins {
++			pins = "boot_sel2";
++			function = "gpio";
++		};
++
++		gpio110_pins: gpio110-pins {
++			pins = "boot_sel3";
++			function = "gpio";
++		};
++
++		uart3_pins: uart3-pins {
++			pins = "gpio92", "gpio93";
++			function = "uart";
++		};
++
++		uart4_pins: uart4-pins {
++			pins = "spi1_d0", "spi1_d1";
++			function = "uart";
++		};
++
++		gpio0_pins: gpio0-pins {
++			pins = "gpio0";
++			function = "gpio";
++		};
++
++		gpio5_pins: gpio5-pins {
++			pins = "gpio5";
++			function = "gpio";
++		};
++
++		gpio11_pins: gpio11-pins {
++			pins = "gpio11";
++			function = "gpio";
++		};
++
++		gpio27_pins: gpio27-pins {
++			pins = "gpio27";
++			function = "gpio";
++		};
++
++		gpio28_pins: gpio28-pins {
++			pins = "gpio28";
++			function = "gpio";
++		};
++
++		gpio106_pins: gpio106-pins {
++			pins = "gpio106";
++			function = "gpio";
++		};
++
++		gpio111_pins: gpio111-pins {
++			pins = "gpio111";
++			function = "gpio";
++		};
++
++		chip_mode_pins: chip-mode-pins {
++			pins = "chip_mode";
++			function = "chip_mode";
++		};
++
++		sdio0_pins: sdio0-pins {
++			pins = "mode_set0", "mode_set1";
++			function = "sdio";
++		};
++
++		sdio1_pins: sdio1-pins {
++			pins = "mode_set2", "mode_set3";
++			function = "sdio";
++		};
++
++		jtag0_pins: jtag0-pins {
++			pins = "jtag0_tck", "jtag0_tms", "jtag0_tdi", "jtag0_tdo";
++			function = "jtag";
++		};
++
++		jtag1_pins: jtag1-pins {
++			pins = "jtag1_tck", "jtag1_tms", "jtag1_tdi", "jtag1_tdo";
++			function = "jtag";
++		};
++
++		jtag2_pins: jtag2-pins {
++			pins = "jtag2_trst", "jtag2_tck", "jtag2_tms", "jtag2_tdi",
++			       "jtag2_tdo";
++			function = "jtag";
++		};
++
++		pcie_pins: pcie-pins {
++			pins = "pcie_clkreq_n", "pcie_wake_n", "pcie_perst_n";
++			function = "pcie";
++		};
++
++		hdmi_pins: hdmi-pins {
++			pins = "hdmi_scl", "hdmi_sda", "hdmi_cec";
++			function = "hdmi";
++		};
++
++		rgmii0_pins: rgmii0-pins {
++			pins = "rgmii0_clk_125", "rgmii0_txen", "rgmii0_txclk", "rgmii0_txd0",
++			       "rgmii0_txd1", "rgmii0_txd2", "rgmii0_txd3", "rgmii0_rxclk",
++			       "rgmii0_rxdv", "rgmii0_rxd0", "rgmii0_rxd1", "rgmii0_rxd2",
++			       "rgmii0_rxd3", "rgmii0_mdc", "rgmii0_mdio", "rgmii0_intb";
++			function = "hdmi";
++		};
++
++		rgmii1_pins: rgmii1-pins {
++			pins = "rgmii1_clk_125", "rgmii1_txen", "rgmii1_txclk", "rgmii1_txd0",
++			       "rgmii1_txd1", "rgmii1_txd2", "rgmii1_txd3", "rgmii1_rxclk",
++			       "rgmii1_rxdv", "rgmii1_rxd0", "rgmii1_rxd1", "rgmii1_rxd2",
++			       "rgmii1_rxd3", "rgmii1_mdc", "rgmii1_mdio", "rgmii1_intb";
++			function = "hdmi";
++		};
++
++		i2s0_pins: i2s0-pins {
++			pins = "i2s0_bclk", "i2s0_wclk", "i2s0_sdi", "i2s0_sdo", "i2s_mclk";
++			function = "hdmi";
++		};
++
++		i2s1_pins: i2s1-pins {
++			pins = "i2s1_bclk", "i2s1_wclk", "i2s1_sdi", "i2s1_sdo", "i2s_mclk";
++			function = "hdmi";
++		};
++
++		i2s2_pins: i2s2-pins {
++			pins = "i2s2_bclk", "i2s2_wclk", "i2s2_sdi", "i2s2_sdo", "i2s_mclk";
++			function = "hdmi";
++		};
++
++		usb0_pwren_pins: usb0-pwren-pins {
++			pins = "usb0_pwren";
++			function = "usb";
++		};
++
++		usb1_pwren_pins: usb1-pwren-pins {
++			pins = "usb1_pwren";
++			function = "usb";
++		};
++
++		i2c0_pins: i2c0-pins {
++			pins = "i2c0_scl", "i2c0_sda";
++			function = "i2c";
++		};
++
++		i2c1_pins: i2c1-pins {
++			pins = "i2c1_scl", "i2c1_sda";
++			function = "i2c";
++		};
++
++		i2c2_pins: i2c2-pins {
++			pins = "i2c2_scl", "i2c2_sda";
++			function = "i2c";
++		};
++
++		i2c3_pins: i2c3-pins {
++			pins = "i2c3_scl", "i2c3_sda";
++			function = "i2c";
++		};
++
++		i2c4_pins: i2c4-pins {
++			pins = "i2c4_scl", "i2c4_sda";
++			function = "i2c";
++		};
++
++		i2c5_pins: i2c5-pins {
++			pins = "i2c5_scl", "i2c5_sda";
++			function = "i2c";
++		};
++
++		i2c8_pins: i2c8-pins {
++			pins = "gpio92", "gpio93";
++			function = "i2c";
++		};
++
++		i2c10_pins: i2c10-pins {
++			pins = "i2c10_scl", "i2c10_sda";
++			function = "i2c";
++		};
++
++		i2c11_pins: i2c11-pins {
++			pins = "i2c11_scl", "i2c11_sda";
++			function = "i2c";
++		};
++
++		uart0_pins: uart0-pins {
++			pins = "uart0_tx", "uart0_rx";
++			function = "uart";
++		};
++
++		uart1_pins: uart1-pins {
++			pins = "uart1_tx", "uart1_rx", "uart1_cts", "uart1_rts";
++			function = "uart";
++		};
++
++		uart2_pins: uart2-pins {
++			pins = "uart2_tx", "uart2_rx";
++			function = "uart";
++		};
++
++		fan_pwm_pins: fan-pwm-pins {
++			pins = "fan_pwm";
++			function = "pwm";
++		};
++
++		fan_tach_pins: fan-tach-pins {
++			pins = "fan_tach";
++			function = "fan_tach";
++		};
++
++		mipi_csi0_pins: mipi-csi0-pins {
++			pins = "mipi_csi0_xvs", "mipi_csi0_xhs", "mipi_csi0_mclk";
++			function = "mipi_csi";
++		};
++
++		mipi_csi1_pins: mipi-csi1-pins {
++			pins = "mipi_csi1_xvs", "mipi_csi1_xhs", "mipi_csi1_mclk";
++			function = "mipi_csi";
++		};
++
++		mipi_csi2_pins: mipi-csi2-pins {
++			pins = "mipi_csi2_xvs", "mipi_csi2_xhs", "mipi_csi2_mclk";
++			function = "mipi_csi";
++		};
++
++		mipi_csi3_pins: mipi-csi3-pins {
++			pins = "mipi_csi3_xvs", "mipi_csi3_xhs", "mipi_csi3_mclk";
++			function = "mipi_csi";
++		};
++
++		mipi_csi4_pins: mipi-csi4-pins {
++			pins = "mipi_csi4_xvs", "mipi_csi4_xhs", "mipi_csi4_mclk";
++			function = "mipi_csi";
++		};
++
++		mipi_csi5_pins: mipi-csi5-pins {
++			pins = "mipi_csi5_xvs", "mipi_csi5_xhs", "mipi_csi5_mclk";
++			function = "mipi_csi";
++		};
++
++		s_mode_pins: s-mode-pins {
++			pins = "s_mode";
++			function = "s_mode";
++		};
++
++		boot_sel0_pins: boot-sel0-pins {
++			pins = "boot_sel0";
++			function = "boot_sel";
++		};
++
++		boot_sel1_pins: boot-sel1-pins {
++			pins = "boot_sel1";
++			function = "boot_sel";
++		};
++
++		boot_sel2_pins: boot-sel2-pins {
++			pins = "boot_sel2";
++			function = "boot_sel";
++		};
++
++		boot_sel3_pins: boot-sel3-pins {
++			pins = "boot_sel3";
++			function = "boot_sel";
++		};
++
++		ddr_ref_clk_sel_pins: ddr-ref-clk-sel-pins {
++			pins = "gpio95";
++			function = "ddr_ref_clk_sel";
++		};
++
++		lpddr_ref_clk_pins: lpddr-ref-clk-pins {
++			pins = "lpddr_ref_clk";
++			function = "lpddr_ref_clk";
++		};
++
++		spi0_pins: spi0-pins {
++			pins = "spi0_cs_n", "spi0_clk", "spi0_d0", "spi0_d1", "spi0_d2",
++			       "spi0_d3";
++			function = "spi";
++		};
++
++		dual_spi1_pins: dual-spi1-pins {
++			pins = "spi1_cs0_n", "spi1_clk", "spi1_d0", "spi1_d1";
++			function = "spi";
++		};
++
++		quad_spi1_pins: quad-spi1-pins {
++			pins = "spi1_cs0_n", "spi1_cs1_n", "spi1_clk", "spi1_d0", "spi1_d1",
++			       "spi1_d2", "spi1_d3";
++			function = "spi";
++		};
++
++		spi3_pins: spi3-pins {
++			pins = "spi3_cs_n", "spi3_clk", "spi3_di", "spi3_do";
++			function = "spi";
++		};
++	};
++};
 diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-index f8caf39616b2..28706431b2c0 100644
+index a7ebb1115958..8798c50f7584 100644
 --- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
 +++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -315,6 +315,162 @@ uart4: serial@50940000 {
- 			status = "disabled";
+@@ -349,6 +349,11 @@ gpioD: gpio-port@3 {
+ 			};
  		};
  
-+		i2c0: i2c@50950000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x50950000 0x0 0x8000>;
-+			interrupts = <105>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C0_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
++		pinctrl: pinctrl@51600080 {
++			compatible = "eswin,eic7700-pinctrl";
++			reg = <0x0 0x51600080 0x0 0x1fff80>;
 +		};
 +
-+		i2c1: i2c@50960000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x50960000 0x0 0x8000>;
-+			interrupts = <106>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C1_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c2: i2c@50970000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x50970000 0x0 0x8000>;
-+			interrupts = <107>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C2_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C2>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c3: i2c@50980000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x50980000 0x0 0x8000>;
-+			interrupts = <108>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C3_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C3>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c4: i2c@50990000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x50990000 0x0 0x8000>;
-+			interrupts = <109>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C4_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C4>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c5: i2c@509a0000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x509a0000 0x0 0x8000>;
-+			interrupts = <110>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C5_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C5>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c6: i2c@509b0000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x509b0000 0x0 0x8000>;
-+			interrupts = <111>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C6_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C6>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c7: i2c@509c0000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x509c0000 0x0 0x8000>;
-+			interrupts = <112>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C7_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C7>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c8: i2c@509d0000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x509d0000 0x0 0x8000>;
-+			interrupts = <113>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C8_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C8>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c9: i2c@509e0000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x509e0000 0x0 0x8000>;
-+			interrupts = <114>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C9_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_I2C9>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		aon_i2c0: i2c@51830000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x51830000 0x0 0x8000>;
-+			interrupts = <290>;
-+			clocks = <&clk EIC7700_CLK_GATE_AON_I2C0_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_ANO0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		aon_i2c1: i2c@51838000 {
-+			compatible = "snps,designware-i2c";
-+			reg = <0x0 0x51838000 0x0 0x8000>;
-+			interrupts = <291>;
-+			clocks = <&clk EIC7700_CLK_GATE_AON_I2C1_PCLK>;
-+			clock-names = "ref";
-+			clock-frequency = <100000>;
-+			resets = <&reset EIC7700_RESET_ANO1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		gpio@51600000 {
- 			compatible = "snps,dw-apb-gpio";
- 			reg = <0x0 0x51600000 0x0 0x80>;
+ 		clk: clock-controller@51828000 {
+ 			compatible = "eswin,eic7700-clock";
+ 			reg = <0x0 0x51828000 0x0 0x300>;
 -- 
 2.34.1
 
