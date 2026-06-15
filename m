@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C99CD98C7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFFD5CD98C5
 	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 12:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lopdtsRmLFOGjs9Ffz7sgCe30il2FAKkOvIBS3qpg84=; b=ZGuM8pVFBltvMc
-	jTcXc0tNN9a2NxjeCm2ihnlwWOSRVtSJdyA+qRJvywpRx7vMvJyx6dV1z4x8saI1Ep77mPpYMfh6+
-	SxHebY4rAErHSH058+FNrCZICqmeiXgrKCvdWnNakt0+HyhN53B/sdsH72uDFGn8yhpNECmfoq1l5
-	OWDna71GzM5k6Agts9XmMMHW37N8ClGxkPSoy8y5cSc9M0Pyxc9tanN3/45/FOmGmR3VfEJYmXJM3
-	9LugEs7cKPPNq8xGOEAXpbJroo1Jf2OlXj1LlQubp5Ph/JppxG+PHuxFDfkCtDWilR0pv3xfckhBT
-	OJNrEIImWj3tMDBJfkjw==;
+	List-Owner; bh=nFEyVVUrt8VK6XUNq/6XpeUoyYzTXYkeeHqDqalBZnY=; b=suJaB10gKs7kEm
+	t23B/9pme2qp/jTb8Ezp011g3NCZLU8qgOk6Tevzf2fKYyr42hSNDiGfgPDpWG5mKlEB7NoQyz35b
+	oIZaFZdOIaKvc94uHBccNTgPMZqMzuJsdGYXsx5ivR5flCem5GQZDzOdyItmZbcKBiJpezmZIizvh
+	9aIwtwkdZiFqqsAyAzr5qAUJzI8lOJZcWM9DAE3rLNbUFFEh1aXKaivjDx8/OrzfJuOqVOe2pf40M
+	H1/Ql3wXinFQaSH+Vq4bEYmgmiQuIetEras1BqrcdOWeckkwWyjBictzqt/m1Lc94+XZgsRvDOh3d
+	tP+BHlELYZal0USWxF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6Il-0000000E9uz-1tMo;
-	Mon, 15 Jun 2026 12:20:27 +0000
+	id 1wZ6Io-0000000E9wb-14Gb;
+	Mon, 15 Jun 2026 12:20:30 +0000
 Received: from naesa05.arrow.com ([216.150.161.26])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ6Ii-0000000E9rs-0ykN
+	id 1wZ6Ij-0000000E9sI-0bAR
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 12:20:25 +0000
+	Mon, 15 Jun 2026 12:20:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=einfochips.com; i=@einfochips.com; l=973; q=dns/txt;
-  s=NAESA-Selector1; t=1781526024; x=1813062024;
+  d=einfochips.com; i=@einfochips.com; l=1125; q=dns/txt;
+  s=NAESA-Selector1; t=1781526025; x=1813062025;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=93XT2CFEttEQnwRkUkGt+mqMWaXh6HjcoOK57M858G0=;
-  b=IGgytbdYJhtdnTOxvY55HNsGlcqTetFlDnULm1hMuJv3okPU5CAjF5kc
-   fXP+5SeX1HQKtdB/vyoUAB+Nc9LHZJy9Vg5+xLot+tuGLB5sRPQ2Tyh2O
-   Q5kcHQj2++7A1WbI1scczbsQJDW+tNkW4MhspnNPaKMvJlVq3FZr/wON1
-   u1upXxRgTOECxFsA4M04urMBti12N467ttDeFwgphgwToatsatwM9Pm9H
-   VZccVzQrPniTMrcWphlkkFaXo7WeYu5Eml2AVuGPQOvkeY5rTREHN46Xb
-   FgwsirpEeHn61i4BHtjXgJigkVTO1S8ogpp3Uh96IeZVPFQZ4e8KdNCB3
-   w==;
-X-CSE-ConnectionGUID: VPFatQJHSea9q3nWSKALAg==
-X-CSE-MsgGUID: cFr0gn4hS/GyvWFh1CIsuQ==
+  bh=hT//GF9zeXsEraSo0H7p/1xw40IC3Pcx/rQfarynoP4=;
+  b=I/uyMhc5DV0jVUP7ZACpfBKRrpltPK5iocU26h2ElpWrGwi4IjTaVHmq
+   OCTDGwhUPz6/XECBAeA9T7N6OM6qIb/lUfoC+2GMUhi2ACkstrapBlnsc
+   RdlFAN1TP+Y0V0+iFW9x4M8paJv1QUDVVbuCuoP8947/MIYhnXAYZpaa4
+   RBERKmi2fV/1RNQ2+dD2SQMM+aKmHx3Z2HDkNszMoxQDbqGloJtmEBmk3
+   x5B5P4VxcHBcjOyMX/95IVJkIerNvGvN8gTHu9d/kPf+/qVOz6vYJP2tH
+   f1SyNuKpoOlIfIiJPXYrBDm23m2gJrB3h1eM+WC7i7W8bt17yUhxZbL2m
+   A==;
+X-CSE-ConnectionGUID: Vo34ZL1sRlCVR0TXx3t22A==
+X-CSE-MsgGUID: rhXYPsJWTV6Ru7OwlogBOw==
 X-IronPort-AV: E=Sophos;i="6.24,206,1774332000"; 
-   d="scan'208";a="55984205"
+   d="scan'208";a="55984207"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa05out.arrow.com with ESMTP; 15 Jun 2026 06:20:22 -0600
+  by naesa05out.arrow.com with ESMTP; 15 Jun 2026 06:20:23 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.20348.1);
 	 Mon, 15 Jun 2026 17:50:16 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
@@ -66,17 +66,17 @@ Cc: Yulin Lu <luyulin@eswincomputing.com>,
 	Darshan Prajapati <darshan.prajapati@einfochips.com>,
 	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
 	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: [PATCH 4/7] dt-bindings: mfd: syscon: add ESWIN EIC7700 compatible
-Date: Mon, 15 Jun 2026 17:50:13 +0530
-Message-Id: <20260615122016.1110206-5-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH 5/7] riscv: dts: eswin: add hsp power domain
+Date: Mon, 15 Jun 2026 17:50:14 +0530
+Message-Id: <20260615122016.1110206-6-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
 References: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 15 Jun 2026 12:20:16.0973 (UTC) FILETIME=[533DF7D0:01DCFCC1]
+X-OriginalArrivalTime: 15 Jun 2026 12:20:17.0021 (UTC) FILETIME=[53454AD0:01DCFCC1]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_052024_330108_6EFD6D36 
-X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-CacheID: sfid-20260615_052025_532149_8C7374BF 
+X-CRM114-Status: UNSURE (   6.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,33 +94,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document ESWIN EIC7700 SoC compatible for syscon registers.
+HSP CSR is inside the HSP power domain. HSP CFG clock must be enabled
+to access the HSP CSR registers.
+Add HSP power domain node to manage hsp cfg clock
 
 Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 ---
- Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/boot/dts/eswin/eic7700.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index e22867088063..7d3365601249 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -62,6 +62,7 @@ select:
-           - cirrus,ep7209-syscon3
-           - cnxt,cx92755-uc
-           - econet,en751221-chip-scu
-+          - eswin,eic7700-syscfg
-           - freecom,fsg-cs2-system-controller
-           - fsl,imx93-aonmix-ns-syscfg
-           - fsl,imx93-wakeupmix-syscfg
-@@ -175,6 +176,7 @@ properties:
-               - cirrus,ep7209-syscon3
-               - cnxt,cx92755-uc
-               - econet,en751221-chip-scu
-+              - eswin,eic7700-syscfg
-               - freecom,fsg-cs2-system-controller
-               - fsl,imx93-aonmix-ns-syscfg
-               - fsl,imx93-wakeupmix-syscfg
+diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+index 8798c50f7584..f8caf39616b2 100644
+--- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
++++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+@@ -252,6 +252,19 @@ plic: interrupt-controller@c000000 {
+ 			#interrupt-cells = <1>;
+ 		};
+ 
++		hsp_power_domain: bus@50400000 {
++			compatible = "simple-pm-bus";
++			ranges = <0x0 0x50400000 0x0 0x50400000 0x0 0xa0000>;
++			clocks = <&clk EIC7700_CLK_GATE_HSP_CFG_CLK>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++
++			hsp_sp_csr: hsp-sp-top-csr@50440000 {
++				compatible = "eswin,eic7700-syscfg", "syscon";
++				reg = <0x0 0x50440000 0x0 0x2000>;
++			};
++		};
++
+ 		uart0: serial@50900000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x0 0x50900000 0x0 0x10000>;
 -- 
 2.34.1
 
