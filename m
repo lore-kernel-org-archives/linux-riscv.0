@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219C0CD98C5
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 06:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865ACCD98C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 06:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MYptJu3mYcH7p28EXidjfcmdF2wIoL1gKt23Xqh6bms=; b=aKz0duXox0XZ5r
-	2WKdQh8gUhbpJtGj0bqXbLW0EJESQx03pmpaXXFq/f71paKb5hAwoDqx0vIUp1A71bvyGsonjvbXj
-	skqDJpftUvERDrwKu3NsxSmmufV/NsCZ8AENUHNKHrMyWWTeVaChR3rTygcX68MBAvr8vX6irBZVI
-	3BueNJZuBQjj2Eyipk5UN6If8fUMYM36xAfSnWZVs0B6GB+i/oWuOdpHx/dHWpMo/cutfodnYqK3K
-	5EKff1omdSi//vtH3vJTlb/84VbHlmll6eBL86j8gMJbfKrsxLZpFVZpT/5FgZEPQynMtMlIK+yih
-	dAbMHdSIe7Htk5ejhHkw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ouPKUORhJRzjfLGaKM+DohtdNlsrssqMxW0AC6T9kic=; b=zmS8dkT5fG/bKs
+	Ufe/8lbLS+Eu+GGA6zK47+uewiu41t6mRgRV//sugxQCztP8X/BLpmVFKCVeQRaw6I3LBdFf00dTX
+	a9R/TBF9JV+mpbhw3zsgVF5hb60hqFC5yxRc04BOT6FITVH8ENejPvr8mvhdhP+X3KqmFVl3YON/m
+	KzxxoaBQuJj8VGobGAPSeGxbvHvSOUR0x/J9AbHTvwHBbhOcxzqC8C2aoxkAGjSCsPFK8MH4n7A1K
+	YhPftTHvgE8GGbpsFNVKi9yeUTx0R6sJAQyf9Q9iBiWJ8oFyNXwa/c7De4oYIq2Wt1e4SKUNHmxKd
+	4rUI6jov7gvlTU9wuehg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ0uP-0000000Dh7d-1bTY;
-	Mon, 15 Jun 2026 06:34:57 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1wZ1AJ-0000000DibT-3dI9;
+	Mon, 15 Jun 2026 06:51:23 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ0uM-0000000Dh7I-3cmK
+	id 1wZ1AG-0000000Dhub-43AH
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 06:34:56 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-8423f236418so1544818b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 14 Jun 2026 23:34:54 -0700 (PDT)
+	Mon, 15 Jun 2026 06:51:22 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2bf2247e38eso27776425ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Jun 2026 23:49:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781505294; x=1782110094; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kpTWnKEfXWiCzl373nMMsDrR/prBlQwjYUYc6wVEFfc=;
-        b=Z6v0Wg0Ao718zUrgqpweggbXjPHjIvGCBqaxk7gYaUYLMCr/mSSoCMj/weh9zO8NKI
-         ZA4H7PKd5Pctzv2sr5SR9l8w9rhTuILZZ22VpCCVA4w0SsLJfR9cMWZ67GcI/SKaFcQ7
-         WRcKPLgx2B36mV3vhyg1yKiLw8hKPTzkggRaBgBLB0o1RRjuOlF+EjR27jxAkITB5gNE
-         M+smTL6vuyyqN0hc9ou74ln36Nutz2p3yL6vnMyT5G9aZ7LHzV4A4sjWh1C4C9S0Pm63
-         aeH/0g1+tLGMm+omEpEQNAbMCRewWUmwrVcVx5lTEGtxKGg/M2s7Tkdvxjgfs8iK6TkQ
-         5exw==
+        d=bytedance.com; s=google; t=1781506157; x=1782110957; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ybbv2WqemsTEWAq7K1IRQ6zQPJi/ktdHluf0py4HuKA=;
+        b=EteQanaxttkbkiqFhGLRv//z0lG8RL3vq9GczOTnMCkA7j+Fr+Ga4DVkb5rNzZY1PK
+         GlCCkRmi0XXXfpP9qUVt5KBhHTKP0WDBY6fLH/3bTOPk2BjD3tjr3Qs/K3GKwH32aqVQ
+         MngC+ZtLhKNOymv/tPY4aEvMtQscAeiiHKP3xLjHuyowefrYMvyd4+vEDYAViR776j1b
+         vF+Ws+QR26HOqE14fhRX7hgQNhVzvfHimf3aAek/ONLubgPM11LUc+Hk6gfpwr24Tjzp
+         eUt0Fzvo6byXdl6E2TdOqySRIQ5VWl3oLHkr/IEprzLgbaBYxtTql0J6vGBN28RNlNff
+         kubg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781505294; x=1782110094;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kpTWnKEfXWiCzl373nMMsDrR/prBlQwjYUYc6wVEFfc=;
-        b=WIog1Wclif38gZSb+DFp2GHgDZURfz+4E/O23gQULbEJ7cOHW9nMvKozObULD5rlao
-         z5jaZBhVU68FsqQyUTzCwH1UTkqCCL/c5J8qqIdQuJOAErNsP39+ZUBrNcRZRQrN6m/4
-         GgyRhAqcBYrL/DssgEH8SkGgm7ZfHDpEkD0ihI5ngPQ0Ozj1gp5/h4jzK6Byo1psWtDx
-         VnO1Ribq6ivfR1qBXXFQIiRyhhUDrTnito4R1gYlsa3PBesTsfkdWWt5MJ8IGmsqOZUU
-         cQeJVGce8RtDKFGF7UCtDe0AFo6zdOiEbfMRsdtFKeuSDNVMaqGkminsM2DoSbHLcZ+w
-         kXPg==
-X-Forwarded-Encrypted: i=1; AFNElJ8q6FN2mkfB31KhXDFUk8i5efORN2xfKsK0a6pHGTRwHfPY9wHd6/sgloV7v2f6Ed1jdb767wSOASMo8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhFVMI9RfFzCjnsaKTLvhBhGy0Illk9AyqhxjGW95+U5QSEWg1
-	NVXI7XYY27JxT842OvukSqsU28mKmO5sJBMNklpxjxfEEGsbKhJqnLEr74MrIXXaso6Vz3BpEYL
-	S2ssU
-X-Gm-Gg: Acq92OEs1qsPnsb8hMnWCgT8r5dKQG2qJyeO1wnglhQWpz/5NuBl9tHV1zOvc1ZLS+S
-	tU3E4xZR/zwlR2fEjk0HqqJ2dQwyr+DNDo4ghina4Bzigl2D/1sQ1HbC4shfGBbt+932BwIK9V5
-	8B3Qgn0eOnKOMljaginz5LK+jiuPs8ELkMEtwNGn/lBoEGbodZ8l9yEs4uljoleBP4w758FfHdx
-	07hrp5DOn2iZim8TIz/AVItHelO9nk5JQrdjRNUqv7Yx9zP+V/Na9OTOYQAs6oJGsDLxEMQhT7+
-	216DXqXx/ScOVSYl189ut9CGMQLYvpBf1uCTu6ahk6VJtW4CVU2uwRvXBMpJ/kmthGJM8g4QWQ5
-	LcrxMLr160keHwAVtmfFr01n4a9/SZrPqdPAapSL38U95Tjt1scXO62Wt0rXFlz734/VoU1eBFu
-	nKFjEeHe1Q0rUP66tfIZ4dqlm2n/JgZYdQwg==
-X-Received: by 2002:a05:6a00:891:b0:842:21f0:5114 with SMTP id d2e1a72fcca58-8434ce784abmr13630133b3a.30.1781505293590;
-        Sun, 14 Jun 2026 23:34:53 -0700 (PDT)
-Received: from localhost ([122.172.82.94])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b040718sm9297405b3a.51.2026.06.14.23.34.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Jun 2026 23:34:52 -0700 (PDT)
-Date: Mon, 15 Jun 2026 12:04:50 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Shuwei Wu <shuwei.wu@mailbox.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] cpufreq: spacemit: Add K1 cpufreq driver
-Message-ID: <wjwkykv555gkeqxabsqcdfn4lomcopawsv7bgm4bydc5likhjs@p3ca3p7wbri5>
-References: <20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org>
- <20260612-shadow-deps-v3-1-2f3ba88611ff@mailbox.org>
- <bd4s2icqgusnuujvrpoag4cniy3g2e4bumecqxt5yffl77aqpq@kxg4dj4c2wk3>
- <DJ9EFPG561VZ.1WGRYYHJ2W9J9@mailbox.org>
+        d=1e100.net; s=20251104; t=1781506157; x=1782110957;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ybbv2WqemsTEWAq7K1IRQ6zQPJi/ktdHluf0py4HuKA=;
+        b=j7MkVDKebieXGOf6V7IZyvtxDYMmKEiR1sZ5n989XHon3racHyhGE9CG0aDEBtOYxj
+         7+eUAz8NuJU051MxTTXPw8GL3iTjTdOozPnjNXU+MGqjaNrCn0HtsGIsXU1KFw6wmZ35
+         +3dyR9Kv0q/zcGqETFodgRcLnUtBQ7nLOVTEApC7eAMK3MvzV0gS6+GYKCJXdFwULwIj
+         69YN0pvRIPwQtt8TLYwLZbNeDeFcUhraVjZRMNIEts61XPfUstbQKBqFLeVvrOd+O9fP
+         kV9QJHqbt/ZVuuxsOO9HXrt0oSPm9C3wrFYbnyhOPdJcC/TB3lXp5Xz3eSUA8Uo58/5g
+         WSpA==
+X-Forwarded-Encrypted: i=1; AFNElJ9L8LUGqGBUduoi2w2D+fQd+f72lkc96E+pZYS3llcmInKDxGkjqhWvKmW8gW5QaLJiLnB5qxzBZ0l/sQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp9q1cPDxy2CAxpAZKTZSErIX4/63nUIyBlNXlFkVUYdG+uya7
+	CwH3AmbXUCEQmhJV8ThtcBs2szjPscbzlUwZB/YGTZ5Eb0bggZn5+SSQ44SrNrIs4SA=
+X-Gm-Gg: Acq92OETVJBuY+P+b85ylIAA1nX+60HkSFDIhasaKIu8d6C2zJ4U4zP+Q8N2GEP0kBv
+	mV0H4p0ja0NY08Iq48UGSO/LlPHqQYn4joaa/tYQDXMBDclKPeByVcAGewnWd2qQUGub0QOCp2N
+	4YHW7sb0m838MKtfNBiZAtADwJlJOLpCQkbJtj8zwtYitDiRL1cVah1YvwkcyMz4KCFYBtMhv5G
+	/0rRbecd2RJwfwkV1eLHtDo0sWSRjLazJu9TwK/5aTgn6FUdwWQm/0H7Wgzax7Uq50/ZKEgC+OC
+	XXR/Qai5DuMOxrL0HkjpPo1d+QXvtWO8g65qDTiKScEsi4n/linaOMVEibucVADpDC6Qh0FwGJn
+	cri8mroGhHnTTkU4I8DJsdP/1IzSgcWs/0m4uZVjb2jjs9LpNj6+RgXCqWAv8w0z4JBuOPfExcL
+	XAdjbELhE9cv22FH9DMc+U72Kl6nu5H/F+9J0jzOXO62o/aPTT4KjHDFNsHmaiO17uFLCLvqitp
+	ar6z70EudrMqno=
+X-Received: by 2002:a17:902:d4cd:b0:2c2:245a:3368 with SMTP id d9443c01a7336-2c410fbb052mr150983355ad.14.1781506156572;
+        Sun, 14 Jun 2026 23:49:16 -0700 (PDT)
+Received: from FJ7FR2JRQ3.bytedance.net ([139.177.225.228])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f7c6511sm83532935ad.24.2026.06.14.23.49.10
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 14 Jun 2026 23:49:16 -0700 (PDT)
+From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	cuiyunhui@bytedance.com,
+	yuanzhu@bytedance.com,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Subject: [PATCH v1] iommu/riscv: Support 32-bit register accesses
+Date: Mon, 15 Jun 2026 14:48:55 +0800
+Message-ID: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DJ9EFPG561VZ.1WGRYYHJ2W9J9@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_233454_919206_D4D8A653 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260614_235121_004999_D5CE718F 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +109,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Shuwei,
+Some RISC-V IOMMU implementations cannot perform 64-bit MMIO accesses
+to the IOMMU register file. The RISC-V IOMMU architecture allows 64-bit
+registers to be accessed using 32-bit accesses, provided the accesses are
+properly aligned and do not span multiple registers.
 
-On 15-06-26, 14:12, Shuwei Wu wrote:
-> The clusters have separate clocks, but they share the same voltage supply.[1]
-> So two independent policies would be unsafe: one policy could lower the shared
-> voltage while the other cluster is still running at a higher frequency.
+Add a config option for such implementations and access 64-bit IOMMU
+registers as paired 32-bit MMIO operations when it is enabled. Serialize
+the paired accesses so the high and low halves cannot interleave with
+another CPU. Full 64-bit register programming writes the high half before
+the low half.
 
-No, both will vote for the regulator contraints using CPU device and the
-regulator core will make sure it doesn't break any of them. This is what all
-frameworks do, regulator, clk, etc.
+This option describes the register access width. It is not an RV32 kernel
+mode and does not describe a 32-bit IOMMU architecture.
 
-> This means they can't use different policies.
+Co-developed-by: Xu Lu <luxu.kernel@bytedance.com>
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+---
+This is needed for platforms whose RISC-V IOMMU register window does not
+support naturally aligned 64-bit MMIO accesses.
 
-This is incorrect.
+ drivers/iommu/riscv/Kconfig | 11 ++++++++
+ drivers/iommu/riscv/iommu.c |  4 +++
+ drivers/iommu/riscv/iommu.h | 55 +++++++++++++++++++++++++++++++++----
+ 3 files changed, 64 insertions(+), 6 deletions(-)
 
-> From a hardware perspective, the eight cores of the K1 are homogeneous,
-> so using the same policy for them is relatively reasonable.
-
-Right, but this is inefficient. One cluster can be idle, or in low freq mode
-while other can be in higher. They MUST be two policies.
-
-> I used a K1-specific driver because cpufreq-dt only manages one CPU clock
-> through the CPU device used for the OPP transition.
-> On K1, the policy needs to control two independent cluster clocks and one shared
-> regulator, so the driver has to update the second cluster clock explicitly and
-> keep the ordering safe: raise voltage before raising either cluster, and lower
-> both cluster clocks before lowering the shared voltage.
-> 
-> [1] https://lore.kernel.org/spacemit/aeaXszeaE62rM6BJ@aurel32.net/
-
+diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
+index b86e5ab94183..54d624b9b2ef 100644
+--- a/drivers/iommu/riscv/Kconfig
++++ b/drivers/iommu/riscv/Kconfig
+@@ -22,3 +22,14 @@ config RISCV_IOMMU_PCI
+ 	def_bool y if RISCV_IOMMU && PCI_MSI
+ 	help
+ 	  Support for the PCIe implementation of RISC-V IOMMU architecture.
++
++config RISCV_IOMMU_32BIT_ACCESS
++	bool "Use 32-bit accesses for RISC-V IOMMU registers"
++	depends on RISCV_IOMMU
++	help
++	  Say Y when the RISC-V IOMMU MMIO window cannot be accessed
++	  using naturally aligned 64-bit loads and stores.
++
++	  When enabled, 64-bit IOMMU registers are accessed as paired
++	  32-bit MMIO operations. This option does not describe an RV32
++	  kernel or a 32-bit IOMMU architecture.
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index a31f50bbad35..7fa1721b5728 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -53,6 +53,10 @@ struct riscv_iommu_devres {
+ 	void *addr;
+ };
+ 
++#ifdef CONFIG_RISCV_IOMMU_32BIT_ACCESS
++DEFINE_RAW_SPINLOCK(riscv_iommu_32bit_access_lock);
++#endif
++
+ static void riscv_iommu_devres_pages_release(struct device *dev, void *res)
+ {
+ 	struct riscv_iommu_devres *devres = res;
+diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+index 46df79dd5495..ba78ef1858c5 100644
+--- a/drivers/iommu/riscv/iommu.h
++++ b/drivers/iommu/riscv/iommu.h
+@@ -14,6 +14,9 @@
+ #include <linux/iommu.h>
+ #include <linux/types.h>
+ #include <linux/iopoll.h>
++#ifdef CONFIG_RISCV_IOMMU_32BIT_ACCESS
++#include <linux/spinlock.h>
++#endif
+ 
+ #include "iommu-bits.h"
+ 
+@@ -69,21 +72,61 @@ void riscv_iommu_disable(struct riscv_iommu_device *iommu);
+ #define riscv_iommu_readl(iommu, addr) \
+ 	readl_relaxed((iommu)->reg + (addr))
+ 
+-#define riscv_iommu_readq(iommu, addr) \
+-	readq_relaxed((iommu)->reg + (addr))
+-
+ #define riscv_iommu_writel(iommu, addr, val) \
+ 	writel_relaxed((val), (iommu)->reg + (addr))
+ 
++#define riscv_iommu_readl_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
++	readx_poll_timeout(readl_relaxed, (iommu)->reg + (addr), val, cond, \
++			   delay_us, timeout_us)
++
++#ifndef CONFIG_RISCV_IOMMU_32BIT_ACCESS
++#define riscv_iommu_readq(iommu, addr) \
++	readq_relaxed((iommu)->reg + (addr))
++
+ #define riscv_iommu_writeq(iommu, addr, val) \
+ 	writeq_relaxed((val), (iommu)->reg + (addr))
+ 
+ #define riscv_iommu_readq_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
+ 	readx_poll_timeout(readq_relaxed, (iommu)->reg + (addr), val, cond, \
+ 			   delay_us, timeout_us)
++#else /* CONFIG_RISCV_IOMMU_32BIT_ACCESS */
+ 
+-#define riscv_iommu_readl_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
+-	readx_poll_timeout(readl_relaxed, (iommu)->reg + (addr), val, cond, \
+-			   delay_us, timeout_us)
++extern raw_spinlock_t riscv_iommu_32bit_access_lock;
++
++static inline u64 __riscv_iommu_readq_relaxed(void __iomem *addr)
++{
++	u32 lo, hi;
++	unsigned long flags;
++
++	raw_spin_lock_irqsave(&riscv_iommu_32bit_access_lock, flags);
++	do {
++		hi = readl_relaxed(addr + sizeof(u32));
++		lo = readl_relaxed(addr);
++	} while (hi != readl_relaxed(addr + sizeof(u32)));
++	raw_spin_unlock_irqrestore(&riscv_iommu_32bit_access_lock, flags);
++
++	return ((u64)hi << 32) | (u64)lo;
++}
++
++static inline void __riscv_iommu_writeq_relaxed(u64 value, void __iomem *addr)
++{
++	unsigned long flags;
++
++	raw_spin_lock_irqsave(&riscv_iommu_32bit_access_lock, flags);
++	writel_relaxed((u32)(value >> 32), addr + sizeof(u32));
++	writel_relaxed((u32)value, addr);
++	raw_spin_unlock_irqrestore(&riscv_iommu_32bit_access_lock, flags);
++}
++
++#define riscv_iommu_readq(iommu, addr) \
++	__riscv_iommu_readq_relaxed((iommu)->reg + (addr))
++
++#define riscv_iommu_writeq(iommu, addr, val) \
++	__riscv_iommu_writeq_relaxed((val), (iommu)->reg + (addr))
++
++#define riscv_iommu_readq_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
++	readx_poll_timeout(__riscv_iommu_readq_relaxed, (iommu)->reg + (addr), \
++			   val, cond, delay_us, timeout_us)
++#endif /* CONFIG_RISCV_IOMMU_32BIT_ACCESS */
+ 
+ #endif
 -- 
-viresh
+2.50.1 (Apple Git-155)
 
 _______________________________________________
 linux-riscv mailing list
