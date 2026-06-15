@@ -4,92 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D05CD8CA8
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 02:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C43DCD98C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 03:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DrrRNjn+FkVXbnt/0Qn0L9CSwgPnDmMvUSll5z2uzDc=; b=ShZrNX8SyOVYHb
-	chtRaXAmwwngMxMAlEFsNtMdJw9ml59q9DP8Nf3WVlyggiBe3lvn+v6NfDcFNh3UMp3qCtV8OP0O+
-	U3GrvWhFmIKcrLLvKYj9t4fbE+0X8AxylrBXa6fQ2K8KfNQLtL4gZVw7E+zrBlwUzIYFGmJKjvMDs
-	8UWvDhuZdwwEc36QZFoRE0JjMAEyweprRganG7+PQlqmRpEkzaINzQO9wa20wOyLuAP72Btsra1hU
-	i+OOSwi3AK1Ri+Bl9sYBSbt5xvikMF68/xWWM5Ai2CflJIjR+lXpBOz7GHuytZz77ailOU2IT0nFW
-	huVV6zTB4iKHTkTcUGpQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4514pf14gcLQI9x1xgY48zXa53G4ltzSC+JFqNumwDE=; b=4IRWbXEtU19BZa
+	NS0NGobLz8wTVU50t1aZGreVTazVtXJsokC5QReYYWeP8UbnRrEpgXFLyjFg/4QgbldYNUybTM+HS
+	JkQxL2FWxP/e6UXeF8iNqP/MED2lVAY4gphLnRHAHE9toxz47Zh5VJk6Yt6Fl9q6jTKbHQb4EyaQj
+	J2skPzXZUGGHijJA5o/aMZiSfEKOEAIL6N1xSJqQAcFtuGFwHCDnpKXl9I4CW6hq8BetheI1+TUtE
+	GtcHMKE55AS+2hcYAYlZrbpeKMQ+2xGnS1AOGdNwe/el1rYhEymnV0HhAqyPrf8nYn+B/OvG1eZFM
+	dGdLlK3b0TjiZ7gdYhjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYxSm-0000000DUjq-2pWQ;
-	Mon, 15 Jun 2026 02:54:12 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1wYy5K-0000000DWlB-37v9;
+	Mon, 15 Jun 2026 03:34:02 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wYxSi-0000000DUiY-0z2e
+	id 1wYy5G-0000000DWjM-2PM1
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 02:54:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1781492017;
-	bh=9cdgRcyegQxc+GL9OIvqHFBLz+b62Df+DVzvz8Yb1XQ=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=F3Tt9xhh6xwijem4auZV+8lwkF/A1hOeCuFU9njowsApzczwp/yGZiCbXetDFgrV6
-	 JbgfCSOhxU/G/YQ0FJY7Gcq7EevHBUjNqG5YmuZRSpGWXQyYz4Yg/AEyq/pcfFpUKe
-	 0U65IszWVU+oXlQkF1IVl3dI+iv1DWIqcE4dyW4g=
-X-QQ-mid: esmtpgz13t1781492009td124dd22
-X-QQ-Originating-IP: sIOKzMB04rbDdG57pAc6E7eAYC2N0k7ypTl2bL5sMnk=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 15 Jun 2026 10:53:27 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 970519476431799130
-EX-QQ-RecipientCnt: 9
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Mon, 15 Jun 2026 10:53:25 +0800
-Subject: [PATCH] dmaengine: mmp_pdma: fix wrong extended DRCMR base for
- SpacemiT K3
+	Mon, 15 Jun 2026 03:34:01 +0000
+Received: by mail-pg1-x544.google.com with SMTP id 41be03b00d2f7-c86307c4e6bso881317a12.0
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Jun 2026 20:33:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781494437; x=1782099237; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=;
+        b=cPTzYIHdKjqkZupaBHV1pLHoJKoGfWGZ//Js7rf7j0h3gwPUJxTgFGGVLruyHWbSEa
+         GD02hgNomiq/99S1jftY0PRDG1yMoPjvX0oHA+0WSnvxQIvxGLkSXtTXCoIVcE/VTBsW
+         OpA5ytTySBG9pakfLL4E7yf3FBVJzk8GYvZp/dCap9twnSD+Hai637X7aP0uzm29cYWp
+         OROavm2CpoOyAHsSK1S4Bk4zuXLs33DAPCYtup1dciX86cXV97ogDOUzWciFoLAqB9Fk
+         z/gHTou0vodja2hAtBNCQyQrQT1/o5QeZWlwPunj6ZITrbO5B465jGXHOUuPf3ll+s57
+         RQjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781494437; x=1782099237;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4N4VN4U8dWKYBPdGLpmGB0dN8xMC6v/gON67oih3Zak=;
+        b=pmLU31kc3jOErO0+X4isvKtRjiu6A4t2myVXCZ8G4T8YoTnJH5El8qnsHw5vd+aae7
+         ZB4+2zNL79fjYgqRsJe+hJAPwpcuveXBK/S5F0dw8/a0tQjD+18thn6bJ7zZYDevXhPc
+         6Ioxfn/ypFMyHv1Yf4kt4xxjWF1vmSfKw0jHbElMWOY+BajemZcHMRi94kMXvcuGizgG
+         6odTAa6eo5Xx8URhFtzE6sOFFOXivQRk1R7v0LLwzp1rjbQ1fRzJ7grahC2aWf0jvYDw
+         7XiNhbkipftvF+aaGSknL1PDFGukgZ9WL5uUj41RtJL+i331eH2qqwoZ/uayKrq6CgiC
+         qfoA==
+X-Forwarded-Encrypted: i=1; AFNElJ+4JUWyE+SerBHYLtbjtjmNhN2fl8bDeUL2NxXHgyx3Ikk7+huH5z0ndE5C6UqaPVW6TCfGzAz8xzPttQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYZZwtj7Y3ZHePmfgXjHqMJBk0hx1r3Ggm2IXpBf0LJdgyYD6a
+	iDLt/TNX+C+JaJQAVg2XygN8HdgQh+bB+TE9eu2sRrhbXirNyIp/9zpL
+X-Gm-Gg: Acq92OGJbLQHEJx+UIrSSlevW01vgmugABrcd67ajVEpDW4IejVE+kUiOFYNyJXobBD
+	6iQX9VJlIMn5KPhp1E3nEikTj2QMALm7SnFkaMg3t0KZlEuh1QlZ0LIEY5hRa61OdEy2SAohAjM
+	v0TDLK2heAzDHcCSJV25cp17Bs68WD8p1AqZU9HjrkYH6zKwKEKqrbbYUtyGx4X/dWW9FpUwB6e
+	x6gJBiF/vTSnrVlnCpzXuRDD9vrwEHTLaP701DUkF+4/Y/3GFafkX1OQAds8lYyRJJhr3OfoMUm
+	4/XntqBaGKgRG/dPaUWgOeqNSTnSdsKu0k4lbyK43tJMI6VK2cf+dM8A5e8En+BmclVl7neBvlq
+	EhnyYjKa6s5xmU3nDCjmtxIlI5WtMBlB6lecyqBc/vVFJDngmpkVfgwblNOoxitukt7epskipZF
+	s0YBxU5qP81FeX0P26x2HHFKqfwoRAq2LO5dZlnlIg+w==
+X-Received: by 2002:a05:6a21:6813:b0:3a2:d629:16a2 with SMTP id adf61e73a8af0-3b783b757e9mr14493609637.10.1781494436758;
+        Sun, 14 Jun 2026 20:33:56 -0700 (PDT)
+Received: from [10.125.112.20] ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b035ce6sm8650381b3a.49.2026.06.14.20.33.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 14 Jun 2026 20:33:56 -0700 (PDT)
+Message-ID: <894d7c33-8e14-4ba5-b774-14062ece39f2@gmail.com>
+Date: Mon, 15 Jun 2026 11:33:34 +0800
 MIME-Version: 1.0
-Message-Id: <20260615-k3-pdma-fix-drcmr-base-v1-1-ee1af124199f@linux.spacemit.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBCF4avIrDsQk5pAr1K6iMm0HUUrMyqCe
- HfTdvnBe/8OSsKkcKt2EFpZ+TMW1JcK0juOL0LOxWCN9cbXDfYOpzxEfPKGWdIg2EYldNY3zod
- grjZAOU9CZfEL3x9/69J2lOZvDY7jBPT3f1V6AAAA
-X-Change-ID: 20260615-k3-pdma-fix-drcmr-base-326536770427
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Yixun Lan <dlan@kernel.org>, Guodong Xu <guodong@riscstar.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781492007; l=2337;
- i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=uRoYSn+03n3qs6PdBupNOOH2WL9aOy5kZqVsqXkmenQ=;
- b=ux9M+5feWTDQomVUCVzKjSoFiHXzhLBoATaX+eIavhiJsHTBs1lfzTwR+TmZ5vf4H9BEkkKtj
- hD/W0feCtqtCMA4F+dVPHPWyZAm49u7X4SJxiIxDSktW+T+fgpPyRsJ
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NR3PJyWXADsZWGvmJ/fAsL/uDbMsCRFrmSwjvVqGUmClnk5DmbMU5tBu
-	ykVyK1n085TPp8HCHvzTT4zIbfUX015g0/5wk3VCPGm9wrSiBihs5CQG4DiKxjzfwqGoIO+
-	utimX5PR6oKp9j8EHN7pOCrXvunriq8wWYLwVTr3vKHq/kZM/q1yocphcJ24WcrOaiI9jd1
-	iMkNyK9xfPlLSusf+0EJ0bvKw8WScQ2373ippOAe5Qxum5DEK6BQJES1SDb5d5tP3rxqazD
-	kzqulePwY7f1Wcd1g1oO1o8ifryGbsIAXFuzj8BkOxQ12LVDI2TnudMx5ppb9U11aKzteRA
-	ZQ0yYV1G0HYTCRtxT97J69aQo4syKqBwd7uM0kEyGxUcXLCSgIL1rPR8vx/4P3rno12QqBM
-	Ngx381FgHAyznX5QmAmxsR7h7j1fw0fMZdsLoWo6+vNhMiDMU3UkncoTULstaCyPRaTsjau
-	KAveYVa8lfSRYyUImri6SoMFnnmb3BApLBwWsFRFBXnwKkyi2gaCCGys8xdV5/8lTVuGvNQ
-	4nd9RHxdFH+lCqX3olkSKeojOZxWWJukPElybi3H63njUhXpC/QQL7s/JdOOxGJD2hZOxSK
-	pQb+dK/XEdVIn4HSjX6C4Fth/giSpKwxKkc7IFWt6OTUHCBKZkLi52eLMliQzOzopXUcCLL
-	aHgiTU98rl33aO9SA93gMX01LPRf+CaGPdwWC9CcWZ+AODWFS9GcYIudZy2/TRmAmLNfkPj
-	NkFCeezh21RRr/RQM9pc6QJK/OwlLlziElaENlh1UbazZnzTSCBUfVEuFqo9X3+dCr8Ws4p
-	bo7BKWHyJNFkgJnrm6dss4HoLIUyhl9tpgVhHEB/agl1SA76cGuShVKNAdLqfXRIzsjih76
-	bgh0O5VmQXvQWCafRijsr/wSJi7IcY8zdjd8saR7cHN4EYzQDl0dZq+FMQ5+7ifZQ8yFdEF
-	njgEnhODey/ykibLN7Y5CYCgnOrJX6MlKUBvdrsu9MqoDc7iR1sEdhppupoNZYHuekqH7Qt
-	eLbyrigxk/tHuafUu9PhSp+2uh4B7bWlTQVxs6U+XlOz9ApNQueRlcOGuVhFfS8NLj3ZuoS
-	bhLhGMioQQ5KDXknMUPeN0NPoXc8lmzKOaK4zy4jfQpP4rhBJco0Tk4Z6B2Yja5Ng==
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/11] of: reserved_mem: split
+ alloc_reserved_mem_array() from fdt_scan_reserved_mem_late()
+To: Rob Herring <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org,
+ iommu@lists.linux.dev, zhaomeijing@lixiang.com, catalin.marinas@arm.com,
+ will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ saravanak@kernel.org, akpm@linux-foundation.org, bhe@redhat.com,
+ rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ ruirui.yang@linux.dev, m.szyprowski@samsung.com, robin.murphy@arm.com,
+ quic_obabatun@quicinc.com
+References: <20260527032917.3385849-1-chenwandun1@gmail.com>
+ <20260527032917.3385849-6-chenwandun1@gmail.com>
+ <20260612144122.GA974326-robh@kernel.org>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <20260612144122.GA974326-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260614_195409_470945_126AE371 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20260614_203358_627102_9D8C23C0 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,62 +112,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K3 PDMA shares the same DRCMR layout as K1, where the extended DRCMR
-base address is 0x1100. Commit 6587b8661a0b ("dmaengine: mmp_pdma: add
-SpacemiT K3 support") incorrectly defined DRCMR_EXT_BASE_K3 as 0x1000,
-causing all DRCMR accesses for channels >= 64 to be off by 0x100.
 
-Drop the bogus DRCMR_EXT_BASE_K3 macro and reuse DRCMR_EXT_BASE_DEFAULT
-for the K3 ops.
 
-Fixes: 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support")
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
-This is a minimal fix for the wrong DRCMR_EXT_BASE_K3 value introduced
-by commit 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support").
-K3 PDMA shares the same extended DRCMR base (0x1100) as K1, so the K3
-ops now reuses DRCMR_EXT_BASE_DEFAULT.
+On 6/12/26 22:41, Rob Herring wrote:
+> On Wed, May 27, 2026 at 11:29:11AM +0800, Wandun Chen wrote:
+>> From: Wandun Chen <chenwandun@lixiang.com>
+>>
+>> Prepare for storing /memreserve/ entries in the reserved_mem array.
+>> alloc_reserved_mem_array is skipped if the device tree lacks a
+>> /reserved-memory node, pointer 'reserved_mem' continues to reference
+>> the reserved_mem_array which lives in __initdata, storing
+>> /memreserve/ entries into reserved_mem_array would result in metadata
+>> loss, and an out-of-bounds memory access will occur if the device
+>> tree contains more than MAX_RESERVED_REGIONS /memreserve/ entries.
+>>
+>> So split alloc_reserved_mem_array() from fdt_scan_reserved_mem_late(),
+>> and call alloc_reserved_mem_array() whether or not there is a
+>> /reserved-memory node.
+>>
+>> No functional change.
+>> The actual /memreserve/ population is added in a follow-up patch.
+>>
+>> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+>> ---
+>>  drivers/of/fdt.c             | 7 +++++--
+>>  drivers/of/of_private.h      | 1 +
+>>  drivers/of/of_reserved_mem.c | 6 +-----
+>>  3 files changed, 7 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+>> index 82f7327c59ea..83a2a474831e 100644
+>> --- a/drivers/of/fdt.c
+>> +++ b/drivers/of/fdt.c
+>> @@ -1284,8 +1284,11 @@ void __init unflatten_device_tree(void)
+>>  {
+>>  	void *fdt = initial_boot_params;
+>>  
+>> -	/* Save the statically-placed regions in the reserved_mem array */
+>> -	fdt_scan_reserved_mem_late();
+>> +	/* Attempt dynamic allocation of a new reserved_mem array */
+>> +	if (fdt && alloc_reserved_mem_array()) {
+>> +		/* Save the statically-placed regions in the reserved_mem array */
+>> +		fdt_scan_reserved_mem_late();
+> 
+> Can we make this just:
+> 
+> alloc_reserved_mem_array();
+> fdt_scan_reserved_mem_late();
+> 
+> We already check !fdt in fdt_scan_reserved_mem_late().
 
-I deliberately kept the per-ops drcmr_ext_base field and the
-DRCMR_EXT_BASE_DEFAULT macro to preserve the extensibility that was
-introduced together with the helper refactor, in case a future PDMA
-variant ends up using a different extended base. If reviewers prefer
-to drop this abstraction entirely and collapse it back to a single
-constant now that all known users share the same value, I am happy to
-send a v2 that removes the drcmr_ext_base ops field as a cleanup.
----
- drivers/dma/mmp_pdma.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Thanks for you review, Rob.
 
-diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
-index 386e85cd4882..78e3e07e681d 100644
---- a/drivers/dma/mmp_pdma.c
-+++ b/drivers/dma/mmp_pdma.c
-@@ -52,7 +52,6 @@
- #define DCSR_EORINTR	BIT(9)	/* The end of Receive */
- 
- #define DRCMR_BASE		0x0100
--#define DRCMR_EXT_BASE_K3	0x1000
- #define DRCMR_EXT_BASE_DEFAULT	0x1100
- #define DRCMR_REQ_LIMIT		64
- #define DRCMR_MAPVLD	BIT(7)	/* Map Valid (read / write) */
-@@ -1219,7 +1218,7 @@ static const struct mmp_pdma_ops spacemit_k3_pdma_ops = {
- 	.get_desc_dst_addr = get_desc_dst_addr_64,
- 	.run_bits = (DCSR_RUN | DCSR_LPAEEN | DCSR_EORIRQEN | DCSR_EORSTOPEN),
- 	.dma_width = 64,
--	.drcmr_ext_base = DRCMR_EXT_BASE_K3,
-+	.drcmr_ext_base = DRCMR_EXT_BASE_DEFAULT,
- };
- 
- static const struct of_device_id mmp_pdma_dt_ids[] = {
+The reason I kept the fdt check is that total_reserved_mem_cnt is wrong
+when fdt is NULL, early_init_fdt_scan_reserved_mem() returns early in
+that case, so fdt_scan_reserved_mem() never runs, and
+total_reserved_mem_cnt stays at MAX_RESERVED_REGIONS. Calling
+alloc_reserved_mem_array() unconditionally would allocate unnecessarily
+memory.
 
----
-base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
-change-id: 20260615-k3-pdma-fix-drcmr-base-326536770427
+A better fix might be to make total_reserved_mem_cnt always correct, add
+a !fdt check at the top of fdt_scan_reserved_mem() that sets
+total_reserved_mem_cnt to 0, and let early_init_fdt_scan_reserved_mem()
+call it even when initial_boot_params is NULL. Then
+alloc_reserved_mem_array() could naturally skip allcation when that
+count is 0, and we can drop the outer fdt guard.
+
+
+There is still separate UAF issue (fixed in patch3) if we don't check
+the return value of alloc_reserved_mem_array().
+
+
+With the fdt_scan_reserved_mem() fix for total_reserved_mem_cnt, the
+call site in unflatten_device_tree() becomes:
+
+if (alloc_reserved_mem_array()) {
+        fdt_scan_reserved_mem_late();
+}
+
+How does that sound?
+
 
 Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Wandun
+
+> 
+> Rob
 
 
 _______________________________________________
