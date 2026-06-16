@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF995CD98E1
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2026 15:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CA8CD98E3
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2026 16:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3MoJb8SYMJyhXnvRLgb4zReR3Mt4XmDuwVyPCiVHvYQ=; b=0tp5rWbPGuN0D5
-	KSOq0270kxb28ijhKlYJFouSo7PXuNvWX78GS0sFSTBY7ywziuGVhvEV2a8lecRZ9XXu7zdy08WuC
-	etN4+QTpzkbUNXqP6zCh0ghL/7MrSWAvoFfN8bfmlRTpGnZeDAE3/EV8yG/QaI0JaTHZgW8DCsm+e
-	4hVs/5+oDHm6W39OA1Xk+UQYXDGQscqipiCzuf1PTWW+YMS2UfjKxTlqHoD8t2/K+4HZ5lcqtwW3Z
-	6D1yezvhJ0xHcgOx51hsyHzzmCab0CrqU80zfztG7sNXglPCL7MQKsUNesKHn4oW0O66DpmFo6Tv7
-	4AlK4lg1VLxXXqgY+aLA==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WIn0Rp0Fk2wKfneWnm5b6g/l0LgKpuZ/TRHj8znEQQg=; b=Wa4eKozn2Q1cqb
+	oUUUT/VrB6ZJ+5jhWCg8LBVK5PwLihOKYsZvHZlYZsh/93RswJ6NwTMhrUYbB+w7XkBVG2R+JCPc8
+	t1Gzv8KVHfhAUqzEQ44sA8NepqiOqrWzlGBDmzgwIOBeSxArxS79ZLlfV89sVmEM950NoFYqa0hq3
+	UIzPS/5f4y+slD5GMrQEWbL/a8U+LBTAp7mmDdQXP4C3p5ws5aT35UyCjNbRpGArSDLEgti4NEeIZ
+	SMMNlGs9E1xQbn0DJRuJCc31Tw0OhnRCdlC9grCVRrhndJdUhYrvEPNhIsDo4r+on+PpYOq0qt60Y
+	BAlUrADlwEq8JGnHX3mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZW0Y-0000000G2u6-084a;
-	Tue, 16 Jun 2026 15:47:22 +0000
+	id 1wZWGM-0000000G4Vq-3GzD;
+	Tue, 16 Jun 2026 16:03:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZW0W-0000000G2ty-1oyd
+	id 1wZWGL-0000000G4VH-0Qrv
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jun 2026 15:47:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F26B1445A8
-	for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2026 15:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C75571F0155C
-	for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2026 15:47:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781624839;
-	bh=G/zUhartSnj7tjHRNF+uBfRGL+KZui8IXJel7Kwg5a0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Aos85ykdopfzZr4qQYDeCoS8xaYTx8wyCcg364B4glmXFk0VztHa4376ujVTbvx4K
-	 Yxyp4mdi/8OK96F1JnNDLjJa/m0QMJQ2JvV9hGQ7McHGgj/crFASWYiv+Xvf9/R8ow
-	 Usl3A3VgsMpkpsppqLagggq5nqYzKDMl3e7u9avU3UiyaCWFhywVsFyLu4U8YJAdAX
-	 QMkVkTT1fvN82VIw/cE9L2B1waJgHOdyGGnRAdfcMMfopRQdOeixm6IZzpbn9eKTEe
-	 6rzkE2QkBiiwJ762LP9THd54yOmIfcTGKkOxPn7cDPnQCS5KbEbBX7IR+iwu2RQCp/
-	 aCOtFfsdF+ypg==
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4922244f7c7so29253265e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2026 08:47:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/LaZk5SDq1NCzZtGZ4S9vUsh6oqm8S+E+MxS/f9OeclUE+bHNhqTSS8b9EMjjRE6BCoipsRxpAqVUeyA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy9dxrtbGqrWGI0yI1/nDV1NFOFYw4nyofn6IPWhGmucMkjz2/
-	ThfRBeQNhs1gqflh2U6xVmLIWZcPAWe6+Iz9X6zo0Zw/kk8d17GSN1SNtjpo+clQAqpZFSpAbyi
-	tJ2/HxuaxJuBeIzkM6t0xVy2wtv+djF0=
-X-Received: by 2002:a05:600c:3b0f:b0:491:731c:892a with SMTP id
- 5b1f17b1804b1-492333df11bmr680915e9.35.1781624838387; Tue, 16 Jun 2026
- 08:47:18 -0700 (PDT)
+	Tue, 16 Jun 2026 16:03:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A72A340C06;
+	Tue, 16 Jun 2026 16:03:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7C364C2BCB8;
+	Tue, 16 Jun 2026 16:03:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1781625820;
+	bh=Lm+krQRjayssExG5JKt1/LRyEma2hsrgqQChmyPz9GQ=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=VPMltQWMtWhWgtF/99+HdOMhA/QsErmgWRfCkF7CiJJNcKc/2YXL0uSgZhkEeYjEv
+	 FwG9Mu40OpHDyNhUWVlFYmgr6oKOPgw5nzB+I+eiz5B9WLOlhAHsN7sq6Sbhn/hbYM
+	 s4nu6zyF7g1meFrJmB9iNfojGC7BXEZCVNkGOgIYyD8dYBszZPcDBLcP+sZd+bZqNS
+	 WQYjUBJEkGQ/mfcN9Zpu/VZROMJomlxfb/3udyQESEYyPxST+SHudlym4+OhCGzqrb
+	 ukwxUsF/C3Mmd9aSNoM1eA5jixeZbjaS30xF8PvANazjRuFc+YQG2JxtNs83LapYAd
+	 A45hbM5SeJ4EA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B0A8CD98E3;
+	Tue, 16 Jun 2026 16:03:40 +0000 (UTC)
+From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
+Subject: [PATCH v9 0/3] riscv: Use GCR.U timer device as clocksource
+Date: Tue, 16 Jun 2026 18:03:36 +0200
+Message-Id: <20260616-riscv-time-mmio-v9-0-03af7bc8f2d8@htecgroup.com>
 MIME-Version: 1.0
-References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
- <20260615123821.373248-1-guoren@kernel.org> <20260616113651.1048a19a@pumpkin>
-In-Reply-To: <20260616113651.1048a19a@pumpkin>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 16 Jun 2026 23:47:05 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTh1zyAZkKt7AQNZptG_H=-8xSum6PVTyxEmw23pN6-9g@mail.gmail.com>
-X-Gm-Features: AVVi8CcTPsNyYpI81XM406R0-c5h9wixp30ROEWYygvxB_d53TSoJkwNBAEo5Gw
-Message-ID: <CAJF2gTTh1zyAZkKt7AQNZptG_H=-8xSum6PVTyxEmw23pN6-9g@mail.gmail.com>
-Subject: Re: [PATCH v1] iommu/riscv: Support 32-bit register accesses
-To: David Laight <david.laight.linux@gmail.com>
-Cc: zhangzhanpeng.jasper@bytedance.com, alex@ghiti.fr, aou@eecs.berkeley.edu, 
-	cuiyunhui@bytedance.com, iommu@lists.linux.dev, joro@8bytes.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	luxu.kernel@bytedance.com, palmer@dabbelt.com, pjw@kernel.org, 
-	robin.murphy@arm.com, tjeznach@rivosinc.com, will@kernel.org, 
-	yuanzhu@bytedance.com
+X-B4-Tracking: v=1; b=H4sIANhzMWoC/23QwU7DMAwG4FeZcibIMYnrcOI9EIeQOGsOXae0V
+ KCp7042hHpoj78lf7/lm5qkFpnU6+mmqixlKuOlBf90UrEPl7PoklpWCOjAotW1THHRcxlED0M
+ ZtSNkgRwDh6za1rVKLt8P8f2j5b5M81h/HgWLvU//LGf21mI16PgJMaNHTERv/SzxXMev63McB
+ 3X3FrcZnTF7wzXDSzKZ0YXk5MigzWCgvUHNwJRBGI33no+M7t8geDm6o2sGGGLrAmSGQ4M3gwz
+ sDW5GYHIIRJ2Lu3+s6/oL21eN5MIBAAA=
+X-Change-ID: 20250424-riscv-time-mmio-5628e0fca8af
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <pjw@kernel.org>, 
+ John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, 
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
+ Chao-ying Fu <cfu@mips.com>, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781625819; l=3478;
+ i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
+ bh=Lm+krQRjayssExG5JKt1/LRyEma2hsrgqQChmyPz9GQ=;
+ b=Qhrht9GqE5dC6OTAM5Gv9kdg5UsA1In97bbogP5vzChL2CCQ/MR8qFAbsXZdIqJsGkNFN/OnU
+ 2hDRxlBvpm7CZ3PUaFE00z/48DwTYLcy1yRfzxLBtgMAJ8wtpWUl3NQ
+X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
+ pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
+X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
+ with auth_id=476
+X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +92,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: aleksa.paunovic@htecgroup.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdW4gMTYsIDIwMjYgYXQgNjozNuKAr1BNIERhdmlkIExhaWdodAo8ZGF2aWQubGFp
-Z2h0LmxpbnV4QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIDE1IEp1biAyMDI2IDEyOjM4
-OjE3ICswMDAwCj4gR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gPiBIaSBa
-aGFucGVuZyBaaGFuZywKPiAuLgo+ID4gMy4gT25seSBwZXJmb3JtYW5jZS1tb25pdG9yaW5nIGNv
-dW50ZXJzIHJlcXVpcmUgNjQtYml0IElPIGFjY2VzcyBvciB0aGUKPiA+IGhpZ2gtbG93LWhpZ2gg
-ZG8td2hpbGUgcmV0cnkgc3RyYXRlZ3kuIEZvciBvcmRpbmFyeSBzdGF0dXMgYW5kIGNvbnRyb2wK
-PiA+IE1NSU8gcmVnaXN0ZXJzLCBhIHNpbmdsZSByZWFkIGlzIHN1ZmZpY2llbnQuCj4KPiBBY3R1
-YWxseSB0aGlzIHNlcXVlbmNlIHNob3VsZCBiZSBlbm91Z2ggZm9yIGEgY291bnRlcjoKPiAgICAg
-ICAgIGhpID0gcmVhZF9oaSgpOwo+ICAgICAgICAgbG8gPSByZWFkX2xvKCk7Cj4gICAgICAgICBp
-ZiAoaGkgIT0gcmVhZF9oaSgpKSB7Cj4gICAgICAgICAgICAgICAgIC8vIFBpY2sgYSB2YWx1ZSB0
-aGF0IGhhcHBlbmVkIHdoaWxlIGRvaW5nIHRoZSByZWFkcy4KPiAgICAgICAgICAgICAgICAgaGkr
-KzsKPiAgICAgICAgICAgICAgICAgbG8gPSAwOwo+ICAgICAgICAgfQpUaGlzIGlzIG5vdCBhIGZy
-ZWUgb3B0aW1pemF0aW9uIOKAlCBpdCBkb2VzIG5vdCBwcmVzZXJ2ZSB0aGUgc2FtZQpzZW1hbnRp
-Y3MgYXMgYW4gYXRvbWljIDY0LWJpdCByZWFkLiBUaGVyZSBhcmUgYXQgbGVhc3QgdHdvIGNvcnJl
-Y3RuZXNzCmlzc3VlczoKCjEuIExvc3Mgb2YgcHJlY2lzaW9uOiBJZiBoaSBjaGFuZ2VkIGR1cmlu
-ZyB0aGUgcmVhZCwgc2V0dGluZyBsbyA9IDAKZGlzY2FyZHMgdGhlIGFjdHVhbCBsbyB2YWx1ZS4g
-VGhlIGNvcnJlY3QgYXBwcm9hY2ggaXMgdG8gcmUtcmVhZCBsbwphZnRlciBkZXRlY3RpbmcgdGhl
-IGNoYW5nZSwgbm90IGZhYnJpY2F0ZSBhIHZhbHVlLgoKMi4gTXVsdGlwbGUgb3ZlcmZsb3dzOiBU
-aGlzIGFzc3VtZXMgYXQgbW9zdCBvbmUgb3ZlcmZsb3cgb2NjdXJzCmJldHdlZW4gcmVhZHMuIElm
-IHR3byBvdmVyZmxvd3MgaGFwcGVuIChlLmcuLCBkdWUgdG8gaW50ZXJydXB0CmluamVjdGlvbiks
-IGhpKysgd2lsbCBwcm9kdWNlIGFuIGluY29ycmVjdCByZXN1bHQsIHNpbGVudGx5IGNvcnJ1cHRp
-bmcKdGhlIGNvdW50ZXIgdmFsdWUuCgpOZWdsaWdpYmxlIGJlbmVmaXQ6IGhpIGNoYW5naW5nIGJl
-dHdlZW4gcmVhZHMgaXMgYW4gZXh0cmVtZWx5IHJhcmUKZXZlbnQuIE9wdGltaXppbmcgYXdheSB0
-aGUgcmV0cnkgbG9vcCBmb3Igc3VjaCBhIHJhcmUgY2FzZSBwcm92aWRlcyBubwptZWFuaW5nZnVs
-IHBlcmZvcm1hbmNlIGdhaW4uIEFuZCBpZiBoaSBuZXZlciBzdGFiaWxpemVzLCB0aGF0CmluZGlj
-YXRlcyBhIGhhcmR3YXJlIGZhaWx1cmUg4oCUIGluIHdoaWNoIGNhc2UgaGFuZ2luZyBpbiB0aGUg
-cmV0cnkgbG9vcAppcyBhY3R1YWxseSB0aGUgbW9yZSBhcHByb3ByaWF0ZSBiZWhhdmlvciwgYXMg
-aXQgbWFrZXMgdGhlIGZhaWx1cmUKdmlzaWJsZSByYXRoZXIgdGhhbiBzaWxlbnRseSBwcm9kdWNp
-bmcgZ2FyYmFnZSB2YWx1ZXMuCgpUaGUgaGlnaC1sb3ctaGlnaCBkby13aGlsZSByZXRyeSBzdHJh
-dGVneSBleGlzdHMgcHJlY2lzZWx5IHRvIGhhbmRsZQp0aGVzZSBjYXNlcyBjb3JyZWN0bHkuIEkg
-ZG9uJ3QgdGhpbmsgdGhpcyBwcm9wb3NlZCBzZXF1ZW5jZSBpcyBhIHZhbGlkCnJlcGxhY2VtZW50
-LgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+This series adds bindings for the GCR.U timer device and corresponding
+driver support. Accessing the memory mapped shadow of the mtime register
+in the GCR.U region should be faster
+than trapping to M mode each time the timer needs to be read.
+The timer device does not implement any interrupts, therefore the
+timer-riscv clockevent implementation should suffice.
+
+We tested the patchset both on QEMU and the Boston board with the P8700 bitfile:
+- v7, v8 testing:
+  - Coremark and timer kselftests on QEMU emulating an 8 core CPU
+  - Coremark and timer kselftests on the Boston board with a single core CPU.
+
+Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+Signed-off-by: Chao-ying Fu <cfu@mips.com>
+---
+Changes in v9:
+- Fix timer base address in dt-bindings
+- Link to v8: https://lore.kernel.org/r/20260610-riscv-time-mmio-v8-0-a865206675c6@htecgroup.com
+
+Changes in v8:
+- Make the 64 bit timer mmio reads and the main timer driver depend on CONFIG_64BIT
+- Add timer_of_cleanup to the driver code
+- Link to v7: https://lore.kernel.org/r/20260311-riscv-time-mmio-v7-0-016845a0f808@htecgroup.com
+
+Changes in v7:
+- Replace the previous implementation with a new timer driver for mips,p8700-gcru
+- Add a patch for 64bit reads for timer mmio
+- Link to v6: https://lore.kernel.org/r/20250806-riscv-time-mmio-v6-0-2df0e8219998@htecgroup.com
+
+Changes in v6:
+- Rename mti,gcru to mips,p8700-gcru
+- Link to v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
+
+Changes in v5:
+- Fixed build issues on 32-bit RISC-V and sparse warnings
+- Remove clint_time_val and clint.h, replace with riscv_time_val
+- Depend on RISCV_TIMER in Kconfig
+
+Changes in v4:
+- Remove "select" from mti,gcru.yaml.
+- Refactor the driver to use function pointers instead of static keys.
+
+Previous versions:
+v1: https://lore.kernel.org/lkml/20241227150056.191794-1-arikalo@gmail.com/#t
+v2: https://lore.kernel.org/linux-riscv/20250409143816.15802-1-aleksa.paunovic@htecgroup.com/
+v3: https://lore.kernel.org/linux-riscv/DU0PR09MB61968695A2A3146EE83B7708F6BA2@DU0PR09MB6196.eurprd09.prod.outlook.com/
+v4: https://lore.kernel.org/r/20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com
+v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
+v6: https://lore.kernel.org/r/20250806-riscv-time-mmio-v6-0-2df0e8219998@htecgroup.com
+v7: https://lore.kernel.org/r/20260311-riscv-time-mmio-v7-0-016845a0f808@htecgroup.com
+v8: https://lore.kernel.org/r/20260610-riscv-time-mmio-v8-0-a865206675c6@htecgroup.com
+
+---
+Aleksa Paunovic (3):
+      dt-bindings: timer: mips,p8700-gcru
+      riscv: clocksource: Add readq options to clocksource mmio
+      riscv: clocksource: Add p8700-gcru driver
+
+ .../devicetree/bindings/timer/mips,p8700-gcru.yaml | 38 +++++++++++++++++
+ drivers/clocksource/Kconfig                        |  9 +++++
+ drivers/clocksource/Makefile                       |  1 +
+ drivers/clocksource/mmio.c                         | 14 +++++++
+ drivers/clocksource/timer-p8700.c                  | 47 ++++++++++++++++++++++
+ include/linux/clocksource.h                        |  4 ++
+ 6 files changed, 113 insertions(+)
+---
+base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
+change-id: 20250424-riscv-time-mmio-5628e0fca8af
+
+Best regards,
+-- 
+Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
