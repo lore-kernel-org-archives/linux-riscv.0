@@ -4,93 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B98CD98DE
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2026 02:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24044CD98DE
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2026 03:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B/0dZulk5In18NI1H8CegoOfqnHc8GPlTS21lKVjXQs=; b=ne+x2x4qlTWKGw
-	/ISUsGo397wTz1dvooMDtoqbuB7I1tyUzNBDVvFl+T+o076YMW5GwxPlU7CqXaJ0BhzWqeZhcXaf5
-	f+ehpeIicaqFcpa5BJl6pYQ7FTybX/6AMSj+ecpfwD44Gp7G+Y+4MU03jwq6KPqCbd8HdYnRc7p8G
-	TUuMtgFgusc9mvstJgBf3U/7a5xGzJIEe+/pfNRISbPSZGSFfcUC5T1XoV4MFJ0yselPUYaMnzmMF
-	GFMXkC2+4vX6kPtuVzANR22hNT/jdUgT1mFPuToWYQAvq6hdPwLwfWHcdjCRPxLkyZ/hqPT3H+sqP
-	N6cRc0sCdKT+1tAZZYZw==;
+	List-Owner; bh=FroGIcsAoY0PAOxMJ/gI0S9FGRgg0Sjuu8rteegAIS0=; b=ZjsyQQwzUhMzMn
+	ePQ4A6m5izOVnYn4TUlJnkrakg1zM2hQFAQw7WV+Z9zsolstth9+lKLBnxdkF9m+PiltqzIyCE6R1
+	3sPrvA1iegaOeVk1Tk1sWQQpe7NFoXQr/2tb9+nkJ7xnToDJSquQwxRMlWYUQRK0MpjjQU/zNMHO3
+	dKWWFakxDuqyQP2oQMsdYCtRpy4pHx9e5wgvr1OUnQZmdRrcf9R1JDjZ9sxZ2skCwteDFiIF3MjVK
+	jG1H10LDlmqI5u+GQPE9z0rREMDbhwF26wsTNEoUYoU3A9RnJjVWsURpGwocx6xnn4x2UK6fYI0Ug
+	6TiQmVywKTzuBLUWay2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZJQO-0000000F6PP-42UO;
-	Tue, 16 Jun 2026 02:21:12 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1wZK71-0000000F8US-32QR;
+	Tue, 16 Jun 2026 03:05:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZJQM-0000000F6P3-1USU
+	id 1wZK71-0000000F8UK-0TMK
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jun 2026 02:21:12 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-137335bc3caso4809132c88.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jun 2026 19:21:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781576469; x=1782181269; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=a6IEVsqYp5cYVGQwVC9lenyJSUbd6i5nZsgE+48XJIA=;
-        b=sDYYnsjA3AUKdJ6Uju0zRPJWamAbDB2n7GtEdYvKFICmuzXjPSQI1wi8obaqqgm27L
-         bdp7P6x5F2UuvTpfv1T5ERzSKQUxOmwoL6B9xerb1RmYQFZ8ht5S0hwtV93TH9bFDISU
-         sr7/Sayn4lJnyB2Gf11zbb+opHm68cd1U/V9FJNLRDaFWRxlsCvIrEvfDWCXGCzAJVhO
-         PUtMwURFD0RGRrWr/YCS2BglWClwMGaJ2sG4vWoSPRnfCdGha+B87jMvNIENri+w7t5N
-         u5tKDaqsJlbUm1yUFks1Y9kwCYexlfXfRJO03gfm4LACYCZpM8bcISrE0kcSb6vI32zF
-         7u2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781576469; x=1782181269;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a6IEVsqYp5cYVGQwVC9lenyJSUbd6i5nZsgE+48XJIA=;
-        b=P02j3lIrW+reybeKYrhrhzJGuAlWlga6xmxHoK+MO48kpJMa+ZiqYyGj3R+csvYTmU
-         miM55QKtIa0Jwq8meqSkMqLVuKO5R5XDnlQXVcolxCv5jPGOLeO84mKuNKGypAWqS+kE
-         17so+tQICeKp/t3zma02IB/PeP0H0ZJkCtbO3cOskrwL9fgJxM5KzbrN4vQRNO/qN8Ca
-         IEhs3q7pY5nBLBY9FavLuTjT4euNA3XCYOJ0DuUoKJM3FZnTfnHKBrAiLby/1EsvHlRd
-         5bKF6m7pyoiNpRpZRz+AA3k4AkBIy2F9HfEDrjGpoRch4KKy1tFYxev9jns5l3BE2+HF
-         0YLA==
-X-Forwarded-Encrypted: i=1; AFNElJ+4wKEMeBxQJezHyJcXcATtl3MQIbxPMracfyXCC1zhhM1oC6W8K4Il3QKVmWJLmlhZJSlpqBDFsddYHA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfrCdt89MwKh8ypxsmG716xD2NusWUTfaDekAE/0rkPBwGSh3E
-	mUYveAHOVtx74ZW5BGlnV8uWbaIlpe7KuxX4MHj7mQzU8TMPrtT62ZUI
-X-Gm-Gg: Acq92OEerNqNKTu12pf7Ckho/ckBVDkuy8MAvOIguCXkGoeOv0ITg8dQaVD+6MNACQ7
-	O1lxLcPorL/91ZUw8gIILuY4cyQpvYsEC9fV8iiHdGXTq3MTieXdLI8MLZU2w47x+IpTqLA0t+O
-	yaCiBJmRANjyq0RS/LgcUC6wZVdFM5/n/UyipdDKmVTO52QHMqSTgG57W6eEp7mTw0uKzK4VF9x
-	CV25Q4xDR0jGyG1529SzjnUoEioTTZejvq4loDl+QBUGhJvOVGp81MIFBvIpFzQjPz0sGmtAFT7
-	IZAPXDydDGA57vPmdjMBUhyPGENWJkp7IEhlOH8QSGJmwknsOlg9D7p0JyN3hnXoShZfDwDcT2Y
-	4/9kM1GlTzMfTKeWfe2iBuA7tEQlMl2yy1znKXtMbQj5WzeN5iPEOsFyf3VCc8aUqEl9bxCZ2HT
-	FyUOuA0DgNY92cUEQZ/LYG56xlskxckKig6KPwOWRxubMBNnJEwLms5hvZjw==
-X-Received: by 2002:a05:7022:250c:b0:137:64ad:76d0 with SMTP id a92af1059eb24-13985e99350mr720917c88.7.1781576469334;
-        Mon, 15 Jun 2026 19:21:09 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2039:4:7d96:5166:93ee:6926])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384b919ef9sm12517464c88.7.2026.06.15.19.21.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2026 19:21:08 -0700 (PDT)
-Date: Tue, 16 Jun 2026 10:21:02 +0800
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: Pu Lehui <pulehui@huawei.com>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
-	eddyz87@gmail.com, memxor@gmail.com, luke.r.nels@gmail.com,
-	xi.wang@gmail.com, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, martin.lau@linux.dev, song@kernel.org,
-	yonghong.song@linux.dev, jolsa@kernel.org, alex@ghiti.fr,
-	jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com, marscheng@google.com,
-	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v2 0/3] riscv, bpf: Fix signed operations and
- add 32 bit atomics
-Message-ID: <ajCzDo7bnUqE0DiW@google.com>
-References: <20260511221648.3251464-1-visitorckw@gmail.com>
- <ajAlwK990NFUAMwq@google.com>
- <216ee1df-2945-4266-9c70-ebcd36faeb7f@huawei.com>
+	Tue, 16 Jun 2026 03:05:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CD5340974;
+	Tue, 16 Jun 2026 03:05:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6231B1F000E9;
+	Tue, 16 Jun 2026 03:05:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781579114;
+	bh=lcN1Rfl7aDSj0DZ5HyYtJgZFzJ29ICvABy26jIqS94M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=UE6gvTCyfVo/gJA86Vkg5VetDrNwz24PcbzvCouVlWuiWZ1NX8UGiHJlqma9E2V6k
+	 KyH5j1ONpSLfsbrdHZCqmPaCtF/Z/HxkCNs4TvUUe4jsaUNMmD4G7dOw8adGc0WpmM
+	 +J10ZZx/R4sElYXo/KTDjGwZd4kV4tVxhK4YKHuVgompm/YS6eEV7x0AhXWKprv9ns
+	 yFpFEf9Q+VsHevakDjI2YS4T/xWgfHvJEE0vGHEFLX9PM2NhPhOfuuSXgol6NvlXa/
+	 mE9ctPV/EoQlahFPkqJWEvhNkYkwLwxAHFAWVsron2w7pImq5VCrWRjTcNaWWGHpSq
+	 m57PIGpSPcOgQ==
+Message-ID: <77749c92-ac8a-4074-bb59-59dbbd3d84f2@kernel.org>
+Date: Tue, 16 Jun 2026 13:05:09 +1000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <216ee1df-2945-4266-9c70-ebcd36faeb7f@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_192110_403346_5E7B105D 
-X-CRM114-Status: GOOD (  30.05  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: hwprobe: Avoid uninitialized read in
+ hwprobe_get_cpus()
+To: Mark Harris <mark.hsj@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260612045502.70850-1-mark.hsj@gmail.com>
+Content-Language: en-US
+From: Michael Ellerman <mpe@kernel.org>
+In-Reply-To: <20260612045502.70850-1-mark.hsj@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,83 +68,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Lehui,
-
-On Tue, Jun 16, 2026 at 09:41:21AM +0800, Pu Lehui wrote:
+On 12/6/26 2:55 pm, Mark Harris wrote:
+> When cpusetsize < cpumask_size(), hwprobe_get_cpus() did not fully
+> initialize its copy of the cpu mask, which could cause non-deterministic
+> results from the riscv_hwprobe syscall on a system with more than 8 CPUs
+> when the supplied cpu mask is empty.  Address this by fully initializing
+> the cpu mask.
 > 
-> 
-> On 2026/6/16 0:18, Kuan-Wei Chiu wrote:
-> > Hi,
-> > 
-> > On Mon, May 11, 2026 at 10:16:45PM +0000, Kuan-Wei Chiu wrote:
-> > > Fix miscompiled signed operations and expands 32 bit atomic support in
-> > > the RV32 BPF JIT.
-> > > 
-> > > The current implementation ignores the instruction offset field used by
-> > > the bpf instruction set to specify BPF_SDIV/BPF_SMOD and BPF_MOVSX.
-> > > This causes these operations to be treated as unsigned or
-> > > zero-extended, leading to test_bpf failures. Fix this by checking the
-> > > offset and emitting the correct instructions.
-> > > 
-> > > Additionally, we leverage the mandatory A extension to natively support
-> > > 32 bit bpf atomics (and, or, xor, xchg) by mapping them directly to
-> > > amo*.w instructions. BPF_CMPXCHG continues to fall back to the
-> > > interpreter.
-> > > 
-> > > As a result, test_bpf.ko now runs with 0 failures, and the total number
-> > > of successfully JIT'ed test cases increases from 843 to 902.
-> > 
-> > Is there anything else I need to do for this patchset to land?
-> 
-> Hi Kuan-wei, it seems Luke and Xi haven't been as active in the community
-> for a while, I'll make time to cover the review and testing for this.
+> Signed-off-by: Mark Harris <mark.hsj@gmail.com>
+> ---
+>   arch/riscv/kernel/sys_hwprobe.c | 1 +
+>   1 file changed, 1 insertion(+)
 
-Thank you for stepping in to help with the review and testing.
-I really appreciate it.
+This should have a fixes tag, I think it's:
 
-Since Luke and Xi haven't been active for a while, I was wondering if
-we should consider updating the MAINTAINERS file to reflect the current
-status?
+Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
 
-Also, if you need extra hands, I'd be glad to help review and test
-future RV32 BPF patches.
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> index 1659d31fd288..caf6762427c8 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -450,6 +450,7 @@ static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
+>   	if (cpusetsize > cpumask_size())
+>   		cpusetsize = cpumask_size();
+>   
+> +	cpumask_clear(&cpus);
+>   	ret = copy_from_user(&cpus, cpus_user, cpusetsize);
+>   	if (ret)
+>   		return -EFAULT;
 
-Regards,
-Kuan-Wei
+cpus is on the stack, and is copied back out at the end of the function, 
+so this looks like it could be a stack info leak.
 
-> 
-> Regards,
-> Lehui
-> 
-> > 
-> > Regards,
-> > Kuan-wei
-> > 
-> > > ---
-> > > - Add missing Fixes tags.
-> > > - Fix memory ordering by emitting aq=1, rl=1
-> > > 
-> > > Kuan-Wei Chiu (3):
-> > >    riscv, bpf: Fix support for BPF_SDIV and BPF_SMOD in RV32 JIT
-> > >    riscv, bpf: Fix support for BPF_MOVSX in RV32 JIT
-> > >    riscv, bpf: Add 32 bit atomic operations to RV32 JIT
-> > > 
-> > >   arch/riscv/net/bpf_jit_comp32.c | 101 +++++++++++++++++++++++++++-----
-> > >   1 file changed, 85 insertions(+), 16 deletions(-)
-> > > 
-> > > -- 
-> > > 2.54.0.563.g4f69b47b94-goog
-> > > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+But the copy back is also bounded by cpusetsize, so in fact there is not 
+any leak of uninitialised stack out to userspace:
+
+         ret = copy_to_user(cpus_user, &cpus, cpusetsize);
+         if (ret)
+                 return -EFAULT;
+
+Reviewed-by: Michael Ellerman <mpe@kernel.org>
+
+cheers
 
 _______________________________________________
 linux-riscv mailing list
