@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB33CD98E3
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2026 15:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF995CD98E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2026 15:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DU8oUfyptQWGnH97KJtEWVhlThzmjc97v3TIbZmDNeA=; b=2gojUYnXLNQs9ec3rBa6JdcSeD
-	oSDomfWp3SwbFtu4B7ICsLHQ0y21S6xuQF7kX05FuBmjUJ9nu+44xnCy1UByRyW+miwz+XQGLgi1l
-	uD//pkbYM52Kz5rp8ITz9vqnYZIE8MitGUQscBirJJnkOX2MgrSLYuVagU9y7gGNSQ5Gx4k0ef0eD
-	xVSf8rjzNwlsSdcyyO/CGT8FSn7KphVwaW+aEFUOw4WPHcKQsobSwnzOeeKZCsXJXOGymCgk+LH0c
-	bLRs3IuwuP9tIGCzzikAcg+brl4A8V+NA5mmo4MSfztp0iaZJAfCbwK5qpbn2rcOWmtY+MNe2GIyL
-	ZlXC80Sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3MoJb8SYMJyhXnvRLgb4zReR3Mt4XmDuwVyPCiVHvYQ=; b=0tp5rWbPGuN0D5
+	KSOq0270kxb28ijhKlYJFouSo7PXuNvWX78GS0sFSTBY7ywziuGVhvEV2a8lecRZ9XXu7zdy08WuC
+	etN4+QTpzkbUNXqP6zCh0ghL/7MrSWAvoFfN8bfmlRTpGnZeDAE3/EV8yG/QaI0JaTHZgW8DCsm+e
+	4hVs/5+oDHm6W39OA1Xk+UQYXDGQscqipiCzuf1PTWW+YMS2UfjKxTlqHoD8t2/K+4HZ5lcqtwW3Z
+	6D1yezvhJ0xHcgOx51hsyHzzmCab0CrqU80zfztG7sNXglPCL7MQKsUNesKHn4oW0O66DpmFo6Tv7
+	4AlK4lg1VLxXXqgY+aLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVkt-0000000G1EA-1ZdG;
-	Tue, 16 Jun 2026 15:31:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZW0Y-0000000G2u6-084a;
+	Tue, 16 Jun 2026 15:47:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVks-0000000G1E4-31TS
+	id 1wZW0W-0000000G2ty-1oyd
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jun 2026 15:31:10 +0000
+	Tue, 16 Jun 2026 15:47:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E561600AB;
-	Tue, 16 Jun 2026 15:31:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D54E1F00A3A;
-	Tue, 16 Jun 2026 15:31:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F26B1445A8
+	for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2026 15:47:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C75571F0155C
+	for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2026 15:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781623869;
-	bh=H4q3EaMMaI2HFEM9XMWLyy+ranKnuc2iJ9R48LAi+Co=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ltwzz9ahZ1f/RKzdJ5velxbsLeSwb6LIbPVG92hCsCHIuJC6Q8lC3JuB0FS6DqCKY
-	 lIv7hr7q5pHYYm9pv1a6AXauU9jtgXSQW87un/uK/QjazdZaZru0Cc/MXB1srkUI3D
-	 9lIKkA5MDSeHWRr2150Gs5NYGUqgf4zKmbfCg1d8Ni2VbL44FPfzzacBV18zwmSv/5
-	 w14pjfaMHy3aF6aeol1qiZPtQg5sjdPb48bccqOQCRz/bx8GJBaxbhPwSa36G/ygp4
-	 0fPX9LLEDtorjqb/OtqsXOGHqYGBpbqNEi3N+p9a5M/2FoF8an/HWhabzRRzOS5K8X
-	 EzhaiVrflUUeA==
-Date: Tue, 16 Jun 2026 16:31:04 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	Min Lin <linmin@eswincomputing.com>,
-	Yulin Lu <luyulin@eswincomputing.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: Re: [PATCH 6/7] riscv: dts: eswin: add I2C controller support
-Message-ID: <20260616-greeter-securely-16e742490a4a@spud>
-References: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
- <20260615122016.1110206-7-pinkesh.vaghela@einfochips.com>
- <20260615-lumpiness-profusely-155422288c31@spud>
- <SJ2PR04MB8896A5877CCFC177FA5D5A9583E52@SJ2PR04MB8896.namprd04.prod.outlook.com>
+	s=k20260515; t=1781624839;
+	bh=G/zUhartSnj7tjHRNF+uBfRGL+KZui8IXJel7Kwg5a0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Aos85ykdopfzZr4qQYDeCoS8xaYTx8wyCcg364B4glmXFk0VztHa4376ujVTbvx4K
+	 Yxyp4mdi/8OK96F1JnNDLjJa/m0QMJQ2JvV9hGQ7McHGgj/crFASWYiv+Xvf9/R8ow
+	 Usl3A3VgsMpkpsppqLagggq5nqYzKDMl3e7u9avU3UiyaCWFhywVsFyLu4U8YJAdAX
+	 QMkVkTT1fvN82VIw/cE9L2B1waJgHOdyGGnRAdfcMMfopRQdOeixm6IZzpbn9eKTEe
+	 6rzkE2QkBiiwJ762LP9THd54yOmIfcTGKkOxPn7cDPnQCS5KbEbBX7IR+iwu2RQCp/
+	 aCOtFfsdF+ypg==
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4922244f7c7so29253265e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2026 08:47:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/LaZk5SDq1NCzZtGZ4S9vUsh6oqm8S+E+MxS/f9OeclUE+bHNhqTSS8b9EMjjRE6BCoipsRxpAqVUeyA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy9dxrtbGqrWGI0yI1/nDV1NFOFYw4nyofn6IPWhGmucMkjz2/
+	ThfRBeQNhs1gqflh2U6xVmLIWZcPAWe6+Iz9X6zo0Zw/kk8d17GSN1SNtjpo+clQAqpZFSpAbyi
+	tJ2/HxuaxJuBeIzkM6t0xVy2wtv+djF0=
+X-Received: by 2002:a05:600c:3b0f:b0:491:731c:892a with SMTP id
+ 5b1f17b1804b1-492333df11bmr680915e9.35.1781624838387; Tue, 16 Jun 2026
+ 08:47:18 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <SJ2PR04MB8896A5877CCFC177FA5D5A9583E52@SJ2PR04MB8896.namprd04.prod.outlook.com>
+References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
+ <20260615123821.373248-1-guoren@kernel.org> <20260616113651.1048a19a@pumpkin>
+In-Reply-To: <20260616113651.1048a19a@pumpkin>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 16 Jun 2026 23:47:05 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTh1zyAZkKt7AQNZptG_H=-8xSum6PVTyxEmw23pN6-9g@mail.gmail.com>
+X-Gm-Features: AVVi8CcTPsNyYpI81XM406R0-c5h9wixp30ROEWYygvxB_d53TSoJkwNBAEo5Gw
+Message-ID: <CAJF2gTTh1zyAZkKt7AQNZptG_H=-8xSum6PVTyxEmw23pN6-9g@mail.gmail.com>
+Subject: Re: [PATCH v1] iommu/riscv: Support 32-bit register accesses
+To: David Laight <david.laight.linux@gmail.com>
+Cc: zhangzhanpeng.jasper@bytedance.com, alex@ghiti.fr, aou@eecs.berkeley.edu, 
+	cuiyunhui@bytedance.com, iommu@lists.linux.dev, joro@8bytes.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	luxu.kernel@bytedance.com, palmer@dabbelt.com, pjw@kernel.org, 
+	robin.murphy@arm.com, tjeznach@rivosinc.com, will@kernel.org, 
+	yuanzhu@bytedance.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +79,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4924439264617996396=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4924439264617996396==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WNod8yUaohcmzurl"
-Content-Disposition: inline
-
-
---WNod8yUaohcmzurl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jun 16, 2026 at 11:57:33AM +0000, Pinkesh Vaghela wrote:
-> On Mon, Jun 15, 2026 at 10:05 PM +0530, Conor Dooley wrote:
-> > On Mon, Jun 15, 2026 at 05:50:15PM +0530, Pinkesh Vaghela wrote:
-> > > +		i2c0: i2c@50950000 {
-> > > +			compatible =3D "snps,designware-i2c";
-> >=20
-> > Missing a soc-specific compatible here for all i2c controllers.
->=20
-> We are using generic DesignWare I2C driver for all I2C controllers with
-> no changes required in the driver. Do we still need to add soc-specific
-> compatible for all i2c controllers?
-
-Yes. Just use "snps,designware-i2c" as a fallback.
-
-Thanks,
-Conor.
-
---WNod8yUaohcmzurl
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajFsNwAKCRB4tDGHoIJi
-0rUXAQCh5hx72iaCwvhODXXBrj/a0alO+abHFoxSfaBo+7vy2QD8DF0KE8HEDctE
-m5ZQMaLYkLda7O1wmlcME+9t698Z6ws=
-=E+bB
------END PGP SIGNATURE-----
-
---WNod8yUaohcmzurl--
-
-
---===============4924439264617996396==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4924439264617996396==--
-
+T24gVHVlLCBKdW4gMTYsIDIwMjYgYXQgNjozNuKAr1BNIERhdmlkIExhaWdodAo8ZGF2aWQubGFp
+Z2h0LmxpbnV4QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIDE1IEp1biAyMDI2IDEyOjM4
+OjE3ICswMDAwCj4gR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gPiBIaSBa
+aGFucGVuZyBaaGFuZywKPiAuLgo+ID4gMy4gT25seSBwZXJmb3JtYW5jZS1tb25pdG9yaW5nIGNv
+dW50ZXJzIHJlcXVpcmUgNjQtYml0IElPIGFjY2VzcyBvciB0aGUKPiA+IGhpZ2gtbG93LWhpZ2gg
+ZG8td2hpbGUgcmV0cnkgc3RyYXRlZ3kuIEZvciBvcmRpbmFyeSBzdGF0dXMgYW5kIGNvbnRyb2wK
+PiA+IE1NSU8gcmVnaXN0ZXJzLCBhIHNpbmdsZSByZWFkIGlzIHN1ZmZpY2llbnQuCj4KPiBBY3R1
+YWxseSB0aGlzIHNlcXVlbmNlIHNob3VsZCBiZSBlbm91Z2ggZm9yIGEgY291bnRlcjoKPiAgICAg
+ICAgIGhpID0gcmVhZF9oaSgpOwo+ICAgICAgICAgbG8gPSByZWFkX2xvKCk7Cj4gICAgICAgICBp
+ZiAoaGkgIT0gcmVhZF9oaSgpKSB7Cj4gICAgICAgICAgICAgICAgIC8vIFBpY2sgYSB2YWx1ZSB0
+aGF0IGhhcHBlbmVkIHdoaWxlIGRvaW5nIHRoZSByZWFkcy4KPiAgICAgICAgICAgICAgICAgaGkr
+KzsKPiAgICAgICAgICAgICAgICAgbG8gPSAwOwo+ICAgICAgICAgfQpUaGlzIGlzIG5vdCBhIGZy
+ZWUgb3B0aW1pemF0aW9uIOKAlCBpdCBkb2VzIG5vdCBwcmVzZXJ2ZSB0aGUgc2FtZQpzZW1hbnRp
+Y3MgYXMgYW4gYXRvbWljIDY0LWJpdCByZWFkLiBUaGVyZSBhcmUgYXQgbGVhc3QgdHdvIGNvcnJl
+Y3RuZXNzCmlzc3VlczoKCjEuIExvc3Mgb2YgcHJlY2lzaW9uOiBJZiBoaSBjaGFuZ2VkIGR1cmlu
+ZyB0aGUgcmVhZCwgc2V0dGluZyBsbyA9IDAKZGlzY2FyZHMgdGhlIGFjdHVhbCBsbyB2YWx1ZS4g
+VGhlIGNvcnJlY3QgYXBwcm9hY2ggaXMgdG8gcmUtcmVhZCBsbwphZnRlciBkZXRlY3RpbmcgdGhl
+IGNoYW5nZSwgbm90IGZhYnJpY2F0ZSBhIHZhbHVlLgoKMi4gTXVsdGlwbGUgb3ZlcmZsb3dzOiBU
+aGlzIGFzc3VtZXMgYXQgbW9zdCBvbmUgb3ZlcmZsb3cgb2NjdXJzCmJldHdlZW4gcmVhZHMuIElm
+IHR3byBvdmVyZmxvd3MgaGFwcGVuIChlLmcuLCBkdWUgdG8gaW50ZXJydXB0CmluamVjdGlvbiks
+IGhpKysgd2lsbCBwcm9kdWNlIGFuIGluY29ycmVjdCByZXN1bHQsIHNpbGVudGx5IGNvcnJ1cHRp
+bmcKdGhlIGNvdW50ZXIgdmFsdWUuCgpOZWdsaWdpYmxlIGJlbmVmaXQ6IGhpIGNoYW5naW5nIGJl
+dHdlZW4gcmVhZHMgaXMgYW4gZXh0cmVtZWx5IHJhcmUKZXZlbnQuIE9wdGltaXppbmcgYXdheSB0
+aGUgcmV0cnkgbG9vcCBmb3Igc3VjaCBhIHJhcmUgY2FzZSBwcm92aWRlcyBubwptZWFuaW5nZnVs
+IHBlcmZvcm1hbmNlIGdhaW4uIEFuZCBpZiBoaSBuZXZlciBzdGFiaWxpemVzLCB0aGF0CmluZGlj
+YXRlcyBhIGhhcmR3YXJlIGZhaWx1cmUg4oCUIGluIHdoaWNoIGNhc2UgaGFuZ2luZyBpbiB0aGUg
+cmV0cnkgbG9vcAppcyBhY3R1YWxseSB0aGUgbW9yZSBhcHByb3ByaWF0ZSBiZWhhdmlvciwgYXMg
+aXQgbWFrZXMgdGhlIGZhaWx1cmUKdmlzaWJsZSByYXRoZXIgdGhhbiBzaWxlbnRseSBwcm9kdWNp
+bmcgZ2FyYmFnZSB2YWx1ZXMuCgpUaGUgaGlnaC1sb3ctaGlnaCBkby13aGlsZSByZXRyeSBzdHJh
+dGVneSBleGlzdHMgcHJlY2lzZWx5IHRvIGhhbmRsZQp0aGVzZSBjYXNlcyBjb3JyZWN0bHkuIEkg
+ZG9uJ3QgdGhpbmsgdGhpcyBwcm9wb3NlZCBzZXF1ZW5jZSBpcyBhIHZhbGlkCnJlcGxhY2VtZW50
+LgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
