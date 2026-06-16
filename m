@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5A9CD98DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jun 2026 23:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA16CD98DA
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2026 01:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TIY65Q+P8QWRAafYva/9ljgaOWHvdiVQOi5qwLP1Yhs=; b=w8FRbHVlCE7KkN
-	pQ5ZGqA7JC4sSSzbptqfcVppm0TLusF1OyX2qLe8aU8cxoO0rUCLl4P1SmngvXjRLIEXuDsTdoMYB
-	htOgtm40x7AWZHXLqFWK73Uvthcs1UW82Gg8SaYX2XcyG2AE4rdeyb5OJANnIl6UGmrTnFBKuX7LB
-	hj9/E3QNlnX2Agz7EfguQGAG3jBzb3UNIxmXyr4MkE8/NXy8hdc5EC3G6a+QfNo0fviDHHflVgoNR
-	43Osu+7z1OZbAjuafRZRxDpBLznY1h7UQDC6NfIjgkPScO7c8Kzw7HkzzSKwA/LYSJJR/Ij/fuEYi
-	XxobnC9GucjyQfbA/Brw==;
+	List-Owner; bh=h2WO6x/uGkZv1Rh49MO1+OiA3U8XOGokJSptxYPRCBw=; b=HrqtiGhYXBBC2F
+	DYZYVbfsWMnr/qYQoS1XhQVRgXVAWW/gyEU6qumyH2MKUjpJ+zi/63w5Fp+utI6RidWEypGXNhkBl
+	iOs/Ufs8EKIqrZD1gWRxHY114kl4v01ohXdMC8C08DF2TSgsKrtCazO4Ezg3SbramK+PxCUaAG2EX
+	Bp7JGj1oHxLcgp0oVVoRQKpNJRCF2D9foJcH5lwnvXky1PZgQKIqnxATg2dVd2+Kv6OHMFgIyLRNQ
+	9fKj+ymvmkpvKp0hiUv+hue+0k5w+zrg2YN9Aq/lULP7FLfLR5LWwvuNhf/mF4afHvdTBme7DfVgD
+	AJ0cXBHiLBkevIbqvGAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGjZ-0000000EwOk-2MVr;
-	Mon, 15 Jun 2026 23:28:49 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
+	id 1wZIoF-0000000F4Ys-0YXm;
+	Tue, 16 Jun 2026 01:41:47 +0000
+Received: from [113.46.200.224] (helo=canpmsgout09.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZGjX-0000000EwNu-1edY
+	id 1wZIoC-0000000F4Xi-0XUS
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jun 2026 23:28:48 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1781566124;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dY5mBb64gTkFKsOa15ef2GQOxLaHZRK6NOzG/t/3yRw=;
-	b=QI7Xs72Azf722gJqQ9cxaQjtSQ2xaEoF0Yx9/zYgWZ8cg8CSmHYZ/3MUQeOVl4iXFWi5rw
-	4IfbQ2o/aGn2LnsoR+uitpfCW3KKYR5oOUjhrewjn2yrumkeugfkJDGJXQKJsrpTNcc4iU
-	IT3vfho4jKUK/5WGfOlwilLILY/zboQ=
-From: Atish Patra <atish.patra@linux.dev>
-Date: Mon, 15 Jun 2026 16:28:22 -0700
-Subject: [PATCH 2/2] riscv: Restart via EFI runtime services when available
+	Tue, 16 Jun 2026 01:41:46 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=wsOFNkJBmgV+d21//gqWitPG9/QNviG/zuToqCNtEVM=;
+	b=E9E2RAsaJ94APIHxGlkEkQt88JFU0JVTVH93EDXbzItkhDgzOJiw8t82twD0tOvOt8qPc3TqM
+	MXrR8xwV+A1BBreYcFNG7+9MW8CQtsbjLFV3Tr8r1OR/ZZbEHzea76B977JaYxh4fijaWo526m+
+	Hh8/Zior8DUaB+ls431ixjY=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gfTyt1wpDz1cyt0;
+	Tue, 16 Jun 2026 09:33:26 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id C0F25405D0;
+	Tue, 16 Jun 2026 09:41:22 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 16 Jun
+ 2026 09:41:21 +0800
+Message-ID: <216ee1df-2945-4266-9c70-ebcd36faeb7f@huawei.com>
+Date: Tue, 16 Jun 2026 09:41:21 +0800
 MIME-Version: 1.0
-Message-Id: <20260615-efi_reset_shutdown-v1-2-9414edcbbab0@meta.com>
-References: <20260615-efi_reset_shutdown-v1-0-9414edcbbab0@meta.com>
-In-Reply-To: <20260615-efi_reset_shutdown-v1-0-9414edcbbab0@meta.com>
-To: Ard Biesheuvel <ardb@kernel.org>, 
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Atish Patra <atish.patra@linux.dev>
-Cc: linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Atish Patra <atishp@meta.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v2 0/3] riscv, bpf: Fix signed operations and add
+ 32 bit atomics
+Content-Language: en-US
+To: Kuan-Wei Chiu <visitorckw@gmail.com>, <ast@kernel.org>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <eddyz87@gmail.com>,
+	<memxor@gmail.com>, <luke.r.nels@gmail.com>, <xi.wang@gmail.com>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+CC: <martin.lau@linux.dev>, <song@kernel.org>, <yonghong.song@linux.dev>,
+	<jolsa@kernel.org>, <alex@ghiti.fr>, <jserv@ccns.ncku.edu.tw>,
+	<eleanor15x@gmail.com>, <marscheng@google.com>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260511221648.3251464-1-visitorckw@gmail.com>
+ <ajAlwK990NFUAMwq@google.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <ajAlwK990NFUAMwq@google.com>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_162847_604210_937BC673 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_184144_681009_5AE44153 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,55 +80,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atishp@meta.com>
 
-Firmware-preferred reset and EFI capsule update support requires reset
-via EFI runtime services rather than direction M-mode firmware invocation
-via SBI. Unlike poweroff, restart mechanism is directly controlled from
-machine_restart function though.
 
-Prefer the EFI runtime ResetSystem() service for restart when UEFI
-runtime services are available.
+On 2026/6/16 0:18, Kuan-Wei Chiu wrote:
+> Hi,
+> 
+> On Mon, May 11, 2026 at 10:16:45PM +0000, Kuan-Wei Chiu wrote:
+>> Fix miscompiled signed operations and expands 32 bit atomic support in
+>> the RV32 BPF JIT.
+>>
+>> The current implementation ignores the instruction offset field used by
+>> the bpf instruction set to specify BPF_SDIV/BPF_SMOD and BPF_MOVSX.
+>> This causes these operations to be treated as unsigned or
+>> zero-extended, leading to test_bpf failures. Fix this by checking the
+>> offset and emitting the correct instructions.
+>>
+>> Additionally, we leverage the mandatory A extension to natively support
+>> 32 bit bpf atomics (and, or, xor, xchg) by mapping them directly to
+>> amo*.w instructions. BPF_CMPXCHG continues to fall back to the
+>> interpreter.
+>>
+>> As a result, test_bpf.ko now runs with 0 failures, and the total number
+>> of successfully JIT'ed test cases increases from 843 to 902.
+> 
+> Is there anything else I need to do for this patchset to land?
 
-Signed-off-by: Atish Patra <atishp@meta.com>
----
- arch/riscv/kernel/reset.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Hi Kuan-wei, it seems Luke and Xi haven't been as active in the 
+community for a while, I'll make time to cover the review and testing 
+for this.
 
-diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-index 912288572226..541e2162c85a 100644
---- a/arch/riscv/kernel/reset.c
-+++ b/arch/riscv/kernel/reset.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2012 Regents of the University of California
-  */
- 
-+#include <linux/efi.h>
- #include <linux/reboot.h>
- #include <linux/pm.h>
- 
-@@ -17,6 +18,12 @@ EXPORT_SYMBOL(pm_power_off);
- 
- void machine_restart(char *cmd)
- {
-+	/*
-+	 * UpdateCapsule() depends on the system being reset via ResetSystem().
-+	 */
-+	if (efi_enabled(EFI_RUNTIME_SERVICES))
-+		efi_reboot(reboot_mode, NULL);
-+
- 	do_kernel_restart(cmd);
- 	while (1);
- }
+Regards,
+Lehui
 
--- 
-2.53.0-Meta
-
+> 
+> Regards,
+> Kuan-wei
+> 
+>> ---
+>> - Add missing Fixes tags.
+>> - Fix memory ordering by emitting aq=1, rl=1
+>>
+>> Kuan-Wei Chiu (3):
+>>    riscv, bpf: Fix support for BPF_SDIV and BPF_SMOD in RV32 JIT
+>>    riscv, bpf: Fix support for BPF_MOVSX in RV32 JIT
+>>    riscv, bpf: Add 32 bit atomic operations to RV32 JIT
+>>
+>>   arch/riscv/net/bpf_jit_comp32.c | 101 +++++++++++++++++++++++++++-----
+>>   1 file changed, 85 insertions(+), 16 deletions(-)
+>>
+>> -- 
+>> 2.54.0.563.g4f69b47b94-goog
+>>
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
