@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D003DCD98EE
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 06:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5850CCD98ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 07:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IZzk5nb9H8wlT0EhaG6FVUbu6wFT0mM4NBOSN6dWagc=; b=3ychuIQJSjJrCV
-	WsOJRwzea9fKgIX8sh37LxXtLhTUmHabbSsWbjXHXCLx2xco9yLSc+Wk+M4Uj64ETSbXPxCcjz9Oj
-	u4kQ51cVZU+OAbHFTB64JR3sCWFFgGwx+l/5jlpG3UOGF7smnIBOAvxNgeKhPn/Y5LND2sDHIhtJg
-	dbtaTGipg8rMpBNOA6mXw0ojgaN+phf3gVF9id09dsLIgbittTl+k2WQ7r7Ckw2P2fJp0O/gfHyrF
-	A0ENtDD1HX1KnJN1wvoGitpwzSEd89B7DBUYBMECLDvt0HMb7vpWu5yZ0DvSh8jhsmW1v/As0q6D7
-	jAW03k69kVVDxGZR/f+g==;
+	List-Owner; bh=RaX6eSQaZaGYZ4uJZvWXtsBHFky0ck1Yg9lak0DkCEI=; b=dXPk+SgVVOtA+C
+	KaPhEaUizsfLubZBZBZCHDGqjkkQJgystyslF2RY9M6NvhIoSHI5ys67tJYfLARIMc4sDI0HZwg5w
+	otfVzY3S70dy2RRisyeroXe5oN4gQte6boeEHVDtEYotgbMC3dBduUrfR07oI8vbaLmh2WT+cgnec
+	Itx8bD4XcAKHRUgqDYmbSw3hhGeDHkxOEZj74lIskpOF/MkO+ymXVvY680QS/woulLH9FgMnyXJym
+	/uAQAu5ZPqVGy4ojdz2+J0Cu0SE3STt5FgIOscIS6qr2OpIkpgNvi5I9dcWxb2vb6n4mseR1WfFWK
+	Ut3cmr8U95WWy+TDqeEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZk9W-0000000GkNn-1Cph;
-	Wed, 17 Jun 2026 06:53:34 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wZkj2-0000000GpT8-3xoy;
+	Wed, 17 Jun 2026 07:30:16 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZk9S-0000000GkNB-1zmC
+	id 1wZkiy-0000000GpS8-2kmp
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jun 2026 06:53:32 +0000
+	Wed, 17 Jun 2026 07:30:15 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=djA+SxTM/4DdX0nuhSS9rd5BRl3y7xbZwe5Na5XIBDQ=;
-	b=l7pba1O4Jax4lanbsZdumec7DcFKMwARlx0KpuNousaYNfUrBf9Wx+Vh2Z0fpYcucI5n9WO8Z
-	3twZ1jC6VjuG1jaZXqq9L8j5rLAwc+MJBKwKywMfXH1cq0wW9eE3WepYC5nOTcTNCLIABjO2Yc5
-	7fr2PYmgDBIf9a0lxOZCkJ0=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4ggDrJ3RjJz1K97S;
-	Wed, 17 Jun 2026 14:45:20 +0800 (CST)
+	bh=r72SZ0T5nPg5YOaeX9GzZ5PhvkCNhJKsFZeacJsMyXc=;
+	b=Vl7t1HdCfBihnCzda/CLpC1pp2eNZcxuD23b1uR5Y7zyk7M1RyBoP8rd1LN1f4kvUCj/YhkQC
+	oWIuSQxui3bJlsK+KE2UT600MzS7vG735SE+8HzvU0okVGvzp2KlqgwYzQrWz+b27ONc0oFvDST
+	Bxz8Tm3GjUyLPKqZVg01Dfg=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4ggFfm2DdNz1cypx;
+	Wed, 17 Jun 2026 15:22:08 +0800 (CST)
 Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9E3B4405D0;
-	Wed, 17 Jun 2026 14:53:17 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 8C04D4056C;
+	Wed, 17 Jun 2026 15:30:05 +0800 (CST)
 Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
  (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 17 Jun
- 2026 14:53:16 +0800
-Message-ID: <c20a7c0e-121f-474c-945a-2a4705a45bd5@huawei.com>
-Date: Wed, 17 Jun 2026 14:53:16 +0800
+ 2026 15:30:04 +0800
+Message-ID: <2ca2a85a-d4a9-4459-a534-6159de6e5890@huawei.com>
+Date: Wed, 17 Jun 2026 15:30:03 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 1/3] riscv, bpf: Fix support for BPF_SDIV and
- BPF_SMOD in RV32 JIT
+Subject: Re: [PATCH bpf-next v2 2/3] riscv, bpf: Fix support for BPF_MOVSX in
+ RV32 JIT
 Content-Language: en-US
-To: Kuan-Wei Chiu <visitorckw@gmail.com>
-CC: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
-	<eddyz87@gmail.com>, <memxor@gmail.com>, <luke.r.nels@gmail.com>,
-	<xi.wang@gmail.com>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <martin.lau@linux.dev>, <song@kernel.org>,
-	<yonghong.song@linux.dev>, <jolsa@kernel.org>, <alex@ghiti.fr>,
-	<jserv@ccns.ncku.edu.tw>, <eleanor15x@gmail.com>, <marscheng@google.com>,
-	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
+To: Kuan-Wei Chiu <visitorckw@gmail.com>, <ast@kernel.org>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <eddyz87@gmail.com>,
+	<memxor@gmail.com>, <luke.r.nels@gmail.com>, <xi.wang@gmail.com>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+CC: <martin.lau@linux.dev>, <song@kernel.org>, <yonghong.song@linux.dev>,
+	<jolsa@kernel.org>, <alex@ghiti.fr>, <jserv@ccns.ncku.edu.tw>,
+	<eleanor15x@gmail.com>, <marscheng@google.com>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 References: <20260511221648.3251464-1-visitorckw@gmail.com>
- <20260511221648.3251464-2-visitorckw@gmail.com>
+ <20260511221648.3251464-3-visitorckw@gmail.com>
 From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20260511221648.3251464-2-visitorckw@gmail.com>
+In-Reply-To: <20260511221648.3251464-3-visitorckw@gmail.com>
 X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_235331_132625_FCA702CD 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260617_003013_330282_1A75D1D3 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,103 +86,95 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-lgtm, just some nits
 
 On 2026/5/12 6:16, Kuan-Wei Chiu wrote:
-> The current rv32 bpf jit compiler incorrectly treats BPF_SDIV and
-> BPF_SMOD as unsigned operations. The BPF instruction set allows
-> signed division and modulo by reusing the BPF_DIV and BPF_MOD opcodes
-> with the instruction offset set to 1.
+> The current rv32 bpf jit compiler incorrectly treats BPF_MOVSX as a
+> standard zero-extended move operation. The bpf instruction set allows
+> sign-extension moves by reusing the BPF_MOV opcode with the instruction
+> offset set to 8, 16, or 32.
 > 
-> Update the emit_alu_r32() function to accept an 'is_sdiv' variable and
-> emit the correct div and rem instructions when the offset is 1.
+> Update the bpf_jit_emit_insn() function to check the offset field for
+> both ALU and ALU64 MOV operations. If the offset is non-zero, emit the
+> correct slli and srai instructions to perform the sign extension.
 > 
 > Before this patch:
-> [   44.161771] test_bpf: #165 ALU_SDIV_X: -6 / 2 = -3 jited:1 ret 2147483645 != -3 (0x7ffffffd != 0xfffffffd)FAIL (1 times)
-> [   44.167385] test_bpf: #166 ALU_SDIV_K: -6 / 2 = -3 jited:1 ret 2147483645 != -3 (0x7ffffffd != 0xfffffffd)FAIL (1 times)
-> [   44.171053] test_bpf: #169 ALU_SMOD_X: -7 % 2 = -1 jited:1 ret 1 != -1 (0x1 != 0xffffffff)FAIL (1 times)
-> [   44.172081] test_bpf: #170 ALU_SMOD_K: -7 % 2 = -1 jited:1 ret 1 != -1 (0x1 != 0xffffffff)FAIL (1 times)
+> [   19.549705] test_bpf: #82 ALU_MOVSX | BPF_B jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
+> [   19.551354] test_bpf: #83 ALU_MOVSX | BPF_H jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
+> [   19.552576] test_bpf: #84 ALU64_MOVSX | BPF_B jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
+> [   19.553542] test_bpf: #85 ALU64_MOVSX | BPF_H jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
+> [   19.554807] test_bpf: #86 ALU64_MOVSX | BPF_W jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
 > 
 > After this patch:
-> [   16.002192] test_bpf: #165 ALU_SDIV_X: -6 / 2 = -3 jited:1 95 PASS
-> [   16.002983] test_bpf: #166 ALU_SDIV_K: -6 / 2 = -3 jited:1 1059 PASS
-> [   16.017167] test_bpf: #169 ALU_SMOD_X: -7 % 2 = -1 jited:1 136 PASS
-> [   16.023002] test_bpf: #170 ALU_SMOD_K: -7 % 2 = -1 jited:1 109 PASS
+> [   17.931172] test_bpf: #82 ALU_MOVSX | BPF_B jited:1 125 PASS
+> [   17.932198] test_bpf: #83 ALU_MOVSX | BPF_H jited:1 124 PASS
+> [   17.933039] test_bpf: #84 ALU64_MOVSX | BPF_B jited:1 124 PASS
+> [   17.933918] test_bpf: #85 ALU64_MOVSX | BPF_H jited:1 124 PASS
+> [   17.934751] test_bpf: #86 ALU64_MOVSX | BPF_W jited:1 122 PASS
 > 
-> Fixes: ec0e2da95f72 ("bpf: Support new signed div/mod instructions.")
+> Fixes: 8100928c8814 ("bpf: Support new sign-extension mov insns")
+
+not a fix, the fixes tag should remove. And the title should `Add 
+support for xxx`
+
+others lgtm,
+
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
+
 > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 > ---
->   arch/riscv/net/bpf_jit_comp32.c | 19 ++++++++++++++-----
->   1 file changed, 14 insertions(+), 5 deletions(-)
+>   arch/riscv/net/bpf_jit_comp32.c | 32 ++++++++++++++++++++++++++++++++
+>   1 file changed, 32 insertions(+)
 > 
 > diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
-> index 592dd86fbf81..7396899ea276 100644
+> index 7396899ea276..f8509950fed4 100644
 > --- a/arch/riscv/net/bpf_jit_comp32.c
 > +++ b/arch/riscv/net/bpf_jit_comp32.c
-> @@ -509,7 +509,7 @@ static void emit_alu_r64(const s8 *dst, const s8 *src,
->   }
+> @@ -974,6 +974,24 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
 >   
->   static void emit_alu_r32(const s8 *dst, const s8 *src,
-> -			 struct rv_jit_context *ctx, const u8 op)
-> +			 struct rv_jit_context *ctx, const u8 op, bool is_sdiv)
-
-let's combind `op` and `is_sdiv` to `const struct bpf_insn *insn`, and 
-better to name `is_signed = insn->off == 1`
-
->   {
->   	const s8 *tmp1 = bpf2rv32[TMP_REG_1];
->   	const s8 *tmp2 = bpf2rv32[TMP_REG_2];
-> @@ -539,10 +539,16 @@ static void emit_alu_r32(const s8 *dst, const s8 *src,
->   		emit(rv_mul(lo(rd), lo(rd), lo(rs)), ctx);
->   		break;
->   	case BPF_DIV:
-> -		emit(rv_divu(lo(rd), lo(rd), lo(rs)), ctx);
-> +		if (is_sdiv)
-> +			emit(rv_div(lo(rd), lo(rd), lo(rs)), ctx);
-> +		else
-> +			emit(rv_divu(lo(rd), lo(rd), lo(rs)), ctx);
->   		break;
->   	case BPF_MOD:
-> -		emit(rv_remu(lo(rd), lo(rd), lo(rs)), ctx);
-> +		if (is_sdiv)
-> +			emit(rv_rem(lo(rd), lo(rd), lo(rs)), ctx);
-> +		else
-> +			emit(rv_remu(lo(rd), lo(rd), lo(rs)), ctx);
-
-how about
-emit(is_signed ? rv_rem(lo(rd) : rv_remu(lo(rd), lo(rd), lo(rs)), ctx)
-
->   		break;
->   	case BPF_LSH:
->   		emit(rv_sll(lo(rd), lo(rd), lo(rs)), ctx);
-> @@ -959,6 +965,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   	u8 code = insn->code;
->   	s16 off = insn->off;
->   	s32 imm = insn->imm;
-> +	bool is_sdiv = false;
+>   	switch (code) {
+>   	case BPF_ALU64 | BPF_MOV | BPF_X:
+> +		if (insn->off != 0) {
+> +			const s8 *rd = bpf_get_reg64(dst, tmp1, ctx);
+> +			const s8 *rs = bpf_get_reg64(src, tmp2, ctx);
+> +
+> +			if (insn->off == 8) {
+> +				emit(rv_slli(lo(rd), lo(rs), 24), ctx);
+> +				emit(rv_srai(lo(rd), lo(rd), 24), ctx);
+> +			} else if (insn->off == 16) {
+> +				emit(rv_slli(lo(rd), lo(rs), 16), ctx);
+> +				emit(rv_srai(lo(rd), lo(rd), 16), ctx);
+> +			} else {
+> +				emit(rv_addi(lo(rd), lo(rs), 0), ctx);
+> +			}
+> +			emit(rv_srai(hi(rd), lo(rd), 31), ctx);
+> +			bpf_put_reg64(dst, rd, ctx);
+> +			break;
+> +		}
+> +		fallthrough;
 >   
->   	const s8 *dst = bpf2rv32[insn->dst_reg];
->   	const s8 *src = bpf2rv32[insn->src_reg];
-> @@ -1041,7 +1048,9 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   			emit_imm32(tmp2, imm, ctx);
->   			src = tmp2;
+>   	case BPF_ALU64 | BPF_ADD | BPF_X:
+>   	case BPF_ALU64 | BPF_ADD | BPF_K:
+> @@ -1024,6 +1042,20 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   			emit_zext64(dst, ctx);
+>   			break;
 >   		}
-> -		emit_alu_r32(dst, src, ctx, BPF_OP(code));
-> +		if ((BPF_OP(code) == BPF_DIV || BPF_OP(code) == BPF_MOD) && insn->off == 1)
-> +			is_sdiv = true;
-> +		emit_alu_r32(dst, src, ctx, BPF_OP(code), is_sdiv);
->   		break;
+> +		if (insn->off != 0) {
+> +			const s8 *rd = bpf_get_reg32(dst, tmp1, ctx);
+> +			const s8 *rs = bpf_get_reg32(src, tmp2, ctx);
+> +
+> +			if (insn->off == 8) {
+> +				emit(rv_slli(lo(rd), lo(rs), 24), ctx);
+> +				emit(rv_srai(lo(rd), lo(rd), 24), ctx);
+> +			} else if (insn->off == 16) {
+> +				emit(rv_slli(lo(rd), lo(rs), 16), ctx);
+> +				emit(rv_srai(lo(rd), lo(rd), 16), ctx);
+> +			}
+> +			bpf_put_reg32(dst, rd, ctx);
+> +			break;
+> +		}
+>   		fallthrough;
 >   
->   	case BPF_ALU | BPF_MOV | BPF_K:
-> @@ -1065,7 +1074,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   		 * src is ignored---choose tmp2 as a dummy register since it
->   		 * is not on the stack.
->   		 */
-> -		emit_alu_r32(dst, tmp2, ctx, BPF_OP(code));
-> +		emit_alu_r32(dst, tmp2, ctx, BPF_OP(code), false);
->   		break;
->   
->   	case BPF_ALU | BPF_END | BPF_FROM_LE:
+>   	case BPF_ALU | BPF_ADD | BPF_X:
 
 _______________________________________________
 linux-riscv mailing list
