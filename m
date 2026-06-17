@@ -4,108 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4730CD98E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 11:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8985BCD98F0
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 11:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=exITFf/XJnnuv/M1VhwMEj7CJl/KDJlQt8jHwe0N238=; b=laeoZ70yZvuXWO
-	gs+BEUSBtD6g6WLDAjS/Mgca3bK333Zyol2Doxgh64nVROLY6c4zSB1CqdLf7UX1I4WFB8cNicY8S
-	V0kb9OwmIREbEZKeNfSkNWXnMOW07u1s7fLYMH/0DjVN+0u04a6rCX6Tq84FhfXmqD5r8SJAJMGAH
-	i7KKUICw0t4ALG8XM3pt9tpSPurHLe22dWcao/G0TD/ZhrmgK4sKew2OiC5RxIWqY+Zo1LHE6E+xN
-	sMgVEtY7W6prSrsv7enGjJuI/fgNmWSZvojGA07Irzc4JXVpu2XOBHdLK9FfasQzsjbDQqDK1VsxU
-	YlY8NZuG4Psio0qyZ0kg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xz66i0YORCd/4D/p6/2Z4UN4CzCRMG+pGMRLJKU0BDM=; b=b9RK9TseOJ+bxC
+	KB4Dmim+MV6H/juaSrEttCQIeJATLxBhE7NJeUcv/vU/Kk2igWIJlB9mVf2UBYOwx6EaXgyXRuSir
+	h6sAQk3j21QgmXt5mYsllUD6HEfMOMoe7YHiZmPJeK6k7pRUnf4Y/wtD2NT5LHNBAOjq0h6CsUGTx
+	J+KQNBvgkqYe3ZzpL3djxsPzxDyqo2aX5RZRJStqPhG3ZvHq/StQrWl/67KcRNEMLwczBKApooP19
+	f7/cIdRsw2ZETPWZmutuhDVRTtUtfbJMtOuH/RrvDfX3nl+N+1EGvV7DxdWsYW9F6J3faB5qecXOl
+	zF9OILoEwLKE4h/F2neA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZo76-0000000HCqi-46ab;
-	Wed, 17 Jun 2026 11:07:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZoq8-0000000HHWN-2ITu;
+	Wed, 17 Jun 2026 11:53:52 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZo75-0000000HCqX-2qYJ
+	id 1wZoq5-0000000HHVL-31M9
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jun 2026 11:07:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 198D04064B;
-	Wed, 17 Jun 2026 11:07:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA6D91F000E9;
-	Wed, 17 Jun 2026 11:07:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781694439;
-	bh=h6dXIG9Ix1iq8lF+scJp0tVtUJekSbTJUAEd9UVcqC4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Xd4qAxDsspeL4VPFXtGf6ezzzzy3sFoOLNA/rgK9CqhbNBV78Bx5Jw9dOc/7ORvpi
-	 Ux6t84B976GEVfgr0WeTR1nEJ4qY/eFWkymBFbNit34duGhAjlcOeDiCyyvKOFCeZ7
-	 iopv/+rFJH6HABE6inEDqWJGZBipr3UEcuXPwKTpHamr8JCV7OXlRSYl5fZJpdE07x
-	 bFLbJDMrkeb3VkwSO5fiQh+RG2+I/pwnfFeKCl29NnmcqlR32zvjlYlmrc+0D3TNTV
-	 icpze+hF5EEQvSMoi9xpBxk/Xszdn+0LXCVKGC+BAH9YfIVZ+IAHHn5eSjH3CdgP23
-	 HFV3qaRNMhiVQ==
-Message-ID: <e37721e1-75d6-4908-8f93-7c0f68a73eb9@kernel.org>
-Date: Wed, 17 Jun 2026 13:07:14 +0200
+	Wed, 17 Jun 2026 11:53:51 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490c0c92cffso37707045e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jun 2026 04:53:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781697227; x=1782302027; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WfOCgBUYMvXbl1f8j58WJcsxpt1QKz3Glw/S1uy49Es=;
+        b=Yf2Oz1s1XjNkdSz34ny9XhTnqzN3f06hTcn8eKk8xCiOOOW78e/8tJvWn75WUV8Mfd
+         F5CjZdk4k7PeHKUH8Or2zcB87v6aH5Ixk1WOX5VKtoOTKURfA6vmD6GQhnQJTJ+rLSPF
+         UYM1pIudhUVuhTYyvcRfZ4lKwRJZnIoPQbxey5NqrAk2pYbXDU1RJZVfqIoxtJvij9AO
+         7UD8dGwXLZtTVDTq/4aIatVbMPP6kIZlmJ0Yt2ASto41tQW6gyVvp2yaeBXavBLj2oBV
+         UPxWcw9PqFHSUdLws94uATAD8OtUvids7pDJ/RVudOktLIsfaDp5hJ0FtnllCAPWkS3F
+         3Kjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781697227; x=1782302027;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WfOCgBUYMvXbl1f8j58WJcsxpt1QKz3Glw/S1uy49Es=;
+        b=CAPArnfoQu4woKv0W71wnYdGBbmf8TJPhB4hF1N6utdBiT54BHKc1CFKvytrgC17R4
+         dbS+d2qixNkJ4zrbLLZFC7cHw2+dY5dmKx58girZi4+K75PtMGenXpzpW2MuQ7gfMS3c
+         sfUKsF0N2Xv9UC4mm6aw7x69/lbOixFp030qJmiQRNhWfVt5qEvXGiyq3m4dgGpEV+1L
+         4A/9olgcak2HKQQaYZtn0rqoavUif2bU+68SM+pWxylEScTR/j8aSGJcjjASBpOcgQEU
+         ZJmpz/htA86m4R2lN+sfRvPK/WAULKrnUNwKVMCADFGtMwK3OxAGdXAT0EOlYOfPh7rx
+         amww==
+X-Forwarded-Encrypted: i=1; AFNElJ9xTd1iMIcuS286uq/SngwXTNCZIyVAbdrb/QOWHTp8H//cEc/0cv9aisXI1tO/8qSEPDuYkhVLOZlppQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiHL5GckWWSa5vHineS3o+Fun7Ra1nNGCaL15yvlrJkhCPlGsA
+	+d81FrKzlKOA04j+Jqp74HsYm1ejr7frPZU0Z+re3VnkuJHrx94lc3Wq
+X-Gm-Gg: Acq92OHja73JZJSSGeFixatUvigdJ2teucTSidfx/9nDbPdI2AxAIcvpl9X2/M4c3JI
+	DX73xIXwKhoFysVRQYOz7hWbj0TpWAXT2bI2qzR36HPYfHd6Mm4Qmk/fiXxJvf2PYJyel/59HqZ
+	X4u5aFkD04VrQNxqdk7YLHJC8xJEeulT2HM3m1VyH1HRKwNJ/W+OqzcBc95rCWVh6fdv7M4B+gs
+	er20lWaYJSA36qGKybfgQ/HR3o9zCGLIrseu5FvbB3FWmC5AhJIbSrxtNhoqTJALlTm0UkcjYCR
+	FJRcOumKeIrnNXqBIq+PyapuE9FajWvbSWWNMBEBq2Vw5xq+BPQPd5DQ+xP1JYr5SDeJ8sufFP0
+	mN1MuiDQzhGMnu9EXUHTuyHz+duM/8xmEAGDmvJh1CqzCMBfHnowUAN/X1nh37fyroMkud7YjXC
+	I3pf3J9puxaR3y3oFmA+Mlh20Ouql23mciaRv8yjCuF8qySPaoSSmJb5k6YmoeaZg7suw56/SI
+X-Received: by 2002:a05:600c:8b43:b0:490:bbc4:76a6 with SMTP id 5b1f17b1804b1-4923341fdb8mr72118915e9.21.1781697227028;
+        Wed, 17 Jun 2026 04:53:47 -0700 (PDT)
+Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49230a58becsm143702955e9.7.2026.06.17.04.53.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 04:53:46 -0700 (PDT)
+From: David Carlier <devnexen@gmail.com>
+To: akpm@linux-foundation.org
+Cc: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com,
+	David Carlier <devnexen@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5] mm: pgtable: free kernel page tables via RCU to fix ptdump UAF
+Date: Wed, 17 Jun 2026 12:53:42 +0100
+Message-ID: <20260617115342.156775-1-devnexen@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/page_table_check: do not track special (PFN-mapped)
- PTEs
-To: Andrey Smirnov <andrey.smirnov@siderolabs.com>,
- pasha.tatashin@soleen.com, akpm@linux-foundation.org
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr,
- syzbot+2b5fe617654be3d8848b@syzkaller.appspotmail.com,
- Thomas Gleixner <tglx@linutronix.de>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Andrei Vagin <avagin@gmail.com>, Andy Lutomirski <luto@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, stable@vger.kernel.org
-References: <20260608155758.1220420-1-andrey.smirnov@siderolabs.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <20260608155758.1220420-1-andrey.smirnov@siderolabs.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_045349_799097_E2BC8908 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,65 +112,195 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/8/26 17:57, Andrey Smirnov wrote:
-> The vDSO data store ("[vvar]") special mapping is created as a VM_PFNMAP
-> mapping and its pages are installed into userspace with vmf_insert_pfn(),
-> which produces special PTEs (pte_special()). On x86 and arm64 (and riscv)
-> pte_user_accessible_page() only tests the PRESENT/USER bits and does not
-> exclude special PTEs, so page_table_check accounts these PFN mappings in
-> the per-page anon/file map counters even though they are not rmap-managed
-> pages (vm_normal_page() returns NULL for them).
-> 
-> Most of these data pages live in the kernel image and are never freed, so
-> the stray accounting is invisible. The time-namespace VVAR page is the
-> exception: it is a real alloc_page() page that is released with
-> __free_page() in free_time_ns() when the last task of a time namespace
-> exits. Across the map / unmap / vdso_join_timens() zap transitions the
-> special-PTE accounting is not balanced for this page, so a non-zero
-> file_map_count survives to the free path and trips:
-> 
->   kernel BUG at mm/page_table_check.c:143!
->   __page_table_check_zero+0xfb/0x130
->   __free_frozen_pages+0x52f/0x650
->   free_time_ns+0x85/0xc0
->   free_nsproxy+0x7f/0x130
->   do_exit+0x313/0xa60
->   do_group_exit+0x77/0x90
-> 
-> This is reliably reproducible on x86_64 and arm64 under heavy container/CI
-> churn that rapidly creates and destroys time namespaces (CLONE_NEWTIME via
-> runc / docker-init / tini), and was independently reported by syzbot on
-> riscv. It only manifests when CONFIG_PAGE_TABLE_CHECK is active.
-> 
-> Special PTEs have no struct-page rmap semantics and must never have been
-> tracked by page table check. Skip them in both the set and clear paths so
-> the counters stay balanced (always zero) for PFN-mapped pages, regardless
-> of how the architecture defines pte_user_accessible_page(). pte_special()
-> is available generically (it is a no-op returning false on architectures
-> without ARCH_HAS_PTE_SPECIAL), so this is a single, arch-independent fix.
+ptdump_walk_pgd() walks the kernel page tables under get_online_mems() and
+mmap_write_lock(&init_mm). Neither lock stops vmalloc from freeing a kernel
+PTE page underneath the walk.
 
-Using pte_special() is usually a sign that something is likely shaky, as it
-misses architectures that don't support CONFIG_ARCH_HAS_PTE_SPECIAL.
+When vmap_try_huge_pmd() promotes a range to a huge PMD it collapses the
+existing PTE table and frees it via pmd_free_pte_page(). On x86, riscv and
+powerpc this runs without the init_mm mmap lock; only arm64 takes it, and not
+on the block-split path. So ptdump can dereference a just-freed PTE page,
+which is the use after free syzbot hit in ptdump_pte_entry().
 
-I assume relevant architectures (loongarch32?) do not support
-CONFIG_PAGE_TABLE_CHECK.
+The race is not new. ptdump walks the whole kernel address space, including
+ranges other code is actively mapping, so it reads page tables it does not
+own. 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page tables")
+only widened the window; the Fixes tag points there for that reason.
 
-arch/arm64/Kconfig:     select ARCH_SUPPORTS_PAGE_TABLE_CHECK
-arch/powerpc/Kconfig:   select ARCH_SUPPORTS_PAGE_TABLE_CHECK   if !HUGETLB_PAGE
-arch/riscv/Kconfig:     select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
-arch/s390/Kconfig:      select ARCH_SUPPORTS_PAGE_TABLE_CHECK
-arch/x86/Kconfig:       select ARCH_SUPPORTS_PAGE_TABLE_CHECK   if X86_64
-mm/Kconfig.debug:       depends on ARCH_SUPPORTS_PAGE_TABLE_CHECK
+Every other walker works on a range it owns and is the only one mutating it:
+set_memory() on arm64/riscv/loongarch, the arm64 block-split path, the
+openrisc DMA path and the hugetlb_vmemmap remap. Nothing frees those ranges
+concurrently, so they cannot race and do not need RCU. ptdump is the only
+walker that traverses ranges it does not own.
 
-Can we enforce somehow that we expect CONFIG_ARCH_HAS_PTE_SPECIAL, so anybody
-unlocking ARCH_SUPPORTS_PAGE_TABLE_CHECK is aware of this?
+Defer the free by an RCU grace period. pagetable_free_kernel() now frees via
+call_rcu() in both the async and non-async configs. The async path still
+flushes the TLB first, then queues the per-page RCU free. The page stays
+valid until any walk that may have observed it drops its RCU read lock.
 
-For example, through a BUILD_BUG_ON?
+On the read side ptdump_walk_pgd() takes the RCU read lock around the walk,
+and walk_page_range_debug() asserts it with RCU_LOCKDEP_WARN() for the
+init_mm case rather than taking it, matching pagewalk.c convention. A walker
+either sees the cleared PMD and skips, or keeps the page alive until it drops
+the lock. The owned-range walkers are unchanged.
 
+ptdump callbacks now run under RCU, so they must not sleep. The arch
+note_page() and effective_prot() callbacks only format into the preallocated
+seq_file buffer, and the walker does not call cond_resched(); the only
+GFP_KERNEL marker setup runs before the walk.
+
+Fixes: 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page tables")
+Reported-by: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Closes: https://lore.kernel.org/all/6a287988.39669fcc.33b062.00a0.GAE@google.com/T/
+Assisted-by: Claude:claude-opus-4-8
+Signed-off-by: David Carlier <devnexen@gmail.com>
+---
+v5: reframe changelog around the pre-existing race and range ownership;
+    correct the mmap-lock description (arm64 is the exception, not x86);
+    move rcu_read_lock() into ptdump_walk_pgd() and assert it in
+    walk_page_range_debug(); drop walk_kernel_page_table_range_rcu(); fix the
+    pgtable-generic.c comment; document the no-sleep audit of the callbacks.
+v4: defer the free in both the async and non async configs, not just
+    the async one. Move the walk under a named
+    walk_kernel_page_table_range_rcu() helper instead of open coding
+    rcu_read_lock() in walk_page_range_debug().
+v3: take rcu_read_lock() in the init_mm branch of
+    walk_page_range_debug() rather than inside the lockless walker,
+    which the arm64 split paths also use with GFP_PGTABLE_KERNEL and
+    can sleep.
+v2: use call_rcu() instead of synchronize_rcu().
+---
+ include/linux/mm.h   |  7 -------
+ mm/pagewalk.c        | 14 +++++++++-----
+ mm/pgtable-generic.c | 22 +++++++++++++++++++++-
+ mm/ptdump.c          |  2 ++
+ 4 files changed, 32 insertions(+), 13 deletions(-)
+
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 485df9c2dbdd..79408a17a1b0 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -3695,14 +3695,7 @@ static inline void __pagetable_free(struct ptdesc *pt)
+ 	__free_pages(page, compound_order(page));
+ }
+ 
+-#ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
+ void pagetable_free_kernel(struct ptdesc *pt);
+-#else
+-static inline void pagetable_free_kernel(struct ptdesc *pt)
+-{
+-	__pagetable_free(pt);
+-}
+-#endif
+ /**
+  * pagetable_free - Free pagetables
+  * @pt:	The page table descriptor
+diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+index 3ae2586ff45b..c0be87580989 100644
+--- a/mm/pagewalk.c
++++ b/mm/pagewalk.c
+@@ -620,7 +620,7 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
+  * Note: Be careful to walk the kernel pages tables, the caller may be need to
+  * take other effective approaches (mmap lock may be insufficient) to prevent
+  * the intermediate kernel page tables belonging to the specified address range
+- * from being freed (e.g. memory hot-remove).
++ * from being freed (e.g. memory hot-remove, vmap huge page promotion).
+  */
+ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
+ 		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
+@@ -643,7 +643,7 @@ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
+  * Use this function to walk the kernel page tables locklessly. It should be
+  * guaranteed that the caller has exclusive access over the range they are
+  * operating on - that there should be no concurrent access, for example,
+- * changing permissions for vmalloc objects.
++ * changing permissions for vmalloc objects, or vmap huge page promotion.
+  */
+ int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end,
+ 		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
+@@ -692,9 +692,13 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
+ 	};
+ 
+ 	/* For convenience, we allow traversal of kernel mappings. */
+-	if (mm == &init_mm)
+-		return walk_kernel_page_table_range(start, end, ops,
+-						    pgd, private);
++	if (mm == &init_mm) {
++		RCU_LOCKDEP_WARN(!rcu_read_lock_held(),
++				 "RCU read lock must be held across kernel page table walk");
++		return walk_kernel_page_table_range(start, end, ops, pgd,
++							private);
++	}
++
+ 	if (start >= end || !walk.mm)
+ 		return -EINVAL;
+ 	if (!check_ops_safe(ops))
+diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+index b91b1a98029c..7a32e4821957 100644
+--- a/mm/pgtable-generic.c
++++ b/mm/pgtable-generic.c
+@@ -410,6 +410,13 @@ pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
+ 	goto again;
+ }
+ 
++static void kernel_pgtable_free_rcu(struct rcu_head *head)
++{
++	struct ptdesc *pt = container_of(head, struct ptdesc, pt_rcu_head);
++
++	__pagetable_free(pt);
++}
++
+ #ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
+ static void kernel_pgtable_work_func(struct work_struct *work);
+ 
+@@ -434,8 +441,15 @@ static void kernel_pgtable_work_func(struct work_struct *work)
+ 	spin_unlock(&kernel_pgtable_work.lock);
+ 
+ 	iommu_sva_invalidate_kva_range(PAGE_OFFSET, TLB_FLUSH_ALL);
++
++	/*
++	 * Debug walkers (ptdump) may walk ranges they do not own and race this
++	 * free, so they walk under rcu_read_lock(). Free after a grace period:
++	 * a walker either already saw the cleared PMD, or keeps the page alive
++	 * until it drops the RCU lock.
++	 */
+ 	list_for_each_entry_safe(pt, next, &page_list, pt_list)
+-		__pagetable_free(pt);
++		call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
+ }
+ 
+ void pagetable_free_kernel(struct ptdesc *pt)
+@@ -446,4 +460,10 @@ void pagetable_free_kernel(struct ptdesc *pt)
+ 
+ 	schedule_work(&kernel_pgtable_work.work);
+ }
++#else
++void pagetable_free_kernel(struct ptdesc *pt)
++{
++	/* Defer the free by a grace period; see kernel_pgtable_work_func(). */
++	call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
++}
+ #endif
+diff --git a/mm/ptdump.c b/mm/ptdump.c
+index 973020000096..50cd96a33dfd 100644
+--- a/mm/ptdump.c
++++ b/mm/ptdump.c
+@@ -178,11 +178,13 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
+ 
+ 	get_online_mems();
+ 	mmap_write_lock(mm);
++	rcu_read_lock();
+ 	while (range->start != range->end) {
+ 		walk_page_range_debug(mm, range->start, range->end,
+ 				      &ptdump_ops, pgd, st);
+ 		range++;
+ 	}
++	rcu_read_unlock();
+ 	mmap_write_unlock(mm);
+ 	put_online_mems();
+ 
 -- 
-Cheers,
+2.53.0
 
-David
 
 _______________________________________________
 linux-riscv mailing list
