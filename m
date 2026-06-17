@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5850CCD98ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 07:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F244CD98E2
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 07:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RaX6eSQaZaGYZ4uJZvWXtsBHFky0ck1Yg9lak0DkCEI=; b=dXPk+SgVVOtA+C
-	KaPhEaUizsfLubZBZBZCHDGqjkkQJgystyslF2RY9M6NvhIoSHI5ys67tJYfLARIMc4sDI0HZwg5w
-	otfVzY3S70dy2RRisyeroXe5oN4gQte6boeEHVDtEYotgbMC3dBduUrfR07oI8vbaLmh2WT+cgnec
-	Itx8bD4XcAKHRUgqDYmbSw3hhGeDHkxOEZj74lIskpOF/MkO+ymXVvY680QS/woulLH9FgMnyXJym
-	/uAQAu5ZPqVGy4ojdz2+J0Cu0SE3STt5FgIOscIS6qr2OpIkpgNvi5I9dcWxb2vb6n4mseR1WfFWK
-	Ut3cmr8U95WWy+TDqeEw==;
+	List-Owner; bh=tFDzkR/sjN8tupStg3mQ2MNgkY9MI2vhnmogis/HtKw=; b=fFiB/9XbQxitUU
+	9k6qek7e3NGhdLVq41AMP6/oGrA9BcNvUuNXhpzi2Zx9nHulOVT5EFgFo9KsP/vZXxLWhfkTdxeWF
+	Vo12zw55pRh9QQW8PLmatiQye5Vrmy9U3WLxYjrsMbAWoemtTnE8KmSdUbzFSB6h4TgaVcFm3xWgy
+	X0kwdM+ZHsIZATlP0mps4x6z9aR6VWjTRE2RDGIEJVppG4G5qDTsdwmVnjlT4+KAPylbHujAM/EaL
+	YArLg1PoZnpAZo0q4TLQrjaRdZLm03KMTJY+khwVtt2MoPl+C4l08+gk7isnkY3p/a+6YE7EiExqk
+	xybIDEnKIxqcmPPiKMWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkj2-0000000GpT8-3xoy;
-	Wed, 17 Jun 2026 07:30:16 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wZl6p-0000000GqW9-1LjX;
+	Wed, 17 Jun 2026 07:54:51 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkiy-0000000GpS8-2kmp
+	id 1wZl6l-0000000GqVi-3CPo
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jun 2026 07:30:15 +0000
+	Wed, 17 Jun 2026 07:54:49 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=r72SZ0T5nPg5YOaeX9GzZ5PhvkCNhJKsFZeacJsMyXc=;
-	b=Vl7t1HdCfBihnCzda/CLpC1pp2eNZcxuD23b1uR5Y7zyk7M1RyBoP8rd1LN1f4kvUCj/YhkQC
-	oWIuSQxui3bJlsK+KE2UT600MzS7vG735SE+8HzvU0okVGvzp2KlqgwYzQrWz+b27ONc0oFvDST
-	Bxz8Tm3GjUyLPKqZVg01Dfg=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4ggFfm2DdNz1cypx;
-	Wed, 17 Jun 2026 15:22:08 +0800 (CST)
+	bh=IH4FW2TPZ4Er7fAhK83vzXMJ8oX/fMyQYbA3ZijxfjI=;
+	b=Dur1cHTMxYR0uv79YuEfWGNqHU6Srk2bF8ub/C2clAXd2FNV1EfTD8Vj57AvhRak2UfYBx2kP
+	p3nx/DrsjSyporBBHYgsjDxcxEogs58S5zY1ijP3pFSyPktA49qAxBi3pIld5zGA4v7THpCpgzF
+	vw4mni9u5Vf8IR2paRE0wWw=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4ggGBy3WFwzKmWS;
+	Wed, 17 Jun 2026 15:46:34 +0800 (CST)
 Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8C04D4056C;
-	Wed, 17 Jun 2026 15:30:05 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 6F7B44055B;
+	Wed, 17 Jun 2026 15:54:35 +0800 (CST)
 Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
  (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 17 Jun
- 2026 15:30:04 +0800
-Message-ID: <2ca2a85a-d4a9-4459-a534-6159de6e5890@huawei.com>
-Date: Wed, 17 Jun 2026 15:30:03 +0800
+ 2026 15:54:34 +0800
+Message-ID: <1a44ce6d-58cd-4d0a-86bf-2670962e89f7@huawei.com>
+Date: Wed, 17 Jun 2026 15:54:30 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 2/3] riscv, bpf: Fix support for BPF_MOVSX in
- RV32 JIT
+Subject: Re: [PATCH bpf-next v2 3/3] riscv, bpf: Add 32 bit atomic operations
+ to RV32 JIT
 Content-Language: en-US
 To: Kuan-Wei Chiu <visitorckw@gmail.com>, <ast@kernel.org>,
 	<daniel@iogearbox.net>, <andrii@kernel.org>, <eddyz87@gmail.com>,
@@ -60,15 +60,15 @@ CC: <martin.lau@linux.dev>, <song@kernel.org>, <yonghong.song@linux.dev>,
 	<eleanor15x@gmail.com>, <marscheng@google.com>, <bpf@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 References: <20260511221648.3251464-1-visitorckw@gmail.com>
- <20260511221648.3251464-3-visitorckw@gmail.com>
+ <20260511221648.3251464-4-visitorckw@gmail.com>
 From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20260511221648.3251464-3-visitorckw@gmail.com>
+In-Reply-To: <20260511221648.3251464-4-visitorckw@gmail.com>
 X-Originating-IP: [10.67.110.68]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_003013_330282_1A75D1D3 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20260617_005448_450272_3605AB2C 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,95 +86,120 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-
 On 2026/5/12 6:16, Kuan-Wei Chiu wrote:
-> The current rv32 bpf jit compiler incorrectly treats BPF_MOVSX as a
-> standard zero-extended move operation. The bpf instruction set allows
-> sign-extension moves by reusing the BPF_MOV opcode with the instruction
-> offset set to 8, 16, or 32.
+> The RV32 BPF JIT compiler currently only supports the BPF_ADD atomic
+> operation. Other 32 bit atomic operations (and, or, xor, xchg) and
+> their BPF_FETCH variants are not supported and gracefully fall back to
+> the interpreter.
 > 
-> Update the bpf_jit_emit_insn() function to check the offset field for
-> both ALU and ALU64 MOV operations. If the offset is non-zero, emit the
-> correct slli and srai instructions to perform the sign extension.
+> Since the RISC-V A extension is required for Linux on RV32, we can
+> natively support these 32-bit BPF atomic operations by mapping them
+> directly to the corresponding RISC-V amo*.w instructions.
+> 
+> Implement BPF_ADD, BPF_AND, BPF_OR, BPF_XOR, and BPF_XCHG with and
+> without BPF_FETCH. BPF_CMPXCHG requires a more complex lr.w/sc.w
+> loop and is left to fall back to the interpreter.
 > 
 > Before this patch:
-> [   19.549705] test_bpf: #82 ALU_MOVSX | BPF_B jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
-> [   19.551354] test_bpf: #83 ALU_MOVSX | BPF_H jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
-> [   19.552576] test_bpf: #84 ALU64_MOVSX | BPF_B jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
-> [   19.553542] test_bpf: #85 ALU64_MOVSX | BPF_H jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
-> [   19.554807] test_bpf: #86 ALU64_MOVSX | BPF_W jited:1 ret 2 != 1 (0x2 != 0x1)FAIL (1 times)
+> [  138.862161] test_bpf: Summary: 1054 PASSED, 0 FAILED, [843/1042 JIT'ed]
 > 
 > After this patch:
-> [   17.931172] test_bpf: #82 ALU_MOVSX | BPF_B jited:1 125 PASS
-> [   17.932198] test_bpf: #83 ALU_MOVSX | BPF_H jited:1 124 PASS
-> [   17.933039] test_bpf: #84 ALU64_MOVSX | BPF_B jited:1 124 PASS
-> [   17.933918] test_bpf: #85 ALU64_MOVSX | BPF_H jited:1 124 PASS
-> [   17.934751] test_bpf: #86 ALU64_MOVSX | BPF_W jited:1 122 PASS
+> [  157.024124] test_bpf: Summary: 1054 PASSED, 0 FAILED, [902/1042 JIT'ed]
 > 
-> Fixes: 8100928c8814 ("bpf: Support new sign-extension mov insns")
-
-not a fix, the fixes tag should remove. And the title should `Add 
-support for xxx`
-
-others lgtm,
-
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
-
 > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 > ---
->   arch/riscv/net/bpf_jit_comp32.c | 32 ++++++++++++++++++++++++++++++++
->   1 file changed, 32 insertions(+)
+>   arch/riscv/net/bpf_jit_comp32.c | 50 +++++++++++++++++++++++++--------
+>   1 file changed, 39 insertions(+), 11 deletions(-)
 > 
 > diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
-> index 7396899ea276..f8509950fed4 100644
+> index f8509950fed4..7fd726a09b26 100644
 > --- a/arch/riscv/net/bpf_jit_comp32.c
 > +++ b/arch/riscv/net/bpf_jit_comp32.c
-> @@ -974,6 +974,24 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+> @@ -877,7 +877,7 @@ static int emit_load_r64(const s8 *dst, const s8 *src, s16 off,
 >   
->   	switch (code) {
->   	case BPF_ALU64 | BPF_MOV | BPF_X:
-> +		if (insn->off != 0) {
-> +			const s8 *rd = bpf_get_reg64(dst, tmp1, ctx);
-> +			const s8 *rs = bpf_get_reg64(src, tmp2, ctx);
-> +
-> +			if (insn->off == 8) {
-> +				emit(rv_slli(lo(rd), lo(rs), 24), ctx);
-> +				emit(rv_srai(lo(rd), lo(rd), 24), ctx);
-> +			} else if (insn->off == 16) {
-> +				emit(rv_slli(lo(rd), lo(rs), 16), ctx);
-> +				emit(rv_srai(lo(rd), lo(rd), 16), ctx);
-> +			} else {
-> +				emit(rv_addi(lo(rd), lo(rs), 0), ctx);
-> +			}
-> +			emit(rv_srai(hi(rd), lo(rd), 31), ctx);
-> +			bpf_put_reg64(dst, rd, ctx);
-> +			break;
-> +		}
-> +		fallthrough;
->   
->   	case BPF_ALU64 | BPF_ADD | BPF_X:
->   	case BPF_ALU64 | BPF_ADD | BPF_K:
-> @@ -1024,6 +1042,20 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   			emit_zext64(dst, ctx);
+>   static int emit_store_r64(const s8 *dst, const s8 *src, s16 off,
+>   			  struct rv_jit_context *ctx, const u8 size,
+> -			  const u8 mode)
+> +			  const u8 mode, s32 imm)
+>   {
+>   	const s8 *tmp1 = bpf2rv32[TMP_REG_1];
+>   	const s8 *tmp2 = bpf2rv32[TMP_REG_2];
+> @@ -902,11 +902,43 @@ static int emit_store_r64(const s8 *dst, const s8 *src, s16 off,
+>   		case BPF_MEM:
+>   			emit(rv_sw(RV_REG_T0, 0, lo(rs)), ctx);
 >   			break;
->   		}
-> +		if (insn->off != 0) {
-> +			const s8 *rd = bpf_get_reg32(dst, tmp1, ctx);
-> +			const s8 *rs = bpf_get_reg32(src, tmp2, ctx);
+> -		case BPF_ATOMIC: /* Only BPF_ADD supported */
+> -			emit(rv_amoadd_w(RV_REG_ZERO, lo(rs), RV_REG_T0, 0, 0),
+> -			     ctx);
+> +		case BPF_ATOMIC:
+> +		{
+> +			bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
+> +			s8 fetch_reg = is_fetch ? lo(rs) : RV_REG_ZERO;
+> +			int aq = is_fetch ? 1 : 0;
+> +			int rl = is_fetch ? 1 : 0;
 > +
-> +			if (insn->off == 8) {
-> +				emit(rv_slli(lo(rd), lo(rs), 24), ctx);
-> +				emit(rv_srai(lo(rd), lo(rd), 24), ctx);
-> +			} else if (insn->off == 16) {
-> +				emit(rv_slli(lo(rd), lo(rs), 16), ctx);
-> +				emit(rv_srai(lo(rd), lo(rd), 16), ctx);
+> +			switch (imm) {
+> +			case BPF_ADD:
+> +			case BPF_ADD | BPF_FETCH:
+> +				emit(rv_amoadd_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
+> +				break;
+> +			case BPF_AND:
+> +			case BPF_AND | BPF_FETCH:
+> +				emit(rv_amoand_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
+> +				break;
+> +			case BPF_OR:
+> +			case BPF_OR | BPF_FETCH:
+> +				emit(rv_amoor_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
+> +				break;
+> +			case BPF_XOR:
+> +			case BPF_XOR | BPF_FETCH:
+> +				emit(rv_amoxor_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
+> +				break;
+> +			case BPF_XCHG:
+> +				emit(rv_amoswap_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
+> +				break;
+> +			default:
+> +				return -1;
 > +			}
-> +			bpf_put_reg32(dst, rd, ctx);
-> +			break;
+> +			if (is_fetch) {
+> +				emit(rv_addi(hi(rs), RV_REG_ZERO, 0), ctx);
+> +				bpf_put_reg64(src, rs, ctx); > +			}
+>   			break;
+
+rv32 code looks elegant, let's factor out an atomic function
+
+>   		}
 > +		}
->   		fallthrough;
+>   		break;
+>   	case BPF_DW:
+>   		emit(rv_sw(RV_REG_T0, 0, lo(rs)), ctx);
+> @@ -1308,20 +1340,16 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   		}
 >   
->   	case BPF_ALU | BPF_ADD | BPF_X:
+>   		if (emit_store_r64(dst, src, off, ctx, BPF_SIZE(code),
+> -				   BPF_MODE(code)))
+> +				   BPF_MODE(code), 0))
+>   			return -1;
+>   		break;
+>   
+>   	case BPF_STX | BPF_ATOMIC | BPF_W:
+> -		if (insn->imm != BPF_ADD) {
+
+just `insn->imm == BPF_CMPXCHG` here, and not miss the warning message.
+
+> -			pr_info_once(
+> -				"bpf-jit: not supported: atomic operation %02x ***\n",
+> -				insn->imm);
+> +		if (insn->imm == BPF_CMPXCHG)
+>   			return -EFAULT;
+> -		}
+>   
+>   		if (emit_store_r64(dst, src, off, ctx, BPF_SIZE(code),
+> -				   BPF_MODE(code)))
+> +				   BPF_MODE(code), insn->imm))
+>   			return -1;
+>   		break;
+>   
 
 _______________________________________________
 linux-riscv mailing list
