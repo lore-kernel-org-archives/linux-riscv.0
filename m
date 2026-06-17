@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F244CD98E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 07:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122ABCD98EE
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jun 2026 08:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tFDzkR/sjN8tupStg3mQ2MNgkY9MI2vhnmogis/HtKw=; b=fFiB/9XbQxitUU
-	9k6qek7e3NGhdLVq41AMP6/oGrA9BcNvUuNXhpzi2Zx9nHulOVT5EFgFo9KsP/vZXxLWhfkTdxeWF
-	Vo12zw55pRh9QQW8PLmatiQye5Vrmy9U3WLxYjrsMbAWoemtTnE8KmSdUbzFSB6h4TgaVcFm3xWgy
-	X0kwdM+ZHsIZATlP0mps4x6z9aR6VWjTRE2RDGIEJVppG4G5qDTsdwmVnjlT4+KAPylbHujAM/EaL
-	YArLg1PoZnpAZo0q4TLQrjaRdZLm03KMTJY+khwVtt2MoPl+C4l08+gk7isnkY3p/a+6YE7EiExqk
-	xybIDEnKIxqcmPPiKMWA==;
+	List-Owner; bh=BhP7B2q0K1YboZgQAJLr27GwuNBJiL9ymx6ljMXMgTc=; b=kFoYY/5fIJ/j8J
+	+3o4oCJ4mEFmOssHPJ0xH1XgNkJBKtQ0xZ3ineQEkCX8sndApDEpXOoURgAzfFkkT8+e+KY76ZVy6
+	SpWr1Cbp1BTfTchLHzPMVH8NjmnSWunJg8D5Qlh4wfqJjgnSuaNi0R79bxf39kEVY7UAg5v012cyL
+	8wLxECvKD1Xiab/Z0Bk6lf2XYGzbUmLHkD90Ja4/w6tK9qi+0RqXD1wFQY6BNhxcvF2c0c2TzGzuv
+	CY/BOWs23+RcS0Jfu8t5h7yCIRVJY8o7QVp7vp/a08mPdxysj9F4kygi05bkSWeUWDMli7SfJmYMl
+	ExiIqAp9Yj+Ji5bubStg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZl6p-0000000GqW9-1LjX;
-	Wed, 17 Jun 2026 07:54:51 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wZlxQ-0000000GuVl-3mrN;
+	Wed, 17 Jun 2026 08:49:12 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZl6l-0000000GqVi-3CPo
+	id 1wZlxO-0000000GuVD-3oCf
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jun 2026 07:54:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=IH4FW2TPZ4Er7fAhK83vzXMJ8oX/fMyQYbA3ZijxfjI=;
-	b=Dur1cHTMxYR0uv79YuEfWGNqHU6Srk2bF8ub/C2clAXd2FNV1EfTD8Vj57AvhRak2UfYBx2kP
-	p3nx/DrsjSyporBBHYgsjDxcxEogs58S5zY1ijP3pFSyPktA49qAxBi3pIld5zGA4v7THpCpgzF
-	vw4mni9u5Vf8IR2paRE0wWw=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4ggGBy3WFwzKmWS;
-	Wed, 17 Jun 2026 15:46:34 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6F7B44055B;
-	Wed, 17 Jun 2026 15:54:35 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
- (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 17 Jun
- 2026 15:54:34 +0800
-Message-ID: <1a44ce6d-58cd-4d0a-86bf-2670962e89f7@huawei.com>
-Date: Wed, 17 Jun 2026 15:54:30 +0800
+	Wed, 17 Jun 2026 08:49:12 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1781686147;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4l2BKjym3mytO0Q6PBB2W4g8XqgjCbKZyZOeZ1FMgK0=;
+	b=tGnL3CezgSQSCYxHm+fgYbSvzfuf2ltLwHErTnksa+NUvalR2pVJXOatyHId9e/9qJQLHI
+	yB2rEFsjAZyTHuUf0++Kw5OJRPcuD9coec8pk8va1KL0jPmVvIh2CK/TXoJD3yMywrw+SK
+	F+j1Jz6bUiquuFKiKvzZoE4AsnlmzNWAdOsmCLO1Dq4W8MGMKboW8B0YhNfKZ/lHgiQqJq
+	8Mm0g4G5NUwc5cyeXM/+txsTAK3DwttyXyrXjec3Q9nxzae0Ac8Xd3i+UsrMWx8P89gHhN
+	WYpER0No/Nev27EPg1feRo0b+ScuO27CI/7p20/GtlGH9uMgujG4n8Hr/h0MrQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1781686147;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4l2BKjym3mytO0Q6PBB2W4g8XqgjCbKZyZOeZ1FMgK0=;
+	b=Mommjx+gS7sauK5jJ6WSnQenr2JKsc8xxW8s2nMZFeACOx0q/JYO6c8bbpXM8xq+orf1YQ
+	y85Vcgy1uKLfCeCA==
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Andrew
+ Jones <andrew.jones@oss.qualcomm.com>, Jingwei Wang
+ <wangjingwei@iscas.ac.cn>, Anirudh Srinivasan
+ <asrinivasan@oss.tenstorrent.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: unaligned: stop using kthread for
+ check_vector_unaligned_access()
+In-Reply-To: <1c378963f27c5960e8a57c50b8b444d30954cb54.1781666867.git.namcao@linutronix.de>
+References: <cover.1781666867.git.namcao@linutronix.de>
+ <1c378963f27c5960e8a57c50b8b444d30954cb54.1781666867.git.namcao@linutronix.de>
+Date: Wed, 17 Jun 2026 10:49:06 +0200
+Message-ID: <87tsr1zh4t.fsf@yellow.woof>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 3/3] riscv, bpf: Add 32 bit atomic operations
- to RV32 JIT
-Content-Language: en-US
-To: Kuan-Wei Chiu <visitorckw@gmail.com>, <ast@kernel.org>,
-	<daniel@iogearbox.net>, <andrii@kernel.org>, <eddyz87@gmail.com>,
-	<memxor@gmail.com>, <luke.r.nels@gmail.com>, <xi.wang@gmail.com>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-CC: <martin.lau@linux.dev>, <song@kernel.org>, <yonghong.song@linux.dev>,
-	<jolsa@kernel.org>, <alex@ghiti.fr>, <jserv@ccns.ncku.edu.tw>,
-	<eleanor15x@gmail.com>, <marscheng@google.com>, <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260511221648.3251464-1-visitorckw@gmail.com>
- <20260511221648.3251464-4-visitorckw@gmail.com>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20260511221648.3251464-4-visitorckw@gmail.com>
-X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_005448_450272_3605AB2C 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260617_014911_093711_2CC8F8D4 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,126 +76,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Nam Cao <namcao@linutronix.de> writes:
+> A kthread is used to run check_vector_unaligned_access() to optimize boot
+> time, allowing the kernel to continue booting without waiting for the
+> unaligned vector speed probe to finish.
+>
+> However, this asynchronous approach introduces several complications.
+> First, the kthread may not complete before a user reads vDSO data,
+> resulting in incorrect values. This was previously addressed by
+> commit 5d15d2ad36b0 ("riscv: hwprobe: Fix stale vDSO data for
+> late-initialized keys at boot"), which added complex synchronization
+> between the kthread and vDSO reads.
+>
+> Second, it was discovered that the kthread may not finish before
+> vec_check_unaligned_access_speed_all_cpus() (marked with __init) is freed,
+> triggering a page fault.
+>
+> These issues raise the question of whether the kthread is worth the added
+> complexity. A past boot time regression report was actually unrelated to
+> synchronous probing; it was caused by the probe running serially. Since
+> switching to a parallel probe, no further complaints have been made.
+> Furthermore, the unaligned scalar access speed probe takes the same amount
+> of time, runs synchronously, and has caused no issues.
 
-On 2026/5/12 6:16, Kuan-Wei Chiu wrote:
-> The RV32 BPF JIT compiler currently only supports the BPF_ADD atomic
-> operation. Other 32 bit atomic operations (and, or, xor, xchg) and
-> their BPF_FETCH variants are not supported and gracefully fall back to
-> the interpreter.
-> 
-> Since the RISC-V A extension is required for Linux on RV32, we can
-> natively support these 32-bit BPF atomic operations by mapping them
-> directly to the corresponding RISC-V amo*.w instructions.
-> 
-> Implement BPF_ADD, BPF_AND, BPF_OR, BPF_XOR, and BPF_XCHG with and
-> without BPF_FETCH. BPF_CMPXCHG requires a more complex lr.w/sc.w
-> loop and is left to fall back to the interpreter.
-> 
-> Before this patch:
-> [  138.862161] test_bpf: Summary: 1054 PASSED, 0 FAILED, [843/1042 JIT'ed]
-> 
-> After this patch:
-> [  157.024124] test_bpf: Summary: 1054 PASSED, 0 FAILED, [902/1042 JIT'ed]
-> 
-> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> ---
->   arch/riscv/net/bpf_jit_comp32.c | 50 +++++++++++++++++++++++++--------
->   1 file changed, 39 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
-> index f8509950fed4..7fd726a09b26 100644
-> --- a/arch/riscv/net/bpf_jit_comp32.c
-> +++ b/arch/riscv/net/bpf_jit_comp32.c
-> @@ -877,7 +877,7 @@ static int emit_load_r64(const s8 *dst, const s8 *src, s16 off,
->   
->   static int emit_store_r64(const s8 *dst, const s8 *src, s16 off,
->   			  struct rv_jit_context *ctx, const u8 size,
-> -			  const u8 mode)
-> +			  const u8 mode, s32 imm)
->   {
->   	const s8 *tmp1 = bpf2rv32[TMP_REG_1];
->   	const s8 *tmp2 = bpf2rv32[TMP_REG_2];
-> @@ -902,11 +902,43 @@ static int emit_store_r64(const s8 *dst, const s8 *src, s16 off,
->   		case BPF_MEM:
->   			emit(rv_sw(RV_REG_T0, 0, lo(rs)), ctx);
->   			break;
-> -		case BPF_ATOMIC: /* Only BPF_ADD supported */
-> -			emit(rv_amoadd_w(RV_REG_ZERO, lo(rs), RV_REG_T0, 0, 0),
-> -			     ctx);
-> +		case BPF_ATOMIC:
-> +		{
-> +			bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
-> +			s8 fetch_reg = is_fetch ? lo(rs) : RV_REG_ZERO;
-> +			int aq = is_fetch ? 1 : 0;
-> +			int rl = is_fetch ? 1 : 0;
-> +
-> +			switch (imm) {
-> +			case BPF_ADD:
-> +			case BPF_ADD | BPF_FETCH:
-> +				emit(rv_amoadd_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
-> +				break;
-> +			case BPF_AND:
-> +			case BPF_AND | BPF_FETCH:
-> +				emit(rv_amoand_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
-> +				break;
-> +			case BPF_OR:
-> +			case BPF_OR | BPF_FETCH:
-> +				emit(rv_amoor_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
-> +				break;
-> +			case BPF_XOR:
-> +			case BPF_XOR | BPF_FETCH:
-> +				emit(rv_amoxor_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
-> +				break;
-> +			case BPF_XCHG:
-> +				emit(rv_amoswap_w(fetch_reg, lo(rs), RV_REG_T0, aq, rl), ctx);
-> +				break;
-> +			default:
-> +				return -1;
-> +			}
-> +			if (is_fetch) {
-> +				emit(rv_addi(hi(rs), RV_REG_ZERO, 0), ctx);
-> +				bpf_put_reg64(src, rs, ctx); > +			}
->   			break;
+Another point I forgot to include. We start the kthread to run
+asynchronously, but the probe is executed on all CPUs including the boot
+CPU. Therefore if the kthread is executed before boot is completed,
+asynchronous probe will actually slow down boot time due to the overhead
+with kthread. If the kthread is executed after boot is completed, we run
+into the two race conditions mentioned above.
 
-rv32 code looks elegant, let's factor out an atomic function
-
->   		}
-> +		}
->   		break;
->   	case BPF_DW:
->   		emit(rv_sw(RV_REG_T0, 0, lo(rs)), ctx);
-> @@ -1308,20 +1340,16 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   		}
->   
->   		if (emit_store_r64(dst, src, off, ctx, BPF_SIZE(code),
-> -				   BPF_MODE(code)))
-> +				   BPF_MODE(code), 0))
->   			return -1;
->   		break;
->   
->   	case BPF_STX | BPF_ATOMIC | BPF_W:
-> -		if (insn->imm != BPF_ADD) {
-
-just `insn->imm == BPF_CMPXCHG` here, and not miss the warning message.
-
-> -			pr_info_once(
-> -				"bpf-jit: not supported: atomic operation %02x ***\n",
-> -				insn->imm);
-> +		if (insn->imm == BPF_CMPXCHG)
->   			return -EFAULT;
-> -		}
->   
->   		if (emit_store_r64(dst, src, off, ctx, BPF_SIZE(code),
-> -				   BPF_MODE(code)))
-> +				   BPF_MODE(code), insn->imm))
->   			return -1;
->   		break;
->   
+> Testing shows no noticeable boot time slowdown when running the vector
+> probe synchronously (0.464474s with kthread vs. 0.457991s without).
+>
+> Remove the kthread usage and run the probe synchronously. This simplifies
+> the boot flow and allows for the revert of commit 5d15d2ad36b0 ("riscv:
+> hwprobe: Fix stale vDSO data for late-initialized keys at boot")
+>
+> Reported-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+> Closes: https://lore.kernel.org/linux-riscv/20260612-vec_unaligned_drop_init-v1-1-df969210ae34@oss.tenstorrent.com/
+> Fixes: a00e022be531 ("riscv: Annotate unaligned access init functions")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
 
 _______________________________________________
 linux-riscv mailing list
