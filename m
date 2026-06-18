@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64102CD98ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 08:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EC5CD98F7
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 09:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gy60rSkrJtYa3rOKRLStESlhuFz7MLcAvpcnbnsoQ5I=; b=ju+e4e9++JxPC5
-	xzfteypDdL+HFgcnrNfjNxmIrf+MzaXjVqgu1UZIN8beP/PHqCldeZMaecJ0U2SqtF946kyHHXh9T
-	WlVRmOSY8KYKseEg7NmetMXvGBJbiKIJsklfjyQw0qHsylD7pj+2e+D+lb52IaG5HlmPHcp8g5sUR
-	JAQzvUjErQAsfQprGLzgMZVvKoF1nKv/aQ4i93eVyYtZ52kxGle8HV0SHVklK84NsnL+raRDtSylq
-	H1YW4raUVIt+05pLAhT9C/Pw5q9Vl/fQwxgsLIVC+a29q5JbheMbsCt6DNfKJPhKp9DHId8GPGzGB
-	pG9BcOHuQZqls1W64TRQ==;
+	List-Owner; bh=pOknIKHC0mqrjY3X97lzHeMTg49zEWC5fCXKeBKs5MA=; b=MCuRNytCsECvJA
+	IOXV/S3h8X2kmSef+f6D4zrHVr0I20Z0yONhB9X5A1lCzpt8zPeauOTaU8ZMPCT/c9LFp4rjOTpiu
+	cpmbtZvl+M44CJvzVugDnmLLkZL0sTI4Z7Y9X892pY1kj/yQyPiBWf5XT8ExnFEmCZfnaDkI+iyuf
+	4moYuilK1ILP+Kuh2s3Chm/HOshiR9V0Uo+c8K0lNsHeaHia/BlAKPY6+LYIlHk5fJBIrGWm8lypv
+	LkdQi+Ha384+cycfk/FXlCOl44qpry3O8czm/BsOL+hk+lMILy8nwRmrg4HHfIb108eXN8yX+UuuP
+	w9Rrp6TF1AOl8ceC4JgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7rx-00000000pU4-3zvi;
-	Thu, 18 Jun 2026 08:13:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wa90l-00000000wp3-1atV;
+	Thu, 18 Jun 2026 09:26:11 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7rv-00000000pTm-3NSN
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jun 2026 08:12:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E323E6012A;
-	Thu, 18 Jun 2026 08:12:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 944F71F00A3A;
-	Thu, 18 Jun 2026 08:12:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781770378;
-	bh=jVNjv8JxwUwcCkGdwQsT2x+fWCMTSZLSOFkNo5kgMWk=;
-	h=From:To:Cc:Subject:Date;
-	b=lkigb6gKRHtpYsq/sANBKiyykvRoCUDy2MtsJvRMvfhQaBBSQHIa0QWMVCM1JpfG4
-	 jLXJzCr7WqEA2oimef8Ao8hcUkKHu5An1BvLH3eBkT62HrmzpL7sbGF2DeGsGRWlgV
-	 vUHtp4XaDgx/NAbYYumG2WjDcZM1fLbGQdejMVo0i2pKbqhuTJjL5Uf9J2Rx5U3++6
-	 Cd6Vmip99BbNCNyL1rdvsUeJvK1sgYxFNJBOlC/Ayore2NEQ8mQqaeVjK/u6s82QHk
-	 j8i4mQJT6GlxPApi27/VofVaK6YlarPwnWficZVGT9FGDcIXqILA+YgW4IGy0GEETo
-	 hcjFeAYR6s4nA==
-From: Kees Cook <kees@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Kees Cook <kees@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH] riscv: Add kCFI type prefix to unaligned copy routines
-Date: Thu, 18 Jun 2026 01:12:57 -0700
-Message-Id: <20260618081252.work.711-kees@kernel.org>
+	id 1wa90h-00000000wmD-2FOX;
+	Thu, 18 Jun 2026 09:26:09 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=FXuskZWum2eND8Kqapvq5CnQPejvfWzbZgr0VCqB+mM=;
+	b=Ro5n4DsxTcv6kcYs7xwikkAk0E+3gHlYekrLI9Fnl76bnX6pYxu1ksRN3nVu/o8LEnCGulWn4
+	NYHbDMn2L8ZXZbDOkC/9bxJ0EO5TjUstPmISyMxyYmOpRKKSfKS2b9EMry/A0gxrQPqInzl7H83
+	eyAYjkOIHutvlhnE6ZVBqIA=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4ggw9z4mYZz1cyQF;
+	Thu, 18 Jun 2026 17:17:59 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9535440539;
+	Thu, 18 Jun 2026 17:25:57 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 18 Jun
+ 2026 17:25:55 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.fr>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <peterz@infradead.org>,
+	<kees@kernel.org>, <nathan@kernel.org>, <linusw@kernel.org>,
+	<jpoimboe@kernel.org>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<ojeda@kernel.org>, <maz@kernel.org>, <timothy.hayes@arm.com>,
+	<lpieralisi@kernel.org>, <thuth@redhat.com>, <menglong8.dong@gmail.com>,
+	<oupton@kernel.org>, <yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>,
+	<broonie@kernel.org>, <kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<tabba@google.com>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
+	<anshuman.khandual@arm.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<apatel@ventanamicro.com>, <mhklinux@outlook.com>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v2 0/4] arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
+Date: Thu, 18 Jun 2026 17:24:40 +0800
+Message-ID: <20260618092444.1316336-1-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2973; i=kees@kernel.org; h=from:subject:message-id; bh=ModCF8ov3TtoIrFxkQYcmcDaoLwDTqZa7+2eB+/85xs=; b=owGbwMvMwCVmps19z/KJym7G02pJDFnGKzpaPKx/V1tc877xMLEm5tue7lXNfUsU+pLmF/39e Uy15LhCRykLgxgXg6yYIkuQnXuci8fb9nD3uYowc1iZQIYwcHEKwEQYNjL8s7zo+EalbVv8o+RY psIlU9tnNcc7Gn0WPt9mnL9cOMDtKMP/6C73/1HrI9f8zw4xf7Z28fX1fTWSJc+S7eQV356SUqz lAgA=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_022608_249356_35F17A95 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,72 +87,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-__riscv_copy_words_unaligned() and __riscv_copy_bytes_unaligned() are
-called indirectly through function pointers from measure_cycles() (via
-compare_unaligned_access()) during the boot-time unaligned-access
-probe. Under kCFI, an indirect call checks the type id stored in the
-word immediately preceding the callee against the type id of the
-function-pointer type at the call site. These two routines are defined
-with SYM_FUNC_START(), which emits no __cfi_ prefix, so the check reads
-the alignment padding ahead of the function (zero) instead of a type id
-and traps:
+Support for parallel secondary CPU bringup is already utilized by x86,
+MIPS, and RISC-V. This patch brings this capability to the arm64
+architecture.
 
-  CFI failure at measure_cycles.constprop.0+0x34
-    (target: __riscv_copy_words_unaligned+0x0; expected type: 0x00000000)
-  Kernel panic - not syncing: Fatal exception in interrupt
+Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to avoid primary SMT threads
+to boot first constraint.
 
-The call site is correct: it loads the actual type id from [target-4]
-and compares against the expected 0xf1200a56, which matches the
-compiler-generated __kcfi_typeid___riscv_copy_words_unaligned. Only the
-callee is missing its prefix word.
+And Add a 'cpu' parameter to update_cpu_boot_status() to allow updating the
+boot status at a per-CPU granularity during parallel bringup.
 
-Switch both routines to SYM_TYPED_FUNC_START() so the assembler emits
-the __cfi_ type-id prefix, matching the existing treatment of other
-indirectly-called riscv assembly routines (e.g. ftrace_stub in
-mcount.S and __cpu_resume_enter in suspend_entry.S), and add the
-<linux/cfi_types.h> include that provides the macro.
+Rework the global `secondary_data` accessed during early boot into
+a per-CPU array `cpu_boot_data` to allow secondary CPUs to boot
+in parallel.
 
-Build and boot tested ARCH=riscv defconfig+CONFIG_CFI=y with GCC
-17.0.0 20260615 (experimental kCFI tree) under qemu; the boot-time
-unaligned-access probe no longer traps.
+And reuse `__cpu_logical_map` array in the early boot code in head.S
+to resolve each secondary CPU's logical ID concurrently.
 
-Fixes: 584ea6564bca ("RISC-V: Probe for unaligned access speed")
-Assisted-by: Claude:claude-opus-4-8[1m]
-Signed-off-by: Kees Cook <kees@kernel.org>
----
- arch/riscv/kernel/copy-unaligned.S | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Changes in v2:
+- Remove RFC.
+- Add Tested-by.
+- Fix AI review issues in [1].
+- Add arch_cpuhp_init_parallel_bringup() to check psci boot.
+- Reuse `__cpu_logical_map` instead of a new aray.
+- Defer rcutree_report_cpu_starting() until after
+  check_local_cpu_capabilities() to prevent a potential control CPU
+  deadlock if an early capability check fails.
+- Move the assembly in head.S to a macro called `mpidr_to_cpuid`.
+- Add `SECONDARY_DATA_SHIFT` for `lsl` to access `cpu_boot_data`.
+- Add sizeof(struct secondary_data) power of 2 assert check.
+- Expand testing with more data collected from real hardware.
 
-diff --git a/arch/riscv/kernel/copy-unaligned.S b/arch/riscv/kernel/copy-unaligned.S
-index 2b3d9398c113..c649ad3d19e0 100644
---- a/arch/riscv/kernel/copy-unaligned.S
-+++ b/arch/riscv/kernel/copy-unaligned.S
-@@ -2,6 +2,7 @@
- /* Copyright (C) 2023 Rivos Inc. */
- 
- #include <linux/linkage.h>
-+#include <linux/cfi_types.h>
- #include <asm/asm.h>
- 
- 	.text
-@@ -9,7 +10,7 @@
- /* void __riscv_copy_words_unaligned(void *, const void *, size_t) */
- /* Performs a memcpy without aligning buffers, using word loads and stores. */
- /* Note: The size is truncated to a multiple of 8 * SZREG */
--SYM_FUNC_START(__riscv_copy_words_unaligned)
-+SYM_TYPED_FUNC_START(__riscv_copy_words_unaligned)
- 	andi  a4, a2, ~((8*SZREG)-1)
- 	beqz  a4, 2f
- 	add   a3, a1, a4
-@@ -41,7 +42,7 @@ SYM_FUNC_END(__riscv_copy_words_unaligned)
- /* void __riscv_copy_bytes_unaligned(void *, const void *, size_t) */
- /* Performs a memcpy without aligning buffers, using only byte accesses. */
- /* Note: The size is truncated to a multiple of 8 */
--SYM_FUNC_START(__riscv_copy_bytes_unaligned)
-+SYM_TYPED_FUNC_START(__riscv_copy_bytes_unaligned)
- 	andi a4, a2, ~(8-1)
- 	beqz a4, 2f
- 	add  a3, a1, a4
+[1] https://sashiko.dev/#/patchset/20260611133809.3854977-1-ruanjinjie%40huawei.com
+
+Jinjie Ruan (4):
+  cpu/hotplug: Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+  arm64: smp: Pass CPU ID to update_cpu_boot_status()
+  arm64: smp: Defer RCU reporting until after local CPU capability
+    checks
+  arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
+
+ arch/Kconfig                    |  4 +++
+ arch/arm64/Kconfig              |  1 +
+ arch/arm64/include/asm/smp.h    | 17 ++++++++++---
+ arch/arm64/kernel/asm-offsets.c |  4 +++
+ arch/arm64/kernel/cpufeature.c  | 22 ++++++++--------
+ arch/arm64/kernel/head.S        | 36 ++++++++++++++++++++++++++
+ arch/arm64/kernel/smp.c         | 45 ++++++++++++++++++++++++++++-----
+ arch/arm64/mm/context.c         |  4 +--
+ arch/mips/Kconfig               |  1 +
+ arch/riscv/Kconfig              |  1 +
+ arch/x86/Kconfig                |  1 +
+ kernel/cpu.c                    |  6 ++++-
+ 12 files changed, 119 insertions(+), 23 deletions(-)
+
 -- 
 2.34.1
 
