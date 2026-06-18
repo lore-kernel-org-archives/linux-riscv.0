@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35719CD98FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 17:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F1CCD98FC
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 17:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,52 +13,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Subject:Date:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=tqHh+E0l4UhYkp8mCnFeX/DX8+ep+9hoin2iHZkAz+c=; b=Vras9u9MnUyo0hvKNaR8QCljj+
-	nQP6Vq1slDkLEjmIlB/0IFcK71lQByDFxaIySYibW6CAI+16G81MlwcGHTXu8gdB8EJ+fuQgs8/89
-	3RCh0DGX6ouC7CbCarQV3dz1OWor7mjKY9LzLOqKjCdYv9Nv5vCRqcOHroaXkOEWpQF+q1TZHsRhg
-	cZcU2TI4tpJhMjrbzx9jsHjJkbODDWfZuQs3MngoXPOqUwgyaN6lOw1LqHxSyVWx8obDNAdjgRmUP
-	K/+HLO/QZTC7sSHQdToG3p9dPS3/I9luhOGAIXkfyEcL2taAH72RKwwjq2MxM++n2f0LY03EsaKai
-	GMIvppoQ==;
+	bh=Uvl0kUZNFLZgYuOduL0feXexu+NlW9ylOA8rKVOX7Qg=; b=nPK8ZzTcryCKIiLls1+kHay474
+	coFzGAdxr+grwjBrifyun3/T2kZJn1G3htNMjE0+TPPbxQlLJ8GOCr+iE9dQKvvTOAIUkrOhqbYoh
+	COHkfWlYsoKW5aQkv+tT+07xE0qeVBcO+D5HVpx56umBcheL+PVUwa50QUG8YTVFMCP8DTbcGnAgo
+	SNqNTvjQLQ6urd2UAraETN/yE6EGlqB10NcJLwHB+jbUPCXC29kSxp/O5SzcSRvY3S0ESUVJSRWlC
+	qW65tJw8B7q+IMFyLIkJtrJBoOR/S9f7m8vU1APpF6oxhNk9IQZ3kZc+tPUiVRP4eND4Bl3J3/q1R
+	IKlxPBXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waGAo-00000001cJr-2nVV;
-	Thu, 18 Jun 2026 17:05:02 +0000
+	id 1waGAs-00000001cOE-294Q;
+	Thu, 18 Jun 2026 17:05:06 +0000
 Received: from mail-uksouthazon11020108.outbound.protection.outlook.com ([52.101.196.108] helo=LO3P265CU004.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waGAk-00000001cBc-3Jbt
+	id 1waGAp-00000001cBc-29xN
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jun 2026 17:05:00 +0000
+	Thu, 18 Jun 2026 17:05:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LkI3//myayZZcaXrcHL+Lq73xjO3ydab431iYPtt7XAwsYYrquMViZCBIu1SGwnKFIZR1/4bG2V54RGNV5xIU/wg+AjvdqnCQR5iiruohqfVAO3GfGZYFByzsNjNthPYiouMun/1GgQhYoB82K6KbLnU6axAPFvQ7TfpGBL07K200uGSmXN1IbkOq0u/nwaaqvhCCN9iG9dweo0O6/eZIs22MANDALqYUiEdmjE/Ma9B7nOcTNbmNuUVvP5hK6jzRjxsrJiAgazKYp/tBgfav3jnXrZnyZrxM5NAoqNiIvhd45ecSkY7Mmoiyi7C06NJWLhGD3W+hXtw+i9kJiCqHg==
+ b=mZAaaFMYU3nIlOZpNHmvOsSK8NNKLTQfLg2NjV1xVJybAxfl8xbF558q4sy0JqWI8vLVGQqVfiWCNlJNVav181E16BIJEoalIo7nRvdWtX8vHVP9otwohNlItssoFVoS7dDIdUtDYqf4I3RtDbKAblZmVBmNSbRVFjJqceKo5w8bhcztahcaSZ3vzmstrIa6exeXcSp6KjxsjSjK1VQRM44zeTGBDVQIuWwLO3V8RjI9ziwnDuGZHGANnhtxN1SwG+b0xTMimgvTLjvJQtdcmmX1jcxsjrGRVcwi9YmyJxZHeSKExU+n1auxF7HKwV8D/Hxs0BT6Bv6JlkqSZEr8Cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gZlStPudhbfDz5sWB4KYpDnrxowPhKGyluFvi7KcHZI=;
- b=ENwB3ZN2uCAmuuCtVXs3BDYqUEVKQsK9H5gu3hfZo0dMtE+M1TZhifb1n0hsFFvKfo2uN5zuZfVD87GfU3aXHZ/OgDxFqYEL1oO4uW2Z/uqABctoBT20Ztsf3j7184jNUMHzj00XmkldgAjd4maL1vij5EJJy7EjTeo+BrAvr5mIaaBSR5Cyd2aDfd7PpHxEtBrLapmlTiogo0/8+nLj39vh2BvO9x/UWATpsgFPFi13lOsxES+CSZYdnOmZZ6exjjFbHlyS0JllHKKh1mhoijH9fGAz14q857SiwtNeN/J1su2RN56T5+AYfgqarDm84BFWBWSKeUN8uCFh5rHg5Q==
+ bh=U1sc6qMCXeEMau8ZRnfo41X1a57ZKivnNqCpzABICd8=;
+ b=Nl+x5eL7wg0FspeOIYlUa+jOQBE76AoZgpWFwt7EbODWaUBtKImOZ4Y6dAQ9/54kkopUtq2CNCtAKFHFLTNgxOk+kehfE9KLxhCh6BUJ0XBEp0E/tari1Fn3GAKD5Ks7H4zzQeb0/cAINhfDwhEkTIF445hDd7KIYwjt0aCA0m7RXzRD8l27QJEe6dLHVfJOSwcQFYPmfKD/gMT6Kpsawso4MYyJZ2yZqwGY/Ptyxysdo0HgZxzTkWkJCBY5Npt3842+mbp0hZuTdhX/zcYt/KmWGkBy4ELqJWQZHaMTVGwi/LxkZ59CkD+r93A94x0mOBrXL8Dd7XH6bIJxrfh/4Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
  dkim=pass header.d=garyguo.net; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gZlStPudhbfDz5sWB4KYpDnrxowPhKGyluFvi7KcHZI=;
- b=pEbBVIXrR8XceR7cQ3z8fDLAfSnt3g4JQG36fM0fqtZ23D3t6Ze3CO1zt3n+9iTGFbs+jujnkf/cmijBBFrxwg69wFqbotfOuQ19oopguAqD3S2BBPh+8oQqK4dVud9JpI3BcWkWkYQSFOnFVUBqwEN/U2R9qcBcUnN+qGHb+tQ=
+ bh=U1sc6qMCXeEMau8ZRnfo41X1a57ZKivnNqCpzABICd8=;
+ b=b0xRUOtKp6JBHFSir6fXCcRkcB20Zr8bI5bvVeFUQGjkkFkgK31Woz6aHb+9JsMi4qHCrBw51PGRgiiqpIFppUAtZ0b4YlsNWOvERRT+iM9wNNh6Wa3Yg/njXofT5WAO4PKtzqKDXKU5ns7vnef+Sihu5EymwkHRGKxz7SDqISM=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=garyguo.net;
 Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
  by LO4P265MB6966.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:34d::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Thu, 18 Jun
- 2026 17:04:47 +0000
+ 2026 17:04:49 +0000
 Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
  ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
  ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.21.0139.009; Thu, 18 Jun 2026
- 17:04:47 +0000
+ 17:04:49 +0000
 From: Gary Guo <gary@garyguo.net>
-Date: Thu, 18 Jun 2026 18:03:43 +0100
-Subject: [PATCH 06/10] rust: driver: remove `$module_table_name` from
- `module_device_table`
-Message-Id: <20260618-id_info-v1-6-96af1e559ef9@garyguo.net>
+Date: Thu, 18 Jun 2026 18:03:47 +0100
+Subject: [PATCH 10/10] RFC: rust: driver: support map-like syntax for ID
+ table
+Message-Id: <20260618-id_info-v1-10-96af1e559ef9@garyguo.net>
 References: <20260618-id_info-v1-0-96af1e559ef9@garyguo.net>
 In-Reply-To: <20260618-id_info-v1-0-96af1e559ef9@garyguo.net>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -93,11 +93,11 @@ Cc: driver-core@lists.linux.dev, rust-for-linux@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
  Gary Guo <gary@garyguo.net>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781802282; l=13912;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781802282; l=1753;
  i=gary@garyguo.net; s=20221204; h=from:subject:message-id;
- bh=zrzKTyWZvFl8aHR0nGBQfvLWhUntGP6fVsEvGW3syKw=;
- b=CbmMHGyXvD5RrOoMTL4dZ8FaPr8G7SDNfJHKi6VizMHt5Bt8mWoyiUdxmOyqASohcpne84X1F
- 27D9Dz24nd0BwBj3MPSnTuFUq1pSXsV9hR1cNNoy52jUbBxdAyBXjdL
+ bh=A0ywXdGf02/pqWfOcql1b083Co7opyezNY57GOUfVeM=;
+ b=xj5GhBjIYVuoC0phxbQlVjreyyGtDNgJPrJPqTGL7Nr7TwKpc+9p1wDMt1NR9cDa/pM/lNlFG
+ U8loSS9DoPdCo1m33rcwrc5RnyZnPCDLdP/IrcK3/TS2N/Ql+97hqaK
 X-Developer-Key: i=gary@garyguo.net; a=ed25519;
  pk=vB3uIX95SM4eVrIqo1DWNWKDKD2xzB+yLLLr0yOPYMo=
 X-ClientProxiedBy: LO4P123CA0548.GBRP123.PROD.OUTLOOK.COM
@@ -106,66 +106,67 @@ X-ClientProxiedBy: LO4P123CA0548.GBRP123.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO4P265MB6966:EE_
-X-MS-Office365-Filtering-Correlation-Id: 33ea0177-340f-4e5b-90e9-08decd5bb398
+X-MS-Office365-Filtering-Correlation-Id: fbbbe4c8-d618-4554-48e1-08decd5bb4fe
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|23010399003|1800799024|376014|366016|7416014|921020|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: isPeEBW/lI1vC/NzhW0Frlbf2mZZEipPbJaHN9d3Db+MKhtwzMLwPQHMFIEzRP8XZEu3V6tFXs5fZHDPrjALHBc/ukovfqtU7bFyJ9d3Gv7hAK2pe31jsCjidgF6GebRMvkZ5fr32s5CLNxMEmevYybeNY15K5T68aUnZmIhcFyaXfo2SwTA7XwuSZVuVwTGaiMK0ABqM7FkV6cLOeFgxhoR1pYtswo8rC11iX49algXj7waoPM9pKSXmed2bw8quf3KbXij8PIvL/FP2FDLvdKvfmP7BZKy1X7BqjrV5ys4MHJTzJi0KCzABEuktuODKt1rRBBSlsctdmX/fJGNWFA7H3XKspzYg0o+GBK0nayXjz+24co659N4VM3vPN3TmTPAiIaXM0WvZThUTZgPzAwG/WF4vRWJmGnnkTH9ZrJgbuT/HJ8D+aqkZA4NJlYvNbsuEGCQZJtsRBuWedXDkIQ/U/vPQbnhyE4ubNYSK5ltvKVmbW06gAdSuG39RO8sChOWfEeYsJwuszt75M78DDu+MRhpl5X763wYCh0DZO+lMltAV0L6jld5+w8XLoWkGLuY+4mSi9x4KymhzRAROYicfiDgOOIPAIiSWQ60oPcOTsH7PtkbnM3Kq2YsYTPqsKwI61I5rts/3nB/7xTXVqLgrAODkjIGBhVJhZB+Er8AxMx1Mj9hRt4U94qifsdkcRfECS2ygKZfwkJQZ1mNm0c/9zvwvLilwtgUL1wvc6w=
+X-Microsoft-Antispam-Message-Info: Ehw/ZqUdUcvXQOIPbOVZQ6VmDsrYbcb2TEhcdYlFr5g38vpuDBKF6TViT0WiWqDKAw4Y82pA05ZgZsQa4xcmSDLjYBRyKd7J9a5XkY5Q22kGJ6Rx8VcmGZm9BjEbrnAzCUkBTie8ozhlrENCrS8rLLmx1mRylYQPl3nP8aVUTwf9MTIrRu8yuehdOgbghzXVQvIyq5bM2XZS3olQdbWSH14U9NUwHXNgtZFsZk7KY4wLon+fX4hvjEkT7gXGdTJiYgUCA9x7nhVuczItzxZZO1gW+IBAvIRDjifDtlBWA9wMDGj5OCdx1a6YPnAJMBqqjW6LGHJn/UM6IODeCODfiBOCLfEXQWPGXLRbqFf5eoIVkjwAWZzDBzZd8aKOCUW/G6KksXNP8mmF3DVleVmmxHdbUPouk8wlbXtxdiF9nBEjbBQaU3sSwnABYp0/onEP9y5CAWJ53tCtg87XVYlX1ba3+m/B5XeDOlc4C15bZMD0GZ20iaAGVwPbHbm9Bje4KS9/V6Q2MiKVJhwtPlZcTkrndmbFVk+adie9eEiDPaWx3WCBA3PD/SBAafsChNDxsj4RnkZCM+Mqa+deTxoUFmivM47BCtBFmPFiTDZgqJihUvdbaGSea46HgvKa/2NXdZ172+WNrCmJwVNr/t2DpR0qsp1ROU43GE94xdMUI7M7jlFf+J4lNmFPE/WOaM4Et55eCP3GWTEwxyi6Hm9WMzSBEmKKbzxilKa3PvQQW5g=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(1800799024)(376014)(366016)(7416014)(921020)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RHA1KzFxVlhnbGpTcDR4OUhRQWRBdFdYZ1U1QmNxdzdMTU1pdHAxYnhrcWta?=
- =?utf-8?B?b2ZFTklYSFlvWkFDUm5vMjRJdzZYYm0rSlpXNUhFTHBSZGNta2ZQV1FMNlFt?=
- =?utf-8?B?SXBNRkI5TUs3MmFQWDJrWTFXOFZ4UE9KS0Fua3RZOTI3K0tMdHptckNqYW9K?=
- =?utf-8?B?dnFDMVZXUlNVeXBiTCtBTjYyU0QxVTZYQS9RUDZ6TS9pMEplMG81VjR5R3Q2?=
- =?utf-8?B?emZSNU1WcEJRbmVRVkhlZEk3YjNZWHd5d1Q3eUxja2c1UGg1SmxYZ25uU1Fo?=
- =?utf-8?B?KzNHazJaaWxlTGZZWEhjOVZxTlJYQVZuY2MzaTNVSXhPQTdjR1crR3VGMXJr?=
- =?utf-8?B?endpeFdKYmpKRG1BYUN4RVllcTB6RUZnckVyRzlDZ1FjWHdzQ29DUUlOSVVl?=
- =?utf-8?B?MTFiOTNkWkcxanBGZkdRSGVVVDgwWmNRNVZ2YnRuUGpQVkR2TnBzR1ZFaVZy?=
- =?utf-8?B?d0lOeUIyNUpIT0hxWldyRkRTWnNPQXcrc0FmMHVwYmp2YlZFQWVKaEdOMGlB?=
- =?utf-8?B?OWJ5S3hyK25jUFVUMUlXMUp1aEF1djJBU0dqdzFXZVFCVWorOW04VmFzb2Mv?=
- =?utf-8?B?YVMzZmxMMFZPaDNLQ21zb3ZucmcwaTRpZGNxdkNKaDM5TVRlODg2VXJEUWF2?=
- =?utf-8?B?ODYzTmhBc1NJNXIyN3FXQm0zTFZ4dlR2Mk1rREQ1OGxRN2NQejVYWHFZeGlG?=
- =?utf-8?B?d3A5NisxSjZDekxGTjZLNTY4MzA5Yk1vSzcwM283cUE4dFQwKzl0Wllld3NZ?=
- =?utf-8?B?R3AwdTV5RDJNVTdRWmpMKzRZaW9PRFBPRDBXeWp5ZWx2ZXh1cm9saWZRUHJF?=
- =?utf-8?B?L2dVZGoxYU9sM2dHUlVVQWUyS1ZGKzNpbXFENndVbzM5dElET0dzUGU2d3U0?=
- =?utf-8?B?ZGVhd0p6and2MzBjZ29YRVY2WHA1aVc4Z2xucGNaK2pjYkMrY21ZSnlZcTdn?=
- =?utf-8?B?djRMMG8wcDh1YXB2eVRYVjIxZDMxMDdvNjFPa2FEUm5CTktaMkh1L3pyYU9m?=
- =?utf-8?B?Z2ZjbDNpT085S0ZYY0IwTnc0WU05TXh0WlpaOUpvUWtkZGlDNHRMYkJueXUw?=
- =?utf-8?B?MGpSVUhwWTgrUTA2TC9oQXB3WUp1NTE3T1cvVXc2Q3FCUkVMUXQ5bjNVc3ds?=
- =?utf-8?B?Tm0xN1ZPdmcyTVY1SVdYSzVadWw3TmJMMVMzdSsyUUo4dkt0cTB0ZEpFR3NL?=
- =?utf-8?B?NkdyMjBQMHdmR3pRb0FFOVVPNjVvaEkvalZNVzRialh2TnE1ZTEwVmZYZFpa?=
- =?utf-8?B?L3VaSE5pT3lRd1hZQTB5VFVVMWkxQkkzZFF3QTRoL1lPd2R3d1JkQU1tRURV?=
- =?utf-8?B?TGVabkVCdVljWnpSR0g3SDJWTVRqVWxmbVZ0NnVSZk9HdDlFWEUrc1VtQXBu?=
- =?utf-8?B?Kzk2V21mTGhxZW01YmN3LzRBbWhOM1EvRjJDT3pmb2lBQmNsR0dPbW9VR1Rr?=
- =?utf-8?B?aFFpR3owTVBpUHdPMnB1NFd5b2t5NnNnbHp6STlKZWJaem5IVU5sMElacGlF?=
- =?utf-8?B?OHNpb1dxWEQvVHI2dHFxR2JGbHJUTjNFR25mdUZhS0ZSaVFNTDRQMWhKblNq?=
- =?utf-8?B?TzZLd0UvVVg1dnRFMmpJWEZ2V1NrckFyVWxQZER1ZHhETGo0N1pNN3hhZUZC?=
- =?utf-8?B?ZDhzMVZ3MHEzM0RmdGQydTNNZUs5NzFEMi9TaDJOcTZGM212RWpBR0t5S1dr?=
- =?utf-8?B?Wkp0SXN6VWc1bmxsL3dublBncS9aSzYyVm9rUGhWbTV1L3dkdUNhOGQ2STRj?=
- =?utf-8?B?VHYySy9sZDQrWTlJdUR5b3FCZXJzYlU0MUplV0MzY1hodno0SXdTZ2tTNzVm?=
- =?utf-8?B?T3dZQ2wzcy9DOVg2UEpQMzFlV1VDQ3NETlpuNUVld0tMM3dyUkJJbW9qa0hX?=
- =?utf-8?B?QUVCSUpOa3Z3NXNtdm1FN2JUQkdwcEE2R3R0Sk1GaS9Bc3pYYXdmR3pRM1BJ?=
- =?utf-8?B?SzZiK0cyN1BVWU1UREtYZ2RhR2xDMDBna2YwN0g4VFlGcXhRTDJ2ZldLR3p2?=
- =?utf-8?B?Qk84SlBkYUpFMjRhSTNuYm1EdWV2M1NJRlJPSVpyN2tYcTV6UlFOWHNHcWJG?=
- =?utf-8?B?VHRDcUcrTkR3WUN5eDN5ZG02QW9EL3F2WHFsUG9EMXdKcmNIVVZkcE82dFdN?=
- =?utf-8?B?VXc3NG1GSFFBV2JxcSt3OTk2SFpsVFY2K1NCUTZab2cyRFhIK21zbW15SVdL?=
- =?utf-8?B?Yklpb2JTdzRoKzBWZ05vNCtyRVpWODVFMG10ZU5ZV2MxNDBYTmhaek9lckhh?=
- =?utf-8?B?TUpza2kxL1oyQ1pNa1NyTWxSOEUrVGhyclN5M3dwNllmYzFkVWJ4eTh3aGQ4?=
- =?utf-8?B?YTQvTHBBWVdBMHduSWQzdndqRkZUY2lLNW9GR1BQY3FXalpQYnU2UT09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUtaSWcwSG0vZThhL2hVS3RNaTh0eEJEY2ZXODd4WlJ4MlZlUkRTaXRjNVZ4?=
+ =?utf-8?B?NE5DaUpqd2hmWENKOVM3bXpIRmh3aDE3Skx4U25Lc3dGWnVLb2xJcEhaZURX?=
+ =?utf-8?B?bllwOHJIQ0NrTXdiRENEUmlmR3hIYVAyQzdIQkE3OStEK01RN1ZDV3lIdG5h?=
+ =?utf-8?B?QkdRYkdKcWZVOHRrVndJdFJMRFY4ekYrMzJ1dWQ0ek00cVVSbkR0VWF0QWNO?=
+ =?utf-8?B?eEQ1bVpFMmRJdy9jMWNPTEZVVzc2WGNwa2J6Y2Z2WXFFRFpjV08vMmI0a3FN?=
+ =?utf-8?B?MXdoRXZrZlp4Ri8zWTkxZy9PYTlxZUVaYUtoUmNCVW1PMjF3YmdYd0RaMzQz?=
+ =?utf-8?B?cXJOUHpKS3NmTSs2SEdZNldNQzRQNXYrMEQyb25ibE13SjRvSkFkWUtleW1P?=
+ =?utf-8?B?VEltVDNwcldyNnF6MDBwOGp3SjRZclV5SWJvci9zVFRRWUVvMzZFdGVuc2h4?=
+ =?utf-8?B?TVJDTi9XMlhjOUgrZ2p1TkY5R3BNMTlId2dTZXNWZW1qZktlZXhLcGZKTVpL?=
+ =?utf-8?B?R2Uza0FqZnVhYXdVUjlHaVhEZHdQR0xvaGNYUnlNZEtRL2s0M01GNExJQ3Z3?=
+ =?utf-8?B?c1ZjR29lbEVhNnRFWEVGMVZEMklJb1lOM2hhb253YWdsVDdXeGZ0U3JtWFMv?=
+ =?utf-8?B?Y3grb0M4ZFhZQkYrNDVIM090UHQ1YXcrUlNLRk9CNmtNdDloVGV4dHFGMko0?=
+ =?utf-8?B?YWRIeTdwN25lZndlUFdUeTc4OVVVaGMyM0xZZ1hraG80ZklUcUQ1d3ZTc1dp?=
+ =?utf-8?B?YzNIUmRNa3E4UFUwTVQ5YW4rK2ViZExXQ21kLzNMaHRkQ24rdldzbktBbU5n?=
+ =?utf-8?B?Ry8zL3lMK1pRQ1lUZWZZdEpOTk5ISnNMcHN0dW1CRUZ6cHpXb1BBeUF4NG1U?=
+ =?utf-8?B?R01TNHRWVmpERU4xNUZTZ1RPRFVJKzh6MTBHWFlHd3A4TktQcUN5TWlPdmUx?=
+ =?utf-8?B?eVE0MjlVVjBKcEp3WC90dE1lWE41WnZaRXpjSk1waWhnL05kdldGOTlZeXNj?=
+ =?utf-8?B?bXNqTUtpaXV4ekx5d3JUT3hPN1dVdGdsQko1RjZteWh3V1dpTXIrUU5nVERW?=
+ =?utf-8?B?SzZ2YnFFUmFvdDhuUzNKeU04QmdMMjdtMm1aVEFrU0drNmxpTWpYQVN0ZElj?=
+ =?utf-8?B?VVlrMGZreVlKV3VPTjZYdHJmUDdPV2s1bGtRaWRPaDNMeVNoMlNyVXRHTDZ5?=
+ =?utf-8?B?aHoxYUhkeVZBa1pDSlFReExpQjlJd0ZQQUlqZlFYeHErUDEzY3lsa1psZGs4?=
+ =?utf-8?B?UVRFTDFsN1hseXg2OWRWRC9naFVJMUx6cURMMGpKd2hjNVF6Lzk5RlQ1cDZa?=
+ =?utf-8?B?Q2pHUFlNejkzb0FGRlpBbTRKSHNjajNVUlhSSmxYL2ViYURONDdNQks4UU5W?=
+ =?utf-8?B?UjhDT1IvYmF6TXRUZThsSFYwT1VEL2R4TXplMHE3OVIrREdVOTlTdHdNRkRG?=
+ =?utf-8?B?Y2tZZHBlZGlYUy9SaU92c1BocCs4UnpLbmh1TTM4ZlNadmVwbTlsK3RWK0VO?=
+ =?utf-8?B?c3hvZnQ2MXJ6dXcxd2lFVm41aTFMTFppdXY5NElWc0lORlpOMzdTMi9hZUs2?=
+ =?utf-8?B?Y3R5emh4QS9JZ3ZDUU00SUhNaWIxbVY2eU1mcDZ1cllGdWdGak1Ga2pYTnFI?=
+ =?utf-8?B?b29GRUVUSXc0MHRnT0psdUI2cEZwOXAyWS9tSUtVek1xODQ1RHRKRzdxaDQ5?=
+ =?utf-8?B?RVdBNENRZTRLaWszV2txdkFYS3BpRUN0WXNQSjNpUWtCQ1lhV0Q5Z3ZZRTM2?=
+ =?utf-8?B?dXFmOWNnMGVweUowWDFybUViYzhhN1lISWlCN0d3SkFHcU9pTVJiQW8xNzBh?=
+ =?utf-8?B?YUFCT1hhOTZsL1hLQkNkZ3E0S0dxdi9Fbmw2S0ZGME1HSHZZYmdQSVVvZ0Jy?=
+ =?utf-8?B?QUx3Q0d1MDhNdzhabDFWazU0VEdVNDlseXNIdTRDenY1emhvbWxydVdnVll2?=
+ =?utf-8?B?YkJpeGdyYTFEaUpMTlowQVBodEp4Z3pnUEJNcHNvcVlDSzBCVmRUdDJObUtY?=
+ =?utf-8?B?UkhUeEN2NmlvYUdXN3QzUm9YLzVCdUw2MHBTM0QxRENPM3hBbyswWEsvcEdr?=
+ =?utf-8?B?Z0ZicFBmc01raUVOUUJGRjhYa1psVi9XSFJCK09Ldy9NOEdQY2diZStsalRI?=
+ =?utf-8?B?eDJodFI0YTFkNzFieERtMThKbzJqZ1dkRlhIL3FydDI2SkRYdGFaNUxnUERL?=
+ =?utf-8?B?RWdZdmFlS2M5VnJSQVU5VHQ1Skw0R0NSYXdPTSttMWppaXpyMFZSamRUdUQ1?=
+ =?utf-8?B?Szc4OForYlJSSFJUeHpRbU5GWWdCV05uZXhVTFRXcEovTU5GR0lQZFdkdklV?=
+ =?utf-8?B?eU5EVDhKdHFvdlNrRTA1YU5aWnJuNWtrNnRpVDRHZmIrdEdaT1V0Zz09?=
 X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33ea0177-340f-4e5b-90e9-08decd5bb398
+X-MS-Exchange-CrossTenant-Network-Message-Id: fbbbe4c8-d618-4554-48e1-08decd5bb4fe
 X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 17:04:47.2658
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 17:04:49.6298
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jK2jmplE5eMvR6lo9IHKMauRRNcx3G8z6gPlE+8VavQOJj4a3Y8GDrMExysFRC6JMxXhsPdsHX/xN8VRjaoGuA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: NjgpGG3fjnJ60VsWSKnltPjHnIGmV0RvNRmDQGgC10DJPu5bf9dRSZkoM/Zag6to58RbNFglJvWq13riTiVcaw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P265MB6966
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_100458_839961_B8B04C7B 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20260618_100503_567572_6D0D9A88 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,390 +183,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wrap the generated code in a `const _: ()` block to avoid symbol conflict.
-This removes the need of creating a new identifier.
+The device ID table and its associated info is really just a map. Add a
+syntax to `module_device_table` macro that reflects that.
 
 Signed-off-by: Gary Guo <gary@garyguo.net>
 ---
- drivers/cpufreq/rcpufreq_dt.rs        |  1 -
- drivers/gpu/drm/nova/driver.rs        |  1 -
- drivers/gpu/drm/tyr/driver.rs         |  1 -
- drivers/gpu/nova-core/driver.rs       |  1 -
- drivers/pwm/pwm_th1520.rs             |  1 -
- rust/kernel/device_id.rs              | 30 ++++++++++++++++--------------
- rust/kernel/i2c.rs                    |  3 ---
- rust/kernel/net/phy.rs                |  2 +-
- rust/kernel/pci.rs                    |  1 -
- rust/kernel/platform.rs               |  2 --
- rust/kernel/usb.rs                    |  1 -
- samples/rust/rust_debugfs.rs          |  1 -
- samples/rust/rust_dma.rs              |  1 -
- samples/rust/rust_driver_auxiliary.rs |  2 --
- samples/rust/rust_driver_i2c.rs       |  3 ---
- samples/rust/rust_driver_pci.rs       |  1 -
- samples/rust/rust_driver_platform.rs  |  2 --
- samples/rust/rust_driver_usb.rs       |  1 -
- samples/rust/rust_i2c_client.rs       |  2 --
- samples/rust/rust_soc.rs              |  2 --
- 20 files changed, 17 insertions(+), 42 deletions(-)
+ rust/kernel/device_id.rs        | 11 +++++++++++
+ samples/rust/rust_driver_pci.rs |  7 +++----
+ 2 files changed, 14 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/cpufreq/rcpufreq_dt.rs b/drivers/cpufreq/rcpufreq_dt.rs
-index 10106fa13095..145daa12072f 100644
---- a/drivers/cpufreq/rcpufreq_dt.rs
-+++ b/drivers/cpufreq/rcpufreq_dt.rs
-@@ -194,7 +194,6 @@ fn register_em(policy: &mut cpufreq::Policy) {
- 
- kernel::of_device_table!(
-     OF_TABLE,
--    MODULE_OF_TABLE,
-     <CPUFreqDTDriver as platform::Driver>::IdInfo,
-     [(of::DeviceId::new(c"operating-points-v2"), ())]
- );
-diff --git a/drivers/gpu/drm/nova/driver.rs b/drivers/gpu/drm/nova/driver.rs
-index 48933d86ddda..43f15cdfeb09 100644
---- a/drivers/gpu/drm/nova/driver.rs
-+++ b/drivers/gpu/drm/nova/driver.rs
-@@ -43,7 +43,6 @@ pub(crate) struct NovaData {
- 
- kernel::auxiliary_device_table!(
-     AUX_TABLE,
--    MODULE_AUX_TABLE,
-     <NovaDriver as auxiliary::Driver>::IdInfo,
-     [(
-         auxiliary::DeviceId::new(NOVA_CORE_MODULE_NAME, AUXILIARY_NAME),
-diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
-index d063bc664cc1..218e9af899c7 100644
---- a/drivers/gpu/drm/tyr/driver.rs
-+++ b/drivers/gpu/drm/tyr/driver.rs
-@@ -87,7 +87,6 @@ fn issue_soft_reset(dev: &Device, iomem: &IoMem<'_>) -> Result {
- 
- kernel::of_device_table!(
-     OF_TABLE,
--    MODULE_OF_TABLE,
-     <TyrPlatformDriver as platform::Driver>::IdInfo,
-     [
-         (of::DeviceId::new(c"rockchip,rk3588-mali"), ()),
-diff --git a/drivers/gpu/nova-core/driver.rs b/drivers/gpu/nova-core/driver.rs
-index 5a5f0b63e0f3..0c53b7239ac9 100644
---- a/drivers/gpu/nova-core/driver.rs
-+++ b/drivers/gpu/nova-core/driver.rs
-@@ -40,7 +40,6 @@ pub(crate) struct NovaCore<'bound> {
- 
- kernel::pci_device_table!(
-     PCI_TABLE,
--    MODULE_PCI_TABLE,
-     <NovaCoreDriver as pci::Driver>::IdInfo,
-     [
-         // Modern NVIDIA GPUs will show up as either VGA or 3D controllers.
-diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-index 3e3fa51ccef9..1df752330e8f 100644
---- a/drivers/pwm/pwm_th1520.rs
-+++ b/drivers/pwm/pwm_th1520.rs
-@@ -303,7 +303,6 @@ fn drop(self: Pin<&mut Self>) {
- 
- kernel::of_device_table!(
-     OF_TABLE,
--    MODULE_OF_TABLE,
-     <Th1520PwmPlatformDriver as platform::Driver>::IdInfo,
-     [(of::DeviceId::new(c"thead,th1520-pwm"), ())]
- );
 diff --git a/rust/kernel/device_id.rs b/rust/kernel/device_id.rs
-index 0239f89d5f69..84852a2d9ad7 100644
+index 26618bcda276..7c61cdcc9427 100644
 --- a/rust/kernel/device_id.rs
 +++ b/rust/kernel/device_id.rs
-@@ -177,7 +177,7 @@ fn info(&self, index: usize) -> &U {
- macro_rules! module_device_table {
-     (
+@@ -183,6 +183,17 @@ macro_rules! module_device_table {
          $table_type: literal, $device_id_ty: ty,
--        $table_name: ident, $module_table_name: ident, $id_info_type: ty,
-+        $table_name: ident, $id_info_type: ty,
+         $table_name: ident, $id_info_type: ty,
          [$(($id: expr, $info:expr $(,)?)),* $(,)?]
++    ) => {
++        $crate::module_device_table!(
++            $table_type, $device_id_ty, $table_name, $id_info_type,
++            {$($id=>$info,)*}
++        );
++    };
++
++    (
++        $table_type: literal, $device_id_ty: ty,
++        $table_name: ident, $id_info_type: ty,
++        {$($id: expr => $info:expr),* $(,)?}
      ) => {
-         const $table_name: $crate::device_id::IdArray<
-@@ -186,13 +186,13 @@ macro_rules! module_device_table {
-             { <[$device_id_ty]>::len(&[$($id,)*]) },
-         > = $crate::device_id::IdArray::new([$(($id, $info),)*]);
- 
--        $crate::module_device_table!($table_type, $module_table_name, $table_name);
-+        $crate::module_device_table!($table_type, $table_name);
-     };
- 
-     // Case for no ID info.
-     (
-         $table_type: literal, $device_id_ty: ty,
--        $table_name: ident, $module_table_name: ident, @none,
-+        $table_name: ident, @none,
-         [$($id: expr),* $(,)?]
-     ) => {
-         const $table_name: $crate::device_id::IdArray<
-@@ -201,18 +201,20 @@ macro_rules! module_device_table {
-             { <[$device_id_ty]>::len(&[$($id,)*]) },
-         > = $crate::device_id::IdArray::new_without_index([$($id),*]);
- 
--        $crate::module_device_table!($table_type, $module_table_name, $table_name);
-+        $crate::module_device_table!($table_type, $table_name);
-     };
- 
--    ($table_type: literal, $module_table_name: ident, $table_name:ident) => {
--        #[rustfmt::skip]
--        #[export_name =
--            concat!("__mod_device_table__", line!(),
--                    "__kmod_", module_path!(),
--                    "__", $table_type,
--                    "__", stringify!($table_name))
--        ]
--        static $module_table_name: [::core::mem::MaybeUninit<u8>; $table_name.raw_ids().size()] =
--            unsafe { ::core::mem::transmute_copy($table_name.raw_ids()) };
-+    ($table_type: literal, $table_name:ident) => {
-+        const _: () = {
-+            #[rustfmt::skip]
-+            #[export_name =
-+                concat!("__mod_device_table__", line!(),
-+                        "__kmod_", module_path!(),
-+                        "__", $table_type,
-+                        "__", stringify!($table_name))
-+            ]
-+            static TABLE: [::core::mem::MaybeUninit<u8>; $table_name.raw_ids().size()] =
-+                unsafe { ::core::mem::transmute_copy($table_name.raw_ids()) };
-+        };
-     };
- }
-diff --git a/rust/kernel/i2c.rs b/rust/kernel/i2c.rs
-index a7d9b88ae616..55c89ba3a82a 100644
---- a/rust/kernel/i2c.rs
-+++ b/rust/kernel/i2c.rs
-@@ -261,7 +261,6 @@ macro_rules! module_i2c_driver {
- ///
- /// kernel::acpi_device_table!(
- ///     ACPI_TABLE,
--///     MODULE_ACPI_TABLE,
- ///     <MyDriver as i2c::Driver>::IdInfo,
- ///     [
- ///         (acpi::DeviceId::new(c"LNUXBEEF"), ())
-@@ -270,7 +269,6 @@ macro_rules! module_i2c_driver {
- ///
- /// kernel::i2c_device_table!(
- ///     I2C_TABLE,
--///     MODULE_I2C_TABLE,
- ///     <MyDriver as i2c::Driver>::IdInfo,
- ///     [
- ///          (i2c::DeviceId::new(c"rust_driver_i2c"), ())
-@@ -279,7 +277,6 @@ macro_rules! module_i2c_driver {
- ///
- /// kernel::of_device_table!(
- ///     OF_TABLE,
--///     MODULE_OF_TABLE,
- ///     <MyDriver as i2c::Driver>::IdInfo,
- ///     [
- ///         (of::DeviceId::new(c"test,device"), ())
-diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
-index 166572861e61..1e86b901c391 100644
---- a/rust/kernel/net/phy.rs
-+++ b/rust/kernel/net/phy.rs
-@@ -811,7 +811,7 @@ macro_rules! module_phy_driver {
-     (@device_table [$($dev:expr),+]) => {
-         $crate::module_device_table!(
-             "mdio", $crate::net::phy::DeviceId,
--            phydev, TABLE, @none, [$($dev),+]
-+            TABLE, @none, [$($dev),+]
-         );
-     };
- 
-diff --git a/rust/kernel/pci.rs b/rust/kernel/pci.rs
-index 34e07a53244d..a3dd48f76353 100644
---- a/rust/kernel/pci.rs
-+++ b/rust/kernel/pci.rs
-@@ -261,7 +261,6 @@ macro_rules! pci_device_table {
- ///
- /// kernel::pci_device_table!(
- ///     PCI_TABLE,
--///     MODULE_PCI_TABLE,
- ///     <MyDriver as pci::Driver>::IdInfo,
- ///     [
- ///         (
-diff --git a/rust/kernel/platform.rs b/rust/kernel/platform.rs
-index 9b362e0495d3..210a815925ce 100644
---- a/rust/kernel/platform.rs
-+++ b/rust/kernel/platform.rs
-@@ -176,7 +176,6 @@ macro_rules! module_platform_driver {
- ///
- /// kernel::of_device_table!(
- ///     OF_TABLE,
--///     MODULE_OF_TABLE,
- ///     <MyDriver as platform::Driver>::IdInfo,
- ///     [
- ///         (of::DeviceId::new(c"test,device"), ())
-@@ -185,7 +184,6 @@ macro_rules! module_platform_driver {
- ///
- /// kernel::acpi_device_table!(
- ///     ACPI_TABLE,
--///     MODULE_ACPI_TABLE,
- ///     <MyDriver as platform::Driver>::IdInfo,
- ///     [
- ///         (acpi::DeviceId::new(c"LNUXBEEF"), ())
-diff --git a/rust/kernel/usb.rs b/rust/kernel/usb.rs
-index 154919ee1e19..500b5e0ba4ea 100644
---- a/rust/kernel/usb.rs
-+++ b/rust/kernel/usb.rs
-@@ -271,7 +271,6 @@ macro_rules! usb_device_table {
- ///
- /// kernel::usb_device_table!(
- ///     USB_TABLE,
--///     MODULE_USB_TABLE,
- ///     <MyDriver as usb::Driver>::IdInfo,
- ///     [
- ///         (usb::DeviceId::from_id(0x1234, 0x5678), ()),
-diff --git a/samples/rust/rust_debugfs.rs b/samples/rust/rust_debugfs.rs
-index 1f59e08aaa4b..181fd98ae5b6 100644
---- a/samples/rust/rust_debugfs.rs
-+++ b/samples/rust/rust_debugfs.rs
-@@ -110,7 +110,6 @@ fn from_str(s: &str) -> Result<Self> {
- 
- kernel::acpi_device_table!(
-     ACPI_TABLE,
--    MODULE_ACPI_TABLE,
-     <RustDebugFs as platform::Driver>::IdInfo,
-     [(acpi::DeviceId::new(c"LNUXBEEF"), ())]
- );
-diff --git a/samples/rust/rust_dma.rs b/samples/rust/rust_dma.rs
-index 9beb37275e0d..80c309ce07e9 100644
---- a/samples/rust/rust_dma.rs
-+++ b/samples/rust/rust_dma.rs
-@@ -51,7 +51,6 @@ unsafe impl kernel::transmute::FromBytes for MyStruct {}
- 
- kernel::pci_device_table!(
-     PCI_TABLE,
--    MODULE_PCI_TABLE,
-     <DmaSampleDriver as pci::Driver>::IdInfo,
-     [(pci::DeviceId::from_id(pci::Vendor::REDHAT, 0x5), ())]
- );
-diff --git a/samples/rust/rust_driver_auxiliary.rs b/samples/rust/rust_driver_auxiliary.rs
-index 73c63afc046a..704567a072ba 100644
---- a/samples/rust/rust_driver_auxiliary.rs
-+++ b/samples/rust/rust_driver_auxiliary.rs
-@@ -24,7 +24,6 @@
- 
- kernel::auxiliary_device_table!(
-     AUX_TABLE,
--    MODULE_AUX_TABLE,
-     <AuxiliaryDriver as auxiliary::Driver>::IdInfo,
-     [(auxiliary::DeviceId::new(MODULE_NAME, AUXILIARY_NAME), ())]
- );
-@@ -66,7 +65,6 @@ struct ParentData<'bound> {
- 
- kernel::pci_device_table!(
-     PCI_TABLE,
--    MODULE_PCI_TABLE,
-     <ParentDriver as pci::Driver>::IdInfo,
-     [(pci::DeviceId::from_id(pci::Vendor::REDHAT, 0x5), ())]
- );
-diff --git a/samples/rust/rust_driver_i2c.rs b/samples/rust/rust_driver_i2c.rs
-index ead8263a7d48..a0df0c6097c4 100644
---- a/samples/rust/rust_driver_i2c.rs
-+++ b/samples/rust/rust_driver_i2c.rs
-@@ -14,21 +14,18 @@
- 
- kernel::acpi_device_table! {
-     ACPI_TABLE,
--    MODULE_ACPI_TABLE,
-     <SampleDriver as i2c::Driver>::IdInfo,
-     [(acpi::DeviceId::new(c"LNUXBEEF"), 0)]
- }
- 
- kernel::i2c_device_table! {
-     I2C_TABLE,
--    MODULE_I2C_TABLE,
-     <SampleDriver as i2c::Driver>::IdInfo,
-     [(i2c::DeviceId::new(c"rust_driver_i2c"), 0)]
- }
- 
- kernel::of_device_table! {
-     OF_TABLE,
--    MODULE_OF_TABLE,
-     <SampleDriver as i2c::Driver>::IdInfo,
-     [(of::DeviceId::new(c"test,rust_driver_i2c"), 0)]
- }
+         #[export_name =
+             concat!("__mod_device_table__", line!(),
 diff --git a/samples/rust/rust_driver_pci.rs b/samples/rust/rust_driver_pci.rs
-index 5547dd704a1b..2282191e6292 100644
+index 2282191e6292..652819dff082 100644
 --- a/samples/rust/rust_driver_pci.rs
 +++ b/samples/rust/rust_driver_pci.rs
-@@ -74,7 +74,6 @@ struct SampleDriverData<'bound> {
- 
+@@ -75,10 +75,9 @@ struct SampleDriverData<'bound> {
  kernel::pci_device_table!(
      PCI_TABLE,
--    MODULE_PCI_TABLE,
      <SampleDriver as pci::Driver>::IdInfo,
-     [(
-         pci::DeviceId::from_id(pci::Vendor::REDHAT, 0x5),
-diff --git a/samples/rust/rust_driver_platform.rs b/samples/rust/rust_driver_platform.rs
-index ec0d6cac4f57..710145b3605a 100644
---- a/samples/rust/rust_driver_platform.rs
-+++ b/samples/rust/rust_driver_platform.rs
-@@ -87,14 +87,12 @@ struct SampleDriver {
- 
- kernel::of_device_table!(
-     OF_TABLE,
--    MODULE_OF_TABLE,
-     <SampleDriver as platform::Driver>::IdInfo,
-     [(of::DeviceId::new(c"test,rust-device"), Info(42))]
+-    [(
+-        pci::DeviceId::from_id(pci::Vendor::REDHAT, 0x5),
+-        TestIndex::NO_EVENTFD
+-    )]
++    {
++        pci::DeviceId::from_id(pci::Vendor::REDHAT, 0x5) => TestIndex::NO_EVENTFD,
++    }
  );
  
- kernel::acpi_device_table!(
-     ACPI_TABLE,
--    MODULE_ACPI_TABLE,
-     <SampleDriver as platform::Driver>::IdInfo,
-     [(acpi::DeviceId::new(c"LNUXBEEF"), Info(0))]
- );
-diff --git a/samples/rust/rust_driver_usb.rs b/samples/rust/rust_driver_usb.rs
-index 02bd5085f9bc..284042c5969b 100644
---- a/samples/rust/rust_driver_usb.rs
-+++ b/samples/rust/rust_driver_usb.rs
-@@ -19,7 +19,6 @@ struct SampleDriver {
- 
- kernel::usb_device_table!(
-     USB_TABLE,
--    MODULE_USB_TABLE,
-     <SampleDriver as usb::Driver>::IdInfo,
-     [(usb::DeviceId::from_id(0x1234, 0x5678), ()),]
- );
-diff --git a/samples/rust/rust_i2c_client.rs b/samples/rust/rust_i2c_client.rs
-index 2d876f4e3ee0..c8a23875ef5b 100644
---- a/samples/rust/rust_i2c_client.rs
-+++ b/samples/rust/rust_i2c_client.rs
-@@ -87,14 +87,12 @@ struct SampleDriver {
- 
- kernel::of_device_table!(
-     OF_TABLE,
--    MODULE_OF_TABLE,
-     <SampleDriver as platform::Driver>::IdInfo,
-     [(of::DeviceId::new(c"test,rust-device"), ())]
- );
- 
- kernel::acpi_device_table!(
-     ACPI_TABLE,
--    MODULE_ACPI_TABLE,
-     <SampleDriver as platform::Driver>::IdInfo,
-     [(acpi::DeviceId::new(c"LNUXBEEF"), ())]
- );
-diff --git a/samples/rust/rust_soc.rs b/samples/rust/rust_soc.rs
-index 808d58200eb6..f5e5f2f9adf7 100644
---- a/samples/rust/rust_soc.rs
-+++ b/samples/rust/rust_soc.rs
-@@ -23,14 +23,12 @@ struct SampleSocDriver {
- 
- kernel::of_device_table!(
-     OF_TABLE,
--    MODULE_OF_TABLE,
-     <SampleSocDriver as platform::Driver>::IdInfo,
-     [(of::DeviceId::new(c"test,rust-device"), ())]
- );
- 
- kernel::acpi_device_table!(
-     ACPI_TABLE,
--    MODULE_ACPI_TABLE,
-     <SampleSocDriver as platform::Driver>::IdInfo,
-     [(acpi::DeviceId::new(c"LNUXBEEF"), ())]
- );
+ impl SampleDriverData<'_> {
 
 -- 
 2.54.0
