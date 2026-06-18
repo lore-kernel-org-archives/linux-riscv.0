@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8875BCD98F2
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 15:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF6CCD98F6
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 15:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eFAIphncYTLAQDh3jMB40KCy5mU0sot/twt3nds/vsk=; b=Mm153gTYqnhGSV
-	B/rPYUBnn2duEBlAwCXI4SYvYPIjh0xM0b1/oaLMZgxXBOmCUsM1V2bbbcVEm2OlIHn1O3L9iQ3wQ
-	hcZrXOiubdFmLSxQjat+BX6DyBUrQhAuSt6adDz83bDhBoqHT/SkEmg3HzoaetjMvXQUwUv3qbZ+D
-	3ePHzHuC5ZsBpkjweG3ED2fijqNPuU1C6wW978d4bi0TIQ1hHPc9Rvg/zv+80RKHPjwiY7QeORnMw
-	d5MTvdYkQjxJE5Xm7JNwub+d/Awc0brcrvxjtOANi23yIBVeVRugy3nLnlEmNbgpSd9guX4yjly/9
-	cQ1FYUEEEYMAZd4/JXkg==;
+	List-Owner; bh=RUZwKQbqCd4lTI0JJuYuHPcEi6xYdajEykZEsIpYNcU=; b=XmamdNX5DXbFwM
+	jzhaKm45LypYe3PGdyt0QqvOoHp+COmkzW+IMzCNNfkTHhfBhsMhzaiTsL8N6PgkA4I0YvzKnG0TZ
+	HD0A5u1H3PV5S8tXozkQEcLo3OOYsvmtXc1nLlDI486F6s4RgwvGJ87JeFdmmR1a6/gNS3rIMchdk
+	uD3FQiDq+52Xyr1w7TNoEDHkhuJz996GVdNdmZXFDvUg1K5VewTCfczpriNnhM3LaGS5ApdxVVgo+
+	VSxmRvVBdxA32iidOLKI/8sDwjXbnZzP7Msm1ertfMTP22AOKpG2UJ9OKITWo7IUU6YCMpdiKUDYv
+	7iRPRRfFLXMBolRiC3HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEUP-00000001TmB-2UOl;
-	Thu, 18 Jun 2026 15:17:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waEh5-00000001UPU-3T7j;
+	Thu, 18 Jun 2026 15:30:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEUO-00000001TlI-0ful;
-	Thu, 18 Jun 2026 15:17:08 +0000
+	id 1waEh4-00000001UPM-3PWg
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Jun 2026 15:30:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 345C860018;
-	Thu, 18 Jun 2026 15:17:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E83B01F000E9;
-	Thu, 18 Jun 2026 15:17:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4712643D23;
+	Thu, 18 Jun 2026 15:30:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D481F00A3D;
+	Thu, 18 Jun 2026 15:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781795826;
-	bh=FcnhWkyO1wGk9YYSayyGesrPHSxn9xDSAmpQC/JH0nU=;
-	h=From:To:Subject:In-Reply-To:References:Date;
-	b=Kw5ZAvjikp4kCrXrajYE//oWC8BHzHzkpD6/cgf6/RN5sQClRuEN2kHaEsD8of4Zn
-	 spJ7grwLuiYTtFyvS6QX37eXs9bQeoy9yzVItprpWNUTPvnP1oS4PLZf8BjhYIGSpk
-	 TWbaczj4CHjjVRrLOcXgm4ZQxMX1g1xlddM/TMWJbeWtCF9E9TL8Ff2zYH9ff9JCLf
-	 P1gXuOmoexYnpljtiH2qFKYUX0/zwUCan6C+ZEnXllpCweOtHA5Yq0YLXOslIln3uR
-	 UHOjzPoagPE8cZs78+EsEKMqssXxQ9A3YjzTAdx2oMxECZ3hc+nEGbNHsbg4paHL2V
-	 IK9BUz5djY0NQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, tsbogend@alpha.franken.de, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
- hpa@zytor.com, peterz@infradead.org, kees@kernel.org, nathan@kernel.org,
- linusw@kernel.org, ojeda@kernel.org, ruanjinjie@huawei.com,
- david.kaplan@amd.com, lukas.bulwahn@redhat.com, ryan.roberts@arm.com,
- maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org,
- thuth@redhat.com, oupton@kernel.org, yeoreum.yun@arm.com,
- miko.lenczewski@arm.com, broonie@kernel.org, kevin.brodsky@arm.com,
- james.clark@linaro.org, tabba@google.com, mrigendra.chaubey@gmail.com,
- arnd@arndb.de, anshuman.khandual@arm.com, x86@kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RFC 1/3] cpu/hotplug: Introduce
- CONFIG_PARALLEL_SMT_PRIMARY_FIRST
-In-Reply-To: <20260611133809.3854977-2-ruanjinjie@huawei.com>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-2-ruanjinjie@huawei.com>
-Date: Thu, 18 Jun 2026 17:17:03 +0200
-Message-ID: <87a4srdgk0.ffs@fw13>
+	s=k20260515; t=1781796614;
+	bh=G0BFgogMIJaXJGDiQZV8U4+rZmptmkIJn2CptvNFtEg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=h/hNjK4CyFZfJGDHGnuBm2XDLAkK0L/+AS0Fahmfj/NxB3llMGA76jmBzlySanZ//
+	 ywhoZflZ7QTDyvfgIAtIoxPIs/8BGQXSwAlURTN6CvTsqjYRXQLBdgQbOtnKiD6HZv
+	 vz8W/Opk65B3zbbvFCI0D+CkZNywk72hnbf9C21fDcxCeGWZDvaTDkYdhIp//ep2y/
+	 TMfNaqWhJJCYEN1kJw4OpSp0sbltxs09ChYEiPxQeLFa04t24757kBLpQidpp6hYer
+	 M51TLbttOsl824C4+yxfi8IBC3ThvVds9xavjq+SVRAGo97gm27i/aPUwJqkoN+FZR
+	 HEyx2e9cc18YQ==
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfauth.phl.internal (Postfix) with ESMTP id A31B3F40082;
+	Thu, 18 Jun 2026 11:30:12 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Thu, 18 Jun 2026 11:30:12 -0400
+X-ME-Sender: <xms:BA80asNdm4zfeiaBzam79lJw3tcCGaYgs6S-Gq28UcCJ6cAzM812VQ>
+    <xme:BA80an31-XoElJPaZ8UAjINBag02b3TjWULPS6FWTiqNfw2-B9PYHIE8etYHjDTZo
+    5f8vjolCza9H5pMNf3ZdkTxgbWhPtASbI5iIjmQvBPHYykNv53LIA>
+X-ME-Received: <xmr:BA80ar0chNeqDGcHwK667pBFihJT8iZUrsiS8Q8ehieYN4o1XvogBxdHf1Q21rWiEpTKFC77PGYkd7Ex_S6atJCsG7FZ64KL>
+X-ME-Proxy-Cause: dmFkZTFMbSsA9J0WA0JULckOoW50HX4x9J7CjHhu7BPf2uJHl9tL6yhfYmd3fMQmaZnC7G
+    Tr/s4dTY1dimqtLUA/YZxW5i13LqojtflIgd4qePbDl9cbd7L+fsC5SiCXaYmv9BDlIyJW
+    6x0jQMH9i+a38GTWd/jiHTQw7rOWqdzDIc0PDwuy3TYnzwSiQcSsQ9Fz2xWGaA5zW2aIae
+    wdTncdObWpOmv3iy8Ty7W/8VRKBfVNtIbFDT4nsW+sqww6ua5ZkM+1cqv67HjSRf5CE+Wd
+    8HZS1bExz/22zkg8ZXi3O2ei9xVRhG0mGUwNJQrfNNkrbXDVloyOHB1jdcg9c5iDdFZSH8
+    zGFHXGzLSKdX2E2XN5Mec2ykR8p1BWTmzA+P2zaoPD0E6JNH+0njNk0H0ihMZpJ71GaA9x
+    SHeygttBoPEDOdF0HVLZglB73bp/I1cg/I+jym6LvZfaB1xPoCyob4axdlBxF+JCJzaEfO
+    Fv4prp0UhhgnsEunGdDQCOJ+CiublHU2jnQcYkxyZ1tb17y59pZr9ef3VeMMisAFtDQR0H
+    LdyFEiWrC0/xGWPRikpHJ3d8dLPoNt0urnEkFD/KZczA8pdIrsQqsubBlOgd5rdrsSkt0q
+    ibCxLV/X3NeKLZjD4W663RcLECpAd4Hyf0v/0xwiQpjKunV7/zuSiCsJqJWw
+X-ME-Proxy: <xmx:BA80al9ZUbW6v9VLLraQyxNt3khO62Ln66VEiaRbEuNuQVDkfIPgeg>
+    <xmx:BA80anZOlhjWzK85EIMgg7DhiQnm2GiBrXFqd1muzhy0amkZF__HRA>
+    <xmx:BA80akxWuH7DqRvmMJ6Buave3_hderdbGJzDjOaTHafOLPf3F-qdgw>
+    <xmx:BA80al-_gIOcs3PcdKvxsDpgrNkdx9z4bu7MlsuH8MvMv7u6Nv9aRw>
+    <xmx:BA80agxssDfbSnCBIzh0f27rlH-WnzVstuKAjp3xbiCvX7EBfH-A-hXo>
+Feedback-ID: i8dbe485b:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 18 Jun 2026 11:30:11 -0400 (EDT)
+Date: Thu, 18 Jun 2026 08:30:10 -0700
+From: Boqun Feng <boqun@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Joel Fernandes <joelagnelf@nvidia.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	frederic@kernel.org, neeraj.iitr10@gmail.com, urezki@gmail.com,
+	boqun.feng@gmail.com, rcu@vger.kernel.org,
+	Tejun Heo <tj@kernel.org>, bpf@vger.kernel.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrea Righi <arighi@nvidia.com>, Zqiang <qiang.zhang@linux.dev>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] rcu: Use an intermediate irq_work to start
+ process_srcu()
+Message-ID: <ajQPAk_ALP-84obp@MacBook-0RXW5>
+References: <ab2yd35rm6OgZUmb@gpd4>
+ <20260320222916.19987-1-boqun@kernel.org>
+ <CAJM55Z-hiNDuu5UwoBe7m0wq+_WJrRY0cwopALUgpG+r3ixj8g@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJM55Z-hiNDuu5UwoBe7m0wq+_WJrRY0cwopALUgpG+r3ixj8g@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,162 +110,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11 2026 at 21:38, Jinjie Ruan wrote:
+On Thu, Jun 18, 2026 at 08:11:36AM -0500, Emil Renner Berthing wrote:
+> Quoting Boqun Feng (2026-03-20 23:29:16)
+> > Since commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms
+> > of SRCU-fast") we switched to SRCU in BPF. However as BPF instrument can
+> > happen basically everywhere (including where a scheduler lock is held),
+> > call_srcu() now needs to avoid acquiring scheduler lock because
+> > otherwise it could cause deadlock [1]. Fix this by following what the
+> > previous RCU Tasks Trace did: using an irq_work to delay the queuing of
+> > the work to start process_srcu().
+> >
+> > [boqun: Apply Joel's feedback]
+> > [boqun: Apply Andrea's test feedback]
+> >
+> > Reported-by: Andrea Righi <arighi@nvidia.com>
+> > Closes: https://lore.kernel.org/all/abjzvz_tL_siV17s@gpd4/
+> > Fixes: commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms of SRCU-fast")
+> > Link: https://lore.kernel.org/rcu/3c4c5a29-24ea-492d-aeee-e0d9605b4183@nvidia.com/ [1]
+> > Suggested-by: Zqiang <qiang.zhang@linux.dev>
+> > Tested-by: Andrea Righi <arighi@nvidia.com>
+> > Signed-off-by: Boqun Feng <boqun@kernel.org>
+> 
+> Thanks for the patch, which is now upstream as
+> 7c405fb3279b ("rcu: Use an intermediate irq_work to start process_srcu()")
+> 
+> Unfortunately it seems to halt booting on the Allwinner D1 single-core RISC-V
+> SoC both on the 7.0 and 7.1 kernels:
+> 
 
-> During parallel CPU bringup, x86 requires primary SMT threads to boot
-> first to avoid siblings stopping during microcode updates. This constraint
-> is architecture-specific and unnecessary for other platforms
-> like arm64.
->
-> Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to decouple this constraint.
-> Platforms requiring this temporal order (e.g., x86) can select it
-> in Kconfig. Other architectures (e.g., arm64) can leave it unselected
-> to entirely bypass the SMT branch via the preprocessor.
->
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/Kconfig       | 4 ++++
->  arch/mips/Kconfig  | 1 +
->  arch/riscv/Kconfig | 1 +
->  arch/x86/Kconfig   | 1 +
->  kernel/cpu.c       | 6 +++++-
->  5 files changed, 12 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index e86880045158..0365d2df2659 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
->  	bool
->  	select HOTPLUG_SPLIT_STARTUP
->  
-> +config PARALLEL_SMT_PRIMARY_FIRST
+By "single-core", is it only one CPU in that system?
 
-Proper namespaces are overrated, right?
+> https://esmil.dk/d1-7.0.txt
+> https://esmil.dk/d1-7.1.txt
+> 
 
-All related options start with HOTPLUG_....
+From the callstack,
 
-> +	bool
-> +	depends on HOTPLUG_PARALLEL
-> +
->  config GENERIC_IRQ_ENTRY
->  	bool
->  
-> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> index 4364f3dba688..84e11ac0cf71 100644
-> --- a/arch/mips/Kconfig
-> +++ b/arch/mips/Kconfig
-> @@ -642,6 +642,7 @@ config EYEQ
->  	select MIPS_CPU_SCACHE
->  	select MIPS_GIC
->  	select MIPS_L1_CACHE_SHIFT_7
-> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
->  	select PCI_DRIVERS_GENERIC
->  	select SMP_UP if SMP
->  	select SWAP_IO_SPACE
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d235396c4514..0cc49aecc841 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -210,6 +210,7 @@ config RISCV
->  	select OF
->  	select OF_EARLY_FLATTREE
->  	select OF_IRQ
-> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+[  243.002818] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  243.010681] task:kworker/0:0     state:D stack:0     pid:9     tgid:9     ppid:2      task_flags:0x4208060 flags:0x00000000
+[  243.021858] Workqueue: device_link_wq device_link_release_fn
+[  243.027587] Call Trace:
+[  243.030079] [<ffffffff80745b66>] __schedule+0x232/0x530
+[  243.035365] [<ffffffff80745e82>] schedule+0x1e/0x94
+[  243.040298] [<ffffffff8074aa7a>] schedule_timeout+0x6e/0xa8
+[  243.045929] [<ffffffff8004d6a0>] wakeup_preempt+0x8c/0x98
+[  243.051380] [<ffffffff80746aee>] wait_for_completion+0x3a/0xb0
+[  243.057267] [<ffffffff80087226>] __synchronize_srcu.part.0+0x4e/0x60
+[  243.063712] [<ffffffff80084414>] rcu_tasks_get_gp_data+0xc/0x10
+[  243.069699] [<ffffffff80490898>] device_link_release_fn+0x14/0x80
+[  243.075850] [<ffffffff8003dbd0>] process_one_work+0xf8/0x1c8
+[  243.081583] [<ffffffff8003e282>] worker_thread+0x11a/0x254
+[  243.087127] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+[  243.092755] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+[  243.098381] [<ffffffff8004499e>] kthread+0xbe/0xe4
+[  243.103231] [<ffffffff8001349e>] ret_from_fork_kernel+0x6/0xd0
+[  243.109127] [<ffffffff800517a8>] schedule_tail+0x8/0xac
+[  243.114410] [<ffffffff800448dc>] kthreads_online_cpu+0x0/0x4
+[  243.120121] [<ffffffff8074be0a>] ret_from_fork_kernel_asm+0x12/0x18
 
-Why does RISCV need this? It does not select HOTPLUG_SMT to begin with.
+I will guess for some reasons the irq_work was missed or the IPI never
+happened. Is it possible for you to enable trace points ipi_send_cpu and
+ipi_entry to get more information?
 
-> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
->  #ifdef CONFIG_HOTPLUG_SMT
+> Reverting this patch seems to fix the issue although it then breaks when loading
+> modules which is can be fixed by reverting:
+> d6e152d905bd ("clockevents: Prevent timer interrupt starvation")
+> 
+> This might be a side-effect of reverting this patch though.
+> 
 
-More #ifdeffery is better, right?
+I'm not so sure about this, i.e. you might have *two* problems :(
 
->  static inline bool cpuhp_smt_aware(void)
->  {
-> @@ -1811,7 +1812,8 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
->  {
->  	return cpu_none_mask;
->  }
-> -#endif
-> +#endif /* CONFIG_HOTPLUG_SMT */
-> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
->  
->  bool __weak arch_cpuhp_init_parallel_bringup(void)
->  {
-> @@ -1837,6 +1839,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
->  	if (!__cpuhp_parallel_bringup)
->  		return false;
->  
-> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+Regards,
+Boqun
 
-Seriously?
-
->  	if (cpuhp_smt_aware()) {
->  		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
->  		static struct cpumask tmp_mask __initdata;
-> @@ -1857,6 +1860,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
->  		cpumask_andnot(&tmp_mask, mask, pmask);
->  		mask = &tmp_mask;
->  	}
-> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
-
-Something simple like the uncompiled below should just work, no?
-
----
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
- 	bool
- 	select HOTPLUG_SPLIT_STARTUP
- 
-+config HOTPLUG_PARALLEL_SMT
-+	bool
-+	select HOTPLUG_PARALLEL
-+
- config GENERIC_IRQ_ENTRY
- 	bool
- 
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -657,7 +657,7 @@ config EYEQ
- 	select USB_UHCI_BIG_ENDIAN_DESC if CPU_BIG_ENDIAN
- 	select USB_UHCI_BIG_ENDIAN_MMIO if CPU_BIG_ENDIAN
- 	select USE_OF
--	select HOTPLUG_PARALLEL if HOTPLUG_CPU
-+	select HOTPLUG_PARALLEL_SMT if HOTPLUG_CPU
- 	help
- 	  Select this to build a kernel supporting EyeQ SoC from Mobileye.
- 
-@@ -2295,7 +2295,6 @@ config MIPS_CPS
- 	select MIPS_CM
- 	select MIPS_CPS_PM if HOTPLUG_CPU
- 	select SMP
--	select HOTPLUG_SMT if HOTPLUG_PARALLEL
- 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
- 	select SYNC_R4K if (CEVT_R4K || CSRC_R4K)
- 	select SYS_SUPPORTS_HOTPLUG_CPU
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -304,7 +304,7 @@ config X86
- 	select HAVE_USER_RETURN_NOTIFIER
- 	select HAVE_GENERIC_VDSO
- 	select VDSO_GETRANDOM			if X86_64
--	select HOTPLUG_PARALLEL			if SMP && X86_64
-+	select HOTPLUG_PARALLEL_SMT		if SMP && X86_64
- 	select HOTPLUG_SMT			if SMP
- 	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
- 	select IRQ_FORCED_THREADING
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -1792,7 +1792,7 @@ static int __init parallel_bringup_parse
- }
- early_param("cpuhp.parallel", parallel_bringup_parse_param);
- 
--#ifdef CONFIG_HOTPLUG_SMT
-+#ifdef CONFIG_HOTPLUG_PARALLEL_SMT
- static inline bool cpuhp_smt_aware(void)
- {
- 	return cpu_smt_max_threads > 1;
+> We'd really like to continue support for this SoC on the 7.0 kernel, but since
+> this patch is a bugfix just shippping the revert doesn't sound appealing.
+> So some guidance would be much appreciated, thanks!
+> 
+> /Emil
 
 _______________________________________________
 linux-riscv mailing list
