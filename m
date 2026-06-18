@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7723CD98ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 14:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8875BCD98F2
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 15:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JYN46NRNTG4SFYeTvO5OwKjL9J9mkbSy1VHfauBN9E8=; b=D/E2dYoIUf+Jcc
-	VVlH+ql5VOOIIt86735VVZz44OeFgmMbnWu/BOqiyze0IhAX3BSvUFuQ7tryYrd+taN98lOxs3aoA
-	8x8VRjaFjMEoOYXS0gNZi6EZR6w4iUMamcY6qbeP1ww03N+UKcdbhsuaQlgD7kiHakmeQKdcZ7EUw
-	82AVfe1Y2geukRX00fu0sGLVEfjR23t0QGzpObj3Lrjm60ty2ZVtefCzs/js5BodKHjp7lUDCU0eG
-	XrMu0czIhNOjHbVpA4dq1ybIxTfQUD4FdYXRh78fuDmVTw9urmLWMZ+3dMDtaMoaDCgnJL+T6Nh5R
-	4pLIO496g3a2NDX9v10A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eFAIphncYTLAQDh3jMB40KCy5mU0sot/twt3nds/vsk=; b=Mm153gTYqnhGSV
+	B/rPYUBnn2duEBlAwCXI4SYvYPIjh0xM0b1/oaLMZgxXBOmCUsM1V2bbbcVEm2OlIHn1O3L9iQ3wQ
+	hcZrXOiubdFmLSxQjat+BX6DyBUrQhAuSt6adDz83bDhBoqHT/SkEmg3HzoaetjMvXQUwUv3qbZ+D
+	3ePHzHuC5ZsBpkjweG3ED2fijqNPuU1C6wW978d4bi0TIQ1hHPc9Rvg/zv+80RKHPjwiY7QeORnMw
+	d5MTvdYkQjxJE5Xm7JNwub+d/Awc0brcrvxjtOANi23yIBVeVRugy3nLnlEmNbgpSd9guX4yjly/9
+	cQ1FYUEEEYMAZd4/JXkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDVB-00000001Pv7-0TLW;
-	Thu, 18 Jun 2026 14:13:53 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1waEUP-00000001TmB-2UOl;
+	Thu, 18 Jun 2026 15:17:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDV8-00000001Puh-3KTE
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jun 2026 14:13:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781792030; x=1813328030;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=c35aNIkV5X0e2CdvOHzOzzA2KKJcqxXs0jF4rkgX65Y=;
-  b=UPg7Or6Y8N98Bw1rzOahlx3RJrPkZirEoKWe9+BqccSvTsRIwh1tIiCd
-   yvGyL+M1jLwuQ/0yi8kWH2RJBq6ExwpcIPN/Du5bpniucAPYqk8WA8sel
-   zBQWJGNXJ5HValUrLtxinfuv0yYYALj4RG/Qc6sAbbmTY3m74kdCRt0Qo
-   8kmQtVd2TKqtEMjqfikUpy4E2DETLVrc1DVY8l09APCbSCUjnYWg5anUr
-   uzFfP6G+TodozN4wSfMs7seDjl+LWcHPxvUKCk0upgMB/BGdkS9MwmBlr
-   uUGC7prmfQTT0j5GNIbpSWEmlNKKldjdGWTzzzipYOBssv+7J91kybNby
-   g==;
-X-CSE-ConnectionGUID: 1CA0U8/7Th2PbEmIRtJjow==
-X-CSE-MsgGUID: /8/tQGtUSResgjfSLDJRzA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11820"; a="82719419"
-X-IronPort-AV: E=Sophos;i="6.24,211,1774335600"; 
-   d="scan'208";a="82719419"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2026 07:13:49 -0700
-X-CSE-ConnectionGUID: F7y8i78zS2mHJ93NEJ+6iQ==
-X-CSE-MsgGUID: fc7aJJkhQfGFgedu5qILvg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,211,1774335600"; 
-   d="scan'208";a="272456743"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa001.fm.intel.com with ESMTP; 18 Jun 2026 07:13:48 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 1E15F98; Thu, 18 Jun 2026 16:13:47 +0200 (CEST)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: [PATCH v1 1/1] i2c: microchip-corei2c: Use generic definitions for bus frequencies
-Date: Thu, 18 Jun 2026 16:13:46 +0200
-Message-ID: <20260618141346.3241286-1-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.50.1
+	id 1waEUO-00000001TlI-0ful;
+	Thu, 18 Jun 2026 15:17:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 345C860018;
+	Thu, 18 Jun 2026 15:17:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E83B01F000E9;
+	Thu, 18 Jun 2026 15:17:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781795826;
+	bh=FcnhWkyO1wGk9YYSayyGesrPHSxn9xDSAmpQC/JH0nU=;
+	h=From:To:Subject:In-Reply-To:References:Date;
+	b=Kw5ZAvjikp4kCrXrajYE//oWC8BHzHzkpD6/cgf6/RN5sQClRuEN2kHaEsD8of4Zn
+	 spJ7grwLuiYTtFyvS6QX37eXs9bQeoy9yzVItprpWNUTPvnP1oS4PLZf8BjhYIGSpk
+	 TWbaczj4CHjjVRrLOcXgm4ZQxMX1g1xlddM/TMWJbeWtCF9E9TL8Ff2zYH9ff9JCLf
+	 P1gXuOmoexYnpljtiH2qFKYUX0/zwUCan6C+ZEnXllpCweOtHA5Yq0YLXOslIln3uR
+	 UHOjzPoagPE8cZs78+EsEKMqssXxQ9A3YjzTAdx2oMxECZ3hc+nEGbNHsbg4paHL2V
+	 IK9BUz5djY0NQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, tsbogend@alpha.franken.de, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+ hpa@zytor.com, peterz@infradead.org, kees@kernel.org, nathan@kernel.org,
+ linusw@kernel.org, ojeda@kernel.org, ruanjinjie@huawei.com,
+ david.kaplan@amd.com, lukas.bulwahn@redhat.com, ryan.roberts@arm.com,
+ maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org,
+ thuth@redhat.com, oupton@kernel.org, yeoreum.yun@arm.com,
+ miko.lenczewski@arm.com, broonie@kernel.org, kevin.brodsky@arm.com,
+ james.clark@linaro.org, tabba@google.com, mrigendra.chaubey@gmail.com,
+ arnd@arndb.de, anshuman.khandual@arm.com, x86@kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH RFC 1/3] cpu/hotplug: Introduce
+ CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+In-Reply-To: <20260611133809.3854977-2-ruanjinjie@huawei.com>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-2-ruanjinjie@huawei.com>
+Date: Thu, 18 Jun 2026 17:17:03 +0200
+Message-ID: <87a4srdgk0.ffs@fw13>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_071350_874967_E56A827D 
-X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +80,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since we have generic definitions for bus frequencies, let's use them.
+On Thu, Jun 11 2026 at 21:38, Jinjie Ruan wrote:
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> During parallel CPU bringup, x86 requires primary SMT threads to boot
+> first to avoid siblings stopping during microcode updates. This constraint
+> is architecture-specific and unnecessary for other platforms
+> like arm64.
+>
+> Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to decouple this constraint.
+> Platforms requiring this temporal order (e.g., x86) can select it
+> in Kconfig. Other architectures (e.g., arm64) can leave it unselected
+> to entirely bypass the SMT branch via the preprocessor.
+>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/Kconfig       | 4 ++++
+>  arch/mips/Kconfig  | 1 +
+>  arch/riscv/Kconfig | 1 +
+>  arch/x86/Kconfig   | 1 +
+>  kernel/cpu.c       | 6 +++++-
+>  5 files changed, 12 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index e86880045158..0365d2df2659 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
+>  	bool
+>  	select HOTPLUG_SPLIT_STARTUP
+>  
+> +config PARALLEL_SMT_PRIMARY_FIRST
+
+Proper namespaces are overrated, right?
+
+All related options start with HOTPLUG_....
+
+> +	bool
+> +	depends on HOTPLUG_PARALLEL
+> +
+>  config GENERIC_IRQ_ENTRY
+>  	bool
+>  
+> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+> index 4364f3dba688..84e11ac0cf71 100644
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -642,6 +642,7 @@ config EYEQ
+>  	select MIPS_CPU_SCACHE
+>  	select MIPS_GIC
+>  	select MIPS_L1_CACHE_SHIFT_7
+> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+>  	select PCI_DRIVERS_GENERIC
+>  	select SMP_UP if SMP
+>  	select SWAP_IO_SPACE
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d235396c4514..0cc49aecc841 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -210,6 +210,7 @@ config RISCV
+>  	select OF
+>  	select OF_EARLY_FLATTREE
+>  	select OF_IRQ
+> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+
+Why does RISCV need this? It does not select HOTPLUG_SMT to begin with.
+
+> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+>  #ifdef CONFIG_HOTPLUG_SMT
+
+More #ifdeffery is better, right?
+
+>  static inline bool cpuhp_smt_aware(void)
+>  {
+> @@ -1811,7 +1812,8 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
+>  {
+>  	return cpu_none_mask;
+>  }
+> -#endif
+> +#endif /* CONFIG_HOTPLUG_SMT */
+> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
+>  
+>  bool __weak arch_cpuhp_init_parallel_bringup(void)
+>  {
+> @@ -1837,6 +1839,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
+>  	if (!__cpuhp_parallel_bringup)
+>  		return false;
+>  
+> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+
+Seriously?
+
+>  	if (cpuhp_smt_aware()) {
+>  		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
+>  		static struct cpumask tmp_mask __initdata;
+> @@ -1857,6 +1860,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
+>  		cpumask_andnot(&tmp_mask, mask, pmask);
+>  		mask = &tmp_mask;
+>  	}
+> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
+
+Something simple like the uncompiled below should just work, no?
+
 ---
- drivers/i2c/busses/i2c-microchip-corei2c.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-microchip-corei2c.c b/drivers/i2c/busses/i2c-microchip-corei2c.c
-index c8599733633e..330e150ef6d5 100644
---- a/drivers/i2c/busses/i2c-microchip-corei2c.c
-+++ b/drivers/i2c/busses/i2c-microchip-corei2c.c
-@@ -565,10 +565,10 @@ static int mchp_corei2c_probe(struct platform_device *pdev)
- 				       &idev->bus_clk_rate);
- 	if (ret || !idev->bus_clk_rate) {
- 		dev_info(&pdev->dev, "default to 100kHz\n");
--		idev->bus_clk_rate = 100000;
-+		idev->bus_clk_rate = I2C_MAX_STANDARD_MODE_FREQ;
- 	}
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
+ 	bool
+ 	select HOTPLUG_SPLIT_STARTUP
  
--	if (idev->bus_clk_rate > 400000)
-+	if (idev->bus_clk_rate > I2C_MAX_FAST_MODE_FREQ)
- 		return dev_err_probe(&pdev->dev, -EINVAL,
- 				     "clock-frequency too high: %d\n",
- 				     idev->bus_clk_rate);
--- 
-2.50.1
-
++config HOTPLUG_PARALLEL_SMT
++	bool
++	select HOTPLUG_PARALLEL
++
+ config GENERIC_IRQ_ENTRY
+ 	bool
+ 
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -657,7 +657,7 @@ config EYEQ
+ 	select USB_UHCI_BIG_ENDIAN_DESC if CPU_BIG_ENDIAN
+ 	select USB_UHCI_BIG_ENDIAN_MMIO if CPU_BIG_ENDIAN
+ 	select USE_OF
+-	select HOTPLUG_PARALLEL if HOTPLUG_CPU
++	select HOTPLUG_PARALLEL_SMT if HOTPLUG_CPU
+ 	help
+ 	  Select this to build a kernel supporting EyeQ SoC from Mobileye.
+ 
+@@ -2295,7 +2295,6 @@ config MIPS_CPS
+ 	select MIPS_CM
+ 	select MIPS_CPS_PM if HOTPLUG_CPU
+ 	select SMP
+-	select HOTPLUG_SMT if HOTPLUG_PARALLEL
+ 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
+ 	select SYNC_R4K if (CEVT_R4K || CSRC_R4K)
+ 	select SYS_SUPPORTS_HOTPLUG_CPU
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -304,7 +304,7 @@ config X86
+ 	select HAVE_USER_RETURN_NOTIFIER
+ 	select HAVE_GENERIC_VDSO
+ 	select VDSO_GETRANDOM			if X86_64
+-	select HOTPLUG_PARALLEL			if SMP && X86_64
++	select HOTPLUG_PARALLEL_SMT		if SMP && X86_64
+ 	select HOTPLUG_SMT			if SMP
+ 	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
+ 	select IRQ_FORCED_THREADING
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -1792,7 +1792,7 @@ static int __init parallel_bringup_parse
+ }
+ early_param("cpuhp.parallel", parallel_bringup_parse_param);
+ 
+-#ifdef CONFIG_HOTPLUG_SMT
++#ifdef CONFIG_HOTPLUG_PARALLEL_SMT
+ static inline bool cpuhp_smt_aware(void)
+ {
+ 	return cpu_smt_max_threads > 1;
 
 _______________________________________________
 linux-riscv mailing list
