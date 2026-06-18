@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE75CD98ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 08:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64102CD98ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 08:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jqk2ZkE8fyzZ544DIVhYX1rgVDrpa0a4jbckKThH4X4=; b=yrUoTaA+QU5d8O
-	4rM9rPQsV5MxaM3Z9SRYISp8zvoYB8++idUcZhhhB/8muMBT+zhZmTuIeVuStk7qsreLLzDzhRqcG
-	NrA2marQbWImRydrW+0wDhutwXrL6/GtlTiXSUc9NH7qpIM9lEtPpybYJgqmKfuZ4A1AE57uENEzp
-	BgtCsKAH8ZDpqwnfP0CbKBfLs9fE30HnZgbaMXTXpwMT3/c5wYGGlNu+pmi2ofVwQ+Net6prUH2kK
-	tP5UKdbtex9htyYPXdAZDgIAZel0yt18cfTvBwlnJksadg676FYwCOl7shJhPvaYq0FQfPeiqXOkT
-	OTCrm+XQVRVEupR5lYXA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gy60rSkrJtYa3rOKRLStESlhuFz7MLcAvpcnbnsoQ5I=; b=ju+e4e9++JxPC5
+	xzfteypDdL+HFgcnrNfjNxmIrf+MzaXjVqgu1UZIN8beP/PHqCldeZMaecJ0U2SqtF946kyHHXh9T
+	WlVRmOSY8KYKseEg7NmetMXvGBJbiKIJsklfjyQw0qHsylD7pj+2e+D+lb52IaG5HlmPHcp8g5sUR
+	JAQzvUjErQAsfQprGLzgMZVvKoF1nKv/aQ4i93eVyYtZ52kxGle8HV0SHVklK84NsnL+raRDtSylq
+	H1YW4raUVIt+05pLAhT9C/Pw5q9Vl/fQwxgsLIVC+a29q5JbheMbsCt6DNfKJPhKp9DHId8GPGzGB
+	pG9BcOHuQZqls1W64TRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7pr-00000000pEi-2yuT;
-	Thu, 18 Jun 2026 08:10:51 +0000
-Received: from mail-43172.protonmail.ch ([185.70.43.172])
+	id 1wa7rx-00000000pU4-3zvi;
+	Thu, 18 Jun 2026 08:13:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7po-00000000pDy-1uCU
+	id 1wa7rv-00000000pTm-3NSN
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jun 2026 08:10:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onurozkan.dev;
-	s=protonmail; t=1781770246; x=1782029446;
-	bh=il13JZXSJpfwDVrhPAiRTVZ2CIyzBfQKH8+hwIpyxAA=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=Wv+neOsHPNFrzUzR1T6c+Nm8SMdjfWY/pQfGR4t8YaGoAPK8NA8VKqx2HaH/wZ1ke
-	 pEpTES0lpXf26srd6UW5QjMNjBl6UrqTGa7T7eyoe8uuq03xqMqIfzYA97u7h//1Qz
-	 f1Oo0G5s8ab/+EWJvJBkFZy8JcwVELKGhDfhoHeUCf4RIqVOMe6gf7wBcpLMZd0UPa
-	 LzZSecvPDXmSCGXid1Qqd4EwF8p0ldlilDHkgwoW1nSi2FA6Vj4LYEdyEwNKANN4Kd
-	 SlEeVYtVVa3ALpHPpUanOg9Z1jhiKm95uzRmnrfnSsPNCzqNmYSwTIbddi2YoC/q+F
-	 HuVuTEba7BFTw==
-X-Pm-Submission-Id: 4ggthG5v2fz2ScNJ
-From: =?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	=?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Boqun Feng <boqun@kernel.org>,
-	linux-pm@vger.kernel.org,
+	Thu, 18 Jun 2026 08:12:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E323E6012A;
+	Thu, 18 Jun 2026 08:12:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 944F71F00A3A;
+	Thu, 18 Jun 2026 08:12:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781770378;
+	bh=jVNjv8JxwUwcCkGdwQsT2x+fWCMTSZLSOFkNo5kgMWk=;
+	h=From:To:Cc:Subject:Date;
+	b=lkigb6gKRHtpYsq/sANBKiyykvRoCUDy2MtsJvRMvfhQaBBSQHIa0QWMVCM1JpfG4
+	 jLXJzCr7WqEA2oimef8Ao8hcUkKHu5An1BvLH3eBkT62HrmzpL7sbGF2DeGsGRWlgV
+	 vUHtp4XaDgx/NAbYYumG2WjDcZM1fLbGQdejMVo0i2pKbqhuTJjL5Uf9J2Rx5U3++6
+	 Cd6Vmip99BbNCNyL1rdvsUeJvK1sgYxFNJBOlC/Ayore2NEQ8mQqaeVjK/u6s82QHk
+	 j8i4mQJT6GlxPApi27/VofVaK6YlarPwnWficZVGT9FGDcIXqILA+YgW4IGy0GEETo
+	 hcjFeAYR6s4nA==
+From: Kees Cook <kees@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Kees Cook <kees@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
 	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
 	linux-riscv@lists.infradead.org,
-	linux-pwm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v4 1/3] rust: clk: use the type-state pattern
-Date: Thu, 18 Jun 2026 11:10:34 +0300
-Message-ID: <20260618081037.35784-1-work@onurozkan.dev>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20260618-clk-type-state-v4-1-8be082786080@collabora.com>
-References: <20260618-clk-type-state-v4-0-8be082786080@collabora.com> <20260618-clk-type-state-v4-1-8be082786080@collabora.com>
+	linux-hardening@vger.kernel.org
+Subject: [PATCH] riscv: Add kCFI type prefix to unaligned copy routines
+Date: Thu, 18 Jun 2026 01:12:57 -0700
+Message-Id: <20260618081252.work.711-kees@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_011048_648394_4ED6D571 
-X-CRM114-Status: GOOD (  30.90  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2973; i=kees@kernel.org; h=from:subject:message-id; bh=ModCF8ov3TtoIrFxkQYcmcDaoLwDTqZa7+2eB+/85xs=; b=owGbwMvMwCVmps19z/KJym7G02pJDFnGKzpaPKx/V1tc877xMLEm5tue7lXNfUsU+pLmF/39e Uy15LhCRykLgxgXg6yYIkuQnXuci8fb9nD3uYowc1iZQIYwcHEKwEQYNjL8s7zo+EalbVv8o+RY psIlU9tnNcc7Gn0WPt9mnL9cOMDtKMP/6C73/1HrI9f8zw4xf7Z28fX1fTWSJc+S7eQV356SUqz lAgA=
+X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,186 +78,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Jun 2026 00:46:35 -0300
-Daniel Almeida <daniel.almeida@collabora.com> wrote:
+__riscv_copy_words_unaligned() and __riscv_copy_bytes_unaligned() are
+called indirectly through function pointers from measure_cycles() (via
+compare_unaligned_access()) during the boot-time unaligned-access
+probe. Under kCFI, an indirect call checks the type id stored in the
+word immediately preceding the callee against the type id of the
+function-pointer type at the call site. These two routines are defined
+with SYM_FUNC_START(), which emits no __cfi_ prefix, so the check reads
+the alignment padding ahead of the function (zero) instead of a type id
+and traps:
 
-> The current Clk abstraction can still be improved on the following issues:
-> 
-> a) It only keeps track of a count to clk_get(), which means that users have
-> to manually call disable() and unprepare(), or a variation of those, like
-> disable_unprepare().
-> 
-> b) It allows repeated calls to prepare() or enable(), but it keeps no track
-> of how often these were called, i.e., it's currently legal to write the
-> following:
-> 
-> clk.prepare();
-> clk.prepare();
-> clk.enable();
-> clk.enable();
-> 
-> And nothing gets undone on drop().
-> 
-> c) It adds a OptionalClk type that is probably not needed. There is no
-> "struct optional_clk" in C and we should probably not add one.
-> 
-> d) It does not let a user express the state of the clk through the
-> type system. For example, there is currently no way to encode that a Clk is
-> enabled via the type system alone.
-> 
-> In light of the Regulator abstraction that was recently merged, switch this
-> abstraction to use the type-state pattern instead. It solves both a) and b)
-> by establishing a number of states and the valid ways to transition between
-> them. It also automatically undoes any call to clk_get(), clk_prepare() and
-> clk_enable() as applicable on drop(), so users do not have to do anything
-> special before Clk goes out of scope.
-> 
-> It solves c) by removing the OptionalClk type, which is now simply encoded
-> as a Clk whose inner pointer is NULL.
-> 
-> It solves d) by directly encoding the state of the Clk into the type, e.g.:
-> Clk<Enabled> is now known to be a Clk that is enabled.
-> 
-> The INVARIANTS section for Clk is expanded to highlight the relationship
-> between the states and the respective reference counts that are owned by
-> each of them.
-> 
-> The examples are expanded to highlight how a user can transition between
-> states, as well as highlight some of the shortcuts built into the API.
-> 
-> The current implementation is also more flexible, in the sense that it
-> allows for more states to be added in the future. This lets us implement
-> different strategies for handling clocks, including one that mimics the
-> current API, allowing for multiple calls to prepare() and enable().
-> 
-> The users (cpufreq.rs/ rcpufreq_dt.rs) were updated by this patch (and not
-> a separate one) to reflect the new changes. This is needed, because
-> otherwise this patch would break the build.
-> 
-> Link: https://crates.io/crates/sealed [1]
-> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
-> ---
->  drivers/cpufreq/rcpufreq_dt.rs |   2 +-
->  drivers/gpu/drm/tyr/driver.rs  |  31 +--
->  drivers/pwm/pwm_th1520.rs      |  17 +-
->  rust/kernel/clk.rs             | 512 ++++++++++++++++++++++++++++++-----------
->  rust/kernel/cpufreq.rs         |   8 +-
->  5 files changed, 396 insertions(+), 174 deletions(-)
-> 
-> diff --git a/drivers/cpufreq/rcpufreq_dt.rs b/drivers/cpufreq/rcpufreq_dt.rs
-> index f17bf64c22e2..9d2ec7df4bac 100644
-> --- a/drivers/cpufreq/rcpufreq_dt.rs
-> +++ b/drivers/cpufreq/rcpufreq_dt.rs
-> @@ -40,7 +40,7 @@ struct CPUFreqDTDevice {
->      freq_table: opp::FreqTable,
->      _mask: CpumaskVar,
->      _token: Option<opp::ConfigToken>,
-> -    _clk: Clk,
-> +    _clk: Clk<kernel::clk::Unprepared>,
->  }
->  
->  #[derive(Default)]
-> diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
-> index 279710b36a10..a2230aebfea2 100644
-> --- a/drivers/gpu/drm/tyr/driver.rs
-> +++ b/drivers/gpu/drm/tyr/driver.rs
-> @@ -3,7 +3,7 @@
->  use kernel::{
->      clk::{
->          Clk,
-> -        OptionalClk, //
-> +        Enabled, //
->      },
->      device::{
->          Bound,
-> @@ -49,7 +49,7 @@ pub(crate) struct TyrPlatformDriverData {
+  CFI failure at measure_cycles.constprop.0+0x34
+    (target: __riscv_copy_words_unaligned+0x0; expected type: 0x00000000)
+  Kernel panic - not syncing: Fatal exception in interrupt
 
-[...]
+The call site is correct: it loads the actual type id from [target-4]
+and compares against the expected 0xf1200a56, which matches the
+compiler-generated __kcfi_typeid___riscv_copy_words_unaligned. Only the
+callee is missing its prefix word.
 
-> -        /// Disable and unprepare the clock.
-> -        ///
-> -        /// Equivalent to calling [`Clk::disable`] followed by [`Clk::unprepare`].
-> +        /// Behaves the same as [`Self::get`], except when there is no clock
-> +        /// producer. In this case, instead of returning [`ENOENT`], it returns
-> +        /// a dummy [`Clk`].
->          #[inline]
-> -        pub fn disable_unprepare(&self) {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> -            // [`clk_disable_unprepare`].
-> -            unsafe { bindings::clk_disable_unprepare(self.as_raw()) };
-> +        pub fn get_optional(dev: &Device<Bound>, name: Option<&CStr>) -> Result<Clk<Enabled>> {
-> +            Clk::<Prepared>::get_optional(dev, name)?
-> +                .enable()
-> +                .map_err(|error| error.error)
-> +        }
-> +
-> +        /// Attempts to disable the [`Clk`] and convert it to the [`Prepared`]
+Switch both routines to SYM_TYPED_FUNC_START() so the assembler emits
+the __cfi_ type-id prefix, matching the existing treatment of other
+indirectly-called riscv assembly routines (e.g. ftrace_stub in
+mcount.S and __cpu_resume_enter in suspend_entry.S), and add the
+<linux/cfi_types.h> include that provides the macro.
 
-nit: I wouldn't use the word "Attempts" for an infallible function.
+Build and boot tested ARCH=riscv defconfig+CONFIG_CFI=y with GCC
+17.0.0 20260615 (experimental kCFI tree) under qemu; the boot-time
+unaligned-access probe no longer traps.
 
-> +        /// state.
-> +        #[inline]
-> +        pub fn disable(self) -> Result<Clk<Prepared>, Error<Enabled>> {
+Fixes: 584ea6564bca ("RISC-V: Probe for unaligned access speed")
+Assisted-by: Claude:claude-opus-4-8[1m]
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+ arch/riscv/kernel/copy-unaligned.S | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-This is an infallible function, you can return Clk<Prepared> directly.
+diff --git a/arch/riscv/kernel/copy-unaligned.S b/arch/riscv/kernel/copy-unaligned.S
+index 2b3d9398c113..c649ad3d19e0 100644
+--- a/arch/riscv/kernel/copy-unaligned.S
++++ b/arch/riscv/kernel/copy-unaligned.S
+@@ -2,6 +2,7 @@
+ /* Copyright (C) 2023 Rivos Inc. */
+ 
+ #include <linux/linkage.h>
++#include <linux/cfi_types.h>
+ #include <asm/asm.h>
+ 
+ 	.text
+@@ -9,7 +10,7 @@
+ /* void __riscv_copy_words_unaligned(void *, const void *, size_t) */
+ /* Performs a memcpy without aligning buffers, using word loads and stores. */
+ /* Note: The size is truncated to a multiple of 8 * SZREG */
+-SYM_FUNC_START(__riscv_copy_words_unaligned)
++SYM_TYPED_FUNC_START(__riscv_copy_words_unaligned)
+ 	andi  a4, a2, ~((8*SZREG)-1)
+ 	beqz  a4, 2f
+ 	add   a3, a1, a4
+@@ -41,7 +42,7 @@ SYM_FUNC_END(__riscv_copy_words_unaligned)
+ /* void __riscv_copy_bytes_unaligned(void *, const void *, size_t) */
+ /* Performs a memcpy without aligning buffers, using only byte accesses. */
+ /* Note: The size is truncated to a multiple of 8 */
+-SYM_FUNC_START(__riscv_copy_bytes_unaligned)
++SYM_TYPED_FUNC_START(__riscv_copy_bytes_unaligned)
+ 	andi a4, a2, ~(8-1)
+ 	beqz a4, 2f
+ 	add  a3, a1, a4
+-- 
+2.34.1
 
-Thanks,
-Onur
-
-> +            // We will be transferring the ownership of our `clk_get()` and
-> +            // `clk_enable()` counts to `Clk<Prepared>`.
-> +            let clk = ManuallyDrop::new(self);
-> +
-> +            // SAFETY: By the type invariants, `self.0` is a valid argument for
-> +            // [`clk_disable`].
-> +            unsafe { bindings::clk_disable(clk.as_raw()) };
-> +
-> +            Ok(Clk {
-> +                inner: clk.inner,
-> +                _phantom: PhantomData,
-> +            })
->          }
->  
->          /// Get clock's rate.
-> @@ -251,82 +544,31 @@ pub fn set_rate(&self, rate: Hertz) -> Result {
-> +                // [`clk_unprepare`].
-
-[...]
-
-> +                unsafe { bindings::clk_unprepare(self.as_raw()) };
-> +            }
->  
-> -        fn deref(&self) -> &Clk {
-> -            &self.0
-> +            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> +            // [`clk_put`].
-> +            unsafe { bindings::clk_put(self.as_raw()) };
->          }
->      }
->  }
-> diff --git a/rust/kernel/cpufreq.rs b/rust/kernel/cpufreq.rs
-> index d8d26870bea2..e837bb1010e0 100644
-> --- a/rust/kernel/cpufreq.rs
-> +++ b/rust/kernel/cpufreq.rs
-> @@ -553,8 +553,12 @@ pub fn cpus(&mut self) -> &mut cpumask::Cpumask {
->      /// The caller must guarantee that the returned [`Clk`] is not dropped while it is getting used
->      /// by the C code.
->      #[cfg(CONFIG_COMMON_CLK)]
-> -    pub unsafe fn set_clk(&mut self, dev: &Device, name: Option<&CStr>) -> Result<Clk> {
-> -        let clk = Clk::get(dev, name)?;
-> +    pub unsafe fn set_clk(
-> +        &mut self,
-> +        dev: &Device,
-> +        name: Option<&CStr>,
-> +    ) -> Result<Clk<crate::clk::Unprepared>> {
-> +        let clk = Clk::<crate::clk::Unprepared>::get_unbound(dev, name)?;
->          self.as_mut_ref().clk = clk.as_raw();
->          Ok(clk)
->      }
-> 
-> -- 
-> 2.54.0
-> 
 
 _______________________________________________
 linux-riscv mailing list
