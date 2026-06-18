@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21716CD98ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 09:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78830CD98F2
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 09:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zr0218OHp0qJrT03yuoLe0HZ11D6YIz8ByrExpjtHdw=; b=A4sJnLqO6y7s0M
-	1qFBuboMpZXFqE4Og8VGvMNbVqwFUjsyDSivvsEUETTYBULmZkUiwBwlxSsmcF8SKtuadqLID7BxK
-	fO1X/LfyS0HAL5H7LCOCxNbvQJa2V+CTrzc1qrOySqtLQO3TRMcQn0fUs0sXQScI9gSDdzPSTAfJW
-	Kjv5LMrozUjzJwUv93iJBbIb0lME/XGPffxnkioir19wiGsyjeRWt1nLjHEb5c9XjQEPCWjXULnDq
-	gfnZefbUY78o7Jum5gyYHUCj5GJI1rs0U9VH9e12EjOBndZ/6n+Lc2YTVkUwt9zOwvhtc8bxr0zRU
-	jKByuZCH+Tcc7s5Hp0qQ==;
+	List-Owner; bh=nEYOVxPMDobC/EgUsfhAGAOas6+rzBBbPfxQ7A47GL8=; b=agA5IHIQa17NpM
+	HqdWw1MyPUR8X4qyhZCFdlqQrLsQUFnA/AI+rJlELQeo507+rX30uXUKycqXymnxVMZgsNP+yzrfE
+	drUssJ033vZEiOZ3wi4fkekOddRS4CfzIFKxgWSpCXX7Z2VlT/CG24BVNeyUg4GqahMVl6r1mSwZw
+	AZf/z09kIiuNFd3Qtjvf0HfWHExvKNZrSR8ZKlir+rj3SLTblQP7kWuo44AoBaMTxkCdW4KKFmdNS
+	HULO3Z10hjdvaTSJ3aBKhwYLD20UALaJzHjm75rSESRZCoISyI7CHwy6qarNWPHLO8N3xAsOJT9xd
+	ehsMhpaw5FNM0k+KP0sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa90x-00000000wxL-18pe;
-	Thu, 18 Jun 2026 09:26:23 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wa9Pe-0000000112J-0Ni4;
+	Thu, 18 Jun 2026 09:51:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa90j-00000000wmT-2mfA;
-	Thu, 18 Jun 2026 09:26:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=7Xl9xYHC9lg9V/pmv90pnoUjI6yJDwuBsZCpKRShEqs=;
-	b=ajlEvkAHLgSpEPEMpfBqVSr5UvWXU8wXW4IUKGpObpMBwjgXPPRnw+6/l4pERzX/5m+I37Uod
-	VnouE1t2ATQu2qaa63uw3vyL5gowaCBzo9ZOmwc8rFOOgcssTOlVeHhdzdQtYPBWjqyh8tdCUes
-	Rgw2FpMV0mHgD52ub97nbiI=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4ggwB35ydrzmVXy;
-	Thu, 18 Jun 2026 17:18:03 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 351F240539;
-	Thu, 18 Jun 2026 17:26:04 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 18 Jun
- 2026 17:26:01 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <peterz@infradead.org>,
-	<kees@kernel.org>, <nathan@kernel.org>, <linusw@kernel.org>,
-	<jpoimboe@kernel.org>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
-	<ojeda@kernel.org>, <maz@kernel.org>, <timothy.hayes@arm.com>,
-	<lpieralisi@kernel.org>, <thuth@redhat.com>, <menglong8.dong@gmail.com>,
-	<oupton@kernel.org>, <yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>,
-	<broonie@kernel.org>, <kevin.brodsky@arm.com>, <james.clark@linaro.org>,
-	<tabba@google.com>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
-	<anshuman.khandual@arm.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<apatel@ventanamicro.com>, <mhklinux@outlook.com>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2 3/4] arm64: smp: Defer RCU reporting until after local CPU capability checks
-Date: Thu, 18 Jun 2026 17:24:43 +0800
-Message-ID: <20260618092444.1316336-4-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260618092444.1316336-1-ruanjinjie@huawei.com>
-References: <20260618092444.1316336-1-ruanjinjie@huawei.com>
+	id 1wa9PZ-000000010zD-34BJ
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Jun 2026 09:51:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7105D43F21
+	for <linux-riscv@lists.infradead.org>; Thu, 18 Jun 2026 09:51:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 587181F00ADF
+	for <linux-riscv@lists.infradead.org>; Thu, 18 Jun 2026 09:51:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781776309;
+	bh=5WBnHo66G1Z7kP1ps9fkGG5FNnxRZK0tyCX5GLx+Nbo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cpGm0ZjSP3N4uwVtWpmuSnM96r5rT1Z5oKO2hL1HENahHADeiaMm9pJo+gw01emuo
+	 i/J1Cr0v7nhzFy8/Lanpia9/aDWf67Mb6iryXe8fOyGmV7NgAbD4d6ChQTaPLMGQii
+	 16NZoKXmGboUa9jKqUOwZCohs2je7MChs4/S3SoLqRS8tL326Y3fC6LiBWiEngRdIW
+	 MIQVY7AG0TqjEdWdxKaU2eMCQnILvhuFWc7KYvLbp4Pjj1u+rFdXhHk3mgTzCoVHig
+	 TR1QuhVddbePIszIIBQ0mh0CF4zqBQt2NxeuJvkpGmrpcddnI8xlUE1ILT4h7zGZm2
+	 za1UTEkafDgpg==
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-45ee5cdbd28so1130311f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Jun 2026 02:51:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+2ddisUCqx89gR338rdoW7H8y/VQADz1NwoO01xMWM1b7II9r58P39eh1FoH4Zlc7cGEEEyZXWYDbezw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHlsN4ExLhrLj0l0DLZ5C0Wtvlo0fSPoQphiOiaHaNwcyZjQJu
+	X2Y/xMohlcKvQ+u3PTTNKAUhMSV96YIAF1H4TjL8uKSB9uNRMJB5Aoq5nbRbpxUzwGRRlO8hdYL
+	Co+FzBqi3QVO/8jIRKWx0s0HFiHPFMBo=
+X-Received: by 2002:a5d:5651:0:b0:461:a15a:4160 with SMTP id
+ ffacd0b85a97d-463978b2374mr3919774f8f.13.1781776307962; Thu, 18 Jun 2026
+ 02:51:47 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_022610_082572_29813C2D 
-X-CRM114-Status: GOOD (  15.35  )
+References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
+ <20260615123821.373248-1-guoren@kernel.org> <7c490aeb-a3d9-4fe9-81de-f9662577851d@iscas.ac.cn>
+ <CAJF2gTQ+-gpvUDtOh99aKP2-iDJy3MYOWti9k2Ntd0-J0MXqxQ@mail.gmail.com> <e051d822-d0be-4a88-ba86-ec9b5905fd1e@iscas.ac.cn>
+In-Reply-To: <e051d822-d0be-4a88-ba86-ec9b5905fd1e@iscas.ac.cn>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 18 Jun 2026 17:51:34 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRH6x78A3J5HJ5kUM47aDv8R0yFr8LRP+7jiLX4GL3ssg@mail.gmail.com>
+X-Gm-Features: AVVi8CcuSWc4MKvQ8rcvmy1iBZVy1e7sFg0-ZToAG3k3v5HDIXUflW0rEu43oHo
+Message-ID: <CAJF2gTRH6x78A3J5HJ5kUM47aDv8R0yFr8LRP+7jiLX4GL3ssg@mail.gmail.com>
+Subject: Re: [PATCH v1] iommu/riscv: Support 32-bit register accesses
+To: Vivian Wang <wangruikang@iscas.ac.cn>, zhangzhanpeng.jasper@bytedance.com
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, cuiyunhui@bytedance.com, 
+	iommu@lists.linux.dev, joro@8bytes.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, luxu.kernel@bytedance.com, 
+	palmer@dabbelt.com, pjw@kernel.org, robin.murphy@arm.com, 
+	tjeznach@rivosinc.com, will@kernel.org, yuanzhu@bytedance.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,203 +79,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To support HOTPLUG_PARALLEL on arm64, and to prevent a potential deadlock
-on the control CPU, check_local_cpu_capabilities() must be executed
-before cpuhp_ap_sync_alive(). This ensures that if an early capability
-mismatch occurs and the AP invokes cpu_die_early(), the control CPU
-can detect the boot timeout and proceed, rather than hanging
-indefinitely.
-
-Furthermore, under parallel bringup, cpuhp_ap_sync_alive() must be called
-before rcutree_report_cpu_starting(). This sequence prevents a false
-RCU CPU Stall Warning caused by the prolonged spin-waiting/busy-waiting
-required during the AP synchronization process.
-
-	GICv3: CPU1: using allocated LPI pending table @0x0000000104160000
-	CPU1: Booted secondary processor 0x0000000001 [0x410fd082]
-	rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-	rcu:     2-O..!: (2 GPs behind) idle=0004/1/0x4000000000000000 softirq=0/0 fqs=2625
-	rcu:     3-O..!: (2 GPs behind) idle=0004/1/0x4000000000000000 softirq=0/0 fqs=2625
-	rcu:     (detected by 0, t=5252 jiffies, g=-1187, q=1 ncpus=16)
-	rcu: Offline CPU 2 blocking current GP.
-	rcu: Offline CPU 3 blocking current GP.
-
-To avoid suspicious RCU usage, commit ce3d31ad3cac ("arm64/smp: Move
-rcu_cpu_starting() earlier") move rcutree_report_cpu_starting() earlier
-which is before check_local_cpu_capabilities().
-
-But For parallel bringup, the order should be as following:
-
-	secondary_start_kernel()
-	    -> check_local_cpu_capabilities()
-	       -> cpu_die_early()
-	    -> cpuhp_ap_sync_alive()
-	    -> rcutree_report_cpu_starting()
-
-And this required order forces standard printk/pr_* statements inside
-check_local_cpu_capabilities() to execute while the secondary CPU is still
-marked as offline to RCU, triggering a lockdep "suspicious RCU usage" splat
-due to console semaphore operations.
-
-So converting early capability logging and failure paths to printk_deferred().
-This pushes the logs into the lockless ringbuffer without triggering console
-locks or RCU validation on the offline CPU, resolving the lockdep splat while
-preserving critical error messages and the strictly required initialization
-order.
-
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm64/kernel/cpufeature.c | 20 ++++++++++----------
- arch/arm64/kernel/smp.c        |  4 ++--
- arch/arm64/mm/context.c        |  2 +-
- 3 files changed, 13 insertions(+), 13 deletions(-)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 0552202702bf..a5e0bc4d383b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -3546,7 +3546,7 @@ static void update_cpu_capabilities(u16 scope_mask)
- 		 * system capabilities are finalised.
- 		 */
- 		if (!match_all && caps->desc && !caps->cpus)
--			pr_info("detected: %s\n", caps->desc);
-+			printk_deferred(KERN_INFO "detected: %s\n", caps->desc);
- 
- 		__set_bit(caps->capability, system_cpucaps);
- 
-@@ -3669,7 +3669,7 @@ static void verify_local_cpu_caps(u16 scope_mask)
- 	}
- 
- 	if (i < ARM64_NCAPS) {
--		pr_crit("CPU%d: Detected conflict for capability %d (%s), System: %d, CPU: %d\n",
-+		printk_deferred(KERN_CRIT "CPU%d: Detected conflict for capability %d (%s), System: %d, CPU: %d\n",
- 			smp_processor_id(), caps->capability,
- 			caps->desc, system_has_cap, cpu_has_cap);
- 
-@@ -3697,7 +3697,7 @@ __verify_local_elf_hwcaps(const struct arm64_cpu_capabilities *caps)
- 
- 	for (; caps->matches; caps++)
- 		if (cpus_have_elf_hwcap(caps) && !caps->matches(caps, SCOPE_LOCAL_CPU)) {
--			pr_crit("CPU%d: missing HWCAP: %s\n",
-+			printk_deferred(KERN_CRIT "CPU%d: missing HWCAP: %s\n",
- 					smp_processor_id(), caps->desc);
- 			cpu_die_early();
- 		}
-@@ -3716,7 +3716,7 @@ static void verify_sve_features(void)
- 	unsigned long cpacr = cpacr_save_enable_kernel_sve();
- 
- 	if (vec_verify_vq_map(ARM64_VEC_SVE)) {
--		pr_crit("CPU%d: SVE: vector length support mismatch\n",
-+		printk_deferred(KERN_CRIT "CPU%d: SVE: vector length support mismatch\n",
- 			smp_processor_id());
- 		cpu_die_early();
- 	}
-@@ -3729,7 +3729,7 @@ static void verify_sme_features(void)
- 	unsigned long cpacr = cpacr_save_enable_kernel_sme();
- 
- 	if (vec_verify_vq_map(ARM64_VEC_SME)) {
--		pr_crit("CPU%d: SME: vector length support mismatch\n",
-+		printk_deferred(KERN_CRIT "CPU%d: SME: vector length support mismatch\n",
- 			smp_processor_id());
- 		cpu_die_early();
- 	}
-@@ -3754,7 +3754,7 @@ static void verify_hyp_capabilities(void)
- 	safe_vmid_bits = get_vmid_bits(safe_mmfr1);
- 	vmid_bits = get_vmid_bits(mmfr1);
- 	if (vmid_bits < safe_vmid_bits) {
--		pr_crit("CPU%d: VMID width mismatch\n", smp_processor_id());
-+		printk_deferred(KERN_CRIT "CPU%d: VMID width mismatch\n", smp_processor_id());
- 		cpu_die_early();
- 	}
- 
-@@ -3763,7 +3763,7 @@ static void verify_hyp_capabilities(void)
- 				ID_AA64MMFR0_EL1_PARANGE_SHIFT);
- 	ipa_max = id_aa64mmfr0_parange_to_phys_shift(parange);
- 	if (ipa_max < get_kvm_ipa_limit()) {
--		pr_crit("CPU%d: IPA range mismatch\n", smp_processor_id());
-+		printk_deferred(KERN_CRIT "CPU%d: IPA range mismatch\n", smp_processor_id());
- 		cpu_die_early();
- 	}
- }
-@@ -3776,7 +3776,7 @@ static void verify_mpam_capabilities(void)
- 
- 	if (FIELD_GET(ID_AA64PFR0_EL1_MPAM_MASK, cpu_idr) !=
- 	    FIELD_GET(ID_AA64PFR0_EL1_MPAM_MASK, sys_idr)) {
--		pr_crit("CPU%d: MPAM version mismatch\n", smp_processor_id());
-+		printk_deferred(KERN_CRIT "CPU%d: MPAM version mismatch\n", smp_processor_id());
- 		cpu_die_early();
- 	}
- 
-@@ -3784,7 +3784,7 @@ static void verify_mpam_capabilities(void)
- 	sys_idr = read_sanitised_ftr_reg(SYS_MPAMIDR_EL1);
- 	if (FIELD_GET(MPAMIDR_EL1_HAS_HCR, cpu_idr) !=
- 	    FIELD_GET(MPAMIDR_EL1_HAS_HCR, sys_idr)) {
--		pr_crit("CPU%d: Missing MPAM HCR\n", smp_processor_id());
-+		printk_deferred(KERN_CRIT "CPU%d: Missing MPAM HCR\n", smp_processor_id());
- 		cpu_die_early();
- 	}
- 
-@@ -3793,7 +3793,7 @@ static void verify_mpam_capabilities(void)
- 	sys_partid_max = FIELD_GET(MPAMIDR_EL1_PARTID_MAX, sys_idr);
- 	sys_pmg_max = FIELD_GET(MPAMIDR_EL1_PMG_MAX, sys_idr);
- 	if (cpu_partid_max < sys_partid_max || cpu_pmg_max < sys_pmg_max) {
--		pr_crit("CPU%d: MPAM PARTID/PMG max values are mismatched\n", smp_processor_id());
-+		printk_deferred(KERN_CRIT "CPU%d: MPAM PARTID/PMG max values are mismatched\n", smp_processor_id());
- 		cpu_die_early();
- 	}
- }
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 6bc90ee4820a..52edabc13d51 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -215,7 +215,6 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	if (system_uses_irq_prio_masking())
- 		init_gic_priority_masking();
- 
--	rcutree_report_cpu_starting(cpu);
- 	trace_hardirqs_off();
- 
- 	/*
-@@ -224,6 +223,7 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	 * fail to come online.
- 	 */
- 	check_local_cpu_capabilities();
-+	rcutree_report_cpu_starting(cpu);
- 
- 	ops = get_cpu_ops(cpu);
- 	if (ops->cpu_postboot)
-@@ -404,7 +404,7 @@ void __noreturn cpu_die_early(void)
- {
- 	int cpu = smp_processor_id();
- 
--	pr_crit("CPU%d: will not boot\n", cpu);
-+	printk_deferred(KERN_CRIT "CPU%d: will not boot\n", cpu);
- 
- 	/* Mark this CPU absent */
- 	set_cpu_present(cpu, 0);
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index 6b8a3245f393..9b5ab56aad5a 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -70,7 +70,7 @@ void verify_cpu_asid_bits(void)
- 		 * We cannot decrease the ASID size at runtime, so panic if we support
- 		 * fewer ASID bits than the boot CPU.
- 		 */
--		pr_crit("CPU%d: smaller ASID size(%u) than boot CPU (%u)\n",
-+		printk_deferred(KERN_CRIT "CPU%d: smaller ASID size(%u) than boot CPU (%u)\n",
- 				smp_processor_id(), asid, asid_bits);
- 		cpu_panic_kernel(smp_processor_id());
- 	}
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVml2aWFuLAoKQXMgbm90ZWQgaW4gdGhlIFJJU0MtViBJT01NVSBTcGVjaWZpY2F0aW9uLCBD
+aGFwdGVyIDY6Cj4gV2hldGhlciBhbiA4LWJ5dGUgYWNjZXNzIHRvIGFuIElPTU1VIHJlZ2lzdGVy
+IGlzIHNpbmdsZS1jb3B5IGF0b21pYyBpcyBVTlNQRUNJRklFRCwgYW5kIHN1Y2ggYW4gYWNjZXNz
+IG1heSBhcHBlYXIsIGludGVybmFsbHkgdG8gdGhlIElPTU1VLCBhcyBpZiB0d28gc2VwYXJhdGUg
+NC1ieXRlIGFjY2Vzc2VzIOKAlCBmaXJzdCB0byB0aGUgaGlnaCBoYWxmIGFuZCBzZWNvbmQgdG8g
+dGhlIGxvdyBoYWxmIOKAlCB3ZXJlIHBlcmZvcm1lZC4KClRoZXJlZm9yZSwgdGhlIGF0b21pY2l0
+eSBvZiA2NC1iaXQgTU1JTyBhY2Nlc3NlcyBpcyBVTlNQRUNJRklFRCBhbmQKbm90IGNsZWFybHkg
+ZGVmaW5lZCBpbiB0aGUgY3VycmVudCByYXRpZmllZCBSSVNDLVYgSU9NTVUKc3BlY2lmaWNhdGlv
+bi4gVG8gaGFuZGxlIHRoaXMgY29ycmVjdGx5LCB0aGUgTGludXggUklTQy1WIElPTU1VIGRyaXZl
+cgpzaG91bGQgZmFsbCBiYWNrIHRvIDMyLWJpdCBNTUlPIGFjY2Vzc2VzIHdoZW4gcmVhZGluZyA2
+NC1iaXQgcmVnaXN0ZXJzCihlLmcuLCBwZXJmb3JtYW5jZSBjb3VudGVycykuIFRoZSBiZWhhdmlv
+ciBvZiAzMi1iaXQgTU1JTyBhY2Nlc3NlcyBpcwptb3JlIHByZWNpc2VseSBkZWZpbmVkIGluIHRo
+ZSBSSVNDLVYgSU9NTVUgc3BlY2lmaWNhdGlvbi4KClRodXMsIG1hbnkgaGFyZHdhcmUgdmVuZG9y
+cyBpbXBsZW1lbnQgMzItYml0IE1NSU8gKHJhdGhlciB0aGFuIDY0LWJpdApNTUlPKSBiYXNlZCBv
+biB0aGUgY3VycmVudCByYXRpZmllZCBSSVNDLVYgSU9NTVUgc3BlY2lmaWNhdGlvbiwgYW5kCnRo
+aXMgZHJpdmVyIGRvZXMgbm90IGFwcGVhciB0byBiZW5lZml0IGZyb20gNjQtYml0IE1NSU8gYWNj
+ZXNzIGVpdGhlci4KUGVyZm9ybWFuY2UgaXMgZnVuZGFtZW50YWxseSBjb25zdHJhaW5lZCBieSBi
+dXMgbGF0ZW5jeTsgYXNzdW1pbmcgdGhhdApzaW1wbHkgcmVkdWNpbmcgdGhlIG51bWJlciBvZiBh
+Y2Nlc3NlcyB3aWxsIGltcHJvdmUgcGVyZm9ybWFuY2UgaXMgYW4Kb3ZlcnNpbXBsaWZpY2F0aW9u
+IHRoYXQgaWdub3JlcyB0aGUgdW5kZXJseWluZyBoYXJkd2FyZQpjaGFyYWN0ZXJpc3RpY3MuCgpI
+aSBaaGFuZywKClRoZSBoYXJkd2FyZSB0YXJnZXRlZCBieSB0aGUgMzItYml0IE1NSU8gYWNjZXNz
+IGluIHlvdXIgcGF0Y2ggaXMKcHJlY2lzZWx5IHRoZSBraW5kIHRoYXQgZGVzZXJ2ZXMgdGhlIG9m
+ZmljaWFsIEFDUEkgSElEIFJTQ1YwMDA0IGFuZApEZXZpY2V0cmVlIGNvbXBhdGlibGUgc3RyaW5n
+IChyaXNjdixpb21tdSkuIEl0IGlzIHJhdGhlciB0aGUgaGFyZHdhcmUKdGhhdCBzdXBwb3J0cyBv
+bmx5IDY0LWJpdCBNTUlPIGFjY2VzcyDigJQgd2hvc2UgYXRvbWljaXR5IGlzIGV4cGxpY2l0bHkK
+bGVmdCBhcyBVTlNQRUNJRklFRCBieSB0aGUgUklTQy1WIElPTU1VIHNwZWNpZmljYXRpb24g4oCU
+IHRoYXQgc2hvdWxkIGJlCnJlbGVnYXRlZCB0byBhIG5vbi1zdGFuZGFyZCBBQ1BJIElELiBUaGF0
+IGlzIHdoYXQgdHJ1bHkgY29uc3RpdHV0ZXMKcG9vciBoYXJkd2FyZSBkZXNpZ24uCgpJIHdpbGwg
+Y29uc2lzdGVudGx5IHN1cHBvcnQgeW91ciBwb3NpdGlvbiBvZiBhZG9wdGluZyAzMi1iaXQgTU1J
+TwphY2Nlc3MgaW4gdGhpcyBwYXRjaCwgYW5kIHdpbGwgYWR2b2NhdGUgZm9yIG1ha2luZyBpdCB0
+aGUgZGVmYXVsdApiZWhhdmlvciBpbiB0aGUgTGludXggUklTQy1WIElPTU1VIGRyaXZlciwgYXMg
+aXQgYmV0dGVyIGFsaWducyB3aXRoCnRoZSBpbnRlbnQgb2YgdGhlIFJJU0MtViBJT01NVSBzcGVj
+aWZpY2F0aW9uLgoKLS0KQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpPbiBUaHUsIEp1biAxOCwgMjAy
+NiBhdCAzOjMz4oCvUE0gVml2aWFuIFdhbmcgPHdhbmdydWlrYW5nQGlzY2FzLmFjLmNuPiB3cm90
+ZToKPgo+IE9uIDYvMTgvMjYgMTE6NDUsIEd1byBSZW4gd3JvdGU6Cj4gPiBPbiBUaHUsIEp1biAx
+OCwgMjAyNiBhdCAxMToyMOKAr0FNIFZpdmlhbiBXYW5nIDx3YW5ncnVpa2FuZ0Bpc2Nhcy5hYy5j
+bj4gd3JvdGU6Cj4gPj4gT24gNi8xNS8yNiAyMDozOCwgR3VvIFJlbiB3cm90ZToKPiA+Pj4gSGkg
+WmhhbnBlbmcgWmhhbmcsCj4gPj4+Cj4gPj4+IEkgbm90aWNlZCB5b3UgcG9zdGVkIGEgc2ltaWxh
+ciBmaXggcmVjZW50bHkuIEhvd2V2ZXIsIEkgaGFkIGFscmVhZHkKPiA+Pj4gc3VibWl0dGVkIGEg
+c2ltaWxhciBzb2x1dGlvbiBiYWNrIGluIFNlcHRlbWJlciAyMDI1IFsxXS4gSXQgd291bGQgYmUK
+PiA+Pj4gZ3JlYXQgaWYgeW91IGNvdWxkIHJldmlldyBpdC4gQSBmZXcgY29uY2VybnMgd2l0aCB0
+aGUgY3VycmVudCBwYXRjaDoKPiA+Pj4KPiA+Pj4gMS4gVXNpbmcgc3Bpbl9sb2NrX2lycXNhdmUg
+aW4gc3VjaCBhIHNtYWxsIHNlbWFudGljIHN0cnVjdHVyZSBpcwo+ID4+PiB1bm5lY2Vzc2FyeS4g
+SVJRIHByb3RlY3Rpb24gc2hvdWxkIGJlIHByb3ZpZGVkIGJ5IHRoZSBoaWdoZXItbGV2ZWwKPiA+
+Pj4gSU9NTVUgZHJpdmVyIGludGVyZmFjZXMuIE1hbnkgZXhpc3RpbmcgY2FsbCBzaXRlcyBhbHJl
+YWR5IGhhbmRsZSBJUlEKPiA+Pj4gZGlzYWJsaW5nLCBzbyBhZGRpbmcgaXQgaGVyZSBmZWVscyBy
+ZWR1bmRhbnQgYW5kIGFkZHMgYXZvaWRhYmxlCj4gPj4+IG92ZXJoZWFkLgo+ID4+Pgo+ID4+PiAy
+LiBNb3JlIGNyaXRpY2FsbHksIHRoZSBSSVNDVl9JT01NVV8zMkJJVF9BQ0NFU1MgS2NvbmZpZyBv
+cHRpb24gaXMKPiA+Pj4gcHJvYmxlbWF0aWMuIEFjY29yZGluZyB0byB0aGUgUklTQy1WIElPTU1V
+IHNwZWNpZmljYXRpb24gKFNvZnR3YXJlCj4gPj4+IEd1aWRlbGluZXMsIOKAnFJlYWRpbmcgYW5k
+IHdyaXRpbmcgSU9NTVUgcmVnaXN0ZXJz4oCdKToKPiA+Pj4KPiA+Pj4+IFJlZ2lzdGVycyB0aGF0
+IGFyZSA2NC1iaXQgd2lkZSBtYXkgYmUgYWNjZXNzZWQgdXNpbmcgZWl0aGVyIGEgMzItYml0Cj4g
+Pj4+PiBvciBhIDY0LWJpdCBhY2Nlc3MuCj4gPj4+IFRoaXMgY2xlYXJseSByZXF1aXJlcyB0aGF0
+IGFueSBoYXJkd2FyZSBzdXBwb3J0aW5nIDY0LWJpdCBNTUlPIGFjY2Vzcwo+ID4+PiBtdXN0IGFs
+c28gc3VwcG9ydCAzMi1iaXQgTU1JTyBhY2Nlc3MuIFRoZXJlZm9yZSwgdGhlIElPTU1VIGRyaXZl
+ciBzaG91bGQKPiA+Pj4gYmUgYnVpbHQgb24gYSAzMi1iaXQgYWNjZXNzIGJhc2UgZm9yIG1heGlt
+dW0gaGFyZHdhcmUgY29tcGF0aWJpbGl0eS4KPiA+PiBJIGFncmVlIHRoYXQgdGhlIGRyaXZlciBz
+aG91bGQgYmUgYnVpbGQgd2l0aCAzMi1iaXQgYWNjZXNzZXMgdG8gc3VwcG9ydAo+ID4+IHRoZXNl
+IGhhcmR3YXJlLiBIb3dldmVyIHRoZXJlJ3Mgb25lIG1pbm9yIHRoaW5nIHRoYXQgSSB3YW50IHRv
+IHByb3Bvc2UKPiA+PiByZWdhcmRpbmcgdGhpcywgZm9yIHRoZSBzYWtlIG9mIGNsYXJpdHk6Cj4g
+Pj4KPiA+PiBSSVNDLVYgSU9NTVUgaW1wbGVtZW50YXRpb25zIHRoYXQgZG8gbm90IHN1cHBvcnQg
+NjQtYml0IGFjY2Vzc2VzIGFyZSBub3QKPiA+PiBmdWxseSBjb21wbGlhbnQgd2l0aCB0aGUgUklT
+Qy1WIElPTU1VIHNwZWNpZmljYXRpb24gYW5kIHNob3VsZCBub3QgdXNlCj4gPj4gdGhlIHN0YW5k
+YXJkIFJJU0MtViBpZGVudGlmaWVycywgbmFtZWx5Ogo+ID4+Cj4gPj4gLSBEZXZpY2V0cmVlIGNv
+bXBhdGlibGUgcmlzY3YsaW9tbXUKPiA+PiAtIEFDUEkgSElEIFJTQ1YwMDA0Cj4gPj4KPiA+PiBU
+aGlzLCBpbiBteSBvcGluaW9uLCBpcyBub3Qgb25seSB0aGUgcmlnaHQgdGhpbmcgdG8gZG8gKG5v
+dCBjbGFpbWluZyB0bwo+ID4+IGJlIHN0YW5kYXJkIGhhcmR3YXJlIHdpdGhvdXQgYWN0dWFsbHkg
+YmVpbmcgc3RhbmRhcmQgaGFyZHdhcmUpLCBidXQgYWxzbwo+ID4+IHNhdmVzIGEgbG90IG9mIHRy
+b3VibGUgZm9yIG9wZXJhdGluZyBzeXN0ZW0gZGV2ZWxvcGVycyAoeWVzLCB0aGVyZSBhcmUKPiA+
+PiBSSVNDLVYgb3BlcmF0aW5nIHN5c3RlbXMgb3RoZXIgdGhhbiBMaW51eCBvdXQgdGhlcmUpLCBz
+aW5jZSBpbnZhbGlkIElPCj4gPj4gYWNjZXNzZXMgdXN1YWxseSBtYW5pZmVzdCBhcyBteXN0ZXJp
+b3VzIGFjY2VzcyBmYXVsdHMgKHRoYXQgd291bGQKPiA+PiB1c3VhbGx5IHN1Z2dlc3QgYW4gaW5j
+b3JyZWN0IElPTU1VIGFkZHJlc3MpLCBvciB3b3JzZSwgc3lzdGVtIGhhbmdzLgo+ID4+Cj4gPj4g
+SSB3b3VsZCBhcHByZWNpYXRlIGlmIHRoZSBoYXJkd2FyZSB2ZW5kb3JzIHNoaXBwaW5nIDMyLWJp
+dC1hY2Nlc3Mtb25seQo+ID4+IElPTU1VcyB3b3VsZCBjb25zaWRlciB0aGlzLgo+ID4+Cj4gPj4g
+Vml2aWFuICJkcmFtZm9yZXZlciIgV2FuZwo+ID4+Cj4gPiAzMi1iaXQgTU1JTyBhY2Nlc3MgaXMg
+ZXhwbGljaXRseSBzdXBwb3J0ZWQgYnkgdGhlIFJJU0MtViBJT01NVQo+ID4gc3BlY2lmaWNhdGlv
+biBhbmQgaXMgYSB2YWxpZCBjaG9pY2UgKDY0LWJpdCBNTUlPIGFjY2VzcyBpcyBvcHRpb25hbCku
+Cj4KPiBIbW0uLi4gSSB0aGluayBpdCdzIG9wdGlvbmFsIGluIHNvZnR3YXJlIGJ1dCBub3Qgb3B0
+aW9uYWwgaW4gaGFyZHdhcmUsCj4gYnV0IHRoZSBzcGVjcyBhcmUgbm90IHN1cGVyIGNsZWFyIG9u
+IHRoaXMuIEkndmUgb3BlbmVkIGEgR2l0SHViIGlzc3VlIHRvCj4gYXNrOgo+Cj4gICAgIGh0dHBz
+Oi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LWlvbW11L2lzc3Vlcy83NjUKPgo+ID4g
+NjQtYml0IE1NSU8gYWNjZXNzIGlzIG5vdCAiZnJlZSIg4oCUIGl0IGNvbnN1bWVzIGFkZGl0aW9u
+YWwgaW50ZXJjb25uZWN0Cj4gPiBoYXJkd2FyZSByZXNvdXJjZXMuCj4gPgo+ID4gQ291bGQgeW91
+IGVsYWJvcmF0ZSBvbiB0aGUgY29uY3JldGUgYmVuZWZpdCBvZiB1c2luZyA2NC1iaXQgTU1JTwo+
+ID4gYWNjZXNzIGluIHRoaXMgZHJpdmVyLCBmb3IgdGhlc2Ugbm9uLVBNVSByZWdpc3RlcnM/IEEg
+Y2xlYXIKPiA+IGp1c3RpZmljYXRpb24gd291bGQgaGVscCBldmFsdWF0ZSB3aGV0aGVyIHRoZSB0
+cmFkZS1vZmYgaXMgd29ydGh3aGlsZS4KPiA+Cj4gPgo+CgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
