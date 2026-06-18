@@ -4,59 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B36DCD98F2
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 16:54:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CCBCD98F2
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 17:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ahkCRnMnTekg977m8YtZgUgAmCbMVbCM5XpMJwybL+o=; b=etyuTJRBzRmoIR
-	SL3YQwQGdHFFIjzTXsFqjLwu0aZ0oDqLiLOA+DjILrSty48tV7j3hoBUosQ8zdS5ps3HDUM2PfZPZ
-	VDXLl/xjz65DzDm/Gi6KdPnQMqYYv9wMXkeV50t7hQy7I7bn4veKjPqyICPERE42a6K0kwUZa2vjf
-	7BCRXT2jUt//uUyPanvNKf/azqdRPqZgLY9c0wJTri9fuVjZ8jwp5Smf8ghQMlNoR5o5XDTk824n2
-	nSZevORt9ClaWmeJgl+5iUfdfKnWykDUhPdApgdR99vc51ZNpGEmrcqQUTbunTfKmh+opKv3Kjcz5
-	dYnnffD6nt7SVGzH3Gqg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xxlVs0gHYJrdlSjmnboM1oRzp0+yhE3vzWlyWv3HviA=; b=EcnQ76o0e0Uvdp
+	iIkRXxYuzIKqJ37kBquZAQwbxrwG1ZgxLPycrqa2jtLkoC9QqbGz/j8OVbjfyYeMRqcOTsy6vKBYk
+	IxU+4ZaX0xLtN5VeW4Ueg8m6vqr5le/f+En5Lhes8scQSCQFjeRcZtYqwxO+8sA0zshz0sK9/9X1F
+	Xnf8Q93uKPMgxqQxkJWsKZG4QgZB1CZZJSSYZVwgYKV+7JJGLvvGDZY7rMyW/Tsf3bjTuo20VyoBJ
+	G00gYfOChwoLVhMWDA3Ez7EZmSjb82T7X59NLs3TzKSen6OkLRIHUX7MkgHM+VnKQcFxENtrsOPMI
+	o9M2S0JPpgzqYdgcTzzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waG0M-00000001bd0-2mvQ;
-	Thu, 18 Jun 2026 16:54:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waGAf-00000001cCK-36Kc;
+	Thu, 18 Jun 2026 17:04:53 +0000
+Received: from mail-uksouthazon11020108.outbound.protection.outlook.com ([52.101.196.108] helo=LO3P265CU004.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waG0L-00000001bcl-2FZq
+	id 1waGAb-00000001cBc-3ZDx
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jun 2026 16:54:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8FB760008;
-	Thu, 18 Jun 2026 16:54:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B6F1F000E9;
-	Thu, 18 Jun 2026 16:54:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781801652;
-	bh=f921/Yupm9I7VYe6MpH7HOkwP0ic1/72UUx/dXvrHHE=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References;
-	b=Q828+UYYr24vWrvjy2oG7aXakUIBAlvCiJALDDs/wf4+XQ1nAFhnbqHq7Y+YEOV/y
-	 rPjawwyDW2dFHRuDin9ItMYjhXDRgP6b2PXXMVlegk5qKdA+ThZnSfJXe0XGtomzis
-	 QxTpWfJAEAgPXJRcqskz5F1PAgg9p9FNw9/S+GVhTJw66LPuSOzDXP0Waw3ZkJ+VwF
-	 25u738kQo+006SrwPB6b78V8VWApIa5qz3SS6ScULFEvt+chW15eVTQ1a4mvVfKq9V
-	 lTlNlS3UCKjbmZsDcnt31ijzACAyRkbhmc2KUuyeBgEdqoTi9F9aJcVNA4DM46MWkc
-	 0SmcqIDOClPFA==
-Date: Thu, 18 Jun 2026 09:54:11 -0700
-From: Kees Cook <kees@kernel.org>
-To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <pjw@kernel.org>
-CC: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- =?ISO-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
- Evan Green <evan@rivosinc.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] riscv: Add kCFI type prefix to unaligned copy routines
-User-Agent: K-9 Mail for Android
-In-Reply-To: <877bnwtb0n.fsf@yellow.woof>
-References: <20260618081252.work.711-kees@kernel.org> <877bnwtb0n.fsf@yellow.woof>
-Message-ID: <9E1CFDD7-018E-4945-B261-0D46B355A369@kernel.org>
+	Thu, 18 Jun 2026 17:04:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Fl1bxgHc72ExxcpJkiDtQ9urQPXiV5AaAbUROj9Dxk0IlIkK7ajksrVModPjm7Rq8KP4sP9kyVM/eqM+NJemSi11aDFjOi4GpsBp2xhsfzruqu53q2DWl8gZhL9vOzl1BxBHGs5j6MHDnysmPoLqwcIZ4n14Iauk8EzhSV7rZIVLRaRIfaNOk8BUzQRNmIe3XYXyq/iUSV9/rSrhlVomzgjlZxRBPZALhvfdxmk2kpaH1dlUvAVjYArKRibuQJmxrhvjGsSpTviy7KGfUplfkag6IoMaD6z3SNwDHurCrfFXtAl+BeqOyo249S/a3gOQV5G/E7cXyjEd1X54nh+JaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nfGgWH+/m/wnv/umrTyOPhln6+pFG+Sqa5avNpKldSI=;
+ b=Y5efKDaiAYk488sXfacJEPgjuMDKR7eE76s0wQLYu4plxWbvzEhry5SpfkWxK0CKdFQcPKitg1WQrLPylzgaZdDeb0xEREVDinSKCGqtynvLu9/IZ7f2nBqlGHn8lK84OyAZw2m0pe2LnChUyzAY1fsg3B8lSvHAy+UHnJtUjXQXn8x78t7YE/34mNRtaxR/2eT31KGOBPNxzdxkkwx6Nyr1bATdBdF3YnTDnAR/59Hamj0kXmeAJcYg330QBh730DbTsRv+8HjfrqJMAQK1a23uSJgcIMg1eCVfPRSzfhzGdYzKCheAjE17qwDFOgYJR2dxbiIkI3e1zIiJYPe91Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nfGgWH+/m/wnv/umrTyOPhln6+pFG+Sqa5avNpKldSI=;
+ b=OsrKObNZQyzck3ZLmHZfbruGQNpF/+56UcnQoMbDEi1RGb/rIxskXRr1aMdonRX+QDADgI6sA0xi5qKLHILfO1o1cnzyhUa8PJZhOsfPXDH+aylJyu84UhhJ0U3PLUwmL3O89cNZGm57QISDWbbDHGOXS3t0dZ79of/rtXFBToI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO4P265MB6966.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:34d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Thu, 18 Jun
+ 2026 17:04:43 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.21.0139.009; Thu, 18 Jun 2026
+ 17:04:43 +0000
+From: Gary Guo <gary@garyguo.net>
+Subject: [PATCH 00/10] rust: driver: use pointers instead of indices for ID
+ info
+Date: Thu, 18 Jun 2026 18:03:37 +0100
+Message-Id: <20260618-id_info-v1-0-96af1e559ef9@garyguo.net>
+X-B4-Tracking: v=1; b=H4sIAOkkNGoC/yXM0QpAQBCF4VfRXFMMLXkVSWvMMi6WdpGSd7e4/
+ Oo/5wLPTthDHV3g+BAviw3I4gho0nbkRIZgwBRVqjIM7MSaJcGcSRclEg0VhHp1bOT8npr2t9/
+ 7mWl753DfDxB+litrAAAA
+X-Change-ID: 20260612-id_info-23eca472ccd8
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ FUJITA Tomonori <fujita.tomonori@gmail.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Abdiel Janulgue <abdiel.janulgue@gmail.com>, 
+ Robin Murphy <robin.murphy@arm.com>, Dave Ertman <david.m.ertman@intel.com>, 
+ Ira Weiny <iweiny@kernel.org>, Leon Romanovsky <leon@kernel.org>, 
+ Len Brown <lenb@kernel.org>, Igor Korotin <igor.korotin@linux.dev>, 
+ Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>, 
+ Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: driver-core@lists.linux.dev, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, 
+ linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
+ Gary Guo <gary@garyguo.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781802282; l=2475;
+ i=gary@garyguo.net; s=20221204; h=from:subject:message-id;
+ bh=CDWUnJAJ+rH6PqrYdhE9HnqkWK8hkgoOdYipk+Gk8gQ=;
+ b=JWv2t7kglzdUdALpK8VAlAf++FtvLSSLPTYQ2od+u83f1jgP7T3MiyT03aV1TPKnS02lstOfq
+ FfEHiBEgma7DIGdMO0mC5pIkIOiYin4z4bC0Fr9Ly736bQ0amaKsUdb
+X-Developer-Key: i=gary@garyguo.net; a=ed25519;
+ pk=vB3uIX95SM4eVrIqo1DWNWKDKD2xzB+yLLLr0yOPYMo=
+X-ClientProxiedBy: LO4P123CA0548.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:319::11) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO4P265MB6966:EE_
+X-MS-Office365-Filtering-Correlation-Id: 21adea04-fbf3-499c-ecce-08decd5bb162
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|23010399003|1800799024|376014|366016|7416014|921020|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: MJf3iRDNLJ9cGXL+5Iqn9jBjblQESWCoPtgvWbbUO1eNEGOs9dSOwU/YKr50MrCxmi6GeAFrUbPVPXdUdgDi9Pqy4PnwT/Gc6odUORR5fODap/dXaxOcC5GPyFZ2sDySp+2Xnnm0iidMaIc2b6m95I/2A9OERftkwxG/vJ73P6JlL7ftbqPh9w5XFtn/mU5Im6PziTT4Ehc1O2RImzefeu9zIT/X3RHeZ0YGhIqaUu0OQhKS6Xw89y9uwo+EEqiWwmzz70thkmb0O/Hzs/Cxkrpdgon1O+r5e4x23DfH2PaSoWaTRZbpRZCfgbsf//0PisbHn0rLbMBmQdsTrDHw3BZGgkMoRhwzJV7czkyBtQdjKG26A1q28//HUSqRVt186Wf0ShNCIktYG/hE0WKbGtmlW9obVGyue2k9k53uLFldZUT5oB5L6Wczup9sGWGHrulkIqGes3qGYtAwQ3sIwxvbQeeTA0LwsGodKQQAyzQLH7kiw+tyKDeWXU5bCJi28WR+rlyTOCpxK2VANBtzktxC+EL4zpLTxxE231ay9KTmksl8roRdti6tk8BSN6Y2qbPdk1szv3NhBBuqgd6EOvywQ/NdQF9f0+qTOEI1syF9ZbSAGEShg4V8oPdbZd7Rg3Hp2WyiByvby1SjjfA+0/fUlv9LafO85iGgPw5mTHx4aCQVIJ9ssChyb3OBY+V3OhHlsw4DrFlfbGFVvv7z/cnCJxy+0RVBJCuTs2Q5o8Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(1800799024)(376014)(366016)(7416014)(921020)(56012099006)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a2VOcUhiUGZmQ2FMNTNISUpzakp4RU11RHluc0RyV2dXQ3pXU2tOUHYrVjBa?=
+ =?utf-8?B?TmxSWXZackc0Y0M0ZjBZWVZ1RUx0UkwzWmptWEhJb1EwUlE2YXVRbzYySkN0?=
+ =?utf-8?B?QktVcnVwcnZVdElzam43QUJoM1BieWkwMHBuTW8wRnQxME5sU0E0dVhkQW1z?=
+ =?utf-8?B?SCszU0hPaUxWTXpQaXlBSmROc25ZdmZ4Vm1nWmx3cTV1SzdoT0pBTEVsRjFk?=
+ =?utf-8?B?bVUxL3BsUTVXQ29RSVhsaVRvMU1PQ1ZrL0tvOGlrbkorTERVL3hlVEdaZFl5?=
+ =?utf-8?B?UTJFYUhKT1dZblNBTVZkZTNJYWxFWlpHQ3RlWUxaNk5QY0Z5MjlTTTJROXJy?=
+ =?utf-8?B?ejRpTndBQ0E1bE1lVUJRTWNyMTB6cEtoQjF5VStLOElTbXRjOFk3UCtkYUQ1?=
+ =?utf-8?B?MmFITVlrTkYvWnNtSEcyMXcxUHNyNFpPanBNdmJEOUJHZEpXbFBvU0lCS3FG?=
+ =?utf-8?B?RTE5UXB2bFdtS21hTHFtcE5IbDZnMmgyTm1CRjlYNTVGNU1XQmo4ZnMvd1JF?=
+ =?utf-8?B?RjVFWlFGQWpWcXVnRWdJMGN0WFVPNmRHM2xpRnBkVFpIcWRIemtobWtTMVdV?=
+ =?utf-8?B?U3hUd1U1N1pVS2VBM2xqRzVnY3N3YlFGOG5oN05LNXBnV2VXRE5xSWozQmpo?=
+ =?utf-8?B?cWxSM0Z5VlkxakVrOExpdSt1aXVsTlR1Z05PR3FaMUpPQWJEMkFXbDZ5OUxy?=
+ =?utf-8?B?V2FCNmFrK1ZFeUJOMXMrL3FUNFRIL0d0cW5hRTkrR0xjOEpCUVhVTktmVDRX?=
+ =?utf-8?B?L2dLL0FvNzduUXlyRnpsRzc0aG1KSkRpN05RMWl6R2lGOXNIZGFSaUt0b2Rq?=
+ =?utf-8?B?WEdFdGVRM3RlYzRmTTJHaHNoL21ZczQwSTUrVVRHdmdTZzVId1RRalBPVVdK?=
+ =?utf-8?B?TE9TcnNDZGd5bWg1KzFORSsvRVRabVF3QUNFNFZEV0JHeWFFcTBUMUtoTkhZ?=
+ =?utf-8?B?RmVod2RHaDVGZWhiem5PU3NRdUlTL3RhVy9QUGM3cTJZMVpUU3k2VFBZRk9u?=
+ =?utf-8?B?K1ZuNWkwZ1dpcVFrc3RSdTBMSkZSNHh0OGEydzRseGVtTHp1b2hMWjg0NW56?=
+ =?utf-8?B?T0Z0em5hOExiRFpwQUVhU3NraDZDeE01M2JxTW93T05rcnBoZGZEV0RBdDZK?=
+ =?utf-8?B?VHo1YmRGQlczaWdSMTVQZXVWVFpEVU9VU1duMnVyb0hONGZGcHlpUXpjY3g1?=
+ =?utf-8?B?MWgzQW0yQTdqc3UzRzBKbzlkS2ZCNlpQYlUrbm1jVllzSEM4SFpaMDNSQUhI?=
+ =?utf-8?B?VDA5Q2NhMm5LZWd5a1VQVTZoc2draGtqRFRZOU9YZkZoM2N2NWpxVDRrbWVD?=
+ =?utf-8?B?U3dub25KZTZHQ3pVa1p2Y2hnMVlvZEJJVXZta0hmZU1kbDlmaUhxU1hXUVo4?=
+ =?utf-8?B?TWgzSzRSQmk2TVlIc1ZDWnN5VDljQlpmdlMxclpSOXczdjc4ZjlJRW04cFdH?=
+ =?utf-8?B?SU96eUZVK09XeW5aMS9TTHRlaDNVQWZaRjhiU3FLZmZxQnFQUU5ldWV6ck5C?=
+ =?utf-8?B?Q1RCREhqM1duMllPMmV3eUEyK29PdDhtK3JlL0NoMkgyZGt1TEFHblJ2UmJz?=
+ =?utf-8?B?MXpnd1FiUml2R3lJeVVhbWE0c2J2ZVJGZVF4WHJHYm5LZjFZaFhrdzdObkwr?=
+ =?utf-8?B?NEUycnlqcTdaWStHZ2VvZ2ZuUnRaNW9CeThudEtXUWdjN3owZHF6czhHQmRr?=
+ =?utf-8?B?RXNaUkRLaHVHQVluRE96ajE2YXlqQ1FCYTJyUzVnQlV5d0xPRGF4d09TWHVy?=
+ =?utf-8?B?ZTFtYWppd1ZYeDZIbm1OSGYwRlh6bXdNKzdOR0pBSllLdDZxSTNTWlZMOUVo?=
+ =?utf-8?B?YXNnSlZkc0o5SC9VeFUxVzBZQjhaRjVQd3djckxCY25oa3k4endaUnVxQnhZ?=
+ =?utf-8?B?VldXQjFuUFFZVko4blBRY21JN1pYSVFZLzIwQVFKdzJLVEE5ellhQXZqa2Ex?=
+ =?utf-8?B?Q1pXZG9wMEVFa0pkT216dm41eXA4TUV4SSt4Y0ROYVd2MWJGdXdmaHl3MnBs?=
+ =?utf-8?B?endsU3YxSDRKbjdWYzJkS2JSclphdFFBRjNPWHpUamd6WlpMVE5uVkV2MmlQ?=
+ =?utf-8?B?clFyZmlPblQvbmhmQjZobGdFbW80KzQrOHZIZ1o0YnRnMWt0SHdxc0U3R2lk?=
+ =?utf-8?B?N21FME1pNHY1RWtmYzVNUFpyNDh5UGVBMCtHOGVRdUJtck83SllxWWgyN0o4?=
+ =?utf-8?B?emJZRi94TFZNK3B6ejBSNGR0WXgxTllpQm1RVGlERnlkSEpJRks5Tis3SkxZ?=
+ =?utf-8?B?amwvRFd2NmRBR3ptMGl0c0o5Tit1c3VzcWZvRStLc0dhR0NJN2ZQQm1tV2M4?=
+ =?utf-8?B?QXkxSmprbHdMQVptUFFzQXNVb0k5TlN4RWtaMHdCeUtqNTNsekRndz09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21adea04-fbf3-499c-ecce-08decd5bb162
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 17:04:43.5945
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: agVaPw6lEKGPQH7EV8t7IsbLTWJ+Kip5sn9Mu8iB395w/LUFfgiUsXy/tGWz7ry3YtQ0sR/oa0IsbiPtQVb2Lw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P265MB6966
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_100449_910534_FC0F89BA 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +184,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Most C drivers use a pointer (and cast to kernel_ulong_t) for driver_data
+fields in device_id. Rust code currently does not do this, but rather use
+indices. These indices then needs to be translated to `&IdInfo` separately
+and this is by a side table.
 
+This leads to open-coded ACPI/OF handling in driver.rs, which is not
+desirable. Convert the code to use pointers (or rather, static references)
+instead.
 
-On June 18, 2026 3:10:00 AM PDT, Nam Cao <namcao@linutronix.de> wrote:
->Kees Cook <kees@kernel.org> writes:
->> __riscv_copy_words_unaligned() and __riscv_copy_bytes_unaligned() are
->> called indirectly through function pointers from measure_cycles() (via
->> compare_unaligned_access()) during the boot-time unaligned-access
->> probe. Under kCFI, an indirect call checks the type id stored in the
->> word immediately preceding the callee against the type id of the
->> function-pointer type at the call site. These two routines are defined
->> with SYM_FUNC_START(), which emits no __cfi_ prefix, so the check reads
->> the alignment padding ahead of the function (zero) instead of a type id
->> and traps:
->
->This has already been fixed by commit f2abc305aa93f ("riscv: Define
->__riscv_copy_{,vec_}{words,bytes}_unaligned() using SYM_TYPED_FUNC_START")
+Signed-off-by: Gary Guo <gary@garyguo.net>
+---
+Gary Guo (10):
+      rust: driver: remove `IdTable::id`
+      rust: driver: simplify `IdArray::new_without_index`
+      rust: pci: use `Option<&IdInfo>` for device ID info
+      rust: net/phy: remove expansion from doc
+      rust: driver: centralize device ID handling
+      rust: driver: remove `$module_table_name` from `module_device_table`
+      rust: driver: store pointers in `DeviceId`
+      rust: driver: remove open-coded matching logic
+      rust: driver: remove duplicate ID table
+      RFC: rust: driver: support map-like syntax for ID table
 
-Ah-ha! Great. I need to update my tree, it seems. :)
+ drivers/cpufreq/rcpufreq_dt.rs        |   1 -
+ drivers/gpu/drm/nova/driver.rs        |   1 -
+ drivers/gpu/drm/tyr/driver.rs         |   1 -
+ drivers/gpu/nova-core/driver.rs       |   3 +-
+ drivers/pwm/pwm_th1520.rs             |   1 -
+ rust/kernel/acpi.rs                   |  14 +--
+ rust/kernel/auxiliary.rs              |  18 +--
+ rust/kernel/device_id.rs              | 205 +++++++++++++++++++---------------
+ rust/kernel/driver.rs                 | 114 ++-----------------
+ rust/kernel/i2c.rs                    |  26 ++---
+ rust/kernel/net/phy.rs                |  66 +----------
+ rust/kernel/of.rs                     |  14 +--
+ rust/kernel/pci.rs                    |  24 ++--
+ rust/kernel/platform.rs               |   5 +-
+ rust/kernel/usb.rs                    |  18 +--
+ samples/rust/rust_debugfs.rs          |   1 -
+ samples/rust/rust_dma.rs              |   3 +-
+ samples/rust/rust_driver_auxiliary.rs |   4 +-
+ samples/rust/rust_driver_i2c.rs       |   3 -
+ samples/rust/rust_driver_pci.rs       |  11 +-
+ samples/rust/rust_driver_platform.rs  |   2 -
+ samples/rust/rust_driver_usb.rs       |   1 -
+ samples/rust/rust_i2c_client.rs       |   2 -
+ samples/rust/rust_soc.rs              |   2 -
+ 24 files changed, 166 insertions(+), 374 deletions(-)
+---
+base-commit: 4fa3f5fabb30bf00d7475d5a33459ea83d639bf9
+change-id: 20260612-id_info-23eca472ccd8
 
--Kees
+Best regards,
+--  
+Gary Guo <gary@garyguo.net>
 
--- 
-Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
