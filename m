@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B148CD98ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 06:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EBACD98ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 06:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VRx/2Q04fqu1fFTeUzQbFNgD1RR5MMQeEKUufpgHGqA=; b=F1hiLj1Yzu0zKn
-	G2fEpRM9hwT7BEGovKP8l0yhhavkm2JSwfG4mNb7zKT6yCb/6iEkr6UKDSRHc6awhT9B257RZcUfS
-	lQ9eCdqR32KeUOwAvBkMD8hsd/pTCJEzhted9I6OhP05EWj2U3utBTm6qRXRrAczKCC5/RM4UwPI5
-	FY6a/I225xbxkkMHcjXSdP2z4Fh+mMbTfB96YeF2soJmhIPKOful7+VzlPa1qvx16a11MJ9tJ1GE1
-	UTHRn25N7fc4DKK30aW4R22Wjid8DcZm/xS1XB6CB1QdAsBpsjSDuE9cF9RbIvYUrA7+30JVRT+Mq
-	vASMQ7P/3dhUxTGqgTnw==;
+	List-Owner; bh=nVkv2X3/5Uyh5q0GbaUfEx3JKdXmqewjApBHhkULAJY=; b=dQfMZXZ2PxUOGK
+	xh3VJJiNY0BwBo1jvLscC7u8rvU1lu6MwbsmSSu8xtMjh4PcqMOCvpvYaxVzIpyXzV4Ga+nCXpSyU
+	OWl3AnzPI1W0TQupN9WBbxRXe1xc5TOvngF3beagu6D1TGYyExjbutQfhBSPalLWG/M8YTdMivOkc
+	dQcg5zS5coOzMuFNELb33PEqehc3qqlMteg9omEfutIt/to3638zySrq69ZsvevSZ3p1RmXBjliny
+	Yy0jdnfQhUaNReTYRjUT4YoSM8Hd84ZQuPmcpGFrKmJ85cB0D5Kf2M1vnUcFLQnAFHTkdFaK0gpn1
+	kbF9/kroU7WrrHBJuz+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa6Ur-00000000i04-3QeK;
-	Thu, 18 Jun 2026 06:45:05 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wa6V3-00000000i3z-3sFU;
+	Thu, 18 Jun 2026 06:45:17 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa6Up-00000000hzL-1Q6u
+	id 1wa6V1-00000000i3A-3pc0
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jun 2026 06:45:04 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-36d98c9b596so268567a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jun 2026 23:45:03 -0700 (PDT)
+	Thu, 18 Jun 2026 06:45:17 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2c0c1e0b0faso4228385ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jun 2026 23:45:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1781765103; x=1782369903; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1781765115; x=1782369915; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SzlsDUhDCE2mtUY94SqShY/BDngOyXGE2SVh1DG2jr8=;
-        b=bvumBnDF/oYtcf+zJL8gDw//r5JMv9NcBGZbU5HA0iRyUfAT/KRkP9RxDgqodW76Km
-         DzkNMMXMU1JHyt5ZqjWFSk3c1ogzApar2D1SbKz2ypZYymqt2iM3cLK8Dk/bWo9upoJ4
-         nAFJHFbUYK6cnPvA6DamZ2QhCcsIG84kqPce63DD8iJARzL5wAKQzZFHRpOWIF445hK4
-         W0/t7PkRUz1JB6hwyJpiOfl96UajCnyZn4zgsUiroMxYee7BIafFXF5BJbClCoPFHbOg
-         G0yirWtj0RYcVzkxmvEFgekxxDgo01+FVHrGEx4kgbqXkoVnlTRDSxKVKOYA4ng4rnXb
-         FZzw==
+        bh=3mY4IoCKia/XuJ/oNtOCFVHCKeBb5u4W4dO0pcbEY+A=;
+        b=OVvb/Ab2uopdQ8zZSw9ENgIyS3JkCX8JvfOLvAj6algBWXyOFCVdQezJ/ph7WVWZ9W
+         B+12o/wUPQPCIYdibVLd9GJCQtttoNdtY/oRFWLhPz4W/D9atYtBigEBpNZdk6UcUlb6
+         rAco5Vbz2PI7NM8lJPAxMfG33xWAyT/w9XEv77g4kybZtD39scYQQkW2X7S8HdbyrW99
+         6N3Iy/tGKhCh2wks0nAsxW3Q1688N/imsrUjszhdtMvqw3eu4Bca4fRZjb1qn3cpXh8k
+         Jemjz1mqwLiOQwSC1cm5s0EbzQ5IabnsNMfFvNrZQCKm0QXJMMHITVjKeu9CC7eoqPuC
+         RvYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781765103; x=1782369903;
+        d=1e100.net; s=20251104; t=1781765115; x=1782369915;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=SzlsDUhDCE2mtUY94SqShY/BDngOyXGE2SVh1DG2jr8=;
-        b=izMO1T4WFZ8M7m1NgQ11Rz/x22xtwlwEJoTamRASJ7LMKhck5LkQOzCquixsru6l82
-         SOp/LLtuw6xAvYaNKlje6JadRn5/dqgQUXE5SBbALXYrh2c8zbiRAyeTZVjOcr51UlHO
-         pXgetMhr9K2F2t6bT6q8k8xk2/Njthqyhm66E06ofcGkiCucFedfJBZKCOPnHWZ0eydz
-         GTF5kIUiFIFjlKRQs3qtFzeUL9EOL5WB0vdheVW3yFm015fqK931vrQ4kOjgpggf2WZo
-         Y6ksNjRG8iuv0QN7PKK5bKzmmNC+6+pyJDjjmGNvWq8chMpTW7YEXVweCuLTr9NX7rzX
-         MCow==
-X-Forwarded-Encrypted: i=1; AFNElJ8o7cuWKq0/AqN/pmxF9neUBAAEi0gDwAMMGA/oPWAd8eotKu0kkROwhR6ZtHAHvfROuTC7sKsComLWLA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE14/toYJPFFvRQyslwv9oEJywj7wAeFGsDHrS5OlzQTUHZnK0
-	exqHxSz2yya5dbihG6uuXGsFkGONrL8rsFXocw5cCEUrkME2vKo0RHtV6Q0Yi5oj4IU=
-X-Gm-Gg: AfdE7cnOuPYRi89hPEF5MB16ZJ/3oMhs6JIQMUaokGP17Y7CGAXNHIZz+p9dIukx1o/
-	d/Yt4cyEdePjBCmQuQVB12sDjCQa46Rb72wa/ej07vpEAYXGgTPfY0Xsfog+SCb/pu5ucQRv997
-	mK0jzRdqEarMEKBRKfDfv9lyzWsd5VuTfmjaDJSiDmyU/rxeIbOIwEStTNkDEcQArDdflaQbbnE
-	qD2YYxaG/Xf5T3WM6s5LvepcnF1kQKt8d5cxfUphnC78nkcuqV5QKzQTolXKNafeDcRDZyLhhru
-	znPa0Iqw+ieMZVj7fn3e4/UA0LxRfzjK6DCgGsUbTenC54VwO+1Bmjsz5WQ4LOPQBjiPit8Gmai
-	I1+XT+gQ+ckhahJxK8zmk4MaUCjtJPDPmcFcUp3YCqix3+7vyzKszbuQaGWhNDCNpz+ypnPyygy
-	QWafJCaIxTSMfKv40HqDTX3Q2BjCHblTw4mhuXIbvsXL/MJQ==
-X-Received: by 2002:a17:903:2b0f:b0:2c6:6424:c79f with SMTP id d9443c01a7336-2c6bbf98e47mr79277795ad.8.1781765102639;
-        Wed, 17 Jun 2026 23:45:02 -0700 (PDT)
+        bh=3mY4IoCKia/XuJ/oNtOCFVHCKeBb5u4W4dO0pcbEY+A=;
+        b=Eo4W7S5ewm5GSeXO+ZlJw2r5c/tiR2QtZVxYtbVDQkkP24K84gS4Fl7gPcxkGJWMMI
+         UYxOfdU8sriKf5igngAYfIpeLTYxa9adb9MNx2Upv9PYNMJVvsvQr9SvihirAW8CRR3N
+         rse0ivKnXQI7CSu6YF1ojGwxNAXYi9igyVRT43UaxX6n4PsIF20Iq6L2kDzFQu8bvert
+         qtggCErFvuwfSb0JzBdJft+YpDJm2gS6LQ4/h0Eru6czkI4nTejf0CHRpzR8CjzLva0/
+         bNddfroKJez/daNa+KILepQK3nAYt4mrcv3A1nUpHBfzOU0dKR+/2wfE6ps7biIEdnYe
+         lFqQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8PN+lPRi8F8sHF8x2+ULkRsi3I24Qt5jYcpsqPxPvpCw6K4ryHHPeocPiT81RdQ9Z25dGX+NmIpm/ZnQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6XUz3r1I9D82XNT3IMrq32TJI4ij/gGn4k5Pnwe5RAHHSJwcw
+	xnVQR8qBF1+yMp4CnfUyyOPIu0BCt4FjobU/7Ddo00iFJa/1srZNo6YXwlt+eRjlLSE=
+X-Gm-Gg: AfdE7cm42zfICycbgCY5cCIyOqmjs836tjQgtXx2ZFyP7ToIRJoiVuTO7zA7xY7MWtP
+	UVJ2XTxeALQkD2gN33pXcmRvYARaV3UDDdsWX6xpnuLCkVMwZsyKVkLj2UQ1YPy/P1e6T/asQEK
+	Z9VlVCIXX/ervOJORQFBWRoTU2SPUvR6JfM7fisyf4zVW+NkGys7HHDG2lSegD0sOUTNeW6jwyz
+	H9eVgKTE6bJKoaen2uPTSC/kpZudTJc4HHGXNg2vBkEM2lrH/bVQgXVoWHOL9Pqri7CV0C/mion
+	xWu1cVvI7zeOhHJQ+oDnu/8bj7/fK41FrEAeZ/UGNFHQPoMUebND3TkBRIduj9DVdWQnWcga5tO
+	//WlbhcRNraCFQU5+OhtOkNQ3KoOGFwpdXBg3j8hy9PhjL9qzEN1SEHNQ87glRmu0Xm+IOKgtye
+	LgkrPHz4Uf91eajAnLSdRiq19msQZ0TFoz56zO8dlblz3bzQ==
+X-Received: by 2002:a17:903:1b6f:b0:2bf:77b2:8b2d with SMTP id d9443c01a7336-2c6bc25ca62mr70159885ad.30.1781765114873;
+        Wed, 17 Jun 2026 23:45:14 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c4328a4c1fsm185275985ad.53.2026.06.17.23.44.50
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c4328a4c1fsm185275985ad.53.2026.06.17.23.45.03
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 17 Jun 2026 23:45:02 -0700 (PDT)
+        Wed, 17 Jun 2026 23:45:14 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: akpm@linux-foundation.org,
 	alex@ghiti.fr,
@@ -101,16 +101,16 @@ To: akpm@linux-foundation.org,
 	wangruikang@iscas.ac.cn,
 	zhangchunyan@iscas.ac.cn,
 	zong.li@sifive.com
-Subject: [PATCH v4 2/3] riscv: track effective hardware PTE A/D updating
-Date: Thu, 18 Jun 2026 14:44:05 +0800
-Message-Id: <20260618064406.14508-3-cuiyunhui@bytedance.com>
+Subject: [PATCH v4 3/3] riscv: preserve A/D and soft-dirty state across PTE updates
+Date: Thu, 18 Jun 2026 14:44:06 +0800
+Message-Id: <20260618064406.14508-4-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20260618064406.14508-1-cuiyunhui@bytedance.com>
 References: <20260618064406.14508-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_234503_389055_5646822C 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260617_234515_955331_8A47A298 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,266 +127,174 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Svadu being present in the ISA does not always mean that hardware PTE A/D
-updating is active. When Svade and Svadu are both advertised, Svadu starts
-disabled and must be enabled through SBI FWFT before the kernel can rely on
-hardware A/D updates.
-
-Track that effective runtime state with a static key. During init, enable
-FWFT for all online harts before setting the key; if that fails, leave the
-system in software-managed A/D mode. Secondary harts must match the global
-A/D update mode before they are marked online.
-
-The full state flow is:
-
-                boot init
-                    |
-                    v
-          do all CPUs have Svadu?
-                    |
-             +------+------+
-             |             |
-            no            yes
-             |             |
-             v             v
-      hw_ad key = false   does any CPU have Svade?
-      requires_fwft = false       |
-             |              +-----+-----+
-             |              |           |
-             |             no          yes
-             |              |           |
-             |              v           v
-             |       hw_ad key = true   requires_fwft = true
-             |       requires_fwft = false       |
-             |                                v
-             |                         FWFT on online CPUs
-             |                                |
-             |                         +------+------+
-             |                         |             |
-             |                      success       failure
-             |                         |             |
-             |                         v             v
-             |                hw_ad key = true   requires_fwft = false
-             |                requires_fwft = true hw_ad key = false
-             |                                  fallback to software A/D
-             |
-             +--------------+-----------+
-                            |
-                            v
-                       hotplug CPU
-                            |
-                            v
-          if (!hw_ad_key || !requires_fwft)
-                    |
-             +------+------+
-             |             |
-           true          false
-             |             |
-             v             v
-          return 0    enable local FWFT
-             |             |
-             |       +-----+-----+
-             |       |           |
-             |    success     failure
-             |       |           |
-             v       v           v
-          continue  continue  return error
-             |       |           |
-             v       v           v
-       set_cpu_online()     do not set CPU online
-             |                   |
-             v                   v
-          CPU online        CPU bringup fails
-
-Thus, an online CPU never runs with an A/D update mode different from the
-global kernel state.
+Use cmpxchg-based PTE updates so software permission changes do not lose
+concurrent A/D updates from hardware. Preserve soft-dirty state as well,
+since RISC-V marks PTEs dirty and soft-dirty together.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 Reviewed-by: Qingwei Hu <qingwei.hu@bytedance.com>
 ---
- arch/riscv/include/asm/cpufeature.h |   8 +++
- arch/riscv/kernel/cpufeature.c      | 101 ++++++++++++++++++++++++++--
- arch/riscv/kernel/smpboot.c         |   4 ++
- 3 files changed, 107 insertions(+), 6 deletions(-)
+ arch/riscv/include/asm/pgtable.h | 27 +++++++++----
+ arch/riscv/mm/pgtable.c          | 68 ++++++++++++++++++++++++++------
+ 2 files changed, 77 insertions(+), 18 deletions(-)
 
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index 739fcc84bf7b2..ba3d74f6006a6 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -128,6 +128,14 @@ struct riscv_isa_ext_data {
- extern const struct riscv_isa_ext_data riscv_isa_ext[];
- extern const size_t riscv_isa_ext_count;
- extern bool riscv_isa_fallback;
-+DECLARE_STATIC_KEY_FALSE(riscv_hw_pte_ad_updating);
-+
-+static __always_inline bool riscv_has_hw_pte_ad_updating(void)
-+{
-+	return static_branch_unlikely(&riscv_hw_pte_ad_updating);
-+}
-+
-+int riscv_enable_hw_pte_ad_updating(void);
- 
- unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
- static __always_inline bool riscv_cpu_has_extension_likely(int cpu, const unsigned long ext)
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index f46aa5602d74d..c0ac7ab39d4e0 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -15,6 +15,7 @@
- #include <linux/memory.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/smp.h>
- #include <asm/acpi.h>
- #include <asm/alternative.h>
- #include <asm/bugs.h>
-@@ -35,6 +36,9 @@
- static bool any_cpu_has_zicboz;
- static bool any_cpu_has_zicbop;
- static bool any_cpu_has_zicbom;
-+DEFINE_STATIC_KEY_FALSE(riscv_hw_pte_ad_updating);
-+EXPORT_SYMBOL_GPL(riscv_hw_pte_ad_updating);
-+static bool riscv_hw_pte_ad_updating_requires_fwft __read_mostly;
- 
- unsigned long elf_hwcap __read_mostly;
- 
-@@ -287,15 +291,100 @@ static int riscv_ext_zvfbfwma_validate(const struct riscv_isa_ext_data *data,
- 	return -EPROBE_DEFER;
- }
- 
--static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
--				    const unsigned long *isa_bitmap)
-+static void riscv_set_hw_pte_ad_updating(void)
-+{
-+	static_branch_enable(&riscv_hw_pte_ad_updating);
-+}
-+
-+static int riscv_enable_local_hw_pte_ad_updating(void)
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 5d5756bda82e3..02286b48dc471 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -678,15 +678,21 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+ static inline void ptep_set_wrprotect(struct mm_struct *mm,
+ 				      unsigned long address, pte_t *ptep)
  {
--	/* SVADE has already been detected, use SVADE only */
--	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SVADE))
--		return -EOPNOTSUPP;
-+	return sbi_fwft_set(SBI_FWFT_PTE_AD_HW_UPDATING, 1, 0);
-+}
-+
-+static int riscv_set_online_hw_pte_ad_updating(bool enable)
-+{
-+	return sbi_fwft_set_online_cpus(SBI_FWFT_PTE_AD_HW_UPDATING,
-+					   enable, 0);
-+}
-+
-+static bool __init riscv_any_cpu_has_svade(void)
-+{
-+	unsigned int cpu;
- 
-+	for_each_possible_cpu(cpu) {
-+		if (riscv_cpu_has_extension_unlikely(cpu, RISCV_ISA_EXT_SVADE))
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+int riscv_enable_hw_pte_ad_updating(void)
-+{
-+	unsigned int cpu;
-+	int ret;
-+
-+	if (!riscv_has_hw_pte_ad_updating() ||
-+	    !riscv_hw_pte_ad_updating_requires_fwft)
-+		return 0;
-+
-+	cpu = smp_processor_id();
-+	ret = riscv_enable_local_hw_pte_ad_updating();
-+	if (ret)
-+		pr_err("CPU%u failed to enable hardware PTE A/D updating: %d\n",
-+		       cpu, ret);
-+
-+	return ret;
-+}
-+
-+static void __init riscv_disable_hw_pte_ad_updating(int error)
-+{
-+	int ret;
-+
-+	riscv_hw_pte_ad_updating_requires_fwft = false;
-+	if (error != -EOPNOTSUPP)
-+		pr_err("Failed to enable hardware PTE A/D updating: %d\n",
-+		       error);
-+
-+	ret = riscv_set_online_hw_pte_ad_updating(false);
-+	if (ret && ret != -EOPNOTSUPP)
-+		pr_err("Failed to rollback hardware PTE A/D updating: %d\n",
-+		       ret);
-+
-+	pr_info("riscv: leave PTE A/D updates software-managed (%d)\n",
-+		error);
-+}
-+
-+static int __init riscv_hw_pte_ad_updating_init(void)
-+{
-+	bool requires_fwft, has_svadu;
-+	int ret;
-+
-+	has_svadu = riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
-+	requires_fwft = riscv_any_cpu_has_svade();
-+
-+	if (!has_svadu)
-+		return 0;
-+
-+	if (requires_fwft) {
-+		riscv_hw_pte_ad_updating_requires_fwft = true;
-+		ret = riscv_set_online_hw_pte_ad_updating(true);
-+		if (ret) {
-+			riscv_disable_hw_pte_ad_updating(ret);
-+			return 0;
-+		}
-+	}
-+
-+	/*
-+	 * At this point hardware PTE A/D updating is active for all online
-+	 * harts, either from boot or from the FWFT setup above. Later harts
-+	 * must do the same in secondary startup before they are marked online.
-+	 */
-+	riscv_set_hw_pte_ad_updating();
-+	pr_debug("riscv: hardware PTE A/D updating enabled\n");
- 	return 0;
+-	pte_t read_pte = READ_ONCE(*ptep);
++	pte_t old_pte;
++	pte_t pte;
+ 	/*
+ 	 * ptep_set_wrprotect can be called for shadow stack ranges too.
+ 	 * shadow stack memory is XWR = 010 and thus clearing _PAGE_WRITE will lead to
+ 	 * encoding 000b which is wrong encoding with V = 1. This should lead to page fault
+ 	 * but we dont want this wrong configuration to be set in page tables.
+ 	 */
+-	atomic_long_set((atomic_long_t *)ptep,
+-			((pte_val(read_pte) & ~(unsigned long)_PAGE_WRITE) | _PAGE_READ));
++	pte = READ_ONCE(*ptep);
++	do {
++		old_pte = pte;
++		pte = pte_wrprotect(pte);
++		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep), pte_val(old_pte),
++					       pte_val(pte));
++	} while (pte_val(pte) != pte_val(old_pte));
  }
-+arch_initcall(riscv_hw_pte_ad_updating_init);
  
- static int riscv_cfilp_validate(const struct riscv_isa_ext_data *data,
- 				const unsigned long *isa_bitmap)
-@@ -584,7 +673,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
- 	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
--	__RISCV_ISA_EXT_DATA_VALIDATE(svadu, RISCV_ISA_EXT_SVADU, riscv_ext_svadu_validate),
-+	__RISCV_ISA_EXT_DATA(svadu, RISCV_ISA_EXT_SVADU),
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
- 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
- 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 8b628580fe118..4fe62f96bcca2 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -27,6 +27,7 @@
- #include <linux/sched/mm.h>
+ #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
+@@ -742,14 +748,14 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+ #define pgprot_dmacoherent pgprot_writecombine
  
- #include <asm/cacheflush.h>
-+#include <asm/cpufeature.h>
- #include <asm/cpu_ops.h>
- #include <asm/irq.h>
- #include <asm/mmu_context.h>
-@@ -221,6 +222,9 @@ asmlinkage __visible void smp_callin(void)
- 	struct mm_struct *mm = &init_mm;
- 	unsigned int curr_cpuid = smp_processor_id();
+ /*
+- * Both Svade and Svadu control the hardware behavior when the PTE A/D bits need to be set. By
+- * default the M-mode firmware enables the hardware updating scheme when only Svadu is present in
+- * DT.
++ * Both Svade and Svadu control the hardware behavior when the PTE A/D bits
++ * need to be set. The core MM code only cares whether hardware updating of
++ * the accessed/dirty state is currently active.
+  */
+ #define arch_has_hw_pte_young arch_has_hw_pte_young
+ static inline bool arch_has_hw_pte_young(void)
+ {
+-	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
++	return riscv_has_hw_pte_ad_updating();
+ }
  
-+	if (riscv_enable_hw_pte_ad_updating())
-+		return;
+ /*
+@@ -1040,6 +1046,13 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+ 	ptep_set_wrprotect(mm, address, (pte_t *)pmdp);
+ }
+ 
++#define __HAVE_ARCH_PUDP_SET_WRPROTECT
++static inline void pudp_set_wrprotect(struct mm_struct *mm,
++				      unsigned long address, pud_t *pudp)
++{
++	ptep_set_wrprotect(mm, address, (pte_t *)pudp);
++}
 +
- 	if (has_vector()) {
- 		/*
- 		 * Return as early as possible so the hart with a mismatching
+ #define pmdp_establish pmdp_establish
+ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ 				unsigned long address, pmd_t *pmdp, pmd_t pmd)
+diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+index 9c4427d0b1874..98eed19ea70de 100644
+--- a/arch/riscv/mm/pgtable.c
++++ b/arch/riscv/mm/pgtable.c
+@@ -5,23 +5,55 @@
+ #include <linux/kernel.h>
+ #include <linux/pgtable.h>
+ 
++#define RISCV_PTE_ACCESS_FLAG_MASK	(_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC | \
++					 _PAGE_ACCESSED | _PAGE_DIRTY | \
++					 _PAGE_SOFT_DIRTY)
++
++static inline unsigned long riscv_pte_access_flags(unsigned long cur,
++						   unsigned long entry)
++{
++	unsigned long pteval;
++	unsigned long preserved_flags;
++
++	preserved_flags = _PAGE_ACCESSED | _PAGE_DIRTY | _PAGE_SOFT_DIRTY;
++	pteval = cur & ~RISCV_PTE_ACCESS_FLAG_MASK;
++	pteval |= entry & (RISCV_PTE_ACCESS_FLAG_MASK & ~preserved_flags);
++	pteval |= (cur | entry) & preserved_flags;
++
++	return pteval;
++}
++
+ int ptep_set_access_flags(struct vm_area_struct *vma,
+ 			  unsigned long address, pte_t *ptep,
+ 			  pte_t entry, int dirty)
+ {
++	unsigned long old_pteval;
++	unsigned long new_pteval;
++	unsigned long prev_pteval;
++	bool changed;
++
++	old_pteval = pte_val(ptep_get(ptep));
++	do {
++		new_pteval = riscv_pte_access_flags(old_pteval, pte_val(entry));
++		if (new_pteval == old_pteval)
++			break;
++
++		prev_pteval = cmpxchg_relaxed(&pte_val(*ptep), old_pteval,
++					      new_pteval);
++		if (prev_pteval == old_pteval)
++			break;
++
++		old_pteval = prev_pteval;
++	} while (1);
++
++	changed = old_pteval != new_pteval;
+ 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVVPTC)) {
+-		if (!pte_same(ptep_get(ptep), entry)) {
+-			__set_pte_at(vma->vm_mm, ptep, entry);
+-			/* Here only not svadu is impacted */
++		if (changed)
+ 			flush_tlb_page(vma, address);
+-			return true;
+-		}
+ 
+-		return false;
++		return changed;
+ 	}
+ 
+-	if (!pte_same(ptep_get(ptep), entry))
+-		__set_pte_at(vma->vm_mm, ptep, entry);
+ 	/*
+ 	 * update_mmu_cache will unconditionally execute, handling both
+ 	 * the case that the PTE changed and the spurious fault case.
+@@ -32,9 +64,23 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
+ bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+ 		unsigned long address, pte_t *ptep)
+ {
+-	if (!pte_young(ptep_get(ptep)))
+-		return false;
+-	return test_and_clear_bit(_PAGE_ACCESSED_OFFSET, &pte_val(*ptep));
++	unsigned long old_pteval;
++	unsigned long new_pteval;
++	unsigned long prev_pteval;
++
++	old_pteval = pte_val(ptep_get(ptep));
++	do {
++		if (!(old_pteval & _PAGE_ACCESSED))
++			return false;
++
++		new_pteval = pte_val(pte_mkold(__pte(old_pteval)));
++		prev_pteval = cmpxchg_relaxed(&pte_val(*ptep), old_pteval,
++					      new_pteval);
++		if (prev_pteval == old_pteval)
++			return true;
++
++		old_pteval = prev_pteval;
++	} while (1);
+ }
+ EXPORT_SYMBOL_GPL(ptep_test_and_clear_young);
+ 
 -- 
 2.39.5
 
