@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B4CCD98F2
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 15:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F599CD98ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jun 2026 16:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2qvVBH68NqvI2annWSdlFNNvnSuHg8fMygyY6whnN2A=; b=TufM05XobemA0c
-	tg9oDLiGVybu7K+4dVugq89zOKXy3S6jDiD2OJinv2MFfhJigJtiZSzINc7GGyBKcMsQmSHGEWXUN
-	9HecU/1EpJ1tbHvHFDHoLFrGIK9uLz4AIqLt0VlFN6oO1fhZdwniju4xjYpl9ONffJoDueVaY0O1S
-	myjI+ph3bP5VkmohWy1YhLzGa0JfwrsexhyAdnIlCJ8+UCIrHaZWM/mcX0HV06ANyb035dKXAhMqb
-	gM7/2dwfrdMQyIr1jTlo/fZ4jQ2kMkBCV2JoJo/ZICoOGOKeB0FZUkQ1m0o/JcfNEDS/EBFCBXBY0
-	WmmSt4FJtgo9MPxtSCFw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e8TCK1P4eqo0aF+j9qXp0VkCWJEu2zgQKg+Hust8l60=; b=dNUn9XtLf5T79gnYcRgNClTyyh
+	5hsJKU0/tfAuV3vu+NAUa9MGdwcFKVerVuyKo4o/Ap1ohJOy/FXrgdBDKcJL+tlou7V7j4xyhJ/S0
+	1TffUbm4jJAA3N/RAGSHjbjdWepM6c4360CFSIdpbN3Hztl8BLLFHsmOY4V1FQVbNwp7NF4LvoRrL
+	rtRGzkuYC91q2uaAaZSjbBnsVwgppTFN3LU1TfvHeF43BBBq8ZILYKCTt0d4HEEjxNlr9Bd5jdCJo
+	tuOD5qupGWybX5ivk36punI0YyP5JbtU6r0a53auJ9SvJ6sl2qdaOA7GC5+KL0iVd4Fge4AGsXnW7
+	O9gnVyHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF3q-00000001X5C-2T87;
-	Thu, 18 Jun 2026 15:53:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1waFjw-00000001akn-0Nrb;
+	Thu, 18 Jun 2026 16:37:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF3p-00000001X4l-0iZd;
-	Thu, 18 Jun 2026 15:53:45 +0000
+	id 1waFju-00000001akZ-3d7O
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Jun 2026 16:37:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60A5460018;
-	Thu, 18 Jun 2026 15:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D5851F000E9;
-	Thu, 18 Jun 2026 15:53:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4012443723;
+	Thu, 18 Jun 2026 16:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A90271F000E9;
+	Thu, 18 Jun 2026 16:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781798024;
-	bh=EwX9mxVgUx4kbF0qZ290eryMIgfNI0MdhJKVS5zuxOw=;
-	h=From:To:Subject:In-Reply-To:References:Date;
-	b=dFbyuhdxS8KRLeKukg6wGxWrZKR7+kw+xqNzs3yRunvw4FB7RQT+K+h6r1RUTVb4a
-	 H+XMDkYxvmBiMuqK6N4j1KwALKy4zAVPDNJLrqk5VRjQmKqdBxJSdrP0h3D/m/mb/Y
-	 08qVUbjX3v5xmk5PeWvmWNQ7NBaxuUDFHMnmx8qih+TsRiJYrLNTg9orqijFMNJ/zY
-	 UYIpbgfnw2o6Wu/fRmaGf38lG5t4n+Y8avnbK9JaZ9rWD+u7xO68HArQRZjlEQIK/U
-	 yTyHP2EioUBOSUKbMp9/bDNibaJlaph6Xa8ztrGG4/FL5Ju36LIJsfYUCim8Oa3P8+
-	 UMWh6Gg9zlbNA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>, Michael Kelley
- <mhklinux@outlook.com>, "catalin.marinas@arm.com"
- <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
- "tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>, "pjw@kernel.org"
- <pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
- <alex@ghiti.fr>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
- <bp@alien8.de>, "dave.hansen@linux.intel.com"
- <dave.hansen@linux.intel.com>, "hpa@zytor.com" <hpa@zytor.com>,
- "peterz@infradead.org" <peterz@infradead.org>, "kees@kernel.org"
- <kees@kernel.org>, "nathan@kernel.org" <nathan@kernel.org>,
- "linusw@kernel.org" <linusw@kernel.org>, "ojeda@kernel.org"
- <ojeda@kernel.org>, "david.kaplan@amd.com" <david.kaplan@amd.com>,
- "lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>,
- "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "maz@kernel.org"
- <maz@kernel.org>, "timothy.hayes@arm.com" <timothy.hayes@arm.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "thuth@redhat.com"
- <thuth@redhat.com>, "oupton@kernel.org" <oupton@kernel.org>,
- "yeoreum.yun@arm.com" <yeoreum.yun@arm.com>, "miko.lenczewski@arm.com"
- <miko.lenczewski@arm.com>, "broonie@kernel.org" <broonie@kernel.org>,
- "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "james.clark@linaro.org"
- <james.clark@linaro.org>, "tabba@google.com" <tabba@google.com>,
- "mrigendra.chaubey@gmail.com" <mrigendra.chaubey@gmail.com>,
- "arnd@arndb.de" <arnd@arndb.de>, "anshuman.khandual@arm.com"
- <anshuman.khandual@arm.com>, "x86@kernel.org" <x86@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-In-Reply-To: <4588efb4-e757-4ca7-9197-025b67ca9ef6@huawei.com>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
- <4588efb4-e757-4ca7-9197-025b67ca9ef6@huawei.com>
-Date: Thu, 18 Jun 2026 17:53:41 +0200
-Message-ID: <874iizdeuy.ffs@fw13>
+	s=k20260515; t=1781800634;
+	bh=oajZpRtz0vnN8OojIIQbyoFX95fGy1vCqCja4AlWHUA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IAqjQOXjcwFJnK8pqaAAg/LX+UsndmvjZc7y9BbHoeGDX2eZslJoZYAfeDwHW+0Ia
+	 UslfEKQGD6FTKk9bPUvQkpYaZozmVbpgDEoY8NYyFOyzcxzMhMdmrzSGDYJDUE3xsh
+	 wnZ2bNA/ubucrG2G0kE9LNXKd1SlC/+X0woew/4/qm0hD90T+MAQQPZF4NjJiLSOND
+	 RtYlzAj+Q0vwdzDK7IsqgoWIl4qEpBb/rSsriQEFBgEylCDSvbrCfOcveMk+wVw1wP
+	 yErT6nBaP+Eulnfj2UpuAcK23f+Z0pGNP5eSx1Z2UYjRLXtumDBncYtX0EObsrx65o
+	 PL0C/LzIyENIg==
+Date: Thu, 18 Jun 2026 17:37:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, andrew+kernel@donnellan.id.au,
+	aou@eecs.berkeley.edu, apatel@ventanamicro.com, apopple@nvidia.com,
+	atishp@rivosinc.com, baolin.wang@linux.alibaba.com,
+	cleger@rivosinc.com, conor+dt@kernel.org, debug@rivosinc.com,
+	devicetree@vger.kernel.org, guodong@riscstar.com,
+	hui.wang@canonical.com, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	liu.xuemei1@zte.com.cn, namcao@linutronix.de, nick.hu@sifive.com,
+	palmer@dabbelt.com, pincheng.plct@isrc.iscas.ac.cn, pjw@kernel.org,
+	qingwei.hu@bytedance.com, ritesh.list@gmail.com,
+	rmclure@linux.ibm.com, robh@kernel.org, wangruikang@iscas.ac.cn,
+	zhangchunyan@iscas.ac.cn, zong.li@sifive.com
+Subject: Re: [PATCH v4 1/3] dt-bindings: riscv: describe Svadu as disabled at
+ boot
+Message-ID: <20260618-speech-whacking-852cd7142f3d@spud>
+References: <20260618064406.14508-1-cuiyunhui@bytedance.com>
+ <20260618064406.14508-2-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
+In-Reply-To: <20260618064406.14508-2-cuiyunhui@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,28 +75,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6994990357633461649=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMTUgMjAyNiBhdCAxNzo1NywgSmluamllIFJ1YW4gd3JvdGU6Cj4gT24gNi8x
-Mi8yMDI2IDExOjQ1IFBNLCBNaWNoYWVsIEtlbGxleSB3cm90ZToKPgo+IC0gRGVmYXVsdCAobm8g
-cGF0Y2gpOiBTbG93ZXN0IEhWQzY0IGhhbmRsaW5nICgxMjbigK/OvHMpLCBoaWdoZXN0IFdGeCBj
-b3VudAo+ICg4NWspLCBhbmQgbW9zdCB0b3RhbCBWTeKAkWV4aXRzLgo+Cj4gLSBjcHVocC5wYXJh
-bGxlbD0xOiBIVkM2NCBsYXRlbmN5IGltcHJvdmVkIHRvIDc44oCvzrxzIChjbG9zZSB0bwo+IGNw
-dWhwLnBhcmFsbGVsPTApLCBidXQgSVJRIGV4aXRzIGluY3JlYXNlZCBkcmFtYXRpY2FsbHkgKDEy
-LjlrLCAyLjfDlwo+IHRoYXQgb2YgYGNwdWhwLnBhcmFsbGVsPTBgKSwgYWNjb3VudGluZyBmb3Ig
-OTUlIG9mIGV2ZW50IHRpbWUgYW5kCj4gYmVjb21pbmcgdGhlIG5ldyBib3R0bGVuZWNrLgo+Cj4g
-LSBjcHVocC5wYXJhbGxlbD0wOiBGYXN0ZXN0IEhWQzY0ICg2OeKAr868cyksIGxvd2VzdCBJUlEg
-ZXhpdHMgKDQuOGspLCBhbmQKPiBsb3dlc3QgdG90YWwgc2FtcGxlcywgZGVsaXZlcmluZyB0aGUg
-YmVzdCBvdmVyYWxsIGJvb3QgcGVyZm9ybWFuY2UuCj4KPiBUaGVyZWZvciwgYGNwdWhwLnBhcmFs
-bGVsPTFgIHJlZHVjZXMgSFZDIGNvc3QgYnV0IHN1ZmZlcnMgZnJvbSBhIG1hc3NpdmUKPiBpbmNy
-ZWFzZSBpbiBJUlEgZXhpdHMsIHdoaWxlIGBjcHVocC5wYXJhbGxlbD0wYCBhdm9pZHMgdGhpcyBp
-bnRlcnJ1cHQKPiBzdG9ybSBhbmQgdGhlcmVmb3JlIHBlcmZvcm1zIGJlc3QgaW4gYSBLVk0gZ3Vl
-c3QuCgpXaGF0J3MgdGhlIGNhdXNlIGZvciBoYXZpbmcgdGhpcyBtYXNzaXZlIGludGVycnVwdCBl
-eGl0IHJhdGUgaW4gcGFyYWxsZWwKbW9kZT8gSnVzdCBiZWNhdXNlIHBhcmFsbGVsIGRvZXMgbm90
-IGdpdmUgYSB1c2VmdWwgZXhwbGFuYXRpb24uCgpUaGFua3MsCgogICAgICAgIHRnbHgKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============6994990357633461649==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="QAAXcFZyWuXw/ru/"
+Content-Disposition: inline
+
+
+--QAAXcFZyWuXw/ru/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+--QAAXcFZyWuXw/ru/
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajQesgAKCRB4tDGHoIJi
+0rMwAQDhYQHwC9LRxR8M1J79bOJrhiCLaKNDrpaYF5AlboExiAD9G3JaxJCxfcVJ
+BwGh/jevK0xl5noJFNI4xGP2pUHdkA4=
+=e/WI
+-----END PGP SIGNATURE-----
+
+--QAAXcFZyWuXw/ru/--
+
+
+--===============6994990357633461649==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6994990357633461649==--
+
