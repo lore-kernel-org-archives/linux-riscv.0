@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF65CD98F6
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 23:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F821CD98F6
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 23:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H10Nef/CZ4H5aAczLxQJM7Qk4CpEyXuFgiILQ090gH0=; b=vXZWqBMPAwg5CS
-	1o3nf3X4VYB2eWugM44OUXB8RfZlCYdeqrHDoZlwp3t62RYvNBlfbJk3WxBvpRkM/enseEuRW2b0P
-	eYx5BDYR3/nF+BnkHEITg0UFNCz7DOmZVT82gastnVmbPV0RWn10Br2rwBSjv8Uo5ACItx4xIZLCs
-	kJU7Z9YNjNHeJ6oTpkDhJT5MWQaGPddFXJPr6RLGKX0qucbvQqiML4hD4XnYnKdMc9N0FfEO43BQ9
-	bhthuki2AyycYWzHZF/xhdqEknrFzrsh3vBMu0DSugH1YUvf6E+83KRTZ4rkyjoFYfMS+5FfKIMLh
-	HgbfUFwtPP4BC+FYt1hg==;
+	List-Owner; bh=s5ocHf7f5XJPsMX7UQi8fXlpi6+LOYnAkmYDGzM6Q/I=; b=P78koqU4+aHx3H
+	yn3HeH/R5VvrenYa8zHU3AolQZZhnRUv231jhxuDOlpMA5CFxV539TfEgye6R8WjtM76NHcO05CdT
+	II01nyldhgbfiMmVKhWYApcAY4EMZL820OI+7kjPH+SimUucQJaNlXEWg2LsXuR2C/V628/CSr1uW
+	VCaDlPtrN1jtTEOXaXLYqSePl2WpyNFvECISToiklbcExPTnLNkQHAgWO8O/RwsPZrE6A60jjBshu
+	IEsqgvBhBbX5rowl5Otmw6HeoijIyrSOIL0KQaoPlDpTZdfhAikVsIvlmksO/l/GmRSHxQk2RTawa
+	8X33UO/d9tA2gVWPDTig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waitD-000000035ar-1OY7;
-	Fri, 19 Jun 2026 23:44:47 +0000
-Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
+	id 1waj32-000000035t0-1QEu;
+	Fri, 19 Jun 2026 23:54:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waitA-000000035aQ-2P3p
+	id 1waj31-000000035ss-08s7
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jun 2026 23:44:46 +0000
-Message-ID: <9eb2dc2a-c70b-4edd-b372-d4ec8753e275@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1781912678;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fDjN+tRuIyMxcjQBYzfqmoHMzOg92k59uplUcNU5q8U=;
-	b=uf6DexppIoKgZK+YOC8rvA+af2LXZ+X/Qx8imTz0AgeaaUJFqiW0t4I8D1O8lAm7DuXjw3
-	4JN2TDG8U+Dw6tiBdc1L5hUWmfgogwRYD/+sLL5E5gq7u/g4300PLgeYpu7UmuVOiIBf0L
-	rh0qaYMO6pLhRnS2wcpQc/7ij6A/bqE=
-Date: Fri, 19 Jun 2026 16:44:34 -0700
+	Fri, 19 Jun 2026 23:54:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1746A41B74;
+	Fri, 19 Jun 2026 23:54:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6ED1F000E9;
+	Fri, 19 Jun 2026 23:54:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781913293;
+	bh=T2U6mD5Mi888Hcm8xp1sqPPOMOUnXskbr2jM/AcqYN0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MFSFWYrMI30DpGUYSviB3mF0oMxLpUDKjrBft2OtFxA5uWy0f01420l8cek0mMKZm
+	 SPBoIfC1iKg02qhAv6VtWy2neMROUeTEPxOE3SLlr/WZ/N7wgLVl910xr3NObOx+Ub
+	 8vT92jPm0m5RzKdtlZM++nW7awockcRqxBZlg4s03nT1z3hwSSje+94MrTRPc6yDAV
+	 xutiuMxLRaImQGCgxbm0wP5QbIsg2dcQAapoHOGx2j8FYUuGxtQwgYEzT/AnVSKtme
+	 uhaMtdDBzVia1xtMuLlxV5mfVa/ZLQ3XAZTTOnxcYeBjYqLv/5Ixk1+duLPC0tHkeR
+	 pKwQXvtH2vAKw==
+Date: Fri, 19 Jun 2026 16:54:53 -0700
+From: Kees Cook <kees@kernel.org>
+To: guoren@kernel.org
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de,
+	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com,
+	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com,
+	falcon@tinylab.org, chenhuacai@kernel.org, apatel@ventanamicro.com,
+	atishp@atishpatra.org, mark.rutland@arm.com, bjorn@kernel.org,
+	palmer@dabbelt.com, bjorn@rivosinc.com, daniel.thompson@linaro.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, stable@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH] riscv: entry: Fixup do_trap_break from kernel side
+Message-ID: <202606191652.38297DE51@keescook>
+References: <20230702025708.784106-1-guoren@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 08/21] RISC-V: Add Ssccfg/Smcdeleg ISA extension
- definition and parsing
-To: sashiko-reviews@lists.linux.dev
-Cc: robh@kernel.org, linux-perf-users@vger.kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20260608-counter_delegation-v6-8-285b72ed65a9@meta.com>
- <20260609061405.1943F1F00893@smtp.kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20260609061405.1943F1F00893@smtp.kernel.org>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_164444_960686_397D83A5 
-X-CRM114-Status: GOOD (  15.55  )
+Content-Disposition: inline
+In-Reply-To: <20230702025708.784106-1-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,89 +71,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+*thread encromancy*
 
-On 6/8/26 11:14 PM, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential issue(s) to consider:
-> - [High] Supervisor extension Ssccfg incorrectly depends on Machine extension Smcdeleg, breaking virtualization.
-> - [Medium] The Smcdeleg extension validation incorrectly checks for the Supervisor-level CSR indirection extension (SSCSRIND) instead of the Machine-level one (SMCSRIND).
-> --
->
-> commit 53e139b078ec8b41f58b09bfd3d37e7132a15d45
-> Author: Atish Patra <atishp@rivosinc.com>
->
->      RISC-V: Add Ssccfg/Smcdeleg ISA extension definition and parsing
->
-> This commit adds definitions and parsing logic for the RISC-V Ssccfg
-> and Smcdeleg ISA extensions. It introduces validation functions for
-> both extensions and adds them to the riscv_isa_ext array.
+On Sat, Jul 01, 2023 at 10:57:07PM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> The irqentry_nmi_enter/exit would force the current context into in_interrupt.
+> That would trigger the kernel to dead panic, but the kdb still needs "ebreak" to
+> debug the kernel.
+> 
+> Move irqentry_nmi_enter/exit to exception_enter/exit could correct handle_break
+> of the kernel side.
+> 
+> Before the fixup:
+> $echo BUG > /sys/kernel/debug/provoke-crash/DIRECT
+>   lkdtm: Performing direct entry BUG
+>   ------------[ cut here ]------------
+>   kernel BUG at drivers/misc/lkdtm/bugs.c:78!
+> [...]
+>   Kernel panic - not syncing: Aiee, killing interrupt handler!
 
-+linux-riscv
+This appears to still be unfixed. What's the blocker? The solutions in
+this thread seem to work...
 
-Sashiko probably has a bug where it did not determine correctly which 
-mailing lists to cc and left linux-riscv.
+I'd like to be exercising an Oops path via KUnit (for KCFI), and riscv
+just instantly falls over instead of thread-killing on the exception.
 
->> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->> index 1452521d740a6..1fe647e035157 100644
->> --- a/arch/riscv/kernel/cpufeature.c
->> +++ b/arch/riscv/kernel/cpufeature.c
->> @@ -330,6 +330,27 @@ static const unsigned int riscv_a_exts[] = {
->>   	RISCV_ISA_EXT_ZKNE,	\
->>   	RISCV_ISA_EXT_ZKNH
->>   
->> +static int riscv_ext_smcdeleg_validate(const struct riscv_isa_ext_data *data,
->> +				       const unsigned long *isa_bitmap)
->> +{
->> +	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SSCSRIND) &&
->                                                          ^^^^^^^^^^^^^^^^^^^^^^
-> [Severity: Medium]
-> Since Smcdeleg is a Machine-mode extension, shouldn't its validation depend on
-> the Machine-level CSR indirect access extension (SMCSRIND) rather than the
-> Supervisor-level extension (SSCSRIND)?
+Thanks!
 
-The reason for this dependency is that both Smcdeleg and SSCSRIND are 
-required for using counter
-delegation usage in S-mode.
+-Kees
 
-
-> If the kernel runs in M-mode, or on hardware that implements SMCSRIND but not
-> SSCSRIND, this validation might incorrectly fail.
-Not a valid use.
->> +	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZIHPM) &&
->> +	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZICNTR))
->> +		return 0;
->> +
->> +	return -EPROBE_DEFER;
->> +}
->> +
->> +static int riscv_ext_ssccfg_validate(const struct riscv_isa_ext_data *data,
->> +				     const unsigned long *isa_bitmap)
->> +{
->> +	if (!riscv_ext_smcdeleg_validate(data, isa_bitmap) &&
->> +	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SMCDELEG))
-> [Severity: High]
-> Does this break supervisor counter delegation in virtualized environments?
->
-> Smcdeleg is a Machine-mode extension, and hypervisors typically do not expose
-> M-mode extensions to guest VMs. A guest kernel running in VS-mode won't see
-> Smcdeleg in its ISA string, causing this validation to unconditionally fail
-> and return -EPROBE_DEFER.
->
-> Should Ssccfg validation only depend on S-mode visible extensions?
-
-No. The spec is not designed that way. Counter delegation is not 
-available in VS-mode.
-
-Both comments are N/A
-
->> +		return 0;
->> +
->> +	return -EPROBE_DEFER;
->> +}
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
