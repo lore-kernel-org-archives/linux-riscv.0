@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62FADCD4F26
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 18:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198AECD98F2
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 18:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1Fvo2pGy5tORxdkKFkNXjtXz0PHk/N+YIMU0x+RxL0=; b=4pvGjOOJztkqqC
-	xjb6mr8p98ymDEK64/3bl7s76k4vU2a53dURV1/jZTmuvSI+zquK973jGQZGs6NrAfaUQie4AIWJC
-	arY5xpJw+5YBOrw5HmtUXsQ0TbaMx/o7QEtDfAjfufKY5dHLJ/0r9DeOWynlCmn6yhq12WPpFC3xh
-	9KpKo/vaLyecQFo30kJ+TVV+RzGeiihOUmT8MEMPWN2xwDJGieSLYeSdzgtlCR7DxAfo9XXQ9Wuo4
-	Dd5LLo2nMTI2M2SdY6uYdaeXlC3muwFfFphaDzXDkxhAw+e0coSGHybvL1ve/xabV9wQ9wPEdlbwn
-	7/NN/hdAe5A4JvB86ZyQ==;
+	List-Owner; bh=JGn5YKd11wU/o4rRzZBzjhbIS4GaufPfzYKbWcTP3uQ=; b=afUYXbf9frKATs
+	ZyJfcLLImfsAcYCbNa+OqL5Ghq5PEL2U1CyZpq/lwXlMbHAeHSAtGXf+j6SVJNheF10b8Iv4PheqJ
+	1d8yQb6WBYQfPaiLLFlrEOZI0Ue02iVgbzlpvTwG31YZtYGzrMW8RGHLDUM0Tn/KBpBtKT/CJ2jdw
+	nS4CImyuBWRPNc/wlhT17hYvk9b11MR4W1vGsk9d9Ro2oWp2b/RWs521hIhLF8L2LPly3kjuAcjRj
+	zL83GsnVT/E+l8uswVyI9xymoaxST4ofP38pxcSRq03v416GaY/NAbczyr34XDPdlCV0ct73+eb34
+	YO/Z5cSAR/pA2TAKL2iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wadyR-00000002rw5-1TrQ;
+	id 1wadyR-00000002rw9-1rp2;
 	Fri, 19 Jun 2026 18:29:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wadyP-00000002rvY-22bN
+	id 1wadyP-00000002rve-3zbp
 	for linux-riscv@lists.infradead.org;
 	Fri, 19 Jun 2026 18:29:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A3A8601EF;
+	by sea.source.kernel.org (Postfix) with ESMTP id D8AAC40A2B;
 	Fri, 19 Jun 2026 18:29:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85A891F00AC4;
-	Fri, 19 Jun 2026 18:29:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C1471F00ADB;
+	Fri, 19 Jun 2026 18:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1781893788;
-	bh=srvdFyNcKWrG6UhIb2zhEmit0iT5/TwfHnN+QzKDIL4=;
+	bh=SoMF0NvEK/nHml8RMjqK0ASTpVqLJvBd+3O6LznwQbI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KyiRCf6KsIhPG2xFPiZCyWlpRPffTl0tOYbWi8XJUoH66MwV2RqGM/6cKIb2mGT6Q
-	 2KFH1OQYGmcZ0TjBJxRX1pSh2sGf/aNUsEbfDd7YUzCHBwyczld0ikE4heZcew2DDH
-	 14ZYpHxAocj0C7fT+PmDn2KG4odcGd4Cs1+l0BZC8bTYeUwPEoqB9HL5GPJFbE955v
-	 M9Cp/GvJSkgcG36rplTZ18LcHdevMClpkETjAudzkXHPVVIo4tUtgc9FwIw56gQM/m
-	 1Ohxh0dM5ArvbLIazKrmFsoJH3xwkhpdiRnQrDS3kV0N2EolUGsvXvNNluEPLP6wxo
-	 s8iMq6dbI5eoA==
+	b=as0UcEKL9AETztzpuRo62Bcy+ulQ8ioG2g5mSCBX2Y6WnqJ/NRy0Bm1jShvh6LOos
+	 MpIGUUtOQxYNY2W/bxbtHxZ5ew6DpxJnPlnfx1wX8r29oISFvTjHKLHHSFgYFTnM+R
+	 rrwVIsXaLjd2aRMMwQRjWVzL+C2H8CovvhlnRNbErgB7W0sH1A8IRNrtX8oXoySmqm
+	 o/8z/3Mz6FixtEQCFQKCCFFtZgvE77HWRaB2ObFQqvm+loA2PYkK6U8UC2TFiK3PSU
+	 6JMJBEc2iNlaMj0NZkZPftDtTAEP+MgbMkjuqzozmxumO7/oLa/EJrS474HEiYFw0Z
+	 6Xlq9CFGgdM9Q==
 From: Drew Fustini <fustini@kernel.org>
-Date: Fri, 19 Jun 2026 11:29:36 -0700
-Subject: [PATCH 1/8] dt-bindings: riscv: Add Ssqosid extension description
+Date: Fri, 19 Jun 2026 11:29:37 -0700
+Subject: [PATCH 2/8] riscv: Detect the Ssqosid extension
 MIME-Version: 1.0
-Message-Id: <20260619-dfustini-atl-sc-cbqri-dt-v1-1-e79a7723fab0@kernel.org>
+Message-Id: <20260619-dfustini-atl-sc-cbqri-dt-v1-2-e79a7723fab0@kernel.org>
 References: <20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org>
 In-Reply-To: <20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org>
 To: Adrien Ricciardi <aricciardi@baylibre.com>, 
@@ -76,12 +76,12 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1227; i=fustini@kernel.org;
- h=from:subject:message-id; bh=oVWQwUJrVLgt2ds0hOtdw/u3HLWC21FLWSsgjsdIJHo=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWSZds20ma0f9iOYNeVGvOmNdYbF8eIvOPzapjNYib/ME
- nqfKf+3o5SFQYyLQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCRmRcZ/qfP2z6nhiXzW4uc
- 3GNN8fmq00uXngx8ZPcxs8FySiTDV3mGv6LKZ+87nAuryjOPe+RhmCM/cb/RxTVPvz41yH0XJnr
- 8CSsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1637; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=58g1568NRL7/SI4d2HoFSQSOKccqgmn0k03hr3pJQEU=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWSZds2Uvz1x5Y/FFoGsjL3vPksvY/vm4yf6fbb0bfss9
+ RUHrHae7ChlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBM5Ks/I8Nxhq3f9gpGmqT3
+ HknrO6T07v6lH3Hc58/oX7NwbJ7/nXshw//E1mOrTPgfTkmqci9UOvPcPejd/+8zc05Pf5/x6fR
+ Ps3OsAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -95,44 +95,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
-extension v1.0.
-
-Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 2b0a8a93bb21..1c6f091518d4 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -232,6 +232,12 @@ properties:
-             ratified at commit d70011dde6c2 ("Update to ratified state")
-             of riscv-j-extension.
- 
-+        - const: ssqosid
-+          description: |
-+            The standard Ssqosid extension for Quality of Service ID is
-+            ratified as v1.0 in commit d9c616497fde ("Merge pull
-+            request #7 from ved-rivos/Ratified") of riscv-ssqosid.
-+
-         - const: ssstateen
-           description: |
-             The standard Ssstateen extension for supervisor-mode view of the
-
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U3Nxb3NpZCBpcyB0aGUgUklTQy1WIFF1YWxpdHktb2YtU2VydmljZSAoUW9TKSBJZGVudGlmaWVy
+cyBzcGVjaWZpY2F0aW9uCndoaWNoIGRlZmluZXMgdGhlIFN1cGVydmlzb3IgUmVzb3VyY2UgTWFu
+YWdlbWVudCBDb25maWd1cmF0aW9uIChzcm1jZmcpCnJlZ2lzdGVyLgoKTGluazogaHR0cHM6Ly9n
+aXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFnL3YxLjAKQ28tZGV2ZWxv
+cGVkLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFsQHNlbWloYWxmLmNvbT4KU2lnbmVkLW9mZi1i
+eTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+ClNpZ25lZC1vZmYtYnk6IERy
+ZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vaHdjYXAuaCB8IDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIHwgMSArCiAy
+IGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAppbmRl
+eCA3ZWY4ZTVmNTVjOGQuLmI4M2RhZTVjZWJiOSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9od2NhcC5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaApAQCAt
+MTEyLDYgKzExMiw3IEBACiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkNMU0QJCTEwMwogI2RlZmlu
+ZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJTFAJCTEwNAogI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJ
+U1MJCTEwNQorI2RlZmluZSBSSVNDVl9JU0FfRVhUX1NTUU9TSUQJCTEwNgogCiAjZGVmaW5lIFJJ
+U0NWX0lTQV9FWFRfWExJTlVYRU5WQ0ZHCTEyNwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
+cm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKaW5kZXgg
+ZjQ2YWE1NjAyZDc0Li42NjhhN2U3MWZmMWMgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
+L2NwdWZlYXR1cmUuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKQEAgLTU4
+Miw2ICs1ODIsNyBAQCBjb25zdCBzdHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9l
+eHRbXSA9IHsKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzc2FpYSwgUklTQ1ZfSVNBX0VYVF9TU0FJ
+QSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3Njb2ZwbWYsIFJJU0NWX0lTQV9FWFRfU1NDT0ZQ
+TUYpLAogCV9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNFVChzc25wbSwgUklTQ1ZfSVNBX0VYVF9TU05Q
+TSwgcmlzY3ZfeGxpbnV4ZW52Y2ZnX2V4dHMpLAorCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzcW9z
+aWQsIFJJU0NWX0lTQV9FWFRfU1NRT1NJRCksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3N0Yywg
+UklTQ1ZfSVNBX0VYVF9TU1RDKSwKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzdmFkZSwgUklTQ1Zf
+SVNBX0VYVF9TVkFERSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEFfVkFMSURBVEUoc3ZhZHUsIFJJ
+U0NWX0lTQV9FWFRfU1ZBRFUsIHJpc2N2X2V4dF9zdmFkdV92YWxpZGF0ZSksCgotLSAKMi40My4w
+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
