@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF51CD98F6
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 09:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB2DCD98F6
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 09:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ivuuSfuv0kEA/PRoIB02fYbB89Sqqy7eEgEWr4H/qEk=; b=fZdYU+dA4cB5dW
-	yNWnzRSBx+SNQBiehRdjjjfoBlI2QUDf1EfN6JG+fZlCk4+3+fi1iIKDkSPfFu+DTyNhGxPUMZYFN
-	VgGxSa0BFV2UZlfb3Ri6TIZivEjqe3UgR1ihhtcshfYzuPIFoH6twAfxJp10Q5/Cwl6JvbOFoKkKx
-	MBcmXRM6l91jatoH5T47QEHgarD5g/nEOvuCNDCLpP3iZFxv0EokqW0tiiwCs4VXi54JSinfjCIj+
-	AUERwMF+cLXDgkywa3PPSkVQpTF2DHo/iFb6/2hPSGwUR0pNJEYpARfGmTPhRkzfSN/xYu/kz+d4H
-	7H4gJty+4W2mqaraG3Ow==;
+	List-Owner; bh=JsxD5dwBebdUPJ81gimkEof5Kr/LnqdsVHC3Rw4p+tU=; b=C3nbVbXc7mW2ZS
+	XGK5C7o547k2M01oQtLk3Ltc9PeOW/O2mLRna0gv7zFsiFnTuNFxgJLDTU5sEFNMBRii9TDbsxT6p
+	usOS9WRPCir1OCscvFwdVMxtavmFoQIl9UhFiZXLy57rjruedPIHaY5eMUMNY/SacOVOYi7zevVum
+	U4qRJ0/gfsOiBuZ6OLFDLh+e9NbCDP3837sMOV0JB7kNjVXpuLFkUeigcqwhe62bEGmIuRnAIsvYo
+	Xai1TtX3eJZlZELFLR7kNVPZq7XD0gSDuOSqE7db7xh8yorhXlSsE0oF1WfDQ0OzI8ecDz6X4Z4B2
+	E87suZwswLRtjfvZgMWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waVjH-00000002Emy-2X4I;
-	Fri, 19 Jun 2026 09:41:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1waVss-00000002FK8-1x6r;
+	Fri, 19 Jun 2026 09:51:34 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waVjG-00000002Emi-38eK;
-	Fri, 19 Jun 2026 09:41:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=t2NuC61jQhkLZlTPdr5bUtoaoRRTUEJ6wbF953eCit8=; b=dxCpgYGotPMuA2p6gEibYEHVV3
-	8SYC4JMjwV+Fla0Xbzblgh7OCk7snf4aoCvaL5fNDG1m4tQ79ZMZwNdPBvHgv8y6ajbc5f4/YGSBe
-	S+O32/eTHR97OKvqdgmMKFQkz9w9zmr2vicnDrlCXPgw4ny9YEgreZAUVptOUKQRahCKBiWhDqhKf
-	DSydSwO1kiClKiV4gxdwM4tbiPbercmFalG6w05YvAdx8SRHtNtjt7KI06YAtlWP/SWqW+Fkeb+lY
-	X11FaOOKvHvtRfRMcwjrTl8Wgp2VigJeehKMWCaxutPrahrO+YGN+skUyaUbsvocqspsIA7etIWC5
-	Izg8KwdA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1waVjA-0000000EM2X-2Lb1;
-	Fri, 19 Jun 2026 09:41:32 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 795F6300CB5; Fri, 19 Jun 2026 11:41:30 +0200 (CEST)
-Date: Fri, 19 Jun 2026 11:41:30 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
-	will@kernel.org, tsbogend@alpha.franken.de, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, kees@kernel.org, nathan@kernel.org,
-	linusw@kernel.org, ojeda@kernel.org, david.kaplan@amd.com,
-	lukas.bulwahn@redhat.com, ryan.roberts@arm.com, maz@kernel.org,
-	timothy.hayes@arm.com, lpieralisi@kernel.org, thuth@redhat.com,
-	oupton@kernel.org, yeoreum.yun@arm.com, miko.lenczewski@arm.com,
-	broonie@kernel.org, kevin.brodsky@arm.com, james.clark@linaro.org,
-	tabba@google.com, mrigendra.chaubey@gmail.com, arnd@arndb.de,
-	anshuman.khandual@arm.com, x86@kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RFC 1/3] cpu/hotplug: Introduce
- CONFIG_PARALLEL_SMT_PRIMARY_FIRST
-Message-ID: <20260619094130.GU49951@noisy.programming.kicks-ass.net>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-2-ruanjinjie@huawei.com>
- <87a4srdgk0.ffs@fw13>
+	id 1waVso-00000002FJq-3wRV
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 Jun 2026 09:51:32 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1781862688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WZ1IagdnVV5TSo0RVKP9IMzKUX1buvpUmeHeQfapSPA=;
+	b=tilpw6YoUZOSNHkMtcJp95Mc7b4AyNNFqqjoL0ggMK7knjoxriZ7ghkk5KPbC7FanKEWR5
+	faZKWOcXZA8ylgLDkx2wCNh6Ke0lkgN/ojq+qGwjGVRi6ADe+5IQkoas1IaRortZg6e/Tj
+	+ejdFB0aTNhfXNqGGr+9GxAahX/KVt3l1FjxgBq6h0M/N3Bdd9/GlBma6pSYKPKhhru1+J
+	1jPCKH1gRApzE+L0hZBhqz5i9I3/5TPzK8lJoKXxzHDYCJrQu1/uwGHTtJ3HBptaP2Ixx5
+	h6Jj5F4L3i9oAwgi8Xr8qnmWdNZdQT4jAvB66tLNtoYAKjkggCfs+cEr7UKVUQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1781862688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WZ1IagdnVV5TSo0RVKP9IMzKUX1buvpUmeHeQfapSPA=;
+	b=+wI9V3MrwlaBhrA0/QNwdvQtkI9F1r4hmxAOk6jkUp2N+XlJcveUYnY/iGoQfVZZSb4RRw
+	4syuW7tr9cF1esBA==
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Jiakai Xu
+ <xujiakai2025@iscas.ac.cn>, Matthew Bystrin <dev.mbstr@gmail.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Samuel
+ Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v2] riscv: stacktrace: fix stack-out-of-bounds in
+ walk_stackframe()
+In-Reply-To: <20260517143704.659416-1-xujiakai2025@iscas.ac.cn>
+References: <20260517143704.659416-1-xujiakai2025@iscas.ac.cn>
+Date: Fri, 19 Jun 2026 11:51:28 +0200
+Message-ID: <87zf0q504f.fsf@yellow.woof>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87a4srdgk0.ffs@fw13>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_025131_729028_74CA4920 
+X-CRM114-Status: UNSURE (   4.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +81,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 05:17:03PM +0200, Thomas Gleixner wrote:
+Jiakai Xu <xujiakai2025@iscas.ac.cn> writes:
+> +	if (!task)
+> +		task = current;
+> +
+> +	high = (unsigned long)task_pt_regs(task);
 
-> Something simple like the uncompiled below should just work, no?
-> 
-> ---
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
->  	bool
->  	select HOTPLUG_SPLIT_STARTUP
->  
-> +config HOTPLUG_PARALLEL_SMT
-> +	bool
-> +	select HOTPLUG_PARALLEL
+I am concerned when CONFIG_IRQ_STACKS=y and we are on the irq stack,
+wouldn't this "high" be the wrong one?
 
-	depends on ARCH_SUPPORTS_SCHED_SMT ?
+I haven't validated it, we probably need something like
+
+if (on_thread_stack()) {
+	if (!task)
+        	task = current;
+	high = (unsigned long)task_pt_regs(task);
+} else {
+	high = per_cpu(irq_stack_ptr, smp_processor_id()) + IRQ_STACK_SIZE/sizeof(ulong);
+}
+
+Nam
 
 _______________________________________________
 linux-riscv mailing list
