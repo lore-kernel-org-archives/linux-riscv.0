@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9E1CDB46F
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 14:12:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9924CD4F26
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 14:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=va6LX+m20USS7TUjlW53WYbAjSlRPx3dDODPJekg2VQ=; b=KYTYFtFUD/hveN
-	y5UDL0hJWJv4TbaqH70onJbe+qtbSw4wRrEHkNH4tCToEemjj6SRwQtEWyxXNFF0Wv4SEzgsFl35E
-	XXzUmRHSpSU7s+icQvw15PF6vA4r/sey6dIJaNTiico/nkP9JyzH3GDH6tk9ggoRnghBhXMzyOa11
-	3Co49unT5Mu/HPQQ4jhb98g8N3lOYFmcej7VDDG96dVLMoXcUrb9LZzbfAYaQFipMmruwIbpM5bme
-	KJ2ZDvF8iKBAk5V8HeEDyvXCRBPhHJRiWJJVGLGwlHbWa9Xr7a7d0geTuwb81YgamxroRWon+Pi+a
-	AWQyt8/BIf+X+4BS2wtA==;
+	List-Owner; bh=yRS04oV4t5WYpFZV9hMLUZkGBfWd+aibN65zVY0BayM=; b=3WoooJZgYNtc44
+	v7B8evfO0wLFv7IkyvaN4WO2zcNdhJllGReeIJf0Mb/WH+8X832FrQ1cuYXNC+xDWmoKPYUcUwtT5
+	KYiIPxcHo3qdaUild0pw0OoSwrnVKl4C0zneEOaHRW9JcEhXSAXftGSZiH4w0W6fFxWqQYWXPDi9f
+	obfhMyIeh6fchNxUKE6gE0OSIxWbUTrgWiPL630uLnDaAG/3QrjEVL8p5bdHT0++uoi+yvLQPjCoc
+	SAY+U4oa1s3JoNqRk3SYN5XbzG3goTw7A41WV2HtBPd+ComighkWZmg8ThzsK063VJpPFVLNmCHd3
+	46MYgSbAErHyC2SIuN5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZwd-00000002YAt-1ztM;
-	Fri, 19 Jun 2026 14:11:43 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1waaex-00000002bYd-2KxS;
+	Fri, 19 Jun 2026 14:57:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZwW-00000002Y61-1hGV
+	id 1waaew-00000002bYV-0itZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jun 2026 14:11:38 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1781878293;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=m/xbIhLPCPLFkEMUFO8+p3GTAy1O4dqUhvF/Ae3VTBE=;
-	b=e5uIOCvd5E49YemKJbrv9nhQVvTWsdublxlxN2rlrvtO3r9NmsLlSOYP1x/CbKkPWdHvhV
-	ZHvNsaeyFHIWGDcy5VBSP525bm3kUayK+kmTIsk318+j0rigZnbDNkw7IQSC6nDpv99LWN
-	Nm00svUmhcP6WDi1NDkn3BJBA8OMgRaQ1PGdfTO5ZCfHgdkHz19C75hwYLhZEAn1zO/tbw
-	hrUGm4BfnNt1H+gxvlsixxbJH5XJ1vpzMRfC+EtXFw2ubwJs711dvYay5nWHY9nJtSHqic
-	CSeDd88Os0I2sr6NfPJ3/6f9KX3cX09V2S/2EuVJWwXLO6Jm9tnJcCU+n/QgEA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1781878293;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=m/xbIhLPCPLFkEMUFO8+p3GTAy1O4dqUhvF/Ae3VTBE=;
-	b=YR0VFbsA2rFnHVvigGv4fcex6Y9LZ8zuj3fkmji5RHRFbGOoZ/11bY6+r/VUeXDlf3v+8P
-	q2+t5r5R0Kv47/AQ==
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 5/5] riscv: vdso: Implement __vdso_futex_robust_try_unlock()
-Date: Fri, 19 Jun 2026 16:11:21 +0200
-Message-ID: <7e567e288f9ddeb2128f5d7ed83a518945fb50d9.1781876501.git.namcao@linutronix.de>
-In-Reply-To: <cover.1781876501.git.namcao@linutronix.de>
-References: <cover.1781876501.git.namcao@linutronix.de>
-MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_071137_179755_030AC6CB 
-X-CRM114-Status: GOOD (  31.07  )
+	Fri, 19 Jun 2026 14:57:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EE87601E2;
+	Fri, 19 Jun 2026 14:57:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D90981F000E9;
+	Fri, 19 Jun 2026 14:57:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781881048;
+	bh=4bndwrWbrZQau3CcRbAj6WmDt5v/5YyW42x5jDkGh7s=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=NftoIBKt8dgrTrC60zfdcNiwiJJueXTAqFknVM5XQo/E4AuDgJOl3HboZB+PDmsmj
+	 yQDMtn5GoSiXTIZfSzWlpXNG1ncNVT9cFFpD+ZqThL029inlZrWr5nguBh85qKb6W2
+	 3LULP7xiyLYp4S6HKT5CbVV7jeF/WjF1ChY08pOykIH+3aYShZYjZLKxubjSS/k6tF
+	 iQKfRG+WroxbNLSgVC1dy4nupywUpqDAr4OqR/Phwyl6OFQ1utBhWMmqfaO++npoiC
+	 2uPJNlA21YziF7+JD4bH9d24SuFITizRJ8DLFc274RWimGYEUGq8uXaSHv+rNgtp77
+	 jfxZukFemLrjQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 199B63AA6A6C;
+	Fri, 19 Jun 2026 14:57:23 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V updates for v7.2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <2ca9fd52-d4a1-5e7b-b9d9-9d759b92f8c1@kernel.org>
+References: <2ca9fd52-d4a1-5e7b-b9d9-9d759b92f8c1@kernel.org>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <2ca9fd52-d4a1-5e7b-b9d9-9d759b92f8c1@kernel.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-mw1
+X-PR-Tracked-Commit-Id: 319fafd9a3743b617b8547d81c41c99fb67857b1
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: f32a375eccb7b27bccc57dee45befff6e3b3d4b2
+Message-Id: <178188104176.3941480.3695901801866159486.pr-tracker-bot@kernel.org>
+Date: Fri, 19 Jun 2026 14:57:21 +0000
+To: Paul Walmsley <pjw@kernel.org>
+Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,420 +71,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is the RISC-V port for __vdso_futex_robust_try_unlock(). It is based
-on the x86's implementation in commit 61cfc8e372d1 ("x86/vdso: Prepare for
-robust futex unlock support") and commit a2274cc0091e ("x86/vdso: Implement
-__vdso_futex_robust_try_unlock()").
+The pull request you sent on Wed, 17 Jun 2026 16:51:04 -0600 (MDT):
 
-When the FUTEX_ROBUST_UNLOCK mechanism is used for unlocking (PI-)futexes,
-the unlock sequence in userspace looks like this:
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-mw1
 
-  1)    robust_list_set_op_pending(mutex);
-  2)    robust_list_remove(mutex);
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/f32a375eccb7b27bccc57dee45befff6e3b3d4b2
 
-        lval = gettid();
-  3)    if (atomic_try_cmpxchg(&mutex->lock, lval, 0))
-  4)            robust_list_clear_op_pending();
-        else
-  5)            sys_futex(OP,...FUTEX_ROBUST_UNLOCK);
+Thank you!
 
-That still leaves a minimal race window between #3 and #4 where the mutex
-could be acquired by some other task which observes that it is the last
-user and:
-
-  1) unmaps the mutex memory
-  2) maps a different file, which ends up covering the same address
-
-When then the original task exits before reaching #4 then the kernel robust
-list handling observes the pending op entry and tries to fix up user space.
-
-In case that the newly mapped data contains the TID of the exiting thread
-at the address of the mutex/futex the kernel will set the owner died bit in
-that memory and therefore corrupt unrelated data.
-
-Provide a VDSO function which exposes the critical section window in the
-VDSO symbol table. The resulting addresses are updated in the task's mm
-when the VDSO is (re)map()'ed.
-
-The core code detects when a task was interrupted within the critical
-section and is about to deliver a signal. It then invokes an architecture
-specific function which determines whether the pending op pointer has to be
-cleared or not. The unlock assembly sequence on 64-bit is:
-
-        mv      a5, a0           ; move LOCK to a5
-    .Lretry
-        lr.w    a0, (a5)         ; load *LOCK
-        bne     a0, a1, 24 .Lend ; if (*LOCK != TID) then exit
-        sc.w.rl t0, zero, (a5)   ; try changing *LOCK from TID to zero
-    .Lstart
-        bnez    t0, .Lretry      ; retry if store-conditional failed
-        sd      zero, 0(a2)      ; clear POP
-    .Lend
-        sext.w	a0,a0
-        ret
-
-So if the kernel sees that the user task is between .Lstart and .Lend,
-t0 can be checked to determine if the pending op pointer (POP) should
-be cleared.
-
-When the kernel is built with ZACAS, another unlock assembly sequence
-is provided using ZACAS instructions. If the CPU supports ZACAS, that
-alternative sequence is used and the critical section is also changed
-to that.
-
-There are two entry points to handle the different robust list pending op
-pointer sizes:
-
-        __vdso_futex_robust_list64_try_unlock()
-        __vdso_futex_robust_list32_try_unlock()
-
-The 32-bit VDSO and compat VDSO provides
-__vdso_futex_robust_list32_try_unlock().
-
-Unlike x86, the RISC-V 64-bit VDSO provides only provides
-__vdso_futex_robust_list64_try_unlock(). Because RISC-V threads can
-only have one list_op_pending pointer type.
-
-Signed-off-by: Nam Cao <namcao@linutronix.de>
----
- arch/riscv/Kconfig                         |  1 +
- arch/riscv/include/asm/cpufeature-macros.h |  2 +
- arch/riscv/include/asm/futex_robust.h      | 16 +++++
- arch/riscv/include/asm/vdso/futex.h        |  9 +++
- arch/riscv/kernel/compat_vdso/Makefile     |  7 +-
- arch/riscv/kernel/compat_vdso/futex.c      |  3 +
- arch/riscv/kernel/vdso.c                   | 56 +++++++++++++++
- arch/riscv/kernel/vdso/Makefile            | 14 +++-
- arch/riscv/kernel/vdso/futex.c             | 84 ++++++++++++++++++++++
- arch/riscv/kernel/vdso/vdso.lds.S          |  8 +++
- 10 files changed, 198 insertions(+), 2 deletions(-)
- create mode 100644 arch/riscv/include/asm/futex_robust.h
- create mode 100644 arch/riscv/include/asm/vdso/futex.h
- create mode 100644 arch/riscv/kernel/compat_vdso/futex.c
- create mode 100644 arch/riscv/kernel/vdso/futex.c
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 33d532c86182..9d339d54b9c6 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -163,6 +163,7 @@ config RISCV
- 	select HAVE_FUNCTION_GRAPH_TRACER if HAVE_DYNAMIC_FTRACE_WITH_ARGS
- 	select HAVE_FUNCTION_GRAPH_FREGS
- 	select HAVE_FUNCTION_TRACER if HAVE_DYNAMIC_FTRACE
-+	select HAVE_FUTEX_ROBUST_UNLOCK
- 	select HAVE_EBPF_JIT if MMU
- 	select HAVE_GENERIC_TIF_BITS
- 	select HAVE_GUP_FAST if MMU
-diff --git a/arch/riscv/include/asm/cpufeature-macros.h b/arch/riscv/include/asm/cpufeature-macros.h
-index a8103edbf51f..f522c6c3cd97 100644
---- a/arch/riscv/include/asm/cpufeature-macros.h
-+++ b/arch/riscv/include/asm/cpufeature-macros.h
-@@ -6,6 +6,8 @@
- #ifndef _ASM_CPUFEATURE_MACROS_H
- #define _ASM_CPUFEATURE_MACROS_H
- 
-+#include <linux/types.h>
-+
- #include <asm/hwcap.h>
- #include <asm/alternative-macros.h>
- 
-diff --git a/arch/riscv/include/asm/futex_robust.h b/arch/riscv/include/asm/futex_robust.h
-new file mode 100644
-index 000000000000..16ec58e925c8
---- /dev/null
-+++ b/arch/riscv/include/asm/futex_robust.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_FUTEX_ROBUST_H
-+#define _ASM_RISCV_FUTEX_ROBUST_H
-+
-+#include <asm/ptrace.h>
-+#include <asm/vdso/futex.h>
-+
-+static inline void __user *arch_futex_robust_unlock_get_pop(struct pt_regs *regs)
-+{
-+	if (cpu_supports_zacas())
-+		return (regs->a0 == regs->a1) ? (void __user *)regs->a2 : NULL;
-+	else
-+		return (regs->t0 == 0) ? (void __user *)regs->a2 : NULL;
-+}
-+
-+#endif /* _ASM_RISCV_FUTEX_ROBUST_H */
-diff --git a/arch/riscv/include/asm/vdso/futex.h b/arch/riscv/include/asm/vdso/futex.h
-new file mode 100644
-index 000000000000..89a8c425994b
---- /dev/null
-+++ b/arch/riscv/include/asm/vdso/futex.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#include <asm/cpufeature-macros.h>
-+
-+static inline bool cpu_supports_zacas(void)
-+{
-+	return IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZACAS) &&
-+		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS);
-+}
-diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/compat_vdso/Makefile
-index 7f222a77dbbb..7c4051c6a66a 100644
---- a/arch/riscv/kernel/compat_vdso/Makefile
-+++ b/arch/riscv/kernel/compat_vdso/Makefile
-@@ -32,7 +32,12 @@ COMPAT_CC_FLAGS += $(call cc-option,-mno-riscv-attribute)
- COMPAT_CC_FLAGS += $(call as-option,-Wa$(comma)-mno-arch-attr)
- 
- # Files to link into the compat_vdso
--obj-compat_vdso = $(patsubst %, %.o, $(compat_vdso-syms)) note.o
-+obj-compat_vdso := $(patsubst %, %.o, $(compat_vdso-syms)) note.o
-+
-+ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+compat_vdso-syms += __vdso_futex_robust_list32_try_unlock
-+obj-compat_vdso += futex.o
-+endif
- 
- # Build rules
- targets := $(obj-compat_vdso) compat_vdso.so compat_vdso.so.dbg compat_vdso.lds
-diff --git a/arch/riscv/kernel/compat_vdso/futex.c b/arch/riscv/kernel/compat_vdso/futex.c
-new file mode 100644
-index 000000000000..ad05ded43955
---- /dev/null
-+++ b/arch/riscv/kernel/compat_vdso/futex.c
-@@ -0,0 +1,3 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include "../vdso/futex.c"
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index 9c2f5e442338..451d5ceb3848 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -11,6 +11,7 @@
- #include <linux/slab.h>
- #include <linux/binfmts.h>
- #include <linux/err.h>
-+#include <linux/futex.h>
- #include <asm/page.h>
- #include <asm/vdso.h>
- #include <linux/vdso_datastore.h>
-@@ -33,11 +34,64 @@ static struct __vdso_info vdso_info;
- static struct __vdso_info compat_vdso_info;
- #endif
- 
-+#define _CONCAT3(a, b, c)	a ## b ## c
-+#define CONCAT3(a, b, c)	_CONCAT3(a, b, c)
-+
-+#if defined(CONFIG_RISCV_ISA_ZACAS) && defined(CONFIG_TOOLCHAIN_HAS_ZACAS)
-+#define FUTEX_CAS_OVERWRITE_VDSO_CS_RANGE(vdso, fd, idx, xlen, symbol)				\
-+{												\
-+	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS)) {				\
-+		void *start = symbol(vdso, CONCAT3(futex_list, xlen, _try_unlock_cs_cas_start));\
-+		void *end   = symbol(vdso, CONCAT3(futex_list, xlen, _try_unlock_cs_cas_end));	\
-+												\
-+		futex_set_vdso_cs_range(fd, idx, (uintptr_t)start, (uintptr_t)end, xlen == 32);	\
-+	}											\
-+}
-+#else
-+#define FUTEX_CAS_OVERWRITE_VDSO_CS_RANGE(...)
-+#endif
-+
-+#define FUTEX_SET_VDSO_CS_RANGE(vdso, fd, idx, xlen, symbol)					\
-+{												\
-+	void *start = symbol(vdso, CONCAT3(futex_list, xlen, _try_unlock_cs_lrsc_start));	\
-+	void *end   = symbol(vdso, CONCAT3(futex_list, xlen, _try_unlock_cs_lrsc_end));		\
-+												\
-+	futex_set_vdso_cs_range(fd, idx, (uintptr_t)start, (uintptr_t)end, xlen == 32);		\
-+												\
-+	FUTEX_CAS_OVERWRITE_VDSO_CS_RANGE(vdso, fd, idx, xlen, symbol);				\
-+												\
-+}
-+
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+
-+/* Allow parameters to expand first */
-+#define __VDSO_SYMBOL(vdso, name)		VDSO_SYMBOL(vdso, name)
-+#define __COMPAT_VDSO_SYMBOL(vdso, name)	COMPAT_VDSO_SYMBOL(vdso, name)
-+
-+static void vdso_futex_robust_unlock_update_ips(void)
-+{
-+	unsigned long vdso = (unsigned long) current->mm->context.vdso;
-+	struct futex_mm_data *fd = &current->mm->futex;
-+
-+	futex_reset_cs_ranges(fd);
-+
-+	FUTEX_SET_VDSO_CS_RANGE(vdso, fd, 0, __riscv_xlen, __VDSO_SYMBOL);
-+
-+#ifdef CONFIG_COMPAT
-+	FUTEX_SET_VDSO_CS_RANGE(vdso, fd, 1, 32, __COMPAT_VDSO_SYMBOL);
-+#endif
-+}
-+#else
-+static inline void vdso_futex_robust_unlock_update_ips(void) {}
-+#endif
-+
- static int vdso_mremap(const struct vm_special_mapping *sm,
- 		       struct vm_area_struct *new_vma)
- {
- 	current->mm->context.vdso = (void *)new_vma->vm_start;
- 
-+	vdso_futex_robust_unlock_update_ips();
-+
- 	return 0;
- }
- 
-@@ -147,6 +201,8 @@ static int __setup_additional_pages(struct mm_struct *mm,
- 	if (IS_ERR(ret))
- 		goto up_fail;
- 
-+	vdso_futex_robust_unlock_update_ips();
-+
- 	return 0;
- 
- up_fail:
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index a842dc034571..9602c9172e04 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -27,12 +27,24 @@ asflags-y += -DVDSO_CFI=1
- endif
- 
- # Files to link into the vdso
--obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
-+obj-vdso := $(patsubst %, %.o, $(vdso-syms)) note.o
- 
- ifdef CONFIG_VDSO_GETRANDOM
- obj-vdso += vgetrandom-chacha.o
- endif
- 
-+ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+
-+obj-vdso += futex.o
-+
-+ifdef CONFIG_64BIT
-+vdso-syms += __vdso_futex_robust_list64_try_unlock
-+else
-+vdso-syms += __vdso_futex_robust_list32_try_unlock
-+endif
-+
-+endif
-+
- ccflags-y := -fno-stack-protector
- ccflags-y += -DDISABLE_BRANCH_PROFILING
- ccflags-y += -fno-builtin
-diff --git a/arch/riscv/kernel/vdso/futex.c b/arch/riscv/kernel/vdso/futex.c
-new file mode 100644
-index 000000000000..93ffeeadcf4e
---- /dev/null
-+++ b/arch/riscv/kernel/vdso/futex.c
-@@ -0,0 +1,84 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <linux/stringify.h>
-+#include <vdso/futex.h>
-+#include <asm/hwcap.h>
-+#include <asm/cpufeature-macros.h>
-+#include <asm/vdso/futex.h>
-+
-+#define LABEL(pop_size, which) __stringify(__vdso_futex_list##pop_size##_try_unlock_cs_##which)
-+
-+#define futex_robust_try_unlock_cas(pop_size, store_pop, lock, tid, pop)	\
-+({										\
-+	/*									\
-+	 * arch_futex_robust_unlock_get_pop() assumes the variables are in	\
-+	 * those registers. So make sure.					\
-+	 *									\
-+	 * tid and pop are in a1 and a2 at function entry according to the	\
-+	 * calling convention, so it likely still works if we remove _tid	\
-+	 * and _pop. But technically compiler is allowed to move tid and pop	\
-+	 * to different registers, and _tid and _pop do not generate any	\
-+	 * extra instructions so it does not hurt to keep them.			\
-+	 */									\
-+	register __u32  ret asm ("a0") = tid;					\
-+	register __u32 _tid asm ("a1") = tid;					\
-+	register void *_pop asm ("a2") = pop;					\
-+										\
-+	asm volatile (								\
-+		"	amocas.d.rl	%[ret], zero, (%[lock])\n"		\
-+		LABEL(pop_size, cas_start)":"					\
-+		"	bne %[ret], %[tid], "LABEL(pop_size, cas_end)"\n"	\
-+		"	"store_pop" zero, (%[pop])\n"				\
-+		LABEL(pop_size, cas_end)":"					\
-+		: [ret]  "+&r" (ret)						\
-+		: [tid]  "r"   (_tid),						\
-+		  [lock] "r"   (lock),						\
-+		  [pop]  "r"   (_pop)						\
-+		: "memory"							\
-+	);									\
-+										\
-+	ret;									\
-+})
-+
-+#define futex_robust_try_unlock_lrsc(pop_size, store_pop, lock, tid, pop)	\
-+({										\
-+	register void *_pop asm ("a2") = pop;					\
-+	__u32 ret;								\
-+										\
-+	asm volatile (								\
-+		"1:	lr.w %[ret], (%[lock])\n"				\
-+		"	bne %[ret], %[tid], "LABEL(pop_size, lrsc_end)"\n"	\
-+		"	sc.w.rl	t0, x0, (%[lock])\n"				\
-+		LABEL(pop_size, lrsc_start)":"					\
-+		"	bnez t0, 1b\n"						\
-+		"	"store_pop" zero, (%[pop])\n"				\
-+		LABEL(pop_size, lrsc_end)":"					\
-+		: [ret]  "=&r" (ret)						\
-+		: [tid]  "r"   (tid),						\
-+		  [lock] "r"   (lock),						\
-+		  [pop]  "r"   (_pop)						\
-+		: "t0", "memory"						\
-+	);									\
-+										\
-+	ret;									\
-+})
-+
-+
-+#if __riscv_xlen == 64
-+__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
-+{
-+	if (cpu_supports_zacas())
-+		return futex_robust_try_unlock_cas(64, "sd", lock, tid, pop);
-+	else
-+		return futex_robust_try_unlock_lrsc(64, "sd", lock, tid, pop);
-+}
-+#endif
-+
-+#if __riscv_xlen == 32
-+__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-+{
-+	if (cpu_supports_zacas())
-+		return futex_robust_try_unlock_cas(32, "sw", lock, tid, pop);
-+	else
-+		return futex_robust_try_unlock_lrsc(32, "sw", lock, tid, pop);
-+}
-+#endif
-diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-index c29ef12a63bb..9acfa9ef5bab 100644
---- a/arch/riscv/kernel/vdso/vdso.lds.S
-+++ b/arch/riscv/kernel/vdso/vdso.lds.S
-@@ -82,6 +82,14 @@ VERSION
- #endif
- #if defined(CONFIG_VDSO_GETRANDOM) && !defined(COMPAT_VDSO)
- 		__vdso_getrandom;
-+#endif
-+
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+#if defined(CONFIG_32BIT) || defined(COMPAT_VDSO)
-+		__vdso_futex_robust_list32_try_unlock;
-+#else
-+		__vdso_futex_robust_list64_try_unlock;
-+#endif
- #endif
- 	local: *;
- 	};
 -- 
-2.47.3
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
