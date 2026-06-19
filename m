@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29794CD4F26
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 18:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BD7CD98F8
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 18:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ysji72Cd3K+RBgvdd6les8XF19jCWS8NkPJIqclaL0=; b=ewxEDZ8WUHCY0M
-	y+8pQSRoY4Ag5CQ2WFFCuCGb0PFNoLSdAQxPUJKyrLAL91f2vFBwxl6EMSMpVk3Ea6TUAnPzxuGd7
-	9M2Ng1bZSVyqqKvOASW6qlVGjraWCUrr95ab/51XWNNtGdo1ZT8cxt/4hHrz1r4oJfSch7OjXm1zz
-	HnhobIaYk0l4xzygzYDCtn6xnplbbt6o8Feo/CflLJkxsGUBod8OjqUpRbOFrAsDJ0TBdSGWvHJSB
-	M2b9I6cXmKjRST92FERFLwmz7Cc9bwgOCjOzb4+cMcCq8WS4x+amIPQzHv04/9p2eZQqrEitCh15x
-	HIzsYLwVKPZIM4wVUiqQ==;
+	List-Owner; bh=RH1u9B08PLqwEfzij/708ftbT80nT1uWX9tyycZY2s8=; b=maS3sAD4kwnlH1
+	UbuO/ctcqW3J2khFgmM3kBndzGAyfBN5kYqxS5tMlZHbnEloeDcb+veJ7Vq5EC0U2lYPY66WMoRso
+	S1BUp2OYJHz4dnd8ASserSb5f/hBD92al6Yo4wwPc9LoGjp2e5PVfOfG9dXsNREU9/SAel/tpAuxt
+	oKVyskIt9Um+VGcn1JOco05Sij7vAth4biWjPwV78QWpGSTbY6ow39oFdSJuWxXkYP3Ux1HXYFzqe
+	vUBzb8ahFcQtHxdfc9VSlInNV/a/0bKON4lEIBnfoCOj9KBBcLI1NZRiPUu6Sv4US4Xbc45wdCWKq
+	21OnccYMoRSSWluYubMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wadyY-00000002rxa-07YX;
-	Fri, 19 Jun 2026 18:29:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wadyT-00000002rx7-3rUA;
+	Fri, 19 Jun 2026 18:29:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wadyT-00000002rwu-44mO
+	id 1wadyS-00000002rwO-1VeU
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jun 2026 18:29:54 +0000
+	Fri, 19 Jun 2026 18:29:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61CB2601F2;
-	Fri, 19 Jun 2026 18:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30C731F00A3D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 20EF044528;
 	Fri, 19 Jun 2026 18:29:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05BD81F00ADF;
+	Fri, 19 Jun 2026 18:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781893793;
-	bh=3FNd65+Kd2T2L4uR4tw6oB8KAJNneqNpwKMKAP99qXo=;
+	s=k20260515; t=1781893792;
+	bh=FHASCoT2hpjqe3g0pZSejYTwgoS9bxzyrN/pYid+Zvg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=c/HQWJ3B2rC4Nz9HerwDSmZAgFIM9duTwj8XHZ74vWJwEDoVNKXxmq+UgSHkio2HK
-	 k9UhKhZb9ryVhITFuYDBwShuZ/ONnGPWKm6IjOHB44DKLRpuaEqND5l4Clj3e5jAPP
-	 9tL3gAsGuW4I7w2XX3AjxeEXy4cwJGQ7ypGMZ+sLQC+vd96LbYfz/YPTmmRQFEJT5E
-	 GvWhcMGNN/27wp+HjMWiiT2lsB1eqhL4GUSMokjX4GnKZBxNkBsNJHfjZtOxLwR8vW
-	 1mUayOc9zLjRpPEurswbpvJnawkV6XVDcd1v8vGDoslTPAcjTADxo7gYuaFSsUOIN3
-	 PhJUCNIsvaBbw==
+	b=BgL36/MdtkXnliB3muWgnlfl6C4aF9t93w31WTSM4HaW8ALqeNqV1F3hl2xyoyaXa
+	 OY8iy2TBxwShD0gNJB6BD8pSoWCUDUqBC4OPmpO2x9ql8WiVlbyT4Ib4qwsuajIM2D
+	 5OlqhfJBzMgnlNkdeOlJv9FSRoWpD7qHXeiz3SoaqHF2KZzglbzXhjIasCyVWGO9Xz
+	 TQfHZoyGUx1l4SQMRQuRvr+9Ay+rTjtwJdECPje4OBJqvFtyQONjO9aySRGZf91dbh
+	 8voSCzq+E1WaaVYSwFcEBjYPedqlTuPd5hCvwPQhT0SWznNprGi6ksgfheY/L2C+PV
+	 FVuF9aQgsSlOg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Fri, 19 Jun 2026 11:29:42 -0700
-Subject: [PATCH 7/8] dt-bindings: riscv: Add generic CBQRI controller
- binding
+Date: Fri, 19 Jun 2026 11:29:41 -0700
+Subject: [PATCH 6/8] riscv: Enable resctrl filesystem for Ssqosid
 MIME-Version: 1.0
-Message-Id: <20260619-dfustini-atl-sc-cbqri-dt-v1-7-e79a7723fab0@kernel.org>
+Message-Id: <20260619-dfustini-atl-sc-cbqri-dt-v1-6-e79a7723fab0@kernel.org>
 References: <20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org>
 In-Reply-To: <20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org>
 To: Adrien Ricciardi <aricciardi@baylibre.com>, 
@@ -77,12 +76,12 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5768; i=fustini@kernel.org;
- h=from:subject:message-id; bh=JESD424JRusl50/42AHZu3nZKjE9cJpzGOgU+hfilZ0=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWSZds3aXFpS96t9qe0q39xnhpLvJvwyCOH4Kt2hfezTz
- V+3HsV4dpSyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAm8vo6I8O2lvXvomqMJiaa
- Cfd/cXbrO2h/5l/mjqrd70q+b3i4eV4+I8PGipXJ4l5z1RZ+XD73aTmbpvz7B162f2Vjp+1Sife
- 8Ls8BAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=876; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=XzD8qxhMVFjGTkcUSWhD7808N9wJROgN3KTUSR29OyQ=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWSZds2ScJ7qpp9w9l7uG0Fz9munnv0xzGNZKSj7Z96M1
+ rQfCtfvdJSyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmEtjDyLDv+PXNygsDvjZt
+ jL1y3PPx3G2h0jt27VP7l/LFccWe65taGRkOnVBcs0Bjx4aIspaKkKl+LBZfV1Up7gxZEvQuVLj
+ 26VEOAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -101,154 +100,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the generic "riscv,cbqri-capacity-controller" and
-"riscv,cbqri-bandwidth-controller" compatibles for controllers that
-implement the RISC-V CBQRI specification, together with the common
-riscv,cbqri-rcid / riscv,cbqri-mcid properties and the optional
-riscv,cbqri-cache phandle that links a capacity controller to the cache
-node whose capacity it allocates.
+RISCV_ISA_SSQOSID selects RISCV_CBQRI_DRIVER unconditionally.
 
-The CBQRI register interface is architected, so an implementation pairs
-a device-specific compatible (for example "tenstorrent,ascalon-sc-cbqri")
-with the generic one as a fallback. This lets a single binding and driver
-cover every CBQRI controller without a per-vendor schema.
+The resctrl filesystem integration is gated separately by
+RISCV_CBQRI_RESCTRL_FS, a silent option that defaults to y when both
+RISCV_CBQRI_DRIVER and RESCTRL_FS are enabled. Enabling the resctrl
+filesystem itself stays a user choice via the standard fs/Kconfig
+MISC_FILESYSTEMS menu.
 
-Assisted-by: Claude:claude-opus-4-8
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 109 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- 2 files changed, 110 insertions(+)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-new file mode 100644
-index 000000000000..cf007dcac0d7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-@@ -0,0 +1,109 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/riscv,cbqri.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V Capacity and Bandwidth Register Interface (CBQRI) controller
-+
-+description: |
-+  The RISC-V CBQRI specification defines capacity-controller and
-+  bandwidth-controller register blocks that allow cache capacity and memory
-+  bandwidth to be allocated to resource control IDs (RCIDs) and monitored per
-+  monitoring counter ID (MCID):
-+  https://github.com/riscv-non-isa/riscv-cbqri/blob/main/riscv-cbqri.pdf
-+
-+  The register interface is architected, so a CBQRI controller is described by
-+  a generic "riscv,cbqri-capacity-controller" or "riscv,cbqri-bandwidth-controller"
-+  compatible. A device-specific compatible should be listed as the first entry
-+  so a driver can apply integration-specific behavior (for example, the cache
-+  level the controller backs).
-+
-+  A single controller register block may implement resource allocation and/or
-+  usage monitoring: a capacity controller can allocate cache capacity to RCIDs
-+  and monitor capacity usage per MCID, and a bandwidth controller likewise for
-+  memory bandwidth. The allocation and monitoring register sets live in the
-+  same block, and which of them a controller actually implements is discovered
-+  at runtime from its capabilities register. The compatible therefore names the
-+  controller type only; it does not distinguish allocation-only, monitoring-only
-+  or combined controllers, and no property declares monitoring support.
-+
-+maintainers:
-+  - Drew Fustini <fustini@kernel.org>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - description: Tenstorrent Ascalon Shared Cache
-+            const: tenstorrent,ascalon-sc-cbqri
-+          - const: riscv,cbqri-capacity-controller
-+      - enum:
-+          - riscv,cbqri-capacity-controller
-+          - riscv,cbqri-bandwidth-controller
-+
-+  reg:
-+    maxItems: 1
-+    description:
-+      The CBQRI controller register block.
-+
-+  riscv,cbqri-rcid:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum number of RCIDs the controller supports. RCIDs are the
-+      resource-control IDs that allocation operations target.
-+
-+  riscv,cbqri-mcid:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum number of MCIDs the controller supports. MCIDs are the
-+      monitoring-counter IDs that usage-monitoring operations target; present
-+      on controllers that implement monitoring.
-+
-+  riscv,cbqri-cache:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the cache node whose capacity this controller allocates.
-+      Applies to capacity controllers that back a CPU cache; the cache level
-+      and the harts sharing the cache are taken from that node's cache
-+      topology.
-+
-+required:
-+  - compatible
-+  - reg
-+
-+allOf:
-+  # The Ascalon SC is a fixed cache capacity-allocation controller: the driver
-+  # cannot register it without the RCID count and the cache it backs.
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: tenstorrent,ascalon-sc-cbqri
-+    then:
-+      required:
-+        - riscv,cbqri-rcid
-+        - riscv,cbqri-cache
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    l2_cache: l2-cache {
-+        compatible = "cache";
-+        cache-level = <2>;
-+        cache-unified;
-+        cache-size = <0xc00000>;
-+        cache-sets = <512>;
-+        cache-block-size = <64>;
-+    };
-+
-+    cache-controller@a21a00c0 {
-+        compatible = "tenstorrent,ascalon-sc-cbqri",
-+                     "riscv,cbqri-capacity-controller";
-+        reg = <0xa21a00c0 0xf40>;
-+        riscv,cbqri-rcid = <16>;
-+        riscv,cbqri-cache = <&l2_cache>;
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 85d50efb6e5f..f8b995420c11 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23296,6 +23296,7 @@ M:	Drew Fustini <fustini@kernel.org>
- R:	yunhui cui <cuiyunhui@bytedance.com>
- L:	linux-riscv@lists.infradead.org
- S:	Supported
-+F:	Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
- F:	arch/riscv/include/asm/qos.h
- F:	arch/riscv/include/asm/resctrl.h
- F:	arch/riscv/kernel/qos.c
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 9eb65d0eaa07..cc261de01107 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -595,6 +595,7 @@ config RISCV_ISA_SSQOSID
+ 	depends on 64BIT
+ 	default n
+ 	select ARCH_HAS_CPU_RESCTRL
++	select RISCV_CBQRI_DRIVER
+ 	help
+ 	  Adds support for the Ssqosid ISA extension (Supervisor-mode
+ 	  Quality of Service ID).
 
 -- 
 2.43.0
