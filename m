@@ -4,49 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A77CDB46B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFEFCD4F26
 	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jun 2026 14:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Dy7CLyGyn6/ymim0Bsv1G1Md0WexLmX6zEzyyEkaCkM=; b=XA080FqEOlGdo8
-	g+T8DtdA/RP8uB/v4Ul4Isx3RR59nncfTivoHoPBbuv35pJr99muLfIDMkhUUXklEC7LIJ1D4a2HD
-	kOb56bauaIyxnZ/hasPc9duNLOlv/hI1dFvaKFI2emZ8J1ASnoVfFlE5z93cR5JuG0EKi1Hz+vFR1
-	5bQu7bm+GBnLbBTVLm7xQ/EZysTnmtuzeZV6gksT5Tkb38zGG0+TDYD+QqEQ9u8yZUrnowq8d4jOq
-	YH0yAtaXpQ9Qj+gYOvQsWrHzFSmq5sGGcdtFPpplTU0N66xTYCh43vxFGoxIK7FrptQUOv/9Z/A4o
-	Kd5idzevbX0+EuT5+ToA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tN/uHHqlV8OXT6OqzG1KxMJOPs+LfGgoALxxJlMYdV8=; b=vU1L0OwlUec4yp
+	brqrM+RWi2Ic07qfud9D3IHOeiiwW15JHnjonVGvynvqhFlM+UGWlbDRT5lwj9Yh5yi0ZhLI0/PGW
+	fYfMwqi1Y9FE8ojjiixdN9XZk8NHOOPSLSo8h2P5h30uraLNvdWFmOSRQkrGt14RHFSf1R2c49tfN
+	X0J4KFvZGcM7cgRJPQ1LHRYZdyNP0SmHbEHPMs2YPS9CZE8qZukicT08WhbWwrWuRNPGJX4UKBCQE
+	jf+ho/V3rgudYk/qyJ0KWKo7dDWHPtBCRYFMjlThUB2k5UWi63KFL2ogxqvr3Rb4m9nqONAzZOdDT
+	YRctpTLX6rtR+ral02Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZwZ-00000002Y87-18AY;
-	Fri, 19 Jun 2026 14:11:39 +0000
+	id 1waZwX-00000002Y7M-3Zrm;
+	Fri, 19 Jun 2026 14:11:37 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZwT-00000002Y3m-16lM
+	id 1waZwT-00000002Y3p-16r9
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jun 2026 14:11:36 +0000
+	Fri, 19 Jun 2026 14:11:34 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1781878290;
+	s=2020; t=1781878291;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=bIkCcr3s/ET6GXkklbPYzwQfPQJ0+2OoEtXusV9PgKc=;
-	b=dnqKsWYbwOF6Sr/ovR9wYxFtTKLMrRUtbLObMbW8Ug2tjqxgJJYCzBOt3XrNHTRnJSUPeu
-	UwaSENsy7T8xeSLDhYSwBrJbAXaQ57igXnGD63EWeJ9546LpL9alIa0ZWy+laK5bK+Wvd1
-	TZm2mA+dXRJzuPAVvTWoG7G0sqGGvai8GPd73mfvEjA9trlNc0ddeMA0aukvzf/pe52yDI
-	mUb07+tfwifVvqLfRQ45TwKKGZuRXfkjAK+mllB79oipHjxzM1E1lhSfPGDwD6oFpY1iE5
-	l/Bs4DR/KMyTpaZN11zholcGe7xpYIAlZARrOxVMn/5odr3E9sDwCyK4GChl6A==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bfuFJ77a5aiag+HQwk+NZ/j8B8G1PMTNy1a1C6lG7tE=;
+	b=YeuKbzi7myXx4vskMAb0DN/dFtsPvR3UUrYc9oDym052gnp+KAUxj1YF+dS3BY56XNB6MT
+	FwNAxcCiSojW//nFtycP15VixYT2Z0HhIlIFw5GJNM+0EDZ9F35huit91o0ajw9O2U0TEO
+	1l78/nRSSkQpzlFHdpt6M5rZLsxJ/1+t0BT7vqDmYfbWlKFMe0ZWyfCwASpVIdyKEKndnx
+	uPezJ9900oXpVrBikRIlKKHtD+YDVmtH/cKbsQoSoC6v4udFXu+frDcET14fEEmyGxEDRz
+	uZlUdry+sEalgSmLFLfgqDhmE4ehgGsm5pHeJDvxOfzF8cOd+VQQi/z2QA+JIA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1781878290;
+	s=2020e; t=1781878291;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=bIkCcr3s/ET6GXkklbPYzwQfPQJ0+2OoEtXusV9PgKc=;
-	b=oNRmoxKwXPy7YYIPsPfwddBgExKgxjxoOYBXFZ28/T1lI2Oc9vRthZOD4z8u/9thcR2oMP
-	rBjFKKYBk76G4mCA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bfuFJ77a5aiag+HQwk+NZ/j8B8G1PMTNy1a1C6lG7tE=;
+	b=swXvXVFsPzcd5GxbFwM26mIspEvakkvcY3bbJheN/clBqnF9JCPXwYNnvzoEnq/DiNkgI8
+	HbK+od6IiIHDtJBQ==
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -60,13 +62,15 @@ To: Paul Walmsley <pjw@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 0/5] riscv: vdso: Implement __vdso_futex_robust_try_unlock()
-Date: Fri, 19 Jun 2026 16:11:16 +0200
-Message-ID: <cover.1781876501.git.namcao@linutronix.de>
+Subject: [PATCH 2/5] riscv: compat_vdso: Allow *.c source files
+Date: Fri, 19 Jun 2026 16:11:18 +0200
+Message-ID: <d8e9f7c9b4ad4b9324e23c37704e4339d0a5a398.1781876501.git.namcao@linutronix.de>
+In-Reply-To: <cover.1781876501.git.namcao@linutronix.de>
+References: <cover.1781876501.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_071133_452755_DE72E526 
-X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-CacheID: sfid-20260619_071133_451154_FA2F77BD 
+X-CRM114-Status: UNSURE (   6.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,42 +88,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds new vdso futex entries, allowing user to address the robust
-futex race condition regarding clearing the robust_list_head::list_op_pending
-pointer.
+Extend to support building *.c files. This allows adding futex.c in a
+follow-up commit.
 
-Thomas wrote a summary of the problem:
-https://lore.kernel.org/lkml/20260602084648.462672743@kernel.org/
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+ arch/riscv/kernel/compat_vdso/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
-The core infrastructure has been implemented along with x86 support. This
-series adds RISC-V support.
-
-The first 4 patches prepare compat vdso Makefile. The final patch is the main
-show.
-
-Nam Cao (5):
-  riscv: compat_vdso: switch to standard kbuild rule
-  riscv: compat_vdso: Allow *.c source files
-  riscv: compat_vdso: Introduce COMPAT_MARCH variable
-  riscv: compat_vdso: Build with zacas if available
-  riscv: vdso: Implement __vdso_futex_robust_try_unlock()
-
- arch/riscv/Kconfig                         |  1 +
- arch/riscv/include/asm/cpufeature-macros.h |  2 +
- arch/riscv/include/asm/futex_robust.h      | 16 +++++
- arch/riscv/include/asm/vdso/futex.h        |  9 +++
- arch/riscv/kernel/compat_vdso/Makefile     | 26 ++++---
- arch/riscv/kernel/compat_vdso/futex.c      |  3 +
- arch/riscv/kernel/vdso.c                   | 56 +++++++++++++++
- arch/riscv/kernel/vdso/Makefile            | 14 +++-
- arch/riscv/kernel/vdso/futex.c             | 84 ++++++++++++++++++++++
- arch/riscv/kernel/vdso/vdso.lds.S          |  8 +++
- 10 files changed, 209 insertions(+), 10 deletions(-)
- create mode 100644 arch/riscv/include/asm/futex_robust.h
- create mode 100644 arch/riscv/include/asm/vdso/futex.h
- create mode 100644 arch/riscv/kernel/compat_vdso/futex.c
- create mode 100644 arch/riscv/kernel/vdso/futex.c
-
+diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/compat_vdso/Makefile
+index 52a99c7e41c5..9520569ee079 100644
+--- a/arch/riscv/kernel/compat_vdso/Makefile
++++ b/arch/riscv/kernel/compat_vdso/Makefile
+@@ -44,6 +44,7 @@ LDFLAGS_compat_vdso.so.dbg = -shared -S -soname=linux-compat_vdso.so.1 \
+ 	--build-id=sha1 --hash-style=both --eh-frame-hdr
+ 
+ $(obj-compat_vdso) : KBUILD_AFLAGS += $(COMPAT_CC_FLAGS)
++$(obj-compat_vdso) : KBUILD_CFLAGS += $(COMPAT_CC_FLAGS)
+ 
+ # strip rule for the .so file
+ $(obj)/%.so: OBJCOPYFLAGS := -S
 -- 
 2.47.3
 
