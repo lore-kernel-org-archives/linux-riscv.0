@@ -4,81 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8C8CD98E4
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 06:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BB2CDB466
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 09:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CVejAXtlxwQBpA/SthfRTtWxmH/tT3o7xHf1KVl9k/s=; b=uMXSk3DT9hW9yh
-	AD5ZhJkv2m/53Q+QdZt2PwnBNO5BDa2NOqrRlrGI1IgGFVPJALuOzJ0DQt5SsyCC4ffDQRCRAqXmO
-	b0dFMT98TkQUopHNf9zFPk8vf7LsNhOZAapSVwyAieNsbAMA4xgZ4GaOtD2gNuPIatdk1QaZJFDs7
-	c7RttcNU5YgDLYwlxxYCBKdL2et0HhDxwfDzh0xt2sdzn+9p2R3tS6RMPeCTec1mmkBP2lbqbvd86
-	FRco3OQGS23Qfj2889wh29ryRdKNjg78/jLctNG2s/PsaShQtwUHdxGlKRdRuQou18NIx1ptR2x82
-	dOQUshdTCbOrZHQ4J2yw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XzU0p6vDWpoDjVccxZw63hLAClADk+7BQSESsSWQi6c=; b=Ye9rtDVegEu3whvs60KPF0CgzX
+	OaHh6VOnsdrZMdJ2tKVoDCfpZTVvfg0d4Mav3jSbGuU6hDS8fEk+6RXnCJ7JTRBByGRjXemFFQGnN
+	CtVVktIB/Wg8MoeSIJ2WT5bREqd3h2X1rkk1Xkpprry83e6yCsNSRClclOpcpSO0h7HOJfbK822JY
+	Lj5qxbRUcgym9wiv0ehXuY8atJdhqxxlP/b8pbSSQH9SYe1ctlnbWzh9wqgSuhiRHtlrJYwz7L2jo
+	zRLVsHNoAmFDS5pCjGFw5Yhg7Wyd1ePB5POY2QxceRmNaUq2N/7cOfF6r/EcR//AhALwDGDUiZvlc
+	3fZsxGtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wap7A-00000003CJy-2jOy;
-	Sat, 20 Jun 2026 06:23:36 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1warcC-00000003IBb-1P4w;
+	Sat, 20 Jun 2026 09:03:48 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wap78-00000003CI2-1V37
+	id 1warc9-00000003IB9-3joE
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jun 2026 06:23:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=JSpFgV9vze6NzxWv7sBTl3aOrJeNhaz31em0Ltb/XOg=; b=YjMF5tHqf+RJPNkEaHwlaLfufu
-	nx9EM/X128U1AlQFofuBYY6QszUHNmjmlL8S2dgpir2vOWISmPkBy0xmam93Zo/csenHD2kcM1qsC
-	wkM+nqxzdA4CiPWa64gEeJoznUhVW4UXF6WuhT9utJa44L9WH+cdxge/uTQvzi6+bEa246QpqjOwU
-	kpAT/gzwfCSRh37Tx8D+5J2lH7d8lMYLpA8F3IqcVJcvHmuCCNU/boSbmsLpFAQssKOi/WgYulvHw
-	SE1Zeg7WNtwmPKctvyjIgJEliXOZ6L2GGaMZ1yvpyjAlQIdsctk5DNoqMhxq6YiH0GCeBiINeZSbE
-	yxCFTMtA==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1wap75-000000006gB-1STs;
-	Sat, 20 Jun 2026 08:23:31 +0200
-Date: Sat, 20 Jun 2026 08:23:30 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Zhengyu He <hezhy472013@gmail.com>
-Cc: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-spi@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	Wei Fu <wefu@redhat.com>, Cody Kang <cody.kang.hk@outlook.com>
-Subject: Re: [PATCH v2 2/2] riscv: dts: spacemit: add QSPI support for K3
- Pico-ITX
-Message-ID: <ajYx4oI7SpNs5aT5@aurel32.net>
-Mail-Followup-To: Zhengyu He <hezhy472013@gmail.com>,
-	Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-spi@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	Wei Fu <wefu@redhat.com>, Cody Kang <cody.kang.hk@outlook.com>
-References: <20260521-k3-pico-itx-qspi-v2-for-next-20260521-v2-0-52bce26e5fd8@gmail.com>
- <20260521-k3-pico-itx-qspi-v2-for-next-20260521-v2-2-52bce26e5fd8@gmail.com>
+	Sat, 20 Jun 2026 09:03:47 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84536ecfc5bso2515631b3a.2
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Jun 2026 02:03:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781946225; x=1782551025; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vnaC9u5H2wJSRqMHidcxYwZxkhPyhVvcFpavNr1emCs=;
+        b=CZTsb1xjtG2TNhteS//hcgHzjVNNQKn+iildVpL2ukVRZTUYvxe9nWhzX6+l1oqPRh
+         4dvJIBZbyViHeRtevsEbDMREnVWuIhLwicHeZ7ZH74+wtXp1EBSw8xWdEcCBj5Ce2yHs
+         8KkjG6BG64O7I8o6MJjo03aUYTOhtD7Ii+AgmiRtR8qO/YFtUd/e0tm9xWmTnzVhEyBH
+         XwYIZVn7NqKa+DpuNdNg9sgMEbrnNsCFyHymgBTCh/Tj8Z1ZSr+LrPQi92h/Bnvjy440
+         zqq1fxAIykj8snjbhQVKids0fnoSLn9l6Mh5CeQ0CCpNpINbNjnVWGOBray3qIm4G8dj
+         oeNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781946225; x=1782551025;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vnaC9u5H2wJSRqMHidcxYwZxkhPyhVvcFpavNr1emCs=;
+        b=iE90REr20xtbxQHRSm+KllRy+0nkdkqShtbwstPpPYlOcJ9PBOkbWQ09La+12O5gqE
+         MT4kLcqrcrpCBbeQIITQ5UiZCjvNNZ5hqycp0/jnyBRYV757HRlHyaFpJs4F2gJFuwxx
+         JMYYCeGxPek0HXWU5n3SPXu9Bt3fe6FFVTog20/lTfxnCIm+7A0Ughf5SjhW4anY2j3A
+         tNlAikYVV10/+d7ptU20ixVVxHqyS7AZXXFdHUehjYCy05ONlsZRRYF2HowHO+5HCmgP
+         IW1U76tpkCGG8cfkTM/UXepMhA/sPxKCDt280+1mIcfSZxnKl5YGUGNLZaIgytqDpCbW
+         a7wA==
+X-Forwarded-Encrypted: i=1; AFNElJ/vjNBkl6rLO4JvqaLAzkRv3l9D6sqdN0sH5Kj8kl3zF9tyEC0fasAoK0XxjdKC4Ch5BZQbp3yLM7Zl+g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEYwXcLj82RMQhDF8jPf+Z/RtzLAi6xCdSrDus3WwWycnbBJcL
+	sROWKMXmT4Y5HuAPej50XLpxDVtnYZTbr+U/5AmYzy3pevtFpVqzm+KB
+X-Gm-Gg: AfdE7ck4n5mNxI6+GVURim75SjIfQjRAia8n4Vgexj0X36vVUGOril5AibiEADZkFqp
+	3rghuZ3u2DwBF7sP+BFZYlyKKUscfEnt9yTIO+xsT192TP4l1PcnRPkKRedUHeU30Ck/r82h642
+	O+0CBFk8W8aQL/Eb3F2/CzqOzw+IOGdkDLemqBwnkCYhP/fuFU4Xc8Ai6n9WakP+ZDbRVc6NP4w
+	08Cz2Zd84tsRh8KVnLM25OVZ6wFTjBk4R6F4k2lljXfbutYy8U7Am6P31LRJtOew91BdWT7SHES
+	PZ1GC2yP8MR8YIz0AOHQ46+UhECIYYQyZkv/dI1ZFalBYlNiQi8BEwLiD5SlwjhFbRdWdbvLZ6E
+	aFIMlBPuU/kqEzLjap0byrH+Dh4OnVBHHqL4qVUjI5QkklXU55MhVfQ2v4XqC
+X-Received: by 2002:a05:6a20:431a:b0:3b4:640e:f6b1 with SMTP id adf61e73a8af0-3bb32914066mr7723228637.10.1781946224670;
+        Sat, 20 Jun 2026 02:03:44 -0700 (PDT)
+Received: from localhost ([2a12:a305:4::302d])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8bc374375csm1885419a12.13.2026.06.20.02.03.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 20 Jun 2026 02:03:44 -0700 (PDT)
+Date: Sat, 20 Jun 2026 05:03:36 -0400
+From: Guodong Xu <docular.xu@gmail.com>
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Guodong Xu <guodong@riscstar.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>, 
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 1/5] riscv: dts: spacemit: set console baud rate on K3
+ Pico-ITX board
+Message-ID: <oktm3eodc7xk3cdvxtjudycofa2rgddczh77zz5neef5w2mzzd@sh46luoxt2ln>
+References: <20260620062238.3199108-1-aurelien@aurel32.net>
+ <20260620062238.3199108-2-aurelien@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260521-k3-pico-itx-qspi-v2-for-next-20260521-v2-2-52bce26e5fd8@gmail.com>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+In-Reply-To: <20260620062238.3199108-2-aurelien@aurel32.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_232334_401143_F3EFA3B9 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260620_020345_932233_FC06056F 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,38 +100,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-21 22:44, Zhengyu He wrote:
-> Add K3 QSPI controller node into k3.dtsi, and add related pinmux
-> configuration.
-> 
-> Enable QSPI on Pico-ITX board, and describe the NOR flash which wires
-> to it.
-> 
-> Signed-off-by: Cody Kang <cody.kang.hk@outlook.com>
-> Signed-off-by: Zhengyu He <hezhy472013@gmail.com>
-> ---
-> Changes in v2:
-> - Add "spacemit,k1-qspi" fallback to the K3 QSPI compatible.
-> - Reordered Signed-off-by trailers.
-> ---
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 58 ++++++++++++++++++++++++++++
->  arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 21 ++++++++++
->  arch/riscv/boot/dts/spacemit/k3.dtsi         | 17 ++++++++
->  3 files changed, 96 insertions(+)
+Hi Aurelien,
 
-Thanks for the patchset.
+On 2026-06-20 08:22, Aurelien Jarno wrote:
+>Because the default console's baud rate is not set, defconfig kernels do
+>not have any serial output on this platform. Set the baud rate to
+>115200, matching what is used by U-Boot etc on this platform.
+>
+>Fixes: 7a6131804986 ("riscv: dts: spacemit: add K3 Pico-ITX board support")
+>Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+Thanks for the patch.
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Reviewed-by: Guodong Xu <docular.xu@gmail.com>
+
+>---
+> arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
+> 1 file changed, 1 insertion(+), 1 deletion(-)
+>
+>diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+>index b89c1521e6649..509cebc0c9568 100644
+>--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+>+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+>@@ -18,7 +18,7 @@ aliases {
+> 	};
+>
+> 	chosen {
+>-		stdout-path = "serial0";
+>+		stdout-path = "serial0:115200n8";
+> 	};
+>
+> 	memory@100000000 {
+>-- 
+>2.53.0
+>
+>
+>_______________________________________________
+>linux-riscv mailing list
+>linux-riscv@lists.infradead.org
+>http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
