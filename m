@@ -4,57 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A37CD4F26
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 23:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002B5CDB466
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 23:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7oceSmLIecIryGmiHn37MygkpGM11oCQmzv9okjvpQA=; b=lQMcqQQybSPAyh
-	IgAK7VwRbpWPXdjN0Y20WPYvNmTiSTyvAIrbe+8EqbiOlYyme4h1OWIo6N3YBR2j3aMTvmZWrZSIY
-	hRIyKzUfw6K6Ocp6PO233IUT0BmPOZB+zG6pHFOUBsPr+EVWlY4r/CR12pTRpZI3r9nP3135k3bgC
-	GLxvVURqpqbsgzidertCJpDeMwnj3mm/WUfBjTbndsG/rFFp6VbeoLZTh90K7ZsIWR3DrvuW9gx8T
-	jBezcjI2CwplzhH6zVnezvAuWn0b1EeBakXfwuzNdOWKURGdEorrSnTp9dF8x5rgOUYn1awxJusOX
-	kEQVA5vdoaChdRvWyLqA==;
+	List-Owner; bh=Rw91NqIMURLd7kEnWmpW02BEqqYhPAFuMZgHIQP/ogg=; b=ZolLBT4SvLs5FT
+	7YopXY5IlLWLPTlm3T6dPuhgIKLOI1MRMbVJaE76Hpm52Ei1Onc4gI3PPEczkpxUJL2LNqRGffaXF
+	u+lSpNKyzTyVM5wYrXpMcb81u+ru5+M7FkCLsMvn2VgOajEruNc27oNtHqCi1rV1x/KGmL2gePvds
+	XegP4ZnehP0+PjvGQmEdKTGOVtZVWfHRpjbaSLUREQ4Cp/m0JZF6pbysmrIDk00GsCeWxvsYEQq/k
+	mPh373XfAn6pxTB+n0W0mukbf4hgMA4Pjb7rM5vd15CthJo/nI1NkYsX0eUDsjKipz9HKxKz/Elzo
+	ZReNPmwasxgUVMwh6foA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb53u-00000003dA2-0C4R;
-	Sat, 20 Jun 2026 23:25:18 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1wb5R4-00000003dcS-3fgZ;
+	Sat, 20 Jun 2026 23:49:14 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb53r-00000003d9U-18uD
+	id 1wb5R1-00000003dbh-2g0N
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jun 2026 23:25:16 +0000
-Message-ID: <8a7c775a-4c81-4ed1-ab1e-356fc85bbf78@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1781997912;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bvtjD6I2KZP/SWA/i5nXjLd4czU9+VHJ/6bCQtfPK+c=;
-	b=pudnV4hATFs5d+Y5vngjQfZObx0prgcmnjcgnZ47nyyH/Osev1x+T/Kh6IUYrdX66fBIu2
-	ygFhg9pHe+rP/og+hCl0Ar8NEVwtp1ZSGYdUGnUuvfWck8Yv06Jt9qhKGPGL5hsCuoS1Aa
-	3WFWjnMdYJmo2xP8u1DfvyrR+ytvXjU=
-Date: Sat, 20 Jun 2026 16:25:09 -0700
+	Sat, 20 Jun 2026 23:49:13 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-519ed52bcc6so339721cf.0
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Jun 2026 16:49:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781999349; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OLq78q2z0EJif8Vz3KTr5YLa9RVsnlJTANMT2fdUHrlk8N+RNNzs2fP6jhxXIpZemG
+         VR/AgcBUzOWRG4qAnSNAQOSoeZXt7y0Up6WS1ehZyJTR3PvkrBZRNml0VIq+tL2mk6Sd
+         aupT21RqLys8SmzpjasJ/tUY4DsxHJzWReY4LVaptqA6pxEH0TrzVkNmaiWEgvnGfgyK
+         ylw2FYhYhDjsfcn3mzAXR1or2x197/LvqjoSeWTLvWYKRmUjqFAnx6s8krOFewwi96zX
+         6GiM3qGMVFgQG/El9p7gXwVXR9a5d4N+PePXjByGNMS3FRFe8l5McQzDSwZgH/sSh42S
+         /C/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
+        fh=gybwqUZz1SvHvrGopLEtGZl0d8yv4h2cfuSx3mwNqZ4=;
+        b=fuMCDaJHrEYys7tEiQ6wrkkw56o34HNGl9O6ROu3tE3odJYcQ+4Ns+6zMlSU852F8y
+         cJFyY+GHLJoIZ7dE1T0lFRFbCqlWtLs0Tv1FrTDbn6DNFSmAv2n1b4LolcsoIyipiNmk
+         Uj7v4hfUtz0dEm9gmpxQZUpvP7V9KTdh6fkJeh3rPWCUdDaukta/Sm0jrgAHFBaUuKOU
+         j++nrN6YtYRqRXQ+K46FoUckTSoRpPnKZs/3LB3zzQY8VFKjeUw2Z3iQVZNWmF1cN/K1
+         SUN0lst1uxtKDrU0axhT0zj80AoIgeCnsW4PeFkoqbL80BdhkOWb7hstu++LbQsYY7RE
+         xUMg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781999349; x=1782604149; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
+        b=Fe4pOa8bc2NXC+p3ak8QibgTjeiaOSXqIXt7XuZIVcFtlQwErXnhKgP3O4V53OSHtx
+         EebT3b6h1sS/AAM/weXKOjzvIRgnkV3GteIb8gPkgjbA59NoRf0t3pDWIwALIxe0tf0X
+         W4OxU+SXcFzl8jSyJYz77XnZqwU5hRPkJ7RTrPD5JtOt34lwMeSzq06vncwgtJZ8jgz4
+         cZNT1DyRouP1HlTXHB/gbf/hp5q4WgIk3Ap6OTJllMN4xpiLzbWi8vsijwWR8JKPPMlk
+         YJJ7Jwm3AABOSoHdL7qxtQlZh0LjBB4moe9Bqw65yU5HypHr6x1X3tU2ONvdK31EhP7E
+         dHWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781999349; x=1782604149;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
+        b=fDqJubUPgeLpbvVfvxdht6GtaQ9aG5zseZkNe35VjwbwBK86nfyKzfFmqhU7bF/Siu
+         F9jhKlEVqtI1ZA/TniJzaWr5sQLmkYvMtQrECdPR9xWpmftSz1A+Ouxt/F6652APn7H7
+         /L3BZqzcPYUVUxOQ0Fay8jXCQA+4TShxaJqaKuNaRzsWMrWZb8dlnmZ8pVhWyL4J5gh4
+         c5X1vrlSY3T/dhNB83gAg2yhVcJRzIurtZPnKHqtP7yoGDxtg5OXzMhamZ0Tekc/hA5d
+         zqaduC1GDXIDzpynSvoPOL2E2h34E9RIizMS5Cy3uo7aDM0vvLc0a/DH1MXxvADmN1r9
+         p9qg==
+X-Forwarded-Encrypted: i=1; AFNElJ9QH79Zm/JWxeRY36y6MnTDi9XxNlnpN6VHRAkDO9e66REMXa+mHBThd0VR97NAg18Y8VC0wlWRWn81JQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1Tqj/AngQSJPis+k6flO51fGWn9taTOHfT8/1my0u3zZGhq2n
+	h23ED1d3OhgcbkxOzmD+qY5bREg7KjCbRbCLcYpiT1ymFE+ZvV7xgdawtlAB2M2+2M0QASxf/vM
+	UexGoDq9CNROgm8RHN/GU2UGekbxLfzoqktoBDlfV
+X-Gm-Gg: AfdE7cnaIATk/WomllBvhmtQUNhpJN0ncE8NTH4eS/R9LW784rVK1mw2KccWyGsFnES
+	vZNCEGsWXA+ZuaX+Xyu0VFszm7bY5dkpQeiiIjz4qVV4W54+tn8vpGyn+P9WJ8sWAMJcaFSH4/g
+	csMZl3KeXvOqhp3EPxEDpHCmIL0O1+LDboiyDGZk80V982qi2nWJv0C/G8cqgbRCCGNvZ/Qbr0n
+	7DY5+qqzMPaPrPxbRO5HOWi7DCALPxsTq/mTTH1dF6n/vVsMbkEq2Qs0bhBe2F80AeEshlS/Rhb
+	Eu40bQ==
+X-Received: by 2002:a05:622a:580a:b0:516:4f62:85f1 with SMTP id
+ d75a77b69052e-519e4a744d4mr15890001cf.22.1781999348457; Sat, 20 Jun 2026
+ 16:49:08 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 13/21] RISC-V: perf: Implement supervisor counter
- delegation support
-To: sashiko-reviews@lists.linux.dev
-Cc: devicetree@vger.kernel.org, robh@kernel.org, conor+dt@kernel.org,
- linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20260608-counter_delegation-v6-13-285b72ed65a9@meta.com>
- <20260609062339.F223A1F00893@smtp.kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20260609062339.F223A1F00893@smtp.kernel.org>
-X-Migadu-Flow: FLOW_OUT
+References: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
+ <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+ <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+ <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
+ <ahB6QyHgYq8ksj65@lucifer> <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+In-Reply-To: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+From: Suren Baghdasaryan <surenb@google.com>
+Date: Sat, 20 Jun 2026 16:48:57 -0700
+X-Gm-Features: AVVi8CdrqLszoGfh6nxxBjM6ZU4jlgAaXlfN0swetCJNc_4l9-uU6mX0T8CUJHo
+Message-ID: <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Barry Song <baohua@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, "David Hildenbrand (Arm)" <david@kernel.org>, 
+	Matthew Wilcox <willy@infradead.org>, "Liam R. Howlett" <liam@infradead.org>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_162515_548792_55A284B1 
-X-CRM114-Status: GOOD (  36.78  )
+X-CRM114-CacheID: sfid-20260620_164911_705819_F8BE33E9 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,225 +130,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 6/8/26 11:23 PM, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 4 potential issue(s) to consider:
-> - [High] Bitwise shift of signed 32-bit integer causes overflow and corrupts SCOUNTINHIBIT on 64-bit systems.
-> - [High] Non-sampling events are permanently inhibited from counting because HPMEVENT_OF is unconditionally set but never cleared.
-> - [High] On 32-bit architectures, `rvpmu_deleg_ctr_enable_irq` writes modified event configuration to the wrong CSR (`CSR_SIREG4` instead of `CSR_SIREG5`).
-> - [High] SBI PMU snapshot logic breaks supervisor counter delegation by unconditionally bypassing S-mode CSR writes and reading stale shared memory.
-> --
->
-> commit ff1e171673cfe94a12c443765bd5b68dacf3b687
-> Author: Atish Patra <atishp@rivosinc.com>
->
-> RISC-V: perf: Implement supervisor counter delegation support
->
-> This patch adds support for RISC-V ISA extensions (ssccfg, sscsrind,
-> smcntrpmf) that allow programming hpmcounters directly from S-mode.
-> It falls back to the SBI PMU extension if the hardware extensions are
-> unavailable or for firmware counters.
->
->> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->> index 46a25979e95e9..1f16df9d0dd00 100644
->> --- a/drivers/perf/riscv_pmu_sbi.c
->> +++ b/drivers/perf/riscv_pmu_sbi.c
-> [ ... ]
->
->> -static u64 rvpmu_sbi_ctr_read(struct perf_event *event)
->> +static u64 rvpmu_ctr_read(struct perf_event *event)
->>   {
->>   	struct hw_perf_event *hwc = &event->hw;
->>   	int idx = hwc->idx;
-> [Severity: High]
-> Does this function still read stale data from the SBI shared memory when
-> using supervisor counter delegation?
->
-> If a platform supports both SBI PMU snapshots and S-mode counter delegation,
-That's not a likely scenario as S-mode counter delegation is not 
-available for VS mode.
-> the code unconditionally reads from the SBI shared memory for stopped
-> hardware counters. Since S-mode counters are stopped via direct CSR writes,
-> the SBI firmware is bypassed and the shared memory is never updated.
->
-> [ ... ]
->
->> +static void rvpmu_deleg_ctr_enable_irq(struct perf_event *event)
->> +{
->> +	unsigned long hpmevent_curr;
->> +	unsigned long of_mask;
->> +	struct hw_perf_event *hwc = &event->hw;
->> +	int counter_idx = hwc->idx;
->> +	unsigned long sip_val = csr_read(CSR_SIP);
->> +
->> +	if (!is_sampling_event(event) || (sip_val & SIP_LCOFIP))
->> +		return;
-> [Severity: High]
-> Will this early return cause non-sampling events to never be counted?
->
-> In update_deleg_hpmevent(), the HPMEVENT_OF bit is unconditionally set for
-> all events. The Sscofpmf specification states a counter does not increment
-> while its OF bit is 1. If we return early here for non-sampling events
-> (like perf stat), the OF bit is never cleared, which would leave these
-> counters permanently inhibited.
-N/A. Incorrect spec understanding.
-Sscofpmf's OF bit gates the LCOFI interrupt only. it does NOT stop the 
-counter.
->>   
->> -	/* Reinitialize and start all the counter that overflowed */
->> -	while (ctr_ovf_mask) {
->> -		if (ctr_ovf_mask & 0x01) {
->> -			event = cpu_hw_evt->events[idx];
->> -			hwc = &event->hw;
->> -			max_period = riscv_pmu_ctr_get_width_mask(event);
->> -			init_val = local64_read(&hwc->prev_count) & max_period;
->>   #if defined(CONFIG_32BIT)
->> -			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx, 1,
->> -				  flag, init_val, init_val >> 32, 0);
->> +	hpmevent_curr = csr_ind_read(CSR_SIREG5, SISELECT_SSCCFG_BASE, counter_idx);
->> +	of_mask = (u32)~HPMEVENTH_OF;
->>   #else
->> -			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx, 1,
->> -				  flag, init_val, 0, 0);
->> +	hpmevent_curr = csr_ind_read(CSR_SIREG2, SISELECT_SSCCFG_BASE, counter_idx);
->> +	of_mask = ~HPMEVENT_OF;
->>   #endif
->> -			perf_event_update_userpage(event);
->> -		}
->> -		ctr_ovf_mask = ctr_ovf_mask >> 1;
->> -		idx++;
->> -	}
->> +
->> +	hpmevent_curr &= of_mask;
->> +#if defined(CONFIG_32BIT)
->> +	csr_ind_write(CSR_SIREG4, SISELECT_SSCCFG_BASE, counter_idx, hpmevent_curr);
-> [Severity: High]
-> Is this writing the event configuration to the wrong CSR?
->
-> The code reads the high 32 bits of the event configuration from CSR_SIREG5
-> and clears the HPMEVENTH_OF bit, but it writes the modified value back to
-> CSR_SIREG4. Since CSR_SIREG4 maps to hpmcounterh, this might overwrite the
-> running counter's upper 32 bits with the event configuration value instead
-> of clearing the OF bit in the hpmevent register.
-
-Good catch. Fixed it in v7.
-
-
->> +#else
->> +	csr_ind_write(CSR_SIREG2, SISELECT_SSCCFG_BASE, counter_idx, hpmevent_curr);
->> +#endif
->> +}
->> +
->> +static void rvpmu_deleg_ctr_start(struct perf_event *event, u64 ival)
->> +{
->> +	unsigned long scountinhibit_val = 0;
->> +	struct hw_perf_event *hwc = &event->hw;
->> +
->> +#if defined(CONFIG_32BIT)
->> +	csr_ind_write(CSR_SIREG, SISELECT_SSCCFG_BASE, hwc->idx, ival & 0xFFFFFFFF);
->> +	csr_ind_write(CSR_SIREG4, SISELECT_SSCCFG_BASE, hwc->idx, ival >> BITS_PER_LONG);
->> +#else
->> +	csr_ind_write(CSR_SIREG, SISELECT_SSCCFG_BASE, hwc->idx, ival);
->> +#endif
->> +
->> +	rvpmu_deleg_ctr_enable_irq(event);
->> +
->> +	scountinhibit_val = csr_read(CSR_SCOUNTINHIBIT);
->> +	scountinhibit_val &= ~(1 << hwc->idx);
-> [Severity: High]
-> Could this bitwise shift result in sign-extension and corrupt SCOUNTINHIBIT
-> on 64-bit systems?
->
-> Because 1 is a signed 32-bit integer, (1 << 31) results in -2147483648.
-> When this is negated by a bitwise NOT or cast to an unsigned long on a
-> 64-bit architecture, it gets sign-extended (e.g., 0x000000007FFFFFFF).
-> This could erroneously clear bits 32-63 of the SCOUNTINHIBIT CSR.
-There are only 32 bit counters defined by architecture.
-> Should this use 1UL << hwc->idx or the BIT() macro instead?
-It's better coding standard to use BIT anyways. Fixed in v7.
-> [ ... ]
->
->> -static void rvpmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
->> -					  u64 ctr_ovf_mask)
->> +/*
->> + * This function starts all the used counters in two step approach.
->> + * Any counter that did not overflow can be start in a single step
->> + * while the overflowed counters need to be started with updated initialization
->> + * value.
->> + */
->> +static void rvpmu_start_overflow_mask(struct riscv_pmu *pmu, u64 ctr_ovf_mask)
->>   {
->> +	int idx = 0, i;
->> +	struct perf_event *event;
->> +	unsigned long ctr_start_mask = 0;
->> +	u64 max_period, init_val = 0;
->> +	struct hw_perf_event *hwc;
->>   	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
->>   
->>   	if (sbi_pmu_snapshot_available())
->> -		rvpmu_sbi_start_ovf_ctrs_snapshot(cpu_hw_evt, ctr_ovf_mask);
->> -	else
->> -		rvpmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
->> +		return rvpmu_sbi_start_ovf_ctrs_snapshot(cpu_hw_evt, ctr_ovf_mask);
-> [Severity: High]
-> Does this check bypass S-mode delegation when both snapshot and delegation
-> are available?
-N/A. Not a likely scenario.
-> If a platform supports both, this unconditionally calls
-> rvpmu_sbi_start_ovf_ctrs_snapshot(), which starts S-mode delegated hardware
-> counters using SBI ECALLs rather than direct S-mode CSR writes.
->
-> [ ... ]
->
->> +static void update_deleg_hpmevent(int counter_idx, uint64_t event_value, uint64_t filter_bits)
->> +{
->> +	u64 hpmevent_value = 0;
->> +
->> +	/* OF bit should be enable during the start if sampling is requested */
->> +	hpmevent_value = (event_value & ~HPMEVENT_MASK) | filter_bits | HPMEVENT_OF;
-> [Severity: High]
-> Are we unconditionally setting the HPMEVENT_OF bit here?
->
-> Although the comment states it should be enabled if sampling is requested,
-> the bit is added for all events. Combined with the early return in
-> rvpmu_deleg_ctr_enable_irq(), this causes non-sampling events to remain
-> inhibited permanently.
-N/A OF bit is for IRQ overflow not for inhibition.
-> [ ... ]
->
->>   static void rvpmu_ctr_stop(struct perf_event *event, unsigned long flag)
->>   {
->> -	rvpmu_sbi_ctr_stop(event, flag);
->> -	/* TODO: Counter delegation implementation */
->> +	struct hw_perf_event *hwc = &event->hw;
->> +
->> +	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
->> +	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
->> +		rvpmu_reset_scounteren((void *)event);
->> +
->> +	if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event)) {
->> +		/*
->> +		 * The counter is already stopped. No need to stop again. Counter
->> +		 * mapping will be reset in clear_idx function.
->> +		 */
->> +		if (flag != RISCV_PMU_STOP_FLAG_RESET)
->> +			rvpmu_deleg_ctr_stop_mask((1 << hwc->idx));
-> [Severity: High]
-> Can this 32-bit shift overflow and corrupt the upper 32 bits of SCOUNTINHIBIT?
->
-> Passing (1 << 31) will sign-extend to 0xFFFFFFFF80000000 on 64-bit systems.
-> When passed to rvpmu_deleg_ctr_stop_mask, it ORs this mask into SCOUNTINHIBIT,
-> which erroneously sets bits 32-63 to 1.
->
-> Consider using 1UL << hwc->idx or the BIT() macro to prevent overflow.
-Yes. Changed to use BIT macro.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXkgMjIsIDIwMjYgYXQgMjozMeKAr1BNIEJhcnJ5IFNvbmcgPGJhb2h1YUBrZXJu
+ZWwub3JnPiB3cm90ZToKPgo+ID4KPiA+IEFnYWluIHRoaXMgaXMgbWFraW5nIG1lIHdhbnQgdG8g
+c2l0IG91dHNpZGUgYW5kIHNpcCBvbiBzb21lIGxlbW9uYWRlIGFuZAo+ID4gaWNlIDopCj4gPgo+
+ID4gWWVzIC0gYW5kcm9pZCBwcm9jZXNzZXMgYXJlIGFnZ3Jlc3NpdmVseSBtdWx0aS10aHJlYWRl
+ZCwgc3VyZSBvZiBjb3Vyc2UuCj4gPgo+ID4gVGhlIG1pc3NpbmcgYml0IGhlcmUgaXMgdGhlIGZv
+cmtpbmcgLSB3aGF0LCB3aGVyZSwgd2h5LCB3aGVuPwo+ID4KPgo+IEkgcmVhbGx5IHdhbnQgdG8g
+a25vdyB0aGUgd2hhdCwgd2hlcmUsIHdoeSwgYW5kIHdoZW4KPiBhcyB3ZWxsLiBCdXQgc2luY2Ug
+bW9zdCBhcHBsaWNhdGlvbnMgYXJlIG5vdAo+IG9wZW4tc291cmNlLCBpdCBpcyBiYXNpY2FsbHkg
+YSBibGFjayBob2xlIGZvciBhbnlvbmUKPiBvdGhlciB0aGFuIHRoZSBvd25lcnMgb2YgdGhvc2Ug
+YXBwcy4KPgo+IExldCBtZSB0cnkgdG8gZG8gbW9yZSBpbnZlc3RpZ2F0aW9uIHRvIHVuZGVyc3Rh
+bmQgd2hhdAo+IGlzIGdvaW5nIG9uLCBhbHRob3VnaCBpdCBpcyByZWFsbHkgaGFyZC4KPiBUbyBi
+ZSBob25lc3QsIEkgd291bGQgcmF0aGVyIHRoZSBBbmRyb2lkIGZyYW1ld29yawo+IGNvbXBsZXRl
+bHkgcHJvaGliaXQgYXBwcyBmcm9tIGNhbGxpbmcgZm9yaygpLCBpZgo+IHBvc3NpYmxlLgo+Cj4g
+PiBBbmQgdGhlbiB5b3Ugc2F5IHp5Z290ZSBpcyBzb21ldGltZXMgbXVsdGktdGhyZWFkZWQgYnV0
+IHNvbWV0aW1lcwo+ID4gc2luZ2xlLXRocmVhZGVkLCB3aGljaCBpcyBhZGRpbmcgYSB3aG9sZSBi
+dW5jaCBvZiBjb25mdXNpb24gb24gdG9wIG9mIGFsbAo+ID4gdGhhdC4KPiA+Cj4gPiBJIGRvbid0
+IGZpbmQgdGhlc2Ugc3RhY2sgdHJhY2UgZHVtcHMgYWxsIHRoYXQgdXNlZnVsICh0aG91Z2ggdGhh
+bmtzIG9mCj4gPiBjb3Vyc2UgZm9yIHRha2luZyB0aGUgdGltZSB0byBnYXRoZXIgdGhlbSksIEkg
+dGhpbmsgd2UnZCBiZSBiZXR0ZXIgb2ZmIHdpdGgKPiA+IHNwZWNpZmljIGRhdGEgb24gZm9ya2lu
+ZywgaW4gc29tZSBfY29uY2lzZV8gX3N1bW1hcmlzZWRfIGZvcm0sIGlkZWFsbHkgd2l0aAo+ID4g
+bnVtYmVycy4KPiA+Cj4gPiBUaGVyZSdzIHN1Y2ggYSB0aGluZyBhcyB0b28gbXVjaCBpbmZvcm1h
+dGlvbiA6KSkKPgo+IFRoaXMgdHJhY2Ugc2hvd3MgUEYgSS9PIGluIG9uZSB0aHJlYWQgb3Zlcmxh
+cHBpbmcKPiB3aXRoIGEgZm9yaygpIGNhbGwgaW4gYW5vdGhlciB0aHJlYWQuCj4gQnV0IGFzIEkg
+ZXhwbGFpbmVkLCBJIHJlYWxseSBkbyBub3Qga25vdyB3aGF0IGtpbmQgb2YKPiB1c2VyIGJlaGF2
+aW9yIGlzIGJlaGluZCBpdC4KPgo+ID4KPiA+IEFueXdheSwgYWdhaW4sIHBsZWFzZSBsZXQncyBz
+ZWUgYSBuZXcgX1JGQ18gd2l0aCB0aGUgYXBwcm9hY2ggcHJvcG9zZWQgYnkKPiA+IFN1cmVuLCB3
+aXRoIHNvbWUgX3N1Y2NpbmN0XyBkYXRhIGRlbW9uc3RyYXRpbmcgX2V4YWN0bHlfIHdoYXQgdGhl
+IHByb2JsZW0KPiA+IGlzLCBzbyB3ZSBjYW4gbWFrZSBzb21lIGhlYWR3YXkgaGVyZS4KPgo+IE9r
+YXksIHN1cmUuIFRoYW5rcyBmb3IgeW91ciBwYXRpZW5jZS4KCkp1c3QgY2hlY2tpbmcgaW4gb24g
+dGhlIGZvbGxvd3VwIHBsYW5zLiBJSVVDIHRoZSBSRkMgbWVudGlvbmVkIHdpbGwKdHJ5IHRvIGlt
+cGxlbWVudCB0aGUgc29sdXRpb24gd2UgZGlzY3Vzc2VkIGF0IExTRk1NOiBzcGxpdHRpbmcKVk1f
+RkFVTFRfUkVUUlkgaW50byB0d28gZmxhZ3MgLSBvbmUgZm9yIHJldHJ5aW5nIHVuZGVyIHBlci1W
+TUEgbG9ja3MKYW5kIGFub3RoZXIgb25lIHRvIGZhbGxiYWNrIHRvIG1tYXBfbG9jay4KCkJhcnJ5
+LCBpZiB5b3UgbmVlZCBhbnkgaGVscCBvciBjbGFyaWZpY2F0aW9uLCBwbGVhc2UgZG8gbm90IGhl
+c2l0YXRlCnRvIGNvbnRhY3QgbWUuClRoYW5rcywKU3VyZW4uCgo+Cj4gPgo+ID4gQW5kIG5vdyBJ
+J20gb2ZmIGZvciBhIGNvcm5ldHRvISA6KQo+Cj4gU291bmRzIGdvb2QgOikgRW5qb3kgeW91ciBj
+b3JuZXR0byEKPgo+IEJlc3QgUmVnYXJkcwo+IEJhcnJ5CgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
