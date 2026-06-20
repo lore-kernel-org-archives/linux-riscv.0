@@ -4,91 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BB2CDB466
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 09:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B50CDB466
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 09:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XzU0p6vDWpoDjVccxZw63hLAClADk+7BQSESsSWQi6c=; b=Ye9rtDVegEu3whvs60KPF0CgzX
-	OaHh6VOnsdrZMdJ2tKVoDCfpZTVvfg0d4Mav3jSbGuU6hDS8fEk+6RXnCJ7JTRBByGRjXemFFQGnN
-	CtVVktIB/Wg8MoeSIJ2WT5bREqd3h2X1rkk1Xkpprry83e6yCsNSRClclOpcpSO0h7HOJfbK822JY
-	Lj5qxbRUcgym9wiv0ehXuY8atJdhqxxlP/b8pbSSQH9SYe1ctlnbWzh9wqgSuhiRHtlrJYwz7L2jo
-	zRLVsHNoAmFDS5pCjGFw5Yhg7Wyd1ePB5POY2QxceRmNaUq2N/7cOfF6r/EcR//AhALwDGDUiZvlc
-	3fZsxGtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qvh1CHOD4Zb0q3CR0839Nrb2nX0r4qkGs9oWxoTlZwQ=; b=l6Tu6SoKtuH5lu
+	esSp5JPHPDcy0+sa46ENvmBEhEMpqB0UbxFUZQdJ7rtdLgjTiqr/DmiYOrZOncPd4TWE5yP4yyMQB
+	oBWDBkspeRBR9vRvi60XYJEQsA1z8ducMvU1sgb38iqJpS/Pn/9B3kZe4PdvX+1YIMWZbptYgqE1X
+	a/5XaHrexSYY1aH9ayMdtDD0xyzQgzv4nn0Af3F5SbOUFrgtpuF9MhQzaC/M1utGnp2PnJoo/pHG1
+	kGcVt+8g4uF19FVhC3NM517qCL6woHEncW9Gpu8OuQoBbrIiapbJ0N33shXpOeN3xqmJz7U8OainY
+	+npWZlVyjojbQuuaSxiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1warcC-00000003IBb-1P4w;
-	Sat, 20 Jun 2026 09:03:48 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1warxI-00000003J1b-2WX5;
+	Sat, 20 Jun 2026 09:25:36 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1warc9-00000003IB9-3joE
+	id 1warxE-00000003J1B-3AP4
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jun 2026 09:03:47 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84536ecfc5bso2515631b3a.2
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Jun 2026 02:03:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781946225; x=1782551025; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vnaC9u5H2wJSRqMHidcxYwZxkhPyhVvcFpavNr1emCs=;
-        b=CZTsb1xjtG2TNhteS//hcgHzjVNNQKn+iildVpL2ukVRZTUYvxe9nWhzX6+l1oqPRh
-         4dvJIBZbyViHeRtevsEbDMREnVWuIhLwicHeZ7ZH74+wtXp1EBSw8xWdEcCBj5Ce2yHs
-         8KkjG6BG64O7I8o6MJjo03aUYTOhtD7Ii+AgmiRtR8qO/YFtUd/e0tm9xWmTnzVhEyBH
-         XwYIZVn7NqKa+DpuNdNg9sgMEbrnNsCFyHymgBTCh/Tj8Z1ZSr+LrPQi92h/Bnvjy440
-         zqq1fxAIykj8snjbhQVKids0fnoSLn9l6Mh5CeQ0CCpNpINbNjnVWGOBray3qIm4G8dj
-         oeNQ==
+	Sat, 20 Jun 2026 09:25:35 +0000
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com [209.85.208.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 9A25A3F1E4
+	for <linux-riscv@lists.infradead.org>; Sat, 20 Jun 2026 09:25:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1781947527;
+	bh=n5xFsXHiCYeSu+z4b8f1V8P0TsaKnuNIhP0Q1tsDFRE=;
+	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=BIN4jicVvZe+oxNbZ8MVO5udLecTZ6qN1z9h73fPv6Yl2HCIPajTYvqbIMggqfgkt
+	 UB1rNMOm+qIdgxpY1YWPrSB74fx7R6hDIe+fiQI5SBQu8ZsD4DFxh3kGfx/yCrVPOr
+	 KzZPr3TjjM0vQDNAJQXBu94B0wzHW96wgKP7nD6mrH9gRkc9az+4k+4eZMTEZBrrms
+	 FjSIkpD1O90If7rdKPhUaAUttgZ1ctcHzRFXZFNDWONW1mBSzImniZcJmlLPIfjUQe
+	 WRDi7TeMQT32HhDjP1LZScpvWyI9dlLV1dTSWXAScpXSsjTyyjILnhaqcTdt/fuKuc
+	 ytyyeXDQiAqsYi5Aqofrv1fVt/vY/M2gP9oaycQFcY3TExQ8jSCot4KxQw9QMnx66Q
+	 /q7aAHkhYRJ2qEhc3ZtIuxsxH0CSrvrlHBS4EuHET3aVYTaMJIklBd36uHjPD6pzAP
+	 NB6OeHfdPSodK/51AxjsQeBK8w7J15RFoP4JZ5vZ1AmW2WURxeTJHx8DQck8TfkmjS
+	 Utwg/q3x1JU5o2Rwo6HxT6xwJX1gUulGVF9OQHL8/KH6zMLio+8LeHwN5d5j0VhwB2
+	 BsV5Z63AMLD/yjas9m+fcCCfXIaLqhKfdyAgbBAmyuGJRZoFWHmLAPqjj3rfMc8eA9
+	 Wn+9uq6t4yAQJBRTvgMISwsI=
+Received: by mail-ed1-f69.google.com with SMTP id 4fb4d7f45d1cf-6976b072689so830431a12.3
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Jun 2026 02:25:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781947527; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QVi8Stvky7cZOndcI/lA6k5D8svM0ut//YfNMxbmz8Kuxhe3TJIU5So+j713EweB3E
+         cgvNf0pkF/Fb7Q158kdyWh+9l33777ifNbQdDd7FfK7xHNLlfprlz7GpxLDAQ89RnY0/
+         oCHC+kgUPfV3fucYq4Ps10/nBpB8+kxnchr5qqUC5Shm3WkY0q0OIM9mNjx0L+AwT0nH
+         z6itQfcCZutKT5LQ0fXb+4CE1/PogKtGwgNwuCEFV95sRRGAflNNm/Mu5w7BwbEdDhTS
+         JKxgBzBxhw3bmvT5GC9h3PKBDCPQBY12JLpzjVQoJ7/3TpSSOkSMiqF1wZXGg7wXnTIp
+         T3cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version;
+        bh=n5xFsXHiCYeSu+z4b8f1V8P0TsaKnuNIhP0Q1tsDFRE=;
+        fh=se+SR+7LDMhYjt0XpUqoL0JVVkbMzMl2GAz6qc5fdZo=;
+        b=BZWhqMSV0f2TwnvgrUniJ9b877EpJZ8X2+u88cK+Q8E9hPVkZeXpow2YHZ43q3mEyX
+         ftjnyvILwUcIhOZV5heyN5PLz7UErkqYnannkft6ZRgIu0hP2fkTiU4lzH8MD9NuO6qC
+         GWGgIaD7sLX5aCWR/+yCskoZCZWlAeRmUvMoRxn2Pc0RHbzfDEXfi1O+0pdxsAs92SxV
+         ahpYDSD3coNefQZjA4rKg+Dk18GvLC+WdYg0hO2m2M0NhfMUDKDUuBI3S5e1mPjUKd5h
+         FUzxEELIEG1vPMJ9mvMItDSybnFOZ53OmqA1/jQHefoBEM9arbOFJYla90uWkEYjBPCM
+         NWlA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781946225; x=1782551025;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20251104; t=1781947527; x=1782552327;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vnaC9u5H2wJSRqMHidcxYwZxkhPyhVvcFpavNr1emCs=;
-        b=iE90REr20xtbxQHRSm+KllRy+0nkdkqShtbwstPpPYlOcJ9PBOkbWQ09La+12O5gqE
-         MT4kLcqrcrpCBbeQIITQ5UiZCjvNNZ5hqycp0/jnyBRYV757HRlHyaFpJs4F2gJFuwxx
-         JMYYCeGxPek0HXWU5n3SPXu9Bt3fe6FFVTog20/lTfxnCIm+7A0Ughf5SjhW4anY2j3A
-         tNlAikYVV10/+d7ptU20ixVVxHqyS7AZXXFdHUehjYCy05ONlsZRRYF2HowHO+5HCmgP
-         IW1U76tpkCGG8cfkTM/UXepMhA/sPxKCDt280+1mIcfSZxnKl5YGUGNLZaIgytqDpCbW
-         a7wA==
-X-Forwarded-Encrypted: i=1; AFNElJ/vjNBkl6rLO4JvqaLAzkRv3l9D6sqdN0sH5Kj8kl3zF9tyEC0fasAoK0XxjdKC4Ch5BZQbp3yLM7Zl+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEYwXcLj82RMQhDF8jPf+Z/RtzLAi6xCdSrDus3WwWycnbBJcL
-	sROWKMXmT4Y5HuAPej50XLpxDVtnYZTbr+U/5AmYzy3pevtFpVqzm+KB
-X-Gm-Gg: AfdE7ck4n5mNxI6+GVURim75SjIfQjRAia8n4Vgexj0X36vVUGOril5AibiEADZkFqp
-	3rghuZ3u2DwBF7sP+BFZYlyKKUscfEnt9yTIO+xsT192TP4l1PcnRPkKRedUHeU30Ck/r82h642
-	O+0CBFk8W8aQL/Eb3F2/CzqOzw+IOGdkDLemqBwnkCYhP/fuFU4Xc8Ai6n9WakP+ZDbRVc6NP4w
-	08Cz2Zd84tsRh8KVnLM25OVZ6wFTjBk4R6F4k2lljXfbutYy8U7Am6P31LRJtOew91BdWT7SHES
-	PZ1GC2yP8MR8YIz0AOHQ46+UhECIYYQyZkv/dI1ZFalBYlNiQi8BEwLiD5SlwjhFbRdWdbvLZ6E
-	aFIMlBPuU/kqEzLjap0byrH+Dh4OnVBHHqL4qVUjI5QkklXU55MhVfQ2v4XqC
-X-Received: by 2002:a05:6a20:431a:b0:3b4:640e:f6b1 with SMTP id adf61e73a8af0-3bb32914066mr7723228637.10.1781946224670;
-        Sat, 20 Jun 2026 02:03:44 -0700 (PDT)
-Received: from localhost ([2a12:a305:4::302d])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8bc374375csm1885419a12.13.2026.06.20.02.03.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Jun 2026 02:03:44 -0700 (PDT)
-Date: Sat, 20 Jun 2026 05:03:36 -0400
-From: Guodong Xu <docular.xu@gmail.com>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Guodong Xu <guodong@riscstar.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>, 
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH 1/5] riscv: dts: spacemit: set console baud rate on K3
- Pico-ITX board
-Message-ID: <oktm3eodc7xk3cdvxtjudycofa2rgddczh77zz5neef5w2mzzd@sh46luoxt2ln>
-References: <20260620062238.3199108-1-aurelien@aurel32.net>
- <20260620062238.3199108-2-aurelien@aurel32.net>
+        bh=n5xFsXHiCYeSu+z4b8f1V8P0TsaKnuNIhP0Q1tsDFRE=;
+        b=mU5opDfNtPFc/ypxASBvHTIwta0ZgyI/xwf0vjc6C4Tuyms9L9W96CgUc6KU6Allwo
+         Yn94EQ4KlL+7Yn120pvOTUXjq5LOOrSRSN/b6mHUYV3NoEAdAX0i9s44FnN0C51cwnBS
+         mNbTWxpOc8FfXaGv9Ipxtyc4adqbTgxM75/IkJbqpVEUbRPBnO4kAO0VyPYIJc8QzSKr
+         xiq//qN4ueH+pJcvG7ZSx8My9JVOhmrBbsAOsy/EIUR9A+2uTRHXS9aa3dmhBE40LChh
+         2AIP50FEmCyXgipHVxRh6YfJgZRLCPAYv2KYtoQq7gvG/AYOQDj/gsRR35oAJ0cNy41h
+         CAkA==
+X-Forwarded-Encrypted: i=1; AFNElJ8zfxrfpR3l3DWlpjcMmDgp05Bj8xJi2nyNsRFAJaXAgYPcm0n3K4JRzLbFLH8kB5EgSZtrCALhUrW9tw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe0h8K+G5CzbDk5ZydKruTL9Epr6k/MPQ4hfEwXCib3+Fm/Ocl
+	uobh+ZydgLsqxpgsTlX0y+WPuT1tyPcoJVLPxGK1aU9+zXAbAEBrRFjuthhZMUnVEqbUKpwuZQa
+	20yCL8c03nAvN8pUQGwg7EWVCV3qPz9TeqDkY7VJ++yR2us9klZ6zK1JiilQnqIWKTK2YiIrEC1
+	/BDqxHPy9Pmb2nqFPPfzDpKToQOWqAS9afq4YhI6FS5Ld7DQX8o5TFjZ6uTAuc
+X-Gm-Gg: AfdE7ck/lbf98vH1W1CIFj4yH+/lFqBS3VYVfM5vBpxm0Sl2F6QH07OgYvTCEbZGeKX
+	anh6SQhPP1TQRWhzPW8bOLFD2NfQXeY4p5DkLEKY3jtkQTYyBNQQHzD1CkBSuKnLx97QLMy3en5
+	tRkA1J7alnmsELxM69jRx74oRYQKR8fq8LakJ+Ejxv5CYRI5f9OkteXqUg722rWyxmHA==
+X-Received: by 2002:a17:907:a0a:b0:c05:7524:884d with SMTP id a640c23a62f3a-c097ccc63bdmr365481266b.37.1781947527102;
+        Sat, 20 Jun 2026 02:25:27 -0700 (PDT)
+X-Received: by 2002:a17:907:a0a:b0:c05:7524:884d with SMTP id
+ a640c23a62f3a-c097ccc63bdmr365479066b.37.1781947526610; Sat, 20 Jun 2026
+ 02:25:26 -0700 (PDT)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 20 Jun 2026 05:25:25 -0400
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 20 Jun 2026 05:25:25 -0400
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260620062238.3199108-2-aurelien@aurel32.net>
+In-Reply-To: <ajQPAk_ALP-84obp@MacBook-0RXW5>
+References: <ab2yd35rm6OgZUmb@gpd4> <20260320222916.19987-1-boqun@kernel.org>
+ <CAJM55Z-hiNDuu5UwoBe7m0wq+_WJrRY0cwopALUgpG+r3ixj8g@mail.gmail.com> <ajQPAk_ALP-84obp@MacBook-0RXW5>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+User-Agent: alot/0.0.0
+Date: Sat, 20 Jun 2026 05:25:25 -0400
+X-Gm-Features: AVVi8CePAmtWU1wCLksbKKPXzz3ljeQkbOuCVyrO0kjLNvUr7HtE5CfeHsWd_MY
+Message-ID: <CAJM55Z_15U7GssTOims1=J34CYSj=8CDE_di1kJYs5hE3=J53w@mail.gmail.com>
+Subject: Re: [PATCH v2] rcu: Use an intermediate irq_work to start process_srcu()
+To: Boqun Feng <boqun@kernel.org>
+Cc: Joel Fernandes <joelagnelf@nvidia.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, frederic@kernel.org, 
+	neeraj.iitr10@gmail.com, urezki@gmail.com, boqun.feng@gmail.com, 
+	rcu@vger.kernel.org, Tejun Heo <tj@kernel.org>, bpf@vger.kernel.org, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	John Fastabend <john.fastabend@gmail.com>, Andrea Righi <arighi@nvidia.com>, 
+	Zqiang <qiang.zhang@linux.dev>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, Sarah Emery <sarah.emery@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_020345_932233_FC06056F 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260620_022533_284694_B17BFF23 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +134,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien,
+Quoting Boqun Feng (2026-06-18 17:30:10)
+> On Thu, Jun 18, 2026 at 08:11:36AM -0500, Emil Renner Berthing wrote:
+> > Quoting Boqun Feng (2026-03-20 23:29:16)
+> > > Since commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms
+> > > of SRCU-fast") we switched to SRCU in BPF. However as BPF instrument can
+> > > happen basically everywhere (including where a scheduler lock is held),
+> > > call_srcu() now needs to avoid acquiring scheduler lock because
+> > > otherwise it could cause deadlock [1]. Fix this by following what the
+> > > previous RCU Tasks Trace did: using an irq_work to delay the queuing of
+> > > the work to start process_srcu().
+> > >
+> > > [boqun: Apply Joel's feedback]
+> > > [boqun: Apply Andrea's test feedback]
+> > >
+> > > Reported-by: Andrea Righi <arighi@nvidia.com>
+> > > Closes: https://lore.kernel.org/all/abjzvz_tL_siV17s@gpd4/
+> > > Fixes: commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms of SRCU-fast")
+> > > Link: https://lore.kernel.org/rcu/3c4c5a29-24ea-492d-aeee-e0d9605b4183@nvidia.com/ [1]
+> > > Suggested-by: Zqiang <qiang.zhang@linux.dev>
+> > > Tested-by: Andrea Righi <arighi@nvidia.com>
+> > > Signed-off-by: Boqun Feng <boqun@kernel.org>
+> >
+> > Thanks for the patch, which is now upstream as
+> > 7c405fb3279b ("rcu: Use an intermediate irq_work to start process_srcu()")
+> >
+> > Unfortunately it seems to halt booting on the Allwinner D1 single-core RISC-V
+> > SoC both on the 7.0 and 7.1 kernels:
+> >
+>
+> By "single-core", is it only one CPU in that system?
+>
+> > https://esmil.dk/d1-7.0.txt
+> > https://esmil.dk/d1-7.1.txt
+> >
 
-On 2026-06-20 08:22, Aurelien Jarno wrote:
->Because the default console's baud rate is not set, defconfig kernels do
->not have any serial output on this platform. Set the baud rate to
->115200, matching what is used by U-Boot etc on this platform.
->
->Fixes: 7a6131804986 ("riscv: dts: spacemit: add K3 Pico-ITX board support")
->Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+Yes, the SoC only has one CPU core capable of running Linux at least.
 
-Thanks for the patch.
+> From the callstack,
+>
+> [  243.002818] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+> [  243.010681] task:kworker/0:0     state:D stack:0     pid:9     tgid:9     ppid:2      task_flags:0x4208060 flags:0x00000000
+> [  243.021858] Workqueue: device_link_wq device_link_release_fn
+> [  243.027587] Call Trace:
+> [  243.030079] [<ffffffff80745b66>] __schedule+0x232/0x530
+> [  243.035365] [<ffffffff80745e82>] schedule+0x1e/0x94
+> [  243.040298] [<ffffffff8074aa7a>] schedule_timeout+0x6e/0xa8
+> [  243.045929] [<ffffffff8004d6a0>] wakeup_preempt+0x8c/0x98
+> [  243.051380] [<ffffffff80746aee>] wait_for_completion+0x3a/0xb0
+> [  243.057267] [<ffffffff80087226>] __synchronize_srcu.part.0+0x4e/0x60
+> [  243.063712] [<ffffffff80084414>] rcu_tasks_get_gp_data+0xc/0x10
+> [  243.069699] [<ffffffff80490898>] device_link_release_fn+0x14/0x80
+> [  243.075850] [<ffffffff8003dbd0>] process_one_work+0xf8/0x1c8
+> [  243.081583] [<ffffffff8003e282>] worker_thread+0x11a/0x254
+> [  243.087127] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+> [  243.092755] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+> [  243.098381] [<ffffffff8004499e>] kthread+0xbe/0xe4
+> [  243.103231] [<ffffffff8001349e>] ret_from_fork_kernel+0x6/0xd0
+> [  243.109127] [<ffffffff800517a8>] schedule_tail+0x8/0xac
+> [  243.114410] [<ffffffff800448dc>] kthreads_online_cpu+0x0/0x4
+> [  243.120121] [<ffffffff8074be0a>] ret_from_fork_kernel_asm+0x12/0x18
+>
+> I will guess for some reasons the irq_work was missed or the IPI never
+> happened. Is it possible for you to enable trace points ipi_send_cpu and
+> ipi_entry to get more information?
 
-Reviewed-by: Guodong Xu <docular.xu@gmail.com>
+I have to admit I've not used tracepoints before, but it seems like only
+ipi_send_cpu and ipi_send_cpumask is available on RISC-V.
+I've now added trace_event=ipi:* and tp_printk to the command line, and this
+is what I get:
+https://esmil.dk/d1-7.0-2.txt
 
->---
-> arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
-> 1 file changed, 1 insertion(+), 1 deletion(-)
->
->diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
->index b89c1521e6649..509cebc0c9568 100644
->--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
->+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
->@@ -18,7 +18,7 @@ aliases {
-> 	};
->
-> 	chosen {
->-		stdout-path = "serial0";
->+		stdout-path = "serial0:115200n8";
-> 	};
->
-> 	memory@100000000 {
->-- 
->2.53.0
->
->
->_______________________________________________
->linux-riscv mailing list
->linux-riscv@lists.infradead.org
->http://lists.infradead.org/mailman/listinfo/linux-riscv
+Let me know if there is something I'm missing or something else I can do to help
+find the bug.
+
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
