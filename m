@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDF0CD98E4
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 06:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C520CDB46C
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2026 06:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wlTcY+JhTYQMue2voVVg2cPZGT4Eog0nHQO6/0wiVnQ=; b=UckNwGnslzoKxH
-	TrnvbsVBi9VRBsWiYYb7iNi3JljVVyTAsSe08rOD7kprIx9PUh7oHWbqcbxYyl9C0AugCVEELXrv0
-	hPaOZlOqpNm80AXpkbjkAoohPlZPu0h3E8JxNqaI9qG/lUMiYWjtrqCxkgQ18oXCMKPKxiyE3Hh5/
-	WuL34E6VhzF0VkjZZ1y7wbAWiuw5EKobZWiKsJDjWILXfRlPtXocxNvrktfYJHGabrLVQ+qmvZ30X
-	ua6kI4+yIrIk4EA+i5EIONW+4XJcgLML1OCMqGEuOVl1kpcUHP47BuXxRswSWYRonrqkYYKkC11W4
-	Ahl+m0KUnVizc+IuwXJg==;
+	List-Owner; bh=IoAl+o4eWjyK671DsEYS3M2HYIvr6s00+szJyC+wPJE=; b=01djnBv+883Goc
+	T44MpmRWwmj/a+Vh/QbPZWu69+twrjSHYUMCKb4RJfjCdEsr64g3lEu/8WrA89aeIK/VSfT0We4iJ
+	BOd1CacZxE2zPoSysVBLxrhIQF1C8tLQx2ghEZtqnhr3ETTcMXAnrDuFY8T5V5XqN8ypp8DIAqt1L
+	HuSwykL4Ebtzk+7mPUARPn4+FjooHlR5VHCNwBZueEsw4oQ+o5EBhlfNiD3q+0PKnAdyTtnmb2o8T
+	QTYombLEi2fqA9FflGkAqtPTQX7dfLOuQ14Vs8x2PAfByeYWtMU642Dq+uQXeAvH5w76FqIjNIASA
+	ygJ/+LPJbcIhDNYOTspg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wap6g-00000003CAL-1OCE;
+	id 1wap6g-00000003CAP-1nDd;
 	Sat, 20 Jun 2026 06:23:06 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wap6b-00000003C7o-1YjY
+	id 1wap6c-00000003C7q-077k
 	for linux-riscv@lists.infradead.org;
 	Sat, 20 Jun 2026 06:23:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=Soo1HuDwKOflS4we3Kq2KkCVaLAcuHc9IrwUZyIjWdI=; b=S832u9rseYEiIUr+9c+1OhZC78
-	Aq1p4wXT4KINa1nPcITe+fol/s4JDTuohEvVus7he7C1dpyfzRx07qMs1eUqXSxBbziapSnynxSPj
-	nkk4UY59s61mdbSAmnfIeR8NEN3XRljKH425/0L5zW3fA0FxBnwMr4JojD/cj76Ojh/nUxD32gCp5
-	3yt79oQp52o/vQIDI7YitWTO3MvntxEzBO396WTGYeuBO3DkHSoFW/i1eTMAR4fT9e5m/5IsyGjG0
-	YKivAZvG4b6+qZpv2FkvBxwLWNGSICsHN6L0KwxfWDKjEEFtyEO0Ko5nqQ9DVW8l0J7FyInEpYRh8
-	stAe6+Dg==;
+	bh=OmX4eD9vf59jP6Lq5Q979aBQWLB/rxIvO8yHZPRXNAc=; b=D5V0pxww8KL6qL9RNHMebLabQx
+	/SmftApCtfC7zXo1feF3C+nnOE10bIbWBoqgknPwoXqIB5CvicJcLjFAihdlEyICONBQBIM2QkrMv
+	K7aVuhRldjFbbfsyGYoji238onVBKUFicKUNUDRwZQot/pL5loQy80l7YMADxRnJkMI8es8kz4sj8
+	3L8lgGigvfO1b/cOHXrHd+6qDUiilL9MA56R0Svls3RmUS+rN8jlRF+jwYMiPLq0Ciqe3kTiVqtuW
+	GnNFk+w7hhATxQ7jZh7bJXqmlo/nW1OcfRcIAYBmxYLcpPd2Enno6VSQ3MBmvkLLb49/KxZo/ha28
+	iSi84aNQ==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wap6T-000000006dx-3oTy;
-	Sat, 20 Jun 2026 08:22:53 +0200
+	id 1wap6U-000000006e1-1LqJ;
+	Sat, 20 Jun 2026 08:22:54 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: linux-kernel@vger.kernel.org,
 	Rob Herring <robh@kernel.org>,
@@ -57,16 +57,16 @@ Cc: Aurelien Jarno <aurelien@aurel32.net>,
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
 	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
 	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH 4/5] riscv: dts: spacemit: add i2c aliases on K3 Pico-ITX board
-Date: Sat, 20 Jun 2026 08:22:05 +0200
-Message-ID: <20260620062238.3199108-5-aurelien@aurel32.net>
+Subject: [PATCH 5/5] riscv: dts: spacemit: improve RTL8211F PHY configuration on K3 Pico-ITX board
+Date: Sat, 20 Jun 2026 08:22:06 +0200
+Message-ID: <20260620062238.3199108-6-aurelien@aurel32.net>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260620062238.3199108-1-aurelien@aurel32.net>
 References: <20260620062238.3199108-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_232301_415274_89D458C0 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20260619_232302_062203_821CF0CD 
+X-CRM114-Status: UNSURE (   7.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,9 +84,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add i2c aliases for i2c2 and i2c8 on K3 Pico-ITX board. This is useful
-to keep a stable number for the /dev entries after loading the i2c-dev
-module.
+Vendor kernel enabled ALDPS (Advanced Link Down Power Saving) on the
+RTL8211F PHY to save power when link down.
+
+Vendor kernel also disabled the 125MHz clkout clock signal, and indeed
+the schematics confirms that it only goes to a test point (TP14), so
+let's do the same.
 
 Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 ---
@@ -94,18 +97,18 @@ Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
  1 file changed, 2 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index 0a0c221c99e74..bf64b6c6f867f 100644
+index bf64b6c6f867f..e12d798b48a49 100644
 --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
 +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -14,6 +14,8 @@ / {
- 
- 	aliases {
- 		ethernet0 = &eth0;
-+		i2c2 = &i2c2;
-+		i2c8 = &i2c8;
- 		serial0 = &uart0;
+@@ -234,6 +234,8 @@ phy0: phy@1 {
+ 			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
+ 			reset-assert-us = <10000>;
+ 			reset-deassert-us = <10000>;
++			realtek,aldps-enable;
++			realtek,clkout-disable;
+ 		};
  	};
- 
+ };
 -- 
 2.53.0
 
