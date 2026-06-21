@@ -4,104 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31BCCD98F2
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Jun 2026 14:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5FECDB46D
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Jun 2026 14:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3idB/ggpOhSkMkCImIgMIgdv2V0qBU3cMQefj/ioh/Q=; b=SZZDOgld2tQDEy
-	i9YTsJy0B+9ARAVs3WEJ/v964EORHLTON2Thc12XIcXcvquRyYbHtvn9vkIr6ZA+SL5h44MSJkP+1
-	zurBpdd0JyL+nOshCE4ATtPB5eZPLzp9nvD8k4AWQEmRZOsdAZjtCbjirN9tJ1KUPqcrAU1dQzbws
-	DAYMy3UeYwcOejr1Vxddj62ZTqo4uO8zbKreX4SHw2VLAXw38Rf3J8RhD2u2J7Gd9SCFZ8GomlBvk
-	HQ0g7XvVc/P78nUjJamoPZPKAhWnq5kPrFMchH5IwzVrWrFYuf98f1PHfp/boMN3aXC5rArmvM6tg
-	xaXAMFmc96C3IzXCNgRw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+tFh6ivvyZlnN3d3RFFVUHqw83IsLkUmCfI4keoe6dw=; b=Z/XFISJqFnoPpT
+	dzx/5ilQCEfKBqjsN7CEcI7H/MmZiP2jrxQ4xMFhUiaM2AB9siW1xG1k11NLJRezzCVOFZc5NBYcy
+	qfUq633002vy3EIWvWFXMhosGehW1eR98I5lGJb5ttgNLSUFD56RDT2hKS+zkDyLEbqWljJW80piD
+	y8HE9EeD8rrcyDMjbdVK49sv6e60CtoL0VtyroH5igWDO7GsEk+N8Wq49r+dcCzZRiOvkCSbxRNjL
+	3Dm3L5yoUHKI4G/XglUkQSs/8hVnzZ5ZDu4I2MtjxCTlmXsMi8Abe+Xs+J7xROE4UTnFcYqfjU8RB
+	MstdjsXLG12h3ep6DOIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJOh-00000003zwm-1yBj;
-	Sun, 21 Jun 2026 14:43:43 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wbJe1-000000040gZ-3KzR;
+	Sun, 21 Jun 2026 14:59:33 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJOe-00000003zwA-2llc
+	id 1wbJdy-000000040fo-1QFj
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Jun 2026 14:43:41 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84236f9b638so1537149b3a.2
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Jun 2026 07:43:40 -0700 (PDT)
+	Sun, 21 Jun 2026 14:59:32 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-37ce68a54f8so2099847a91.0
+        for <linux-riscv@lists.infradead.org>; Sun, 21 Jun 2026 07:59:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782053020; x=1782657820; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xdV1fV0Fid/R2q9Vczf4SGtHhC3UkfiLS8XxvVVRGDM=;
-        b=LPED0lbkK4MxjmeLLbBhT5G/E+42KGzhvRe67agOnj0Au/sMDhZrQ6Q/R1M8d3QGen
-         c2uw6liiur6faVc3rT88jFmXSgaQzvUobacsV3wwqdScXIvKmFYdaqQ4FYgptSThPlMP
-         iWKYdFvoU9s/SKUhgs1YCPvtwRHIhZLJBRxmmxJnSARGECFwBFpNYjQatw+yRoj2vnHt
-         wKUEsWIRLujiWOSNiOTNic6kGAr49kdsc70hdq3A6YzRns7QTLQTrnULOFPXTBPrOnoX
-         kMfk3G4KvGiWca14n+uNmcj3Yb6/eRhNYSoEqc9mkUhpAbYd0gMN1VmnMkrjL252bpct
-         BUzw==
+        d=gmail.com; s=20251104; t=1782053969; x=1782658769; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=q9Iy1NRZrQdiv+3iSOUUb7XMLeE6HcnU1eSibV26qpo=;
+        b=CXg67tffKdFqaGjef7gZPcn5nal10rdC3XJs5v8GFM55BwkdGor8V/7gEfjypMqhIj
+         ajS0srat8p46Hg6gO7cK16/rdm1cb/yppmhUds5KvPFOkbT7q3JJ+uW/9odkVwenQhP+
+         7rJcIvxgH5xxRl8Gk/jotToxUU7h0VMrDR1LHTE0EXg/CMguBwH4PNoy1XF0qQyM+K+X
+         m09Ii6H/aYOJkA8S8BxNjqMqenrYKuAcXZn9az4bd6uagVGe8x3OQm+gEi27wZQeTtd3
+         2jWmWJ97zvz3IdxcLZibXErB/gJJPxkOel4F7pwY/u/nyiQyXOO0x7qVPV+jh3Olz75w
+         PrYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782053020; x=1782657820;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xdV1fV0Fid/R2q9Vczf4SGtHhC3UkfiLS8XxvVVRGDM=;
-        b=cCU8U3C52aziK+VTe7gcYy1jh8Rlyex4RcJlMQif6MnzResL99xTY3k4u8NVW3fCLt
-         iTAgfv3hi/IFczTOFPXiLLudZD/W4pbCKYi+0DPJhl7nqEOVZ/kLdEvYA3yafUs2NCgk
-         aK2kqrZRVcspVLDze4bVtJRtiz3Wo1iCWV4BWALs/02zvmAchcZ5RTKNzJ/mxMOz7Hxy
-         ChdCO18M6vvU7RCe51aL5/JMlvVBkAZnzub8qn6StJTJLvSjWpSeEnVdCuXUl1qaKc0G
-         0t5B/pbqkw5Z/hoQCBetqp7cgxrTNo3Yp8enfebWp2yBLQFZO2U1IzEJcIniwR8cPyad
-         0S+g==
-X-Forwarded-Encrypted: i=1; AFNElJ/1rC6Hwu//BIdmuDeuSLBRy8bMfSkr+1oB531WfXMbvXINpuJdeEVbNYumVsd+fm9hlqPqTywoNx+4GA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHaRHxuxV2G+cuo+f2veI/TrCKRe0BEcHh3loSExZ+p701xfVh
-	tx2l2bwQtOXu2xgaGzcyFEp5zdzR46cHFsXk/PdgIwH33egIbhK7r2d7
-X-Gm-Gg: AfdE7cl1z64ygftoJ6IUf0Q/Jl9FP+63BvXhC1W0BeSI1UphJNG1J7LI32aulf+5O1H
-	YD7gj34f6Aa9b6E7F8P2Pg3S+du2r/Aq6Ag8dmjTRL16AiOiRX5xt/haa8MDxdUUs49MYLl4JCH
-	6IzmZSNQYthQb9yDNL5MWh0JEA7is34deKqPLeD8UR6XS/TSaw3KW9P8BRsmWcTeJUKPd1LovnV
-	iMpd3Eo5fAVpvKMxpFq/DAfTwTDBaquxrTwzzaqZ5KDNLxgJcYa0qTxfy7qAwCECmxGyMpP9OPO
-	TQNOE6s22kqS7sHNjUUzdKbYQgBD0ZYs14TKe8XqCTivpSlk/BQ23WqHccwyuU/KASTPyjnqSwb
-	EYV5O8EdWCWGwko+ld8PSmuXs+YmpvYzyyjs9517kUEEzfLjAAMAdTpKbkKxF8hW1ZEAVzgg4Rh
-	XTry2XkfU6jSIBNsJzjehhwvlhaeZN
-X-Received: by 2002:a05:6a00:1d97:b0:838:c01a:7a50 with SMTP id d2e1a72fcca58-845508a70c9mr10966516b3a.30.1782053019778;
-        Sun, 21 Jun 2026 07:43:39 -0700 (PDT)
-Received: from computer ([2a09:bac5:3b4a:8aa::dd:17])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84564e7687csm4963254b3a.35.2026.06.21.07.43.31
+        d=1e100.net; s=20251104; t=1782053969; x=1782658769;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q9Iy1NRZrQdiv+3iSOUUb7XMLeE6HcnU1eSibV26qpo=;
+        b=odnT3r7Jqcfko2h9zX6Rc2jhbNr9k1NkZJLw8zRotfuNlaxIU3ErrqU0QozznrIxAs
+         v37CD93AVM2zs2ipOprlUyHD/MMJtnWU/8DtQVD07t7ja2bPF6qoPuYDZmjmUaAJG/vj
+         90NaDwzoJSXZQMqCGWQKJw5tL56jB2NjIKNdZ5YaVO5W+FP3rO1R217aU/wOaII5Y6ug
+         RGG5n2Rbvh/1TQUsRF0EzBpyGIvSbHs62hkLlFTP57xGjqUgvB9xbWpp1GCyUy//wYc3
+         LCua2yxZX2IJ+EU6a8oQ+vIOQxZcKPwBoMkzG7ri/jJtWEkXCWmbwVlK7rEUI+Ej1I73
+         dNSA==
+X-Forwarded-Encrypted: i=1; AHgh+RrDFQUi7jyhwaX1V04FmUJefuNPTwdCHcP9CKPkpamlyDUkXQROp7pkZR8JZ3mlP1022wTiSwx1AgzhTA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKOjLcAe3ecllgSvUJ5KcIo9mAYsIYEfladhWOFuutHjBG0XdM
+	2KA2BEGjEzPty01XnDJ3SAikzOQlYZYQQZuDKsmgdxNqtCOBjOh+yU2dC1Uo9GPN
+X-Gm-Gg: AfdE7cloVyObRpb0vcxqnrYgav3ylBRsw8YeY76fs/MeHDc4T7T8MsEjCOBmZt0McC3
+	7Ag9pAX+TPcybqklYVwrnTVDuFLpPP+VgQA5ykXb69geGShFZmVkvFwlbw5bpSJGDNRJ9p9LFMA
+	IXGwO/uHHcdyPsgdDhYx9lESf+4/i3sixHoe8Xyit1+mgLFN1u/zlUL9uxONZR7NnneKps1AxHg
+	XtbklnYf0VtCxk27cBNZcqJ4HOCPqpXccyA6++E3KmN5Q4rcrJxlu/KW6CoV2g5CikdVsyTnn5P
+	hqtJlmlDCOESz6VU4Ls79KOkV9pfs1Qzq4HlF1sw14FBPlGzF82Ld95mA3Ja+BkUang4wR2q195
+	r75J7wkAUrnwYPMBRt3V/YkJHjWbKUKkq3TYnJOsfvxxI0+1SqJiRQgullR5WLI7MEP6sAwhn15
+	+rGTpxmqEnAz/DjphOBw==
+X-Received: by 2002:a17:90b:1807:b0:368:9da3:c496 with SMTP id 98e67ed59e1d1-37d1ea12264mr9696809a91.24.1782053968739;
+        Sun, 21 Jun 2026 07:59:28 -0700 (PDT)
+Received: from ubuntu.. ([110.9.142.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37d4f225870sm4544896a91.8.2026.06.21.07.59.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Jun 2026 07:43:39 -0700 (PDT)
-From: Varun R Mallya <varunrmallya@gmail.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	eddyz87@gmail.com,
-	memxor@gmail.com,
-	bjorn@kernel.org
-Cc: alex@ghiti.fr,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	pulehui@huawei.com,
-	puranjay@kernel.org,
+        Sun, 21 Jun 2026 07:59:28 -0700 (PDT)
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+To: Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Will Deacon <will@kernel.org>
+Cc: Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	varunrmallya@gmail.com
-Subject: [PATCH bpf-next 3/3] riscv, bpf: Remove BPF exceptions from BPF CI denylist
-Date: Sun, 21 Jun 2026 20:12:59 +0530
-Message-ID: <20260621144259.288135-4-varunrmallya@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260621144259.288135-1-varunrmallya@gmail.com>
-References: <20260621144259.288135-1-varunrmallya@gmail.com>
+	loongarch@lists.linux.dev,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	WANG Xuerui <kernel@xen0n.name>
+Subject: [PATCH 0/6] treewide: remove unnecessary invalid range checks in memblock iteration loops
+Date: Sun, 21 Jun 2026 23:59:10 +0900
+Message-ID: <20260621145919.1453-1-ekffu200098@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_074340_697748_910122F5 
-X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-CacheID: sfid-20260621_075930_420888_F34B8DA9 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,24 +118,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch removes BPF exceptions from riscv64 denylist on
-BPF selftests since support for exceptions has been added now.
+The memblock API guarantees that for_each_mem_range() and
+for_each_mem_pfn_range() never return an invalid range, meaning start is
+always less than end.
 
-Signed-off-by: Varun R Mallya <varunrmallya@gmail.com>
----
- tools/testing/selftests/bpf/DENYLIST.riscv64 | 1 -
- 1 file changed, 1 deletion(-)
+Several memblock callers still have unnecessary invalid range checks in
+their loop bodies, so remove them.
 
-diff --git a/tools/testing/selftests/bpf/DENYLIST.riscv64 b/tools/testing/selftests/bpf/DENYLIST.riscv64
-index 4fc4dfdde293..9268351ce4c1 100644
---- a/tools/testing/selftests/bpf/DENYLIST.riscv64
-+++ b/tools/testing/selftests/bpf/DENYLIST.riscv64
-@@ -1,3 +1,2 @@
- # riscv64 deny list for BPF CI and local vmtest
--exceptions					# JIT does not support exceptions
- tailcalls/tailcall_bpf2bpf*			# JIT does not support mixing bpf2bpf and tailcalls
+Patches 1-4 cover for_each_mem_range() callers. memblock never stores a
+zero-size region, so the range it returns always has start < end. Some
+callers apply __va() or __phys_to_virt() before comparing, but these keep
+start < end too, so the check is unreachable.
+
+Patches 5-6 cover for_each_mem_pfn_range() callers. __next_mem_pfn_range()
+skips any region that contains no whole page, so it only ever returns
+start_pfn < end_pfn and the check is unnecessary.
+
+For reference, commit 36ca7f4be809 ("arm64: mm: Remove bogus stop
+condition from map_mem() loop") did a similar cleanup in arm64 map_mem().
+
+All these checks are in different trees, so I split the change into one
+patch per arch/subsystem. The patches are independent and can be applied
+separately.
+
+Sang-Heon Jeon (6):
+  arm64: mm: remove unreachable invalid range check in
+    kasan_init_shadow()
+  LoongArch: remove unreachable invalid range check in kasan_init()
+  riscv: remove unreachable invalid range check in
+    create_linear_mapping_page_table()
+  riscv: remove unreachable invalid range check in kasan_init()
+  mm: remove unnecessary empty range check in
+    early_calculate_totalpages()
+  mm/hugetlb: remove unnecessary empty range check in
+    hugetlb_bootmem_set_nodes()
+
+ arch/arm64/mm/kasan_init.c     | 3 ---
+ arch/loongarch/mm/kasan_init.c | 3 ---
+ arch/riscv/mm/init.c           | 2 --
+ arch/riscv/mm/kasan_init.c     | 3 ---
+ mm/hugetlb.c                   | 3 +--
+ mm/mm_init.c                   | 3 +--
+ 6 files changed, 2 insertions(+), 15 deletions(-)
+
 -- 
-2.54.0
+2.43.0
 
 
 _______________________________________________
