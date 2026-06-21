@@ -4,54 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5952ECD98F2
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Jun 2026 15:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0165DCD98F2
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Jun 2026 20:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/82OSUIP5s0jYzcrh3MRvNOL2jWO11+8Ek6/iomkoSU=; b=BdPY2WJH1THYQ6s9/iR9wJcMtW
-	8OutV3rV8/4zccrMBP/fH0cBv9jmbnTdJpHDW6x0QoLjG4X1kzyZVQzmFpk3/RExR7OYNxXjSebQN
-	kmEzC+F+uRLL8AUU2PdX/NH+QsoiV79D9JS1MCZs9i5zpstu+r2rQeN+jBpnbfGInns75ZsFqrYoQ
-	zgMugcjsK81onq1nN9hHsWPnaMS4k/3j2pYHkphbaiTlx+J8E2p+DLfSloA79u6JWsgMLPk02j+kB
-	G+eDv2fL0Rbo8MWT0xIzK2MxzGF0+aw/4djfEtflEAJgIYeRKChjAv1O7EsjmxGN2yaiW6Q+SoKqe
-	Sbrnc05A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Gsgvsvk7IrOoXvjdiU8KirmmXMq+K6HApyVwfoUhHXs=; b=hCaRthR2jochps
+	noggfR9dzClnVOHXtH2sPcQQ2pKHE4pLcWlAV3IQSGq1sz19u80uFnCFzFTExIjEbsyP1beSJshup
+	rfqy/Js7bq8IFV9Ch0Qw/PPreUtfBprSk9zGrOap/mVowiKYP/eT5AmhVGRQeN1KNTMhyyAZJgP4k
+	Enc5D41hb8BNt+TTmWgt4YMQESTv8unmyonr6V0oWQ06Ms8UmtjWzLId2YYati/A0X0gmJ48E8tZW
+	ovgK66PA7zxzbdZmCJK5hFQl9fRlioHPvbHnd+ymfgez8uPIXDPamUWEZIAHh4Kq2JXqvhcmyJCP4
+	cQ9pX789z4+s6YEPceiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbK9z-000000042T6-2bbX;
-	Sun, 21 Jun 2026 15:32:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wbP6m-000000049Nd-3UQM;
+	Sun, 21 Jun 2026 20:49:36 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbK9y-000000042T0-1lkP
-	for linux-riscv@lists.infradead.org;
-	Sun, 21 Jun 2026 15:32:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C615600AF;
-	Sun, 21 Jun 2026 15:32:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D29D01F000E9;
-	Sun, 21 Jun 2026 15:32:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782055953;
-	bh=Gvc449anW/TaW87Tk/rh+DmBQXANxwCVNZsSYVPpmO4=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=B7RDxXYtRElE/JdSxTx6BaUqtINa0eNmbhY+qoPRpskg4k14RGxKO9bZKMzSpQ6Xq
-	 UtKoEupVVjcXJtlKqmQO5QIVoh6LHVlivtljHzB+QUXyvXD4fexbFPYgwJcl1Ubmwe
-	 p/yfOq6X4iHFQXGrJYdXw+lVgQpJh4eZd4vibG8wIdsXaaJY65GGxzfDUVnQD2fpuM
-	 C4cmPhUHOmrIeXYtmz/Bjzq25RFi3uBzf+uSwq85dpMQYr4QPyvfh7BHTlAkK7CtND
-	 jhGBHYCewnIR3pyFsMJRaXwrbSN9Humqq9ABtenxz6S/mzDYX6WX1ED0oqwfU3dooX
-	 Oscq12rZmlazw==
-Content-Type: multipart/mixed; boundary="===============5443670299775155235=="
+	id 1wbP6l-000000049NL-1qGs;
+	Sun, 21 Jun 2026 20:49:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=M8eA5erpVUaElEed48rJS2wGTR5+Yv1nLd38ESSS2Rw=; b=g6iAM/3xDdWgV5X+yh4FkmLv62
+	OiHp0rJWKrS0azBEgV4lUi6tf73QIx3b1EfxkJWLE9+0vYHZwchHgBudDH0pHDxxXgTjwrWdu/mct
+	Pv33b+2kvV7VjO9v7r9ZJhg42qZrzl0nH7+5lsv84CGZePPxYtNzgtc+jHFw/OqqVr5gfB6dJeyht
+	Ta+Y3SqdvDLqXkzUCijftXQvtQR1xKMpDX3P8Pi4bp33DePJ+q2Ae6ol72ij7EXyHBJ2UsHVBJ0x9
+	+qUBkAxK1+zVPdKdmOAH0oG08P8SIzHjxBxu4r6NIyihQBFDoDV5qvDZCRzyYtm8IkqtseF10HUAj
+	vqUbW0Ug==;
+Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbP6X-00000002ysn-1JeK;
+	Sun, 21 Jun 2026 20:49:21 +0000
+Date: Sun, 21 Jun 2026 21:49:21 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Suren Baghdasaryan <surenb@google.com>
+Cc: Barry Song <baohua@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>, akpm@linux-foundation.org,
+	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org,
+	mhocko@suse.com, jack@suse.cz, pfalcato@suse.de,
+	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com,
+	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org,
+	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com,
+	bhe@redhat.com, youngjun.park@lge.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <ajhOUdbWsswgQyl2@casper.infradead.org>
+References: <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+ <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+ <ag4h87CBd-gph9zX@casper.infradead.org>
+ <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org>
+ <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
+ <ahB6QyHgYq8ksj65@lucifer>
+ <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+ <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
 MIME-Version: 1.0
-Message-Id: <950216803ac2380e0537b27c94ff87dd2ae0dc689fe320c51d96b9095cefc614@mail.kernel.org>
-In-Reply-To: <20260621144259.288135-3-varunrmallya@gmail.com>
-References: <20260621144259.288135-3-varunrmallya@gmail.com>
-Subject: Re: [PATCH bpf-next 2/3] riscv, bpf: Add support for BPF exceptions
-From: bot+bpf-ci@kernel.org
-To: varunrmallya@gmail.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,bjorn@kernel.org
-Cc: alex@ghiti.fr,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,pulehui@huawei.com,puranjay@kernel.org,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,bpf@vger.kernel.org,linux-kselftest@vger.kernel.org,varunrmallya@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Sun, 21 Jun 2026 15:32:32 +0000 (UTC)
+Content-Disposition: inline
+In-Reply-To: <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,110 +82,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5443670299775155235==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Sat, Jun 20, 2026 at 04:48:57PM -0700, Suren Baghdasaryan wrote:
+> Just checking in on the followup plans. IIUC the RFC mentioned will
+> try to implement the solution we discussed at LSFMM: splitting
+> VM_FAULT_RETRY into two flags - one for retrying under per-VMA locks
+> and another one to fallback to mmap_lock.
 
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index c03c1de16b79..eafac0655dab 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
+I continue to hate this idea.  I don't believe that those who were
+pushing for it have ever tried to understand the whole fault path.
+It's utterly byzantine.
 
-[ ... ]
+I defy anyone to make sense of this:
 
-> @@ -2002,11 +2043,61 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->  void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
->  {
->  	int i, stack_adjust = 0, store_offset, bpf_stack_adjust;
-> +	struct bpf_prog_aux *aux = ctx->prog->aux;
->
->  	bpf_stack_adjust = round_up(ctx->prog->aux->stack_depth, STACK_ALIGN);
->  	if (bpf_stack_adjust)
->  		mark_fp(ctx);
->
-> +	if (aux->exception_boundary || aux->exception_cb) {
-> +		/*
-> +		 * A program acting as an exception boundary saves the full set
-> +		 * of riscv callee saved registers (ra, s0-s11).
-> +		 */
-> +		stack_adjust = round_up(ARRAY_SIZE(rv_exception_csave_regs) * 8,
-> +					STACK_ALIGN);
-> +		stack_adjust += bpf_stack_adjust;
-> +		store_offset = stack_adjust - 8;
-> +
-> +		/* emit kcfi type preamble immediately before the first insn */
-> +		emit_kcfi(is_subprog ? cfi_bpf_subprog_hash : cfi_bpf_hash, ctx);
-> +
-> +		/* nops reserved for auipc+jalr pair */
-> +		for (i = 0; i < RV_FENTRY_NINSNS; i++)
-> +			emit(rv_nop(), ctx);
-> +
-> +		/* First instruction is always setting the tail-call-counter
-> +		 * (TCC) register. This instruction is skipped for tail calls.
-> +		 * Force using a 4-byte (non-compressed) instruction.
-> +		 */
-> +		emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
+        /*
+         * NOTE! This will make us return with VM_FAULT_RETRY, but with
+         * the fault lock still held. That's how FAULT_FLAG_RETRY_NOWAIT
+         * is supposed to work. We have way too many special cases..
+         */
+        if (vmf->flags & FAULT_FLAG_RETRY_NOWAIT)
+                return 0;
 
-This isn't a bug, but could the kcfi preamble, fentry-nops loop, and
-TCC-init instruction be emitted once before the exception_boundary /
-exception_cb branch instead of being duplicated? The same three-part
-sequence appears again below in the non-exception path, and the two copies
-must stay byte-for-byte identical since the tail-call epilogue skip offset
-depends on this fixed layout.
+        *fpin = maybe_unlock_mmap_for_io(vmf, *fpin);
+        if (vmf->flags & FAULT_FLAG_KILLABLE) {
+                if (__folio_lock_killable(folio)) {
+                        /*
+                         * We didn't have the right flags to drop the
+                         * fault lock, but all fault_handlers only check
+                         * for fatal signals if we return VM_FAULT_RETRY,
+                         * so we need to drop the fault lock here and
+                         * return 0 if we don't have a fpin.
+                         */
+                        if (*fpin == NULL)
+                                release_fault_lock(vmf);
+                        return 0;
+                }
 
-> +
-> +		if (!aux->exception_cb && aux->exception_boundary) {
-> +			/*
-> +			 * Boundary program: allocate the frame and save the
-> +			 * full callee-saved set, capturing the caller's values.
-> +			 */
-> +			emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
-> +			for (i = 0; i < ARRAY_SIZE(rv_exception_csave_regs); i++) {
-> +				emit_sd(RV_REG_SP, store_offset,
-> +					rv_exception_csave_regs[i], ctx);
-> +				store_offset -= 8;
-> +			}
-> +			emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
-> +		} else {
-> +			/*
-> +			 * Exception callback, reuse the boundary program's
-> +			 * frame, whose frame pointer is passed in a2. Setting
-> +			 * SP = FP - stack_adjust lines the epilogue's loads up
-> +			 * with the registers the boundary saved.
-> +			 */
-> +			emit_mv(RV_REG_FP, RV_REG_A2, ctx);
-> +			emit_addi(RV_REG_SP, RV_REG_FP, -stack_adjust, ctx);
-> +		}
-> +
-> +		goto tail_setup;
-> +	}
-> +
->  	if (seen_reg(RV_REG_RA, ctx))
->  		stack_adjust += 8;
->  	stack_adjust += 8; /* RV_REG_FP */
-
-[ ... ]
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/27908252575
---===============5443670299775155235==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Wed need to simplify the fault path, not add additional complexity.
+Josef has said he wouldn't've done the lock dropping had we had per-VMA
+locks.  We should rip it out.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5443670299775155235==--
-
