@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B522DCD98F0
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Jun 2026 14:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832F5CD98F2
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Jun 2026 14:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=06gK4cenekL/RLKeetzIZkCdqpxetjjTkXe/NGNV0Jo=; b=CqI8/+3bTj/fFN
-	GKktAfT5zmAb0aI7kj8lBOeF7U69qgRXvYKeXfhZDglip6PiDyRKo3vMC/SWsHOhX0PDG9MGYOxMe
-	1aGZHgXGuRVr532jA4u4LNL8lmVh3XPGo5U9hoJuoy1t7x+qy2lqyRL1dckrzTWWw52kPQeuf/Ja8
-	1+uxzROrdqAmGRNcX0HeImMswSnKhcbSPVAkLBOe8+MouDFf3szkucR8LJ22yV3aSCJVewpauQ7R6
-	Ps7ugOdy8NYBfZ5iLUM02Y2Osy7WUvy4T+YtvjE/SJttjihAd4gSTN5hoJVd/XmlG1FKForfSdZl/
-	u2EyQlL//DkCWb8k2JTg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DepeNNWEXVU2xYHYRBa4aaZ07rooP4V2EsFf8ldhSlo=; b=N3mKIZzvY43enL
+	h07d+UauaGChDTPkvvAfQgZq4IRGXxv7TC88Grb/MXcq2zHgTZE/MHm7lHAifgtKwafDzsGkvH+tp
+	DO3T1SMRh88xCQv4DDAnmKVlGTxNjnl3uM3gSowJpBC56lSZUqeq7CLQQgGUSm3/aVl8y7RX7FNS1
+	YNI1VZNvL7c1C/qJl7ZLgkpmLyNnR0a1eyr9Qbopy4COv7kGrDkiPYNy2S7TwjxaPdZdLVjUR7SyX
+	cp3T5xCpa0J3Zd61OGuy58sjxyGwKZ7G3/x72rW0THLMZWDMhPtyWe/e+4dm3CzDxxAFsh3caGOUW
+	uqkakzbnUH8iYSvxURFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJOY-00000003zuX-1Unx;
-	Sun, 21 Jun 2026 14:43:34 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wbJOH-00000003zrx-0giY;
+	Sun, 21 Jun 2026 14:43:17 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJOV-00000003ztt-2VrJ
+	id 1wbJOD-00000003zrY-3hmc
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Jun 2026 14:43:32 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8456005a6c4so813200b3a.2
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Jun 2026 07:43:31 -0700 (PDT)
+	Sun, 21 Jun 2026 14:43:16 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-8424b00710aso2439482b3a.0
+        for <linux-riscv@lists.infradead.org>; Sun, 21 Jun 2026 07:43:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782053011; x=1782657811; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0L1IGDwSo3IngnCe3HqBNRffP7FgjigbpkTmExCV6uk=;
-        b=XBHwcW8CKYNXGegHxpbN7FE3R1c6Oqypo9GToT8ILhFbw6n0AiJlMxaqSsg8olKSoB
-         9ouIPiOxtPzdtvW0mvD2rVt59yYrLH7S85bLl/R618ZaizzQB54G76SHjAOle3p9q9KH
-         ViJjNWKJxTugp67hhmrEF1xxfosDNqHMjX5U3i4IkzL60h6vpSwGbti6PMBgQUTRfk1C
-         ctgZ5WFFQMWIn4jRc55Ypo3MyMvcZS/EX4nNf1rOltCMCs+gvLgQuRDutj4iouesJQxj
-         TsguoCBdydxHOabtpCbNbF4ftaCeLu87Gp7NTklbtCuAATF9lMSsf5L5yJJBNGI0E79J
-         uB3Q==
+        d=gmail.com; s=20251104; t=1782052992; x=1782657792; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=j21QVkqcaKlx86cBO+UHi3ihgP8Gq0rj/qDDVA+Xps4=;
+        b=aUHtU//HnuGO6XZ+MqJGFffxR2XETBK3QHQo1TVUhXj72OHCZZPdiKzr+4KJRZUiXV
+         vehNveg6Vlx4ujSIAfhjQd17zGfa3ImqPNKNDk18AFFz6coHavxGJjQp1aX5RqLeFL0k
+         HPDeiObtLHmqUbCQepd0n6qIHwZRhy7hs8jvUSUMXN4xbybf1+WVANPa5VBvtH0WU98/
+         YPHqKQxT0m/6z8ToIlb8UM0iuBMRMfxKdfhaW+y2vxN/SnD9MwhUwp+Wu+tGh2CHq25r
+         rg8hO4ST+bd7EX2l1oIZA5iB+nQaoaKRz9tPHcX0MqxvUAnGy+aMjQUoya0kyUoayP67
+         ugpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782053011; x=1782657811;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0L1IGDwSo3IngnCe3HqBNRffP7FgjigbpkTmExCV6uk=;
-        b=SWAGRW4uda8fXbyizU+1YXJc81SA4WB0ALHXuUOO5UnZ4O1/uW8ZyS98+WT8CU5sYb
-         LT4YuSXD6K3BgE2zuLt2lbb+6zZGazp+QCrU4B01E5CA6rfYorr2JhkGsGH9juVLmOD0
-         wIf9Gm/HAMgQr5BY+5wEivwpcMDOpMzzgx+avJDQJ5Wjw1S67a71hJat/cLekXwcomxx
-         9vyu0uZysun1ckIDNJaf74SRzXm8rFG/slBN5Vh7MDt9+Yz0Epl+VrhMeby7YI8h1HAm
-         eNYqOvoEH56nfU+9ma1wGYnYfjGv+WDTZn+cAr4U3aJSiAuM/6M9fP92UyOQCYHGXac4
-         eDwQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqRMm00rWGQUaoxLx67M7m88VmKLKYmYacxYSPcBaFYeqeDxtypsuTgk+P9koW/8QAVnkUb/WuC9Bf+8A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8K6/mXhzRzB2OxdD7zb6GltwY35Sy5mfZPexqMmKN8jaPo5x1
-	6eem7EMeE/+5McLgNXu5l8FU4uoLos1VEXhzqLMORCdfYzeaZh8AzLJP
-X-Gm-Gg: AfdE7ck687E9HRr3t72weA3X2u7mMqzkmAMvD8STEzSM+jBGk3JLT2TPpdmSPYFZmG3
-	Rcah8IWxGQKGmUy9rUEgObbxJwBc13QkKpi2SDlciEohKO2JHjbDJ/Bl7tyKG0UxkYPIQZhfWhA
-	Jt8snK+XoXLEU3xejlvJXc4ifkBqxstHP0AH20jiQI/tZDJNW86/bTKkCNe01YEFZ1y4hxRDc45
-	fDq5dO1uOYMauXarmoGksUqmWaQnLXeZNL9AZf3JeUK4giNZaHsZODkBLiWFCCLkqoOb28DiDP3
-	ry2oU5kL8zeWmryZldLnjGvnXb1Q/PQBtJ2vh1gq6I1UCgxlCrItPMjTRZoWWMBJQtHNEKYEP26
-	jVvBPRAN2/I6cG8tm+0FGsgyzpWpq9URWtzDD/FTJkEvMOsROoE5UCYPCa3r9IlyvGKnqNCAzRB
-	FnsDqqszC8ueAMqg6+tbMErd5P3ia5
-X-Received: by 2002:a05:6a00:b42:b0:845:313c:d6c2 with SMTP id d2e1a72fcca58-8455089ecc1mr11704474b3a.31.1782053010671;
-        Sun, 21 Jun 2026 07:43:30 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1782052992; x=1782657792;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=j21QVkqcaKlx86cBO+UHi3ihgP8Gq0rj/qDDVA+Xps4=;
+        b=aJIcgmYwtZ3kY89fk9JLKuDw7QSn2+j4pS3EcVM88anWIJzf6H6A9KKRxsdchW65TH
+         4fgFHv5oQTbCbkPTnXz3FIWg4SokSikbTecbfgXg5fmVM5P19cB5z8nVudv9AAl3V10/
+         FEiVng+AP4jLhGHrTSrw9mXxi/hCl38AlxmGqFMOj6oEI9twzlm22eWUoINzdO/Od/Eu
+         7QIo6Qz0z2+eQtv9iUJLwp4aVtRxBnJyZ220HS/u0j2Bg8N4gLV6m9HQH3wxnM6xV8iW
+         O4WiNs2Y1Ia5Z3nwNVR1tfRkD2qONZ7GT3wFu4fV4oN1OsZiBkRQlIQyydoqa5VDu+fc
+         BUow==
+X-Forwarded-Encrypted: i=1; AFNElJ+HW7RipONKO/4dhy6jMOCTW+dWJiOjt0GJ1si3/v1LiU3p3iUOfFO1ZBqYj6Say9EMyXVyo2uyoX597Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrDml03QZ51LsdOjzbw8H1/20WDFJrKl5t7NMqgjWbDEtCGatf
+	hHqturtbLsopYb9huS2BqwHf6kHi96LpB1fueNc4K+aYBYKcuLK6JoWe
+X-Gm-Gg: AfdE7clMiyv2hPGsEQza7MC2Hqx9tXWAjWjFj1Y0bBCzeUOgGu9RFUg5Z8OscwtiC5U
+	IH5XUN1yZXCgt80XZrbhZHgPohsUPUW6TgH6zYY1Pa9iPvvZNL0xHnz9DzOe4+LyIuScbELBIbO
+	DyfCJHL4SBjLCTrhmAMKzJV426nmKcepzxHaJPfQ0ADTZSsPOxlMrU9QCADzDZ7EEwFdMiP+gMm
+	FWRSdOxE9DV5CxD9Uc82XhZNECV7eL9F1EPxx/FoiwWgfA9MdSpyy0L1uKfmvv8mJMGrNZbdmKr
+	UfTqYMXcbYeCX+h4qazbMbo21Pv9O2RufnUXDSOR35bCeS8ICigW6a6ZWqZO7cps+aqm5ssO4aV
+	/D97ZTV1dH/sKmsCYux2xllevKPasQL/VPCXR119N8Es23nu/+hhNk7UsOWSZTWaSBOg7tOMbH7
+	uNwFTDJA8ZCC3om00IX6npBhQsugq4UFIinW6LrFY=
+X-Received: by 2002:a05:6a00:2eaa:b0:842:7992:bdd6 with SMTP id d2e1a72fcca58-845508a31e5mr11541607b3a.36.1782052992276;
+        Sun, 21 Jun 2026 07:43:12 -0700 (PDT)
 Received: from computer ([2a09:bac5:3b4a:8aa::dd:17])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84564e7687csm4963254b3a.35.2026.06.21.07.43.22
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84564e7687csm4963254b3a.35.2026.06.21.07.43.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Jun 2026 07:43:30 -0700 (PDT)
+        Sun, 21 Jun 2026 07:43:11 -0700 (PDT)
 From: Varun R Mallya <varunrmallya@gmail.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -92,16 +91,14 @@ Cc: alex@ghiti.fr,
 	bpf@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	varunrmallya@gmail.com
-Subject: [PATCH bpf-next 2/3] riscv, bpf: Add support for BPF exceptions
-Date: Sun, 21 Jun 2026 20:12:58 +0530
-Message-ID: <20260621144259.288135-3-varunrmallya@gmail.com>
+Subject: [PATCH bpf-next 0/3] Add BPF Exceptions support for RISC-V
+Date: Sun, 21 Jun 2026 20:12:56 +0530
+Message-ID: <20260621144259.288135-1-varunrmallya@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260621144259.288135-1-varunrmallya@gmail.com>
-References: <20260621144259.288135-1-varunrmallya@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_074331_644973_5E551FF7 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20260621_074313_953775_DB675E2E 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,181 +115,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the JIT support required for BPF exceptions (bpf_throw()) on riscv64.
+This patchset aims to add BPF exceptions supports for riscv64 by
+implementing the arch_bpf_stack_walk function and then updating the
+prologue and epilogue for BPF JIT on riscv. Also,
+bpf_jit_supports_exceptions() returns true now so that the verifier does
+not reject programs containing BPF exceptions on riscv64. 
 
-Two kinds of program need special prologue/epilogue handling:
+On riscv the unwinder used by arch_bpf_stack_walk() is the frame-pointer
+unwinder, so exception support is gated on CONFIG_FRAME_POINTER.
 
-  - A program acting as an exception boundary must save the full set of
-    riscv callee-saved GP registers (ra, s0-s11), not just the ones it
-    happens to clobber, so that the exception callback can restore the
-    state that was live at the boundary. ra and fp are stored first so
-    the saved ra/fp pair forms a valid stackframe record for the
-    unwinder.
+In the prologue and epilogue of the RISC-V JIT, I saved the
+return address and then the frame-pointer according to [1]. Also,
+according to [2], s0 to s11 are callee saved registers, which is why a
+new array (rv_exception_csave_regs) has been created to save these
+registers which contains all the required registers along with the frame
+pointer as well as return address.
 
-  - The exception callback (exception_cb) does not allocate its own
-    frame. It reuses the boundary program's frame, whose frame pointer
-    is passed in a2, by setting SP = FP - stack_adjust. This lines the
-    epilogue's loads up with the registers the boundary saved, so both
-    paths restore the same order.
+The following demonstrates that all the selftests for BPF exceptions
+apart from the ones that mix bpf-to-bpf calls and tailcalls pass.
+This patch was tested using vmtest.sh to run the selftests.
 
-Wire up bpf_jit_support to be true only when CONFIG_FRAME_POINTER is
-enabled.
+test_exceptions_success:PASS:exceptions__open 0 nsec
+libbpf: prog 'exception_tail_call': BPF program load failed: -EINVAL
+libbpf: prog 'exception_tail_call': -- BEGIN PROG LOAD LOG --
+0: R1=ctx() R10=fp0
+; volatile int ret = 0; @ exceptions.c:106
+0: (b4) w2 = 0                        ; R2=0
+1: (63) *(u32 *)(r10 -4) = r2         ; R2=0 R10=fp0
+; ret = exception_tail_call_subprog(ctx); @ exceptions.c:108
+2: (85) call pc+4
+caller:
+ R10=fp0
+callee:
+ frame1: R1=ctx() R2=0 R10=fp0
+7: frame1: R1=ctx() R10=fp0
+; int exception_tail_call_subprog(struct __sk_buff *ctx) @ exceptions.c:96
+7: (bf) r6 = r1                       ; frame1: R1=ctx() R6=ctx()
+; volatile int ret = 10; @ exceptions.c:98
+8: (b4) w1 = 10                       ; frame1: R1=10
+9: (63) *(u32 *)(r10 -4) = r1         ; frame1: R1=10 R10=fp0 fp-8=mmmm????
+; asm volatile("r1 = %[ctx]\n\t" @ bpf_helpers.h:169
+10: (18) r7 = 0xff60000080df1800      ; frame1: R7=map_ptr(map=jmp_table,ks=4,vs=4)
+12: (bf) r1 = r6                      ; frame1: R1=ctx() R6=ctx()
+13: (bf) r2 = r7                      ; frame1: R2=map_ptr(map=jmp_table,ks=4,vs=4) R7=map_ptr(map=jmp_table,ks=4,vs=4)
+14: (b7) r3 = 0                       ; frame1: R3=0
+15: (85) call bpf_tail_call#12
+mixing of tail_calls and bpf-to-bpf calls is not supported
+processed 11 insns (limit 1000000) max_states_per_insn 0 total_states 0 peak_states 0 mark_read 0
+-- END PROG LOAD LOG --
+libbpf: prog 'exception_tail_call': failed to load: -EINVAL
+libbpf: failed to load object 'exceptions'
+libbpf: failed to load BPF skeleton 'exceptions': -EINVAL
+test_exceptions_success:FAIL:exceptions__load unexpected error: -22 (errno 22)
+tester_init:PASS:tester_log_buf 0 nsec
+process_subtest:PASS:obj_open_mem 0 nsec
+process_subtest:PASS:specs_alloc 0 nsec
+tester_init:PASS:tester_log_buf 0 nsec
+process_subtest:PASS:obj_open_mem 0 nsec
+process_subtest:PASS:specs_alloc 0 nsec
+#113/1   exceptions/reject_exception_cb_type_1:OK
+#113/2   exceptions/reject_exception_cb_type_2:OK
+#113/3   exceptions/reject_exception_cb_type_3:OK
+#113/4   exceptions/reject_exception_cb_type_4:OK
+#113/5   exceptions/reject_exception_cb_type_5:OK
+#113/6   exceptions/reject_async_callback_throw:OK
+#113/7   exceptions/reject_with_lock:OK
+#113/8   exceptions/reject_subprog_with_lock:OK
+#113/9   exceptions/reject_with_rcu_read_lock:OK
+#113/10  exceptions/reject_subprog_with_rcu_read_lock:OK
+#113/11  exceptions/reject_with_rbtree_add_throw:OK
+#113/12  exceptions/reject_with_reference:OK
+#113/13  exceptions/reject_global_subprog_throw_with_reference:OK
+#113/14  exceptions/reject_with_cb_reference:OK
+#113/15  exceptions/reject_with_cb:OK
+#113/16  exceptions/reject_with_subprog_reference:OK
+#113/17  exceptions/reject_throwing_exception_cb:OK
+#113/18  exceptions/reject_exception_cb_call_global_func:OK
+#113/19  exceptions/reject_exception_cb_call_static_func:OK
+#113/20  exceptions/reject_multiple_exception_cb:OK
+#113/21  exceptions/reject_exception_throw_cb:OK
+#113/22  exceptions/reject_exception_throw_cb_diff:OK
+#113/23  exceptions/reject_subprog_rcu_lock_throw:OK
+#113/24  exceptions/reject_subprog_throw_preempt_lock:OK
+#113/25  exceptions/reject_subprog_throw_irq_lock:OK
+#113/26  exceptions/reject_set_exception_cb_bad_ret1:OK
+#113/27  exceptions/reject_set_exception_cb_bad_ret2:OK
+#113/28  exceptions/reject_out_of_range_global_throw:OK
+#113/29  exceptions/check_assert_eq_int_min:OK
+#113/30  exceptions/check_assert_eq_int_max:OK
+#113/31  exceptions/check_assert_eq_zero:OK
+#113/32  exceptions/check_assert_eq_llong_min:OK
+#113/33  exceptions/check_assert_eq_llong_max:OK
+#113/34  exceptions/check_assert_lt_pos:OK
+#113/35  exceptions/check_assert_lt_zero:OK
+#113/36  exceptions/check_assert_lt_neg:OK
+#113/37  exceptions/check_assert_le_pos:OK
+#113/38  exceptions/check_assert_le_zero:OK
+#113/39  exceptions/check_assert_le_neg:OK
+#113/40  exceptions/check_assert_gt_pos:OK
+#113/41  exceptions/check_assert_gt_zero:OK
+#113/42  exceptions/check_assert_gt_neg:OK
+#113/43  exceptions/check_assert_ge_pos:OK
+#113/44  exceptions/check_assert_ge_zero:OK
+#113/45  exceptions/check_assert_ge_neg:OK
+#113/46  exceptions/check_assert_range_s64:OK
+#113/47  exceptions/check_assert_range_u64:OK
+#113/48  exceptions/check_assert_single_range_s64:OK
+#113/49  exceptions/check_assert_single_range_u64:OK
+#113/50  exceptions/check_assert_generic:OK
+#113/51  exceptions/check_assert_with_return:OK
+#113     exceptions:FAIL
 
-Signed-off-by: Varun R Mallya <varunrmallya@gmail.com>
----
- arch/riscv/net/bpf_jit_comp64.c | 102 ++++++++++++++++++++++++++++++++
- 1 file changed, 102 insertions(+)
+All error logs:
+test_exceptions_success:PASS:exceptions__open 0 nsec
+libbpf: prog 'exception_tail_call': BPF program load failed: -EINVAL
+libbpf: prog 'exception_tail_call': -- BEGIN PROG LOAD LOG --
+0: R1=ctx() R10=fp0
+; volatile int ret = 0; @ exceptions.c:106
+0: (b4) w2 = 0                        ; R2=0
+1: (63) *(u32 *)(r10 -4) = r2         ; R2=0 R10=fp0
+; ret = exception_tail_call_subprog(ctx); @ exceptions.c:108
+2: (85) call pc+4
+caller:
+ R10=fp0
+callee:
+ frame1: R1=ctx() R2=0 R10=fp0
+7: frame1: R1=ctx() R10=fp0
+; int exception_tail_call_subprog(struct __sk_buff *ctx) @ exceptions.c:96
+7: (bf) r6 = r1                       ; frame1: R1=ctx() R6=ctx()
+; volatile int ret = 10; @ exceptions.c:98
+8: (b4) w1 = 10                       ; frame1: R1=10
+9: (63) *(u32 *)(r10 -4) = r1         ; frame1: R1=10 R10=fp0 fp-8=mmmm????
+; asm volatile("r1 = %[ctx]\n\t" @ bpf_helpers.h:169
+10: (18) r7 = 0xff60000080df1800      ; frame1: R7=map_ptr(map=jmp_table,ks=4,vs=4)
+12: (bf) r1 = r6                      ; frame1: R1=ctx() R6=ctx()
+13: (bf) r2 = r7                      ; frame1: R2=map_ptr(map=jmp_table,ks=4,vs=4) R7=map_ptr(map=jmp_table,ks=4,vs=4)
+14: (b7) r3 = 0                       ; frame1: R3=0
+15: (85) call bpf_tail_call#12
+mixing of tail_calls and bpf-to-bpf calls is not supported
+processed 11 insns (limit 1000000) max_states_per_insn 0 total_states 0 peak_states 0 mark_read 0
+-- END PROG LOAD LOG --
+libbpf: prog 'exception_tail_call': failed to load: -EINVAL
+libbpf: failed to load object 'exceptions'
+libbpf: failed to load BPF skeleton 'exceptions': -EINVAL
+test_exceptions_success:FAIL:exceptions__load unexpected error: -22 (errno 22)
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index c03c1de16b79..eafac0655dab 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -56,6 +56,30 @@ static const int pt_regmap[] = {
- 	[RV_REG_T0] = offsetof(struct pt_regs, t0),
- };
- 
-+/*
-+ * Full set of RISC-V callee-saved GP registers (ra, s0-s11) saved by a program
-+ * acting as an exception boundary, in the order they are stored on the stack.
-+ * RA and FP come first so the saved ra/fp pair forms a valid stackframe record
-+ * at [FP-8]/[FP-16] for the unwinder. The exception callback reuses the
-+ * boundary program's frame and restores this same set in its epilogue, so both
-+ * paths must agree on the contents and ordering of this list.
-+ */
-+static const int rv_exception_csave_regs[] = {
-+	RV_REG_RA,
-+	RV_REG_FP,
-+	RV_REG_S1,
-+	RV_REG_S2,
-+	RV_REG_S3,
-+	RV_REG_S4,
-+	RV_REG_S5,
-+	RV_REG_S6,
-+	RV_REG_S7,
-+	RV_REG_S8,
-+	RV_REG_S9,
-+	RV_REG_S10,
-+	RV_REG_S11,
-+};
-+
- enum {
- 	RV_CTX_F_SEEN_TAIL_CALL =	0,
- 	RV_CTX_F_SEEN_CALL =		RV_REG_RA,
-@@ -231,6 +255,22 @@ static void emit_imm(u8 rd, s64 val, struct rv_jit_context *ctx)
- static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
- {
- 	int stack_adjust = ctx->stack_size, store_offset = stack_adjust - 8;
-+	struct bpf_prog_aux *aux = ctx->prog->aux;
-+	int i;
-+
-+	if (aux->exception_boundary || aux->exception_cb) {
-+		/*
-+		 * An exception boundary saved the full callee-saved register
-+		 * set and the exception callback restores it from the boundary's
-+		 * frame. Both restore the same fixed set, in the same order it
-+		 * was stored by bpf_jit_build_prologue().
-+		 */
-+		for (i = 0; i < ARRAY_SIZE(rv_exception_csave_regs); i++) {
-+			emit_ld(rv_exception_csave_regs[i], store_offset, RV_REG_SP, ctx);
-+			store_offset -= 8;
-+		}
-+		goto epilogue_tail;
-+	}
- 
- 	if (seen_reg(RV_REG_RA, ctx)) {
- 		emit_ld(RV_REG_RA, store_offset, RV_REG_SP, ctx);
-@@ -267,6 +307,7 @@ static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
- 		store_offset -= 8;
- 	}
- 
-+epilogue_tail:
- 	emit_addi(RV_REG_SP, RV_REG_SP, stack_adjust, ctx);
- 	/* Set return value. */
- 	if (!is_tail_call)
-@@ -2002,11 +2043,61 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
- {
- 	int i, stack_adjust = 0, store_offset, bpf_stack_adjust;
-+	struct bpf_prog_aux *aux = ctx->prog->aux;
- 
- 	bpf_stack_adjust = round_up(ctx->prog->aux->stack_depth, STACK_ALIGN);
- 	if (bpf_stack_adjust)
- 		mark_fp(ctx);
- 
-+	if (aux->exception_boundary || aux->exception_cb) {
-+		/*
-+		 * A program acting as an exception boundary saves the full set
-+		 * of riscv callee saved registers (ra, s0-s11).
-+		 */
-+		stack_adjust = round_up(ARRAY_SIZE(rv_exception_csave_regs) * 8,
-+					STACK_ALIGN);
-+		stack_adjust += bpf_stack_adjust;
-+		store_offset = stack_adjust - 8;
-+
-+		/* emit kcfi type preamble immediately before the first insn */
-+		emit_kcfi(is_subprog ? cfi_bpf_subprog_hash : cfi_bpf_hash, ctx);
-+
-+		/* nops reserved for auipc+jalr pair */
-+		for (i = 0; i < RV_FENTRY_NINSNS; i++)
-+			emit(rv_nop(), ctx);
-+
-+		/* First instruction is always setting the tail-call-counter
-+		 * (TCC) register. This instruction is skipped for tail calls.
-+		 * Force using a 4-byte (non-compressed) instruction.
-+		 */
-+		emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
-+
-+		if (!aux->exception_cb && aux->exception_boundary) {
-+			/*
-+			 * Boundary program: allocate the frame and save the
-+			 * full callee-saved set, capturing the caller's values.
-+			 */
-+			emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
-+			for (i = 0; i < ARRAY_SIZE(rv_exception_csave_regs); i++) {
-+				emit_sd(RV_REG_SP, store_offset,
-+					rv_exception_csave_regs[i], ctx);
-+				store_offset -= 8;
-+			}
-+			emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
-+		} else {
-+			/*
-+			 * Exception callback, reuse the boundary program's
-+			 * frame, whose frame pointer is passed in a2. Setting
-+			 * SP = FP - stack_adjust lines the epilogue's loads up
-+			 * with the registers the boundary saved.
-+			 */
-+			emit_mv(RV_REG_FP, RV_REG_A2, ctx);
-+			emit_addi(RV_REG_SP, RV_REG_FP, -stack_adjust, ctx);
-+		}
-+
-+		goto tail_setup;
-+	}
-+
- 	if (seen_reg(RV_REG_RA, ctx))
- 		stack_adjust += 8;
- 	stack_adjust += 8; /* RV_REG_FP */
-@@ -2082,6 +2173,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
- 
- 	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
- 
-+tail_setup:
- 	if (bpf_stack_adjust)
- 		emit_addi(RV_REG_S5, RV_REG_SP, bpf_stack_adjust, ctx);
- 
-@@ -2157,3 +2249,13 @@ bool bpf_jit_supports_fsession(void)
- {
- 	return true;
- }
-+
-+bool bpf_jit_supports_exceptions(void)
-+{
-+	/*
-+	 * bpf_throw() unwinds by walking the frame-pointer chain from inside
-+	 * the kernel back into the BPF frames (see arch_bpf_stack_walk()), so
-+	 * exceptions require the frame-pointer unwinder to be enabled.
-+	 */
-+	return IS_ENABLED(CONFIG_FRAME_POINTER);
-+}
+[1]: https://riscv-non-isa.github.io/riscv-elf-psabi-doc/#_frame_pointer_convention
+[2]: https://riscv-non-isa.github.io/riscv-elf-psabi-doc/#_integer_register_convention
+
+Varun R Mallya (3):
+  riscv: stacktrace: Implement arch_bpf_stack_walk() for BPF
+  riscv, bpf: Add support for BPF exceptions
+  riscv, bpf: Remove BPF exceptions from BPF CI denylist
+
+ arch/riscv/kernel/stacktrace.c               |  28 +++++
+ arch/riscv/net/bpf_jit_comp64.c              | 102 +++++++++++++++++++
+ tools/testing/selftests/bpf/DENYLIST.riscv64 |   1 -
+ 3 files changed, 130 insertions(+), 1 deletion(-)
+
 -- 
 2.54.0
 
