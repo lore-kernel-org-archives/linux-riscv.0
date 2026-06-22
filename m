@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56962CDB46F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5BACDB46F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2hSDFF4ZaMaHqdRcE+Ouwcm5bQARMe8K+Qr8n/vAzc4=; b=Ko/4NohcjnILR3
-	LZvEo7kdMNCQO1L800s9DjoAy+/swbXZeVkZwir4BHVk808wU4fR+l8B9IfeyvpT1WCFHsG9RBFX9
-	0hACHt8IUBXjSKdkkFSZh7kcMjWIOcwCbweP85dR/LWbXJ59cVB6iomjOdw5NI/VH5C/pYh2fS0gQ
-	JoDpVrr6gjplajRcddTXd2A6AVD5JyBcJEFVSBE64jjrGiLAxg0nqIMNZ0mtH8CI1ds6oazqeXyaf
-	yKLeyA8TLYRWOJxxX/47DJxdmJDHibcfcE57fywxGyW8injCrQ+/pk4HvIyphTvwxvs8jEPpFVWWJ
-	+kJcSBVAKqWr7nK0iX+w==;
+	List-Owner; bh=ZRGs59/upGBSIFOdu7ogx21/dUETUnJls4J2+pYXPDY=; b=wr8VvwvTlXmFHU
+	K/uAd/Cs3HNpDcOFIX8l8uvl9h4Wqd40E2SGigFrcS8k0ZfRsgV/yTCheZ1pWdvIP6qGvY9AxUuev
+	Qgqguj0QiCPzpYOh3Nt89yHYbqECRHS8l4lC7ogNDiMOrHbIhC7BcntTTo+zoVMXLrRauNk4bkR0y
+	pyrFTg2ZCVXAtLNtHwFJOcWScHzRJhTu7hN5tZZtAkTOgZw1Z9kUbDFRrAE1a1nxX7E9vQkkLtD0j
+	WzmYRrON2tck/vanL9cFvHDKiIeSurKpf77QKBkHsExC3qpkn0ooh737FmFaS979TL4px2E0DYixa
+	cXy016LOqI5/Xsw6lcJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVr9-00000004Med-36Jj;
-	Mon, 22 Jun 2026 04:01:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wbVr7-00000004MbC-2Kxo;
+	Mon, 22 Jun 2026 04:01:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVqx-00000004MU7-1klj;
-	Mon, 22 Jun 2026 04:01:43 +0000
+	id 1wbVqw-00000004MTN-3Spy;
+	Mon, 22 Jun 2026 04:01:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 543704458F;
-	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 35DEFC2BCFD;
-	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B9DC8601E1;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6C708C2BCF6;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782100902;
-	bh=TVUTi3JzfDP6+5V/37ec117+w6OR65FVI5bIsfJZApA=;
+	s=k20201202; t=1782100901;
+	bh=yH+WzegEs+zPyrnewAU8tfya6oMKUvKLC+l4fiOSOyg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Q4AOBYjlxIBqxzMIEV3PLP2UaHQnNf09AVYFW/j9dCpu2/frUABGIn/9dv9O1xDK2
-	 rnOODipLb1VwSN/TV78VqjNdgWoaXzcwyyxDl7ytdHBMGINu80z7T7Zx/SNw8NuhEU
-	 fZkNZRPy4MRCyTX8dNhnGxXDngcYv4OdtuCrFAa/xFJ+4CFDdgVEFkHfMCafe1fKlU
-	 fZ5+DeVDB3Kxp8SVWvMiMaztSYfuiuIRWzUP3T2M0s8OXpXzATTLpXqHSAzJ7Lrh1v
-	 ZoyAb/tfmIscpN+RHs6G4gKJcJo/p3bHbO6SAsHFymaBdJnrCzFO0rFeUB1z0CsjcX
-	 CFaAG2Z+VGefw==
+	b=D1EGjueReeWatNRIyhyuN3rUNAWyJQ3oUCyctAgkQk3ANOfArwTBXOBKT0dkZzp8w
+	 lu38yi+XIPKFkoiZDnlqHo2mvm70H0mmN6fJpEh7swWpVlRfbAck8aa+Td8XPvtQD/
+	 VwjOyHBIDda0cqIv5i+C6NylKnNJ2f2FD39OSywDJXmRvAx95LIqVsJ57fqvyO5b/E
+	 Qz3uVRGCiC+IDL4SDEFPV7ZIHjyu1uYw9Uz78OloksjPTWGtOAUbC8rujyJOrQd6eq
+	 +OWcu69Qp7umi/dK+JSK8FJPfcHclw9VrYB0h68a2B+3cHNLuYw2T2m0KmP6UHn4ti
+	 XjIBnwOclLudA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BBC2CDB471;
-	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FCE8CD98F6;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Sun, 21 Jun 2026 21:01:31 -0700
-Subject: [PATCH v2 13/16] KVM: riscv: selftests: Add csr emulation test
+Date: Sun, 21 Jun 2026 21:01:20 -0700
+Subject: [PATCH v2 02/16] riscv: alternatives: Use generated instruction
+ headers for patching code
 MIME-Version: 1.0
-Message-Id: <20260621-riscv_insn_table-v2-13-7f0810ee2274@gmail.com>
+Message-Id: <20260621-riscv_insn_table-v2-2-7f0810ee2274@gmail.com>
 References: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 In-Reply-To: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -62,11 +63,11 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=4572;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=7576;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=UIPBSpc0H3jB7+KpJxg4F5rG4rgb2Zzku6x9eNCAhf8=;
- b=LkA15MenggXoi151d45SYPIEvfF6f5Fo3rW9bGmHd1LZ5uSRXUZT9goc9vyY3EB3pqtMjq6G7
- wPZWWace2SQCE3C+XBtQd73He4AWPCES9KyX40XDcpXuv8kW6z3sMPA
+ bh=qT7TaAXs9xJHwiZtIc+DhKQ0DUJ/foDaC5z2Xsev0Gc=;
+ b=/u85iHT70EYTXXRqfcVxuy+eKwFcv1Sm2g06wLEvHak3vEGteG8Ldc7KcaqMfE6OBxJ7lA1lT
+ 3pl0ydafEiwCvE6sFXti2/uSXa2yef6V//ebUsmR2dpfwpT6liIzDX7
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/20260605
@@ -91,159 +92,208 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Introduce a kvm test that uses the emulated test csr to validate that
-all emulated reads/writes to csrs function as expected.
+Migrate the alternatives patching code to use the generated instruction
+headers instead of the hand-written instruction composition functions.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
----
- tools/testing/selftests/kvm/Makefile.kvm     |   1 +
- tools/testing/selftests/kvm/riscv/csr_test.c | 126 +++++++++++++++++++++++++++
- 2 files changed, 127 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 07a5fc2bf67c..88ccd15e8f94 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -212,6 +212,7 @@ TEST_GEN_PROGS_s390 += s390/irq_routing
- TEST_GEN_PROGS_s390 += mmu_stress_test
+---
+
+These function expansions are very simple and almost expand to the same
+thing in the new and old version. The main difference is
+riscv_insn_auipc_extract_imm() in the new version expands to:
+
+((_insn >> 12 & GENMASK(19, 0)) << 12)
+
+while it expands to the following in the old version:
+
+((_insn >> 0) & GENMASK(31, 12))
+
+These are the same thing, but GCC is unable to properly optimize the
+second one so the first one ends up using almost half as many
+instructions. With this finding and other similar examples, I made
+the generated headers construct in the first way to help GCC optimize
+all of these functions.
+
+Brute force can also be checked with this code:
+
+void check_auipc_jalr() {
+	for (unsigned int auipc = 0; auipc < ((1ULL << 12) - 1); auipc++) {
+		for (unsigned int jalr = 0; jalr < ((1ULL << 20) - 1); jalr++) {
+			unsigned int auipc_t=riscv_insn_auipc(auipc, 0), jalr_t=riscv_insn_jalr(jalr, 0, 0), auipc_t2=riscv_insn_auipc(auipc, 0), jalr_t2=riscv_insn_jalr(jalr, 0, 0);
+			riscv_alternative_fix_auipc_jalr(&auipc_t, &jalr_t, 0);
+			riscv_alternative_fix_auipc_jalr2(&auipc_t2, &jalr_t2, 0);
+
+			if (auipc_t != auipc_t2) {
+				printf("auipcs don't match %u, %u: %u != %u\n", auipc, jalr, auipc_t, auipc_t2);
+				return;
+			}
+
+			if (jalr_t != jalr_t2) {
+				printf("jalrs don't match %u: %u != %u\n", i, jalr_t, jalr_t2);
+			}
+		}
+	}
+}
+---
+ arch/riscv/include/asm/insn.h   | 74 -----------------------------------------
+ arch/riscv/kernel/alternative.c | 23 +++++++++----
+ 2 files changed, 17 insertions(+), 80 deletions(-)
+
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index d562b2b40ba1..d0e137f9bcd7 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -514,78 +514,4 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
  
- TEST_GEN_PROGS_riscv = $(TEST_GEN_PROGS_COMMON)
-+TEST_GEN_PROGS_riscv += riscv/csr_test
- TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
- TEST_GEN_PROGS_riscv += riscv/ebreak_test
- TEST_GEN_PROGS_riscv += riscv/mmio_test
-diff --git a/tools/testing/selftests/kvm/riscv/csr_test.c b/tools/testing/selftests/kvm/riscv/csr_test.c
-new file mode 100644
-index 000000000000..b3e8b99b6e92
---- /dev/null
-+++ b/tools/testing/selftests/kvm/riscv/csr_test.c
-@@ -0,0 +1,126 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * csr_test.c - Tests the csr functionality.
-+ */
-+#include "kvm_util.h"
-+#include "ucall_common.h"
+ #define RVV_EXTRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
+ 
+-/*
+- * Get the immediate from a J-type instruction.
+- *
+- * @insn: instruction to process
+- * Return: immediate
+- */
+-static inline s32 riscv_insn_extract_jtype_imm(u32 insn)
+-{
+-	return RV_EXTRACT_JTYPE_IMM(insn);
+-}
+-
+-/*
+- * Update a J-type instruction with an immediate value.
+- *
+- * @insn: pointer to the jtype instruction
+- * @imm: the immediate to insert into the instruction
+- */
+-static inline void riscv_insn_insert_jtype_imm(u32 *insn, s32 imm)
+-{
+-	/* drop the old IMMs, all jal IMM bits sit at 31:12 */
+-	*insn &= ~GENMASK(31, 12);
+-	*insn |= (RV_X_MASK(imm, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) |
+-		 (RV_X_MASK(imm, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) |
+-		 (RV_X_MASK(imm, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) |
+-		 (RV_X_MASK(imm, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF);
+-}
+-
+-/*
+- * Put together one immediate from a U-type and I-type instruction pair.
+- *
+- * The U-type contains an upper immediate, meaning bits[31:12] with [11:0]
+- * being zero, while the I-type contains a 12bit immediate.
+- * Combined these can encode larger 32bit values and are used for example
+- * in auipc + jalr pairs to allow larger jumps.
+- *
+- * @utype_insn: instruction containing the upper immediate
+- * @itype_insn: instruction
+- * Return: combined immediate
+- */
+-static inline s32 riscv_insn_extract_utype_itype_imm(u32 utype_insn, u32 itype_insn)
+-{
+-	s32 imm;
+-
+-	imm = RV_EXTRACT_UTYPE_IMM(utype_insn);
+-	imm += RV_EXTRACT_ITYPE_IMM(itype_insn);
+-
+-	return imm;
+-}
+-
+-/*
+- * Update a set of two instructions (U-type + I-type) with an immediate value.
+- *
+- * Used for example in auipc+jalrs pairs the U-type instructions contains
+- * a 20bit upper immediate representing bits[31:12], while the I-type
+- * instruction contains a 12bit immediate representing bits[11:0].
+- *
+- * This also takes into account that both separate immediates are
+- * considered as signed values, so if the I-type immediate becomes
+- * negative (BIT(11) set) the U-type part gets adjusted.
+- *
+- * @utype_insn: pointer to the utype instruction of the pair
+- * @itype_insn: pointer to the itype instruction of the pair
+- * @imm: the immediate to insert into the two instructions
+- */
+-static inline void riscv_insn_insert_utype_itype_imm(u32 *utype_insn, u32 *itype_insn, s32 imm)
+-{
+-	/* drop possible old IMM values */
+-	*utype_insn &= ~(RV_U_IMM_31_12_MASK);
+-	*itype_insn &= ~(RV_I_IMM_11_0_MASK << RV_I_IMM_11_0_OPOFF);
+-
+-	/* add the adapted IMMs */
+-	*utype_insn |= (imm & RV_U_IMM_31_12_MASK) + ((imm & BIT(11)) << 1);
+-	*itype_insn |= ((imm & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF);
+-}
+ #endif /* _ASM_RISCV_INSN_H */
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index 7642704c7f18..b26a90eb65cc 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -11,6 +11,7 @@
+ #include <linux/cpu.h>
+ #include <linux/uaccess.h>
+ #include <asm/alternative.h>
++#include <asm/insn.h>
+ #include <asm/module.h>
+ #include <asm/sections.h>
+ #include <asm/vdso.h>
+@@ -78,14 +79,24 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
+ 					     u32 jalr_insn, int patch_offset)
+ {
+ 	u32 call[2] = { auipc_insn, jalr_insn };
++	u32 auipc_imm;
+ 	s32 imm;
+ 
+ 	/* get and adjust new target address */
+-	imm = riscv_insn_extract_utype_itype_imm(auipc_insn, jalr_insn);
++	imm = riscv_insn_auipc_extract_imm(auipc_insn) + riscv_insn_jalr_extract_imm(jalr_insn);
+ 	imm -= patch_offset;
+ 
++	/*
++	 * When the 32-bit immediate is split across auipc and jalr, the
++	 * constructed immediates need to be treated as individually sign
++	 * extended numbers. Add the sign bit of the lower 12 bits to the upper
++	 * 20 bits to undo the bleeding of the sign.
++	 */
++	auipc_imm = imm + (BIT(11) << 1);
 +
-+#define CSR_TEST 0x240
-+#define FP 0x00006000
-+
-+/*
-+ * Use the fcsr as a U-mode accesible csr and compare against the custom 'test'
-+ * hypervisor csr (currently using vsscratch)
-+ */
-+#define test_csr(write, initial, mode)								\
-+static void test_##write(void)									\
-+{												\
-+	unsigned long hypervisor_result, reference_result, old_hypervisor;			\
-+	unsigned long mask = 0x15;								\
-+	asm volatile (										\
-+		"csrs	sstatus, %[enable_fp]\n"						\
-+		"csrw	fcsr, %[init]\n"							\
-+		#write"	zero, fcsr, %[mask]\n"							\
-+		"csrr	%[ref_res], fcsr\n"							\
-+		: [ref_res] "=&r" (reference_result)						\
-+		: [enable_fp] "r" (FP), [mask] #mode(mask), [init] "r" (initial)		\
-+		: "memory"									\
-+	);											\
-+	asm volatile (										\
-+		"csrw	%[test_csr], %[init]\n"							\
-+		#write"	%[old], %[test_csr], %[mask]\n"						\
-+		"csrr	%[hyp_res], %[test_csr]\n"						\
-+		: [hyp_res] "=&r" (hypervisor_result), [old] "=&r" (old_hypervisor)		\
-+		: [test_csr] "i"(CSR_TEST), [mask] #mode(mask), [init] "r" (initial)		\
-+		: "memory"									\
-+	);											\
-+	/* Check that writing works */								\
-+	GUEST_ASSERT_EQ(reference_result, hypervisor_result);					\
-+	/* Check that reading works */								\
-+	GUEST_ASSERT_EQ(old_hypervisor, initial);						\
-+	GUEST_DONE();										\
-+}
-+
-+test_csr(csrrw, 0x0, r)
-+test_csr(csrrs, 0x0, r)
-+test_csr(csrrc, 0x15, r)
-+test_csr(csrrwi, 0x0, i)
-+test_csr(csrrsi, 0x0, i)
-+test_csr(csrrci, 0x15, i)
-+
-+static void run(void *guest_code, char *instruction)
-+{
-+	struct ucall uc;
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-+
-+	kvm_create_device(vm, KVM_DEV_TYPE_TEST);
-+
-+	vcpu_run(vcpu);
-+
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE,
-+		    "CSR instruction '%s' failed: '%s'", instruction,
-+		    uc.buffer);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+static void check_test_csr_guest(void)
-+{
-+	unsigned long scause, stvec;
-+
-+	asm volatile(
-+		"la	%[stvec], 1f\n"
-+		"csrw	stvec, %[stvec]\n"
-+		"csrwi	%[test_csr], 0x0\n"
-+		"1:\n"
-+		"csrr	%[scause], scause\n"
-+		: [scause] "=&r" (scause), [stvec] "=&r" (stvec)
-+		: [test_csr] "i" (CSR_TEST)
-+	);
-+
-+	/* An illegal instruction will be generated if CONFIG_RISCV_KVM_TEST_CSR is not enabled. */
-+	if (scause == 2)
-+		GUEST_FAIL("CONFIG_RISCV_KVM_TEST_CSR not enabled.\n");
-+	GUEST_DONE();
-+}
-+
-+static int check_test_csr(void)
-+{
-+	struct ucall uc;
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	int success;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, check_test_csr_guest);
-+
-+	/* Skip if CONFIG_KVM_MMIO_TEST not enabled */
-+	if (!kvm_create_device(vm, KVM_DEV_TYPE_TEST))
-+		exit(KSFT_SKIP);
-+
-+	vcpu_run(vcpu);
-+
-+	success = get_ucall(vcpu, &uc) == UCALL_DONE;
-+
-+	kvm_vm_free(vm);
-+
-+	return success;
-+}
-+
-+int main(void)
-+{
-+	/* Skip if CONFIG_RISCV_KVM_TEST_CSR not enabled */
-+	if (!check_test_csr())
-+		exit(KSFT_SKIP);
-+
-+	run(test_csrrw, "csrrw");
-+	run(test_csrrs, "csrrs");
-+	run(test_csrrc, "csrrc");
-+	run(test_csrrwi, "csrrwi");
-+	run(test_csrrsi, "csrrsi");
-+	run(test_csrrci, "csrrci");
-+
-+	return 0;
-+}
+ 	/* update instructions */
+-	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
++	riscv_insn_auipc_insert_imm(&call[0], auipc_imm);
++	riscv_insn_jalr_insert_imm(&call[1], imm);
+ 
+ 	/* patch the call place again */
+ 	patch_text_nosync(ptr, call, sizeof(u32) * 2);
+@@ -96,11 +107,11 @@ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
+ 	s32 imm;
+ 
+ 	/* get and adjust new target address */
+-	imm = riscv_insn_extract_jtype_imm(jal_insn);
++	imm = riscv_insn_jal_extract_imm(jal_insn);
+ 	imm -= patch_offset;
+ 
+ 	/* update instruction */
+-	riscv_insn_insert_jtype_imm(&jal_insn, imm);
++	riscv_insn_jal_insert_imm(&jal_insn, imm);
+ 
+ 	/* patch the call place again */
+ 	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
+@@ -127,7 +138,7 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
+ 				continue;
+ 
+ 			/* if instruction pair is a call, it will use the ra register */
+-			if (RV_EXTRACT_RD_REG(insn) != 1)
++			if (riscv_insn_jalr_extract_xd(insn) != 1)
+ 				continue;
+ 
+ 			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
+@@ -136,7 +147,7 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
+ 		}
+ 
+ 		if (riscv_insn_is_jal(insn)) {
+-			s32 imm = riscv_insn_extract_jtype_imm(insn);
++			s32 imm = riscv_insn_jal_extract_imm(insn);
+ 
+ 			/* Don't modify jumps inside the alternative block */
+ 			if ((alt_ptr + i * sizeof(u32) + imm) >= alt_ptr &&
 
 -- 
 2.54.0
