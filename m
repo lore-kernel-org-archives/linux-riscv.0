@@ -4,122 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CEFCDE013
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 21:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739F4CDE016
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 21:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=48BlCswKt1iDLR2J3qW2t0D0l+ZFvKeQOZMv/zfpQdU=; b=BVxE2LVtPWBHVM
-	eE37a0Coo935d2rnZwCy9npONb1RdEswMyP4f17Dc35sZ0gG/M1EjgpNr9zfGohun0VbEO62QL95P
-	pwTkwagl5ItCo9+uvDKTjnKxriOxea05Gh6zQeMaCMfZL7bk56WlfOjkIfnwkwefJLibdycnfBlyu
-	k5np9WoDRrkIN95zBr/sVJOZXOW08vRu3m93Ca5faWaAo1VJplcMZICcmZOx81FHnwwq4tl6+d6Tm
-	qPEPvTT6E10CbF0j4NZbH2zL/7SQf93RqhSqgRoV7kDsDBGn8t3M8i0KZFteTUq7otqeIx1ZQVME9
-	4v0BgpCGaaNNI3FZ0Rbg==;
+	List-Owner; bh=mh2sgp2QNL3ELSw0t4JuuKB8t5Ht9ynpwzqVJlhGhbg=; b=BQQq9AkejeHtki
+	v0sVkHAKaZIj6hfkOaa4eGqUZFNTlJAf/mp48QuVRDFlLTFGZ4r+os26QKqpPK9NzRiozVMk7Aaf+
+	ojfHsGrO0k8NnnOXFbvgk/fIpUL3EPROpY9ORAF/lTBq2yf8EOMpaBMV2eatih/2y/K03g9/qWzq9
+	jnECCCzKGXFELqfN2Mo/epbtm/OhnbQEJGOz/zcK/r/VW9iorWV8F5JU6mXDpJ5nl0TshIos96pX2
+	qfl5wZ7VcWZiwhF7MN+XvmVPz1QWX3vBZBr8flVWvRHcVvUsLIOL+Qe5gGgZdQb/tekF2P/Y26sux
+	uyP7z1EFvzoPG7jos07Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcrGx-00000009q4X-3vQH;
-	Thu, 25 Jun 2026 21:06:07 +0000
-Received: from mail-southcentralusazon11022085.outbound.protection.outlook.com ([40.93.195.85] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wcrGw-00000009q42-3BNv;
+	Thu, 25 Jun 2026 21:06:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcny7-00000009XTz-3Bu0
-	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 17:34:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XH+2tjj6JgseKSynsiqhwVjYB21uNyM4QlO+11vLQ/YCEY4NcQEb1bml3NRC7Vcim3TEVqsieKMa1upqA1XMwBOBZQ48hAVOvUvF0HoACYj+5eB3rHKyQ04ldbnVMLOYNlcuEeVA+52DLik/93HyHVYJ8l+Awq3vvdJt/imj0Okw8Vll92sGpzfUlHKzvucMIgn86XZH/Cq/cMpOwrTDTJSUm0ms5dUnXwXXXwOh2drr8bzWTBAyEqy2GS7bv0jLvmOf9wiMBEu3lCW9ACdi4unKtUhooQ8zlhnypo2EGgvYp43o032Q8Z0x48Z5XRS+2YwctqsfvwoJDZF8y8n4Mw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NF0YUTXe3MgbteQCrZNbewqcjsovCgxs1QqW9rdozqY=;
- b=iMq5b5GZgz1jW6yaCMsihyfJwLUw4EQe3YSO245oLe/AeFM4HAmimNYm1QG1PkTSNKn6YgFS+as0LDFHqB4hF1SwPngbKmn/Mom5xtvFsx+EbhFOuoUVPswLM2jTa+QBwNwSYdkUqszqSWXhIrXpcsm6QNDiq30TdEUkl7gv5DOs7kfgazYlRdEuEMXuEf+4XKPxMzOMeNMxz+cVXdnMfmtoOUYTPhFTeBKd/XemV8XNfQ0u00durD4p7FbjYzD65CBXlFHS562O7auk7KhWx6vmXRVhazlxhqX4LTRZpC9ospkFwyz+PqSL95l0yBQuogBM/VdueNqUY9uBv4qZLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NF0YUTXe3MgbteQCrZNbewqcjsovCgxs1QqW9rdozqY=;
- b=s5VJf6uJ9k7/ojr7o2w2BnK/8eI6aNYVlD/yClMPtroLLNNWcQJm704PUk70AsogtTT7w8n6sIiamuYYRgS4xcIERNGkLn7Qf5giQCP3apb86giwdVQwju42iuJBSbbEGCdWcUDdqCm2JcKLmpAMvq1ji8RsEAFYV+hE4kme/mrrFKCr6ZS2FRbqpyRwxkwALFk02TmzuIy79v6kngfmb5OvQW5LVr1rHzd27SaKCmPtAJx1JeODjrymZi8IPQTdoTENpIW9nb03YytxFKQrE0NRTxBUiEC8YPF1r+TWCaRp1v3vm7SkGoVjJ2No7iU/sPXLsNlfivMR38/KZ5WhaA==
-Received: from BN9P222CA0030.NAMP222.PROD.OUTLOOK.COM (2603:10b6:408:10c::35)
- by CO6PR04MB7652.namprd04.prod.outlook.com (2603:10b6:303:a8::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Thu, 25 Jun
- 2026 17:34:08 +0000
-Received: from BN2PEPF000044A1.namprd02.prod.outlook.com
- (2603:10b6:408:10c:cafe::43) by BN9P222CA0030.outlook.office365.com
- (2603:10b6:408:10c::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.15 via Frontend Transport; Thu,
- 25 Jun 2026 17:34:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
- smtp.mailfrom=rambus.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=rambus.com;
-Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
- 192.86.86.210 as permitted sender) receiver=protection.outlook.com;
- client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
-Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
- BN2PEPF000044A1.mail.protection.outlook.com (10.167.243.152) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Thu, 25 Jun 2026 17:34:07 +0000
-Received: from hqxsv-cmdev3-skrishnamoorthy.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
-	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id 23CFC1801755;
-	Thu, 25 Jun 2026 17:34:06 +0000 (UTC)
-From: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-To: Albert Ou <aou@eecs.berkeley.edu>,
-	Alex Ousherovitch <aousherovitch@rambus.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
-	Shuah Khan <shuah@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org,
-	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
-	linux-api@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	sipsupport@rambus.com,
-	Thi Nguyen <thin@rambus.com>
-Subject: [PATCH 03/19] crypto: cmh - add key provisioning and management
-Date: Thu, 25 Jun 2026 10:33:11 -0700
-Message-ID: <20260625173328.1140487-4-skrishnamoorthy@rambus.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
-References: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
+	id 1wbVqw-00000004MTK-14Hl;
+	Mon, 22 Jun 2026 04:01:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FA0144070;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 65B81C2BCF4;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782100901;
+	bh=wcWF3O/U6vZR0j87XSbdM2KjdHFRxy9Ll8yFBuVmnhU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=dzIZpfp/QhCGwj27MTb7IAOE4bhuIPNTLIGOW2nuiNH3wyQ1Y2binolr/BiszX4jJ
+	 OJXReSM+mnkWU5Grr8UYjar4YGag8dl8UiUy4A9jVQvSZb4Y8dIvalTzEfokMODnPO
+	 OmvMhXEEAcbTxH3tZHkU3RnxlaMl8swCgEArojgSwuXUi828rNjVLzDTvYNWrXb20S
+	 95KwfsL1CnwfbWbwWNYrPZeCdeRY7ODmxNIFDv1KWuorUrdba1rYSaf/3YcMJTYMP2
+	 BnWBWMyC1EFAj8fW5csRJz3XJyjASb/q9mj+gKNKJBKyKyKNYSxxKZjMk93lOBlags
+	 Og4te+al0CJ8Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49A95CDB46C;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
+Date: Sun, 21 Jun 2026 21:01:19 -0700
+Subject: [PATCH v2 01/16] riscv: Introduce instruction table generation
 MIME-Version: 1.0
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A1:EE_|CO6PR04MB7652:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a19e0cb-7595-4ba4-b18f-08ded2dff5a2
-X-LD-Processed: bd0ba799-c2b9-413c-9c56-5d1731c4827c,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|7416014|376014|1800799024|36860700016|56012099006|5023799004|11063799006|18002099003|22082099003|6133799003|3023799007|921020;
-X-Microsoft-Antispam-Message-Info: AZgDj98qQDxjvJ2NodhKshjh8cjA4Se0WD/xlWY6W2UNvQV9Ni2Y/VwBtdL63PGuIElTzqyOYhzd/AfNQRVboY7zvWSV0XFHF4Yd7ITyqfdRXQxFNuAJmHpO1Cchg8ctglQP5ewm8txvJHusZDt98szWdJXHplYXoAVlIu/WetRvh3Py3upUR5A048zZQji3R2+3r799l1+7p1b+gQpV8AMVPrWcYWl+r6IxSZH/6evcwDwDASxFhXUMMBi4bysNKUx31SJqmKtorUyubYUjGu4fASU91IASUudj9C0RpArXNWcwz3Xa6USH7MrYVt9bbBEUuaaXSSdAYPAXRL3uyG7N75o6T1VyEVu5l1hubnNkCxWoTuJKvRe4oCvkotHc1iy9FfhLFk4YWmzTLFGz2EjY7mzm/jgbCQZoPON1Gx4q+yHb7OY0MTSjH+/xtHwoX85oEG0ASxjSTBQ2puPDP9GATMnRTziiJVhAqsoG9MaZHeRw7Ei5XRI5JigoxqWe5y4IEnmT8L9Ax0v0wDOfMhOdRC1uMyCA6BIA7C3eM+FdAgxMreqKjrA2QAOTWt9tDUAXG8WtKfDKl39LHiEhk7zQyIvOEvh+WMMEPw4kbaPCBa+tZ2BcvJRK4JxblUPG+GFII+L8Vp57xDie3oNH9jclmUm5lzr0Y8FyRM34tQRXGH4tRpN2pt7ZQZnkd0vZ4HYqnTY7gSpN5NFZqt3DtU57CGD6WI2BbD4lImE0TjnCnjuXPf7QRZGsP65dsk42
-X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(7416014)(376014)(1800799024)(36860700016)(56012099006)(5023799004)(11063799006)(18002099003)(22082099003)(6133799003)(3023799007)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: HTupDn6Q1NlzzmM9dktGYwv8rqM/OasFF5/d8AWgDP+lsr6MsShvruv6tH9+nU6jHwUoa6lyXFSklMa4He9d0ZsxdfS11OwNxuh+xpBMhyJWUSHVu9YzB68fMk6pAl4B835j/+IebWrV/JRVb8bfXFvyYdBHhF5bt+0sryCGh4OK6QTuEtjm2GizMQW29tM/ObahMGx8/TdfdEdLL3vHFrmLiq1XiEE+7y5PlKPRssl9LSsX8x6DyDDZcrUAWFWzlDBUkYTHpOx8Pm8EQCn7ENJNdZJen41ZiX30z90J3wYaL/oqJVrEnPycaexfO7Tq8mDyS+mmfDK5+5gQSz2G5vnGUtveDG7v5vPdlcdhu42N9OKnHdoK+pDGgnV+A9tLL2eQ+E5gu/ZoEvTuZm2oCGq+Jwz6z5RCtNtMPAh/IhLfBIbAGqoh7Ah9f7B44CjU
-X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 17:34:07.1360
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a19e0cb-7595-4ba4-b18f-08ded2dff5a2
-X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A1.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7652
+Message-Id: <20260621-riscv_insn_table-v2-1-7f0810ee2274@gmail.com>
+References: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
+In-Reply-To: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Nam Cao <namcao@linutronix.de>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+ Conor Dooley <conor@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Shuah Khan <shuah@kernel.org>, 
+ =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <radim.krcmar@oss.qualcomm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-kselftest@vger.kernel.org, 
+ Charlie Jenkins <thecharlesjenkins@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=122935;
+ i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
+ bh=2M+rt4F0CH4E9uNEvi2kzKLJSYWekN+4i5okLDxLwNg=;
+ b=JNGh03GAk6qwqpil74WeEXYD3ffbB2VQcfVMmfnKgi4DxQXIJUWlGwOGg5gnoE6CNAdAAN7dm
+ g8C8vJgAE/zAHEkmk0BFPGIknhXjhbIy3FHWGEf3ChY2Y8RO+0hias8
+X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
+ pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
+X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/20260605
+ with auth_id=810
+X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailman-Approved-At: Thu, 25 Jun 2026 14:06:04 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,7187 +84,1904 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: thecharlesjenkins@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Alex Ousherovitch <aousherovitch@rambus.com>
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Add the CMH key management subsystem:
+Eliminate the need to hand-write riscv instructions by using a shell
+script to autogenerate a header from an instruction table. This is modeled
+after the syscall table infrastructure.
 
-- Key provisioning: create, import, derive, and destroy hardware keys
-  stored in the CMH datastore
-- System object management: allocate and free CMH system objects
-- Management ioctl interface (/dev/cmh_mgmt): ioctl commands
-  covering key lifecycle, KIC key derivation, PKE operations (RSA,
-  ECDSA, ECDH, EdDSA), PQC operations (ML-KEM, ML-DSA, SLH-DSA),
-  SM2, EAC, and DRBG reseeding
-- SM2 ioctl handlers: SM2 encrypt, decrypt, sign, and key exchange
-  -- operations that require multi-step protocol flows not
-  expressible through the standard crypto API sig interface
-- UAPI header: cmh_mgmt_ioctl.h (ioctl definitions and structures)
+The table is generated externally by riscv-unified-db [1], but is
+in a simple format to make it possible to use other tools or modify
+manually.
 
-The misc device requires CAP_SYS_ADMIN for open().
+[1] https://github.com/riscv-software-src/riscv-unified-db
 
-Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
-Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
-Reviewed-by: Thi Nguyen <thin@rambus.com>
+Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+
 ---
- Documentation/ABI/testing/cmh-mgmt       |  136 ++
- drivers/crypto/cmh/Kconfig               |   19 +
- drivers/crypto/cmh/Makefile              |   11 +-
- drivers/crypto/cmh/cmh_key.c             |  164 +++
- drivers/crypto/cmh/cmh_main.c            |    9 +
- drivers/crypto/cmh/cmh_mgmt.c            | 1607 ++++++++++++++++++++++
- drivers/crypto/cmh/cmh_mgmt_pke.c        | 1100 +++++++++++++++
- drivers/crypto/cmh/cmh_mgmt_pqc.c        | 1279 +++++++++++++++++
- drivers/crypto/cmh/cmh_pke_sm2.c         |  827 +++++++++++
- drivers/crypto/cmh/cmh_sys.c             |  376 +++++
- drivers/crypto/cmh/include/cmh_key.h     |   82 ++
- drivers/crypto/cmh/include/cmh_mgmt.h    |   62 +
- drivers/crypto/cmh/include/cmh_pke.h     |  245 ++++
- drivers/crypto/cmh/include/cmh_pke_sm2.h |   30 +
- drivers/crypto/cmh/include/cmh_pqc.h     |   25 +
- drivers/crypto/cmh/include/cmh_sys.h     |  111 ++
- include/uapi/linux/cmh_mgmt_ioctl.h      |  895 ++++++++++++
- 17 files changed, 6977 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/ABI/testing/cmh-mgmt
- create mode 100644 drivers/crypto/cmh/cmh_key.c
- create mode 100644 drivers/crypto/cmh/cmh_mgmt.c
- create mode 100644 drivers/crypto/cmh/cmh_mgmt_pke.c
- create mode 100644 drivers/crypto/cmh/cmh_mgmt_pqc.c
- create mode 100644 drivers/crypto/cmh/cmh_pke_sm2.c
- create mode 100644 drivers/crypto/cmh/cmh_sys.c
- create mode 100644 drivers/crypto/cmh/include/cmh_key.h
- create mode 100644 drivers/crypto/cmh/include/cmh_mgmt.h
- create mode 100644 drivers/crypto/cmh/include/cmh_pke.h
- create mode 100644 drivers/crypto/cmh/include/cmh_pke_sm2.h
- create mode 100644 drivers/crypto/cmh/include/cmh_pqc.h
- create mode 100644 drivers/crypto/cmh/include/cmh_sys.h
- create mode 100644 include/uapi/linux/cmh_mgmt_ioctl.h
 
-diff --git a/Documentation/ABI/testing/cmh-mgmt b/Documentation/ABI/testing/cmh-mgmt
-new file mode 100644
-index 000000000000..2c6fce7ae009
---- /dev/null
-+++ b/Documentation/ABI/testing/cmh-mgmt
-@@ -0,0 +1,136 @@
-+What:          /dev/cmh_mgmt
-+Date:          June 2026
-+KernelVersion: 7.1
-+Contact:       linux-crypto@vger.kernel.org
-+Description:
-+               Character device (misc) providing a management and
-+               key-operations ioctl interface to the CRI CryptoManager Hub
-+               hardware crypto accelerator.  Used for operations that
-+               cannot be represented through the standard in-kernel
-+               crypto API: datastore key CRUD, key derivation,
-+               asymmetric crypto (EdDSA, SM2), and post-quantum crypto
-+               (ML-KEM, ML-DSA, SLH-DSA).
-+
-+               The ioctl magic is 'J'.  All struct arguments are
-+               versioned via a leading __u32 version field set to
-+               CMH_MGMT_V1 (1).
-+
-+               Ioctl commands are grouped by function:
-+
-+               **Key Management (0x01-0x0E):**
-+
-+               - CMH_IOCTL_KEY_NEW (0x01): Allocate a new datastore slot.
-+                 Accepts ds_type (CMH_DS_* constant), key length, flags,
-+                 and caller ID.  Returns a 64-bit key reference.
-+
-+               - CMH_IOCTL_KEY_WRITE (0x02): Write key material into
-+                 a previously allocated datastore slot.  Supports
-+                 plaintext or wrapped key import via a wrapping key ref.
-+
-+               - CMH_IOCTL_KEY_READ (0x03): Read key material from
-+                 a datastore slot, optionally wrapped.  Returns data
-+                 plus a 16-byte SYS header for wrapped reads.
-+
-+               - CMH_IOCTL_KEY_FIND (0x04): Look up a key reference
-+                 by caller ID (CID).
-+
-+               - CMH_IOCTL_KEY_GRANT (0x05): Grant access to a key.
-+
-+               - CMH_IOCTL_KEY_DELETE (0x06): Delete a datastore slot.
-+
-+               - CMH_IOCTL_DS_EXPORT (0x07): Export the entire datastore
-+                 as an encrypted blob.
-+
-+               - CMH_IOCTL_DS_IMPORT (0x08): Import a previously exported
-+                 datastore blob.
-+
-+               - CMH_IOCTL_KEY_NEW_RANDOM (0x0B): Allocate a datastore
-+                 slot and fill it with hardware-generated random data.
-+
-+               - CMH_IOCTL_KEY_LIST (0x0E): List active datastore entries,
-+                 returning CIDs, types, lengths, and flags.
-+
-+               **Key Derivation -- KIC (0x09-0x0D):**
-+
-+               - CMH_IOCTL_KIC_HKDF1 (0x09): HKDF-Extract step.
-+               - CMH_IOCTL_KIC_HKDF2 (0x0A): HKDF-Expand step.
-+               - CMH_IOCTL_KIC_AES_CMAC_KDF (0x0C): AES-CMAC KDF.
-+               - CMH_IOCTL_KIC_DKEK_DERIVE (0x0D): DKEK derivation.
-+
-+               **EAC -- Error and Alarm (0x0F):**
-+
-+               - CMH_IOCTL_EAC_READ (0x0F): Read and clear hardware
-+                 error, alarm, and safety notification registers.
-+
-+               **PKE -- Public Key Engine (0x10-0x1C):**
-+
-+               - CMH_IOCTL_PKE_RSA_ENC (0x10): RSA public-key encrypt.
-+               - CMH_IOCTL_PKE_RSA_DEC (0x11): RSA private-key decrypt.
-+               - CMH_IOCTL_PKE_RSA_CRT_DEC (0x12): RSA-CRT decrypt.
-+               - CMH_IOCTL_PKE_RSA_KEYGEN (0x13): RSA key pair generation.
-+               - CMH_IOCTL_PKE_ECDSA_SIGN (0x14): ECDSA sign.
-+               - CMH_IOCTL_PKE_ECDH (0x16): ECDH shared secret.
-+               - CMH_IOCTL_PKE_ECDH_KEYGEN (0x17): ECDH key pair generation.
-+               - CMH_IOCTL_PKE_EDDSA_SIGN (0x18): EdDSA sign (Ed25519/Ed448).
-+               - CMH_IOCTL_PKE_EDDSA_VERIFY (0x19): EdDSA verify.
-+               - CMH_IOCTL_PKE_EC_KEYGEN (0x1A): EC key pair generation.
-+               - CMH_IOCTL_PKE_EC_PUBGEN (0x1B): EC public key derivation.
-+               - CMH_IOCTL_PKE_EDDSA_KEYGEN_SCA (0x1C): EdDSA SCA-protected
-+                 key generation.
-+
-+               **PQC -- Post-Quantum Crypto (0x20-0x2D):**
-+
-+               - CMH_IOCTL_ML_KEM_KEYGEN (0x20): ML-KEM key pair generation
-+                 (modes 512/768/1024).
-+               - CMH_IOCTL_ML_KEM_ENC (0x21): ML-KEM encapsulation.
-+               - CMH_IOCTL_ML_KEM_DEC (0x22): ML-KEM decapsulation.
-+               - CMH_IOCTL_ML_DSA_KEYGEN (0x23): ML-DSA key pair generation
-+                 (modes 44/65/87).
-+               - CMH_IOCTL_ML_DSA_SIGN (0x24): ML-DSA sign.
-+               - CMH_IOCTL_SLHDSA_KEYGEN (0x28): SLH-DSA key pair generation
-+                 (12 parameter sets).
-+               - CMH_IOCTL_SLHDSA_SIGN (0x29): SLH-DSA sign.
-+               - CMH_IOCTL_SLHDSA_SIGN_PREHASH (0x2D): SLH-DSA prehash sign.
-+
-+               **SM2 Operations (0x30-0x37):**
-+
-+               - CMH_IOCTL_SM2_ECDH_KEYGEN (0x30): SM2 ephemeral key gen.
-+               - CMH_IOCTL_SM2_ECDH (0x31): SM2 key exchange.
-+               - CMH_IOCTL_SM2_DEC_POINT (0x32): SM2 decrypt (point step).
-+               - CMH_IOCTL_SM2_ENC_POINT (0x33): SM2 encrypt (point step).
-+               - CMH_IOCTL_SM2_ID_DIGEST (0x34): SM2 ID digest (ZA).
-+               - CMH_IOCTL_SM2_ECDH_HASH (0x35): SM2 key exchange hash step.
-+               - CMH_IOCTL_SM2_DEC_HASH (0x36): SM2 decrypt (hash step).
-+               - CMH_IOCTL_SM2_ENC_HASH (0x37): SM2 encrypt (hash step).
-+
-+               The SM2 encrypt/decrypt hash-step ioctls accept payloads
-+               of at most 32 bytes.  The underlying hardware KDF emits a
-+               single 32-byte SM3 block, so longer messages cannot be
-+               processed in a single command and are rejected with
-+               -EINVAL.
-+
-+               **DRBG Management (0x40):**
-+
-+               - CMH_IOCTL_DRBG_CONFIG (0x40): Configure the hardware
-+                 DRBG entropy ratio and security strength.  Normally
-+                 called once at system start-up before hwrng reads.
-+
-+               All structs contain ``__reserved`` fields that must be
-+               zero; the driver returns ``-EINVAL`` if any reserved field
-+               is non-zero.  This ensures forward compatibility when
-+               reserved fields gain meaning in future versions.
-+
-+               All ioctls return 0 on success or a negative errno on
-+               failure.  Common errors:
-+
-+               - EINVAL:  Invalid version, parameter, key type, or
-+                 non-zero reserved field.
-+               - ENOENT:  Key reference not found in datastore.
-+               - ENOMEM:  DMA allocation failure.
-+               - EBUSY:   Hardware mailbox full.
-+               - ETIMEDOUT: VCQ operation timed out.
-+               - EFAULT:  Bad user-space pointer.
-+
-+               The ioctl UAPI header is <linux/cmh_mgmt_ioctl.h>.
-+               All structures, constants, and type definitions are
-+               documented in that header file.
-diff --git a/drivers/crypto/cmh/Kconfig b/drivers/crypto/cmh/Kconfig
-index fa5adeca2512..c607014f8fbc 100644
---- a/drivers/crypto/cmh/Kconfig
-+++ b/drivers/crypto/cmh/Kconfig
-@@ -44,3 +44,22 @@ config CRYPTO_DEV_CMH_DEBUG
-          Useful for bringup, validation, and performance analysis.
-          Not recommended for production.
+This change immediately modifies all of the riscv_insn_* macros. I don't
+have a clean way of sharing my test cases but what I did was compare the
+old and new versions of the functions using the following test case:
 
-+
-+config CRYPTO_DEV_CMH_MGMT
-+       bool "CMH management ioctl device (/dev/cmh_mgmt)"
-+       depends on CRYPTO_DEV_CMH
-+       default n
-+       help
-+         Expose /dev/cmh_mgmt, a misc device providing ioctl commands
-+         for operations that have no kernel crypto API binding: hardware
-+         key lifecycle (create, import, derive, destroy), KIC key
-+         derivation, PQC keygen/encaps/decaps (ML-KEM, ML-DSA, SLH-DSA),
-+         EdDSA sign/verify, SM2 key exchange, and DRBG
-+         configuration.
-+
-+         The device requires CAP_SYS_ADMIN.  Disabling this option
-+         removes the ioctl interface but all kernel crypto API
-+         algorithms (consumed by in-kernel users and validated by the
-+         crypto test manager) remain fully functional.
-+
-+         If unsure, say N.
-diff --git a/drivers/crypto/cmh/Makefile b/drivers/crypto/cmh/Makefile
-index 0a4591c9fd86..1492e575598c 100644
---- a/drivers/crypto/cmh/Makefile
-+++ b/drivers/crypto/cmh/Makefile
-@@ -12,7 +12,16 @@ cmh-y := \
-        cmh_txn.o \
-        cmh_rh.o \
-        cmh_dma.o \
--       cmh_sysfs.o
-+       cmh_sysfs.o \
-+       cmh_key.o \
-+       cmh_sys.o
-+
-+# Management ioctl device (/dev/cmh_mgmt): key lifecycle, PKE, PQC ioctls.
-+cmh-$(CONFIG_CRYPTO_DEV_CMH_MGMT) += \
-+       cmh_mgmt.o \
-+       cmh_mgmt_pke.o \
-+       cmh_mgmt_pqc.o \
-+       cmh_pke_sm2.o
+    for (unsigned int i = 0; i < ((1ULL << 32) - 1); i++) {\
+        bool old = riscv_insn_is_##name(i);\
+        bool new = new_riscv_insn_is_##name(i);\
+        if (old != new) {\
+            printf(#name " %u\n", i);\
+        }\
+    }
 
- ccflags-y += -I$(src)/include
+    for (unsigned int i = 0; i < ((1ULL << 32) - 1); i++) {\
+        bool old = riscv_insn_is_##name(i);\
+        bool new = new_riscv_insn_is_##name(i);\
+\
+        if (old != new) {\
+            printf(#name " %u\n", i);\
+            return;\
+        }\
+    }
 
-diff --git a/drivers/crypto/cmh/cmh_key.c b/drivers/crypto/cmh/cmh_key.c
-new file mode 100644
-index 000000000000..fde8be50b25c
---- /dev/null
-+++ b/drivers/crypto/cmh/cmh_key.c
-@@ -0,0 +1,164 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- Dual Key Path Implementation
-+ *
-+ * Two key provisioning paths are supported:
-+ *
-+ * Raw key:  key bytes -> stored in tfm context ->
-+ *   SYS_CMD_WRITE(SYS_REF_TEMP) packed into every crypto VCQ.
-+ *   The raw key buffer is DMA-mapped once at setkey time and remains
-+ *   mapped for the lifetime of the transform (unmapped in destroy).
-+ *
-+ * Raw key DMA lifetime rationale
-+ * ------------------------------
-+ * Raw keys are DMA-mapped at setkey time and the mapping persists
-+ * until the transform is destroyed (cmh_key_destroy).  This is a
-+ * deliberate design choice, consistent with upstream HW crypto
-+ * drivers (CAAM, ccree, CCP) that also map keys at setkey for
-+ * transform-lifetime reuse:
-+ *
-+ *   - The Linux crypto framework expects setkey to prepare the
-+ *     transform for repeated encrypt/decrypt calls.  Remapping the
-+ *     same key on every request would add DMA API overhead per crypto
-+ *     operation with no security benefit.
-+ *   - On destroy, kfree_sensitive() scrubs the key buffer and the
-+ *     DMA mapping is released.  For key-by-ID (persistent), the
-+ *     per-MBX ref cache is zeroed with memzero_explicit().
-+ *   - No key material is ever logged; dev_dbg() messages only show
-+ *     CIDs (content identifiers), not key bytes.
-+ *
-+ * Hardware-required behaviors (not driver policy)
-+ * ------------------------------------------------
-+ * - SYS_REF_TEMP lifetime:  the eSW firmware reclaims temporary
-+ *   datastore objects when the mailbox slot is reused.  This is a
-+ *   hardware constraint; the driver packs SYS_CMD_WRITE into every
-+ *   VCQ to re-provision the raw key for each operation.
-+ * - Mailbox flush (SYS_CMD_FLUSH):  reclaims temp-stack space on the
-+ *   target MBX.  Required by HW to prevent temp-stack exhaustion
-+ *   across multi-VCQ operations.
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/slab.h>
-+#include <linux/string.h>
-+
-+#include "cmh_key.h"
-+#include "cmh_sys.h"
-+#include "cmh_txn.h"
-+#include "cmh_dma.h"
-+#include "cmh_sys_abi.h"
-+#include <uapi/linux/cmh_mgmt_ioctl.h>
-+
-+/**
-+ * cmh_ds_type_to_core_id() - Map a datastore type to a logical core ID
-+ * @ds_type: Datastore type constant (e.g. CMH_DS_AES_KEY, CMH_DS_SM4_KEY)
-+ *
-+ * Returns the algorithm-family identity (e.g. CORE_ID_AES = 0x03), NOT the
-+ * VCQ dispatch core_id.  With multi-instance, a second AES engine dispatches
-+ * at CORE_ID_AES2 (0x06) but keys are still tagged with CORE_ID_AES (0x03)
-+ * -- the eSW validates against the logical identity, not the dispatch ID.
-+ *
-+ * Return: Logical core ID on success, CORE_ID_NUM for unknown @ds_type.
-+ */
-+u32 cmh_ds_type_to_core_id(u32 ds_type)
-+{
-+       switch (ds_type) {
-+       case CMH_DS_AES_KEY:
-+       case CMH_DS_AES_XTS_KEY:
-+               return CORE_ID_AES;
-+       case CMH_DS_SM4_KEY:
-+               return CORE_ID_SM4;
-+       case CMH_DS_HMAC_KEY:
-+       case CMH_DS_KMAC_KEY:
-+               return CORE_ID_HC;
-+       case CMH_DS_CHACHA20_KEY:
-+               return CORE_ID_CCP;
-+       case CMH_DS_RSA_PRIV_KEY:
-+       case CMH_DS_RSA_PUB_KEY:
-+       case CMH_DS_RSA_CRT_KEY:
-+       case CMH_DS_ECDSA_PRIV_KEY:
-+       case CMH_DS_ECDSA_PUB_KEY:
-+       case CMH_DS_ECDH_PRIV_KEY:
-+       case CMH_DS_EDDSA_PRIV_KEY:
-+       case CMH_DS_SHARED_SECRET:
-+       case CMH_DS_SM2_PRIV_KEY:
-+               return CORE_ID_PKE;
-+       case CMH_DS_ML_KEM_DK:
-+       case CMH_DS_ML_DSA_SK:
-+               return CORE_ID_QSE;
-+       case CMH_DS_SLHDSA_SK:
-+               return CORE_ID_HCQ;
-+       default:
-+               return CORE_ID_NUM;
-+       }
-+}
-+
-+/**
-+ * cmh_key_setkey_raw() - Store a raw key in the key context
-+ * @ctx: Key context to populate
-+ * @key: Pointer to the raw key bytes
-+ * @keylen: Length of @key in bytes
-+ * @core_id: Logical core ID for SYS_TYPE tagging
-+ *
-+ * Duplicates the raw key, DMA-maps the copy for the lifetime of the
-+ * transform, and stores the mapping in @ctx.  Any previously held key
-+ * is destroyed first.
-+ *
-+ * The DMA mapping persists until cmh_key_destroy() is called (typically
-+ * from the algorithm .exit_tfm callback).  This avoids per-request DMA
-+ * mapping overhead and matches the setkey-to-destroy lifetime model used
-+ * by other upstream HW crypto drivers (CAAM, ccree, CCP).  The key
-+ * buffer is freed via kfree_sensitive() on destroy.
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_key_setkey_raw(struct cmh_key_ctx *ctx, const u8 *key,
-+                      u32 keylen, u32 core_id)
-+{
-+       dma_addr_t dma;
-+       u8 *copy;
-+
-+       if (!keylen || !key)
-+               return -EINVAL;
-+
-+       copy = kmemdup(key, keylen, GFP_KERNEL);
-+       if (!copy)
-+               return -ENOMEM;
-+
-+       /* Pre-map for the lifetime of the transform */
-+       dma = cmh_dma_map_single(copy, keylen, DMA_TO_DEVICE);
-+       if (cmh_dma_map_error(dma)) {
-+               kfree_sensitive(copy);
-+               return -ENOMEM;
-+       }
-+
-+       /* Clean up any previous key */
-+       cmh_key_destroy(ctx);
-+
-+       ctx->mode = CMH_KEY_RAW;
-+       ctx->raw.data = copy;
-+       ctx->raw.len = keylen;
-+       ctx->raw.dma = dma;
-+       ctx->raw.sys_type = SYS_TYPE_SET(SYS_TYPE_FLAG_PT, core_id);
-+
-+       return 0;
-+}
-+
-+/**
-+ * cmh_key_destroy() - Destroy and zero-fill a key context
-+ * @ctx: Key context to destroy
-+ *
-+ * For raw keys, unmaps the DMA buffer and securely frees the key material.
-+ * Resets the key mode to CMH_KEY_NONE.
-+ */
-+void cmh_key_destroy(struct cmh_key_ctx *ctx)
-+{
-+       if (ctx->mode == CMH_KEY_RAW && ctx->raw.data) {
-+               cmh_dma_unmap_single(ctx->raw.dma, ctx->raw.len,
-+                                    DMA_TO_DEVICE);
-+               kfree_sensitive(ctx->raw.data);
-+               memzero_explicit(&ctx->raw, sizeof(ctx->raw));
-+       }
-+       ctx->mode = CMH_KEY_NONE;
-+}
-diff --git a/drivers/crypto/cmh/cmh_main.c b/drivers/crypto/cmh/cmh_main.c
-index 452b8272908f..307bd7dd304b 100644
---- a/drivers/crypto/cmh/cmh_main.c
-+++ b/drivers/crypto/cmh/cmh_main.c
-@@ -29,6 +29,7 @@
- #include "cmh_mqi.h"
- #include "cmh_txn.h"
- #include "cmh_rh.h"
-+#include "cmh_mgmt.h"
- #include "cmh_registers.h"
- #include "cmh_debugfs.h"
- #include "cmh_sysfs.h"
-@@ -190,12 +191,19 @@ static int cmh_probe(struct platform_device *pdev)
-        if (ret)
-                goto err_rh_init;
+void check()
+{
+    check_64(auipc)
+    check_64(jalr)
+    check_64(jal)
+    check_64(beq)
+    check_64(bne)
+    check_64(blt)
+    check_64(bge)
+    check_64(bltu)
+    check_64(bgeu)
+    check_64(ebreak)
+    check_64(sret)
+    check_64(fence)
 
-+       /* Register key management device (/dev/cmh_mgmt) */
-+       ret = cmh_mgmt_register();
-+       if (ret)
-+               goto err_mgmt_register;
-+
-        g_cmh_dev = dev;
-        platform_set_drvdata(pdev, dev);
+    check_32(c_jr)
+    check_32(c_jalr)
+    check_32(c_j)
+    check_32(c_beqz)
+    check_32(c_bnez)
+    check_32(c_ebreak)
+}
 
-        dev_info(cmh_dev(), "initialized successfully\n");
-        return 0;
+This does a simple brute force to check all possible numbers. The
+only difference with the new version is that the fence instruction
+refers to the literal "fence" instruction whereas the previous version
+could have matched on to fence, fence.i, or fence.tso. This does not
+make a material difference because riscv_insn_is_fence() isn't currently
+in use.
+---
+ arch/riscv/Makefile           |    3 +
+ arch/riscv/include/asm/Kbuild |    1 +
+ arch/riscv/include/asm/insn.h |   72 +--
+ arch/riscv/tools/Makefile     |   22 +
+ arch/riscv/tools/insn.tbl     | 1392 +++++++++++++++++++++++++++++++++++++++++
+ arch/riscv/tools/insn_tbl.sh  |  256 ++++++++
+ 6 files changed, 1704 insertions(+), 42 deletions(-)
 
-+err_mgmt_register:
-+       cmh_rh_cleanup(cfg);
- err_rh_init:
-        cmh_tm_cleanup();
- err_tm_init:
-@@ -220,6 +228,7 @@ static void cmh_remove(struct platform_device *pdev)
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index ce0cc737f870..d14caa8720f8 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -176,6 +176,9 @@ BOOT_TARGETS := Image Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zs
+ 
+ all:	$(notdir $(KBUILD_IMAGE))
+ 
++archprepare:
++	$(Q)$(MAKE) $(build)=arch/riscv/tools insn
++
+ loader.bin: loader
+ Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zst Image.xz loader xipImage vmlinuz.efi: Image
+ 
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index 7721b63642f4..16be4de3d0b1 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -2,6 +2,7 @@
+ syscall-y += syscall_table_32.h
+ syscall-y += syscall_table_64.h
+ 
++generated-y += insn_gen.h
+ generic-y += early_ioremap.h
+ generic-y += flat.h
+ generic-y += fprobe.h
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index c3005573e8c9..d562b2b40ba1 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -8,6 +8,36 @@
+ 
+ #include <linux/bits.h>
+ 
++/*
++ * Generate a function to check if a sequence of bits matches an instruction
++ */
++#define __RISCV_INSN_FUNCS(name)							\
++static __always_inline bool riscv_insn_is_##name(u32 _insn)				\
++{											\
++	BUILD_BUG_ON(~(riscv_insn_##name##_MASK) & (riscv_insn_##name##_MATCH));	\
++	return (_insn & (riscv_insn_##name##_MASK)) == (riscv_insn_##name##_MATCH);	\
++}
++
++/*
++ * Generate a function to check if a sequence of bits matches an instruction
++ * with constraints. Some instructions require inputs to be specific values.
++ */
++#define __RISCV_INSN_FUNCS_CONSTRAINED(name, constraints)				\
++static __always_inline bool riscv_insn_is_##name(u32 _insn)				\
++{											\
++	BUILD_BUG_ON(~(riscv_insn_##name##_MASK) & (riscv_insn_##name##_MATCH));	\
++	return ((_insn & (riscv_insn_##name##_MASK)) == (riscv_insn_##name##_MATCH)) && \
++	       (constraints);								\
++}
++
++#define __RISCV_INSN_FUNCS_UNSUPPORTED(name)				\
++static __always_inline bool riscv_insn_is_##name(u32 _insn)		\
++{									\
++	return 0;							\
++}
++
++#include <asm/insn_gen.h>
++
+ #define RV_INSN_FUNCT3_MASK	GENMASK(14, 12)
+ #define RV_INSN_FUNCT3_OPOFF	12
+ #define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
+@@ -233,36 +263,6 @@
+ #define __INSN_OPCODE_MASK	_UL(0x7F)
+ #define __INSN_BRANCH_OPCODE	_UL(RVG_OPCODE_BRANCH)
+ 
+-#define __RISCV_INSN_FUNCS(name, mask, val)				\
+-static __always_inline bool riscv_insn_is_##name(u32 code)		\
+-{									\
+-	BUILD_BUG_ON(~(mask) & (val));					\
+-	return (code & (mask)) == (val);				\
+-}									\
+-
+-#if __riscv_xlen == 32
+-/* C.JAL is an RV32C-only instruction */
+-__RISCV_INSN_FUNCS(c_jal, RVC_MASK_C_JAL, RVC_MATCH_C_JAL)
+-#else
+-#define riscv_insn_is_c_jal(opcode) 0
+-#endif
+-__RISCV_INSN_FUNCS(auipc, RVG_MASK_AUIPC, RVG_MATCH_AUIPC)
+-__RISCV_INSN_FUNCS(jalr, RVG_MASK_JALR, RVG_MATCH_JALR)
+-__RISCV_INSN_FUNCS(jal, RVG_MASK_JAL, RVG_MATCH_JAL)
+-__RISCV_INSN_FUNCS(c_j, RVC_MASK_C_J, RVC_MATCH_C_J)
+-__RISCV_INSN_FUNCS(beq, RVG_MASK_BEQ, RVG_MATCH_BEQ)
+-__RISCV_INSN_FUNCS(bne, RVG_MASK_BNE, RVG_MATCH_BNE)
+-__RISCV_INSN_FUNCS(blt, RVG_MASK_BLT, RVG_MATCH_BLT)
+-__RISCV_INSN_FUNCS(bge, RVG_MASK_BGE, RVG_MATCH_BGE)
+-__RISCV_INSN_FUNCS(bltu, RVG_MASK_BLTU, RVG_MATCH_BLTU)
+-__RISCV_INSN_FUNCS(bgeu, RVG_MASK_BGEU, RVG_MATCH_BGEU)
+-__RISCV_INSN_FUNCS(c_beqz, RVC_MASK_C_BEQZ, RVC_MATCH_C_BEQZ)
+-__RISCV_INSN_FUNCS(c_bnez, RVC_MASK_C_BNEZ, RVC_MATCH_C_BNEZ)
+-__RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
+-__RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
+-__RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
+-__RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
+-
+ /* special case to catch _any_ system instruction */
+ static __always_inline bool riscv_insn_is_system(u32 code)
+ {
+@@ -275,18 +275,6 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+ 	return (code & RV_INSN_OPCODE_MASK) == RVG_OPCODE_BRANCH;
+ }
+ 
+-static __always_inline bool riscv_insn_is_c_jr(u32 code)
+-{
+-	return (code & RVC_MASK_C_JR) == RVC_MATCH_C_JR &&
+-	       (code & RVC_INSN_J_RS1_MASK) != 0;
+-}
+-
+-static __always_inline bool riscv_insn_is_c_jalr(u32 code)
+-{
+-	return (code & RVC_MASK_C_JALR) == RVC_MATCH_C_JALR &&
+-	       (code & RVC_INSN_J_RS1_MASK) != 0;
+-}
+-
+ #define INSN_MATCH_LB		0x3
+ #define INSN_MASK_LB		0x707f
+ #define INSN_MATCH_LH		0x1003
+diff --git a/arch/riscv/tools/Makefile b/arch/riscv/tools/Makefile
+new file mode 100644
+index 000000000000..5f40439c12e9
+--- /dev/null
++++ b/arch/riscv/tools/Makefile
+@@ -0,0 +1,22 @@
++# SPDX-License-Identifier: GPL-2.0
++
++gen := arch/$(ARCH)/include/generated/asm
++insn_tbl := $(src)/insn_tbl.sh
++insn := $(src)/insn.tbl
++
++gen-y := $(gen)/insn_gen.h
++
++targets += $(addprefix ../../../,$(gen-y))
++
++PHONY += insn
++
++insn:	$(gen-y)
++
++# Create output directory if not already present
++$(shell mkdir -p $(gen))
++
++quiet_cmd_insn_tbl = INST_TBL  $@
++      cmd_insn_tbl = $(CONFIG_SHELL) $(insn_tbl) $< $@
++
++$(gen)/insn_gen.h: $(insn) $(insn_tbl) FORCE
++	$(call if_changed,insn_tbl)
+diff --git a/arch/riscv/tools/insn.tbl b/arch/riscv/tools/insn.tbl
+new file mode 100644
+index 000000000000..5dc3392a5543
+--- /dev/null
++++ b/arch/riscv/tools/insn.tbl
+@@ -0,0 +1,1392 @@
++# SPDX-License-Identifier: BSD-3-Clause-Clear
++#
++# GENERATED WITH https://github.com/riscv-software-src/riscv-unified-db
++# "./bin/generate inst-table -o test_table.txt"
++#
++# Each line of the instruction table should have the following format:
++# NAME BASE FIXED_BITS [VARIABLE_LIST]
++# NAME                        instruction name
++# BASE                        instruction base size (common[,(32|64)])
++#                             "common" means the instruction is valid on both architecture sizes
++#                             "32" or "64" means the instruction is valid on that size
++#                             if the instruction is valid on both architectures but has unique
++#                             encodings, use a 32-bit entry "common,32" and 64-bit entry
++# FIXED_BITS                  bitfields of the fixed bits of an instruction concatenated with '|'
++#                             continuous grouping of fixed bits are in the form of 'bits<offset'
++# VARIABLE_LIST               a variable sized list of all variables in the instruction definition
++#                             in the form of name[~][<num][!num...]=(high[-low])|...
++#                             symbols after the name represent different modifiers:
++#                                 ~ sign extension, can only appear once
++#                                 < left shift by 'num' amount on extraction, can only appear once
++#                                 ! mark 'num' as an invalid input for this variable
++andn common 0100000<25|111<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++clmul common 0000101<25|001<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++clmulh common 0000101<25|011<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++orn common 0100000<25|110<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++rev8 common,32 011010011000<20|101<12|0010011<0 xs1=19-15 xd=11-7
++rev8 common,64 011010111000<20|101<12|0010011<0 xs1=19-15 xd=11-7
++rol common 0110000<25|001<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++rolw 64 0110000<25|001<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++ror common 0110000<25|101<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++rori common,32 0110000<25|101<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++rori common,64 011000<26|101<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++roriw 64 0110000<25|101<12|0011011<0 shamt=24-20 xs1=19-15 xd=11-7
++rorw 64 0110000<25|101<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++xnor common 0100000<25|100<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++c.add common 1001<12|10<0 xs2!0=6-2 xd!0=11-7
++c.addi common 000<13|01<0 imm~!0=12|6-2 xd!0=11-7
++c.addi16sp common 011<13|00010<7|01<0 imm~!0<4=12|4-3|5|2|6
++c.addi4spn common 000<13|00<0 imm!0<2=10-7|12-11|5|6 xd=4-2
++c.addiw 64 001<13|01<0 imm~=12|6-2 xd!0=11-7
++c.addw 64 100111<10|01<5|01<0 xs2=4-2 xd=9-7
++c.and common 100011<10|11<5|01<0 xs2=4-2 xd=9-7
++c.andi common 100<13|10<10|01<0 imm~=12|6-2 xd=9-7
++c.beqz common 110<13|01<0 imm~<1=12|6-5|2|11-10|4-3 xs1=9-7
++c.bnez common 111<13|01<0 imm~<1=12|6-5|2|11-10|4-3 xs1=9-7
++c.ebreak common 1001000000000010<0
++c.j common 101<13|01<0 imm~<1=12|8|10-9|6|7|2|11|5-3
++c.jal 32 001<13|01<0 imm~<1=12|8|10-9|6|7|2|11|5-3
++c.jalr common 1001<12|0000010<0 xs1!0=11-7
++c.jr common 1000<12|0000010<0 xs1!0=11-7
++c.ld common,32 011<13|00<0 imm<3=6-5|12-10 xd!1!3!5!7=4-2 xs1=9-7
++c.ld common,64 011<13|00<0 imm<3=6-5|12-10 xd=4-2 xs1=9-7
++c.ldsp common,32 011<13|10<0 imm<3=4-2|12|6-5 xd!0!1!3!5!7!9!11!13!15!17!19!21!23!25!27!29!31=11-7
++c.ldsp common,64 011<13|10<0 imm<3=4-2|12|6-5 xd=11-7
++c.li common 010<13|01<0 imm~=12|6-2 xd!0=11-7
++c.lui common 011<13|01<0 imm~<12=12|6-2 xd!0!2=11-7
++c.lw common 010<13|00<0 imm<2=5|12-10|6 xd=4-2 xs1=9-7
++c.lwsp common 010<13|10<0 imm<2=3-2|12|6-4 xd!0=11-7
++c.mv common 1000<12|10<0 xd!0=11-7 xs2!0=6-2
++c.nop common 0000000000000001<0
++c.or common 100011<10|10<5|01<0 xs2=4-2 xd=9-7
++c.sd common,32 111<13|00<0 imm<3=6-5|12-10 xs2!1!3!5!7=4-2 xs1=9-7
++c.sd common,64 111<13|00<0 imm<3=6-5|12-10 xs2=4-2 xs1=9-7
++c.sdsp common,32 111<13|10<0 xs2!1!3!5!7!9!11!13!15!17!19!21!23!25!27!29!31=6-2 imm<3=9-7|12-10
++c.sdsp common,64 111<13|10<0 xs2=6-2 imm<3=9-7|12-10
++c.slli common,32 0000<12|10<0 shamt!0=6-2 xd=11-7
++c.slli common,64 000<13|10<0 shamt!0=12|6-2 xd=11-7
++c.srai common,32 100001<10|01<0 shamt!0=6-2 xd=9-7
++c.srai common,64 100<13|01<10|01<0 shamt!0=12|6-2 xd=9-7
++c.srli common,32 100000<10|01<0 shamt!0=6-2 xd=9-7
++c.srli common,64 100<13|00<10|01<0 shamt!0=12|6-2 xd=9-7
++c.sub common 100011<10|00<5|01<0 xs2=4-2 xd=9-7
++c.subw 64 100111<10|00<5|01<0 xs2=4-2 xd=9-7
++c.sw common 110<13|00<0 imm<2=5|12-10|6 xs2=4-2 xs1=9-7
++c.swsp common 110<13|10<0 imm<2=8-7|12-9 xs2=6-2
++c.xor common 100011<10|01<5|01<0 xs2=4-2 xd=9-7
++fadd.d common 0000001<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fclass.d common 111000100000<20|001<12|1010011<0 fs1=19-15 xd=11-7
++fcvt.d.l 64 110100100010<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.d.lu 64 110100100011<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.d.s common 010000100000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.d.w common 110100100000<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.d.wu common 110100100001<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.l.d 64 110000100010<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.lu.d 64 110000100011<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.s.d common 010000000001<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.w.d common 110000100000<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.wu.d common 110000100001<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvtmod.w.d common 110000101000<20|1010011<0 fs1=19-15 rm!0!2!3!4!5!6!7=14-12 xd=11-7
++fdiv.d common 0001101<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++feq.d common 1010001<25|010<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fld common 011<12|0000111<0 imm=31-20 xs1=19-15 fd=11-7
++fle.d common 1010001<25|000<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fleq.d common 1010001<25|100<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fli.d common 111100100001<20|000<12|1010011<0 xs1=19-15 fd=11-7
++flt.d common 1010001<25|001<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fltq.d common 1010001<25|101<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fmadd.d common 01<25|1000011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmax.d common 0010101<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmaxm.d common 0010101<25|011<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmin.d common 0010101<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fminm.d common 0010101<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmsub.d common 01<25|1000111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmul.d common 0001001<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmv.d.x 64 111100100000<20|000<12|1010011<0 xs1=19-15 fd=11-7
++fmv.x.d 64 111000100000<20|000<12|1010011<0 fs1=19-15 xd=11-7
++fmvh.x.d 32 111000100001<20|000<12|1010011<0 fs1=19-15 xd=11-7
++fmvp.d.x 32 1011001<25|000<12|1010011<0 xs2=24-20 xs1=19-15 fd=11-7
++fnmadd.d common 01<25|1001111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fnmsub.d common 01<25|1001011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fround.d common 010000100100<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++froundnx.d common 010000100101<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fsd common 011<12|0100111<0 imm=31-25|11-7 fs2=24-20 xs1=19-15
++fsgnj.d common 0010001<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjn.d common 0010001<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjx.d common 0010001<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsqrt.d common 010110100000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fsub.d common 0000101<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fadd.s common 0000000<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fclass.s common 111000000000<20|001<12|1010011<0 fs1=19-15 xd=11-7
++fcvt.l.s 64 110000000010<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.lu.s 64 110000000011<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.s.l 64 110100000010<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.s.lu 64 110100000011<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.s.w common 110100000000<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.s.wu common 110100000001<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.w.s common 110000000000<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.wu.s common 110000000001<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fdiv.s common 0001100<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++feq.s common 1010000<25|010<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fle.s common 1010000<25|000<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fleq.s common 1010000<25|100<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++flt.s common 1010000<25|001<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fltq.s common 1010000<25|101<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++flw common 010<12|0000111<0 imm=31-20 xs1=19-15 fd=11-7
++fmadd.s common 00<25|1000011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmax.s common 0010100<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmin.s common 0010100<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmsub.s common 00<25|1000111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmul.s common 0001000<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmv.w.x common 111100000000<20|000<12|1010011<0 xs1=19-15 fd=11-7
++fmv.x.w common 111000000000<20|000<12|1010011<0 fs1=19-15 xd=11-7
++fnmadd.s common 00<25|1001111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fnmsub.s common 00<25|1001011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fsgnj.s common 0010000<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjn.s common 0010000<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjx.s common 0010000<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsqrt.s common 010110000000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fsub.s common 0000100<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fsw common 010<12|0100111<0 imm=31-25|11-7 fs2=24-20 xs1=19-15
++hfence.gvma common 0110001<25|000000001110011<0 xs2=24-20 xs1=19-15
++hfence.vvma common 0010001<25|000000001110011<0 xs2=24-20 xs1=19-15
++hlv.b common 011000000000<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlv.bu common 011000000001<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlv.d 64 011011000000<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlv.h common 011001000000<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlv.hu common 011001000001<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlv.w common 011010000000<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlv.wu 64 011010000001<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlvx.hu common 011001000011<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hlvx.wu common 011010000011<20|100<12|1110011<0 xs1=19-15 xd=11-7
++hsv.b common 0110001<25|100000001110011<0 xs2=24-20 xs1=19-15
++hsv.d 64 0110111<25|100000001110011<0 xs2=24-20 xs1=19-15
++hsv.h common 0110011<25|100000001110011<0 xs2=24-20 xs1=19-15
++hsv.w common 0110101<25|100000001110011<0 xs2=24-20 xs1=19-15
++add common 0000000<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++addi common 000<12|0010011<0 imm~=31-20 xs1=19-15 xd=11-7
++addiw 64 000<12|0011011<0 imm~=31-20 xs1=19-15 xd=11-7
++addw 64 0000000<25|000<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++and common 0000000<25|111<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++andi common 111<12|0010011<0 imm~=31-20 xs1=19-15 xd=11-7
++auipc common 0010111<0 imm~<12=31-12 xd=11-7
++beq common 000<12|1100011<0 imm~<1=31|7|30-25|11-8 xs2=24-20 xs1=19-15
++bge common 101<12|1100011<0 imm~<1=31|7|30-25|11-8 xs2=24-20 xs1=19-15
++bgeu common 111<12|1100011<0 imm~<1=31|7|30-25|11-8 xs2=24-20 xs1=19-15
++blt common 100<12|1100011<0 imm~<1=31|7|30-25|11-8 xs2=24-20 xs1=19-15
++bltu common 110<12|1100011<0 imm~<1=31|7|30-25|11-8 xs2=24-20 xs1=19-15
++bne common 001<12|1100011<0 imm~<1=31|7|30-25|11-8 xs2=24-20 xs1=19-15
++ebreak common 00000000000100000000000001110011<0
++ecall common 00000000000000000000000001110011<0
++fence.tso common 100000110011<20|000<12|0001111<0 xs1=19-15 xd=11-7
++fence common 000<12|0001111<0 fm=31-28 pred=27-24 succ=23-20 xs1=19-15 xd=11-7
++jal common 1101111<0 imm~<1=31|19-12|20|30-21 xd=11-7
++jalr common 000<12|1100111<0 imm~=31-20 xs1=19-15 xd=11-7
++lb common 000<12|0000011<0 imm~=31-20 xs1=19-15 xd=11-7
++lbu common 100<12|0000011<0 imm~=31-20 xs1=19-15 xd=11-7
++ld common,32 011<12|0000011<0 imm~=31-20 xs1=19-15 xd!1!3!5!7!9!11!13!15!17!19!21!23!25!27!29!31=11-7
++ld common,64 011<12|0000011<0 imm~=31-20 xs1=19-15 xd=11-7
++lh common 001<12|0000011<0 imm~=31-20 xs1=19-15 xd=11-7
++lhu common 101<12|0000011<0 imm~=31-20 xs1=19-15 xd=11-7
++lui common 0110111<0 imm~<12=31-12 xd=11-7
++lw common 010<12|0000011<0 imm~=31-20 xs1=19-15 xd=11-7
++lwu 64 110<12|0000011<0 imm~=31-20 xs1=19-15 xd=11-7
++mret common 00110000001000000000000001110011<0
++or common 0000000<25|110<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++ori common 110<12|0010011<0 imm~=31-20 xs1=19-15 xd=11-7
++sb common 000<12|0100011<0 imm~=31-25|11-7 xs2=24-20 xs1=19-15
++sd common,32 011<12|0100011<0 imm~=31-25|11-7 xs2!1!3!5!7!9!11!13!15!17!19!21!23!25!27!29!31=24-20 xs1=19-15
++sd common,64 011<12|0100011<0 imm~=31-25|11-7 xs2=24-20 xs1=19-15
++sh common 001<12|0100011<0 imm~=31-25|11-7 xs2=24-20 xs1=19-15
++sll common 0000000<25|001<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++slli common,32 0000000<25|001<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++slli common,64 000000<26|001<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++slliw 64 0000000<25|001<12|0011011<0 shamt=24-20 xs1=19-15 xd=11-7
++sllw 64 0000000<25|001<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++slt common 0000000<25|010<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++slti common 010<12|0010011<0 imm~=31-20 xs1=19-15 xd=11-7
++sltiu common 011<12|0010011<0 imm~=31-20 xs1=19-15 xd=11-7
++sltu common 0000000<25|011<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sra common 0100000<25|101<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++srai common,32 0100000<25|101<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++srai common,64 010000<26|101<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++sraiw 64 0100000<25|101<12|0011011<0 shamt=24-20 xs1=19-15 xd=11-7
++sraw 64 0100000<25|101<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++srl common 0000000<25|101<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++srli common,32 0000000<25|101<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++srli common,64 000000<26|101<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++srliw 64 0000000<25|101<12|0011011<0 shamt=24-20 xs1=19-15 xd=11-7
++srlw 64 0000000<25|101<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++sub common 0100000<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++subw 64 0100000<25|000<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++sw common 010<12|0100011<0 imm~=31-25|11-7 xs2=24-20 xs1=19-15
++wfi common 00010000010100000000000001110011<0
++xor common 0000000<25|100<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++xori common 100<12|0010011<0 imm~=31-20 xs1=19-15 xd=11-7
++div common 0000001<25|100<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++divu common 0000001<25|101<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++divuw 64 0000001<25|101<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++divw 64 0000001<25|100<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++mul common 0000001<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mulh common 0000001<25|001<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mulhsu common 0000001<25|010<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mulhu common 0000001<25|011<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mulw 64 0000001<25|000<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++rem common 0000001<25|110<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++remu common 0000001<25|111<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++remuw 64 0000001<25|111<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++remw 64 0000001<25|110<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++fadd.q common 0000011<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fclass.q common 111001100000<20|001<12|1010011<0 fs1=19-15 xd=11-7
++fcvt.d.q common 010000100011<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.h.q common 010001000011<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.l.q 64 110001100010<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.lu.q 64 110001100011<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.q.d common 010001100001<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.q.h common 010001100010<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.q.l 64 110101100010<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.q.lu 64 110101100011<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.q.s common 010001100000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.q.w common 110101100000<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.q.wu common 110101100001<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.s.q common 010000000011<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.w.q common 110001100000<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.wu.q common 110001100001<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fdiv.q common 0001111<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++feq.q common 1010011<25|010<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fle.q common 1010011<25|000<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fleq.q common 1010011<25|100<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fli.q common 111101100001<20|000<12|1010011<0 xs1=19-15 fd=11-7
++flq common 100<12|0000111<0 imm=31-20 xs1=19-15 fd=11-7
++flt.q common 1010011<25|001<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fltq.q common 1010011<25|101<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmadd.q common 11<25|1000011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmax.q common 0010111<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmaxm.q common 0010111<25|011<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmin.q common 0010111<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fminm.q common 0010111<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmsub.q common 11<25|1000111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmul.q common 0001011<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmvh.x.q 64 111001100001<20|000<12|1010011<0 fs1=19-15 xd=11-7
++fmvp.q.x 64 1011011<25|000<12|1010011<0 xs2=24-20 xs1=19-15 fd=11-7
++fnmadd.q common 11<25|1001111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fnmsub.q common 11<25|1001011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fround.q common 010001100100<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++froundnx.q common 010001100101<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fsgnj.q common 0010011<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjn.q common 0010011<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjx.q common 0010011<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsq common 100<12|0100111<0 imm=31-25|11-7 fs2=24-20 xs1=19-15
++fsqrt.q common 010111100000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fsub.q common 0000111<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++sfence.vma common 0001001<25|000000001110011<0 xs2=24-20 xs1=19-15
++sret common 00010000001000000000000001110011<0
++dret common 01111011001000000000000001110011<0
++sctrclr common 00010000010000000000000001110011<0
++mnret common 01110000001000000000000001110011<0
++hinval.gvma common 0110011<25|000000001110011<0 xs2=24-20 xs1=19-15
++hinval.vvma common 0010011<25|000000001110011<0 xs2=24-20 xs1=19-15
++sfence.inval.ir common 00011000000100000000000001110011<0
++sfence.w.inval common 00011000000000000000000001110011<0
++sinval.vma common 0001011<25|000000001110011<0 xs2=24-20 xs1=19-15
++vaadd.vv common 001001<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vaadd.vx common 001001<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vaaddu.vv common 001000<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vaaddu.vx common 001000<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vadc.vim common 0100000<25|011<12|1010111<0 vs2=24-20 imm~=19-15 vd=11-7
++vadc.vvm common 0100000<25|000<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vadc.vxm common 0100000<25|100<12|1010111<0 vs2=24-20 xs1=19-15 vd=11-7
++vadd.vi common 000000<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vadd.vv common 000000<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vadd.vx common 000000<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vand.vi common 001001<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vand.vv common 001001<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vand.vx common 001001<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vasub.vv common 001011<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vasub.vx common 001011<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vasubu.vv common 001010<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vasubu.vx common 001010<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vcompress.vm common 0101111<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vcpop.m common 010000<26|10000010<12|1010111<0 vm=25-25 vs2=24-20 xd=11-7
++vdiv.vv common 100001<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vdiv.vx common 100001<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vdivu.vv common 100000<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vdivu.vx common 100000<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vfadd.vf common 000000<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfadd.vv common 000000<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfclass.v common 010011<26|10000001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfcvt.f.x.v common 010010<26|00011001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfcvt.f.xu.v common 010010<26|00010001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfcvt.rtz.x.f.v common 010010<26|00111001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfcvt.rtz.xu.f.v common 010010<26|00110001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfcvt.x.f.v common 010010<26|00001001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfcvt.xu.f.v common 010010<26|00000001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfdiv.vf common 100000<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfdiv.vv common 100000<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfirst.m common 010000<26|10001010<12|1010111<0 vm=25-25 vs2=24-20 xd=11-7
++vfmacc.vf common 101100<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfmacc.vv common 101100<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfmadd.vf common 101000<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfmadd.vv common 101000<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfmax.vf common 000110<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfmax.vv common 000110<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfmerge.vfm common 0101110<25|101<12|1010111<0 vs2=24-20 fs1=19-15 vd=11-7
++vfmin.vf common 000100<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfmin.vv common 000100<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfmsac.vf common 101110<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfmsac.vv common 101110<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfmsub.vf common 101010<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfmsub.vv common 101010<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfmul.vf common 100100<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfmul.vv common 100100<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfmv.f.s common 0100001<25|00000001<12|1010111<0 vs2=24-20 fd=11-7
++vfmv.s.f common 010000100000<20|101<12|1010111<0 fs1=19-15 vd=11-7
++vfmv.v.f common 010111100000<20|101<12|1010111<0 fs1=19-15 vd=11-7
++vfncvt.f.f.w common 010010<26|10100001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfncvt.f.x.w common 010010<26|10011001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfncvt.f.xu.w common 010010<26|10010001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfncvt.rod.f.f.w common 010010<26|10101001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfncvt.rtz.x.f.w common 010010<26|10111001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfncvt.rtz.xu.f.w common 010010<26|10110001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfncvt.x.f.w common 010010<26|10001001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfncvt.xu.f.w common 010010<26|10000001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfnmacc.vf common 101101<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfnmacc.vv common 101101<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfnmadd.vf common 101001<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfnmadd.vv common 101001<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfnmsac.vf common 101111<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfnmsac.vv common 101111<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfnmsub.vf common 101011<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfnmsub.vv common 101011<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfrdiv.vf common 100001<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfrec7.v common 010011<26|00101001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfredmax.vs common 000111<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfredmin.vs common 000101<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfredosum.vs common 000011<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfredusum.vs common 000001<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfrsqrt7.v common 010011<26|00100001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfrsub.vf common 100111<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfsgnj.vf common 001000<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfsgnj.vv common 001000<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfsgnjn.vf common 001001<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfsgnjn.vv common 001001<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfsgnjx.vf common 001010<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfsgnjx.vv common 001010<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfslide1down.vf common 001111<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfslide1up.vf common 001110<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfsqrt.v common 010011<26|00000001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfsub.vf common 000010<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfsub.vv common 000010<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwadd.vf common 110000<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwadd.vv common 110000<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwadd.wf common 110100<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwadd.wv common 110100<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwcvt.f.f.v common 010010<26|01100001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwcvt.f.x.v common 010010<26|01011001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwcvt.f.xu.v common 010010<26|01010001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwcvt.rtz.x.f.v common 010010<26|01111001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwcvt.rtz.xu.f.v common 010010<26|01110001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwcvt.x.f.v common 010010<26|01001001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwcvt.xu.f.v common 010010<26|01000001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwmacc.vf common 111100<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwmacc.vv common 111100<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwmsac.vf common 111110<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwmsac.vv common 111110<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwmul.vf common 111000<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwmul.vv common 111000<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwnmacc.vf common 111101<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwnmacc.vv common 111101<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwnmsac.vf common 111111<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwnmsac.vv common 111111<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwredosum.vs common 110011<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwredusum.vs common 110001<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwsub.vf common 110010<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwsub.vv common 110010<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vfwsub.wf common 110110<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwsub.wv common 110110<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vid.v common 010100<26|0000010001010<12|1010111<0 vm=25-25 vd=11-7
++viota.m common 010100<26|10000010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vl1re16.v common 000000101000<20|101<12|0000111<0 xs1=19-15 vd=11-7
++vl1re32.v common 000000101000<20|110<12|0000111<0 xs1=19-15 vd=11-7
++vl1re64.v common 000000101000<20|111<12|0000111<0 xs1=19-15 vd=11-7
++vl1re8.v common 000000101000<20|000<12|0000111<0 xs1=19-15 vd=11-7
++vl2re16.v common 001000101000<20|101<12|0000111<0 xs1=19-15 vd=11-7
++vl2re32.v common 001000101000<20|110<12|0000111<0 xs1=19-15 vd=11-7
++vl2re64.v common 001000101000<20|111<12|0000111<0 xs1=19-15 vd=11-7
++vl2re8.v common 001000101000<20|000<12|0000111<0 xs1=19-15 vd=11-7
++vl4re16.v common 011000101000<20|101<12|0000111<0 xs1=19-15 vd=11-7
++vl4re32.v common 011000101000<20|110<12|0000111<0 xs1=19-15 vd=11-7
++vl4re64.v common 011000101000<20|111<12|0000111<0 xs1=19-15 vd=11-7
++vl4re8.v common 011000101000<20|000<12|0000111<0 xs1=19-15 vd=11-7
++vl8re16.v common 111000101000<20|101<12|0000111<0 xs1=19-15 vd=11-7
++vl8re32.v common 111000101000<20|110<12|0000111<0 xs1=19-15 vd=11-7
++vl8re64.v common 111000101000<20|111<12|0000111<0 xs1=19-15 vd=11-7
++vl8re8.v common 111000101000<20|000<12|0000111<0 xs1=19-15 vd=11-7
++vle16.v common 000000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vle16ff.v common 000000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vle32.v common 000000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vle32ff.v common 000000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vle64.v common 000000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vle64ff.v common 000000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vle8.v common 000000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vle8ff.v common 000000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlm.v common 000000101011<20|000<12|0000111<0 xs1=19-15 vd=11-7
++vloxei16.v common 000011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxei32.v common 000011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxei64.v common 000011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxei8.v common 000011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg2ei16.v common 001011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg2ei32.v common 001011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg2ei64.v common 001011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg2ei8.v common 001011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg3ei16.v common 010011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg3ei32.v common 010011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg3ei64.v common 010011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg3ei8.v common 010011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg4ei16.v common 011011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg4ei32.v common 011011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg4ei64.v common 011011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg4ei8.v common 011011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg5ei16.v common 100011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg5ei32.v common 100011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg5ei64.v common 100011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg5ei8.v common 100011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg6ei16.v common 101011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg6ei32.v common 101011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg6ei64.v common 101011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg6ei8.v common 101011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg7ei16.v common 110011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg7ei32.v common 110011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg7ei64.v common 110011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg7ei8.v common 110011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg8ei16.v common 111011<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg8ei32.v common 111011<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg8ei64.v common 111011<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vloxseg8ei8.v common 111011<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vlse16.v common 000010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlse32.v common 000010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlse64.v common 000010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlse8.v common 000010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlseg2e16.v common 001000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg2e16ff.v common 001000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg2e32.v common 001000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg2e32ff.v common 001000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg2e64.v common 001000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg2e64ff.v common 001000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg2e8.v common 001000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg2e8ff.v common 001000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e16.v common 010000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e16ff.v common 010000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e32.v common 010000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e32ff.v common 010000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e64.v common 010000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e64ff.v common 010000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e8.v common 010000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg3e8ff.v common 010000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e16.v common 011000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e16ff.v common 011000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e32.v common 011000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e32ff.v common 011000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e64.v common 011000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e64ff.v common 011000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e8.v common 011000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg4e8ff.v common 011000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e16.v common 100000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e16ff.v common 100000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e32.v common 100000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e32ff.v common 100000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e64.v common 100000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e64ff.v common 100000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e8.v common 100000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg5e8ff.v common 100000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e16.v common 101000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e16ff.v common 101000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e32.v common 101000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e32ff.v common 101000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e64.v common 101000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e64ff.v common 101000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e8.v common 101000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg6e8ff.v common 101000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e16.v common 110000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e16ff.v common 110000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e32.v common 110000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e32ff.v common 110000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e64.v common 110000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e64ff.v common 110000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e8.v common 110000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg7e8ff.v common 110000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e16.v common 111000<26|00000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e16ff.v common 111000<26|10000<20|101<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e32.v common 111000<26|00000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e32ff.v common 111000<26|10000<20|110<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e64.v common 111000<26|00000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e64ff.v common 111000<26|10000<20|111<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e8.v common 111000<26|00000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlseg8e8ff.v common 111000<26|10000<20|000<12|0000111<0 vm=25-25 xs1=19-15 vd=11-7
++vlsseg2e16.v common 001010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg2e32.v common 001010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg2e64.v common 001010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg2e8.v common 001010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg3e16.v common 010010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg3e32.v common 010010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg3e64.v common 010010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg3e8.v common 010010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg4e16.v common 011010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg4e32.v common 011010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg4e64.v common 011010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg4e8.v common 011010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg5e16.v common 100010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg5e32.v common 100010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg5e64.v common 100010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg5e8.v common 100010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg6e16.v common 101010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg6e32.v common 101010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg6e64.v common 101010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg6e8.v common 101010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg7e16.v common 110010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg7e32.v common 110010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg7e64.v common 110010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg7e8.v common 110010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg8e16.v common 111010<26|101<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg8e32.v common 111010<26|110<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg8e64.v common 111010<26|111<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vlsseg8e8.v common 111010<26|000<12|0000111<0 vm=25-25 xs2=24-20 xs1=19-15 vd=11-7
++vluxei16.v common 000001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxei32.v common 000001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxei64.v common 000001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxei8.v common 000001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg2ei16.v common 001001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg2ei32.v common 001001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg2ei64.v common 001001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg2ei8.v common 001001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg3ei16.v common 010001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg3ei32.v common 010001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg3ei64.v common 010001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg3ei8.v common 010001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg4ei16.v common 011001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg4ei32.v common 011001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg4ei64.v common 011001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg4ei8.v common 011001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg5ei16.v common 100001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg5ei32.v common 100001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg5ei64.v common 100001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg5ei8.v common 100001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg6ei16.v common 101001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg6ei32.v common 101001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg6ei64.v common 101001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg6ei8.v common 101001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg7ei16.v common 110001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg7ei32.v common 110001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg7ei64.v common 110001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg7ei8.v common 110001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg8ei16.v common 111001<26|101<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg8ei32.v common 111001<26|110<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg8ei64.v common 111001<26|111<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vluxseg8ei8.v common 111001<26|000<12|0000111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmacc.vv common 101101<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmacc.vx common 101101<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmadc.vi common 0100011<25|011<12|1010111<0 vs2=24-20 imm~=19-15 vd=11-7
++vmadc.vim common 0100010<25|011<12|1010111<0 vs2=24-20 imm~=19-15 vd=11-7
++vmadc.vv common 0100011<25|000<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmadc.vvm common 0100010<25|000<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmadc.vx common 0100011<25|100<12|1010111<0 vs2=24-20 xs1=19-15 vd=11-7
++vmadc.vxm common 0100010<25|100<12|1010111<0 vs2=24-20 xs1=19-15 vd=11-7
++vmadd.vv common 101001<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmadd.vx common 101001<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmand.mm common 0110011<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmandn.mm common 0110001<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmax.vv common 000111<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmax.vx common 000111<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmaxu.vv common 000110<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmaxu.vx common 000110<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmerge.vim common 0101110<25|011<12|1010111<0 vs2=24-20 imm~=19-15 vd=11-7
++vmerge.vvm common 0101110<25|000<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmerge.vxm common 0101110<25|100<12|1010111<0 vs2=24-20 xs1=19-15 vd=11-7
++vmfeq.vf common 011000<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vmfeq.vv common 011000<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmfge.vf common 011111<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vmfgt.vf common 011101<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vmfle.vf common 011001<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vmfle.vv common 011001<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmflt.vf common 011011<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vmflt.vv common 011011<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmfne.vf common 011100<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vmfne.vv common 011100<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmin.vv common 000101<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmin.vx common 000101<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vminu.vv common 000100<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vminu.vx common 000100<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmnand.mm common 0111011<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmnor.mm common 0111101<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmor.mm common 0110101<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmorn.mm common 0111001<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmsbc.vv common 0100111<25|000<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmsbc.vvm common 0100110<25|000<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmsbc.vx common 0100111<25|100<12|1010111<0 vs2=24-20 xs1=19-15 vd=11-7
++vmsbc.vxm common 0100110<25|100<12|1010111<0 vs2=24-20 xs1=19-15 vd=11-7
++vmsbf.m common 010100<26|00001010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vmseq.vi common 011000<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vmseq.vv common 011000<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmseq.vx common 011000<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmsgt.vi common 011111<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vmsgt.vx common 011111<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmsgtu.vi common 011110<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vmsgtu.vx common 011110<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmsif.m common 010100<26|00011010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vmsle.vi common 011101<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vmsle.vv common 011101<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmsle.vx common 011101<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmsleu.vi common 011100<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vmsleu.vv common 011100<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmsleu.vx common 011100<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmslt.vv common 011011<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmslt.vx common 011011<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmsltu.vv common 011010<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmsltu.vx common 011010<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmsne.vi common 011001<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vmsne.vv common 011001<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmsne.vx common 011001<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmsof.m common 010100<26|00010010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vmul.vv common 100101<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmul.vx common 100101<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmulh.vv common 100111<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmulh.vx common 100111<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmulhsu.vv common 100110<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmulhsu.vx common 100110<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmulhu.vv common 100100<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vmulhu.vx common 100100<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vmv.s.x common 010000100000<20|110<12|1010111<0 xs1=19-15 vd=11-7
++vmv.v.i common 010111100000<20|011<12|1010111<0 imm=19-15 vd=11-7
++vmv.v.v common 010111100000<20|000<12|1010111<0 vs1=19-15 vd=11-7
++vmv.v.x common 010111100000<20|100<12|1010111<0 xs1=19-15 vd=11-7
++vmv.x.s common 0100001<25|00000010<12|1010111<0 vs2=24-20 xd=11-7
++vmv1r.v common 1001111<25|00000011<12|1010111<0 vs2=24-20 vd=11-7
++vmv2r.v common 1001111<25|00001011<12|1010111<0 vs2=24-20 vd=11-7
++vmv4r.v common 1001111<25|00011011<12|1010111<0 vs2=24-20 vd=11-7
++vmv8r.v common 1001111<25|00111011<12|1010111<0 vs2=24-20 vd=11-7
++vmxnor.mm common 0111111<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vmxor.mm common 0110111<25|010<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vnclip.wi common 101111<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vnclip.wv common 101111<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vnclip.wx common 101111<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vnclipu.wi common 101110<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vnclipu.wv common 101110<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vnclipu.wx common 101110<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vnmsac.vv common 101111<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vnmsac.vx common 101111<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vnmsub.vv common 101011<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vnmsub.vx common 101011<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vnsra.wi common 101101<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vnsra.wv common 101101<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vnsra.wx common 101101<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vnsrl.wi common 101100<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vnsrl.wv common 101100<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vnsrl.wx common 101100<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vor.vi common 001010<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vor.vv common 001010<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vor.vx common 001010<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vredand.vs common 000001<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vredmax.vs common 000111<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vredmaxu.vs common 000110<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vredmin.vs common 000101<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vredminu.vs common 000100<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vredor.vs common 000010<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vredsum.vs common 000000<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vredxor.vs common 000011<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vrem.vv common 100011<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vrem.vx common 100011<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vremu.vv common 100010<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vremu.vx common 100010<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vrgather.vi common 001100<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vrgather.vv common 001100<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vrgather.vx common 001100<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vrgatherei16.vv common 001110<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vrsub.vi common 000011<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vrsub.vx common 000011<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vs1r.v common 000000101000<20|000<12|0100111<0 xs1=19-15 vs3=11-7
++vs2r.v common 001000101000<20|000<12|0100111<0 xs1=19-15 vs3=11-7
++vs4r.v common 011000101000<20|000<12|0100111<0 xs1=19-15 vs3=11-7
++vs8r.v common 111000101000<20|000<12|0100111<0 xs1=19-15 vs3=11-7
++vsadd.vi common 100001<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vsadd.vv common 100001<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vsadd.vx common 100001<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsaddu.vi common 100000<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vsaddu.vv common 100000<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vsaddu.vx common 100000<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsbc.vvm common 0100100<25|000<12|1010111<0 vs2=24-20 vs1=19-15 vd=11-7
++vsbc.vxm common 0100100<25|100<12|1010111<0 vs2=24-20 xs1=19-15 vd=11-7
++vse16.v common 000000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vse32.v common 000000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vse64.v common 000000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vse8.v common 000000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsetivli common 11<30|111<12|1010111<0 vtypei=29-20 uimm=19-15 xd=11-7
++vsetvl common 1000000<25|111<12|1010111<0 xs2=24-20 xs1=19-15 xd=11-7
++vsetvli common 0<31|111<12|1010111<0 vtypei=30-20 xs1=19-15 xd=11-7
++vsext.vf2 common 010010<26|00111010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vsext.vf4 common 010010<26|00101010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vsext.vf8 common 010010<26|00011010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vslide1down.vx common 001111<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vslide1up.vx common 001110<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vslidedown.vi common 001111<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vslidedown.vx common 001111<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vslideup.vi common 001110<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vslideup.vx common 001110<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsll.vi common 100101<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vsll.vv common 100101<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vsll.vx common 100101<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsm.v common 000000101011<20|000<12|0100111<0 xs1=19-15 vs3=11-7
++vsmul.vv common 100111<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vsmul.vx common 100111<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsoxei16.v common 000011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxei32.v common 000011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxei64.v common 000011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxei8.v common 000011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg2ei16.v common 001011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg2ei32.v common 001011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg2ei64.v common 001011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg2ei8.v common 001011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg3ei16.v common 010011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg3ei32.v common 010011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg3ei64.v common 010011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg3ei8.v common 010011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg4ei16.v common 011011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg4ei32.v common 011011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg4ei64.v common 011011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg4ei8.v common 011011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg5ei16.v common 100011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg5ei32.v common 100011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg5ei64.v common 100011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg5ei8.v common 100011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg6ei16.v common 101011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg6ei32.v common 101011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg6ei64.v common 101011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg6ei8.v common 101011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg7ei16.v common 110011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg7ei32.v common 110011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg7ei64.v common 110011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg7ei8.v common 110011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg8ei16.v common 111011<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg8ei32.v common 111011<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg8ei64.v common 111011<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsoxseg8ei8.v common 111011<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsra.vi common 101001<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vsra.vv common 101001<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vsra.vx common 101001<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsrl.vi common 101000<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vsrl.vv common 101000<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vsrl.vx common 101000<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsse16.v common 000010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vsse32.v common 000010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vsse64.v common 000010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vsse8.v common 000010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vsseg2e16.v common 001000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg2e32.v common 001000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg2e64.v common 001000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg2e8.v common 001000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg3e16.v common 010000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg3e32.v common 010000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg3e64.v common 010000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg3e8.v common 010000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg4e16.v common 011000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg4e32.v common 011000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg4e64.v common 011000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg4e8.v common 011000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg5e16.v common 100000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg5e32.v common 100000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg5e64.v common 100000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg5e8.v common 100000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg6e16.v common 101000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg6e32.v common 101000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg6e64.v common 101000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg6e8.v common 101000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg7e16.v common 110000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg7e32.v common 110000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg7e64.v common 110000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg7e8.v common 110000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg8e16.v common 111000<26|00000<20|101<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg8e32.v common 111000<26|00000<20|110<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg8e64.v common 111000<26|00000<20|111<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vsseg8e8.v common 111000<26|00000<20|000<12|0100111<0 vm=25-25 xs1=19-15 vs3=11-7
++vssra.vi common 101011<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vssra.vv common 101011<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vssra.vx common 101011<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vssrl.vi common 101010<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vssrl.vv common 101010<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vssrl.vx common 101010<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vssseg2e16.v common 001010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg2e32.v common 001010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg2e64.v common 001010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg2e8.v common 001010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg3e16.v common 010010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg3e32.v common 010010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg3e64.v common 010010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg3e8.v common 010010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg4e16.v common 011010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg4e32.v common 011010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg4e64.v common 011010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg4e8.v common 011010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg5e16.v common 100010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg5e32.v common 100010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg5e64.v common 100010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg5e8.v common 100010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg6e16.v common 101010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg6e32.v common 101010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg6e64.v common 101010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg6e8.v common 101010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg7e16.v common 110010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg7e32.v common 110010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg7e64.v common 110010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg7e8.v common 110010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg8e16.v common 111010<26|101<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg8e32.v common 111010<26|110<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg8e64.v common 111010<26|111<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssseg8e8.v common 111010<26|000<12|0100111<0 vm=25-25 xs2=24-20 xs1=19-15 vs3=11-7
++vssub.vv common 100011<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vssub.vx common 100011<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vssubu.vv common 100010<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vssubu.vx common 100010<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsub.vv common 000010<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vsub.vx common 000010<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vsuxei16.v common 000001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxei32.v common 000001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxei64.v common 000001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxei8.v common 000001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg2ei16.v common 001001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg2ei32.v common 001001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg2ei64.v common 001001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg2ei8.v common 001001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg3ei16.v common 010001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg3ei32.v common 010001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg3ei64.v common 010001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg3ei8.v common 010001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg4ei16.v common 011001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg4ei32.v common 011001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg4ei64.v common 011001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg4ei8.v common 011001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg5ei16.v common 100001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg5ei32.v common 100001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg5ei64.v common 100001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg5ei8.v common 100001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg6ei16.v common 101001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg6ei32.v common 101001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg6ei64.v common 101001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg6ei8.v common 101001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg7ei16.v common 110001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg7ei32.v common 110001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg7ei64.v common 110001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg7ei8.v common 110001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg8ei16.v common 111001<26|101<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg8ei32.v common 111001<26|110<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg8ei64.v common 111001<26|111<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vsuxseg8ei8.v common 111001<26|000<12|0100111<0 vm=25-25 vs2=24-20 xs1=19-15 vs3=11-7
++vwadd.vv common 110001<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwadd.vx common 110001<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwadd.wv common 110101<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwadd.wx common 110101<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwaddu.vv common 110000<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwaddu.vx common 110000<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwaddu.wv common 110100<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwaddu.wx common 110100<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwmacc.vv common 111101<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwmacc.vx common 111101<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwmaccsu.vv common 111111<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwmaccsu.vx common 111111<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwmaccu.vv common 111100<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwmaccu.vx common 111100<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwmaccus.vx common 111110<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwmul.vv common 111011<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwmul.vx common 111011<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwmulsu.vv common 111010<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwmulsu.vx common 111010<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwmulu.vv common 111000<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwmulu.vx common 111000<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwredsum.vs common 110001<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwredsumu.vs common 110000<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwsub.vv common 110011<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwsub.vx common 110011<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwsub.wv common 110111<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwsub.wx common 110111<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwsubu.vv common 110010<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwsubu.vx common 110010<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwsubu.wv common 110110<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwsubu.wx common 110110<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vxor.vi common 001011<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm~=19-15 vd=11-7
++vxor.vv common 001011<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vxor.vx common 001011<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vzext.vf2 common 010010<26|00110010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vzext.vf4 common 010010<26|00100010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vzext.vf8 common 010010<26|00010010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++amoadd.d.aq 64 0000010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.d.aqrl 64 0000011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.d.rl 64 0000001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.d 64 0000000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.w.aq common 0000010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.w.aqrl common 0000011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.w.rl common 0000001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.w common 0000000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.d.aq 64 0110010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.d.aqrl 64 0110011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.d.rl 64 0110001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.d 64 0110000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.w.aq common 0110010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.w.aqrl common 0110011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.w.rl common 0110001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.w common 0110000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.d.aq 64 1010010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.d.aqrl 64 1010011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.d.rl 64 1010001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.d 64 1010000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.w.aq common 1010010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.w.aqrl common 1010011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.w.rl common 1010001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.w common 1010000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.d.aq 64 1110010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.d.aqrl 64 1110011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.d.rl 64 1110001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.d 64 1110000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.w.aq common 1110010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.w.aqrl common 1110011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.w.rl common 1110001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.w common 1110000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.d.aq 64 1000010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.d.aqrl 64 1000011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.d.rl 64 1000001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.d 64 1000000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.w.aq common 1000010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.w.aqrl common 1000011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.w.rl common 1000001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.w common 1000000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.d.aq 64 1100010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.d.aqrl 64 1100011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.d.rl 64 1100001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.d 64 1100000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.w.aq common 1100010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.w.aqrl common 1100011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.w.rl common 1100001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.w common 1100000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.d.aq 64 0100010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.d.aqrl 64 0100011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.d.rl 64 0100001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.d 64 0100000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.w.aq common 0100010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.w.aqrl common 0100011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.w.rl common 0100001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.w common 0100000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.d.aq 64 0000110<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.d.aqrl 64 0000111<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.d.rl 64 0000101<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.d 64 0000100<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.w.aq common 0000110<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.w.aqrl common 0000111<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.w.rl common 0000101<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.w common 0000100<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.d.aq 64 0010010<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.d.aqrl 64 0010011<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.d.rl 64 0010001<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.d 64 0010000<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.w.aq common 0010010<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.w.aqrl common 0010011<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.w.rl common 0010001<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.w common 0010000<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.b.aq common 0000010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.b.aqrl common 0000011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.b.rl common 0000001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.b common 0000000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.h.aq common 0000010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.h.aqrl common 0000011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.h.rl common 0000001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoadd.h common 0000000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.b.aq common 0110010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.b.aqrl common 0110011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.b.rl common 0110001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.b common 0110000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.h.aq common 0110010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.h.aqrl common 0110011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.h.rl common 0110001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoand.h common 0110000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.b.aq common 0010110<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.b.aqrl common 0010111<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.b.rl common 0010101<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.b common 0010100<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.h.aq common 0010110<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.h.aqrl common 0010111<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.h.rl common 0010101<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.h common 0010100<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.b.aq common 1010010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.b.aqrl common 1010011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.b.rl common 1010001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.b common 1010000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.h.aq common 1010010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.h.aqrl common 1010011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.h.rl common 1010001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomax.h common 1010000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.b.aq common 1110010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.b.aqrl common 1110011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.b.rl common 1110001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.b common 1110000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.h.aq common 1110010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.h.aqrl common 1110011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.h.rl common 1110001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomaxu.h common 1110000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.b.aq common 1000010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.b.aqrl common 1000011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.b.rl common 1000001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.b common 1000000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.h.aq common 1000010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.h.aqrl common 1000011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.h.rl common 1000001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amomin.h common 1000000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.b.aq common 1100010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.b.aqrl common 1100011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.b.rl common 1100001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.b common 1100000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.h.aq common 1100010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.h.aqrl common 1100011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.h.rl common 1100001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amominu.h common 1100000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.b.aq common 0100010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.b.aqrl common 0100011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.b.rl common 0100001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.b common 0100000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.h.aq common 0100010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.h.aqrl common 0100011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.h.rl common 0100001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoor.h common 0100000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.b.aq common 0000110<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.b.aqrl common 0000111<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.b.rl common 0000101<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.b common 0000100<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.h.aq common 0000110<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.h.aqrl common 0000111<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.h.rl common 0000101<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoswap.h common 0000100<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.b.aq common 0010010<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.b.aqrl common 0010011<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.b.rl common 0010001<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.b common 0010000<25|000<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.h.aq common 0010010<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.h.aqrl common 0010011<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.h.rl common 0010001<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amoxor.h common 0010000<25|001<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.d.aq common 0010110<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.d.aqrl common 0010111<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.d.rl common 0010101<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.d common 0010100<25|011<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.q.aq 64 0010110<25|100<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.q.aqrl 64 0010111<25|100<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.q.rl 64 0010101<25|100<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.q 64 0010100<25|100<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.w.aq common 0010110<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.w.aqrl common 0010111<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.w.rl common 0010101<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++amocas.w common 0010100<25|010<12|0101111<0 xs2=24-20 xs1=19-15 xd=11-7
++lb.aq common 001101000000<20|000<12|0101111<0 xs1=19-15 xd=11-7
++lb.aqrl common 001101100000<20|000<12|0101111<0 xs1=19-15 xd=11-7
++ld.aq common 001101000000<20|011<12|0101111<0 xs1=19-15 xd=11-7
++ld.aqrl common 001101100000<20|011<12|0101111<0 xs1=19-15 xd=11-7
++lh.aq common 001101000000<20|001<12|0101111<0 xs1=19-15 xd=11-7
++lh.aqrl common 001101100000<20|001<12|0101111<0 xs1=19-15 xd=11-7
++lw.aq common 001101000000<20|010<12|0101111<0 xs1=19-15 xd=11-7
++lw.aqrl common 001101100000<20|010<12|0101111<0 xs1=19-15 xd=11-7
++sb.aqrl common 0011111<25|000000000101111<0 xs2=24-20 xs1=19-15
++sb.rl common 0011101<25|000000000101111<0 xs2=24-20 xs1=19-15
++sd.aqrl common 0011111<25|011000000101111<0 xs2=24-20 xs1=19-15
++sd.rl common 0011101<25|011000000101111<0 xs2=24-20 xs1=19-15
++sh.aqrl common 0011111<25|001000000101111<0 xs2=24-20 xs1=19-15
++sh.rl common 0011101<25|001000000101111<0 xs2=24-20 xs1=19-15
++sw.aqrl common 0011111<25|010000000101111<0 xs2=24-20 xs1=19-15
++sw.rl common 0011101<25|010000000101111<0 xs2=24-20 xs1=19-15
++lr.d.aq 64 00010<27|00000<20|011<12|0101111<0 aq!0=26 rl!1=25 xs1=19-15 xd=11-7
++lr.d.aqrl 64 00010<27|00000<20|011<12|0101111<0 aq!0=26 rl!0=25 xs1=19-15 xd=11-7
++lr.d.rl 64 00010<27|00000<20|011<12|0101111<0 aq!1=26 rl!0=25 xs1=19-15 xd=11-7
++lr.d 64 00010<27|00000<20|011<12|0101111<0 aq!1=26 rl!1=25 xs1=19-15 xd=11-7
++lr.w.aq common 00010<27|00000<20|010<12|0101111<0 aq!0=26 rl!1=25 xs1=19-15 xd=11-7
++lr.w.aqrl common 00010<27|00000<20|010<12|0101111<0 aq!0=26 rl!0=25 xs1=19-15 xd=11-7
++lr.w.rl common 00010<27|00000<20|010<12|0101111<0 aq!1=26 rl!0=25 xs1=19-15 xd=11-7
++lr.w common 00010<27|00000<20|010<12|0101111<0 aq!1=26 rl!1=25 xs1=19-15 xd=11-7
++sc.d.aq 64 00011<27|011<12|0101111<0 aq!0=26 rl!1=25 xs2=24-20 xs1=19-15 xd=11-7
++sc.d.aqrl 64 00011<27|011<12|0101111<0 aq!0=26 rl!0=25 xs2=24-20 xs1=19-15 xd=11-7
++sc.d.rl 64 00011<27|011<12|0101111<0 aq!1=26 rl!0=25 xs2=24-20 xs1=19-15 xd=11-7
++sc.d 64 00011<27|011<12|0101111<0 aq!1=26 rl!1=25 xs2=24-20 xs1=19-15 xd=11-7
++sc.w.aq common 00011<27|010<12|0101111<0 aq!0=26 rl!1=25 xs2=24-20 xs1=19-15 xd=11-7
++sc.w.aqrl common 00011<27|010<12|0101111<0 aq!0=26 rl!0=25 xs2=24-20 xs1=19-15 xd=11-7
++sc.w.rl common 00011<27|010<12|0101111<0 aq!1=26 rl!0=25 xs2=24-20 xs1=19-15 xd=11-7
++sc.w common 00011<27|010<12|0101111<0 aq!1=26 rl!1=25 xs2=24-20 xs1=19-15 xd=11-7
++wrs.nto common 00000000110100000000000001110011<0
++wrs.sto common 00000001110100000000000001110011<0
++add.uw 64 0000100<25|000<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++sh1add.uw 64 0010000<25|010<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++sh1add common 0010000<25|010<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sh2add.uw 64 0010000<25|100<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++sh2add common 0010000<25|100<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sh3add.uw 64 0010000<25|110<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++sh3add common 0010000<25|110<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++slli.uw 64 000010<26|001<12|0011011<0 shamt=25-20 xs1=19-15 xd=11-7
++clz common 011000000000<20|001<12|0010011<0 xs1=19-15 xd=11-7
++clzw 64 011000000000<20|001<12|0011011<0 xs1=19-15 xd=11-7
++cpop common 011000000010<20|001<12|0010011<0 xs1=19-15 xd=11-7
++cpopw 64 011000000010<20|001<12|0011011<0 xs1=19-15 xd=11-7
++ctz common 011000000001<20|001<12|0010011<0 xs1=19-15 xd=11-7
++ctzw 64 011000000001<20|001<12|0011011<0 xs1=19-15 xd=11-7
++max common 0000101<25|110<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++maxu common 0000101<25|111<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++min common 0000101<25|100<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++minu common 0000101<25|101<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++orc.b common 001010000111<20|101<12|0010011<0 xs1=19-15 xd=11-7
++sext.b common 011000000100<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sext.h common 011000000101<20|001<12|0010011<0 xs1=19-15 xd=11-7
++zext.h common,32 000010000000<20|100<12|0110011<0 xs1=19-15 xd=11-7
++zext.h common,64 000010000000<20|100<12|0111011<0 xs1=19-15 xd=11-7
++clmulr common 0000101<25|010<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++brev8 common 011010000111<20|101<12|0010011<0 xs1=19-15 xd=11-7
++pack common 0000100<25|100<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++packh common 0000100<25|111<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++packw 64 0000100<25|100<12|0111011<0 xs2=24-20 xs1=19-15 xd=11-7
++unzip 32 000010001111<20|101<12|0010011<0 xs1=19-15 xd=11-7
++zip 32 000010001111<20|001<12|0010011<0 xs1=19-15 xd=11-7
++xperm4 common 0010100<25|010<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++xperm8 common 0010100<25|100<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++bclr common 0100100<25|001<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++bclri common,32 0100100<25|001<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++bclri common,64 010010<26|001<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++bext common 0100100<25|101<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++bexti common,32 0100100<25|101<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++bexti common,64 010010<26|101<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++binv common 0110100<25|001<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++binvi common,32 0110100<25|001<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++binvi common,64 011010<26|001<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++bset common 0010100<25|001<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++bseti common,32 0010100<25|001<12|0010011<0 shamt=24-20 xs1=19-15 xd=11-7
++bseti common,64 001010<26|001<12|0010011<0 shamt=25-20 xs1=19-15 xd=11-7
++c.lbu common 100000<10|00<0 imm=5|6 xd=4-2 xs1=9-7
++c.lh common 100001<10|1<6|00<0 imm<1=5 xd=4-2 xs1=9-7
++c.lhu common 100001<10|0<6|00<0 imm<1=5 xd=4-2 xs1=9-7
++c.mul common 100111<10|10<5|01<0 xd=9-7 xs2=4-2
++c.not common 100111<10|1110101<0 xd=9-7
++c.sb common 100010<10|00<0 imm=5|6 xs2=4-2 xs1=9-7
++c.sext.b common 100111<10|1100101<0 xd=9-7
++c.sext.h common 100111<10|1101101<0 xd=9-7
++c.sh common 100011<10|0<6|00<0 imm<1=5 xs2=4-2 xs1=9-7
++c.zext.b common 100111<10|1100001<0 xd=9-7
++c.zext.h common 100111<10|1101001<0 xd=9-7
++c.zext.w 64 100111<10|1110001<0 xd=9-7
++c.fld common 001<13|00<0 imm<3=6-5|12-10 fd=4-2 xs1=9-7
++c.fldsp common 001<13|10<0 imm<3=4-2|12|6-5 fd=11-7
++c.fsd common 101<13|00<0 imm<3=6-5|12-10 fs2=4-2 xs1=9-7
++c.fsdsp common 101<13|10<0 imm<3=9-7|12-10 fs2=6-2
++c.flw 32 011<13|00<0 imm<2=5|12-10|6 fd=4-2 xs1=9-7
++c.flwsp 32 011<13|10<0 imm<2=3-2|12|6-4 fd=11-7
++c.fsw 32 111<13|00<0 imm<2=5|12-10|6 fs2=4-2 xs1=9-7
++c.fswsp 32 111<13|10<0 imm<2=8-7|12-9 fs2=6-2
++c.mop.1 common 0110000010000001<0
++c.mop.11 common 0110010110000001<0
++c.mop.13 common 0110011010000001<0
++c.mop.15 common 0110011110000001<0
++c.mop.3 common 0110000110000001<0
++c.mop.5 common 0110001010000001<0
++c.mop.7 common 0110001110000001<0
++c.mop.9 common 0110010010000001<0
++cm.mva01s common 101011<10|11<5|10<0 r1s=9-7 r2s=4-2
++cm.mvsa01 common 101011<10|01<5|10<0 r1s=9-7 r2s=4-2
++cm.pop common 10111010<8|10<0 rlist!0!1!2!3=7-4 spimm<4=3-2
++cm.popret common 10111110<8|10<0 rlist!0!1!2!3=7-4 spimm<4=3-2
++cm.popretz common 10111100<8|10<0 rlist!0!1!2!3=7-4 spimm<4=3-2
++cm.push common 10111000<8|10<0 rlist!0!1!2!3=7-4 spimm=3-2
++cm.jalt common 101000<10|10<0 index!0!1!2!3!4!5!6!7!8!9!10!11!12!13!14!15!16!17!18!19!20!21!22!23!24!25!26!27!28!29!30!31=9-2
++cm.jt common 101000000<7|10<0 index=6-2
++fli.s common 111100000001<20|000<12|1010011<0 xs1=19-15 fd=11-7
++fmaxm.s common 0010100<25|011<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fminm.s common 0010100<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fround.s common 010000000100<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++froundnx.s common 010000000101<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.bf16.s common 010001001000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.s.bf16 common 010000000110<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fadd.h common 0000010<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fclass.h common 111001000000<20|001<12|1010011<0 fs1=19-15 xd=11-7
++fcvt.d.h common 010000100010<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.h.d common 010001000001<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.h.l 64 110101000010<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.h.lu 64 110101000011<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.h.s common 010001000000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.h.w common 110101000000<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.h.wu common 110101000001<20|1010011<0 xs1=19-15 rm=14-12 fd=11-7
++fcvt.l.h 64 110001000010<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.lu.h 64 110001000011<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.s.h common 010000000010<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fcvt.w.h common 110001000000<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fcvt.wu.h common 110001000001<20|1010011<0 fs1=19-15 rm=14-12 xd=11-7
++fdiv.h common 0001110<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++feq.h common 1010010<25|010<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fle.h common 1010010<25|000<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fleq.h common 1010010<25|100<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++flh common 001<12|0000111<0 imm=31-20 xs1=19-15 fd=11-7
++fli.h common 111101000001<20|000<12|1010011<0 xs1=19-15 fd=11-7
++flt.h common 1010010<25|001<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fltq.h common 1010010<25|101<12|1010011<0 fs2=24-20 fs1=19-15 xd=11-7
++fmadd.h common 10<25|1000011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmax.h common 0010110<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmaxm.h common 0010110<25|011<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmin.h common 0010110<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fminm.h common 0010110<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fmsub.h common 10<25|1000111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmul.h common 0001010<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fmv.h.x common 111101000000<20|000<12|1010011<0 xs1=19-15 fd=11-7
++fmv.x.h common 111001000000<20|000<12|1010011<0 fs1=19-15 xd=11-7
++fnmadd.h common 10<25|1001111<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fnmsub.h common 10<25|1001011<0 fs3=31-27 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++fround.h common 010001000100<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++froundnx.h common 010001000101<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fsgnj.h common 0010010<25|000<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjn.h common 0010010<25|001<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsgnjx.h common 0010010<25|010<12|1010011<0 fs2=24-20 fs1=19-15 fd=11-7
++fsh common 001<12|0100111<0 imm=31-25|11-7 xs1=19-15 fs2=24-20
++fsqrt.h common 010111000000<20|1010011<0 fs1=19-15 rm=14-12 fd=11-7
++fsub.h common 0000110<25|1010011<0 fs2=24-20 fs1=19-15 rm=14-12 fd=11-7
++cbo.clean common 000000000001<20|010000000001111<0 xs1=19-15
++cbo.flush common 000000000010<20|010000000001111<0 xs1=19-15
++cbo.inval common 000000000000<20|010000000001111<0 xs1=19-15
++prefetch.i common 00000<20|110000000010011<0 imm~<5=31-25 xs1=19-15
++prefetch.r common 00001<20|110000000010011<0 imm~<5=31-25 xs1=19-15
++prefetch.w common 00011<20|110000000010011<0 imm~<5=31-25 xs1=19-15
++cbo.zero common 000000000100<20|010000000001111<0 xs1=19-15
++lpad common 000000010111<0 imm<12=31-12
++ssamoswap.d common 01001<27|011<12|0101111<0 aq=26-26 rl=25-25 xs2=24-20 xs1=19-15 xd=11-7
++ssamoswap.w common 01001<27|010<12|0101111<0 aq=26-26 rl=25-25 xs2=24-20 xs1=19-15 xd=11-7
++sspopchk.x1 common 11001101110000001100000001110011<0
++sspopchk.x5 common 11001101110000101100000001110011<0
++sspush.x1 common 11001110000100000100000001110011<0
++sspush.x5 common 11001110010100000100000001110011<0
++ssrdp common 11001101110000000100<12|1110011<0 xd!0=11-7
++czero.eqz common 0000111<25|101<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++czero.nez common 0000111<25|111<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++csrrc common 011<12|1110011<0 csr=31-20 xs1=19-15 xd=11-7
++csrrci common 111<12|1110011<0 csr=31-20 imm=19-15 xd=11-7
++csrrs common 010<12|1110011<0 csr=31-20 xs1=19-15 xd=11-7
++csrrsi common 110<12|1110011<0 csr=31-20 imm=19-15 xd=11-7
++csrrw common 001<12|1110011<0 csr=31-20 xs1=19-15 xd=11-7
++csrrwi common 101<12|1110011<0 csr=31-20 imm=19-15 xd=11-7
++fence.i common 001<12|0001111<0 imm=31-20 xs1=19-15 xd=11-7
++c.ntl.all common 1001000000010110<0
++c.ntl.p1 common 1001000000001010<0
++c.ntl.pall common 1001000000001110<0
++c.ntl.s1 common 1001000000010010<0
++ntl.all common 00000000010100000000000000110011<0
++ntl.p1 common 00000000001000000000000000110011<0
++ntl.pall common 00000000001100000000000000110011<0
++ntl.s1 common 00000000010000000000000000110011<0
++pause common 00000001000000000000000000001111<0
++mop.r.0 common 100000011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.1 common 100000011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.10 common 100010011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.11 common 100010011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.12 common 100011011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.13 common 100011011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.14 common 100011011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.15 common 100011011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.16 common 110000011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.17 common 110000011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.18 common 110000011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.19 common 110000011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.2 common 100000011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.20 common 110001011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.21 common 110001011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.22 common 110001011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.23 common 110001011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.24 common 110010011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.25 common 110010011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.26 common 110010011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.27 common 110010011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.28 common 110011011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.29 common 110011011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.3 common 100000011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.30 common 110011011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.31 common 110011011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.4 common 100001011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.5 common 100001011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.6 common 100001011110<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.7 common 100001011111<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.8 common 100010011100<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.r.9 common 100010011101<20|100<12|1110011<0 xs1=19-15 xd=11-7
++mop.rr.0 common 1000001<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mop.rr.1 common 1000011<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mop.rr.2 common 1000101<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mop.rr.3 common 1000111<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mop.rr.4 common 1100001<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mop.rr.5 common 1100011<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mop.rr.6 common 1100101<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++mop.rr.7 common 1100111<25|100<12|1110011<0 xs2=24-20 xs1=19-15 xd=11-7
++aes64ks1i 64 00110001<24|001<12|0010011<0 rnum=23-20 xs1=19-15 xd=11-7
++aes64ks2 64 0111111<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++aes32dsi 32 10101<25|000<12|0110011<0 bs=31-30 xs2=24-20 xs1=19-15 xd=11-7
++aes32dsmi 32 10111<25|000<12|0110011<0 bs=31-30 xs2=24-20 xs1=19-15 xd=11-7
++aes64ds 64 0011101<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++aes64dsm 64 0011111<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++aes64im 64 001100000000<20|001<12|0010011<0 xs1=19-15 xd=11-7
++aes32esi 32 10001<25|000<12|0110011<0 bs=31-30 xs2=24-20 xs1=19-15 xd=11-7
++aes32esmi 32 10011<25|000<12|0110011<0 bs=31-30 xs2=24-20 xs1=19-15 xd=11-7
++aes64es 64 0011001<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++aes64esm 64 0011011<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sha256sig0 common 000100000010<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha256sig1 common 000100000011<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha256sum0 common 000100000000<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha256sum1 common 000100000001<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha512sig0 64 000100000110<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha512sig0h 32 0101110<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sha512sig0l 32 0101010<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sha512sig1 64 000100000111<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha512sig1h 32 0101111<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sha512sig1l 32 0101011<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sha512sum0 64 000100000100<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha512sum0r 32 0101000<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sha512sum1 64 000100000101<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sha512sum1r 32 0101001<25|000<12|0110011<0 xs2=24-20 xs1=19-15 xd=11-7
++sm3p0 common 000100001000<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sm3p1 common 000100001001<20|001<12|0010011<0 xs1=19-15 xd=11-7
++sm4ed common 11000<25|000<12|0110011<0 bs=31-30 xs2=24-20 xs1=19-15 xd=11-7
++sm4ks common 11010<25|000<12|0110011<0 bs=31-30 xs2=24-20 xs1=19-15 xd=11-7
++vandn.vv common 000001<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vandn.vx common 000001<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vbrev.v common 010010<26|01010010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vbrev8.v common 010010<26|01000010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vclz.v common 010010<26|01100010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vcpop.v common 010010<26|01110010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vctz.v common 010010<26|01101010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vrev8.v common 010010<26|01001010<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vrol.vv common 010101<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vrol.vx common 010101<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vror.vi common 01010<27|011<12|1010111<0 imm=26|19-15 vm=25-25 vs2=24-20 vd=11-7
++vror.vv common 010100<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vror.vx common 010100<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vwsll.vi common 110101<26|011<12|1010111<0 vm=25-25 vs2=24-20 imm=19-15 vd=11-7
++vwsll.vv common 110101<26|000<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vwsll.vx common 110101<26|100<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vclmul.vv common 001100<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vclmul.vx common 001100<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vclmulh.vv common 001101<26|010<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vclmulh.vx common 001101<26|110<12|1010111<0 vm=25-25 vs2=24-20 xs1=19-15 vd=11-7
++vfncvtbf16.f.f.w common 010010<26|11101001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwcvtbf16.f.f.v common 010010<26|01101001<12|1010111<0 vm=25-25 vs2=24-20 vd=11-7
++vfwmaccbf16.vf common 111011<26|101<12|1010111<0 vm=25-25 vs2=24-20 fs1=19-15 vd=11-7
++vfwmaccbf16.vv common 111011<26|001<12|1010111<0 vm=25-25 vs2=24-20 vs1=19-15 vd=11-7
++vghsh.vv common 1011001<25|010<12|1110111<0 vs2=24-20 vs1=19-15 vd=11-7
++vgmul.vv common 1010001<25|10001010<12|1110111<0 vs2=24-20 vd=11-7
++vaesdf.vs common 1010011<25|00001010<12|1110111<0 vs2=24-20 vd=11-7
++vaesdf.vv common 1010001<25|00001010<12|1110111<0 vs2=24-20 vd=11-7
++vaesdm.vs common 1010011<25|00000010<12|1110111<0 vs2=24-20 vd=11-7
++vaesdm.vv common 1010001<25|00000010<12|1110111<0 vs2=24-20 vd=11-7
++vaesef.vs common 1010011<25|00011010<12|1110111<0 vs2=24-20 vd=11-7
++vaesef.vv common 1010001<25|00011010<12|1110111<0 vs2=24-20 vd=11-7
++vaesem.vs common 1010011<25|00010010<12|1110111<0 vs2=24-20 vd=11-7
++vaesem.vv common 1010001<25|00010010<12|1110111<0 vs2=24-20 vd=11-7
++vaeskf1.vi common 1000101<25|010<12|1110111<0 vs2=24-20 imm=19-15 vd=11-7
++vaeskf2.vi common 1010101<25|010<12|1110111<0 vs2=24-20 imm=19-15 vd=11-7
++vaesz.vs common 1010011<25|00111010<12|1110111<0 vs2=24-20 vd=11-7
++vsha2ch.vv common 1011101<25|010<12|1110111<0 vs2=24-20 vs1=19-15 vd=11-7
++vsha2cl.vv common 1011111<25|010<12|1110111<0 vs2=24-20 vs1=19-15 vd=11-7
++vsha2ms.vv common 1011011<25|010<12|1110111<0 vs2=24-20 vs1=19-15 vd=11-7
++vsm3c.vi common 1010111<25|010<12|1110111<0 vs2=24-20 imm=19-15 vd=11-7
++vsm3me.vv common 1000001<25|010<12|1110111<0 vs2=24-20 vs1=19-15 vd=11-7
++vsm4k.vi common 1000011<25|010<12|1110111<0 vs2=24-20 imm=19-15 vd=11-7
++vsm4r.vs common 1010011<25|10000010<12|1110111<0 vs2=24-20 vd=11-7
++vsm4r.vv common 1010001<25|10000010<12|1110111<0 vs2=24-20 vd=11-7
++
+diff --git a/arch/riscv/tools/insn_tbl.sh b/arch/riscv/tools/insn_tbl.sh
+new file mode 100755
+index 000000000000..aede14c80146
+--- /dev/null
++++ b/arch/riscv/tools/insn_tbl.sh
+@@ -0,0 +1,256 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# Generate riscv instruction helper header.
++# The generated helpers for each instruction are:
++#   - riscv_insn_<insn>_MASK useful to help check if arbitrary binary is <insn>
++#   - riscv_insn_<insn>_MATCH useful to help check if arbitrary binary is <insn>
++#   - riscv_insn_<insn> useful to construct <insn>
++#   - riscv_insn_<insn>_<var> useful to extract <var> from <insn>
++#
++# Each line of the instruction table should have the following format:
++# NAME BASE FIXED_BITS [VARIABLE_LIST]
++# NAME                        instruction name
++# BASE                        instruction base size (common[,(32|64)])
++#                             "common" means the instruction is valid on both architecture sizes
++#                             "32" or "64" means the instruction is valid on that size
++#                             if the instruction is valid on both architectures but has unique
++#                             encodings, use a 32-bit entry "common,32" and 64-bit entry
++# FIXED_BITS                  bitfields of the fixed bits of an instruction concatenated with '|'
++#                             continuous grouping of fixed bits are in the form of 'bits<offset'
++# VARIABLE_LIST               a variable sized list of all variables in the instruction definition
++#                             in the form of name[~][<num][!num...]=(high[-low])|...
++#                             symbols after the name represent different modifiers:
++#                                 ~ sign extension, can only appear once
++#                                 < left shift by 'num' amount on extraction, can only appear once
++#                                 ! mark 'num' as an invalid input for this variable#
++
++set -e
++
++usage() {
++	echo >&2 "usage: $0 BASE INFILE OUTFILE" >&2
++	echo >&2
++	echo >&2 "  INFILE    input instruction table"
++	echo >&2 "  OUTFILE   output header file"
++	exit 1
++}
++
++if [ $# -ne 2 ]; then
++	usage
++fi
++
++infile="$1"
++outfile="$2"
++
++file=$(readlink -f $0)
++
++echo "/* Auto-generated rv${base} header from script arch/${file#*arch/} */" > $outfile
++
++echo "#ifndef RISCV_INSN_GEN_H" >> $outfile
++echo "#define RISCV_INSN_GEN_H" >> $outfile
++echo >> $outfile
++
++printf "#include <linux/bits.h>" >> $outfile
++echo >> $outfile
++
++grep -E "^[a-z\.0-9]+[[:space:]]+" "$infile" | {
++    while read name base fixed variables; do
++        echo "/* $name */"
++
++        non_compressed_insn=${name##c.*}
++        invalid_inst_functions=""
++        variable_params=""
++        constraints=""
++        match=""
++        mask=""
++        make=""
++
++        # All compressed instructions start with "c."
++        size=${non_compressed_insn:+32};
++        size=${size:-16};
++
++        # Replace all . with _
++        formatted_inst_name=$name
++        while [ ! ${formatted_inst_name##*.*} ]; do
++            prefix=${formatted_inst_name%.*}
++            suffix=${formatted_inst_name##*.}
++            contains_dot=${formatted_inst_name##*.*}
++            formatted_inst_name=${contains_dot:-${prefix}_${suffix}}
++        done
++
++        # Collect all fixed bits of an instruction
++        OLD_IFS=$IFS
++        IFS='|'
++        for segment in $fixed; do
++            bits=${segment%<*}
++            offset=${segment#*<}
++
++            len=${#bits}
++
++            mask="${mask} | 0b"
++
++            while [ $len -gt 0 ]; do
++                len=$((len - 1))
++                mask=${mask}1
++            done
++
++            if [ ${offset} -gt 0 ]; then
++                s=" << ${offset}"
++            else
++                s=""
++            fi
++
++            mask="${mask}${s}"
++
++            match="${match} | 0b${bits}${s}"
++        done
++        IFS=$OLD_IFS
++
++        # Instruction only appears in one base
++        only_base=
++        if [ "${base}" != "${base%32}" ]; then
++            echo "#if __riscv_xlen == 32"
++            only_base=32
++        elif [ "${base}" != "${base%64}" ]; then
++            echo "#if __riscv_xlen == 64"
++            only_base=64
++        fi
++
++        # Standard name for the instruction parameter in generated functions
++        insn="_insn"
++
++        for variable in ${variables}; do
++            variable_name="${variable%%[<~=!]*}"
++            parts="${variable#*=}"
++            insert_mask=""
++            sign_extend=""
++            left_shift=""
++            extract=""
++            insert=""
++
++            # Standard name for the variable parameter in generated functions
++            var="_${variable_name}"
++            variable_params="${variable_params}u32 ${var}, "
++
++            if [ "${variable}" != "${variable#*~}" ]; then
++                sign_extend="1"
++            fi
++
++            if [ "${variable}" != "${variable#*<}" ]; then
++                left_shift="${variable#*<}"
++                left_shift="${left_shift%%[=<~!]*}"
++            else
++                left_shift="0"
++            fi
++
++            if [ "${variable}" != "${variable#*!}" ]; then
++                raw_constraints="${variable#*!}"
++                raw_constraints="${raw_constraints%%[=<~!]**}"
++
++                OLD_IFS=$IFS
++                IFS='!'
++                for constraint in $raw_constraints; do
++                    constraints="${constraints}(riscv_insn_${formatted_inst_name}_extract_${variable_name}(${insn}) != ${constraint}) && "
++                done
++                IFS=$OLD_IFS
++            fi
++
++            offset=0
++            while true; do
++                part=${parts##*|}
++
++                if [ "${part#*-}" = "${part}" ]; then
++                    high="${part}"
++                    low="${part}"
++                    len=1
++                else
++                    high="${part%-*}"
++                    low="${part#*-}"
++                    len=$((high - low + 1))
++                fi
++
++                # Don't emit shift if 0
++                first_shift=${low}
++                if [ "${first_shift}" = "0" ]; then
++                    first_shift=
++                fi
++
++                second_shift=$((offset + left_shift))
++                if [ "${second_shift}" = "0" ]; then
++                    second_shift=
++                fi
++
++                extract="${extract} | ((${insn}${first_shift:+ >> }${first_shift} & GENMASK($((len - 1)), 0))${second_shift:+ << }${second_shift})"
++                insert_mask="${insert_mask} & ~GENMASK(${high}, ${low})"
++                insert="${insert} | (((${var}${second_shift:+ >> }${second_shift}) & GENMASK($((len - 1)), 0))${first_shift:+ << }${first_shift})"
++                offset=$((offset + len))
++
++                if [ "${parts}" = "${part}" ]; then
++                    # Processed all parts of variable
++                    break
++                fi
++
++                parts=${parts%|*}
++            done
++
++            extract="${extract# | }"
++
++            if [ ${sign_extend} ]; then
++                extract="sign_extend32(${extract}, $((offset + left_shift - 1)))"
++                type="s"
++            else
++                type="u"
++            fi
++
++            printf "static __always_inline ${type}${size} riscv_insn_${formatted_inst_name}_extract_${variable_name}(u${size} ${insn})\n"
++            printf "{\n"
++            printf "\treturn ${extract};\n"
++            printf "}\n"
++            printf "static __always_inline void riscv_insn_${formatted_inst_name}_insert_${variable_name}(u${size} *${insn}, ${type}32 ${var})\n"
++            printf "{\n"
++            printf "\t*_insn &= ${insert_mask# & };\n"
++            printf "\t*_insn |= ${insert# | };\n"
++            printf "}\n"
++
++            if [ "${only_base}" ]; then
++                invalid_inst_functions="${invalid_inst_functions}static __always_inline ${type}${size} riscv_insn_${formatted_inst_name}_extract_${variable_name}(u${size} ${insn}) {\n\tBUILD_BUG_ON_MSG(1, \"${name} is not supported on non ${only_base}-bit systems.\");\n}\n"
++            fi
++
++            make="${make}	riscv_insn_${formatted_inst_name}_insert_${variable_name}(&${insn}, ${var});\n"
++        done
++
++        variable_params="${variable_params%, }"
++        variable_params="${variable_params:-void}"
++
++        printf "#define riscv_insn_${formatted_inst_name}_MASK (${mask# | })\n"
++        printf "#define riscv_insn_${formatted_inst_name}_MATCH (${match# | })\n"
++        printf "static __always_inline u${size} riscv_insn_${formatted_inst_name}(${variable_params})\n"
++        printf "{\n"
++        printf "\tu${size} ${insn} = riscv_insn_${formatted_inst_name}_MATCH;\n"
++        printf "${make}	return ${insn};\n"
++        printf "}\n"
++
++        # Check against instructions that have a variable that may contain invalid values
++        if [ "$constraints" ]; then
++            printf "__RISCV_INSN_FUNCS_CONSTRAINED(${formatted_inst_name}, ${constraints% && });\n"
++        else
++            printf "__RISCV_INSN_FUNCS(${formatted_inst_name});\n"
++        fi
++
++        # If common does not appear in the base, then this instruction only appears in one base
++        if [ "$base" = "${base#common}" ]; then
++            printf "#else\n"
++            printf "__RISCV_INSN_FUNCS_UNSUPPORTED(${formatted_inst_name});\n"
++            printf "${invalid_inst_functions%\\n}\n"
++        fi
++
++        # Instruction has a base variant
++        if [ "$base" != "${base%[24]}" ]; then
++            echo "#endif"
++        fi
++
++        echo
++    done
++
++    echo "#endif /* RISCV_INST_GEN_H */"
++} >> $outfile
 
-        cfg = &dev->config;
-
-+       cmh_mgmt_unregister();
-        cmh_rh_cleanup(cfg);
-        cmh_tm_cleanup();
-        cmh_mqi_cleanup(cfg);
-diff --git a/drivers/crypto/cmh/cmh_mgmt.c b/drivers/crypto/cmh/cmh_mgmt.c
-new file mode 100644
-index 000000000000..d228213f7850
---- /dev/null
-+++ b/drivers/crypto/cmh/cmh_mgmt.c
-@@ -0,0 +1,1607 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- Key Management misc_device (/dev/cmh_mgmt)
-+ *
-+ * Provides ioctl interface for key provisioning (NEW, NEW_RANDOM, WRITE, READ,
-+ * FIND, GRANT, DELETE) and datastore lifecycle (EXPORT, IMPORT).
-+ *
-+ * Each ioctl handler: copy_from_user -> validate -> DMA alloc ->
-+ * build VCQ -> cmh_tm_submit_sync -> copy_to_user -> DMA free.
-+ *
-+ * Access requires CAP_SYS_ADMIN (checked in open()).  The device node
-+ * is mode 0660; DAC further limits access to owner/group.
-+ * CMH eSW enforces per-MBX access control on top of this.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/miscdevice.h>
-+#include <linux/uaccess.h>
-+#include <linux/slab.h>
-+#include <linux/fs.h>
-+#include <linux/capability.h>
-+#include <linux/overflow.h>
-+
-+#include "cmh_mgmt.h"
-+#include "cmh_sys.h"
-+#include "cmh_txn.h"
-+#include "cmh_key.h"
-+#include "cmh_dma.h"
-+#include "cmh_config.h"
-+#include "cmh_sys_abi.h"
-+#include "cmh_pke.h"
-+#include "cmh_pke_sm2.h"
-+#include "cmh_qse_abi.h"
-+#include "cmh_hcq_abi.h"
-+#include <uapi/linux/cmh_mgmt_ioctl.h>
-+
-+#include <crypto/utils.h>
-+
-+/*
-+ * Pin all mgmt ioctls to a single management mailbox (MBX 0).
-+ *
-+ * This is a deliberate, structural choice -- not a performance default.
-+ * The /dev/cmh_mgmt path is *stateful* with respect to the eSW datastore,
-+ * and that state is per-mailbox, so every step of a key's lifecycle must
-+ * land on the same mailbox:
-+ *
-+ * 1. Datastore access control is per-mailbox AND opaque to the driver.
-+ *    SYS_CMD_NEW grants the creating mailbox a (1 << mbx_id) access mask
-+ *    (read/write/execute).  Crucially, the returned 64-bit ref encodes a
-+ *    randomised offset -- NOT the owning mailbox -- so given only a ref
-+ *    (as KEY_GRANT/READ/DELETE/DS_EXPORT receive), the driver cannot
-+ *    recover which mailbox owns the object.  A fixed management mailbox
-+ *    is therefore the only way to guarantee that NEW, WRITE, GRANT, READ
-+ *    and the subsequent hardware-held-key compute ops all share the
-+ *    mailbox that holds the access rights, without exposing mailbox
-+ *    identity in the UABI.  (User space may still widen access to other
-+ *    mailboxes explicitly via KEY_GRANT.)
-+ *
-+ * 2. The eSW SYS_REF_TEMP scratch store is per-mailbox and persists
-+ *    across ioctl calls.  A derivation that writes SYS_REF_TEMP (e.g. a
-+ *    KIC_* derive) must be consumed by a later ioctl on the *same*
-+ *    mailbox (e.g. DS_EXPORT with wrap_key=SYS_REF_TEMP).
-+ *
-+ * Device-tree per-core ``cri,mbx`` affinity applies to the *stateless*
-+ * registered crypto API path (cmh_core_select_instance()), which carries
-+ * no datastore state across calls and is free to balance across mailboxes.
-+ *
-+ * Note: MBX 0 is NOT reserved exclusively for mgmt -- registered crypto
-+ * operations may also land here via TM round-robin (target_mbx = -1).
-+ * This is safe because those ops do not allocate from the temp store.
-+ */
-+
-+/* VCQ layout: header + command + flush = 3 entries */
-+#define MGMT_VCQ_CMDS          3
-+
-+/*
-+ * Tracks whether any operation has left residual state in the device's
-+ * per-mailbox temporary key store since the last flush.  The device
-+ * reclaims temp storage only on a full mailbox flush (MBX_COMMAND_FLUSH),
-+ * which also terminates any executing command queue with -EPIPE.
-+ *
-+ * To avoid killing concurrent in-flight operations, the flush in
-+ * cmh_mgmt_ioctl() is conditional: it fires only when this flag is set.
-+ * Operations that allocate temp storage (currently: KIC derivations
-+ * targeting SYS_REF_TEMP) set this flag on success.
-+ */
-+static atomic_t mgmt_temp_dirty = ATOMIC_INIT(0);
-+
-+/* -- KEY_NEW -------------------------- */
-+
-+static int cmh_mgmt_key_new(void __user *argp)
-+{
-+       struct cmh_ioctl_key_new req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       u64 *ref_buf;
-+       dma_addr_t ref_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.len)
-+               return -EINVAL;
-+
-+       /* DMA buffer for CMH eSW to write back the ref */
-+       ref_buf = kmalloc_obj(*ref_buf, GFP_KERNEL);
-+       if (!ref_buf)
-+               return -ENOMEM;
-+
-+       *ref_buf = 0;
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ref_dma)) {
-+               kfree(ref_buf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_new(&vcq[1], req.cid, ref_dma, req.len);
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       /*
-+        * Unmap before CPU read: single-phase operation (no re-use of
-+        * the DMA mapping), so unmap transfers ownership back to the
-+        * CPU.  On SWIOTLB systems the unmap copies the bounce buffer
-+        * to the original allocation.  This is the correct pattern for
-+        * single-shot sync submits where the buffer is not re-mapped.
-+        */
-+       cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf), DMA_FROM_DEVICE);
-+
-+       if (ret) {
-+               kfree(ref_buf);
-+               return ret;
-+       }
-+
-+       req.ref = *ref_buf;
-+       kfree(ref_buf);
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(), "mgmt: KEY_NEW cid=0x%llx len=%u -> ref=0x%llx\n",
-+               req.cid, req.len, req.ref);
-+       return 0;
-+}
-+
-+/* -- KEY_WRITE ------------------------- */
-+
-+static int cmh_mgmt_key_write(void __user *argp)
-+{
-+       struct cmh_ioctl_key_write req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       void *dmabuf;
-+       dma_addr_t dma_addr;
-+       u32 core_id, sys_type;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.len || req.len > CMH_MGMT_MAX_DATA_LEN)
-+               return -EINVAL;
-+
-+       core_id = cmh_ds_type_to_core_id(req.ds_type);
-+       if (core_id == CORE_ID_NUM)
-+               return -EINVAL;
-+       sys_type = SYS_TYPE_SET(req.flags, core_id);
-+
-+       dmabuf = kmalloc(req.len, GFP_KERNEL);
-+       if (!dmabuf)
-+               return -ENOMEM;
-+
-+       if (copy_from_user(dmabuf, u64_to_user_ptr(req.data),
-+                          req.len)) {
-+               kfree_sensitive(dmabuf);
-+               return -EFAULT;
-+       }
-+
-+       dma_addr = cmh_dma_map_single(dmabuf, req.len, DMA_TO_DEVICE);
-+       if (cmh_dma_map_error(dma_addr)) {
-+               kfree_sensitive(dmabuf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_write(&vcq[1], req.ref, dma_addr, req.wrap_key,
-+                         req.len, sys_type);
-+       /*
-+        * PKE keys on Weierstrass curves and RSA keys must be byte-swapped
-+        * when stored in the DS so they match the internal big-endian
-+        * representation used by the PKE sidecar.  Edwards curve keys
-+        * (EdDSA) use native byte order and must NOT be swapped.
-+        */
-+       switch (req.ds_type) {
-+       case CMH_DS_RSA_PRIV_KEY:
-+       case CMH_DS_RSA_PUB_KEY:
-+       case CMH_DS_RSA_CRT_KEY:
-+       case CMH_DS_ECDSA_PRIV_KEY:
-+       case CMH_DS_ECDSA_PUB_KEY:
-+       case CMH_DS_ECDH_PRIV_KEY:
-+       case CMH_DS_SHARED_SECRET:
-+       case CMH_DS_SM2_PRIV_KEY:
-+               vcq[1].id |= PKE_SWAP_FLAGS;
-+               break;
-+       default:
-+               /* EdDSA, symmetric keys -- no swap */
-+               break;
-+       }
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(dma_addr, req.len, DMA_TO_DEVICE);
-+       kfree_sensitive(dmabuf);
-+
-+       if (ret)
-+               return ret;
-+
-+       dev_dbg(cmh_dev(), "mgmt: KEY_WRITE ref=0x%llx len=%u type=0x%x\n",
-+               req.ref, req.len, sys_type);
-+       return 0;
-+}
-+
-+/* -- KEY_READ -------------------------- */
-+
-+static int cmh_mgmt_key_read(void __user *argp)
-+{
-+       struct cmh_ioctl_key_read req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       void *dmabuf;
-+       dma_addr_t dma_addr;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (!req.len || req.len > CMH_MGMT_MAX_DATA_LEN)
-+               return -EINVAL;
-+
-+       dmabuf = kzalloc(req.len, GFP_KERNEL);
-+       if (!dmabuf)
-+               return -ENOMEM;
-+
-+       dma_addr = cmh_dma_map_single(dmabuf, req.len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(dma_addr)) {
-+               kfree(dmabuf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_read(&vcq[1], req.ref, dma_addr, req.wrap_key, req.len);
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(dma_addr, req.len, DMA_FROM_DEVICE);
-+
-+       if (ret) {
-+               kfree_sensitive(dmabuf);
-+               return ret;
-+       }
-+
-+       if (copy_to_user(u64_to_user_ptr(req.data),
-+                        dmabuf, req.len)) {
-+               kfree_sensitive(dmabuf);
-+               return -EFAULT;
-+       }
-+
-+       req.out_len = req.len;
-+       kfree_sensitive(dmabuf);
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(), "mgmt: KEY_READ ref=0x%llx len=%u\n",
-+               req.ref, req.out_len);
-+       return 0;
-+}
-+
-+/* -- KEY_FIND -------------------------- */
-+
-+static int cmh_mgmt_key_find(void __user *argp)
-+{
-+       struct cmh_ioctl_key_find req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       struct sys_list_item *item;
-+       dma_addr_t item_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+
-+       item = kzalloc_obj(*item, GFP_KERNEL);
-+       if (!item)
-+               return -ENOMEM;
-+
-+       item_dma = cmh_dma_map_single(item, sizeof(*item), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(item_dma)) {
-+               kfree(item);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_find(&vcq[1], req.cid, item_dma, sizeof(*item));
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(item_dma, sizeof(*item), DMA_FROM_DEVICE);
-+
-+       if (ret) {
-+               kfree(item);
-+               return ret;
-+       }
-+
-+       req.ref = item->ref;
-+       req.len = item->len;
-+       req.type = item->type;
-+       kfree(item);
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(), "mgmt: KEY_FIND cid=0x%llx -> ref=0x%llx\n",
-+               req.cid, req.ref);
-+       return 0;
-+}
-+
-+/* -- KEY_LIST ------------------------- */
-+
-+static int cmh_mgmt_key_list(void __user *argp)
-+{
-+       struct cmh_ioctl_key_list req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       struct sys_list_item *item;
-+       dma_addr_t item_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+
-+       if (req.__reserved)
-+               return -EINVAL;
-+
-+       item = kzalloc_obj(*item, GFP_KERNEL);
-+       if (!item)
-+               return -ENOMEM;
-+
-+       item_dma = cmh_dma_map_single(item, sizeof(*item), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(item_dma)) {
-+               kfree(item);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_list(&vcq[1], req.start_ref, item_dma, sizeof(*item));
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(item_dma, sizeof(*item), DMA_FROM_DEVICE);
-+
-+       if (ret) {
-+               kfree(item);
-+               return ret;
-+       }
-+
-+       req.ref = item->ref;
-+       req.cid = item->cid;
-+       req.len = item->len;
-+       req.type = item->type;
-+       kfree(item);
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       return 0;
-+}
-+
-+/* -- KEY_GRANT / KEY_DELETE --------------------- */
-+
-+static int cmh_mgmt_key_grant(void __user *argp, bool is_delete)
-+{
-+       struct cmh_ioctl_key_grant req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+
-+       /* DELETE = GRANT with all permissions zeroed */
-+       if (is_delete) {
-+               req.read = 0;
-+               req.write = 0;
-+               req.execute = 0;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_grant(&vcq[1], req.ref, req.read, req.write, req.execute);
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+       if (ret)
-+               return ret;
-+
-+       dev_dbg(cmh_dev(), "mgmt: KEY_%s ref=0x%llx r=0x%llx w=0x%llx x=0x%llx\n",
-+               is_delete ? "DELETE" : "GRANT",
-+               req.ref, req.read, req.write, req.execute);
-+       return 0;
-+}
-+
-+/* -- DS_EXPORT ------------------------- */
-+
-+static int cmh_mgmt_ds_export(void __user *argp)
-+{
-+       struct cmh_ioctl_ds_export req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       void *dmabuf;
-+       dma_addr_t dma_addr;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (!req.len || req.len > CMH_MGMT_MAX_DATA_LEN)
-+               return -EINVAL;
-+
-+       /*
-+        * req.len is the exact DMA buffer size given to the eSW.
-+        * Userspace must size it to at least the export blob:
-+        *
-+        *   wrapped:   sizeof(sys_wrap_hdr) + 2*AES_BLOCK_SIZE + obj_len
-+        *              = 16 + 32 + obj_len  = 48 + obj_len
-+        *   plaintext: sizeof(sys_wrap_hdr) + obj_len
-+        *              = 16 + obj_len
-+        *
-+        * obj_len is known from KEY_NEW or KEY_FIND.  If req.len is
-+        * too small, the eSW rejects the command and we return -EIO.
-+        */
-+       dmabuf = kzalloc(req.len, GFP_KERNEL);
-+       if (!dmabuf)
-+               return -ENOMEM;
-+
-+       dma_addr = cmh_dma_map_single(dmabuf, req.len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(dma_addr)) {
-+               kfree(dmabuf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_export(&vcq[1], req.cid, dma_addr, req.wrap_key, req.len);
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(dma_addr, req.len, DMA_FROM_DEVICE);
-+
-+       if (ret) {
-+               kfree_sensitive(dmabuf);
-+               return ret;
-+       }
-+
-+       /* Parse actual blob size from the eSW-written header */
-+       {
-+               struct sys_wrap_hdr *hdr = (struct sys_wrap_hdr *)dmabuf;
-+               u64 actual;
-+
-+               if (check_add_overflow((u64)sizeof(*hdr), (u64)hdr->wrap,
-+                                      &actual) ||
-+                   check_add_overflow(actual, (u64)hdr->len, &actual) ||
-+                   actual > req.len) {
-+                       kfree_sensitive(dmabuf);
-+                       return -EIO;
-+               }
-+               req.out_len = (u32)actual;
-+       }
-+
-+       if (copy_to_user(u64_to_user_ptr(req.data),
-+                        dmabuf, req.out_len)) {
-+               kfree_sensitive(dmabuf);
-+               return -EFAULT;
-+       }
-+
-+       kfree_sensitive(dmabuf);
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(), "mgmt: DS_EXPORT wrap_key=0x%llx len=%u\n",
-+               req.wrap_key, req.out_len);
-+       return 0;
-+}
-+
-+/* -- DS_IMPORT ------------------------- */
-+
-+static int cmh_mgmt_ds_import(void __user *argp)
-+{
-+       struct cmh_ioctl_ds_import req;
-+       struct vcq_cmd vcq[MGMT_VCQ_CMDS];
-+       void *dmabuf;
-+       dma_addr_t dma_addr;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.len || req.len > CMH_MGMT_MAX_DATA_LEN)
-+               return -EINVAL;
-+
-+       dmabuf = kmalloc(req.len, GFP_KERNEL);
-+       if (!dmabuf)
-+               return -ENOMEM;
-+
-+       if (copy_from_user(dmabuf, u64_to_user_ptr(req.data),
-+                          req.len)) {
-+               kfree_sensitive(dmabuf);
-+               return -EFAULT;
-+       }
-+
-+       dma_addr = cmh_dma_map_single(dmabuf, req.len, DMA_TO_DEVICE);
-+       if (cmh_dma_map_error(dma_addr)) {
-+               kfree_sensitive(dmabuf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], MGMT_VCQ_CMDS);
-+       vcq_add_sys_import(&vcq[1], dma_addr, req.wrap_key, req.len);
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, MGMT_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(dma_addr, req.len, DMA_TO_DEVICE);
-+       kfree_sensitive(dmabuf);
-+
-+       if (ret)
-+               return ret;
-+
-+       dev_dbg(cmh_dev(), "mgmt: DS_IMPORT wrap_key=0x%llx len=%u\n",
-+               req.wrap_key, req.len);
-+       return 0;
-+}
-+
-+/* -- KIC key derivation ioctls --------
-+ *
-+ * All four KIC derivation handlers (HKDF1, HKDF2, AES-CMAC-KDF,
-+ * DKEK-derive) share the same two-mode structure and temp-flush pattern.
-+ *
-+ * Temp-storage flush rationale:
-+ *
-+ *   The device maintains a small per-mailbox temporary key store
-+ *   (~960 bytes, LIFO).  A derivation targeting SYS_REF_TEMP allocates
-+ *   from this store; the allocation persists across command-queue
-+ *   boundaries until either (a) a subsequent command consumes it or
-+ *   (b) a mailbox flush resets the store.
-+ *
-+ *   Our single-derivation ioctls produce a temp key with no consumer
-+ *   in the same queue -- the key is consumed by a *later* ioctl
-+ *   (e.g. DS_EXPORT with wrap_key=SYS_REF_TEMP).  If no consumer
-+ *   follows, the allocation persists.  Sequential temp derivations
-+ *   accumulate allocations until the store is exhausted (3--8 calls
-+ *   depending on key size), after which the device returns ENOMEM.
-+ *
-+ *   A mailbox flush (cmh_tm_flush_mbx / MBX_COMMAND_FLUSH) resets the
-+ *   temp store.  It does NOT destroy persistent keys, datastore
-+ *   objects, or DRBG state -- only the command queue and temp store.
-+ *
-+ *   Safe for cross-ioctl temp flows (e.g. export-to-file:
-+ *   HKDF1->TEMP in ioctl 1, then DS_EXPORT with wrap_key=TEMP in
-+ *   ioctl 2): the flush only happens in derivation handlers and in
-+ *   the pre-PKE dispatch path, not in DS_EXPORT/DS_IMPORT, so the
-+ *   temp key survives until consumed.
-+ *
-+ * The ioctl dispatch also flushes before PKE/SM2/PQC ioctls to
-+ * protect them from temp residue left by earlier derivations on the
-+ * same mailbox.  The per-handler flushes here remain necessary
-+ * because sequential temp derivations (without an intervening
-+ * PKE/SM2/PQC ioctl) would still exhaust the store.
-+ */
-+
-+/* -- KIC_HKDF1 ------------------------- */
-+
-+/*
-+ * Derive a key from a KIC base key via one-step HKDF.
-+ *
-+ * Two modes controlled by CMH_KIC_FLAG_TEMP:
-+ *
-+ *   TEMP (flag set) -- 3-command VCQ:
-+ *     [0] SYS header
-+ *     [1] KIC_CMD_HKDF1 (dst=SYS_REF_TEMP)
-+ *     [2] flush
-+ *   Returns SYS_REF_TEMP as ref.  No DS entry created.
-+ *
-+ *   Persistent (flag clear) -- 4-command VCQ:
-+ *     [0] SYS header
-+ *     [1] SYS_CMD_NEW   (allocate DS slot, CMH eSW writes ref)
-+ *     [2] KIC_CMD_HKDF1 (dst=SYS_REF_LAST = just-allocated slot)
-+ *     [3] flush
-+ *   Returns the new DS reference.
-+ */
-+#define KDF_VCQ_MAX            4
-+#define KDF_MAX_KEY_LEN                64
-+#define KDF_MAX_LABEL_LEN      56
-+
-+static int cmh_mgmt_kic_hkdf1(void __user *argp)
-+{
-+       struct cmh_ioctl_kic_hkdf1 req;
-+       struct vcq_cmd vcq[KDF_VCQ_MAX];
-+       bool temp;
-+       u64 *ref_buf = NULL;
-+       void *label_buf = NULL;
-+       dma_addr_t ref_dma = DMA_MAPPING_ERROR, label_dma = DMA_MAPPING_ERROR;
-+       unsigned int n_cmds;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.key_len || req.key_len > KDF_MAX_KEY_LEN)
-+               return -EINVAL;
-+       if (req.label_len > KDF_MAX_LABEL_LEN)
-+               return -EINVAL;
-+
-+       temp = !!(req.flags & CMH_KIC_FLAG_TEMP);
-+
-+       /*
-+        * Persistent path: need DMA buffer for CMH eSW to write the
-+        * newly-allocated DS reference.
-+        */
-+       if (!temp) {
-+               ref_buf = kmalloc_obj(*ref_buf, GFP_KERNEL);
-+               if (!ref_buf)
-+                       return -ENOMEM;
-+               *ref_buf = 0;
-+               ref_dma = cmh_dma_map_single(ref_buf, sizeof(*ref_buf),
-+                                            DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(ref_dma)) {
-+                       kfree(ref_buf);
-+                       return -ENOMEM;
-+               }
-+       }
-+
-+       /* DMA buffer for label data (CMH eSW DMA-reads it) */
-+       if (req.label_len > 0) {
-+               label_buf = kzalloc(req.label_len, GFP_KERNEL);
-+               if (!label_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_ref;
-+               }
-+               if (copy_from_user(label_buf,
-+                                  u64_to_user_ptr(req.label),
-+                                  req.label_len)) {
-+                       ret = -EFAULT;
-+                       goto out_label;
-+               }
-+               label_dma = cmh_dma_map_single(label_buf, req.label_len,
-+                                              DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(label_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_label;
-+               }
-+       }
-+
-+       /* Build VCQ */
-+       memset(vcq, 0, sizeof(vcq));
-+
-+       if (temp) {
-+               /* Flush MBX to reset temp stack -- see KIC section comment */
-+               ret = cmh_tm_flush_mbx(MGMT_MBX);
-+               if (ret)
-+                       goto out_unmap_label;
-+
-+               n_cmds = 3;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_kic_hkdf1(&vcq[1], SYS_REF_TEMP, req.base_key,
-+                                 label_dma, req.key_len, req.label_len,
-+                                  SYS_TYPE_SET(0, CORE_ID_AES));
-+               vcq_add_sys_flush(&vcq[2]);
-+       } else {
-+               n_cmds = 4;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_sys_new(&vcq[1], req.cid, ref_dma, req.key_len);
-+               vcq_add_kic_hkdf1(&vcq[2], SYS_REF_LAST, req.base_key,
-+                                 label_dma, req.key_len, req.label_len,
-+                                  SYS_TYPE_SET(0, CORE_ID_AES));
-+               vcq_add_sys_flush(&vcq[3]);
-+       }
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, n_cmds, 1, MGMT_MBX);
-+
-+       /* Cleanup label DMA */
-+       if (label_buf) {
-+               cmh_dma_unmap_single(label_dma, req.label_len, DMA_TO_DEVICE);
-+               kfree(label_buf);
-+               label_buf = NULL;
-+       }
-+
-+       if (ret)
-+               goto out_ref;
-+
-+       if (temp) {
-+               req.ref = SYS_REF_TEMP;
-+               atomic_set(&mgmt_temp_dirty, 1);
-+       } else {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               req.ref = *ref_buf;
-+               kfree(ref_buf);
-+               ref_buf = NULL;
-+       }
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(),
-+               "mgmt: KIC_HKDF1 base=0x%llx len=%u flags=0x%x -> ref=0x%llx\n",
-+               req.base_key, req.key_len, req.flags, req.ref);
-+       return 0;
-+
-+out_unmap_label:
-+       if (label_buf && !cmh_dma_map_error(label_dma) && label_dma)
-+               cmh_dma_unmap_single(label_dma, req.label_len, DMA_TO_DEVICE);
-+out_label:
-+       kfree(label_buf);
-+out_ref:
-+       if (ref_buf) {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               kfree(ref_buf);
-+       }
-+       return ret;
-+}
-+
-+/* -- KIC_HKDF2 ------------------------- */
-+
-+/*
-+ * Two-step HKDF key derivation.  Same as HKDF1 but adds a salt key
-+ * reference: Step 1: HMAC(salt, base) -> PRK; Step 2: HMAC(PRK, label) -> key.
-+ */
-+
-+static int cmh_mgmt_kic_hkdf2(void __user *argp)
-+{
-+       struct cmh_ioctl_kic_hkdf2 req;
-+       struct vcq_cmd vcq[KDF_VCQ_MAX];
-+       bool temp;
-+       u64 *ref_buf = NULL;
-+       void *label_buf = NULL;
-+       dma_addr_t ref_dma = DMA_MAPPING_ERROR, label_dma = DMA_MAPPING_ERROR;
-+       unsigned int n_cmds;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.key_len || req.key_len > KDF_MAX_KEY_LEN)
-+               return -EINVAL;
-+       if (req.label_len > KDF_MAX_LABEL_LEN)
-+               return -EINVAL;
-+
-+       temp = !!(req.flags & CMH_KIC_FLAG_TEMP);
-+
-+       if (!temp) {
-+               ref_buf = kmalloc_obj(*ref_buf, GFP_KERNEL);
-+               if (!ref_buf)
-+                       return -ENOMEM;
-+               *ref_buf = 0;
-+               ref_dma = cmh_dma_map_single(ref_buf, sizeof(*ref_buf),
-+                                            DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(ref_dma)) {
-+                       kfree(ref_buf);
-+                       return -ENOMEM;
-+               }
-+       }
-+
-+       if (req.label_len > 0) {
-+               label_buf = kzalloc(req.label_len, GFP_KERNEL);
-+               if (!label_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_ref2;
-+               }
-+               if (copy_from_user(label_buf,
-+                                  u64_to_user_ptr(req.label),
-+                                  req.label_len)) {
-+                       ret = -EFAULT;
-+                       goto out_label2;
-+               }
-+               label_dma = cmh_dma_map_single(label_buf, req.label_len,
-+                                              DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(label_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_label2;
-+               }
-+       }
-+
-+       memset(vcq, 0, sizeof(vcq));
-+
-+       if (temp) {
-+               /* Flush MBX to reset temp stack -- see KIC section comment */
-+               ret = cmh_tm_flush_mbx(MGMT_MBX);
-+               if (ret)
-+                       goto out_unmap_label2;
-+
-+               n_cmds = 3;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_kic_hkdf2(&vcq[1], SYS_REF_TEMP, req.base_key,
-+                                 req.salt_key, label_dma,
-+                                  req.key_len, req.label_len,
-+                                  SYS_TYPE_SET(0, CORE_ID_AES));
-+               vcq_add_sys_flush(&vcq[2]);
-+       } else {
-+               n_cmds = 4;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_sys_new(&vcq[1], req.cid, ref_dma, req.key_len);
-+               vcq_add_kic_hkdf2(&vcq[2], SYS_REF_LAST, req.base_key,
-+                                 req.salt_key, label_dma,
-+                                  req.key_len, req.label_len,
-+                                  SYS_TYPE_SET(0, CORE_ID_AES));
-+               vcq_add_sys_flush(&vcq[3]);
-+       }
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, n_cmds, 1, MGMT_MBX);
-+
-+       if (label_buf) {
-+               cmh_dma_unmap_single(label_dma, req.label_len, DMA_TO_DEVICE);
-+               kfree(label_buf);
-+               label_buf = NULL;
-+       }
-+
-+       if (ret)
-+               goto out_ref2;
-+
-+       if (temp) {
-+               req.ref = SYS_REF_TEMP;
-+               atomic_set(&mgmt_temp_dirty, 1);
-+       } else {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               req.ref = *ref_buf;
-+               kfree(ref_buf);
-+               ref_buf = NULL;
-+       }
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(),
-+               "mgmt: KIC_HKDF2 base=0x%llx salt=0x%llx len=%u flags=0x%x -> ref=0x%llx\n",
-+               req.base_key, req.salt_key, req.key_len, req.flags, req.ref);
-+       return 0;
-+
-+out_unmap_label2:
-+       if (label_buf && !cmh_dma_map_error(label_dma) && label_dma)
-+               cmh_dma_unmap_single(label_dma, req.label_len, DMA_TO_DEVICE);
-+out_label2:
-+       kfree(label_buf);
-+out_ref2:
-+       if (ref_buf) {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               kfree(ref_buf);
-+       }
-+       return ret;
-+}
-+
-+/* -- KIC_AES_CMAC_KDF ------------------ */
-+
-+/*
-+ * Derive a key using AES-CMAC-based KDF (NIST SP800-108 style).
-+ * Base key must be 32 bytes.  Output is always non-PT (the hub driver
-+ * rejects SYS_TYPE_FLAG_PT).
-+ *
-+ * VCQ layout matches HKDF: TEMP mode uses 3 commands, persistent uses 4.
-+ */
-+#define CMAC_KDF_KEY_LEN       32
-+
-+static int cmh_mgmt_kic_aes_cmac_kdf(void __user *argp)
-+{
-+       struct cmh_ioctl_kic_aes_cmac_kdf req;
-+       struct vcq_cmd vcq[KDF_VCQ_MAX];
-+       bool temp;
-+       u64 *ref_buf = NULL;
-+       void *label_buf = NULL;
-+       dma_addr_t ref_dma = DMA_MAPPING_ERROR, label_dma = DMA_MAPPING_ERROR;
-+       unsigned int n_cmds;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.key_len != CMAC_KDF_KEY_LEN)
-+               return -EINVAL;
-+       if (req.label_len > KDF_MAX_LABEL_LEN)
-+               return -EINVAL;
-+
-+       temp = !!(req.flags & CMH_KIC_FLAG_TEMP);
-+
-+       if (!temp) {
-+               ref_buf = kmalloc_obj(*ref_buf, GFP_KERNEL);
-+               if (!ref_buf)
-+                       return -ENOMEM;
-+               *ref_buf = 0;
-+               ref_dma = cmh_dma_map_single(ref_buf, sizeof(*ref_buf),
-+                                            DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(ref_dma)) {
-+                       kfree(ref_buf);
-+                       return -ENOMEM;
-+               }
-+       }
-+
-+       if (req.label_len > 0) {
-+               label_buf = kzalloc(req.label_len, GFP_KERNEL);
-+               if (!label_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_ref_cmac;
-+               }
-+               if (copy_from_user(label_buf,
-+                                  u64_to_user_ptr(req.label),
-+                                  req.label_len)) {
-+                       ret = -EFAULT;
-+                       goto out_label_cmac;
-+               }
-+               label_dma = cmh_dma_map_single(label_buf, req.label_len,
-+                                              DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(label_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_label_cmac;
-+               }
-+       }
-+
-+       memset(vcq, 0, sizeof(vcq));
-+
-+       if (temp) {
-+               /* Flush MBX to reset temp stack -- see KIC section comment */
-+               ret = cmh_tm_flush_mbx(MGMT_MBX);
-+               if (ret)
-+                       goto out_unmap_label_cmac;
-+
-+               n_cmds = 3;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_kic_aes_cmac_kdf(&vcq[1], SYS_REF_TEMP,
-+                                        req.base_key, label_dma,
-+                                        req.key_len, req.label_len,
-+                                        SYS_TYPE_SET(0, CORE_ID_AES));
-+               vcq_add_sys_flush(&vcq[2]);
-+       } else {
-+               n_cmds = 4;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_sys_new(&vcq[1], req.cid, ref_dma, req.key_len);
-+               vcq_add_kic_aes_cmac_kdf(&vcq[2], SYS_REF_LAST,
-+                                        req.base_key, label_dma,
-+                                        req.key_len, req.label_len,
-+                                        SYS_TYPE_SET(0, CORE_ID_AES));
-+               vcq_add_sys_flush(&vcq[3]);
-+       }
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, n_cmds, 1, MGMT_MBX);
-+
-+       if (label_buf) {
-+               cmh_dma_unmap_single(label_dma, req.label_len, DMA_TO_DEVICE);
-+               kfree(label_buf);
-+               label_buf = NULL;
-+       }
-+
-+       if (ret)
-+               goto out_ref_cmac;
-+
-+       if (temp) {
-+               req.ref = SYS_REF_TEMP;
-+               atomic_set(&mgmt_temp_dirty, 1);
-+       } else {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               req.ref = *ref_buf;
-+               kfree(ref_buf);
-+               ref_buf = NULL;
-+       }
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(),
-+               "mgmt: KIC_AES_CMAC_KDF base=0x%llx len=%u flags=0x%x -> ref=0x%llx\n",
-+               req.base_key, req.key_len, req.flags, req.ref);
-+       return 0;
-+
-+out_unmap_label_cmac:
-+       if (label_buf && !cmh_dma_map_error(label_dma) && label_dma)
-+               cmh_dma_unmap_single(label_dma, req.label_len, DMA_TO_DEVICE);
-+out_label_cmac:
-+       kfree(label_buf);
-+out_ref_cmac:
-+       if (ref_buf) {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               kfree(ref_buf);
-+       }
-+       return ret;
-+}
-+
-+/* -- KIC_DKEK_DERIVE ------------------- */
-+
-+/*
-+ * Derive a Key Encryption Key (KEK) from a KIC base key.
-+ * Output is tagged CORE_ID_KIC (usable for further derivation only).
-+ * host_id=0 means the caller's own host; non-zero requires management
-+ * host privilege (eSW enforces this).
-+ */
-+#define DKEK_VCQ_MAX           4
-+
-+static int cmh_mgmt_kic_dkek_derive(void __user *argp)
-+{
-+       struct cmh_ioctl_kic_dkek_derive req;
-+       struct vcq_cmd vcq[DKEK_VCQ_MAX];
-+       bool temp;
-+       u64 *ref_buf = NULL;
-+       void *meta_buf = NULL;
-+       dma_addr_t ref_dma = DMA_MAPPING_ERROR, meta_dma = DMA_MAPPING_ERROR;
-+       unsigned int n_cmds;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.metadata_len > KIC_DKEK_MAX_METADATA)
-+               return -EINVAL;
-+
-+       temp = !!(req.flags & CMH_KIC_FLAG_TEMP);
-+
-+       if (!temp) {
-+               ref_buf = kmalloc_obj(*ref_buf, GFP_KERNEL);
-+               if (!ref_buf)
-+                       return -ENOMEM;
-+               *ref_buf = 0;
-+               ref_dma = cmh_dma_map_single(ref_buf, sizeof(*ref_buf),
-+                                            DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(ref_dma)) {
-+                       kfree(ref_buf);
-+                       return -ENOMEM;
-+               }
-+       }
-+
-+       if (req.metadata_len > 0) {
-+               meta_buf = kzalloc(req.metadata_len, GFP_KERNEL);
-+               if (!meta_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_ref_dkek;
-+               }
-+               if (copy_from_user(meta_buf,
-+                                  u64_to_user_ptr(req.metadata),
-+                                  req.metadata_len)) {
-+                       ret = -EFAULT;
-+                       goto out_meta;
-+               }
-+               meta_dma = cmh_dma_map_single(meta_buf, req.metadata_len,
-+                                             DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(meta_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_meta;
-+               }
-+       }
-+
-+       memset(vcq, 0, sizeof(vcq));
-+
-+       if (temp) {
-+               /* Flush MBX to reset temp stack -- see KIC section comment */
-+               ret = cmh_tm_flush_mbx(MGMT_MBX);
-+               if (ret)
-+                       goto out_unmap_meta;
-+
-+               n_cmds = 3;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_kic_dkek_derive(&vcq[1], SYS_REF_TEMP,
-+                                       req.base_key, req.host_id,
-+                                       meta_dma, req.metadata_len);
-+               vcq_add_sys_flush(&vcq[2]);
-+       } else {
-+               n_cmds = 4;
-+               vcq_set_header(&vcq[0], n_cmds);
-+               vcq_add_sys_new(&vcq[1], req.cid, ref_dma, KIC_KEY_SIZE);
-+               vcq_add_kic_dkek_derive(&vcq[2], SYS_REF_LAST,
-+                                       req.base_key, req.host_id,
-+                                       meta_dma, req.metadata_len);
-+               vcq_add_sys_flush(&vcq[3]);
-+       }
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, n_cmds, 1, MGMT_MBX);
-+
-+       if (meta_buf) {
-+               cmh_dma_unmap_single(meta_dma, req.metadata_len,
-+                                    DMA_TO_DEVICE);
-+               kfree(meta_buf);
-+               meta_buf = NULL;
-+       }
-+
-+       if (ret)
-+               goto out_ref_dkek;
-+
-+       if (temp) {
-+               req.ref = SYS_REF_TEMP;
-+               atomic_set(&mgmt_temp_dirty, 1);
-+       } else {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               req.ref = *ref_buf;
-+               kfree(ref_buf);
-+               ref_buf = NULL;
-+       }
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(),
-+               "mgmt: KIC_DKEK_DERIVE base=0x%llx host=%u meta_len=%u flags=0x%x -> ref=0x%llx\n",
-+               req.base_key, req.host_id, req.metadata_len, req.flags,
-+               req.ref);
-+       return 0;
-+
-+out_unmap_meta:
-+       if (meta_buf && !cmh_dma_map_error(meta_dma) && meta_dma)
-+               cmh_dma_unmap_single(meta_dma, req.metadata_len, DMA_TO_DEVICE);
-+out_meta:
-+       kfree(meta_buf);
-+out_ref_dkek:
-+       if (ref_buf) {
-+               cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+               kfree(ref_buf);
-+       }
-+       return ret;
-+}
-+
-+/* -- KEY_NEW_RANDOM -- DRBG-backed key generation --- */
-+
-+/*
-+ * Allocate a new datastore slot and fill it with DRBG-generated
-+ * random key material in a single atomic VCQ submission:
-+ *
-+ *   [0] SYS header(5)
-+ *   [1] SYS_CMD_NEW   -- allocate DS slot (CMH eSW writes ref)
-+ *   [2] DRBG_CMD_DATASTORE(SYS_REF_LAST) -- fill with random data
-+ *   [3] DRBG flush -- release DRBG core ownership
-+ *   [4] SYS flush
-+ *
-+ * The DRBG must be configured before this ioctl is used.
-+ * Reuses struct cmh_ioctl_key_new (ds_type, flags, cid, len, ref).
-+ */
-+#define DRBG_KEYGEN_VCQ_CMDS   5
-+
-+static int cmh_mgmt_key_new_random(void __user *argp)
-+{
-+       struct cmh_ioctl_key_new req;
-+       struct vcq_cmd vcq[DRBG_KEYGEN_VCQ_CMDS];
-+       u64 *ref_buf;
-+       dma_addr_t ref_dma;
-+       u32 core_id, sys_type;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.len)
-+               return -EINVAL;
-+
-+       core_id = cmh_ds_type_to_core_id(req.ds_type);
-+       if (core_id == CORE_ID_NUM)
-+               return -EINVAL;
-+       sys_type = SYS_TYPE_SET(req.flags, core_id);
-+
-+       ref_buf = kmalloc_obj(*ref_buf, GFP_KERNEL);
-+       if (!ref_buf)
-+               return -ENOMEM;
-+
-+       *ref_buf = 0;
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(*ref_buf),
-+                                    DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ref_dma)) {
-+               kfree(ref_buf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], DRBG_KEYGEN_VCQ_CMDS);
-+       vcq_add_sys_new(&vcq[1], req.cid, ref_dma, req.len);
-+       vcq_add_drbg_datastore(&vcq[2], SYS_REF_LAST, req.len, sys_type);
-+       vcq_add_flush(&vcq[3], CORE_ID_DRBG);
-+       vcq_add_sys_flush(&vcq[4]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, DRBG_KEYGEN_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(ref_dma, sizeof(*ref_buf), DMA_FROM_DEVICE);
-+
-+       if (ret) {
-+               kfree(ref_buf);
-+               return ret;
-+       }
-+
-+       req.ref = *ref_buf;
-+       kfree(ref_buf);
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       dev_dbg(cmh_dev(),
-+               "mgmt: KEY_NEW_RANDOM cid=0x%llx len=%u type=0x%x -> ref=0x%llx\n",
-+               req.cid, req.len, sys_type, req.ref);
-+       return 0;
-+}
-+
-+#define EAC_VCQ_CMDS           3       /* header + EAC_READ + flush */
-+
-+static long cmh_mgmt_eac_read(void __user *argp)
-+{
-+       struct cmh_ioctl_eac_read req;
-+       struct eac_read_rsp *rsp;
-+       struct vcq_cmd vcq[EAC_VCQ_CMDS];
-+       dma_addr_t rsp_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved != 0)
-+               return -EINVAL;
-+       if (req.__pad != 0)
-+               return -EINVAL;
-+
-+       rsp = kmalloc_obj(*rsp, GFP_KERNEL);
-+       if (!rsp)
-+               return -ENOMEM;
-+
-+       rsp_dma = cmh_dma_map_single(rsp, sizeof(*rsp), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(rsp_dma)) {
-+               kfree(rsp);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], EAC_VCQ_CMDS);
-+       vcq_add_eac_read(&vcq[1], rsp_dma, sizeof(*rsp));
-+       vcq_add_flush(&vcq[2], CORE_ID_EAC);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, EAC_VCQ_CMDS, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(rsp_dma, sizeof(*rsp), DMA_FROM_DEVICE);
-+
-+       if (ret) {
-+               kfree(rsp);
-+               return ret;
-+       }
-+
-+       /* Copy response fields into ioctl struct */
-+       req.mailbox_notification = rsp->mailbox_notification;
-+       req.hw_error = rsp->hw_error;
-+       req.hw_nmi = rsp->hw_nmi;
-+       req.hw_panic = rsp->hw_panic;
-+       req.safety_fatal = rsp->safety_fatal;
-+       req.safety_notification = rsp->safety_notification;
-+       req.sw_info0 = rsp->sw_info0;
-+       req.sw_info1 = rsp->sw_info1;
-+       memcpy(req.sram_bank_errors, rsp->sram_bank_errors,
-+              sizeof(req.sram_bank_errors));
-+       req.__pad = 0;
-+
-+       kfree(rsp);
-+
-+       if (copy_to_user(argp, &req, sizeof(req)))
-+               return -EFAULT;
-+
-+       return 0;
-+}
-+
-+/* -- DRBG CONFIG (management) ------------ */
-+
-+#define DRBG_CONFIG_VCQ_CMDS   4       /* header + RESET + CONFIG + flush */
-+
-+static long cmh_mgmt_drbg_config(void __user *argp)
-+{
-+       struct cmh_ioctl_drbg_config req;
-+       struct vcq_cmd vcq[DRBG_CONFIG_VCQ_CMDS];
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved != 0)
-+               return -EINVAL;
-+       if (req.entropy_ratio > 3)
-+               return -EINVAL;
-+       if (req.security_strength != CMH_DRBG_STRENGTH_128 &&
-+           req.security_strength != CMH_DRBG_STRENGTH_256)
-+               return -EINVAL;
-+
-+       vcq_set_header(&vcq[0], DRBG_CONFIG_VCQ_CMDS);
-+       vcq_add_drbg_reset(&vcq[1]);
-+       vcq_add_drbg_config(&vcq[2], req.entropy_ratio,
-+                           req.security_strength);
-+       vcq_add_flush(&vcq[3], CORE_ID_DRBG);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, DRBG_CONFIG_VCQ_CMDS, 1, MGMT_MBX);
-+       if (ret)
-+               dev_warn(cmh_dev(), "mgmt: DRBG CONFIG failed (rc=%d)\n", ret);
-+       else
-+               dev_info(cmh_dev(), "mgmt: DRBG configured (ratio=%u strength=0x%x)\n",
-+                        req.entropy_ratio, req.security_strength);
-+
-+       return ret;
-+}
-+
-+/* -- ioctl dispatch ------------------------ */
-+
-+/*
-+ * PKE, SM2, and PQC ioctls use device-internal temporary storage for
-+ * intermediate results.  Residual allocations in the per-mailbox temp
-+ * store (left by prior operations that targeted SYS_REF_TEMP) reduce
-+ * the space available and can cause the device to return ENOMEM.
-+ *
-+ * Flush the mailbox before these operations to reset the temp store,
-+ * but ONLY when the store is actually dirty (mgmt_temp_dirty flag).
-+ * Unconditional flushing would kill in-flight command queues from
-+ * concurrent callers on the same mailbox -- MBX_COMMAND_FLUSH
-+ * terminates any executing queue with -EPIPE and discards all queued
-+ * submissions.
-+ *
-+ * The conditional flush is safe: PKE/SM2/PQC ioctls do not consume
-+ * SYS_REF_TEMP from a prior ioctl (unlike DS_EXPORT/DS_IMPORT which
-+ * may reference a temp key produced by a preceding derivation), so
-+ * clearing the temp store before them loses no needed state.
-+ */
-+static inline bool cmh_mgmt_needs_temp_flush(unsigned int cmd)
-+{
-+       unsigned int nr = _IOC_NR(cmd);
-+
-+       /*
-+        * Range invariant: all PKE/SM2/PQC ioctls must have consecutive
-+        * NR values between PKE_RSA_ENC (0x10) and SM2_ENC_HASH (0x37).
-+        * If a new ioctl is added outside this range, update the bounds
-+        * and adjust these assertions.
-+        */
-+       BUILD_BUG_ON(_IOC_NR(CMH_IOCTL_PKE_RSA_ENC) != 0x10);
-+       BUILD_BUG_ON(_IOC_NR(CMH_IOCTL_SM2_ENC_HASH) != 0x37);
-+
-+       return nr >= _IOC_NR(CMH_IOCTL_PKE_RSA_ENC) &&
-+              nr <= _IOC_NR(CMH_IOCTL_SM2_ENC_HASH);
-+}
-+
-+static long cmh_mgmt_ioctl(struct file *file, unsigned int cmd,
-+                          unsigned long arg)
-+{
-+       void __user *argp = (void __user *)arg;
-+       int ret;
-+
-+       if (cmh_mgmt_needs_temp_flush(cmd) &&
-+           atomic_xchg(&mgmt_temp_dirty, 0)) {
-+               ret = cmh_tm_flush_mbx(MGMT_MBX);
-+               if (ret)
-+                       return ret;
-+       }
-+
-+       switch (cmd) {
-+       case CMH_IOCTL_KEY_NEW:
-+               return cmh_mgmt_key_new(argp);
-+       case CMH_IOCTL_KEY_WRITE:
-+               return cmh_mgmt_key_write(argp);
-+       case CMH_IOCTL_KEY_READ:
-+               return cmh_mgmt_key_read(argp);
-+       case CMH_IOCTL_KEY_FIND:
-+               return cmh_mgmt_key_find(argp);
-+       case CMH_IOCTL_KEY_GRANT:
-+               return cmh_mgmt_key_grant(argp, false);
-+       case CMH_IOCTL_KEY_DELETE:
-+               return cmh_mgmt_key_grant(argp, true);
-+       case CMH_IOCTL_DS_EXPORT:
-+               return cmh_mgmt_ds_export(argp);
-+       case CMH_IOCTL_DS_IMPORT:
-+               return cmh_mgmt_ds_import(argp);
-+       case CMH_IOCTL_KIC_HKDF1:
-+               return cmh_mgmt_kic_hkdf1(argp);
-+       case CMH_IOCTL_KIC_HKDF2:
-+               return cmh_mgmt_kic_hkdf2(argp);
-+       case CMH_IOCTL_KEY_NEW_RANDOM:
-+               return cmh_mgmt_key_new_random(argp);
-+       case CMH_IOCTL_KIC_AES_CMAC_KDF:
-+               return cmh_mgmt_kic_aes_cmac_kdf(argp);
-+       case CMH_IOCTL_KIC_DKEK_DERIVE:
-+               return cmh_mgmt_kic_dkek_derive(argp);
-+       case CMH_IOCTL_KEY_LIST:
-+               return cmh_mgmt_key_list(argp);
-+       case CMH_IOCTL_EAC_READ:
-+               return cmh_mgmt_eac_read(argp);
-+       /* PKE operations */
-+       case CMH_IOCTL_PKE_RSA_ENC:
-+               return cmh_mgmt_pke_rsa_enc(argp);
-+       case CMH_IOCTL_PKE_RSA_DEC:
-+               return cmh_mgmt_pke_rsa_dec(argp);
-+       case CMH_IOCTL_PKE_RSA_CRT_DEC:
-+               return cmh_mgmt_pke_rsa_crt_dec(argp);
-+       case CMH_IOCTL_PKE_RSA_KEYGEN:
-+               return cmh_mgmt_pke_rsa_keygen(argp);
-+       case CMH_IOCTL_PKE_ECDSA_SIGN:
-+               return cmh_mgmt_pke_ecdsa_sign(argp);
-+       case CMH_IOCTL_PKE_ECDH:
-+               return cmh_mgmt_pke_ecdh(argp);
-+       case CMH_IOCTL_PKE_ECDH_KEYGEN:
-+               return cmh_mgmt_pke_ecdh_keygen(argp);
-+       case CMH_IOCTL_PKE_EDDSA_SIGN:
-+               return cmh_mgmt_pke_eddsa_sign(argp);
-+       case CMH_IOCTL_PKE_EDDSA_VERIFY:
-+               return cmh_mgmt_pke_eddsa_verify(argp);
-+       case CMH_IOCTL_PKE_EC_KEYGEN:
-+               return cmh_mgmt_pke_ec_keygen(argp);
-+       case CMH_IOCTL_PKE_EC_PUBGEN:
-+               return cmh_mgmt_pke_ec_pubgen(argp);
-+       case CMH_IOCTL_PKE_EDDSA_KEYGEN_SCA:
-+               return cmh_mgmt_pke_eddsa_keygen_sca(argp);
-+       /* SM2 operations */
-+       case CMH_IOCTL_SM2_ECDH_KEYGEN:
-+               return cmh_mgmt_sm2_ecdh_keygen(argp);
-+       case CMH_IOCTL_SM2_ECDH:
-+               return cmh_mgmt_sm2_ecdh(argp);
-+       case CMH_IOCTL_SM2_DEC_POINT:
-+               return cmh_mgmt_sm2_dec_point(argp);
-+       case CMH_IOCTL_SM2_ENC_POINT:
-+               return cmh_mgmt_sm2_enc_point(argp);
-+       case CMH_IOCTL_SM2_ID_DIGEST:
-+               return cmh_mgmt_sm2_id_digest(argp);
-+       case CMH_IOCTL_SM2_ECDH_HASH:
-+               return cmh_mgmt_sm2_ecdh_hash(argp);
-+       case CMH_IOCTL_SM2_DEC_HASH:
-+               return cmh_mgmt_sm2_dec_hash(argp);
-+       case CMH_IOCTL_SM2_ENC_HASH:
-+               return cmh_mgmt_sm2_enc_hash(argp);
-+       /* PQC operations */
-+       case CMH_IOCTL_ML_KEM_KEYGEN:
-+               return cmh_mgmt_ml_kem_keygen(argp);
-+       case CMH_IOCTL_ML_KEM_ENC:
-+               return cmh_mgmt_ml_kem_enc(argp);
-+       case CMH_IOCTL_ML_KEM_DEC:
-+               return cmh_mgmt_ml_kem_dec(argp);
-+       case CMH_IOCTL_ML_DSA_KEYGEN:
-+               return cmh_mgmt_ml_dsa_keygen(argp);
-+       case CMH_IOCTL_ML_DSA_SIGN:
-+               return cmh_mgmt_ml_dsa_sign(argp);
-+       case CMH_IOCTL_SLHDSA_KEYGEN:
-+               return cmh_mgmt_slhdsa_keygen(argp);
-+       case CMH_IOCTL_SLHDSA_SIGN:
-+               return cmh_mgmt_slhdsa_sign(argp);
-+       case CMH_IOCTL_SLHDSA_SIGN_PREHASH:
-+               return cmh_mgmt_slhdsa_sign_prehash(argp);
-+       /* DRBG management */
-+       case CMH_IOCTL_DRBG_CONFIG:
-+               return cmh_mgmt_drbg_config(argp);
-+       default:
-+               return -ENOTTY;
-+       }
-+}
-+
-+/* -- File operations ----------------------- */
-+
-+/*
-+ * Capability is checked once at open time.  A privileged process may
-+ * pass the resulting fd to an unprivileged helper -- this delegation
-+ * model is intentional and mirrors /dev/kvm, /dev/loop-control, etc.
-+ */
-+static int cmh_mgmt_open(struct inode *inode, struct file *file)
-+{
-+       if (!capable(CAP_SYS_ADMIN))
-+               return -EPERM;
-+
-+       return 0;
-+}
-+
-+static const struct file_operations cmh_mgmt_fops = {
-+       .owner          = THIS_MODULE,
-+       .open           = cmh_mgmt_open,
-+       .unlocked_ioctl = cmh_mgmt_ioctl,
-+       .compat_ioctl   = compat_ptr_ioctl,
-+};
-+
-+static struct miscdevice cmh_mgmt_dev = {
-+       .minor = MISC_DYNAMIC_MINOR,
-+       .name  = "cmh_mgmt",
-+       .fops  = &cmh_mgmt_fops,
-+       .mode  = 0660,
-+};
-+
-+static bool cmh_mgmt_registered;
-+
-+/**
-+ * cmh_mgmt_register() - Register the /dev/cmh_mgmt misc device
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_register(void)
-+{
-+       int ret;
-+
-+       /*
-+        * ABI size guards -- catch silent layout changes at compile time.
-+        * All ioctl structs use only __u32 and __u64 with explicit padding,
-+        * guaranteeing identical layout on 32-bit and 64-bit (compat_ptr_ioctl).
-+        */
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_key_new) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_key_write) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_key_read) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_key_find) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_key_list) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_key_grant) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_ds_export) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_ds_import) != 24);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_kic_hkdf1) != 48);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_kic_hkdf2) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_kic_aes_cmac_kdf) != 48);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_kic_dkek_derive) != 48);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_rsa_enc) != 48);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_rsa_dec) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_rsa_crt_dec) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_rsa_keygen) != 64);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_ecdsa_sign) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_ecdh) != 48);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_ecdh_keygen) != 24);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_eddsa_sign) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_eddsa_verify) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_ec_keygen) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_ec_pubgen) != 24);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_pke_eddsa_keygen_sca) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_ml_kem_keygen) != 64);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_ml_kem_enc) != 64);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_ml_kem_dec) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_ml_dsa_keygen) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_ml_dsa_sign) != 48);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_slhdsa_keygen) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_slhdsa_sign) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_slhdsa_sign_prehash) != 64);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_ecdh_keygen) != 24);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_ecdh) != 56);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_dec_point) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_enc_point) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_id_digest) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_ecdh_hash) != 40);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_dec_hash) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_sm2_enc_hash) != 32);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_eac_read) != 64);
-+       BUILD_BUG_ON(sizeof(struct cmh_ioctl_drbg_config) != 16);
-+
-+       ret = misc_register(&cmh_mgmt_dev);
-+       if (ret) {
-+               dev_err(cmh_dev(), "mgmt: misc_register failed (rc=%d)\n", ret);
-+               return ret;
-+       }
-+
-+       cmh_mgmt_registered = true;
-+       dev_info(cmh_dev(), "mgmt: registered /dev/cmh_mgmt\n");
-+       return 0;
-+}
-+
-+/**
-+ * cmh_mgmt_unregister() - Unregister the /dev/cmh_mgmt misc device
-+ */
-+void cmh_mgmt_unregister(void)
-+{
-+       if (!cmh_mgmt_registered)
-+               return;
-+
-+       misc_deregister(&cmh_mgmt_dev);
-+       cmh_mgmt_registered = false;
-+       dev_info(cmh_dev(), "mgmt: unregistered /dev/cmh_mgmt\n");
-+}
-diff --git a/drivers/crypto/cmh/cmh_mgmt_pke.c b/drivers/crypto/cmh/cmh_mgmt_pke.c
-new file mode 100644
-index 000000000000..6954832fa8ac
---- /dev/null
-+++ b/drivers/crypto/cmh/cmh_mgmt_pke.c
-@@ -0,0 +1,1100 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH -- PKE ioctl handlers for /dev/cmh_mgmt
-+ *
-+ * RSA encrypt/decrypt/CRT/keygen, ECDSA sign, ECDH/keygen,
-+ * EdDSA sign/verify, EC keygen/pubgen.
-+ *
-+ * Split from cmh_mgmt.c for maintainability.
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/uaccess.h>
-+#include <linux/slab.h>
-+#include <linux/overflow.h>
-+
-+#include "cmh_mgmt.h"
-+#include "cmh_sys.h"
-+#include "cmh_txn.h"
-+#include "cmh_key.h"
-+#include "cmh_dma.h"
-+#include "cmh_config.h"
-+#include "cmh_pke.h"
-+#include "cmh_pke_abi.h"
-+#include "cmh_sys_abi.h"
-+#include <uapi/linux/cmh_mgmt_ioctl.h>
-+
-+#include <crypto/utils.h>
-+
-+/* -- PKE ioctl helpers ------------------- */
-+
-+/*
-+ * Maximum PKE operand size: 512 bytes (RSA 4096-bit),
-+ * or 2 * 68 = 136 bytes (P-521 coordinate pair).
-+ */
-+#define PKE_MAX_OPERAND        512
-+
-+/* Validate curve ID and return coordinate length; 0 = invalid */
-+static u32 cmh_pke_validate_curve(u32 curve)
-+{
-+       return pke_curve_clen(curve);
-+}
-+
-+/**
-+ * cmh_mgmt_pke_rsa_enc() - Handle CMH_MGMT_IOC_PKE_RSA_ENC ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_rsa_enc(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_rsa_enc req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 n_len, e_padded;
-+       u8 *e_buf, *n_buf, *m_buf, *c_buf;
-+       dma_addr_t e_dma, n_dma, m_dma, c_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (req.bits < PKE_RSA_MIN_BITS || req.bits > PKE_RSA_MAX_BITS)
-+               return -EINVAL;
-+       if (!req.e_len || req.e_len > PKE_MAX_OPERAND)
-+               return -EINVAL;
-+
-+       n_len = req.bits / 8;
-+       e_padded = ALIGN(req.e_len, 4);
-+
-+       e_buf = kzalloc(e_padded, GFP_KERNEL);
-+       n_buf = kmalloc(n_len, GFP_KERNEL);
-+       m_buf = kmalloc(n_len, GFP_KERNEL);
-+       c_buf = kzalloc(n_len, GFP_KERNEL);
-+       if (!e_buf || !n_buf || !m_buf || !c_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       /* Right-align exponent in zero-padded buffer for DMA alignment */
-+       if (copy_from_user(e_buf + e_padded - req.e_len,
-+                          u64_to_user_ptr(req.e), req.e_len) ||
-+           copy_from_user(n_buf, u64_to_user_ptr(req.n), n_len) ||
-+           copy_from_user(m_buf, u64_to_user_ptr(req.input), n_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       e_dma = cmh_dma_map_single(e_buf, e_padded, DMA_TO_DEVICE);
-+       n_dma = cmh_dma_map_single(n_buf, n_len, DMA_TO_DEVICE);
-+       m_dma = cmh_dma_map_single(m_buf, n_len, DMA_TO_DEVICE);
-+       c_dma = cmh_dma_map_single(c_buf, n_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(e_dma) || cmh_dma_map_error(n_dma) ||
-+           cmh_dma_map_error(m_dma) || cmh_dma_map_error(c_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_rsa_enc(&vcq[1], pke_cid, req.bits, e_padded,
-+                           e_dma, n_dma, m_dma, c_dma, PKE_SWAP_FLAGS);
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(c_dma))
-+               cmh_dma_unmap_single(c_dma, n_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(m_dma))
-+               cmh_dma_unmap_single(m_dma, n_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(n_dma))
-+               cmh_dma_unmap_single(n_dma, n_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(e_dma))
-+               cmh_dma_unmap_single(e_dma, e_padded, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.output), c_buf, n_len))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(c_buf);
-+       kfree_sensitive(m_buf);
-+       kfree(n_buf);
-+       kfree(e_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_rsa_dec() - Handle CMH_MGMT_IOC_PKE_RSA_DEC ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_rsa_dec(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_rsa_dec req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 n_len, e_padded;
-+       u8 *e_buf, *n_buf, *c_buf, *m_buf;
-+       dma_addr_t e_dma, n_dma, c_dma, m_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (req.bits < PKE_RSA_MIN_BITS || req.bits > PKE_RSA_MAX_BITS)
-+               return -EINVAL;
-+       if (!req.e_len || req.e_len > PKE_MAX_OPERAND)
-+               return -EINVAL;
-+
-+       n_len = req.bits / 8;
-+       e_padded = ALIGN(req.e_len, 4);
-+
-+       e_buf = kzalloc(e_padded, GFP_KERNEL);
-+       n_buf = kmalloc(n_len, GFP_KERNEL);
-+       c_buf = kmalloc(n_len, GFP_KERNEL);
-+       m_buf = kzalloc(n_len, GFP_KERNEL);
-+       if (!e_buf || !n_buf || !c_buf || !m_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       /* Right-align exponent in zero-padded buffer for DMA alignment */
-+       if (copy_from_user(e_buf + e_padded - req.e_len,
-+                          u64_to_user_ptr(req.e), req.e_len) ||
-+           copy_from_user(n_buf, u64_to_user_ptr(req.n), n_len) ||
-+           copy_from_user(c_buf, u64_to_user_ptr(req.input), n_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       e_dma = cmh_dma_map_single(e_buf, e_padded, DMA_TO_DEVICE);
-+       n_dma = cmh_dma_map_single(n_buf, n_len, DMA_TO_DEVICE);
-+       c_dma = cmh_dma_map_single(c_buf, n_len, DMA_TO_DEVICE);
-+       m_dma = cmh_dma_map_single(m_buf, n_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(e_dma) || cmh_dma_map_error(n_dma) ||
-+           cmh_dma_map_error(c_dma) || cmh_dma_map_error(m_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_rsa_dec(&vcq[1], pke_cid, req.bits, e_padded,
-+                           e_dma, n_dma, c_dma, m_dma, req.key_ref,
-+                           PKE_SWAP_FLAGS);
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(m_dma))
-+               cmh_dma_unmap_single(m_dma, n_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(c_dma))
-+               cmh_dma_unmap_single(c_dma, n_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(n_dma))
-+               cmh_dma_unmap_single(n_dma, n_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(e_dma))
-+               cmh_dma_unmap_single(e_dma, e_padded, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.output), m_buf, n_len))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(m_buf);
-+       kfree(c_buf);
-+       kfree(n_buf);
-+       kfree(e_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_rsa_crt_dec() - Handle CMH_MGMT_IOC_PKE_RSA_CRT_DEC ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_rsa_crt_dec(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_rsa_crt_dec req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 n_len, e_padded;
-+       u8 *e_buf, *n_buf, *c_buf, *m_buf;
-+       dma_addr_t e_dma, n_dma, c_dma, m_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (req.bits < PKE_RSA_MIN_BITS || req.bits > PKE_RSA_MAX_BITS)
-+               return -EINVAL;
-+       if (!req.e_len || req.e_len > PKE_MAX_OPERAND)
-+               return -EINVAL;
-+
-+       n_len = req.bits / 8;
-+       e_padded = ALIGN(req.e_len, 4);
-+
-+       e_buf = kzalloc(e_padded, GFP_KERNEL);
-+       n_buf = kmalloc(n_len, GFP_KERNEL);
-+       c_buf = kmalloc(n_len, GFP_KERNEL);
-+       m_buf = kzalloc(n_len, GFP_KERNEL);
-+       if (!e_buf || !n_buf || !c_buf || !m_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       /* Right-align exponent in zero-padded buffer for DMA alignment */
-+       if (copy_from_user(e_buf + e_padded - req.e_len,
-+                          u64_to_user_ptr(req.e), req.e_len) ||
-+           copy_from_user(n_buf, u64_to_user_ptr(req.n), n_len) ||
-+           copy_from_user(c_buf, u64_to_user_ptr(req.input), n_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       e_dma = cmh_dma_map_single(e_buf, e_padded, DMA_TO_DEVICE);
-+       n_dma = cmh_dma_map_single(n_buf, n_len, DMA_TO_DEVICE);
-+       c_dma = cmh_dma_map_single(c_buf, n_len, DMA_TO_DEVICE);
-+       m_dma = cmh_dma_map_single(m_buf, n_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(e_dma) || cmh_dma_map_error(n_dma) ||
-+           cmh_dma_map_error(c_dma) || cmh_dma_map_error(m_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_rsa_crt_dec(&vcq[1], pke_cid, req.bits, e_padded,
-+                               e_dma, n_dma, c_dma, m_dma, req.crt_ref,
-+                               PKE_SWAP_FLAGS);
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(m_dma))
-+               cmh_dma_unmap_single(m_dma, n_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(c_dma))
-+               cmh_dma_unmap_single(c_dma, n_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(n_dma))
-+               cmh_dma_unmap_single(n_dma, n_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(e_dma))
-+               cmh_dma_unmap_single(e_dma, e_padded, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.output), m_buf, n_len))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(m_buf);
-+       kfree(c_buf);
-+       kfree(n_buf);
-+       kfree(e_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_rsa_keygen() - Handle CMH_MGMT_IOC_PKE_RSA_KEYGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_rsa_keygen(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_rsa_keygen req;
-+       /*
-+        * When has_crt, we use a two-VCQ approach (CRI pattern):
-+        *   VCQ #1: header + SYS_NEW(d) + SYS_NEW(crt) + SYS_FLUSH  (4 slots)
-+        *   VCQ #2: header + RSA_KEYGEN + PKE_FLUSH + SYS_FLUSH       (4 slots)
-+        * Without CRT, single VCQ:
-+        *   header + SYS_NEW(d) + RSA_KEYGEN + PKE_FLUSH + SYS_FLUSH  (5 slots)
-+        */
-+       struct vcq_cmd vcq[5];
-+       u32 n_len, e_padded, key_flags, d_ds_len, crt_ds_len;
-+       u8 *e_buf, *n_buf;
-+       u64 *d_ref_buf, *crt_ref_buf;
-+       dma_addr_t e_dma, n_dma, d_ref_dma, crt_ref_dma;
-+       int idx, ret;
-+       bool has_crt, is_sca;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.bits < PKE_RSA_MIN_BITS || req.bits > PKE_RSA_MAX_BITS)
-+               return -EINVAL;
-+       if (!req.e_len || req.e_len > PKE_MAX_OPERAND)
-+               return -EINVAL;
-+       if (req.flags & ~CMH_FLAG_MASK)
-+               return -EINVAL;
-+
-+       n_len = req.bits / 8;
-+       has_crt = (req.crt_cid != 0);
-+       e_padded = ALIGN(req.e_len, 4);
-+       key_flags = req.flags & CMH_FLAG_MASK;
-+       is_sca = !!(req.flags & CMH_FLAG_SCA);
-+
-+       /*
-+        * SCA keys are stored in 2 shares -- DS allocation must be enlarged.
-+        * CRI reference formulas: cmh_pke_rsa_private_key_size().
-+        */
-+       if (is_sca) {
-+               d_ds_len = n_len * 2;
-+               crt_ds_len = (7 + n_len / 2) * 4;
-+       } else {
-+               d_ds_len = n_len;
-+               crt_ds_len = 5 * (n_len / 2);
-+       }
-+
-+       e_buf = kzalloc(e_padded, GFP_KERNEL);
-+       n_buf = kzalloc(n_len, GFP_KERNEL);
-+       d_ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+       crt_ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+       if (!e_buf || !n_buf || !d_ref_buf || !crt_ref_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(e_buf + e_padded - req.e_len,
-+                          u64_to_user_ptr(req.e), req.e_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       e_dma = cmh_dma_map_single(e_buf, e_padded, DMA_TO_DEVICE);
-+       n_dma = cmh_dma_map_single(n_buf, n_len, DMA_FROM_DEVICE);
-+       d_ref_dma = cmh_dma_map_single(d_ref_buf, sizeof(u64), DMA_FROM_DEVICE);
-+       crt_ref_dma = cmh_dma_map_single(crt_ref_buf, sizeof(u64),
-+                                        DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(e_dma) || cmh_dma_map_error(n_dma) ||
-+           cmh_dma_map_error(d_ref_dma) || cmh_dma_map_error(crt_ref_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       if (has_crt) {
-+               /*
-+                * Two-VCQ approach (CRI pattern): SYS_REF_LAST can only
-+                * refer to the most recently created DS object.  When we
-+                * need both d and crt refs, we must first allocate DS
-+                * objects, read back the opaque refs, then pass them by
-+                * value in the keygen VCQ.
-+                *
-+                * VCQ #1: allocate both DS objects.
-+                */
-+               idx = 0;
-+               vcq_set_header(&vcq[idx++], 4);
-+               vcq_add_sys_new(&vcq[idx++], req.d_cid, d_ref_dma, d_ds_len);
-+               vcq_add_sys_new(&vcq[idx++], req.crt_cid, crt_ref_dma,
-+                               crt_ds_len);
-+               vcq_add_sys_flush(&vcq[idx++]);
-+
-+               ret = cmh_tm_submit_sync_mbx(vcq, 4, 1, MGMT_MBX);
-+               if (ret)
-+                       goto out_unmap;
-+
-+               /* Sync DMA so we can read back the opaque refs */
-+               cmh_dma_unmap_single(d_ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+               cmh_dma_unmap_single(crt_ref_dma, sizeof(u64),
-+                                    DMA_FROM_DEVICE);
-+               d_ref_dma = 0;
-+               crt_ref_dma = 0;
-+
-+               /*
-+                * VCQ #2: keygen with resolved refs.
-+                */
-+               idx = 0;
-+               memset(vcq, 0, sizeof(vcq));
-+               vcq_set_header(&vcq[idx++], 4);
-+
-+               vcq[idx].magic = VCQ_CMD_MAGIC;
-+               vcq[idx].id = VCQ_CMD_ID(pke_cid, PKE_SWAP_FLAGS, 1,
-+                                        PKE_CMD_RSA_KEYGEN);
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.bits = req.bits;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.e = e_dma;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.n = n_dma;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.d = *d_ref_buf;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.d_type =
-+                       SYS_TYPE_SET(key_flags, CORE_ID_PKE);
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.crt = *crt_ref_buf;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.crt_type =
-+                       SYS_TYPE_SET(key_flags, CORE_ID_PKE);
-+               idx++;
-+
-+               vcq_add_pke_flush(&vcq[idx++], pke_cid);
-+               vcq_add_sys_flush(&vcq[idx++]);
-+
-+               ret = cmh_tm_submit_sync_tmo(vcq, 4, 1, MGMT_MBX,
-+                                            cmh_tm_slow_op_timeout_jiffies());
-+       } else {
-+               /*
-+                * Single-VCQ: only d, so SYS_REF_LAST is unambiguous.
-+                */
-+               idx = 0;
-+               vcq_set_header(&vcq[idx++], 5);
-+               vcq_add_sys_new(&vcq[idx++], req.d_cid, d_ref_dma, d_ds_len);
-+
-+               vcq[idx].magic = VCQ_CMD_MAGIC;
-+               vcq[idx].id = VCQ_CMD_ID(pke_cid, PKE_SWAP_FLAGS, 1,
-+                                        PKE_CMD_RSA_KEYGEN);
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.bits = req.bits;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.e = e_dma;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.n = n_dma;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.d = SYS_REF_LAST;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.d_type =
-+                       SYS_TYPE_SET(key_flags, CORE_ID_PKE);
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.crt = SYS_REF_NONE;
-+               vcq[idx].hwc.pke.cmd_rsa_keygen.crt_type = 0;
-+               idx++;
-+
-+               vcq_add_pke_flush(&vcq[idx++], pke_cid);
-+               vcq_add_sys_flush(&vcq[idx++]);
-+
-+               ret = cmh_tm_submit_sync_tmo(vcq, 5, 1, MGMT_MBX,
-+                                            cmh_tm_slow_op_timeout_jiffies());
-+       }
-+
-+out_unmap:
-+       if (crt_ref_dma && !cmh_dma_map_error(crt_ref_dma))
-+               cmh_dma_unmap_single(crt_ref_dma, sizeof(u64),
-+                                    DMA_FROM_DEVICE);
-+       if (d_ref_dma && !cmh_dma_map_error(d_ref_dma))
-+               cmh_dma_unmap_single(d_ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(n_dma))
-+               cmh_dma_unmap_single(n_dma, n_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(e_dma))
-+               cmh_dma_unmap_single(e_dma, e_padded, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               /* Copy generated modulus and refs back */
-+               if (copy_to_user(u64_to_user_ptr(req.n), n_buf, n_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               req.d_ref = *d_ref_buf;
-+               req.crt_ref = has_crt ? *crt_ref_buf : 0;
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(crt_ref_buf);
-+       kfree(d_ref_buf);
-+       kfree(n_buf);
-+       kfree(e_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_ecdsa_sign() - Handle CMH_MGMT_IOC_PKE_ECDSA_SIGN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_ecdsa_sign(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_ecdsa_sign req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 clen, sig_len, dig_map_len;
-+       u8 *dig_buf, *sig_buf;
-+       dma_addr_t dig_dma, sig_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       clen = cmh_pke_validate_curve(req.curve);
-+       if (!clen || !req.digest_len ||
-+           req.digest_len > CMH_MGMT_MAX_DATA_LEN)
-+               return -EINVAL;
-+
-+       sig_len = 2 * clen;
-+
-+       /*
-+        * eSW requires digest_len >= clen.  Zero-pad shorter hashes.
-+        */
-+       dig_map_len = max_t(u32, req.digest_len, clen);
-+
-+       dig_buf = kzalloc(dig_map_len, GFP_KERNEL);
-+       sig_buf = kzalloc(sig_len, GFP_KERNEL);
-+       if (!dig_buf || !sig_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(dig_buf, u64_to_user_ptr(req.digest),
-+                          req.digest_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       dig_dma = cmh_dma_map_single(dig_buf, dig_map_len, DMA_TO_DEVICE);
-+       sig_dma = cmh_dma_map_single(sig_buf, sig_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(dig_dma) || cmh_dma_map_error(sig_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_ecdsa_sign(&vcq[1], pke_cid, req.curve, clen,
-+                              dig_dma, sig_dma, req.key_ref,
-+                              dig_map_len, pke_swap_flags(req.curve));
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(sig_dma))
-+               cmh_dma_unmap_single(sig_dma, sig_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(dig_dma))
-+               cmh_dma_unmap_single(dig_dma, dig_map_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.signature),
-+                                sig_buf, sig_len))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(sig_buf);
-+       kfree(dig_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_ecdh() - Handle CMH_MGMT_IOC_PKE_ECDH ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_ecdh(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_ecdh req;
-+       /* Phase 1: hdr + sys_new + pke_ecdh + pke_flush; reused for Phase 2 */
-+       struct vcq_cmd vcq[4];
-+       u32 clen, swap, ss_type;
-+       u8 *peer_buf, *ss_buf;
-+       u64 *ref_buf;
-+       dma_addr_t peer_dma, ss_dma, ref_dma;
-+       int ret, idx;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       clen = cmh_pke_validate_curve(req.curve);
-+       if (!clen)
-+               return -EINVAL;
-+
-+       swap = PKE_SWAP_FLAGS;
-+       ss_type = SYS_TYPE_SET(SYS_TYPE_FLAG_PT, CORE_ID_PKE);
-+
-+       peer_buf = kmalloc(clen, GFP_KERNEL);
-+       ss_buf = kzalloc(clen, GFP_KERNEL);
-+       ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+       if (!peer_buf || !ss_buf || !ref_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(peer_buf, u64_to_user_ptr(req.peer_key_x), clen)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       peer_dma = cmh_dma_map_single(peer_buf, clen, DMA_TO_DEVICE);
-+       ss_dma = cmh_dma_map_single(ss_buf, clen, DMA_FROM_DEVICE);
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(peer_dma) || cmh_dma_map_error(ss_dma) ||
-+           cmh_dma_map_error(ref_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       idx = 0;
-+       vcq_set_header(&vcq[idx++], 4);
-+       vcq_add_sys_new(&vcq[idx++], 0, ref_dma, clen);
-+       vcq_add_pke_ecdh(&vcq[idx++], pke_cid, req.curve, clen, clen,
-+                        ss_type, peer_dma, req.key_ref,
-+                        SYS_REF_LAST, swap);
-+       vcq_add_pke_flush(&vcq[idx++], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, 4, 1, MGMT_MBX);
-+       if (ret)
-+               goto out_unmap;
-+
-+       /* Sync bounce buffer so CPU sees the DMA-written ref */
-+       cmh_dma_sync_for_cpu(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+
-+       /* Phase 2: extract shared secret from DS via actual ref */
-+       vcq_set_header(&vcq[0], 3);
-+       vcq_add_sys_data(&vcq[1], *ref_buf, ss_dma, clen);
-+       vcq[1].id |= pke_swap_flags(req.curve);
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, 3, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(ref_dma))
-+               cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ss_dma))
-+               cmh_dma_unmap_single(ss_dma, clen, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(peer_dma))
-+               cmh_dma_unmap_single(peer_dma, clen, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.output), ss_buf, clen))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(ref_buf);
-+       kfree_sensitive(ss_buf);
-+       kfree(peer_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_ecdh_keygen() - Handle CMH_MGMT_IOC_PKE_ECDH_KEYGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_ecdh_keygen(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_ecdh_keygen req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 clen, out_len;
-+       u8 *pkx_buf;
-+       dma_addr_t pkx_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       clen = cmh_pke_validate_curve(req.curve);
-+       if (!clen)
-+               return -EINVAL;
-+
-+       /*
-+        * ECDH_KEYGEN always outputs both X and Y coordinates
-+        * (2 * clen bytes total) even though only X is useful for
-+        * the ECDH exchange.  Allocate the full output size to avoid
-+        * a DMA buffer overflow, but copy only X back to userspace.
-+        */
-+       out_len = 2 * clen;
-+
-+       pkx_buf = kzalloc(out_len, GFP_KERNEL);
-+       if (!pkx_buf)
-+               return -ENOMEM;
-+
-+       pkx_dma = cmh_dma_map_single(pkx_buf, out_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(pkx_dma)) {
-+               kfree(pkx_buf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_ecdh_keygen(&vcq[1], pke_cid, req.curve, clen,
-+                               pkx_dma, req.key_ref,
-+                               PKE_SWAP_FLAGS);
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(pkx_dma, out_len, DMA_FROM_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.public_key_x),
-+                                pkx_buf, clen))
-+                       ret = -EFAULT;
-+       }
-+
-+       kfree(pkx_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_eddsa_sign() - Handle CMH_MGMT_IOC_PKE_EDDSA_SIGN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_eddsa_sign(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_eddsa_sign req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 klen, sig_len;
-+       u8 *msg_buf, *sig_buf;
-+       dma_addr_t msg_dma, sig_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (!cmh_pke_validate_curve(req.curve) || !req.digest_len ||
-+           req.digest_len > CMH_MGMT_MAX_DATA_LEN)
-+               return -EINVAL;
-+       if (!pke_curve_is_edwards(req.curve))
-+               return -EINVAL;
-+
-+       klen = pke_eddsa_key_len(req.curve);
-+       sig_len = 2 * klen;
-+
-+       msg_buf = kmalloc(req.digest_len, GFP_KERNEL);
-+       sig_buf = kzalloc(sig_len, GFP_KERNEL);
-+       if (!msg_buf || !sig_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(msg_buf, u64_to_user_ptr(req.digest),
-+                          req.digest_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       msg_dma = cmh_dma_map_single(msg_buf, req.digest_len, DMA_TO_DEVICE);
-+       sig_dma = cmh_dma_map_single(sig_buf, sig_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(msg_dma) || cmh_dma_map_error(sig_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_eddsa_sign(&vcq[1], pke_cid, req.curve, klen,
-+                              msg_dma, sig_dma, req.key_ref,
-+                              req.digest_len, pke_swap_flags(req.curve));
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(sig_dma))
-+               cmh_dma_unmap_single(sig_dma, sig_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(msg_dma))
-+               cmh_dma_unmap_single(msg_dma, req.digest_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.signature),
-+                                sig_buf, sig_len))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(sig_buf);
-+       kfree(msg_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_eddsa_verify() - Handle CMH_MGMT_IOC_PKE_EDDSA_VERIFY ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_eddsa_verify(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_eddsa_verify req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 clen, klen, sig_len;
-+       u8 *msg_buf, *sig_buf, *pky_buf, *rp_buf;
-+       dma_addr_t msg_dma, sig_dma, pky_dma, rp_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       clen = cmh_pke_validate_curve(req.curve);
-+       if (!clen || !req.digest_len ||
-+           req.digest_len > CMH_MGMT_MAX_DATA_LEN)
-+               return -EINVAL;
-+       if (!pke_curve_is_edwards(req.curve))
-+               return -EINVAL;
-+
-+       klen = pke_eddsa_key_len(req.curve);
-+       sig_len = 2 * klen;
-+
-+       msg_buf = kmalloc(req.digest_len, GFP_KERNEL);
-+       sig_buf = kmalloc(sig_len, GFP_KERNEL);
-+       pky_buf = kmalloc(klen, GFP_KERNEL);
-+       rp_buf = kzalloc(clen, GFP_KERNEL);
-+       if (!msg_buf || !sig_buf || !pky_buf || !rp_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(msg_buf, u64_to_user_ptr(req.digest),
-+                          req.digest_len) ||
-+           copy_from_user(sig_buf, u64_to_user_ptr(req.signature),
-+                          sig_len) ||
-+           copy_from_user(pky_buf, u64_to_user_ptr(req.public_key_y),
-+                          klen)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       msg_dma = cmh_dma_map_single(msg_buf, req.digest_len, DMA_TO_DEVICE);
-+       sig_dma = cmh_dma_map_single(sig_buf, sig_len, DMA_TO_DEVICE);
-+       pky_dma = cmh_dma_map_single(pky_buf, klen, DMA_TO_DEVICE);
-+       rp_dma = cmh_dma_map_single(rp_buf, clen, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(msg_dma) || cmh_dma_map_error(sig_dma) ||
-+           cmh_dma_map_error(pky_dma) || cmh_dma_map_error(rp_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_eddsa_verify(&vcq[1], pke_cid, req.curve, req.digest_len,
-+                                pky_dma, msg_dma, sig_dma, rp_dma,
-+                                pke_swap_flags(req.curve));
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(rp_dma))
-+               cmh_dma_unmap_single(rp_dma, clen, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(pky_dma))
-+               cmh_dma_unmap_single(pky_dma, klen, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(sig_dma))
-+               cmh_dma_unmap_single(sig_dma, sig_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(msg_dma))
-+               cmh_dma_unmap_single(msg_dma, req.digest_len, DMA_TO_DEVICE);
-+
-+out_free:
-+       kfree(rp_buf);
-+       kfree(pky_buf);
-+       kfree(sig_buf);
-+       kfree(msg_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_ec_keygen() - Handle CMH_MGMT_IOC_PKE_EC_KEYGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_ec_keygen(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_ec_keygen req;
-+       /* header + SYS_NEW + ECDSA_KEYGEN + flush_pke + flush_sys */
-+       struct vcq_cmd vcq[5];
-+       u32 clen, key_flags, ds_len;
-+       u64 *ref_buf;
-+       dma_addr_t ref_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (req.flags & ~CMH_FLAG_MASK)
-+               return -EINVAL;
-+       clen = cmh_pke_validate_curve(req.curve);
-+       if (!clen)
-+               return -EINVAL;
-+
-+       key_flags = req.flags & CMH_FLAG_MASK;
-+       /* SCA keys are stored in 2 shares -- allocate double the curve length */
-+       ds_len = (req.flags & CMH_FLAG_SCA) ? clen * 2 : clen;
-+
-+       ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+       if (!ref_buf)
-+               return -ENOMEM;
-+
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ref_dma)) {
-+               kfree(ref_buf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], 5);
-+       vcq_add_sys_new(&vcq[1], req.cid, ref_dma, ds_len);
-+       vcq_add_pke_ecdsa_keygen(&vcq[2], pke_cid, req.curve, clen,
-+                                SYS_REF_LAST,
-+                                SYS_TYPE_SET(key_flags, CORE_ID_PKE),
-+                                pke_swap_flags(req.curve));
-+       vcq_add_pke_flush(&vcq[3], pke_cid);
-+       vcq_add_sys_flush(&vcq[4]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, 5, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+
-+       if (!ret) {
-+               req.ref = *ref_buf;
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+       kfree(ref_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_ec_pubgen() - Handle CMH_MGMT_IOC_PKE_EC_PUBGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_ec_pubgen(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_ec_pubgen req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 clen, pk_len;
-+       u8 *pk_buf;
-+       dma_addr_t pk_dma;
-+       bool is_ed;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       clen = cmh_pke_validate_curve(req.curve);
-+       if (!clen)
-+               return -EINVAL;
-+
-+       is_ed = pke_curve_is_edwards(req.curve);
-+       pk_len = is_ed ? pke_eddsa_key_len(req.curve) : 2 * clen;
-+
-+       pk_buf = kzalloc(pk_len, GFP_KERNEL);
-+       if (!pk_buf)
-+               return -ENOMEM;
-+
-+       pk_dma = cmh_dma_map_single(pk_buf, pk_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(pk_dma)) {
-+               kfree(pk_buf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       if (is_ed)
-+               vcq_add_pke_eddsa_pubgen(&vcq[1], pke_cid, req.curve,
-+                                        pke_eddsa_key_len(req.curve),
-+                                        pk_dma, req.key_ref,
-+                                        pke_swap_flags(req.curve));
-+       else
-+               vcq_add_pke_ecdsa_pubgen(&vcq[1], pke_cid, req.curve, clen,
-+                                        pk_dma, req.key_ref,
-+                                        pke_swap_flags(req.curve));
-+       vcq_add_pke_flush(&vcq[2], pke_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(pk_dma, pk_len, DMA_FROM_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.public_key),
-+                                pk_buf, pk_len))
-+                       ret = -EFAULT;
-+       }
-+
-+       kfree(pk_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_pke_eddsa_keygen_sca() - Handle CMH_MGMT_IOC_PKE_EDDSA_KEYGEN_SCA ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_pke_eddsa_keygen_sca(void __user *argp)
-+{
-+       u32 pke_cid = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       struct cmh_ioctl_pke_eddsa_keygen_sca req;
-+       /* header + SYS_NEW + EDDSA_KEYGEN_SCA + flush_pke + flush_sys */
-+       struct vcq_cmd vcq[5];
-+       u64 *ref_buf;
-+       dma_addr_t ref_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       /* EdDSA SCA keygen is only supported for Ed448 */
-+       if (req.curve != PKE_CURVE_448)
-+               return -EINVAL;
-+
-+       ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+       if (!ref_buf)
-+               return -ENOMEM;
-+
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ref_dma)) {
-+               kfree(ref_buf);
-+               return -ENOMEM;
-+       }
-+
-+       vcq_set_header(&vcq[0], 5);
-+       vcq_add_sys_new(&vcq[1], req.cid, ref_dma, PKE_ED448_SK_SCA_LEN);
-+       vcq_add_pke_eddsa_keygen_sca(&vcq[2], pke_cid, req.curve, req.key_ref,
-+                                    SYS_REF_LAST);
-+       vcq_add_pke_flush(&vcq[3], pke_cid);
-+       vcq_add_sys_flush(&vcq[4]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, 5, 1, MGMT_MBX);
-+
-+       cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+
-+       if (!ret) {
-+               req.sca_ref = *ref_buf;
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+       kfree(ref_buf);
-+       return ret;
-+}
-diff --git a/drivers/crypto/cmh/cmh_mgmt_pqc.c b/drivers/crypto/cmh/cmh_mgmt_pqc.c
-new file mode 100644
-index 000000000000..db479e80326b
---- /dev/null
-+++ b/drivers/crypto/cmh/cmh_mgmt_pqc.c
-@@ -0,0 +1,1279 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH -- PQC ioctl handlers for /dev/cmh_mgmt
-+ *
-+ * ML-KEM keygen/encapsulate/decapsulate, ML-DSA keygen/sign,
-+ * SLH-DSA keygen/sign (pure + prehash).
-+ *
-+ * Split from cmh_mgmt.c for maintainability.
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/uaccess.h>
-+#include <linux/slab.h>
-+#include <linux/overflow.h>
-+
-+#include "cmh_mgmt.h"
-+#include "cmh_sys.h"
-+#include "cmh_txn.h"
-+#include "cmh_key.h"
-+#include "cmh_dma.h"
-+#include "cmh_config.h"
-+#include "cmh_pqc.h"
-+#include "cmh_qse_abi.h"
-+#include "cmh_sys_abi.h"
-+#include <uapi/linux/cmh_mgmt_ioctl.h>
-+
-+#include <crypto/utils.h>
-+
-+/* -- PQC -- ML-KEM -- */
-+
-+/**
-+ * cmh_mgmt_ml_kem_keygen() - Handle CMH_MGMT_IOC_ML_KEM_KEYGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_ml_kem_keygen(void __user *argp)
-+{
-+       u32 qse_cid = cmh_core_default_id(CMH_CORE_QSE);
-+
-+       struct cmh_ioctl_ml_kem_keygen req;
-+       struct vcq_cmd vcq[QSE_VCQ_CMDS_MAX];
-+       u32 ek_len, dk_len, seed_len, key_flags;
-+       u32 qse_flags = 0;
-+       bool masked, ds_ref, hw_rng;
-+       u8 *seed_buf = NULL, *z_buf = NULL, *ek_buf, *dk_buf = NULL;
-+       u64 *ref_buf = NULL;
-+       dma_addr_t seed_dma = DMA_MAPPING_ERROR, z_dma = DMA_MAPPING_ERROR;
-+       dma_addr_t ek_dma, dk_dma = DMA_MAPPING_ERROR, ref_dma = DMA_MAPPING_ERROR;
-+       int ret, idx;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (ml_kem_k_idx(req.k) < 0)
-+               return -EINVAL;
-+       if (req.flags & ~(CMH_QSE_FLAG_MASK | CMH_FLAG_MASK))
-+               return -EINVAL;
-+
-+       masked = !!(req.flags & CMH_QSE_FLAG_MASKED);
-+       ds_ref = !!(req.flags & CMH_QSE_FLAG_DS_REF);
-+       hw_rng = !!(req.flags & CMH_QSE_FLAG_HW_RNG);
-+
-+       /*
-+        * QSE keys only support PT storage -- the eSW dec/sign paths
-+        * hardcode SYS_TYPE_FLAG_PT when reading the key back.
-+        * QSE SCA protection uses masking (CMH_QSE_FLAG_MASKED),
-+        * not the 2-share mechanism (CMH_FLAG_SCA).
-+        */
-+       key_flags = req.flags & CMH_FLAG_MASK;
-+       if (key_flags && key_flags != CMH_FLAG_PT)
-+               return -EINVAL;
-+       key_flags = CMH_FLAG_PT;
-+
-+       /* Masked keygen must store dk in DS -- polynomial unmasking not supported */
-+       if (masked && !ds_ref)
-+               return -EINVAL;
-+
-+       ek_len = ML_KEM_EK_SIZE(req.k);
-+       dk_len = masked ? ML_KEM_DK_SIZE_MASKED(req.k)
-+                       : ML_KEM_DK_SIZE(req.k);
-+       seed_len = masked ? QSE_SEED_LEN_MASKED : QSE_SEED_LEN;
-+
-+       if (hw_rng)
-+               qse_flags |= QSE_FLAG_USE_RNG;
-+       if (ds_ref)
-+               qse_flags |= QSE_FLAG_USE_REF;
-+
-+       ek_buf = kzalloc(ek_len, GFP_KERNEL);
-+       if (!ek_buf)
-+               return -ENOMEM;
-+
-+       if (!hw_rng && req.seed && req.z) {
-+               seed_buf = kmalloc(seed_len, GFP_KERNEL);
-+               z_buf = kmalloc(seed_len, GFP_KERNEL);
-+               if (!seed_buf || !z_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(seed_buf, u64_to_user_ptr(req.seed),
-+                                  seed_len) ||
-+                   copy_from_user(z_buf, u64_to_user_ptr(req.z), seed_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       if (ds_ref) {
-+               ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+               if (!ref_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+       } else {
-+               dk_buf = kzalloc(dk_len, GFP_KERNEL);
-+               if (!dk_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+       }
-+
-+       /* DMA map */
-+       ek_dma = cmh_dma_map_single(ek_buf, ek_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ek_dma)) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (seed_buf) {
-+               seed_dma = cmh_dma_map_single(seed_buf, seed_len,
-+                                             DMA_TO_DEVICE);
-+               z_dma = cmh_dma_map_single(z_buf, seed_len, DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(seed_dma) || cmh_dma_map_error(z_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       if (ds_ref) {
-+               ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64),
-+                                            DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(ref_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       } else {
-+               dk_dma = cmh_dma_map_single(dk_buf, dk_len, DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(dk_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       idx = 0;
-+       if (ds_ref) {
-+               vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MAX);
-+               idx++;
-+               vcq_add_sys_new(&vcq[idx++], req.dk_cid, ref_dma, dk_len);
-+               vcq_add_qse_ml_kem_keygen(&vcq[idx++], qse_cid, req.k, qse_flags,
-+                                         seed_dma, z_dma,
-+                                         ek_dma, SYS_REF_LAST,
-+                                         SYS_TYPE_SET(key_flags,
-+                                                      CORE_ID_QSE),
-+                                         masked);
-+               vcq_add_qse_flush(&vcq[idx++], qse_cid);
-+               ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MAX,
-+                                            1, MGMT_MBX);
-+       } else {
-+               vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MIN);
-+               idx++;
-+               vcq_add_qse_ml_kem_keygen(&vcq[idx++], qse_cid, req.k, qse_flags,
-+                                         seed_dma, z_dma,
-+                                         ek_dma, dk_dma, 0, masked);
-+               vcq_add_qse_flush(&vcq[idx++], qse_cid);
-+               ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MIN,
-+                                            1, MGMT_MBX);
-+       }
-+
-+out_unmap:
-+       if (ds_ref && !cmh_dma_map_error(ref_dma))
-+               cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+       if (!ds_ref && dk_buf && !cmh_dma_map_error(dk_dma))
-+               cmh_dma_unmap_single(dk_dma, dk_len, DMA_FROM_DEVICE);
-+       if (z_buf && !cmh_dma_map_error(z_dma))
-+               cmh_dma_unmap_single(z_dma, seed_len, DMA_TO_DEVICE);
-+       if (seed_buf && !cmh_dma_map_error(seed_dma))
-+               cmh_dma_unmap_single(seed_dma, seed_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(ek_dma))
-+               cmh_dma_unmap_single(ek_dma, ek_len, DMA_FROM_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.ek), ek_buf, ek_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               if (ds_ref) {
-+                       req.dk_ref = *ref_buf;
-+               } else {
-+                       if (copy_to_user(u64_to_user_ptr(req.dk),
-+                                        dk_buf, dk_len)) {
-+                               ret = -EFAULT;
-+                               goto out_free;
-+                       }
-+               }
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(dk_buf);
-+       kfree(ref_buf);
-+       kfree_sensitive(z_buf);
-+       kfree_sensitive(seed_buf);
-+       kfree(ek_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_ml_kem_enc() - Handle CMH_MGMT_IOC_ML_KEM_ENC ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_ml_kem_enc(void __user *argp)
-+{
-+       u32 qse_cid = cmh_core_default_id(CMH_CORE_QSE);
-+
-+       struct cmh_ioctl_ml_kem_enc req;
-+       struct vcq_cmd vcq[QSE_VCQ_CMDS_MIN];
-+       u32 ek_len, ct_len, ss_out_len;
-+       u32 qse_flags = 0;
-+       bool masked, hw_rng;
-+       u8 *ek_buf, *coin_buf = NULL, *ct_buf, *ss_buf;
-+       dma_addr_t ek_dma, coin_dma = DMA_MAPPING_ERROR, ct_dma, ss_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved || req.__reserved2[0] || req.__reserved2[1])
-+               return -EINVAL;
-+       if (ml_kem_k_idx(req.k) < 0)
-+               return -EINVAL;
-+
-+       masked = !!(req.flags & CMH_QSE_FLAG_MASKED);
-+       hw_rng = !!(req.flags & CMH_QSE_FLAG_HW_RNG);
-+
-+       ek_len = ML_KEM_EK_SIZE(req.k);
-+       ct_len = ML_KEM_CT_SIZE(req.k);
-+       ss_out_len = masked ? ML_KEM_SS_LEN_MASKED : ML_KEM_SS_LEN;
-+
-+       if (hw_rng)
-+               qse_flags |= QSE_FLAG_USE_RNG;
-+
-+       ek_buf = kmalloc(ek_len, GFP_KERNEL);
-+       ct_buf = kzalloc(ct_len, GFP_KERNEL);
-+       ss_buf = kzalloc(ss_out_len, GFP_KERNEL);
-+       if (!ek_buf || !ct_buf || !ss_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(ek_buf, u64_to_user_ptr(req.ek), ek_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       if (!hw_rng && req.coin) {
-+               u32 coin_len = masked ? QSE_SEED_LEN_MASKED : QSE_SEED_LEN;
-+
-+               coin_buf = kmalloc(coin_len, GFP_KERNEL);
-+               if (!coin_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(coin_buf, u64_to_user_ptr(req.coin),
-+                                  coin_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               coin_dma = cmh_dma_map_single(coin_buf, coin_len,
-+                                             DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(coin_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+       }
-+
-+       ek_dma = cmh_dma_map_single(ek_buf, ek_len, DMA_TO_DEVICE);
-+       ct_dma = cmh_dma_map_single(ct_buf, ct_len, DMA_FROM_DEVICE);
-+       ss_dma = cmh_dma_map_single(ss_buf, ss_out_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ek_dma) || cmh_dma_map_error(ct_dma) ||
-+           cmh_dma_map_error(ss_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MIN);
-+       vcq_add_qse_ml_kem_enc(&vcq[1], qse_cid, req.k, qse_flags,
-+                              coin_dma, ek_dma, ct_dma, ss_dma, 0, masked);
-+       vcq_add_qse_flush(&vcq[2], qse_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(ss_dma))
-+               cmh_dma_unmap_single(ss_dma, ss_out_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ct_dma))
-+               cmh_dma_unmap_single(ct_dma, ct_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ek_dma))
-+               cmh_dma_unmap_single(ek_dma, ek_len, DMA_TO_DEVICE);
-+       if (coin_buf && !cmh_dma_map_error(coin_dma))
-+               cmh_dma_unmap_single(coin_dma,
-+                                    masked ? QSE_SEED_LEN_MASKED
-+                                           : QSE_SEED_LEN,
-+                                    DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.ct), ct_buf, ct_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               /* Unmask ss if masked: ss = share0 ^ share1 */
-+               if (masked) {
-+                       crypto_xor(ss_buf, ss_buf + ML_KEM_SS_LEN,
-+                                  ML_KEM_SS_LEN);
-+               }
-+               if (copy_to_user(u64_to_user_ptr(req.ss), ss_buf,
-+                                ML_KEM_SS_LEN)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(ss_buf);
-+       kfree(ct_buf);
-+       kfree(coin_buf);
-+       kfree(ek_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_ml_kem_dec() - Handle CMH_MGMT_IOC_ML_KEM_DEC ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_ml_kem_dec(void __user *argp)
-+{
-+       u32 qse_cid = cmh_core_default_id(CMH_CORE_QSE);
-+
-+       struct cmh_ioctl_ml_kem_dec req;
-+       struct vcq_cmd vcq[QSE_VCQ_CMDS_MIN];
-+       u32 ct_len, dk_len, ss_out_len;
-+       u32 qse_flags = 0;
-+       bool masked, ds_ref;
-+       u8 *ct_buf, *dk_buf = NULL, *ss_buf;
-+       dma_addr_t ct_dma, dk_dma = DMA_MAPPING_ERROR, ss_dma;
-+       u64 dk_ref;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved || req.__reserved2[0] || req.__reserved2[1])
-+               return -EINVAL;
-+       if (ml_kem_k_idx(req.k) < 0)
-+               return -EINVAL;
-+
-+       masked = !!(req.flags & CMH_QSE_FLAG_MASKED);
-+       ds_ref = !!(req.flags & CMH_QSE_FLAG_DS_REF);
-+
-+       ct_len = ML_KEM_CT_SIZE(req.k);
-+       dk_len = masked ? ML_KEM_DK_SIZE_MASKED(req.k)
-+                       : ML_KEM_DK_SIZE(req.k);
-+       ss_out_len = masked ? ML_KEM_SS_LEN_MASKED : ML_KEM_SS_LEN;
-+
-+       ct_buf = kmalloc(ct_len, GFP_KERNEL);
-+       ss_buf = kzalloc(ss_out_len, GFP_KERNEL);
-+       if (!ct_buf || !ss_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(ct_buf, u64_to_user_ptr(req.ct), ct_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       ct_dma = cmh_dma_map_single(ct_buf, ct_len, DMA_TO_DEVICE);
-+       ss_dma = cmh_dma_map_single(ss_buf, ss_out_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ct_dma) || cmh_dma_map_error(ss_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       /*
-+        * dk: if DS_REF flag is set, req.dk is a DS reference.
-+        * Otherwise, copy raw dk from user-space and use extmem DMA.
-+        * Masked decaps requires DS ref (polynomial unmasking not supported).
-+        */
-+       if (ds_ref) {
-+               dk_ref = req.dk;
-+               qse_flags |= QSE_FLAG_USE_REF;
-+       } else {
-+               if (masked) {
-+                       ret = -EINVAL;
-+                       goto out_unmap;
-+               }
-+               dk_buf = kmalloc(dk_len, GFP_KERNEL);
-+               if (!dk_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+               if (copy_from_user(dk_buf, u64_to_user_ptr(req.dk), dk_len)) {
-+                       ret = -EFAULT;
-+                       goto out_unmap;
-+               }
-+               dk_dma = cmh_dma_map_single(dk_buf, dk_len, DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(dk_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+               dk_ref = dk_dma;
-+       }
-+
-+       if (ds_ref) {
-+               /*
-+                * DS_REF decaps: CMH eSW resolves both dk and ss from DS.
-+                * Phase 1: dec stores ss into SYS_REF_TEMP.
-+                * Phase 2: sys_data reads ss from SYS_REF_TEMP to DMA.
-+                */
-+               vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MIN);
-+               vcq_add_qse_ml_kem_dec(&vcq[1], qse_cid, req.k, qse_flags,
-+                                      ct_dma, dk_ref, SYS_REF_TEMP,
-+                                      SYS_TYPE_SET(SYS_TYPE_FLAG_PT,
-+                                                   CORE_ID_QSE),
-+                                      masked);
-+               vcq_add_qse_flush(&vcq[2], qse_cid);
-+
-+               ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MIN,
-+                                            1, MGMT_MBX);
-+               if (ret)
-+                       goto out_unmap;
-+
-+               /* Phase 2: extract ss from SYS_REF_TEMP */
-+               vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MIN);
-+               vcq_add_sys_data(&vcq[1], SYS_REF_TEMP, ss_dma,
-+                                ss_out_len);
-+               vcq_add_sys_flush(&vcq[2]);
-+
-+               ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MIN,
-+                                            1, MGMT_MBX);
-+       } else {
-+               vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MIN);
-+               vcq_add_qse_ml_kem_dec(&vcq[1], qse_cid, req.k, qse_flags,
-+                                      ct_dma, dk_ref, ss_dma, 0, masked);
-+               vcq_add_qse_flush(&vcq[2], qse_cid);
-+
-+               ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MIN,
-+                                            1, MGMT_MBX);
-+       }
-+
-+out_unmap:
-+       if (dk_buf && !cmh_dma_map_error(dk_dma))
-+               cmh_dma_unmap_single(dk_dma, dk_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(ss_dma))
-+               cmh_dma_unmap_single(ss_dma, ss_out_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ct_dma))
-+               cmh_dma_unmap_single(ct_dma, ct_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (masked) {
-+                       crypto_xor(ss_buf, ss_buf + ML_KEM_SS_LEN,
-+                                  ML_KEM_SS_LEN);
-+               }
-+               if (copy_to_user(u64_to_user_ptr(req.ss), ss_buf,
-+                                ML_KEM_SS_LEN)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(dk_buf);
-+       kfree_sensitive(ss_buf);
-+       kfree(ct_buf);
-+       return ret;
-+}
-+
-+/* -- PQC -- ML-DSA -- */
-+
-+/**
-+ * cmh_mgmt_ml_dsa_keygen() - Handle CMH_MGMT_IOC_ML_DSA_KEYGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_ml_dsa_keygen(void __user *argp)
-+{
-+       u32 qse_cid = cmh_core_default_id(CMH_CORE_QSE);
-+
-+       struct cmh_ioctl_ml_dsa_keygen req;
-+       struct vcq_cmd vcq[QSE_VCQ_CMDS_MAX];
-+       u32 pk_size, sk_size, seed_len, key_flags;
-+       u32 qse_flags = 0;
-+       bool masked, ds_ref, hw_rng;
-+       u8 *seed_buf = NULL, *pk_buf, *sk_buf = NULL;
-+       u64 *ref_buf = NULL;
-+       dma_addr_t seed_dma = DMA_MAPPING_ERROR, pk_dma;
-+       dma_addr_t sk_dma = DMA_MAPPING_ERROR, ref_dma = DMA_MAPPING_ERROR;
-+       int ret, idx, mi;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       mi = ml_dsa_mode_idx(req.mode);
-+       if (mi < 0)
-+               return -EINVAL;
-+       if (req.flags & ~(CMH_QSE_FLAG_MASK | CMH_FLAG_MASK))
-+               return -EINVAL;
-+
-+       masked = !!(req.flags & CMH_QSE_FLAG_MASKED);
-+       ds_ref = !!(req.flags & CMH_QSE_FLAG_DS_REF);
-+       hw_rng = !!(req.flags & CMH_QSE_FLAG_HW_RNG);
-+
-+       /*
-+        * QSE keys only support PT storage -- the eSW sign path
-+        * hardcodes SYS_TYPE_FLAG_PT when reading the key back.
-+        * QSE SCA protection uses masking (CMH_QSE_FLAG_MASKED),
-+        * not the 2-share mechanism (CMH_FLAG_SCA).
-+        */
-+       key_flags = req.flags & CMH_FLAG_MASK;
-+       if (key_flags && key_flags != CMH_FLAG_PT)
-+               return -EINVAL;
-+       key_flags = CMH_FLAG_PT;
-+
-+       if (masked && !ds_ref)
-+               return -EINVAL;
-+
-+       pk_size = ml_dsa_pk_size[mi];
-+       sk_size = masked ? ml_dsa_sk_size_masked[mi] : ml_dsa_sk_size[mi];
-+       seed_len = masked ? QSE_SEED_LEN_MASKED : QSE_SEED_LEN;
-+
-+       if (hw_rng)
-+               qse_flags |= QSE_FLAG_USE_RNG;
-+       if (ds_ref)
-+               qse_flags |= QSE_FLAG_USE_REF;
-+
-+       pk_buf = kzalloc(pk_size, GFP_KERNEL);
-+       if (!pk_buf)
-+               return -ENOMEM;
-+
-+       if (!hw_rng && req.seed) {
-+               seed_buf = kmalloc(seed_len, GFP_KERNEL);
-+               if (!seed_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(seed_buf, u64_to_user_ptr(req.seed),
-+                                  seed_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       if (ds_ref) {
-+               ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+               if (!ref_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+       } else {
-+               sk_buf = kzalloc(sk_size, GFP_KERNEL);
-+               if (!sk_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+       }
-+
-+       pk_dma = cmh_dma_map_single(pk_buf, pk_size, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(pk_dma)) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (seed_buf) {
-+               seed_dma = cmh_dma_map_single(seed_buf, seed_len,
-+                                             DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(seed_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       if (ds_ref) {
-+               ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64),
-+                                            DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(ref_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       } else {
-+               sk_dma = cmh_dma_map_single(sk_buf, sk_size, DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(sk_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       idx = 0;
-+       if (ds_ref) {
-+               vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MAX);
-+               idx++;
-+               vcq_add_sys_new(&vcq[idx++], req.sk_cid, ref_dma, sk_size);
-+               vcq_add_qse_ml_dsa_keygen(&vcq[idx++], qse_cid, req.mode, qse_flags,
-+                                         seed_dma, pk_dma,
-+                                         SYS_REF_LAST,
-+                                         SYS_TYPE_SET(key_flags,
-+                                                      CORE_ID_QSE),
-+                                         masked);
-+               vcq_add_qse_flush(&vcq[idx++], qse_cid);
-+               ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MAX,
-+                                            1, MGMT_MBX);
-+       } else {
-+               vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MIN);
-+               idx++;
-+               vcq_add_qse_ml_dsa_keygen(&vcq[idx++], qse_cid, req.mode, qse_flags,
-+                                         seed_dma, pk_dma,
-+                                         sk_dma, 0, masked);
-+               vcq_add_qse_flush(&vcq[idx++], qse_cid);
-+               ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MIN,
-+                                            1, MGMT_MBX);
-+       }
-+
-+out_unmap:
-+       if (ds_ref && !cmh_dma_map_error(ref_dma))
-+               cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+       if (!ds_ref && sk_buf && !cmh_dma_map_error(sk_dma))
-+               cmh_dma_unmap_single(sk_dma, sk_size, DMA_FROM_DEVICE);
-+       if (seed_buf && !cmh_dma_map_error(seed_dma))
-+               cmh_dma_unmap_single(seed_dma, seed_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(pk_dma))
-+               cmh_dma_unmap_single(pk_dma, pk_size, DMA_FROM_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.pk), pk_buf, pk_size)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               if (ds_ref) {
-+                       req.sk_ref = *ref_buf;
-+               } else {
-+                       if (copy_to_user(u64_to_user_ptr(req.sk),
-+                                        sk_buf, sk_size)) {
-+                               ret = -EFAULT;
-+                               goto out_free;
-+                       }
-+               }
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(sk_buf);
-+       kfree(ref_buf);
-+       kfree_sensitive(seed_buf);
-+       kfree(pk_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_ml_dsa_sign() - Handle CMH_MGMT_IOC_ML_DSA_SIGN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_ml_dsa_sign(void __user *argp)
-+{
-+       u32 qse_cid = cmh_core_default_id(CMH_CORE_QSE);
-+
-+       struct cmh_ioctl_ml_dsa_sign req;
-+       struct vcq_cmd vcq[QSE_VCQ_CMDS_MIN];
-+       u32 sig_size, copy_len, rnd_len;
-+       u32 qse_flags = 0;
-+       bool masked;
-+       u8 *m_buf, *sig_buf, *sk_buf = NULL, *rnd_buf = NULL;
-+       dma_addr_t m_dma = DMA_MAPPING_ERROR, sig_dma;
-+       dma_addr_t sk_dma = DMA_MAPPING_ERROR, rnd_dma = DMA_MAPPING_ERROR;
-+       u64 sk_ref;
-+       int mi, ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       mi = ml_dsa_mode_idx(req.mode);
-+       if (mi < 0)
-+               return -EINVAL;
-+       if (req.mlen > ML_DSA_MAX_MLEN && req.mlen != ML_DSA_MLEN_EXTERNAL_MU)
-+               return -EINVAL;
-+
-+       masked = !!(req.flags & CMH_QSE_FLAG_MASKED);
-+       rnd_len = masked ? QSE_SEED_LEN_MASKED : QSE_SEED_LEN;
-+       sig_size = ml_dsa_sig_size[mi];
-+       copy_len = (req.mlen == ML_DSA_MLEN_EXTERNAL_MU)
-+                       ? ML_DSA_EXTMU_LEN : req.mlen;
-+
-+       /*
-+        * sk: if DS_REF, req.sk is a DS reference (masked sk lives in DS).
-+        * Otherwise, copy raw sk from user-space.
-+        * Masked sign requires DS ref (polynomial unmasking not supported).
-+        */
-+       if (req.flags & CMH_QSE_FLAG_DS_REF) {
-+               sk_ref = req.sk;
-+               qse_flags |= QSE_FLAG_USE_REF;
-+       } else {
-+               u32 sk_size;
-+
-+               if (masked)
-+                       return -EINVAL;
-+               sk_size = ml_dsa_sk_size[mi];
-+               sk_buf = kmalloc(sk_size, GFP_KERNEL);
-+               if (!sk_buf)
-+                       return -ENOMEM;
-+               if (copy_from_user(sk_buf, u64_to_user_ptr(req.sk), sk_size)) {
-+                       kfree_sensitive(sk_buf);
-+                       return -EFAULT;
-+               }
-+       }
-+
-+       m_buf = kmalloc(max_t(u32, copy_len, 1), GFP_KERNEL);
-+       sig_buf = kzalloc(sig_size, GFP_KERNEL);
-+       if (!m_buf || !sig_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_len > 0 &&
-+           copy_from_user(m_buf, u64_to_user_ptr(req.m), copy_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       if (req.rnd) {
-+               rnd_buf = kmalloc(rnd_len, GFP_KERNEL);
-+               if (!rnd_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(rnd_buf, u64_to_user_ptr(req.rnd),
-+                                  rnd_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       if (copy_len > 0) {
-+               m_dma = cmh_dma_map_single(m_buf, copy_len, DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(m_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+       sig_dma = cmh_dma_map_single(sig_buf, sig_size, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(sig_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       if (sk_buf) {
-+               sk_dma = cmh_dma_map_single(sk_buf, ml_dsa_sk_size[mi],
-+                                           DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(sk_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+               sk_ref = sk_dma;
-+       }
-+
-+       if (rnd_buf) {
-+               rnd_dma = cmh_dma_map_single(rnd_buf, rnd_len,
-+                                            DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(rnd_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       vcq_set_header(&vcq[0], QSE_VCQ_CMDS_MIN);
-+       vcq_add_qse_ml_dsa_sign(&vcq[1], qse_cid, req.mode, qse_flags,
-+                               rnd_dma, m_dma, sk_ref, sig_dma,
-+                               req.mlen, masked);
-+       vcq_add_qse_flush(&vcq[2], qse_cid);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, QSE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (rnd_buf && !cmh_dma_map_error(rnd_dma))
-+               cmh_dma_unmap_single(rnd_dma, rnd_len, DMA_TO_DEVICE);
-+       if (sk_buf && !cmh_dma_map_error(sk_dma))
-+               cmh_dma_unmap_single(sk_dma, ml_dsa_sk_size[mi],
-+                                    DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(sig_dma))
-+               cmh_dma_unmap_single(sig_dma, sig_size, DMA_FROM_DEVICE);
-+       if (copy_len > 0 && !cmh_dma_map_error(m_dma))
-+               cmh_dma_unmap_single(m_dma, copy_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.sig), sig_buf, sig_size))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(rnd_buf);
-+       kfree(sig_buf);
-+       kfree(m_buf);
-+       kfree_sensitive(sk_buf);
-+       return ret;
-+}
-+
-+/* -- PQC -- SLH-DSA -- */
-+
-+/**
-+ * cmh_mgmt_slhdsa_keygen() - Handle CMH_MGMT_IOC_SLHDSA_KEYGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_slhdsa_keygen(void __user *argp)
-+{
-+       u32 hcq_cid = cmh_core_default_id(CMH_CORE_HCQ);
-+
-+       struct cmh_ioctl_slhdsa_keygen req;
-+       struct vcq_cmd vcq[HCQ_VCQ_CMDS_MAX];
-+       u32 pk_sz, sk_sz, seed_sz, sk_alloc, vcq_cnt, key_flags;
-+       bool ds_ref;
-+       u8 *seed_buf, *pk_buf, *sk_buf = NULL;
-+       u64 *ref_buf = NULL;
-+       dma_addr_t seed_dma, pk_dma, sk_dma = DMA_MAPPING_ERROR, ref_dma = DMA_MAPPING_ERROR;
-+       int ret, idx;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+       if (req.parameter_set < 1 || req.parameter_set > HCQ_SLHDSA_PARAM_MAX)
-+               return -EINVAL;
-+       if (req.flags & ~(CMH_QSE_FLAG_DS_REF | CMH_FLAG_MASK))
-+               return -EINVAL;
-+
-+       ds_ref = !!(req.flags & CMH_QSE_FLAG_DS_REF);
-+
-+       /*
-+        * QSE keys only support PT storage -- the eSW sign path
-+        * hardcodes SYS_TYPE_FLAG_PT when reading the key back.
-+        * HCQ core sets key type internally during keygen.
-+        */
-+       key_flags = req.flags & CMH_FLAG_MASK;
-+       if (key_flags && key_flags != CMH_FLAG_PT)
-+               return -EINVAL;
-+       (void)key_flags;
-+
-+       pk_sz = slhdsa_pk_size(req.parameter_set);
-+       sk_sz = slhdsa_sk_size(req.parameter_set);
-+       seed_sz = slhdsa_seed_size(req.parameter_set);
-+
-+       seed_buf = kmalloc(seed_sz, GFP_KERNEL);
-+       pk_buf = kzalloc(pk_sz, GFP_KERNEL);
-+       if (!seed_buf || !pk_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(seed_buf, u64_to_user_ptr(req.seed), seed_sz)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       /*
-+        * Both paths need ref_buf for sys_new output.  Non-ds_ref also
-+        * needs sk_buf (+16 for SYS header) to read back via sys_read.
-+        */
-+       ref_buf = kzalloc(sizeof(u64), GFP_KERNEL);
-+       if (!ref_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+       if (!ds_ref) {
-+               sk_alloc = sk_sz + SYS_WRAP_HDR_SIZE;
-+               sk_buf = kzalloc(sk_alloc, GFP_KERNEL);
-+               if (!sk_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+       }
-+
-+       seed_dma = cmh_dma_map_single(seed_buf, seed_sz, DMA_TO_DEVICE);
-+       pk_dma = cmh_dma_map_single(pk_buf, pk_sz, DMA_FROM_DEVICE);
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(seed_dma) || cmh_dma_map_error(pk_dma) ||
-+           cmh_dma_map_error(ref_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       if (!ds_ref) {
-+               sk_dma = cmh_dma_map_single(sk_buf, sk_alloc,
-+                                           DMA_FROM_DEVICE);
-+               if (cmh_dma_map_error(sk_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       /*
-+        * SLH-DSA keygen requires seed and sk as DS references.
-+        * VCQ: hdr + sys_new(sk) + sys_write(seed->TEMP) + keygen + [sys_read] + flush
-+        */
-+       idx = 0;
-+       if (ds_ref) {
-+               vcq_cnt = HCQ_VCQ_CMDS_MAX - 1; /* hdr+new+write+keygen+flush */
-+               vcq_set_header(&vcq[idx++], vcq_cnt);
-+               vcq_add_sys_new(&vcq[idx++], req.sk_cid, ref_dma,
-+                               sk_sz);
-+       } else {
-+               vcq_cnt = HCQ_VCQ_CMDS_MAX; /* hdr+new+write+keygen+read+flush */
-+               vcq_set_header(&vcq[idx++], vcq_cnt);
-+               vcq_add_sys_new(&vcq[idx++], SYS_CID_NONE, ref_dma,
-+                               sk_sz);
-+       }
-+       vcq_add_sys_write(&vcq[idx++], SYS_REF_TEMP, seed_dma, 0,
-+                         seed_sz,
-+                         SYS_TYPE_SET(SYS_TYPE_FLAG_PT, CORE_ID_HCQ));
-+       vcq_add_hcq_slhdsa_keygen(&vcq[idx++], hcq_cid, req.parameter_set,
-+                                 seed_sz, pk_sz, sk_sz,
-+                                 SYS_REF_TEMP, pk_dma, SYS_REF_LAST);
-+       if (!ds_ref)
-+               vcq_add_sys_read(&vcq[idx++], SYS_REF_LAST, sk_dma,
-+                                0, sk_sz + SYS_WRAP_HDR_SIZE);
-+       vcq_add_hcq_flush(&vcq[idx++], hcq_cid);
-+
-+       ret = cmh_tm_submit_sync_tmo(vcq, vcq_cnt, 1, MGMT_MBX,
-+                                    cmh_tm_slow_op_timeout_jiffies());
-+
-+out_unmap:
-+       if (!ds_ref && sk_buf && !cmh_dma_map_error(sk_dma))
-+               cmh_dma_unmap_single(sk_dma, sk_alloc, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ref_dma))
-+               cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(pk_dma))
-+               cmh_dma_unmap_single(pk_dma, pk_sz, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(seed_dma))
-+               cmh_dma_unmap_single(seed_dma, seed_sz, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.pk), pk_buf, pk_sz)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               if (ds_ref) {
-+                       req.sk_ref = *ref_buf;
-+               } else {
-+                       if (copy_to_user(u64_to_user_ptr(req.sk),
-+                                        sk_buf + SYS_WRAP_HDR_SIZE,
-+                                        sk_sz)) {
-+                               ret = -EFAULT;
-+                               goto out_free;
-+                       }
-+               }
-+               if (copy_to_user(argp, &req, sizeof(req)))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(sk_buf);
-+       kfree(ref_buf);
-+       kfree(pk_buf);
-+       kfree_sensitive(seed_buf);
-+       return ret;
-+}
-+
-+/**
-+ * cmh_mgmt_slhdsa_sign() - Handle CMH_MGMT_IOC_SLHDSA_SIGN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_slhdsa_sign(void __user *argp)
-+{
-+       u32 hcq_cid = cmh_core_default_id(CMH_CORE_HCQ);
-+
-+       struct cmh_ioctl_slhdsa_sign req;
-+       struct vcq_cmd vcq[HCQ_VCQ_CMDS_MIN];
-+       u32 sig_sz, n_val;
-+       u8 *msg_buf, *ctx_buf = NULL, *sig_buf, *rnd_buf = NULL;
-+       dma_addr_t msg_dma = DMA_MAPPING_ERROR, ctx_dma = DMA_MAPPING_ERROR;
-+       dma_addr_t sig_dma, rnd_dma = DMA_MAPPING_ERROR;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.parameter_set < 1 || req.parameter_set > HCQ_SLHDSA_PARAM_MAX)
-+               return -EINVAL;
-+       if (req.msg_len > SLHDSA_MAX_MSG_LEN)
-+               return -EINVAL;
-+       if (req.ctx_len > SLHDSA_MAX_CTX_LEN)
-+               return -EINVAL;
-+
-+       sig_sz = slhdsa_get_sig_size(req.parameter_set);
-+       n_val = slhdsa_n[req.parameter_set - 1];
-+
-+       msg_buf = kmalloc(max_t(u32, req.msg_len, 1), GFP_KERNEL);
-+       sig_buf = kzalloc(sig_sz, GFP_KERNEL);
-+       if (!msg_buf || !sig_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (req.msg_len > 0 &&
-+           copy_from_user(msg_buf, u64_to_user_ptr(req.msg), req.msg_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       if (req.ctx_len > 0 && req.ctx) {
-+               ctx_buf = kmalloc(req.ctx_len, GFP_KERNEL);
-+               if (!ctx_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(ctx_buf, u64_to_user_ptr(req.ctx),
-+                                  req.ctx_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       if (req.add_random) {
-+               rnd_buf = kmalloc(n_val, GFP_KERNEL);
-+               if (!rnd_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(rnd_buf, u64_to_user_ptr(req.add_random),
-+                                  n_val)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       sig_dma = cmh_dma_map_single(sig_buf, sig_sz, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(sig_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+       if (req.msg_len > 0) {
-+               msg_dma = cmh_dma_map_single(msg_buf, req.msg_len,
-+                                            DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(msg_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       if (ctx_buf) {
-+               ctx_dma = cmh_dma_map_single(ctx_buf, req.ctx_len,
-+                                            DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(ctx_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       if (rnd_buf) {
-+               rnd_dma = cmh_dma_map_single(rnd_buf, n_val, DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(rnd_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       vcq_set_header(&vcq[0], HCQ_VCQ_CMDS_MIN);
-+       vcq_add_hcq_slhdsa_sign(&vcq[1], hcq_cid, req.parameter_set,
-+                               req.msg_len, req.ctx_len,
-+                               rnd_dma, msg_dma, ctx_dma,
-+                               req.sk, sig_dma);
-+       vcq_add_hcq_flush(&vcq[2], hcq_cid);
-+
-+       ret = cmh_tm_submit_sync_tmo(vcq, HCQ_VCQ_CMDS_MIN, 1, MGMT_MBX,
-+                                    cmh_tm_slow_op_timeout_jiffies());
-+
-+out_unmap:
-+       if (rnd_buf && !cmh_dma_map_error(rnd_dma))
-+               cmh_dma_unmap_single(rnd_dma, n_val, DMA_TO_DEVICE);
-+       if (ctx_buf && !cmh_dma_map_error(ctx_dma))
-+               cmh_dma_unmap_single(ctx_dma, req.ctx_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(sig_dma))
-+               cmh_dma_unmap_single(sig_dma, sig_sz, DMA_FROM_DEVICE);
-+       if (req.msg_len > 0 && !cmh_dma_map_error(msg_dma))
-+               cmh_dma_unmap_single(msg_dma, req.msg_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.sig), sig_buf, sig_sz))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(rnd_buf);
-+       kfree(ctx_buf);
-+       kfree(sig_buf);
-+       kfree(msg_buf);
-+       return ret;
-+}
-+
-+/* -- PQC -- SLH-DSA prehash -- */
-+
-+/**
-+ * cmh_mgmt_slhdsa_sign_prehash() - Handle CMH_MGMT_IOC_SLHDSA_SIGN_PREHASH ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_slhdsa_sign_prehash(void __user *argp)
-+{
-+       u32 hcq_cid = cmh_core_default_id(CMH_CORE_HCQ);
-+
-+       struct cmh_ioctl_slhdsa_sign_prehash req;
-+       struct vcq_cmd vcq[HCQ_VCQ_CMDS_MIN];
-+       u32 sig_sz, n_val, hcq_cmd;
-+       u8 *msg_buf, *ctx_buf = NULL, *sig_buf, *rnd_buf = NULL;
-+       dma_addr_t msg_dma = DMA_MAPPING_ERROR, ctx_dma = DMA_MAPPING_ERROR;
-+       dma_addr_t sig_dma, rnd_dma = DMA_MAPPING_ERROR;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.parameter_set < 1 || req.parameter_set > HCQ_SLHDSA_PARAM_MAX)
-+               return -EINVAL;
-+       if (req.prehash_algo < 1 || req.prehash_algo > HCQ_SLHDSA_PREHASH_SHAKE256)
-+               return -EINVAL;
-+       if (req.msg_len > SLHDSA_MAX_MSG_LEN)
-+               return -EINVAL;
-+       if (req.ctx_len > SLHDSA_MAX_CTX_LEN)
-+               return -EINVAL;
-+
-+       hcq_cmd = req.digest ? HCQ_CMD_SLHDSA_SIGN_PREHASH_DIGEST
-+                            : HCQ_CMD_SLHDSA_SIGN_PREHASH;
-+
-+       sig_sz = slhdsa_get_sig_size(req.parameter_set);
-+       n_val = slhdsa_n[req.parameter_set - 1];
-+
-+       msg_buf = kmalloc(max_t(u32, req.msg_len, 1), GFP_KERNEL);
-+       sig_buf = kzalloc(sig_sz, GFP_KERNEL);
-+       if (!msg_buf || !sig_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (req.msg_len > 0 &&
-+           copy_from_user(msg_buf, u64_to_user_ptr(req.msg), req.msg_len)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       if (req.ctx_len > 0 && req.ctx) {
-+               ctx_buf = kmalloc(req.ctx_len, GFP_KERNEL);
-+               if (!ctx_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(ctx_buf, u64_to_user_ptr(req.ctx),
-+                                  req.ctx_len)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       if (req.add_random) {
-+               rnd_buf = kmalloc(n_val, GFP_KERNEL);
-+               if (!rnd_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(rnd_buf, u64_to_user_ptr(req.add_random),
-+                                  n_val)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       sig_dma = cmh_dma_map_single(sig_buf, sig_sz, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(sig_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+       if (req.msg_len > 0) {
-+               msg_dma = cmh_dma_map_single(msg_buf, req.msg_len,
-+                                            DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(msg_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       if (ctx_buf) {
-+               ctx_dma = cmh_dma_map_single(ctx_buf, req.ctx_len,
-+                                            DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(ctx_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       if (rnd_buf) {
-+               rnd_dma = cmh_dma_map_single(rnd_buf, n_val, DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(rnd_dma)) {
-+                       ret = -ENOMEM;
-+                       goto out_unmap;
-+               }
-+       }
-+
-+       vcq_set_header(&vcq[0], HCQ_VCQ_CMDS_MIN);
-+       vcq_add_hcq_slhdsa_sign_prehash(&vcq[1], hcq_cid,
-+                                       hcq_cmd, req.parameter_set,
-+                                       req.prehash_algo,
-+                                       req.msg_len, req.ctx_len,
-+                                       rnd_dma, msg_dma, ctx_dma,
-+                                       req.sk, sig_dma);
-+       vcq_add_hcq_flush(&vcq[2], hcq_cid);
-+
-+       ret = cmh_tm_submit_sync_tmo(vcq, HCQ_VCQ_CMDS_MIN, 1, MGMT_MBX,
-+                                    cmh_tm_slow_op_timeout_jiffies());
-+
-+out_unmap:
-+       if (rnd_buf && !cmh_dma_map_error(rnd_dma))
-+               cmh_dma_unmap_single(rnd_dma, n_val, DMA_TO_DEVICE);
-+       if (ctx_buf && !cmh_dma_map_error(ctx_dma))
-+               cmh_dma_unmap_single(ctx_dma, req.ctx_len, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(sig_dma))
-+               cmh_dma_unmap_single(sig_dma, sig_sz, DMA_FROM_DEVICE);
-+       if (req.msg_len > 0 && !cmh_dma_map_error(msg_dma))
-+               cmh_dma_unmap_single(msg_dma, req.msg_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.sig), sig_buf, sig_sz))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(rnd_buf);
-+       kfree(ctx_buf);
-+       kfree(sig_buf);
-+       kfree(msg_buf);
-+       return ret;
-+}
-+
-+/* -- EAC (Error and Alarm Controller) ---- */
-+
-diff --git a/drivers/crypto/cmh/cmh_pke_sm2.c b/drivers/crypto/cmh/cmh_pke_sm2.c
-new file mode 100644
-index 000000000000..9a6e30c7f5e5
---- /dev/null
-+++ b/drivers/crypto/cmh/cmh_pke_sm2.c
-@@ -0,0 +1,827 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- SM2 PKE Ioctl Handlers
-+ *
-+ * SM2 (GM/T 0003) is the Chinese national public-key standard over the
-+ * sm2p256v1 curve (256-bit).  It defines three protocols:
-+ *
-+ *   - Signature: reuses ECDSA sign/verify with SM2_CURVE (0x18), handled
-+ *     by the existing cmh_mgmt_pke_ecdsa_{sign,verify}() paths.
-+ *   - Encryption: two-step (ENC_POINT + ENC_HASH / DEC_POINT + DEC_HASH).
-+ *   - Key Exchange: four-step (ECDH_KEYGEN + ID_DIGEST + ECDH + ECDH_HASH).
-+ *
-+ * This file implements the 8 SM2-specific ioctl handlers (0x16--0x1D).
-+ * Sign/verify/keygen/pubgen use the existing ECDSA/EC paths unchanged.
-+ *
-+ * VCQ flag convention (from eSW API):
-+ *   - Most SM2 commands use flags=0 (no swap).
-+ *   - SM2_DEC_POINT and SM2_ECDH_HASH use PKE_SWAP_FLAGS on the
-+ *     PKE command itself.
-+ *   - SM2_ECDH and SM2_ECDH_HASH also apply PKE_SWAP_FLAGS on
-+ *     their sys_new/sys_data VCQ phases (Weierstrass DS format).
-+ */
-+
-+#include <linux/uaccess.h>
-+#include <linux/slab.h>
-+
-+#include "cmh_pke.h"
-+#include "cmh_pke_sm2.h"
-+#include "cmh_sys.h"
-+#include "cmh_dma.h"
-+#include "cmh_txn.h"
-+#include "cmh_mgmt.h"
-+#include "cmh_sys_abi.h"
-+#include <uapi/linux/cmh_mgmt_ioctl.h>
-+
-+/* SM2 fixed sizes (sm2p256v1: 256-bit curve) */
-+#define SM2_CLEN               32U     /* coordinate length */
-+#define SM2_POINT_LEN          64U     /* uncompressed EC point (x||y) */
-+#define SM2_SHARED_KEY_LEN     16U     /* ECDH shared key output */
-+#define SM2_DIGEST_LEN         32U     /* SM3 ZA digest */
-+#define SM2_NONCE_LEN          32U     /* nonce (when caller-provided) */
-+/*
-+ * SM2 enc_hash/dec_hash payload limit.
-+ *
-+ * The eSW PKE driver expands the GM/T 0003.4 KDF by issuing a single SM3
-+ * invocation per command (one 32-byte block of key stream).  Messages
-+ * longer than 32 bytes would require ceil(msg_len / 32) SM3 invocations
-+ * with an incremented counter, which the eSW does not perform; longer
-+ * inputs would silently produce incorrect ciphertext / plaintext.
-+ *
-+ * The eSW PKE SRAM can physically hold up to 4000 bytes of payload, but
-+ * that capacity is unusable until a future eSW change implements the full
-+ * KDF expansion.  Until then we cap the LKM at the 32-byte limit
-+ * documented in Documentation/ABI/testing/cmh-mgmt.
-+ */
-+#define SM2_MAX_MSG_LEN                32U     /* max plaintext for encrypt/decrypt */
-+#define SM2_MAX_ID_LEN         32U     /* max identity string */
-+#define SM2_CT_OVERHEAD                96U     /* C1(64) + C3(32) */
-+#define SM2_MAX_CT_LEN         (SM2_CT_OVERHEAD + SM2_MAX_MSG_LEN) /* 128 */
-+
-+/* -- SM2_ECDH_KEYGEN ------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_ecdh_keygen() - Handle CMH_MGMT_IOC_SM2_ECDH_KEYGEN ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_ecdh_keygen(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_ecdh_keygen req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 core_id = cmh_core_default_id(CMH_CORE_PKE);
-+       u8 *nonce_buf, *sk_buf;
-+       dma_addr_t nonce_dma, sk_dma;
-+       int nonce_dir;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.nonce_len != 0 && req.nonce_len != SM2_NONCE_LEN)
-+               return -EINVAL;
-+
-+       sk_buf = kzalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       nonce_buf = kzalloc(SM2_NONCE_LEN, GFP_KERNEL);
-+       if (!sk_buf || !nonce_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       /*
-+        * nonce_len=32: caller provides ephemeral scalar r (DMA_TO_DEVICE).
-+        * nonce_len=0:  HW generates r and writes it back (DMA_FROM_DEVICE).
-+        * The caller MUST supply a valid nonce pointer in both cases.
-+        */
-+       if (req.nonce_len) {
-+               if (copy_from_user(nonce_buf, u64_to_user_ptr(req.nonce),
-+                                  SM2_NONCE_LEN)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               nonce_dir = DMA_TO_DEVICE;
-+       } else {
-+               nonce_dir = DMA_FROM_DEVICE;
-+       }
-+
-+       sk_dma = cmh_dma_map_single(sk_buf, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       nonce_dma = cmh_dma_map_single(nonce_buf, SM2_NONCE_LEN, nonce_dir);
-+       if (cmh_dma_map_error(sk_dma) || cmh_dma_map_error(nonce_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_sm2_ecdh_keygen(&vcq[1], core_id, nonce_dma, sk_dma,
-+                                   req.nonce_len, 0);
-+       vcq_add_pke_flush(&vcq[2], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(nonce_dma))
-+               cmh_dma_unmap_single(nonce_dma, SM2_NONCE_LEN, nonce_dir);
-+       if (!cmh_dma_map_error(sk_dma))
-+               cmh_dma_unmap_single(sk_dma, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.session_key),
-+                                sk_buf, SM2_POINT_LEN))
-+                       ret = -EFAULT;
-+               /* Write back HW-generated nonce when nonce_len=0 */
-+               if (!ret && !req.nonce_len) {
-+                       if (copy_to_user(u64_to_user_ptr(req.nonce),
-+                                        nonce_buf, SM2_NONCE_LEN))
-+                               ret = -EFAULT;
-+               }
-+       }
-+
-+out_free:
-+       kfree_sensitive(nonce_buf);
-+       kfree_sensitive(sk_buf);
-+       return ret;
-+}
-+
-+/* -- SM2_ECDH -------------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_ecdh() - Handle CMH_MGMT_IOC_SM2_ECDH ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_ecdh(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_ecdh req;
-+       /* Phase 1: hdr + sys_new + sm2_ecdh + pke_flush */
-+       struct vcq_cmd vcq[4];
-+       u32 sp_type, core_id;
-+       u8 *nonce_buf, *peer_pk_buf, *peer_sk_buf, *sp_buf;
-+       u64 *ref_buf;
-+       dma_addr_t nonce_dma, peer_pk_dma, peer_sk_dma, sp_dma, ref_dma;
-+       int nonce_dir, ret, idx;
-+       bool keep_ds;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.nonce_len != 0 && req.nonce_len != SM2_NONCE_LEN)
-+               return -EINVAL;
-+
-+       keep_ds = (req.shared_point_ref != 0);
-+       sp_type = SYS_TYPE_SET(SYS_TYPE_FLAG_PT, CORE_ID_PKE);
-+       core_id = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       peer_pk_buf = kmalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       peer_sk_buf = kmalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       sp_buf = kzalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+       nonce_buf = kzalloc(SM2_NONCE_LEN, GFP_KERNEL);
-+       if (!peer_pk_buf || !peer_sk_buf || !sp_buf || !ref_buf ||
-+           !nonce_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(peer_pk_buf, u64_to_user_ptr(req.peer_public_key),
-+                          SM2_POINT_LEN) ||
-+           copy_from_user(peer_sk_buf, u64_to_user_ptr(req.peer_session_key),
-+                          SM2_POINT_LEN)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       if (req.nonce_len) {
-+               if (copy_from_user(nonce_buf, u64_to_user_ptr(req.nonce),
-+                                  SM2_NONCE_LEN)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+               nonce_dir = DMA_TO_DEVICE;
-+       } else {
-+               nonce_dir = DMA_FROM_DEVICE;
-+       }
-+
-+       peer_pk_dma = cmh_dma_map_single(peer_pk_buf, SM2_POINT_LEN,
-+                                        DMA_TO_DEVICE);
-+       peer_sk_dma = cmh_dma_map_single(peer_sk_buf, SM2_POINT_LEN,
-+                                        DMA_TO_DEVICE);
-+       sp_dma = cmh_dma_map_single(sp_buf, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64), DMA_FROM_DEVICE);
-+       nonce_dma = cmh_dma_map_single(nonce_buf, SM2_NONCE_LEN, nonce_dir);
-+
-+       if (cmh_dma_map_error(peer_pk_dma) || cmh_dma_map_error(peer_sk_dma) ||
-+           cmh_dma_map_error(sp_dma) || cmh_dma_map_error(ref_dma) ||
-+           cmh_dma_map_error(nonce_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       /* Phase 1: sys_new(shared_point_ref) + SM2_ECDH(->SYS_REF_LAST) */
-+       idx = 0;
-+       vcq_set_header(&vcq[idx++], 4);
-+       vcq_add_sys_new(&vcq[idx], 0, ref_dma, SM2_POINT_LEN);
-+       vcq[idx++].id |= PKE_SWAP_FLAGS;
-+       vcq_add_pke_sm2_ecdh(&vcq[idx++], core_id, req.nonce_len, SM2_CLEN,
-+                            nonce_dma, peer_pk_dma, peer_sk_dma,
-+                            req.key_ref, SYS_REF_LAST, sp_type, 0);
-+       vcq_add_pke_flush(&vcq[idx++], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, 4, 1, MGMT_MBX);
-+       if (ret)
-+               goto out_unmap;
-+
-+       if (!keep_ds) {
-+               /* Sync bounce buffer so CPU sees the DMA-written ref */
-+               cmh_dma_sync_for_cpu(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+
-+               /* Phase 2: read shared point from DS -> DMA, consuming the slot */
-+               vcq_set_header(&vcq[0], 3);
-+               vcq_add_sys_data(&vcq[1], *ref_buf, sp_dma, SM2_POINT_LEN);
-+               vcq[1].id |= PKE_SWAP_FLAGS;
-+               vcq_add_sys_flush(&vcq[2]);
-+
-+               ret = cmh_tm_submit_sync_mbx(vcq, 3, 1, MGMT_MBX);
-+       }
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(nonce_dma))
-+               cmh_dma_unmap_single(nonce_dma, SM2_NONCE_LEN, nonce_dir);
-+       if (!cmh_dma_map_error(ref_dma))
-+               cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(sp_dma))
-+               cmh_dma_unmap_single(sp_dma, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(peer_sk_dma))
-+               cmh_dma_unmap_single(peer_sk_dma, SM2_POINT_LEN,
-+                                    DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(peer_pk_dma))
-+               cmh_dma_unmap_single(peer_pk_dma, SM2_POINT_LEN,
-+                                    DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (!keep_ds) {
-+                       if (copy_to_user(u64_to_user_ptr(req.shared_point),
-+                                        sp_buf, SM2_POINT_LEN))
-+                               ret = -EFAULT;
-+               } else {
-+                       /* Return DS ref for ECDH_HASH to consume */
-+                       u64 __user *sp_refp = (__u64 __user *)
-+                               u64_to_user_ptr(req.shared_point_ref);
-+
-+                       if (put_user(*ref_buf, sp_refp)) {
-+                               /*
-+                                * Failed to deliver the DS ref to
-+                                * userspace.  Logically delete the
-+                                * orphaned slot so it does not leak.
-+                                */
-+                               vcq_set_header(&vcq[0], 3);
-+                               vcq_add_sys_grant(&vcq[1], *ref_buf,
-+                                                 0, 0, 0);
-+                               vcq_add_sys_flush(&vcq[2]);
-+                               cmh_tm_submit_sync_mbx(vcq, 3, 1,
-+                                                      MGMT_MBX);
-+                               dev_warn(cmh_dev(), "SM2 ECDH put_user failed, DS slot cleaned up\n");
-+                               ret = -EFAULT;
-+                       }
-+               }
-+               /* Write back HW-generated nonce when nonce_len=0 */
-+               if (!ret && !req.nonce_len) {
-+                       if (copy_to_user(u64_to_user_ptr(req.nonce),
-+                                        nonce_buf, SM2_NONCE_LEN))
-+                               ret = -EFAULT;
-+               }
-+       }
-+
-+out_free:
-+       kfree_sensitive(nonce_buf);
-+       kfree(ref_buf);
-+       kfree_sensitive(sp_buf);
-+       kfree(peer_sk_buf);
-+       kfree(peer_pk_buf);
-+       return ret;
-+}
-+
-+/* -- SM2_DEC_POINT --------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_dec_point() - Handle CMH_MGMT_IOC_SM2_DEC_POINT ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_dec_point(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_dec_point req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 core_id = cmh_core_default_id(CMH_CORE_PKE);
-+       u8 *ct_buf, *dp_buf;
-+       dma_addr_t ct_dma, dp_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.ciphertext_len <= SM2_CT_OVERHEAD ||
-+           req.ciphertext_len > SM2_MAX_CT_LEN)
-+               return -EINVAL;
-+
-+       /* Only need C1 (first 64 bytes) for the sidecar */
-+       ct_buf = kmalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       dp_buf = kzalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       if (!ct_buf || !dp_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(ct_buf, u64_to_user_ptr(req.ciphertext),
-+                          SM2_POINT_LEN)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       ct_dma = cmh_dma_map_single(ct_buf, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       dp_dma = cmh_dma_map_single(dp_buf, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ct_dma) || cmh_dma_map_error(dp_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_sm2_dec_point(&vcq[1], core_id, req.ciphertext_len, SM2_CLEN,
-+                                 ct_dma, dp_dma, req.key_ref,
-+                                 PKE_SWAP_FLAGS);
-+       vcq_add_pke_flush(&vcq[2], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(dp_dma))
-+               cmh_dma_unmap_single(dp_dma, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ct_dma))
-+               cmh_dma_unmap_single(ct_dma, SM2_POINT_LEN, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.dec_point),
-+                                dp_buf, SM2_POINT_LEN))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(dp_buf);
-+       kfree(ct_buf);
-+       return ret;
-+}
-+
-+/* -- SM2_ENC_POINT --------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_enc_point() - Handle CMH_MGMT_IOC_SM2_ENC_POINT ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_enc_point(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_enc_point req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 core_id = cmh_core_default_id(CMH_CORE_PKE);
-+       u8 *nonce_buf = NULL, *pk_buf, *ct_buf, *ep_buf;
-+       dma_addr_t nonce_dma = DMA_MAPPING_ERROR, pk_dma, ct_dma, ep_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.nonce_len != 0 && req.nonce_len != SM2_NONCE_LEN)
-+               return -EINVAL;
-+
-+       pk_buf = kmalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       ct_buf = kzalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       ep_buf = kzalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       if (!pk_buf || !ct_buf || !ep_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(pk_buf, u64_to_user_ptr(req.public_key),
-+                          SM2_POINT_LEN)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       if (req.nonce_len) {
-+               nonce_buf = kmalloc(SM2_NONCE_LEN, GFP_KERNEL);
-+               if (!nonce_buf) {
-+                       ret = -ENOMEM;
-+                       goto out_free;
-+               }
-+               if (copy_from_user(nonce_buf, u64_to_user_ptr(req.nonce),
-+                                  SM2_NONCE_LEN)) {
-+                       ret = -EFAULT;
-+                       goto out_free;
-+               }
-+       }
-+
-+       pk_dma = cmh_dma_map_single(pk_buf, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       ct_dma = cmh_dma_map_single(ct_buf, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       ep_dma = cmh_dma_map_single(ep_buf, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       if (nonce_buf)
-+               nonce_dma = cmh_dma_map_single(nonce_buf, SM2_NONCE_LEN,
-+                                              DMA_TO_DEVICE);
-+       if (cmh_dma_map_error(pk_dma) || cmh_dma_map_error(ct_dma) ||
-+           cmh_dma_map_error(ep_dma) ||
-+           (nonce_buf && cmh_dma_map_error(nonce_dma))) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_sm2_enc_point(&vcq[1], core_id, nonce_dma, pk_dma, ct_dma,
-+                                 ep_dma, req.nonce_len, 0);
-+       vcq_add_pke_flush(&vcq[2], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (nonce_buf && !cmh_dma_map_error(nonce_dma))
-+               cmh_dma_unmap_single(nonce_dma, SM2_NONCE_LEN, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(ep_dma))
-+               cmh_dma_unmap_single(ep_dma, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ct_dma))
-+               cmh_dma_unmap_single(ct_dma, SM2_POINT_LEN, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(pk_dma))
-+               cmh_dma_unmap_single(pk_dma, SM2_POINT_LEN, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.ciphertext),
-+                                ct_buf, SM2_POINT_LEN) ||
-+                   copy_to_user(u64_to_user_ptr(req.enc_point),
-+                                ep_buf, SM2_POINT_LEN))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(nonce_buf);
-+       kfree(ep_buf);
-+       kfree(ct_buf);
-+       kfree(pk_buf);
-+       return ret;
-+}
-+
-+/* -- SM2_ID_DIGEST --------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_id_digest() - Handle CMH_MGMT_IOC_SM2_ID_DIGEST ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_id_digest(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_id_digest req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 core_id = cmh_core_default_id(CMH_CORE_PKE);
-+       u8 *id_buf, *pk_buf, *dig_buf;
-+       dma_addr_t id_dma, pk_dma, dig_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.id_len || req.id_len > SM2_MAX_ID_LEN)
-+               return -EINVAL;
-+
-+       id_buf = kmalloc(req.id_len, GFP_KERNEL);
-+       pk_buf = kmalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       dig_buf = kzalloc(SM2_DIGEST_LEN, GFP_KERNEL);
-+       if (!id_buf || !pk_buf || !dig_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(id_buf, u64_to_user_ptr(req.id), req.id_len) ||
-+           copy_from_user(pk_buf, u64_to_user_ptr(req.public_key),
-+                          SM2_POINT_LEN)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       id_dma = cmh_dma_map_single(id_buf, req.id_len, DMA_TO_DEVICE);
-+       pk_dma = cmh_dma_map_single(pk_buf, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       dig_dma = cmh_dma_map_single(dig_buf, SM2_DIGEST_LEN,
-+                                    DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(id_dma) || cmh_dma_map_error(pk_dma) ||
-+           cmh_dma_map_error(dig_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_sm2_id_digest(&vcq[1], core_id, id_dma, pk_dma, dig_dma,
-+                                 req.id_len, 0);
-+       vcq_add_pke_flush(&vcq[2], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(dig_dma))
-+               cmh_dma_unmap_single(dig_dma, SM2_DIGEST_LEN,
-+                                    DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(pk_dma))
-+               cmh_dma_unmap_single(pk_dma, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(id_dma))
-+               cmh_dma_unmap_single(id_dma, req.id_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.digest),
-+                                dig_buf, SM2_DIGEST_LEN))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(dig_buf);
-+       kfree(pk_buf);
-+       kfree(id_buf);
-+       return ret;
-+}
-+
-+/* -- SM2_ECDH_HASH --------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_ecdh_hash() - Handle CMH_MGMT_IOC_SM2_ECDH_HASH ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_ecdh_hash(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_ecdh_hash req;
-+       /* Phase 1: hdr + sys_new + sm2_ecdh_hash + pke_flush; reused for Phase 2 */
-+       struct vcq_cmd vcq[4];
-+       u32 sk_type, core_id;
-+       u8 *peer_dig_buf, *dig_buf, *sk_buf;
-+       u64 *ref_buf;
-+       dma_addr_t peer_dig_dma, dig_dma, sk_dma, ref_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.__reserved)
-+               return -EINVAL;
-+
-+       sk_type = SYS_TYPE_SET(SYS_TYPE_FLAG_PT, CORE_ID_PKE);
-+       core_id = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       peer_dig_buf = kmalloc(SM2_DIGEST_LEN, GFP_KERNEL);
-+       dig_buf = kmalloc(SM2_DIGEST_LEN, GFP_KERNEL);
-+       sk_buf = kzalloc(SM2_SHARED_KEY_LEN, GFP_KERNEL);
-+       ref_buf = kzalloc_obj(u64, GFP_KERNEL);
-+       if (!peer_dig_buf || !dig_buf || !sk_buf || !ref_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(peer_dig_buf, u64_to_user_ptr(req.peer_id_digest),
-+                          SM2_DIGEST_LEN) ||
-+           copy_from_user(dig_buf, u64_to_user_ptr(req.id_digest),
-+                          SM2_DIGEST_LEN)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       peer_dig_dma = cmh_dma_map_single(peer_dig_buf, SM2_DIGEST_LEN,
-+                                         DMA_TO_DEVICE);
-+       dig_dma = cmh_dma_map_single(dig_buf, SM2_DIGEST_LEN, DMA_TO_DEVICE);
-+       sk_dma = cmh_dma_map_single(sk_buf, SM2_SHARED_KEY_LEN,
-+                                   DMA_FROM_DEVICE);
-+       ref_dma = cmh_dma_map_single(ref_buf, sizeof(u64), DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(peer_dig_dma) || cmh_dma_map_error(dig_dma) ||
-+           cmh_dma_map_error(sk_dma) || cmh_dma_map_error(ref_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       /*
-+        * Phase 1: sys_new(shared_key_ref) + SM2_ECDH_HASH
-+        * The shared_point_ref from the ECDH step is passed directly
-+        * as a DS reference -- the eSW hub reads it from DS.
-+        */
-+       vcq_set_header(&vcq[0], 4);
-+       vcq_add_sys_new(&vcq[1], 0, ref_dma, SM2_SHARED_KEY_LEN);
-+       vcq[1].id |= PKE_SWAP_FLAGS;
-+       vcq_add_pke_sm2_ecdh_hash(&vcq[2], core_id, peer_dig_dma, dig_dma,
-+                                 req.shared_point_ref, SYS_REF_LAST,
-+                                 sk_type, PKE_SWAP_FLAGS);
-+       vcq_add_pke_flush(&vcq[3], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, 4, 1, MGMT_MBX);
-+       if (ret)
-+               goto out_unmap;
-+
-+       /* Sync bounce buffer so CPU sees the DMA-written ref */
-+       cmh_dma_sync_for_cpu(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+
-+       /* Phase 2: read shared key from DS -> DMA */
-+       vcq_set_header(&vcq[0], 3);
-+       vcq_add_sys_data(&vcq[1], *ref_buf, sk_dma, SM2_SHARED_KEY_LEN);
-+       vcq_add_sys_flush(&vcq[2]);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, 3, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(ref_dma))
-+               cmh_dma_unmap_single(ref_dma, sizeof(u64), DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(sk_dma))
-+               cmh_dma_unmap_single(sk_dma, SM2_SHARED_KEY_LEN,
-+                                    DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(dig_dma))
-+               cmh_dma_unmap_single(dig_dma, SM2_DIGEST_LEN, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(peer_dig_dma))
-+               cmh_dma_unmap_single(peer_dig_dma, SM2_DIGEST_LEN,
-+                                    DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.shared_key),
-+                                sk_buf, SM2_SHARED_KEY_LEN))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(ref_buf);
-+       kfree_sensitive(sk_buf);
-+       kfree(dig_buf);
-+       kfree(peer_dig_buf);
-+       return ret;
-+}
-+
-+/* -- SM2_DEC_HASH ---------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_dec_hash() - Handle CMH_MGMT_IOC_SM2_DEC_HASH ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_dec_hash(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_dec_hash req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 msg_len, core_id;
-+       u8 *ct_buf, *dp_buf, *pt_buf;
-+       dma_addr_t ct_dma, dp_dma, pt_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (req.ciphertext_len <= SM2_CT_OVERHEAD ||
-+           req.ciphertext_len > SM2_MAX_CT_LEN)
-+               return -EINVAL;
-+
-+       msg_len = req.ciphertext_len - SM2_CT_OVERHEAD;
-+       core_id = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       ct_buf = kmalloc(req.ciphertext_len, GFP_KERNEL);
-+       dp_buf = kmalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       pt_buf = kzalloc(msg_len, GFP_KERNEL);
-+       if (!ct_buf || !dp_buf || !pt_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(ct_buf, u64_to_user_ptr(req.ciphertext),
-+                          req.ciphertext_len) ||
-+           copy_from_user(dp_buf, u64_to_user_ptr(req.dec_point),
-+                          SM2_POINT_LEN)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       ct_dma = cmh_dma_map_single(ct_buf, req.ciphertext_len,
-+                                   DMA_TO_DEVICE);
-+       dp_dma = cmh_dma_map_single(dp_buf, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       pt_dma = cmh_dma_map_single(pt_buf, msg_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(ct_dma) || cmh_dma_map_error(dp_dma) ||
-+           cmh_dma_map_error(pt_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_sm2_dec_hash(&vcq[1], core_id, ct_dma, dp_dma, pt_dma,
-+                                req.ciphertext_len, 0);
-+       vcq_add_pke_flush(&vcq[2], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(pt_dma))
-+               cmh_dma_unmap_single(pt_dma, msg_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(dp_dma))
-+               cmh_dma_unmap_single(dp_dma, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(ct_dma))
-+               cmh_dma_unmap_single(ct_dma, req.ciphertext_len,
-+                                    DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.plaintext),
-+                                pt_buf, msg_len))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree_sensitive(pt_buf);
-+       kfree_sensitive(dp_buf);
-+       kfree(ct_buf);
-+       return ret;
-+}
-+
-+/* -- SM2_ENC_HASH ---------------------- */
-+
-+/**
-+ * cmh_mgmt_sm2_enc_hash() - Handle CMH_MGMT_IOC_SM2_ENC_HASH ioctl
-+ * @argp: User-space ioctl argument pointer
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_mgmt_sm2_enc_hash(void __user *argp)
-+{
-+       struct cmh_ioctl_sm2_enc_hash req;
-+       struct vcq_cmd vcq[PKE_VCQ_CMDS_MIN];
-+       u32 ct_len, core_id;
-+       u8 *msg_buf, *ep_buf, *ct_buf;
-+       dma_addr_t msg_dma, ep_dma, ct_dma;
-+       int ret;
-+
-+       if (copy_from_user(&req, argp, sizeof(req)))
-+               return -EFAULT;
-+       if (req.version != CMH_MGMT_V1)
-+               return -EINVAL;
-+       if (!req.message_len || req.message_len > SM2_MAX_MSG_LEN)
-+               return -EINVAL;
-+
-+       ct_len = SM2_CT_OVERHEAD + req.message_len;
-+       core_id = cmh_core_default_id(CMH_CORE_PKE);
-+
-+       msg_buf = kmalloc(req.message_len, GFP_KERNEL);
-+       ep_buf = kmalloc(SM2_POINT_LEN, GFP_KERNEL);
-+       ct_buf = kzalloc(ct_len, GFP_KERNEL);
-+       if (!msg_buf || !ep_buf || !ct_buf) {
-+               ret = -ENOMEM;
-+               goto out_free;
-+       }
-+
-+       if (copy_from_user(msg_buf, u64_to_user_ptr(req.message),
-+                          req.message_len) ||
-+           copy_from_user(ep_buf, u64_to_user_ptr(req.enc_point),
-+                          SM2_POINT_LEN)) {
-+               ret = -EFAULT;
-+               goto out_free;
-+       }
-+
-+       msg_dma = cmh_dma_map_single(msg_buf, req.message_len, DMA_TO_DEVICE);
-+       ep_dma = cmh_dma_map_single(ep_buf, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       ct_dma = cmh_dma_map_single(ct_buf, ct_len, DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(msg_dma) || cmh_dma_map_error(ep_dma) ||
-+           cmh_dma_map_error(ct_dma)) {
-+               ret = -ENOMEM;
-+               goto out_unmap;
-+       }
-+
-+       vcq_set_header(&vcq[0], PKE_VCQ_CMDS_MIN);
-+       vcq_add_pke_sm2_enc_hash(&vcq[1], core_id, msg_dma, ep_dma, ct_dma,
-+                                req.message_len, 0);
-+       vcq_add_pke_flush(&vcq[2], core_id);
-+
-+       ret = cmh_tm_submit_sync_mbx(vcq, PKE_VCQ_CMDS_MIN, 1, MGMT_MBX);
-+
-+out_unmap:
-+       if (!cmh_dma_map_error(ct_dma))
-+               cmh_dma_unmap_single(ct_dma, ct_len, DMA_FROM_DEVICE);
-+       if (!cmh_dma_map_error(ep_dma))
-+               cmh_dma_unmap_single(ep_dma, SM2_POINT_LEN, DMA_TO_DEVICE);
-+       if (!cmh_dma_map_error(msg_dma))
-+               cmh_dma_unmap_single(msg_dma, req.message_len, DMA_TO_DEVICE);
-+
-+       if (!ret) {
-+               if (copy_to_user(u64_to_user_ptr(req.ciphertext),
-+                                ct_buf, ct_len))
-+                       ret = -EFAULT;
-+       }
-+
-+out_free:
-+       kfree(ct_buf);
-+       kfree(ep_buf);
-+       kfree_sensitive(msg_buf);
-+       return ret;
-+}
-diff --git a/drivers/crypto/cmh/cmh_sys.c b/drivers/crypto/cmh/cmh_sys.c
-new file mode 100644
-index 000000000000..b01d058e6d89
---- /dev/null
-+++ b/drivers/crypto/cmh/cmh_sys.c
-@@ -0,0 +1,376 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- SYS Core VCQ Builders
-+ *
-+ * VCQ builder functions for SYS core datastore commands.  Each function
-+ * populates a single vcq_cmd slot.  Callers (cmh_mgmt.c, cmh_key.c)
-+ * assemble complete VCQs by combining header + command(s) + flush,
-+ * then submit via cmh_tm_submit_sync().
-+ *
-+ * Hardware-required datastore semantics
-+ * --------------------------------------
-+ * The commands below (NEW, WRITE, DATA, FIND, DELETE, FLUSH) are
-+ * direct mappings of the eSW firmware SYS core command set.  The
-+ * eSW maintains per-mailbox datastore namespaces with two object
-+ * classes:
-+ *
-+ *   SYS_REF_TEMP   -- Temporary objects.  Lifetime is scoped to the
-+ *                      current mailbox slot; reclaimed automatically
-+ *                      when the slot is reused or on explicit FLUSH.
-+ *                      Used for raw-key provisioning on every VCQ.
-+ *
-+ *   SYS_REF_PERSIST -- Persistent objects.  Survive across slots;
-+ *                      require explicit DELETE to reclaim.  Identified
-+ *                      by a 64-bit Content ID (CID) and resolved to
-+ *                      a per-MBX ref via SYS_CMD_FIND.
-+ *
-+ * These semantics are hardware requirements, not driver policy.
-+ * The per-MBX temp-stack and per-MBX ref namespace are eSW firmware
-+ * design constraints that cannot be changed by the kernel driver.
-+ */
-+
-+#include <linux/string.h>
-+
-+#include "cmh_sys.h"
-+
-+/**
-+ * vcq_add_sys_flush() - Build a SYS_FLUSH VCQ command
-+ * @slot: VCQ command slot to populate
-+ */
-+void vcq_add_sys_flush(struct vcq_cmd *slot)
-+{
-+       vcq_add_flush(slot, CORE_ID_SYS);
-+}
-+
-+/**
-+ * vcq_add_sys_new() - Build a SYS_NEW VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @cid: Content identifier for the new datastore object
-+ * @ref_dma: DMA address of the object reference buffer
-+ * @len: Length of the object data in bytes
-+ */
-+void vcq_add_sys_new(struct vcq_cmd *slot, u64 cid, u64 ref_dma, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_NEW);
-+       slot->hwc.sys.cmd_new.cid = cid;
-+       slot->hwc.sys.cmd_new.ref = ref_dma;
-+       slot->hwc.sys.cmd_new.len = len;
-+}
-+
-+/**
-+ * vcq_add_sys_write() - Build a SYS_WRITE VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @ref: Datastore object reference handle
-+ * @src_dma: DMA address of source data buffer
-+ * @wrap_key: Wrapping key reference (0 if none)
-+ * @len: Length of data to write in bytes
-+ * @sys_type: Datastore object type identifier
-+ */
-+void vcq_add_sys_write(struct vcq_cmd *slot, u64 ref, u64 src_dma,
-+                      u64 wrap_key, u32 len, u32 sys_type)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_WRITE);
-+       slot->hwc.sys.cmd_write.ref = ref;
-+       slot->hwc.sys.cmd_write.src = src_dma;
-+       slot->hwc.sys.cmd_write.key = wrap_key;
-+       slot->hwc.sys.cmd_write.len = len;
-+       slot->hwc.sys.cmd_write.type = sys_type;
-+}
-+
-+/**
-+ * vcq_add_sys_read() - Build a SYS_READ VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @ref: Datastore object reference handle
-+ * @dst_dma: DMA address of destination buffer
-+ * @wrap_key: Wrapping key reference (0 if none)
-+ * @len: Length of data to read in bytes
-+ */
-+void vcq_add_sys_read(struct vcq_cmd *slot, u64 ref, u64 dst_dma,
-+                     u64 wrap_key, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_READ);
-+       slot->hwc.sys.cmd_read.ref = ref;
-+       slot->hwc.sys.cmd_read.dst = dst_dma;
-+       slot->hwc.sys.cmd_read.key = wrap_key;
-+       slot->hwc.sys.cmd_read.len = len;
-+}
-+
-+/**
-+ * vcq_add_sys_data() - Build a SYS_DATA VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @ref: Datastore object reference handle
-+ * @dst_dma: DMA address of destination buffer
-+ * @len: Length of data section to read in bytes
-+ */
-+void vcq_add_sys_data(struct vcq_cmd *slot, u64 ref, u64 dst_dma, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_DATA);
-+       slot->hwc.sys.cmd_data.ref = ref;
-+       slot->hwc.sys.cmd_data.dst = dst_dma;
-+       slot->hwc.sys.cmd_data.len = len;
-+}
-+
-+/**
-+ * vcq_add_sys_find() - Build a SYS_FIND VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @cid: Content identifier to search for
-+ * @dst_dma: DMA address of destination buffer for result
-+ * @len: Length of destination buffer in bytes
-+ */
-+void vcq_add_sys_find(struct vcq_cmd *slot, u64 cid, u64 dst_dma, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_FIND);
-+       slot->hwc.sys.cmd_find.cid = cid;
-+       slot->hwc.sys.cmd_find.dst = dst_dma;
-+       slot->hwc.sys.cmd_find.len = len;
-+}
-+
-+/**
-+ * vcq_add_sys_list() - Build a SYS_LIST VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @ref: Datastore object reference for enumeration start
-+ * @dst_dma: DMA address of destination buffer for list
-+ * @len: Length of destination buffer in bytes
-+ */
-+void vcq_add_sys_list(struct vcq_cmd *slot, u64 ref, u64 dst_dma, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_LIST);
-+       slot->hwc.sys.cmd_list.ref = ref;
-+       slot->hwc.sys.cmd_list.dst = dst_dma;
-+       slot->hwc.sys.cmd_list.len = len;
-+}
-+
-+/**
-+ * vcq_add_sys_grant() - Build a SYS_GRANT VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @ref: Datastore object reference handle
-+ * @read: Read permission bitmask
-+ * @write: Write permission bitmask
-+ * @execute: Execute permission bitmask
-+ */
-+void vcq_add_sys_grant(struct vcq_cmd *slot, u64 ref, u64 read,
-+                      u64 write, u64 execute)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_GRANT);
-+       slot->hwc.sys.cmd_grant.ref = ref;
-+       slot->hwc.sys.cmd_grant.read = read;
-+       slot->hwc.sys.cmd_grant.write = write;
-+       slot->hwc.sys.cmd_grant.execute = execute;
-+}
-+
-+/**
-+ * vcq_add_sys_export() - Build a SYS_EXPORT VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @cid: Content identifier of object to export
-+ * @dst_dma: DMA address of destination buffer for wrapped blob
-+ * @wrap_key: Wrapping key reference for export
-+ * @len: Length of destination buffer in bytes
-+ */
-+void vcq_add_sys_export(struct vcq_cmd *slot, u64 cid, u64 dst_dma,
-+                       u64 wrap_key, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_EXPORT);
-+       slot->hwc.sys.cmd_export.cid = cid;
-+       slot->hwc.sys.cmd_export.dst = dst_dma;
-+       slot->hwc.sys.cmd_export.key = wrap_key;
-+       slot->hwc.sys.cmd_export.len = len;
-+}
-+
-+/**
-+ * vcq_add_sys_import() - Build a SYS_IMPORT VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @src_dma: DMA address of wrapped datastore blob to import
-+ * @wrap_key: Wrapping key reference for unwrapping
-+ * @len: Length of wrapped blob in bytes
-+ */
-+void vcq_add_sys_import(struct vcq_cmd *slot, u64 src_dma,
-+                       u64 wrap_key, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_SYS, 0, 1, SYS_CMD_IMPORT);
-+       slot->hwc.sys.cmd_import.src = src_dma;
-+       slot->hwc.sys.cmd_import.key = wrap_key;
-+       slot->hwc.sys.cmd_import.len = len;
-+}
-+
-+/* -- KIC Core VCQ Builders --------------------- */
-+
-+/**
-+ * vcq_add_kic_hkdf1() - Build a KIC HKDF-Expand VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @dst: Datastore reference for derived key output
-+ * @base: Datastore reference for base key input
-+ * @label_dma: DMA address of HKDF label/info buffer
-+ * @key_len: Derived key length in bytes
-+ * @label_len: Length of label buffer in bytes
-+ * @type: Derived key datastore type
-+ */
-+void vcq_add_kic_hkdf1(struct vcq_cmd *slot, u64 dst, u64 base,
-+                      u64 label_dma, u32 key_len, u32 label_len, u32 type)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_KIC, 0, 1, KIC_CMD_HKDF1);
-+       slot->hwc.kic.cmd_hkdf1.dst = dst;
-+       slot->hwc.kic.cmd_hkdf1.base = base;
-+       slot->hwc.kic.cmd_hkdf1.label = label_dma;
-+       slot->hwc.kic.cmd_hkdf1.llen = label_len;
-+       slot->hwc.kic.cmd_hkdf1.len = key_len;
-+       slot->hwc.kic.cmd_hkdf1.type = type;
-+}
-+
-+/**
-+ * vcq_add_kic_hkdf2() - Build a KIC HKDF-with-salt VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @dst: Datastore reference for derived key output
-+ * @base: Datastore reference for base key input
-+ * @salt: Datastore reference for HKDF salt key
-+ * @label_dma: DMA address of HKDF label/info buffer
-+ * @key_len: Derived key length in bytes
-+ * @label_len: Length of label buffer in bytes
-+ * @type: Derived key datastore type
-+ */
-+void vcq_add_kic_hkdf2(struct vcq_cmd *slot, u64 dst, u64 base, u64 salt,
-+                      u64 label_dma, u32 key_len, u32 label_len, u32 type)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_KIC, 0, 1, KIC_CMD_HKDF2);
-+       slot->hwc.kic.cmd_hkdf2.dst = dst;
-+       slot->hwc.kic.cmd_hkdf2.base = base;
-+       slot->hwc.kic.cmd_hkdf2.salt = salt;
-+       slot->hwc.kic.cmd_hkdf2.label = label_dma;
-+       slot->hwc.kic.cmd_hkdf2.llen = label_len;
-+       slot->hwc.kic.cmd_hkdf2.len = key_len;
-+       slot->hwc.kic.cmd_hkdf2.type = type;
-+}
-+
-+/**
-+ * vcq_add_kic_aes_cmac_kdf() - Build a KIC AES-CMAC KDF VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @out_key: Datastore reference for derived key output
-+ * @base_key: Datastore reference for base key input
-+ * @label_dma: DMA address of KDF label buffer
-+ * @key_len: Derived key length in bytes
-+ * @label_len: Length of label buffer in bytes
-+ * @type: Derived key datastore type
-+ */
-+void vcq_add_kic_aes_cmac_kdf(struct vcq_cmd *slot, u64 out_key, u64 base_key,
-+                             u64 label_dma, u32 key_len, u32 label_len,
-+                             u32 type)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_KIC, 0, 1, KIC_CMD_AES_CMAC_KDF);
-+       slot->hwc.kic.cmd_aes_cmac_kdf.base_key = base_key;
-+       slot->hwc.kic.cmd_aes_cmac_kdf.out_key = out_key;
-+       slot->hwc.kic.cmd_aes_cmac_kdf.label = label_dma;
-+       slot->hwc.kic.cmd_aes_cmac_kdf.key_len = key_len;
-+       slot->hwc.kic.cmd_aes_cmac_kdf.label_len = label_len;
-+       slot->hwc.kic.cmd_aes_cmac_kdf.type = type;
-+}
-+
-+/**
-+ * vcq_add_kic_dkek_derive() - Build a KIC DKEK derivation VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @out_key: Datastore reference for derived DKEK output
-+ * @base_key: Datastore reference for base key input
-+ * @host_id: Host identifier for key binding
-+ * @metadata_dma: DMA address of derivation metadata buffer
-+ * @metadata_len: Length of metadata buffer in bytes
-+ */
-+void vcq_add_kic_dkek_derive(struct vcq_cmd *slot, u64 out_key, u64 base_key,
-+                            u32 host_id, u64 metadata_dma, u32 metadata_len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_KIC, 0, 1, KIC_CMD_DKEK_DERIVE);
-+       slot->hwc.kic.cmd_dkek_derive.base_key = base_key;
-+       slot->hwc.kic.cmd_dkek_derive.out_key = out_key;
-+       slot->hwc.kic.cmd_dkek_derive.host_id = host_id;
-+       slot->hwc.kic.cmd_dkek_derive.metadata = metadata_dma;
-+       slot->hwc.kic.cmd_dkek_derive.metadata_len = metadata_len;
-+}
-+
-+/* -- DRBG Core VCQ Builders -------------------- */
-+
-+/**
-+ * vcq_add_drbg_reset() - Build a DRBG reset VCQ command
-+ * @slot: VCQ command slot to populate
-+ *
-+ * Issues DRBG_CMD_RESET which clears the instantiated state, allowing
-+ * a subsequent CONFIG to proceed without a double-instantiate error.
-+ */
-+void vcq_add_drbg_reset(struct vcq_cmd *slot)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_DRBG, 0, 1, DRBG_CMD_RESET);
-+}
-+
-+/**
-+ * vcq_add_drbg_config() - Build a DRBG configuration VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @ratio: Entropy-to-output ratio
-+ * @strength: Security strength in bits
-+ */
-+void vcq_add_drbg_config(struct vcq_cmd *slot, u32 ratio, u32 strength)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_DRBG, 0, 1, DRBG_CMD_CONFIG);
-+       slot->hwc.drbg.cmd_config.entropy_ratio = ratio;
-+       slot->hwc.drbg.cmd_config.security_strength = strength;
-+}
-+
-+/**
-+ * vcq_add_drbg_datastore() - Build a DRBG datastore setup VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @ref: Datastore object reference handle
-+ * @len: Length of datastore allocation in bytes
-+ * @type: Datastore object type
-+ */
-+void vcq_add_drbg_datastore(struct vcq_cmd *slot, u64 ref, u32 len, u32 type)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_DRBG, 0, 1, DRBG_CMD_DATASTORE);
-+       slot->hwc.drbg.cmd_datastore.ref = ref;
-+       slot->hwc.drbg.cmd_datastore.len = len;
-+       slot->hwc.drbg.cmd_datastore.type = type;
-+}
-+
-+/* -- EAC Core VCQ Builder ---------------------- */
-+
-+/**
-+ * vcq_add_eac_read() - Build an EAC read VCQ command
-+ * @slot: VCQ command slot to populate
-+ * @dst_dma: DMA address of destination buffer
-+ * @len: Length of data to read in bytes
-+ */
-+void vcq_add_eac_read(struct vcq_cmd *slot, u64 dst_dma, u32 len)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(CORE_ID_EAC, 0, 1, EAC_CMD_READ);
-+       slot->hwc.eac.cmd_read.dst = dst_dma;
-+       slot->hwc.eac.cmd_read.len = len;
-+}
-diff --git a/drivers/crypto/cmh/include/cmh_key.h b/drivers/crypto/cmh/include/cmh_key.h
-new file mode 100644
-index 000000000000..bad69c92b892
---- /dev/null
-+++ b/drivers/crypto/cmh/include/cmh_key.h
-@@ -0,0 +1,82 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- Per-transform key context
-+ *
-+ * Per-transform key context used by all keyed crypto algorithms (AES,
-+ * SM4, CCP, HMAC, KMAC).  Stores raw key bytes supplied via the crypto
-+ * API .setkey() callback: the key is DMA-mapped once at setkey time and
-+ * written to SYS_REF_TEMP in every VCQ.
-+ *
-+ * Each keyed algorithm driver embeds a struct cmh_key_ctx in its
-+ * per-transform context and calls cmh_key_setkey_raw() from its
-+ * .setkey() callback.
-+ *
-+ * Raw-key atomicity (SYS_REF_TEMP)
-+ * ---------------------------------
-+ * SYS_CMD_WRITE to SYS_REF_TEMP is packed into the same VCQ as the
-+ * algorithm commands (AES_CMD_INIT, HC_CMD_HMAC, etc.).  SYS_REF_TEMP
-+ * is per-MBX -- the CMH eSW allocates it in the tail of each mailbox's
-+ * own VCQ buffer (mbx_alloc_temp), so concurrent raw-key requests on
-+ * different MBXes do not interfere.
-+ */
-+
-+#ifndef CMH_KEY_H
-+#define CMH_KEY_H
-+
-+#include <linux/types.h>
-+#include "cmh_config.h"
-+#include "cmh_vcq.h"
-+
-+/* Key context mode */
-+enum cmh_key_mode {
-+       CMH_KEY_NONE = 0,       /* no key set yet */
-+       CMH_KEY_RAW,            /* raw key bytes in memory */
-+};
-+
-+/* Per-transform key context */
-+struct cmh_key_ctx {
-+       enum cmh_key_mode mode;
-+       struct {
-+               u8 *data;       /* kmemdup'd raw key bytes */
-+               u32 len;        /* key length in bytes */
-+               u32 sys_type;   /* SYS_TYPE_SET(flags, core_id) */
-+               dma_addr_t dma; /* pre-mapped DMA addr (DMA_TO_DEVICE) */
-+       } raw;
-+};
-+
-+/**
-+ * cmh_key_setkey_raw() - Store raw key bytes in the transform context
-+ * @ctx: Per-transform key context
-+ * @key: Raw key bytes
-+ * @keylen: Key length in bytes
-+ * @core_id: Target algorithm core (e.g. CORE_ID_AES)
-+ *
-+ * SYS_TYPE_FLAG_PT is set so the written temp key
-+ * can be read back as plaintext if needed.  The actual SYS_CMD_WRITE
-+ * to SYS_REF_TEMP is deferred to each encrypt/decrypt VCQ, where it
-+ * is packed inline for atomicity.
-+ *
-+ * Return: 0 on success, -ENOMEM on allocation failure.
-+ */
-+int cmh_key_setkey_raw(struct cmh_key_ctx *ctx, const u8 *key,
-+                      u32 keylen, u32 core_id);
-+
-+/**
-+ * cmh_key_destroy() - Free key resources
-+ * @ctx: Per-transform key context
-+ *
-+ * Zeroises and frees the raw key buffer.
-+ */
-+void cmh_key_destroy(struct cmh_key_ctx *ctx);
-+
-+/**
-+ * cmh_ds_type_to_core_id() - Map datastore key type to core ID
-+ * @ds_type: CMH_DS_* key type constant
-+ *
-+ * Return: Corresponding CORE_ID_*, or CORE_ID_NUM (0x1F) on
-+ *         unrecognised type (caller should return -EINVAL).
-+ */
-+u32 cmh_ds_type_to_core_id(u32 ds_type);
-+
-+#endif /* CMH_KEY_H */
-diff --git a/drivers/crypto/cmh/include/cmh_mgmt.h b/drivers/crypto/cmh/include/cmh_mgmt.h
-new file mode 100644
-index 000000000000..b211014bd71d
---- /dev/null
-+++ b/drivers/crypto/cmh/include/cmh_mgmt.h
-@@ -0,0 +1,62 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH -- Key Management misc_device (/dev/cmh_mgmt)
-+ *
-+ * ioctl interface for key CRUD + datastore export/import,
-+ * PKE operations (RSA, ECDSA, ECDH, EdDSA),
-+ * and PQC operations (ML-KEM, ML-DSA, SLH-DSA).
-+ *
-+ * Registered alongside crypto algorithms in module_init,
-+ * unregistered before them in module_exit.
-+ */
-+
-+#ifndef CMH_MGMT_H
-+#define CMH_MGMT_H
-+
-+#ifdef CONFIG_CRYPTO_DEV_CMH_MGMT
-+
-+/*
-+ * Pin all mgmt ioctls to MBX 0 for DS ownership and SYS_REF_TEMP scope.
-+ * Shared by cmh_mgmt.c, cmh_mgmt_pke.c, cmh_mgmt_pqc.c, cmh_pke_sm2.c.
-+ */
-+#define MGMT_MBX       0
-+
-+/* Maximum DMA buffer size for key data / datastore blobs */
-+#define CMH_MGMT_MAX_DATA_LEN  (256 * 1024)  /* 256 KB */
-+
-+int  cmh_mgmt_register(void);
-+void cmh_mgmt_unregister(void);
-+
-+/* -- PKE ioctl handlers (cmh_mgmt_pke.c) -- */
-+int cmh_mgmt_pke_rsa_enc(void __user *argp);
-+int cmh_mgmt_pke_rsa_dec(void __user *argp);
-+int cmh_mgmt_pke_rsa_crt_dec(void __user *argp);
-+int cmh_mgmt_pke_rsa_keygen(void __user *argp);
-+int cmh_mgmt_pke_ecdsa_sign(void __user *argp);
-+int cmh_mgmt_pke_ecdh(void __user *argp);
-+int cmh_mgmt_pke_ecdh_keygen(void __user *argp);
-+int cmh_mgmt_pke_eddsa_sign(void __user *argp);
-+int cmh_mgmt_pke_eddsa_verify(void __user *argp);
-+int cmh_mgmt_pke_ec_keygen(void __user *argp);
-+int cmh_mgmt_pke_ec_pubgen(void __user *argp);
-+int cmh_mgmt_pke_eddsa_keygen_sca(void __user *argp);
-+
-+/* -- PQC ioctl handlers (cmh_mgmt_pqc.c) -- */
-+int cmh_mgmt_ml_kem_keygen(void __user *argp);
-+int cmh_mgmt_ml_kem_enc(void __user *argp);
-+int cmh_mgmt_ml_kem_dec(void __user *argp);
-+int cmh_mgmt_ml_dsa_keygen(void __user *argp);
-+int cmh_mgmt_ml_dsa_sign(void __user *argp);
-+int cmh_mgmt_slhdsa_keygen(void __user *argp);
-+int cmh_mgmt_slhdsa_sign(void __user *argp);
-+int cmh_mgmt_slhdsa_sign_prehash(void __user *argp);
-+
-+#else /* !CONFIG_CRYPTO_DEV_CMH_MGMT */
-+
-+static inline int  cmh_mgmt_register(void) { return 0; }
-+static inline void cmh_mgmt_unregister(void) { }
-+
-+#endif /* CONFIG_CRYPTO_DEV_CMH_MGMT */
-+
-+#endif /* CMH_MGMT_H */
-diff --git a/drivers/crypto/cmh/include/cmh_pke.h b/drivers/crypto/cmh/include/cmh_pke.h
-new file mode 100644
-index 000000000000..dcfdb3fc3cd6
---- /dev/null
-+++ b/drivers/crypto/cmh/include/cmh_pke.h
-@@ -0,0 +1,245 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- PKE Common Types and Helpers
-+ *
-+ * Shared definitions for RSA, ECDSA, ECDH, EdDSA, and SM2 drivers.
-+ * Curve -> coordinate-length mapping, VCQ byte-swap flags, and
-+ * common VCQ builder prototypes.
-+ */
-+
-+#ifndef CMH_PKE_H
-+#define CMH_PKE_H
-+
-+#include <linux/types.h>
-+#include "cmh_vcq.h"
-+#include "cmh_pke_abi.h"
-+
-+/* VCQ byte-swap flags for DMA transfers (per CMH VCQ ABI) */
-+#define VCQ_FLAG_SWAP_BYTES    0x400000U
-+#define VCQ_FLAG_SWAP_WORDS    0x200000U
-+
-+/* VCQ byte-swap flags for PKE -- big-endian data on LE bus */
-+#define PKE_SWAP_FLAGS (VCQ_FLAG_SWAP_BYTES | VCQ_FLAG_SWAP_WORDS)
-+
-+/* VCQ layout: header + [SYS_WRITE] + PKE_CMD + flush */
-+#define PKE_VCQ_CMDS_MIN       3       /* header + cmd + flush */
-+#define PKE_VCQ_CMDS_MAX       4       /* header + SYS_WRITE + cmd + flush */
-+
-+/* Max RSA key size in bytes (4096 bits) */
-+#define PKE_RSA_MAX_BYTES      512
-+#define PKE_RSA_MIN_BITS       1024
-+#define PKE_RSA_MAX_BITS       4096
-+
-+/* EdDSA SCA: Ed448 blinded private key length (bytes) */
-+#define PKE_ED448_SK_SCA_LEN   226
-+
-+/**
-+ * pke_curve_clen() - Get EC curve coordinate length in bytes
-+ * @curve: PKE curve identifier (PKE_CURVE_*)
-+ *
-+ * Return: Coordinate length in bytes, or 0 for unknown curves.
-+ */
-+static inline u32 pke_curve_clen(u32 curve)
-+{
-+       switch (curve) {
-+       case PKE_CURVE_P192:
-+       case PKE_CURVE_BP192R1:
-+               return 24;
-+       case PKE_CURVE_P224:
-+       case PKE_CURVE_BP224R1:
-+               return 28;
-+       case PKE_CURVE_P256:
-+       case PKE_CURVE_SECP256K1:
-+       case PKE_CURVE_BP256R1:
-+       case PKE_CURVE_ANSSI_FRP256V1:
-+       case PKE_CURVE_SM2:
-+       case PKE_CURVE_25519:
-+               return 32;
-+       case PKE_CURVE_BP320R1:
-+               return 40;
-+       case PKE_CURVE_P384:
-+       case PKE_CURVE_BP384R1:
-+               return 48;
-+       case PKE_CURVE_BP512R1:
-+               return 64;
-+       case PKE_CURVE_P521:
-+               return 68; /* ceil(521/8) = 66, ABI uses ALIGN(66, 4) = 68 */
-+       case PKE_CURVE_448:
-+               return 56;
-+       default:
-+               return 0;
-+       }
-+}
-+
-+/**
-+ * pke_curve_bits() - Get EC curve size in bits
-+ * @curve: PKE curve identifier (PKE_CURVE_*)
-+ *
-+ * Return: Curve size in bits, or 0 for unknown curves.
-+ */
-+static inline u32 pke_curve_bits(u32 curve)
-+{
-+       switch (curve) {
-+       case PKE_CURVE_P192:
-+       case PKE_CURVE_BP192R1:
-+               return 192;
-+       case PKE_CURVE_P224:
-+       case PKE_CURVE_BP224R1:
-+               return 224;
-+       case PKE_CURVE_P256:
-+       case PKE_CURVE_SECP256K1:
-+       case PKE_CURVE_BP256R1:
-+       case PKE_CURVE_ANSSI_FRP256V1:
-+       case PKE_CURVE_SM2:
-+       case PKE_CURVE_25519:
-+               return 256;
-+       case PKE_CURVE_BP320R1:
-+               return 320;
-+       case PKE_CURVE_P384:
-+       case PKE_CURVE_BP384R1:
-+               return 384;
-+       case PKE_CURVE_BP512R1:
-+               return 512;
-+       case PKE_CURVE_P521:
-+               return 521;
-+       case PKE_CURVE_448:
-+               return 448;
-+       default:
-+               return 0;
-+       }
-+}
-+
-+/**
-+ * pke_eddsa_key_len() - Get EdDSA key/pubkey length
-+ * @curve: PKE curve identifier (PKE_CURVE_25519 or PKE_CURVE_448)
-+ *
-+ * Ed25519 uses 32 bytes (== clen), Ed448 uses 57 bytes (clen + 1
-+ * flag byte per RFC 8032).  Signature length is 2 * pke_eddsa_key_len().
-+ *
-+ * Return: Key length in bytes.
-+ */
-+static inline u32 pke_eddsa_key_len(u32 curve)
-+{
-+       u32 clen = pke_curve_clen(curve);
-+
-+       return (curve == PKE_CURVE_448) ? clen + 1 : clen;
-+}
-+
-+/**
-+ * pke_curve_is_edwards() - Check if curve uses Edwards form
-+ * @curve: PKE curve identifier (PKE_CURVE_*)
-+ *
-+ * Return: true for Curve25519 and Curve448, false otherwise.
-+ */
-+static inline bool pke_curve_is_edwards(u32 curve)
-+{
-+       return curve == PKE_CURVE_25519 || curve == PKE_CURVE_448;
-+}
-+
-+/**
-+ * pke_swap_flags() - Get VCQ byte-swap flags for a given curve
-+ * @curve: PKE curve identifier (PKE_CURVE_*)
-+ *
-+ * Weierstrass curves need byte+word swap; Edwards curves do not.
-+ *
-+ * Return: VCQ swap flags to OR into the command ID.
-+ */
-+static inline u32 pke_swap_flags(u32 curve)
-+{
-+       return pke_curve_is_edwards(curve) ? 0 : PKE_SWAP_FLAGS;
-+}
-+
-+/* Common VCQ builder prototypes */
-+
-+void vcq_add_pke_flush(struct vcq_cmd *slot, u32 core_id);
-+
-+void vcq_add_pke_rsa_enc(struct vcq_cmd *slot, u32 core_id, u32 bits, u32 e_len,
-+                        u64 e_dma, u64 n_dma, u64 m_dma, u64 c_dma,
-+                        u32 flags);
-+
-+void vcq_add_pke_rsa_dec(struct vcq_cmd *slot, u32 core_id, u32 bits, u32 e_len,
-+                        u64 e_dma, u64 n_dma, u64 c_dma, u64 m_dma,
-+                        u64 d_ref, u32 flags);
-+
-+void vcq_add_pke_rsa_crt_dec(struct vcq_cmd *slot, u32 core_id, u32 bits, u32 e_len,
-+                            u64 e_dma, u64 n_dma, u64 c_dma, u64 m_dma,
-+                            u64 crt_ref, u32 flags);
-+
-+void vcq_add_pke_ecdsa_verify(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 dlen,
-+                             u64 pk_dma, u64 dig_dma, u64 sig_dma,
-+                             u64 rp_dma, u32 flags);
-+
-+void vcq_add_pke_ecdsa_sign(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 sklen,
-+                           u64 dig_dma, u64 sig_dma, u64 sk_ref,
-+                           u32 dlen, u32 flags);
-+
-+void vcq_add_pke_ecdsa_pubgen(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 sklen,
-+                             u64 pk_dma, u64 sk_ref, u32 flags);
-+
-+void vcq_add_pke_ecdsa_keygen(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 sklen,
-+                             u64 sk_ref, u32 sk_type, u32 flags);
-+
-+void vcq_add_pke_ecdh_keygen(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 sklen,
-+                            u64 pkx_dma, u64 sk_ref, u32 flags);
-+
-+void vcq_add_pke_ecdh(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 sklen,
-+                     u32 sslen, u32 ss_type, u64 peer_dma, u64 sk_ref,
-+                     u64 ss_ref, u32 flags);
-+
-+void vcq_add_pke_eddsa_verify(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 dlen,
-+                             u64 pky_dma, u64 dig_dma, u64 sig_dma,
-+                             u64 rp_dma, u32 flags);
-+
-+void vcq_add_pke_eddsa_sign(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 sklen,
-+                           u64 dig_dma, u64 sig_dma, u64 sk_ref,
-+                           u32 dlen, u32 flags);
-+
-+void vcq_add_pke_eddsa_pubgen(struct vcq_cmd *slot, u32 core_id, u32 curve, u32 sklen,
-+                             u64 pky_dma, u64 sk_ref, u32 flags);
-+
-+void vcq_add_pke_eddsa_keygen_sca(struct vcq_cmd *slot, u32 core_id, u32 curve,
-+                                 u64 sk_ref, u64 sca_sk_ref);
-+
-+/* SM2 VCQ builders */
-+
-+void vcq_add_pke_sm2_ecdh_keygen(struct vcq_cmd *slot, u32 core_id, u64 nonce_dma,
-+                                u64 session_key_dma, u32 nonce_len, u32 flags);
-+
-+void vcq_add_pke_sm2_ecdh(struct vcq_cmd *slot, u32 core_id, u32 nonce_len,
-+                         u32 private_key_len, u64 nonce_dma,
-+                         u64 peer_pk_dma, u64 peer_sk_dma,
-+                         u64 priv_ref, u64 sp_ref, u32 sp_type, u32 flags);
-+
-+void vcq_add_pke_sm2_dec_point(struct vcq_cmd *slot, u32 core_id, u32 ct_len,
-+                              u32 pk_len, u64 ct_dma, u64 dp_dma,
-+                              u64 priv_ref, u32 flags);
-+
-+void vcq_add_pke_sm2_enc_point(struct vcq_cmd *slot, u32 core_id, u64 nonce_dma,
-+                              u64 pk_dma, u64 ct_dma, u64 ep_dma,
-+                              u32 nonce_len, u32 flags);
-+
-+void vcq_add_pke_sm2_id_digest(struct vcq_cmd *slot, u32 core_id, u64 id_dma,
-+                              u64 pk_dma, u64 dig_dma, u32 id_len,
-+                              u32 flags);
-+
-+void vcq_add_pke_sm2_ecdh_hash(struct vcq_cmd *slot, u32 core_id, u64 peer_dig_dma,
-+                              u64 dig_dma, u64 sp_ref, u64 sk_ref,
-+                              u32 sk_type, u32 flags);
-+
-+void vcq_add_pke_sm2_dec_hash(struct vcq_cmd *slot, u32 core_id, u64 ct_dma,
-+                             u64 dp_dma, u64 pt_dma, u32 ct_len, u32 flags);
-+
-+void vcq_add_pke_sm2_enc_hash(struct vcq_cmd *slot, u32 core_id, u64 msg_dma,
-+                             u64 ep_dma, u64 ct_dma, u32 msg_len, u32 flags);
-+
-+/* Registration */
-+
-+int cmh_pke_rsa_register(void);
-+void cmh_pke_rsa_unregister(void);
-+int cmh_pke_ecdsa_register(void);
-+void cmh_pke_ecdsa_unregister(void);
-+int cmh_pke_ecdh_register(void);
-+void cmh_pke_ecdh_unregister(void);
-+
-+#endif /* CMH_PKE_H */
-diff --git a/drivers/crypto/cmh/include/cmh_pke_sm2.h b/drivers/crypto/cmh/include/cmh_pke_sm2.h
-new file mode 100644
-index 000000000000..a2c7164b8d49
---- /dev/null
-+++ b/drivers/crypto/cmh/include/cmh_pke_sm2.h
-@@ -0,0 +1,30 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- SM2 PKE Ioctl Handler Declarations
-+ *
-+ * SM2 signature (GM/T 0003.2) requires the caller to compute
-+ * ZA = SM3(ENTLA || IDA || a || b || xG || yG || xA || yA)
-+ * and pass SM3(ZA || M) as the digest to the sign/verify path.
-+ * The CMH eSW does NOT compute ZA internally; the full
-+ * identity pre-hash is the caller's responsibility.
-+ *
-+ * For the in-kernel akcipher "sm2" algorithm this means the
-+ * caller (e.g. asymmetric_key subsystem) must pre-hash with ZA
-+ * before invoking verify.  The SM2_ID_DIGEST ioctl below can
-+ * compute ZA for userspace callers of the misc-device path.
-+ */
-+
-+#ifndef CMH_PKE_SM2_H
-+#define CMH_PKE_SM2_H
-+
-+int cmh_mgmt_sm2_ecdh_keygen(void __user *argp);
-+int cmh_mgmt_sm2_ecdh(void __user *argp);
-+int cmh_mgmt_sm2_dec_point(void __user *argp);
-+int cmh_mgmt_sm2_enc_point(void __user *argp);
-+int cmh_mgmt_sm2_id_digest(void __user *argp);
-+int cmh_mgmt_sm2_ecdh_hash(void __user *argp);
-+int cmh_mgmt_sm2_dec_hash(void __user *argp);
-+int cmh_mgmt_sm2_enc_hash(void __user *argp);
-+
-+#endif /* CMH_PKE_SM2_H */
-diff --git a/drivers/crypto/cmh/include/cmh_pqc.h b/drivers/crypto/cmh/include/cmh_pqc.h
-new file mode 100644
-index 000000000000..cd4761a0ce5c
---- /dev/null
-+++ b/drivers/crypto/cmh/include/cmh_pqc.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- PQC Algorithm Registration
-+ *
-+ * Registration/unregistration functions for PQC akcipher algorithms:
-+ * ML-DSA, SLH-DSA, LMS, XMSS.
-+ */
-+
-+#ifndef CMH_PQC_H
-+#define CMH_PQC_H
-+
-+int cmh_pqc_mldsa_register(void);
-+void cmh_pqc_mldsa_unregister(void);
-+
-+int cmh_pqc_slhdsa_register(void);
-+void cmh_pqc_slhdsa_unregister(void);
-+
-+int cmh_pqc_lms_register(void);
-+void cmh_pqc_lms_unregister(void);
-+
-+int cmh_pqc_xmss_register(void);
-+void cmh_pqc_xmss_unregister(void);
-+
-+#endif /* CMH_PQC_H */
-diff --git a/drivers/crypto/cmh/include/cmh_sys.h b/drivers/crypto/cmh/include/cmh_sys.h
-new file mode 100644
-index 000000000000..dd336b67bd65
---- /dev/null
-+++ b/drivers/crypto/cmh/include/cmh_sys.h
-@@ -0,0 +1,111 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- SYS Core VCQ Builders
-+ *
-+ * VCQ builder functions for SYS core commands (NEW, WRITE, READ,
-+ * FIND, GRANT, DATA, EXPORT, IMPORT).  Each builder populates one
-+ * vcq_cmd slot with the appropriate magic, command ID, and payload.
-+ *
-+ * Callers combine these with vcq_set_header() + vcq_add_flush()
-+ * and submit via cmh_tm_submit_sync().
-+ */
-+
-+#ifndef CMH_SYS_H
-+#define CMH_SYS_H
-+
-+#include "cmh_vcq.h"
-+
-+void vcq_add_sys_new(struct vcq_cmd *slot, u64 cid, u64 ref_dma, u32 len);
-+void vcq_add_sys_write(struct vcq_cmd *slot, u64 ref, u64 src_dma,
-+                      u64 wrap_key, u32 len, u32 sys_type);
-+void vcq_add_sys_read(struct vcq_cmd *slot, u64 ref, u64 dst_dma,
-+                     u64 wrap_key, u32 len);
-+void vcq_add_sys_data(struct vcq_cmd *slot, u64 ref, u64 dst_dma, u32 len);
-+void vcq_add_sys_find(struct vcq_cmd *slot, u64 cid, u64 dst_dma, u32 len);
-+void vcq_add_sys_list(struct vcq_cmd *slot, u64 ref, u64 dst_dma, u32 len);
-+void vcq_add_sys_grant(struct vcq_cmd *slot, u64 ref, u64 read,
-+                      u64 write, u64 execute);
-+void vcq_add_sys_export(struct vcq_cmd *slot, u64 cid, u64 dst_dma,
-+                       u64 wrap_key, u32 len);
-+void vcq_add_sys_import(struct vcq_cmd *slot, u64 src_dma,
-+                       u64 wrap_key, u32 len);
-+
-+/* KIC core VCQ builders */
-+void vcq_add_kic_hkdf1(struct vcq_cmd *slot, u64 dst, u64 base,
-+                      u64 label_dma, u32 key_len, u32 label_len, u32 type);
-+void vcq_add_kic_hkdf2(struct vcq_cmd *slot, u64 dst, u64 base, u64 salt,
-+                      u64 label_dma, u32 key_len, u32 label_len, u32 type);
-+void vcq_add_kic_aes_cmac_kdf(struct vcq_cmd *slot, u64 out_key, u64 base_key,
-+                             u64 label_dma, u32 key_len, u32 label_len,
-+                             u32 type);
-+void vcq_add_kic_dkek_derive(struct vcq_cmd *slot, u64 out_key, u64 base_key,
-+                            u32 host_id, u64 metadata_dma, u32 metadata_len);
-+
-+/* DRBG core VCQ builders */
-+void vcq_add_drbg_reset(struct vcq_cmd *slot);
-+void vcq_add_drbg_config(struct vcq_cmd *slot, u32 ratio, u32 strength);
-+void vcq_add_drbg_datastore(struct vcq_cmd *slot, u64 ref, u32 len, u32 type);
-+
-+/* QSE core VCQ builders */
-+void vcq_add_qse_flush(struct vcq_cmd *slot, u32 core_id);
-+void vcq_add_qse_ml_kem_keygen(struct vcq_cmd *slot, u32 core_id, u32 k, u32 flags,
-+                              u64 seed, u64 z, u64 ek, u64 dk, u32 dk_type,
-+                              bool masked);
-+void vcq_add_qse_ml_kem_enc(struct vcq_cmd *slot, u32 core_id, u32 k, u32 flags,
-+                           u64 coin, u64 ek, u64 ct, u64 ss, u32 ss_type,
-+                           bool masked);
-+void vcq_add_qse_ml_kem_dec(struct vcq_cmd *slot, u32 core_id, u32 k, u32 flags,
-+                           u64 ct, u64 dk, u64 ss, u32 ss_type,
-+                           bool masked);
-+void vcq_add_qse_ml_dsa_keygen(struct vcq_cmd *slot, u32 core_id, u32 mode, u32 flags,
-+                              u64 seed, u64 pk, u64 sk, u32 sk_type,
-+                              bool masked);
-+void vcq_add_qse_ml_dsa_sign(struct vcq_cmd *slot, u32 core_id, u32 mode, u32 flags,
-+                            u64 rnd, u64 m, u64 sk, u64 sig, u32 mlen,
-+                            bool masked);
-+void vcq_add_qse_ml_dsa_verify(struct vcq_cmd *slot, u32 core_id, u32 mode, u32 flags,
-+                              u64 m, u64 pk, u64 sig, u32 mlen);
-+
-+/* HCQ core VCQ builders */
-+void vcq_add_hcq_flush(struct vcq_cmd *slot, u32 core_id);
-+void vcq_add_hcq_slhdsa_keygen(struct vcq_cmd *slot, u32 core_id, u32 param_set,
-+                              u32 seed_len, u32 pk_len, u32 sk_len,
-+                              u64 seed, u64 pk, u64 sk);
-+void vcq_add_hcq_slhdsa_sign(struct vcq_cmd *slot, u32 core_id, u32 param_set,
-+                            u32 msg_len, u32 ctx_len,
-+                            u64 add_random, u64 msg, u64 ctx,
-+                            u64 sk, u64 sig);
-+void vcq_add_hcq_slhdsa_sign_internal(struct vcq_cmd *slot, u32 core_id, u32 param_set,
-+                                     u32 msg_len, u64 add_random,
-+                                     u64 msg, u64 sk, u64 sig);
-+void vcq_add_hcq_slhdsa_verify(struct vcq_cmd *slot, u32 core_id, u32 param_set,
-+                              u32 msg_len, u32 ctx_len,
-+                              u64 msg, u64 ctx, u64 pk, u64 sig);
-+void vcq_add_hcq_slhdsa_sign_prehash(struct vcq_cmd *slot, u32 core_id,
-+                                    u32 cmd, u32 param_set, u32 prehash_algo,
-+                                    u32 msg_len, u32 ctx_len,
-+                                    u64 add_random, u64 msg, u64 ctx,
-+                                    u64 sk, u64 sig);
-+void vcq_add_hcq_slhdsa_verify_prehash(struct vcq_cmd *slot, u32 core_id,
-+                                      u32 cmd, u32 param_set, u32 prehash_algo,
-+                                      u32 msg_len, u32 ctx_len,
-+                                      u64 msg, u64 ctx, u64 pk, u64 sig);
-+void vcq_add_hcq_slhdsa_verify_internal(struct vcq_cmd *slot, u32 core_id, u32 param_set,
-+                                       u32 msg_len, u64 msg, u64 pk, u64 sig);
-+void vcq_add_hcq_slhdsa_pubgen(struct vcq_cmd *slot, u32 core_id, u32 param_set,
-+                              u32 sk_len, u64 sk, u64 pk);
-+void vcq_add_hcq_lms_verify(struct vcq_cmd *slot, u32 core_id, u32 lms_hss,
-+                           u32 pk_len, u32 sig_len, u32 dig_len,
-+                           u64 pk, u64 sig, u64 dig);
-+void vcq_add_hcq_xmss_verify(struct vcq_cmd *slot, u32 core_id, u32 xmss_mt,
-+                            u32 pk_len, u32 sig_len, u32 dig_len,
-+                            u64 pk, u64 sig, u64 dig);
-+
-+/* SYS core flush */
-+void vcq_add_sys_flush(struct vcq_cmd *slot);
-+
-+/* EAC core VCQ builder */
-+void vcq_add_eac_read(struct vcq_cmd *slot, u64 dst_dma, u32 len);
-+
-+#endif /* CMH_SYS_H */
-diff --git a/include/uapi/linux/cmh_mgmt_ioctl.h b/include/uapi/linux/cmh_mgmt_ioctl.h
-new file mode 100644
-index 000000000000..a690454fae69
---- /dev/null
-+++ b/include/uapi/linux/cmh_mgmt_ioctl.h
-@@ -0,0 +1,895 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- Key Management ioctl Interface (User-Space API)
-+ *
-+ * ioctl commands for /dev/cmh_mgmt -- key CRUD, datastore
-+ * export/import, KIC key derivation, PKE, SM2, and PQC operations.
-+ *
-+ * Relationship to the in-kernel crypto API
-+ * -----------------------------------------
-+ * Most commands here have no crypto API representation (no transform
-+ * type or verb exists): keystore CRUD, key generation, KIC key
-+ * derivation, ML-KEM encapsulate/decapsulate, SM2 multi-step
-+ * encrypt/decrypt/key-exchange, EdDSA, EAC, and DRBG configuration.
-+ * For these the character device is the only available UAPI.
-+ *
-+ * A bounded subset names primitives the driver ALSO registers with
-+ * the crypto API, and the overlap is intentional:
-+ *   - Hardware-held-key operations (RSA decrypt, ECDSA/ML-DSA/SLH-DSA
-+ *     sign, ECDH) reference a private key by datastore handle.  The
-+ *     crypto API set_priv_key()/set_secret() take only raw key bytes
-+ *     and cannot name a key that never leaves the hardware; these
-+ *     ioctls keep the key hardware-resident.  The registered
-+ *     transforms serve raw-key in-kernel users -- the paths are
-+ *     complementary.
-+ *
-+ * Multi-step protocol flows are documented above the PKE and SM2
-+ * struct sections.  Single-command ioctls are self-documenting.
-+ *
-+ * Versioned structs: user space sets .version = CMH_MGMT_V1 so the
-+ * driver can extend structs in the future without breaking ABI.
-+ */
-+
-+#ifndef _UAPI_CMH_MGMT_IOCTL_H
-+#define _UAPI_CMH_MGMT_IOCTL_H
-+
-+#include <linux/types.h>
-+#include <linux/ioctl.h>
-+#include <linux/const.h>
-+
-+#define CMH_MGMT_V1            1
-+
-+/* Special reference values */
-+#define CMH_REF_NONE           0x0000000000000000ULL   /* no key (plaintext) */
-+
-+/* Flags for cmh_ioctl_key_new.flags / cmh_ioctl_key_write.flags */
-+#define CMH_FLAG_PT            _BITUL(16)      /* key can be read as plaintext */
-+#define CMH_FLAG_XC            _BITUL(17)      /* key can be exported over XC bus */
-+#define CMH_FLAG_SCA           _BITUL(18)      /* SCA key stored in 2 shares */
-+#define CMH_FLAG_MASK          (CMH_FLAG_PT | CMH_FLAG_XC | CMH_FLAG_SCA)
-+
-+/*
-+ * Datastore key types -- the LKM maps these to core IDs internally.
-+ * User space passes these in cmh_ioctl_key_new.ds_type.
-+ */
-+#define CMH_DS_RAW_VALUE               1
-+#define CMH_DS_AES_KEY                 2
-+#define CMH_DS_AES_XTS_KEY             3
-+#define CMH_DS_HMAC_KEY                        4
-+#define CMH_DS_KMAC_KEY                        5
-+#define CMH_DS_SM4_KEY                 6
-+#define CMH_DS_CHACHA20_KEY            7
-+
-+/* PKE key types -- all map to CORE_ID_PKE (0x0A) */
-+#define CMH_DS_RSA_PRIV_KEY            10
-+#define CMH_DS_RSA_PUB_KEY             11
-+#define CMH_DS_RSA_CRT_KEY             12
-+#define CMH_DS_ECDSA_PRIV_KEY          13
-+#define CMH_DS_ECDSA_PUB_KEY           14
-+#define CMH_DS_ECDH_PRIV_KEY           15
-+#define CMH_DS_EDDSA_PRIV_KEY          16
-+#define CMH_DS_SHARED_SECRET           17
-+#define CMH_DS_SM2_PRIV_KEY            18
-+
-+/* QSE key types -- map to CORE_ID_QSE (0x09) */
-+#define CMH_DS_ML_KEM_DK               20
-+#define CMH_DS_ML_DSA_SK               21
-+
-+/* HCQ key types -- map to CORE_ID_HCQ (0x08) */
-+#define CMH_DS_SLHDSA_SK               25
-+
-+/* ioctl argument structures */
-+
-+struct cmh_ioctl_key_new {
-+       __u32 version;          /* must be CMH_MGMT_V1 */
-+       __u32 ds_type;          /* CMH_DS_* key type */
-+       __u32 len;              /* key length in bytes */
-+       __u32 flags;            /* CMH_FLAG_* (e.g. CMH_FLAG_PT) */
-+       __u64 cid;              /* caller ID (name) for the key */
-+       __u64 ref;              /* [out] CMH eSW returns key_ref here */
-+};
-+
-+struct cmh_ioctl_key_write {
-+       __u32 version;
-+       __u32 len;              /* key data length */
-+       __u32 ds_type;          /* CMH_DS_* key type */
-+       __u32 flags;            /* CMH_FLAG_* (e.g. CMH_FLAG_PT) */
-+       __u64 ref;              /* key reference from KEY_NEW */
-+       __u64 wrap_key;         /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+       __u64 data;             /* user-space pointer to key material */
-+};
-+
-+struct cmh_ioctl_key_read {
-+       __u32 version;
-+       __u32 len;              /* buffer length */
-+       __u64 ref;              /* key reference */
-+       __u64 wrap_key;         /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+       __u64 data;             /* user-space pointer to output buffer */
-+       __u32 out_len;          /* [out] actual bytes written */
-+       __u32 __reserved;
-+};
-+
-+struct cmh_ioctl_key_find {
-+       __u32 version;
-+       __u32 __reserved;
-+       __u64 cid;              /* caller ID to search for */
-+       __u64 ref;              /* [out] resolved key reference */
-+       __u32 len;              /* [out] key length */
-+       __u32 type;             /* [out] key type */
-+};
-+
-+/*
-+ * KEY_LIST -- iterate datastore objects.
-+ *
-+ * Pass start_ref=0 to begin from the first accessible object.
-+ * On return, ref/cid/len/type describe that object.  Pass the
-+ * returned ref as start_ref in the next call to advance.  Iteration
-+ * ends when ref == 0 (no more objects).
-+ */
-+struct cmh_ioctl_key_list {
-+       __u32 version;
-+       __u32 __reserved;
-+       __u64 start_ref;        /* starting DS reference (0 = first) */
-+       __u64 ref;              /* [out] object reference */
-+       __u64 cid;              /* [out] caller ID */
-+       __u32 len;              /* [out] object length */
-+       __u32 type;             /* [out] object type */
-+};
-+
-+struct cmh_ioctl_key_grant {
-+       __u32 version;
-+       __u32 __reserved;
-+       __u64 ref;              /* key reference */
-+       __u64 read;             /* per-MBX read permission bitfield */
-+       __u64 write;            /* per-MBX write permission bitfield */
-+       __u64 execute;          /* per-MBX execute permission bitfield */
-+};
-+
-+/* Export blob overhead beyond the raw object data (bytes) */
-+#define CMH_DS_EXPORT_OVERHEAD_WRAPPED 48      /* 16B hdr + 16B nonce + 16B tag */
-+#define CMH_DS_EXPORT_OVERHEAD_PLAIN   16      /* 16B hdr only */
-+
-+/**
-+ * struct cmh_ioctl_ds_export - Export a datastore object to a wrapped blob
-+ * @version:   protocol version (CMH_MGMT_V1)
-+ * @len:       DMA buffer size; must be >= export blob size:
-+ *               wrapped:   CMH_DS_EXPORT_OVERHEAD_WRAPPED + object_len
-+ *               plaintext: CMH_DS_EXPORT_OVERHEAD_PLAIN + object_len
-+ *             object_len is known from KEY_NEW or KEY_FIND.
-+ *             If too small, the eSW rejects the command (-EIO).
-+ * @cid:       caller ID of the object to export
-+ * @wrap_key:  wrapping key ref (CMH_REF_NONE = plaintext export)
-+ * @data:      user-space pointer to output buffer (at least @len bytes)
-+ * @out_len:   [out] actual blob bytes written on success
-+ * @__reserved: must be zero
-+ */
-+struct cmh_ioctl_ds_export {
-+       __u32 version;
-+       __u32 len;              /* buffer length (see sizing rule above) */
-+       __u64 cid;              /* caller ID for response tagging */
-+       __u64 wrap_key;         /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+       __u64 data;             /* user-space pointer to output buffer */
-+       __u32 out_len;          /* [out] actual bytes written */
-+       __u32 __reserved;
-+};
-+
-+struct cmh_ioctl_ds_import {
-+       __u32 version;
-+       __u32 len;              /* blob length */
-+       __u64 wrap_key;         /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+       __u64 data;             /* user-space pointer to import blob */
-+};
-+
-+/* Flags for cmh_ioctl_kic_hkdf1.flags / cmh_ioctl_kic_hkdf2.flags */
-+#define CMH_KIC_FLAG_TEMP      0x01    /* store result in TEMP (not persistent DS) */
-+
-+/*
-+ * KIC hardware base key references.
-+ *
-+ * Each CMH device has up to 8 hardware base keys provisioned in OTP/fuses.
-+ * These values are passed in the base_key field of KIC ioctl structs.
-+ * The key valid bitmask is visible via R_KIC_KEY_VALID (MMIO 0x100).
-+ */
-+#define CMH_KIC_KEY1           0x0000000100000001ULL
-+#define CMH_KIC_KEY2           0x0000000200000002ULL
-+#define CMH_KIC_KEY3           0x0000000300000003ULL
-+#define CMH_KIC_KEY4           0x0000000400000004ULL
-+#define CMH_KIC_KEY5           0x0000000500000005ULL
-+#define CMH_KIC_KEY6           0x0000000600000006ULL
-+#define CMH_KIC_KEY7           0x0000000700000007ULL
-+#define CMH_KIC_KEY8           0x0000000800000008ULL
-+
-+struct cmh_ioctl_kic_hkdf1 {
-+       __u32 version;
-+       __u32 key_len;          /* output key length (e.g., 32) */
-+       __u64 base_key;         /* KIC base key reference */
-+       __u64 cid;              /* CID for the new DS entry (ignored if TEMP) */
-+       __u64 label;            /* user-space pointer to label data */
-+       __u32 label_len;        /* label length in bytes */
-+       __u32 flags;            /* CMH_KIC_FLAG_* */
-+       __u64 ref;              /* [out] derived key reference */
-+};
-+
-+struct cmh_ioctl_kic_hkdf2 {
-+       __u32 version;
-+       __u32 key_len;          /* output key length (e.g., 32) */
-+       __u64 base_key;         /* KIC base key reference */
-+       __u64 salt_key;         /* salt key reference (CMH_REF_NONE = no salt) */
-+       __u64 cid;              /* CID for the new DS entry (ignored if TEMP) */
-+       __u64 label;            /* user-space pointer to label data */
-+       __u32 label_len;        /* label length in bytes */
-+       __u32 flags;            /* CMH_KIC_FLAG_* */
-+       __u64 ref;              /* [out] derived key reference */
-+};
-+
-+struct cmh_ioctl_kic_aes_cmac_kdf {
-+       __u32 version;
-+       __u32 key_len;          /* base & output key length (must be 32) */
-+       __u64 base_key;         /* KIC base key or DS reference */
-+       __u64 cid;              /* CID for the new DS entry (ignored if TEMP) */
-+       __u64 label;            /* user-space pointer to label data */
-+       __u32 label_len;        /* label length in bytes */
-+       __u32 flags;            /* CMH_KIC_FLAG_* */
-+       __u64 ref;              /* [out] derived key reference */
-+};
-+
-+#define KIC_DKEK_MAX_METADATA  64      /* max metadata length for DKEK */
-+
-+struct cmh_ioctl_kic_dkek_derive {
-+       __u32 version;
-+       __u32 host_id;          /* target host ID (0 = caller's own) */
-+       __u64 base_key;         /* KIC base key reference */
-+       __u64 cid;              /* CID for the new DS entry (ignored if TEMP) */
-+       __u64 metadata;         /* user-space pointer to metadata */
-+       __u32 metadata_len;     /* metadata length in bytes */
-+       __u32 flags;            /* CMH_KIC_FLAG_* */
-+       __u64 ref;              /* [out] derived KEK reference */
-+};
-+
-+/* -- PKE ioctl argument structures ----------- */
-+
-+/*
-+ * PKE multi-step protocol flows
-+ *
-+ * RSA encrypt/decrypt:
-+ *   1. KEY_NEW(CMH_DS_RSA_PRIV_KEY) + KEY_WRITE -> priv_ref (or RSA_KEYGEN -> priv_ref)
-+ *   2. RSA_ENC(e, n, plaintext) -> ciphertext         (public key = raw e,n)
-+ *   3. RSA_DEC(e, n, ciphertext, priv_ref) -> plaintext   (or RSA_CRT_DEC)
-+ *
-+ * ECDSA sign:
-+ *   1. EC_KEYGEN(curve) -> priv_ref                    (or KEY_NEW + KEY_WRITE)
-+ *   2. EC_PUBGEN(priv_ref) -> public_key               (raw x||y returned)
-+ *   3. ECDSA_SIGN(digest, priv_ref) -> signature
-+ *   SM2 sign uses the same path with curve=CMH_CURVE_SM2.
-+ *
-+ * ECDH shared secret:
-+ *   1. EC_KEYGEN(curve) -> priv_ref                    (or KEY_NEW + KEY_WRITE)
-+ *   2. ECDH_KEYGEN(priv_ref) -> public_key_x           (derive pub from priv)
-+ *   3. Exchange public keys with peer
-+ *   4. ECDH(peer_key_x, priv_ref) -> shared_secret     (raw or DS ref via FLAG_DS_RESULT)
-+ *
-+ * EdDSA sign/verify:
-+ *   1. EC_KEYGEN(CURVE_25519 or CURVE_448) -> priv_ref
-+ *   2. EC_PUBGEN(priv_ref) -> public_key
-+ *   3. EDDSA_SIGN(message, priv_ref) -> signature      (pure EdDSA, not prehash)
-+ *   4. EDDSA_VERIFY(message, signature, public_key_y)
-+ *   For Ed448 SCA: EDDSA_KEYGEN_SCA(priv_ref) -> sca_ref (2-share blinded key)
-+ *
-+ * SM2 encryption (GM/T 0003.4):
-+ *   1. EC_KEYGEN(CMH_CURVE_SM2) -> priv_ref            (or KEY_NEW + KEY_WRITE)
-+ *   2. EC_PUBGEN(priv_ref) -> public_key
-+ *   3. SM2_ENC_POINT(public_key) -> C1, enc_point      (nonce_len=0: HW ephemeral)
-+ *   4. SM2_ENC_HASH(enc_point, message) -> ciphertext   (C1||C3||C2)
-+ *   Decrypt:
-+ *   5. SM2_DEC_POINT(C1, priv_ref) -> dec_point
-+ *   6. SM2_DEC_HASH(ciphertext, dec_point) -> plaintext
-+ *   enc_point and dec_point are raw DMA buffers (64B each), not DS refs.
-+ *
-+ * SM2 key exchange (GM/T 0003.3):
-+ *   1. EC_KEYGEN(CMH_CURVE_SM2) -> priv_ref            (long-lived, persistent DS)
-+ *   2. EC_PUBGEN(priv_ref) -> public_key
-+ *   3. SM2_ID_DIGEST(id, public_key) -> ZA             (SM3-based identity digest)
-+ *   4. SM2_ECDH_KEYGEN(nonce) -> session_key, r        (ephemeral scalar r)
-+ *      - nonce_len=32: caller supplies r (deterministic)
-+ *      - nonce_len=0:  HW generates r, writes it back to .nonce
-+ *      Exchange session_key with peer.
-+ *   5. SM2_ECDH(r, priv_ref, peer_pub, peer_sess) -> shared_point
-+ *      - Must pass the same r from step 4 (nonce_len=32)
-+ *      - shared_point_ref=0: reads back raw shared_point, destroys DS slot
-+ *      - shared_point_ref=&ref: keeps DS slot alive, writes ref for ECDH_HASH
-+ *   6. SM2_ECDH_HASH(shared_point_ref, ZA_self, ZA_peer) -> shared_key (16B)
-+ *      - shared_point_ref is a persistent DS reference from step 5
-+ *      - The DS slot is consumed by the hub; caller should delete it afterward
-+ *   The nonce r is a raw 32-byte scalar in userspace memory between steps 4-5.
-+ *   The shared_point is a persistent DS ref between steps 5-6.
-+ *   The long-lived private key (priv_ref) persists independently.
-+ */
-+
-+/* PKE operation flags */
-+#define CMH_PKE_FLAG_DS_RESULT _BITUL(0)       /* store result in DS, return ref */
-+
-+struct cmh_ioctl_pke_rsa_enc {
-+       __u32 version;
-+       __u32 bits;             /* RSA key size in bits (512-4096) */
-+       __u64 e;                /* user-space pointer to public exponent */
-+       __u32 e_len;            /* exponent length in bytes */
-+       __u32 __reserved;
-+       __u64 n;                /* user-space pointer to modulus */
-+       __u64 input;            /* user-space pointer to input data */
-+       __u64 output;           /* user-space pointer to output buffer */
-+};
-+
-+struct cmh_ioctl_pke_rsa_dec {
-+       __u32 version;
-+       __u32 bits;
-+       __u64 e;                /* public exponent */
-+       __u32 e_len;
-+       __u32 __reserved;
-+       __u64 n;                /* modulus */
-+       __u64 input;            /* ciphertext */
-+       __u64 output;           /* plaintext output */
-+       __u64 key_ref;          /* private key DS reference */
-+};
-+
-+struct cmh_ioctl_pke_rsa_crt_dec {
-+       __u32 version;
-+       __u32 bits;
-+       __u64 e;
-+       __u32 e_len;
-+       __u32 __reserved;
-+       __u64 n;
-+       __u64 input;
-+       __u64 output;
-+       __u64 crt_ref;          /* CRT key DS reference */
-+};
-+
-+struct cmh_ioctl_pke_rsa_keygen {
-+       __u32 version;
-+       __u32 bits;             /* key size in bits */
-+       __u64 e;                /* user-space pointer to public exponent */
-+       __u32 e_len;
-+       __u32 flags;            /* CMH_FLAG_* */
-+       __u64 n;                /* [out] user-space pointer to modulus buffer */
-+       __u64 d_cid;            /* CID for private key DS entry */
-+       __u64 d_ref;            /* [out] private key reference */
-+       __u64 crt_cid;          /* CID for CRT key DS entry (0 = skip CRT) */
-+       __u64 crt_ref;          /* [out] CRT key reference */
-+};
-+
-+struct cmh_ioctl_pke_ecdsa_sign {
-+       __u32 version;
-+       __u32 curve;            /* ABI curve ID (e.g. 0x03 = P-256) */
-+       __u64 digest;           /* user-space pointer to hash digest */
-+       __u32 digest_len;       /* digest length in bytes */
-+       __u32 __reserved;
-+       __u64 signature;        /* [out] user-space pointer to (r,s) */
-+       __u64 key_ref;          /* private key DS reference */
-+};
-+
-+struct cmh_ioctl_pke_ecdh {
-+       __u32 version;
-+       __u32 curve;
-+       __u64 peer_key_x;       /* user-space pointer to peer public key X */
-+       __u64 key_ref;          /* private key DS reference */
-+       __u32 flags;            /* CMH_PKE_FLAG_DS_RESULT */
-+       __u32 __reserved;
-+       __u64 result_cid;       /* CID for DS result (if FLAG_DS_RESULT) */
-+       __u64 output;           /* [out] raw shared secret or DS ref */
-+};
-+
-+struct cmh_ioctl_pke_ecdh_keygen {
-+       __u32 version;
-+       __u32 curve;
-+       __u64 key_ref;          /* private key DS reference */
-+       __u64 public_key_x;     /* [out] user-space pointer to public key X */
-+};
-+
-+struct cmh_ioctl_pke_eddsa_sign {
-+       __u32 version;
-+       __u32 curve;            /* CURVE_25519 or CURVE_448 */
-+       __u64 digest;           /* user-space ptr to message (not digest) */
-+       __u32 digest_len;
-+       __u32 __reserved;
-+       __u64 signature;        /* [out] user-space pointer to signature */
-+       __u64 key_ref;          /* private key DS reference */
-+};
-+
-+struct cmh_ioctl_pke_eddsa_verify {
-+       __u32 version;
-+       __u32 curve;
-+       __u64 digest;
-+       __u32 digest_len;
-+       __u32 __reserved;
-+       __u64 signature;
-+       __u64 public_key_y;     /* user-space pointer to public key Y */
-+};
-+
-+struct cmh_ioctl_pke_ec_keygen {
-+       __u32 version;
-+       __u32 curve;
-+       __u32 flags;            /* CMH_FLAG_* */
-+       __u32 __reserved;
-+       __u64 cid;              /* CID for the new key DS entry */
-+       __u64 ref;              /* [out] private key reference */
-+};
-+
-+struct cmh_ioctl_pke_ec_pubgen {
-+       __u32 version;
-+       __u32 curve;
-+       __u64 key_ref;          /* private key DS reference */
-+       __u64 public_key;       /* [out] user-space pointer to public key */
-+};
-+
-+struct cmh_ioctl_pke_eddsa_keygen_sca {
-+       __u32 version;
-+       __u32 curve;            /* must be CURVE_448 */
-+       __u64 key_ref;          /* input: normal Ed448 private key DS ref */
-+       __u64 cid;              /* CID for the new SCA key DS entry */
-+       __u64 sca_ref;          /* [out] SCA private key reference */
-+};
-+
-+/*
-+ * ioctl numbers -- type 'J', sequential.
-+ * 'C' conflicts with OSS sound, CAPI/ISDN, and COSA WAN drivers;
-+ * 'J' is unregistered in Documentation/userspace-api/ioctl/ioctl-number.rst.
-+ */
-+
-+#define CMH_MGMT_IOC_MAGIC     'J'
-+
-+#define CMH_IOCTL_KEY_NEW      _IOWR(CMH_MGMT_IOC_MAGIC, 0x01, struct cmh_ioctl_key_new)
-+#define CMH_IOCTL_KEY_WRITE    _IOW(CMH_MGMT_IOC_MAGIC,  0x02, struct cmh_ioctl_key_write)
-+#define CMH_IOCTL_KEY_READ     _IOWR(CMH_MGMT_IOC_MAGIC, 0x03, struct cmh_ioctl_key_read)
-+#define CMH_IOCTL_KEY_FIND     _IOWR(CMH_MGMT_IOC_MAGIC, 0x04, struct cmh_ioctl_key_find)
-+#define CMH_IOCTL_KEY_GRANT    _IOW(CMH_MGMT_IOC_MAGIC,  0x05, struct cmh_ioctl_key_grant)
-+#define CMH_IOCTL_KEY_DELETE   _IOW(CMH_MGMT_IOC_MAGIC,  0x06, struct cmh_ioctl_key_grant)
-+#define CMH_IOCTL_DS_EXPORT    _IOWR(CMH_MGMT_IOC_MAGIC, 0x07, struct cmh_ioctl_ds_export)
-+#define CMH_IOCTL_DS_IMPORT    _IOW(CMH_MGMT_IOC_MAGIC,  0x08, struct cmh_ioctl_ds_import)
-+#define CMH_IOCTL_KIC_HKDF1    _IOWR(CMH_MGMT_IOC_MAGIC, 0x09, struct cmh_ioctl_kic_hkdf1)
-+#define CMH_IOCTL_KIC_HKDF2    _IOWR(CMH_MGMT_IOC_MAGIC, 0x0A, struct cmh_ioctl_kic_hkdf2)
-+#define CMH_IOCTL_KEY_NEW_RANDOM _IOWR(CMH_MGMT_IOC_MAGIC, 0x0B, struct cmh_ioctl_key_new)
-+#define CMH_IOCTL_KIC_AES_CMAC_KDF _IOWR(CMH_MGMT_IOC_MAGIC, 0x0C, \
-+                                       struct cmh_ioctl_kic_aes_cmac_kdf)
-+#define CMH_IOCTL_KIC_DKEK_DERIVE _IOWR(CMH_MGMT_IOC_MAGIC, 0x0D, \
-+                                       struct cmh_ioctl_kic_dkek_derive)
-+#define CMH_IOCTL_KEY_LIST     _IOWR(CMH_MGMT_IOC_MAGIC, 0x0E, struct cmh_ioctl_key_list)
-+
-+/* PKE operation ioctls */
-+#define CMH_IOCTL_PKE_RSA_ENC          _IOWR(CMH_MGMT_IOC_MAGIC, 0x10, \
-+                                       struct cmh_ioctl_pke_rsa_enc)
-+#define CMH_IOCTL_PKE_RSA_DEC          _IOWR(CMH_MGMT_IOC_MAGIC, 0x11, \
-+                                       struct cmh_ioctl_pke_rsa_dec)
-+#define CMH_IOCTL_PKE_RSA_CRT_DEC      _IOWR(CMH_MGMT_IOC_MAGIC, 0x12, \
-+                                       struct cmh_ioctl_pke_rsa_crt_dec)
-+#define CMH_IOCTL_PKE_RSA_KEYGEN       _IOWR(CMH_MGMT_IOC_MAGIC, 0x13, \
-+                                       struct cmh_ioctl_pke_rsa_keygen)
-+#define CMH_IOCTL_PKE_ECDSA_SIGN       _IOWR(CMH_MGMT_IOC_MAGIC, 0x14, \
-+                                       struct cmh_ioctl_pke_ecdsa_sign)
-+#define CMH_IOCTL_PKE_ECDH             _IOWR(CMH_MGMT_IOC_MAGIC, 0x16, \
-+                                       struct cmh_ioctl_pke_ecdh)
-+#define CMH_IOCTL_PKE_ECDH_KEYGEN      _IOWR(CMH_MGMT_IOC_MAGIC, 0x17, \
-+                                       struct cmh_ioctl_pke_ecdh_keygen)
-+#define CMH_IOCTL_PKE_EDDSA_SIGN       _IOWR(CMH_MGMT_IOC_MAGIC, 0x18, \
-+                                       struct cmh_ioctl_pke_eddsa_sign)
-+#define CMH_IOCTL_PKE_EDDSA_VERIFY     _IOW(CMH_MGMT_IOC_MAGIC,  0x19, \
-+                                       struct cmh_ioctl_pke_eddsa_verify)
-+#define CMH_IOCTL_PKE_EC_KEYGEN                _IOWR(CMH_MGMT_IOC_MAGIC, 0x1A, \
-+                                       struct cmh_ioctl_pke_ec_keygen)
-+#define CMH_IOCTL_PKE_EC_PUBGEN                _IOWR(CMH_MGMT_IOC_MAGIC, 0x1B, \
-+                                       struct cmh_ioctl_pke_ec_pubgen)
-+#define CMH_IOCTL_PKE_EDDSA_KEYGEN_SCA _IOWR(CMH_MGMT_IOC_MAGIC, 0x1C, \
-+                                       struct cmh_ioctl_pke_eddsa_keygen_sca)
-+
-+/* -- PQC ioctl argument structures ----------- */
-+
-+/*
-+ * PQC operation flags (bits [2:0]).
-+ * PQC keygen ioctls accept CMH_FLAG_PT in bits [18:16] to explicitly
-+ * set the DS key storage attribute when CMH_QSE_FLAG_DS_REF is set.
-+ * CMH_FLAG_SCA and CMH_FLAG_XC are rejected -- QSE SCA protection uses
-+ * polynomial masking (CMH_QSE_FLAG_MASKED), not 2-share storage,
-+ * and the eSW dec/sign paths hardcode SYS_TYPE_FLAG_PT.
-+ * If no CMH_FLAG_* bits are set, DS keys default to CMH_FLAG_PT.
-+ */
-+#define CMH_QSE_FLAG_MASKED    _BITUL(0)       /* use masked (SCA-resistant) HW commands */
-+#define CMH_QSE_FLAG_DS_REF    _BITUL(1)       /* store key output in DS, return ref */
-+#define CMH_QSE_FLAG_HW_RNG    _BITUL(2)       /* use HW RNG for seed/randomness */
-+#define CMH_QSE_FLAG_MASK      (_BITUL(0) | _BITUL(1) | _BITUL(2))
-+
-+/* -- SYS wrap header size -------------------- */
-+/* sys_read prepends a 16-byte header even for plaintext reads */
-+#define CMH_SYS_WRAP_HDR_SIZE  16
-+
-+/* -- Seed / randomness lengths --------------- */
-+
-+#define CMH_QSE_SEED_LEN               32      /* ML-KEM/ML-DSA seed size */
-+#define CMH_QSE_SEED_LEN_MASKED                64      /* seed size for masked mode */
-+
-+/* -- ML-DSA ExternalMu sentinel -------------- */
-+/* Pass this as mlen to use 64-byte pre-hashed mu instead of raw message */
-+#define CMH_ML_DSA_MLEN_EXTERNAL_MU    0xFFFFFFFFU
-+
-+/* -- ML-KEM size macros ---------------------- */
-+
-+#define CMH_ML_KEM_EK_SIZE(k)          (384U * (k) + 32U)
-+#define CMH_ML_KEM_DK_SIZE(k)          (768U * (k) + 96U)
-+/* CT sizes: k=2 -> 768, k=3 -> 1088, k=4 -> 1568 */
-+#define CMH_ML_KEM_CT_SIZE_512         768U
-+#define CMH_ML_KEM_CT_SIZE_768         1088U
-+#define CMH_ML_KEM_CT_SIZE_1024                1568U
-+#define CMH_ML_KEM_SS_LEN              32U
-+
-+/* -- ML-DSA size macros ---------------------- */
-+/* Indexed by mode: [0]=44 (mode=2), [1]=65 (mode=3), [2]=87 (mode=5) */
-+
-+#define CMH_ML_DSA_44_PK_SIZE          1312U
-+#define CMH_ML_DSA_44_SK_SIZE          2560U
-+#define CMH_ML_DSA_44_SIG_SIZE         2420U
-+#define CMH_ML_DSA_65_PK_SIZE          1952U
-+#define CMH_ML_DSA_65_SK_SIZE          4032U
-+#define CMH_ML_DSA_65_SIG_SIZE         3309U
-+#define CMH_ML_DSA_87_PK_SIZE          2592U
-+#define CMH_ML_DSA_87_SK_SIZE          4896U
-+#define CMH_ML_DSA_87_SIG_SIZE         4627U
-+
-+/* -- SLH-DSA parameter set IDs --------------- */
-+
-+#define CMH_SLHDSA_SHAKE_128S          1U
-+#define CMH_SLHDSA_SHAKE_128F          2U
-+#define CMH_SLHDSA_SHAKE_192S          3U
-+#define CMH_SLHDSA_SHAKE_192F          4U
-+#define CMH_SLHDSA_SHAKE_256S          5U
-+#define CMH_SLHDSA_SHAKE_256F          6U
-+#define CMH_SLHDSA_SHA2_128S           7U
-+#define CMH_SLHDSA_SHA2_128F           8U
-+#define CMH_SLHDSA_SHA2_192S           9U
-+#define CMH_SLHDSA_SHA2_192F           10U
-+#define CMH_SLHDSA_SHA2_256S           11U
-+#define CMH_SLHDSA_SHA2_256F           12U
-+#define CMH_SLHDSA_PARAM_MAX           12U
-+
-+/* SLH-DSA prehash algorithm IDs */
-+#define CMH_SLHDSA_PREHASH_SHA256      1U
-+#define CMH_SLHDSA_PREHASH_SHA512      2U
-+#define CMH_SLHDSA_PREHASH_SHAKE128    3U
-+#define CMH_SLHDSA_PREHASH_SHAKE256    4U
-+#define CMH_SLHDSA_PREHASH_MAX         4U
-+
-+/* SLH-DSA n-value table indexed by (param_set - 1) */
-+#define CMH_SLHDSA_N_128               16U
-+#define CMH_SLHDSA_N_192               24U
-+#define CMH_SLHDSA_N_256               32U
-+
-+/* SLH-DSA key sizes: pk = 2*n, sk = 4*n, seed = 3*n */
-+#define CMH_SLHDSA_PK_SIZE(n)          (2U * (n))
-+#define CMH_SLHDSA_SK_SIZE(n)          (4U * (n))
-+#define CMH_SLHDSA_SEED_SIZE(n)                (3U * (n))
-+
-+/* SLH-DSA signature sizes indexed by (param_set - 1) */
-+#define CMH_SLHDSA_SIG_SIZE_SHAKE_128S 7856U
-+#define CMH_SLHDSA_SIG_SIZE_SHAKE_128F 17088U
-+#define CMH_SLHDSA_SIG_SIZE_SHAKE_192S 16224U
-+#define CMH_SLHDSA_SIG_SIZE_SHAKE_192F 35664U
-+#define CMH_SLHDSA_SIG_SIZE_SHAKE_256S 29792U
-+#define CMH_SLHDSA_SIG_SIZE_SHAKE_256F 49856U
-+#define CMH_SLHDSA_SIG_SIZE_SHA2_128S  7856U
-+#define CMH_SLHDSA_SIG_SIZE_SHA2_128F  17088U
-+#define CMH_SLHDSA_SIG_SIZE_SHA2_192S  16224U
-+#define CMH_SLHDSA_SIG_SIZE_SHA2_192F  35664U
-+#define CMH_SLHDSA_SIG_SIZE_SHA2_256S  29792U
-+#define CMH_SLHDSA_SIG_SIZE_SHA2_256F  49856U
-+
-+/* -- PKE curve IDs -------------- */
-+
-+#define CMH_CURVE_P192                 0x01U
-+#define CMH_CURVE_P224                 0x02U
-+#define CMH_CURVE_P256                 0x03U
-+#define CMH_CURVE_P384                 0x04U
-+#define CMH_CURVE_P521                 0x05U
-+#define CMH_CURVE_SECP256K1            0x07U
-+#define CMH_CURVE_BP192R1              0x11U
-+#define CMH_CURVE_BP224R1              0x12U
-+#define CMH_CURVE_BP256R1              0x13U
-+#define CMH_CURVE_BP320R1              0x14U
-+#define CMH_CURVE_BP384R1              0x15U
-+#define CMH_CURVE_BP512R1              0x16U
-+#define CMH_CURVE_SM2                  0x18U
-+#define CMH_CURVE_25519                        0x21U
-+#define CMH_CURVE_448                  0x22U
-+
-+/* ML-KEM */
-+
-+struct cmh_ioctl_ml_kem_keygen {
-+       __u32 version;
-+       __u32 k;                /* security parameter: 2/3/4 */
-+       __u32 flags;            /* CMH_QSE_FLAG_* */
-+       __u32 __reserved;
-+       __u64 seed;             /* user-space pointer to seed (or 0 for HW RNG) */
-+       __u64 z;                /* user-space pointer to z (or 0 for HW RNG) */
-+       __u64 ek;               /* [out] user-space pointer to encapsulation key */
-+       __u64 dk;               /* [out] user-space pointer to decapsulation key
-+                                * or [out] DS ref if CMH_QSE_FLAG_DS_REF
-+                                */
-+       __u64 dk_cid;           /* CID for DS entry (if DS_REF) */
-+       __u64 dk_ref;           /* [out] dk DS reference (if DS_REF) */
-+};
-+
-+struct cmh_ioctl_ml_kem_enc {
-+       __u32 version;
-+       __u32 k;
-+       __u32 flags;            /* CMH_QSE_FLAG_* */
-+       __u32 __reserved;
-+       __u64 coin;             /* user-space pointer to random coin (or 0) */
-+       __u64 ek;               /* user-space pointer to encapsulation key */
-+       __u64 ct;               /* [out] user-space pointer to ciphertext */
-+       __u64 ss;               /* [out] user-space pointer to shared secret */
-+       __u64 __reserved2[2];   /* reserved for future use */
-+};
-+
-+struct cmh_ioctl_ml_kem_dec {
-+       __u32 version;
-+       __u32 k;
-+       __u32 flags;            /* CMH_QSE_FLAG_* */
-+       __u32 __reserved;
-+       __u64 ct;               /* user-space pointer to ciphertext */
-+       __u64 dk;               /* user-space pointer to dk or DS ref */
-+       __u64 ss;               /* [out] user-space pointer to shared secret */
-+       __u64 __reserved2[2];   /* reserved for future use */
-+};
-+
-+/* ML-DSA */
-+
-+struct cmh_ioctl_ml_dsa_keygen {
-+       __u32 version;
-+       __u32 mode;             /* security parameter: 2/3/5 */
-+       __u32 flags;            /* CMH_QSE_FLAG_* */
-+       __u32 __reserved;
-+       __u64 seed;             /* user-space pointer to seed (or 0 for HW RNG) */
-+       __u64 pk;               /* [out] user-space pointer to public key */
-+       __u64 sk;               /* [out] user-space pointer to secret key
-+                                * or [out] DS ref if CMH_QSE_FLAG_DS_REF
-+                                */
-+       __u64 sk_cid;           /* CID for DS entry (if DS_REF) */
-+       __u64 sk_ref;           /* [out] sk DS reference (if DS_REF) */
-+};
-+
-+struct cmh_ioctl_ml_dsa_sign {
-+       __u32 version;
-+       __u32 mode;
-+       __u32 flags;            /* CMH_QSE_FLAG_* */
-+       __u32 mlen;             /* message length in bytes */
-+       __u64 m;                /* user-space pointer to message */
-+       __u64 sk;               /* user-space pointer to sk or DS ref */
-+       __u64 sig;              /* [out] user-space pointer to signature */
-+       __u64 rnd;              /* user-space pointer to randomness (or 0) */
-+};
-+
-+/* SLH-DSA */
-+
-+struct cmh_ioctl_slhdsa_keygen {
-+       __u32 version;
-+       __u32 parameter_set;    /* HCQ_SLHDSA_SHAKE_128S .. SHA2_256F */
-+       __u32 flags;            /* CMH_QSE_FLAG_DS_REF */
-+       __u32 __reserved;
-+       __u64 seed;             /* user-space pointer to seed */
-+       __u64 pk;               /* [out] user-space pointer to public key */
-+       __u64 sk;               /* [out] user-space pointer to secret key
-+                                * or [out] DS ref if CMH_QSE_FLAG_DS_REF
-+                                */
-+       __u64 sk_cid;           /* CID for DS entry (if DS_REF) */
-+       __u64 sk_ref;           /* [out] sk DS reference (if DS_REF) */
-+};
-+
-+struct cmh_ioctl_slhdsa_sign {
-+       __u32 version;
-+       __u32 parameter_set;
-+       __u32 msg_len;
-+       __u32 ctx_len;
-+       __u64 msg;              /* user-space pointer to message */
-+       __u64 ctx;              /* user-space pointer to context (or 0) */
-+       __u64 sk;               /* DS ref for secret key */
-+       __u64 sig;              /* [out] user-space pointer to signature */
-+       __u64 add_random;       /* user-space pointer to addl. randomness (or 0) */
-+};
-+
-+struct cmh_ioctl_slhdsa_sign_prehash {
-+       __u32 version;
-+       __u32 parameter_set;
-+       __u32 prehash_algo;     /* CMH_SLHDSA_PREHASH_* */
-+       __u32 digest;           /* 0 = raw msg (eSW hashes), 1 = pre-computed digest */
-+       __u32 msg_len;
-+       __u32 ctx_len;
-+       __u64 msg;              /* user-space pointer to message/digest */
-+       __u64 ctx;              /* user-space pointer to context (or 0) */
-+       __u64 sk;               /* DS ref for secret key */
-+       __u64 sig;              /* [out] user-space pointer to signature */
-+       __u64 add_random;       /* user-space pointer to addl. randomness (or 0) */
-+};
-+
-+/* -- SM2 ioctl argument structures ----------- */
-+
-+/* SM2 fixed key sizes (sm2p256v1 curve, 256-bit) */
-+#define CMH_SM2_CLEN                   32U     /* coordinate length */
-+#define CMH_SM2_PUBKEY_LEN             64U     /* uncompressed (x||y) */
-+#define CMH_SM2_POINT_LEN              64U     /* EC point (x||y) */
-+#define CMH_SM2_SHARED_KEY_LEN         16U     /* ECDH shared key */
-+#define CMH_SM2_DIGEST_LEN             32U     /* SM3 digest (ZA) */
-+/*
-+ * SM2 enc_hash/dec_hash payload limit.
-+ *
-+ * The eSW PKE driver implements only a single-block GM/T 0003.4 KDF
-+ * (one SM3 invocation, 32 bytes of key stream).  Longer messages would
-+ * silently produce incorrect ciphertext / plaintext, so the driver caps
-+ * the payload at 32 bytes.  See Documentation/ABI/testing/cmh-mgmt.
-+ */
-+#define CMH_SM2_MAX_MSG_LEN            32U     /* encrypt/decrypt */
-+#define CMH_SM2_MAX_ID_LEN             32U     /* identity string */
-+#define CMH_SM2_CT_OVERHEAD            96U     /* C1(64) + C3(32) */
-+#define CMH_SM2_MAX_CT_LEN             128U    /* 96 + max_msg = 128 */
-+
-+struct cmh_ioctl_sm2_ecdh_keygen {
-+       __u32 version;
-+       __u32 nonce_len;        /* 0 = HW generates r (written back), 32 = caller provides r */
-+       __u64 nonce;            /* [in/out] user-space pointer to nonce buffer (32B) */
-+       __u64 session_key;      /* [out] user-space pointer to session key R=r*G (64B) */
-+};
-+
-+struct cmh_ioctl_sm2_ecdh {
-+       __u32 version;
-+       __u32 nonce_len;        /* 0 = HW generates (written back), 32 = caller provides */
-+       __u64 nonce;            /* [in/out] user-space pointer to nonce r (32B) */
-+       __u64 peer_public_key;  /* user-space pointer to peer pub key (64B) */
-+       __u64 peer_session_key; /* user-space pointer to peer session key (64B) */
-+       __u64 key_ref;          /* private key DS reference */
-+       __u64 shared_point;     /* [out] user-space pointer to shared point (64B) */
-+       __u64 shared_point_ref; /* [in/out] 0 = read-back mode; &ref = keep DS, write ref */
-+};
-+
-+struct cmh_ioctl_sm2_dec_point {
-+       __u32 version;
-+       __u32 ciphertext_len;   /* total ciphertext length (97..128) */
-+       __u64 ciphertext;       /* user-space pointer to ciphertext (64B: C1) */
-+       __u64 dec_point;        /* [out] user-space pointer to dec point (64B) */
-+       __u64 key_ref;          /* private key DS reference */
-+};
-+
-+struct cmh_ioctl_sm2_enc_point {
-+       __u32 version;
-+       __u32 nonce_len;        /* 0 = HW generates, 32 = caller provides */
-+       __u64 nonce;            /* user-space pointer to nonce (or 0) */
-+       __u64 public_key;       /* user-space pointer to public key (64B) */
-+       __u64 ciphertext;       /* [out] user-space pointer to C1 (64B) */
-+       __u64 enc_point;        /* [out] user-space pointer to enc point (64B) */
-+};
-+
-+struct cmh_ioctl_sm2_id_digest {
-+       __u32 version;
-+       __u32 id_len;           /* identity length in bytes (<=32) */
-+       __u64 id;               /* user-space pointer to identity string */
-+       __u64 public_key;       /* user-space pointer to public key (64B) */
-+       __u64 digest;           /* [out] user-space pointer to ZA digest (32B) */
-+};
-+
-+/*
-+ * SM2 ECDH_HASH -- derive shared key from shared point + ZA digests.
-+ *
-+ * IMPORTANT: The digest fields use ABSOLUTE ordering per GM/T 0003.3,
-+ * NOT relative own/peer ordering.  Both parties must pass:
-+ *   peer_id_digest = Z_A (initiator's digest) -- hashed FIRST
-+ *   id_digest      = Z_B (responder's digest) -- hashed SECOND
-+ * The eSW computes: KDF(shared_point || peer_id_digest || id_digest).
-+ */
-+struct cmh_ioctl_sm2_ecdh_hash {
-+       __u32 version;
-+       __u32 __reserved;
-+       __u64 peer_id_digest;   /* ptr to Z_A -- initiator's digest (32B) */
-+       __u64 id_digest;        /* ptr to Z_B -- responder's digest (32B) */
-+       __u64 shared_point_ref; /* DS reference from SM2_ECDH */
-+       __u64 shared_key;       /* [out] ptr to shared key (16B) */
-+};
-+
-+struct cmh_ioctl_sm2_dec_hash {
-+       __u32 version;
-+       __u32 ciphertext_len;   /* ciphertext length (97..128) */
-+       __u64 ciphertext;       /* user-space pointer to full ciphertext */
-+       __u64 dec_point;        /* user-space pointer to dec point (64B) */
-+       __u64 plaintext;        /* [out] user-space pointer to plaintext */
-+};
-+
-+struct cmh_ioctl_sm2_enc_hash {
-+       __u32 version;
-+       __u32 message_len;      /* message length (1..32) */
-+       __u64 message;          /* user-space pointer to plaintext */
-+       __u64 enc_point;        /* user-space pointer to enc point (64B) */
-+       __u64 ciphertext;       /* [out] user-space pointer to ciphertext */
-+};
-+
-+/* PQC ioctl numbers */
-+#define CMH_IOCTL_ML_KEM_KEYGEN                _IOWR(CMH_MGMT_IOC_MAGIC, 0x20, \
-+                                       struct cmh_ioctl_ml_kem_keygen)
-+#define CMH_IOCTL_ML_KEM_ENC           _IOWR(CMH_MGMT_IOC_MAGIC, 0x21, \
-+                                       struct cmh_ioctl_ml_kem_enc)
-+#define CMH_IOCTL_ML_KEM_DEC           _IOWR(CMH_MGMT_IOC_MAGIC, 0x22, \
-+                                       struct cmh_ioctl_ml_kem_dec)
-+#define CMH_IOCTL_ML_DSA_KEYGEN                _IOWR(CMH_MGMT_IOC_MAGIC, 0x23, \
-+                                       struct cmh_ioctl_ml_dsa_keygen)
-+#define CMH_IOCTL_ML_DSA_SIGN          _IOWR(CMH_MGMT_IOC_MAGIC, 0x24, \
-+                                       struct cmh_ioctl_ml_dsa_sign)
-+#define CMH_IOCTL_SLHDSA_KEYGEN                _IOWR(CMH_MGMT_IOC_MAGIC, 0x28, \
-+                                       struct cmh_ioctl_slhdsa_keygen)
-+#define CMH_IOCTL_SLHDSA_SIGN          _IOWR(CMH_MGMT_IOC_MAGIC, 0x29, \
-+                                       struct cmh_ioctl_slhdsa_sign)
-+#define CMH_IOCTL_SLHDSA_SIGN_PREHASH  _IOWR(CMH_MGMT_IOC_MAGIC, 0x2D, \
-+                                       struct cmh_ioctl_slhdsa_sign_prehash)
-+
-+/* SM2 operation ioctls */
-+#define CMH_IOCTL_SM2_ECDH_KEYGEN      _IOWR(CMH_MGMT_IOC_MAGIC, 0x30, \
-+                                       struct cmh_ioctl_sm2_ecdh_keygen)
-+#define CMH_IOCTL_SM2_ECDH             _IOWR(CMH_MGMT_IOC_MAGIC, 0x31, \
-+                                       struct cmh_ioctl_sm2_ecdh)
-+#define CMH_IOCTL_SM2_DEC_POINT                _IOWR(CMH_MGMT_IOC_MAGIC, 0x32, \
-+                                       struct cmh_ioctl_sm2_dec_point)
-+#define CMH_IOCTL_SM2_ENC_POINT                _IOWR(CMH_MGMT_IOC_MAGIC, 0x33, \
-+                                       struct cmh_ioctl_sm2_enc_point)
-+#define CMH_IOCTL_SM2_ID_DIGEST                _IOWR(CMH_MGMT_IOC_MAGIC, 0x34, \
-+                                       struct cmh_ioctl_sm2_id_digest)
-+#define CMH_IOCTL_SM2_ECDH_HASH                _IOWR(CMH_MGMT_IOC_MAGIC, 0x35, \
-+                                       struct cmh_ioctl_sm2_ecdh_hash)
-+#define CMH_IOCTL_SM2_DEC_HASH         _IOWR(CMH_MGMT_IOC_MAGIC, 0x36, \
-+                                       struct cmh_ioctl_sm2_dec_hash)
-+#define CMH_IOCTL_SM2_ENC_HASH         _IOWR(CMH_MGMT_IOC_MAGIC, 0x37, \
-+                                       struct cmh_ioctl_sm2_enc_hash)
-+
-+/*
-+ * EAC (Error and Alarm Controller) -- read and clear error registers.
-+ *
-+ * Returns a snapshot of all hardware error/safety/notification registers.
-+ * The eSW atomically reads and clears the registers on each call, so
-+ * successive reads show only new events.
-+ */
-+struct cmh_ioctl_eac_read {
-+       __u32 version;                  /* must be CMH_MGMT_V1 */
-+       __u32 __reserved;
-+       __u64 mailbox_notification;     /* [out] MBX safety notification bitmask */
-+       __u32 hw_error;                 /* [out] HWC error bitmask */
-+       __u32 hw_nmi;                   /* [out] HWC NMI bitmask */
-+       __u32 hw_panic;                 /* [out] HWC panic bitmask */
-+       __u32 safety_fatal;             /* [out] HWC fatal safety bitmask */
-+       __u32 safety_notification;      /* [out] HWC safety notification bitmask */
-+       __u32 sw_info0;                 /* [out] eSW tracing info */
-+       __u32 sw_info1;                 /* [out] eSW tracing info */
-+       __u32 sram_bank_errors[4];      /* [out] correctable ECC error counts */
-+       __u32 __pad;                    /* explicit tail padding (prevent info leak) */
-+};
-+
-+/*
-+ * DRBG CONFIG -- configure the hardware DRBG before first use.
-+ *
-+ * This is a management operation normally performed once at system
-+ * start-up.  Must be called before any hwrng reads or DRBG GENERATE
-+ * operations.
-+ */
-+#define CMH_DRBG_RATIO_ONE             0       /* 1:1 entropy ratio */
-+#define CMH_DRBG_RATIO_ONE_HALF                1       /* 1:2 */
-+#define CMH_DRBG_RATIO_ONE_THIRD       2       /* 1:3 */
-+#define CMH_DRBG_RATIO_ONE_FOURTH      3       /* 1:4 */
-+
-+#define CMH_DRBG_STRENGTH_128          0x00    /* 128-bit security */
-+#define CMH_DRBG_STRENGTH_256          0x10    /* 256-bit security */
-+
-+struct cmh_ioctl_drbg_config {
-+       __u32 version;                  /* must be CMH_MGMT_V1 */
-+       __u32 entropy_ratio;            /* CMH_DRBG_RATIO_* */
-+       __u32 security_strength;        /* CMH_DRBG_STRENGTH_* */
-+       __u32 __reserved;
-+};
-+
-+/* EAC ioctl number */
-+#define CMH_IOCTL_EAC_READ             _IOWR(CMH_MGMT_IOC_MAGIC, 0x0F, \
-+                                       struct cmh_ioctl_eac_read)
-+
-+/* DRBG management ioctl number */
-+#define CMH_IOCTL_DRBG_CONFIG          _IOW(CMH_MGMT_IOC_MAGIC, 0x40, \
-+                                       struct cmh_ioctl_drbg_config)
-+
-+#endif /* _UAPI_CMH_MGMT_IOCTL_H */
---
-2.43.7
+-- 
+2.54.0
 
 
-** This message and any attachments are for the sole use of the intended recipient(s). It may contain information that is confidential and privileged. If you are not the intended recipient of this message, you are prohibited from printing, copying, forwarding or saving it. Please delete the message and attachments and notify the sender immediately. **
-
-Rambus Inc.<http://www.rambus.com>
 
 _______________________________________________
 linux-riscv mailing list
