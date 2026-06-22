@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03053CDB46F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 18:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0076CDB470
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 21:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LKrGV3XQUp3HKhWDJEPaiP4tz2Mbc+/SrH85zkml3Xs=; b=g7L5+8TZLHiSP7
-	qLTiqkjH4GFSl7q25VW1reobFgOiorTQLMwQLxjp/rpBoskv6fmodpS7V+ksKzp3CkotbFU4HO7Gk
-	IdPW5521jV0FQKNh7aP8kLwGolAHq3LGjcbxQVSapx1ILrmMBrH1f8orZYo0AXBNqgzfEQZGpvhQD
-	yUXtLmKh1WLHyRRxAo1khTtOVBIuvCOutJvskC7QzrlTCCb+/jgV5Fqbd+sncLLPgM7sLVutF2X9w
-	upFIjeuY8SXNxqzgVTeTii/3sEueQI3q/ZBka4lxTybKxOqknOj5m7dNjRpqgdLYRJGx+K8CoiwD9
-	5okX/PrT+QLoGQMuZdhQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HvmEEo8yDHaEb7AdBYpG1giquYUsEiOHHI2Xp9LRLWY=; b=V/9j5a8ym7OaQy
+	nF7LuTclUtP21AQd8CIqpcdm9N/EQy1sE0UzSy/Da1YLf/RXdMSND0wMoOWRzGQa6dnQnG73IhJok
+	h8l3xDr3yGF0OjvZ8CH+o6TcwyoglUP0DW1aXG5MrGqMZKyIBOI/gqrLo7q5qht360WSqiCJM+rAS
+	ZPiQcHQz9V141o3rmg56UsfpoZgLulOazmsMGS5Tmq3yal3CEomCF5XaQgb2c2r8l98uMCn6P3vSw
+	7rWJbzm8RkKHPSB4HsKlr5XTIc873ZC6Xd5oNAI6he1UNzpGWMjw95PuL4wXJU5aF1/EPKNecEHdX
+	tgn0Dtng5eua8CuCMPNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjJR-00000005IMh-0qkW;
-	Mon, 22 Jun 2026 18:24:01 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wblyb-00000005OL4-1Ne3;
+	Mon, 22 Jun 2026 21:14:41 +0000
+Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjJO-00000005IMJ-2kUi
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 18:23:59 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782152637;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QS25aE7f7r24J60S69DFeF+9M8rlw/O9k82LqPNua+w=;
-	b=BLhm88dCPvbGIbFcJUPY86yIK5/2RDwFIP5VZycxgNKGcY+3G+rKee4g8zms/VkCHYMtx+
-	zPYbIezwLeE9/HwpMQg5sD0JcyZrCuE17xvVnAp6Y3pFmD3NSK1ZPRPGYQxDdST39xJXpl
-	ALzm0MK1qu+5NY/7LNAD1DD6Yqm1Oxj1T9NOiinCJNcgSFmUD89Glv1J2lTs4qCFQrIpJD
-	AJK22TRunIqJ3ze8ggov9rm0QysTF0gxuN38OrGllRU6Ac0riWWJZcJDENXQJ2BwRn11cy
-	ugXp1OQBjnwX5zywpmfYzmZT2OrRSuKnRTDG24h/jJJmjRjN6GBHS7aZ6K0svA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782152637;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QS25aE7f7r24J60S69DFeF+9M8rlw/O9k82LqPNua+w=;
-	b=j4zdh1RyUH9wL1nTlY7Ptx8Qwb4ebMYMiETawSr8Z8a6EN2bNiM1Wm2fF7kNgS42dWyVl6
-	dL1V61azElZu3hDA==
-To: Ben Dooks <ben.dooks@codethink.co.uk>, linux-raid@vger.kernel.org, Song
- Liu <song@kernel.org>, Yu Kuai <yukuai@fygo.io>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Ben Dooks
- <ben.dooks@codethink.co.uk>
-Subject: Re: [PATCH] raid6: fix riscv symbol undeclared warnigns
-In-Reply-To: <20260622135207.480540-1-ben.dooks@codethink.co.uk>
-References: <20260622135207.480540-1-ben.dooks@codethink.co.uk>
-Date: Mon, 22 Jun 2026 20:23:56 +0200
-Message-ID: <87bjd2v3gj.fsf@yellow.woof>
+	id 1wblyY-00000005OKU-2011;
+	Mon, 22 Jun 2026 21:14:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1782162878; x=1813698878;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=D3y8PBJx5rtb8CmEmDXgcyrYvH9ZgsAHrPcIa59UTq4=;
+  b=QOtJGwOcwDOtcQuxX9CcU1zqcauPlZRqUAvCTT4zaACEw0LbUVYC0/52
+   +9O2Eq+CrnGbg3ew1Huu6HY83/4zZkkSt4t8D08JgW+PoUxmOe2+cNPlZ
+   ALDhvqKDbaQRYzAq8cFRid2BkFji+tz2rzB2WG0gLEVw1SEzERG09Z1S/
+   1gRCGAS5JSwWAQOdQTWnUhS1qOxl+f4D7RUflKcA6cMo2KtkdvgdsOtuV
+   ouvESiu17V/vsOUAHZIJIWswWO9zILrIMyzZOiMsBr/euUTt2XDu0zVJz
+   hNrhZmwNj0zE/HOv7Rvjxsc2TqRgm9CTnVqbcSRVvR7g4cwgcJCctKnOr
+   Q==;
+X-CSE-ConnectionGUID: oT3kSS77Tyq+c7aft27FLg==
+X-CSE-MsgGUID: M7T8Y9deSDeaWl9YgpU/sw==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 00:14:36 +0300
+X-CSE-ConnectionGUID: IJ4IgnLqQFWzySBMiwjKVQ==
+X-CSE-MsgGUID: aQq98ZxbQ3KVyRPomf/Zzg==
+Received: from unknown (HELO epgd034.me-corp.lan) ([10.154.54.3])
+  by ces04_data.me-crop.lan with SMTP; 23 Jun 2026 00:19:42 +0300
+Received: by epgd034.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 00:14:34 +0300
+From: Pnina Feder <pnina.feder@mobileye.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Dave Young <ruirui.yang@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kexec@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	Pnina Feder <pnina.feder@mobileye.com>
+Subject: [PATCH 0/4] vmcore-tasks: export per-task metadata to vmcoreinfo
+Date: Tue, 23 Jun 2026 00:14:26 +0300
+Message-ID: <20260622211430.4008899-1-pnina.feder@mobileye.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_112358_856515_2F1B427F 
-X-CRM114-Status: UNSURE (   4.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260622_141438_816354_49484DA7 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +92,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ben Dooks <ben.dooks@codethink.co.uk> writes:
-> The riscv rvv.c file is missing the include of pq_arch.h
-> which defines all the exported functions. Include this
-> to remove the following sparse warnings:
->
-> lib/raid/raid6/riscv/rvv.c:1225:1: warning: symbol 'raid6_rvvx1' was not declared. Should it be static?
-> lib/raid/raid6/riscv/rvv.c:1226:1: warning: symbol 'raid6_rvvx2' was not declared. Should it be static?
-> lib/raid/raid6/riscv/rvv.c:1227:1: warning: symbol 'raid6_rvvx4' was not declared. Should it be static?
-> lib/raid/raid6/riscv/rvv.c:1228:1: warning: symbol 'raid6_rvvx8' was not declared. Should it be static?
->
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+This series extends vmcoreinfo with struct offsets and sizes needed by
+the vmcore-tasks userspace tool to extract per-task state from a vmcore
+dump without requiring kernel debug symbols (DWARF/BTF).
 
-Reviewed-by: Nam Cao <namcao@linutronix.de>
+The vmcore-tasks tool reads /proc/vmcore (or a saved vmcore file) and
+reconstructs, for each task:
+  - task name, pid, state, flags
+  - VMA list (start, end, flags, backing file)
+  - user register state (saved on the kernel stack at kernel entry)
+  - user-space backtrace with VMA/filename mapping
+  - kernel dmesg buffer
+
+This provides a lightweight post-mortem crash analysis capability for
+production environments where full debug info (DWARF/BTF) is not
+available.
+
+The companion userspace tool is submitted to kexec-tools:
+  https://lore.kernel.org/all/20260622205550.1087163-1-pnina.feder@mobileye.com/
+
+The series is structured as follows:
+
+  Patch 1: Increase vmcoreinfo buffer from PAGE_SIZE to a fixed SZ_8K,
+           decoupled from page size to avoid waste on large-page
+           architectures (MIPS 16KB, arm64 64KB).
+
+  Patch 2: Export generic struct offsets (task_struct, mm_struct,
+           vm_area_struct, maple_tree, file/dentry/path, pt_regs,
+           signal_struct) needed to walk task lists and VMAs.
+
+  Patch 3: Export RISC-V arch-specific offsets (signal frame layouts,
+           register context structures) for user register extraction.
+
+  Patch 4: Export MIPS arch-specific offsets (signal frame layouts,
+           register context structures) for user register extraction.
+
+Additional architecture support (arm64, x86, etc.) can follow the
+same pattern established by patches 3 and 4.
+
+Tested on MIPS64 (QEMU Malta) and RISC-V with full kdump pipeline:
+primary kernel -> kexec panic -> crash kernel -> vmcore-tasks analysis.
+
+Pnina Feder (4):
+  vmcoreinfo: increase vmcoreinfo buffer to 8KB
+  vmcoreinfo: export task and mm struct offsets to vmcoreinfo
+  riscv: vmcore_info: export riscv arch-specific struct offsets to
+    vmcoreinfo
+  mips: vmcore_info: export mips arch-specific struct offsets to
+    vmcoreinfo
+
+ .../admin-guide/kdump/vmcoreinfo.rst          | 137 ++++++++++++++++++
+ arch/mips/kernel/Makefile                     |   1 +
+ arch/mips/kernel/signal.c                     |   8 +
+ arch/mips/kernel/vmcore_info.c                |  22 +++
+ arch/riscv/kernel/signal.c                    |   8 +
+ arch/riscv/kernel/vmcore_info.c               |  11 ++
+ include/linux/vmcore_info.h                   |   3 +-
+ kernel/vmcore_info.c                          |  60 ++++++++
+ 8 files changed, 249 insertions(+), 1 deletion(-)
+ create mode 100644 arch/mips/kernel/vmcore_info.c
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
