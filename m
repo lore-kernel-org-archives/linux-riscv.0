@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E73BCDB46B
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 06:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AB7CD98F6
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 06:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JqD1hh9kOEl7UYCDV86EuZ2EmpGbCaBldaK1UkU0Phg=; b=a+LCPvCVfW1Fa3
-	/lh4+escVmjDeF3tScPdRzkMUbJSVh8DDqx8heJiYKqc7rEt+sQ4vrlq5eTcIl899KqKiobqyJZ6n
-	JgenSWXaN2/yEwhMlvJxnrD8Oh1qy6lCOkxl0t/bLGFZ207k5TWgJEoiQmgOL2+Yh7nMJ2pxBMOnh
-	pnQ1Q7pNzzurps64SyZN1n46Hq8lf9QoW0gZ58m5bxaGbwihDSbU9ia8ljP4jyx3kCl1BveRlVZjt
-	mVCgb6Bk+yfYroNzUX3INOewHNsJY4q3hmGgF9vzGMX3HB32k9BwuMUmGCOR+B3nat8LZGionvfwA
-	3q9fFEjn3tgxab+iugcQ==;
+	List-Owner; bh=YY6+X1g0c8rVaoaULmfl3sPR9K6ofK7qAPsAdWADe4w=; b=KqvUqEXD/L7Az2
+	iT15yhs3BJwcKIPAO99EKClyrV1a9UdqE4hSYOFsyIHqibKJ4khGffJJjJQC8WTqDtI9aWuPequ93
+	lNbbF9H0SS/XJClayvH+Bqk7YtXZ0xadf2lD584PUErrS9O0ubmoaNAQdhxBwJYF+uahttVj91f+f
+	MFH6ZRpnObrsyJMJXDm+684UjzzpkBrj1Kx/LuFVlLYcgQANEaFUYndhqbKfGgnljMmFuEwAfax8T
+	8AIp9KtQ7U3hMGhkqNngQiSn7NaX0w04jtkkE/+rpmsKdiBUqcuvKmmBF3LaeClMxVnVx+yVJnvHY
+	QTGWOTgkzQeY8PeWAVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbYMQ-00000004UYv-2hKz;
-	Mon, 22 Jun 2026 06:42:22 +0000
-Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
+	id 1wbYNb-00000004Uiv-3oig;
+	Mon, 22 Jun 2026 06:43:35 +0000
+Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbYMN-00000004UXw-2k67
+	id 1wbYNZ-00000004Uht-3tKg
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 06:42:21 +0000
-Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-1390f75d8bbso2413791c88.0
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Jun 2026 23:42:19 -0700 (PDT)
+	Mon, 22 Jun 2026 06:43:35 +0000
+Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-1384ebe7a10so2328801c88.1
+        for <linux-riscv@lists.infradead.org>; Sun, 21 Jun 2026 23:43:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782110539; x=1782715339; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QILN8DTARoWh3OJ/o4dcikoIv6aHuZ0kwC7cM2/BMRM=;
-        b=coemxZpM5nOJ55aei8jMOqXGEDwFToFEJFxymNqQRQiQnlJ8U0a9MqETUktXDcoO/j
-         HsCxLltVHhL9dtKi+t5CgcdUtbvFOHEn3VfOA8VewH9+/IHqsf5HJPyZAORu6ezdUcAa
-         ZNEkUfSKyCxMQBRU2SRwNDN8KDdpK7YNZ6FYTJF+eU6A2Y1Rcah+oQeHkWbl1Mwd2ibd
-         eRl7XloYjlk0dIdQKcmKs4Ml2J8Bi4wKYfDhrJIJ5QXOoCMFJB6P82njxGHIRzuFNEPF
-         g09srwJghrd3iSzYAvHi9/1s+iKLiz72GH0D6ZRVro1UMlCOim4d5HEteDvzyucPxR5o
-         jwDg==
+        d=gmail.com; s=20251104; t=1782110613; x=1782715413; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=q/ijfEBLG2GDgKYljJEgtRrqYXmGeXk+QfQobYUMazc=;
+        b=MwZSJAWC11H80jLdZH4NQSVeirN2IBjz+haRLy6OjKMi+s8XPpXfBeuGl4pC+Onbuu
+         g9OZ8Ffnqf0L7s9quLIc7kjo0cAJVehSla7yxJVKKpKMrVZjwbYT3pQ8ROutgG88Bol4
+         5SOJCbaBCOq5sOa4bc0aMx3WlPxrl8dCyRUb7WxDqN6p3vCQMYqQQgukD4CCoR48Geb4
+         VkD+eKcngdpstAaOxP/SBYSn8FpZx2KcWUs6HShOyGCUBp9wQ1AhL0cMFVb3Vxsq4YzA
+         eMWZccoQJQyQSMjczohY1zd6JHXP7vjglwiQoOeULox8O7cOifQasUbNLUIYLfYVj+O3
+         obPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782110539; x=1782715339;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QILN8DTARoWh3OJ/o4dcikoIv6aHuZ0kwC7cM2/BMRM=;
-        b=DB1ZhbAm9/eYDTgd0mQubc+G96C0vW7Oa/DL73HDipj2iNCb6jnQKPEdXvqyYqQzKl
-         cWDodQECpmlVm+bgQW1heEqElbTME0M28HIFpiiQj9N5ZRhFjxom9B4NYwo5y+gj8LlU
-         XAKuEJVYWj652FKbEcTtqKmIMrQlOtyHqFZj9f6Xa7SfCLP8CUfkLsVti+/rmTsRmnlH
-         eo+fCVxfdrVrf0IVGAS/EYUFN5j0UCI0X6PB/W64McbB31fB9iUrYipyqJ309j7nDyCl
-         4pEQAhvSVilPFrtglqT8nfUrk5jn+8rwlxFnrOks17C9Qj4KP3leZW6xXVTcke05XsBJ
-         NOjw==
-X-Forwarded-Encrypted: i=1; AFNElJ+txq/NKljPNgtg/0Byo+x4MNxSb+KHYVf+8tyySni3boz8nIc+9Bc1u9AgvuXLkua3ikWmTDdmVBS0ng==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4TjUdVpsAVc5KjWcYMCrtEfz3Oec72TWrj1jVmiUF33Xqdw+I
-	171wcv/6zbIzm7TIoEzB/Ov0so85SFv84CLFZ7dY92SpwYm1XMeEx4Hn
-X-Gm-Gg: AfdE7ckW0b87SLka+dH5/O2zyKHTQUEqyo30cTCo0Rfyhfg8+FhRWHdgIF49XtWuzTU
-	TXOY2Ec/RhSGRwLznGvnZtRUEWe5StyJ+QCk6OMznoAfONEVpuOVAFkSrwOHZhlXcOu9KtLo8O6
-	zXG1PFVon/8t+7SJD8oHTe+0RmFiAxjZ6egY7ZIc4uYslIHoMp14nu1TgloDxQvclO2TdNlV8xs
-	Erjdd+TyXIwai8tyKl8VD77LBpE7KwrAsfsJoFof8dQE5cqkz7zo4FTrFslwscfjA5yCXmcW2c6
-	h1iFoq8j2Rxyc6bm3mrjWRPpg6453Jatj3dYhhJo16QZ93RkOyUSjnWiXVHG6OHdWg3IuV6Vmpx
-	qBlS+Mz0uyVSpZzaEYf6BfHC+zAWB+5s9HYRffy4feLOq3k6pbxRrtWgkjwqxUlQevaWtYxzj/I
-	Gz
-X-Received: by 2002:a05:7022:6890:b0:138:4023:8c1 with SMTP id a92af1059eb24-139a4eca6f2mr7435550c88.11.1782110538606;
-        Sun, 21 Jun 2026 23:42:18 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1782110613; x=1782715413;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=q/ijfEBLG2GDgKYljJEgtRrqYXmGeXk+QfQobYUMazc=;
+        b=VNFuqYe9PMmbdf+m8GAl6Sz37K/Ur6KNFx4C4IXSj7Gersrvegl3NV45UWbz5hT5OB
+         tW2nimPoKEKvLB/pO3SQVslhTd51NeUjK8CdtDtWKb9ap7MQeIPzwSeNQ2HANMLu7BId
+         KMZZBVTpctfJjC8OtchlJpr9pLyt/ZCbpVhYegrcuRaHBm6lVKXrngrj13FuJ6FLkEdR
+         7MYo8wr4Qi3EoyhsS00XpIz36ak0Nzy6Qkesn+QZDaCo0OgSrc8jQtRdfQlkp2hpcEKW
+         yes6UQtIVt9kTmVppdN5zJTsIKxDp1MCPSOxvj6uqgzXzdoA2mom0JTJqAKGq+0dzFpQ
+         Q4Cg==
+X-Forwarded-Encrypted: i=1; AFNElJ88IG8xarhjxts9m71GZi3+Jh6QHfKeqy682t9QRtXIb4io4PsL01c5ePoZ3EpVRHI+fDnVDvAE/6vwSA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/49w9mOiKlbyYYrP37BiMaGkXStxdrB1sL/p8GY+tDwrVmhbE
+	LXmoguYcDJZcz1zhQTKSf1SmnTQMoPP9NSo59HVmpVcQAwtl9mOwddHa
+X-Gm-Gg: AfdE7ckOvBd6gBeMsmSKAi00VVuHrGE+5sQCxHQ/hoIKrAfHZtVt3sPkMblNJMTBx7F
+	lvyQkO6L8pMv6WpaKxnj+7TTjWO1NQn1tkPyop40rLTH2/WzTiRy7oysKFTlLh+KFjA0TxgAZcM
+	V/1vgLIO/WNDcqOQVjVZQ86reJgL92MjIWaL38fHl9itfeIJV79M3+isxnequyfg9nD9xomJx23
+	R1vSq086NUTfAfJ5GByuu8k9iFrps+YDLktsSNgPUfwrK4NQ38qJSU8ys20/UY22RBMlPp9hPrr
+	sZbXMmzyg2rIY/TZ6OomekXy9+RQglz3CUYGAh5u4g7AOIRz8PPsc+syWCYANVcj2DvgJh8dfYt
+	G5Z0Y1ww1FeOhPEaCtFFQAIp4vgbRo4NrOHSpHfEsscYKi/Ia27YY++ct15At5zkaTTSGfeEvYr
+	7F
+X-Received: by 2002:a05:7022:f689:b0:12d:b993:c68f with SMTP id a92af1059eb24-139a4eb3fe3mr6345562c88.4.1782110612828;
+        Sun, 21 Jun 2026 23:43:32 -0700 (PDT)
 Received: from blinky ([2601:647:6700:64d0::92d1])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139adc0fdb6sm6363664c88.0.2026.06.21.23.42.17
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139add73a44sm6680306c88.13.2026.06.21.23.43.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Jun 2026 23:42:18 -0700 (PDT)
-Date: Sun, 21 Jun 2026 23:42:15 -0700
+        Sun, 21 Jun 2026 23:43:32 -0700 (PDT)
+Date: Sun, 21 Jun 2026 23:43:29 -0700
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -82,16 +83,16 @@ Cc: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
 	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 04/21] RISC-V: Define indirect CSR access helpers
-Message-ID: <ajjZR-R11yPYWuDp@blinky>
+Subject: Re: [PATCH v6 07/21] RISC-V: Add Sscfg extension CSR definition
+Message-ID: <ajjZkRxoh2F3vUAS@blinky>
 References: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
- <20260608-counter_delegation-v6-4-285b72ed65a9@meta.com>
+ <20260608-counter_delegation-v6-7-285b72ed65a9@meta.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260608-counter_delegation-v6-4-285b72ed65a9@meta.com>
+In-Reply-To: <20260608-counter_delegation-v6-7-285b72ed65a9@meta.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_234219_723227_17233855 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20260621_234333_970395_03631DAE 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,90 +104,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 08, 2026 at 11:01:18PM -0700, Atish Patra wrote:
-> From: Atish Patra <atishp@rivosinc.com>
-> 
-> The indriect CSR requires multiple instructions to read/write CSR.
+On Mon, Jun 08, 2026 at 11:01:21PM -0700, Atish Patra wrote:
+> From: Kaiwen Xue <kaiwenx@rivosinc.com>
+> =
 
-indirect
+> This adds the scountinhibit CSR definition and S-mode accessible hpmevent
+> bits defined by smcdeleg/ssccfg. scountinhibit allows S-mode to start/stop
+> counters directly from S-mode without invoking SBI calls to M-mode. It is
+> also used to figure out the counters delegated to S-mode by the M-mode as
+> well.
+> =
 
-> Add a few helper functions for ease of usage.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Signed-off-by: Kaiwen Xue <kaiwenx@rivosinc.com>
+> Reviewed-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
 > ---
->  arch/riscv/include/asm/csr_ind.h | 44 ++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 44 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/csr_ind.h b/arch/riscv/include/asm/csr_ind.h
-> new file mode 100644
-> index 000000000000..6fd7d44dc640
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/csr_ind.h
-> @@ -0,0 +1,44 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2024 Rivos Inc.
+>  arch/riscv/include/asm/csr.h | 26 ++++++++++++++++++++++++++
+>  1 file changed, 26 insertions(+)
+> =
 
-I don't think it makes sense to introduce this copyright in new commits.
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index b4551a6cf7cb..26cb78dee2fd 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -241,6 +241,31 @@
+>  #define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
+>  #define SMSTATEEN0_SSTATEEN0_SHIFT	63
+>  #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
+> +/* HPMEVENT bits. These are accessible in S-mode via Smcdeleg/Ssccfg */
+> +#ifdef CONFIG_64BIT
+> +#define HPMEVENT_OF			(BIT_ULL(63))
+> +#define HPMEVENT_MINH			(BIT_ULL(62))
+> +#define HPMEVENT_SINH			(BIT_ULL(61))
+> +#define HPMEVENT_UINH			(BIT_ULL(60))
+> +#define HPMEVENT_VSINH			(BIT_ULL(59))
+> +#define HPMEVENT_VUINH			(BIT_ULL(58))
+> +#else
+> +#define HPMEVENTH_OF			(BIT_ULL(31))
+> +#define HPMEVENTH_MINH			(BIT_ULL(30))
+> +#define HPMEVENTH_SINH			(BIT_ULL(29))
+> +#define HPMEVENTH_UINH			(BIT_ULL(28))
+> +#define HPMEVENTH_VSINH			(BIT_ULL(27))
+> +#define HPMEVENTH_VUINH			(BIT_ULL(26))
+
+Since these are rv32 bits for a 32-bit register, I think these should be
+BIT() instead of BIT_ULL()
+
+> +
+> +#define HPMEVENT_OF			(HPMEVENTH_OF << 32)
+> +#define HPMEVENT_MINH			(HPMEVENTH_MINH << 32)
+> +#define HPMEVENT_SINH			(HPMEVENTH_SINH << 32)
+> +#define HPMEVENT_UINH			(HPMEVENTH_UINH << 32)
+> +#define HPMEVENT_VSINH			(HPMEVENTH_VSINH << 32)
+> +#define HPMEVENT_VUINH			(HPMEVENTH_VUINH << 32)
+
+These definitions are identical to the rv64 ones, can these be removed
+and can you move the rv64 definitions to be global?
 
 - Charlie
 
-> + */
-> +
-> +#ifndef _ASM_RISCV_CSR_IND_H
-> +#define _ASM_RISCV_CSR_IND_H
-> +
-> +#include <linux/irqflags.h>
-> +
-> +#include <asm/csr.h>
-> +
-> +#define csr_ind_read(iregcsr, iselbase, iseloff) ({		\
-> +	unsigned long __value = 0;				\
-> +	unsigned long __flags;					\
-> +	local_irq_save(__flags);				\
-> +	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
-> +	__value = csr_read(iregcsr);				\
-> +	local_irq_restore(__flags);				\
-> +	__value;						\
-> +})
-> +
-> +#define csr_ind_write(iregcsr, iselbase, iseloff, value) ({	\
-> +	unsigned long __flags;					\
-> +	local_irq_save(__flags);				\
-> +	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
-> +	csr_write(iregcsr, (value));				\
-> +	local_irq_restore(__flags);				\
-> +})
-> +
-> +#define csr_ind_warl(iregcsr, iselbase, iseloff, warl_val) ({	\
-> +	unsigned long __old_val = 0, __value = 0;		\
-> +	unsigned long __flags;					\
-> +	local_irq_save(__flags);				\
-> +	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
-> +	__old_val = csr_read(iregcsr);				\
-> +	csr_write(iregcsr, (warl_val));				\
-> +	__value = csr_read(iregcsr);				\
-> +	csr_write(iregcsr, __old_val);				\
-> +	local_irq_restore(__flags);				\
-> +	__value;						\
-> +})
-> +
 > +#endif
-> 
-> -- 
+> +
+> +#define SISELECT_SSCCFG_BASE		0x40
+>  =
+
+>  /* mseccfg bits */
+>  #define MSECCFG_PMM			ENVCFG_PMM
+> @@ -322,6 +347,7 @@
+>  #define CSR_SCOUNTEREN		0x106
+>  #define CSR_SENVCFG		0x10a
+>  #define CSR_SSTATEEN0		0x10c
+> +#define CSR_SCOUNTINHIBIT	0x120
+>  #define CSR_SSCRATCH		0x140
+>  #define CSR_SEPC		0x141
+>  #define CSR_SCAUSE		0x142
+> =
+
+> -- =
+
 > 2.53.0-Meta
-> 
-> 
+> =
+
+> =
+
 > _______________________________________________
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
 
 _______________________________________________
 linux-riscv mailing list
