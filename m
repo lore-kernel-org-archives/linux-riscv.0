@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D38CDB466
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 00:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE7CCDB466
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 02:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xvK2rsAzoXlV/4tgX/2FypiXj/UjtCFf9N6Mi5M56n0=; b=xnQliWQp5HBXtG
-	Fq5OK9xfERctoBNkiudGLdengvbM2y2TzDb+s9mcSx0vPsUj2QK0of8QXW2Nu2+IViDhSOkeRSMTb
-	G9lSGz8RTsEau6DagI36GjsssepYcSDXcGVOQUsFCFSk17ogzOzm5bOi2993hTDwgUyiLHeScy0Pb
-	6rXY/gshMtqjgDnn6qDC5MmmWnQCGbprDlczwhbqfJLNZlpnEGNp2TT5He8d0lalxzTUmtD72la/u
-	j6cUqDWJ0gAkLXvj3/KYeH7UTma5v26Ccv726FE2lmwS74Ohq2Ldm/ygdYrSvTJGKABs4xRSNgN/4
-	rYEHe2bBwOkYuwkjRqfA==;
+	List-Owner; bh=lpr4rH+oZLdQZLV0lps5kstYIJStGCe/iszM65Bb+ho=; b=i0NbBW76H0t/xZ
+	W5Tvel6qbfEd6sG0q8oZIRf2GJla4kh5B6HnzI5Lyhk1OcbuNL+2XKTjKzqEEAkUxgHxQ4kFW1nBp
+	mnBHqGEUnLalvWHlAQxXp0/IiukO/dQ743YvaQaoVKjX4WYDWLjrFZNYy/bQrVcPMPilDXz73Ae9Q
+	gjXIKbbp5QHGxef2VyEV5p7ccDMGT66n9YPGsJN/XYOwRNaYkt75QDZ80wTbPiRFn8ZBzyntlHk58
+	T0bOD+B9vaLJryqOI5S2VksACWWluOCsSGdicgZsdqWDvcqA3q9Vk4Kdvu1PqNaNhtzTeyKAuzI8p
+	Q2xTjewlniyz4fNV03TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbSKg-00000004FFa-0j0c;
-	Mon, 22 Jun 2026 00:16:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbSKf-00000004FFI-0QBC
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 00:16:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 02229601EE
-	for <linux-riscv@lists.infradead.org>; Mon, 22 Jun 2026 00:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF8791F00ADE
-	for <linux-riscv@lists.infradead.org>; Mon, 22 Jun 2026 00:16:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782087367;
-	bh=IHIwIiKiSPJeb13YpcTgfxJcsK09+PRa0/JU1j/CnWg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cMLhsAttTe8dyYAVQ5ButgRPTCNVZUjJ+rFUJS/Nb+BEGqhTUydcs0LU3Lix/Z3ek
-	 KD0MCI/yAPBWlN6wb7sqDiwlAttozmfCiUFWz9O3jE4hYXuyhq8p1QaOAF9Rxm+bPp
-	 zboU9r+goMAm9xbYv8LFtKEEZ5j6ZLteAPSQZ6OcSh5MIs/62zPpZIj5oiIaFmvUDR
-	 QC6ZRHtySEUkXZIEInSyph82+HpL4LpnJ7gqwRc/Aciq0eNZH9YLMUThL9XzXyeqjI
-	 Rm0VjsR1+yxuogHe+HIFTcJ5KRUzQnReJU7/nUzkEoFcP0eQK2LX+MLHdOMaRBfjL5
-	 BYH2jN1C6LQGQ==
-Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-517654b8e28so32782251cf.3
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Jun 2026 17:16:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/ReR57dR7+ShpCtCNuiIhhkOZmPH5fAFTtEntpy01rA+Qr7S/s/Tgx97mBhWlRzEdTzZXPdcvjaMReUg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJTvZlI8NLsjpXU2yj6gNUWKnfrlzNCmaFBTh8n/K+xBoey0JQ
-	479RIQiq7W2jtOpqvS89Z5rT1OeA/d5PCtg7FvAzoUfeCmpwst6H88OW/vw2DikdrZn195zk/+F
-	1vc2SJczjbCmwmxM2SpViH5GvzQmKjr4=
-X-Received: by 2002:a05:620a:2991:b0:920:bc4a:6d9f with SMTP id
- af79cd13be357-921d185ff31mr1291391485a.25.1782087366553; Sun, 21 Jun 2026
- 17:16:06 -0700 (PDT)
+	id 1wbUH3-00000004IUl-2FaL;
+	Mon, 22 Jun 2026 02:20:33 +0000
+Received: from azure-sdnproxy.icoremail.net ([13.75.44.102])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbUGv-00000004IUJ-2xSh;
+	Mon, 22 Jun 2026 02:20:31 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Mon, 22 Jun 2026 10:19:50 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Mon, 22 Jun 2026 10:19:50 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: "Andrew Lunn" <andrew@lunn.ch>
+Cc: "Maxime Chevallier" <maxime.chevallier@bootlin.com>,
+	devicetree@vger.kernel.org, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
+Subject: Re: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII
+ delay properties optional
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
+References: <20260610012727.848-1-lizhi2@eswincomputing.com>
+ <20260610012937.911-1-lizhi2@eswincomputing.com>
+ <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
+ <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
 MIME-Version: 1.0
-References: <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
- <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
- <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
- <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
- <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
- <ahB6QyHgYq8ksj65@lucifer> <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
- <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com> <ajhOUdbWsswgQyl2@casper.infradead.org>
-In-Reply-To: <ajhOUdbWsswgQyl2@casper.infradead.org>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 22 Jun 2026 08:15:55 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
-X-Gm-Features: AVVi8CfKzSAPaNgcIJCxOHQBAHV_wanqXUmTigM-8i98Bk0ci-4XCgmSQNzZol4
-Message-ID: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"David Hildenbrand (Arm)" <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
+Message-ID: <512b77d5.993b.19eed207fc9.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: en_US
+X-CM-TRANSID: TAJkCgDHW3DHmzhqEvksAA--.8326W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgEGDGo4EpcWfAACs2
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260621_192025_916163_D9166919 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +79,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMjIsIDIwMjYgYXQgNDo0OeKAr0FNIE1hdHRoZXcgV2lsY294IDx3aWxseUBp
-bmZyYWRlYWQub3JnPiB3cm90ZToKPgo+IE9uIFNhdCwgSnVuIDIwLCAyMDI2IGF0IDA0OjQ4OjU3
-UE0gLTA3MDAsIFN1cmVuIEJhZ2hkYXNhcnlhbiB3cm90ZToKPiA+IEp1c3QgY2hlY2tpbmcgaW4g
-b24gdGhlIGZvbGxvd3VwIHBsYW5zLiBJSVVDIHRoZSBSRkMgbWVudGlvbmVkIHdpbGwKPiA+IHRy
-eSB0byBpbXBsZW1lbnQgdGhlIHNvbHV0aW9uIHdlIGRpc2N1c3NlZCBhdCBMU0ZNTTogc3BsaXR0
-aW5nCj4gPiBWTV9GQVVMVF9SRVRSWSBpbnRvIHR3byBmbGFncyAtIG9uZSBmb3IgcmV0cnlpbmcg
-dW5kZXIgcGVyLVZNQSBsb2Nrcwo+ID4gYW5kIGFub3RoZXIgb25lIHRvIGZhbGxiYWNrIHRvIG1t
-YXBfbG9jay4KPgo+IEkgY29udGludWUgdG8gaGF0ZSB0aGlzIGlkZWEuICBJIGRvbid0IGJlbGll
-dmUgdGhhdCB0aG9zZSB3aG8gd2VyZQo+IHB1c2hpbmcgZm9yIGl0IGhhdmUgZXZlciB0cmllZCB0
-byB1bmRlcnN0YW5kIHRoZSB3aG9sZSBmYXVsdCBwYXRoLgo+IEl0J3MgdXR0ZXJseSBieXphbnRp
-bmUuCj4KPiBJIGRlZnkgYW55b25lIHRvIG1ha2Ugc2Vuc2Ugb2YgdGhpczoKPgo+ICAgICAgICAg
-LyoKPiAgICAgICAgICAqIE5PVEUhIFRoaXMgd2lsbCBtYWtlIHVzIHJldHVybiB3aXRoIFZNX0ZB
-VUxUX1JFVFJZLCBidXQgd2l0aAo+ICAgICAgICAgICogdGhlIGZhdWx0IGxvY2sgc3RpbGwgaGVs
-ZC4gVGhhdCdzIGhvdyBGQVVMVF9GTEFHX1JFVFJZX05PV0FJVAo+ICAgICAgICAgICogaXMgc3Vw
-cG9zZWQgdG8gd29yay4gV2UgaGF2ZSB3YXkgdG9vIG1hbnkgc3BlY2lhbCBjYXNlcy4uCj4gICAg
-ICAgICAgKi8KPiAgICAgICAgIGlmICh2bWYtPmZsYWdzICYgRkFVTFRfRkxBR19SRVRSWV9OT1dB
-SVQpCj4gICAgICAgICAgICAgICAgIHJldHVybiAwOwo+Cj4gICAgICAgICAqZnBpbiA9IG1heWJl
-X3VubG9ja19tbWFwX2Zvcl9pbyh2bWYsICpmcGluKTsKPiAgICAgICAgIGlmICh2bWYtPmZsYWdz
-ICYgRkFVTFRfRkxBR19LSUxMQUJMRSkgewo+ICAgICAgICAgICAgICAgICBpZiAoX19mb2xpb19s
-b2NrX2tpbGxhYmxlKGZvbGlvKSkgewo+ICAgICAgICAgICAgICAgICAgICAgICAgIC8qCj4gICAg
-ICAgICAgICAgICAgICAgICAgICAgICogV2UgZGlkbid0IGhhdmUgdGhlIHJpZ2h0IGZsYWdzIHRv
-IGRyb3AgdGhlCj4gICAgICAgICAgICAgICAgICAgICAgICAgICogZmF1bHQgbG9jaywgYnV0IGFs
-bCBmYXVsdF9oYW5kbGVycyBvbmx5IGNoZWNrCj4gICAgICAgICAgICAgICAgICAgICAgICAgICog
-Zm9yIGZhdGFsIHNpZ25hbHMgaWYgd2UgcmV0dXJuIFZNX0ZBVUxUX1JFVFJZLAo+ICAgICAgICAg
-ICAgICAgICAgICAgICAgICAqIHNvIHdlIG5lZWQgdG8gZHJvcCB0aGUgZmF1bHQgbG9jayBoZXJl
-IGFuZAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAqIHJldHVybiAwIGlmIHdlIGRvbid0IGhh
-dmUgYSBmcGluLgo+ICAgICAgICAgICAgICAgICAgICAgICAgICAqLwo+ICAgICAgICAgICAgICAg
-ICAgICAgICAgIGlmICgqZnBpbiA9PSBOVUxMKQo+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgcmVsZWFzZV9mYXVsdF9sb2NrKHZtZik7Cj4gICAgICAgICAgICAgICAgICAgICAgICAg
-cmV0dXJuIDA7Cj4gICAgICAgICAgICAgICAgIH0KPgo+IFdlZCBuZWVkIHRvIHNpbXBsaWZ5IHRo
-ZSBmYXVsdCBwYXRoLCBub3QgYWRkIGFkZGl0aW9uYWwgY29tcGxleGl0eS4KPiBKb3NlZiBoYXMg
-c2FpZCBoZSB3b3VsZG4ndCd2ZSBkb25lIHRoZSBsb2NrIGRyb3BwaW5nIGhhZCB3ZSBoYWQgcGVy
-LVZNQQo+IGxvY2tzLiAgV2Ugc2hvdWxkIHJpcCBpdCBvdXQuCgpJIHRoaW5rIHlvdSBoYXZlIGFn
-cmVlZCB0aGF0LCBhdCBsZWFzdCBmb3IgYW5vbiB2bWEsIHdlIGNhbgprZWVwIHRoZSBjdXJyZW50
-IHBvbGljeSwgc2luY2UgYW5vbiB2bWEgaXMgbXVjaCBtb3JlIHZvbGF0aWxlCnRoYW4gZmlsZSB2
-bWEuCkNvbmN1cnJlbnQgcGFnZSBmYXVsdHMgYW5kIFZNQSBtb2RpZmljYXRpb25zIGNhbiBoYXBw
-ZW4gbW9yZQpvZnRlbiB0aGFuIHdpdGggZmlsZSBWTUFzLgoKRm9yIGZpbGUgdm1hcywgaG93IG11
-Y2ggY29kZSBjYW4gd2UgYWN0dWFsbHkgcmVtb3ZlLCBnaXZlbiB0aGF0CnRoZSBmaXJzdCBwYWdl
-IGZhdWx0IG1pZ2h0IGFscmVhZHkgYmUgaG9sZGluZyBtbWFwX2xvY2s/Ckl0IGNvdWxkIGJlIHRo
-ZSBjYXNlIHRoYXQgbG9ja192bWFfdW5kZXJfcmN1KCkgZmFpbHMsIGFuZCB0aGVuCm9uIHRoZSBm
-aXJzdCBwYWdlIGZhdWx0IHdlIGVuZCB1cCBob2xkaW5nIG1tYXBfbG9jayBiZWZvcmUKcmV0cnlp
-bmcuIFNvIGFyZSB3ZSBhbHNvIGdvaW5nIHRvIHJpcCBvdXQgdGhlIGxvY2sgcmVsZWFzZSwKZXZl
-biBpZiBpdCByaXNrcyBob2xkaW5nIG1tYXBfbG9jayBmb3IgYSBsb25nIHRpbWU/CgogICAgICAg
-IHZtYSA9IGxvY2tfdm1hX3VuZGVyX3JjdShtbSwgYWRkcik7CiAgICAgICAgaWYgKCF2bWEpCiAg
-ICAgICAgICAgICAgICBnb3RvIGxvY2tfbW1hcDsKICAgICAgIC4uLgpsb2NrX21tYXA6CgogICAg
-ICAgIHZtYSA9IGxvY2tfbW1fYW5kX2ZpbmRfdm1hKG1tLCBhZGRyLCByZWdzKTsKICAgICAgICBp
-ZiAodW5saWtlbHkoIXZtYSkpIHsKICAgICAgICAgICAgICAgIGZhdWx0ID0gMDsKICAgICAgICAg
-ICAgICAgIHNpX2NvZGUgPSBTRUdWX01BUEVSUjsKICAgICAgICAgICAgICAgIGdvdG8gYmFkX2Fy
-ZWE7CiAgICAgICAgfQoKSWYgd2Ugc3RpbGwgbmVlZCB0byBrZWVwIHRoZSBwYWdlIGZhdWx0IHJl
-dHJ5IGNvZGUgdGhlcmUsIGl0CmRvZXNuJ3Qgc2VlbSBsaWtlICJyaXBwaW5nIG91dCIgcmVhbGx5
-IHJlZHVjZXMgY29tcGxleGl0eSBpbgp0aGUgcGFnZSBmYXVsdCBjb2RlPwoKQmVzdCBSZWdhcmRz
-CkJhcnJ5CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+
+> -----Original Messages-----
+> From: "Andrew Lunn" <andrew@lunn.ch>
+> Send time:Saturday, 13/06/2026 15:48:46
+> To: "Maxime Chevallier" <maxime.chevallier@bootlin.com>
+> Cc: lizhi2@eswincomputing.com, devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, ningyu@eswincomputing.com, linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
+> Subject: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII delay properties optional
+> 
+> On Wed, Jun 10, 2026 at 10:26:50AM +0200, Maxime Chevallier wrote:
+> > Hi,
+> > 
+> > On 6/10/26 03:29, lizhi2@eswincomputing.com wrote:
+> > > From: Zhi Li <lizhi2@eswincomputing.com>
+> > > 
+> > > Make rx-internal-delay-ps and tx-internal-delay-ps optional in the
+> > > EIC7700 DWMAC driver.
+> > > 
+> > > The driver previously required both properties to be present and would
+> > > fail probe when they were missing. This restricts valid hardware
+> > > configurations where RGMII timing is instead provided by the PHY or
+> > > board design.
+> > > 
+> > > Update the driver to treat missing delay properties as zero delay,
+> > > allowing systems without explicit MAC-side delay tuning to operate
+> > > correctly.
+> > > 
+> > > This aligns the driver behavior with the updated device tree binding
+> > > and provides a safe default configuration when MAC-side delay
+> > > programming is not required.
+> > > 
+> > > Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> > > ---
+> > >  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c | 6 ------
+> > >  1 file changed, 6 deletions(-)
+> > > 
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> > > index 4ac979d874d6..ec99b597aeaf 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> > > @@ -165,9 +165,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
+> > >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
+> > >  		dwc_priv->eth_clk_dly_param |=
+> > >  				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
+> > > -	} else {
+> > > -		return dev_err_probe(&pdev->dev, -EINVAL,
+> > > -			"missing required property rx-internal-delay-ps\n");
+> > >  	}
+> > >  
+> > >  	/* Read tx-internal-delay-ps and update tx_clk delay */
+> > > @@ -187,9 +184,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
+> > >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
+> > >  		dwc_priv->eth_clk_dly_param |=
+> > >  				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
+> > > -	} else {
+> > > -		return dev_err_probe(&pdev->dev, -EINVAL,
+> > > -			"missing required property tx-internal-delay-ps\n");
+> > >  	}
+> > 
+> > I think then you need to handle RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID,
+> > by using default delays for these (usually around 2ns), as here all delays
+> > will be set to 0, regardless of the RGMII mode in use.
+> 
+> No. By default, the MAC adds 0ns delay, and passes the phy-mode to the
+> PHY. It will then add the 2ns delay. It is possible to use the
+> tx-internal-delay-ps and rx-internal-delay-ps in the MAC to add small
+> tuning delays, but not the full 2ns.
+> 
+> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+> 
+
+Thanks for the earlier discussion and for helping clarify the eth0
+design.
+
+I'm preparing a v9 of the series. The next revision will address the
+issues reported by Sashiko review, mainly DT binding schema and DTS
+warnings.
+
+Before I post v9, I'd like to check whether you have any concerns or
+suggestions regarding the driver changes.
+
+Thanks,
+Zhi
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
