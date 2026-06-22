@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 778D6CDB476
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 08:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA914CDB475
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 08:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uhZXNB+HNy3jFdOup4IjFMaPH5VugfYUhDMxxB6hhu0=; b=oc0QZLSS2olroB
-	dmfLbjQmgwkMGWqUV8cvkcr2lqE4hhx4tjyMTeAO6FG/fcV4MO0O9kbwaFDKVfR1PYnnZ7E+zcqUT
-	ZhgUWEDymBt5BdYRMPxSHbA9a1mZN5n6jyirW1bkV4+X7MyET9koFnwRL5uRHfpPAmb6A24hoAGoy
-	uB5vmhx20cwS1Yuiv5xXKcbz0HFBkN6pap9vwcXPuuWmV7A+yTzXTFzFdonVPmCJFRgfFcZ/cnZLP
-	P7envBEbG/SGwg/dvn7LO0XpWCpC2MXL1Mbk4I1UKQyWMNX8m0/AtCxzTHdf0VgCcA8AwWUIzdsdS
-	fXonr86/WVn7KJo30FNA==;
+	List-Owner; bh=I9ISisVwYleVODdPiJzZuajjhxeH4wZRU8YF3aY9dcY=; b=eJvYsFHejhFnds
+	sUzmaFFY4Pim61tMDg3IXqmXr2+bGIwCyGlWz+15sf9meI0pvjTD9Eg/FE0OdV415UhFQGrn+l6p8
+	TLqmhAigdVX3qycwWQNAZIlkB3VijV0+ygCHVlX8yWFyz+DSv3gWqNpDvy90vXtth1gIO1kwSqyFs
+	ifBxtw7s1iS1A5oGE32nwckR4fMmSlor6iYCr/m3GZ79J288+vDnaGxWV4NbZiXHv/2jSSJhyoVxW
+	6+Ay98HqqwISJfrmo11HPhfE/Reg8ldv+/AUIr/kDKTaDeu9YvqQ/HwBljLuTekbjHQ6mMW694SpL
+	T5Axd064ygG+gicYmiLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZfm-00000004coI-1gwj;
-	Mon, 22 Jun 2026 08:06:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wbZfs-00000004d1m-3ydv;
+	Mon, 22 Jun 2026 08:06:32 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZfl-00000004cl8-0vz2
+	id 1wbZfn-00000004cpt-3vk2
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 22 Jun 2026 08:06:25 +0000
+	Mon, 22 Jun 2026 08:06:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=8zUNI9RJNq07LMnKcfhWgwPKCHhzpkeqRorfVP+Mqdc=; b=aykk3UDbhjHmeSFgOFsT9fOvBg
-	pKD1917gTC6Dy0TLkq9DSN34iWsJNmX7ukPglwsz6mfQDq0onJZSs3Mrgqj9+DIr+RQ6TCrkVtAus
-	jb54YVk17n/5wmTvfirCJWOKiRSOLCMoylE4TQ4z/7XX2SNFMjFDBhf+T5UfcmZfiLb8I+jUi8SUT
-	iEUt4APu9k5/GWGFahfJIz6Yx8/VSg9hvvsZHozhESYD9f3rqHfdsBVeayEeUxzeySnh1MTwLIZz9
-	5hTv6dQTa8+Y34XFDC1OY3mPFSTP4r7s9GveQLFIeEyG/2fOZEzgs2yug9OGEDrlH/nWA2PDn6scb
-	nuDvnW4g==;
-Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wbZfZ-0000000HAIm-0PUP
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=m33YeEQ2LI4+9pJOZx15rtUmMH8AJOWaugqVbovodV4=; b=vEH7NQlJF6tDjx5bq/sBun8qFH
+	L+yCquE33AkGrNrNJ3g2B3QOAaHM7EXBjpR6+6IOaXARqXvGfPIedXeuXwmQi9Hlo1wkrHuMttPvY
+	+FD1b7yKUPdfD8gq/+WeqDab+X+WGSftIz9fOf+s36NX42Cdos89E5YO9Snm+9QxNJPdPPbFieyp/
+	iUjTmBvJ2Xt3HwrB5h7LHca7/UzMb6W+Hwa1oR/qYDm5ByB2ZqdLNWtHq7eviRPSywTgeCnknZmzf
+	JuFeJvvOT2C6NvReMzxNJj6foM/wKgc3ZN+Djl4Tq3PVvi0hpZHPVabLGop42Jqapal5DjbBuoDGq
+	LlxehC3A==;
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbZfk-00000003rRp-2QKp
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 08:06:22 +0000
+	Mon, 22 Jun 2026 08:06:26 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782115569;
+	t=1782115583;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8zUNI9RJNq07LMnKcfhWgwPKCHhzpkeqRorfVP+Mqdc=;
-	b=gnngztz0xhq0dGORb+pF2pUeGmV88Pt2sW8XHWQFe4Nd7I9X72pImb62OwET+CAnlQ1ZUw
-	y6UupTBkIxs4wIJPz1pT+uEFkowC3BtU3bP096y6kbVuDiLArBxtqtO4GjlYCJjg6gTyL6
-	9MQyfCQUeLwAJLXgBTIE/fJl0aklBV4=
+	bh=m33YeEQ2LI4+9pJOZx15rtUmMH8AJOWaugqVbovodV4=;
+	b=bUhMMAu3013yuPd2hGNbmhY9rJUDcI5YKJC/IW0OAsIwiQnjudzZ/8OvBz8OU077+qsWBW
+	cXuDQ8Ho5uB0YncTrpD2FPj0sAsO6hX6dnp36jxoH8M1xu2GUnKmceW6RtXPmX9JyDXul9
+	otcnAJU3+BEuytvc8qwarMdqXK+krAM=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Mon, 22 Jun 2026 01:04:28 -0700
-Subject: [PATCH v7 16/22] RISC-V: perf: Use config2/vendor table for event
- to counter mapping
+Date: Mon, 22 Jun 2026 01:04:32 -0700
+Subject: [PATCH v7 20/22] tools/perf: Add RISC-V CounterIDMask event field
 MIME-Version: 1.0
-Message-Id: <20260622-counter_delegation-v7-16-0ba2fd34614e@meta.com>
+Message-Id: <20260622-counter_delegation-v7-20-0ba2fd34614e@meta.com>
 References: <20260622-counter_delegation-v7-0-0ba2fd34614e@meta.com>
 In-Reply-To: <20260622-counter_delegation-v7-0-0ba2fd34614e@meta.com>
 To: Jiri Olsa <jolsa@kernel.org>, James Clark <james.clark@linaro.org>, 
@@ -72,8 +71,9 @@ Cc: devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_090614_846438_9017EB28 
-X-CRM114-Status: GOOD (  28.25  )
+X-CRM114-CacheID: sfid-20260622_090625_221871_17DFCA65 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,182 +92,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Atish Patra <atishp@rivosinc.com>
 
-The counter restriction specified in the json file is passed to
-the drivers via config2 paarameter in perf attributes. This allows
-any platform vendor to define their custom mapping between event and
-hpmcounters without any rules defined in the ISA.
+Counter delegation lets supervisor mode choose the hpmcounter for an event,
+but the hardware may only allow a given event on a subset of counters. Add
+a RISC-V specific "CounterIDMask" json event field, handled like the other
+arch-specific entries in event_fields[], that carries the allowed-counter
+bitmask through to the driver's existing counterid_mask (config2:0-31)
+format.
 
-For legacy events, the platform vendor may define the mapping in
-the driver in the vendor event table.
-The fixed cycle and instruction counters are fixed (0 and 2
-respectively) by the ISA and maps to the legacy events. The platform
-vendor must specify this in the driver if intended to be used while
-profiling. Otherwise, they can just specify the alternate hpmcounters
-that may monitor and/or sample the cycle/instruction counts.
+The value is the bitmask directly so no counter-list to bitmask
+conversion is needed, and because the field is RISC-V specific it is a
+no-op for every other architecture's events (unlike the shared "Counter"
+field).
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/perf/riscv_pmu_sbi.c   | 95 +++++++++++++++++++++++++++++++++++-------
- include/linux/perf/riscv_pmu.h |  2 +
- 2 files changed, 81 insertions(+), 16 deletions(-)
+ tools/perf/pmu-events/jevents.py | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 4f3a30143db1..1c846cdc96cf 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -77,6 +77,7 @@ static ssize_t __maybe_unused rvpmu_format_show(struct device *dev, struct devic
- 	RVPMU_ATTR_ENTRY(_name, rvpmu_format_show, (char *)_config)
- 
- PMU_FORMAT_ATTR(firmware, "config:62-63");
-+PMU_FORMAT_ATTR(counterid_mask, "config2:0-31");
- 
- static bool sbi_v2_available;
- static bool sbi_v3_available;
-@@ -121,6 +122,7 @@ static const struct attribute_group *riscv_sbi_pmu_attr_groups[] = {
- static struct attribute *riscv_cdeleg_pmu_formats_attr[] = {
- 	RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_CDELEG_PMU_FORMAT_ATTR),
- 	&format_attr_firmware.attr,
-+	&format_attr_counterid_mask.attr,
- 	NULL,
- };
- 
-@@ -1501,24 +1503,85 @@ static int rvpmu_deleg_find_ctrs(void)
- 	return num_hw_ctr;
- }
- 
-+/*
-+ * The json file must correctly specify counter 0 or counter 2 is available
-+ * in the counter lists for cycle/instret events. Otherwise, the drivers have
-+ * no way to figure out if a fixed counter must be used and pick a programmable
-+ * counter if available.
-+ */
- static int get_deleg_fixed_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	return -EINVAL;
-+	bool guest_events = event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS;
-+	int idx;
-+
-+	/* event_base is 0 on the delegation path; match via the original perf attrs. */
-+	if (guest_events) {
-+		if (event->attr.type != PERF_TYPE_HARDWARE)
-+			return -EINVAL;
-+		if (event->attr.config == PERF_COUNT_HW_CPU_CYCLES)
-+			idx = 0; /* CY counter */
-+		else if (event->attr.config == PERF_COUNT_HW_INSTRUCTIONS)
-+			idx = 2; /* IR counter */
-+		else
-+			return -EINVAL;
-+	} else if (event->attr.config2 & RISCV_PMU_CYCLE_FIXED_CTR_MASK) {
-+		idx = 0; /* CY counter */
-+	} else if (event->attr.config2 & RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK) {
-+		idx = 2; /* IR counter */
-+	} else {
-+		return -EINVAL;
-+	}
-+
-+	/* Take the fixed counter only if delegated and free, else fall back. */
-+	if (!(cmask & BIT(idx)) || test_bit(idx, cpuc->used_hw_ctrs))
-+		return -EINVAL;
-+
-+	return idx;
- }
- 
- static int get_deleg_next_hpm_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	unsigned long hw_ctr_mask = 0;
-+	u32 hw_ctr_mask = 0, temp_mask = 0;
-+	u32 type = event->attr.type;
-+	u64 config = event->attr.config;
-+	int ret;
- 
--	/*
--	 * TODO: Treat every hpmcounter can monitor every event for now.
--	 * The event to counter mapping should come from the json file.
--	 * The mapping should also tell if sampling is supported or not.
--	 */
-+	/* Select only available hpmcounters */
-+	hw_ctr_mask = cmask & (~0x7) & ~(cpuc->used_hw_ctrs[0]);
-+
-+	switch (type) {
-+	case PERF_TYPE_HARDWARE:
-+		temp_mask = current_pmu_hw_event_map[config].counter_mask;
-+		break;
-+	case PERF_TYPE_HW_CACHE:
-+		ret = cdeleg_pmu_event_find_cache(config, NULL, &temp_mask);
-+		if (ret)
-+			return ret;
-+		break;
-+	case PERF_TYPE_RAW:
-+		/*
-+		 * Mask off the counters that can't monitor this event (specified via json)
-+		 * The counter mask for this event is set in config2 via the property 'Counter'
-+		 * in the json file or manual configuration of config2. If the config2 is not set,
-+		 * it is assumed all the available hpmcounters can monitor this event.
-+		 * Note: This assumption may fail for virtualization use case where they hypervisor
-+		 * (e.g. KVM) virtualizes the counter. Any event to counter mapping provided by the
-+		 * guest is meaningless from a hypervisor perspective. Thus, the hypervisor doesn't
-+		 * set config2 when creating kernel counter and relies default host mapping.
-+		 */
-+		if (event->attr.config2)
-+			temp_mask = event->attr.config2;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	if (temp_mask)
-+		hw_ctr_mask &= temp_mask;
-+
-+	if (!hw_ctr_mask)
-+		return -EINVAL;
- 
--	/* Select only hpmcounters */
--	hw_ctr_mask = cmask & (~0x7);
--	hw_ctr_mask &= ~(cpuc->used_hw_ctrs[0]);
- 	return __ffs(hw_ctr_mask);
- }
- 
-@@ -1547,10 +1610,6 @@ static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
- 	u64 priv_filter;
- 	int idx;
- 
--	/*
--	 * TODO: We should not rely on SBI Perf encoding to check if the event
--	 * is a fixed one or not.
--	 */
- 	if (!is_sampling_event(event)) {
- 		idx = get_deleg_fixed_hw_idx(cpuc, event);
- 		if (idx == 0 || idx == 2) {
-@@ -1570,10 +1629,14 @@ static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
- 		goto out_err;
- found_idx:
- 	priv_filter = get_deleg_priv_filter_bits(event);
-+	if (test_and_set_bit(idx, cpuc->used_hw_ctrs))
-+		goto out_err;
- 	update_deleg_hpmevent(idx, hwc->config, priv_filter);
-+	return idx;
- skip_update:
--	if (!test_and_set_bit(idx, cpuc->used_hw_ctrs))
--		return idx;
-+	if (test_and_set_bit(idx, cpuc->used_hw_ctrs))
-+		goto out_err;
-+	return idx;
- out_err:
- 	return -ENOENT;
- }
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index 3c64151cb038..b23b71cb4e66 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -30,6 +30,8 @@
- #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
- 
- #define RISCV_PMU_DELEG_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-+#define RISCV_PMU_CYCLE_FIXED_CTR_MASK 0x01
-+#define RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK 0x04
- 
- struct cpu_hw_events {
- 	/* currently enabled events */
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 457fce7a5982..c1ed8a05c9a4 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -396,6 +396,7 @@ class JsonEvent:
+         ('EnAllSlices', 'enallslices='),
+         ('SliceId', 'sliceid='),
+         ('ThreadMask', 'threadmask='),
++        ('CounterIDMask', 'counterid_mask='),
+     ]
+     for key, value in event_fields:
+       if key in jd and not is_zero(jd[key]):
 
 -- 
 2.53.0-Meta
