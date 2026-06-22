@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB56CD98F6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56962CDB46F
 	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fBfr/3IarQ7s67P22PjZ4nopzViIK1kQAowIaHWNjgY=; b=yIFtZKYT8+G4G8
-	IpOOArTZjolWSM/CcIdxvclyoIuXqWmMLXakIEqCVxWdkhN0IWyRqjZxhzg5uYr6KdEc/DF7DLDko
-	EgCBtQFpx54vAfprKBdsA3kbeZ0Ym9mipv47zciXNBtkeHDd8SFa66m78DslcaZUuwZZY/cUFlcj8
-	zUYfA7F0WpQdlmd/oHzwjE25k4HK/vAZT8BIv0pVcaWNlJktXX18ufp+1qvsdWqg9KL111Y6kkm42
-	PePZ+mthnqpSvxkP+oCAXS/NjR9AhohP+JkZkAYfIdadp2j6aT1uaTkG11c8CeQ+s5YJWarjWUcO6
-	zcr6YX8xkA17BsC0OMLA==;
+	List-Owner; bh=2hSDFF4ZaMaHqdRcE+Ouwcm5bQARMe8K+Qr8n/vAzc4=; b=Ko/4NohcjnILR3
+	LZvEo7kdMNCQO1L800s9DjoAy+/swbXZeVkZwir4BHVk808wU4fR+l8B9IfeyvpT1WCFHsG9RBFX9
+	0hACHt8IUBXjSKdkkFSZh7kcMjWIOcwCbweP85dR/LWbXJ59cVB6iomjOdw5NI/VH5C/pYh2fS0gQ
+	JoDpVrr6gjplajRcddTXd2A6AVD5JyBcJEFVSBE64jjrGiLAxg0nqIMNZ0mtH8CI1ds6oazqeXyaf
+	yKLeyA8TLYRWOJxxX/47DJxdmJDHibcfcE57fywxGyW8injCrQ+/pk4HvIyphTvwxvs8jEPpFVWWJ
+	+kJcSBVAKqWr7nK0iX+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVqz-00000004MWE-09sb;
-	Mon, 22 Jun 2026 04:01:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wbVr9-00000004Med-36Jj;
+	Mon, 22 Jun 2026 04:01:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVqw-00000004MTQ-2h74;
-	Mon, 22 Jun 2026 04:01:42 +0000
+	id 1wbVqx-00000004MU7-1klj;
+	Mon, 22 Jun 2026 04:01:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C70EB44543;
-	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A8B03C4AF0F;
-	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 543704458F;
+	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 35DEFC2BCFD;
+	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782100901;
-	bh=bl8bqy5n0SUc6nwqkyl4Zjq5llPXFc6fIFQnzW3sCvk=;
+	s=k20201202; t=1782100902;
+	bh=TVUTi3JzfDP6+5V/37ec117+w6OR65FVI5bIsfJZApA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=lXXUTEBMRmH9nF9S/9oGHurafzIpiEQ8eO55/DZUn1VONa+1XrlATpqK0Jxdt6lql
-	 eKvYZ8RKpuqD4PQRuEKrETeF6SN2tH/YLmwhXJgbclgxk7F5ycUoJyidS6eofGtCNZ
-	 hY5FNxH2rJceC3d1RKUs8gdk9DXFOGHP+jUB2gHrCbTpx7CO7cwzahMjNfpecz180H
-	 5x4X9O2TN2IMfW3Hcvzlb6Gl6Hq7coCbWWW/+5gViygrLavIWUPTijoDfY3Dfnrd2S
-	 FvusMPfZaSBIHgjOVF57kYIwxtBI2VijlXRq98+56UEKtaXfmxf49VCPc5Tzdat0Wt
-	 QuA6uxpbpbi6Q==
+	b=Q4AOBYjlxIBqxzMIEV3PLP2UaHQnNf09AVYFW/j9dCpu2/frUABGIn/9dv9O1xDK2
+	 rnOODipLb1VwSN/TV78VqjNdgWoaXzcwyyxDl7ytdHBMGINu80z7T7Zx/SNw8NuhEU
+	 fZkNZRPy4MRCyTX8dNhnGxXDngcYv4OdtuCrFAa/xFJ+4CFDdgVEFkHfMCafe1fKlU
+	 fZ5+DeVDB3Kxp8SVWvMiMaztSYfuiuIRWzUP3T2M0s8OXpXzATTLpXqHSAzJ7Lrh1v
+	 ZoyAb/tfmIscpN+RHs6G4gKJcJo/p3bHbO6SAsHFymaBdJnrCzFO0rFeUB1z0CsjcX
+	 CFaAG2Z+VGefw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A1D1BCDB470;
-	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BBC2CDB471;
+	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Sun, 21 Jun 2026 21:01:24 -0700
-Subject: [PATCH v2 06/16] riscv: cfi: Use generated instruction headers
+Date: Sun, 21 Jun 2026 21:01:31 -0700
+Subject: [PATCH v2 13/16] KVM: riscv: selftests: Add csr emulation test
 MIME-Version: 1.0
-Message-Id: <20260621-riscv_insn_table-v2-6-7f0810ee2274@gmail.com>
+Message-Id: <20260621-riscv_insn_table-v2-13-7f0810ee2274@gmail.com>
 References: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 In-Reply-To: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -62,11 +62,11 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=1198;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=4572;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=1tICEVIvaC4ZLr/Ax7sSaci3FTAyWazsJABtM7N8+oQ=;
- b=cj48hhT9/crCMIqdmT/HMa6q0vDybyuUu6PkaMxzG4Wbulb7zCbgf3j8oz9FPs5+HtjmMrrPN
- pHcOnVIJ+0pCvD7Bo9NqpBGHgiYkApd4kB90aUQdDZ0fMLBriiT6QVe
+ bh=UIPBSpc0H3jB7+KpJxg4F5rG4rgb2Zzku6x9eNCAhf8=;
+ b=LkA15MenggXoi151d45SYPIEvfF6f5Fo3rW9bGmHd1LZ5uSRXUZT9goc9vyY3EB3pqtMjq6G7
+ wPZWWace2SQCE3C+XBtQd73He4AWPCES9KyX40XDcpXuv8kW6z3sMPA
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/20260605
@@ -91,42 +91,159 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Migrate the code that is decoding cfi instructions to use the generated
-instruction headers.
+Introduce a kvm test that uses the emulated test csr to validate that
+all emulated reads/writes to csrs function as expected.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-
 ---
+ tools/testing/selftests/kvm/Makefile.kvm     |   1 +
+ tools/testing/selftests/kvm/riscv/csr_test.c | 126 +++++++++++++++++++++++++++
+ 2 files changed, 127 insertions(+)
 
-This function generates the same assembly as before.
----
- arch/riscv/kernel/cfi.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/cfi.c b/arch/riscv/kernel/cfi.c
-index 6ec9dbd7292e..e38d5f863747 100644
---- a/arch/riscv/kernel/cfi.c
-+++ b/arch/riscv/kernel/cfi.c
-@@ -40,16 +40,16 @@ static bool decode_cfi_insn(struct pt_regs *regs, unsigned long *target,
- 	if (!riscv_insn_is_beq(insn))
- 		return false;
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 07a5fc2bf67c..88ccd15e8f94 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -212,6 +212,7 @@ TEST_GEN_PROGS_s390 += s390/irq_routing
+ TEST_GEN_PROGS_s390 += mmu_stress_test
  
--	*type = (u32)regs_ptr[RV_EXTRACT_RS1_REG(insn)];
-+	*type = (u32)regs_ptr[riscv_insn_beq_extract_xs1(insn)];
- 
- 	if (get_kernel_nofault(insn, (void *)regs->epc) ||
- 	    get_kernel_nofault(insn, (void *)regs->epc + GET_INSN_LENGTH(insn)))
- 		return false;
- 
- 	if (riscv_insn_is_jalr(insn))
--		rs1_num = RV_EXTRACT_RS1_REG(insn);
-+		rs1_num = riscv_insn_jalr_extract_xs1(insn);
- 	else if (riscv_insn_is_c_jalr(insn))
--		rs1_num = RVC_EXTRACT_C2_RS1_REG(insn);
-+		rs1_num = riscv_insn_c_jalr_extract_xs1(insn);
- 	else
- 		return false;
- 
+ TEST_GEN_PROGS_riscv = $(TEST_GEN_PROGS_COMMON)
++TEST_GEN_PROGS_riscv += riscv/csr_test
+ TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
+ TEST_GEN_PROGS_riscv += riscv/ebreak_test
+ TEST_GEN_PROGS_riscv += riscv/mmio_test
+diff --git a/tools/testing/selftests/kvm/riscv/csr_test.c b/tools/testing/selftests/kvm/riscv/csr_test.c
+new file mode 100644
+index 000000000000..b3e8b99b6e92
+--- /dev/null
++++ b/tools/testing/selftests/kvm/riscv/csr_test.c
+@@ -0,0 +1,126 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * csr_test.c - Tests the csr functionality.
++ */
++#include "kvm_util.h"
++#include "ucall_common.h"
++
++#define CSR_TEST 0x240
++#define FP 0x00006000
++
++/*
++ * Use the fcsr as a U-mode accesible csr and compare against the custom 'test'
++ * hypervisor csr (currently using vsscratch)
++ */
++#define test_csr(write, initial, mode)								\
++static void test_##write(void)									\
++{												\
++	unsigned long hypervisor_result, reference_result, old_hypervisor;			\
++	unsigned long mask = 0x15;								\
++	asm volatile (										\
++		"csrs	sstatus, %[enable_fp]\n"						\
++		"csrw	fcsr, %[init]\n"							\
++		#write"	zero, fcsr, %[mask]\n"							\
++		"csrr	%[ref_res], fcsr\n"							\
++		: [ref_res] "=&r" (reference_result)						\
++		: [enable_fp] "r" (FP), [mask] #mode(mask), [init] "r" (initial)		\
++		: "memory"									\
++	);											\
++	asm volatile (										\
++		"csrw	%[test_csr], %[init]\n"							\
++		#write"	%[old], %[test_csr], %[mask]\n"						\
++		"csrr	%[hyp_res], %[test_csr]\n"						\
++		: [hyp_res] "=&r" (hypervisor_result), [old] "=&r" (old_hypervisor)		\
++		: [test_csr] "i"(CSR_TEST), [mask] #mode(mask), [init] "r" (initial)		\
++		: "memory"									\
++	);											\
++	/* Check that writing works */								\
++	GUEST_ASSERT_EQ(reference_result, hypervisor_result);					\
++	/* Check that reading works */								\
++	GUEST_ASSERT_EQ(old_hypervisor, initial);						\
++	GUEST_DONE();										\
++}
++
++test_csr(csrrw, 0x0, r)
++test_csr(csrrs, 0x0, r)
++test_csr(csrrc, 0x15, r)
++test_csr(csrrwi, 0x0, i)
++test_csr(csrrsi, 0x0, i)
++test_csr(csrrci, 0x15, i)
++
++static void run(void *guest_code, char *instruction)
++{
++	struct ucall uc;
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++
++	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
++
++	kvm_create_device(vm, KVM_DEV_TYPE_TEST);
++
++	vcpu_run(vcpu);
++
++	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE,
++		    "CSR instruction '%s' failed: '%s'", instruction,
++		    uc.buffer);
++
++	kvm_vm_free(vm);
++}
++
++static void check_test_csr_guest(void)
++{
++	unsigned long scause, stvec;
++
++	asm volatile(
++		"la	%[stvec], 1f\n"
++		"csrw	stvec, %[stvec]\n"
++		"csrwi	%[test_csr], 0x0\n"
++		"1:\n"
++		"csrr	%[scause], scause\n"
++		: [scause] "=&r" (scause), [stvec] "=&r" (stvec)
++		: [test_csr] "i" (CSR_TEST)
++	);
++
++	/* An illegal instruction will be generated if CONFIG_RISCV_KVM_TEST_CSR is not enabled. */
++	if (scause == 2)
++		GUEST_FAIL("CONFIG_RISCV_KVM_TEST_CSR not enabled.\n");
++	GUEST_DONE();
++}
++
++static int check_test_csr(void)
++{
++	struct ucall uc;
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++	int success;
++
++	vm = vm_create_with_one_vcpu(&vcpu, check_test_csr_guest);
++
++	/* Skip if CONFIG_KVM_MMIO_TEST not enabled */
++	if (!kvm_create_device(vm, KVM_DEV_TYPE_TEST))
++		exit(KSFT_SKIP);
++
++	vcpu_run(vcpu);
++
++	success = get_ucall(vcpu, &uc) == UCALL_DONE;
++
++	kvm_vm_free(vm);
++
++	return success;
++}
++
++int main(void)
++{
++	/* Skip if CONFIG_RISCV_KVM_TEST_CSR not enabled */
++	if (!check_test_csr())
++		exit(KSFT_SKIP);
++
++	run(test_csrrw, "csrrw");
++	run(test_csrrs, "csrrs");
++	run(test_csrrc, "csrrc");
++	run(test_csrrwi, "csrrwi");
++	run(test_csrrsi, "csrrsi");
++	run(test_csrrci, "csrrci");
++
++	return 0;
++}
 
 -- 
 2.54.0
