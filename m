@@ -4,55 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C483CD98E4
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 02:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB56CD98F6
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Message-Id:To:In-Reply-To:
-	Mime-Version:Date:Subject:From:Cc:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vNDkK0Qa63xEaiH69v+m1Dg+joaYK6E3ky2bm99lAvY=; b=XABsRyeOTP4h7+
-	fM/bN2UJjra6Zk1/QjhlBwCmsj8S3PNTrKUkC9P7Z4JUZEOWoWskF9ElV3QaHXsd1JYRyXy/yxaTX
-	0wiv9pWmnjCtEpABNsnRhCIUAXQM7lc+TxRvdAznVHzq7960JIw6KxsRaEFfH/5sSMo9P8pGCvYpm
-	UIlUybB+rGyFs2rpqev//yCUgNCoMOcY8AyclMTdlM2yzN/op7nkZEgfWwtaGw7JoRKUiJ1Ct9ihl
-	4IXu0gHEcrU7x8OeDVm+VipR31D14gD/O3wI8zBl7ghz6AQmY5hOgJY+Y8BMFA67ZZGW2WCmMVixx
-	2i4H6kl7NryZ5pqxu38w==;
+	List-Owner; bh=fBfr/3IarQ7s67P22PjZ4nopzViIK1kQAowIaHWNjgY=; b=yIFtZKYT8+G4G8
+	IpOOArTZjolWSM/CcIdxvclyoIuXqWmMLXakIEqCVxWdkhN0IWyRqjZxhzg5uYr6KdEc/DF7DLDko
+	EgCBtQFpx54vAfprKBdsA3kbeZ0Ym9mipv47zciXNBtkeHDd8SFa66m78DslcaZUuwZZY/cUFlcj8
+	zUYfA7F0WpQdlmd/oHzwjE25k4HK/vAZT8BIv0pVcaWNlJktXX18ufp+1qvsdWqg9KL111Y6kkm42
+	PePZ+mthnqpSvxkP+oCAXS/NjR9AhohP+JkZkAYfIdadp2j6aT1uaTkG11c8CeQ+s5YJWarjWUcO6
+	zcr6YX8xkA17BsC0OMLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUoH-00000004KSZ-29Fz;
-	Mon, 22 Jun 2026 02:54:53 +0000
-Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
+	id 1wbVqz-00000004MWE-09sb;
+	Mon, 22 Jun 2026 04:01:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUoE-00000004KS1-005E
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 02:54:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1782096880; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=MVFhmxXtrbmG+CWiqbe7ir8ZqzPje6y+FF2v778FjIw=;
- b=qqxW/40QBaj1qPvisEQmOMt+Oz5z9cdyOljS+b+bIW/0E6rdWdOREcg8vKpatUVJUREOKb
- FbRLjsD/OwL3dlS/c7Fasqgvz4qZpQlQCr8+xDCAXwdo+CWvj6U1al/AG+6XCYUrYhkKro
- 3sJIiROenFZSoDwt2mrknSMlK8Irmv/tSNRULn6+jhEcrLQSii8B3v3UYWxKVkQQwaFNFz
- lCMvuUhZVdPM+hUxtytfhbe+y6ocJj+UI/Q3Ghzm51TnDojYHcTEAurI7kRc4YYpINI1U4
- H4ZfJun+4g51TEs5tZ+Q8JASkCY/cdpjAMTsVJ0ETAFqT67f/dGUstM/pnRG2Q==
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-From: "Rui Qi" <qirui.001@bytedance.com>
-Subject: Re: [PATCH] riscv: fix frame pointer in call_on_irq_stack for RV32
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-Date: Mon, 22 Jun 2026 10:54:25 +0800
-Mime-Version: 1.0
-In-Reply-To: <20260603035305.564823-1-qirui.001@bytedance.com>
-User-Agent: Mozilla Thunderbird
-To: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>, 
-	<alex@ghiti.fr>, "Conor Dooley" <conor@kernel.org>
-X-Lms-Return-Path: <lba+26a38a3ee+9955dd+lists.infradead.org+qirui.001@bytedance.com>
-Message-Id: <d3aeae54-9b87-4a9c-b8a6-9769a858ff63@bytedance.com>
-References: <20260603035305.564823-1-qirui.001@bytedance.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_195450_290473_21193A8A 
-X-CRM114-Status: GOOD (  19.58  )
+	id 1wbVqw-00000004MTQ-2h74;
+	Mon, 22 Jun 2026 04:01:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C70EB44543;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A8B03C4AF0F;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782100901;
+	bh=bl8bqy5n0SUc6nwqkyl4Zjq5llPXFc6fIFQnzW3sCvk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=lXXUTEBMRmH9nF9S/9oGHurafzIpiEQ8eO55/DZUn1VONa+1XrlATpqK0Jxdt6lql
+	 eKvYZ8RKpuqD4PQRuEKrETeF6SN2tH/YLmwhXJgbclgxk7F5ycUoJyidS6eofGtCNZ
+	 hY5FNxH2rJceC3d1RKUs8gdk9DXFOGHP+jUB2gHrCbTpx7CO7cwzahMjNfpecz180H
+	 5x4X9O2TN2IMfW3Hcvzlb6Gl6Hq7coCbWWW/+5gViygrLavIWUPTijoDfY3Dfnrd2S
+	 FvusMPfZaSBIHgjOVF57kYIwxtBI2VijlXRq98+56UEKtaXfmxf49VCPc5Tzdat0Wt
+	 QuA6uxpbpbi6Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1D1BCDB470;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
+From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
+Date: Sun, 21 Jun 2026 21:01:24 -0700
+Subject: [PATCH v2 06/16] riscv: cfi: Use generated instruction headers
+MIME-Version: 1.0
+Message-Id: <20260621-riscv_insn_table-v2-6-7f0810ee2274@gmail.com>
+References: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
+In-Reply-To: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Nam Cao <namcao@linutronix.de>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+ Conor Dooley <conor@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Shuah Khan <shuah@kernel.org>, 
+ =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <radim.krcmar@oss.qualcomm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-kselftest@vger.kernel.org, 
+ Charlie Jenkins <thecharlesjenkins@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=1198;
+ i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
+ bh=1tICEVIvaC4ZLr/Ax7sSaci3FTAyWazsJABtM7N8+oQ=;
+ b=cj48hhT9/crCMIqdmT/HMa6q0vDybyuUu6PkaMxzG4Wbulb7zCbgf3j8oz9FPs5+HtjmMrrPN
+ pHcOnVIJ+0pCvD7Bo9NqpBGHgiYkApd4kB90aUQdDZ0fMLBriiT6QVe
+X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
+ pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
+X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/20260605
+ with auth_id=810
+X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,85 +83,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: thecharlesjenkins@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer, Paul, Albert, Alexandre,
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Gentle ping on this patch. It has been posted for over two weeks
-now and I would appreciate any feedback.
+Migrate the code that is decoding cfi instructions to use the generated
+instruction headers.
 
-This fixes a frame pointer bug in call_on_irq_stack on RV32 where
-the unwinder reads from the alignment padding instead of the
-actual saved fp/ra, causing broken stack traces on 32-bit RISC-V.
+Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Please let me know if there are any concerns or if further changes
-are needed.
+---
 
-+Cc: Conor Dooley -- adding RISC-V subsystem reviewer.
+This function generates the same assembly as before.
+---
+ arch/riscv/kernel/cfi.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/kernel/cfi.c b/arch/riscv/kernel/cfi.c
+index 6ec9dbd7292e..e38d5f863747 100644
+--- a/arch/riscv/kernel/cfi.c
++++ b/arch/riscv/kernel/cfi.c
+@@ -40,16 +40,16 @@ static bool decode_cfi_insn(struct pt_regs *regs, unsigned long *target,
+ 	if (!riscv_insn_is_beq(insn))
+ 		return false;
+ 
+-	*type = (u32)regs_ptr[RV_EXTRACT_RS1_REG(insn)];
++	*type = (u32)regs_ptr[riscv_insn_beq_extract_xs1(insn)];
+ 
+ 	if (get_kernel_nofault(insn, (void *)regs->epc) ||
+ 	    get_kernel_nofault(insn, (void *)regs->epc + GET_INSN_LENGTH(insn)))
+ 		return false;
+ 
+ 	if (riscv_insn_is_jalr(insn))
+-		rs1_num = RV_EXTRACT_RS1_REG(insn);
++		rs1_num = riscv_insn_jalr_extract_xs1(insn);
+ 	else if (riscv_insn_is_c_jalr(insn))
+-		rs1_num = RVC_EXTRACT_C2_RS1_REG(insn);
++		rs1_num = riscv_insn_c_jalr_extract_xs1(insn);
+ 	else
+ 		return false;
+ 
+
+-- 
+2.54.0
 
 
-On 6/3/26 11:53 AM, Rui Qi wrote:
-> The frame pointer (s0/fp) in call_on_irq_stack is set using
-> STACKFRAME_SIZE_ON_STACK, which equals ALIGN(sizeof(struct stackframe),
-> STACK_ALIGN). On RV64, sizeof(struct stackframe) is 16 and the aligned
-> size is also 16, so there is no difference. However, on RV32,
-> sizeof(struct stackframe) is 8 while STACKFRAME_SIZE_ON_STACK is 16 due
-> to 8 bytes of alignment padding.
-> 
-> The stack unwinder does 'frame = (struct stackframe *)fp - 1', which
-> reads from 'fp - sizeof(struct stackframe)'. On RV32, with fp set to
-> sp + STACKFRAME_SIZE_ON_STACK (sp + 16), the unwinder reads from
-> sp + 8, which falls in the alignment padding rather than where the
-> saved fp/ra are actually stored (sp + 0 and sp + 4).
-> 
-> Fix this by introducing STACKFRAME_SIZE (the unaligned sizeof) and using
-> it for frame pointer setup and restoration, while keeping
-> STACKFRAME_SIZE_ON_STACK for the stack pointer allocation/deallocation
-> which must remain 16-byte aligned.
-> 
-> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
-> ---
->  arch/riscv/kernel/asm-offsets.c | 1 +
->  arch/riscv/kernel/entry.S       | 4 ++--
->  2 files changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index af827448a609..c1b5f7eb03fd 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -500,6 +500,7 @@ void asm_offsets(void)
->  	OFFSET(SBI_HART_BOOT_TASK_PTR_OFFSET, sbi_hart_boot_data, task_ptr);
->  	OFFSET(SBI_HART_BOOT_STACK_PTR_OFFSET, sbi_hart_boot_data, stack_ptr);
->  
-> +	DEFINE(STACKFRAME_SIZE, sizeof(struct stackframe));
->  	DEFINE(STACKFRAME_SIZE_ON_STACK, ALIGN(sizeof(struct stackframe), STACK_ALIGN));
->  	OFFSET(STACKFRAME_FP, stackframe, fp);
->  	OFFSET(STACKFRAME_RA, stackframe, ra);
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index d011fb51c59a..e8b654e2b7b5 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -383,7 +383,7 @@ SYM_FUNC_START(call_on_irq_stack)
->  	addi	sp, sp, -STACKFRAME_SIZE_ON_STACK
->  	REG_S	ra, STACKFRAME_RA(sp)
->  	REG_S	s0, STACKFRAME_FP(sp)
-> -	addi	s0, sp, STACKFRAME_SIZE_ON_STACK
-> +	addi	s0, sp, STACKFRAME_SIZE
->  
->  	/* Switch to the per-CPU shadow call stack */
->  	scs_save_current
-> @@ -399,7 +399,7 @@ SYM_FUNC_START(call_on_irq_stack)
->  	scs_load_current
->  
->  	/* Switch back to the thread stack and restore ra and s0 */
-> -	addi	sp, s0, -STACKFRAME_SIZE_ON_STACK
-> +	addi	sp, s0, -STACKFRAME_SIZE
->  	REG_L	ra, STACKFRAME_RA(sp)
->  	REG_L	s0, STACKFRAME_FP(sp)
->  	addi	sp, sp, STACKFRAME_SIZE_ON_STACK
 
 _______________________________________________
 linux-riscv mailing list
