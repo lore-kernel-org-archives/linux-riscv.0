@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D1CCDB46B
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 08:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14C3CDB475
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 08:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XGcQEt7+U1PKoeGj97ekBtS49wXxNpGorWhHzWzxf20=; b=aN71+3lcGM5hLx
-	KsUrzr5Vp4GB+htRY/c3aVtBVw/YjLQ7cTsK6kovq3pOeJ607vHv0HzDmtnmwiiXWtxV/JG/cATRQ
-	A9jo4rw19Sfvedi0tRAfCTJ5t22IoT8lHi24JeJaJyDK4OS30Y+jnlzNwE3h0CjDzYlWOb17QbYNs
-	Q3FH02JzXa8h1VhZJkbU4Yy1ucJQBPC6mXtYdqnZ+OIwe/osd9KS+ibvGj9rIjcSPbs+26s+OtJJR
-	sGfmKi5UBMAKMxrcqi1jNnmuyayuzsPLNbA10M1jh7V8vsx4clqgQc1cE9dFXm2FVHvAL8Yp7Tf36
-	GD4xDUVOipsC4b/BKy8w==;
+	List-Owner; bh=CKCfyPRHCAP113hJkGk15z0oLKEqdobr1pK0RcVLM+0=; b=Uf+QHm4pEs0Lgv
+	6dVW+EOHqbDYiPRQqgOp8L+G7uC4SD7I0j9mTRjJ8wUaY+/HCqqW4pMD1CjVb+OCInAgA6PdBoJwb
+	MAbd8Q9seXzw6vuI0sxo6/scJMxkSLeC7ROw2HG9KJ4uHhrzqdAT7bV73biS7F9USHm27Uxoc4Vw+
+	58yK7ERQE2N2nl7o5l07C9myX3I0Fp/7o6eeF8DCAbbGlBsvxDj0AodbtYejyiH5fqxfmhUBPv7yf
+	FFM6p3NXZt8xzaz8gZmYKWkXpMKqycbx8EF3ilg2HGIxiqfN68puo51DJXpdzpDjLAQYMmIcMNvpy
+	e9bQ9P1GszURiu/nNhmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZdw-00000004anr-16eU;
-	Mon, 22 Jun 2026 08:04:32 +0000
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
+	id 1wbZe4-00000004arZ-3xP5;
+	Mon, 22 Jun 2026 08:04:40 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZds-00000004amK-2XbO
+	id 1wbZdw-00000004anD-0RDo
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 08:04:30 +0000
+	Mon, 22 Jun 2026 08:04:33 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782115466;
+	t=1782115469;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=v62h5jXmmPgvQdyVU89RGQkLc6ReYrJW9QcdYlcnl1s=;
-	b=oIPacT9Lz4/fnsnqclJUcIdL5JYt78goTvHHcxVnY3JyTxFwB6WIVcRgxLZdgrEVuKOcjK
-	EIKKZXitc5H1EtSSz37N+7DkT86VZTFd93gzatYrtTDplcBLU27t9V5AchyTisc+3M50Dw
-	zo4lBUuX/HyZ3BRKFGdssr0SZeN81eo=
+	bh=gg1b4NvG9irnTlONKFumTIckFqfflTt6uFIpf+8fltI=;
+	b=kOaqXYbC2KQCmlSnSWn0324xgMNEQ9izeKTIeWr/qW7mTmZvJxm9n9xB25Sqao2oCTu5NE
+	kqxc+Ztk+ECCJSV5fBzz9SJXbP2M9MPelMA+S0pbRnG/ZzXZY6pffQRHi6oGeXt16sopQj
+	iQyKNeUbkFLF6u5ZwMoASfltiY2PL/A=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Mon, 22 Jun 2026 01:04:13 -0700
-Subject: [PATCH v7 01/22] RISC-V: perf: fix resource cleanup on driver
- probe failure
+Date: Mon, 22 Jun 2026 01:04:14 -0700
+Subject: [PATCH v7 02/22] RISC-V: Add Sxcsrind ISA extension CSR
+ definitions
 MIME-Version: 1.0
-Message-Id: <20260622-counter_delegation-v7-1-0ba2fd34614e@meta.com>
+Message-Id: <20260622-counter_delegation-v7-2-0ba2fd34614e@meta.com>
 References: <20260622-counter_delegation-v7-0-0ba2fd34614e@meta.com>
 In-Reply-To: <20260622-counter_delegation-v7-0-0ba2fd34614e@meta.com>
 To: Jiri Olsa <jolsa@kernel.org>, James Clark <james.clark@linaro.org>, 
@@ -57,8 +57,9 @@ Cc: devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_010428_781102_D9164FED 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20260622_010432_279169_4E5A90D8 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,98 +71,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atishp@meta.com>
-
-Sashiko pointed out various UAF and memory leak issues around
-pmu_sbi_device_probe() error paths.
-
-If the probe fails, here are list of cleanups needed.
-a. Already registered pmu must be freed
-b. per cpu IRQ must be released
-c. pmu_ctr_list data structure must be freed
-d. cpu hotplug state must be cleaned up only if added.
-
-Fix the resource cleanup by reorganizing the code around probe failure.
-
-Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-Signed-off-by: Atish Patra <atishp@meta.com>
----
- drivers/perf/riscv_pmu_sbi.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 385af5e6e6d0..8753007cc57e 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -1302,7 +1302,8 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
- 		}
- 	}
- 	riscv_pm_pmu_unregister(pmu);
--	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
-+	if (!hlist_unhashed(&pmu->node))
-+		cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
- }
- 
- static void pmu_sbi_event_init(struct perf_event *event)
-@@ -1424,6 +1425,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	struct riscv_pmu *pmu = NULL;
- 	int ret = -ENODEV;
- 	int num_counters;
-+	bool irq_requested = false;
- 
- 	pr_info("SBI PMU extension is available\n");
- 	pmu = riscv_pmu_alloc();
-@@ -1452,6 +1454,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
- 	}
-+	irq_requested = (ret == 0);
- 
- 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
- 	pmu->pmu.parent = &pdev->dev;
-@@ -1470,11 +1473,11 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 
- 	ret = riscv_pm_pmu_register(pmu);
- 	if (ret)
--		goto out_unregister;
-+		goto out_destroy;
- 
- 	ret = perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
- 	if (ret)
--		goto out_unregister;
-+		goto out_destroy;
- 
- 	/* SBI PMU Snapsphot is only available in SBI v2.0 */
- 	if (sbi_v2_available) {
-@@ -1515,9 +1518,17 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	return 0;
- 
- out_unregister:
-+	perf_pmu_unregister(&pmu->pmu);
-+
-+out_destroy:
- 	riscv_pmu_destroy(pmu);
-+	if (irq_requested)
-+		free_percpu_irq(riscv_pmu_irq, pmu->hw_events);
- 
- out_free:
-+	free_percpu(pmu->hw_events);
-+	kfree(pmu_ctr_list);
-+	pmu_ctr_list = NULL;
- 	kfree(pmu);
- 	return ret;
- }
-
--- 
-2.53.0-Meta
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogS2Fpd2VuIFh1ZSA8a2Fpd2VueEByaXZvc2luYy5jb20+CgpUaGlzIGFkZHMgZGVmaW5p
+dGlvbnMgb2YgbmV3IENTUnMgYW5kIGJpdHMgZGVmaW5lZCBpbiBTeGNzcmluZCBJU0EKZXh0ZW5z
+aW9uLiBUaGVzZSBDU1IgZW5hYmxlcyBpbmRpcmVjdCBhY2Nlc3NlcyBtZWNoYW5pc20gdG8gYWNj
+ZXNzCmFueSBDU1JzIGluIE0tLCBTLSwgYW5kIFZTLW1vZGUuIFRoZSByYW5nZSBvZiB0aGUgc2Vs
+ZWN0IHZhbHVlcwphbmQgaXJlZyB3aWxsIGJlIGRlZmluZSBieSB0aGUgSVNBIGV4dGVuc2lvbiB1
+c2luZyBTeGNzcmluZCBleHRlbnNpb24uCgpTaWduZWQtb2ZmLWJ5OiBLYWl3ZW4gWHVlIDxrYWl3
+ZW54QHJpdm9zaW5jLmNvbT4KUmV2aWV3ZWQtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJp
+dm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogQXRpc2ggUGF0cmEgPGF0aXNocEByaXZvc2luYy5j
+b20+Ci0tLQogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCB8IDMwICsrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDMwIGluc2VydGlvbnMoKykKCmRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9jc3IuaAppbmRleCAzMWI4OTg4ZjQ0ODguLmI0NTUxYTZjZjdjYiAxMDA2NDQKLS0tIGEv
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2Nzci5oCkBAIC0zNDcsNiArMzQ3LDEyIEBACiAvKiBTdXBlcnZpc29yLUxldmVsIFdpbmRvdyB0
+byBJbmRpcmVjdGx5IEFjY2Vzc2VkIFJlZ2lzdGVycyAoQUlBKSAqLwogI2RlZmluZSBDU1JfU0lT
+RUxFQ1QJCTB4MTUwCiAjZGVmaW5lIENTUl9TSVJFRwkJMHgxNTEKKy8qIFN1cGVydmlzb3ItTGV2
+ZWwgV2luZG93IHRvIEluZGlyZWN0bHkgQWNjZXNzZWQgUmVnaXN0ZXJzIChTeGNzcmluZCkgKi8K
+KyNkZWZpbmUgQ1NSX1NJUkVHMgkJMHgxNTIKKyNkZWZpbmUgQ1NSX1NJUkVHMwkJMHgxNTMKKyNk
+ZWZpbmUgQ1NSX1NJUkVHNAkJMHgxNTUKKyNkZWZpbmUgQ1NSX1NJUkVHNQkJMHgxNTYKKyNkZWZp
+bmUgQ1NSX1NJUkVHNgkJMHgxNTcKIAogLyogU3VwZXJ2aXNvci1MZXZlbCBJbnRlcnJ1cHRzIChB
+SUEpICovCiAjZGVmaW5lIENTUl9TVE9QRUkJCTB4MTVjCkBAIC0zOTQsNiArNDAwLDE0IEBACiAv
+KiBWUy1MZXZlbCBXaW5kb3cgdG8gSW5kaXJlY3RseSBBY2Nlc3NlZCBSZWdpc3RlcnMgKEgtZXh0
+ZW5zaW9uIHdpdGggQUlBKSAqLwogI2RlZmluZSBDU1JfVlNJU0VMRUNUCQkweDI1MAogI2RlZmlu
+ZSBDU1JfVlNJUkVHCQkweDI1MQorLyoKKyAqIFZTLUxldmVsIFdpbmRvdyB0byBJbmRpcmVjdGx5
+IEFjY2Vzc2VkIFJlZ2lzdGVycyAoSC1leHRlbnNpb24gd2l0aCBTeGNzcmluZCkKKyAqLworI2Rl
+ZmluZSBDU1JfVlNJUkVHMgkJMHgyNTIKKyNkZWZpbmUgQ1NSX1ZTSVJFRzMJCTB4MjUzCisjZGVm
+aW5lIENTUl9WU0lSRUc0CQkweDI1NQorI2RlZmluZSBDU1JfVlNJUkVHNQkJMHgyNTYKKyNkZWZp
+bmUgQ1NSX1ZTSVJFRzYJCTB4MjU3CiAKIC8qIFZTLUxldmVsIEludGVycnVwdHMgKEgtZXh0ZW5z
+aW9uIHdpdGggQUlBKSAqLwogI2RlZmluZSBDU1JfVlNUT1BFSQkJMHgyNWMKQEAgLTQzNiw2ICs0
+NTAsMTIgQEAKIC8qIE1hY2hpbmUtTGV2ZWwgV2luZG93IHRvIEluZGlyZWN0bHkgQWNjZXNzZWQg
+UmVnaXN0ZXJzIChBSUEpICovCiAjZGVmaW5lIENTUl9NSVNFTEVDVAkJMHgzNTAKICNkZWZpbmUg
+Q1NSX01JUkVHCQkweDM1MQorLyogTWFjaGluZS1MZXZlbCBXaW5kb3cgdG8gSW5kaXJlY3RseSBB
+Y2Nlc3NlZCBSZWdpc3RlcnMgKFN4Y3NyaW5kKSAqLworI2RlZmluZSBDU1JfTUlSRUcyCQkweDM1
+MgorI2RlZmluZSBDU1JfTUlSRUczCQkweDM1MworI2RlZmluZSBDU1JfTUlSRUc0CQkweDM1NQor
+I2RlZmluZSBDU1JfTUlSRUc1CQkweDM1NgorI2RlZmluZSBDU1JfTUlSRUc2CQkweDM1NwogCiAv
+KiBNYWNoaW5lLUxldmVsIEludGVycnVwdHMgKEFJQSkgKi8KICNkZWZpbmUgQ1NSX01UT1BFSQkJ
+MHgzNWMKQEAgLTQ5OCw2ICs1MTgsMTEgQEAKICMgZGVmaW5lIENTUl9JRUgJCUNTUl9NSUVICiAj
+IGRlZmluZSBDU1JfSVNFTEVDVAlDU1JfTUlTRUxFQ1QKICMgZGVmaW5lIENTUl9JUkVHCUNTUl9N
+SVJFRworIyBkZWZpbmUgQ1NSX0lSRUcyCUNTUl9NSVJFRzIKKyMgZGVmaW5lIENTUl9JUkVHMwlD
+U1JfTUlSRUczCisjIGRlZmluZSBDU1JfSVJFRzQJQ1NSX01JUkVHNAorIyBkZWZpbmUgQ1NSX0lS
+RUc1CUNTUl9NSVJFRzUKKyMgZGVmaW5lIENTUl9JUkVHNglDU1JfTUlSRUc2CiAjIGRlZmluZSBD
+U1JfSVBICQlDU1JfTUlQSAogIyBkZWZpbmUgQ1NSX1RPUEVJCUNTUl9NVE9QRUkKICMgZGVmaW5l
+IENTUl9UT1BJCUNTUl9NVE9QSQpAQCAtNTIzLDYgKzU0OCwxMSBAQAogIyBkZWZpbmUgQ1NSX0lF
+SAkJQ1NSX1NJRUgKICMgZGVmaW5lIENTUl9JU0VMRUNUCUNTUl9TSVNFTEVDVAogIyBkZWZpbmUg
+Q1NSX0lSRUcJQ1NSX1NJUkVHCisjIGRlZmluZSBDU1JfSVJFRzIJQ1NSX1NJUkVHMgorIyBkZWZp
+bmUgQ1NSX0lSRUczCUNTUl9TSVJFRzMKKyMgZGVmaW5lIENTUl9JUkVHNAlDU1JfU0lSRUc0Cisj
+IGRlZmluZSBDU1JfSVJFRzUJQ1NSX1NJUkVHNQorIyBkZWZpbmUgQ1NSX0lSRUc2CUNTUl9TSVJF
+RzYKICMgZGVmaW5lIENTUl9JUEgJCUNTUl9TSVBICiAjIGRlZmluZSBDU1JfVE9QRUkJQ1NSX1NU
+T1BFSQogIyBkZWZpbmUgQ1NSX1RPUEkJQ1NSX1NUT1BJCgotLSAKMi41My4wLU1ldGEKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
