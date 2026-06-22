@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860E5CD98F2
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 18:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56168CDB46F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 18:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lhfKJI8nybWmKvlG4Fh+szk6iDyRxHRHCvk9v/eSrRM=; b=m0sd/uIEYe80JU
-	g+nlVGmRZwFiTG0mZyFLF8Orb0mwJFjgin46Y4nd6tXNUV6ksdFoZTVG/JP/HTlIbEmAMtWeHnXAE
-	UChRz1aRFWJ7agSaNUbQjiIAup/ZgwBxuNfwpHmB2keok7FMP/9viX4J2K7kTylw8Kw6p2B1TgjxA
-	LO2FExBs1u6B1GhMlOCr1wkxiL7vsI5jWXdNIicIS5l4lyD9x/JyMZOp0tkgwseqb9Yix9eQSfWfR
-	7V5KxPiQCbJblrClD7iBaziIFfSU4Vu0huavsrHA1RlckJSvTcxWzRdK5wB5tf1gOQnlKAVkufQ7C
-	97pLZ45+eh0QbJrcLTtw==;
+	List-Owner; bh=D3JyoWDi7skKY8K6efFgYkZydf6yOMIeO4we2dap2/8=; b=hZwVTfZ7/oVPOf
+	6JP1sluwmA1E0FOZgTgriNM+ZT5jkYaiPSy41JT2bn4207jXD6r3Q8sLL20MId3VoJlVlnyW5/xba
+	Sq7PHFfg3VJyr45TWnlpCfNmaR4RPHi9/8zrY6vmA6Og03JgJJeQkbzHpHbQYOxmzfjJCXJOpqQ41
+	gnHHp/mRjdwH6nn9Zhw17YQGIPXRD373sYHtT1lsuJPfSeR3CqB3FVwlgeAa2ILcIYE7yLYP75Nu6
+	tzFJrlpt9bngXRa9/hjeD9Tt/1beQt0aggDTh150rBkAg3Xwx10HA4AxSX1muPgk6zKChK3/bXJUp
+	FJjIpS5yNBJ462NmCLbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbj4a-00000005HoB-2959;
-	Mon, 22 Jun 2026 18:08:40 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wbjHQ-00000005IF8-4AQ9;
+	Mon, 22 Jun 2026 18:21:56 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbj4X-00000005Hnq-46zu
+	id 1wbjHO-00000005IEo-21c7
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 18:08:39 +0000
+	Mon, 22 Jun 2026 18:21:56 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782151713;
+	s=2020; t=1782152512;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0RAcSN4Jyp8r6M0x8JyWR8gtgPSXUUxipoPgGSKt5is=;
-	b=3xmxTP8sdaIJBm0i8KnU66mKd/STCYGyFd0ubOGffdrYoH1h2gI1KBGC4AgMg2+Cxlf/5F
-	OcA4XhmK8EuWuXE56cf+Xc5bDBPtbs3upPcw0dDQZpYb87s6V6YjqbFj/B8U3gjD4gY+od
-	9xeBkLIldlXe5Wl06QtlbEwYiX6T4lFx/cZ8Ckq6hFax1yKdPIqPLgMJEQpSbVX4LwroBz
-	4fxWDTK2DhYxv8D/v+u2UrxVbk3hp23ZXVN11AY7UYlsrv+HzS29CuMNz+DwwSlz34zy8m
-	H7hJYYM0fwXOgTePte+WxxOUX5HpOUQWosdF5OKWrzS4MrvTCtfw0f/SLpobfw==
+	bh=stuQTfb73FufXMCRBmqvR7Yhr2IPfoOpetylBXI/zuk=;
+	b=dWiRIyxwI8KR7dJ9MZcqv+CZqAr/iVzY6YcXWP2EgGHCfZlVhDgkjkSid2olVVGv0TykzI
+	UjO4kPcT9X/IkPqhjDpaxNaO0m3Bg6I7F8mI7KnYdUL6F65vX5LB0Zymo4xjqxqlHrm271
+	HjxqnL00QR6q1cwjtwS5I43D9mK/S5fAVOaDFr8ENyTy8r8vtwmz7OZmRAxJaxkgHAFM1J
+	hAPpFyY1GntrYV2ztmQ3W9FC5vljqRGeKL6KL1kO9/jGf77/3GNrHr8k7iLloNILDPIAXh
+	+mfl3i+cu1dcIu/7UbSzjYWWnDlSUMcDcJBZZF8hxCP6DD52CGyt5O0yjjOkwQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782151713;
+	s=2020e; t=1782152512;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0RAcSN4Jyp8r6M0x8JyWR8gtgPSXUUxipoPgGSKt5is=;
-	b=+jfxFsaLB3ytIXGCVUnAlf8WfyPLSZSDlIOTZBUuDbvsq5fnQiMMJPAE3XLgBRT4/dWrly
-	NhKiVwXs1z5tWqBA==
-To: Rui Qi <qirui.001@bytedance.com>, palmer@dabbelt.com, pjw@kernel.org,
- aou@eecs.berkeley.edu, alex@ghiti.fr
-Cc: Rui Qi <qirui.001@bytedance.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: fix frame pointer in call_on_irq_stack for RV32
-In-Reply-To: <20260603035305.564823-1-qirui.001@bytedance.com>
-References: <20260603035305.564823-1-qirui.001@bytedance.com>
-Date: Mon, 22 Jun 2026 20:08:31 +0200
-Message-ID: <87h5muv468.fsf@yellow.woof>
+	bh=stuQTfb73FufXMCRBmqvR7Yhr2IPfoOpetylBXI/zuk=;
+	b=UaoS57VdjEK09E69P9jtbnj8rorCMBaPaS0lpWwBWSeFNV4E+wnqQ/uAAJj5ULc57hK+gn
+	Wavmlr4hUIypabCQ==
+To: Ben Dooks <ben.dooks@codethink.co.uk>, linux-raid@vger.kernel.org, Song
+ Liu <song@kernel.org>, Yu Kuai <yukuai@fygo.io>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Ben Dooks
+ <ben.dooks@codethink.co.uk>
+Subject: Re: [PATCH] raid6: fix raid6_recov_rvv symbol undeclared warning
+In-Reply-To: <20260622135535.481534-1-ben.dooks@codethink.co.uk>
+References: <20260622135535.481534-1-ben.dooks@codethink.co.uk>
+Date: Mon, 22 Jun 2026 20:21:51 +0200
+Message-ID: <87echyv3k0.fsf@yellow.woof>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_110838_172654_732E75B5 
-X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-CacheID: sfid-20260622_112154_695681_FED9D37C 
+X-CRM114-Status: UNSURE (   5.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,28 +78,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"Rui Qi" <qirui.001@bytedance.com> writes:
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -383,7 +383,7 @@ SYM_FUNC_START(call_on_irq_stack)
->  	addi	sp, sp, -STACKFRAME_SIZE_ON_STACK
->  	REG_S	ra, STACKFRAME_RA(sp)
->  	REG_S	s0, STACKFRAME_FP(sp)
-> -	addi	s0, sp, STACKFRAME_SIZE_ON_STACK
-> +	addi	s0, sp, STACKFRAME_SIZE
+Ben Dooks <ben.dooks@codethink.co.uk> writes:
+> The riscv recov_rvv.c should have included pq_arch.h for
+> the definition of raid6_recov_rvv. Add the include to
+> fix the following sparse warning:
+>
+> lib/raid/raid6/riscv/recov_rvv.c:218:32: warning: symbol 'raid6_recov_rvv' was not declared. Should it be static?
+>
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 
-Doesn't this break the calling convention? The ABI specifies that "After
-the prologue, the frame pointer register will point to [...] the stack
-pointer value on entry to the current procedure". The frame pointer is
-already correct here.
-
-It is the storage locations of ra and fp that are broken. The ABI says
-"This puts the return address at fp - XLEN/8, and the previous frame
-pointer at fp - 2 * XLEN/8".
-
-Or am I confused?
-
-Nam
+Reviewed-by: Nam Cao <namcao@linutronix.de>
 
 _______________________________________________
 linux-riscv mailing list
