@@ -4,98 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6607ECDB46B
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 08:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDE5CDB46F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 09:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qSf9jxrIhnGuHDnZqR38+w6xwG4/IgReNuvcJY3d524=; b=zOO7/B+C77aHtv
-	7ujfjFTxBe6WI44QtjXYTrf+bNvK/Zoy5N6icdINHVJPQ5Fjx7IvfcObdOSasl3nRKi+7eyvQL8fD
-	9d94RYy1TgoxtrFYOHr06g1RrmYX05LaWp+9nzkgS6hITYxim+I+kCMmGBmcw7oJD3icJeeU88ge2
-	De6fwiDjirI1yS/gaC8hIVLSJu9NbVFoPjR8luJEIYAvCIYwyQCAEmaDIH9oQKhftm2OBaTz3+NYL
-	x/l1lH07XWT7nd7oI+QTP3zanuO1y/vFfu9k3QcMDogrnivGtcN16cObBOXcB65ytfy+DfVbpIrz1
-	pZMyCFGY34IeIjUhXE3g==;
+	List-Owner; bh=azV9n89vb8042pXTm6pM+ubt/3sMQCThLYEE4jGVHDo=; b=CVjeFkyyQ1GfJZ
+	2HIIhI2K96K6QF3n1b7Kk2m1BBA22AbY+ecj1+mavlZp7chV0BrJmx78LVWmg7qUrFDbe0jG51FgP
+	k7qXiODHBMwLxQz8MAOjiRaBXToiH0A9cNDbzaRpWdvWQvIx/uhMPTT18pMpuexj82XXKf14IjWY2
+	0biWQ3gOxS+A1oWy4YWs7Hinu6NPZUO3LZNSkrtqqTQ0k9FFwtApa/b+dWzF3QJ5CAqsgDS2nV1iD
+	XIz6yGGPX06OnwX+Rb2ybeMM5TUT7/v/hkBlfMVgT7SA+hEaHK9ftqdYLeXgayqzK5v0/AL74T3DY
+	myceH26768K4yNBlwwbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbaMU-00000004h1n-29mk;
-	Mon, 22 Jun 2026 08:50:34 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wbam6-00000004jo3-3enQ;
+	Mon, 22 Jun 2026 09:17:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbaMS-00000004h10-2fRh
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 08:50:33 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2bf20f6be6bso27139635ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jun 2026 01:50:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782118228; x=1782723028; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wsb3msrVzMFjEIZt2d7WOPQ7wBUcHqp6O0aoLnTn6WY=;
-        b=eK2H/GIcQredLWYiQyxKAUTXc9KR0pk6KLYTTow6iojf15Sd1NCwtaybWjy8S30Dbi
-         yOm7HEpQg/5yJYfHotIEMH2qtDNkpmm3LPkHIH0u5P5Zs5MrDWmyT7Lyl6jjO6bJuPj3
-         lhgWfNWCk7G2EIgLn1ZAx6ZzZwRQfJuiwXlZSVSXRI17Jgeyd/h7vwaEg2Q5R6NdbSZF
-         KGmAYyfAMj5bb5igVF0+OI3XrqA+T9S7tLhxvyqPD5sDU4Jqq5KuGvgys5wkGRvFfmj3
-         +T1K2EhkyB+3XKIMTMtvO4sh4ulc39QI33TWw5EM1UdpHMGZS0SHrY7gMYUXWaobZ5rV
-         bXcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782118228; x=1782723028;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wsb3msrVzMFjEIZt2d7WOPQ7wBUcHqp6O0aoLnTn6WY=;
-        b=gNDgJceuyd9dOqHctRA8RRZ1gOh4apg5k/3cCZk3yAXJneZINxJu7RH/x4t6DYvWP5
-         WJAO2fUeIbL/fZRSvBumqPvmwmNztcRQ0Ptnotyasn/70R5ss8U8XZt+c8PMznBnJrzH
-         l9dM0iRRWzvDgx+am2knuBwEQpG79uHFmGJ6y83MnH+jH2D6x0222xrqAgTmvs4GHMxd
-         R/4FAUjsXnFkG5YerCvBbQZodDPNYBiDYHXhYM/KvoG7vyRkFO3TbCoA3IpNOpKoSVC1
-         VGbeJBTzLur6iMEuSidjrSnnM+7RQMHpAx4zyMbD10vjq4tckBSrMjYOD6tFzF32HsDx
-         oy8w==
-X-Forwarded-Encrypted: i=1; AHgh+RqhQ8QGwvsSjzZRSayBQqhs3QxRCSLXwhfPyh2rO0wTv1TTC5h97hs12X7Cy+lY70GtOWLoMN+0VRGluw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yznpk1dcVw1ypAuTIt8PeIeCd1TP4IuR86/x8pmaCLZWwueeTpm
-	kJ/4lkKHNmGjs8GMBhi5qalRkQZDDL3tE5zyrrXoIcJrpA7JJUAiu9td
-X-Gm-Gg: AfdE7cnmgR17tanIxaZR4AIyGMqs3k0trrg1rWG8nV6JppkhFiukK4iw9uLQ8ErkfwI
-	8OV0hFjPYBEo9coPb1MxfF2qRvb/3smz02g1Fgn4/vlxJesZzqftm2/dKqBm6gCEJpdXHjmYfkZ
-	1eBnwo/zhtNiw77xmdkOKXLH59fRJItvmzq30nhhRdM6TOVPzp9T2PYYd4AcPTzc7uyMWJnR9v0
-	8yORfbozqDMOQAmSSPxjhgv35iclNw3fpqpPj/KlDCjFTc27R/2h8PWsgaJdcbvbKuf3xNHVme9
-	UgbKNRgLW1R7/KwZQAtReyaNh7/Ff2cN4iPCTWl0vgbCKxs/uuzvYckk3IbvRnL01nnclPnIzz9
-	HbWtxJKqFbICsMY694lLE6jwuj5alAMoL2hZkqzYJeR7sEOOMlT2sjH2Kpd7RUybD
-X-Received: by 2002:a17:902:f650:b0:2c2:245a:3364 with SMTP id d9443c01a7336-2c718fbc332mr147180715ad.32.1782118228124;
-        Mon, 22 Jun 2026 01:50:28 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7444a9c7csm65858905ad.73.2026.06.22.01.50.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jun 2026 01:50:27 -0700 (PDT)
-Date: Mon, 22 Jun 2026 16:50:10 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alex Elder <elder@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Christian Bruel <christian.bruel@foss.st.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Senchuan Zhang <zhangsenchuan@eswincomputing.com>, Nam Cao <namcao@linutronix.de>, 
-	Siddharth Vadapalli <s-vadapalli@ti.com>, Randolph Lin <randolph@andestech.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Vidya Sagar <vidyas@nvidia.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v2 5/5] PCI: spacemit-k1: Add Spacemit K3 PCIe host
- controller support
-Message-ID: <ajjz9RVlgCf1pt9c@inochi.infowork>
-References: <20260517014841.254085-1-inochiama@gmail.com>
- <20260517014841.254085-6-inochiama@gmail.com>
- <2dec4fe6-30d8-4949-bdc1-e32508340b87@riscstar.com>
+	id 1wbam4-00000004jni-3vng;
+	Mon, 22 Jun 2026 09:17:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=gz16ZH9DYGPBkD+pXEoFxanVGNLD5CokSPREwvD3FzM=; b=bXjPBVnwKoVgWdR23Vv0nGMq7K
+	eft/IvzlSMxbhuWTyvk4G6JmK1L5/zz2MTahwNL3TJr1Zj3FMMxALMlL3WhufZfJU2G+xaNkWPiyG
+	677biAtYhJFxO5f/5GjAdcN6y5wk3SovkcwkRDxeKGudBJU7I0UkNw1u9ocBpKkKmZRbgNyQotQ+V
+	JPZ1VxZ4UgpgWp+Hg1cg8a27vJ600XRizU9iaKoy7mcKofGfGw+jhYLH1qitaDDQeX9Q40bQCDkBp
+	4jKUTOI3m0JZxfls4k/fl4QCPtwVHynQDDkYnIQXyd7bbDcF5rlYFLFM+vcPFO7hDt1tAaLqYxn+B
+	gxEgPfDQ==;
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wbalz-0000000HFuF-0mtw;
+	Mon, 22 Jun 2026 09:16:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=gz16ZH9DYGPBkD+pXEoFxanVGNLD5CokSPREwvD3FzM=;
+	b=iDpQu2YAQjuV/tnUvSFc/IfA/QHC+chs6j95gLPcVQDfxvY/K61tKJpDenU9U7gsY/W785auK
+	9ejn1uywZpaNZ7Vj+jKp5Dm6tlLP0o/tzv2/8bC1jUjx+iZd7VRGgxpVFtAPXBYiMcWzdJ9+MZB
+	kEGLm0Rldmi+TYDWir3I0uo=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gkMm12tWrzmVD1;
+	Mon, 22 Jun 2026 17:07:29 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id AA77E40539;
+	Mon, 22 Jun 2026 17:16:33 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 22 Jun 2026 17:16:31 +0800
+Message-ID: <b828dd7a-0363-46cf-aad0-e4962e299338@huawei.com>
+Date: Mon, 22 Jun 2026 17:16:30 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2dec4fe6-30d8-4949-bdc1-e32508340b87@riscstar.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
+ CPUs
+To: Will Deacon <will@kernel.org>
+CC: Michael Kelley <mhklinux@outlook.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "tsbogend@alpha.franken.de"
+	<tsbogend@alpha.franken.de>, "pjw@kernel.org" <pjw@kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "alex@ghiti.fr" <alex@ghiti.fr>, "tglx@kernel.org"
+	<tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
+	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"hpa@zytor.com" <hpa@zytor.com>, "peterz@infradead.org"
+	<peterz@infradead.org>, "kees@kernel.org" <kees@kernel.org>,
+	"nathan@kernel.org" <nathan@kernel.org>, "linusw@kernel.org"
+	<linusw@kernel.org>, "ojeda@kernel.org" <ojeda@kernel.org>,
+	"david.kaplan@amd.com" <david.kaplan@amd.com>, "lukas.bulwahn@redhat.com"
+	<lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>, "timothy.hayes@arm.com"
+	<timothy.hayes@arm.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"thuth@redhat.com" <thuth@redhat.com>, "oupton@kernel.org"
+	<oupton@kernel.org>, "yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>, "broonie@kernel.org"
+	<broonie@kernel.org>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
+	"james.clark@linaro.org" <james.clark@linaro.org>, "tabba@google.com"
+	<tabba@google.com>, "mrigendra.chaubey@gmail.com"
+	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
+	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
+	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-4-ruanjinjie@huawei.com>
+ <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
+ <ajPitENEHWa8lDfC@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <ajPitENEHWa8lDfC@willie-the-truck>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_015032_699301_53716166 
-X-CRM114-Status: GOOD (  65.38  )
+X-CRM114-CacheID: sfid-20260622_101658_140655_2049E536 
+X-CRM114-Status: GOOD (  25.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,345 +116,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 11:11:24AM -0500, Alex Elder wrote:
-> On 5/16/26 8:48 PM, Inochi Amaoto wrote:
-> > The PCIe controller on Spacemit K3 is almost a standard Synopsys
-> > DesignWare PCIe IP with extra link and reset control. Unlike
-> > the PCIe controller on K1, this controller supports external MSI
-> > interrupt controller and can use multiple PHYs at the same time.
-> > 
-> > Add driver to support PCIe controller on Spacemit K3 PCIe.
-> 
-> It seems like you're creating a lot of new code for K3.  In
-> some cases it's very similar to K1, and it's not clear why it
-> needs to be different.
-> 
-> I'd much rather see a patch that prepares for K3 support by
-> doing minor refactoring of the existing code to support K1
-> in a way that will make adding K3 support more natural.
-> Then a patch to enable K3 should be simpler (and can focus
-> on what is truly different).
-> 
-
-I can not understand what you see, the init logic of K3 is
-completely different from the K1, so a new function is need.
-For other logic, I have reused all things as I can.
-
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >   drivers/pci/controller/dwc/Kconfig            |   4 +-
-> >   drivers/pci/controller/dwc/pcie-spacemit-k1.c | 169 ++++++++++++++++++
-> >   2 files changed, 171 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index f2fde13107f2..fae971ecd876 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -439,7 +439,7 @@ config PCIE_SOPHGO_DW
-> >   	  Sophgo SoCs.
-> >   config PCIE_SPACEMIT_K1
-> > -	tristate "SpacemiT K1 PCIe controller (host mode)"
-> > +	tristate "SpacemiT K1/K3 PCIe controller (host mode)"
-> >   	depends on ARCH_SPACEMIT || COMPILE_TEST
-> >   	depends on HAS_IOMEM
-> >   	select PCIE_DW_HOST
-> > @@ -447,7 +447,7 @@ config PCIE_SPACEMIT_K1
-> >   	default ARCH_SPACEMIT
-> >   	help
-> >   	  Enables support for the DesignWare based PCIe controller in
-> > -	  the SpacemiT K1 SoC operating in host mode.  Three controllers
-> > +	  the SpacemiT K1/K3 SoC operating in host mode. Three controllers
-> >   	  are available on the K1 SoC; the first of these shares a PHY
-> >   	  with a USB 3.0 host controller (one or the other can be used).
-> > diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > index 7f6f1df31cd8..7854d26220a9 100644
-> > --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > @@ -23,6 +23,7 @@
-> >   #define PCI_VENDOR_ID_SPACEMIT		0x201f
-> >   #define PCI_DEVICE_ID_SPACEMIT_K1	0x0001
-> > +#define PCI_DEVICE_ID_SPACEMIT_K3	0x0002
-> >   /* Offsets and field definitions for link management registers */
-> >   #define K1_PHY_AHB_IRQ_EN			0x0000
-> > @@ -32,8 +33,20 @@
-> >   #define SMLH_LINK_UP			BIT(1)
-> >   #define RDLH_LINK_UP			BIT(12)
-> > +#define INTR_STATUS				0x0010
-> > +
-> >   #define INTR_ENABLE				0x0014
-> >   #define MSI_CTRL_INT			BIT(11)
-> > +#define RDLH_LINK_UP_INT		BIT(20)
-> > +
-> > +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
-> 
-> Can you add INTX support for K1 as well (perhaps in a separate
-> patch)?
-> 
-
-I have no knowledge about INTx support, and the vendor refuse
-to provide any information about this. So no support for this.
-
-> > +#define K3_ADDR_INTR_STATUS1			0x0018
-> > +
-> > +#define K3_CACHE_MSTR_AWCACHE_MODE	GENMASK(14, 11)
-> > +#define K3_CACHE_MSTR_AWCACHE_BEHAVIOR	0xf
-> > +
-> > +#define K3_MAX_PHY_NUMBER		6
-> 
-> You used "count" in patch 2 as the field name.
-> 
-> >   /* Some controls require APMU regmap access */
-> >   #define SYSCON_APMU			"spacemit,apmu"
-> > @@ -48,6 +61,9 @@
-> >   #define PCIE_CONTROL_LOGIC			0x0004
-> >   #define PCIE_SOFT_RESET			BIT(0)
-> > +#define PCIE_PERSTN_OE			BIT(24)
-> > +#define PCIE_PERSTN_OUT			BIT(25)
-> > +#define PCIE_IGNORE_PERSTN		BIT(31)
-> >   struct k1_pcie {
-> >   	struct dw_pcie pci;
-> > @@ -262,6 +278,152 @@ static const struct dw_pcie_ops k1_pcie_ops = {
-> >   	.stop_link	= k1_pcie_stop_link,
-> >   };
-> > +static int k3_pcie_enable_phy(struct k1_pcie *pcie)
-> 
-> Can you just make K1's single PHY be a special case of
-> having "N" PHYs?  I.e., just set the phy_count for
-> K1 to be 1, so this loop would work for both K1 and K3?
-> 
-
-This is reasonable.
-
-> > +{
-> > +	int i, ret;
-> > +
-> > +	for (i = 0; i < pcie->phy_count; i++) {
-> > +		ret = phy_init(pcie->phy[i]);
-> > +		if (ret)
-> > +			goto err_phy;
-> > +	}
-> > +
-> > +	return 0;
-> > +
-> > +err_phy:
-> > +	while (--i >= 0)
-> > +		phy_exit(pcie->phy[i]);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static int k3_pcie_init(struct dw_pcie_rp *pp)
-> > +{
-> > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > +	struct k1_pcie *k1 = to_k1_pcie(pci);
-> > +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
-> > +	u32 val;
-> > +	int ret;
-> > +
-> > +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
-> 
-> Should the above be done for K1?  Would it hurt?  Handle
-> both K1 and K3 the same way if possible.
-> 
-> The next two things are identical to k1_pcie_init().  Make
-> the code common if possible, so it's very obvious what
-> really needs to be different between the two.
-> 
-
-No, I have diff the code and find only about 40% of logic
-are similar. However, these logic is fragmented, so I decide
-to add a new function, which is easier to maintain.
-
-> > +
-> > +	k1_pcie_toggle_soft_reset(k1);
-> 
-> The "k1" prefix is fine for now, but if this driver gets
-> used for more devices in the future, it might be worth
-> renaming things to emphasize that it's not K1-specific.
-> 
-
-Currently I have no knowledge on the new device and do not
-think it is a good idea to change the name. Anyway, it is
-possible to change to kx, but I do not think it is clear.
-
-> > +	ret = k1_pcie_enable_resources(k1);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
-> > +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
-> > +
-> 
-> You enable the PHY here much earlier than what's done in
-> the K1 code.  Should the K1 PHY be enabled earlier?
-> Also, I don't really think there needs to be separate
-> versions of the code that enables PHYs for K1 and K3.
-> 
-
-IIRC this is a specific logic for K3.
-
-> > +	ret = k3_pcie_enable_phy(k1);
-> > +	if (ret) {
-> > +		k1_pcie_disable_resources(k1);
-> > +		return ret;
-> > +	}
-> > +
-> > +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
-> > +	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> > +			PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT);
-> > +	usleep_range(1000, 2000);
-> > +	regmap_clear_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC, PCIE_PERSTN_OUT);
-> > +
-> > +	msleep(PCIE_T_PVPERL_MS);
-> > +
-> > +	/*
-> > +	 * Put the controller in root complex mode, and indicate that
-> > +	 * Vaux (3.3v) is present.
-> > +	 */
-> > +	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> > +			PCIE_PERSTN_OUT | PCIE_PERSTN_OE);
-> > +
-> > +	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
-> > +	val = u32_replace_bits(val, GEN3_EQ_CONTROL_OFF_PHASE23_EXIT_MODE,
-> > +			       GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC);
-> > +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
-> > +
-> 
-> The following block of code (roughly) is done right after
-> enabling resources in the K1 version of this function.
-> 
-> Maybe the order you do it is better, but in that case,
-> change the (existing, and soon, common) code to do it
-> however is best if that's the case.
-> 
-> You should try to factor out the common parts and minimize
-> what's actually different between the two.
-> 
-> I would also expect that the device ID would be stored in the
-> platform data rather than having both init functions hard-code
-> the value here.
-> 
-> I'm going to leave it at that for now.
-> 
-> 					-Alex
-
-This first thing you should know is the init logic of K3
-is totally different from K1, I have asked for the vendor
-and they told me it is better to treat them differently,
-even if they are using the same ip. 
-
-For the request of the device ID setup, I think I can add
-a function for it.
-
-> 
-> > +	dw_pcie_dbi_ro_wr_en(pci);
-> > +	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
-> > +	dw_pcie_writew_dbi(pci, PCI_DEVICE_ID, PCI_DEVICE_ID_SPACEMIT_K3);
-> > +	dw_pcie_dbi_ro_wr_dis(pci);
-> > +
-> > +	/* Finally, as a workaround, disable ASPM L1 */
-> > +	k1_pcie_disable_aspm_l1(k1);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int k3_pcie_msi_host_init(struct dw_pcie_rp *pp)
-> > +{
-> > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > +	u32 val;
-> > +
-> > +	dw_pcie_dbi_ro_wr_en(pci);
-> > +
-> > +	val = dw_pcie_readl_dbi(pci, COHERENCY_CONTROL_3_OFF);
-> > +	val |= u32_replace_bits(val, K3_CACHE_MSTR_AWCACHE_BEHAVIOR,
-> > +				K3_CACHE_MSTR_AWCACHE_MODE);
-> > +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, val);
-> > +
-> > +	dw_pcie_dbi_ro_wr_dis(pci);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct dw_pcie_host_ops k3_pcie_host_ops = {
-> > +	.init		= k3_pcie_init,
-> > +	.deinit		= k1_pcie_deinit,
-> > +	.msi_init	= k3_pcie_msi_host_init,
-> > +};
-> > +
-> > +static const struct dw_pcie_ops k3_pcie_ops = {
-> > +	.link_up	= k1_pcie_link_up,
-> > +	.start_link	= k1_pcie_start_link,
-> > +	.stop_link	= k1_pcie_stop_link,
-> > +};
-> > +
-> > +static void k3_pcie_clear_irq_status(struct k1_pcie *k1,
-> > +				     u32 *status0, u32 *status1, u32 *status2)
-> > +{
-> > +	*status0 = readl_relaxed(k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
-> > +	*status1 = readl_relaxed(k1->link + INTR_STATUS);
-> > +	*status2 = readl_relaxed(k1->link + K3_ADDR_INTR_STATUS1);
-> > +
-> > +	writel_relaxed(*status0, k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
-> > +	writel_relaxed(*status1, k1->link + INTR_STATUS);
-> > +	writel_relaxed(*status2, k1->link + K3_ADDR_INTR_STATUS1);
-> > +}
-> > +
-> > +static int k3_pcie_parse_port(struct k1_pcie *k1)
-> > +{
-> > +	struct device *dev = k1->pci.dev;
-> > +	u32 status0, status1, status2;
-> > +	int i;
-> > +
-> > +	k1->phy = devm_kmalloc_array(dev, K3_MAX_PHY_NUMBER, sizeof(*k1->phy),
-> > +				     GFP_KERNEL);
-> > +	if (!k1->phy)
-> > +		return -ENOMEM;
-> > +
-> > +	for (i = 0; i < K3_MAX_PHY_NUMBER; i++) {
-> > +		k1->phy[i] = devm_of_phy_get_by_index(dev, dev->of_node, i);
-> > +		if (IS_ERR(k1->phy[i])) {
-> > +			if (PTR_ERR(k1->phy[i]) == -ENODEV)
-> > +				break;
-> > +
-> > +			return PTR_ERR(k1->phy[i]);
-> > +		}
-> > +	}
-> > +
-> > +	k1->phy_count = i;
-> > +	if (k1->phy_count == 0)
-> > +		return -EINVAL;
-> > +
-> > +	k3_pcie_clear_irq_status(k1, &status0, &status1, &status2);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> >   static int k1_pcie_parse_port(struct k1_pcie *k1)
-> >   {
-> >   	struct device *dev = k1->pci.dev;
-> > @@ -363,8 +525,15 @@ static const struct k1_pcie_device_data k1_pcie_device_data = {
-> >   	.parse_port	= k1_pcie_parse_port,
-> >   };
-> > +static const struct k1_pcie_device_data k3_pcie_device_data = {
-> > +	.host_ops	= &k3_pcie_host_ops,
-> > +	.ops		= &k3_pcie_ops,
-> > +	.parse_port	= k3_pcie_parse_port,
-> > +};
-> > +
-> >   static const struct of_device_id k1_pcie_of_match_table[] = {
-> >   	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data},
-> > +	{ .compatible = "spacemit,k3-pcie", .data = &k3_pcie_device_data},
-> >   	{ }
-> >   };
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA2LzE4LzIwMjYgODoyMSBQTSwgV2lsbCBEZWFjb24gd3JvdGU6Cj4gSGkgSmluamllLAo+
+IAo+IE9uIE1vbiwgSnVuIDE1LCAyMDI2IGF0IDA0OjUxOjQ4UE0gKzA4MDAsIEppbmppZSBSdWFu
+IHdyb3RlOgo+PiBPbiA2LzEyLzIwMjYgMTE6NDUgUE0sIE1pY2hhZWwgS2VsbGV5IHdyb3RlOgo+
+Pj4gRnJvbTogSmluamllIFJ1YW4gPHJ1YW5qaW5qaWVAaHVhd2VpLmNvbT4gU2VudDogVGh1cnNk
+YXksIEp1bmUgMTEsIDIwMjYgNjozOCBBTQo+Pj4+Cj4+Pj4gU3VwcG9ydCBmb3IgcGFyYWxsZWwg
+c2Vjb25kYXJ5IENQVSBicmluZ3VwIGlzIGFscmVhZHkgdXRpbGl6ZWQgYnkgeDg2LAo+Pj4+IE1J
+UFMsIGFuZCBSSVNDLVYuIFRoaXMgcGF0Y2ggYnJpbmdzIHRoaXMgY2FwYWJpbGl0eSB0byB0aGUg
+YXJtNjQKPj4+PiBhcmNoaXRlY3R1cmUuCj4+Pj4KPj4+PiBSZXdvcmsgdGhlIGdsb2JhbCBgc2Vj
+b25kYXJ5X2RhdGFgIGFjY2Vzc2VkIGR1cmluZyBlYXJseSBib290IGludG8KPj4+PiBhIHBlci1D
+UFUgYXJyYXkuIFRoaXMgYXJyYXkgbWFwcyBsb2dpY2FsIENQVSBJRHMgdG8gTVBJRFJfRUwxIHZh
+bHVlcywKPj4+PiBlbmFibGluZyB0aGUgZWFybHkgYm9vdCBjb2RlIGluIGhlYWQuUyB0byByZXNv
+bHZlIGVhY2ggc2Vjb25kYXJ5IENQVSdzCj4+Pj4gbG9naWNhbCBJRCBjb25jdXJyZW50bHkuCj4+
+Pj4KPj4+PiBUbyBmdWxseSBlbmFibGUgSE9UUExVR19QQVJBTExFTCwgdGhpcyBwYXRjaCBpbXBs
+ZW1lbnRzOgo+Pj4+IDEpIEFuIGFybTY0LXNwZWNpZmljIGFyY2hfY3B1aHBfa2lja19hcF9hbGl2
+ZSgpIGhhbmRsZXIuCj4+Pj4gMikgQ2FsbGJhY2tzIHRvIGNwdWhwX2FwX3N5bmNfYWxpdmUoKSBp
+bnNpZGUgc2Vjb25kYXJ5X3N0YXJ0X2tlcm5lbCgpLgo+Pj4+Cj4+Pj4gU3VjY2Vzc2Z1bGx5IHRl
+c3RlZCBvbiBRRU1VIEFSTTY0IHZpcnQgbWFjaGluZSAoS1ZNIG9uLCAxMjggdkNQVXMpLgo+Pj4+
+Cj4+Pj4gfCAgICAgdGVzdCBrZXJuZWwJICAgfCBzZWNvbmRhcnkgQ1BVcyBib290IHRpbWUgfAo+
+Pj4+IHwgIC0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgIHwJLS0tLS0tLS0tLS0tLS0tLS0tLS0gIHwK
+Pj4+PiB8ICAgV2l0aG91dCB0aGlzIHBhdGNoICAgICB8CQkxNTUuNjcyCSAgICAgIHwKPj4+PiB8
+ICAgY3B1aHAucGFyYWxsZWw9MAkgICB8CQk2Mi44OTcJICAgICAgfAo+Pj4+IHwgICBjcHVocC5w
+YXJhbGxlbD0xCSAgIHwJCTE2Ni43MDMJICAgICAgfAo+Pj4KPj4+IFRoZSBsYXN0IHR3byByb3dz
+IHNlZW0gbWl4ZWQgdXAuIEkgd291bGQgZXhwZWN0IHBhcmFsbGVsPTAgdG8KPj4+IHJlc3VsdCBp
+biBhIGxvbmdlciBib290IHRpbWUuCj4+Cj4+IEhpLCBNaWNoYWVsLAo+Pgo+PiBUaGUgcmVzdWx0
+cyBhcmUgY29ycmVjdCBhbmQgbm90IG1peGVkIHVwLgo+Pgo+PiBDb21wYXJlZCB0byB0aGUgb3Jp
+Z2luYWwgbm9u4oCRSE9UUExVR19QQVJBTExFTCBhcHByb2FjaCwgdGhlIGFkdmFudGFnZSBvZgo+
+PiBjcHVocC5wYXJhbGxlbD0wIGxpZXMgaW4gaXRzIHVzZSBvZiBjcHVfcmVsYXgoYHlpZWxkYCBv
+biBhcm02NCkgaW5zdGVhZAo+PiBvZiB0aGUgd2FpdF9mb3JfY29tcGxldGlvbl90aW1lb3V0KCkg
+bWVjaGFuaXNtICh3aGljaCBtYXkgY2F1c2Ugc2xlZXAKPj4gYW5kIGNvbnRleHQgc3dpdGNoaW5n
+KS4gVGhpcyBzaWduaWZpY2FudGx5IHJlZHVjZXMgdGhlIG92ZXJoZWFkIG9mIFZNCj4+IGV4aXRz
+IGFuZCBjb250ZXh0IHN3aXRjaGVzIGluIGEgS1ZNIGd1ZXN0LCB0aGVyZWJ5IGN1dHRpbmcgdGhl
+IHNlY29uZGFyeQo+PiBDUFUgYm9vdCB0aW1lIGJ5IG1vcmUgdGhhbiBoYWxmLgo+IAo+IEkgZG9u
+J3QgdGhpbmsgdGhhdCdzIGEgcGFydGljdWxhcmx5IGNvbXBlbGxpbmcgcmVhc29uIHRvIGVuYWJs
+ZSB0aGlzIGZvcgo+IGFybTY0LCBpbiBhbGwgaG9uZXN0eS4gVGhlIHlpZWxkIGluc3RydWN0aW9u
+IHR5cGljYWxseSBkb2Vzbid0IGRvCj4gYW55dGhpbmcgb24gYWN0dWFsIGFybTY0IHNpbGljb24s
+IHNvIHRoaXMgcHJvYmFibHkgbWVhbnMgdGhhdCB5b3UncmUKPiBpbnRyb2R1Y2luZyBidXN5LWxv
+b3BzIHdoaWNoIHRlbmQgdG8gYmUgYmFkIGZvciBwb3dlciBhbmQgc2NhbGFiaWxpdHkuCj4gCj4g
+SSBpbXBsZW1lbnRlZCB0aGlzIGEgd2hpbGUgYWdvIFsxXSBidXQgZGlkbid0IG1hbmFnZSB0byBz
+ZWUgbXVjaCBpbiB0ZXJtcwo+IG9mIHBlcmZvcm1hbmNlIGltcHJvdmVtZW50IGFuZCBzbyBJIGRp
+ZG4ndCBib3RoZXIgdG8gc2VuZCB0aGUgcGF0Y2hlcyBvdXQKPiBhZnRlciB0YWxraW5nIGFib3V0
+IGl0IGF0IEtWTSBmb3J1bSBbMl0uIEhvd2V2ZXIsIGFzIG1lbnRpb25lZCBhdCB0aGUgZW5kCj4g
+b2YgdGhhdCB0YWxrLCBpdCBfaXNfIHN0aWxsIHVzZWZ1bCBmb3IgY29uZmlkZW50aWFsIFZNcyB1
+c2luZyBQU0NJIHNvCj4gbGV0IG1lIGR1c3Qgb2ZmIG15IG9sZCBzZXJpZXMgYW5kIHNlbmQgaXQg
+b3V0IHRvIHNlZSB3aGF0IHlvdSB0aGluay4KCkhpIFdpbGwsCgpUaGFua3MgZm9yIHRoZSBpbnNp
+Z2h0cyEgWW91ciBwb2ludCBhYm91dCB1c2luZyBQU0NJIHYwLjIncyBDb250ZXh0IElECnRvIGF2
+b2lkIHRoZSBOUl9DUFVTIGFycmF5IGZvciBpbnB1dCBwYXJhbWV0ZXJzIChsaWtlCnNlY29uZGFy
+eV9kYXRhLnRhc2spIGlzIGluY3JlZGlibHkgZWxlZ2FudC4KCkhvd2V2ZXIsIGlmIEkgdW5kZXJz
+dGFuZCB5b3VyIHNlcmllcyBjb3JyZWN0bHksIGl0IHNlZW1zIHlvdXIgYXBwcm9hY2gKcHJpbWFy
+aWx5IHRhcmdldHMgcHJldmVudGluZyB0aGUgY29uY3VycmVudCB1c2Ugb2Ygc2Vjb25kYXJ5X2Rh
+dGEudGFzaywKYnV0IGl0IGRvZXNuJ3Qgc2VlbSB0byBhY2NvdW50IGZvciB0aGUgcG90ZW50aWFs
+IGRhdGEgdHJhbXBsaW5nIG9uCnNlY29uZGFyeV9kYXRhLnN0YXR1cyB3aGVuIG11bHRpcGxlIHNl
+Y29uZGFyeSBDUFVzIGFyZSBicm91Z2h0IHVwCnNpbXVsdGFuZW91c2x5LgoKdXBkYXRlX2NwdV9i
+b290X3N0YXR1cygpCiAgLT4gV1JJVEVfT05DRShzZWNvbmRhcnlfZGF0YS5zdGF0dXMuZmxhZ3Nb
+dmFsXSwgMSkKCmFyY2hfY3B1aHBfY2xlYW51cF9raWNrX2NwdSgpCiAgLT4gc3RhdHVzID0gUkVB
+RF9PTkNFKHNlY29uZGFyeV9kYXRhLnN0YXR1cykKCkJlc3QgcmVnYXJkcywKSmluamllCgo+IAo+
+IEl0IHJlbGllcyBvbiBQU0NJIHYwLjIsIHdoaWNoIG1lYW5zIHdlIGRvbid0IG5lZWQgdGhlIE5S
+X0NQVVMgc2l6ZSBhcnJheQo+IGZvciBzZWNvbmRhcnlfZGF0YSBhbmQgSSBhbHNvIGhhdmUgc29t
+ZSBzdXBwb3J0IGZvciBlcnJvciBoYW5kbGluZyAoaXQKPiBkb2Vzbid0IGxvb2sgbGlrZSB5b3Ug
+aGFuZGxlIF9fZWFybHlfY3B1X2Jvb3Rfc3RhdHVzIHByb3Blcmx5KS4KPiAKPiBJdCBsb29rcyBs
+aWtlIEkgY291bGQgaW5jbHVkZSB5b3VyIGZpcnN0IHBhdGNoLCB0aG91Z2ghCj4gCj4gV2lsbAo+
+IAo+IFsxXSBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC93
+aWxsL2xpbnV4LmdpdC9sb2cvP2g9Y3B1LWhvdHBsdWcKPiBbMl0gaHR0cHM6Ly93d3cueW91dHVi
+ZS5jb20vd2F0Y2g/dj1RNmtPc2hublF1RQo+IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
