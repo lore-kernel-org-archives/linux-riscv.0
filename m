@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5BACDB46F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D997CD98F6
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZRGs59/upGBSIFOdu7ogx21/dUETUnJls4J2+pYXPDY=; b=wr8VvwvTlXmFHU
-	K/uAd/Cs3HNpDcOFIX8l8uvl9h4Wqd40E2SGigFrcS8k0ZfRsgV/yTCheZ1pWdvIP6qGvY9AxUuev
-	Qgqguj0QiCPzpYOh3Nt89yHYbqECRHS8l4lC7ogNDiMOrHbIhC7BcntTTo+zoVMXLrRauNk4bkR0y
-	pyrFTg2ZCVXAtLNtHwFJOcWScHzRJhTu7hN5tZZtAkTOgZw1Z9kUbDFRrAE1a1nxX7E9vQkkLtD0j
-	WzmYRrON2tck/vanL9cFvHDKiIeSurKpf77QKBkHsExC3qpkn0ooh737FmFaS979TL4px2E0DYixa
-	cXy016LOqI5/Xsw6lcJg==;
+	List-Owner; bh=Y2uut5+nNy/sDAEHfCwiebb4UE7PeU4tuyXSZg5ulIc=; b=17HeQqM39WwweI
+	vqJdeF9bcA1b3IniYVLOnc19PMxFflDPZLWDurSTv4lc2Wg6TwvKYr7pfMYckKzJjeKOD9bw+iCC7
+	Rd+CAcLenrpXx34XWO+gw0HSJgzM8Yu4TK2uE1yVtd+8dNvWdFh5oRFOa071NgzpP0R5nT9jXrkV3
+	63gvWeR6SBwnQWqDzoZHVQa3sa7z8SAe8Ou6dTYQEPJoIuSxnCN4aWtyo/3nwFF7TplrvDxgQQuw6
+	wq7u8Yhdf6+W45pJ3j9OxPGPB3ZJxZuWrMPFRGREbJELVHPTKkRmk1pcAswnuyAztfKuRktsrkjH5
+	ZungKDXuVc+nzCHQl0dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVr7-00000004MbC-2Kxo;
-	Mon, 22 Jun 2026 04:01:53 +0000
+	id 1wbVrA-00000004MfP-0LIm;
+	Mon, 22 Jun 2026 04:01:56 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVqw-00000004MTN-3Spy;
-	Mon, 22 Jun 2026 04:01:42 +0000
+	id 1wbVqw-00000004MTR-3ylD;
+	Mon, 22 Jun 2026 04:01:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B9DC8601E1;
-	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6C708C2BCF6;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3C7E6601FA;
+	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E32F7C2BCC6;
 	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1782100901;
-	bh=yH+WzegEs+zPyrnewAU8tfya6oMKUvKLC+l4fiOSOyg=;
+	bh=csu2MCYhTGbt4aW3Xcpruk4V6nSoe7kLM25kmO7C5Zw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=D1EGjueReeWatNRIyhyuN3rUNAWyJQ3oUCyctAgkQk3ANOfArwTBXOBKT0dkZzp8w
-	 lu38yi+XIPKFkoiZDnlqHo2mvm70H0mmN6fJpEh7swWpVlRfbAck8aa+Td8XPvtQD/
-	 VwjOyHBIDda0cqIv5i+C6NylKnNJ2f2FD39OSywDJXmRvAx95LIqVsJ57fqvyO5b/E
-	 Qz3uVRGCiC+IDL4SDEFPV7ZIHjyu1uYw9Uz78OloksjPTWGtOAUbC8rujyJOrQd6eq
-	 +OWcu69Qp7umi/dK+JSK8FJPfcHclw9VrYB0h68a2B+3cHNLuYw2T2m0KmP6UHn4ti
-	 XjIBnwOclLudA==
+	b=cojGf6gSn0t86iKP/5DGkHFo3U6GLCU+jspsEpoCUixdiGRXZchgp/2B1Jj6VB66t
+	 x9uAxQcau6QcC5DcoGHRMQqvD0Nbm26Cey06oSNO4oUag7758PnUtZmz41d4TAnDVp
+	 qey7RWhGfYZJdQUT2tnma0sDCDTzzpbztz0Tb2V3MaMTlYg6LuAJqHcxu46CtY3rAt
+	 Vp9RZAalmevwU1yX77YWGGnnjfm4JnUXfyH6qGZRDbDhiunUXoMx9xasOHDFxhJT1k
+	 h9vTYXd11SJRL0L973oOEQckJQ5vGkUiWVWkq5L7dgNkSKgRWYWmMudhXjLyzTnyFo
+	 jMvGle+tzzJ0Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FCE8CD98F6;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DB8F8CDB471;
 	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Sun, 21 Jun 2026 21:01:20 -0700
-Subject: [PATCH v2 02/16] riscv: alternatives: Use generated instruction
- headers for patching code
+Date: Sun, 21 Jun 2026 21:01:27 -0700
+Subject: [PATCH v2 09/16] KVM: device: Add test device
 MIME-Version: 1.0
-Message-Id: <20260621-riscv_insn_table-v2-2-7f0810ee2274@gmail.com>
+Message-Id: <20260621-riscv_insn_table-v2-9-7f0810ee2274@gmail.com>
 References: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 In-Reply-To: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -63,11 +62,11 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=7576;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=6960;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=qT7TaAXs9xJHwiZtIc+DhKQ0DUJ/foDaC5z2Xsev0Gc=;
- b=/u85iHT70EYTXXRqfcVxuy+eKwFcv1Sm2g06wLEvHak3vEGteG8Ldc7KcaqMfE6OBxJ7lA1lT
- 3pl0ydafEiwCvE6sFXti2/uSXa2yef6V//ebUsmR2dpfwpT6liIzDX7
+ bh=8x/+xJ625ZFQvZhfM5utyV4o1uRb4g8LDdlC/Z0H7Ts=;
+ b=UM7AHwZEBBNUuyGHLpLRDfyWFeXAXIC6/FahtGuQ7frwifqZ3I46OYfVM4iffX01r/Y+BwMDD
+ Ra5vLynJycqB6hGQ/PXRPPp5iZLOCjJQe7MNXtygYkF9+brb0HtIC5l
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/20260605
@@ -92,208 +91,250 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Migrate the alternatives patching code to use the generated instruction
-headers instead of the hand-written instruction composition functions.
+Create a KVM test device to help verify mmio reads and write emulation.
+This is a simple device that will store the data in a buffer on writes
+and echo back that stored data on a read.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-
 ---
+ include/uapi/linux/kvm.h |  2 +
+ lib/Kconfig.debug        |  6 +++
+ virt/kvm/Kconfig.debug   | 16 ++++++++
+ virt/kvm/Makefile.kvm    |  1 +
+ virt/kvm/kvm_main.c      |  8 ++++
+ virt/kvm/mmio_test.c     | 95 ++++++++++++++++++++++++++++++++++++++++++++++++
+ virt/kvm/mmio_test.h     | 18 +++++++++
+ 7 files changed, 146 insertions(+)
 
-These function expansions are very simple and almost expand to the same
-thing in the new and old version. The main difference is
-riscv_insn_auipc_extract_imm() in the new version expands to:
-
-((_insn >> 12 & GENMASK(19, 0)) << 12)
-
-while it expands to the following in the old version:
-
-((_insn >> 0) & GENMASK(31, 12))
-
-These are the same thing, but GCC is unable to properly optimize the
-second one so the first one ends up using almost half as many
-instructions. With this finding and other similar examples, I made
-the generated headers construct in the first way to help GCC optimize
-all of these functions.
-
-Brute force can also be checked with this code:
-
-void check_auipc_jalr() {
-	for (unsigned int auipc = 0; auipc < ((1ULL << 12) - 1); auipc++) {
-		for (unsigned int jalr = 0; jalr < ((1ULL << 20) - 1); jalr++) {
-			unsigned int auipc_t=riscv_insn_auipc(auipc, 0), jalr_t=riscv_insn_jalr(jalr, 0, 0), auipc_t2=riscv_insn_auipc(auipc, 0), jalr_t2=riscv_insn_jalr(jalr, 0, 0);
-			riscv_alternative_fix_auipc_jalr(&auipc_t, &jalr_t, 0);
-			riscv_alternative_fix_auipc_jalr2(&auipc_t2, &jalr_t2, 0);
-
-			if (auipc_t != auipc_t2) {
-				printf("auipcs don't match %u, %u: %u != %u\n", auipc, jalr, auipc_t, auipc_t2);
-				return;
-			}
-
-			if (jalr_t != jalr_t2) {
-				printf("jalrs don't match %u: %u != %u\n", i, jalr_t, jalr_t2);
-			}
-		}
-	}
-}
----
- arch/riscv/include/asm/insn.h   | 74 -----------------------------------------
- arch/riscv/kernel/alternative.c | 23 +++++++++----
- 2 files changed, 17 insertions(+), 80 deletions(-)
-
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index d562b2b40ba1..d0e137f9bcd7 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -514,78 +514,4 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 6c8afa2047bf..abbbf74627a2 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -1235,6 +1235,8 @@ enum kvm_device_type {
+ #define KVM_DEV_TYPE_LOONGARCH_DMSINTC	KVM_DEV_TYPE_LOONGARCH_DMSINTC
+ 	KVM_DEV_TYPE_ARM_VGIC_V5,
+ #define KVM_DEV_TYPE_ARM_VGIC_V5	KVM_DEV_TYPE_ARM_VGIC_V5
++	KVM_DEV_TYPE_TEST,
++#define KVM_DEV_TYPE_TEST		KVM_DEV_TYPE_TEST
  
- #define RVV_EXTRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
+ 	KVM_DEV_TYPE_MAX,
  
--/*
-- * Get the immediate from a J-type instruction.
-- *
-- * @insn: instruction to process
-- * Return: immediate
-- */
--static inline s32 riscv_insn_extract_jtype_imm(u32 insn)
--{
--	return RV_EXTRACT_JTYPE_IMM(insn);
--}
--
--/*
-- * Update a J-type instruction with an immediate value.
-- *
-- * @insn: pointer to the jtype instruction
-- * @imm: the immediate to insert into the instruction
-- */
--static inline void riscv_insn_insert_jtype_imm(u32 *insn, s32 imm)
--{
--	/* drop the old IMMs, all jal IMM bits sit at 31:12 */
--	*insn &= ~GENMASK(31, 12);
--	*insn |= (RV_X_MASK(imm, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) |
--		 (RV_X_MASK(imm, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) |
--		 (RV_X_MASK(imm, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) |
--		 (RV_X_MASK(imm, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF);
--}
--
--/*
-- * Put together one immediate from a U-type and I-type instruction pair.
-- *
-- * The U-type contains an upper immediate, meaning bits[31:12] with [11:0]
-- * being zero, while the I-type contains a 12bit immediate.
-- * Combined these can encode larger 32bit values and are used for example
-- * in auipc + jalr pairs to allow larger jumps.
-- *
-- * @utype_insn: instruction containing the upper immediate
-- * @itype_insn: instruction
-- * Return: combined immediate
-- */
--static inline s32 riscv_insn_extract_utype_itype_imm(u32 utype_insn, u32 itype_insn)
--{
--	s32 imm;
--
--	imm = RV_EXTRACT_UTYPE_IMM(utype_insn);
--	imm += RV_EXTRACT_ITYPE_IMM(itype_insn);
--
--	return imm;
--}
--
--/*
-- * Update a set of two instructions (U-type + I-type) with an immediate value.
-- *
-- * Used for example in auipc+jalrs pairs the U-type instructions contains
-- * a 20bit upper immediate representing bits[31:12], while the I-type
-- * instruction contains a 12bit immediate representing bits[11:0].
-- *
-- * This also takes into account that both separate immediates are
-- * considered as signed values, so if the I-type immediate becomes
-- * negative (BIT(11) set) the U-type part gets adjusted.
-- *
-- * @utype_insn: pointer to the utype instruction of the pair
-- * @itype_insn: pointer to the itype instruction of the pair
-- * @imm: the immediate to insert into the two instructions
-- */
--static inline void riscv_insn_insert_utype_itype_imm(u32 *utype_insn, u32 *itype_insn, s32 imm)
--{
--	/* drop possible old IMM values */
--	*utype_insn &= ~(RV_U_IMM_31_12_MASK);
--	*itype_insn &= ~(RV_I_IMM_11_0_MASK << RV_I_IMM_11_0_OPOFF);
--
--	/* add the adapted IMMs */
--	*utype_insn |= (imm & RV_U_IMM_31_12_MASK) + ((imm & BIT(11)) << 1);
--	*itype_insn |= ((imm & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF);
--}
- #endif /* _ASM_RISCV_INSN_H */
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 7642704c7f18..b26a90eb65cc 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -11,6 +11,7 @@
- #include <linux/cpu.h>
- #include <linux/uaccess.h>
- #include <asm/alternative.h>
-+#include <asm/insn.h>
- #include <asm/module.h>
- #include <asm/sections.h>
- #include <asm/vdso.h>
-@@ -78,14 +79,24 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
- 					     u32 jalr_insn, int patch_offset)
- {
- 	u32 call[2] = { auipc_insn, jalr_insn };
-+	u32 auipc_imm;
- 	s32 imm;
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index 8ff5adcfe1e0..0d235bdc94ec 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -754,6 +754,12 @@ source "net/Kconfig.debug"
  
- 	/* get and adjust new target address */
--	imm = riscv_insn_extract_utype_itype_imm(auipc_insn, jalr_insn);
-+	imm = riscv_insn_auipc_extract_imm(auipc_insn) + riscv_insn_jalr_extract_imm(jalr_insn);
- 	imm -= patch_offset;
+ endmenu # "Networking Debugging"
  
-+	/*
-+	 * When the 32-bit immediate is split across auipc and jalr, the
-+	 * constructed immediates need to be treated as individually sign
-+	 * extended numbers. Add the sign bit of the lower 12 bits to the upper
-+	 * 20 bits to undo the bleeding of the sign.
-+	 */
-+	auipc_imm = imm + (BIT(11) << 1);
++menu "KVM Debugging"
 +
- 	/* update instructions */
--	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
-+	riscv_insn_auipc_insert_imm(&call[0], auipc_imm);
-+	riscv_insn_jalr_insert_imm(&call[1], imm);
++source "virt/kvm/Kconfig.debug"
++
++endmenu # "KVM Debugging"
++
+ menu "Memory Debugging"
  
- 	/* patch the call place again */
- 	patch_text_nosync(ptr, call, sizeof(u32) * 2);
-@@ -96,11 +107,11 @@ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
- 	s32 imm;
+ source "mm/Kconfig.debug"
+diff --git a/virt/kvm/Kconfig.debug b/virt/kvm/Kconfig.debug
+new file mode 100644
+index 000000000000..d24709f5bcbf
+--- /dev/null
++++ b/virt/kvm/Kconfig.debug
+@@ -0,0 +1,16 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config KVM_MMIO_TEST
++       bool "Enable kvm mmio testing"
++       depends on KVM
++       depends on KVM_MMIO
++       default n
++       help
++         Enable testing for kvm mmio. This is a test-only mmio device that
++         stores writes in a buffer and returns the buffered data on a read.
++         
++         This is useful for testing the kvm mmio emulation code. Enabling
++         this does not run any tests, just builds in the support for the test
++         device into the kernel.
++
++         If unsure, say N.
+diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
+index d047d4cf58c9..bd4da8c23923 100644
+--- a/virt/kvm/Makefile.kvm
++++ b/virt/kvm/Makefile.kvm
+@@ -8,6 +8,7 @@ KVM ?= ../../../virt/kvm
+ kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
+ kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
+ kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
++kvm-$(CONFIG_KVM_MMIO_TEST) += $(KVM)/mmio_test.o
+ kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
+ kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
+ kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 881f92d7a469..d9bbe570eddd 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -58,6 +58,7 @@
+ #include "async_pf.h"
+ #include "kvm_mm.h"
+ #include "vfio.h"
++#include "mmio_test.h"
  
- 	/* get and adjust new target address */
--	imm = riscv_insn_extract_jtype_imm(jal_insn);
-+	imm = riscv_insn_jal_extract_imm(jal_insn);
- 	imm -= patch_offset;
+ #include <trace/events/ipi.h>
  
- 	/* update instruction */
--	riscv_insn_insert_jtype_imm(&jal_insn, imm);
-+	riscv_insn_jal_insert_imm(&jal_insn, imm);
+@@ -6532,6 +6533,10 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ 	if (WARN_ON_ONCE(r))
+ 		goto err_vfio;
  
- 	/* patch the call place again */
- 	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
-@@ -127,7 +138,7 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 				continue;
- 
- 			/* if instruction pair is a call, it will use the ra register */
--			if (RV_EXTRACT_RD_REG(insn) != 1)
-+			if (riscv_insn_jalr_extract_xd(insn) != 1)
- 				continue;
- 
- 			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
-@@ -136,7 +147,7 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 		}
- 
- 		if (riscv_insn_is_jal(insn)) {
--			s32 imm = riscv_insn_extract_jtype_imm(insn);
-+			s32 imm = riscv_insn_jal_extract_imm(insn);
- 
- 			/* Don't modify jumps inside the alternative block */
- 			if ((alt_ptr + i * sizeof(u32) + imm) >= alt_ptr &&
++	r = kvm_mmio_test_ops_init();
++	if (WARN_ON_ONCE(r))
++		goto err_mmio_test;
++
+ 	r = kvm_gmem_init(module);
+ 	if (r)
+ 		goto err_gmem;
+@@ -6559,6 +6564,8 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ err_gmem:
+ 	kvm_vfio_ops_exit();
+ err_vfio:
++	kvm_mmio_test_ops_exit();
++err_mmio_test:
+ 	kvm_async_pf_deinit();
+ err_async_pf:
+ 	kvm_irqfd_exit();
+@@ -6589,6 +6596,7 @@ void kvm_exit(void)
+ 		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
+ 	kmem_cache_destroy(kvm_vcpu_cache);
+ 	kvm_gmem_exit();
++	kvm_mmio_test_ops_exit();
+ 	kvm_vfio_ops_exit();
+ 	kvm_async_pf_deinit();
+ 	kvm_irqfd_exit();
+diff --git a/virt/kvm/mmio_test.c b/virt/kvm/mmio_test.c
+new file mode 100644
+index 000000000000..fa84c2b4c5fc
+--- /dev/null
++++ b/virt/kvm/mmio_test.c
+@@ -0,0 +1,95 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * mmio_test.c - Kernel module side for testing the KVM riscv mmio functionality.
++ */
++
++#include <linux/kvm_host.h>
++
++#include <kvm/iodev.h>
++#include "mmio_test.h"
++
++struct mmio_test {
++	struct kvm *kvm;
++	struct kvm_io_device dev;
++	unsigned long start;
++	unsigned long size;
++	char cache[16];
++};
++
++static struct mmio_test *kvm_to_mmio_test_dev(const struct kvm_io_device *dev)
++{
++	return container_of(dev, struct mmio_test, dev);
++}
++
++static int mmio_read(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
++		     gpa_t addr, int len, void *val)
++{
++	struct mmio_test *mmio_test = kvm_to_mmio_test_dev(dev);
++
++	if ((addr - mmio_test->start) >= mmio_test->size)
++		return -1;
++
++	/* Write back cached value */
++	memcpy(val, &mmio_test->cache[(addr - mmio_test->start)], len);
++	return 0;
++}
++
++static int mmio_write(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
++		      gpa_t addr, int len, const void *val)
++{
++	struct mmio_test *mmio_test = kvm_to_mmio_test_dev(dev);
++
++	if ((addr - mmio_test->start) >= mmio_test->size)
++		return -1;
++
++	/* Cache value */
++	memcpy(&mmio_test->cache[(addr - mmio_test->start)], val, len);
++	return 0;
++}
++
++static const struct kvm_io_device_ops mmio_ops = {
++	.read = mmio_read,
++	.write = mmio_write,
++};
++
++static int mmio_test_create(struct kvm_device *dev, u32 type)
++{
++	struct mmio_test *mmio_test;
++
++	mmio_test = kzalloc(sizeof(*mmio_test), GFP_KERNEL);
++	if (!mmio_test)
++		return -ENOMEM;
++
++	mmio_test->start = 0x20000000;
++	mmio_test->size = 0x16;
++
++	dev->private = mmio_test;
++
++	kvm_iodevice_init(&mmio_test->dev, &mmio_ops);
++	kvm_io_bus_register_dev(dev->kvm, KVM_MMIO_BUS, mmio_test->start,
++				mmio_test->size, &mmio_test->dev);
++
++	return 0;
++}
++
++static void mmio_test_release(struct kvm_device *dev)
++{
++	kfree(dev->private);
++}
++
++struct kvm_device_ops kvm_riscv_mmio_test_device_ops = {
++	.name = "kvm-riscv-mmio_test",
++	.create = mmio_test_create,
++	.release = mmio_test_release,
++};
++
++int kvm_mmio_test_ops_init(void)
++{
++	return kvm_register_device_ops(&kvm_riscv_mmio_test_device_ops,
++					KVM_DEV_TYPE_TEST);
++}
++
++void kvm_mmio_test_ops_exit(void)
++{
++	kvm_unregister_device_ops(KVM_DEV_TYPE_TEST);
++}
+diff --git a/virt/kvm/mmio_test.h b/virt/kvm/mmio_test.h
+new file mode 100644
+index 000000000000..49a6e900eec9
+--- /dev/null
++++ b/virt/kvm/mmio_test.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __KVM_MMIO_TEST_H
++#define __KVM_MMIO_TEST_H
++
++#ifdef CONFIG_KVM_MMIO_TEST
++int kvm_mmio_test_ops_init(void);
++void kvm_mmio_test_ops_exit(void);
++#else
++static inline int kvm_mmio_test_ops_init(void)
++{
++	return 0;
++}
++static inline void kvm_mmio_test_ops_exit(void)
++{
++}
++#endif
++
++#endif
 
 -- 
 2.54.0
