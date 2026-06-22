@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9371DCDB46F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 10:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974D2CDB46F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 11:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xUBIyGSCgQ6j47D+vEkYiIdTRK9AEpyQb/r0vMCg1Jg=; b=TUQkg4JROMi0JC
-	4RWvB55bi72qs2/OhPBX7lZr80jnCtL4zgoNbym/7eeIVbbNsoQqUQIsoeUkPz+V11WoLA14OdNgJ
-	ZT8IYCu+q+5F4cR+FZwhqOkEltotlUt2BDG/aJMib3c63D1pEP3nG6600/PTpbj/PBfKe8E+Azxs3
-	D770HUjH6YDT6KmdxxP8CnNp6MbGicOYusd+6jLD7/OBqJjzXLCi73hiVRkttgF1Eb2rutNsChaT+
-	tBynXIwbdIg3YTgTDlXTFxziKU7w2S7qIs9++bcgVMXGdUWdi2F0XpzNuiwhwAkMY1413pqt3lwpR
-	Xl1zzSHMV85ZvYGMtDvw==;
+	List-Owner; bh=wPAeSeN6Kq4H5y0O0yY+eWZk8ZYgkChOXG2Y/iU4z/c=; b=bPqGOLtdN90Z8n
+	NtYqaqoL6aBFUKHV2q52I7KanK4+X08UcqSJ9Jy3AsndB7rRODJPyA+Yu2B/9fgGSmfAOJpFE/es0
+	6VDKcKoubiWRbLuHLFXraSyV8YGhjvSOHS9jirULQxOLcJWgKjUFyJEzREP8jJQntT8b1+3/E6na3
+	4nloQ3PMSDjm+hDeh1g4tznkzpprAkpVeWGFF9gz4EaDdi+0OuljPZkgqTzBfBqS0pTqs/NxWfQvg
+	Hg6f9Q0pvJleg9Jya1E+JzQep0kUE4dToRW5YN5zUMi8ZIOV/Nh43RMcH7AmDkx6djtsu6CrG2pLJ
+	8VWSAka6DyKjhXO4LSZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbqX-00000004pP4-09vW;
-	Mon, 22 Jun 2026 10:25:41 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wbcfH-00000004tBD-1DvI;
+	Mon, 22 Jun 2026 11:18:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbqT-00000004pNz-24KA
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 10:25:40 +0000
-Received: from [192.168.0.105] (unknown [123.118.218.239])
-	by APP-05 (Coremail) with SMTP id zQCowAA3nN+JDTlqtLaqFA--.57426S2;
-	Mon, 22 Jun 2026 18:25:14 +0800 (CST)
-Message-ID: <2f32370b-63c1-4e8a-bf71-d40874b6bebb@iscas.ac.cn>
-Date: Mon, 22 Jun 2026 18:25:13 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	id 1wbcfF-00000004tAX-0Piq
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 22 Jun 2026 11:18:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ZcreGeJT4Kj/CaPNDSlKZDUKKKxkr0txGhSxJTbFmLI=; b=izFgCDrXKVK8GXO6DlHUFoL2vI
+	s88x4+C8IX21G+0x7NcPB5HFHwA+XDBNGwGuhmdcFJX4XqA8n9DYODh7tGfBAjbxElFFg72fme9Rv
+	jKRBExkUG+Sq4skXhuGGMsDyXT+ZOKtU3ya/3uZ8fnEpPFWDKWUHW8AyQ07mPZsDAPpgpj92riBvk
+	4LNDRM2T6KAVH53dJECXozeiITts7uIwsaSMvKenLwh9LcMwrsO1PCPjhzGP5NasPyukm/RUF+j5y
+	GUtO/ozfTq8sFRJz+Vcrx9MZ7j7UblLnyg1a6Fua3TRtFPWiC9xpcew7xLJgh5KzK887kX8z+TvS+
+	YzmfMhxw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wbcf8-0000000HNgu-49Ue;
+	Mon, 22 Jun 2026 11:17:59 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 3F49B300B5F; Mon, 22 Jun 2026 13:17:57 +0200 (CEST)
+Date: Mon, 22 Jun 2026 13:17:57 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Guo Ren <guoren@kernel.org>, Kees Cook <kees@kernel.org>, arnd@arndb.de,
+	palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org,
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org,
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org,
+	apatel@ventanamicro.com, atishp@atishpatra.org,
+	mark.rutland@arm.com, bjorn@kernel.org, palmer@dabbelt.com,
+	bjorn@rivosinc.com, daniel.thompson@linaro.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, stable@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
 Subject: Re: [PATCH] riscv: entry: Fixup do_trap_break from kernel side
-To: Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, arnd@arndb.de, palmer@rivosinc.com,
- tglx@linutronix.de, luto@kernel.org, conor.dooley@microchip.com,
- heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com,
- falcon@tinylab.org, chenhuacai@kernel.org, apatel@ventanamicro.com,
- atishp@atishpatra.org, mark.rutland@arm.com, bjorn@kernel.org,
- palmer@dabbelt.com, bjorn@rivosinc.com, daniel.thompson@linaro.org,
- linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, stable@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>
+Message-ID: <20260622111757.GR48970@noisy.programming.kicks-ass.net>
 References: <20230702025708.784106-1-guoren@kernel.org>
- <202606191652.38297DE51@keescook> <ajeKPpg2rwadVPY4@gmail.com>
+ <202606191652.38297DE51@keescook>
+ <ajeKPpg2rwadVPY4@gmail.com>
  <20260622082841.GW49951@noisy.programming.kicks-ass.net>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260622082841.GW49951@noisy.programming.kicks-ass.net>
-X-CM-TRANSID: zQCowAA3nN+JDTlqtLaqFA--.57426S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxur4ktFy3KFW7Cw4fCrykZrb_yoW5CFWkpF
-	W3Kay2kF4kJryxZwsrKw40vF9Yka4SqF4rCr45tryrJw4avr1SgFs7trW3KFWDZrW8Wr12
-	vFy0q3srua4UAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUvaZXDUUUU
-X-Originating-IP: [123.118.218.239]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_032537_898860_512BFB0E 
-X-CRM114-Status: GOOD (  19.79  )
+ <2f32370b-63c1-4e8a-bf71-d40874b6bebb@iscas.ac.cn>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <2f32370b-63c1-4e8a-bf71-d40874b6bebb@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +77,180 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNi8yMi8yNiAxNjoyOCwgUGV0ZXIgWmlqbHN0cmEgd3JvdGU6Cj4gT24gU3VuLCBKdW4gMjEs
-IDIwMjYgYXQgMDI6NTI6NDZBTSAtMDQwMCwgR3VvIFJlbiB3cm90ZToKPj4gT24gRnJpLCBKdW4g
-MTksIDIwMjYgYXQgMDQ6NTQ6NTNQTSAtMDcwMCwgS2VlcyBDb29rIHdyb3RlOgo+Pj4gKnRocmVh
-ZCBlbmNyb21hbmN5Kgo+Pj4KPj4+IE9uIFNhdCwgSnVsIDAxLCAyMDIzIGF0IDEwOjU3OjA3UE0g
-LTA0MDAsIGd1b3JlbkBrZXJuZWwub3JnIHdyb3RlOgo+Pj4+IEZyb206IEd1byBSZW4gPGd1b3Jl
-bkBsaW51eC5hbGliYWJhLmNvbT4KPj4+Pgo+Pj4+IFRoZSBpcnFlbnRyeV9ubWlfZW50ZXIvZXhp
-dCB3b3VsZCBmb3JjZSB0aGUgY3VycmVudCBjb250ZXh0IGludG8gaW5faW50ZXJydXB0Lgo+Pj4+
-IFRoYXQgd291bGQgdHJpZ2dlciB0aGUga2VybmVsIHRvIGRlYWQgcGFuaWMsIGJ1dCB0aGUga2Ri
-IHN0aWxsIG5lZWRzICJlYnJlYWsiIHRvCj4+Pj4gZGVidWcgdGhlIGtlcm5lbC4KPj4+Pgo+Pj4+
-IE1vdmUgaXJxZW50cnlfbm1pX2VudGVyL2V4aXQgdG8gZXhjZXB0aW9uX2VudGVyL2V4aXQgY291
-bGQgY29ycmVjdCBoYW5kbGVfYnJlYWsKPj4+PiBvZiB0aGUga2VybmVsIHNpZGUuCj4+Pj4KPj4+
-PiBCZWZvcmUgdGhlIGZpeHVwOgo+Pj4+ICRlY2hvIEJVRyA+IC9zeXMva2VybmVsL2RlYnVnL3By
-b3Zva2UtY3Jhc2gvRElSRUNUCj4+Pj4gICBsa2R0bTogUGVyZm9ybWluZyBkaXJlY3QgZW50cnkg
-QlVHCj4+Pj4gICAtLS0tLS0tLS0tLS1bIGN1dCBoZXJlIF0tLS0tLS0tLS0tLS0KPj4+PiAgIGtl
-cm5lbCBCVUcgYXQgZHJpdmVycy9taXNjL2xrZHRtL2J1Z3MuYzo3OCEKPj4+PiBbLi4uXQo+Pj4+
-ICAgS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IEFpZWUsIGtpbGxpbmcgaW50ZXJydXB0IGhh
-bmRsZXIhCj4+PiBUaGlzIGFwcGVhcnMgdG8gc3RpbGwgYmUgdW5maXhlZC4gV2hhdCdzIHRoZSBi
-bG9ja2VyPyBUaGUgc29sdXRpb25zIGluCj4+PiB0aGlzIHRocmVhZCBzZWVtIHRvIHdvcmsuLi4K
-Pj4+Cj4+PiBJJ2QgbGlrZSB0byBiZSBleGVyY2lzaW5nIGFuIE9vcHMgcGF0aCB2aWEgS1VuaXQg
-KGZvciBLQ0ZJKSwgYW5kIHJpc2N2Cj4+PiBqdXN0IGluc3RhbnRseSBmYWxscyBvdmVyIGluc3Rl
-YWQgb2YgdGhyZWFkLWtpbGxpbmcgb24gdGhlIGV4Y2VwdGlvbi4KPj4gVGhhbmtzIGZvciByZXZp
-dmluZyB0aGlzIHRocmVhZC4gQXQgdGhlIHRpbWUgSSBkaWRu4oCZdCBmdWxseSB1bmRlcnN0YW5k
-Cj4+IFBldGVy4oCZcyBwb2ludC4gV2Ugc2hvdWxkIG9ubHkgdXNlIHRoZSBOTUkgcGF0aCB3aGVu
-IHRoZSB0cmFwIG9jY3VycyB3aXRoCj4+IGludGVycnVwdHMgZGlzYWJsZWQuCj4+IEhlcmXigJlz
-IHRoZSB1cGRhdGVkIGZpeDoKPj4KPj4gIGRvX3RyYXBfYnJlYWsoc3RydWN0IHB0X3JlZ3MgKnJl
-Z3MpCj4+IC4uLiAKPj4gIAkJaXJxZW50cnlfZXhpdF90b191c2VyX21vZGUocmVncyk7Cj4+ICAJ
-fSBlbHNlIHsKPj4gLQkJaXJxZW50cnlfc3RhdGVfdCBzdGF0ZSA9IGlycWVudHJ5X25taV9lbnRl
-cihyZWdzKTsKPj4gKwkJaWYgKHJlZ3MtPnN0YXR1cyAmIFNSX0lFKSB7Cj4+ICsJCQllbnVtIGN0
-eF9zdGF0ZSBwcmV2X3N0YXRlID0gZXhjZXB0aW9uX2VudGVyKCk7Cj4+ICAKPj4gLQkJaGFuZGxl
-X2JyZWFrKHJlZ3MpOwo+PiArCQkJaGFuZGxlX2JyZWFrKHJlZ3MpOwo+PiAgCj4+IC0JCWlycWVu
-dHJ5X25taV9leGl0KHJlZ3MsIHN0YXRlKTsKPj4gKwkJCWV4Y2VwdGlvbl9leGl0KHByZXZfc3Rh
-dGUpOwo+PiArCQl9IGVsc2Ugewo+PiArCQkJaXJxZW50cnlfc3RhdGVfdCBzdGF0ZSA9IGlycWVu
-dHJ5X25taV9lbnRlcihyZWdzKTsKPj4gKwo+PiArCQkJaGFuZGxlX2JyZWFrKHJlZ3MpOwo+PiAr
-Cj4+ICsJCQlpcnFlbnRyeV9ubWlfZXhpdChyZWdzLCBzdGF0ZSk7Cj4+ICsJCX0KPj4gIAl9Cj4+
-ICB9Cj4+Cj4+IElmIHlvdSAmIFBldGVyIGhhdmUgbm8gb2JqZWN0aW9uLCBJ4oCZbGwgcG9zdCBh
-IHYyLgo+IEkgc3RpbGwgZG9uJ3QgdW5kZXJzdGFuZCBpdC4gVGhpcyBjYW5ub3QgZml4IGFueXRo
-aW5nLiBDb25zaWRlcjoKPgo+ICBFQlJFQUsKPiAgcmF3X3NwaW5fbG9ja19pcnEoJnlvdXJfbG9j
-aykKPiAgRUJSRUFLCj4KPiBTbyBub3cgdGhlIGZpcnN0ICd3b3JrcycsIGJ1dCB0aGUgc2Vjb25k
-IHdpbGwgY3Jhc2guIEFkZGl0aW9uYWxseSwKPiBoYXZpbmcgdGhlIEVCUkVBSyBjb250ZXh0IGRp
-ZmZlciBzbyBkcmFtYXRpY2FsbHkgYmV0d2VlbiBpbnZvY2F0aW9ucwo+IHNlZW1zIGxpa2UgYSB2
-ZXJ5IGJhZCBkZWFsIHRvIG1lLgoKVG8gc3BlbGwgaXQgb3V0LCB0aGUgcHJvYmxlbSB0aGF0IG5l
-ZWRzIGZpeGluZyBpczoKCi0+IEJVRygpCiAgIC0+IGVicmVhayBpbnN0cnVjdGlvbgogICAgICAt
-PiBCcmVha3BvaW50IGV4Y2VwdGlvbgogICAgICAgICAtPiBkb190cmFwX2JyZWFrKCkKICAgICAg
-ICAgICAgLT4gaXJxZW50cnlfbm1pX2VudGVyKCkKICAgICAgICAgICAgWyBub3cgaW5fbm1pKCkg
-LyBpbl9pbnRlcnJ1cHQoKSBdCiAgICAgICAgICAgIC0+IHJlcG9ydF9idWcoKSByZXR1cm5zIEJV
-R19UUkFQX1RZUEVfQlVHCiAgICAgICAgICAgIC0+IGRpZSgpCiAgICAgICAgICAgICAgIC0+IG1h
-a2VfdGFza19kZWFkKCkKICAgICAgICAgICAgICAgICAgLT4gcGFuaWMoKSBiZWNhdXNlIHdlJ3Jl
-IGluX2ludGVycnVwdCgpCgpBcyBzdWNoLCBjdXJyZW50bHkgb24gcmlzY3YgYWxsIEJVRygpIHNp
-bXBseSBjb21wbGV0ZWx5IHBhbmljKCkgdGhlCmVudGlyZSBtYWNoaW5lLCByYXRoZXIgdGhhbiBq
-dXN0IGtpbGxpbmcgdGhlIG9uZSB0YXNrLgoKSG93IGRvIHlvdSB0aGluayB0aGlzIHNob3VsZCBi
-ZSBmaXhlZD8gSGVyZSBhcmUgc29tZSBpZGVhcyBidXQgSSdtIG5vdApmYW1pbGlhciB3aXRoIGdl
-bmVyaWMgZW50cnkgc3R1ZmY6CgogICogU2hvdWxkIHdlIGlycWVudHJ5X25taV9leGl0KCkgYmVm
-b3JlIGNhbGxpbmcgZGllKCkgZm9yIEJVRygpPwogICogU2hvdWxkIHdlIG1vdmUgdGhlIEdFTkVS
-SUNfQlVHIHRyYXAgaW5zdHJ1Y3Rpb24gdG8gY2F1c2UgaWxsZWdhbAogICAgaW5zdHJ1Y3Rpb24g
-ZXhjZXB0aW9uIGluc3RlYWQsIGZvciB3aGljaCB3ZSBjYW4gd3JpdGUgYSBzaW1wbGVyCiAgICBo
-YW5kbGVyIHRoYXQgZG9lc24ndCBuZWVkIHRvIGNhcmUgYWJvdXQgdGhlIHByb2JlIHN0dWZmPwoK
-Vml2aWFuICJkcmFtZm9yZXZlciIgV2FuZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Mon, Jun 22, 2026 at 06:25:13PM +0800, Vivian Wang wrote:
+
+> > I still don't understand it. This cannot fix anything. Consider:
+> >
+> >  EBREAK
+> >  raw_spin_lock_irq(&your_lock)
+> >  EBREAK
+> >
+> > So now the first 'works', but the second will crash. Additionally,
+> > having the EBREAK context differ so dramatically between invocations
+> > seems like a very bad deal to me.
+> 
+> To spell it out, the problem that needs fixing is:
+> 
+> -> BUG()
+>    -> ebreak instruction
+>       -> Breakpoint exception
+>          -> do_trap_break()
+>             -> irqentry_nmi_enter()
+>             [ now in_nmi() / in_interrupt() ]
+>             -> report_bug() returns BUG_TRAP_TYPE_BUG
+>             -> die()
+>                -> make_task_dead()
+>                   -> panic() because we're in_interrupt()
+> 
+> As such, currently on riscv all BUG() simply completely panic() the
+> entire machine, rather than just killing the one task.
+
+Hmm, from reading some of the previous emails this morning, I got the
+impression the problem was with kgdb, not BUG().
+
+Anyway, my argument doesn't change, with the proposed patch:
+
+  BUG()
+
+and:
+
+  local_irq_disable();
+  BUG();
+
+will behave quite differently, for no sane reason.
+
+Anyway, BUG()/trap is indeed a bit of magic, the x86 code lives in
+arch/x86/kernel/traps.c:exc_invalid_op(). And it looks like we do not
+indeed use NMI-like for this path, although I cannot remember why.
+
+*however* I see your kgdb thing also uses ebreak, whereas on x86
+WARN/BUG and kGDB use different exceptions (#UD for WARN/BUG and #BP for
+gdb). And our #BP handler (exc_int3) very much does NMI for from-kernel.
+
+Same for kprobes, we use #BP/int3 for that, you also have that in
+EBREAK.
+
+Anyway, you're handling 3 different cases in one exception, which is a
+bit of a mess, but something like so perhaps?
+
+---
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 8c62c771a656..41c7faac7eb3 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -264,42 +264,58 @@ static inline unsigned long get_break_insn_length(unsigned long pc)
+ 	return GET_INSN_LENGTH(insn);
+ }
+ 
+-static bool probe_single_step_handler(struct pt_regs *regs)
++static void handle_kernel_die(struct pt_regs *regs)
+ {
+-	bool user = user_mode(regs);
+-
+-	return user ? uprobe_single_step_handler(regs) : kprobe_single_step_handler(regs);
++	irqentry_state_t state = irqentry_enter(regs);
++	die(regs, "Kernel BUG");
++	irqentry_exit(regs, state);
+ }
+ 
+-static bool probe_breakpoint_handler(struct pt_regs *regs)
++static bool handle_kernel_bug(struct pt_regs *regs)
+ {
+-	bool user = user_mode(regs);
++	if (report_bug(regs->epc, regs) == BUG_TRAP_TYPE_WARN ||
++	    handle_cfi_failure(regs) == BUG_TRAP_TYPE_WARN) {
++		regs->epc += get_break_insn_length(regs->epc);
++		return true;
++	}
+ 
+-	return user ? uprobe_breakpoint_handler(regs) : kprobe_breakpoint_handler(regs);
++	return false;
+ }
+ 
+-void handle_break(struct pt_regs *regs)
++static bool  __handle_kernel_break(struct pt_regs *regs)
+ {
+-	if (probe_single_step_handler(regs))
+-		return;
+ 
+-	if (probe_breakpoint_handler(regs))
++	if (kprobe_single_step_handler(regs) ||
++	    kprobe_breakpoint_handler(regs))
++		return true;
++
++	current->thread.bad_cause = regs->cause;
++
++#ifdef CONFIG_KGDB
++	if (notify_die(DIE_TRAP, "EBREAK", regs, 0, regs->cause, SIGTRAP)
++								== NOTIFY_STOP)
++		return true;
++#endif
++	return false;
++}
++
++static bool handle_kernel_break(struct pt_regs *regs)
++{
++	irqentry_state_t state = irqentry_nmi_enter(regs);
++	bool ret = __handle_kernel_break(regs);
++	irqentry_nmi_exit(regs, state);
++	return ret;
++}
++
++static void handle_user_break(struct pt_regs *regs)
++{
++	if (uprobe_single_step_handler(regs) ||
++	    uprobe_breakpoint_handler(regs))
+ 		return;
+ 
+ 	current->thread.bad_cause = regs->cause;
+ 
+-	if (user_mode(regs))
+-		force_sig_fault(SIGTRAP, TRAP_BRKPT, (void __user *)regs->epc);
+-#ifdef CONFIG_KGDB
+-	else if (notify_die(DIE_TRAP, "EBREAK", regs, 0, regs->cause, SIGTRAP)
+-								== NOTIFY_STOP)
+-		return;
+-#endif
+-	else if (report_bug(regs->epc, regs) == BUG_TRAP_TYPE_WARN ||
+-		 handle_cfi_failure(regs) == BUG_TRAP_TYPE_WARN)
+-		regs->epc += get_break_insn_length(regs->epc);
+-	else
+-		die(regs, "Kernel BUG");
++	force_sig_fault(SIGTRAP, TRAP_BRKPT, (void __user *)regs->epc);
+ }
+ 
+ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+@@ -308,16 +324,18 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+ 		irqentry_enter_from_user_mode(regs);
+ 		local_irq_enable();
+ 
+-		handle_break(regs);
++		handle_user_break(regs);
+ 
+ 		local_irq_disable();
+ 		irqentry_exit_to_user_mode(regs);
+ 	} else {
+-		irqentry_state_t state = irqentry_nmi_enter(regs);
++		if (handle_kernel_bug(regs))
++			return;
+ 
+-		handle_break(regs);
++		if (handle_kernel_break(regs))
++			return;
+ 
+-		irqentry_nmi_exit(regs, state);
++		handle_kernel_die(regs);
+ 	}
+ }
+ 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
