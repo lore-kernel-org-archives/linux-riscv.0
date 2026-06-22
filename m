@@ -4,56 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE443CDB475
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D74CDB47C
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CGjlZcnKa475Rmms28S00aT/3GfqbygjYeDV6WS9RDc=; b=XnvNxzmoWCkFDV
-	wvHJeqOMbabI8W5tvx6mKSScIJYgUyewqNAbgLui6azrZqN85WN0O0ltS8knbh1rQ3l0dFgLL44tx
-	YGTBISKZwr8taJEUBWqVyl8AqJJPatwlbt9NMNupca8Rh/yl/u1NByzAne4gi/JXINIirYxQieY5U
-	ND21NT70MbNHfBuAu2chM2YUYV1t26Kr/aGejGGtehWOilnhLNu0wpLKOz5hpXWM7y0i0cWxMFdUP
-	vYq2l81QdiQHaAKkcTOlC+gQLQhUXatI7sIcMfcR5sGq3ZoYRRkZ4yVryesj2Td3PLQq5LwNf89Vy
-	m9NcqqtpskXT8sF+xtOA==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+g0yE5pMfBZwHi69AimNOfYmSFm0936TJYzzhfTVjc0=; b=fQjRIem9ni27RS
+	endgaosqFtV6LgD+rxT84OzV1bOs7q0BeNhcgiG0yaInJi0EglH+84bu/2EjMKJ8MnVg6QqlgbxGh
+	qbIAmZmFfzJKe2tm0q20hhJxn+1VRycrYrbUsOjE22DhhBthLx3AjL0Uk3fdnzFJSczZo+NENcH30
+	K+ghecQHea+ee8kHmghg580H9Q8vsMCldW98OgEfwSKGNWrX6zA2pzKkhqqsb6B1Y9K8jYgOVjfaB
+	zBWUBv/YibQ6BnfR1KOZAEdadW6luhnoDK+LHDAIXsh+R7WsfgWUMN85yZCfZ+ksYi2igLl/HUHYA
+	gnAdAr3QprOdF+c6o7yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVr9-00000004Met-3lhK;
-	Mon, 22 Jun 2026 04:01:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wbVqy-00000004MW3-3aRz;
+	Mon, 22 Jun 2026 04:01:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVqx-00000004MTM-0NY8;
-	Mon, 22 Jun 2026 04:01:43 +0000
+	id 1wbVqw-00000004MTL-14LW;
+	Mon, 22 Jun 2026 04:01:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C3776008A;
+	by sea.source.kernel.org (Postfix) with ESMTP id A77A3444DD;
 	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 45224C2BCB4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 82ACFC2BCC6;
 	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1782100901;
-	bh=2Ue0OQWnzEfJvkx9yKoYjaChcgTBWEXuzcW+rzKXsR8=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=SLA34/lORaq2vkbGVFcFXeaClBUdvgLejrAyf6dDarlAcLMHXyRXjwPu8O8cySp6+
-	 4VT981sldiiCAU5IDyVhvFBOfTsuscyI8ffF8PdMcMjuty0HmiSgq9iUahleLqKQ6/
-	 COlJ/aBt+z4/9daFb3yB90wdNptgAQQxGESdhXMbCCv2Ys7WeGsi5xwD8L+EoAGNkQ
-	 hNG4Dvg1bK7OplDRptvAXJHUHG+UWDtAPbDOSPcXK0WB08sxp0E18Qn6ggVEw6VAMU
-	 +n/B1+usjS7sGtY/rnU58YfgYnTpbgpHpx/Vu0xaKg5eCjkamz31xZOaHVX2f2z01/
-	 ijotvrfwL9Z4w==
+	bh=UndNbueqQlR7gHvo3p/nXm7hpBs6hwZjn4+uUSmyX8k=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=D+U/KAETt5htAxWinaB5eUc4u+qCd0+1FX9L1R2ofdm+iDBZdcHGfqtU1SKlPWoJG
+	 8Y5o4M9fWg3MSLKZ4kilodnFsTWLnqhtNfZECE+Z7oRlO/XZ76SEx4EfiJ05yNG7kx
+	 B6xCVptxTEIKeZri8SmMCc2bQ4KwqcRW3xXkT0LIupeuxQKnj4TYt1ak8P9vEyr8r+
+	 jKQOiC9xXChmVd1eC2TcWFfA7sb+jSaabaTrwZgKQ0k7pSrUgVW3jGyYJ9QTQ9brEO
+	 HNsH024IOk/4bkUMFstNhklMFtTcrTOOPQ6ao/OcWwITRzOV4yRZe8A0H6x0Gj/gg/
+	 Y6iDt0tE4pIug==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2827FCDB46F;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 70949CDB471;
 	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Subject: [PATCH v2 00/16] riscv: Generate riscv instruction functions
-Date: Sun, 21 Jun 2026 21:01:18 -0700
-Message-Id: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
+Date: Sun, 21 Jun 2026 21:01:21 -0700
+Subject: [PATCH v2 03/16] riscv: kgdb: Use generated instruction headers
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNQQqDMBREryJ/3ZTERNN21XsUkWi++kGTkkhoE
- e/e1C4Ls3kD82aDiIEwwq3YIGCiSN5lKE8F9JNxIzKymaHkZc2FUCxQ7FNLLrp2Nd2MTF7Utcq
- xg5WQZ8+AA70O5aPJPFFcfXgfD0l8259Mcf0vS4JxVqlOaVkbgVrfx8XQfO79As2+7x81PW/7s
- AAAAA==
-X-Change-ID: 20260114-riscv_insn_table-38495495dfd3
+Message-Id: <20260621-riscv_insn_table-v2-3-7f0810ee2274@gmail.com>
+References: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
+In-Reply-To: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Nam Cao <namcao@linutronix.de>, Alexandre Ghiti <alex@ghiti.fr>, 
  Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
@@ -65,11 +62,11 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=5328;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=7745;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=2Ue0OQWnzEfJvkx9yKoYjaChcgTBWEXuzcW+rzKXsR8=;
- b=ne5wljDoG4zphFx5l9ULUKiRBpeUuwuxY2AbZ2BeN3QgGMMOIAhW6sy1FiM117AEx+Bc6kL8v
- lqEFZx/bszkD8yBFpdr3oY3ukUz9KPteAWALGmMar+HG5pTqTeSTnDX
+ bh=IjVaLmAyDsdmOm3A507KtKDP292jEnsVxwzZ/J7AzEQ=;
+ b=jOxpTVFGnfeaJAg11T53NuRSVgcZf3eM6Ot52Ddm7Op+qZbGPKAEL62aIcCJns3RnJ3NV4aXW
+ CmEdZhmhg6cCR1yDM1jPemyj98jKp9yiJX0PyAJlXSAUNHCb0nphWKj
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/20260605
@@ -92,109 +89,212 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is a lot of code that is manually manipulating riscv instructions.
-Constructing these headers for new instructions is time consuming and
-error prone.
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-The first patch in this series introduces the instruction definition
-table along with a script that runs at compile time to create all of the
-associated instruction manipulation functions. The remaining patches
-migrate all of the manual instruction code to use these generated
-functions.
-
-The instruction definition table is generated from the
-riscv-unified-db[1], an open source RVI project for instruction
-specifications. I got this table generation merged into
-riscv-unified-db, that PR can be accessed on github [2].
-
-A lot of the validation for these changes is from running all possible
-32-bit or 16-bit integers through these functions to see that any given
-instruction will produce to expected result. I give more detail on the
-test cases in the notes of the first couple of patches.
-
-For the KVM patches, I also introduce two test cases to ensure that the
-instruction manipulation is working as expected.
-
-[1] https://github.com/riscv/riscv-unified-db
-[2] https://github.com/riscv/riscv-unified-db/pull/1780
+Migrate the code that is decoding instructions for the use of kgdb
+single stepping to use the generated instruction headers instead of the
+hand-written instruction functions.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
----
-Changes in v2:
-- rebased on v7.1
-- I dropped the patch fixing the mmio bug in kvm because in the
-  meantime that bug has been fixed in a different patch
-- Calls to panic() for instructions not support on current hardware have
-  been changed into BUG_ON()
-- Fixed incorrect handling of branches in simulate_*()
-- Added CONFIG_RISCV_KPROBES_SIMULATE_KUNIT for more detailed
-  simulate_*() testing
-- Updated insn.tbl based on new merged in changes to riscv-unified-db
-- Link to v1: https://lore.kernel.org/r/20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com
 
 ---
-Charlie Jenkins (16):
-      riscv: Introduce instruction table generation
-      riscv: alternatives: Use generated instruction headers for patching code
-      riscv: kgdb: Use generated instruction headers
-      riscv: Add kprobes instruction simulation KUnit
-      riscv: kprobes: Use generated instruction headers
-      riscv: cfi: Use generated instruction headers
-      riscv: Use generated instruction headers for misaligned loads/stores
-      riscv: kvm: Use generated instruction headers for csr code
-      KVM: device: Add test device
-      KVM: riscv: selftests: Add mmio test
-      riscv: kvm: Use generated instruction headers for mmio emulation
-      riscv: kvm: Add emulated test csr
-      KVM: riscv: selftests: Add csr emulation test
-      riscv: kvm: Use generated instruction headers for csr emulation
-      riscv: kexec: Use generated instruction headers for kexec relocations
-      riscv: Remove unused instruction headers
 
- arch/riscv/Kconfig.debug                           |    1 +
- arch/riscv/Makefile                                |    3 +
- arch/riscv/include/asm/Kbuild                      |    1 +
- arch/riscv/include/asm/insn.h                      |  563 +-------
- arch/riscv/include/asm/kvm_host.h                  |   10 +
- arch/riscv/include/asm/kvm_vcpu_insn.h             |    5 +-
- arch/riscv/include/asm/kvm_vcpu_test_csr.h         |   15 +
- arch/riscv/kernel/alternative.c                    |   23 +-
- arch/riscv/kernel/cfi.c                            |    6 +-
- arch/riscv/kernel/kgdb.c                           |  102 +-
- arch/riscv/kernel/machine_kexec_file.c             |   55 +-
- arch/riscv/kernel/probes/decode-insn.c             |    7 +-
- arch/riscv/kernel/probes/simulate-insn.c           |  253 ++--
- arch/riscv/kernel/probes/simulate-insn.h           |    7 +-
- arch/riscv/kernel/tests/Kconfig.debug              |   13 +
- arch/riscv/kernel/tests/kprobes/Makefile           |    2 +
- .../kernel/tests/kprobes/test-kprobes-simulate.c   |  250 ++++
- arch/riscv/kernel/tests/kprobes/test-kprobes.h     |    6 +
- arch/riscv/kernel/traps_misaligned.c               |  183 ++-
- arch/riscv/kvm/Kconfig.debug                       |   16 +
- arch/riscv/kvm/Makefile                            |    1 +
- arch/riscv/kvm/vcpu_insn.c                         |  232 ++--
- arch/riscv/kvm/vcpu_test_csr.c                     |   21 +
- arch/riscv/tools/Makefile                          |   22 +
- arch/riscv/tools/insn.tbl                          | 1392 ++++++++++++++++++++
- arch/riscv/tools/insn_tbl.sh                       |  256 ++++
- include/uapi/linux/kvm.h                           |    2 +
- lib/Kconfig.debug                                  |    6 +
- tools/testing/selftests/kvm/Makefile.kvm           |    2 +
- tools/testing/selftests/kvm/riscv/csr_test.c       |  126 ++
- tools/testing/selftests/kvm/riscv/mmio_test.c      |  184 +++
- virt/kvm/Kconfig.debug                             |   16 +
- virt/kvm/Makefile.kvm                              |    1 +
- virt/kvm/kvm_main.c                                |    8 +
- virt/kvm/mmio_test.c                               |   95 ++
- virt/kvm/mmio_test.h                               |   18 +
- 36 files changed, 2897 insertions(+), 1006 deletions(-)
+I tested this again by comparing the original get_step_address()
+function with this new version and input all possible 32 bit numbers and
+checked that the next_addr was the same in every case.
+
+This is the code I used:
+
+void check_step()
+{
+	for (unsigned long opcode = 0; opcode < ((1ULL << 32) - 1); opcode++) {
+		unsigned long next_addr, next_addr2;
+		get_step_address(opcode, &next_addr);
+		get_step_address2(opcode, &next_addr2);
+		if (next_addr != next_addr2) {
+			printf("opcode: %lu -> %lu != %lu\n", opcode, next_addr, next_addr2);
+		}
+	}
+}
 ---
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260114-riscv_insn_table-38495495dfd3
+ arch/riscv/include/asm/insn.h |  21 +++++++++
+ arch/riscv/kernel/kgdb.c      | 102 ++++++++++++++++--------------------------
+ 2 files changed, 60 insertions(+), 63 deletions(-)
 
-Best regards,
---  
-Charlie Jenkins <thecharlesjenkins@gmail.com>
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index d0e137f9bcd7..b92c71896c00 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -514,4 +514,25 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+ 
+ #define RVV_EXTRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
+ 
++static inline unsigned long riscv_insn_reg_get_val(unsigned long *regs, u32 index)
++{
++	/* register 0 is always 0 and not stored in the register struct */
++	return index ? *(regs + index) : 0;
++}
++
++#define riscv_insn_branch(_insn, regs_ptr, _opcode, _pc, _comparison, type)     \
++	({                                                                      \
++		unsigned long _ret;                                             \
++		if ((type)riscv_insn_reg_get_val(                               \
++			    regs_ptr,                                           \
++			    riscv_insn_##_insn##_extract_xs1(_opcode))          \
++			    _comparison(type) riscv_insn_reg_get_val(           \
++				    regs_ptr,                                   \
++				    riscv_insn_##_insn##_extract_xs2(_opcode))) \
++			_ret = _pc + riscv_insn_##_insn##_extract_imm(_opcode); \
++		else                                                            \
++			_ret = _pc + 4;                                         \
++		_ret;                                                           \
++	})
++
+ #endif /* _ASM_RISCV_INSN_H */
+diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+index 0bf629204c76..fcf7cda3cc33 100644
+--- a/arch/riscv/kernel/kgdb.c
++++ b/arch/riscv/kernel/kgdb.c
+@@ -23,97 +23,73 @@ enum {
+ static unsigned long stepped_address;
+ static unsigned int stepped_opcode;
+ 
+-static int decode_register_index(unsigned long opcode, int offset)
+-{
+-	return (opcode >> offset) & 0x1F;
+-}
+-
+-static int decode_register_index_short(unsigned long opcode, int offset)
+-{
+-	return ((opcode >> offset) & 0x7) + 8;
+-}
+-
+-/* Calculate the new address for after a step */
+ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
+ {
+ 	unsigned long pc = regs->epc;
+ 	unsigned long *regs_ptr = (unsigned long *)regs;
+-	unsigned int rs1_num, rs2_num;
++	unsigned int rs1_num;
+ 	int op_code;
+ 
+ 	if (get_kernel_nofault(op_code, (void *)pc))
+ 		return -EINVAL;
++
+ 	if ((op_code & __INSN_LENGTH_MASK) != __INSN_LENGTH_GE_32) {
+-		if (riscv_insn_is_c_jalr(op_code) ||
+-		    riscv_insn_is_c_jr(op_code)) {
+-			rs1_num = decode_register_index(op_code, RVC_C2_RS1_OPOFF);
+-			*next_addr = regs_ptr[rs1_num];
+-		} else if (riscv_insn_is_c_j(op_code) ||
+-			   riscv_insn_is_c_jal(op_code)) {
+-			*next_addr = RVC_EXTRACT_JTYPE_IMM(op_code) + pc;
++		if (riscv_insn_is_c_jalr(op_code)) {
++			*next_addr = regs_ptr[riscv_insn_c_jalr_extract_xs1(op_code)];
++		} else if (riscv_insn_is_c_jr(op_code)) {
++			*next_addr = regs_ptr[riscv_insn_c_jr_extract_xs1(op_code)];
++		} else if (riscv_insn_is_c_j(op_code)) {
++			*next_addr = riscv_insn_c_j_extract_imm(op_code) + pc;
++		} else if (riscv_insn_is_c_jal(op_code)) {
++			*next_addr = riscv_insn_c_jal_extract_imm(op_code) + pc;
+ 		} else if (riscv_insn_is_c_beqz(op_code)) {
+-			rs1_num = decode_register_index_short(op_code,
+-							      RVC_C1_RS1_OPOFF);
+-			if (!rs1_num || regs_ptr[rs1_num] == 0)
+-				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
++			rs1_num = riscv_insn_c_beqz_extract_xs1(op_code);
++			if (regs_ptr[8 + rs1_num] == 0)
++				*next_addr = riscv_insn_c_beqz_extract_imm(op_code) + pc;
+ 			else
+ 				*next_addr = pc + 2;
+ 		} else if (riscv_insn_is_c_bnez(op_code)) {
+-			rs1_num =
+-			    decode_register_index_short(op_code, RVC_C1_RS1_OPOFF);
+-			if (rs1_num && regs_ptr[rs1_num] != 0)
+-				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
++			rs1_num = riscv_insn_c_bnez_extract_xs1(op_code);
++			if (regs_ptr[8 + rs1_num] != 0)
++				*next_addr = riscv_insn_c_bnez_extract_imm(op_code) + pc;
+ 			else
+ 				*next_addr = pc + 2;
+ 		} else {
+ 			*next_addr = pc + 2;
+ 		}
+ 	} else {
+-		if ((op_code & __INSN_OPCODE_MASK) == __INSN_BRANCH_OPCODE) {
+-			bool result = false;
+-			long imm = RV_EXTRACT_BTYPE_IMM(op_code);
+-			unsigned long rs1_val = 0, rs2_val = 0;
+-
+-			rs1_num = decode_register_index(op_code, RVG_RS1_OPOFF);
+-			rs2_num = decode_register_index(op_code, RVG_RS2_OPOFF);
+-			if (rs1_num)
+-				rs1_val = regs_ptr[rs1_num];
+-			if (rs2_num)
+-				rs2_val = regs_ptr[rs2_num];
+-
+-			if (riscv_insn_is_beq(op_code))
+-				result = (rs1_val == rs2_val) ? true : false;
+-			else if (riscv_insn_is_bne(op_code))
+-				result = (rs1_val != rs2_val) ? true : false;
+-			else if (riscv_insn_is_blt(op_code))
+-				result =
+-				    ((long)rs1_val <
+-				     (long)rs2_val) ? true : false;
+-			else if (riscv_insn_is_bge(op_code))
+-				result =
+-				    ((long)rs1_val >=
+-				     (long)rs2_val) ? true : false;
+-			else if (riscv_insn_is_bltu(op_code))
+-				result = (rs1_val < rs2_val) ? true : false;
+-			else if (riscv_insn_is_bgeu(op_code))
+-				result = (rs1_val >= rs2_val) ? true : false;
+-			if (result)
+-				*next_addr = imm + pc;
+-			else
+-				*next_addr = pc + 4;
++		if (riscv_insn_is_beq(op_code)) {
++			*next_addr = riscv_insn_branch(beq, regs_ptr, op_code,
++						       pc, ==, unsigned long);
++		} else if (riscv_insn_is_bne(op_code)) {
++			*next_addr = riscv_insn_branch(bne, regs_ptr, op_code,
++						       pc, !=, unsigned long);
++		} else if (riscv_insn_is_blt(op_code)) {
++			*next_addr = riscv_insn_branch(blt, regs_ptr, op_code,
++						       pc, <, long);
++		} else if (riscv_insn_is_bge(op_code)) {
++			*next_addr = riscv_insn_branch(bge, regs_ptr, op_code,
++						       pc, >=, long);
++		} else if (riscv_insn_is_bltu(op_code)) {
++			*next_addr = riscv_insn_branch(bltu, regs_ptr, op_code,
++						       pc, <, unsigned long);
++		} else if (riscv_insn_is_bgeu(op_code)) {
++			*next_addr = riscv_insn_branch(bgeu, regs_ptr, op_code,
++						       pc, >=, unsigned long);
+ 		} else if (riscv_insn_is_jal(op_code)) {
+-			*next_addr = RV_EXTRACT_JTYPE_IMM(op_code) + pc;
++			*next_addr = riscv_insn_jal_extract_imm(op_code) + pc;
+ 		} else if (riscv_insn_is_jalr(op_code)) {
+-			rs1_num = decode_register_index(op_code, RVG_RS1_OPOFF);
++			rs1_num = riscv_insn_jalr_extract_xs1(op_code);
+ 			if (rs1_num)
+-				*next_addr = ((unsigned long *)regs)[rs1_num];
+-			*next_addr += RV_EXTRACT_ITYPE_IMM(op_code);
++				*next_addr = regs_ptr[rs1_num];
++			*next_addr += riscv_insn_jalr_extract_imm(op_code);
+ 		} else if (riscv_insn_is_sret(op_code)) {
+ 			*next_addr = pc;
+ 		} else {
+ 			*next_addr = pc + 4;
+ 		}
+ 	}
++
+ 	return 0;
+ }
+ 
+
+-- 
+2.54.0
 
 
 
