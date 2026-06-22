@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7771ACD98F2
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 17:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD85CDB46F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 17:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WzOKLAlDm3mpr7Tg587QgWWP88C2hLVn+LwuJyZBdPU=; b=MM67fDcOP9GC+7EYg+HHrKcOui
-	Xl6ammwe5Ci2azZ+xqvX9rGu0qQUEEHzd3Qb78YF9C9t86+Bh1hglR/qFCSKG+ClnCY3kju0HAzhG
-	iVQr/QngXYvNuZNHOfIz5PCxR0RPYhN2f3NyKW4kXt1KEsVkWv2+lLJMk8I3YZjMit/I9OJYUxhtH
-	IapCrApu4+4PZ5Z/VCMpAMsplOk/BtWcfdmBycDfrWMB1yXigg3cDW8pG1lTssrsw4Cwp2GWNxgcP
-	bCzywxmHkt+wNBt7LxhxC6QVyb27sYus7p1uuQWk0f8HUpct7dWrU6SyZqSC1AUm0mNx1rwrxPCgO
-	JG+c3bdw==;
+	bh=dhmUCfHtwoLSkreu+/OZ72NZDOFlyxt2rDGlh50g6Hs=; b=Xh4yjqI/qwBTv4hJOatnVKlt8k
+	bx9iWQ0ATQz3pDv0+l8i18elguFCijrNurx44SFhtSD9BMA8gLOnErsu9goCF8+ClEbRwKcFOLy63
+	yTgjN6J5K+2qvfVa+PEOT3KK3d50LWKUZHMQLETP3KMBPLwuTH9Yefa9dcodvyscXfXQWkoOkyuyf
+	IRRSfKkt+nvp9MCT51L40wBLaTvn3geCdMijfsQRhlM8NHqPqgctpNK5rn05i+dJjasawLdU2nNXg
+	g0rQlNY9RRCuErKOS6j/gnVEHf8Ntu/y4iw9sI2/uSP7m+RGT8WWUhy2/Zh5Qfz5cBNvRs4D2UjY9
+	8eV73jCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbiCe-00000005F8F-26E5;
-	Mon, 22 Jun 2026 17:12:56 +0000
+	id 1wbin7-00000005H31-0W9Z;
+	Mon, 22 Jun 2026 17:50:37 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbiCd-00000005F80-0YKl
+	id 1wbin6-00000005H2s-0eo0
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 17:12:55 +0000
+	Mon, 22 Jun 2026 17:50:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8F04419F9;
-	Mon, 22 Jun 2026 17:12:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A8C01F000E9;
-	Mon, 22 Jun 2026 17:12:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F8AD42BA4;
+	Mon, 22 Jun 2026 17:50:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1055F1F000E9;
+	Mon, 22 Jun 2026 17:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782148374;
-	bh=+xKQGK1xzLlOj2Cs7V1t6IwPtme7Lo3yazoQMsyAceI=;
+	s=k20260515; t=1782150635;
+	bh=Tcr6cQw8/+pYLroK7pmKi8A9D7PtjmruMLL8Vwwm7SU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=glNgCllMiix2vbWBuiVp5UEsa2qF4AQIR8WExjMq8A0WJsez+vtwnzin3L5Vp1ETJ
-	 dqjCEH//50B3xsjosrFRF3c6kDCAk+02wzlIRS2sIJd0dKhoIJJvpjp6QaHd1Tt7y8
-	 QkZ5doHEy5mU2ZbNTWfqu+IiEDLd6IEOe6KGkpwsOc430JjpIMrdcQPYv6pVqPGV5F
-	 KDexJhM2Msaq6oRGkmtqY0kfTKjb1usHxOZIvMQZ86QC8edUNfwC+EX0jRmLzOVBmu
-	 kFderdRWfZfmsBzk4OHEpw7O1IUlezv9XB38mxPXWvc+Qj1fh5c8sScFJucSxrHHwS
-	 Adwx/s/pQQZow==
-Date: Mon, 22 Jun 2026 18:12:47 +0100
+	b=USVQOBbF373jeaPO/1FUAeoX3ACGzL/DyUsgve6evHd+QPQHhIsj8EptbUEVZLuBO
+	 GZG49R4R+jEXsvVqtz2y3HIJ2GYrqHGrKmsHe8m8rSTgTfDcwZhjx37aCsJdeJo3NY
+	 YqtZke2K5kYFKvhi7yTpYcA3dC9CRiGLYa1qYsMWHjQ+aYIXb4ekq71MMe6yexxYgp
+	 tQoZw+ACAKFLC8y6K8WQ4/XGmNzC9seB3YIqHO+JK+cy1ibbbmqx0n/lA+AnOCPpHW
+	 KEZLFDDeNVRekAy8AYl58lsGpapCKkzVQGl+EONhjUeUfez/COcXtfKrR/9CAr98/o
+	 UPz3f+ftsuG2g==
+Date: Mon, 22 Jun 2026 18:50:28 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Yu-Chien Peter Lin <peter.lin@sifive.com>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
@@ -57,13 +57,12 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	jim.shu@sifive.com, zong.li@sifive.com, greentime.hu@sifive.com,
 	robin.randhawa@sifive.com, scott@riscstar.com,
 	dave.patel@riscstar.com, raymond.mao@riscstar.com
-Subject: Re: [RFC PATCH 2/3] dt-bindings: riscv: Add Worlds per-hart
- properties
-Message-ID: <20260622-profanity-herbs-1cc1bcf6206f@spud>
+Subject: Re: [RFC PATCH 3/3] dt-bindings: sifive: Add WorldGuard Checker
+Message-ID: <20260622-exemplary-navigate-88985b1444f5@spud>
 References: <20260619105834.1277302-1-peter.lin@sifive.com>
- <20260619105834.1277302-3-peter.lin@sifive.com>
+ <20260619105834.1277302-4-peter.lin@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20260619105834.1277302-3-peter.lin@sifive.com>
+In-Reply-To: <20260619105834.1277302-4-peter.lin@sifive.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,203 +74,273 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7985405574803757884=="
+Content-Type: multipart/mixed; boundary="===============8397023712131941484=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7985405574803757884==
+--===============8397023712131941484==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vE1iEq1IsVaZ4OsP"
+	protocol="application/pgp-signature"; boundary="B0xT/bCV5w9r0ZSK"
 Content-Disposition: inline
 
 
---vE1iEq1IsVaZ4OsP
+--B0xT/bCV5w9r0ZSK
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Jun 19, 2026 at 06:58:33PM +0800, Yu-Chien Peter Lin wrote:
-> Add per-hart DT properties for RISC-V Worlds architecture:
-> riscv,pmwid, riscv,pmwidlist, and riscv,pmlwidlist. These
-> platform-defined values are primarily used by M-mode firmware
-> to configure World ID CSRs and restrict WID usage across
-> privilege levels.
+On Fri, Jun 19, 2026 at 06:58:34PM +0800, Yu-Chien Peter Lin wrote:
+> Add DT binding for SiFive wgChecker2, a hardware firewall enforcing
+> WID-based access control in RISC-V Worlds. Provides checker slots to
+> program per-WID permissions for downstream resources, with optional
+> sub-range partitioning.
 >=20
+> Link: https://github.com/riscvarchive/security/blob/main/papers/worldguar=
+d%20proposal.pdf
 > Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> Reviewed-by: Jim Shu <jim.shu@sifive.com>
 > ---
->  .../devicetree/bindings/riscv/cpus.yaml       | 21 +++++
->  .../devicetree/bindings/riscv/worlds.yaml     | 77 +++++++++++++++++++
->  2 files changed, 98 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/worlds.yaml
+>  .../devicetree/bindings/riscv/worlds.yaml     |   9 +
+>  .../bindings/sifive/sifive,wgchecker2.yaml    | 237 ++++++++++++++++++
+>  2 files changed, 246 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sifive/sifive,wgche=
+cker2.yaml
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
-ation/devicetree/bindings/riscv/cpus.yaml
-> index 5feeb2203050..4b5778b6d3e7 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -26,6 +26,7 @@ description: |
->  allOf:
->    - $ref: /schemas/cpu.yaml#
->    - $ref: extensions.yaml
-> +  - $ref: worlds.yaml
->    - if:
->        not:
->          properties:
-> @@ -120,11 +121,31 @@ properties:
->        thead systems where the vector register length is not identical on=
- all harts, or
->        the vlenb CSR is not available.
-> =20
-> +  riscv,pmwid:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      Platform-defined M-mode World ID (WID) assigned to this hart.
-> +    minimum: 0
-> +    maximum: 63
-> +
-> +  riscv,pmwidlist:
-> +    $ref: /schemas/types.yaml#/definitions/uint64
-> +    description:
-> +      Platform-defined bitmap of M-mode World IDs (WIDs) that this hart =
-may use.
-
-I don't understand what the difference is between this property and the
-one before it are.
-Is this one meant to be used by m-mode software to then select one which
-will appear in riscv,pmwid?
-
-> +
-> +  riscv,pmlwidlist:
-> +    $ref: /schemas/types.yaml#/definitions/uint64
-> +    description:
-> +      Platform-defined bitmap of World IDs (WIDs) that S-mode and U-mode=
- may use
-> +      on this hart.
-> +
->    # RISC-V has multiple properties for cache op block sizes as the sizes
->    # differ between individual CBO extensions
->    cache-op-block-size: false
->    # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
->    timebase-frequency: false
-
-> +  # RISC-V requires 'riscv,nworlds' in /cpus, so disallow it here
-> +  riscv,nworlds: false
-
-Isn't this pointless? Nothing ever defines riscv,nworlds as a cpu level
-property so there's no need to disallow it?
-
-> =20
->    interrupt-controller:
->      type: object
 > diff --git a/Documentation/devicetree/bindings/riscv/worlds.yaml b/Docume=
 ntation/devicetree/bindings/riscv/worlds.yaml
-> new file mode 100644
-> index 000000000000..cc8b3747591e
-> --- /dev/null
+> index cc8b3747591e..c39a06c2dd8d 100644
+> --- a/Documentation/devicetree/bindings/riscv/worlds.yaml
 > +++ b/Documentation/devicetree/bindings/riscv/worlds.yaml
-> @@ -0,0 +1,77 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> @@ -34,6 +34,14 @@ properties:
+>      minimum: 2
+>      maximum: 64
+> =20
+> +  sifive,trustedwid:
+
+What's sifive specific about this? Wouldn't other vendors also have
+trusted worlds?
+
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    maximum: 31
+> +    description: |
+> +      The World ID (WID) designated as the trusted WID for this platform.
+> +      Transactions tagged with this WID are authorized to access and con=
+figure
+> +      WorldGuard blocks, including wgCheckers and wgMarkers.
+> +
+>  additionalProperties: true
+> =20
+>  examples:
+> @@ -44,6 +52,7 @@ examples:
+>          #size-cells =3D <0>;
+>          timebase-frequency =3D <1000000>;
+>          riscv,nworlds =3D <4>;
+> +        sifive,trustedwid =3D <3>;
+> =20
+>          cpu@0 {
+>              device_type =3D "cpu";
+> diff --git a/Documentation/devicetree/bindings/sifive/sifive,wgchecker2.y=
+aml b/Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+> new file mode 100644
+> index 000000000000..043c748385ed
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+> @@ -0,0 +1,237 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2026 SiFive, Inc.
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/riscv/worlds.yaml#
+> +$id: http://devicetree.org/schemas/sifive/sifive,wgchecker2.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: RISC-V Worlds Extension
+> +title: SiFive WorldGuard Checker
 > +
 > +maintainers:
 > +  - Yu-Chien Peter Lin <peter.lin@sifive.com>
 > +
 > +description: |
-> +  The RISC-V Worlds ISA extension, as described in the RISC-V Privileged
-> +  Specification, adds World ID tagging for context isolation.
+> +  The RISC-V Worlds ISA extension defines World IDs (WIDs) as architectu=
+ral
+> +  identifiers that tag each system transaction with its originating cont=
+ext.
+> +  System integrators assign WIDs to execution contexts such as privilege=
+ modes,
+> +  trusted execution environments, or other isolation boundaries.
 > +
-> +  This binding describes the system-wide Worlds configuration for the /c=
-pus node
-> +  and is used alongside per-hart Worlds-related properties such as riscv=
-,pmwid in
-> +  the RISC-V CPU binding and Worlds-related ISA extensions enumerated via
-> +  riscv,isa-extensions.
+> +  The SiFive WorldGuard Checker is a hardware firewall positioned in the
+> +  system interconnect fabric. It inspects every transaction, evaluating =
+the
+> +  WID against access control policies encoded in checker slots for each
+> +  protected resource. Transactions from unauthorized WIDs are blocked and
+> +  reported as bus errors, interrupts, or both.
 > +
-> +select:
-> +  properties:
-> +    $nodename:
-> +      pattern: "^cpus$"
+> +  This enables spatial partitioning of memory regions and memory-mapped =
+devices
+> +  across execution contexts. Different address ranges can enforce distin=
+ct
+> +  policies, allowing isolated workloads to coexist with hardware-enforced
+> +  protection.
+> +
+> +  The wgChecker acts as an access-controller provider as defined in the
+> +  access-controllers framework. Protected devices are consumers that dec=
+lare
+> +  their access policy via the access-controllers property. The hardware
+> +  supports up to 32 World IDs.
+> +
+> +  The World ID authorized to configure WorldGuard blocks is specified by=
+ the
+> +  sifive,trustedwid property in the /cpus node.
+> +
+> +allOf:
+> +  - $ref: /schemas/access-controllers/access-controllers.yaml#
 > +
 > +properties:
-> +  riscv,nworlds:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      Number of World IDs (WIDs) supported by the platform. This is a sy=
-stem-wide
-> +      property that describes the total number of isolation contexts ava=
-ilable.
-> +      Hardware components such as the WorldGuard Checker use this to det=
-ermine
-> +      the valid range of WID values.
-> +    minimum: 2
-> +    maximum: 64
+> +  compatible:
+> +    const: sifive,wgchecker2
+
+Missing device specific compatibles.
+
 > +
-> +additionalProperties: true
+> +  reg:
+> +    maxItems: 1
+> +    description:
+> +      Base address and size of the wgChecker memory-mapped I/O registers.
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +    description:
+> +      Interrupt line asserted when a WID access violation is detected and
+> +      interrupt reporting is enabled in the slot configuration (IR or IW
+> +      bits set).
+> +
+> +  '#access-controller-cells':
+> +    const: 7
+> +    description: |
+> +      Specifier for one access-control rule, encoded as seven u32 cells:
+> +        <addr-hi addr-lo size-hi size-lo perm-hi perm-lo config>
+> +
+> +      where:
+> +        - addr-hi, addr-lo: 64-bit base address of the protected region.
+> +        - size-hi, size-lo: 64-bit size of the protected region in bytes.
+
+These two cells effectively just duplicate the reg property.
+
+> +        - perm-hi: Permission bitmap for WIDs 16..31. Two bits per WID:
+> +                     bit 2*(WID-16)   =3D Read  permission
+> +                     bit 2*(WID-16)+1 =3D Write permission
+> +                   Set bits grant access. Use 0x0 for systems with
+> +                   riscv,nworlds <=3D 16.
+> +        - perm-lo: Permission bitmap for WIDs 0..15. Two bits per WID:
+> +                     bit 2*WID   =3D Read  permission
+> +                     bit 2*WID+1 =3D Write permission
+> +                   Set bits grant access.
+
+And these two look like a layering violation to me. Why does the
+consumer contain its own configuration information? If firmware provides
+this to s-mode, it is either useless (because firmware has already done
+the configuration) or it makes the access control pointless because
+s-mode is expected to program its own access.
+With that in mind, the first 4 cells can probably just be transmuted to
+a single cell with platform-specific unique identifiers.
+Surely the ecall involved with actually requesting access needs
+something like that anyway?
+
+The only value I can see in this is if some worlds that a bit of
+software is running on can access a peripheral (or part thereof) and
+others can't? Though platforms like that might benefit more from being
+reworked to have homogeneous access! I've got no idea how a Linux driver
+etc would handle the only some CPUs being permitted to access a register
+region.
+
+> +        - config:  Slot configuration bits:
+> +                     Bit 0 (ER): Report read  violations as bus errors
+> +                     Bit 1 (EW): Report write violations as bus errors
+> +                     Bit 2 (IR): Report read  violations via interrupt
+> +                     Bit 3 (IW): Report write violations via interrupt
+> +                     Bit 4 (L):  Lock bit - prevents further modification
+> +                   Bits 5..31 are reserved and must be zero.
+
+For the next revision of this, I really would like to see the access
+controller driver.
+
+> +
+> +      Multiple entries may be listed to apply different policies to
+> +      different address ranges, including sub-ranges within a single
+> +      physical resource.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - '#access-controller-cells'
+> +
+> +additionalProperties: false
 > +
 > +examples:
 > +  - |
-> +    // Example: System with 4 World IDs
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    // Example 1: Single device protection
+> +    // WID 0 and WID 3 have RW access to UART; errors and IRQs reported.
+> +
 > +    cpus {
 > +        #address-cells =3D <1>;
 > +        #size-cells =3D <0>;
 > +        timebase-frequency =3D <1000000>;
 > +        riscv,nworlds =3D <4>;
+> +        sifive,trustedwid =3D <3>;
 > +
 > +        cpu@0 {
 > +            device_type =3D "cpu";
 > +            reg =3D <0>;
-> +            compatible =3D "sifive,bullet0", "riscv";
-> +            riscv,isa-base =3D "rv64i";
-> +            riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c";
-> +            riscv,pmwid =3D <0>;
-> +
-> +            interrupt-controller {
-> +                #interrupt-cells =3D <1>;
-> +                compatible =3D "riscv,cpu-intc";
-> +                interrupt-controller;
-> +            };
-> +        };
-> +
-> +        cpu@1 {
-> +            device_type =3D "cpu";
-> +            reg =3D <1>;
-> +            compatible =3D "sifive,bullet0", "riscv";
-> +            riscv,isa-base =3D "rv64i";
-> +            riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c";
-> +            riscv,pmwid =3D <1>;
-> +
-> +            interrupt-controller {
-> +                #interrupt-cells =3D <1>;
-> +                compatible =3D "riscv,cpu-intc";
-> +                interrupt-controller;
-> +            };
+> +            compatible =3D "riscv";
+> +            riscv,isa =3D "rv64imac";
 > +        };
 > +    };
-> --=20
-> 2.43.7
->=20
+> +
+> +    soc {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        uart: uart@1c1000 {
+> +            compatible =3D "ns16550a";
+> +            reg =3D <0x0 0x001c1000 0x0 0x1000>;
+> +            reg-names =3D "control";
+> +            interrupts =3D <10 IRQ_TYPE_LEVEL_HIGH>;
+> +            // WID 0,3 RW; report errors+IRQs
+> +            access-controllers =3D <&wgchecker0
+> +                                  0x0 0x001c1000 0x0 0x00001000
+> +                                  0x0 0x000000c3 0x0f>;
+> +        };
+> +
+> +        wgchecker0: wgchecker@1c2000 {
 
---vE1iEq1IsVaZ4OsP
+I think this should be access-controller@
+
+> +            compatible =3D "sifive,wgchecker2";
+> +            reg =3D <0x0 0x001c2000 0x0 0x1000>;
+> +            #access-controller-cells =3D <7>;
+> +            interrupts =3D <80 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-parent =3D <&aplic_m>;
+> +        };
+> +    };
+
+--B0xT/bCV5w9r0ZSK
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajltDwAKCRB4tDGHoIJi
-0tJXAQCZQytqbQQqRG+4zLsuFbAzysNGLpw3SKOQX/PxGaP42AEA9X5YeOLL4M/6
-5L814hDyTlSP1GJnVOVQ6M7yZXvi4wU=
-=9UMS
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajl14wAKCRB4tDGHoIJi
+0vOoAQDGW5uVP7SsX3EThY+cslZwqoZM4OygPKIeEcEnV1ndagEAuE6wHtRin61E
+7yZJ3AdpefPnIn7ERObXGjkJM2xyfw8=
+=wQ6v
 -----END PGP SIGNATURE-----
 
---vE1iEq1IsVaZ4OsP--
+--B0xT/bCV5w9r0ZSK--
 
 
---===============7985405574803757884==
+--===============8397023712131941484==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -282,5 +351,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7985405574803757884==--
+--===============8397023712131941484==--
 
