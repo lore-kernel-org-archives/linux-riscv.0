@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B1ACD98F2
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 11:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A731CD98F2
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 12:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6sqqSNxg/MyhRqThfBJp5kDElPhnUT4ybcuNQUbgShQ=; b=3LDjYDwWjeusJE
-	KFnlP0MZesdyOvJhOiWutJVy8KUnXDTeLnCSU+h5hvuJ+nxO+fmNIVWhpXMtvGwxed7sqhNdWFLo1
-	zp8Qm89Ly20gOT0H+8ZjA/en2FixENQTzQMrvlBB/Hl7Jvr5Hgi7G5/JFq5mgpVrn1oKyhWqeaVlC
-	4+3r5mBSaj7IkXFHA/mxdGc3WEzlh+gylOHi1uxs+0qpxu+/bR7DYnPzlLcHnxWuilFpavqYmsnmD
-	hmgrpEFyOrxUT44x6V80K0pAKkGBoxG4n6TVnVF6kjt59Y9/rUwwPmcZvYRDJgNvFK5YC0uhsY0EC
-	TwY+uOqPV9lMvnwK0L0g==;
+	List-Owner; bh=6ZaRWbbX0TiJ6vcTBlLPZddok3BpXHAXddlEar3HMBg=; b=GhHSElW5iRwjeO
+	zsMZuIXE1y4z2fvbm4Li15qbnLohHZ9I4LePe17F0NZxqgGtTn01R5iV9TBBhSFT5v3yJVb2xrnrR
+	hYECQs7nAfm4MCyKIMV6x8afbj0cSPXvtEyz5bk+0VMHUieuLWX0KSlO3JY6GOJgGZw6vshwEQIHX
+	VRchK2IjNYR1OZ3/RvYxnndr4uh2Hv5XnK2NM+c1QjhIXmDK15/VA+GI80XqgtjNhRuRc/INBhS+I
+	Yib16s3HFAICnV+ThXzT71SXfbADTRSeL/3qV3KR1vgzXUwLL5n0qCCQNXwXOVmKTMIU/N3HMsv3N
+	Zq+6KqedQnRaHIyFYrjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbctp-00000004v4N-1OeT;
-	Mon, 22 Jun 2026 11:33:09 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wbdbW-00000004xLF-0lTr;
+	Mon, 22 Jun 2026 12:18:18 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbctn-00000004v3e-3A5I
+	id 1wbdbR-00000004xKu-3wP5
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jun 2026 11:33:08 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782127982;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=y2+lA1bnMd2Lh85AAiAhj4GuJ60oJplGFxvTMy/uKps=;
-	b=xnyQeoQRLp/re2VnewJZjik6EXVwMV032A5Xilrc7Lq34IsMg99UNLRY6lSYJW3Nr8vSEc
-	ZUJ2SzQZ7JYUha0a8eYBSG5uhMx53SKn8/UGuUN/X76+SDxiShxzKglS65oVkQvW4X+qKO
-	DnLb0DVNqLwBIdW7LeSe9WkOtEHRNGREUbCF6XiPlbNtUljAmuUZTLIog/Kze07/ifpRZn
-	MZ52/IBT7A+ejf+oCHHVRnkuYSY9xjzZuuGXXFyRoTBbLWZiqFzM12VMmkjDcg2B5Hyy69
-	OCd0b7faTcwhBYUW6lNlpyIQ+u4lpFKm7N57gCVV9B2oc6XRYbD+j7f5uL+nAA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782127982;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=y2+lA1bnMd2Lh85AAiAhj4GuJ60oJplGFxvTMy/uKps=;
-	b=iGVQ+jWqJbghN6nKav2b7KCiX/MklCy0FxIaf3CO2danyMO/lif5Q+c2MlIehSnjXB3UJT
-	XLhLj2rIuZCqJsBw==
-To: Vivian Wang <wangruikang@iscas.ac.cn>, Peter Zijlstra
- <peterz@infradead.org>, Guo Ren <guoren@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, arnd@arndb.de, palmer@rivosinc.com,
- luto@kernel.org, conor.dooley@microchip.com, heiko@sntech.de,
- jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org,
- chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org,
- mark.rutland@arm.com, bjorn@kernel.org, palmer@dabbelt.com,
- bjorn@rivosinc.com, daniel.thompson@linaro.org,
- linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, stable@vger.kernel.org, Guo Ren
- <guoren@linux.alibaba.com>
-Subject: Re: [PATCH] riscv: entry: Fixup do_trap_break from kernel side
-In-Reply-To: <2f32370b-63c1-4e8a-bf71-d40874b6bebb@iscas.ac.cn>
-References: <20230702025708.784106-1-guoren@kernel.org>
- <202606191652.38297DE51@keescook> <ajeKPpg2rwadVPY4@gmail.com>
- <20260622082841.GW49951@noisy.programming.kicks-ass.net>
- <2f32370b-63c1-4e8a-bf71-d40874b6bebb@iscas.ac.cn>
-Date: Mon, 22 Jun 2026 13:33:01 +0200
-Message-ID: <87pl1ilsia.ffs@fw13>
+	Mon, 22 Jun 2026 12:18:16 +0000
+Received: from fric.. (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowABXrtH5JzlqIsitFA--.58233S2;
+	Mon, 22 Jun 2026 20:18:01 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: namcao@linutronix.de
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	dev.mbstr@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	samuel.holland@sifive.com,
+	xujiakai2025@iscas.ac.cn,
+	zhangchunyan@iscas.ac.cn
+Subject: Re: [PATCH v2] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe()
+Date: Mon, 22 Jun 2026 12:18:01 +0000
+Message-Id: <20260622121801.430564-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <87zf0q504f.fsf@yellow.woof>
+References: <87zf0q504f.fsf@yellow.woof>
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowABXrtH5JzlqIsitFA--.58233S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYN7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E
+	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
+	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8I
+	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aV
+	CY1x0267AKxVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv
+	0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z2
+	80aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I2
+	1c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI4
+	8JMxAqzxv26xkF7I0En4kS14v26r1q6r43MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
+	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtV
+	W8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY
+	1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
+	0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7V
+	U1jg43UUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCRAGCWo5I0wPnAAAs5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_043307_940299_CFD04197 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260622_051814_702356_8FFF913D 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +87,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22 2026 at 18:25, Vivian Wang wrote:
-> On 6/22/26 16:28, Peter Zijlstra wrote:
->> I still don't understand it. This cannot fix anything. Consider:
->>
->>  EBREAK
->>  raw_spin_lock_irq(&your_lock)
->>  EBREAK
->>
->> So now the first 'works', but the second will crash. Additionally,
->> having the EBREAK context differ so dramatically between invocations
->> seems like a very bad deal to me.
->
-> To spell it out, the problem that needs fixing is:
->
-> -> BUG()
->    -> ebreak instruction
->       -> Breakpoint exception
->          -> do_trap_break()
->             -> irqentry_nmi_enter()
->             [ now in_nmi() / in_interrupt() ]
->             -> report_bug() returns BUG_TRAP_TYPE_BUG
->             -> die()
->                -> make_task_dead()
->                   -> panic() because we're in_interrupt()
->
-> As such, currently on riscv all BUG() simply completely panic() the
-> entire machine, rather than just killing the one task.
->
-> How do you think this should be fixed? Here are some ideas but I'm not
-> familiar with generic entry stuff:
->
->   * Should we irqentry_nmi_exit() before calling die() for BUG()?
->   * Should we move the GENERIC_BUG trap instruction to cause illegal
->     instruction exception instead, for which we can write a simpler
->     handler that doesn't need to care about the probe stuff?
+Thanks for the review!
 
-Look at how x86 handles UD exceptions.
+> I am concerned when CONFIG_IRQ_STACKS=y and we are on the irq stack,
+> wouldn't this "high" be the wrong one?
+> 
+> I haven't validated it, we probably need something like
+> 
+> if (on_thread_stack()) {
+> 	if (!task)
+>         	task = current;
+> 	high = (unsigned long)task_pt_regs(task);
+> } else {
+> 	high = per_cpu(irq_stack_ptr, smp_processor_id()) + IRQ_STACK_SIZE/sizeof(ulong);
+> }
+
+I agree with you. Let's see if anyone else has suggestions. 
+If not, I will send a v3 patch in a few days.
+
+Regards,
+Jiakai
+
 
 _______________________________________________
 linux-riscv mailing list
