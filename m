@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE7CCDB466
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 02:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C483CD98E4
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 02:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Message-Id:To:In-Reply-To:
+	Mime-Version:Date:Subject:From:Cc:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lpr4rH+oZLdQZLV0lps5kstYIJStGCe/iszM65Bb+ho=; b=i0NbBW76H0t/xZ
-	W5Tvel6qbfEd6sG0q8oZIRf2GJla4kh5B6HnzI5Lyhk1OcbuNL+2XKTjKzqEEAkUxgHxQ4kFW1nBp
-	mnBHqGEUnLalvWHlAQxXp0/IiukO/dQ743YvaQaoVKjX4WYDWLjrFZNYy/bQrVcPMPilDXz73Ae9Q
-	gjXIKbbp5QHGxef2VyEV5p7ccDMGT66n9YPGsJN/XYOwRNaYkt75QDZ80wTbPiRFn8ZBzyntlHk58
-	T0bOD+B9vaLJryqOI5S2VksACWWluOCsSGdicgZsdqWDvcqA3q9Vk4Kdvu1PqNaNhtzTeyKAuzI8p
-	Q2xTjewlniyz4fNV03TQ==;
+	List-Owner; bh=vNDkK0Qa63xEaiH69v+m1Dg+joaYK6E3ky2bm99lAvY=; b=XABsRyeOTP4h7+
+	fM/bN2UJjra6Zk1/QjhlBwCmsj8S3PNTrKUkC9P7Z4JUZEOWoWskF9ElV3QaHXsd1JYRyXy/yxaTX
+	0wiv9pWmnjCtEpABNsnRhCIUAXQM7lc+TxRvdAznVHzq7960JIw6KxsRaEFfH/5sSMo9P8pGCvYpm
+	UIlUybB+rGyFs2rpqev//yCUgNCoMOcY8AyclMTdlM2yzN/op7nkZEgfWwtaGw7JoRKUiJ1Ct9ihl
+	4IXu0gHEcrU7x8OeDVm+VipR31D14gD/O3wI8zBl7ghz6AQmY5hOgJY+Y8BMFA67ZZGW2WCmMVixx
+	2i4H6kl7NryZ5pqxu38w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUH3-00000004IUl-2FaL;
-	Mon, 22 Jun 2026 02:20:33 +0000
-Received: from azure-sdnproxy.icoremail.net ([13.75.44.102])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUGv-00000004IUJ-2xSh;
-	Mon, 22 Jun 2026 02:20:31 +0000
-Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
- ajax-webmail-app1 (Coremail) ; Mon, 22 Jun 2026 10:19:50 +0800 (GMT+08:00)
-X-Originating-IP: [10.11.96.26]
-Date: Mon, 22 Jun 2026 10:19:50 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-To: "Andrew Lunn" <andrew@lunn.ch>
-Cc: "Maxime Chevallier" <maxime.chevallier@bootlin.com>,
-	devicetree@vger.kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
-Subject: Re: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII
- delay properties optional
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
-References: <20260610012727.848-1-lizhi2@eswincomputing.com>
- <20260610012937.911-1-lizhi2@eswincomputing.com>
- <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
- <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
-MIME-Version: 1.0
-Message-ID: <512b77d5.993b.19eed207fc9.Coremail.lizhi2@eswincomputing.com>
-X-Coremail-Locale: en_US
-X-CM-TRANSID: TAJkCgDHW3DHmzhqEvksAA--.8326W
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgEGDGo4EpcWfAACs2
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+	id 1wbUoH-00000004KSZ-29Fz;
+	Mon, 22 Jun 2026 02:54:53 +0000
+Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbUoE-00000004KS1-005E
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Jun 2026 02:54:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1782096880; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=MVFhmxXtrbmG+CWiqbe7ir8ZqzPje6y+FF2v778FjIw=;
+ b=qqxW/40QBaj1qPvisEQmOMt+Oz5z9cdyOljS+b+bIW/0E6rdWdOREcg8vKpatUVJUREOKb
+ FbRLjsD/OwL3dlS/c7Fasqgvz4qZpQlQCr8+xDCAXwdo+CWvj6U1al/AG+6XCYUrYhkKro
+ 3sJIiROenFZSoDwt2mrknSMlK8Irmv/tSNRULn6+jhEcrLQSii8B3v3UYWxKVkQQwaFNFz
+ lCMvuUhZVdPM+hUxtytfhbe+y6ocJj+UI/Q3Ghzm51TnDojYHcTEAurI7kRc4YYpINI1U4
+ H4ZfJun+4g51TEs5tZ+Q8JASkCY/cdpjAMTsVJ0ETAFqT67f/dGUstM/pnRG2Q==
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+From: "Rui Qi" <qirui.001@bytedance.com>
+Subject: Re: [PATCH] riscv: fix frame pointer in call_on_irq_stack for RV32
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+Date: Mon, 22 Jun 2026 10:54:25 +0800
+Mime-Version: 1.0
+In-Reply-To: <20260603035305.564823-1-qirui.001@bytedance.com>
+User-Agent: Mozilla Thunderbird
+To: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>, 
+	<alex@ghiti.fr>, "Conor Dooley" <conor@kernel.org>
+X-Lms-Return-Path: <lba+26a38a3ee+9955dd+lists.infradead.org+qirui.001@bytedance.com>
+Message-Id: <d3aeae54-9b87-4a9c-b8a6-9769a858ff63@bytedance.com>
+References: <20260603035305.564823-1-qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_192025_916163_D9166919 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20260621_195450_290473_21193A8A 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,90 +69,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Palmer, Paul, Albert, Alexandre,
+
+Gentle ping on this patch. It has been posted for over two weeks
+now and I would appreciate any feedback.
+
+This fixes a frame pointer bug in call_on_irq_stack on RV32 where
+the unwinder reads from the alignment padding instead of the
+actual saved fp/ra, causing broken stack traces on 32-bit RISC-V.
+
+Please let me know if there are any concerns or if further changes
+are needed.
+
++Cc: Conor Dooley -- adding RISC-V subsystem reviewer.
 
 
-
-> -----Original Messages-----
-> From: "Andrew Lunn" <andrew@lunn.ch>
-> Send time:Saturday, 13/06/2026 15:48:46
-> To: "Maxime Chevallier" <maxime.chevallier@bootlin.com>
-> Cc: lizhi2@eswincomputing.com, devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, ningyu@eswincomputing.com, linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
-> Subject: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII delay properties optional
+On 6/3/26 11:53 AM, Rui Qi wrote:
+> The frame pointer (s0/fp) in call_on_irq_stack is set using
+> STACKFRAME_SIZE_ON_STACK, which equals ALIGN(sizeof(struct stackframe),
+> STACK_ALIGN). On RV64, sizeof(struct stackframe) is 16 and the aligned
+> size is also 16, so there is no difference. However, on RV32,
+> sizeof(struct stackframe) is 8 while STACKFRAME_SIZE_ON_STACK is 16 due
+> to 8 bytes of alignment padding.
 > 
-> On Wed, Jun 10, 2026 at 10:26:50AM +0200, Maxime Chevallier wrote:
-> > Hi,
-> > 
-> > On 6/10/26 03:29, lizhi2@eswincomputing.com wrote:
-> > > From: Zhi Li <lizhi2@eswincomputing.com>
-> > > 
-> > > Make rx-internal-delay-ps and tx-internal-delay-ps optional in the
-> > > EIC7700 DWMAC driver.
-> > > 
-> > > The driver previously required both properties to be present and would
-> > > fail probe when they were missing. This restricts valid hardware
-> > > configurations where RGMII timing is instead provided by the PHY or
-> > > board design.
-> > > 
-> > > Update the driver to treat missing delay properties as zero delay,
-> > > allowing systems without explicit MAC-side delay tuning to operate
-> > > correctly.
-> > > 
-> > > This aligns the driver behavior with the updated device tree binding
-> > > and provides a safe default configuration when MAC-side delay
-> > > programming is not required.
-> > > 
-> > > Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> > > ---
-> > >  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c | 6 ------
-> > >  1 file changed, 6 deletions(-)
-> > > 
-> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > > index 4ac979d874d6..ec99b597aeaf 100644
-> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> > > @@ -165,9 +165,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
-> > >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-> > >  		dwc_priv->eth_clk_dly_param |=
-> > >  				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-> > > -	} else {
-> > > -		return dev_err_probe(&pdev->dev, -EINVAL,
-> > > -			"missing required property rx-internal-delay-ps\n");
-> > >  	}
-> > >  
-> > >  	/* Read tx-internal-delay-ps and update tx_clk delay */
-> > > @@ -187,9 +184,6 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
-> > >  		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-> > >  		dwc_priv->eth_clk_dly_param |=
-> > >  				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-> > > -	} else {
-> > > -		return dev_err_probe(&pdev->dev, -EINVAL,
-> > > -			"missing required property tx-internal-delay-ps\n");
-> > >  	}
-> > 
-> > I think then you need to handle RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID,
-> > by using default delays for these (usually around 2ns), as here all delays
-> > will be set to 0, regardless of the RGMII mode in use.
+> The stack unwinder does 'frame = (struct stackframe *)fp - 1', which
+> reads from 'fp - sizeof(struct stackframe)'. On RV32, with fp set to
+> sp + STACKFRAME_SIZE_ON_STACK (sp + 16), the unwinder reads from
+> sp + 8, which falls in the alignment padding rather than where the
+> saved fp/ra are actually stored (sp + 0 and sp + 4).
 > 
-> No. By default, the MAC adds 0ns delay, and passes the phy-mode to the
-> PHY. It will then add the 2ns delay. It is possible to use the
-> tx-internal-delay-ps and rx-internal-delay-ps in the MAC to add small
-> tuning delays, but not the full 2ns.
+> Fix this by introducing STACKFRAME_SIZE (the unaligned sizeof) and using
+> it for frame pointer setup and restoration, while keeping
+> STACKFRAME_SIZE_ON_STACK for the stack pointer allocation/deallocation
+> which must remain 16-byte aligned.
 > 
-> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+> ---
+>  arch/riscv/kernel/asm-offsets.c | 1 +
+>  arch/riscv/kernel/entry.S       | 4 ++--
+>  2 files changed, 3 insertions(+), 2 deletions(-)
 > 
+> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> index af827448a609..c1b5f7eb03fd 100644
+> --- a/arch/riscv/kernel/asm-offsets.c
+> +++ b/arch/riscv/kernel/asm-offsets.c
+> @@ -500,6 +500,7 @@ void asm_offsets(void)
+>  	OFFSET(SBI_HART_BOOT_TASK_PTR_OFFSET, sbi_hart_boot_data, task_ptr);
+>  	OFFSET(SBI_HART_BOOT_STACK_PTR_OFFSET, sbi_hart_boot_data, stack_ptr);
+>  
+> +	DEFINE(STACKFRAME_SIZE, sizeof(struct stackframe));
+>  	DEFINE(STACKFRAME_SIZE_ON_STACK, ALIGN(sizeof(struct stackframe), STACK_ALIGN));
+>  	OFFSET(STACKFRAME_FP, stackframe, fp);
+>  	OFFSET(STACKFRAME_RA, stackframe, ra);
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index d011fb51c59a..e8b654e2b7b5 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -383,7 +383,7 @@ SYM_FUNC_START(call_on_irq_stack)
+>  	addi	sp, sp, -STACKFRAME_SIZE_ON_STACK
+>  	REG_S	ra, STACKFRAME_RA(sp)
+>  	REG_S	s0, STACKFRAME_FP(sp)
+> -	addi	s0, sp, STACKFRAME_SIZE_ON_STACK
+> +	addi	s0, sp, STACKFRAME_SIZE
+>  
+>  	/* Switch to the per-CPU shadow call stack */
+>  	scs_save_current
+> @@ -399,7 +399,7 @@ SYM_FUNC_START(call_on_irq_stack)
+>  	scs_load_current
+>  
+>  	/* Switch back to the thread stack and restore ra and s0 */
+> -	addi	sp, s0, -STACKFRAME_SIZE_ON_STACK
+> +	addi	sp, s0, -STACKFRAME_SIZE
+>  	REG_L	ra, STACKFRAME_RA(sp)
+>  	REG_L	s0, STACKFRAME_FP(sp)
+>  	addi	sp, sp, STACKFRAME_SIZE_ON_STACK
 
-Thanks for the earlier discussion and for helping clarify the eth0
-design.
-
-I'm preparing a v9 of the series. The next revision will address the
-issues reported by Sashiko review, mainly DT binding schema and DTS
-warnings.
-
-Before I post v9, I'd like to check whether you have any concerns or
-suggestions regarding the driver changes.
-
-Thanks,
-Zhi
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
