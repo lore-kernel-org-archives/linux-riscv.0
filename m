@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37121CDB470
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82093CDB477
 	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 04:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jy7KwHsKy2l5plY+JNy8MChkAkpZyqJcueZFGAqBPB0=; b=HEA7Iza6RzAitd
-	QXvVZvpXohMAdbMX6W102/urbF44bZB3cRDvUgStlSGDMk48xbaB1zeiMaBfPb6kwXzonsMRQ/+SC
-	pEKoYe1pFA5o5rRTaIFsHc/0aY6LYBu2UNxyU7ol4owbMdB6dZAQRCKdzwJ20cp/SiaVK5C2fuAWk
-	17Gxk5wOINvtAOtPYvIKLHjSV0JR5MvBPNNnXvMFVYUbuGExtRvGAn6LF5OxlCKXtsiZ5PyGMgN4P
-	oVErWVnDyIeejDhZl1BY8S41tXwoCP4qyRuh4byZdn3cqLe+M8X7C9HoL2Sp4EcVyfobM2PTu0yzJ
-	bADm9FRKM+KXedq4RIkg==;
+	List-Owner; bh=wpzahs9j07vpic9muaWWy6ZwGGGIqgDCU+0t02i59hw=; b=zDNR4WAN12+QT0
+	vVmqztduDSSbXtpljbp9hCug1HmW2L14nMuOJy40ucJ6iCaiucCY1k1+Yk1OzT4dveVWiMIAYXYFx
+	DwIKPwK/Lo21L+QJD+X8Ik5O3Ro1Kz0/5kavZq44GUQHkiSZtsiKQz6/DZrRgXsprJi9MxkXcw0H3
+	qjCxgrPjSCLRSdVIpOFTzcht0Upo5WkVf22TsmXdhXgtzUml+WipQKupno72SmftX6L0UmPAzwFz3
+	ctdxlgwc2+p0ttfq03mqqLSq/SRCVjIDRs72FM3irNHm+sMCxg1+C1LhkC0ux1Ois3pqSMfURTJGz
+	qD3VgxDLGWEMvaVF1TzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVr8-00000004McC-3SWA;
-	Mon, 22 Jun 2026 04:01:54 +0000
+	id 1wbVrA-00000004MgF-1au5;
+	Mon, 22 Jun 2026 04:01:56 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbVqx-00000004MTv-1dta;
+	id 1wbVqx-00000004MTv-0gNT;
 	Mon, 22 Jun 2026 04:01:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E9FB445BA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2260A4456E;
 	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 59C48C4AF13;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0221AC2BD04;
 	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1782100902;
-	bh=h/k7PHkvnpsBzJw3NBNnpQLOT3Jz0kWu6UPxIz9X22Y=;
+	bh=rIBUZlayDDUlElwH4STZyo3eLQ1aroKzxTDoI9morMI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=MiDvQdL6Xfn4xUBVy6TInlaGQgdzA0zO2H0wp762i4LRF/ck4vLmfyRf9k2xWjSyE
-	 RLtitDn5IiK1ShvGREICLAAjWwkftcyR7oudHC/9Ix2TZf+79vGH+bOlAYZKb9PD4C
-	 r898MgIlGzurRXCkvbP5Pvn1urPk+y4nkzWiQM+ua6dkXDVoQj1tnr5mtspOIKL9/8
-	 Ayuxg1NO6ggGEJvFLD/2gXPp7HAEAGcebfyt2Vql1E7si6v0oqjxzGcZSvvyaZcjmP
-	 hyvbo5e434FKaesbuhHWqnMB02uBvr1+uqTFMjPQ/RcuMB8cqbGiFwiwZsjdNTY9vo
-	 L09ezB3xni6IA==
+	b=Ya7NX0iejpWjN4INkrPT4cunQJNOz+kfjITMaADVO98IMZP7uZdFS5otKCRXh3RIc
+	 0c5W+lkRUD4ZKeUOam0jy9vpxKe4MKjSmQ3XOPYt/DTOCVq6VEpo1TQs08PD8VUioV
+	 7xikwqRjowWfBoW5Zpq/3qYcxU96ti+HCKQW7THW95uibOybiMuQd9FV7B/4/FrY5Y
+	 7CvCOi9DFptWR2sr0hIvTZyHFC1tHpyRkXp1QPQH07Elf/Bny2ODi4aCgUGjpKdehH
+	 7xLqS1vqeDnuGvUuPnNHMfjzJXAchlOtzAtI5KpzHysc/Z5NYL8ByVNUrQTJqUDaUD
+	 dat8kjhduBM5Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 53D17CDB46F;
-	Mon, 22 Jun 2026 04:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EE473CD98F6;
+	Mon, 22 Jun 2026 04:01:41 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Sun, 21 Jun 2026 21:01:33 -0700
-Subject: [PATCH v2 15/16] riscv: kexec: Use generated instruction headers
- for kexec relocations
+Date: Sun, 21 Jun 2026 21:01:28 -0700
+Subject: [PATCH v2 10/16] KVM: riscv: selftests: Add mmio test
 MIME-Version: 1.0
-Message-Id: <20260621-riscv_insn_table-v2-15-7f0810ee2274@gmail.com>
+Message-Id: <20260621-riscv_insn_table-v2-10-7f0810ee2274@gmail.com>
 References: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 In-Reply-To: <20260621-riscv_insn_table-v2-0-7f0810ee2274@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -63,11 +62,11 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=3956;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782100900; l=7221;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=34NvWLgWZxGAYVZyLbG0y/AhPlMD8oyGVqDaoGR9FaA=;
- b=73oWRUSsUA63aBLh5aeeP1uBW0bkXVvGwGaKJQy8ByudyAPuWhlTVvefxgdyBFbz+UXbFtzj1
- Z4J9xE+jYUTBKnAAz9ATR4LhKqKS5YnB487lPHmDq6aeXb/IKPwyXxO
+ bh=nCg2zsUhW9tVCXwueee6U43Tp4lvMvAC4x/Uj6w1DKc=;
+ b=FiX8G4yh2kmXn5pRN+SXywegB4kTjVIWJ6CUVfln9IvG8p5Z0j49ic/ko/Q6oCDElSlvSzUMQ
+ yGr78gl5jtACmSIhKleRZqcsS7hOJnL88KBuW01ZcepJnD6n0cykO4M
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/20260605
@@ -92,105 +91,218 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Migrate the kexec relocation code to use the generated instruction
-headers instead of the hand-written instruction composition functions.
+Use the test KVM device to validate that reads and writes to a device
+are properly emulated by KVM. This test checks all load and store
+instructions that are emulated by KVM.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-
 ---
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ tools/testing/selftests/kvm/riscv/mmio_test.c | 184 ++++++++++++++++++++++++++
+ 2 files changed, 185 insertions(+)
 
-This was again tested by brute forcing all possible inputs to the value
-fed into the immediates.
----
- arch/riscv/kernel/machine_kexec_file.c | 55 ++++++++++++----------------------
- 1 file changed, 19 insertions(+), 36 deletions(-)
-
-diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-index 54e2d9552e93..cad40e4afd86 100644
---- a/arch/riscv/kernel/machine_kexec_file.c
-+++ b/arch/riscv/kernel/machine_kexec_file.c
-@@ -116,32 +116,6 @@ static char *setup_kdump_cmdline(struct kimage *image, char *cmdline,
- 	(((x) + (RISCV_IMM_REACH >> 1)) & ~(RISCV_IMM_REACH - 1))
- #define RISCV_CONST_LOW_PART(x) ((x) - RISCV_CONST_HIGH_PART(x))
- 
--#define ENCODE_ITYPE_IMM(x) \
--	(RV_X(x, 0, 12) << 20)
--#define ENCODE_BTYPE_IMM(x) \
--	((RV_X(x, 1, 4) << 8) | (RV_X(x, 5, 6) << 25) | \
--	(RV_X(x, 11, 1) << 7) | (RV_X(x, 12, 1) << 31))
--#define ENCODE_UTYPE_IMM(x) \
--	(RV_X(x, 12, 20) << 12)
--#define ENCODE_JTYPE_IMM(x) \
--	((RV_X(x, 1, 10) << 21) | (RV_X(x, 11, 1) << 20) | \
--	(RV_X(x, 12, 8) << 12) | (RV_X(x, 20, 1) << 31))
--#define ENCODE_CBTYPE_IMM(x) \
--	((RV_X(x, 1, 2) << 3) | (RV_X(x, 3, 2) << 10) | (RV_X(x, 5, 1) << 2) | \
--	(RV_X(x, 6, 2) << 5) | (RV_X(x, 8, 1) << 12))
--#define ENCODE_CJTYPE_IMM(x) \
--	((RV_X(x, 1, 3) << 3) | (RV_X(x, 4, 1) << 11) | (RV_X(x, 5, 1) << 2) | \
--	(RV_X(x, 6, 1) << 7) | (RV_X(x, 7, 1) << 6) | (RV_X(x, 8, 2) << 9) | \
--	(RV_X(x, 10, 1) << 8) | (RV_X(x, 11, 1) << 12))
--#define ENCODE_UJTYPE_IMM(x) \
--	(ENCODE_UTYPE_IMM(RISCV_CONST_HIGH_PART(x)) | \
--	(ENCODE_ITYPE_IMM(RISCV_CONST_LOW_PART(x)) << 32))
--#define ENCODE_UITYPE_IMM(x) \
--	(ENCODE_UTYPE_IMM(x) | (ENCODE_ITYPE_IMM(x) << 32))
--
--#define CLEAN_IMM(type, x) \
--	((~ENCODE_##type##_IMM((uint64_t)(-1))) & (x))
--
- int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
- 				     Elf_Shdr *section,
- 				     const Elf_Shdr *relsec,
-@@ -197,12 +171,14 @@ int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
- 
- 		switch (r_type) {
- 		case R_RISCV_BRANCH:
--			*(u32 *)loc = CLEAN_IMM(BTYPE, *(u32 *)loc) |
--				 ENCODE_BTYPE_IMM(val - addr);
-+			/*
-+			 * For simplicity, use beq as represenative of all
-+			 * branches (they all have the same imm encoding)
-+			 */
-+			riscv_insn_beq_insert_imm((u32 *)loc, val - addr);
- 			break;
- 		case R_RISCV_JAL:
--			*(u32 *)loc = CLEAN_IMM(JTYPE, *(u32 *)loc) |
--				 ENCODE_JTYPE_IMM(val - addr);
-+			riscv_insn_jal_insert_imm((u32 *)loc, val  - addr);
- 			break;
- 		/*
- 		 * With no R_RISCV_PCREL_LO12_S, R_RISCV_PCREL_LO12_I
-@@ -213,16 +189,23 @@ int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
- 		case R_RISCV_PCREL_HI20:
- 		case R_RISCV_CALL_PLT:
- 		case R_RISCV_CALL:
--			*(u64 *)loc = CLEAN_IMM(UITYPE, *(u64 *)loc) |
--				 ENCODE_UJTYPE_IMM(val - addr);
-+			riscv_insn_auipc_insert_imm((u32 *)loc, RISCV_CONST_HIGH_PART(val - addr));
-+			riscv_insn_jalr_insert_imm((u32 *)loc + 1,
-+						   RISCV_CONST_LOW_PART(val - addr));
- 			break;
- 		case R_RISCV_RVC_BRANCH:
--			*(u32 *)loc = CLEAN_IMM(CBTYPE, *(u32 *)loc) |
--				 ENCODE_CBTYPE_IMM(val - addr);
-+			/*
-+			 * For simplicity, use c.beqz as represenative of all
-+			 * compressed branches (they all have the same imm encoding)
-+			 */
-+			riscv_insn_c_beqz_insert_imm((u16 *)loc, val - addr);
- 			break;
- 		case R_RISCV_RVC_JUMP:
--			*(u32 *)loc = CLEAN_IMM(CJTYPE, *(u32 *)loc) |
--				 ENCODE_CJTYPE_IMM(val - addr);
-+			/*
-+			 * For simplicity, use c.j as represenative of all
-+			 * compressed jumps (they all have the same imm encoding)
-+			 */
-+			riscv_insn_c_j_insert_imm((u16 *)loc, val - addr);
- 			break;
- 		case R_RISCV_ADD16:
- 			*(u16 *)loc += val;
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 9118a5a51b89..07a5fc2bf67c 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -214,6 +214,7 @@ TEST_GEN_PROGS_s390 += mmu_stress_test
+ TEST_GEN_PROGS_riscv = $(TEST_GEN_PROGS_COMMON)
+ TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
+ TEST_GEN_PROGS_riscv += riscv/ebreak_test
++TEST_GEN_PROGS_riscv += riscv/mmio_test
+ TEST_GEN_PROGS_riscv += access_tracking_perf_test
+ TEST_GEN_PROGS_riscv += arch_timer
+ TEST_GEN_PROGS_riscv += coalesced_io_test
+diff --git a/tools/testing/selftests/kvm/riscv/mmio_test.c b/tools/testing/selftests/kvm/riscv/mmio_test.c
+new file mode 100644
+index 000000000000..9726860a269a
+--- /dev/null
++++ b/tools/testing/selftests/kvm/riscv/mmio_test.c
+@@ -0,0 +1,184 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * mmio_test.c - Tests the mmio functionality.
++ */
++#include "kvm_util.h"
++#include "ucall_common.h"
++
++#define MMIO_TEST_REGION 0x20000000
++
++#define test_standard_read(len, instruction, name, options)					\
++static void test_##name(void)									\
++{												\
++	unsigned long mmio_result, reference_result;						\
++	/* Configure the MMIO to return 0xff for each byte to check sign extension */		\
++	unsigned long reference = ((unsigned long)-1 >> ((sizeof(long) - len) * 8));		\
++	*((unsigned long *)MMIO_TEST_REGION) = reference;					\
++	/* Check that reads through MMIO are equivalent to standard reads. */			\
++	asm volatile (										\
++		".option push\n"								\
++		options										\
++		#instruction "	%[mmio_res], 0(%[region])\n"					\
++		#instruction "	%[ref_res], 0(%[ref])\n"					\
++		".option pop\n"									\
++		: [mmio_res] "=&cr" (mmio_result), [ref_res] "=&cr" (reference_result)		\
++		: [region] "cr" (MMIO_TEST_REGION), [ref] "cr" (&reference)			\
++	);											\
++	GUEST_ASSERT_EQ(mmio_result, reference_result);						\
++	GUEST_DONE();										\
++}
++
++#define test_sp_read(len, instruction, name)							\
++static void test_##name(void)									\
++{												\
++	unsigned long mmio_result, reference_result;						\
++	unsigned long tmp;									\
++	/* Configure the MMIO to return 0xff for each byte to check sign extension */		\
++	unsigned long reference = ((unsigned long)-1 >> ((sizeof(long) - len) * 8));		\
++	*(((unsigned long *)MMIO_TEST_REGION)) = reference;					\
++	/* Check that reads through MMIO are equivalent to standard reads. */			\
++	asm volatile (										\
++		"mv	%[tmp], sp\n"								\
++		"mv	sp, %[region]\n"							\
++		".option push\n"								\
++		".option arch,+c\n"								\
++		#instruction "	%[mmio_res], 0(sp)\n"						\
++		"mv	sp, %[ref]\n"								\
++		#instruction "	%[ref_res], 0(sp)\n"						\
++		".option pop\n"									\
++		"mv	sp, %[tmp]\n"								\
++		: [mmio_res]  "=&cr" (mmio_result), [ref_res] "=&cr" (reference_result),	\
++		  [tmp] "=&r" (tmp)								\
++		: [region] "r" (MMIO_TEST_REGION), [ref] "cr" (&reference)			\
++	);											\
++	GUEST_ASSERT_EQ(mmio_result, reference_result);						\
++	GUEST_DONE();										\
++}
++
++test_standard_read(1, lb, lb, "")
++test_standard_read(1, lbu, lbu, "")
++test_standard_read(4, lw, lw, "")
++test_standard_read(4, c.lw, c_lw, ".option arch,+c\n")
++test_sp_read(4, c.lwsp, c_lwsp)
++
++#if __riscv_xlen == 64
++test_standard_read(2, lh, lh, "")
++test_standard_read(2, lhu, lhu, "")
++test_standard_read(4, lwu, lwu, "")
++test_standard_read(8, ld, ld, "")
++test_standard_read(8, c.ld, c_ld, ".option arch,+c\n")
++test_sp_read(8, c.ldsp, c_ldsp)
++#endif
++
++#define test_standard_write(len, write, read, name, options)					\
++static void test_##name(void)									\
++{												\
++	unsigned long result;									\
++	unsigned long reference = (0x55555555UL >> ((sizeof(long) - len) * 8));			\
++	/* Check that we can write and then read the same value. */				\
++	asm volatile (										\
++		".option push\n"								\
++		options										\
++		#write "	%[ref], 0(%[region])\n"						\
++		#read "		%[res], 0(%[region])\n"						\
++		".option pop\n"									\
++		: [res] "=&cr" (result)								\
++		: [region] "cr" (MMIO_TEST_REGION), [ref] "cr" (reference)			\
++	);											\
++	GUEST_ASSERT_EQ(result, reference);							\
++	GUEST_DONE();										\
++}
++
++#define test_sp_write(len, write, read, name)							\
++static void test_##name(void)									\
++{												\
++	unsigned long result;									\
++	unsigned long tmp;									\
++	unsigned long reference = (0x55555555UL >> ((sizeof(long) - len) * 8));			\
++	/* Check that we can write and then read the same value. */				\
++	asm volatile (										\
++		"mv	%[tmp], sp\n"								\
++		"mv	sp, %[region]\n"							\
++		".option push\n"								\
++		".option arch,+c\n"								\
++		#write "	%[ref], 0(sp)\n"						\
++		#read "		%[res], 0(sp)\n"						\
++		".option pop\n"									\
++		"mv	sp, %[tmp]\n"								\
++		: [res] "=&cr" (result), [tmp] "=&r" (tmp)					\
++		: [region] "cr" (MMIO_TEST_REGION), [ref] "cr" (reference)			\
++	);											\
++	GUEST_ASSERT_EQ(result, reference);							\
++	GUEST_DONE();										\
++}
++
++test_standard_write(1, sb, lb, sb, "")
++test_standard_write(2, sh, lh, sh, "")
++test_standard_write(4, sw, lw, sw, "")
++test_standard_write(4, c.sw, c.lw, c_sw, ".option arch,+c\n")
++test_sp_write(4, c.swsp, c.lwsp, c_swsp)
++
++#if __riscv_xlen == 64
++test_standard_write(8, sd, ld, sd, "")
++test_standard_write(8, c.sd, c.ld, c_sd, ".option arch,+c\n")
++#endif
++
++static void run(void *guest_code, char *instruction)
++{
++	struct ucall uc;
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++
++	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
++	kvm_create_device(vm, KVM_DEV_TYPE_TEST);
++
++	virt_map(vm, (unsigned long)MMIO_TEST_REGION, MMIO_TEST_REGION, 1);
++
++	vcpu_run(vcpu);
++
++	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE,
++		    "MMIO with instruction '%s' failed: '%s'", instruction,
++		    uc.buffer);
++
++	kvm_vm_free(vm);
++}
++
++void test_mmio_read_sign_extension(void)
++{
++	run(test_lb, "lb");
++	run(test_lbu, "lbu");
++	run(test_lw, "lw");
++	run(test_c_lw, "c.lw");
++	run(test_c_lwsp, "c.lwsp");
++
++#if __riscv_xlen == 64
++	run(test_lh, "lh");
++	run(test_lhu, "lhu");
++	run(test_lwu, "lwu");
++	run(test_ld, "ld");
++	run(test_c_ld, "c.ld");
++	run(test_c_ldsp, "c.ldsp");
++#endif
++}
++
++void test_mmio_write(void)
++{
++	run(test_sb, "sb");
++	run(test_sh, "sh");
++	run(test_sw, "sw");
++	run(test_c_sw, "c.sw");
++	run(test_c_swsp, "c.swsp");
++
++#if __riscv_xlen == 64
++	run(test_sd, "sd");
++	run(test_c_sd, "c.sd");
++#endif
++}
++
++int main(void)
++{
++	test_mmio_read_sign_extension();
++	test_mmio_write();
++
++	return 0;
++}
 
 -- 
 2.54.0
