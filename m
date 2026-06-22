@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00684CDB46F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 21:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93408CDB477
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 21:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j5eOYnpMkrp1zNLD4Qbz4SnqAoM+fkOgKo9CAmVr+kQ=; b=o3krOk8FVFiJrQ
-	pA5oYorQb7uJg8VlSVs5FoKTafPZAF/7OqAJEpksZKiPdn0AmIIgL6U+zeKUFIZXKEvVkHAnlJp2o
-	TP+hjqhtLN8eKwfygcA69C1AqEVfa1y+ks6PG3tfR7I5qfKjYzi1/NjF8CYVschoJCAv8OkTPEYRM
-	ojbp5oAuOYofRvBpxQBow1lZ4lOcc0PxzAQPIWCGpFrNnpwWPygn9+E/j8vsMddc66aPcTakgUB8A
-	yJTgtLsDngJxHViHZ5erpvlv8a0Et5nZT4wo2/Fk4nHy2Kg6t1DPKmbFRlNowDH3kQNzP48WAm0lb
-	D7I4n3Po44oGNQZvNDtQ==;
+	List-Owner; bh=WT1SXbYA4W86A4yi6BXvOPhB1/aeuDvd3PXlFHK1FwU=; b=BkZdbvqzj5tV+/
+	F2iGW/OExrwGw+hrXAHWvH+3mmjbVd2Gv9h01nIHZ1AvX/nfVzTpS7fl8HHgQwUaYgxdyDX3X0mCd
+	djk9xZJg1lzdweur83YcdEi4QsJaclTAUWJ67/uPaZEfkkyToOBZmNF6sNp8gBRt987P/wmaT7Orh
+	evNJxmFqgZWKkfmQAisIsMKFW+Dpgk3ioliHS8ITJjzCqaFY2hNZ7NW1CzpTZf57OThpq0FoFOfGG
+	XyyExQc7OsavgUCEz7axaYB29c+I1WJbeJynH5lxI1IkH7McnzINkI+EobXTYFuwPYcYM0E6dxnBM
+	mMVbGiioqnsFB6Pf69IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wblye-00000005OMC-2BIO;
-	Mon, 22 Jun 2026 21:14:44 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+	id 1wblym-00000005OR7-0dsq;
+	Mon, 22 Jun 2026 21:14:52 +0000
+Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wblyb-00000005OKo-29LL;
-	Mon, 22 Jun 2026 21:14:42 +0000
+	id 1wblyi-00000005ONZ-48f1;
+	Mon, 22 Jun 2026 21:14:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1782162881; x=1813698881;
+  t=1782162888; x=1813698888;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=0GnAklF3R5+7SV6HzFwpD4jHkQJ4qLIj7qNgFyn8Qlc=;
-  b=HKeW2CPmGx6GSWwYojzOQKFjZEGbHNXdwurFflizcYKUeXf+Mn1z6P6P
-   digMB9W5i7snfMkTe9phb8Li4ykqNo6zznc6qcTVAoKkqcLD/Khzi2rS8
-   2/7xDnQraOeGxr/zu3IluT0FfdpCArn+a/BnfxYUZs63isT/9c3kCboYA
-   YV7eBh6UaXhIdUvSaogpu/CTD8WspRqfGQmXDbKS1AW/hT6SfvCSoPSRB
-   u14PWGR1qQ6RxVfWyamX4e2pG8J+Q7PWZGSobzFzpg4VB49+qJByJmaeF
-   DZ6V19P2fX9qh30zrdrwacLyq3y0r22fAnL6A3oMZDLfGsd3D3eZOO5kW
+  bh=FTIF5cEmVnxxDW8vrLW8IxPoavSb7ayg0HJS7UNjj2U=;
+  b=emYFwLEb+iEootMoZqjRhwlJ/EKQ12It8nqXmmyCl+SOi57B/Ps5nPEk
+   RjtNkMlK7qn3pzat3MhLjpRguOnWf19uchRAQ+0/bfxsLr5aCO1n+7/jA
+   poimk6piZUhQqB6ugBXtiDJX3q2MJiwAMinOoLI0HlkSwhYOEQV7RvQUm
+   28KVSF6eLwMRXSADI78IIX3/aRDvCiBQ6Ku36PiJKR9ML3NqzmHr0cO86
+   t8lp84Id8P9WzIIFenqbfh0PmQehaOND3fY2nS2qhzHLGTDeINqpoBJiF
+   l+IJUOyqED8YP2ogIqCyIdyosZTvG4pG+gAkeWWN19kWwbaCHEHXZuWov
    g==;
-X-CSE-ConnectionGUID: DK8CjaJ8QASegnTdm3zcqQ==
-X-CSE-MsgGUID: 7pztyn2zTYS2iRjZSDVQzA==
+X-CSE-ConnectionGUID: bAl2lNH0QQOIu5OyFwGuSQ==
+X-CSE-MsgGUID: YFhyFMK7RWOZ5Iv6l/6Nzw==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 00:14:39 +0300
-X-CSE-ConnectionGUID: HH8ymZBcRCKEdbjQP7zapg==
-X-CSE-MsgGUID: tUCgX8QNRNGOK4+kB7jsag==
-Received: from unknown (HELO epgd034.me-corp.lan) ([10.154.54.2])
-  by ces01_data.me-corp.lan with SMTP; 23 Jun 2026 00:19:48 +0300
-Received: by epgd034.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 00:14:37 +0300
+Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 00:14:46 +0300
+X-CSE-ConnectionGUID: d2Mj9Z/LTAyQwRo8bu/WlA==
+X-CSE-MsgGUID: awrFJsz0TTW7kTmYesvBUg==
+Received: from unknown (HELO epgd034.me-corp.lan) ([10.154.54.3])
+  by ces03_data.me-corp.lan with SMTP; 23 Jun 2026 00:19:45 +0300
+Received: by epgd034.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 00:14:45 +0300
 From: Pnina Feder <pnina.feder@mobileye.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Baoquan He <bhe@redhat.com>,
@@ -69,15 +69,15 @@ Cc: Dave Young <ruirui.yang@linux.dev>,
 	linux-riscv@lists.infradead.org,
 	linux-doc@vger.kernel.org,
 	Pnina Feder <pnina.feder@mobileye.com>
-Subject: [PATCH 1/4] vmcoreinfo: increase vmcoreinfo buffer to 8KB
-Date: Tue, 23 Jun 2026 00:14:27 +0300
-Message-ID: <20260622211430.4008899-2-pnina.feder@mobileye.com>
+Subject: [PATCH 3/4] riscv: vmcore_info: export riscv arch-specific struct offsets to vmcoreinfo
+Date: Tue, 23 Jun 2026 00:14:29 +0300
+Message-ID: <20260622211430.4008899-4-pnina.feder@mobileye.com>
 In-Reply-To: <20260622211430.4008899-1-pnina.feder@mobileye.com>
 References: <20260622211430.4008899-1-pnina.feder@mobileye.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_141441_855900_5E149B54 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20260622_141449_335780_C15AB159 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,37 +94,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Additional metadata will be exported to vmcoreinfo, requiring more
-buffer space than a single 4KB page provides.
-
-Change VMCOREINFO_BYTES from PAGE_SIZE to a fixed SZ_8K. This
-decouples the buffer size from the page size, avoiding waste on
-architectures with large pages (e.g. 16KB on MIPS, 64KB on arm64)
-while providing enough space on 4KB-page architectures like RISC-V.
-
-The existing allocation in kimage_crash_copy_vmcoreinfo() already
-uses get_order() and DIV_ROUND_UP(), so it correctly rounds up to
-whole pages regardless of the constant's value.
+Export RISC-V architecture-specific struct offsets needed by the
+vmcore-tasks tool, including signal frame layouts and register
+context structures used to reconstruct user-space register state
+from a vmcore dump.
 
 Signed-off-by: Pnina Feder <pnina.feder@mobileye.com>
 ---
- include/linux/vmcore_info.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ .../admin-guide/kdump/vmcoreinfo.rst          | 26 +++++++++++++++++++
+ arch/riscv/kernel/signal.c                    |  8 ++++++
+ arch/riscv/kernel/vmcore_info.c               | 11 ++++++++
+ 3 files changed, 45 insertions(+)
 
-diff --git a/include/linux/vmcore_info.h b/include/linux/vmcore_info.h
-index e71518caacdf..612dcf7b9ecd 100644
---- a/include/linux/vmcore_info.h
-+++ b/include/linux/vmcore_info.h
-@@ -20,7 +20,8 @@
- 				     CRASH_CORE_NOTE_NAME_BYTES +	\
- 				     CRASH_CORE_NOTE_DESC_BYTES)
+diff --git a/Documentation/admin-guide/kdump/vmcoreinfo.rst b/Documentation/admin-guide/kdump/vmcoreinfo.rst
+index 36103b3cdc05..3c364434b846 100644
+--- a/Documentation/admin-guide/kdump/vmcoreinfo.rst
++++ b/Documentation/admin-guide/kdump/vmcoreinfo.rst
+@@ -595,6 +595,32 @@ va_kernel_pa_offset
+ Indicates the offset between the kernel virtual and physical mappings.
+ Used to translate virtual to physical addresses.
  
--#define VMCOREINFO_BYTES	   PAGE_SIZE
-+/* Fixed size independent of PAGE_SIZE to avoid waste on large-page archs */
-+#define VMCOREINFO_BYTES	   SZ_8K
- #define VMCOREINFO_NOTE_NAME	   "VMCOREINFO"
- #define VMCOREINFO_NOTE_NAME_BYTES ALIGN(sizeof(VMCOREINFO_NOTE_NAME), 4)
- #define VMCOREINFO_NOTE_SIZE	   ((CRASH_CORE_NOTE_HEAD_BYTES * 2) +	\
++STACK_ALIGN
++-----------
++
++Stack alignment requirement for the architecture. Used to locate signal
++frames on the user stack.
++
++(sigcontext, sc_regs)
++---------------------
++
++Offset of the saved register array within struct sigcontext. Used to
++extract user-space register state from signal frames in a vmcore dump.
++
++_PAGE_PFN_SHIFT
++---------------
++
++The bit shift to extract the PFN from a page table entry. Used for
++virtual-to-physical address translation when walking page tables from
++a vmcore dump.
++
++(rt_sigframe, uc)
++-----------------
++
++Offset of the ucontext member within the RISC-V rt_sigframe structure.
++Used to locate the signal context (and thus saved registers) within a
++signal frame on the user stack.
++
+ Task and VMA metadata
+ =====================
+ 
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index 59784dc117e4..eb03c0ea6aae 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -13,6 +13,7 @@
+ #include <linux/resume_user_mode.h>
+ #include <linux/linkage.h>
+ #include <linux/entry-common.h>
++#include <linux/vmcore_info.h>
+ 
+ #include <asm/ucontext.h>
+ #include <asm/vdso.h>
+@@ -40,6 +41,13 @@ struct rt_sigframe {
+ #endif
+ };
+ 
++#ifdef CONFIG_VMCORE_INFO
++void riscv_rt_signal_frame(void)
++{
++	VMCOREINFO_OFFSET(rt_sigframe, uc);
++}
++#endif
++
+ #ifdef CONFIG_FPU
+ static long restore_fp_state(struct pt_regs *regs,
+ 			     union __riscv_fp_state __user *sc_fpregs)
+diff --git a/arch/riscv/kernel/vmcore_info.c b/arch/riscv/kernel/vmcore_info.c
+index c27efceec3cc..dd174042dba3 100644
+--- a/arch/riscv/kernel/vmcore_info.c
++++ b/arch/riscv/kernel/vmcore_info.c
+@@ -3,6 +3,12 @@
+ #include <linux/vmcore_info.h>
+ #include <linux/pagemap.h>
+ 
++#include <asm/processor.h>
++#include <asm/pgtable-bits.h>
++#include <asm/sigcontext.h>
++
++extern void riscv_rt_signal_frame(void);
++
+ static inline u64 get_satp_value(void)
+ {
+ 	return csr_read(CSR_SATP);
+@@ -28,4 +34,9 @@ void arch_crash_save_vmcoreinfo(void)
+ 						kernel_map.va_kernel_pa_offset);
+ 	vmcoreinfo_append_str("KERNELOFFSET=%lx\n", kaslr_offset());
+ 	vmcoreinfo_append_str("NUMBER(satp)=0x%llx\n", get_satp_value());
++	riscv_rt_signal_frame();
++
++	VMCOREINFO_NUMBER(STACK_ALIGN);
++	VMCOREINFO_OFFSET(sigcontext, sc_regs);
++	VMCOREINFO_NUMBER(_PAGE_PFN_SHIFT);
+ }
 -- 
 2.43.0
 
