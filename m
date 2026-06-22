@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D003FCD98F2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00684CDB46F
 	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jun 2026 21:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aVKhCkR+nHQXd2hSwrJo3TafhCUCsEmmtCmoF/0phrY=; b=xFT9EtkHaJDmHM
-	rfhi4d+9+35EPK0bcgOhzzVytaCq6aOKS8E9D5xLUBp2uuMxuA6eLdxUQ6dmpludccnOuxzE3pv8J
-	Tigo53ygdgdsUqkADoQpxg6Y8f3QnUYse/f9yVJtqrbEPfeSKqvhglSuX4oy6IGmKnEjoTCSR9KXF
-	girQM25XF/ad3i4b8VIAzM6E3xfJ3XoWRpqrjGvLzqRKrCIXBKac/EmccFHoaCJ1CzKtdqXrmQBTr
-	hH1q82WT2SjcTb3/q/+xd7h0ffn2+G/GfLZttnHMCiNe7hstGQByV4/dvbmUw2RH/ZIIkwg7mz+7k
-	ENeBhYdeC0OOykahqsKg==;
+	List-Owner; bh=j5eOYnpMkrp1zNLD4Qbz4SnqAoM+fkOgKo9CAmVr+kQ=; b=o3krOk8FVFiJrQ
+	pA5oYorQb7uJg8VlSVs5FoKTafPZAF/7OqAJEpksZKiPdn0AmIIgL6U+zeKUFIZXKEvVkHAnlJp2o
+	TP+hjqhtLN8eKwfygcA69C1AqEVfa1y+ks6PG3tfR7I5qfKjYzi1/NjF8CYVschoJCAv8OkTPEYRM
+	ojbp5oAuOYofRvBpxQBow1lZ4lOcc0PxzAQPIWCGpFrNnpwWPygn9+E/j8vsMddc66aPcTakgUB8A
+	yJTgtLsDngJxHViHZ5erpvlv8a0Et5nZT4wo2/Fk4nHy2Kg6t1DPKmbFRlNowDH3kQNzP48WAm0lb
+	D7I4n3Po44oGNQZvNDtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wblym-00000005ORK-1Aek;
-	Mon, 22 Jun 2026 21:14:52 +0000
-Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
+	id 1wblye-00000005OMC-2BIO;
+	Mon, 22 Jun 2026 21:14:44 +0000
+Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wblyj-00000005OMj-16ts;
-	Mon, 22 Jun 2026 21:14:50 +0000
+	id 1wblyb-00000005OKo-29LL;
+	Mon, 22 Jun 2026 21:14:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1782162889; x=1813698889;
+  t=1782162881; x=1813698881;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=NzDP/Qf23/prJJNPPgsghEZJIH7cLqjLXgSqIcy81Tw=;
-  b=YmRGZR8hVbTXRCoTHM0Fq4VUZ2XyhIqqFxTEKFQvnuILAJaBDDDussL0
-   NqYHdu3hBFkQNOmz8E3XFWkQP3Y3/UkWvty/eRBWdJPq1UuMFs8pHvCiC
-   L5J9ZoxtPt2vFE1kCUWsmQCYxPdaQfXq+2kFCoWAdXF9AXqpnURKhpY2h
-   pi7YxTjQq07e3LNLiiXx3D+wNTP0pVK+tdVNLhu7++0dzSR4bff3jIdRl
-   1+cE0sB8bi6MhR9c1SuG6MkeuFaIt/9XQO7/UGP+PXoufqvdeEPplpRzM
-   AMy+ZgWIz8zry95Sarj6gtG/tUZ8Af7YP8fwPiBFIRLFynYCdNa+Vm7bZ
-   Q==;
-X-CSE-ConnectionGUID: E3XPM0NuRAKEIxjuTHlqnA==
-X-CSE-MsgGUID: UC4caY+hSmC9DhVP0GPrJQ==
+  bh=0GnAklF3R5+7SV6HzFwpD4jHkQJ4qLIj7qNgFyn8Qlc=;
+  b=HKeW2CPmGx6GSWwYojzOQKFjZEGbHNXdwurFflizcYKUeXf+Mn1z6P6P
+   digMB9W5i7snfMkTe9phb8Li4ykqNo6zznc6qcTVAoKkqcLD/Khzi2rS8
+   2/7xDnQraOeGxr/zu3IluT0FfdpCArn+a/BnfxYUZs63isT/9c3kCboYA
+   YV7eBh6UaXhIdUvSaogpu/CTD8WspRqfGQmXDbKS1AW/hT6SfvCSoPSRB
+   u14PWGR1qQ6RxVfWyamX4e2pG8J+Q7PWZGSobzFzpg4VB49+qJByJmaeF
+   DZ6V19P2fX9qh30zrdrwacLyq3y0r22fAnL6A3oMZDLfGsd3D3eZOO5kW
+   g==;
+X-CSE-ConnectionGUID: DK8CjaJ8QASegnTdm3zcqQ==
+X-CSE-MsgGUID: 7pztyn2zTYS2iRjZSDVQzA==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
 Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 00:14:48 +0300
-X-CSE-ConnectionGUID: PIZbsQHORw2HX0SvceFskA==
-X-CSE-MsgGUID: G7hsW6c/S6ifmNGfrT+2Lg==
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 00:14:39 +0300
+X-CSE-ConnectionGUID: HH8ymZBcRCKEdbjQP7zapg==
+X-CSE-MsgGUID: tUCgX8QNRNGOK4+kB7jsag==
 Received: from unknown (HELO epgd034.me-corp.lan) ([10.154.54.2])
-  by ces01_data.me-corp.lan with SMTP; 23 Jun 2026 00:19:57 +0300
-Received: by epgd034.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 00:14:46 +0300
+  by ces01_data.me-corp.lan with SMTP; 23 Jun 2026 00:19:48 +0300
+Received: by epgd034.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 00:14:37 +0300
 From: Pnina Feder <pnina.feder@mobileye.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Baoquan He <bhe@redhat.com>,
@@ -69,15 +69,15 @@ Cc: Dave Young <ruirui.yang@linux.dev>,
 	linux-riscv@lists.infradead.org,
 	linux-doc@vger.kernel.org,
 	Pnina Feder <pnina.feder@mobileye.com>
-Subject: [PATCH 4/4] mips: vmcore_info: export mips arch-specific struct offsets to vmcoreinfo
-Date: Tue, 23 Jun 2026 00:14:30 +0300
-Message-ID: <20260622211430.4008899-5-pnina.feder@mobileye.com>
+Subject: [PATCH 1/4] vmcoreinfo: increase vmcoreinfo buffer to 8KB
+Date: Tue, 23 Jun 2026 00:14:27 +0300
+Message-ID: <20260622211430.4008899-2-pnina.feder@mobileye.com>
 In-Reply-To: <20260622211430.4008899-1-pnina.feder@mobileye.com>
 References: <20260622211430.4008899-1-pnina.feder@mobileye.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_141449_581576_4407A6B7 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20260622_141441_855900_5E149B54 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,131 +94,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Export MIPS architecture-specific struct offsets needed by the
-vmcore-tasks tool, including signal frame layouts and register
-context structures used to reconstruct user-space register state
-from a vmcore dump.
+Additional metadata will be exported to vmcoreinfo, requiring more
+buffer space than a single 4KB page provides.
+
+Change VMCOREINFO_BYTES from PAGE_SIZE to a fixed SZ_8K. This
+decouples the buffer size from the page size, avoiding waste on
+architectures with large pages (e.g. 16KB on MIPS, 64KB on arm64)
+while providing enough space on 4KB-page architectures like RISC-V.
+
+The existing allocation in kimage_crash_copy_vmcoreinfo() already
+uses get_order() and DIV_ROUND_UP(), so it correctly rounds up to
+whole pages regardless of the constant's value.
 
 Signed-off-by: Pnina Feder <pnina.feder@mobileye.com>
 ---
- .../admin-guide/kdump/vmcoreinfo.rst          | 34 +++++++++++++++++++
- arch/mips/kernel/Makefile                     |  1 +
- arch/mips/kernel/signal.c                     |  8 +++++
- arch/mips/kernel/vmcore_info.c                | 22 ++++++++++++
- 4 files changed, 65 insertions(+)
- create mode 100644 arch/mips/kernel/vmcore_info.c
+ include/linux/vmcore_info.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/admin-guide/kdump/vmcoreinfo.rst b/Documentation/admin-guide/kdump/vmcoreinfo.rst
-index 3c364434b846..4af32ddf5615 100644
---- a/Documentation/admin-guide/kdump/vmcoreinfo.rst
-+++ b/Documentation/admin-guide/kdump/vmcoreinfo.rst
-@@ -494,6 +494,40 @@ Used to get the vmalloc_start address from the high_memory symbol.
+diff --git a/include/linux/vmcore_info.h b/include/linux/vmcore_info.h
+index e71518caacdf..612dcf7b9ecd 100644
+--- a/include/linux/vmcore_info.h
++++ b/include/linux/vmcore_info.h
+@@ -20,7 +20,8 @@
+ 				     CRASH_CORE_NOTE_NAME_BYTES +	\
+ 				     CRASH_CORE_NOTE_DESC_BYTES)
  
- The maximum number of CPUs.
- 
-+MIPS
-+====
-+
-+(rt_sigframe, rs_uc)
-+--------------------
-+
-+Offset of the ucontext member within the MIPS rt_sigframe structure.
-+Used to locate the signal context within a signal frame on the user
-+stack.
-+
-+(sigcontext, sc_regs)
-+---------------------
-+
-+Offset of the saved register array within struct sigcontext. Used to
-+extract user-space register state from signal frames in a vmcore dump.
-+
-+PAGE_SHIFT
-+----------
-+
-+The base-2 logarithm of the page size. Used for page frame number
-+calculations during address translation.
-+
-+_PFN_MASK|_PAGE_PRESENT|_PAGE_VALID|_PAGE_GLOBAL
-+-------------------------------------------------
-+
-+Page table entry bit masks and flags. Used for walking MIPS page tables
-+and translating virtual to physical addresses in a vmcore dump.
-+
-+PTRS_PER_PGD|PTRS_PER_PMD|PTRS_PER_PTE
-+---------------------------------------
-+
-+Number of entries per page table level. Used for page table walking
-+during virtual-to-physical address translation.
-+
- powerpc
- =======
- 
-diff --git a/arch/mips/kernel/Makefile b/arch/mips/kernel/Makefile
-index 95a1e674fd67..99f2961f6ee1 100644
---- a/arch/mips/kernel/Makefile
-+++ b/arch/mips/kernel/Makefile
-@@ -24,6 +24,7 @@ CFLAGS_REMOVE_perf_event_mipsxx.o = $(CC_FLAGS_FTRACE)
- endif
- 
- obj-$(CONFIG_CEVT_BCM1480)	+= cevt-bcm1480.o
-+obj-$(CONFIG_VMCORE_INFO)	+= vmcore_info.o
- obj-$(CONFIG_CEVT_R4K)		+= cevt-r4k.o
- obj-$(CONFIG_CEVT_DS1287)	+= cevt-ds1287.o
- obj-$(CONFIG_CEVT_GT641XX)	+= cevt-gt641xx.o
-diff --git a/arch/mips/kernel/signal.c b/arch/mips/kernel/signal.c
-index 4a10f18a8806..f2241f52fa17 100644
---- a/arch/mips/kernel/signal.c
-+++ b/arch/mips/kernel/signal.c
-@@ -26,6 +26,7 @@
- #include <linux/syscalls.h>
- #include <linux/uaccess.h>
- #include <linux/resume_user_mode.h>
-+#include <linux/vmcore_info.h>
- 
- #include <asm/abi.h>
- #include <asm/asm.h>
-@@ -62,6 +63,13 @@ struct rt_sigframe {
- 	struct ucontext rs_uc;
- };
- 
-+#ifdef CONFIG_VMCORE_INFO
-+void mips_rt_signal_frame(void)
-+{
-+	VMCOREINFO_OFFSET(rt_sigframe, rs_uc);
-+}
-+#endif
-+
- #ifdef CONFIG_MIPS_FP_SUPPORT
- 
- /*
-diff --git a/arch/mips/kernel/vmcore_info.c b/arch/mips/kernel/vmcore_info.c
-new file mode 100644
-index 000000000000..5d7fdc662065
---- /dev/null
-+++ b/arch/mips/kernel/vmcore_info.c
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/vmcore_info.h>
-+
-+#include <asm/pgtable.h>
-+#include <asm/sigcontext.h>
-+
-+extern void mips_rt_signal_frame(void);
-+
-+void arch_crash_save_vmcoreinfo(void)
-+{
-+	mips_rt_signal_frame();
-+	VMCOREINFO_OFFSET(sigcontext, sc_regs);
-+	VMCOREINFO_NUMBER(PAGE_SHIFT);
-+	VMCOREINFO_NUMBER(_PFN_MASK);
-+	VMCOREINFO_NUMBER(_PAGE_PRESENT);
-+	VMCOREINFO_NUMBER(_PAGE_VALID);
-+	VMCOREINFO_NUMBER(_PAGE_GLOBAL);
-+	VMCOREINFO_NUMBER(PTRS_PER_PGD);
-+	VMCOREINFO_NUMBER(PTRS_PER_PMD);
-+	VMCOREINFO_NUMBER(PTRS_PER_PTE);
-+}
+-#define VMCOREINFO_BYTES	   PAGE_SIZE
++/* Fixed size independent of PAGE_SIZE to avoid waste on large-page archs */
++#define VMCOREINFO_BYTES	   SZ_8K
+ #define VMCOREINFO_NOTE_NAME	   "VMCOREINFO"
+ #define VMCOREINFO_NOTE_NAME_BYTES ALIGN(sizeof(VMCOREINFO_NOTE_NAME), 4)
+ #define VMCOREINFO_NOTE_SIZE	   ((CRASH_CORE_NOTE_HEAD_BYTES * 2) +	\
 -- 
 2.43.0
 
