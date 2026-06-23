@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76763CDB470
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 05:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A632CDB47A
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 05:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zCLoFcj2Ib82DMP5acLKxKkC7U7OdwSAhHp5lXw/ssM=; b=wNmyPIZ4Q579PR
-	M4di9yOtZTxDy95TuwU6Cn7R+5VJlQpA/eGDRlF9JvsfmXmAnF1Y6Jw82I+p7+i1T00idw6DQyhpZ
-	MYBJ8ZMBnJ3bZ9WT0YYS6TuRNieBDK9CSzfMoiwVAoFJAbr2Hg4L5ya7UGAes2JAbo5scJhlH3nlj
-	IWkIBSqIOq/ILpvW84kzDn1HxzI+/l2S2V3DNLqZzvGycGIyQmxLkwy1dmbF5h2u0p8bKDpuB1qnh
-	yt+X9gjPZeT/TN9BcJbVTWgcv9Qds7XQKREV54ohMit2oFyQmwoiFGMrS3sVdN4lJRkLDPmnaNJ2g
-	uuli/vzQU19dAZlH9Tjw==;
+	List-Owner; bh=vtk/3oI3+UVrCmTaysDQlpHWLe3FyuOpi4eJNSLuSTg=; b=4WCgMkOZgkJZDO
+	uwu/tPj5x8i8WfHxRc8ejN2lYUfL/O7WDXQTGxjCRgQI3VSkwpCRH1j2EWf8bsTu495ViEKS5TKmR
+	Qig9zpCEGUknUaT5TaRa1/XkbrEGNvNzZSJjORqRDBT5UvQvnLrlJU3TGP0Z5dhB2ZBEghUmnE6z2
+	vCYNYOslSB9UCXd8pgR+f+BywiX1c1KCyQ3kHRyZEk0PAdTg+qegmv3uW7m0EuCP6eSDmyt5yYk2F
+	AxwmbxiHJiqhC2gtnh0A1hLUaQSJvGWO47A8iAzWOTjdTaNaQq3mD/7189YA5D+462s+F3v7OdEuD
+	xoZBHafa5aERidYuYqcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbteL-00000005iW7-3dDH;
-	Tue, 23 Jun 2026 05:26:17 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbteC-00000005iRR-339Z
-	for linux-riscv@lists.infradead.org;
+	id 1wbteD-00000005iSk-2iLY;
 	Tue, 23 Jun 2026 05:26:09 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-30bf132969bso6540342eec.0
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jun 2026 22:26:08 -0700 (PDT)
+Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbteB-00000005iQJ-0Kng
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Jun 2026 05:26:08 +0000
+Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-3078e0dcd67so6170875eec.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jun 2026 22:26:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782192368; x=1782797168; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782192366; x=1782797166; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FPvEzMllSbsUeGZyzSL2DVJCIDjlLydKz1PcX2CIArY=;
-        b=FwzQ1kn+Kti8RQ5oCqTG2vzkcSOSD26On0ss3MS593QhPNz4xYX/HQJMpVxS4AfOmP
-         wHX9mU/AM+sSBym5j/5ryQpmftWPKznAI20PQ85YsoD3fnqNyhGBMyN6pAd9mfYF7BVk
-         gypJMlXnRtqBDsbKg8cNMQPMjcEonnc2ipTxjD7nvZFN9BukrYHpw66bdqBBY92w9ex7
-         35j+l4v82AMLV8PS+LaEkoTKZZJOysbbjfZLtlAGmoGtNGXFlsvFvJAxp9863lHPLeO1
-         s5epKAqB+ens8WuilZJA2DcK2u43W+n/brL6+la3jOWfqVXaYfneKL1N+Yo2FznHejRJ
-         V2+g==
+        bh=euxUr99gVRmTKzYrxOsYTZTBpKcYj3aY+Du6bnH69fU=;
+        b=oFbm8EECnXFpNnbS7qJPQu7NogfSCzFBpENsQd42ptH8hUZC0g+BEFkjgmF52iBxsu
+         XJXkxEOgU4PTAWTNDXm2w4nXH3c/BB88U7xk48fPOHDavApiL/cw8+l2w90c1Ei2jNUn
+         /IEP5UqBEwZoSthGK88I19MKCzFScGg4yfBxz3OQlH70Wy9/HSKLKdmf5piFp4MAIUct
+         o8IRN0BmU9+DnvPoAIob7ucKe2inULCVjGtxErH9PL9fscjUbpjgMQBAma5qdybDnXux
+         hPf2VCB4nGop82LGf3iH1jW8Oc8uWwY06TlSh3ggHVuuRR2ZagJ/IOqdTfEoLBJy0XR7
+         fHqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782192368; x=1782797168;
+        d=1e100.net; s=20251104; t=1782192366; x=1782797166;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=FPvEzMllSbsUeGZyzSL2DVJCIDjlLydKz1PcX2CIArY=;
-        b=X/b9oBRyI70NloRtBxDGhnzSmVkWxedpyF0HsDDfsLTwn9CJ/PSIKgM71uoYsOZhFU
-         dx0hGshe31SEbfUPSyvB/xX+TdsVlDCkUEy6j9ReqgPF+vXC4enUWTkUhMafhKDWlBY0
-         yKq6gitMahFgFrpRuV5zHQHoGynue4/PyNpgJ7lv5UxaZZLFA8z2/PERiqOUZ/2Pfz2k
-         TAjmlztmmnTfshfNmT3yMNRRNDS8ZD9daZ4oqPAHv+Gncv1rnHHdZGjEkjXmd/xx6wwi
-         ht3JCfm3FowOFstHRhHFFBPobSfXKEgKPLnbchSiPlKYusKMib9YnYE6pY4kj3viUqmG
-         cuKw==
-X-Forwarded-Encrypted: i=1; AHgh+RqZBSm6nbPWw8ljTCtY+zpnzHgqyAdBr/rV0u1Ofa625tbSvJNTy+CPUgyYP0E/i2rToNYKjnVsKZP8RA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTLfXLTTlSuU9mMlGt+edpeJRj6pI+2Qdfde0pMAvyP4A0rQLW
-	4VOShzRwPRwoEFXSX1p4hRcxKPy5h8ENjJQY1ud25nsCPQEXiR+Ak+ai
-X-Gm-Gg: AfdE7ck00S2GoMlsdneDVvm0hlDW9iczMoXtm8wAPlAHznW9au14CmN1bJS6cdlyGcU
-	1ITQJR3EjS2CWQyZJ0dmrmVbyVGVF8o9cdLMrjj0oVV8XHtbY68dwct75/Xt1MT9P8S8zwJEjy9
-	artZiHeYAbzDWaMIYkSD+ddKaddetMIJ3krRPfDX894hdxm+FgO1h9MIqqmy80LYuPcU9S3+4OZ
-	0nZHbjbWloWoojEM0QtKVdCZbhAOXUm4elNgPbdQdgBo0dnO2VZfpLhjldWZK5d1NAj2eqKBo+y
-	bPVeFnv92sYiWhdFukuOfEmqKD7R8muj1QwXpgRhInor14E45qSXdZDPl3J0fjaImxBI6ZWXKtY
-	pJMpldVxLIX8h3zQ1RMbFcq056jbYrOQGJTDAXjjUezYtG+2T3iIU9RpPsU6zWnVtyv3/ANdmyy
-	OtanepZio=
-X-Received: by 2002:a05:7300:d507:b0:30c:1276:cdf7 with SMTP id 5a478bee46e88-30c5bc78138mr708393eec.25.1782192367703;
-        Mon, 22 Jun 2026 22:26:07 -0700 (PDT)
+        bh=euxUr99gVRmTKzYrxOsYTZTBpKcYj3aY+Du6bnH69fU=;
+        b=djm1KtgNiuE9OXILqhCLh3vEek6oJ472l1ACW0CAR1DrUYWXv4uqqDWt6ZqDv9uZrD
+         JBA8v4Crv4DR3BJGjmsmu0FgibtKIsHkJ77VbHFqWhyEIZ0Ex7327O7cP3GFXqJskeom
+         SzQ9vYENcJjR+NDqqYSZ8CCSyYjp/kpS4oEL6Xy5OcUez2xafJp4gAsBO+79f2nNjrIF
+         4MmxQUKry34+e9OhBrI9ulK2uqNn3IRVLw2KFjsx0nO2KFxSNuDjTyZPkpLJ9Oub8zEx
+         95mDRyxALYSRjkGCkN7plgEwdzPOAEaA7pQzKLbAkTo1ceMMs697uwQkkeX1dkME/fPY
+         6qMg==
+X-Forwarded-Encrypted: i=1; AHgh+Rqt3fTov4pvmfZq4TfxZpGUzLCjs3wUSrt10w8Y6WIJXWkz3gfgECbK9VH5ybuzW1G3fX2UFbZceb1Dyw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMVo+Dpz7fFIw5Jn3m7j74xMQRWaz1FLAmVrNkomdvHGnQV/dO
+	cEmAPPcLePq+6NuFUIlxpoP0T/iDHCqUkwphtJ4sPGPyhPZmMK5ENNj5
+X-Gm-Gg: AfdE7cmKcKLo7Rkdf/zQcZvCj3rTWM6me8uNNYnFEQxMB1b45UygbbGQCjBqnz0mKJl
+	h+hrctLJDGpHFt9PUBerO/fHou6jurDmSExL7jZFDji/UK5JillBvVov3oDniSB60GOmz7U4QCI
+	lugh73uGUZeEuV5jKYMW7UuUC4rTuCxQcEy+RiaSSU51mBElKcOm72iH4Gvxgwf6AAo62zxxk4Y
+	fl9yakQtEAbhN+WB9pNdxIZIxhHxXfpwmP+I6LZaQfGdtYs7OlvRvzUCsUyMil8sIDHmCIg0xK5
+	mpKQmdnWbeIdtw1iVr2irqB81X+jtvBPru9+Vl2u8AOZt5uZ6FwdwUQvZql6cvKmIlPmDaOVT2L
+	m5rWNsJX3bjnkT+1lQgbl0+fbc2efWZFruLUkTfxYex4jO8EBEXMbjwFufnlk9P/J8n7T5WwuuR
+	RhHws0UAo=
+X-Received: by 2002:a05:7300:fd04:b0:2ea:c085:44b1 with SMTP id 5a478bee46e88-30c5b87a4c0mr708300eec.19.1782192366092;
+        Mon, 22 Jun 2026 22:26:06 -0700 (PDT)
 Received: from [10.0.0.65] ([2601:647:6700:64d0::92d1])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c1be4967fsm13102455eec.26.2026.06.22.22.26.06
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c1be4967fsm13102455eec.26.2026.06.22.22.26.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jun 2026 22:26:07 -0700 (PDT)
+        Mon, 22 Jun 2026 22:26:05 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 5/8] riscv/runtime-const: Introduce
- runtime_const_mask_32()
+Subject: Re: [PATCH v4 4/8] riscv/runtime-const: Replace open-coded
+ placeholder with RUNTIME_MAGIC
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 To: K Prateek Nayak <kprateek.nayak@amd.com>
 Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -86,22 +86,23 @@ Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
  linux-arm-kernel@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>, 
  Charlie Jenkins <charlie@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>, 
  Charles Mirabile <cmirabil@redhat.com>
-In-Reply-To: <20260430094730.31624-6-kprateek.nayak@amd.com>
+In-Reply-To: <20260430094730.31624-5-kprateek.nayak@amd.com>
 References: <20260430094730.31624-1-kprateek.nayak@amd.com>
- <20260430094730.31624-6-kprateek.nayak@amd.com>
+ <20260430094730.31624-5-kprateek.nayak@amd.com>
 Date: Mon, 22 Jun 2026 22:24:56 -0700
-Message-Id: <178219229643.10927.7189200920480581019.b4-review@b4>
+Message-Id: <178219229642.10927.5804159175321604816.b4-review@b4>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782192362; l=1456;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782192362; l=610;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=DjSs5oRw9rccbhTB4m6pdAGiet3QtdAO5qUM5zvUvsg=;
- b=Q7gZYCRpUNaR0P6LCnsW2BKyT1zjAR9X/QtNq425aoOkO4GWUw2wE2DMsLI9hCenc1NtUPLh0
- LKuQabhh/3jCnBFxJDuU/QtOQWYl5v1MrRasvhVADGKiAdB5C5B53hi
+ bh=n+I3lxePERllHyfwEWyDEAhZnniet1N62LffQ9iv1A4=;
+ b=BbyI070isif1KhCepDopyZNJYOc01bHzD6A+jVT3UijnT3HrwXWLYOswSXorRMeV+HlI4Inun
+ OKgODIqIXrUAHVTJFNoyMxYBsj+Slz8Acjz3vKWxwe3qbx4eUZs6N2L
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_222608_776229_BAF14526 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260622_222607_113394_EC4D423B 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,39 +119,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Apr 2026 09:47:27 +0000, K Prateek Nayak <kprateek.nayak@amd.com> wrote:
-> Futex hash computation requires a mask operation with read-only after
-> init data that will be converted to a runtime constant in the subsequent
-> commit.
+On Thu, 30 Apr 2026 09:47:26 +0000, K Prateek Nayak <kprateek.nayak@amd.com> wrote:
+> Define the placeholder used for lui + addi[w] patching sequence as
+> RUNTIME_MAGIC and use that instead of open coding the constants in the
+> inline assembly.
 > 
-> Introduce runtime_const_mask_32 to further optimize the mask operation
-> in the futex hash computation hot path. GCC generates a:
+> No functional changes intended.
 > 
->   lui   a0, 0x12346       # upper; +0x800 then >>12 for correct rounding
->   addi  a0, a0, 0x678     # lower 12 bits
->   and   a1, a1, a0        # a1 = a1 & a0
-> 
-> pattern to tackle arbitrary 32-bit masks and the same was also suggested
-> by Claude which is implemented here. The final (__ret & val) operation
-> is intentionally placed outside of asm block to allow compilers to
-> further optimize it if possible.
+> Suggested-by: Guo Ren <guoren@kernel.org>
+> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
 
-If the mask fits in 12 bits, we can nop the lui and the addi and just
-patch an "andi" instruction with the 12 bits of the mask. We already do
-this with the lui+addi block and nop the lui if val fits in 12 bits. I
-would be happy to help draft that optimization. 
+This is a great addition, thank you!
 
-But I think the better solution would be to take the power of 2
-assumption since that will also benefit arm. We should still only emit
-an andi if val fits in 12 bits, but if it doesn't we can patch in
-shifts:
-
-slli    a0,a0,x
-srli    a0,a0,x
-
-Where x is the constant (arch_size - _futex_shift - 1)
-
-- Charlie
+Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
 -- 
 Charlie Jenkins <thecharlesjenkins@gmail.com>
