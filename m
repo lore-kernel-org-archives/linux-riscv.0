@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7C8CDB47F
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 16:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FDCCDB470
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 20:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iueQjYPQLqolntz18fam9dpzMuEkMvQmEdHyGGb0zfE=; b=BZlf4PuBpAelvE
-	PnArHwdMioTTn7gRLw/IjLkjLK5I7fPRwwaErY0FJSHDw+qbTZzA5pLe+DpdFHhcyv1LqQbUs0O+6
-	HhDBK1xMn/UPiiHwq5CE3xqKvLYuJUrgTskxnBpGULG1gvA7Tbl4Kqao09XEt5Jb1Zau40DOJSgHF
-	l+FAOX2C5/v38ZcBnBZq+EYjBWPrEKbBsME5CUUTnpeCg9A+kc8cSLSgYYPkqhpga1typ/Oex/g+N
-	//UiFGo6XR+ReZBdxCnvXdIRMXxKz2kD30NymTIqlUUZSEoQyXHpf4PcWQeF3XOe6wFZVQ95z3fSR
-	YLXxLcXozUVx0Bj1RtdQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JSs8goDNne9rNxww1V7oH1Zcoa4mNf4y+iEkR+FGWhY=; b=XEWUZM8Q3I7wtG
+	IpodszlzgdXhCA8H2H+AFUZVXd0i6zb+lfQ0tNgo91dDxVkYM4EJPCouGkkqJ8vcsb/nbzYlGkNat
+	a4gYETGC5+JT0+dG3Pa6KNBN9y6mPytt/jLhwMwyTcQDcSV2v5RzxHDPDzDW5dfyYF9bG8PRvP7Dl
+	VCqnWs5/qTP7AB29WxMWTzNvjo/G5hFUrgS1mR3hXwJIijt30+/MctGTXvxCDbA0T+kivfcp3xLdL
+	7faPYMfXYKHapQy+NW00Li9hmzsaNvEXU/xkeIGBhSd0TF/0PNDfjWEY9jkd2+ldcVzX2o1wNiMI1
+	Q7fQvSJg3XnPVpkVjZUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc4OU-00000006fCR-1zt6;
-	Tue, 23 Jun 2026 16:54:38 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wc7wS-00000006rQA-4AHs;
+	Tue, 23 Jun 2026 20:41:57 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc4OS-00000006fAM-0afy
+	id 1wc7wQ-00000006rPc-0L6o
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jun 2026 16:54:37 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 6C39F1A0843;
-	Tue, 23 Jun 2026 16:54:32 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3FB72601C2;
-	Tue, 23 Jun 2026 16:54:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A4181106C8382;
-	Tue, 23 Jun 2026 18:54:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782233671; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=V0GuOlYRzJM4pDQWpmA6usQcahnlbuw1Vm/ChjlY/AI=;
-	b=aVAhQo1Dl8B067G6c6X1YlKSceYxNORBwII2/tFPIRcS3+FcEBJ9ix/7L1fpUQ3e74MNjA
-	iWV4EKuSIDPyTGlSiuvg76b0/1onRG+MJFEDF0ZrHf2ePk28OJArBYcUMIZhmUuQRd/DD3
-	wsq50D8mKAob+JsOdHGnJFiBQRfJ4A7yLmvl/pVbISU2has5sBS8ZvNra9M0vKwoKVF3Tq
-	rWFrp+kRbHaYwKygVplxYTDreeAm3B7FAf+0Pi8SAjC65WqFVpXpMpeOU2SRqLAx+Kl+mu
-	4yTMA9wtb1o5+lcslnUa9EvsU6oHd1l6P3M9u8trBHvenKcQkuYqGurScb7yRg==
-Message-ID: <143145af-5846-4a7b-9953-33c51b1dbef3@bootlin.com>
-Date: Tue, 23 Jun 2026 18:54:28 +0200
+	Tue, 23 Jun 2026 20:41:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
+	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+	bh=lv+vJNREaOn5aOwVpMHt0ri4HzzK+1NBESAp8W9uIc0=; b=hbLsGJ1Uai+53IxWB2xlba58YQ
+	egjXjBPOFpsDBpCTUsEm9AVsydad5+xV06z7fa32GagL6xa9fNN0/0ZTJa9ccBYpVUsx75krbUQgH
+	DVi6uGeKWYXr5HjFju5g/ZOoohs+5funzP0Cb3BsV627wJzVsgipR7LqdbPEzXnhh4N8rTQQIUcA7
+	HymHlvizR9M/ltcgNaBKVTKek96HxnI5oyTrgy9tfDnUZhobVeQ7y2trf8S7wac6v2bG1PhOLcP3y
+	5pO41rZA5kW50M+rBpBArnizxdjAHOGmLErAv+yFUnb92qB+eaq9dVJ1wKLi7JuHEnYNjYS48YyZZ
+	DJ6dnkKg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1wc7wD-00000004gJ2-3vII;
+	Tue, 23 Jun 2026 22:41:41 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Jim Shu <jim.shu@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Deepak Gupta <debug@rivosinc.com>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	Joel Stanley <joel@jms.id.au>,
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
+Subject: [PATCH] arch/riscv: vdso: remove CFI landing pad from rt_sigreturn
+Date: Tue, 23 Jun 2026 22:40:57 +0200
+Message-ID: <20260623204058.498120-1-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/2] net: stmmac: dwmac-spacemit: Fix wrong irq
- definition
-To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Yixun Lan
- <dlan@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-References: <20260623074637.503864-1-inochiama@gmail.com>
- <20260623074637.503864-3-inochiama@gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260623074637.503864-3-inochiama@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_095436_313092_F20CA46C 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260623_134154_180887_9837973B 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +79,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+When CONFIG_RISCV_USER_CFI is enabled, the CFI version of the vDSO, has
+a CFI landing pad instruction at the start of __vdso_rt_sigreturn. This
+breaks libgcc's unwinding code which matches on the first two
+instructions. Other unwinders that rely on similar instruction matching
+may also be affected.
 
-On 6/23/26 09:46, Inochi Amaoto wrote:
-> The current irq definition of the wake irq and the lpi irq
-> is wrong, replace them with the right number and name.
-> 
-> Fixes: 30f0ba420ed3 ("net: stmmac: Add glue layer for Spacemit K3 SoC")
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Since __vdso_rt_sigreturn is reached as part of signal-return handling
+rather than via an indirect call/jump from userspace, it does not need a
+CFI landing pad. Remove it and restore the instruction sequence expected
+by existing unwinding code.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+This matches what was done on arm64 in commit 9a964285572b ("arm64:
+vdso: Don't prefix sigreturn trampoline with a BTI C instruction") for a
+similar issue.
 
-Maxime
+Fixes: 37f57bd3faea ("arch/riscv: compile vdso with landing pad and shadow stack note")
+Co-authored-by: Joel Stanley <joel@jms.id.au>
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ arch/riscv/kernel/vdso/rt_sigreturn.S | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> index 3bfb6d49be6c..322bdf167a4a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> @@ -22,8 +22,8 @@
->  #define CTRL_PHY_INTF_RMII		FIELD_PREP(CTRL_PHY_INTF_MODE, 0)
->  #define CTRL_PHY_INTF_RGMII		FIELD_PREP(CTRL_PHY_INTF_MODE, 1)
->  #define CTRL_PHY_INTF_MII		FIELD_PREP(CTRL_PHY_INTF_MODE, 3)
-> -#define CTRL_WAKE_IRQ_EN		BIT(9)
-> -#define CTRL_PHY_IRQ_EN			BIT(12)
-> +#define CTRL_LPI_IRQ_EN			BIT(9)
-> +#define CTRL_WAKE_IRQ_EN		BIT(12)
->  
->  /* dline register bits */
->  #define RGMII_RX_DLINE_EN		BIT(0)
+diff --git a/arch/riscv/kernel/vdso/rt_sigreturn.S b/arch/riscv/kernel/vdso/rt_sigreturn.S
+index e82987dc37394..f6b053d3bb798 100644
+--- a/arch/riscv/kernel/vdso/rt_sigreturn.S
++++ b/arch/riscv/kernel/vdso/rt_sigreturn.S
+@@ -7,11 +7,18 @@
+ #include <asm/unistd.h>
+ #include <asm/assembler.h>
+ 
++/* WARNING: Do NOT add a CFI landing pad at the start of this function.
++ * Unwinders such as libgcc identify the sigreturn trampoline by matching the
++ * instruction sequence. Adding a landing pad here would break unwinding from
++ * signal handlers.
++ *
++ * This trampoline is used only for signal return and not via an indirect
++ * call/jump from userspace, so adding CFI landing pad is unnecessary.
++ */
+ 	.text
+ SYM_FUNC_START(__vdso_rt_sigreturn)
+ 	.cfi_startproc
+ 	.cfi_signal_frame
+-	vdso_lpad
+ 	li a7, __NR_rt_sigreturn
+ 	ecall
+ 	.cfi_endproc
+-- 
+2.53.0
 
 
 _______________________________________________
