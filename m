@@ -4,97 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2530CDB479
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 14:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C34CDB471
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 15:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N8oJWZc8XCK+Ca4m/oNEt7n9yRSEVuIrnjefFQzNQ04=; b=fzz1kZFc3P+XLk
-	VnMvr+XRuXxCvb540uCFMEu5aSjkWQagl6taMJz1oiZmoPSsmWuovpdQ4AIBuTKGrbOOpnEzcE/e+
-	doLZMjbmunVuHqrUyCBq04qzCkXEUsqH4N+Ccf83OBSCZS+1Mcx1FkXuW39W4j69UDeu3Q5TDZ2qr
-	el2k/RUq8PcjUATYnjBQl2hlhM+qW8pQKKAGkvY2Qdqatl/ruTLqMxhq9P0VOQqFhx49rFHasHC+F
-	VM/SIyS+XntX4Z/AlwjR6lK1dRjG+FTikwVglWBQKWJMYuzZnxneFgVXvctK+Wuog0Fy2/803Cx9w
-	S7m5E+inSvV3Nk2cAmFg==;
+	List-Owner; bh=mKGBpH2q5g7/ncM9iWLgD+wMKjOTEIJQbCvhYL8oiPI=; b=GMP4EDxi6loity
+	z6CdtENYt9jO7OWzAdWHIqO7H+YEkXk64+EHu/MJJLrvmcp1hOCLYRtdd68jIbEklbtnWUTwb26X/
+	1oJ3zsiSDxjXDlUwXBedFbN8h8HCqyCcCTE3VgfWJ1OfspbR5BRBS0RtSYEfTZgF3qujIw4SUm8xi
+	3IJU3trQ21tCfS6o4zkE1V3VrSdGjeJ6CYWKH6yhhtSsESNCh9ntHqAL+0ZY/HVDw/63sK/Oh0Mlr
+	fU3f76x5sD5y+L++YPuFoO1DTcBolH09V1cfh3n+5SKm2uhnEuKHIJVgME5xhRKJ+kE0f+OTQWlYG
+	WB4OxEkU/ha5KNMCFalg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2Bl-00000006SY9-3ig6;
-	Tue, 23 Jun 2026 14:33:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wc3RF-00000006ZcM-3NkX;
+	Tue, 23 Jun 2026 15:53:25 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2Bk-00000006SXW-3CrO;
-	Tue, 23 Jun 2026 14:33:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42F894176A;
-	Tue, 23 Jun 2026 14:33:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A16A1F000E9;
-	Tue, 23 Jun 2026 14:33:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782225200;
-	bh=UZpCUInDhnBDublTX9djjKn8UqqE1Mq1Xlz/SmoClrk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Rh2lkpja7usItkPkL21c8D3oJ/sJj+BeFrnINZg5ZXo0XMUiBESVoC+NJFfXTbGmw
-	 AlnyN0+/A3OUoh3Gu+FZC8xXzD82M78lnXhvuOg9K59PmLI28Y1f2H5RDHcUBaHILM
-	 9U85m9rQNzb4T6oym6ZfRoJrXLD/5pl9F2NrhPym4KLK5CEqLCIPi8kdypSuYfEQYg
-	 tBpL8EaOn00V0r66V62qxNtLYpopmL7XMZay7CpFB//6dDan+H/ry4r2Q5pRiVGML6
-	 qPsyx5/D8JKoez9yuuxDzpkh7TPifKGVum5HmBDVUWthTVp4vYhfu/Vi189GVcTKmh
-	 kPWqXifwjASWw==
-Date: Tue, 23 Jun 2026 15:33:09 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Michael Kelley <mhklinux@outlook.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
-	"pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"alex@ghiti.fr" <alex@ghiti.fr>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"kees@kernel.org" <kees@kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	"linusw@kernel.org" <linusw@kernel.org>,
-	"ojeda@kernel.org" <ojeda@kernel.org>,
-	"david.kaplan@amd.com" <david.kaplan@amd.com>,
-	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"timothy.hayes@arm.com" <timothy.hayes@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"thuth@redhat.com" <thuth@redhat.com>,
-	"oupton@kernel.org" <oupton@kernel.org>,
-	"yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
-	"james.clark@linaro.org" <james.clark@linaro.org>,
-	"tabba@google.com" <tabba@google.com>,
-	"mrigendra.chaubey@gmail.com" <mrigendra.chaubey@gmail.com>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-Message-ID: <ajqZJVBCu_D-BkTy@willie-the-truck>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
- <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
- <ajPitENEHWa8lDfC@willie-the-truck>
- <b828dd7a-0363-46cf-aad0-e4962e299338@huawei.com>
+	id 1wc3RD-00000006Zbh-1YEw
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Jun 2026 15:53:24 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-7e93f93ed01so24986a34.3
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Jun 2026 08:53:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1782230002; x=1782834802; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=I++JfVnVFsPw1yoo9hJi6dyEkF7CGlb7WVfrcCKidlU=;
+        b=Cdf1BIl/0XwoiEizd7PbOz/ob9B5IT+wpWewggxw6/2hGH3jbB2JgjrLYfGmrm4lq6
+         MHAE8YftgLTsjX3imqvY201MTSYlDXpXdtoBmAEsc2weHg6Byf4/XnQ6/FnajnAXqCa0
+         DU/0TyrBD797GuDil/gQ/bKPagoiqElsaZZNIn977a5N34+l7OQ4w8S8yaDfacdfwb6J
+         G1krQ0N18XOwudraGI+wx+VWPe+enj36obEm3r7tqPZVrtPRdBX5Ntg5SAQzbdx67vRx
+         c8GjrS7W4BqMGFPyu2xJFZtczUUquNvxEb2WqQoT0IokeG9BSuQe9Sgh9/uKUfhMZPZZ
+         39Hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782230002; x=1782834802;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=I++JfVnVFsPw1yoo9hJi6dyEkF7CGlb7WVfrcCKidlU=;
+        b=sp/Wd0A5EzTi9II8ADAP0Pn7hugrMNa/vyHCmBZEpjYZWd7D5I3WJK2yAYbtXwfscw
+         Dvjz/mM3YLr3YhdrUNeVnLsZvE4vIZjFEdYr6LVOnkiMgx0ndc2L86eSA0pik94ShOt9
+         CPOapnJTZZGScTcQH6Lm2uR6V+N0W9bNjlxvgi+VHVru0BI+90OT5b61KjMC2J+fVlSX
+         05Ouqcw/+SD3EOGtSbdveFlDKfMHlrzqd/hCxc9Py3BgVuFf/4cD6SS9EokLaLiaIRoT
+         DC0FQH3LdLu1gkKXtsb9EILwcU6PlETQv7RbjA/82DppyTyRr3El8jvZ03iHowdZNTXJ
+         xrhw==
+X-Forwarded-Encrypted: i=1; AFNElJ9JjGKWxVQf1xC0PuxjkJsc3hsLeGzIRlJtBYlpFAkuCsSKTEjF7Ma2KfbZf+FipFIpStiKvPV8X63pfQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeDauoDOkeEK6zWiujQ+udQnC02qgjfVby0Y/rFKiBIyb0lflb
+	+ZX2q9OmVlYAxc6TLzkIj5hjSw1cP/vBiu/7bDw7zE1+Vptq5pRUOWNf2Ji9m/zOCQI=
+X-Gm-Gg: AfdE7ckbRGqUg6q+vjhKCPxD+grRmiBXrNqOfKyRyfNKTQz3UUB/AmkWK/xgT0xwtBY
+	d78wkvu155DkxnCYs5o+QP85gQfV1+0ozdhl8vPngz8RqjMOF9361EnQbEuTUIcD++oqPBtfP7g
+	9p1/qaUOsVRHTgqaPxb1WiHDkbQPWT3h8RUxVMvehHYTEXgHdWiuWD2Yn85hctPVrORajTKoz/N
+	cATVG/YaSip6moGeVs+brXTUIECW64WmyAXKNParZIzEedrRFhZQqVxFBLoMIoydBYqOfgMT7QM
+	PK1HM+olqIJ5z+wN1RycjtvdY5o1gtsVejPYo3NSs/A5eXrxeC79HlJ3acYmsm/T7ss05MZlSY9
+	bBTVdQuvK0HnirtCaQtIZUesiv9BxqegSXEQ+6mW7b0mLarc+OJ9ZfROQiv3f7KZ2CF7DhaWrie
+	zMxAFy+EVm2mbVNVkol8UZzCctOz8SwgOw5wylFZBzBoj3RTw=
+X-Received: by 2002:a05:6830:6a94:b0:7e6:e0ab:416a with SMTP id 46e09a7af769-7e940b27070mr15147982a34.18.1782230001699;
+        Tue, 23 Jun 2026 08:53:21 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.100.209])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e9442e98e9sm9126112a34.25.2026.06.23.08.53.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 23 Jun 2026 08:53:21 -0700 (PDT)
+Message-ID: <80773b89-f333-4c82-99b5-3fca44ea93b3@sifive.com>
+Date: Tue, 23 Jun 2026 10:53:19 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b828dd7a-0363-46cf-aad0-e4962e299338@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] rcu: Use an intermediate irq_work to start
+ process_srcu()
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Boqun Feng <boqun@kernel.org>
+Cc: Joel Fernandes <joelagnelf@nvidia.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, frederic@kernel.org,
+ neeraj.iitr10@gmail.com, urezki@gmail.com, boqun.feng@gmail.com,
+ rcu@vger.kernel.org, Tejun Heo <tj@kernel.org>, bpf@vger.kernel.org,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>, Andrea Righi <arighi@nvidia.com>,
+ Zqiang <qiang.zhang@linux.dev>, linux-riscv@lists.infradead.org,
+ Sarah Emery <sarah.emery@canonical.com>
+References: <ab2yd35rm6OgZUmb@gpd4> <20260320222916.19987-1-boqun@kernel.org>
+ <CAJM55Z-hiNDuu5UwoBe7m0wq+_WJrRY0cwopALUgpG+r3ixj8g@mail.gmail.com>
+ <ajQPAk_ALP-84obp@MacBook-0RXW5>
+ <CAJM55Z_15U7GssTOims1=J34CYSj=8CDE_di1kJYs5hE3=J53w@mail.gmail.com>
+ <ajlW4oSzEqav6gxc@MacBook-0RXW5>
+ <CAJM55Z_7N40ARWGoZg04p-NnAy-w10v4=Em-e4Bx4+oNYMGBLg@mail.gmail.com>
+Content-Language: en-US
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <CAJM55Z_7N40ARWGoZg04p-NnAy-w10v4=Em-e4Bx4+oNYMGBLg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_085323_438423_E503E32D 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,72 +111,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMjIsIDIwMjYgYXQgMDU6MTY6MzBQTSArMDgwMCwgSmluamllIFJ1YW4gd3Jv
-dGU6Cj4gCj4gCj4gT24gNi8xOC8yMDI2IDg6MjEgUE0sIFdpbGwgRGVhY29uIHdyb3RlOgo+ID4g
-SGkgSmluamllLAo+ID4gCj4gPiBPbiBNb24sIEp1biAxNSwgMjAyNiBhdCAwNDo1MTo0OFBNICsw
-ODAwLCBKaW5qaWUgUnVhbiB3cm90ZToKPiA+PiBPbiA2LzEyLzIwMjYgMTE6NDUgUE0sIE1pY2hh
-ZWwgS2VsbGV5IHdyb3RlOgo+ID4+PiBGcm9tOiBKaW5qaWUgUnVhbiA8cnVhbmppbmppZUBodWF3
-ZWkuY29tPiBTZW50OiBUaHVyc2RheSwgSnVuZSAxMSwgMjAyNiA2OjM4IEFNCj4gPj4+Pgo+ID4+
-Pj4gU3VwcG9ydCBmb3IgcGFyYWxsZWwgc2Vjb25kYXJ5IENQVSBicmluZ3VwIGlzIGFscmVhZHkg
-dXRpbGl6ZWQgYnkgeDg2LAo+ID4+Pj4gTUlQUywgYW5kIFJJU0MtVi4gVGhpcyBwYXRjaCBicmlu
-Z3MgdGhpcyBjYXBhYmlsaXR5IHRvIHRoZSBhcm02NAo+ID4+Pj4gYXJjaGl0ZWN0dXJlLgo+ID4+
-Pj4KPiA+Pj4+IFJld29yayB0aGUgZ2xvYmFsIGBzZWNvbmRhcnlfZGF0YWAgYWNjZXNzZWQgZHVy
-aW5nIGVhcmx5IGJvb3QgaW50bwo+ID4+Pj4gYSBwZXItQ1BVIGFycmF5LiBUaGlzIGFycmF5IG1h
-cHMgbG9naWNhbCBDUFUgSURzIHRvIE1QSURSX0VMMSB2YWx1ZXMsCj4gPj4+PiBlbmFibGluZyB0
-aGUgZWFybHkgYm9vdCBjb2RlIGluIGhlYWQuUyB0byByZXNvbHZlIGVhY2ggc2Vjb25kYXJ5IENQ
-VSdzCj4gPj4+PiBsb2dpY2FsIElEIGNvbmN1cnJlbnRseS4KPiA+Pj4+Cj4gPj4+PiBUbyBmdWxs
-eSBlbmFibGUgSE9UUExVR19QQVJBTExFTCwgdGhpcyBwYXRjaCBpbXBsZW1lbnRzOgo+ID4+Pj4g
-MSkgQW4gYXJtNjQtc3BlY2lmaWMgYXJjaF9jcHVocF9raWNrX2FwX2FsaXZlKCkgaGFuZGxlci4K
-PiA+Pj4+IDIpIENhbGxiYWNrcyB0byBjcHVocF9hcF9zeW5jX2FsaXZlKCkgaW5zaWRlIHNlY29u
-ZGFyeV9zdGFydF9rZXJuZWwoKS4KPiA+Pj4+Cj4gPj4+PiBTdWNjZXNzZnVsbHkgdGVzdGVkIG9u
-IFFFTVUgQVJNNjQgdmlydCBtYWNoaW5lIChLVk0gb24sIDEyOCB2Q1BVcykuCj4gPj4+Pgo+ID4+
-Pj4gfCAgICAgdGVzdCBrZXJuZWwJICAgfCBzZWNvbmRhcnkgQ1BVcyBib290IHRpbWUgfAo+ID4+
-Pj4gfCAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAgfAktLS0tLS0tLS0tLS0tLS0tLS0tLSAgfAo+
-ID4+Pj4gfCAgIFdpdGhvdXQgdGhpcyBwYXRjaCAgICAgfAkJMTU1LjY3MgkgICAgICB8Cj4gPj4+
-PiB8ICAgY3B1aHAucGFyYWxsZWw9MAkgICB8CQk2Mi44OTcJICAgICAgfAo+ID4+Pj4gfCAgIGNw
-dWhwLnBhcmFsbGVsPTEJICAgfAkJMTY2LjcwMwkgICAgICB8Cj4gPj4+Cj4gPj4+IFRoZSBsYXN0
-IHR3byByb3dzIHNlZW0gbWl4ZWQgdXAuIEkgd291bGQgZXhwZWN0IHBhcmFsbGVsPTAgdG8KPiA+
-Pj4gcmVzdWx0IGluIGEgbG9uZ2VyIGJvb3QgdGltZS4KPiA+Pgo+ID4+IEhpLCBNaWNoYWVsLAo+
-ID4+Cj4gPj4gVGhlIHJlc3VsdHMgYXJlIGNvcnJlY3QgYW5kIG5vdCBtaXhlZCB1cC4KPiA+Pgo+
-ID4+IENvbXBhcmVkIHRvIHRoZSBvcmlnaW5hbCBub27igJFIT1RQTFVHX1BBUkFMTEVMIGFwcHJv
-YWNoLCB0aGUgYWR2YW50YWdlIG9mCj4gPj4gY3B1aHAucGFyYWxsZWw9MCBsaWVzIGluIGl0cyB1
-c2Ugb2YgY3B1X3JlbGF4KGB5aWVsZGAgb24gYXJtNjQpIGluc3RlYWQKPiA+PiBvZiB0aGUgd2Fp
-dF9mb3JfY29tcGxldGlvbl90aW1lb3V0KCkgbWVjaGFuaXNtICh3aGljaCBtYXkgY2F1c2Ugc2xl
-ZXAKPiA+PiBhbmQgY29udGV4dCBzd2l0Y2hpbmcpLiBUaGlzIHNpZ25pZmljYW50bHkgcmVkdWNl
-cyB0aGUgb3ZlcmhlYWQgb2YgVk0KPiA+PiBleGl0cyBhbmQgY29udGV4dCBzd2l0Y2hlcyBpbiBh
-IEtWTSBndWVzdCwgdGhlcmVieSBjdXR0aW5nIHRoZSBzZWNvbmRhcnkKPiA+PiBDUFUgYm9vdCB0
-aW1lIGJ5IG1vcmUgdGhhbiBoYWxmLgo+ID4gCj4gPiBJIGRvbid0IHRoaW5rIHRoYXQncyBhIHBh
-cnRpY3VsYXJseSBjb21wZWxsaW5nIHJlYXNvbiB0byBlbmFibGUgdGhpcyBmb3IKPiA+IGFybTY0
-LCBpbiBhbGwgaG9uZXN0eS4gVGhlIHlpZWxkIGluc3RydWN0aW9uIHR5cGljYWxseSBkb2Vzbid0
-IGRvCj4gPiBhbnl0aGluZyBvbiBhY3R1YWwgYXJtNjQgc2lsaWNvbiwgc28gdGhpcyBwcm9iYWJs
-eSBtZWFucyB0aGF0IHlvdSdyZQo+ID4gaW50cm9kdWNpbmcgYnVzeS1sb29wcyB3aGljaCB0ZW5k
-IHRvIGJlIGJhZCBmb3IgcG93ZXIgYW5kIHNjYWxhYmlsaXR5Lgo+ID4gCj4gPiBJIGltcGxlbWVu
-dGVkIHRoaXMgYSB3aGlsZSBhZ28gWzFdIGJ1dCBkaWRuJ3QgbWFuYWdlIHRvIHNlZSBtdWNoIGlu
-IHRlcm1zCj4gPiBvZiBwZXJmb3JtYW5jZSBpbXByb3ZlbWVudCBhbmQgc28gSSBkaWRuJ3QgYm90
-aGVyIHRvIHNlbmQgdGhlIHBhdGNoZXMgb3V0Cj4gPiBhZnRlciB0YWxraW5nIGFib3V0IGl0IGF0
-IEtWTSBmb3J1bSBbMl0uIEhvd2V2ZXIsIGFzIG1lbnRpb25lZCBhdCB0aGUgZW5kCj4gPiBvZiB0
-aGF0IHRhbGssIGl0IF9pc18gc3RpbGwgdXNlZnVsIGZvciBjb25maWRlbnRpYWwgVk1zIHVzaW5n
-IFBTQ0kgc28KPiA+IGxldCBtZSBkdXN0IG9mZiBteSBvbGQgc2VyaWVzIGFuZCBzZW5kIGl0IG91
-dCB0byBzZWUgd2hhdCB5b3UgdGhpbmsuCj4gCj4gSGkgV2lsbCwKPiAKPiBUaGFua3MgZm9yIHRo
-ZSBpbnNpZ2h0cyEgWW91ciBwb2ludCBhYm91dCB1c2luZyBQU0NJIHYwLjIncyBDb250ZXh0IElE
-Cj4gdG8gYXZvaWQgdGhlIE5SX0NQVVMgYXJyYXkgZm9yIGlucHV0IHBhcmFtZXRlcnMgKGxpa2UK
-PiBzZWNvbmRhcnlfZGF0YS50YXNrKSBpcyBpbmNyZWRpYmx5IGVsZWdhbnQuCj4gCj4gSG93ZXZl
-ciwgaWYgSSB1bmRlcnN0YW5kIHlvdXIgc2VyaWVzIGNvcnJlY3RseSwgaXQgc2VlbXMgeW91ciBh
-cHByb2FjaAo+IHByaW1hcmlseSB0YXJnZXRzIHByZXZlbnRpbmcgdGhlIGNvbmN1cnJlbnQgdXNl
-IG9mIHNlY29uZGFyeV9kYXRhLnRhc2ssCj4gYnV0IGl0IGRvZXNuJ3Qgc2VlbSB0byBhY2NvdW50
-IGZvciB0aGUgcG90ZW50aWFsIGRhdGEgdHJhbXBsaW5nIG9uCj4gc2Vjb25kYXJ5X2RhdGEuc3Rh
-dHVzIHdoZW4gbXVsdGlwbGUgc2Vjb25kYXJ5IENQVXMgYXJlIGJyb3VnaHQgdXAKPiBzaW11bHRh
-bmVvdXNseS4KPiAKPiB1cGRhdGVfY3B1X2Jvb3Rfc3RhdHVzKCkKPiAgIC0+IFdSSVRFX09OQ0Uo
-c2Vjb25kYXJ5X2RhdGEuc3RhdHVzLmZsYWdzW3ZhbF0sIDEpCj4gCj4gYXJjaF9jcHVocF9jbGVh
-bnVwX2tpY2tfY3B1KCkKPiAgIC0+IHN0YXR1cyA9IFJFQURfT05DRShzZWNvbmRhcnlfZGF0YS5z
-dGF0dXMpCgpJIG5lZWQgdG8gZHVzdCBpdCBiYWNrIG9mZiBidXQgSUlSQyBJIG1hZGUgdGhhdCB0
-aGluZyBhIGJ5dGUgYXJyYXksIHdpdGgKYSBzZXBhcmF0ZSBieXRlIGZvciBlYWNoIGZhaWx1cmUg
-cmVhc29uLgoKV2lsbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Hi Emil,
+
+On 2026-06-23 4:34 AM, Emil Renner Berthing wrote:
+> Quoting Boqun Feng (2026-06-22 17:38:10)
+>> On Sat, Jun 20, 2026 at 05:25:25AM -0400, Emil Renner Berthing wrote:
+>>> Quoting Boqun Feng (2026-06-18 17:30:10)
+>>>> On Thu, Jun 18, 2026 at 08:11:36AM -0500, Emil Renner Berthing wrote:
+>>>>> Quoting Boqun Feng (2026-03-20 23:29:16)
+>>>>>> Since commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms
+>>>>>> of SRCU-fast") we switched to SRCU in BPF. However as BPF instrument can
+>>>>>> happen basically everywhere (including where a scheduler lock is held),
+>>>>>> call_srcu() now needs to avoid acquiring scheduler lock because
+>>>>>> otherwise it could cause deadlock [1]. Fix this by following what the
+>>>>>> previous RCU Tasks Trace did: using an irq_work to delay the queuing of
+>>>>>> the work to start process_srcu().
+>>>>>>
+>>>>>> [boqun: Apply Joel's feedback]
+>>>>>> [boqun: Apply Andrea's test feedback]
+>>>>>>
+>>>>>> Reported-by: Andrea Righi <arighi@nvidia.com>
+>>>>>> Closes: https://lore.kernel.org/all/abjzvz_tL_siV17s@gpd4/
+>>>>>> Fixes: commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms of SRCU-fast")
+>>>>>> Link: https://lore.kernel.org/rcu/3c4c5a29-24ea-492d-aeee-e0d9605b4183@nvidia.com/ [1]
+>>>>>> Suggested-by: Zqiang <qiang.zhang@linux.dev>
+>>>>>> Tested-by: Andrea Righi <arighi@nvidia.com>
+>>>>>> Signed-off-by: Boqun Feng <boqun@kernel.org>
+>>>>>
+>>>>> Thanks for the patch, which is now upstream as
+>>>>> 7c405fb3279b ("rcu: Use an intermediate irq_work to start process_srcu()")
+>>>>>
+>>>>> Unfortunately it seems to halt booting on the Allwinner D1 single-core RISC-V
+>>>>> SoC both on the 7.0 and 7.1 kernels:
+>>>>>
+>>>>
+>>>> By "single-core", is it only one CPU in that system?
+>>>>
+>>>>> https://esmil.dk/d1-7.0.txt
+>>>>> https://esmil.dk/d1-7.1.txt
+>>>>>
+>>>
+>>> Yes, the SoC only has one CPU core capable of running Linux at least.
+>>>
+>>>> From the callstack,
+>>>>
+>>>> [  243.002818] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+>>>> [  243.010681] task:kworker/0:0     state:D stack:0     pid:9     tgid:9     ppid:2      task_flags:0x4208060 flags:0x00000000
+>>>> [  243.021858] Workqueue: device_link_wq device_link_release_fn
+>>>> [  243.027587] Call Trace:
+>>>> [  243.030079] [<ffffffff80745b66>] __schedule+0x232/0x530
+>>>> [  243.035365] [<ffffffff80745e82>] schedule+0x1e/0x94
+>>>> [  243.040298] [<ffffffff8074aa7a>] schedule_timeout+0x6e/0xa8
+>>>> [  243.045929] [<ffffffff8004d6a0>] wakeup_preempt+0x8c/0x98
+>>>> [  243.051380] [<ffffffff80746aee>] wait_for_completion+0x3a/0xb0
+>>>> [  243.057267] [<ffffffff80087226>] __synchronize_srcu.part.0+0x4e/0x60
+>>>> [  243.063712] [<ffffffff80084414>] rcu_tasks_get_gp_data+0xc/0x10
+>>>> [  243.069699] [<ffffffff80490898>] device_link_release_fn+0x14/0x80
+>>>> [  243.075850] [<ffffffff8003dbd0>] process_one_work+0xf8/0x1c8
+>>>> [  243.081583] [<ffffffff8003e282>] worker_thread+0x11a/0x254
+>>>> [  243.087127] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+>>>> [  243.092755] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+>>>> [  243.098381] [<ffffffff8004499e>] kthread+0xbe/0xe4
+>>>> [  243.103231] [<ffffffff8001349e>] ret_from_fork_kernel+0x6/0xd0
+>>>> [  243.109127] [<ffffffff800517a8>] schedule_tail+0x8/0xac
+>>>> [  243.114410] [<ffffffff800448dc>] kthreads_online_cpu+0x0/0x4
+>>>> [  243.120121] [<ffffffff8074be0a>] ret_from_fork_kernel_asm+0x12/0x18
+>>>>
+>>>> I will guess for some reasons the irq_work was missed or the IPI never
+>>>> happened. Is it possible for you to enable trace points ipi_send_cpu and
+>>>> ipi_entry to get more information?
+>>>
+>>> I have to admit I've not used tracepoints before, but it seems like only
+>>> ipi_send_cpu and ipi_send_cpumask is available on RISC-V.
+>>> I've now added trace_event=ipi:* and tp_printk to the command line, and this
+>>
+>> Thank you! Yeah, this is what I meant ;-)
+>>
+>>> is what I get:
+>>> https://esmil.dk/d1-7.0-2.txt
+>>>
+>>
+>>
+>> [    0.071132] rcu:     Max phase no-delay instances is 1000.
+>> [    0.077837] ipi_send_cpu: cpu=0 callsite=irq_work_queue+0x22/0x4c callback=srcu_irq_work+0x0/0x58
+>>
+>> Is this the last line you can see from your (serial?) console, or we are
+>> missing a few more lines? Maybe it'll should the same hung task
+>> messages?
+> 
+> Yes, sorry for not being clear about that. This is the exact same binary booted
+> without the two extra command line parametrs:
+> https://esmil.dk/d1-7.0-3.txt
+> 
+> But with the two parameters added the board reboots before getting to the hung
+> task messages. The bootloader enables the watchdog, so I think what happens is
+> that the kernel halts earlier with the tracepoints enabled, and doesn't get to
+> load the watchdog driver to keep the machine from rebooting.
+> 
+> The same happens with just trace_event=ipi:* added, just without the last
+> message above.
+> 
+>>
+>> The ipi_send_cpu message means RCU was able to send an IPI, now if there
+>> is no ipi_handler between the send and the hung task, that would mean
+>> the IPI was missed.
+
+Assuming that your OpenSBI version is exactly v1.3 per the boot log, and not
+"v1.3 + patches", then you would indeed not be receiving IPIs. You need at least
+this commit: https://github.com/riscv-software-src/opensbi/commit/446fa65eb579
+(included in v1.4) or alternatively to add the CLINT to the M-mode devicetree.
+
+Regards,
+Samuel
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
