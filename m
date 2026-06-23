@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F3ACDB480
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DCACDB471
 	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 20:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y9SgiuyoflVbIR9JfvTQFgjOtDq9jp6xjWoqzYfIs5g=; b=eiEFSpyzi1N5Ip
-	nfs8Q4ocGr8GUGbydbHzDNZa+UpHqvLcyWGr7UmEBlRO+Urx2/o3vu6VmEqaidpSkhw8XcI0HaiOE
-	5Tl/nEYyta31nIjGES4v/+xCXJb6NbFGVIVzXgpEbi9z6cr3xmGLYstwx4AtdOg+binhKZLy4JXd1
-	iJnMAmPJXjUP+tazRLg02LNnpGddrq5r6Ym/Sf0uPeC8ELZZAhx7vORjJzNnpkAya/PfRLZjzB78V
-	q/sIDpSgi19aXANC9TgHGHve0isK2P0vwKTNj3Mzj5cOsMe10A6ldnyDYXRCU0uxc62gh80/lR5wG
-	WGtQACO1M41wYd4bOihw==;
+	List-Owner; bh=IoAl+o4eWjyK671DsEYS3M2HYIvr6s00+szJyC+wPJE=; b=YMzsmL/L7yvgtR
+	b05Sncgh4dyEYbmJ6ttqHVKnSRuoK2tcpN4ArDFpMF3L/TW69vrGjPnA+eo6QK3tHhVs/k7h7YJ0p
+	2Dy1EtKG66LRMzzyFpKpY+07tOzGcqCYvrrACqkaNaLKXm/RJkq0MxQZ2YVYwdUw8tMj5NPu31s+a
+	GJ6N/nLn6PsODGcu2zCeA+Ou8duLyD/KcqYEpgK+iwRUtwLGPNi57mHe0c5l0zO8yKoFGnS06Cu08
+	coLcz7H6llWUgV8BaDoQ/qpnX59xLDl2Rrkh4zWP9j4L32Sn61hZsGTxFLDBm29arxfFTNEOwSk8Q
+	Mr4AskE2H2Pnzo3KDDXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7z8-00000006raY-3Bgh;
-	Tue, 23 Jun 2026 20:44:42 +0000
+	id 1wc7zB-00000006rcA-0JuM;
+	Tue, 23 Jun 2026 20:44:45 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7z6-00000006rYK-1fpH
+	id 1wc7z7-00000006rYj-0fTC
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jun 2026 20:44:41 +0000
+	Tue, 23 Jun 2026 20:44:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=tROYkmU4fHW2liLJr2fdOl3XmpMuw693HPJxJNUuxvE=; b=NVPdjmt4Kqa1fWDeGjrZy8N9jX
-	I+BQuBYal8BPy/wV23Vm9aa9s9Yuw13cla6PKBGvFyiU6qNPGWPKor5fUCZkfQ7D+De45FBPddj07
-	ZupDrsTB3yWToupDJalRhXuKh4GiwQwVmGHV9Ma6Ic9jQONsF6ejfXfzkvLMe+IY1ewU8AcQAaXsm
-	8699im+Y/8ufHnXoNU00oHj6GnTK65tTq+vcCITyhKlvnvGEU3Nm14hnkU1Ykt8EiqLtiRZZBrVkh
-	xpBjZgtgL152k2bFwLfUgi0qQaqhU9fgsw6HiwPDQyf4A7lzm/JfrzCVZfl4/4El1AuYPZ9dGteyM
-	FRN6hECg==;
+	bh=OmX4eD9vf59jP6Lq5Q979aBQWLB/rxIvO8yHZPRXNAc=; b=utlWv3+E4QgEBEnUcMNJ0PMSaE
+	lRpVtZYN9fSXDqa3naRS5+Hm1GU3WkC6XGthtauHUZb3XUIFl628ElmAoPpuUK/4VIF3ibdcOsAgH
+	NrB2nnJxCkawMsnGB/kWXFV+fwO9eYlqx8C9Pp1tm94gbymDMe1bgH9kEEPnzfVtwzvN0Li4dg0PJ
+	7vPJBdb/UUJCgas7BVh2Nn7xuxT0On55pwHcQikzY9/mTHESdD0VnJNOn/e24wVysaSHdh3cvSQiT
+	WKBsj9yLHqYmL4xxMf9GXvlhKk24BzwUCVMOae6rr3O//5ZFP1aF2Jh5S4CY2KAP9noq6RJ89atlw
+	+e/Ko72Q==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wc7z4-00000004gOu-1CDr;
-	Tue, 23 Jun 2026 22:44:38 +0200
+	id 1wc7z5-00000004gPN-0wSy;
+	Tue, 23 Jun 2026 22:44:39 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: linux-kernel@vger.kernel.org,
 	Rob Herring <robh@kernel.org>,
@@ -55,18 +55,18 @@ To: linux-kernel@vger.kernel.org,
 	Yixun Lan <dlan@kernel.org>
 Cc: Aurelien Jarno <aurelien@aurel32.net>,
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
 	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH v2 3/5] riscv: dts: spacemit: add 24c02 eeprom on K3 Pico-ITX board
-Date: Tue, 23 Jun 2026 22:43:47 +0200
-Message-ID: <20260623204431.498700-4-aurelien@aurel32.net>
+Subject: [PATCH v2 5/5] riscv: dts: spacemit: improve RTL8211F PHY configuration on K3 Pico-ITX board
+Date: Tue, 23 Jun 2026 22:43:49 +0200
+Message-ID: <20260623204431.498700-6-aurelien@aurel32.net>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260623204431.498700-1-aurelien@aurel32.net>
 References: <20260623204431.498700-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_134440_429676_B893EBF7 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20260623_134441_217868_95DA0D6F 
+X-CRM114-Status: UNSURE (   8.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,60 +84,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The K3 Pico-ITX board includes a 24c02 eeprom, that stores the product
-name, the part name, the MAC address of the network interfaces and the
-board's serial number. These values are also exposed via an
-onie,tlv-layout nvmem layout.
+Vendor kernel enabled ALDPS (Advanced Link Down Power Saving) on the
+RTL8211F PHY to save power when link down.
 
-The eeprom is marked as read-only since its contents are not supposed to
-be modified.
+Vendor kernel also disabled the 125MHz clkout clock signal, and indeed
+the schematics confirms that it only goes to a test point (TP14), so
+let's do the same.
 
 Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 ---
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 30 ++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index 5fe9041ec5702..0a0c221c99e74 100644
+index bf64b6c6f867f..e12d798b48a49 100644
 --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
 +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -47,6 +47,36 @@ &i2c2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c2_1_cfg>;
- 	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c02";
-+		reg = <0x50>;
-+		pagesize = <8>;
-+		read-only;
-+		size = <256>;
-+		status = "okay";
-+
-+		nvmem-layout {
-+			compatible = "onie,tlv-layout";
-+
-+			mac-address {
-+				#nvmem-cell-cells = <1>;
-+			};
-+
-+			num-macs {
-+			};
-+
-+			part-number {
-+			};
-+
-+			product-name {
-+			};
-+
-+			serial-number {
-+			};
-+
-+		};
-+	};
+@@ -234,6 +234,8 @@ phy0: phy@1 {
+ 			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
+ 			reset-assert-us = <10000>;
+ 			reset-deassert-us = <10000>;
++			realtek,aldps-enable;
++			realtek,clkout-disable;
+ 		};
+ 	};
  };
- 
- &i2c8 {
 -- 
 2.53.0
 
