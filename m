@@ -4,116 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DE6CDB470
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 10:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6BBCD98F2
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 13:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/qknnsfhZL/BsMiZiz8yKmmF8/HHZ+XgEHrKTipbtO4=; b=YFVptmXSS6c4V2
-	M7KhZLA88jZOvkpQoe/4qPpmEa2qqfrULuAFhonFMKq4sYZLstwtk6YlAKP/aFlIXT/YeOKdsA8IL
-	U+Y3d4b5i/FE982k8Fj0l7blt0KGrl1C4RkI82lPMLHmUWRvVxeeNCw7P46zeNopIhjyKT/3NUB1E
-	AGWpjyWx6dpJIs1iXOnYhPTIvjAVZcOU4Y9nYbTQ/kF74zSg48pQ1zwZ65zMYpa5c12WojGYPV1Rc
-	PcdeSz8IAiLNOkxsF3fdF4ZEduQcYkrU6eFYT/fanby3B5BPQONUpU+2Lmqg4hTvlpz8EXgiERB7S
-	Bru2/DejDtaGNb/5SvaA==;
+	List-Owner; bh=8r4FYnR5hEhF6AAhn9fbFbqf4WvNNMQHukB9lVb7f0k=; b=a2H0mp5GIh24Mp
+	4j6VKH5m8YkBlPkQZH0GqZ03PstvFcIW9QcBFN1SUYRCfewN/BFXh/3HFVEFrmZ+trYO0LJh4QmbS
+	THI+l+nEvRPt5OlMT/5ZPsoed0+zS8RhX6EQSc1Q7Ug8zcwjwQZmCqUydjiFkd+5ZqBBFJl9MOIr7
+	d0IGSNdSPfbg2+F6pOejd0/QRVnwNztcc24addT4IlgES9Q3aYmYGohIh5Neyj67FKZQKnIpxji/0
+	2UtfC6S4Ub1L6SgUt1DS5/bvP1bsCtszvcFVUANGuUSPaTxemQER4SlGQWd7o1zyLwql/XPY1Hy6U
+	kv3qtZWh2798xP8fUX9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby5f-000000064C5-3NtZ;
-	Tue, 23 Jun 2026 10:10:47 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1wc19N-00000006LGO-0ztE;
+	Tue, 23 Jun 2026 13:26:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby5d-000000064BF-2Aoh
+	id 1wc19M-00000006LGG-2AEz
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jun 2026 10:10:46 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-37cb36ca63bso2798572a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 23 Jun 2026 03:10:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782209444; x=1782814244; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=q9xRyN5mmtNm+QB3YIDVLwBheiPW9GTxijNSPRoIWhA=;
-        b=iOwLq3A9Mk34emsysJYnX2KmkczzdGk8zhrLdDhQfnK1Qly+Ie81pIOTxw7nOJlxYR
-         mi0iKcK8WrHPYxbABg7UYS3hh7cJfgsTw11zBIA+A/Hh6ovtJFcqn5EALRCDBA9vBcK1
-         IUAiyMCaUP5695mM+NIhUz6ohLro4hsswD7Bsz6EoVKrM7hd1YWhCq8rjWf5R4dcfUJG
-         nH4tiuKCWyH32DVZoMxx9SlSZ1MMdN+217zNrI3/ARU2Xpdg0FmFsIxoyQsgwzCFpsmn
-         kAh8KlKhHuToGHi2kdxdZXdLjxV3UwqX7RIuetwpwpYkz353CvEaMAAnxpurbm5jxuUP
-         BATg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782209444; x=1782814244;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=q9xRyN5mmtNm+QB3YIDVLwBheiPW9GTxijNSPRoIWhA=;
-        b=eqrWMClK+siejUSMJy1m9FFKMDCjgHndCDHYLxiaIo2NXktF484hwAtSYLEk6jAT/v
-         qx3HgpZvmpcmjnjGRBNCLM5HYEoyWmbKhoekp+vkSE0u3jDul952fhRvLUodxZ4qVWsa
-         NTIs0AzM6mT7zXBXK3IDe7EfyZ5ODV2pnVrFVinMvPRaqXTfeNFJ9CagxtfSceDJpnfA
-         Hs5rluUMXufKHMBrGs7pBxZksArT46cApsmhfw86yAwv7aBW2N3wdcaqn+R1SO5kjAun
-         WDoa7uQjpc5RWAX4Qwn3+eiIEmiASJ3WToSeGjzgQ/XW4QHvmiLjErpmcJ55pkHKHlVp
-         mKWw==
-X-Forwarded-Encrypted: i=1; AHgh+RqBBwowEvXYmR1FMllntaq/DuBYzkrY6CoVgpr+n6LagUsdwW/zcTeNwguXCaVuuh70p8jPtOflpEna0g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJM0W3zMP7xnm0RejBqZ4UxjfAVfWK2oZPW0FPKYKKmygy668C
-	w5W3zaHNUPKdm1UdZo0RuL4dQIq0iq13VrkqnEFLJRctDKroRd6ATVIj
-X-Gm-Gg: AfdE7clt06zhIvAF6ZBP9SGhRj6MrX9ZR4JzGbx56lIG1v5Fm4sfYPcPXolVaJ57+S6
-	UhQvNkX+T8UvT/HzWmNPHU9ZwRa0QtsowIoksyAOyJXhs+pCickYUw5ceKVrp2x2OufJasB75Ap
-	oDrh2vy02rulk1y5QAJ2dychJpuTlh8VFHFOv7TMvdmwUvxMAjBZRDrg2aAMOulocoEyvp13Emv
-	W5cle6OOUfVtk3WCVnIk3jvwL47ASQyQabmPSC6YnjpKtjtwvdJpypsEQTq4fPlXD+vfMq0uprU
-	XUs4n8HSiKrXzLGUSS4glAhs0kg3F2BYScckbTv1JZQiTS/Fzy8tjKRYpvuwnWxw6HCkYLZ5+G3
-	UQBfA2pvaJJ7jgZbw8eoIp8hSxzZjfDL9BsSzx7O4S4bTxsKY9zi/FgjK+WkPoZQvbjXpJB4kpy
-	KtC/k+2cjTgEmjgiH95ukbogvWVA4xdkyOP9WdaisH
-X-Received: by 2002:a17:902:ec8f:b0:2c0:e5ee:f56c with SMTP id d9443c01a7336-2c7c99def24mr17988445ad.20.1782209444473;
-        Tue, 23 Jun 2026 03:10:44 -0700 (PDT)
-Received: from zhr-ThinkStation-K.mioffice.cn ([2408:8607:1b00:8:ede9:3e72:37cf:55a2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7436f7e0asm118059125ad.30.2026.06.23.03.10.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 03:10:44 -0700 (PDT)
-From: Hongru Zhang <zhanghongru06@gmail.com>
-X-Google-Original-From: Hongru Zhang <zhanghongru@xiaomi.com>
-To: david@kernel.org
-Cc: akpm@linux-foundation.org,
-	baohua@kernel.org,
-	bhe@redhat.com,
-	chentao@kylinos.cn,
-	chrisl@kernel.org,
-	jack@suse.cz,
-	kasong@tencent.com,
-	kunwu.chan@gmail.com,
-	liam@infradead.org,
-	lianux.mm@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	liyangouwen1@oppo.com,
-	ljs@kernel.org,
-	loongarch@lists.linux.dev,
-	mhocko@suse.com,
-	nphamcs@gmail.com,
-	nzzhao@126.com,
-	pfalcato@suse.de,
-	rppt@kernel.org,
-	shikemeng@huaweicloud.com,
-	surenb@google.com,
-	vbabka@kernel.org,
-	wanglian@kylinos.cn,
-	willy@infradead.org,
-	youngjun.park@lge.com,
-	zhanghongru06@gmail.com
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page fault performance
-Date: Tue, 23 Jun 2026 18:10:09 +0800
-Message-ID: <20260623101009.522775-1-zhanghongru@xiaomi.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <d04f745d-eb3e-4d2c-8ea2-5fdcf2cf27b8@kernel.org>
-References: <d04f745d-eb3e-4d2c-8ea2-5fdcf2cf27b8@kernel.org>
+	Tue, 23 Jun 2026 13:26:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E7FEF40736
+	for <linux-riscv@lists.infradead.org>; Tue, 23 Jun 2026 13:26:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC99A1F00A3D
+	for <linux-riscv@lists.infradead.org>; Tue, 23 Jun 2026 13:26:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782221207;
+	bh=3AnIX67gwpDXgs2xfF71Q85BjqAjzJUjZy1Ec4RJuKQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=hE9korR8A+W6z0ToBhbljhuQyd3RiH/hkr0E+F0bP5aioqF/S11Cc1CvsuXC0oNpN
+	 wg2fVFMD+oyXxlrH93Sdy2Velcfk1Ev5oBLpGdMeoP7u3wI7Fp+V1MWh7EMzg5xc1u
+	 GBX06HhbSf0DT1hxnkceoYyvseptWX/+ZFeMsS17XuhfZ2DRQal+tz5NkxxRSRYmoA
+	 72Y+t6qvcz5aTQDXr3qXxbqnkNuhKiPUZVzU3FODKtBxnS0pexJiJW7bCbBtXG/9vC
+	 57EME8hnrF9iAiZLvNu1L44J3L+kTo5/J0ex+NadoEmpsa0QkCxQq57FhM2E84dQb7
+	 Hjl89gEXE8qJg==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aa61e3d3f3so5645507e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Jun 2026 06:26:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/js4Lkw2Utwy5atjfDpXjecGvYwzTsOutCNnLXdpZC1SK8KdxvTKXMLW5R1/hKObpYvC3xvitoZEGi4w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3+qQG1FICUsGhVVeDWrMvi0RHPahqMQfG+a0ZQIsQpeM2Ch1B
+	41UjdY4wJfw6YR2ytGKST8yK1a7OTDNUvw6BSXEHpvW5G4p/UUpW9+UFc7OfjmuTYSvi/NJbjCV
+	kcWl+Y8rWAPXnPH0vdPeuZIb6GiYKnsE=
+X-Received: by 2002:a05:6512:405a:b0:5aa:6128:dfc4 with SMTP id
+ 2adb3069b0e04-5ade4743759mr763886e87.24.1782221206215; Tue, 23 Jun 2026
+ 06:26:46 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_031045_554431_416A6265 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+References: <20260616072617.2272-1-lirongqing@baidu.com>
+In-Reply-To: <20260616072617.2272-1-lirongqing@baidu.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 23 Jun 2026 15:26:33 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0j3Wnn3exbji-6PzwjCnOCJDe_pUJU9R25Bhvh1ZE3E5A@mail.gmail.com>
+X-Gm-Features: AVVi8CfUFJ5lTgNtBPM1lrdpB9DxQD6gZtS_qaKI2d26_aigyG6oBHGkBNUnWFs
+Message-ID: <CAJZ5v0j3Wnn3exbji-6PzwjCnOCJDe_pUJU9R25Bhvh1ZE3E5A@mail.gmail.com>
+Subject: Re: [PATCH][v2] ACPI: processor_idle: Mark LPI enter functions as __cpuidle
+To: Li RongQing <lirongqing@baidu.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,70 +72,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Sudeep Holla <Sudeep.Holla@arm.com>, Huisong Li <lihuisong@huawei.com>, Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/23/26 10:02, David Hildenbrand wrote:
-> I know that especially browser usually use fork servers: a tiny
-> (single-threaded) process just to create new child processes. Any information
-> regarding the apps above that use fork() on small vs. large processes?
-
-I wrote a second BPF tool (fork_info) that captures nr_threads and
-map_count (VMA count) from the calling process at the exact moment
-fork() is triggered. Results from 3 representative apps:
-
-  App (category)          Fork caller        Threads   VMAs
-  -----------------------------------------------------------
-  Taobao (shopping)       DaemonThread-6        526    8,987
-  Amap (navigation)       DaemonThread-6        289    7,120
-  UC Browser (browser)    OneNativeThread       350    8,144
-
-These are all heavyweight multi-threaded processes (hundreds of threads,
-7,000-9,000 VMAs), not fork servers.
-
-> Above you write "some call fork() from multiple threads". Any further
-> information on that?
-
-Xiaohongshu (com.xingin.xhs, social media) is a clear example. In just
-tens of seconds of normal usage, fork() was called 22 times from 4
-different threads:
-
-  PID     COMM            THREADS    VMAS
-  4206    com.xingin.xhs       85    4,140
-  4216    Thread-2208          85    4,157
-  4208    Thread-2208          90    4,211
-  5200    Thread-3200         337    6,519
-  5200    Thread-3200         343    6,563
-  5200    Thread-3200         361    6,769
-  5200    Thread-3200         453    7,793
-  5200    Thread-3200         450    7,779
-  5202    Thread-2219         459    7,846
-  5202    Thread-2219         462    7,875
-  5202    Thread-2219         465    7,899
-  4219    Thread-2219         465    7,903
-  4219    Thread-2219         468    7,922
-  5202    Thread-2219         467    7,917
-  4219    Thread-2219         467    7,921
-  4219    Thread-2219         468    7,929
-  5202    Thread-2219         464    7,909
-  5202    Thread-2219         460    7,889
-  5202    Thread-2219         459    7,884
-  4219    Thread-2219         433    7,771
-  4219    Thread-2219         433    7,771
-  4219    Thread-2219         434    7,778
-
-The process grew from 85 threads / 4,140 VMAs at first fork to
-434 threads / 7,778 VMAs at last fork, showing these are long-lived
-heavyweight processes that fork repeatedly throughout their lifecycle.
-
-Tracing tool:
-  https://gist.github.com/zhr250/ba7725d0ea55594bcafd3cd4806eed98
-
-Hongru
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdW4gMTYsIDIwMjYgYXQgOToyNuKAr0FNIGxpcm9uZ3FpbmcgPGxpcm9uZ3FpbmdA
+YmFpZHUuY29tPiB3cm90ZToKPgo+IEZyb206IExpIFJvbmdRaW5nIDxsaXJvbmdxaW5nQGJhaWR1
+LmNvbT4KPgo+IFdoZW4gZnVuY3Rpb24gdHJhY2luZyBvciBLcHJvYmVzIGlzIGVuYWJsZWQsIGVu
+dGVyaW5nIGFuIEFDUEkgTG93Cj4gUG93ZXIgSWRsZSAoTFBJKSBzdGF0ZSB0cmlnZ2VycyB0aGUg
+Zm9sbG93aW5nIFJDVSBzcGxhdDoKPgo+ICAgUkNVIG5vdCBvbiBmb3I6IGFjcGlfaWRsZV9scGlf
+ZW50ZXIrMHg0LzB4ZDgKPiAgIFdBUk5JTkc6IENQVTogOCBQSUQ6IDAgYXQgaW5jbHVkZS9saW51
+eC90cmFjZV9yZWN1cnNpb24uaDoxNjIgZnVuY3Rpb25fdHJhY2VfY2FsbCsweDFlOC8weDIyOAo+
+Cj4gVGhlIGFjcGlfaWRsZV9scGlfZW50ZXIoKSBmdW5jdGlvbiBpcyBpbnZva2VkIHdpdGhpbiB0
+aGUgY3B1aWRsZQo+IHBhdGggYWZ0ZXIgUkNVIGhhcyBhbHJlYWR5IGJlZW4gZGlzYWJsZWQgZm9y
+IHRoZSBjdXJyZW50IGxvY2FsIENQVS4KPiBDb25zZXF1ZW50bHksIGZ0cmFjZSdzIGZ1bmN0aW9u
+X3RyYWNlX2NhbGwoKSBleHBlY3RzIFJDVSB0byBiZQo+IGFjdGl2ZWx5IHdhdGNoaW5nIGJlZm9y
+ZSByZWNvcmRpbmcgdHJhY2UgZGF0YSwgZW1pdHRpbmcgYSB3YXJuaW5nCj4gaWYgaXQgaXMgbm90
+Lgo+Cj4gRml4IHRoaXMgYnkgYW5ub3RhdGluZyBhY3BpX2lkbGVfbHBpX2VudGVyKCksIHRoZSBn
+ZW5lcmljIF9fd2Vhawo+IHN0dWIsIGFuZCB0aGUgUklTQy1WIGltcGxlbWVudGF0aW9uIG9mIGFj
+cGlfcHJvY2Vzc29yX2ZmaF9scGlfZW50ZXIoKQo+IHdpdGggX19jcHVpZGxlLiBUaGlzIG1vdmVz
+IHRoZXNlIGZ1bmN0aW9ucyBpbnRvIHRoZSAnLmNwdWlkbGUudGV4dCcKPiBzZWN0aW9uLCBpbXBs
+aWNpdGx5IGRpc2FibGluZyBmdHJhY2UgaW5zdHJ1bWVudGF0aW9uIChub3RyYWNlKSBhbG9uZwo+
+IHRoaXMgc2Vuc2l0aXZlIHBhdGggYW5kIHByZXZlbnRpbmcgdHJhY2UtaW5kdWNlZCBSQ1Ugd2Fy
+bmluZ3MgZHVyaW5nCj4gaWRsZSBlbnRyeS4KPgo+IEZpeGVzOiBhMzZhN2ZlY2ZlNjAgKCJBQ1BJ
+IC8gcHJvY2Vzc29yX2lkbGU6IEFkZCBzdXBwb3J0IGZvciBMb3cgUG93ZXIgSWRsZShMUEkpIHN0
+YXRlcyIpCj4gU2lnbmVkLW9mZi1ieTogTGkgUm9uZ1FpbmcgPGxpcm9uZ3FpbmdAYmFpZHUuY29t
+Pgo+IC0tLQo+IERpZmYgd2l0aCB2MTogYWRkIF9fY3B1aWRsZSB0byBhY3BpX3Byb2Nlc3Nvcl9m
+ZmhfbHBpX2VudGVyCj4KPiAgZHJpdmVycy9hY3BpL3Byb2Nlc3Nvcl9pZGxlLmMgfCA0ICsrLS0K
+PiAgZHJpdmVycy9hY3BpL3Jpc2N2L2NwdWlkbGUuYyAgfCAyICstCj4gIDIgZmlsZXMgY2hhbmdl
+ZCwgMyBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2RyaXZl
+cnMvYWNwaS9wcm9jZXNzb3JfaWRsZS5jIGIvZHJpdmVycy9hY3BpL3Byb2Nlc3Nvcl9pZGxlLmMK
+PiBpbmRleCAzOTBhYjVmLi40NDgyY2YyIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvYWNwaS9wcm9j
+ZXNzb3JfaWRsZS5jCj4gKysrIGIvZHJpdmVycy9hY3BpL3Byb2Nlc3Nvcl9pZGxlLmMKPiBAQCAt
+MTE0Myw3ICsxMTQzLDcgQEAgc3RhdGljIGludCBhY3BpX3Byb2Nlc3Nvcl9nZXRfbHBpX2luZm8o
+c3RydWN0IGFjcGlfcHJvY2Vzc29yICpwcikKPiAgICAgICAgIHJldHVybiAwOwo+ICB9Cj4KPiAt
+aW50IF9fd2VhayBhY3BpX3Byb2Nlc3Nvcl9mZmhfbHBpX2VudGVyKHN0cnVjdCBhY3BpX2xwaV9z
+dGF0ZSAqbHBpKQo+ICtpbnQgX193ZWFrIF9fY3B1aWRsZSBhY3BpX3Byb2Nlc3Nvcl9mZmhfbHBp
+X2VudGVyKHN0cnVjdCBhY3BpX2xwaV9zdGF0ZSAqbHBpKQo+ICB7Cj4gICAgICAgICByZXR1cm4g
+LUVOT0RFVjsKPiAgfQo+IEBAIC0xMTU2LDcgKzExNTYsNyBAQCBpbnQgX193ZWFrIGFjcGlfcHJv
+Y2Vzc29yX2ZmaF9scGlfZW50ZXIoc3RydWN0IGFjcGlfbHBpX3N0YXRlICpscGkpCj4gICAqCj4g
+ICAqIFJldHVybjogMCBmb3Igc3VjY2VzcyBvciBuZWdhdGl2ZSB2YWx1ZSBmb3IgZXJyb3IKPiAg
+ICovCj4gLXN0YXRpYyBpbnQgYWNwaV9pZGxlX2xwaV9lbnRlcihzdHJ1Y3QgY3B1aWRsZV9kZXZp
+Y2UgKmRldiwKPiArc3RhdGljIGludCBfX2NwdWlkbGUgYWNwaV9pZGxlX2xwaV9lbnRlcihzdHJ1
+Y3QgY3B1aWRsZV9kZXZpY2UgKmRldiwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+c3RydWN0IGNwdWlkbGVfZHJpdmVyICpkcnYsIGludCBpbmRleCkKPiAgewo+ICAgICAgICAgc3Ry
+dWN0IGFjcGlfcHJvY2Vzc29yICpwcjsKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9hY3BpL3Jpc2N2
+L2NwdWlkbGUuYyBiL2RyaXZlcnMvYWNwaS9yaXNjdi9jcHVpZGxlLmMKPiBpbmRleCA2MjRmOWJi
+Li5jNzZkYmFiIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvYWNwaS9yaXNjdi9jcHVpZGxlLmMKPiAr
+KysgYi9kcml2ZXJzL2FjcGkvcmlzY3YvY3B1aWRsZS5jCj4gQEAgLTY2LDcgKzY2LDcgQEAgaW50
+IGFjcGlfcHJvY2Vzc29yX2ZmaF9scGlfcHJvYmUodW5zaWduZWQgaW50IGNwdSkKPiAgICAgICAg
+IHJldHVybiBhY3BpX2NwdV9pbml0X2lkbGUoY3B1KTsKPiAgfQo+Cj4gLWludCBhY3BpX3Byb2Nl
+c3Nvcl9mZmhfbHBpX2VudGVyKHN0cnVjdCBhY3BpX2xwaV9zdGF0ZSAqbHBpKQo+ICtpbnQgX19j
+cHVpZGxlIGFjcGlfcHJvY2Vzc29yX2ZmaF9scGlfZW50ZXIoc3RydWN0IGFjcGlfbHBpX3N0YXRl
+ICpscGkpCj4gIHsKPiAgICAgICAgIHUzMiBzdGF0ZSA9IGxwaS0+YWRkcmVzczsKPgo+IC0tCgpT
+YXNoaWtvIHNheXMgdGhhdCB0aGlzIGNoYW5nZSBtYXkgbm90IGJlIHN1ZmZpY2llbnQgdG8gZnVs
+bHkgYWRkcmVzcyB0aGUgaXNzdWUKCmh0dHBzOi8vc2FzaGlrby5kZXYvIy9wYXRjaHNldC8yMDI2
+MDYxNjA3MjYxNy4yMjcyLTEtbGlyb25ncWluZyU0MGJhaWR1LmNvbQoKYW5kIHRoYXQgYXBwZWFy
+cyB0byBiZSBhIHZhbGlkIGNvbmNlcm4uCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
