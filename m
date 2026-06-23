@@ -4,101 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746B9CD4F26
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 05:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76763CDB470
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 05:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mhi4lJJyieTUs/3gkNYDvvUGG1Wkn0npTIISlgBnWkg=; b=LgApGd1IdrNJ/d
-	OnHcZ9zHM0iGP+46c/jtxSg+tcqNvtYXslQIVvo4t0kHH6dTVuFX3w5vuKoFTGM7BZSyW3U91905/
-	7sc3NsH8bjgVSkFfB1hpUNg6gD+MtyGnQQPmeEfDqRuCWaBfPTOXvW/p9Bg+sMz6Utkk4+t8UzBxS
-	7kmAPVEpR0s8Srqurb9YtRO4atQfcLX22FctDhjwkaLpUY7YP+IN5nhjMUaqTKkbzYsRY1kEV33dC
-	gjErjSn2YvXcR1/RY5odVHOAYb4djFBHmRyf8+xmQrPsAKCHA2x1TEr5Bq0Y18mbcHwBIfSSH5Vbj
-	/1P9dCLw2VpFTez2A0nQ==;
+	List-Owner; bh=zCLoFcj2Ib82DMP5acLKxKkC7U7OdwSAhHp5lXw/ssM=; b=wNmyPIZ4Q579PR
+	M4di9yOtZTxDy95TuwU6Cn7R+5VJlQpA/eGDRlF9JvsfmXmAnF1Y6Jw82I+p7+i1T00idw6DQyhpZ
+	MYBJ8ZMBnJ3bZ9WT0YYS6TuRNieBDK9CSzfMoiwVAoFJAbr2Hg4L5ya7UGAes2JAbo5scJhlH3nlj
+	IWkIBSqIOq/ILpvW84kzDn1HxzI+/l2S2V3DNLqZzvGycGIyQmxLkwy1dmbF5h2u0p8bKDpuB1qnh
+	yt+X9gjPZeT/TN9BcJbVTWgcv9Qds7XQKREV54ohMit2oFyQmwoiFGMrS3sVdN4lJRkLDPmnaNJ2g
+	uuli/vzQU19dAZlH9Tjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbteB-00000005iQs-1Tqq;
-	Tue, 23 Jun 2026 05:26:07 +0000
-Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
+	id 1wbteL-00000005iW7-3dDH;
+	Tue, 23 Jun 2026 05:26:17 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbte9-00000005iPg-1fbk
+	id 1wbteC-00000005iRR-339Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jun 2026 05:26:06 +0000
-Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-30bc871ecdfso6164227eec.1
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jun 2026 22:26:04 -0700 (PDT)
+	Tue, 23 Jun 2026 05:26:09 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-30bf132969bso6540342eec.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jun 2026 22:26:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782192364; x=1782797164; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782192368; x=1782797168; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9P+/X0AgS9w9pvMplF3SoP81B1eDd+b9FueSg0/UkAs=;
-        b=KKPHkhZ90dOHDl8e3zEaN0gwX2SxA6oAihUOn/BK1E+BR2F1szLflnbNYnsIJfHpnL
-         /JQwCdJnSbXWoSaNtK2cO14A5ZEZvNwlkwvLRH+VoJUZ5fF7PEkjZWvtsB1eXK2KnOXi
-         /jQjsCpwonJEzQIAZL2GIXYB9NMHeKd3CQyMGIYEoBbPB4e+MZwfmoPxY1JpzUn106Yk
-         ILjvpDktVnbZr3hns1nyvhHbcpIBIwH9iy596ibOLkuEMnZJtFnnsrZBFuoGH+Fk1UsZ
-         a6tuJqU5fugMYeAntbvlUA55ndYwIkOCGrWhIMLEX7MqUCwtYguSNd1FoObM8Tndm6pH
-         RU5g==
+        bh=FPvEzMllSbsUeGZyzSL2DVJCIDjlLydKz1PcX2CIArY=;
+        b=FwzQ1kn+Kti8RQ5oCqTG2vzkcSOSD26On0ss3MS593QhPNz4xYX/HQJMpVxS4AfOmP
+         wHX9mU/AM+sSBym5j/5ryQpmftWPKznAI20PQ85YsoD3fnqNyhGBMyN6pAd9mfYF7BVk
+         gypJMlXnRtqBDsbKg8cNMQPMjcEonnc2ipTxjD7nvZFN9BukrYHpw66bdqBBY92w9ex7
+         35j+l4v82AMLV8PS+LaEkoTKZZJOysbbjfZLtlAGmoGtNGXFlsvFvJAxp9863lHPLeO1
+         s5epKAqB+ens8WuilZJA2DcK2u43W+n/brL6+la3jOWfqVXaYfneKL1N+Yo2FznHejRJ
+         V2+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782192364; x=1782797164;
+        d=1e100.net; s=20251104; t=1782192368; x=1782797168;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=9P+/X0AgS9w9pvMplF3SoP81B1eDd+b9FueSg0/UkAs=;
-        b=AwylNFlyr6xH1WVGDPdQdhdHe888drOYU1l3/0D99uOv5TdOLJDJEf1zlhikLAivq3
-         4xn1oVYubaD4EUT0vyv/xcrJCVFVMIgQXmYFk/gxCD+X2g6nysr7A84ulIrtTK+go60x
-         OuUvtg2/Q2oMzKFWyi0WBc/U+L+WW6nWVlzctSYrlq+BOf4rSuJ81fdPYeCA6gc0xvnB
-         ENkdm9OGM9kV9x9UNMAOWd5iyeFG45bIQhTtRZo+CnF3b1W70J2+iTwqVzpREX1ZomHF
-         w74Uc5LkpwPtUoirJ+z9mnrNEwwMy1r4Evg44BuGLnzWfdB1uY2fYYEWAj7vrlNh17EX
-         MxSQ==
-X-Forwarded-Encrypted: i=1; AHgh+Roou9juuPQYt6qDdEckMAJKo6Gpdt/rVJwkQPdg48smSJFdDiw6INO9NFKlLyisjcec2jECdZiMkZVxaA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4YuRyDtFqHKrBIqgPrX5x79dNVv79wMNvBvXqJ5/XW4EBRYua
-	7CLGS9Xd3+/fUsbC6HYBoG+mTSNnyjKgHQrZn6JrmGv4XZoLD3q4inQx
-X-Gm-Gg: AfdE7cmb47ZLCuiFY37+qFGZjCS2ZjLcTu9DaysyyJ5W3zbtwR5c08JwE5WXrTKnp2A
-	EAPiXjLeHredVVsE95HQNyfwc9+kUXgHZykfrPj9boEsz/KIp97UkT/g3L1ZJcATuXhSOvVJ+U3
-	oSgT2cOf0AGHysoah7tQVZ9OyBc5lno5Vpx8IRzi8bOqQ/99RSVwcJZV6fihXHfbQEJz0JsT1Vy
-	By7PJHnYiwPBKTh9TO4pohUOgnl2THRfH0crIweBeiuvqrPIyYOJrzXGxIlk7dZwL+lHqq87tZx
-	XT6FUdu0iuIn6ixcRp1WFeY2oZteX9Iq1OiDd2EnIPC2cDDpb5TMr8edsVAnsL6ffs2GXZzpzJ7
-	xRuPGlZywlJ8yTGywl+ObC1zF42vjkbOGEVOc5FjnyNi7RvY4gStrWlHtWsgXVgPMRSW/xQRKv+
-	rMkkHocPyXlJsmnnB16Q==
-X-Received: by 2002:a05:7301:3c8d:b0:2ef:83d4:647f with SMTP id 5a478bee46e88-30c07035e2fmr11143910eec.25.1782192363998;
-        Mon, 22 Jun 2026 22:26:03 -0700 (PDT)
+        bh=FPvEzMllSbsUeGZyzSL2DVJCIDjlLydKz1PcX2CIArY=;
+        b=X/b9oBRyI70NloRtBxDGhnzSmVkWxedpyF0HsDDfsLTwn9CJ/PSIKgM71uoYsOZhFU
+         dx0hGshe31SEbfUPSyvB/xX+TdsVlDCkUEy6j9ReqgPF+vXC4enUWTkUhMafhKDWlBY0
+         yKq6gitMahFgFrpRuV5zHQHoGynue4/PyNpgJ7lv5UxaZZLFA8z2/PERiqOUZ/2Pfz2k
+         TAjmlztmmnTfshfNmT3yMNRRNDS8ZD9daZ4oqPAHv+Gncv1rnHHdZGjEkjXmd/xx6wwi
+         ht3JCfm3FowOFstHRhHFFBPobSfXKEgKPLnbchSiPlKYusKMib9YnYE6pY4kj3viUqmG
+         cuKw==
+X-Forwarded-Encrypted: i=1; AHgh+RqZBSm6nbPWw8ljTCtY+zpnzHgqyAdBr/rV0u1Ofa625tbSvJNTy+CPUgyYP0E/i2rToNYKjnVsKZP8RA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTLfXLTTlSuU9mMlGt+edpeJRj6pI+2Qdfde0pMAvyP4A0rQLW
+	4VOShzRwPRwoEFXSX1p4hRcxKPy5h8ENjJQY1ud25nsCPQEXiR+Ak+ai
+X-Gm-Gg: AfdE7ck00S2GoMlsdneDVvm0hlDW9iczMoXtm8wAPlAHznW9au14CmN1bJS6cdlyGcU
+	1ITQJR3EjS2CWQyZJ0dmrmVbyVGVF8o9cdLMrjj0oVV8XHtbY68dwct75/Xt1MT9P8S8zwJEjy9
+	artZiHeYAbzDWaMIYkSD+ddKaddetMIJ3krRPfDX894hdxm+FgO1h9MIqqmy80LYuPcU9S3+4OZ
+	0nZHbjbWloWoojEM0QtKVdCZbhAOXUm4elNgPbdQdgBo0dnO2VZfpLhjldWZK5d1NAj2eqKBo+y
+	bPVeFnv92sYiWhdFukuOfEmqKD7R8muj1QwXpgRhInor14E45qSXdZDPl3J0fjaImxBI6ZWXKtY
+	pJMpldVxLIX8h3zQ1RMbFcq056jbYrOQGJTDAXjjUezYtG+2T3iIU9RpPsU6zWnVtyv3/ANdmyy
+	OtanepZio=
+X-Received: by 2002:a05:7300:d507:b0:30c:1276:cdf7 with SMTP id 5a478bee46e88-30c5bc78138mr708393eec.25.1782192367703;
+        Mon, 22 Jun 2026 22:26:07 -0700 (PDT)
 Received: from [10.0.0.65] ([2601:647:6700:64d0::92d1])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c1be4967fsm13102455eec.26.2026.06.22.22.26.02
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c1be4967fsm13102455eec.26.2026.06.22.22.26.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jun 2026 22:26:03 -0700 (PDT)
+        Mon, 22 Jun 2026 22:26:07 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 3/8] arm64/runtime-const: Introduce
+Subject: Re: [PATCH v4 5/8] riscv/runtime-const: Introduce
  runtime_const_mask_32()
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 To: K Prateek Nayak <kprateek.nayak@amd.com>
 Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
  Peter Zijlstra <peterz@infradead.org>, 
  Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
  Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
  linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Jisheng Zhang <jszhang@kernel.org>
-In-Reply-To: <20260430094730.31624-4-kprateek.nayak@amd.com>
+ linux-arm-kernel@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>, 
+ Charlie Jenkins <charlie@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>, 
+ Charles Mirabile <cmirabil@redhat.com>
+In-Reply-To: <20260430094730.31624-6-kprateek.nayak@amd.com>
 References: <20260430094730.31624-1-kprateek.nayak@amd.com>
- <20260430094730.31624-4-kprateek.nayak@amd.com>
+ <20260430094730.31624-6-kprateek.nayak@amd.com>
 Date: Mon, 22 Jun 2026 22:24:56 -0700
-Message-Id: <178219229641.10927.2049980053557313152.b4-review@b4>
+Message-Id: <178219229643.10927.7189200920480581019.b4-review@b4>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782192362; l=1037;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782192362; l=1456;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=zWdKKKHIRtfVkf/fFEjrVdv3jvJPJQtdRvuIlBkFkhk=;
- b=khN498z1aQ+psInrw6bQE5qRH/XIMR5tlYyp2iaj4Ympn7B3JrTIKQzNY2a80lC+XUaqLeiEQ
- hj75XonHxMsDBmZroa63UpdTmgS+Vn0VIF2BvLYDbWtudqioAYh6PlP
+ bh=DjSs5oRw9rccbhTB4m6pdAGiet3QtdAO5qUM5zvUvsg=;
+ b=Q7gZYCRpUNaR0P6LCnsW2BKyT1zjAR9X/QtNq425aoOkO4GWUw2wE2DMsLI9hCenc1NtUPLh0
+ LKuQabhh/3jCnBFxJDuU/QtOQWYl5v1MrRasvhVADGKiAdB5C5B53hi
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_222605_446673_5A571846 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20260622_222608_776229_BAF14526 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,27 +118,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Apr 2026 09:47:25 +0000, K Prateek Nayak <kprateek.nayak@amd.com> wrote:
-> [...]
-> is intentiaonally placed outside of asm block to allow compilers to
-> further optimize it if possible.
+On Thu, 30 Apr 2026 09:47:27 +0000, K Prateek Nayak <kprateek.nayak@amd.com> wrote:
+> Futex hash computation requires a mask operation with read-only after
+> init data that will be converted to a runtime constant in the subsequent
+> commit.
 > 
-> __runtime_fixup_ptr() already patches a "movz, + movk lsl #16" sequence
-> which has been reused to patch the same sequence for
-> __runtime_fixup_mask().
+> Introduce runtime_const_mask_32 to further optimize the mask operation
+> in the futex hash computation hot path. GCC generates a:
+> 
+>   lui   a0, 0x12346       # upper; +0x800 then >>12 for correct rounding
+>   addi  a0, a0, 0x678     # lower 12 bits
+>   and   a1, a1, a0        # a1 = a1 & a0
+> 
+> pattern to tackle arbitrary 32-bit masks and the same was also suggested
+> by Claude which is implemented here. The final (__ret & val) operation
+> is intentionally placed outside of asm block to allow compilers to
+> further optimize it if possible.
 
-I think we should opt to do power of 2 masks instead of arbitrary masks
-since that is what the usecase is and we can reduce these three
-instructions into a single instruction for arm (and benefit riscv as
-well). It is convenient to have this function as arbitrary masks, but
-since we are going down the route of hyper optimizations already with
-runtime constants here (and we can always add an arbitrary mask later if
-there becomes a usecase), I feel like we should go all the way :)
+If the mask fits in 12 bits, we can nop the lui and the addi and just
+patch an "andi" instruction with the 12 bits of the mask. We already do
+this with the lui+addi block and nop the lui if val fits in 12 bits. I
+would be happy to help draft that optimization. 
 
-The and immediate instruction for arm supports all power of 2 masks so
-you can do:
+But I think the better solution would be to take the power of 2
+assumption since that will also benefit arm. We should still only emit
+an andi if val fits in 12 bits, but if it doesn't we can patch in
+shifts:
 
-and     w0, w0, #0xMASK
+slli    a0,a0,x
+srli    a0,a0,x
+
+Where x is the constant (arch_size - _futex_shift - 1)
 
 - Charlie
 
