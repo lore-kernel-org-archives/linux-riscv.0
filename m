@@ -4,65 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D603BCDB470
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 07:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8246CD4F26
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 07:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HszojIP1uDodmENe4biRTPLcUGo7NIZV5X+CYW4+HPA=; b=wihtPatXGZQTdJ
-	btD/V5i/GDXYmJ/VhrsJq/rjFx9k28CoTKBwwPharU77JfmMVwIGSPtUwZDyOc4ztWBkz0nLafTeO
-	DZgisL+UiBNGjFL8Zg05yyG2iybZ4AYXctmS+ghx+P+RIN7g4SDiq6DG3idECEmhvHw62M9RdQohb
-	3mJnWVdcEGvwL0zrV06dVLdOI7IddOGhRxyoD00HEfavk5dCiVmExLSuc+STWH0Ea5B3M5095e6hC
-	UQJvkeLbyusl5KUYzFCQtefQn/XdS/EiJwr2FjDvSA2K9dEsKAC5RDAz4Fu9MAgShUEV55qc6cRul
-	bV/NPoZzALVayq0oHTIg==;
+	List-Owner; bh=OWXInBDr389MjBjGg8Lz7btDgdxax6sgb9KiYL5TIDs=; b=M+hEpxKdhn3fY0
+	I6d/oCk26cwDulDzjPnxTNDRfjI9Qtjk5ZXDxAxdnqJT9lo4yszL8oRf3VA1QXgVURuWV7h2E4vT2
+	bfk+9pj7aqTGidf/I9L6cM1DciGF9UGrj2iqd5yPaBBYXoiiXrB5UTTrnf66jsZdFm0YslADJWJW8
+	MdnqmXDIsjXqOQPavXNv4rl6oPS0XxaKytNDV9ypgnPePVVN7PG6uGkn0NICQGlTObJ7DXHIekHIo
+	+NX/71G9uoC7x986WRVPIOMPPCcVR7cvll9+wGRcsON7ub36u8O4wls5FzZToN5qboY9ramjKfRLq
+	/OvCpDewBDP7wy0wdhVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbviT-00000005qR6-0WWN;
-	Tue, 23 Jun 2026 07:38:41 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1wbvqY-00000005qq2-0PCq;
+	Tue, 23 Jun 2026 07:47:02 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbviQ-00000005qQl-0V8z
+	id 1wbvqV-00000005qon-1ncq
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jun 2026 07:38:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=cz
-	wcxy20z7HdHob/DRitDJw7LqO+2Wxqq+k78T1yRIs=; b=j/J1/Z3v2dad4X8JkO
-	zT5cvcYG/SQYIs6SKVpYOXZtxX7mEN2lbEQN/HT7ighVvJBW4VB0+ZyS3322xNvg
-	yRCJ3U6zx7DRtyfTNScXKtvG19gIjqoOm29UQg0bV9MZe4K2w3JmHaS0juJi4sxj
-	TIhPxbL8i2MW5DK/9LncjBeew=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3LCvJNzpqF4UrFA--.25662S2;
-	Tue, 23 Jun 2026 15:37:47 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: anup@brainfault.org,
-	tglx@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	rafael.j.wysocki@intel.com,
-	sunilvl@ventanamicro.com
-Cc: linux-riscv@lists.infradead.org,
+	Tue, 23 Jun 2026 07:47:00 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84536e2857eso3234007b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Jun 2026 00:46:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782200819; x=1782805619; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WiYA62dHorpFymdfXssg5HAuL1K3q/QdPM1UUVatA4k=;
+        b=krnfZUtH4id9cAQP9fOxObIsPP0v0OAQrm2Aw1EDwQakfrnu4b9RiJfVKNt8nKvn2/
+         g7IjHSedoiBlN7lYlQhuBMZ3uIxBIh4RKTfCEaFxL8dOUhn/R5Ps5lckiG5gSEEg+L04
+         B2AIOmqBt2GXWZQmIdad9DM+y7ze8vsBKVNujrhYyDSfx9b9yOZVY/2DdINUGzVcEQEq
+         UXHLhCIknaKIJHFkAeiCyuJC4rOzt2v+9Bx5tDa7ExQFZgC9rp/WJQKmHFMx71vOyJDr
+         wOeu7rakw/WNxo6GplZW0v7ciBANJM/yTQfCvQosJ70fD3g/5s3XJGh45CvGVTYHqwnz
+         SvSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782200819; x=1782805619;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WiYA62dHorpFymdfXssg5HAuL1K3q/QdPM1UUVatA4k=;
+        b=VlG4mdMQetP+c3btVh7Ukg8RGZw/lLqOw7V+QaTAfKmJK5NFPir5kIJA/QEHokv0L6
+         ncfFHXAhvFxPXtcGLh3uDF/qujrKlGgn21FZyLrNaP/elpvQwZP0b1aghZ3fkjxUPYdc
+         uQZa+PsXry8gSeuuEyIiQtO+mpnhgeL4SfhRlxnSyQxcDeVghNEMMHdEuY4MuE4T4Op4
+         payJPw96dwECE70fV2CBXCRWDlb10ewCiFl7Khn0icFJUyIoQAU/3FadB9h/zx4Dj2eR
+         4yIQoh0+PGh5TFO0JNfZU1KSULNyUkAeOkkKJ7yYj/uUdL4x1p/32vFrXTyY9fjtXLDC
+         44UQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+lkB2WiwP2y1YKdEJoM+XCiEt8hpGr6huFaliWaQZ6HrDnmwnCfGW+1zXCaTCKoowHoqHZ4+fOd11TUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyv3/Jyy55hf1+aHBLNXBuSpHGMEI/6rX/YVjpdGFRy2NjUqw2D
+	kIhok7mSHRAzdI2OiGEOAGlK4RzXHDY1Iypl0iuJpTqO6mI9U8fA25uc
+X-Gm-Gg: AfdE7cmFkkdsfYQWoKwW/gDrr81VxszpP53Rp87o3YMAHKwE9PNozYkSFl3H+Cge5U5
+	sK9VSAUpPAmaYWB2wgBZUkVYAJDolOeylSBUG+23ZdZIuVGmLrjMXX24D6zmDw/hUcUh6ykqg/V
+	SUPLaBP4CWlU7Z6GBrDc12ojIcRHy+f1Pg83qdKtBWP9oJKJpk0tJDDJfclXxfe4muOKDja6LWB
+	L5/ZTw/oq1Xjp45GQ0TRCenZ6F4sRbbJTReGBssojlTOO+NWE9Mqy6Kiul/QpghuH+3RWcmUrm3
+	oYR3ATIJRTnJRrFSjnj7nOhl5RSX4OXEgXW2fuQOb78V2U6DNcwizI2bmnvsvGjhm+tNiBR9nYV
+	69XAG1BX5eDdUcFtjpMf9rQsFnfjPAa/mkAOsLFNM89aWqg8wBU8kdtGP/jR8FLjZKq16n214oe
+	CExCWTmgfVhFeBDmlllUIxvQ==
+X-Received: by 2002:a05:6a00:3d09:b0:842:5711:9a2f with SMTP id d2e1a72fcca58-845508a0edamr18772015b3a.36.1782200818608;
+        Tue, 23 Jun 2026 00:46:58 -0700 (PDT)
+Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84564ed9516sm9765519b3a.57.2026.06.23.00.46.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 00:46:58 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Yixun Lan <dlan@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] irqchip/irq-riscv-imsic-early: Fix fwnode leak on state setup failure
-Date: Tue, 23 Jun 2026 15:37:44 +0800
-Message-Id: <20260623073744.2009137-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net v2 0/2] net: stmmac: dwmac-spacemit: Fix wrong macro definition
+Date: Tue, 23 Jun 2026 15:46:33 +0800
+Message-ID: <20260623074637.503864-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-CM-TRANSID: _____wD3LCvJNzpqF4UrFA--.25662S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWruw4rKFy8tFWDurWDGr13twb_yoW8Jr1kpr
-	45Jas09r15A3W8Xr4Utw18uFWrJryDCrZrKay8twnxXr45tFWkJFWDZFyfu3WDJrWfWa1a
-	9F4rtaykZF1DCaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pidWrJUUUUU=
-X-Originating-IP: [240e:604:311:e68d:298a:1bbc:177b:53c8]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbCxgspl2o6N8theAAA3G
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_003838_873878_1B1E1432 
-X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-CacheID: sfid-20260623_004659_467079_4611CEAD 
+X-CRM114-Status: UNSURE (   7.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,37 +112,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-imsic_early_acpi_init() allocates a firmware node with
-irq_domain_alloc_named_fwnode() before setting up the
-IMSIC state. If imsic_setup_state() fails, the function
-returns without freeing the allocated fwnode.
+Fix Wrong macro definition of the Spacemit K3.
 
-Free the fwnode and clear the global pointer on this
-error path, matching the cleanup already done when
-imsic_early_probe() fails.
+Changed from v1:
+- https://lore.kernel.org/netdev/20260618064143.1102179-1-inochiama@gmail.com
+1. Separate the patch into two patches
+2. Use the right macro name for the LPI interrupt.
 
-Fixes: fbe826b1c106 ("irqchip/riscv-imsic: Add ACPI support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/irqchip/irq-riscv-imsic-early.c | 2 ++
- 1 file changed, 2 insertions(+)
+Inochi Amaoto (2):
+  net: stmmac: dwmac-spacemit: Fix wrong phy interface definition
+  net: stmmac: dwmac-spacemit: Fix wrong irq definition
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
-index a7a1852b548c..b7cbfee3aeb2 100644
---- a/drivers/irqchip/irq-riscv-imsic-early.c
-+++ b/drivers/irqchip/irq-riscv-imsic-early.c
-@@ -272,6 +272,8 @@ static int __init imsic_early_acpi_init(union acpi_subtable_headers *header,
- 	rc = imsic_setup_state(imsic_acpi_fwnode, imsic);
- 	if (rc) {
- 		pr_err("%pfwP: failed to setup state (error %d)\n", imsic_acpi_fwnode, rc);
-+		irq_domain_free_fwnode(imsic_acpi_fwnode);
-+		imsic_acpi_fwnode = NULL;
- 		return rc;
- 	}
- 
--- 
-2.25.1
+ .../net/ethernet/stmicro/stmmac/dwmac-spacemit.c    | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+--
+2.54.0
 
 
 _______________________________________________
