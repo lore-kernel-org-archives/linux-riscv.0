@@ -4,63 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736F3CDB470
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 08:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F147CDB479
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 08:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NlSYIJnncJADpvWXTGsC9k987c9WTg08wCSTR91fOcE=; b=rqTfsw7RhR5oug
-	/TcNjDtTnVMlgnoNKvRWfwzg4hkfXD3IGPcwtklIGXpjB7rorIqyeXr0AleeCK+bHHr0TZsBJs/wN
-	z+cPtcz2682ecwQdoxr8FifuujGQ0oIDpq2UnzX70IFba5aFnHAdtF4U5UNLWS/IFCebQExrktynI
-	g9IM40zYbAneZTqgYxMNkFHy83QgVmsFDdBT/MbHPHi5IujyJKajmvTCuiJPbQNa5n/0TFqyUsDDu
-	waHHbTWrM1fpD/3Rslj3w2UAko2smkSXTKlipXrzZpkQMHr1gv7B/gMf3jHBI7v+IFo4Ymbm0N5WP
-	fYlEFhl/KL1WbJ8gzxsg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rk0o73WcejFvPf6pGaqVmoJdZpxfb0cKEWtmmIg1fCk=; b=BSEwOAE0LdzF4x
+	AgagNcT6YUYp9yDo7TK9PFN2eOFd5HihvKjJ3/TfbHmE/HeolHIVu7GJ8UwabJEr/inaJ1fEMGEMO
+	++N260+dZoFAgcnm2zgB6pSRLrFWOTShPkDNsDv/aVxhKPYvDycm+fZo//1m30PH2xMA5MCzLVT4o
+	w2wwCReihS0Lyt4BXZB49ukLcnr0z+XE4XNTAe8Hw3fzUka2uqzQFjm7vjAzejqqKNKRarCLbMitE
+	W/0eJaWJW/GoR35zatRPmB/k7z4xPCFgyIJFbd2L96Wntvwk9nuVnxnW1+JT+5iG9jR88QCap7cDu
+	oHnixnE8vM0dXoizOQHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIXl-00000007MhJ-0jaP;
-	Wed, 24 Jun 2026 08:01:09 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1wcJO6-00000007RYU-15va;
+	Wed, 24 Jun 2026 08:55:14 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIXi-00000007Mgl-0cuX;
-	Wed, 24 Jun 2026 08:01:07 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	id 1wcJO2-00000007RXR-1eaH
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 Jun 2026 08:55:12 +0000
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com [209.85.218.69])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4glZBR49Ywz8Xrrf;
-	Wed, 24 Jun 2026 16:01:03 +0800 (CST)
-Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
-	by mse-fl2.zte.com.cn with SMTP id 65O80qZY088369;
-	Wed, 24 Jun 2026 16:00:52 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxlzmapp02[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Wed, 24 Jun 2026 16:00:54 +0800 (CST)
-X-Zmail-TransId: 2b046a3b8eb661b-fd032
-X-Mailer: Zmail v1.0
-Message-ID: <20260624160054463wcDvJaMoydSggcNOWgcfB@zte.com.cn>
-Date: Wed, 24 Jun 2026 16:00:54 +0800 (CST)
-Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <kvm@vger.kernel.org>,
-        <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <atish.patra@linux.dev>, <alex@ghiti.fr>, <wang.yechao255@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIHYzIFJFU0VORCAwLzVdIEltcGxlbWVudCBFYWdlciBQYWdlIFNwbGl0dGluZyBmb3IgUklTQy1W?=
-X-MAIL: mse-fl2.zte.com.cn 65O80qZY088369
-X-TLS: YES
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 24 Jun 2026 16:01:03 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A3B8EBF.001/4glZBR49Ywz8Xrrf
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 801FE3FA70
+	for <linux-riscv@lists.infradead.org>; Wed, 24 Jun 2026 08:55:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1782291307;
+	bh=s7TqPSu/A9xR8G74filqeitAQECJWjPR3ecsYhIZTqU=;
+	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=jP2eOpIBDWowl6ne4pWE6R0cvt3TRpfGEnbd1sokR/Gu5d+rzxmtXS+CJfHLYueFp
+	 Q1ITVFIPvaTJzRB64Zs0trC/wKNNN8U5WVDiCc+ujFY+iXFh/BTf5ISvfO2WgeDcrt
+	 3lJjFDuMnEigVBEG2c3N6e5XoU9D0OnpUeDho1tTVmx0p2+y0hNEthmuIPcW92+BfO
+	 NW7mjXvaFZTNo2WfJNHjN7UhTRNx2RPmCjaZ6f9T4Ns5Q/cEa+Ar/AlnC6EJ04D1SY
+	 GbSAP3WK9pLmZUh1d9Xz1Kg/4JIsmlVzhzF9veXZKM2GeM31j2+yxIyuj2MOEQPwRF
+	 lqXzfb8XzydQS45iGAhQN3TI5+UvTGtWWIOqlOYM+KM84huTd8e6QxGlbXJiUrj8bJ
+	 91LJwcpEcANxmzlZDlbRlIw5/LIztB4KB4xRosVXUqYxSnfV1J8k3DK+t37ZzeWT6D
+	 2QkJs+Vd/RMwBvy+0+MzIvEKBe5hjVk+HYjt/Tk/UjwvmghK/82LRK3o2kBNvhbBtG
+	 NObL8H2ZrSHIpmkGk6kA3UkJYLZiMLpgq4jFiVaNse0Y37VCsBaM0ziSJYaMIrtsPa
+	 giZRHlYNO+Tv7u5feSJtu1k7gV3Sx6TOj+J5tF/h39brLxFAoUru02mswEALzdujez
+	 LVhtR+U6eALWvv+iU14CU0Yo=
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-c0deb2b9dceso55660166b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jun 2026 01:55:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782291307; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ene2h9atDrnKCQ4SUnKQ3WBSeQuVX8u1px4Dzhf7eKLghOPIjC27DsAy/nM8u6QV4s
+         3qU6bB0EerKRZ/EzlnHhfoWHOd6svKM9pKUhP/lr0ayvg5hwjZQf19b77xzPPX/t8PXz
+         UDmH27P0vTeyfUYv2c03nPxqyDzqcnDNC8cpYt4+EGnDwYHQTBmq1AwEUBxJyhCNymEV
+         uc6acrqWcri4bPaMXISp2eq/ojDv7vg4LIUkE7Bamud0nlgeqNfsBrqbAtoMxmc7Lr7P
+         Xs7I8DNHEE7GseSWSWQeqXziwVuAHyYFk844krhsKHGPBcLaJFk0h78bbGlrbqN/tcMZ
+         rF7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version;
+        bh=s7TqPSu/A9xR8G74filqeitAQECJWjPR3ecsYhIZTqU=;
+        fh=N06kWt8ohOoJY+NuogX0rOZzVwLc/H3lRsXRl56QZl0=;
+        b=R0hLVBh5KDURo/NJh9GZjRuSKsQsbG5x1p/Fn5IBUrJB69Y4TQfs80CAc8qztq9c46
+         XPDYugV4NcVLAxZRS7c+NZh6MKNL2v7XfHBm3GScNKIRnMrqo6RW2BGD5rNFjFa7L/Gb
+         +YaJZS0tYudMw9HLGIMFMzwXwAwzkEvmRmfJfRlnQIbadR+flDJxsJjb5kAThwWrz8lT
+         ve2vAuOcl0XN2v2jdekcZs3PjMQYrH85c0drZBBy0b1B2gQkdEe6WgawTxoVwj0/6y0f
+         NBnYRpBvliSbUa7o74F9BCcaH2HBNJUQcIGcedQ4Ksuqt1vRHjK0XyaAju3LgqF0uf0k
+         AD6A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782291307; x=1782896107;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=s7TqPSu/A9xR8G74filqeitAQECJWjPR3ecsYhIZTqU=;
+        b=Vxm6/SOafS+6Q5rTJY6FA26AfVhegHrq5HTB6Www9hDQkEuuMmxmfomNBU4qsBnpH/
+         QtcEQfseKnXe16S6Mki3K22FGMvBqzcZbzeCcTXdtFhyt60EiZrq8LcJCAWVvfdpHcbr
+         r4cRAG6TFLlv5ZfHkWsF58DdBMXg6ZQXsSSPeo63xjVfWTz0WTy5skk3yiWFguVu3C+u
+         LD8mr+ZoWN+ep17eLQ2RYkP5J9pt2YilxtjF2qDSrBsq1EgRcic0XQ05ml/21BjCqPo5
+         aDQB0qH/nw38hRy4fUriCKVFjPY+c40C0fLoRQFbqzj0GFXragc0thgwqy4dbV+cWBpi
+         qKPQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8G1HFgMs+QnEonW5Pfm3CfvIrfybTeFOw2pPazoHaVPlFj1wLOqcK2oEoWeG91DuHeaxBWHOqai9Q8NA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyc81wJcDS2FWKYnyXTVqPd42ILdAzSDQcktYHPPi83MBa0KWWa
+	KEY/s3RfsvFUqOR9RgNM+WIjfr4JAwvi0h+rd0x5blSfYHvEl1P6qJ64AwRw5PI68+DwZDHi+NH
+	K8rP1Pqif+XOwxLNK/yHYb4Eqd8PjyW4fMN1sQpYDrj/PLLsQlopE2d6gqpFdZXssgi41YJWb1e
+	IqCdftuFqDL9xxfFHobwnxzdiztYk3Z3zCLajstvB1zXYhfyu42rFuHXCj+N3s
+X-Gm-Gg: AfdE7cmMoHZfuW7gj5mM8zNjqGktXfNaahxB12io9yUT4a/ubvrsfHmDjHHmr4TXh7G
+	sTyeaE4JDtqQ0dDGVhFXQyVAaRczcX663vQ6P21sThiGvVnUeHzUG5JNq84XozDaqSNW5wwSw/l
+	Q2ldKRH91tBpdwOkUaUZWU/CRO4UmT+kSqdk/j7rtIMBYTRMnJMDyK8l2cljaoY16EoA==
+X-Received: by 2002:a17:907:d16:b0:c0e:e136:5dc9 with SMTP id a640c23a62f3a-c119eb4f188mr116946166b.37.1782291306903;
+        Wed, 24 Jun 2026 01:55:06 -0700 (PDT)
+X-Received: by 2002:a17:907:d16:b0:c0e:e136:5dc9 with SMTP id
+ a640c23a62f3a-c119eb4f188mr116942466b.37.1782291306382; Wed, 24 Jun 2026
+ 01:55:06 -0700 (PDT)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 24 Jun 2026 04:55:05 -0400
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 24 Jun 2026 04:55:05 -0400
+MIME-Version: 1.0
+In-Reply-To: <80773b89-f333-4c82-99b5-3fca44ea93b3@sifive.com>
+References: <ab2yd35rm6OgZUmb@gpd4> <20260320222916.19987-1-boqun@kernel.org>
+ <CAJM55Z-hiNDuu5UwoBe7m0wq+_WJrRY0cwopALUgpG+r3ixj8g@mail.gmail.com>
+ <ajQPAk_ALP-84obp@MacBook-0RXW5> <CAJM55Z_15U7GssTOims1=J34CYSj=8CDE_di1kJYs5hE3=J53w@mail.gmail.com>
+ <ajlW4oSzEqav6gxc@MacBook-0RXW5> <CAJM55Z_7N40ARWGoZg04p-NnAy-w10v4=Em-e4Bx4+oNYMGBLg@mail.gmail.com>
+ <80773b89-f333-4c82-99b5-3fca44ea93b3@sifive.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+User-Agent: alot/0.0.0
+Date: Wed, 24 Jun 2026 04:55:05 -0400
+X-Gm-Features: AVVi8CeYfdj8i8RJ4gjMUNpq9dpeYFKIx4E4OBuE2SSA-tZZ9Xi0mIgO0ILPk4g
+Message-ID: <CAJM55Z_aUzPieiGKPgr_iETovgyGB0EUFau+=tLxZksT9CkpYQ@mail.gmail.com>
+Subject: Re: [PATCH v2] rcu: Use an intermediate irq_work to start process_srcu()
+To: Boqun Feng <boqun@kernel.org>, Samuel Holland <samuel.holland@sifive.com>
+Cc: Joel Fernandes <joelagnelf@nvidia.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, frederic@kernel.org, 
+	neeraj.iitr10@gmail.com, urezki@gmail.com, boqun.feng@gmail.com, 
+	rcu@vger.kernel.org, Tejun Heo <tj@kernel.org>, bpf@vger.kernel.org, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	John Fastabend <john.fastabend@gmail.com>, Andrea Righi <arighi@nvidia.com>, 
+	Zqiang <qiang.zhang@linux.dev>, linux-riscv@lists.infradead.org, 
+	Sarah Emery <sarah.emery@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_010106_350281_8E34521F 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260624_015510_711437_3926E3E4 
+X-CRM114-Status: GOOD (  35.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,71 +142,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wang Yechao <wang.yechao255@zte.com.cn>
+Quoting Samuel Holland (2026-06-23 17:53:19)
+> Hi Emil,
+>
+> On 2026-06-23 4:34 AM, Emil Renner Berthing wrote:
+> > Quoting Boqun Feng (2026-06-22 17:38:10)
+> >> On Sat, Jun 20, 2026 at 05:25:25AM -0400, Emil Renner Berthing wrote:
+> >>> Quoting Boqun Feng (2026-06-18 17:30:10)
+> >>>> On Thu, Jun 18, 2026 at 08:11:36AM -0500, Emil Renner Berthing wrote:
+> >>>>> Quoting Boqun Feng (2026-03-20 23:29:16)
+> >>>>>> Since commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms
+> >>>>>> of SRCU-fast") we switched to SRCU in BPF. However as BPF instrument can
+> >>>>>> happen basically everywhere (including where a scheduler lock is held),
+> >>>>>> call_srcu() now needs to avoid acquiring scheduler lock because
+> >>>>>> otherwise it could cause deadlock [1]. Fix this by following what the
+> >>>>>> previous RCU Tasks Trace did: using an irq_work to delay the queuing of
+> >>>>>> the work to start process_srcu().
+> >>>>>>
+> >>>>>> [boqun: Apply Joel's feedback]
+> >>>>>> [boqun: Apply Andrea's test feedback]
+> >>>>>>
+> >>>>>> Reported-by: Andrea Righi <arighi@nvidia.com>
+> >>>>>> Closes: https://lore.kernel.org/all/abjzvz_tL_siV17s@gpd4/
+> >>>>>> Fixes: commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms of SRCU-fast")
+> >>>>>> Link: https://lore.kernel.org/rcu/3c4c5a29-24ea-492d-aeee-e0d9605b4183@nvidia.com/ [1]
+> >>>>>> Suggested-by: Zqiang <qiang.zhang@linux.dev>
+> >>>>>> Tested-by: Andrea Righi <arighi@nvidia.com>
+> >>>>>> Signed-off-by: Boqun Feng <boqun@kernel.org>
+> >>>>>
+> >>>>> Thanks for the patch, which is now upstream as
+> >>>>> 7c405fb3279b ("rcu: Use an intermediate irq_work to start process_srcu()")
+> >>>>>
+> >>>>> Unfortunately it seems to halt booting on the Allwinner D1 single-core RISC-V
+> >>>>> SoC both on the 7.0 and 7.1 kernels:
+> >>>>>
+> >>>>
+> >>>> By "single-core", is it only one CPU in that system?
+> >>>>
+> >>>>> https://esmil.dk/d1-7.0.txt
+> >>>>> https://esmil.dk/d1-7.1.txt
+> >>>>>
+> >>>
+> >>> Yes, the SoC only has one CPU core capable of running Linux at least.
+> >>>
+> >>>> From the callstack,
+> >>>>
+> >>>> [  243.002818] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+> >>>> [  243.010681] task:kworker/0:0     state:D stack:0     pid:9     tgid:9     ppid:2      task_flags:0x4208060 flags:0x00000000
+> >>>> [  243.021858] Workqueue: device_link_wq device_link_release_fn
+> >>>> [  243.027587] Call Trace:
+> >>>> [  243.030079] [<ffffffff80745b66>] __schedule+0x232/0x530
+> >>>> [  243.035365] [<ffffffff80745e82>] schedule+0x1e/0x94
+> >>>> [  243.040298] [<ffffffff8074aa7a>] schedule_timeout+0x6e/0xa8
+> >>>> [  243.045929] [<ffffffff8004d6a0>] wakeup_preempt+0x8c/0x98
+> >>>> [  243.051380] [<ffffffff80746aee>] wait_for_completion+0x3a/0xb0
+> >>>> [  243.057267] [<ffffffff80087226>] __synchronize_srcu.part.0+0x4e/0x60
+> >>>> [  243.063712] [<ffffffff80084414>] rcu_tasks_get_gp_data+0xc/0x10
+> >>>> [  243.069699] [<ffffffff80490898>] device_link_release_fn+0x14/0x80
+> >>>> [  243.075850] [<ffffffff8003dbd0>] process_one_work+0xf8/0x1c8
+> >>>> [  243.081583] [<ffffffff8003e282>] worker_thread+0x11a/0x254
+> >>>> [  243.087127] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+> >>>> [  243.092755] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+> >>>> [  243.098381] [<ffffffff8004499e>] kthread+0xbe/0xe4
+> >>>> [  243.103231] [<ffffffff8001349e>] ret_from_fork_kernel+0x6/0xd0
+> >>>> [  243.109127] [<ffffffff800517a8>] schedule_tail+0x8/0xac
+> >>>> [  243.114410] [<ffffffff800448dc>] kthreads_online_cpu+0x0/0x4
+> >>>> [  243.120121] [<ffffffff8074be0a>] ret_from_fork_kernel_asm+0x12/0x18
+> >>>>
+> >>>> I will guess for some reasons the irq_work was missed or the IPI never
+> >>>> happened. Is it possible for you to enable trace points ipi_send_cpu and
+> >>>> ipi_entry to get more information?
+> >>>
+> >>> I have to admit I've not used tracepoints before, but it seems like only
+> >>> ipi_send_cpu and ipi_send_cpumask is available on RISC-V.
+> >>> I've now added trace_event=ipi:* and tp_printk to the command line, and this
+> >>
+> >> Thank you! Yeah, this is what I meant ;-)
+> >>
+> >>> is what I get:
+> >>> https://esmil.dk/d1-7.0-2.txt
+> >>>
+> >>
+> >>
+> >> [    0.071132] rcu:     Max phase no-delay instances is 1000.
+> >> [    0.077837] ipi_send_cpu: cpu=0 callsite=irq_work_queue+0x22/0x4c callback=srcu_irq_work+0x0/0x58
+> >>
+> >> Is this the last line you can see from your (serial?) console, or we are
+> >> missing a few more lines? Maybe it'll should the same hung task
+> >> messages?
+> >
+> > Yes, sorry for not being clear about that. This is the exact same binary booted
+> > without the two extra command line parametrs:
+> > https://esmil.dk/d1-7.0-3.txt
+> >
+> > But with the two parameters added the board reboots before getting to the hung
+> > task messages. The bootloader enables the watchdog, so I think what happens is
+> > that the kernel halts earlier with the tracepoints enabled, and doesn't get to
+> > load the watchdog driver to keep the machine from rebooting.
+> >
+> > The same happens with just trace_event=ipi:* added, just without the last
+> > message above.
+> >
+> >>
+> >> The ipi_send_cpu message means RCU was able to send an IPI, now if there
+> >> is no ipi_handler between the send and the hung task, that would mean
+> >> the IPI was missed.
+>
+> Assuming that your OpenSBI version is exactly v1.3 per the boot log, and not
+> "v1.3 + patches", then you would indeed not be receiving IPIs. You need at least
+> this commit: https://github.com/riscv-software-src/opensbi/commit/446fa65eb579
+> (included in v1.4) or alternatively to add the CLINT to the M-mode devicetree.
 
-Eager Page Splitting is implemented on x86 and ARM. It improves the
-performance of dirty logging (used in live migrations) when guest memory
-is backed by huge pages.
+So then we're in a situation similar to [1], where upgrading the kernel from
+6.19 to 7.0 requires you to update the firmware first. To me and from the thread
+that seems like a really obvious regression. So the question is, how can we make
+the current kernel work like < 7.0 kernels worked?
 
-This series implement Eager Page Splitting for RISC-V. The Implementation
-similar to x86 and ARM. It provides two ways to split huge pages in ioctl
-context instead of on fault in vCPU context:
+[1]: https://lore.kernel.org/all/87jzgjnh9z.ffs@tglx/#t
 
-- Split huge pages when dirty logging is enabled when
-  KVM_DIRTY_LOG_INITIALLY_SET is not set. This happens when enabling the
-  KVM_MEM_LOG_DIRTY_PAGES flag of a memslot, and splits the whole memslot
-  into 4K mappings.
-
-- Split huge pages during KVM_CLEAR_DIRTY_LOG when
-  KVM_DIRTY_LOG_INITIALLY_SET is set. This happens when enabling dirty log
-  in small chunks. It does not split the whole memslot, but only the
-  requested chunk range.
-
-Changes in v3 resend:
- - Fix patch format to ensure emails reach the linux-riscv and kvm-riscv
-   mailing lists.
- - Move the free pgd_split_page_cache into kvm_arch_destroy_vm().
-
-Changes in v3:
- - Rebase on v7.1 version.
- - Add patch03 to remove the redundant TLB flush operations.
-
- sashiko-bot AI review
- (https://sashiko.dev/#/message/20260603104847.9692C1F00893%40smtp.kernel.org)
- - Check the kvm->arch.pgd before split huge pages.
- - Align the start address to PMD_SIZE before split.
- - Flushing remote TLBs before Dropping mmu_lock.
-
-Changes in v2:
- - Rename the split_page_cache.
- - Rename the kvm_riscv_split_huge_pages and
-   kvm_riscv_split_memory_region.
- - Add lockdep_assert_held check before split huge pages.
- - Update Documentation/admin-guide/kernel-parameters.txt.
- - Link to v2
- https://lore.kernel.org/linux-riscv/20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn/
-
- - Link to v1:
- https://lore.kernel.org/linux-riscv/20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn/
-
-
-Wang Yechao (5):
-  RISC-V: KVM: Add the split page cache for ioctl context
-  RISC-V: KVM: Split huge pages when dirty logging is enabled
-  RISC-V: KVM: Remove redundant TLB flush operations
-  RISC-V: KVM: Split huge pages during KVM_CLEAR_DIRTY_LOG
-  RISC-V: KVM: Add the eager_page_split module parameter
-
- .../admin-guide/kernel-parameters.txt         |  7 +-
- arch/riscv/include/asm/kvm_gstage.h           |  6 +-
- arch/riscv/include/asm/kvm_host.h             |  1 +
- arch/riscv/kvm/gstage.c                       | 21 +++--
- arch/riscv/kvm/mmu.c                          | 91 ++++++++++++++++++-
- arch/riscv/kvm/vm.c                           |  6 ++
- 6 files changed, 116 insertions(+), 16 deletions(-)
-
--- 
-2.43.5
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
