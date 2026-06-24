@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33455CDB471
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2026 22:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44A9CDB479
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 02:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fWn61K7GBM1HGgzJxiNzoVq3dw3WUV+z5JvDe3QI8dg=; b=zzH2lPAILW/PN0
-	JbDSIpyjE2rY7phSkQvj3YpGLrc8CX6e5j2yiQNjQqjTdNXGSDiPQ7gY1R/w5svUKVu9RhL/aOHxj
-	TKtLLJBzYetqJqxeFh1la3Fh9nv6KotQC25Wt1fXlXTRiKXKSupTR5Jqq0NCjALQrOUMUgoNDqa1z
-	lj0fG6RBtQHJwsvM8LNy4ihf5NjsWAbLdws+cbAKyHHzLk9nb+IGMuYHgzeNI9HGT2Q4n6usxpy9b
-	4QeZ6sxZafEKKvCJFscU9P9DzkggK+vci+Vl0tU1x2Om4cSlftYJBqOeZJXz4hmbPJNUNoVPzEx06
-	Y0rBULurjW4vjOWXd7RQ==;
+	List-Owner; bh=55cMOuSDYSt5UKnuA+EJM56NJazv0UY87RpJVdN3ApI=; b=dDoFwe20dxEbT8
+	OZZVVB0QQ+/WfqWyYzXsq1TVz4I0PUol79AtxZsHEh7LwOaegeu260xyMy4w0tRNmmhaU5W0ZE2Q7
+	GmepTjT1t6uL+goAR+vI9Jn2ey1fyjcerCzyY6Qsp4r9jB84ZznsnNZFY5P8mihs0tOV6tZ0YhIwk
+	5GRoTjFtby3TL1Wn2JKNAXwJle85se5ZQBwadYzkc29Zb+DLgJfHJ4Mxm2qRSxZ2QLV0ziIsu6AV4
+	3aBttZaGl1Gzo5PzUKbDABALNtzU6iYQQkIVDgYrAL+7FMXjUtfI5WMxL9ugm2HlK5RckTW+idZ5N
+	lIqOTu8K0K7gM5E+sfzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc9iB-00000006wyI-1bVC;
-	Tue, 23 Jun 2026 22:35:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc9i7-00000006wxk-0wSt;
-	Tue, 23 Jun 2026 22:35:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B3EC1713;
-	Tue, 23 Jun 2026 15:35:07 -0700 (PDT)
-Received: from [10.43.8.246] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B3D423F632;
-	Tue, 23 Jun 2026 15:35:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782254112; bh=SRPt/Z1N9zfS5tVZtHc1Ym/DJpa09C6NIWLnEJarli8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G5flbO5JtjY2PHGG2ojKGXX8SqI+2MRfa+r6LYez6kIYWrMO5mYm3Z02byPITyVx5
-	 yIv7eGXrRte6UNWeKzB1Oryv66h5vXQEk1IcivwwfWgcjoIuMI/XRYk4euGrcbvraI
-	 pTYpub3JKKI8VTcq9p5Y59S2sQJTxCa6efj4jEfE=
-Message-ID: <138b5b54-7e2a-45fd-9c3f-eb4b4e04d954@arm.com>
-Date: Tue, 23 Jun 2026 23:35:00 +0100
+	id 1wcDhy-00000007467-3AO9;
+	Wed, 24 Jun 2026 02:51:22 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcDhw-0000000745x-0F09
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 24 Jun 2026 02:51:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=57BwPhw+2jsNM3qNr+qscKia+O/Fj9nJ6Gilcwg5foo=; b=G2Fil9Zw6Q0/HSaETQ7i+BwrVV
+	6YfSQaasJLT2nn8/c8CV9WFkS9DsrJcE4lPCmDiZ8bMprHvOtCECMFoBmhWknGxKjhSK98/uRSqxN
+	oOuu/EOX4qu4xFlWgGSC8HtkShSU00D05CPamBN+GVYPyL3naov4dGcinHhOD7LcMkBWyyQBXDHnQ
+	u0RKq7d7NhKv4oWi5zrNqasWUGawMjgpujBxp+llzNFBTftdZ+VYvhMSawhsRPJCzO/l6WVx7hAyB
+	jsaR1ALLYjGaYErfM48C0TO8oSJTKMQJw0VxX+8iFFXftzq/z0xYsm5lR8PeE6yV0eIiFin/OSWsn
+	KoX12pHQ==;
+Received: from mx14.baidu.com ([220.181.3.101] helo=outbound.baidu.com)
+	by casper.infradead.org with smtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcDho-00000007Fmb-1kjq
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 Jun 2026 02:51:17 +0000
+X-MD-Sfrom: lirongqing@baidu.com
+X-MD-SrcIP: 172.31.50.46
+From: "Li,Rongqing" <lirongqing@baidu.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Subject: =?utf-8?B?562U5aSNOiBb5aSW6YOo6YKu5Lu2XSBSZTogW1BBVENIXVt2Ml0gQUNQSTog?=
+ =?utf-8?B?cHJvY2Vzc29yX2lkbGU6IE1hcmsgTFBJIGVudGVyIGZ1bmN0aW9ucyBhcyBf?=
+ =?utf-8?Q?=5Fcpuidle?=
+Thread-Topic: =?utf-8?B?W+WklumDqOmCruS7tl0gUmU6IFtQQVRDSF1bdjJdIEFDUEk6IHByb2Nlc3Nv?=
+ =?utf-8?B?cl9pZGxlOiBNYXJrIExQSSBlbnRlciBmdW5jdGlvbnMgYXMgX19jcHVpZGxl?=
+Thread-Index: AQHc/WFvN8E7xRYeR0ymmalWbQVFC7ZLpvGAgAFVfsA=
+Date: Wed, 24 Jun 2026 01:51:14 +0000
+Message-ID: <731d81865e444be8a9bc07dd121975f3@baidu.com>
+References: <20260616072617.2272-1-lirongqing@baidu.com>
+ <CAJZ5v0j3Wnn3exbji-6PzwjCnOCJDe_pUJU9R25Bhvh1ZE3E5A@mail.gmail.com>
+In-Reply-To: <CAJZ5v0j3Wnn3exbji-6PzwjCnOCJDe_pUJU9R25Bhvh1ZE3E5A@mail.gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.31.62.12]
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 5/8] clk: sunxi-ng: a733: Add bus clocks support
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
- <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baidu.com;
+	s=selector1; t=1782265879;
+	bh=57BwPhw+2jsNM3qNr+qscKia+O/Fj9nJ6Gilcwg5foo=;
+	h=From:To:CC:Subject:Date:Message-ID:Content-Type;
+	b=Fg3YNpSF3gXuJ8VAB0eJroD2sQzoPvt2U2OeUFXylKxIAruWloIwbwjfkaTI6CLpY
+	 wmkSHwinxsGlT6k9Zxwfx3Ur18gsRj7OluNSXqy+dLuPf3GzFLOj52sxVQC9aytGw3
+	 KHUDPO7fA9yFaOPpsFu3rWbjS+JbpU0zl1vwSz8BW1E0tzz7s3DU57qBrzHnY9qErT
+	 UYFGsfsJR5/QIwUoJqGCnLhh+N8JgIG3ZTeVzu1sMNRPpG1caM475GhThyYHCwDxDD
+	 HMmhm7lsnZdgbV/Rsw9x0jfTd0a7bahIUG7UhQ+ofB/ovs836oyUDVHIZMQOy7HFrZ
+	 7DKNNg4hSo0kQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_153515_433916_0EB914FD 
-X-CRM114-Status: GOOD (  26.79  )
+X-CRM114-CacheID: sfid-20260624_035114_131861_DC26118B 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,225 +87,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Sudeep Holla <Sudeep.Holla@arm.com>, Huisong
+ Li <lihuisong@huawei.com>, Paul Walmsley <pjw@kernel.org>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 3/10/26 08:33, Junhui Liu wrote:
-> Add the essential bus clocks in the Allwinner A733 CCU, including AHB,
-> APB0, APB1, APB_UART, NSI, and MBUS. These buses are necessary for many
-> other functional modules. Additionally clocks such as trace, gic and
-> cpu_peri are also added as they fall within the register address range
-> of the bus clocks, even though they are not strictly bus clocks.
+> > The acpi_idle_lpi_enter() function is invoked within the cpuidle path
+> > after RCU has already been disabled for the current local CPU.
+> > Consequently, ftrace's function_trace_call() expects RCU to be
+> > actively watching before recording trace data, emitting a warning if
+> > it is not.
+> >
+> > Fix this by annotating acpi_idle_lpi_enter(), the generic __weak stub,
+> > and the RISC-V implementation of acpi_processor_ffh_lpi_enter() with
+> > __cpuidle. This moves these functions into the '.cpuidle.text'
+> > section, implicitly disabling ftrace instrumentation (notrace) along
+> > this sensitive path and preventing trace-induced RCU warnings during
+> > idle entry.
+> >
+> > Fixes: a36a7fecfe60 ("ACPI / processor_idle: Add support for Low Power
+> > Idle(LPI) states")
+> > Signed-off-by: Li RongQing <lirongqing@baidu.com>
+> > ---
+> > Diff with v1: add __cpuidle to acpi_processor_ffh_lpi_enter
+> >
+> >  drivers/acpi/processor_idle.c | 4 ++--  drivers/acpi/riscv/cpuidle.c
+> > | 2 +-
+> >  2 files changed, 3 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/acpi/processor_idle.c
+> > b/drivers/acpi/processor_idle.c index 390ab5f..4482cf2 100644
+> > --- a/drivers/acpi/processor_idle.c
+> > +++ b/drivers/acpi/processor_idle.c
+> > @@ -1143,7 +1143,7 @@ static int acpi_processor_get_lpi_info(struct
+> acpi_processor *pr)
+> >         return 0;
+> >  }
+> >
+> > -int __weak acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi)
+> > +int __weak __cpuidle acpi_processor_ffh_lpi_enter(struct
+> > +acpi_lpi_state *lpi)
+> >  {
+> >         return -ENODEV;
+> >  }
+> > @@ -1156,7 +1156,7 @@ int __weak acpi_processor_ffh_lpi_enter(struct
+> acpi_lpi_state *lpi)
+> >   *
+> >   * Return: 0 for success or negative value for error
+> >   */
+> > -static int acpi_idle_lpi_enter(struct cpuidle_device *dev,
+> > +static int __cpuidle acpi_idle_lpi_enter(struct cpuidle_device *dev,
+> >                                struct cpuidle_driver *drv, int index)
+> > {
+> >         struct acpi_processor *pr;
+> > diff --git a/drivers/acpi/riscv/cpuidle.c
+> > b/drivers/acpi/riscv/cpuidle.c index 624f9bb..c76dbab 100644
+> > --- a/drivers/acpi/riscv/cpuidle.c
+> > +++ b/drivers/acpi/riscv/cpuidle.c
+> > @@ -66,7 +66,7 @@ int acpi_processor_ffh_lpi_probe(unsigned int cpu)
+> >         return acpi_cpu_init_idle(cpu);  }
+> >
+> > -int acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi)
+> > +int __cpuidle acpi_processor_ffh_lpi_enter(struct acpi_lpi_state
+> > +*lpi)
+> >  {
+> >         u32 state = lpi->address;
+> >
+> > --
 > 
-> The MBUS clock is marked as critical to ensure the memory bus remains
-> operational at all times. For the NSI and MBUS clocks, the hardware
-> requires an update bit (bit 27) to be set so that the configuration
-> takes effect and the updated parameters can be correctly read back.
+> Sashiko says that this change may not be sufficient to fully address the issue
 > 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 131 +++++++++++++++++++++++++++++++++
->   1 file changed, 131 insertions(+)
+> https://sashiko.dev/#/patchset/20260616072617.2272-1-lirongqing%40baidu
+> .com
 > 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> index cf819504c51f..68457813dbbb 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> @@ -19,6 +19,7 @@
->   #include "ccu_common.h"
->   
->   #include "ccu_div.h"
-> +#include "ccu_mp.h"
->   #include "ccu_mult.h"
->   #include "ccu_nkmp.h"
->   #include "ccu_nm.h"
-> @@ -65,6 +66,16 @@ static const struct clk_hw *pll_ref_hws[] = {
->   	&pll_ref_clk.common.hw
->   };
->   
-> +/*
-> + * There is a non-software-configurable mux selecting between the DCXO and the
-> + * PLL_REF in hardware, whose output is fed to the sys-24M clock. Although both
-> + * sys-24M and pll-ref are fixed at 24 MHz, define a 1:1 fixed factor clock to
-> + * provide logical separation:
-> + * - pll-ref is dedicated to feeding other PLLs
-> + * - sys-24M serves as reference clock for downstream functional modules
-> + */
-> +static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0);
-> +
->   #define SUN60I_A733_PLL_DDR_REG		0x020
->   static struct ccu_nkmp pll_ddr_clk = {
->   	.enable		= BIT(27),
-> @@ -371,6 +382,107 @@ static SUNXI_CCU_M_HWS(pll_de_4x_clk, "pll-de-4x", pll_de_hws,
->   static SUNXI_CCU_M_HWS(pll_de_3x_clk, "pll-de-3x", pll_de_hws,
->   		       SUN60I_A733_PLL_DE_REG, 16, 3, 0);
->   
-> +/**************************************************************************
-> + *                           bus clocks                                   *
-> + **************************************************************************/
-> +
-> +static const struct clk_parent_data ahb_apb_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .fw_name = "iosc" },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +};
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX(ahb_clk, "ahb", ahb_apb_parents, 0x500,
-> +				 0, 5,		/* M */
-> +				 24, 2,		/* mux */
-> +				 0);
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX(apb0_clk, "apb0", ahb_apb_parents, 0x510,
-> +				 0, 5,		/* M */
-> +				 24, 2,		/* mux */
-> +				 0);
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX(apb1_clk, "apb1", ahb_apb_parents, 0x518,
-> +				 0, 5,		/* M */
-> +				 24, 2,		/* mux */
-> +				 0);
-> +
-> +static const struct clk_parent_data apb_uart_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .fw_name = "iosc" },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +	{ .hw = &pll_periph0_480M_clk.common.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX(apb_uart_clk, "apb-uart", apb_uart_parents, 0x538,
-> +				 0, 5,		/* M */
-> +				 24, 3,		/* mux */
-> +				 0);
-> +
-> +static const struct clk_parent_data trace_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .fw_name = "iosc" },
-> +	{ .hw = &pll_periph0_300M_clk.hw },
-> +	{ .hw = &pll_periph0_400M_clk.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(trace_clk, "trace", trace_parents, 0x540,
-> +				 0, 5,		/* M */
-> +				 24, 3,		/* mux */
-> +				 BIT(31),	/* gate */
-> +				 0);
-> +
-> +static const struct clk_parent_data gic_cpu_peri_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +	{ .hw = &pll_periph0_480M_clk.common.hw },
-> +	{ .hw = &pll_periph0_400M_clk.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(gic_clk, "gic", gic_cpu_peri_parents, 0x560,
+> and that appears to be a valid concern.
 
-Do we really want to model the GIC clock? The A523 has one as well, as 
-we don't describe it there. And while the GICv3 binding describes a 
-clock property, the Linux driver completely ignores that.
-So if I see this correctly, this clock would become unused, and would be 
-turned off, killing the GIC? So we would at least need a CLK_IS_CRITICAL 
-flag?
+Should this fix be placed in a separate patch? CPU_PM_CPU_IDLE_ENTER_PARAM is also invoked by sbi_cpuidle_enter_state, which is itself already annotated with __cpuidle, so this appears to be a pre-existing issue in the RISC-V tree. It would be more appropriate to have RISC-V experts to fix it independently.
 
-But it's a good reminder to lift this clock to something PLL based, in 
-U-Boot's SPL, because I guess the 24MHz are rather slow.
+Thanks
 
-> +				      0, 5,	/* M */
-> +				      24, 3,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      0);
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(cpu_peri_clk, "cpu-peri", gic_cpu_peri_parents, 0x568,
+[Li,Rongqing] 
 
-What is this clock about? I don't see it referenced by any peripheral in 
-the manual.
 
-> +				      0, 5,	/* M */
-> +				      24, 3,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      0);
-> +
-> +static const struct clk_parent_data nsi_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .hw = &pll_ddr_clk.common.hw },
-> +	{ .hw = &pll_periph0_800M_clk.common.hw },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +	{ .hw = &pll_periph0_480M_clk.common.hw },
-> +	{ .hw = &pll_de_3x_clk.common.hw },
-> +};
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(nsi_clk, "nsi", nsi_parents, 0x580,
-
-Similar question like for the GIC: do we need this in the kernel, and do 
-we need to prevent this from being turned off?
-
-> +					    0, 5,	/* M */
-> +					    0, 0,	/* no P */
-> +					    24, 3,	/* mux */
-> +					    BIT(31),	/* gate */
-> +					    0, CCU_FEATURE_UPDATE_BIT);
-> +
-> +static const struct clk_parent_data mbus_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .hw = &pll_periph1_600M_clk.hw },
-> +	{ .hw = &pll_ddr_clk.common.hw },
-> +	{ .hw = &pll_periph1_480M_clk.common.hw },
-> +	{ .hw = &pll_periph1_400M_clk.hw },
-> +	{ .hw = &pll_npu_clk.common.hw },
-> +};
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588,
-> +					    0, 5,	/* M */
-> +					    0, 0,	/* no P */
-> +					    24, 3,	/* mux */
-> +					    BIT(31),	/* gate */
-> +					    CLK_IS_CRITICAL,
-> +					    CCU_FEATURE_UPDATE_BIT);
-> +
->   /*
->    * Contains all clocks that are controlled by a hardware register. They
->    * have a (sunxi) .common member, which needs to be initialised by the common
-> @@ -407,11 +519,21 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
->   	&pll_de_clk.common,
->   	&pll_de_4x_clk.common,
->   	&pll_de_3x_clk.common,
-> +	&ahb_clk.common,
-> +	&apb0_clk.common,
-> +	&apb1_clk.common,
-> +	&apb_uart_clk.common,
-> +	&trace_clk.common,
-> +	&gic_clk.common,
-> +	&cpu_peri_clk.common,
-> +	&nsi_clk.common,
-> +	&mbus_clk.common,
->   };
->   
->   static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->   	.hws	= {
->   		[CLK_PLL_REF]		= &pll_ref_clk.common.hw,
-> +		[CLK_SYS_24M]		= &sys_24M_clk.hw,
->   		[CLK_PLL_DDR]		= &pll_ddr_clk.common.hw,
->   		[CLK_PLL_PERIPH0_4X]	= &pll_periph0_4x_clk.common.hw,
->   		[CLK_PLL_PERIPH0_2X]	= &pll_periph0_2x_clk.common.hw,
-> @@ -453,6 +575,15 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->   		[CLK_PLL_DE]		= &pll_de_clk.common.hw,
->   		[CLK_PLL_DE_4X]		= &pll_de_4x_clk.common.hw,
->   		[CLK_PLL_DE_3X]		= &pll_de_3x_clk.common.hw,
-> +		[CLK_AHB]		= &ahb_clk.common.hw,
-> +		[CLK_APB0]		= &apb0_clk.common.hw,
-> +		[CLK_APB1]		= &apb1_clk.common.hw,
-> +		[CLK_APB_UART]		= &apb_uart_clk.common.hw,
-> +		[CLK_TRACE]		= &trace_clk.common.hw,
-> +		[CLK_GIC]		= &gic_clk.common.hw,
-> +		[CLK_CPU_PERI]		= &cpu_peri_clk.common.hw,
-> +		[CLK_NSI]		= &nsi_clk.common.hw,
-> +		[CLK_MBUS]		= &mbus_clk.common.hw,
->   	},
->   	.num	= CLK_FANOUT3 + 1,
->   };
-> 
 
 
 _______________________________________________
