@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A981ACDB479
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 15:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611E3CDB479
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 15:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:From
-	:Date:Reply-To:To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MjGZ65BV01w2AYjHJdYs5UtS50pO9aBofd77aYRFMxs=; b=wmw80RmV0QSrH0
-	Le1Y/LoV3Fc08euLvPmjFAn6/We/u1lHzZMCZpVaV8rDPbzGX1Vw/2yfYX0C3k5irqePpRUCpsXM/
-	wP8i0KjVDcqiDKQs5DCJ7isvKmiIA1Rtp6/GoQGzz9ovLmDGGps34hb45hIDmfCG2gwMvQUYdH06M
-	vnb2HLKrD+brx47Za4Kxpd6if6dtmb1VLFWbtvao7Jovw+4vPPSzB91tUrwpi8DTJi3lRkbl+wu6R
-	vu7/AHIQcwaBXoN86PDbOAZHEz1R2AG70vGsuhy75+v3F5tQEv9AA7z6x/6tOBBIX9QKsFadF8eny
-	lZQF7e3j83s1qz8O26AA==;
+	List-Owner; bh=MjGZ65BV01w2AYjHJdYs5UtS50pO9aBofd77aYRFMxs=; b=B4OOAUZGxgzl25
+	yx0fKmESZAdj/mxk8NPfqMZjQIyvhSFvhj41qJjeiI9Ep8DeCwDdF5tzySi+NhzjOb0QewKwkzt6P
+	C4ygCXnBnMliqIe/Lz6RlvgmuYOvc74HjbqmChFbW/MsMGu9pr6DQoMlgL+ZDS1hAiJG7XiekPr6c
+	w0mGsD9lPJwEM7kvxajcCdULog+LAJ6UP1qGmy/Xh9xEJrZIXus1uNR43/1J+DP7lfbu5A8SSbQLZ
+	kGXkdsdoj8DUzv9XtpwhfxR80gUaW7CNBCBKH5YJp0HLVE64UpqxN48jlEWIU4pNwi3US/iTx0gwS
+	EVkeHM/77f2g5Kfs0fpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPr2-000000082rE-3wpH;
-	Wed, 24 Jun 2026 15:49:32 +0000
-Received: from mail-24418.protonmail.ch ([109.224.244.18])
+	id 1wcPtc-000000083CS-2GnO;
+	Wed, 24 Jun 2026 15:52:12 +0000
+Received: from mail-106121.protonmail.ch ([79.135.106.121])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPqs-000000082q4-1EO9
+	id 1wcPtR-0000000839G-20WT
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jun 2026 15:49:31 +0000
+	Wed, 24 Jun 2026 15:52:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=dyzeeasszvatfj2stu2yzfhg5u.protonmail; t=1782316154; x=1782575354;
+	s=protonmail; t=1782316317; x=1782575517;
 	bh=hxRw5ipziotItQ2/roHsYyI6m5cg12RlqqHRE5WMBX0=;
-	h=Date:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
 	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=Jt/23ygnyg/3zpWuMlGZxuWA32S/xtNOQwHQUJ0CkTReYgMVHvPipFwSOyZikXWkE
-	 ukTAUn3GKSOml9nELzcw+Sbqip/pjaCvmJeumLllCwj9qV9vI70X2ZkhewFTJzTsUD
-	 tM3C1tco7L2sSyLCh+6aFhDSnyYx8YLZI+F7yjxaPOXOCYh9R4ml1E2qfPq9XFC+OT
-	 TF65EPciQkC/50H/t4DokPQxpEj1IanARa5CAf0R4C10Aoga1hz0Y6+D16sbdK2UR0
-	 coC1UQNuuA1j9Vtaik1cQ+t9kzjQn1F+/rT0jr4b4AGQCpxbUVKCx/81dVYKiSpnMx
-	 uXN0sXLIcJQRg==
-Date: Wed, 24 Jun 2026 15:49:03 +0000
+	b=l/gTiDOOyDr8P8EWp1ioM5/1gT4qYasDuOGu0XTKi1Ecu5Pj52Mx3LaRTK7AHBloN
+	 Ulu959JqwAWQmFnKbS9NFO1NptDdRkcewoCfSgcCi1+lDaM1CYJo5WpDa0jFW8wUss
+	 BDBnRVDAeDPTVn1XBb6na9mlQpQ7OIrMJ+83qkgZlmEDOHy/qC7A4kiBdFGcHAk/hp
+	 dkzs+4mmQDLyLDgzqRPrsp6Sq5+pAKcBq/x3UxH5sjNXBeWIY/jON3HCBD4JQOMdlm
+	 GYO/0ct7x4gQaApRRxJ/FgMx33dzKDO0GoRCMZGvmkC6HZdyuCcLNzFxt12XrQ+glw
+	 2Qqh4BHeAnsng==
+Date: Wed, 24 Jun 2026 15:51:49 +0000
+To: Danilo Krummrich <dakr@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
 From: Tim Kovalenko <tim.kovalenko@proton.me>
 Cc: nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Tim Kovalenko <tim.kovalenko@proton.me>
 Subject: [PATCH] gpu: nova-core: falcon: store bar and dev in falcon
-Message-ID: <20260624-drm-bar-refactor-v1-1-c234f22debd5@proton.me>
+Message-ID: <20260624-drm-bar-refactor-v1-1-7062899163c5@proton.me>
 Feedback-ID: 96458489:user:proton
-X-Pm-Message-ID: 874f558e5d3ca4434621cf677a712222522d3e28
+X-Pm-Message-ID: 769483a5ed6cf2cfb81a332d85cb2c46ca513187
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_084923_470797_0FC0B8E2 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20260624_085202_005655_58B3AD0B 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
