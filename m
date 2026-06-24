@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44A9CDB479
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 02:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A40CDB479
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 06:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=55cMOuSDYSt5UKnuA+EJM56NJazv0UY87RpJVdN3ApI=; b=dDoFwe20dxEbT8
-	OZZVVB0QQ+/WfqWyYzXsq1TVz4I0PUol79AtxZsHEh7LwOaegeu260xyMy4w0tRNmmhaU5W0ZE2Q7
-	GmepTjT1t6uL+goAR+vI9Jn2ey1fyjcerCzyY6Qsp4r9jB84ZznsnNZFY5P8mihs0tOV6tZ0YhIwk
-	5GRoTjFtby3TL1Wn2JKNAXwJle85se5ZQBwadYzkc29Zb+DLgJfHJ4Mxm2qRSxZ2QLV0ziIsu6AV4
-	3aBttZaGl1Gzo5PzUKbDABALNtzU6iYQQkIVDgYrAL+7FMXjUtfI5WMxL9ugm2HlK5RckTW+idZ5N
-	lIqOTu8K0K7gM5E+sfzA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ppN0TyMeTJV4T4VqbmeRXmuXw9r2Zu9RHbGXA43J64g=; b=g7/fgEooI4x6Ga
+	cjfWH9lh8LPI4GUzCrqlt30qWWh41tMgKsZAAIHsLaSEifYU0X446MPPAI8di8UOouO5u+8sVU3Qh
+	XJ1mzuO9RW3rANvyi/24EcA5V8eXuJiXG6wyTxeqvA1sblaqKEFyANT/oTB9oJXZulhHln8KqPLHy
+	XyLfHS5ssTj/c8q8Zy95givtBpdbEALP3UzVdXtjmbZd9tqLNGu/GkWKRW4O4sP0uVODeKP9MKUjX
+	pK1IkuQV/HvqyC3xYTqovZcmoSMW2G9b3n9eOkHfmIFd1WDsH0tIdccPoA1S7tYiB/7wCsHdZgpwg
+	Ci7Th7tHPSKXW2BwySMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcDhy-00000007467-3AO9;
-	Wed, 24 Jun 2026 02:51:22 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wcHH8-00000007EtP-0GCK;
+	Wed, 24 Jun 2026 06:39:54 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcDhw-0000000745x-0F09
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 24 Jun 2026 02:51:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=57BwPhw+2jsNM3qNr+qscKia+O/Fj9nJ6Gilcwg5foo=; b=G2Fil9Zw6Q0/HSaETQ7i+BwrVV
-	6YfSQaasJLT2nn8/c8CV9WFkS9DsrJcE4lPCmDiZ8bMprHvOtCECMFoBmhWknGxKjhSK98/uRSqxN
-	oOuu/EOX4qu4xFlWgGSC8HtkShSU00D05CPamBN+GVYPyL3naov4dGcinHhOD7LcMkBWyyQBXDHnQ
-	u0RKq7d7NhKv4oWi5zrNqasWUGawMjgpujBxp+llzNFBTftdZ+VYvhMSawhsRPJCzO/l6WVx7hAyB
-	jsaR1ALLYjGaYErfM48C0TO8oSJTKMQJw0VxX+8iFFXftzq/z0xYsm5lR8PeE6yV0eIiFin/OSWsn
-	KoX12pHQ==;
-Received: from mx14.baidu.com ([220.181.3.101] helo=outbound.baidu.com)
-	by casper.infradead.org with smtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcDho-00000007Fmb-1kjq
+	id 1wcHH4-00000007Esz-2cez
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jun 2026 02:51:17 +0000
-X-MD-Sfrom: lirongqing@baidu.com
-X-MD-SrcIP: 172.31.50.46
-From: "Li,Rongqing" <lirongqing@baidu.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Subject: =?utf-8?B?562U5aSNOiBb5aSW6YOo6YKu5Lu2XSBSZTogW1BBVENIXVt2Ml0gQUNQSTog?=
- =?utf-8?B?cHJvY2Vzc29yX2lkbGU6IE1hcmsgTFBJIGVudGVyIGZ1bmN0aW9ucyBhcyBf?=
- =?utf-8?Q?=5Fcpuidle?=
-Thread-Topic: =?utf-8?B?W+WklumDqOmCruS7tl0gUmU6IFtQQVRDSF1bdjJdIEFDUEk6IHByb2Nlc3Nv?=
- =?utf-8?B?cl9pZGxlOiBNYXJrIExQSSBlbnRlciBmdW5jdGlvbnMgYXMgX19jcHVpZGxl?=
-Thread-Index: AQHc/WFvN8E7xRYeR0ymmalWbQVFC7ZLpvGAgAFVfsA=
-Date: Wed, 24 Jun 2026 01:51:14 +0000
-Message-ID: <731d81865e444be8a9bc07dd121975f3@baidu.com>
-References: <20260616072617.2272-1-lirongqing@baidu.com>
- <CAJZ5v0j3Wnn3exbji-6PzwjCnOCJDe_pUJU9R25Bhvh1ZE3E5A@mail.gmail.com>
-In-Reply-To: <CAJZ5v0j3Wnn3exbji-6PzwjCnOCJDe_pUJU9R25Bhvh1ZE3E5A@mail.gmail.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [172.31.62.12]
+	Wed, 24 Jun 2026 06:39:52 +0000
+Received: from [127.0.0.2] (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowAAHpc2reztqrv78Ag--.26700S2;
+	Wed, 24 Jun 2026 14:39:40 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Wed, 24 Jun 2026 14:38:16 +0800
+Subject: [PATCH 6.12.y/6.18.y] ACPI: scan: Use async schedule function in
+ acpi_scan_clear_dep_fn()
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baidu.com;
-	s=selector1; t=1782265879;
-	bh=57BwPhw+2jsNM3qNr+qscKia+O/Fj9nJ6Gilcwg5foo=;
-	h=From:To:CC:Subject:Date:Message-ID:Content-Type;
-	b=Fg3YNpSF3gXuJ8VAB0eJroD2sQzoPvt2U2OeUFXylKxIAruWloIwbwjfkaTI6CLpY
-	 wmkSHwinxsGlT6k9Zxwfx3Ur18gsRj7OluNSXqy+dLuPf3GzFLOj52sxVQC9aytGw3
-	 KHUDPO7fA9yFaOPpsFu3rWbjS+JbpU0zl1vwSz8BW1E0tzz7s3DU57qBrzHnY9qErT
-	 UYFGsfsJR5/QIwUoJqGCnLhh+N8JgIG3ZTeVzu1sMNRPpG1caM475GhThyYHCwDxDD
-	 HMmhm7lsnZdgbV/Rsw9x0jfTd0a7bahIUG7UhQ+ofB/ovs836oyUDVHIZMQOy7HFrZ
-	 7DKNNg4hSo0kQ==
+Message-Id: <20260624-acpi-dependency-thing-v1-1-ec0d99e5bf0f@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAFd7O2oC/yXMQQrCMBBG4auUWTuQhFCLVxEX7eS3HRdjSKoop
+ Xc36vJbvLdRRVFUOnUbFTy16t0a/KEjWUabwZqaKbjQuz5EHiUrJ2RYgsmb10Vt5smHwUd3jDI
+ kam0uuOrr9z1f/q6P6QZZvzPa9w/HX0z7eQAAAA==
+X-Change-ID: 20260624-acpi-dependency-thing-b12814074c8d
+To: stable@vger.kernel.org
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, linux-acpi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Yicong Yang <yang.yicong@picoheart.com>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+X-Mailer: b4 0.15.2
+X-CM-TRANSID: qwCowAAHpc2reztqrv78Ag--.26700S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3JF4fZF47CFy7CrW7tr1kZrb_yoW7trW8pF
+	Wa9a47tr4kJw48Cr1xZw4fZr1SgrWUZ347tr43Jw1F9an8ur9FvFW7tr4UZr98CrWvka17
+	ZF4qqay8GFWqvr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
+	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x0JUJWrAUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_035114_131861_DC26118B 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20260623_233951_110586_8A7C2460 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +82,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Sudeep Holla <Sudeep.Holla@arm.com>, Huisong
- Li <lihuisong@huawei.com>, Paul Walmsley <pjw@kernel.org>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > The acpi_idle_lpi_enter() function is invoked within the cpuidle path
-> > after RCU has already been disabled for the current local CPU.
-> > Consequently, ftrace's function_trace_call() expects RCU to be
-> > actively watching before recording trace data, emitting a warning if
-> > it is not.
-> >
-> > Fix this by annotating acpi_idle_lpi_enter(), the generic __weak stub,
-> > and the RISC-V implementation of acpi_processor_ffh_lpi_enter() with
-> > __cpuidle. This moves these functions into the '.cpuidle.text'
-> > section, implicitly disabling ftrace instrumentation (notrace) along
-> > this sensitive path and preventing trace-induced RCU warnings during
-> > idle entry.
-> >
-> > Fixes: a36a7fecfe60 ("ACPI / processor_idle: Add support for Low Power
-> > Idle(LPI) states")
-> > Signed-off-by: Li RongQing <lirongqing@baidu.com>
-> > ---
-> > Diff with v1: add __cpuidle to acpi_processor_ffh_lpi_enter
-> >
-> >  drivers/acpi/processor_idle.c | 4 ++--  drivers/acpi/riscv/cpuidle.c
-> > | 2 +-
-> >  2 files changed, 3 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/acpi/processor_idle.c
-> > b/drivers/acpi/processor_idle.c index 390ab5f..4482cf2 100644
-> > --- a/drivers/acpi/processor_idle.c
-> > +++ b/drivers/acpi/processor_idle.c
-> > @@ -1143,7 +1143,7 @@ static int acpi_processor_get_lpi_info(struct
-> acpi_processor *pr)
-> >         return 0;
-> >  }
-> >
-> > -int __weak acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi)
-> > +int __weak __cpuidle acpi_processor_ffh_lpi_enter(struct
-> > +acpi_lpi_state *lpi)
-> >  {
-> >         return -ENODEV;
-> >  }
-> > @@ -1156,7 +1156,7 @@ int __weak acpi_processor_ffh_lpi_enter(struct
-> acpi_lpi_state *lpi)
-> >   *
-> >   * Return: 0 for success or negative value for error
-> >   */
-> > -static int acpi_idle_lpi_enter(struct cpuidle_device *dev,
-> > +static int __cpuidle acpi_idle_lpi_enter(struct cpuidle_device *dev,
-> >                                struct cpuidle_driver *drv, int index)
-> > {
-> >         struct acpi_processor *pr;
-> > diff --git a/drivers/acpi/riscv/cpuidle.c
-> > b/drivers/acpi/riscv/cpuidle.c index 624f9bb..c76dbab 100644
-> > --- a/drivers/acpi/riscv/cpuidle.c
-> > +++ b/drivers/acpi/riscv/cpuidle.c
-> > @@ -66,7 +66,7 @@ int acpi_processor_ffh_lpi_probe(unsigned int cpu)
-> >         return acpi_cpu_init_idle(cpu);  }
-> >
-> > -int acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi)
-> > +int __cpuidle acpi_processor_ffh_lpi_enter(struct acpi_lpi_state
-> > +*lpi)
-> >  {
-> >         u32 state = lpi->address;
-> >
-> > --
-> 
-> Sashiko says that this change may not be sufficient to fully address the issue
-> 
-> https://sashiko.dev/#/patchset/20260616072617.2272-1-lirongqing%40baidu
-> .com
-> 
-> and that appears to be a valid concern.
+From: Yicong Yang <yang.yicong@picoheart.com>
 
-Should this fix be placed in a separate patch? CPU_PM_CPU_IDLE_ENTER_PARAM is also invoked by sbi_cpuidle_enter_state, which is itself already annotated with __cpuidle, so this appears to be a pre-existing issue in the RISC-V tree. It would be more appropriate to have RISC-V experts to fix it independently.
+[ Upstream commit 7cf28b3797a81b616bb7eb3e90cf131afc452919 ]
 
-Thanks
+The device object rescan in acpi_scan_clear_dep_fn() is scheduled on a
+system workqueue which is not guaranteed to be finished before entering
+userspace. This may cause some key devices to be missing when userspace
+init task tries to find them. Two issues observed on RISCV platforms:
 
-[Li,Rongqing] 
+ - Kernel panic due to userspace init cannot have an opened
+   console.
 
+   The console device scanning is queued by acpi_scan_clear_dep_queue()
+   and not finished by the time userspace init process running, thus by
+   the time userspace init runs, no console is present.
 
+ - Entering rescue shell due to the lack of root devices (PCIe nvme in
+   our case).
+
+   Same reason as above, the PCIe host bridge scanning is queued on
+   a system workqueue and finished after init process runs.
+
+The reason is because both devices (console, PCIe host bridge) depend on
+riscv-aplic irqchip to serve their interrupts (console's wired interrupt
+and PCI's INTx interrupts). In order to keep the dependency, these
+devices are scanned and created after initializing riscv-aplic. The
+riscv-aplic is initialized in device_initcall() and a device scan work
+is queued via acpi_scan_clear_dep_queue(), which is close to the time
+userspace init process is run. Since system_dfl_wq is used in
+acpi_scan_clear_dep_queue() with no synchronization, the issues will
+happen if userspace init runs before these devices are ready.
+
+The solution is to wait for the queued work to complete before entering
+userspace init. One possible way would be to use a dedicated workqueue
+instead of system_dfl_wq, and explicitly flush it somewhere in the
+initcall stage before entering userspace. Another way is to use
+async_schedule_dev_nocall() for scanning these devices. It's designed
+for asynchronous initialization and will work in the same way as before
+because it's using a dedicated unbound workqueue as well, but the kernel
+init code calls async_synchronize_full() right before entering userspace
+init which will wait for the work to complete.
+
+Compared to a dedicated workqueue, the second approach is simpler
+because the async schedule framework takes care of all of the details.
+The ACPI code only needs to focus on its job. A dedicated workqueue for
+this could also be redundant because some platforms don't need
+acpi_scan_clear_dep_queue() for their device scanning.
+
+Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
+[ rjw: Subject adjustment, changelog edits ]
+Link: https://patch.msgid.link/20260128132848.93638-1-yang.yicong@picoheart.com
+Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+[ Vivian: Adjust system_dfl_wq -> system_unbound_wq in removed lines ]
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+Hi stable team,
+
+This fixes a problem on 6.12.y and 6.18.y with RISC-V platform with AIA
+interrupts and ACPI firmware, where devices that uses interrupt lines on
+the APLIC interrupt controller can be probed so late that userspace can
+start without crucial devices such as the console.
+
+This avoids some very head-scratching timing-dependent userspace boot
+problems.
+
+Please consider applying to 6.12.y (for e.g. Debian Trixie) and 6.18.y
+(LTS). Thanks.
+---
+ drivers/acpi/scan.c | 41 +++++++++++++++--------------------------
+ 1 file changed, 15 insertions(+), 26 deletions(-)
+
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 50f60da6cf27..16704c2a730c 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -5,6 +5,7 @@
+ 
+ #define pr_fmt(fmt) "ACPI: " fmt
+ 
++#include <linux/async.h>
+ #include <linux/module.h>
+ #include <linux/init.h>
+ #include <linux/slab.h>
+@@ -2360,46 +2361,34 @@ static int acpi_dev_get_next_consumer_dev_cb(struct acpi_dep_data *dep, void *da
+ 	return 0;
+ }
+ 
+-struct acpi_scan_clear_dep_work {
+-	struct work_struct work;
+-	struct acpi_device *adev;
+-};
+-
+-static void acpi_scan_clear_dep_fn(struct work_struct *work)
++static void acpi_scan_clear_dep_fn(void *dev, async_cookie_t cookie)
+ {
+-	struct acpi_scan_clear_dep_work *cdw;
+-
+-	cdw = container_of(work, struct acpi_scan_clear_dep_work, work);
++	struct acpi_device *adev = to_acpi_device(dev);
+ 
+ 	acpi_scan_lock_acquire();
+-	acpi_bus_attach(cdw->adev, (void *)true);
++	acpi_bus_attach(adev, (void *)true);
+ 	acpi_scan_lock_release();
+ 
+-	acpi_dev_put(cdw->adev);
+-	kfree(cdw);
++	acpi_dev_put(adev);
+ }
+ 
+ static bool acpi_scan_clear_dep_queue(struct acpi_device *adev)
+ {
+-	struct acpi_scan_clear_dep_work *cdw;
+-
+ 	if (adev->dep_unmet)
+ 		return false;
+ 
+-	cdw = kmalloc(sizeof(*cdw), GFP_KERNEL);
+-	if (!cdw)
+-		return false;
+-
+-	cdw->adev = adev;
+-	INIT_WORK(&cdw->work, acpi_scan_clear_dep_fn);
+ 	/*
+-	 * Since the work function may block on the lock until the entire
+-	 * initial enumeration of devices is complete, put it into the unbound
+-	 * workqueue.
++	 * Async schedule the deferred acpi_scan_clear_dep_fn() since:
++	 * - acpi_bus_attach() needs to hold acpi_scan_lock which cannot
++	 *   be acquired under acpi_dep_list_lock (held here)
++	 * - the deferred work at boot stage is ensured to be finished
++	 *   before userspace init task by the async_synchronize_full()
++	 *   barrier
++	 *
++	 * Use _nocall variant since it'll return on failure instead of
++	 * run the function synchronously.
+ 	 */
+-	queue_work(system_unbound_wq, &cdw->work);
+-
+-	return true;
++	return async_schedule_dev_nocall(acpi_scan_clear_dep_fn, &adev->dev);
+ }
+ 
+ static void acpi_scan_delete_dep_data(struct acpi_dep_data *dep)
+
+---
+base-commit: 275d294b2b24abcd65452198551cd8a5b8d4f775
+change-id: 20260624-acpi-dependency-thing-b12814074c8d
+
+Best regards,
+--  
+Vivian "dramforever" Wang
 
 
 _______________________________________________
