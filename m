@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E318DCDB47F
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 07:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736F3CDB470
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 08:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RmXjUVRCuofH6L4hp05B6Ll/wxXQqFu1yq+mvKVf4Lk=; b=QaSQZ6G4JSHMjg
-	ixG0uCFnMD9ElhciWsFOG6U5tx2w0PTlRn3ua2ZlWEHsdd7zYbl7RTvJF4GUO/jrKnVszMfCgJsN6
-	SByMiUKvG7OpYOvTRQBRQrevS7t+H1QL/5sbwuHJ7xeOL/X2NK9GEJcSchdaguTb/tOEjbhf196E0
-	CIO3HyD6NyQ4QhlErHLkKJv8htFK4/SPwNT6WYCau+cPIdxrNFtHgh/dgAes6b36xRWDFq0YEEreF
-	d4XT3oR+tDj0XNHhGv4hWLiwltYU9oXi3WWYlsC2cqUBRnWhqOVin4WplRaxII30GiRByX6OZT22k
-	VYQum3TLg0APEdANeHsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NlSYIJnncJADpvWXTGsC9k987c9WTg08wCSTR91fOcE=; b=rqTfsw7RhR5oug
+	/TcNjDtTnVMlgnoNKvRWfwzg4hkfXD3IGPcwtklIGXpjB7rorIqyeXr0AleeCK+bHHr0TZsBJs/wN
+	z+cPtcz2682ecwQdoxr8FifuujGQ0oIDpq2UnzX70IFba5aFnHAdtF4U5UNLWS/IFCebQExrktynI
+	g9IM40zYbAneZTqgYxMNkFHy83QgVmsFDdBT/MbHPHi5IujyJKajmvTCuiJPbQNa5n/0TFqyUsDDu
+	waHHbTWrM1fpD/3Rslj3w2UAko2smkSXTKlipXrzZpkQMHr1gv7B/gMf3jHBI7v+IFo4Ymbm0N5WP
+	fYlEFhl/KL1WbJ8gzxsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcI9y-00000007KJl-1QMb;
-	Wed, 24 Jun 2026 07:36:34 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1wcIXl-00000007MhJ-0jaP;
+	Wed, 24 Jun 2026 08:01:09 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcI9v-00000007KJK-05nE
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jun 2026 07:36:32 +0000
-Message-ID: <85b09fd7-f849-46e5-a04d-1e76524943b8@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782286587;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9T0Fze3KpG06xnYvjmlUmzBODU53xtqtwO9Goa0J3Rc=;
-	b=Mn96eHResPBSCyPsmN5dNm1kiNQkCTSsU33kbZpT8C88/niYY9SZETrVoJxvV+a+zTZQIC
-	+YvG/pf77lfyNVlF2y2HVKLafVkhr5dbK5jEpC043M26er9EcAK98KijzhbYZyI+bDoG/p
-	KKKDAelxFmIFAoDN70FKLxT6PT9CdjE=
-Date: Wed, 24 Jun 2026 00:36:17 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH v6 07/21] RISC-V: Add Sscfg extension CSR definition
-To: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Cc: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Ian Rogers <irogers@google.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
- <20260608-counter_delegation-v6-7-285b72ed65a9@meta.com>
- <ajjZkRxoh2F3vUAS@blinky>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <ajjZkRxoh2F3vUAS@blinky>
-X-Migadu-Flow: FLOW_OUT
+	id 1wcIXi-00000007Mgl-0cuX;
+	Wed, 24 Jun 2026 08:01:07 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4glZBR49Ywz8Xrrf;
+	Wed, 24 Jun 2026 16:01:03 +0800 (CST)
+Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
+	by mse-fl2.zte.com.cn with SMTP id 65O80qZY088369;
+	Wed, 24 Jun 2026 16:00:52 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxlzmapp02[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Wed, 24 Jun 2026 16:00:54 +0800 (CST)
+X-Zmail-TransId: 2b046a3b8eb661b-fd032
+X-Mailer: Zmail v1.0
+Message-ID: <20260624160054463wcDvJaMoydSggcNOWgcfB@zte.com.cn>
+Date: Wed, 24 Jun 2026 16:00:54 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>, <kvm@vger.kernel.org>,
+        <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <atish.patra@linux.dev>, <alex@ghiti.fr>, <wang.yechao255@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYzIFJFU0VORCAwLzVdIEltcGxlbWVudCBFYWdlciBQYWdlIFNwbGl0dGluZyBmb3IgUklTQy1W?=
+X-MAIL: mse-fl2.zte.com.cn 65O80qZY088369
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 24 Jun 2026 16:01:03 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A3B8EBF.001/4glZBR49Ywz8Xrrf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_003631_329083_D80392E4 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20260624_010106_350281_8E34521F 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,62 +72,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDYvMjEvMjYgMTE6NDMgUE0sIENoYXJsaWUgSmVua2lucyB3cm90ZToKPiBPbiBNb24sIEp1
-biAwOCwgMjAyNiBhdCAxMTowMToyMVBNIC0wNzAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPj4gRnJv
-bTogS2Fpd2VuIFh1ZSA8a2Fpd2VueEByaXZvc2luYy5jb20+Cj4+Cj4+IFRoaXMgYWRkcyB0aGUg
-c2NvdW50aW5oaWJpdCBDU1IgZGVmaW5pdGlvbiBhbmQgUy1tb2RlIGFjY2Vzc2libGUgaHBtZXZl
-bnQKPj4gYml0cyBkZWZpbmVkIGJ5IHNtY2RlbGVnL3NzY2NmZy4gc2NvdW50aW5oaWJpdCBhbGxv
-d3MgUy1tb2RlIHRvIHN0YXJ0L3N0b3AKPj4gY291bnRlcnMgZGlyZWN0bHkgZnJvbSBTLW1vZGUg
-d2l0aG91dCBpbnZva2luZyBTQkkgY2FsbHMgdG8gTS1tb2RlLiBJdCBpcwo+PiBhbHNvIHVzZWQg
-dG8gZmlndXJlIG91dCB0aGUgY291bnRlcnMgZGVsZWdhdGVkIHRvIFMtbW9kZSBieSB0aGUgTS1t
-b2RlIGFzCj4+IHdlbGwuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEthaXdlbiBYdWUgPGthaXdlbnhA
-cml2b3NpbmMuY29tPgo+PiBSZXZpZXdlZC1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2
-b3NpbmMuY29tPgo+PiAtLS0KPj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oIHwgMjYg
-KysrKysrKysrKysrKysrKysrKysrKysrKysKPj4gICAxIGZpbGUgY2hhbmdlZCwgMjYgaW5zZXJ0
-aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPj4gaW5kZXggYjQ1NTFhNmNmN2NiLi4yNmNi
-NzhkZWUyZmQgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPj4g
-KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAo+PiBAQCAtMjQxLDYgKzI0MSwzMSBA
-QAo+PiAgICNkZWZpbmUgU01TVEFURUVOMF9IU0VOVkNGRwkJKF9VTEwoMSkgPDwgU01TVEFURUVO
-MF9IU0VOVkNGR19TSElGVCkKPj4gICAjZGVmaW5lIFNNU1RBVEVFTjBfU1NUQVRFRU4wX1NISUZU
-CTYzCj4+ICAgI2RlZmluZSBTTVNUQVRFRU4wX1NTVEFURUVOMAkJKF9VTEwoMSkgPDwgU01TVEFU
-RUVOMF9TU1RBVEVFTjBfU0hJRlQpCj4+ICsvKiBIUE1FVkVOVCBiaXRzLiBUaGVzZSBhcmUgYWNj
-ZXNzaWJsZSBpbiBTLW1vZGUgdmlhIFNtY2RlbGVnL1NzY2NmZyAqLwo+PiArI2lmZGVmIENPTkZJ
-R182NEJJVAo+PiArI2RlZmluZSBIUE1FVkVOVF9PRgkJCShCSVRfVUxMKDYzKSkKPj4gKyNkZWZp
-bmUgSFBNRVZFTlRfTUlOSAkJCShCSVRfVUxMKDYyKSkKPj4gKyNkZWZpbmUgSFBNRVZFTlRfU0lO
-SAkJCShCSVRfVUxMKDYxKSkKPj4gKyNkZWZpbmUgSFBNRVZFTlRfVUlOSAkJCShCSVRfVUxMKDYw
-KSkKPj4gKyNkZWZpbmUgSFBNRVZFTlRfVlNJTkgJCQkoQklUX1VMTCg1OSkpCj4+ICsjZGVmaW5l
-IEhQTUVWRU5UX1ZVSU5ICQkJKEJJVF9VTEwoNTgpKQo+PiArI2Vsc2UKPj4gKyNkZWZpbmUgSFBN
-RVZFTlRIX09GCQkJKEJJVF9VTEwoMzEpKQo+PiArI2RlZmluZSBIUE1FVkVOVEhfTUlOSAkJCShC
-SVRfVUxMKDMwKSkKPj4gKyNkZWZpbmUgSFBNRVZFTlRIX1NJTkgJCQkoQklUX1VMTCgyOSkpCj4+
-ICsjZGVmaW5lIEhQTUVWRU5USF9VSU5ICQkJKEJJVF9VTEwoMjgpKQo+PiArI2RlZmluZSBIUE1F
-VkVOVEhfVlNJTkgJCQkoQklUX1VMTCgyNykpCj4+ICsjZGVmaW5lIEhQTUVWRU5USF9WVUlOSAkJ
-CShCSVRfVUxMKDI2KSkKPiBTaW5jZSB0aGVzZSBhcmUgcnYzMiBiaXRzIGZvciBhIDMyLWJpdCBy
-ZWdpc3RlciwgSSB0aGluayB0aGVzZSBzaG91bGQgYmUKPiBCSVQoKSBpbnN0ZWFkIG9mIEJJVF9V
-TEwoKQo+Cj4+ICsKPj4gKyNkZWZpbmUgSFBNRVZFTlRfT0YJCQkoSFBNRVZFTlRIX09GIDw8IDMy
-KQo+PiArI2RlZmluZSBIUE1FVkVOVF9NSU5ICQkJKEhQTUVWRU5USF9NSU5IIDw8IDMyKQo+PiAr
-I2RlZmluZSBIUE1FVkVOVF9TSU5ICQkJKEhQTUVWRU5USF9TSU5IIDw8IDMyKQo+PiArI2RlZmlu
-ZSBIUE1FVkVOVF9VSU5ICQkJKEhQTUVWRU5USF9VSU5IIDw8IDMyKQo+PiArI2RlZmluZSBIUE1F
-VkVOVF9WU0lOSAkJCShIUE1FVkVOVEhfVlNJTkggPDwgMzIpCj4+ICsjZGVmaW5lIEhQTUVWRU5U
-X1ZVSU5ICQkJKEhQTUVWRU5USF9WVUlOSCA8PCAzMikKPiBUaGVzZSBkZWZpbml0aW9ucyBhcmUg
-aWRlbnRpY2FsIHRvIHRoZSBydjY0IG9uZXMsIGNhbiB0aGVzZSBiZSByZW1vdmVkCj4gYW5kIGNh
-biB5b3UgbW92ZSB0aGUgcnY2NCBkZWZpbml0aW9ucyB0byBiZSBnbG9iYWw/CgpHb29kIGNhdGNo
-LiBXaWxsIGZpeCB0aGlzIGFuZCB0aGUgYWJvdmUgaW4gdjguCgo+IC0gQ2hhcmxpZQo+Cj4+ICsj
-ZW5kaWYKPj4gKwo+PiArI2RlZmluZSBTSVNFTEVDVF9TU0NDRkdfQkFTRQkJMHg0MAo+PiAgIAo+
-PiAgIC8qIG1zZWNjZmcgYml0cyAqLwo+PiAgICNkZWZpbmUgTVNFQ0NGR19QTU0JCQlFTlZDRkdf
-UE1NCj4+IEBAIC0zMjIsNiArMzQ3LDcgQEAKPj4gICAjZGVmaW5lIENTUl9TQ09VTlRFUkVOCQkw
-eDEwNgo+PiAgICNkZWZpbmUgQ1NSX1NFTlZDRkcJCTB4MTBhCj4+ICAgI2RlZmluZSBDU1JfU1NU
-QVRFRU4wCQkweDEwYwo+PiArI2RlZmluZSBDU1JfU0NPVU5USU5ISUJJVAkweDEyMAo+PiAgICNk
-ZWZpbmUgQ1NSX1NTQ1JBVENICQkweDE0MAo+PiAgICNkZWZpbmUgQ1NSX1NFUEMJCTB4MTQxCj4+
-ICAgI2RlZmluZSBDU1JfU0NBVVNFCQkweDE0Mgo+Pgo+PiAtLSAKPj4gMi41My4wLU1ldGEKPj4K
-Pj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4g
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKPj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Wang Yechao <wang.yechao255@zte.com.cn>
+
+Eager Page Splitting is implemented on x86 and ARM. It improves the
+performance of dirty logging (used in live migrations) when guest memory
+is backed by huge pages.
+
+This series implement Eager Page Splitting for RISC-V. The Implementation
+similar to x86 and ARM. It provides two ways to split huge pages in ioctl
+context instead of on fault in vCPU context:
+
+- Split huge pages when dirty logging is enabled when
+  KVM_DIRTY_LOG_INITIALLY_SET is not set. This happens when enabling the
+  KVM_MEM_LOG_DIRTY_PAGES flag of a memslot, and splits the whole memslot
+  into 4K mappings.
+
+- Split huge pages during KVM_CLEAR_DIRTY_LOG when
+  KVM_DIRTY_LOG_INITIALLY_SET is set. This happens when enabling dirty log
+  in small chunks. It does not split the whole memslot, but only the
+  requested chunk range.
+
+Changes in v3 resend:
+ - Fix patch format to ensure emails reach the linux-riscv and kvm-riscv
+   mailing lists.
+ - Move the free pgd_split_page_cache into kvm_arch_destroy_vm().
+
+Changes in v3:
+ - Rebase on v7.1 version.
+ - Add patch03 to remove the redundant TLB flush operations.
+
+ sashiko-bot AI review
+ (https://sashiko.dev/#/message/20260603104847.9692C1F00893%40smtp.kernel.org)
+ - Check the kvm->arch.pgd before split huge pages.
+ - Align the start address to PMD_SIZE before split.
+ - Flushing remote TLBs before Dropping mmu_lock.
+
+Changes in v2:
+ - Rename the split_page_cache.
+ - Rename the kvm_riscv_split_huge_pages and
+   kvm_riscv_split_memory_region.
+ - Add lockdep_assert_held check before split huge pages.
+ - Update Documentation/admin-guide/kernel-parameters.txt.
+ - Link to v2
+ https://lore.kernel.org/linux-riscv/20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn/
+
+ - Link to v1:
+ https://lore.kernel.org/linux-riscv/20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn/
+
+
+Wang Yechao (5):
+  RISC-V: KVM: Add the split page cache for ioctl context
+  RISC-V: KVM: Split huge pages when dirty logging is enabled
+  RISC-V: KVM: Remove redundant TLB flush operations
+  RISC-V: KVM: Split huge pages during KVM_CLEAR_DIRTY_LOG
+  RISC-V: KVM: Add the eager_page_split module parameter
+
+ .../admin-guide/kernel-parameters.txt         |  7 +-
+ arch/riscv/include/asm/kvm_gstage.h           |  6 +-
+ arch/riscv/include/asm/kvm_host.h             |  1 +
+ arch/riscv/kvm/gstage.c                       | 21 +++--
+ arch/riscv/kvm/mmu.c                          | 91 ++++++++++++++++++-
+ arch/riscv/kvm/vm.c                           |  6 ++
+ 6 files changed, 116 insertions(+), 16 deletions(-)
+
+-- 
+2.43.5
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
