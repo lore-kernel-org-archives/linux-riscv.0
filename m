@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD412CDB471
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 11:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCF7CDB471
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jun 2026 11:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:In-Reply-To:References:From:Cc:
-	Mime-Version:Message-Id:Subject:To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S82r+Ix50BnS3x8Gj+qslsjCSAtngxiw6gTM8D6Qdaw=; b=IL1D5jbjAp37hr
-	ePjK8dZUOwudo7SFeVAygtKOIM8hrdSVdb1gwElsuqlZ6N6cpAvPQJ68rRVSTUEs18iamQ8Je0Y0S
-	NQcQKetaJZlQJUQjcsacGTJ49hbyAdYm3K0lssvCJXlR8A2cKizxnzl9ORAilzNnVDvtpC/GwgZXu
-	WTYv1r/mEGWZaGk0i97lamDjqjCPcf2LxC7tN32L8NPb1/KpiDj9HfPFRtjMtYtYJQDU42XSJdtmG
-	0QsUORDYUn/Iqq9u1gBxXUT72Xyi7FQpiOAQYxP7AHHyo3jbr9VptpQ/vH0tB7KHAQhr0RZHdflUz
-	EDb/jjaViKH4nmXtz+MQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:Date:Subject:From:Message-Id:To:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=x6AEYmlUWj4DBhND2YTEMIY8ZosgWiIfb4P9rUE7VC8=; b=RcrzujMSbvmPD2
+	ZVgfo631t6B4kXAlMz3eUG8CaT8f60DzLS4fh30N/KS8WYZeksLBeFohyYHnbPar334Nn2z+NEVtm
+	dWhLk7uWzpSrvrDWOY78cuZ4XmRN0emZKRNQNrg3ywdw8lKZRCwlyGe1y9KAjBMwj/brqltY83BVq
+	CivlUXXG1wI/fxZnr/SzTvlsOBjVsr3esGy02aARtz9lOtHGEZDItRbBPosFv1GBzAoS1zyEFftpm
+	KMv7mlFJVrwmPFH+5yduzFfoWiA+3whSl76bRPj6bQ6WSLHWezdegqrkNSd+/9IZ4yft0lqJOR+GP
+	zPS65RFdFrUINE/xtHJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcLfO-00000007ezi-0QH2;
-	Wed, 24 Jun 2026 11:21:14 +0000
-Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
+	id 1wcLrR-00000007gl3-2YWN;
+	Wed, 24 Jun 2026 11:33:41 +0000
+Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcLfL-00000007eyo-2lIw
+	id 1wcLqv-00000007giM-2bzr
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jun 2026 11:21:13 +0000
+	Wed, 24 Jun 2026 11:33:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1782300061; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1782300783; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=L9dC3M6WKeorB6pYmtdGrchtIlZmxMoP1qmCnJ6UEXU=;
- b=KsyBI90vFGK3bhU/gYm5zKtl10njXNMYV+URzA0VJFQtxnxWz58N2/wyDz0014yo+Sb80I
- 0juPVERI26X9Ny86QWS4qr83+WEJcU/ICL4xeI5v+A2bVFosA8CsxCJIW4LjvCqznnhe+R
- t+RsQ87BHIRIiv6EGjbZIjMlmIAFi/xsIKKTSpQzy/vxkV6Iu09C/++9s/hUmnnd37c0x5
- jmdN6EeLI1fo6eEal6yKJQoS8euNbjYU77l1/upGfQJJ90XoizbeQ3gkt742vC/fqR0Zkc
- EgugHvqM1UDv5m7/R6muftT5ReCwYzv26gbcRcc2XNcmAMnirbnUn/+seRzxrQ==
-To: "Nam Cao" <namcao@linutronix.de>, <palmer@dabbelt.com>, <pjw@kernel.org>, 
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-Subject: Re: [PATCH] riscv: fix frame pointer in call_on_irq_stack for RV32
-X-Lms-Return-Path: <lba+26a3bbd9b+6c7a74+lists.infradead.org+qirui.001@bytedance.com>
-Message-Id: <6f1628e9-190b-4214-990f-f1c87d756ab2@bytedance.com>
+ bh=TKit7H7CPM4EWDUbyyzTYgig1VFMfeRKsIMYndF29EI=;
+ b=gQVbZdy1+/uSJFksnX5DSgzScy2pJN2knb9s0cTYqTn3yDFFGrSBVkNWGzc3nR5vcqlw5Q
+ oZG1VnR0oVoBJe+i3AVqdAxvMNNYybtXRzd2hLxzq+M5wb9YkJdfByCOpiDLbbzaH0546p
+ JR5wSL+SrY779e4UxmHrockqHGsPOaZCnnz8P3CUhydOAtgHl5PTnsgMcvO6dX+uROatZ1
+ KRa45D5PTMG+vtKw3uGGhl2YT3smobFab0VvW3QGBuV9FxkLjXwgtAKp8eelXB5YDq8jX9
+ cUWF2gTsOcg3PgkN8ZNpKrcidZB5SGDoyREeSpDroSdM/6apFF4nOuqD2qTqUQ==
 Mime-Version: 1.0
+To: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>, 
+	<alex@ghiti.fr>, <conor@kernel.org>
+Message-Id: <20260624113148.3723541-1-qirui.001@bytedance.com>
+X-Mailer: git-send-email 2.20.1
 X-Original-From: Rui Qi <qirui.001@bytedance.com>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+X-Lms-Return-Path: <lba+26a3bc06e+ece662+lists.infradead.org+qirui.001@bytedance.com>
 From: "Rui Qi" <qirui.001@bytedance.com>
-References: <20260603035305.564823-1-qirui.001@bytedance.com> <87h5muv468.fsf@yellow.woof>
-In-Reply-To: <87h5muv468.fsf@yellow.woof>
-User-Agent: Mozilla Thunderbird
-Date: Wed, 24 Jun 2026 19:19:29 +0800
+Subject: [PATCH] riscv: Fix 32-bit call_on_irq_stack() frame pointer ABI
+Date: Wed, 24 Jun 2026 19:31:48 +0800
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<samuel.holland@sifive.com>, <namcao@linutronix.de>, 
+	"Rui Qi" <qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_042111_769077_8A652CC2 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20260624_043310_110785_D58DFAF8 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,57 +69,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/23/26 2:08 AM, Nam Cao wrote:
-> "Rui Qi" <qirui.001@bytedance.com> writes:
->> --- a/arch/riscv/kernel/entry.S
->> +++ b/arch/riscv/kernel/entry.S
->> @@ -383,7 +383,7 @@ SYM_FUNC_START(call_on_irq_stack)
->>  	addi	sp, sp, -STACKFRAME_SIZE_ON_STACK
->>  	REG_S	ra, STACKFRAME_RA(sp)
->>  	REG_S	s0, STACKFRAME_FP(sp)
->> -	addi	s0, sp, STACKFRAME_SIZE_ON_STACK
->> +	addi	s0, sp, STACKFRAME_SIZE
-> 
-> Doesn't this break the calling convention? The ABI specifies that "After
-> the prologue, the frame pointer register will point to [...] the stack
-> pointer value on entry to the current procedure". The frame pointer is
-> already correct here.
-> 
-> It is the storage locations of ra and fp that are broken. The ABI says
-> "This puts the return address at fp - XLEN/8, and the previous frame
-> pointer at fp - 2 * XLEN/8".
-> 
-> Or am I confused?
-> 
-> Nam
+From: Samuel Holland <samuel.holland@sifive.com>
 
-Hi Nam,
+call_on_irq_stack() uses struct member offsets to set up its link in the
+frame record list. On riscv32, struct stackframe is the wrong size to
+maintain stack pointer alignment, so STACKFRAME_SIZE_ON_STACK includes
+padding. However, the ABI requires the frame record to be placed
+immediately below the address stored in s0, so the padding must come
+before the struct members.
 
-You are right, thank you for the correction. My patch makes fp
-point to sp + STACKFRAME_SIZE instead of the entry stack pointer,
-which violates the RISC-V calling convention.
+Fix the layout by making STACKFRAME_FP and STACKFRAME_RA the negative
+offsets from s0, instead of the positive offsets from sp.
 
-The real issue is that on RV32, STACKFRAME_SIZE (8) differs from
-STACKFRAME_SIZE_ON_STACK (16) due to alignment padding. The
-current code stores ra and prev_fp at STACKFRAME_RA/STACKFRAME_FP
-offsets from sp, which puts them at the wrong positions relative
-to fp.
+Fixes: 82982fdd5133 ("riscv: Deduplicate IRQ stack switching")
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+Link: https://lore.kernel.org/all/20240530001733.1407654-2-samuel.holland@sifive.com/
+This is a resubmission of Samuel Holland's patch [1] which was
+posted in May 2024 but never merged. The bug still exists in the
+current tree.
 
-The correct fix, as you suggested, is to keep fp = entry_sp and
-store ra and prev_fp at the ABI-mandated locations (fp - SZ and
-fp - 2*SZ).
+[1] https://lore.kernel.org/all/20240530001733.1407654-2-samuel.holland@sifive.com/
+---
+ arch/riscv/kernel/asm-offsets.c | 4 ++--
+ arch/riscv/kernel/entry.S       | 8 ++++----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-Samuel Holland actually proposed this same fix back in May 2024
-[1] using exactly this approach: redefining STACKFRAME_FP and
-STACKFRAME_RA as negative offsets from the frame pointer, so
-that the storage locations automatically match the ABI on both
-RV32 and RV64. His patch was never merged and the bug still
-exists today.
-
-I will drop my patch and resubmit Samuel's fix instead.
-
-[1]
-https://lore.kernel.org/all/20240530001733.1407654-2-samuel.holland@sifive.com/
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index af827448a609..a75f0cfea1e9 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -501,8 +501,8 @@ void asm_offsets(void)
+ 	OFFSET(SBI_HART_BOOT_STACK_PTR_OFFSET, sbi_hart_boot_data, stack_ptr);
+ 
+ 	DEFINE(STACKFRAME_SIZE_ON_STACK, ALIGN(sizeof(struct stackframe), STACK_ALIGN));
+-	OFFSET(STACKFRAME_FP, stackframe, fp);
+-	OFFSET(STACKFRAME_RA, stackframe, ra);
++	DEFINE(STACKFRAME_FP, offsetof(struct stackframe, fp) - sizeof(struct stackframe));
++	DEFINE(STACKFRAME_RA, offsetof(struct stackframe, ra) - sizeof(struct stackframe));
+ #ifdef CONFIG_FUNCTION_TRACER
+ 	DEFINE(FTRACE_OPS_FUNC,		offsetof(struct ftrace_ops, func));
+ #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index c6988983cdf7..08df724e13b9 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -386,8 +386,8 @@ SYM_CODE_END(ret_from_fork_user_asm)
+ SYM_FUNC_START(call_on_irq_stack)
+ 	/* Create a frame record to save ra and s0 (fp) */
+ 	addi	sp, sp, -STACKFRAME_SIZE_ON_STACK
+-	REG_S	ra, STACKFRAME_RA(sp)
+-	REG_S	s0, STACKFRAME_FP(sp)
++	REG_S	ra, (STACKFRAME_SIZE_ON_STACK + STACKFRAME_RA)(sp)
++	REG_S	s0, (STACKFRAME_SIZE_ON_STACK + STACKFRAME_FP)(sp)
+ 	addi	s0, sp, STACKFRAME_SIZE_ON_STACK
+ 
+ 	/* Switch to the per-CPU shadow call stack */
+@@ -405,8 +405,8 @@ SYM_FUNC_START(call_on_irq_stack)
+ 
+ 	/* Switch back to the thread stack and restore ra and s0 */
+ 	addi	sp, s0, -STACKFRAME_SIZE_ON_STACK
+-	REG_L	ra, STACKFRAME_RA(sp)
+-	REG_L	s0, STACKFRAME_FP(sp)
++	REG_L	ra, (STACKFRAME_SIZE_ON_STACK + STACKFRAME_RA)(sp)
++	REG_L	s0, (STACKFRAME_SIZE_ON_STACK + STACKFRAME_FP)(sp)
+ 	addi	sp, sp, STACKFRAME_SIZE_ON_STACK
+ 
+ 	ret
+-- 
+2.20.1
 
 _______________________________________________
 linux-riscv mailing list
