@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358C5CDB47C
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 01:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FA7CDE005
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 01:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UKGUsU57f5cGicGwOtel1vfhk4XFIolu/9GOJKE/g9E=; b=LDRuY1INeigMkz
-	gnez64FSNpz3QhBxHNbe/2MN7zwYhVdXcFvcrA8agTB5MjUNy4slwMzKzWwuDx+jmZLrntVYlvBjj
-	I06/NCBLMaE980RMRPoWVf1Q5BLLTXxcBPUxfOARrrsx2ScRa/CPrfy9i+ZNkustq5vzHJnGvD6kl
-	wnqqgn9wN9MHknO6XxvmA7vWwkqZz6wxpxafKq6slhDjsfVKxy8LbKYmxkcVjvp2iJS1nBvrb3hoQ
-	1Q8P3hO66W+cwuO10kqN2aBnKExoR9OmJRR7QHeuYkuvm+SVeDUC2vvyYSiI2dT5cHWgiNtOkfGxB
-	AcxNWIB6dH4x9MAA59+A==;
+	List-Owner; bh=/Qujn6F7WPTx37dOtHodffQJJ0Bpo4yGSqtmD4SCxos=; b=TC42nNdrJSy0yA
+	WuhMIbsKbc5LSCboXuJ1ohpwM06XspJW4vfWEEERjO6iNt3RS7KZUOg/6qy9UX8/XER7jz1oShble
+	j4WUc+3Wk0jc14/qik4Xu930rId5rWNoG/9DMJ3aCtyDp7haOM4RzM3DNEU+QCoM9hccA1KnnEAyP
+	4mmwFsqKAdeVIgJFHMgXjoigs5b2CDHGlxpGsTeiqJoxLz8RzvBI4ICd2P4pKNAQwY4wxxTWQ4qBK
+	Fz41qG2X4RKyH1OZuE0jUKvCo8ChzkAVUfoOklIcLL4C16Q0IYV9ORITvmbavIPfIQo3A+pRA1tgP
+	gQznnV790hRdOA2rapgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcZ5L-00000008WQk-1KQ7;
-	Thu, 25 Jun 2026 01:40:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcZ5G-00000008WLo-16Wa
-	for linux-riscv@lists.infradead.org;
+	id 1wcZ5G-00000008WMN-1ldz;
 	Thu, 25 Jun 2026 01:40:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcZ5D-00000008WL0-2Eb7
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 Jun 2026 01:40:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8953B42DA6;
-	Thu, 25 Jun 2026 01:40:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01E851F00ADE;
-	Thu, 25 Jun 2026 01:40:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 430476021D;
+	Thu, 25 Jun 2026 01:40:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79C831F00ADB;
+	Thu, 25 Jun 2026 01:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782351649;
-	bh=3+1SBa6s3plLPgv6YXBtmdEqRm+FuyD7NaYVrcbthKM=;
+	s=k20260515; t=1782351646;
+	bh=P7Fx5JxHcGHBnFRKWSclF7q97XV2lAuqKNGJj7WnUNk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=F7MCbKxl+O70EPek9bduJM6q253UyNtxNV/MedTuRHDXxI8N6NbymxkkmnIf3MFzo
-	 pUI46PRiV1vw9u+FM3oiNGuw55k41wbloQAZ4R6JPagHZjdmf0i6pEqKReWSTJ+oWv
-	 N1GLypLuMNtLf62sOIycPuOSYUxfHsqDxDqI9sHzEpYYqRrPKIKmVevebCqDJGCO1i
-	 JrSkIj8uj82WbbtqVpPnjqfrC10RRNy7sBAzCgCPitgRxtLkaJd6+IaZkKFrbSUmKS
-	 2zXKQO9+n221Sb9s6507bv6sUw/pIv1to9OPxkVWkbEi813YkbKcCX/h/t9Qg5tN80
-	 Tc8fQdbEPGjMg==
+	b=HDWOSHthHBds1VCbCcStWcybX0c43Mi3G/hDOuovnSnaX/QKUfIfuCGPi02ButVJ4
+	 dUMCeEQFlEzb1xlGnNeNC/wxN0N89PFBcSzPis9pNhJkGGgzLqP1nNcstxCOocwZQv
+	 CJTjRGELLFRF7beR+h7JDRaogzXfwWWVZB/sG0r19OVIcRnru6Pl7TpnJEZ8AySRKS
+	 vJ7oGrsKrMi7Aoxooi8q98TgkqghqKYSbCZthi6aM+IWpa5pkws17jOT2cQHU0tSER
+	 9LxsxD4DlszETUhULK4Zh0K3eNz6kOnIqXKmO0h1MxES+7Bz9Ugf9mHxOOvoOvKHqQ
+	 RXgF29FO/zIDA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 24 Jun 2026 18:38:36 -0700
-Subject: [PATCH v2 8/8] riscv_cbqri: Add CBQRI cache capacity-allocation
- platform driver
+Date: Wed, 24 Jun 2026 18:38:30 -0700
+Subject: [PATCH v2 2/8] riscv: Detect the Ssqosid extension
 MIME-Version: 1.0
-Message-Id: <20260624-dfustini-atl-sc-cbqri-dt-v2-8-2f8049fd902b@kernel.org>
+Message-Id: <20260624-dfustini-atl-sc-cbqri-dt-v2-2-2f8049fd902b@kernel.org>
 References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
 In-Reply-To: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
 To: Adrien Ricciardi <aricciardi@baylibre.com>, 
@@ -77,12 +76,12 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7079; i=fustini@kernel.org;
- h=from:subject:message-id; bh=J1233avAI3n0ZcS6Mr3AkIHH7tiFI9VdO14+7QXpNfM=;
- b=owGbwMvMwCF2+43O4ZsaG3kYT6slMWTZtEszH7IWluKKZRIKNPGYoP6Er/CN+uctpSazjNfu4
- 9s97ZpSRykLgxgHg6yYIsumD3kXlniFfl0w/8U2mDmsTCBDGLg4BWAivTwM/1S3TzYvsJyrzqO5
- kJFNYh1/0LsVQTtvM3//duhuI08h82mG/0mPJecnzXZ9uLVzDbPTihLul7cvBngxv+XmkDxo3l7
- KzwUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1749; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=x9zob8Q+My3JqC1K8N4GCfe7DNcEjyxyU00/yAg+r/U=;
+ b=owGbwMvMwCF2+43O4ZsaG3kYT6slMWTZtEt553RHh3wKtsnhjm1OO5Q6y25aXWld5t9J/8z3T
+ PTwOn2xo5SFQYyDQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCR9n8M/0zCnV4+ufQ1x1Jd
+ /rDe1a+HFnlLLzZ0DJF3LPD0CH7hsZCR4WPFJtOODp0dbcH+0/neCZ5rlTnJrmCyT2C+cMoDucB
+ kLgA=
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -96,223 +95,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a device-tree platform driver, bound to the generic
-riscv,cbqri-capacity-controller compatible, that registers a CBQRI
-capacity controller as the resctrl cache-allocation resource for the
-cache it governs.
-
-The driver follows the node's riscv,cbqri-cache phandle to that cache,
-reads its level, and matches it against cacheinfo to get the resctrl
-domain id and the harts sharing the cache. It then hands the controller
-to riscv_cbqri_register_cc_dt() with the riscv,cbqri-rcid count from the
-node.
-
-Nothing is vendor-specific, and the DT "reg" is the CBQRI register block
-itself, so any SoC that describes a CBQRI capacity controller in device
-tree can reuse the driver unchanged.
-
-Assisted-by: Claude:claude-opus-4-8
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
- MAINTAINERS                      |   1 +
- drivers/resctrl/Kconfig          |  12 ++++
- drivers/resctrl/Makefile         |   1 +
- drivers/resctrl/cbqri_capacity.c | 132 +++++++++++++++++++++++++++++++++++++++
- 4 files changed, 146 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 64a95a4d795a57033d3f36200d98cfb4a013ab94..e0ffccd9ed6ec3c147fb2a4198cbcf6cedd73c9f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23302,6 +23302,7 @@ F:	Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
- F:	arch/riscv/include/asm/qos.h
- F:	arch/riscv/include/asm/resctrl.h
- F:	arch/riscv/kernel/qos.c
-+F:	drivers/resctrl/cbqri_capacity.c
- F:	drivers/resctrl/cbqri_devices.c
- F:	drivers/resctrl/cbqri_internal.h
- F:	drivers/resctrl/cbqri_resctrl.c
-diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-index f8566c003d49570b844908d57c231d73c3bb0f6e..3645dd643117c49a5379dd33fb5ee955f4f8eb3a 100644
---- a/drivers/resctrl/Kconfig
-+++ b/drivers/resctrl/Kconfig
-@@ -41,6 +41,18 @@ menuconfig RISCV_CBQRI
- 
- if RISCV_CBQRI
- 
-+config RISCV_CBQRI_CAPACITY
-+	bool "RISC-V CBQRI cache capacity-allocation controller"
-+	depends on OF
-+	help
-+	  Enable driver for a RISC-V CBQRI capacity controller that
-+	  governs a CPU cache, matching the "riscv,cbqri-capacity-controller"
-+	  compatible. The controller's cache phandle gives the cache level and the
-+	  harts that share it, which the driver registers as a resctrl
-+	  cache-allocation resource.
-+
-+	  Say N unless your device tree describes a CBQRI capacity controller.
-+
- endif
- 
- config RISCV_CBQRI_RESCTRL_FS
-diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
-index a7631712dba9e1c9dd2a0b07a089204671f85d1f..c8339113ef1f735cd27c4452ae2f73ab348c3230 100644
---- a/drivers/resctrl/Makefile
-+++ b/drivers/resctrl/Makefile
-@@ -7,3 +7,4 @@ ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
- obj-$(CONFIG_RISCV_CBQRI)			+= cbqri.o
- cbqri-y						+= cbqri_devices.o
- cbqri-$(CONFIG_RISCV_CBQRI_RESCTRL_FS)		+= cbqri_resctrl.o
-+cbqri-$(CONFIG_RISCV_CBQRI_CAPACITY)		+= cbqri_capacity.o
-diff --git a/drivers/resctrl/cbqri_capacity.c b/drivers/resctrl/cbqri_capacity.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..2172432eb3287f5c7db9ab44d0a4dae45c4fa2cc
---- /dev/null
-+++ b/drivers/resctrl/cbqri_capacity.c
-@@ -0,0 +1,132 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Platform driver for a RISC-V CBQRI capacity controller that backs a CPU
-+ * cache. The controller is described in device tree by the generic
-+ * "riscv,cbqri-capacity-controller" compatible together with a phandle to the
-+ * cache node it governs. The driver hands it to the CBQRI core, which probes
-+ * the capabilities register and exposes a controller that supports allocation
-+ * as the resctrl cache allocation resource for that cache.
-+ */
-+
-+#define pr_fmt(fmt) "cbqri-capacity: " fmt
-+
-+#include <linux/cacheinfo.h>
-+#include <linux/cpu.h>
-+#include <linux/cpumask.h>
-+#include <linux/ioport.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/printk.h>
-+#include <linux/riscv_cbqri.h>
-+#include <linux/types.h>
-+
-+static int cbqri_capacity_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cbqri_controller_info info = {};
-+	struct device_node *cache_np;
-+	cpumask_var_t cpu_mask;
-+	struct resource *res;
-+	u32 rcid_count, cache_level;
-+	int cache_id, cpu, ret;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return -EINVAL;
-+
-+	ret = of_property_read_u32(dev->of_node, "riscv,cbqri-rcid", &rcid_count);
-+	if (ret) {
-+		dev_err(dev, "missing riscv,cbqri-rcid\n");
-+		return ret;
-+	}
-+
-+	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
-+	if (!cache_np) {
-+		dev_err(dev, "missing riscv,cbqri-cache phandle\n");
-+		return -EINVAL;
-+	}
-+
-+	ret = of_property_read_u32(cache_np, "cache-level", &cache_level);
-+	if (ret) {
-+		dev_err(dev, "%pOF: missing cache-level\n", cache_np);
-+		goto out_put;
-+	}
-+
-+	if (!zalloc_cpumask_var(&cpu_mask, GFP_KERNEL)) {
-+		ret = -ENOMEM;
-+		goto out_put;
-+	}
-+
-+	/*
-+	 * Associate the controller with its cache instance via
-+	 * cacheinfo. The matching cache provides the cache id and the
-+	 * set of harts that share the cache.
-+	 */
-+	cache_id = -1;
-+	cpus_read_lock();
-+	for_each_online_cpu(cpu) {
-+		struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, cache_level);
-+
-+		if (ci && ci->fw_token == cache_np) {
-+			cache_id = ci->id;
-+			cpumask_copy(cpu_mask, &ci->shared_cpu_map);
-+			break;
-+		}
-+	}
-+	cpus_read_unlock();
-+
-+	if (cache_id < 0) {
-+		dev_err(dev, "%pOF: no online hart reports an L%u cache for this node\n",
-+			cache_np, cache_level);
-+		ret = -ENODEV;
-+		goto out_free;
-+	}
-+
-+	info.type = CBQRI_CONTROLLER_TYPE_CAPACITY;
-+	info.addr = res->start;
-+	info.size = resource_size(res);
-+	info.rcid_count = rcid_count;
-+	info.cache_id = cache_id;
-+
-+	ret = riscv_cbqri_register_cc_dt(&info, cache_level, cpu_mask);
-+	if (ret) {
-+		dev_err(dev, "failed to register capacity controller: %d\n", ret);
-+		goto out_free;
-+	}
-+
-+	dev_info(dev, "registered L%u capacity controller at %pa (cache_id=%d, rcid=%u)\n",
-+		 cache_level, &info.addr, cache_id, rcid_count);
-+
-+out_free:
-+	free_cpumask_var(cpu_mask);
-+out_put:
-+	of_node_put(cache_np);
-+	return ret;
-+}
-+
-+static const struct of_device_id cbqri_capacity_of_match[] = {
-+	{ .compatible = "riscv,cbqri-capacity-controller" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, cbqri_capacity_of_match);
-+
-+static struct platform_driver cbqri_capacity_driver = {
-+	.probe	= cbqri_capacity_probe,
-+	.driver = {
-+		.name		= "cbqri-capacity",
-+		.of_match_table	= cbqri_capacity_of_match,
-+		/*
-+		 * The controller is registered permanently into the
-+		 * CBQRI core for the life of the system. Block unbind
-+		 * so userspace cannot leave a dangling controller.
-+		 */
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+
-+/*
-+ * Register at device_initcall so probe runs before the CBQRI core's
-+ * late_initcall which walks the cbqri_controllers list.
-+ */
-+builtin_platform_driver(cbqri_capacity_driver);
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U3Nxb3NpZCBpcyB0aGUgUklTQy1WIFF1YWxpdHktb2YtU2VydmljZSAoUW9TKSBJZGVudGlmaWVy
+cyBzcGVjaWZpY2F0aW9uCndoaWNoIGRlZmluZXMgdGhlIFN1cGVydmlzb3IgUmVzb3VyY2UgTWFu
+YWdlbWVudCBDb25maWd1cmF0aW9uIChzcm1jZmcpCnJlZ2lzdGVyLgoKTGluazogaHR0cHM6Ly9n
+aXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFnL3YxLjAKQ28tZGV2ZWxv
+cGVkLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFsQHNlbWloYWxmLmNvbT4KU2lnbmVkLW9mZi1i
+eTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+ClNpZ25lZC1vZmYtYnk6IERy
+ZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vaHdjYXAuaCB8IDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIHwgMSArCiAy
+IGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAppbmRl
+eCA3ZWY4ZTVmNTVjOGRjZjI2ZTNkY2M2NzZkYjMyYzJmMTZiN2U3ZjVhLi5iODNkYWU1Y2ViYjk5
+MjY5OTAyMjc5ZmFhM2MwM2ZkMjNmN2Q0MzQyIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2h3Y2FwLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCkBAIC0x
+MTIsNiArMTEyLDcgQEAKICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQ0xTRAkJMTAzCiAjZGVmaW5l
+IFJJU0NWX0lTQV9FWFRfWklDRklMUAkJMTA0CiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklDRklT
+UwkJMTA1CisjZGVmaW5lIFJJU0NWX0lTQV9FWFRfU1NRT1NJRAkJMTA2CiAKICNkZWZpbmUgUklT
+Q1ZfSVNBX0VYVF9YTElOVVhFTlZDRkcJMTI3CiAKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2Vy
+bmVsL2NwdWZlYXR1cmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwppbmRleCBm
+NDZhYTU2MDJkNzRkMzMyMjk2MDU1OWZiNzNiYjUwMTUyOTA5MzQ0Li42NjhhN2U3MWZmMWM2NGU4
+YmQzNmJhNmVhOTRmOGE1ZGQ0NjAwMDE2IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9j
+cHVmZWF0dXJlLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCkBAIC01ODIs
+NiArNTgyLDcgQEAgY29uc3Qgc3RydWN0IHJpc2N2X2lzYV9leHRfZGF0YSByaXNjdl9pc2FfZXh0
+W10gPSB7CiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3NhaWEsIFJJU0NWX0lTQV9FWFRfU1NBSUEp
+LAogCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzY29mcG1mLCBSSVNDVl9JU0FfRVhUX1NTQ09GUE1G
+KSwKIAlfX1JJU0NWX0lTQV9FWFRfU1VQRVJTRVQoc3NucG0sIFJJU0NWX0lTQV9FWFRfU1NOUE0s
+IHJpc2N2X3hsaW51eGVudmNmZ19leHRzKSwKKwlfX1JJU0NWX0lTQV9FWFRfREFUQShzc3Fvc2lk
+LCBSSVNDVl9JU0FfRVhUX1NTUU9TSUQpLAogCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzdGMsIFJJ
+U0NWX0lTQV9FWFRfU1NUQyksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3ZhZGUsIFJJU0NWX0lT
+QV9FWFRfU1ZBREUpLAogCV9fUklTQ1ZfSVNBX0VYVF9EQVRBX1ZBTElEQVRFKHN2YWR1LCBSSVND
+Vl9JU0FfRVhUX1NWQURVLCByaXNjdl9leHRfc3ZhZHVfdmFsaWRhdGUpLAoKLS0gCjIuMzQuMQoK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
