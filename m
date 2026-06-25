@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40ED8CDB47F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 08:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C4BCDB466
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 08:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=INaMDJJ/9Hdm0u4kT1LHrWzmLjmEVtex6lrRGRyF2qs=; b=C3SSdYd36gfMkE
-	RtE1/hOuz0Z/mx3r3Zn5IhWLEgtzQH0llgULIHSPnHhTIH2pYnHkOovgI5hVlQ7nKDCVNL3MXZROR
-	rF+3Gd7xE8UrKMV06tYYrZHmXIAJ1torlOBFs7nsX1d7sMVqTqzdUcyKfOZlBCZfLdhT2iUjixEaN
-	2Rp6JNGm5DgYXyuE+zSBx97OM2hIz6vXySvUnBM9f9LiUzKCO1IPqeim9SJqkVZc6cY/VFQRkCZ0s
-	1X//WfuWlXxGLPYqavO3yqDq2vJc7zPnwubCfzu+FBTWuKrW/gALxyMH1uUg7e/rJz1QIfNFKsSMJ
-	vpj2YqH+LGhjUOtjG7WQ==;
+	List-Owner; bh=8nvGQjdB+Nq2xK7Da4U5+yKHUY28mZ8vGSm7gbkVJGA=; b=Q6eEZHDLQOVtfe
+	RZkgOZhIFvaa8WUtvGFEs1DF5fyyVR5nhp/iTarIYWWRQ7mxmqhr08budygikoSh86qetKuLJSmX5
+	MQO7DTLmWI+5vmVH92TyR9Xxyw7K49hjbat1rhG8zaVkCvj9rajrM+23OvszUnOnquzh8B5LAmCNh
+	vPO92XWjqorhNWq7iJ0vII1Q54n8i1BliqE5LdDi4uh4bKT2mgZ6HxhHx6sVc3uoCiA7fhEdrGwhI
+	IJxMdUaTVF3tYv+JsDt7NCSjOFIt0dbwvLUGQjlVcs9/Za8pRhgpOXlmIqJVp9ktrxp/CXt6+VRqc
+	0BuuPnFRc0oiXKKn+89w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcfjk-00000008qbq-0jCf;
-	Thu, 25 Jun 2026 08:47:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wcfln-00000008qtt-2O7y;
+	Thu, 25 Jun 2026 08:49:11 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcfji-00000008qbW-1rDt;
-	Thu, 25 Jun 2026 08:47:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7C9940BDA;
-	Thu, 25 Jun 2026 08:47:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 501611F00A3A;
-	Thu, 25 Jun 2026 08:46:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782377221;
-	bh=Wt19WGGroORa/wioMj0fJmzojKxoKhuinoNaN6kTkuY=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=du4wyvFcpe6h8cJqJ8+wwVFQIsPj3+N4yyrOgN/qduox/8HRpcOdji6jhccFrjrVm
-	 fe8cWu0TwoYUMUMvAnwH5ORIIJS4JfTppMLZ25rxdQvGMNgIkYe5fdXI5cjcxjOFOi
-	 pIVScnjWjkimeuSoBvuRunDdMYJRg2MNpvUeqdBcAvWj4Ajcj47cEbqJxmHXOXTbrq
-	 IEEjEz95TyfdFohXIjCZhgHI2OAqNKZ+Zb8mHmPCjMMrPDDcqgvM3Sqf2cNQbIJnHF
-	 SHC6Oq2q9FY3gbYFLnSDpvOpnDb4GmBPDmTyTMv6ojjv53h+5tNtueC1cRFQtHQxHf
-	 YQHHT5H1S8rpg==
+	id 1wcfll-00000008qtJ-0Irx
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 Jun 2026 08:49:10 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782377346;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CH2pCCXt5kqod2CyOIkwzroP+4v71HSKPpSDEHo8rcw=;
+	b=TbtMD0J7g/R4Uw+RkH5qfOreFOOYyqsOER3GSvIfvyoAvRbuSaTb9Ccqu3FHLDWmSNpBdC
+	ZPtYA//tgi/Vvi6I6Wfpvn1m3C89eFgCGrsGSsrr+jYxqkzZ44+3ddCwORtLYCt2Pz9vIJ
+	jTgyReZ1sUUskOJs3CmN4Ob84dVxYDf288rzQPXQufDAVsyySkGtzkE0xDDyGHnPYuYmNj
+	U2rTXFg38YbH7HUhql3QWo/Gs57m50Fz7dT70WqtDHhOrnnF2kwhibB3MIU5ijZrU0RlXD
+	EIBNfw9bIhWTbHVGmUcSv7rxRqxdfBcspneDxogWNv9aIj4Z7vPegiayQ/VFmw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782377346;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CH2pCCXt5kqod2CyOIkwzroP+4v71HSKPpSDEHo8rcw=;
+	b=vwmhRcnf4gj5RyGzSPY4CXrQM/apW4IJ7nIHin4pgmIcYedDnHRugW1ruGzl1F1ZSLoWLN
+	VAT0sy+vRUoPxwCA==
+To: Michael Ellerman <mpe@kernel.org>, Rui Qi <qirui.001@bytedance.com>,
+ palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ conor@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ samuel.holland@sifive.com
+Subject: Re: [PATCH] riscv: Fix 32-bit call_on_irq_stack() frame pointer ABI
+In-Reply-To: <2e47388a-8883-4b44-b440-a00b8e622733@kernel.org>
+References: <20260624113148.3723541-1-qirui.001@bytedance.com>
+ <2e47388a-8883-4b44-b440-a00b8e622733@kernel.org>
+Date: Thu, 25 Jun 2026 10:49:05 +0200
+Message-ID: <87pl1fvwce.fsf@yellow.woof>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/6] treewide: remove unnecessary invalid range checks
- in memblock iteration loops
-From: Mike Rapoport <rppt@kernel.org>
-To: Sang-Heon Jeon <ekffu200098@gmail.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Huacai Chen <chenhuacai@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
- Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
- Will Deacon <will@kernel.org>, Alexander Potapenko <glider@google.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, Andrey Konovalov <andreyknvl@gmail.com>, 
- David Hildenbrand <david@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
- kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, 
- linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- WANG Xuerui <kernel@xen0n.name>
-In-Reply-To: <20260621145919.1453-1-ekffu200098@gmail.com>
-References: <20260621145919.1453-1-ekffu200098@gmail.com>
-Date: Thu, 25 Jun 2026 11:46:51 +0300
-Message-Id: <178237721125.146960.11801589845266315987.b4-review@b4>
-X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260625_014909_269918_C3A4105C 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +78,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Jun 2026 23:59:10 +0900, Sang-Heon Jeon <ekffu200098@gmail.com> wrote:
-> treewide: remove unnecessary invalid range checks in memblock iteration loops
-> 
-> The memblock API guarantees that for_each_mem_range() and
-> for_each_mem_pfn_range() never return an invalid range, meaning start is
-> always less than end.
-> 
-> Several memblock callers still have unnecessary invalid range checks in
-> their loop bodies, so remove them.
-> 
-> [...]
+Michael Ellerman <mpe@kernel.org> writes:
+> On 24/6/26 9:31 pm, Rui Qi wrote:
+>> call_on_irq_stack() uses struct member offsets to set up its link in the
+>> frame record list. On riscv32, struct stackframe is the wrong size to
+>> maintain stack pointer alignment, so STACKFRAME_SIZE_ON_STACK includes
+>> padding. However, the ABI requires the frame record to be placed
+>> immediately below the address stored in s0, so the padding must come
+>> before the struct members.
+>> 
+>> Fix the layout by making STACKFRAME_FP and STACKFRAME_RA the negative
+>> offsets from s0, instead of the positive offsets from sp.
+>
+> The fact that all uses of the defines need to add back STACKFRAME_SIZE_ON_STACK
+> makes me think the defines don't have the most useful values.
+>
+> If the values were offset + padding then the uses could be left unchanged.
 
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+At the moment we only have only one user which has nothing except the
+stack frame on the stack. Other potential users do not necessarily add back
+STACKFRAME_SIZE_ON_STACK.
 
--- 
-Sincerely yours,
-Mike.
+The offset value depends on the function. So I think it's better to
+leave that offset calculation to users.
 
+Nam
 
 _______________________________________________
 linux-riscv mailing list
