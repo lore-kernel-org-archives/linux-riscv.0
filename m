@@ -4,58 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B04CDE009
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 19:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D2FCDE000
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 19:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1LOcgrZr+5fZGSsRY7Y9+RbCbpOUX27GyUp+soC83nU=; b=CoXgGaXHE4oMQx
-	ZEJd5OrLchqgA4m6fkQTWQH7F98ol+KNwh5IJlCSW9tupqEq2J+0BcaYrgtL6BxtlWibU57IlbFd3
-	7cWBPIDLfNozyZfkDl8QUIblyBp8hvvHKgD8RRWAmuyrtTU1Nla1Nw/GpqmsxH14I8jkeF+oTdBUL
-	D+Yv/FAxI8uHIlWBbTu5YQ/Ewftc/F9n9blnKSFvWrMFwDmB5i4NytN34R7dUYCZQTGPg/pkYkV1F
-	xPNahNcloDNnilgXDS7OWTHKY7cLRMM+0ZjPtIljo52iJhkcxGHECh938SCTKZ50jr7o3PG7fEBav
-	01jELoOwgG1JMiuUJEFg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QbX4sPmDrUOrWxiVKIvc2rwouUhXq+UGAKhD40aitfg=; b=LT6w91SLYhrWu6jKCW3EosStEM
+	dV3JnIn181hR1+JWnmZJxiATsKy9PS9zVV0JWiQmcHZRTJUA53oHytUVFTyn0IncgFmbzlVzQrH0Y
+	I4vnqePHxgIaX0k744Xd4JposiVoplMG3cwZWxBCZRCWXyJEU/W4xhKnNepw+CMy8E22U5SYTFZ8z
+	BTDqhkKREalt3fHCOodOSmsGlRStSZR7biURhKOFapUEBCTT4yKqdXo/Pay1/UFBoEelsq8SKwGYU
+	hauGK4PGHTt3Mv9QMu3HmqAqezEasjq1zThjI2cQrZO1fPTRpLcIuiyAV/h7WWn7HnaMpJCZFBZg8
+	EzzHTRbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcpSm-00000009j24-2vte;
-	Thu, 25 Jun 2026 19:10:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wcpe9-00000009jmw-2xoK;
+	Thu, 25 Jun 2026 19:21:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcpSk-00000009j1X-2nyv
+	id 1wcpe7-00000009jmj-3Pck
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 19:10:10 +0000
+	Thu, 25 Jun 2026 19:21:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E66760098;
-	Thu, 25 Jun 2026 19:10:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51DFE1F000E9;
-	Thu, 25 Jun 2026 19:10:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 25C8D43BED;
+	Thu, 25 Jun 2026 19:21:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82CDF1F00A3A;
+	Thu, 25 Jun 2026 19:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782414609;
-	bh=LyHwI89PwTTZzRxgq2rdQ5zV3fciS/lmKH9dk7gb0Q8=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=dhkW32UrkT5rDdGocO9RtnOj1cYeB+4/hhudpM91GZ8p0UQrshZyyFnWwRA4TxZnk
-	 /yN0pgLfyMbp1JWv0GkbLeeqbc9zkStPvfxpx5OYlt8ijUiB/mKbm2wNB9KfR/Bdls
-	 DfGJis2oGwDXT1/1Z4iYEVIFaVunhyHVCf3OIWIIBL0YPHPyQpKepDfZGMvcRm19Rc
-	 NvsduIZ2vaeech95Cw9qLS8SY49fPaY2n3oPNZdRcX50q5XvTVoguacBKFvr0ozwTu
-	 wlaPIT/AIRZ9lD+A/Gu5Smnjt/UnRYF2UFbV0YNIoeN7blTiAh4q9+PI0G7GB5/KPA
-	 z//+0sMmBEWsg==
-Date: Thu, 25 Jun 2026 13:10:07 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: XianLiang Huang <huangxianliang@lanxincomputing.com>
-cc: tjeznach@rivosinc.com, markus.elfring@web.de, joro@8bytes.org, 
-    will@kernel.org, robin.murphy@arm.com, paul.walmsley@sifive.com, 
-    palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-    iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 RESEND] iommu/riscv: check pte null pointer before
- use
-In-Reply-To: <20250807033252.1613-1-huangxianliang@lanxincomputing.com>
-Message-ID: <4264ac5c-8968-24f7-4829-cfe30e8ac372@kernel.org>
-References: <20250807033252.1613-1-huangxianliang@lanxincomputing.com>
+	s=k20260515; t=1782415314;
+	bh=lV3CoJyooD6jU7hICvd3lIpUOrVSMEvR/t4ecu6q5rs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SvRe8m86TNm1UW3zNJsZrT0BzJSY0+8f0DSj0iVoSoA0jhdiavqtMJHQ8Dki+KsTI
+	 WrHv6iCEUmvtYbffOBUriWLgSmI7Kpf+UWdOSrwAjWiA2g+DdwyvPIdUDUu4/X9ryk
+	 JoJvt7mSZj4cY7d4//iqVOH8IyK/z6hJzgQVWgkpc0xL4541j148qswU82AC8LFUev
+	 qGF8Z3U5vStorIgm1wwd0KxK+qAfpdnwxX+DFe6HwucahLHGkunI2CC1YKnZS31LfP
+	 eLxhOCJ4CBDw3UmY4g8no6iBsXmvsK9pwnKKMEERHBIKhtzOyWgzWybW7i7byo8JmD
+	 Li3NtXZpWJeGg==
+Date: Thu, 25 Jun 2026 12:21:52 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Fenghua Yu <fenghua.yu@intel.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
+	James Morse <james.morse@arm.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Newman <peternewman@google.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Tony Luck <tony.luck@intel.com>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>,
+	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
+	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org,
+	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: Add generic CBQRI controller
+ binding
+Message-ID: <aj1_0AnIBk8_xoDd@gen8>
+References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
+ <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
+ <20260625-cupbearer-failing-9ce0abf97b93@spud>
 MIME-Version: 1.0
+In-Reply-To: <20260625-cupbearer-failing-9ce0abf97b93@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,38 +95,185 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5253641608102404440=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Thu, 7 Aug 2025, XianLiang Huang wrote:
-
-> The riscv_iommu_pte_fetch can return NULL when the provided iova is not
-> yet mapped, the caller should check if the returned pointer is NULL or
-> not, but riscv_iommu_iova_to_phys missed this, which will then lead to
-> a kernel panic.
-> 
-> Check the pointer before using it to avoid the bug. Now, when
-> iova_to_phys is called with an unmapped iova, the kernel will not crash
-> here.
-> 
-> Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
-> Cc: Tomasz Jeznach <tjeznach@rivosinc.com>
-> Signed-off-by: XianLiang Huang <huangxianliang@lanxincomputing.com>
-
-Going through some of the Patchwork backlog.  The code that this patch 
-changes no longer appears to exist.  Care to take a look to see if 
-something like this is still appropriate?
-
-thanks,
+--===============5253641608102404440==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="b+lAH89uI5sNQSH1"
+Content-Disposition: inline
 
 
-- Paul
+--b+lAH89uI5sNQSH1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jun 25, 2026 at 05:19:28PM +0100, Conor Dooley wrote:
+> On Wed, Jun 24, 2026 at 06:38:35PM -0700, Drew Fustini wrote:
+> > Document the generic compatibles for capacity and bandwidth controllers
+> > that implement the RISC-V CBQRI specification. The binding also
+> > describes the common riscv,cbqri-rcid and riscv,cbqri-mcid properties,
+> > and the optional riscv,cbqri-cache phandle that links a capacity
+> > controller to the cache whose capacity it allocates.
+> >=20
+> > Assisted-by: Claude:claude-opus-4-8
+> > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > Signed-off-by: Drew Fustini <fustini@kernel.org>
+> > ---
+> >  .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++++++++=
+++++++++
+> >  MAINTAINERS                                        |  1 +
+> >  2 files changed, 98 insertions(+)
+
+Thanks for the review.
+
+[..]
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - items:
+> > +          - description: Tenstorrent Ascalon Shared Cache
+> > +            const: tenstorrent,ascalon-sc-cbqri
+> > +          - const: riscv,cbqri-capacity-controller
+> > +      - enum:
+> > +          - riscv,cbqri-capacity-controller
+> > +          - riscv,cbqri-bandwidth-controller
+>=20
+> Please modify this, as has been done for other riscv spec related
+> bindings, to let people get away without using device-specific
+> compatibles.
+>=20
+> In this case, you can just delete the first entry from this enum, since
+> it already has a user and only have to implement this feedback for the
+> second entry.
+
+Would this work?
+
+properties:
+  compatible:
+    oneOf:
+      - items:
+          - enum:
+              - tenstorrent,ascalon-sc-cbqri # Tenstorrent Ascalon Shared C=
+ache
+          - const: riscv,cbqri-capacity-controller
+      - items:
+          - {}
+          - const: riscv,cbqri-bandwidth-controller
+
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +    description:
+> > +      The CBQRI controller register block.
+> > +
+> > +  riscv,cbqri-rcid:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    description:
+> > +      The maximum number of RCIDs the controller supports. RCIDs are t=
+he
+> > +      resource-control IDs that allocation operations target.
+> > +
+> > +  riscv,cbqri-mcid:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    description:
+> > +      The maximum number of MCIDs the controller supports. MCIDs are t=
+he
+> > +      monitoring-counter IDs that usage-monitoring operations target. =
+Present
+> > +      on controllers that implement monitoring.
+> > +
+> > +  riscv,cbqri-cache:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > +    description:
+> > +      Phandle to the cache node whose capacity this controller allocat=
+es.
+> > +      Applies to capacity controllers that back a CPU cache. The cache=
+ level
+> > +      and the harts sharing it are taken from that node's cache topolo=
+gy.
+>=20
+> Architecturally, is it impossible for a capacity controller to control
+> more than one cache?
+
+Yes, there is only ever a single logical capacity resource per capacity
+controller. When that resource is a cache, the controller handles that
+one logical cache. The hardware may implement the cache as a collection
+of slices, but that stays opaque to CBQRI. So riscv,cbqri-cache stays a
+single phandle.
+
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +
+> > +allOf:
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: tenstorrent,ascalon-sc-cbqri
+> > +    then:
+> > +      required:
+> > +        - riscv,cbqri-rcid
+> > +        - riscv,cbqri-cache
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    l2_cache: l2-cache {
+> > +        compatible =3D "cache";
+> > +        cache-level =3D <2>;
+> > +        cache-unified;
+> > +        cache-size =3D <0xc00000>;
+> > +        cache-sets =3D <512>;
+> > +        cache-block-size =3D <64>;
+> > +    };
+> > +
+> > +    cache-controller@a21a00c0 {
+> > +        compatible =3D "tenstorrent,ascalon-sc-cbqri",
+> > +                     "riscv,cbqri-capacity-controller";
+>=20
+> Is this or is this not a cache controller?
+> The compatible and fact that the property points to an actual cache
+> controller suggests that this is not.
+
+Good point. This nodes represents just the QoS interface (CBQRI) and
+should not use that node name. 'qos-controller' seems like it would be
+more appropriate but that has no precedent. What do you think?
+
+Thanks,
+Drew
+
+--b+lAH89uI5sNQSH1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHQEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaj1/ywAKCRDb7CzD2Six
+DGfiAP4poOUqbF5mOaPx0hiXS8d1zsio2uUZW1liV4pjTYG1swDxAeAvM8g3fhtc
+FhNvDW6cSShT0vrZvj6Q4u+HrDXNBw==
+=Dw9v
+-----END PGP SIGNATURE-----
+
+--b+lAH89uI5sNQSH1--
+
+
+--===============5253641608102404440==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5253641608102404440==--
+
