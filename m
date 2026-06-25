@@ -4,56 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12C6CDB466
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 09:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB2ACDB479
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 10:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:From:Mime-Version:Message-Id:Date:
-	Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7HNJ00KYo8zqs0gSj7SboYY8f4D3hOjGbJ1/N1RZFkY=; b=aYSdPn8TVyTkeC
-	vYATksLudrIAskWJIK05RYrY58dWKwU4j9CN4weDg1b6vSoWcNOUDxGbV/7OM5ihYobCn7469wGC8
-	SkYr1gYC+4WGmwLuX69KSugHJoRmo/Ed32H5nqcu0QUxHjFAst1eQf+0YsQmuuupeiRBiSFjlzzKE
-	dMgERR/961vKSnZwLlDjucdPH//IyOS0D+XV+3UClWCvXRLxfufSg51DXexnr/luQo2r7Xm4r3BTT
-	6WO5+8Z+fJpoTTxw3XQzJ6gzNhMXqT+lG6K2cPEGlHm/P/z4HGXgdOq2KQGuUKNrUOtDny/FSDNX8
-	XqxGNwf2pqfzy2DdgeaQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zAFM7GkD7TYHCwplKu1DVpFqvTVjWSwu8x4ssX/CJuI=; b=RU08qQaJtFUnD1
+	u+1GfgGAmah66E2mJW9O/VRJU7XCX8YR7bTvdPMfU2XzyvBBP3PMI9XrypK55kcsBAD24yKQ2V9l1
+	SxJhbXF1iFxGYPF13t3pGJViKUKCU6+uh+yFsdIgbCNsuqPRKA5vdTgpykIgMQ/1ljfa+4+HSe7nr
+	pOBMK+Feq5tNVSiR5wnIt3/xGcLIIhFgPbhcDFjmkM57PZjdsHiUb4tmPzp4I19v0XJ3zErC05RpN
+	saKltQXiCf7UBvbpeVZm45me3yFFZLj65K3gmfOPiXeTnMpr3STvyBHSqERQ10dD+QmAMtUiZSO68
+	HRurqc3P7nSqYrwl9evA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcgg6-00000008wUE-0KlF;
-	Thu, 25 Jun 2026 09:47:22 +0000
-Received: from va-2-48.ptr.blmpb.com ([209.127.231.48])
+	id 1wchXC-000000090E4-1VhS;
+	Thu, 25 Jun 2026 10:42:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcgg2-00000008wTE-2abA
+	id 1wchXA-000000090Dn-2iJk
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 09:47:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1782380828; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=u9Vr69DUWtU2GtQSnZ4vT3lQafTb6BSSmbeeV1i8VZw=;
- b=xUxiG5aDDwYXzKivlqpuTDaL0kxec5F9rmNI5p664NrEvEyZTqoEO4op5U/GMWLbm5QZ8w
- 29Nkazb4pkiuEg2hXifN7X/2kib98la15RGdsbt0tDm1/M20gAkTuUnPyRC1KAWji+Qg9d
- 2imf3iZ7zqt3BOIODppoDMw041fjAhwDxcmVpEAEW6oTejaJS8hKdMSR4rTKjB/jg/xtio
- J49Duxgxl8h3gW0FSvyjnr6Za/5SSEvOrK6wbPSwHSfonrinC+0iZTRYSL6cTZta6Ch9zc
- OFF71Zw/y0ygDFf6+sN8mkdXi8wpYUkPQtZiMsKXq7DOC5uYlQSe0TU0cD4isw==
-To: <sunilvl@ventanamicro.com>, <rafael@kernel.org>, 
-	<linux-riscv@lists.infradead.org>, <linux-acpi@vger.kernel.org>
-Subject: [PATCH] ACPI: RIMT: Only defer the IOMMU configuration in init stage
-Date: Thu, 25 Jun 2026 17:47:02 +0800
-Message-Id: <20260625094702.11558-1-yang.yicong@picoheart.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.50.1
-X-Lms-Return-Path: <lba+26a3cf91a+d4671f+lists.infradead.org+yang.yicong@picoheart.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Received: from G9WYR9K0VW.bytedance.net ([58.250.106.117]) by smtp.feishu.cn with ESMTPS; Thu, 25 Jun 2026 17:47:05 +0800
-Cc: <lenb@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <geshijian@picoheart.com>, 
-	<jialilv@picoheart.com>, <yang.yicong@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_024718_848754_47969EA9 
-X-CRM114-Status: GOOD (  10.30  )
+	Thu, 25 Jun 2026 10:42:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C97060139;
+	Thu, 25 Jun 2026 10:42:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2D621F00A3F;
+	Thu, 25 Jun 2026 10:42:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782384131;
+	bh=xYiaKsbHa4PJszD1tJWqPxsEZKpm9szbZV9x5R3aK6k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ZX503ZcAO4QSK+tX/zaQ3UaiwBmBcnpJFnTnGGhZihwJZNcyJY+14k7w5MfMhWktn
+	 43gNGELYh5RdMLzQqHBRQqLNQVMLGVBUmPQ7nVUSE+nOnp3nAWCpV/xyWr6N3IWBVN
+	 R1JeXmvciZ9XgM5X+UD56iQa/lvpVcEoWagW7OMroRWvyQtX7uS01OflX1HwoZgEop
+	 MbQBIklDm5xDmCexg6Y06pDhxRsIc/u1hKhfwiKkrRN2g3p0D+XAnFNWZD5QFnO9Y8
+	 xf/8h0/9fWwbyKzRuZ5ynVmb+WoRxHYRvpvh9Y5mHLWs8YV0j62F6ynW3YsJvyRwDp
+	 nd7tdVnPMJBtQ==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org
+Cc: Sasha Levin <sashal@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Yicong Yang <yang.yicong@picoheart.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: Re: [PATCH 6.12.y/6.18.y] ACPI: scan: Use async schedule function in acpi_scan_clear_dep_fn()
+Date: Thu, 25 Jun 2026 06:41:53 -0400
+Message-ID: <20260625054005.0006.acpi-scan@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260624-acpi-dependency-thing-v1-1-ec0d99e5bf0f@iscas.ac.cn>
+References: <20260624-acpi-dependency-thing-v1-1-ec0d99e5bf0f@iscas.ac.cn>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,47 +79,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The IOMMU configuration will be deferred if the IOMMU driver
-isn't probed by the time. Make this deferral only in the
-initialization stage with driver_deferred_probe_check_state().
-Otherwise the devices depends on IOMMU will be deferred forever
-in case the IOMMU device probe failed or it doesn't appear in
-the ACPI namespace.
+> [PATCH 6.12.y/6.18.y] ACPI: scan: Use async schedule function in
+> acpi_scan_clear_dep_fn()
+>
+> [ Vivian: Adjust system_dfl_wq -> system_unbound_wq in removed lines ]
 
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
----
- drivers/acpi/riscv/rimt.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Queued for both 6.18 and 6.12, thanks.
 
-diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
-index 906282b0e63c..e4538fa6c2c8 100644
---- a/drivers/acpi/riscv/rimt.c
-+++ b/drivers/acpi/riscv/rimt.c
-@@ -9,6 +9,7 @@
- 
- #include <linux/acpi.h>
- #include <linux/acpi_rimt.h>
-+#include <linux/device/driver.h>
- #include <linux/iommu.h>
- #include <linux/list.h>
- #include <linux/pci.h>
-@@ -257,11 +258,11 @@ static int rimt_iommu_xlate(struct device *dev, struct acpi_rimt_node *node, u32
- 	rimt_fwnode = rimt_get_fwnode(node);
- 
- 	/*
--	 * The IOMMU drivers may not be probed yet.
--	 * Defer the IOMMU configuration
-+	 * The IOMMU drivers may not be probed yet. Defer the IOMMU
-+	 * configuration if it's still in initialization stage.
- 	 */
- 	if (!rimt_fwnode)
--		return -EPROBE_DEFER;
-+		return driver_deferred_probe_check_state(dev);
- 
- 	/*
- 	 * EPROBE_DEFER ensures IOMMU is probed before the devices that
--- 
-2.50.1 (Apple Git-155)
+--
+Thanks,
+Sasha
 
 _______________________________________________
 linux-riscv mailing list
