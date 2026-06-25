@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0A2CDE001
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 17:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9243ACDE001
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 17:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xTWqNQWLm7RLzXDk8+3mEJ89ofCPle1w6E1oqc3mvYM=; b=iFiA+qaWHjKdWL
-	GmGFU4MTQowfvYru3bhu6eYl0OEi5vaiixb8Uz/deJcQMAjO94F/4RJdfawV7tj+Ctf55zn48iam7
-	58P/mDrgyYP84ChGmLLJEynI5CXfRNyX9R2b29reynFq5EG4/e6buuKqlkP2clW8JqAL3DeJ7/8or
-	DOWFFRSWAZ2skrmqVnLRnmgydrE4D4l8Xl3QfNA/F7SdZ+FlYQYZCw6Ix6sA2buCZlMCHvtgJ0yFz
-	xqkvbch/n/bSqiY8ORny182SJjXVaA0TVSfH4CRAsaJ00imHjnB33eMtwqIt1jehd/8czpFRQDIj9
-	CIjcEQ1JmsJEx/jLBI7Q==;
+	List-Owner; bh=TXSvEPvzDgf65l9QN+zHXrqO/ZtX/ffcXKv6/cdEfgs=; b=OL+ytWKHJ/7w3W
+	pLq2pw/YOFnc2eJ9ii05NcnnreztYC1s4ze+3rfHP51X+U3S2DonOjo6Dm2FMYvk00bHcKK2fPC4t
+	8gHEcy8/MeYWE8wVtI0oqsHTx+VKOK7Kdxl5pwFUQPnL7dC7Pu3u7tDgp6PzqF8dJC68L1liEtUkD
+	Wf/2xHWDWhByPcgJ/hiQfVHotmX13sGKAXWmGo1fyfz+KQBR39f14RGK1fgdjjawW4/8saqcmrE1O
+	8VuTc+OIxIBvrRLXDSjqBbqYcUxacNqcgOJi6ickjgwfvQl/uHJOHpspXy0yWX6RuZY8UgN0gTR8F
+	FT59wJWr5iyDkbIwGVlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcoA6-00000009dFt-42TD;
-	Thu, 25 Jun 2026 17:46:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wcoDs-00000009dy4-2STK;
+	Thu, 25 Jun 2026 17:50:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcoA5-00000009dCf-0H4n
+	id 1wcoDr-00000009dxm-1yf1
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 17:46:49 +0000
+	Thu, 25 Jun 2026 17:50:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 241DE601D9;
-	Thu, 25 Jun 2026 17:46:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66E491F000E9;
-	Thu, 25 Jun 2026 17:46:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E40EE40529;
+	Thu, 25 Jun 2026 17:50:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47B6D1F000E9;
+	Thu, 25 Jun 2026 17:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782409607;
-	bh=w23cGRwX5IS5ZlV/pHDg+qB9kyiLmObqHEcTd7CFGvE=;
+	s=k20260515; t=1782409842;
+	bh=ogvPRLayn8DE5SVrc2dTDIbJN5Y0rcwk+c0Mk5BtyfA=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=RSxNHB+I/jJ6qw68tDzeZ0HpNAd3bQ2HvGV3wH3O/18mgX+h/UtaOFhRITFT2osRC
-	 bKNk25wjyIN9oA8t2OKZNunclmHovblhWWyNGeQ5r2bS1kaQ6A5b+FJDVYvH2nw1B8
-	 WyLqeK5FbAakQaS9Btzgy5N63fGNOfKQyqeqLF7fWHY67Vo2UNgkHsWVHymAXwqqFB
-	 TZZLUv+0sNz7RsuhoIwBBK3CNQIjyAd96R+8uC/EFUBZxCnAipbXNhXPH2vp3pMfpH
-	 O4348o0IDW9aPKaBpoRfWe/hFsspmm5o7wksXQ3kRB2Bm+JhJv3xJGxSP83mJTZ61I
-	 3fB30qhuvsirw==
-Date: Thu, 25 Jun 2026 11:46:42 -0600 (MDT)
+	b=HX1vnsIgoJ7kYRaLL6ztz+9L5WVI3wZV+QE4CyqwpqmUlA9eHcoZ5a9Ut+6VD9s1e
+	 p+CJNHaYvLew6rhulPgnlN05N2A1LgYgQpPcCNYzZAR7Zej0NjAy7ZVF02FqZ/ymUn
+	 d0AT74dZuWe3OTB8iLAD/ZtF11RC+H/AUQxaEdTt57dlI9vXPsALBoiDPwLreINGXN
+	 ig/Stt8KRw0uarlut0tcagwInwZsKlps6XcOEBvae1zu5U48PplNXA35biaeqGaZjK
+	 PMvqUBSnQ6vrfXu7/601NAhDfmapwvZAuMIc5n90svZ6j7ZwQZPxGNzzFdyqDj4qAY
+	 544jrsqHR+EPw==
+Date: Thu, 25 Jun 2026 11:50:41 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-cc: Drew Fustini <fustini@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
-    Lufei Zheng <lufei.zheng@spacemit.com>, Han Gao <gaohan@iscas.ac.cn>
-Subject: Re: [PATCH] riscv: Raise default NR_CPUS for 64BIT to 256
-In-Reply-To: <20260625-riscv-more-nr-cpus-v1-1-5da8c72b9269@iscas.ac.cn>
-Message-ID: <825bb878-b5d8-7bdd-c5fe-744fc7f8e05c@kernel.org>
-References: <20260625-riscv-more-nr-cpus-v1-1-5da8c72b9269@iscas.ac.cn>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+cc: linux-raid@vger.kernel.org, Song Liu <song@kernel.org>, 
+    Yu Kuai <yukuai@fygo.io>, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH] raid6: fix riscv symbol undeclared warnigns
+In-Reply-To: <20260622135207.480540-1-ben.dooks@codethink.co.uk>
+Message-ID: <e15b7b96-33f7-73f8-f5e7-47bcdf271894@kernel.org>
+References: <20260622135207.480540-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,30 +70,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Jun 2026, Vivian Wang wrote:
+On Mon, 22 Jun 2026, Ben Dooks wrote:
 
-> SpacemiT has already produced a 80-core RVA23 RISC-V server [1], and
-> going further back, the dual-socket SG2042-based Sophgo Pisces has 128
-> cores (although that had some issues achieving mainline support).
-> Therefore, an NR_CPUS of 64 is not enough.
+> The riscv rvv.c file is missing the include of pq_arch.h
+> which defines all the exported functions. Include this
+> to remove the following sparse warnings:
 > 
-> Raise default NR_CPUS to 256 for 64BIT (when !RISCV_SBI_V01, since very
-> old firmware can't support more than 64 cores). The number was picked as
-> a power of two that is at least double the known max. I believe this
-> should be the right balance between not wasting too much memory and not
-> having to touch this too often.
+> lib/raid/raid6/riscv/rvv.c:1225:1: warning: symbol 'raid6_rvvx1' was not declared. Should it be static?
+> lib/raid/raid6/riscv/rvv.c:1226:1: warning: symbol 'raid6_rvvx2' was not declared. Should it be static?
+> lib/raid/raid6/riscv/rvv.c:1227:1: warning: symbol 'raid6_rvvx4' was not declared. Should it be static?
+> lib/raid/raid6/riscv/rvv.c:1228:1: warning: symbol 'raid6_rvvx8' was not declared. Should it be static?
 > 
-> Ubuntu has already been shipping NR_CPUS=512 for riscv64. We have also
-> been testing NR_CPUS=256 internally at ISCAS and found negligible
-> performance impact and no ill effects.
-> 
-> Reported-by: Lufei Zheng <lufei.zheng@spacemit.com>
-> Link: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1140651 # [1]
-> Suggested-by: Han Gao <gaohan@iscas.ac.cn>
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 
 Thanks, queued for v7.2-rc.
-
 
 - Paul
 
