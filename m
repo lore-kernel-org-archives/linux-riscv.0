@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D2FCDE000
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 19:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99280CDE009
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 19:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QbX4sPmDrUOrWxiVKIvc2rwouUhXq+UGAKhD40aitfg=; b=LT6w91SLYhrWu6jKCW3EosStEM
-	dV3JnIn181hR1+JWnmZJxiATsKy9PS9zVV0JWiQmcHZRTJUA53oHytUVFTyn0IncgFmbzlVzQrH0Y
-	I4vnqePHxgIaX0k744Xd4JposiVoplMG3cwZWxBCZRCWXyJEU/W4xhKnNepw+CMy8E22U5SYTFZ8z
-	BTDqhkKREalt3fHCOodOSmsGlRStSZR7biURhKOFapUEBCTT4yKqdXo/Pay1/UFBoEelsq8SKwGYU
-	hauGK4PGHTt3Mv9QMu3HmqAqezEasjq1zThjI2cQrZO1fPTRpLcIuiyAV/h7WWn7HnaMpJCZFBZg8
-	EzzHTRbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=35F5Duuo5o0syA+IQt00EqBu6BE0KRi1exKidjbHqDU=; b=4aLvmEK8NiUw45
+	vRhUawrIafG5E6tBOfBMHc3bj5ge0SO1sWRiyAbdg6zQ8f9eZFdjzD5/DFHmcm7j6tacOvDEaeNaQ
+	YMEY2JZQUBxSD2vKFUArBIwEit4DpUHPylvBGI0wCw2uqk9759Ocs4qUqM7PihTFgFYPb5ifAlKd/
+	bJ/NPmXlVXxE+2pDDO5fE2VAFm0p7iqkT1PlQJmu+rw03ktiXbRUgwRejKlVL9HfiCPi5TTDuDnAu
+	Z2XwuK591F51susJ3vXJD9QETvmaHRgpT/QKN0gLqsFttWURQT42vT1+yd0BbI+ZUEerNXJDyDH3X
+	NQl7zzDk4sIKo/6CZoiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcpe9-00000009jmw-2xoK;
-	Thu, 25 Jun 2026 19:21:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wcpej-00000009jso-3VMm;
+	Thu, 25 Jun 2026 19:22:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcpe7-00000009jmj-3Pck
+	id 1wcpej-00000009jsR-1YlG
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 19:21:55 +0000
+	Thu, 25 Jun 2026 19:22:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25C8D43BED;
-	Thu, 25 Jun 2026 19:21:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82CDF1F00A3A;
-	Thu, 25 Jun 2026 19:21:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 976E560098;
+	Thu, 25 Jun 2026 19:22:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A8091F000E9;
+	Thu, 25 Jun 2026 19:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782415314;
-	bh=lV3CoJyooD6jU7hICvd3lIpUOrVSMEvR/t4ecu6q5rs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SvRe8m86TNm1UW3zNJsZrT0BzJSY0+8f0DSj0iVoSoA0jhdiavqtMJHQ8Dki+KsTI
-	 WrHv6iCEUmvtYbffOBUriWLgSmI7Kpf+UWdOSrwAjWiA2g+DdwyvPIdUDUu4/X9ryk
-	 JoJvt7mSZj4cY7d4//iqVOH8IyK/z6hJzgQVWgkpc0xL4541j148qswU82AC8LFUev
-	 qGF8Z3U5vStorIgm1wwd0KxK+qAfpdnwxX+DFe6HwucahLHGkunI2CC1YKnZS31LfP
-	 eLxhOCJ4CBDw3UmY4g8no6iBsXmvsK9pwnKKMEERHBIKhtzOyWgzWybW7i7byo8JmD
-	 Li3NtXZpWJeGg==
-Date: Thu, 25 Jun 2026 12:21:52 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: Add generic CBQRI controller
- binding
-Message-ID: <aj1_0AnIBk8_xoDd@gen8>
-References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
- <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
- <20260625-cupbearer-failing-9ce0abf97b93@spud>
+	s=k20260515; t=1782415352;
+	bh=WnDS5j6lyeaeZIOZYGNYA3yrK95KQ7qc6yGTXVrMjFQ=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=VvKr3PZeX7jSfkhBXvRZF/pGRa5yn+mG6BinaFVmuNzoQ5PhPIIWhy2/1UUxx1e1g
+	 kc5vWDc4yzRS3iqPBagZ6kt+mryJBa6c6Gr+x5/2dvJYbFU5dGGEQSg/8HiLTv1GDW
+	 gQgW/jfq93EA/bwYELdwuKiPnKE8CVEj0QvTe/DpTi4OhG3aeCJ+hGHBEy6JvK83Js
+	 eYCa9/XrW+ms5Zkk7zfGCiRE8yg19Ukp/UJASML/vLapC3b34btcAVjN9QeUE0byNz
+	 YQaoL0kpPKmuXoV+fLwuddQFTrdlDC9BLVlEVyrorHzQhGGNS7qrEPgL+uKfVrAGoG
+	 hwFrk9CFbEHaw==
+Date: Thu, 25 Jun 2026 13:22:29 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Wang Han <wanghan@linux.alibaba.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt <rostedt@goodmis.org>, 
+    Alexandre Ghiti <alex@ghiti.fr>, Masami Hiramatsu <mhiramat@kernel.org>, 
+    Mark Rutland <mark.rutland@arm.com>, 
+    Catalin Marinas <catalin.marinas@arm.com>, 
+    Chen Pei <cp0613@linux.alibaba.com>, Andy Chiu <andybnac@gmail.com>, 
+    =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, 
+    Deepak Gupta <debug@rivosinc.com>, Puranjay Mohan <puranjay@kernel.org>, 
+    Conor Dooley <conor.dooley@microchip.com>, 
+    Josh Poimboeuf <jpoimboe@kernel.org>, Jiri Kosina <jikos@kernel.org>, 
+    Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
+    Joe Lawrence <joe.lawrence@redhat.com>, Shuah Khan <shuah@kernel.org>, 
+    Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+    Arnaldo Carvalho de Melo <acme@kernel.org>, 
+    Namhyung Kim <namhyung@kernel.org>, oliver.yang@linux.alibaba.com, 
+    xueshuai@linux.alibaba.com, zhuo.song@linux.alibaba.com, 
+    jkchen@linux.alibaba.com, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+    live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+    linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH v3 1/8] scripts/sorttable: Handle RISC-V patchable ftrace
+ entries
+In-Reply-To: <20260609063002.3943001-1-wanghan@linux.alibaba.com>
+Message-ID: <2a7abbb3-e2df-ab2a-087a-0e1604d188bb@kernel.org>
+References: <20260528082310.1994388-1-wanghan@linux.alibaba.com> <cover.194d76e3a15b.v3.riscv-livepatch.wanghan@linux.alibaba.com> <20260609063002.3943001-1-wanghan@linux.alibaba.com>
 MIME-Version: 1.0
-In-Reply-To: <20260625-cupbearer-failing-9ce0abf97b93@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,185 +82,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5253641608102404440=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---===============5253641608102404440==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="b+lAH89uI5sNQSH1"
-Content-Disposition: inline
+On Tue, 9 Jun 2026, Wang Han wrote:
 
+> RISC-V uses -fpatchable-function-entry=8,4 when the compressed ISA is
+> enabled and -fpatchable-function-entry=4,2 otherwise. In both cases, the
+> patchable NOP area starts 8 bytes before the function symbol address.
+> The __mcount_loc entries therefore point at the patchable NOP area
+> associated with a function, while nm reports the function symbol at the
+> entry address used for the function range check.
+> 
+> After RISC-V selected HAVE_BUILDTIME_MCOUNT_SORT, sorttable started
+> applying that range check at build time. Without allowing entries just
+> before the reported function address, the mcount sorter treats valid
+> RISC-V ftrace callsites as invalid weak-function entries and writes
+> them back as zero. The resulting kernel boots with no ftrace entries,
+> breaking dynamic ftrace and users such as livepatch.
+> 
+> The failure is silent during the final link because zeroing weak-function
+> entries is an expected sorttable operation. At boot, those zero entries
+> are skipped by ftrace_process_locs(), so the only obvious symptom is that
+> the vmlinux ftrace table has lost valid callsites and ftrace users cannot
+> attach to them.
+> 
+> CONFIG_FTRACE_SORT_STARTUP_TEST also reports the table as sorted in this
+> state: it only checks that the __mcount_loc entries are in ascending
+> order, which a fully zeroed table trivially satisfies. The original
+> commit relied on this check and did not see the regression.
+> 
+> On an affected RISC-V QEMU boot with both CONFIG_FTRACE_SORT_STARTUP_TEST
+> and CONFIG_FTRACE_STARTUP_TEST enabled, the sort check still passes
+> while ftrace reports zero usable entries and the early selftests fail:
+> 
+>   [    0.000000] ftrace section at ffffffff8101da98 sorted properly
+>   [    0.000000] ftrace: allocating 0 entries in 128 pages
+>   [    0.054999] Testing tracer function: .. no entries found ..FAILED!
+>   [    0.172407] tracer: function failed selftest, disabling
+>   [    0.178186] Failed to init function_graph tracer, init returned -19
+> 
+> Handle RISC-V like arm64 for the function-range check and allow
+> patchable entries up to 8 bytes before the function address.
+> 
+> With this fix, a RISC-V QEMU smoke boot with ftrace startup tests shows
+> the vmlinux ftrace table is populated and dynamic ftrace still works:
+> 
+>   [    0.000000] ftrace: allocating 46749 entries in 184 pages
+>   [    0.051115] Testing tracer function: PASSED
+>   [    1.283782] Testing dynamic ftrace: PASSED
+>   [    6.275456] Testing tracer function_graph: PASSED
+> 
+> Fixes: 0ca1724b56af ("riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT")
+> Suggested-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+> Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
+> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> Reviewed-by: Chen Pei <cp0613@linux.alibaba.com>
+> Link: https://lore.kernel.org/all/20260527113028.4b21a5de@fedora/
+> Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
 
---b+lAH89uI5sNQSH1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jun 25, 2026 at 05:19:28PM +0100, Conor Dooley wrote:
-> On Wed, Jun 24, 2026 at 06:38:35PM -0700, Drew Fustini wrote:
-> > Document the generic compatibles for capacity and bandwidth controllers
-> > that implement the RISC-V CBQRI specification. The binding also
-> > describes the common riscv,cbqri-rcid and riscv,cbqri-mcid properties,
-> > and the optional riscv,cbqri-cache phandle that links a capacity
-> > controller to the cache whose capacity it allocates.
-> >=20
-> > Assisted-by: Claude:claude-opus-4-8
-> > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > Signed-off-by: Drew Fustini <fustini@kernel.org>
-> > ---
-> >  .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++++++++=
-++++++++
-> >  MAINTAINERS                                        |  1 +
-> >  2 files changed, 98 insertions(+)
-
-Thanks for the review.
-
-[..]
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - items:
-> > +          - description: Tenstorrent Ascalon Shared Cache
-> > +            const: tenstorrent,ascalon-sc-cbqri
-> > +          - const: riscv,cbqri-capacity-controller
-> > +      - enum:
-> > +          - riscv,cbqri-capacity-controller
-> > +          - riscv,cbqri-bandwidth-controller
->=20
-> Please modify this, as has been done for other riscv spec related
-> bindings, to let people get away without using device-specific
-> compatibles.
->=20
-> In this case, you can just delete the first entry from this enum, since
-> it already has a user and only have to implement this feedback for the
-> second entry.
-
-Would this work?
-
-properties:
-  compatible:
-    oneOf:
-      - items:
-          - enum:
-              - tenstorrent,ascalon-sc-cbqri # Tenstorrent Ascalon Shared C=
-ache
-          - const: riscv,cbqri-capacity-controller
-      - items:
-          - {}
-          - const: riscv,cbqri-bandwidth-controller
-
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +    description:
-> > +      The CBQRI controller register block.
-> > +
-> > +  riscv,cbqri-rcid:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description:
-> > +      The maximum number of RCIDs the controller supports. RCIDs are t=
-he
-> > +      resource-control IDs that allocation operations target.
-> > +
-> > +  riscv,cbqri-mcid:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description:
-> > +      The maximum number of MCIDs the controller supports. MCIDs are t=
-he
-> > +      monitoring-counter IDs that usage-monitoring operations target. =
-Present
-> > +      on controllers that implement monitoring.
-> > +
-> > +  riscv,cbqri-cache:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description:
-> > +      Phandle to the cache node whose capacity this controller allocat=
-es.
-> > +      Applies to capacity controllers that back a CPU cache. The cache=
- level
-> > +      and the harts sharing it are taken from that node's cache topolo=
-gy.
->=20
-> Architecturally, is it impossible for a capacity controller to control
-> more than one cache?
-
-Yes, there is only ever a single logical capacity resource per capacity
-controller. When that resource is a cache, the controller handles that
-one logical cache. The hardware may implement the cache as a collection
-of slices, but that stays opaque to CBQRI. So riscv,cbqri-cache stays a
-single phandle.
-
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +
-> > +allOf:
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: tenstorrent,ascalon-sc-cbqri
-> > +    then:
-> > +      required:
-> > +        - riscv,cbqri-rcid
-> > +        - riscv,cbqri-cache
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    l2_cache: l2-cache {
-> > +        compatible =3D "cache";
-> > +        cache-level =3D <2>;
-> > +        cache-unified;
-> > +        cache-size =3D <0xc00000>;
-> > +        cache-sets =3D <512>;
-> > +        cache-block-size =3D <64>;
-> > +    };
-> > +
-> > +    cache-controller@a21a00c0 {
-> > +        compatible =3D "tenstorrent,ascalon-sc-cbqri",
-> > +                     "riscv,cbqri-capacity-controller";
->=20
-> Is this or is this not a cache controller?
-> The compatible and fact that the property points to an actual cache
-> controller suggests that this is not.
-
-Good point. This nodes represents just the QoS interface (CBQRI) and
-should not use that node name. 'qos-controller' seems like it would be
-more appropriate but that has no precedent. What do you think?
-
-Thanks,
-Drew
-
---b+lAH89uI5sNQSH1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHQEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaj1/ywAKCRDb7CzD2Six
-DGfiAP4poOUqbF5mOaPx0hiXS8d1zsio2uUZW1liV4pjTYG1swDxAeAvM8g3fhtc
-FhNvDW6cSShT0vrZvj6Q4u+HrDXNBw==
-=Dw9v
------END PGP SIGNATURE-----
-
---b+lAH89uI5sNQSH1--
+Thanks, I'm going to pull this one out of the rest of your series since 
+this is clearly a fix and needs to go in sooner rather than later.  Queued 
+for v7.2-rc.
 
 
---===============5253641608102404440==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5253641608102404440==--
-
