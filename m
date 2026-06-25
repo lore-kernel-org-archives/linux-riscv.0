@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4929CDE001
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 18:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC5CCDE001
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 18:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S4I10wSQDTPBEXuNzpP81Iu2Nyj83gLgEc5NoAiyPwU=; b=o0gJhv78IjSIW8
-	nSb5o++4sff0cj+dd5p/rdjoHScrqzGj+o8dVvr/692hadk3dsK1Iw6Zjmbt5TYZ24smKSyIyRih0
-	utwnyY7RuWxeKhQYPIkb4bsgEOTLwSOaj7qvFdsyH0c/NMyGp6HHSgI9nk22DjhSLd9ZHQRBHOFb8
-	HCiEMiJY2XFXSY0Zy/vaWR95Er6lbda6feCuOc5dlFa5iz3C84sq5JQPH8xWtqq5mLxlTXSWtAIT3
-	z3VbJGvYlbFoedcgfWDGoWJo/0bPZ0E41gUy7k191QlWmHENkiejicctlIGB3aIDglZ9BiMSN3Dx6
-	op7u2A+ZG00wbxiAleEA==;
+	List-Owner; bh=xbF4ygoAWhdSY52KE6IA0pZL4q4ABLlFzMmdSwxCaw4=; b=FxAolYWmlAt585
+	EghlACWWsmJTVogTcSp0AJLZ9c99zILXLzqzimYKrUt4HQNGHDJ8HnbfGsEhl+HSA6WqMO6kknYa0
+	2t+VyZ2YBP7HpUl7jifF+IbQN3HhsRhNmztvQOjuGFzfBs9ttCk3v6rLdTbV1aDUJkKnEL8GWiDiv
+	SY0vKiBHZFj2TYjnnZJ4eMgTh8l78UVfOw7uKrdVSYB/Wwc3HIewBS8f9PCspCVJV0iGxpOZM5pFN
+	8ZjF9xdlM6eGYR02i9wye+1zhsXvJAP8mrtemE4aEYcKRLzwe3e244OV716iTbYeLzl9cbQWQM4kh
+	rjgv+TIQ5hsA++N5VQlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcoSY-00000009exX-19Ex;
-	Thu, 25 Jun 2026 18:05:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wcoSe-00000009eyu-1g1i;
+	Thu, 25 Jun 2026 18:06:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcoSW-00000009exN-1OLz
+	id 1wcoSd-00000009eyS-0PD9
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 18:05:52 +0000
+	Thu, 25 Jun 2026 18:05:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70BC4600AE;
-	Thu, 25 Jun 2026 18:05:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 517B11F000E9;
-	Thu, 25 Jun 2026 18:05:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E1A64015D;
+	Thu, 25 Jun 2026 18:05:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05CF31F000E9;
+	Thu, 25 Jun 2026 18:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782410751;
-	bh=GPj509ZMrtTNp459KDd1Tt1hl7NhkDgoFuECeU/F1ag=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y0Dulsv+tq6dpOQYJPHD9uJzO92mLf7cUS1Y7MmHCGqrbzdASqZgDnkOi574uebM3
-	 XRAiX4p8OnoRELCT3ZgT88aEJyHyeNtQ39O+JZJosNmw1YKYYr0coSKuR5qlkFgjjv
-	 Nj5xn9GYkKUOTjrqTfgPZoOFhZoqMp2VaG52/9Lj5dMqKy5yTejWIIDHymKkROHO4f
-	 mTLjEYe/qJURoam9/rbWSgdhkPIOizYT20Ol0bsuOi7d3mEuvrxzdEpVRZCRFl17zL
-	 /7mfG+3C93DaNWt3rt5cwwMXKvSCbLHogRpIqCc+kUpTW8H9uXSV4YAIbFK1hqKxEV
-	 en578ajw1UoYw==
-Date: Thu, 25 Jun 2026 11:05:44 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alex Ousherovitch <aousherovitch@rambus.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Rob Herring <robh@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
-	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
-	linux-api@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Shuah Khan <skhan@linuxfoundation.org>, sipsupport@rambus.com,
-	Thi Nguyen <thin@rambus.com>
-Subject: Re: [PATCH 00/19] crypto: cmh - add CRI CryptoManager Hub driver
-Message-ID: <20260625180544.GB2514@quark>
-References: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
+	s=k20260515; t=1782410758;
+	bh=Qsz0AgtCAYtAkf/U7L7Qm8RkdAOEqnzegf87Lexqke8=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=kInPP9TaKE7sjnAGAMDJyEvSF/0PUPnFmqFtDnvSr8lSeJTCCiBBQ0cbYbsIlcSSJ
+	 qSGv6GvCmAQvlzMrG5a/BeVdR2x48ZsehthuBBurS8tM+mMKipZwy9JXLbZNVpKf3C
+	 ySIwszl9EgTST4wkjE32w6xBTDoFZfS6kia7mkP66/m+5snGRLXMBqBWUdjyXXzyF5
+	 4W/tK0yZo0aI2v57w+hOTNk3agmDSdTW2XC3V4MRlBDvxj5A9bt2BI0IIlP2sU41sy
+	 NoCtvRYBSIzcbfN5gdLa4iJqBXlhQPOIadyVjePAqJZpM0SGF2Z4pO+jpGruKbmWZS
+	 WnuMmTJgQyM2A==
+Date: Thu, 25 Jun 2026 12:05:57 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Bastian Blank <waldi@debian.org>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Add build salt to the vDSO
+In-Reply-To: <ajQY7n0an0YwQ--j@steamhammer.waldi.eu.org>
+Message-ID: <b6be4934-baea-76ce-0928-94ee8d1f95a4@kernel.org>
+References: <ajQY7n0an0YwQ--j@steamhammer.waldi.eu.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,17 +69,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 10:33:08AM -0700, Saravanakrishnan Krishnamoorthy wrote:
-> ** This message and any attachments are for the sole use of the
-> intended recipient(s). It may contain information that is confidential
-> and privileged. If you are not the intended recipient of this message,
-> you are prohibited from printing, copying, forwarding or saving it.
-> Please delete the message and attachments and notify the sender
-> immediately. **
+On Thu, 18 Jun 2026, Bastian Blank wrote:
 
-Okay, I deleted it.
+> The vDSO needs to have a unique build id in a similar manner
+> to the kernel and modules. Use the build salt macro.
+> 
+> Signed-off-by: Bastian Blank <waldi@debian.org>
 
-- Eric
+Thanks, queued for v7.2-rc.
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
