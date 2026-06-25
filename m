@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5D4CDB479
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 13:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A556ECDE001
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 16:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TIqI0VU3MnmM0qwYj4FpND743Mv7dSgi+9XYTuxwnMA=; b=QwKvajyoymxJP3
-	I9dayKC9L6rFvwiO1hP/PQNtiLStAjhLZZLDnYrJv3vPGd5/tqUy+4OjBjWMF1GWiKFmLH39ThdC3
-	GWoSRJkc2mxUbhgJZt8u1IvQAP3IN1hVNzeykiExZnj6mIzE5fCLEe8LVOkcyiiKZHssbzzVI+PgK
-	5otqOfPUI5rcXKzzF7xsfC3vN7w+To33T2fW51mNqZvPG74oUnj0RXWc2A000+pVy4hbCOnBU43j5
-	C06/4eDEc/PnljA10qh3tVCn4Bg7TF5dLgczWqRloKo3Ycb74TsrzCB3kWKEgpBJxhS3S5TxxvAMQ
-	1rJI3CjIJnmULG5jY7dw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xz7BPjDqngsXmlMnXFt5BLslwoWI6f5af91WAtbOu0g=; b=J4PfIcJIlAK3KXKyld43UNe7dI
+	5y2Za49QU5xZtAqOR1pnU+Dl7q25KPbILWKGdzb8p1OV3qnzqVYSgVAy0BGqiZmiHP+R0GuQVZ21J
+	GI+geBq+k4kkHDogt9SgOEjg7ZX6CJGeZFemrwq/6owpHSXeG66A0QW9VFlxAA9mD06Sf07XJP4W7
+	+q7ar9Av/V44D25BCpfm7WyNstqn4vTTYA7oay5f9Hj668KKjUsXQVrIo6kScJglZOTOrnl0XTHpc
+	ssftJ9itposkKPAixkK7jxuHr5NNhQwl1Gx6EQp9HlD6vaxwI8jO51Kx/2Poq4/U4cBliS3bzDo/9
+	bNKnV/Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wckR9-00000009G4r-47Vd;
-	Thu, 25 Jun 2026 13:48:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wcmnk-00000009SvC-10tx;
+	Thu, 25 Jun 2026 16:19:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wckR7-00000009G3t-0itk
+	id 1wcmni-00000009Suv-3qRL
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 13:48:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1782395286;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gC5zr5yw5wsDg+aceJ8pufnQOHytYxuE6r2DcXf4+O0=;
-	b=KIUdcohJfBEXuWlnB7gkrH88r7jaCO1Sp57ccGqWFhZpDZIcLfEhW3hTwL1NXH22mo3LNw
-	2zXIbilxtSN5R3a4lkxl+5FT/xJuoqtSh8Vzi6Uoto8DpQt0rfH4G3IbenWj97JTEyMy/4
-	zWLSmpItIzCGfwxZYzkzmtJB8ZVADiE=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-637-E0USlrsLO-6eRMgtHYIA6w-1; Thu,
- 25 Jun 2026 09:48:03 -0400
-X-MC-Unique: E0USlrsLO-6eRMgtHYIA6w-1
-X-Mimecast-MFC-AGG-ID: E0USlrsLO-6eRMgtHYIA6w_1782395281
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A60C719775A5;
-	Thu, 25 Jun 2026 13:48:00 +0000 (UTC)
-Received: from jtaubepe-thinkpadx1carbongen12.ibmlowe.csb (unknown [10.22.81.64])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 36C743652A;
-	Thu, 25 Jun 2026 13:47:57 +0000 (UTC)
-From: Jesse Taube <jtaubepe@redhat.com>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH v8 2/2] clocksource/drivers/timer-clint: Add T-Head C9xx clint
-Date: Thu, 25 Jun 2026 09:47:52 -0400
-Message-ID: <20260625134752.3107959-2-jtaubepe@redhat.com>
-In-Reply-To: <20260625134752.3107959-1-jtaubepe@redhat.com>
-References: <20260625134752.3107959-1-jtaubepe@redhat.com>
+	Thu, 25 Jun 2026 16:19:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E96B600AE;
+	Thu, 25 Jun 2026 16:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAC171F000E9;
+	Thu, 25 Jun 2026 16:19:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782404377;
+	bh=7YcMVVY3Ngo1QA2QA4VNeE39obuNmOZ0bZLp0deFa4Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GtWTdtpBtJaqqhntdx94UBquSGkQICKW/35LtX6FCenrEFQOyrhP84qGQESOlDQMt
+	 Z9LIvY5aXOX6SoaXq+xSAzSJD5sFsuPQEa1y6fVPdQJSFUMo7/orxM5U2/YWwXt6M9
+	 CpCNjZIw8p27gyJJtmV+DODPhEK+LlamOOUcQIT5Xtp4bjswlX3r7gYwJAnmM9ud/B
+	 4zUYWLNSXP2DM4cGiVm89nf7zweBbJS1rksQ1qj9fTKrAKhZ0SUb/3yUqGQKeQPrle
+	 tiMGmj9jRNQbb7eqYg+G/2mRp2ndZM6+jqbLXLHxlRvW3NweSnGfDA1sJZDs+YnhYq
+	 syY9nXn1Ozf9A==
+Date: Thu, 25 Jun 2026 17:19:28 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Fenghua Yu <fenghua.yu@intel.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
+	James Morse <james.morse@arm.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Newman <peternewman@google.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Tony Luck <tony.luck@intel.com>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>,
+	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
+	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org,
+	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: Add generic CBQRI controller
+ binding
+Message-ID: <20260625-cupbearer-failing-9ce0abf97b93@spud>
+References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
+ <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-X-Mimecast-MFC-PROC-ID: TIdilQ_bsFPDMorsuY3GFjxZm5ssLfDXh_sJJVY26hk_1782395281
-X-Mimecast-Originator: redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_064809_285052_03ADA9B2 
-X-CRM114-Status: GOOD (  16.75  )
+In-Reply-To: <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,118 +94,215 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Jesse Taube <jtaubepe@redhat.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <Mr.Bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1130493442845922334=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
 
-To use the T-HEAD C9xx clint in RISCV-M NOMMU env, we need to take
-care two points:
+--===============1130493442845922334==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iqz6WzvFJ9B9C8aq"
+Content-Disposition: inline
 
-1.The mtimecmp in T-Head C9xx clint only supports 32bit read/write,
-implement such support.
 
-2. As pointed out by commit ca7810aecdba ("lib: utils/timer: mtimer:
-add a quirk for lacking mtime register") of opensbi:
+--iqz6WzvFJ9B9C8aq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-"T-Head developers surely have a different understanding of time CSR and
-CLINT's mtime register with SiFive ones, that they did not implement
-the mtime register at all -- as shown in openC906 source code, their
-time CSR value is just exposed at the top of their processor IP block
-and expects an external continuous counter, which makes it not
-overrideable, and thus mtime register is not implemented, even not for
-reading. However, if CLINTEE is not enabled in T-Head's MXSTATUS
-extended CSR, these systems still rely on the mtimecmp registers to
-generate timer interrupts. This makes it necessary to implement T-Head
-C9xx CLINT support in OpenSBI MTIMER driver, which skips implementing
-reading mtime register and falls back to default code that reads time
-CSR."
+On Wed, Jun 24, 2026 at 06:38:35PM -0700, Drew Fustini wrote:
+> Document the generic compatibles for capacity and bandwidth controllers
+> that implement the RISC-V CBQRI specification. The binding also
+> describes the common riscv,cbqri-rcid and riscv,cbqri-mcid properties,
+> and the optional riscv,cbqri-cache phandle that links a capacity
+> controller to the cache whose capacity it allocates.
+>=20
+> Assisted-by: Claude:claude-opus-4-8
+> Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> Signed-off-by: Drew Fustini <fustini@kernel.org>
+> ---
+>  .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++++++++++=
+++++++
+>  MAINTAINERS                                        |  1 +
+>  2 files changed, 98 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml b/D=
+ocumentation/devicetree/bindings/riscv/riscv,cbqri.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..5d6be645381780e187b39e60c=
+3bb487fdf2cfb69
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
+> @@ -0,0 +1,97 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/riscv,cbqri.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RISC-V Capacity and Bandwidth QoS Register Interface (CBQRI) cont=
+roller
+> +
+> +description: |
+> +  The RISC-V CBQRI specification defines capacity-controller and
+> +  bandwidth-controller register blocks that allocate cache capacity and =
+memory
+> +  bandwidth to resource-control IDs (RCIDs) and monitor usage per
+> +  monitoring-counter ID (MCID):
+> +  https://github.com/riscv-non-isa/riscv-cbqri/blob/main/riscv-cbqri.pdf
+> +
+> +  Allocation and monitoring share one register block, and a controller m=
+ay
+> +  implement either or both. A driver discovers which at runtime from the
+> +  capabilities register, so the compatible names only the controller typ=
+e. It
+> +  does not distinguish allocation-only, monitoring-only or combined
+> +  controllers, and no property declares monitoring support.
+> +
+> +maintainers:
+> +  - Drew Fustini <fustini@kernel.org>
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - description: Tenstorrent Ascalon Shared Cache
+> +            const: tenstorrent,ascalon-sc-cbqri
+> +          - const: riscv,cbqri-capacity-controller
+> +      - enum:
+> +          - riscv,cbqri-capacity-controller
+> +          - riscv,cbqri-bandwidth-controller
 
-So, we need to fall back to read time CSR instead of mtime register
-using RISCV_ISA_EXT_ZICNTR.
+Please modify this, as has been done for other riscv spec related
+bindings, to let people get away without using device-specific
+compatibles.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Signed-off-by: Jesse Taube <jtaubepe@redhat.com>
----
-Treat this as a completely new patch, as it is mostly rewritten.
-Original:
-https://lore.kernel.org/all/20240410142347.964-3-jszhang@kernel.org/
-V6 -> V7:
- - New commit
- - Split csr and c900 parts into different commits
- - c900_clint_clock_next_event use csr_get_cycles64
-    over accedental use of clint_get_cycles64
----
- drivers/clocksource/timer-clint.c | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+In this case, you can just delete the first entry from this enum, since
+it already has a user and only have to implement this feedback for the
+second entry.
 
-diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-index 18f7bf7d26c6..62fe28df73fb 100644
---- a/drivers/clocksource/timer-clint.c
-+++ b/drivers/clocksource/timer-clint.c
-@@ -39,6 +39,7 @@ static u64 __iomem *clint_timer_cmp;
- static u64 __iomem *clint_timer_val;
- static unsigned long clint_timer_freq;
- static unsigned int clint_timer_irq;
-+static bool is_c900_clint;
- 
- #ifdef CONFIG_RISCV_M_MODE
- u64 __iomem *clint_time_val;
-@@ -154,6 +155,19 @@ static int clint_clock_next_event(unsigned long delta,
- 	return 0;
- }
- 
-+static int c900_clint_clock_next_event(unsigned long delta,
-+				       struct clock_event_device *ce)
-+{
-+	void __iomem *r = clint_timer_cmp +
-+			  cpuid_to_hartid_map(smp_processor_id());
-+	u64 val = csr_get_cycles64() + delta;
-+
-+	csr_set(CSR_IE, IE_TIE);
-+	writel_relaxed(val, r);
-+	writel_relaxed(val >> 32, r + 4);
-+	return 0;
-+}
-+
- static DEFINE_PER_CPU(struct clock_event_device, clint_clock_event) = {
- 	.name		= "clint_clockevent",
- 	.features	= CLOCK_EVT_FEAT_ONESHOT,
-@@ -168,6 +182,9 @@ static int clint_timer_starting_cpu(unsigned int cpu)
- 	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZICNTR))
- 		ce->set_next_event = clint_clock_next_event;
- 
-+	if (is_c900_clint)
-+		ce->set_next_event = c900_clint_clock_next_event;
-+
- 	ce->cpumask = cpumask_of(cpu);
- 	clockevents_config_and_register(ce, clint_timer_freq, 100, ULONG_MAX);
- 
-@@ -319,8 +336,16 @@ static int __init clint_timer_init(struct device_node *np)
- 
- static int __init clint_timer_init_dt(struct device_node *np)
- {
-+	is_c900_clint = false;
-+	return clint_timer_init(np);
-+}
-+
-+static int __init c900_clint_timer_init_dt(struct device_node *np)
-+{
-+	is_c900_clint = true;
- 	return clint_timer_init(np);
- }
- 
- TIMER_OF_DECLARE(clint_timer, "riscv,clint0", clint_timer_init_dt);
- TIMER_OF_DECLARE(clint_timer1, "sifive,clint0", clint_timer_init_dt);
-+TIMER_OF_DECLARE(clint_timer2, "thead,c900-clint", c900_clint_timer_init_dt);
--- 
-2.54.0
+pw-bot: changes-requested
 
+> +
+> +  reg:
+> +    maxItems: 1
+> +    description:
+> +      The CBQRI controller register block.
+> +
+> +  riscv,cbqri-rcid:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      The maximum number of RCIDs the controller supports. RCIDs are the
+> +      resource-control IDs that allocation operations target.
+> +
+> +  riscv,cbqri-mcid:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      The maximum number of MCIDs the controller supports. MCIDs are the
+> +      monitoring-counter IDs that usage-monitoring operations target. Pr=
+esent
+> +      on controllers that implement monitoring.
+> +
+> +  riscv,cbqri-cache:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the cache node whose capacity this controller allocates.
+> +      Applies to capacity controllers that back a CPU cache. The cache l=
+evel
+> +      and the harts sharing it are taken from that node's cache topology.
+
+Architecturally, is it impossible for a capacity controller to control
+more than one cache?
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: tenstorrent,ascalon-sc-cbqri
+> +    then:
+> +      required:
+> +        - riscv,cbqri-rcid
+> +        - riscv,cbqri-cache
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    l2_cache: l2-cache {
+> +        compatible =3D "cache";
+> +        cache-level =3D <2>;
+> +        cache-unified;
+> +        cache-size =3D <0xc00000>;
+> +        cache-sets =3D <512>;
+> +        cache-block-size =3D <64>;
+> +    };
+> +
+> +    cache-controller@a21a00c0 {
+> +        compatible =3D "tenstorrent,ascalon-sc-cbqri",
+> +                     "riscv,cbqri-capacity-controller";
+
+Is this or is this not a cache controller?
+The compatible and fact that the property points to an actual cache
+controller suggests that this is not.
+
+Cheers,
+Conor.
+
+> +        reg =3D <0xa21a00c0 0xf40>;
+> +        riscv,cbqri-rcid =3D <16>;
+> +        riscv,cbqri-cache =3D <&l2_cache>;
+> +    };
+> +
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 9e1092165046c773771b055869030bc1bdb64b16..64a95a4d795a57033d3f36200=
+d98cfb4a013ab94 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -23298,6 +23298,7 @@ M:	Drew Fustini <fustini@kernel.org>
+>  R:	yunhui cui <cuiyunhui@bytedance.com>
+>  L:	linux-riscv@lists.infradead.org
+>  S:	Supported
+> +F:	Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
+>  F:	arch/riscv/include/asm/qos.h
+>  F:	arch/riscv/include/asm/resctrl.h
+>  F:	arch/riscv/kernel/qos.c
+>=20
+> --=20
+> 2.34.1
+>=20
+
+--iqz6WzvFJ9B9C8aq
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj1VEAAKCRB4tDGHoIJi
+0lXeAP4nYfY2HRKImG27gD+aSFjrJ2tV6sAdxhmJWyh1+AnCrAEAk6PNQ5SjX5nW
+VK2mq7VQ+4K/2o7w6hvbd2oKNvn30ww=
+=ZHZW
+-----END PGP SIGNATURE-----
+
+--iqz6WzvFJ9B9C8aq--
+
+
+--===============1130493442845922334==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1130493442845922334==--
+
