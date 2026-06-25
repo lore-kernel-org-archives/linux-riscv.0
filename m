@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF4ECDE013
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 17:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FF0CDE001
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 17:34:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8FDInbqGFCaSOsiEh100MLKi08SleEaD9O7wNwIx1TI=; b=SFei2cFko/91XH
-	oFHe+kQvj72rXDbdzQH7SKCenZdsM/zYlsPuK/cJifmaBGsfVSxa0yLH9zd1ARYTkPT4oxspEhQBy
-	GP2jJOpI2eiFkTh91FhtwxTC/wO5DYNaX2b6VY0hcgdwhpa2XB8R5MgmHkAUDbi+fCi0Ruv7Zw8VS
-	uVKYSC58m7xdn1kCnACIHGoAZ37rXxPWu3I7sBU9dEoNsb3R8zUcWe3jAvxEY26AbudwfyCdpDJqH
-	sIyDgnTXuvUFcONYbjaqAZvNuJTGRzc5znIa6W13SUbXIkmeEMBbEmzKbM8EqEdhh2UHBRxffAbXY
-	LBdmsLKAdn7jlUAzxjiQ==;
+	List-Owner; bh=poz8IJFsChaKqOG5Vi0jonutqvI4U1ddJQFC/jN3wC8=; b=V2bBJqWiY/pVT/
+	j5Vj/RdeWuii0g7tPBbsgb7QGKtckKmPpBy4by0tVObavFVip2oVTMaAN04ujlhyx66jkhqjlsf+E
+	HXXKrosK7EXAIn9c1MYqrtw/F8M5kb2oGSlWJOc2I4ADN9I7gNMzKjYbZrZTTus30xt5h47/Rwpib
+	pFg74B6QRJZzZp7legnndxzWcE5kvbFS5i1L4GnILhP15rUUm5wB8FgLtIHZlT7fyja47xvHF4jEo
+	nLKIP9LS0U4GkzlNMENonUgxhljKlDNNyWHQpNTx/AxfwYY9gLXQvpRCTI0vkgo4c206gIuiEWZcl
+	nGMjW9pCPChtePCLqDvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcnyB-00000009XZW-1qe9;
-	Thu, 25 Jun 2026 17:34:31 +0000
-Received: from mail-westusazon11020100.outbound.protection.outlook.com ([52.101.85.100] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1wcnyA-00000009XXv-2IKS;
+	Thu, 25 Jun 2026 17:34:30 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcny1-00000009XOb-2ZLD
+	id 1wcny0-00000009XNY-1gC6
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 17:34:27 +0000
+	Thu, 25 Jun 2026 17:34:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rLq8IPCLkL6B4m/TdLZtnmUAs5y3RL7kJNqQdDZynJPkD5aZNGx+i2yDmQrZp3E45ZHku497yePPKwNL7sCbAkZtW5KQH54dh+AGDmgrm4DTnG5o6U4T/oz4QFW8Z/HC85XQDJh5sF7xqdED0lVEm5YATldsyDCxeW+eTkC0Ygf+D4MFqMlpw4Od84p8lqhy++6t5jyZHHC7XjZCvb4+nxXJ8p5lMyj0krcV6jxcxiQ7hf+bDPDam1ugTpAaa+/pC8ec8VEALtbeqtK09u/2mccC3fPu4DLKFCOr2NQ86adZ6paBa3QX2wkXi2i6dI0gJ/WdeEPLelXw/gzbByPstA==
+ b=fKKllaeFdBJlAKMIXSXd1part5318G8QjV7oOSDz42ycdKVA13HrUPH5eRgTX7w8awNcChNwhk41lp0DZD+S8ZdwMe6UmZ/5UXzDEYftywlsrDs3XHOiXf7RnXVLy3yjsiPo4OWYn4bP32UBpXkLbJf/cGe7S/Z2yJ5TMYf/vAda7AFDkYyNTliTVsOzhmOkoYssU3vYc/9dMdjEW73NwC2Mve8wBqRVzcsbkf/RWStMNVc5uIET9uA/cunlIV/td5fuyCUqp0iI6LChKWTEejgOmdqdaaDPb2X982zOCTVh1mrD74trl2bOnOCYo0h9kCmy1qlFOYJvLyxfe0zEug==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CO1z/tA2e4LwGk8ji3yYZ/MrWHEtiG46iSLnQ+jalsI=;
- b=RkTe9tDlzXsjNX0ZMrwB/ypksq8burcuKimbBlMGRhVIYnqvXPRtJCp7+gBwne7YRCriCFtzaNkGnx/XU70tSRZVHXywLAiC6tsCig6xhWo5aaLn4LN2jloXKen16TAac+6oS+EPCWqaJLjPLfUD8tYkHbaN4ikLTtxPzeazvpvj2DiMv5bYkDsephwSPC0bHNVj30XR6rVzesIjn2fmd/Rc49tqBcBeasZcZmHvpQZmUsUrwBW0XBhfwcDV2JsNRC/xpER5uvhsH5M30ugFZ+rVuFQcM0kmH88wa5N1DNOU4z5v55L+mv87rthuWzabZXOWN05BH5F3Sh6kWsh9Rw==
+ bh=eCsljxLdwL6cnTNmmqhlTBf0vbVfcOhXxAobwPUpmjk=;
+ b=QWcFV9pBAiYP7mc5EFS55ToWw+BHwWrD24PybkGrEW2LHte+tcvVVqia59rOkq6Npa4HfhI0aryRiwAiByrc1h+QvPFE+Z4b8BizpHR+s/kV8wlJDJ3ie31OX2btiOjdfISgu20ecahyK/GIvHL5iy/ZdH/8r5Ae9v/W1AnEmSwveYO0RQmH6V4UKNQLurxMlewyvdctX0H8BLHrSzwfflowu5hi0s1ZAtwfYPUHpGi06EL2PtHzBWSzK7dWoPYMoDq/azx3vTTeAYwr5wYQUlEs+bp7eW8Xfo8anEn/iG3hpm0RcW3VgDsdn8hM1NfzasJ4CNkTgWI/UvhIyMCSRw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CO1z/tA2e4LwGk8ji3yYZ/MrWHEtiG46iSLnQ+jalsI=;
- b=PJUUbXwX+O/zpRa5UI8kXEpdztjhhIzpLbPPHN8jgFhKfU+6DytysJNXIWOgC2bYTB+sFTC25hwFjVhoZVixSvzH0x2myovijMT6Rzp7qKMv2kOwJBzd47DWfXLmFeLyeeMAMBtWbaWyEr2PdeTI25LRWxPWeIOPcd4+zgriSB78GKtWNRXrHmZcdFn7ibsKeOw3XB8kQEitPuiLJfrRcOAs4QSGYckcKVknjkiRSuD9B3idpER84JmPCSyFh04aCXKPsDQtdKNDjzu0oRmH6deDPFOsslhwnxyR40drCtMdmyx5lC6XI+iEJ5NA9fIfJhu8P30Su6zFKNKQqoTj5g==
-Received: from SJ2PR07CA0005.namprd07.prod.outlook.com (2603:10b6:a03:505::29)
- by BN0PR04MB8192.namprd04.prod.outlook.com (2603:10b6:408:144::21) with
+ bh=eCsljxLdwL6cnTNmmqhlTBf0vbVfcOhXxAobwPUpmjk=;
+ b=IttHkvVI20ETPyWbiTkg5QSIrYVhnU08NfqUgv0hoL9mKKe8aGsOVK0Zq4j+WTiUD+oBwSFiNnN2HCb8yZYnCzRsN9ZfUg+z/h//1qSM/y0B0yKzH5iV6icgTWpAbPx/L7gbcXCAuwqRZ1ueL88AyMURDpRc91krfVlBOrwDLFGR0nw/X/P923+52Iwi4+l3qtHbb7XSFm1zOw4siJ7gs3IcQr/xP9T9L+IkgQH8rbqu1uTvOH7OaxZrNySvrIeBOMOYXR2nJ7Z69s8LPSRs4DSDv/lkfS0WYUKa2CzCmdNiIHuU08EzQt4tFWAQl1KwI6BlVbQAHZE49uAvmzGPZg==
+Received: from CYZPR02CA0002.namprd02.prod.outlook.com (2603:10b6:930:a1::26)
+ by PH0PR04MB7686.namprd04.prod.outlook.com (2603:10b6:510:5b::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.17; Thu, 25 Jun
- 2026 17:34:10 +0000
-Received: from MWH0EPF000A6735.namprd04.prod.outlook.com
- (2603:10b6:a03:505:cafe::2d) by SJ2PR07CA0005.outlook.office365.com
- (2603:10b6:a03:505::29) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 17:34:09 +0000
+Received: from CY4PEPF0000FCC2.namprd03.prod.outlook.com
+ (2603:10b6:930:a1:cafe::72) by CYZPR02CA0002.outlook.office365.com
+ (2603:10b6:930:a1::26) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.16 via Frontend Transport; Thu,
- 25 Jun 2026 17:34:10 +0000
+ 25 Jun 2026 17:34:08 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
  smtp.mailfrom=rambus.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=rambus.com;
@@ -60,12 +60,12 @@ Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
  192.86.86.210 as permitted sender) receiver=protection.outlook.com;
  client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
 Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
- MWH0EPF000A6735.mail.protection.outlook.com (10.167.249.27) with Microsoft
+ CY4PEPF0000FCC2.mail.protection.outlook.com (10.167.242.104) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Thu, 25 Jun 2026 17:34:10 +0000
+ via Frontend Transport; Thu, 25 Jun 2026 17:34:08 +0000
 Received: from hqxsv-cmdev3-skrishnamoorthy.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
-	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id 81C2F1801800;
-	Thu, 25 Jun 2026 17:34:07 +0000 (UTC)
+	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id 9B2B7180175B;
+	Thu, 25 Jun 2026 17:34:06 +0000 (UTC)
 From: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alex Ousherovitch <aousherovitch@rambus.com>,
@@ -91,38 +91,38 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	sipsupport@rambus.com,
 	Thi Nguyen <thin@rambus.com>
-Subject: [PATCH 17/19] Documentation: ioctl: add CMH ioctl documentation and register 'J'
-Date: Thu, 25 Jun 2026 10:33:25 -0700
-Message-ID: <20260625173328.1140487-18-skrishnamoorthy@rambus.com>
+Subject: [PATCH 06/19] crypto: cmh - add CSHAKE/KMAC ahash
+Date: Thu, 25 Jun 2026 10:33:14 -0700
+Message-ID: <20260625173328.1140487-7-skrishnamoorthy@rambus.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
 References: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
 MIME-Version: 1.0
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A6735:EE_|BN0PR04MB8192:EE_
-X-MS-Office365-Filtering-Correlation-Id: af389a3b-034c-424e-f79e-08ded2dff744
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC2:EE_|PH0PR04MB7686:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4df42d8d-ea03-4138-06f2-08ded2dff63b
 X-LD-Processed: bd0ba799-c2b9-413c-9c56-5d1731c4827c,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|376014|7416014|36860700016|921020|18002099003|22082099003|6133799003|3023799007|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 8HlpBVX9xUp7Z30PAqzwEgy4/3ZwrQ1TCsol/NmDmImrdRY/OmWPR7fDjrmhgCETr/D8OgnYA0OWL8552L2+/+RflVloyUvVAv++qtvJmq/XC1xNINAGnugWdsYAjz9b10crU4NEwpX88fDIcFQXV0tlhHu2xIWKDoGs7ij4VXHlRNXZlFTzfbYn7BxvJFPVB6mZbs+oRgyfb/5Nz2s6VpCGDN5Q4r8co9pMJdRg0hUwOkcXcfNw4QFAyyn9TyvnohRFyjOKbiBu/KM54cjsD1jX29nMNlFRwSJppU0NJpr0ILZojw3t0F7tnbaBOK/WYXBnE83a2ABCF9NXheZz5vchGXot/tZOVYamBmBd7NjLVtRhS/qXz+wnGus/5mQBXp0LORCaDg4RfXcOCrn7yn8zkFMXkN7WAafbZR1RBfD/xcSdczXDR9Yr+1exGVR61sSWXmwaYCMS14XfjL0CsHg3vcQOfUJntrTaK+2BJiZAjGUOsox/0qAw2gzQ0yn38GBFUNSOjqa1U69ofbV+EAlivtP8eD27VpfPobsP8kBH1/QkZ51Yl6zp/p08Eo2r7Tb2Ubbzspk1G3f4ZOos8zqvrmcFBQhz3t4gbS9gk/dTDpRyiwZGDDIbrcmDQsL+FsPfH9YPAYGuWncg7+SQmgcdK+1CJ/EiNTPPBplCgy2TApLnR8rji1mSRJurrwbuCnUcr1uOgfM2cEhHJNKR1sHzsfM7SMqZrS0kIRBVSIopPkASKFl+T7rovqxEEQGv
-X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(376014)(7416014)(36860700016)(921020)(18002099003)(22082099003)(6133799003)(3023799007)(11063799006)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|36860700016|82310400026|921020|3023799007|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: zAYae3PTc5ScJ5AUnMdRpyEgZDR2lTXTVWGCvv3zAw8YSg106PFrj9sPPK8BzjDmp6FSx4AEUUe0zTvGPr13YR5Smne0UY/CmRJwm1YwrRStLEpkTZrK3cHrcklp3r6bIEYSBSM/5UaltbAgQ1oKYGHF8M+WFGNW+p7YkAXRze7Zuu0twUJ7y3kGcr00BWmgth2DQiFLUpMp7qrmsq6BYIP3x4OsiBXMLAog7DgQNtbHDs7oSdhPyanHQzxb9FXvNyCR9pG+MsWSvTjqrHqmRfhfYTMmwmfYdXsFnpmurRE86Ftv49OueXWss5sCmY1DU5Xa4hudce2bzlvLxEtOkkUKJEiwIbAmNo7yS0k3UqqG/3fhaUMjL9ocE1P+uq/fhNpGlhAPds/11uOCcFrTS5ZIobOGqaJfeV/MvYsp6iLHAJTTFeNHLNeG/d1oh3DnSPSDKYVUS7pFrGPaNtoJzg6FgyD1PciF0fMsEnRCk1gu3UdrxYqoGx4fk7YYi/ErjpwJ5/Dr3A7yFQvdgwpanBhGGFnRxoLWaoZDOTqqftLy7ygXB05ijrAYXeYoMrTiTjyM3mqaCSk9LnwcxMxzMpJWeEsVJJr6cbG+OiPc3MBVhawugBfYHFyhwEvCARHNSNyk3+DoW5L0nbcNsjxCDblIL4gNg1UZuyHG0ajRnro7VLgaay72zoRAxeXtQqusTZQ3XYphfALF6IhENfr/wawpTzAO+q228WfB570R/g0sc4CUFrbbrMZ12OzTjIw0
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(36860700016)(82310400026)(921020)(3023799007)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: UozkIKquCrFYTugxVngbNFNdE1m6OcJjMIMqvItbubdpQtmVYfVm7vvKyTarQVUG9ckv3ym6YGKctk/dtQstPVfvloZ2qrijJq48/UiwdtHLIzevXqsg3dMqSYdauQa0rmknAsoz07NWkeL9Hq3DZRfsn7vJO2uUjOCZ9m49deMlny9evxQPS2W3R0ru7QtNy9GfpSaQkKT0wKCPwYBKWWcvnXyYPabKe63QldKQVyR9dY2LRWAgkX6e+S54+TcYktCepu2jj31SzKxfyvmCVdzOtr/La8nPE9ZR8VJl7dpEkAJ+r2A4b6VIzIANHc+3YxhT51Br6I2dCEEKRulyVcfMaVB4ue4jnFFYM96SsMMwNjk2HYmmqil/a452A2du/1eqmXTniuHzy5pcYK6XJGRutUXxXbSNR802hV2WJpeQjR89E0Fs32h6fz0/XSEk
+X-MS-Exchange-AntiSpam-MessageData-0: M6O5oJ0jp9Cn7N+n9fVbvWX11pA1Uhdhbob1NC6a3V23r5i+4sformANh2CecGiLdQhUArRuNMNFX2067VD2oafMHxZ59qiMFU+Pop+oXuocZ8ZMK2/19fU/qSMtos1Dq2XhDmVUlz3cymXcr+F0IZf8MM4rsS/XRIWLxIC40FkeMQhUvravacCvf85qgCeOQqbaCyNssc4BAkoiq5/vlYB0wsZMfXxkoJK5MwZsTzPBmonbVQYzEbdu0T91SYlFuhpPFc2K9XlOuaHHIyo1H5cfamMn/eMZDkDNUuah2lNQVrHmNgfgfN/OrWanO+bQI4Y7bazzHfTincr9JT7H1EyaahQ1DJlnVbAtXSqxcjF55vcq3dEe0C6kyHJm0bwbZZEqUaDdhhdfZ07QNnB/k9a60uoWABEclGm2+fcm6XADNB/Hw3JqIcJv5Bng9W47
 X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 17:34:10.0071
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 17:34:08.2137
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: af389a3b-034c-424e-f79e-08ded2dff744
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4df42d8d-ea03-4138-06f2-08ded2dff63b
 X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6735.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC2.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR04MB8192
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR04MB7686
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_103422_049935_E88C1F8C 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20260625_103420_653556_297895B9 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,14 +141,10 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Alex Ousherovitch <aousherovitch@rambus.com>
 
-Add Documentation/userspace-api/ioctl/cmh_mgmt.rst documenting the
-ioctl commands on the /dev/cmh_mgmt misc device for the CRI
-CryptoManager Hub (CMH) hardware crypto accelerator driver.  Covers
-key management, KIC key derivation, PKE (RSA, ECDSA, ECDH, EdDSA),
-PQC (ML-KEM, ML-DSA, SLH-DSA), SM2, EAC, and DRBG.
-
-Register ioctl magic number 'J' (0x4A) in ioctl-number.rst.  The
-driver uses ioctls 0x01-0x40.
+Register ahash algorithms for cSHAKE128, cSHAKE256, KMAC128, and
+KMAC256 using the CMH hash core.  cSHAKE supports incremental
+update and export/import.  KMAC has a 64KB data cap imposed by the
+hardware.
 
 Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
 Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
@@ -156,970 +152,1577 @@ Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
 Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
 Reviewed-by: Thi Nguyen <thin@rambus.com>
 ---
- .../userspace-api/ioctl/cmh_mgmt.rst          | 941 ++++++++++++++++++
- .../userspace-api/ioctl/ioctl-number.rst      |   1 +
- 2 files changed, 942 insertions(+)
- create mode 100644 Documentation/userspace-api/ioctl/cmh_mgmt.rst
+ drivers/crypto/cmh/Makefile             |   4 +-
+ drivers/crypto/cmh/cmh_cshake.c         | 808 ++++++++++++++++++++++++
+ drivers/crypto/cmh/cmh_kmac.c           | 630 ++++++++++++++++++
+ drivers/crypto/cmh/cmh_main.c           |  18 +
+ drivers/crypto/cmh/include/cmh_cshake.h |  16 +
+ drivers/crypto/cmh/include/cmh_kmac.h   |  16 +
+ 6 files changed, 1491 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/crypto/cmh/cmh_cshake.c
+ create mode 100644 drivers/crypto/cmh/cmh_kmac.c
+ create mode 100644 drivers/crypto/cmh/include/cmh_cshake.h
+ create mode 100644 drivers/crypto/cmh/include/cmh_kmac.h
 
-diff --git a/Documentation/userspace-api/ioctl/cmh_mgmt.rst b/Documentation/userspace-api/ioctl/cmh_mgmt.rst
+diff --git a/drivers/crypto/cmh/Makefile b/drivers/crypto/cmh/Makefile
+index 1f760c0214ef..2bb240b97f31 100644
+--- a/drivers/crypto/cmh/Makefile
++++ b/drivers/crypto/cmh/Makefile
+@@ -16,7 +16,9 @@ cmh-y := \
+        cmh_key.o \
+        cmh_sys.o \
+        cmh_hash.o \
+-       cmh_hmac.o
++       cmh_hmac.o \
++       cmh_cshake.o \
++       cmh_kmac.o
+
+ # Management ioctl device (/dev/cmh_mgmt): key lifecycle, PKE, PQC ioctls.
+ cmh-$(CONFIG_CRYPTO_DEV_CMH_MGMT) += \
+diff --git a/drivers/crypto/cmh/cmh_cshake.c b/drivers/crypto/cmh/cmh_cshake.c
 new file mode 100644
-index 000000000000..b0968ba6b153
+index 000000000000..02f9b853dd33
 --- /dev/null
-+++ b/Documentation/userspace-api/ioctl/cmh_mgmt.rst
-@@ -0,0 +1,941 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+=============================================
-+CMH Key Management ioctl Interface (cmh_mgmt)
-+=============================================
-+
-+:Author: Cryptography Research, Inc. (CRI)
-+:Maintainer: linux-crypto@vger.kernel.org
-+
-+Introduction
-+============
-+
-+The ``/dev/cmh_mgmt`` character device provides user-space access to key
-+management, key derivation, public-key, and post-quantum cryptographic
-+operations on the CryptoManager Hub (CMH) hardware accelerator.
-+
-+The device is created by the ``cmh`` kernel module as a ``misc_device``.
-+All operations are synchronous -- the ioctl blocks until the hardware
-+completes.  Opening the device requires ``CAP_SYS_ADMIN``.
-+
-+All ioctl argument structures are versioned: user space sets the
-+``version`` field to ``CMH_MGMT_V1`` (currently 1).  This allows the
-+driver to extend structures in the future without breaking the ABI.
-+
-+Data types and ioctl numbers are defined in
-+``<uapi/linux/cmh_mgmt_ioctl.h>``.  The ioctl type letter is ``'J'``
-+(0x4A).
-+
-+Error Handling
-+==============
-+
-+Unless otherwise noted, all ioctls return 0 on success and a negative
-+errno on failure.  Common error codes:
-+
-+========== =============================================================
-+``EINVAL`` Invalid ``version`` field, unsupported parameter, or
-+           out-of-range length.
-+``EFAULT`` Failed to copy data to/from user space.
-+``ENOMEM`` Kernel memory allocation failed.
-+``EIO``    Hardware returned an error (eSW command failure).
-+``ENOENT`` Key not found (``KEY_FIND``, ``KEY_LIST``).
-+========== =============================================================
-+
-+Datastore Concepts
-+==================
-+
-+The CMH hardware maintains an embedded datastore managed by the eSW
-+firmware.  Objects in the datastore are identified by a 64-bit reference
-+(``ref``) and optionally by a 64-bit Content ID (``cid``).
-+
-+Two storage classes exist:
-+
-+**Temporary (SYS_REF_TEMP)**
-+  Lifetime is scoped to a single mailbox slot.  The eSW firmware
-+  reclaims the object when the slot is reused.  Used for raw-key
-+  provisioning via ``KEY_NEW`` + ``KEY_WRITE``.
-+
-+**Persistent (SYS_REF_PERSIST)**
-+  Survives across mailbox slots.  Requires explicit deletion via
-+  ``KEY_DELETE``.  Identified by CID; resolved to a per-mailbox ref
-+  via ``KEY_FIND``.
-+
-+Mailbox Dispatch
-+================
-+
-+All ``/dev/cmh_mgmt`` ioctls are submitted on a single management
-+mailbox.  This is a structural requirement of the eSW datastore model,
-+not a tunable:
-+
-+* Datastore access control is **per-mailbox**.  ``KEY_NEW`` grants the
-+  creating mailbox read/write/execute access; other mailboxes have none
-+  until granted.  The returned 64-bit ``ref`` encodes a randomised
-+  offset and does **not** carry the owning mailbox, so an operation that
-+  receives only a ``ref`` (``KEY_GRANT``, ``KEY_READ``, ``KEY_DELETE``,
-+  ``DS_EXPORT``) cannot itself determine which mailbox owns the object.
-+  Using one fixed management mailbox guarantees that a key's create,
-+  modify, grant, read and hardware-held-key compute steps all share the
-+  mailbox that holds its access rights, without exposing mailbox
-+  identity in the UABI.  User space may still widen a key's access to
-+  additional mailboxes via ``KEY_GRANT``.
-+
-+* The eSW ``SYS_REF_TEMP`` scratch store is per-mailbox and persists
-+  across ioctl calls, so a multi-step flow that derives into
-+  ``SYS_REF_TEMP`` (for example a ``KIC_*`` derivation) and later
-+  consumes it (``DS_EXPORT`` with ``wrap_key = SYS_REF_TEMP``) requires
-+  both calls to use the same mailbox.
-+
-+Per-core ``cri,mbx`` device-tree affinity applies to the *stateless*
-+in-kernel crypto API path, which carries no datastore state between
-+requests and is balanced across mailboxes by the driver.
-+
-+Key Types
-+=========
-+
-+The ``ds_type`` field in ``KEY_NEW`` and ``KEY_WRITE`` selects the
-+datastore object type.  Values are defined as ``CMH_DS_*`` constants:
-+
-+=================================  =====  ==============================
-+Constant                           Value  Description
-+=================================  =====  ==============================
-+``CMH_DS_RAW_VALUE``               1      Raw byte array
-+``CMH_DS_AES_KEY``                 2      AES key (128/192/256-bit)
-+``CMH_DS_AES_XTS_KEY``             3      AES-XTS key (256/512-bit)
-+``CMH_DS_HMAC_KEY``                4      HMAC key
-+``CMH_DS_KMAC_KEY``                5      KMAC key
-+``CMH_DS_SM4_KEY``                 6      SM4 key (128-bit)
-+``CMH_DS_CHACHA20_KEY``            7      ChaCha20 key (256-bit)
-+``CMH_DS_RSA_PRIV_KEY``            10     RSA private key
-+``CMH_DS_RSA_PUB_KEY``             11     RSA public key
-+``CMH_DS_RSA_CRT_KEY``             12     RSA CRT private key
-+``CMH_DS_ECDSA_PRIV_KEY``          13     ECDSA private key
-+``CMH_DS_ECDSA_PUB_KEY``           14     ECDSA public key
-+``CMH_DS_ECDH_PRIV_KEY``           15     ECDH private key
-+``CMH_DS_EDDSA_PRIV_KEY``          16     EdDSA private key
-+``CMH_DS_SHARED_SECRET``           17     Shared secret
-+``CMH_DS_SM2_PRIV_KEY``            18     SM2 private key
-+``CMH_DS_ML_KEM_DK``               20     ML-KEM decapsulation key
-+``CMH_DS_ML_DSA_SK``               21     ML-DSA secret key
-+``CMH_DS_SLHDSA_SK``               25     SLH-DSA secret key
-+=================================  =====  ==============================
-+
-+Key Flags
-+=========
-+
-+The ``flags`` field in ``KEY_NEW`` and ``KEY_WRITE`` is a bitmask:
-+
-+==================  ===========  ========================================
-+Flag                Bit          Description
-+==================  ===========  ========================================
-+``CMH_FLAG_PT``     16           Key can be read as plaintext
-+``CMH_FLAG_XC``     17           Key can be exported over XC bus
-+``CMH_FLAG_SCA``    18           SCA key stored in 2 shares
-+==================  ===========  ========================================
-+
-+Elliptic Curve IDs
-+==================
-+
-+Curve identifiers for PKE operations (``curve`` field):
-+
-+==========================  =====
-+Constant                    Value
-+==========================  =====
-+``CMH_CURVE_P192``          0x01
-+``CMH_CURVE_P224``          0x02
-+``CMH_CURVE_P256``          0x03
-+``CMH_CURVE_P384``          0x04
-+``CMH_CURVE_P521``          0x05
-+``CMH_CURVE_SECP256K1``     0x07
-+``CMH_CURVE_BP192R1``       0x11
-+``CMH_CURVE_BP224R1``       0x12
-+``CMH_CURVE_BP256R1``       0x13
-+``CMH_CURVE_BP320R1``       0x14
-+``CMH_CURVE_BP384R1``       0x15
-+``CMH_CURVE_BP512R1``       0x16
-+``CMH_CURVE_SM2``           0x18
-+``CMH_CURVE_25519``         0x21
-+``CMH_CURVE_448``           0x22
-+==========================  =====
-+
-+Key Management ioctls
-+=====================
-+
-+CMH_IOCTL_KEY_NEW
-+-----------------
-+
-+Create a new empty datastore object.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x01
-+:Argument: ``struct cmh_ioctl_key_new``
-+
-+::
-+
-+  struct cmh_ioctl_key_new {
-+      __u32 version;     /* must be CMH_MGMT_V1 */
-+      __u32 ds_type;     /* CMH_DS_* key type */
-+      __u32 len;         /* key length in bytes */
-+      __u32 flags;       /* CMH_FLAG_* */
-+      __u64 cid;         /* caller ID (name) for the key */
-+      __u64 ref;         /* [out] key reference */
-+  };
-+
-+The returned ``ref`` is used in subsequent ``KEY_WRITE``, ``KEY_READ``,
-+and crypto operation ioctls.
-+
-+CMH_IOCTL_KEY_NEW_RANDOM
-+------------------------
-+
-+Create a new datastore object filled with hardware-generated random data.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x0B
-+:Argument: ``struct cmh_ioctl_key_new``
-+
-+Same structure as ``KEY_NEW``.  The hardware DRBG fills the object with
-+``len`` random bytes.
-+
-+CMH_IOCTL_KEY_WRITE
-+-------------------
-+
-+Write key material into a previously created datastore object.
-+
-+:Direction: ``_IOW``
-+:Number: 0x02
-+:Argument: ``struct cmh_ioctl_key_write``
-+
-+::
-+
-+  struct cmh_ioctl_key_write {
-+      __u32 version;
-+      __u32 len;         /* key data length */
-+      __u32 ds_type;     /* CMH_DS_* key type */
-+      __u32 flags;       /* CMH_FLAG_* */
-+      __u64 ref;         /* key reference from KEY_NEW */
-+      __u64 wrap_key;    /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+      __u64 data;        /* user-space pointer to key material */
-+  };
-+
-+If ``wrap_key`` is ``CMH_REF_NONE`` (0), key material is written in
-+plaintext.  Otherwise, the data is unwrapped using the specified
-+wrapping key.
-+
-+CMH_IOCTL_KEY_READ
-+------------------
-+
-+Read key material from a datastore object.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x03
-+:Argument: ``struct cmh_ioctl_key_read``
-+
-+::
-+
-+  struct cmh_ioctl_key_read {
-+      __u32 version;
-+      __u32 len;         /* buffer length */
-+      __u64 ref;         /* key reference */
-+      __u64 wrap_key;    /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+      __u64 data;        /* user-space pointer to output buffer */
-+      __u32 out_len;     /* [out] actual bytes written */
-+      __u32 __reserved;
-+  };
-+
-+Plaintext reads require the ``CMH_FLAG_PT`` attribute on the key.
-+The eSW prepends a 16-byte header (``CMH_SYS_WRAP_HDR_SIZE``) even
-+for plaintext reads; the output buffer must accommodate this.  The
-+output overhead is ``CMH_DS_EXPORT_OVERHEAD_PLAIN`` (16 bytes) for
-+plaintext reads and ``CMH_DS_EXPORT_OVERHEAD_WRAPPED`` (48 bytes:
-+16-byte header + 16-byte nonce + 16-byte tag) for wrapped reads.
-+
-+CMH_IOCTL_KEY_FIND
-+------------------
-+
-+Resolve a Content ID to a datastore reference.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x04
-+:Argument: ``struct cmh_ioctl_key_find``
-+
-+::
-+
-+  struct cmh_ioctl_key_find {
-+      __u32 version;
-+      __u32 __reserved;
-+      __u64 cid;         /* caller ID to search for */
-+      __u64 ref;         /* [out] resolved key reference */
-+      __u32 len;         /* [out] key length */
-+      __u32 type;        /* [out] key type */
-+  };
-+
-+Returns ``-ENOENT`` if no object with the given CID exists.
-+
-+CMH_IOCTL_KEY_LIST
-+------------------
-+
-+Iterate datastore objects.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x0E
-+:Argument: ``struct cmh_ioctl_key_list``
-+
-+::
-+
-+  struct cmh_ioctl_key_list {
-+      __u32 version;
-+      __u32 __reserved;
-+      __u64 start_ref;   /* starting DS reference (0 = first) */
-+      __u64 ref;         /* [out] object reference */
-+      __u64 cid;         /* [out] caller ID */
-+      __u32 len;         /* [out] object length */
-+      __u32 type;        /* [out] object type */
-+  };
-+
-+Pass ``start_ref=0`` to begin from the first object.  On return, pass
-+the returned ``ref`` as ``start_ref`` in the next call.  Iteration ends
-+when ``ref == 0``.
-+
-+CMH_IOCTL_KEY_GRANT
-+-------------------
-+
-+Set per-mailbox access permissions on a datastore object.
-+
-+:Direction: ``_IOW``
-+:Number: 0x05
-+:Argument: ``struct cmh_ioctl_key_grant``
-+
-+::
-+
-+  struct cmh_ioctl_key_grant {
-+      __u32 version;
-+      __u32 __reserved;
-+      __u64 ref;         /* key reference */
-+      __u64 read;        /* per-MBX read permission bitfield */
-+      __u64 write;       /* per-MBX write permission bitfield */
-+      __u64 execute;     /* per-MBX execute permission bitfield */
-+  };
-+
-+CMH_IOCTL_KEY_DELETE
-+--------------------
-+
-+Delete a datastore object (persistent keys only).
-+
-+:Direction: ``_IOW``
-+:Number: 0x06
-+:Argument: ``struct cmh_ioctl_key_grant``
-+
-+Uses the same structure as ``KEY_GRANT``; only the ``ref`` field is
-+used.
-+
-+Datastore Export/Import ioctls
-+==============================
-+
-+CMH_IOCTL_DS_EXPORT
-+-------------------
-+
-+Export the entire datastore as an encrypted blob.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x07
-+:Argument: ``struct cmh_ioctl_ds_export``
-+
-+::
-+
-+  struct cmh_ioctl_ds_export {
-+      __u32 version;
-+      __u32 len;         /* buffer length */
-+      __u64 cid;         /* caller ID for response tagging */
-+      __u64 wrap_key;    /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+      __u64 data;        /* user-space pointer to output buffer */
-+      __u32 out_len;     /* [out] actual bytes written */
-+      __u32 __reserved;
-+  };
-+
-+CMH_IOCTL_DS_IMPORT
-+-------------------
-+
-+Import a previously exported datastore blob.
-+
-+:Direction: ``_IOW``
-+:Number: 0x08
-+:Argument: ``struct cmh_ioctl_ds_import``
-+
-+::
-+
-+  struct cmh_ioctl_ds_import {
-+      __u32 version;
-+      __u32 len;         /* blob length */
-+      __u64 wrap_key;    /* wrapping key ref (CMH_REF_NONE = plaintext) */
-+      __u64 data;        /* user-space pointer to import blob */
-+  };
-+
-+Key Derivation ioctls (KIC)
-+===========================
-+
-+The Key Initialization Core (KIC) provides hardware key derivation from
-+OTP-provisioned base keys.  Up to 8 base keys are available
-+(``CMH_KIC_KEY1`` through ``CMH_KIC_KEY8``).
-+
-+CMH_IOCTL_KIC_HKDF1
-+--------------------
-+
-+HKDF-based key derivation (single-step, label only).
-+
-+:Direction: ``_IOWR``
-+:Number: 0x09
-+:Argument: ``struct cmh_ioctl_kic_hkdf1``
-+
-+::
-+
-+  struct cmh_ioctl_kic_hkdf1 {
-+      __u32 version;
-+      __u32 key_len;     /* output key length */
-+      __u64 base_key;    /* KIC base key reference */
-+      __u64 cid;         /* CID for the new DS entry */
-+      __u64 label;       /* user-space pointer to label data */
-+      __u32 label_len;   /* label length in bytes */
-+      __u32 flags;       /* CMH_KIC_FLAG_* */
-+      __u64 ref;         /* [out] derived key reference */
-+  };
-+
-+If ``CMH_KIC_FLAG_TEMP`` is set, the result is stored in the temporary
-+datastore (not persistent).
-+
-+CMH_IOCTL_KIC_HKDF2
-+--------------------
-+
-+HKDF-based key derivation (two-step, with salt key).
-+
-+:Direction: ``_IOWR``
-+:Number: 0x0A
-+:Argument: ``struct cmh_ioctl_kic_hkdf2``
-+
-+::
-+
-+  struct cmh_ioctl_kic_hkdf2 {
-+      __u32 version;
-+      __u32 key_len;
-+      __u64 base_key;
-+      __u64 salt_key;    /* salt key reference (CMH_REF_NONE = no salt) */
-+      __u64 cid;
-+      __u64 label;
-+      __u32 label_len;
-+      __u32 flags;
-+      __u64 ref;         /* [out] derived key reference */
-+  };
-+
-+CMH_IOCTL_KIC_AES_CMAC_KDF
-+---------------------------
-+
-+AES-CMAC-based key derivation (NIST SP 800-108).
-+
-+:Direction: ``_IOWR``
-+:Number: 0x0C
-+:Argument: ``struct cmh_ioctl_kic_aes_cmac_kdf``
-+
-+::
-+
-+  struct cmh_ioctl_kic_aes_cmac_kdf {
-+      __u32 version;
-+      __u32 key_len;     /* base & output key length (must be 32) */
-+      __u64 base_key;
-+      __u64 cid;
-+      __u64 label;
-+      __u32 label_len;
-+      __u32 flags;
-+      __u64 ref;         /* [out] derived key reference */
-+  };
-+
-+CMH_IOCTL_KIC_DKEK_DERIVE
-+--------------------------
-+
-+Derive a Device Key Encryption Key (DKEK) for secure key export.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x0D
-+:Argument: ``struct cmh_ioctl_kic_dkek_derive``
-+
-+::
-+
-+  struct cmh_ioctl_kic_dkek_derive {
-+      __u32 version;
-+      __u32 host_id;     /* target host ID (0 = caller's own) */
-+      __u64 base_key;
-+      __u64 cid;
-+      __u64 metadata;    /* user-space pointer to metadata */
-+      __u32 metadata_len;
-+      __u32 flags;
-+      __u64 ref;         /* [out] derived KEK reference */
-+  };
-+
-+PKE (Public Key Engine) ioctls
-+==============================
-+
-+RSA Operations
-+--------------
-+
-+CMH_IOCTL_PKE_RSA_ENC
-+~~~~~~~~~~~~~~~~~~~~~~
-+
-+RSA public-key encryption.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x10
-+:Argument: ``struct cmh_ioctl_pke_rsa_enc``
-+
-+The public key (e, n) is passed as raw user-space buffers.
-+
-+CMH_IOCTL_PKE_RSA_DEC
-+~~~~~~~~~~~~~~~~~~~~~~
-+
-+RSA private-key decryption using a datastore key reference.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x11
-+:Argument: ``struct cmh_ioctl_pke_rsa_dec``
-+
-+CMH_IOCTL_PKE_RSA_CRT_DEC
-+~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+RSA CRT private-key decryption (faster, uses CRT key format).
-+
-+:Direction: ``_IOWR``
-+:Number: 0x12
-+:Argument: ``struct cmh_ioctl_pke_rsa_crt_dec``
-+
-+CMH_IOCTL_PKE_RSA_KEYGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Generate an RSA key pair in hardware.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x13
-+:Argument: ``struct cmh_ioctl_pke_rsa_keygen``
-+
-+Returns private key and optional CRT key as datastore references.
-+The modulus is written back to user space.
-+
-+ECDSA Operations
-+----------------
-+
-+CMH_IOCTL_PKE_ECDSA_SIGN
-+~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+ECDSA signature generation using a datastore private key.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x14
-+:Argument: ``struct cmh_ioctl_pke_ecdsa_sign``
-+
-+CMH_IOCTL_PKE_ECDH
-+~~~~~~~~~~~~~~~~~~~
-+
-+Compute ECDH shared secret from a peer public key and a datastore
-+private key.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x16
-+:Argument: ``struct cmh_ioctl_pke_ecdh``
-+
-+If ``CMH_PKE_FLAG_DS_RESULT`` is set, the shared secret is stored in
-+the datastore and a reference is returned instead of raw bytes.
-+
-+CMH_IOCTL_PKE_ECDH_KEYGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Derive a public key from a datastore private key.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x17
-+:Argument: ``struct cmh_ioctl_pke_ecdh_keygen``
-+
-+EdDSA Operations
-+----------------
-+
-+CMH_IOCTL_PKE_EDDSA_SIGN
-+~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+EdDSA (Ed25519/Ed448) signature generation.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x18
-+:Argument: ``struct cmh_ioctl_pke_eddsa_sign``
-+
-+Note: the ``digest`` field is the full message (pure EdDSA), not a
-+pre-computed hash.
-+
-+CMH_IOCTL_PKE_EDDSA_VERIFY
-+~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+EdDSA signature verification.
-+
-+:Direction: ``_IOW``
-+:Number: 0x19
-+:Argument: ``struct cmh_ioctl_pke_eddsa_verify``
-+
-+EC Key Management
-+-----------------
-+
-+CMH_IOCTL_PKE_EC_KEYGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Generate an EC private key in the hardware datastore.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x1A
-+:Argument: ``struct cmh_ioctl_pke_ec_keygen``
-+
-+CMH_IOCTL_PKE_EC_PUBGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Derive the public key from a datastore private key.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x1B
-+:Argument: ``struct cmh_ioctl_pke_ec_pubgen``
-+
-+CMH_IOCTL_PKE_EDDSA_KEYGEN_SCA
-+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Generate a 2-share SCA-protected Ed448 private key.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x1C
-+:Argument: ``struct cmh_ioctl_pke_eddsa_keygen_sca``
-+
-+Post-Quantum Cryptography (PQC) ioctls
-+=======================================
-+
-+PQC operations support the following flags in the ``flags`` field:
-+
-+============================  ====  ====================================
-+Flag                          Bit   Description
-+============================  ====  ====================================
-+``CMH_QSE_FLAG_MASKED``       0     Use masked (SCA-resistant) HW path
-+``CMH_QSE_FLAG_DS_REF``       1     Store key output in DS, return ref
-+``CMH_QSE_FLAG_HW_RNG``       2     Use HW RNG for seed/randomness
-+============================  ====  ====================================
-+
-+ML-KEM (FIPS 203)
-+-----------------
-+
-+CMH_IOCTL_ML_KEM_KEYGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Generate an ML-KEM key pair.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x20
-+:Argument: ``struct cmh_ioctl_ml_kem_keygen``
-+
-+Security parameter ``k`` selects the strength: 2 (ML-KEM-512),
-+3 (ML-KEM-768), or 4 (ML-KEM-1024).
-+
-+CMH_IOCTL_ML_KEM_ENC
-+~~~~~~~~~~~~~~~~~~~~~
-+
-+ML-KEM encapsulation.  Produces ciphertext and shared secret.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x21
-+:Argument: ``struct cmh_ioctl_ml_kem_enc``
-+
-+CMH_IOCTL_ML_KEM_DEC
-+~~~~~~~~~~~~~~~~~~~~~
-+
-+ML-KEM decapsulation.  Recovers shared secret from ciphertext.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x22
-+:Argument: ``struct cmh_ioctl_ml_kem_dec``
-+
-+ML-DSA (FIPS 204)
-+-----------------
-+
-+CMH_IOCTL_ML_DSA_KEYGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Generate an ML-DSA key pair.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x23
-+:Argument: ``struct cmh_ioctl_ml_dsa_keygen``
-+
-+Security parameter ``mode`` selects the strength: 2 (ML-DSA-44),
-+3 (ML-DSA-65), or 5 (ML-DSA-87).
-+
-+.. note::
-+
-+   When ``CMH_QSE_FLAG_DS_REF`` keeps the secret key in the datastore,
-+   the public key returned in ``pk`` is the only copy: there is no
-+   operation to derive the public key from the secret-key reference
-+   for ML-DSA.  User space must persist ``pk`` at keygen time.
-+
-+CMH_IOCTL_ML_DSA_SIGN
-+~~~~~~~~~~~~~~~~~~~~~~
-+
-+ML-DSA signature generation.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x24
-+:Argument: ``struct cmh_ioctl_ml_dsa_sign``
-+
-+If ``mlen`` is set to ``CMH_ML_DSA_MLEN_EXTERNAL_MU`` (0xFFFFFFFF),
-+the ``m`` pointer is interpreted as a 64-byte pre-hashed mu value
-+(ExternalMu mode).
-+
-+CMH_IOCTL_SLHDSA_KEYGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Generate an SLH-DSA key pair.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x28
-+:Argument: ``struct cmh_ioctl_slhdsa_keygen``
-+
-+.. note::
-+
-+   When ``CMH_QSE_FLAG_DS_REF`` keeps the secret key in the datastore,
-+   the public key returned in ``pk`` is the only copy: there is no
-+   operation to derive the public key from the secret-key reference
-+   for SLH-DSA.  User space must persist ``pk`` at keygen time.
-+
-+CMH_IOCTL_SLHDSA_SIGN
-+~~~~~~~~~~~~~~~~~~~~~~
-+
-+SLH-DSA signature generation (pure mode).
-+
-+:Direction: ``_IOWR``
-+:Number: 0x29
-+:Argument: ``struct cmh_ioctl_slhdsa_sign``
-+
-+CMH_IOCTL_SLHDSA_SIGN_PREHASH
-+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+SLH-DSA pre-hash signature generation.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x2D
-+:Argument: ``struct cmh_ioctl_slhdsa_sign_prehash``
-+
-+The ``prehash_algo`` field selects the hash algorithm
-+(``CMH_SLHDSA_PREHASH_SHA256``, etc.).
-+
-+CMH_IOCTL_SM2_ENC_POINT
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+:Direction: ``_IOWR``
-+:Number: 0x33
-+:Argument: ``struct cmh_ioctl_sm2_enc_point``
-+
-+CMH_IOCTL_SM2_ENC_HASH
-+~~~~~~~~~~~~~~~~~~~~~~~
-+
-+:Direction: ``_IOWR``
-+:Number: 0x37
-+:Argument: ``struct cmh_ioctl_sm2_enc_hash``
-+
-+CMH_IOCTL_SM2_DEC_POINT
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+:Direction: ``_IOWR``
-+:Number: 0x32
-+:Argument: ``struct cmh_ioctl_sm2_dec_point``
-+
-+CMH_IOCTL_SM2_DEC_HASH
-+~~~~~~~~~~~~~~~~~~~~~~~
-+
-+:Direction: ``_IOWR``
-+:Number: 0x36
-+:Argument: ``struct cmh_ioctl_sm2_dec_hash``
-+
-+SM2 Key Exchange (GM/T 0003.3)
-+------------------------------
-+
-+The key exchange protocol is a multi-step flow:
-+
-+1. ``EC_KEYGEN(CMH_CURVE_SM2)`` -- generate a long-lived private key.
-+2. ``EC_PUBGEN`` -- derive the public key.
-+3. ``SM2_ID_DIGEST`` -- compute the SM3 identity digest (ZA).
-+4. ``SM2_ECDH_KEYGEN`` -- generate an ephemeral session key.
-+5. Exchange session keys with the peer.
-+6. ``SM2_ECDH`` -- compute the shared point.
-+7. ``SM2_ECDH_HASH`` -- derive the shared key from the shared point
-+   and both parties' ZA digests.
-+
-+CMH_IOCTL_SM2_ECDH_KEYGEN
-+~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+:Direction: ``_IOWR``
-+:Number: 0x30
-+:Argument: ``struct cmh_ioctl_sm2_ecdh_keygen``
-+
-+``nonce_len`` must be 0 or 32.  If ``nonce_len=0``, the hardware
-+generates the ephemeral scalar and writes it back to the ``nonce``
-+buffer.
-+
-+CMH_IOCTL_SM2_ECDH
-+~~~~~~~~~~~~~~~~~~~
-+
-+:Direction: ``_IOWR``
-+:Number: 0x31
-+:Argument: ``struct cmh_ioctl_sm2_ecdh``
-+
-+If ``shared_point_ref`` points to a non-zero value, the shared point
-+is kept in the datastore for use by ``SM2_ECDH_HASH``.
-+
-+CMH_IOCTL_SM2_ID_DIGEST
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Compute the SM3 identity digest (ZA) for a public key and identity
-+string.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x34
-+:Argument: ``struct cmh_ioctl_sm2_id_digest``
-+
-+CMH_IOCTL_SM2_ECDH_HASH
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Derive the shared key from the shared point and ZA digests.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x35
-+:Argument: ``struct cmh_ioctl_sm2_ecdh_hash``
-+
-+.. important::
-+
-+   The digest fields use **absolute** ordering per GM/T 0003.3, not
-+   relative own/peer ordering.  Both parties must pass:
-+
-+   - ``peer_id_digest`` = Z_A (initiator's digest) -- hashed first
-+   - ``id_digest`` = Z_B (responder's digest) -- hashed second
-+
-+Hardware Management ioctls
-+==========================
-+
-+CMH_IOCTL_EAC_READ
-+-------------------
-+
-+Read and clear the hardware Error and Alarm Controller registers.
-+
-+:Direction: ``_IOWR``
-+:Number: 0x0F
-+:Argument: ``struct cmh_ioctl_eac_read``
-+
-+::
-+
-+  struct cmh_ioctl_eac_read {
-+      __u32 version;
-+      __u32 __reserved;
-+      __u64 mailbox_notification;
-+      __u32 hw_error;
-+      __u32 hw_nmi;
-+      __u32 hw_panic;
-+      __u32 safety_fatal;
-+      __u32 safety_notification;
-+      __u32 sw_info0;
-+      __u32 sw_info1;
-+      __u32 sram_bank_errors[4];
-+      __u32 __pad;
-+  };
-+
-+The eSW atomically reads and clears the registers on each call.
-+Successive reads show only new events since the last read.
-+
-+CMH_IOCTL_DRBG_CONFIG
-+----------------------
-+
-+Configure the hardware DRBG before first use.
-+
-+:Direction: ``_IOW``
-+:Number: 0x40
-+:Argument: ``struct cmh_ioctl_drbg_config``
-+
-+::
-+
-+  struct cmh_ioctl_drbg_config {
-+      __u32 version;
-+      __u32 entropy_ratio;       /* CMH_DRBG_RATIO_* */
-+      __u32 security_strength;   /* CMH_DRBG_STRENGTH_* */
-+      __u32 __reserved;
-+  };
-+
-+This is a management operation normally performed once at system
-+startup.  Must be called before any ``hwrng`` reads or DRBG generate
-+operations.
-+
-+ioctl Number Summary
-+====================
-+
-+======================================  ====  ====  =========================================
-+ioctl                                   Dir   Seq   Argument
-+======================================  ====  ====  =========================================
-+``CMH_IOCTL_KEY_NEW``                   IOWR  0x01  ``cmh_ioctl_key_new``
-+``CMH_IOCTL_KEY_WRITE``                 IOW   0x02  ``cmh_ioctl_key_write``
-+``CMH_IOCTL_KEY_READ``                  IOWR  0x03  ``cmh_ioctl_key_read``
-+``CMH_IOCTL_KEY_FIND``                  IOWR  0x04  ``cmh_ioctl_key_find``
-+``CMH_IOCTL_KEY_GRANT``                 IOW   0x05  ``cmh_ioctl_key_grant``
-+``CMH_IOCTL_KEY_DELETE``                IOW   0x06  ``cmh_ioctl_key_grant``
-+``CMH_IOCTL_DS_EXPORT``                 IOWR  0x07  ``cmh_ioctl_ds_export``
-+``CMH_IOCTL_DS_IMPORT``                 IOW   0x08  ``cmh_ioctl_ds_import``
-+``CMH_IOCTL_KIC_HKDF1``                 IOWR  0x09  ``cmh_ioctl_kic_hkdf1``
-+``CMH_IOCTL_KIC_HKDF2``                 IOWR  0x0A  ``cmh_ioctl_kic_hkdf2``
-+``CMH_IOCTL_KEY_NEW_RANDOM``            IOWR  0x0B  ``cmh_ioctl_key_new``
-+``CMH_IOCTL_KIC_AES_CMAC_KDF``          IOWR  0x0C  ``cmh_ioctl_kic_aes_cmac_kdf``
-+``CMH_IOCTL_KIC_DKEK_DERIVE``           IOWR  0x0D  ``cmh_ioctl_kic_dkek_derive``
-+``CMH_IOCTL_KEY_LIST``                  IOWR  0x0E  ``cmh_ioctl_key_list``
-+``CMH_IOCTL_EAC_READ``                  IOWR  0x0F  ``cmh_ioctl_eac_read``
-+``CMH_IOCTL_PKE_RSA_ENC``               IOWR  0x10  ``cmh_ioctl_pke_rsa_enc``
-+``CMH_IOCTL_PKE_RSA_DEC``               IOWR  0x11  ``cmh_ioctl_pke_rsa_dec``
-+``CMH_IOCTL_PKE_RSA_CRT_DEC``           IOWR  0x12  ``cmh_ioctl_pke_rsa_crt_dec``
-+``CMH_IOCTL_PKE_RSA_KEYGEN``            IOWR  0x13  ``cmh_ioctl_pke_rsa_keygen``
-+``CMH_IOCTL_PKE_ECDSA_SIGN``            IOWR  0x14  ``cmh_ioctl_pke_ecdsa_sign``
-+``CMH_IOCTL_PKE_ECDH``                  IOWR  0x16  ``cmh_ioctl_pke_ecdh``
-+``CMH_IOCTL_PKE_ECDH_KEYGEN``           IOWR  0x17  ``cmh_ioctl_pke_ecdh_keygen``
-+``CMH_IOCTL_PKE_EDDSA_SIGN``            IOWR  0x18  ``cmh_ioctl_pke_eddsa_sign``
-+``CMH_IOCTL_PKE_EDDSA_VERIFY``          IOW   0x19  ``cmh_ioctl_pke_eddsa_verify``
-+``CMH_IOCTL_PKE_EC_KEYGEN``             IOWR  0x1A  ``cmh_ioctl_pke_ec_keygen``
-+``CMH_IOCTL_PKE_EC_PUBGEN``             IOWR  0x1B  ``cmh_ioctl_pke_ec_pubgen``
-+``CMH_IOCTL_PKE_EDDSA_KEYGEN_SCA``      IOWR  0x1C  ``cmh_ioctl_pke_eddsa_keygen_sca``
-+``CMH_IOCTL_ML_KEM_KEYGEN``             IOWR  0x20  ``cmh_ioctl_ml_kem_keygen``
-+``CMH_IOCTL_ML_KEM_ENC``                IOWR  0x21  ``cmh_ioctl_ml_kem_enc``
-+``CMH_IOCTL_ML_KEM_DEC``                IOWR  0x22  ``cmh_ioctl_ml_kem_dec``
-+``CMH_IOCTL_ML_DSA_KEYGEN``             IOWR  0x23  ``cmh_ioctl_ml_dsa_keygen``
-+``CMH_IOCTL_ML_DSA_SIGN``               IOWR  0x24  ``cmh_ioctl_ml_dsa_sign``
-+``CMH_IOCTL_SLHDSA_KEYGEN``             IOWR  0x28  ``cmh_ioctl_slhdsa_keygen``
-+``CMH_IOCTL_SLHDSA_SIGN``               IOWR  0x29  ``cmh_ioctl_slhdsa_sign``
-+``CMH_IOCTL_SLHDSA_SIGN_PREHASH``       IOWR  0x2D  ``cmh_ioctl_slhdsa_sign_prehash``
-+``CMH_IOCTL_SM2_ECDH_KEYGEN``           IOWR  0x30  ``cmh_ioctl_sm2_ecdh_keygen``
-+``CMH_IOCTL_SM2_ECDH``                  IOWR  0x31  ``cmh_ioctl_sm2_ecdh``
-+``CMH_IOCTL_SM2_DEC_POINT``             IOWR  0x32  ``cmh_ioctl_sm2_dec_point``
-+``CMH_IOCTL_SM2_ENC_POINT``             IOWR  0x33  ``cmh_ioctl_sm2_enc_point``
-+``CMH_IOCTL_SM2_ID_DIGEST``             IOWR  0x34  ``cmh_ioctl_sm2_id_digest``
-+``CMH_IOCTL_SM2_ECDH_HASH``             IOWR  0x35  ``cmh_ioctl_sm2_ecdh_hash``
-+``CMH_IOCTL_SM2_DEC_HASH``              IOWR  0x36  ``cmh_ioctl_sm2_dec_hash``
-+``CMH_IOCTL_SM2_ENC_HASH``              IOWR  0x37  ``cmh_ioctl_sm2_enc_hash``
-+``CMH_IOCTL_DRBG_CONFIG``               IOW   0x40  ``cmh_ioctl_drbg_config``
-+======================================  ====  ====  =========================================
-+
-+Migration Plan
-+==============
-+
-+Several ioctl commands provide operations that may gain dedicated kernel
-+crypto API bindings in the future.  When those APIs land, the driver will
-+register through them and the corresponding ioctls will be deprecated
-+(retained for backward compatibility but no longer the primary interface):
-+
-+- **EdDSA** (``CMH_IOCTL_PKE_EDDSA_*``): will migrate to the kernel ``sig``
-+  API once ed25519/ed448 algorithm types are accepted upstream.
-+
-+- **ML-KEM** (``CMH_IOCTL_ML_KEM_*``): will migrate to the kernel KEM API
-+  once the in-flight KEM subsystem series lands.
-+
-+- **Key lifecycle** (``CMH_IOCTL_KEY_*``): will evaluate integration with
-+  the kernel KEYS subsystem (trusted-keys / encrypted-keys) as a follow-up
-+  series.
-+
-+Operations that are inherently vendor-specific (EAC Chip Authentication,
-+KIC key derivation, SM2 key exchange, DRBG configuration, datastore
-+export/import) will remain as ioctls permanently -- they have no
-+corresponding kernel abstraction and are not expected to gain one.
-diff --git a/Documentation/userspace-api/ioctl/ioctl-number.rst b/Documentation/userspace-api/ioctl/ioctl-number.rst
-index 29a08bc059dd..4a9ba12ee138 100644
---- a/Documentation/userspace-api/ioctl/ioctl-number.rst
-+++ b/Documentation/userspace-api/ioctl/ioctl-number.rst
-@@ -170,6 +170,7 @@ Code  Seq#    Include File                                             Comments
- 'I'   all    linux/isdn.h                                              conflict!
- 'I'   00-0F  drivers/isdn/divert/isdn_divert.h                         conflict!
- 'I'   40-4F  linux/mISDNif.h                                           conflict!
-+'J'   01-40  uapi/linux/cmh_mgmt_ioctl.h                               CRI CryptoManager Hub (CMH)
- 'K'   all    linux/kd.h
- 'L'   00-1F  linux/loop.h                                              conflict!
- 'L'   10-1F  drivers/scsi/mpt3sas/mpt3sas_ctl.h                        conflict!
++++ b/drivers/crypto/cmh/cmh_cshake.c
+@@ -0,0 +1,808 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
++ * CMH LKM -- Kernel Crypto API CSHAKE Driver
++ *
++ * Registers cSHAKE-128 and cSHAKE-256 as ahash algorithms using the
++ * CMH Hash Core (HC) via HC_CMD_CSHAKE.
++ *
++ * CSHAKE (NIST SP 800-185) extends SHAKE with two domain separation
++ * parameters: function name N and customization string S.  When both
++ * are empty, cSHAKE reduces to plain SHAKE -- the driver falls back to
++ * HC_CMD_INIT in that case (per SP 800-185 S6.2).
++ *
++ * N and S are set via .setkey() using a self-describing binary header
++ * (matching the upstream authenc precedent):
++ *
++ *   struct cshake_cfg { __be32 n_len; __be32 s_len; };
++ *   setkey blob: cshake_cfg || N[n_len] || S[s_len]
++ *
++ * If .setkey() is never called, the driver defaults to plain SHAKE
++ * (N="" S="").  .setkey() is per-tfm, not per-request.
++ *
++ * N is embedded inline in the HC_CMD_CSHAKE struct (max 36 bytes).
++ * S is passed as VCQ inline data following the command slot (multi-span).
++ *
++ * Uses the same self-contained transaction model as cmh_hash.c:
++ *   .init()   -> software-only
++ *   .update() -> software-only (accumulate chunks)
++ *   .final()  -> CSHAKE [+ inline S] [+ RESTORE] [+ GATHER] + FINAL + FLUSH
++ *   .export() -> CSHAKE [+ inline S] [+ RESTORE] [+ GATHER] + SAVE + FLUSH
++ *   .import() -> restore HC context checkpoint (software-only)
++ *
++ * The HC core supports HC_CMD_SAVE / HC_CMD_RESTORE for cSHAKE mode.
++ * The cSHAKE domain-separation prefix (function name N, customization
++ * string S) is absorbed into the Keccak sponge state by HC_CMD_CSHAKE
++ * on the first submission, and preserved through save/restore.
++ * Export/import enables crypto API transform cloning.
++ *
++ * .setkey() here configures public domain-separation parameters (N, S),
++ * not a secret key.
++ */
++
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/crypto.h>
++#include <crypto/internal/hash.h>
++#include <linux/scatterlist.h>
++#include <linux/list.h>
++#include <linux/slab.h>
++#include <linux/string.h>
++#include <asm/byteorder.h>
++
++#include "cmh_cshake.h"
++#include "cmh_vcq.h"
++#include "cmh_hc_abi.h"
++#include "cmh_txn.h"
++#include "cmh_dma.h"
++
++/* Algorithm Table */
++
++struct cmh_cshake_alg_info {
++       u32         hc_algo;
++       u32         digest_size;
++       const char *alg_name;
++       const char *drv_name;
++};
++
++static const struct cmh_cshake_alg_info cmh_cshake_algs_info[] = {
++       {
++               .hc_algo     = HC_ALGO_SHAKE128,
++               .digest_size = CMH_SHAKE128_DIGEST_SIZE,
++               .alg_name    = "cshake128",
++               .drv_name    = "cri-cmh-cshake128",
++       },
++       {
++               .hc_algo     = HC_ALGO_SHAKE256,
++               .digest_size = CMH_SHAKE256_DIGEST_SIZE,
++               .alg_name    = "cshake256",
++               .drv_name    = "cri-cmh-cshake256",
++       },
++};
++
++#define CMH_CSHAKE_ALG_COUNT  ARRAY_SIZE(cmh_cshake_algs_info)
++
++/* Per-Request State */
++
++struct cmh_cshake_chunk {
++       struct list_head  list;
++       struct list_head  tfm_node; /* per-tfm orphan tracking */
++       u32               len;
++       u8                data[];
++};
++
++/*
++ * Max payload slots for CSHAKE:
++ *   CSHAKE (1) + inline S (ceil(S_len/64)) + GATHER (1) + FINAL (1) + FLUSH (1)
++ * S can be up to SHAKE-128 block (168 bytes) = 3 inline slots.
++ * Conservative: 1 + 3 + 1 + 1 + 1 = 7, plus headers.
++ *
++ * Or INIT + GATHER + FINAL + FLUSH = 4 (plain SHAKE fallback).
++ */
++#define CMH_CSHAKE_MAX_PAYLOAD   8
++#define CMH_CSHAKE_MAX_PACKED    (CMH_CSHAKE_MAX_PAYLOAD * 2)
++
++/*
++ * Checkpoint embedded inline: the kernel ahash API has no per-request
++ * destructor, so a heap-allocated checkpoint leaks if a request is
++ * abandoned without .final().
++ */
++struct cmh_cshake_reqctx {
++       const struct cmh_cshake_alg_info *info;
++       int                               error;
++       struct list_head                  chunks;
++       u32                               num_chunks;
++       u32                               total_len;
++       u32                               has_checkpoint;
++       u8                                checkpoint[HC_CONTEXT_SIZE];
++       /* DMA state for async final */
++       dma_addr_t                        digest_dma;
++       dma_addr_t                        ckpt_dma;
++       u8                               *digest_buf;
++       struct cmh_sg_map                *sgm;
++       struct vcq_cmd packed[CMH_CSHAKE_MAX_PACKED];
++};
++
++/* Per-Transform State (carries N and S across requests) */
++
++struct cmh_cshake_tfm_ctx {
++       u8  *func_name;     /* N (function name), NULL if empty */
++       u32  func_name_len;
++       u8  *custom;        /* S (customization string), NULL if empty */
++       u32  custom_len;
++       spinlock_t         chunk_lock;  /* protects all_chunks */
++       struct list_head   all_chunks;  /* orphan-safe chunk tracking */
++};
++
++/* VCQ Builders */
++
++/* VCQ Builders (cSHAKE-specific; shared builders in cmh_hc_abi.h / cmh_vcq.h) */
++
++static void vcq_add_hc_save(struct vcq_cmd *slot, u32 core_id,
++                           u64 output_phys, u32 outlen)
++{
++       memset(slot, 0, sizeof(*slot));
++       slot->magic = VCQ_CMD_MAGIC;
++       slot->id = VCQ_CMD_ID(core_id, 0, 1, HC_CMD_SAVE);
++       slot->hwc.hc.cmd_save.output = output_phys;
++       slot->hwc.hc.cmd_save.outlen = outlen;
++}
++
++static void vcq_add_hc_restore(struct vcq_cmd *slot, u32 core_id,
++                              u64 input_phys, u32 inlen)
++{
++       memset(slot, 0, sizeof(*slot));
++       slot->magic = VCQ_CMD_MAGIC;
++       slot->id = VCQ_CMD_ID(core_id, 0, 1, HC_CMD_RESTORE);
++       slot->hwc.hc.cmd_restore.input = input_phys;
++       slot->hwc.hc.cmd_restore.inlen = inlen;
++}
++
++static void vcq_add_hc_cshake(struct vcq_cmd *slot, u32 core_id, u32 algo,
++                             const u8 *name, u32 namelen,
++                             u32 customlen)
++{
++       memset(slot, 0, sizeof(*slot));
++       slot->magic = VCQ_CMD_MAGIC;
++       slot->id = VCQ_CMD_ID(core_id, 0, 1, HC_CMD_CSHAKE);
++       slot->hwc.hc.cmd_cshake.custom = 0;  /* inline -- CMH eSW reads from next slot(s) */
++       slot->hwc.hc.cmd_cshake.customlen = customlen;
++       slot->hwc.hc.cmd_cshake.algo = algo;
++       slot->hwc.hc.cmd_cshake.namelen = namelen;
++       if (namelen > 0 && name)
++               memcpy(slot->hwc.hc.cmd_cshake.name, name,
++                      min_t(u32, namelen, HC_CSHAKE_MAX_NAMELEN));
++}
++
++/* Request Context Cleanup */
++
++static void cmh_cshake_free_chunks(struct cmh_cshake_reqctx *rctx,
++                                  struct cmh_cshake_tfm_ctx *tctx)
++{
++       struct cmh_cshake_chunk *chunk, *tmp;
++
++       spin_lock_bh(&tctx->chunk_lock);
++       list_for_each_entry_safe(chunk, tmp, &rctx->chunks, list) {
++               list_del(&chunk->list);
++               list_del(&chunk->tfm_node);
++               kfree(chunk);
++       }
++       spin_unlock_bh(&tctx->chunk_lock);
++       rctx->num_chunks = 0;
++       rctx->total_len = 0;
++}
++
++static void cmh_cshake_free_reqctx(struct cmh_cshake_reqctx *rctx,
++                                  struct cmh_cshake_tfm_ctx *tctx)
++{
++       cmh_cshake_free_chunks(rctx, tctx);
++       rctx->has_checkpoint = 0;
++}
++
++static struct cmh_sg_map *
++cmh_cshake_build_sg(struct cmh_cshake_reqctx *rctx, gfp_t gfp)
++{
++       struct cmh_dma_buf *bufs;
++       struct cmh_cshake_chunk *chunk;
++       struct cmh_sg_map *sgm;
++       u32 i;
++
++       bufs = kcalloc(rctx->num_chunks, sizeof(*bufs), gfp);
++       if (!bufs)
++               return NULL;
++
++       i = 0;
++       list_for_each_entry(chunk, &rctx->chunks, list) {
++               bufs[i].data = chunk->data;
++               bufs[i].len = chunk->len;
++               i++;
++       }
++
++       sgm = cmh_dma_build_sg(bufs, rctx->num_chunks, gfp);
++       kfree(bufs);
++       return sgm;
++}
++
++/* VCQ Packing + Submit */
++
++/* ahash Operations */
++
++struct cmh_cshake_alg_drv {
++       struct ahash_alg                   alg;
++       const struct cmh_cshake_alg_info  *info;
++};
++
++static const struct cmh_cshake_alg_info *
++cmh_cshake_get_info(struct crypto_ahash *tfm)
++{
++       struct ahash_alg *alg = crypto_ahash_alg(tfm);
++
++       return container_of(alg, struct cmh_cshake_alg_drv, alg)->info;
++}
++
++/*
++ * .setkey() -- parse N and S from the self-describing cshake_cfg header.
++ *
++ * Blob format: cshake_cfg { __be32 n_len; __be32 s_len; } || N || S
++ * If never called, the driver defaults to plain SHAKE (N="" S="").
++ */
++struct cshake_cfg {
++       __be32 n_len;
++       __be32 s_len;
++};
++
++static int cmh_cshake_setkey(struct crypto_ahash *tfm, const u8 *key,
++                            unsigned int keylen)
++{
++       struct cmh_cshake_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cshake_cfg cfg;
++       u32 n_len, s_len;
++       const u8 *ptr;
++
++       if (keylen < sizeof(cfg))
++               return -EINVAL;
++
++       memcpy(&cfg, key, sizeof(cfg));
++       n_len = be32_to_cpu(cfg.n_len);
++       s_len = be32_to_cpu(cfg.s_len);
++
++       if (keylen != sizeof(cfg) + n_len + s_len)
++               return -EINVAL;
++
++       if (n_len > HC_CSHAKE_MAX_NAMELEN)
++               return -EINVAL;
++
++       if (s_len > HC_CSHAKE_MAX_CUSTOMLEN)
++               return -EINVAL;
++
++       /* Free previous N and S */
++       kfree(tctx->func_name);
++       kfree(tctx->custom);
++       tctx->func_name = NULL;
++       tctx->func_name_len = 0;
++       tctx->custom = NULL;
++       tctx->custom_len = 0;
++
++       ptr = key + sizeof(cfg);
++
++       if (n_len > 0) {
++               tctx->func_name = kmemdup(ptr, n_len, GFP_KERNEL);
++               if (!tctx->func_name)
++                       return -ENOMEM;
++               tctx->func_name_len = n_len;
++               ptr += n_len;
++       }
++
++       if (s_len > 0) {
++               tctx->custom = kmemdup(ptr, s_len, GFP_KERNEL);
++               if (!tctx->custom) {
++                       kfree(tctx->func_name);
++                       tctx->func_name = NULL;
++                       tctx->func_name_len = 0;
++                       return -ENOMEM;
++               }
++               tctx->custom_len = s_len;
++       }
++
++       return 0;
++}
++
++static int cmh_cshake_init(struct ahash_request *req)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_cshake_reqctx *rctx = ahash_request_ctx(req);
++
++       rctx->info = cmh_cshake_get_info(tfm);
++       rctx->error = 0;
++       INIT_LIST_HEAD(&rctx->chunks);
++       rctx->num_chunks = 0;
++       rctx->total_len = 0;
++       rctx->has_checkpoint = 0;
++
++       return 0;
++}
++
++static int cmh_cshake_update(struct ahash_request *req)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_cshake_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cmh_cshake_reqctx *rctx = ahash_request_ctx(req);
++       struct cmh_cshake_chunk *chunk;
++       int nents;
++
++       if (rctx->error)
++               return rctx->error;
++
++       if (!req->nbytes)
++               return 0;
++
++       chunk = kmalloc(sizeof(*chunk) + req->nbytes,
++                       req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
++                       GFP_KERNEL : GFP_ATOMIC);
++       if (!chunk) {
++               rctx->error = -ENOMEM;
++               goto err_free_chunks;
++       }
++
++       chunk->len = req->nbytes;
++       if (req->base.flags & CRYPTO_AHASH_REQ_VIRT) {
++               memcpy(chunk->data, req->svirt, req->nbytes);
++       } else {
++               nents = sg_nents_for_len(req->src, req->nbytes);
++               if (nents < 0 ||
++                   sg_copy_to_buffer(req->src, nents,
++                                     chunk->data, req->nbytes) != req->nbytes) {
++                       kfree(chunk);
++                       rctx->error = -EINVAL;
++                       goto err_free_chunks;
++               }
++       }
++
++       list_add_tail(&chunk->list, &rctx->chunks);
++       spin_lock_bh(&tctx->chunk_lock);
++       list_add_tail(&chunk->tfm_node, &tctx->all_chunks);
++       spin_unlock_bh(&tctx->chunk_lock);
++       rctx->num_chunks++;
++       rctx->total_len += req->nbytes;
++
++       return 0;
++
++err_free_chunks:
++       /*
++        * Terminal error -- free all previously accumulated chunks.
++        * The crypto API hash path does not call .final() on error,
++        * so chunks would be orphaned otherwise.
++        */
++       cmh_cshake_free_chunks(rctx, tctx);
++       return rctx->error;
++}
++
++static void cmh_cshake_complete(void *data, int error)
++{
++       struct ahash_request *req = data;
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_cshake_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cmh_cshake_reqctx *rctx = ahash_request_ctx(req);
++
++       if (error == -EINPROGRESS) {
++               cmh_complete(&req->base, error);
++               return;
++       }
++
++       if (rctx->has_checkpoint)
++               cmh_dma_unmap_single(rctx->ckpt_dma, HC_CONTEXT_SIZE,
++                                    DMA_TO_DEVICE);
++       cmh_dma_unmap_single(rctx->digest_dma, rctx->info->digest_size,
++                            DMA_FROM_DEVICE);
++
++       if (!error)
++               memcpy(req->result, rctx->digest_buf,
++                      rctx->info->digest_size);
++
++       kfree(rctx->digest_buf);
++       rctx->digest_buf = NULL;
++       cmh_dma_free_sg(rctx->sgm);
++       rctx->sgm = NULL;
++       cmh_cshake_free_reqctx(rctx, tctx);
++       cmh_complete(&req->base, error);
++}
++
++static int cmh_cshake_final(struct ahash_request *req)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_cshake_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cmh_cshake_reqctx *rctx = ahash_request_ctx(req);
++       const struct cmh_cshake_alg_info *info = rctx->info;
++       struct core_dispatch d;
++       struct vcq_cmd cmds[CMH_CSHAKE_MAX_PAYLOAD];
++       struct cmh_sg_map *sgm = NULL;
++       dma_addr_t digest_dma = DMA_MAPPING_ERROR;
++       dma_addr_t ckpt_dma = DMA_MAPPING_ERROR;
++       u8 *digest_buf;
++       u32 idx;
++       int ret;
++       gfp_t gfp = req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
++                    GFP_KERNEL : GFP_ATOMIC;
++
++       if (rctx->error) {
++               ret = rctx->error;
++               goto out_free;
++       }
++
++       if (rctx->num_chunks > 0) {
++               sgm = cmh_cshake_build_sg(rctx, gfp);
++               if (!sgm) {
++                       ret = -ENOMEM;
++                       goto out_free;
++               }
++       }
++
++       digest_buf = kzalloc(info->digest_size, gfp);
++       if (!digest_buf) {
++               ret = -ENOMEM;
++               goto out_free_sg;
++       }
++       digest_dma = cmh_dma_map_single(digest_buf, info->digest_size,
++                                       DMA_FROM_DEVICE);
++       if (cmh_dma_map_error(digest_dma)) {
++               ret = -ENOMEM;
++               goto out_free_digest;
++       }
++
++       /* Map checkpoint buffer if present (CMH eSW reads it) */
++       if (rctx->has_checkpoint) {
++               ckpt_dma = cmh_dma_map_single(rctx->checkpoint,
++                                             HC_CONTEXT_SIZE, DMA_TO_DEVICE);
++               if (cmh_dma_map_error(ckpt_dma)) {
++                       ret = -ENOMEM;
++                       goto out_unmap_digest;
++               }
++       }
++
++       d = cmh_core_select_instance(CMH_CORE_HC);
++       idx = 0;
++
++       if (rctx->has_checkpoint) {
++               /*
++                * Resuming from a saved checkpoint (after export/import):
++                * INIT + RESTORE [+ GATHER] + FINAL + FLUSH
++                * The cSHAKE prefix (N,S) is already absorbed in the
++                * saved Keccak state -- no need to replay HC_CMD_CSHAKE.
++                */
++               vcq_add_hc_init(&cmds[idx++], d.core_id, info->hc_algo);
++               vcq_add_hc_restore(&cmds[idx++], d.core_id, (u64)ckpt_dma,
++                                  HC_CONTEXT_SIZE);
++       } else {
++               bool use_cshake = (tctx->func_name_len > 0 ||
++                                  tctx->custom_len > 0);
++
++               if (use_cshake) {
++                       u32 span;
++
++                       vcq_add_hc_cshake(&cmds[idx], d.core_id,
++                                         info->hc_algo,
++                                         tctx->func_name,
++                                         tctx->func_name_len,
++                                         tctx->custom_len);
++                       span = vcq_add_inline_data(&cmds[idx],
++                                                  tctx->custom,
++                                                  tctx->custom_len);
++                       idx += span;
++               } else {
++                       vcq_add_hc_init(&cmds[idx++], d.core_id,
++                                       info->hc_algo);
++               }
++       }
++
++       if (sgm)
++               vcq_add_hc_gather(&cmds[idx++], d.core_id, (u64)sgm->items_dma,
++                                 HC_CMD_UPDATE);
++
++       vcq_add_hc_final(&cmds[idx++], d.core_id, (u64)digest_dma, info->digest_size);
++       vcq_add_flush(&cmds[idx++], d.core_id);
++
++       rctx->digest_buf = digest_buf;
++       rctx->digest_dma = digest_dma;
++       rctx->ckpt_dma = ckpt_dma;
++       rctx->sgm = sgm;
++
++       ret = cmh_vcq_pack_and_submit_async(cmds, idx, rctx->packed,
++                                           CMH_CSHAKE_MAX_PACKED,
++                                           d.mbx_idx,
++                                           cmh_cshake_complete, req,
++                                           !!(req->base.flags &
++                                              CRYPTO_TFM_REQ_MAY_BACKLOG),
++                                           cmh_tm_async_timeout_jiffies());
++       if (ret == -EBUSY)
++               return -EBUSY;
++       if (ret)
++               goto out_cleanup_all;
++
++       return -EINPROGRESS;
++
++out_cleanup_all:
++       if (rctx->has_checkpoint)
++               cmh_dma_unmap_single(ckpt_dma, HC_CONTEXT_SIZE,
++                                    DMA_TO_DEVICE);
++out_unmap_digest:
++       cmh_dma_unmap_single(digest_dma, info->digest_size,
++                            DMA_FROM_DEVICE);
++out_free_digest:
++       kfree(digest_buf);
++
++out_free_sg:
++       cmh_dma_free_sg(sgm);
++
++out_free:
++       cmh_cshake_free_reqctx(rctx, tctx);
++       return ret;
++}
++
++static int cmh_cshake_finup(struct ahash_request *req)
++{
++       int ret;
++
++       ret = cmh_cshake_update(req);
++       if (ret)
++               return ret;
++
++       return cmh_cshake_final(req);
++}
++
++static int cmh_cshake_digest(struct ahash_request *req)
++{
++       int ret;
++
++       ret = cmh_cshake_init(req);
++       if (ret)
++               return ret;
++
++       return cmh_cshake_finup(req);
++}
++
++static int cmh_cshake_export(struct ahash_request *req, void *out)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_cshake_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cmh_cshake_reqctx *rctx = ahash_request_ctx(req);
++       const struct cmh_cshake_alg_info *info = rctx->info;
++       struct core_dispatch d;
++       struct vcq_cmd cmds[CMH_CSHAKE_MAX_PAYLOAD];
++       struct cmh_sg_map *sgm = NULL;
++       dma_addr_t save_dma = DMA_MAPPING_ERROR;
++       dma_addr_t ckpt_dma = DMA_MAPPING_ERROR;
++       u8 *save_buf;
++       u32 idx;
++       int ret;
++
++       if (rctx->num_chunks > 0) {
++               sgm = cmh_cshake_build_sg(rctx, GFP_KERNEL);
++               if (!sgm)
++                       return -ENOMEM;
++       }
++
++       save_buf = kzalloc(HC_CONTEXT_SIZE, GFP_KERNEL);
++       if (!save_buf) {
++               cmh_dma_free_sg(sgm);
++               return -ENOMEM;
++       }
++       save_dma = cmh_dma_map_single(save_buf, HC_CONTEXT_SIZE,
++                                     DMA_FROM_DEVICE);
++       if (cmh_dma_map_error(save_dma)) {
++               kfree(save_buf);
++               cmh_dma_free_sg(sgm);
++               return -ENOMEM;
++       }
++
++       /* Map checkpoint buffer if present (CMH eSW reads it) */
++       if (rctx->has_checkpoint) {
++               ckpt_dma = cmh_dma_map_single(rctx->checkpoint,
++                                             HC_CONTEXT_SIZE, DMA_TO_DEVICE);
++               if (cmh_dma_map_error(ckpt_dma)) {
++                       cmh_dma_unmap_single(save_dma, HC_CONTEXT_SIZE,
++                                            DMA_FROM_DEVICE);
++                       kfree(save_buf);
++                       cmh_dma_free_sg(sgm);
++                       return -ENOMEM;
++               }
++       }
++
++       d = cmh_core_select_instance(CMH_CORE_HC);
++       idx = 0;
++
++       if (rctx->has_checkpoint) {
++               /*
++                * Resuming from a saved checkpoint:
++                * INIT + RESTORE [+ GATHER] + SAVE + FLUSH
++                */
++               vcq_add_hc_init(&cmds[idx++], d.core_id, info->hc_algo);
++               vcq_add_hc_restore(&cmds[idx++], d.core_id, (u64)ckpt_dma,
++                                  HC_CONTEXT_SIZE);
++       } else {
++               bool use_cshake = (tctx->func_name_len > 0 ||
++                                  tctx->custom_len > 0);
++
++               if (use_cshake) {
++                       u32 span;
++
++                       vcq_add_hc_cshake(&cmds[idx], d.core_id,
++                                         info->hc_algo,
++                                         tctx->func_name,
++                                         tctx->func_name_len,
++                                         tctx->custom_len);
++                       span = vcq_add_inline_data(&cmds[idx],
++                                                  tctx->custom,
++                                                  tctx->custom_len);
++                       idx += span;
++               } else {
++                       vcq_add_hc_init(&cmds[idx++], d.core_id,
++                                       info->hc_algo);
++               }
++       }
++
++       if (sgm)
++               vcq_add_hc_gather(&cmds[idx++], d.core_id, (u64)sgm->items_dma,
++                                 HC_CMD_UPDATE);
++
++       vcq_add_hc_save(&cmds[idx++], d.core_id, (u64)save_dma,
++                       HC_CONTEXT_SIZE);
++       vcq_add_flush(&cmds[idx++], d.core_id);
++
++       ret = cmh_vcq_pack_and_submit(cmds, idx, rctx->packed, CMH_CSHAKE_MAX_PACKED,
++                                     d.mbx_idx);
++
++       /* Unmap before CPU read */
++       if (rctx->has_checkpoint)
++               cmh_dma_unmap_single(ckpt_dma, HC_CONTEXT_SIZE, DMA_TO_DEVICE);
++       cmh_dma_unmap_single(save_dma, HC_CONTEXT_SIZE, DMA_FROM_DEVICE);
++
++       if (!ret) {
++               memcpy(out, save_buf, HC_CONTEXT_SIZE);
++               /* Checkpoint now represents all accumulated state */
++               memcpy(rctx->checkpoint, save_buf, HC_CONTEXT_SIZE);
++               rctx->has_checkpoint = 1;
++               /* Accumulated chunks are now captured in checkpoint */
++               cmh_cshake_free_chunks(rctx, tctx);
++       }
++
++       kfree(save_buf);
++       cmh_dma_free_sg(sgm);
++       return ret;
++}
++
++static int cmh_cshake_import(struct ahash_request *req, const void *in)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_cshake_reqctx *rctx = ahash_request_ctx(req);
++
++       rctx->info = cmh_cshake_get_info(tfm);
++       rctx->error = 0;
++       INIT_LIST_HEAD(&rctx->chunks);
++       rctx->num_chunks = 0;
++       rctx->total_len = 0;
++
++       memcpy(rctx->checkpoint, in, HC_CONTEXT_SIZE);
++       rctx->has_checkpoint = 1;
++
++       return 0;
++}
++
++/* Transform init/exit */
++
++static int cmh_cshake_cra_init(struct crypto_tfm *tfm)
++{
++       struct cmh_cshake_tfm_ctx *tctx = crypto_tfm_ctx(tfm);
++
++       tctx->func_name = NULL;
++       tctx->func_name_len = 0;
++       tctx->custom = NULL;
++       tctx->custom_len = 0;
++       spin_lock_init(&tctx->chunk_lock);
++       INIT_LIST_HEAD(&tctx->all_chunks);
++       crypto_ahash_set_reqsize(__crypto_ahash_cast(tfm),
++                                sizeof(struct cmh_cshake_reqctx));
++       return 0;
++}
++
++static void cmh_cshake_cra_exit(struct crypto_tfm *tfm)
++{
++       struct cmh_cshake_tfm_ctx *tctx = crypto_tfm_ctx(tfm);
++       struct cmh_cshake_chunk *chunk, *tmp;
++
++       /* Free any orphaned chunks (e.g. testmgr export/reimport poison) */
++       spin_lock_bh(&tctx->chunk_lock);
++       list_for_each_entry_safe(chunk, tmp, &tctx->all_chunks, tfm_node) {
++               list_del(&chunk->tfm_node);
++               kfree(chunk);
++       }
++       spin_unlock_bh(&tctx->chunk_lock);
++
++       kfree(tctx->func_name);
++       kfree(tctx->custom);
++       tctx->func_name = NULL;
++       tctx->custom = NULL;
++}
++
++/* Registration */
++
++static struct cmh_cshake_alg_drv cmh_cshake_drvs[CMH_CSHAKE_ALG_COUNT];
++
++/**
++ * cmh_cshake_register() - Register cSHAKE-128/256 hash algorithms with the crypto framework
++ *
++ * Return: 0 on success, negative errno on failure.
++ */
++int cmh_cshake_register(void)
++{
++       unsigned int i;
++       int ret;
++
++       for (i = 0; i < CMH_CSHAKE_ALG_COUNT; i++) {
++               const struct cmh_cshake_alg_info *info =
++                       &cmh_cshake_algs_info[i];
++               struct cmh_cshake_alg_drv *drv = &cmh_cshake_drvs[i];
++               struct ahash_alg *alg = &drv->alg;
++
++               drv->info = info;
++
++               alg->init   = cmh_cshake_init;
++               alg->update = cmh_cshake_update;
++               alg->final  = cmh_cshake_final;
++               alg->finup  = cmh_cshake_finup;
++               alg->digest = cmh_cshake_digest;
++               alg->export = cmh_cshake_export;
++               alg->import = cmh_cshake_import;
++               alg->setkey = cmh_cshake_setkey;
++
++               alg->halg.digestsize = info->digest_size;
++               alg->halg.statesize  = HC_CONTEXT_SIZE;
++
++               strscpy(alg->halg.base.cra_name, info->alg_name,
++                       CRYPTO_MAX_ALG_NAME);
++               strscpy(alg->halg.base.cra_driver_name, info->drv_name,
++                       CRYPTO_MAX_ALG_NAME);
++               alg->halg.base.cra_priority    = 300;
++               alg->halg.base.cra_flags       = CRYPTO_ALG_KERN_DRIVER_ONLY |
++                                                CRYPTO_ALG_NO_FALLBACK |
++                                                CRYPTO_ALG_ASYNC |
++                                                CRYPTO_ALG_OPTIONAL_KEY |
++                                                CRYPTO_ALG_REQ_VIRT;
++               alg->halg.base.cra_blocksize   = 1;  /* XOF */
++               alg->halg.base.cra_ctxsize     = sizeof(struct cmh_cshake_tfm_ctx);
++               alg->halg.base.cra_init        = cmh_cshake_cra_init;
++               alg->halg.base.cra_exit        = cmh_cshake_cra_exit;
++               alg->halg.base.cra_module      = THIS_MODULE;
++
++               ret = crypto_register_ahash(alg);
++               if (ret) {
++                       dev_err(cmh_dev(), "cshake: failed to register %s (rc=%d)\n",
++                               info->drv_name, ret);
++                       while (i--)
++                               crypto_unregister_ahash(&cmh_cshake_drvs[i].alg);
++                       return ret;
++               }
++
++               dev_dbg(cmh_dev(), "cshake: registered %s (priority 300)\n",
++                       info->drv_name);
++       }
++
++       dev_info(cmh_dev(), "cshake: %zu algorithm(s) registered\n",
++                CMH_CSHAKE_ALG_COUNT);
++       return 0;
++}
++
++/**
++ * cmh_cshake_unregister() - Unregister cSHAKE hash algorithms from the crypto framework
++ */
++void cmh_cshake_unregister(void)
++{
++       unsigned int i;
++
++       for (i = 0; i < CMH_CSHAKE_ALG_COUNT; i++) {
++               crypto_unregister_ahash(&cmh_cshake_drvs[i].alg);
++               dev_dbg(cmh_dev(), "cshake: unregistered %s\n",
++                       cmh_cshake_algs_info[i].drv_name);
++       }
++
++       dev_info(cmh_dev(), "cshake: cleaned up\n");
++}
+diff --git a/drivers/crypto/cmh/cmh_kmac.c b/drivers/crypto/cmh/cmh_kmac.c
+new file mode 100644
+index 000000000000..7177a2558e97
+--- /dev/null
++++ b/drivers/crypto/cmh/cmh_kmac.c
+@@ -0,0 +1,630 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
++ * CMH LKM -- Kernel Crypto API KMAC Driver
++ *
++ * Registers KMAC-128 and KMAC-256 as keyed ahash algorithms using the
++ * CMH Hash Core (HC) via HC_CMD_KMAC.
++ *
++ * KMAC (NIST SP 800-185) is a keyed variant of cSHAKE.  The function
++ * name N is always "KMAC" (hardcoded by the CMH eSW).  The user sets:
++ *   - A key via .setkey() (raw bytes + optional S)
++ *   - An optional customization string S via the setkey blob
++ *
++ * setkey blob format:
++ *   struct kmac_key_param { __be32 keylen; __be32 s_len; };
++ *   blob: kmac_key_param || key[keylen] || S[s_len]
++ *
++ * Uses the same self-contained transaction model as cmh_hmac.c:
++ *   .setkey() -> store raw key (+ S)
++ *   .init()   -> software-only
++ *   .update() -> software-only (accumulate chunks)
++ *   .final()  -> [SYS_CMD_WRITE] + HC_CMD_KMAC [+ inline S] +
++ *               [GATHER] + FINAL + FLUSH
++ */
++
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/crypto.h>
++#include <crypto/internal/hash.h>
++#include <linux/scatterlist.h>
++#include <linux/list.h>
++#include <linux/slab.h>
++#include <linux/string.h>
++#include <asm/byteorder.h>
++
++#include "cmh_kmac.h"
++#include "cmh_vcq.h"
++#include "cmh_hc_abi.h"
++#include "cmh_sys_abi.h"
++#include "cmh_sys.h"
++#include "cmh_txn.h"
++#include "cmh_dma.h"
++#include "cmh_key.h"
++
++/*
++ * Maximum data that can be accumulated across .update() calls.
++ * The CMH eSW rejects HC_CMD_SAVE when ctx->outlen != 0, which is
++ * always the case for KMAC (eip59_hc_kmac() sets ctx->outlen for
++ * right_encode(outlen) at finalization).  All data must be buffered
++ * in kernel memory and submitted atomically in .final().
++ *
++ * The CMH eSW does not serialize outlen into the external save
++ * context, so HC_CMD_SAVE fails for KMAC mode.
++ */
++#define KMAC_MAX_DATA          (64 * 1024)
++
++/* Algorithm Table */
++
++struct cmh_kmac_alg_info {
++       u32         hc_algo;
++       u32         digest_size;
++       const char *alg_name;
++       const char *drv_name;
++};
++
++static const struct cmh_kmac_alg_info cmh_kmac_algs_info[] = {
++       {
++               .hc_algo     = HC_ALGO_SHAKE128,
++               .digest_size = CMH_SHAKE128_DIGEST_SIZE,
++               .alg_name    = "kmac128",
++               .drv_name    = "cri-cmh-kmac128",
++       },
++       {
++               .hc_algo     = HC_ALGO_SHAKE256,
++               .digest_size = CMH_SHAKE256_DIGEST_SIZE,
++               .alg_name    = "kmac256",
++               .drv_name    = "cri-cmh-kmac256",
++       },
++};
++
++#define CMH_KMAC_ALG_COUNT  ARRAY_SIZE(cmh_kmac_algs_info)
++
++/* Per-Request State */
++
++struct cmh_kmac_chunk {
++       struct list_head  list;
++       struct list_head  tfm_node; /* per-tfm orphan tracking */
++       u32               len;
++       u8                data[];
++};
++
++/*
++ * Max payload slots for KMAC:
++ *   SYS_CMD_WRITE (1) + KMAC (1) + inline S (3 max) + GATHER (1) +
++ *   FINAL (1) + FLUSH (1) = 8
++ */
++#define CMH_KMAC_MAX_PAYLOAD   9
++#define CMH_KMAC_MAX_PACKED    (CMH_KMAC_MAX_PAYLOAD * 2)
++
++struct cmh_kmac_reqctx {
++       const struct cmh_kmac_alg_info *info;
++       int                             error;
++       struct list_head                chunks;
++       u32                             num_chunks;
++       u32                             total_len;
++       /* DMA state for async final */
++       dma_addr_t                      digest_dma;
++       dma_addr_t                      key_dma;
++       u8                             *digest_buf;
++       struct cmh_sg_map              *sgm;
++       u32                             keylen;
++       struct vcq_cmd packed[CMH_KMAC_MAX_PACKED];
++};
++
++/* Per-Transform State (carries key + S across requests) */
++
++struct cmh_kmac_tfm_ctx {
++       struct cmh_key_ctx key;
++       u8  *custom;        /* S (customization string), NULL if empty */
++       u32  custom_len;
++       spinlock_t         chunk_lock;  /* protects all_chunks */
++       struct list_head   all_chunks;  /* orphan-safe chunk tracking */
++};
++
++/* VCQ Builders (KMAC-specific; shared builders in cmh_hc_abi.h / cmh_vcq.h) */
++
++static void vcq_add_hc_kmac(struct vcq_cmd *slot, u32 core_id, u64 key_ref, u32 keylen,
++                           u32 customlen, u32 algo, u32 outlen)
++{
++       memset(slot, 0, sizeof(*slot));
++       slot->magic = VCQ_CMD_MAGIC;
++       slot->id = VCQ_CMD_ID(core_id, 0, 1, HC_CMD_KMAC);
++       slot->hwc.hc.cmd_kmac.key = key_ref;
++       slot->hwc.hc.cmd_kmac.custom = 0;  /* inline */
++       slot->hwc.hc.cmd_kmac.keylen = keylen;
++       slot->hwc.hc.cmd_kmac.customlen = customlen;
++       slot->hwc.hc.cmd_kmac.algo = algo;
++       slot->hwc.hc.cmd_kmac.outlen = outlen;
++}
++
++/* Request Context Cleanup */
++
++static void cmh_kmac_free_chunks(struct cmh_kmac_reqctx *rctx,
++                                struct cmh_kmac_tfm_ctx *tctx)
++{
++       struct cmh_kmac_chunk *chunk, *tmp;
++
++       spin_lock_bh(&tctx->chunk_lock);
++       list_for_each_entry_safe(chunk, tmp, &rctx->chunks, list) {
++               list_del(&chunk->list);
++               list_del(&chunk->tfm_node);
++               kfree(chunk);
++       }
++       spin_unlock_bh(&tctx->chunk_lock);
++       rctx->num_chunks = 0;
++       rctx->total_len = 0;
++}
++
++static struct cmh_sg_map *
++cmh_kmac_build_sg(struct cmh_kmac_reqctx *rctx, gfp_t gfp)
++{
++       struct cmh_dma_buf *bufs;
++       struct cmh_kmac_chunk *chunk;
++       struct cmh_sg_map *sgm;
++       u32 i;
++
++       bufs = kcalloc(rctx->num_chunks, sizeof(*bufs), gfp);
++       if (!bufs)
++               return NULL;
++
++       i = 0;
++       list_for_each_entry(chunk, &rctx->chunks, list) {
++               bufs[i].data = chunk->data;
++               bufs[i].len = chunk->len;
++               i++;
++       }
++
++       sgm = cmh_dma_build_sg(bufs, rctx->num_chunks, gfp);
++       kfree(bufs);
++       return sgm;
++}
++
++/* VCQ Packing + Submit */
++
++/* ahash Operations */
++
++struct cmh_kmac_alg_drv {
++       struct ahash_alg                 alg;
++       const struct cmh_kmac_alg_info  *info;
++};
++
++static const struct cmh_kmac_alg_info *
++cmh_kmac_get_info(struct crypto_ahash *tfm)
++{
++       struct ahash_alg *alg = crypto_ahash_alg(tfm);
++
++       return container_of(alg, struct cmh_kmac_alg_drv, alg)->info;
++}
++
++/*
++ * setkey blob for KMAC (raw key path):
++ *   struct kmac_key_param { __be32 keylen; __be32 s_len; };
++ *   blob: kmac_key_param || key[keylen] || S[s_len]
++ */
++struct kmac_key_param {
++       __be32 keylen;
++       __be32 s_len;
++};
++
++static int cmh_kmac_setkey(struct crypto_ahash *tfm, const u8 *key,
++                          unsigned int keylen)
++{
++       struct cmh_kmac_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       /* raw key bytes with optional S */
++       {
++               struct kmac_key_param hdr;
++               u32 raw_keylen, s_len;
++               const u8 *ptr;
++
++               if (keylen < sizeof(hdr))
++                       return -EINVAL;
++
++               memcpy(&hdr, key, sizeof(hdr));
++               raw_keylen = be32_to_cpu(hdr.keylen);
++               s_len = be32_to_cpu(hdr.s_len);
++
++               if (keylen != sizeof(hdr) + raw_keylen + s_len)
++                       return -EINVAL;
++
++               if (raw_keylen == 0)
++                       return -EINVAL;
++
++               if (s_len > HC_CSHAKE_MAX_CUSTOMLEN)
++                       return -EINVAL;
++
++               ptr = key + sizeof(hdr);
++
++               /* Store raw key */
++               {
++                       int ret = cmh_key_setkey_raw(&tctx->key, ptr,
++                                                    raw_keylen, CORE_ID_HC);
++                       if (ret)
++                               return ret;
++               }
++               ptr += raw_keylen;
++
++               /* Store S */
++               kfree(tctx->custom);
++               tctx->custom = NULL;
++               tctx->custom_len = 0;
++
++               if (s_len > 0) {
++                       tctx->custom = kmemdup(ptr, s_len, GFP_KERNEL);
++                       if (!tctx->custom) {
++                               cmh_key_destroy(&tctx->key);
++                               return -ENOMEM;
++                       }
++                       tctx->custom_len = s_len;
++               }
++
++               return 0;
++       }
++}
++
++static int cmh_kmac_init(struct ahash_request *req)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_kmac_reqctx *rctx = ahash_request_ctx(req);
++
++       rctx->info = cmh_kmac_get_info(tfm);
++       rctx->error = 0;
++       INIT_LIST_HEAD(&rctx->chunks);
++       rctx->num_chunks = 0;
++       rctx->total_len = 0;
++
++       return 0;
++}
++
++static int cmh_kmac_update(struct ahash_request *req)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_kmac_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cmh_kmac_reqctx *rctx = ahash_request_ctx(req);
++       struct cmh_kmac_chunk *chunk;
++       int nents;
++
++       if (rctx->error)
++               return rctx->error;
++
++       if (!req->nbytes)
++               return 0;
++
++       if (req->nbytes > KMAC_MAX_DATA - rctx->total_len) {
++               rctx->error = -EINVAL;
++               goto err_free_chunks;
++       }
++
++       chunk = kmalloc(sizeof(*chunk) + req->nbytes,
++                       req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
++                       GFP_KERNEL : GFP_ATOMIC);
++       if (!chunk) {
++               rctx->error = -ENOMEM;
++               goto err_free_chunks;
++       }
++
++       chunk->len = req->nbytes;
++       if (req->base.flags & CRYPTO_AHASH_REQ_VIRT) {
++               memcpy(chunk->data, req->svirt, req->nbytes);
++       } else {
++               nents = sg_nents_for_len(req->src, req->nbytes);
++               if (nents < 0 ||
++                   sg_copy_to_buffer(req->src, nents,
++                                     chunk->data, req->nbytes) != req->nbytes) {
++                       kfree(chunk);
++                       rctx->error = -EINVAL;
++                       goto err_free_chunks;
++               }
++       }
++
++       list_add_tail(&chunk->list, &rctx->chunks);
++       spin_lock_bh(&tctx->chunk_lock);
++       list_add_tail(&chunk->tfm_node, &tctx->all_chunks);
++       spin_unlock_bh(&tctx->chunk_lock);
++       rctx->num_chunks++;
++       rctx->total_len += req->nbytes;
++
++       return 0;
++
++err_free_chunks:
++       /*
++        * Terminal error -- free all previously accumulated chunks.
++        * The crypto API hash path does not call .final() on error,
++        * so chunks would be orphaned otherwise.
++        */
++       cmh_kmac_free_chunks(rctx, tctx);
++       return rctx->error;
++}
++
++static void cmh_kmac_complete(void *data, int error)
++{
++       struct ahash_request *req = data;
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_kmac_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cmh_kmac_reqctx *rctx = ahash_request_ctx(req);
++
++       if (error == -EINPROGRESS) {
++               cmh_complete(&req->base, error);
++               return;
++       }
++
++       cmh_dma_unmap_single(rctx->digest_dma, rctx->info->digest_size,
++                            DMA_FROM_DEVICE);
++
++       if (!error)
++               memcpy(req->result, rctx->digest_buf,
++                      rctx->info->digest_size);
++
++       kfree(rctx->digest_buf);
++       rctx->digest_buf = NULL;
++       cmh_dma_free_sg(rctx->sgm);
++       rctx->sgm = NULL;
++       cmh_kmac_free_chunks(rctx, tctx);
++       cmh_complete(&req->base, error);
++}
++
++static int cmh_kmac_final(struct ahash_request *req)
++{
++       struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++       struct cmh_kmac_tfm_ctx *tctx = crypto_ahash_ctx(tfm);
++       struct cmh_kmac_reqctx *rctx = ahash_request_ctx(req);
++       const struct cmh_kmac_alg_info *info = rctx->info;
++       struct vcq_cmd cmds[CMH_KMAC_MAX_PAYLOAD];
++       struct cmh_sg_map *sgm = NULL;
++       dma_addr_t digest_dma = DMA_MAPPING_ERROR, key_dma = DMA_MAPPING_ERROR;
++       u8 *digest_buf;
++       u64 key_ref;
++       u32 key_len;
++       struct core_dispatch d;
++       s32 target_mbx;
++       u32 core_id;
++       u32 idx;
++       int ret;
++       gfp_t gfp = req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
++                  GFP_KERNEL : GFP_ATOMIC;
++
++       if (rctx->error) {
++               ret = rctx->error;
++               goto out_free;
++       }
++
++       if (tctx->key.mode == CMH_KEY_NONE) {
++               ret = -ENOKEY;
++               goto out_free;
++       }
++
++       if (rctx->num_chunks > 0) {
++               sgm = cmh_kmac_build_sg(rctx, gfp);
++               if (!sgm) {
++                       ret = -ENOMEM;
++                       goto out_free;
++               }
++       }
++
++       digest_buf = kzalloc(info->digest_size, gfp);
++       if (!digest_buf) {
++               ret = -ENOMEM;
++               goto out_free_sg;
++       }
++       digest_dma = cmh_dma_map_single(digest_buf, info->digest_size,
++                                       DMA_FROM_DEVICE);
++       if (cmh_dma_map_error(digest_dma)) {
++               ret = -ENOMEM;
++               goto out_free_digest;
++       }
++
++       /* Resolve key reference */
++       idx = 0;
++
++       key_dma = tctx->key.raw.dma;
++       vcq_add_sys_write(&cmds[idx++], SYS_REF_TEMP, (u64)key_dma,
++                         SYS_REF_NONE, tctx->key.raw.len,
++                         tctx->key.raw.sys_type);
++       key_ref = SYS_REF_TEMP;
++       key_len = tctx->key.raw.len;
++       d = cmh_core_select_instance(CMH_CORE_HC);
++
++       target_mbx = d.mbx_idx;
++
++       core_id = d.core_id;
++
++       {
++               u32 span;
++
++               vcq_add_hc_kmac(&cmds[idx], core_id, key_ref, key_len,
++                               tctx->custom_len, info->hc_algo,
++                               info->digest_size);
++
++               /* Add inline S data after the KMAC slot */
++               span = vcq_add_inline_data(&cmds[idx], tctx->custom,
++                                          tctx->custom_len);
++               idx += span;
++       }
++
++       if (sgm)
++               vcq_add_hc_gather(&cmds[idx++], core_id, (u64)sgm->items_dma,
++                                 HC_CMD_UPDATE);
++
++       vcq_add_hc_final(&cmds[idx++], core_id, (u64)digest_dma, info->digest_size);
++       vcq_add_flush(&cmds[idx++], core_id);
++
++       rctx->digest_buf = digest_buf;
++       rctx->digest_dma = digest_dma;
++       rctx->sgm = sgm;
++
++       ret = cmh_vcq_pack_and_submit_async(cmds, idx, rctx->packed,
++                                           CMH_KMAC_MAX_PACKED,
++                                           target_mbx,
++                                           cmh_kmac_complete, req,
++                                           !!(req->base.flags &
++                                              CRYPTO_TFM_REQ_MAY_BACKLOG),
++                                           cmh_tm_async_timeout_jiffies());
++       if (ret == -EBUSY)
++               return -EBUSY;
++       if (ret)
++               goto out_cleanup_all;
++
++       return -EINPROGRESS;
++
++out_cleanup_all:
++       cmh_dma_unmap_single(digest_dma, info->digest_size,
++                            DMA_FROM_DEVICE);
++out_free_digest:
++       kfree(digest_buf);
++
++out_free_sg:
++       cmh_dma_free_sg(sgm);
++
++out_free:
++       cmh_kmac_free_chunks(rctx, tctx);
++       return ret;
++}
++
++static int cmh_kmac_finup(struct ahash_request *req)
++{
++       int ret;
++
++       ret = cmh_kmac_update(req);
++       if (ret)
++               return ret;
++
++       return cmh_kmac_final(req);
++}
++
++static int cmh_kmac_digest(struct ahash_request *req)
++{
++       int ret;
++
++       ret = cmh_kmac_init(req);
++       if (ret)
++               return ret;
++
++       return cmh_kmac_finup(req);
++}
++
++static int cmh_kmac_export(struct ahash_request *req, void *out)
++{
++       return -EOPNOTSUPP;
++}
++
++static int cmh_kmac_import(struct ahash_request *req, const void *in)
++{
++       return -EOPNOTSUPP;
++}
++
++/* Transform init/exit */
++
++static int cmh_kmac_cra_init(struct crypto_tfm *tfm)
++{
++       struct cmh_kmac_tfm_ctx *tctx = crypto_tfm_ctx(tfm);
++
++       tctx->key.mode = CMH_KEY_NONE;
++       tctx->custom = NULL;
++       tctx->custom_len = 0;
++       spin_lock_init(&tctx->chunk_lock);
++       INIT_LIST_HEAD(&tctx->all_chunks);
++       crypto_ahash_set_reqsize(__crypto_ahash_cast(tfm),
++                                sizeof(struct cmh_kmac_reqctx));
++       return 0;
++}
++
++static void cmh_kmac_cra_exit(struct crypto_tfm *tfm)
++{
++       struct cmh_kmac_tfm_ctx *tctx = crypto_tfm_ctx(tfm);
++       struct cmh_kmac_chunk *chunk, *tmp;
++
++       /* Free any orphaned chunks (e.g. testmgr export/reimport poison) */
++       spin_lock_bh(&tctx->chunk_lock);
++       list_for_each_entry_safe(chunk, tmp, &tctx->all_chunks, tfm_node) {
++               list_del(&chunk->tfm_node);
++               kfree(chunk);
++       }
++       spin_unlock_bh(&tctx->chunk_lock);
++
++       cmh_key_destroy(&tctx->key);
++       kfree(tctx->custom);
++       tctx->custom = NULL;
++}
++
++/* Registration */
++
++static struct cmh_kmac_alg_drv cmh_kmac_drvs[CMH_KMAC_ALG_COUNT];
++
++/**
++ * cmh_kmac_register() - Register KMAC-128/256 hash algorithms with the crypto framework
++ *
++ * Return: 0 on success, negative errno on failure.
++ */
++int cmh_kmac_register(void)
++{
++       unsigned int i;
++       int ret;
++
++       for (i = 0; i < CMH_KMAC_ALG_COUNT; i++) {
++               const struct cmh_kmac_alg_info *info =
++                       &cmh_kmac_algs_info[i];
++               struct cmh_kmac_alg_drv *drv = &cmh_kmac_drvs[i];
++               struct ahash_alg *alg = &drv->alg;
++
++               drv->info = info;
++
++               alg->init   = cmh_kmac_init;
++               alg->update = cmh_kmac_update;
++               alg->final  = cmh_kmac_final;
++               alg->finup  = cmh_kmac_finup;
++               alg->digest = cmh_kmac_digest;
++               alg->export = cmh_kmac_export;
++               alg->import = cmh_kmac_import;
++               alg->setkey = cmh_kmac_setkey;
++
++               alg->halg.digestsize = info->digest_size;
++               alg->halg.statesize  = sizeof(struct cmh_kmac_reqctx);
++
++               strscpy(alg->halg.base.cra_name, info->alg_name,
++                       CRYPTO_MAX_ALG_NAME);
++               strscpy(alg->halg.base.cra_driver_name, info->drv_name,
++                       CRYPTO_MAX_ALG_NAME);
++               alg->halg.base.cra_priority    = 300;
++               alg->halg.base.cra_flags       = CRYPTO_ALG_KERN_DRIVER_ONLY |
++                                                CRYPTO_ALG_NO_FALLBACK |
++                                                CRYPTO_ALG_ASYNC |
++                                                CRYPTO_ALG_REQ_VIRT;
++               alg->halg.base.cra_blocksize   = 1;  /* XOF/keyed XOF */
++               alg->halg.base.cra_ctxsize     = sizeof(struct cmh_kmac_tfm_ctx);
++               alg->halg.base.cra_init        = cmh_kmac_cra_init;
++               alg->halg.base.cra_exit        = cmh_kmac_cra_exit;
++               alg->halg.base.cra_module      = THIS_MODULE;
++
++               ret = crypto_register_ahash(alg);
++               if (ret) {
++                       dev_err(cmh_dev(), "kmac: failed to register %s (rc=%d)\n",
++                               info->drv_name, ret);
++                       while (i--)
++                               crypto_unregister_ahash(&cmh_kmac_drvs[i].alg);
++                       return ret;
++               }
++
++               dev_dbg(cmh_dev(), "kmac: registered %s (priority 300)\n",
++                       info->drv_name);
++       }
++
++       dev_info(cmh_dev(), "kmac: %zu algorithm(s) registered\n",
++                CMH_KMAC_ALG_COUNT);
++       return 0;
++}
++
++/**
++ * cmh_kmac_unregister() - Unregister KMAC hash algorithms from the crypto framework
++ */
++void cmh_kmac_unregister(void)
++{
++       unsigned int i;
++
++       for (i = 0; i < CMH_KMAC_ALG_COUNT; i++) {
++               crypto_unregister_ahash(&cmh_kmac_drvs[i].alg);
++               dev_dbg(cmh_dev(), "kmac: unregistered %s\n",
++                       cmh_kmac_algs_info[i].drv_name);
++       }
++
++       dev_info(cmh_dev(), "kmac: cleaned up\n");
++}
+diff --git a/drivers/crypto/cmh/cmh_main.c b/drivers/crypto/cmh/cmh_main.c
+index c18219197bd8..f04cc6855963 100644
+--- a/drivers/crypto/cmh/cmh_main.c
++++ b/drivers/crypto/cmh/cmh_main.c
+@@ -31,6 +31,8 @@
+ #include "cmh_rh.h"
+ #include "cmh_hash.h"
+ #include "cmh_hmac.h"
++#include "cmh_cshake.h"
++#include "cmh_kmac.h"
+ #include "cmh_mgmt.h"
+ #include "cmh_registers.h"
+ #include "cmh_debugfs.h"
+@@ -203,6 +205,16 @@ static int cmh_probe(struct platform_device *pdev)
+        if (ret)
+                goto err_hmac_register;
+
++       /* Register CSHAKE hash algorithms */
++       ret = cmh_cshake_register();
++       if (ret)
++               goto err_cshake_register;
++
++       /* Register KMAC hash algorithms */
++       ret = cmh_kmac_register();
++       if (ret)
++               goto err_kmac_register;
++
+        /* Register key management device (/dev/cmh_mgmt) */
+        ret = cmh_mgmt_register();
+        if (ret)
+@@ -215,6 +227,10 @@ static int cmh_probe(struct platform_device *pdev)
+        return 0;
+
+ err_mgmt_register:
++       cmh_kmac_unregister();
++err_kmac_register:
++       cmh_cshake_unregister();
++err_cshake_register:
+        cmh_hmac_unregister();
+ err_hmac_register:
+        cmh_hash_unregister();
+@@ -245,6 +261,8 @@ static void cmh_remove(struct platform_device *pdev)
+        cfg = &dev->config;
+
+        cmh_mgmt_unregister();
++       cmh_kmac_unregister();
++       cmh_cshake_unregister();
+        cmh_hmac_unregister();
+        cmh_hash_unregister();
+        cmh_rh_cleanup(cfg);
+diff --git a/drivers/crypto/cmh/include/cmh_cshake.h b/drivers/crypto/cmh/include/cmh_cshake.h
+new file mode 100644
+index 000000000000..9bafe0baf52f
+--- /dev/null
++++ b/drivers/crypto/cmh/include/cmh_cshake.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
++ * CMH LKM -- Kernel Crypto API CSHAKE Driver
++ *
++ * Registers cSHAKE-128 and cSHAKE-256 ahash algorithms using
++ * HC_CMD_CSHAKE with inline customization string S.
++ */
++
++#ifndef CMH_CSHAKE_H
++#define CMH_CSHAKE_H
++
++int  cmh_cshake_register(void);
++void cmh_cshake_unregister(void);
++
++#endif /* CMH_CSHAKE_H */
+diff --git a/drivers/crypto/cmh/include/cmh_kmac.h b/drivers/crypto/cmh/include/cmh_kmac.h
+new file mode 100644
+index 000000000000..b3c92d71a0b6
+--- /dev/null
++++ b/drivers/crypto/cmh/include/cmh_kmac.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
++ * CMH LKM -- Kernel Crypto API KMAC Driver
++ *
++ * Registers KMAC-128 and KMAC-256 ahash algorithms using
++ * HC_CMD_KMAC with inline customization string S.
++ */
++
++#ifndef CMH_KMAC_H
++#define CMH_KMAC_H
++
++int  cmh_kmac_register(void);
++void cmh_kmac_unregister(void);
++
++#endif /* CMH_KMAC_H */
 --
 2.43.7
 
