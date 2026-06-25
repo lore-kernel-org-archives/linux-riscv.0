@@ -4,85 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A556ECDE001
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 16:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8348ECDE001
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 17:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xz7BPjDqngsXmlMnXFt5BLslwoWI6f5af91WAtbOu0g=; b=J4PfIcJIlAK3KXKyld43UNe7dI
-	5y2Za49QU5xZtAqOR1pnU+Dl7q25KPbILWKGdzb8p1OV3qnzqVYSgVAy0BGqiZmiHP+R0GuQVZ21J
-	GI+geBq+k4kkHDogt9SgOEjg7ZX6CJGeZFemrwq/6owpHSXeG66A0QW9VFlxAA9mD06Sf07XJP4W7
-	+q7ar9Av/V44D25BCpfm7WyNstqn4vTTYA7oay5f9Hj668KKjUsXQVrIo6kScJglZOTOrnl0XTHpc
-	ssftJ9itposkKPAixkK7jxuHr5NNhQwl1Gx6EQp9HlD6vaxwI8jO51Kx/2Poq4/U4cBliS3bzDo/9
-	bNKnV/Bg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=44DfVWaAm4kfxX4h3mtFZwyLgtwUdV+ebIwNADKJ9F8=; b=zuAQGpK/ixGz5s
+	p2FzfGhFrCr1wGeCiniMLNeoG8wOogzN0RknMAwojd2Z8k5GlUJRYEHEW7Fxo8PrksjH9BMlrV3Vg
+	cSMDMc2zwbmL57r0W1fUYTf+htJDoh0uO3I0GZPSoTeJWkq3hKwrVuQ9hTVO4h5Pb6UMK2kvcc7BY
+	6ZktahSUf5/FDqXnTgmMbQ6IUyenu9vZH1axP5+yCOAFSU8m5I394M2sk/4gR1DqtTTcH/qxv5bJM
+	oQWj1nsBCZQeqKnlKGuZImrtfdevEeOyVh7bV0fWnmGjjLguJysNCafcLqohv0cXLIyKqKsgEPEd0
+	Sa/EW8jec6WhqOhj/wtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmnk-00000009SvC-10tx;
-	Thu, 25 Jun 2026 16:19:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wcnxm-00000009XKJ-14Dx;
+	Thu, 25 Jun 2026 17:34:06 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmni-00000009Suv-3qRL
+	id 1wcnxi-00000009XJY-3bK6
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 16:19:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E96B600AE;
-	Thu, 25 Jun 2026 16:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAC171F000E9;
-	Thu, 25 Jun 2026 16:19:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782404377;
-	bh=7YcMVVY3Ngo1QA2QA4VNeE39obuNmOZ0bZLp0deFa4Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GtWTdtpBtJaqqhntdx94UBquSGkQICKW/35LtX6FCenrEFQOyrhP84qGQESOlDQMt
-	 Z9LIvY5aXOX6SoaXq+xSAzSJD5sFsuPQEa1y6fVPdQJSFUMo7/orxM5U2/YWwXt6M9
-	 CpCNjZIw8p27gyJJtmV+DODPhEK+LlamOOUcQIT5Xtp4bjswlX3r7gYwJAnmM9ud/B
-	 4zUYWLNSXP2DM4cGiVm89nf7zweBbJS1rksQ1qj9fTKrAKhZ0SUb/3yUqGQKeQPrle
-	 tiMGmj9jRNQbb7eqYg+G/2mRp2ndZM6+jqbLXLHxlRvW3NweSnGfDA1sJZDs+YnhYq
-	 syY9nXn1Ozf9A==
-Date: Thu, 25 Jun 2026 17:19:28 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
+	Thu, 25 Jun 2026 17:34:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JBTThKw9BW3RQLt8cXOEOKClnKiwi35mXBDHm6cASyBzGY8soENRwp6qtq46kUqiZsoZikzPDG0SrkINDhizc+raP5w9QMbdlbtwnxvN9dGD39Mrlrb2DfUfwkjwRB0B7AbuGVGb+l2WWFs5R3vP46KlxY0xqJqnK6pdH8l2ks5o0BJrvG5ay4Hw0o4HAI/qmpuMiIlW66GofZjzCNUlIZ34w9O9tWhyVc2jxvjZqCl/3uH90SW/K/4Z88bUIdZAzImJSe8Knf55tfGX1MiyHdgOhwOkcYgi8p4W98Ymk6nDMtrzR4dIH8IC/Wk/HRT2F7gN7yo3S/Ay4YC7acEwgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3tyjbk9mpFHaiQUgIPHsg9hhr8tY+3V72HqOkCYNpts=;
+ b=AHkwrW8NLa+1ie/ygXZ9BLqxkIU5wzMyinkE6neI3oXF/fxeLpakCnM6B7SCoATq3Gbk0UV8fsU+lqLehU+0xfBWP9hFOQ5OzwbU7madMFMG9BW84tsBcJ5LxYq0IL6EWTsnbO5QFbBlvypnIT3m+ek2u91cojIa1GgLLuYwncUBbJjqTj6V5HvGOY900CAlHRX+QkCuUl5SvNwZWkyL41kiIOWkwXmk3bfTQXULrONmHZkB75GhNRLOtQpBZZuSnd8rVaNcYZ8ugNsAxbqvnqOzackl0uds4tybEErhwmUndmSwxESQjtGONjCpEEx7PKKbZVS0DPP3pqBUFcLxRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3tyjbk9mpFHaiQUgIPHsg9hhr8tY+3V72HqOkCYNpts=;
+ b=TWGizfCGgt0Ax0IDx4tM3RWF+Ub/jrpUhQnZ8yGAueCq/HFSj+7Q68ubomllIqhbubfnhy0tZRMqKVuLVknQOhZmgQv+ijhYBD3F27q1FeTcY5cQJfL4+3h+UGPF2pEo9ZXfiGSUIHEpg/8jGiVJYWQWO6sXFc9lc36XW/y3eLGqqCJPOUwxbaxlK5zSAtu1ECKRaT5qA8sMApJevnVvU9fPR0TpTxAQxCtX5Gw7+QcyunIoxHJXqF8/6PQ666KvSDnaodHIgFI2xmFxU2bZGaS4ZMYxCXs4Kxp46enjHsfmq+RzYMz0CQvjB0sPnSzQeV2312J6kjc2Mw/+WRnK+g==
+Received: from PH8P222CA0006.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:2d7::22)
+ by BN8PR04MB6404.namprd04.prod.outlook.com (2603:10b6:408:7d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.17; Thu, 25 Jun
+ 2026 17:33:51 +0000
+Received: from SA2PEPF000015C7.namprd03.prod.outlook.com
+ (2603:10b6:510:2d7:cafe::80) by PH8P222CA0006.outlook.office365.com
+ (2603:10b6:510:2d7::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.17 via Frontend Transport; Thu,
+ 25 Jun 2026 17:33:50 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
+ smtp.mailfrom=rambus.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=rambus.com;
+Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
+ 192.86.86.210 as permitted sender) receiver=protection.outlook.com;
+ client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
+Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
+ SA2PEPF000015C7.mail.protection.outlook.com (10.167.241.197) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
+ via Frontend Transport; Thu, 25 Jun 2026 17:33:50 +0000
+Received: from hqxsv-cmdev3-skrishnamoorthy.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
+	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id A5D93180174E;
+	Thu, 25 Jun 2026 17:33:49 +0000 (UTC)
+From: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+To: Albert Ou <aou@eecs.berkeley.edu>,
+	Alex Ousherovitch <aousherovitch@rambus.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: Add generic CBQRI controller
- binding
-Message-ID: <20260625-cupbearer-failing-9ce0abf97b93@spud>
-References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
- <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
+	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
+	linux-api@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	sipsupport@rambus.com,
+	Thi Nguyen <thin@rambus.com>
+Subject: [PATCH 00/19] crypto: cmh - add CRI CryptoManager Hub driver
+Date: Thu, 25 Jun 2026 10:33:08 -0700
+Message-ID: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-In-Reply-To: <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015C7:EE_|BN8PR04MB6404:EE_
+X-MS-Office365-Filtering-Correlation-Id: 493b36c9-b90a-46c4-d525-08ded2dfeb84
+X-LD-Processed: bd0ba799-c2b9-413c-9c56-5d1731c4827c,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|23010399003|18002099003|11063799006|56012099006|921020|6133799003|13003099007|3023799007;
+X-Microsoft-Antispam-Message-Info: FSHh3kU8fQAylXAG1qlvoHcfb+BGZVCD0mGm3b7gtnfvMIn92mvn6uq4xzy8O6Wr6MTK5I+XVusgJXxoFqTmP50LTYV12c3qYn263tUOEgKizSaQUrCg4c7tFhebfnnC3BlTcW/BvzqvVqUjwK3b9RUxRf24JZXfOMNG2Z8YNQcijzW8RXRhYlDX85St9qGddjMMn4ndHTyJDFIcUb/HgudTpj/GyF11wsHPXvpF4GxD0MUW4U6hLuh+39CbXcmSxJyN95nu9dtbXP7H9zrWLaTC9rdlxlUtRZ4LQ7si/wD2ikXjm9+sqH9WHfkFJdaOpMBrIqjrOiOspiM1408Qkp2zaGVn3zrbfmqnZUNK9meKss/5E9aGzJ5U1+At3TwxmINqGwohtw2v6TpjCZ5vK9JWVxmF/eza47Ti+g+wAVjiTGI2PT1zp05LEm+l+XFEYX7+9TJbZxSgJMrGyWjl36NiFKiMkp+m7KNt/yYHGYjsQKSkrBnJazRXwYkVMEigjya326elzh0oHM0n2QTGdiJbQPSke8Paxb+tdBoZu1lAewvR1ZLfG0eFy/YM6gnVS7dXQFB+2rAlbMbRgnEI67U+knfp6V/kD32kVNWF3gx7kwuvyoTq7ilk8R5mKAK2C4h1pPkEJvtWRvvqBajZaAJ1+glbhWDm43MxtWegRmcRZ+qYfeXyZYPsYs0fAtLQnmWaD4C25ALPIHW67TXH51kd4hQQXCd1hCBOe6LnYun0k9ONac5LkPObKtU1hfOb
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(23010399003)(18002099003)(11063799006)(56012099006)(921020)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +1bbqxJFj9ZxOpBypPbtCDPjK0ofF3H2mwoujFgOHlQdvb1gVx1wPuzmowZuzrUul+et03N7ev4yoCQ9O3pNucBNAaUbm6HHEcanTe158ypBZ5PVQwusrYYKJfG0PcMPJr0g32rkqNC4OTliQdnSf9GinJMqU4qAYt1zIe7efkFGURl4aa2UexjkpuSmX5WrIwIzM/wMfxUvIQeDHTOZecPHRG7CR6G1g1zAxu47jyRnj/xEfrdqlnLl9uByu5pFEhKkgZPOKpNHQaEaF1ZKIDufw9vhKM9DX1VOY9zNubXmQQL0DxVvY7j2ecxsD+DFHoAP1amwqlJ56fyqcUw6xhHp0G6g24ivjeEktTTPlh6hvPydxNzsQ2TAmnWmP2EmMv4v55EFTM1kCKFF5DJVdqybaPxsYj3HpXSgGo6To5epeucTtEV9xJjt3hhEWeY0
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 17:33:50.2768
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 493b36c9-b90a-46c4-d525-08ded2dfeb84
+X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015C7.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN8PR04MB6404
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260625_103402_983321_9520443D 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,215 +132,224 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1130493442845922334=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Alex Ousherovitch <aousherovitch@rambus.com>
 
---===============1130493442845922334==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iqz6WzvFJ9B9C8aq"
-Content-Disposition: inline
+crypto: cmh - add CRI CryptoManager Hub hardware crypto accelerator
 
+This series adds a driver for the CRI CryptoManager Hub (CMH), a
+hardware cryptographic accelerator IP from Cryptography Research at
+Rambus Inc. (https://www.rambus.com/cryptographyresearch/).
+CMH provides a broad set of symmetric, asymmetric, and post-quantum
+cryptographic algorithms accelerated in hardware, accessed via a
+mailbox-based Virtual Command Queue (VCQ) interface.
 
---iqz6WzvFJ9B9C8aq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The hardware is a platform device matched via device tree
+(compatible = "cri,cmh").  It exposes a single MMIO register region
+(SIC) with per-mailbox doorbell, status, and command registers.
+Each mailbox has DMA-coherent queue memory for VCQ command
+submission and completion.
 
-On Wed, Jun 24, 2026 at 06:38:35PM -0700, Drew Fustini wrote:
-> Document the generic compatibles for capacity and bandwidth controllers
-> that implement the RISC-V CBQRI specification. The binding also
-> describes the common riscv,cbqri-rcid and riscv,cbqri-mcid properties,
-> and the optional riscv,cbqri-cache phandle that links a capacity
-> controller to the cache whose capacity it allocates.
->=20
-> Assisted-by: Claude:claude-opus-4-8
-> Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> Signed-off-by: Drew Fustini <fustini@kernel.org>
-> ---
->  .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++++++++++=
-++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 98 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml b/D=
-ocumentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..5d6be645381780e187b39e60c=
-3bb487fdf2cfb69
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-> @@ -0,0 +1,97 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/riscv,cbqri.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V Capacity and Bandwidth QoS Register Interface (CBQRI) cont=
-roller
-> +
-> +description: |
-> +  The RISC-V CBQRI specification defines capacity-controller and
-> +  bandwidth-controller register blocks that allocate cache capacity and =
-memory
-> +  bandwidth to resource-control IDs (RCIDs) and monitor usage per
-> +  monitoring-counter ID (MCID):
-> +  https://github.com/riscv-non-isa/riscv-cbqri/blob/main/riscv-cbqri.pdf
-> +
-> +  Allocation and monitoring share one register block, and a controller m=
-ay
-> +  implement either or both. A driver discovers which at runtime from the
-> +  capabilities register, so the compatible names only the controller typ=
-e. It
-> +  does not distinguish allocation-only, monitoring-only or combined
-> +  controllers, and no property declares monitoring support.
-> +
-> +maintainers:
-> +  - Drew Fustini <fustini@kernel.org>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - description: Tenstorrent Ascalon Shared Cache
-> +            const: tenstorrent,ascalon-sc-cbqri
-> +          - const: riscv,cbqri-capacity-controller
-> +      - enum:
-> +          - riscv,cbqri-capacity-controller
-> +          - riscv,cbqri-bandwidth-controller
+Driver architecture:
 
-Please modify this, as has been done for other riscv spec related
-bindings, to let people get away without using device-specific
-compatibles.
+  In-kernel users                       /dev/cmh_mgmt (ioctl)
+  (dm-crypt, IPsec, kTLS, fscrypt)      (key management)
+       |                                        |
+       v                                        v
+  +----------------------------------------------------+
+  |        Kernel Crypto API + hwrng (72 total)        |
+  |   ahash | skcipher | aead | akcipher | sig | kpp   |
+  +----------------------------------------------------+
+       |                                           |
+       v                                           v
+  +------------------+    +------------------------+
+  | Transaction Mgr  |--->| Key / Mgmt subsystem   |
+  | (kthread, CMQ)   |    | (datastore, ioctl ops) |
+  +------------------+    +------------------------+
+       |
+       v
+  +------------------+     +-------------------+
+  | MQI (VCQ pack,   |---->| Response Handler  |
+  |  DMA map, submit)|     | (threaded IRQ,    |
+  +------------------+     |  watchdog, unmap) |
+       |                   +-------------------+
+       v                          ^
+  +-----------+              +-----------+
+  | Hardware  |--- IRQ ----->| Hardware  |
+  | (mailbox) |              | (mailbox) |
+  +-----------+              +-----------+
 
-In this case, you can just delete the first entry from this enum, since
-it already has a user and only have to implement this feedback for the
-second entry.
+The transaction manager runs as a dedicated kthread that pulls
+requests from a central command queue, packs VCQ entries, maps DMA
+buffers, and submits to the least-loaded mailbox.  Completion is
+handled by per-mailbox threaded IRQs.  The driver returns
+-EINPROGRESS for async crypto requests and supports the
+CRYPTO_TFM_REQ_MAY_BACKLOG flag for queue-full backpressure.
 
-pw-bot: changes-requested
+Registered algorithms (72 total):
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description:
-> +      The CBQRI controller register block.
-> +
-> +  riscv,cbqri-rcid:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      The maximum number of RCIDs the controller supports. RCIDs are the
-> +      resource-control IDs that allocation operations target.
-> +
-> +  riscv,cbqri-mcid:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      The maximum number of MCIDs the controller supports. MCIDs are the
-> +      monitoring-counter IDs that usage-monitoring operations target. Pr=
-esent
-> +      on controllers that implement monitoring.
-> +
-> +  riscv,cbqri-cache:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the cache node whose capacity this controller allocates.
-> +      Applies to capacity controllers that back a CPU cache. The cache l=
-evel
-> +      and the harts sharing it are taken from that node's cache topology.
+  Type       Count  Algorithms
+  ---------  -----  --------------------------------------------------
+  ahash         15  SHA-{224,256,384,512}, SHA3-{224,256,384,512},
+                     SHAKE-{128,256}, cSHAKE-{128,256},
+                     KMAC-{128,256}, SM3
+  ahash(HMAC)    8  HMAC-SHA-{224,256,384,512},
+                     HMAC-SHA3-{224,256,384,512}
+  ahash(MAC)     4  CMAC(AES), CMAC(SM4), XCBC(SM4), Poly1305
+  skcipher      11  AES-{ECB,CBC,CTR,CFB,XTS},
+                     SM4-{ECB,CBC,CTR,CFB,XTS}, ChaCha20
+  aead           6  AES-{GCM,CCM}, SM4-{GCM,CCM},
+                     rfc7539(chacha20,poly1305),
+                     rfc7539esp(chacha20,poly1305)
+  akcipher       1  RSA (2048--4096 bit; 512/1024 legacy/test)
+  sig           23  ECDSA P-{256,384,521}, SM2 (verify-only),
+                     ML-DSA-{44,65,87},
+                     SLH-DSA (12 parameter sets),
+                     LMS, LMS-HSS, XMSS, XMSS-MT
+  kpp            3  ECDH P-{256,384}, X25519
+  hwrng          1  DRBG-backed /dev/hwrng
 
-Architecturally, is it impossible for a capacity controller to control
-more than one cache?
+Ioctl-only algorithms (not registered with the crypto API at all):
+  - EdDSA (Ed25519, Ed448): sign and verify
+  - ML-KEM (ML-KEM-512/768/1024): no standard kernel KEM API exists
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: tenstorrent,ascalon-sc-cbqri
-> +    then:
-> +      required:
-> +        - riscv,cbqri-rcid
-> +        - riscv,cbqri-cache
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    l2_cache: l2-cache {
-> +        compatible =3D "cache";
-> +        cache-level =3D <2>;
-> +        cache-unified;
-> +        cache-size =3D <0xc00000>;
-> +        cache-sets =3D <512>;
-> +        cache-block-size =3D <64>;
-> +    };
-> +
-> +    cache-controller@a21a00c0 {
-> +        compatible =3D "tenstorrent,ascalon-sc-cbqri",
-> +                     "riscv,cbqri-capacity-controller";
+The driver also exposes /dev/cmh_mgmt, a misc device providing 44
+ioctl commands.  Relative to the in-kernel crypto API these fall into
+two groups; the distinction matters because some commands name the
+same primitives the driver also registers, and that overlap is
+deliberate and bounded:
 
-Is this or is this not a cache controller?
-The compatible and fact that the property points to an actual cache
-controller suggests that this is not.
+(1) Operations with no crypto API representation - the large
+    majority.  The crypto API has no transform type or verb for
+    these, so a character device is the only available UAPI:
+      - hardware key lifecycle: create, import, export, derive,
+        destroy, enumerate (keystore CRUD) - no keystore verb
+      - KIC key derivation (HKDF, AES-CMAC-KDF, DKEK)
+      - asymmetric key generation (RSA, EC, EdDSA, ML-DSA, SLH-DSA)
+        and public-key derivation - the crypto API has no keygen verb
+      - ML-KEM encapsulate/decapsulate - no kernel KEM API exists
+      - SM2 encrypt/decrypt and key exchange (multi-step GM/T 0003)
+      - EdDSA sign/verify - not registered with the crypto API
+      - EAC Chip Authentication and DRBG (re)configuration
 
-Cheers,
-Conor.
+(2) Hardware-held-key operations on algorithms that ARE also
+    registered (RSA decrypt, ECDSA/ML-DSA/SLH-DSA sign, ECDH).  These
+    name the same primitives as the registered akcipher/sig/kpp
+    transforms, but the crypto API's set_priv_key()/set_secret()
+    accept only raw key bytes supplied by the caller; they cannot
+    reference a private key that is generated inside, and never
+    leaves, the hardware datastore - the central security property of
+    this device.  The ioctl path keeps the private key
+    hardware-resident, while the registered transforms serve raw-key
+    in-kernel users.  The two paths are complementary, not redundant.
 
-> +        reg =3D <0xa21a00c0 0xf40>;
-> +        riscv,cbqri-rcid =3D <16>;
-> +        riscv,cbqri-cache =3D <&l2_cache>;
-> +    };
-> +
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 9e1092165046c773771b055869030bc1bdb64b16..64a95a4d795a57033d3f36200=
-d98cfb4a013ab94 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -23298,6 +23298,7 @@ M:	Drew Fustini <fustini@kernel.org>
->  R:	yunhui cui <cuiyunhui@bytedance.com>
->  L:	linux-riscv@lists.infradead.org
->  S:	Supported
-> +F:	Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
->  F:	arch/riscv/include/asm/qos.h
->  F:	arch/riscv/include/asm/resctrl.h
->  F:	arch/riscv/kernel/qos.c
->=20
-> --=20
-> 2.34.1
->=20
+The device requires CAP_SYS_ADMIN.
 
---iqz6WzvFJ9B9C8aq
-Content-Type: application/pgp-signature; name=signature.asc
+/dev/cmh_mgmt is built conditionally on CONFIG_CRYPTO_DEV_CMH_MGMT
+(default n); when disabled the ioctl interface is absent while all
+kernel crypto API algorithms remain registered.
 
------BEGIN PGP SIGNATURE-----
+The ML-DSA sig algorithms are registered at priority 5001.  The
+kernel's crypto/mldsa.c registers at priority 5000 with verify-only
+(sign returns -EOPNOTSUPP).  Our driver provides full HW-accelerated
+sign + verify, so the higher priority ensures the hardware
+implementation is preferred when the driver is loaded.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj1VEAAKCRB4tDGHoIJi
-0lXeAP4nYfY2HRKImG27gD+aSFjrJ2tV6sAdxhmJWyh1+AnCrAEAk6PNQ5SjX5nW
-VK2mq7VQ+4K/2o7w6hvbd2oKNvn30ww=
-=ZHZW
------END PGP SIGNATURE-----
+Power management uses DEFINE_SIMPLE_DEV_PM_OPS.  On suspend the
+transaction manager drains in-flight requests (configurable 10s
+timeout, returns -ECANCELED on timeout), stops the kthread, and
+masks IRQs.  On resume it re-verifies SIC/boot status and restarts
+the kthread.
 
---iqz6WzvFJ9B9C8aq--
+Dependencies:
+  - Kernel 7.1+ (based on Herbert Xu's cryptodev-2.6 tree, 7.1.0-rc2)
+  - sig_alg backend (upstream since 6.13)
+  - CRYPTO_AHASH_REQ_VIRT (native support, no fallback needed)
+  - CMH eSW loaded independently by hardware before driver probe
 
+The driver registers all algorithms through the standard in-kernel
+crypto API; in-kernel users (dm-crypt, fscrypt, IPsec, etc.) consume
+them directly.  Key provisioning and hardware-held-key operations are
+exposed to user space via /dev/cmh_mgmt ioctls.
 
---===============1130493442845922334==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Public hardware documentation:
+  Product brief: https://go.rambus.com/ch-7xx-and-cc-7xx-product-brief
+  No public datasheets are currently available.  The driver was
+  developed against the CRI CryptoManager Hub Hardware Reference
+  Manual (Rambus Inc. confidential).  Detailed hardware reference is
+  available under NDA from Rambus Inc.; contact the maintainers listed
+  in MAINTAINERS for access during review.
+
+Tested on RISC-V and ARM64 QEMU emulation with the CMH hardware
+model (QEMU TCG, 512 MiB RAM).  Also exercised on Xilinx VMK180
+FPGA board with real CMH IP.
+
+  - testmgr: 41 CMH algorithm registrations matched by upstream
+    test vectors, all pass; 30 names report "No test for" (PQC
+    families, KMAC, cSHAKE - no upstream vectors yet).
+  - kselftest tools/testing/selftests/drivers/crypto/cmh:
+    6 pass, 0 fail.
+
+checkpatch.pl --strict: 0 errors, 0 warnings, 0 checks on all
+files (the only output is the expected per-file "does MAINTAINERS
+need updating?" reminder, satisfied by the MAINTAINERS patch).
+sparse (C=2): 0 warnings.
+W=1 -Werror: clean.
+make dt_binding_check: clean (dtschema validates the
+cri,cmh.yaml binding).
+
+Tested with the following debug options enabled simultaneously
+(submit-checklist "Test your code" item 1):
+  CONFIG_PROVE_LOCKING, CONFIG_PROVE_RCU, CONFIG_DEBUG_LOCK_ALLOC,
+  CONFIG_DEBUG_OBJECTS_RCU_HEAD, CONFIG_SLUB_DEBUG,
+  CONFIG_DEBUG_PAGEALLOC, CONFIG_DEBUG_MUTEXES, CONFIG_DEBUG_SPINLOCK,
+  CONFIG_DEBUG_PREEMPT, CONFIG_DEBUG_ATOMIC_SLEEP.
+  Result: no lockdep warnings, no ODEBUG splats, no slab corruption.
+
+Additionally tested (separate passes - mutually exclusive configs):
+  - CONFIG_KASAN + CONFIG_UBSAN + CONFIG_DEBUG_KMEMLEAK + CONFIG_KFENCE:
+    no sanitizer findings; KMEMLEAK scan reports 0 unreferenced objects.
+  - CONFIG_KCSAN (arm64; riscv64 lacks HAVE_ARCH_KCSAN):
+    0 data-race reports attributed to the driver.
+
+Stack usage: worst-case under 1 KB on both riscv64 and arm64
+(scripts/checkstack.pl).  Hardware command buffers live in
+per-request context (heap-allocated by the crypto framework).
+
+Alex Ousherovitch (19):
+  dt-bindings: crypto: add Rambus CryptoManager Hub
+  crypto: cmh - add core platform driver
+  crypto: cmh - add key provisioning and management
+  crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
+  crypto: cmh - add HMAC ahash
+  crypto: cmh - add CSHAKE/KMAC ahash
+  crypto: cmh - add SM3 ahash
+  crypto: cmh - add AES skcipher/aead/cmac
+  crypto: cmh - add SM4 skcipher/aead/cmac/xcbc
+  crypto: cmh - add ChaCha20-Poly1305
+  crypto: cmh - add DRBG hwrng
+  crypto: cmh - add RSA akcipher
+  crypto: cmh - add ECDSA/SM2 sig
+  crypto: cmh - add ECDH/X25519 kpp
+  crypto: cmh - add ML-KEM/ML-DSA (QSE)
+  crypto: cmh - add SLH-DSA/LMS/XMSS (HCQ)
+  Documentation: ioctl: add CMH ioctl documentation and register 'J'
+  selftests: crypto: cmh - add kselftest for management ioctl
+  MAINTAINERS: add Rambus CryptoManager Hub (CMH)
+
+base-commit: 6ea0ce3a19f9c37a014099e2b0a46b27fa164564
+--
+2.43.7
+
+** This message and any attachments are for the sole use of the intended recipient(s). It may contain information that is confidential and privileged. If you are not the intended recipient of this message, you are prohibited from printing, copying, forwarding or saving it. Please delete the message and attachments and notify the sender immediately. **
+
+Rambus Inc.<http://www.rambus.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1130493442845922334==--
-
