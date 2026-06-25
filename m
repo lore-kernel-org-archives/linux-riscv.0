@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB12CDE001
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 17:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65E6CDE00B
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 17:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tH+SG1seEk2iafMcxkzKYe21PHYj1g/Gx8MdhwX5ZyY=; b=v01sSrUjO6MYTE
-	RIFgoJrDWeWbizw9M/RqWkh+yczZGIPMBuDrXRY3c8fKaEqkyTkPnjU0ku3T6IQQ25RvNnN0xhbxl
-	I69OBAyA79DgFpY7i8PHYkByPlBwHDUW6CVlxXrlvdCTRLZO/9UEX2o2TzJeojHDM9/56w2nnnb5G
-	Sx7VGXCJ825s1dkiNvXfZeOKKj03wejguGk9N0n9BFAtkCAAmiFdTnAci1j0yOMnVdLzKN7zCsgkt
-	D9Ow3giVos7OdDYM1lSjL9YMMalknwUp0bZYT3XUYyGLfywHB7MWb2jJ5f3OzSrJ7dOen4LHPSSBm
-	hgDQwZD1aTJVXgNS2ZaQ==;
+	List-Owner; bh=52Hd02E+j/03QIR7CshwzMtOC26UlH7X/pm/5tY9n1o=; b=Zr5K+j0H0KxQzA
+	0Kr34+Y284niNc6L5ijuD0Byy35SgCA1sVY0kHBWxzDhF13OrCgzu1w6oV44hCLg8w6i6ScNxTMt7
+	wcGW3zHinqB9puls59ddjPbGyzRkOG9GEre3rdTfdglA0JDhyr5+mmrdjJ/X0aGqe2BvGQRfPqMb1
+	wQQ4UsAcg6UTPKnfuRnrfUO4zNqJFbb5rh6G8YV+rg/JZWK4dhzyfEtIUwWImCGzP50wx4I6ozsK4
+	x+AwyI/DT+pHcXk6si+Wc7JNkCpS9UkjdNSenACcTK88qyhF6FFQiULLpNEcBuHoIy0jOMXKBITHG
+	i+9MPzqWm2itp5hYZQ3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcny4-00000009XR6-0ww4;
+	id 1wcny4-00000009XRG-22cz;
 	Thu, 25 Jun 2026 17:34:24 +0000
-Received: from mail-northcentralusazon11023123.outbound.protection.outlook.com ([40.107.201.123] helo=CH4PR04CU002.outbound.protection.outlook.com)
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcnxx-00000009XLZ-331z
+	id 1wcnxy-00000009XLW-3dcR
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 17:34:20 +0000
+	Thu, 25 Jun 2026 17:34:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sCcImMWYsGuyxEfFnOHpVXgiILOi+Ehg+4LKbGEh/O45Uqx6SvBXaXksdoYv6GOyW2/fb+mzyeQyLFgS0gx0NSq+tkwiJ7/YxyykAefGtWu75lo/IEpkk55dYxv85pCfpK8Zu2xYJPh2SCPnCwh6NZDrleUXeh8iFelOihcYvFA9pFOpdIMLk5zBsH9rTvMpggUicE6XG0FWEQj66ggGJk1NFuvSYShBnipF3CXkLGx25gvQrkZ0utE+X+/B3z3uXP2kxgye1224Pe2ijU/nDfw6hOTi0juca5/aYpdHo+YtSSUEATeV74r4QeDkZuF2JKPeUOSUTCWljZcQ5MrM9A==
+ b=poVvdcAZtwvniZEipvh2mNStze1A+DTZIsmgp1nkoNQphg6ywcTW963AusjmGCE+MabSxOJzp9vQfLEGMNAOAEGTywbczShunFJ7t07ZT8ZKFdySSlFL3EtSCYrFFKRpYya7LV9s6QEpJcWnpMf9mBHdPcgkt/7INnv6cN9zhmtqag7b+e913GCGjwEDubRl0xXePFR6uIb3CrgZ9qFJw1LHVvdSwHs/8BKLB9RwEQeTcnk9fcQUOblKYy9xALLyy58i5ecvtpVsW+LIDf1XCcFfg0u0abRVyVR7H6DEjkYwqSydpli5PevKC3l44EzLHcL8o26XmogIyC4de8vahA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yx78HMsVFkk1b9/fp26pVfsH6nn2vfQjbtuBXWj9Bg0=;
- b=mzsYWOEjctAXeOs25odQuRup4t1/E7/QYBe3SGREQNxQ3yAfEVWdtTgKbXAUyoqUCE0ZL9F7t6QzvEjyxQPEGFoiYUY2z7ESq0ep9D2TLkIpDYrnxvbqP8TCH64mqLThB/Dhb62EpRTiv+bdsPK0WVHC3SzQ6ySZY14WWFsDmIYa//tQAA5FpZcXe2Ye+ceHzskvsYCepbs3qj/p3VkUbYGaX40bYhf/3PdKWv0EBQitlh6Qfamtfe5uQ2boxwPbrb3p5K2WSCN7W8c3fTIdwbwU6BNtOJhreH2rZ/D6AeMyu8vvyOsvRSzoaExvku0ygRYfNCtbO+4uGysX9n0pFQ==
+ bh=2dZ2EceBQiOCBx9s+wmI/nw4VVrIQ7MiycsHk1oFfCw=;
+ b=dqXZU5Rp/Xu7ES6EMPQgRCxGMrsBTGFcRDcfYI9+ms+UPmz1pqBll3RIcSdBr52O2Sh484z3HapbZmE1uoNGsviHyk5NLK00TQy1Q2hK6VYRWNvbsbRFgTwT2gARXBytUP5TWkAbOANdszveerYpHdeU/Opy5oDWqaAVScTV7vRMgTp0mEWOK4BVidsgkKmmHzmeXgmHOHBNybNEH3R1+9lO3QHRA/rmvtpllS/41RcKN8L0ZMrDc+r3iv7BVDcQdEnXnMfgKijhO6V0Mje3Ek24ASeAZeiWSX0q7OIcz93cAtlbs6KVhBjy5FGePwM7kpVDwjRX50v3fkOyWkTfKw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yx78HMsVFkk1b9/fp26pVfsH6nn2vfQjbtuBXWj9Bg0=;
- b=zSPZk4AWckCnYyZ3b9S+VaNLjryzdsUly2GL/Mt3+B3lZKeSVmJPsMKMtq6eiEYoIt9daNXuOlyzYS9AlOPukKv2Kpuod5N3GD1NISO+mbMv5SvwI2yWkbqjIrOtDdV7Tsux5EGXO0bZm1gplR5DmBTWwVL1C1/NV0vh31QCUk4IMjO+2g6dbE3ye6XTBVSxBi7SPbgrtPc0cbK5Y1o9tobAowOYSyhdMjPrIwSIvqQrA9erqZTa/QF1j76iTzrjEUA7IbaKZHC2yuJIuq3AEfqmp42JQvpq7eO4R4NcvSFOoMp96VSkPnUEHjsaGiUf9iTKphvzmIG8QRPkPcN9/Q==
-Received: from SJ0PR13CA0094.namprd13.prod.outlook.com (2603:10b6:a03:2c5::9)
- by SA6PR04MB9672.namprd04.prod.outlook.com (2603:10b6:806:434::17) with
+ bh=2dZ2EceBQiOCBx9s+wmI/nw4VVrIQ7MiycsHk1oFfCw=;
+ b=OVAVTvE88fw32vWw/80jYdf+PB/xmog345J8hLcmouh4Jh/UgjAAHu4PhfevWyC9xBcLqKb3Gcl5jmfkATyZ+OAkTWF0c/5bWSlW9stpt9PXOoMAC1VOLn645+jBecl86gjddMg/gknCuOUj03GkpjWKBj5PTLUwBix+cFGP4AdaTiSGfyZ9pDuLP8vhHoTtboZ/OpIqmsLbyMni7aT7XNRU9lVLDR2y9ua2/PTzdpnfwdTIKaJSYP6+DGwCX9lrXdMnHTpmvLR+TSCiX52JrtQPDyBRLhexxtc0QCLVsgJ8ZpUerwMww8Od3iwklv07yqXqOcRoWixXq1XK0Omwpw==
+Received: from SA1PR03CA0010.namprd03.prod.outlook.com (2603:10b6:806:2d3::26)
+ by SJ0PR04MB7726.namprd04.prod.outlook.com (2603:10b6:a03:31b::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Thu, 25 Jun
- 2026 17:34:08 +0000
-Received: from MWH0EPF000A6732.namprd04.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::9b) by SJ0PR13CA0094.outlook.office365.com
- (2603:10b6:a03:2c5::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6 via Frontend Transport; Thu, 25
- Jun 2026 17:34:08 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Thu, 25 Jun
+ 2026 17:34:10 +0000
+Received: from SA2PEPF00003AE7.namprd02.prod.outlook.com
+ (2603:10b6:806:2d3:cafe::9f) by SA1PR03CA0010.outlook.office365.com
+ (2603:10b6:806:2d3::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.16 via Frontend Transport; Thu,
+ 25 Jun 2026 17:34:10 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
  smtp.mailfrom=rambus.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=rambus.com;
@@ -60,12 +60,12 @@ Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
  192.86.86.210 as permitted sender) receiver=protection.outlook.com;
  client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
 Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
- MWH0EPF000A6732.mail.protection.outlook.com (10.167.249.24) with Microsoft
+ SA2PEPF00003AE7.mail.protection.outlook.com (10.167.248.7) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Thu, 25 Jun 2026 17:34:08 +0000
+ via Frontend Transport; Thu, 25 Jun 2026 17:34:09 +0000
 Received: from hqxsv-cmdev3-skrishnamoorthy.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
-	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id AC1CE180175E;
-	Thu, 25 Jun 2026 17:34:06 +0000 (UTC)
+	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id 8F92A1801801;
+	Thu, 25 Jun 2026 17:34:07 +0000 (UTC)
 From: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alex Ousherovitch <aousherovitch@rambus.com>,
@@ -91,38 +91,38 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	sipsupport@rambus.com,
 	Thi Nguyen <thin@rambus.com>
-Subject: [PATCH 07/19] crypto: cmh - add SM3 ahash
-Date: Thu, 25 Jun 2026 10:33:15 -0700
-Message-ID: <20260625173328.1140487-8-skrishnamoorthy@rambus.com>
+Subject: [PATCH 18/19] selftests: crypto: cmh - add kselftest for management ioctl
+Date: Thu, 25 Jun 2026 10:33:26 -0700
+Message-ID: <20260625173328.1140487-19-skrishnamoorthy@rambus.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
 References: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
 MIME-Version: 1.0
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A6732:EE_|SA6PR04MB9672:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7681c43d-764a-4e8a-549d-08ded2dff637
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE7:EE_|SJ0PR04MB7726:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa0cfd94-6936-4f49-8d8b-08ded2dff739
 X-LD-Processed: bd0ba799-c2b9-413c-9c56-5d1731c4827c,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|23010399003|36860700016|3023799007|56012099006|11063799006|921020|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: crrAHdMp0DLFVPR/xu2mtyskJgPt2n5n9dQCy/JgRf6219fCNB9/zUUrwh29a1H+aJGfsrDxnrgLU6MDtV5HzMp8iqBxX44t571Wg/WGOvaebOlWzTY0epwZrgeekHC2lF6gWPSVe7ngFAPqFauiS0t0XaDa1o/E41cv0QzvplTdIiEme34V1a3taEYuXbeOAT1xe3S4b9yqDCfN0XXe7T0xhY7YChOnTGWOOclo4Jl2cVk2mwd2lbbc/5cHCgWugenrEcSoVL5QkngiHlKnanHBf6h3qGjyW/KqMreSxyq7E35p2h7btTpS8PvALdObttNc9IqQ88WttwHbd3QtZM0/3FsvZbB53Y57SfrDcogCngHQ0DSMXwJrw+NFYgrEJKu4MrFdzRvvjVn/+2B/N7YP00EgDtkXTQ/KZSi9ESqLj7xU5T9oSJl8Teuwusx/JAKrVVV4AVNTpSQtvG/9z6aSXDx9/jWIuHRukKhXcOhRHdLaPRpNmwMGXvRVhgk0G6De7E/kF8kXdRagbVbFFLu0mtLgADA3f/4WOO7IYaYHMAePA6cDwylmRrQ0pd52yBGFb2ZGnCUZbAhHkoyvW9361N7aaCwmHLkjdPFM4W87UhzFmqGGRw0rCLB4OpORcppJpjU30pon7KgZdg3yDEsvKspDAgP3/8LQp1UJEDWgr4sm+g9L5F4CX9IF92LP6/HW7g7b4GMjn61ax0BT2MQQsZ1wznI9R0ulPbF5csnNo3xikOe7QSVPwOI8Xu0w
-X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(23010399003)(36860700016)(3023799007)(56012099006)(11063799006)(921020)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|7416014|376014|1800799024|921020|3023799007|18002099003|22082099003|11063799006|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: Qx9jPshn3PJbbuD3dSUeW+NKay0LHWBheSZw53b3fJVuFa0QDa5QEmj2Hn9AWtI9NzBYDkcS07HLXW+/voeKWhYC3QjeEH9Fj8cLzZHXlgec3PtP46q4fxxvJQWSPUGyNsJJeTT3LefC0nAoyBMEtcDHNCbWsxsmmKm9Eywfmc8xXwl6k8FMAzIJsICb5O5TgtwikPxRTzDFEzPPI5EZyW3+toa9cG6o43mWxxH/3zKk7OIMVcA1WZfUo2vdzsTdjNIaZxuqKlIyrxZgGq8X7EJd2Ouu6XOlJv46wu8w2jyYFlBN3I0MssVIrY0poxYaWV6w23v1N6Jk/3OF6mb7S9f6P3qvo39212VRieEovpm3seEONY0IZTKKm5MFxaVOubpEUVfa2gj6TUERal54s1mLlSRexF2s39tsR8kwn0FSdXc/a3cIQsnThQyS9MOfqEdmvGsvcyOKDdb7mfyfJXCdfnxeD6TNBEqMSF8q7WOSwezNSa2CYGKKY7gaKKkK0enDpNIv4ZkadXdeR5+q0sr8nr1oGdaPnUlwkwBUER0EgcUInJnyF5yFF3MbuBmyjVrRNvHmxwldDwj8P9AlHm1XFOHV0A+bHyL87gPg2E03A3bYKQlYPtGtmStippI87o2lfsFG5N7eUt12ZDrqZqP6VEQmyDhOEpdjEmsVFT85wnvY4pWH38OXwp4xOCCAmiBT6+WxNknhwOJ5sPNJghP9F9TXV8TF/5M9EdmpDAG/RnfTWoFJm5iSBd3H7UKw
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(7416014)(376014)(1800799024)(921020)(3023799007)(18002099003)(22082099003)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: EFi6CZw/ymMXMnLJmxjZDoSgFocaRX2t4gBaS0G9PZJiSEZ4vp1yQLtZ5xYxf0rOC/ADh4QmEb0kxtp7Wei4o0cinSqCXSmHCaQOy0ETAiZgbKfsOW14fnH2W0AjUCExGQ+Hn/e1/t6H/8Kpebp9ByBPQz+5ROSuzM7UiFo6HCVrEBPLdnFj5taDsUfTP9OyV9fOZHjZPb7/VUIHE7qY+m8o/taUh7CJKc4jTNmQozRdPecEvgfXN712PH02a4FVX2DjMNEYuLUG0P0JNeyC2Kg85lfHkuXLHI/mazD8MbzwhuHUlKJU1KdN00WpWelTzgHkeeB52m2AqrV22NzALn10bIXdjp+k+jhen/waDVMiDAvCjkaZL8OUptd0xtV0Mw0a4+r78UGPYkGveEeXxCJZtckasZSLTOOC4/ViDTkAo2yaYBAiSvdjfxmfvhhG
+X-MS-Exchange-AntiSpam-MessageData-0: Vg/Aga+ZH5NMhUdYa+OLEwlicd9W+3RQXylJqAu7XqK6FALJpk94RVGNTwLG1JbsttHv930FlWcV5kFIlmzeCfGZzA1THuwQacsx7IjweSbH0CvZlx4Q237+Y3J9rDEytOBUX+Ur37ek1c6eafOs8dnQjyEv6AqiJV1ny5eiGMkFw+UYtPpSb113/jk/9PQ60DnrvblD9xEQglwquiZdioH8nwXU0LwBQrri0aLzEDa/F/SOX4lP2LjYxIawiTRcrg3S6aX+TplGgFWGFGrCM1qPjzo2jOyJmJJhQaaiH4FMQrLwXb1MC6dtuI0M6iTt1J5HeHxOAl3nv3hfBXBcJsWjw++Vqntv9xSZPLOlREmlvY2yvbXEraaQ8FrpVBqwh2QxL/mTVZIbG4WEBCB5sWBZYq5Tlhn/F4gZq05Gkygvyin2G5PO7LJVzHQxjuaM
 X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 17:34:08.2413
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 17:34:09.9234
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7681c43d-764a-4e8a-549d-08ded2dff637
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa0cfd94-6936-4f49-8d8b-08ded2dff739
 X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6732.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AE7.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR04MB9672
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7726
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_103417_863227_1ED45F29 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20260625_103419_022807_F4B188E0 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,8 +141,18 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Alex Ousherovitch <aousherovitch@rambus.com>
 
-Register the SM3 ahash algorithm using the CMH SM3 core (core ID
-0x05).  Supports incremental update/finup/final and export/import.
+Add a minimal kselftest exercising the /dev/cmh_mgmt ioctl interface:
+
+  - open/close the device node
+  - invalid ioctl returns -ENOTTY
+  - bad version field returns -EINVAL
+  - KEY_NEW + KEY_DELETE lifecycle
+  - KIC HKDF1 key derivation
+  - ML-KEM-768 keygen via hardware RNG
+
+Tests use the kselftest_harness.h fixture framework and output TAP.
+Tests that require hardware features not present on the device under
+test are gracefully skipped (SKIP).
 
 Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
 Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
@@ -150,759 +160,222 @@ Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
 Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
 Reviewed-by: Thi Nguyen <thin@rambus.com>
 ---
- drivers/crypto/cmh/Makefile          |   3 +-
- drivers/crypto/cmh/cmh_main.c        |   9 +
- drivers/crypto/cmh/cmh_sm3.c         | 651 +++++++++++++++++++++++++++
- drivers/crypto/cmh/include/cmh_sm3.h |  27 ++
- 4 files changed, 689 insertions(+), 1 deletion(-)
- create mode 100644 drivers/crypto/cmh/cmh_sm3.c
- create mode 100644 drivers/crypto/cmh/include/cmh_sm3.h
+ .../selftests/drivers/crypto/cmh/Makefile     |   6 +
+ .../drivers/crypto/cmh/cmh_mgmt_test.c        | 183 ++++++++++++++++++
+ .../selftests/drivers/crypto/cmh/config       |   1 +
+ 3 files changed, 190 insertions(+)
+ create mode 100644 tools/testing/selftests/drivers/crypto/cmh/Makefile
+ create mode 100644 tools/testing/selftests/drivers/crypto/cmh/cmh_mgmt_test.c
+ create mode 100644 tools/testing/selftests/drivers/crypto/cmh/config
 
-diff --git a/drivers/crypto/cmh/Makefile b/drivers/crypto/cmh/Makefile
-index 2bb240b97f31..b3018fbcf211 100644
---- a/drivers/crypto/cmh/Makefile
-+++ b/drivers/crypto/cmh/Makefile
-@@ -18,7 +18,8 @@ cmh-y := \
-        cmh_hash.o \
-        cmh_hmac.o \
-        cmh_cshake.o \
--       cmh_kmac.o
-+       cmh_kmac.o \
-+       cmh_sm3.o
-
- # Management ioctl device (/dev/cmh_mgmt): key lifecycle, PKE, PQC ioctls.
- cmh-$(CONFIG_CRYPTO_DEV_CMH_MGMT) += \
-diff --git a/drivers/crypto/cmh/cmh_main.c b/drivers/crypto/cmh/cmh_main.c
-index f04cc6855963..56541e0d4219 100644
---- a/drivers/crypto/cmh/cmh_main.c
-+++ b/drivers/crypto/cmh/cmh_main.c
-@@ -33,6 +33,7 @@
- #include "cmh_hmac.h"
- #include "cmh_cshake.h"
- #include "cmh_kmac.h"
-+#include "cmh_sm3.h"
- #include "cmh_mgmt.h"
- #include "cmh_registers.h"
- #include "cmh_debugfs.h"
-@@ -215,6 +216,11 @@ static int cmh_probe(struct platform_device *pdev)
-        if (ret)
-                goto err_kmac_register;
-
-+       /* Register SM3 hash algorithm */
-+       ret = cmh_sm3_register();
-+       if (ret)
-+               goto err_sm3_register;
-+
-        /* Register key management device (/dev/cmh_mgmt) */
-        ret = cmh_mgmt_register();
-        if (ret)
-@@ -227,6 +233,8 @@ static int cmh_probe(struct platform_device *pdev)
-        return 0;
-
- err_mgmt_register:
-+       cmh_sm3_unregister();
-+err_sm3_register:
-        cmh_kmac_unregister();
- err_kmac_register:
-        cmh_cshake_unregister();
-@@ -261,6 +269,7 @@ static void cmh_remove(struct platform_device *pdev)
-        cfg = &dev->config;
-
-        cmh_mgmt_unregister();
-+       cmh_sm3_unregister();
-        cmh_kmac_unregister();
-        cmh_cshake_unregister();
-        cmh_hmac_unregister();
-diff --git a/drivers/crypto/cmh/cmh_sm3.c b/drivers/crypto/cmh/cmh_sm3.c
+diff --git a/tools/testing/selftests/drivers/crypto/cmh/Makefile b/tools/testing/selftests/drivers/crypto/cmh/Makefile
 new file mode 100644
-index 000000000000..156f93da70af
+index 000000000000..86cb63839b27
 --- /dev/null
-+++ b/drivers/crypto/cmh/cmh_sm3.c
-@@ -0,0 +1,651 @@
++++ b/tools/testing/selftests/drivers/crypto/cmh/Makefile
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0
++TEST_GEN_PROGS := cmh_mgmt_test
++
++CFLAGS += -Wall -Wno-misleading-indentation -O2 $(KHDR_INCLUDES)
++
++include ../../../lib.mk
+diff --git a/tools/testing/selftests/drivers/crypto/cmh/cmh_mgmt_test.c b/tools/testing/selftests/drivers/crypto/cmh/cmh_mgmt_test.c
+new file mode 100644
+index 000000000000..4514b5a1349a
+--- /dev/null
++++ b/tools/testing/selftests/drivers/crypto/cmh/cmh_mgmt_test.c
+@@ -0,0 +1,183 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- SM3 Hash Driver (CORE_ID_SM3)
++ * Kselftest for /dev/cmh_mgmt ioctl interface.
 + *
-+ * Registers an asynchronous hash (ahash) algorithm for SM3
-+ * (GB/T 32905-2016) using the CMH SM3 core.  This is a standalone
-+ * driver separate from cmh_hash.c (which handles HC-based SHA-2/3/SHAKE)
-+ * because SM3 runs on a different hardware core with its own command
-+ * IDs and context layout.
++ * Tests basic ioctl operations on the CRI CryptoManager Hub management
++ * device.  Requires the cmh module loaded on real or emulated hardware.
 + *
-+ * Incremental HW update model (same pattern as cmh_hash.c):
-+ *
-+ *   .init()   -> software-only: zero per-request context
-+ *   .update() -> buffer data in holdback; when >= block_size bytes:
-+ *                SM3_CMD_INIT [+ RESTORE] + UPDATE + SAVE + FLUSH
-+ *                -> return -EINPROGRESS  (else return 0)
-+ *   .final()  -> SM3_CMD_INIT [+ RESTORE] [+ UPDATE] + FINAL + FLUSH
-+ *   .finup()  -> linearise holdback + new data, then final path
-+ *   .digest() -> INIT + UPDATE + FINAL + FLUSH (single-shot, zero-copy)
-+ *   .export() -> software-only: copy checkpoint + holdback to out
-+ *   .import() -> software-only: restore checkpoint + holdback from in
++ * Run:  ./cmh_mgmt_test
++ * Output: TAP format (compatible with kselftest harness)
 + */
 +
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/crypto.h>
-+#include <crypto/internal/hash.h>
-+#include <crypto/scatterwalk.h>
-+#include <linux/scatterlist.h>
-+#include <linux/slab.h>
-+#include <linux/string.h>
++#include <errno.h>
++#include <fcntl.h>
++#include <stdint.h>
++#include <string.h>
++#include <unistd.h>
++#include <sys/ioctl.h>
 +
-+#include "cmh_sm3.h"
-+#include "cmh_vcq.h"
-+#include "cmh_txn.h"
-+#include "cmh_dma.h"
++#include "kselftest_harness.h"
++#include <linux/cmh_mgmt_ioctl.h>
 +
-+/* Per-Request State */
++#define CMH_DEV "/dev/cmh_mgmt"
 +
-+/*
-+ * Exported SM3 state -- serialised by .export(), deserialised by
-+ * .import().  This is what statesize advertises to the crypto subsystem.
-+ */
-+struct cmh_sm3_export_state {
-+       u8  checkpoint[SM3_CONTEXT_SIZE]; /* SM3 context from last SAVE */
-+       u8  buf[CMH_SM3_BLOCK_SIZE];     /* holdback buffer */
-+       u32 buf_len;                      /* valid bytes in buf[] */
-+       u32 hw_started;                   /* non-zero if checkpoint valid */
++FIXTURE(cmh_mgmt)
++{
++       int fd;
 +};
 +
-+#define CMH_SM3_MAX_PAYLOAD    5   /* INIT + RESTORE + UPDATE + FINAL/SAVE + FLUSH */
-+#define CMH_SM3_MAX_PACKED     (CMH_SM3_MAX_PAYLOAD * 2)
-+
-+/*
-+ * Checkpoint embedded inline: the kernel ahash API has no per-request
-+ * destructor, so a heap-allocated checkpoint leaks if a request is
-+ * abandoned without .final().
-+ */
-+struct cmh_sm3_reqctx {
-+       int    error;
-+       u32    hw_started;
-+       u32    buf_len;
-+       u32    has_checkpoint;
-+       u8     checkpoint[SM3_CONTEXT_SIZE]; /* SM3 context from last SAVE */
-+       /* DMA state for current async operation */
-+       dma_addr_t ckpt_dma;
-+       dma_addr_t save_dma;
-+       dma_addr_t data_dma;
-+       dma_addr_t digest_dma;
-+       u8    *save_buf;
-+       u8    *data_buf;
-+       u32    data_len;
-+       u8    *digest_buf;
-+       u8     buf[CMH_SM3_BLOCK_SIZE]; /* holdback for partial block */
-+       struct vcq_cmd packed[CMH_SM3_MAX_PACKED];
-+};
-+
-+/* VCQ Builders -- SM3 core (CORE_ID_SM3); generic flush from cmh_vcq.h */
-+
-+static void vcq_add_sm3_init(struct vcq_cmd *slot, u32 core_id)
++FIXTURE_SETUP(cmh_mgmt)
 +{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(core_id, 0, 1, SM3_CMD_INIT);
-+       /* SM3 has a single algorithm -- no algo selector field */
++       self->fd = open(CMH_DEV, O_RDWR);
++       if (self->fd < 0 && errno == ENOENT)
++               SKIP(return, "Device " CMH_DEV " not present (module not loaded?)");
++       if (self->fd < 0 && errno == EACCES)
++               SKIP(return, "Permission denied -- run as root or with CAP_SYS_ADMIN");
++       ASSERT_GE(self->fd, 0);
 +}
 +
-+static void vcq_add_sm3_update(struct vcq_cmd *slot, u32 core_id, u64 input_phys, u32 len)
++FIXTURE_TEARDOWN(cmh_mgmt)
 +{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(core_id, 0, 1, SM3_CMD_UPDATE);
-+       slot->hwc.sm3.cmd_update.input = input_phys;
-+       slot->hwc.sm3.cmd_update.inlen = len;
-+}
-+
-+static void vcq_add_sm3_final(struct vcq_cmd *slot, u32 core_id, u64 digest_phys, u32 outlen)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(core_id, 0, 1, SM3_CMD_FINAL);
-+       slot->hwc.sm3.cmd_final.digest = digest_phys;
-+       slot->hwc.sm3.cmd_final.outlen = outlen;
-+}
-+
-+static void vcq_add_sm3_save(struct vcq_cmd *slot, u32 core_id, u64 output_phys, u32 outlen)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(core_id, 0, 1, SM3_CMD_SAVE);
-+       slot->hwc.sm3.cmd_save.output = output_phys;
-+       slot->hwc.sm3.cmd_save.outlen = outlen;
-+}
-+
-+static void vcq_add_sm3_restore(struct vcq_cmd *slot, u32 core_id, u64 input_phys, u32 inlen)
-+{
-+       memset(slot, 0, sizeof(*slot));
-+       slot->magic = VCQ_CMD_MAGIC;
-+       slot->id = VCQ_CMD_ID(core_id, 0, 1, SM3_CMD_RESTORE);
-+       slot->hwc.sm3.cmd_restore.input = input_phys;
-+       slot->hwc.sm3.cmd_restore.inlen = inlen;
-+}
-+
-+/* Request Context Cleanup */
-+
-+static void cmh_sm3_free_reqctx(struct cmh_sm3_reqctx *rctx)
-+{
-+       rctx->has_checkpoint = 0;
-+}
-+
-+/* VCQ Packing + Submit */
-+
-+/* ahash Operations */
-+
-+static int cmh_sm3_init(struct ahash_request *req)
-+{
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+
-+       memset(rctx, 0, sizeof(*rctx));
-+       return 0;
++       if (self->fd >= 0)
++               close(self->fd);
 +}
 +
 +/*
-+ * Update completion -- takes ownership of save_buf as new checkpoint.
++ * Test 1: open and close succeed.
++ * If we get here, FIXTURE_SETUP already validated the open.
 + */
-+static void cmh_sm3_update_complete(void *data, int error)
++TEST_F(cmh_mgmt, open_close)
 +{
-+       struct ahash_request *req = data;
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+
-+       if (error == -EINPROGRESS) {
-+               cmh_complete(&req->base, error);
-+               return;
-+       }
-+
-+       if (rctx->has_checkpoint)
-+               cmh_dma_unmap_single(rctx->ckpt_dma, SM3_CONTEXT_SIZE,
-+                                    DMA_TO_DEVICE);
-+       cmh_dma_unmap_single(rctx->save_dma, SM3_CONTEXT_SIZE,
-+                            DMA_FROM_DEVICE);
-+       cmh_dma_unmap_single(rctx->data_dma, rctx->data_len,
-+                            DMA_TO_DEVICE);
-+
-+       if (!error) {
-+               memcpy(rctx->checkpoint, rctx->save_buf, SM3_CONTEXT_SIZE);
-+               rctx->has_checkpoint = 1;
-+               kfree(rctx->save_buf);
-+               rctx->save_buf = NULL;
-+               rctx->hw_started = 1;
-+       } else {
-+               kfree(rctx->save_buf);
-+               rctx->save_buf = NULL;
-+               rctx->error = error;
-+       }
-+
-+       kfree(rctx->data_buf);
-+       rctx->data_buf = NULL;
-+       rctx->data_len = 0;
-+
-+       cmh_complete(&req->base, error);
++       ASSERT_GE(self->fd, 0);
 +}
-+
-+static int cmh_sm3_update(struct ahash_request *req)
-+{
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+       struct vcq_cmd cmds[CMH_SM3_MAX_PAYLOAD];
-+       struct core_dispatch d;
-+       u32 total_avail, full_len, tail_len, from_src;
-+       u32 idx;
-+       int ret;
-+       gfp_t gfp;
-+
-+       if (rctx->error)
-+               return rctx->error;
-+
-+       if (!req->nbytes)
-+               return 0;
-+
-+       gfp = req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
-+             GFP_KERNEL : GFP_ATOMIC;
-+
-+       total_avail = rctx->buf_len + req->nbytes;
-+
-+       if (total_avail < CMH_SM3_BLOCK_SIZE) {
-+               if (req->base.flags & CRYPTO_AHASH_REQ_VIRT)
-+                       memcpy(rctx->buf + rctx->buf_len,
-+                              req->svirt, req->nbytes);
-+               else
-+                       scatterwalk_map_and_copy(rctx->buf + rctx->buf_len,
-+                                                req->src, 0,
-+                                                req->nbytes, 0);
-+               rctx->buf_len = total_avail;
-+               return 0;
-+       }
-+
-+       full_len = total_avail - total_avail % CMH_SM3_BLOCK_SIZE;
-+       tail_len = total_avail - full_len;
-+       from_src = full_len - rctx->buf_len;
-+
-+       rctx->data_buf = kmalloc(full_len, gfp);
-+       if (!rctx->data_buf)
-+               return -ENOMEM;
-+
-+       if (rctx->buf_len > 0)
-+               memcpy(rctx->data_buf, rctx->buf, rctx->buf_len);
-+
-+       if (from_src > 0) {
-+               if (req->base.flags & CRYPTO_AHASH_REQ_VIRT)
-+                       memcpy(rctx->data_buf + rctx->buf_len,
-+                              req->svirt, from_src);
-+               else
-+                       scatterwalk_map_and_copy(rctx->data_buf + rctx->buf_len,
-+                                                req->src, 0,
-+                                                from_src, 0);
-+       }
-+
-+       if (tail_len > 0) {
-+               if (req->base.flags & CRYPTO_AHASH_REQ_VIRT)
-+                       memcpy(rctx->buf, req->svirt + from_src,
-+                              tail_len);
-+               else
-+                       scatterwalk_map_and_copy(rctx->buf, req->src,
-+                                                from_src, tail_len,
-+                                                0);
-+       }
-+       rctx->buf_len = tail_len;
-+       rctx->data_len = full_len;
-+
-+       rctx->save_buf = kzalloc(SM3_CONTEXT_SIZE, gfp);
-+       if (!rctx->save_buf) {
-+               ret = -ENOMEM;
-+               goto err_free;
-+       }
-+
-+       rctx->data_dma = cmh_dma_map_single(rctx->data_buf, full_len,
-+                                           DMA_TO_DEVICE);
-+       if (cmh_dma_map_error(rctx->data_dma)) {
-+               ret = -ENOMEM;
-+               goto err_free;
-+       }
-+
-+       rctx->save_dma = cmh_dma_map_single(rctx->save_buf, SM3_CONTEXT_SIZE,
-+                                           DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(rctx->save_dma)) {
-+               ret = -ENOMEM;
-+               goto err_unmap_data;
-+       }
-+
-+       rctx->ckpt_dma = DMA_MAPPING_ERROR;
-+       if (rctx->has_checkpoint) {
-+               rctx->ckpt_dma = cmh_dma_map_single(rctx->checkpoint,
-+                                                   SM3_CONTEXT_SIZE,
-+                                                    DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(rctx->ckpt_dma)) {
-+                       ret = -ENOMEM;
-+                       goto err_unmap_save;
-+               }
-+       }
-+
-+       d = cmh_core_select_instance(CMH_CORE_SM3);
-+       idx = 0;
-+
-+       vcq_add_sm3_init(&cmds[idx++], d.core_id);
-+
-+       if (rctx->has_checkpoint)
-+               vcq_add_sm3_restore(&cmds[idx++], d.core_id,
-+                                   (u64)rctx->ckpt_dma, SM3_CONTEXT_SIZE);
-+
-+       vcq_add_sm3_update(&cmds[idx++], d.core_id,
-+                          (u64)rctx->data_dma, full_len);
-+
-+       vcq_add_sm3_save(&cmds[idx++], d.core_id,
-+                        (u64)rctx->save_dma, SM3_CONTEXT_SIZE);
-+
-+       vcq_add_flush(&cmds[idx++], d.core_id);
-+
-+       ret = cmh_vcq_pack_and_submit_async(cmds, idx, rctx->packed,
-+                                           CMH_SM3_MAX_PACKED,
-+                                           d.mbx_idx,
-+                                           cmh_sm3_update_complete, req,
-+                                           !!(req->base.flags &
-+                                              CRYPTO_TFM_REQ_MAY_BACKLOG),
-+                                           cmh_tm_async_timeout_jiffies());
-+       if (ret == -EBUSY)
-+               return -EBUSY;
-+       if (ret)
-+               goto err_unmap_ckpt;
-+
-+       return -EINPROGRESS;
-+
-+err_unmap_ckpt:
-+       if (rctx->has_checkpoint)
-+               cmh_dma_unmap_single(rctx->ckpt_dma, SM3_CONTEXT_SIZE,
-+                                    DMA_TO_DEVICE);
-+err_unmap_save:
-+       cmh_dma_unmap_single(rctx->save_dma, SM3_CONTEXT_SIZE,
-+                            DMA_FROM_DEVICE);
-+err_unmap_data:
-+       cmh_dma_unmap_single(rctx->data_dma, full_len, DMA_TO_DEVICE);
-+err_free:
-+       kfree(rctx->save_buf);
-+       rctx->save_buf = NULL;
-+       kfree(rctx->data_buf);
-+       rctx->data_buf = NULL;
-+       rctx->data_len = 0;
-+       return ret;
-+}
-+
-+static void cmh_sm3_final_complete(void *data, int error)
-+{
-+       struct ahash_request *req = data;
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+
-+       if (error == -EINPROGRESS) {
-+               cmh_complete(&req->base, error);
-+               return;
-+       }
-+
-+       if (rctx->has_checkpoint)
-+               cmh_dma_unmap_single(rctx->ckpt_dma, SM3_CONTEXT_SIZE,
-+                                    DMA_TO_DEVICE);
-+       if (rctx->data_buf)
-+               cmh_dma_unmap_single(rctx->data_dma, rctx->data_len,
-+                                    DMA_TO_DEVICE);
-+       cmh_dma_unmap_single(rctx->digest_dma, CMH_SM3_DIGEST_SIZE,
-+                            DMA_FROM_DEVICE);
-+
-+       if (!error)
-+               memcpy(req->result, rctx->digest_buf, CMH_SM3_DIGEST_SIZE);
-+
-+       kfree(rctx->digest_buf);
-+       rctx->digest_buf = NULL;
-+       kfree(rctx->data_buf);
-+       rctx->data_buf = NULL;
-+       cmh_sm3_free_reqctx(rctx);
-+       cmh_complete(&req->base, error);
-+}
-+
-+static int cmh_sm3_submit_final(struct ahash_request *req,
-+                               u8 *data_buf, u32 data_len)
-+{
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+       struct vcq_cmd cmds[CMH_SM3_MAX_PAYLOAD];
-+       struct core_dispatch d;
-+       u32 idx;
-+       int ret;
-+       gfp_t gfp = req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
-+                  GFP_KERNEL : GFP_ATOMIC;
-+
-+       rctx->data_buf = data_buf;
-+       rctx->data_len = data_len;
-+
-+       rctx->digest_buf = kzalloc(CMH_SM3_DIGEST_SIZE, gfp);
-+       if (!rctx->digest_buf) {
-+               ret = -ENOMEM;
-+               goto err_free_data;
-+       }
-+
-+       rctx->digest_dma = cmh_dma_map_single(rctx->digest_buf,
-+                                             CMH_SM3_DIGEST_SIZE,
-+                                              DMA_FROM_DEVICE);
-+       if (cmh_dma_map_error(rctx->digest_dma)) {
-+               ret = -ENOMEM;
-+               goto err_free_digest;
-+       }
-+
-+       rctx->data_dma = DMA_MAPPING_ERROR;
-+       if (data_buf && data_len > 0) {
-+               rctx->data_dma = cmh_dma_map_single(data_buf, data_len,
-+                                                   DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(rctx->data_dma)) {
-+                       ret = -ENOMEM;
-+                       goto err_unmap_digest;
-+               }
-+       }
-+
-+       rctx->ckpt_dma = DMA_MAPPING_ERROR;
-+       if (rctx->has_checkpoint) {
-+               rctx->ckpt_dma = cmh_dma_map_single(rctx->checkpoint,
-+                                                   SM3_CONTEXT_SIZE,
-+                                                    DMA_TO_DEVICE);
-+               if (cmh_dma_map_error(rctx->ckpt_dma)) {
-+                       ret = -ENOMEM;
-+                       goto err_unmap_data;
-+               }
-+       }
-+
-+       d = cmh_core_select_instance(CMH_CORE_SM3);
-+       idx = 0;
-+
-+       vcq_add_sm3_init(&cmds[idx++], d.core_id);
-+
-+       if (rctx->has_checkpoint)
-+               vcq_add_sm3_restore(&cmds[idx++], d.core_id,
-+                                   (u64)rctx->ckpt_dma, SM3_CONTEXT_SIZE);
-+
-+       if (data_buf && data_len > 0)
-+               vcq_add_sm3_update(&cmds[idx++], d.core_id,
-+                                  (u64)rctx->data_dma, data_len);
-+
-+       vcq_add_sm3_final(&cmds[idx++], d.core_id,
-+                         (u64)rctx->digest_dma, CMH_SM3_DIGEST_SIZE);
-+
-+       vcq_add_flush(&cmds[idx++], d.core_id);
-+
-+       ret = cmh_vcq_pack_and_submit_async(cmds, idx, rctx->packed,
-+                                           CMH_SM3_MAX_PACKED,
-+                                           d.mbx_idx,
-+                                           cmh_sm3_final_complete, req,
-+                                           !!(req->base.flags &
-+                                              CRYPTO_TFM_REQ_MAY_BACKLOG),
-+                                           cmh_tm_async_timeout_jiffies());
-+       if (ret == -EBUSY)
-+               return -EBUSY;
-+       if (ret)
-+               goto err_unmap_ckpt;
-+
-+       return -EINPROGRESS;
-+
-+err_unmap_ckpt:
-+       if (rctx->has_checkpoint)
-+               cmh_dma_unmap_single(rctx->ckpt_dma, SM3_CONTEXT_SIZE,
-+                                    DMA_TO_DEVICE);
-+err_unmap_data:
-+       if (data_buf && data_len > 0)
-+               cmh_dma_unmap_single(rctx->data_dma, data_len,
-+                                    DMA_TO_DEVICE);
-+err_unmap_digest:
-+       cmh_dma_unmap_single(rctx->digest_dma, CMH_SM3_DIGEST_SIZE,
-+                            DMA_FROM_DEVICE);
-+err_free_digest:
-+       kfree(rctx->digest_buf);
-+       rctx->digest_buf = NULL;
-+err_free_data:
-+       kfree(data_buf);
-+       rctx->data_buf = NULL;
-+       cmh_sm3_free_reqctx(rctx);
-+       return ret;
-+}
-+
-+static int cmh_sm3_final(struct ahash_request *req)
-+{
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+       u8 *data_buf = NULL;
-+       u32 data_len = 0;
-+       gfp_t gfp;
-+
-+       if (rctx->error)
-+               return rctx->error;
-+
-+       if (rctx->buf_len > 0) {
-+               gfp = req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
-+                     GFP_KERNEL : GFP_ATOMIC;
-+               data_buf = kmalloc(rctx->buf_len, gfp);
-+               if (!data_buf)
-+                       return -ENOMEM;
-+               memcpy(data_buf, rctx->buf, rctx->buf_len);
-+               data_len = rctx->buf_len;
-+               rctx->buf_len = 0;
-+       }
-+
-+       return cmh_sm3_submit_final(req, data_buf, data_len);
-+}
-+
-+static int cmh_sm3_finup(struct ahash_request *req);
 +
 +/*
-+ * One-shot digest -- delegates to init + finup so that all data is
-+ * linearised and mapped through cmh_dma_map_single(), which is the
-+ * only DMA mapping path aware of all supported DMA backends.
++ * Test 2: invalid ioctl number returns -ENOTTY.
 + */
-+static int cmh_sm3_digest(struct ahash_request *req)
++TEST_F(cmh_mgmt, invalid_ioctl)
 +{
 +       int ret;
++       unsigned long bogus_cmd = _IOC(_IOC_READ, 'J', 0xFF, 4);
 +
-+       ret = cmh_sm3_init(req);
-+       if (ret)
-+               return ret;
-+       return cmh_sm3_finup(req);
++       ret = ioctl(self->fd, bogus_cmd, NULL);
++       ASSERT_EQ(ret, -1);
++       ASSERT_EQ(errno, ENOTTY);
 +}
 +
-+static int cmh_sm3_finup(struct ahash_request *req)
-+{
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+       u32 data_len;
-+       u8 *data_buf;
-+       gfp_t gfp;
-+
-+       if (rctx->error)
-+               return rctx->error;
-+
-+       data_len = rctx->buf_len + req->nbytes;
-+
-+       if (data_len == 0)
-+               return cmh_sm3_submit_final(req, NULL, 0);
-+
-+       gfp = req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
-+             GFP_KERNEL : GFP_ATOMIC;
-+
-+       data_buf = kmalloc(data_len, gfp);
-+       if (!data_buf)
-+               return -ENOMEM;
-+
-+       if (rctx->buf_len > 0)
-+               memcpy(data_buf, rctx->buf, rctx->buf_len);
-+
-+       if (req->nbytes > 0) {
-+               if (req->base.flags & CRYPTO_AHASH_REQ_VIRT)
-+                       memcpy(data_buf + rctx->buf_len,
-+                              req->svirt, req->nbytes);
-+               else
-+                       scatterwalk_map_and_copy(data_buf + rctx->buf_len,
-+                                                req->src, 0,
-+                                                req->nbytes, 0);
-+       }
-+
-+       rctx->buf_len = 0;
-+       return cmh_sm3_submit_final(req, data_buf, data_len);
-+}
-+
-+static int cmh_sm3_export(struct ahash_request *req, void *out)
-+{
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+       struct cmh_sm3_export_state *state = out;
-+
-+       if (rctx->hw_started && rctx->has_checkpoint)
-+               memcpy(state->checkpoint, rctx->checkpoint, SM3_CONTEXT_SIZE);
-+       else
-+               memset(state->checkpoint, 0, SM3_CONTEXT_SIZE);
-+
-+       if (rctx->buf_len > 0)
-+               memcpy(state->buf, rctx->buf, rctx->buf_len);
-+
-+       state->buf_len = rctx->buf_len;
-+       state->hw_started = rctx->hw_started;
-+
-+       return 0;
-+}
-+
-+static int cmh_sm3_import(struct ahash_request *req, const void *in)
-+{
-+       struct cmh_sm3_reqctx *rctx = ahash_request_ctx(req);
-+       const struct cmh_sm3_export_state *state = in;
-+
-+       memset(rctx, 0, sizeof(*rctx));
-+
-+       if (state->buf_len > CMH_SM3_BLOCK_SIZE)
-+               return -EINVAL;
-+
-+       rctx->hw_started = state->hw_started;
-+       rctx->buf_len = state->buf_len;
-+       memcpy(rctx->buf, state->buf, state->buf_len);
-+
-+       if (state->hw_started) {
-+               memcpy(rctx->checkpoint, state->checkpoint, SM3_CONTEXT_SIZE);
-+               rctx->has_checkpoint = 1;
-+       }
-+
-+       return 0;
-+}
-+
-+/* Transform init (cra_init) */
-+
-+static int cmh_sm3_cra_init(struct crypto_tfm *tfm)
-+{
-+       crypto_ahash_set_reqsize(__crypto_ahash_cast(tfm),
-+                                sizeof(struct cmh_sm3_reqctx));
-+       return 0;
-+}
-+
-+/* Registration */
-+
-+static struct ahash_alg cmh_sm3_ahash_alg = {
-+       .init    = cmh_sm3_init,
-+       .update  = cmh_sm3_update,
-+       .final   = cmh_sm3_final,
-+       .finup   = cmh_sm3_finup,
-+       .digest  = cmh_sm3_digest,
-+       .export  = cmh_sm3_export,
-+       .import  = cmh_sm3_import,
-+
-+       .halg = {
-+               .digestsize = CMH_SM3_DIGEST_SIZE,
-+               .statesize  = sizeof(struct cmh_sm3_export_state),
-+               .base = {
-+                       .cra_name        = "sm3",
-+                       .cra_driver_name = "cri-cmh-sm3",
-+                       .cra_priority    = 300,
-+                       .cra_flags       = CRYPTO_ALG_KERN_DRIVER_ONLY |
-+                                          CRYPTO_ALG_NO_FALLBACK |
-+                                          CRYPTO_ALG_ASYNC |
-+                                          CRYPTO_ALG_REQ_VIRT,
-+                       .cra_blocksize   = CMH_SM3_BLOCK_SIZE,
-+                       .cra_ctxsize     = 0,
-+                       .cra_init        = cmh_sm3_cra_init,
-+                       .cra_module      = THIS_MODULE,
-+               },
-+       },
-+};
-+
-+/**
-+ * cmh_sm3_register() - Register SM3 hash algorithm with the crypto framework
-+ *
-+ * Return: 0 on success, negative errno on failure.
++/*
++ * Test 3: KEY_NEW with bad version field returns -EINVAL.
 + */
-+int cmh_sm3_register(void)
++TEST_F(cmh_mgmt, bad_version)
 +{
++       struct cmh_ioctl_key_new req;
 +       int ret;
 +
-+       ret = crypto_register_ahash(&cmh_sm3_ahash_alg);
-+       if (ret) {
-+               dev_err(cmh_dev(), "sm3: failed to register cmh-sm3 (rc=%d)\n",
-+                       ret);
-+               return ret;
-+       }
++       memset(&req, 0, sizeof(req));
++       req.version = 0; /* invalid */
++       req.ds_type = CMH_DS_AES_KEY;
++       req.len = 32;
++       req.flags = CMH_FLAG_PT;
++       req.cid = 0xDEAD;
 +
-+       dev_info(cmh_dev(), "sm3: registered cri-cmh-sm3 (priority 300)\n");
-+       dev_info(cmh_dev(), "sm3: 1 algorithm(s) registered\n");
-+       return 0;
++       ret = ioctl(self->fd, CMH_IOCTL_KEY_NEW, &req);
++       ASSERT_EQ(ret, -1);
++       ASSERT_EQ(errno, EINVAL);
 +}
 +
-+/**
-+ * cmh_sm3_unregister() - Unregister SM3 hash algorithm from the crypto framework
++/*
++ * Test 4: KEY_NEW creates a key, KEY_DELETE destroys it.
 + */
-+void cmh_sm3_unregister(void)
++TEST_F(cmh_mgmt, key_new_delete)
 +{
-+       crypto_unregister_ahash(&cmh_sm3_ahash_alg);
-+       dev_info(cmh_dev(), "sm3: unregistered cri-cmh-sm3\n");
-+       dev_info(cmh_dev(), "sm3: cleaned up\n");
++       struct cmh_ioctl_key_new new_req;
++       struct cmh_ioctl_key_grant del_req;
++       int ret;
++
++       memset(&new_req, 0, sizeof(new_req));
++       new_req.version = CMH_MGMT_V1;
++       new_req.ds_type = CMH_DS_AES_KEY;
++       new_req.len = 32;
++       new_req.flags = CMH_FLAG_PT;
++       new_req.cid = 0x5E1F7E57ULL; /* "SELFTEST" */
++
++       ret = ioctl(self->fd, CMH_IOCTL_KEY_NEW, &new_req);
++       ASSERT_EQ(ret, 0);
++       ASSERT_NE(new_req.ref, (uint64_t)0);
++
++       /* Delete the key */
++       memset(&del_req, 0, sizeof(del_req));
++       del_req.version = CMH_MGMT_V1;
++       del_req.ref = new_req.ref;
++
++       ret = ioctl(self->fd, CMH_IOCTL_KEY_DELETE, &del_req);
++       ASSERT_EQ(ret, 0);
 +}
-diff --git a/drivers/crypto/cmh/include/cmh_sm3.h b/drivers/crypto/cmh/include/cmh_sm3.h
++
++/*
++ * Test 5: KIC HKDF1 key derivation from hardware base key.
++ * Requires at least one KIC base key provisioned (KIC_KEY1).
++ */
++TEST_F(cmh_mgmt, kic_hkdf1)
++{
++       struct cmh_ioctl_kic_hkdf1 req;
++       static const char label[] = "kselftest-label";
++       int ret;
++
++       memset(&req, 0, sizeof(req));
++       req.version = CMH_MGMT_V1;
++       req.key_len = 32;
++       req.base_key = CMH_KIC_KEY1;
++       req.cid = 0x4B534C46ULL; /* "KSLF" */
++       req.label = (uint64_t)(uintptr_t)label;
++       req.label_len = sizeof(label) - 1;
++       req.flags = CMH_KIC_FLAG_TEMP;
++
++       ret = ioctl(self->fd, CMH_IOCTL_KIC_HKDF1, &req);
++       if (ret < 0 && errno == EIO)
++               SKIP(return, "KIC base key 1 not provisioned on this device");
++       ASSERT_EQ(ret, 0);
++       ASSERT_NE(req.ref, (uint64_t)0);
++}
++
++/*
++ * Test 6: ML-KEM-768 keygen using hardware RNG.
++ * Verifies the PQC keygen path end-to-end.
++ */
++TEST_F(cmh_mgmt, ml_kem_keygen)
++{
++       struct cmh_ioctl_ml_kem_keygen req;
++       /* ML-KEM-768: ek = 384*3+32 = 1184, dk = 768*3+96 = 2400 */
++       uint8_t ek[1184];
++       uint8_t dk[2400];
++       int ret;
++
++       memset(&req, 0, sizeof(req));
++       req.version = CMH_MGMT_V1;
++       req.k = 3; /* ML-KEM-768 */
++       req.flags = CMH_QSE_FLAG_HW_RNG;
++       req.seed = 0; /* HW RNG */
++       req.z = 0;    /* HW RNG */
++       req.ek = (uint64_t)(uintptr_t)ek;
++       req.dk = (uint64_t)(uintptr_t)dk;
++       req.dk_cid = 0;
++       req.dk_ref = 0;
++
++       memset(ek, 0, sizeof(ek));
++       memset(dk, 0, sizeof(dk));
++
++       ret = ioctl(self->fd, CMH_IOCTL_ML_KEM_KEYGEN, &req);
++       if (ret < 0 && errno == ENODEV)
++               SKIP(return, "QSE core not available on this hardware");
++       ASSERT_EQ(ret, 0);
++
++       /* Verify output is non-zero (extremely unlikely for random keys) */
++       {
++               int i, nonzero = 0;
++
++               for (i = 0; i < 64; i++)
++                       nonzero += (ek[i] != 0);
++               ASSERT_GT(nonzero, 0);
++       }
++}
++
++TEST_HARNESS_MAIN
+diff --git a/tools/testing/selftests/drivers/crypto/cmh/config b/tools/testing/selftests/drivers/crypto/cmh/config
 new file mode 100644
-index 000000000000..2f73537f9c87
+index 000000000000..063c1dd0e23b
 --- /dev/null
-+++ b/drivers/crypto/cmh/include/cmh_sm3.h
-@@ -0,0 +1,27 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- SM3 Hash Driver
-+ *
-+ * Registers an ahash algorithm for SM3 (GB/T 32905-2016) with the
-+ * Linux crypto subsystem using the CMH SM3 core (CORE_ID_SM3).
-+ * Uses the same incremental HW update model as cmh_hash.c:
-+ *
-+ *   .init()   -> software-only: zero per-request context
-+ *   .update() -> holdback partial blocks; submit full blocks via
-+ *                SM3_CMD_INIT [+ RESTORE] + UPDATE + SAVE + FLUSH
-+ *   .final()  -> SM3_CMD_INIT [+ RESTORE] [+ UPDATE] + FINAL + FLUSH
-+ *   .digest() -> INIT + UPDATE + FINAL + FLUSH (single-shot)
-+ *   .export() -> software-only: copy checkpoint + holdback
-+ *   .import() -> software-only: restore checkpoint + holdback
-+ */
-+
-+#ifndef CMH_SM3_H
-+#define CMH_SM3_H
-+
-+#include "cmh_config.h"
-+
-+int  cmh_sm3_register(void);
-+void cmh_sm3_unregister(void);
-+
-+#endif /* CMH_SM3_H */
++++ b/tools/testing/selftests/drivers/crypto/cmh/config
+@@ -0,0 +1 @@
++CONFIG_CRYPTO_DEV_CMH=m
 --
 2.43.7
 
