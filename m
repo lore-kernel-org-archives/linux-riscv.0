@@ -4,94 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78062CDE000
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 20:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22ED6CDE009
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jun 2026 20:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ukNF5Ramr4qT+F5ADcD9bXd5cLtRXnjYrrLn7Rbmzmg=; b=kpnCj3qFy7YZ3W
-	QWTJsSAKwN7SXvN4OnfruIVbOAWHhRokXud+gRdkgAXh0+xQAd75I9O8Kc/OfmgFsShY/yvgPrPNc
-	W/hSbwJ4c71pgI1E/zZgHpbRha1PaMWH01B5DbiR239LIP1iP93utC8CKm86bu+A5/x9KDakYbgpj
-	zDJSm5H3vnQ7y+ckmenS0l0UoazRrLt0+YjVglFJs456hEYt0ty1n6g10IzFNmxtXE2Luin+rSa1m
-	xvf0CK8ua/0HhWCC+GfhXWDOaOIETk99Gg85qVjnYPYMlSKS35RIN3HAvRJhicG5s/ItNVhaaSS5t
-	X3HY2j149z3c+CETFEPg==;
+	List-Owner; bh=GF92D5qEz+DkHabU0ZFEPK0sEAJcgZe1Oer6H3lEqZE=; b=aOlqdrh0BWeX5v
+	2S6DD1oyYP/nWav6zWoz6As+ROPetZhmeQ52by9MYKrmBMSRlBLdSWD53cMUKk7jN5xuyRq/AC+nW
+	oDMeEHQUnbVdQG3us2h0/FzmUZOouK1DXnf6/clYBVf6/kEsETbOw6bsmfLDLtRVLEP/L7VKDhuSo
+	gNh6BcUVv/itNp7dSSpnWB3kNm8GCcBjoyRg+0PAl/sba7c/TVjdigRmXWcP47O59UZ/E4neC9ntm
+	e+OMTGAj0GZek6sOv+A6gWTUG1GtUeAoB171dgyq5rjweRSQXhHq/aAg0nyalsimRFe+G/xe4g/Fs
+	9mdf2WBa4LFs7P+/knfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcqGQ-00000009m3F-3KC0;
-	Thu, 25 Jun 2026 20:01:30 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1wcqTS-00000009mgs-3rT5;
+	Thu, 25 Jun 2026 20:14:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcqGN-00000009m2M-2JyC
+	id 1wcqTQ-00000009mgg-3kbY
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jun 2026 20:01:29 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5aea1f4dc7fso155588e87.0
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Jun 2026 13:01:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782417685; x=1783022485; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Oc0QJv7T+PDjjn884M5deHXdXQm6jHjFwABbEHE38VA=;
-        b=UwAw+87UpT1lgrAWFZAwhV1lOKJlQTQlwO0dFjsMB0E67OVjVk66ZQyx7ZX99k8+28
-         dVW4fgLmH8kuC4wNEfXlfiJvq+HFg/h6L+CNUS6lzzoNmv4Elj9E5coSrunbVM7GbLKt
-         ooyjTvQlcQccGpbUBX5/2rs2aMpmQh5hIKs6mGJiBcINxxWYHXw4B4J7WsDQylpZgHIX
-         rFcTglNkZ8SKg+sYqVB58X4BwlsJZH9U0h9CKv/fDSNt8vkczjsrKpKB98pWG/iXx/1g
-         jsFnu6ahIRLrJOx7afy5aI/uLaXp1PRlMAi50Nbieba3P2lnF3ryqSPXVvaWV/rpLiRg
-         EKwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782417685; x=1783022485;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Oc0QJv7T+PDjjn884M5deHXdXQm6jHjFwABbEHE38VA=;
-        b=SqmcTjRSMewDdMKYmJqxnTIH7v7MwPN9SowU2qCuD8OFL737rlj3qQ12phVnzYEUZv
-         puoJaofC6BW5UKVe9t5JhRNQxcad7gan25Cmeq1OyHlHS0sEpVvqsRMCX+EuLBWRprIv
-         aaszgtB8zHmQWbn2H/jl/saTe0S4xzQc53Nl6aWZcdR5k8XkNKj2Xo7LvNStQ1eUdXJW
-         z6Nt11EyBVKvCGetsYppMARwDmVLMt6h7gaI4x8PLHKchVs8u3zRx1j201TVUecwsZ81
-         oG8obNRGaCPjJ6iyBNVzynNS5+0OheWH0l0zKxXnPTpeo2lO5Wldh4LvUJKGopcsSRLd
-         xb2Q==
-X-Forwarded-Encrypted: i=1; AHgh+RooyscI0QJfcb9fjI9KBD3sQjolBwSMXx5VuP0Cc3Ob+ifkQouBi82SthEEygrGeYk4bZs8JpGpyhbhiQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZGCVf9ZLVuSIahwo4CGwxs+upm6pHGr1vLOBo2LMCGCRrBJ3h
-	znRAKey5rqiFRRmhP6UlgyU+R/XSxWvNcDB7SEH5f8XJUebeO2C3cMis
-X-Gm-Gg: AfdE7cmtK3bqO3nj/QcXZTZ9nax4lHFPT0IHbMy4j5UW7ALP+7bj9RiqdmxSQQxMP5u
-	mRVmsiWvUwc7Uk1AUs5gwg4SFJxm1tnRCPBT3zfmDz3Kg8V7P7mptMRlFvLAHMB6LhE9Hd3nNFh
-	mNnSauV8vf6afT2o9vN7zJkhDRUesRZqO8AlhJ9Iz3C6/rjt3nvG8W5KbRpc36Y4j78NX+gJXXl
-	HHwvAK/ta0qpW+lImkEzc1kDZeN8TC6E8tn8KI5pmJNbSzDlDU03LkJgWRdDgiOgJ5aau1CsPme
-	frRUhHjj9rWDHj+KXm4TqOtL33EU9NYGLwGgOlJmyoSxboy8kjnwyQRqao1mSjlZUrKaUYaz5iB
-	0KujJufyN+KBYa0GGUE+x+l82l+dGwEZF0IhmHj3ivX7lrGVt3iur4s7x6XIgkY+nLnW5tRI0S8
-	ID76ryMBNh+84HaItCdkDqjp6cZhNfXDIfwr9y5qv4Dza8Fzjdiw==
-X-Received: by 2002:a05:6512:2251:b0:5aa:65a3:468c with SMTP id 2adb3069b0e04-5aea1e246f6mr1149630e87.7.1782417684632;
-        Thu, 25 Jun 2026 13:01:24 -0700 (PDT)
-Received: from ik5070.localdomain (85-253-35-150.ip.elisa.ee. [85.253.35.150])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-5ae9d8fb537sm1793554e87.21.2026.06.25.13.01.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jun 2026 13:01:22 -0700 (PDT)
-From: Indrek Kruusa <indrek.kruusa@gmail.com>
-To: felixonmars@archlinux.org
-Cc: daniel.lezcano@kernel.org,
-	tglx@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	stable@vger.kernel.org,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Indrek Kruusa <indrek.kruusa@gmail.com>
-Subject: Re: [PATCH] clocksource/drivers/timer-sun4i: Advertise a real minimum delta
-Date: Thu, 25 Jun 2026 22:58:37 +0300
-Message-ID: <20260625195837.882048-1-indrek.kruusa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260624220434.4183732-1-felixonmars@archlinux.org>
-References: 
+	Thu, 25 Jun 2026 20:14:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 44DE2416FE;
+	Thu, 25 Jun 2026 20:14:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72E841F000E9;
+	Thu, 25 Jun 2026 20:14:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782418496;
+	bh=cPmr9mqHehuH/8SL5EU6QQ+XWWK8jrMA1RsYVuKM7PE=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=fzLhRwL9+cBtKC2y8H6yxrFXyLco1lzXeMjs1ociwQZqMhP/fHHVGqzbmkvmHGM/j
+	 8RaL3mJjYI5AWnTuB7x1GNwPjRK6wH1/pVVxAMvlMT9+g8Ikj2qLqYq5t7eYcKdn3w
+	 B2PikCanp9CecXtcTQBQ7JhKojFMnbPOU1ATYYcxkGMBO+ghOsWpn3hdGfkivQfqu2
+	 E459XqU/tzStlO2WbRYAzF+KpeCV/4FszJXHKgZoHbaRjPTfpTbthezxW6xc07k2AZ
+	 HKku2LuVXyux7iGCpEqIKUqeVnNVFbvbCCoOBYMjzR8iUtAZ9o1A1O/MBrFtGM3JRg
+	 9kkjLZx5DGlkQ==
+Date: Thu, 25 Jun 2026 14:14:54 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Atish Patra <atish.patra@linux.dev>
+cc: Ard Biesheuvel <ardb@kernel.org>, 
+    Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
+    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, Atish Patra <atishp@meta.com>
+Subject: Re: [PATCH 0/2] riscv: Use EFI runtime services for poweroff and
+ restart
+In-Reply-To: <20260615-efi_reset_shutdown-v1-0-9414edcbbab0@meta.com>
+Message-ID: <0167594c-0c54-cbb0-a981-26df2a5bfb3c@kernel.org>
+References: <20260615-efi_reset_shutdown-v1-0-9414edcbbab0@meta.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_130127_605704_16B73F2B 
-X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,58 +73,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Felix,
+On Mon, 15 Jun 2026, Atish Patra wrote:
 
-On Thu, 25 Jun 2026 06:04:34 +0800, Felix Yan wrote:
-> sun4i_clkevt_next_event() compensates for the timer stop/start
-> synchronization delay by programming evt - TIMER_SYNC_TICKS into the
-> hardware interval register. The clockevent device currently advertises
-> TIMER_SYNC_TICKS as min_delta_ticks, so the clockevents core is allowed
-> to call set_next_event() with evt == TIMER_SYNC_TICKS.
->
-> That programs a zero-tick interval. With oneshot/highres/nohz timer
-> operation this can leave the next event stuck, which was observed as a
-> boot hang on Allwinner D1 after the clockevents core started reusing
-> forced minimum-delta events.
->
-> Advertise one extra tick instead, so the smallest event accepted by the
-> core still programs at least one hardware tick after the synchronization
-> compensation.
->
-> Fixes: 12e1480bcb49 ("clocksource: sun4i: Report the minimum tick that we can program")
-> Cc: stable@vger.kernel.org
-> Reported-by: Indrek Kruusa <indrek.kruusa@gmail.com>
-> Closes: https://lore.kernel.org/linux-riscv/CA+fTLhgLmTY+exGujKf8OYYQvcEW5X5NJ_5sLq2AYL6zER2c0A@mail.gmail.com/
-> Assisted-by: Codex:gpt-5.5
-> Signed-off-by: Felix Yan <felixonmars@archlinux.org>
-> ---
->  drivers/clocksource/timer-sun4i.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/clocksource/timer-sun4i.c b/drivers/clocksource/timer-sun4i.c
-> index 7bdcc60ad43c..c2d04ab7cf2d 100644
-> --- a/drivers/clocksource/timer-sun4i.c
-> +++ b/drivers/clocksource/timer-sun4i.c
-> @@ -208,7 +208,7 @@ static int __init sun4i_timer_init(struct device_node *node)
->  	sun4i_timer_clear_interrupt(timer_of_base(&to));
->  
->  	clockevents_config_and_register(&to.clkevt, timer_of_rate(&to),
-> -					TIMER_SYNC_TICKS, 0xffffffff);
-> +					TIMER_SYNC_TICKS + 1, 0xffffffff);
->  
->  	/* Enable timer0 interrupt */
->  	val = readl(timer_of_base(&to) + TIMER_IRQ_EN_REG);
-> -- 
-> 2.54.0
+> Today RISC-V always uses the SBI SRST extension for both poweroff and restart,
+> even when UEFI runtime services are available. This series makes RISC-V prefer
+> EFI runtime services for both paths when available. The reset via EFI is
+> required for EFI capsule updates and also documented as a preferred method
+> in BRS 1.0 spec (e.g. URT_030)[1] 
+> 
+> Behavior on SBI-only (non-EFI) systems is unchanged.
+> 
+> Tested under QEMU 'virt' with EDK2/UEFI firmware exposing runtime
+> ResetSystem().
+> 
+> [1] https://docs.riscv.org/reference/brs/uefi.html#uefi
+> 
+> Signed-off-by: Atish Patra <atishp@meta.com>
 
-I can confirm that this patch makes my Allwinner D1 board boot
-again with v7.1-rc1 and newer kernels.
+Thanks, queued for v7.3.
 
-Tested-by: Indrek Kruusa <indrek.kruusa@gmail.com>
-Closes also: https://lore.kernel.org/regressions/20260531165138.2696250-1-indrek.kruusa@gmail.com/
 
-Thank you,
-Indrek
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
