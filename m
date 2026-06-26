@@ -4,100 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D8ECDE012
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 09:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8400ACD4F26
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 10:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G1fGqpRdnZktuDY8ps9HJVz2p1OdsW3UKja4YWEXphU=; b=pDmHGxQi+wvoTX
-	XK4ov5VIoCKhIsVKT5Jm3AwqdsQ8pt5nZY4K/GitdKHG8cHKczItEceSgn/42tJq1/FXcMgAscFFs
-	ndjtAMSpQDMTMtlAJJhpWkWwYKSxe0eM7cCL9kd7KKxH0w0HR+pMBKAHUGy1S2W59IA3dRjm88i+D
-	KYpBJyGlwHouWBWGXjjsKyAwHQN1l21eHUUjecBKVBQCgv+/PqpR3qJ8OGO7sFrvWYfEESAjgyL0g
-	hEcrM4XSWYGyBrp7UB1HTuxfPEfj4xCnHGmdN505WT0BD/TUikSTILjpp3/HNaPJsSjMIHwbwHm4y
-	tSGlM3DwQJ3961xeBdLg==;
+	List-Owner; bh=NBcpSXvZCSRLLMbQMMVZ3mr53On3ZYqvhDEInFJyxf4=; b=Us1GNBtQaET3EX
+	t5bnDlVXUkjrD6g22Xy9I/NXCpMa0QiNr4gHqWQUN81zY+97LfDQPuwZZ5uQS7f8S9IYmgJki9m2y
+	0YlQ4UsGsPag5OltQB5uM8lj6tB9T5sLkpaUqiVJHFaV3Sy6QIW0zRgWW9ymcRQDmINAxRTMPDIUB
+	yzfPbAiKuzBNdn6XEDHJIVHElZ/92Nrv2K4fGjit2H98mfcF//lZrds+7ukyZuBukOt6z+bcHpGum
+	m3ic/x1kiHiWzuDywz+Lt7MJcz8ObXKnFYu+WDxk6lAGoVjui/36cygdHZCMXLxgeIJ0TUmGiYSO9
+	G4kv1SkHXbgIVsyeb2ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd31D-0000000B02M-3Lep;
-	Fri, 26 Jun 2026 09:38:39 +0000
-Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
+	id 1wd3vg-0000000B73O-2tFy;
+	Fri, 26 Jun 2026 10:37:00 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd319-0000000Azyv-2qBI
+	id 1wd3va-0000000B724-1FCv
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 09:38:36 +0000
-Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-13809223fd4so933300c88.1
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 02:38:35 -0700 (PDT)
+	Fri, 26 Jun 2026 10:36:58 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-46caaa805b2so483265f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 03:36:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1782466715; x=1783071515; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fshVEaQ2nyl2CteXizFTf+Nc0Rand+Vv4w+Q7LKKbT4=;
-        b=lqZ7DNuH9MuUfs+ge6iKgz6evyk6jyFEDXGEBYxWXzPB6Mf/UI6NbmJyDNErEp53hx
-         BVlA81YkrF+diChAJ4dUaWWtmNvDULOW7mn6kn56jdSGscn/crW8z2+I1pNPV+XDVSM7
-         M5oicp8pT0n2ooNvqTfdSPg4gNqF8gyDlGcQ20RLxC3Ki8FppRwAZT8gKD6jdGn9ZFUS
-         Ftf1MJkC7TNTQKydIgbYsvwDbKdfQyS2U3bPAUKjcZjPdmQOlylRYvGFUfCi5L7uPsGn
-         PPQtj32zowWX/OupScxKTr7rvRgMjvGyORqxX7UzvLiA33rTacqcKIpU2U4M2G6mdXRn
-         cF7A==
+        d=gmail.com; s=20251104; t=1782470212; x=1783075012; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=D+LOxUqboNwspW3Z1iwsJeIpREU5uApJLby1JgVSadY=;
+        b=nt3RUiFrCP35IZomRO0J6/1WfPzwkG4ksH/wl5r7ev7LVtyPiGjZG5kPvN6ovOlxdG
+         f5AjI6HgaAk2A6mJ3Y+b/zf2u0G1MLY8qVVIagx5Q2HuBbOMJzfOvtMePLjSBCrSjMun
+         06Uc0Uq1rbSZUxjlwKX8riaUzl23DQz7mQIRt2592ayBdzWUln2a+Z4QiNGa5Xyc4adU
+         kqtu9Ls/gma9pnm298tv7R5pRRPSIjpMq3ip8NQWoef9TGnbfaiDM9Px2x0+GpmcPtTc
+         d/invfQhHsgDLI+0l6pUwe/vMeoT2TiVyWAguUEJt5d8f4UUGC0MeAGjWZ8eOykoEF5h
+         jY6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782466715; x=1783071515;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=fshVEaQ2nyl2CteXizFTf+Nc0Rand+Vv4w+Q7LKKbT4=;
-        b=YAKDoUqy5gBlzDwPI+B/+vFEgWkq5qAluIg5UlZAP8Uvv+qMtchec88B0HEEtkMBxh
-         eWcP95hZb3tvgQizG5Y0rKxYcx9R/h+W6z5DDBFDvZLeaBurxnPahUi/OcrKJRGc2xqY
-         jVfovmHFJ68afixGQi/DYPKJVVvjCUzp3HwA8Pwhbp/gER/DEIuOAk1iCQNj024wIZFN
-         oxSoT0fIZX6pQKbX36NodiizkTHTefgOm+x1EbturIZOLi6CreWv3kdN2OvWWiVmXwP9
-         bI8vV5ByrLLcTaqnl8XozoXlkmDXhOqSP8q+3Xc81oRYyseawyJ969kM7dEWJXw3W6K2
-         xFJw==
-X-Forwarded-Encrypted: i=1; AFNElJ+o0MSZfcAetjcDGhLIWe6u6TP/x+1yTTYQ+w51peege4BdDO25Fb44qH1QSgEC288KlYT4RsAbXE8AAw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdjKd4sK4GwRRUwia7aN7x0QNxgl9QqWMhXvvPsIzR3Gvjxi8A
-	aWELCuja5JTO5Kd4zW3qy0Pb0TyZ1Fz9ue+Vc8haTqzbP9uGczBWTsjFrv7BV2neMyY=
-X-Gm-Gg: AfdE7cnllSxKzjMcl4iCyduZUBYOpqV0yDVkS5wWpOryxZiLUk4thwqhP2CTnB0aEcY
-	5z5lqPdrUAeo/Ig+yLT3miFi21sp8nwHMs0Q4yrVNOnN1Ol+3YmeyiaRK4gsyll8NYGeeGcZLGt
-	2om76LFHuYlh7AASPQssEGaugpYmCOCmqPZh+VrMcK1N8b+ZenItVYPsJURfeOaFtwpu6IkbGOa
-	nm9BS3QSNmy5prIAMmwJdS1XG/mJg0Q30ryHH0dJy8LWHJOhkFJ7WUJm+ek7NYbEplukC5UMZiY
-	8U6C59mSA4B9kwhv3oWUYcx/9SWZ76rKueWHg0tEf+xGaV5fFQ0kZpqLg3sUxn11Ci9Jmsa3kX7
-	EqTD6gpk8Pfi6yTk+XoyFkBibbhMMbv7NZ+pHeRQWO6MqiVULs5/7raq+E7Iba3EFogjBbPDvKN
-	OFEicA6AgPiDysCrLgTNg2D0fIVY3mHMiA
-X-Received: by 2002:a05:7022:f694:b0:138:637:6227 with SMTP id a92af1059eb24-139dba0a865mr6468974c88.11.1782466714819;
-        Fri, 26 Jun 2026 02:38:34 -0700 (PDT)
-Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139d90e95c6sm24350302c88.11.2026.06.26.02.38.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 02:38:33 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Date: Fri, 26 Jun 2026 02:38:30 -0700
-Subject: [PATCH v3 2/2] KVM: RISC-V: Add CPU PM notifier for non-retention
- idle states
+        d=1e100.net; s=20251104; t=1782470212; x=1783075012;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=D+LOxUqboNwspW3Z1iwsJeIpREU5uApJLby1JgVSadY=;
+        b=ncz8VbQDYA51e6bCUw1f4fXxhMg/npSuC7tjBkI8D1W0ycKY26+BFn7bFZiDfUVfXR
+         lHerRfx0ixVYBCkOlbb2p2uE4gkuy2hQ408i3WELj80P69y/GjoZ2hX7wSkwbEQNF+nB
+         Ij00kmnIFH+3A1n62vMy6qhR8cFboTzNVWg7KMk2pieV/9PNayU7k859lgQVrIMCMlk+
+         J6gEgUIdcgugrvmH18zIsx1pxMcqy7DTglaaVvIwoSbb5E9aNiQVgHIJwNqZWjLcCKM2
+         cL8el2fxaRXUGQXFUdwq5UUWmSYEUE8vtD8QazF05HkXMfTGjKNEs2nCsiicuLPa2ARF
+         qOYg==
+X-Forwarded-Encrypted: i=1; AHgh+RphjwygxOkUlDSa4xTa4kMSETbfJqY+HqaPoXeDSz1jGVCjcqFHOPYjJgs+L9A/Jxu2lUXs1YgFskPFVQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjAOsffp1oU0vIhjQWyIC0d9Jrn7h4/bhAq3l+VPFhZSxhpFpS
+	YrbaEZ27Dy/e6jR90/wHqZGCZ1Y0sjsT1lcTzTYafF05WC2EvgBKrD81
+X-Gm-Gg: AfdE7cn9mhpUt6M1PqCqCb7eWDoKmElHX4nxiWuB07Ev5hoWrydA7hE94EAEj5CW6hO
+	9rxAxFHMRXStD7L46WG14X7tfWDo5pbFSoOi9b6n1rPDvAuW+Z9sr47FxH3uZDXX3nnJw5UKP8Y
+	2lu/3z7HgZ7W+PzTv+F6/25gqAKGfcZDppPXeS+VG8DA4NcV/+RMrB412B9lMvhMa2xc/fvRkqk
+	05q+29DbfLkgAR5DVhsKnbkHv/FZEIhq8MTEp5fveYo7De74FQaBRvp9Weh8n9/6pfXo5s+FTyS
+	OGgaaTh1sfSoZH3gh1WTFn8LrLvm0w+WT1dIGnkYtyKztLupptQQaNzngFmq0BZeMrZmFeXLXCK
+	t+oXm4LhE8e8XApn2PWIFSuH20mb12tE//qzvdaGELq7HXf69XXpxQ9ZhpUAUnTOJ69H/Dmrk3P
+	0WYANYJTE78Eykooe1Ve6mDg0b/aKmD5NnWfVs/8g+KiB8+TQjg2iuouU=
+X-Received: by 2002:a5d:6f11:0:b0:46e:341b:45dd with SMTP id ffacd0b85a97d-46e341b47c7mr8297132f8f.26.1782470211515;
+        Fri, 26 Jun 2026 03:36:51 -0700 (PDT)
+Received: from [192.168.0.40] (a89-182-137-217.net-htp.de. [89.182.137.217])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46dd5f9da4fsm15043736f8f.23.2026.06.26.03.36.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Jun 2026 03:36:50 -0700 (PDT)
+Message-ID: <2a69d701-741b-4d65-bdbe-226610bf53b5@gmail.com>
+Date: Fri, 26 Jun 2026 12:36:48 +0200
 MIME-Version: 1.0
-Message-Id: <20260626-kvm-cpu-pm-v3-2-be051aafe9ba@sifive.com>
-References: <20260626-kvm-cpu-pm-v3-0-be051aafe9ba@sifive.com>
-In-Reply-To: <20260626-kvm-cpu-pm-v3-0-be051aafe9ba@sifive.com>
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <radim.krcmar@oss.qualcomm.com>, 
- Andrew Jones <andrew.jones@oss.qualcomm.com>, 
- Nutty Liu <nutty.liu@hotmail.com>, Jinyu Tang <tjytimi@163.com>
-Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Yong-Xuan Wang <yongxuan.wang@sifive.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782466711; l=12392;
- i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
- bh=BLgUEpHXGLwmIONgrNupeegConEOBan8frJba7EsnZc=;
- b=mB/RmXuabRJQQj0jnjI6wTAriolPBzdCCBLYDjk4dQF5xoHs7cMuXYpz+lF2a21M5c6BovS3o
- Dvi9YvnS1lZBc8kLTBWoP1d3rwvYV4Z8sEVblFFG6u/0nnEiGTJV1le
-X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
- pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
+To: Shuwei Wu <shuwei.wu@mailbox.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ devicetree@vger.kernel.org
+References: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
+ <20260626-shadow-deps-v4-2-bba9831f2f1d@mailbox.org>
+From: Andre Heider <a.heider@gmail.com>
+Content-Language: de-DE
+In-Reply-To: <20260626-shadow-deps-v4-2-bba9831f2f1d@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_023835_736414_846CA207 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20260626_033654_402822_9177E2A3 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,421 +103,346 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Register a CPU_PM notifier to restore hypervisor CSR content during CPU
-non-retention idle states. When a CPU enters a deep idle state that
-powers off the CPU domain, hypervisor CSRs and VS CSRs lose their state
-and must be saved before entry and restored after exit.
+On 26.06.26 10:10 AM, Shuwei Wu wrote:
+> Add CPU clock properties and OPP tables for the two CPU clusters in the
+> SpacemiT K1 SoC. The OPP entries use voltage ranges because the CPU
+> supply is shared by both clusters.
+> 
+> Enable CPU DVFS on Banana Pi BPI-F3 by including the OPP tables and
+> wiring the CPU nodes to the CPU regulator supply.
+> 
+> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
 
-To avoid conflicts with KVM's existing syscore suspend/resume handlers,
-the notifier checks system_state and skips processing during system-wide
-suspend/resume operations, where the syscore mechanism in
-virt/kvm/kvm_main.c already handles the state transitions.
+With the musepi-pro dts enablement patch [0] on top, this is
+Tested-by: Andre Heider <a.heider@gmail.com> # k1-musepi-pro
 
-This completes KVM's power management coverage for RISC-V:
-- CPU hotplug: handled by kvm_online_cpu/kvm_offline_cpu (cpuhp callbacks)
-- System suspend: handled by kvm_suspend/kvm_resume (syscore ops)
-- CPU idle (retention): no action needed, CSRs are retained
-- CPU idle (non-retention): handled by this CPU_PM notifier
+Works as advertised, I get two policies, matching the clusters:
+$ cat /sys/devices/system/cpu/cpufreq/policy0/related_cpus
+0 1 2 3
+$ cat /sys/devices/system/cpu/cpufreq/policy4/related_cpus
+4 5 6 7
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
----
- arch/riscv/include/asm/kvm_aia.h |  15 +++-
- arch/riscv/kvm/aia.c             | 144 ++++++++++++++++++++++-----------------
- arch/riscv/kvm/main.c            |  96 +++++++++++++++++++++-----
- 3 files changed, 172 insertions(+), 83 deletions(-)
+Some time after boot:
+$ cat /sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state
+614400 31124
+819000 185
+1000000 158
+1228800 341
+1600000 1148
+$ cat /sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state
+614400 29232
+819000 198
+1000000 212
+1228800 443
+1600000 3428
 
-diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-index c67ec5ac0a14..7c1c3250598f 100644
---- a/arch/riscv/include/asm/kvm_aia.h
-+++ b/arch/riscv/include/asm/kvm_aia.h
-@@ -165,8 +165,19 @@ int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
- 			     void __iomem **hgei_va, phys_addr_t *hgei_pa);
- void kvm_riscv_aia_free_hgei(int cpu, int hgei);
- 
--void kvm_riscv_aia_enable(void);
--void kvm_riscv_aia_disable(void);
-+/**
-+ * kvm_riscv_aia_enable() - Enable AIA support on current CPU
-+ * @full_cleanup: true = full hardware init (CPU hotplug/module load),
-+ *                false = lightweight CSR restore (CPU non-retention idle resume)
-+ */
-+void kvm_riscv_aia_enable(bool full_cleanup);
-+
-+/**
-+ * kvm_riscv_aia_disable() - Disable AIA support on current CPU
-+ * @full_cleanup: true = full hardware cleanup (CPU hotplug/module exit),
-+ *                false = lightweight CSR save (CPU non-retention idle entry)
-+ */
-+void kvm_riscv_aia_disable(bool full_cleanup);
- int kvm_riscv_aia_init(void);
- void kvm_riscv_aia_exit(void);
- 
-diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
-index bafb009c5ce5..4cf351f91c64 100644
---- a/arch/riscv/kvm/aia.c
-+++ b/arch/riscv/kvm/aia.c
-@@ -25,6 +25,7 @@ struct aia_hgei_control {
- 	unsigned long free_bitmap;
- 	struct kvm_vcpu *owners[BITS_PER_LONG];
- 	unsigned int nr_hgei;
-+	unsigned long saved_value;
- };
- static DEFINE_PER_CPU(struct aia_hgei_control, aia_hgei);
- static int hgei_parent_irq;
-@@ -532,50 +533,59 @@ static void aia_hgei_exit(void)
- 	free_percpu_irq(hgei_parent_irq, &aia_hgei);
- }
- 
--void kvm_riscv_aia_enable(void)
-+void kvm_riscv_aia_enable(bool full_cleanup)
- {
--	const struct imsic_global_config *gc;
--	const struct imsic_local_config *lc;
- 	struct aia_hgei_control *hgctrl;
- 	unsigned long flags;
--	int aia_nr_hgei;
- 
- 	if (!kvm_riscv_aia_available())
- 		return;
- 
--	gc = imsic_get_global_config();
--	lc = (gc) ? this_cpu_ptr(gc->local) : NULL;
- 	hgctrl = this_cpu_ptr(&aia_hgei);
- 
--	/* Figure-out number of bits in HGEIE */
--	csr_write(CSR_HGEIE, -1UL);
--	hgctrl->nr_hgei = fls_long(csr_read(CSR_HGEIE));
--	csr_write(CSR_HGEIE, 0);
--	if (hgctrl->nr_hgei)
--		hgctrl->nr_hgei--;
-+	if (full_cleanup) {
-+		const struct imsic_global_config *gc;
-+		const struct imsic_local_config *lc;
-+		int aia_nr_hgei;
- 
--	/*
--	 * Number of usable per-HART HGEI lines should be minimum of
--	 * per-HART IMSIC guest files and number of bits in HGEIE.
--	 */
--	if (lc)
--		hgctrl->nr_hgei = min((ulong)hgctrl->nr_hgei, lc->nr_guest_files);
--	else
--		hgctrl->nr_hgei = 0;
-+		gc = imsic_get_global_config();
-+		lc = (gc) ? this_cpu_ptr(gc->local) : NULL;
- 
--	/* Update the number of IMSIC guest files across all HARTs */
--	aia_nr_hgei = atomic_read(&kvm_riscv_aia_nr_hgei);
--	do {
--		if (aia_nr_hgei <= hgctrl->nr_hgei)
--			break;
--	} while (!atomic_try_cmpxchg(&kvm_riscv_aia_nr_hgei, &aia_nr_hgei, hgctrl->nr_hgei));
-+		/* Figure-out number of bits in HGEIE */
-+		csr_write(CSR_HGEIE, -1UL);
-+		hgctrl->nr_hgei = fls_long(csr_read(CSR_HGEIE));
-+		csr_write(CSR_HGEIE, 0);
-+		if (hgctrl->nr_hgei)
-+			hgctrl->nr_hgei--;
- 
--	raw_spin_lock_irqsave(&hgctrl->lock, flags);
--	if (!hgctrl->free_bitmap_initialized) {
--		hgctrl->free_bitmap = (hgctrl->nr_hgei) ? GENMASK_ULL(hgctrl->nr_hgei, 1) : 0;
--		hgctrl->free_bitmap_initialized = true;
-+		/*
-+		 * Number of usable per-HART HGEI lines should be minimum of
-+		 * per-HART IMSIC guest files and number of bits in HGEIE.
-+		 */
-+		if (lc)
-+			hgctrl->nr_hgei = min((ulong)hgctrl->nr_hgei, lc->nr_guest_files);
-+		else
-+			hgctrl->nr_hgei = 0;
-+
-+		/* Update the number of IMSIC guest files across all HARTs */
-+		aia_nr_hgei = atomic_read(&kvm_riscv_aia_nr_hgei);
-+		do {
-+			if (aia_nr_hgei <= hgctrl->nr_hgei)
-+				break;
-+		} while (!atomic_try_cmpxchg(&kvm_riscv_aia_nr_hgei, &aia_nr_hgei,
-+					     hgctrl->nr_hgei));
-+
-+		raw_spin_lock_irqsave(&hgctrl->lock, flags);
-+		if (!hgctrl->free_bitmap_initialized) {
-+			hgctrl->free_bitmap = (hgctrl->nr_hgei) ?
-+					      GENMASK_ULL(hgctrl->nr_hgei, 1) :
-+					      0;
-+			hgctrl->free_bitmap_initialized = true;
-+		}
-+		raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
-+	} else {
-+		csr_write(CSR_HGEIE, hgctrl->saved_value);
- 	}
--	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
- 
- 	csr_write(CSR_HVICTL, aia_hvictl_value(false));
- 	csr_write(CSR_HVIPRIO1, 0x0);
-@@ -587,16 +597,17 @@ void kvm_riscv_aia_enable(void)
- 	csr_write(CSR_HVIPRIO2H, 0x0);
- #endif
- 
--	/* Enable per-CPU SGEI interrupt */
--	enable_percpu_irq(hgei_parent_irq,
--			  irq_get_trigger_type(hgei_parent_irq));
-+	if (full_cleanup)
-+		enable_percpu_irq(hgei_parent_irq,
-+				  irq_get_trigger_type(hgei_parent_irq));
- 	csr_set(CSR_HIE, BIT(IRQ_S_GEXT));
-+
- 	/* Enable IRQ filtering for overflow interrupt only if sscofpmf is present */
- 	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_SSCOFPMF))
- 		csr_set(CSR_HVIEN, BIT(IRQ_PMU_OVF));
- }
- 
--void kvm_riscv_aia_disable(void)
-+void kvm_riscv_aia_disable(bool full_cleanup)
- {
- 	int i;
- 	unsigned long flags;
-@@ -609,42 +620,49 @@ void kvm_riscv_aia_disable(void)
- 
- 	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_SSCOFPMF))
- 		csr_clear(CSR_HVIEN, BIT(IRQ_PMU_OVF));
--	/* Disable per-CPU SGEI interrupt */
--	csr_clear(CSR_HIE, BIT(IRQ_S_GEXT));
--	disable_percpu_irq(hgei_parent_irq);
- 
--	csr_write(CSR_HVICTL, aia_hvictl_value(false));
--
--	raw_spin_lock_irqsave(&hgctrl->lock, flags);
--
--	for (i = 0; i <= hgctrl->nr_hgei; i++) {
--		vcpu = hgctrl->owners[i];
--		if (!vcpu)
--			continue;
-+	if (full_cleanup) {
-+		/* Disable per-CPU SGEI interrupt */
-+		csr_clear(CSR_HIE, BIT(IRQ_S_GEXT));
-+		disable_percpu_irq(hgei_parent_irq);
-+	}
- 
--		/*
--		 * We release hgctrl->lock before notifying IMSIC
--		 * so that we don't have lock ordering issues.
--		 */
--		raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
-+	csr_write(CSR_HVICTL, aia_hvictl_value(false));
- 
--		/* Notify IMSIC */
--		kvm_riscv_vcpu_aia_imsic_release(vcpu);
-+	if (full_cleanup) {
-+		raw_spin_lock_irqsave(&hgctrl->lock, flags);
- 
--		/*
--		 * Wakeup VCPU if it was blocked so that it can
--		 * run on other HARTs
--		 */
--		if (csr_read(CSR_HGEIE) & BIT(i)) {
--			csr_clear(CSR_HGEIE, BIT(i));
--			kvm_vcpu_kick(vcpu);
-+		for (i = 0; i <= hgctrl->nr_hgei; i++) {
-+			vcpu = hgctrl->owners[i];
-+			if (!vcpu)
-+				continue;
-+
-+			/*
-+			 * We release hgctrl->lock before notifying IMSIC
-+			 * so that we don't have lock ordering issues.
-+			 */
-+			raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
-+
-+			/* Notify IMSIC */
-+			kvm_riscv_vcpu_aia_imsic_release(vcpu);
-+
-+			/*
-+			 * Wakeup VCPU if it was blocked so that it can
-+			 * run on other HARTs
-+			 */
-+			if (csr_read(CSR_HGEIE) & BIT(i)) {
-+				csr_clear(CSR_HGEIE, BIT(i));
-+				kvm_vcpu_kick(vcpu);
-+			}
-+
-+			raw_spin_lock_irqsave(&hgctrl->lock, flags);
- 		}
- 
--		raw_spin_lock_irqsave(&hgctrl->lock, flags);
-+		raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
-+	} else {
-+		hgctrl->saved_value = csr_read(CSR_HGEIE);
- 	}
- 
--	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
--
- 	put_cpu_ptr(&aia_hgei);
- }
- 
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index 350e4f097d6e..b8461f1a569f 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -10,6 +10,7 @@
- #include <linux/err.h>
- #include <linux/module.h>
- #include <linux/kvm_host.h>
-+#include <linux/cpu_pm.h>
- #include <asm/cpufeature.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nacl.h>
-@@ -33,14 +34,9 @@ long kvm_arch_dev_ioctl(struct file *filp,
- 	return -EINVAL;
- }
- 
--int kvm_arch_enable_virtualization_cpu(void)
-+/* Initialize hypervisor CSRs - called during CPU online and non-retention idle resume */
-+static void kvm_riscv_csr_enable(void)
- {
--	int rc;
--
--	rc = kvm_riscv_nacl_enable();
--	if (rc)
--		return rc;
--
- 	csr_write(CSR_HEDELEG, 0);
- 	csr_write(CSR_HIDELEG, 0);
- 
-@@ -48,16 +44,11 @@ int kvm_arch_enable_virtualization_cpu(void)
- 	csr_write(CSR_HCOUNTEREN, 0x02);
- 
- 	csr_write(CSR_HVIP, 0);
--
--	kvm_riscv_aia_enable();
--
--	return 0;
- }
- 
--void kvm_arch_disable_virtualization_cpu(void)
-+/* Clear hypervisor CSRs - called during CPU offline and non-retention idle entry */
-+static void kvm_riscv_csr_disable(void)
- {
--	kvm_riscv_aia_disable();
--
- 	/*
- 	 * After clearing the hideleg CSR, the host kernel will receive
- 	 * spurious interrupts if hvip CSR has pending interrupts and the
-@@ -70,10 +61,61 @@ void kvm_arch_disable_virtualization_cpu(void)
- 	csr_write(CSR_HIDELEG, 0);
- 
- 	kvm_riscv_clear_former_vcpu();
-+}
-+
-+int kvm_arch_enable_virtualization_cpu(void)
-+{
-+	int rc;
-+
-+	rc = kvm_riscv_nacl_enable();
-+	if (rc)
-+		return rc;
-+
-+	kvm_riscv_csr_enable();
-+	kvm_riscv_aia_enable(true);
-+
-+	return 0;
-+}
- 
-+void kvm_arch_disable_virtualization_cpu(void)
-+{
-+	kvm_riscv_aia_disable(true);
-+	kvm_riscv_csr_disable();
- 	kvm_riscv_nacl_disable();
- }
- 
-+static int kvm_riscv_cpu_pm_notifier(struct notifier_block *self, unsigned long cmd, void *v)
-+{
-+	/*
-+	 * To avoid redundant disable/enable operations (since KVM's
-+	 * syscore ops will handle the state during system suspend),
-+	 * ignore CPU_PM events when a system suspend/resume is in
-+	 * progress.
-+	 */
-+	if (system_state == SYSTEM_SUSPEND)
-+		return NOTIFY_DONE;
-+
-+	switch (cmd) {
-+	case CPU_PM_EXIT:
-+	case CPU_PM_ENTER_FAILED:
-+		kvm_riscv_csr_enable();
-+		kvm_riscv_aia_enable(false);
-+		return NOTIFY_OK;
-+	case CPU_PM_ENTER:
-+		kvm_riscv_aia_disable(false);
-+		kvm_riscv_csr_disable();
-+		return NOTIFY_OK;
-+	default:
-+		break;
-+	}
-+
-+	return NOTIFY_DONE;
-+}
-+
-+static struct notifier_block kvm_riscv_cpu_pm_nb = {
-+	.notifier_call = kvm_riscv_cpu_pm_notifier,
-+};
-+
- static void kvm_riscv_teardown(void)
- {
- 	kvm_riscv_aia_exit();
-@@ -174,22 +216,40 @@ static int __init riscv_kvm_init(void)
- 
- 	kvm_register_perf_callbacks();
- 
--	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
--	if (rc) {
--		kvm_riscv_teardown();
--		return rc;
-+	/* Register CPU PM notifier for CPU idle non-retention states */
-+	if (IS_ENABLED(CONFIG_CPU_PM)) {
-+		rc = cpu_pm_register_notifier(&kvm_riscv_cpu_pm_nb);
-+		if (rc) {
-+			kvm_err("Failed to register CPU PM notifier: %d\n", rc);
-+			goto err_teardown;
-+		}
- 	}
- 
-+	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
-+	if (rc)
-+		goto err_unregister_cpu_pm;
-+
- 	if (kvm_riscv_aia_available())
- 		kvm_info("AIA available with %d guest external interrupts\n",
- 			 atomic_read(&kvm_riscv_aia_nr_hgei));
- 
- 	return 0;
-+
-+err_unregister_cpu_pm:
-+	if (IS_ENABLED(CONFIG_CPU_PM))
-+		cpu_pm_unregister_notifier(&kvm_riscv_cpu_pm_nb);
-+err_teardown:
-+	kvm_riscv_teardown();
-+	return rc;
- }
- module_init(riscv_kvm_init);
- 
- static void __exit riscv_kvm_exit(void)
- {
-+	/* Unregister CPU PM notifier */
-+	if (IS_ENABLED(CONFIG_CPU_PM))
-+		cpu_pm_unregister_notifier(&kvm_riscv_cpu_pm_nb);
-+
- 	kvm_exit();
- 
- 	kvm_riscv_teardown();
+Creating one single-threaded load increases max freq time_in_state in one policy (4 here):
+$ yes > /dev/null &
+(...after some time)
+$ cat /sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state
+614400 45244
+819000 187
+1000000 169
+1228800 345
+1600000 1148
+$ cat /sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state
+614400 38794
+819000 201
+1000000 226
+1228800 450
+1600000 7580
 
--- 
-2.43.7
+Creating load for all 8 cores in both:
+$ yes > /dev/null &
+$ yes > /dev/null &
+$ yes > /dev/null &
+$ yes > /dev/null &
+$ yes > /dev/null &
+$ yes > /dev/null &
+$ yes > /dev/null &
+$ yes > /dev/null &
+
+$ cat /sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state
+614400 51371
+819000 190
+1000000 171
+1228800 352
+1600000 4391
+$ cat /sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state
+614400 44121
+819000 203
+1000000 244
+1228800 452
+1600000 11812
+
+Thanks!
+Andre
+
+[0] https://lore.kernel.org/all/20260614122812.2287506-1-a.heider@gmail.com/
+
+> ---
+> Changes in v4:
+> - Use separate OPP tables for the two CPU clock clusters
+> - Use voltage ranges for the shared CPU supply
+> 
+> Changes in v3:
+> - Use one shared CPU OPP table for all CPUs
+> 
+> Changes in v2:
+> - Add k1-opp.dtsi with OPP tables for both CPU clusters
+> - Assign CPU supplies and include OPP table for Banana Pi BPI-F3
+> ---
+> ---
+>   arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  35 +++++++-
+>   arch/riscv/boot/dts/spacemit/k1-opp.dtsi        | 105 ++++++++++++++++++++++++
+>   arch/riscv/boot/dts/spacemit/k1.dtsi            |   8 ++
+>   3 files changed, 147 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> index 444c3b1e6f44..487179f7b9b9 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> @@ -4,6 +4,7 @@
+>    */
+>   
+>   #include "k1.dtsi"
+> +#include "k1-opp.dtsi"
+>   #include "k1-pinctrl.dtsi"
+>   
+>   / {
+> @@ -86,6 +87,38 @@ &combo_phy {
+>   	status = "okay";
+>   };
+>   
+> +&cpu_0 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+> +&cpu_1 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+> +&cpu_2 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+> +&cpu_3 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+> +&cpu_4 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+> +&cpu_5 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+> +&cpu_6 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+> +&cpu_7 {
+> +	cpu-supply = <&buck1_0v9>;
+> +};
+> +
+>   &emmc {
+>   	bus-width = <8>;
+>   	mmc-hs400-1_8v;
+> @@ -201,7 +234,7 @@ pmic@41 {
+>   		dldoin2-supply = <&buck5>;
+>   
+>   		regulators {
+> -			buck1 {
+> +			buck1_0v9: buck1 {
+>   				regulator-min-microvolt = <500000>;
+>   				regulator-max-microvolt = <3450000>;
+>   				regulator-ramp-delay = <5000>;
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-opp.dtsi b/arch/riscv/boot/dts/spacemit/k1-opp.dtsi
+> new file mode 100644
+> index 000000000000..4cebfcd87485
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/spacemit/k1-opp.dtsi
+> @@ -0,0 +1,105 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +
+> +/ {
+> +	cluster0_opp_table: opp-table-cluster0 {
+> +		compatible = "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-614400000 {
+> +			opp-hz = /bits/ 64 <614400000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-819000000 {
+> +			opp-hz = /bits/ 64 <819000000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-1000000000 {
+> +			opp-hz = /bits/ 64 <1000000000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-1228800000 {
+> +			opp-hz = /bits/ 64 <1228800000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-1600000000 {
+> +			opp-hz = /bits/ 64 <1600000000>;
+> +			opp-microvolt = <1050000 1050000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +	};
+> +
+> +	cluster1_opp_table: opp-table-cluster1 {
+> +		compatible = "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-614400000 {
+> +			opp-hz = /bits/ 64 <614400000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-819000000 {
+> +			opp-hz = /bits/ 64 <819000000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-1000000000 {
+> +			opp-hz = /bits/ 64 <1000000000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-1228800000 {
+> +			opp-hz = /bits/ 64 <1228800000>;
+> +			opp-microvolt = <950000 950000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +
+> +		opp-1600000000 {
+> +			opp-hz = /bits/ 64 <1600000000>;
+> +			opp-microvolt = <1050000 1050000 1050000>;
+> +			clock-latency-ns = <200000>;
+> +		};
+> +	};
+> +};
+> +
+> +&cpu_0 {
+> +	operating-points-v2 = <&cluster0_opp_table>;
+> +};
+> +
+> +&cpu_1 {
+> +	operating-points-v2 = <&cluster0_opp_table>;
+> +};
+> +
+> +&cpu_2 {
+> +	operating-points-v2 = <&cluster0_opp_table>;
+> +};
+> +
+> +&cpu_3 {
+> +	operating-points-v2 = <&cluster0_opp_table>;
+> +};
+> +
+> +&cpu_4 {
+> +	operating-points-v2 = <&cluster1_opp_table>;
+> +};
+> +
+> +&cpu_5 {
+> +	operating-points-v2 = <&cluster1_opp_table>;
+> +};
+> +
+> +&cpu_6 {
+> +	operating-points-v2 = <&cluster1_opp_table>;
+> +};
+> +
+> +&cpu_7 {
+> +	operating-points-v2 = <&cluster1_opp_table>;
+> +};
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index 529ec68e9c23..bdd109b81730 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> @@ -54,6 +54,7 @@ cpu_0: cpu@0 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <0>;
+> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> @@ -84,6 +85,7 @@ cpu_1: cpu@1 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <1>;
+> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> @@ -114,6 +116,7 @@ cpu_2: cpu@2 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <2>;
+> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> @@ -144,6 +147,7 @@ cpu_3: cpu@3 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <3>;
+> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> @@ -174,6 +178,7 @@ cpu_4: cpu@4 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <4>;
+> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> @@ -204,6 +209,7 @@ cpu_5: cpu@5 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <5>;
+> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> @@ -234,6 +240,7 @@ cpu_6: cpu@6 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <6>;
+> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> @@ -264,6 +271,7 @@ cpu_7: cpu@7 {
+>   			compatible = "spacemit,x60", "riscv";
+>   			device_type = "cpu";
+>   			reg = <7>;
+> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>   			riscv,isa-base = "rv64i";
+>   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+> 
 
 
 _______________________________________________
