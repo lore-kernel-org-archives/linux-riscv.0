@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B974FCDE00E
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FB8CDE00E
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dB1w9JwJNVxNIV9je3lTI/fbco926Qpvuy56WV21jC0=; b=GwrIpZJ2FCVGZJ
-	WEEVnFWOUDdU7pHkoXG9FyOh2zOlv9DhDe3V6SD4HVOtbxUvTesouFAlsP8Psjsn8i3ldQvn10ZLa
-	aKt/5fBj3cCqKhVwfS2oliUj8kvY7m14BY0kCATI46VgO/1jzau0sK9AnVSIM+b3SuahibqCYPF9D
-	3mFmNZ6crBlEdPZZ8TvPQIsqMu8iYJD5VNEd5zkZEuvKNadhtGBr0iuB49R61O5tTSM3gVTD2Xkyf
-	X+vFsvJDzTwVO8Iei+qU511I7G4ZwnWyU22KI+EsAFVSZA2zKhC5M9v+FWUGGEV35GtQ771wJyNVO
-	ajzd60oZ9Yu9TsFtDKMw==;
+	List-Owner; bh=0ukhcjdAwg7/pD09CZOGUqrTu8Ia8IDrRs0SbhLoFLU=; b=1IZsJZrbGPYNKl
+	9YguPjqMiixZ7CL5J1dF/Rox/RUwkQUplkJcORvyNljSkA6RV1U2AbvezUPm3x+dAKkne/WcEszJG
+	/sbtjx4l1A+KAJA/ACpyA4bUfnI/Y+k6vV6TVtPuHu6Ly2B2TJUa19+1f/DJZyjgCMk26w0xBMuzE
+	t7vn+vg7ZDvQ13qCiD3TS4Wm3HShJ8zixTFWgCMC8VMzc2dSozsJGFs2tsoASkON9HOSN1pkeVkQH
+	l+J1kpbnMWuol111kLtWW1dTjFy8izFWtspB9VSGBjPUwxQ/pDDQGO+xzm6CGB15jnKOqSKj/VKol
+	+JTRvw4yYYBIVlgevVag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1or-0000000Ao7s-1RGi;
-	Fri, 26 Jun 2026 08:21:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wd1ov-0000000AoJn-2Key;
+	Fri, 26 Jun 2026 08:21:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oZ-0000000Anbi-14Rl;
-	Fri, 26 Jun 2026 08:21:31 +0000
+	id 1wd1od-0000000Andh-1aMe;
+	Fri, 26 Jun 2026 08:21:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F35DA417EA;
-	Fri, 26 Jun 2026 08:21:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D21131F000E9;
-	Fri, 26 Jun 2026 08:21:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EE11E442D8;
+	Fri, 26 Jun 2026 08:21:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D090C1F000E9;
+	Fri, 26 Jun 2026 08:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462090;
-	bh=amHqBGTdQawFVm0LwCwHTx4WOCHiePZ3qut6Gw9czoY=;
+	s=k20260515; t=1782462093;
+	bh=p5+rIqdVv344EQDk5zZnFOdYzj2jMyT9lQ7p6WTw/Os=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=d5Lo7MDsnDBM/WZunCT8elchDCzS+3C2c2lbeT2RSyY4SfuiwU/JuHgJcOlOwtDQj
-	 xTs8KeqZ97q11hRxTGc6nX5sC8HyMT5fZT+4qSj8SryW2td/wtO9smFCvfjcxc87Ru
-	 eLKRJlPdL6ayIsq8pXjYViiy3xT8buj1g0NlrmisaHekowwVrgLIe+N8x2ztJj0mHl
-	 P2mUemccKTtOFMr2RIOTamnjYwOMVgAvn0oNX07Zb+nu/Qg5awHIX5oYSWKc3+tC3h
-	 k5BC3dcthXef5b80m5peDldls/Zf3sAtajK0+0mGczG7pCQAJfwafDixrBN/6u/FYB
-	 5mx3vhjFNnd6w==
+	b=AqxGMNNytH3yg2QXdoyhU9CAHGPY90p1k6s3uowWLx6ea3WXmlnZ3vzgQS4KLBOHe
+	 +KFJfvXWvyDW5YLRusseh09kaj695+9bqcQUpqxrnjgVwetdjOR2JxmVBQwg5VlhIB
+	 PTJ3cnRE3KwvbWnuMoNO0fT7tGR7BhQEwvFtkeMLdASmixXxD2fQlmZ+lK9JPch9mn
+	 t7+jyKnIbQFE+QtZ1Sb9L5Aq5TQgQRUUUPMAmITLivRKIwBKGrn04Lkxi3DAOP+hSU
+	 4JlJ7OFphSa22D5OXHRQ8P5D9J84BgNkWARuQoiDJFgnBcHjtYSB3bj58AIReMmS9H
+	 uSD+zHAFPodYg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1977339389E8;
-	Fri, 26 Jun 2026 08:21:19 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1975839389E8;
+	Fri, 26 Jun 2026 08:21:22 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/5] mm/sparse-vmemmap: Provide generic
- vmemmap_set_pmd()
- and vmemmap_check_pmd()
+Subject: Re: [PATCH 0/5] KVM: riscv: Speed up dirty logging write faults
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246207775.3816447.6521226918403076772.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:21:17 +0000
-References: <20260601084845.3792171-1-songmuchun@bytedance.com>
-In-Reply-To: <20260601084845.3792171-1-songmuchun@bytedance.com>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- palmer@dabbelt.com, pjw@kernel.org, chenhuacai@kernel.org,
- andreas@gaisler.com, davem@davemloft.net, muchun.song@linux.dev,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
- kernel@xen0n.name, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com
+Message-Id: <178246208080.3816447.14235715613320602429.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:21:20 +0000
+References: <20260517153427.94889-1-tjytimi@163.com>
+In-Reply-To: <20260517153427.94889-1-tjytimi@163.com>
+To: Jinyu Tang <tjytimi@163.com>
+Cc: linux-riscv@lists.infradead.org, apatel@ventanamicro.com,
+ anup@brainfault.org, pbonzini@redhat.com, seanjc@google.com,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, atish.patra@linux.dev, pjw@kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, radim.krcmar@oss.qualcomm.com, andrew.jones@oss.qualcomm.com,
+ conor.dooley@microchip.com, yongxuan.wang@sifive.com, nutty.liu@hotmail.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +78,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+by Anup Patel <anup@brainfault.org>:
 
-On Mon,  1 Jun 2026 16:48:39 +0800 you wrote:
-> The weak vmemmap_set_pmd() and vmemmap_check_pmd() hooks are
-> currently no-ops in the generic code, which leaves architectures that
-> need PMD-level handling to open-code the same logic locally.
+On Sun, 17 May 2026 23:34:22 +0800 you wrote:
+> This series speeds up the common dirty logging write fault path for
+> RISC-V KVM.
 > 
-> This series provides generic implementations for both helpers in
-> mm/sparse-vmemmap.c. vmemmap_set_pmd() installs a huge PMD with
-> PAGE_KERNEL protection, and vmemmap_check_pmd() verifies a present
-> leaf PMD before reusing the existing vmemmap_verify() helper.
+> When dirty logging is enabled, guest writes to write-protected G-stage
+> 4K leaves currently go through the full fault path and take mmu_lock for
+> write.  That is expensive once the leaf already exists and
+> only needs its permission and dirty state updated.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/5] mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and vmemmap_check_pmd()
-    https://git.kernel.org/riscv/c/0b6073ff1574
-  - [v3,2/5] arm64/mm: drop vmemmap_pmd helpers and use generic code
-    https://git.kernel.org/riscv/c/f521f198b50a
-  - [v3,3/5] riscv/mm: drop vmemmap_pmd helpers and use generic code
-    https://git.kernel.org/riscv/c/abff0ecf7602
-  - [v3,4/5] loongarch/mm: drop vmemmap_check_pmd helper and use generic code
-    https://git.kernel.org/riscv/c/ecca7da924b1
-  - [v3,5/5] sparc/mm: drop vmemmap_check_pmd helper and use generic code
-    https://git.kernel.org/riscv/c/d3d58e946900
+  - [1/5] KVM: riscv: Rely on common MMU notifier locking
+    (no matching commit)
+  - [2/5] KVM: riscv: Use an rwlock for mmu_lock
+    (no matching commit)
+  - [3/5] KVM: riscv: Add a G-stage PTE cmpxchg helper
+    https://git.kernel.org/riscv/c/7dd416fdd3fb
+  - [4/5] KVM: riscv: Update G-stage PTE permissions atomically
+    https://git.kernel.org/riscv/c/d7a26a0ba715
+  - [5/5] KVM: riscv: Fast-path dirty logging write faults
+    https://git.kernel.org/riscv/c/7705be59eb2d
 
 You are awesome, thank you!
 -- 
