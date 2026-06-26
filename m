@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D255CDE008
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C9BCDE008
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rl2+5ppeVXlWMs8oyXPNIf4T+o7j96/6VW5vx46VjqE=; b=XDIg2mQwv0YjEz
-	U6IDaM4wO89RWz+Jpukcuk96Tg6wrnBoPQK3g/zqWtOstiTtgtArTrDB6A3Qn/TXu65SocM8ovWbj
-	6hC5yx4ivYBGOJ298O9cKyIquj0H88D/EtyjQCwy4B7qhSbcOcWVy7K486z+KqaYmrtn5rozeHRPO
-	R40gfnpus7zzHdK6PSJA2Laxa+XYTCnx2+CiCd5FazuPFn/v4XA+SaKGTyVnINT8kjvOlogfc4PyN
-	TMPEgRkY8woa+UrIwvuiwO3U9BEc9KZ4mDcWDi0Q7ExQ4hjZLwONqMnmfXZakgCvQ0+5s4EEn8tAE
-	hcnYys+9+NDcd1h/57OQ==;
+	List-Owner; bh=THyxbpBHxhU0aVYfhJO+DR7vSIq1yO9b95Ks6zOcu4Y=; b=LmmfUE1bIr19g5
+	e2J6Ep93Blbrs6Qgr4xq40if5vr1vb/+WZIGRSjzkvn+Z2YRnzlMTRPxkkSG1adu35fTHzvE6MDyN
+	gvxLIWAE3QTWXXOknzuV2RwbwfJ6x07rnLUPKUz8xhGo3/IawkD2fbXQZwtj1vzZKh3ZADt7y0fjS
+	Oc63FQXW4sE8mfDPNZWz2BA0HaR3tFjre9feDj7IJGbLSUFDw+f++dcVYyHHXUPqFDlJNZoJG8eFH
+	RtkpQYW2rJDmPCC18hSMQrH9jOpbsRzb576jg1GtfTJU3PvwvwR8EzTMe5EUMN/N+wseGyl8imCNr
+	gC8Sz5qzluk/4UPjajtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd28h-0000000AseV-09L9;
-	Fri, 26 Jun 2026 08:42:19 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd28d-0000000Ase7-2CoX
+	id 1wd29B-0000000AsiX-0n6w;
+	Fri, 26 Jun 2026 08:42:49 +0000
+Received: from azure-sdnproxy.icoremail.net ([4.193.249.245])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd297-0000000Asi0-3fWQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 08:42:17 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c89370405aaso300598a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 01:42:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782463334; x=1783068134; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JsvSBjnG06bUFbh9b1fjdG1LZreCknqQFnMC8kjK6/8=;
-        b=OPgoTX3KMTOFj3PAQgN/NhYmIEnjex5iC3gkIqH3nl12Iv22/IeNTEfMs2FOqmgYW/
-         t8xzQYVJqx7r/FQbPnlK1PTqapWC8p5VBXwBF97Eho91hZ7M3sPSti4Tai6dWzmftCuZ
-         dr31xcNN2SJzKUmyvcl8+gaqNeO3YY0BVMI7QFBt3/MvWWoRYk9t9ePPvzE1huDYlzeK
-         HS8Ej5ffmldB4WbG5sZGbnO24tjE6CXydGFEeujPZ33FawgwBMVIWEXx4RLQVo0L5Iom
-         kscfpO2FIydPqFOI/mWxHRc8CjHNIxkYBiFtlULlzVturK7nFDGEMdCrhkF8fX3pfNk/
-         XClw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782463334; x=1783068134;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JsvSBjnG06bUFbh9b1fjdG1LZreCknqQFnMC8kjK6/8=;
-        b=Prt1kT7c6srMB7VKMOWM9H7/ZvZKAxiVDaZXI9aCsLL6kKJ2KEiZhDSOC0hxhqzjv9
-         ZTUTQQqi0UM+GYK+lFvnhYwqri6ojsphEe378QyOhs96V8BXfiIkHYWfm7Pt3m2UJudE
-         xWyrfEo9R2FacGFPZCgfrxpTDNf8uB2w0UVsidjdaYYVMWbtIF+1hCaG+GUSdbxYNwx6
-         8s1ET6AO5UtYkKG2DG0gkWoBkhVgA8pq7fj51Di47W7hg+XjtDLWV/mn2W9RYJvMLnjS
-         iBvzKxsK6ne7cnizC2q7IrYvzy/WWrGA11wd1Q8mXTlyOXyRcPgxQbjom4XtnF3PRCUs
-         +33Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8eabM06qZpNGs6m7OHT4zeKL6OPg6jTEoRaSml8nyb1UA5Ka7lszPGvsmpuBwp1oE3zGf4V3VNaw0Fcw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQFYBs+UMKOhxaGd9IifwPk15xHPhNJ7r/oUJ96LkrO1YWzEOs
-	LyBDutb5kj+endBJDwopQ2qrNGk/znDLSgNBDHrN51yLSEvdjUTFTkzI
-X-Gm-Gg: AfdE7cmAurbRl91WMgL9/yrR/SzanxU4eLty1NiG2PnYnFtgzgLH+UmnAjQ4rBQnL5m
-	ZDf4p7lzU0EvKISThOyEiGjp0qvbTvaYnUtgawsg2jAo14P3xit2lbv4JwKBeErNHrjTCFUO83L
-	YFp82YIRU/4MB3wE5cd7mR2nT5ncmZ+3Kn3FJS/ivWHg0xFwxXWdQbD3X1+11Sft1Cts4+o3JQR
-	OGJu5bhHEz1vsU5hZJAC+eT76nu9cdM93i8iMEIX8j67gcWMCswoaecpqujYUfFBAUNyMKmFY7F
-	Agei1v0NwYXZ3mjW44BQpo1BT822ziHUntPDYEMXhrPTW/+l+D8iTMDG8rm3nXfcEyCp/Q+i0tT
-	NUJGHu+5Uda38WrFF6l+aD83BDQsHp3gnMj9yRx0AlF+bgGlO/9jiyrIgFV7KToZA
-X-Received: by 2002:a05:6a20:9397:b0:3b7:8027:dfeb with SMTP id adf61e73a8af0-3bd4aec7163mr7059290637.22.1782463334219;
-        Fri, 26 Jun 2026 01:42:14 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c92b96eccf8sm3107580a12.3.2026.06.26.01.42.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 01:42:13 -0700 (PDT)
-Date: Fri, 26 Jun 2026 16:41:52 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: guoren@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Leonardo Bras <leobras@redhat.com>, Raj Vishwanathan4 <rvishwanathan@mips.com>, 
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Han Gao <gaohan@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, Xiaoguang Xing <xiaoguang.xing@sophgo.com>, 
-	Aleksandar Rikalo <arikalo@gmail.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, sophgo@lists.linux.dev
-Subject: Re: [PATCH V5] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
-Message-ID: <aj463BBQccFwUoV5@inochi.infowork>
-References: <20260421143154.1590156-1-guoren@kernel.org>
+	Fri, 26 Jun 2026 08:42:48 +0000
+Received: from luyulin$eswincomputing.com ( [10.12.96.77] ) by
+ ajax-webmail-app2 (Coremail) ; Fri, 26 Jun 2026 16:42:32 +0800 (GMT+08:00)
+X-Originating-IP: [10.12.96.77]
+Date: Fri, 26 Jun 2026 16:42:32 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: "Yulin Lu" <luyulin@eswincomputing.com>
+To: "Conor Dooley" <conor.dooley@microchip.com>
+Cc: "Conor Dooley" <conor@kernel.org>,
+	"Pinkesh Vaghela" <pinkesh.vaghela@einfochips.com>,
+	"Lee Jones" <lee@kernel.org>, "Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Paul Walmsley" <pjw@kernel.org>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>,
+	"Albert Ou" <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	"Min Lin" <linmin@eswincomputing.com>,
+	"Samuel Holland" <samuel.holland@sifive.com>,
+	"Darshan Prajapati" <darshan.prajapati@einfochips.com>,
+	"Pritesh Patel" <pritesh.patel@einfochips.com>
+Subject: Re: Re: Re: [PATCH 3/7] riscv: dts: eswin: eic7700: add pinctrl
+ support
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20260626-headway-rewind-93c9239bd865@wendy>
+References: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
+ <20260615122016.1110206-4-pinkesh.vaghela@einfochips.com>
+ <20260615-that-scarf-e048ef152676@spud>
+ <55962658.7bea.19f02850fe2.Coremail.luyulin@eswincomputing.com>
+ <20260626-headway-rewind-93c9239bd865@wendy>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260421143154.1590156-1-guoren@kernel.org>
+Message-ID: <5d44c6d7.7c1d.19f03184fa9.Coremail.luyulin@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TQJkCgAnPqF4Oz5qEMIuAA--.8510W
+X-CM-SenderInfo: pox13z1lq6v25zlqu0xpsx3x1qjou0bp/1tbiAQEKA2o9WCMXcQAB
+	sC
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_014215_579065_C1EA1CA9 
-X-CRM114-Status: GOOD (  36.59  )
+X-CRM114-CacheID: sfid-20260626_014246_079243_33CDDF49 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,231 +83,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 10:31:40AM -0400, guoren@kernel.org wrote:
-> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
-> 
-> The early version of XuanTie C910 core has a store merge buffer
-> delay problem. The store merge buffer could improve the store queue
-> performance by merging multi-store requests, but when there are not
-> continued store requests, the prior single store request would be
-> waiting in the store queue for a long time. That would cause
-> significant problems for communication between multi-cores. This
-> problem was found on sg2042 & th1520 platforms with the qspinlock
-> lock torture test.
-> 
-> So appending a fence w.o could immediately flush the store merge
-> buffer and let other cores see the write result.
-> 
-> This will apply the WRITE_ONCE errata to handle the non-standard
-> behavior via appending a fence w.o instruction for WRITE_ONCE().
-> 
-> This problem is only observed on the sg2042 hardware platform by
-> running the lock_torture test program for half an hour. The problem
-> was not found in the user space application, because interrupt can
-> break the livelock.
-> 
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Reviewed-by: Leonardo Bras <leobras@redhat.com>
-> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-> Tested-by: Han Gao <gaohan@iscas.ac.cn>
-> Tested-by: Yao Zi <me@ziyao.cc>
-> Cc: Chen Wang <unicorn_wang@outlook.com>
-> Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> Cc: Paul Walmsley <pjw@kernel.org>
-> Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
-> ---
-> Changelog
-> 
-> v5:
->  - Add Acked-by: Arnd Bergmann <arnd@arndb.de> for asm/generic
->  - Add Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
->  - Rebase on v7.0
-> 
-
-Hi, Paul
-
-I wonder whether this is possible for applying? I think this is 
-a necessary fix for SG2042.
-
-Regards,
-Inochi
-
-
-> v4:
-> https://lore.kernel.org/linux-riscv/20260412143116.1445893-1-guoren@kernel.org/
->  - Add Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->    (https://lore.kernel.org/linux-riscv/1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr/)
->  - Add Tested-by: Yao Zi <me@ziyao.cc>
->  - Rebase on v7.0-rc7
-> 
-> v3:
-> https://lore.kernel.org/linux-riscv/20260125063941.443777-1-guoren@kernel.org/
->  - Rebase on 6.19-rc6.
->  - Remove errata_list_vendors patch which has been merged.
->  - Add Tested-by tag.
-> 
-> v2:
-> https://lore.kernel.org/linux-riscv/20250713155321.2064856-1-guoren@kernel.org/
->  - Add new header file for errata_list_vendors.
->  - Rebase newest kernel version.
-> 
-> v1:
-> https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
-> ---
->  arch/riscv/Kconfig.errata                    | 17 ++++++++++
->  arch/riscv/errata/thead/errata.c             | 20 ++++++++++++
->  arch/riscv/include/asm/errata_list_vendors.h |  3 +-
->  arch/riscv/include/asm/rwonce.h              | 34 ++++++++++++++++++++
->  include/asm-generic/rwonce.h                 |  2 ++
->  5 files changed, 75 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/include/asm/rwonce.h
-> 
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index 3c945d086c7d..4d3f13522da6 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -154,4 +154,21 @@ config ERRATA_THEAD_GHOSTWRITE
->  
->  	  If you don't know what to do here, say "Y".
->  
-> +config ERRATA_THEAD_WRITE_ONCE
-> +	bool "Apply T-Head WRITE_ONCE errata"
-> +	depends on ERRATA_THEAD
-> +	default y
-> +	help
-> +	  The early version of T-Head C9xx cores of sg2042 & th1520 have a store
-> +	  merge buffer delay problem. The store merge buffer could improve the
-> +	  store queue performance by merging multi-store requests, but when there
-> +	  are no continued store requests, the prior single store request would be
-> +	  waiting in the store queue for a long time. That would cause signifi-
-> +	  cant problems for communication between multi-cores. Appending a
-> +	  fence w.o could immediately flush the store merge buffer and let other
-> +	  cores see the write result.
-> +
-> +	  This will apply the WRITE_ONCE errata to handle the non-standard beh-
-> +	  avior via appending a fence w.o instruction for WRITE_ONCE().
-> +
->  endmenu # "CPU errata selection"
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index 0b942183f708..fbe46f2fa8fb 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
->  	return true;
->  }
->  
-> +static bool errata_probe_write_once(unsigned int stage,
-> +				    unsigned long arch_id, unsigned long impid)
-> +{
-> +	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
-> +		return false;
-> +
-> +	/* target-c9xx cores report arch_id and impid as 0 */
-> +	if (arch_id != 0 || impid != 0)
-> +		return false;
-> +
-> +	if (stage == RISCV_ALTERNATIVES_BOOT ||
-> +	    stage == RISCV_ALTERNATIVES_MODULE)
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
->  static u32 thead_errata_probe(unsigned int stage,
->  			      unsigned long archid, unsigned long impid)
->  {
-> @@ -183,6 +200,9 @@ static u32 thead_errata_probe(unsigned int stage,
->  
->  	errata_probe_ghostwrite(stage, archid, impid);
->  
-> +	if (errata_probe_write_once(stage, archid, impid))
-> +		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
-> +
->  	return cpu_req_errata;
->  }
->  
-> diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
-> index ec7eba373437..8fd7c36307e2 100644
-> --- a/arch/riscv/include/asm/errata_list_vendors.h
-> +++ b/arch/riscv/include/asm/errata_list_vendors.h
-> @@ -18,7 +18,8 @@
->  #define	ERRATA_THEAD_MAE 0
->  #define	ERRATA_THEAD_PMU 1
->  #define	ERRATA_THEAD_GHOSTWRITE 2
-> -#define	ERRATA_THEAD_NUMBER 3
-> +#define	ERRATA_THEAD_WRITE_ONCE 3
-> +#define	ERRATA_THEAD_NUMBER 4
->  #endif
->  
->  #ifdef CONFIG_ERRATA_MIPS
-> diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
-> new file mode 100644
-> index 000000000000..081793d4d772
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/rwonce.h
-> @@ -0,0 +1,34 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef __ASM_RWONCE_H
-> +#define __ASM_RWONCE_H
-> +
-> +#include <linux/compiler_types.h>
-> +#include <asm/alternative-macros.h>
-> +#include <asm/vendorid_list.h>
-> +#include <asm/errata_list_vendors.h>
-> +
-> +#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
-> +
-> +#define write_once_fence()				\
-> +do {							\
-> +	asm volatile(ALTERNATIVE(			\
-> +		"nop",					\
-> +		"fence w, o",				\
-> +		THEAD_VENDOR_ID,			\
-> +		ERRATA_THEAD_WRITE_ONCE,		\
-> +		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
-> +		: : : "memory");			\
-> +} while (0)
-> +
-> +#define __WRITE_ONCE(x, val)				\
-> +do {							\
-> +	*(volatile typeof(x) *)&(x) = (val);		\
-> +	write_once_fence();				\
-> +} while (0)
-> +
-> +#endif /* defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE) */
-> +
-> +#include <asm-generic/rwonce.h>
-> +
-> +#endif	/* __ASM_RWONCE_H */
-> diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
-> index 52b969c7cef9..4e2d941f15a1 100644
-> --- a/include/asm-generic/rwonce.h
-> +++ b/include/asm-generic/rwonce.h
-> @@ -50,10 +50,12 @@
->  	__READ_ONCE(x);							\
->  })
->  
-> +#ifndef __WRITE_ONCE
->  #define __WRITE_ONCE(x, val)						\
->  do {									\
->  	*(volatile typeof(x) *)&(x) = (val);				\
->  } while (0)
-> +#endif
->  
->  #define WRITE_ONCE(x, val)						\
->  do {									\
-> -- 
-> 2.40.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+PiA+IEhpLCBDb25vci4gVGhhbmtzIGZvciB5b3VyIHJldmlldy4KPiA+IAo+ID4gPiBPbiBNb24s
+IEp1biAxNSwgMjAyNiBhdCAwNTo1MDoxMlBNICswNTMwLCBQaW5rZXNoIFZhZ2hlbGEgd3JvdGU6
+Cj4gPiA+ID4gRnJvbTogWXVsaW4gTHUgPGx1eXVsaW5AZXN3aW5jb21wdXRpbmcuY29tPgo+ID4g
+PiA+IAo+ID4gPiA+IEFkZCBwaW5jdHJsIG5vZGUgYW5kIHJlbGF0ZWQgcGluIGNvbmZpZ3VyYXRp
+b24gZm9yIEVJQzc3MDAgU29DCj4gPiA+ID4gCj4gPiA+ID4gQ28tZGV2ZWxvcGVkLWJ5OiBQcml0
+ZXNoIFBhdGVsIDxwcml0ZXNoLnBhdGVsQGVpbmZvY2hpcHMuY29tPgo+ID4gPiA+IFNpZ25lZC1v
+ZmYtYnk6IFByaXRlc2ggUGF0ZWwgPHByaXRlc2gucGF0ZWxAZWluZm9jaGlwcy5jb20+Cj4gPiA+
+ID4gU2lnbmVkLW9mZi1ieTogWXVsaW4gTHUgPGx1eXVsaW5AZXN3aW5jb21wdXRpbmcuY29tPgo+
+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IFBpbmtlc2ggVmFnaGVsYSA8cGlua2VzaC52YWdoZWxhQGVp
+bmZvY2hpcHMuY29tPgo+ID4gPiA+IC0tLQo+ID4gPiA+ICAuLi4vZHRzL2Vzd2luL2VpYzc3MDAt
+aGlmaXZlLXByZW1pZXItcDU1MC5kdHMgfCAxMDkgKysrCj4gPiA+ID4gIC4uLi9yaXNjdi9ib290
+L2R0cy9lc3dpbi9laWM3NzAwLXBpbmN0cmwuZHRzaSB8IDg4OCArKysrKysrKysrKysrKysrKysK
+PiA+ID4gPiAgYXJjaC9yaXNjdi9ib290L2R0cy9lc3dpbi9laWM3NzAwLmR0c2kgICAgICAgIHwg
+ICA1ICsKPiA+ID4gPiAgMyBmaWxlcyBjaGFuZ2VkLCAxMDAyIGluc2VydGlvbnMoKykKPiA+ID4g
+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvZXN3aW4vZWljNzcwMC1w
+aW5jdHJsLmR0c2kKPiA+ID4gPiAKPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290
+L2R0cy9lc3dpbi9laWM3NzAwLWhpZml2ZS1wcmVtaWVyLXA1NTAuZHRzIGIvYXJjaC9yaXNjdi9i
+b290L2R0cy9lc3dpbi9laWM3NzAwLWhpZml2ZS1wcmVtaWVyLXA1NTAuZHRzCj4gPiA+ID4gaW5k
+ZXggMWZiOTJmMGU3YzU1Li5lN2JiOTZlMTQ5NTggMTAwNjQ0Cj4gPiA+ID4gLS0tIGEvYXJjaC9y
+aXNjdi9ib290L2R0cy9lc3dpbi9laWM3NzAwLWhpZml2ZS1wcmVtaWVyLXA1NTAuZHRzCj4gPiA+
+ID4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9lc3dpbi9laWM3NzAwLWhpZml2ZS1wcmVtaWVy
+LXA1NTAuZHRzCj4gPiA+ID4gQEAgLTYsNiArNiw3IEBACj4gPiA+ID4gIC9kdHMtdjEvOwo+ID4g
+PiA+ICAKPiA+ID4gPiAgI2luY2x1ZGUgImVpYzc3MDAuZHRzaSIKPiA+ID4gPiArI2luY2x1ZGUg
+ImVpYzc3MDAtcGluY3RybC5kdHNpIgo+ID4gPiA+ICAKPiA+IAo+ID4gLi4uCj4gPiAKPiA+ID4g
+PiArJmdwaW83OV9waW5zIHsKPiA+ID4gPiArCWJpYXMtZGlzYWJsZTsKPiA+ID4gPiArCWlucHV0
+LWRpc2FibGU7Cj4gPiA+ID4gK307Cj4gPiA+ID4gKwo+ID4gPiA+ICsmZ3BpbzgwX3BpbnMgewo+
+ID4gPiA+ICsJYmlhcy1wdWxsLXVwOwo+ID4gPiA+ICsJaW5wdXQtZGlzYWJsZTsKPiA+ID4gPiAr
+fTsKPiA+ID4gPiArCj4gPiA+ID4gKyZncGlvODJfcGlucyB7Cj4gPiA+ID4gKwliaWFzLXB1bGwt
+dXA7Cj4gPiA+ID4gKwlpbnB1dC1kaXNhYmxlOwo+ID4gPiA+ICt9Owo+ID4gPiA+ICsKPiA+ID4g
+PiArJmdwaW84NF9waW5zIHsKPiA+ID4gPiArCWJpYXMtZGlzYWJsZTsKPiA+ID4gPiArCWlucHV0
+LWRpc2FibGU7Cj4gPiA+ID4gK307Cj4gPiA+ID4gKwo+ID4gPiA+ICsmZ3Bpbzg1X3BpbnMgewo+
+ID4gPiA+ICsJYmlhcy1wdWxsLXVwOwo+ID4gPiA+ICsJaW5wdXQtZGlzYWJsZTsKPiA+ID4gPiAr
+fTsKPiA+ID4gPiArCj4gPiA+ID4gKyZncGlvOTRfcGlucyB7Cj4gPiA+ID4gKwliaWFzLWRpc2Fi
+bGU7Cj4gPiA+ID4gKwlpbnB1dC1kaXNhYmxlOwo+ID4gPiA+ICt9Owo+ID4gPiA+ICsKPiA+ID4g
+PiArJmdwaW8xMDZfcGlucyB7Cj4gPiA+ID4gKwliaWFzLWRpc2FibGU7Cj4gPiA+ID4gKwlpbnB1
+dC1kaXNhYmxlOwo+ID4gPiA+ICt9Owo+ID4gPiA+ICsKPiA+ID4gPiArJmdwaW8xMTFfcGlucyB7
+Cj4gPiA+ID4gKwliaWFzLWRpc2FibGU7Cj4gPiA+ID4gKwlpbnB1dC1kaXNhYmxlOwo+ID4gPiA+
+ICt9Owo+ID4gPiA+ICsKPiA+ID4gPiArJnBpbmN0cmwgewo+ID4gPiA+ICsJdnJnbWlpLXN1cHBs
+eSA9IDwmdmNjXzF2OD47Cj4gPiA+ID4gK307Cj4gPiA+ID4gKwo+ID4gPiA+ICAmdWFydDAgewo+
+ID4gPiA+ICAJc3RhdHVzID0gIm9rYXkiOwo+ID4gPiA+ICB9Owo+ID4gPiA+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2Vzd2luL2VpYzc3MDAtcGluY3RybC5kdHNpIGIvYXJjaC9y
+aXNjdi9ib290L2R0cy9lc3dpbi9laWM3NzAwLXBpbmN0cmwuZHRzaQo+ID4gPiA+IG5ldyBmaWxl
+IG1vZGUgMTAwNjQ0Cj4gPiA+ID4gaW5kZXggMDAwMDAwMDAwMDAwLi43MjkzZGYxNDZhYTcKPiA+
+ID4gPiAtLS0gL2Rldi9udWxsCj4gPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9lc3dp
+bi9laWM3NzAwLXBpbmN0cmwuZHRzaQo+ID4gPiA+IEBAIC0wLDAgKzEsODg4IEBACj4gPiA+ID4g
+Ky8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMCBPUiBNSVQpCj4gPiA+ID4gKy8q
+Cj4gPiA+ID4gKyAqIENvcHlyaWdodCAoYykgMjAyNSBCZWlqaW5nIEVTV0lOIENvbXB1dGluZyBU
+ZWNobm9sb2d5IENvLiwgTHRkLgo+ID4gPiA+ICsgKgo+ID4gPiA+ICsgKiBFU1dJTidzIEVJQzc3
+MDAgU29DIHBpbi1tdXggYW5kIHBpbi1jb25maWcgb3B0aW9ucyBhcmUgbGlzdGVkIGFzCj4gPiA+
+ID4gKyAqIGRldmljZSB0cmVlIG5vZGVzIGluIHRoaXMgZmlsZS4KPiA+ID4gPiArICoKPiA+ID4g
+PiArICogQXV0aG9yczogWXVsaW4gTHUgPGx1eXVsaW5AZXN3aW5jb21wdXRpbmcuY29tPgo+ID4g
+PiA+ICsgKi8KPiA+ID4gPiArCj4gPiA+IAo+ID4gPiBJIGRvbid0IHJlYWxseSB1bmRlcnN0YW5k
+IHRoZSBncm91cHMgaGVyZS4gSSB0aGluayB5b3Ugc2hvdWxkIG1ha2UgbW9yZQo+ID4gPiBlZmZv
+cnQgdG8gcHV0IG1vcmUgcGlucyBpbiBlYWNoIGdyb3VwLgo+ID4gPiAKPiA+ID4gPiArCQlncGlv
+MV9waW5zOiBncGlvMS1waW5zIHsKPiA+ID4gPiArCQkJcGlucyA9ICJqdGFnMF90Y2siOwo+ID4g
+PiA+ICsJCQlmdW5jdGlvbiA9ICJncGlvIjsKPiA+ID4gPiArCQl9Owo+ID4gPiA+ICsKPiA+ID4g
+PiArCQlncGlvMl9waW5zOiBncGlvMi1waW5zIHsKPiA+ID4gPiArCQkJcGlucyA9ICJqdGFnMF90
+bXMiOwo+ID4gPiA+ICsJCQlmdW5jdGlvbiA9ICJncGlvIjsKPiA+ID4gPiArCQl9Owo+ID4gPiA+
+ICsKPiA+ID4gPiArCQlncGlvM19waW5zOiBncGlvMy1waW5zIHsKPiA+ID4gPiArCQkJcGlucyA9
+ICJqdGFnMF90ZGkiOwo+ID4gPiA+ICsJCQlmdW5jdGlvbiA9ICJncGlvIjsKPiA+ID4gPiArCQl9
+Owo+ID4gPiA+ICsKPiA+ID4gPiArCQlncGlvNF9waW5zOiBncGlvNC1waW5zIHsKPiA+ID4gPiAr
+CQkJcGlucyA9ICJqdGFnMF90ZG8iOwo+ID4gPiA+ICsJCQlmdW5jdGlvbiA9ICJncGlvIjsKPiA+
+ID4gPiArCQl9Owo+ID4gPiAKPiA+ID4gTGlrZSB0aGVzZSA0IGZvciBleGFtcGxlLCB3aHkgbm90
+IGdyb3VwIHRoZXNlPwo+ID4gCj4gPiBUaGUgJ2dyb3VwJyBpcyB1c2VkIHRvIGNvcnJlc3BvbmQg
+dG8gdGhlICctZ3JwJyB0YWcgaW4gdGhlIFlBTUwgZmlsZSBhbmQKPiA+IGhhcyBubyBwcmFjdGlj
+YWwgc2lnbmlmaWNhbmNlLgo+ID4gRGlmZmVyZW50IGJvYXJkIGRlc2lnbnMgaGF2ZSBkaWZmZXJl
+bnQgcmVxdWlyZW1lbnRzIGZvciBwaW4gbXVsdGlwbGV4aW5nLgo+ID4gVGhlcmVmb3JlLCBlaWM3
+NzAwLXBpbmN0cmwuZHRzaSBvbmx5IHByb3ZpZGVzIHBpbnMgZm9yIHRoZSBib2FyZC1sZXZlbCBE
+VFMuCj4gPiBQaW5zIGFyZSBjb21iaW5lZCBhbmQgdXNlZCBpbiB0aGUgYm9hcmQtbGV2ZWwgRFRT
+IHZpYSBwaW5jdHJsLTAgcHJvcGVydHkuCj4gCj4gVGhlc2UgNCBwaW5zIGluIHRoZSBkcml2ZXIg
+YXJlIHJlcHJlc2VudGVkIGFzOgo+IAlFSUM3NzAwX1BJTigxNCwgICJqdGFnMF90Y2siLAkJWzBd
+ID0gRl9KVEFHLCBbMV0gPSBGX1NQSSwgWzJdID0gRl9HUElPKSwKPiAJRUlDNzcwMF9QSU4oMTUs
+ICAianRhZzBfdG1zIiwJCVswXSA9IEZfSlRBRywgWzFdID0gRl9TUEksIFsyXSA9IEZfR1BJTyks
+Cj4gCUVJQzc3MDBfUElOKDE2LCAgImp0YWcwX3RkaSIsCQlbMF0gPSBGX0pUQUcsIFsxXSA9IEZf
+U1BJLCBbMl0gPSBGX0dQSU8pLAo+IAlFSUM3NzAwX1BJTigxNywgICJqdGFnMF90ZG8iLAkJWzBd
+ID0gRl9KVEFHLCBbMV0gPSBGX1NQSSwgWzJdID0gRl9HUElPKSwKPiAKPiAJRUlDNzcwMF9QSU4o
+MTgsICAiZ3BpbzUiLAkJWzBdID0gRl9HUElPLCBbMV0gPSBGX1NQSSksCj4gCj4gVGhlcmUgaXMg
+bm8gcmVhc29uIHRvIGV2ZXIgcGFydGlhbGx5IHVzZSB0aGVzZSBhcyBHUElPLiBFaXRoZXIgdGhl
+eSB3aWxsCj4gYmUgYWxsIGp0YWcsIGFsbCBzcGkgb3IgYWxsIGdwaW8uIHBpbiAxOCBvbiB0aGUg
+b3RoZXIgdGhhbiBtYWtlcyBzZW5zZSB0byBoYXZlCj4gaW4gYSBkZWRpY2F0ZWQgZ3JvdXAuCgpI
+aSwgQ29ub3IuIFRoYW5rcyBmb3IgeW91ciByZXBseS4KCkZvciBwaW5zIDE0IHRvIDE4LCB3aGVu
+IHRoZXkgYXJlIG5vdCBtdWx0aXBsZXhlZCBhcyBKVEFHIG9yIFNQSSwKdGhleSBjYW4gYmUgdXNl
+ZCBhcyBHUElPLiBUaGUgY29ycmVzcG9uZGluZyAtcGlucyBjb21iaW5hdGlvbnMKZm9yIEpUQUcs
+IFNQSSwgYW5kIEdQSU8gYXJlIGFsbCBpbXBsZW1lbnRlZCBpbiBlaWM3NzAwLXBpbmN0cmwuZHRz
+aS4KClRha2UgcGluIDE0IGFzIGFuIGV4YW1wbGUuIEluIGVpYzc3MDAtcGluY3RybC5kdHNpLCBp
+dCBpcyBkZWZpbmVkOgoKZHVhbF9zcGkyX3BpbnM6IGR1YWwtc3BpMi1waW5zIHsKwqAgwqAgcGlu
+cyA9ICJzcGkyX2NzMF9uIiwgImp0YWcwX3RjayIsICJqdGFnMF90bXMiLCAianRhZzBfdGRpIjsK
+wqAgwqAgZnVuY3Rpb24gPSAic3BpIjsKfTsKCnF1YWRfc3BpMl9waW5zOiBxdWFkLXNwaTItcGlu
+cyB7CsKgIMKgIHBpbnMgPSAic3BpMl9jczBfbiIsICJzcGkyX2NzMV9uIiwgImp0YWcwX3RjayIs
+ICJqdGFnMF90bXMiLArCoCDCoCDCoCDCoCDCoCDCoCJqdGFnMF90ZGkiLCAianRhZzBfdGRvIiwg
+ImdwaW81IjsKwqAgwqAgZnVuY3Rpb24gPSAic3BpIjsKfTsKCmdwaW8xX3BpbnM6IGdwaW8xLXBp
+bnMgewrCoCDCoCBwaW5zID0gImp0YWcwX3RjayI7CsKgIMKgIGZ1bmN0aW9uID0gImdwaW8iOwp9
+OwoKanRhZzBfcGluczoganRhZzAtcGlucyB7CsKgIMKgIHBpbnMgPSAianRhZzBfdGNrIiwgImp0
+YWcwX3RtcyIsICJqdGFnMF90ZGkiLCAianRhZzBfdGRvIjsKwqAgwqAgZnVuY3Rpb24gPSAianRh
+ZyI7Cn07CgpXaGljaCBzcGVjaWZpYyBjb21iaW5hdGlvbiBpcyBjYWxsZWQsIGFuZCBob3cgdGhl
+eSBhcmUgY29tYmluZWQsCmRlcGVuZHMgb24gdGhlIGJvYXJkLWxldmVsIHN5c3RlbSBkZXNpZ24g
+YW5kIGlzIHJlZmVyZW5jZWQgaW4KdGhlIGRldmljZSBub2RlcyBvZiB0aGUgYm9hcmQtbGV2ZWwg
+RFRTLiBGb3IgZXhhbXBsZToKCnBpbmN0cmwtMCA9IDwmZ3BpbzFfcGlucz4sIDwmanRhZzJfcGlu
+cz47CgpUaGUgcGluIG11bHRpcGxleGluZyBjb25maWd1cmF0aW9uIGRlcGVuZHMgb24gdGhlIGJv
+YXJkLWxldmVsIHN5c3RlbSBkZXNpZ24uClVzaW5nIGNvbWJpbmF0aW9ucyBvZiAnLXBpbnMnIGlz
+IHN1ZmZpY2llbnQgdG8gc2F0aXNmeSBhbGwgcmVxdWlyZW1lbnRzLAphbmQgdGhlcmUgaXMgbm8g
+bmVlZCB0byByZWx5IG9uICctZ3JwJyBmb3IgdGhpcyBwdXJwb3NlLgoKUmVnYXJkcywKWXVsaW4g
+THUKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
