@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9E6C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 16:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC56FC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 16:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kh5iqf3tQUvgGx8syQCnidN73Np1E6iVP3UPFdkeLIs=; b=TB+xUi2u6d1YW2YGGeFnIFoi+s
-	0dpbhBy2E29o8x1iQn6/ryHwcBOArsRGW8/VHEWS45OebUhwXGHQS/arqi1CXa4LWSaUuva916y7B
-	Iu/ATGRCAk+6FPc9OlITgXb7E+EGEVXSVMbPXwtEVn1DGeEBgBKOmtDWkmTISTZOiOOWr7oPWsnLV
-	SLiCLkqru18ygupgsBTv1l9H7PqwaNWk41Y6PdOeEim6Wva8GAAx/pDI9zTIBgjZPxyRC/hcw86hC
-	ea9wUNFTu5s0prdrywlGcduiRA5nUjrmQUVjQYPP2INX0iAD4QZFdtP0Zu16mdaDM38X7cFvolTtS
-	IgtX/6GQ==;
+	bh=17aNU+rgObtjvrEPVx7hYBOmktKvX+DtclJgkmwkaKY=; b=vodGooZ6knc7PYSxdr8vUH44Aw
+	Xan5W2dC5jtwECMdFYc5KRJ2LNYQ4roDgwyu1V+fFVMkq0cAhQpSQOP+APxnYylLs2ZSyYszPRQT9
+	jmVZUYNu/oAKe1NsIA+Kh05OdziKd0czShnYvdAY5zNk2u6zya4okDe2vL+orsX4XiVFoiJF2gqHo
+	j6ssXpzJElCRvzTjvo4dFl5GFEDjumBH3fS85mAlwnnewkgPvp5pXS46gxJScLk+OXsuH1h3nTL/R
+	M3qGbzvipRyrsm/bbMkyaHN95o27N42EbR7+Hv3UhHumEha+MnsqOT5PRsR52B7GoCLiQltgM1i2L
+	3dA91DHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd93C-0000000Bap5-44jZ;
-	Fri, 26 Jun 2026 16:05:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wd972-0000000Bb4f-1VYI;
+	Fri, 26 Jun 2026 16:09:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd93B-0000000Baow-2hZ6
+	id 1wd971-0000000Bb4W-2Csz
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 16:05:05 +0000
+	Fri, 26 Jun 2026 16:09:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF116600C8;
-	Fri, 26 Jun 2026 16:05:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 273471F000E9;
-	Fri, 26 Jun 2026 16:05:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 257844185C;
+	Fri, 26 Jun 2026 16:09:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBB561F000E9;
+	Fri, 26 Jun 2026 16:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782489904;
-	bh=agO4Z1h9DZD6dkyDAR6EVjfAZLNbhj4L7fvPd9Abd4w=;
+	s=k20260515; t=1782490143;
+	bh=Fx3tciuHyjlkIBIBNEBD+s8vVCSZdcyUAOaq3PBg7Ps=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m2yAD5pl8rbGleJHS+ABi6ZH4UQHFWpScWGcAX75oANTRayJAz5+2U/6oxd/KLhiq
-	 K0od4RJ1rHNcVkQPMdDvZ27wvj/IOap5j7W4F6yBhlyYd81AMvGzrxHoj4bohW7L0M
-	 FmIgs8iq3G6XRiSFH/WE24hZGGBpEl8/ZhVvipFVbOz8KrZB6pbpTGoPzYJkpHrJao
-	 qMEiial0USyABZw8ZXoOTRrdIXkrXG0c66oh0EskfDhlXdD5BJEwtdY5sgRYndtJac
-	 GWohA+isgpMlemKokXw2EnoF2CYzCsKCd3TjPAp11wnpCwiJODCC2gUscYjnkVGuaE
-	 YyXSlAdT99Rbg==
-Date: Fri, 26 Jun 2026 09:05:02 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Conor Dooley <conor@kernel.org>
+	b=iQZOZQVlKUG92jlBmV7tChmBKGdzefozF27KNgP05RnlO6UgoAp/85WdimyWCLTJN
+	 ZFGfCICs2z+ZEzedTCQH+Nje6VFRH6R1EzPqC+LuVN+owy7Nivt7G3oHHNYIGfYK77
+	 aNv6xDG5Pb0kYE8UfgrAV9vC/wfbZSLC+LuOi1SoZrmhLHK+5iUJBJ5GJxcLsJY3Oj
+	 hdcnrobdPhRHYU1nMv6tqfCHXew1xsF5yJR5PRizgB1N+mvPkDcru3Fz1GyAwPhzDY
+	 47GHd4+qSlkAW6Mc+Q2uwWR0JFH/3xYj7438e/s27fcK6u74CvijZNWFKNh1tCOT/7
+	 rNF/9jor31ViQ==
+Date: Fri, 26 Jun 2026 17:08:53 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
 Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Atish Kumar Patra <atishp@rivosinc.com>,
@@ -78,14 +78,15 @@ Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
 	linux-doc@vger.kernel.org
 Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: Add generic CBQRI controller
  binding
-Message-ID: <aj6jLrECZM18I4MP@thelio>
+Message-ID: <20260626-refining-thus-6635a0f7c5cd@spud>
 References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
  <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
  <20260625-cupbearer-failing-9ce0abf97b93@spud>
  <aj1_0AnIBk8_xoDd@gen8>
  <20260626-immobile-staining-c825a86bd613@spud>
+ <aj6jLrECZM18I4MP@thelio>
 MIME-Version: 1.0
-In-Reply-To: <20260626-immobile-staining-c825a86bd613@spud>
+In-Reply-To: <aj6jLrECZM18I4MP@thelio>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,107 +98,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5215075379687189602=="
+Content-Type: multipart/mixed; boundary="===============6996208715113793364=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5215075379687189602==
+--===============6996208715113793364==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+0HGToKbj2BaC/Io"
+	protocol="application/pgp-signature"; boundary="fQnCqX8ZQXXtFFbN"
 Content-Disposition: inline
 
 
---+0HGToKbj2BaC/Io
+--fQnCqX8ZQXXtFFbN
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Jun 26, 2026 at 04:44:56PM +0100, Conor Dooley wrote:
-> On Thu, Jun 25, 2026 at 12:21:52PM -0700, Drew Fustini wrote:
-> > On Thu, Jun 25, 2026 at 05:19:28PM +0100, Conor Dooley wrote:
-> > > On Wed, Jun 24, 2026 at 06:38:35PM -0700, Drew Fustini wrote:
-> > > > Document the generic compatibles for capacity and bandwidth control=
-lers
-> > > > that implement the RISC-V CBQRI specification. The binding also
-> > > > describes the common riscv,cbqri-rcid and riscv,cbqri-mcid properti=
-es,
-> > > > and the optional riscv,cbqri-cache phandle that links a capacity
-> > > > controller to the cache whose capacity it allocates.
+On Fri, Jun 26, 2026 at 09:05:02AM -0700, Drew Fustini wrote:
+> On Fri, Jun 26, 2026 at 04:44:56PM +0100, Conor Dooley wrote:
+> > On Thu, Jun 25, 2026 at 12:21:52PM -0700, Drew Fustini wrote:
+> > > On Thu, Jun 25, 2026 at 05:19:28PM +0100, Conor Dooley wrote:
+> > > > On Wed, Jun 24, 2026 at 06:38:35PM -0700, Drew Fustini wrote:
+> > > > > Document the generic compatibles for capacity and bandwidth contr=
+ollers
+> > > > > that implement the RISC-V CBQRI specification. The binding also
+> > > > > describes the common riscv,cbqri-rcid and riscv,cbqri-mcid proper=
+ties,
+> > > > > and the optional riscv,cbqri-cache phandle that links a capacity
+> > > > > controller to the cache whose capacity it allocates.
+> > > > >=20
+> > > > > Assisted-by: Claude:claude-opus-4-8
+> > > > > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > > > > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> > > > > Signed-off-by: Drew Fustini <fustini@kernel.org>
+> > > > > ---
+> > > > >  .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++=
+++++++++++++++
+> > > > >  MAINTAINERS                                        |  1 +
+> > > > >  2 files changed, 98 insertions(+)
+> > >=20
+> > > Thanks for the review.
+> > >=20
+> > > [..]
+> > > > > +properties:
+> > > > > +  compatible:
+> > > > > +    oneOf:
+> > > > > +      - items:
+> > > > > +          - description: Tenstorrent Ascalon Shared Cache
+> > > > > +            const: tenstorrent,ascalon-sc-cbqri
+> > > > > +          - const: riscv,cbqri-capacity-controller
+> > > > > +      - enum:
+> > > > > +          - riscv,cbqri-capacity-controller
+> > > > > +          - riscv,cbqri-bandwidth-controller
 > > > >=20
-> > > > Assisted-by: Claude:claude-opus-4-8
-> > > > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > > > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > > > Signed-off-by: Drew Fustini <fustini@kernel.org>
-> > > > ---
-> > > >  .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++++=
-++++++++++++
-> > > >  MAINTAINERS                                        |  1 +
-> > > >  2 files changed, 98 insertions(+)
-> >=20
-> > Thanks for the review.
-> >=20
-> > [..]
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    oneOf:
-> > > > +      - items:
-> > > > +          - description: Tenstorrent Ascalon Shared Cache
-> > > > +            const: tenstorrent,ascalon-sc-cbqri
-> > > > +          - const: riscv,cbqri-capacity-controller
-> > > > +      - enum:
-> > > > +          - riscv,cbqri-capacity-controller
-> > > > +          - riscv,cbqri-bandwidth-controller
+> > > > Please modify this, as has been done for other riscv spec related
+> > > > bindings, to let people get away without using device-specific
+> > > > compatibles.
+> > > >=20
+> > > > In this case, you can just delete the first entry from this enum, s=
+ince
+> > > > it already has a user and only have to implement this feedback for =
+the
+> > > > second entry.
 > > >=20
-> > > Please modify this, as has been done for other riscv spec related
-> > > bindings, to let people get away without using device-specific
-> > > compatibles.
+> > > Would this work?
 > > >=20
-> > > In this case, you can just delete the first entry from this enum, sin=
-ce
-> > > it already has a user and only have to implement this feedback for the
-> > > second entry.
+> > > properties:
+> > >   compatible:
+> > >     oneOf:
+> > >       - items:
+> > >           - enum:
+> > >               - tenstorrent,ascalon-sc-cbqri # Tenstorrent Ascalon Sh=
+ared Cache
+> > >           - const: riscv,cbqri-capacity-controller
+> > >       - items:
+> > >           - {}
+> > >           - const: riscv,cbqri-bandwidth-controller
 > >=20
-> > Would this work?
 > >=20
-> > properties:
-> >   compatible:
-> >     oneOf:
-> >       - items:
-> >           - enum:
-> >               - tenstorrent,ascalon-sc-cbqri # Tenstorrent Ascalon Shar=
-ed Cache
-> >           - const: riscv,cbqri-capacity-controller
-> >       - items:
-> >           - {}
-> >           - const: riscv,cbqri-bandwidth-controller
+> > Should do, yes. I question the need for a comment though, seems pretty
+> > evident from the compatible what it is.
 >=20
->=20
-> Should do, yes. I question the need for a comment though, seems pretty
-> evident from the compatible what it is.
+> I was thinking people may not know that 'sc' is the Shared Cache. I
+> probably should have shortend the comment to 'Ascalon Shared Cache'.
+> Anyways, I can drop it.
 
-I was thinking people may not know that 'sc' is the Shared Cache. I
-probably should have shortend the comment to 'Ascalon Shared Cache'.
-Anyways, I can drop it.
 
-Thanks,
-Drew
+Or call the device "ascalon-shared-cache-controller"!
 
---+0HGToKbj2BaC/Io
-Content-Type: application/pgp-signature; name="signature.asc"
+--fQnCqX8ZQXXtFFbN
+Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaj6jIAAKCRDb7CzD2Six
-DDeVAP4vM3GolJCGac4uVQXKOv97J+exeAUD6SDerZ7kBTnOHwEA/LLJW1DYXrzT
-s/QHLT4rwkG8YmW8CkD6ac5wfPrwywc=
-=TTDz
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj6kFQAKCRB4tDGHoIJi
+0ngnAP4+tZ3gpzZDlXPPujWnhu7Hv/STeRXLHNaHQpmbLVywZQD/fdcUyQlrk7zr
+qDRq2QQ5uj/CfqxhWarfWX1g1+enBwE=
+=RBQ8
 -----END PGP SIGNATURE-----
 
---+0HGToKbj2BaC/Io--
+--fQnCqX8ZQXXtFFbN--
 
 
---===============5215075379687189602==
+--===============6996208715113793364==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -208,5 +211,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5215075379687189602==--
+--===============6996208715113793364==--
 
