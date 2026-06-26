@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DB3CDE008
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10AB9CDE012
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VLm1iGlRxgus0ikReRWXXaSufRoy8CeWj7qiDh0jJz4=; b=BwVxSLbZQyMBMP
-	0QqwCd2sJxfEj+7MZxwvLohnRhudnMAzuPJc9bg5GlIiorq2FfAG2sGjlMBjEraMv4j9pEuieGizA
-	76yjwJ1amsdj434TW9/suSgpcqWGDb7PwjuIC331rw16WtfVURe3nXNS4PQFY8OYqOHGCvVkAPTlq
-	zIO9PloSDvPjrjevQ4DdFaQICGOBdUUieYi8u7d1/g9Dy+jwyokGdm1UJen/eIfzV9JaTJIXMA3o7
-	d4AbY2inR+YG48Gqxb9RMoWnbcda2eg6KhTRdqYMsjMOe/yCvbQiYfpnPWaKHQwEf9KFJcwxDGE6T
-	PcsPel++qR32KTj0n2FQ==;
+	List-Owner; bh=XG2GKW3eXkskfmyyFraqzQLJUPe4s06RHGXuV4/pO3M=; b=1/5PpdHMgfN547
+	GhVOLAVfuKTVualbv1VMwqFn7E7+tedCgOI9NBCn2GNKyiCo8ksQT0dKSdrxrl0bZC6Q7onyV70H8
+	F7Jrr+qlZcgVO47YPGL//CeeNvfh2P7h+w+FRwhQKk5+LAKW6tuc8GYqqhAb7amn+QhfRLlMhkxH1
+	nihKZYXQRe1i/vcJr3zbOp9//MmdcZeGBgpwj3XovbWwZyRA9EDBAeIgkJcEcczLT2RG4+nSDuGIt
+	DxN38fJlqj8TJmTHSwTAapeMpcDFKSwP5rEt0pjxLWAVitFG80Ux0lTaJRnDYPLjzLx4UJhC/0A81
+	kkFC7glS/itRYW9Xy1Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oM-0000000An9R-32Iz;
-	Fri, 26 Jun 2026 08:21:18 +0000
+	id 1wd1oO-0000000AnEC-2gRk;
+	Fri, 26 Jun 2026 08:21:20 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oI-0000000An4U-4ARB;
-	Fri, 26 Jun 2026 08:21:15 +0000
+	id 1wd1oM-0000000An9Z-44Y1;
+	Fri, 26 Jun 2026 08:21:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8306342A91;
-	Fri, 26 Jun 2026 08:21:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE0C1F00A3D;
-	Fri, 26 Jun 2026 08:21:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B21FF40A8E;
+	Fri, 26 Jun 2026 08:21:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 946431F00A3F;
+	Fri, 26 Jun 2026 08:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462074;
-	bh=wplAzzEOm+Q0aPWW11dYgrqvd6iKQve3ErEDf2HUUMo=;
+	s=k20260515; t=1782462078;
+	bh=JI0GxwAojLxKVFwlEOU4ZPICdfzGKw9cICvZEMficB8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=EZC15R2pBfNIFs+6rNdwmk9jGSf+WvK+9KJt09+nK428GCipOT/5kpz/PdSAOO1X7
-	 +3IhCzrKGed9ZgatfgLQfuHqxn09xGLHyOqbGUsEJrAPzdOx/g11diX3oZ1b7fiBeg
-	 7pZhSn30yIO3XjwIdUAJGFIRcRozxroD6Oe7z1JO0za+TopjVP8RWYwKdNjlS6ISIQ
-	 ovP7Hl1jhB2b7xBzCgHx8V2v7/0H0a5hbbI8M3AQs7ATgJsoWRZLex4hhvsYzfv/uz
-	 gw/EOH7s4FxzBBa4RDMTF7I/hZ5AkETfNvj3WPJtj2JySlsDNeuOzv64uUofVexJAa
-	 cSRnp7C94e8yA==
+	b=I6xKGOM7/fsBQEKDF7dia1uD6RiDe1aFMJruUQis5I9vTwn0YNsK6D2SxTFHivvxq
+	 pDeY0fVr1TMG85kvEefOc2/Vg0HbxreL9gDXLR/3h2OTYwBiCgvSeaw5te5ws9XInA
+	 ExQiy0LqB1rnjTl1mIz2cN70ybxsPI42URHmE0C18xvjsF11jnSybCBFtaLVfNAkum
+	 6CM40mcgNBrrUxIyXmAnVmIUKGmJ/gkJpXB+q7zpcja89npZZxT78x0QsiUSzLJv5C
+	 37zTEizn9T1NYR2iBPbbsxPxR+Ra20Y2yvc+9mP23hgcK69ElukKON03y3j6XmQoN9
+	 j/bhWMw9cnrsA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 9ABD739389E8;
-	Fri, 26 Jun 2026 08:21:02 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D09BA39389E8;
+	Fri, 26 Jun 2026 08:21:06 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 1/7] perf unwind: Refactor get_entries to allow dynamic
- libdw/libunwind selection
+Subject: Re: [PATCH] RISC-V: KVM: Fix invalid HVA warning in steal-time
+ recording
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246206150.3816447.6305387305041749998.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:21:01 +0000
-References: <20260513233151.572332-2-irogers@google.com>
-In-Reply-To: <20260513233151.572332-2-irogers@google.com>
-To: Ian Rogers <irogers@google.com>
-Cc: linux-riscv@lists.infradead.org, acme@kernel.org, adrian.hunter@intel.com,
- dapeng1.mi@linux.intel.com, james.clark@linaro.org, namhyung@kernel.org,
- florian.fainelli@broadcom.com, guanli.oerv@isrc.iscas.ac.cn,
- 9erthalion6@gmail.com, alex@ghiti.fr, alexander.shishkin@linux.intel.com,
- andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
- howardchu95@gmail.com, john.g.garry@oracle.com, jolsa@kernel.org,
- leo.yan@linux.dev, libunwind-devel@nongnu.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, mingo@redhat.com, palmer@dabbelt.com,
- peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com,
- tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org
+Message-Id: <178246206549.3816447.5536790669750884836.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:21:05 +0000
+References: <20260415075216.2757427-1-xujiakai2025@iscas.ac.cn>
+In-Reply-To: <20260415075216.2757427-1-xujiakai2025@iscas.ac.cn>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, ajones@ventanamicro.com, anup@brainfault.org,
+ atish.patra@linux.dev, palmer@dabbelt.com, pjw@kernel.org,
+ jiakaiPeanut@gmail.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +76,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
+This patch was applied to riscv/linux.git (fixes)
+by Anup Patel <anup@brainfault.org>:
 
-On Wed, 13 May 2026 16:31:45 -0700 you wrote:
-> Currently, both libdw and libunwind define 'unwind__get_entries'. This
-> causes a duplicate symbol build failure when both are compiled into
-> perf.
+On Wed, 15 Apr 2026 07:52:16 +0000 you wrote:
+> kvm_riscv_vcpu_record_steal_time() assumes that the steal-time shared
+> memory GPA (vcpu->arch.sta.shmem) is always backed by a valid guest
+> memory slot. However, this assumption is not guaranteed by the KVM
+> userspace ABI.
 > 
-> This commit refactors the DWARF unwind post-processing to be
-> configurable at runtime via the .perfconfig file option
-> 'unwind.style', or using the argument '--unwind-style' in the commands
-> 'perf report', 'perf script' and 'perf inject', in a similar manner to
-> the addr2line or the disassembler style.
+> A malicious or buggy userspace can set the STA shared memory GPA via
+> KVM_SET_ONE_REG without establishing a corresponding memory region via
+> KVM_SET_USER_MEMORY_REGION. In such cases, the GPA cannot be translated
+> to a valid HVA and kvm_vcpu_gfn_to_hva() returns an error address.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v5,1/7] perf unwind: Refactor get_entries to allow dynamic libdw/libunwind selection
-    (no matching commit)
-  - [v5,2/7] tools build: Deduplicate test-libunwind for different architectures
-    https://git.kernel.org/riscv/c/6d13d53be9dd
-  - [v5,3/7] perf build: Be more programmatic when setting up libunwind variables
-    https://git.kernel.org/riscv/c/444508cd7c7b
-  - [v5,4/7] perf unwind-libunwind: Make libunwind register reading cross platform
-    (no matching commit)
-  - [v5,5/7] perf unwind-libunwind: Move flush/finish access out of local
-    https://git.kernel.org/riscv/c/2723e9f8b5cf
-  - [v5,6/7] perf unwind-libunwind: Remove libunwind-local
-    (no matching commit)
-  - [v5,7/7] perf unwind-libunwind: Add RISC-V libunwind support
-    https://git.kernel.org/riscv/c/834c557167a9
+  - RISC-V: KVM: Fix invalid HVA warning in steal-time recording
+    https://git.kernel.org/riscv/c/653f17c74260
 
 You are awesome, thank you!
 -- 
