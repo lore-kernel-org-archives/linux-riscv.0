@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964EECD4F26
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA46BCD4F26
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sHyp86DlmvNCVKq1hQ2J3yKE+Ab1UepspvuCI6vqDec=; b=g4KKaO4+txYUaO
-	1NcHvk2/GE6Gq/9kBbMQU8H1bERIuCjTcknkGkpOZdIL1R5G9SFhElwI/3X5agLwITmGjnK4AYKj+
-	ecxPPSGu7d82VkWt6yy5ZTJbKI31XktFjNJbObqd1+TIkPH/ODc40z+g8LlbFq5b6UBkMR82jML6P
-	ILzASK4sZzK7SXXOAUY9W3f1Og5Kf2jtHQsTajILrGJ+UU6svlkTrNL4Xna0P4NIHA9HGTdjEQSnA
-	p6Lgfb+7rHqWI6ib5sYkey9fDza1myX5Nt0hwB8xWI+u4/oQJ+MArcAZNnU3YyW8k54jMgD92S3fR
-	XqxjzAq0YJ8PueV9GlJg==;
+	List-Owner; bh=qKOKaGLfeDtxMRhJI3ILFA6MJBx7qP757qm5c0/cwi0=; b=L5NxYLFJa9/fQA
+	I6krs/VQ6o2IVIqxiYINy2rUA8RpRvK89fLpTf81iyI2iGbx9Y5lkV1ps5ezSXXlusJT61jEqhW36
+	zwG7B97EaXPcBVjugppr3LE3HXKm/hh1RGAR1Cx/VnynhGnKP1e2+c/Mvu0y1RG5qwb+apYu7iUQ+
+	uClUmA3SFiJQWeJWlicfjjd+yQlJ7BwqYwxDvlhKSnkhV1kwn74EeDmYew5ExWRRJDZNyJXAaCtTx
+	yRAXLCa0Jxoi9BERRidPAvRp4ZCnPObTlBh/z8DezqK8LihywG295UdwGWLFOEJoRk9aiqlQGpyH+
+	j2gJitEMe21FEfSaGQCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1pD-0000000Ap0P-0gS4;
-	Fri, 26 Jun 2026 08:22:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wd1qM-0000000AqIV-0JOa;
+	Fri, 26 Jun 2026 08:23:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1ov-0000000AoIf-1xoO;
-	Fri, 26 Jun 2026 08:21:53 +0000
+	id 1wd1qH-0000000AqCV-3S6l;
+	Fri, 26 Jun 2026 08:23:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 085944430E;
-	Fri, 26 Jun 2026 08:21:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBDAC1F00A3A;
-	Fri, 26 Jun 2026 08:21:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D242560122;
+	Fri, 26 Jun 2026 08:23:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50D041F000E9;
+	Fri, 26 Jun 2026 08:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462112;
-	bh=7N6xFs6HldNaJtHXB+1so7kMQ4CsatgFOfKvzUpfQ6c=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=DLkaMOoe7jjLq0zrWVM7g5T3weWBVn0GKvdUrsWL1NS6Qs/YGb/jSI/OCz0xvfzqS
-	 Qaym8bn+YQ7Yv3mFvqa3JZPMQyeTT1JkI61/DRV2mqoJOQ6RCZahCcrN/sZ0P41GxN
-	 lQMkVEyzffwbljfjI4cRAmJFH6TA/MXXocYqdJ0r2fyaFbY7MUFYbzOT2mQ1bO9ESQ
-	 aXENlZ4+KidZLyWpFEQCN/4TQ2SdvjPzYQw0gZqKyFHWnTN9MR5o7FqI9NLTieKhiJ
-	 eEE7hw/g70YQVjdOMlBaDUGyYwudw/LY4An0H/3ioGWkJoeS59H947CE7rYTKgUHWr
-	 baMoIKRFCt04w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 199D639389E8;
-	Fri, 26 Jun 2026 08:21:41 +0000 (UTC)
+	s=k20260515; t=1782462196;
+	bh=BmCZQsSXsYfJR1VBDG7KzxqBWjPcEA12Brcw1hCcOr4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Q0iz61wX8mF1P/AT5iS0RguEKJoHnJbaf7dG2Xaw/wVTBi4SxVOBIVG9crP2DYbSS
+	 9B5P3SKEr70iokd3WQ+CCaYah+LPidn/GAJZipn4uhCWTywct1mVsz3YZ/ftCiTQrE
+	 qIKkvlTg8Pcl/XL4UTF/vAUtFR5Hf2bQTiCbSFFd3gE54FeQAVMkILpX728AtqliRP
+	 9e4GR/CJT3k+Jc+rLFHTS9efO5Exl1wE+5HVjEfsZQBkSR7kbXAmF71M2tvjQui4IF
+	 S6ag1cun9+W4Xim0JhLSIlJgXd4VVCduvxBVUGsqrgxZsPOvLnnwFdNX8U6/QzpZig
+	 6wlgRknzBcAQg==
+Date: Fri, 26 Jun 2026 11:23:05 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Sang-Heon Jeon <ekffu200098@gmail.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Alexander Potapenko <glider@google.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	WANG Xuerui <kernel@xen0n.name>
+Subject: Re: [PATCH 0/6] treewide: remove unnecessary invalid range checks in
+ memblock iteration loops
+Message-ID: <aj426bA-YiOKt06m@kernel.org>
+References: <20260621145919.1453-1-ekffu200098@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 0/9] driver core: Fix some race conditions
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246209959.3816447.5329631417058038374.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:21:39 +0000
-References: <20260406232444.3117516-1-dianders@chromium.org>
-In-Reply-To: <20260406232444.3117516-1-dianders@chromium.org>
-To: Doug Anderson <dianders@chromium.org>
-Cc: linux-riscv@lists.infradead.org, gregkh@linuxfoundation.org,
- rafael@kernel.org, dakr@kernel.org, stern@rowland.harvard.edu, aik@ozlabs.ru,
- johan@kernel.org, edumazet@google.com, leon@kernel.org, hch@lst.de,
- robin.murphy@arm.com, maz@kernel.org, aleksander.lobakin@intel.com,
- saravanak@kernel.org, akpm@linux-foundation.org, Frank.Li@kernel.org,
- jgg@ziepe.ca, alex@ghiti.fr, alexander.stein@ew.tq-group.com,
- andre.przywara@arm.com, andrew@codeconstruct.com.au, andrew@lunn.ch,
- andriy.shevchenko@linux.intel.com, aou@eecs.berkeley.edu, ardb@kernel.org,
- astewart@tektelic.com, bhelgaas@google.com, brgl@kernel.org,
- broonie@kernel.org, catalin.marinas@arm.com, chleroy@kernel.org,
- davem@davemloft.net, david@kernel.org, devicetree@vger.kernel.org,
- dmaengine@vger.kernel.org, driver-core@lists.linux.dev, gbatra@linux.ibm.com,
- gregory.clement@bootlin.com, hkallweit1@gmail.com, iommu@lists.linux.dev,
- jirislaby@kernel.org, joel@jms.id.au, joro@8bytes.org, kees@kernel.org,
- kevin.brodsky@arm.com, kuba@kernel.org, lenb@kernel.org, lgirdwood@gmail.com,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-cxl@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-usb@vger.kernel.org,
- linux@armlinux.org.uk, linuxppc-dev@lists.ozlabs.org,
- m.szyprowski@samsung.com, maddy@linux.ibm.com, mani@kernel.org,
- miko.lenczewski@arm.com, mpe@ellerman.id.au, netdev@vger.kernel.org,
- npiggin@gmail.com, osalvador@suse.de, oupton@kernel.org, pabeni@redhat.com,
- palmer@dabbelt.com, peter.ujfalusi@gmail.com, peterz@infradead.org,
- pjw@kernel.org, robh@kernel.org, sebastian.hesselbarth@gmail.com,
- tglx@kernel.org, tsbogend@alpha.franken.de, vgupta@kernel.org,
- vkoul@kernel.org, will@kernel.org, willy@infradead.org,
- yangyicong@hisilicon.com, yeoreum.yun@arm.com
+Content-Disposition: inline
+In-Reply-To: <20260621145919.1453-1-ekffu200098@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +85,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to riscv/linux.git (fixes)
-by Danilo Krummrich <dakr@kernel.org>:
-
-On Mon,  6 Apr 2026 16:22:53 -0700 you wrote:
-> The main goal of this series is to fix the observed bug talked about
-> in the first patch ("driver core: Don't let a device probe until it's
-> ready"). That patch fixes a problem that has been observed in the real
-> world and could land even if the rest of the patches are found
-> unacceptable or need to be spun.
+On Sun, Jun 21, 2026 at 11:59:10PM +0900, Sang-Heon Jeon wrote:
+> The memblock API guarantees that for_each_mem_range() and
+> for_each_mem_pfn_range() never return an invalid range, meaning start is
+> always less than end.
 > 
-> That said, during patch review Danilo correctly pointed out that many
-> of the bitfield accesses in "struct device" are unsafe. I added a
-> bunch of patches in the series to address each one.
+> Several memblock callers still have unnecessary invalid range checks in
+> their loop bodies, so remove them.
 > 
-> [...]
+> Sang-Heon Jeon (6):
+>   arm64: mm: remove unreachable invalid range check in
+>     kasan_init_shadow()
+>   LoongArch: remove unreachable invalid range check in kasan_init()
+>   riscv: remove unreachable invalid range check in
+>     create_linear_mapping_page_table()
+>   riscv: remove unreachable invalid range check in kasan_init()
+>   mm: remove unnecessary empty range check in
+>     early_calculate_totalpages()
+>   mm/hugetlb: remove unnecessary empty range check in
+>     hugetlb_bootmem_set_nodes()
 
-Here is the summary with links:
-  - [v5,7/9] driver core: Replace dev->dma_coherent with dev_dma_coherent()
-    https://git.kernel.org/riscv/c/3e2c1e213ac2
+I queued this for inclusion into memblock tree.
 
-You are awesome, thank you!
+>  arch/arm64/mm/kasan_init.c     | 3 ---
+>  arch/loongarch/mm/kasan_init.c | 3 ---
+>  arch/riscv/mm/init.c           | 2 --
+>  arch/riscv/mm/kasan_init.c     | 3 ---
+>  mm/hugetlb.c                   | 3 +--
+>  mm/mm_init.c                   | 3 +--
+>  6 files changed, 2 insertions(+), 15 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
