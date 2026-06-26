@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D7ECD4F26
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 07:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA26CDE008
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 07:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfHXOwkpemeiCH4CpjtOF0NMG3PYaRBfzN79uTzdIWw=; b=dECZ/41Jc3O2N88ZKBzE/BP624
-	YssN6FI9W25o7nW6IVPhJacdzXm6bM91Izl8FzFg+fc6lbEzRVhwtsar65Ik+uPZB6MzkPKNdqJ+k
-	QwqCfi/8FBumaT1vTBE5OISW/7nmbmqdtWcv7tpkblYHYjotttcGuJmhD0so1VqCEQa9iqVvp1gWb
-	cQ7c47u1Q44NBgsJcOgXp8J0wBBn9CPQ+Z0of4lWDNj7Pc8iY6THS/WWLKnfaA/bCfoKOuNn2Fvju
-	VadDOWw828fSTKxDFdvqLlwCg1aFgPMfVNSsSzVMM0ACMRknA0Fox/8Sf5dry61T2t7MEuYXKZwNS
-	ZMRYP3iQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sDha5+ibYOQFtR/MPgESAtnu/AJeSJGwcmiQKdiddJA=; b=s9Ungu/JmwzqB6
+	zDx2fGbY+hu6XdBJ78x9nDZzr1xOoQPgqiyJs6pnu11U7V5rZY39eO/RJE4dmigrk0W47djhGN2qq
+	bZo4ZQhB+VFbA6UK+0aF56g4VCB3LIXhorX2P0ilFZ/F/TP/+Oc9yTsZqllHYpiyoV1U7sScTf9KY
+	oH7c0RE0wQosSzt2JyoLLVvB45Jc4VAvuzgovxARI9fG4pQYo5Jj0wjgIa5IXAt5FQ4f8akoaCGaL
+	CTYygAM9pH055JcVS5HtlO982CW7Ufw6QmMx6T7hCkJgQZWzJuWEFBFTskAxZGDYtE/zsY2ZGcyua
+	omKpj1LEux9QSxNVZ2rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0eD-0000000AeiD-2GkD;
-	Fri, 26 Jun 2026 07:06:45 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wd1CJ-0000000Agvj-3st6;
+	Fri, 26 Jun 2026 07:41:59 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0eB-0000000Aehf-1pDI
+	id 1wd1CH-0000000Agux-1G09
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 07:06:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782457603; x=1813993603;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Q6TSkhAwHbrRrlVeKLvyFK7kis+EXROzBuAhwrXsm1A=;
-  b=rPcOutskK2qBUgi3A1xPKAbq3HL+GCneDbejuJk0pmPQNOLgqey3geOu
-   nnAlCf+mDyUeRQQ7dHF3XjTAUwjVCLoQT77pT9ymLEuRsogmqmlO8JOBD
-   EqxdNUbJyffegmHMuFUsuzOV+pkZFQylKR0V+NLoIFknY4QiBTqUdIIIs
-   kHC7VWb6d7us91U/Mj9gul0Lqk8sjiRviun2R2pFdD0ctBzllAH/RMF1E
-   16tcrEk1rrbsXflKXnrgeAnx+Z6IKqxAiTwZ95q0RfPFGHuMkVJX9FH6g
-   /bfThyzm5yV8Q3r+KMuKaZ7QH/ZbU2DW2BbRcj1hdTEsodCMAghXyFKvk
-   Q==;
-X-CSE-ConnectionGUID: /GQ3EulbTj6IbgSDqeCoXg==
-X-CSE-MsgGUID: 3MEMN4EYT4qabeMmfoBJEQ==
-X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
-   d="asc'?scan'208";a="68924617"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Jun 2026 00:06:41 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 26 Jun 2026 00:06:41 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 26 Jun 2026 00:06:37 -0700
-Date: Fri, 26 Jun 2026 08:05:47 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Yulin Lu <luyulin@eswincomputing.com>
-CC: Conor Dooley <conor@kernel.org>, Pinkesh Vaghela
-	<pinkesh.vaghela@einfochips.com>, Lee Jones <lee@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Min Lin
-	<linmin@eswincomputing.com>, Samuel Holland <samuel.holland@sifive.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>, Pritesh Patel
-	<pritesh.patel@einfochips.com>
-Subject: Re: Re: [PATCH 3/7] riscv: dts: eswin: eic7700: add pinctrl support
-Message-ID: <20260626-headway-rewind-93c9239bd865@wendy>
-References: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
- <20260615122016.1110206-4-pinkesh.vaghela@einfochips.com>
- <20260615-that-scarf-e048ef152676@spud>
- <55962658.7bea.19f02850fe2.Coremail.luyulin@eswincomputing.com>
+	Fri, 26 Jun 2026 07:41:58 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782459715;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZjrjzY1Mz4M7W7+mH6SFfvv5SyOtbQWDc5tfJ0WRI/Q=;
+	b=ZVGM5QZw9KCXdT0Cf6on+p+YGML7b4zbyU0Yb974g9K2U1C7zHhVcgPPibiDNELVYKIfaD
+	8CcTdiD+WTeRDscyJ+sXWtyLPSK9/zvbZoQnRYby9q0BWeVthOl78i3162b/uiMxQphOXQ
+	VBm+i0zW6umWmUkkKsQK/eDgP7VDUON/solg8EeBpzKoSRfH56GiQjR4mwfj8r8UOsKp1d
+	Ab81hn9WvL02LVcbHgOhJgIK78CEORwqEpGU16NGekxZt45+Z/AKcGY9NGzPmdqlXbN2rR
+	ug4JFmztIoOJkcI7gVDqDj8OSRkwR/dosufAqeV89z29sZcNJm1z/GVKZGcLDA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782459715;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZjrjzY1Mz4M7W7+mH6SFfvv5SyOtbQWDc5tfJ0WRI/Q=;
+	b=MujXDXRMGSDVucDnztmf/AbszPzXcOcDKQNVn41vDWFHKrg/u2Js3lyDCt8paFE0Uy1pwE
+	3YAI6uaKuG7/liCQ==
+To: Xiaofeng Yuan <xiaofengmian@163.com>, pjw@kernel.org
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Xiaofeng
+ Yuan <xiaofengmian@163.com>
+Subject: Re: [PATCH v3] riscv: probes: simulate c.jal instruction
+In-Reply-To: <20260626062228.54873-1-xiaofengmian@163.com>
+References: <20260626062228.54873-1-xiaofengmian@163.com>
+Date: Fri, 26 Jun 2026 09:41:54 +0200
+Message-ID: <87echtiw8t.fsf@yellow.woof>
 MIME-Version: 1.0
-In-Reply-To: <55962658.7bea.19f02850fe2.Coremail.luyulin@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_000643_596138_D90B1A84 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20260626_004157_507829_C47E47EB 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,192 +72,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4190442279265192838=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4190442279265192838==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="aDbbMfndEwAtqwoN"
-Content-Disposition: inline
+Xiaofeng Yuan <xiaofengmian@163.com> writes:
+> diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+> index 65d9590bf..8506470e9 100644
+> --- a/arch/riscv/kernel/probes/decode-insn.c
+> +++ b/arch/riscv/kernel/probes/decode-insn.c
+> @@ -29,7 +29,7 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
+>  	 * TODO: the REJECTED ones below need to be implemented
+>  	 */
+>  #ifdef CONFIG_RISCV_ISA_C
+> -	RISCV_INSN_REJECTED(c_jal,		insn);
+> +	RISCV_INSN_SET_SIMULATE(c_jal,		insn);
+>  	RISCV_INSN_REJECTED(c_ebreak,		insn);
 
---aDbbMfndEwAtqwoN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Nit: move this RISCV_INSN_SET_SIMULATE down to be with the others.
 
-On Fri, Jun 26, 2026 at 02:01:42PM +0800, Yulin Lu wrote:
-> Hi, Conor. Thanks for your review.
->=20
-> > On Mon, Jun 15, 2026 at 05:50:12PM +0530, Pinkesh Vaghela wrote:
-> > > From: Yulin Lu <luyulin@eswincomputing.com>
-> > >=20
-> > > Add pinctrl node and related pin configuration for EIC7700 SoC
-> > >=20
-> > > Co-developed-by: Pritesh Patel <pritesh.patel@einfochips.com>
-> > > Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
-> > > Signed-off-by: Yulin Lu <luyulin@eswincomputing.com>
-> > > Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-> > > ---
-> > >  .../dts/eswin/eic7700-hifive-premier-p550.dts | 109 +++
-> > >  .../riscv/boot/dts/eswin/eic7700-pinctrl.dtsi | 888 ++++++++++++++++=
-++
-> > >  arch/riscv/boot/dts/eswin/eic7700.dtsi        |   5 +
-> > >  3 files changed, 1002 insertions(+)
-> > >  create mode 100644 arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
-> > >=20
-> > > diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dt=
-s b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-> > > index 1fb92f0e7c55..e7bb96e14958 100644
-> > > --- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-> > > +++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-> > > @@ -6,6 +6,7 @@
-> > >  /dts-v1/;
-> > > =20
-> > >  #include "eic7700.dtsi"
-> > > +#include "eic7700-pinctrl.dtsi"
-> > > =20
->=20
-> ...
->=20
-> > > +&gpio79_pins {
-> > > +	bias-disable;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&gpio80_pins {
-> > > +	bias-pull-up;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&gpio82_pins {
-> > > +	bias-pull-up;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&gpio84_pins {
-> > > +	bias-disable;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&gpio85_pins {
-> > > +	bias-pull-up;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&gpio94_pins {
-> > > +	bias-disable;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&gpio106_pins {
-> > > +	bias-disable;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&gpio111_pins {
-> > > +	bias-disable;
-> > > +	input-disable;
-> > > +};
-> > > +
-> > > +&pinctrl {
-> > > +	vrgmii-supply =3D <&vcc_1v8>;
-> > > +};
-> > > +
-> > >  &uart0 {
-> > >  	status =3D "okay";
-> > >  };
-> > > diff --git a/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi b/arch/ri=
-scv/boot/dts/eswin/eic7700-pinctrl.dtsi
-> > > new file mode 100644
-> > > index 000000000000..7293df146aa7
-> > > --- /dev/null
-> > > +++ b/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
-> > > @@ -0,0 +1,888 @@
-> > > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> > > +/*
-> > > + * Copyright (c) 2025 Beijing ESWIN Computing Technology Co., Ltd.
-> > > + *
-> > > + * ESWIN's EIC7700 SoC pin-mux and pin-config options are listed as
-> > > + * device tree nodes in this file.
-> > > + *
-> > > + * Authors: Yulin Lu <luyulin@eswincomputing.com>
-> > > + */
-> > > +
-> >=20
-> > I don't really understand the groups here. I think you should make more
-> > effort to put more pins in each group.
-> >=20
-> > > +		gpio1_pins: gpio1-pins {
-> > > +			pins =3D "jtag0_tck";
-> > > +			function =3D "gpio";
-> > > +		};
-> > > +
-> > > +		gpio2_pins: gpio2-pins {
-> > > +			pins =3D "jtag0_tms";
-> > > +			function =3D "gpio";
-> > > +		};
-> > > +
-> > > +		gpio3_pins: gpio3-pins {
-> > > +			pins =3D "jtag0_tdi";
-> > > +			function =3D "gpio";
-> > > +		};
-> > > +
-> > > +		gpio4_pins: gpio4-pins {
-> > > +			pins =3D "jtag0_tdo";
-> > > +			function =3D "gpio";
-> > > +		};
-> >=20
-> > Like these 4 for example, why not group these?
->=20
-> The 'group' is used to correspond to the '-grp' tag in the YAML file and
-> has no practical significance.
-> Different board designs have different requirements for pin multiplexing.
-> Therefore, eic7700-pinctrl.dtsi only provides pins for the board-level DT=
-S.
-> Pins are combined and used in the board-level DTS via pinctrl-0 property.
+>  	RISCV_INSN_SET_SIMULATE(c_j,		insn);
+> diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+> index fa581590c..6d7a5f949 100644
+> --- a/arch/riscv/kernel/probes/simulate-insn.c
+> +++ b/arch/riscv/kernel/probes/simulate-insn.c
+> @@ -163,6 +163,14 @@ bool __kprobes simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs
+>  	return true;
+>  }
+>  
+> +bool __kprobes simulate_c_jal(u32 opcode, unsigned long addr, struct pt_regs *regs)
+> +{
+> +	if (!rv_insn_reg_set_val(regs, 1, addr + 2))
+> +		return false;
 
-These 4 pins in the driver are represented as:
-	EIC7700_PIN(14,  "jtag0_tck",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
-IO),
-	EIC7700_PIN(15,  "jtag0_tms",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
-IO),
-	EIC7700_PIN(16,  "jtag0_tdi",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
-IO),
-	EIC7700_PIN(17,  "jtag0_tdo",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
-IO),
+rv_insn_reg_set_val() is a helper to change a register by index. But
+it's always RA in this case, so I think it's much clearer to simply:
 
-	EIC7700_PIN(18,  "gpio5",		[0] =3D F_GPIO, [1] =3D F_SPI),
+	regs->ra = addr + 2;
 
-There is no reason to ever partially use these as GPIO. Either they will
-be all jtag, all spi or all gpio. pin 18 on the other than makes sense to h=
-ave
-in a dedicated group.
+(with the two above suggested changes, the patch would look identical to
+a patch I have but I forgot to send, and I would be able to give my
+Tested-by tag without additional effort from me :D)
 
---aDbbMfndEwAtqwoN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj4kxgAKCRB4tDGHoIJi
-0uWgAP9MLg+ojETD3FuiTsRUkk5ATP6ZfKsZAJ4QcHiN+Tf9gQD/TVUs2J/JJ6AD
-cXNfjBYkM36WAGLQJQjJlWUPsvF2vg0=
-=PeyA
------END PGP SIGNATURE-----
-
---aDbbMfndEwAtqwoN--
-
-
---===============4190442279265192838==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Nam
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4190442279265192838==--
-
