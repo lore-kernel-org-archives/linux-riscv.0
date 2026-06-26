@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C10AECDE017
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71057CDE012
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1nIDW9DAsXG+3h36tMIGDvSuL6HRlg1QylW6oe9U8qE=; b=pBhPJUFv7SWzYB
-	KLO0v7fVU3YjJKG8INVPGuh6/xz84es5BvxBKZFTa0uKyzdlo4w0Uwe+UOlUB9Xls8/zyY/vO5fVz
-	EbLMGoFLhN+IbfTpQFLYNASayubPgOH0HLicBblxRlQTII/sh6y1zBNFHfC+4kEmAKZkLG+y1eLrH
-	R9JuwDqPgpk1lflU/QTtcjEswV3aIvpiuylyM96fd2rDw1edIyLTbSwhVigKuudRYsTK02dA8nZ+9
-	+J3l6gTwyrTSxgfzP7fkpAgjoRSqoZIsA8abch7k77M2T928ZLE9t+c0j6H5OA95ZSux+vXL8Dw5V
-	iuygVkPmyEeQMngEXNwQ==;
+	List-Owner; bh=mzK1c752wqWCsflyX3iEVMX/EppipYzXCJ7fHl6qooE=; b=j5E16miBPWuCJu
+	KbplGgLQOkxaKpBAd2cCyM14v0ENYLJ7kHB711Of8YNYBprUhh5w+JQy0SikbC2hPwiP5+EKgIGRW
+	/wEME0quC3OYFJWRdoOXraRQjYeR3NhlOPxMNxZlHdbvSPPgOUe9HWnJBuOysWRuoDpZ34VF/HFih
+	zJuzvphfDyKnbj+lb0lsk0PcVhEdvYrTNClLUihztk0lfkHR9Mx9LfGVchmwm+WgGQwqrxThSXhD3
+	w93UJNtwzq+ENjsjG5Bh1g0KviNzInmJpVtRzFs6NIGtEvM803yNI8c75VfTd4/mAV00/AFVWDEQA
+	hEf3JCUHAL4DHc57i2PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oE-0000000Amz5-0DoV;
-	Fri, 26 Jun 2026 08:21:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wd1oH-0000000An2g-1aiy;
+	Fri, 26 Jun 2026 08:21:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oC-0000000AmyC-4BZ6
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 08:21:09 +0000
+	id 1wd1oF-0000000An0H-1hx5;
+	Fri, 26 Jun 2026 08:21:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B05134430E;
-	Fri, 26 Jun 2026 08:21:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9248D1F00A3A;
-	Fri, 26 Jun 2026 08:21:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6FE59600AE;
+	Fri, 26 Jun 2026 08:21:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1993C1F00A3A;
+	Fri, 26 Jun 2026 08:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462068;
-	bh=9yhOZy5GJQAalKGlzlvL465nKcnZT4DpOJCZVNWObBo=;
+	s=k20260515; t=1782462070;
+	bh=mKdovRIrKfyxu635TzziBG37YLmIxh49GjmLAgAIHUg=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=BkkwnSbVZIOGwdRlHQR/f1QeQjTqEJaQo9coWUy9UuFQRz9cRwupu06CuJ0VGMNq2
-	 SK5isISj6BK9Ivwd51tlghRPoYphX3Hx79RhhdwQ8MZL34PjciRejwpv/TnENIdV6B
-	 nMKr3ZKXVuqtbOshnOOxU16TFeWS6KOWuCvyyecpRdIgwnP+IMst48t1MF+J1NCn4r
-	 f6uP5tcQpJlH+QHTcqYAfc4QsjictlwRxuGyUmWHY95lXCkUXdoWSY5u8hilxJAf99
-	 MEfkykbMHA4r2ruEPKIFgQBaKZ3uFkNFOW/QUJuNUmf+ybIv7s59fvzFJEFC0Tb5lq
-	 O7u7VriUHWElg==
+	b=oEW0CG/94G+fLSDLCrwsou32pQbWB6aRMjW87zHUXlLuzZy/K+I1NDQCu52QeCv+N
+	 0TPRnMW9bKrWxlzErKoh6Ecg83BOIz34dfafwUDpyS4WrAIzV9XM9DaMzJmeazcnfe
+	 gUXg2/NLVqviD9vIVFfepRpzSJ8k4Nn7zXmbkbKknP3/7bUrWk6ngWdpkmPqFQAU0z
+	 I5gzfoLdLWMLSFKa5DFSxK35JX+mSj0pTwSe4jpHtdfI5zxX7n7EX7oYXx7eVo+Q8E
+	 lmzcE1dniK06SAVV710pZ1FtvT+xV0UEHP2v9FGQvH7XiEITgiIpEdibHF3Xr4Hjoy
+	 cbujCc5RGAtIQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0A2639389E8;
-	Fri, 26 Jun 2026 08:20:56 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5697639389E8;
+	Fri, 26 Jun 2026 08:20:58 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/3] vdso: Drop GENERIC_TIME_VSYSCALL
+Subject: Re: [PATCH v1 0/6] power: Use named initializers for
+ platform_device_id
+ arrays
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246205554.3816447.6510487256526598897.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:20:55 +0000
-References: <20260519-vdso-generic_time_vsyscal-v1-0-5c2a5905d5f5@linutronix.de>
-In-Reply-To: <20260519-vdso-generic_time_vsyscal-v1-0-5c2a5905d5f5@linutronix.de>
-To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
- linux-kernel@vger.kernel.org, luto@kernel.org, vincenzo.frascino@arm.com
+Message-Id: <178246205698.3816447.10450599511697138681.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:20:56 +0000
+References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29_=3Cu=2Ekleine-koenig?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
+	=?utf-8?q?=40baylibre=2Ecom=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, sre@kernel.org, visitorckw@gmail.com,
+ bleung@chromium.org, groeck@chromium.org, linux@weissschuh.net,
+ krzk@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ hansg@kernel.org, m.szyprowski@samsung.com, sebastian.krzyszkowiak@puri.sm,
+ kernel@puri.sm, dlan@kernel.org, andreas@kemnade.info,
+ mazziesaccount@gmail.com, sven@kernel.org, j@jannau.net, neal@gompa.dev,
+ amitsd@google.com, samkay014@gmail.com, spacemit@lists.linux.dev,
+ asahi@lists.linux.dev, imx@lists.linux.dev, wens@kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,30 +77,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHNlcmllcyB3YXMgYXBwbGllZCB0byByaXNjdi9saW51eC5naXQgKGZpeGVz
-KQpieSBUaG9tYXMgR2xlaXhuZXIgPHRnbHhAa2VybmVsLm9yZz46CgpPbiBUdWUsIDE5IE1heSAy
-MDI2IDA4OjI2OjE0ICswMjAwIHlvdSB3cm90ZToKPiBUb2RheSBHRU5FUklDX1RJTUVfVlNZU0NB
-TEwgaXMgcmVhbGx5IG9ubHkgYSBwb2ludGxlc3MgZHVwbGljYXRlIG9mCj4gR0VORVJJQ19HRVRU
-SU1FT0ZEQVksIHJlbW92ZSBpdC4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBUaG9tYXMgV2Vpw59zY2h1
-aCA8dGhvbWFzLndlaXNzc2NodWhAbGludXRyb25peC5kZT4KPiAtLS0KPiBUaG9tYXMgV2Vpw59z
-Y2h1aCAoMyk6Cj4gICAgICAgcmlzY3Y6IHZkc286IERyb3AgQ09ORklHX0dFTkVSSUNfVElNRV9W
-U1lTQ0FMTCBndWFyZCBhcm91bmQgc3lzY2FsbCBmYWxsYmFja3MKPiAgICAgICB2ZHNvL3ZzeXNj
-YWxsOiBHYXRlIHVwZGF0ZV92c3lzY2FsbCgpIGJlaGluZCBDT05GSUdfR0VORVJJQ19HRVRUSU1F
-T0ZEQVkKPiAgICAgICB2ZHNvL3RyZWV3aWRlOiBEcm9wIEdFTkVSSUNfVElNRV9WU1lTQ0FMTAo+
-IAo+IFsuLi5dCgpIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAgLSBbMS8zXSByaXNj
-djogdmRzbzogRHJvcCBDT05GSUdfR0VORVJJQ19USU1FX1ZTWVNDQUxMIGd1YXJkIGFyb3VuZCBz
-eXNjYWxsIGZhbGxiYWNrcwogICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9yaXNjdi9jLzkxZDJh
-MWE5MTZhOQogIC0gWzIvM10gdmRzby92c3lzY2FsbDogR2F0ZSB1cGRhdGVfdnN5c2NhbGwoKSBi
-ZWhpbmQgQ09ORklHX0dFTkVSSUNfR0VUVElNRU9GREFZCiAgICBodHRwczovL2dpdC5rZXJuZWwu
-b3JnL3Jpc2N2L2MvYmY4Zjk2OGE2MzE1CiAgLSBbMy8zXSB2ZHNvL3RyZWV3aWRlOiBEcm9wIEdF
-TkVSSUNfVElNRV9WU1lTQ0FMTAogICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9yaXNjdi9jLzk2
-OTQyMDkyZDVlNgoKWW91IGFyZSBhd2Vzb21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRvb3QtZG90
-LCBJIGFtIGEgYm90LgpodHRwczovL2tvcmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29yay9wd2Jv
-dC5odG1sCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hello:
+
+This patch was applied to riscv/linux.git (fixes)
+by Sebastian Reichel <sebastian.reichel@collabora.com>:
+
+On Fri, 29 May 2026 12:18:15 +0200 you wrote:
+> Hello,
+> 
+> this series targets to use named initializers for platform_device_id
+> arrays. In general these are better readable for humans and more robust
+> to changes in the respective struct definition.
+> 
+> This robustness is needed as I want to do
+> 
+> [...]
+
+Here is the summary with links:
+  - [v1,4/6] power: Use named initializers for platform_device_id arrays
+    https://git.kernel.org/riscv/c/e28f7498dd81
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
