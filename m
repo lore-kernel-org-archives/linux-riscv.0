@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BFACDE008
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 06:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D7ECD4F26
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 07:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SxtNOhRHWSRXZWcASyvcTqPiU7zPoEJ7f6aqHpZ89lc=; b=q/QJMtY6lseAbu
-	HiWrn5k3ugSMp07ZYQjkjxuzWgj8yvatd0acKtQYikADPa8bOexCLhu8S88kylmiebB2aU2nObbwm
-	zTLa8/3DvUFx4zQJH0t9DuClLYA8A9yRPhedY8nB37pCBQW2TKHbjwgxYWEpVp3tPinbBUFUrLybe
-	n5WsoRwTO+GozLtFXeGURO2CRlFUH0tJFFPQwc3nh0BggFq/n5fBNPeEyBzDuTStfMq9cT69LcHfB
-	0Np4DBkDYJLPaW6j8fBDvvfKmReazjQ9MHe6iTbe6pwdw3d1gQjFzzruMzC8uceWn87LAoF0sxUhX
-	qjn67sHmktCm9vdR0n/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OfHXOwkpemeiCH4CpjtOF0NMG3PYaRBfzN79uTzdIWw=; b=dECZ/41Jc3O2N88ZKBzE/BP624
+	YssN6FI9W25o7nW6IVPhJacdzXm6bM91Izl8FzFg+fc6lbEzRVhwtsar65Ik+uPZB6MzkPKNdqJ+k
+	QwqCfi/8FBumaT1vTBE5OISW/7nmbmqdtWcv7tpkblYHYjotttcGuJmhD0so1VqCEQa9iqVvp1gWb
+	cQ7c47u1Q44NBgsJcOgXp8J0wBBn9CPQ+Z0of4lWDNj7Pc8iY6THS/WWLKnfaA/bCfoKOuNn2Fvju
+	VadDOWw828fSTKxDFdvqLlwCg1aFgPMfVNSsSzVMM0ACMRknA0Fox/8Sf5dry61T2t7MEuYXKZwNS
+	ZMRYP3iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0Gb-0000000Ac3j-1MLP;
-	Fri, 26 Jun 2026 06:42:21 +0000
-Received: from azure-sdnproxy.icoremail.net ([4.193.249.245])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0GZ-0000000Ac3E-08nT
+	id 1wd0eD-0000000AeiD-2GkD;
+	Fri, 26 Jun 2026 07:06:45 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd0eB-0000000Aehf-1pDI
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 06:42:20 +0000
-Received: from E0006800LT.eswin.cn (unknown [10.12.96.77])
-	by app1 (Coremail) with SMTP id TAJkCgBn+286Hz5q5MUuAA--.51254S2;
-	Fri, 26 Jun 2026 14:42:04 +0800 (CST)
-From: Yulin Lu <luyulin@eswincomputing.com>
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Min Lin <linmin@eswincomputing.com>
-Cc: Yulin Lu <luyulin@eswincomputing.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>
+	Fri, 26 Jun 2026 07:06:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1782457603; x=1813993603;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Q6TSkhAwHbrRrlVeKLvyFK7kis+EXROzBuAhwrXsm1A=;
+  b=rPcOutskK2qBUgi3A1xPKAbq3HL+GCneDbejuJk0pmPQNOLgqey3geOu
+   nnAlCf+mDyUeRQQ7dHF3XjTAUwjVCLoQT77pT9ymLEuRsogmqmlO8JOBD
+   EqxdNUbJyffegmHMuFUsuzOV+pkZFQylKR0V+NLoIFknY4QiBTqUdIIIs
+   kHC7VWb6d7us91U/Mj9gul0Lqk8sjiRviun2R2pFdD0ctBzllAH/RMF1E
+   16tcrEk1rrbsXflKXnrgeAnx+Z6IKqxAiTwZ95q0RfPFGHuMkVJX9FH6g
+   /bfThyzm5yV8Q3r+KMuKaZ7QH/ZbU2DW2BbRcj1hdTEsodCMAghXyFKvk
+   Q==;
+X-CSE-ConnectionGUID: /GQ3EulbTj6IbgSDqeCoXg==
+X-CSE-MsgGUID: 3MEMN4EYT4qabeMmfoBJEQ==
+X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
+   d="asc'?scan'208";a="68924617"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Jun 2026 00:06:41 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 26 Jun 2026 00:06:41 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Fri, 26 Jun 2026 00:06:37 -0700
+Date: Fri, 26 Jun 2026 08:05:47 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Yulin Lu <luyulin@eswincomputing.com>
+CC: Conor Dooley <conor@kernel.org>, Pinkesh Vaghela
+	<pinkesh.vaghela@einfochips.com>, Lee Jones <lee@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Min Lin
+	<linmin@eswincomputing.com>, Samuel Holland <samuel.holland@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>, Pritesh Patel
+	<pritesh.patel@einfochips.com>
 Subject: Re: Re: [PATCH 3/7] riscv: dts: eswin: eic7700: add pinctrl support
-Date: Fri, 26 Jun 2026 14:42:02 +0800
-Message-Id: <20260626064202.1045-1-luyulin@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
-In-Reply-To: <20260615123315.ABB4A1F00A3A@smtp.kernel.org>
-References: <20260615123315.ABB4A1F00A3A@smtp.kernel.org>
+Message-ID: <20260626-headway-rewind-93c9239bd865@wendy>
+References: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
+ <20260615122016.1110206-4-pinkesh.vaghela@einfochips.com>
+ <20260615-that-scarf-e048ef152676@spud>
+ <55962658.7bea.19f02850fe2.Coremail.luyulin@eswincomputing.com>
 MIME-Version: 1.0
-X-CM-TRANSID: TAJkCgBn+286Hz5q5MUuAA--.51254S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCrW7tr1xAF17CF1UZw4fZrb_yoWrGr1xpF
-	W3WFZ3AFn7CryxJ3y2qw409r47Za1fGFnIkr1Dtry2yrn8uFyftFsYyr45Xa4UZr4FvrnY
-	vF4Y934IvF1UAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9G14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMx
-	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
-	wI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
-	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
-	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
-	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRidbbtUUUUU==
-X-CM-SenderInfo: pox13z1lq6v25zlqu0xpsx3x1qjou0bp/
+In-Reply-To: <55962658.7bea.19f02850fe2.Coremail.luyulin@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_234219_269150_6BD453F6 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20260626_000643_596138_D90B1A84 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,111 +91,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4190442279265192838=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, sashiko.
+--===============4190442279265192838==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="aDbbMfndEwAtqwoN"
+Content-Disposition: inline
 
-> [Severity: Low]
-> Should this node be named using the generic regulator-* pattern (such as
-> regulator-1v8) to avoid dtbs_check warnings for deprecated names?
-> There is also an extra leading space on the properties within this node
-> that deviates from standard spacing.
+--aDbbMfndEwAtqwoN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I will rename this node to "regulator-1v8".
+On Fri, Jun 26, 2026 at 02:01:42PM +0800, Yulin Lu wrote:
+> Hi, Conor. Thanks for your review.
+>=20
+> > On Mon, Jun 15, 2026 at 05:50:12PM +0530, Pinkesh Vaghela wrote:
+> > > From: Yulin Lu <luyulin@eswincomputing.com>
+> > >=20
+> > > Add pinctrl node and related pin configuration for EIC7700 SoC
+> > >=20
+> > > Co-developed-by: Pritesh Patel <pritesh.patel@einfochips.com>
+> > > Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+> > > Signed-off-by: Yulin Lu <luyulin@eswincomputing.com>
+> > > Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+> > > ---
+> > >  .../dts/eswin/eic7700-hifive-premier-p550.dts | 109 +++
+> > >  .../riscv/boot/dts/eswin/eic7700-pinctrl.dtsi | 888 ++++++++++++++++=
+++
+> > >  arch/riscv/boot/dts/eswin/eic7700.dtsi        |   5 +
+> > >  3 files changed, 1002 insertions(+)
+> > >  create mode 100644 arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
+> > >=20
+> > > diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dt=
+s b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+> > > index 1fb92f0e7c55..e7bb96e14958 100644
+> > > --- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+> > > +++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+> > > @@ -6,6 +6,7 @@
+> > >  /dts-v1/;
+> > > =20
+> > >  #include "eic7700.dtsi"
+> > > +#include "eic7700-pinctrl.dtsi"
+> > > =20
+>=20
+> ...
+>=20
+> > > +&gpio79_pins {
+> > > +	bias-disable;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&gpio80_pins {
+> > > +	bias-pull-up;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&gpio82_pins {
+> > > +	bias-pull-up;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&gpio84_pins {
+> > > +	bias-disable;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&gpio85_pins {
+> > > +	bias-pull-up;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&gpio94_pins {
+> > > +	bias-disable;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&gpio106_pins {
+> > > +	bias-disable;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&gpio111_pins {
+> > > +	bias-disable;
+> > > +	input-disable;
+> > > +};
+> > > +
+> > > +&pinctrl {
+> > > +	vrgmii-supply =3D <&vcc_1v8>;
+> > > +};
+> > > +
+> > >  &uart0 {
+> > >  	status =3D "okay";
+> > >  };
+> > > diff --git a/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi b/arch/ri=
+scv/boot/dts/eswin/eic7700-pinctrl.dtsi
+> > > new file mode 100644
+> > > index 000000000000..7293df146aa7
+> > > --- /dev/null
+> > > +++ b/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
+> > > @@ -0,0 +1,888 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > > +/*
+> > > + * Copyright (c) 2025 Beijing ESWIN Computing Technology Co., Ltd.
+> > > + *
+> > > + * ESWIN's EIC7700 SoC pin-mux and pin-config options are listed as
+> > > + * device tree nodes in this file.
+> > > + *
+> > > + * Authors: Yulin Lu <luyulin@eswincomputing.com>
+> > > + */
+> > > +
+> >=20
+> > I don't really understand the groups here. I think you should make more
+> > effort to put more pins in each group.
+> >=20
+> > > +		gpio1_pins: gpio1-pins {
+> > > +			pins =3D "jtag0_tck";
+> > > +			function =3D "gpio";
+> > > +		};
+> > > +
+> > > +		gpio2_pins: gpio2-pins {
+> > > +			pins =3D "jtag0_tms";
+> > > +			function =3D "gpio";
+> > > +		};
+> > > +
+> > > +		gpio3_pins: gpio3-pins {
+> > > +			pins =3D "jtag0_tdi";
+> > > +			function =3D "gpio";
+> > > +		};
+> > > +
+> > > +		gpio4_pins: gpio4-pins {
+> > > +			pins =3D "jtag0_tdo";
+> > > +			function =3D "gpio";
+> > > +		};
+> >=20
+> > Like these 4 for example, why not group these?
+>=20
+> The 'group' is used to correspond to the '-grp' tag in the YAML file and
+> has no practical significance.
+> Different board designs have different requirements for pin multiplexing.
+> Therefore, eic7700-pinctrl.dtsi only provides pins for the board-level DT=
+S.
+> Pins are combined and used in the board-level DTS via pinctrl-0 property.
 
-> > +  regulator-name = "vcc1v8";
-> > +  regulator-always-on;
-> > +  regulator-boot-on;
-> > +  regulator-min-microvolt = <1800000>;
-> > +  regulator-max-microvolt = <1800000>;
-> > +  };
-> >  };
-> [ ... ]
-> > @@ -25,6 +35,105 @@ &xtal {
->   clock-output-names = "xtal24m";
-> >  };
-> >  
-> > +&gpio0_pins {
-> > + bias-disable;
-> > + input-enable;
-> > +};
-> [Severity: High]
-> Will these pin configuration overrides be silently ignored by the pinctrl
-> core during boot?
-> Since these pin definitions are not referenced by a pinctrl-0 property in
-> an active device node, and are not configured as pinctrl hogs in the provider,
-> the intended hardware states for these pins will not be programmed.
+These 4 pins in the driver are represented as:
+	EIC7700_PIN(14,  "jtag0_tck",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
+IO),
+	EIC7700_PIN(15,  "jtag0_tms",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
+IO),
+	EIC7700_PIN(16,  "jtag0_tdi",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
+IO),
+	EIC7700_PIN(17,  "jtag0_tdo",		[0] =3D F_JTAG, [1] =3D F_SPI, [2] =3D F_GP=
+IO),
 
-I don't think this is an issue. These pin configurations won't be ignored by the kernel during boot.
-Some pins have input-enable, pull-down, or pull-up settings that differ from the chip defaults on
-certain boards, these configurations are added these configurations in the board-level DTS.
+	EIC7700_PIN(18,  "gpio5",		[0] =3D F_GPIO, [1] =3D F_SPI),
 
-> [ ... ]
-> > diff --git a/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi b/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
-> > new file mode 100644
-> > index 0000000000000..7293df146aa7b
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
-> > @@ -0,0 +1,888 @@
-> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> [ ... ]
-> > + hdmi_pins: hdmi-pins {
-> > + pins = "hdmi_scl", "hdmi_sda", "hdmi_cec";
-> > + function = "hdmi";
-> > + };
-> > +
-> > + rgmii0_pins: rgmii0-pins {
-> > + pins = "rgmii0_clk_125", "rgmii0_txen", "rgmii0_txclk", "rgmii0_txd0",
-> > +        "rgmii0_txd1", "rgmii0_txd2", "rgmii0_txd3", "rgmii0_rxclk",
-> > +        "rgmii0_rxdv", "rgmii0_rxd0", "rgmii0_rxd1", "rgmii0_rxd2",
-> > +        "rgmii0_rxd3", "rgmii0_mdc", "rgmii0_mdio", "rgmii0_intb";
-> > + function = "hdmi";
-> > + };
-> [Severity: High]
-> Is the hdmi function correct for this network pin group?
-> It appears that rgmii0, rgmii1, and the i2s pin groups that follow all use
-> the hdmi function. This will prevent the pin controller from routing these
-> pins properly, likely leading to driver probe failures when peripherals
-> attempt to request them.
+There is no reason to ever partially use these as GPIO. Either they will
+be all jtag, all spi or all gpio. pin 18 on the other than makes sense to h=
+ave
+in a dedicated group.
 
-I will fix the function of rgmii0_pins and rgmii1_pins to rgmii, and the function of i2s0_pins,
-i2s1_pins, and i2s2_pins to i2s.
+--aDbbMfndEwAtqwoN
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> [ ... ]
-> > diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-> > index a7ebb11159580..8798c50f7584d 100644
-> > --- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-> > +++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-> > @@ -349,6 +349,11 @@ gpioD: gpio-port@3 {
-> >   };
-> >   };
-> >  
-> > + pinctrl: pinctrl@51600080 {
-> > + compatible = "eswin,eic7700-pinctrl";
-> > + reg = <0x0 0x51600080 0x0 0x1fff80>;
-> > + };
-> > +
-> [Severity: High]
-> Should the existing gpio controller nodes (gpioA, gpioB, gpioC, and gpioD)
-> be updated with a gpio-ranges property mapping to this new pinctrl provider?
-> Without gpio-ranges, the GPIO subsystem cannot translate GPIO offsets into
-> pinctrl pins. The pinctrl core's .gpio_request_enable callback will not be
-> invoked when a software component requests a GPIO dynamically, preventing
-> the multiplexer from automatically switching the pin to GPIO mode.
-> >   clk: clock-controller@51828000 {
-> >   compatible = "eswin,eic7700-clock";
+-----BEGIN PGP SIGNATURE-----
 
-I think add gpio-ranges is unnecessary, the driver does not implement
-the .gpio_request_enable callback.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj4kxgAKCRB4tDGHoIJi
+0uWgAP9MLg+ojETD3FuiTsRUkk5ATP6ZfKsZAJ4QcHiN+Tf9gQD/TVUs2J/JJ6AD
+cXNfjBYkM36WAGLQJQjJlWUPsvF2vg0=
+=PeyA
+-----END PGP SIGNATURE-----
 
-Regards,
-Yulin Lu
+--aDbbMfndEwAtqwoN--
 
+
+--===============4190442279265192838==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4190442279265192838==--
+
