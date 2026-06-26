@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B655CDE00E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84735CDE013
 	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1QmcM2V7aO6zHWwiFgcffYgNeaBhjqaPlWp6h+CZj+8=; b=jAgmGjJY8ymiQs
-	V4FwcmbHeP8l4BrabVYyDI9bea+fMtW9jbHXIu13I7tVIp5BP3QdkiJ8e4UiaA5Hl+O/7hjzTqam8
-	BpVTMgp+pwUzPx9QKW/NXyGrR9z09IC+mUzRRj1gh2asFXm160lUgnrA3Dmmm9egfI33NfdRulbZy
-	mOYE4EWgIxbk0KavKAZFPe4vPUFDiORdy3uk7MHkIKLBe9y/qLlo/nMkbeihWBq7uTUVVhIi8iRuG
-	REhlQoQDeAdsPRpZ8l+Nj5HvO0O9BJltukSpJ9+OwdRS/luwaqiXjb8Y1FS/HwCtauWAuNw4B+6Uo
-	FIg0sv0OXzyIHm6WhVkA==;
+	List-Owner; bh=+m2xhU+eBsvZ+57fuDq3GjEZm7iHeRgMVmzDmQeQmKU=; b=DJlHdjn1YQ8f+0
+	Fo1dKzedcqXdefpCTcoD+RsmlyGxXNmk3I6MfiGW6yXyCK0b0QFK/yNFVBDMpv4nS+l15C1FCcDRC
+	ayFlyrEeEA560FGzvDUqas4SJ8EeZzRih1GtZDPrHiRtupQ2GHu64Hkx/bhv5EwCd26B6XsQ9MB6c
+	m3VqpcabqSkXCx+IWU1NqxZ71FVXJfYGv4ANjCk5364WOUwQ0EyS7HSLaIdqabOpj3VX0DU1MxgaA
+	EaDwhgx6KsL/W9WwepPiykiMfmg/C8+yE44iMipTlN69e7WeDJKofXxYOtBe5THuHqq8nmG2kWMtP
+	Yi3QAoC4SklVSMdxFHqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oT-0000000AnOc-45s2;
+	id 1wd1oT-0000000AnO3-2tOy;
 	Fri, 26 Jun 2026 08:21:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oR-0000000AnJN-33LJ
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 08:21:23 +0000
+	id 1wd1oQ-0000000AnHH-1Ffr;
+	Fri, 26 Jun 2026 08:21:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C0E1443D2;
-	Fri, 26 Jun 2026 08:21:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55F451F00A3E;
-	Fri, 26 Jun 2026 08:21:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 047B640A8E;
+	Fri, 26 Jun 2026 08:21:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3FFB1F00AC4;
+	Fri, 26 Jun 2026 08:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462083;
-	bh=52SPPVu3YGhhIMY2BRJv/B3qF4NdywMsMSBaNgtMuvM=;
+	s=k20260515; t=1782462081;
+	bh=cnDZkcdojzG6TP+7FyMqVMauu4QrpFoQrKFZui4fel0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=IfgA+z6F+j0/xx7GKl5Wi6w/gMIMYcBz8EgpLDUdDEUcGE9/nXQLUDuFbd52gbFvq
-	 KXQFUMzwe40opw1qgweDt6fAS/peeF6vBxP6TqW91YDs4myGtrray33EjDOfrk/Z1l
-	 /SiW497iu6789CSenJ2DfZ6E9GhCSlB9oh91N3eZZzTWwSO2r8nrT6v6qvghLNrw6N
-	 Cx4uvqEJ6M9khGqhy25NNOWLYs8HN0+fV3j4XBEn0ozRzioz/0pj5XiVGGUxU2WZVM
-	 KS6SFSYTBF1waKs9EdSH2ItbsqHMw+l6D+rXLiEHN+cT9WBXJkE+oHfDaf6WVikRCS
-	 DWNZvtWjwbf6w==
+	b=MC6yAmsds/bx8R7anvknX1AQ8wYErykOAlLqPC3rBrW/haRJJv9chUhiwT+CvnTmN
+	 khK/Dcw19LSCUFchb8D/hw+DpMaTb1XpLahGVWuQ2ovAXgjD87gIQurL0gIl9+xHit
+	 ncTog7IyU918i0n0R2d/om837p9tvnVMwNZwfwlMdGa5QlmnH1j/rqWXUCSJ6gUh9Z
+	 brR2GYKjb1zdGevtCBdmugxCTe8YRqU7Ur91VQYGPcJyxomzPIKGl4smPb/Yxi36dG
+	 9lOJILFIUiOpBT1cUYSLvvKVEE9Xu8TR8Q7d0eK5LtRY1OrEVkIWnTXlTpm48x7ej4
+	 4HMiz7mE0JbVg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93A1A39389E8;
-	Fri, 26 Jun 2026 08:21:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 198C839389E8;
+	Fri, 26 Jun 2026 08:21:10 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] perf riscv: Fix discarded const qualifier in
- _get_field()
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246207023.3816447.7046697661981822212.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:21:10 +0000
-References: <20260513180721.1179904-1-guanli.oerv@isrc.iscas.ac.cn>
-In-Reply-To: <20260513180721.1179904-1-guanli.oerv@isrc.iscas.ac.cn>
-To: Li Guan <guanli.oerv@isrc.iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org,
- irogers@google.com, adrian.hunter@intel.com, palmer@dabbelt.com,
- pjw@kernel.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Message-Id: <178246206859.3816447.16178589769412306177.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:21:08 +0000
+References: <20260512052230.2947683-2-hch@lst.de>
+In-Reply-To: <20260512052230.2947683-2-hch@lst.de>
+To: Christoph Hellwig <hch@lst.de>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ herbert@gondor.apana.org.au, dan.j.williams@intel.com, clm@fb.com,
+ dsterba@suse.com, arnd@arndb.de, song@kernel.org, yukuai@fnnas.com,
+ linan122@huawei.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +85,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
+This series was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Thu, 14 May 2026 02:07:21 +0800 you wrote:
-> The assignment of strrchr() return values to non-const char * variables
-> triggers a -Werror=discarded-qualifiers warning when building with GCC 14.
-> This happens because in newer glibc versions, strrchr() returns a
-> const char * if the input string is const.
-> 
-> Properly declare 'line2' and 'nl' as const char * to match the glibc
-> function signature and ensure type safety. This avoids the need for
-> explicit type casting and aligns with the design pattern of not
-> modifying read-only memory in the perf tool.
+On Tue, 12 May 2026 07:20:41 +0200 you wrote:
+> While the RAID6 algorithm could in theory support 3 devices by just
+> copying the data disk to the two parity disks, this version is not only
+> useless because it is a suboptimal version of 3-way mirroring, but also
+> broken with various crashes and incorrect parity generation in various
+> architecture-optimized implementations.  Disallow it similar to mdraid
+> which requires at least 4 devices for RAID 6.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] perf riscv: Fix discarded const qualifier in _get_field()
-    https://git.kernel.org/riscv/c/7378b6656aa4
+  - [01/19] btrfs: require at least 4 devices for RAID 6
+    (no matching commit)
+  - [02/19] raid6: turn the userspace test harness into a kunit test
+    (no matching commit)
+  - [03/19] raid6: remove __KERNEL__ ifdefs
+    https://git.kernel.org/riscv/c/3d6beb659ddf
+  - [04/19] raid6: move to lib/raid/
+    (no matching commit)
+  - [05/19] raid6: remove unused defines in pq.h
+    https://git.kernel.org/riscv/c/06d2a66fb7c0
+  - [06/19] raid6: remove raid6_get_zero_page
+    https://git.kernel.org/riscv/c/885d31423183
+  - [07/19] raid6: use named initializers for struct raid6_calls
+    https://git.kernel.org/riscv/c/7e91f76a9668
+  - [08/19] raid6: improve the public interface
+    (no matching commit)
+  - [09/19] raid6: hide internals
+    (no matching commit)
+  - [10/19] raid6: rework the init helpers
+    (no matching commit)
+  - [11/19] raid6: use static_call for gen_syndrom and xor_syndrom
+    https://git.kernel.org/riscv/c/10f4b8e2a164
+  - [12/19] raid6: use static_call for raid6_recov_2data and raid6_recov_datap
+    (no matching commit)
+  - [13/19] raid6: update top of file comments
+    https://git.kernel.org/riscv/c/30bf04bd13a5
+  - [14/19] raid6_kunit: use KUNIT_CASE_PARAM
+    https://git.kernel.org/riscv/c/2175395f76c3
+  - [15/19] raid6_kunit: dynamically allocate data buffers using vmalloc
+    https://git.kernel.org/riscv/c/d67c25712fe3
+  - [16/19] raid6_kunit: cleanup dataptr handling
+    https://git.kernel.org/riscv/c/562bcbfcb99b
+  - [17/19] raid6_kunit: randomize parameters and increase limits
+    (no matching commit)
+  - [18/19] raid6_kunit: randomize parameters and increase limits
+    (no matching commit)
+  - [19/19] raid6_kunit: randomize buffer alignment
+    https://git.kernel.org/riscv/c/8cf0a6c4bb9e
 
 You are awesome, thank you!
 -- 
