@@ -4,46 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C29C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 15:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD58C43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 15:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=slL13JK2iMr5lj+gOrRuqzMox17/cjsfwRNlXJycNZk=; b=Y8x3IBC/Wp1HZC
-	Q6xzhMiXZbTlKY6RZp3HWuCfFasujhd4mgg1Rwb6rdqfekg2gSOZ/RwJnumZUjjjiq6XpDEgJfLtI
-	D5Y/NvTJF5hivuOEi+IHGDawv+H/tb/GCBWPRxHhc2BCMs/wkaSMqVF2ICBx8OT6W4ziezYjzr4sl
-	hjExX0rTgshQNx2o7pIjAvzoLY5CkiNqAPCJILWPi/+YExZTgjjNY4orXgKtG0MGlT7yvie66TNj7
-	5P7NLieXsC/i/s5LtlIsAB3E1z2LKxi5zqUwpyF04gO+FXsOzUZBUGCkT1uaJRZigkfCI7W6B6GyT
-	0YLavHOyv8F5V35xourg==;
+	List-Owner; bh=LgVwlzKT3ywvfAvw21ZbtDnGfWXuvHgM9sV6aPGyoGg=; b=CAMKZIF8Ai3s56
+	1UK41wCFfnhKLM1tYMBSUEjJYUne4Oon9x7UkOXd5P/u9uCKtU29F5RABLDHZ2ljDJL8Qw1On8uOq
+	Lq8yHEYqyg0IVHh6Eqm98QU+enxhkDfFgUSJ02W2GbBCFrEA2Vt+Z11agSeFbrpTUBjaF5s34Ec7v
+	gbGBJbROmGhSx7ZYRVPfNmcz+byIskfo6EindDpMu4E+zZvNraFV6p4qtca88ksRl7pocJ29HMagM
+	HSxVlGqti0gGLSxfOKVHRahMzpwcxzrMHzB5dUZcDw8OPKvlkJoNwfcf8U1a6++kaTJ81ySKZDGWl
+	x/LTLK4XvlN8TOg7qxJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd87O-0000000BWXq-3iHY;
-	Fri, 26 Jun 2026 15:05:22 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1wd8Au-0000000BWnj-1NqD;
+	Fri, 26 Jun 2026 15:09:00 +0000
+Received: from out-179.mta0.migadu.com ([91.218.175.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd87H-0000000BWVO-3RoU
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 15:05:20 +0000
+	id 1wd8Aq-0000000BWn8-14Pd;
+	Fri, 26 Jun 2026 15:08:57 +0000
 Mime-Version: 1.0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782486297;
+	t=1782486531;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Z/3t6es/Sh5NFgNAr92B/NG50RTxtozIvYYF+FgF2iA=;
-	b=ka0GYaflSKkPFQ7rFhIGoeEDcZfUQi/jBpWMJl+inaTs6Ay8kTJp9zdbYmSenvlQJh+XR+
-	XB172PGZ4cpCqyqeulNT+N+xr0AurrQi4xrcP61whLGk9uJ8pOP+saDL+I6rAvgBdS3Po7
-	QQIlkgcah948ts7waig31URzqiuDpu0=
-Date: Fri, 26 Jun 2026 15:04:48 +0000
-Message-Id: <DJJ2NKKPRANG.188CUADJO2CKK@linux.dev>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Brendan Jackman" <brendan.jackman@linux.dev>
-To: "Brendan Jackman" <brendan.jackman@linux.dev>, "Lorenzo Stoakes"
- <ljs@kernel.org>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
+	bh=W9StKkQ0/yj07eWoElZiv+n2VxDoLxnR18N0r893Esc=;
+	b=BPvNDeElvRZEMwzggouWII2tofymA3pxu+5JfmGwK7CJp2impsOKKN+WsSGMrtCbjeGBPp
+	NozIkXctwbMzmWJYZfWlevw7VPXWSaOnPydN+auEoQa0orwMQ/6weJ5g1FizLIV7FLvrOU
+	M1Cmc9YYM8i84hgILpAHMIQo3kf7m7E=
+Date: Fri, 26 Jun 2026 15:08:42 +0000
+Message-Id: <DJJ2QJQQ73CM.2WHKW4AT6QT1D@linux.dev>
 Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
  <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
  <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
@@ -62,20 +57,20 @@ Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
  "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
  "luto@kernel.org" <luto@kernel.org>, "willy@infradead.org"
  <willy@infradead.org>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>,
- "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>,
- "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org"
- <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>,
- "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>,
- "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org"
- <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>,
- "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org"
- <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>,
- "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org"
- <kpsingh@kernel.org>, "haoluo@google.com" <haoluo@google.com>,
- "jolsa@kernel.org" <jolsa@kernel.org>, "jhubbard@nvidia.com"
- <jhubbard@nvidia.com>, "jannh@google.com" <jannh@google.com>,
- "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org"
+ <akpm@linux-foundation.org>, "lorenzo.stoakes@oracle.com"
+ <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>,
+ "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com"
+ <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org"
+ <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>,
+ "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev"
+ <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>,
+ "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev"
+ <yonghong.song@linux.dev>, "john.fastabend@gmail.com"
+ <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>,
+ "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org"
+ <jolsa@kernel.org>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>,
+ "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de"
+ <pfalcato@suse.de>, "skhan@linuxfoundation.org"
  <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>,
  "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com"
  <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>,
@@ -105,14 +100,20 @@ Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
  "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro"
  <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>
 Subject: Re: [PATCH v12 01/16] set_memory: set_direct_map_* to take address
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Brendan Jackman" <brendan.jackman@linux.dev>
+To: "David Hildenbrand (Arm)" <david@kernel.org>, "Brendan Jackman"
+ <brendan.jackman@linux.dev>, "Lorenzo Stoakes" <ljs@kernel.org>, "Kalyazin,
+ Nikita" <kalyazin@amazon.co.uk>
 References: <20260410151746.61150-1-kalyazin@amazon.com>
  <20260410151746.61150-2-kalyazin@amazon.com> <aeeDvpDnGnY5n69n@lucifer>
  <DJJ23EXF55VK.1EGQZS511HFB6@linux.dev>
-In-Reply-To: <DJJ23EXF55VK.1EGQZS511HFB6@linux.dev>
+ <f7a40359-a210-4711-acba-677e9c1d565c@kernel.org>
+In-Reply-To: <f7a40359-a210-4711-acba-677e9c1d565c@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_080515_993753_F3043361 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20260626_080856_441185_50CDFA09 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,48 +130,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri Jun 26, 2026 at 2:38 PM UTC, Brendan Jackman wrote:
-> On Tue Apr 21, 2026 at 2:43 PM UTC, Lorenzo Stoakes wrote:
->> On Fri, Apr 10, 2026 at 03:17:58PM +0000, Kalyazin, Nikita wrote:
->>> From: Nikita Kalyazin <nikita.kalyazin@linux.dev>
->>>
->>> Let's convert set_direct_map_*() to take an address instead of a page to
->>> prepare for adding helpers that operate on folios; it will be more
->>> efficient to convert from a folio directly to an address without going
->>> through a page first.
+On Fri Jun 26, 2026 at 2:58 PM UTC, David Hildenbrand (Arm) wrote:
+> On 6/26/26 16:38, Brendan Jackman wrote:
+>> On Tue Apr 21, 2026 at 2:43 PM UTC, Lorenzo Stoakes wrote:
+>>> On Fri, Apr 10, 2026 at 03:17:58PM +0000, Kalyazin, Nikita wrote:
+>>>> From: Nikita Kalyazin <nikita.kalyazin@linux.dev>
+>>>>
+>>>> Let's convert set_direct_map_*() to take an address instead of a page to
+>>>> prepare for adding helpers that operate on folios; it will be more
+>>>> efficient to convert from a folio directly to an address without going
+>>>> through a page first.
+>> 
+>> Why is this more efficient? Isn't it a purely compile-time conversion?
+>> 
+>> Indeed in the current implementation folio_address() is
+>> page_address(&folio->page) so it still goes through a page anyway, no?
+>> 
+>> I might be missing context here about how this will look in the
+>> memdesc future.
 >
-> Why is this more efficient? Isn't it a purely compile-time conversion?
+> Good question. page_address() is really only complicated for highmem. For
+> non-highmem stuff it's simply derived from the page pfn.
 >
-> Indeed in the current implementation folio_address() is
-> page_address(&folio->page) so it still goes through a page anyway, no?
+> I suspect going page -> pfn will remain as efficient as it currently is (with
+> vmemmap). For odd cases (SPARSEMEM without VMEMMAP) going through folio->pfn [1]
+> might be slighty faster.
 >
-> I might be missing context here about how this will look in the
-> memdesc future.
+> [1] https://kernelnewbies.org/MatthewWilcox/Memdescs/Path
 
-Sorry I failed to do the history search here, this was suggested by
-Willy during the review here:
+Ah sorry I raced with you and replied to myself:
 
-https://lore.kernel.org/kvm/aWkN4yzwPtotaTeq@casper.infradead.org/
+https://lore.kernel.org/all/DJJ2NKKPRANG.188CUADJO2CKK@linux.dev/
 
-Matthew Wilcox <willy@infradead.org> wrote:
-> The implementation isn't the greatest.  None of the implementations
-> of set_direct_map_valid_noflush() actually do anything with the struct
-> page; they all call page_address() or page_to_virt() (fundamentally the
-> same thing).  
+The above makes me realise that if we really do want to avoid needing a
+struct page here, the "right" thing would be to make this API accept a
+PFN.
 
-But IMO the struct page isn't there to carry runtime information, it's a
-type hint that this API operates on physical pages. Yes this is already
-implied by the name but it also gives us a certain amount of safety
-since it avoids unaligned or non-physmap addresses at compile time.
+The problem would be that our favourite programming language we use
+doesn't know the difference between `unsigned long addr` and `unsigned
+long pfn`... but I thiiiiink its unlikely those bugs will be latent,
+I've made that mistake a few times and my computer usually let me know
+about it.
 
-> So converting folio->page->address is a bit inefficient.
+Still, I'm not really convinced we need to change anything here yet
+(modulo fuzziness about memdesc etc).
 
-... but yeah now I see this comes from Willy I definitely suspect I'm
-missing memdesc insight here. 
-
-> It feels like we should change set_direct_map_valid_noflush() to take a
-> const void * and pass either page_address() or folio_address(), depending
-> whether the caller has a page or a folio.  What do you think?
 
 _______________________________________________
 linux-riscv mailing list
