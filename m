@@ -4,89 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC56FC43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 16:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F4BC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 17:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=17aNU+rgObtjvrEPVx7hYBOmktKvX+DtclJgkmwkaKY=; b=vodGooZ6knc7PYSxdr8vUH44Aw
-	Xan5W2dC5jtwECMdFYc5KRJ2LNYQ4roDgwyu1V+fFVMkq0cAhQpSQOP+APxnYylLs2ZSyYszPRQT9
-	jmVZUYNu/oAKe1NsIA+Kh05OdziKd0czShnYvdAY5zNk2u6zya4okDe2vL+orsX4XiVFoiJF2gqHo
-	j6ssXpzJElCRvzTjvo4dFl5GFEDjumBH3fS85mAlwnnewkgPvp5pXS46gxJScLk+OXsuH1h3nTL/R
-	M3qGbzvipRyrsm/bbMkyaHN95o27N42EbR7+Hv3UhHumEha+MnsqOT5PRsR52B7GoCLiQltgM1i2L
-	3dA91DHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=R9Vq7IRQZ6kFJZhuvesgGE4ZS18CmwctrI2hVY3Ysz0=; b=OubdEKZ0ejIhxh
+	lFIidb9zMezbKqMiOZRzMvGxKb9aqG8C/yzCiTkFrKMSy+RveILKk9PYqK7cD2ipYY8hon8zYQuD1
+	yK9i4K4+cEghC/JfMqlMLWkjSS8HXSqCIZobyqdkk0VNiQ0+OJ/bvbC3Y3o+Q7sQHWDgA0wDPPg8B
+	94dpIhq55OSr/4VrS+wNFj0Tz9uVi9rL432QNr3ci660TIchYGfYU9uIZna/RfvonYWra8E0J6q+m
+	/zNxgK9zml+AOtueNFh1rLZTiTzvywleubXL0/Ykl0qihFpTyRbiRG6diMO9TxdhweUi+xkvpKmoF
+	bdVUn4NKimayfIvO+fPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd972-0000000Bb4f-1VYI;
-	Fri, 26 Jun 2026 16:09:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wdA9s-0000000BgoH-0A3H;
+	Fri, 26 Jun 2026 17:16:04 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd971-0000000Bb4W-2Csz
+	id 1wdA9q-0000000Bgnu-0GEk
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 16:09:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 257844185C;
-	Fri, 26 Jun 2026 16:09:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBB561F000E9;
-	Fri, 26 Jun 2026 16:08:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782490143;
-	bh=Fx3tciuHyjlkIBIBNEBD+s8vVCSZdcyUAOaq3PBg7Ps=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iQZOZQVlKUG92jlBmV7tChmBKGdzefozF27KNgP05RnlO6UgoAp/85WdimyWCLTJN
-	 ZFGfCICs2z+ZEzedTCQH+Nje6VFRH6R1EzPqC+LuVN+owy7Nivt7G3oHHNYIGfYK77
-	 aNv6xDG5Pb0kYE8UfgrAV9vC/wfbZSLC+LuOi1SoZrmhLHK+5iUJBJ5GJxcLsJY3Oj
-	 hdcnrobdPhRHYU1nMv6tqfCHXew1xsF5yJR5PRizgB1N+mvPkDcru3Fz1GyAwPhzDY
-	 47GHd4+qSlkAW6Mc+Q2uwWR0JFH/3xYj7438e/s27fcK6u74CvijZNWFKNh1tCOT/7
-	 rNF/9jor31ViQ==
-Date: Fri, 26 Jun 2026 17:08:53 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: Add generic CBQRI controller
- binding
-Message-ID: <20260626-refining-thus-6635a0f7c5cd@spud>
-References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
- <20260624-dfustini-atl-sc-cbqri-dt-v2-7-2f8049fd902b@kernel.org>
- <20260625-cupbearer-failing-9ce0abf97b93@spud>
- <aj1_0AnIBk8_xoDd@gen8>
- <20260626-immobile-staining-c825a86bd613@spud>
- <aj6jLrECZM18I4MP@thelio>
+	Fri, 26 Jun 2026 17:16:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B51aRV5f1ZE8u0WcDYPa1jXOiQ4+1KAKK15P6AKjgVV92wSYUMCEQ1VaMho9UujxeYbsoBZlhPvf0cUOxK1pJ9LGeCyxzYYD+K3yCl1a9mf3PmMTRbmN8AmNGVPfqo/RIySvj28D5OZexP704hgwF4k1jlXgVSLn38siIWXmpPU+YC4XVfn6s9D27lAcou8RmjtCvgPnuaLgRNfM05rHiIo/fW5tlsZ1R2cISdpoc/0S1G8NhluaclAPCO7E9LtMi5y6YC8uIQtVVqT80eynwLR22GQpqp5712DS3KSZzi1tf2PhSt/yvLRZBDZhbIksoH9xkHd7w5yO+ayDrrTgrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dHk7bdevnza8YDrilNUlP8i9oy/vzflv77OUa0a/1wc=;
+ b=QDTckK7YQH8EMLgzQ3a2LLh/X+b7a0Tbs+mn+fFiHBJsWkGjXXYxf/dwTiWLrQngooR31gCrYnkiNS9zL5xWvRl027sgxYxoFQsEirt+Qsxlq9dN1huYMTi7517EEcR/AqiKm0dgCpiz7Uz7JoHWZ+WkgIDcVjduEvsFPPJwYDRqGIAJBk4jhgFXliBlWPHMOngBrcvrMk3BKm7qdQRA9MVAqDsxCTVVKwCWRa6C9BkdA/Jcb6eU8vfZAZ+QxOeAREpSzI2fv1BcL7CKdFVXuCfUwPQOUxpNEaQeAj66JKH7Xxp3nvq91h74Hc596mCZBQNLgLSULuvdoEOrsviyMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
+ dkim=pass header.d=rambus.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dHk7bdevnza8YDrilNUlP8i9oy/vzflv77OUa0a/1wc=;
+ b=QSZZIqOSL3exA8bpqG7ZuT1WHWM1B7+W7KcVFkGQE5rfvFOYvTYMAfiCr5hW3dRRY26cD8xwz2wfYoUiWrdCuNeNnDoL0r+6E2Cj9mdMWrjV1yuUNRHc72nKHd+UssPeitXMva9WZw/Xcn+7Lci4pjGKzOorElgXmD0BASfT27dE6jyD3ir2zv0b0atNNsXVrzyA68qnbeUVmBqq2tOSqQlVGb0YSP3VQ60/z0rZqnu2BkVzYU0dwK6lrj88/0NFNHPR5gRgOlOkJIT8D5aSQDGom5oxLR9wzgLi2PooMoZC4/SQjTjvAOX03U1LrNOZoLIzhS+gCtNVmrLFSkLvBg==
+Received: from SA1PR04MB9851.namprd04.prod.outlook.com (2603:10b6:806:4ac::5)
+ by SJ2PR04MB8581.namprd04.prod.outlook.com (2603:10b6:a03:4f6::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Fri, 26 Jun
+ 2026 17:15:49 +0000
+Received: from SA1PR04MB9851.namprd04.prod.outlook.com
+ ([fe80::5f38:dbea:4e4c:9a0f]) by SA1PR04MB9851.namprd04.prod.outlook.com
+ ([fe80::5f38:dbea:4e4c:9a0f%6]) with mapi id 15.21.0159.016; Fri, 26 Jun 2026
+ 17:15:49 +0000
+From: "Krishnamoorthy, Saravanakrishnan" <skrishnamoorthy@rambus.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Albert Ou <aou@eecs.berkeley.edu>, "Ousherovitch, Alex"
+	<aousherovitch@rambus.com>, Conor Dooley <conor+dt@kernel.org>, "David S.
+ Miller" <davem@davemloft.net>, Herbert Xu <herbert@gondor.apana.org.au>,
+	Jonathan Corbet <corbet@lwn.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rob
+ Herring <robh@kernel.org>, Shuah Khan <shuah@kernel.org>, Alexandre Ghiti
+	<alex@ghiti.fr>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Shuah
+ Khan <skhan@linuxfoundation.org>, SIPSupport <sipsupport@rambus.com>,
+	"Nguyen, Thi" <thin@rambus.com>
+Subject: Re: [PATCH 01/19] dt-bindings: crypto: add Rambus CryptoManager Hub
+Thread-Topic: [PATCH 01/19] dt-bindings: crypto: add Rambus CryptoManager Hub
+Thread-Index: AQHdBMjWbbt+vQeNuk6AgpyYttH26LZQqwqAgABoWTo=
+Date: Fri, 26 Jun 2026 17:15:49 +0000
+Message-ID: <SA1PR04MB98512F483110B601D5B335F8C2EB2@SA1PR04MB9851.namprd04.prod.outlook.com>
+References: <20260625173328.1140487-1-skrishnamoorthy@rambus.com>
+ <20260625173328.1140487-2-skrishnamoorthy@rambus.com>
+ <20260626-radiant-affable-raccoon-f48b9a@quoll>
+In-Reply-To: <20260626-radiant-affable-raccoon-f48b9a@quoll>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=rambus.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR04MB9851:EE_|SJ2PR04MB8581:EE_
+x-ms-office365-filtering-correlation-id: 4811c2a7-23a6-4aba-7685-08ded3a691a3
+x-ld-processed: bd0ba799-c2b9-413c-9c56-5d1731c4827c,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|23010399003|1800799024|376014|3023799007|56012099006|11063799006|4143699003|22082099003|18002099003|38070700021;
+x-microsoft-antispam-message-info: sUhTB6H/VVbQDpub1hNTrq67Wn9rHUh07w9xIxGVwOEe+mX9J4kYGiWzyw7cLNC2+avlufJB6xcFz/X8etM3WMwdgbTq5bw0w1+RSx+Str+R7sjc8b76wvoP/6+LWMMovNl8/QKGPmHTfd3sBBT0iMaJUHT189MwGD1myshzGeK+1sPcQPM9qbvvv2yurVAfw3JIz3nkY9H85My74Efa9Fllb9IxxeyAPzV9/14z0jjAF89nIbDSoIVSTLkQPHSEX1+RYsxDZM424hqV5orjRjqqNFho9BsEK4P4Ew6eUY6ErPZN+jf6sdeHugZSUekHip3lVBWaTCTHojLC28voNqUirc5HeVXMX4Eo580f0EUQ7tlkahQY6jcit7txxaJxdRuoKi0dkNNyx1Qzj/menDSUG/AJFBeiU54eSsxpdoq2TQEIfzy9aCV7tIAMKLht2npa451Zx10knRUtMhMc29zCS5oxnKqIvSXiJxxFCR+bqJd/9TDsDwzz2k2OZb26H2DDz8OA5Y/Co57B2P1+0zdhiMK4WaO0I27cuzHQbwVK+SwPmzRtmn1nlQ6l3pAKD+sqJli7u7a0zRT6v4f6oEc9/RfPa2ZzXdtCztcp5kKE4Sji9H917OPozinVPgTOwHQSsIWQUgGLwEj2OwynNep/xSBGxXTGSjGUFeoRhn8cCzeRCgKbQN4W66MH66ujkXxCi/WTM40cf//D72mkLsZ51kRhN9XAab26yWpFRdw=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR04MB9851.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(23010399003)(1800799024)(376014)(3023799007)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DpbhL0m7kSGisyGbDBerOesHbI/8sR+fDZOJ0/y5YTps616nyYj5SKDC8efQ?=
+ =?us-ascii?Q?lvCCNv9/+XqMQ0o/tnebJ87Wzkh2ILyxK3A91l9VWO1FmS9ibJbN0SGEsZr7?=
+ =?us-ascii?Q?jSANsz9Hy6EWibr7FK/1nxJOeuBw5liaSiMWF4ssx5sWiy48PQKhNo7gVfwJ?=
+ =?us-ascii?Q?dClb9luJqWUZAhW53fb+JR1DR/7ksyzBaqo7JtMPsoaIUEE99Pyqn3Bc0eGB?=
+ =?us-ascii?Q?i4LRazSMvS/tELZWTaANX4jKEsn2KgX6XfstMHxUhDkRrvKCl9TOLHOeHpxT?=
+ =?us-ascii?Q?W/hCf0+AAE1ARYAei9oQWnuU1b5mM5e/3q9SOKyLdXo5r1c0i8hon441IMSP?=
+ =?us-ascii?Q?bSr0vPznySq4GxUl3QaZa1v63CNOs5bISwua+LKEjAilVxZC2vE97049MpIQ?=
+ =?us-ascii?Q?Xe55elB1Ep4AEfiPQCANGhlZf1YvxvfC/NufypQgcy52tTUOCJd5swVrhKft?=
+ =?us-ascii?Q?N0INmFMBgnlHfBTdRxpZ0JlNLxbicp15XF1uhAD80pHIzAbRKqmAWHoeR3bx?=
+ =?us-ascii?Q?KWa9xdaxYSsNXMAH49qA2YV8pykNYjUf+tgmdIJGgdHZOFo85oVypru4r6Iq?=
+ =?us-ascii?Q?Lf/rMf/0uwz1LFOfaDA1+Lfi8yBlW6fXodClkKJzcgccQmX7KNy+GS/N9r5j?=
+ =?us-ascii?Q?1ND0x4iPM9XDxvIG6XFVLwGeZxRH5yRJC0CwZAxgtwknH4sSElPlur5h1wUp?=
+ =?us-ascii?Q?+2Nr0NIPgjrOD406forg9nbFUtfJs+Jk0ze3DNg0rik1Wd4HGZj24AaPyMBa?=
+ =?us-ascii?Q?jXPyd/Iptb6YKcPydp5LsYv4CjSxXUJbcElFIs+qtYBpwnRvNHHvSAXK9cqj?=
+ =?us-ascii?Q?Hhm7rGdgdmYN9TV065mqroHt1eAzKnivWVa5pVYQDEcgdGKjskTTQ2p7soVq?=
+ =?us-ascii?Q?XQARstr7zjoCltLXM9RZlReN1f1/N/GHSpWjTjSNhgGoiVreghP3iEoq10RQ?=
+ =?us-ascii?Q?z0AWUdlwukf69DxdoBe//3Qx58W9rIoI+M+uQNDob2+l2weiJLWFspY4Bdd1?=
+ =?us-ascii?Q?ezvjOSuv1MnhqPh1sP1Fr1NVnGPyigYMf4lbdfG7zQsVZVn+nqhOCGhlg6qJ?=
+ =?us-ascii?Q?U9JoF5bfSAl6vm4bChwX6sJNLBlHFu2Ijjm8QHiQsxLydYc/p35S2l8nkwJs?=
+ =?us-ascii?Q?X5RLCJxyzUxl3zCFz5OSFwLg/tYaG5XWryzQIu7s69+lOwY/dUPLaSHoh1Ws?=
+ =?us-ascii?Q?VL9kgFj3XQ493ZexYZ72gORGdleEp7jbYTFLs0O9ZeYKKR/9zWKOrK84+OoH?=
+ =?us-ascii?Q?udqjWSFNr+zJ/bVW1IHD6eGKDhGhxxIdcInIvQ5oZHKJqfTOC4boTbSOvFqz?=
+ =?us-ascii?Q?410jnxl7OTMJi+ENT25+ZMOmx2r3twJbpJJXnyg3krBmOV8Z2SURtrAd/3JE?=
+ =?us-ascii?Q?/MCdNPYg+8mWfVxHzxLvr9WVn9iP0Efoq6/dgHmW0qgNsytqJ3hi37SvGrt/?=
+ =?us-ascii?Q?LZ/rf8wPillYS0JUgaZkrzpHt6GjFKXyp/seuS3pzj42bHl7UzLijaGlZYwR?=
+ =?us-ascii?Q?J2H+goeHAT5eFz0Ir4EziFqLQqC+DkjQY1KVuk4PW+xKl+mgWkKE8U7lpiNu?=
+ =?us-ascii?Q?2P0hpAsdPenum4D13v1xDty5Fk/UdCLWOkdAPpFH1VtYbRZ+4yIXbCXdS8Em?=
+ =?us-ascii?Q?oqd1ASdAVxPKnkWUC0b7MM5J/ESOJ+dnMF7C1SSJeN3W3z/onlmHaYo1lcfK?=
+ =?us-ascii?Q?I5BjuOkSUx7UhkbKb03tSMfSJ8+YFmoNwIednoVsW1vOA/3PJBnsDzkJMaWm?=
+ =?us-ascii?Q?NMX3F2RMyw=3D=3D?=
 MIME-Version: 1.0
-In-Reply-To: <aj6jLrECZM18I4MP@thelio>
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR04MB9851.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4811c2a7-23a6-4aba-7685-08ded3a691a3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jun 2026 17:15:49.4225
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ZsQbvMO6uAPO/50tLqHRRziXnNe4d1kGxxFKlhkhDFHWQZW0YBIZ4M8kmt67pI48F59h0J0EsQZscrk3ls6elinqB9WHB6QHYhBNKYcFDZQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR04MB8581
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_101602_164069_5E01ADDE 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,118 +151,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6996208715113793364=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
+Understood, and apologies. The confidentiality footer was auto-appended by our corporate mail gateway, not something we intended on an open-source submission. We've had IT disable it, so it won't be on future mail. We'll resend the series as v2 without the disclaimer.
+Sorry for the noise.
 
---===============6996208715113793364==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fQnCqX8ZQXXtFFbN"
-Content-Disposition: inline
+Krishnan (Saravanakrishnan Krishnamoorthy)
 
+________________________________________
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Sent: Friday, June 26, 2026 3:55 AM
+To: Krishnamoorthy, Saravanakrishnan
+Cc: Albert Ou; Ousherovitch, Alex; Conor Dooley; David S. Miller; Herbert Xu; Jonathan Corbet; Krzysztof Kozlowski; Palmer Dabbelt; Paul Walmsley; Rob Herring; Shuah Khan; Alexandre Ghiti; devicetree@vger.kernel.org; Wittenauer, Joel; linux-api@vger.kernel.org; linux-crypto@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org; linux-kselftest@vger.kernel.org; linux-riscv@lists.infradead.org; Shuah Khan; SIPSupport; Nguyen, Thi
+Subject: Re: [PATCH 01/19] dt-bindings: crypto: add Rambus CryptoManager Hub
 
---fQnCqX8ZQXXtFFbN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[Some people who received this message don't often get email from krzk@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 
-On Fri, Jun 26, 2026 at 09:05:02AM -0700, Drew Fustini wrote:
-> On Fri, Jun 26, 2026 at 04:44:56PM +0100, Conor Dooley wrote:
-> > On Thu, Jun 25, 2026 at 12:21:52PM -0700, Drew Fustini wrote:
-> > > On Thu, Jun 25, 2026 at 05:19:28PM +0100, Conor Dooley wrote:
-> > > > On Wed, Jun 24, 2026 at 06:38:35PM -0700, Drew Fustini wrote:
-> > > > > Document the generic compatibles for capacity and bandwidth contr=
-ollers
-> > > > > that implement the RISC-V CBQRI specification. The binding also
-> > > > > describes the common riscv,cbqri-rcid and riscv,cbqri-mcid proper=
-ties,
-> > > > > and the optional riscv,cbqri-cache phandle that links a capacity
-> > > > > controller to the cache whose capacity it allocates.
-> > > > >=20
-> > > > > Assisted-by: Claude:claude-opus-4-8
-> > > > > Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > > > > Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> > > > > Signed-off-by: Drew Fustini <fustini@kernel.org>
-> > > > > ---
-> > > > >  .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++=
-++++++++++++++
-> > > > >  MAINTAINERS                                        |  1 +
-> > > > >  2 files changed, 98 insertions(+)
-> > >=20
-> > > Thanks for the review.
-> > >=20
-> > > [..]
-> > > > > +properties:
-> > > > > +  compatible:
-> > > > > +    oneOf:
-> > > > > +      - items:
-> > > > > +          - description: Tenstorrent Ascalon Shared Cache
-> > > > > +            const: tenstorrent,ascalon-sc-cbqri
-> > > > > +          - const: riscv,cbqri-capacity-controller
-> > > > > +      - enum:
-> > > > > +          - riscv,cbqri-capacity-controller
-> > > > > +          - riscv,cbqri-bandwidth-controller
-> > > >=20
-> > > > Please modify this, as has been done for other riscv spec related
-> > > > bindings, to let people get away without using device-specific
-> > > > compatibles.
-> > > >=20
-> > > > In this case, you can just delete the first entry from this enum, s=
-ince
-> > > > it already has a user and only have to implement this feedback for =
-the
-> > > > second entry.
-> > >=20
-> > > Would this work?
-> > >=20
-> > > properties:
-> > >   compatible:
-> > >     oneOf:
-> > >       - items:
-> > >           - enum:
-> > >               - tenstorrent,ascalon-sc-cbqri # Tenstorrent Ascalon Sh=
-ared Cache
-> > >           - const: riscv,cbqri-capacity-controller
-> > >       - items:
-> > >           - {}
-> > >           - const: riscv,cbqri-bandwidth-controller
-> >=20
-> >=20
-> > Should do, yes. I question the need for a comment though, seems pretty
-> > evident from the compatible what it is.
->=20
-> I was thinking people may not know that 'sc' is the Shared Cache. I
-> probably should have shortend the comment to 'Ascalon Shared Cache'.
-> Anyways, I can drop it.
+Caution: < External Email >
 
+On Thu, Jun 25, 2026 at 10:33:09AM -0700, Saravanakrishnan Krishnamoorthy wrote:
+> From: Alex Ousherovitch <aousherovitch@rambus.com>
+>
+> Add device tree binding schema for the CRI CryptoManager Hub (CMH)
+> hardware crypto accelerator.  The binding covers the parent SoC-level
+> node with register region, interrupt, DMA properties, and per-core
+> child nodes identified by compatible string and unit address.
 
-Or call the device "ascalon-shared-cache-controller"!
+...
 
---fQnCqX8ZQXXtFFbN
-Content-Type: application/pgp-signature; name=signature.asc
+>
+> ** This message and any attachments are for the sole use of the intended recipient(s). It may contain information that is confidential and privileged. If you are not the intended recipient of this message, you are prohibited from printing, copying, forwarding or saving it. Please delete the message and attachments and notify the sender immediately. **
 
------BEGIN PGP SIGNATURE-----
+OK, we are done. I am removing your posting from Patchwork.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj6kFQAKCRB4tDGHoIJi
-0ngnAP4+tZ3gpzZDlXPPujWnhu7Hv/STeRXLHNaHQpmbLVywZQD/fdcUyQlrk7zr
-qDRq2QQ5uj/CfqxhWarfWX1g1+enBwE=
-=RBQ8
------END PGP SIGNATURE-----
+Best regards,
+Krzysztof
 
---fQnCqX8ZQXXtFFbN--
-
-
---===============6996208715113793364==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6996208715113793364==--
-
