@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578D5CDE00E
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964EECD4F26
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0sgWL0jArpxCgFC2nHSWeLtsBukSMVpdBQ1trjXWbiI=; b=HnKYgybnbnPqCE
-	c7r1n/bT8YxB29DhZMStH0qfWSyk4cPClw0QKGd6Au5OUoA4PDjcIJkiPk0hV3QQilqGNnwv7g+uI
-	hTqOUNibLxYQDPjjEaesqZwQeDhRegK6m/csUXWdTRfHbCIBxTZeyYY3EpHy3lE0hj6bKbsD+glUq
-	qB2HsRgV4er82OP1ZnAgIEkNO75JvwcILG7mWo5mp+l2/BhVVPsoZ1S39m8cirKJItqNypscQEAn8
-	Vi3yOTCE3H9PwV9km4a6USen5hg7QrpN9xiclbBNtndRYZDZZwAQ/Hac91+mfAoihm8bivXEiIMth
-	pf6hJBATpo4v7FwXGwhQ==;
+	List-Owner; bh=sHyp86DlmvNCVKq1hQ2J3yKE+Ab1UepspvuCI6vqDec=; b=g4KKaO4+txYUaO
+	1NcHvk2/GE6Gq/9kBbMQU8H1bERIuCjTcknkGkpOZdIL1R5G9SFhElwI/3X5agLwITmGjnK4AYKj+
+	ecxPPSGu7d82VkWt6yy5ZTJbKI31XktFjNJbObqd1+TIkPH/ODc40z+g8LlbFq5b6UBkMR82jML6P
+	ILzASK4sZzK7SXXOAUY9W3f1Og5Kf2jtHQsTajILrGJ+UU6svlkTrNL4Xna0P4NIHA9HGTdjEQSnA
+	p6Lgfb+7rHqWI6ib5sYkey9fDza1myX5Nt0hwB8xWI+u4/oQJ+MArcAZNnU3YyW8k54jMgD92S3fR
+	XqxjzAq0YJ8PueV9GlJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1p9-0000000Aosz-3zbz;
-	Fri, 26 Jun 2026 08:22:07 +0000
+	id 1wd1pD-0000000Ap0P-0gS4;
+	Fri, 26 Jun 2026 08:22:11 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1os-0000000Ao9G-20Vl
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 08:21:50 +0000
+	id 1wd1ov-0000000AoIf-1xoO;
+	Fri, 26 Jun 2026 08:21:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75D6641A33;
-	Fri, 26 Jun 2026 08:21:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57CAF1F00A3F;
-	Fri, 26 Jun 2026 08:21:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 085944430E;
+	Fri, 26 Jun 2026 08:21:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBDAC1F00A3A;
+	Fri, 26 Jun 2026 08:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462109;
-	bh=AYNZzZeOmFE2pPGD5v82j7fSWAbJiNgUt8ZRmPqYi4E=;
+	s=k20260515; t=1782462112;
+	bh=7N6xFs6HldNaJtHXB+1so7kMQ4CsatgFOfKvzUpfQ6c=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=VuM+Cc/fPuXXma72yaPxPdO+vp38h0bXCjVwItksCXJ7lJrPe8tdY+C12WvktPaFm
-	 V6ShIUNFPfNe9VdBbDw7ysUpWL3bvcn7LNxQEQByhtq/67+wP5tNe7aMk/07Si87hf
-	 SjX8wjRjaYYkWAjA/x12jwp7RYimxMYeEBMi7G2tL7W+REwJSRN3ToULO3bQ1lqVbA
-	 WqtVZVfkIw8JC8atVLbRiAum395W/ISVrbVQbS+hK9/WEjho5JtH/M5U4jMiWJ5fAK
-	 YdXvHfSqTePxsheMu49tuwrzP1naD3E/wXxbFtonUUy7xjITz0V/gxslu7x3yOsDOy
-	 zTtBOJqok2gKw==
+	b=DLkaMOoe7jjLq0zrWVM7g5T3weWBVn0GKvdUrsWL1NS6Qs/YGb/jSI/OCz0xvfzqS
+	 Qaym8bn+YQ7Yv3mFvqa3JZPMQyeTT1JkI61/DRV2mqoJOQ6RCZahCcrN/sZ0P41GxN
+	 lQMkVEyzffwbljfjI4cRAmJFH6TA/MXXocYqdJ0r2fyaFbY7MUFYbzOT2mQ1bO9ESQ
+	 aXENlZ4+KidZLyWpFEQCN/4TQ2SdvjPzYQw0gZqKyFHWnTN9MR5o7FqI9NLTieKhiJ
+	 eEE7hw/g70YQVjdOMlBaDUGyYwudw/LY4An0H/3ioGWkJoeS59H947CE7rYTKgUHWr
+	 baMoIKRFCt04w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93CC839389E8;
-	Fri, 26 Jun 2026 08:21:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 199D639389E8;
+	Fri, 26 Jun 2026 08:21:41 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] Disable -Wattribute-alias for clang-23 and newer
+Subject: Re: [PATCH v5 0/9] driver core: Fix some race conditions
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246209611.3816447.421614366595878220.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:21:36 +0000
-References: <20260515-syscall-disable-attribute-alias-for-clang-v1-1-9a9d95d41df6@kernel.org>
-In-Reply-To: <20260515-syscall-disable-attribute-alias-for-clang-v1-1-9a9d95d41df6@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux-riscv@lists.infradead.org, morbo@google.com, justinstitt@google.com,
- nick.desaulniers+lkml@gmail.com, arnd@arndb.de, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
+Message-Id: <178246209959.3816447.5329631417058038374.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:21:39 +0000
+References: <20260406232444.3117516-1-dianders@chromium.org>
+In-Reply-To: <20260406232444.3117516-1-dianders@chromium.org>
+To: Doug Anderson <dianders@chromium.org>
+Cc: linux-riscv@lists.infradead.org, gregkh@linuxfoundation.org,
+ rafael@kernel.org, dakr@kernel.org, stern@rowland.harvard.edu, aik@ozlabs.ru,
+ johan@kernel.org, edumazet@google.com, leon@kernel.org, hch@lst.de,
+ robin.murphy@arm.com, maz@kernel.org, aleksander.lobakin@intel.com,
+ saravanak@kernel.org, akpm@linux-foundation.org, Frank.Li@kernel.org,
+ jgg@ziepe.ca, alex@ghiti.fr, alexander.stein@ew.tq-group.com,
+ andre.przywara@arm.com, andrew@codeconstruct.com.au, andrew@lunn.ch,
+ andriy.shevchenko@linux.intel.com, aou@eecs.berkeley.edu, ardb@kernel.org,
+ astewart@tektelic.com, bhelgaas@google.com, brgl@kernel.org,
+ broonie@kernel.org, catalin.marinas@arm.com, chleroy@kernel.org,
+ davem@davemloft.net, david@kernel.org, devicetree@vger.kernel.org,
+ dmaengine@vger.kernel.org, driver-core@lists.linux.dev, gbatra@linux.ibm.com,
+ gregory.clement@bootlin.com, hkallweit1@gmail.com, iommu@lists.linux.dev,
+ jirislaby@kernel.org, joel@jms.id.au, joro@8bytes.org, kees@kernel.org,
+ kevin.brodsky@arm.com, kuba@kernel.org, lenb@kernel.org, lgirdwood@gmail.com,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-cxl@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-usb@vger.kernel.org,
+ linux@armlinux.org.uk, linuxppc-dev@lists.ozlabs.org,
+ m.szyprowski@samsung.com, maddy@linux.ibm.com, mani@kernel.org,
+ miko.lenczewski@arm.com, mpe@ellerman.id.au, netdev@vger.kernel.org,
+ npiggin@gmail.com, osalvador@suse.de, oupton@kernel.org, pabeni@redhat.com,
+ palmer@dabbelt.com, peter.ujfalusi@gmail.com, peterz@infradead.org,
+ pjw@kernel.org, robh@kernel.org, sebastian.hesselbarth@gmail.com,
+ tglx@kernel.org, tsbogend@alpha.franken.de, vgupta@kernel.org,
+ vkoul@kernel.org, will@kernel.org, willy@infradead.org,
+ yangyicong@hisilicon.com, yeoreum.yun@arm.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +100,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Nathan Chancellor <nathan@kernel.org>:
+by Danilo Krummrich <dakr@kernel.org>:
 
-On Fri, 15 May 2026 19:35:18 +0900 you wrote:
-> Clang recently added support for -Wattribute-alias [1], which results in
-> the same warnings that necessitated commit bee20031772a ("disable
-> -Wattribute-alias warning for SYSCALL_DEFINEx()") for GCC.
+On Mon,  6 Apr 2026 16:22:53 -0700 you wrote:
+> The main goal of this series is to fix the observed bug talked about
+> in the first patch ("driver core: Don't let a device probe until it's
+> ready"). That patch fixes a problem that has been observed in the real
+> world and could land even if the rest of the patches are found
+> unacceptable or need to be spun.
 > 
->   kernel/time/itimer.c:325:1: error: alias and aliasee have different types 'long (unsigned int)' and 'long (typeof (__builtin_choose_expr((__builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0LL)) || __builtin_types_compatible_p(typeof ((unsigned int)0), typeof (0ULL))), 0LL, 0L)))' (aka 'long (long)') [-Werror,-Wattribute-alias]
->     325 | SYSCALL_DEFINE1(alarm, unsigned int, seconds)
->         | ^
->   include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
->     225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
->         |                                    ^
->   include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
->     236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
->         |         ^
->   include/linux/syscalls.h:251:18: note: expanded from macro '__SYSCALL_DEFINEx'
->     251 |                 __attribute__((alias(__stringify(__se_sys##name))));    \
->         |                                ^
->   kernel/time/itimer.c:325:1: note: aliasee is declared here
->   include/linux/syscalls.h:225:36: note: expanded from macro 'SYSCALL_DEFINE1'
->     225 | #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
->         |                                    ^
->   include/linux/syscalls.h:236:2: note: expanded from macro 'SYSCALL_DEFINEx'
->     236 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
->         |         ^
->   include/linux/syscalls.h:255:18: note: expanded from macro '__SYSCALL_DEFINEx'
->     255 |         asmlinkage long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))  \
->         |                         ^
->   <scratch space>:16:1: note: expanded from here
->      16 | __se_sys_alarm
->         | ^
+> That said, during patch review Danilo correctly pointed out that many
+> of the bitfield accesses in "struct device" are unsafe. I added a
+> bunch of patches in the series to address each one.
 > 
 > [...]
 
 Here is the summary with links:
-  - Disable -Wattribute-alias for clang-23 and newer
-    https://git.kernel.org/riscv/c/175db11786bd
+  - [v5,7/9] driver core: Replace dev->dma_coherent with dev_dma_coherent()
+    https://git.kernel.org/riscv/c/3e2c1e213ac2
 
 You are awesome, thank you!
 -- 
