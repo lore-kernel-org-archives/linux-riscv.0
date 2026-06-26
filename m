@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10AB9CDE012
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5303ECDE015
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XG2GKW3eXkskfmyyFraqzQLJUPe4s06RHGXuV4/pO3M=; b=1/5PpdHMgfN547
-	GhVOLAVfuKTVualbv1VMwqFn7E7+tedCgOI9NBCn2GNKyiCo8ksQT0dKSdrxrl0bZC6Q7onyV70H8
-	F7Jrr+qlZcgVO47YPGL//CeeNvfh2P7h+w+FRwhQKk5+LAKW6tuc8GYqqhAb7amn+QhfRLlMhkxH1
-	nihKZYXQRe1i/vcJr3zbOp9//MmdcZeGBgpwj3XovbWwZyRA9EDBAeIgkJcEcczLT2RG4+nSDuGIt
-	DxN38fJlqj8TJmTHSwTAapeMpcDFKSwP5rEt0pjxLWAVitFG80Ux0lTaJRnDYPLjzLx4UJhC/0A81
-	kkFC7glS/itRYW9Xy1Ng==;
+	List-Owner; bh=6oT5ryL7XWg5HHJYUkKzGDHFUkKAPpDhdS2oGlbALTs=; b=xc8HUeOfTPqoBM
+	0wDaOt/jDgO7OnZ4G+15fpaGWTofkrK98BaTZahF+BA58gvx9QH7VdjRHU1Sy3kJCBRmrhAfr3Uu7
+	EaFfSJOv7f4ranPWnVD/T5Vu3b/AU3lu870YtQwwznEMIBPYHMPORGkMWpfvCegJwbNSI8sQL4WSU
+	hnIqRjYDLpsLxX6sTmG/7WAT4in7yObmcfj7uXHF5yPnaALddmfIry9xsPNinOB5XYmaTCu/AjeoX
+	bJ66uN2nhIO0x8qFxA/vdHe0ka9mxGMuspRky58OudM4wGuWhGOH7eqFXNwRFjzMQqMJqyU4nfUZv
+	br8Ih5bMSx9dH6IzM26A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oO-0000000AnEC-2gRk;
-	Fri, 26 Jun 2026 08:21:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wd1oS-0000000AnKS-0h9u;
+	Fri, 26 Jun 2026 08:21:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oM-0000000An9Z-44Y1;
-	Fri, 26 Jun 2026 08:21:19 +0000
+	id 1wd1oP-0000000AnEU-1jzo;
+	Fri, 26 Jun 2026 08:21:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B21FF40A8E;
-	Fri, 26 Jun 2026 08:21:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 946431F00A3F;
-	Fri, 26 Jun 2026 08:21:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C90A6021E;
+	Fri, 26 Jun 2026 08:21:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0AC1F00A3D;
+	Fri, 26 Jun 2026 08:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462078;
-	bh=JI0GxwAojLxKVFwlEOU4ZPICdfzGKw9cICvZEMficB8=;
+	s=k20260515; t=1782462080;
+	bh=Xf3kAwe5ywIQY//rN3h6sBdlm1lF9rusVsWktLYdFkk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=I6xKGOM7/fsBQEKDF7dia1uD6RiDe1aFMJruUQis5I9vTwn0YNsK6D2SxTFHivvxq
-	 pDeY0fVr1TMG85kvEefOc2/Vg0HbxreL9gDXLR/3h2OTYwBiCgvSeaw5te5ws9XInA
-	 ExQiy0LqB1rnjTl1mIz2cN70ybxsPI42URHmE0C18xvjsF11jnSybCBFtaLVfNAkum
-	 6CM40mcgNBrrUxIyXmAnVmIUKGmJ/gkJpXB+q7zpcja89npZZxT78x0QsiUSzLJv5C
-	 37zTEizn9T1NYR2iBPbbsxPxR+Ra20Y2yvc+9mP23hgcK69ElukKON03y3j6XmQoN9
-	 j/bhWMw9cnrsA==
+	b=aA/AaODJC9hNx87l7DWmFqF1ycvUQDGXM6GzZfkNDnaN83wpqMr7NjTKa3W749koe
+	 hwI7hQleW1NVEl2PH70tTqE+TBtvDm8AwRL2dm6Hcj+k9PQxhyaItrC9HsLeyyIqR0
+	 zndpM5dfZUZ+rxd7ac/2X/rhEe3gGN3uSkL1j5ZvFuZKkz4qiMsVS0UdRBcW255bmd
+	 B7KThCYiQMxkacYR+Lx1CIiiqfC6QKOcMNcIWeEeOhqYwGxKSKPiOIfXmLesV17yR2
+	 Odx/7NmU+bJ7ZzRHg/3Xun0PK3w6/xBip2pDM77MGz/xkgB+IWxpgu7gJukMW3wPcN
+	 lLNjFjZn/RKUw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D09BA39389E8;
-	Fri, 26 Jun 2026 08:21:06 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5695239389E8;
+	Fri, 26 Jun 2026 08:21:08 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: KVM: Fix invalid HVA warning in steal-time
- recording
+Subject: Re: [PATCH v9 0/4] Introduce ASPEED AST27xx BMC SoC
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246206549.3816447.5536790669750884836.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:21:05 +0000
-References: <20260415075216.2757427-1-xujiakai2025@iscas.ac.cn>
-In-Reply-To: <20260415075216.2757427-1-xujiakai2025@iscas.ac.cn>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org, linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu,
- alex@ghiti.fr, ajones@ventanamicro.com, anup@brainfault.org,
- atish.patra@linux.dev, palmer@dabbelt.com, pjw@kernel.org,
- jiakaiPeanut@gmail.com
+Message-Id: <178246206701.3816447.15009741745882675380.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:21:07 +0000
+References: <20260609-upstream_ast2700-v9-0-f631752f0cb1@aspeedtech.com>
+In-Reply-To: <20260609-upstream_ast2700-v9-0-f631752f0cb1@aspeedtech.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+ catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, krzk@kernel.org,
+ alexandre.belloni@bootlin.com, linusw@kernel.org, fustini@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ soc@lists.linux.dev, conor.dooley@microchip.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +78,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Anup Patel <anup@brainfault.org>:
+This series was applied to riscv/linux.git (fixes)
+by Arnd Bergmann <arnd@arndb.de>:
 
-On Wed, 15 Apr 2026 07:52:16 +0000 you wrote:
-> kvm_riscv_vcpu_record_steal_time() assumes that the steal-time shared
-> memory GPA (vcpu->arch.sta.shmem) is always backed by a valid guest
-> memory slot. However, this assumption is not guaranteed by the KVM
-> userspace ABI.
+On Tue, 9 Jun 2026 10:47:17 +0800 you wrote:
+> This introduces initial support for the Aspeed AST27xx SoC and the AST2700
+> Evaluation Board (EVB) to the Linux kernel. The AST27xx is the 8th
+> generation Baseboard Management Controller (BMC) SoC from Aspeed,
+> featuring improved performance, enhanced security, and expanded I/O
+> capabilities compared to previous generations.
 > 
-> A malicious or buggy userspace can set the STA shared memory GPA via
-> KVM_SET_ONE_REG without establishing a corresponding memory region via
-> KVM_SET_USER_MEMORY_REGION. In such cases, the GPA cannot be translated
-> to a valid HVA and kvm_vcpu_gfn_to_hva() returns an error address.
+> AST27xx SOC Family
+>  - https://www.aspeedtech.com/server_ast2700/
+>  - https://www.aspeedtech.com/server_ast2720/
+>  - https://www.aspeedtech.com/server_ast2750/
 > 
 > [...]
 
 Here is the summary with links:
-  - RISC-V: KVM: Fix invalid HVA warning in steal-time recording
-    https://git.kernel.org/riscv/c/653f17c74260
+  - [v9,1/4] dt-bindings: arm: aspeed: Add AST2700 board compatible
+    https://git.kernel.org/riscv/c/34efd73379ff
+  - [v9,2/4] arm64: Kconfig: Add ASPEED SoC family Kconfig support
+    https://git.kernel.org/riscv/c/df6f379eb4ac
+  - [v9,3/4] arm64: dts: aspeed: Add initial AST27xx SoC device tree
+    https://git.kernel.org/riscv/c/e77bb5dc5759
+  - [v9,4/4] arm64: configs: Update defconfig for AST2700 platform support
+    https://git.kernel.org/riscv/c/512cef2af615
 
 You are awesome, thank you!
 -- 
