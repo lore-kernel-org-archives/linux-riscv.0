@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07475CDE008
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D255CDE008
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 08:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=REyv495Q+mBIcW7ZzXXO8R7wzNRjOlG2SMyR7F4b1l4=; b=RbcSiWUiP13vCi
-	pFdoSbrkhlN4Vot6pOR52qnSi+p0UZjS+/m+yN3o18krFsUBQ0269McB/ll4RrnURhP6opyPIuGr7
-	+87l1UuKzYboqrFUkbcyEFhw4RA7ODoihvvpbHk5ebN+ntftROeyysTGtzrjtwBF8e0MomneCurme
-	w24QQKizRKJjvCD6/kfqdFDu8t7rlJVWIBlWVt7V146+nM5QOWdjH4jTEK0l1+Kn5BnOiAgveMqKg
-	xFdOZQCHhOLsAnDmOxK0uApB041nxxrPM0g7epx7vxCNhufuN2V3a+ogYenc+Ytp6QXksAeEm8nCi
-	WqFKc2xvXLT23RDOtQRA==;
+	List-Owner; bh=Rl2+5ppeVXlWMs8oyXPNIf4T+o7j96/6VW5vx46VjqE=; b=XDIg2mQwv0YjEz
+	U6IDaM4wO89RWz+Jpukcuk96Tg6wrnBoPQK3g/zqWtOstiTtgtArTrDB6A3Qn/TXu65SocM8ovWbj
+	6hC5yx4ivYBGOJ298O9cKyIquj0H88D/EtyjQCwy4B7qhSbcOcWVy7K486z+KqaYmrtn5rozeHRPO
+	R40gfnpus7zzHdK6PSJA2Laxa+XYTCnx2+CiCd5FazuPFn/v4XA+SaKGTyVnINT8kjvOlogfc4PyN
+	TMPEgRkY8woa+UrIwvuiwO3U9BEc9KZ4mDcWDi0Q7ExQ4hjZLwONqMnmfXZakgCvQ0+5s4EEn8tAE
+	hcnYys+9+NDcd1h/57OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd25k-0000000AsRJ-1cMC;
-	Fri, 26 Jun 2026 08:39:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wd28h-0000000AseV-09L9;
+	Fri, 26 Jun 2026 08:42:19 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd25h-0000000AsQR-0hEw
+	id 1wd28d-0000000Ase7-2CoX
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 08:39:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1782463152;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NDltzCJUDRmKYkrW1vbieyufI39hKX9sdD7dTyxWQpA=;
-	b=ffNp93CZNuk9Zcv3BFNQL7rqnVJlJgcBIbHYXIZTwDvZsryivK3HZedKnCYXx+GbPuDvj/
-	hvVds8xxVxIlCRQJClSdGWXBvBiKYDEZPcbQpW5f614PZiec7BDn0qhJL5k/5bk/2ud0E6
-	M0Intj77ypF1i6tUNkiDuSFRvM26G2Y=
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-556-e_2Hnn-1NOywjirwvt-tPA-1; Fri, 26 Jun 2026 04:39:10 -0400
-X-MC-Unique: e_2Hnn-1NOywjirwvt-tPA-1
-X-Mimecast-MFC-AGG-ID: e_2Hnn-1NOywjirwvt-tPA_1782463150
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-517ac42d958so13175101cf.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 01:39:10 -0700 (PDT)
+	Fri, 26 Jun 2026 08:42:17 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c89370405aaso300598a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 01:42:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782463334; x=1783068134; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JsvSBjnG06bUFbh9b1fjdG1LZreCknqQFnMC8kjK6/8=;
+        b=OPgoTX3KMTOFj3PAQgN/NhYmIEnjex5iC3gkIqH3nl12Iv22/IeNTEfMs2FOqmgYW/
+         t8xzQYVJqx7r/FQbPnlK1PTqapWC8p5VBXwBF97Eho91hZ7M3sPSti4Tai6dWzmftCuZ
+         dr31xcNN2SJzKUmyvcl8+gaqNeO3YY0BVMI7QFBt3/MvWWoRYk9t9ePPvzE1huDYlzeK
+         HS8Ej5ffmldB4WbG5sZGbnO24tjE6CXydGFEeujPZ33FawgwBMVIWEXx4RLQVo0L5Iom
+         kscfpO2FIydPqFOI/mWxHRc8CjHNIxkYBiFtlULlzVturK7nFDGEMdCrhkF8fX3pfNk/
+         XClw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782463150; x=1783067950;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=NDltzCJUDRmKYkrW1vbieyufI39hKX9sdD7dTyxWQpA=;
-        b=BQepqwBz1TQvBEiBd0Rkt3C3rSEiP2Q3+AOYOwKgEBB6eWv1zlHCSdhMh9G78uB+34
-         3ABt9O0FMJjhBRRjk9fSFqXBklrtDOU9vq1LwZkEL8Spq74tKPrHgeHOyMmuP0ISMZUk
-         CGx51JB0nilaVziy8LIc6+Zq+Q7GI30h1jQZTAlqd2WE4KGtYDMJuSFZ5h3gk5ZIwLV0
-         lj8ldfevhcI6xvZaEuPuQBjzDIb8AlpWjr1I3N5T7BsPBO7SPacCIyZQ2g+KJw74f8Vg
-         5aP5WLgYcYMzhkJpRii1W2gLwTDatN833OUqBS7fIKFBer6bHDc0QJCG+jkUUgv42Vup
-         OGkw==
-X-Forwarded-Encrypted: i=1; AFNElJ/HjdZUH6Ujhx3gdqUZip60EleWsANE63N/DTNoBVA6C98WdPC5lG1Cki4kUof2MqbQFVndc6YPc1TyNA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKZNsktIDWL6p0kMtynPzcEfPfO49A8MsO0oVlMLUQQ16vPHnb
-	3U22WaWJ8mYVdUmEqg8682DZMIOhSx5cHelC5HyUstTwnZEPVaR52cnESxhrUsYJNKbu05MAX0T
-	VyVUDHVOKMM/NlTUe3oodo1ENcdI/qvlOI+AZRFDPntSonKmltanqGInwowjom0yaqn6nI+DWwN
-	LJd0UaRas7duYu63aBUy0eBjkHqvESBHqWTxYhLTBdq+5Y
-X-Gm-Gg: AfdE7cnoT3wSHaT38nJ2qAkWNlp09r6qS/ZmlgW97JfttwTrptTvNRVgCEyUnpgnWYj
-	b94qhkFAchhoKla5o5LZgYLscrypWaeQPqlVkpSIMAXR5Ft1PZYucbBxXmNDF+ECV6AHpdPZxK5
-	lqFiiA/opLwunY0WmYMoJFUDWUeOkYNhFhYJ7envuURRQW0WT7lg0xDuDoCr94/AhgDoI=
-X-Received: by 2002:ac8:5d8f:0:b0:517:7e26:36a4 with SMTP id d75a77b69052e-51a727a6b4emr38094621cf.34.1782463149747;
-        Fri, 26 Jun 2026 01:39:09 -0700 (PDT)
-X-Received: by 2002:ac8:5d8f:0:b0:517:7e26:36a4 with SMTP id
- d75a77b69052e-51a727a6b4emr38094311cf.34.1782463149181; Fri, 26 Jun 2026
- 01:39:09 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1782463334; x=1783068134;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JsvSBjnG06bUFbh9b1fjdG1LZreCknqQFnMC8kjK6/8=;
+        b=Prt1kT7c6srMB7VKMOWM9H7/ZvZKAxiVDaZXI9aCsLL6kKJ2KEiZhDSOC0hxhqzjv9
+         ZTUTQQqi0UM+GYK+lFvnhYwqri6ojsphEe378QyOhs96V8BXfiIkHYWfm7Pt3m2UJudE
+         xWyrfEo9R2FacGFPZCgfrxpTDNf8uB2w0UVsidjdaYYVMWbtIF+1hCaG+GUSdbxYNwx6
+         8s1ET6AO5UtYkKG2DG0gkWoBkhVgA8pq7fj51Di47W7hg+XjtDLWV/mn2W9RYJvMLnjS
+         iBvzKxsK6ne7cnizC2q7IrYvzy/WWrGA11wd1Q8mXTlyOXyRcPgxQbjom4XtnF3PRCUs
+         +33Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8eabM06qZpNGs6m7OHT4zeKL6OPg6jTEoRaSml8nyb1UA5Ka7lszPGvsmpuBwp1oE3zGf4V3VNaw0Fcw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQFYBs+UMKOhxaGd9IifwPk15xHPhNJ7r/oUJ96LkrO1YWzEOs
+	LyBDutb5kj+endBJDwopQ2qrNGk/znDLSgNBDHrN51yLSEvdjUTFTkzI
+X-Gm-Gg: AfdE7cmAurbRl91WMgL9/yrR/SzanxU4eLty1NiG2PnYnFtgzgLH+UmnAjQ4rBQnL5m
+	ZDf4p7lzU0EvKISThOyEiGjp0qvbTvaYnUtgawsg2jAo14P3xit2lbv4JwKBeErNHrjTCFUO83L
+	YFp82YIRU/4MB3wE5cd7mR2nT5ncmZ+3Kn3FJS/ivWHg0xFwxXWdQbD3X1+11Sft1Cts4+o3JQR
+	OGJu5bhHEz1vsU5hZJAC+eT76nu9cdM93i8iMEIX8j67gcWMCswoaecpqujYUfFBAUNyMKmFY7F
+	Agei1v0NwYXZ3mjW44BQpo1BT822ziHUntPDYEMXhrPTW/+l+D8iTMDG8rm3nXfcEyCp/Q+i0tT
+	NUJGHu+5Uda38WrFF6l+aD83BDQsHp3gnMj9yRx0AlF+bgGlO/9jiyrIgFV7KToZA
+X-Received: by 2002:a05:6a20:9397:b0:3b7:8027:dfeb with SMTP id adf61e73a8af0-3bd4aec7163mr7059290637.22.1782463334219;
+        Fri, 26 Jun 2026 01:42:14 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c92b96eccf8sm3107580a12.3.2026.06.26.01.42.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 01:42:13 -0700 (PDT)
+Date: Fri, 26 Jun 2026 16:41:52 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: guoren@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Leonardo Bras <leobras@redhat.com>, Raj Vishwanathan4 <rvishwanathan@mips.com>, 
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Han Gao <gaohan@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, Xiaoguang Xing <xiaoguang.xing@sophgo.com>, 
+	Aleksandar Rikalo <arikalo@gmail.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org, sophgo@lists.linux.dev
+Subject: Re: [PATCH V5] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+Message-ID: <aj463BBQccFwUoV5@inochi.infowork>
+References: <20260421143154.1590156-1-guoren@kernel.org>
 MIME-Version: 1.0
-References: <20260529032739.13264-2-ltao@redhat.com> <CAO7dBbW+LEy8SBGAKcrxEDzK5Xctw-r7ztgnXuURa9g0xntbtQ@mail.gmail.com>
- <CAP_BRoQEM8Re1dT7JNQgO72o50GAnb2y7R1HWPd+E772GVYAJg@mail.gmail.com>
-In-Reply-To: <CAP_BRoQEM8Re1dT7JNQgO72o50GAnb2y7R1HWPd+E772GVYAJg@mail.gmail.com>
-From: Tao Liu <ltao@redhat.com>
-Date: Fri, 26 Jun 2026 20:38:32 +1200
-X-Gm-Features: AVVi8CcC6SRLbaRMcmDZcOqEvJBqXMu3cyxkiJ8WEEu_YPQEWrWyMZoL0N-5qwY
-Message-ID: <CAO7dBbW55P9eibE5o74s8Hn+fsZ5CeasyEtLMcpkCM=kVzF7zQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fix a NULL pointer reference in machine_kexec_prepare
-To: Baoquan He <bhe@redhat.com>
-Cc: kexec@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: OLTkz9RpSTSp8dTbS0nJGpPVSZ1ILrQezi-MxEMwhX8_1782463150
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20260421143154.1590156-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_013913_293052_B9938988 
-X-CRM114-Status: GOOD (  26.87  )
+X-CRM114-CacheID: sfid-20260626_014215_579065_C1EA1CA9 
+X-CRM114-Status: GOOD (  36.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,55 +98,231 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQmFvcXVhbiwKCkdsYWQgdG8gc2VlIHlvdXIgbWVzc2FnZSBhZ2FpbiEKClRoYW5rcyBmb3Ig
-dGhlIEFjayBhbmQgdGhlIHN1Z2dlc3Rpb24gZm9yIHRoZSBjb21tZW50LCBJIHdpbGwgYWRkIGl0
-CmluIHRoZSBuZXh0IHZlcnNpb24uCgpJbiB0aGUgbWVhbnRpbWUsIEkgd2lsbCBjaGVjayBpZiBz
-aW1pbGFyIGlzc3VlIGV4aXN0cyBvbiBMb29uZ0FyY2ggYXMgd2VsbC4KClRoYW5rcywKVGFvIExp
-dQoKT24gRnJpLCBKdW4gMjYsIDIwMjYgYXQgODowNOKAr1BNIEJhb3F1YW4gSGUgPGJoZUByZWRo
-YXQuY29tPiB3cm90ZToKPgo+IEFkZCBrZXhlYyBNTCB0byBDQy4KPgo+IE9uIEZyaSwgSnVuIDI2
-LCAyMDI2IGF0IDc6NDbigK9BTSBUYW8gTGl1IDxsdGFvQHJlZGhhdC5jb20+IHdyb3RlOgo+ID4K
-PiA+IEtpbmRseSBwaW5nLCBhbnkgY29tbWVudHM/Cj4gPgo+ID4gVGhhbmtzLAo+ID4gVGFvIExp
-dQo+ID4KPiA+IE9uIEZyaSwgTWF5IDI5LCAyMDI2IGF0IDM6MzXigK9QTSBUYW8gTGl1IDxsdGFv
-QHJlZGhhdC5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBBIE5VTEwgcG9pbnRlciByZWZlcmVuY2Ug
-aXNzdWUgaXMgbm90aWNlZCBpbiByaXNjdidzIG1hY2hpbmVfa2V4ZWNfcHJlcGFyZSwKPiA+ID4g
-d2hlcmUgaW1hZ2UtPnNlZ21lbnRbaV0uYnVmIG1pZ2h0IGJlIE5VTEwgYW5kIGNvcGllZCB1bmNo
-ZWNrZWQuCj4gPiA+Cj4gPiA+IFRoZSBOVUxMIGJ1ZiBjb21lcyBmcm9tIHNlY3VyaXR5L2ludGVn
-cml0eS9pbWEvaW1hX2tleGVjLmM6Cj4gPiA+IGltYV9hZGRfa2V4ZWNfYnVmZmVyKCksIHdoZXJl
-IGtidWYgaXMgYWRkZWQgYnkga2V4ZWNfYWRkX2J1ZmZlcigpLAo+ID4gPiBidXQga2J1Zi5idWZm
-ZXIgaXMgTlVMTC4KPiA+ID4KPiA+ID4gRml4IHRoaXMgYnkgc2ltcGx5IGFkZGluZyBhIGNoZWNr
-IGJlZm9yZSBjb3B5Lgo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBUYW8gTGl1IDxsdGFvQHJl
-ZGhhdC5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGluZV9rZXhl
-Yy5jIHwgMyArKysKPiA+ID4gIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKPiA+ID4K
-PiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWMuYyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWMuYwo+ID4gPiBpbmRleCAyMzA2Y2UzZTVmMjIu
-LmQ4MWQ1NzZmOWNiNSAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGlu
-ZV9rZXhlYy5jCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWMuYwo+
-ID4gPiBAQCAtNDEsNiArNDEsOSBAQCBtYWNoaW5lX2tleGVjX3ByZXBhcmUoc3RydWN0IGtpbWFn
-ZSAqaW1hZ2UpCj4gPiA+ICAgICAgICAgICAgICAgICBpZiAoaW1hZ2UtPnNlZ21lbnRbaV0ubWVt
-c3ogPD0gc2l6ZW9mKGZkdCkpCj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVl
-Owo+ID4gPgo+ID4gPiArICAgICAgICAgICAgICAgaWYgKGltYWdlLT5zZWdtZW50W2ldLmJ1ZiA9
-PSBOVUxMKQo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPiA+ID4gKwo+
-Cj4gVGhpcyBpcyBhIGdvb2QgZml4LCBtYXliZSB3ZSBjYW4gYWRkIGNvZGUgY29tbWVudHMgdG8g
-ZXhwbGFpbiBpdCBhcwo+IGJlbG93LCBqdXN0IGZvciByZWZlcmVuY2UuCj4KPiAgICAgICAgICAg
-ICAgICAvKgo+ICAgICAgICAgICAgICAgICAqIFNvbWUgc2VnbWVudHMgKGUuZy4gSU1BKSByZXNl
-cnZlIHNwYWNlIGJ1dCBoYXZlIG5vIGJ1ZmZlcgo+ICAgICAgICAgICAgICAgICAqIGxvYWRlZCB5
-ZXQuIFNraXAgdGhlbSBhcyB0aGV5IGNhbm5vdCBjb250YWluIGFuIEZEVC4KPiAgICAgICAgICAg
-ICAgICAgKi8KPiBBbmQgaXMgdGhlcmUgYW55IG90aGVyIHBsYWNlIHdoZXJlIHRoZSBzaW1pbGFy
-IGlzc3VlIGV4aXN0cz8gZS5nIG9uIExvb25nQXJjaD8KPgo+IE90aGVyIHRoYW4gYWJvdmUgY29u
-Y2VybnMsIHRoaXMgcGF0Y2ggbG9va3MgZ29vZCB0byBtZToKPgo+IEFja2VkLWJ5OiBCYW9xdWFu
-IEhlIDxiaGVAcmVkaGF0LmNvbT4KPgo+ID4gPiAgICAgICAgICAgICAgICAgaWYgKGltYWdlLT5m
-aWxlX21vZGUpCj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIG1lbWNweSgmZmR0LCBpbWFn
-ZS0+c2VnbWVudFtpXS5idWYsIHNpemVvZihmZHQpKTsKPiA+ID4gICAgICAgICAgICAgICAgIGVs
-c2UgaWYgKGNvcHlfZnJvbV91c2VyKCZmZHQsIGltYWdlLT5zZWdtZW50W2ldLmJ1Ziwgc2l6ZW9m
-KGZkdCkpKQo+ID4gPiAtLQo+ID4gPiAyLjQ3LjAKPiA+ID4KPiA+Cj4gPgo+ID4gX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiA+IGxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdAo+ID4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4gaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+ID4KPgoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Apr 21, 2026 at 10:31:40AM -0400, guoren@kernel.org wrote:
+> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
+> 
+> The early version of XuanTie C910 core has a store merge buffer
+> delay problem. The store merge buffer could improve the store queue
+> performance by merging multi-store requests, but when there are not
+> continued store requests, the prior single store request would be
+> waiting in the store queue for a long time. That would cause
+> significant problems for communication between multi-cores. This
+> problem was found on sg2042 & th1520 platforms with the qspinlock
+> lock torture test.
+> 
+> So appending a fence w.o could immediately flush the store merge
+> buffer and let other cores see the write result.
+> 
+> This will apply the WRITE_ONCE errata to handle the non-standard
+> behavior via appending a fence w.o instruction for WRITE_ONCE().
+> 
+> This problem is only observed on the sg2042 hardware platform by
+> running the lock_torture test program for half an hour. The problem
+> was not found in the user space application, because interrupt can
+> break the livelock.
+> 
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Leonardo Bras <leobras@redhat.com>
+> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+> Tested-by: Han Gao <gaohan@iscas.ac.cn>
+> Tested-by: Yao Zi <me@ziyao.cc>
+> Cc: Chen Wang <unicorn_wang@outlook.com>
+> Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> Cc: Paul Walmsley <pjw@kernel.org>
+> Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+> ---
+> Changelog
+> 
+> v5:
+>  - Add Acked-by: Arnd Bergmann <arnd@arndb.de> for asm/generic
+>  - Add Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+>  - Rebase on v7.0
+> 
+
+Hi, Paul
+
+I wonder whether this is possible for applying? I think this is 
+a necessary fix for SG2042.
+
+Regards,
+Inochi
+
+
+> v4:
+> https://lore.kernel.org/linux-riscv/20260412143116.1445893-1-guoren@kernel.org/
+>  - Add Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>    (https://lore.kernel.org/linux-riscv/1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr/)
+>  - Add Tested-by: Yao Zi <me@ziyao.cc>
+>  - Rebase on v7.0-rc7
+> 
+> v3:
+> https://lore.kernel.org/linux-riscv/20260125063941.443777-1-guoren@kernel.org/
+>  - Rebase on 6.19-rc6.
+>  - Remove errata_list_vendors patch which has been merged.
+>  - Add Tested-by tag.
+> 
+> v2:
+> https://lore.kernel.org/linux-riscv/20250713155321.2064856-1-guoren@kernel.org/
+>  - Add new header file for errata_list_vendors.
+>  - Rebase newest kernel version.
+> 
+> v1:
+> https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
+> ---
+>  arch/riscv/Kconfig.errata                    | 17 ++++++++++
+>  arch/riscv/errata/thead/errata.c             | 20 ++++++++++++
+>  arch/riscv/include/asm/errata_list_vendors.h |  3 +-
+>  arch/riscv/include/asm/rwonce.h              | 34 ++++++++++++++++++++
+>  include/asm-generic/rwonce.h                 |  2 ++
+>  5 files changed, 75 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/include/asm/rwonce.h
+> 
+> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+> index 3c945d086c7d..4d3f13522da6 100644
+> --- a/arch/riscv/Kconfig.errata
+> +++ b/arch/riscv/Kconfig.errata
+> @@ -154,4 +154,21 @@ config ERRATA_THEAD_GHOSTWRITE
+>  
+>  	  If you don't know what to do here, say "Y".
+>  
+> +config ERRATA_THEAD_WRITE_ONCE
+> +	bool "Apply T-Head WRITE_ONCE errata"
+> +	depends on ERRATA_THEAD
+> +	default y
+> +	help
+> +	  The early version of T-Head C9xx cores of sg2042 & th1520 have a store
+> +	  merge buffer delay problem. The store merge buffer could improve the
+> +	  store queue performance by merging multi-store requests, but when there
+> +	  are no continued store requests, the prior single store request would be
+> +	  waiting in the store queue for a long time. That would cause signifi-
+> +	  cant problems for communication between multi-cores. Appending a
+> +	  fence w.o could immediately flush the store merge buffer and let other
+> +	  cores see the write result.
+> +
+> +	  This will apply the WRITE_ONCE errata to handle the non-standard beh-
+> +	  avior via appending a fence w.o instruction for WRITE_ONCE().
+> +
+>  endmenu # "CPU errata selection"
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index 0b942183f708..fbe46f2fa8fb 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
+>  	return true;
+>  }
+>  
+> +static bool errata_probe_write_once(unsigned int stage,
+> +				    unsigned long arch_id, unsigned long impid)
+> +{
+> +	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
+> +		return false;
+> +
+> +	/* target-c9xx cores report arch_id and impid as 0 */
+> +	if (arch_id != 0 || impid != 0)
+> +		return false;
+> +
+> +	if (stage == RISCV_ALTERNATIVES_BOOT ||
+> +	    stage == RISCV_ALTERNATIVES_MODULE)
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+>  static u32 thead_errata_probe(unsigned int stage,
+>  			      unsigned long archid, unsigned long impid)
+>  {
+> @@ -183,6 +200,9 @@ static u32 thead_errata_probe(unsigned int stage,
+>  
+>  	errata_probe_ghostwrite(stage, archid, impid);
+>  
+> +	if (errata_probe_write_once(stage, archid, impid))
+> +		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
+> +
+>  	return cpu_req_errata;
+>  }
+>  
+> diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+> index ec7eba373437..8fd7c36307e2 100644
+> --- a/arch/riscv/include/asm/errata_list_vendors.h
+> +++ b/arch/riscv/include/asm/errata_list_vendors.h
+> @@ -18,7 +18,8 @@
+>  #define	ERRATA_THEAD_MAE 0
+>  #define	ERRATA_THEAD_PMU 1
+>  #define	ERRATA_THEAD_GHOSTWRITE 2
+> -#define	ERRATA_THEAD_NUMBER 3
+> +#define	ERRATA_THEAD_WRITE_ONCE 3
+> +#define	ERRATA_THEAD_NUMBER 4
+>  #endif
+>  
+>  #ifdef CONFIG_ERRATA_MIPS
+> diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
+> new file mode 100644
+> index 000000000000..081793d4d772
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/rwonce.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef __ASM_RWONCE_H
+> +#define __ASM_RWONCE_H
+> +
+> +#include <linux/compiler_types.h>
+> +#include <asm/alternative-macros.h>
+> +#include <asm/vendorid_list.h>
+> +#include <asm/errata_list_vendors.h>
+> +
+> +#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
+> +
+> +#define write_once_fence()				\
+> +do {							\
+> +	asm volatile(ALTERNATIVE(			\
+> +		"nop",					\
+> +		"fence w, o",				\
+> +		THEAD_VENDOR_ID,			\
+> +		ERRATA_THEAD_WRITE_ONCE,		\
+> +		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
+> +		: : : "memory");			\
+> +} while (0)
+> +
+> +#define __WRITE_ONCE(x, val)				\
+> +do {							\
+> +	*(volatile typeof(x) *)&(x) = (val);		\
+> +	write_once_fence();				\
+> +} while (0)
+> +
+> +#endif /* defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE) */
+> +
+> +#include <asm-generic/rwonce.h>
+> +
+> +#endif	/* __ASM_RWONCE_H */
+> diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
+> index 52b969c7cef9..4e2d941f15a1 100644
+> --- a/include/asm-generic/rwonce.h
+> +++ b/include/asm-generic/rwonce.h
+> @@ -50,10 +50,12 @@
+>  	__READ_ONCE(x);							\
+>  })
+>  
+> +#ifndef __WRITE_ONCE
+>  #define __WRITE_ONCE(x, val)						\
+>  do {									\
+>  	*(volatile typeof(x) *)&(x) = (val);				\
+>  } while (0)
+> +#endif
+>  
+>  #define WRITE_ONCE(x, val)						\
+>  do {									\
+> -- 
+> 2.40.1
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
