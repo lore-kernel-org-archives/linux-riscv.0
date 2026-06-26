@@ -4,68 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1EBFC43327
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 14:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892CBC43327
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 14:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BboYCRGIaj0YhwCyNoJLiGQpFmyP1d+fA0XWo9pDms=; b=U0C4voR/KcRCuRO2I5ejGBDQm2
-	3s/Uq2FgRKcrpAfiWTjRNZTPPnZ1yEqW6QI8AuG0IVSdoBjy7bKjHcYTfLaN5SAHvZ/GtHD/joZGi
-	OlA9238WNMV8NFVH4931KIwO324rpQ21fJKzXppJKGdnDxogwADe7FQ8gHvzKdcXL4Ao/xoM1jeXE
-	s/tGgdjRfGSobcT0/gGSCEEetbCPhDa5Od0/r7RU9WAVi0DLrIC9qO+oVtApZqEHJpJydK8WrK6Ot
-	fVhOT/75xrupDZkZ+fmwt+mOFlLqanDdirxGloI8Ay6At7cm4D1yMbBqQGLdRyGYtyPaNpWo5GjPS
-	IDvQ6smQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vymxrTViTxsKBZ9BIj+RjCy5cKtuaLB5nVhQ0HytBeA=; b=npzlhyMTr9ZfJ6
+	GcQ5m/3H7irhOirqv4i91h3zKXw+iFXWlMUV3nbhyvcR5cvmDMHKnDEYwRGb72cvUT32yaOftTou1
+	xPDK2JOnAGRYgCU0z/c8hmwy4tbdw4i8jjna97dfT0yfldBS3jJsuDJxF5rSkTLH4w2E6cuY5UMkB
+	NKkXambTNH9rmyNgLgheGt88ZkQxXCsmOwkI4leZpLcOWYVm+MN3MKiCs6Ff5RVk8MSqXhJnW/4jO
+	ofg3u6QnWwZMuAB+hj77x3EOagQCM+/c9meYSUoKMzgW1y9AVkxrIybb9/AN/MeCUjJcMgIW8OdGR
+	/ceFr/9/vbkiA16vb1Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7fj-0000000BTSB-3CE4;
-	Fri, 26 Jun 2026 14:36:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wd7hw-0000000BTl3-1PfO;
+	Fri, 26 Jun 2026 14:39:04 +0000
+Received: from out-172.mta1.migadu.com ([95.215.58.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7fi-0000000BTRt-3FYS
+	id 1wd7ht-0000000BTkU-3Xfq
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 14:36:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D6D0414DF;
-	Fri, 26 Jun 2026 14:36:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBBCC1F000E9;
-	Fri, 26 Jun 2026 14:36:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782484606;
-	bh=pRWXUr9PEsOOHoCTMIoYcLvGzO9hsV6w0BemUsTACKo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ig9QYiqKEAA1m2n8rFfi/twGt5qWNi6m19j7wpVmTDsBJ/5RQcoM+FqyhGrMl5CPn
-	 9b5fnFkkj4BGqnidDmdIZnd85aONWh3DOcv/u58o0m5urZEuKLHbCc3Ra1sv0b0nCy
-	 XmXDxAKYztgKz5tMQQsCiI6rXWlsOmWs8wcXi3wC6h1qyInvD0j8JG+U19leyB67PG
-	 Jbh6CQ/gxjlBrXkGqB4R+4e42KIzwlyYXx+Vs70sE2uGlYGjiIR9s9SYEKMiZgBnUs
-	 aA3lLQFS18gcGZJ5FnqNVmyhsyxhooGbRl2n/axEmKk7AJlv5CIBLnnjneof5IRVjE
-	 DiNHaw6MOP+/w==
-Date: Fri, 26 Jun 2026 15:36:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yu-Chien Peter Lin <peter.lin@sifive.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
-	dlan@kernel.org, guodong@riscstar.com, dfustini@oss.tenstorrent.com,
-	michal.simek@amd.com, junhui.liu@pigmoral.tech,
-	darshan.prajapati@einfochips.com, akpm@linux-foundation.org,
-	zhangchunyan@iscas.ac.cn, luxu.kernel@bytedance.com,
-	pincheng.plct@isrc.iscas.ac.cn, nick.hu@sifive.com,
-	jim.shu@sifive.com, zong.li@sifive.com, greentime.hu@sifive.com,
-	robin.randhawa@sifive.com, scott@riscstar.com,
-	dave.patel@riscstar.com, raymond.mao@riscstar.com
-Subject: Re: [RFC PATCH 2/3] dt-bindings: riscv: Add Worlds per-hart
- properties
-Message-ID: <20260626-chitchat-purity-33af51f88380@spud>
-References: <20260619105834.1277302-1-peter.lin@sifive.com>
- <20260619105834.1277302-3-peter.lin@sifive.com>
- <20260622-profanity-herbs-1cc1bcf6206f@spud>
- <aj5m00m4KxRAPAnB@plin-1878>
-MIME-Version: 1.0
-In-Reply-To: <aj5m00m4KxRAPAnB@plin-1878>
+	Fri, 26 Jun 2026 14:39:03 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782484727;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ywfVVfHIaMt446COgp92lwZKXn494SDuKzJCEPWrxoY=;
+	b=PhqJhoG7u6ok3Ih9DjMgoZ6ovI2yjIinVBsySEs7Qw3RiK/Oq+Zc3N2SAZXs+yXqvd1E0l
+	e+iA7cqchVdYTpQQvBZjPyxy5YEfiGxVaOtpJD5Y08vSFQLRDl4gghkSy9NlCsT02LyeaD
+	kIpat7BwpGr6soNSeerUQ203dXuim8w=
+Date: Fri, 26 Jun 2026 14:38:29 +0000
+Message-Id: <DJJ23EXF55VK.1EGQZS511HFB6@linux.dev>
+Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
+ <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
+ <linux-mm@kvack.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+ "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+ "kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, "pbonzini@redhat.com"
+ <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org"
+ <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
+ "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
+ <yuzenghui@huawei.com>, "will@kernel.org" <will@kernel.org>,
+ "seanjc@google.com" <seanjc@google.com>, "mingo@redhat.com"
+ <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "luto@kernel.org" <luto@kernel.org>, "willy@infradead.org"
+ <willy@infradead.org>, "akpm@linux-foundation.org"
+ <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>,
+ "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>,
+ "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org"
+ <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>,
+ "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>,
+ "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org"
+ <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>,
+ "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org"
+ <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>,
+ "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org"
+ <kpsingh@kernel.org>, "haoluo@google.com" <haoluo@google.com>,
+ "jolsa@kernel.org" <jolsa@kernel.org>, "jhubbard@nvidia.com"
+ <jhubbard@nvidia.com>, "jannh@google.com" <jannh@google.com>,
+ "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org"
+ <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>,
+ "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com"
+ <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>,
+ "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>,
+ "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org"
+ <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>,
+ "maobibo@loongson.cn" <maobibo@loongson.cn>, "prsampat@amd.com"
+ <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>,
+ "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jthoughton@google.com"
+ <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>,
+ "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu"
+ <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com"
+ <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org"
+ <chenhuacai@kernel.org>, "baolu.lu@linux.intel.com"
+ <baolu.lu@linux.intel.com>, "dev.jain@arm.com" <dev.jain@arm.com>,
+ "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com"
+ <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com"
+ <shijie@os.amperecomputing.com>, "svens@linux.ibm.com"
+ <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>,
+ "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com"
+ <urezki@gmail.com>, "zhengqi.arch@bytedance.com"
+ <zhengqi.arch@bytedance.com>, "pavel@kernel.org" <pavel@kernel.org>,
+ "yangyicong@hisilicon.com" <yangyicong@hisilicon.com>,
+ "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com"
+ <jackmanb@google.com>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>,
+ "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro"
+ <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>
+Subject: Re: [PATCH v12 01/16] set_memory: set_direct_map_* to take address
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Brendan Jackman" <brendan.jackman@linux.dev>
+To: "Lorenzo Stoakes" <ljs@kernel.org>, "Kalyazin, Nikita"
+ <kalyazin@amazon.co.uk>
+References: <20260410151746.61150-1-kalyazin@amazon.com>
+ <20260410151746.61150-2-kalyazin@amazon.com> <aeeDvpDnGnY5n69n@lucifer>
+In-Reply-To: <aeeDvpDnGnY5n69n@lucifer>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_073902_183263_71C7F81F 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,115 +124,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3852185503956392239=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue Apr 21, 2026 at 2:43 PM UTC, Lorenzo Stoakes wrote:
+> On Fri, Apr 10, 2026 at 03:17:58PM +0000, Kalyazin, Nikita wrote:
+>> From: Nikita Kalyazin <nikita.kalyazin@linux.dev>
+>>
+>> Let's convert set_direct_map_*() to take an address instead of a page to
+>> prepare for adding helpers that operate on folios; it will be more
+>> efficient to convert from a folio directly to an address without going
+>> through a page first.
 
---===============3852185503956392239==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="b24ma/P19nA0VTmv"
-Content-Disposition: inline
+Why is this more efficient? Isn't it a purely compile-time conversion?
 
+Indeed in the current implementation folio_address() is
+page_address(&folio->page) so it still goes through a page anyway, no?
 
---b24ma/P19nA0VTmv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jun 26, 2026 at 07:47:31PM +0800, Yu-Chien Peter Lin wrote:
-> Hi Conor,
->=20
-> On Mon, Jun 22, 2026 at 06:12:47PM +0100, Conor Dooley wrote:
-> > On Fri, Jun 19, 2026 at 06:58:33PM +0800, Yu-Chien Peter Lin wrote:
-> > > Add per-hart DT properties for RISC-V Worlds architecture:
-> > > riscv,pmwid, riscv,pmwidlist, and riscv,pmlwidlist. These
-> > > platform-defined values are primarily used by M-mode firmware
-> > > to configure World ID CSRs and restrict WID usage across
-> > > privilege levels.
-> > >=20
-> > > Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
-> > > ---
-> > >  .../devicetree/bindings/riscv/cpus.yaml       | 21 +++++
-> > >  .../devicetree/bindings/riscv/worlds.yaml     | 77 +++++++++++++++++=
-++
-> > >  2 files changed, 98 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/riscv/worlds.ya=
-ml
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Docu=
-mentation/devicetree/bindings/riscv/cpus.yaml
-> > > index 5feeb2203050..4b5778b6d3e7 100644
-> > > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > @@ -26,6 +26,7 @@ description: |
-> > >  allOf:
-> > >    - $ref: /schemas/cpu.yaml#
-> > >    - $ref: extensions.yaml
-> > > +  - $ref: worlds.yaml
-> > >    - if:
-> > >        not:
-> > >          properties:
-> > > @@ -120,11 +121,31 @@ properties:
-> > >        thead systems where the vector register length is not identica=
-l on all harts, or
-> > >        the vlenb CSR is not available.
-> > > =20
-> > > +  riscv,pmwid:
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > +    description:
-> > > +      Platform-defined M-mode World ID (WID) assigned to this hart.
-> > > +    minimum: 0
-> > > +    maximum: 63
-> > > +
-> > > +  riscv,pmwidlist:
-> > > +    $ref: /schemas/types.yaml#/definitions/uint64
-> > > +    description:
-> > > +      Platform-defined bitmap of M-mode World IDs (WIDs) that this h=
-art may use.
-> >=20
-> > I don't understand what the difference is between this property and the
-> > one before it are.
-> > Is this one meant to be used by m-mode software to then select one which
-> > will appear in riscv,pmwid?
->=20
-> pmwid (single value) is the reset default, while pmwidlist (bitmap)
-> defines the allowed set. The root-of-trust M-mode software may select
-> an allowed value from the pmwidlist and write it to the mwid CSR.
-
-I don't understand the point of the property then. If it is the reset
-default, just read it out of the register?
-Unless I am missing something, it's useless to s-mode because it may
-not be what m-mode chose and useless to m-mode that has access to
-the csr.
-
-Cheers,
-Conor.
-
---b24ma/P19nA0VTmv
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj6OcwAKCRB4tDGHoIJi
-0uraAP0VIc7uu6TZluxJwX1wcbBhf0U6wqp0dpR0Zb8yYEKnugD+JqtwpUz5u7Rz
-k3+2geeKvfzF9RbQeDPvaD4Hy+7XNA4=
-=DJ5l
------END PGP SIGNATURE-----
-
---b24ma/P19nA0VTmv--
-
-
---===============3852185503956392239==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I might be missing context here about how this will look in the
+memdesc future.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3852185503956392239==--
-
