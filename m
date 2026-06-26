@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8400ACD4F26
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 10:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B96CDE008
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 10:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NBcpSXvZCSRLLMbQMMVZ3mr53On3ZYqvhDEInFJyxf4=; b=Us1GNBtQaET3EX
-	t5bnDlVXUkjrD6g22Xy9I/NXCpMa0QiNr4gHqWQUN81zY+97LfDQPuwZZ5uQS7f8S9IYmgJki9m2y
-	0YlQ4UsGsPag5OltQB5uM8lj6tB9T5sLkpaUqiVJHFaV3Sy6QIW0zRgWW9ymcRQDmINAxRTMPDIUB
-	yzfPbAiKuzBNdn6XEDHJIVHElZ/92Nrv2K4fGjit2H98mfcF//lZrds+7ukyZuBukOt6z+bcHpGum
-	m3ic/x1kiHiWzuDywz+Lt7MJcz8ObXKnFYu+WDxk6lAGoVjui/36cygdHZCMXLxgeIJ0TUmGiYSO9
-	G4kv1SkHXbgIVsyeb2ww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=T1OtBftXc64if2j5VUfCGvDnMgKBV7JIXlB8U795n/s=; b=3uyRdrXckhvyWk
+	ZN8QZWOXr8aHg548nJDdlpkevOyyju4lTlufund6wiH1GkAmwkPIVpSQ7A/TMyy6ptk/mq+cYqJVi
+	393nx0Xdn14yulDkKZc/h5gp829jLXfjIYjk4B19orRV40SY68QSK2lz++XYo+Zq/+5djyL6/Ak3p
+	YqEuKExeSXbuhWe6r8sIpQl610t5EiomLBFUr/l5lOxYeahhlqR1eKTTGEEvDwCRJBN+jI+L8gONT
+	YFoHneDo4ej27eD3bPiTnM4wxBiuae4tyMwB9htvC8koV6PUwcFcBUizs8RlhagXCMhFQ9oTOYG6x
+	qmqpvmTm29TQHWwe5arw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3vg-0000000B73O-2tFy;
-	Fri, 26 Jun 2026 10:37:00 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wd3vk-0000000B75C-3PN2;
+	Fri, 26 Jun 2026 10:37:04 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3va-0000000B724-1FCv
+	id 1wd3vi-0000000B73b-0SdM
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 10:36:58 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-46caaa805b2so483265f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 03:36:53 -0700 (PDT)
+	Fri, 26 Jun 2026 10:37:03 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2c7f385883cso3142535ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 03:37:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782470212; x=1783075012; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=D+LOxUqboNwspW3Z1iwsJeIpREU5uApJLby1JgVSadY=;
-        b=nt3RUiFrCP35IZomRO0J6/1WfPzwkG4ksH/wl5r7ev7LVtyPiGjZG5kPvN6ovOlxdG
-         f5AjI6HgaAk2A6mJ3Y+b/zf2u0G1MLY8qVVIagx5Q2HuBbOMJzfOvtMePLjSBCrSjMun
-         06Uc0Uq1rbSZUxjlwKX8riaUzl23DQz7mQIRt2592ayBdzWUln2a+Z4QiNGa5Xyc4adU
-         kqtu9Ls/gma9pnm298tv7R5pRRPSIjpMq3ip8NQWoef9TGnbfaiDM9Px2x0+GpmcPtTc
-         d/invfQhHsgDLI+0l6pUwe/vMeoT2TiVyWAguUEJt5d8f4UUGC0MeAGjWZ8eOykoEF5h
-         jY6Q==
+        d=gmail.com; s=20251104; t=1782470221; x=1783075021; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W2M7OHV5QInlnhYwnvp8dS/LgAte/nTo3qzO+dATYE0=;
+        b=XYMCAY/IASBhHLgy3pY11WoU4ln/Qu6JJMsnl3XVgRbPfkA7usw17x9ME1sNowPVJD
+         a89bQSKYWVHx9d6w6Or5gQayW2qSC4TIcUghkPgMC30l92ez+dfMUcTfA852enmVkQst
+         svJ8sg48KZPu+WcEXHugWnzIXJI1YvrX2hc4nKv9r3JwZsIR5BDbuSUJZ+TzQsMJlgFn
+         Hd7WhAK6NelmHUsPmTphEJ11gXrdkzDRgNlsFDpxTOdY+h4Qnzy4zGeXMokDFMNr4P6n
+         Pqrd0TOXNMZCQc/3kodCakeyrF4nvig0a2M2wjw9NCMmpCFeoLFnP4FKF2ib0AWbLToV
+         EOiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782470212; x=1783075012;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=D+LOxUqboNwspW3Z1iwsJeIpREU5uApJLby1JgVSadY=;
-        b=ncz8VbQDYA51e6bCUw1f4fXxhMg/npSuC7tjBkI8D1W0ycKY26+BFn7bFZiDfUVfXR
-         lHerRfx0ixVYBCkOlbb2p2uE4gkuy2hQ408i3WELj80P69y/GjoZ2hX7wSkwbEQNF+nB
-         Ij00kmnIFH+3A1n62vMy6qhR8cFboTzNVWg7KMk2pieV/9PNayU7k859lgQVrIMCMlk+
-         J6gEgUIdcgugrvmH18zIsx1pxMcqy7DTglaaVvIwoSbb5E9aNiQVgHIJwNqZWjLcCKM2
-         cL8el2fxaRXUGQXFUdwq5UUWmSYEUE8vtD8QazF05HkXMfTGjKNEs2nCsiicuLPa2ARF
-         qOYg==
-X-Forwarded-Encrypted: i=1; AHgh+RphjwygxOkUlDSa4xTa4kMSETbfJqY+HqaPoXeDSz1jGVCjcqFHOPYjJgs+L9A/Jxu2lUXs1YgFskPFVQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjAOsffp1oU0vIhjQWyIC0d9Jrn7h4/bhAq3l+VPFhZSxhpFpS
-	YrbaEZ27Dy/e6jR90/wHqZGCZ1Y0sjsT1lcTzTYafF05WC2EvgBKrD81
-X-Gm-Gg: AfdE7cn9mhpUt6M1PqCqCb7eWDoKmElHX4nxiWuB07Ev5hoWrydA7hE94EAEj5CW6hO
-	9rxAxFHMRXStD7L46WG14X7tfWDo5pbFSoOi9b6n1rPDvAuW+Z9sr47FxH3uZDXX3nnJw5UKP8Y
-	2lu/3z7HgZ7W+PzTv+F6/25gqAKGfcZDppPXeS+VG8DA4NcV/+RMrB412B9lMvhMa2xc/fvRkqk
-	05q+29DbfLkgAR5DVhsKnbkHv/FZEIhq8MTEp5fveYo7De74FQaBRvp9Weh8n9/6pfXo5s+FTyS
-	OGgaaTh1sfSoZH3gh1WTFn8LrLvm0w+WT1dIGnkYtyKztLupptQQaNzngFmq0BZeMrZmFeXLXCK
-	t+oXm4LhE8e8XApn2PWIFSuH20mb12tE//qzvdaGELq7HXf69XXpxQ9ZhpUAUnTOJ69H/Dmrk3P
-	0WYANYJTE78Eykooe1Ve6mDg0b/aKmD5NnWfVs/8g+KiB8+TQjg2iuouU=
-X-Received: by 2002:a5d:6f11:0:b0:46e:341b:45dd with SMTP id ffacd0b85a97d-46e341b47c7mr8297132f8f.26.1782470211515;
-        Fri, 26 Jun 2026 03:36:51 -0700 (PDT)
-Received: from [192.168.0.40] (a89-182-137-217.net-htp.de. [89.182.137.217])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46dd5f9da4fsm15043736f8f.23.2026.06.26.03.36.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2026 03:36:50 -0700 (PDT)
-Message-ID: <2a69d701-741b-4d65-bdbe-226610bf53b5@gmail.com>
-Date: Fri, 26 Jun 2026 12:36:48 +0200
+        d=1e100.net; s=20251104; t=1782470221; x=1783075021;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W2M7OHV5QInlnhYwnvp8dS/LgAte/nTo3qzO+dATYE0=;
+        b=G5AKNP2bgg5paW4YbdH31deoprtmVJbn8TjuN9Ci5iUfqyhlShhKZwEhbNm0bH4wLQ
+         YziAWmZFf1nwyS6ZnAt8CMypI2zLV8Ha5Y1nLnAIfidMPr0XHsoQA1EFIj1PD0rGIymw
+         Hig0GXTyLol38t+jxeUVsLj21H76+pGpVre3DVsx8y0+6Vf0V9ExIfEztmL1lYRqwK/3
+         XPXaRvOimuBO46pWik2ausFnzgdxvRjT7I83aJAXnQGi75PSuMhzEXb9+5ug/2+1wbrE
+         P+8Wtn8E+SJ095HIomhhdzR6E0gGinoxEpbRq0EZneIw5iACA2D3d9+EU1ItD8YNO39a
+         pXHg==
+X-Forwarded-Encrypted: i=1; AHgh+RqPum7QT824OS3+GKHSMLB6LLhuKzRwsK5VLBBxKCNJUOlPD9nC3T5qNZoIrp+29ScfqVK0OkNDFjT4BQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF0pIOZGzYEgVfv66HCJ6dg5IdQ9DXW1vy12Fre5hIxr+9JJVH
+	SxpWQ7SKlLC4GQBoDMruUtr+cqlKuXXTVP7W4FwnrQyROHLH948Ef051
+X-Gm-Gg: AfdE7ckVzLpYslyu+Dnjh2gwSJkV6iVrY9npAnXwJ6qREnoH2umZyvo46bDERAVSCs+
+	KRLFcOZ61GYWnxgCLspybVqUY8MDfd4v739AOpAFCrMD2mbn4DXChAD83cbYo5b0jIvd04JPUvZ
+	yLgDej5moUQXptELj7appXXQu2erDTH8m8Zl2IXi/X8w55/Sd1seIzfTwiNbDw/7YHU3TF1LbpP
+	/zmCKExdXs4CQiz8v+4GytsAvdn9C1HQWXHFKokkwX26RYzGZrq0rQWzVorVcS4h0rgvr7d5aoU
+	qxdjvmL/PqksZxbcVXZEgZAiNSC/Q9zfBDu5iZziZgJ8/foTu3XICB2/Yc6DdN1o+RNxcvxVG6y
+	Hz9V6cLiHIaYrTleyWXxt9eFJarmBoNUJE2aP9drG6kd8pbLEguwmhMA+FrTi1ApWdYwFE2GpRR
+	B3bjfRHzXoLtXYgC2vpcflqj3IlftC/40=
+X-Received: by 2002:a17:903:1b65:b0:2c7:f65a:526c with SMTP id d9443c01a7336-2c7fc68d7bdmr60104035ad.11.1782470220816;
+        Fri, 26 Jun 2026 03:37:00 -0700 (PDT)
+Received: from cyh-System-Product-Name.. ([129.227.183.200])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f64cfdcbsm36298835ad.62.2026.06.26.03.36.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 03:37:00 -0700 (PDT)
+From: "Yuhang.chen" <yhchen312@gmail.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>
+Cc: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"Yuhang.chen" <yhchen312@gmail.com>,
+	Quan Zhou <zhouquan@iscas.ac.cn>,
+	"bingyu . xian" <shanbeenyoo@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Add arch-specific tracepoints
+Date: Fri, 26 Jun 2026 18:36:19 +0800
+Message-Id: <20260626103619.174179-1-yhchen312@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
-To: Shuwei Wu <shuwei.wu@mailbox.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- devicetree@vger.kernel.org
-References: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
- <20260626-shadow-deps-v4-2-bba9831f2f1d@mailbox.org>
-From: Andre Heider <a.heider@gmail.com>
-Content-Language: de-DE
-In-Reply-To: <20260626-shadow-deps-v4-2-bba9831f2f1d@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_033654_402822_9177E2A3 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20260626_033702_183789_E9F06784 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,346 +101,519 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26.06.26 10:10 AM, Shuwei Wu wrote:
-> Add CPU clock properties and OPP tables for the two CPU clusters in the
-> SpacemiT K1 SoC. The OPP entries use voltage ranges because the CPU
-> supply is shared by both clusters.
-> 
-> Enable CPU DVFS on Banana Pi BPI-F3 by including the OPP tables and
-> wiring the CPU nodes to the CPU regulator supply.
-> 
-> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+Add RISC-V KVM tracepoints for events that are useful when debugging
+guest exits and in-kernel emulation paths. The existing kvm_entry and
+kvm_exit tracepoints are kept, with the kvm_entry PC format fixed to use
+zero-padded hexadecimal output.
 
-With the musepi-pro dts enablement patch [0] on top, this is
-Tested-by: Andre Heider <a.heider@gmail.com> # k1-musepi-pro
+The newly added tracepoints cover:
 
-Works as advertised, I get two policies, matching the clusters:
-$ cat /sys/devices/system/cpu/cpufreq/policy0/related_cpus
-0 1 2 3
-$ cat /sys/devices/system/cpu/cpufreq/policy4/related_cpus
-4 5 6 7
+* kvm_guest_fault for G-stage page faults
+* kvm_irq_line for userspace IRQ injection
+* kvm_mmio_emulate for MMIO load/store emulation
+* kvm_timer_update_irq for VS timer interrupt updates
+* kvm_wait_riscv for trapped WFI/WRS instructions
+* kvm_sbi_ecall for SBI ecalls
+* kvm_csr_access for CSR emulation
 
-Some time after boot:
-$ cat /sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state
-614400 31124
-819000 185
-1000000 158
-1228800 341
-1600000 1148
-$ cat /sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state
-614400 29232
-819000 198
-1000000 212
-1228800 443
-1600000 3428
+The tracepoints are modelled after useful ARM KVM events where the
+concepts match, while remaining specific to RISC-V virtualization.
 
-Creating one single-threaded load increases max freq time_in_state in one policy (4 here):
-$ yes > /dev/null &
-(...after some time)
-$ cat /sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state
-614400 45244
-819000 187
-1000000 169
-1228800 345
-1600000 1148
-$ cat /sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state
-614400 38794
-819000 201
-1000000 226
-1228800 450
-1600000 7580
+Example trace output:
 
-Creating load for all 8 cores in both:
-$ yes > /dev/null &
-$ yes > /dev/null &
-$ yes > /dev/null &
-$ yes > /dev/null &
-$ yes > /dev/null &
-$ yes > /dev/null &
-$ yes > /dev/null &
-$ yes > /dev/null &
+kvm_irq_line:
+VCPU: 0, IRQ: 10, level: 1
 
-$ cat /sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state
-614400 51371
-819000 190
-1000000 171
-1228800 352
-1600000 4391
-$ cat /sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state
-614400 44121
-819000 203
-1000000 244
-1228800 452
-1600000 11812
+kvm_guest_fault:
+VCPU: 0, GPA: 0x10000000, SEPC: 0x80200000,
+SCAUSE: 0x17, STVAL: 0x10000000,
+HTVAL: 0x4000000, HTINST: 0x2023
 
-Thanks!
-Andre
+kvm_mmio_emulate:
+VCPU: 0, Store MMIO at 0x10000000,
+len 4, insn 0x2023, sepc 0x80200000
 
-[0] https://lore.kernel.org/all/20260614122812.2287506-1-a.heider@gmail.com/
+kvm_sbi_ecall:
+VCPU: 0, SBI ecall at 0x80200000,
+ext 0x54455354, fid 0x123, a0 0x55
 
-> ---
-> Changes in v4:
-> - Use separate OPP tables for the two CPU clock clusters
-> - Use voltage ranges for the shared CPU supply
-> 
-> Changes in v3:
-> - Use one shared CPU OPP table for all CPUs
-> 
-> Changes in v2:
-> - Add k1-opp.dtsi with OPP tables for both CPU clusters
-> - Assign CPU supplies and include OPP table for Banana Pi BPI-F3
-> ---
-> ---
->   arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  35 +++++++-
->   arch/riscv/boot/dts/spacemit/k1-opp.dtsi        | 105 ++++++++++++++++++++++++
->   arch/riscv/boot/dts/spacemit/k1.dtsi            |   8 ++
->   3 files changed, 147 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 444c3b1e6f44..487179f7b9b9 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -4,6 +4,7 @@
->    */
->   
->   #include "k1.dtsi"
-> +#include "k1-opp.dtsi"
->   #include "k1-pinctrl.dtsi"
->   
->   / {
-> @@ -86,6 +87,38 @@ &combo_phy {
->   	status = "okay";
->   };
->   
-> +&cpu_0 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
-> +&cpu_1 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
-> +&cpu_2 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
-> +&cpu_3 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
-> +&cpu_4 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
-> +&cpu_5 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
-> +&cpu_6 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
-> +&cpu_7 {
-> +	cpu-supply = <&buck1_0v9>;
-> +};
-> +
->   &emmc {
->   	bus-width = <8>;
->   	mmc-hs400-1_8v;
-> @@ -201,7 +234,7 @@ pmic@41 {
->   		dldoin2-supply = <&buck5>;
->   
->   		regulators {
-> -			buck1 {
-> +			buck1_0v9: buck1 {
->   				regulator-min-microvolt = <500000>;
->   				regulator-max-microvolt = <3450000>;
->   				regulator-ramp-delay = <5000>;
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-opp.dtsi b/arch/riscv/boot/dts/spacemit/k1-opp.dtsi
-> new file mode 100644
-> index 000000000000..4cebfcd87485
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/spacemit/k1-opp.dtsi
-> @@ -0,0 +1,105 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/ {
-> +	cluster0_opp_table: opp-table-cluster0 {
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +
-> +		opp-614400000 {
-> +			opp-hz = /bits/ 64 <614400000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-819000000 {
-> +			opp-hz = /bits/ 64 <819000000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-1000000000 {
-> +			opp-hz = /bits/ 64 <1000000000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-1228800000 {
-> +			opp-hz = /bits/ 64 <1228800000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-1600000000 {
-> +			opp-hz = /bits/ 64 <1600000000>;
-> +			opp-microvolt = <1050000 1050000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +	};
-> +
-> +	cluster1_opp_table: opp-table-cluster1 {
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +
-> +		opp-614400000 {
-> +			opp-hz = /bits/ 64 <614400000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-819000000 {
-> +			opp-hz = /bits/ 64 <819000000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-1000000000 {
-> +			opp-hz = /bits/ 64 <1000000000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-1228800000 {
-> +			opp-hz = /bits/ 64 <1228800000>;
-> +			opp-microvolt = <950000 950000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +
-> +		opp-1600000000 {
-> +			opp-hz = /bits/ 64 <1600000000>;
-> +			opp-microvolt = <1050000 1050000 1050000>;
-> +			clock-latency-ns = <200000>;
-> +		};
-> +	};
-> +};
-> +
-> +&cpu_0 {
-> +	operating-points-v2 = <&cluster0_opp_table>;
-> +};
-> +
-> +&cpu_1 {
-> +	operating-points-v2 = <&cluster0_opp_table>;
-> +};
-> +
-> +&cpu_2 {
-> +	operating-points-v2 = <&cluster0_opp_table>;
-> +};
-> +
-> +&cpu_3 {
-> +	operating-points-v2 = <&cluster0_opp_table>;
-> +};
-> +
-> +&cpu_4 {
-> +	operating-points-v2 = <&cluster1_opp_table>;
-> +};
-> +
-> +&cpu_5 {
-> +	operating-points-v2 = <&cluster1_opp_table>;
-> +};
-> +
-> +&cpu_6 {
-> +	operating-points-v2 = <&cluster1_opp_table>;
-> +};
-> +
-> +&cpu_7 {
-> +	operating-points-v2 = <&cluster1_opp_table>;
-> +};
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index 529ec68e9c23..bdd109b81730 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -54,6 +54,7 @@ cpu_0: cpu@0 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <0>;
-> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> @@ -84,6 +85,7 @@ cpu_1: cpu@1 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <1>;
-> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> @@ -114,6 +116,7 @@ cpu_2: cpu@2 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <2>;
-> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> @@ -144,6 +147,7 @@ cpu_3: cpu@3 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <3>;
-> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> @@ -174,6 +178,7 @@ cpu_4: cpu@4 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <4>;
-> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> @@ -204,6 +209,7 @@ cpu_5: cpu@5 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <5>;
-> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> @@ -234,6 +240,7 @@ cpu_6: cpu@6 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <6>;
-> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> @@ -264,6 +271,7 @@ cpu_7: cpu@7 {
->   			compatible = "spacemit,x60", "riscv";
->   			device_type = "cpu";
->   			reg = <7>;
-> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
->   			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-> 
+kvm_csr_access:
+VCPU: 0, SEPC: 0x80200000,
+CSR: 0x600, insn: 0x60002573,
+read, new_val: 0xffffffffffffffff,
+write_mask: 0x0
+
+kvm_wait_riscv:
+VCPU: 0, guest executed wfi at: 0x80200000
+
+kvm_timer_update_irq:
+VCPU: 0, IRQ: 6, level: 1
+
+Testing:
+
+A QEMU-based test program was used to exercise:
+
+```
+- IRQ injection
+- Guest page faults
+- MMIO emulation
+- SBI ecalls
+- CSR accesses
+- WFI handling
+- VS timer interrupts
+```
+
+Verified trace output generation for:
+
+```
+- kvm_guest_fault
+- kvm_irq_line
+- kvm_mmio_emulate
+- kvm_timer_update_irq
+- kvm_wait_riscv
+- kvm_sbi_ecall
+- kvm_csr_access
+```
+Assisted-by: YuanSheng:deepseek-v4-pro
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: bingyu.xian <shanbeenyoo@gmail.com>
+Signed-off-by: Yuhang.chen <yhchen312@gmail.com>
+---
+ arch/riscv/kvm/trace.h      | 184 +++++++++++++++++++++++++++++++++++-
+ arch/riscv/kvm/vcpu.c       |   3 +
+ arch/riscv/kvm/vcpu_exit.c  |   4 +
+ arch/riscv/kvm/vcpu_insn.c  |  18 +++-
+ arch/riscv/kvm/vcpu_sbi.c   |   3 +
+ arch/riscv/kvm/vcpu_timer.c |  15 ++-
+ arch/riscv/kvm/vm.c         |   3 +
+ 7 files changed, 224 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/kvm/trace.h b/arch/riscv/kvm/trace.h
+index 3d54175d805c..117e45ef397d 100644
+--- a/arch/riscv/kvm/trace.h
++++ b/arch/riscv/kvm/trace.h
+@@ -25,7 +25,7 @@ TRACE_EVENT(kvm_entry,
+ 		__entry->pc	= vcpu->arch.guest_context.sepc;
+ 	),
+ 
+-	TP_printk("PC: 0x016%lx", __entry->pc)
++	TP_printk("PC: 0x%016lx", __entry->pc)
+ );
+ 
+ TRACE_EVENT(kvm_exit,
+@@ -56,7 +56,187 @@ TRACE_EVENT(kvm_exit,
+ 		__entry->htinst)
+ );
+ 
+-#endif /* _TRACE_RSICV_KVM_H */
++TRACE_EVENT(kvm_guest_fault,
++	TP_PROTO(unsigned long vcpu_id, unsigned long sepc, unsigned long scause,
++		 unsigned long stval, unsigned long htval,
++		 unsigned long htinst, unsigned long fault_addr),
++	TP_ARGS(vcpu_id, sepc, scause, stval, htval, htinst, fault_addr),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned long, sepc)
++		__field(unsigned long, scause)
++		__field(unsigned long, stval)
++		__field(unsigned long, htval)
++		__field(unsigned long, htinst)
++		__field(unsigned long, fault_addr)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->sepc		= sepc;
++		__entry->scause		= scause;
++		__entry->stval		= stval;
++		__entry->htval		= htval;
++		__entry->htinst		= htinst;
++		__entry->fault_addr	= fault_addr;
++	),
++
++	TP_printk("VCPU: %lu, GPA: 0x%lx, SEPC: 0x%lx, SCAUSE: 0x%lx, STVAL: 0x%lx, HTVAL: 0x%lx, HTINST: 0x%lx",
++		  __entry->vcpu_id, __entry->fault_addr, __entry->sepc,
++		  __entry->scause, __entry->stval, __entry->htval,
++		  __entry->htinst)
++);
++
++TRACE_EVENT(kvm_irq_line,
++	TP_PROTO(int vcpu_id, unsigned int irq, int level),
++	TP_ARGS(vcpu_id, irq, level),
++
++	TP_STRUCT__entry(
++		__field(int, vcpu_id)
++		__field(unsigned int, irq)
++		__field(int, level)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->irq		= irq;
++		__entry->level		= level;
++	),
++
++	TP_printk("VCPU: %d, IRQ: %u, level: %d",
++		  __entry->vcpu_id, __entry->irq, __entry->level)
++);
++
++TRACE_EVENT(kvm_mmio_emulate,
++	TP_PROTO(unsigned long vcpu_id, unsigned long sepc, unsigned long insn,
++		 unsigned long fault_addr, bool write, int len),
++	TP_ARGS(vcpu_id, sepc, insn, fault_addr, write, len),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned long, sepc)
++		__field(unsigned long, insn)
++		__field(unsigned long, fault_addr)
++		__field(bool, write)
++		__field(int, len)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->sepc		= sepc;
++		__entry->insn		= insn;
++		__entry->fault_addr	= fault_addr;
++		__entry->write		= write;
++		__entry->len		= len;
++	),
++
++	TP_printk("VCPU: %lu, %s MMIO at 0x%lx, len %d, insn 0x%lx, sepc 0x%lx",
++		  __entry->vcpu_id, __entry->write ? "Store" : "Load",
++		  __entry->fault_addr, __entry->len, __entry->insn,
++		  __entry->sepc)
++);
++
++TRACE_EVENT(kvm_timer_update_irq,
++	TP_PROTO(unsigned long vcpu_id, unsigned int irq, int level),
++	TP_ARGS(vcpu_id, irq, level),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned int, irq)
++		__field(int, level)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->irq		= irq;
++		__entry->level		= level;
++	),
++
++	TP_printk("VCPU: %lu, IRQ: %u, level: %d",
++		  __entry->vcpu_id, __entry->irq, __entry->level)
++);
++
++TRACE_EVENT(kvm_wait_riscv,
++	TP_PROTO(unsigned long vcpu_id, unsigned long sepc, bool is_wfi),
++	TP_ARGS(vcpu_id, sepc, is_wfi),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned long, sepc)
++		__field(bool, is_wfi)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->sepc		= sepc;
++		__entry->is_wfi		= is_wfi;
++	),
++
++	TP_printk("VCPU: %lu, guest executed %s at: 0x%lx",
++		  __entry->vcpu_id, __entry->is_wfi ? "wfi" : "wrs",
++		  __entry->sepc)
++);
++
++TRACE_EVENT(kvm_sbi_ecall,
++	TP_PROTO(unsigned long vcpu_id, unsigned long sepc, unsigned long ext_id,
++		 unsigned long func_id, unsigned long a0),
++	TP_ARGS(vcpu_id, sepc, ext_id, func_id, a0),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned long, sepc)
++		__field(unsigned long, ext_id)
++		__field(unsigned long, func_id)
++		__field(unsigned long, a0)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->sepc		= sepc;
++		__entry->ext_id		= ext_id;
++		__entry->func_id	= func_id;
++		__entry->a0		= a0;
++	),
++
++	TP_printk("VCPU: %lu, SBI ecall at 0x%lx, ext 0x%lx, fid 0x%lx, a0 0x%lx",
++		  __entry->vcpu_id, __entry->sepc, __entry->ext_id,
++		  __entry->func_id, __entry->a0)
++);
++
++TRACE_EVENT(kvm_csr_access,
++	TP_PROTO(unsigned long vcpu_id, unsigned long sepc, unsigned long insn,
++		 unsigned int csr_num, bool write, unsigned long new_val,
++		 unsigned long write_mask),
++	TP_ARGS(vcpu_id, sepc, insn, csr_num, write, new_val, write_mask),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned long, sepc)
++		__field(unsigned long, insn)
++		__field(unsigned int, csr_num)
++		__field(bool, write)
++		__field(unsigned long, new_val)
++		__field(unsigned long, write_mask)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->sepc		= sepc;
++		__entry->insn		= insn;
++		__entry->csr_num	= csr_num;
++		__entry->write		= write;
++		__entry->new_val	= new_val;
++		__entry->write_mask	= write_mask;
++	),
++
++	TP_printk("VCPU: %lu, SEPC: 0x%lx, CSR: 0x%x, insn: 0x%lx, %s, new_val: 0x%lx, write_mask: 0x%lx",
++		  __entry->vcpu_id, __entry->sepc, __entry->csr_num,
++		  __entry->insn, __entry->write ? "write" : "read",
++		  __entry->new_val, __entry->write_mask)
++);
++
++#endif /* _TRACE_KVM_H */
+ 
+ #undef TRACE_INCLUDE_PATH
+ #define TRACE_INCLUDE_PATH .
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index a73690eda84b..fda118c7f2cb 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -254,6 +254,9 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+ 		if (copy_from_user(&irq, argp, sizeof(irq)))
+ 			return -EFAULT;
+ 
++		trace_kvm_irq_line(vcpu->vcpu_id, IRQ_VS_EXT,
++				   irq.irq == KVM_INTERRUPT_SET);
++
+ 		if (irq.irq == KVM_INTERRUPT_SET)
+ 			return kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
+ 		else
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 0bb0c51e3c89..fc10343e2144 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -11,6 +11,7 @@
+ #include <asm/insn-def.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_nacl.h>
++#include "trace.h"
+ 
+ static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     struct kvm_cpu_trap *trap)
+@@ -23,6 +24,9 @@ static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	int ret;
+ 
+ 	fault_addr = (trap->htval << 2) | (trap->stval & 0x3);
++	trace_kvm_guest_fault(vcpu->vcpu_id, vcpu->arch.guest_context.sepc,
++			      trap->scause, trap->stval, trap->htval,
++			      trap->htinst, fault_addr);
+ 	gfn = fault_addr >> PAGE_SHIFT;
+ 	memslot = gfn_to_memslot(vcpu->kvm, gfn);
+ 	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index f09f9251d1f0..dc90d059a2e9 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -9,6 +9,7 @@
+ 
+ #include <asm/cpufeature.h>
+ #include <asm/insn.h>
++#include "trace.h"
+ 
+ struct insn_func {
+ 	unsigned long mask;
+@@ -75,6 +76,7 @@ void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu)
+ 
+ static int wfi_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ {
++	trace_kvm_wait_riscv(vcpu->vcpu_id, vcpu->arch.guest_context.sepc, true);
+ 	vcpu->stat.wfi_exit_stat++;
+ 	kvm_riscv_vcpu_wfi(vcpu);
+ 	return KVM_INSN_CONTINUE_NEXT_SEPC;
+@@ -82,6 +84,7 @@ static int wfi_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ 
+ static int wrs_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ {
++	trace_kvm_wait_riscv(vcpu->vcpu_id, vcpu->arch.guest_context.sepc, false);
+ 	vcpu->stat.wrs_exit_stat++;
+ 	kvm_vcpu_on_spin(vcpu, vcpu->arch.guest_context.sstatus & SR_SPP);
+ 	return KVM_INSN_CONTINUE_NEXT_SEPC;
+@@ -187,6 +190,9 @@ static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ 	vcpu->arch.csr_decode.insn = insn;
+ 	vcpu->arch.csr_decode.return_handled = 0;
+ 
++	trace_kvm_csr_access(vcpu->vcpu_id, vcpu->arch.guest_context.sepc,
++			     insn, csr_num, !!wr_mask, new_val, wr_mask);
++
+ 	/* Update CSR details in kvm_run struct */
+ 	run->riscv_csr.csr_num = csr_num;
+ 	run->riscv_csr.new_value = new_val;
+@@ -375,7 +381,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     unsigned long htinst)
+ {
+ 	u8 data_buf[8];
+-	unsigned long insn;
++	unsigned long insn, raw_insn;
+ 	int shift = 0, len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+ 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
+@@ -405,6 +411,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		}
+ 		insn_len = INSN_LEN(insn);
+ 	}
++	raw_insn = insn;
+ 
+ 	/* Decode length of MMIO and shift */
+ 	if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
+@@ -453,6 +460,9 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (fault_addr & (len - 1))
+ 		return -EIO;
+ 
++	trace_kvm_mmio_emulate(vcpu->vcpu_id, ct->sepc, raw_insn, fault_addr,
++			       false, len);
++
+ 	/* Save instruction decode info */
+ 	vcpu->arch.mmio_decode.insn = insn;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+@@ -502,7 +512,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	u32 data32;
+ 	u64 data64;
+ 	ulong data;
+-	unsigned long insn;
++	unsigned long insn, raw_insn;
+ 	int len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+ 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
+@@ -532,6 +542,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		}
+ 		insn_len = INSN_LEN(insn);
+ 	}
++	raw_insn = insn;
+ 
+ 	data = GET_RS2(insn, &vcpu->arch.guest_context);
+ 	data8 = data16 = data32 = data64 = data;
+@@ -570,6 +581,9 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (fault_addr & (len - 1))
+ 		return -EIO;
+ 
++	trace_kvm_mmio_emulate(vcpu->vcpu_id, ct->sepc, raw_insn, fault_addr,
++			       true, len);
++
+ 	/* Save instruction decode info */
+ 	vcpu->arch.mmio_decode.insn = insn;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+index 46ab7b989432..8aecdb1cecb5 100644
+--- a/arch/riscv/kvm/vcpu_sbi.c
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -11,6 +11,7 @@
+ #include <linux/kvm_host.h>
+ #include <asm/sbi.h>
+ #include <asm/kvm_vcpu_sbi.h>
++#include "trace.h"
+ 
+ #ifndef CONFIG_RISCV_SBI_V01
+ static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01 = {
+@@ -598,6 +599,8 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ 	};
+ 	bool ext_is_v01 = false;
+ 
++	trace_kvm_sbi_ecall(vcpu->vcpu_id, cp->sepc, cp->a7, cp->a6, cp->a0);
++
+ 	sbi_ext = kvm_vcpu_sbi_find_ext(vcpu, cp->a7);
+ 	if (sbi_ext && sbi_ext->handler) {
+ #ifdef CONFIG_RISCV_SBI_V01
+diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
+index 9817ff802821..7aeea50b5b95 100644
+--- a/arch/riscv/kvm/vcpu_timer.c
++++ b/arch/riscv/kvm/vcpu_timer.c
+@@ -15,12 +15,23 @@
+ #include <asm/kvm_isa.h>
+ #include <asm/kvm_nacl.h>
+ #include <asm/kvm_vcpu_timer.h>
++#include "trace.h"
+ 
+ static u64 kvm_riscv_current_cycles(struct kvm_guest_timer *gt)
+ {
+ 	return get_cycles64() + gt->time_delta;
+ }
+ 
++static void kvm_riscv_vcpu_timer_update_irq(struct kvm_vcpu *vcpu, bool level)
++{
++	trace_kvm_timer_update_irq(vcpu->vcpu_id, IRQ_VS_TIMER, level);
++
++	if (level)
++		kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_TIMER);
++	else
++		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_TIMER);
++}
++
+ static u64 kvm_riscv_delta_cycles2ns(u64 cycles,
+ 				     struct kvm_guest_timer *gt,
+ 				     struct kvm_vcpu_timer *t)
+@@ -54,7 +65,7 @@ static enum hrtimer_restart kvm_riscv_vcpu_hrtimer_expired(struct hrtimer *h)
+ 	}
+ 
+ 	t->next_set = false;
+-	kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_TIMER);
++	kvm_riscv_vcpu_timer_update_irq(vcpu, true);
+ 
+ 	return HRTIMER_NORESTART;
+ }
+@@ -91,7 +102,7 @@ static int kvm_riscv_vcpu_update_hrtimer(struct kvm_vcpu *vcpu, u64 ncycles)
+ 	if (!t->init_done)
+ 		return -EINVAL;
+ 
+-	kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_TIMER);
++	kvm_riscv_vcpu_timer_update_irq(vcpu, false);
+ 
+ 	delta_ns = kvm_riscv_delta_cycles2ns(ncycles, gt, t);
+ 	t->next_cycles = ncycles;
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index a9f083feeb76..db4c3f0dc3cc 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -12,6 +12,7 @@
+ #include <linux/uaccess.h>
+ #include <linux/kvm_host.h>
+ #include <asm/kvm_mmu.h>
++#include "trace.h"
+ 
+ const struct kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS()
+@@ -62,6 +63,8 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irql,
+ 	if (!irqchip_in_kernel(kvm))
+ 		return -ENXIO;
+ 
++	trace_kvm_irq_line(-1, irql->irq, irql->level);
++
+ 	return kvm_riscv_aia_inject_irq(kvm, irql->irq, irql->level);
+ }
+ 
+-- 
+2.34.1
 
 
 _______________________________________________
