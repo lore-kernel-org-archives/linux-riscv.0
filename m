@@ -4,86 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A520EC43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 22:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DCEC43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 22:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UTHP4LHAQTXo6b8EO8Yk9h2Yrtv2TB1+kOn3iMrEsXo=; b=cK4Le7AwoRRyOv
-	wZKs6BamJQ2cqJY2L4AFHuUk7+gxnEAYwXutjjaI4FbXdm8QBxzE0LfMg0CB5NUKmV/9eQDfLOLQD
-	pTWRo+eeq8DJqPNTLREG2cA562ZC1slbjaqEiq2cI8DnQ8CntdFu049Mb9UPVP6kdpOv63YOYOhIy
-	hChVtP5paWqvpKzr89S3w0lmNtJH78dztf6YwfuvWqGLl4Ag3whHmcQDGjakON5GHD0/nlBDNIwOJ
-	CTKkyA6VG90R8o4F1K7lvPTgSrMnCyI/jWGi6j9wr1EeZZaG9tF+Ne85jgaitYtfnk5IaTnyxnt8r
-	PR0C/xlcUhsRORGy1GkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zX2hNcJISNAsY33pUdRFGyin5+/8fbnBUhwQzHvgmH0=; b=Re+9sSB0MQFCZg
+	YC857pe6IhqnbI/NS1mpQmk3HtwtGrGpE0n135+7jmEpPn8918nZpS67iHgxFNIbCCf/qk7GNw7ux
+	6gWRAGnHJeTl/jR4J9wB8noSBdlWhNMSasXjtUz0xkiXlcL6M0ZrAVAGbjMzSHIHojetk4V2XL+ih
+	pVAJ6kA+5cQwPG20mCAgiADx0cbpXtt/dao2nr+bq6XR0lwLUtULgSl2L/2D21mSpA804GmuYJACf
+	TS5fS5DiN/GYuLSD3j4NjwPCDv9mG2CZiu8Nj/51gWXjJz+lbGq+e0RORO9vcAJtjTwkaFFZ3hqYR
+	xcwnEeDPTkDrcJrnj3Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdbE2-0000000CmyT-0FVi;
-	Sat, 27 Jun 2026 22:10:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wdbW9-0000000CnPn-2ZJ7;
+	Sat, 27 Jun 2026 22:28:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdbE0-0000000CmyN-2Gyu
+	id 1wdbW1-0000000CnOk-0l6s
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Jun 2026 22:10:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30DC743F4D;
-	Sat, 27 Jun 2026 22:10:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93C491F000E9;
-	Sat, 27 Jun 2026 22:10:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782598206;
-	bh=hXk/3wj9lPuJCQvYpjGC/6+kjVjcs5SuF2pwhCfblgk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KwNrxQgJVN8O/LbbNanheVHNF4seUkCijI6JBEHt+/pVyaoyi8GHna1M8j9Q8rFwy
-	 vjYXsheeYMBZZBM4h46nutz/29QBslwVDHlDG8v14K9zWPf8u3Q0TsPvzEpqNPULIy
-	 Ka+qEUM7TFWkIGMxpp+GaHihtgYKrWsLDXEZx7dizRfq9smMXkoYJR6bCLe6nSuNeo
-	 +kUpVcIbVWV/WYRzdY/1rCdNllhLfi+cVc+AVILwSEZ7UXYXPTaq9jk7fhok7zkKiY
-	 12B+J7VadfIPGgB4GEVSueOD6eHRiMYmLCCaiWUf6BRtOeLtSgLeXhN11rAr22sK93
-	 rFkVT4B/TcJCg==
-Date: Sat, 27 Jun 2026 15:10:04 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	x86@kernel.org, devicetree@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org
-Subject: Re: [External] [PATCH v2 4/8] riscv_cbqri: Add capacity controller
- probe and allocation device ops
-Message-ID: <akBKPFPi5213WgYX@x1>
-References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
- <20260624-dfustini-atl-sc-cbqri-dt-v2-4-2f8049fd902b@kernel.org>
- <CAEEQ3w=ZVtHPdLfN0tTzG8AACu+rjhEFWY5pCg+uxvmr7ofqfA@mail.gmail.com>
+	Sat, 27 Jun 2026 22:28:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1782599322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1a/DgFcrrEHwkA8ET4o3flsjcsRtGN3BOYsiECe4Zmg=;
+	b=Uyc1hL8F8QzQhThlXqGBTz4ZBCHn0LfosvBrvuH/tnsniqdcCVUTi5/QVRHbT0xeyo1q9W
+	jef0HjMxvdCGyLubIle9to8Z6YSUVCDSjprRz7bWm7jJfBtnurgo/Wtzad5G0nlqc+4+T9
+	2c0NeCZrtaaT63QU6/ECczVekrB8s2Y=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-204-Kz3R4hHAOvCbfmOnA6p7FQ-1; Sat, 27 Jun 2026 18:28:40 -0400
+X-MC-Unique: Kz3R4hHAOvCbfmOnA6p7FQ-1
+X-Mimecast-MFC-AGG-ID: Kz3R4hHAOvCbfmOnA6p7FQ_1782599319
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2c7ef28ce24so15920045ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 27 Jun 2026 15:28:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782599319; x=1783204119;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1a/DgFcrrEHwkA8ET4o3flsjcsRtGN3BOYsiECe4Zmg=;
+        b=MnDQHd6maZcdl1cV4web4yLo2L5RZ28XKFrg8EhdMotHp04UFfWdW6Us7f4xE+hg3A
+         Sq0FRHfSXp5tXSzZCTpmqCZlP0v9O6ZDfq3nXbmjorzVgyUpAzk3HGK14f079BwagGIn
+         pMDTGL2FHiSaoWG0eqzWIc5t6sgyG6B2nOhcuMlVR6/upYqcVE2mT2eVseEwzc/vyKLh
+         vKFBRgi+we6WIkmUKB1rDSuyTdLJE0r510s5aoTqIoQcJV5s36tcZzsgNCsVOctFbIly
+         lNkiaoo+FFwWl8ZATlN158fn/ixcpaeVlxFSXQCJP5SEbmzgAN0lEr064CtscA2GF1Yf
+         ALnA==
+X-Gm-Message-State: AOJu0Yy8b7FMt+X0qv2nuFQbLb9N4lKWuXoknJifVUdOPgllexUXX8O0
+	WiGucqKVY4Lc4ZjY+HD0pif4tmvStWaFM+N18hdaemYkOs1kvsC5vXzt4jxbzFlxEslfBDSRWFd
+	7GWCqbvAL0QUNimbFdFKD19Wyjn8fuK238M9XF8f57BFNTbZ+0pQbg5LQ05D9zIvS837Z6A==
+X-Gm-Gg: AfdE7cmVJW0W/k3p5hkjE71cwNCGKrtgvWrKRGu3kP5TiDS6x5hiSAkNIueXKDVUkzp
+	u2V2vFuZtvUmVAqXcj7rDpDHffY4pzowzMLaeDx6v4HG59OIgLts9f1DmMDmSx0eAdj0oGxTW42
+	BLhdgoIZHBUj1A3Wi1mwHP8Kk6ka7ZN1ZX02zWKK5VsPepBMrdcBEi0yNxnbUf7hYR2B48tIIGQ
+	2w4jWIy3awaAsrstG6gsY4kIRH9valyG7VfZ1vdoI2ftcE+KUZsoDeGzqITcjmYtSW3WPQkbsd9
+	SvrlChdYTje8u3KhXIIW6qteUCGwjaZFBiZ63zczBp+98cgTqocCCz7096vQftk2NFSqWryYGzX
+	xg/cfZMSRz5M7CsITFZ2f3fZfHVRMaANTgQAJvJincSo9W2b9bfyo
+X-Received: by 2002:a17:902:e886:b0:2c9:b96a:285b with SMTP id d9443c01a7336-2c9b96a2a3fmr22166485ad.33.1782599319101;
+        Sat, 27 Jun 2026 15:28:39 -0700 (PDT)
+X-Received: by 2002:a17:902:e886:b0:2c9:b96a:285b with SMTP id d9443c01a7336-2c9b96a2a3fmr22166275ad.33.1782599318583;
+        Sat, 27 Jun 2026 15:28:38 -0700 (PDT)
+Received: from localhost.localdomain (122-63-64-251.mobile.spark.co.nz. [122.63.64.251])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c9deed3733sm2423215ad.23.2026.06.27.15.28.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 27 Jun 2026 15:28:37 -0700 (PDT)
+From: Tao Liu <ltao@redhat.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org,
+	bhe@redhat.com,
+	Tao Liu <ltao@redhat.com>
+Subject: [PATCH v2] riscv: Fix a NULL pointer reference in machine_kexec_prepare
+Date: Sun, 28 Jun 2026 10:26:03 +1200
+Message-ID: <20260627222602.23594-2-ltao@redhat.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAEEQ3w=ZVtHPdLfN0tTzG8AACu+rjhEFWY5pCg+uxvmr7ofqfA@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: avJwGUOUOM_dkOQhhyVOb-4D-zVNyu-C1fH3X_iy1lo_1782599319
+X-Mimecast-Originator: redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260627_152845_304775_8006B050 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +106,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKdW4gMjcsIDIwMjYgYXQgMDU6MzE6MDNQTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90
-ZToKPiBIaSBEcmV3LAo+IAo+IE9uIFRodSwgSnVuIDI1LCAyMDI2IGF0IDk6NDHigK9BTSBEcmV3
-IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gQWRkIHN1cHBvcnQg
-Zm9yIHRoZSBSSVNDLVYgQ0JRUkkgY2FwYWNpdHkgY29udHJvbGxlci4gQSBwbGF0Zm9ybSBkcml2
-ZXIKPiA+IHBhc3NlcyBhIGNicXJpX2NvbnRyb2xsZXJfaW5mbyBkZXNjcmlwdG9yIHRvZ2V0aGVy
-IHdpdGggdGhlIGNhY2hlIGxldmVsCj4gPiB0byByaXNjdl9jYnFyaV9yZWdpc3Rlcl9jY19kdCgp
-LCB3aGljaCBwcm9iZXMgdGhlIGNvbnRyb2xsZXIgYW5kIGFkZHMgaXQKPiA+IHRvIHRoZSBjb250
-cm9sbGVyIGxpc3QuCj4gPgo+ID4gQXNzaXN0ZWQtYnk6IENsYXVkZTpjbGF1ZGUtb3B1cy00LTcK
-PiA+IENvLWRldmVsb3BlZC1ieTogQWRyaWVuIFJpY2NpYXJkaSA8YXJpY2NpYXJkaUBiYXlsaWJy
-ZS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBZHJpZW4gUmljY2lhcmRpIDxhcmljY2lhcmRpQGJh
-eWxpYnJlLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IERyZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJu
-ZWwub3JnPgpbLi5dCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9yZXNjdHJsL2NicXJpX2Rldmlj
-ZXMuYyBiL2RyaXZlcnMvcmVzY3RybC9jYnFyaV9kZXZpY2VzLmMKPiA+IG5ldyBmaWxlIG1vZGUg
-MTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
-Li44YWQ5ZGY0MDRmNjVkNWQ4MjcyMmNmOGI3OGYwMjkzNmM0ODljYTZkCj4gPiAtLS0gL2Rldi9u
-dWxsCj4gPiArKysgYi9kcml2ZXJzL3Jlc2N0cmwvY2JxcmlfZGV2aWNlcy5jClsuLl0KPiA+ICsK
-PiA+ICsvKiBTZXQgY2FwYWNpdHkgYmxvY2sgbWFzayAoY2NfYmxvY2tfbWFzaykgKi8KPiA+ICtz
-dGF0aWMgdm9pZCBjYnFyaV9zZXRfY2JtKHN0cnVjdCBjYnFyaV9jb250cm9sbGVyICpjdHJsLCB1
-NjQgY2JtKQo+ID4gK3sKPiA+ICsgICAgICAgaW93cml0ZTY0KGNibSwgY3RybC0+YmFzZSArIENC
-UVJJX0NDX0JMT0NLX01BU0tfT0ZGKTsKPiAKPiBUaGUgQ0JRUkkgc3BlYyBhbGxvd3MgbmF0dXJh
-bGx5IGFsaWduZWQgNC1ieXRlIGFjY2Vzc2VzIGFuZCBvbmx5IGd1YXJhbnRlZXMKPiBhdG9taWNp
-dHkgZm9yIDQtYnl0ZSBhY2Nlc3NlczsgOC1ieXRlIGF0b21pY2l0eSBpcyB1bnNwZWNpZmllZC4K
-PiAKPiBXb3VsZCAzMi1iaXQgc3BsaXQgYWNjZXNzZXMgYmUgcHJlZmVyYWJsZSBoZXJlIGluc3Rl
-YWQgb2YgcmVseWluZyBvbgo+IGlvcmVhZDY0L2lvd3JpdGU2ND8gVGhpcyBtYXkgYWxzbyBtYWtl
-IHRoZSBkcml2ZXIgbGVzcyBkZXBlbmRlbnQgb24gbmF0aXZlCj4gNjQtYml0IE1NSU8gc3VwcG9y
-dC4KCkkgc3VwcG9zZSB0aGVyZSBjb3VsZCBiZSBzeXN0ZW1zIHRoYXQgYXJlIFJWNjQgYnV0IGRv
-IDQtYnl0ZSBhY2Nlc3MgZm9yCnRoZSBDQlFSSSByZWdpc3RlcnMuIFlvdSBhcmUgcmlnaHQgdGhl
-IHNwZWMgb25seSBndWFyYW50ZWVzIGF0b21pY2l0eQpmb3IgbmF0dXJhbGx5IGFsaWduZWQgNC1i
-eXRlIGFjY2Vzc2VzIGFuZCBsZWF2ZXMgOC1ieXRlIGF0b21pY2l0eQp1bnNwZWNpZmllZC4KCkkg
-d2lsbCBzd2l0Y2ggdGhlIGNvbnRyb2xsZXIgcmVnaXN0ZXIgYWNjZXNzZXMgdG8gMzItYml0IHJl
-YWRzIGFuZAp3cml0ZXMuIFRoZSBkcml2ZXIgcmVqZWN0cyBuY2Jsa3MgPiAzMiwgc28gY2NfYmxv
-Y2tfbWFzayBvbmx5IHVzZXMgaXRzCmxvdyAzMiBiaXRzLiBGb3IgY2NfYWxsb2NfY3RsLCB0aGUg
-d3JpdGFibGUgZmllbGRzIGFsbCBzaXQgaW4gdGhlIGxvdwp3b3JkIHdoaWxlIHRoZSBzdGF0dXMg
-YW5kIGJ1c3kgYml0cyBhcmUgcmVhZC1vbmx5IGluIHRoZSBoaWdoIHdvcmQuIEEKcmVhZCBjYW4g
-cmVjb25zdHJ1Y3QgdGhlIHZhbHVlIGZyb20gdHdvIDMyLWJpdCByZWFkcyBhbmQgYSB3cml0ZSBv
-bmx5Cm5lZWRzIHRoZSBsb3cgd29yZC4gCgpUaGFua3MsCkRyZXcKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+A NULL pointer reference issue is noticed in riscv's machine_kexec_prepare,
+where image->segment[i].buf might be NULL and copied unchecked.
+
+The NULL buf comes from security/integrity/ima/ima_kexec.c:
+ima_add_kexec_buffer(), where kbuf is added by kexec_add_buffer(),
+but kbuf.buffer is NULL.
+
+Fix this by simply adding a check before copy.
+
+Acked-by: Baoquan He <bhe@redhat.com>
+Signed-off-by: Tao Liu <ltao@redhat.com>
+---
+
+v2 -> v1: add code comments as suggested by Baoquan.
+link to v1: https://lore.kernel.org/linux-riscv/20260529032739.13264-2-ltao@redhat.com/
+
+---
+ arch/riscv/kernel/machine_kexec.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 2306ce3e5f22..afc68f6a4aa1 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -41,6 +41,13 @@ machine_kexec_prepare(struct kimage *image)
+ 		if (image->segment[i].memsz <= sizeof(fdt))
+ 			continue;
+ 
++		/*
++		 * Some segments (e.g. IMA) reserve space but have no buffer
++		 * loaded yet. Skip them as they cannot contain an FDT.
++		 */
++		if (image->segment[i].buf == NULL)
++			continue;
++
+ 		if (image->file_mode)
+ 			memcpy(&fdt, image->segment[i].buf, sizeof(fdt));
+ 		else if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
+-- 
+2.54.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
