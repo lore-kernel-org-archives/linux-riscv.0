@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF2BC43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 00:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49069C43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 01:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SZ+VstixXjWDW2+M3zz+tPHJCPkis0uKtqDu3uaPca4=; b=DtwudLGuJxeV9v
-	K1L9O0n9Jv5pUVrVbcNMEJepM9K5g3oP9jpTM1PHjY+6njm0r9lujbYA7yM0WFkecilFWzs1n0RsZ
-	Z2xXC0jA3+jb7VYkKPZgg3MUMRf0YZqv/PU7WXlb0oQroiQjNO1sdIYsVhcTXMal/WkOaDt5+WCFn
-	XXfYrOdXuK5Ap8LM4orrb6q9dNuwzN1oVjkFnhl2MNstWrEKR3jpceKU0ll4WuXVq/bcgeZfjPFSM
-	pbhiU1Ab+camdjnV2XgODPba9KtfnTn4Uv1ojgLCDuj0JwQMsQEcpqzzHsMmamwVo/HynEI4Vtubg
-	k5/hiA9+/krowapsprFw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8ur0HqELIqSYSbbfbCX+E9FzxxGd2IgLMbOLmqKB8Wc=; b=BWSydD0MMrE1QW
+	xAJH77MlF1IKOInS/Do5i63M1moTBdG8cHCiDChYBULn/0ZAWVITethQhe3jNrp2bswgRYcymAVgD
+	QL7KAVi73p8KIMmBZjboPXy1UKygUihKysaK1oDEsfxuucgU9JH7xVVSsnArGXtsWxviIhKod6eD/
+	3mlNgF3ErkBblLfw9Bpb7Csv/oJ/OIHv8eN7z04OOFl0fdORBV881HPhK6/sCOro6s2y1osUacfLj
+	HfRNL296axVcBmrAS0aFnItRjX1CggwqCBwZWEgvkOTNs8tZSuUUe1HgXARBrBEZkvdNpJI2nzKXr
+	56r6lLVp8EbCjZE05sDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdGmk-0000000C1be-0Xlx;
-	Sat, 27 Jun 2026 00:20:38 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1wdHyK-0000000C3WU-231F;
+	Sat, 27 Jun 2026 01:36:40 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdGmf-0000000C1ax-0abZ
-	for linux-riscv@lists.infradead.org;
-	Sat, 27 Jun 2026 00:20:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Tn
-	A4ihTrDROD54RVB9mH38VT+Ri0iYlMKaJEV3IHp6U=; b=PgE3rZjc8fyl1dgCZs
-	3EvP5M0nhbbPRCA137AKJ/gCBd2zWXKUFZ8utqO5OFSfEfKHoy2/6+yUprOzkWfL
-	UzXXDjxDzbsMwDRcHcqwdkCNIFT2KlnfuuMx+WLqOal6Hj2YXug71NuPEwTy/FvK
-	8lXavFdkKfEAGvw1BIxE/vT1c=
-Received: from Ubuntu.. (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wA3nZYbFz9q1ZEhGA--.37801S2;
-	Sat, 27 Jun 2026 08:19:40 +0800 (CST)
-From: Xiaofeng Yuan <xiaofengmian@163.com>
-To: pjw@kernel.org
-Cc: palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	namcao@linutronix.de,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xiaofeng Yuan <xiaofengmian@163.com>
-Subject: [PATCH v4] riscv: probes: simulate c.jal instruction
-Date: Sat, 27 Jun 2026 00:19:39 +0000
-Message-ID: <20260627001939.3847-1-xiaofengmian@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wdHyG-0000000C3W5-149k;
+	Sat, 27 Jun 2026 01:36:39 +0000
+Received: from [IPV6:2601:646:8081:7da1:dcd4:e1f8:5d79:bdb4] ([IPv6:2601:646:8081:7da1:dcd4:e1f8:5d79:bdb4])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 65R0qN0N2285168
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Fri, 26 Jun 2026 17:52:24 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 65R0qN0N2285168
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2026052701; t=1782521550;
+	bh=CoKSivJMaQDV2sSkRTRw7olGkcZfQ72Xwmih/Aa0td0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qMyBFc1gnGXRksBwsJ1/rUznZgiE7lPuLPv/lWpmOM+5Q3Fqu1GkBtPV/i01hTsmm
+	 FyrrwODPBIMXlAoyCpEVfCiClmUhwPWsNagz78j3LDMf+Ut0XXJAAidVe9l1aTOAut
+	 7WQuEQASgzET2NWeiLHKYC5brvZfsPACaGhvlYNW5X1iG8c+02aTJiS4yaJSFbtRty
+	 RzVpKhz70FSqCBKm8TK2gLW8sDPukFdgs1lqJ60AGqtpglwDIA/PnerR6f0L+dvu0f
+	 tzL0aZnBm0Ed9q+Fj1E4zhVGr5LPAVMhZk4GFV4YP0Rst/9nwzTfe9CuWNPpW58FjU
+	 Q8Foj51/YA5sw==
+Message-ID: <7d8efc7c-65e3-49f8-9381-910de7affef2@zytor.com>
+Date: Fri, 26 Jun 2026 17:52:18 -0700
 MIME-Version: 1.0
-X-CM-TRANSID: _____wA3nZYbFz9q1ZEhGA--.37801S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFW5XF1fKF4rKr4fZr47Jwb_yoW5CF4xpF
-	Z0k3Zrtrs8uF4kCr9xJrn3ur48Gws5K39I9a1xta1rKr1agryfXwn2ganxJFsrtrySgryx
-	Gas0qrykA343JrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRsqX9UUUUU=
-X-Originating-IP: [39.172.233.103]
-X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAh03Omo-Fx1ROgAA3m
+User-Agent: Mozilla Thunderbird
+Subject: Re: cleanup the RAID6 P/Q library v3
+To: Christoph Hellwig <hch@lst.de>, Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+        David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+        Song Liu <song@kernel.org>,
+        Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
+        Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+        linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-raid@vger.kernel.org
+References: <20260518051804.462141-1-hch@lst.de>
+ <20260518141205.c100f76eec5f58e78bbbf7af@linux-foundation.org>
+ <20260519082432.GA14956@lst.de>
+Content-Language: en-US, sv-SE
+From: "H. Peter Anvin" <hpa@zytor.com>
+In-Reply-To: <20260519082432.GA14956@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_172033_740372_E2F02F2A 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260626_183638_479962_81B51C68 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,74 +99,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The c.jal instruction is currently marked REJECTED in kprobes
-instruction decoding, but it should be SIMULATED like other
-compressed jump instructions.
+On 2026-05-19 01:24, Christoph Hellwig wrote:
+> 
+> raid6: rework registration of optimized algorithms
+> 
+>  - avx2 instead of avx512 is probably the right thing for no
+>    benchmarking, but if it was intentional (it wasn't), that should
+>    be document.  So I'll just switch back to the previous version to
+>    keep the state of the art
 
-Add simulate_c_jal() which saves the return address to RA and
-sets the program counter to the target offset, reusing
-simulate_c_j for the common jump logic.
+It is unlikely to be the right thing *going forward*, though.
 
-Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
----
-v3: fixed diff (v2 had wrong diff)
-v4: use regs->ra directly; move SET_SIMULATE to group with others (per Nam Cao's review)
+The very unfortunate performance inversion is likely model-specific. It is one
+of those things where you largely would have to have a list of quirks :(
 
- arch/riscv/kernel/probes/decode-insn.c   | 2 +-
- arch/riscv/kernel/probes/simulate-insn.c | 7 +++++++
- arch/riscv/kernel/probes/simulate-insn.h | 1 +
- 3 files changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
-index 65d9590bf..433d9035b 100644
---- a/arch/riscv/kernel/probes/decode-insn.c
-+++ b/arch/riscv/kernel/probes/decode-insn.c
-@@ -29,12 +29,12 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
- 	 * TODO: the REJECTED ones below need to be implemented
- 	 */
- #ifdef CONFIG_RISCV_ISA_C
--	RISCV_INSN_REJECTED(c_jal,		insn);
- 	RISCV_INSN_REJECTED(c_ebreak,		insn);
- 
- 	RISCV_INSN_SET_SIMULATE(c_j,		insn);
- 	RISCV_INSN_SET_SIMULATE(c_jr,		insn);
- 	RISCV_INSN_SET_SIMULATE(c_jalr,		insn);
-+	RISCV_INSN_SET_SIMULATE(c_jal,		insn);
- 	RISCV_INSN_SET_SIMULATE(c_beqz,		insn);
- 	RISCV_INSN_SET_SIMULATE(c_bnez,		insn);
- #endif
-diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index fa581590c..f8a2f6857 100644
---- a/arch/riscv/kernel/probes/simulate-insn.c
-+++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -163,6 +163,13 @@ bool __kprobes simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs
- 	return true;
- }
- 
-+bool __kprobes simulate_c_jal(u32 opcode, unsigned long addr, struct pt_regs *regs)
-+{
-+	regs->ra = addr + 2;
-+
-+	return simulate_c_j(opcode, addr, regs);
-+}
-+
- static bool __kprobes simulate_c_jr_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs,
- 					 bool is_jalr)
- {
-diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
-index 44ebbc444..b89e1bb01 100644
---- a/arch/riscv/kernel/probes/simulate-insn.h
-+++ b/arch/riscv/kernel/probes/simulate-insn.h
-@@ -25,6 +25,7 @@ bool simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs);
-+bool simulate_c_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_jr(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_bnez(u32 opcode, unsigned long addr, struct pt_regs *regs);
--- 
-2.43.0
+	-hpa
 
 
 _______________________________________________
