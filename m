@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8C6C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2026 20:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF2BC43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 00:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5njTnY7ez/9TRSauVvMguRsVYHvQemKaNK3XHBtPdds=; b=kC2aBboG186dJF
-	K116vX0RyYcWp5aeI+PMVMtO7xuekBk8ekbFJVedASmhU0QeVt8v/mteSOVFat9UkU5dqCeYNbPK1
-	2sCKNk0BroFVHQaf9ml/ESiUbTWvv77vsWc53u/EETX5g2geHDF16jEjdjrob8X+d5w6ScGo7Jrz2
-	1nkrzKP3r1kwYlMG3sWgukuCGpbzBw2pYcxMh7ATGpPsVNHDA+ssRYHKDRPbb4nUwF7ToElTEXMHj
-	1kesBUt4KAFQbTy4lWBQ7eWkWip+9JnZSQmeuIdGIHcCi8NuO+1cOGGSyFXAdRf2/jaO3YfzvSPiX
-	D7JdzzgEzWJacN5GZV7A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SZ+VstixXjWDW2+M3zz+tPHJCPkis0uKtqDu3uaPca4=; b=DtwudLGuJxeV9v
+	K1L9O0n9Jv5pUVrVbcNMEJepM9K5g3oP9jpTM1PHjY+6njm0r9lujbYA7yM0WFkecilFWzs1n0RsZ
+	Z2xXC0jA3+jb7VYkKPZgg3MUMRf0YZqv/PU7WXlb0oQroiQjNO1sdIYsVhcTXMal/WkOaDt5+WCFn
+	XXfYrOdXuK5Ap8LM4orrb6q9dNuwzN1oVjkFnhl2MNstWrEKR3jpceKU0ll4WuXVq/bcgeZfjPFSM
+	pbhiU1Ab+camdjnV2XgODPba9KtfnTn4Uv1ojgLCDuj0JwQMsQEcpqzzHsMmamwVo/HynEI4Vtubg
+	k5/hiA9+/krowapsprFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDPj-0000000Bp1c-17EY;
-	Fri, 26 Jun 2026 20:44:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wdGmk-0000000C1be-0Xlx;
+	Sat, 27 Jun 2026 00:20:38 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDPh-0000000Bp1T-1s6p
+	id 1wdGmf-0000000C1ax-0abZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jun 2026 20:44:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C543640A88;
-	Fri, 26 Jun 2026 20:44:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 999F71F000E9;
-	Fri, 26 Jun 2026 20:44:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782506676;
-	bh=KKDpAYSwCxTkkEV2iput+GAGuaTs3Cf4nSmImXaZJcA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KPPTXCiNb8D7IAXv83KLmtrbAKbHpCdjaN3PnanTIGcpte2CIHtW6YpncSKPlxC37
-	 lpmsYeyKt1m4TiSq7gmHV8wNDElq2uyPJ/OPVfBEbg5QidtqShlkxX9uHWruFMk2ui
-	 kI05SgNGZ9xOLQTXbz92dcKsA5Rq/S5MLoqnJ1bJVXQgPwQ1Mmcxuf/qqMB3l4tI+e
-	 xvoMSrmr5Bs7F+eCpySs9q3fwQ3Nbt53SZ/ryzXpWE5mnEniegxB+Xn1FOWYVT+fxL
-	 8ofU/bBadtf8ROI6aTsROsCCZPIm0FEfhU16yNpxJW+w5BE2OtW7Xx28f30JpktI+H
-	 K1ejmJdzXe0qQ==
-Date: Fri, 26 Jun 2026 13:44:35 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v2 5/8] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
-Message-ID: <aj7ks1ijsRTBWyHZ@thelio>
-References: <20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org>
- <20260624-dfustini-atl-sc-cbqri-dt-v2-5-2f8049fd902b@kernel.org>
- <20260625015355.B997D1F000E9@smtp.kernel.org>
+	Sat, 27 Jun 2026 00:20:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Tn
+	A4ihTrDROD54RVB9mH38VT+Ri0iYlMKaJEV3IHp6U=; b=PgE3rZjc8fyl1dgCZs
+	3EvP5M0nhbbPRCA137AKJ/gCBd2zWXKUFZ8utqO5OFSfEfKHoy2/6+yUprOzkWfL
+	UzXXDjxDzbsMwDRcHcqwdkCNIFT2KlnfuuMx+WLqOal6Hj2YXug71NuPEwTy/FvK
+	8lXavFdkKfEAGvw1BIxE/vT1c=
+Received: from Ubuntu.. (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wA3nZYbFz9q1ZEhGA--.37801S2;
+	Sat, 27 Jun 2026 08:19:40 +0800 (CST)
+From: Xiaofeng Yuan <xiaofengmian@163.com>
+To: pjw@kernel.org
+Cc: palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	namcao@linutronix.de,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xiaofeng Yuan <xiaofengmian@163.com>
+Subject: [PATCH v4] riscv: probes: simulate c.jal instruction
+Date: Sat, 27 Jun 2026 00:19:39 +0000
+Message-ID: <20260627001939.3847-1-xiaofengmian@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260625015355.B997D1F000E9@smtp.kernel.org>
+X-CM-TRANSID: _____wA3nZYbFz9q1ZEhGA--.37801S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAFW5XF1fKF4rKr4fZr47Jwb_yoW5CF4xpF
+	Z0k3Zrtrs8uF4kCr9xJrn3ur48Gws5K39I9a1xta1rKr1agryfXwn2ganxJFsrtrySgryx
+	Gas0qrykA343JrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRsqX9UUUUU=
+X-Originating-IP: [39.172.233.103]
+X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAh03Omo-Fx1ROgAA3m
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_172033_740372_E2F02F2A 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,54 +76,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 01:53:55AM +0000, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
-> - [High] Traversing the global `cbqri_controllers` list without holding `cbqri_controllers_lock` during CPU hotplug risks list corruption.
-> --
-> 
-> commit e1c49060a1fc98c61e36689ccda2041d360bb762
-> Author: Drew Fustini <fustini@kernel.org>
-> 
-> riscv_cbqri: resctrl: Add cache allocation via capacity block mask
-> 
-> This commit wires up the CBQRI capacity controllers into resctrl as
-> RDT_RESOURCE_L2 and RDT_RESOURCE_L3 schemata. It treats mismatched
-> capabilities at the same cache level as a fatal error and lazily creates
-> domains in the cpuhp online callback.
-> 
-> > diff --git a/drivers/resctrl/cbqri_resctrl.c b/drivers/resctrl/cbqri_resctrl.c
-> > new file mode 100644
-> > index 0000000000000..2f31baff032b6
-> > --- /dev/null
-> > +++ b/drivers/resctrl/cbqri_resctrl.c
-> [ ... ]
-> > +static int cbqri_attach_cpu_to_all_ctrls(unsigned int cpu)
-> > +{
-> > +	struct cbqri_controller *ctrl;
-> > +	int err = 0;
-> > +
-> > +	lockdep_assert_held(&cbqri_domain_list_lock);
-> > +
-> > +	list_for_each_entry(ctrl, &cbqri_controllers, list) {
-> 
-> [Severity: High]
-> Is it safe to iterate the global cbqri_controllers list without holding
-> cbqri_controllers_lock?
-> 
-> If a capacity controller is dynamically added at runtime (e.g., via a device
-> tree overlay instantiating the platform device), its probe function can acquire
-> cbqri_controllers_lock and mutate the cbqri_controllers list.
-> 
-> Concurrently, if a CPU is hotplugged, the cpuhp online callback calls
-> cbqri_resctrl_online_cpu() which invokes this function. Traversing the list
-> here while holding only cbqri_domain_list_lock could lead to list corruption,
-> resulting in an infinite loop or NULL pointer dereference.
+The c.jal instruction is currently marked REJECTED in kprobes
+instruction decoding, but it should be SIMULATED like other
+compressed jump instructions.
 
-I will update cbqri_attach_cpu_to_all_ctrls() to take the
-cbqri_controllers_lock before iterating through the cbqri_controllers
-list.
+Add simulate_c_jal() which saves the return address to RA and
+sets the program counter to the target offset, reusing
+simulate_c_j for the common jump logic.
 
-Drew
+Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
+---
+v3: fixed diff (v2 had wrong diff)
+v4: use regs->ra directly; move SET_SIMULATE to group with others (per Nam Cao's review)
+
+ arch/riscv/kernel/probes/decode-insn.c   | 2 +-
+ arch/riscv/kernel/probes/simulate-insn.c | 7 +++++++
+ arch/riscv/kernel/probes/simulate-insn.h | 1 +
+ 3 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+index 65d9590bf..433d9035b 100644
+--- a/arch/riscv/kernel/probes/decode-insn.c
++++ b/arch/riscv/kernel/probes/decode-insn.c
+@@ -29,12 +29,12 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
+ 	 * TODO: the REJECTED ones below need to be implemented
+ 	 */
+ #ifdef CONFIG_RISCV_ISA_C
+-	RISCV_INSN_REJECTED(c_jal,		insn);
+ 	RISCV_INSN_REJECTED(c_ebreak,		insn);
+ 
+ 	RISCV_INSN_SET_SIMULATE(c_j,		insn);
+ 	RISCV_INSN_SET_SIMULATE(c_jr,		insn);
+ 	RISCV_INSN_SET_SIMULATE(c_jalr,		insn);
++	RISCV_INSN_SET_SIMULATE(c_jal,		insn);
+ 	RISCV_INSN_SET_SIMULATE(c_beqz,		insn);
+ 	RISCV_INSN_SET_SIMULATE(c_bnez,		insn);
+ #endif
+diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+index fa581590c..f8a2f6857 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.c
++++ b/arch/riscv/kernel/probes/simulate-insn.c
+@@ -163,6 +163,13 @@ bool __kprobes simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs
+ 	return true;
+ }
+ 
++bool __kprobes simulate_c_jal(u32 opcode, unsigned long addr, struct pt_regs *regs)
++{
++	regs->ra = addr + 2;
++
++	return simulate_c_j(opcode, addr, regs);
++}
++
+ static bool __kprobes simulate_c_jr_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs,
+ 					 bool is_jalr)
+ {
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index 44ebbc444..b89e1bb01 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -25,6 +25,7 @@ bool simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs);
++bool simulate_c_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_jr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_bnez(u32 opcode, unsigned long addr, struct pt_regs *regs);
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
