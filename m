@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1864DC43327
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 06:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49646C43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 08:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8e1wTGgLi1Je7r6YN7rYAK2z91oP3ojYakWDPb32jlY=; b=cGfqTg+xCmqNO6
-	QVaeKNeWO8O07P3HJz3DSF61+63nLvb6o2tICYSi6/D0Ejzc053FfDOAyLM91TpZIBx58JqRMcXgI
-	XPbBkIH50ZAqfa+sUqiYy5FY08+so3iF207IsdlSjJ1qR5Htm5PhYIVh2JSjfMEgEM68N3hV3Idrm
-	/hJZfEhNW1hjUIgw5mBxx6mTMtYHKlXLlHF1B7wnTnpofGq2TmIwKA7UtwDF0Z2dvP7sICbDLaSS0
-	Ne1nKUpLGmjTWoPIV4f6ENbZvzB2TMgDCAU2/2BauDiNMRCsMsvaNNqRzTZfCUPSJ1Jy/VQAecj3z
-	Kf04skxdaJSbgIS5gYzA==;
+	List-Owner; bh=4Awm/OiTReyQam65bYLrg5MhJDsZ/oEYiXlUTwf9F1U=; b=hkcFdNq6acAJ4/
+	WXIwwuulavT7i0l2JGHPSUJZX4fmr+CKxtGYfGSDkaKoWEaFoIL+Jm7JmXR/lcWCrXcVp1YLYmacm
+	90h777WckKGXHeE+vl4a/bQ3BeR70O9VtC0ch/9deNt0jFI0zwyaanV1v3tv1M6cemLwylGCeoygl
+	bngnqQd0NY/fthMpLR5yVJ7ZeDih2UGfrUtk7JtT9lc0dyAeUWenuIiKrXytxGAST04f7dqo8gDl2
+	vcRC7MHL9Aa49IL32eCn79JDfsY0TSjl49TaDZtiZq6j/6nLXg5TMw81s/xgHe2G0e3rs5ypK/aZO
+	KkZhu0SAYGDbXEODI2jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMqA-0000000CDsQ-2TPW;
-	Sat, 27 Jun 2026 06:48:34 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wdOaV-0000000CIYS-2Q8F;
+	Sat, 27 Jun 2026 08:40:31 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMq8-0000000CDrw-1yfr
+	id 1wdOaS-0000000CIY6-1QUq
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Jun 2026 06:48:34 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-470174001a0so300820f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2026 23:48:31 -0700 (PDT)
+	Sat, 27 Jun 2026 08:40:29 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-845c908143eso1127527b3a.0
+        for <linux-riscv@lists.infradead.org>; Sat, 27 Jun 2026 01:40:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782542910; x=1783147710; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1782549627; x=1783154427; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+rYfEs2pvBhx7gYc578DZEus3ro6qJzWud0f6V2w20U=;
-        b=QDDOHkXsNMhYrgeM6GUiDQZtRkvOY3dNP8VQeVCQFwrpXPG3PJc4/QDk/PJysFQRWM
-         RJvo/2910mrDBBx6zSecOsi0FhhwXqJJi3hJtHNgD8I6aXvlpbCVzs4XQ6TBUMTl4DHv
-         sMN1pN1eJjHcmZQFqvbVInrn+xnM3dsRagiUPurVmtKI8u3tEwxrSxQw1v9pDcfUHXNx
-         +veXIdpwY2PWvBtWNXx2WH7pk/Og+1MLj1hyePEH7MH4ohfRAHO4A5F9f644vH0g+pEN
-         x7aIUxJVAGDjSUxXZNBtcwbW8ekeOLBVfFL4cJ1NDf2TGMXtPlsVZ8LKFbtBpwtX2ghB
-         FqYQ==
+        bh=9qbhem3vAH/Z+X5nlRW00s0dAul+UODlOFziWrBe9No=;
+        b=ZXS7oCuH/OsQ4gOslJ9Ir9JxvGb8WWzNw5IUqfzLJMqXgT/qlOe3F7WMk+8IsBeg1p
+         m1HggGgQe1e7I4Q27XJhuypUBDjrK/XgzHE+oYFD46svuBruUAEG9AA4EjII+tf5iDlm
+         eXEAU11X8ClxMz+3cYOci7ofzqc6nzm70smfHXD67fi667/WgCSWL7kMXF40UpipqNxS
+         nq7aGYgDe2NUk24UOKgYnZmduT62R0uVvlbpkqJrrsDZ68udeJWzRUjqw+QxgNiIvq3M
+         ADjY76zXw5PnytLmoLXUvx1D/Xg5aFCuGRxc0rWczekhqYVzDQCvGqYaa6Nw6SnGrB1x
+         uH/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782542910; x=1783147710;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+rYfEs2pvBhx7gYc578DZEus3ro6qJzWud0f6V2w20U=;
-        b=qiCCsMWiZICO4n7lBYawLa/76Mvx51nYGn/jC3Tx0WmPKFx9MgqfXjZFcInKcaQfc9
-         ycrxZRpfoup56C49k4QaGy2x/gylN8ogK8i+elEtVaYVlipfrY5gMxnPtYBFeVbNcADG
-         4gRe8rTwcFxOf4vPoCIs+E+FZ9EXBne8w8VwRpij0zFRzGXjyyhfZXawZFJKbzYSF5Cq
-         QfP0Al2KSyGYFaD1Te9Fg+Jai1QPbjhkA1iRsqVtFvavoOpg1nMFHFeLWO7NVsWv61DG
-         g2c3tmkfsjHsxod2sZmg3/ts7L8E2cRAFincyCUf4iJz3UOWjMHBgM9biCnJD0qI5/Oj
-         0/Nw==
-X-Forwarded-Encrypted: i=1; AFNElJ9WHtYMm1GnuJFMpoNKnOpJ0iE2x7wjje0MxAgB3qVO8sTAtUeDdSEp6S5kBf3YPCIbODErNigyg3MQ4g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx612FhJYRrErGB0IgWGFgXLBQNJIGDmqoAhPfFVWvIHK4VsZDp
-	6xHqIqcnXBTSyB+PtNIIcCrBFfyGeoV3LyqWN6eLItlqw5dmGThRedIhPbLsZQ==
-X-Gm-Gg: AfdE7cllvuOEuJbEF5p+RnFfE+NIm5I4OlloFnCa84JJqYQWf9gWNWMoq7S9FiPpTVZ
-	J6NE9ORah29nZEdvaqXJM/lYHSj/mlC/gv1ud+Soni+y6deNwmHGzmVoAChxZsEJl/JfZaZbTF7
-	M6A7ER/8DyV5SMiljwzmmxdBlf1ZsMmV3N7nkpAppHRdut6msv5SCXErCTnotyc2M1TvVBv2tGo
-	sVSEVQplOJRop6sxOtJN05jBUjLOfh0UJkuO/U3L2h5ZDZ9q2RWCMNG698gq32yeTdguC0ek+qo
-	1Khx5fAMWLy2ulJl1DEAkZwd1QNb7MCGVXTr9mPoBsh3dLmh4uRCXtmQt/sL7NhIE6+aIQlT2tM
-	kV6YZvbIJEKsOA9NRAQb07rjfRDWdxZnlRLYzIgPWBCTvZu4MzenIy6OAAbJhA1glE+cxHBSlWw
-	s7oA8TnRLmoBzoV1lCP8pJrOrt9E7lu21GeTS9Cmu6B/ljN0+OGDDZ2Ssy23eqKPCyFw==
-X-Received: by 2002:a05:600c:1c17:b0:492:7019:caca with SMTP id 5b1f17b1804b1-4927019cb17mr63681665e9.26.1782542910213;
-        Fri, 26 Jun 2026 23:48:30 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46dcbac0c9dsm22289931f8f.19.2026.06.26.23.48.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 23:48:29 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: daniel.lezcano@kernel.org, tglx@kernel.org,
- Felix Yan <felixonmars@archlinux.org>
-Cc: wens@kernel.org, samuel@sholland.org, indrek.kruusa@gmail.com,
- linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-riscv@lists.infradead.org, Felix Yan <felixonmars@archlinux.org>,
- stable@vger.kernel.org
-Subject: Re: [PATCH] clocksource/drivers/timer-sun4i: Advertise a real minimum delta
-Date: Sat, 27 Jun 2026 08:48:28 +0200
-Message-ID: <cyKZfOi8QVGppYlWqaO5QA@gmail.com>
-In-Reply-To: <20260624220434.4183732-1-felixonmars@archlinux.org>
-References: <CA+fTLhgLmTY+exGujKf8OYYQvcEW5X5NJ_5sLq2AYL6zER2c0A@mail.gmail.com>
- <20260624220434.4183732-1-felixonmars@archlinux.org>
+        d=1e100.net; s=20251104; t=1782549627; x=1783154427;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9qbhem3vAH/Z+X5nlRW00s0dAul+UODlOFziWrBe9No=;
+        b=HmFTFnWgoQ94YNpgK0MD1mesSYhJpobKShhTnCBa2Hb3+Je63fGyl03OxQQk1HBcM1
+         RmBdYWElTLu51k337NFVNwP2rxVs0ZUbJv9/F+LJFeE9I7iPoSx0snZajnX5u0Wdoqqq
+         gX8Pd8hsnThPM9j7Q2BcDZTEDLDqdjat3gcWMlS2oS74i53/sEId3HQkS+P68erxdoYD
+         nh/azLIwGg/FZigp6AgnLNO2AC8iS2meu//7SwafXfn2HMF54k+oqqDerflfzFyDogt5
+         mfCvWkNAQEynucbwrfg8a+2FqzK/DsxFSJMgH7Jv8Bz0gAuZWPj58qUu69a4zFemK15i
+         NSXg==
+X-Forwarded-Encrypted: i=1; AHgh+RqglLca/vb++gUE9dNWaRdfIye44BFLC6h55F8PXrcmBK2ZVJZ8drsgaMKY5yy7ryAVJxjjtRU2JPNsqg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0acWG5HGz22J3XVUsNnHYQyTKyKxVs/JrkfTTcTDX7VoHyl4T
+	WT9zEiNScDerhksofyY73hbKuCqDoQFAwpjZRXd+svqIw21jfgWl2C6X
+X-Gm-Gg: AfdE7cm6+XvF5LCDUZdPZIsbeZpLTA4ZL/fkF1qW3P7nsZvC6ghkAeZ2yTdyhbSK8bf
+	xfeP0qHL1u4B4mv8e+Qb7Q3DIKfjbDxNZOK5/D29CPQ0mC97sOv2AqAUvtOnt7d8ud78rLRPUID
+	nEyYHDrdniaGzMNY3DdzNXpTb/nz1v8B3AHIMON+rPy0rvuFLo7B7O/Rrs5NXtVrq6cvLRzlT3b
+	D0CXucMIrIwAEQFt8djr96MIlQLYYeYVTQIT0gaq0OU/96TGcFsqoVNUutVDawoFUUjECZqovcr
+	erUMbwnPaLQTwg19dBt+WPkvXFqx9DYY7Tau4tXbaUk+ZnBmZXeK34NCSXL87SRGApYVF07u8je
+	4acoT+xttGQCZuAknzodzqSvnG3IuautQN6j7gNY2gCn4ZTOAAVT4sLqBfOHxZDWxoyDUbnuH+w
+	d0dP2U+XWvaTkMRzyu9WS4uXdpdCuhlHE=
+X-Received: by 2002:a05:6a00:1816:b0:842:57e8:1bdb with SMTP id d2e1a72fcca58-845b3a52c01mr10776106b3a.20.1782549626710;
+        Sat, 27 Jun 2026 01:40:26 -0700 (PDT)
+Received: from [192.168.50.100] ([106.38.154.67])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a3fedaefsm8928591b3a.23.2026.06.27.01.40.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 27 Jun 2026 01:40:26 -0700 (PDT)
+Message-ID: <10f2a6af-86d8-4f98-86b0-0f1de394f19c@gmail.com>
+Date: Sat, 27 Jun 2026 16:40:21 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/2] cpufreq: spacemit: Add cpufreq support for K1 SoC
+To: Shuwei Wu <shuwei.wu@mailbox.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ devicetree@vger.kernel.org
+References: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
+From: Gong Shuai <gsh517025@gmail.com>
+In-Reply-To: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_234832_526143_B7E36C40 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260627_014028_396000_00FDC5D6 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,34 +100,210 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RG5lIMSNZXRydGVrLCAyNS4ganVuaWogMjAyNiBvYiAwMDowNDozNCBTcmVkbmplZXZyb3Bza2kg
-cG9sZXRuaSDEjWFzIGplIEZlbGl4IFlhbiBuYXBpc2FsKGEpOgo+IHN1bjRpX2Nsa2V2dF9uZXh0
-X2V2ZW50KCkgY29tcGVuc2F0ZXMgZm9yIHRoZSB0aW1lciBzdG9wL3N0YXJ0Cj4gc3luY2hyb25p
-emF0aW9uIGRlbGF5IGJ5IHByb2dyYW1taW5nIGV2dCAtIFRJTUVSX1NZTkNfVElDS1MgaW50byB0
-aGUKPiBoYXJkd2FyZSBpbnRlcnZhbCByZWdpc3Rlci4gVGhlIGNsb2NrZXZlbnQgZGV2aWNlIGN1
-cnJlbnRseSBhZHZlcnRpc2VzCj4gVElNRVJfU1lOQ19USUNLUyBhcyBtaW5fZGVsdGFfdGlja3Ms
-IHNvIHRoZSBjbG9ja2V2ZW50cyBjb3JlIGlzIGFsbG93ZWQKPiB0byBjYWxsIHNldF9uZXh0X2V2
-ZW50KCkgd2l0aCBldnQgPT0gVElNRVJfU1lOQ19USUNLUy4KPiAKPiBUaGF0IHByb2dyYW1zIGEg
-emVyby10aWNrIGludGVydmFsLiBXaXRoIG9uZXNob3QvaGlnaHJlcy9ub2h6IHRpbWVyCj4gb3Bl
-cmF0aW9uIHRoaXMgY2FuIGxlYXZlIHRoZSBuZXh0IGV2ZW50IHN0dWNrLCB3aGljaCB3YXMgb2Jz
-ZXJ2ZWQgYXMgYQo+IGJvb3QgaGFuZyBvbiBBbGx3aW5uZXIgRDEgYWZ0ZXIgdGhlIGNsb2NrZXZl
-bnRzIGNvcmUgc3RhcnRlZCByZXVzaW5nCj4gZm9yY2VkIG1pbmltdW0tZGVsdGEgZXZlbnRzLgo+
-IAo+IEFkdmVydGlzZSBvbmUgZXh0cmEgdGljayBpbnN0ZWFkLCBzbyB0aGUgc21hbGxlc3QgZXZl
-bnQgYWNjZXB0ZWQgYnkgdGhlCj4gY29yZSBzdGlsbCBwcm9ncmFtcyBhdCBsZWFzdCBvbmUgaGFy
-ZHdhcmUgdGljayBhZnRlciB0aGUgc3luY2hyb25pemF0aW9uCj4gY29tcGVuc2F0aW9uLgo+IAo+
-IEZpeGVzOiAxMmUxNDgwYmNiNDkgKCJjbG9ja3NvdXJjZTogc3VuNGk6IFJlcG9ydCB0aGUgbWlu
-aW11bSB0aWNrIHRoYXQgd2UgY2FuIHByb2dyYW0iKQo+IENjOiBzdGFibGVAdmdlci5rZXJuZWwu
-b3JnCj4gUmVwb3J0ZWQtYnk6IEluZHJlayBLcnV1c2EgPGluZHJlay5rcnV1c2FAZ21haWwuY29t
-Pgo+IENsb3NlczogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvQ0ErZlRMaGdM
-bVRZK2V4R3VqS2Y4T1lZUXZjRVc1WDVOSl81c0xxMkFZTDZ6RVIyYzBBQG1haWwuZ21haWwuY29t
-Lwo+IEFzc2lzdGVkLWJ5OiBDb2RleDpncHQtNS41Cj4gU2lnbmVkLW9mZi1ieTogRmVsaXggWWFu
-IDxmZWxpeG9ubWFyc0BhcmNobGludXgub3JnPgoKQWNrZWQtYnk6IEplcm5laiBTa3JhYmVjIDxq
-ZXJuZWouc2tyYWJlY0BnbWFpbC5jb20+CgpCZXN0IHJlZ2FyZHMsCkplcm5lagoKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 6/26/2026 4:10 PM, Shuwei Wu wrote:
+> This series enables CPU DVFS for the SpacemiT K1 SoC using the generic
+> cpufreq-dt driver.
+> 
+> K1 has two CPU clock clusters. The two clusters have separate CPU clocks,
+> so they are represented as two cpufreq policies: policy0 for CPUs 0-3 and
+> policy4 for CPUs 4-7.
+> 
+> The CPU voltage rail is shared between the clusters. To model this with two
+> policies, the OPP entries describe voltage ranges instead of a single fixed
+> voltage, so the shared regulator can keep the rail within a range acceptable
+> for the active OPP constraints.
+> 
+> Tested on Banana Pi BPI-F3:
+> 
+> ~ # cat /sys/devices/system/cpu/online
+> 0-7
+> 
+> ~ # ls /sys/devices/system/cpu/cpufreq/
+> policy0  policy4
+> 
+> ~ # cat /sys/devices/system/cpu/cpufreq/policy0/scaling_driver
+> cpufreq-dt
+> ~ # cat /sys/devices/system/cpu/cpufreq/policy0/affected_cpus
+> 0 1 2 3
+> 
+> ~ # cat /sys/devices/system/cpu/cpufreq/policy4/scaling_driver
+> cpufreq-dt
+> ~ # cat /sys/devices/system/cpu/cpufreq/policy4/affected_cpus
+> 4 5 6 7
+> 
+> Both policies expose the same OPP frequencies:
+> 
+> ~ # cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
+> 614400 819000 1000000 1228800 1600000
+> 
+> ~ # cat /sys/devices/system/cpu/cpufreq/policy4/scaling_available_frequencies
+> 614400 819000 1000000 1228800 1600000
+> 
+> For each policy, scaling_setspeed was set to each supported OPP and the
+> workload was pinned to one CPU covered by that policy with taskset.
+> CPU0 was used for policy0, and CPU4 was used for policy4. The clock rates below
+> are from /sys/kernel/debug/clk/clk_summary.
+> 
+> policy0 / CPU0:
+> ----------------------------------------------------------
+> Frequency    |  cpu_c0_core_clk  |  Real (s)  |  User (s)
+> (kHz)        |  (Hz)             |            |
+> -------------+-------------------+------------+-----------
+> 1,600,000    |  1,600,000,000    |    1.81    |    1.80
+> 1,228,800    |  1,228,800,000    |    2.37    |    2.37
+> 1,000,000    |  1,000,000,000    |    2.89    |    2.89
+>    819,000    |    819,200,000    |    3.56    |    3.55
+>    614,400    |    614,400,000    |    4.71    |    4.71
+> ----------------------------------------------------------
+> 
+> policy4 / CPU4:
+> ----------------------------------------------------------
+> Frequency    |  cpu_c1_core_clk  |  Real (s)  |  User (s)
+> (kHz)        |  (Hz)             |            |
+> -------------+-------------------+------------+-----------
+> 1,600,000    |  1,600,000,000    |    1.81    |    1.80
+> 1,228,800    |  1,228,800,000    |    2.36    |    2.36
+> 1,000,000    |  1,000,000,000    |    2.89    |    2.89
+>    819,000    |    819,200,000    |    3.55    |    3.55
+>    614,400    |    614,400,000    |    4.71    |    4.70
+> ----------------------------------------------------------
+> 
+> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+
+Hi Shuwei,
+
+Thanks for your work.
+
+I have tested this series on the OrangePi RV2 4GB board on top of
+next-20260626, with Vincent's patch for OrangePi RV2 applied.
+
+# uname -a
+Linux orangepi-rv2 7.1.0-next-20260626-00005-g66ef697be46d #1 SMP PREEMPT Sat Jun 27 14:53:02 CST 2026 riscv64 GNU/Linux
+
+# ls /sys/devices/system/cpu/cpufreq/
+boost    policy0  policy4
+
+# cat /sys/devices/system/cpu/cpufreq/policy*/scaling_driver
+cpufreq-dt
+cpufreq-dt
+
+# cat /sys/devices/system/cpu/cpufreq/policy0/affected_cpus
+0 1 2 3
+
+# cat /sys/devices/system/cpu/cpufreq/policy4/affected_cpus
+4 5 6 7
+
+# cat /sys/devices/system/cpu/cpufreq/policy*/scaling_available_frequencies
+614400 819000 1000000 1228800 1600000
+614400 819000 1000000 1228800 1600000
+
+I used the following test script to verify cpufreq functionality:
+
+```bash
+#!/bin/sh
+
+echo userspace > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+echo userspace > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+
+echo "--- same frequency test ---"
+for freq in 614400 819000 1000000 1228800 1600000; do
+     echo $freq > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed
+     echo $freq > /sys/devices/system/cpu/cpufreq/policy4/scaling_setspeed
+     sleep 1
+     t=$(taskset -c 0 time -f "%e" dd if=/dev/zero of=/dev/null bs=1M count=1000 2>&1 | tail -1)
+     echo "$freq kHz: ${t}s"
+done
+
+echo "--- mixed frequency test ---"
+echo 614400 > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed
+echo 1600000 > /sys/devices/system/cpu/cpufreq/policy4/scaling_setspeed
+sleep 1
+t0=$(taskset -c 0 time -f "%e" dd if=/dev/zero of=/dev/null bs=1M count=1000 2>&1 | tail -1)
+t4=$(taskset -c 4 time -f "%e" dd if=/dev/zero of=/dev/null bs=1M count=1000 2>&1 | tail -1)
+echo "p0=614400 p4=1600000 -> cpu0=${t0}s cpu4=${t4}s"
+
+echo 1600000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed
+echo 614400 > /sys/devices/system/cpu/cpufreq/policy4/scaling_setspeed
+sleep 1
+t0=$(taskset -c 0 time -f "%e" dd if=/dev/zero of=/dev/null bs=1M count=1000 2>&1 | tail -1)
+t4=$(taskset -c 4 time -f "%e" dd if=/dev/zero of=/dev/null bs=1M count=1000 2>&1 | tail -1)
+echo "p0=1600000 p4=614400 -> cpu0=${t0}s cpu4=${t4}s"
+
+echo 1000000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed
+echo 1228800 > /sys/devices/system/cpu/cpufreq/policy4/scaling_setspeed
+sleep 1
+t0=$(taskset -c 0 time -f "%e" dd if=/dev/zero of=/dev/null bs=1M count=1000 2>&1 | tail -1)
+t4=$(taskset -c 4 time -f "%e" dd if=/dev/zero of=/dev/null bs=1M count=1000 2>&1 | tail -1)
+echo "p0=1000000 p4=1228800 -> cpu0=${t0}s cpu4=${t4}s"
+```
+
+Results:
+
+# ./test_cpufreq_userspace.sh
+--- same frequency test ---
+614400 kHz: 0.90s
+819000 kHz: 0.67s
+1000000 kHz: 0.55s
+1228800 kHz: 0.45s
+1600000 kHz: 0.34s
+--- mixed frequency test ---
+p0=614400 p4=1600000 -> cpu0=0.90s cpu4=0.34s
+p0=1600000 p4=614400 -> cpu0=0.34s cpu4=0.90s
+p0=1000000 p4=1228800 -> cpu0=0.55s cpu4=0.45s
+
+
+Tested-by: Gong Shuai <gsh517025@gmail.com> # OrangePi-RV2
+
+Regards,
+Shuai
+
+
+> ---
+> Changes in v4:
+> - Represent K1 as two cpufreq-dt policies, one per CPU clock cluster
+> - Use OPP voltage ranges for the shared CPU supply
+> - Link to v3: https://lore.kernel.org/r/20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org
+> 
+> Changes in v3:
+> - Add a K1-specific cpufreq driver for the shared-rail, dual-clock topology
+> - Use one shared CPU OPP table and one cpufreq policy for all CPUs
+> - Link to v2: https://lore.kernel.org/r/20260410-shadow-deps-v2-0-4e16b8c0f60e@mailbox.org
+> 
+> Changes in v2:
+> - Move OPP tables to dedicated k1-opp.dtsi
+> - Enable OPP only on BPI-F3 with cpu-supply present
+> - Link to v1: https://lore.kernel.org/r/20260308-shadow-deps-v1-0-0ceb5c7c07eb@mailbox.org
+> 
+> ---
+> Shuwei Wu (2):
+>        cpufreq: dt-platdev: Add SpacemiT K1 SoC to the allowlist
+>        riscv: dts: spacemit: Add cpu scaling for K1 SoC
+> 
+>   arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  35 +++++++-
+>   arch/riscv/boot/dts/spacemit/k1-opp.dtsi        | 105 ++++++++++++++++++++++++
+>   arch/riscv/boot/dts/spacemit/k1.dtsi            |   8 ++
+>   drivers/cpufreq/cpufreq-dt-platdev.c            |   2 +
+>   4 files changed, 149 insertions(+), 1 deletion(-)
+> ---
+> base-commit: 5164e95565d3fd508ca8a95351323f5716dfb695
+> change-id: 20260307-shadow-deps-3582a78aa756
+> prerequisite-patch-id: 154bd4f720ce5065d58b988de8f273207b44572e
+> prerequisite-message-id: <20260206-spacemit-p1-v4-0-8f695d93811e@riscstar.com>
+> prerequisite-patch-id: 5da3e75b18291a5540d4f66d7a0600fb8975ef62
+> prerequisite-patch-id: bcf41917414ecef8cf743095d130f6004c32f6a5
+> prerequisite-patch-id: cfe3800f8c791ec4c63e070af9628e88e0fc31b9
+> prerequisite-message-id: <20260305-k1-clk-fix-v1-1-abca85d6e266@mailbox.org>
+> prerequisite-patch-id: 7c7fb9f87dba019ece4c97c45750349a7cd28f3a
+> 
+> Best regards,
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
