@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130D4C43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 11:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB7DC43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2026 12:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lDZGwGtpRHBcnl+z5fDV4x+mQhqyBkB9QBrGYM1oJo0=; b=LMqCXyTryQrS9o
-	R5tYfX2OOCZpewf3bhbD8ZcFMGePFAg73+2J76mIt4rbkU9YDBWGnPfiLlsC7yMCNmQ3GqQu6W8wQ
-	M1AyvrUY11KwOkN6Dj/VSf6ZKR3xXp+ZL7N4Zx90BSeAQ2RIlt5XxsEqeooeY/hWdpfie1N/U55dF
-	3goWmFocKIlWaiEU643+qaWt4/x/hNwpS27gyYH29/GfOmDVLFnRz/xBULgV86EpcBoGRiJRnTX+6
-	9ONJpm4cXfv7zMdLFUyPCzfYVsBRIdEURy0dFHKOJE9+6H3qJUt2aOewyHeO/KPuz89HOoICKVcCZ
-	yrUwREKeq4wKD3lDCyug==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CaA589pQBMLBq/vQplpLl/tS/UtKvQqCE7n9+ntYU7A=; b=LAr/Med0HaR7oS
+	M0SNJmroTUfvGindmkbjKDNzIkH+z17z/vA3DLQxuoP4f4DAkHHr3w93RLhc4FYvawA+JtPxYUsl7
+	sWKde5y0FTywfATOuRWSRaMeD77NC1A8Z/N5QOy+0bXXN3pJRDGabrYx9Ts0y5lFCOCddF3MrbUVR
+	SH39bsF2rf5/wP/D9j0lMHyYcOW3uuu/j+Te2L1a/3mYuOf83iiESescN2GiQtbaTOb/c4YJY5X0r
+	grubdQSmM6cR14RqWtzfc2pjS9p1Wa4NaT/VMq9l+ZEBNazYEs6SPmpfJRtHBhD+XqENIGh1bxWoW
+	EiYBfvQcZoIQFSkbdDtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdRgp-0000000CQps-2aP9;
-	Sat, 27 Jun 2026 11:59:15 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wdSOm-0000000CT0w-16xh;
+	Sat, 27 Jun 2026 12:44:40 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdRgn-0000000CQp3-2ByW
+	id 1wdSOi-0000000CSze-1WA7
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Jun 2026 11:59:14 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782561551;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zz7muMR2y2m8wMPeJd2fbbBgpyba86ouaGupG4x7Onk=;
-	b=OJ2v7SaqZ6p2uQKb1KB3sYtEkpDTUm1oJafzGknXxUnJmAU2jmE4dqxftkD5jQG9A1NYE0
-	LBexswRK7hivG/cQiCp8c3hLpKbcsDQYAPEghSu54+Pb2+gHmDA+J1yWUWWDgmZ+fn/o9o
-	tS3m38Sh+2sLlF+PR9RpnSvsyfBR4/M+BIyZ0GqGELWJTOb7QrOx80V/ao20wrzflvClDv
-	562ptRRpSBRNkq+ZvwBNhTbN1q6RDFEZjypO9ii/LFNtvDdqmfpcRSmQM1IocBgg2pyXUi
-	q5vqCDxK8Q4p9+Bkm+zGfMDIVEg0cEuGJyNbFiVro3+StiF3HNi1ITdqA4VkpQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782561551;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zz7muMR2y2m8wMPeJd2fbbBgpyba86ouaGupG4x7Onk=;
-	b=Din2LXd2lP45ltmSDRBkHblVW/HV823P+Pjn02dHUm/biMea0ZXle2IbTV3ECorgBK7zGc
-	k0ZQMWGDG4hgJdBg==
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Jiakai Xu
- <xujiakai2025@iscas.ac.cn>, Matthew Bystrin <dev.mbstr@gmail.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rui Qi
- <qirui.001@bytedance.com>, Samuel Holland <samuel.holland@sifive.com>,
- Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: Re: [PATCH v3] riscv: stacktrace: fix stack-out-of-bounds in
- walk_stackframe()
-In-Reply-To: <20260625123906.211981-1-xujiakai2025@iscas.ac.cn>
-References: <20260625123906.211981-1-xujiakai2025@iscas.ac.cn>
-Date: Sat, 27 Jun 2026 13:59:10 +0200
-Message-ID: <87zf0g42k1.fsf@yellow.woof>
+	Sat, 27 Jun 2026 12:44:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=9N
+	Pwjzyw//D9hiJ4LlUok61A8B2lmF7uqFK7lKeDoPQ=; b=lC48wW8jbVL680kBcn
+	CWD4HwM0xs0TMt0xIT+AB6G+U9Bezyx30hzc0AiOpAsdkv5RN27KGd6kRkt5KP6m
+	JG941+Hy4tSU9/cPNKX3f4n2IdmM+0gz7D+CQPmCrvLZD68jYQSc9rw/4RDq2N1C
+	PeZa6GFNHlrLzVFwvXh3c5YvM=
+Received: from Ubuntu.. (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgA3tZWCxT9qPI8rEA--.42746S2;
+	Sat, 27 Jun 2026 20:43:47 +0800 (CST)
+From: Xiaofeng Yuan <xiaofengmian@163.com>
+To: pjw@kernel.org
+Cc: palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	namcao@linutronix.de,
+	thecharlesjenkins@gmail.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xiaofeng Yuan <xiaofengmian@163.com>
+Subject: [PATCH v5] riscv: probes: simulate c.jal instruction
+Date: Sat, 27 Jun 2026 12:43:45 +0000
+Message-ID: <20260627124345.39726-1-xiaofengmian@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-CM-TRANSID: PSgvCgA3tZWCxT9qPI8rEA--.42746S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAFWrAF1fCryUAr4kXr4fKrg_yoW5uFy5pF
+	s8Canrtrs8W3Wkur9xJrn3ur48Kws5K3y3ua1xta1Fgr4agryfXwnaqanxAF4DtrySgryx
+	G34YqrykA343JrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRqXH_UUUUU=
+X-Originating-IP: [39.172.233.103]
+X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAQP7-mo-xYP+2AAA3y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260627_045913_705089_C20B06D2 
-X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-CacheID: sfid-20260627_054436_920628_86750DB1 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,32 +77,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Jiakai Xu <xujiakai2025@iscas.ac.cn> writes:
-> +#ifdef CONFIG_IRQ_STACKS
-> +DECLARE_PER_CPU(ulong *, irq_stack_ptr);
-> +#endif
+The c.jal instruction is currently marked REJECTED in kprobes
+instruction decoding, but it should be SIMULATED like other
+compressed jump instructions.
 
-Instead of this, shouldn't we
-  #include <asm/irq_stack.h>
-?
+Add simulate_c_jal() which saves the return address to RA and
+sets the program counter to the target offset, reusing
+simulate_c_j for the common jump logic.
 
-> +	if (sp >= (unsigned long)task_stack_page(task) &&
-> +	    sp < (unsigned long)task_stack_page(task) + THREAD_SIZE) {
-> +		high = (unsigned long)task_pt_regs(task);
-> +	} else if (IS_ENABLED(CONFIG_IRQ_STACKS)) {
-> +		high = (unsigned long)this_cpu_read(irq_stack_ptr) +
-> +		       IRQ_STACK_SIZE;
+Since c.jal is RV32-only, guard the implementation with
 
-I suspect this fails to build if CONFIG_IRQ_STACKS=n, which would be
-resolved if we do the suggested #include above.
+Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
+#if __riscv_xlen == 32.
+---
+v4: use regs->ra directly; reorder SET_SIMULATE (per Nam Cao's review)
+v5: add #if __riscv_xlen == 32 guard (per Charlie Li's review); removed test case (already provided by Nam Cao)
 
-> +	} else {
-> +		high = (unsigned long)task_pt_regs(task);
+ arch/riscv/kernel/probes/decode-insn.c   | 4 +++-
+ arch/riscv/kernel/probes/simulate-insn.c | 9 +++++++++
+ arch/riscv/kernel/probes/simulate-insn.h | 3 +++
+ 3 files changed, 15 insertions(+), 1 deletion(-)
 
-We only get to this branch if the stack pointer is broken, right? If so,
-I think printing a warning and returning is more appropriate.
+diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+index 65d9590bf..9eb7ead60 100644
+--- a/arch/riscv/kernel/probes/decode-insn.c
++++ b/arch/riscv/kernel/probes/decode-insn.c
+@@ -29,12 +29,14 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
+ 	 * TODO: the REJECTED ones below need to be implemented
+ 	 */
+ #ifdef CONFIG_RISCV_ISA_C
+-	RISCV_INSN_REJECTED(c_jal,		insn);
+ 	RISCV_INSN_REJECTED(c_ebreak,		insn);
+ 
+ 	RISCV_INSN_SET_SIMULATE(c_j,		insn);
+ 	RISCV_INSN_SET_SIMULATE(c_jr,		insn);
+ 	RISCV_INSN_SET_SIMULATE(c_jalr,		insn);
++#if __riscv_xlen == 32
++	RISCV_INSN_SET_SIMULATE(c_jal,		insn);
++#endif
+ 	RISCV_INSN_SET_SIMULATE(c_beqz,		insn);
+ 	RISCV_INSN_SET_SIMULATE(c_bnez,		insn);
+ #endif
+diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+index fa581590c..907598b61 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.c
++++ b/arch/riscv/kernel/probes/simulate-insn.c
+@@ -163,6 +163,15 @@ bool __kprobes simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs
+ 	return true;
+ }
+ 
++#if __riscv_xlen == 32
++bool __kprobes simulate_c_jal(u32 opcode, unsigned long addr, struct pt_regs *regs)
++{
++	regs->ra = addr + 2;
++
++	return simulate_c_j(opcode, addr, regs);
++}
++#endif
++
+ static bool __kprobes simulate_c_jr_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs,
+ 					 bool is_jalr)
+ {
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index 44ebbc444..6b3b510b5 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -25,6 +25,9 @@ bool simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs);
++#if __riscv_xlen == 32
++bool simulate_c_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
++#endif
+ bool simulate_c_jr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_bnez(u32 opcode, unsigned long addr, struct pt_regs *regs);
+-- 
+2.43.0
 
-Nam
 
 _______________________________________________
 linux-riscv mailing list
