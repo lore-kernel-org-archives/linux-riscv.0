@@ -4,98 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA5CC43602
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2026 20:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CDCC43602
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2026 21:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xNi585UPc1a1WNnwk5xwaWjJs0/fZoCrQ3QIw+2aWkE=; b=evkrh8omUP4uuZ
-	WpB9qI/3CUg/s5ywqZuhhORp22s4WenPWg2KGNybkPLNHZSlJgl/mknLd+YyRGjHNm/8TSjhx9Z4w
-	kX0hbkS35+k6GROKcZgkp+YxZ+2ORzHVnMl4JBjcTiye6vuNlyiTcV17Nmhj2DB3jguIBhU5UrCoq
-	f49wItWZGGvBeD6L/nfIfRl7ttyCdXLp2/fURQhM5fQW+sa1jgyX9SPRNGW/vgscGrYmsiLDU7WNz
-	G5o14pHZHdfEj4EGXyubVZwymUKy7s0BXHySrU3MqdUpvKTUKGRwo8titMfIG4YRWAWXscWC/bmGJ
-	I0ExFugi7aOB+DP0tANg==;
+	List-Owner; bh=k1Fvo2pGy5tORxdkKFkNXjtXz0PHk/N+YIMU0x+RxL0=; b=rVlZu22i9OlozZ
+	t6Yz48Nayq5+Fg81DwbpoiPbff9umvjd/DuGc2kQYXcX2hsnZy8LOrdmIkD7oVWHLHw9dloSePepD
+	UOTqejx5+kksNfk8eoJArSs1Fszvyw82SVNG08oewGcenSBR/K/vHv4i1+gC3irlnDWmfLQbOqvMI
+	rA7OG4LlzTZGgOwIbtw+a8AaPzjAVW2JpVk7t6Zjdv3uykwbSBD3n/2msTJxlIPMadGpiuH8snEr7
+	DCfhnoG6LsK/1YJ7a00S7qrj8BxPCexduTDPGiLHmIFiJyQW9YQ8kO/99Fl6PaUXFG1N0am9b/Le7
+	aTJZh44lwjmFFEo/kl/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdvx7-0000000DMZj-2nt2;
-	Sun, 28 Jun 2026 20:18:05 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1wdwtr-0000000DOhl-3Jci;
+	Sun, 28 Jun 2026 21:18:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdvx5-0000000DMYe-1z4Q
+	id 1wdwtr-0000000DOhF-0EhC
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Jun 2026 20:18:04 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gpLLx2G9bz9tSc;
-	Sun, 28 Jun 2026 22:18:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1782677881;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YRjPBjPuglGnWcYt2EDxgR0fDCyPIyJQtIkqBiIfQ2Q=;
-	b=FPxJ49dEGetgN/5e84HERwmCNj9+TKlfGnmNHB2x993dTS72TteObGCqkhWa8XZBTV6GHp
-	gB/blLpqD7QtALe50h6loOcqmMy401LDaHXdcw4tNyM5zRf79cy+PZ8zoo+hirboW6HzE8
-	Bx8M2EADwbPj0zimmIjfCWD8ULqkyKtQBSafOte3ZhIcKO9PSy0IhHEwQY/Hl028beVGlI
-	6TOA6yuLlgD5hothDMykDg3LOMRo5rGoaycbh5Yqmb4KbavGmz8JieSNOx7OtPa3kmGW3z
-	VMurq//K64ty6RHwucVGyGnenuX9EOTiRrsXH8jmkLec4BeY++n6E+q3gX57gw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=apYC0TcZ;
-	spf=pass (outgoing_mbo_mout: domain of mhi@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=mhi@mailbox.org
-From: Maurice Hieronymus <mhi@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1782677879;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YRjPBjPuglGnWcYt2EDxgR0fDCyPIyJQtIkqBiIfQ2Q=;
-	b=apYC0TcZfZHw73DlxsMfV7sdGIZieeciDhp8qEIkQwEznLamPEybETpMuq8YsepP1BhS1P
-	+zbk4AAcAu36MGbl0HK/UrkNV+wjs+/waIIpf8mhqtuD++C16nMj5Gl6SetLLj4G+kktsb
-	WRkLPybaZM4VdRKBd+XzLfcow1uYSc2HfiJWTyjuE2bHkYogp758ABT7QNdBx4DU/bJvoV
-	U/s/8a3prfMWxFjhU+K1xQGMqwV6zjZM7D2YC13IOE5QfP3z/9Ii5QbS8zek206JfSgguo
-	u0Z5BDcNgARTg1EBC5I5+FaHo3dlsFjSQMn5jrOZJd1nP84twUG+3yDjkzQjDQ==
-Date: Sun, 28 Jun 2026 22:17:30 +0200
-Subject: [PATCH v3 2/2] pwm: th1520: Lock clock rate with
- clk_rate_exclusive_get
+	Sun, 28 Jun 2026 21:18:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4254741232;
+	Sun, 28 Jun 2026 21:18:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A664A1F00AC4;
+	Sun, 28 Jun 2026 21:18:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782681525;
+	bh=srvdFyNcKWrG6UhIb2zhEmit0iT5/TwfHnN+QzKDIL4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Shn7/zgw7ZuGje+Jq95qyjg+ZPoASGUnie2cyHQ9vlRYNLXRk/MzcLJWsvkMSHJmj
+	 Fefc0+241dGQ4N38Dyj1fhzew6MqHHrhmm9ZlJnuga4s7HAhpoz3YRUPli9bxHZhmy
+	 nCiyPOigCfOCeMczNzRYzSF5+oAs/rMomLwiQ38SD90GnluYb+WOXK0wSRYKh5iMPj
+	 lEWMMT4eL3lu2xvNvEMU88OIqj1jftmi4F6sUfCCDlbYzrGfAAIIaxsy4KWTPz6tXA
+	 CfS66/4LXnJkPH3ka1nPrjFgR03rbCi5neTrVj5Wd6b92AMLzyRe6R2CuTSfTU5QcG
+	 nunZpebJdhAFA==
+From: Drew Fustini <fustini@kernel.org>
+Date: Sun, 28 Jun 2026 14:18:12 -0700
+Subject: [PATCH v3 1/8] dt-bindings: riscv: Add Ssqosid extension
+ description
 MIME-Version: 1.0
-Message-Id: <20260628-rate-exclusive-get-th1520-v3-2-c7ca3ebcf60f@mailbox.org>
-References: <20260628-rate-exclusive-get-th1520-v3-0-c7ca3ebcf60f@mailbox.org>
-In-Reply-To: <20260628-rate-exclusive-get-th1520-v3-0-c7ca3ebcf60f@mailbox.org>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
- Michal Wilczynski <m.wilczynski@samsung.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Brian Masney <bmasney@redhat.com>
-Cc: Daniel Almeida <daniel.almeida@collabora.com>, 
- linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-pwm@vger.kernel.org, Maurice Hieronymus <mhi@mailbox.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782677860; l=1864;
- i=mhi@mailbox.org; s=20260525; h=from:subject:message-id;
- bh=XTt9Wb3t8dMkZzuvXmoKi5n+eeWfIrk4FFd5V+XRvs8=;
- b=w5HEi6rilfUCETusSD51fB8jWGnN9098rDsP3lrQyWJzNupIqTBA+PY88VZmgt21lBjME+2K7
- 32EsHv5Uxi1C122ip+EZkgnvYzI6pUIrzeiK7eAdGYUtTI/ohaIOw/F
-X-Developer-Key: i=mhi@mailbox.org; a=ed25519;
- pk=AHlEkGG3hpXZHntlEzF42Ip/LFyXWOgsNUvaHqAnV80=
-X-MBO-RS-ID: b30f71789f64a967c2b
-X-MBO-RS-META: 6p3fhh7ejax8dtf73i364e4ahzjzwsut
-X-Rspamd-Queue-Id: 4gpLLx2G9bz9tSc
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_131803_674838_6233A896 
-X-CRM114-Status: GOOD (  10.66  )
+Message-Id: <20260628-dfustini-atl-sc-cbqri-dt-v3-1-c9c1342fe3cf@kernel.org>
+References: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
+In-Reply-To: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
+To: Adrien Ricciardi <aricciardi@baylibre.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra <atishp@rivosinc.com>, 
+ Atish Patra <atish.patra@linux.dev>, Babu Moger <babu.moger@amd.com>, 
+ Ben Horgan <ben.horgan@arm.com>, Borislav Petkov <bp@alien8.de>, 
+ Chen Pei <cp0613@linux.alibaba.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghua.yu@intel.com>, 
+ Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai <gsh517@gmail.com>, 
+ guo.wenjia23@zte.com.cn, James Morse <james.morse@arm.com>, 
+ =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn, 
+ Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+ Peter Newman <peternewman@google.com>, 
+ =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
+ Reinette Chatre <reinette.chatre@intel.com>, Rob Herring <robh@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Tony Luck <tony.luck@intel.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, 
+ Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>, 
+ yunhui cui <cuiyunhui@bytedance.com>, Drew Fustini <fustini@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1227; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=oVWQwUJrVLgt2ds0hOtdw/u3HLWC21FLWSsgjsdIJHo=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQ59m9+Otnq7hePsP+ZHwz27V9+Vfqmlmxxgwy7Z3moc
+ 33juk0lHaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJcL5gZLj3qVL78iKx+9sO
+ nPfbeZJRhaHjwmLLCWmCWjnzky3fmoQw/LPKOFTQwp65IeFh2edF9jZL470n+/zjy3y0Kj/wi5z
+ IWw4A
+X-Developer-Key: i=fustini@kernel.org; a=openpgp;
+ fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,65 +101,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The driver derives period and duty cycle from the clock rate read at
-probe, so a later rate change would silently miscompute waveforms.
-Switch to the new ExclusiveClk wrapper to hold the rate for the lifetime
-of the driver data and drop the corresponding TODO.
+Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
+extension v1.0.
 
-Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
-Signed-off-by: Maurice Hieronymus <mhi@mailbox.org>
+Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- drivers/pwm/pwm_th1520.rs | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-index 343a1178c5e7..8f9d3fa39200 100644
---- a/drivers/pwm/pwm_th1520.rs
-+++ b/drivers/pwm/pwm_th1520.rs
-@@ -22,8 +22,16 @@
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 2b0a8a93bb21..1c6f091518d4 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -232,6 +232,12 @@ properties:
+             ratified at commit d70011dde6c2 ("Update to ratified state")
+             of riscv-j-extension.
  
- use core::ops::Deref;
- use kernel::{
--    clk::{Clk, Enabled},
--    device::{Bound, Core, Device},
-+    clk::{
-+        Clk,
-+        Enabled,
-+        ExclusiveClk, //
-+    },
-+    device::{
-+        Bound,
-+        Core,
-+        Device, //
-+    },
-     devres,
-     io::{
-         mem::IoMem,
-@@ -93,7 +101,7 @@ struct Th1520WfHw {
- struct Th1520PwmDriverData {
-     #[pin]
-     iomem: devres::Devres<IoMem<TH1520_PWM_REG_SIZE>>,
--    clk: Clk<Enabled>,
-+    clk: ExclusiveClk,
- }
- 
- impl pwm::PwmOps for Th1520PwmDriverData {
-@@ -319,10 +327,8 @@ fn probe(
-         let request = pdev.io_request_by_index(0).ok_or(ENODEV)?;
- 
-         let clk = Clk::<Enabled>::get(dev, None)?;
-+        let clk = clk.rate_exclusive_get()?;
- 
--        // TODO: Get exclusive ownership of the clock to prevent rate changes.
--        // The Rust equivalent of `clk_rate_exclusive_get()` is not yet available.
--        // This should be updated once it is implemented.
-         let rate_hz = clk.rate().as_hz();
-         if rate_hz == 0 {
-             dev_err!(dev, "Clock rate is zero\n");
++        - const: ssqosid
++          description: |
++            The standard Ssqosid extension for Quality of Service ID is
++            ratified as v1.0 in commit d9c616497fde ("Merge pull
++            request #7 from ved-rivos/Ratified") of riscv-ssqosid.
++
+         - const: ssstateen
+           description: |
+             The standard Ssstateen extension for supervisor-mode view of the
 
 -- 
-2.51.2
+2.43.0
 
 
 _______________________________________________
