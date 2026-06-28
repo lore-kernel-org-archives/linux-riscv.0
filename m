@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68ACAC43458
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2026 17:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C6BC43458
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2026 17:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NlKG6Hbszy9g9dMnJ3cOX+siP1h14Vq49SwgWdSplvQ=; b=ZicXzJoHBFqeAt
-	UVOGC7R+aYA+4WZAyMWElb17S+xJPkzDdd7YKTRpqkuNvG6XmP7gDsjsF7v6ruz47l3v3p+A5gASU
-	FjB7QaRWuLCh3Uoc5VF3fhuX/NwHYZ42hEhjTyrzDSCcjPdhBDYlXlr4ogcHV9ZO+Gecwdt0C1tKa
-	O+0I1xbHe3AZHpClz3ZxO3O18T3c3lLxT+MRH9sJbDILseEn20txqfiLUn6XB9q8repMd61UKZTf/
-	/M6VMMjLkp028rew8zzKL2F46EtL3b/kzXhWQMz6gi8MSveeLOJxxkO7t5h3v81APpoyuNarPCQQk
-	Wxw0nsOrNXVsEUsoWd8Q==;
+	List-Owner; bh=zFy900YYgJLiUC/xyxkk17zQBf5EYKJevi+SA+tY4sU=; b=yrgBX6vdzXAYm5
+	kH5y+hT8mr2j6WFHMH73r3P+d9zQRMtIGbt0jueGMZPczMzF0tSxxaqViRiG2TSdJUoULrnDt5Lmh
+	sgxnjMfO993tqB2cGC0ikhMXvyqd8p1MjR8Y2NKNaAsUv6DcOliluK2uvCLWipZtTNwR9Ml1ssDhT
+	RltHk34v9uJCmnRGsPzUpAQbeZvyfUVBzwH1u6gfBTeZ1t6pT1bkzny33EedGRgrOqW6xqznGV7il
+	qHOmay681ZOorCfRFWpVpADGDzoVRcUTZSnZNfP27IaAJ1miclJYj/zekgQx03ZsJUGFmsQC1TTAN
+	s3r1+M1AUi+HG8Dng3Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdszY-0000000DEUD-10if;
-	Sun, 28 Jun 2026 17:08:24 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1wdtH7-0000000DF86-3Yro;
+	Sun, 28 Jun 2026 17:26:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdszV-0000000DERr-0m73
+	id 1wdtH6-0000000DF7z-2ze5
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Jun 2026 17:08:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=FRd61GYLEFmV5rudJKhmBvnYtVSZEw/kZ8Wj3awiNhk=; b=Z2A7CGLuod29FWurq/pJ7NsdW0
-	gVXi9wiFtvzyuKYxIiiOVVnTIg6JsCRkFeUVNfjNlsErvNasMMshdnqLFbyjqtFPxfUsxo3xNHFeZ
-	gNTV45yDweysr5thfmn0DtlWsRm5Q0Con+gm0SS8aWBnDalaHvtVB3PVCLtJLn3ULwel7Ah6byjpU
-	uPAw9xMGOMxs37EAxYA3CNKJ8O8/E6BCLzqKEXoKcy33wGg9wN7yPo+hCUeNp1g0+6XxLz5qAhdL1
-	rQxISmlh4j0pV8vTFYzR38aR8EGuQff0cezD9t71Rd/4zulpOWKNGM+3qpeGVxIkxNdbpliX+DIQG
-	ZZmgFQeg==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1wdszJ-0000000AwPz-3uel;
-	Sun, 28 Jun 2026 19:08:09 +0200
-Date: Sun, 28 Jun 2026 19:08:09 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Shuwei Wu <shuwei.wu@mailbox.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] cpufreq: spacemit: Add cpufreq support for K1 SoC
-Message-ID: <akFU-ZWFzFY23Y5b@aurel32.net>
-Mail-Followup-To: Shuwei Wu <shuwei.wu@mailbox.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org
-References: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
+	Sun, 28 Jun 2026 17:26:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D78AE419FB;
+	Sun, 28 Jun 2026 17:26:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 264821F000E9;
+	Sun, 28 Jun 2026 17:26:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782667591;
+	bh=5X+nFlRn3ahrs8bSxEJpS+nHnqWlIe2VEb5G9WNWcrY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=HcUnvRAlS64bbx2Vkp0YYkzuZcoEjFJiIiF1iZQsaPMNJZC0dZB1L9C/dRLKXVvm4
+	 K9JAgm3OVavnloRE56RvZeX54eyL+lnzzKBt4gE6AAm6edARSuYBPAJWoUxvV5BscG
+	 3kdG0y8SvAKCAr8Q+fBblCBJdnU/7h4ZXMSbmaw1wPKRXwpUDCszeUGi3TLOYDfCsh
+	 cycoJHcQfYgpMjBK1hkYvb4hqm/Wym0GTp1sBcr3BzDFzh5zfl9rx5qNk1G1S8ul4a
+	 VI0iNyIGiaEShlmiuky6wpG8+bAD56q95rV9rmLr1UAkAXoi75k0WjjmE3IvZjzPWB
+	 0WNutq4TFBf2A==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Varun R Mallya <varunrmallya@gmail.com>, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, ast@kernel.org,
+ daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com,
+ memxor@gmail.com, pulehui@huawei.com
+Cc: alex@ghiti.fr, martin.lau@linux.dev, song@kernel.org,
+ yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com,
+ puranjay@kernel.org, shuah@kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, varunrmallya@gmail.com
+Subject: Re: [PATCH bpf-next v2 1/3] riscv: stacktrace: Implement
+ arch_bpf_stack_walk() for BPF
+In-Reply-To: <20260628081710.113333-2-varunrmallya@gmail.com>
+References: <20260628081710.113333-1-varunrmallya@gmail.com>
+ <20260628081710.113333-2-varunrmallya@gmail.com>
+Date: Sun, 28 Jun 2026 10:26:28 -0700
+Message-ID: <87ik72y3sr.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
-User-Agent: Mutt/2.2.13 (2024-03-09)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_100821_365941_B57A7E5B 
-X-CRM114-Status: GOOD (  29.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,143 +71,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Shuwei,
-
-On 2026-06-26 16:10, Shuwei Wu wrote:
-> This series enables CPU DVFS for the SpacemiT K1 SoC using the generic
-> cpufreq-dt driver.
-> 
-> K1 has two CPU clock clusters. The two clusters have separate CPU clocks,
-> so they are represented as two cpufreq policies: policy0 for CPUs 0-3 and
-> policy4 for CPUs 4-7.
-> 
-> The CPU voltage rail is shared between the clusters. To model this with two
-> policies, the OPP entries describe voltage ranges instead of a single fixed
-> voltage, so the shared regulator can keep the rail within a range acceptable
-> for the active OPP constraints.
-> 
-> Tested on Banana Pi BPI-F3:
-> 
-> ~ # cat /sys/devices/system/cpu/online
-> 0-7
-> 
-> ~ # ls /sys/devices/system/cpu/cpufreq/
-> policy0  policy4
-> 
-> ~ # cat /sys/devices/system/cpu/cpufreq/policy0/scaling_driver
-> cpufreq-dt
-> ~ # cat /sys/devices/system/cpu/cpufreq/policy0/affected_cpus
-> 0 1 2 3
-> 
-> ~ # cat /sys/devices/system/cpu/cpufreq/policy4/scaling_driver
-> cpufreq-dt
-> ~ # cat /sys/devices/system/cpu/cpufreq/policy4/affected_cpus
-> 4 5 6 7
-> 
-> Both policies expose the same OPP frequencies:
-> 
-> ~ # cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
-> 614400 819000 1000000 1228800 1600000
-> 
-> ~ # cat /sys/devices/system/cpu/cpufreq/policy4/scaling_available_frequencies
-> 614400 819000 1000000 1228800 1600000
-> 
-> For each policy, scaling_setspeed was set to each supported OPP and the
-> workload was pinned to one CPU covered by that policy with taskset.
-> CPU0 was used for policy0, and CPU4 was used for policy4. The clock rates below
-> are from /sys/kernel/debug/clk/clk_summary.
-> 
-> policy0 / CPU0:
-> ----------------------------------------------------------
-> Frequency    |  cpu_c0_core_clk  |  Real (s)  |  User (s)
-> (kHz)        |  (Hz)             |            |
-> -------------+-------------------+------------+-----------
-> 1,600,000    |  1,600,000,000    |    1.81    |    1.80
-> 1,228,800    |  1,228,800,000    |    2.37    |    2.37
-> 1,000,000    |  1,000,000,000    |    2.89    |    2.89
->   819,000    |    819,200,000    |    3.56    |    3.55
->   614,400    |    614,400,000    |    4.71    |    4.71
-> ----------------------------------------------------------
-> 
-> policy4 / CPU4:
-> ----------------------------------------------------------
-> Frequency    |  cpu_c1_core_clk  |  Real (s)  |  User (s)
-> (kHz)        |  (Hz)             |            |
-> -------------+-------------------+------------+-----------
-> 1,600,000    |  1,600,000,000    |    1.81    |    1.80
-> 1,228,800    |  1,228,800,000    |    2.36    |    2.36
-> 1,000,000    |  1,000,000,000    |    2.89    |    2.89
->   819,000    |    819,200,000    |    3.55    |    3.55
->   614,400    |    614,400,000    |    4.71    |    4.70
-> ----------------------------------------------------------
-> 
-> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
-> ---
-> Changes in v4:
-> - Represent K1 as two cpufreq-dt policies, one per CPU clock cluster
-> - Use OPP voltage ranges for the shared CPU supply
-> - Link to v3: https://lore.kernel.org/r/20260612-shadow-deps-v3-0-2f3ba88611ff@mailbox.org
-> 
-> Changes in v3:
-> - Add a K1-specific cpufreq driver for the shared-rail, dual-clock topology
-> - Use one shared CPU OPP table and one cpufreq policy for all CPUs
-> - Link to v2: https://lore.kernel.org/r/20260410-shadow-deps-v2-0-4e16b8c0f60e@mailbox.org
-> 
-> Changes in v2:
-> - Move OPP tables to dedicated k1-opp.dtsi
-> - Enable OPP only on BPI-F3 with cpu-supply present
-> - Link to v1: https://lore.kernel.org/r/20260308-shadow-deps-v1-0-0ceb5c7c07eb@mailbox.org
-> 
-> ---
-> Shuwei Wu (2):
->       cpufreq: dt-platdev: Add SpacemiT K1 SoC to the allowlist
->       riscv: dts: spacemit: Add cpu scaling for K1 SoC
-> 
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  35 +++++++-
->  arch/riscv/boot/dts/spacemit/k1-opp.dtsi        | 105 ++++++++++++++++++++++++
->  arch/riscv/boot/dts/spacemit/k1.dtsi            |   8 ++
->  drivers/cpufreq/cpufreq-dt-platdev.c            |   2 +
->  4 files changed, 149 insertions(+), 1 deletion(-)
-
-Thanks for this new version. I have tested it successfully on a Banana 
-Pi BPI-F3. The CPU clock and voltages you have defined match the vendor 
-version. Therefore for both commits:
-
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
-
-BTW, I have done a few additional research on the discussion we got on 
-an earlier version of this patchset. On all the SpacemiT K1 boards, the 
-output of buck1 and buck2 are connected together, so there is the 
-question about what do do with voltage of buck2. We discussed about 
-marking buck1 and buck2 as coupled through regulator-coupled-with.
-
-It appears that buck1 and buck2 are configured in "Dual-Phase Mode" as 
-the bit BUCK_12_DUAL (bit 0) of register BUCK_LDO_CFG (reg 0x46) of the 
-P1 chip. I haven't found any code changing it in the kernel or U-Boot, 
-so I guess the value is configured as default in the MTP. The datasheet 
-is not clear about what controls the voltage in Dual-Phase Mode, but 
-given both U-Boot and kernel code (vendor or upstream) only change the 
-voltage of buck1, it makes sense that there is no need to change the 
-voltage of buck2 in that mode. And it also sounds logic given that the 
-P1 chip is aware of the coupling.
-
-I therefore believe there is not need to mark buck1 and buck2 as 
-coupled, and that your patch is fully correct on that aspect.
-
-Regards
-Aurelien
-
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VmFydW4hCgpUaGFua3MgZm9yIHNwZW5kaW5nIHRpbWUgb24gZ2V0dGluZyBSViBlQlBGIG1vcmUg
+ZmVhdHVyZSBjb21wbGV0ZSEgU29ycnkKZm9yIHRoZSBzbG93IHJlcGxpZXMuCgpWYXJ1biBSIE1h
+bGx5YSA8dmFydW5ybWFsbHlhQGdtYWlsLmNvbT4gd3JpdGVzOgoKPiBUaGlzIHdpbGwgYmUgdXNl
+ZCBieSBicGZfdGhyb3coKSB0byB1bndpbmQgdGlsbCB0aGUgcHJvZ3JhbSBtYXJrZWQgYXMKPiBl
+eGNlcHRpb24gYm91bmRhcnkgYW5kIHJ1biB0aGUgY2FsbGJhY2sgd2l0aCB0aGUgc3RhY2sgb2Yg
+dGhlIG1haW4KPiBwcm9ncmFtLgo+IFRoaXMgaXMgcmVxdWlyZWQgZm9yIHN1cHBvcnRpbmcgQlBG
+IGV4Y2VwdGlvbnMgb24gUklTQy1WLgo+IFRoaXMgZGVwZW5kcyBvbiB0aGUgZnJhbWUgcG9pbnRl
+ciB1bndpbmRlciwgc28gaXQgaXMgb25seSBidWlsdCB1bmRlcgo+IENPTkZJR19GUkFNRV9QT0lO
+VEVSLCBlbHNlIGZhbGxzIGJhY2sgdG8gdGhlIHdlYWsgbm8tb3AuCj4KPiBTaWduZWQtb2ZmLWJ5
+OiBWYXJ1biBSIE1hbGx5YSA8dmFydW5ybWFsbHlhQGdtYWlsLmNvbT4KPiBSZXZpZXdlZC1ieTog
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9rZXJuZWwv
+c3RhY2t0cmFjZS5jIHwgMzEgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ICAxIGZp
+bGUgY2hhbmdlZCwgMzEgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+a2VybmVsL3N0YWNrdHJhY2UuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYwo+IGlu
+ZGV4IGM3NTU1NDQ3MTQ5Yi4uNjQ5MjkzODFiYjMwIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
+a2VybmVsL3N0YWNrdHJhY2UuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2Uu
+Ywo+IEBAIC01LDYgKzUsNyBAQAo+ICAgKi8KPiAgCj4gICNpbmNsdWRlIDxsaW51eC9leHBvcnQu
+aD4KPiArI2luY2x1ZGUgPGxpbnV4L2ZpbHRlci5oPgo+ICAjaW5jbHVkZSA8bGludXgva2FsbHN5
+bXMuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3NjaGVkLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9zY2hl
+ZC9kZWJ1Zy5oPgo+IEBAIC0xMDIsNiArMTAzLDM2IEBAIHZvaWQgbm90cmFjZSB3YWxrX3N0YWNr
+ZnJhbWUoc3RydWN0IHRhc2tfc3RydWN0ICp0YXNrLCBzdHJ1Y3QgcHRfcmVncyAqcmVncywKPiAg
+CX0KPiAgfQo+ICAKPiArdm9pZCBub3RyYWNlIGFyY2hfYnBmX3N0YWNrX3dhbGsoYm9vbCAoKmNv
+bnN1bWVfZm4pKHZvaWQgKmNvb2tpZSwgdTY0IGlwLCB1NjQgc3AsIHU2NCBicCksCj4gKwkJCQkg
+dm9pZCAqY29va2llKQo+ICt7Cj4gKwl1bnNpZ25lZCBsb25nIGZwLCBzcCwgcGM7Cj4gKwlpbnQg
+Z3JhcGhfaWR4ID0gMDsKPiArCj4gKwlmcCA9ICh1bnNpZ25lZCBsb25nKV9fYnVpbHRpbl9mcmFt
+ZV9hZGRyZXNzKDApOwo+ICsJc3AgPSBjdXJyZW50X3N0YWNrX3BvaW50ZXI7Cj4gKwlwYyA9ICh1
+bnNpZ25lZCBsb25nKWFyY2hfYnBmX3N0YWNrX3dhbGs7Cj4gKwo+ICsJZm9yICg7Oykgewo+ICsJ
+CXN0cnVjdCBzdGFja2ZyYW1lICpmcmFtZTsKPiArCj4gKwkJaWYgKHVubGlrZWx5KCFfX2tlcm5l
+bF90ZXh0X2FkZHJlc3MocGMpKSkKPiArCQkJYnJlYWs7Cj4gKwkJLyogcGMgYmVsb25ncyB0byB0
+aGUgZnVuY3Rpb24gd2hvc2UgZnJhbWUgcG9pbnRlciBpcyBmcCAqLwo+ICsJCWlmICghY29uc3Vt
+ZV9mbihjb29raWUsIHBjLCBzcCwgZnApKQo+ICsJCQlicmVhazsKPiArCQlpZiAodW5saWtlbHko
+IWZwX2lzX3ZhbGlkKGZwLCBzcCkpKQo+ICsJCQlicmVhazsKPiArCj4gKwkJZnJhbWUgPSAoc3Ry
+dWN0IHN0YWNrZnJhbWUgKilmcCAtIDE7Cj4gKwkJc3AgPSBmcDsKPiArCQlmcCA9IFJFQURfT05D
+RV9UQVNLX1NUQUNLKGN1cnJlbnQsIGZyYW1lLT5mcCk7Cj4gKwkJcGMgPSBSRUFEX09OQ0VfVEFT
+S19TVEFDSyhjdXJyZW50LCBmcmFtZS0+cmEpOwo+ICsJCXBjID0gZnRyYWNlX2dyYXBoX3JldF9h
+ZGRyKGN1cnJlbnQsICZncmFwaF9pZHgsIHBjLAo+ICsJCQkJCSAgICZmcmFtZS0+cmEpOwo+ICsJ
+fQo+ICt9CgpXZSBkb24ndCBuZWVkIG1vcmUgc3RhY2sgdW53aW5kZXJzLiBDYW4geW91IHNlZSBp
+ZiB5b3UgY2FuIGV4dGVuZAp3YWxrX3N0YWNrZnJhbWUoKSB3aXRoICJjb29raWUiIHRvIG1hdGNo
+IEJQRidzIG5lZWRzPyBIYXZlIGEgbG9vayBhdAp3aGF0IGFybTY0IGRvZXMuCgpTYXNoaWtvIGhh
+ZCBhIGdvb2QgcG9pbnQgYWJvdXQgZnRyYWNlX2dyYXBoX3JldF9hZGRyKCkgLS0gbm93IHdoYXQg
+YWJvdXQKa3JldHByb2JlPyBEbyB3ZSBuZWVkIHRvIHRha2UgdGhhdCBpbiBjb25zaWRlcmF0aW9u
+IGFzIHdlbGw/CgoKVGhhbmtzLApCasO2cm4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
