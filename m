@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DF8C44502
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62949C43602
 	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2026 21:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iyDvfM/v1V/IVoXMo15LC4nTjCOLYuzOtZ+jvAoMi60=; b=GmbIe1GZ11FkWJ
-	0t3jpbcSQqnnRVy7ob4q1t1taJElqz4DqY7X0LNfpnaiKfwyih6ZDdoZVOBl50DS3r9KIeRSazSPz
-	DTYKUdZLDsWNd/kHaUyLBmZ1Dgm4ClWwcaHeqvVqmywcGWUuOaRdjsHaE6Sg/4x7i7xhwLNUuhoOl
-	697hO4/8x7aw34dPRdOWS/amHWWOCaEke3UKRy5VZSVyhCNByT+rJMOTyQLl3F9C12iap7jk9HMsD
-	HBSfQAEqaF8gFY3wX/gkNFhugQNL8riGlasrVkEj+Nkv7TCacWFABv4JmUz4iLxqKHDueS5CzsMwm
-	2YvhuqOs8TeK1mJQmOJg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SDux0zofjfAqNVGEX1vTTFuuz2g8ahnC5NHmIPwAbYk=; b=bXMECIIp0bNM21
+	InlciQye3BYqsvx7pTeQdxCOXRGvfW7daBobZ7WznwrRZLlz88NV4WeLQnk2M6bzjpKpB0sqGH9hZ
+	+UJ5/h+4fDxPo6go0ACkBZ1NoFgpQJdedn9bME8cyCR+frqekzMajobzEW5vBvXZf6A0CFkc8gQUF
+	F8AXJBSk8iQXhEdhcwo+LBrLIOMnGi8RXoDr3HGPHfdG0+a5PDscALCwoti9ahyeeFHUhlJfwW0U7
+	ZzkR3DXypmBSBcMY9X4uZJOBAKysmIuBNBl8CaWfl40oreAxUFrTwYiH4t0fZY/qaVJRKuaHK6DYT
+	DqT88Pe5DsilRLK0Z0Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdwtv-0000000DOjF-3jCl;
-	Sun, 28 Jun 2026 21:18:51 +0000
+	id 1wdwtw-0000000DOjJ-03HS;
+	Sun, 28 Jun 2026 21:18:52 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdwtr-0000000DOhG-1IoX
+	id 1wdwtr-0000000DOhS-2E8j
 	for linux-riscv@lists.infradead.org;
 	Sun, 28 Jun 2026 21:18:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DAB326001D;
-	Sun, 28 Jun 2026 21:18:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE5471F000E9;
-	Sun, 28 Jun 2026 21:18:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB742600D8;
+	Sun, 28 Jun 2026 21:18:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB7971F00ADE;
+	Sun, 28 Jun 2026 21:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782681524;
-	bh=HyCs9ijfBF0ZUElYT55/Qos5tui3tyiLjbIjL4guzbE=;
-	h=From:Subject:Date:To:Cc;
-	b=AWSxr8Z6fddnPkUYcxp/duFh4LsV9vb26X0DZ9AsCXNjjg8f4HGIQQ7p8LdKgznaN
-	 EWVTnqx1nhpHZ5vzrADGsavmMjCEdrt9LtQ04a57im4o9i4HVt0pBWtHofmAu7w6hl
-	 cTZkv1b41lUuHx6VKnZEuHG70ZsOasH5sxFw82S2QcW8ri5WGm8dvDuZryIA6crrXp
-	 6+T8/Qvp+sCgnwDlwTrqbum+9Gh+XSfA/XsbUouxQSWnqZJvzDDESzTto3Y0XYaVkO
-	 Bq8BEO31TV4cJQdtCPF1XpYFUmI85d0zFVZnsGQn6nD/VSE481pjhMCnAuicWPqrd+
-	 6k0P+NhyFUMLw==
+	s=k20260515; t=1782681526;
+	bh=3QSdArdGoiYdOJvFDmUHJ/Jsv25fpi0ad7iMmwDqPS4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Hfk0KkAs0Pmmkq74I6FAURwIQQE7E5czrau+V8GGAFu2LWqWq7o/ugugJ8Axtf7zS
+	 75LbzLSNjgHFG7cw/6shfdvsCgFLGGqCyivEkX8/Pilq6UTtjEIUIthu69FAMlJy5r
+	 o4awuIRli+/krQmy59wOCUgBov/EK6rsyrA2nAIpuIxeOwXAOstJfICJD+7IoigBrS
+	 LjZXL++3hezeAcJxwMqh/PoxWXj25Qw4ay7KLGJnWLgzSX8cJx4VgJ/hq9zwh5wZhP
+	 bKakVs/wGyGG5537ylUqCDoAial4GZJ5Xu1nq5pyabafg9KsSxWcVwYm0/SQ23mFJZ
+	 Bp9l7cMl6kC7A==
 From: Drew Fustini <fustini@kernel.org>
-Subject: [PATCH v3 0/8] riscv: Add Ssqosid and initial CBQRI resctrl
- support
-Date: Sun, 28 Jun 2026 14:18:11 -0700
-Message-Id: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
+Date: Sun, 28 Jun 2026 14:18:14 -0700
+Subject: [PATCH v3 3/8] riscv: Add support for srmcfg CSR from Ssqosid
+ extension
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAJOPQWoC/32Nyw6CMBBFf4V07Zh2IDxc+R/GBbRTGDWgbSEaw
- r8LGBNd6PIk954zCk+OyYtdNApHA3vu2hniTSR0U7Y1AZuZBUpMZaokGNv7wC1DGS7gNejq5hh
- MgERJnRNmShkj5vvVkeX7qj4cX+z76kQ6LL5l0bAPnXus7UEtu3em+J0ZFEigrCizDGNbVnJ/J
- tfSZdu5WiydAT9MmPwx4WxCm8uksKaQWH2Zpml6AnS0OicdAQAA
-X-Change-ID: 20260610-dfustini-atl-sc-cbqri-dt-410c8e2711dd
+Message-Id: <20260628-dfustini-atl-sc-cbqri-dt-v3-3-c9c1342fe3cf@kernel.org>
+References: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
+In-Reply-To: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
 To: Adrien Ricciardi <aricciardi@baylibre.com>, 
  Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra <atishp@rivosinc.com>, 
  Atish Patra <atish.patra@linux.dev>, Babu Moger <babu.moger@amd.com>, 
@@ -80,12 +77,12 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7503; i=fustini@kernel.org;
- h=from:subject:message-id; bh=llCgYXXJQ5bOYICf9djgNzfbgXeNPCTj/ihuuFFOj10=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQ59s+bUznrNdu1FvFl2VtbXV7+uLDF07Uj2/LHclPBj
- Dfl7LJmHaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJrIxl+F96ItbV4YCwUPAE
- 7dd/l7TouIn+fXlwqc3HnItBq4+EaSowMqxi/lauqHRu6onX1389dawJOT0j+oQXz4bNm17VOTS
- eTuUHAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11971; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=Pf86IOtJxZBR+Sw0HCxc3TRhgELz6rVDI0Fgs2XSnLM=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQ59m/eWHi2Yu6pm3t6a95U8KrlfZ4kze9U35z8JmlSo
+ PxXtiXWHaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJ3H/HyHCOV8Lb532xp63t
+ AZfDX3KE85WL+AybYzN0rLs+9QoHMjL8lfqUpXchN67jCL/znz9q87fUnY59eIF11Tc/K4OIbVf
+ 2sAIA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -99,175 +96,215 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds initial RISC-V QoS support: the Ssqosid extension [1]
-(srmcfg CSR), the CBQRI controller interface [2] integrated with resctrl
-[3], and a DT-based platform driver for cache controllers. It has been
-tested on both the Tenstorrent Ascalon Shared Cache controller and a QEMU
-implementation [4].
-
-  qemu-system-riscv64 -M virt,aia=aplic-imsic -nographic -m 1G -smp 8 \
-      -kernel arch/riscv/boot/Image \
-      -append "root=/dev/vda ro console=ttyS0 rootwait" \
-      -drive if=none,file=rootfs.ext2,format=raw,id=hd0 \
-      -device virtio-blk-device,drive=hd0 \
-      -device riscv.cbqri.capacity,max_mcids=256,max_rcids=64,ncblks=16,mmio_base=0x04820000
-
-Cache allocation can be exercised on the booted system. Mount resctrl
-and read the default schemata. The L2 controller has 16 capacity
-blocks, so the default capacity bitmask (CBM) is 0xffff:
-
-  # mount -t resctrl resctrl /sys/fs/resctrl
-  # cat /sys/fs/resctrl/schemata
-  L2:0=ffff
-
-Write a narrower CBM to a new control group and read it back to confirm
-the L2 controller applied it:
-
-  # mkdir /sys/fs/resctrl/group0
-  # echo "L2:0=ff" > /sys/fs/resctrl/group0/schemata
-  # cat /sys/fs/resctrl/group0/schemata
-  L2:0=ff
-
-Note that this series only implements support for resctrl L2 and L3
-cache resources using CBQRI capacity allocation control. cc_block_mask
-maps onto resctrl's existing cbm schema. However, cc_cunits is not
-supported as there is no existing equivalent for capacity units in the
-resctrl schemata.
-
-I had previously been iterating on an RFC series [5] that did a full
-implementation of CBQRI including capacity monitoring, bandwidth
-allocation and monitoring. The bandwidth controls for CBQRI do not fit
-well into resctrl's existing throttle-based MB schemata. I believe that
-the path forward is Reinette's generic schema description proof of
-concept [6]. My plan is to rebase the full support of CBQRI onto the
-generic schema once it is ready.
-
-This series is based on the linux-next tag next-20260623.
-
-[1] https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-[2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
-[3] https://docs.kernel.org/filesystems/resctrl.html
-[4] https://github.com/tt-fustini/qemu/tree/riscv-cbqri-cache
-[5] https://lore.kernel.org/linux-riscv/20260601-ssqosid-cbqri-rqsc-v7-0-v6-16-baf00f50028a@kernel.org/
-[6] https://lore.kernel.org/all/aab804b9-e8b5-40ad-a85b-af7033391243@intel.com/
-
-Changes in v3:
---------------
-- riscv,cbqri.yaml: 
-  - Require a device-specific compatible so a bare generic compatible
-    is no longer valid on its own.
-  - Rename node name from cache-controller@ to qos-controller@
-  - Rename compatible from tenstorrent,ascalon-sc-cbqri to
-    tenstorrent,ascalon-shared-cache-controller
-
-- Take cbqri_controllers_lock in cbqri_attach_cpu_to_all_ctrls() so a
-  controller probed after boot can't corrupt the cbqri_controllers list.
-
-- Revise comment above riscv_srmcfg_reset_cache() to clarify that the
-  teardown callback is not relied on. The cpuhp startup callback re-arms
-  the per-cpu sentinel, which forces the csr write on a re-onlined CPU.
-
-- Drop the memory fences around the srmcfg CSR write on context switch.
-  Ssqosid does not require the ordering. The brief tagging inaccuracy at
-  the switch boundary is acceptable for QoS.
-
-- Access the CBQRI controller registers with 32-bit reads and writes.
-  The spec only guarantees single-copy atomicity for 4-byte accesses.
-  This also removes the dependency on native 64-bit MMIO.
-
-- Program cc_cunits to 0 before a config limit operation on controllers
-  that support capacity units, so a stale unit limit does not constrain
-  block-mask allocation.
-
-- Link to v2:
-  https://patch.msgid.link/20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org
-
-- Sashiko review of v2:
-  https://sashiko.dev/#/patchset/20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org
-
-Changes in v2:
---------------
-The changes in this revision address the Sashiko review of v1.
-
-- Restore the srmcfg CSR for the current task on CPU_PM_EXIT and
-  CPU_PM_ENTER_FAILED, so it is not left configured incorrectly until
-  the next context switch.
-
-- Serialize the cbqri_controllers list insert and the boot time walk
-  with a mutex, so an asynchronous driver probe cannot corrupt the list.
-
-- Skip a controller at an unsupported cache level instead of aborting
-  resctrl setup, so valid L2 and L3 controllers still register.
-
-- RISCV_ISA_SSQOSID selects ARCH_HAS_CPU_RESCTRL and RISCV_CBQRI
-  together, so no intermediate commit enables RESCTRL_FS without the
-  CBQRI resctrl glue.
-
-- Rename the RISCV_CBQRI_DRIVER to RISCV_CBQRI, since it builds the
-  CBQRI core ops and resctrl integration rather than a driver.
-
-- Drop the RISCV_CBQRI_DRIVER_DEBUG Kconfig option and rely on dynamic
-  debug to control the pr_debug() output.
-
-- Note: Sashiko flagged the lack of suspend/resume state restore. I will
-  not fix that as register state is only lost when the power domain is
-  gated, which offlines the harts sharing the cache. resctrl reprograms
-  the default capacity mask through the normal control domain online
-  path on resume.
-
-- Link to v1:
-  https://lore.kernel.org/all/20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org/
-
-- Sashiko review of v1:
-  https://sashiko.dev/#/patchset/20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org
-
----
-Drew Fustini (8):
-      dt-bindings: riscv: Add Ssqosid extension description
-      riscv: Detect the Ssqosid extension
-      riscv: Add support for srmcfg CSR from Ssqosid extension
-      riscv_cbqri: Add capacity controller probe and allocation device ops
-      riscv_cbqri: resctrl: Add cache allocation via capacity block mask
-      riscv: Enable resctrl filesystem for Ssqosid
-      dt-bindings: riscv: Add binding for CBQRI controllers
-      riscv_cbqri: Add CBQRI capacity allocation platform driver
-
- .../devicetree/bindings/riscv/extensions.yaml      |   6 +
- .../devicetree/bindings/riscv/riscv,cbqri.yaml     |  97 +++
- MAINTAINERS                                        |  15 +
- arch/riscv/Kconfig                                 |  20 +
- arch/riscv/include/asm/csr.h                       |   5 +
- arch/riscv/include/asm/hwcap.h                     |   1 +
- arch/riscv/include/asm/processor.h                 |   3 +
- arch/riscv/include/asm/qos.h                       |  74 ++
- arch/riscv/include/asm/resctrl.h                   | 147 ++++
- arch/riscv/include/asm/switch_to.h                 |   3 +
- arch/riscv/kernel/Makefile                         |   2 +
- arch/riscv/kernel/cpufeature.c                     |   1 +
- arch/riscv/kernel/qos.c                            |  99 +++
- drivers/resctrl/Kconfig                            |  29 +
- drivers/resctrl/Makefile                           |   5 +
- drivers/resctrl/cbqri_capacity.c                   | 132 ++++
- drivers/resctrl/cbqri_devices.c                    | 562 +++++++++++++++
- drivers/resctrl/cbqri_internal.h                   | 124 ++++
- drivers/resctrl/cbqri_resctrl.c                    | 787 +++++++++++++++++++++
- include/linux/riscv_cbqri.h                        |  47 ++
- 20 files changed, 2159 insertions(+)
----
-base-commit: 4e5dfb7c84012007c3c7061126491bbc92d71bf1
-change-id: 20260610-dfustini-atl-sc-cbqri-dt-410c8e2711dd
-
-Best regards,
---  
-Drew Fustini <fustini@kernel.org>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWRkIHN1cHBvcnQgZm9yIHRoZSBzcm1jZmcgQ1NSIGRlZmluZWQgaW4gdGhlIFNzcW9zaWQgSVNB
+IGV4dGVuc2lvbi4KVGhlIENTUiBjb250YWlucyB0d28gZmllbGRzOgoKICAtIFJlc291cmNlIENv
+bnRyb2wgSUQgKFJDSUQpIGZvciByZXNvdXJjZSBhbGxvY2F0aW9uCiAgLSBNb25pdG9yaW5nIENv
+dW50ZXIgSUQgKE1DSUQpIGZvciB0cmFja2luZyByZXNvdXJjZSB1c2FnZQoKUmVxdWVzdHMgZnJv
+bSBhIGhhcnQgdG8gc2hhcmVkIHJlc291cmNlcyBhcmUgdGFnZ2VkIHdpdGggdGhlc2UgSURzLAph
+bGxvd2luZyByZXNvdXJjZSB1c2FnZSB0byBiZSBhc3NvY2lhdGVkIHdpdGggdGhlIHJ1bm5pbmcg
+dGFzay4KCkFkZCBhIHNybWNmZyBmaWVsZCB0byB0aHJlYWRfc3RydWN0IHdpdGggdGhlIHNhbWUg
+Zm9ybWF0IGFzIHRoZSBDU1Igc28KdGhlIHNjaGVkdWxlciBjYW4gc2V0IHRoZSBSQ0lEIGFuZCBN
+Q0lEIGZvciBlYWNoIHRhc2sgb24gY29udGV4dApzd2l0Y2guIEEgcGVyLWNwdSBjcHVfc3JtY2Zn
+IHZhcmlhYmxlIG1pcnJvcnMgdGhlIENTUiBzdGF0ZSB0byBhdm9pZApyZWR1bmRhbnQgd3JpdGVz
+LiBMMUQtaG90IG1lbW9yeSBhY2Nlc3MgaXMgZmFzdGVyIHRoYW4gYSBDU1IgcmVhZCBhbmQKYXZv
+aWRzIHRyYXBzIHVuZGVyIHZpcnR1YWxpemF0aW9uLgoKQSBwZXItY3B1IGNwdV9zcm1jZmdfZGVm
+YXVsdCBob2xkcyB0aGUgZGVmYXVsdCBzcm1jZmcgZm9yIGVhY2ggQ1BVIGFzCnNldCBieSByZXNj
+dHJsIENQVSBncm91cCBhc3NpZ25tZW50LiBPbiBjb250ZXh0IHN3aXRjaCwgUkNJRCBhbmQgTUNJ
+RAppbmhlcml0IGZyb20gdGhlIENQVSBkZWZhdWx0IGluZGVwZW5kZW50bHk6IGEgdGFzayB3aG9z
+ZSB0aHJlYWQgUkNJRApmaWVsZCBpcyB6ZXJvIHRha2VzIHRoZSBDUFUgZGVmYXVsdCdzIFJDSUQs
+IGFuZCBsaWtld2lzZSBmb3IgTUNJRC4KCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9y
+aXNjdi1zc3Fvc2lkL3JlbGVhc2VzL3RhZy92MS4wCkFzc2lzdGVkLWJ5OiBDbGF1ZGU6Y2xhdWRl
+LW9wdXMtNC03CkNvLWRldmVsb3BlZC1ieTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFs
+Zi5jb20+ClNpZ25lZC1vZmYtYnk6IEtvcm5lbCBEdWzEmWJhIDxtaW5kYWxAc2VtaWhhbGYuY29t
+PgpTaWduZWQtb2ZmLWJ5OiBEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVsLm9yZz4KLS0tCiBN
+QUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICAgIHwgIDggKysrCiBhcmNoL3Jpc2N2L0tj
+b25maWcgICAgICAgICAgICAgICAgIHwgMTggKysrKysrKwogYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9jc3IuaCAgICAgICB8ICA1ICsrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5o
+IHwgIDMgKysKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcW9zLmggICAgICAgfCA3NCArKysrKysr
+KysrKysrKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5o
+IHwgIDMgKysKIGFyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlICAgICAgICAgfCAgMiArCiBhcmNo
+L3Jpc2N2L2tlcm5lbC9xb3MuYyAgICAgICAgICAgIHwgOTkgKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysKIDggZmlsZXMgY2hhbmdlZCwgMjEyIGluc2VydGlvbnMoKykKCmRp
+ZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCmluZGV4IDBiOWQ3YzgyNzZhYy4u
+MDcxMDllMWE4Zjg0IDEwMDY0NAotLS0gYS9NQUlOVEFJTkVSUworKysgYi9NQUlOVEFJTkVSUwpA
+QCAtMjMyOTMsNiArMjMyOTMsMTQgQEAgRjoJZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jCiBGOglk
+cml2ZXJzL3BlcmYvcmlzY3ZfcG11X2xlZ2FjeS5jCiBGOglkcml2ZXJzL3BlcmYvcmlzY3ZfcG11
+X3NiaS5jCiAKK1JJU0MtViBRT1MgUkVTQ1RSTCBTVVBQT1JUCitNOglEcmV3IEZ1c3RpbmkgPGZ1
+c3RpbmlAa2VybmVsLm9yZz4KK1I6CXl1bmh1aSBjdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29t
+PgorTDoJbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZworUzoJU3VwcG9ydGVkCitGOglh
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oCitGOglhcmNoL3Jpc2N2L2tlcm5lbC9xb3MuYwor
+CiBSSVNDLVYgUlBNSSBBTkQgTVBYWSBEUklWRVJTCiBNOglSYWh1bCBQYXRoYWsgPHJhaHVsQHN1
+bW1hdGlvbnMubmV0PgogTToJQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwppbmRleCAzZjBh
+NjQ3MjE4ZTQuLmVlNTg2OTI1Zjk3MiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCisr
+KyBiL2FyY2gvcmlzY3YvS2NvbmZpZwpAQCAtNTkwLDYgKzU5MCwyNCBAQCBjb25maWcgUklTQ1Zf
+SVNBX1NWTkFQT1QKIAogCSAgSWYgeW91IGRvbid0IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkg
+WS4KIAorY29uZmlnIFJJU0NWX0lTQV9TU1FPU0lECisJYm9vbCAiU3Nxb3NpZCBleHRlbnNpb24g
+c3VwcG9ydCBmb3Igc3VwZXJ2aXNvciBtb2RlIFF1YWxpdHkgb2YgU2VydmljZSBJRCIKKwlkZXBl
+bmRzIG9uIDY0QklUCisJZGVmYXVsdCBuCisJaGVscAorCSAgQWRkcyBzdXBwb3J0IGZvciB0aGUg
+U3Nxb3NpZCBJU0EgZXh0ZW5zaW9uIChTdXBlcnZpc29yLW1vZGUKKwkgIFF1YWxpdHkgb2YgU2Vy
+dmljZSBJRCkuCisKKwkgIFNzcW9zaWQgZGVmaW5lcyB0aGUgc3JtY2ZnIENTUiB3aGljaCBhbGxv
+d3MgdGhlIHN5c3RlbSB0byB0YWcgdGhlCisJICBydW5uaW5nIHByb2Nlc3Mgd2l0aCBhbiBSQ0lE
+IChSZXNvdXJjZSBDb250cm9sIElEKSBhbmQgTUNJRAorCSAgKE1vbml0b3JpbmcgQ291bnRlciBJ
+RCkuIFRoZSBSQ0lEIGlzIHVzZWQgdG8gZGV0ZXJtaW5lIHJlc291cmNlCisJICBhbGxvY2F0aW9u
+LiBUaGUgTUNJRCBpcyB1c2VkIHRvIHRyYWNrIHJlc291cmNlIHVzYWdlIGluIGV2ZW50CisJICBj
+b3VudGVycy4KKworCSAgRm9yIGV4YW1wbGUsIGEgY2FjaGUgY29udHJvbGxlciBtYXkgdXNlIHRo
+ZSBSQ0lEIHRvIGFwcGx5IGEKKwkgIGNhY2hlIHBhcnRpdGlvbmluZyBzY2hlbWUgYW5kIHVzZSB0
+aGUgTUNJRCB0byB0cmFjayBob3cgbXVjaAorCSAgY2FjaGUgYSBwcm9jZXNzLCBvciBhIGdyb3Vw
+IG9mIHByb2Nlc3NlcywgaXMgdXNpbmcuCisKIGNvbmZpZyBSSVNDVl9JU0FfU1ZQQk1UCiAJYm9v
+bCAiU3ZwYm10IGV4dGVuc2lvbiBzdXBwb3J0IGZvciBzdXBlcnZpc29yIG1vZGUgcGFnZS1iYXNl
+ZCBtZW1vcnkgdHlwZXMiCiAJZGVwZW5kcyBvbiA2NEJJVCAmJiBNTVUKZGlmZiAtLWdpdCBhL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5o
+CmluZGV4IDMxYjg5ODhmNDQ4OC4uN2JjZTkyOGU1ZGFhIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2Nzci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKQEAg
+LTg0LDYgKzg0LDEwIEBACiAjZGVmaW5lIFNBVFBfQVNJRF9NQVNLCV9BQygweEZGRkYsIFVMKQog
+I2VuZGlmCiAKKy8qIFNSTUNGRyBmaWVsZHMgKi8KKyNkZWZpbmUgU1JNQ0ZHX1JDSURfTUFTSwlH
+RU5NQVNLKDExLCAwKQorI2RlZmluZSBTUk1DRkdfTUNJRF9NQVNLCUdFTk1BU0soMjcsIDE2KQor
+CiAvKiBFeGNlcHRpb24gY2F1c2UgaGlnaCBiaXQgLSBpcyBhbiBpbnRlcnJ1cHQgaWYgc2V0ICov
+CiAjZGVmaW5lIENBVVNFX0lSUV9GTEFHCQkoX0FDKDEsIFVMKSA8PCAoX19yaXNjdl94bGVuIC0g
+MSkpCiAKQEAgLTMyOCw2ICszMzIsNyBAQAogI2RlZmluZSBDU1JfU1RWQUwJCTB4MTQzCiAjZGVm
+aW5lIENTUl9TSVAJCQkweDE0NAogI2RlZmluZSBDU1JfU0FUUAkJMHgxODAKKyNkZWZpbmUgQ1NS
+X1NSTUNGRwkJMHgxODEKIAogI2RlZmluZSBDU1JfU1RJTUVDTVAJCTB4MTRECiAjZGVmaW5lIENT
+Ul9TVElNRUNNUEgJCTB4MTVECmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3By
+b2Nlc3Nvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAppbmRleCA4MTI1
+MTdiMmNlYzEuLjQ5YTM4NmQ3NGNkMyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9wcm9jZXNzb3IuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCkBA
+IC0xMjMsNiArMTIzLDkgQEAgc3RydWN0IHRocmVhZF9zdHJ1Y3QgewogCS8qIEEgZm9yY2VkIGlj
+YWNoZSBmbHVzaCBpcyBub3QgbmVlZGVkIGlmIG1pZ3JhdGluZyB0byB0aGUgcHJldmlvdXMgY3B1
+LiAqLwogCXVuc2lnbmVkIGludCBwcmV2X2NwdTsKICNlbmRpZgorI2lmZGVmIENPTkZJR19SSVND
+Vl9JU0FfU1NRT1NJRAorCXUzMiBzcm1jZmc7CisjZW5kaWYKIH07CiAKIC8qIFdoaXRlbGlzdCB0
+aGUgZnN0YXRlIGZyb20gdGhlIHRhc2tfc3RydWN0IGZvciBoYXJkZW5lZCB1c2VyY29weSAqLwpk
+aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9xb3MuaCBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vcW9zLmgKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwLi5j
+ZjE5ZTg0MzhiYjkKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fv
+cy5oCkBAIC0wLDAgKzEsNzQgQEAKKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4w
+ICovCisjaWZuZGVmIF9BU01fUklTQ1ZfUU9TX0gKKyNkZWZpbmUgX0FTTV9SSVNDVl9RT1NfSAor
+CisjaW5jbHVkZSA8bGludXgvcGVyY3B1LWRlZnMuaD4KKworI2lmZGVmIENPTkZJR19SSVNDVl9J
+U0FfU1NRT1NJRAorCisjaW5jbHVkZSA8bGludXgvYml0ZmllbGQuaD4KKyNpbmNsdWRlIDxsaW51
+eC9jcHVmZWF0dXJlLmg+CisjaW5jbHVkZSA8bGludXgvc2NoZWQuaD4KKworI2luY2x1ZGUgPGFz
+bS9jc3IuaD4KKyNpbmNsdWRlIDxhc20vaHdjYXAuaD4KKworLyogY2FjaGVkIHZhbHVlIG9mIHNy
+bWNmZyBjc3IgZm9yIGVhY2ggY3B1ICovCitERUNMQVJFX1BFUl9DUFUodTMyLCBjcHVfc3JtY2Zn
+KTsKKworLyogZGVmYXVsdCBzcm1jZmcgdmFsdWUgZm9yIGVhY2ggY3B1LCBzZXQgdmlhIHJlc2N0
+cmwgY3B1IGFzc2lnbm1lbnQgKi8KK0RFQ0xBUkVfUEVSX0NQVSh1MzIsIGNwdV9zcm1jZmdfZGVm
+YXVsdCk7CisKK3N0YXRpYyBpbmxpbmUgdm9pZCBfX3N3aXRjaF90b19zcm1jZmcoc3RydWN0IHRh
+c2tfc3RydWN0ICpuZXh0KQoreworCXUzMiB0aHJlYWRfc3JtY2ZnLCBkZWZhdWx0X3NybWNmZzsK
+KworCXRocmVhZF9zcm1jZmcgPSBSRUFEX09OQ0UobmV4dC0+dGhyZWFkLnNybWNmZyk7CisJZGVm
+YXVsdF9zcm1jZmcgPSBfX3RoaXNfY3B1X3JlYWQoY3B1X3NybWNmZ19kZWZhdWx0KTsKKworCS8q
+CisJICogUkNJRCBhbmQgTUNJRCBpbmhlcml0IGZyb20gY3B1X3NybWNmZ19kZWZhdWx0IGluZGVw
+ZW5kZW50bHkuCisJICogUkVTQ1RSTF9SRVNFUlZFRF9DTE9TSUQgYW5kIFJFU0NUUkxfUkVTRVJW
+RURfUk1JRCBhcmUgYm90aCAwLCBzbyBhCisJICogemVybyBmaWVsZCBtZWFucyAidW5hc3NpZ25l
+ZCIgYW5kIHRha2VzIHRoZSBDUFUgZGVmYXVsdC4KKwkgKi8KKwlpZiAodGhyZWFkX3NybWNmZyA9
+PSAwKSB7CisJCXRocmVhZF9zcm1jZmcgPSBkZWZhdWx0X3NybWNmZzsKKwl9IGVsc2UgeworCQl1
+MzIgcmNpZCA9IEZJRUxEX0dFVChTUk1DRkdfUkNJRF9NQVNLLCB0aHJlYWRfc3JtY2ZnKTsKKwkJ
+dTMyIG1jaWQgPSBGSUVMRF9HRVQoU1JNQ0ZHX01DSURfTUFTSywgdGhyZWFkX3NybWNmZyk7CisK
+KwkJaWYgKHJjaWQgPT0gMCB8fCBtY2lkID09IDApIHsKKwkJCWlmIChyY2lkID09IDApCisJCQkJ
+cmNpZCA9IEZJRUxEX0dFVChTUk1DRkdfUkNJRF9NQVNLLCBkZWZhdWx0X3NybWNmZyk7CisJCQlp
+ZiAobWNpZCA9PSAwKQorCQkJCW1jaWQgPSBGSUVMRF9HRVQoU1JNQ0ZHX01DSURfTUFTSywgZGVm
+YXVsdF9zcm1jZmcpOworCQkJdGhyZWFkX3NybWNmZyA9IEZJRUxEX1BSRVAoU1JNQ0ZHX1JDSURf
+TUFTSywgcmNpZCkgfAorCQkJCQlGSUVMRF9QUkVQKFNSTUNGR19NQ0lEX01BU0ssIG1jaWQpOwor
+CQl9CisJfQorCisJaWYgKHRocmVhZF9zcm1jZmcgIT0gX190aGlzX2NwdV9yZWFkKGNwdV9zcm1j
+ZmcpKSB7CisJCS8qCisJCSAqIE5vIGZlbmNlIGFyb3VuZCB0aGUgY3Nydy4gU3Nxb3NpZCBpcyBz
+aWxlbnQgb24gc3JtY2ZnCisJCSAqIG9yZGVyaW5nIHZlcnN1cyBtZW1vcnkgYWNjZXNzZXMsIHNv
+IGEgZmV3IGFjY2Vzc2VzIGF0IHRoZQorCQkgKiBzd2l0Y2ggYm91bmRhcnkgbWF5IGNhcnJ5IHRo
+ZSBwcmV2aW91cyBSQ0lEL01DSUQuIFRoZQorCQkgKiB0YWdnaW5nIGluYWNjdXJhY3kgaXMgYm91
+bmRlZCBhbmQgYWNjZXB0YWJsZSBmb3IgUW9TLgorCQkgKi8KKwkJX190aGlzX2NwdV93cml0ZShj
+cHVfc3JtY2ZnLCB0aHJlYWRfc3JtY2ZnKTsKKwkJY3NyX3dyaXRlKENTUl9TUk1DRkcsIHRocmVh
+ZF9zcm1jZmcpOworCX0KK30KKworc3RhdGljIF9fYWx3YXlzX2lubGluZSBib29sIGhhc19zcm1j
+Zmcodm9pZCkKK3sKKwlyZXR1cm4gcmlzY3ZfaGFzX2V4dGVuc2lvbl91bmxpa2VseShSSVNDVl9J
+U0FfRVhUX1NTUU9TSUQpOworfQorCisjZWxzZSAvKiAhIENPTkZJR19SSVNDVl9JU0FfU1NRT1NJ
+RCAgKi8KKworc3RydWN0IHRhc2tfc3RydWN0Oworc3RhdGljIF9fYWx3YXlzX2lubGluZSBib29s
+IGhhc19zcm1jZmcodm9pZCkgeyByZXR1cm4gZmFsc2U7IH0KK3N0YXRpYyBpbmxpbmUgdm9pZCBf
+X3N3aXRjaF90b19zcm1jZmcoc3RydWN0IHRhc2tfc3RydWN0ICpuZXh0KSB7IH0KKworI2VuZGlm
+IC8qIENPTkZJR19SSVNDVl9JU0FfU1NRT1NJRCAqLworI2VuZGlmIC8qIF9BU01fUklTQ1ZfUU9T
+X0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggYi9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oCmluZGV4IDBlNzFlYjgyZjkyMC4uMWM3
+ZWE1M2VjMDEyIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5o
+CisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKQEAgLTE0LDYgKzE0LDcg
+QEAKICNpbmNsdWRlIDxhc20vcHJvY2Vzc29yLmg+CiAjaW5jbHVkZSA8YXNtL3B0cmFjZS5oPgog
+I2luY2x1ZGUgPGFzbS9jc3IuaD4KKyNpbmNsdWRlIDxhc20vcW9zLmg+CiAKICNpZmRlZiBDT05G
+SUdfRlBVCiBleHRlcm4gdm9pZCBfX2ZzdGF0ZV9zYXZlKHN0cnVjdCB0YXNrX3N0cnVjdCAqc2F2
+ZV90byk7CkBAIC0xMTksNiArMTIwLDggQEAgZG8gewkJCQkJCQlcCiAJCV9fc3dpdGNoX3RvX2Zw
+dShfX3ByZXYsIF9fbmV4dCk7CVwKIAlpZiAoaGFzX3ZlY3RvcigpIHx8IGhhc194dGhlYWR2ZWN0
+b3IoKSkJCVwKIAkJX19zd2l0Y2hfdG9fdmVjdG9yKF9fcHJldiwgX19uZXh0KTsJXAorCWlmICho
+YXNfc3JtY2ZnKCkpCQkJCVwKKwkJX19zd2l0Y2hfdG9fc3JtY2ZnKF9fbmV4dCk7CQlcCiAJaWYg
+KHN3aXRjaF90b19zaG91bGRfZmx1c2hfaWNhY2hlKF9fbmV4dCkpCVwKIAkJbG9jYWxfZmx1c2hf
+aWNhY2hlX2FsbCgpOwkJXAogCV9fc3dpdGNoX3RvX2VudmNmZyhfX25leHQpOwkJCVwKZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlIGIvYXJjaC9yaXNjdi9rZXJuZWwvTWFr
+ZWZpbGUKaW5kZXggY2FiYjk5Y2FkZmI2Li5lYmUxYzM1ODgxNzcgMTAwNjQ0Ci0tLSBhL2FyY2gv
+cmlzY3Yva2VybmVsL01ha2VmaWxlCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCkBA
+IC0xMjgsMyArMTI4LDUgQEAgb2JqLSQoQ09ORklHX0FDUElfTlVNQSkJKz0gYWNwaV9udW1hLm8K
+IAogb2JqLSQoQ09ORklHX0dFTkVSSUNfQ1BVX1ZVTE5FUkFCSUxJVElFUykgKz0gYnVncy5vCiBv
+YmotJChDT05GSUdfUklTQ1ZfVVNFUl9DRkkpICs9IHVzZXJjZmkubworCitvYmotJChDT05GSUdf
+UklTQ1ZfSVNBX1NTUU9TSUQpICs9IHFvcy5vCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9xb3MuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3Fvcy5jCm5ldyBmaWxlIG1vZGUgMTAwNjQ0Cmlu
+ZGV4IDAwMDAwMDAwMDAwMC4uYzg5MDBkOTE5OTZmCi0tLSAvZGV2L251bGwKKysrIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvcW9zLmMKQEAgLTAsMCArMSw5OSBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50
+aWZpZXI6IEdQTC0yLjAtb25seQorI2luY2x1ZGUgPGxpbnV4L2NwdS5oPgorI2luY2x1ZGUgPGxp
+bnV4L2NwdV9wbS5oPgorI2luY2x1ZGUgPGxpbnV4L2NwdWhvdHBsdWcuaD4KKyNpbmNsdWRlIDxs
+aW51eC9ub3RpZmllci5oPgorI2luY2x1ZGUgPGxpbnV4L3BlcmNwdS1kZWZzLmg+CisjaW5jbHVk
+ZSA8bGludXgvdHlwZXMuaD4KKworI2luY2x1ZGUgPGFzbS9jcHVmZWF0dXJlLW1hY3Jvcy5oPgor
+I2luY2x1ZGUgPGFzbS9od2NhcC5oPgorI2luY2x1ZGUgPGFzbS9xb3MuaD4KKworLyoKKyAqIENh
+Y2hlZCB2YWx1ZSBvZiBzcm1jZmcgY3NyIGZvciBlYWNoIGNwdS4gU2VlZGVkIHRvIFUzMl9NQVgg
+c28gdGhlIG5leHQKKyAqIF9fc3dpdGNoX3RvX3NybWNmZygpIHVuY29uZGl0aW9uYWxseSB3cml0
+ZXMgdGhlIENTUi4gVGhlIGVuY29kaW5nCisgKiBNQ0lEIDw8IDE2IHwgUkNJRCB3aXRoIGJvdGgg
+ZmllbGRzIHdlbGwgdW5kZXIgMTYgYml0cyBjYW4gbmV2ZXIKKyAqIHByb2R1Y2UgdGhpcyBzZW50
+aW5lbC4gVGhpcyBjb3ZlcnMgZWFybHktYm9vdCBjb250ZXh0IHN3aXRjaGVzIHRoYXQKKyAqIGhh
+cHBlbiBiZWZvcmUgcmlzY3Zfc3JtY2ZnX2luaXQoKSBydW5zIGFzIGFuIGFyY2hfaW5pdGNhbGwu
+CisgKi8KK0RFRklORV9QRVJfQ1BVKHUzMiwgY3B1X3NybWNmZykgPSBVMzJfTUFYOworCisvKiBk
+ZWZhdWx0IHNybWNmZyB2YWx1ZSBmb3IgZWFjaCBjcHUsIHNldCB2aWEgcmVzY3RybCBjcHUgYXNz
+aWdubWVudCAqLworREVGSU5FX1BFUl9DUFUodTMyLCBjcHVfc3JtY2ZnX2RlZmF1bHQpOworCisv
+KgorICogSW52YWxpZGF0ZSB0aGUgcGVyLUNQVSBzcm1jZmcgY2FjaGUuIFVzZWQgYXMgYm90aCB0
+aGUgY3B1aHAgc3RhcnR1cAorICogYW5kIHRlYXJkb3duIGNhbGxiYWNrLiBVMzJfTUFYIGlzIG5v
+dCBhIHZhbGlkIHNybWNmZyB2YWx1ZQorICogKE1DSUQgPDwgMTYgfCBSQ0lELCBib3RoIGZpZWxk
+cyB1bmRlciAxNiBiaXRzKSwgc28gdGhlIG5leHQKKyAqIF9fc3dpdGNoX3RvX3NybWNmZygpIGFs
+d2F5cyB3cml0ZXMgdGhlIENTUi4KKyAqCisgKiBTc3Fvc2lkIGxlYXZlcyB0aGUgQ1NSIGltcGxl
+bWVudGF0aW9uLWRlZmluZWQgYWNyb3NzIGhhcnQgc3RvcC9zdGFydCwKKyAqIHNvIHRoZSBjYWNo
+ZWQgdmFsdWUgY2Fubm90IGJlIHRydXN0ZWQgYWZ0ZXIgb25saW5lLiBUaGUgc3RhcnR1cAorICog
+Y2FsbGJhY2sgcnVucyBhdCBDUFVIUF9BUF9PTkxJTkVfRFlOLCBiZWZvcmUgQ1BVSFBfQVBfQUNU
+SVZFIG1ha2VzCisgKiB0aGUgQ1BVIHNjaGVkdWxhYmxlLCBzbyB0aGUgY2FjaGUgaXMgaW52YWxp
+ZGF0ZWQgYmVmb3JlIGFueSBub3JtYWwKKyAqIHRhc2sgcnVucyBhbmQgdGhlIENTUiBpcyB3cml0
+dGVuIG9uIHRoYXQgdGFzaydzIGZpcnN0IHN3aXRjaC4KKyAqIFRoZSB0ZWFyZG93biBjYWxsYmFj
+ayBpcyBub3QgcmVsaWVkIG9uLiBJZGxlIGFuZCBwZXItQ1BVIGt0aHJlYWRzIGtlZXAKKyAqIHN3
+aXRjaGluZyBhcyB0aGUgQ1BVIGdvZXMgZG93biBhbmQgb3ZlcndyaXRlIHRoZSBzZW50aW5lbCB3
+aXRoIHRoZSBDUFUKKyAqIGRlZmF1bHQsIHNvIGl0IGRvZXMgbm90IHN1cnZpdmUgdGhlIG9mZmxp
+bmUgcGVyaW9kLgorICovCitzdGF0aWMgaW50IHJpc2N2X3NybWNmZ19yZXNldF9jYWNoZSh1bnNp
+Z25lZCBpbnQgY3B1KQoreworCXBlcl9jcHUoY3B1X3NybWNmZywgY3B1KSA9IFUzMl9NQVg7CisJ
+cmV0dXJuIDA7Cit9CisKKy8qCisgKiBDUFUgUE0gbm90aWZpZXI6IGludmFsaWRhdGUgdGhlIGNh
+Y2hlZCBzcm1jZmcgb24gcmVzdW1lIGZyb20gYSBkZWVwCisgKiBpZGxlIC8gc3VzcGVuZC4gU3Nx
+b3NpZCBsZWF2ZXMgQ1NSX1NSTUNGRyBzdGF0ZSBhY3Jvc3MgbG93LXBvd2VyCisgKiB0cmFuc2l0
+aW9ucyBpbXBsZW1lbnRhdGlvbi1kZWZpbmVkLCBhbmQgdGhlIGJvb3QgQ1BVIG5ldmVyIGdvZXMK
+KyAqIHRocm91Z2ggdGhlIGNwdWhwIG9ubGluZSBjYWxsYmFjayBkdXJpbmcgc3lzdGVtIHN1c3Bl
+bmQsIHNvIHdpdGhvdXQKKyAqIHRoaXMgaG9vayBfX3N3aXRjaF90b19zcm1jZmcoKSB3b3VsZCBz
+a2lwIHRoZSBDU1Igd3JpdGUgd2hlbiB0aGUKKyAqIG91dGdvaW5nIHRhc2sgaGFwcGVucyB0byBz
+aGFyZSBpdHMgc3JtY2ZnIHdpdGggdGhlIHByZS1zdXNwZW5kIGNhY2hlLgorICovCitzdGF0aWMg
+aW50IHJpc2N2X3NybWNmZ19wbV9ub3RpZnkoc3RydWN0IG5vdGlmaWVyX2Jsb2NrICpuYiwKKwkJ
+CQkgIHVuc2lnbmVkIGxvbmcgYWN0aW9uLCB2b2lkICp1bnVzZWQpCit7CisJc3dpdGNoIChhY3Rp
+b24pIHsKKwljYXNlIENQVV9QTV9FWElUOgorCWNhc2UgQ1BVX1BNX0VOVEVSX0ZBSUxFRDoKKwkJ
+LyoKKwkJICogVGhlIENTUiBpcyBpbXBsZW1lbnRhdGlvbi1kZWZpbmVkIGFjcm9zcyB0aGUgbG93
+LXBvd2VyCisJCSAqIHRyYW5zaXRpb24uIEludmFsaWRhdGUgdGhlIGNhY2hlIGFuZCBlYWdlcmx5
+IHJld3JpdGUgdGhlCisJCSAqIENTUiBmb3IgdGhlIGN1cnJlbnQgdGFzayBzbyBpdCBkb2VzIG5v
+dCBydW4gbWlzLXRhZ2dlZAorCQkgKiB1bnRpbCB0aGUgbmV4dCBjb250ZXh0IHN3aXRjaC4KKwkJ
+ICovCisJCV9fdGhpc19jcHVfd3JpdGUoY3B1X3NybWNmZywgVTMyX01BWCk7CisJCV9fc3dpdGNo
+X3RvX3NybWNmZyhjdXJyZW50KTsKKwkJYnJlYWs7CisJfQorCXJldHVybiBOT1RJRllfT0s7Cit9
+CisKK3N0YXRpYyBzdHJ1Y3Qgbm90aWZpZXJfYmxvY2sgcmlzY3Zfc3JtY2ZnX3BtX25iID0gewor
+CS5ub3RpZmllcl9jYWxsID0gcmlzY3Zfc3JtY2ZnX3BtX25vdGlmeSwKK307CisKK3N0YXRpYyBp
+bnQgX19pbml0IHJpc2N2X3NybWNmZ19pbml0KHZvaWQpCit7CisJaW50IGVycjsKKworCWlmICgh
+cmlzY3ZfaGFzX2V4dGVuc2lvbl91bmxpa2VseShSSVNDVl9JU0FfRVhUX1NTUU9TSUQpKQorCQly
+ZXR1cm4gMDsKKworCS8qCisJICogY3B1aHBfc2V0dXBfc3RhdGUoKSBpbnZva2VzIHRoZSBzdGFy
+dHVwIGNhbGxiYWNrIGxvY2FsbHkgb24gZXZlcnkKKwkgKiBhbHJlYWR5LW9ubGluZSBDUFUsIHNv
+IG5vIHNlcGFyYXRlIHNlZWQgbG9vcCBpcyBuZWVkZWQgaGVyZS4KKwkgKi8KKwllcnIgPSBjcHVo
+cF9zZXR1cF9zdGF0ZShDUFVIUF9BUF9PTkxJTkVfRFlOLCAicmlzY3Yvc3JtY2ZnOm9ubGluZSIs
+CisJCQkJcmlzY3Zfc3JtY2ZnX3Jlc2V0X2NhY2hlLCByaXNjdl9zcm1jZmdfcmVzZXRfY2FjaGUp
+OworCWlmIChlcnIgPCAwKSB7CisJCXByX3dhcm4oInNybWNmZyBjcHVocCByZWdpc3RyYXRpb24g
+ZmFpbGVkICglZCksIGNwdXMgYnJvdWdodCBvbmxpbmUgYWZ0ZXIgYm9vdCB3aWxsIG5vdCBpbnZh
+bGlkYXRlIHRoZSBDU1JfU1JNQ0ZHIGNhY2hlXG4iLAorCQkJZXJyKTsKKwkJcmV0dXJuIGVycjsK
+Kwl9CisKKwljcHVfcG1fcmVnaXN0ZXJfbm90aWZpZXIoJnJpc2N2X3NybWNmZ19wbV9uYik7CisJ
+cmV0dXJuIDA7Cit9CithcmNoX2luaXRjYWxsKHJpc2N2X3NybWNmZ19pbml0KTsKCi0tIAoyLjQz
+LjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
