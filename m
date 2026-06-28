@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CDCC43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CAAC43458
 	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2026 21:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1Fvo2pGy5tORxdkKFkNXjtXz0PHk/N+YIMU0x+RxL0=; b=rVlZu22i9OlozZ
-	t6Yz48Nayq5+Fg81DwbpoiPbff9umvjd/DuGc2kQYXcX2hsnZy8LOrdmIkD7oVWHLHw9dloSePepD
-	UOTqejx5+kksNfk8eoJArSs1Fszvyw82SVNG08oewGcenSBR/K/vHv4i1+gC3irlnDWmfLQbOqvMI
-	rA7OG4LlzTZGgOwIbtw+a8AaPzjAVW2JpVk7t6Zjdv3uykwbSBD3n/2msTJxlIPMadGpiuH8snEr7
-	DCfhnoG6LsK/1YJ7a00S7qrj8BxPCexduTDPGiLHmIFiJyQW9YQ8kO/99Fl6PaUXFG1N0am9b/Le7
-	aTJZh44lwjmFFEo/kl/w==;
+	List-Owner; bh=SZSX1j0Jd3dzK/vkr+5+RCNpzmBPEC87VxAlslzjSM4=; b=Ru42pOQ5Qm0ump
+	EoFchk12fw9G67THTdc9EkYQyjsPzUdf09c7jMIf2QqW0oLoXDeYuOy1oZZPk7vtxW8PqcXiLO184
+	RGQNIecbzAdAqLu7PXaEZzVCmCrDYGcnw6ZFRW+H7h1VrmHRATATTGjuBZKJxAvBAdpu8VrODtbe3
+	/pwoHGruL9duLlOpDgACO/zuX0RxXjv0qTdEnJEMmXkt2c8W2LjW48ilLEUmQTY+D1YgbZGV+jcJZ
+	l8R9Ru64ZwlXbGqZkWRTIgDIJMrCU4t3RkQdmZnCgTO3sWd2kRl7R4DAEY0AbIWmi+rnSl0rA7tN+
+	yjfQBJQM6K126qX5furA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdwtr-0000000DOhl-3Jci;
-	Sun, 28 Jun 2026 21:18:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wdwtw-0000000DOke-2lzf;
+	Sun, 28 Jun 2026 21:18:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdwtr-0000000DOhF-0EhC
+	id 1wdwtt-0000000DOi2-3579
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Jun 2026 21:18:47 +0000
+	Sun, 28 Jun 2026 21:18:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4254741232;
-	Sun, 28 Jun 2026 21:18:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A664A1F00AC4;
-	Sun, 28 Jun 2026 21:18:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 18D9560125;
+	Sun, 28 Jun 2026 21:18:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 526581F00ADF;
+	Sun, 28 Jun 2026 21:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782681525;
-	bh=srvdFyNcKWrG6UhIb2zhEmit0iT5/TwfHnN+QzKDIL4=;
+	s=k20260515; t=1782681528;
+	bh=9dTCVpZ2o0d6cZ2bkua3Fp3iYBjf1tCQZk2/G+Myl7M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Shn7/zgw7ZuGje+Jq95qyjg+ZPoASGUnie2cyHQ9vlRYNLXRk/MzcLJWsvkMSHJmj
-	 Fefc0+241dGQ4N38Dyj1fhzew6MqHHrhmm9ZlJnuga4s7HAhpoz3YRUPli9bxHZhmy
-	 nCiyPOigCfOCeMczNzRYzSF5+oAs/rMomLwiQ38SD90GnluYb+WOXK0wSRYKh5iMPj
-	 lEWMMT4eL3lu2xvNvEMU88OIqj1jftmi4F6sUfCCDlbYzrGfAAIIaxsy4KWTPz6tXA
-	 CfS66/4LXnJkPH3ka1nPrjFgR03rbCi5neTrVj5Wd6b92AMLzyRe6R2CuTSfTU5QcG
-	 nunZpebJdhAFA==
+	b=ZJ2aPtPNQvTx/UHasoqdBQnFQVS/N9TvshjPVJ3DxKyNgSDwfREBSQkXCvc/BTevj
+	 IACAcBXVMC/1M8jhpQGVVOHVCfhnzGfmgtaFVLZYUd/JRxy4LR9MCeTxrfDcK45fCc
+	 iWyZnuLLhYbvMHjDi57gcv3rZeK7r3dDC16fzJ1bdscV8P+bYXIt2stWCSMuovLUQP
+	 UxRfbDNoHz7+RkKo+ovoBXqZxeBN0aMlVzu3poti3KmChNyifsPNw7DOffCqyd0H3Q
+	 QTWqU7DylCKn9YpwkBLW9MU6wvdrss/mRDCRqGLyxK+yPP9kG48ZJwlDVPVp5o2iiK
+	 hBL7ObzzIHXhw==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sun, 28 Jun 2026 14:18:12 -0700
-Subject: [PATCH v3 1/8] dt-bindings: riscv: Add Ssqosid extension
- description
+Date: Sun, 28 Jun 2026 14:18:18 -0700
+Subject: [PATCH v3 7/8] dt-bindings: riscv: Add binding for CBQRI
+ controllers
 MIME-Version: 1.0
-Message-Id: <20260628-dfustini-atl-sc-cbqri-dt-v3-1-c9c1342fe3cf@kernel.org>
+Message-Id: <20260628-dfustini-atl-sc-cbqri-dt-v3-7-c9c1342fe3cf@kernel.org>
 References: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
 In-Reply-To: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
 To: Adrien Ricciardi <aricciardi@baylibre.com>, 
@@ -77,12 +77,12 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1227; i=fustini@kernel.org;
- h=from:subject:message-id; bh=oVWQwUJrVLgt2ds0hOtdw/u3HLWC21FLWSsgjsdIJHo=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQ59m9+Otnq7hePsP+ZHwz27V9+Vfqmlmxxgwy7Z3moc
- 33juk0lHaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJcL5gZLj3qVL78iKx+9sO
- nPfbeZJRhaHjwmLLCWmCWjnzky3fmoQw/LPKOFTQwp65IeFh2edF9jZL470n+/zjy3y0Kj/wi5z
- IWw4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4668; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=zsLy4be+qGSSdOY88fIZH+FMZosR11q5wcnoQzfCuqI=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWQ59m/OumJ6Zt+ugLN6TzkCvuiGu3nx81sVuL1zqGF5t
+ dhUYHp8RykLgxgXg6yYIsumD3kXlniFfl0w/8U2mDmsTCBDGLg4BWAiPFsYGZ49SinKurYsxDj7
+ enhDoOUSjp/3Lk7++UnM8j1nQ/0OzR5GhhZDaTsPOfMH7TxsDw9tNbd7OMmGs/dPt1sM2wzJar0
+ nfAA=
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -101,33 +101,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
-extension v1.0.
+Document the device tree binding for RISC-V CBQRI capacity and bandwidth
+controllers. Each controller is named by a device-specific compatible
+followed by the generic compatible. The binding also describes the
+common riscv,cbqri-rcid and riscv,cbqri-mcid properties, and the
+optional riscv,cbqri-cache phandle that links a capacity controller to
+the cache whose capacity it allocates.
 
-Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Assisted-by: Claude:claude-opus-4-8
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 97 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 98 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 2b0a8a93bb21..1c6f091518d4 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -232,6 +232,12 @@ properties:
-             ratified at commit d70011dde6c2 ("Update to ratified state")
-             of riscv-j-extension.
- 
-+        - const: ssqosid
-+          description: |
-+            The standard Ssqosid extension for Quality of Service ID is
-+            ratified as v1.0 in commit d9c616497fde ("Merge pull
-+            request #7 from ved-rivos/Ratified") of riscv-ssqosid.
+diff --git a/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
+new file mode 100644
+index 000000000000..62d547a0cb96
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
+@@ -0,0 +1,97 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/riscv,cbqri.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-         - const: ssstateen
-           description: |
-             The standard Ssstateen extension for supervisor-mode view of the
++title: RISC-V Capacity and Bandwidth QoS Register Interface (CBQRI) controller
++
++description: |
++  The RISC-V CBQRI specification defines capacity-controller and
++  bandwidth-controller register blocks that allocate cache capacity and memory
++  bandwidth to resource-control IDs (RCIDs) and monitor usage per
++  monitoring-counter ID (MCID):
++  https://github.com/riscv-non-isa/riscv-cbqri/blob/main/riscv-cbqri.pdf
++
++  Allocation and monitoring share one register block, and a controller may
++  implement either or both. A driver discovers which at runtime from the
++  capabilities register, so the compatible names only the controller type. It
++  does not distinguish allocation-only, monitoring-only or combined
++  controllers, and no property declares monitoring support.
++
++maintainers:
++  - Drew Fustini <fustini@kernel.org>
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - tenstorrent,ascalon-shared-cache-controller
++          - const: riscv,cbqri-capacity-controller
++      - items:
++          - {}
++          - const: riscv,cbqri-bandwidth-controller
++
++  reg:
++    maxItems: 1
++    description:
++      The CBQRI controller register block.
++
++  riscv,cbqri-rcid:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum number of RCIDs the controller supports. RCIDs are the
++      resource-control IDs that allocation operations target.
++
++  riscv,cbqri-mcid:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum number of MCIDs the controller supports. MCIDs are the
++      monitoring-counter IDs that usage-monitoring operations target. Present
++      on controllers that implement monitoring.
++
++  riscv,cbqri-cache:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the cache node whose capacity this controller allocates.
++      Applies to capacity controllers that back a CPU cache. The cache level
++      and the harts sharing it are taken from that node's cache topology.
++
++required:
++  - compatible
++  - reg
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: tenstorrent,ascalon-shared-cache-controller
++    then:
++      required:
++        - riscv,cbqri-rcid
++        - riscv,cbqri-cache
++
++additionalProperties: false
++
++examples:
++  - |
++    l2_cache: l2-cache {
++        compatible = "cache";
++        cache-level = <2>;
++        cache-unified;
++        cache-size = <0xc00000>;
++        cache-sets = <512>;
++        cache-block-size = <64>;
++    };
++
++    qos-controller@a21a00c0 {
++        compatible = "tenstorrent,ascalon-shared-cache-controller",
++                     "riscv,cbqri-capacity-controller";
++        reg = <0xa21a00c0 0xf40>;
++        riscv,cbqri-rcid = <16>;
++        riscv,cbqri-cache = <&l2_cache>;
++    };
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 9e1092165046..64a95a4d795a 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23298,6 +23298,7 @@ M:	Drew Fustini <fustini@kernel.org>
+ R:	yunhui cui <cuiyunhui@bytedance.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Supported
++F:	Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
+ F:	arch/riscv/include/asm/qos.h
+ F:	arch/riscv/include/asm/resctrl.h
+ F:	arch/riscv/kernel/qos.c
 
 -- 
 2.43.0
