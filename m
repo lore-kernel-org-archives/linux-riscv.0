@@ -4,143 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B49CC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 13:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C05FC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 13:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eBKyRG8tn7Ol2+pzYxPMCp0zjSxTcgROz167jTzoniM=; b=jyPyLWjxmOxZFP
-	MEBcKaYhGZBKke7noFfaSiio8XKiq97+Lvvsz7SWQGqrjF/PibgVwNIWyXBbmS2NfijvZU4scaa8/
-	KLJm0tQsKM/YBAw2fhdx9+SDOoijkjZFrPbDjB5mSLMzrJyu21ybw8iV0yNVqS87X08oUV7sGwcDq
-	7fRRr/j+Yhb0sDG5cnYRdtpUl3OTflIYjBnqnVVAF4Isx4GwbXcCi2J01cxu8mMwRtMLFUJ4131zm
-	3nI8kGd7QutPZWr/br9UP3mrLddoZM16WFJakkvXlCjhl3oee4liK2+wSSgvyyzpvej8UQqzHECA9
-	Z6jpI3B/faMmbRCtosYg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LQooCtWo+VYL7ohnPkIv6M8NGkId9fwLAg+gIOe9Cts=; b=uakWiklIpZ6Pgo
+	eFA9tIpUzRKdh1NJal++GOcZR52DnHvgwQvsO6s53jO4Cqqvxyo0OkT9Rq8pR66pvaQjSKbxL0O1Q
+	k2iLBoePxF/DAV4ex/VtkK5nrmNcV5hvcnNSeAujCFpmoQ1BVa3hrlNjdMFUVqft91P48BmGm9mFs
+	yXZ1gaDS07BlHWB6HynPUHLLs2s1YeVCCEAINYZRdvkQ5G8LL1UTEyDcvVBzVI6D1p+dhO3vl7gmQ
+	56YSLN4Xd5PnhYCZ01uGo4FQuIfzjA7vgg+NU0tR6OSrFQXMDALzLbiH97mBycbEhZMa3sDY4GSkj
+	2vk2EwIN4G0SCpoJeq3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBbW-0000000Ee6Z-2zmW;
-	Mon, 29 Jun 2026 13:00:50 +0000
-Received: from mail-centralusazon11010036.outbound.protection.outlook.com ([52.101.61.36] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1weBhL-0000000EfPM-0OHF;
+	Mon, 29 Jun 2026 13:06:51 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBbO-0000000Ee5T-0DCa
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 13:00:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q3qOcA6b70osO/fUDmSvNYDiNU+mo/vG5cw//QcuWeaB1Pi8YLedIW+Xg9cog/6mXPoBAc23wDHZyXLo7k8w4QaqNaLJBAZpvN73wGxxU59cJz2aS4Hrn+QO0GaY2/ScfpKoI9PVxt3pRrwrKRSw55grG6laWrwZPKyhyHqPg09v2aziijomhrd8T9m8PFs3D99NKpr9IPf+oByAE6mwaJ6rzPHl865FRWc7ZSO66kxGHtCkeZ6I02+4PskFoq/xNzUplOLY2fgh/OjKHon6WiJHj6/pduZ/MIAB1Ql2aflJajaa330P9sQk2ltioy97HqWNpS13CJw9xcyWR1RVDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2TQlgV0R06Xbv0dZxV4JGdC2mBpSMoIZ/kuCEsOlKx4=;
- b=O7Sb4/oSuICZ7EqYZP7cJhsjWSoYGAnSXaSaq++HFKSIfre6Uo2ryvb4lDzJ764bXH9OHhXiNEg9Q1mvjevQX9Q180hsfICyOZRi3MBuBw4Ow6vcle9dZwtA88s7XIxIcxzDVtYpboZIYA6z2Qsw9tjN1/q7n3ZNgO0B4z/ft9xqrGme2w33/qwG4RORqwwxcJgter6yLZXAlyqXmgbbvbCJ+ENrI5MQhejLbdGBAI45CdN1LMz0roin1vTBBqpTyr66Im6yMjZTWulrwblRmp/hheRasD44wldULzccAuE5HxJuEr8zM23qFlTjrh3KfU+h4dSyBNaYOSnJuK0cSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2TQlgV0R06Xbv0dZxV4JGdC2mBpSMoIZ/kuCEsOlKx4=;
- b=Eq1fZ+Xr3kZB+Dy7W7ja8G1jDv5XlMX+cnIpvqNIyMEKyDSs5QT36A2NplSvQi/PNz3YHuISdJHYSWcLs+LHSedaNi2G4NYxs2d8AS+ck7cZHwRTw8YR3ihPU4uEjVD9Zo65Trb75AZaRohKByJWeue34wh3jQz9dReoN93YzkKtfE1/GJhyVAf4Y9kWn/2I3bD9hbdT2BdM2cbKcLojx2goA3a1dimbKjfIiM5kUKEPbS58il9BjA7/dWh1Wv3NlFdlQunCKzO7FZDvFduQM4oszH6VdRFyasZ1daxHBZ12ZHapgYQcm8Lcripo7wnsedlLzFm1FDZ5v9/KnUdgUg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
- by DS0PR12MB8271.namprd12.prod.outlook.com (2603:10b6:8:fb::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.159.19; Mon, 29 Jun 2026 13:00:23 +0000
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989%4]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
- 13:00:23 +0000
-Date: Mon, 29 Jun 2026 22:00:19 +0900
-Message-Id: <DJLJVW1OUBZ1.2X2T2M2SU8BOI@nvidia.com>
-Cc: "Tim Kovalenko" <tim.kovalenko@proton.me>, "Alice Ryhl"
- <aliceryhl@google.com>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
- <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
- Gross" <tmgross@umich.edu>, <nova-gpu@lists.linux.dev>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <rust-for-linux@vger.kernel.org>
-Subject: Re: [PATCH v2] gpu: nova-core: falcon: store bar and dev in falcon
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Danilo Krummrich" <dakr@kernel.org>
-References: <20260625-drm-bar-refactor-v2-1-9db6b890d92e@proton.me>
- <DJLIEZJL9ZS6.J2642U4G4CT4@nvidia.com>
- <a9f1b6a5-ccf5-4bb1-96a8-54a3ed8f3f81@kernel.org>
-In-Reply-To: <a9f1b6a5-ccf5-4bb1-96a8-54a3ed8f3f81@kernel.org>
-X-ClientProxiedBy: OS7PR01CA0157.jpnprd01.prod.outlook.com
- (2603:1096:604:24d::20) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+	id 1weBhG-0000000EfN1-08Gw;
+	Mon, 29 Jun 2026 13:06:48 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=oqt98KNiCfytd9je3A0RWaDEub1SoEsJvKXmHYAhpA0=;
+	b=ggJG6jKIceMr3g60Z1K5gohGiSNMQdcy54004MjW9vQDl4Z3N88jP9qlz2LyqYwtKjt2Ro2Ql
+	dcS+ZZElKSN+dQa6pVya75IHqaTPhjRhLpAzzwdE7tX8hwohhA97kSbBzrXBXKbFMyW3jMU6zI0
+	YF/YokD8vYpNatFoteOUTNw=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gpmXb70wbzcbQ8;
+	Mon, 29 Jun 2026 20:57:51 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id EC0DF40579;
+	Mon, 29 Jun 2026 21:06:38 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 29 Jun
+ 2026 21:06:34 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <oleg@redhat.com>, <richard.henderson@linaro.org>, <mattst88@gmail.com>,
+	<linmag7@gmail.com>, <linux@armlinux.org.uk>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <kees@kernel.org>, <guoren@kernel.org>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <geert@linux-m68k.org>,
+	<tsbogend@alpha.franken.de>, <James.Bottomley@HansenPartnership.com>,
+	<deller@gmx.de>, <maddy@linux.ibm.com>, <mpe@ellerman.id.au>,
+	<npiggin@gmail.com>, <chleroy@kernel.org>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<hca@linux.ibm.com>, <gor@linux.ibm.com>, <agordeev@linux.ibm.com>,
+	<borntraeger@linux.ibm.com>, <svens@linux.ibm.com>,
+	<ysato@users.sourceforge.jp>, <dalias@libc.org>,
+	<glaubitz@physik.fu-berlin.de>, <richard@nod.at>,
+	<anton.ivanov@cambridgegreys.com>, <johannes@sipsolutions.net>,
+	<luto@kernel.org>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <chris@zankel.net>,
+	<jcmvbkbc@gmail.com>, <peterz@infradead.org>, <wad@chromium.org>,
+	<ruanjinjie@huawei.com>, <thuth@redhat.com>, <mark.rutland@arm.com>,
+	<ada.coupriediaz@arm.com>, <kevin.brodsky@arm.com>, <linusw@kernel.org>,
+	<yeoreum.yun@arm.com>, <song@kernel.org>, <james.morse@arm.com>,
+	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <liqiang01@kylinos.cn>,
+	<pengcan@kylinos.cn>, <ryan.roberts@arm.com>, <yangtiezhu@loongson.cn>,
+	<sshegde@linux.ibm.com>, <mchauras@linux.ibm.com>, <austin.kim@lge.com>,
+	<jchrist@linux.ibm.com>, <arnd@arndb.de>, <thomas.weissschuh@linutronix.de>,
+	<sohil.mehta@intel.com>, <andrew.cooper3@citrix.com>, <jgross@suse.com>,
+	<kas@kernel.org>, <x86@kernel.org>, <linux-alpha@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mm@kvack.org>, <linux-csky@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linux-m68k@lists.linux-m68k.org>,
+	<linux-mips@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
+	<linux-um@lists.infradead.org>
+Subject: [PATCH v16 00/18] arm64: entry: Convert to Generic Entry
+Date: Mon, 29 Jun 2026 21:05:58 +0800
+Message-ID: <20260629130616.642022-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|DS0PR12MB8271:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a770e54-cdf9-47fe-d6c3-08ded5de61ca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|7416014|23010399003|366016|1800799024|56012099006|4143699003|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: 6ZgdL0u6oChxHLLAHSbPNmn+c2/S5eXbTiLJpRqAmJH7nqRAAIbgNoQXO3BSr+p5e7GRYMqcZOsmmUhcs1HtpT74glfx7gfRwAfP/UEdObB5D/vMR1DGLcIGNbHcAVjt/DfFQsG/APJr440c4BXEvZuTeGV6MaJv6Ok3O5HjfNQyWENm8RyrT2+EtNfgoAVlXIWpHZ55H9Kw59sKpNbVfYi9lY4Y3y3bHbJEf0mp4AvH4udVTvmUDKeAGLXpfFoAoZtSJv9fRD90/sABlmePAhvYymO5OzHRv3M4VtbraywvW60gWz6IRI094Jmcnumpzye2CFRIWYPo4VpyzY4QCWyYb3RWnvYfu9qiZTrOskCiW9k6Ty8B0ag2+bpmR5fp9ngVLNQp4W1Qd0xsGyPFkil/tbiZXW9goXCJUrbS/V1fTXcxx8fiIys39bjL/7tHMlEm0bAOG3cXpSPINKdZhbrKW+ki1Szm7WkoZE74uC6pDZ25lVKZEAgYYUjb0XN5pBBtAn8W7IEDxQN873rZwBJ0JgM2mt3KoMKwzOqggIZ/wI9tLbgWo8O7kudVshxeKLrtdLytQTE8GX9RA6FJCaJRlK7MCkmEHDic2JaC0n2DhaDH0ZPD9d+yQYF0gvMtpX85WDpAIbE+0EemU/SvM4FyGz5mn74kCX8to383VQs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(7416014)(23010399003)(366016)(1800799024)(56012099006)(4143699003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WFVHdzFJY1VWcFFsSDJHNUFpV0d6SGxJK0JyVmJNUWVDN1k3MUY2NEN6bXlD?=
- =?utf-8?B?OWFEbFpwK2NKUklUWU50ZGdmS3pTSksxU2RtK1krVWRIRUppUXFSNGprUGtv?=
- =?utf-8?B?ejVLd3ZzQzJtQldNclZGajk5eUNzeGcvazlXVlB2bWZENERBeU9mQi9pdVEz?=
- =?utf-8?B?NDZ4ZGhsZHFDcGQrTGpHQVF5a0IwVlVOUGFnUzlZMUlKU25Gc2J5NlNKK1lS?=
- =?utf-8?B?bjR4YUdaajlwTU5CdFV1MFByRFJRRm8zTjZpQWJGYXBXbGZDeU5hVlltRElO?=
- =?utf-8?B?c3pOK2NxSWlTYzdySUF1Q0JKWFJTZ0tQWnM2MUQ2UXJCVWVYMDM3SmJFUHEz?=
- =?utf-8?B?U2tnREoydDZTMTF0UlhHd2Z0RGx6d0JhV2lzV05aandCdFdydVFuY3JWbHc5?=
- =?utf-8?B?SXJ5WFJQekU1OVp1Ym9QQTA0UVE1N0dlcG12dTcwZDdjb0lJVjM5SW9nTmMx?=
- =?utf-8?B?bytTaUYwNm83RzFJMUo4dXJHWkZxRmlwbVUwZkFuampHeDcwK09RRzdDZzNH?=
- =?utf-8?B?bjB6ZDRJdnBGLy8wS21oemZpdWxUb2lCTWY1aVV2NEVVa3QrMHc3WHdzTzA5?=
- =?utf-8?B?dlJuMGEzQXpRWFRVTG5NY0FsMVEvcm9pRHNvakxUZkpFR3J6cWJicms3YVRu?=
- =?utf-8?B?ZHA4bXR4cFY4dkdZQ2c4dGFXWU9WeFZHYk5adnF6QVR5R1M0Y3JBTUNiVFI3?=
- =?utf-8?B?bUhSZFE1RVY2c3BjWjlOTnVsMXhGQXpOUlRrdm5zVzM0anp4a0RFQis2NDM5?=
- =?utf-8?B?ZzFiVmlORGR3Um9DUXNLeUJ2YnBIekczWnhYcVMzbW5UUUxpbkswZGZRZDBV?=
- =?utf-8?B?K2VKNEQraW1ucDdwWWJuOFgxU3phVnRhSUJML3NjTGp4WkZFWU0zV25jcnlQ?=
- =?utf-8?B?T1pBSlk0MUI3SDFoSlNIUUIvRld6WFN0QWNzUFBhVWo0dkhCMnFMbXU3NmxP?=
- =?utf-8?B?TnBDM3BaVy9aSVorT2ZSSTNPSWREMGZrZDV0RGQxNWVnTzNwZngwUk9FTTZT?=
- =?utf-8?B?YWJ5NWtRYWh1QllGdHlJWmRLYUd0WDNnL3NGM1dlemM0clpyaXlmNlVLTkdF?=
- =?utf-8?B?a3I5WW1qYjltellQNkcvNmNmUkdscTQrb1Iwck1TSkI5UlVTM1A4Y0w0K1pZ?=
- =?utf-8?B?aWEyZEo1UE15eENrRExXbTNYTjFyQU9oNExjYkNlRzRzalJkdjViNlFETmVG?=
- =?utf-8?B?S0JzcjNUQ3BVWnRJamdGNGxIb1BuS3AwS2tEYXNNSTAwNHNCN1pCTFN0MHJl?=
- =?utf-8?B?elJnZ3llMFlkSTdkTzdqbUNCNHJZVU8zakl5bnIxVDV0UU1Jb0xHbHVjdktV?=
- =?utf-8?B?L0phQnBMRWlKbUVXUkZEN2Zrdm1UYnFiaEJiNEh0cWFCdktoUnFXa05hOER3?=
- =?utf-8?B?Zm13R3FwSll1UWUwcDdxak5ZeWo3QTJzZitUTHJNZFNQaktvSSt3U0pnRGZ3?=
- =?utf-8?B?WFAyeUxaM25xcDhDNFgwbUFCVWp0MG01aGlQakh5WGZUQXRtMk1kODFwQ2FW?=
- =?utf-8?B?K2M0TlE1eU4ybExVRThFNm9xTjI4K2FucEcwWmhQMWFqTlp0N0RNVVJHUUgz?=
- =?utf-8?B?VHdGMlhXdTd1cmJta3UzWTFLVVVFS2IwZnhJTnBzeEhxR0hoWkpRWVdjN3Rj?=
- =?utf-8?B?K1dRWGdOVVhCMlp5YU9UMGt6NzRHdUZ5RFZrNEZGZ3JrTGRtbUlJSThzZVJm?=
- =?utf-8?B?OGNFVldweCtkdTNCSFFiZ1JBdnBnSkt0eWQ1ZDBVVXpVOFlkWGFuRjFXaG95?=
- =?utf-8?B?U3NBKzFJQkJtNjdnaVB6VE84RS84by9kTnJVdy9IL0hBMVJhQUdsVEdrYmU5?=
- =?utf-8?B?STNRcUcwUVF3MVRBdDdaMVR4RkZjeERtUXlkSFBTN1Z3N2pyTmhSbEJ1UnpL?=
- =?utf-8?B?S2JjdWs0N2srcEp3VHRWOS93MmUzWmxuYll5VldUVzhtNFEzeGZRTEFWSWhW?=
- =?utf-8?B?U1FCTXV3MHlFdUV3VW1DUTlET2hsT2NMNEFTaUJLQnBRdzJKWFFMYXZwL3dM?=
- =?utf-8?B?MTFjY0FHL1lWemducys3ckpiVlo4bVFHdWJZUm9JekNod1FjRml4RkVXc1dH?=
- =?utf-8?B?R3BreGlKT3BpTW05bnhNNElkWjBmc3g0TzNCMTlWVXNtaTBBUXZEdStSeXJU?=
- =?utf-8?B?eXFMM0kvYURSQy81RnVKSXZxcEIzbUhJOWdRengyR0tnemhOeUlyMWZuK1N6?=
- =?utf-8?B?K2FucTJrTGFwRERJQW1MNU9TSjFyOFQ2VlFNVFIyeEZSeEFpK2NFQ1pnWWMy?=
- =?utf-8?B?NVQwYUhBeUIvc3htVnFuak9ERkhSMk9rY1hHZnNkZ0RZRm9zSlBBbEZxeGcr?=
- =?utf-8?B?L21tTk9mblQvNXFoNEVCdkVXamE2bkxrKzhnSkl1SkxFMm9FbHFjOTV5Tzgv?=
- =?utf-8?Q?hS56s8KeDzIEakfvMzyLSTUOI8iZ5VlMagbXxicjsgB5R?=
-X-MS-Exchange-AntiSpam-MessageData-1: yNDPNS2xS3SSIQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a770e54-cdf9-47fe-d6c3-08ded5de61ca
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 13:00:23.5175
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GOtHQbic9H8S1ebM2Nj6PMDpzerjXO9P7nw0L6Z8Iy863G9baApMIoeZ/FFRDTUTMPfuneXm5s0TnmAyizt6AA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8271
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_060042_097026_0F45C615 
-X-CRM114-Status: UNSURE (   5.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260629_060646_423957_D2196A3D 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,17 +103,225 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon Jun 29, 2026 at 8:53 PM JST, Danilo Krummrich wrote:
-> On 6/29/26 1:51 PM, Alexandre Courbot wrote:
->> Danilo, any objection?
->
-> Please do,
->
-> Acked-by: Danilo Krummrich <dakr@kernel.org>
->
-> Thanks!
+This is the 16th iteration of the patch series. I would like to express
+my sincere gratitude to everyone who has contributed to the reviews
+and testing across the previous versions, which helped significantly
+refine this work.
 
-Pushed to drm-rust-next! Thanks everyone.
+Currently, architectures such as x86, Riscv, Loongarch use the Generic
+Entry, which significantly eases maintenance burden and improves
+code elegance. Given that arm64 has already successfully adopted
+the Generic IRQ Entry in commit b3cf07851b6c ("arm64: entry: Switch to
+generic IRQ entry"), it is now the right time to completely convert arm64
+to the Generic Entry infrastructure.
+
+The objective of this series is to bring arm64 in line with other major
+architectures, reducing duplicated boilerplate code and simplifying the
+sharing of future improvements in entry/exit paths, such as "Syscall User
+Dispatch" and "rseq time slice extension" optimizations.
+
+This patch set is rebased on v7.2-rc1. It contains the foundational
+updates required for arm64. Following the suggestion from Linus Walleij,
+these patches are being submitted separately for inclusion via
+the arm64 tree.
+
+Performance benchmarks were conducted on a "Kunpeng HIP09" platform with
+kernel auditing enabled. The results are detailed below:
+
+1. perf bench syscall usec/op (-ve is improvement)
+
+        | Syscall | Base        | Generic Entry | change % |
+        | ------- | ----------- | ------------- | -------- |
+        | basic   | 0.223       | 0.218         | -2.25    |
+        | execve  | 799.564     | 787.849       | -1.47    |
+        | fork    | 1088.503    | 1096.920      | +0.77    |
+        | getpgid | 0.218       |  0.122        | -0.47    |
+
+2. perf bench syscall ops/sec (+ve is improvement)
+
+        | Syscall | Base     | Generic Entry| change % |
+        | ------- | -------- | ------------ | -------- |
+        | basic   | 4475386  | 4578820      | +2.31    |
+        | execve  | 1250     | 1269         | +1.54    |
+        | fork    | 918      | 911          | -0.74    |
+        | getpgid | 4587781  | 4607488      | +0.43    |
+
+Overall, the syscall performance remains largely neutral, with minor
+variations ranging from a 0.8% regression to a 2.3% improvement, which
+is within normal measurement tolerance.
+
+Tested successfully on "Kunpeng HIP09" using the following test cases:
+ - stress-ng: CPU, Virtual Memory, Syscall, and Interrupt stress tests.
+ - hackbench: Evaluated in both thread and pipe modes.
+ - kselftests (ptrace): get_syscall_info, set_syscall_info, peeksiginfo.
+ - kselftests (breakpoints): breakpoint_test_arm64.
+ - kselftests (arm64/abi): syscall-abi and ptrace.
+ - kselftests (arm64/fp): fp-ptrace, sve-ptrace, and za-ptrace.
+ - kselftests (vDSO): vdso_test_getrandom.
+ - Ptrace stress test: tracing stress-ng system calls under load.
+ - Pseudo-NMI load test using perf.
+
+Changes in v16:
+- Rebased on v7.2-rc1.
+- Convert __secure_computing() to return boolean as Thomas suggested.
+- Introduce a weak vesion for arch_syscall_is_vdso_sigreturn()
+  to simplify the code.
+- Split out the implementation of arch_syscall_is_vdso_sigreturn()
+  into a separate patch to facilitate reviewing.
+- Break down the syscall_exit_to_user_mode_work() refactoring into
+  5 smaller, bite-sized patches for easier review and justification.
+- Update the comment and commit message as Ada suggeted.
+- Clarify patch titles and align title prefixes for consistency.
+- Collect Reviewed-by and Tesed-by.
+- Link to v15: https://lore.kernel.org/all/20260511092103.1974980-1-ruanjinjie@huawei.com/
+
+Changes in v15:
+- Rebased on v7.1-rc1 and Mark's fix patch in [1].
+- Solve issues Sashiko AI pointed out, "Fix potential syscall truncation
+  in syscall_trace_enter()".
+- Make syscall_exit_to_user_mode_work() __always_inline to keep
+  the fast-path performance as Sashiko pointed out.
+
+Changes in v14:
+- Initialize ret = 0 in syscall_trace_enter().
+- Split into two patch sets as Linus Walleij suggested, so this patch set
+  can be applied separately to the arm64 tree.
+- Rebased on arm64 for-next/core branch.
+- Collect Reviewed-by and Acked-by.
+- Link to v13 resend: https://lore.kernel.org/all/20260317082020.737779-15-ruanjinjie@huawei.com/
+
+Changes in v13 resend:
+- Fix exit_to_user_mode_prepare_legacy() issues.
+- Also move TIF_SINGLESTEP to generic TIF infrastructure for loongarch.
+- Use generic TIF bits for arm64 and moving TIF_SINGLESTEP to
+  generic TIF for related architectures separately.
+- Refactor syscall_trace_enter/exit() to accept flags and Use
+  syscall_get_nr() helper separately.
+- Tested with slice_test for rseq optimizations.
+- Add acked-by.
+- Link to v13: https://lore.kernel.org/all/20260313094738.3985794-1-ruanjinjie@huawei.com/
+
+Changes in v13:
+- Rebased on v7.0-rc3, so drop the firt applied arm64 patch.
+- Use generic TIF bits to enables RSEQ optimization.
+- Update most of the commit message to make it more clear.
+- Link to v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
+
+Changes in v12:
+- Rebased on "sched/core", so remove the four generic entry patches.
+- Move "Expand secure_computing() in place" and
+  "Use syscall_get_arguments() helper" patch forward, which will group all
+  non-functional cleanups at the front.
+- Adjust the explanation for moving rseq_syscall() before
+  audit_syscall_exit().
+- Link to v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
+
+Changes in v11:
+- Remove unused syscall in syscall_trace_enter().
+- Update and provide a detailed explanation of the differences after
+  moving rseq_syscall() before audit_syscall_exit().
+- Rebased on arm64 (for-next/entry), and remove the first applied 3 patchs.
+- syscall_exit_to_user_mode_work() for arch reuse instead of adding
+  new syscall_exit_to_user_mode_work_prepare() helper.
+- Link to v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
+
+Changes in v10:
+- Rebased on v6.19-rc1, rename syscall_exit_to_user_mode_prepare() to
+  syscall_exit_to_user_mode_work_prepare() to avoid conflict.
+- Also inline syscall_trace_enter().
+- Support aarch64 for sud_benchmark.
+- Update and correct the commit message.
+- Add Reviewed-by.
+- Link to v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
+
+Changes in v9:
+- Move "Return early for ptrace_report_syscall_entry() error" patch ahead
+  to make it not introduce a regression.
+- Not check _TIF_SECCOMP/SYSCALL_EMU for syscall_exit_work() in
+  a separate patch.
+- Do not report_syscall_exit() for PTRACE_SYSEMU_SINGLESTEP in a separate
+  patch.
+- Add two performance patch to improve the arm64 performance.
+- Add Reviewed-by.
+- Link to v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
+
+Changes in v8:
+- Rename "report_syscall_enter()" to "report_syscall_entry()".
+- Add ptrace_save_reg() to avoid duplication.
+- Remove unused _TIF_WORK_MASK in a standalone patch.
+- Align syscall_trace_enter() return value with the generic version.
+- Use "scno" instead of regs->syscallno in el0_svc_common().
+- Move rseq_syscall() ahead in a standalone patch to clarify it clearly.
+- Rename "syscall_trace_exit()" to "syscall_exit_work()".
+- Keep the goto in el0_svc_common().
+- No argument was passed to __secure_computing() and check -1 not -1L.
+- Remove "Add has_syscall_work() helper" patch.
+- Move "Add syscall_exit_to_user_mode_prepare() helper" patch later.
+- Add miss header for asm/entry-common.h.
+- Update the implementation of arch_syscall_is_vdso_sigreturn().
+- Add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP | SYSCALL_EMU"
+  to keep the behaviour unchanged.
+- Add more testcases test.
+- Add Reviewed-by.
+- Update the commit message.
+- Link to v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
+
+Jinjie Ruan (18):
+  seccomp: Convert __secure_computing() to return boolean
+  syscall_user_dispatch: Introduce a weak fallback for
+    arch_syscall_is_vdso_sigreturn()
+  arm64: ptrace: Pass thread flags to syscall_trace_enter/exit()
+  arm64: ptrace: Use syscall_get_nr() helper for syscall_trace_enter()
+  arm64: ptrace: Expand secure_computing() in place
+  arm64: ptrace: Use syscall_get_arguments() helper for audit
+  arm64: ptrace: Protect rseq_syscall() from tracer PC modifications
+  arm64: ptrace: Rename syscall_trace_exit() to syscall_exit_work()
+  arm64: syscall: Rework the syscall exit path in el0_svc_common()
+  arm64: ptrace: Extract syscall_exit_to_user_mode_work() helper
+  arm64: ptrace: Align syscall exit work semantics with generic entry
+  arm64: syscall: Use exit-specific flags check in el0_svc_common()
+  arm64: syscall: Simplify el0_svc_common() syscall exit path
+  arm64: syscall: Simplify syscall exit path in el0_svc_common()
+  arm64: ptrace: Skip syscall exit reporting for
+    PTRACE_SYSEMU_SINGLESTEP
+  arm64: entry: Convert to generic entry
+  arm64: Inline el0_svc_common()
+  arm64: vdso: Expose sigreturn address on vdso to the kernel
+
+ arch/alpha/kernel/ptrace.c            |   2 +-
+ arch/arm/kernel/ptrace.c              |   2 +-
+ arch/arm64/Kconfig                    |   2 +-
+ arch/arm64/include/asm/elf.h          |   1 +
+ arch/arm64/include/asm/entry-common.h |  76 +++++++++++++++++
+ arch/arm64/include/asm/syscall.h      |   4 +-
+ arch/arm64/include/asm/thread_info.h  |  16 +---
+ arch/arm64/kernel/debug-monitors.c    |   8 ++
+ arch/arm64/kernel/ptrace.c            | 115 --------------------------
+ arch/arm64/kernel/signal.c            |   2 +-
+ arch/arm64/kernel/syscall.c           |  30 ++-----
+ arch/arm64/kernel/vdso.c              |  16 ++++
+ arch/csky/kernel/ptrace.c             |   2 +-
+ arch/loongarch/include/asm/syscall.h  |   5 --
+ arch/m68k/kernel/ptrace.c             |   2 +-
+ arch/mips/kernel/ptrace.c             |   2 +-
+ arch/parisc/kernel/ptrace.c           |   2 +-
+ arch/powerpc/include/asm/syscall.h    |   5 --
+ arch/riscv/include/asm/syscall.h      |   5 --
+ arch/s390/include/asm/syscall.h       |   5 --
+ arch/sh/kernel/ptrace_32.c            |   2 +-
+ arch/um/kernel/skas/syscall.c         |   2 +-
+ arch/x86/entry/vsyscall/vsyscall_64.c |   2 +-
+ arch/xtensa/kernel/ptrace.c           |   3 +-
+ include/linux/entry-common.h          |   7 +-
+ include/linux/seccomp.h               |  10 +--
+ include/linux/syscall_user_dispatch.h |   1 +
+ kernel/entry/syscall_user_dispatch.c  |   5 ++
+ kernel/seccomp.c                      |  34 ++++----
+ 29 files changed, 154 insertions(+), 214 deletions(-)
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
