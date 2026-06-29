@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0F0C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 09:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A3BC43327
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 09:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fNdfCOND+EQFzncsJ8h1Vqc/T2j6W5fkDuhtUJB98HU=; b=CiriA6lP0CsWKB
-	Rd+2ThufgiXEirplqN9sqwE0c5updBqvh/ySwcrNSXyVwcHWjOwri0V6Gt1Wbq1pS0aDKj/Co4Eud
-	xqnmxe/5osjeniskSNA8llVkTUeEPdZqGD7z8Oj7Qj2g7QYvGgoEwMAr6O8CDmn5PCrFgg9fLjy8y
-	7Saxu82LZ9kM79Hv1u17mDRE6r1HOZpS5opySH9W3zVkfZ9z6Kvgcrj0YCuc44WdUf/ZyWbf6C7/l
-	5rD9yDcJ9VNH2RK36EPPQbDgr+hgE9nL3hhWvCUcRFUnydOchZ1UJ2V2NncmBp0zLH7qj94oCXAA9
-	stlhTc1h4S+AlTY2dFBQ==;
+	List-Owner; bh=Rj7eOiW3iWyqyA4cAjZrTIhOBjOVUaECQlydb/POwLQ=; b=2mje8YnaMNeQBp
+	Oj3iEt99JTfZMCsu79QZFv/3ffAStLW7RD2TkzyBBQNPHEyirwSJbbvvVQxe271GoPZyvorv9J+5V
+	8YvoS5b6TYWMjTbuSXxQvff2ap4b9sAHw8rwzTFYOQ7yLP+By4RdfZEwOrU8hL9kW0QCUaGReNCHc
+	mnRW+l9V3lVr4uSr55sBbVqbc4NBExlDEwyAeN7Z7FZ1QrJbJ2dMb/WQsVQgmeeg3wloUXswA5nMJ
+	mWb64WGCdBVChU50ft3/z28Y0510ARdp0Cqmks3k+v1nPhSGJP1Oj+TJZFplIxjGQFaO7JNxaW+An
+	HrlWfIFbGWsxIPYtzT/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8bD-0000000EEgs-2qdZ;
+	id 1we8bD-0000000EEgJ-1tSQ;
 	Mon, 29 Jun 2026 09:48:19 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8b9-0000000EEZV-1C6a;
-	Mon, 29 Jun 2026 09:48:17 +0000
+	id 1we8b9-0000000EEaR-0gAD;
+	Mon, 29 Jun 2026 09:48:16 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=BpiTmiKO/jR6uJtPelSfWJ6COHNPsfczIyT8iLEdwQs=;
-	b=HOKCAxInY51ybme2lHBuP/F9g2ABpMqP0Y0/gfzERBhyjr7mxtHa27nul4tSDagrYoblr8vwu
-	5leR/2XG7DO89AYw1qFa/IgIR3gXfC91CaNhWuIQF/IxHW+D2Y2spP30BavW6vmOCg3Bd5OAuzA
-	Wz4ESTe0QGUAEO9ci7ccZek=
+	bh=/KNrfwy/46ciNtz3WlJ+PmQJtYTserIzNJqhu5VMOdE=;
+	b=xX5pb4oZQl8S3LFkQ+XNSPCyGxnv6wDluapLBmoBeBcPAdVuFRzOhVKXPxBT3jR8oq75lFl/4
+	uah02exL968DlGDw0uBXUyrlRTGs2JQXhO/4gLuWhheWz5GbDTgIFCGIUw8VK4RJryeaqYSWG6r
+	NvJcY4n4wSs66L1VJbxxM6M=
 Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gph815Xr0zpStT;
-	Mon, 29 Jun 2026 17:39:45 +0800 (CST)
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gph7d6V4pz12LGQ;
+	Mon, 29 Jun 2026 17:39:25 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 50F5C4056E;
-	Mon, 29 Jun 2026 17:48:02 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2590D40572;
+	Mon, 29 Jun 2026 17:48:10 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 29 Jun
- 2026 17:47:59 +0800
+ 2026 17:48:02 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
@@ -70,9 +70,9 @@ To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
 	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v17 06/10] riscv: kexec_file: Use crash_prepare_headers() helper to simplify code
-Date: Mon, 29 Jun 2026 17:47:42 +0800
-Message-ID: <20260629094746.191843-7-ruanjinjie@huawei.com>
+Subject: [PATCH v17 07/10] LoongArch: kexec_file: Use crash_prepare_headers() helper to simplify code
+Date: Mon, 29 Jun 2026 17:47:43 +0800
+Message-ID: <20260629094746.191843-8-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260629094746.191843-1-ruanjinjie@huawei.com>
 References: <20260629094746.191843-1-ruanjinjie@huawei.com>
@@ -81,8 +81,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_024815_685643_AF31D853 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20260629_024815_509072_69FF3F99 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,77 +104,74 @@ the existing prepare_elf_headers(), allocate cmem and exclude crash kernel
 memory in the crash core, which reduce code duplication.
 
 Only the following two architecture functions need to be implemented:
-- arch_get_system_nr_ranges(). Call get_nr_ram_ranges_callback()
-  to pre-counts the max number of memory ranges.
+- arch_get_system_nr_ranges(). Use for_each_mem_range to traverse
+  and pre-count the max number of memory ranges.
 
-- arch_crash_populate_cmem(). Use prepare_elf64_ram_headers_callback()
-  to collects the memory ranges and fills them into cmem.
+- arch_crash_populate_cmem(). Use for_each_mem_range to traverse
+  and collect the memory ranges and fills them into cmem.
 
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Guo Ren <guoren@kernel.org>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: Youling Tang <tangyouling@kylinos.cn>
+Cc: Baoquan He <bhe@redhat.com>
 Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
 Acked-by: Baoquan He <bhe@redhat.com>
 Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/riscv/kernel/machine_kexec_file.c | 47 +++++++-------------------
- 1 file changed, 12 insertions(+), 35 deletions(-)
+ arch/loongarch/kernel/machine_kexec_file.c | 40 +++++++---------------
+ 1 file changed, 12 insertions(+), 28 deletions(-)
 
-diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-index fa2946aa9b8f..1dfb1d9eb691 100644
---- a/arch/riscv/kernel/machine_kexec_file.c
-+++ b/arch/riscv/kernel/machine_kexec_file.c
-@@ -45,6 +45,15 @@ static int get_nr_ram_ranges_callback(struct resource *res, void *arg)
- 	return 0;
+diff --git a/arch/loongarch/kernel/machine_kexec_file.c b/arch/loongarch/kernel/machine_kexec_file.c
+index 5584b798ba46..5412aa9f3568 100644
+--- a/arch/loongarch/kernel/machine_kexec_file.c
++++ b/arch/loongarch/kernel/machine_kexec_file.c
+@@ -56,46 +56,30 @@ static void cmdline_add_initrd(struct kimage *image, unsigned long *cmdline_tmpl
  }
  
-+unsigned int arch_get_system_nr_ranges(void)
-+{
-+	unsigned int nr_ranges = 2; /* For exclusion of crashkernel region */
-+
-+	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
-+
-+	return nr_ranges;
-+}
-+
- static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
- {
- 	struct crash_mem *cmem = arg;
-@@ -56,41 +65,9 @@ static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
- 	return 0;
- }
- 
+ #ifdef CONFIG_CRASH_DUMP
+-
 -static int prepare_elf_headers(void **addr, unsigned long *sz)
-+int arch_crash_populate_cmem(struct crash_mem *cmem)
++unsigned int arch_get_system_nr_ranges(void)
  {
+-	int ret, nr_ranges;
+-	uint64_t i;
++	int nr_ranges = 2; /* for exclusion of crashkernel region */
+ 	phys_addr_t start, end;
 -	struct crash_mem *cmem;
--	unsigned int nr_ranges;
--	int ret;
--
--	nr_ranges = 2; /* For exclusion of crashkernel region */
--	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
--
++	uint64_t i;
+ 
+-	nr_ranges = 2; /* for exclusion of crashkernel region */
+ 	for_each_mem_range(i, &start, &end)
+ 		nr_ranges++;
+ 
 -	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
 -	if (!cmem)
 -		return -ENOMEM;
--
++	return nr_ranges;
++}
++
++int arch_crash_populate_cmem(struct crash_mem *cmem)
++{
++	phys_addr_t start, end;
++	uint64_t i;
+ 
 -	cmem->max_nr_ranges = nr_ranges;
 -	cmem->nr_ranges = 0;
--	ret = walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
--	if (ret)
--		goto out;
--
+ 	for_each_mem_range(i, &start, &end) {
+ 		cmem->ranges[cmem->nr_ranges].start = start;
+ 		cmem->ranges[cmem->nr_ranges].end = end - 1;
+ 		cmem->nr_ranges++;
+ 	}
+ 
 -	/* Exclude crashkernel region */
 -	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
--	if (ret)
+-	if (ret < 0)
 -		goto out;
 -
 -	if (crashk_low_res.end) {
 -		ret = crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
--		if (ret)
+-		if (ret < 0)
 -			goto out;
 -	}
 -
@@ -183,19 +180,19 @@ index fa2946aa9b8f..1dfb1d9eb691 100644
 -out:
 -	kfree(cmem);
 -	return ret;
-+	return walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
++	return 0;
  }
  
- static char *setup_kdump_cmdline(struct kimage *image, char *cmdline,
-@@ -282,7 +259,7 @@ int load_extra_segments(struct kimage *image, unsigned long kernel_start,
- 	if (image->type == KEXEC_TYPE_CRASH) {
+ /*
+@@ -163,7 +147,7 @@ int load_other_segments(struct kimage *image,
  		void *headers;
  		unsigned long headers_sz;
+ 
 -		ret = prepare_elf_headers(&headers, &headers_sz);
 +		ret = crash_prepare_headers(true, &headers, &headers_sz, NULL);
- 		if (ret) {
+ 		if (ret < 0) {
  			pr_err("Preparing elf core header failed\n");
- 			goto out;
+ 			goto out_err;
 -- 
 2.34.1
 
