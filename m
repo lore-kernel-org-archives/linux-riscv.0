@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D52C44501
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 13:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20393C44500
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 13:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gzfZQweS2SAqC0piu16IWnxfyg9DoaMYVJPVslEf4wA=; b=fc9rgJEK/Lsk2m
-	A4xm/jm5xR/AzhpyC7FYyby0KHgb1EnvLQbtK5jydLpzIi7J+vatMzdLtMhVadES/1LWcY64DaHex
-	5ynz25sqYSreSVXGnDAoBXCc141GAlS4t7Yj2AYj12sKdpHQFP9aHbGhgKzXRiY8BM80YV7PlJLP+
-	owCjDF2j6uDQB5P4ICP6TLb7O7UEgpfZnYqhPENbrjEgj3DVTOZOrKDg0ryj26dowmTLSk3CA4FMt
-	owwmPy9fwFMEP7/wh2foCt53UfaF6CkV1+PhISEu/RhrjKUUX0atsEszFv6KILXhLgPDjVZIZN9Me
-	cJyjzGlvYPt8FqkIRxvQ==;
+	List-Owner; bh=QaYTnEnu4b5bWVf090aoObeGV95HJvOvHMXiyHJ3zX8=; b=QnLeVj6EBE/3wU
+	CQKh148yHK4ubcZ0Nr+S6x5Di41K1yF+wf38TMyKsrhHiPxCpFvWQCmkaJR9L5d+AycsPnoYsG5ev
+	MCI4K2LIBwWxYEW2RF7G0ZdKlnSHQqFixuXeS1h6NbszMZIUsLC6I2CryDMYI2UJdIjumk6msVh8X
+	6sh9Vf7bxOKSif44gJDYLzamYiRX3/Cuvgv30lpriEkW3zEqIY1wxwE8Z5hC09dbk29FN5hg+Dn9v
+	KnDORmx5toQMJnL/f6Vr+EZ+WnAOXRIB/NHRyfJ7kIAwVBnHW5+QDkNGIy9Gk98eCBPbzCXatLZ7s
+	gXtkJDTFt6Oqr9gKMbHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBhL-0000000EfPV-1O73;
-	Mon, 29 Jun 2026 13:06:51 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1weBhW-0000000EfaE-1iMB;
+	Mon, 29 Jun 2026 13:07:02 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBhH-0000000EfNL-0WAX;
-	Mon, 29 Jun 2026 13:06:49 +0000
+	id 1weBhS-0000000EfTs-2881;
+	Mon, 29 Jun 2026 13:07:01 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=FpVjGy5aeSQhunvyi2Xuc17B04S0ouUuvQ1UWTRt8kU=;
-	b=1oRqDVskhXvBBhfXFGXA/VGmjs6PpdGVRH3eEmqLRJQ++ijTlR58/3gI/ZpmCgTpGAAVeeQCg
-	aHSAaWhdNUhXF4Azx2BJdalIk6wM0Mkt4YQXnGZtZRhVdxnN4E7kleGzp8DcUyHqvW5eXdyBXMH
-	YJic25lBt4YfanQBGOlklOw=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gpmXD0LGdzKm54;
-	Mon, 29 Jun 2026 20:57:32 +0800 (CST)
+	bh=2tgd8psQEJ0paMoFyhOqZDvuVvnTBva24LYJw5z0Xdw=;
+	b=obS3f4t/Ekl9z/a/IDOrh1hP+eobkVYySkiX1b4nRKIGKUjwYNdeXqhPgqRDKjsdtlCpqmeah
+	kFZXl4F2UaNIWX2ZKGvz+WWmGTLHxKiT4eIpFSMjifYhBYWT2dPpgX0Q9k4qXSG3boHoHWrzaD8
+	5I3q5Yw/kqi1eZkFX8mJEv4=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gpmXq1Rgkz1T4gT;
+	Mon, 29 Jun 2026 20:58:03 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1195040586;
-	Mon, 29 Jun 2026 21:06:43 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 532E62025F;
+	Mon, 29 Jun 2026 21:06:51 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 29 Jun
- 2026 21:06:38 +0800
+ 2026 21:06:47 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <oleg@redhat.com>, <richard.henderson@linaro.org>, <mattst88@gmail.com>,
 	<linmag7@gmail.com>, <linux@armlinux.org.uk>, <catalin.marinas@arm.com>,
@@ -76,9 +76,9 @@ To: <oleg@redhat.com>, <richard.henderson@linaro.org>, <mattst88@gmail.com>,
 	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
 	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
 	<linux-um@lists.infradead.org>
-Subject: [PATCH v16 01/18] seccomp: Convert __secure_computing() to return boolean
-Date: Mon, 29 Jun 2026 21:05:59 +0800
-Message-ID: <20260629130616.642022-2-ruanjinjie@huawei.com>
+Subject: [PATCH v16 03/18] arm64: ptrace: Pass thread flags to syscall_trace_enter/exit()
+Date: Mon, 29 Jun 2026 21:06:01 +0800
+Message-ID: <20260629130616.642022-4-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260629130616.642022-1-ruanjinjie@huawei.com>
 References: <20260629130616.642022-1-ruanjinjie@huawei.com>
@@ -87,8 +87,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_060647_486389_EC11295C 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20260629_060658_869184_40ED2E3E 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,383 +100,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The return value of __secure_computing() currently uses 0 to indicate
-that a system call should be allowed, and -1 to indicate that it should
-be blocked/killed. This 0/-1 pattern is non-intuitive for a security
-check function and makes the control flow at the call sites less readable.
-
-Furthermore, any potential future changes to these return values would
-require a high-risk, error-prone audit of all its users across different
-architectures.
-
-Sanitize this logic by converting the return type of __secure_computing()
-to a proper boolean, where 'true' explicitly means 'allow' and 'false'
-means 'fail/deny'.
-
-Update all the two dozen or so call sites across the tree to align with
-this new boolean semantic. No functional changes are intended, as the
-callers still return -1 to the lower-level assembly entry code upon
-seccomp denial.
-
-Suggested-by: Thomas Gleixner <tglx@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/alpha/kernel/ptrace.c            |  2 +-
- arch/arm/kernel/ptrace.c              |  2 +-
- arch/arm64/kernel/ptrace.c            |  2 +-
- arch/csky/kernel/ptrace.c             |  2 +-
- arch/m68k/kernel/ptrace.c             |  2 +-
- arch/mips/kernel/ptrace.c             |  2 +-
- arch/parisc/kernel/ptrace.c           |  2 +-
- arch/sh/kernel/ptrace_32.c            |  2 +-
- arch/um/kernel/skas/syscall.c         |  2 +-
- arch/x86/entry/vsyscall/vsyscall_64.c |  2 +-
- arch/xtensa/kernel/ptrace.c           |  3 +--
- include/linux/entry-common.h          |  7 +++---
- include/linux/seccomp.h               | 10 ++++----
- kernel/seccomp.c                      | 34 +++++++++++++--------------
- 14 files changed, 36 insertions(+), 38 deletions(-)
-
-diff --git a/arch/alpha/kernel/ptrace.c b/arch/alpha/kernel/ptrace.c
-index 0687760ea466..27d9847b1082 100644
---- a/arch/alpha/kernel/ptrace.c
-+++ b/arch/alpha/kernel/ptrace.c
-@@ -387,7 +387,7 @@ asmlinkage unsigned long syscall_trace_enter(void)
- 	 * If this fails, seccomp may already have set up the return value
- 	 * (e.g. SECCOMP_RET_ERRNO / TRACE).
- 	 */
--	if (secure_computing() == -1) {
-+	if (!secure_computing()) {
- 		if (regs->r19 == 0 && regs->r0 == (unsigned long)-1)
- 			syscall_set_return_value(current, regs, -ENOSYS, 0);
- 		syscall_set_nr(current, regs, -1);
-diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
-index 7951b2c06fec..5210745725ca 100644
---- a/arch/arm/kernel/ptrace.c
-+++ b/arch/arm/kernel/ptrace.c
-@@ -855,7 +855,7 @@ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
- 
- 	/* Do seccomp after ptrace; syscall may have changed. */
- #ifdef CONFIG_HAVE_ARCH_SECCOMP_FILTER
--	if (secure_computing() == -1)
-+	if (!secure_computing())
- 		return -1;
- #else
- 	/* XXX: remove this once OABI gets fixed */
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 4d08598e2891..2ca6fab39a37 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -2420,7 +2420,7 @@ int syscall_trace_enter(struct pt_regs *regs)
- 	}
- 
- 	/* Do the secure computing after ptrace; failures should be fast. */
--	if (secure_computing() == -1)
-+	if (!secure_computing())
- 		return NO_SYSCALL;
- 
- 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
-diff --git a/arch/csky/kernel/ptrace.c b/arch/csky/kernel/ptrace.c
-index 6bb685a2646b..11c5eff41e9d 100644
---- a/arch/csky/kernel/ptrace.c
-+++ b/arch/csky/kernel/ptrace.c
-@@ -323,7 +323,7 @@ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
- 		if (ptrace_report_syscall_entry(regs))
- 			return -1;
- 
--	if (secure_computing() == -1)
-+	if (!secure_computing())
- 		return -1;
- 
- 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
-diff --git a/arch/m68k/kernel/ptrace.c b/arch/m68k/kernel/ptrace.c
-index cfa2df24eced..d2411404b9df 100644
---- a/arch/m68k/kernel/ptrace.c
-+++ b/arch/m68k/kernel/ptrace.c
-@@ -281,7 +281,7 @@ asmlinkage int syscall_trace_enter(void)
- 	if (test_thread_flag(TIF_SYSCALL_TRACE))
- 		ret = ptrace_report_syscall_entry(task_pt_regs(current));
- 
--	if (secure_computing() == -1)
-+	if (!secure_computing())
- 		return -1;
- 
- 	return ret;
-diff --git a/arch/mips/kernel/ptrace.c b/arch/mips/kernel/ptrace.c
-index 3f4c94c88124..0d809cda7542 100644
---- a/arch/mips/kernel/ptrace.c
-+++ b/arch/mips/kernel/ptrace.c
-@@ -1328,7 +1328,7 @@ asmlinkage long syscall_trace_enter(struct pt_regs *regs)
- 			return -1;
- 	}
- 
--	if (secure_computing())
-+	if (!secure_computing())
- 		return -1;
- 
- 	if (unlikely(test_thread_flag(TIF_SYSCALL_TRACEPOINT)))
-diff --git a/arch/parisc/kernel/ptrace.c b/arch/parisc/kernel/ptrace.c
-index 8a17ab7e6e0b..565b51a48c8a 100644
---- a/arch/parisc/kernel/ptrace.c
-+++ b/arch/parisc/kernel/ptrace.c
-@@ -351,7 +351,7 @@ long do_syscall_trace_enter(struct pt_regs *regs)
- 	}
- 
- 	/* Do the secure computing check after ptrace. */
--	if (secure_computing() == -1)
-+	if (!secure_computing())
- 		return -1;
- 
- #ifdef CONFIG_HAVE_SYSCALL_TRACEPOINTS
-diff --git a/arch/sh/kernel/ptrace_32.c b/arch/sh/kernel/ptrace_32.c
-index 06f765d71a29..8687f17cbe5a 100644
---- a/arch/sh/kernel/ptrace_32.c
-+++ b/arch/sh/kernel/ptrace_32.c
-@@ -460,7 +460,7 @@ asmlinkage long do_syscall_trace_enter(struct pt_regs *regs)
- 		return -1;
- 	}
- 
--	if (secure_computing() == -1)
-+	if (!secure_computing())
- 		return -1;
- 
- 	if (unlikely(test_thread_flag(TIF_SYSCALL_TRACEPOINT)))
-diff --git a/arch/um/kernel/skas/syscall.c b/arch/um/kernel/skas/syscall.c
-index ba7494f9bfe4..916cd7acceaf 100644
---- a/arch/um/kernel/skas/syscall.c
-+++ b/arch/um/kernel/skas/syscall.c
-@@ -27,7 +27,7 @@ void handle_syscall(struct uml_pt_regs *r)
- 		goto out;
- 
- 	/* Do the seccomp check after ptrace; failures should be fast. */
--	if (secure_computing() == -1)
-+	if (!secure_computing())
- 		goto out;
- 
- 	syscall = UPT_SYSCALL_NR(r);
-diff --git a/arch/x86/entry/vsyscall/vsyscall_64.c b/arch/x86/entry/vsyscall/vsyscall_64.c
-index ea36de9fa864..6aed3987b9f9 100644
---- a/arch/x86/entry/vsyscall/vsyscall_64.c
-+++ b/arch/x86/entry/vsyscall/vsyscall_64.c
-@@ -198,7 +198,7 @@ static bool __emulate_vsyscall(struct pt_regs *regs, unsigned long address)
- 	regs->orig_ax = syscall_nr;
- 	regs->ax = -ENOSYS;
- 	tmp = secure_computing();
--	if ((!tmp && regs->orig_ax != syscall_nr) || regs->ip != address) {
-+	if ((tmp && regs->orig_ax != syscall_nr) || regs->ip != address) {
- 		warn_bad_vsyscall(KERN_DEBUG, regs,
- 				  "seccomp tried to change syscall nr or ip");
- 		force_exit_sig(SIGSYS);
-diff --git a/arch/xtensa/kernel/ptrace.c b/arch/xtensa/kernel/ptrace.c
-index b80d54b2ea34..ef78fcd318ff 100644
---- a/arch/xtensa/kernel/ptrace.c
-+++ b/arch/xtensa/kernel/ptrace.c
-@@ -553,8 +553,7 @@ int do_syscall_trace_enter(struct pt_regs *regs)
- 		return 0;
- 	}
- 
--	if (regs->syscall == NO_SYSCALL ||
--	    secure_computing() == -1) {
-+	if (regs->syscall == NO_SYSCALL || !secure_computing()) {
- 		do_syscall_trace_leave(regs);
- 		return 0;
- 	}
-diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
-index 416a3352261f..3f66320e46d3 100644
---- a/include/linux/entry-common.h
-+++ b/include/linux/entry-common.h
-@@ -100,9 +100,8 @@ static __always_inline long syscall_trace_enter(struct pt_regs *regs, unsigned l
- 
- 	/* Do seccomp after ptrace, to catch any tracer changes. */
- 	if (work & SYSCALL_WORK_SECCOMP) {
--		ret = __secure_computing();
--		if (ret == -1L)
--			return ret;
-+		if (!__secure_computing())
-+			return -1L;
- 	}
- 
- 	/* Either of the above might have changed the syscall number */
-@@ -113,7 +112,7 @@ static __always_inline long syscall_trace_enter(struct pt_regs *regs, unsigned l
- 
- 	syscall_enter_audit(regs, syscall);
- 
--	return ret ? : syscall;
-+	return syscall;
- }
- 
- /**
-diff --git a/include/linux/seccomp.h b/include/linux/seccomp.h
-index 9b959972bf4a..7af3173f40e9 100644
---- a/include/linux/seccomp.h
-+++ b/include/linux/seccomp.h
-@@ -22,14 +22,14 @@
- #include <linux/atomic.h>
- #include <asm/seccomp.h>
- 
--extern int __secure_computing(void);
-+extern bool __secure_computing(void);
- 
- #ifdef CONFIG_HAVE_ARCH_SECCOMP_FILTER
--static inline int secure_computing(void)
-+static inline bool secure_computing(void)
- {
- 	if (unlikely(test_syscall_work(SECCOMP)))
- 		return  __secure_computing();
--	return 0;
-+	return true;
- }
- #else
- extern void secure_computing_strict(int this_syscall);
-@@ -50,11 +50,11 @@ static inline int seccomp_mode(struct seccomp *s)
- struct seccomp_data;
- 
- #ifdef CONFIG_HAVE_ARCH_SECCOMP_FILTER
--static inline int secure_computing(void) { return 0; }
-+static inline bool secure_computing(void) { return true; }
- #else
- static inline void secure_computing_strict(int this_syscall) { return; }
- #endif
--static inline int __secure_computing(void) { return 0; }
-+static inline bool __secure_computing(void) { return true; }
- 
- static inline long prctl_get_seccomp(void)
- {
-diff --git a/kernel/seccomp.c b/kernel/seccomp.c
-index 066909393c38..1fec6efedab6 100644
---- a/kernel/seccomp.c
-+++ b/kernel/seccomp.c
-@@ -1100,12 +1100,12 @@ void secure_computing_strict(int this_syscall)
- 	else
- 		BUG();
- }
--int __secure_computing(void)
-+bool __secure_computing(void)
- {
- 	int this_syscall = syscall_get_nr(current, current_pt_regs());
- 
- 	secure_computing_strict(this_syscall);
--	return 0;
-+	return true;
- }
- #else
- 
-@@ -1256,7 +1256,7 @@ static int seccomp_do_user_notification(int this_syscall,
- 	return -1;
- }
- 
--static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
-+static bool __seccomp_filter(int this_syscall, const bool recheck_after_trace)
- {
- 	u32 filter_ret, action;
- 	struct seccomp_data sd;
-@@ -1294,7 +1294,7 @@ static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
- 	case SECCOMP_RET_TRACE:
- 		/* We've been put in this state by the ptracer already. */
- 		if (recheck_after_trace)
--			return 0;
-+			return true;
- 
- 		/* ENOSYS these calls if there is no tracer attached. */
- 		if (!ptrace_event_enabled(current, PTRACE_EVENT_SECCOMP)) {
-@@ -1330,19 +1330,19 @@ static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
- 		 * a skip would have already been reported.
- 		 */
- 		if (__seccomp_filter(this_syscall, true))
--			return -1;
-+			return false;
- 
--		return 0;
-+		return true;
- 
- 	case SECCOMP_RET_USER_NOTIF:
- 		if (seccomp_do_user_notification(this_syscall, match, &sd))
- 			goto skip;
- 
--		return 0;
-+		return true;
- 
- 	case SECCOMP_RET_LOG:
- 		seccomp_log(this_syscall, 0, action, true);
--		return 0;
-+		return true;
- 
- 	case SECCOMP_RET_ALLOW:
- 		/*
-@@ -1350,7 +1350,7 @@ static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
- 		 * this action since SECCOMP_RET_ALLOW is the starting
- 		 * state in seccomp_run_filters().
- 		 */
--		return 0;
-+		return true;
- 
- 	case SECCOMP_RET_KILL_THREAD:
- 	case SECCOMP_RET_KILL_PROCESS:
-@@ -1367,46 +1367,46 @@ static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
- 		} else {
- 			do_exit(SIGSYS);
- 		}
--		return -1; /* skip the syscall go directly to signal handling */
-+		return false; /* skip the syscall go directly to signal handling */
- 	}
- 
- 	unreachable();
- 
- skip:
- 	seccomp_log(this_syscall, 0, action, match ? match->log : false);
--	return -1;
-+	return false;
- }
- #else
--static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
-+static bool __seccomp_filter(int this_syscall, const bool recheck_after_trace)
- {
- 	BUG();
- 
--	return -1;
-+	return false;
- }
- #endif
- 
--int __secure_computing(void)
-+bool __secure_computing(void)
- {
- 	int mode = current->seccomp.mode;
- 	int this_syscall;
- 
- 	if (IS_ENABLED(CONFIG_CHECKPOINT_RESTORE) &&
- 	    unlikely(current->ptrace & PT_SUSPEND_SECCOMP))
--		return 0;
-+		return true;
- 
- 	this_syscall = syscall_get_nr(current, current_pt_regs());
- 
- 	switch (mode) {
- 	case SECCOMP_MODE_STRICT:
- 		__secure_computing_strict(this_syscall);  /* may call do_exit */
--		return 0;
-+		return true;
- 	case SECCOMP_MODE_FILTER:
- 		return __seccomp_filter(this_syscall, false);
- 	/* Surviving SECCOMP_RET_KILL_* must be proactively impossible. */
- 	case SECCOMP_MODE_DEAD:
- 		WARN_ON_ONCE(1);
- 		do_exit(SIGKILL);
--		return -1;
-+		return false;
- 	default:
- 		BUG();
- 	}
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UmVmYWN0b3Igc3lzY2FsbF90cmFjZV9lbnRlcigpIGFuZCBzeXNjYWxsX3RyYWNlX2V4aXQoKSB0
+byBtb3ZlIHRocmVhZApmbGFnIHJlYWRpbmcgdG8gdGhlIGNhbGxlci4gVGhpcyBhbGlnbnMgYXJt
+NjQncyBzeXNjYWxsIHRyYWNlIGVudGVyL2V4aXQKZnVuY3Rpb24gc2lnbmF0dXJlIHdpdGggZ2Vu
+ZXJpYyBlbnRyeSBmcmFtZXdvcmsuCgpbQ2hhbmdlc10KMS4gRnVuY3Rpb24gc2lnbmF0dXJlIGNo
+YW5nZXM6CiAgIC0gc3lzY2FsbF90cmFjZV9lbnRlcihyZWdzKSDihpIgc3lzY2FsbF90cmFjZV9l
+bnRlcihyZWdzLCBmbGFncykKICAgLSBzeXNjYWxsX3RyYWNlX2V4aXQocmVncykg4oaSIHN5c2Nh
+bGxfdHJhY2VfZXhpdChyZWdzLCBmbGFncykKCjIuIE1vdmUgZmxhZ3MgcmVhZGluZyB0byBjYWxs
+ZXI6CiAgIC0gUHJldmlvdXNseTogcmVhZF90aHJlYWRfZmxhZ3MoKSBjYWxsZWQgaW5zaWRlIGVh
+Y2ggZnVuY3Rpb24uCiAgIC0gTm93OiBjYWxsZXIgKGxpa2UgZWwwX3N2Y19jb21tb24pIHBhc3Nl
+cyBmbGFncyBhcyBwYXJhbWV0ZXIuCgozLiBVcGRhdGUgc3lzY2FsbC5jOgogICAtIGVsMF9zdmNf
+Y29tbW9uKCkgbm93IHBhc3NlcyBmbGFncyB0byB0cmFjaW5nIGZ1bmN0aW9ucyBhbmQKICAgICBy
+ZS1mZXRjaGVzIGZsYWdzIGJlZm9yZSBlbnRyeS9leGl0IHRvIGhhbmRsZSBwb3RlbnRpYWwgVElG
+CiAgICAgdXBkYXRlcy4KCltXaHkgdGhpcyBtYXR0ZXJzXQotIEFsaWducyBhcm02NCB3aXRoIHRo
+ZSBnZW5lcmljIGVudHJ5IGludGVyZmFjZS4KLSBNYWtlcyBmdXR1cmUgbWlncmF0aW9uIHRvIGdl
+bmVyaWMgZW50cnkgZnJhbWV3b3JrIHNtb290aGVyLgoKTm8gZnVuY3Rpb25hbCBjaGFuZ2VzIGlu
+dGVuZGVkLgoKQ2M6IE1hcmsgUnV0bGFuZCA8bWFyay5ydXRsYW5kQGFybS5jb20+CkNjOiBXaWxs
+IERlYWNvbiA8d2lsbEBrZXJuZWwub3JnPgpDYzogQ2F0YWxpbiBNYXJpbmFzIDxjYXRhbGluLm1h
+cmluYXNAYXJtLmNvbT4KUmV2aWV3ZWQtYnk6IEFkYSBDb3VwcmllIERpYXogPGFkYS5jb3Vwcmll
+ZGlhekBhcm0uY29tPgpSZXZpZXdlZC1ieTogTGludXMgV2FsbGVpaiA8bGludXN3QGtlcm5lbC5v
+cmc+ClJldmlld2VkLWJ5OiBZZW9yZXVtIFl1biA8eWVvcmV1bS55dW5AYXJtLmNvbT4KUmV2aWV3
+ZWQtYnk6IEtldmluIEJyb2Rza3kgPGtldmluLmJyb2Rza3lAYXJtLmNvbT4KU2lnbmVkLW9mZi1i
+eTogSmluamllIFJ1YW4gPHJ1YW5qaW5qaWVAaHVhd2VpLmNvbT4KLS0tCiBhcmNoL2FybTY0L2lu
+Y2x1ZGUvYXNtL3N5c2NhbGwuaCB8IDQgKystLQogYXJjaC9hcm02NC9rZXJuZWwvcHRyYWNlLmMg
+ICAgICAgfCA3ICsrLS0tLS0KIGFyY2gvYXJtNjQva2VybmVsL3N5c2NhbGwuYyAgICAgIHwgNSAr
+KystLQogMyBmaWxlcyBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyksIDkgZGVsZXRpb25zKC0pCgpk
+aWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9zeXNjYWxsLmggYi9hcmNoL2FybTY0
+L2luY2x1ZGUvYXNtL3N5c2NhbGwuaAppbmRleCA1ZTRjN2ZjNDRmNzMuLjMwYjIwM2VmMTU2YiAx
+MDA2NDQKLS0tIGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9zeXNjYWxsLmgKKysrIGIvYXJjaC9h
+cm02NC9pbmNsdWRlL2FzbS9zeXNjYWxsLmgKQEAgLTEyMCw3ICsxMjAsNyBAQCBzdGF0aWMgaW5s
+aW5lIGludCBzeXNjYWxsX2dldF9hcmNoKHN0cnVjdCB0YXNrX3N0cnVjdCAqdGFzaykKIAlyZXR1
+cm4gQVVESVRfQVJDSF9BQVJDSDY0OwogfQogCi1pbnQgc3lzY2FsbF90cmFjZV9lbnRlcihzdHJ1
+Y3QgcHRfcmVncyAqcmVncyk7Ci12b2lkIHN5c2NhbGxfdHJhY2VfZXhpdChzdHJ1Y3QgcHRfcmVn
+cyAqcmVncyk7CitpbnQgc3lzY2FsbF90cmFjZV9lbnRlcihzdHJ1Y3QgcHRfcmVncyAqcmVncywg
+dW5zaWduZWQgbG9uZyBmbGFncyk7Cit2b2lkIHN5c2NhbGxfdHJhY2VfZXhpdChzdHJ1Y3QgcHRf
+cmVncyAqcmVncywgdW5zaWduZWQgbG9uZyBmbGFncyk7CiAKICNlbmRpZgkvKiBfX0FTTV9TWVND
+QUxMX0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQva2VybmVsL3B0cmFjZS5jIGIvYXJjaC9h
+cm02NC9rZXJuZWwvcHRyYWNlLmMKaW5kZXggMmNhNmZhYjM5YTM3Li5hYzE1YjgxYTcxYjUgMTAw
+NjQ0Ci0tLSBhL2FyY2gvYXJtNjQva2VybmVsL3B0cmFjZS5jCisrKyBiL2FyY2gvYXJtNjQva2Vy
+bmVsL3B0cmFjZS5jCkBAIC0yNDA4LDkgKzI0MDgsOCBAQCBzdGF0aWMgdm9pZCByZXBvcnRfc3lz
+Y2FsbF9leGl0KHN0cnVjdCBwdF9yZWdzICpyZWdzKQogCX0KIH0KIAotaW50IHN5c2NhbGxfdHJh
+Y2VfZW50ZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCitpbnQgc3lzY2FsbF90cmFjZV9lbnRlcihz
+dHJ1Y3QgcHRfcmVncyAqcmVncywgdW5zaWduZWQgbG9uZyBmbGFncykKIHsKLQl1bnNpZ25lZCBs
+b25nIGZsYWdzID0gcmVhZF90aHJlYWRfZmxhZ3MoKTsKIAlpbnQgcmV0OwogCiAJaWYgKGZsYWdz
+ICYgKF9USUZfU1lTQ0FMTF9FTVUgfCBfVElGX1NZU0NBTExfVFJBQ0UpKSB7CkBAIC0yNDMyLDEw
+ICsyNDMxLDggQEAgaW50IHN5c2NhbGxfdHJhY2VfZW50ZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3Mp
+CiAJcmV0dXJuIHJlZ3MtPnN5c2NhbGxubzsKIH0KIAotdm9pZCBzeXNjYWxsX3RyYWNlX2V4aXQo
+c3RydWN0IHB0X3JlZ3MgKnJlZ3MpCit2b2lkIHN5c2NhbGxfdHJhY2VfZXhpdChzdHJ1Y3QgcHRf
+cmVncyAqcmVncywgdW5zaWduZWQgbG9uZyBmbGFncykKIHsKLQl1bnNpZ25lZCBsb25nIGZsYWdz
+ID0gcmVhZF90aHJlYWRfZmxhZ3MoKTsKLQogCWF1ZGl0X3N5c2NhbGxfZXhpdChyZWdzKTsKIAog
+CWlmIChmbGFncyAmIF9USUZfU1lTQ0FMTF9UUkFDRVBPSU5UKQpkaWZmIC0tZ2l0IGEvYXJjaC9h
+cm02NC9rZXJuZWwvc3lzY2FsbC5jIGIvYXJjaC9hcm02NC9rZXJuZWwvc3lzY2FsbC5jCmluZGV4
+IDM1OGRkZmJmMTQwMS4uYzhlMTE2Mzk3Y2ZkIDEwMDY0NAotLS0gYS9hcmNoL2FybTY0L2tlcm5l
+bC9zeXNjYWxsLmMKKysrIGIvYXJjaC9hcm02NC9rZXJuZWwvc3lzY2FsbC5jCkBAIC0xMTMsNyAr
+MTEzLDcgQEAgc3RhdGljIHZvaWQgZWwwX3N2Y19jb21tb24oc3RydWN0IHB0X3JlZ3MgKnJlZ3Ms
+IGludCBzY25vLCBpbnQgc2NfbnIsCiAJCSAqLwogCQlpZiAoc2NubyA9PSBOT19TWVNDQUxMKQog
+CQkJc3lzY2FsbF9zZXRfcmV0dXJuX3ZhbHVlKGN1cnJlbnQsIHJlZ3MsIC1FTk9TWVMsIDApOwot
+CQlzY25vID0gc3lzY2FsbF90cmFjZV9lbnRlcihyZWdzKTsKKwkJc2NubyA9IHN5c2NhbGxfdHJh
+Y2VfZW50ZXIocmVncywgcmVhZF90aHJlYWRfZmxhZ3MoKSk7CiAJCWlmIChzY25vID09IE5PX1NZ
+U0NBTEwpCiAJCQlnb3RvIHRyYWNlX2V4aXQ7CiAJfQpAQCAtMTMyLDcgKzEzMiw4IEBAIHN0YXRp
+YyB2b2lkIGVsMF9zdmNfY29tbW9uKHN0cnVjdCBwdF9yZWdzICpyZWdzLCBpbnQgc2NubywgaW50
+IHNjX25yLAogCX0KIAogdHJhY2VfZXhpdDoKLQlzeXNjYWxsX3RyYWNlX2V4aXQocmVncyk7CisJ
+ZmxhZ3MgPSByZWFkX3RocmVhZF9mbGFncygpOworCXN5c2NhbGxfdHJhY2VfZXhpdChyZWdzLCBm
+bGFncyk7CiB9CiAKIHZvaWQgZG9fZWwwX3N2YyhzdHJ1Y3QgcHRfcmVncyAqcmVncykKLS0gCjIu
+MzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
