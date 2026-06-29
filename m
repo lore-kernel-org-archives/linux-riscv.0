@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F722C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 06:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143E3C43327
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 07:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=069ALR04sLLuKgThHNCPf/1PJX9m8MDApfvX05hjAzQ=; b=cxGUibQhWozJL0
-	UMU2zbE12IsIWIdHxqrxiLm3oLP+EQwMuZ5Et9LJu0vLFJsjFibzlcv1G9hukQP2f5JMIsB4uvuYn
-	GXZfig377nnhXFONj3KdLZCGZt9Bv87Ajt4ZSH1VK4Fz/adY4l6of6RpWcSD3ZDGT3Nr0yhO1mRn1
-	rpa9XHDqHkRPhMUHrdQcoYAZOvecjcFPd+08MggLfCicS9dLyX8Xmzw/R5FFDymPy3mQssKLjojsY
-	zM5SduvOWaH86euIm69wJgNU3YCAlyTixeB8ZqMbn7YZrljkCIqodNCJllI6TKC/KiuXAAkgoNUwY
-	rAx3LWMkqzOT7jbZKfLA==;
+	List-Owner; bh=pGBhWSriyJqKM6KbhlhFq0JXhZza/2SWvlChneD10aY=; b=bKs8uT+CYDMb4C
+	i43Uac8ANG7EoexLcrRq148+MlERa5qISoW5obuywUECllYdE9SEpCeF/FNCE6TrLWvlF93caLJrY
+	EQDs4S4ermKk5o4jhO8FwzF0pVQAmktVwZS/8p+JijtrL8BAyRY1n2hndx+Hb7l9OJbPf1DlcheVk
+	jVef/IMl7TKt2wYttAiNAPAAlrsb7fvycB5PUXFq1Eo2NYo/DZdIPPSmfeLAv3JW3ZTRIFWOATUlc
+	3hN5HGImJO8cCusMjUKNHeMHG8nJYU6Y96BEKC+g+i5CHOPSrDFV3ucwrjeIclfaOCHpt0Yxv+Ws9
+	6V3Cc+0L6uoCXcMzrwWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5he-0000000DmOE-2cp8;
-	Mon, 29 Jun 2026 06:42:46 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1we6Ps-0000000DtGU-1gNh;
+	Mon, 29 Jun 2026 07:28:28 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5hZ-0000000DmJ6-1QA6
+	id 1we6Po-0000000DtDu-03o6
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 06:42:44 +0000
+	Mon, 29 Jun 2026 07:28:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1782715354; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=UkgLAJrduHj8/qC365Qv1JJMbTkOBQYfHaGdlpNjnVw=;
-	b=jSBcRY001bRYoxL/N/u8vQ7yjOoc6rESpWY7pSaR84hdsbv6ETv7BgT7RTHgHIZCaWYsp1YdNAHrKOUANcO9CskHpqK5/2iscTGS80YeZ1wmG3Bjtlpy6t2JxESIOBbmXFwVwbjFWWdkKrLkgoNAcu/9tMRbFeg6NT0OZ8hFZz4=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R251e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5nWtac_1782715350;
-Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5nWtac_1782715350 cluster:ay36)
+	t=1782718101; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=pw2kzY2F6KU+khx86jC+uRtX2TajkZSRy94F+JyoD3I=;
+	b=pJzpYRYWZOI2F0Rd71CKVV2P/61ASKHwYkMhpwXAicQMXczxI6naMDQgXq861JPDqZ7rut2gAY++MPX11gyKXiHZzzLnr03E8dR5z/4giejDiD5ym3BTnKrjDESN3OgvXGQWX8Ykb7+Mh7/dq3KfZhGij7ha9KRXh1RJTKUgzEE=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R381e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5oo1Go_1782718097;
+Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5oo1Go_1782718097 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 29 Jun 2026 14:42:31 +0800
+          Mon, 29 Jun 2026 15:28:19 +0800
 From: Wang Han <wanghan@linux.alibaba.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -71,14 +71,14 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-perf-users@vger.kernel.org,
 	live-patching@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v4 0/7] riscv: Add reliable stack unwinding for livepatch
-Date: Mon, 29 Jun 2026 14:42:21 +0800
-Message-ID: <20260629064228.3195856-1-wanghan@linux.alibaba.com>
+Subject: [PATCH v4 RESEND 0/7] riscv: Add reliable stack unwinding for livepatch
+Date: Mon, 29 Jun 2026 15:27:06 +0800
+Message-ID: <20260629072713.3273743-1-wanghan@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_234241_723112_28B8EA8A 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20260629_002825_660152_931B0A72 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,6 +96,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Hi,
+
+Sorry for the noise and inconvenience caused by the previous unthreaded
+v4 submission.
+
+This is a resend of v4 only to fix mail threading. The patch contents
+are unchanged from the previous v4.
+
+Previous unthreaded v4:
+  https://lore.kernel.org/r/20260629064228.3195856-1-wanghan@linux.alibaba.com
 
 This series adds the RISC-V architecture pieces needed by livepatch:
 dynamic ftrace must preserve the frame pointer context that livepatch
