@@ -4,85 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF6DC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 15:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9144C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 16:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VLRlx+k+luac4VsSiDvZ79AsekOG0ulN0VcESrYApYo=; b=KudJM08Ivr1dYyOZtXmXUaHt7Q
-	hoFEb/mCBI649J0VX+T6YtB1E9pugVH/cs8BkaZdeVLbA/4BM/21n8gF3570i9BKZiK71Bn1a9dyc
-	AoPIXKqvZAkk71wDG5KMuK3r0JhDY4FwaA3vlly0ULj2PC5aillOnNbxFYxYFY4GhtwHlbDWm8zKN
-	z4Xl2MNbrYkbH1q7cQCzVro7+9aWzTSznOxuZPbrIFbmsyDN4EIn0HIqs1iiWbRIHDMrApP5zLm9/
-	Bct3FNRDrvlqDpdkR9CL9LCNgYNE99KGAAb7207fTOB56E0obn9cUH2JQKFkpSgRyBeFZBrAhwgsq
-	BLmcLDPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ll67s58npRDGBdDWksnwxXGiHLafLM81HRzh1o3A130=; b=0pMD35m1BJkojR3Cs+v91w7esg
+	wlXNzGbRrqiZSlrqmJ0NLh//D0ba9GglwAR+tMmGfKZU67N+TGJwg4wnGXnALGzYzQiuCfPkzXZxh
+	KvhIRW7sP4dN4352qLx+ou/c8nhtznkF8dbRXmpMprXjXFBveZIvYggAa+GY1sa9CdT2vdil8S3wq
+	yZ+2YMn1xkJP4njsDxP0VKJZ651hKyyMv3afTd5uPbQsdGp2tQiP1ThCGEhllFr3BC2phYRlgHd6/
+	dYcSoAkEbLT83gtQ8+oXCFCNQo54jBvw2BNmhn+0JgSv3YkN0b1IgxkpDOcUx0ABhL9YABXFI+Hvi
+	1JJG8aeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDyl-0000000F57f-0MJj;
-	Mon, 29 Jun 2026 15:32:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weEhx-0000000FC11-2qfz;
+	Mon, 29 Jun 2026 16:19:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDyj-0000000F57W-3kOH
+	id 1weEhw-0000000FC0V-0gNH
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 15:32:57 +0000
+	Mon, 29 Jun 2026 16:19:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B14741689;
-	Mon, 29 Jun 2026 15:32:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AEF01F000E9;
-	Mon, 29 Jun 2026 15:32:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E3BB343D39;
+	Mon, 29 Jun 2026 16:19:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DD351F000E9;
+	Mon, 29 Jun 2026 16:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782747177;
-	bh=mnhHFQLWlBMk0jiGzanVa/9YxlSEiaiSag4o7iJqZ3o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Kh0eAxl+BBoLZPsPIn17XfRi1X7McxKBvvQVYpAdbon0kRXRW+clGhx6RvpySqumF
-	 jG8KHflJej6TDLujfuh5yv2JJP0dJ1RgDuQv1gCv9TIYOizT70Xn9mRI5vA/A4Bs2t
-	 PP4aJ14LUJxYvnWtb/WK6EXvI38pRXQ159jH3Yo7xlmbk0H5NEE2xKQGh88MnOT8BR
-	 QlUSxe6TwS99s8eM/jBdk+EM5fsqAJx7K2RNqiifeJdoVP3y5hn1cfPKBbmLUXUMDE
-	 09HuRGd9M1bOtJD1D7RutTR60d1Pere18Eoi0B2S6Kp4VtaESPRZAB/n53hou0VCI9
-	 xw2n06k3Qj+kw==
-Date: Mon, 29 Jun 2026 16:32:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v3 7/8] dt-bindings: riscv: Add binding for CBQRI
- controllers
-Message-ID: <20260629-modulator-backlog-931a4600f567@spud>
-References: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
- <20260628-dfustini-atl-sc-cbqri-dt-v3-7-c9c1342fe3cf@kernel.org>
+	s=k20260515; t=1782749979;
+	bh=23SRZQSyzGaaP+jU739gtUdoPMTFI2PuisT9R6qCj9E=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=F8jy1lAfym3ef5KbIR9DNOcUPkf2MdXovDFPnL6a8oEZeOvaDUQZVVChSNceSAbF/
+	 IcwuYoO58i6KH1ftoJbZ6x6seswykmKOQTke7t+4TsaQ5anLxmwZ/9Lu4wsNXRDtrb
+	 CIU3KszsDgZjs98iLN1ErM2TpRqa6WpiNOD2CQK/2HXbmPYi/VQjZI0lFbeZ4p4XoW
+	 qqVjFknufP/64Og5rSxfYVYWFotTL/vmjn0EYd3iv6poRQfMPZ//fBJ2kTq0JqPOUx
+	 imzV9Z2zDAZKr5+uCZLlUws+gNLWfsuBnvWUNKQoAyFuXsLUDgEnFJ/AXjE0hLjy2q
+	 GwxFuf0yW0sZQ==
+Content-Type: multipart/mixed; boundary="===============8484001317295672631=="
 MIME-Version: 1.0
-In-Reply-To: <20260628-dfustini-atl-sc-cbqri-dt-v3-7-c9c1342fe3cf@kernel.org>
+Message-Id: <0c8408eb97828eb59c171d971793a92654f8018ada812d6ac1703330ec4059fb@mail.kernel.org>
+In-Reply-To: <20260629140048.733346-7-pulehui@huaweicloud.com>
+References: <20260629140048.733346-7-pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf-next v4 6/6] selftests/bpf: Remove tailcalls tests from DENYLIST.riscv64
+From: bot+bpf-ci@kernel.org
+To: pulehui@huaweicloud.com,bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org
+Cc: bjorn@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,john.fastabend@gmail.com,kpsingh@kernel.org,sdf@fomichev.me,haoluo@google.com,jolsa@kernel.org,puranjay@kernel.org,pjw@kernel.org,palmer@dabbelt.com,alex@ghiti.fr,pulehui@huawei.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Mon, 29 Jun 2026 16:19:39 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +63,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9140628432429976937=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============9140628432429976937==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Rzri6Paspuk7yh4l"
-Content-Disposition: inline
+--===============8484001317295672631==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
---Rzri6Paspuk7yh4l
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> selftests/bpf: Remove tailcalls tests from DENYLIST.riscv64
+>
+> Remove tailcalls tests from DENYLIST.riscv64.
+>
+> Signed-off-by: Pu Lehui <pulehui@huawei.com>
 
-On Sun, Jun 28, 2026 at 02:18:18PM -0700, Drew Fustini wrote:
-> Document the device tree binding for RISC-V CBQRI capacity and bandwidth
-> controllers. Each controller is named by a device-specific compatible
-> followed by the generic compatible. The binding also describes the
-> common riscv,cbqri-rcid and riscv,cbqri-mcid properties, and the
-> optional riscv,cbqri-cache phandle that links a capacity controller to
-> the cache whose capacity it allocates.
->=20
-> Assisted-by: Claude:claude-opus-4-8
-> Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> Signed-off-by: Drew Fustini <fustini@kernel.org>
+This isn't a bug, but the changelog restates the subject and the diff
+without saying why the entry can be dropped now.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+The deny-list line being removed documented that the JIT could not mix
+bpf2bpf and tailcalls, and the preceding commit "riscv, bpf: Mixing
+bpf2bpf and tailcalls" adds that support.
 
---Rzri6Paspuk7yh4l
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakKQIAAKCRB4tDGHoIJi
-0mPIAQDBagOfetNCVnYvlw3izyi8K+IDSYeG2DHQ5aFVQ93VOAD+MS7oATLWI06S
-TGQz48qb5siY3bfMvtFbjmx4zT+eGgk=
-=idfr
------END PGP SIGNATURE-----
-
---Rzri6Paspuk7yh4l--
+Could the changelog note that the RV64 JIT now supports mixing bpf2bpf
+and tailcalls, rather than restating the diff?
 
 
---===============9140628432429976937==
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/28384109028
+--===============8484001317295672631==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -149,5 +104,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9140628432429976937==--
+--===============8484001317295672631==--
 
