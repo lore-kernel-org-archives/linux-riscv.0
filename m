@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77689C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 07:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFDEDC43327
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 07:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1Ezm4EaPMGQLdoeI9gzMl0l1hTZdIwUlOirXRJdbfmw=; b=JrZsT7A4iz5RP7
-	35YEU12g9B9VoyLNTF8T2ymC5wIygpXTbcYordx9PpS5+voDihI7dRy20+Y3gyhnGTJ0r1f7fUOa6
-	MtFaBNg4MFFliMp1GJ8UOJX1viqAMhvpdXPMRM0wxuSFJWWpjw9g8xN7qpT03WDh+AyHnf4FeCD4y
-	9n7ZDIpgej1jw1/8dDrXEUBfFE99pV5NC2I4Owzhw8VOojLMQQJKxQOSjE/lNsDL3TsqDODbwXOjI
-	l9pt3MDD9Ts3xxYV3Q4ebmSbxFl8dSsnFP+McmVZcxnZcarP+KEJwOeYl+PbaORW3INLMHJ1Mwsb7
-	pbrIB8skmCm/zbiiPUMg==;
+	List-Owner; bh=Fq8Otao7az9tz+AHHBf3bSWmPQFU08jj4yAWSOjyDw8=; b=LFFpf+O8OmiYEk
+	Yw+lb6aep8veHsZfIPOjH5S61STVDLbMP6XE0SjlYf2isFq2Ohq44KB6hEHV5LHfw3WMRja/xivUF
+	tBVC/KATzr+nC+McjewJy0Rl1fHp+AL7kZlcVzvJAxRMG2PN+AuIZToFV9uOHH/vp7BjviTWRlMwk
+	89F65vSokyzW4Mc8xt4fsSpCOiUB1LwyQ6LWanjGIz7D+pyGVDYSEJPAHjcDmnSaJEs/PMU6Skexh
+	7z6TMBk3mShrtZM48HikAlF3t3ygiH/LtEp5IMRniqNA6oSeOAIIJ2z86C3O+SWT+WwrNOews/Dmr
+	E/xwGloWOaFjXRmX/5wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6QA-0000000DtUL-2Bja;
-	Mon, 29 Jun 2026 07:28:46 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1we6QC-0000000DtXC-2x1d;
+	Mon, 29 Jun 2026 07:28:48 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6Q7-0000000DtOn-21kI
+	id 1we6Q9-0000000DtRz-3voY
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 07:28:45 +0000
+	Mon, 29 Jun 2026 07:28:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1782718121; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=MQtuIWmKp0yK/pGFuoUioKxVm/GbD9KEgakpTzJtQ9I=;
-	b=X95QXThvGb1bROV1fq6Oo7TS5enU528h0hv7jDEsqw09loYMDfCQwuzXNlHHF5Q28H/Qpf6yWuRM8k/ApFoBUB1g/eccS0Oof4JQd5AbddSMF99hkcpfJyr/UNbpp4nDpdUAI2/qB7AUIP3gYUScZEoea5NNuve+Lq1u2/p2/4I=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5oo1TO_1782718117;
-Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5oo1TO_1782718117 cluster:ay36)
+	t=1782718124; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=osYv4PyMOH+hGuFQLUeP+UmPCqW/DzeJKVWPMYqOR5E=;
+	b=YFWG6kBhQmSPJ+yvsWsAXOc7WwoD/LcixtThBadUmxyvc3QLg/lP08kVqjyy6Lgf4ihQBK+tywY8YLJoqkTh2AvIwi/fX4RwV/RvVAiZy43e9e0w5RaRebZMK3R9Hwclp8aRfl7mtPVyx0ptyOZtkadNc2eLAzY2b2gU+z3YJe0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R651e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5oo1VE_1782718119;
+Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5oo1VE_1782718119 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 29 Jun 2026 15:28:39 +0800
+          Mon, 29 Jun 2026 15:28:42 +0800
 From: Wang Han <wanghan@linux.alibaba.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -71,16 +71,17 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-perf-users@vger.kernel.org,
 	live-patching@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v4 RESEND 6/7] riscv: Kconfig: enable HAVE_RELIABLE_STACKTRACE and HAVE_LIVEPATCH
-Date: Mon, 29 Jun 2026 15:27:12 +0800
-Message-ID: <20260629072713.3273743-7-wanghan@linux.alibaba.com>
+Subject: [PATCH v4 RESEND 7/7] selftests/livepatch: Add RISC-V syscall wrapper prefix
+Date: Mon, 29 Jun 2026 15:27:13 +0800
+Message-ID: <20260629072713.3273743-8-wanghan@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260629072713.3273743-1-wanghan@linux.alibaba.com>
 References: <20260629072713.3273743-1-wanghan@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_002843_856237_290CA91D 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260629_002846_295263_8A39DE01 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,60 +98,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the metadata frame records, the kunwind state machine and
-arch_stack_walk_reliable() are all in place, advertise the capability
-to the rest of the kernel:
+The syscall livepatch selftest resolves and patches a syscall wrapper
+symbol. To use that test for RISC-V livepatch validation, add the
+RISC-V FN_PREFIX definition for ARCH_HAS_SYSCALL_WRAPPER.
 
-  * select HAVE_RELIABLE_STACKTRACE under FRAME_POINTER && 64BIT, so
-    only the configurations with the tested metadata records and
-    FP-based reliable walker enable it.
-  * select HAVE_LIVEPATCH under the same condition and source
-    kernel/livepatch/Kconfig so the livepatch menu is reachable from
-    the RISC-V configuration.
+Without this macro, the syscall livepatch selftest cannot resolve the
+RISC-V target symbol, and the syscall-related livepatch test fails on
+RISC-V.
 
-The 64BIT dependency is conservative scoping rather than a hard
-technical requirement: the metadata frame record, kunwind state machine
-and arch_stack_walk_reliable() also build on RV32, and the IRQ-stack
-frame-record adjustment fixes a latent RV32 issue. However, the syscall
-livepatch selftest and module relocation path have only been exercised
-on RV64 QEMU virt so far. The 64BIT gate can be relaxed in a follow-up
-once RV32 has equivalent coverage.
-
-This is split out from the unwinder change so the policy decision and
-the implementation can be reviewed and reverted independently.
-
+Reviewed-by: Marcos Paulo de Souza <mpdesouza@suse.com>
 Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
 Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
 ---
- arch/riscv/Kconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../testing/selftests/livepatch/test_modules/test_klp_syscall.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index cb3d85abf595..4d09fab682ac 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -186,6 +186,7 @@ config RISCV
- 	select HAVE_KRETPROBES
- 	# https://github.com/ClangBuiltLinux/linux/issues/1881
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
-+	select HAVE_LIVEPATCH if FRAME_POINTER && 64BIT
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PAGE_SIZE_4KB
-@@ -196,6 +197,7 @@ config RISCV
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_PREEMPT_DYNAMIC_KEY
- 	select HAVE_REGS_AND_STACK_ACCESS_API
-+	select HAVE_RELIABLE_STACKTRACE if FRAME_POINTER && 64BIT
- 	select HAVE_RETHOOK
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
-@@ -1392,3 +1394,5 @@ endmenu # "CPU Power Management"
- source "arch/riscv/kvm/Kconfig"
- 
- source "drivers/acpi/Kconfig"
-+
-+source "kernel/livepatch/Kconfig"
+diff --git a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
+index 08aacc0e14de..9baa2a5f84c9 100644
+--- a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
++++ b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
+@@ -24,6 +24,8 @@
+     #define FN_PREFIX __s390x_
+   #elif defined(__aarch64__)
+     #define FN_PREFIX __arm64_
++  #elif defined(__riscv)
++    #define FN_PREFIX __riscv_
+   #elif defined(__powerpc__)
+     #define FN_PREFIX
+   #else
 -- 
 2.43.0
 
