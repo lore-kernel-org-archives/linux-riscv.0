@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1933BC43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64952C44501
 	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 06:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1Ezm4EaPMGQLdoeI9gzMl0l1hTZdIwUlOirXRJdbfmw=; b=pCMdK3vS3szBiq
-	nEaTuspanm/A3lEVg8RvU0i00ubOGqVtWBrqEjyQoxJGohhW7GTllBanIcDFr/6+cMXMiQPGTNwiM
-	O8tF7TspBDQZY3mkea3Uu4MvRsF+XyJudB+SQ4+sopTifJRgp1ceKamATYihTMxxTAJ9KH2ncF/RG
-	XEogFkJpyipd94PZ2V2FSvU+q/Rc+OW/CJva9FBnDiJRDFs2/HK3fXWaorpPecCHChCAytKaaFIDG
-	ufm8ZASe6W4Oip0vadm6fdCUfJzpxNu6zCg2iRdYIyuqz5kp/AyQp0/qE8oSCQCpfANBtzmMoJ0Nj
-	dXWuJ0PjkfeER6xaKKHA==;
+	List-Owner; bh=kVagQ7CM3TU85pi7Er0gPPm940sU557QmoIgC6RYV4k=; b=o7A6v9f9kHtEl6
+	iqfBz+bQPbJ/K5EN+sYZlL+kLy6gr3l0ti3c6tnTWVV6lGNTa33gLCVjlwVWjiX/MCj1o2A8ggdIh
+	+jTOIJZxII05RDEAYj0x0GW+igN93rYi9t1bN6D2YcH/iYnxvjVWnXjlEHSOKKxClWHliOndh9NiU
+	HjBKk0g1qdM3m/b2WwiL+FoRy2DcBZRlJaEZvMJyVRxhUlTMDouSmRmWNcmQGlWV5wMdIs7BDAGkN
+	7LsZtvX21aCy1hLEw4xBjRz73iU3hlUB6+vfXW6T9py6fybtBhCAcg94KWPb5bs1SJ6P7SLkF7viq
+	/wQAUx9wnZ8bBMqpZPTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5hk-0000000DmTR-0o4D;
-	Mon, 29 Jun 2026 06:42:52 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1we5hb-0000000DmMD-1Nys;
+	Mon, 29 Jun 2026 06:42:43 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5hf-0000000DmO9-422u
+	id 1we5hY-0000000DmJJ-1uD9
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 06:42:49 +0000
+	Mon, 29 Jun 2026 06:42:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1782715366; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=MQtuIWmKp0yK/pGFuoUioKxVm/GbD9KEgakpTzJtQ9I=;
-	b=AA93HdpMMtgM/vPF+FqY85t0SnAWSkJEOEB/jfmLJZT6w2eGc1cgT+3E7GntBuf0zAtQGVV3KIsZcPbwkvEKw9CiwUgOYCfN7fX6uJIXI4deebcy5o/C0Hkch9H89O1ExldqqxZVAPFW2/nY1ahTWyigiyJtfrooTuOecKjpMQM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R301e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5nWteH_1782715361;
-Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5nWteH_1782715361 cluster:ay36)
+	t=1782715355; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=KIcV+3NRZXBNcTf//ZDsIrmsDWjU6kdknsnEf4IWrYw=;
+	b=n9O1F2gsJQcZ2fd9K1t6IKcPPwmdXzif8d9I4wwrGoNp3EVMxEx6lU12goTM3/9rK/1qB0X9Bvd4tUUzJh+F+q28cuAzpxzgQCB4V4ley0H3T36YuQwG2lTA4nZM+L1HzPcJEOzvYs5L93sinuWrz8zWD61QuCk4hpHvW4gmrqY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5nWtb9_1782715352;
+Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5nWtb9_1782715352 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 29 Jun 2026 14:42:42 +0800
+          Mon, 29 Jun 2026 14:42:33 +0800
 From: Wang Han <wanghan@linux.alibaba.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -71,15 +71,14 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-perf-users@vger.kernel.org,
 	live-patching@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v4 6/7] riscv: Kconfig: enable HAVE_RELIABLE_STACKTRACE and HAVE_LIVEPATCH
-Date: Mon, 29 Jun 2026 14:42:27 +0800
-Message-ID: <20260629064228.3195856-7-wanghan@linux.alibaba.com>
+Subject: [PATCH v4 1/7] riscv: stacktrace: Add frame record metadata
+Date: Mon, 29 Jun 2026 14:42:22 +0800
+Message-ID: <20260629064228.3195856-2-wanghan@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_234248_167695_4BC2D96E 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260628_234241_011685_5ED3F0EE 
+X-CRM114-Status: GOOD (  27.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +95,334 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the metadata frame records, the kunwind state machine and
-arch_stack_walk_reliable() are all in place, advertise the capability
-to the rest of the kernel:
+Reliable frame-pointer unwinding needs an explicit way to identify
+exception boundaries and the final entry frame. The existing unwinder
+infers those boundaries from return addresses, which is too loose for a
+future reliable unwinder.
 
-  * select HAVE_RELIABLE_STACKTRACE under FRAME_POINTER && 64BIT, so
-    only the configurations with the tested metadata records and
-    FP-based reliable walker enable it.
-  * select HAVE_LIVEPATCH under the same condition and source
-    kernel/livepatch/Kconfig so the livepatch menu is reachable from
-    the RISC-V configuration.
+Add a small metadata frame record to pt_regs and initialize it on
+exception entry, kernel stack overflow, kernel thread fork, user fork,
+and early idle task setup. The record uses a zero {fp, ra} sentinel plus
+a type field so a later unwinder can distinguish a final user-to-kernel
+boundary from a nested kernel pt_regs boundary.
 
-The 64BIT dependency is conservative scoping rather than a hard
-technical requirement: the metadata frame record, kunwind state machine
-and arch_stack_walk_reliable() also build on RV32, and the IRQ-stack
-frame-record adjustment fixes a latent RV32 issue. However, the syscall
-livepatch selftest and module relocation path have only been exercised
-on RV64 QEMU virt so far. The 64BIT gate can be relaxed in a follow-up
-once RV32 has equivalent coverage.
+This follows the arm64 metadata frame-record model, adapted to the
+RISC-V {fp, ra} frame record convention.
 
-This is split out from the unwinder change so the policy decision and
-the implementation can be reviewed and reverted independently.
+The metadata is established at the RISC-V entry boundaries that need an
+explicit unwind marker:
 
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+  * exception entry clears the metadata {fp, ra} pair and uses SPP
+    (or MPP in M-mode) to record whether the pt_regs frame is the final
+    user-to-kernel boundary or a nested kernel boundary;
+  * the kernel stack overflow path builds a nested pt_regs metadata
+    record on the overflow stack so an unwinder can resume from the
+    pre-overflow s0 saved in PT_S0;
+  * _start_kernel builds the init task's final metadata record, while
+    the secondary CPU path sets up s0 before smp_callin() so idle-task
+    unwinding does not inherit an undefined caller frame;
+  * copy_thread creates matching final metadata records for new kernel
+    and user tasks, and keeps s0 available for the frame-pointer chain.
+
+Keep the embedded metadata-record field offsets distinct from the
+s0-relative STACKFRAME_* offsets used by call_on_irq_stack(), because
+the latter describe a frame record relative to s0 rather than to the
+record base.
+
+These changes keep s0 reserved for the frame-pointer chain at task and
+exception boundaries.
+
 Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
 ---
- arch/riscv/Kconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/include/asm/ptrace.h           |  9 ++++
+ arch/riscv/include/asm/stacktrace/frame.h | 53 +++++++++++++++++++++++
+ arch/riscv/kernel/asm-offsets.c           |  6 +++
+ arch/riscv/kernel/entry.S                 | 39 ++++++++++++++++-
+ arch/riscv/kernel/head.S                  | 23 ++++++++++
+ arch/riscv/kernel/process.c               | 33 +++++++++++++-
+ 6 files changed, 159 insertions(+), 4 deletions(-)
+ create mode 100644 arch/riscv/include/asm/stacktrace/frame.h
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index cb3d85abf595..4d09fab682ac 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -186,6 +186,7 @@ config RISCV
- 	select HAVE_KRETPROBES
- 	# https://github.com/ClangBuiltLinux/linux/issues/1881
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
-+	select HAVE_LIVEPATCH if FRAME_POINTER && 64BIT
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PAGE_SIZE_4KB
-@@ -196,6 +197,7 @@ config RISCV
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_PREEMPT_DYNAMIC_KEY
- 	select HAVE_REGS_AND_STACK_ACCESS_API
-+	select HAVE_RELIABLE_STACKTRACE if FRAME_POINTER && 64BIT
- 	select HAVE_RETHOOK
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
-@@ -1392,3 +1394,5 @@ endmenu # "CPU Power Management"
- source "arch/riscv/kvm/Kconfig"
+diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+index addc8188152f..4b9b0f279214 100644
+--- a/arch/riscv/include/asm/ptrace.h
++++ b/arch/riscv/include/asm/ptrace.h
+@@ -8,6 +8,7 @@
  
- source "drivers/acpi/Kconfig"
+ #include <uapi/asm/ptrace.h>
+ #include <asm/csr.h>
++#include <asm/stacktrace/frame.h>
+ #include <linux/compiler.h>
+ 
+ #ifndef __ASSEMBLER__
+@@ -53,6 +54,14 @@ struct pt_regs {
+ 	unsigned long cause;
+ 	/* a0 value before the syscall */
+ 	unsigned long orig_a0;
 +
-+source "kernel/livepatch/Kconfig"
++	/*
++	 * This frame record is entirely zeroed on exception entry, allowing the
++	 * unwinder to identify exception boundaries. The type field encodes
++	 * whether the exception was taken from user (FINAL) or kernel (PT_REGS)
++	 * mode.
++	 */
++	struct frame_record_meta stackframe;
+ };
+ 
+ #define PTRACE_SYSEMU			0x1f
+diff --git a/arch/riscv/include/asm/stacktrace/frame.h b/arch/riscv/include/asm/stacktrace/frame.h
+new file mode 100644
+index 000000000000..5720a6c65fe8
+--- /dev/null
++++ b/arch/riscv/include/asm/stacktrace/frame.h
+@@ -0,0 +1,53 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef __ASM_RISCV_STACKTRACE_FRAME_H
++#define __ASM_RISCV_STACKTRACE_FRAME_H
++
++/*
++ * See: arch/arm64/include/asm/stacktrace/frame.h for the reference
++ * implementation.
++ */
++
++/*
++ * - FRAME_META_TYPE_NONE
++ *
++ *   This value is reserved.
++ *
++ * - FRAME_META_TYPE_FINAL
++ *
++ *   The record is the last entry on the stack.
++ *   Unwinding should terminate successfully.
++ *
++ * - FRAME_META_TYPE_PT_REGS
++ *
++ *   The record is embedded within a struct pt_regs, recording the registers at
++ *   an arbitrary point in time.
++ *   Unwinding should consume pt_regs::epc, followed by pt_regs::ra.
++ *
++ * Note: all other values are reserved and should result in unwinding
++ * terminating with an error.
++ */
++#define FRAME_META_TYPE_NONE		0
++#define FRAME_META_TYPE_FINAL		1
++#define FRAME_META_TYPE_PT_REGS		2
++
++#ifndef __ASSEMBLER__
++/*
++ * A standard RISC-V frame record.
++ */
++struct frame_record {
++	unsigned long fp;
++	unsigned long ra;
++};
++
++/*
++ * A metadata frame record indicating a special unwind.
++ * The record::{fp,ra} fields must be zero to indicate the presence of
++ * metadata.
++ */
++struct frame_record_meta {
++	struct frame_record record;
++	unsigned long type;
++};
++#endif /* __ASSEMBLER__ */
++
++#endif /* __ASM_RISCV_STACKTRACE_FRAME_H */
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index a75f0cfea1e9..bc8e8cd7130a 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -131,6 +131,9 @@ void asm_offsets(void)
+ 	OFFSET(PT_BADADDR, pt_regs, badaddr);
+ 	OFFSET(PT_CAUSE, pt_regs, cause);
+ 
++	DEFINE(S_STACKFRAME,		offsetof(struct pt_regs, stackframe));
++	DEFINE(S_STACKFRAME_TYPE,	offsetof(struct pt_regs, stackframe.type));
++
+ 	OFFSET(SUSPEND_CONTEXT_REGS, suspend_context, regs);
+ 
+ 	OFFSET(HIBERN_PBE_ADDR, pbe, address);
+@@ -503,6 +506,9 @@ void asm_offsets(void)
+ 	DEFINE(STACKFRAME_SIZE_ON_STACK, ALIGN(sizeof(struct stackframe), STACK_ALIGN));
+ 	DEFINE(STACKFRAME_FP, offsetof(struct stackframe, fp) - sizeof(struct stackframe));
+ 	DEFINE(STACKFRAME_RA, offsetof(struct stackframe, ra) - sizeof(struct stackframe));
++	DEFINE(STACKFRAME_RECORD_SIZE, sizeof(struct stackframe));
++	OFFSET(FRAME_RECORD_FP, frame_record, fp);
++	OFFSET(FRAME_RECORD_RA, frame_record, ra);
+ #ifdef CONFIG_FUNCTION_TRACER
+ 	DEFINE(FTRACE_OPS_FUNC,		offsetof(struct ftrace_ops, func));
+ #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 08df724e13b9..d1cfb28f9180 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -11,6 +11,7 @@
+ #include <asm/asm.h>
+ #include <asm/csr.h>
+ #include <asm/scs.h>
++#include <asm/stacktrace/frame.h>
+ #include <asm/unistd.h>
+ #include <asm/page.h>
+ #include <asm/thread_info.h>
+@@ -198,6 +199,27 @@ SYM_CODE_START(handle_exception)
+ 	REG_S s4, PT_CAUSE(sp)
+ 	REG_S s5, PT_TP(sp)
+ 
++	/*
++	 * Create a metadata frame record. The unwinder will use this to
++	 * identify and unwind exception boundaries.
++	 */
++	REG_S zero, (S_STACKFRAME + FRAME_RECORD_FP)(sp) /* stackframe.record.fp = 0 */
++	REG_S zero, (S_STACKFRAME + FRAME_RECORD_RA)(sp) /* stackframe.record.ra = 0 */
++#ifdef CONFIG_RISCV_M_MODE
++	li t0, SR_MPP
++	and t0, s1, t0
++#else
++	andi t0, s1, SR_SPP
++#endif
++	bnez t0, 1f
++	li t0, FRAME_META_TYPE_FINAL
++	j 2f
++1:
++	li t0, FRAME_META_TYPE_PT_REGS
++2:
++	REG_S t0, S_STACKFRAME_TYPE(sp)
++	addi s0, sp, S_STACKFRAME + STACKFRAME_RECORD_SIZE
++
+ 	/*
+ 	 * Set the scratch register to 0, so that if a recursive exception
+ 	 * occurs, the exception vector knows it came from the kernel
+@@ -354,6 +376,19 @@ SYM_CODE_START_LOCAL(handle_kernel_stack_overflow)
+ 	REG_S s3, PT_BADADDR(sp)
+ 	REG_S s4, PT_CAUSE(sp)
+ 	REG_S s5, PT_TP(sp)
++
++	/*
++	 * Create a metadata frame record for the overflow pt_regs. The
++	 * overflow path is entered from kernel context, so this is a nested
++	 * pt_regs boundary and the unwinder can resume from the pre-overflow
++	 * frame pointer saved in PT_S0.
++	 */
++	REG_S zero, (S_STACKFRAME + FRAME_RECORD_FP)(sp)
++	REG_S zero, (S_STACKFRAME + FRAME_RECORD_RA)(sp)
++	li t0, FRAME_META_TYPE_PT_REGS
++	REG_S t0, S_STACKFRAME_TYPE(sp)
++	addi s0, sp, S_STACKFRAME + STACKFRAME_RECORD_SIZE
++
+ 	move a0, sp
+ 	tail handle_bad_stack
+ SYM_CODE_END(handle_kernel_stack_overflow)
+@@ -362,8 +397,8 @@ ASM_NOKPROBE(handle_kernel_stack_overflow)
+ 
+ SYM_CODE_START(ret_from_fork_kernel_asm)
+ 	call schedule_tail
+-	move a0, s1 /* fn_arg */
+-	move a1, s0 /* fn */
++	move a0, s3 /* fn_arg */
++	move a1, s2 /* fn */
+ 	move a2, sp /* pt_regs */
+ 	call ret_from_fork_kernel
+ 	j ret_from_exception
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index f6a8ca49e627..341b2d3facbc 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -14,6 +14,7 @@
+ #include <asm/hwcap.h>
+ #include <asm/image.h>
+ #include <asm/scs.h>
++#include <asm/stacktrace/frame.h>
+ #include <asm/usercfi.h>
+ #include "efi-header.S"
+ 
+@@ -177,6 +178,14 @@ secondary_start_sbi:
+ 	REG_S a0, (a1)
+ 1:
+ #endif
++
++	/*
++	 * Set up the frame pointer for the secondary idle task so reliable
++	 * stack unwinding terminates at the metadata frame in task_pt_regs().
++	 * Without this, the first frame records can inherit an undefined caller
++	 * fp and unwind past smp_callin() into .Lsecondary_park.
++	 */
++	addi s0, sp, S_STACKFRAME + STACKFRAME_RECORD_SIZE
+ 	scs_load_current
+ 	call smp_callin
+ #endif /* CONFIG_SMP */
+@@ -305,6 +314,20 @@ SYM_CODE_START(_start_kernel)
+ 	la tp, init_task
+ 	la sp, init_thread_union + THREAD_SIZE
+ 	addi sp, sp, -PT_SIZE_ON_STACK
++
++	/*
++	 * Set up a metadata frame record for the init task so that
++	 * the unwinder can identify the outermost frame by its
++	 * {fp, ra} = {0, 0} sentinel at the bottom of pt_regs.
++	 * fp/s0 points above the metadata record (RISC-V
++	 * convention).
++	 */
++	REG_S zero, (S_STACKFRAME + FRAME_RECORD_FP)(sp)
++	REG_S zero, (S_STACKFRAME + FRAME_RECORD_RA)(sp)
++	li t0, FRAME_META_TYPE_FINAL
++	REG_S t0, S_STACKFRAME_TYPE(sp)
++	addi s0, sp, S_STACKFRAME + STACKFRAME_RECORD_SIZE
++
+ #if defined(CONFIG_RISCV_SBI) && defined(CONFIG_RISCV_USER_CFI)
+ 	li a7, SBI_EXT_FWFT
+ 	li a6, SBI_EXT_FWFT_SET
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index b2df7f72241a..0dc90bf7a652 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -258,8 +258,23 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		/* Supervisor/Machine, irqs on: */
+ 		childregs->status = SR_PP | SR_PIE;
+ 
+-		p->thread.s[0] = (unsigned long)args->fn;
+-		p->thread.s[1] = (unsigned long)args->fn_arg;
++		/*
++		 * Set up a metadata frame record at the bottom of the
++		 * stack for the unwinder. Use FRAME_META_TYPE_FINAL
++		 * since this is the outermost kernel entry for the new
++		 * task. The frame_record::{fp,ra} are already zero from
++		 * memset().
++		 *
++		 * fp/s0 points above the metadata record (RISC-V
++		 * convention). fn and fn_arg are passed via s2/s3,
++		 * keeping s0 available for the frame pointer chain.
++		 */
++		childregs->stackframe.type = FRAME_META_TYPE_FINAL;
++
++		p->thread.s[0] = (unsigned long)(&childregs->stackframe)
++				+ sizeof(struct frame_record);
++		p->thread.s[2] = (unsigned long)args->fn;
++		p->thread.s[3] = (unsigned long)args->fn_arg;
+ 		p->thread.ra = (unsigned long)ret_from_fork_kernel_asm;
+ 	} else {
+ 		/* allocate new shadow stack if needed. In case of CLONE_VM we have to */
+@@ -278,6 +293,20 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		if (clone_flags & CLONE_SETTLS)
+ 			childregs->tp = tls;
+ 		childregs->a0 = 0; /* Return value of fork() */
++
++		/*
++		 * Set up the unwind boundary: ensure the metadata
++		 * frame record has its {fp,ra} sentinel zeroed and
++		 * point fp/s0 above the metadata record. Mark it as
++		 * FINAL since this is the outermost kernel entry for
++		 * the new task.
++		 */
++		childregs->stackframe.record.fp = 0;
++		childregs->stackframe.record.ra = 0;
++		childregs->stackframe.type = FRAME_META_TYPE_FINAL;
++		p->thread.s[0] = (unsigned long)(&childregs->stackframe)
++				+ sizeof(struct frame_record);
++
+ 		p->thread.ra = (unsigned long)ret_from_fork_user_asm;
+ 	}
+ 	p->thread.riscv_v_flags = 0;
 -- 
 2.43.0
 
