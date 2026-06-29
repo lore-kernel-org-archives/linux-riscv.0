@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B393C43602
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 03:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3569EC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 03:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KQmlW+3e6LWDY6vgZXR3N3G+pQoLiSCO4IsltntILZQ=; b=sc6HIyVQsNM4Y8
-	MfLg7y9sqNac+yvhgLW5dHaRHD+h1JMzx1t9RKt0+84Jmjqz9cEkFKSz9NBNVfMuhMnopjzAx0MA3
-	EQ59aRGNOD78DnXLM9i9EZ0dk5Oc9RNIgd8KbyTHH0HMIvi9vP31f3DVBmAXNg+aMRCv0v9kFK2Dl
-	GuTg5kSsDTS5FQYGzkLh1/M1I3DD4kE6DgkAn2hxSXyLLfegGUtO3vnsqMK9mozkA6/0iRbZLWBku
-	sZskOiGRkpubgMfW3u3jUikllfpt+fNJRf386B6qiN2fwlqOOrqqadxuFdtUOpxqkq8NbeotQq0do
-	2k8pkjG17mt22gos9P1Q==;
+	List-Owner; bh=eOzZkw7xf/QMVRaEsNT3a5p0NOCGbZ8hy0n7GxGZdM8=; b=lElRxA4BQZKh4M
+	6P+yYsqCdH9qE9hTkFcpsQ+JBFwmCqrWcuZcO2Zi+6ZSLWUZVU/vG1sgYDofZ71bSB14YNt/PsTeu
+	SCdc6CFS+8hpq9irZEQwubYGTd0s+ONgyCgjzxB0Exo+3bPrW2vXqjSskgs9kO8mELTd291pF+/ar
+	SF+D7lE4tTkP86kRpop2msn1ATkP22TU4dSZcBdRh+Q93kfDz9qHTdGvqSmW3g1z9i1dNoHAv4RHt
+	97XAOQbWTVzkje5G4XLCSIgxi96zaLGRC5WfpzTZ5rg6yKv2nLnOi/3e1Wn3Qvj5Ufk4BMAXTK4gb
+	bXSknD9UtBb/2WmXUFDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pb-0000000Dd2D-1VFE;
+	id 1we2pb-0000000Dd2I-1v4K;
 	Mon, 29 Jun 2026 03:38:47 +0000
-Received: from out-03.smtp.spacemail.com ([63.250.43.88])
+Received: from out-13.smtp.spacemail.com ([63.250.43.96])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pU-0000000DczJ-36p4
+	id 1we2pY-0000000Dd13-0ZcZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 03:38:42 +0000
+	Mon, 29 Jun 2026 03:38:45 +0000
 Received: from [192.168.1.96] (107-194-158-19.lightspeed.sntcca.sbcglobal.net [107.194.158.19])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4gpX7H6gmwz8sbG;
-	Mon, 29 Jun 2026 03:38:35 +0000 (UTC)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4gpX7L3L2qz8sbh;
+	Mon, 29 Jun 2026 03:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gurudas.dev;
-	s=spacemail; t=1782704318;
-	bh=YIeQik7zWpB4jmw4IE+FSK27BQvQ/I/lwKnJtdpPOVk=;
+	s=spacemail; t=1782704321;
+	bh=YS27Kixvby6KSWXTt2w35oH9jMdFGUOYAotvdtSmrSU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=EhhFE7XYbRvohudmbaj4Tj/bf7TsPPwJS6wC8hq61i/uzpkfCPn9O/Sj+E6vte5mI
-	 zbnJ9PqzqqaLumWY6B+onwSBNV/N76KtKvpbx7stlcS3fDZ9oMExVWMz38iTcsSWwO
-	 w+0ygrtBSeD6V211j4eHZhNCHmNJbZX06k/SLUnRt01sFiEAWtvcBgfdXLpH8y+NxD
-	 PuODykExHbQ4D7tovt0GiZQVTfBrDuTvGtLEJhO67v9mO5L9Dk9Ot7WdHsyhsU3HGO
-	 Yu1WQEDXN2d6In0WW0QXUi7DPbd9JKlwh78KcnLoxIh/ivkPjwTJJI78IQh07n+xfJ
-	 U7tOax9rEkydw==
+	b=YKtNGdPNllSWHUf29xTf+H/qJRGsTx9ge6T579+WgPUypUW5v6y3OJtqWs9HWUTiV
+	 zbhlllaRoZxWjota9YxkLFCLGUnaZSNXbEHfDHKvUTG+CT7vASnJUFZVfv57AR/Ec4
+	 Fd5+G/+P+UUSqhj8+IT43fw3bELljdvhSncYSiDIFxwhmV9y+Otp+AcMqSGLXXXdl4
+	 1p0/vY7R4zmYhlP/s+8tmuFG4M0xvDXSzDQZQqw1SNiukkScPwDdbYFoBIAx57yRsb
+	 A4UBNbrxuI8Ovx4rFMv+ZAmaWs7neivc5ZH3vRpkCpGXtKUUb1OEKNc3Z5hcESrTNF
+	 WpS5rTL2gqnAw==
 From: Guru Das Srinagesh <linux@gurudas.dev>
-Date: Sun, 28 Jun 2026 20:38:19 -0700
-Subject: [PATCH 5/7] net: phy: ax88796b: use vertical import style
+Date: Sun, 28 Jun 2026 20:38:20 -0700
+Subject: [PATCH 6/7] net: phy: qt2025: use vertical import style
 MIME-Version: 1.0
-Message-Id: <20260628-b4-rust-vertical-imports-v1-5-98bc71d4810b@gurudas.dev>
+Message-Id: <20260628-b4-rust-vertical-imports-v1-6-98bc71d4810b@gurudas.dev>
 References: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
 In-Reply-To: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
 To: Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org, 
@@ -82,8 +82,8 @@ Cc: Danilo Krummrich <dakr@kernel.org>,
 X-Mailer: b4 0.15.2
 X-Envelope-From: linux@gurudas.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_203840_948158_C0A7F43E 
-X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-CacheID: sfid-20260628_203844_616764_18E9E93B 
+X-CRM114-Status: UNSURE (   8.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,27 +106,33 @@ maintainability.
 
 Signed-off-by: Guru Das Srinagesh <linux@gurudas.dev>
 ---
- drivers/net/phy/ax88796b_rust.rs | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/net/phy/qt2025.rs | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/phy/ax88796b_rust.rs b/drivers/net/phy/ax88796b_rust.rs
-index 2d24628a4e58..5a21fe09bd62 100644
---- a/drivers/net/phy/ax88796b_rust.rs
-+++ b/drivers/net/phy/ax88796b_rust.rs
-@@ -5,7 +5,12 @@
- //!
- //! C version of this driver: [`drivers/net/phy/ax88796b.c`](./ax88796b.c)
- use kernel::{
--    net::phy::{self, reg::C22, DeviceId, Driver},
-+    net::phy::{
-+        self,
-+        reg::C22,
-+        DeviceId,
-+        Driver, //
+diff --git a/drivers/net/phy/qt2025.rs b/drivers/net/phy/qt2025.rs
+index 470d89a0ac00..efde3f909367 100644
+--- a/drivers/net/phy/qt2025.rs
++++ b/drivers/net/phy/qt2025.rs
+@@ -14,11 +14,17 @@
+ use kernel::io::poll::read_poll_timeout;
+ use kernel::net::phy::{
+     self,
+-    reg::{Mmd, C45},
++    reg::{
++        Mmd,
++        C45, //
 +    },
-     prelude::*,
-     uapi,
+     Driver,
  };
+ use kernel::prelude::*;
+-use kernel::sizes::{SZ_16K, SZ_8K};
++use kernel::sizes::{
++    SZ_16K,
++    SZ_8K, //
++};
+ use kernel::time::Delta;
+ 
+ kernel::module_phy_driver! {
 
 -- 
 2.54.0
