@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D51C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 03:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6E9C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 03:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ahpOkIjdYJXiQw9KDPb1M5mkUeK/yuhrDPSteCCp0Zk=; b=A4eZGUMs2fHdNS
-	nVdKaeYxcfv9cK0kL2JHIxJMmUt6g/uwXbqc6r1Z7l34XVSOBOBHTcpPKnKyTouXyuKuo+Mx0WiWV
-	sPBgM42+P9MaH6FevsT5vNXpRJ7zbgM/gLyxa1yrbIIkhnw750joKESMXpQqIO3Qv2TGTjxbSbmlh
-	vMkNpO/2IdYwnuAC6tPOPZF9UfhkUbnjN7iW3JpYbAVuWGmRBWAMk8uAedyQ1FLwVQkQguGcdaL8c
-	v5Uj/0J9cTjF1tdHzbVDxDmcFx2NlKtR91G1sI1ixPzAin4GJLj7xzxmE1mXxt6vF6iK1wpwIgL/z
-	8EdcRPgE5CMv8GrVqgNA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cY/4VCCcFDEBuToeP/5C6fV/wgE+oFifYMFfQfW0DyA=; b=Xo33DOxF23CH7S
+	F0PAJjanpIBhBfCrb/ZHvAMMhaxlQ7PnP57Uu+pvm3WJopqvp/q6JcIgVz28FGU/g3YYi6OCmmvoT
+	zV+fDqBjVtrEpKrO/sfHNu9v8y+xek+h3it25wNgBJxon+4lWmBm3WTKJvA88j97iG1cob16h38fx
+	QgrNodtyvamVlOQ8gosCa/tHD6nnU6YKfNQrbepUeY7l0MdKVpgmfTdgJom+LpjTyAccZ+teWeJ2c
+	0OD7R2uoeMortpyMiSpe9uKwMr1KRhhII32xbovPops9yaBD33boBG/3wsUneze0zSHBYrLb/yOOh
+	SoG6WGP5p2+8XdqZpmtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pS-0000000Dcz4-40SW;
-	Mon, 29 Jun 2026 03:38:38 +0000
-Received: from out-03.smtp.spacemail.com ([63.250.43.88])
+	id 1we2pW-0000000Dczz-0GV9;
+	Mon, 29 Jun 2026 03:38:42 +0000
+Received: from out-13.smtp.spacemail.com ([63.250.43.96])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pP-0000000DcxT-3jCM
+	id 1we2pQ-0000000DcxU-0pJI
 	for linux-riscv@lists.infradead.org;
 	Mon, 29 Jun 2026 03:38:38 +0000
 Received: from [192.168.1.96] (107-194-158-19.lightspeed.sntcca.sbcglobal.net [107.194.158.19])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4gpX745lPmz8sb8;
-	Mon, 29 Jun 2026 03:38:24 +0000 (UTC)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4gpX762Nf6z8sbG;
+	Mon, 29 Jun 2026 03:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gurudas.dev;
-	s=spacemail; t=1782704306;
-	bh=9yoPMHqZhzE3iqqcnolBlcsUAlSSjRhy9gREnWpZKGs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=g8g5D1ENhx0FQXYOE+JOzorI+irSq/d4W2LRj/WFMzmT6KCIBS7JXZnh9ShOgGvNZ
-	 aszSMWYS/ub/pIKYTwqrIon+1uEFqma6r0HBSn5ixt8jZHDbtLJAJAgazxD7fgzEvp
-	 kSXsX2UHXYI+HFz5zqXxa2EzMqpV4UuVs3AI/aGF93KLqj93boQneIElJUHAHncIVI
-	 3vVp7mGhu/nm8AfBxKI50mwA+0/XUsg2ZFMlSZvNy7WixAEk1oNp1h4/QwPHWDPPca
-	 V5Gwm64Bne8LdzuTHGjEOhJy+S3uOPsnvXG4IyE1GsodIRiBDNDOlIa24h9pYwadjK
-	 CKuYevZSxFVRQ==
+	s=spacemail; t=1782704308;
+	bh=rsu/r/WBwNXuJN8+t83R5Jph4X6WrLULsoFBk7AwSRc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=kv2IuH9qfjU5qN/fw93o9W9+0qz6xE604v+ZgxAzE0ov+Uk2R8ms9TEB6TNmOF7lO
+	 xK9WLHj5MKV8YYCguPZvH3cFTfqkZMzJzs4RBhOGSSEvTMEKRulKik8j9+oFGY2N8g
+	 Hk+HbNVOn77oYvxczTNJlHDU1zl3tynxSouRbfJjAh44W2BgEeVQ2mMSWnSAIB3Nce
+	 OajHwrVSsBaICMGfcsAtzygyi7EVWId4EctQHov4lOm+gBB9qnkKeT4OYNa7VQ0iLB
+	 Z6TUUmbEcmBrnm42OQe7+XjvXD7ba3HYxpQyz4Z8y9xNIOgGl5JKKhS7lsqcw3eqfa
+	 a+H7FTHt/d9Sw==
 From: Guru Das Srinagesh <linux@gurudas.dev>
-Subject: [PATCH 0/7] rust: Use kernel style vertical imports in various
- drivers
-Date: Sun, 28 Jun 2026 20:38:14 -0700
-Message-Id: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
+Date: Sun, 28 Jun 2026 20:38:15 -0700
+Subject: [PATCH 1/7] samples: rust_dma: use vertical import style
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QqCQBCF4VeRuW7AFtmsV4kudD3mRKnMrCKI7
- +6alx+H869kUIHRI1tJMYvJ0CdcLxmFrurfYGmSyeXO596VXBesk0WeoVFC9WX5jYNGS4MHfHD
- F7d5Suo+KVpZ/+vk6bVP9QYhHj7ZtB0PCpC58AAAA
-X-Change-ID: 20260628-b4-rust-vertical-imports-b46ee6c2479f
+Message-Id: <20260628-b4-rust-vertical-imports-v1-1-98bc71d4810b@gurudas.dev>
+References: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
+In-Reply-To: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
 To: Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org, 
  linux-kernel@vger.kernel.org
 Cc: Danilo Krummrich <dakr@kernel.org>, 
@@ -85,8 +82,8 @@ Cc: Danilo Krummrich <dakr@kernel.org>,
 X-Mailer: b4 0.15.2
 X-Envelope-From: linux@gurudas.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_203836_192696_FE0D27E0 
-X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-CacheID: sfid-20260628_203836_398729_92D61B97 
+X-CRM114-Status: UNSURE (   8.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,38 +101,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Came across a recent commit bc58905eb07 ("samples: rust_misc_device: use
-vertical import style") and found a few more locations that could
-benefit from this cleanup. No functional changes.
+Convert `use` imports to vertical layout for better readability and
+maintainability.
 
 Signed-off-by: Guru Das Srinagesh <linux@gurudas.dev>
 ---
-Guru Das Srinagesh (7):
-      samples: rust_dma: use vertical import style
-      pwm: th1520: use vertical import style
-      cpufreq: rcpufreq_dt: use vertical import style
-      block: rnull: use vertical import style
-      net: phy: ax88796b: use vertical import style
-      net: phy: qt2025: use vertical import style
-      drm/nova: use vertical import style
+ samples/rust/rust_dma.rs | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
- drivers/block/rnull/configfs.rs  | 20 ++++++++++++++++----
- drivers/block/rnull/rnull.rs     | 13 ++++++++++---
- drivers/cpufreq/rcpufreq_dt.rs   |  5 ++++-
- drivers/gpu/drm/nova/file.rs     |  5 ++++-
- drivers/gpu/drm/nova/gem.rs      |  6 +++++-
- drivers/net/phy/ax88796b_rust.rs |  7 ++++++-
- drivers/net/phy/qt2025.rs        | 10 ++++++++--
- drivers/pwm/pwm_th1520.rs        |  6 +++++-
- samples/rust/rust_dma.rs         |  5 ++++-
- 9 files changed, 62 insertions(+), 15 deletions(-)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260628-b4-rust-vertical-imports-b46ee6c2479f
+diff --git a/samples/rust/rust_dma.rs b/samples/rust/rust_dma.rs
+index 5046b4628d0e..7d14574e8875 100644
+--- a/samples/rust/rust_dma.rs
++++ b/samples/rust/rust_dma.rs
+@@ -14,7 +14,10 @@
+     },
+     page, pci,
+     prelude::*,
+-    scatterlist::{Owned, SGTable},
++    scatterlist::{
++        Owned,
++        SGTable, //
++    },
+     sync::aref::ARef,
+ };
+ 
 
-Best regards,
---  
-Guru Das Srinagesh <linux@gurudas.dev>
+-- 
+2.54.0
 
 
 _______________________________________________
