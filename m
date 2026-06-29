@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C05FC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 13:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2EFC43638
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 13:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LQooCtWo+VYL7ohnPkIv6M8NGkId9fwLAg+gIOe9Cts=; b=uakWiklIpZ6Pgo
-	eFA9tIpUzRKdh1NJal++GOcZR52DnHvgwQvsO6s53jO4Cqqvxyo0OkT9Rq8pR66pvaQjSKbxL0O1Q
-	k2iLBoePxF/DAV4ex/VtkK5nrmNcV5hvcnNSeAujCFpmoQ1BVa3hrlNjdMFUVqft91P48BmGm9mFs
-	yXZ1gaDS07BlHWB6HynPUHLLs2s1YeVCCEAINYZRdvkQ5G8LL1UTEyDcvVBzVI6D1p+dhO3vl7gmQ
-	56YSLN4Xd5PnhYCZ01uGo4FQuIfzjA7vgg+NU0tR6OSrFQXMDALzLbiH97mBycbEhZMa3sDY4GSkj
-	2vk2EwIN4G0SCpoJeq3Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J0q1kWVzbOIHtREJkZ0nPtFCc/PWEgZ0dCwc/n7ss9E=; b=YkIMROqnqUaWC9
+	XhTTnMetRxFU2m2k19bCgbvFtkIOTwyktxfiJP2Nfdys+3J6kQ1G80NmC5JnDBNOtauLlz4oXraiw
+	Y03Wf7Y72PK/YWeNsJkiVxb2pDelRu+l3Mx4nv0GHiSEVijmeiZHIpivtgoYgREKHne4E1mvL6dpL
+	wknjFycjXrrHZ3LwJFLucts6qXRUHoL77WmLBnTuAuth4eed6oDaeeiQ52A50xqqpxIsLy2UuEnHX
+	JoY7X1eq5GRdAGQwJyhnfqxqP3380gXZm7fVFjuANxYH6dSRPhl3ZtQaDx2aldE2kuagJ4spNM6Y2
+	G7iWH7DxlPHOERigp2Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBhL-0000000EfPM-0OHF;
-	Mon, 29 Jun 2026 13:06:51 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1weBhO-0000000EfSG-33b8;
+	Mon, 29 Jun 2026 13:06:54 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBhG-0000000EfN1-08Gw;
-	Mon, 29 Jun 2026 13:06:48 +0000
+	id 1weBhL-0000000EfOh-2E4f;
+	Mon, 29 Jun 2026 13:06:53 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=oqt98KNiCfytd9je3A0RWaDEub1SoEsJvKXmHYAhpA0=;
-	b=ggJG6jKIceMr3g60Z1K5gohGiSNMQdcy54004MjW9vQDl4Z3N88jP9qlz2LyqYwtKjt2Ro2Ql
-	dcS+ZZElKSN+dQa6pVya75IHqaTPhjRhLpAzzwdE7tX8hwohhA97kSbBzrXBXKbFMyW3jMU6zI0
-	YF/YokD8vYpNatFoteOUTNw=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gpmXb70wbzcbQ8;
-	Mon, 29 Jun 2026 20:57:51 +0800 (CST)
+	bh=QajGHSeELTeFwAo2Vi+cAigxNZFa68v7esARJOfEGL8=;
+	b=K5W+RbBF/b3OBpG5ddsT3bmnCLBLEzgyzzh300maR3q5Yzre6htvRd1h62EH0Qq8ZRLKiCyVR
+	7x2r9MGY/Q4YnrsdD5+L1K+xmcJorhcRgEsexa89co6ktYK7W/JX4y7GLJ/9v16AQNEERwnh96q
+	DwurhrJk6XJseic49PmwfnU=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gpmXL50GLzLm2Z;
+	Mon, 29 Jun 2026 20:57:38 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id EC0DF40579;
-	Mon, 29 Jun 2026 21:06:38 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 3797E40572;
+	Mon, 29 Jun 2026 21:06:47 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 29 Jun
- 2026 21:06:34 +0800
+ 2026 21:06:42 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <oleg@redhat.com>, <richard.henderson@linaro.org>, <mattst88@gmail.com>,
 	<linmag7@gmail.com>, <linux@armlinux.org.uk>, <catalin.marinas@arm.com>,
@@ -76,17 +76,20 @@ To: <oleg@redhat.com>, <richard.henderson@linaro.org>, <mattst88@gmail.com>,
 	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
 	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
 	<linux-um@lists.infradead.org>
-Subject: [PATCH v16 00/18] arm64: entry: Convert to Generic Entry
-Date: Mon, 29 Jun 2026 21:05:58 +0800
-Message-ID: <20260629130616.642022-1-ruanjinjie@huawei.com>
+Subject: [PATCH v16 02/18] syscall_user_dispatch: Introduce a weak fallback for arch_syscall_is_vdso_sigreturn()
+Date: Mon, 29 Jun 2026 21:06:00 +0800
+Message-ID: <20260629130616.642022-3-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260629130616.642022-1-ruanjinjie@huawei.com>
+References: <20260629130616.642022-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_060646_423957_D2196A3D 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260629_060651_908201_30AAACB9 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,222 +106,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is the 16th iteration of the patch series. I would like to express
-my sincere gratitude to everyone who has contributed to the reviews
-and testing across the previous versions, which helped significantly
-refine this work.
+Currently, multiple architectures (LoongArch, RISC-V, S390, Powerpc)
+provide identical stubs for arch_syscall_is_vdso_sigreturn() that simply
+return false. This results in redundant boilerplate code across the tree.
 
-Currently, architectures such as x86, Riscv, Loongarch use the Generic
-Entry, which significantly eases maintenance burden and improves
-code elegance. Given that arm64 has already successfully adopted
-the Generic IRQ Entry in commit b3cf07851b6c ("arm64: entry: Switch to
-generic IRQ entry"), it is now the right time to completely convert arm64
-to the Generic Entry infrastructure.
+Introduce a default __weak implementation of
+arch_syscall_is_vdso_sigreturn() directly in syscall_user_dispatch.c that
+returns false. This allows architectures that do not utilize a vDSO
+sigreturn to entirely drop their redundant inline definitions.
 
-The objective of this series is to bring arm64 in line with other major
-architectures, reducing duplicated boilerplate code and simplifying the
-sharing of future improvements in entry/exit paths, such as "Syscall User
-Dispatch" and "rseq time slice extension" optimizations.
+Architectures requiring a specialized check (such as x86) will continue to
+override this fallback with their strong symbol definitions.
 
-This patch set is rebased on v7.2-rc1. It contains the foundational
-updates required for arm64. Following the suggestion from Linus Walleij,
-these patches are being submitted separately for inclusion via
-the arm64 tree.
+Clean up the redundant implementations in loongarch, riscv, s390
+and powerpc.
 
-Performance benchmarks were conducted on a "Kunpeng HIP09" platform with
-kernel auditing enabled. The results are detailed below:
+Cc: Thomas Gleixner <tglx@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/loongarch/include/asm/syscall.h  | 5 -----
+ arch/powerpc/include/asm/syscall.h    | 5 -----
+ arch/riscv/include/asm/syscall.h      | 5 -----
+ arch/s390/include/asm/syscall.h       | 5 -----
+ include/linux/syscall_user_dispatch.h | 1 +
+ kernel/entry/syscall_user_dispatch.c  | 5 +++++
+ 6 files changed, 6 insertions(+), 20 deletions(-)
 
-1. perf bench syscall usec/op (-ve is improvement)
-
-        | Syscall | Base        | Generic Entry | change % |
-        | ------- | ----------- | ------------- | -------- |
-        | basic   | 0.223       | 0.218         | -2.25    |
-        | execve  | 799.564     | 787.849       | -1.47    |
-        | fork    | 1088.503    | 1096.920      | +0.77    |
-        | getpgid | 0.218       |  0.122        | -0.47    |
-
-2. perf bench syscall ops/sec (+ve is improvement)
-
-        | Syscall | Base     | Generic Entry| change % |
-        | ------- | -------- | ------------ | -------- |
-        | basic   | 4475386  | 4578820      | +2.31    |
-        | execve  | 1250     | 1269         | +1.54    |
-        | fork    | 918      | 911          | -0.74    |
-        | getpgid | 4587781  | 4607488      | +0.43    |
-
-Overall, the syscall performance remains largely neutral, with minor
-variations ranging from a 0.8% regression to a 2.3% improvement, which
-is within normal measurement tolerance.
-
-Tested successfully on "Kunpeng HIP09" using the following test cases:
- - stress-ng: CPU, Virtual Memory, Syscall, and Interrupt stress tests.
- - hackbench: Evaluated in both thread and pipe modes.
- - kselftests (ptrace): get_syscall_info, set_syscall_info, peeksiginfo.
- - kselftests (breakpoints): breakpoint_test_arm64.
- - kselftests (arm64/abi): syscall-abi and ptrace.
- - kselftests (arm64/fp): fp-ptrace, sve-ptrace, and za-ptrace.
- - kselftests (vDSO): vdso_test_getrandom.
- - Ptrace stress test: tracing stress-ng system calls under load.
- - Pseudo-NMI load test using perf.
-
-Changes in v16:
-- Rebased on v7.2-rc1.
-- Convert __secure_computing() to return boolean as Thomas suggested.
-- Introduce a weak vesion for arch_syscall_is_vdso_sigreturn()
-  to simplify the code.
-- Split out the implementation of arch_syscall_is_vdso_sigreturn()
-  into a separate patch to facilitate reviewing.
-- Break down the syscall_exit_to_user_mode_work() refactoring into
-  5 smaller, bite-sized patches for easier review and justification.
-- Update the comment and commit message as Ada suggeted.
-- Clarify patch titles and align title prefixes for consistency.
-- Collect Reviewed-by and Tesed-by.
-- Link to v15: https://lore.kernel.org/all/20260511092103.1974980-1-ruanjinjie@huawei.com/
-
-Changes in v15:
-- Rebased on v7.1-rc1 and Mark's fix patch in [1].
-- Solve issues Sashiko AI pointed out, "Fix potential syscall truncation
-  in syscall_trace_enter()".
-- Make syscall_exit_to_user_mode_work() __always_inline to keep
-  the fast-path performance as Sashiko pointed out.
-
-Changes in v14:
-- Initialize ret = 0 in syscall_trace_enter().
-- Split into two patch sets as Linus Walleij suggested, so this patch set
-  can be applied separately to the arm64 tree.
-- Rebased on arm64 for-next/core branch.
-- Collect Reviewed-by and Acked-by.
-- Link to v13 resend: https://lore.kernel.org/all/20260317082020.737779-15-ruanjinjie@huawei.com/
-
-Changes in v13 resend:
-- Fix exit_to_user_mode_prepare_legacy() issues.
-- Also move TIF_SINGLESTEP to generic TIF infrastructure for loongarch.
-- Use generic TIF bits for arm64 and moving TIF_SINGLESTEP to
-  generic TIF for related architectures separately.
-- Refactor syscall_trace_enter/exit() to accept flags and Use
-  syscall_get_nr() helper separately.
-- Tested with slice_test for rseq optimizations.
-- Add acked-by.
-- Link to v13: https://lore.kernel.org/all/20260313094738.3985794-1-ruanjinjie@huawei.com/
-
-Changes in v13:
-- Rebased on v7.0-rc3, so drop the firt applied arm64 patch.
-- Use generic TIF bits to enables RSEQ optimization.
-- Update most of the commit message to make it more clear.
-- Link to v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
-
-Changes in v12:
-- Rebased on "sched/core", so remove the four generic entry patches.
-- Move "Expand secure_computing() in place" and
-  "Use syscall_get_arguments() helper" patch forward, which will group all
-  non-functional cleanups at the front.
-- Adjust the explanation for moving rseq_syscall() before
-  audit_syscall_exit().
-- Link to v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
-
-Changes in v11:
-- Remove unused syscall in syscall_trace_enter().
-- Update and provide a detailed explanation of the differences after
-  moving rseq_syscall() before audit_syscall_exit().
-- Rebased on arm64 (for-next/entry), and remove the first applied 3 patchs.
-- syscall_exit_to_user_mode_work() for arch reuse instead of adding
-  new syscall_exit_to_user_mode_work_prepare() helper.
-- Link to v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
-
-Changes in v10:
-- Rebased on v6.19-rc1, rename syscall_exit_to_user_mode_prepare() to
-  syscall_exit_to_user_mode_work_prepare() to avoid conflict.
-- Also inline syscall_trace_enter().
-- Support aarch64 for sud_benchmark.
-- Update and correct the commit message.
-- Add Reviewed-by.
-- Link to v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
-
-Changes in v9:
-- Move "Return early for ptrace_report_syscall_entry() error" patch ahead
-  to make it not introduce a regression.
-- Not check _TIF_SECCOMP/SYSCALL_EMU for syscall_exit_work() in
-  a separate patch.
-- Do not report_syscall_exit() for PTRACE_SYSEMU_SINGLESTEP in a separate
-  patch.
-- Add two performance patch to improve the arm64 performance.
-- Add Reviewed-by.
-- Link to v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
-
-Changes in v8:
-- Rename "report_syscall_enter()" to "report_syscall_entry()".
-- Add ptrace_save_reg() to avoid duplication.
-- Remove unused _TIF_WORK_MASK in a standalone patch.
-- Align syscall_trace_enter() return value with the generic version.
-- Use "scno" instead of regs->syscallno in el0_svc_common().
-- Move rseq_syscall() ahead in a standalone patch to clarify it clearly.
-- Rename "syscall_trace_exit()" to "syscall_exit_work()".
-- Keep the goto in el0_svc_common().
-- No argument was passed to __secure_computing() and check -1 not -1L.
-- Remove "Add has_syscall_work() helper" patch.
-- Move "Add syscall_exit_to_user_mode_prepare() helper" patch later.
-- Add miss header for asm/entry-common.h.
-- Update the implementation of arch_syscall_is_vdso_sigreturn().
-- Add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP | SYSCALL_EMU"
-  to keep the behaviour unchanged.
-- Add more testcases test.
-- Add Reviewed-by.
-- Update the commit message.
-- Link to v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
-
-Jinjie Ruan (18):
-  seccomp: Convert __secure_computing() to return boolean
-  syscall_user_dispatch: Introduce a weak fallback for
-    arch_syscall_is_vdso_sigreturn()
-  arm64: ptrace: Pass thread flags to syscall_trace_enter/exit()
-  arm64: ptrace: Use syscall_get_nr() helper for syscall_trace_enter()
-  arm64: ptrace: Expand secure_computing() in place
-  arm64: ptrace: Use syscall_get_arguments() helper for audit
-  arm64: ptrace: Protect rseq_syscall() from tracer PC modifications
-  arm64: ptrace: Rename syscall_trace_exit() to syscall_exit_work()
-  arm64: syscall: Rework the syscall exit path in el0_svc_common()
-  arm64: ptrace: Extract syscall_exit_to_user_mode_work() helper
-  arm64: ptrace: Align syscall exit work semantics with generic entry
-  arm64: syscall: Use exit-specific flags check in el0_svc_common()
-  arm64: syscall: Simplify el0_svc_common() syscall exit path
-  arm64: syscall: Simplify syscall exit path in el0_svc_common()
-  arm64: ptrace: Skip syscall exit reporting for
-    PTRACE_SYSEMU_SINGLESTEP
-  arm64: entry: Convert to generic entry
-  arm64: Inline el0_svc_common()
-  arm64: vdso: Expose sigreturn address on vdso to the kernel
-
- arch/alpha/kernel/ptrace.c            |   2 +-
- arch/arm/kernel/ptrace.c              |   2 +-
- arch/arm64/Kconfig                    |   2 +-
- arch/arm64/include/asm/elf.h          |   1 +
- arch/arm64/include/asm/entry-common.h |  76 +++++++++++++++++
- arch/arm64/include/asm/syscall.h      |   4 +-
- arch/arm64/include/asm/thread_info.h  |  16 +---
- arch/arm64/kernel/debug-monitors.c    |   8 ++
- arch/arm64/kernel/ptrace.c            | 115 --------------------------
- arch/arm64/kernel/signal.c            |   2 +-
- arch/arm64/kernel/syscall.c           |  30 ++-----
- arch/arm64/kernel/vdso.c              |  16 ++++
- arch/csky/kernel/ptrace.c             |   2 +-
- arch/loongarch/include/asm/syscall.h  |   5 --
- arch/m68k/kernel/ptrace.c             |   2 +-
- arch/mips/kernel/ptrace.c             |   2 +-
- arch/parisc/kernel/ptrace.c           |   2 +-
- arch/powerpc/include/asm/syscall.h    |   5 --
- arch/riscv/include/asm/syscall.h      |   5 --
- arch/s390/include/asm/syscall.h       |   5 --
- arch/sh/kernel/ptrace_32.c            |   2 +-
- arch/um/kernel/skas/syscall.c         |   2 +-
- arch/x86/entry/vsyscall/vsyscall_64.c |   2 +-
- arch/xtensa/kernel/ptrace.c           |   3 +-
- include/linux/entry-common.h          |   7 +-
- include/linux/seccomp.h               |  10 +--
- include/linux/syscall_user_dispatch.h |   1 +
- kernel/entry/syscall_user_dispatch.c  |   5 ++
- kernel/seccomp.c                      |  34 ++++----
- 29 files changed, 154 insertions(+), 214 deletions(-)
-
+diff --git a/arch/loongarch/include/asm/syscall.h b/arch/loongarch/include/asm/syscall.h
+index df8ea223c77b..946886794ced 100644
+--- a/arch/loongarch/include/asm/syscall.h
++++ b/arch/loongarch/include/asm/syscall.h
+@@ -85,9 +85,4 @@ static inline int syscall_get_arch(struct task_struct *task)
+ #endif
+ }
+ 
+-static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+-{
+-	return false;
+-}
+-
+ #endif	/* __ASM_LOONGARCH_SYSCALL_H */
+diff --git a/arch/powerpc/include/asm/syscall.h b/arch/powerpc/include/asm/syscall.h
+index 834fcc4f7b54..4b3c52ed6e9d 100644
+--- a/arch/powerpc/include/asm/syscall.h
++++ b/arch/powerpc/include/asm/syscall.h
+@@ -139,9 +139,4 @@ static inline int syscall_get_arch(struct task_struct *task)
+ 	else
+ 		return AUDIT_ARCH_PPC64;
+ }
+-
+-static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+-{
+-	return false;
+-}
+ #endif	/* _ASM_SYSCALL_H */
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index 8067e666a4ca..987c9a78806f 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -112,11 +112,6 @@ static inline void syscall_handler(struct pt_regs *regs, ulong syscall)
+ 	regs->a0 = fn(regs);
+ }
+ 
+-static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+-{
+-	return false;
+-}
+-
+ asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
+ 
+ asmlinkage long sys_riscv_hwprobe(struct riscv_hwprobe *, size_t, size_t,
+diff --git a/arch/s390/include/asm/syscall.h b/arch/s390/include/asm/syscall.h
+index 4271e4169f45..5f310caad1fc 100644
+--- a/arch/s390/include/asm/syscall.h
++++ b/arch/s390/include/asm/syscall.h
+@@ -89,11 +89,6 @@ static inline int syscall_get_arch(struct task_struct *task)
+ 	return AUDIT_ARCH_S390X;
+ }
+ 
+-static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+-{
+-	return false;
+-}
+-
+ #define SYSCALL_FMT_0
+ #define SYSCALL_FMT_1 , "0" (r2)
+ #define SYSCALL_FMT_2 , "d" (r3) SYSCALL_FMT_1
+diff --git a/include/linux/syscall_user_dispatch.h b/include/linux/syscall_user_dispatch.h
+index 3858a6ffdd5c..73d69e02807d 100644
+--- a/include/linux/syscall_user_dispatch.h
++++ b/include/linux/syscall_user_dispatch.h
+@@ -10,6 +10,7 @@
+ 
+ #ifdef CONFIG_GENERIC_ENTRY
+ 
++bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs);
+ int set_syscall_user_dispatch(unsigned long mode, unsigned long offset,
+ 			      unsigned long len, char __user *selector);
+ 
+diff --git a/kernel/entry/syscall_user_dispatch.c b/kernel/entry/syscall_user_dispatch.c
+index d89dffcc2d64..acf545774d37 100644
+--- a/kernel/entry/syscall_user_dispatch.c
++++ b/kernel/entry/syscall_user_dispatch.c
+@@ -32,6 +32,11 @@ static void trigger_sigsys(struct pt_regs *regs)
+ 	force_sig_info(&info);
+ }
+ 
++bool __weak arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
++{
++	return false;
++}
++
+ bool syscall_user_dispatch(struct pt_regs *regs)
+ {
+ 	struct syscall_user_dispatch *sd = &current->syscall_dispatch;
 -- 
 2.34.1
 
