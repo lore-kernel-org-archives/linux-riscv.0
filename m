@@ -4,93 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD3FC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 20:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19A0C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 20:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=07LDMRzLzJ0TQSUccg0XUWm8PMx8A4BfZB4b+aAnUW0=; b=kSIi0NZQ47Nu1X
-	W34AsjuNKmTh0cW3EFKjTJ60LfxMEj/kTfi80ANP3TngIV/JU2gH071xNbBejWqAU5w02nhp7ARVq
-	pTHEhCJzBGU9V99iSvRbjxqRgRnbPGBBBOVpAS2IZcanEAt+c9J2vkvwrd44ngtPohKiBZ/oRKRjg
-	UrmLTGhv55yHT8Z7ObjPnuLXkq7gjV9q+UmvNl4Mk+uZcnlpupOkou6y62hw1fQ92yqDJ8YVZHckG
-	yjiN+9S1pZLaI2o8M3r53sGRm2M9yv4D3d060IXRaHHiJ97OPJZ0VuDLQuGfctFpzIE+sc2A4gK59
-	fEjAv7z1h7IDc4fTxVGA==;
+	List-Owner; bh=c6GAg0quYXjQN3MKZeVSCaGrn4/s/GydT0u8Hj/xZQw=; b=uxOgd3WhMVTsfA
+	PGSiLjXudcVJZq23hG4HyDLHbflLo4WdSnjL82AbTqXWFLOliKkcfxk0EWb5c+zr2v+Czs/FunV7y
+	03Ss4Aib2/vuKHmtp/I0w26l4JlDY5ehNR16y/iy911yZgBKcwyyVOK6Eq4DXVkmmWC/l3PSHEvOE
+	dxzaBKHxm9gdOn4PF+efSwnEtqqUrALR0HU5bhmS+Eb15fGKoBGVbeO8gwFI87mU2zlDMV9/ZX96Q
+	Vc2DuQMk81qi7H89c6YW8/V47tKz751p7CFmp9PZ/449KsCbmAVCouKWqiavjwhpWgCksV1itsRdP
+	1af8vI0pHI52rgmzO2PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIxz-0000000FSdY-1cGZ;
-	Mon, 29 Jun 2026 20:52:31 +0000
+	id 1weJ4F-0000000FTVV-3LqE;
+	Mon, 29 Jun 2026 20:58:59 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIxv-0000000FSd9-2WW2
+	id 1weJ4B-0000000FTUz-3sn2
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 20:52:29 +0000
+	Mon, 29 Jun 2026 20:58:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1782766346;
+	s=mimecast20190719; t=1782766734;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ZExeYtPmbb6AZR2E0E7zl1B/EIM3ypaStq/+Uw+ubN0=;
-	b=X6SNRgXiG4qjCyaKYHkPvfm7M+ORNGWcMwN+U+4A/dXp97Vn5Zl3kHCfrRhZ4sA0jhHsKe
-	YDlsDq8xacFtZuf0c3Cl0CPyuvg+R7DU9k7Hs+yf+gEDqPP6bYV/L8oq9XH4ye26LSZgIJ
-	FULSydPyV0uFfwiPZ3StvZoXFqcH090=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=vc9TcsGqvwP2sCjfxbHhvEp3jEIy9e292sjunigOY5E=;
+	b=POgwaQEQSYsCO0Pn3A5nI7SXmVZ67CpjlqDgeibA8cFpgsp8eN3xacBBpKOtr17E1DbPkg
+	CqP4/v9IxO3FikihXQ78ZWUUAsWc8x/pD4V7enAPT2Ue9nOCPkOtkhIihf6JWzcAl6EbFB
+	9fRBgCs4qA1jTMRI1RtjSAI/c5gOA+8=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-50-MhPlgu3NPM-n6Tg0nvSPLQ-1; Mon, 29 Jun 2026 16:52:24 -0400
-X-MC-Unique: MhPlgu3NPM-n6Tg0nvSPLQ-1
-X-Mimecast-MFC-AGG-ID: MhPlgu3NPM-n6Tg0nvSPLQ_1782766343
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-473bc66c837so1092493f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2026 13:52:24 -0700 (PDT)
+ us-mta-6-T57aIh0zOKCRa2BIL_U1_g-1; Mon, 29 Jun 2026 16:58:53 -0400
+X-MC-Unique: T57aIh0zOKCRa2BIL_U1_g-1
+X-Mimecast-MFC-AGG-ID: T57aIh0zOKCRa2BIL_U1_g_1782766733
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8ec3314f65fso55515336d6.3
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2026 13:58:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782766343; x=1783371143;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20251104; t=1782766733; x=1783371533;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ZExeYtPmbb6AZR2E0E7zl1B/EIM3ypaStq/+Uw+ubN0=;
-        b=CvFX29rMy2M4vvlPuEX1T7bPUGkotdw1BDT6wLuX8a7s0g+xsfwBGe9XQ4my1qStAr
-         heCXwHWm8W9uGqgUMpbnscntR68+j3cscwwLdkrNU45d6H3ZbC7UXDYlincvhg3Y3X2E
-         j0ZmBSBbbdFxR8xhrdolZzQ470aGEQQvbyFRps42OKYHlVlw3T36F5nSkyflFchySiGC
-         pRTBA8ucrY0bXXRMyoGxCFMVGmNRAWk/6Q2HU5mTokSNsu4ATGCmWhOOl3ZTDI/h/QLJ
-         E8RG86ioy2UgxqM1CrDGCItGTzRmmw1/5vVfvP2XbMAIMR/nf/xcNhW2mj5IMxr+j9NH
-         eb+Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rps+Zsn6cdokeqcUWkl6D3gL7IW4YKwedPHP5KM+dL7viaCFoJzT0vtWqF6AnrnxHQv5QkLLarHJdFDyQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4VlnJ3aj5eg7ngejDZ8mV2DH1bt6A5xobMBrjkQi6K5mlioFG
-	lG2xctlq+2wKMTJGruIuoW/K9/WYUE6LeN8VC9SUrnAe+Kod/VZq8ZQRD7MxqA8agNqbbukqjmx
-	WStqQmznaHn+Y2HC/2gP6VNWWEcd9yFE1XTJmwdWKqKyX+PvivvY5D8OobUclQpj7X5HUF3maDL
-	tU/vqb84dEjlxIV8gereahMSHNnbJ4f0uDE/xercuy5PVa
-X-Gm-Gg: AfdE7ckhwhGTVtni6j055gj5HiUwuXpNPSlHnXXfwMuKtMpylYohtjVFHqi7jU9u7/F
-	gy+CXfI1vXFuDz2FibxlmjjSnJ+AchIPltQxPvEDwVabYq1wLHGY/bchcungImwEJQIi2m6QmIp
-	SndU2egBs/+Ar2Oaqzb3/+HOyxuaKx5oKHJ8KkL9bXIdOejLUQdVFupb8Wlq1m5KECbRfkXlvlQ
-	ZV7ranTDibp1LWVcB+Xgp6d3l5A
-X-Received: by 2002:a05:6000:611:b0:46f:5d62:d914 with SMTP id ffacd0b85a97d-47551737df3mr938017f8f.12.1782766343334;
-        Mon, 29 Jun 2026 13:52:23 -0700 (PDT)
-X-Received: by 2002:a05:6000:611:b0:46f:5d62:d914 with SMTP id
- ffacd0b85a97d-47551737df3mr937986f8f.12.1782766342923; Mon, 29 Jun 2026
- 13:52:22 -0700 (PDT)
+        bh=vc9TcsGqvwP2sCjfxbHhvEp3jEIy9e292sjunigOY5E=;
+        b=gLo9Dlu4vRMVVDoT/IxCrRSTvdppYNj/wSap8EbegvbRNcsPLP3OXoNVSqWd3OJIsk
+         3IGsQJPo2Ni+i/HIE7QzNB6f0bYYLNOpOPU2kP6wZcrgTzzyU3pG8DwU9FYVIoH0kAxM
+         IaYRWThA/WnU/eXuIk0E1W1jgbX+04Tk89KrEEFIv4tmD6yKD1iC6oqP2WndDsxUXBOp
+         FgrvBbjqtw7IJCd9lqNujRqFqsvin+F/1etR6tc4VGcCkwiCoFQS0M7wMmRw+Cqw4OYX
+         bS79NnM1PT9OC175zCLIo1Vwweb3Xnv5u5tBA6ylib3UMmx9+0cBvPJ3bqaV46MpQTno
+         mP+w==
+X-Forwarded-Encrypted: i=1; AHgh+Rrc789XdQgKHEqvz9JXvG6gnlF4An6BxcGosFg9C0Ua1uqI5XO/PtGVRlFH93yvhWbNK179MJjOcKdhUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqbebQg6cdaRL4KSqlyvZppyeNY8Owa9pfrMAIWVQ3HF37DrTM
+	HgmbvIA7jRwmuIFxD3AjZ1ucKQR/C5cx2+lOBtgmfvKDv/5jHE3o6Y+4AQ+HdRrW5ZctxPZe5+u
+	j9R6jvpI7gql068gNhSiUmDPE4gBRlcFb5D+aw2221B8DMrgWEPJ68xx7L4l74xQyCnsBHQ==
+X-Gm-Gg: AfdE7cmElpc9bswGoCbBfxdVMFqbhAk6K0S9NbZhjDhnDgckU1J/bCuFRhlpSDWU9ot
+	pxdNhv16XBNOG7SBbXzllKmSSaWzfLnUCUrSwrUzSDywplewD/W7RTDcjgjlkJCFvk4PzQSz8gK
+	8qc4UYO2GEdtsXtq+TBbaFL0X69vkzw0GMc/nQfvcKgTjvccwH0fnrozEydzPW9y0FWiIvYo+XJ
+	uxe2ZKVmOrjNAK0P19EITtt0CW8HEEMgRkUb/Y7imO+WOUDPdd6RtAhIrCmx8cBvn5Tl+aY6nQk
+	VtNFBIoZGzkQ8NioJe3zLzm1uuijFQitYk50I/KEfX7HKFK7dmDnkRjw3gPL2lusMOUoHaG79DH
+	xFbM/FjdO2clEMwa3csT/46GMGPqzdrQV82mHQQCJ9gOpWg==
+X-Received: by 2002:a05:6214:4709:b0:8ef:aad6:dada with SMTP id 6a1803df08f44-8f1ba699fcemr14251656d6.20.1782766732931;
+        Mon, 29 Jun 2026 13:58:52 -0700 (PDT)
+X-Received: by 2002:a05:6214:4709:b0:8ef:aad6:dada with SMTP id 6a1803df08f44-8f1ba699fcemr14251346d6.20.1782766732468;
+        Mon, 29 Jun 2026 13:58:52 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f1a328fed8sm7220026d6.16.2026.06.29.13.58.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 13:58:51 -0700 (PDT)
+Date: Mon, 29 Jun 2026 16:58:20 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 4/6] reset: anlogic: add support for Anlogic DR1V90
+ resets
+Message-ID: <akLcbHYKJfvZzf27@redhat.com>
+References: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
+ <20260514-dr1v90-cru-v5-4-34f3021aab51@pigmoral.tech>
 MIME-Version: 1.0
-References: <cover.1781666867.git.namcao@linutronix.de> <1c378963f27c5960e8a57c50b8b444d30954cb54.1781666867.git.namcao@linutronix.de>
-In-Reply-To: <1c378963f27c5960e8a57c50b8b444d30954cb54.1781666867.git.namcao@linutronix.de>
-From: Jesse Taube <jtaubepe@redhat.com>
-Date: Mon, 29 Jun 2026 16:52:10 -0400
-X-Gm-Features: AVVi8CcsutnsmZmsWanoQyRTk1OST7gOCnzK4k_GYxuuXSQew-iHrhleNoTl064
-Message-ID: <CADRr4bdNtwX10sDqRT69WHJHjXx+y-93wm8AHj4v2h1wQfF8pA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] riscv: unaligned: stop using kthread for check_vector_unaligned_access()
-To: Nam Cao <namcao@linutronix.de>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Jones <andrew.jones@oss.qualcomm.com>, Jingwei Wang <wangjingwei@iscas.ac.cn>, 
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20260514-dr1v90-cru-v5-4-34f3021aab51@pigmoral.tech>
+User-Agent: Mutt/2.3.2 (2026-04-26)
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rl768_qixPoqFDumgaQezv49-SaLfhEstrGAkMETQUo_1782766343
+X-Mimecast-MFC-PROC-ID: YceWmpQeaUFMbdQEX3JRwU2wEhusagPdhmYdA7Vji3A_1782766733
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_135227_738262_C4713323 
-X-CRM114-Status: GOOD (  27.74  )
+X-CRM114-CacheID: sfid-20260629_135856_048718_AA3E7DF3 
+X-CRM114-Status: GOOD (  30.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +113,227 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdW4gMTYsIDIwMjYgYXQgMTE6NDHigK9QTSBOYW0gQ2FvIDxuYW1jYW9AbGludXRy
-b25peC5kZT4gd3JvdGU6Cj4KPiBBIGt0aHJlYWQgaXMgdXNlZCB0byBydW4gY2hlY2tfdmVjdG9y
-X3VuYWxpZ25lZF9hY2Nlc3MoKSB0byBvcHRpbWl6ZSBib290Cj4gdGltZSwgYWxsb3dpbmcgdGhl
-IGtlcm5lbCB0byBjb250aW51ZSBib290aW5nIHdpdGhvdXQgd2FpdGluZyBmb3IgdGhlCj4gdW5h
-bGlnbmVkIHZlY3RvciBzcGVlZCBwcm9iZSB0byBmaW5pc2guCj4KPiBIb3dldmVyLCB0aGlzIGFz
-eW5jaHJvbm91cyBhcHByb2FjaCBpbnRyb2R1Y2VzIHNldmVyYWwgY29tcGxpY2F0aW9ucy4KPiBG
-aXJzdCwgdGhlIGt0aHJlYWQgbWF5IG5vdCBjb21wbGV0ZSBiZWZvcmUgYSB1c2VyIHJlYWRzIHZE
-U08gZGF0YSwKPiByZXN1bHRpbmcgaW4gaW5jb3JyZWN0IHZhbHVlcy4gVGhpcyB3YXMgcHJldmlv
-dXNseSBhZGRyZXNzZWQgYnkKPiBjb21taXQgNWQxNWQyYWQzNmIwICgicmlzY3Y6IGh3cHJvYmU6
-IEZpeCBzdGFsZSB2RFNPIGRhdGEgZm9yCj4gbGF0ZS1pbml0aWFsaXplZCBrZXlzIGF0IGJvb3Qi
-KSwgd2hpY2ggYWRkZWQgY29tcGxleCBzeW5jaHJvbml6YXRpb24KPiBiZXR3ZWVuIHRoZSBrdGhy
-ZWFkIGFuZCB2RFNPIHJlYWRzLgo+Cj4gU2Vjb25kLCBpdCB3YXMgZGlzY292ZXJlZCB0aGF0IHRo
-ZSBrdGhyZWFkIG1heSBub3QgZmluaXNoIGJlZm9yZQo+IHZlY19jaGVja191bmFsaWduZWRfYWNj
-ZXNzX3NwZWVkX2FsbF9jcHVzKCkgKG1hcmtlZCB3aXRoIF9faW5pdCkgaXMgZnJlZWQsCj4gdHJp
-Z2dlcmluZyBhIHBhZ2UgZmF1bHQuCj4KPiBUaGVzZSBpc3N1ZXMgcmFpc2UgdGhlIHF1ZXN0aW9u
-IG9mIHdoZXRoZXIgdGhlIGt0aHJlYWQgaXMgd29ydGggdGhlIGFkZGVkCj4gY29tcGxleGl0eS4g
-QSBwYXN0IGJvb3QgdGltZSByZWdyZXNzaW9uIHJlcG9ydCB3YXMgYWN0dWFsbHkgdW5yZWxhdGVk
-IHRvCj4gc3luY2hyb25vdXMgcHJvYmluZzsgaXQgd2FzIGNhdXNlZCBieSB0aGUgcHJvYmUgcnVu
-bmluZyBzZXJpYWxseS4gU2luY2UKPiBzd2l0Y2hpbmcgdG8gYSBwYXJhbGxlbCBwcm9iZSwgbm8g
-ZnVydGhlciBjb21wbGFpbnRzIGhhdmUgYmVlbiBtYWRlLgo+IEZ1cnRoZXJtb3JlLCB0aGUgdW5h
-bGlnbmVkIHNjYWxhciBhY2Nlc3Mgc3BlZWQgcHJvYmUgdGFrZXMgdGhlIHNhbWUgYW1vdW50Cj4g
-b2YgdGltZSwgcnVucyBzeW5jaHJvbm91c2x5LCBhbmQgaGFzIGNhdXNlZCBubyBpc3N1ZXMuCj4K
-PiBUZXN0aW5nIHNob3dzIG5vIG5vdGljZWFibGUgYm9vdCB0aW1lIHNsb3dkb3duIHdoZW4gcnVu
-bmluZyB0aGUgdmVjdG9yCj4gcHJvYmUgc3luY2hyb25vdXNseSAoMC40NjQ0NzRzIHdpdGgga3Ro
-cmVhZCB2cy4gMC40NTc5OTFzIHdpdGhvdXQpLgo+Cj4gUmVtb3ZlIHRoZSBrdGhyZWFkIHVzYWdl
-IGFuZCBydW4gdGhlIHByb2JlIHN5bmNocm9ub3VzbHkuIFRoaXMgc2ltcGxpZmllcwo+IHRoZSBi
-b290IGZsb3cgYW5kIGFsbG93cyBmb3IgdGhlIHJldmVydCBvZiBjb21taXQgNWQxNWQyYWQzNmIw
-ICgicmlzY3Y6Cj4gaHdwcm9iZTogRml4IHN0YWxlIHZEU08gZGF0YSBmb3IgbGF0ZS1pbml0aWFs
-aXplZCBrZXlzIGF0IGJvb3QiKQo+Cj4gUmVwb3J0ZWQtYnk6IEFuaXJ1ZGggU3Jpbml2YXNhbiA8
-YXNyaW5pdmFzYW5Ab3NzLnRlbnN0b3JyZW50LmNvbT4KPiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjYwNjEyLXZlY191bmFsaWduZWRfZHJvcF9pbml0LXYx
-LTEtZGY5NjkyMTBhZTM0QG9zcy50ZW5zdG9ycmVudC5jb20vCj4gRml4ZXM6IGEwMGUwMjJiZTUz
-MSAoInJpc2N2OiBBbm5vdGF0ZSB1bmFsaWduZWQgYWNjZXNzIGluaXQgZnVuY3Rpb25zIikKPiBD
-YzogPHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmc+Cj4gU2lnbmVkLW9mZi1ieTogTmFtIENhbyA8bmFt
-Y2FvQGxpbnV0cm9uaXguZGU+CgpBY2tlZC1ieTogSmVzc2UgVGF1YmUgPGp0YXViZXBlQHJlZGhh
-dC5jb20+Cgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC91bmFsaWduZWRfYWNjZXNzX3NwZWVk
-LmMgfCAxOSArKy0tLS0tLS0tLS0tLS0tLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlv
-bnMoKyksIDE3IGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
-L3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWQuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3VuYWxpZ25lZF9h
-Y2Nlc3Nfc3BlZWQuYwo+IGluZGV4IGJiNTdlYjVkMTlkZi4uNmUzNWJjYTU2OGRlIDEwMDY0NAo+
-IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWQuYwo+ICsrKyBi
-L2FyY2gvcmlzY3Yva2VybmVsL3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWQuYwo+IEBAIC02LDcgKzYs
-NiBAQAo+ICAjaW5jbHVkZSA8bGludXgvY3B1Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC9jcHVtYXNr
-Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC9qdW1wX2xhYmVsLmg+Cj4gLSNpbmNsdWRlIDxsaW51eC9r
-dGhyZWFkLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9tbS5oPgo+ICAjaW5jbHVkZSA8bGludXgvc21w
-Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgo+IEBAIC0yODgsMTggKzI4Nyw5IEBAIHN0
-YXRpYyB2b2lkIGNoZWNrX3ZlY3Rvcl91bmFsaWduZWRfYWNjZXNzKHN0cnVjdCB3b3JrX3N0cnVj
-dCAqd29yayBfX2Fsd2F5c191bnVzCj4gICAgICAgICBfX2ZyZWVfcGFnZXMocGFnZSwgTUlTQUxJ
-R05FRF9CVUZGRVJfT1JERVIpOwo+ICB9Cj4KPiAtLyogTWVhc3VyZSB1bmFsaWduZWQgYWNjZXNz
-IHNwZWVkIG9uIGFsbCBDUFVzIHByZXNlbnQgYXQgYm9vdCBpbiBwYXJhbGxlbC4gKi8KPiAtc3Rh
-dGljIGludCBfX2luaXQgdmVjX2NoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWRfYWxsX2NwdXMo
-dm9pZCAqdW51c2VkIF9fYWx3YXlzX3VudXNlZCkKPiAtewo+IC0gICAgICAgc2NoZWR1bGVfb25f
-ZWFjaF9jcHUoY2hlY2tfdmVjdG9yX3VuYWxpZ25lZF9hY2Nlc3MpOwo+IC0gICAgICAgcmlzY3Zf
-aHdwcm9iZV9jb21wbGV0ZV9hc3luY19wcm9iZSgpOwo+IC0KPiAtICAgICAgIHJldHVybiAwOwo+
-IC19Cj4gICNlbHNlIC8qIENPTkZJR19SSVNDVl9QUk9CRV9WRUNUT1JfVU5BTElHTkVEX0FDQ0VT
-UyAqLwo+IC1zdGF0aWMgaW50IF9faW5pdCB2ZWNfY2hlY2tfdW5hbGlnbmVkX2FjY2Vzc19zcGVl
-ZF9hbGxfY3B1cyh2b2lkICp1bnVzZWQgX19hbHdheXNfdW51c2VkKQo+ICtzdGF0aWMgdm9pZCBj
-aGVja192ZWN0b3JfdW5hbGlnbmVkX2FjY2VzcyhzdHJ1Y3Qgd29ya19zdHJ1Y3QgKndvcmsgX19h
-bHdheXNfdW51c2VkKQo+ICB7Cj4gLSAgICAgICByZXR1cm4gMDsKPiAgfQo+ICAjZW5kaWYKPgo+
-IEBAIC0zODcsMTIgKzM3Nyw3IEBAIHN0YXRpYyBpbnQgX19pbml0IGNoZWNrX3VuYWxpZ25lZF9h
-Y2Nlc3NfYWxsX2NwdXModm9pZCkKPiAgICAgICAgICAgICAgICAgICAgICAgICBwZXJfY3B1KHZl
-Y3Rvcl9taXNhbGlnbmVkX2FjY2VzcywgY3B1KSA9IHVuYWxpZ25lZF92ZWN0b3Jfc3BlZWRfcGFy
-YW07Cj4gICAgICAgICB9IGVsc2UgaWYgKCFjaGVja192ZWN0b3JfdW5hbGlnbmVkX2FjY2Vzc19l
-bXVsYXRlZF9hbGxfY3B1cygpICYmCj4gICAgICAgICAgICAgICAgICAgIElTX0VOQUJMRUQoQ09O
-RklHX1JJU0NWX1BST0JFX1ZFQ1RPUl9VTkFMSUdORURfQUNDRVNTKSkgewo+IC0gICAgICAgICAg
-ICAgICByaXNjdl9od3Byb2JlX3JlZ2lzdGVyX2FzeW5jX3Byb2JlKCk7Cj4gLSAgICAgICAgICAg
-ICAgIGlmIChJU19FUlIoa3RocmVhZF9ydW4odmVjX2NoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nfc3Bl
-ZWRfYWxsX2NwdXMsCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTlVM
-TCwgInZlY19jaGVja191bmFsaWduZWRfYWNjZXNzX3NwZWVkX2FsbF9jcHVzIikpKSB7Cj4gLSAg
-ICAgICAgICAgICAgICAgICAgICAgcHJfd2FybigiRmFpbGVkIHRvIGNyZWF0ZSB2ZWNfdW5hbGln
-bl9jaGVjayBrdGhyZWFkXG4iKTsKPiAtICAgICAgICAgICAgICAgICAgICAgICByaXNjdl9od3By
-b2JlX2NvbXBsZXRlX2FzeW5jX3Byb2JlKCk7Cj4gLSAgICAgICAgICAgICAgIH0KPiArICAgICAg
-ICAgICAgICAgc2NoZWR1bGVfb25fZWFjaF9jcHUoY2hlY2tfdmVjdG9yX3VuYWxpZ25lZF9hY2Nl
-c3MpOwo+ICAgICAgICAgfQo+Cj4gICAgICAgICAvKgo+IC0tCj4gMi40Ny4zCj4KPgo+IF9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Philipp,
+
+On Thu, May 14, 2026 at 05:27:20PM +0800, Junhui Liu wrote:
+> Add reset controller support for the Anlogic DR1V90 SoC, which is an
+> auxiliary device associated with the Clock and Reset Unit (CRU). All
+> resets are active-low.
+> 
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+
+I don't see a Reviewed-by or Acked-by for you on the reset portion of
+this driver.
+
+I'm gathering a pull for Stephen for various clk drivers that were
+missed during the last merge window. Does all of this usually go in via
+one tree? Or Stephen merges the clk part, you merge the reset portion?
+Who usually merges the dts changes?
+
+Thanks,
+
+Brian
+
+
+
+
+> ---
+>  drivers/reset/Kconfig        |  10 ++++
+>  drivers/reset/Makefile       |   1 +
+>  drivers/reset/reset-dr1v90.c | 140 +++++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 151 insertions(+)
+> 
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index d009eb0849a3..0bc1723224a4 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -73,6 +73,16 @@ config RESET_BRCMSTB_RESCAL
+>  	  This enables the RESCAL reset controller for SATA, PCIe0, or PCIe1 on
+>  	  BCM7216 or the BCM2712.
+>  
+> +config RESET_DR1V90
+> +	tristate "Anlogic DR1V90 reset controller"
+> +	depends on ARCH_ANLOGIC || COMPILE_TEST
+> +	depends on ANLOGIC_DR1V90_CRU
+> +	select AUXILIARY_BUS
+> +	default ARCH_ANLOGIC
+> +	help
+> +	  This enables the reset controller driver for Anlogic DR1V90 SoCs
+> +	  provided by the CRU unit.
+> +
+>  config RESET_EIC7700
+>  	bool "Reset controller driver for ESWIN SoCs"
+>  	depends on ARCH_ESWIN || COMPILE_TEST
+> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+> index 3e52569bd276..ab2bbc917b73 100644
+> --- a/drivers/reset/Makefile
+> +++ b/drivers/reset/Makefile
+> @@ -14,6 +14,7 @@ obj-$(CONFIG_RESET_BCM6345) += reset-bcm6345.o
+>  obj-$(CONFIG_RESET_BERLIN) += reset-berlin.o
+>  obj-$(CONFIG_RESET_BRCMSTB) += reset-brcmstb.o
+>  obj-$(CONFIG_RESET_BRCMSTB_RESCAL) += reset-brcmstb-rescal.o
+> +obj-$(CONFIG_RESET_DR1V90) += reset-dr1v90.o
+>  obj-$(CONFIG_RESET_EIC7700) += reset-eic7700.o
+>  obj-$(CONFIG_RESET_EYEQ) += reset-eyeq.o
+>  obj-$(CONFIG_RESET_GPIO) += reset-gpio.o
+> diff --git a/drivers/reset/reset-dr1v90.c b/drivers/reset/reset-dr1v90.c
+> new file mode 100644
+> index 000000000000..daa99c797b1a
+> --- /dev/null
+> +++ b/drivers/reset/reset-dr1v90.c
+> @@ -0,0 +1,140 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
+> + */
+> +
+> +#include <linux/auxiliary_bus.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/device.h>
+> +#include <linux/io.h>
+> +#include <linux/reset-controller.h>
+> +
+> +#include <dt-bindings/reset/anlogic,dr1v90-cru.h>
+> +
+> +struct dr1v90_reset_map {
+> +	u32 offset;
+> +	u32 bit;
+> +};
+> +
+> +struct dr1v90_reset_controller {
+> +	struct reset_controller_dev rcdev;
+> +	void __iomem *base;
+> +	spinlock_t lock; /* protect register read-modify-write */
+> +};
+> +
+> +static inline struct dr1v90_reset_controller *
+> +to_dr1v90_reset_controller(struct reset_controller_dev *rcdev)
+> +{
+> +	return container_of(rcdev, struct dr1v90_reset_controller, rcdev);
+> +}
+> +
+> +static const struct dr1v90_reset_map dr1v90_resets[] = {
+> +	[RESET_OCM]		= { 0x74, BIT(4)},
+> +	[RESET_QSPI]		= { 0x74, BIT(5)},
+> +	[RESET_SMC]		= { 0x74, BIT(6)},
+> +	[RESET_WDT]		= { 0x74, BIT(7)},
+> +	[RESET_DMAC_AXI]	= { 0x74, BIT(8)},
+> +	[RESET_DMAC_AHB]	= { 0x74, BIT(9)},
+> +	[RESET_NPU]		= { 0x74, BIT(12)},
+> +	[RESET_JPU]		= { 0x74, BIT(13)},
+> +	[RESET_DDRBUS]		= { 0x74, BIT(14)},
+> +	[RESET_NIC_HP0]		= { 0x78, BIT(0)},
+> +	[RESET_NIC_HP1]		= { 0x78, BIT(1)},
+> +	[RESET_NIC_GP0M]	= { 0x78, BIT(4)},
+> +	[RESET_NIC_GP1M]	= { 0x78, BIT(5)},
+> +	[RESET_GPIO]		= { 0x78, BIT(8)},
+> +	[RESET_IPC]		= { 0x78, BIT(12)},
+> +	[RESET_USB0]		= { 0x7C, BIT(0)},
+> +	[RESET_USB1]		= { 0x7C, BIT(1)},
+> +	[RESET_GBE0]		= { 0x7C, BIT(4)},
+> +	[RESET_GBE1]		= { 0x7C, BIT(5)},
+> +	[RESET_SDIO0]		= { 0x7C, BIT(8)},
+> +	[RESET_SDIO1]		= { 0x7C, BIT(9)},
+> +	[RESET_UART0]		= { 0x7C, BIT(12)},
+> +	[RESET_UART1]		= { 0x7C, BIT(13)},
+> +	[RESET_SPI0]		= { 0x7C, BIT(16)},
+> +	[RESET_SPI1]		= { 0x7C, BIT(17)},
+> +	[RESET_CAN0]		= { 0x7C, BIT(20)},
+> +	[RESET_CAN1]		= { 0x7C, BIT(21)},
+> +	[RESET_TTC0]		= { 0x7C, BIT(24)},
+> +	[RESET_TTC1]		= { 0x7C, BIT(25)},
+> +	[RESET_I2C0]		= { 0x7C, BIT(28)},
+> +	[RESET_I2C1]		= { 0x7C, BIT(29)}
+> +};
+> +
+> +static int dr1v90_reset_control_update(struct reset_controller_dev *rcdev,
+> +				       unsigned long id, bool assert)
+> +{
+> +	struct dr1v90_reset_controller *rstc = to_dr1v90_reset_controller(rcdev);
+> +	u32 offset = dr1v90_resets[id].offset;
+> +	u32 bit = dr1v90_resets[id].bit;
+> +	u32 reg;
+> +
+> +	guard(spinlock_irqsave)(&rstc->lock);
+> +
+> +	reg = readl(rstc->base + offset);
+> +	if (assert)
+> +		reg &= ~bit;
+> +	else
+> +		reg |= bit;
+> +	writel(reg, rstc->base + offset);
+> +
+> +	return 0;
+> +}
+> +
+> +static int dr1v90_reset_control_assert(struct reset_controller_dev *rcdev,
+> +				       unsigned long id)
+> +{
+> +	return dr1v90_reset_control_update(rcdev, id, true);
+> +}
+> +
+> +static int dr1v90_reset_control_deassert(struct reset_controller_dev *rcdev,
+> +					 unsigned long id)
+> +{
+> +	return dr1v90_reset_control_update(rcdev, id, false);
+> +}
+> +
+> +static const struct reset_control_ops dr1v90_reset_control_ops = {
+> +	.assert = dr1v90_reset_control_assert,
+> +	.deassert = dr1v90_reset_control_deassert,
+> +};
+> +
+> +static int dr1v90_reset_probe(struct auxiliary_device *adev,
+> +			      const struct auxiliary_device_id *id)
+> +{
+> +	struct dr1v90_reset_controller *rstc;
+> +	struct device *dev = &adev->dev;
+> +
+> +	rstc = devm_kzalloc(dev, sizeof(*rstc), GFP_KERNEL);
+> +	if (!rstc)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&rstc->lock);
+> +
+> +	rstc->base = dev->platform_data;
+> +	rstc->rcdev.dev = dev;
+> +	rstc->rcdev.nr_resets = ARRAY_SIZE(dr1v90_resets);
+> +	rstc->rcdev.of_node = dev->parent->of_node;
+> +	rstc->rcdev.ops = &dr1v90_reset_control_ops;
+> +	rstc->rcdev.owner = THIS_MODULE;
+> +
+> +	return devm_reset_controller_register(dev, &rstc->rcdev);
+> +}
+> +
+> +static const struct auxiliary_device_id dr1v90_reset_ids[] = {
+> +	{
+> +		.name = "anlogic_dr1_cru.reset"
+> +	},
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(auxiliary, dr1v90_reset_ids);
+> +
+> +static struct auxiliary_driver dr1v90_reset_driver = {
+> +	.probe = dr1v90_reset_probe,
+> +	.id_table = dr1v90_reset_ids,
+> +};
+> +module_auxiliary_driver(dr1v90_reset_driver);
+> +
+> +MODULE_AUTHOR("Junhui Liu <junhui.liu@pigmoral.tech>");
+> +MODULE_DESCRIPTION("Anlogic DR1V90 reset controller driver");
+> +MODULE_LICENSE("GPL");
+> 
+> -- 
+> 2.54.0
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
