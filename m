@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033D4C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 03:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B393C43602
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 03:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+/EGtTnLYuDgZA1zq3/Gyi3L5lMDBtiA+hf93meh59A=; b=2MwyW/XeoSFFpx
-	ZfbzO90mr56OjjLqe7J24IHSM/bIQisv8wcelGhvuApR6CCyrf0f/iPXc4sfRal5d4wkWbCjg1FRB
-	lWILzSE/3uQzxodfGLJ8gEuwmz4vpBAx6SaTv8F8Q38wDT4pwPw77RM75qNB6CVYsF5FGJ6uIQ2tz
-	7+G7fZ3n6DqK6VPAxLhtw8atBXmj8sgM9DqEoUMbWHSP3IM2C1p+b/6/M6vyS9JI+njaZRNSON/WP
-	1aQqIk9Wc3DmWxXNoKHD1GwQaNm8yat8VBBSTmSi4Kt9Lg/yciDV5l8mshC7hgLnQbrfBG4U1acNj
-	vfl89I4IcKpmK+Su7gjA==;
+	List-Owner; bh=KQmlW+3e6LWDY6vgZXR3N3G+pQoLiSCO4IsltntILZQ=; b=sc6HIyVQsNM4Y8
+	MfLg7y9sqNac+yvhgLW5dHaRHD+h1JMzx1t9RKt0+84Jmjqz9cEkFKSz9NBNVfMuhMnopjzAx0MA3
+	EQ59aRGNOD78DnXLM9i9EZ0dk5Oc9RNIgd8KbyTHH0HMIvi9vP31f3DVBmAXNg+aMRCv0v9kFK2Dl
+	GuTg5kSsDTS5FQYGzkLh1/M1I3DD4kE6DgkAn2hxSXyLLfegGUtO3vnsqMK9mozkA6/0iRbZLWBku
+	sZskOiGRkpubgMfW3u3jUikllfpt+fNJRf386B6qiN2fwlqOOrqqadxuFdtUOpxqkq8NbeotQq0do
+	2k8pkjG17mt22gos9P1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pW-0000000Dd08-15HO;
-	Mon, 29 Jun 2026 03:38:42 +0000
-Received: from out-21.smtp.spacemail.com ([66.29.159.70])
+	id 1we2pb-0000000Dd2D-1VFE;
+	Mon, 29 Jun 2026 03:38:47 +0000
+Received: from out-03.smtp.spacemail.com ([63.250.43.88])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pR-0000000DcyO-3ZKq
+	id 1we2pU-0000000DczJ-36p4
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 03:38:39 +0000
+	Mon, 29 Jun 2026 03:38:42 +0000
 Received: from [192.168.1.96] (107-194-158-19.lightspeed.sntcca.sbcglobal.net [107.194.158.19])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4gpX7F3RH8z8sbD;
-	Mon, 29 Jun 2026 03:38:33 +0000 (UTC)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4gpX7H6gmwz8sbG;
+	Mon, 29 Jun 2026 03:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gurudas.dev;
-	s=spacemail; t=1782704315;
-	bh=+xTdES5iivUlujAb8S85lcbvOQK1iknw8m7NM0ttyH8=;
+	s=spacemail; t=1782704318;
+	bh=YIeQik7zWpB4jmw4IE+FSK27BQvQ/I/lwKnJtdpPOVk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Wn/fpinj+vbdRtvql+K6l/cdD/IQuxl+e8wa5bMUwtZjuwKBolSQ7MPAy/E7r34Vm
-	 JlNz056v097vPX0LzLgdqw2ChkZM2e+fJk8P/tSAAd2maOeMGg8lIAZF85c2zvHBDu
-	 VvjXDXzHnPpQjWCS+ByzEU1aJQsXP4SMkbdEEHVqG1BkAeoV2x9WC0P0K0Z+MjYOjS
-	 au8gLtLRrapdakIsP6VjyV1XxDwH+fWg+f5WXQGK+fiJCCeuiHfvVAww/GogX62e5/
-	 gE9EB44qcxIf7szuf9P8Mfi3D550P367GBwwZjyXTtADMoUywMT2GZh/cupjmsZoPi
-	 3qRa8ft7LLoJA==
+	b=EhhFE7XYbRvohudmbaj4Tj/bf7TsPPwJS6wC8hq61i/uzpkfCPn9O/Sj+E6vte5mI
+	 zbnJ9PqzqqaLumWY6B+onwSBNV/N76KtKvpbx7stlcS3fDZ9oMExVWMz38iTcsSWwO
+	 w+0ygrtBSeD6V211j4eHZhNCHmNJbZX06k/SLUnRt01sFiEAWtvcBgfdXLpH8y+NxD
+	 PuODykExHbQ4D7tovt0GiZQVTfBrDuTvGtLEJhO67v9mO5L9Dk9Ot7WdHsyhsU3HGO
+	 Yu1WQEDXN2d6In0WW0QXUi7DPbd9JKlwh78KcnLoxIh/ivkPjwTJJI78IQh07n+xfJ
+	 U7tOax9rEkydw==
 From: Guru Das Srinagesh <linux@gurudas.dev>
-Date: Sun, 28 Jun 2026 20:38:18 -0700
-Subject: [PATCH 4/7] block: rnull: use vertical import style
+Date: Sun, 28 Jun 2026 20:38:19 -0700
+Subject: [PATCH 5/7] net: phy: ax88796b: use vertical import style
 MIME-Version: 1.0
-Message-Id: <20260628-b4-rust-vertical-imports-v1-4-98bc71d4810b@gurudas.dev>
+Message-Id: <20260628-b4-rust-vertical-imports-v1-5-98bc71d4810b@gurudas.dev>
 References: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
 In-Reply-To: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
 To: Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org, 
@@ -82,8 +82,8 @@ Cc: Danilo Krummrich <dakr@kernel.org>,
 X-Mailer: b4 0.15.2
 X-Envelope-From: linux@gurudas.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_203837_953648_AE29A166 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20260628_203840_948158_C0A7F43E 
+X-CRM114-Status: UNSURE (   7.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,72 +106,27 @@ maintainability.
 
 Signed-off-by: Guru Das Srinagesh <linux@gurudas.dev>
 ---
- drivers/block/rnull/configfs.rs | 20 ++++++++++++++++----
- drivers/block/rnull/rnull.rs    | 13 ++++++++++---
- 2 files changed, 26 insertions(+), 7 deletions(-)
+ drivers/net/phy/ax88796b_rust.rs | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/block/rnull/configfs.rs b/drivers/block/rnull/configfs.rs
-index 7c2eb5c0b722..07ce21a44081 100644
---- a/drivers/block/rnull/configfs.rs
-+++ b/drivers/block/rnull/configfs.rs
-@@ -2,14 +2,26 @@
- 
- use super::{NullBlkDevice, THIS_MODULE};
+diff --git a/drivers/net/phy/ax88796b_rust.rs b/drivers/net/phy/ax88796b_rust.rs
+index 2d24628a4e58..5a21fe09bd62 100644
+--- a/drivers/net/phy/ax88796b_rust.rs
++++ b/drivers/net/phy/ax88796b_rust.rs
+@@ -5,7 +5,12 @@
+ //!
+ //! C version of this driver: [`drivers/net/phy/ax88796b.c`](./ax88796b.c)
  use kernel::{
--    block::mq::gen_disk::{GenDisk, GenDiskBuilder},
--    configfs::{self, AttributeOperations},
-+    block::mq::gen_disk::{
-+        GenDisk,
-+        GenDiskBuilder, //
-+    },
-+    configfs::{
+-    net::phy::{self, reg::C22, DeviceId, Driver},
++    net::phy::{
 +        self,
-+        AttributeOperations, //
++        reg::C22,
++        DeviceId,
++        Driver, //
 +    },
-     configfs_attrs,
--    fmt::{self, Write as _},
-+    fmt::{
-+        self,
-+        Write as _, //
-+    },
-     new_mutex,
-     page::PAGE_SIZE,
      prelude::*,
--    str::{kstrtobool_bytes, CString},
-+    str::{
-+        kstrtobool_bytes,
-+        CString, //
-+    },
-     sync::Mutex,
+     uapi,
  };
- 
-diff --git a/drivers/block/rnull/rnull.rs b/drivers/block/rnull/rnull.rs
-index 0ca8715febe8..d58d2c4c5f63 100644
---- a/drivers/block/rnull/rnull.rs
-+++ b/drivers/block/rnull/rnull.rs
-@@ -10,12 +10,19 @@
-         self,
-         mq::{
-             self,
--            gen_disk::{self, GenDisk},
--            Operations, TagSet,
-+            gen_disk::{
-+                self,
-+                GenDisk, //
-+            },
-+            Operations,
-+            TagSet, //
-         },
-     },
-     prelude::*,
--    sync::{aref::ARef, Arc},
-+    sync::{
-+        aref::ARef,
-+        Arc, //
-+    },
- };
- 
- module! {
 
 -- 
 2.54.0
