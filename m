@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D68C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 11:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4747C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 12:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sce9Jg6+hPh13ayepK9IhHP3zBZr96STusOCTJpdPD4=; b=wAmJ0Ta/4TwYGI
-	AbMRw7UBfg7Li+fkqUYz+4QjPC0tS/0LngfCNYgIcja/18liPJhnfxfbSzG4KN2DcFa/vQ+fZG2Oi
-	P+XaYQFB2/527744bpjvIHUavW4IZMnrgMvQLidT19SFsc0Qrmgio8qSp6PfMaJm3QcLrJCHe3If5
-	F6ti/nRLGaK6uKTrd6AisnNiKwvEPU2NvaDFlrCtIQgce+R2Mf0i6ufPvG1BM2CDUb+4FFHL/S1H6
-	ZzE+sThZf1GW0moEizBCSErPoUS2DHRbAhA13ybILCWrlZxr5d4jZJbGIlXwYiw0ZZU+yjGJ6Rml7
-	L2wIBaf3q5ESnDDv4AKw==;
+	List-Owner; bh=uENeZULl2E2PcjGOgG7+OTIurOygEP1KJU7PYVx6Mss=; b=coiBuvsUHONjTt
+	tx3o3YGATfC/oYVXj1dPRV5+qJoerDLe2G0hL2TgVWEpRBMLB/d7rL85GdazH8xyohimb1BvdOBYJ
+	gOwLLD87zufYVC4EHdtZDfxvrF0QYHaIFDZCFSvrr0MbxNw/42Yi/NnrMpHZUdRCg62zfRB0osZVo
+	SkCe0WNfo/tklwX/zcwmOUyVgXSSDJZWqi9AX9JdC6Sd+WDewU7STCHi/BNpNRuDZi39yiX53aPTo
+	ntq659BFK6R1rzjLPQ+CFlJoPd8T8gG5URc3O/QfPm15MRCoOCGf0VW2hLqvyK5AEIKsq/xcknxrM
+	0NPL5xww+LTCkOJryIpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weAY3-0000000EUch-3AFg;
-	Mon, 29 Jun 2026 11:53:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weB03-0000000EXWW-1rG9;
+	Mon, 29 Jun 2026 12:22:07 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weAY2-0000000EUcb-2wAm
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 11:53:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 174DE43B4F;
-	Mon, 29 Jun 2026 11:53:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 094651F000E9;
-	Mon, 29 Jun 2026 11:53:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782733990;
-	bh=o6rZLVkG1sq/4BZGymOihUcF9tHkCw2+D/PK2hEwG9Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jueRmeAk+vbC5qNPeX7tO6jKvFV/8324+x1OLpRIWY5VzmyzuM8/i//ek8l97AVqo
-	 sZbnaels3qxfAhXkWu/pJ2KzTSYYwaqU3C+KEhugzxx689ISrGPOjOQewMTFf3R0LF
-	 Usz3lYMji97dSUZmXQIa7Lznx9pENW56MXhhg9H6oPuxkgvfMO707xAcSfDt6FY+ye
-	 RQ+LtyuWQkSvCP6NjEcNsFlKUTo7X/D1Q4UXm5DGQdQ9v0yeFHQfJy0mGuu+ynwBU3
-	 SBeo3z3iRLCkF/K3QESRbVtaDKyEoBRLbAnMnBS3nALw3jCIM6UGlk0LsF5F/I3m36
-	 MrMDYquGQvcJw==
-Message-ID: <a9f1b6a5-ccf5-4bb1-96a8-54a3ed8f3f81@kernel.org>
-Date: Mon, 29 Jun 2026 13:53:04 +0200
+	id 1weB00-0000000EXVa-0Csn;
+	Mon, 29 Jun 2026 12:22:05 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id E5ACE68AFE; Mon, 29 Jun 2026 14:21:52 +0200 (CEST)
+Date: Mon, 29 Jun 2026 14:21:52 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Christoph Hellwig <hch@lst.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
+	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: Re: cleanup the RAID6 P/Q library v3
+Message-ID: <20260629122152.GA21344@lst.de>
+References: <20260518051804.462141-1-hch@lst.de> <20260518141205.c100f76eec5f58e78bbbf7af@linux-foundation.org> <20260519082432.GA14956@lst.de> <7d8efc7c-65e3-49f8-9381-910de7affef2@zytor.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] gpu: nova-core: falcon: store bar and dev in falcon
-To: Alexandre Courbot <acourbot@nvidia.com>
-Cc: Tim Kovalenko <tim.kovalenko@proton.me>, Alice Ryhl
- <aliceryhl@google.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Trevor Gross <tmgross@umich.edu>, nova-gpu@lists.linux.dev,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, rust-for-linux@vger.kernel.org
-References: <20260625-drm-bar-refactor-v2-1-9db6b890d92e@proton.me>
- <DJLIEZJL9ZS6.J2642U4G4CT4@nvidia.com>
-From: Danilo Krummrich <dakr@kernel.org>
-Content-Language: en-US
-In-Reply-To: <DJLIEZJL9ZS6.J2642U4G4CT4@nvidia.com>
+Content-Disposition: inline
+In-Reply-To: <7d8efc7c-65e3-49f8-9381-910de7affef2@zytor.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_052204_269255_B87E7E4F 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +88,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/29/26 1:51 PM, Alexandre Courbot wrote:
-> Danilo, any objection?
+On Fri, Jun 26, 2026 at 05:52:18PM -0700, H. Peter Anvin wrote:
+> On 2026-05-19 01:24, Christoph Hellwig wrote:
+> > 
+> > raid6: rework registration of optimized algorithms
+> > 
+> >  - avx2 instead of avx512 is probably the right thing for no
+> >    benchmarking, but if it was intentional (it wasn't), that should
+> >    be document.  So I'll just switch back to the previous version to
+> >    keep the state of the art
+> 
+> It is unlikely to be the right thing *going forward*, though.
+> 
+> The very unfortunate performance inversion is likely model-specific. It is one
+> of those things where you largely would have to have a list of quirks :(
 
-Please do,
+Note that the default is still to benchmark the implementations.
+This is just about the case where the user explicitly disabled that
+benchmark-based selection.
 
-Acked-by: Danilo Krummrich <dakr@kernel.org>
-
-Thanks!
 
 _______________________________________________
 linux-riscv mailing list
