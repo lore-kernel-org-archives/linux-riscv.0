@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6E9C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 03:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80849C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 04:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cY/4VCCcFDEBuToeP/5C6fV/wgE+oFifYMFfQfW0DyA=; b=Xo33DOxF23CH7S
-	F0PAJjanpIBhBfCrb/ZHvAMMhaxlQ7PnP57Uu+pvm3WJopqvp/q6JcIgVz28FGU/g3YYi6OCmmvoT
-	zV+fDqBjVtrEpKrO/sfHNu9v8y+xek+h3it25wNgBJxon+4lWmBm3WTKJvA88j97iG1cob16h38fx
-	QgrNodtyvamVlOQ8gosCa/tHD6nnU6YKfNQrbepUeY7l0MdKVpgmfTdgJom+LpjTyAccZ+teWeJ2c
-	0OD7R2uoeMortpyMiSpe9uKwMr1KRhhII32xbovPops9yaBD33boBG/3wsUneze0zSHBYrLb/yOOh
-	SoG6WGP5p2+8XdqZpmtw==;
+	List-Owner; bh=M8ZACB31IbnFnizWCg7c08FIEwgB1F28txmZKDKiHrg=; b=w0GuN47HORRfoU
+	grwU2HsBE2RKK1XpI9dQ8i8jlvEcNfKnP4ahHAuVLrHyrkhz1Dhoyt/PPHWBAK5jOTwOsBmF6eP2M
+	FvWPM9/DytPiIiz5M7ZV1t+3s+/ehV1keVjxop7DpTZBeYpeFSu2Ij3tuONWG+q74MLhl/51/MgO0
+	eiB7XudD6X2uGdRRthteXFQD5oFHrIOOgWopXu8szARgzcQGT4qVG0xAH3UxW0jwd6nGOqMx0BrNs
+	OTcbR82cpBJMaIoML001AukuoFHeYnGeG/uliX2PJyQHZBgQLJMV1h2wvRKLNGfsk5xnTqBOVcvNh
+	bMjckBu7qfSQJHUz0Plg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pW-0000000Dczz-0GV9;
-	Mon, 29 Jun 2026 03:38:42 +0000
-Received: from out-13.smtp.spacemail.com ([63.250.43.96])
+	id 1we44y-0000000DggT-0HDr;
+	Mon, 29 Jun 2026 04:58:44 +0000
+Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we2pQ-0000000DcxU-0pJI
+	id 1we44v-0000000Dgft-0hlW
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 03:38:38 +0000
-Received: from [192.168.1.96] (107-194-158-19.lightspeed.sntcca.sbcglobal.net [107.194.158.19])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4gpX762Nf6z8sbG;
-	Mon, 29 Jun 2026 03:38:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gurudas.dev;
-	s=spacemail; t=1782704308;
-	bh=rsu/r/WBwNXuJN8+t83R5Jph4X6WrLULsoFBk7AwSRc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kv2IuH9qfjU5qN/fw93o9W9+0qz6xE604v+ZgxAzE0ov+Uk2R8ms9TEB6TNmOF7lO
-	 xK9WLHj5MKV8YYCguPZvH3cFTfqkZMzJzs4RBhOGSSEvTMEKRulKik8j9+oFGY2N8g
-	 Hk+HbNVOn77oYvxczTNJlHDU1zl3tynxSouRbfJjAh44W2BgEeVQ2mMSWnSAIB3Nce
-	 OajHwrVSsBaICMGfcsAtzygyi7EVWId4EctQHov4lOm+gBB9qnkKeT4OYNa7VQ0iLB
-	 Z6TUUmbEcmBrnm42OQe7+XjvXD7ba3HYxpQyz4Z8y9xNIOgGl5JKKhS7lsqcw3eqfa
-	 a+H7FTHt/d9Sw==
-From: Guru Das Srinagesh <linux@gurudas.dev>
-Date: Sun, 28 Jun 2026 20:38:15 -0700
-Subject: [PATCH 1/7] samples: rust_dma: use vertical import style
+	Mon, 29 Jun 2026 04:58:42 +0000
+Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-30bf132969bso4139115eec.0
+        for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2026 21:58:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1782709120; x=1783313920; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QsB27okN3oIFcQCd02Iqvl+jQspzLnJ1Dz6viWpLCEI=;
+        b=eSFhxB5aIMiLDcPhMTH/s1XGXNslJ/0y7P/rZtmfltOAAz48IcnX7gBpm6CSYB7O8D
+         r/8DH+VoRlY/DRuaZ5fgv/LiEnHgnVjWjOKEQV/STUoWcx7ZN3TyCaCSTyvHlcHx5tN5
+         4bAD9vtqxoLrVTi7w/4k/jLa5u7e0eqYPF2iR3J/uAWK0fst+dK7JWMGf5g6W1oYfMxX
+         YB/ulWafjB6J4WZNO/FNyXN+8pNnLOAJSValJ48ClQI7cssuDYXhiIB+uaZ+peDdWJCE
+         PmB3UfuQtWYRt8X1hLEkj7uUjgNg4pidAD56kmrxtu4KTEQHPqBSoKibr3xie0SNmuqh
+         y5BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782709120; x=1783313920;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QsB27okN3oIFcQCd02Iqvl+jQspzLnJ1Dz6viWpLCEI=;
+        b=TSsCL6X7OOmYgR8cZZuiJTj6nwIzElxV1u2KR05AzUz2fnddtPTuISYv33+i2xs/sI
+         B35ll0y4OKtU3LwniTA4H0XnNt90536EXSM/7rzP1X5G4yUQ5/kVjDIEoZVXaQXxPpnP
+         +zewOWFsfj+9RpgoEKa051+yqBwntlutn3njTeR5kU42IWqeijOjXh4n5sc5vQAaKiP7
+         JwClzMemro54PsBGzll/05aEbwTrO7Hh8swbiG3pPgFe6mw48t5ULT+/9Maatcn7/Sed
+         /kLWKLuMpT/HhTXHl/6lp3BjFYj5iDWEvOZcfXtQC/4XLPHi5vvY9W9MmhgEI2Drgt/z
+         xhFw==
+X-Forwarded-Encrypted: i=1; AHgh+RoYw0q6Pax01o/TkSWzrWZCyUeWDu7TGyiRjWKdj16TqpY1D7mC43QCupGmqELybPxCqcofvsdU6ZQwaA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4rkkQ762i5Vh802l9hSUPd6A0M0gzLEnSEhbTDVXnkuVcA7DV
+	h3XulV7uOIDtIrVouwOnUM5OZm0gGGU+94hOG43KsARwUpFDsEOKympOKoEs2p0uQoM=
+X-Gm-Gg: AfdE7cnqZMIfohOU7+r9Xth/L/sJm9ZPel0ibZh9wGwvftSNvl5+nAkaAjfFUwkOKN6
+	IRjpp407r8Bbm+Rtr2rOSnx9WoTbJqSWWCOaZmId0JF5GBQRzeVOWkZu/c2QV+ByPTts53T9BEy
+	4UVdh8vdQPeQW3B6eCvIK0FhKZsV6fOnGahxgcn9p+1f4TJM9lNtSxwh7gdthildxsma12uEKQ2
+	/UutZJtHjrzBDWXKhMVNBodtetJaizygHQ1do2g++86Tw3DlRwHAN0EDuZXl1yU9qyI6dgB/PWL
+	KoOpct5VGcg2CO8nxN//AdTxcyFVgyTnEjp9VT6e31ZMfcqGl42mcJHJTKO+USGooIs8ZpPnS6A
+	3U8g1uKzkcpj+yT8z/OaJLmbwL4vOnfRtQiQaQ0XQELsqannWZmuaflyW5VvI+EBo5dobh0KyQO
+	0iFSvDPQ1DSzJf
+X-Received: by 2002:a05:7301:2a08:b0:30c:ab4f:46a3 with SMTP id 5a478bee46e88-30cab4f48e1mr7122599eec.39.1782709119287;
+        Sun, 28 Jun 2026 21:58:39 -0700 (PDT)
+Received: from localhost ([122.172.82.94])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30ca5f14f8asm27880242eec.6.2026.06.28.21.58.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 28 Jun 2026 21:58:38 -0700 (PDT)
+Date: Mon, 29 Jun 2026 10:28:35 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Shuwei Wu <shuwei.wu@mailbox.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] cpufreq: dt-platdev: Add SpacemiT K1 SoC to the
+ allowlist
+Message-ID: <7x5mgpk3z3aiebifhxto2v7m5yrikj52lwf5pzegzhk5aiehhj@jqm6opm6nrub>
+References: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
+ <20260626-shadow-deps-v4-1-bba9831f2f1d@mailbox.org>
 MIME-Version: 1.0
-Message-Id: <20260628-b4-rust-vertical-imports-v1-1-98bc71d4810b@gurudas.dev>
-References: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
-In-Reply-To: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
-To: Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-Cc: Danilo Krummrich <dakr@kernel.org>, 
- Abdiel Janulgue <abdiel.janulgue@gmail.com>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Andreas Hindborg <a.hindborg@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Michal Wilczynski <m.wilczynski@samsung.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Jens Axboe <axboe@kernel.dk>, 
- FUJITA Tomonori <fujita.tomonori@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- driver-core@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-pwm@vger.kernel.org, linux-pm@vger.kernel.org, 
- linux-block@vger.kernel.org, netdev@vger.kernel.org, 
- nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, 
- Guru Das Srinagesh <linux@gurudas.dev>
-X-Mailer: b4 0.15.2
-X-Envelope-From: linux@gurudas.dev
+Content-Disposition: inline
+In-Reply-To: <20260626-shadow-deps-v4-1-bba9831f2f1d@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_203836_398729_92D61B97 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260628_215841_221213_2BDE55B6 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +104,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert `use` imports to vertical layout for better readability and
-maintainability.
+On 26-06-26, 16:10, Shuwei Wu wrote:
+> Add the compatible string for supporting the generic
+> cpufreq driver on the SpacemiT K1 SoC.
+> 
+> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+> ---
+> Changes in v4:
+> - Drop the K1-specific cpufreq driver and use cpufreq-dt again
+> - Add spacemit,k1 back to the cpufreq-dt allowlist
+> 
+> Changes in v3:
+> - Add a K1-specific cpufreq driver for the shared-rail, dual-clock topology
+> - Add spacemit,k1 to the cpufreq-dt blocklist
+> ---
+> ---
+>  drivers/cpufreq/cpufreq-dt-platdev.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+> index 25fd3b191b7e..e262394b56f9 100644
+> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
+> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+> @@ -81,6 +81,8 @@ static const struct of_device_id allowlist[] __initconst = {
+>  		{ .have_governor_per_policy = true, },
+>  	},
+>  
+> +	{ .compatible = "spacemit,k1", },
+> +
+>  	{ .compatible = "st-ericsson,u8500", },
+>  	{ .compatible = "st-ericsson,u8540", },
+>  	{ .compatible = "st-ericsson,u9500", },
 
-Signed-off-by: Guru Das Srinagesh <linux@gurudas.dev>
----
- samples/rust/rust_dma.rs | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Please take this via arch tree.
 
-diff --git a/samples/rust/rust_dma.rs b/samples/rust/rust_dma.rs
-index 5046b4628d0e..7d14574e8875 100644
---- a/samples/rust/rust_dma.rs
-+++ b/samples/rust/rust_dma.rs
-@@ -14,7 +14,10 @@
-     },
-     page, pci,
-     prelude::*,
--    scatterlist::{Owned, SGTable},
-+    scatterlist::{
-+        Owned,
-+        SGTable, //
-+    },
-     sync::aref::ARef,
- };
- 
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 
 -- 
-2.54.0
-
+viresh
 
 _______________________________________________
 linux-riscv mailing list
