@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68942C43602
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 12:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EFDC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 12:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BhxmZlTJxsMpyXlmWgf7FccO9s+i4Z6twJxTlYWj5uo=; b=d7AZ/Fn06+e83a
-	NRQumwQrph6yhR0YWDvnmznHYWyDFB2+U6joTjFRePerKZpL/16zmclKQAKm3GGkbeX5SezO2wA2w
-	YufVbgR9L5L/7qRDS4fAT7LHfFmBS/sMDV68KhSs9V/9JG+y+nkCrFoW/rSkO//tp8vQZmFcu6IKk
-	yReH3hSHYRNa1XL5uAllRpprfq3HjHw6O9w4dkPzJjMJ0IZS8S2TUTc/1C2eFdsVBXCxbg0sYMhyO
-	uCzs19+lg2iSnGawl01U5W/LrztuW+b0eC3Vbmx6ioD5asJGDpNvLWZKr5U/JTSWbF/WwGoylMmK7
-	+53HI0lilt00msxt1s/g==;
+	List-Owner; bh=Zrn6zwoBMTiLcvF4orGZPAUC+fhtyAbkzZl/21NgZYw=; b=YnPjMHfyIMyd/A
+	P/quB6Thq3qrv34PMpl+sji1PYPFDTps69Mek/KVqsjz6ajW/ypG01Q6obYPKokotdfojpQWMY4E+
+	TADePl+76kHlaVnaTsIV9USnjcX2yNwbzQcJHO0cQC1046mQDjDKJ8bSsauILqYokJb/e2xGc3ngV
+	QOnWV7YmmJ4GKiQ1yjdJRjkSMbGRjfjKCptoypExwz9AjCMOyZlF97MTOkgXuY+48k0P/U5Ad/eQE
+	cGxrUKI49Fxv/IfeDnoaNMnWRNZw8HU4lbTaufRMA0UdHjM0cm3hZHpwW74RokHkTvvvWhuWeQCCg
+	pg3t4ypLx8mkn+YxqGSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBTU-0000000EdF0-1hy0;
-	Mon, 29 Jun 2026 12:52:32 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1weBVL-0000000EdY8-44kV;
+	Mon, 29 Jun 2026 12:54:27 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBTS-0000000EdE2-0PVq
+	id 1weBVI-0000000EdXY-2qIi
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 12:52:31 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-49241dbf9c1so29038425e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2026 05:52:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782737548; x=1783342348; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0G67qeINcThvr9unh9wEXsyMZVKpN32CweVhhELeDY0=;
-        b=GQtrgq/G6wv85ZNUT3VnD/3F77UFYSp2SkGyX7fXh5QIMKFa8ewZf2iBeXAzfD3eDU
-         kCulE0PJ24H30blkh4LTkZbc5T6BL0FO+yG3aQtNrNdHZas7cIfy+Z3kePlyJD3I5gCN
-         CDVTG4S/5dAKQUWdSgp7S1sCEzoVEPsai1iaFHgDBa+bN2unyiKAlYEGf5funqSPs9he
-         HhibBRsN/n4u+a8Jh5PUSp5pI0nJFfTmUqjQgRwM4RnQJHBi4nG8FCYqMY4TQrggNwJz
-         fm3+3aNUxtF3jxAGDzedjJxxnd28CNny3ul7koNNhcjwpVDZaEyvZfWOASIg9LC9NhBU
-         2YkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782737548; x=1783342348;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=0G67qeINcThvr9unh9wEXsyMZVKpN32CweVhhELeDY0=;
-        b=Qwn0Iaiy8JrkYhhjRYVOpZIL3xjHjTBpPNmaycjKkYEgBusl37Wgw7oPPpk6xKR5/u
-         B5e+z1WHmW3r4dVKWAfzOaeix3dYQFWSi0CWbC1lbEDag0RO1MxvHSIKPlh2p/Wtl6/D
-         hkUkXqKTTgMnIO/JRhYAGKAiOtnIfGqWOugMWpcZVHFLp5fuPY06SDoHR7cko70SG5mr
-         Gag8FDsXiSIL5tFkdF/KVnGFgwPipL16ODyGPiuiFWYyZv01iMJro74Tq8sgutDxdhYL
-         ATKPN0EcVcRraKrmqK/PLVoPqt0OfBvkM9MB3vuvNzzM4fUTmB9Au+DsRzgpa12yPju/
-         dy+A==
-X-Forwarded-Encrypted: i=1; AFNElJ9sKxXvWs2Ub51ggr3uNxgg5vJY9fubTdWP/7NXMItrdN7qH43GKRtg9L8TSwt51125qnH0GYz+74IHLQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWs/0mDLb0z/bz+LJQ6edpR39EBw0zY3WjBNmV4//TZ4pQzX2u
-	WUFmGGbYIunB0zmsl/+lxMOTbMLyov4qUCtk59EtrisAcf4unLWv6lXK64DsOph9tr4=
-X-Gm-Gg: AfdE7ckQZK+I4MP1vUAt8xJstvqtS4SSK97uwUQXXb5jUX+4GHZHHhyvoM+pq6ldq5f
-	iLgEPCLUc4om6T69wEfO69a+UYTTwbQiv0Nf5O728/4QzgkWvEOitjtkvsVrzG2ngaDkS5IKBhe
-	mzLXhnWCAEQ/MbnYJ1XvsgFIVtkSBAef06ZQmx8he2Nl7cfOT2Q8ews2O54+9Iw0nKyGPrbuEI7
-	xJJIvHG3EZ5ulwaCWTV0wgD+pOvL7MSt5SSUEISGqG01sn+QkSF2A7NQ+HtAwHv9HInlxGHky78
-	i1RJRFysmcvhb75IAGEPV4cYZ4HtGY8ntEP/m904OtJg2JgJ318mQh+3A5f8DrrtZ5Vq3AIjXM0
-	LsXAEdHnlgBKOANb7A9ZWOWMePj7r+09rD5FCMYDQ2/UFSAiDQZP0d0gs1K3Gl+IY9jVTx7Mari
-	29z1lAl+ZW5iI=
-X-Received: by 2002:a05:600c:4f8f:b0:493:a75e:cf2e with SMTP id 5b1f17b1804b1-493a75ed171mr81258945e9.25.1782737548101;
-        Mon, 29 Jun 2026 05:52:28 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:1d21:f5d5:2d3c:23a7])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4926f94f213sm276984895e9.12.2026.06.29.05.52.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 05:52:27 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
- <wens@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
- Holland <samuel@sholland.org>,  Philipp Zabel <p.zabel@pengutronix.de>,
-  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,
-  Richard Cochran <richardcochran@gmail.com>,  linux-clk@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org,
-  linux-riscv@lists.infradead.org,  netdev@vger.kernel.org
-Subject: Re: [PATCH RFC 0/8] clk: sunxi-ng: Add support for Allwinner A733
- CCU and PRCM
-In-Reply-To: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech> (Junhui Liu's
-	message of "Tue, 10 Mar 2026 16:33:53 +0800")
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Mon, 29 Jun 2026 14:52:25 +0200
-Message-ID: <1jo6gta4qe.fsf@starbuckisacylon.baylibre.com>
+	Mon, 29 Jun 2026 12:54:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1782737650; x=1783342450; i=markus.elfring@web.de;
+	bh=asC142A27m0an9QyhmyjtQDandImCzAu+Zn7m1yt3VM=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=WOlBmuOy4XY5Yws2A8vOG8OSCRdqouiMczxsvLaIZ4FULz5fhQQZ9lgEzyzWvzII
+	 cxmWTnfL5c+E/bKddSqtyn2Y2osX9Rsqg6deBICzA/xmSG/bl2n4NsMQY0VzWSaWx
+	 C43lnFriax9udW9524QUfg4HKwMXW2QIoP9rwUyb6FhV865vKbP+iqkTcR8SlUoQ4
+	 6maticp5U2zO3Tj9Yr3k+eMe3vF2DkcTcXl1m84oM/8jiEsXodvJQYuPW9tAtO3rd
+	 9tz1sM75RbHGGh9BenowLqKSAY+/HmORbCIwKhbBecqg6FRhDQkv8bSYeGMnGTKI/
+	 S0I2U7aCmvWQUqlVqQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MC0PR-1wqWMh1auL-0030J2; Mon, 29
+ Jun 2026 14:54:10 +0200
+Message-ID: <f1adcf3e-1489-4131-ab62-277cab6a29b9@web.de>
+Date: Mon, 29 Jun 2026 14:54:08 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: Tao Liu <ltao@redhat.com>, linux-riscv@lists.infradead.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Baoquan He <bhe@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Pratyush Yadav <pratyush@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <20260529032739.13264-2-ltao@redhat.com>
+Subject: Re: [PATCH] riscv: Fix a NULL pointer reference in
+ machine_kexec_prepare
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260529032739.13264-2-ltao@redhat.com>
+X-Provags-ID: V03:K1:MblcNkU5EZqPCpQvLieb6roP6tB7TZ1rpYJIepkLi9fWxZghlUc
+ JwV70AvW6uwXtZPDECBX4EeUTjwRzAEGYqwAo9N3My/cGju/hif6cmvay8m3a1hnaa5jWLu
+ X7FS1GzELmpI0NvnD3+GA3YiHJWx0JtZ7GCu6VwX37mHG6lKu93j0m+BZFwPHRwKg3hsuOt
+ YO+Ww2nEeMHMtfvtFERnw==
+UI-OutboundReport: notjunk:1;M01:P0:VWcjRC/TJCA=;eJiBpiNTr7EfK5tfNMa5P0GbgxA 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_055230_167138_20B2A05E 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20260629_055425_100608_2B74E28A 
+X-CRM114-Status: UNSURE (   4.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,80 +80,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On mar. 10 mars 2026 at 16:33, Junhui Liu <junhui.liu@pigmoral.tech> wrote:
-
-> Add support for the main CCU and the PRCM module (R-CCU) found in the
-> Allwinner A733 SoC. The clock architecture of the A733 is an evolution
-> of the previous A523 design but introduces several significant changes.
->
-> One of the key changes is the introduction of a "pll-ref" clock that
-> normalizes the physical oscillator frequency (which can be 19.2MHz,
-> 24MHz, or 26MHz) into a consistent 24MHz reference for the entire clock
-> tree. Additionally, while the A733 inherits many module clock structures
-> from the A523, the MCU_CCU has been removed, and the overall clock tree
-> has been expanded to support more new functional units.
->
-> Also update the sunxi-ng SDM (Sigma-Delta Modulation) helper to support
-> a new dual-pattern register design. On the A733, the SDM enable bit has
-> been moved from the main PLL register to a second pattern register
-> (PATTERN1). The driver is updated to handle this register layout to
-> ensure accurate frequency synthesis for "pll-audio0".
->
-> This is marked as RFC because the parent clocks for several instances in
-> the main CCU are difficult to determine as the user manual provides
-> limited information on their specific clock sources. In these cases, the
-> implementation follows vendor practices and previous SoC designs,
-> generally defaulting to "hosc" where documentation is lacking. In
-> contrast, the bus clock gates in the PRCM (R-CCU) are explicitly defined
-> based on the Memory Map in the manual, which clearly associates each
-> module with its respective bus. Feedback or insights on these specific
-> clock parents would be greatly appreciated.
->
-> This functionally relies on the RTC series for the A733 SoC [1].
->
-> Link: https://lore.kernel.org/all/20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech/ [1]
->
-
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-
-> ---
-> Junhui Liu (8):
->       dt-bindings: clk: sun60i-a733-ccu: Add allwinner A733 support
->       clk: sunxi-ng: sdm: Add dual patterns support
->       clk: sunxi-ng: a733: Add PRCM CCU
->       clk: sunxi-ng: a733: Add PLL clocks support
->       clk: sunxi-ng: a733: Add bus clocks support
->       clk: sunxi-ng: a733: Add mod clocks support
->       clk: sunxi-ng: a733: Add bus clock gates
->       clk: sunxi-ng: a733: Add reset lines
->
->  .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  |  107 +
->  drivers/clk/sunxi-ng/Kconfig                       |   10 +
->  drivers/clk/sunxi-ng/Makefile                      |    4 +
->  drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c           |  276 +++
->  drivers/clk/sunxi-ng/ccu-sun60i-a733.c             | 2375 ++++++++++++++++++++
->  drivers/clk/sunxi-ng/ccu_sdm.c                     |   51 +-
->  drivers/clk/sunxi-ng/ccu_sdm.h                     |   32 +-
->  include/dt-bindings/clock/sun60i-a733-ccu.h        |  289 +++
->  include/dt-bindings/clock/sun60i-a733-r-ccu.h      |   39 +
->  include/dt-bindings/reset/sun60i-a733-ccu.h        |  131 ++
->  include/dt-bindings/reset/sun60i-a733-r-ccu.h      |   23 +
->  11 files changed, 3311 insertions(+), 26 deletions(-)
-> ---
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> change-id: 20260202-a733-clk-0d4fc00a9f9c
->
-> Best regards,
-
--- 
-Jerome
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+PiBBIE5VTEwgcG9pbnRlciByZWZlcmVuY2UgaXNzdWUgaXMgbm90aWNlZCBpbiByaXNjdidzIG1h
+Y2hpbmVfa2V4ZWNfcHJlcGFyZSwK4oCmCiAgICAgICAgICAgICAgICAgZGVyZWZlcmVuY2U/CgoK
+4oCmCj4gRml4IHRoaXMgYnkgc2ltcGx5IGFkZGluZyBhIGNoZWNrIGJlZm9yZSBjb3B5LgoKSG93
+IGRvIHlvdSB0aGluayBhYm91dCB0byBhZGQgYW55IHRhZ3MgKGxpa2Ug4oCcRml4ZXPigJ0gYW5k
+IOKAnENj4oCdKSBhY2NvcmRpbmdseT8KClNlZSBhbHNvOgoqIGh0dHBzOi8vZ2l0Lmtlcm5lbC5v
+cmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRzL2xpbnV4LmdpdC90cmVlL0RvY3Vt
+ZW50YXRpb24vcHJvY2Vzcy9zdWJtaXR0aW5nLXBhdGNoZXMucnN0P2g9djcuMi1yYzEjbjE0NQoq
+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRz
+L2xpbnV4LmdpdC90cmVlL0RvY3VtZW50YXRpb24vcHJvY2Vzcy9zdGFibGUta2VybmVsLXJ1bGVz
+LnJzdD9oPXY3LjItcmMxI24zNAoKClJlZ2FyZHMsCk1hcmt1cwoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
