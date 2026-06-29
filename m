@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8B9C44502
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B057EC44500
 	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2026 06:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Fq8Otao7az9tz+AHHBf3bSWmPQFU08jj4yAWSOjyDw8=; b=hG5e2c8yRpiQ5m
-	SWa+q/yKo5LEQW/yXoXa+TD6ldJV4zEV2NbQ+kXqkDplEiHMGBHO3A6M7J3pG9xrEnJgwY5vDOKJG
-	Yqsf3pqzCkSTCgXez6Sw6pJgokeBFU8wLRUcRt/qgvf8Y1TPIbYXhg6DpR4RjqDgADQ74juLf6RQ0
-	ms1QZh2SijKLjI2wz75w893vaBNkwUW1KDy3LQAAEKdw7OgO4f06xZLZOXq3XMn6WFBUHfAE0jqIB
-	MvG05Aai6hHD/iDsk9uipTNs0Jqxib/OCxyUHfPvqAFekhLIb68rSxe7rt4mz7Q7LxMuDeeUVt8jB
-	mfe9ytzSSfbogh0tvqOw==;
+	List-Owner; bh=l1n/UotaRQHfsRqZf//MooYBBRanacKdE4aPeiqgNf8=; b=ILNJSLGzE/kyDI
+	2llBbimWfag7ypLALRmRi6rQ3KoLL58Lx8Nzpxr7xoaqZ2+bwyF+uHrlXF4EHK+MmlYOZcoY4WGFc
+	gvuwFSLQ1hBLKkzQ/l39tG4Fbkea7kzhWiokiaxVeIjrPreGsuvHGjDWPCboysEZIpQVK90I2YLfJ
+	55sOZBjgkz7h5QMQWW9Oace5V6L25qJTRAnDfdEr3khc5pOOY7n62DzJnk7nmMBLuEixbmJcklprP
+	/GV4nXsKsFIPAilvH+24/uQsuXyeSL5MQG+kuAch5v7urBlw2ApE1l5QZ+r/CHxcdBRkYIZ+pSyx+
+	DP6nrOzjuPc5SbkqzN5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5hh-0000000DmRD-4C0u;
-	Mon, 29 Jun 2026 06:42:50 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1we5he-0000000DmOU-35kX;
+	Mon, 29 Jun 2026 06:42:46 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5hf-0000000DmNv-0ovB
+	id 1we5hb-0000000DmLc-2k5J
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jun 2026 06:42:48 +0000
+	Mon, 29 Jun 2026 06:42:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1782715365; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=osYv4PyMOH+hGuFQLUeP+UmPCqW/DzeJKVWPMYqOR5E=;
-	b=tHT6diOO2A4CXGbPtzdfEN4m7NtwYZ654zyEEE+P5c6ITgf6FItzDl4M7BEAjLO1jcH3W7OK1MV96Ytcvg6mhb60THvWKWO34DrxhV/HLIpHIyjwTWIZngF+J1SaL4yznTPL/zo9AmnXxk7wCx3HBXo8b9/F2W7ohjGrnDe/I+I=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R871e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5nWtf9_1782715362;
-Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5nWtf9_1782715362 cluster:ay36)
+	t=1782715361; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=SoXpgCB2RBsWH9x7kYIz7l7qwhyFV1SDoPeVUf/GCkc=;
+	b=qUOCxXL7FGcAB+sayZ/fnB+4vNOtjM5nRepHTHdSVcN9y2JkPQMqq0niGfTk0RvmtFlAREaevUVJsqDZQRzrknQVvYQi2wUo0/Pae+RPUFN3H5NgLURGVG7aFYRo1UVe9Mpc4WCXieUxySXiXqWl/hVxsdb31+Zb2IjGZMOWn1Q=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X5nWtcy_1782715357;
+Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X5nWtcy_1782715357 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 29 Jun 2026 14:42:43 +0800
+          Mon, 29 Jun 2026 14:42:38 +0800
 From: Wang Han <wanghan@linux.alibaba.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -71,15 +71,14 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-perf-users@vger.kernel.org,
 	live-patching@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v4 7/7] selftests/livepatch: Add RISC-V syscall wrapper prefix
-Date: Mon, 29 Jun 2026 14:42:28 +0800
-Message-ID: <20260629064228.3195856-8-wanghan@linux.alibaba.com>
+Subject: [PATCH v4 4/7] riscv: stacktrace: introduce stack-bound tracking helpers
+Date: Mon, 29 Jun 2026 14:42:25 +0800
+Message-ID: <20260629064228.3195856-5-wanghan@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_234247_408630_5FDE2BE4 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260628_234244_068988_06D4F216 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +95,291 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The syscall livepatch selftest resolves and patches a syscall wrapper
-symbol. To use that test for RISC-V livepatch validation, add the
-RISC-V FN_PREFIX definition for ARCH_HAS_SYSCALL_WRAPPER.
+A reliable unwinder needs to validate that every frame record it reads
+is fully contained in a known kernel stack, and it needs to refuse to
+walk back into a stack it has already left. Add the building blocks
+for that:
 
-Without this macro, the syscall livepatch selftest cannot resolve the
-RISC-V target symbol, and the syscall-related livepatch test fails on
-RISC-V.
+  * struct stack_info / struct unwind_state in a new
+    asm/stacktrace/common.h, modelled on the arm64 reference
+    implementation.
+  * stackinfo_get_irq() / stackinfo_get_task() / stackinfo_get_overflow()
+    plus the corresponding on_*_stack() predicates in asm/stacktrace.h,
+    so callers can ask "is this object on stack X?" by stack kind
+    rather than open-coded address arithmetic.
+  * unwind_init_common(), unwind_find_stack() and
+    unwind_consume_stack() helpers that enforce the
+    forward-progress-only invariant required for reliability.
 
-Reviewed-by: Marcos Paulo de Souza <mpdesouza@suse.com>
+No existing user is wired up to these helpers in this commit; the
+unwinder switch comes in a follow-up. The header changes leave
+on_thread_stack() with the same semantics as before, just expressed in
+terms of the new helpers.
+
 Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
 Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
 ---
- .../testing/selftests/livepatch/test_modules/test_klp_syscall.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/include/asm/stacktrace.h        |  65 ++++++++-
+ arch/riscv/include/asm/stacktrace/common.h | 159 +++++++++++++++++++++
+ 2 files changed, 222 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/include/asm/stacktrace/common.h
 
-diff --git a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
-index 08aacc0e14de..9baa2a5f84c9 100644
---- a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
-+++ b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
-@@ -24,6 +24,8 @@
-     #define FN_PREFIX __s390x_
-   #elif defined(__aarch64__)
-     #define FN_PREFIX __arm64_
-+  #elif defined(__riscv)
-+    #define FN_PREFIX __riscv_
-   #elif defined(__powerpc__)
-     #define FN_PREFIX
-   #else
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index b1495a7e06ce..bc87c4940379 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -3,8 +3,13 @@
+ #ifndef _ASM_RISCV_STACKTRACE_H
+ #define _ASM_RISCV_STACKTRACE_H
+ 
++#include <linux/percpu.h>
+ #include <linux/sched.h>
++#include <linux/sched/task_stack.h>
++
++#include <asm/irq_stack.h>
+ #include <asm/ptrace.h>
++#include <asm/stacktrace/common.h>
+ 
+ struct stackframe {
+ 	unsigned long fp;
+@@ -16,14 +21,70 @@ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *re
+ extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+ 			   const char *loglvl);
+ 
+-static inline bool on_thread_stack(void)
++/*
++ * IRQ stack accessors
++ */
++static inline struct stack_info stackinfo_get_irq(void)
++{
++	unsigned long low = (unsigned long)raw_cpu_read(irq_stack_ptr);
++	unsigned long high = low + IRQ_STACK_SIZE;
++
++	return (struct stack_info) {
++		.low = low,
++		.high = high,
++	};
++}
++
++static inline bool on_irq_stack(unsigned long sp, unsigned long size)
++{
++	struct stack_info info = stackinfo_get_irq();
++
++	return stackinfo_on_stack(&info, sp, size);
++}
++
++/*
++ * Task stack accessors
++ */
++static inline struct stack_info stackinfo_get_task(const struct task_struct *tsk)
+ {
+-	return !(((unsigned long)(current->stack) ^ current_stack_pointer) & ~(THREAD_SIZE - 1));
++	unsigned long low = (unsigned long)task_stack_page(tsk);
++	unsigned long high = low + THREAD_SIZE;
++
++	return (struct stack_info) {
++		.low = low,
++		.high = high,
++	};
++}
++
++static inline bool on_task_stack(const struct task_struct *tsk,
++				 unsigned long sp, unsigned long size)
++{
++	struct stack_info info = stackinfo_get_task(tsk);
++
++	return stackinfo_on_stack(&info, sp, size);
+ }
+ 
++/*
++ * Cast is necessary since current->stack is an opaque ptr.
++ */
++#define on_thread_stack()	(on_task_stack(current, current_stack_pointer, 1))
+ 
++/*
++ * Overflow stack accessors
++ */
+ #ifdef CONFIG_VMAP_STACK
+ DECLARE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
++
++static inline struct stack_info stackinfo_get_overflow(void)
++{
++	unsigned long low = (unsigned long)raw_cpu_ptr(overflow_stack);
++	unsigned long high = low + OVERFLOW_STACK_SIZE;
++
++	return (struct stack_info) {
++		.low = low,
++		.high = high,
++	};
++}
+ #endif /* CONFIG_VMAP_STACK */
+ 
+ #endif /* _ASM_RISCV_STACKTRACE_H */
+diff --git a/arch/riscv/include/asm/stacktrace/common.h b/arch/riscv/include/asm/stacktrace/common.h
+new file mode 100644
+index 000000000000..360a26e34349
+--- /dev/null
++++ b/arch/riscv/include/asm/stacktrace/common.h
+@@ -0,0 +1,159 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * RISC-V common stack unwinder types and helpers.
++ *
++ * See: arch/arm64/include/asm/stacktrace/common.h for the reference
++ * implementation.
++ *
++ * Copyright (C) 2026
++ */
++#ifndef __ASM_RISCV_STACKTRACE_COMMON_H
++#define __ASM_RISCV_STACKTRACE_COMMON_H
++
++#include <linux/compiler.h>
++#include <linux/errno.h>
++#include <linux/types.h>
++
++#include <asm/stacktrace/frame.h>
++
++/**
++ * struct stack_info - describes the bounds of a stack.
++ *
++ * @low:  The lowest valid address on the stack.
++ * @high: The highest valid address on the stack.
++ */
++struct stack_info {
++	unsigned long low;
++	unsigned long high;
++};
++
++/**
++ * struct unwind_state - state used for robust unwinding.
++ *
++ * @fp:        The fp value in the frame record (or the real fp).
++ * @pc:        The ra value in the frame record (or the real ra).
++ *
++ * @stack:     The stack currently being unwound.
++ * @stacks:    An array of stacks which can be unwound.
++ * @nr_stacks: The number of stacks in @stacks.
++ */
++struct unwind_state {
++	unsigned long fp;
++	unsigned long pc;
++
++	struct stack_info stack;
++	struct stack_info *stacks;
++	int nr_stacks;
++};
++
++/**
++ * stackinfo_get_unknown() - Get an unknown stack_info.
++ *
++ * Return: a stack_info with low and high set to 0.
++ */
++static inline struct stack_info stackinfo_get_unknown(void)
++{
++	return (struct stack_info) {
++		.low = 0,
++		.high = 0,
++	};
++}
++
++/**
++ * stackinfo_on_stack() - Check whether an object is fully within a stack.
++ *
++ * @info: The stack to check against.
++ * @sp:   The base address of the object.
++ * @size: The size of the object.
++ *
++ * Return: true if the object is fully contained within the stack.
++ */
++static inline bool stackinfo_on_stack(const struct stack_info *info,
++				      unsigned long sp, unsigned long size)
++{
++	if (!info->low)
++		return false;
++
++	if (sp < info->low || sp + size < sp || sp + size > info->high)
++		return false;
++
++	return true;
++}
++
++/**
++ * unwind_init_common() - Initialize the common parts of the unwind state.
++ *
++ * @state: the unwind state to initialize.
++ */
++static inline void unwind_init_common(struct unwind_state *state)
++{
++	state->stack = stackinfo_get_unknown();
++}
++
++/**
++ * unwind_find_stack() - Find the accessible stack which entirely contains an
++ * object.
++ *
++ * @state: the current unwind state.
++ * @sp:    the base address of the object.
++ * @size:  the size of the object.
++ *
++ * Return: a pointer to the relevant stack_info if found; NULL otherwise.
++ */
++static inline struct stack_info *unwind_find_stack(struct unwind_state *state,
++						   unsigned long sp,
++						   unsigned long size)
++{
++	struct stack_info *info = &state->stack;
++
++	if (stackinfo_on_stack(info, sp, size))
++		return info;
++
++	for (int i = 0; i < state->nr_stacks; i++) {
++		info = &state->stacks[i];
++		if (stackinfo_on_stack(info, sp, size))
++			return info;
++	}
++
++	return NULL;
++}
++
++/**
++ * unwind_consume_stack() - Update stack boundaries so that future unwind steps
++ * cannot consume this object again.
++ *
++ * @state: the current unwind state.
++ * @info:  the stack_info of the stack containing the object.
++ * @sp:    the base address of the object.
++ * @size:  the size of the object.
++ *
++ * Stack transitions are strictly one-way, and once we've
++ * transitioned from one stack to another, it's never valid to
++ * unwind back to the old stack.
++ *
++ * Note that stacks can nest in several valid orders, e.g.
++ *
++ *   TASK -> IRQ -> OVERFLOW
++ *
++ * ... so we do not check the specific order of stack
++ * transitions.
++ */
++static inline void unwind_consume_stack(struct unwind_state *state,
++					struct stack_info *info,
++					unsigned long sp,
++					unsigned long size)
++{
++	struct stack_info tmp;
++
++	tmp = *info;
++	*info = stackinfo_get_unknown();
++	state->stack = tmp;
++
++	/*
++	 * Future unwind steps can only consume stack above this frame record.
++	 * Update the current stack to start immediately above it.
++	 */
++	state->stack.low = sp + size;
++}
++
++#endif /* __ASM_RISCV_STACKTRACE_COMMON_H */
 -- 
 2.43.0
 
