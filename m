@@ -4,61 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C47C43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 01:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2922AC43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 01:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VsSI67WW8htG0E3LNhnOvmGWVywN8XumWSwsUAStAmQ=; b=e/x0Z5rIt2rhT7
-	zXny7aGOWgFUa4TN0rh8bfEL4/p31JM41OZTwO/hNtOlB35F+j6aGRH3KUkmst4DqRhX42/SbrszU
-	i99hGLl2CCU198xL62VwGxvbsicv5YOPZjHM7xtMM/OKrDz6A8oqlnMo31KD0bOFl0/hgXmN8xIyM
-	yooGvd7aEvkdfRs2h2shhu6u7H8CowMkBIV/wP7F3IKB9n2OTIxpp6ZHC3JFKqXzYz0Mv1W4U+vFU
-	er+c8CYmW36Faiy53Ki42V54+jWJs2wAjtW9qLIoC1OKsvT8NvSKedWCplIQMt28wgPb2N88IKyBS
-	HUJ7fjV3Qy1zSoiAS/VQ==;
+	List-Owner; bh=Wmv0dTHURvJYRy0rryX0vb324HVSPEiYZjqyW5+lqXw=; b=wJg4eUUSOS3O+8
+	pUnrUYz8hHqB3YHjuRVmMp/BrjWNf9WVx/qidQHv7Dq+mXqBrtJnI403aTDr7pRLA6BH5oZMFgXEw
+	tKAdOSBJ9SKOzPCxuf717cA7GGUAJbh3wT2F8N4nXvVW5iZxgnlsDDWLNHpPpPz7C4hqX6Oot8eHP
+	FP42F4JQwh+Ukeffx9ivbFWPEBqk0e7pn6+0dN9Rn22zj0Hh/kbmP3nlB/8mzBbJy4RRlT0VBo2sq
+	b15TZAM6jBp46WiSFPpSapq0ks5SiBZa/pcx7l0VfzN9Vge+AgVo2RNzlBYUN5lkwpRJQAYY6eHPo
+	AcPhKLw/uUCwV1Gc6/xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weN04-0000000FdYu-1JhO;
-	Tue, 30 Jun 2026 01:10:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weN4f-0000000Fe1z-09Hi;
+	Tue, 30 Jun 2026 01:15:41 +0000
+Received: from mail-bjschn02on20708.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::708] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weN03-0000000FdYc-0XZB
+	id 1weN4b-0000000Fe1P-2OPJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 01:10:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C5A16600BB;
-	Tue, 30 Jun 2026 01:10:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D281F00A3F;
-	Tue, 30 Jun 2026 01:10:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782781852;
-	bh=piL7uN1ZN4RlJL7pkxygfd5s2i0wytlnszFqNwAYdvE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fBR8u1vG/hhVoLDclrWJEZKZGurbJNv1CVj/sLHCVesVCBeOZbvXBws+yRsX6UsK2
-	 nSKx8sPmIqtNT90icN6N6EdMltg08yeGPGzMPTtOHDJTJ3MZAuH2lnqjxLmc9y44E9
-	 DUEFA/OB1125HkQM/G3ilJ2q90ApuRX2DYIaMyTICrwe+csfTomo8xCbysn/kgV5EB
-	 0Q6Ll2XrHTzG9npOsdry/TKbv7owlUdEAqMm3BpMQL5xnxlsLeXNbsOpI8iQ2ieHup
-	 GOc6REQn/GW47j1gtfZYvGbjHFwcLnwFwdt317sTKEExYbMZNJ1b0HsZAMSHi6aX7B
-	 yLC6Zp0EKOTMw==
-From: Yixun Lan <dlan@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Yixun Lan <dlan@kernel.org>
-Cc: linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Junzhong Pan <panjunzhong@linux.spacemit.com>
-Subject: Re: (subset) [PATCH 0/2] spacemit: fix USB2 clock and reset
-Date: Tue, 30 Jun 2026 01:10:44 +0000
-Message-ID: <178278137140.759782.6011015469413398398.b4-ty@b4>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260518-06-clk-reset-usb-fix-v1-0-14fc235e692b@kernel.org>
-References: <20260518-06-clk-reset-usb-fix-v1-0-14fc235e692b@kernel.org>
+	Tue, 30 Jun 2026 01:15:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=asrFfjegy9FYOG13fQWCSjOUsRzr8sygjLjGH1SuPdUDz2Ej5VLr7qDMjSBx1RZBf87M6ytjjZFS0ij+ZFmoDYFlwo5FxY4XtR+tdpURmLDbkU1s4epA3voCKrgyGS66yqWPXLEPrkuJO7gaR2PqjwwMKTKyQWbk3mREk4NJUPjbAx4wbCcVbBJxDz2oBtyfVEJkFNV9lw1icbnv6gm818T/Z34hwovz5Ba31XBs0tHaJ+tTVbYzDRQ1vM9l3MSZDZMjCenyTCgRVr2YSBpPnJsZYA4mxmjfCZcQKMjhGMTO1BB/zqjQwrBupnedlbGFVQ3OZo5/sSpRnPhme1hjfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OyHuYuLqGhUQzsn64XVkUDH30C2p4b5zZo9rojaFqvs=;
+ b=GiBJDeTyfIMkVN0d8Hn//CbhcilP0SN9q5eZDwR8MVnf6Q8uRZ4SD7z2s54ZfBg6DWVw3+LkZ87DZdxCYQ2bkYYS4NdSOrMQnw0wdz/QYnZvab8fhEu1k1ZZJ8R/ws9lixTAPaqJApr6ehcn6JrlVyV5wq+9uRm+KS6pOM0r5f9rg1Mm8s/L6Tw4ZWxn0BESxVAU+ZQkIGiiZYB/EJ9/Lpn3ENbWaQ42gqLACEFsdeq1Q67v5hcPrhOkxrvTnt7rSg/wzI+Xh9rV5Ew9TwWTFfP9dg6dLkIRZeFoNvvkYmYKvVlS+SWLJtaB1sFdxg7LOUFOPC6gJrab93yBZ6+7XA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:7::14) by ZQ2PR01MB1145.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:6::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.23; Tue, 30 Jun
+ 2026 01:15:10 +0000
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::4386:5cc4:3bc4:4795]) by
+ ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn ([fe80::4386:5cc4:3bc4:4795%3])
+ with mapi id 15.21.0139.024; Tue, 30 Jun 2026 01:15:10 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: =?iso-8859-1?Q?Uwe_Kleine-K=F6nig?= <ukleinek@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	"linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v20 1/3] dt-bindings: pwm: opencores: Update compatibles,
+ examples and maintainers
+Thread-Topic: [PATCH v20 1/3] dt-bindings: pwm: opencores: Update compatibles,
+ examples and maintainers
+Thread-Index: AQHdB5GS0UsRnwRSuU6o4dGjBcd/KbZVoM+AgACr1rA=
+Date: Tue, 30 Jun 2026 01:15:09 +0000
+Message-ID: <ZQ2PR01MB130775F6E674F6074A6E2CA9E6F72@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+References: <20260629063601.63917-1-hal.feng@starfivetech.com>
+ <20260629063601.63917-2-hal.feng@starfivetech.com>
+ <20260629-unedited-tarmac-b6eaaaced8fc@spud>
+In-Reply-To: <20260629-unedited-tarmac-b6eaaaced8fc@spud>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1145:EE_
+x-ms-office365-filtering-correlation-id: fbe9158d-7b2a-41b5-7ceb-08ded6450779
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|3023799007|56012099006|4143699003|38070700021|18002099003|22082099003;
+x-microsoft-antispam-message-info: OY7Vft++lAczGFEs4Km8Co9ISFGqS0G1ekatVZAR9qf7L0bjrI3UC0OsGirYaiAgyAvtSXUq1RhGa6thAL3oFvNK+BPOKjbmREs5w+L44QrBt/3JrF+P1kyoT58mi3N8XbdeohLWcB36c5HoGz+WrpbHUXSucrf12s6AZYtgcZNDXv9aIUjcFvcygGlkzWgPC/6aIVeoV8DqBy9QZg7xz/sU9z2sm/B69ntz9p4VXNg/tj8z2oD/fXyLrYSAiVnG6hVD6W8OLNfMFlXfIN1uGpRJuaSjFgAXuOoZT8kpvrR/rBXv7Nm3x1UgSle8VPZqdF8Kz2azjTu9hxqxVwB11gHN7S8P4L3ID2yj2Mv386/oEzLk3dQNVvBKADpCGyr6LS/Ah/n2y44eLoQROty5TOGUnT5Lb6tDzJpSYr6vAxA7PBKNM+lcHRvR9qiyrEa1/7WUEeSdA8WvEj2jF8+KwaY1z3rzKJpvldIi+cvmqoVql2d2KLM4u2eagBrf3lt1tNizGj768eolf9J9AiGrPCNjEs3htvio8vE7HxpX/kkoaNoKpfea+tl7c2+3xFRG
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(3023799007)(56012099006)(4143699003)(38070700021)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?J8miDtnPMSzZDV4W3LZxVYSN4a+92SIxoWLXX06xiFbWoE/T0caQx23+Ts?=
+ =?iso-8859-1?Q?X0fnLlG5XNWV0fVoLgkkjVqzhcPGuEk8PV+EjsBeCNCdk5MfQ149Q+clt4?=
+ =?iso-8859-1?Q?0mXvPLZqIrhWsTBvnw5PH3DcJSsjl2J27JAiFIIzHrROAFDWnwI0UnNxvK?=
+ =?iso-8859-1?Q?aVDI9NwwgUsmxgh9M95j27y/fRznxRUOfqY06wymitXvHCOM/uZeFiBC5V?=
+ =?iso-8859-1?Q?RZtz8Ixh9hsDoiePeTq8DTgntCL8QnvMOP+OHdLGk99BvMb3Z60M03/gW1?=
+ =?iso-8859-1?Q?xsF/w4PvKIFGVc/Eegpajg5bW/IyddWMzvAnZO10T/YIHEpuv+Tqtr58VS?=
+ =?iso-8859-1?Q?MTSwkJkxosF9ild6Asygb7Dot74w5wbmv0iQGa/6QkZar+xO71HlkuGKcQ?=
+ =?iso-8859-1?Q?nJzzP2Keb+iRb+dAwiVGfZdNc2n/FwfAUCjIawFR3i4em/mTiqE2n0u9j8?=
+ =?iso-8859-1?Q?MTTr5R9Ns5fjEqw4NpLdOwZytheqh00VPpwL1CqQX83f3cxuEt9Ec4fXMi?=
+ =?iso-8859-1?Q?QcNzlmt0Z2qxgYsjYZ8LMXcsSyUVMUkW+lUfulD+EqL8WMoyBHElgYdHqZ?=
+ =?iso-8859-1?Q?0BoJp6Y4sXsM1T4PM3FLGLGlxZ5HCOwV35b+ZvoF3KCIlsEINUCAIijkGY?=
+ =?iso-8859-1?Q?M3bMdQw/Rg+Y5j1J2YHxMmACFSLgORORt0had8YXtyemwbtmj00pLqJqS/?=
+ =?iso-8859-1?Q?DnCI6U7ZaMdGdPD8uozJxxehQa87Tm1B1rBUoEX/eR3u544AXqV1IVppOl?=
+ =?iso-8859-1?Q?aIl8ovB1rE61gBRvJ7fq53O1ARxizfjwT8d/boDUsx0w5vB63anGTqW5/c?=
+ =?iso-8859-1?Q?Dbmq1Qek0Iy/dd+om54ounXxWXEm5V1anfxDSoFlBHPt2/CSNYuPgVBes3?=
+ =?iso-8859-1?Q?Zkmg41ngcczJl5AndlEJdsJTF6FHDZXBPPLzl/jrlWrsI9qrr/geasFDfA?=
+ =?iso-8859-1?Q?Y/WxYjlRauYfvfs5iQyFBZPbXUr+MOnEavRWXA+Qi9ameJ5cVJrX4fnAcG?=
+ =?iso-8859-1?Q?Jd1diWwArfCBNuj73d1kSDkPhGYLx9hmlTfyfDC9xwSQEOfOB5Q3pViW3J?=
+ =?iso-8859-1?Q?1jN4pd07+6nNsiQ9JMnGTPZa9z4X4xnM9s7BlTMejGOwbRdd5CtZvz6HRn?=
+ =?iso-8859-1?Q?xmhSmilsyrkD5oMppQznz4XUml5z9k2423h+mGyCRkjv2n4eo5sBoVB9F0?=
+ =?iso-8859-1?Q?pnJDnpJL9sESdPCnctwIa0GVMxTMxaWxCiBCbw7hNa7zfX2fyoE8hRTgVA?=
+ =?iso-8859-1?Q?kxZDK4zmGAWTUZXgdXJvRg5tJFpiG2+ktX6ETLDCVOV+8IGyeS2xWKmk/F?=
+ =?iso-8859-1?Q?EImX+opaWyuJf2anQLGmytireDLpa/KBd3yAI6j9msdnuz8tYK3IvC0g/Y?=
+ =?iso-8859-1?Q?YQokumQfHvhBUvjaZguLIsDRZdhudbG425pgN05cwKnBeRfsrQbGCL+ntZ?=
+ =?iso-8859-1?Q?aWOWKJhAEW8duKUvm+K5B2Q+8Y8fsHzN5CGXYN6TCH/dSYssy1EGTspIZh?=
+ =?iso-8859-1?Q?Vxzjim7iK3m/h6CyGctNl7NeMeLAVB71IPKP3c94XuCxYaHIjHdYG1BKYl?=
+ =?iso-8859-1?Q?Z4Tx+j32WVDIVawMlaGJXvjWph/snBrpNbRVhStQSrjTA1CY8E38VrAjnY?=
+ =?iso-8859-1?Q?aPcReYjN+FfkbtAF6SSFirDTzMsZxltzsgPip1X/iZhrYdmu9qVPG1XzCm?=
+ =?iso-8859-1?Q?NiGBgHc6KCbDwSzUFwVJw0f9IxztwefMZh9fihIVyBP/cfkQn6YUAYmFg6?=
+ =?iso-8859-1?Q?znJ79hA6Dy2vb4MRmlF5HgMsETCPG951ruGM5xUgmSNnZmMuAnCLBkhgbL?=
+ =?iso-8859-1?Q?OyJqO7+GNw=3D=3D?=
 MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: fbe9158d-7b2a-41b5-7ceb-08ded6450779
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jun 2026 01:15:09.9547
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NiROHd/orjY+W/kAR+WSgUwS0w9UK4vPSvLHcLd1kCQ2m5LATGmKX3ooCXlN3Fj3T1LbvGuZVpFpJc3Oan0SYx8iJAt5OdcYey36ftZ6NR8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1145
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_181537_610280_7FD908F2 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +144,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 18 May 2026 02:58:35 +0000, Yixun Lan wrote:
-> In current code (v7.1-rc1), the register bit of bus clock and ahb reset
-> for USB2 were wrongly swapped, but this didn't cause any problem, because
-> from setting the register bits perspective, the de-assert reset operation
-> is effectly equivalent to enabling the clock bit, both of them will set
-> value 1.
+> On 26.06.29 23:00, Conor Dooley wrote:
+> On Mon, Jun 29, 2026 at 02:35:59PM +0800, Hal Feng wrote:
+> > Remove the jh8100 compatible since the JH8100 SoC has been canceled
+> > and will not be released. Add the jhb100 compatible to replace it.
+> >
+> > Change the register size in examples to 0x10, since an OpenCores PTC
+> > IP has only 4 32-bit registers: CNTR, HRC, LRC and CTRL.
 > 
-> This issue was found during suspend/resume test with vendor's internal
-> kernel.
-> 
-> [...]
+> Actually, please also add a fixes tag to the original commit adding the binding.
 
-Applied, thanks! Queue at for-clk-fixes-v7.2 branch
-
-[1/2] clk: spacemit: k3: fix USB2 bus clock
-      https://github.com/spacemit-com/linux/commit/51ed53630915c9cc290036fe4f430849e23bbf8e
+OK. Will add it in the next version. Thanks.
 
 Best regards,
--- 
-Yixun Lan <dlan@kernel.org>
+Hal
+
+> 
+> Cheers,
+> Conor.
+> 
+> >
+> > I will maintain this pwm module in place of William.
+> >
+> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > ---
+> >  Documentation/devicetree/bindings/pwm/opencores,pwm.yaml | 6 +++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > index 52a59d245cdb..42c5d2b6326d 100644
+> > --- a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > +++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> > @@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+> >  title: OpenCores PWM controller
+> >
+> >  maintainers:
+> > -  - William Qiu <william.qiu@starfivetech.com>
+> > +  - Hal Feng <hal.feng@starfivetech.com>
+> >
+> >  description:
+> >    The OpenCores PTC ip core contains a PWM controller. When operating
+> > in PWM @@ -23,7 +23,7 @@ properties:
+> >        - enum:
+> >            - starfive,jh7100-pwm
+> >            - starfive,jh7110-pwm
+> > -          - starfive,jh8100-pwm
+> > +          - starfive,jhb100-pwm
+> >        - const: opencores,pwm-v1
+> >
+> >    reg:
+> > @@ -49,7 +49,7 @@ examples:
+> >    - |
+> >      pwm@12490000 {
+> >          compatible = "starfive,jh7110-pwm", "opencores,pwm-v1";
+> > -        reg = <0x12490000 0x10000>;
+> > +        reg = <0x12490000 0x10>;
+> >          clocks = <&clkgen 181>;
+> >          resets = <&rstgen 109>;
+> >          #pwm-cells = <3>;
+> > --
+> > 2.43.2
+> >
 
 _______________________________________________
 linux-riscv mailing list
