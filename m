@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 695BDC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 08:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019A7C43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 08:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JLUY5poVvyTjuu4htjGHs4DOlUkjmcF3zer2Lw1ZlNo=; b=de0YTtYBCKHtK9
-	iu6c8hv1dF17p4JZXmMWP1LrnvietIa8NfVE+e3MCYCEQguyAa0lORd6M/JLDr8XZM8asNQwMOTUg
-	Ad+Nu5EEzrxOHuYdAcTdbm2BWdn1WuW4YHjUwXOgP82KCmFj1tVcQf5HECTU8ARz1dVHQyDrwysOT
-	VppfHfEugx9WBAfTbdONIIJGbsU8E6YBiMpCbN4z6ag7uC4NzHvBSH85LXV0/up728c4YD40h0biY
-	SOoWIlh0sZYuX5vPGlRF3I0ubbfUTw6L3RNwb7vyi743Gew7CY6DGQFAzwx1F9Zr8aoFtqWelPPsj
-	FXQGVIagW/PvsRTpSsNA==;
+	List-Owner; bh=tY+CY4EQ0OlJtOhOcKuUBXkM3waSVy/WGnQ9aHLQhQk=; b=KUR4U0o2nNfspI
+	S7u2KU+c/ey/cez6OBNMmKD7QVJO25krSHgkCOwoiDZDxckIq1Pbyos4yy/aeTtPfAmw2d0Q9tUBd
+	oqSR+UKrQ+u0Spa5ecAsKgUkGnVrG8UVAcCQMmU5gI8qGT9XHFWKUsiH+aS9gGpsvhofiXW/G9ajy
+	9I4j+G7ctPDmWieh0ze+rc+3FyR7GSCEqBE6nqqS3OgTo7IPl0gvf116+BRkHLJwvkAP02Ylmhv4Q
+	5M+IjDmRa7PWr/XHr3FVD32EqO1Br4RDXtjR8l6A1R3gEQjSYtyQHU4jzf49IWzs+O6zThO0Wvw4L
+	vK13M9iDQKJAw5r09gVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUE9-0000000GJe5-0UeM;
-	Tue, 30 Jun 2026 08:53:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weUEB-0000000GJfO-0uwZ;
+	Tue, 30 Jun 2026 08:53:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUE8-0000000GJdd-0wNa
+	id 1weUEA-0000000GJex-0nQL
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 08:53:56 +0000
+	Tue, 30 Jun 2026 08:53:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8CF1B43E6E;
+	by sea.source.kernel.org (Postfix) with ESMTP id EC50B43EF2;
+	Tue, 30 Jun 2026 08:53:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8B421F00A3D;
 	Tue, 30 Jun 2026 08:53:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 207191F00A3A;
-	Tue, 30 Jun 2026 08:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782809635;
-	bh=m2ZnTxggV1ZYOtn4Pko1UNdLLGbsX5Lavd+RyxACP9g=;
+	s=k20260515; t=1782809637;
+	bh=2HtGnCIHtd/V8Ei5mHL6Se13N7jz0RHnhWb/1gjbiwo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=J7aBCugVhwGTqtVAWndEZNzIXkmVDinE1QPXMIxk5wL/ivdOfQk/GK4XutMTokpUp
-	 u+ZTNoKEwIh5MRC3cYUdGjScUEhu0UtjpaB/cQ0pNlzHw2+PRgLKvJzwGs9VjTDCH9
-	 HFJtTOltxzIXH2Uim5lLQg9rxqFTUXcdORssoM7JGrNBHBK06EgzxX0aUBKdqJSgJn
-	 LW9w6Z4sfbCbZZ0BjxUW3X0t3hekzTNDe7TS6+LSLbXrqawPTM3BVHX2BlLkD359Fn
-	 YJUyMVcsVZ0QsmW3iJMQFiNq0/JTVVrjtKw3l5ewhfbcWzeXSgewdLshhVLKZumA/k
-	 Wg93+V8FPTkwA==
+	b=QOqIyfFVpiRZypxYa0hZGiAPim+RhUt4enXFanipNG/Y5a8ZgFgjTZ/U4mVR7HDX1
+	 E78M920Hkb0qCEBw4UvlpZpiyCBNOAaO+V1qNn9Z1WMX5Dt82tj127PuhtpRYbC9fL
+	 GGTm6RLkiUCNZgV3PsWPoJ87xat2fnTvxy+04cn6br5b5QD3cBeQknNM5NFW+9krEw
+	 Aou4Sdu3BA9kcQn5Qg2W8mZXOcbdXybLCtQr/QGQ+HdpWWRYaPDnWZexcOWmHDT/MY
+	 Tqdbf66shgy2XiOOTSK/DGGbUTkSTjuFPFoSW6J75bd8tO2JP+lm8rWwG4G/xAlR+d
+	 IM1xKKeqfiIwg==
 From: Yixun Lan <dlan@kernel.org>
-Date: Tue, 30 Jun 2026 08:53:19 +0000
-Subject: [PATCH 1/2] clk: spacemit: k3: set hdma clock as critical
+Date: Tue, 30 Jun 2026 08:53:20 +0000
+Subject: [PATCH 2/2] clk: spacemit: k3: set rcpu clock as critical
 MIME-Version: 1.0
-Message-Id: <20260630-06-clk-hdma-critial-v1-1-443c0ac88c5f@kernel.org>
+Message-Id: <20260630-06-clk-hdma-critial-v1-2-443c0ac88c5f@kernel.org>
 References: <20260630-06-clk-hdma-critial-v1-0-443c0ac88c5f@kernel.org>
 In-Reply-To: <20260630-06-clk-hdma-critial-v1-0-443c0ac88c5f@kernel.org>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -56,22 +56,22 @@ Cc: Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1258; i=dlan@kernel.org;
- h=from:subject:message-id; bh=NFzvd2lgzYCeCo0wBEQ+d0xdbvjzXTWXs3DEMaJYP40=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqQ4QY17Iv/hmEq9Ckf/X456gcr3ZmkkDMeeMTZ
- O7TBq5XV/qJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCakOEGBsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1180; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=HHkQNwP98rFHgVP2kYh+bFVjwQuFlKADnHc4gdbQgwI=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqQ4QbruFraRrtUu/b+QVSMLU3Zj3WuIuQbOH+F
+ L7DBuksQq+JAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCakOEGxsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+13XQ/+P/fn9INFJSM6UOj0RhDx6ekOavJ/FUOmi5xsxeDw1XnA41W/FEZAN
- DYrWEw9mGZ+CU4XYG/tfGZ7+JTx9GKRKIgiCqfIQMNdeeq8Fnx82TjBUoVtilLTbhnC6fc6f2Fd
- g6uOWSFSkrQg6PJnkCu63M2kyA+7U0cyNigproi6gep3QOjNJH5FJlnHYvc94CO/TxFXrpPqwbi
- RF/sz9KpeBVqBISn8sdaShlVbkdGyc/UTtoRnhOMe/MHTtWaslstbJw+2ex06wFvcpAbnflSoR3
- M1Tt3EV4+xCOpMsak6wPJyKSk/23YNVJ3NKfiLnHH7Ql4nupmwcX4zuqZaKBcmp8HcrUTD8p/vg
- wPgHR+bmrUQ1tMOYuPltP59QEQq02Z/TP0hLIzUxodz1O9lndzLl3vIDXmRdjJx6dde1Pf6kTMl
- mvzqvEiN5tPF/PqbmbVhtjLIdwm647KGIfW6yyjC4aXjdp8POShvW0jSr1lA8iw/r79UAgi6aqC
- a9h9C6TOWMMAK0Vig1RSDYcdvuikDXUiilBnMt6UhyzjRNnjJiQ7CXlDoJFQOCN0aguNChoc8V+
- 5FXuUrxrI/RAVUbso3hMoC8/oPhut1/EUH1kZq1Vy84OCbP5kNo9wdadLyYiI86W1TEm36ULcu0
- Qy5ByLgQ1gkAgj10MwYnPnFZ3xZrXM=
+ QACgkQMarqR1lNu+3k6A//bPZ3kdzo023uM4g3wJqUWgIe9NiKRWuXQvTVPGUjN5uAFGs3QOe/+
+ 2zhlBt7e6NSJa2WPcl2+fYyIM9mPDpNervlVbD4PTQSU2IkgX5GNIVEttt3V0pwzRb9SihZWGW1
+ dH3gJPJXdqs+XRocuKgxSe8PUQlDuKxhXlP5KCDwo8eCxBspXPql5GeYcw3JI0FZJehOlU2R2Cu
+ 2C/d5sfmX8KkXbeDVwdbgD6Uij//71V6bspkcINZUpxBhRd+HRRgUmS2RIDhfzGt1ZWOYk23nHN
+ tituK7kyfxbY5M9nn9c9h/EIY5/aLqD+c0LPBrStzP0nMoaf4xbE1X8etraEWc7at7KVYNcgl7Q
+ m7A6++YbSns6ClN7yjpBY2VmIWvxRAgPyWLCUCFSxww9ux36yiyxUel7dPd6ORDMkv8Hxz4cBPX
+ q9GcI6LtR34qLk+duzcBM87PZdSNWntGSpzxcVySRuqX3Ro7DPMwxTuPvK3i/BpXaB1M/EwR54B
+ goWDovdn1paqIUzsGv70J/40Vn3GaIFO0G+PRFhCDg4Nj+37nqt+K/0FwmyMmqb/ubpzJEUtCyx
+ wNHG2uL9RwMjnbPUasqf7N9m9mXPEdc9wMXfBG3IGrSfx6eK5MzopW/WCV2jV9EFmXsSQp/GnSy
+ 87M2sqralUAyHV+8h4iKch5N7qU7/s=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -90,9 +90,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-HDMA clock is responsible for the internal TCM access path of X100 RISC-V
-core, so set the clock flag as critical to prevent it from being shut off,
-otherwise the Linux system will hang.
+The SpacemiT K3 SoC integrates two RT24 RISC-V little cores (os0_rcpu and
+os1_rcpu), each running an independent ESOS instance responsible for
+system power management and real-time task. The RCPU clock is required
+in order to keep these cores functional, so set its clock as critical to
+prevent it from being shut off.
 
 Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
 Reported-by: Han Gao <gaohan@iscas.ac.cn>
@@ -102,18 +104,18 @@ Signed-off-by: Yixun Lan <dlan@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
-index cb0c4277f72a..f0160b4c0e1b 100644
+index f0160b4c0e1b..3867d2cff2f9 100644
 --- a/drivers/clk/spacemit/ccu-k3.c
 +++ b/drivers/clk/spacemit/ccu-k3.c
-@@ -1026,7 +1026,7 @@ CCU_MUX_DIV_GATE_DEFINE(isim_vclk_out3, isim_vclk_parents, APMU_SNR_ISIM_VCLK_CT
- /* APMU clocks end */
+@@ -866,7 +866,7 @@ static const struct clk_parent_data rcpu_clk_parents[] = {
+ 	CCU_PARENT_HW(pll1_d6_409p6),
+ };
+ CCU_MUX_DIV_GATE_FC_DEFINE(rcpu_clk, rcpu_clk_parents, APMU_RCPU_CLK_RES_CTRL,
+-			   4, 3, BIT(15), 7, 3, BIT(12), 0);
++			   4, 3, BIT(15), 7, 3, BIT(12), CLK_IS_CRITICAL);
  
- /* DCIU clocks start */
--CCU_GATE_DEFINE(hdma_clk, CCU_PARENT_HW(axi_clk), DCIU_DMASYS_CLK_EN, BIT(0), 0);
-+CCU_GATE_DEFINE(hdma_clk, CCU_PARENT_HW(axi_clk), DCIU_DMASYS_CLK_EN, BIT(0), CLK_IS_CRITICAL);
- CCU_GATE_DEFINE(dma350_clk, CCU_PARENT_HW(axi_clk), DCIU_DMASYS_SDMA_CLK_EN, BIT(0), 0);
- CCU_GATE_DEFINE(c2_tcm_pipe_clk, CCU_PARENT_HW(axi_clk), DCIU_C2_TCM_PIPE_CLK, BIT(0), 0);
- CCU_GATE_DEFINE(c3_tcm_pipe_clk, CCU_PARENT_HW(axi_clk), DCIU_C3_TCM_PIPE_CLK, BIT(0), 0);
+ static const struct clk_parent_data dsi4ln2_dsi_esc_parents[] = {
+ 	CCU_PARENT_HW(pll1_d48_51p2_ap),
 
 -- 
 2.54.0
