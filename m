@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 146BEC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 09:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C06C43602
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 09:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lsLqNwt5ZWdadloLv4MwEKTfvD9jL86bnwdY+hX25VQ=; b=cCa1ciVY+91JB8
-	4DnjTLv9Hhmg9H0lDyNOQJnv9zXH0NorSwk0qRLP91mCHrgOIh/3Jj4bjBYMRvoE3+589gp86LuLK
-	Zp0ciYhDo7DvOyBBQt8DSRXOSvtma1kwShNjnzTNQGjqWMtbVoKQ1BIYrY8nOXYebtic/4LtxrGO1
-	v3/cPl59JhlqYsv38qqbVyoRhpMGa35olk8/ybWaf6NRrntER2GSENlJxd/VJTJcAbMOu1Hkw5p9o
-	NsSYH1XDeNSkSt8SeQMEV01z+m/ZpfxQQ2YQgrDrDX1pLhU5hAS93OtMGR5QUoHQI3m3nL1ir3Ynj
-	/DLG/6lEnyWARd9NQRbA==;
+	List-Owner; bh=JnzZg4bVAqfztPEMwJ7IuGjPJnGEpeKrZxWe6vm5K1o=; b=eAmVyrYVFRD8kP
+	E4Enikr8Ib2t9CBkFggSeGM+pb83iBOmtVPLEwCYuGAG4B9tQxIzQWqD2LitGN7QzWIQxBUzUflnj
+	/9brFVEL04nfifKWRmNA6n74ToY0RXF04VS5NNHC+VjT5axrzvDeVuiPvN5mWKKRLeXHN7bwPUcKO
+	CqtGH4njuyo0X9kqZ22a1y6a/JSJKefZpWEte+18rSUvvzYInbfHTeXGAqHz5fW1dfRmbtsarc7+N
+	HOEtAJkowZenPLPeVDaRTbtVtYFa14da8D43h5cSZzW46Z+zexMJoRQhIPuT5RQD1oHFIScvigrsJ
+	BWKd8IWCqSEy9AxqiPrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weV3Z-0000000GVKH-0vzH;
-	Tue, 30 Jun 2026 09:47:05 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1weV3h-0000000GVR3-2dT5;
+	Tue, 30 Jun 2026 09:47:13 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weV3W-0000000GVIG-1BXo
+	id 1weV3a-0000000GVLS-2pVR
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 09:47:03 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c95a0c0aa2so29351995ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 02:47:02 -0700 (PDT)
+	Tue, 30 Jun 2026 09:47:08 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2c9e8a1d256so20352395ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 02:47:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1782812821; x=1783417621; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1782812826; x=1783417626; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MnAOQCSsF2o4VZGP8SMJogyuZsC7iPNVxWIrUn/m6BM=;
-        b=DteoA8K6n9f69Mgl/q+anUrfXUMM/1hcm6ljvAltn04bTGTsNjmGEEZhIVFpYUC9uL
-         lBoyx4OfzeeWrcHKpt0mRA09qqT1ROH6pB/b+aLt6s6Pqcy3RznfyZJG//kc7xGKC0CS
-         GuzlEsUXMcIL39HUg91MSzQoBkYR2SLnjdOOgxe+SzcnTw/yldzhBTy+7cDOPEbgxT3A
-         /v+4pv1MeBfZzcpoqbqq/eY000OQXVp9jYr3/nXSeppsbSQhu870tao4+YJfERZlRePN
-         nRA0DmkkoyJ+f1xt53RyiuJMA5g9z3AC98t+tpuTMHEKq1Z0NaBhK0d6gEMJnIVucVuI
-         F/ow==
+        bh=Q1mhPayeB7vwAFK9b1yiuy8iVzM6luMZwkJqwu4SqsU=;
+        b=PCNv0+rK4ZCnbZesz4b0bVkk71vZ1LoihIItQaqM83lQKVvuU7DQZ04c5AOrzk0Xzs
+         uW6vgzc+6vDZCn5sx069GcwnHyCwwo9LzfuqIAvJMhD0s7m0ZdWCuqr9o09Oe4kSArzr
+         VhgMNxD8NVxsslnWbcSKoz70QVQXgX23CnQRi4BLsmrlAnqX2PbS1qTTFOIVzsFEyMGH
+         Iv3h7W3tpmvGlJPxHLrBbC/53j4rouDWC6DAPEHHwb1lTW9LCauVPILRYFHqLuSME9at
+         kAveBIAe41ZHz8AbMPdPeO2vP0bMup6gsFAWj8ZCyLiZqYhQN+pwsHnzqEsHA8v8JRxe
+         J+zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782812821; x=1783417621;
+        d=1e100.net; s=20251104; t=1782812826; x=1783417626;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=MnAOQCSsF2o4VZGP8SMJogyuZsC7iPNVxWIrUn/m6BM=;
-        b=ZOqaFJBYskHDdNBtkxvregUMphphD1157XeRKJOav1mSAq1Mj4KFc6WLesY58FyCdr
-         ap+IcshOZaE5PR8GdDDWJmW3lPheFf3TB0jgdbSbPiRVipCfAv1xgwV+x4C30VD1CW7i
-         +HIwFtGTDv6u8Src62NWB7ll9u03k5P3FOVsYh+vguOPqoQOSNCavy636GAsYuymDlIq
-         t+tQdHicdouF1x30mfgcorbdnjIRDcImuWUBcBZVmx1hiYSggSpdk/9a+Lx3LzhutKaf
-         VC6U2qchee4+gXA2yAihM6cirIQzTkYSVuV6KuARVzSm1JurFTpQgkyNPZz3+iv9arU0
-         3BeQ==
-X-Gm-Message-State: AOJu0YzBfleThg4psEHvRyHoFqOIkRd/suxnUbZXRyrGQLJ2d74Uw9GY
-	snJmhtcoJRGiBvjLQW7OfcGzFNpd9NZaCw/F8vEGg9oa9bKvO1JmufHBNks0CWB5oDk=
-X-Gm-Gg: AfdE7cleNt18+iIy590THFf1g1yUZWuK7eU7ycOQjAWOFsKvhMW072eQ58qPBH3oYuG
-	8krHwDMcjsFmWw2cLe6sv5QjrGL/q9dStCoMErBjYIrmwTS9XvEp+8cVwnkVc+m8TG5w2Wh81F8
-	I6k9GQ6LqjPGykdd3XJ++Yp+ESs4VHqU5vSGIz0INyUsXYukJfInsVxNflFWMDqU9hbrKozxEbJ
-	pqQ/yHw2tlijKhIFu89N6KxOrd16I9SNOLU5hjg+lJJ55sFOF7rfQBswNaFYOhlmDSEgd15efEA
-	ZcUAgkcn5CEeaL5DNtB2N83IHSmsEIge8xuUVfdU9aaq+QkrDKMV1pgUEQp4dGEmnm9+vdcTI0w
-	VtEekFut5OBgYhmznpEVk+tAzXHcJvHWxnylkcr3TOt53X3EYlQ5fp29Bg6Hl8B5P11kYsTEI7F
-	c5Cs9A/5xwUvFZQvu4j7rHH9u4DN94pVI=
-X-Received: by 2002:a17:902:e950:b0:2c0:eee2:fc40 with SMTP id d9443c01a7336-2ca2d52a0cbmr23236415ad.3.1782812821271;
-        Tue, 30 Jun 2026 02:47:01 -0700 (PDT)
+        bh=Q1mhPayeB7vwAFK9b1yiuy8iVzM6luMZwkJqwu4SqsU=;
+        b=KX8E2hfqsHTyASch5wp2cgxxQxbxTL036iYdIila2RVY0C1e2AW3JmD99iz+XXj1q5
+         CU4xQcUdifFFKTn5WWWnEeN6TVGNhJaDvQKn0W2wyRStp6XpCzN9K01u5z/FxG8ml94p
+         DFCQLnetCZwK/xQUNvr41xwhzl1ub8ebEwwRQ6FSlTZV6UYv970Ku4NuXIhfZFAqFUwA
+         vWXCsdMkNpwmFcF3UVTkR9mweOktVm/pIiiRKtOTxGfPD2JPHqfmCVqZA2q33U9QZMl2
+         XqXdOMs9u2l3H2831WdsfBGx7Amn0rlQuhwZ9XA5HlcDRv5FBV2BHQFmwZiYlVK6Dits
+         4I/w==
+X-Gm-Message-State: AOJu0YxLc2kwNTAOw6YOGqqQsT2dJgpG19KNyx+56NtRjCOT+ZjxXrPm
+	vqVC/vObfjw2rF5z5ezwpY1n1tmaHzH78bxMasaE4f6m5uucTgjcTmy9+u2p6Dc/86Y=
+X-Gm-Gg: AfdE7cmbA7JrXpXX2AJ2L7WqXDD80bgOH9TiN9WnAyWr1GeIXtsVirWHAnrSq1GhF2/
+	jDDN7rEYhf+VG4GwAqnbhttaCxd/UrGAy6sVp5vC+coJ0mkG/zZftrqRCfbVeFDnqSOWQ6d8TOM
+	JyW+XbRXGW8M9aOdCMvRvnoieTruoa/rT7DkR/i0XeIuhg0T0+HQxW/XlS3uHNQj/w9MV/+oO8c
+	SRdiKvKWjRowIa+P0nBe/p37bSV9PmRo44lwcMfpQVRBeUntQQJxzalExygPFe2zDrjyFbPwY0E
+	upkCsWHg8ipJ8D0gA1mrUTJ3TpYJwujyc6D80V5/wUJqskm8Y3bc8KaSSunBR+CYPzN3Xzgti3C
+	pEMZ75p2LD12dzbjOXUNwG29wdRsWOEFzQ63aV4GHSOfhMQ32aR8RFkZJQ8t8ZHCRzX8Wu/m7f0
+	X1mELUKNAxPzRLvWhPUtKV5DW9b9hgR4k=
+X-Received: by 2002:a17:902:d2ca:b0:2c7:1200:bd7e with SMTP id d9443c01a7336-2ca2d56543dmr23326695ad.18.1782812825774;
+        Tue, 30 Jun 2026 02:47:05 -0700 (PDT)
 Received: from EricL-ThinkPadX1-TW.local ([136.226.240.181])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca37c87bb8sm10144675ad.30.2026.06.30.02.46.57
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca37c87bb8sm10144675ad.30.2026.06.30.02.47.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 02:47:00 -0700 (PDT)
+        Tue, 30 Jun 2026 02:47:05 -0700 (PDT)
 From: Eric Lin <eric.lin@sifive.com>
-Date: Tue, 30 Jun 2026 17:46:26 +0800
-Subject: [PATCH RFC 03/12] rvtrace: Add pre-ratified private data callback
+Date: Tue, 30 Jun 2026 17:46:27 +0800
+Subject: [PATCH RFC 04/12] rvtrace: Pass struct rvtrace_path_node to start
+ callback
 MIME-Version: 1.0
-Message-Id: <20260630-dev-ericl-riscv_trace_support_v3-new_sifive-v3-v1-3-c9c1ffc64e4b@sifive.com>
+Message-Id: <20260630-dev-ericl-riscv_trace_support_v3-new_sifive-v3-v1-4-c9c1ffc64e4b@sifive.com>
 References: <20260630-dev-ericl-riscv_trace_support_v3-new_sifive-v3-v1-0-c9c1ffc64e4b@sifive.com>
 In-Reply-To: <20260630-dev-ericl-riscv_trace_support_v3-new_sifive-v3-v1-0-c9c1ffc64e4b@sifive.com>
 To: Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>, 
@@ -86,16 +87,16 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  Eric Lin <dslin1010@gmail.com>, Eric Lin <eric.lin@sifive.com>, 
  Nick Hu <nick.hu@sifive.com>, Vincent Chen <vincent.chen@sifive.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782812801; l=7165;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782812801; l=5312;
  i=eric.lin@sifive.com; s=20260630; h=from:subject:message-id;
- bh=JTR9gEm5UhAF2yG09QL0loA3AKcywA37X87hRt3foz0=;
- b=tIbr2LFjXZEnVs8swWuQjZQ2fAxttCaAZlsULyX3YmBYqEw2oL34+Ya3+P/l+3mWuotHnCsQI
- bhlCNQl+RiyCkZUWHdGwLeJTk3dnBDCW/C3Fu9uZVWEgAM/XPS6KuYR
+ bh=1lAuX1dOvob5WlUR4elT7eSNAOc5CKgC3zoG2VGlYfI=;
+ b=PARNFRWmdV+hB1v3H2XemPeF/EkHqwMQ8r/pB59m0oP1gyQQ3yYXpQCsIuW7KshBvhM9xGAWZ
+ SlzwX8msXa1CckSJJMhBxH+q5aGwJ1GgxwvfwQaS6lNJmy07sUyzQ5W
 X-Developer-Key: i=eric.lin@sifive.com; a=ed25519;
  pk=RLPQN6uNJ1cSM8GhP+L++2j3pf5ohznFbkNdwIO1XDw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_024702_334564_3A2D5203 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20260630_024706_773404_69C5883C 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,14 +113,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For pre-ratified trace hardware, a trace component might support
-different trace sinks, and its trace sink availability information
-is embedded within the implementation register.
+Routing trace data from a source to an output component requires
+configuring the connections between components. The mechanism for this
+configuration varies between hardware implementations:
 
-Introduce a get_data() callback function in 'struct rvtrace_driver_data'
-to retrieve the component's supported trace sink features and store
-this information in the component's private data. This allows the driver
-to access the pre-ratified hardware capabilities during setup.
+  - Standard (ratified) RISC-V trace configures routing at the
+    receiving end. For example, a funnel uses the trFunnelDisInput
+    register to control which source input is accepted.
+  - Pre-ratified hardware (e.g., SiFive) configures routing at the
+    sending end, selecting the output destination by setting a bitfield
+    directly within the current component's control MMIO register.
+
+To seamlessly support both ratified and pre-ratified data flows,
+component drivers require full path topology information (i.e., the
+component and its connections) when starting, rather than just the
+component itself.
+
+Update the rvtrace_driver->start() callback to accept a
+'struct rvtrace_path_node' instead of a 'struct rvtrace_component'
+so that component drivers can access the node and connection
+details required to program their specific routing registers.
 
 Co-developed-by: Nick Hu <nick.hu@sifive.com>
 Signed-off-by: Nick Hu <nick.hu@sifive.com>
@@ -127,169 +140,111 @@ Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Eric Lin <eric.lin@sifive.com>
 ---
- drivers/hwtracing/rvtrace/rvtrace-core.c     |  4 +++-
- drivers/hwtracing/rvtrace/rvtrace-platform.c | 11 ++++++++++-
- drivers/hwtracing/rvtrace/rvtrace-v0.c       | 20 ++++++++++++++++++++
- drivers/hwtracing/rvtrace/rvtrace-v0.h       | 21 +++++++++++++++++++++
- include/linux/rvtrace.h                      |  4 +++-
- 5 files changed, 57 insertions(+), 3 deletions(-)
+ drivers/hwtracing/rvtrace/rvtrace-core.c    | 12 ++----------
+ drivers/hwtracing/rvtrace/rvtrace-encoder.c |  3 ++-
+ drivers/hwtracing/rvtrace/rvtrace-ramsink.c |  3 ++-
+ include/linux/rvtrace.h                     | 14 +++++++++++++-
+ 4 files changed, 19 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/hwtracing/rvtrace/rvtrace-core.c b/drivers/hwtracing/rvtrace/rvtrace-core.c
-index 58454e9ddb4e..51546cbcc6ad 100644
+index 51546cbcc6ad..12ffc6917c70 100644
 --- a/drivers/hwtracing/rvtrace/rvtrace-core.c
 +++ b/drivers/hwtracing/rvtrace/rvtrace-core.c
-@@ -368,7 +368,8 @@ static void rvtrace_component_release(struct device *dev)
+@@ -501,12 +501,6 @@ void rvtrace_unregister_component(struct rvtrace_component *comp)
+ }
+ EXPORT_SYMBOL_GPL(rvtrace_unregister_component);
  
- struct rvtrace_component *rvtrace_register_component(enum rvtrace_component_type type,
- 						     u32 version,
--						     struct rvtrace_platform_data *pdata)
-+						     struct rvtrace_platform_data *pdata,
-+						     void *data)
+-struct rvtrace_path_node {
+-	struct list_head		head;
+-	struct rvtrace_component	*comp;
+-	struct rvtrace_connection	*conn;
+-};
+-
+ struct rvtrace_component *rvtrace_path_source(struct rvtrace_path *path)
  {
- 	struct rvtrace_connection *conn;
- 	struct rvtrace_component *comp;
-@@ -413,6 +414,7 @@ struct rvtrace_component *rvtrace_register_component(enum rvtrace_component_type
- 	comp->pdata = pdata;
- 	comp->id.type = type;
- 	comp->id.version = version;
-+	comp->id.data = data;
- 	ret = rvtrace_alloc_type_idx(comp);
- 	if (ret) {
- 		kfree(comp);
-diff --git a/drivers/hwtracing/rvtrace/rvtrace-platform.c b/drivers/hwtracing/rvtrace/rvtrace-platform.c
-index 6cf8e7dae2ad..8d2b03668c2a 100644
---- a/drivers/hwtracing/rvtrace/rvtrace-platform.c
-+++ b/drivers/hwtracing/rvtrace/rvtrace-platform.c
-@@ -122,6 +122,7 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
- 	u32 impl, type, major, minor;
- 	struct device_node *node;
- 	struct resource *res;
-+	void *data = NULL;
+ 	struct rvtrace_path_node *node;
+@@ -625,17 +619,15 @@ static void rvtrace_release_path_nodes(struct rvtrace_path *path)
+ int rvtrace_path_start(struct rvtrace_path *path)
+ {
+ 	const struct rvtrace_driver *rtdrv;
+-	struct rvtrace_component *comp;
+ 	struct rvtrace_path_node *node;
  	int ret;
  
- 	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
-@@ -168,6 +169,11 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
- 	if (driver_data) {
- 		if (driver_data->get_impl)
- 			impl = driver_data->get_impl(pdata);
-+		if (driver_data->get_data) {
-+			data = driver_data->get_data(pdata);
-+			if (IS_ERR(data))
-+				return PTR_ERR(data);
-+		}
- 	} else {
- 		impl = rvtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
+ 	list_for_each_entry_reverse(node, &path->comp_list, head) {
+-		comp = node->comp;
+-		rtdrv = to_rvtrace_driver(comp->dev.driver);
++		rtdrv = to_rvtrace_driver(node->comp->dev.driver);
+ 		if (!rtdrv->start)
+ 			continue;
+ 
+-		ret = rtdrv->start(comp);
++		ret = rtdrv->start(node);
+ 		if (ret)
+ 			return ret;
  	}
-@@ -179,7 +185,8 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
- 	minor = (impl >> RVTRACE_COMPONENT_IMPL_VERMINOR_SHIFT) &
- 		RVTRACE_COMPONENT_IMPL_VERMINOR_MASK;
+diff --git a/drivers/hwtracing/rvtrace/rvtrace-encoder.c b/drivers/hwtracing/rvtrace/rvtrace-encoder.c
+index d189819aecf7..f0a4ac46b6a9 100644
+--- a/drivers/hwtracing/rvtrace/rvtrace-encoder.c
++++ b/drivers/hwtracing/rvtrace/rvtrace-encoder.c
+@@ -11,8 +11,9 @@
+ #define RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT	4
+ #define RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT	0x6
  
--	comp = rvtrace_register_component(type, rvtrace_component_mkversion(major, minor), pdata);
-+	comp = rvtrace_register_component(type, rvtrace_component_mkversion(major, minor),
-+					  pdata, data);
- 	if (IS_ERR(comp))
- 		return PTR_ERR(comp);
- 
-@@ -205,10 +212,12 @@ static void rvtrace_platform_remove(struct platform_device *pdev)
- 
- static const struct rvtrace_driver_data rvtrace_v0_encoder_data = {
- 	.get_impl = rvtrace_v0_get_encoder_impl,
-+	.get_data = rvtrace_v0_get_comp_data,
- };
- 
- static const struct rvtrace_driver_data rvtrace_v0_funnel_data = {
- 	.get_impl = rvtrace_v0_get_funnel_impl,
-+	.get_data = rvtrace_v0_get_comp_data,
- };
- 
- static const struct of_device_id rvtrace_platform_match[] = {
-diff --git a/drivers/hwtracing/rvtrace/rvtrace-v0.c b/drivers/hwtracing/rvtrace/rvtrace-v0.c
-index 825de1120c8d..bed35f631390 100644
---- a/drivers/hwtracing/rvtrace/rvtrace-v0.c
-+++ b/drivers/hwtracing/rvtrace/rvtrace-v0.c
-@@ -6,6 +6,26 @@
- #include <linux/rvtrace.h>
- #include "rvtrace-v0.h"
- 
-+void *rvtrace_v0_get_comp_data(struct rvtrace_platform_data *pdata)
-+{
-+	struct rvtrace_v0_comp_features	*data;
-+	u32 impl;
-+
-+	data = devm_kzalloc(pdata->dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return ERR_PTR(-ENOMEM);
-+
-+	impl = rvtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
-+
-+	data->has_sram_sink = impl & RVTRACE_V0_IMPL_HAS_SRAM_SINK_MASK;
-+	data->has_atb_sink = impl & RVTRACE_V0_IMPL_HAS_ATB_SINK_MASK;
-+	data->has_pib_sink = impl & RVTRACE_V0_IMPL_HAS_PIB_SINK_MASK;
-+	data->has_sba_sink = impl & RVTRACE_V0_IMPL_HAS_SBA_SINK_MASK;
-+	data->has_funnel_sink = impl & RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_MASK;
-+
-+	return data;
-+}
-+
- static u32 rvtrace_v0_get_impl(struct rvtrace_platform_data *pdata, u32 type)
+-static int rvtrace_encoder_start(struct rvtrace_component *comp)
++static int rvtrace_encoder_start(struct rvtrace_path_node *node)
  {
- 	u32 impl, major, minor;
-diff --git a/drivers/hwtracing/rvtrace/rvtrace-v0.h b/drivers/hwtracing/rvtrace/rvtrace-v0.h
-index 511aa6489caa..562d3a77c513 100644
---- a/drivers/hwtracing/rvtrace/rvtrace-v0.h
-+++ b/drivers/hwtracing/rvtrace/rvtrace-v0.h
-@@ -9,8 +9,29 @@
++	struct rvtrace_component *comp = node->comp;
+ 	int ret;
+ 	u32 val;
  
- #include <linux/rvtrace.h>
+diff --git a/drivers/hwtracing/rvtrace/rvtrace-ramsink.c b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
+index e4b6f0547245..7aa525ac0f75 100644
+--- a/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
++++ b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
+@@ -43,8 +43,9 @@ struct trace_buf {
+ 	size_t len;
+ };
  
-+#define RVTRACE_V0_IMPL_HAS_SRAM_SINK_BIT	4
-+#define RVTRACE_V0_IMPL_HAS_ATB_SINK_BIT	5
-+#define RVTRACE_V0_IMPL_HAS_PIB_SINK_BIT	6
-+#define RVTRACE_V0_IMPL_HAS_SBA_SINK_BIT	7
-+#define RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_BIT	8
-+
-+#define RVTRACE_V0_IMPL_HAS_SRAM_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_SRAM_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_ATB_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_ATB_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_PIB_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_PIB_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_SBA_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_SBA_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_BIT)
-+
-+struct rvtrace_v0_comp_features {
-+	bool has_sram_sink;
-+	bool has_atb_sink;
-+	bool has_pib_sink;
-+	bool has_sba_sink;
-+	bool has_funnel_sink;
-+};
-+
- u32 rvtrace_v0_get_encoder_impl(struct rvtrace_platform_data *pdata);
- u32 rvtrace_v0_get_funnel_impl(struct rvtrace_platform_data *pdata);
-+void *rvtrace_v0_get_comp_data(struct rvtrace_platform_data *pdata);
- 
- #endif /* __RVTRACE_V0_H__ */
+-static int rvtrace_ramsink_start(struct rvtrace_component *comp)
++static int rvtrace_ramsink_start(struct rvtrace_path_node *node)
+ {
++	struct rvtrace_component *comp = node->comp;
+ 	int ret;
+ 	u32 val;
  
 diff --git a/include/linux/rvtrace.h b/include/linux/rvtrace.h
-index fdf6115d7f06..9f1afcfd83e6 100644
+index 9f1afcfd83e6..079fe16807d3 100644
 --- a/include/linux/rvtrace.h
 +++ b/include/linux/rvtrace.h
-@@ -160,6 +160,7 @@ struct rvtrace_platform_data {
-  */
- struct rvtrace_driver_data {
- 	u32 (*get_impl)(struct rvtrace_platform_data *pdata);
-+	void *(*get_data)(struct rvtrace_platform_data *pdata);
+@@ -281,6 +281,18 @@ struct rvtrace_path {
+ #define RVTRACE_INVALID_TRACE_ID	0
  };
  
- static inline u32 rvtrace_read32(struct rvtrace_platform_data *pdata, u32 offset)
-@@ -263,7 +264,8 @@ struct rvtrace_component *rvtrace_cpu_source(unsigned int cpu);
- 
- struct rvtrace_component *rvtrace_register_component(enum rvtrace_component_type type,
- 						     u32 version,
--						     struct rvtrace_platform_data *pdata);
-+						     struct rvtrace_platform_data *pdata,
-+						     void *data);
- void rvtrace_unregister_component(struct rvtrace_component *comp);
- 
- /**
++/**
++ * struct rvtrace_path_node - Representation of a node in the trace path
++ * @head: List head for linking nodes in the path
++ * @comp: Pointer to the trace component at this node
++ * @conn: Pointer to the connection leading to the next node (NULL for sink)
++ */
++struct rvtrace_path_node {
++	struct list_head		head;
++	struct rvtrace_component	*comp;
++	struct rvtrace_connection	*conn;
++};
++
+ struct rvtrace_component *rvtrace_path_source(struct rvtrace_path *path);
+ struct rvtrace_component *rvtrace_path_sink(struct rvtrace_path *path);
+ struct rvtrace_path *rvtrace_create_path(struct rvtrace_component *source,
+@@ -324,7 +336,7 @@ struct rvtrace_driver {
+ 	const struct rvtrace_component_id *id_table;
+ 	size_t			(*copyto_auxbuf)(struct rvtrace_component *comp,
+ 						 struct rvtrace_perf_auxbuf *buf);
+-	int			(*start)(struct rvtrace_component *comp);
++	int			(*start)(struct rvtrace_path_node *node);
+ 	int			(*stop)(struct rvtrace_component *comp);
+ 	int			(*probe)(struct rvtrace_component *comp);
+ 	void			(*remove)(struct rvtrace_component *comp);
 
 -- 
 2.34.1
