@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8A2C43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 07:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E049C43602
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 07:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vAHer6y3FeJQyqovjfxoUfsJjwxmiPRQijx8Ul1AGvk=; b=3fqtVBfjGsTXXA
-	ojrVTubtiKSY9Lk2Q0a6oyEIcQN/yEeRJ8Y4ViVy/cTRlPNppmT1jIchUj5S9vpPQNc8owtgnv831
-	n0St96Efjp6DVyCs/omuYLeBJY+m0K9eFBjTHqzF2UPkWsuk/WSPXEMPPBuNB7jct07gNdueMxmr5
-	/fDOkz5cxxYB6ZJXQCnLoqRxqwwZsTNbSeuXl6v0hk1I66L8TIhDhbXowAnU5ujZAUGqFOGO7i6NS
-	GWc6Ky0w/Shxk54LKoupIHHbZajpSWdguca8r5EWS1Q3sB7Lid3aRJCpR00KReDDXrrNrvm2oFrtv
-	ELA5aGDjNBa5ozGyaSDQ==;
+	List-Owner; bh=xEq+HT7ORNzoJfbedNPc/vKMr2BeROZa02vGjj3cbRE=; b=lNrss7uCd4psgx
+	6PAT1Aq13YFKMKSzJccQM7P8UoHsz/aADR9YvuCM1v5/7PEKI27qwGQ3o9Zcz+FTnZ8R+4xfbss0D
+	8nSOctx3+uxrr+U92h9ySxUIueATzNsHdhDYW9OM4tS+fyudONOGITC2xCSqHBJophrOVWCSwH/yF
+	LmCrZ/FVaMl+OL9MB+wxi/CBZhfD4hqqZ9szZV7A45NKqVnGVcz7ELCGEGxnSV4WbPtnb0ID2Nxps
+	bQNDgHC1ho0gH5ghDPuD7usVGNZ4tK8zUHdGMmUlypQoVuqJ6GzEvrp1lY++hjiC3Z0DGWbhdaaCZ
+	GvfyNljrxiD1cXEs483w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTDG-0000000GAUi-3XCK;
-	Tue, 30 Jun 2026 07:48:58 +0000
-Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
+	id 1weTDS-0000000GAsz-09Y9;
+	Tue, 30 Jun 2026 07:49:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTDA-0000000GAJC-1Duh
+	id 1weTDF-0000000GAPo-2W7G
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 30 Jun 2026 07:48:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=kOeOq8JJcDQksJBuje0bYH/ntMqvxfxyxa0O7Jz9Ya0=; b=c7iAvSGwMvmdRVduH17p78H3TB
+	sImBIYbvYjtN6sYZLJykovFwxr3kVuD3w8ISxROC5cJ1rND/jSPpGnEI7TQ0un2JJruAxueMKmaGv
+	u4gvKNt+ns24zwOaeYRRRGz58gVCnwNVyjo02hJKAo7HvThVhaNQewTNZPqpWUG/QGfFVwoHCJWCH
+	bASQOIBnhdK1AYqMq5sC4rKSm6fWFG3q2zOA8oD0XUtGn1t4hngShdTUyXSdjT7KuD0sL8ic7dyol
+	NxBcE/1W92USRIP5vBuL0ds9cILMNr0OP7p9ib2tlTnrTCQD2X6pScuOtbYgBmqNg/Yx+LU9YtSSJ
+	DguVyI7w==;
+Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weTCq-00000001cnu-2hQJ
 	for linux-riscv@lists.infradead.org;
 	Tue, 30 Jun 2026 07:48:54 +0000
-Received: by mail-pj2-x02.google.com with SMTP id d9443c01a7336-2c825308c4cso1969955ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 00:48:52 -0700 (PDT)
+Received: by mail-pj2-x04.google.com with SMTP id d9443c01a7336-2c99784b434so2273115ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 00:48:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782805731; x=1783410531; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782805710; x=1783410510; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kilHQAUiYtCIXGoXTLzkG+QFNETPWES64QJavnYCw8Q=;
-        b=Lxa3SNLewfjO1XWJBqKFQQAD+AD3/E18whJvgN/xGrbdPwTASdXJwiXHSP35YSqv00
-         pT5FLKLDQUEgygiJTtGJl9UvOuDnTz0Kgiux5x+E7lWwZU4tbjr3JHsOuC4wpJMVMBKX
-         zAi9dHNOKWrM7Qa72WowRkzpSlcstIWrMXSLV0u/7TJAKhs0B8c5uBOa2DxoHoTq88tR
-         +bmwdZaUew2XBwS8ZsTXlLF3wdjVjnilBKErPP2S2mmzXCGpW4aUH0thzsDRInhyvnRq
-         XbEjTnqNGhNxhf0LbvnvmLlHPKNzRsxs1s/exgazcnSqMG1ewH6Fa4bZcnOHYPACGVJd
-         vusg==
+        bh=kOeOq8JJcDQksJBuje0bYH/ntMqvxfxyxa0O7Jz9Ya0=;
+        b=CgCZTTvytgIy0DXqQznk3epUrR03i8kms9/U/IgVRmkJD33veh8y8AnAa+IE8BFXoI
+         6dcZEmRiDDC3iI2XjnN/CzcCdZ4FpdBcoT2BwD7RM35JdRtdjRmykUlp98AR3n+DcP9y
+         cNCkvedTYMDgxCDQCHvM6BRwFjH5rP+8RNnkTRcWlrMbZZ/vWE74fAGsld6oicP7R1P+
+         3OabMkAv0jYQkMCWR1h3qij6EOfGkTL3emuCxs3Fn7461yamDYPghVw2xcmYUi5io0XR
+         /oFWLHimCco2oovB6aNSb9l72KDt1ZRVSe0zEeJX4GP8UTtjfgr33JCl7ruAwQ9cPpnN
+         L90g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782805731; x=1783410531;
+        d=1e100.net; s=20251104; t=1782805710; x=1783410510;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=kilHQAUiYtCIXGoXTLzkG+QFNETPWES64QJavnYCw8Q=;
-        b=SdG12QYT1sj2hVGL0TE3C6sRwnKRflvF+oe1oO3tqwB6mF8Am4PZVqxmBWzn31YPMF
-         BOgmpZ3U/jAeIpHQ0oVQ3ydPgz/rs/y/EuhRwus/SHbkM9enpBKW4aYXJ6FKbui5C6Ch
-         JoJVfUn4Oeao7lOZqxfEWPQjE92iHY61tLY8abh7end22DLRH0pTI4O969haQ6JmGe15
-         D50eQ7MzQ1HzFJ0d+GB63hfejVVyEHR+WoAizWNjqjWisbCWdVV9wqhnneVeeEU8dZJi
-         /5c6qh1WLl709VzztCEY3i+iIwwvGq2vkLq17soUA0+cYA2/w0HEmNYlbmOIYD770rAT
-         e7KA==
-X-Forwarded-Encrypted: i=1; AHgh+Rrar2XArSktNrJ+BsPX3ZrzxTA8v0/s82U8vVgcz1C0imnlrmD+WBOaja1BgpuRa6HsoW3/1FUoSfPxBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnxxeNX7pH6m788FS8/wZwg+gMcNfEvUeVDJKud6KSqxAk+5+u
-	toyGj2Q5q5Q0Ke29GrOjbE+L//aNSp5NhonWWiX3hdRrREL/52vvyBds
-X-Gm-Gg: AfdE7clAYG0mcJxNQ0m/AGMtvRa5VgoOBQM3nvuaQYT+OBXGV8V/FhMUgxZcXZjmeM/
-	DMV0afFcoqit0ILkTtzro3BwAnzWdTxMN1ljMoZJqjgYwK6yBtq3dPnfHmOHYgm1Hsyx8Fy6eEq
-	+EiGacOg+vHFTNW5pbfpYhEHtJkCoIpu6g9VMTkU4/XZz615fnz7fcnnn1CGAmN3fQHloVliDzw
-	n4f6+9ppVUqKdwxGrzBJ7fCJLs7GFrXph4UZWfgVtnluaCDe3FjKifQCHLxSbCSQgA2vDjYaJwY
-	KU+0OKq4lbXybYaiNgSEWqTBKYBPWEP6rQ+CSMfAfdUHGGv+qy+ZBg9NA5W93c6K11P46mJoN/d
-	oANgrUtkypUWAHtYiJY88tnlS/NIAhl9+KS2n8RsS/WdrHJ6uFAdy+FRHyqt+hP0ycvEW9Y+7M3
-	0Tdf8ExGZM7JSSV570Qe6ZhaZzBQ==
-X-Received: by 2002:a17:902:dad1:b0:2c9:d55d:2d3 with SMTP id d9443c01a7336-2ca2d55dedbmr19212325ad.15.1782805731371;
-        Tue, 30 Jun 2026 00:48:51 -0700 (PDT)
+        bh=kOeOq8JJcDQksJBuje0bYH/ntMqvxfxyxa0O7Jz9Ya0=;
+        b=jtqpI3IgRpqdjzWsTQII+i1OeSe2oGj7vDklvDy3B2dXm2O2GERHQSe5PF62BcEK4i
+         NWzQU1CRQDdxVASmrA6h1tuXboEgKVAMbNXvd8ZfkgsItIzE2+kJszQRMMI+M7alssGg
+         RmSe1TsEHbkhbtYcA/Vh3P3D0qgpPdZeoNcu0a5pzG5AiNq9lYz+xi4af6JM5jTqLOOq
+         XWKYodys9TkmJEKxLrtUn5V+JpKhPQjqOoeegfqVdMG2Ug2g4ZZgjxl3IzJyx9Bcx26r
+         meAm1I0xqOEqi8UtVruIpay8ofDVhpa+2Lpxv8Gq0l8lbDMvD5pOmb1zWk5ojzw3v8iV
+         yeEA==
+X-Forwarded-Encrypted: i=1; AHgh+RoaiAOmN9XjdbBbHMZObLJwNnSp+o4WQzbDYi8IlNw+9vioR7+zrWkgcf6nfZ8cutiE4s8MVXfxFc1BEg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw83e2H2g0lG9z6bvQPshfxjoqKun9NY6PMg/6CPj5SB/fn/v5D
+	3wRLpmdqP8y/dqNQnDjktr/5J2Q25kfzzuGikn5zaTU+QrGkhiMohL73
+X-Gm-Gg: AfdE7cl97TNfjU4M0TJwp8+PAp728aEinWohuCib7jiZRmd7fQdyEShBI+K2GYXBgYH
+	d1guDWXe9lWzKJVqkJ59N/KYq/HzHn93F8wxEIlwClawTzafd/ECGa/Vb4Sm+RSuY9bGRopObHB
+	tfLQV8ef0+lnZSyWpxsIrbKaq7zOML2m1lRXiYnwU4qFEn3BB/ugKeYC+gvejpB8ENeJl/TXsnr
+	xhzjYLRknN4TBfvUv61R7PAhqULwXVw7yuXly+Q14XyA3oCF10OeuhZmzuRBjliy2eHRDRymcMW
+	7iA8W1UeMMM9zfBP16K/s6xx90UUR4CfnygG/xbkgtZ58fWSTCsjira5R8dVg/+AGav10L2CWKn
+	irfA1PW7Yi3rclwxQ+Km3p2l39poVJMoO7DZuM3n14zfKsO2eddNrDqruXUt0pPbpEegzI4+UUJ
+	gKLvrP8MWZ24B3pDg08Jndi9sMJg==
+X-Received: by 2002:a17:903:1a26:b0:2c8:e13a:f23a with SMTP id d9443c01a7336-2ca2e714d17mr18921635ad.28.1782805710141;
+        Tue, 30 Jun 2026 00:48:30 -0700 (PDT)
 Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca382a2d3dsm7821045ad.55.2026.06.30.00.48.40
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca382a2d3dsm7821045ad.55.2026.06.30.00.48.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 00:48:50 -0700 (PDT)
+        Tue, 30 Jun 2026 00:48:29 -0700 (PDT)
 From: Wandun Chen <chenwandun1@gmail.com>
 To: chenhuacai@kernel.org,
 	kernel@xen0n.name,
@@ -96,16 +111,16 @@ Cc: catalin.marinas@arm.com,
 	ruirui.yang@linux.dev,
 	m.szyprowski@samsung.com,
 	robin.murphy@arm.com
-Subject: [PATCH v4 08/10] arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
-Date: Tue, 30 Jun 2026 15:47:12 +0800
-Message-ID: <20260630074715.4126796-9-chenwandun1@gmail.com>
+Subject: [PATCH v4 06/10] of: reserved_mem: save /memreserve/ entries into the reserved_mem array
+Date: Tue, 30 Jun 2026 15:47:10 +0800
+Message-ID: <20260630074715.4126796-7-chenwandun1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260630074715.4126796-1-chenwandun1@gmail.com>
 References: <20260630074715.4126796-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_004852_382797_3CAADDE2 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260630_084849_457861_FAED5E53 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,53 +139,137 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-Reserved memory regions are excluded from vmcore by default unless
-marked dumpable. Honor the dumpable flag to filter out device firmware
-regions (e.g., GPU, DSP, modem) reserved via device tree, since they
-typically contain data not useful for kernel crash analysis and can
-significantly increase vmcore size.
+/memreserve/ is used by firmware or bootloaders, such regions hold no
+useful data for crash analysis, they should be excluded from the
+kdump vmcore, so save /memreserve/ entries into the reserved_mem array
+for later exclusion.
 
-Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
-pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
+If a /memreserve/ entry overlaps any dumpable reserved region, mark
+the whole memreserve entry dumpable as well. This may keep slightly
+more memory in vmcore than strictly necessary, but avoids splitting
+entries and never drops data that may be useful for crash analysis.
 
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-Acked-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/machine_kexec_file.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/of/fdt.c             |  4 +++
+ drivers/of/of_private.h      |  2 ++
+ drivers/of/of_reserved_mem.c | 52 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 58 insertions(+)
 
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index e31fabed378a..1d65320c6ba4 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -17,6 +17,7 @@
- #include <linux/memblock.h>
- #include <linux/of.h>
- #include <linux/of_fdt.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/slab.h>
- #include <linux/string.h>
- #include <linux/types.h>
-@@ -51,6 +52,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 	nr_ranges = 2; /* for exclusion of crashkernel region */
- 	for_each_mem_range(i, &start, &end)
- 		nr_ranges++;
-+	nr_ranges += of_reserved_mem_kdump_nr_ranges();
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index b97775f6c9d4..3e478d29e247 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -497,6 +497,7 @@ void __init early_init_fdt_scan_reserved_mem(void)
+ 	int n;
+ 	int res;
+ 	u64 base, size;
++	int nr_memreserve = 0;
  
- 	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
- 	if (!cmem)
-@@ -75,6 +77,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 			goto out;
+ 	if (!initial_boot_params)
+ 		return;
+@@ -514,7 +515,9 @@ void __init early_init_fdt_scan_reserved_mem(void)
+ 		if (!size)
+ 			break;
+ 		memblock_reserve(base, size);
++		nr_memreserve++;
+ 	}
++	fdt_reserved_mem_account_memreserve(nr_memreserve);
+ }
+ 
+ /**
+@@ -1286,6 +1289,7 @@ void __init unflatten_device_tree(void)
+ 	if (!alloc_reserved_mem_array()) {
+ 		/* Save the statically-placed regions in the reserved_mem array */
+ 		fdt_scan_reserved_mem_late();
++		fdt_reserved_mem_save_memreserve_entries();
  	}
  
-+	ret = of_reserved_mem_kdump_exclude(cmem);
-+	if (ret)
-+		goto out;
-+
- 	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
+ 	/* Populate an empty root node when bootloader doesn't provide one */
+diff --git a/drivers/of/of_private.h b/drivers/of/of_private.h
+index 81c8ec9378b9..a67929c0a6ec 100644
+--- a/drivers/of/of_private.h
++++ b/drivers/of/of_private.h
+@@ -188,6 +188,8 @@ static inline struct device_node *__of_get_dma_parent(const struct device_node *
+ int fdt_scan_reserved_mem(void);
+ void __init fdt_scan_reserved_mem_late(void);
+ int __init alloc_reserved_mem_array(void);
++void __init fdt_reserved_mem_account_memreserve(int n);
++void __init fdt_reserved_mem_save_memreserve_entries(void);
  
- out:
+ bool of_fdt_device_is_available(const void *blob, unsigned long node);
+ 
+diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
+index f6c02b37deb7..9db0502989c3 100644
+--- a/drivers/of/of_reserved_mem.c
++++ b/drivers/of/of_reserved_mem.c
+@@ -251,6 +251,43 @@ static void __init __rmem_check_for_overlap(void)
+ 	}
+ }
+ 
++static void __init fdt_reserved_mem_add_memreserve(phys_addr_t base,
++						   phys_addr_t size)
++{
++	struct reserved_mem *rmem;
++	bool dumpable = false;
++	int i;
++
++	if (reserved_mem_count == total_reserved_mem_cnt) {
++		pr_err("not enough space for memreserve regions.\n");
++		return;
++	}
++
++	for (i = 0; i < reserved_mem_count; i++) {
++		rmem = &reserved_mem[i];
++
++		if (!rmem->dumpable)
++			continue;
++
++		if (base < rmem->base + rmem->size && rmem->base < base + size) {
++			dumpable = true;
++			break;
++		}
++	}
++
++	rmem = &reserved_mem[reserved_mem_count];
++	rmem->base = base;
++	rmem->size = size;
++	rmem->dumpable = dumpable;
++
++	reserved_mem_count++;
++}
++
++void __init fdt_reserved_mem_account_memreserve(int n)
++{
++	total_reserved_mem_cnt += n;
++}
++
+ /**
+  * fdt_scan_reserved_mem_late() - Scan FDT and initialize remaining reserved
+  * memory regions.
+@@ -305,6 +342,21 @@ void __init fdt_scan_reserved_mem_late(void)
+ 	__rmem_check_for_overlap();
+ }
+ 
++void __init fdt_reserved_mem_save_memreserve_entries(void)
++{
++	const void *fdt = initial_boot_params;
++	u64 base, size;
++	int n;
++
++	for (n = 0; ; n++) {
++		if (fdt_get_mem_rsv(fdt, n, &base, &size))
++			break;
++		if (!size)
++			break;
++		fdt_reserved_mem_add_memreserve(base, size);
++	}
++}
++
+ static int __init __reserved_mem_alloc_size(unsigned long node, const char *uname);
+ 
+ /*
 -- 
 2.43.0
 
