@@ -4,99 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4597BC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 04:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082FFC43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 04:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xz66i0YORCd/4D/p6/2Z4UN4CzCRMG+pGMRLJKU0BDM=; b=warVnzy1EZ0bw7
-	CFlxZ5uHEPud4/hsunEnVsICF7bO+b33377UWruqL5gStpIR8g4yeHoKOAsll5YyNoDlXx/QjfRYv
-	D0FToQgYb4xJvSjaUx/+39zZy/HyRij+KON2AuYmFw/1PLXG/wPJqlLx6f1b1U61+0tydaZj5APk2
-	9O9N/zycwaWCS5t37kPqN7HV6fjhW+zA+m7adt53g5+5UnfmT/dxaMA7IYw9zca1MrTHClQopGsSn
-	sBzIiAap1gnTJ1QFHkDog71QTnjqxFaSs0BzWIkVziz9x60HtO0h2SYYA39x1h3hGeonz6K8L6hh+
-	zmQ3iMXp2Nd8DSupH4jQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5B0SJe+9YBcK1pZaA7zfNz8y6qztQkSeYQRSYsONptw=; b=Gc4fjp1oQli14W
+	LortHLue5nZNKlOlUVLm1kvde90g5j4f2KyKpzvQy1kzevc5y9me57u85YiOZOPNz/c6JP9yTLcT4
+	zE3UVYusr+iUJNhQ4moNeGHHLcZFVzP7nsL77WoSxYyqE99w7gu27XsyRLqcdDD9PMyiOVbcGyzk6
+	fF6UArqgoWFYf+ALijMmP909hv+kIj0OH0/2lFxEB48OZp8oFW/zHyrT4HKbGRU9uye3UPZWvOhrY
+	S2OM7Lt6sSe0TXXjp+b7McQ50kzrQRpZILwjRPlU5YmkMaODKrpNGGc6kp/QX3nbjc53T5Gl1SqGv
+	s5qU1ujLHOM01q7++mcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wePno-0000000FlbW-3dXY;
-	Tue, 30 Jun 2026 04:10:28 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1weQJQ-0000000FmVW-0PR1;
+	Tue, 30 Jun 2026 04:43:08 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wePnf-0000000Flar-25Mh
+	id 1weQJM-0000000FmV3-3dLd
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 04:10:27 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-493bab44440so476655e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2026 21:10:18 -0700 (PDT)
+	Tue, 30 Jun 2026 04:43:06 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7e9dd333d37so459061a34.0
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2026 21:43:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782794580; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Umnrxuc5YqQ8vdF48aqKYaUYkzGAqC5YvvdoFucV1CQY/9Kg4eBgzz6Tare3ZDcKKZ
+         /X+ibAmeAwQmzNwtOgI4DKHcWbk/z6AwkAqphRQBX36FCV9JJOIy7FhHL+rwP+1w46+o
+         soNlsaE1iCgRgfA3dTQ36lvmdUX/4AT8lAI+qiZL9adLRxG0C6RbAIpKvhoORmQY7taa
+         1jaNv59M9aP9uj8B2bnxnPfLi7ivsYF+J7YlDCs7Pa3JEjdB3YDjSCwqVpZU/p1l5fLV
+         vWcBoVRNkEdA6955COvjAv3iZT+sJYzso4VWYaCDWG3VYp9Ux7+Yxjo6CrMjGFxgri30
+         N82g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=TkcngDtZZBcSBYuktpVSvj/Zq3c5gyjbDMX0CALcXeM=;
+        fh=GIdbkGKxM+CmL6NrUWz2WZFHk0bQoNr9sGveA9BhYR4=;
+        b=X1/bXfXyYJfONdRveTTHmQzvL8jLXsBf/Trau6Ept/h6XZWkwTMQ18ztHAB/7tOkqz
+         c/FtHbWMLqEgS6BQ7ZwKp4FdkxUATPYJ/qwzmoB6bC1bBM9QBX97TZTnxZ5Ap2jk5gI8
+         QmrnwSj9BXHB+XKF3whKmaPIXuG0zQ2d44ITDzQr4E0pr5aCxgCTKL7ReijAwWtCmkdv
+         MpgcaD23MIMHVXXHRM1Uvi1wyDo/vI2aNVoP6KGXK2OzNUSPSSp5zWESHKMTnRD535af
+         jM5OWa416H+A0Zvm1vtROHZ5k4DyVM1dVzFBGzShomGAt71TBRSdX/3p9Xz/IMuaGQRz
+         A45w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782792617; x=1783397417; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WfOCgBUYMvXbl1f8j58WJcsxpt1QKz3Glw/S1uy49Es=;
-        b=SZFnO+hErpdPJoAF2VbCmuHUgp5o3TGi5kBYmErQEgdaUpG/uEpAxzkfJYkZn2J0JG
-         pvmzsAaqsn1Wwkb6RsbjtVLCtX92Y2K1PPDuGVbvfiZc6MDZv4bctjgHJQdZ/JIR3EhZ
-         SYyAiI5efPWgT6MCpWNc9QsxzYzHfKj1U4ohT2EePGU85zgjjA8Ws48WHeNq8H8mwUMS
-         sQQuiYD942LQCcKA0Zw0PsFfafAkYSzN8u+OdG5CN+kwMOUqcwPMPqsG8cCbF4FKIuxp
-         /86Jm8v+a/BwH1xcFKUfOBaNOCawjADJbYmxXVFEzU5Lc7ic3yf2d8g5l04dPqd9rC1D
-         UccQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782792617; x=1783397417;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1782794580; x=1783399380; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WfOCgBUYMvXbl1f8j58WJcsxpt1QKz3Glw/S1uy49Es=;
-        b=M/RRFXVelTLHVHbf1CHeYdILbP6eZGT1xeal5qZDUoD4sk762RWWnE9bjGHJLlc1/v
-         dzTVYyDpPKlM/zip3aEvWdsmfQk3Z218c+lVIi/OnWq0IO+JsbD3YAbtMROEEEW50tQz
-         HeZozSgMx5ammi3NhCg2z3JgW1YWkHmP6nE8EysBC+9h+zWDnOpu+LkQZl7h6t2Dj7W6
-         JX58GR92jNebwVdj+3gsXB5t/dK1nKghI5iuAEAlZR0XsVCjdCk+e84hp1EisyCUWoxY
-         +RX1hAPoFIrmiD1vXfLiYZ4SsbZmS+vdb10LP7tU6jpabISLleyeXt29Y1gZniAK1ghi
-         1eeQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9fWO7O7Yci5C0fFE+bKAcRkvswXwG6xSgaL9ndc+DlpsrN6HTx+s6HOv6dGxU71ExfL/dR1J7toMiVEA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwP/LQ7MK52QuNrFKOc5dpmfJOb+RcEH3l8olHOL9AKz8AW72IQ
-	/WW9sOXgCjundt5AEFAuk+0bQ/m53fMn6CSgPN/W2ys2sxBiJUF8wGuR
-X-Gm-Gg: AfdE7ckU4zoyocZqhgQ47iqusfwDFYVlJUDIZoPKM9SBMNZBPkgXFNjsUEGWha559RU
-	RdojMcmD/faPofi5GKnQvN0L7iR9ARvu71X4OoL3xs8BBis83O8xGo3n4dSzT2Ior24OZo339gF
-	xkUN0YPp5kDhkqowh79pylzrbI1OK2s52h0MsQE4dZ/cuEQJurbw9JQ5718BDOcWcpUDTbvw8OD
-	g69iR7E7Zu0zDvQh9PTuvBioR6UZQ6mbR+tH+16PYrQnKHvlHGp34ts6SWbAz+5ejOvh9M9Xtmh
-	imqHO7gqVHJifJfEVaPy/VgRjs/TCg2rQVUOCL9miLkEpitPynvdxyzdCXtTii5/F5hoaT+7Yi9
-	mFi5sQvf7wKFQLUQj7cKo/FTPNZdG18riCHdiUA24z6McAe0OHoWOFrULhiaT9KRgfiVRLYtSUB
-	LlnZQoed0pezWGJcOVQa3k6vlv4NIbGu1wbDq6lPPw0Y2atu0WWysA7NTVkd3GiphnBTnHvn2rO
-	vpyzve5+j8=
-X-Received: by 2002:a05:600c:83c7:b0:492:4871:7e21 with SMTP id 5b1f17b1804b1-493bc24ab30mr1469935e9.10.1782792616730;
-        Mon, 29 Jun 2026 21:10:16 -0700 (PDT)
-Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493bc19f4b0sm5675465e9.1.2026.06.29.21.10.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 21:10:16 -0700 (PDT)
-From: David Carlier <devnexen@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	David Carlier <devnexen@gmail.com>
-Subject: [PATCH] mm: pgtable: free kernel page tables via RCU to fix ptdump UAF
-Date: Tue, 30 Jun 2026 05:10:12 +0100
-Message-ID: <20260630041012.5975-1-devnexen@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        bh=TkcngDtZZBcSBYuktpVSvj/Zq3c5gyjbDMX0CALcXeM=;
+        b=V0/ppZXmoPONi2CJ1zteipC9OwUHHfL8i1z4zGfEG1BqDzz1u3GTyvv8dnw3jaYVCO
+         8V0B6vzeZKf/6DI9XJDapt3VrbE2MpW5BU/yWdX6cjXdqS/BpdF1zX/fEdxrje9xLkmC
+         uXdRVfygwTN7HJCu5lm8ZJywsXOAgZQqIqddmg/6Q1kq5188Xd5Vk+YzM9sjIYOfW+hk
+         J7jgoLOLZb1Qymk6Gu6FnWdBpSs7TFP5H8K7/y7Ijm9gLYNNPPInDituD96z0lQbgCyI
+         CYOeC8oefNWTWQtjf06iOdVzE3jhC9xuMNyb+1uWeuEZJtdBN5L4eBz1oVeWKELucNYP
+         VbqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782794580; x=1783399380;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=TkcngDtZZBcSBYuktpVSvj/Zq3c5gyjbDMX0CALcXeM=;
+        b=BAb7Z0njMU0Ur/WI3KFa7Tw6Mo97Psg8hUO3Fi8lbL4e1cYCKSM6dQkkyJOOeniwXo
+         vHRi00v/xfaa7B2ni4ClR2QcBmTEadKnz7Ld02zxHkXyunKJCf6yb7YicuI/ZeNxdLtx
+         AViTA9qKajIxNnizfkKFSL6219Ncy3NbqRSI2RcyH9c0o9J8BVji9zl/5jxHhJYIaNqj
+         fEzVLBGM/2g84KSGuayuLqW/YVEqopbyocpKKqwUwifk0d2Yyf+iC86Sg+dEhhukUA2F
+         fBGDc4tTfJBVu/6VRIRIPBCmujmDtGo8PE1Od88WwDDtdoR+OxO96KVj3v6U0LfAMDi0
+         P3vw==
+X-Forwarded-Encrypted: i=1; AFNElJ+KAjX6x73eyaDisCLGhjqzVGCEEczx6VqPIqUfx/NUH17qpArqrUpBc2vdZyLDtCxXSuy2LN8OpgF1bA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKQZvZNC1DI00WKkDbioSZczZzbKa+DJaC4RdjDeCEWABifzrT
+	kdmrzaFvv6mOC5AqLebRAfKm4UlQMJbR7SBpc/ANxVw5viyCa7K5fWbgjrsrcYX7p9YUKRa22sb
+	k5BjD11MVgooCkPQW4rWc0mEGGSa4OONjCLlxKQD0Jw==
+X-Gm-Gg: AfdE7clFLbjSDmLzCYbUjxgOo8052EnlS2kodGHw8VenowRxdavkHmUR8I/z8Hmu7gn
+	WDzFDilRZ4jFDlvVtwgFXmtrpfgFvbCNadNhiodBoh0z7RAy2+rKoFQJT2tMi0GWiXcNNkYv1Bs
+	eyBam3TbEL7cdDiqH7xzUV8fh0d/kSwnJGJl6v3x4RJTP4uJf08jB+m9Cv+d+b/Hz/gzYfPA778
+	uuXx5HGa0L3BTrAQPRjkSPVZGMIAALnqGhycHUHE+6ZA693aCXviPmoahFs0h2x1YaSSIbBcjo=
+X-Received: by 2002:a05:6808:c2f8:b0:492:5bf0:d29e with SMTP id
+ 5614622812f47-495eafc41a8mr2097270b6e.34.1782794580112; Mon, 29 Jun 2026
+ 21:43:00 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260523042052.35476-1-cuiyunhui@bytedance.com> <20260629210432.ef76ce885cd9ccd28b7a2127@linux-foundation.org>
+In-Reply-To: <20260629210432.ef76ce885cd9ccd28b7a2127@linux-foundation.org>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Tue, 30 Jun 2026 12:42:48 +0800
+X-Gm-Features: AVVi8Cf2cA6T1Xo7mNpI3K1o6jk4PWx27zkWEacArefsJbxedBCHcATc89AHDzk
+Message-ID: <CAEEQ3w=XVq_y1kG8YTHkwavB59R3kJXonX1G+QmB+TTin-BFOA@mail.gmail.com>
+Subject: Re: [External] Re: [RESEND PATCH] riscv: mm: exclude invalid THP PMDs
+ from page table check
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	tongtiangen@huawei.com, pasha.tatashin@soleen.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_211019_586903_6D8B3185 
-X-CRM114-Status: GOOD (  24.90  )
+X-CRM114-CacheID: sfid-20260629_214305_234654_42652C71 
+X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,202 +113,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ptdump_walk_pgd() walks the kernel page tables under get_online_mems() and
-mmap_write_lock(&init_mm). Neither lock stops vmalloc from freeing a kernel
-PTE page underneath the walk.
-
-When vmap_try_huge_pmd() promotes a range to a huge PMD it collapses the
-existing PTE table and frees it via pmd_free_pte_page(). On x86, riscv and
-powerpc this runs without the init_mm mmap lock; only arm64 takes it, and not
-on the block-split path. So ptdump can dereference a just-freed PTE page,
-which is the use after free syzbot hit in ptdump_pte_entry().
-
-The race is not new. ptdump walks the whole kernel address space, including
-ranges other code is actively mapping, so it reads page tables it does not
-own. 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page tables")
-only widened the window; the Fixes tag points there for that reason.
-
-Every other walker works on a range it owns and is the only one mutating it:
-set_memory() on arm64/riscv/loongarch, the arm64 block-split path, the
-openrisc DMA path and the hugetlb_vmemmap remap. Nothing frees those ranges
-concurrently, so they cannot race and do not need RCU. ptdump is the only
-walker that traverses ranges it does not own.
-
-Defer the free by an RCU grace period. pagetable_free_kernel() now frees via
-call_rcu() in both the async and non-async configs. The async path still
-flushes the TLB first, then queues the per-page RCU free. The page stays
-valid until any walk that may have observed it drops its RCU read lock.
-
-On the read side ptdump_walk_pgd() takes the RCU read lock around the walk,
-and walk_page_range_debug() asserts it with RCU_LOCKDEP_WARN() for the
-init_mm case rather than taking it, matching pagewalk.c convention. A walker
-either sees the cleared PMD and skips, or keeps the page alive until it drops
-the lock. The owned-range walkers are unchanged.
-
-ptdump callbacks now run under RCU, so they must not sleep. The arch
-note_page() and effective_prot() callbacks only format into the preallocated
-seq_file buffer, and the walker does not call cond_resched(); the only
-GFP_KERNEL marker setup runs before the walk.
-
-Fixes: 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page tables")
-Reported-by: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-Closes: https://lore.kernel.org/all/6a287988.39669fcc.33b062.00a0.GAE@google.com/T/
-Assisted-by: Claude:claude-opus-4-8
-Signed-off-by: David Carlier <devnexen@gmail.com>
----
-v5: reframe changelog around the pre-existing race and range ownership;
-    correct the mmap-lock description (arm64 is the exception, not x86);
-    move rcu_read_lock() into ptdump_walk_pgd() and assert it in
-    walk_page_range_debug(); drop walk_kernel_page_table_range_rcu(); fix the
-    pgtable-generic.c comment; document the no-sleep audit of the callbacks.
-v4: defer the free in both the async and non async configs, not just
-    the async one. Move the walk under a named
-    walk_kernel_page_table_range_rcu() helper instead of open coding
-    rcu_read_lock() in walk_page_range_debug().
-v3: take rcu_read_lock() in the init_mm branch of
-    walk_page_range_debug() rather than inside the lockless walker,
-    which the arm64 split paths also use with GFP_PGTABLE_KERNEL and
-    can sleep.
-v2: use call_rcu() instead of synchronize_rcu().
----
- include/linux/mm.h   |  7 -------
- mm/pagewalk.c        | 14 +++++++++-----
- mm/pgtable-generic.c | 22 +++++++++++++++++++++-
- mm/ptdump.c          |  2 ++
- 4 files changed, 32 insertions(+), 13 deletions(-)
-
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 485df9c2dbdd..79408a17a1b0 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3695,14 +3695,7 @@ static inline void __pagetable_free(struct ptdesc *pt)
- 	__free_pages(page, compound_order(page));
- }
- 
--#ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
- void pagetable_free_kernel(struct ptdesc *pt);
--#else
--static inline void pagetable_free_kernel(struct ptdesc *pt)
--{
--	__pagetable_free(pt);
--}
--#endif
- /**
-  * pagetable_free - Free pagetables
-  * @pt:	The page table descriptor
-diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-index 3ae2586ff45b..c0be87580989 100644
---- a/mm/pagewalk.c
-+++ b/mm/pagewalk.c
-@@ -620,7 +620,7 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
-  * Note: Be careful to walk the kernel pages tables, the caller may be need to
-  * take other effective approaches (mmap lock may be insufficient) to prevent
-  * the intermediate kernel page tables belonging to the specified address range
-- * from being freed (e.g. memory hot-remove).
-+ * from being freed (e.g. memory hot-remove, vmap huge page promotion).
-  */
- int walk_kernel_page_table_range(unsigned long start, unsigned long end,
- 		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
-@@ -643,7 +643,7 @@ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
-  * Use this function to walk the kernel page tables locklessly. It should be
-  * guaranteed that the caller has exclusive access over the range they are
-  * operating on - that there should be no concurrent access, for example,
-- * changing permissions for vmalloc objects.
-+ * changing permissions for vmalloc objects, or vmap huge page promotion.
-  */
- int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end,
- 		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
-@@ -692,9 +692,13 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
- 	};
- 
- 	/* For convenience, we allow traversal of kernel mappings. */
--	if (mm == &init_mm)
--		return walk_kernel_page_table_range(start, end, ops,
--						    pgd, private);
-+	if (mm == &init_mm) {
-+		RCU_LOCKDEP_WARN(!rcu_read_lock_held(),
-+				 "RCU read lock must be held across kernel page table walk");
-+		return walk_kernel_page_table_range(start, end, ops, pgd,
-+							private);
-+	}
-+
- 	if (start >= end || !walk.mm)
- 		return -EINVAL;
- 	if (!check_ops_safe(ops))
-diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-index b91b1a98029c..7a32e4821957 100644
---- a/mm/pgtable-generic.c
-+++ b/mm/pgtable-generic.c
-@@ -410,6 +410,13 @@ pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
- 	goto again;
- }
- 
-+static void kernel_pgtable_free_rcu(struct rcu_head *head)
-+{
-+	struct ptdesc *pt = container_of(head, struct ptdesc, pt_rcu_head);
-+
-+	__pagetable_free(pt);
-+}
-+
- #ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
- static void kernel_pgtable_work_func(struct work_struct *work);
- 
-@@ -434,8 +441,15 @@ static void kernel_pgtable_work_func(struct work_struct *work)
- 	spin_unlock(&kernel_pgtable_work.lock);
- 
- 	iommu_sva_invalidate_kva_range(PAGE_OFFSET, TLB_FLUSH_ALL);
-+
-+	/*
-+	 * Debug walkers (ptdump) may walk ranges they do not own and race this
-+	 * free, so they walk under rcu_read_lock(). Free after a grace period:
-+	 * a walker either already saw the cleared PMD, or keeps the page alive
-+	 * until it drops the RCU lock.
-+	 */
- 	list_for_each_entry_safe(pt, next, &page_list, pt_list)
--		__pagetable_free(pt);
-+		call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
- }
- 
- void pagetable_free_kernel(struct ptdesc *pt)
-@@ -446,4 +460,10 @@ void pagetable_free_kernel(struct ptdesc *pt)
- 
- 	schedule_work(&kernel_pgtable_work.work);
- }
-+#else
-+void pagetable_free_kernel(struct ptdesc *pt)
-+{
-+	/* Defer the free by a grace period; see kernel_pgtable_work_func(). */
-+	call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
-+}
- #endif
-diff --git a/mm/ptdump.c b/mm/ptdump.c
-index 973020000096..50cd96a33dfd 100644
---- a/mm/ptdump.c
-+++ b/mm/ptdump.c
-@@ -178,11 +178,13 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
- 
- 	get_online_mems();
- 	mmap_write_lock(mm);
-+	rcu_read_lock();
- 	while (range->start != range->end) {
- 		walk_page_range_debug(mm, range->start, range->end,
- 				      &ptdump_ops, pgd, st);
- 		range++;
- 	}
-+	rcu_read_unlock();
- 	mmap_write_unlock(mm);
- 	put_online_mems();
- 
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW5kcmV3LAoKT24gVHVlLCBKdW4gMzAsIDIwMjYgYXQgMTI6MDTigK9QTSBBbmRyZXcgTW9y
+dG9uCjxha3BtQGxpbnV4LWZvdW5kYXRpb24ub3JnPiB3cm90ZToKPgo+IE9uIFNhdCwgMjMgTWF5
+IDIwMjYgMTI6MjA6NTIgKzA4MDAgWXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+
+IHdyb3RlOgo+Cj4gPiBSSVNDLVYgVEhQIHNwbGl0dGluZyB1c2VzIGEgdGVtcG9yYXJ5IGludmFs
+aWQgUE1EIHN0YXRlIHdoZXJlCj4gPiBwbWRfbWtpbnZhbGlkKCkgY2xlYXJzIF9QQUdFX1BSRVNF
+TlQgYW5kIF9QQUdFX1BST1RfTk9ORSBidXQgbGVhdmVzCj4gPiBfUEFHRV9MRUFGIHNldCBzbyB0
+aGUgTU0gY29kZSBjYW4gc3RpbGwgcmVjb2duaXplIHRoZSBQTUQgYXMgYSBUSFAgc3BsaXQKPiA+
+IGluLXByb2dyZXNzIGVudHJ5Lgo+ID4KPiA+IFRoYXQgdGVtcG9yYXJ5IHN0YXRlIG5vIGxvbmdl
+ciBkZXNjcmliZXMgYSB1c2VyLWFjY2Vzc2libGUgbWFwcGluZywgYnV0Cj4gPiBwYWdlX3RhYmxl
+X2NoZWNrIGN1cnJlbnRseSB0cmVhdHMgaXQgYXMgb25lIGJlY2F1c2UgdGhlIFJJU0MtViBQTUQK
+PiA+IHVzZXItYWNjZXNzaWJpbGl0eSB0ZXN0IG9ubHkgY2hlY2tzIHdoZXRoZXIgdGhlIFBNRCBp
+cyBhIGxlYWYgYW5kIGhhcwo+ID4gdXNlciBwZXJtaXNzaW9ucy4KPiA+Cj4gPiBBcyBhIHJlc3Vs
+dCwgd2hlbiBhIFBNRC1zaXplZCBhbm9ueW1vdXMgVEhQIGlzIHNwbGl0IGR1cmluZyBhIENPVyBm
+YXVsdCwKPiA+IHBhZ2VfdGFibGVfY2hlY2sgY2FuIGFjY291bnQgdGhlIGludmFsaWQgaW50ZXJt
+ZWRpYXRlIFBNRCBhcyBhIGxpdmUgUE1ECj4gPiBtYXBwaW5nLCBhbmQgdGhlbiBhY2NvdW50IHRo
+ZSByZXBsYWNlbWVudCBQVEUgbWFwcGluZ3MgYWdhaW4gd2hlbiB0aGUKPiA+IHNwbGl0IGluc3Rh
+bGxzIHRoZSBQVEUgdGFibGUuIFRoaXMgbGVhdmVzIHN0YWxlIFBNRCBhY2NvdW50aW5nIGJlaGlu
+ZCBhbmQKPiA+IGxhdGVyIHRyaWdnZXJzIHBhZ2VfdGFibGVfY2hlY2sgZmFpbHVyZXMgc3VjaCBh
+cyBhIG5vbi16ZXJvCj4gPiBhbm9uX21hcF9jb3VudCB3aGVuIHRoZSBmb2xpbyBpcyBmcmVlZC4K
+PiA+Cj4gPiBGaXggdGhpcyBieSB0aWdodGVuaW5nIHBtZF91c2VyX2FjY2Vzc2libGVfcGFnZSgp
+IHNvIFBNRCBwYWdlLXRhYmxlLWNoZWNrCj4gPiBhY2NvdW50aW5nIG9ubHkgY29uc2lkZXJzIGxl
+YWYgUE1EcyB0aGF0IHN0aWxsIGNhcnJ5IGVpdGhlcgo+ID4gX1BBR0VfUFJFU0VOVCBvciBfUEFH
+RV9QUk9UX05PTkUuIFRoaXMgcHJlc2VydmVzIHRoZSBUSFAgc3BsaXQgc2VtYW50aWNzCj4gPiBy
+ZXF1aXJlZCBieSB0aGUgTU0gY29kZSB3aGlsZSBwcmV2ZW50aW5nIHBhZ2VfdGFibGVfY2hlY2sg
+ZnJvbSB0cmVhdGluZwo+ID4gaW52YWxpZCBzcGxpdCBQTURzIGFzIGxpdmUgdXNlciBtYXBwaW5n
+cy4KPiA+Cj4gPiBXaXRoIENPTkZJR19QQUdFX1RBQkxFX0NIRUNLPXkgYW5kIENPTkZJR19QQUdF
+X1RBQkxFX0NIRUNLX0VORk9SQ0VEPXksCj4gPiB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9tbS9j
+b3cgY29tcGxldGVzIHN1Y2Nlc3NmdWxseSBvbiBSSVNDLVYgYWZ0ZXIKPiA+IHRoaXMgY2hhbmdl
+Lgo+Cj4gVGhhbmtzLiAgVGhpcyBzZWVtcyB0byBoYXZlIHNsaXBwZWQgdGhyb3VnaCBjcmFja3Mu
+Cj4KPiBBSSByZXZpZXcgYXBwZWFycyB0byBoYXZlIGZvdW5kIGEgY291cGxlIG9mIHJlbGF0ZWQg
+YW5kIHNlcmlvdXMgaXNzdWVzCj4gaW4gdGhpcyBjb2RlLgo+Cj4gICAgICAgICBodHRwczovL3Nh
+c2hpa28uZGV2LyMvcGF0Y2hzZXQvMjAyNjA1MjMwNDIwNTIuMzU0NzYtMS1jdWl5dW5odWlAYnl0
+ZWRhbmNlLmNvbQo+Cj4gcGVyaGFwcyB5b3UgaGF2ZSB0aW1lIHRvIHRha2UgYSBsb29rPwoKVGhh
+bmtzIEFuZHJldywgSSBsb29rZWQgaW50byB0aGUgU2FzaGlrbyBmaW5kaW5ncy4KCkJvdGggZmlu
+ZGluZ3MgYXJlIHByZS1leGlzdGluZyBhbmQgZG8gbm90IGFwcGVhciB0byBiZSByZWdyZXNzaW9u
+cwppbnRyb2R1Y2VkIGJ5IHRoaXMgcGF0Y2guIFRoaXMgcGF0Y2ggb25seSBjaGFuZ2VzCnBtZF91
+c2VyX2FjY2Vzc2libGVfcGFnZSgpIGZvciBwYWdlX3RhYmxlX2NoZWNrIGFjY291bnRpbmcuCgpU
+aGUgcG1kX3ByZXNlbnQoKSAvIF9QQUdFX0xFQUYgLyBzd2FwIHNvZnQtZGlydHkgaW50ZXJhY3Rp
+b24gbG9va3Mgd29ydGgKY2hlY2tpbmcgc2VwYXJhdGVseSwgZXNwZWNpYWxseSB3aXRoIENPTkZJ
+R19NRU1fU09GVF9ESVJUWSBlbmFibGVkLiBUaGUKcHVkX3ByZXNlbnQoKSAvIF9QQUdFX1BST1Rf
+Tk9ORSBjYXNlIGFsc28gbG9va3MgbGlrZSBhIHByZS1leGlzdGluZyBoZWxwZXIKaW5jb25zaXN0
+ZW5jeSBmb3IgUFVELXNpemUgaHVnZSBtYXBwaW5ncy4KCkkgd2lsbCBpbnZlc3RpZ2F0ZSBib3Ro
+IHNlcGFyYXRlbHkgYW5kIHNlbmQgZm9sbG93LXVwIGZpeGVzIGlmIHRoZXkgdHVybgpvdXQgdG8g
+YmUgcmVhbCBpc3N1ZXMuCgo+Cj4gPiBGaXhlczogM2ZlZTIyOWE4ZWI5ICgicmlzY3YvbW06IGVu
+YWJsZSBBUkNIX1NVUFBPUlRTX1BBR0VfVEFCTEVfQ0hFQ0siKQo+ID4gQ2M6IHN0YWJsZUB2Z2Vy
+Lmtlcm5lbC5vcmcKPiA+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRl
+ZGFuY2UuY29tPgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgg
+fCA5ICsrKysrKysrLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDEgZGVs
+ZXRpb24oLSkKPgo+IEknbSBub3QgZXZlbiBzbGlnaHRseSBhIHJpc2N2IG1haW50YWluZXIsIGJ1
+dCBJJ2xsIHF1ZXVlIHRoaXMgdXAgZm9yCj4gc29tZSBsaW51eC1uZXh0IHRlc3RpbmcgYW5kIHNv
+IEkgY2FuIGtlZXAgYW4gZXllIG9uIHRoZSBpc3N1ZSwgdGhhbmtzLgo+Cj4KPgoKVGhhbmtzLApZ
+dW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
