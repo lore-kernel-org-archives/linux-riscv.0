@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C619BC43327
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 11:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514FEC43327
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 11:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qxb+6dboiJTWmwspegEk3z304SuTc6T5K/q0CHPaGUk=; b=v1C0l0N2/o95S8
-	OBBPmBlBhNz0gKZrukgtedRB7GT0ohiouw/cAOFSWNz8RKcrlRU1Nd1ILdoQVKOkNryFevOQcHEDB
-	HfqgiUYJ9La0DelSA15bkhry8canANIGaWLOye0T/NQpLbNi3famYcbTqngBMDvIEZMBBeHf7hZHu
-	eyWeSbl/HkS7itIyYFRMqAom4AU9xj3tZyCZE4H8VbqWzGSDR4if1A6pWArMQ2fj8Bt6GRuzPKhU2
-	OKPxdIDhVQ+kKijqgpVTMDzq8+15Fv0Y+doG37TD6I+fYIlyJUVLSZw7dr0uL1lT0JHoqE3YQGvLZ
-	1fdE43FiohDbGh4UGmag==;
+	List-Owner; bh=T4yiI3adOB52eelcHBLwmbyO5udrw9ewo1+6so4Y8gU=; b=dZpwTE273x4Ar+
+	wX5XDo7CS0+6TJAg/J4BrAwouLK+Z9cRMxmuIYQTbjAfQt5SURkeVTsKGv99I7q2PHP7tiSs3k/ag
+	UksSm45YRl8ViRroMRptHwfDI4wlaD8XK6Mn9X85t8aTBKEr7V7n3j5fiAuJWQZ9AJocBUD73RRit
+	9vdHoHLNuKhuTaLhV+g06UwOn2OUvWWQ+SZydwZHGjb44P42VXhBxOfvugC7eQ00uGew0nArosuyT
+	hNvBT3EEZkSzKqSukBcdAvMpngnKswc/Sq8R84n5FjCPXSG4UhkWQunH7J6Jr+9MvJvkDX4aIVrUp
+	Y3weQVPvyGZLyQy6h3sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWIP-0000000Gmvj-0EmR;
-	Tue, 30 Jun 2026 11:06:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weWIi-0000000Gn6W-2NWa;
+	Tue, 30 Jun 2026 11:06:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWIO-0000000Gmuk-0K1W;
-	Tue, 30 Jun 2026 11:06:28 +0000
+	id 1weWIg-0000000Gn5D-3bxe;
+	Tue, 30 Jun 2026 11:06:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 265CF600C3;
-	Tue, 30 Jun 2026 11:06:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 970C51F000E9;
-	Tue, 30 Jun 2026 11:06:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E8D1600C3;
+	Tue, 30 Jun 2026 11:06:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0C171F000E9;
+	Tue, 30 Jun 2026 11:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782817586;
-	bh=KziUE99JyCXJvfI9gWixTL5K4MSlxqncGllEjWQ7FFU=;
+	s=k20260515; t=1782817606;
+	bh=pkBGpLmtsEEeRaJhMIRqkL1GKSIf2XGxguwcqieH/g4=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=gbSReGHGi6BBBm1jGbagqwMr3EDZYuq6/aVP0SmPh5q3XsQf2OyoXmHLpD7jKFuXN
-	 rz/DuYqpdl8L3DXfBDTvQ7kL0hoqzMjWXWkW8p3niXHmRq2KJO1lhQLr2BGi+0/xW1
-	 1QN7bIbJ1gjbY8koWTFN6rYpDeBENnDuuo3Di/Qb6ZxIaSfy0sRjdwCT0pQ7sNxCeM
-	 zOq3PScln3ortRJ02gpXTvE3pm2Lk4DnNeyCU0ee7DMVL+uHvo0MsRKXj5dTHKpBrf
-	 Xhnkz9uFlwHhr0XSswtrvXEZTcdZ9vbGyco4qHRo1JKwGuORedI6VrlOrYZTkpFs86
-	 RPXDfpVVtd2LA==
+	b=ZQIEMpuUmQZkczHS1IWJqPDhkgBj56796odq3/JvTLVjcNHHc31D/nttFgIixltDD
+	 fvh/NWoOmlY1pRVfm4kSh17IeHaesxP4GLpUn/HExfYszLJWNcgrt7bQIPBs1VJ9ie
+	 E+X/tXsHlnOljHy/HM6tm2+dq7ONAjO6ZtbVU4IbwuQuU2RjR27PHLYoftDiigEuLR
+	 YlNl5z2+Y+CDger9PLjYw/Yd8Kbz124TcBuYx71ie/F4xSgfGU6bbg5zzSVPHwHufU
+	 /JR39e288Aj2Vg90vyf64D4pAv0ul+QBW9QTUOyCPHglNRMUMMKm0Ot02y5ILAMhI4
+	 hzNU9Pif1F/1w==
 From: Pratyush Yadav <pratyush@kernel.org>
 To: Wandun Chen <chenwandun1@gmail.com>
 Cc: chenhuacai@kernel.org,  kernel@xen0n.name,  pjw@kernel.org,
@@ -54,14 +54,14 @@ Cc: chenhuacai@kernel.org,  kernel@xen0n.name,  pjw@kernel.org,
   akpm@linux-foundation.org,  pasha.tatashin@soleen.com,
   pratyush@kernel.org,  ruirui.yang@linux.dev,  m.szyprowski@samsung.com,
   robin.murphy@arm.com
-Subject: Re: [PATCH v4 07/10] of: reserved_mem: add kdump helpers to exclude
- non-dumpable regions
-In-Reply-To: <20260630074715.4126796-8-chenwandun1@gmail.com> (Wandun Chen's
-	message of "Tue, 30 Jun 2026 15:47:11 +0800")
+Subject: Re: [PATCH v4 08/10] arm64: kdump: exclude non-dumpable reserved
+ memory regions from vmcore
+In-Reply-To: <20260630074715.4126796-9-chenwandun1@gmail.com> (Wandun Chen's
+	message of "Tue, 30 Jun 2026 15:47:12 +0800")
 References: <20260630074715.4126796-1-chenwandun1@gmail.com>
-	<20260630074715.4126796-8-chenwandun1@gmail.com>
-Date: Tue, 30 Jun 2026 13:06:21 +0200
-Message-ID: <2vxzmrwci8ya.fsf@kernel.org>
+	<20260630074715.4126796-9-chenwandun1@gmail.com>
+Date: Tue, 30 Jun 2026 13:06:40 +0200
+Message-ID: <2vxzik70i8xr.fsf@kernel.org>
 User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -84,19 +84,18 @@ On Tue, Jun 30 2026, Wandun Chen wrote:
 
 > From: Wandun Chen <chenwandun@lixiang.com>
 >
-> Add two helpers to exclude non-dumpable regions for arch-specific
-> code.
+> Reserved memory regions are excluded from vmcore by default unless
+> marked dumpable. Honor the dumpable flag to filter out device firmware
+> regions (e.g., GPU, DSP, modem) reserved via device tree, since they
+> typically contain data not useful for kernel crash analysis and can
+> significantly increase vmcore size.
 >
->  - of_reserved_mem_kdump_nr_ranges() returns the count of regions
->    that are not dumpable. Each excluded region may split an existing
->    crash_mem range into two, so callers use this to calculate
->    crash_mem allocation size.
->
->  - of_reserved_mem_kdump_exclude() walks reserved_mem[] and calls
->    crash_exclude_mem_range() for every non-dumpable region.
+> Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
+> pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
 >
 > Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 > Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> Acked-by: Will Deacon <will@kernel.org>
 
 Acked-by: Pratyush Yadav <pratyush@kernel.org>
 
