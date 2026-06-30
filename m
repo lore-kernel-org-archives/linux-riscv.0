@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC57AC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 20:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FCAC43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 22:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdBjY6CZNK6nMm3o4LPbrU0oexwu/5Jsoln/hQP7Kok=; b=1lwIDG+omoyyyQ5y9d3fgca7D5
-	Kct5LDVA1Varb7+DmNrKDyiKO1rAJDI3UViPS+cQkrKQRRDJ58opf2NiyutEiZ8h+yECPZNxgVCD0
-	gnBuHSSVJrDFUn+vSllPP0HEp6a1ZuybUaPnDEInhOH/B0C7XrvBk2DE20OzOrjFqeHZRMRz+MxBc
-	6AJITlhs7m7Sok0h4tKLAvIkUHSDPBGKUQwAx3eZBsdB5pb1YEaYGXBkiU3lZBGbwvVwy3/9ipntf
-	0e3lijKtrsuGrKOhUP/tqdYBiYt+8yYyK7FYYwNxE5gWAMYXGYc2vWqhQeLWinDLMc3vwTtfWA555
-	Xr6ZGLtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tbjnjZVeS4bIaE89eFzC18QBaXfca4cUjz2N6LF5v6s=; b=tgGO52TSOklUwc
+	eSmBGFup7RIqiNmg1wGNeuS6iuQZHEZzbDfXZDs570PhsAdGX59iiw+DJ2vsVQWgCiEqzO1iqg4+V
+	nxzrNrpwXfPeFfYC4234at9ak+DtOBqtG+MsbbayPfn1NgXV1XptASV7OBUTt5gdm6Jb8o4JcgeJp
+	00pR/OmNmajGN3GhuSrJqf+XzNPRLwnYzAA7PzZ8k3gfMUVr5KJVAcJ/f2NAAHY6kwfjV3GISllmE
+	hE1j5t91nHpEfwPnJpfdg2zjjHlBz5GVgcl62pqQb6bfvj7s613tZ/hL7v9x4iM1xynkpFVLrtogz
+	RQsP0MCf6g5pWf+glnJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wefTe-00000000CEW-3iAU;
-	Tue, 30 Jun 2026 20:54:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weh1S-00000000Jjq-0njP;
+	Tue, 30 Jun 2026 22:33:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wefTd-00000000CEJ-3mEZ
+	id 1weh1Q-00000000Jji-1ueT
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 20:54:41 +0000
+	Tue, 30 Jun 2026 22:33:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67F44435BA;
-	Tue, 30 Jun 2026 20:54:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 846451F000E9;
-	Tue, 30 Jun 2026 20:54:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 08C0240211;
+	Tue, 30 Jun 2026 22:33:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 966701F000E9;
+	Tue, 30 Jun 2026 22:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782852881;
-	bh=aQrxMNIEylEiuvbRu+mi8pKFW2mloJnu3lVQOjwjvVM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UYIgsbnZEVH13QexSvFBS8CuQHYP2Rajo6+lgx1+s2OpYeWhMdnYNYDL4Ac/wprkS
-	 jQVrnpo/FGJAwPGpsrZy8K1Of17P22pIsN99aFiOKFjrRlYRPNxoHfmy/O4g06pleo
-	 nGEuC6Go/z4VDH4nin+Q0ajgRaSjAxG0/3FOplD2p2D7VQUs7Iwo5SgsRK1w5V8CG3
-	 kAI27WQNLVr0KGcVE6Qzk1cNQbPlAclFlWWyIsZpIAIHq4t8T90dw0M85jKXRPl3jt
-	 VnvYNiGjNBgV7HqEKZ4GKgvFvEbMswsuryvLBQehLdOoT+FtJWsxMzxxpn46+odxyT
-	 TBDt2id475V1w==
-Date: Tue, 30 Jun 2026 21:54:37 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org,
-	Valentina.FernandezAlanis@microchip.com,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] rtc: mpfs: fix counter upload completion condition
-Message-ID: <20260630-travel-aerosol-b388e50a3ce8@spud>
-References: <20260513-panhandle-ashy-70c6abf84d59@spud>
- <CAMuHMdXnkeantjtoMg+3unfP8ZSeG+7K+EGkn48=BEi_RWENwg@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAMuHMdXnkeantjtoMg+3unfP8ZSeG+7K+EGkn48=BEi_RWENwg@mail.gmail.com>
+	s=k20260515; t=1782858819;
+	bh=nfsKD9GM3ZJvGDmqQFlRaZt3ShaCsQhGyjSUxj31w/I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=mqPNRRhkZE9AmyWatl9oPrw5D8gb2kOs8ITdoOEP9s2ZjxiM/LsTaETgg7Ay3lSaU
+	 5XelscLjQY+z2464u0pya13QkL4J5v4gCN7aMhYLAxiKK4tSAz7HdWPJuIZSg+1ISb
+	 JBXY4tnBSfa5T3RfZ/VD3/p0VHFs5FgzmgGM8qZFwaDUAl05KONAMsZJd/S+1I6QXv
+	 mxuUIeFMSMaqc5wRFtIL0mnX6MSK6Mpa/6YIL/gTAAdyj7ZiWEXmxgosf0dB8uyyRI
+	 F5vpySITWhkX1rPbPbP2JpibpL8PQIzVV29okmuThGV022pWt5eKUoRh0Ba4WhAtO0
+	 ttEFBiBlgqi4A==
+Date: Wed, 1 Jul 2026 07:33:35 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Martin Kaiser <martin@kaiser.cx>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt <rostedt@goodmis.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: probes: save original sp in rethook trampoline
+Message-Id: <20260701073335.548d8f0b435b1a5fb4e41a69@kernel.org>
+In-Reply-To: <20260630194010.1824039-1-martin@kaiser.cx>
+References: <20260630194010.1824039-1-martin@kaiser.cx>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,87 +66,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1519615759730722566=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1519615759730722566==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OXEFPVIeQvMmHWaa"
-Content-Disposition: inline
+On Tue, 30 Jun 2026 21:40:03 +0200
+Martin Kaiser <martin@kaiser.cx> wrote:
 
---OXEFPVIeQvMmHWaa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> Reading a word from the stack in a kretprobe crashes a risc-v kernel.
+> 
+> $ cd /sys/kernel/tracing/
+> $ echo 'r n_tty_write $stack0' > dynamic_events
+> $ echo 1 > events/kprobes/enable
+> Unable to handle kernel paging request at virtual address 0000000200000128
+> ...
+> [<ffffffff80016d16>] regs_get_kernel_stack_nth+0x26/0x38
+> [<ffffffff80177196>] process_fetch_insn+0x3ee/0x760
+> [<ffffffff80177836>] kretprobe_trace_func+0x116/0x1f0
+> [<ffffffff8017795a>] kretprobe_dispatcher+0x4a/0x58
+> [<ffffffff8013572e>] kretprobe_rethook_handler+0x5e/0x90
+> [<ffffffff80180838>] rethook_trampoline_handler+0x70/0x108
+> [<ffffffff8001ba32>] arch_rethook_trampoline_callback+0x12/0x1c
+> [<ffffffff8001ba84>] arch_rethook_trampoline+0x48/0x94
+> [<ffffffff8067872a>] tty_write+0x1a/0x30
+> 
+> In regs_get_kernel_stack_nth, regs->sp contains an arbitrary value.
+> 
+> arch_rethook_trampoline saves the registers from the probed function in a
+> struct pt_regs. sp is not saved. Instead, sp is decremented for
+> arch_rethook_trampoline's local stack.
+> 
+> Fix this crash and save the original sp along with the other registers.
+> Use a0 as a temporary register, it is overwritten anyway.
 
-On Tue, Jun 30, 2026 at 05:18:13PM +0200, Geert Uytterhoeven wrote:
-> Hi Conor,
->=20
-> On Wed, 13 May 2026 at 20:04, Conor Dooley <conor@kernel.org> wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > The condition that needs to be checked for upload completion is the
-> > UPLOAD bit in the completion register going low. The original iterations
-> > of this driver used a do-while and this was converted to a
-> > read_poll_timeout() during upstreaming without the condition being
-> > inverted as it should have been.
-> >
-> > I suspect that this went unnoticed until now because a) the first read
-> > was done when the bit was still set, immediately completing the
-> > read_poll_timeout() and b) because the RTC doesn't hold time when power
-> > is removed from the SoC reducing its utility (I for one keep it
-> > disabled). If my first suspicion was true when the driver was
-> > upstreamed, it's not true any longer though, hence the detection of the
-> > problem.
-> >
-> > Fixes: 0b31d703598dc ("rtc: Add driver for Microchip PolarFire SoC")
-> > CC: stable@vger.kernel.org
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Thanks, this landed as commit 9792ff8afa9017fe ("rtc: mpfs: fix counter
-> upload completion condition") in v7.2-rc1, and finally the endless
-> stream of:
->=20
->     mpfs_rtc 20124000.rtc: timed out uploading time to rtc
->=20
-> is gone!
->=20
-> And no, it didn't go unnoticed, at least not for me, but you couldn't
-> reproduce it reliably before:
-> https://lore.kernel.org/bce2ca405ef96b1363fd1370887409d9e8468422.16606594=
-37.git.geert+renesas@glider.be/
+Good catch!
 
-Oh wow, old mystery solved and not "unnoticed" at all!
-To be honest, there's a good chance it'd have been investigated more
-thoroughly sooner if I had the driver enabled, but I don't given it
-doesn't hold time powered off. I'm glad it's eventually been solved
-though.
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
---OXEFPVIeQvMmHWaa
-Content-Type: application/pgp-signature; name=signature.asc
+I would like this to be handled by the RISC-V maintainers.
 
------BEGIN PGP SIGNATURE-----
+Thank you,
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakQtDQAKCRB4tDGHoIJi
-0sgWAP4jbyx6hOerjyjYq7eL8RtI6ZlQWHOUAxEGAqtrcO9qkgEAu9Za9S2JFsqX
-9Z5tWs1QiNlCYgiEy4EpJiqmp9Ww8ww=
-=jWyy
------END PGP SIGNATURE-----
-
---OXEFPVIeQvMmHWaa--
+> 
+> Signed-off-by: Martin Kaiser <martin@kaiser.cx>
+> ---
+>  arch/riscv/kernel/probes/rethook_trampoline.S | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/probes/rethook_trampoline.S b/arch/riscv/kernel/probes/rethook_trampoline.S
+> index f2cd83d9b0f0..c3aa8d8cf5af 100644
+> --- a/arch/riscv/kernel/probes/rethook_trampoline.S
+> +++ b/arch/riscv/kernel/probes/rethook_trampoline.S
+> @@ -41,6 +41,9 @@
+>  	REG_S x29, PT_T4(sp)
+>  	REG_S x30, PT_T5(sp)
+>  	REG_S x31, PT_T6(sp)
+> +	/* save original sp */
+> +	addi a0, sp, PT_SIZE_ON_STACK
+> +	REG_S a0, PT_SP(sp)
+>  	.endm
+>  
+>  	.macro restore_all_base_regs
+> -- 
+> 2.43.7
+> 
 
 
---===============1519615759730722566==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1519615759730722566==--
-
