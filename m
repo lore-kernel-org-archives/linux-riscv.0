@@ -4,94 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE159C43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 10:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F23C43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 10:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iT+R7jbGXqltMEtRBM+igTLZBw56DQN1Ijur88lK9hU=; b=02bdscKgXAbCgI
-	Z8ysoewExtGpFSguTQNcpBNkmz+t6rr6MkeR7HWRg2nMpiXW2Mat1Y2wsHG511BYnMwmOqGC/gtRa
-	5D6alAoQIKLwZhrQFNzb4RWSthxYCRSutik4CkETxqGElz/Kkk3Lfg6LRLURoaCu+s03rqQTvcIiz
-	Z0gcL44IjbnsGQMO1TCrAmm1p6xIptnAwcxx22nJCnZyMdQ/WNZ5ezJOwncPfy325i3wW0GQbdAw1
-	qAHbEIlgLYqqFWyWRMvl0ib+R1Nge6oMEh51er3WTohFNKzWK1GJo55VA4a13qgNKGXPeHqN1/osS
-	1a0gZPlsOsIauq6kumNg==;
+	List-Owner; bh=+4jBemTSgo4eg418mq08kzu46g24bkxcincpFk98JoM=; b=qgUzHKkWlYX4EW
+	Fr/C15s2PocosIFhfioxJBBppMjX3ZNjQe06bjHD0/E+wFD03ClH4/V5bzoXoPgqYmVjQtUmcDpSj
+	CdACkMicr0TQUloWodx2yuMPQSTQRSzZnsO1Bx94PjY6A5mJ+Q7KYExD9wMN0qS84izVHiru6kFmg
+	KLNkitgB0F4zi78VspcbZL+hGcvUhgeXeQj9WyJ2ODwAZecQBeMVg9hGf1S+A5x6UPHGQYCfoojV7
+	IVPojpdlNoSkVthYFuQASdmxerVTaMgi875IxnNGEqOJlOMxNUfYpJsyWvsyOJE5aiWPJIYr69HPQ
+	4S9sQUDtybCufTV5vFJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVch-0000000Gd3E-2UBe;
-	Tue, 30 Jun 2026 10:23:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weW4D-0000000GiV6-39V3;
+	Tue, 30 Jun 2026 10:51:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVcg-0000000Gd2E-0ouD;
-	Tue, 30 Jun 2026 10:23:22 +0000
+	id 1weW4C-0000000GiUN-1o2q;
+	Tue, 30 Jun 2026 10:51:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 79CBA600BB;
-	Tue, 30 Jun 2026 10:23:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D8E41F000E9;
-	Tue, 30 Jun 2026 10:23:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E178A43AFC;
+	Tue, 30 Jun 2026 10:51:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8AA31F00A3A;
+	Tue, 30 Jun 2026 10:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782815001;
-	bh=hGencHR1rqX4oR1/IqjhQFQRDCZNECISdf4kfhlCG0g=;
+	s=k20260515; t=1782816707;
+	bh=LSagnXkfjr27HV2tQfAz+rj7AUU5/hzRn7I5KK3CMLU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XyBy2bQcCpF6LYOuss3LRRJeQlCYc8dvpcRUfK1ZagqxIqYPz5p0WwpsaFIQBW9vW
-	 IlOw0fNJJFpKyyg9iic4NuDm02LrPL3qHKHefNIo7aqpS80LB6lvKqynKgGBvzbREO
-	 4ZvHpLHCO720wCr2vYLratFlyl/gE//Y7cU/ye1HTlkGVUfMCklP+eJYoqc/HjpTxw
-	 MZXb8/jIFyvGrFJo82KLZha9Mhc3PkZrDWmDJGTsxLZUbwokWPsckf2VwK19WHIVoz
-	 +qkE0c3p44BQOkrv6SHKYZtWI+7gQ0YPbPbglot3g6oJ2J7Z4K4XFytNkclDQawEPq
-	 nxmkjQc7MH7Bg==
-Date: Tue, 30 Jun 2026 15:53:16 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mips@vger.kernel.org, imx@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
- PHY on sa8255p
-Message-ID: <akOZFIowVvprnAMf@vaman>
-References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
- <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
- <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
- <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
- <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+	b=B1u/Y2Pf6zMk7tnbTzi4v6nU2Lv2weLjO53pAUXXJHjaSnLhV3I5y/EU4ZQI2Ms8y
+	 s7aCEHs5W1c7/Xqrm428GfYbtuEYXFNpcaZi6NuVn5iPNk8vFMEz4RCD2HVTiSHZic
+	 +PbRGt49XhFnG50RlWiHtmRFq97MIDncdkWoc21g8UP9tcviNTjNyN0Cz2Y4R2GxEV
+	 F5w5AA+32iv+09J11nDfNsQTIJ3TUdwGbllDMnKejLr9iYGbIcm9lgJEHJC1Lfqp5b
+	 3x+g7YwFCe8wuwkIZIzl8vuFrD0OpK1/LuyJfMFn3QUaR/mmPuExwJ8jZIw3x7KL9a
+	 2BoQHjkpr8SXQ==
+Date: Tue, 30 Jun 2026 12:51:39 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH v2 6/6] irqchip/gic-v5: Enable GICv5 IWB ACPI probe
+ ordering detection
+Message-ID: <akOfu2EIQq3CJgqw@lpieralisi>
+References: <20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org>
+ <20260603-gic-v5-acpi-iwb-probe-deferral-v2-6-23ffa16b6ebb@kernel.org>
+ <CAJZ5v0ibZKfzJwGyUb92-K1N9C_ab0QujpAKCrvMdyygquS1Vw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+In-Reply-To: <CAJZ5v0ibZKfzJwGyUb92-K1N9C_ab0QujpAKCrvMdyygquS1Vw@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +64,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@kernel.org>, linux-acpi@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, loongarch@lists.linux.dev, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29-06-26, 16:51, Geert Uytterhoeven wrote:
-> > Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
-> > driver instead of the MAC driver where it was previously. Instead of cramming
-> > both HLOS and firmware handling into the same driver, I figured it makes more
-> > sense to have a dedicated, cleaner driver as the two share very little code (if
-> > any).
+On Mon, Jun 08, 2026 at 07:18:15PM +0200, Rafael J. Wysocki wrote:
+
+[...]
+
+> > +#ifdef CONFIG_ACPI
+> > +       if (has_acpi_companion(&pdev->dev))
+> > +               acpi_dev_clear_dependencies(ACPI_COMPANION(&pdev->dev));
+> > +#endif
 > 
-> I think you are mixing up DT bindings and driver implementation?
+> I would rather add a wrapper for this, along with an empty stub for
+> the !CONFIG_ACPI case.
 
-Should the bindings change if we have different driver and firmware
-implementations? Isn't binding supposed to be agnostic of
-implementations..?
+#ifdef CONFIG_ACPI
+static inline void acpi_device_clear_dep(struct device *dev)
+{
+	if (has_acpi_companion(dev))
+		acpi_dev_clear_dependencies(ACPI_COMPANION(dev));
 
--- 
-~Vinod
+}
+#else
+static inline void acpi_device_clear_dep(struct device *dev) {}
+#endif
+
+Something like that ?
+
+Thanks,
+Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
