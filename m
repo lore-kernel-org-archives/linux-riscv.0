@@ -4,119 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB71C43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 04:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828A4C43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 06:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oeelbZ/e+tB1LjfgJlIvV+JfFQorMq28NAlAe7JiVPw=; b=tr1j4Aq7RlpGCT
-	qJCLIFjH9nl6P3nT1t7PmFKfVZxPaNnQAi0VQxsXhp3cf96w6w9aN081wU7gKWCuiOQSIgGT3b4M9
-	MJRlYcxoKqbq+qVG0dzxNm54WXrzGtNxFeHKnSCPSgMg2N8nAYrFdx+/tg6dpOcQDOd9um1uC3Uuk
-	pYk9eQLbZyvZFzf07KEze8jE/IpB2rCryfU5NOdfZA1iGvQ4CXfIyGQZN9N4LAuYuA65Tzn4/k+pK
-	1J8LEAUe+MepTEzwjq3BLTyR4QqceInbre6d1EY3rTEYjcjr9/HA1ks9HuwHH+v7B+1QQwXNSE9Ch
-	wdAGI/pIvtxzLcxX7MVg==;
+	List-Owner; bh=mdKXiCKqMR7M2NqC0nu9zglyhA6rAwiRdqtcWFFfQRY=; b=LZYw+r08M97MXD
+	muPW9XZ3WmsQ3zbDnf+my2wB1lXvhng+339AVrzQkKwSBnqG7lNQSgll2GtrjqZreaPmJh3dUe0+h
+	faVqecF8USgnTarEsVtiAx6bj12RUljq8SPHd5DPz2pw55BikK4dCkq1E6Jo33cRnSGD+/McjYAB0
+	1n/fV0H7vvZxlMmoL1yZ0bFYWUc4JKdfcpYppVzZmqyK8d20fNaTNi2f4dRrokloded27CkCLavaB
+	sPk2+Pr1hw/7d3BB8Iy6RfbrGTYt21vP705sM7ZEcpq1VrnGtVWG89sK1BRj7rYaXyB48a7Vysq79
+	GClKDp5CrZGnfv1I7jPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weQYT-0000000FoFn-26Sg;
-	Tue, 30 Jun 2026 04:58:41 +0000
-Received: from mail-westus3azon11012054.outbound.protection.outlook.com ([40.107.209.54] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1weRdL-0000000FsgY-0Ssq;
+	Tue, 30 Jun 2026 06:07:47 +0000
+Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weQYQ-0000000FoCK-0ZWh;
-	Tue, 30 Jun 2026 04:58:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bfBxVTS7P9bUshESZXbNNk5+lklitr7R22MEDVZ1EeJ9wqnGFtbQ5AcpyO1zR/4/U60xi9l4IwGXdiuqAngrhl1cwN7LUt4iFzDvWKcIsETR1Akp8Uvqtqb6kIgcXI1YfQ1e6RKgo8GhcvWjrcvsz7S6QGp3HHt9p9D4hrByToh6T8zM/sNTLQILsQadBxGLw2IO9OaqhB0fGs6JQ6SjrSJx2lOWX/o0WtglFt/UiKk/fcw7uw7L0CjPb+inMRhcF1qiiNXmk+qJyJtZ/K2TaGMY6fVXE5UotdBha9X8wQWwZplmHqhp4hXVzXZpZQDStbMsnG0OUC/UvzpM58DIbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mTolOlZv+b6oWNzFnrXujHuS0q+KtLfb5lQNnqsvg1g=;
- b=Kq0f5+z7PFE3hFD5F8k8EQXhF+XzyI40w6aubX3ajJjpcmUWIynERDFdhQqi2a0COoDY44WbNCsEWZvL4T07jgxhjwwi0j4wyLJXIZjM7MCueSVLAOdtRihivR8HRmUj9/PN9bKrwwNMVd4iD2pmDnEgmUR50Mp+Ak4M5Xith8cFnegRKCuPaV8iUlAUGAqkqKMLyYDZHcUZoVhNikwlRSVPRfb58/nWjrmtBUO9c7FtRAw/bps0A2ljNA6oWICfuYkZSe2hY+v1ZdFvvqrCphA/nJ4FBoBlO6+Pd8MKFyQWvxLmlACscXWpo+PYzm/NrfzLNiiltxMpq07dVCQdYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=arndb.de smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mTolOlZv+b6oWNzFnrXujHuS0q+KtLfb5lQNnqsvg1g=;
- b=L/AlQii9QEqKPZPs+mCQ4Df1GqsY5bAF4s1PHqXubVY817rW85SvCwVT1RZbh8hj4sKEP7xepvYD5jg6nY7I35wWkiv+5C/fqM7Q/3DuW6YH0J0K+oTVtJlTgqBojDZlT9sHLQ5xF1mstk1GIgPozI49gG6+fjS5kSFwTinGkdY=
-Received: from DS1P223CA0001.NAMP223.PROD.OUTLOOK.COM (2603:10b6:8:453::16) by
- CYXPR12MB9387.namprd12.prod.outlook.com (2603:10b6:930:e6::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.159.19; Tue, 30 Jun 2026 04:58:30 +0000
-Received: from DM2PEPF00003FC7.namprd04.prod.outlook.com
- (2603:10b6:8:453:cafe::6a) by DS1P223CA0001.outlook.office365.com
- (2603:10b6:8:453::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Tue, 30
- Jun 2026 04:58:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- DM2PEPF00003FC7.mail.protection.outlook.com (10.167.23.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Tue, 30 Jun 2026 04:58:30 +0000
-Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 29 Jun
- 2026 23:58:21 -0500
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-To: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, Borislav Petkov <bp@alien8.de>,
-	"Dave Hansen" <dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>
-CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Samuel Holland
-	<samuel.holland@sifive.com>, Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	"K Prateek Nayak" <kprateek.nayak@amd.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Thomas Huth
-	<thuth@redhat.com>, Sean Christopherson <seanjc@google.com>, Jisheng Zhang
-	<jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Christian Borntraeger
-	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
-Subject: [PATCH v5 8/8] futex: Use runtime constants for __futex_hash() hot path
-Date: Tue, 30 Jun 2026 04:55:31 +0000
-Message-ID: <20260630045531.3939-9-kprateek.nayak@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260630045531.3939-1-kprateek.nayak@amd.com>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
+	id 1weRdI-0000000Fsg6-0uVN
+	for linux-riscv@lists.infradead.org;
+	Tue, 30 Jun 2026 06:07:45 +0000
+Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-139aff562e1so6018908c88.1
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2026 23:07:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782799663; x=1783404463; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=tuwqmf7tbULdN/WriFM1zqIzaDGWLfMn0r/anrEXbCI=;
+        b=XTBHaUg7oM9HAd43tR40jl9p/oKaP/ILG7i0x8E7tHElBQkaWhvQXfjO4t0ZZRVGMw
+         W66asc/Q9HVtQ+hmCV3gz9DNrAA/BLBgRIei0iaA3xWEAsK4nnKWcz6m+Xqe3QiTQkLx
+         Gb7FeIKdfKJ2dsvf+0Ls+Eq5/uHscJUPWf4KvEQJKlU7ll1NyimhesYKHZPpWD2/aOEB
+         ViJs9zRZ3iPUra1UZ5ppCeM7Oaj4mfS/34ua3Yv842N14aMo6Wvw/xmfZYd44uysK6yz
+         +aRFq2oDRcHN81XP0kOwteJWgI1gwVJIqDWv7PlYOTsRLrq5aUK66083htMSzV+9jCev
+         +8XQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782799663; x=1783404463;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tuwqmf7tbULdN/WriFM1zqIzaDGWLfMn0r/anrEXbCI=;
+        b=CK4nw/XnwlNrcECtHMx/sy+3fdMd2cDux+SVw+KXWSSoRBzJl7qA9XAjXeKZV2+Yq1
+         Be/jxwxkm3RXerdDP64TBYM3frrDsfhABjikHe+nvYg9K/xmFZtrp107h4A0A2CJIInn
+         6gE/gkfgSHvmijb22YRMlxWD1OP3dyCaVvs2EY9WJhLYN6KRNH7Y+ehlsokNZSH5G3cL
+         g7UpxmsDL5Fu0OsDQ/j+iIwCBVwXWuWDKSR7k8VVByntF5I2rpBXBRsJWVOcj4WF99lD
+         5DukUGr7oJfO9VOlih7qAfbhYpfiC1zrf1K8Gy2vsGwQynYYjVJDRUlqBgSOV7i642Hf
+         i7AA==
+X-Forwarded-Encrypted: i=1; AFNElJ8SbTpgu2sPh1HUoxmB8hCf0k8JDmLbyJ4xbcufcjBZXbcMK32Wa0bb9UDt5vzr8Tsrxgjk34HmHkIsqw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YydF2i9gXMis+kOCxjfZ1+9YddYw3vw4oYSvpJOypznGi4KMy+k
+	ohKk41uAV/mZvwjTpOAtprlZ/3aAPamQFZtZwxdV7WKim3BuDsQGfzJmmoRVOMrr
+X-Gm-Gg: AfdE7clKPSspOno0pFFkpcCFUflzAj1oULZcUjXwmdTyOTcN6vg1LhB4dcClpWNHiH9
+	1u7S90VW/mpAw1vdHtJ0lZ5x3Tf/djOMwlVIbRZjhjYUEEOxYqF0MDSv9z0BDW0dyZ1W92p7ATu
+	JpK3vydH/PPmghJNpKr/gTDvBGR9SQuZK8Ru9pjtx9uO4f3fv664bMQCPrdNMwayPW4YWXiaUkg
+	f+0w9VhQVYVeD03PZkMQh/6AEEjBIamABh932HnHF9fpHN0pZUo/u69351U9j4kiQcnlLCkC3Vo
+	WSmXlcHKUMyQ5f1IbIyv5vMKutegfGpdgbGsJpqWyF47Xf4wENPB8QOX0lrVo479udAjg0P6PqA
+	Bu+b9TayUUyz0RE6TQMjgEjaqQwNPz5X/WN3wlSbfQg/Zzm/9grodOcG14cee5z+ToB38vpDCU4
+	j2jNfc7PQaB/9eRCXYOgziviQYvLoq64fp
+X-Received: by 2002:a05:7022:fe01:b0:139:ed5c:7699 with SMTP id a92af1059eb24-13b2a1d2518mr1236392c88.50.1782799662878;
+        Mon, 29 Jun 2026 23:07:42 -0700 (PDT)
+Received: from blinky ([2601:647:6700:64d0::94ac])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b2aba794csm3691329c88.10.2026.06.29.23.07.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 23:07:42 -0700 (PDT)
+Date: Mon, 29 Jun 2026 23:07:40 -0700
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Add "g" as an instruction alias
+Message-ID: <akNdLCfr2yiFrVqb@blinky>
+References: <20260626-g_ext-v1-1-a9aa7ab9d109@gmail.com>
+ <20260627-spud-qualifier-9a0041fb655e@spud>
 MIME-Version: 1.0
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC7:EE_|CYXPR12MB9387:EE_
-X-MS-Office365-Filtering-Correlation-Id: 76210976-ced6-4e61-d308-08ded6643ac0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|1800799024|82310400026|7416014|376014|18002099003|921020|13003099007|22082099003|6133799003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 0vtIDEPoK8tzbqqNLAmFhV2OPPTDRo4EZNrnt/nxIj7cwSrVSbdFIgIhpOeDbthkh6dMubOB3KH3iPnrknB8lRbUmwzLEtK4eE4Dzgvlwl30qIiqsCNSlPKNX0ShxFbrHDc3BUmzfXViA7QE+Dz2SKllIWvGdTlNGlG3ojYpNmqoCQ+l5Kknf5h+fQ5lgthmUOewfmO5t4HXHSlymx6ry464G8wbXJ79idxmX65totegpwhqkdLEKYzWphshKZTJTcNTEMtTMXuzzU7kdEzc7L66sdDxbr4TDxx1oYhTkrjTw3Jf9fsRrOA/iYkK/9LMHr8bknf81wIPGda91UkOzshaS13NcuQsYhoOb5jfMN6MGCV1Hbb4rWyplj3isy6Jh53IdOdVonEhy7Hq0W7uEBNPsNR3L1SqauO+NgC4brzULty/PWCnY+hZ3UBOHoJK4s2WHXObW5aD3evjJQ82CfIPH7QvttnGuNcIosMeliGD3Xcjoca7sDQDaBD2o4a5uV24bUgKNTdYO4jJE7ecekDBaN9vnAiPE0Ob6+y8hDMY0+qIfHLVQtzABZDaFH3ehgXIODWTzQ8M4sDubN07+CuJalFO82qlNQwI0CYhNhAfKL9B67UnZHh0m9oraoWBlw5jAhV504biDS5iu9ReFtMqS2XFDWUsZzuERhFNn3Hok7CbBqpiytYa4GOnHK0HIlYgIRdB6m1w65oU+ezZtg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(1800799024)(82310400026)(7416014)(376014)(18002099003)(921020)(13003099007)(22082099003)(6133799003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sw6mvVTcyK4oiXcXLyZOZaUagiRpsRjME2NyXnXraVJPl23A6YlFzashsdr17N7e2bYdsTtXrd7HbqOFCOCV86o8Q593lVOYX43Hy1JM5gg+CKm8n21UlT6AnQ1yzNHQXrNNx6qkjKKyAWjU08ik/6zV/90L4SHk7GsVDFN5yd18T5teeHTjGS35LVfGUPDwXKje3wiiS8h56meeIBwEVHoTeX0yvwj5T/2HijRf5yyUmCqz2OAgwnyAhwXnyDHkKi0+AeULI2+q0cmp1JqeuolP3/dCo57OIIelm9jELHHzW4mjabhUA6D1dKF7CFcMwRG7kK/D+S+tw0ovpJ+Dq4HAVo1UiPGYYBoPMkIzaGG1X37UtROuAYpD5EnIOWlsVfRlkTdJcjSSqcS/Vx1dDIH5Ri6azVCvLppX9UHy9upreAdF571x9I4QK8V6R+62
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 04:58:30.3434
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76210976-ced6-4e61-d308-08ded6643ac0
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC7.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR12MB9387
+Content-Disposition: inline
+In-Reply-To: <20260627-spud-qualifier-9a0041fb655e@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_215838_185305_2509E0A7 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260629_230744_262380_F45A983C 
+X-CRM114-Status: GOOD (  42.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,151 +101,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Peter Zijlstra <peterz@infradead.org>
+On Sat, Jun 27, 2026 at 02:58:14PM +0100, Conor Dooley wrote:
+> On Fri, Jun 26, 2026 at 11:24:46PM -0700, Charlie Jenkins wrote:
+> > "G" is an official alias for "IMAFDZicsr_Zifencei" [1]. Many common
+> 
+> What does [1] reference?
+> 
+> > tools like LLVM, GCC, OpenSBI, QEMU support this alias so make Linux
+> > follow the status quo and allow users to pass it in the isa string. In
+> > the ISA string, "G" is expected to written lowercase as "g" like the
+> > other extensions. Since "g" is a simple alias, follow what OpenSBI does
+> > and expose "imafd_zicsr_zifencei" instead of "g".
+> 
+> What does OpenSBI do? Does it covert "g" in Kconfig etc into imafd... in
+> a devicetree?
 
-Runtime constify the read-only after init data  __futex_shift(shift_32),
-__futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
-hot path to avoid referencing global variable.
+Actually, I didn't test properly. OpenSBI doesn't crash and it does
+parse "g" from the devicetree but it pulls from misa to print what
+extensions are supported in the boot log.
 
-This also allows __futex_queues to be allocated dynamically to
-"nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
-(1 << CONFIG_NODES_SHIFT) worth of slots upfront.
+> Do you mean that your intention is for a dts with "g" in it to only show
+> the constituent parts in /proc/cpuinfo etc?
 
-Runtime constants are initialized before their first access and
-runtime_const_init() provides necessary barrier to ensure subsequent
-accesses are not reordered against their initialization.
+Yeah that's what I meant, I'll remove the opensbi wording. 
 
-No functional changes intended.
+> 
+> > 
+> > Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> > ---
+> > This can be tested with a device tree that passes in "g" to the isa
+> > string like:
+> > 
+> > riscv,isa-extensions = "gc";
+> 
+> Are you sure this is what you tried? It should not work.
+> The code dealing with this works on exact matches, so it should end up
+> comparing "gc" with "g" and "c", detecting neither.
+> Needs to be ... = "g", "c";
 
-  [ prateek: Dynamically allocate __futex_queues, mark the global data
-    __ro_after_init since they are constified after futex_init(). ]
+Yeah... I did test "g", "c";
 
-Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
-Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
-Not-yet-signed-off-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
----
-changelog v4..v5:
+> 
+> Also, you need to document this in the dt binding, along with the exact
+> meaning. Probably do what b has done and mandate filling in the
+> constituent parts, retrofitting something that permits the removal of
+> other extensions will create devicetrees that do not play nicely with
+> other OSes.
 
-o Rebased on latest tip:master.
----
- include/asm-generic/vmlinux.lds.h |  5 +++-
- kernel/futex/core.c               | 42 +++++++++++++++++--------------
- 2 files changed, 27 insertions(+), 20 deletions(-)
+Okay sounds good.
 
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index 5659f4b5a1252..53207901d4c15 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -970,7 +970,10 @@
- 		RUNTIME_CONST(ptr, __dentry_cache)			\
- 		RUNTIME_CONST(ptr, __names_cache)			\
- 		RUNTIME_CONST(ptr, __filp_cache)			\
--		RUNTIME_CONST(ptr, __bfilp_cache)
-+		RUNTIME_CONST(ptr, __bfilp_cache)			\
-+		RUNTIME_CONST(shift, __futex_shift)			\
-+		RUNTIME_CONST(mask,  __futex_mask)			\
-+		RUNTIME_CONST(ptr,   __futex_queues)
- 
- /* Alignment must be consistent with (kunit_suite *) in include/kunit/test.h */
- #define KUNIT_TABLE()							\
-diff --git a/kernel/futex/core.c b/kernel/futex/core.c
-index 179b26e9c9341..b2a63ceb6ce98 100644
---- a/kernel/futex/core.c
-+++ b/kernel/futex/core.c
-@@ -48,23 +48,19 @@
- 
- #include <vdso/futex.h>
- 
-+#include <asm/runtime-const.h>
-+
- #include "futex.h"
- #include "../locking/rtmutex_common.h"
- 
--/*
-- * The base of the bucket array and its size are always used together
-- * (after initialization only in futex_hash()), so ensure that they
-- * reside in the same cacheline.
-- */
--static struct {
--	unsigned long            hashmask;
--	unsigned int		 hashshift;
--	struct futex_hash_bucket *queues[MAX_NUMNODES];
--} __futex_data __read_mostly __aligned(2*sizeof(long));
-+static u32 __futex_mask __ro_after_init;
-+static u32 __futex_shift __ro_after_init;
-+static struct futex_hash_bucket **__futex_queues __ro_after_init;
- 
--#define futex_hashmask	(__futex_data.hashmask)
--#define futex_hashshift	(__futex_data.hashshift)
--#define futex_queues	(__futex_data.queues)
-+static __always_inline struct futex_hash_bucket **futex_queues(void)
-+{
-+	return runtime_const_ptr(__futex_queues);
-+}
- 
- struct futex_private_hash {
- 	int		state;
-@@ -395,13 +391,13 @@ __futex_hash(union futex_key *key, struct futex_private_hash *fph, struct futex_
- 		 * NOTE: this isn't perfectly uniform, but it is fast and
- 		 * handles sparse node masks.
- 		 */
--		node = (hash >> futex_hashshift) % nr_node_ids;
-+		node = runtime_const_shift_right_32(hash, __futex_shift) % nr_node_ids;
- 		if (!node_possible(node)) {
- 			node = find_next_bit_wrap(node_possible_map.bits, nr_node_ids, node);
- 		}
- 	}
- 
--	return &futex_queues[node][hash & futex_hashmask];
-+	return &futex_queues()[node][runtime_const_mask_32(hash, __futex_mask)];
- }
- 
- /**
-@@ -1922,7 +1918,7 @@ int futex_hash_allocate_default(void)
- 	 *   16 <= threads * 4 <= global hash size
- 	 */
- 	buckets = roundup_pow_of_two(4 * threads);
--	buckets = clamp(buckets, 16, futex_hashmask + 1);
-+	buckets = clamp(buckets, 16, __futex_mask + 1);
- 
- 	if (current_buckets >= buckets)
- 		return 0;
-@@ -2020,10 +2016,19 @@ static int __init futex_init(void)
- 	hashsize = max(4, hashsize);
- 	hashsize = roundup_pow_of_two(hashsize);
- #endif
--	futex_hashshift = ilog2(hashsize);
-+	__futex_mask = hashsize - 1;
-+	__futex_shift = ilog2(hashsize);
- 	size = sizeof(struct futex_hash_bucket) * hashsize;
- 	order = get_order(size);
- 
-+	__futex_queues = kcalloc(nr_node_ids, sizeof(*__futex_queues), GFP_KERNEL);
-+
-+	runtime_const_init(shift, __futex_shift);
-+	runtime_const_init(mask,  __futex_mask);
-+	runtime_const_init(ptr,   __futex_queues);
-+
-+	BUG_ON(!futex_queues());
-+
- 	for_each_node(n) {
- 		struct futex_hash_bucket *table;
- 
-@@ -2037,10 +2042,9 @@ static int __init futex_init(void)
- 		for (i = 0; i < hashsize; i++)
- 			futex_hash_bucket_init(&table[i]);
- 
--		futex_queues[n] = table;
-+		futex_queues()[n] = table;
- 	}
- 
--	futex_hashmask = hashsize - 1;
- 	pr_info("futex hash table entries: %lu (%lu bytes on %d NUMA nodes, total %lu KiB, %s).\n",
- 		hashsize, size, num_possible_nodes(), size * num_possible_nodes() / 1024,
- 		order > MAX_PAGE_ORDER ? "vmalloc" : "linear");
--- 
-2.34.1
+> 
+> > or
+> > 
+> > riscv,isa = "rv64gc";
+> 
+> And I think this definitely does not work properly, cos you only
+> modified the riscv,isa-extensions part of
+> riscv_early_of_processor_hartid(). I'm not convinced that this is worth
+> permitting at all though, riscv,isa should probably not get any
+> behavioural changes at this point. It's deprecated after all.
+> Sure ACPI uses the same format and parser etc, but that's obviously not
+> affected by what we do in riscv_early_of_processor_hartid()!
+
+I should have done a better job reviewing myself. Yes you are right.
+Since ACPI still uses "riscv,isa" I'm hesitant to say that we shouldn't
+support it. This has always been a pain that we don't have a good
+extension story for acpi. My preference would be to support it in
+riscv,isa at least for ACPI. Maybe it's fine to not allow it for
+non-ACPI by rejecting it in riscv_early_of_processor_hartid().
+
+- Charlie
+
+> 
+> > 
+> > Example test case using qemu:
+> > 	1. Run QEMU with the additional arg "-machine dumpdtb=qemu.dtb"
+> > 	2. Decompile the dts "dtc -O dts -I dtb qemu.dtb -o qemu.dts"
+> > 	3. Set riscv,isa-extensions to "gc"
+> > 	4. Compile the dtb "dtc -O dtb -I dts qemu.dts -o qemu.dtb"
+> > 	5. Boot qemu with "-dtc qemu.dtb"
+> > 	6. Look at /proc/cpuinfo
+> > ---
+> >  arch/riscv/kernel/cpu.c        |  7 ++++---
+> >  arch/riscv/kernel/cpufeature.c | 11 +++++++++++
+> >  2 files changed, 15 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > index 3dbc8cc557dd..0a2df97a1fd6 100644
+> > --- a/arch/riscv/kernel/cpu.c
+> > +++ b/arch/riscv/kernel/cpu.c
+> > @@ -81,9 +81,10 @@ int __init riscv_early_of_processor_hartid(struct device_node *node, unsigned lo
+> >  	if (!of_property_present(node, "riscv,isa-extensions"))
+> >  		return -ENODEV;
+> >  
+> > -	if (of_property_match_string(node, "riscv,isa-extensions", "i") < 0 ||
+> > -	    of_property_match_string(node, "riscv,isa-extensions", "m") < 0 ||
+> > -	    of_property_match_string(node, "riscv,isa-extensions", "a") < 0) {
+> > +	if (of_property_match_string(node, "riscv,isa-extensions", "g") < 0 &&
+> > +	    (of_property_match_string(node, "riscv,isa-extensions", "i") < 0 ||
+> > +	     of_property_match_string(node, "riscv,isa-extensions", "m") < 0 ||
+> > +	     of_property_match_string(node, "riscv,isa-extensions", "a") < 0)) {
+> >  		pr_warn("CPU with hartid=%lu does not support ima", *hart);
+> >  		return -ENODEV;
+> >  	}
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index f46aa5602d74..f78cbf5ade1e 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -322,6 +322,16 @@ static const unsigned int riscv_a_exts[] = {
+> >  	RISCV_ISA_EXT_ZALRSC,
+> >  };
+> >  
+> > +static const unsigned int riscv_g_bundled_exts[] = {
+> > +	RISCV_ISA_EXT_i,
+> > +	RISCV_ISA_EXT_m,
+> > +	RISCV_ISA_EXT_a,
+> > +	RISCV_ISA_EXT_f,
+> > +	RISCV_ISA_EXT_d,
+> > +	RISCV_ISA_EXT_ZICSR,
+> > +	RISCV_ISA_EXT_ZIFENCEI
+> > +};
+> > +
+> >  #define RISCV_ISA_EXT_ZKN	\
+> >  	RISCV_ISA_EXT_ZBKB,	\
+> >  	RISCV_ISA_EXT_ZBKC,	\
+> > @@ -495,6 +505,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+> >  	__RISCV_ISA_EXT_SUPERSET(a, RISCV_ISA_EXT_a, riscv_a_exts),
+> >  	__RISCV_ISA_EXT_DATA_VALIDATE(f, RISCV_ISA_EXT_f, riscv_ext_f_validate),
+> >  	__RISCV_ISA_EXT_DATA_VALIDATE(d, RISCV_ISA_EXT_d, riscv_ext_d_validate),
+> > +	__RISCV_ISA_EXT_BUNDLE(g, riscv_g_bundled_exts),
+> >  	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_q),
+> >  	__RISCV_ISA_EXT_SUPERSET(c, RISCV_ISA_EXT_c, riscv_c_exts),
+> >  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(v, RISCV_ISA_EXT_v, riscv_v_exts, riscv_ext_vector_float_validate),
+> > 
+> > ---
+> > base-commit: 5a66900afbd6b2a063eebad35294038a654de2b0
+> > change-id: 20260626-g_ext-0ca7d6223ff8
+> > 
+> > Best regards,
+> > --  
+> > - Charlie
+> > 
+
 
 
 _______________________________________________
