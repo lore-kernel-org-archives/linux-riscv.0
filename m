@@ -4,99 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB289C43327
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 15:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF90C43327
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 15:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pET2U8ht/Z5Y/tM5xu8xvsgu43pJmHt3P/wNJHdVjWU=; b=xuXzUzFwCC2SKI
-	+Jwbex2HiYl1vOJkiQGj8nvWNuTqh2/VBNDskQo0zseYt/0Tw3nKRzdMGixBaCmeENqzkFrlNLDMJ
-	UbGvS6veXyamDda37czXDrYWIHsA9jxkp7eW2POxJ1WVuTnpinycQ+csqzi8hhfqlbYXAPsT1MTQk
-	CvzO94gvw4+mRZCiTwm5mMIn5GcvhTZcjil6E8+NLSz8oCWChYlrJF+d1O27lHdCMcB5bHKmG6OGk
-	PPBAyf6BheMOx8thqsAqwwNPd3+89oAFDP+PHDdDVw/lDR7KvoavTFyLGL5E/IlLWMS0kvdIA0S3O
-	8m+xtE8NONXbqfsVKRMw==;
+	List-Owner; bh=w1tWU+ugLKXN/7KmHbGjR+Hcmq9vw80FYWffp2IG3P0=; b=w8tKfXc9EQGF1A
+	gdaLD/YpDoEK7inoWxkt1Gywm580xlnXmEG3XUw2wpuLsjPS0w+Nyih4bajcOwzpkD54xaPmAayTC
+	PVX2nLf1Y7z1nsJCKs7eBYztBIY7e0rDz4ZtOv7G85g4aG1zi2jpri9PBZ4+R1ac+3ITG1WcM5Vsf
+	vGAKC1Ge+0To6D0jsB8kfwgaub7IKMLGeG2N9U2SzGCVJceMpAzY1ptKiEBZDtP9K7ZZkXx8pZLOm
+	e3Gx136/Z+ksVO/4QPiyi47yA7Y2ayrud19UCi5hpprZ8aOGLoZwx/H0NSxPCeZJRDTevrhnaBfND
+	roshXTiQDQ6CEK8GLYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wea19-0000000HKVi-11eM;
-	Tue, 30 Jun 2026 15:04:55 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1weaEL-0000000HLwH-1FZU;
+	Tue, 30 Jun 2026 15:18:33 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wea16-0000000HKUL-0cFg
+	id 1weaEH-0000000HLvt-1zal
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 15:04:53 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c99672293cso26039375ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 08:04:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782831891; x=1783436691; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OZ+KouBHR2A5cU5ulbS52ssZaf2NlH3yq/de1XOWkF8=;
-        b=Cup7TQ5tVsk3QhVBHU7IDpYLbb+TKgVvSTffPeJb66QbHqJf1If1ZDGRF5+qTmTw2C
-         Gs0ORPtLDfh5ie/jnRziIMEt6JNHS5CUTAaDtsEKx64dbrLyCjEv5FnEosvH4a4V3nCO
-         /yx97wpNlB6CTTBBphHu8/NGQ3KsYFN5HH5GP1oOAG8/3QvVYWnv3Og/XBJ0TkLv9ich
-         lvBkMGtpLWqKMvdCDy6F/kd7Y7bH9EgaEYpYVjPYkmJluu6I8iQaqE10k/7eFbeqo3rl
-         +CyNn6R0Sr///nACvjsBh046bylFXVAx+CoLW0bGEOzHaXTIckyaaBiFC+2fvo0r4h0o
-         txAA==
+	Tue, 30 Jun 2026 15:18:31 +0000
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c127813835aso251822866b.2
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 08:18:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782831891; x=1783436691;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OZ+KouBHR2A5cU5ulbS52ssZaf2NlH3yq/de1XOWkF8=;
-        b=q5ZvAiRP68wYCEsk2wYLkyDFZO2VZ8/58mCNHCF25bgJeC/Q2lTUW0VyangqWVSpw+
-         Wsic89YyMnqrq9ReKav1dC76aZDhxT3ZXrjHdyZpTE4SnXRHxPIUCoehOPzNjbZOoPCS
-         9mXyFnY0Ot9KZ6CAFy8DPeVsz3Pix97yG3zkuzFWtcpRZtVepE6JWvZk3z6qaKYoaqh3
-         CXcgXaZAjDIlhym3biGlf97YZMAtSelAEToknV4jyfzGzTiXPNDxc56+rFRy5rrJlVrn
-         i8PvlrrfAnCxnJ0u46mmb5Xm3+RUfxaXNrwewUimlP8FVEV4cLluklIipoqVETg3SB+b
-         BPcQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrPKvslCuolR++XGZppV1LFVd1BEMuiQ2Wcm64xZL+MPJ1zSxNWtr9j7sCVSjNjL7dxlZv90TypLS3Ztw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWteBcM9Pqco01eEQgT5a8HoE1SaYJL1W2bINqa+6MPIaO3VyX
-	X7GE2nqB6vf+V0bPOlrAGerSa/1l0sGahNwwzrGf4iCTOYkadpVZFoOM
-X-Gm-Gg: AfdE7clq8h9tCsksYR+e5+a+mZs6kHFqYlz7Aq8Q7AOmZ2YcLE9iEXRab5thqMXXfht
-	0zFA+9uwwa5/EgOsK28rXghcNjbumCksjZDCxm27uKMwOk8VPacoFoGprFNM1SMpihp/1cxVqM6
-	2vqDvSSP4K4+t1bTHeJtwW4pMuvTOQdnJR0trQXing+czdB8SB7AiQQU3AuW3MilswJiamDRx5l
-	kuQk/MqiTjOBQiyBg3MiVJYnfdScf5JQwqZ42Wb2ZnIt2BpywBm5LGILkUWRn3MxCPaNgRiGjCH
-	L7JsuD3GhaH1AuGc3xCAaMf03GHrUPH7BwThqKq2R43qW0+qHSQZeCryXvsoXfUh53mLadLFsbf
-	EEkT2eUnyHsV+2jSHO6qwOzGA4rxIBvZW8glWYdozWiB5beeL6CBswUjrj1jnniMZe1Xjis+Eii
-	Mn0/QJKXY=
-X-Received: by 2002:a17:903:3c0c:b0:2c9:feea:4e4c with SMTP id d9443c01a7336-2ca5a55308emr7483055ad.15.1782831891075;
-        Tue, 30 Jun 2026 08:04:51 -0700 (PDT)
-Received: from ubuntu.. ([110.9.142.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca37a70bc0sm16250465ad.10.2026.06.30.08.04.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 08:04:50 -0700 (PDT)
-From: Sang-Heon Jeon <ekffu200098@gmail.com>
-To: rppt@kernel.org,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-mm@kvack.org,
-	Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	kasan-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>
-Subject: [PATCH v3 4/8] riscv: remove unreachable invalid range check in kasan_init()
-Date: Wed,  1 Jul 2026 00:04:09 +0900
-Message-ID: <20260630150413.1718632-5-ekffu200098@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260630150413.1718632-1-ekffu200098@gmail.com>
-References: <20260630150413.1718632-1-ekffu200098@gmail.com>
+        d=1e100.net; s=20251104; t=1782832707; x=1783437507;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u/KBEaRwzQxEmv419xD4ZZ9bpbQPWDLZFF8bQ7NEZ/M=;
+        b=mPVLEpxdoeg2uWK5/5ybL5COY0Tp0c5WLajt52BH0ypKzUQPMVBzsxiCqXYpD0dT1/
+         6gI/nUG5bWaoFy1l3XJBD78+lQz7D7b459qV1BdMo9tQ/iqhxM+n+bXzl9xav7G/TiaE
+         8E89TjMTLB6VZV3Mo4NSHq9DJTBFvD6il+bbMVi78cempZJqoPAhyWENr54R8nOxA18k
+         Pjsjmj22sH/QUun9bJW7tXikqxeJPj0EsflWZ85Z3VlqSs088REeGyU6jQ5RLciTKFF3
+         zQ7v2tIg7JYq6PvZJDv+x2qCW7U1ydZiMU95pDyXjyz3KxrJ5ufNBuWH6idmhhFzIpLu
+         197w==
+X-Gm-Message-State: AOJu0YxjypDE+wzmFtDYi5txKmBY7r7rex6FW6BaPtw49j9hhStQHMrD
+	VlJRjFv9M0WJ3ZJLeDnEb/hRYDnEcDsWmOP7iKkBF86cNUW+WWSzkaqrXr4iLJd6lqs=
+X-Gm-Gg: AfdE7ckKWketSmedzYKpxdJP1UhEICvE4dEnQIge/hDIVN72U87y4/70o00xVPXrlJS
+	I35B94/uqXsOqq6z2bBXHvZwaSAWwdOyX8DIqGe8Y6JE75kvxkK4DAELyY2ED26FVmTJ1N7E3ej
+	w0kOcZ1RfoZ6KneYGvZcmPD7Woeoged4em0TBIpYqk4ubaOiSEAP+PfB3JYCHfEUp3bJb0W5xUn
+	eK3SnzseIz2MTnIR67c17GNEUG4yJ5UGFeYG/wCjH4T1RDmFfK4npmrwzmunRGo4er2y9L52ahi
+	ePchzCCUcSowni7ZzavmqO9xF96b+tX82dcAZYVtIL9/SFux8MboNRXvlwNwWHxId0UQjvyTa8Q
+	BmkN9ir8DyFAgeuaTw3epq9V4JdK6P1Qvn5nJ1LW0BCIHHN8W6jIPeObCTLae+EvcieLhV1kGgY
+	VaXquodSR6YLUAtV9dm0T2pEf6yBEYbqx9/znX3ssO8k8SyeisQ9666she3ImE
+X-Received: by 2002:a17:906:140c:b0:c12:2b09:6c83 with SMTP id a640c23a62f3a-c1297fb28d0mr44676766b.33.1782832706824;
+        Tue, 30 Jun 2026 08:18:26 -0700 (PDT)
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1288f47394sm144641266b.43.2026.06.30.08.18.26
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Jun 2026 08:18:26 -0700 (PDT)
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-691c5776f35so7163497a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 08:18:26 -0700 (PDT)
+X-Received: by 2002:a05:6402:4490:b0:698:48c4:361c with SMTP id
+ 4fb4d7f45d1cf-6988786091fmr817966a12.28.1782832706307; Tue, 30 Jun 2026
+ 08:18:26 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260513-panhandle-ashy-70c6abf84d59@spud>
+In-Reply-To: <20260513-panhandle-ashy-70c6abf84d59@spud>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 30 Jun 2026 17:18:13 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXnkeantjtoMg+3unfP8ZSeG+7K+EGkn48=BEi_RWENwg@mail.gmail.com>
+X-Gm-Features: AVVi8Cc1NkuZmAxV303oD2tKXfYtzTdOGchmD-0yx3VkueavnJtU938JZF73YgY
+Message-ID: <CAMuHMdXnkeantjtoMg+3unfP8ZSeG+7K+EGkn48=BEi_RWENwg@mail.gmail.com>
+Subject: Re: [PATCH v1] rtc: mpfs: fix counter upload completion condition
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
+	stable@vger.kernel.org, Valentina.FernandezAlanis@microchip.com, 
+	Daire McNamara <daire.mcnamara@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-rtc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_080452_181318_384103B0 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260630_081829_543592_8076F70D 
+X-CRM114-Status: GOOD (  25.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,39 +96,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kasan_init() populates the linear mapping shadow with for_each_mem_range()
-and breaks the loop when start >= end. for_each_mem_range() never returns
-an invalid range, so start < end always.
+Hi Conor,
 
-Therefore the start >= end check is unreachable, so remove it.
+On Wed, 13 May 2026 at 20:04, Conor Dooley <conor@kernel.org> wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> The condition that needs to be checked for upload completion is the
+> UPLOAD bit in the completion register going low. The original iterations
+> of this driver used a do-while and this was converted to a
+> read_poll_timeout() during upstreaming without the condition being
+> inverted as it should have been.
+>
+> I suspect that this went unnoticed until now because a) the first read
+> was done when the bit was still set, immediately completing the
+> read_poll_timeout() and b) because the RTC doesn't hold time when power
+> is removed from the SoC reducing its utility (I for one keep it
+> disabled). If my first suspicion was true when the driver was
+> upstreamed, it's not true any longer though, hence the detection of the
+> problem.
+>
+> Fixes: 0b31d703598dc ("rtc: Add driver for Microchip PolarFire SoC")
+> CC: stable@vger.kernel.org
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-No functional change.
+Thanks, this landed as commit 9792ff8afa9017fe ("rtc: mpfs: fix counter
+upload completion condition") in v7.2-rc1, and finally the endless
+stream of:
 
-Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
-Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Reviewed-by: Andrey Ryabinin <ryabinin.a.a@gmail.com>
----
- arch/riscv/mm/kasan_init.c | 3 ---
- 1 file changed, 3 deletions(-)
+    mpfs_rtc 20124000.rtc: timed out uploading time to rtc
 
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index c4a2a9e5586e..1f3aa9611187 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -512,9 +512,6 @@ void __init kasan_init(void)
- 		void *start = (void *)__va(p_start);
- 		void *end = (void *)__va(p_end);
- 
--		if (start >= end)
--			break;
--
- 		kasan_populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
- 	}
- 
+is gone!
+
+And no, it didn't go unnoticed, at least not for me, but you couldn't
+reproduce it reliably before:
+https://lore.kernel.org/bce2ca405ef96b1363fd1370887409d9e8468422.1660659437.git.geert+renesas@glider.be/
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.43.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
