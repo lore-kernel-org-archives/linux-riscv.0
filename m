@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECBBC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 07:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581ADC43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 07:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x647XaG/Esu+b8kEan9jV6HF33kvWeO/HVkVjnpKMKk=; b=2eQo59HjLrcuSe
-	ME1jh7okb7fPG7o452U/klSl5UV8NlTs7BYzokaSwl8Yi0eZqcvAtMNTEKxb+Axekaio0I6DzuDoE
-	gZfTv7sGXxACeUVBXaCkTz0UqvgyrANvTj10msN75nVDfSz6SJVuT6UqtFRRlR9T+qRKDYWRnEv9J
-	sxy/Xw7w+JU1GAMm7SBWvVBG9PuesM5y3nqLsGCGireRaSCu7g3QtY4RSY/WQ2fcKd/0zgs2maeMU
-	36Cs71DwEHs+ibr9w8wZ85IhDjak0xCrQKsHgzxg2vfrhVyqa2jjkIk4Oe67oXusfaE+ngtWdGlpX
-	NgBqBMofhGE9fNTNxZKA==;
+	List-Owner; bh=8EbCr1/COvxOnpi5OQaU6ohIIlyHVeqP0Rh6SAg9M5E=; b=xV1qAPYfXFNAys
+	ORJYW8Y6+lae45kwSanxQDAw16bH+At+u+o9Fn6GpTNQ4fQyW9Au2F2EsisZrAw3c7x5TbJo9sOzk
+	5Zjh4e+R7dTw0LTGhhLHmogw48fAgp1ewKqFzi6tutdf6TxXMFGsrwqfvx8h2NdEFgFUh6BE1fcx0
+	xbOcVx24Le8u/sbOzEswVxt4Gf9lcsikYDxBaQLSG8WI0xNgcjfFqt40wFcEOyCzOYokWqgKlGeby
+	G7E8yt0M7VO/X7qZ32qn9leu9rqKBK/jVPt08Z0IGlD3Q/2+cjO7H026L4uJH1K/P73VTbWSTPXTW
+	WXc7rT5yu5eRzV2ZX/xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weScV-0000000G4iu-0MTk;
-	Tue, 30 Jun 2026 07:10:59 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1weSoY-0000000G5mj-1Tkf;
+	Tue, 30 Jun 2026 07:23:26 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weScQ-0000000G4hB-2OXa
+	id 1weSoW-0000000G5mJ-0Jks
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 07:10:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EFF13C5CD4C;
-	Tue, 30 Jun 2026 07:10:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6543F60233;
-	Tue, 30 Jun 2026 07:10:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7836106F1C3F;
-	Tue, 30 Jun 2026 09:10:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782803447; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=2WEvFOUe3RFPl/fYwecdyACzR7RbrE8OMXLcd2G9smQ=;
-	b=ukauNkjoFa+Izzi7oPn2g0tA9q7whk8DxJSbSLP4SFqYdfTnlnKGZ1S4XqYxEEwP8ROc9E
-	HBc0hiAPp7t+IiAp+olwJx+tnk551HcHvSjWCDN0CAqAC9n0GWw0PdeayEatvn0B87x+i2
-	UtCQ70rLf2WOGxPOPxiLprWMeC8InZK5XbLOStrcUyN9FT/CSPIE8djSzaSgoUsGbVtrxe
-	ZHuWI77VuVPssz2DRPOR0uitBZkzZoNSB2PL41BJvUg7Ik0Og/41Mijhl8L8HyfqFLpmni
-	K2yR3zqh15Dqv+kBkWLY7EwbaAqDcVbg9hQlF4vujxerOUvHat58mr27FL4SvQ==
-Message-ID: <0083a957-7afb-489b-b2db-de3acd71b445@bootlin.com>
-Date: Tue, 30 Jun 2026 09:10:34 +0200
+	Tue, 30 Jun 2026 07:23:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 8811E2007C0;
+	Tue, 30 Jun 2026 09:23:20 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1weSoS-005NFc-1V;
+	Tue, 30 Jun 2026 09:23:20 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1weSoS-000000002RU-1a3o;
+	Tue, 30 Jun 2026 09:23:20 +0200
+Message-ID: <0ccf83ca31fe30a77099aafd8fae31e75fd276e3.camel@pengutronix.de>
+Subject: Re: [PATCH v5 4/6] reset: anlogic: add support for Anlogic DR1V90
+ resets
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Brian Masney <bmasney@redhat.com>, Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Paul Walmsley	
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou	
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Date: Tue, 30 Jun 2026 09:23:20 +0200
+In-Reply-To: <akLcbHYKJfvZzf27@redhat.com>
+References: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
+	 <20260514-dr1v90-cru-v5-4-34f3021aab51@pigmoral.tech>
+	 <akLcbHYKJfvZzf27@redhat.com>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 2/6] dt-bindings: ethernet: eswin: add EIC7700
- eth1 RX clock inversion variant
-To: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
- pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
- weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org,
- wens@kernel.org
-References: <20260630063123.1118-1-lizhi2@eswincomputing.com>
- <20260630063239.1158-1-lizhi2@eswincomputing.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260630063239.1158-1-lizhi2@eswincomputing.com>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_001054_769435_DDFB161B 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20260630_002324_273366_8A5FBD0D 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +79,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Brian,
 
-On 6/30/26 08:32, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
+On Mo, 2026-06-29 at 16:58 -0400, Brian Masney wrote:
+> Hi Philipp,
 > 
-> The EIC7700 SoC integrates two GMAC instances. The eth1 MAC exhibits
-> different RX clock sampling characteristics due to silicon-inherent
-> timing behavior.
+> On Thu, May 14, 2026 at 05:27:20PM +0800, Junhui Liu wrote:
+> > Add reset controller support for the Anlogic DR1V90 SoC, which is an
+> > auxiliary device associated with the Clock and Reset Unit (CRU). All
+> > resets are active-low.
+> > 
+> > Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 > 
-> The eth1 MAC has a fixed, non-configurable RX clock-to-data skew at the
-> MAC input in the order of 4-5 ns. This cannot be compensated solely by
-> the standard MAC internal delay configuration and PHY delay, and RX clock
-> inversion is required at 1000Mbps for correct sampling.
+> I don't see a Reviewed-by or Acked-by for you on the reset portion of
+> this driver.
 > 
-> The eth1 TX path also includes a fixed silicon-inherent delay of
-> approximately 2 ns. This delay is always present and cannot be disabled.
-> It is therefore part of the effective transmit timing observed on the
-> wire.
-> 
-> For the eth1 variant, the valid tx-internal-delay-ps values include
-> this fixed delay component. Consequently, the effective range becomes
-> 2000-4540 ps (approximately 2000 ps fixed delay plus 0-2540 ps
-> programmable delay).
-> 
-> Introduce a dedicated compatible string
-> "eswin,eic7700-qos-eth-clk-inversion" to represent the eth1 variant,
-> allowing the driver to apply RX clock inversion only when required by
-> hardware variant selection.
-> 
-> This keeps SoC-level differentiation without exposing silicon-fixed skew
-> as configurable device tree parameters.
-> 
-> To reflect this, model the TX internal delay as a base 0-4540 ps range,
-> and constrain valid values per compatible using conditional schema rules.
-> 
-> Update the binding schema as follows:
-> 
->   - Define tx-internal-delay-ps as a base range: 0-4540 ps
->   - Add compatible-specific constraints using if/then rules:
->     * eswin,eic7700-qos-eth:
->         max 2540 ps
->     * eswin,eic7700-qos-eth-clk-inversion:
->         minimum 2000 ps (effective range 2000-4540 ps)
-> 
-Maybe Andrew can help answering that one, but does it ever make sense to insert
-a delay beyond 2540 ps ?
+> I'm gathering a pull for Stephen for various clk drivers that were
+> missed during the last merge window. Does all of this usually go in via
+> one tree?
 
-Maxime
+When both clk and reset drivers depend on the dt-bindings + headers
+patch, often all of it is merged through the clk tree. For this,
 
+Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
+
+> Or Stephen merges the clk part, you merge the reset portion?
+> Who usually merges the dts changes?
+
+In most cases clk is the platform device, and reset is just an
+auxiliary device. So if I can merge the reset driver on its own, dts
+usually goes with clk.
+
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
