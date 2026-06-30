@@ -4,84 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D579C43602
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 06:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F249BC43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 06:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TkCfsil3oFAJvD7VKfs9Jw87byAQB1WXofWSzqJz7pE=; b=4qAvG8b983eXeE
-	3PjUjqssHNQuet6MG+A5yC4SaYHRABa+suCjRf5Bhy1pel3qNbcBlilX5dgVbBKLNKzQlMUeAFEJs
-	ZegABj8B+YPkpXIYjCOlNta0u2DqE+3pBV35llHTCKks4zbN3dAYTCsOagMM0LMbVsdWYxWENMbmR
-	7FmdS5mG1jsrkcKMiY3rWxPPYQcpit1eYmsPwxyWjHe82GiDZ3x2ZYPBuwHsYt/FB4rj3I9A0pU9D
-	Q2pOEKct7TuedZSSUBuUMJBOaoYAfW+nqovCCz8UFAPJoHSzxOUw70X6qWfBEyAlmNdXTI6gVhrtc
-	1qXH1tFhbhy0qH4tM8pg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=00lDH60WXWhBLxQWCzUBjKMtCLqgBEHFLg4yAHNW6ME=; b=ZUZs8a3XnlLfpW
+	Ggu8xc+u6aHXRVHjnX4KXxsWiOkYUimmreN6sCQLZUsv0xMCTGGGxTNo0BMVddzzp4Qx16PpLNafE
+	WpUXtykVWeJk4xBfvL88rv+gbFXJGCwSveGp7faDaK87XNyzoslQjDw7utavkzg6+OgLZ7Nh7ncnJ
+	xl0oFsvWpjzQqfNMettiZDt0IfJv3LpV0XQ5BayZ5TMw+oQTPONacDEyiS0SRI+0IoB1wGT1GKcoX
+	/9V3FBamvxEaY/8o0/033PEvCI3BaXe2tlfDZFwSa5mNPa3NPjByiFMdk+l8nwUnjBOBTG2aF5fbD
+	qD+fUZpCI375XLa5qANg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weS5V-0000000Fys6-00Ty;
-	Tue, 30 Jun 2026 06:36:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1weSGW-0000000G1oI-2r7d;
+	Tue, 30 Jun 2026 06:48:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weS5S-0000000Fypj-3uVo
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 30 Jun 2026 06:36:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=N2nOin7119A8OFWjzdJgiYfIcWaOpdcCRtKsgB5ab2g=; b=Mh70Hl5Pkqao6LqyPUBVYnGFU9
-	S1TDlVGJ6P0OhKOO+Ro9Ekpo5JY/Zd849Bx/uPK5yRdEyL7l5DycN9/VT8sUmC9JWoAo2t+QgKaIQ
-	vikyvn6Dkri6U3D2dFErR9XUgg3z0IReKEqfL1RNXSucMc5wjj8FlBdmaFOAOYKZxOgdo5dFj/jpI
-	LCYOn0jXH8MkPkbUwGd9G5wV+fj7PzSruwcRWMyZDVsOmVIWqcUXnm1Uho3gciYq+pr74mRTnFds8
-	xylXY0l+EFffqaUZLR8ygn29tFiTzw0ViilEAYzKgVnyF74R0Y3VdJJcGwbTmSLt+1MDXa0mWqHFz
-	CNIrlLxQ==;
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weS5K-00000001ZDx-04uh
+	id 1weSGV-0000000G1ny-0Wd5
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 06:36:48 +0000
-Received: from [127.0.0.2] (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowACX_uHoY0NqK2UiFg--.7986S2;
-	Tue, 30 Jun 2026 14:36:25 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Tue, 30 Jun 2026 14:36:24 +0800
-Subject: [PATCH] riscv: Avoid stack access when CSR_SCRATCH is incorrect
+	Tue, 30 Jun 2026 06:48:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A4F9C43EE4
+	for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 06:48:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D1411F0155C
+	for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 06:48:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782802094;
+	bh=GmOeYBnH+pucvx3tPfeJ0XPPeaBlbElUu+Q/ZIKymgM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=gQbUHPxhEiH2raHpZIN6oBRl9E+1UD3QUNT2Fw4BPeFQ+WDHDN+zFU6PwALsNMK05
+	 2WjNlTS+FoMmA2fr/tFjj4GhPIvIc9cC2METu1pc6GLfvit78DT+DLQV/gs1JE0hbt
+	 fgb31zwcDdQo31BoonXIRM6Fq/apx7UcxVtwwsvPyNwkqB88Yh/LevTtxWfRLdoZMZ
+	 rGXNGVVtUgJi44UaN8zODBgy2aNOsaQGrrILL7pUJP5D7qUzL9mSiRR3za3IxR1s/f
+	 4WmaLujPY3xb+FTws1zpYt90YJaXS77LpBoqsRjCJKuubo6YxPtNvlspKmDadlCY35
+	 LSZgNK5KCJ5eg==
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4624a44e152so3779823f8f.2
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2026 23:48:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro+SeqzUu8H4cJ+mJHio6HnwgEyphUI62DLrDVrT+N0M7QLtox9XnRyXEWliA2uY69QAH+RbFTZ0zvqLg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHxxAsyHPkdiPIUIeOjxDKb00F0TME+uXKGieSLhEY7BcNmola
+	L6QbTNUc1y2VAO6FF3+JhRDer76RIWl2VDCvLa8isI3srGz8EfylyJzNd3AZpWspOf8IDrd4Yl/
+	NFuGNU0rUEgHDjfGqrYXs2atgehr5fq8=
+X-Received: by 2002:a5d:5d06:0:b0:475:f100:3600 with SMTP id
+ ffacd0b85a97d-475f100372fmr683383f8f.61.1782802093102; Mon, 29 Jun 2026
+ 23:48:13 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260630-riscv-no-stack-when-wrong-scratch-v1-1-0f9b9cb5cf67@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIAOdjQ2oC/yXNwQrCMAyA4VcZORvoOhziq4iHNotrFFpJ6iaMv
- btVj9/l/zcwVmGDc7eB8iImJTf0hw4ohTwzytQM3vnRjYNDFaMFc0GrgR64Js64askzGmmolPA
- 4uIkj9XSKHlrnqXyT9+9xuf5tr3hnqt8w7PsHitMfXYUAAAA=
-X-Change-ID: 20260630-riscv-no-stack-when-wrong-scratch-530debc1c8b2
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Palmer Dabbelt <palmer@rivosinc.com>, Yaxing Guo <guoyaxing@bosc.ac.cn>, 
- Vivian Wang <wangruikang@iscas.ac.cn>
-X-Mailer: b4 0.15.2
-X-CM-TRANSID: zQCowACX_uHoY0NqK2UiFg--.7986S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Aw1UtryfCw4UXF4xXrW7CFg_yoWxZryDpr
-	ZxCF9xKrsYkryrG3yIy3Z5uFyrJwsxWayakan7Ca45Jr40ga1rXw1ktas8GFyDJrWYgr10
-	9F4DZw1Ska1DAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkK14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AK
-	xVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
-	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFyl
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7VU11rW7
-	UUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_073643_005002_E4E01E01 
-X-CRM114-Status: GOOD (  19.72  )
+References: <20260630045531.3939-1-kprateek.nayak@amd.com> <20260630045531.3939-5-kprateek.nayak@amd.com>
+In-Reply-To: <20260630045531.3939-5-kprateek.nayak@amd.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 30 Jun 2026 14:47:57 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTi3EJj7NrOEZ0GF21VxfyUFujnaGbRmLuYy1_YcPkbDw@mail.gmail.com>
+X-Gm-Features: AVVi8Cc9p7eoaCe7f58H6IC6apx1iBlYENd1M3Ce4o3oou9E96K3mWDK4f0IxWE
+Message-ID: <CAJF2gTTi3EJj7NrOEZ0GF21VxfyUFujnaGbRmLuYy1_YcPkbDw@mail.gmail.com>
+Subject: Re: [PATCH v5 4/8] riscv/runtime-const: Replace open-coded
+ placeholder with RUNTIME_MAGIC
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Samuel Holland <samuel.holland@sifive.com>, Charlie Jenkins <thecharlesjenkins@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, 
+	Jisheng Zhang <jszhang@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,215 +83,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kernel exception handler unconditionally relies on the value in
-CSR_SCRATCH, whether it is 0 (meaning kernel mode) or the current
-pointer (meaning user mode). Therefore, any exception that happens while
-CSR_SCRATCH does not reflect the current privilege mode would be
-irrecoverable.
-
-When VMAP_STACK=y, spurious-seeming page faults can happen while
-accessing the stack if the processor has cached/still-in-pipeline
-non-valid PTEs. Therefore, it is unsafe to access the stack on entry
-before setting CSR_SCRATCH to 0, or on exit to user after setting
-CSR_SCRATCH to current.
-
-Therefore, instead of using the stack, make some scratch space in
-task_info for these fragile regions of code, and access them using
-offsets from tp. The scratch space for mark_new_valid_map is not reused
-because the page fault *can* nest in places where the scratch space is
-needed.
-
-Fixes: 503638e0babf ("riscv: Stop emitting preventive sfence.vma for new vmalloc mappings")
-Reported-by: Yaxing Guo <guoyaxing@bosc.ac.cn>
-Link: https://lore.kernel.org/linux-riscv/20260601084524.34584-1-guoyaxing@bosc.ac.cn/
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
----
-There does seem to be a remaining question: Couldn't the
-task_struct/thread_info access also take a spurious-seeming fault?
-
-At least in practice, this doesn't seem to be a problem. The definitive
-fix *might* be that the task_struct kmem_cache needs a
-flush_tlb_kernel_range() on the allocation slow path.
-
-And of course I tried making it use absolutely no memory accesses in
-these fragile parts, but I really couldn't figure it out.
----
- arch/riscv/include/asm/csr.h         |  1 +
- arch/riscv/include/asm/thread_info.h |  5 +++
- arch/riscv/kernel/asm-offsets.c      |  2 ++
- arch/riscv/kernel/entry.S            | 65 +++++++++++++++++++++++++++---------
- 4 files changed, 58 insertions(+), 15 deletions(-)
-
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 31b8988f4488..d033a7ed56d9 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -16,6 +16,7 @@
- #define SR_MPIE		_AC(0x00000080, UL) /* Previous Machine IE */
- #define SR_SPP		_AC(0x00000100, UL) /* Previously Supervisor */
- #define SR_MPP		_AC(0x00001800, UL) /* Previously Machine */
-+#define SR_MPP_SHIFT	11
- #define SR_SUM		_AC(0x00040000, UL) /* Supervisor User Memory Access */
- 
- /* zicfilp landing pad status bit */
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 55019fdfa9ec..afa9c61d74c6 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -73,6 +73,11 @@ struct thread_info {
- 	 */
- 	unsigned long		a0, a1, a2;
- #endif
-+	/*
-+	 * Used in ret_from_exception() and handle_exception() as scratch space
-+	 * when CSR_SCRATCH does not reflect the current privilege mode.
-+	 */
-+	unsigned long		tp, t0;
- #ifdef CONFIG_RISCV_USER_CFI
- 	struct cfi_state	user_cfi_state;
- #endif
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index af827448a609..2d617234bcdb 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -49,6 +49,8 @@ void asm_offsets(void)
- 	OFFSET(TASK_TI_A1, task_struct, thread_info.a1);
- 	OFFSET(TASK_TI_A2, task_struct, thread_info.a2);
- #endif
-+	OFFSET(TASK_TI_TP, task_struct, thread_info.tp);
-+	OFFSET(TASK_TI_T0, task_struct, thread_info.t0);
- 
- 	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
- #ifdef CONFIG_RISCV_USER_CFI
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index c6988983cdf7..e268a4c07921 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -126,6 +126,8 @@
- .endm
- 
- SYM_CODE_START(handle_exception)
-+	/* Caution: CSR_SCARTCH does not reflect privilege mode from now on. */
-+
- 	/*
- 	 * If coming from userspace, preserve the user thread pointer and load
- 	 * the kernel thread pointer.  If we came from the kernel, the scratch
-@@ -163,6 +165,19 @@ SYM_CODE_START(handle_exception)
- #endif
- 
- .Lsave_context:
-+	REG_S t0, TASK_TI_T0(tp)
-+
-+	/*
-+	 * Grab the saved TP, and also set the scratch register back to 0, so
-+	 * that if a recursive exception occurs, the exception vector knows it
-+	 * came from the kernel.
-+	 *
-+	 * Caution: CSR_SCARTCH does not reflect privilege mode before this.
-+	 */
-+	csrrw t0, CSR_SCRATCH, zero
-+	REG_S t0, TASK_TI_TP(tp)
-+	REG_L t0, TASK_TI_T0(tp)
-+
- 	REG_S sp, TASK_TI_USER_SP(tp)
- 	REG_L sp, TASK_TI_KERNEL_SP(tp)
- 	addi sp, sp, -(PT_SIZE_ON_STACK)
-@@ -190,7 +205,7 @@ SYM_CODE_START(handle_exception)
- 	csrr s2, CSR_EPC
- 	csrr s3, CSR_TVAL
- 	csrr s4, CSR_CAUSE
--	csrr s5, CSR_SCRATCH
-+	REG_L s5, TASK_TI_TP(tp)
- 	REG_S s0, PT_SP(sp)
- 	REG_S s1, PT_STATUS(sp)
- 	REG_S s2, PT_EPC(sp)
-@@ -198,12 +213,6 @@ SYM_CODE_START(handle_exception)
- 	REG_S s4, PT_CAUSE(sp)
- 	REG_S s5, PT_TP(sp)
- 
--	/*
--	 * Set the scratch register to 0, so that if a recursive exception
--	 * occurs, the exception vector knows it came from the kernel
--	 */
--	csrw CSR_SCRATCH, x0
--
- 	/* Load the global pointer */
- 	load_global_pointer
- 
-@@ -271,11 +280,6 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 	/* Save the kernel shadow call stack pointer */
- 	scs_save_current
- 
--	/*
--	 * Save TP into the scratch register , so we can find the kernel data
--	 * structures again.
--	 */
--	csrw CSR_SCRATCH, tp
- 1:
- #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
- 	move a0, sp
-@@ -308,11 +312,42 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 
- 	REG_L x1,  PT_RA(sp)
- 	REG_L x3,  PT_GP(sp)
--	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
- 	restore_from_x6_to_x31
- 
--	REG_L x2,  PT_SP(sp)
-+	/*
-+	 * Stash t0 and tp in thread_info since we can't access the stack after
-+	 * switching CSR_SCRATCH.
-+	 */
-+	REG_L t0,  PT_T0(sp)
-+	REG_S t0,  TASK_TI_T0(tp)
-+	REG_L t0,  PT_TP(sp)
-+	REG_S t0,  TASK_TI_TP(tp)
-+
-+	REG_L sp,  PT_SP(sp)
-+
-+	/* If returning to user mode, set CSR_SCRATCH to tp, else 0 */
-+	csrr t0, CSR_STATUS
-+#if defined(CONFIG_RISCV_M_MODE)
-+	/* the MPP value is too large to be used as an immediate arg for andi */
-+	srli t0, t0, SR_MPP_SHIFT
-+	andi t0, t0, SR_MPP >> SR_MPP_SHIFT
-+	/* t0 = (mstatus & SR_MPP) >> SR_MPP_SHIFT */
-+#else
-+	andi t0, t0, SR_SPP
-+	/* t0 = sstatus & SR_SPP */
-+#endif
-+	seqz t0, t0
-+	/* t0 = !(status & SR_PP) */
-+	neg t0, t0
-+	/* t0 = (status & SR_PP) ? 0 : -1 */
-+	and t0, t0, tp
-+	/* t0 = (status & SR_PP) ? 0 : tp */
-+	csrw CSR_SCRATCH, t0
-+
-+	/* Caution: CSR_SCARTCH does not reflect privilege mode from now on. */
-+
-+	REG_L t0,  TASK_TI_T0(tp)
-+	REG_L tp,  TASK_TI_TP(tp)
- 
- #ifdef CONFIG_RISCV_M_MODE
- 	mret
-
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260630-riscv-no-stack-when-wrong-scratch-530debc1c8b2
-
-Best regards,
---  
-Vivian "dramforever" Wang
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdW4gMzAsIDIwMjYgYXQgMTI6NTfigK9QTSBLIFByYXRlZWsgTmF5YWsgPGtwcmF0
+ZWVrLm5heWFrQGFtZC5jb20+IHdyb3RlOgo+Cj4gRGVmaW5lIHRoZSBwbGFjZWhvbGRlciB1c2Vk
+IGZvciBsdWkgKyBhZGRpW3ddIHBhdGNoaW5nIHNlcXVlbmNlIGFzCj4gUlVOVElNRV9NQUdJQyBh
+bmQgdXNlIHRoYXQgaW5zdGVhZCBvZiBvcGVuIGNvZGluZyB0aGUgY29uc3RhbnRzIGluIHRoZQo+
+IGlubGluZSBhc3NlbWJseS4KPgo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlcyBpbnRlbmRlZC4KPgo+
+IFN1Z2dlc3RlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gUmV2aWV3ZWQtYnk6
+IENoYXJsaWUgSmVua2lucyA8dGhlY2hhcmxlc2plbmtpbnNAZ21haWwuY29tPgo+IFRlc3RlZC1i
+eTogQ2hhcmxpZSBKZW5raW5zIDx0aGVjaGFybGVzamVua2luc0BnbWFpbC5jb20+Cj4gU2lnbmVk
+LW9mZi1ieTogSyBQcmF0ZWVrIE5heWFrIDxrcHJhdGVlay5uYXlha0BhbWQuY29tPgo+IC0tLQo+
+IGNoYW5nZWxvZyB2NC4udjU6Cj4KPiBvIENvbGxlY3RlZCB0YWdzIGZyb20gQ2hhcmxpZSAoVGhh
+bmtzIGEgdG9uISkKPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9ydW50aW1lLWNvbnN0
+LmggfCAzOCArKysrKysrKysrKysrKy0tLS0tLS0tLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMjAg
+aW5zZXJ0aW9ucygrKSwgMTggZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9ydW50aW1lLWNvbnN0LmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3J1
+bnRpbWUtY29uc3QuaAo+IGluZGV4IDkwMGRiMGExMDNkMDUuLjFjZTAyNjA1ZDJlNDMgMTAwNjQ0
+Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9ydW50aW1lLWNvbnN0LmgKPiArKysgYi9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3J1bnRpbWUtY29uc3QuaAo+IEBAIC0xNSwyMSArMTUsMjMg
+QEAKPgo+ICAjaW5jbHVkZSA8bGludXgvdWFjY2Vzcy5oPgo+Cj4gKyNkZWZpbmUgUlVOVElNRV9N
+QUdJQyBfX0FTTV9TVFIoMHg4OUFCQ0RFRikKPiArCj4gICNpZmRlZiBDT05GSUdfMzJCSVQKPiAt
+I2RlZmluZSBydW50aW1lX2NvbnN0X3B0cihzeW0pICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgXAo+IC0oeyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBcCj4gLSAgICAgICB0eXBlb2Yoc3ltKSBfX3JldDsgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiAtICAgICAgIGFzbV9pbmxpbmUoIi5vcHRp
+b24gcHVzaFxuXHQiICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+IC0gICAgICAgICAgICAg
+ICAiLm9wdGlvbiBub3J2Y1xuXHQiICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gLSAg
+ICAgICAgICAgICAgICIxOlx0IiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIFwKPiAtICAgICAgICAgICAgICAgImx1aSAgICAlW19fcmV0XSwweDg5YWJkXG5cdCIgICAg
+ICAgICAgICAgICAgICAgXAo+IC0gICAgICAgICAgICAgICAiYWRkaSAgICVbX19yZXRdLCVbX19y
+ZXRdLC0weDIxMVxuXHQiICAgICAgICAgICBcCj4gLSAgICAgICAgICAgICAgICIub3B0aW9uIHBv
+cFxuXHQiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiAtICAgICAgICAgICAgICAg
+Ii5wdXNoc2VjdGlvbiBydW50aW1lX3B0cl8iICNzeW0gIixcImFcIlxuXHQiICAgXAo+IC0gICAg
+ICAgICAgICAgICAiLmxvbmcgMWIgLSAuXG5cdCIgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBcCj4gLSAgICAgICAgICAgICAgICIucG9wc2VjdGlvbiIgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIFwKPiAtICAgICAgICAgICAgICAgOiBbX19yZXRdICI9ciIgKF9fcmV0KSk7
+ICAgICAgICAgICAgICAgICAgICAgICAgXAo+IC0gICAgICAgX19yZXQ7ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyNkZWZpbmUgcnVudGltZV9j
+b25zdF9wdHIoc3ltKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+
+ICsoeyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIFwKPiArICAgICAgIHR5cGVvZihzeW0pIF9fcmV0OyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICBhc21faW5saW5l
+KCIub3B0aW9uIHB1c2hcblx0IiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+
+ICsgICAgICAgICAgICAgICAiLm9wdGlvbiBub3J2Y1xuXHQiICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgIjE6XHQiICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAgICJs
+dWkgICAgJVtfX3JldF0sICUlaGkoIiBSVU5USU1FX01BR0lDICIpXG5cdCIgICAgICAgICAgXAo+
+ICsgICAgICAgICAgICAgICAiYWRkaSAgICVbX19yZXRdLCVbX19yZXRdLCAlJWxvKCIgUlVOVElN
+RV9NQUdJQyAiKVxuXHQiIFwKPiArICAgICAgICAgICAgICAgIi5vcHRpb24gcG9wXG5cdCIgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAgICIu
+cHVzaHNlY3Rpb24gcnVudGltZV9wdHJfIiAjc3ltICIsXCJhXCJcblx0IiAgICAgICAgICAgXAo+
+ICsgICAgICAgICAgICAgICAiLmxvbmcgMWIgLSAuXG5cdCIgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgIi5wb3BzZWN0aW9uIiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAgIDog
+W19fcmV0XSAiPXIiIChfX3JldCkpOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+
+ICsgICAgICAgX19yZXQ7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIFwKPiAgfSkKPiAgI2Vsc2UKPiAgLyoKPiBAQCAtNDYsMTAgKzQ4LDEw
+IEBACj4gICAgICAgICAiLm9wdGlvbiBwdXNoXG5cdCIgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIFwKPiAgICAgICAgICIub3B0aW9uIG5vcnZjXG5cdCIgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICAgICAgICAgIjE6XHQiICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gLSAgICAgICAibHVpICAgICVb
+X19yZXRdLDB4ODlhYmRcblx0IiAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiAtICAgICAg
+ICJsdWkgICAgJVtfX3RtcF0sMHgxMjM0XG5cdCIgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+XAo+IC0gICAgICAgImFkZGl3ICAlW19fcmV0XSwlW19fcmV0XSwtMHgyMTFcblx0IiAgICAgICAg
+ICAgICAgICAgICBcCj4gLSAgICAgICAiYWRkaXcgICVbX190bXBdLCVbX190bXBdLDB4NTY3XG5c
+dCIgICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAgICJsdWkgICAgJVtfX3JldF0sICUlaGko
+IiBSVU5USU1FX01BR0lDICIpXG5cdCIgICAgICAgICAgXAo+ICsgICAgICAgImx1aSAgICAlW19f
+dG1wXSwgJSVoaSgiIFJVTlRJTUVfTUFHSUMgIilcblx0IiAgICAgICAgICBcCj4gKyAgICAgICAi
+YWRkaXcgICVbX19yZXRdLCVbX19yZXRdLCAlJWxvKCIgUlVOVElNRV9NQUdJQyAiKVxuXHQiIFwK
+PiArICAgICAgICJhZGRpdyAgJVtfX3RtcF0sJVtfX3RtcF0sICUlbG8oIiBSVU5USU1FX01BR0lD
+ICIpXG5cdCIgXApMR1RNIQoKUmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3Jn
+PgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
