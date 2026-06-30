@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CA0C43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 08:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F817C43327
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 08:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OuVfG6ShqWmm47G6jOTxJyJUlDwRGl8o3yw0/wLMpoU=; b=UY1bEOfspHh1Gz
-	Pfc9gscEgJ5PbGylDijPEIvMlTHuySDM4DZoHWUHL3hiiekhfck4M/ZGfxuoSq5vWXAFmD5hQfB06
-	TvfuTJRHBS+wwTv2Y7xjKA4gQ/aqFt1wA1/T1WIcktmcMgSYX/o0h1rUW3bwD0di076l7OvsL0sDC
-	EK8XFmo4djNPU2wb7+NvDBLe7IejHCpGXsU2ZvOdV3S9qFLSNji1elhrUK9+y9e3O1scl77BCcsll
-	/o22/lSH71myRSdYEFoT867Rmx88gk4sl1p6MRQ5doNwKzYVcetnhcsfg6DHbfYPP7BcIhIgLJNqa
-	hwv8zHAA1D77UoQOLBrg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HUMitoTNS3FJ8Mf5Dz+QYeVPfZFsOQvGCgP1rW8j7uI=; b=P6Xb+L1dlMNn3x
+	p1rHBok5j9gYaJIFTu9/ZIvzJ2TgZ92QCrYgVBugo/c6wkGOMkGU5QL3uIjhxpXIPV4puMObW269s
+	ZnXdlL7XR5vHyVG+MYcAb9liAuB357dJ7CtXM81eH5cpZiTSEUN2gfDXA2jTVHySqdZjcrLryRy+f
+	9mHZdiGU/d4Bm3aQ/Vv5+tO3P6PSr6XAQs+GdeY7znuSuEHVUbjf1TiqHfn7PtWSR+/32Csze3jRV
+	XF/V+Bf46F5rHHsriqfjt7iz5WKMGPDEWV8QVMUV2HlndM/f2TnesnnpbJHbF2fRHk1ci0FhiqSVf
+	h0pvhUKHoFmeIDT+VvXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUAb-0000000GJ3h-2Qw4;
-	Tue, 30 Jun 2026 08:50:17 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1weUE7-0000000GJdV-01YE;
+	Tue, 30 Jun 2026 08:53:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUAX-0000000GJ2l-0Fg9
+	id 1weUE5-0000000GJdK-2KnU
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 08:50:16 +0000
-Received: from fric.. (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowABXo8Y8g0NqoiIoFg--.13803S2;
-	Tue, 30 Jun 2026 16:50:04 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: xiaowu.417@qq.com
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	dev.mbstr@gmail.com,
-	jiakaiPeanut@gmail.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	qirui.001@bytedance.com,
-	samuel.holland@sifive.com,
-	xujiakai2025@iscas.ac.cn,
-	zhangchunyan@iscas.ac.cn
-Subject: Re: [PATCH v3] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe()
-Date: Tue, 30 Jun 2026 08:50:04 +0000
-Message-Id: <20260630085004.4052828-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <tencent_F3349461F34E258F222F22AEC27934FEA00A@qq.com>
-References: <tencent_F3349461F34E258F222F22AEC27934FEA00A@qq.com>
+	Tue, 30 Jun 2026 08:53:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C93D44184D;
+	Tue, 30 Jun 2026 08:53:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C921F000E9;
+	Tue, 30 Jun 2026 08:53:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782809632;
+	bh=SEnLCfN3BLX37SaNDMuUiKxagO5YKWeLAoW/iqtR+Uk=;
+	h=From:Subject:Date:To:Cc;
+	b=oMCkZrk8hqHv822HEe2iSUISS9XiHn3hCxwPZao6u7xbQu2d5dNahVGMf+NePYBFL
+	 GI2uHa45B/EbjvbHGsPk1gW0zSf9qFv7F7XtBjV5dX3IflR6tQomNBsxIj3mqwuM9x
+	 7jLCBAxCpr9Av6UDRD+GPwCh7Os3j7K/cNoaG9sLPNBWVC9PEzgpVcNZQX8aRkvnlF
+	 qU6PV+TY7D/gbUn3n2tNjoB8Y0BDSl153VZQ48GwxdUCvSkjzYvJiGpnFjZE9tue9m
+	 nJyw/fh1RjCnRlot36Um/9jLEoNifGplddzq1JVp6juF2jCO0pdEpqzhJCKcJZcrcH
+	 uO+97WBtrMEWg==
+From: Yixun Lan <dlan@kernel.org>
+Subject: [PATCH 0/2] clk: spacemit: k3: set few clocks as critical
+Date: Tue, 30 Jun 2026 08:53:18 +0000
+Message-Id: <20260630-06-clk-hdma-critial-v1-0-443c0ac88c5f@kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowABXo8Y8g0NqoiIoFg--.13803S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZFy5XrWxZFykXr1kZrWrXwb_yoWDCwb_Wa
-	yqy3W7JanrtFZruFn7Jr15Zr48G3Z5AryfCr4DXr1ftFW8AF1rWrykuryrAr4fJws7Kryq
-	yr909a17C3sY9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbSkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr1j6F
-	4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28Icx
-	kI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
-	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
-	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY
-	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aV
-	CY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VU1UDG5UUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAEOCWpDfrsSAwAAs3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_015013_471291_E922C986 
-X-CRM114-Status: GOOD (  11.57  )
+X-B4-Tracking: v=1; b=H4sIAP6DQ2oC/yXMTQqDMBBA4avIrB1IxI7Uq4iLJE51rH8kKoJ49
+ 8a6/BbvnRDYCwcokxM87xJkniJ0moDrzNQyShMNmcpIkdaoCN3wxa4ZDTovq5gBc/siY22h6K0
+ hlovnjxz/a1U/Dpvt2a33Cq7rBwY67Kx3AAAA
+X-Change-ID: 20260611-06-clk-hdma-critial-4b56abb70691
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
+Cc: Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>, 
+ Drew Fustini <fustini@kernel.org>, linux-clk@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1144; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=MjGhlwrMf6rAwEoM7MJMPKBf8giVSOjCTKFxZcjlQdM=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqQ4QU/vBYJyw7nICHXT5s9zQy1d1Dzas9AB3of
+ T773n8og/OJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCakOEFBsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+0vzA//T4XJpV//HntlX6hJWVAblVdjtMJFOVqqzwks/5PgbQJA78FW72d5k
+ bq8ucYoxLyZRTNWWc8/0efZ/Hs3a1ffhiuVb+f0txLCWwJHyYHShoB9TzrPGYbEyV4YlzkdlDf6
+ +XmuRiAy9EXk82ykmVrPZI1dRvxkTmdg3UgCNIYd1sM8LsM3GJHz2dzdlOUNMCYQOHLsbw1kq7n
+ Uh+Dw/6emzjG6020kiW9FGnIymz3zbl5/TC3bwFhO0G5Nfn950RB9h6GLnJl+UZzbMx55/Ywxt3
+ /KATNFEL0IjN8JASQ8c34LihbaZuGtiAafEjm67f7MmfMbFu3YaLvX5L0VGvt+z41fzw1TS8fMa
+ 4S2GdtM4FXJCILUfB/iYnaRey+g2s0EblHv0pRdVhb5bYN0X2suxyUf/KZYlEUj66bRDwgbxLBD
+ xQrdYBEw/SA/TBmgY4HUgDAjLBStFKNDc0QqJ9f6LZB5PyuwQgYdpHmPeG3IpX99WXUejJvrfoW
+ TbhPqIcEmfepGmMbSRjZxGhC8SfxJ0LKZ6QeR1QNPPkmHoI0P4cyAhUk5sDw2ljIf2S8ALx7oD7
+ NluL01OFU+aMh8SceabLeYqHdwYWmx3uhtWUSSA5IGnEihl6DUkmkm1sW2Ojiz9tx6SOa360DCr
+ YC0Oa2KRgsC52OGZhxOvhrEGmXQNzU=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +87,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiBIaSBKaWFrYWksCj4KPiBJIGNhbWUgYWNyb3NzIHRoZSBTYXNoaWtvIEFJIHJldmlldyBvZiB0
-aGlzIHBhdGNoIGFuZCB3YXMgYWJsZSB0bwo+IHJlcHJvZHVjZSB0aGUgb3ZlcmZsb3dfc3RhY2sg
-T09CIGlzc3VlIGl0IGZsYWdnZWQg4oCUIGEgS0FTQU4KPiBzdGFjay1vdXQtb2YtYm91bmRzIGlu
-IHdhbGtfc3RhY2tmcmFtZSgpIG9uIHJpc2N2NjQgUUVNVS4KCkhpIFhpYW8sCgpUaGFua3MgZm9y
-IHRoZSB0ZXN0aW5nIGFuZCB0aGUgUG9DLgoKPiBXaGVuIHRoZSBzdGFjayBwb2ludGVyIGZhbGxz
-IG91dHNpZGUgdGhlIHRhc2sgc3RhY2sg4oCUIGZvciBleGFtcGxlIHdoZW4KPiB1bndpbmRpbmcg
-ZnJvbSB0aGUgb3ZlcmZsb3dfc3RhY2sgZHVyaW5nIGEgc3RhY2sgb3ZlcmZsb3cgcGFuaWMsIG9y
-Cj4gd2hlbiByZWFkaW5nIC9wcm9jLzxwaWQ+L3N0YWNrIGZvciBhIHJlbW90ZSB0YXNrIHdob3Nl
-IHNhdmVkIFNQCj4gaGFwcGVucyB0byBiZSBvbiB0aGUgb3ZlcmZsb3dfc3RhY2sg4oCUIHRoaXMg
-Y29kZSBmYWxscyB0aHJvdWdoIHRvIHRoZQo+IGBJU19FTkFCTEVEKENPTkZJR19JUlFfU1RBQ0tT
-KWAgYnJhbmNoIGFuZCB1c2VzIHRoZSBJUlEgc3RhY2sgYm91bmRhcnkKPiBhcyB0aGUgdXBwZXIg
-bGltaXQuCj4KPiBUaGUgSVJRIHN0YWNrIGlzIDMyS0IgKElSUV9TVEFDS19TSVpFKSB3aGlsZSB0
-aGUgb3ZlcmZsb3dfc3RhY2sgaXMKPiBvbmx5IDRLQiAoT1ZFUkZMT1dfU1RBQ0tfU0laRSkuICBV
-c2luZyB0aGUgSVJRIHN0YWNrIGJvdW5kYXJ5IHdoZW4gdGhlCj4gU1AgaXMgYWN0dWFsbHkgb24g
-dGhlIG92ZXJmbG93X3N0YWNrIGxldHMgdGhlIHVud2luZGVyIHJlYWQgd2VsbCBwYXN0Cj4gdGhl
-IGVuZCBvZiB0aGUgdmFsaWQgb3ZlcmZsb3dfc3RhY2sgYWxsb2NhdGlvbiwgdHJpZ2dlcmluZyBh
-IEtBU0FOCj4gc3RhY2stb3V0LW9mLWJvdW5kcy4KCkdvb2QgcG9pbnQuICBJJ2xsIGFkZCBhIGRl
-ZGljYXRlZCBvdmVyZmxvd19zdGFjayBjaGVjayB3aXRoIHRoZQpjb3JyZWN0IDQgS2lCIGJvdW5k
-YXJ5LgoKSmlha2FpCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Some clocks in K3 SoC need to set the critical flag so it will never
+get these clocks closed.
+  The HDMA clock provides the clock source for internal TCM access path
+of X100 RISC-V core, and from the real test case, shut down this clock
+will cause whole Linux system hang in a quite minimal environment with
+only ethernet, UFS modules enabled.
+  The RCPU clock is needed for RCPUs which are two RT24 RISC-V cores and
+it's responisble for running ESOS instance. ESOS should be always kept
+running behind Linux, so set it as critical flag to prevent it from being
+shut off.
+
+  This issue was reported-by Han Gao off line, and I didn't discover this
+due to 'clk_ignore_unused' kernel flag was enabled.
+
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+Yixun Lan (2):
+      clk: spacemit: k3: set hdma clock as critical
+      clk: spacemit: k3: set rcpu clock as critical
+
+ drivers/clk/spacemit/ccu-k3.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260611-06-clk-hdma-critial-4b56abb70691
+
+Best regards,
+--  
+Yixun Lan <dlan@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
