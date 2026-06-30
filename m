@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF90C43327
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 15:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D4CC43327
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 15:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w1tWU+ugLKXN/7KmHbGjR+Hcmq9vw80FYWffp2IG3P0=; b=w8tKfXc9EQGF1A
-	gdaLD/YpDoEK7inoWxkt1Gywm580xlnXmEG3XUw2wpuLsjPS0w+Nyih4bajcOwzpkD54xaPmAayTC
-	PVX2nLf1Y7z1nsJCKs7eBYztBIY7e0rDz4ZtOv7G85g4aG1zi2jpri9PBZ4+R1ac+3ITG1WcM5Vsf
-	vGAKC1Ge+0To6D0jsB8kfwgaub7IKMLGeG2N9U2SzGCVJceMpAzY1ptKiEBZDtP9K7ZZkXx8pZLOm
-	e3Gx136/Z+ksVO/4QPiyi47yA7Y2ayrud19UCi5hpprZ8aOGLoZwx/H0NSxPCeZJRDTevrhnaBfND
-	roshXTiQDQ6CEK8GLYkg==;
+	List-Owner; bh=m7LTl+UxFWGHxBPI9Dd3ZmMcK2Pr69MSwLGUljIsDjU=; b=lhzuSLf2x5gW9m
+	fwwsFOx+EJ+Y6UVWiDrmVif4zgbgaAjHnDdVxpLUhGROGTAhX19LehlM/cjixeN3YT7JVa21dUQGV
+	sEgdGh4gGzgOKua4bRjlSbGKuUUZi+T5aNcvULgBRxIzEI64GZE6Hipqpel1qGhJjGYeXJ8cIDFD2
+	E0d5/7Q2bZMyCGg1MfJkcAL7otLJGtplBAuzpNnsjWi7Yt0nL3g5qB1mr4hE4kkQZXrfyk+CgoVWY
+	1TT0Uz96iGAli4Vcz3CrP2lt28yI4d30/Fk9ckwrSEqex/nSp8DWUHSh9ZQywLFTQXXSUuIMgsV2c
+	sDm1Jk7KgUgQfU53SPUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaEL-0000000HLwH-1FZU;
-	Tue, 30 Jun 2026 15:18:33 +0000
-Received: from mail-ej1-f47.google.com ([209.85.218.47])
+	id 1weaRY-0000000HNZj-1RQr;
+	Tue, 30 Jun 2026 15:32:12 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaEH-0000000HLvt-1zal
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 15:18:31 +0000
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c127813835aso251822866b.2
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 08:18:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782832707; x=1783437507;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u/KBEaRwzQxEmv419xD4ZZ9bpbQPWDLZFF8bQ7NEZ/M=;
-        b=mPVLEpxdoeg2uWK5/5ybL5COY0Tp0c5WLajt52BH0ypKzUQPMVBzsxiCqXYpD0dT1/
-         6gI/nUG5bWaoFy1l3XJBD78+lQz7D7b459qV1BdMo9tQ/iqhxM+n+bXzl9xav7G/TiaE
-         8E89TjMTLB6VZV3Mo4NSHq9DJTBFvD6il+bbMVi78cempZJqoPAhyWENr54R8nOxA18k
-         Pjsjmj22sH/QUun9bJW7tXikqxeJPj0EsflWZ85Z3VlqSs088REeGyU6jQ5RLciTKFF3
-         zQ7v2tIg7JYq6PvZJDv+x2qCW7U1ydZiMU95pDyXjyz3KxrJ5ufNBuWH6idmhhFzIpLu
-         197w==
-X-Gm-Message-State: AOJu0YxjypDE+wzmFtDYi5txKmBY7r7rex6FW6BaPtw49j9hhStQHMrD
-	VlJRjFv9M0WJ3ZJLeDnEb/hRYDnEcDsWmOP7iKkBF86cNUW+WWSzkaqrXr4iLJd6lqs=
-X-Gm-Gg: AfdE7ckKWketSmedzYKpxdJP1UhEICvE4dEnQIge/hDIVN72U87y4/70o00xVPXrlJS
-	I35B94/uqXsOqq6z2bBXHvZwaSAWwdOyX8DIqGe8Y6JE75kvxkK4DAELyY2ED26FVmTJ1N7E3ej
-	w0kOcZ1RfoZ6KneYGvZcmPD7Woeoged4em0TBIpYqk4ubaOiSEAP+PfB3JYCHfEUp3bJb0W5xUn
-	eK3SnzseIz2MTnIR67c17GNEUG4yJ5UGFeYG/wCjH4T1RDmFfK4npmrwzmunRGo4er2y9L52ahi
-	ePchzCCUcSowni7ZzavmqO9xF96b+tX82dcAZYVtIL9/SFux8MboNRXvlwNwWHxId0UQjvyTa8Q
-	BmkN9ir8DyFAgeuaTw3epq9V4JdK6P1Qvn5nJ1LW0BCIHHN8W6jIPeObCTLae+EvcieLhV1kGgY
-	VaXquodSR6YLUAtV9dm0T2pEf6yBEYbqx9/znX3ssO8k8SyeisQ9666she3ImE
-X-Received: by 2002:a17:906:140c:b0:c12:2b09:6c83 with SMTP id a640c23a62f3a-c1297fb28d0mr44676766b.33.1782832706824;
-        Tue, 30 Jun 2026 08:18:26 -0700 (PDT)
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1288f47394sm144641266b.43.2026.06.30.08.18.26
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jun 2026 08:18:26 -0700 (PDT)
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-691c5776f35so7163497a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 08:18:26 -0700 (PDT)
-X-Received: by 2002:a05:6402:4490:b0:698:48c4:361c with SMTP id
- 4fb4d7f45d1cf-6988786091fmr817966a12.28.1782832706307; Tue, 30 Jun 2026
- 08:18:26 -0700 (PDT)
+	id 1weaRW-0000000HNZC-0D0g;
+	Tue, 30 Jun 2026 15:32:11 +0000
+Date: Tue, 30 Jun 2026 17:32:04 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782833526;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RdsRgNbVkI3Xb/bXMSfj+yw5lewzrynD2xqGGnGzV8Y=;
+	b=qu/1s0nHQC6KFpDGuKrxXJLqBTdl1FoH/4yCYl34ohT2guoTuARwKQEULMNqdYWydigyrj
+	UQsxj+D6QvmsMUbHcM7u3rM86IjWKPJT39xqCzzGIvsLgqe2Hz4HBOvbz7iysNXKPy5W/u
+	R/GUuEzOAf1ZZdsDdNL4Jr6q/bCrdt9+3kstOwvKETmQg7hIqCfC8XESzPiKTthZJ9Oc09
+	xpBcumA8KxG/PCdAqz4l1iGj82SI/tB9ALWL8NP8tofOtWsr179TrHBkKBYCmCED0scKGL
+	24UnriDqIvgBJ16vM4xBQFbAgoL54zsV+WuM26JgtD+5w8qeomuxalv2Kqf/NA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782833526;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RdsRgNbVkI3Xb/bXMSfj+yw5lewzrynD2xqGGnGzV8Y=;
+	b=vVSU3b5gGX9pyXfPgfu3YTbbfDnrmDCkQKRUwm+vxUCIXLFG0mbsTHQglZDx4c5OUPi7Tu
+	n00gEBCaZoE4kFBg==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: oleg@redhat.com, richard.henderson@linaro.org, mattst88@gmail.com, 
+	linmag7@gmail.com, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	kees@kernel.org, guoren@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
+	geert@linux-m68k.org, tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com, 
+	deller@gmx.de, maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
+	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
+	borntraeger@linux.ibm.com, svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org, 
+	glaubitz@physik.fu-berlin.de, richard@nod.at, anton.ivanov@cambridgegreys.com, 
+	johannes@sipsolutions.net, luto@kernel.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com, 
+	peterz@infradead.org, wad@chromium.org, thuth@redhat.com, mark.rutland@arm.com, 
+	ada.coupriediaz@arm.com, kevin.brodsky@arm.com, linusw@kernel.org, yeoreum.yun@arm.com, 
+	song@kernel.org, james.morse@arm.com, anshuman.khandual@arm.com, 
+	broonie@kernel.org, liqiang01@kylinos.cn, pengcan@kylinos.cn, ryan.roberts@arm.com, 
+	yangtiezhu@loongson.cn, sshegde@linux.ibm.com, mchauras@linux.ibm.com, 
+	austin.kim@lge.com, jchrist@linux.ibm.com, arnd@arndb.de, sohil.mehta@intel.com, 
+	andrew.cooper3@citrix.com, jgross@suse.com, kas@kernel.org, x86@kernel.org, 
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, linux-csky@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, linux-um@lists.infradead.org
+Subject: Re: [PATCH v16 18/18] arm64: vdso: Expose sigreturn address on vdso
+ to the kernel
+Message-ID: <20260630172619-6c78c2e2-c2d3-44be-88e6-6c82de12baf4@linutronix.de>
+References: <20260629130616.642022-1-ruanjinjie@huawei.com>
+ <20260629130616.642022-19-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-References: <20260513-panhandle-ashy-70c6abf84d59@spud>
-In-Reply-To: <20260513-panhandle-ashy-70c6abf84d59@spud>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 30 Jun 2026 17:18:13 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXnkeantjtoMg+3unfP8ZSeG+7K+EGkn48=BEi_RWENwg@mail.gmail.com>
-X-Gm-Features: AVVi8Cc1NkuZmAxV303oD2tKXfYtzTdOGchmD-0yx3VkueavnJtU938JZF73YgY
-Message-ID: <CAMuHMdXnkeantjtoMg+3unfP8ZSeG+7K+EGkn48=BEi_RWENwg@mail.gmail.com>
-Subject: Re: [PATCH v1] rtc: mpfs: fix counter upload completion condition
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
-	stable@vger.kernel.org, Valentina.FernandezAlanis@microchip.com, 
-	Daire McNamara <daire.mcnamara@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-rtc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20260629130616.642022-19-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_081829_543592_8076F70D 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20260630_083210_227494_D0F3B7B2 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +98,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+On Mon, Jun 29, 2026 at 09:06:16PM +0800, Jinjie Ruan wrote:
+> Syscall User Dispatch (SUD) requires the signal trampoline code to not be
+> intercepted. This is necessary to support returning with a locked selector
+> while avoiding infinite recursion back into the signal handler.
+> 
+> Implement arch_syscall_is_vdso_sigreturn() for arm64 to support this
+> exclusion mechanism. For native 64-bit tasks, it checks whether the current
+> PC matches the 'svc #0' instruction inside the vDSO sigreturn trampoline.
+> 
+> 	SYM_CODE_START(__kernel_rt_sigreturn)
+> 	        mov     x8, #__NR_rt_sigreturn
+> 	        svc     #0
+> 	SYM_CODE_END(__kernel_rt_sigreturn)
+> 
+> For COMPAT tasks, it verifies if the instruction falls within
+> the architecture's 'sigpage' range, allowing the kernel to safely bypass
+> dispatching syscalls originating from these areas back to userspace.
+> 
+> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Suggested-by: kemal <kmal@cock.li>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/arm64/include/asm/elf.h |  1 +
+>  arch/arm64/kernel/vdso.c     | 16 ++++++++++++++++
+>  2 files changed, 17 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/elf.h b/arch/arm64/include/asm/elf.h
+> index d2779d604c7b..f43d4dea916a 100644
+> --- a/arch/arm64/include/asm/elf.h
+> +++ b/arch/arm64/include/asm/elf.h
+> @@ -185,6 +185,7 @@ do {									\
+>  struct linux_binprm;
+>  extern int arch_setup_additional_pages(struct linux_binprm *bprm,
+>  				       int uses_interp);
+> +extern bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs);
 
-On Wed, 13 May 2026 at 20:04, Conor Dooley <conor@kernel.org> wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> The condition that needs to be checked for upload completion is the
-> UPLOAD bit in the completion register going low. The original iterations
-> of this driver used a do-while and this was converted to a
-> read_poll_timeout() during upstreaming without the condition being
-> inverted as it should have been.
->
-> I suspect that this went unnoticed until now because a) the first read
-> was done when the bit was still set, immediately completing the
-> read_poll_timeout() and b) because the RTC doesn't hold time when power
-> is removed from the SoC reducing its utility (I for one keep it
-> disabled). If my first suspicion was true when the driver was
-> upstreamed, it's not true any longer though, hence the detection of the
-> problem.
->
-> Fixes: 0b31d703598dc ("rtc: Add driver for Microchip PolarFire SoC")
-> CC: stable@vger.kernel.org
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+A header for that?
 
-Thanks, this landed as commit 9792ff8afa9017fe ("rtc: mpfs: fix counter
-upload completion condition") in v7.2-rc1, and finally the endless
-stream of:
+>  /* 1GB of VA */
+>  #ifdef CONFIG_COMPAT
+> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+> index 592dd8668de4..5a0314a3c26e 100644
+> --- a/arch/arm64/kernel/vdso.c
+> +++ b/arch/arm64/kernel/vdso.c
+> @@ -343,3 +343,19 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+>  
+>  	return ret;
+>  }
+> +
+> +bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+> +{
+> +	unsigned long sigtramp;
+> +
+> +#ifdef CONFIG_COMPAT
+> +	if (is_compat_task()) {
+> +		unsigned long sigpage = (unsigned long)current->mm->context.sigpage;
+> +
+> +		return regs->pc >= sigpage && regs->pc < (sigpage + PAGE_SIZE);
+> +	}
+> +#endif
+> +	sigtramp = (unsigned long)VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+> +
+> +	return regs->pc == (sigtramp + 8);
 
-    mpfs_rtc 20124000.rtc: timed out uploading time to rtc
+Instead of hardcoding 'sigtramp + 8' you could add a new label to the 'svc #0'
+instruction and use that with VDSO_SYMBOL().
 
-is gone!
 
-And no, it didn't go unnoticed, at least not for me, but you couldn't
-reproduce it reliably before:
-https://lore.kernel.org/bce2ca405ef96b1363fd1370887409d9e8468422.1660659437.git.geert+renesas@glider.be/
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
