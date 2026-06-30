@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E7DC43327
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 11:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C619BC43327
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 11:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XGDtH+b1QYbcUvoqK/pimxKNPbmVnwD1fXKwqjq63ig=; b=YXJe6ll6Sa9NDR
-	y9duuyxyzS4CapIDLrlOT94x0uSZrigH98dxeKzikLHrVsv7USeD2/xSH2NR9PDAf48QK8orm0AK0
-	GI2OVdGOFRfdpqCgXgQFDtOXfS/E9iqL01gXSzQjm3Ftw1x4teypP/lc6DxMb1iOE88EtKlFqdPXC
-	dvl5VcwVvBpSKlukSri8PAE8yWcRAAHAdLsav/ynEiQ3RKJW9xTV6IXZnBxTwxs6oHKnbowHsg9FG
-	0Tkkn+TD+os8JVbU8FGPKA8XyP14J3GOWejhna1tLvx7HdcBuXWvE1v6K4vw0Wpe/RiqPQdknALKc
-	Vir9P6KbgXsOrDWS4g0g==;
+	List-Owner; bh=qxb+6dboiJTWmwspegEk3z304SuTc6T5K/q0CHPaGUk=; b=v1C0l0N2/o95S8
+	OBBPmBlBhNz0gKZrukgtedRB7GT0ohiouw/cAOFSWNz8RKcrlRU1Nd1ILdoQVKOkNryFevOQcHEDB
+	HfqgiUYJ9La0DelSA15bkhry8canANIGaWLOye0T/NQpLbNi3famYcbTqngBMDvIEZMBBeHf7hZHu
+	eyWeSbl/HkS7itIyYFRMqAom4AU9xj3tZyCZE4H8VbqWzGSDR4if1A6pWArMQ2fj8Bt6GRuzPKhU2
+	OKPxdIDhVQ+kKijqgpVTMDzq8+15Fv0Y+doG37TD6I+fYIlyJUVLSZw7dr0uL1lT0JHoqE3YQGvLZ
+	1fdE43FiohDbGh4UGmag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWHV-0000000GmFK-1zdi;
-	Tue, 30 Jun 2026 11:05:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weWIP-0000000Gmvj-0EmR;
+	Tue, 30 Jun 2026 11:06:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWHS-0000000GmCU-3fPZ;
-	Tue, 30 Jun 2026 11:05:30 +0000
+	id 1weWIO-0000000Gmuk-0K1W;
+	Tue, 30 Jun 2026 11:06:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DFB38600FF;
-	Tue, 30 Jun 2026 11:05:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5952C1F00A3A;
-	Tue, 30 Jun 2026 11:05:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 265CF600C3;
+	Tue, 30 Jun 2026 11:06:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 970C51F000E9;
+	Tue, 30 Jun 2026 11:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782817529;
-	bh=hnQYDbNf1O/dH1zz/2VAhmSeCCwJ5x8F/LTf+gjtwkY=;
+	s=k20260515; t=1782817586;
+	bh=KziUE99JyCXJvfI9gWixTL5K4MSlxqncGllEjWQ7FFU=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=EsY9VY65AjqqaljnNdL/WAs6WuJcvoLAqplQsn0gWbo46qXa6s2y0w/oWEJAsCFIq
-	 ehVh4d2Xrv5dg7VFvLnBVF0Bwi3oC7zeA4QBQkDruvHtUzZE+vdzY2exsFb48TALvV
-	 F6rHNDZ2Z5uRiAFcgPnzuLf5YseFMDpBfcyp6KeLRXWUqYdCgpModVNc8XE3tA4Vqu
-	 2888Gy8eyH6AkwcHD5Jj/9gW+J+tL+7jVxdMPWVDBZspAfBVc0qAPpUgiPDcFYWwHO
-	 zrJu7UPonWZbRh3C4lAEQjGI48ohqR0WwYaeiZn2/THLKWRk/pGT4pFQUA2t3zKj4Y
-	 Y2Ts2iKbbGafA==
+	b=gbSReGHGi6BBBm1jGbagqwMr3EDZYuq6/aVP0SmPh5q3XsQf2OyoXmHLpD7jKFuXN
+	 rz/DuYqpdl8L3DXfBDTvQ7kL0hoqzMjWXWkW8p3niXHmRq2KJO1lhQLr2BGi+0/xW1
+	 1QN7bIbJ1gjbY8koWTFN6rYpDeBENnDuuo3Di/Qb6ZxIaSfy0sRjdwCT0pQ7sNxCeM
+	 zOq3PScln3ortRJ02gpXTvE3pm2Lk4DnNeyCU0ee7DMVL+uHvo0MsRKXj5dTHKpBrf
+	 Xhnkz9uFlwHhr0XSswtrvXEZTcdZ9vbGyco4qHRo1JKwGuORedI6VrlOrYZTkpFs86
+	 RPXDfpVVtd2LA==
 From: Pratyush Yadav <pratyush@kernel.org>
 To: Wandun Chen <chenwandun1@gmail.com>
 Cc: chenhuacai@kernel.org,  kernel@xen0n.name,  pjw@kernel.org,
@@ -54,14 +54,14 @@ Cc: chenhuacai@kernel.org,  kernel@xen0n.name,  pjw@kernel.org,
   akpm@linux-foundation.org,  pasha.tatashin@soleen.com,
   pratyush@kernel.org,  ruirui.yang@linux.dev,  m.szyprowski@samsung.com,
   robin.murphy@arm.com
-Subject: Re: [PATCH v4 01/10] kexec/crash: provide crash_exclude_mem_range()
- stub when CONFIG_CRASH_DUMP=n
-In-Reply-To: <20260630074715.4126796-2-chenwandun1@gmail.com> (Wandun Chen's
-	message of "Tue, 30 Jun 2026 15:47:05 +0800")
+Subject: Re: [PATCH v4 07/10] of: reserved_mem: add kdump helpers to exclude
+ non-dumpable regions
+In-Reply-To: <20260630074715.4126796-8-chenwandun1@gmail.com> (Wandun Chen's
+	message of "Tue, 30 Jun 2026 15:47:11 +0800")
 References: <20260630074715.4126796-1-chenwandun1@gmail.com>
-	<20260630074715.4126796-2-chenwandun1@gmail.com>
-Date: Tue, 30 Jun 2026 13:05:23 +0200
-Message-ID: <2vxzqzloi8zw.fsf@kernel.org>
+	<20260630074715.4126796-8-chenwandun1@gmail.com>
+Date: Tue, 30 Jun 2026 13:06:21 +0200
+Message-ID: <2vxzmrwci8ya.fsf@kernel.org>
 User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -84,13 +84,19 @@ On Tue, Jun 30 2026, Wandun Chen wrote:
 
 > From: Wandun Chen <chenwandun@lixiang.com>
 >
-> Prepare for an upcoming change that excludes non-dumpable reserved
-> regions from the kdump vmcore and will call crash_exclude_mem_range()
-> from generic, non-arch code.
+> Add two helpers to exclude non-dumpable regions for arch-specific
+> code.
 >
-> No functional change.
+>  - of_reserved_mem_kdump_nr_ranges() returns the count of regions
+>    that are not dumpable. Each excluded region may split an existing
+>    crash_mem range into two, so callers use this to calculate
+>    crash_mem allocation size.
+>
+>  - of_reserved_mem_kdump_exclude() walks reserved_mem[] and calls
+>    crash_exclude_mem_range() for every non-dumpable region.
 >
 > Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
 
 Acked-by: Pratyush Yadav <pratyush@kernel.org>
 
