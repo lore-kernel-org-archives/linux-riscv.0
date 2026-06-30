@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D4CC43327
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 15:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A68C43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 15:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m7LTl+UxFWGHxBPI9Dd3ZmMcK2Pr69MSwLGUljIsDjU=; b=lhzuSLf2x5gW9m
-	fwwsFOx+EJ+Y6UVWiDrmVif4zgbgaAjHnDdVxpLUhGROGTAhX19LehlM/cjixeN3YT7JVa21dUQGV
-	sEgdGh4gGzgOKua4bRjlSbGKuUUZi+T5aNcvULgBRxIzEI64GZE6Hipqpel1qGhJjGYeXJ8cIDFD2
-	E0d5/7Q2bZMyCGg1MfJkcAL7otLJGtplBAuzpNnsjWi7Yt0nL3g5qB1mr4hE4kkQZXrfyk+CgoVWY
-	1TT0Uz96iGAli4Vcz3CrP2lt28yI4d30/Fk9ckwrSEqex/nSp8DWUHSh9ZQywLFTQXXSUuIMgsV2c
-	sDm1Jk7KgUgQfU53SPUQ==;
+	List-Owner; bh=INRSSpKMey3YycqFnF7Q+gJ4vLEwkXQJ5wKK3Ir8zvQ=; b=lMlAJxYHaVLARf
+	WyebrclooNeCvfCKQ9jB5MXqhosfOzub7HALEaf7mNxTeclvMYW6HgwIfZ6wub2tZDGqCSeQG1q1l
+	Y4WRicwOKKEf1ySmIQl6GVQ/e4B/k465Ln2kjWc0mMUn5PGe0iJRsnLIXKvOrad1pJU+yCph5o9Eq
+	EYFARtfTKmCMmamWUlsZ6rpTZQtHAeToqlElc1v1eT+cHUyG2ee6Z4Ume7651IePu3z/Zm6TcHj3H
+	U47nEkoxZnOpKTZnv/nvnoH1D1kii6N0hFk03XYxzZ7NfkGpytg4uB0YwogveNM8C2O/iWepNpEBV
+	ywwgU1XxV5pgaL3IgFsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaRY-0000000HNZj-1RQr;
-	Tue, 30 Jun 2026 15:32:12 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1weaj6-0000000HPgQ-2T8w;
+	Tue, 30 Jun 2026 15:50:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaRW-0000000HNZC-0D0g;
-	Tue, 30 Jun 2026 15:32:11 +0000
-Date: Tue, 30 Jun 2026 17:32:04 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782833526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RdsRgNbVkI3Xb/bXMSfj+yw5lewzrynD2xqGGnGzV8Y=;
-	b=qu/1s0nHQC6KFpDGuKrxXJLqBTdl1FoH/4yCYl34ohT2guoTuARwKQEULMNqdYWydigyrj
-	UQsxj+D6QvmsMUbHcM7u3rM86IjWKPJT39xqCzzGIvsLgqe2Hz4HBOvbz7iysNXKPy5W/u
-	R/GUuEzOAf1ZZdsDdNL4Jr6q/bCrdt9+3kstOwvKETmQg7hIqCfC8XESzPiKTthZJ9Oc09
-	xpBcumA8KxG/PCdAqz4l1iGj82SI/tB9ALWL8NP8tofOtWsr179TrHBkKBYCmCED0scKGL
-	24UnriDqIvgBJ16vM4xBQFbAgoL54zsV+WuM26JgtD+5w8qeomuxalv2Kqf/NA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782833526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RdsRgNbVkI3Xb/bXMSfj+yw5lewzrynD2xqGGnGzV8Y=;
-	b=vVSU3b5gGX9pyXfPgfu3YTbbfDnrmDCkQKRUwm+vxUCIXLFG0mbsTHQglZDx4c5OUPi7Tu
-	n00gEBCaZoE4kFBg==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: oleg@redhat.com, richard.henderson@linaro.org, mattst88@gmail.com, 
-	linmag7@gmail.com, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	kees@kernel.org, guoren@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
-	geert@linux-m68k.org, tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com, 
-	deller@gmx.de, maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
-	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
-	borntraeger@linux.ibm.com, svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org, 
-	glaubitz@physik.fu-berlin.de, richard@nod.at, anton.ivanov@cambridgegreys.com, 
-	johannes@sipsolutions.net, luto@kernel.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com, 
-	peterz@infradead.org, wad@chromium.org, thuth@redhat.com, mark.rutland@arm.com, 
-	ada.coupriediaz@arm.com, kevin.brodsky@arm.com, linusw@kernel.org, yeoreum.yun@arm.com, 
-	song@kernel.org, james.morse@arm.com, anshuman.khandual@arm.com, 
-	broonie@kernel.org, liqiang01@kylinos.cn, pengcan@kylinos.cn, ryan.roberts@arm.com, 
-	yangtiezhu@loongson.cn, sshegde@linux.ibm.com, mchauras@linux.ibm.com, 
-	austin.kim@lge.com, jchrist@linux.ibm.com, arnd@arndb.de, sohil.mehta@intel.com, 
-	andrew.cooper3@citrix.com, jgross@suse.com, kas@kernel.org, x86@kernel.org, 
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, linux-csky@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, linux-um@lists.infradead.org
-Subject: Re: [PATCH v16 18/18] arm64: vdso: Expose sigreturn address on vdso
- to the kernel
-Message-ID: <20260630172619-6c78c2e2-c2d3-44be-88e6-6c82de12baf4@linutronix.de>
-References: <20260629130616.642022-1-ruanjinjie@huawei.com>
- <20260629130616.642022-19-ruanjinjie@huawei.com>
+	id 1weaj4-0000000HPfo-2Y3h;
+	Tue, 30 Jun 2026 15:50:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id ED39040314;
+	Tue, 30 Jun 2026 15:50:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 272C01F00A3A;
+	Tue, 30 Jun 2026 15:50:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782834617;
+	bh=orBYolOiVh8P+Gs6dp8/inZibU5jKERhYsBdgyU7ewg=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=hYaFsO0FH9QTvOvjL+VAVldlJ2YPFGk7Uv9Z6QoYCVHtTYFvz5GLpT1JPoGmvuzja
+	 MTy6IgtdK2zMOgBks1ci94yQnYzuxOJiLmpU/slEb508GaEKc1CAdIz3+/Zq6Bt0w9
+	 2FVSSC8lyJ1ZeKB8y1XDpUIRQvZEcPOZths6ZliY3SggfKoZOFKnqpC88EFu33XLTW
+	 sn6AnFxz4EW0LATrsCAmY8ssBo7Q13rik2AkR7zp8ALgguCfUFUhwRyu2d3NhQu+/K
+	 Y2AM6LawUcaWvPp3WCkTdmmqcN+TndJjAv7WwB1TzTqCVHBCGCID2JuhETb5Xb/WQQ
+	 rTUnWQuYsWNdQ==
+From: Mike Rapoport <rppt@kernel.org>
+To: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com, 
+ will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
+ chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com, 
+ aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com, 
+ bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, robh@kernel.org, 
+ saravanak@kernel.org, akpm@linux-foundation.org, baoquan.he@linux.dev, 
+ pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev, 
+ rdunlap@infradead.org, peterz@infradead.org, feng.tang@linux.alibaba.com, 
+ dapeng1.mi@linux.intel.com, elver@google.com, enelsonmoore@gmail.com, 
+ kuba@kernel.org, ebiggers@kernel.org, lirongqing@baidu.com, 
+ leitao@debian.org, kees@kernel.org, coxu@redhat.com, cfsworks@gmail.com, 
+ jbohac@suse.cz, osandov@fb.com, ryan.roberts@arm.com, 
+ tangyouling@kylinos.cn, sourabhjain@linux.ibm.com, ritesh.list@gmail.com, 
+ gaohan@iscas.ac.cn, david@kernel.org, wangruikang@iscas.ac.cn, 
+ muchun.song@linux.dev, vishal.moola@gmail.com, junhui.liu@pigmoral.tech, 
+ guoren@kernel.org, namcao@linutronix.de, rick.p.edgecombe@intel.com, 
+ djbw@kernel.org, liaoyuanhong@vivo.com, fuqiang.wang@easystack.cn, 
+ vishal.l.verma@intel.com, chenjiahao16@huawei.com, x86@kernel.org, 
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, kexec@lists.infradead.org, 
+ Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260629094746.191843-1-ruanjinjie@huawei.com>
+References: <20260629094746.191843-1-ruanjinjie@huawei.com>
+Subject: Re: [PATCH v17 00/10] arm64/riscv: Add support for crashkernel CMA
+ reservation
+Message-Id: <178283459765.548295.14688999641870037803.b4-ty@b4>
+Date: Tue, 30 Jun 2026 18:49:57 +0300
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260629130616.642022-19-ruanjinjie@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_083210_227494_D0F3B7B2 
-X-CRM114-Status: GOOD (  17.35  )
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,75 +90,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 09:06:16PM +0800, Jinjie Ruan wrote:
-> Syscall User Dispatch (SUD) requires the signal trampoline code to not be
-> intercepted. This is necessary to support returning with a locked selector
-> while avoiding infinite recursion back into the signal handler.
+On Mon, 29 Jun 2026 17:47:36 +0800, Jinjie Ruan wrote:
+> arm64/riscv: Add support for crashkernel CMA reservation
 > 
-> Implement arch_syscall_is_vdso_sigreturn() for arm64 to support this
-> exclusion mechanism. For native 64-bit tasks, it checks whether the current
-> PC matches the 'svc #0' instruction inside the vDSO sigreturn trampoline.
+> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
+> and crashk_cma memory are almost identical across different architectures,
+> This patch set handle them in crash core in a general way, which eliminate
+> a lot of duplication code.
 > 
-> 	SYM_CODE_START(__kernel_rt_sigreturn)
-> 	        mov     x8, #__NR_rt_sigreturn
-> 	        svc     #0
-> 	SYM_CODE_END(__kernel_rt_sigreturn)
-> 
-> For COMPAT tasks, it verifies if the instruction falls within
-> the architecture's 'sigpage' range, allowing the kernel to safely bypass
-> dispatching syscalls originating from these areas back to userspace.
-> 
-> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Suggested-by: kemal <kmal@cock.li>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/include/asm/elf.h |  1 +
->  arch/arm64/kernel/vdso.c     | 16 ++++++++++++++++
->  2 files changed, 17 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/elf.h b/arch/arm64/include/asm/elf.h
-> index d2779d604c7b..f43d4dea916a 100644
-> --- a/arch/arm64/include/asm/elf.h
-> +++ b/arch/arm64/include/asm/elf.h
-> @@ -185,6 +185,7 @@ do {									\
->  struct linux_binprm;
->  extern int arch_setup_additional_pages(struct linux_binprm *bprm,
->  				       int uses_interp);
-> +extern bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs);
+> [...]
 
-A header for that?
+Applied to crashkernel-cma branch of liveupdate/linux.git tree, thanks!
 
->  /* 1GB of VA */
->  #ifdef CONFIG_COMPAT
-> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-> index 592dd8668de4..5a0314a3c26e 100644
-> --- a/arch/arm64/kernel/vdso.c
-> +++ b/arch/arm64/kernel/vdso.c
-> @@ -343,3 +343,19 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
->  
->  	return ret;
->  }
-> +
-> +bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
-> +{
-> +	unsigned long sigtramp;
-> +
-> +#ifdef CONFIG_COMPAT
-> +	if (is_compat_task()) {
-> +		unsigned long sigpage = (unsigned long)current->mm->context.sigpage;
-> +
-> +		return regs->pc >= sigpage && regs->pc < (sigpage + PAGE_SIZE);
-> +	}
-> +#endif
-> +	sigtramp = (unsigned long)VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
-> +
-> +	return regs->pc == (sigtramp + 8);
+[01/10] riscv: kexec_file: Fix crashk_low_res not exclude bug
+        commit: 5fc6e7d45373571d03cd04fd4c6069c0a97fa75a
+[02/10] powerpc/crash: sort crash memory ranges before preparing elfcorehdr
+        commit: 202b5de3ec34317d6a8944239fe227ef8f6853ec
+[03/10] crash: Add crash_prepare_headers() to exclude crash kernel memory
+        commit: 5beabef0cffaa1ea6e27e85dbd526b7a28e0e7c7
+[04/10] arm64: kexec_file: Use crash_prepare_headers() helper to simplify code
+        commit: 201b561cbc6c594aa1ef718a1204dd45720d96dd
+[05/10] x86/crash: Use crash_prepare_headers() helper to simplify code
+        commit: a8f09f2a7485956c3653696f6cb94faadd243645
+[06/10] riscv: kexec_file: Use crash_prepare_headers() helper to simplify code
+        commit: 7b078a0aa2753dcf5cae88e5349a25ac39998a9b
+[07/10] LoongArch: kexec_file: Use crash_prepare_headers() helper to simplify code
+        commit: 51ed0950adf05c99e393818887a2616dd4ab3e34
+[08/10] powerpc/kexec_file: Use crash_exclude_core_ranges() helper
+        commit: b0e06c5a30742bc6bc8523fe9c71c1a043a7661d
+[09/10] arm64: kexec_file: Add support for crashkernel CMA reservation
+        commit: c12c63d05dfe7088aa8b1b872fe261e25537c823
+[10/10] riscv: kexec_file: Add support for crashkernel CMA reservation
+        commit: a037fe3c58ed489ca8ad8531bd7e16b90a84badc
 
-Instead of hardcoding 'sigtramp + 8' you could add a new label to the 'svc #0'
-instruction and use that with VDSO_SYMBOL().
+tree: https://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux
+branch: crashkernel-cma
+
+--
+Sincerely yours,
+Mike.
 
 
-Thomas
 
 _______________________________________________
 linux-riscv mailing list
