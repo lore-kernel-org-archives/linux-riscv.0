@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7400C43602
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 09:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D4AC43327
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 09:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/hd00zHaeWwWuMgz2nNzvdhJOqzM71ZXnku42Fht6ZI=; b=f18EWMemWUlXAV
-	YFoGxNIyI0So5ViKXzM6rp/5sONhu/AQLu0OM4yVOviWiJDxQn2p2VxwZaB/p1Ox8ioQNKpU7icjU
-	hK5dyfDXy1GEmpfSmNfo9A4eDfTp2I1nyx+uUf7Jpyf+THLG4XcW1MB57RV7VAx0/Bm0tQ7xpYDS1
-	IbfrHC91YCzOEJJVR6J1dXkCeQN/zktwYZf7xpTCefhDV/x1ZGVk8W4HTx0jlbW1kpSpTWo+mPV3U
-	JYHQM1+XhTbPi5zlLikXDOJnNXOKrcfKusQWqtQhN7jX8a1wkziKiGO9gAtkCDM2gKFwX6mAcUhU8
-	zhasJUGq1Y1VP1gRofmA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uPV4WfCRA1gdDW5R6dAyklVNsctKOtifyEGbnMFpmFw=; b=QQyJvcYIRnrjE9
+	4YF0DejTD1K5or0Eopqb1YYfek8qBlYg6opyA4iYtQtvNoJAIjiuWXv1CqE6GR4753g5KY7+yzrTu
+	o59nmtzk1Jrh+KKuY6afUVdj+u+/12Lv9CIjC9q2Tm6raRZvaRfHmvLrqk3t4XgC+HPwUQ0wIUHz9
+	+3zH1X63tPC/VUIMJxtorOcNxLlymB7LPnpO8Ra3IYo9jHq3/qR6qegTpuJks3EpqSlI8O+Pw5uGK
+	MV9lYFhIBNjzxfK8A4RdRHrzrSxiZGGZivPq1IUczqvfgmsCIcqhd05nNI+uBR2UD+RfXAr7NJQ56
+	MCnIN544JedfT2csFiZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wer8R-00000001BT5-2dzq;
-	Wed, 01 Jul 2026 09:21:35 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1werY4-00000001EC5-08T0;
+	Wed, 01 Jul 2026 09:48:04 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wer8P-00000001BQo-1Fy4
+	id 1werY1-00000001EAx-1pwI
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 09:21:34 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782897690;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=27q4iLnrUGIHqDMHJ/k2A5c3Vrz1J6f+nJEVdonVQ+A=;
-	b=2B2lL4s9cRjBm7FMkFtqmwvniVFGikslUZs5C6yipsMcbAbpZmpqhFXXP8L6H+h9qe9pWI
-	JEVmX/FF8gwqMNk+lrug9Hi0sCGlZsBO+P29dU0zZ+QgAQONytwAuoDNSjFuzaxYcF+pka
-	xhTjx2NsKtx9e/xMCtW5B3wKK3QblegvQmXIr62O2Lj6hZ1VAofDOJuloyqiXsDTSew3IT
-	E4bGQepNydpvDAVe5prtCO/3AdSToRJfR03/Qx5Zzw/ZyacPpL2EhjjjKWBT1hpKFBd6u6
-	6o1MpQehUAk4YD5aU53G+sdymJYat0siDP1SnYz0B6QlAKj90QXHFvw+0eOqrQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782897690;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=27q4iLnrUGIHqDMHJ/k2A5c3Vrz1J6f+nJEVdonVQ+A=;
-	b=vkfI9ExVDs1nkBqtHii4jvmBs8MgtF/T0TrsOQoAzT9SyB2mKLRoYvVjaVCRmWstIK+nGU
-	Yirb+ZbgA61QXUBg==
-Date: Wed, 01 Jul 2026 11:21:23 +0200
-Subject: [PATCH 2/2] riscv: vdso: Simplify cflags remove logic
+	Wed, 01 Jul 2026 09:48:02 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c9dad3afec2so167095a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 02:48:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782899280; x=1783504080; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nRpp8Aarym9MAbA9S6grsKajHp/qT3ZkQCLbPzfeNPY=;
+        b=bM/RXe/rqoYrdT3abvdklMOx0RR2rM8mOi+lEsIOAujXVjA6o6fR2P5EiitJ1CnP7O
+         s0/KWUN3tEGwEdE4xQn7UyEMx23jf/0CCciWHzCtB/5PDkY02+yUZvjKEazYydmvZeyb
+         uDkjii8hC2Alwm13XAjZHybKqWq6dxxvEvgCxyBwtXvIxVJMqNJgTpgxEWc6jJgOrPx4
+         b5mTikz4EJZLNPPDUR5ts7/qv9VQSf1gVZqVfyYzUJOjre+q7PPJZ9/FVkslQg3aAegg
+         YTEFj3YcWkymWeOd7hDKqbB55nmABOI2FCSuMXi+IuHsSrz894BmCnhSabMDJ/cAv8o1
+         Jl9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782899280; x=1783504080;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nRpp8Aarym9MAbA9S6grsKajHp/qT3ZkQCLbPzfeNPY=;
+        b=FkmwTQF0yr0Vpuohl92Oj0XiNhlRfLKuGvOYHBQq5bE9suNqGLWmP3fbW/6cV0ZCz2
+         E4FFrdhJDM8s5d78rAMfKeQFBBr05/iG3ZOVcLtTBhBz2yQCX6o4CLxj1CLboz1ym38k
+         v61hI6c1eyLjuBHZhZpZXcgvi7GkN5IQWL8PL0xt4yO63hCSVCly/tcDNX3DOIBMOfN+
+         o8m1vSD4vXCZ5Fn/soJt6dXwEx7ZMjPqu30rwHqbfK2qf5CetKL7IAa0Ez/TPzxTdCLT
+         mR2U4+n1che5QNjo0eVnZ6u3a9HEKiNBQZXKDZiIMi6BA5DfOj7RHUB38Nm2+TuJUzxg
+         dYoQ==
+X-Forwarded-Encrypted: i=1; AFNElJ//zEKvNWxKGtSNO+4cUh8MjuXhJj4rCXIl1jgAAmKkdzP/JwbUQFbS7boYKXdSxcerDsEjpSCPV1Qkxw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhtkyfFgnUiT5fwMld3MURajCc7gImlXEGVHndqWNTTIDOzmLo
+	4OKjrxGMAC8g334MUbmSRabTigyJsp1HeB9zNoejM1UkGG6eXdluC+m4
+X-Gm-Gg: AfdE7cmw2f/NM3ORmoGuBUdZ7v8NDEWrfmgjy1gMt8lN0m1QuORkbAOjir7X3ad89ni
+	2hparhuSjhXkTjowx9xZ4STydm4Rz0mmYh8V/72XyHvemWKlbc2E/tpPfntuVvrdiERIvgpsvPp
+	pWZnI13XsQf7LSziK7QWmLywxrMU/a3mQ/pfRRLjk0G1Grp4R/zlAus3ZH1jej5htcrF+vHdGak
+	ujvieX+pdjTmCZ5Q7ZTyM4/y7J3OB777ClfHZGRBlFzTE6cXS2EQUfPQfJ2p11OAr9yBpcTCH+h
+	FTiYrfKM9mpX7GavT0bR6vZwZCokO7UClzZPfwALnDFnovBWDg2K+VNvpAB3BuPRS6pOQeiZ8VN
+	LnpPPs5hEikQ0pez3OXyCJTpDhIq7kHuO7nVj04m8guEzLCsuLPSDHUfXgP3ahcZAlcQICqoW5l
+	1lDrNODPxfU70=
+X-Received: by 2002:a05:6a21:7d06:b0:3bf:6c08:2b32 with SMTP id adf61e73a8af0-3bff431786dmr33434637.58.1782899280562;
+        Wed, 01 Jul 2026 02:48:00 -0700 (PDT)
+Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9bbc6d9ed9sm2903779a12.7.2026.07.01.02.47.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 02:48:00 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH 0/3] RISC-V: KVM: Cleanup SBI extension status when disble
+Date: Wed,  1 Jul 2026 17:47:27 +0800
+Message-ID: <20260701094731.1022163-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Message-Id: <20260701-riscv-vdso-lto-v1-2-89db0cd82077@linutronix.de>
-References: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de>
-In-Reply-To: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, Wende Tan <twd2.me@gmail.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782897683; l=1374;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=dWPIAgjSItKoBCqbiVV+xGlpzRl+qs+6PTj99ayOIqM=;
- b=8uNjbtWX7MN6o4gooAD+PMI2lnFNr1h6nJDxSSF/31LzygDzHygzW31VeB3WhUXJs/r5E7Mhp
- DOSiVjHn6N2DCQ604wUAEzeA9PkzaemhoXGarZiHYToLfm8Wvhi3EeM
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_022133_485764_8A33E5CE 
-X-CRM114-Status: UNSURE (   6.18  )
+X-CRM114-CacheID: sfid-20260701_024801_505998_B4C9856B 
+X-CRM114-Status: UNSURE (   7.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,35 +102,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGlzdGluZyBhbGwgZmxhZ3MgZm9yIGVhY2ggb2JqZWN0IGZpbGUgaXMgdGVkaW91cyBhbmQgZXJy
-b3ItcHJvbmUuCgpSZXBsYWNlIGl0IHdpdGggYSBzaW1wbGVyIHNvbHV0aW9uLgoKTGluazogaHR0
-cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjYwNjMwMTM1MzE2LWYyNmYwZTBmLWMwOGMtNGQ0
-ZC05OTYzLTEwZjk5ODVhNzY4OUBsaW51dHJvbml4LmRlLwpTaWduZWQtb2ZmLWJ5OiBUaG9tYXMg
-V2Vpw59zY2h1aCA8dGhvbWFzLndlaXNzc2NodWhAbGludXRyb25peC5kZT4KLS0tCiBhcmNoL3Jp
-c2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlIHwgNyArKy0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgMiBp
-bnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2Vy
-bmVsL3Zkc28vTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlCmluZGV4
-IDQzZWU4ODFmNmM2Zi4uOGRiZjI1MzJhNTczIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
-bC92ZHNvL01ha2VmaWxlCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKQEAg
-LTQxLDYgKzQxLDggQEAgY2NmbGFncy15ICs9ICQoQ0ZJX0ZVTEwpCiBhc2ZsYWdzLXkgKz0gJChL
-QlVJTERfQkFTRV9JU0EpJChDRklfTUFSQ0gpCiBhc2ZsYWdzLXkgKz0gJChDRklfRlVMTCkKIAor
-Y2NmbGFncy1yZW1vdmUteSArPSAkKENDX0ZMQUdTX0ZUUkFDRSkgJChDQ19GTEFHU19TQ1MpICQo
-Q0NfRkxBR1NfTFRPKQorCiBpZm5lcSAoJChjLWdldHRpbWVvZmRheS15KSwpCiAgIENGTEFHU192
-Z2V0dGltZW9mZGF5Lm8gKz0gLWZQSUMgLWluY2x1ZGUgJChjLWdldHRpbWVvZmRheS15KQogZW5k
-aWYKQEAgLTY4LDExICs3MCw2IEBAIGlmbmVxICgkKGZpbHRlciB2Z2V0dGltZW9mZGF5LCAkKHZk
-c28tc3ltcykpLCkKIENQUEZMQUdTXyQodmRzb19sZHMpICs9IC1ESEFTX1ZHRVRUSU1FT0ZEQVkK
-IGVuZGlmCiAKLSMgRGlzYWJsZSAtcGcgdG8gcHJldmVudCBpbnNlcnQgY2FsbCBzaXRlCi1DRkxB
-R1NfUkVNT1ZFX3ZnZXR0aW1lb2ZkYXkubyA9ICQoQ0NfRkxBR1NfRlRSQUNFKSAkKENDX0ZMQUdT
-X1NDUykgJChDQ19GTEFHU19MVE8pCi1DRkxBR1NfUkVNT1ZFX2dldHJhbmRvbS5vID0gJChDQ19G
-TEFHU19GVFJBQ0UpICQoQ0NfRkxBR1NfU0NTKSAkKENDX0ZMQUdTX0xUTykKLUNGTEFHU19SRU1P
-VkVfaHdwcm9iZS5vID0gJChDQ19GTEFHU19GVFJBQ0UpICQoQ0NfRkxBR1NfU0NTKSAkKENDX0ZM
-QUdTX0xUTykKLQogIyBGb3JjZSBkZXBlbmRlbmN5CiAkKG9iaikvJCh2ZHNvX28pOiAkKG9iaikv
-JCh2ZHNvX3NvKQogCgotLSAKMi41NS4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+KVM SBI FWFT extension has multiple internal state can be programmed
+by the userspace. However, when the FWFT feature or the FWFT extension
+is disabled, the internal state will be kept as it is, which may cause
+some side effect for the vCPU, cleanup these state when a SBI extension
+or FWFT feature is disabled.
+
+Inochi Amaoto (3):
+  RISC-V: KVM: Add SBI extension validate callback
+  RISC-V: KVM: Add SBI FWFT validation support
+  RISC-V: KVM: Reset the SBI extension when disable it
+
+ arch/riscv/include/asm/kvm_vcpu_sbi.h |  4 ++++
+ arch/riscv/kvm/vcpu_config.c          |  2 ++
+ arch/riscv/kvm/vcpu_sbi.c             | 33 +++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu_sbi_fwft.c        | 25 ++++++++++++++++++++
+ 4 files changed, 64 insertions(+)
+
+--
+2.55.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
