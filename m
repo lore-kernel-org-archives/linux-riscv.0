@@ -4,94 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25767C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C350C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 09:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WjZL4FTUYjBxkfMlGXjh9N4cbbAXSE4DXT5k3Bbyy3E=; b=hh7l0E1xyMevSa
-	WGO90LQCvB0byP5RwtQLoeMzuPXIiCFpFjY/uWZG8hTSx1rSjx5ylZGrRZ2eFQ3BG0ozpDggMClGP
-	AXZka1/p77MZER1Jzldkl3BCdtOcafDcRDNBwsbuc9+mINFkwQZ2mNHi6dA40mgeQftH2tbSHUerL
-	7c0NWSMSoeg5aTffyhNXYR1fuD1E3LtJ4zvEBC+KE4Wp29mxwarkffwJ7nvzMVvanGcECuAFVx7co
-	b8oclYsdjcSl5FEwaCHmHVNm5VDI82xcYjtCbk1F6M05GQO3YS263IQV6rW6OMIYDKV/lIzjbeNn4
-	Mxk2aerJZDgsx+fUYemQ==;
+	List-Owner; bh=DM27EzlvpnoT6mlcQWMPeVbRGY6AlGfbTKpT2jpZ7j4=; b=S+RtE3gVOBizN7
+	74kDriVsXHw3inUqRVl69EieEPQwhvTC0y+K+fe76Zn7hhW3SvE99G/rqJ6Kuu4+RFo125/62dOxh
+	4vG/aI190mkmbQTW2zhcnDs8+T8f2vI36jJvnO2ZFbhG9h1mWvh5lS47RMBSrcqrsuTZoflRaWIew
+	irfkqr6w7bFhP9WTYQpnwKmGG0FMDl89xR0wGKcsRjyMt1ljS1IAhLBGBjt5ZDd/qh5VesKQOyiP5
+	C88f6PRaRLZ3a6aMfu87X8+/31JOifsX9l9tZvbHVlD7XOwnk3lcDJGTBLoJJKr+UC4JRjeO+WEGE
+	LU3EEwmU7bjkFYayEnnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqf5-000000017cZ-1cQG;
-	Wed, 01 Jul 2026 08:51:15 +0000
-Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
+	id 1weqvb-000000019wH-3NYA;
+	Wed, 01 Jul 2026 09:08:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqf3-000000017bB-1N5j
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 08:51:14 +0000
-Received: by mail-pj2-x01.google.com with SMTP id 98e67ed59e1d1-37fb1883f59so46152a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 01:51:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782895872; x=1783500672; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G4ItoJsKPCJ+weEid+hr/8Hcxyk96+mNUaKglmg0mf4=;
-        b=ji7OR0YXauzy1k8RfDlPawfWfty6uhKu399A7EwhIDjZuaq0AbBKNuRaBxT6HMBnkS
-         l2ykTGR0FLNowBAGwCyxprdxasvdSAwnMcP9Y7/b2SibY8sn/zwW8bdzNq/Akek6g5ej
-         eaazp5A5bnPWT/QVNaA694biv+fVRVvXq70Eg929Z27qFCYLww+2qe+DXX2ttmV9Zss9
-         11ybzdT3JqlVjISIae6JIonabxa3QlmHTBwvoo48pKUVZ/Q9alueiScrFxPSBOz+hq3l
-         I1rjYEPhlRKhDleMNPrqDShMa7UcwTj4PKkSqzDBC0Lszfl4RU16mzA3c7uoSbFtCNgT
-         C6tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782895872; x=1783500672;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=G4ItoJsKPCJ+weEid+hr/8Hcxyk96+mNUaKglmg0mf4=;
-        b=BtiyM8UvLXIZ0jiCEbJSKKMM1vYcW6FHjbG6d5JFH5IE6Eb0HJLvi841cfY0typ3eO
-         TEmixFG65awoWslBS/s4xI/VJVXZzKZxRmUDd0rxvZ/tJnrQFwzidJpksKX5ijUAu2uh
-         VhL6JSSHyoLVGaelwBVEWhF/iypeZQpxasxLRNj8zhIrOUxNHxSfr4WGFPIzKRJZsOCx
-         TOJuukAEv2RikVKAHlc311zl2HH4cyugQH7e2wf1PgUI2B/+NCgNyeNIKz5kfuryeugD
-         bZtwT7Y5KumDrDybPuUt67Ep9WmyexBCYGk6eY/EGnfRRygnhkxJca9el/xCPSpRjei4
-         Mdkg==
-X-Forwarded-Encrypted: i=1; AHgh+RqFrYvzLlJKAlXnYCJJllaAil2ThNaRqNZI4ExVcFuaRKZBgC2o0wvjJKMjJxB3eCLGTu/GgxEYYDdTKg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSrp655R85F8jumnxTI6GdgUqpL8IySBqSwvS2vkbp8YYorHn+
-	ucdqEH5trVm0JlJ4QU4UnvhNo/7okwrdfJynWxATc3/hwswqiSbXFx4/
-X-Gm-Gg: AfdE7ckRTCNmNB0cy5TcydztrKne3bddr3soKJ+gbVinIGvJ4Bh2DrRc9CLB2CEXn/1
-	WeVinTbaFn1iLExRqM3+xvjuaIvPwTu0LorQEbZgEFUTTsw8uF0ymTkyZihhj3ySqnQcmegrVqD
-	rLnVAaRuXypTfJgyxZpXsd56c4c4ePVjeYhUic6kZX5MURN/YDDiOFukeFOLdU5xTrelQ/PRKMM
-	DJF9yDrtm5QI7ECRT2B3uB9TheegALLusLbS+Jb4ums9vRqV4Tedd+fA6W9ofKTOJHC6YXe/nRa
-	EJuZqlX4KR+83b8TkgwYfAVhxw9Dlix95nh4G7DhLaA/VtHwLpy7kbletj0hN2vfkgwme0kBmhr
-	aBtCDZmfyr6S9uhmeUsZBdt8cg0hbUtRYeWS5ZjMBCGiItUkdxmz/Weiv0KWGbkaT61mwxdtFcG
-	afpVurfBxeAsnaRyJY5ru2
-X-Received: by 2002:a17:90a:d44b:b0:37c:7090:821b with SMTP id 98e67ed59e1d1-380aa0f436amr685084a91.10.1782895872388;
-        Wed, 01 Jul 2026 01:51:12 -0700 (PDT)
-Received: from wud.bbrouter ([2409:8a1e:9473:9f10:5de9:783b:c249:18c5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38097ba48d0sm550782a91.1.2026.07.01.01.51.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 01:51:12 -0700 (PDT)
-From: "Dylan.Wu" <fredwudi0305@gmail.com>
-To: palmer@dabbelt.com,
-	pjw@kernel.org,
-	aou@eecs.berkeley.edu,
-	anup@brainfault.org
-Cc: alex@ghiti.fr,
-	atish.patra@linux.dev,
-	zhouquan@iscas.ac.cn,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Dylan.Wu" <fredwudi0305@gmail.com>
-Subject: [PATCH 2/2] KVM: riscv: Register ptdump with debugfs on guest creation
-Date: Wed,  1 Jul 2026 04:50:30 -0400
-Message-Id: <20260701085030.124579-3-fredwudi0305@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260701085030.124579-1-fredwudi0305@gmail.com>
-References: <20260701085030.124579-1-fredwudi0305@gmail.com>
+	id 1weqvZ-000000019vP-3vjH;
+	Wed, 01 Jul 2026 09:08:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=g1/TDN4Zyz4o7+1roVy2O8d48myj4Wdvt3h8XPdnhnw=; b=A4lwV1f6J14i/EUDS55Nhe4ats
+	VKuSwH9oqlmSkKXheBt3UujeuE1hHNIGTfufQRiNcAVWu2341hUCuUUm+l0XkTv6LUMzDKB+yls2z
+	BWpBn0qSjclphQkuCDG5Hidb3id4V8L/OF8zaBYMWYUMZ7UjVKeOhgtqgG+0XAJaoQA8BxyvyDLM0
+	1rlVIsZGnSGTcUKyO7HWFDAbXWUiRkQmozZx/LgcbYJILZkp52ueV2AHfPEX+kmX/EjiqXTv94ErY
+	NZZHvPIGExwDI7rDM24M9Tuu7vWieIQ6J6N/TjotWIKEGUJiDIn91Qo//pkgivVTp1EFPM5iCzOKN
+	u/1Wp2dA==;
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weqvW-00000002YEU-04SE;
+	Wed, 01 Jul 2026 09:08:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RBcRXoYU6Q2cs2rwItSzd3Ze3fko0RLEP3AOeVw3WYTj5udw4vYTP33QTVbGnwchDcRfSZKC40vXymyvbHBPES13M7Vr+KNxAgCjP6hHmpqLhpdS8dL0YHJeFX6lxCQEIrq5YAkgA/tUH2q+YrD432nnIK96/kaK9vOSiJHyVhHECX5TOvCTv9pZdxbE8EBjJ7Hbz7w7QwYAPRggWxKKamaLyIByxN03yVGZBebn0AY2NNjUVEnPjsepH4d9kXWilP0Dzbvde95ouyEHpStA3+3qjW+uMOYGWXJ1M5mdY8mAvdqS/xcsDRQ1wAyjwRW70Yx1fVwcHAGGz0MPMnvf/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g1/TDN4Zyz4o7+1roVy2O8d48myj4Wdvt3h8XPdnhnw=;
+ b=kaDRLGg/j7f7hjmSV3G77HvoDn6KyfqbAN7O3AowOCWLySAYuVDD2madtK3X0BvDgdZ6BkI3VzqugDnnmAgGGkpfR+j7Tkwu++ibhyJ0Pos+hkcwz+oSIufXJnu8hNveXQt7qYfcSSgpw7ZLIDHpvY3HbzqwewmigXPFErXK7n4HlzTJEs8BgDQBSyEH5Ur5G8kL/47fA+CifKRrVEn/Pz4aNGzD4J45JOR47qY1bLP6gebR9B2jKOaZv9ab1QU8IMkg1SIYf3Mlx4bRJdnCTVgSkExMjqqy7p5a+IS8iBgGyiB93zR0aO+tAIVCvdj4uD8U10nfgAwMSPoyfEbVnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g1/TDN4Zyz4o7+1roVy2O8d48myj4Wdvt3h8XPdnhnw=;
+ b=E+Bn6CMLLuOpHnAyC2nbyEZzooY0NISJihogc2hlgH15KjiFdC1WFnSS0r4FCvToAKLIrXHCvKXHosOiwNuV9GHnQ6eq8ke1NgyPjBEGuyA18mEhF33tTQ70fTugnY2T2sFg2GK4hTwor0d5cIU8nYC2PUNNwTF6f3L69oJI/e4=
+Received: from BY3PR05CA0057.namprd05.prod.outlook.com (2603:10b6:a03:39b::32)
+ by CY5PR12MB6431.namprd12.prod.outlook.com (2603:10b6:930:39::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
+ 09:08:02 +0000
+Received: from SJ5PEPF000001EA.namprd05.prod.outlook.com
+ (2603:10b6:a03:39b:cafe::14) by BY3PR05CA0057.outlook.office365.com
+ (2603:10b6:a03:39b::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Wed, 1
+ Jul 2026 09:08:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ5PEPF000001EA.mail.protection.outlook.com (10.167.242.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Wed, 1 Jul 2026 09:08:01 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 1 Jul
+ 2026 04:07:58 -0500
+Received: from [10.136.39.208] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Wed, 1 Jul 2026 04:07:50 -0500
+Message-ID: <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
+Date: Wed, 1 Jul 2026 14:37:49 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 8/8] futex: Use runtime constants for __futex_hash()
+ hot path
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra
+	<peterz@infradead.org>
+CC: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Darren Hart
+	<dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Samuel Holland
+	<samuel.holland@sifive.com>, Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Thomas Huth
+	<thuth@redhat.com>, Sean Christopherson <seanjc@google.com>, Jisheng Zhang
+	<jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Christian Borntraeger
+	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
+References: <20260630045531.3939-1-kprateek.nayak@amd.com>
+ <20260630045531.3939-9-kprateek.nayak@amd.com>
+ <20260701075714.GP48970@noisy.programming.kicks-ass.net>
+ <20260701084150.GNOeboLw@linutronix.de>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20260701084150.GNOeboLw@linutronix.de>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EA:EE_|CY5PR12MB6431:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1bfc53b6-a014-4a70-2098-08ded75040c4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|23010399003|22082099003|18002099003|4143699003|5023799004|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: kJxdKYokYZS3EIDHBQtFESDnvoU+k1pJzGafuFnINUKWX5rZ3QUmqN+0EtIrimyDV8yHvQdYXKbzXv4/+AoDQECO5GTsio5NHiJRLL+YzDAr+YnLVCyHDh+z8xbbmdBPboj2PXBRc41ZSUT6WJeDLFwN5av8C9Ff2jcRkpYknNXy0nlJ+6/h9vbWF9U+lnn2PM7RFO8MjsUMmoUlhdV7ms/n0TYrOWtj9BqpdhlvdKS/okwxsE8SQoJDiCZYNRJPxOeGvKH50JBnh04DDUIPcJIbbGQ01nyYFbOCej54CmGuTdmie6JMXYFlYfygioAn71GJrpb45i35WqBjq6vdBQ0Se/5aNeZ29JI+L4t9bYVwVgjAcvg3RV/m0Su2t4GzjQr77yslTGMsIq2N0iJX8zahtN3VIoqjHQ0NLJRSceswPhKJULFfhELsWtPN2Qr9NoLfpoAh09TZNw6qTQQbdRq6Un+RShlQyR33PMWaf8WrjF0DBCNYAs6gJR0Q0tT7M0ZzfckeC1/8UNfxxXrgwnJvTG/oSXtZ45o7BnQ1eflUk8CIcL7tzsgAE+91lz1Hv9POdP1O1pVhXLRxwDZ5KRWO2xgO/2fcNGvGipkwgp6/LL4kCbCo6MaY7eaKU5gqgJRS5wGp+SthGXFy26o9/+NofegVYFQv3dhHTxYHsa0o+d4B5Dvwtze9PNmjFU1BOoKssPjuihld0SXaHhmkFg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(23010399003)(22082099003)(18002099003)(4143699003)(5023799004)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: HVjZr8VEub2Nq1ykpJ5IEyRcCFymMpo7JAcX7xWamGawFw1Y7sXIlMFEhHIPEqQdrdUbNUDPpoLH4gelRsbyxjhtuhnrU7ilBgMWftiUgVO36srcn/Y9FXnDemLVeyKMPuHajCGX1IG++a2XUTBZCINASagcKeADV2O4/igG2ZVjGLqeGqgyl18HFRATzRYzF+7mQ1TAdNulhVDQ79FnVchKLo82LLd5walCTaYfFug41R/CdZQaFlTsd0pX6lpXxDshdxcbpZv2BXj7HwDo3KkUKqP32j97LSOM9Oa0Xsy1lbq2NsBq5tTLtMb/pkfo/ocalG7x/sdNwnHbtkrwR2tjLMHMSDfpoLH4BIWZc7xsk57OPnG7rqGR99NVl/TxLmm3DWSr421aeF3C91JqECwML8HuNt06Vntw1xLcFjqnRJjy5fIm8jNMO226psgJ
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 09:08:01.6128
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1bfc53b6-a014-4a70-2098-08ded75040c4
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EA.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6431
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_015113_375211_0C9634B6 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20260701_100814_265855_1F3C614B 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,270 +153,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce KVM ptdump to show the guest gstage pagetables. This registers
-a 'gstage_page_tables' file under the guest debugfs directory.
-Userspace can now inspect the gstage layout and permissions, which
-is useful for architectural debugging and memory management audits.
+Hello Peter, Sebastian,
 
-Assisted-by: YuanSheng: deepseek-v4-pro
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Dylan.Wu <fredwudi0305@gmail.com>
----
- arch/riscv/include/asm/kvm_host.h |   6 +
- arch/riscv/kvm/Kconfig            |  15 +++
- arch/riscv/kvm/Makefile           |   1 +
- arch/riscv/kvm/ptdump.c           | 178 ++++++++++++++++++++++++++++++
- arch/riscv/kvm/vm.c               |   5 +
- 5 files changed, 205 insertions(+)
- create mode 100644 arch/riscv/kvm/ptdump.c
+On 7/1/2026 2:11 PM, Sebastian Andrzej Siewior wrote:
+> On 2026-07-01 09:57:14 [+0200], Peter Zijlstra wrote:
+>> The big $1M question: does it actually make it go faster? The whole
+>> point here was performance, right? But I'm not seeing numbers showing
+>> how awesome these patches are.
+> 
+> I did complain about the about the size of __futex_data which is blown
+> on distro kernels due to CONFIG_NODES_SHIFT=10 on Debian for instance.
+> This makes it go away at no extra price but yeah let me boot a big box
+> and see.
+> If the performance remains unchanged it is still worth considering due
+> to size savings on the average box with 1 node. The biggest box I have
+> access to has four nodes. If I remember correctly, Prateek was saying
+> that AMD has "normal" boxes which would require =9 for normal operation
+> and they do run distro kernels so lowering that value is not an option.
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 60017ceec..04129c5f8 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -322,4 +322,10 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu);
- /* Flags representing implementation specific details */
- DECLARE_STATIC_KEY_FALSE(kvm_riscv_vsstage_tlb_no_gpa);
- 
-+#ifdef CONFIG_PTDUMP_GSTAGE_DEBUGFS
-+void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
-+#else
-+static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
-+#endif
-+
- #endif /* __RISCV_KVM_HOST_H__ */
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index ec2cee0a3..0ceb4a452 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -38,3 +38,18 @@ config KVM
- 	  If unsure, say N.
- 
- endif # VIRTUALIZATION
-+
-+config PTDUMP_GSTAGE_DEBUGFS
-+	bool "Present the gstage pagetables to debugfs"
-+	depends on KVM
-+	depends on DEBUG_KERNEL
-+	depends on DEBUG_FS
-+	depends on PTDUMP_DEBUGFS
-+	default n
-+	help
-+	  Say Y here if you want to show the RISC-V KVM gstage guest page tables
-+	  layout in a debugfs file. This information is primarily useful for
-+	  architecture-specific kernel developers and KVM maintainers to
-+	  investigate memory mapping and permission issues. It is probably
-+	  not a good idea to enable this feature in a production kernel.
-+	  If in doubt, say N.
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index 296c2ba05..0170c8c3b 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -42,3 +42,4 @@ kvm-y += vcpu_timer.o
- kvm-y += vcpu_vector.o
- kvm-y += vm.o
- kvm-y += vmid.o
-+kvm-$(CONFIG_PTDUMP_GSTAGE_DEBUGFS) += ptdump.o
-diff --git a/arch/riscv/kvm/ptdump.c b/arch/riscv/kvm/ptdump.c
-new file mode 100644
-index 000000000..972d45d69
---- /dev/null
-+++ b/arch/riscv/kvm/ptdump.c
-@@ -0,0 +1,178 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Debug helper used to dump the gstage pagetables of the system.
-+ */
-+#include <linux/debugfs.h>
-+#include <linux/kvm_host.h>
-+#include <linux/seq_file.h>
-+#include <linux/mm.h>
-+#include <asm/ptdump.h>
-+#include <asm/pgtable.h>
-+
-+static const struct ptdump_prot_bits gstage_pte_bits[] = {
-+	{
-+		.mask = _PAGE_SOFT,
-+		.set = "RSW(%d)",
-+		.clear = "  ..  ",
-+	}, {
-+		.mask = _PAGE_DIRTY,
-+		.set = "D",
-+		.clear = ".",
-+	}, {
-+		.mask = _PAGE_ACCESSED,
-+		.set = "A",
-+		.clear = ".",
-+	}, {
-+		.mask = _PAGE_USER,
-+		.set = "U",
-+		.clear = ".",
-+	}, {
-+		.mask = _PAGE_EXEC,
-+		.set = "X",
-+		.clear = ".",
-+	}, {
-+		.mask = _PAGE_WRITE,
-+		.set = "W",
-+		.clear = ".",
-+	}, {
-+		.mask = _PAGE_READ,
-+		.set = "R",
-+		.clear = ".",
-+	}, {
-+		.mask = _PAGE_PRESENT,
-+		.set = "V",
-+		.clear = ".",
-+	}
-+};
-+
-+static struct ptdump_pg_level gstage_pg_levels[] = {
-+	{ .name = "PGD" },
-+	{ .name = "P4D" },
-+	{ .name = "PUD" },
-+	{ .name = "PMD" },
-+	{ .name = "PTE" },
-+};
-+
-+struct kvm_ptdump_state {
-+	struct kvm *kvm;
-+	struct ptdump_pg_state parser_state;
-+	struct addr_marker marker[2];
-+	struct ptdump_range range[2];
-+};
-+
-+static void kvm_ptdump_walk_level(struct ptdump_state *pt_st,
-+				  unsigned long *tbl, int level,
-+				  unsigned long start_addr)
-+{
-+	unsigned long addr = start_addr;
-+	unsigned long next, virt_addr;
-+	int i;
-+	unsigned long step = 1UL << (PAGE_SHIFT + (4 - level) * 9);
-+
-+	for (i = 0; i < PTRS_PER_PTE; i++, addr += step) {
-+		unsigned long val = tbl[i];
-+
-+		next = addr + step;
-+
-+		if (level == 4 || (val & _PAGE_LEAF) || !(val & _PAGE_PRESENT)) {
-+			note_page(pt_st, addr, level, val);
-+		} else {
-+			unsigned long pa = (val >> _PAGE_PFN_SHIFT) << PAGE_SHIFT;
-+
-+			virt_addr = (unsigned long)phys_to_virt(pa);
-+
-+			kvm_ptdump_walk_level(pt_st, (unsigned long *)virt_addr,
-+					      level + 1, addr);
-+		}
-+	}
-+}
-+
-+static int kvm_ptdump_visitor(struct seq_file *m, void *v)
-+{
-+	struct kvm_ptdump_state *st = m->private;
-+	struct kvm *kvm = st->kvm;
-+	unsigned long *pgd = (unsigned long *)kvm->arch.pgd;
-+	int start_level = 5 - kvm->arch.pgd_levels;
-+	int i, j;
-+
-+	st->parser_state.level = -1;
-+	st->parser_state.start_address = 0;
-+	st->parser_state.seq = m;
-+
-+	for (i = 0; i < ARRAY_SIZE(gstage_pg_levels); i++) {
-+		gstage_pg_levels[i].bits = gstage_pte_bits;
-+		gstage_pg_levels[i].num = ARRAY_SIZE(gstage_pte_bits);
-+		gstage_pg_levels[i].mask = 0;
-+		for (j = 0; j < ARRAY_SIZE(gstage_pte_bits); j++)
-+			gstage_pg_levels[i].mask |= gstage_pte_bits[j].mask;
-+	}
-+
-+	read_lock(&kvm->mmu_lock);
-+	if (pgd) {
-+		kvm_ptdump_walk_level(&st->parser_state.ptdump, pgd,
-+			start_level, 0);
-+	}
-+	read_unlock(&kvm->mmu_lock);
-+
-+	note_page(&st->parser_state.ptdump, 0, -1, 0);
-+	return 0;
-+}
-+
-+static int kvm_ptdump_open(struct inode *inode, struct file *file)
-+{
-+	struct kvm *kvm = inode->i_private;
-+	struct kvm_ptdump_state *st;
-+	int ret;
-+
-+	if (!kvm_get_kvm_safe(kvm))
-+		return -ENOENT;
-+
-+	st = kzalloc(sizeof(*st), GFP_KERNEL);
-+	if (!st) {
-+		kvm_put_kvm(kvm);
-+		return -ENOMEM;
-+	}
-+
-+	st->kvm = kvm;
-+	st->marker[0].name = "Guest IPA";
-+	st->marker[0].start_address = 0;
-+	st->marker[1].start_address = -1UL;
-+	st->range[0].start = 0;
-+	st->range[0].end = -1UL;
-+
-+	st->parser_state.marker = st->marker;
-+	st->parser_state.pg_level = gstage_pg_levels;
-+	st->parser_state.ptdump.range = st->range;
-+
-+	ret = single_open(file, kvm_ptdump_visitor, st);
-+	if (ret) {
-+		kfree(st);
-+		kvm_put_kvm(kvm);
-+	}
-+	return ret;
-+}
-+
-+static int kvm_ptdump_release(struct inode *inode, struct file *file)
-+{
-+	struct seq_file *seq = file->private_data;
-+	struct kvm_ptdump_state *st = seq->private;
-+	struct kvm *kvm = st->kvm;
-+
-+	kfree(st);
-+	kvm_put_kvm(kvm);
-+	return single_release(inode, file);
-+}
-+
-+static const struct file_operations kvm_gstage_fops = {
-+	.owner		= THIS_MODULE,
-+	.open		= kvm_ptdump_open,
-+	.read		= seq_read,
-+	.llseek		= seq_lseek,
-+	.release	= kvm_ptdump_release,
-+};
-+
-+void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
-+{
-+	debugfs_create_file("gstage_page_tables", 0400, kvm->debugfs_dentry, kvm,
-+			    &kvm_gstage_fops);
-+}
-diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-index a9f083fee..464ad2eaf 100644
---- a/arch/riscv/kvm/vm.c
-+++ b/arch/riscv/kvm/vm.c
-@@ -269,3 +269,8 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
- {
- 	return -EINVAL;
- }
-+
-+void kvm_arch_create_vm_debugfs(struct kvm *kvm)
-+{
-+	kvm_s2_ptdump_create_debugfs(kvm);
-+}
+Rationale there was with CCX as NUMA, we have 32 NUMA nodes on chip and
+with CXL, there is a possibility of 2x that so I suggested NODE_SHIFT
+of 7 or 8 should probably cover almost all real hardware without any
+added NUMA emulation weirdness.
+
+To answer the million dollar question, I see the following on running
+perf bench futex on a 3rd Gen EPYC (2 x 64C/128T)
+
+  +----------------+-----------+-----------+-----------+--------------+
+  | Benchmark      | Kernel 1  | Kernel 2  |   Unit    | % Improvement|
+  |                |  (avg/5)  |  (avg/5)  |           | (K2 vs K1)   |
+  +----------------+-----------+-----------+-----------+--------------+
+  | Wake-parallel  |  0.01614  |  0.00456  |    ms     |   +71.75%    |
+  | Requeue        |  0.26394  |  0.24644  |    ms     |    +6.63%    |
+  | Lock-pi        |     34.0  |     57.2  |  ops/sec  |   +68.24%    |
+  +----------------+-----------+-----------+-----------+--------------+
+
+Kernel1 is tip at base commit and Kernel 2 is tip + this series.
+perf bench futex hash some insane bimodal behavior on my system with
+both tip and tip + series so I've left that variant out for now.
+
+This is only from 5 runs from a single boot. I'll try to grab a
+bigger system and check is it makes a difference there.
+
 -- 
-2.34.1
+Thanks and Regards,
+Prateek
 
 
 _______________________________________________
