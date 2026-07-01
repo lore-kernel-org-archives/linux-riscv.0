@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34704C43602
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 07:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C849C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B4/JCmC97e1htahanr2z/GlnrhUE+evGN2C+qmByL10=; b=oTTTLXntbY3J7X
-	dd0BsGmttbi2rsJ656GnJRyYRG+/fbhMJ9+oOnsiZEYlA+StBFuzi7uXWrC2ZihFxNtAp9spKaUo2
-	ObyZNnxhNAi8A8n3MWqRwPGdQpYfqg4NphH7G5E3TBXhItx/q/7tVApeXf9+gsdTg24vFWqGrAtsL
-	KRbTTNW6IWGC/lEb1YFyLeDIYJvwpBeMZiQlBKIkX5shcJ5CYlNkIccLdp+EnrADIR9xWLUSnnL3H
-	JRIurU4VMxt3iJK4FMBqg1GInE1Q4aEpcbQ4ZTNK2WGKCU4jeORL76hOzrU9Bprlvy5j4BwcE4DYC
-	8I6XKr+pozO5dhtv+YKQ==;
+	List-Owner; bh=Fe5+FUdgsXg1w8RbRtAkfGGW0M1A6CZZTOZ3DPUvbIg=; b=zHrClKx4BvgyKW
+	EDkEK0f1LAxJMTP1rxLK/V3loSEncCIYOjUUkeK4MUY4KsUPythPxgt+WBm8DkfeiRCpof0C90SWJ
+	WqC5Ev+FaWW7i8rfsP9rP8ViSm65MVWQ0MMQVpx9WE37Uy+8+Zd3O5Kgc70Wg9VFlwwWULxzp1dEp
+	+i68gF99HCQzzZZ2M4rWNv+tFxAZ3dejll+v4srKdS/zbPBlmJlBdQMmQizNHmH3M9k/lK66oEHJu
+	90eKz/i5BMDVnh58F78b+1LlqDxgHg+idX/j4QK6zh1HkcTvftVkP6NaA+sM946shECs3pHtgaOhb
+	FT5KeqdyLhaqBu9VAF4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepov-00000000yGK-2vX1;
-	Wed, 01 Jul 2026 07:57:21 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1weq2Y-00000000zgU-27sK;
+	Wed, 01 Jul 2026 08:11:26 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepou-00000000yG4-0kgx;
-	Wed, 01 Jul 2026 07:57:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Y3bOd8rRJgZw0SFI6BSvsmTa5xtyQqK8il7r7D4IeLc=; b=wMVEkvpblBw2MJ7Lj/oZ7R/r+l
-	FWtnVgNCCuGrBzahJ/0gKwq7BEhfJyozTvLxb4UW6tPDfLUASGNHU3AalDnhaOYgoRZX5S+YYiCeW
-	B0hTn6saaoF2pD0kgGf1UcFszA9sad3AHA9Qjw4czU61n5bAEasZ2XQxclhvuuqno1vsEbxWnDQXf
-	enk2gV8UJ5toEBZaORClRcNZAdSJ95ZQdGOt0+V+Ct6zuVDWFJMt3gSQyELiV2dN+JYBKm6eI4vV2
-	p+xcCSTX5hywYVEcSZlc1deNHi7U62qwsclG4chEQ3XnrtiB/XwMKLQEnqrZlSz2mZss9LnUogWHx
-	8DBmDRMQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepoo-00000006G7w-2a6v;
-	Wed, 01 Jul 2026 07:57:14 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 1815530035C; Wed, 01 Jul 2026 09:57:14 +0200 (CEST)
-Date: Wed, 1 Jul 2026 09:57:14 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	id 1weq2T-00000000zew-3ByJ
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Jul 2026 08:11:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=K2
+	X7FP2+XbaqjMe4yrmXcuX7vip8Xbbw8s+9bXwDLvE=; b=WX+oIeFzCjYNVBGhD6
+	8t30BmeaxmmdjcnmqaROR7I/s2zI9mP9t1YhomIJqdDHYZdibPCumBXCtX/jwQwJ
+	rPRZQV1YAgPNe3FUzeDQ9saD1sPK4iaubrBUqVRr6jQxuHNFmmY7mwTj8P7vj+F9
+	+4LtGgzycWbE1tyQ84zaZZtTo=
+Received: from Ubuntu.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgBHa+Z5y0Rqn4gyFA--.16458S4;
+	Wed, 01 Jul 2026 16:10:36 +0800 (CST)
+From: Xiaofeng Yuan <xiaofengmian@163.com>
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>
-Subject: Re: [PATCH v5 8/8] futex: Use runtime constants for __futex_hash()
- hot path
-Message-ID: <20260701075714.GP48970@noisy.programming.kicks-ass.net>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-9-kprateek.nayak@amd.com>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Nam Cao <namcao@linutronix.de>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	xiaofengmian@163.com
+Subject: [PATCH v6 2/2] riscv: kprobes: add test case for c.jal instruction simulation
+Date: Wed,  1 Jul 2026 08:10:33 +0000
+Message-ID: <20260701081033.49871-3-xiaofengmian@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260701081033.49871-1-xiaofengmian@163.com>
+References: <20260701081033.49871-1-xiaofengmian@163.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260630045531.3939-9-kprateek.nayak@amd.com>
+X-CM-TRANSID: PygvCgBHa+Z5y0Rqn4gyFA--.16458S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw1kWrWDur17XFyxtFWkJFb_yoW8uF1DpF
+	nrJr15KFW8Jas3Jry3WF1rAryFya1kA3yagr1DZr4rCr48Gw12yr9FgFWDtFnrKrWFv3yS
+	vry8WrWxKF9xZFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zioqcUUUUUU=
+X-Originating-IP: [39.144.122.37]
+X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAhy9wGpEy3xwqAAA3i
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_011122_244225_D84B83A2 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +79,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 04:55:31AM +0000, K Prateek Nayak wrote:
-> From: Peter Zijlstra <peterz@infradead.org>
-> 
-> Runtime constify the read-only after init data  __futex_shift(shift_32),
-> __futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
-> hot path to avoid referencing global variable.
-> 
-> This also allows __futex_queues to be allocated dynamically to
-> "nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
-> (1 << CONFIG_NODES_SHIFT) worth of slots upfront.
-> 
-> Runtime constants are initialized before their first access and
-> runtime_const_init() provides necessary barrier to ensure subsequent
-> accesses are not reordered against their initialization.
-> 
-> No functional changes intended.
-> 
->   [ prateek: Dynamically allocate __futex_queues, mark the global data
->     __ro_after_init since they are constified after futex_init(). ]
-> 
-> Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
-> Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
-> Not-yet-signed-off-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
+From: Nam Cao <namcao@linutronix.de>
 
+Add a test case validating that kprobes correctly simulates the
+c.jal instruction on RV32.
 
-The big $1M question: does it actually make it go faster? The whole
-point here was performance, right? But I'm not seeing numbers showing
-how awesome these patches are.
+The test uses two probe points: a forward c.jal and a backward
+c.jal, and verifies that the containing function returns the
+expected magic value KPROBE_TEST_MAGIC after kprobe interception.
 
+Co-developed-by: Xiaofeng Yuan <xiaofengmian@163.com>
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
+---
+ .../kernel/tests/kprobes/test-kprobes-asm.S   | 24 +++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+index f16deee9e..15e50934b 100644
+--- a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
++++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+@@ -179,6 +179,23 @@ test_kprobes_c_bnez_addr3:
+ 	ret
+ SYM_FUNC_END(test_kprobes_c_bnez)
+ 
++#ifdef CONFIG_32BIT
++SYM_FUNC_START(test_kprobes_c_jal)
++	li a0, 0
++	mv a1, ra
++test_kprobes_c_jal_addr1:
++	c.jal 2f
++	ret
++1:	li a0, KPROBE_TEST_MAGIC_UPPER
++	ret
++test_kprobes_c_jal_addr2:
++2:	c.jal 1b
++	li a2, KPROBE_TEST_MAGIC_LOWER
++	add a0, a0, a2
++	jr a1
++SYM_FUNC_END(test_kprobes_c_jal)
++#endif
++
+ #endif /* CONFIG_RISCV_ISA_C */
+ 
+ .section .rodata
+@@ -209,6 +226,10 @@ SYM_DATA_START(test_kprobes_addresses)
+ 	RISCV_PTR test_kprobes_c_bnez_addr1
+ 	RISCV_PTR test_kprobes_c_bnez_addr2
+ 	RISCV_PTR test_kprobes_c_bnez_addr3
++#ifdef CONFIG_32BIT
++	RISCV_PTR test_kprobes_c_jal_addr1
++	RISCV_PTR test_kprobes_c_jal_addr2
++#endif
+ #endif /* CONFIG_RISCV_ISA_C */
+ 	RISCV_PTR 0
+ SYM_DATA_END(test_kprobes_addresses)
+@@ -226,6 +247,9 @@ SYM_DATA_START(test_kprobes_functions)
+ 	RISCV_PTR test_kprobes_c_jalr
+ 	RISCV_PTR test_kprobes_c_beqz
+ 	RISCV_PTR test_kprobes_c_bnez
++#ifdef CONFIG_32BIT
++	RISCV_PTR test_kprobes_c_jal
++#endif
+ #endif /* CONFIG_RISCV_ISA_C */
+ 	RISCV_PTR 0
+ SYM_DATA_END(test_kprobes_functions)
+-- 
+2.43.0
 
 
 _______________________________________________
