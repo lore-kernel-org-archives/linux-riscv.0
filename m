@@ -4,107 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68874C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 16:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66518C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 16:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eeZ152hQoYFQ36byIlLJajw4MOgyh5uNNMTLK/Tx8m8=; b=CdmXZxEAeqIO57
-	JW5/3f7LRpAd5HLLaoNegpeHCfzk+7BuGShOXQgIl+/W3u8Xt63ESsUaG6hkT00a/jaDRO6gRWzUl
-	27DjDLAP82A9iNWV7sEV13dUXBCGgDCbUEK7WasboUwo1TN5yDk1yEbbWNf8lFXDAQzOUB8I2lx+6
-	jEWM52DeOV1N1JBQSLHrOu/5J9MbTt/AM/ijm43COGQVxgj3e1F2qcXHkXgVfD0n/WHamzuWcxn8P
-	mR+jnprEEdILpxyh5VpI36efZwCvC2uYsb2hFln4CHUCJoc+MDryGtMLQJ/bQ6R2fA4+kuF0kqKzA
-	hEp7gAVJpLcPnRkCQ6ew==;
+	List-Owner; bh=C8Fts7vm9XYOG0pxVydaRdSmJb5GXR/s15TbIjXzrz8=; b=SQu+eDZbAryoGX
+	+rrV2iK5PPQcEehFeGBji59rC9zZJaCaGhe/nVU3sh95jRDw4uey4vHU6+mBA4sgGgkvvA90gDccw
+	xHUf6ukhB1jGnWF6p5/8cSmt2At5yiCv0uvaAz9N094OIT3PjwWNDYW2S0+3QT6+2VsUISew63Vkx
+	JrnZTEyyXQXS7PZ2pF23y8/8SyEORDg+IEgVpER6SxPS2qVg+uhodacyh1IFzt2vyhlUirijH/dZM
+	6+GGlr0LDOQEEHVsMYuekGkKFurNoqEdHQ563TlZSq/5F4OLIh7jZi6UnzUmj3E+WEjb093dlORoS
+	H6/DKJ/fe+C0g8Mbpp6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexUm-00000002Ujl-0Xiy;
-	Wed, 01 Jul 2026 16:09:04 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1wexdC-00000002Vyi-0Ixi;
+	Wed, 01 Jul 2026 16:17:46 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexUj-00000002Ui2-3VP3
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 16:09:02 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-804e46366d7so11480197b3.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 09:09:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782922141; x=1783526941; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QI6/1jl+FwxwLNBhZZLYlzz42SxxurAYoSgW8BhCBSU=;
-        b=dyTWpuvjqi+Tbs36lUvgqnHmkyiYkmbiVa5S8Xo2c9qigvaeMbQIfHCjhhp2hB2ylA
-         bsrsVD4IXUYneGENWus1frGZQofXc4BFs58KtrEjsUAslFMFZmXWFb+ZwDPwrFNgOHsw
-         4j7IczQtnrm/EmSUiSyQPD5Tkl7K9uTuWkUDxvBm/X9z09Ii2S2XIGbthKi7Ga82WIiJ
-         uZCoq/tk/8u6xIq7xYftES1lstLGrnG+0o0M6abQS8Ma7zTw7BjjaxzT1cae8ZI8J/4k
-         TqbK5UCDrZ73B2Vd4S+86bjf0mwl7KzITSLO2A7OOxzjT6bzsT+qX/FV9vt8ZxNSPAXH
-         XhnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782922141; x=1783526941;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QI6/1jl+FwxwLNBhZZLYlzz42SxxurAYoSgW8BhCBSU=;
-        b=ZoTGUAUtuHXmIT/ZDZP2tH2zV2FTfV163lCrLg77fCMQKkEnUtZwoqN0t5ygzSK1aI
-         PNDntnCn0Inp0/RLdfkmH+I9gvX3P42qyS18Mzz06jEoW4cgrTMDX6jpDfpf2YacqcSr
-         LSGalFpzdnEPQWotnW1KKlEmFzUkKDfroZ4Q+OUfiVwe4JpTz8nhn4wiDvJlIw3EkkJb
-         4xGy5vsOz3O7bIK8UgFNVsV9AQnQpurPg4mVpu9a2gh2WOWX2vmKDh2X49oxRrRm5i+J
-         DPf8HzQv12APXdJ431jfTQs9Pnum2g3EMj11NXRaowIoYcTeGNPntPSmSmJ5cP+bs2SS
-         CQFA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8sUwYgEc3H5U2Tl0FVmBE5Wlwc9GUi5sCQoVGwA2tisn27J0Vo28VrHJbBnCSVCLtT+GTUJBLHrqNUg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXuW7Kt5l6PKKiYjLZu3Ql58AQLQ7E46FJt0M/3g1PPpogxdOj
-	8g7EFaeBdO3m4qzZV0inJ3p+7nSsLaw96ASOdJ5/bRa4My/ocDqN2G06
-X-Gm-Gg: AfdE7ckXJYZfSWIZAGVES4rJ5JfMYZ48jm/0ZoER+eb2hMlq52cOdGNlVOGbMqj0kMU
-	jlNzjsJvMftocuYVg74b4hVVD1VGGlSPdPavHSPUPvANu9bjvCCuf10U8PGH7QyBvh96U+7ZpIK
-	Kf/k0rDximHQDWx7cimyYQmzxmjBJHuas9epU61inH+qdCyKx4wsvCBlmKQduOt+x3g20KJlaMn
-	yEm+I9uipUNrq3OVdsrOMSBJ6GbFyiszGyB8IpaUNQ1MKlCP4KE9KU/Y8WPb+zAkKv8Doh9car0
-	BX4aytMLXSW5xdOgkDNkYjbKsEelxpm1qSAev7LnqtvhO2/gNqaT/iHRWqfX2S9w0/V5uYgxNSo
-	v6gqC9KjV7+liQGRbqq+9xaVIDI474GN3qZh8cAAHAsdWhfk4EUuefU5nr667Ncu/4BpVqjoe9W
-	Qe9X8ZDwKlG6KCgMKQSMDRSbZvpjsoFe0/QBkZXFV7gowTduTTVrFs+35Hj4fy
-X-Received: by 2002:a05:690c:c506:b0:809:fd83:a88b with SMTP id 00721157ae682-812e8dfc9dcmr24185557b3.3.1782922140430;
-        Wed, 01 Jul 2026 09:09:00 -0700 (PDT)
-Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8144af50fa5sm1682067b3.27.2026.07.01.09.08.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 09:09:00 -0700 (PDT)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Paul Walmsley <pjw@kernel.org>,
+	id 1wexd9-00000002Vx6-0E6q;
+	Wed, 01 Jul 2026 16:17:44 +0000
+Date: Wed, 1 Jul 2026 18:17:36 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782922658;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
+	b=EsVOyL/O4PkbWArMdz+v6gZguCvGG9j7x/3IOQgfmssmAyzbqbf3Dwnmp6iiWjIQLh8IAK
+	JRAGYLysl4sguhM8CiL52IwItjrsA45kJA1HxJerrdKce1yFKscd6hUfBDk8kRLLBMASP9
+	HAaDRaeyfaUrcTEpWpEuetEq4glZT0vuVbB1uLjbuxzlPtCFN1uTxxJMQUwfqVd4rBfF4R
+	wCJsPf0rmhs1B6MbHjJUE4G4tH6Wt9Gtq6+Gm8frjT4c8E48ygPJmbA5oLD59dsCa1kUWd
+	30TWjA4Jl5hk3kMLudqnPwPZBzaW22VoMTwcgpgNZPMUp1ROWvJNyZ1aXCKRQQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782922658;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
+	b=qFYc53saNm3tZyv7Mrg+WEORV4WZSIwyhGD1WLYh9NkQnExpQvcYwwIZIB8tgYMjlnnAMr
+	VNvK+45twjg6TcDQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH RFC 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU and PRCM
-Date: Wed,  1 Jul 2026 12:07:44 -0400
-Message-ID: <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>
+Subject: [PATCH] futex: Optimise the size check get_futex_key()
+Message-ID: <20260701161736.xYYizA0e@linutronix.de>
+References: <20260630045531.3939-1-kprateek.nayak@amd.com>
+ <20260630045531.3939-9-kprateek.nayak@amd.com>
+ <20260701075714.GP48970@noisy.programming.kicks-ass.net>
+ <20260701084150.GNOeboLw@linutronix.de>
+ <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_090901_883557_30D41D3A 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20260701_091743_237853_3CED55AB 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,26 +101,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Junhui,
+The futex address must be naturally aligned and this is checked via
+"address % size" where `address' is the supplied address and `size' is
+the expected size of futex. It is guaranteed that `size' is power of two
+but the compiler does not see it and creates here a `div' operation
+(x86, arm, gcc-15).
 
-Thanks for the A733 CCU/PRCM RFC v1. I've been reading through the
-series and the review feedback, including the NSI clock/reset handling,
-the binding naming and ordering comments, the SDM macro cleanup, and the
-question around modeled but otherwise-unused clocks such as the GIC clock.
+We can take advantage of the pow2 property and rewrite it as
+"address & (size-1)".
 
-I do not see a v2 on the list yet, so I wanted to check in: are you still
-planning to take this series forward? No rush at all, and I am happy to
-leave it entirely with you if so.
+As per testing, the command
+|perf bench futex hash -f 1 -b 16384 -t 1 -r 30
 
-If you have moved on to other things, I would be glad to help carry the
-series forward and address the review comments, keeping your authorship
-and prior work intact. I have A733 hardware here and can help test the
-changes.
+improved from
+| [thread  0] futex: 0x5619f931f740 [ 7001583 ops/sec ]
+to
+| [thread  0] futex: 0x55da173e5740 [ 7376137 ops/sec ]
 
-Either way, please let me know what works best for you.
+or by 5.3%
 
-Thanks,
-Enzo
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+
+Could someone verify this, please? The 5% look a bit high. This is on
+top of the series (but not worsen by the series).
+
+ kernel/futex/core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/futex/core.c b/kernel/futex/core.c
+index 179b26e9c9341..2b00ab510e7d2 100644
+--- a/kernel/futex/core.c
++++ b/kernel/futex/core.c
+@@ -520,7 +520,7 @@ int get_futex_key(u32 __user *uaddr, unsigned int flags, union futex_key *key,
+ 	 * The futex address must be "naturally" aligned.
+ 	 */
+ 	key->both.offset = address % PAGE_SIZE;
+-	if (unlikely((address % size) != 0))
++	if (unlikely((address & (size-1)) != 0))
+ 		return -EINVAL;
+ 	address -= key->both.offset;
+ 
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
