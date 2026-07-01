@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9ADDC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADB1C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hLRzZ1DoLmw766KBkYeWRDNe2nj48Y7noxuEbJVZkiQ=; b=XsWoPXmcY/XA6b
-	0XRZkAhD84A18wC/VePgyevlARK1H+Jqj6TgnybLSV6d5Tio8EuezdvIsr6U+cKRMRcN4NiQ3aWcM
-	PgFAOE0wGaQt+ufRdATvrouLXkthbRuzrm1hF/OuW+FgsThpk6T2FX9+QNIFBctX0pJSbIq+xNKTd
-	j2sjHb/X+Lo8V3z/VDXqdvct+e1jmty95NcgDF3o13tqkxNkr4D96pCm0Ih2nZRt8cchRoGVz7bQF
-	4k5YI/EtDbOdXDo3dc1Xw0NOXUooyIWkSTKII/MhTUJJMT6rf4akU3XCytOtaIsIieLpSJgIfNO1d
-	3KytyDr1AzP1HHlMg+iw==;
+	List-Owner; bh=u9z20OT1ljoQj/ec7HQ1KquJkKDnwNoaTkLx0YTR5lA=; b=kkSmAS8Xkfai7/
+	vuBDsmBuGjcpcqfSoH6DnRRX0PlxZFocD2Y/wA3c05cAHWfEy+ZgXHcwwOFFslUJSdozVU+FLidsX
+	C8ea5Lnn5Euf2nKMwha5XGj1qV5zhRoeLENjAQrTrXG3HDzMwZGcEl+WDhdq/XZip/xUWHurbGm/8
+	TvrCau74hlp0mCP+aymcAG4F0M8EB6YqslNPRm8HiG54dLKxF4E8kpjN5uZ05rxNXNqn7CtbnRv7R
+	gSRvPQ+El6RYq4Prnjhy7303FIxnnXrnFSWamNpYOTWeI3rfcXKVARgnqwDNqMzYIYwBrRKOtB8Dn
+	lRT7SS8ZZzwVjzodM3VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetmv-00000001ny6-0tNd;
-	Wed, 01 Jul 2026 12:11:33 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetmp-00000001ns9-2Pav;
-	Wed, 01 Jul 2026 12:11:31 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gqzQ204dTz55RJ4;
-	Wed, 01 Jul 2026 20:11:22 +0800 (CST)
-Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
-	by mse-fl2.zte.com.cn with SMTP id 661CB3aG077670;
-	Wed, 1 Jul 2026 20:11:03 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from localhost.localdomain (unknown [10.234.74.162])
-	by smtp (Zmail) with SMTP;
-	Wed, 1 Jul 2026 20:11:06 +0800
-X-Zmail-TransId: 3e816a4503d9008-1d5f9
-X-Zmail-LocalSMTP: 1
-X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-Zmail-RealSender: wang.yechao255@zte.com.cn
-From: Wang Yechao <wang.yechao255@zte.com.cn>
-To: Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@linux.dev>,
-        Alexandre Ghiti <alex@ghiti.fr>,
-        Wang Yechao <wang.yechao255@zte.com.cn>
-Subject: [PATCH v4 4/5] RISC-V: KVM: Split huge pages during KVM_CLEAR_DIRTY_LOG
-Date: Wed,  1 Jul 2026 20:09:47 +0800
-Message-ID: <20260701120954.129873-5-wang.yechao255@zte.com.cn>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20260701120954.129873-1-wang.yechao255@zte.com.cn>
-References: <20260701120954.129873-1-wang.yechao255@zte.com.cn>
+	id 1weu1H-00000001zMT-2uCL;
+	Wed, 01 Jul 2026 12:26:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weu1E-00000001zM0-3757
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Jul 2026 12:26:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA0682309;
+	Wed,  1 Jul 2026 05:26:14 -0700 (PDT)
+Received: from [10.164.19.15] (unknown [10.164.19.15])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D84A53F85F;
+	Wed,  1 Jul 2026 05:26:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782908779; bh=U3DO0j/dmUnuT8V0sMZSGlJWF7PRalEy3TBu9TEA4Gg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j6b5h+ZGlYet+l8RJqC7C3JtqgHXxikuUKU4RoK4Fcmi8iZkKNQcMim54FA961tjF
+	 tAeeIFIg1H0dRzCh5JM/daTl7Cy/a6PArfhnY52jopb1oYOGQ6KcOo/fKN3z61RTKG
+	 ztgWBrC1porMMbL48pZGQJBXP8T6B6zTVQHMs06Y=
+Message-ID: <5158500d-0a30-4b2f-9b0f-f10e01dabd4d@arm.com>
+Date: Wed, 1 Jul 2026 17:56:10 +0530
 MIME-Version: 1.0
-X-MAIL: mse-fl2.zte.com.cn 661CB3aG077670
-X-TLS: YES
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 01 Jul 2026 20:11:22 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A4503EA.000/4gqzQ204dTz55RJ4
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm: pgtable: free kernel page tables via RCU to fix
+ ptdump UAF
+To: David CARLIER <devnexen@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R . Howlett" <liam@infradead.org>, Vlastimil Babka
+ <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Lu Baolu <baolu.lu@linux.intel.com>,
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20260630041012.5975-1-devnexen@gmail.com>
+ <c3ea35e4-833f-487f-8a8b-6f8f95b7ba95@arm.com>
+ <CA+XhMqzErBiN5w56fO2_2T3Yj=-L+dPUDjoMvNdK9PcF37nsbw@mail.gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <CA+XhMqzErBiN5w56fO2_2T3Yj=-L+dPUDjoMvNdK9PcF37nsbw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_051127_772958_56599ADA 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_052620_826191_D58560E5 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +82,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Split huge pages on the range specified using KVM_CLEAR_DIRTY_LOG.
-And do not split when enabling dirty logging if
-KVM_DIRTY_LOG_INITIALLY_SET is set.
 
-Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/kvm/mmu.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 056c0abe278af..29a7ac023d4db 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -166,6 +166,9 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	kvm_riscv_gstage_init(&gstage, kvm);
- 
- 	kvm_riscv_gstage_wp_range(&gstage, start, end);
-+
-+	if (kvm_dirty_log_manual_protect_and_init_set(kvm))
-+		mmu_split_huge_pages(&gstage, start, end);
- }
- 
- void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
--- 
-2.43.5
+On 01/07/26 11:27 am, David CARLIER wrote:
+> Hi Dev,
+> 
+> Yes, the RCU deferral covers arm64 too, so the static key and the
+> mmap_lock in pud_free_pmd_page()/pmd_free_pte_page() are now
+> redundant. Keep the arch_vmap_*_supported() changes though.
+
+Sorry I should have mentioned in my previous email that I had a comment
+below, on the code :) could you please see below.
+
+[--- snip ---]
+
+
+>>> diff --git a/mm/ptdump.c b/mm/ptdump.c
+>>> index 973020000096..50cd96a33dfd 100644
+>>> --- a/mm/ptdump.c
+>>> +++ b/mm/ptdump.c
+>>> @@ -178,11 +178,13 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
+>>>
+>>>       get_online_mems();
+>>>       mmap_write_lock(mm);
+>>
+>> mmap write lock is not required anymore no?
+
+^
+>>
+>>
+>>> +     rcu_read_lock();
+>>
+>> Is there a possibility of RCU stall here? For example a system with
+>> lots of physical memory will have a huge linear map.
+
+^
+
+
+>>
+>>>       while (range->start != range->end) {
+>>>               walk_page_range_debug(mm, range->start, range->end,
+>>>                                     &ptdump_ops, pgd, st);
+>>>               range++;
+>>>       }
+>>> +     rcu_read_unlock();
+>>>       mmap_write_unlock(mm);
+>>>       put_online_mems();
+>>>
+>>
 
 
 _______________________________________________
