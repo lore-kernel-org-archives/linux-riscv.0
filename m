@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CE1C43327
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB302C43327
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZjbSPqsWV2FwZQkj5UJbMkxoM33XYkAR1FAZntK2V7Y=; b=SuAPpl3xhWO6T5
-	DLTaLbZsUD1EScZsjMKKQW4nGPVX2sDJwFM/KyLBQX6rns0pOzHp9M2u9hPquOi4ycFAfCBKwVl9W
-	tBfxrTtWiwBC9EuFO2oPRv5PeT3TqWiW36Y/3koVhMLS42WO3RH41ZEs8mjdygQHn/XslQi14x5vg
-	vKM2LqAOkPBHHoWnYNPjXOPPkz4rR3MfvtskYOc96wOPFMQ4ZM5OYC5IKeiCCa0XH7MfABo5UCiux
-	N3SK3hXPocmuHfs+V1PH7ewJb603lEE4g2SV6R5cKLpG1/oVy88XMKAdoqsEXQQhXG8qXHu/k0OO0
-	SShKxA3viFeF/aXBXlrQ==;
+	List-Owner; bh=CKCfyPRHCAP113hJkGk15z0oLKEqdobr1pK0RcVLM+0=; b=qjA97zk2YsdBsk
+	P34Xw255GoIAfAfWTRn/WZbcNLac0+kDNdA5BUrV+uLUFMRBdOaqbaPfuNiv0+e6cP4kZKonsoTpP
+	02ifxcLK1IKHsh8S+BRCVuoODxGKuiiTJQYoW0TGiJ0q2IYsR6M2pmePUvsL8tuqmWC1CYPMQsQx0
+	JaiRyLMMVEEEJhNSSUSXaNq2AllDX85FOKp9rwYJ/KCUEjfdA0WzETMMvlKsb0HqVE5s58t3rbAV0
+	ixYYnoQqNR5+hAm7ZQGA0v+Y7lXvOuJeRdmU+GJbAxcEX9fDokQmAapkjA+uIvjJ5KEpc9NPqcx3g
+	8eOe90rPHLGh27Gj8CSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqW9-000000013FX-3lK3;
-	Wed, 01 Jul 2026 08:42:01 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1weqbS-000000013yl-3UBo;
+	Wed, 01 Jul 2026 08:47:30 +0000
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqW6-000000013EL-13yh;
-	Wed, 01 Jul 2026 08:41:59 +0000
-Date: Wed, 1 Jul 2026 10:41:50 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782895312;
+	id 1weqbQ-000000013w4-16BH
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Jul 2026 08:47:29 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782895645;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=hIW/bfoVhF6C8YrHlddSaYp+8+PB2sPCZ1uwcJ1svP8=;
-	b=WlkVgNkTFIYNtIj5qhELBYQd+AxKqlkZG3TrLGwri5qEahI5i2Iq5DPX1nRgw4bnbyacTw
-	G6IG8Qy3NuzNrCDMtIbAL5uMpEgdi1pIXIqiIyZJuvq+UJQxYzRGJrpiwLWtT4av1uVvlD
-	RGAbzJcyGPtwci6yrymLNTmaiULCn8ET6Tnkm2/7TuvhZos5optOP0cIInMD0X64zBibOX
-	wlFtEzmKWPN5JwVjZUwN0LY1fw2+Qpa9cS/QY9chuZM14XdjrlPKAF/CfWpGQWzlVWB5Cy
-	hjsnfyncyhqRk3d2cx8c1W7hUUH3sjBIOm/jrY9WePU3JRRm9ynzK2e7bJ681w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782895312;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hIW/bfoVhF6C8YrHlddSaYp+8+PB2sPCZ1uwcJ1svP8=;
-	b=i5WUD6yceXQe3x8TOrF2eWaGcrFDsh2T9jch8rsli5FTanCRAoIUsTybzMrCtoXwtD6xPq
-	deJ2Wb7rO9Vu+lAg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>
-Subject: Re: [PATCH v5 8/8] futex: Use runtime constants for __futex_hash()
- hot path
-Message-ID: <20260701084150.GNOeboLw@linutronix.de>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-9-kprateek.nayak@amd.com>
- <20260701075714.GP48970@noisy.programming.kicks-ass.net>
+	bh=gg1b4NvG9irnTlONKFumTIckFqfflTt6uFIpf+8fltI=;
+	b=mGAu0O5p3zzJMOJu8qMNFgcSKrgX6osZU3GAoSLRlOMN10orW6+CZfaU9yfENWqMHTFSsP
+	8YFkH7Qt9+3dgkbpQpQdYAn0ouLmDSJtQMJCltLHCnJTEOrwsW4eaaCCpx4LALgw1sHTzt
+	1Qk1rPXD5165bCku5pIxwAFiDvCL690=
+From: Atish Patra <atish.patra@linux.dev>
+Date: Wed, 01 Jul 2026 01:46:50 -0700
+Subject: [PATCH v8 02/22] RISC-V: Add Sxcsrind ISA extension CSR
+ definitions
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260701075714.GP48970@noisy.programming.kicks-ass.net>
+Message-Id: <20260701-counter_delegation-v8-2-7909f863a645@meta.com>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+To: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Atish Patra <atish.patra@linux.dev>, Ian Rogers <irogers@google.com>, 
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_014158_435769_EAD9E057 
-X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-CacheID: sfid-20260701_014728_448244_BF03612B 
+X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,29 +72,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-01 09:57:14 [+0200], Peter Zijlstra wrote:
-> The big $1M question: does it actually make it go faster? The whole
-> point here was performance, right? But I'm not seeing numbers showing
-> how awesome these patches are.
-
-I did complain about the about the size of __futex_data which is blown
-on distro kernels due to CONFIG_NODES_SHIFT=10 on Debian for instance.
-This makes it go away at no extra price but yeah let me boot a big box
-and see.
-If the performance remains unchanged it is still worth considering due
-to size savings on the average box with 1 node. The biggest box I have
-access to has four nodes. If I remember correctly, Prateek was saying
-that AMD has "normal" boxes which would require =9 for normal operation
-and they do run distro kernels so lowering that value is not an option.
-
-Sebastian
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogS2Fpd2VuIFh1ZSA8a2Fpd2VueEByaXZvc2luYy5jb20+CgpUaGlzIGFkZHMgZGVmaW5p
+dGlvbnMgb2YgbmV3IENTUnMgYW5kIGJpdHMgZGVmaW5lZCBpbiBTeGNzcmluZCBJU0EKZXh0ZW5z
+aW9uLiBUaGVzZSBDU1IgZW5hYmxlcyBpbmRpcmVjdCBhY2Nlc3NlcyBtZWNoYW5pc20gdG8gYWNj
+ZXNzCmFueSBDU1JzIGluIE0tLCBTLSwgYW5kIFZTLW1vZGUuIFRoZSByYW5nZSBvZiB0aGUgc2Vs
+ZWN0IHZhbHVlcwphbmQgaXJlZyB3aWxsIGJlIGRlZmluZSBieSB0aGUgSVNBIGV4dGVuc2lvbiB1
+c2luZyBTeGNzcmluZCBleHRlbnNpb24uCgpTaWduZWQtb2ZmLWJ5OiBLYWl3ZW4gWHVlIDxrYWl3
+ZW54QHJpdm9zaW5jLmNvbT4KUmV2aWV3ZWQtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJp
+dm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogQXRpc2ggUGF0cmEgPGF0aXNocEByaXZvc2luYy5j
+b20+Ci0tLQogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCB8IDMwICsrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDMwIGluc2VydGlvbnMoKykKCmRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9jc3IuaAppbmRleCAzMWI4OTg4ZjQ0ODguLmI0NTUxYTZjZjdjYiAxMDA2NDQKLS0tIGEv
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2Nzci5oCkBAIC0zNDcsNiArMzQ3LDEyIEBACiAvKiBTdXBlcnZpc29yLUxldmVsIFdpbmRvdyB0
+byBJbmRpcmVjdGx5IEFjY2Vzc2VkIFJlZ2lzdGVycyAoQUlBKSAqLwogI2RlZmluZSBDU1JfU0lT
+RUxFQ1QJCTB4MTUwCiAjZGVmaW5lIENTUl9TSVJFRwkJMHgxNTEKKy8qIFN1cGVydmlzb3ItTGV2
+ZWwgV2luZG93IHRvIEluZGlyZWN0bHkgQWNjZXNzZWQgUmVnaXN0ZXJzIChTeGNzcmluZCkgKi8K
+KyNkZWZpbmUgQ1NSX1NJUkVHMgkJMHgxNTIKKyNkZWZpbmUgQ1NSX1NJUkVHMwkJMHgxNTMKKyNk
+ZWZpbmUgQ1NSX1NJUkVHNAkJMHgxNTUKKyNkZWZpbmUgQ1NSX1NJUkVHNQkJMHgxNTYKKyNkZWZp
+bmUgQ1NSX1NJUkVHNgkJMHgxNTcKIAogLyogU3VwZXJ2aXNvci1MZXZlbCBJbnRlcnJ1cHRzIChB
+SUEpICovCiAjZGVmaW5lIENTUl9TVE9QRUkJCTB4MTVjCkBAIC0zOTQsNiArNDAwLDE0IEBACiAv
+KiBWUy1MZXZlbCBXaW5kb3cgdG8gSW5kaXJlY3RseSBBY2Nlc3NlZCBSZWdpc3RlcnMgKEgtZXh0
+ZW5zaW9uIHdpdGggQUlBKSAqLwogI2RlZmluZSBDU1JfVlNJU0VMRUNUCQkweDI1MAogI2RlZmlu
+ZSBDU1JfVlNJUkVHCQkweDI1MQorLyoKKyAqIFZTLUxldmVsIFdpbmRvdyB0byBJbmRpcmVjdGx5
+IEFjY2Vzc2VkIFJlZ2lzdGVycyAoSC1leHRlbnNpb24gd2l0aCBTeGNzcmluZCkKKyAqLworI2Rl
+ZmluZSBDU1JfVlNJUkVHMgkJMHgyNTIKKyNkZWZpbmUgQ1NSX1ZTSVJFRzMJCTB4MjUzCisjZGVm
+aW5lIENTUl9WU0lSRUc0CQkweDI1NQorI2RlZmluZSBDU1JfVlNJUkVHNQkJMHgyNTYKKyNkZWZp
+bmUgQ1NSX1ZTSVJFRzYJCTB4MjU3CiAKIC8qIFZTLUxldmVsIEludGVycnVwdHMgKEgtZXh0ZW5z
+aW9uIHdpdGggQUlBKSAqLwogI2RlZmluZSBDU1JfVlNUT1BFSQkJMHgyNWMKQEAgLTQzNiw2ICs0
+NTAsMTIgQEAKIC8qIE1hY2hpbmUtTGV2ZWwgV2luZG93IHRvIEluZGlyZWN0bHkgQWNjZXNzZWQg
+UmVnaXN0ZXJzIChBSUEpICovCiAjZGVmaW5lIENTUl9NSVNFTEVDVAkJMHgzNTAKICNkZWZpbmUg
+Q1NSX01JUkVHCQkweDM1MQorLyogTWFjaGluZS1MZXZlbCBXaW5kb3cgdG8gSW5kaXJlY3RseSBB
+Y2Nlc3NlZCBSZWdpc3RlcnMgKFN4Y3NyaW5kKSAqLworI2RlZmluZSBDU1JfTUlSRUcyCQkweDM1
+MgorI2RlZmluZSBDU1JfTUlSRUczCQkweDM1MworI2RlZmluZSBDU1JfTUlSRUc0CQkweDM1NQor
+I2RlZmluZSBDU1JfTUlSRUc1CQkweDM1NgorI2RlZmluZSBDU1JfTUlSRUc2CQkweDM1NwogCiAv
+KiBNYWNoaW5lLUxldmVsIEludGVycnVwdHMgKEFJQSkgKi8KICNkZWZpbmUgQ1NSX01UT1BFSQkJ
+MHgzNWMKQEAgLTQ5OCw2ICs1MTgsMTEgQEAKICMgZGVmaW5lIENTUl9JRUgJCUNTUl9NSUVICiAj
+IGRlZmluZSBDU1JfSVNFTEVDVAlDU1JfTUlTRUxFQ1QKICMgZGVmaW5lIENTUl9JUkVHCUNTUl9N
+SVJFRworIyBkZWZpbmUgQ1NSX0lSRUcyCUNTUl9NSVJFRzIKKyMgZGVmaW5lIENTUl9JUkVHMwlD
+U1JfTUlSRUczCisjIGRlZmluZSBDU1JfSVJFRzQJQ1NSX01JUkVHNAorIyBkZWZpbmUgQ1NSX0lS
+RUc1CUNTUl9NSVJFRzUKKyMgZGVmaW5lIENTUl9JUkVHNglDU1JfTUlSRUc2CiAjIGRlZmluZSBD
+U1JfSVBICQlDU1JfTUlQSAogIyBkZWZpbmUgQ1NSX1RPUEVJCUNTUl9NVE9QRUkKICMgZGVmaW5l
+IENTUl9UT1BJCUNTUl9NVE9QSQpAQCAtNTIzLDYgKzU0OCwxMSBAQAogIyBkZWZpbmUgQ1NSX0lF
+SAkJQ1NSX1NJRUgKICMgZGVmaW5lIENTUl9JU0VMRUNUCUNTUl9TSVNFTEVDVAogIyBkZWZpbmUg
+Q1NSX0lSRUcJQ1NSX1NJUkVHCisjIGRlZmluZSBDU1JfSVJFRzIJQ1NSX1NJUkVHMgorIyBkZWZp
+bmUgQ1NSX0lSRUczCUNTUl9TSVJFRzMKKyMgZGVmaW5lIENTUl9JUkVHNAlDU1JfU0lSRUc0Cisj
+IGRlZmluZSBDU1JfSVJFRzUJQ1NSX1NJUkVHNQorIyBkZWZpbmUgQ1NSX0lSRUc2CUNTUl9TSVJF
+RzYKICMgZGVmaW5lIENTUl9JUEgJCUNTUl9TSVBICiAjIGRlZmluZSBDU1JfVE9QRUkJQ1NSX1NU
+T1BFSQogIyBkZWZpbmUgQ1NSX1RPUEkJQ1NSX1NUT1BJCgotLSAKMi41My4wLU1ldGEKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
