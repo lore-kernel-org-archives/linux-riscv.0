@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D3BC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D27C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nXmK5Iff/RBRuhEx9Qm1fDTvAfKcdGkuNAX3CKB9Mxk=; b=l1uKej25Qp3M4Q
-	sb53HjsUz9K6B042sgMHmB3qhDhFGY08tjLqoL98e4inBC3UHINH9Y6I5LhkSa/cIF+y8dewohj5t
-	2WWCaivJcFgkgzrmYnNktrhG45vszzC2wwBf+2jTVFhPjBWwF3QLG09f2BbyakYCuPNURei9DhYp7
-	OUHoFZfqj676RDTZ1hISRNfiDmVCuhfd+2d6PlkeB8j6zrtLhqq0TYn9KpdSztxRlQYMQZa43iV5Z
-	W03hNqtMzmZd3BswTMN8kmL1pR5k3w8vN1U08RyjGhCkqfbvOgRC1eit13DF7SGU7ngrzKe+CYXAY
-	DUqnnTk8nVI3iY6w5MGw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dk4M+U6toqksYhI4uQ7+J4CXcXgmEYEYkrKDnezr9L8=; b=5GiIo1S83rWdGm
+	C1Si6Yhv3Kbf1EXXCyJ+4uxsCMI6M+rEPhau+r6zyOIoH9awARd9VzemSAsGDsg+eQXDAlmqYxN0f
+	Sk6Hng06d4g0JdV+xJ2IImaEbRs7ChJiBHl/Tja7aH35Cc0RoG6cUESznV9umRzVp7Z4kCwGnZXhw
+	LghjPxFMTBQehoQX/hcMDYduAXEEfgMbB7NRIp3MzZEhu1Uk+ISoMNT350OMZA2l4xP9oSEr565jd
+	FJ0I4Yrh44M4B1OfVtFk+GwBB76ok7WcmLmHFpaCT8mLEcCwvpHVqvU/ttV9IdQ2huTDos7fmAdFe
+	PLeHzLyhdDs+qXP2WYmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weu5P-0000000206Y-4Bml;
-	Wed, 01 Jul 2026 12:30:40 +0000
+	id 1weu5e-000000020Dv-0jf1;
+	Wed, 01 Jul 2026 12:30:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weu5O-0000000205I-3va2
+	id 1weu5c-000000020CX-36R5
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 01 Jul 2026 12:30:39 +0000
+	Wed, 01 Jul 2026 12:30:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=J5IzwYzPDTeWx7tKr7hSDF5l+BLDO1MD+S8kZpieZcM=; b=PVXv600i9brtXGzNOZOMNHB5Vo
-	6EiLutlFePYq8sHdSaJ/oaUSnII7RFrZ+7vOrLnlJaf/mnySZieCSFdhgh1XLCPQuiL4V+G1xhnfm
-	QDhMUzfcE+88n6AUxuChEf/ZJVaoRA2trd5zfnQe3Eb/Dc7E6I2VB678YAIXpr5YOal5tT44BkTTh
-	CrIIJSxsWMvpnXzVRQrivclpfMSGBca4V7v+HwoiCEy98yu4/6mCuBjIdqncHzlOflrV569E736Ll
-	eb1FEL0rCjxNLJSmOOnAq4lqQMFiJxC8Zwd0bXc9/D3jr4+5EJaGvg4Mplhzfgg4RrcmkKGHKPz+q
-	oisQzayA==;
+	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-Type:Content-ID:Content-Description;
+	bh=zDd9DofNJHdq9P/rugFQPHi9oXh/6OPbyalY3nUgBIk=; b=I5OjDN9qRqMtAYhnzbEekuBiuB
+	pA3lMQtITgeA1A/W9FoW79ajLa7Q5tNpLnPl/uqGSAcOtohjnBnLzgUCVMCD1p6jKLhWQb7bZnTsi
+	CduJ2/JJbqH8sBDUaXofBvz0R3O/+ggeHvY4Okynpc441bU4kZpelArO74CBV5AMgtzqb7+pGAoyt
+	yImzdtvBHs/7+qR2YfpsFmcwip0wE0eujGuKql0AVcV7DoTPMAh7C2x+rVNzkqI5xTM6/O1dEPgqx
+	6p9vLHNj5G5gihYN+cDI8o/jHKYFFG+jhLBgf1Mc0Xuf/CS9nMJ2k/RW4hDpNmAkMQXvNd7Kr3fQy
+	guGpGMRQ==;
 Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weu5M-00000002kyj-0aOX
+	id 1weu5Z-00000002l1J-3Wkf
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 12:30:37 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2c9c9916f75so2806915ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 05:30:32 -0700 (PDT)
+	Wed, 01 Jul 2026 12:30:51 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2c9b1edf2bdso3465555ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 05:30:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1782909030; x=1783513830; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=J5IzwYzPDTeWx7tKr7hSDF5l+BLDO1MD+S8kZpieZcM=;
-        b=cNw1///7aaQCqpy5smvxXKm7gebLiWwuSxXi41mQfLfTn8yr5kLeC/0pHWHVd5FYmY
-         8pYVFvPAvTVhiQsQC/LdZK0OyYQsh4Zav4riOQIUlpsikbNv5655D5fptAOdMvBEcVJw
-         oibXD0m7I7HFXH8ICKpsULH98wlNC7m48bdzdjZRPpCHWYXffDoikcp5AzNC6aXkc45z
-         xXdZasnupN6icCOfeibomt9NA+vJ01LdTA7JLOUngHbYpa2WfuQR8ZJgX+eFHQSvgQqO
-         UGzoeWW6rQS9H04oK/m75MGVFR3nLGAherSZPDbtDXbaM7QxSBZeBMl62v6M8fbPEtx1
-         R6Xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782909030; x=1783513830;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=bytedance.com; s=google; t=1782909048; x=1783513848; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=J5IzwYzPDTeWx7tKr7hSDF5l+BLDO1MD+S8kZpieZcM=;
-        b=BmQgeq79xT7Aascy4YRTFCXcZtxj4QzepRQbN98lkX3g256Rzx48H+aJUgNapXhY0J
-         +H8xKIdvHeAjX0FoRKpzmgtvQbPcA2wF2K321SHjUtkIv9k7uLRbhaYaf89vhOUJv2HF
-         HfZwV91u/cmYOsKVDMy1pWmmLfRPCe3Qvxv6oRU2PU/UxdryC5aD8sEoeQV8++ePZ++o
-         PJfPdMnasoeFDCRvO9S8jFSMAmDCpVKQ4fXxQHzSTAe/3+TPl6WRecO2VSnYg0YEJn3s
-         FylS8qyhkLkxWB7CExWNoKOcM2m1s36qiMCMkmD7jyhL8WJ8hvshH0b4fYJX5MvzIX5e
-         j54g==
-X-Forwarded-Encrypted: i=1; AHgh+RpMJXiitZwuuNaTimteTq0KjPv92AKd1lxwsMGellFXgi8MG6qh2JVVUkoChba6mxOglPD0JqNvUD2xcw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLISiVk5rXIBkYBKSwxpCYvZG1VN/tuPi0DoifaQ5slCRE5Vha
-	qGJcOqD+UwmlFv/YvbC1u5hoFAySv420Kc9RPH7NQt03mSPmN0NwI7NXoyhsWEOmwfE=
-X-Gm-Gg: AfdE7cl4mmMM8XQW+GB9zUVoNxzZ0ETzV9IzYzN0A5ql05y6zokoC+XG3nvTWZhN3Dw
-	mguJgWIzU1HIxKuiLT+ai6C8ZQNaoNK/jxPiV1BULW0d2/oL4QfSNC6Jki6qgNjMPkQBEtNh2+M
-	om+tmNexXHSi9wba2cVzYmGnzrOFGRnGWT3Evjj/Wo2Ye3QnWUWGQTD4/+Y1eqS3n5zjB9sEfPZ
-	imqVdrNrxRtO1Na9z6AML4c4SsZEUexsEzQH/KR18643+J4yFAdiIRhjlVmfHWReReUjsPvBBOX
-	XQYCR7XcDYCXYSrfwy6apU6tSHWL4DGH9wyR+bTvuA9Y9TKEji4ZT9x08byBpjLyIa04TylpcTq
-	O5F3XadtaN2wMcPwPyjnks1htNKlrPHvTS1KssbazDr3XF2SNNrZ42vbXO3UCsSLiQqfDHVAydu
-	5k6gov+jLfnzUL2iT1zwel12n3w2eQPHmGOE8+D3BwcsrB0eO/a+N9FfuH
-X-Received: by 2002:a17:902:d549:b0:2c9:c991:3bf0 with SMTP id d9443c01a7336-2ca7e682ad6mr16606255ad.8.1782909030457;
-        Wed, 01 Jul 2026 05:30:30 -0700 (PDT)
+        bh=zDd9DofNJHdq9P/rugFQPHi9oXh/6OPbyalY3nUgBIk=;
+        b=Y97abxT+2JjhOgbAFqROiOOlBUDz6fgtY2Njm+++uficvx1CNcEt8gpQoANSTSZKvq
+         Kt+UBpB8lNn27eVkCdy5AmDFagEA0dJKCwMHMlM0+ShS18fmbF79YzcNbocpPrJcT709
+         YJu58Xo4zhDUtOSy+DXQMQlLqNHAEd3O2ZLZoDR9LUt9Y5jCdjkU8tWWpE7DBbrtMbNJ
+         TyiqynadeSfBcuIWKJxqzqwmIeLmfHfVpAIreM1xmFj9xkavHlpb9t+VzsZSoc64bbUR
+         aymOzzLSxQsYcCEp1fFjnsv/1EflHNaHGgX7wwmsdRJ/0mTASni7vDmepN8ToPrER5nP
+         /qkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782909048; x=1783513848;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=zDd9DofNJHdq9P/rugFQPHi9oXh/6OPbyalY3nUgBIk=;
+        b=Ae2He90kOjzpqhchMbfguxFk/J7kcfrcclQxsvlg/nCgO0iqV8/oOmDxa5CjtnSAGf
+         6yNRpW5TVIOtxB3s8gp3ofBc9kxWBDyEc9YLT3dDkXZI5pvkyEDhEaQan4zVdrGcVjtf
+         +tWocodVCnfm++NkPQJRzhdSP1xZmXQaJ3MAMR6JT7cx3+wZaqY8ZVRrWuXH8cGBfqls
+         C8o+WvzZDCmiOtPrxDCeHzy/CBJrVz2/rgRCjlRI+BGxNGAijp+rP+bLpCFxBzNG1jjW
+         ceooTajIXjdOXL7Ou43V/vDX710jUm1shbBGbxD2bluwHGpROmXNR552HammL6vFjTLC
+         hlUQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrW5zIV5L3zMfbqrzMjXiWzhstPQAnWpvD8HUCs8TOQLPQ97OLM4ajc61XQfcxYxAFCnyGcZx1TNdI1QQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3SJNEAt9n8ynjgGXKF4zExzcOTPuJFWD1pLhwSujwklMQDpQh
+	dffq45ZZEfafykPFz4T6/Qf9WnkcJC8iJ2SCfLOOFAli7C3YMWLiZJBWo4QUXvlkUMo=
+X-Gm-Gg: AfdE7cn/roOCYIJn0h3uh3OQRvqsOIYK1AyCRqQP+E1IS21NsR4KMenTE4o/igP58C1
+	b0Uff7xAwMeAMdMc232dUWx7OgnrNMZuK+h4QmvQfzSo1VdB8t/NR1jRZBKUzTTEzOcO54KuLMV
+	fvl4buk9swDcvfFzyVsSi6P3HiHo5OY9QlivqezZjfPxno02mqgeiFgx+tU4hZ3dk5fMg4D2oRR
+	7dy4wHuXtxRwummeVXT7G33AI39EZ6tspMjII7RYkv316dPc9Q0/Lp/tZI+S74e67LJhLtktb9V
+	Cn8hvS89qZSAzDLwT/Yx5xRcykG8fw0F6JVM6ByRiiJuVZ9UEmSgxj/GpDdDMH5NtEpIosfI+On
+	066+8wpTaaQvuK+U+1vTbtJ5vZzC50vXQzJQ2AyappuAUAjx4nkuDke5dHbVK6efzAfDtwrssjl
+	glikNg9vOaxO7PDgyPgWmgUtuoubWcJQdt/DflsVD9/yzOTiWGa5EVCVZI
+X-Received: by 2002:a17:902:e841:b0:2c8:be9:1d9e with SMTP id d9443c01a7336-2ca7e86485dmr15171775ad.34.1782909047857;
+        Wed, 01 Jul 2026 05:30:47 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.232])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca4bae1e2asm25166825ad.73.2026.07.01.05.30.14
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca4bae1e2asm25166825ad.73.2026.07.01.05.30.30
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 01 Jul 2026 05:30:29 -0700 (PDT)
+        Wed, 01 Jul 2026 05:30:47 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -132,14 +133,16 @@ To: pjw@kernel.org,
 	qingfang.deng@siflower.com.cn,
 	linux-arch@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v6 0/3] riscv: fix PIO helpers and add optimized percpu ops
-Date: Wed,  1 Jul 2026 20:29:45 +0800
-Message-Id: <20260701122948.57584-1-cuiyunhui@bytedance.com>
+Subject: [PATCH v6 1/3] riscv: io: avoid null-pointer arithmetic in PIO helpers
+Date: Wed,  1 Jul 2026 20:29:46 +0800
+Message-Id: <20260701122948.57584-2-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+In-Reply-To: <20260701122948.57584-1-cuiyunhui@bytedance.com>
+References: <20260701122948.57584-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_133036_355939_3DCFB569 
-X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-CacheID: sfid-20260701_133050_142695_FD03DC4A 
+X-CRM114-Status: UNSURE (   7.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -157,30 +160,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes in v6:
-- Drop the extra PCI_IO_ADDR() helper; directly guard the RISC-V ins*/outs*
-  helpers with CONFIG_HAS_IOPORT.
-- Add the missing <asm/cmpxchg.h> include to arch/riscv/include/asm/percpu.h
-  so cmpxchg_relaxed() and system_has_cmpxchg128() are visible.
-- Clean up the two 8/16-bit LR/SC fallback asm blocks to use consistent
-  old/new/field variable names.
+When port I/O is not supported, exposing the port-string helpers is both
+unnecessary and can make clang diagnose null-pointer arithmetic from the
+PCI_IOBASE based address expression.  Keep the MMIO string helpers
+available as before, but only provide the port I/O variants when
+CONFIG_HAS_IOPORT is enabled.
 
-Yunhui Cui (3):
-  riscv: io: avoid null-pointer arithmetic in PIO helpers
-  riscv: introduce percpu.h into include/asm
-  riscv: store percpu offset into thread_info
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ arch/riscv/include/asm/io.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
- arch/riscv/include/asm/asm.h         |   6 +-
- arch/riscv/include/asm/io.h          |   8 +
- arch/riscv/include/asm/percpu.h      | 288 +++++++++++++++++++++++++++
- arch/riscv/include/asm/switch_to.h   |   8 +
- arch/riscv/include/asm/thread_info.h |   3 +-
- arch/riscv/kernel/asm-offsets.c      |   1 +
- arch/riscv/kernel/smpboot.c          |   8 +
- arch/riscv/net/bpf_jit_comp64.c      |   9 +-
- 8 files changed, 317 insertions(+), 14 deletions(-)
- create mode 100644 arch/riscv/include/asm/percpu.h
-
+diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+index 09bb5f57a9d34..92d5f831f3495 100644
+--- a/arch/riscv/include/asm/io.h
++++ b/arch/riscv/include/asm/io.h
+@@ -102,12 +102,14 @@ __io_reads_ins(reads, u32, l, __io_br(), __io_ar(addr))
+ #define readsw(addr, buffer, count) __readsw(addr, buffer, count)
+ #define readsl(addr, buffer, count) __readsl(addr, buffer, count)
+ 
++#ifdef CONFIG_HAS_IOPORT
+ __io_reads_ins(ins,  u8, b, __io_pbr(), __io_par(addr))
+ __io_reads_ins(ins, u16, w, __io_pbr(), __io_par(addr))
+ __io_reads_ins(ins, u32, l, __io_pbr(), __io_par(addr))
+ #define insb(addr, buffer, count) __insb(PCI_IOBASE + (addr), buffer, count)
+ #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
+ #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
++#endif
+ 
+ __io_writes_outs(writes,  u8, b, __io_bw(), __io_aw())
+ __io_writes_outs(writes, u16, w, __io_bw(), __io_aw())
+@@ -116,26 +118,32 @@ __io_writes_outs(writes, u32, l, __io_bw(), __io_aw())
+ #define writesw(addr, buffer, count) __writesw(addr, buffer, count)
+ #define writesl(addr, buffer, count) __writesl(addr, buffer, count)
+ 
++#ifdef CONFIG_HAS_IOPORT
+ __io_writes_outs(outs,  u8, b, __io_pbw(), __io_paw())
+ __io_writes_outs(outs, u16, w, __io_pbw(), __io_paw())
+ __io_writes_outs(outs, u32, l, __io_pbw(), __io_paw())
+ #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), buffer, count)
+ #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), buffer, count)
+ #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), buffer, count)
++#endif
+ 
+ #ifdef CONFIG_64BIT
+ __io_reads_ins(reads, u64, q, __io_br(), __io_ar(addr))
+ #define readsq(addr, buffer, count) __readsq(addr, buffer, count)
+ 
++#ifdef CONFIG_HAS_IOPORT
+ __io_reads_ins(ins, u64, q, __io_pbr(), __io_par(addr))
+ #define insq(addr, buffer, count) __insq(PCI_IOBASE + (addr), buffer, count)
++#endif
+ 
+ __io_writes_outs(writes, u64, q, __io_bw(), __io_aw())
+ #define writesq(addr, buffer, count) __writesq(addr, buffer, count)
+ 
++#ifdef CONFIG_HAS_IOPORT
+ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
+ #define outsq(addr, buffer, count) __outsq(PCI_IOBASE + (addr), buffer, count)
+ #endif
++#endif
+ 
+ #include <asm-generic/io.h>
+ 
 -- 
 2.39.5
 
