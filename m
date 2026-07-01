@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E2AC43327
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 14:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CCB7C43327
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 14:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3IvfccR1qwrjJjL5aGfxDJ5qZK6EktikKyTiq2W8iUk=; b=FPWx9L/6nPdV5Z
-	+ls/mF9CDBrdbBD/U1YiOtkyQdXG1FetkymHR1fUWITxrF2hzF6Yq/4rHOTmaRfx8tdYm7e3lQLbQ
-	TiWS1uP4OV7btn+qazgx7G4eld/UJh18uDx6wBcID6TSyM401LsWiVG0US8FijrO9eb1dtbtY1TU4
-	nT3bqm6h52q9KjPcdD4TfxEwQt8D96hku8tIWVnezj9fO84m9sJIA96PDgrqPg3SSSxTGnj7Yfy3h
-	nOKEqU86xFwUbseBxAoz2EuCLbVDZBPpIghFHj+kapCYa1IyLzfrthfqzu4hkBbl1+yJEqhdUAODA
-	qmKoktJanGWCKaF5XUPQ==;
+	List-Owner; bh=W40usxWWUzmhgNlsVGF4fgV3qjYaHvYXMPPHWqltV74=; b=xzj2UFzOluwob1
+	+DQOBWsOuPF4E3ZbtnpFoNmXzo+dg0EwdqLDZyuZlsqtpHfkpV7yq2VElGSs47Y7siLeYO38WdHvy
+	MaBMqsM7QHP+j5uocXIWHnBzZw3ftF1l6WkWf/J8PEsw2TkJEO3tsvBfzaIVkYgUGM3m0JVJmvqmK
+	z7FSNQBWt0xv7o7+P/+keZ+TWzvPAOOH/V7CiseG48uGFDPTBWXpqWuStmAoTPS2gKSV3JcIOVGZQ
+	gKt5yXpfsTmTnlhgT9YzBgCmv9pvH2WMkfelHByGE/HqxSos5Q3SlB2bVcfonDEz8DFsiHLLyJiGL
+	kS2rbWiuq6MlvywcH1XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wew5u-00000002JYl-3uEu;
-	Wed, 01 Jul 2026 14:39:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wew60-00000002Jf9-0ffA;
+	Wed, 01 Jul 2026 14:39:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wew5u-00000002JXm-0B85;
-	Wed, 01 Jul 2026 14:39:18 +0000
+	id 1wew5z-00000002JdJ-136E;
+	Wed, 01 Jul 2026 14:39:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C885B4321D;
-	Wed,  1 Jul 2026 14:39:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0911F00A3E;
-	Wed,  1 Jul 2026 14:39:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB9E9601DD;
+	Wed,  1 Jul 2026 14:39:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 350861F000E9;
+	Wed,  1 Jul 2026 14:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782916757;
-	bh=qsG5euQizl6EykCVTiNXyXX26Cg/4JUOavNuAu0VDOo=;
+	s=k20260515; t=1782916762;
+	bh=PU2apTxk26tSxVAvU49sTh6nblByGp9XmHnEaO91aJ0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=fzBgYTNxT9jMLK6WSe+14coIN4Xw4oJwauwwW21MrbB1KduIZXa/QBCMmYiX9Jyx1
-	 mx1ByTx+o7ePtiulB1/u4z2sLTHLKJODoomjrukuj8QJ7jR8Kg5RvmDI0wLcfwJyP5
-	 SevZe2dBehgAZjJ0fBhcxrSEV76jksmgeJrdNpleUrAIFg3SZ4qCUKuYjcwut2nGni
-	 L4DxGscORAT0XbKdhZd/nd7RUx3iY169Sn9mMxY/pwpog0gJcNd7iE7fhb4VN1c5YF
-	 Ks9G0XzoCIvVS0nX5hSPLxrIprs6mNN95MeP/j3S0O1uV7pKoRnC3yYRWAHWUfZRm4
-	 /XFik510jE2Nw==
+	b=NXKCMLeysOnqQtNxOPaTYyadwU/3QaiIim0jZhjmG58/4muR+KPw1lTvXMtx8qjz+
+	 B01ecEW2hVp5z8TmlxQOG436EEbAMA4ORePYrV7NZdWNIojaJ0xOoeUX8rOgjNVoBK
+	 YBj/eRVDa61BqcngS562bdVrnuFvtaQf9SfYy7Iz54CTVKR7sOMJub167/h0ID2MbB
+	 7GjzDDERSqY1mujvE8TdsY1uV0/S8BN0Xh1XGrBdLen8cu1EQcOsWG4W7BdlCRneCX
+	 GdB6REDEBD0wr+teI0M9zC7C9mAdc7184f2tQOIaCA72XHg3wC4Ct3saYZS5NLlA3c
+	 8Khce/G6QNWGg==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Wed, 01 Jul 2026 16:38:51 +0200
-Subject: [PATCH v3 3/7] ACPI: RISC-V: Check acpi_get_handle() status in
- riscv_acpi_add_prt_dep()
+Date: Wed, 01 Jul 2026 16:38:52 +0200
+Subject: [PATCH v3 4/7] ACPI: RISC-V: Fix riscv_acpi_add_prt_dep() loop
+ handling
 MIME-Version: 1.0
-Message-Id: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-3-c5562cf0fe29@kernel.org>
+Message-Id: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-4-c5562cf0fe29@kernel.org>
 References: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org>
 In-Reply-To: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
@@ -77,11 +77,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In riscv_acpi_add_prt_dep(), the acpi_get_handle() call can fail which
-would leave link_handle uninitialized.
+The loop in riscv_acpi_add_prt_dep() includes error conditions that are
+handled in a dubious - if not outright wrong - way, by continuining the
+loop (which skips and misses the entry pointer update to point to the next
+entry).
 
-Fix it by checking the acpi_get_handle() return status and skip the entry
-if it fails.
+Rewrite the loop as a for loop (that handles the continuation correctly)
+and wrap the condition and update statements using helper functions to make
+it cleaner.
 
 Fixes: 1b173cc4bfcd ("ACPI: RISC-V: Implement function to add implicit dependencies")
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
@@ -90,24 +93,53 @@ Reviewed-by: Sunil V L <sunilvl@oss.qualcomm.com>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>
 Cc: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/riscv/irq.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/acpi/riscv/irq.c | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
-index cd83c3035cf6..75170151c614 100644
+index 75170151c614..0cdec5dd575e 100644
 --- a/drivers/acpi/riscv/irq.c
 +++ b/drivers/acpi/riscv/irq.c
-@@ -339,7 +339,9 @@ static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
+@@ -319,6 +319,20 @@ static int riscv_acpi_irq_get_dep(acpi_handle handle, unsigned int index, acpi_h
+ 	return ctx.rc;
+ }
+ 
++static bool acpi_prt_entry_valid(void *prt_entry)
++{
++	struct acpi_pci_routing_table *entry = prt_entry;
++
++	return entry && entry->length > 0;
++}
++
++static void *acpi_prt_next_entry(void *prt_entry)
++{
++	struct acpi_pci_routing_table *entry = prt_entry;
++
++	return prt_entry + entry->length;
++}
++
+ static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
+ {
+ 	struct acpi_buffer buffer = { ACPI_ALLOCATE_BUFFER, NULL };
+@@ -337,7 +351,7 @@ static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
+ 	}
+ 
  	entry = buffer.pointer;
- 	while (entry && (entry->length > 0)) {
+-	while (entry && (entry->length > 0)) {
++	for (; acpi_prt_entry_valid(entry); entry = acpi_prt_next_entry(entry)) {
  		if (entry->source[0]) {
--			acpi_get_handle(handle, entry->source, &link_handle);
-+			status = acpi_get_handle(handle, entry->source, &link_handle);
-+			if (ACPI_FAILURE(status))
-+				continue;
- 			dep_devices.count = 1;
- 			dep_devices.handles = kzalloc_objs(*dep_devices.handles,
- 							   1);
+ 			status = acpi_get_handle(handle, entry->source, &link_handle);
+ 			if (ACPI_FAILURE(status))
+@@ -365,9 +379,6 @@ static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
+ 			dep_devices.handles[0] = gsi_handle;
+ 			count += acpi_scan_add_dep(handle, &dep_devices);
+ 		}
+-
+-		entry = (struct acpi_pci_routing_table *)
+-			((unsigned long)entry + entry->length);
+ 	}
+ 
+ 	kfree(buffer.pointer);
 
 -- 
 2.34.1
