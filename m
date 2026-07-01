@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF3DC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 05:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF0AC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 05:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NKnhZVH6692TKDT1BZ1wy3jp9+OaQYgI5hawxX5Vcu4=; b=xD4qf6O0KXEKrf
-	enr/Ca+5k2bcT6NVeMCN2uWxuyY92h4JU3bx08IKdZA7nn3UElkBfg+buqLff/XXxTT6uHfnBaGMx
-	/uskm5Z42u69ler/C5QoYZz7M0mYpncGFybCqGNVmQrlSoSD/skQSRxE1CBkOJntOfU/b6X+FQ/2d
-	wcBlFKW7xYjPYpNbKfsenToxZP/7kFZCzfIm71qIZYmM4wZt8awoh6dO7trDcpMeH1Qop5YUnWGfr
-	Z6K9zHJ11CXUimUpOLf0GRM13oMFHGkx1KsicusStkjFeYBXvofyL1W2LbAaJxDeVKWsj/ol2kFaK
-	XEHWkax/cC4/N2zIZOWQ==;
+	List-Owner; bh=gzQnzDwBPYTjVfEbClUScRVBnbKTzOj7Pjnx0XaWcpw=; b=gqQohfvKsEbtpt
+	Rpj1jcNPkjv9rHLju9C1z6koESh09lhCoo6BAxRoRIajyYiRPcAe7f0+K33UYgHUNGfaV+mLMC8f1
+	j7+0ZWOWqHnSI6JvQh3qwaFW2HZ0agMxFagOwSLhfZSqf1nkTVk+bPlW2rnzMSwYLOJ/VMzslNdB7
+	aeHF8xHCrAfYPF0hO7wH/s+L3Mkwyw2Km66ExC22ow9IySPVu1lDvR6hAFpl5ErYhI8s/asp/HkSp
+	IuyMfxjTN0e6dtYPiNC9NF8EdrA3/2GnBy6CQz+nGx3p2ImvPD7/YR3oLhZwT4t1xojJ0uCQoL0C0
+	Vx7XbN7Nff8p0B8rbp7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wenZo-00000000gMY-1jVs;
-	Wed, 01 Jul 2026 05:33:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wenZm-00000000gMS-1siZ
+	id 1weniQ-00000000hCw-0qNt;
+	Wed, 01 Jul 2026 05:42:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weniM-00000000hCT-2Nqb
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 05:33:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 95F2940353;
-	Wed,  1 Jul 2026 05:33:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11E1E1F000E9;
-	Wed,  1 Jul 2026 05:33:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1782884013;
-	bh=e8x0DVh72346v4T65zlhFNs55tqSgEr6iUQN+gRodPQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=AWvtcZHzIS2f1Cz8Ls7N77oIWgF5XOElmjHIPsbBdQ+CcyM6UdcSEgScBL2T3WKJt
-	 7pdbEd4uS1oottAlHKYpp/Ncu2yOp401whXb0V9YucSMlbtqjfSJ8L0LZh7ln4rDuR
-	 VYxjA2ytOJPJfb1yvIxjwv0lew/fcm3IkGp1kM6M=
-Date: Tue, 30 Jun 2026 22:33:32 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren
- Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-Subject: Re: [PATCH v4] riscv: mm: Avoid spurious fault after hotplugging
- vmemmap
-Message-Id: <20260630223332.534218a41b2f574de327e4db@linux-foundation.org>
-In-Reply-To: <cd8cd425-7615-49a2-b26e-81a9aff0af28@iscas.ac.cn>
-References: <20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn>
-	<20260630211100.5c8f09c607595fbb5bca0a74@linux-foundation.org>
-	<cd8cd425-7615-49a2-b26e-81a9aff0af28@iscas.ac.cn>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Wed, 01 Jul 2026 05:42:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7AA8E2364;
+	Tue, 30 Jun 2026 22:42:18 -0700 (PDT)
+Received: from [10.164.19.15] (unknown [10.164.19.15])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1C7323F905;
+	Tue, 30 Jun 2026 22:42:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782884542; bh=Hn1g9R5Z8hjvzBeDVB/yavX32Z5EEPqnLXM9LxfbYXs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fjUXTQiaDXQglJl+QbVZ1KookWSK/G4jH25RrXefdflAm8CZr794+g3Q4iWKdI5U6
+	 ecLhnqfBX6W+wI55G6PM8/w71uMaFj3z2LLCWYuhXWxUM0IUXUGEosOHXSz8GUS16/
+	 gpvS10NvVNYdmrIg4OKNDJw7X73F7LCmumHHOLjw=
+Message-ID: <c3ea35e4-833f-487f-8a8b-6f8f95b7ba95@arm.com>
+Date: Wed, 1 Jul 2026 11:12:15 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm: pgtable: free kernel page tables via RCU to fix
+ ptdump UAF
+To: David Carlier <devnexen@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R . Howlett" <liam@infradead.org>, Vlastimil Babka
+ <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Lu Baolu <baolu.lu@linux.intel.com>,
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20260630041012.5975-1-devnexen@gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260630041012.5975-1-devnexen@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_224226_779819_0AB93F01 
+X-CRM114-Status: GOOD (  39.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,47 +75,216 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Jul 2026 13:01:15 +0800 Vivian Wang <wangruikang@iscas.ac.cn> wro=
-te:
 
-> On 7/1/26 12:11, Andrew Morton wrote:
-> > [...]
-> >
-> > btw, AI review suggests that there's a missing barrier in there (a
-> > pre-existing thing)
-> >
-> > 	https://sashiko.dev/#/patchset/20260630-mark-after-vmemmap-populate-v4=
--1-febbc15da028@iscas.ac.cn
-> =
 
-> Interestingly, whatever thingy that is sending patches into AI review
-> seems to completely strip the message below the "---",
+On 30/06/26 9:40 am, David Carlier wrote:
+> ptdump_walk_pgd() walks the kernel page tables under get_online_mems() and
+> mmap_write_lock(&init_mm). Neither lock stops vmalloc from freeing a kernel
+> PTE page underneath the walk.
+> 
+> When vmap_try_huge_pmd() promotes a range to a huge PMD it collapses the
+> existing PTE table and frees it via pmd_free_pte_page(). On x86, riscv and
+> powerpc this runs without the init_mm mmap lock; only arm64 takes it, and not
+> on the block-split path. So ptdump can dereference a just-freed PTE page,
+> which is the use after free syzbot hit in ptdump_pte_entry().
+> 
+> The race is not new. ptdump walks the whole kernel address space, including
+> ranges other code is actively mapping, so it reads page tables it does not
+> own. 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page tables")
+> only widened the window; the Fixes tag points there for that reason.
+> 
+> Every other walker works on a range it owns and is the only one mutating it:
+> set_memory() on arm64/riscv/loongarch, the arm64 block-split path, the
+> openrisc DMA path and the hugetlb_vmemmap remap. Nothing frees those ranges
+> concurrently, so they cannot race and do not need RCU. ptdump is the only
+> walker that traverses ranges it does not own.
+> 
+> Defer the free by an RCU grace period. pagetable_free_kernel() now frees via
+> call_rcu() in both the async and non-async configs. The async path still
+> flushes the TLB first, then queues the per-page RCU free. The page stays
+> valid until any walk that may have observed it drops its RCU read lock.
+> 
+> On the read side ptdump_walk_pgd() takes the RCU read lock around the walk,
+> and walk_page_range_debug() asserts it with RCU_LOCKDEP_WARN() for the
+> init_mm case rather than taking it, matching pagewalk.c convention. A walker
+> either sees the cleared PMD and skips, or keeps the page alive until it drops
+> the lock. The owned-range walkers are unchanged.
+> 
+> ptdump callbacks now run under RCU, so they must not sleep. The arch
+> note_page() and effective_prot() callbacks only format into the preallocated
+> seq_file buffer, and the walker does not call cond_resched(); the only
+> GFP_KERNEL marker setup runs before the walk.
+> 
+> Fixes: 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page tables")
+> Reported-by: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+> Closes: https://lore.kernel.org/all/6a287988.39669fcc.33b062.00a0.GAE@google.com/T/
+> Assisted-by: Claude:claude-opus-4-8
+> Signed-off-by: David Carlier <devnexen@gmail.com>
+> ---
 
-Hey, what do you expect for $2,000,000,000,000?
+Thanks.
 
-> which made it miss:
-> =
+Is my assessment correct that this patch deems commit fa93b45fd397
+("arm64: Enable vmalloc-huge with ptdump") redundant? (in which
+case I can send a partial revert for that)
 
->     Changes in v4:
->     - Rebase on v7.2-rc1, drop dependencies
->     - (No code changes otherwise)
->     - (A concurrency fix for mark_new_valid_map was sent independently)
->     =A0 https://lore.kernel.org/linux-riscv/20260629-riscv-mm-new-valid-m=
-ap-ordering-v1-1-60d8c10c6292@iscas.ac.cn/
->       ^--- this
 
-Cool, I grabbed that.  Same caveats: riscv maintainers, please?
+> v5: reframe changelog around the pre-existing race and range ownership;
+>     correct the mmap-lock description (arm64 is the exception, not x86);
+>     move rcu_read_lock() into ptdump_walk_pgd() and assert it in
+>     walk_page_range_debug(); drop walk_kernel_page_table_range_rcu(); fix the
+>     pgtable-generic.c comment; document the no-sleep audit of the callbacks.
+> v4: defer the free in both the async and non async configs, not just
+>     the async one. Move the walk under a named
+>     walk_kernel_page_table_range_rcu() helper instead of open coding
+>     rcu_read_lock() in walk_page_range_debug().
+> v3: take rcu_read_lock() in the init_mm branch of
+>     walk_page_range_debug() rather than inside the lockless walker,
+>     which the arm64 split paths also use with GFP_PGTABLE_KERNEL and
+>     can sleep.
+> v2: use call_rcu() instead of synchronize_rcu().
+> ---
+>  include/linux/mm.h   |  7 -------
+>  mm/pagewalk.c        | 14 +++++++++-----
+>  mm/pgtable-generic.c | 22 +++++++++++++++++++++-
+>  mm/ptdump.c          |  2 ++
+>  4 files changed, 32 insertions(+), 13 deletions(-)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 485df9c2dbdd..79408a17a1b0 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3695,14 +3695,7 @@ static inline void __pagetable_free(struct ptdesc *pt)
+>  	__free_pages(page, compound_order(page));
+>  }
+>  
+> -#ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
+>  void pagetable_free_kernel(struct ptdesc *pt);
+> -#else
+> -static inline void pagetable_free_kernel(struct ptdesc *pt)
+> -{
+> -	__pagetable_free(pt);
+> -}
+> -#endif
+>  /**
+>   * pagetable_free - Free pagetables
+>   * @pt:	The page table descriptor
+> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+> index 3ae2586ff45b..c0be87580989 100644
+> --- a/mm/pagewalk.c
+> +++ b/mm/pagewalk.c
+> @@ -620,7 +620,7 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
+>   * Note: Be careful to walk the kernel pages tables, the caller may be need to
+>   * take other effective approaches (mmap lock may be insufficient) to prevent
+>   * the intermediate kernel page tables belonging to the specified address range
+> - * from being freed (e.g. memory hot-remove).
+> + * from being freed (e.g. memory hot-remove, vmap huge page promotion).
+>   */
+>  int walk_kernel_page_table_range(unsigned long start, unsigned long end,
+>  		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
+> @@ -643,7 +643,7 @@ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
+>   * Use this function to walk the kernel page tables locklessly. It should be
+>   * guaranteed that the caller has exclusive access over the range they are
+>   * operating on - that there should be no concurrent access, for example,
+> - * changing permissions for vmalloc objects.
+> + * changing permissions for vmalloc objects, or vmap huge page promotion.
+>   */
+>  int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end,
+>  		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
+> @@ -692,9 +692,13 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
+>  	};
+>  
+>  	/* For convenience, we allow traversal of kernel mappings. */
+> -	if (mm == &init_mm)
+> -		return walk_kernel_page_table_range(start, end, ops,
+> -						    pgd, private);
+> +	if (mm == &init_mm) {
+> +		RCU_LOCKDEP_WARN(!rcu_read_lock_held(),
+> +				 "RCU read lock must be held across kernel page table walk");
+> +		return walk_kernel_page_table_range(start, end, ops, pgd,
+> +							private);
+> +	}
+> +
+>  	if (start >= end || !walk.mm)
+>  		return -EINVAL;
+>  	if (!check_ops_safe(ops))
+> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> index b91b1a98029c..7a32e4821957 100644
+> --- a/mm/pgtable-generic.c
+> +++ b/mm/pgtable-generic.c
+> @@ -410,6 +410,13 @@ pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
+>  	goto again;
+>  }
+>  
+> +static void kernel_pgtable_free_rcu(struct rcu_head *head)
+> +{
+> +	struct ptdesc *pt = container_of(head, struct ptdesc, pt_rcu_head);
+> +
+> +	__pagetable_free(pt);
+> +}
+> +
+>  #ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
+>  static void kernel_pgtable_work_func(struct work_struct *work);
+>  
+> @@ -434,8 +441,15 @@ static void kernel_pgtable_work_func(struct work_struct *work)
+>  	spin_unlock(&kernel_pgtable_work.lock);
+>  
+>  	iommu_sva_invalidate_kva_range(PAGE_OFFSET, TLB_FLUSH_ALL);
+> +
+> +	/*
+> +	 * Debug walkers (ptdump) may walk ranges they do not own and race this
+> +	 * free, so they walk under rcu_read_lock(). Free after a grace period:
+> +	 * a walker either already saw the cleared PMD, or keeps the page alive
+> +	 * until it drops the RCU lock.
+> +	 */
+>  	list_for_each_entry_safe(pt, next, &page_list, pt_list)
+> -		__pagetable_free(pt);
+> +		call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
+>  }
+>  
+>  void pagetable_free_kernel(struct ptdesc *pt)
+> @@ -446,4 +460,10 @@ void pagetable_free_kernel(struct ptdesc *pt)
+>  
+>  	schedule_work(&kernel_pgtable_work.work);
+>  }
+> +#else
+> +void pagetable_free_kernel(struct ptdesc *pt)
+> +{
+> +	/* Defer the free by a grace period; see kernel_pgtable_work_func(). */
+> +	call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
+> +}
+>  #endif
+> diff --git a/mm/ptdump.c b/mm/ptdump.c
+> index 973020000096..50cd96a33dfd 100644
+> --- a/mm/ptdump.c
+> +++ b/mm/ptdump.c
+> @@ -178,11 +178,13 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
+>  
+>  	get_online_mems();
+>  	mmap_write_lock(mm);
 
-> I've reported "being able to read below the cut" as a feature request to
-> Sashiko: https://github.com/sashiko-dev/sashiko/issues/306
+mmap write lock is not required anymore no?
 
-I'm not sure that Sashiko would grok (heh) this if it was above the
-cut.
+
+> +	rcu_read_lock();
+
+Is there a possibility of RCU stall here? For example a system with
+lots of physical memory will have a huge linear map.
+
+>  	while (range->start != range->end) {
+>  		walk_page_range_debug(mm, range->start, range->end,
+>  				      &ptdump_ops, pgd, st);
+>  		range++;
+>  	}
+> +	rcu_read_unlock();
+>  	mmap_write_unlock(mm);
+>  	put_online_mems();
+>  
 
 
 _______________________________________________
