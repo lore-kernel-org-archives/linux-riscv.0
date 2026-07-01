@@ -4,74 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29188C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 05:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE4F3C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 05:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tJNbcI5GQ0r27nRawf/4qyN8o8MhsuAllu/BWysGVQk=; b=oV6gp7wFXtWOSv
-	9JJVEBsbXu+tSNiWj3MVM+dc803bVX2V3cLqSgdhp7msx8nM2lzoua4lf8pJR5r5ZpgTBZgp0d00Y
-	3G13AfgARphNcNSQN3+qdbeCV3qjgxbZyws5fGxe95ysKhPsIwbLo+PaDauEyQUEUFIC1ImRsOzEk
-	8M2Hf8Z+tbdEO+2jLQdG+1ceuv1/Vgdp1ltAzixMaCpXGyoTaFKGVdsXutMtMq0/KBV9PM2QpSg6v
-	beORNzQWPjX/o2pm12Gj2ctv+iOpBPh/E0/jd36PBdKPx67ngEcqgCWNILoOP1jrGqyxhjwTM9JW0
-	09kJ/GQMho+0RjMO+41w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7sm/oftNBy7+bMWif/I2bpELD0lFW8f3zIMp4Mj9RWM=; b=x/Br6xxkKeVhvrVysj5HruU9Ze
+	SDl67MN+aldHIQ+DfVE2DCoimlx85UbmJI3Etr9zKaXw3I5QVn1/YxxJw38yUFOgcjYDj074znbFA
+	RJCrfq2sJYAffUq1rwbF0EHN/uhXoAm7BTWvWK0Q+YJitirDm1mbhMse7fmGtw7tKYbPY8tx2hmsb
+	NDFxKpsDDY9H7Q+kTmldUB4y1j7lYOlPn6TsIaZmOeQyNiNZnp82C8AFobjm3FI+T1PmRpYA0Lytf
+	Z7TEHpn7l5oxNT1tlH2PhhfVlRcu5jBoqhvyQdCbG1h9WACBhawnWIObkdDe+TsfM490r1ej9r+ov
+	8MB+rV4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wen4q-00000000f9u-1XrR;
-	Wed, 01 Jul 2026 05:01:36 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wen96-00000000fPB-0Uap;
+	Wed, 01 Jul 2026 05:06:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wen4n-00000000f9K-1gea
+	id 1wen94-00000000fP5-1Pk0
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 05:01:35 +0000
-Received: from [10.213.6.98] (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowAAHqtIbn0RqUP83BA--.18158S2;
-	Wed, 01 Jul 2026 13:01:16 +0800 (CST)
-Message-ID: <cd8cd425-7615-49a2-b26e-81a9aff0af28@iscas.ac.cn>
-Date: Wed, 1 Jul 2026 13:01:15 +0800
+	Wed, 01 Jul 2026 05:05:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A20F435D5;
+	Wed,  1 Jul 2026 05:05:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95F4D1F000E9;
+	Wed,  1 Jul 2026 05:05:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782882357;
+	bh=cR1e3wgK4GDElvt4FzjPKvAbM9xG45FsEr5FNPN0UPE=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=mRXPPDS0ZZjbX/ABIk8RUZppNUKF2fdO+GefAa2ypmx1NYKWKqfKz6gkbybOlP9El
+	 Fsq1M/qn7hn6nUob/mTvGscUqIhCvWtpQxLlXRyVZpf7l3N+dLRu41rfRKAd9ROi7S
+	 PprfyhyxOIoPj2rM5rUT+Uyvt25W3eC7DMjzbpyz69Oo/cwcCuwLJSCPH747I/ulFy
+	 Zy50Tj8K1lcvUxHAaDO8kDI6oNYQ/nxp3XoZ6L1zuxP2ZIQfz1YjhRqJ/VBnqG+I1B
+	 TleHoSF3LcqFyOSkj4KFCE+uHtseQYfeUW6v1CEY1rBTHOS4oiiKYk6pz3bjWeCD5u
+	 OcZpLy/5jMOGg==
+Content-Type: multipart/mixed; boundary="===============4104290110149668795=="
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] riscv: mm: Avoid spurious fault after hotplugging
- vmemmap
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn>
- <20260630211100.5c8f09c607595fbb5bca0a74@linux-foundation.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260630211100.5c8f09c607595fbb5bca0a74@linux-foundation.org>
-X-CM-TRANSID: qwCowAAHqtIbn0RqUP83BA--.18158S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZw15Kw1UArWrCr1kZrWfGrg_yoWkWrX_Cr
-	sxKa4DW3yDJ3WDKw4rKF43Wr4kJayDA3yjvw1kKFWYvr9xAFnxXrZ2gryfuas7Gw4IqF1D
-	J3srK3yfJw12vjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbskYjsxI4VWkKwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Wrv_ZF1lYx0Ex4A2jsIE14v26F4UJVW0ow
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUgl19UUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_220133_802575_3E6F8F60 
-X-CRM114-Status: UNSURE (   5.62  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <bf03528b891e5f09ec46d075649474ce5f2228e80afe1d6fe5481789e9dca9d3@mail.kernel.org>
+In-Reply-To: <d6afed2c271de42efe2a3580ea30c7601cae9c0c.1782877663.git.cuiyunhui@bytedance.com>
+References: <d6afed2c271de42efe2a3580ea30c7601cae9c0c.1782877663.git.cuiyunhui@bytedance.com>
+Subject: Re: [PATCH v5 2/3] riscv: introduce percpu.h into include/asm
+From: bot+bpf-ci@kernel.org
+To: cuiyunhui@bytedance.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,dennis@kernel.org,tj@kernel.org,cl@gentwo.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,memxor@gmail.com,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,bjorn@kernel.org,pulehui@huawei.com,puranjay@kernel.org,thuth@redhat.com,ajones@ventanamicro.com,ben.dooks@codethink.co.uk,rkrcmar@ventanamicro.com,cuiyunhui@bytedance.com,samuel.holland@sifive.com,zong.li@sifive.com,conor.dooley@microchip.com,tglx@kernel.org,debug@rivosinc.com,seanwascoding@gmail.com,andybnac@gmail.com,menglong8.dong@gmail.com,cyrilbur@tenstorrent.com,wangruikang@iscas.ac.cn,atishp@rivosinc.com,apatel@ventanamicro.com,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,linux-mm@kvack.org,bpf@vger.kernel.org,arnd@arndb.de,nathan@kernel.org,nick.desaulniers+lkml@gmail.com,morbo@google.com,justinstitt@google.com,qingfang.deng@siflower.com.cn,linux-arch@vg
+ er.kernel.org,llvm@lists.linux.dev
+Cc: ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Wed,  1 Jul 2026 05:05:56 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,31 +64,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNy8xLzI2IDEyOjExLCBBbmRyZXcgTW9ydG9uIHdyb3RlOgo+IFsuLi5dCj4KPiBidHcsIEFJ
-IHJldmlldyBzdWdnZXN0cyB0aGF0IHRoZXJlJ3MgYSBtaXNzaW5nIGJhcnJpZXIgaW4gdGhlcmUg
-KGEKPiBwcmUtZXhpc3RpbmcgdGhpbmcpCj4KPiAJaHR0cHM6Ly9zYXNoaWtvLmRldi8jL3BhdGNo
-c2V0LzIwMjYwNjMwLW1hcmstYWZ0ZXItdm1lbW1hcC1wb3B1bGF0ZS12NC0xLWZlYmJjMTVkYTAy
-OEBpc2Nhcy5hYy5jbgoKSW50ZXJlc3RpbmdseSwgd2hhdGV2ZXIgdGhpbmd5IHRoYXQgaXMgc2Vu
-ZGluZyBwYXRjaGVzIGludG8gQUkgcmV2aWV3CnNlZW1zIHRvIGNvbXBsZXRlbHkgc3RyaXAgdGhl
-IG1lc3NhZ2UgYmVsb3cgdGhlICItLS0iLCB3aGljaCBtYWRlIGl0IG1pc3M6CgogICAgQ2hhbmdl
-cyBpbiB2NDoKICAgIC0gUmViYXNlIG9uIHY3LjItcmMxLCBkcm9wIGRlcGVuZGVuY2llcwogICAg
-LSAoTm8gY29kZSBjaGFuZ2VzIG90aGVyd2lzZSkKICAgIC0gKEEgY29uY3VycmVuY3kgZml4IGZv
-ciBtYXJrX25ld192YWxpZF9tYXAgd2FzIHNlbnQgaW5kZXBlbmRlbnRseSkKICAgIMKgIGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjYwNjI5LXJpc2N2LW1tLW5ldy12YWxp
-ZC1tYXAtb3JkZXJpbmctdjEtMS02MGQ4YzEwYzYyOTJAaXNjYXMuYWMuY24vCiAgICAgIF4tLS0g
-dGhpcwoKICAgIC0gTGluayB0byB2MzogaHR0cHM6Ly9wYXRjaC5tc2dpZC5saW5rLzIwMjYwNjA1
-LW1hcmstYWZ0ZXItdm1lbW1hcC1wb3B1bGF0ZS12My0xLWEwNjAwMWFjOTI2NEBpc2Nhcy5hYy5j
-bgoKKCJDaGFuZ2VzIiB3YXMgcHJvYmFibHkgbm90IHRoZSBiZXN0IHBsYWNlIHRvIHRoaXMga2lu
-ZCBvZiBhZGRyZXNzaW5nCnJldmlldyBjb21tZW50cywgYnV0IHRoaXMgZGVmaW5pdGVseSBiZWxv
-bmdlZCBiZWxvdyB0aGUgY3V0LikKCkkndmUgcmVwb3J0ZWQgImJlaW5nIGFibGUgdG8gcmVhZCBi
-ZWxvdyB0aGUgY3V0IiBhcyBhIGZlYXR1cmUgcmVxdWVzdCB0bwpTYXNoaWtvOiBodHRwczovL2dp
-dGh1Yi5jb20vc2FzaGlrby1kZXYvc2FzaGlrby9pc3N1ZXMvMzA2CgpWaXZpYW4gImRyYW1mb3Jl
-dmVyIiBXYW5nCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+--===============4104290110149668795==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+> diff --git a/arch/riscv/include/asm/percpu.h b/arch/riscv/include/asm/percpu.h
+> new file mode 100644
+> index 000000000000..46f1901d3bb8
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/percpu.h
+> @@ -0,0 +1,283 @@
+
+[ ... ]
+
+> +#define PERCPU_8_16_OP(name, amo_insn, sz, sfx, val_type, new_val_expr, asm_op)			\
+> +static inline void __percpu_##name##_amo_case_##sz(void *ptr, unsigned long val)		\
+> +{												\
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&						\
+> +		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZABHA)) {				\
+> +		asm volatile ("amo" #amo_insn #sfx " zero, %[val], %[ptr]"			\
+> +			: [ptr] "+A"(*(val_type *)ptr)						\
+> +			: [val] "r"((val_type)((new_val_expr) & PERCPU_8_16_GET_MASK(sz)))	\
+> +			: "memory");								\
+> +	} else {										\
+> +		u32 *ptr32 = PERCPU_8_16_GET_PTR32(ptr);					\
+> +		const unsigned long shift = PERCPU_8_16_GET_SHIFT(ptr);				\
+> +		const u32 mask = PERCPU_8_16_GET_MASK(sz) << shift;				\
+> +		const val_type val_trunc = (val_type)((new_val_expr)				\
+> +					   & PERCPU_8_16_GET_MASK(sz));				\
+> +		u32 retx, rc;									\
+> +		val_type new_val_type;								\
+> +												\
+> +		asm volatile (									\
+> +			"0: lr.w %0, %2\n"							\
+> +			"and %3, %0, %4\n"							\
+> +			"srl %3, %3, %5\n"							\
+> +			#asm_op " %3, %3, %6\n"							\
+> +			"and %3, %3, %8\n"						\
+> +			"sll %3, %3, %5\n"							\
+> +			"and %1, %0, %7\n"							\
+> +			"or %1, %1, %3\n"							\
+> +			"sc.w %1, %1, %2\n"							\
+> +			"bnez %1, 0b\n"								\
+> +			: "=&r"(retx), "=&r"(rc), "+A"(*ptr32), "=&r"(new_val_type)		\
+> +			: "r"(mask), "r"(shift), "r"(val_trunc), "r"(~mask),			\
+> +			  "r"(PERCPU_8_16_GET_MASK(sz))						\
+> +			: "memory");								\
+> +		}										\
+> +}
+
+[ ... ]
+
+> +#define PERCPU_8_16_RET_OP(name, amo_insn, sz, sfx, val_type, new_val_expr)			\
+> +static inline val_type __percpu_##name##_return_amo_case_##sz(void *ptr, unsigned long val)	\
+> +{												\
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&						\
+> +		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZABHA)) {				\
+> +		register val_type ret;								\
+> +		asm volatile ("amo" #amo_insn #sfx " %[ret], %[val], %[ptr]"			\
+> +			: [ptr] "+A"(*(val_type *)ptr), [ret] "=r"(ret)				\
+> +			: [val] "r"((val_type)((new_val_expr) & PERCPU_8_16_GET_MASK(sz)))	\
+> +			: "memory");								\
+> +		return ret + (val_type)((new_val_expr) & PERCPU_8_16_GET_MASK(sz));		\
+> +	} else {										\
+> +		u32 *ptr32 = PERCPU_8_16_GET_PTR32(ptr);					\
+> +		const unsigned long shift = PERCPU_8_16_GET_SHIFT(ptr);				\
+> +		const u32 mask = (PERCPU_8_16_GET_MASK(sz) << shift);				\
+> +		const u32 inv_mask = ~mask;							\
+> +		const val_type val_trunc = (val_type)((new_val_expr)				\
+> +					   & PERCPU_8_16_GET_MASK(sz));				\
+> +		u32 old, new, tmp;								\
+
+This isn't a bug, but the two LR/SC fallback loops name the same roles
+differently.  The non-return loop uses:
+
+	u32 retx, rc;
+	val_type new_val_type;
+
+while the return loop above uses:
+
+	u32 old, new, tmp;
+
+The loaded word, the scratch/merge register and the computed field play the
+same role in both loops.  Could they use one consistent set of names (e.g.
+old/new/tmp) so the two loops read as clearly parallel?  As a smaller point,
+new_val_type reads like a type name rather than a value, and new shadows a
+common keyword.
+
+> +												\
+> +		asm volatile (									\
+> +			"0: lr.w %0, %3\n"							\
+> +			"and %1, %0, %4\n"							\
+> +			"srl %1, %1, %5\n"							\
+> +			"add %1, %1, %6\n"							\
+> +			"and %1, %1, %7\n"							\
+> +			"sll %1, %1, %5\n"							\
+> +			"and %2, %0, %8\n"							\
+> +			"or %2, %2, %1\n"							\
+> +			"sc.w %2, %2, %3\n"							\
+> +			"bnez %2, 0b\n"								\
+
+This isn't a bug, but the read-modify-write LR/SC sequence here is nearly
+identical to the one in PERCPU_8_16_OP, differing only in operand numbering.
+The non-return loop parameterises the operation via #asm_op, but this loop
+hardcodes add:
+
+	"add %1, %1, %6\n"
+
+Was the intent to keep the return path add-only, or could the two loops share
+one templated sequence?
+
+> +			: "=&r"(old), "=&r"(tmp), "=&r"(new), "+A"(*ptr32)			\
+> +			: "r"(mask), "r"(shift), "r"(val_trunc), "r"(PERCPU_8_16_GET_MASK(sz)), \
+> +			"r"(inv_mask)								\
+> +			: "memory");								\
+> +		return (val_type)(tmp >> shift);						\
+> +	}											\
+> +}
+
+[ ... ]
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/28494034360
+--===============4104290110149668795==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4104290110149668795==--
+
