@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66518C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 16:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD36C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 16:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C8Fts7vm9XYOG0pxVydaRdSmJb5GXR/s15TbIjXzrz8=; b=SQu+eDZbAryoGX
-	+rrV2iK5PPQcEehFeGBji59rC9zZJaCaGhe/nVU3sh95jRDw4uey4vHU6+mBA4sgGgkvvA90gDccw
-	xHUf6ukhB1jGnWF6p5/8cSmt2At5yiCv0uvaAz9N094OIT3PjwWNDYW2S0+3QT6+2VsUISew63Vkx
-	JrnZTEyyXQXS7PZ2pF23y8/8SyEORDg+IEgVpER6SxPS2qVg+uhodacyh1IFzt2vyhlUirijH/dZM
-	6+GGlr0LDOQEEHVsMYuekGkKFurNoqEdHQ563TlZSq/5F4OLIh7jZi6UnzUmj3E+WEjb093dlORoS
-	H6/DKJ/fe+C0g8Mbpp6g==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=brJFZ8AQVfadYbWD4qRPk9EQ8X0gi8AyA6pumWXHn8g=; b=U1dsaoa2E8YU1bpmpuIA4nEXtC
+	PkVKpeP6IJ+oSVKVTI5l2AmmA90tlGj9X4TDFKUFVDs1ieqkDDEdYA4MF1QlETO5oIizBVpYh7daM
+	qFPSNqgLkC05zskRhxNWyxBc9LtZRsZo3IbFVQqDbqSLkGcTVE/EHsPLkkTQyb82CqgdieQRtVA1J
+	6jkyEU3xmFyNZYMMbC7z9t7JPU14owB1ufa+ru3CQT5w3Kr+oTf2tnyD7KugtM8naKPmOQVNzjelC
+	Iz49QG+uW8H28+fwQanbyeIo68QaVTBxS/m/41UAp5WLkfJ69Yr++ror+q51bfhm9J5ezMXFzax3M
+	gKyDs0RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexdC-00000002Vyi-0Ixi;
-	Wed, 01 Jul 2026 16:17:46 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wexyP-00000002Ydh-2KvW;
+	Wed, 01 Jul 2026 16:39:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexd9-00000002Vx6-0E6q;
-	Wed, 01 Jul 2026 16:17:44 +0000
-Date: Wed, 1 Jul 2026 18:17:36 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782922658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
-	b=EsVOyL/O4PkbWArMdz+v6gZguCvGG9j7x/3IOQgfmssmAyzbqbf3Dwnmp6iiWjIQLh8IAK
-	JRAGYLysl4sguhM8CiL52IwItjrsA45kJA1HxJerrdKce1yFKscd6hUfBDk8kRLLBMASP9
-	HAaDRaeyfaUrcTEpWpEuetEq4glZT0vuVbB1uLjbuxzlPtCFN1uTxxJMQUwfqVd4rBfF4R
-	wCJsPf0rmhs1B6MbHjJUE4G4tH6Wt9Gtq6+Gm8frjT4c8E48ygPJmbA5oLD59dsCa1kUWd
-	30TWjA4Jl5hk3kMLudqnPwPZBzaW22VoMTwcgpgNZPMUp1ROWvJNyZ1aXCKRQQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782922658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
-	b=qFYc53saNm3tZyv7Mrg+WEORV4WZSIwyhGD1WLYh9NkQnExpQvcYwwIZIB8tgYMjlnnAMr
-	VNvK+45twjg6TcDQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>
-Subject: [PATCH] futex: Optimise the size check get_futex_key()
-Message-ID: <20260701161736.xYYizA0e@linutronix.de>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-9-kprateek.nayak@amd.com>
- <20260701075714.GP48970@noisy.programming.kicks-ass.net>
- <20260701084150.GNOeboLw@linutronix.de>
- <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
+	id 1wexyN-00000002YdO-3lZM
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Jul 2026 16:39:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1895F6001D;
+	Wed,  1 Jul 2026 16:39:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA6B1F000E9;
+	Wed,  1 Jul 2026 16:39:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782923978;
+	bh=i2S2b9gwlzlrq71xUZnAbbsrQZGU2konPvu0kspaKrc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=TOTlHssS4K3aSspdhrVxeLftNotWdK7iHpbdaKmIjM4RlIP1tQpKAnW8SMm6VCRat
+	 /39KMMz3+qgUW5Naj0+z7EEn2VMW7tj4PGoQW44+mu/3BS6defuPfg0W5coObmn/WU
+	 AcF1n9KzA0Hh3hEUNDIjrdVU5sm0pegEydrZsMFQl2gRLji8CiW3poGMOtDItqDytl
+	 mUMq3BfN/jtR1F3yM4y/+Nakjjewv7zf3/Y+OU+eWvLkQXAnuXm/4XxVbUz1D7B9DK
+	 coxemdeSqIbktji1xhEiS38VZ8Am6tF49pdaGEb8EIqqpYPs3TCAhXNf8YLCiz+/TI
+	 om/TA0lzfDh9g==
+Date: Wed, 01 Jul 2026 11:39:37 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_091743_237853_3CED55AB 
-X-CRM114-Status: GOOD (  12.17  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, op-tee@lists.trustedfirmware.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, 
+ Sumit Garg <sumit.garg@kernel.org>, 
+ Jens Wiklander <jens.wiklander@linaro.org>
+To: Xing Loong <xing.xl.loong@gmail.com>
+In-Reply-To: <20260701132514.186953-3-xing.xl.loong@gmail.com>
+References: <20260701132514.186953-1-xing.xl.loong@gmail.com>
+ <20260701132514.186953-3-xing.xl.loong@gmail.com>
+Message-Id: <178292397672.969186.6837238120896509616.robh@kernel.org>
+Subject: Re: [PATCH 2/3] dt-bindings: firmware: add mbedtee,rpc binding
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +73,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The futex address must be naturally aligned and this is checked via
-"address % size" where `address' is the supplied address and `size' is
-the expected size of futex. It is guaranteed that `size' is power of two
-but the compiler does not see it and creates here a `div' operation
-(x86, arm, gcc-15).
 
-We can take advantage of the pow2 property and rewrite it as
-"address & (size-1)".
+On Wed, 01 Jul 2026 21:25:13 +0800, Xing Loong wrote:
+> Add YAML devicetree binding for the MbedTEE Trusted Execution
+> Environment driver.
+> 
+> The binding covers two platform configurations:
+>   - ARM/AArch64 (TrustZone, SMC): two reserved-memory regions
+>     (rpc-t2r-ring and rpc-t2r-shm) plus a GIC SPI edge interrupt
+>     for TEE-to-REE notifications.
+>   - RISC-V (IMSIC): three reserved-memory regions, adding
+>     rpc-r2t-ring for REE-to-TEE command submissions; no interrupts
+>     property (T2R notifications use IMSIC MSI allocated at runtime).
+> 
+> Signed-off-by: Xing Loong <xing.xl.loong@gmail.com>
+> ---
+>  .../bindings/firmware/mbedtee,rpc.yaml        | 221 ++++++++++++++++++
+>  1 file changed, 221 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
+> 
 
-As per testing, the command
-|perf bench futex hash -f 1 -b 16384 -t 1 -r 30
+My bot found errors running 'make dt_binding_check' on your patch:
 
-improved from
-| [thread  0] futex: 0x5619f931f740 [ 7001583 ops/sec ]
-to
-| [thread  0] futex: 0x55da173e5740 [ 7376137 ops/sec ]
+yamllint warnings/errors:
 
-or by 5.3%
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/firmware/mbedtee,rpc.example.dtb: /: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/root-node.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/firmware/mbedtee,rpc.example.dtb: /: 'model' is a required property
+	from schema $id: http://devicetree.org/schemas/root-node.yaml
 
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
+doc reference errors (make refcheckdocs):
 
-Could someone verify this, please? The 5% look a bit high. This is on
-top of the series (but not worsen by the series).
+See https://patchwork.kernel.org/project/devicetree/patch/20260701132514.186953-3-xing.xl.loong@gmail.com
 
- kernel/futex/core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-diff --git a/kernel/futex/core.c b/kernel/futex/core.c
-index 179b26e9c9341..2b00ab510e7d2 100644
---- a/kernel/futex/core.c
-+++ b/kernel/futex/core.c
-@@ -520,7 +520,7 @@ int get_futex_key(u32 __user *uaddr, unsigned int flags, union futex_key *key,
- 	 * The futex address must be "naturally" aligned.
- 	 */
- 	key->both.offset = address % PAGE_SIZE;
--	if (unlikely((address % size) != 0))
-+	if (unlikely((address & (size-1)) != 0))
- 		return -EINVAL;
- 	address -= key->both.offset;
- 
--- 
-2.53.0
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
 _______________________________________________
