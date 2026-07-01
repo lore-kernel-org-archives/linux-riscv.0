@@ -4,60 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18E5C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 03:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F85C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 04:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OogQE63IGUlAaS81NbakMqHMfL4o8NTJX4haJaiQRgs=; b=dbrSo6qac9N/JT
-	a524laOFn3d7xgVio45DLB5qr90YO5Ji2SvirjkBNNiJIQCLhZjZrxAnUTuOc4cTh9o9q8UJtqG73
-	HqGKtebMAlXsSe65YRgo4NB2Yq3rqXAjbQC+fE87xV2lHW9GizjspKnJxe06Jm1Z9c1+r67nnNu8n
-	TNnIKmisErx50lY9OYpB9D49KmnO0klxQ4W68b3vhOf6Ftqfe2xM/a4c9yuUnW9SN0+aNqbJ694+Q
-	xZ/71pHbzN+rwsH9FpaAABWmOdsgVwFtmZNOqHtM4z/kt543uO+nLAd5TZ/6ZKMnXzGh2D18gWZXX
-	okq0n3PC6G3ODgrm1WRw==;
+	List-Owner; bh=WYXniThzsnnoQwArTdqbmBFUwXdGlu+hEtdFp/AbFoU=; b=4m6pEED/8fd2Fs
+	xKb9ncoLzUqnfe6h9cOd9KCX3DMVGmHaqxus1xpg5fEYxhnrrtqCLMR8zWelZd1RbfYpJ82Ikr5xI
+	TU1Kyna+gk6yWlAbg84oyYxHUQYttjcrJJaiB7OAMwZntjKRj+rrDn8iAjITnNTEskiVsjHCAcn15
+	O7EeRn/Qrs1nBPiU4isze5vgsyOkGYgvsoodCNdAChbGeFuHgdPNSSC5UIDeuIOsXGdks3SKU9H0j
+	H5UNqjBdbCzehifIMEM+zqwAyKssTvfZePZf1ENf12eRGDamMeX9liUynO9MV2iHCa7lLcMF8lX+6
+	NFBV+qDAai2JmrBvRI6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1welxl-00000000bCl-3uoq;
-	Wed, 01 Jul 2026 03:50:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wem7n-00000000bjQ-3z5g;
+	Wed, 01 Jul 2026 04:00:36 +0000
+Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1welxj-00000000bCL-1mMk;
-	Wed, 01 Jul 2026 03:50:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id D44E941930;
-	Wed,  1 Jul 2026 03:50:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 34D621F000E9;
-	Wed,  1 Jul 2026 03:50:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782877810;
-	bh=T2hTvlYeEHmVWblghsmcULzurIVmIm0KteC2foXWL4w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=asBx/pvWNrFnZYBspRkbA/I6pxY5wRW0Lvrd7tA0d6v7MXkJDjynYVi+iPqtGDH2H
-	 omMweFN3sHn5Uzygl0ckOSfEENZ1y4tk+wuno/wawIL/eMUwv8EHKjc0iXqjU/+Sfn
-	 7bUt5qrgAlQMDKusfJ+TQUegRmfcz7CutCLGc2mbud98u5klDsr+hjS+PGWnYVGn4y
-	 JS+rXzClMk0a1KlwkP3DUUgIQ8wwKrSmJ0P7G96OOwsMn8iZ9SOTnY7JWVcMPVMdwj
-	 JStvyC80x133tJVhaYjzdJn9o2RqtVa22FiYcCRd1S33nvLklNjxWez82dvJ586v9r
-	 CH9YzC9mNmEEQ==
-Date: Wed, 1 Jul 2026 06:50:07 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Tao Liu <ltao@redhat.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
-	bhe@redhat.com, zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	linux-integrity@vger.kernel.org, pratyush@kernel.org,
-	Markus.Elfring@web.de, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: Fix a NULL pointer dereference in
- machine_kexec_prepare
-Message-ID: <akSOb1_1tcJvFyda@kernel.org>
-References: <20260701025732.66330-2-ltao@redhat.com>
+	id 1wem7j-00000000biY-3V19
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Jul 2026 04:00:34 +0000
+Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-30c591fb1cbso228785eec.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2026 21:00:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1782878428; x=1783483228; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bAjXq9Ej4fB7f7nIuAnBVBBySejxitzWJLxvllDtjcA=;
+        b=P/kO16BSmqP0sQfGEpm7bxUH3HV6gJbeVDaBp8fG+ZFi0/2rY9vvo9o7hayzEXoztP
+         2orWLennQZTx+/bindz7gvd3EDbOOq6NRf1wve7zxmRL1K4SY/vaUY087xGsSGYvkfrc
+         ZKndHQDyyE4Fdk5OcKrCd0rJ43WzEitgkzDL45ViqQVWjy41DqLBa6J087Sa0w972lx2
+         hbJd5vQbg0aoVP4QwSIDGO3LRhks5wKwxHmxbALLiwvfAu2lF2dso4V9+U9yYWmWGIjg
+         eFVXLG9yRix7On3oh2M7xWI5+ocHrsA6/ZwXgP9fA93uP97cceDj38wBhERaiCeMFpmq
+         SfIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782878428; x=1783483228;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=bAjXq9Ej4fB7f7nIuAnBVBBySejxitzWJLxvllDtjcA=;
+        b=LJLpX0cqDMtoZ0yJByRgVgzCbaO7JlorJ3VIbfhxNY+3UqRKyAHI135cylU8Ecy8d8
+         gevgVtoTa5Bf3JmhIr+tzr9xJMEolfmzYPuiUQskk82WxMnAzu6oaGyXW7md/vofAhwz
+         W+fP6bxNLcWyaAaZiFN5RTSwX8cOoNspWktsnadpieDq2hNLwq10FtdWooKLW9r/+rbS
+         49G5yaK82NYFve4oQHjPHSC852cPyIsqeOixYNvi8OjQVw7wQzGcVfz4XZ4gUObPGAU4
+         VDig8D4BcBsSzGIGEEKaXStgIjZVuvdaafWZbDcAaA9cH4q78Ss6r7g8PG4mlPQ/2dyE
+         M7cg==
+X-Forwarded-Encrypted: i=1; AHgh+RrMcnChL+Qiwi5D00t9qpO3SXBJTA8SlNhZfo5eV5zGCMi0yxrT2rf1iRk+sxxaiwQDNJQimimzsaJKjg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywug5GsSqegnE+33EhzGJ6i/tFEfGqVkbcqSR2BSO4rR2IroX3Z
+	PFcZxUfPNqzBeVZBnOsn6HArsC78lqWpTIo32GkKsO+ns20OoC/h6wHLYo47bQ7gs7E=
+X-Gm-Gg: AfdE7cn+9TWBWqOcxmyDToIi3avuG4eQ0ogDkuA1FQGUCqXmw0CG8RwlFxTjSvMQJy/
+	ih3IZJog6hAn9xkkGa9DePOiJHJ1tvrEftpcYClSEQhmo2uxeeAHCe9U3VQKWS6uXf2WS6eYQ4M
+	6VYG1xe55whHcuYH9yypq5EmlUBMHnFusXEW8D1eDWxiQEZ0y9npwpH2OAo/nch9twC2K7MB/cg
+	SsH/2zu3/sPtt5SSYnE8aww7qLHoimDZRao8uvuP39TvaN2v+9241UnjkpPcM2u19p0W2PaO27q
+	0fPReGC/ch7PnLWopxKqBzSsIhcsRkrjjAw9qknqRyn2vmq3vYY5eG4MDnpRr8UWHkROZPf7243
+	ZkI9YRNoyCRfSlTUmfP4qlxPcLAcnltDlwxdNY5r4g2Ktt/+vrickQlTvWDUhKVXw9q6xlGA5t+
+	iPcH36xjx/lJ60OYkfJ6CG4D/c09yCWcVef7fAlcvurnr8YE/swl9k86pbIR/YxqoR
+X-Received: by 2002:a05:7300:d516:b0:30e:c801:eace with SMTP id 5a478bee46e88-30eff05c70emr10195eec.5.1782878427991;
+        Tue, 30 Jun 2026 21:00:27 -0700 (PDT)
+Received: from FJ7FR2JRQ3.bytedance.net ([63.216.146.178])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30ee32519aesm14024287eec.27.2026.06.30.21.00.20
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 30 Jun 2026 21:00:27 -0700 (PDT)
+From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+To: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	cuiyunhui@bytedance.com,
+	yuanzhu@bytedance.com,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 0/3] RISC-V: KVM/IOMMU: Fix MRIF irqfd notice handling
+Date: Wed,  1 Jul 2026 12:00:13 +0800
+Message-ID: <20260701040017.42707-1-zhangzhanpeng.jasper@bytedance.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250811061104.10326-1-fangyu.yu@linux.alibaba.com>
+References: <20250811061104.10326-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260701025732.66330-2-ltao@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_210032_221875_2AE98B4C 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +116,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 02:57:33PM +1200, Tao Liu wrote:
-> A NULL pointer dereference issue is noticed in riscv's machine_kexec_prepare,
-> where image->segment[i].buf might be NULL and copied unchecked.
-> 
-> The NULL buf comes from security/integrity/ima/ima_kexec.c:
-> ima_add_kexec_buffer(), where kbuf is added by kexec_add_buffer(),
-> but kbuf.buffer is NULL
+Hi Fangyu,
 
-This should have a proper call sequence. Now the root cause is
-obfuscated.
+I put together a local test branch based on Andrew's RISC-V IOMMU
+irqbypass series [1] and your MRIF RFC series [2], then ran VFIO device
+assignment tests on hardware on top of that combined tree.
 
-> 
-> Fix this by simply adding a check before copy.
-> 
-> Fixes: b7fb4d78a6ad ("RISC-V: use memcpy for kexec_file mode")
-> Acked-by: Baoquan He <bhe@redhat.com>
-> Acked-by: Pratyush Yadav <pratyush@kernel.org>
-> Signed-off-by: Tao Liu <ltao@redhat.com>
-> ---
-> 
-> v3 -> v2: Add fixes tag; Replace "reference" to "dereference".
-> link to v2: https://lore.kernel.org/linux-riscv/20260627222602.23594-2-ltao@redhat.com/
-> link to v1: https://lore.kernel.org/linux-riscv/20260529032739.13264-2-ltao@redhat.com/
-> 
-> ---
->  arch/riscv/kernel/machine_kexec.c | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-> index 2306ce3e5f22..afc68f6a4aa1 100644
-> --- a/arch/riscv/kernel/machine_kexec.c
-> +++ b/arch/riscv/kernel/machine_kexec.c
-> @@ -41,6 +41,13 @@ machine_kexec_prepare(struct kimage *image)
->  		if (image->segment[i].memsz <= sizeof(fdt))
->  			continue;
->  
-> +		/*
-> +		 * Some segments (e.g. IMA) reserve space but have no buffer
-> +		 * loaded yet. Skip them as they cannot contain an FDT.
-> +		 */
+One test case that exposed a problem was a VFIO guest started with QEMU's
+AIA emulation mode, e.g. `riscv-aia=emul`.  The guest could hang because
+a normal MSI injection was classified as a MRIF notice, so KVM skipped
+the software IMSIC EIP update and the interrupt was never made pending.
 
-This is destined to rot over time. It also adds up also potentially to
-the backporting effort while backporting to stable kernes. And most
-importantly. Please, don't document every other null check.
+The issue is that the current code identifies a MRIF notice by comparing
+the injected guest interrupt ID with cached host MSI data:
 
-> +		if (image->segment[i].buf == NULL)
+    msg->data == iid
 
-if (!image->segments[i].buf)
+That is a payload value comparison, not a source/provenance check.  A
+normal MSI injection can carry the same interrupt ID value as a cached
+host MSI message.  If the vCPU is currently using the software IMSIC file
+and this collision happens, KVM can misclassify the normal MSI as a MRIF
+notice, skip the software IMSIC EIP update, and leave the guest waiting
+for an interrupt that was never made pending.
 
-> +			continue;
-> +
->  		if (image->file_mode)
->  			memcpy(&fdt, image->segment[i].buf, sizeof(fdt));
->  		else if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
-> -- 
-> 2.54.0
-> 
-> 
+This series identifies MRIF notices by irqfd route provenance instead.
+irqfd_wakeup() already injects from a seqcount-protected copy of
+irqfd->irq_entry, so patch 2 keeps the architecture's MRIF notice metadata
+in that route snapshot.  Userspace MSI injection and normal guest MSI
+injection do not carry irqfd MRIF provenance and therefore follow the
+normal software IMSIC path.
 
-BR, Jarkko
+The generic KVM change is needed because the decision must be made from
+the same copied route that irqfd_wakeup() injects from; keeping the
+provenance in RISC-V side state would not be tied to that route snapshot.
+
+Feel free to fold any of these patches into previous commits if you think
+that is a better shape for the next version. I also have a few other local
+adaptation and improvement patches on top, but kept them out of this series
+to focus on the MRIF notice issue. Please let me know if you already have a
+plan for the next revision, I am happy to support your next version in
+whichever form is useful.
+
+Zhanpeng Zhang (3):
+  iommu/riscv: Complete MRIF MSI PTE setup
+  KVM: Move irqfd arch data into route snapshots
+  RISC-V: KVM: Identify MRIF notices from irqfd snapshots
+
+These patches are based on a combined tree, not a plain upstream tree.
+The combined tree is made up of the following pieces:
+In your series, patch 4/6 is already covered by the irqbypass series [1].
+I ported patches 1/6, 2/6, 3/6, the relevant MRIF MSI PTE part of 5/6,
+and the notice handler part of 6/6, with a few integration changes.
+
+Fangyu Yu's MRIF RFC series [2] (selected patches):
+  [1/6] RISC-V: Add more elements to irqbypass vcpu_info
+  [2/6] RISC-V: KVM: Transfer the physical address of MRIF to iommu-ir
+  [3/6] RISC-V: KVM: Add a xarray to record host irq msg
+  [5/6, adapted] iommu/riscv: Add MRIF mode support
+  [6/6, adapted] RISC-V: KVM: Check the MRIF in notice MSI irq handler
+
+Andrew Jones et al. [1] (irqbypass series, omitted):
+  [RFC PATCH v2 00/18] iommu/riscv: Add irqbypass support
+
+[1] https://lists.infradead.org/pipermail/kvm-riscv/2025-September/010148.html
+[2] https://lwn.net/ml/all/20250811061104.10326-1-fangyu.yu@linux.alibaba.com/
 
 _______________________________________________
 linux-riscv mailing list
