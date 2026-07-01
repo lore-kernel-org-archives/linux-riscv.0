@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB53C43327
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E08C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gu308UTG5unae6uBaJNm+iOLCZiwMKf5/PhpdCL2ADw=; b=3w28CvFWdV/J/5
-	RHGjzwr+DCH41gu9ZzQw6wqGCoX3bJdMoUBc1ZfVXgI3IO+gEQYHs7Bbhn73IX8TQf0leYAc7bh05
-	srcdS3j/48Dzge/iFi1XGygC1Bx025bgrP0UC5Ck9VBd1NxBhESd889hcwwWhs2uC4NiBC9qz6eHZ
-	NtFK1q9Vp9QhTEyUg8uDI/hbKaec+aRiNLQrxROnffiJb/1Ht17KiyeMFJ0B0YlsfDOZPvXGYWYwz
-	TFo0RCkrvLVpFUFsr9rXnQfmEKr8m3YEWlJxfhAdfIEdl9wvNigxO8UKtpXgBNJQLmykMTrAG66w2
-	6M+QjOD8IJy7+9MAFc1Q==;
+	List-Owner; bh=QED1sIz5tB/1sts1OQh8U4sjBYiGWXA3yzPvDMk5hyE=; b=izZJyP/3GXdK5u
+	YUEQ4asatamnnttvAs371ZV0EY4iWsTbNIzAIwd25tYc4+vEIOztik9gXp747YjMa/fDat33LD6L7
+	4Ff+ro2glVRJgeloGq/Yfi4BF8HeoEXnZVwTAVXgWju6AeKJ0oQ7LsEgXJKFz+CfMzQB9f2A7UX/6
+	2uocFQ4z3a4OHhjvCm6ueLtB34Dwdqs9AV+Eas5MwG7EFOwCjdruwZVqo+YRu32bj46LJdmNZI74b
+	znyVd7nsndPmaavLGCHV4NuERtCMhIsQclzFpau+6ZJzDdNrRkBZQ4hhxbH9LP18w/uJWvvRJo7KL
+	Hlhk4nU6/Me39v1QpXqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqc1-000000014gp-3G73;
-	Wed, 01 Jul 2026 08:48:07 +0000
+	id 1weqc6-000000014mv-0JNy;
+	Wed, 01 Jul 2026 08:48:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqc0-000000014e5-1PhJ
+	id 1weqc4-000000014iN-1CZh
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 01 Jul 2026 08:48:04 +0000
+	Wed, 01 Jul 2026 08:48:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=8bnW4aRchUEMVnjaS3sJtvhYx7e7VZaYZUym5ODbnk8=; b=dhe5v52xC12O1Qzfb+3zR7wKeY
-	SSf3DXioAGpaDiISGpXK6J8SC+jo65mdTarDv48uDDs3rT8BEDEV4HMENY8tfeDX6KUad+Vwspx5A
-	CpWhTJ79MlJ46u2FUXYS6jm++AxGJA/k+GjTjOrp/i3ChMJ4Xh7N1kNJqLkqxnVVEJGDC7ZySabPv
-	1i8ueXZ9qg1qRn8HlTbKrubcp/+cQme/TRDnj32PL1GZh2tFyPxrDziHp+eNu96RfDu9uFdDRvR9w
-	dqhMWCyYojWiUXSDrROmNr5hkO/bixiPm3o9laLWOBgaxN1MGKtpNJHtXZCwhM7L4jQbZpNteVvCN
-	YnfSkeqQ==;
-Received: from out-187.mta1.migadu.com ([2001:41d0:203:375::bb])
+	bh=ZjmKzXbjKhCHmtx2rpBPlFTDcxKMT/ZJGQfdrok6APM=; b=k4kjigmqqjVTFtLa7bxABPtyvd
+	kzI/yUgvIfpwlIqm4wlZXUS6+2NgAaMgsdOiwzAJPo4R81goyb00SjtIk2bnHlsuMk5qwhgcb0qot
+	4TD+qYrC2/U1j1RfzW6ZhGYRlBgRI3vLmAxbgTR2U43ugz3DxBnmePUNmcSRk2QKXf0X84IaPkogD
+	8unMmfLTSSdAV13Ke+tRYTsva/H8Il5BFNAXVjj+ICvY9xsmfphrTYTlUMOBzbzhKSH+qz9wDE5U5
+	6H1gSo3NWuCJqEAccK6IJF2Yo+Aj5etDlGGThQBg+y5Jca4fY0TPOkMQ4m21/kcwnhn3Jow4Pdxbd
+	SgeDSY1g==;
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weqbw-00000002WcY-3RAd
+	id 1weqc1-00000002Wdy-1HK3
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 08:48:03 +0000
+	Wed, 01 Jul 2026 08:48:07 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782895678;
+	t=1782895682;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8bnW4aRchUEMVnjaS3sJtvhYx7e7VZaYZUym5ODbnk8=;
-	b=sLWDqQwBf+App3Pu7RHBlkjSnfaG2rRct/pqV+ERk3rbG4LZOhOR4spFpRL+8i/aJrIm7m
-	J7hX2zImAVjM5dunqvNXhbt6+5T/hp3lNklFu/pVjvvDAPwuISEyk3Xudw2mqCmFvqiWAT
-	bO7+HZKS7QkzcWfUd4DKAXUO4MjJ0BM=
+	bh=ZjmKzXbjKhCHmtx2rpBPlFTDcxKMT/ZJGQfdrok6APM=;
+	b=TZpcz/tcDmgNJpbk7rVVRQHfOFwQW1XD7YhpKNQbMVr5YJt86zC+sxz0Bv0bDS3d/1WmRl
+	xW/uV5oKqa00tdOT23dKcxzdNXF++T2lHwsf+v8/jv3EQqa9+l5EOjq4Jo/MzVaP7Af+X8
+	lZS874teHyhoBmwM7KH6CtfCLG5riGs=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Wed, 01 Jul 2026 01:46:55 -0700
-Subject: [PATCH v8 07/22] dt-bindings: riscv: add Smcntrpmf ISA extension
- description
+Date: Wed, 01 Jul 2026 01:46:56 -0700
+Subject: [PATCH v8 08/22] RISC-V: Add Sscfg extension CSR definition
 MIME-Version: 1.0
-Message-Id: <20260701-counter_delegation-v8-7-7909f863a645@meta.com>
+Message-Id: <20260701-counter_delegation-v8-8-7909f863a645@meta.com>
 References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 To: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -73,8 +72,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_094800_893165_622882CA 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20260701_094805_476330_152C7AB2 
+X-CRM114-Status: UNSURE (   8.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,44 +86,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atishp@rivosinc.com>
-
-Add the description for Smcntrpmf ISA extension
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 15cf0e2ee3ed..2493766e956d 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -181,6 +181,12 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
- 
-+        - const: smcntrpmf
-+          description: |
-+            The standard Smcntrpmf machine-level extension for the machine mode
-+            to enable privilege mode filtering for cycle and instret counters as
-+            ratified in the 20240326 version of the privileged ISA specification.
-+
-         - const: smcsrind
-           description: |
-             The standard Smcsrind machine-level extension extends the
-
--- 
-2.53.0-Meta
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogS2Fpd2VuIFh1ZSA8a2Fpd2VueEByaXZvc2luYy5jb20+CgpUaGlzIGFkZHMgdGhlIHNj
+b3VudGluaGliaXQgQ1NSIGRlZmluaXRpb24gYW5kIFMtbW9kZSBhY2Nlc3NpYmxlIGhwbWV2ZW50
+CmJpdHMgZGVmaW5lZCBieSBzbWNkZWxlZy9zc2NjZmcuIHNjb3VudGluaGliaXQgYWxsb3dzIFMt
+bW9kZSB0byBzdGFydC9zdG9wCmNvdW50ZXJzIGRpcmVjdGx5IGZyb20gUy1tb2RlIHdpdGhvdXQg
+aW52b2tpbmcgU0JJIGNhbGxzIHRvIE0tbW9kZS4gSXQgaXMKYWxzbyB1c2VkIHRvIGZpZ3VyZSBv
+dXQgdGhlIGNvdW50ZXJzIGRlbGVnYXRlZCB0byBTLW1vZGUgYnkgdGhlIE0tbW9kZSBhcwp3ZWxs
+LgoKU2lnbmVkLW9mZi1ieTogS2Fpd2VuIFh1ZSA8a2Fpd2VueEByaXZvc2luYy5jb20+ClJldmll
+d2VkLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+Ci0tLQogYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9jc3IuaCB8IDE4ICsrKysrKysrKysrKysrKysrKwogMSBmaWxlIGNo
+YW5nZWQsIDE4IGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2Nzci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAppbmRleCBiNDU1MWE2Y2Y3
+Y2IuLmEzYjI0Yjg4ZTQwMSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3Iu
+aAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCkBAIC0yNDEsNiArMjQxLDIzIEBA
+CiAjZGVmaW5lIFNNU1RBVEVFTjBfSFNFTlZDRkcJCShfVUxMKDEpIDw8IFNNU1RBVEVFTjBfSFNF
+TlZDRkdfU0hJRlQpCiAjZGVmaW5lIFNNU1RBVEVFTjBfU1NUQVRFRU4wX1NISUZUCTYzCiAjZGVm
+aW5lIFNNU1RBVEVFTjBfU1NUQVRFRU4wCQkoX1VMTCgxKSA8PCBTTVNUQVRFRU4wX1NTVEFURUVO
+MF9TSElGVCkKKy8qIEhQTUVWRU5UIGJpdHMuIFRoZXNlIGFyZSBhY2Nlc3NpYmxlIGluIFMtbW9k
+ZSB2aWEgU21jZGVsZWcvU3NjY2ZnICovCisjZGVmaW5lIEhQTUVWRU5UX09GCQkJKEJJVF9VTEwo
+NjMpKQorI2RlZmluZSBIUE1FVkVOVF9NSU5ICQkJKEJJVF9VTEwoNjIpKQorI2RlZmluZSBIUE1F
+VkVOVF9TSU5ICQkJKEJJVF9VTEwoNjEpKQorI2RlZmluZSBIUE1FVkVOVF9VSU5ICQkJKEJJVF9V
+TEwoNjApKQorI2RlZmluZSBIUE1FVkVOVF9WU0lOSAkJCShCSVRfVUxMKDU5KSkKKyNkZWZpbmUg
+SFBNRVZFTlRfVlVJTkgJCQkoQklUX1VMTCg1OCkpCisjaWZuZGVmIENPTkZJR182NEJJVAorI2Rl
+ZmluZSBIUE1FVkVOVEhfT0YJCQkoQklUKDMxKSkKKyNkZWZpbmUgSFBNRVZFTlRIX01JTkgJCQko
+QklUKDMwKSkKKyNkZWZpbmUgSFBNRVZFTlRIX1NJTkgJCQkoQklUKDI5KSkKKyNkZWZpbmUgSFBN
+RVZFTlRIX1VJTkgJCQkoQklUKDI4KSkKKyNkZWZpbmUgSFBNRVZFTlRIX1ZTSU5ICQkJKEJJVCgy
+NykpCisjZGVmaW5lIEhQTUVWRU5USF9WVUlOSAkJCShCSVQoMjYpKQorI2VuZGlmCisKKyNkZWZp
+bmUgU0lTRUxFQ1RfU1NDQ0ZHX0JBU0UJCTB4NDAKIAogLyogbXNlY2NmZyBiaXRzICovCiAjZGVm
+aW5lIE1TRUNDRkdfUE1NCQkJRU5WQ0ZHX1BNTQpAQCAtMzIyLDYgKzMzOSw3IEBACiAjZGVmaW5l
+IENTUl9TQ09VTlRFUkVOCQkweDEwNgogI2RlZmluZSBDU1JfU0VOVkNGRwkJMHgxMGEKICNkZWZp
+bmUgQ1NSX1NTVEFURUVOMAkJMHgxMGMKKyNkZWZpbmUgQ1NSX1NDT1VOVElOSElCSVQJMHgxMjAK
+ICNkZWZpbmUgQ1NSX1NTQ1JBVENICQkweDE0MAogI2RlZmluZSBDU1JfU0VQQwkJMHgxNDEKICNk
+ZWZpbmUgQ1NSX1NDQVVTRQkJMHgxNDIKCi0tIAoyLjUzLjAtTWV0YQoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
