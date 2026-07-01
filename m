@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C45C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04FE1C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y58l5RwcLrldnL37E6PDicZ5Sqz/Iy3DPncZCITeZig=; b=GRLoHYsAe7dY9s
-	kccN/62bdBcLsMT7KT41ACZ7sz74XqnFWbL8KNIrvL/qMLAU0Fyfu+jb/2hwKW9dfA2LrpvGr63XE
-	6tWZdh2SgO8XDbY5xYvHets6zQqcoSJEah+p7scXjEllzlMU3mR4+z7mpUad4nNgXGZY5bfQjLH+W
-	39hiceNuWtHQgmTOSqxqXbqsvcu+pX1ey27SVl9Z33mrOZXDbsbXvnq32ZyrMfL5JKZUCX7IwcJum
-	qwbJtFYSyyg3n4/Inol6HmS/qNh4C+sRitnb8cm6uHHj6FThIM6zRPcfW8AO/cnvdDdZ3lQnte3bO
-	WpRk3d2XHxaN6BhLMMQw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Hx8iTMcm1hJauAnES0VTJ6vVUPMdXIbLNDzOCM7zdvI=; b=t1goEJ36YpEIAb
+	CypxI0Q0hSpSC/Owo+Wqd49+wdHkCivzrhAnERU83bJvrvf5lkGCh61l0vDAfoX0iOizMe2Ra/ZrW
+	oJboYdwSUCW0lBm+gWOt9eGS1RwPeoQywylWWLKjZLdElWJcJmdsF+besUIyFtV9Rx3FdikdH3DFN
+	maa5guFRZk0mwaGJqbEnKXbbkDfk0hDmk7ovOeTWwtbHBjlq5WdcFnU+ZmOUsVomvZzPBP7Lm6H1A
+	CkQcR8QJ4OubE+Xmg3W4j2q9Vs06deeb7EtTcWVVasL08MXKvmc9wBpDfatoxN9HT50W0Fk3s8cTS
+	Nq5bpOqc8WBbXZUodO7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetjv-00000001n3m-237G;
-	Wed, 01 Jul 2026 12:08:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wetm9-00000001nem-2A58;
+	Wed, 01 Jul 2026 12:10:45 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetjt-00000001n0f-2Tss;
-	Wed, 01 Jul 2026 12:08:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CFB160138;
-	Wed,  1 Jul 2026 12:08:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C2AA1F000E9;
-	Wed,  1 Jul 2026 12:08:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782907704;
-	bh=C0eRNTRNun4PKYWrdIhick5RVmD+08hh2iy99USv2dg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Lk0z/ZQBNWuYtX5yOP2RB8ff5+3SHNmHArT5mGIRw4gKVvkZg6/TGWpPSDRn1vUoB
-	 7h0Svchp8RQk9jeBIpu2cmGAS9pqWjEe0cXuGkXpbg3WI8WFwI3qamF0M9B47NrSdz
-	 6lRu0WURG8w7jW9SaeLmjXJfjZRQ0eUtzUCAPDif+6m2TOTUES5AeQbvQvLoXcrEPD
-	 RaZr333OdeOtghfigKxJow6PwKBVRJfWhkE3Yw19SmPSfdyjHW8185kmrdE4IFO/cc
-	 8a/fJUJ/MUCdG9cBe5+Kr0uaV07WwcQQgzZILuVCnyN0yYTCvZJBiKEjyAyuvMWiOR
-	 lgFC+aGDyBsdw==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Tao Liu <ltao@redhat.com>
-Cc: Pratyush Yadav <pratyush@kernel.org>,  Baoquan He <bhe@redhat.com>,
-  kexec@lists.infradead.org,  pjw@kernel.org,  palmer@dabbelt.com,
-  aou@eecs.berkeley.edu,  alex@ghiti.fr,  Mimi Zohar <zohar@linux.ibm.com>,
-  Roberto Sassu <roberto.sassu@huawei.com>,  Dmitry Kasatkin
- <dmitry.kasatkin@gmail.com>,  Eric Snowberg <eric.snowberg@oracle.com>,
-  linux-integrity@vger.kernel.org,  linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Fix a NULL pointer reference in
- machine_kexec_prepare
-In-Reply-To: <CAO7dBbXzs2pMrVuJ3qUVT2KYNh9RysOOWy_HPTmCY3gYUh9LDQ@mail.gmail.com>
- (Tao
-	Liu's message of "Wed, 1 Jul 2026 15:29:44 +1200")
-References: <20260529032739.13264-2-ltao@redhat.com>
-	<CAO7dBbW+LEy8SBGAKcrxEDzK5Xctw-r7ztgnXuURa9g0xntbtQ@mail.gmail.com>
-	<CAP_BRoQEM8Re1dT7JNQgO72o50GAnb2y7R1HWPd+E772GVYAJg@mail.gmail.com>
-	<2vxzh5mlk3bd.fsf@kernel.org>
-	<CAO7dBbXzs2pMrVuJ3qUVT2KYNh9RysOOWy_HPTmCY3gYUh9LDQ@mail.gmail.com>
-Date: Wed, 01 Jul 2026 14:08:20 +0200
-Message-ID: <2vxzy0fuhpzf.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1wetm3-00000001ndQ-3BkV;
+	Wed, 01 Jul 2026 12:10:43 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gqzP543Gzz5B108;
+	Wed, 01 Jul 2026 20:10:33 +0800 (CST)
+Received: from szxlzmapp01.zte.com.cn ([10.5.231.85])
+	by mse-fl2.zte.com.cn with SMTP id 661CAON0076947;
+	Wed, 1 Jul 2026 20:10:24 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from localhost.localdomain (unknown [10.234.74.162])
+	by smtp (Zmail) with SMTP;
+	Wed, 1 Jul 2026 20:10:26 +0800
+X-Zmail-TransId: 3e816a4503b2008-1d59b
+X-Zmail-LocalSMTP: 1
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-Zmail-RealSender: wang.yechao255@zte.com.cn
+From: Wang Yechao <wang.yechao255@zte.com.cn>
+To: Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@linux.dev>,
+        Alexandre Ghiti <alex@ghiti.fr>,
+        Wang Yechao <wang.yechao255@zte.com.cn>
+Subject: [PATCH v4 0/5] Implement Eager Page Splitting for RISC-V
+Date: Wed,  1 Jul 2026 20:09:43 +0800
+Message-ID: <20260701120954.129873-1-wang.yechao255@zte.com.cn>
+X-Mailer: git-send-email 2.41.0
 MIME-Version: 1.0
+X-MAIL: mse-fl2.zte.com.cn 661CAON0076947
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 01 Jul 2026 20:10:33 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A4503B9.001/4gqzP543Gzz5B108
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_051039_956090_080CCB74 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +77,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgMDEgMjAyNiwgVGFvIExpdSB3cm90ZToKCj4gSGkgUHJhdHl1c2gsCj4KPiBP
-biBNb24sIEp1biAyOSwgMjAyNiBhdCAxMToxM+KAr1BNIFByYXR5dXNoIFlhZGF2IDxwcmF0eXVz
-aEBrZXJuZWwub3JnPiB3cm90ZToKPj4KPj4gK0NjIElNQSBtYWludGFpbmVycwo+Pgo+PiBPbiBG
-cmksIEp1biAyNiAyMDI2LCBCYW9xdWFuIEhlIHdyb3RlOgo+Pgo+PiA+IEFkZCBrZXhlYyBNTCB0
-byBDQy4KPj4gPgo+PiA+IE9uIEZyaSwgSnVuIDI2LCAyMDI2IGF0IDc6NDbigK9BTSBUYW8gTGl1
-IDxsdGFvQHJlZGhhdC5jb20+IHdyb3RlOgo+PiA+Pgo+PiA+PiBLaW5kbHkgcGluZywgYW55IGNv
-bW1lbnRzPwo+PiA+Pgo+PiA+PiBUaGFua3MsCj4+ID4+IFRhbyBMaXUKPj4gPj4KPj4gPj4gT24g
-RnJpLCBNYXkgMjksIDIwMjYgYXQgMzozNeKAr1BNIFRhbyBMaXUgPGx0YW9AcmVkaGF0LmNvbT4g
-d3JvdGU6Cj4+ID4+ID4KPj4gPj4gPiBBIE5VTEwgcG9pbnRlciByZWZlcmVuY2UgaXNzdWUgaXMg
-bm90aWNlZCBpbiByaXNjdidzIG1hY2hpbmVfa2V4ZWNfcHJlcGFyZSwKPj4gPj4gPiB3aGVyZSBp
-bWFnZS0+c2VnbWVudFtpXS5idWYgbWlnaHQgYmUgTlVMTCBhbmQgY29waWVkIHVuY2hlY2tlZC4K
-Pj4gPj4gPgo+PiA+PiA+IFRoZSBOVUxMIGJ1ZiBjb21lcyBmcm9tIHNlY3VyaXR5L2ludGVncml0
-eS9pbWEvaW1hX2tleGVjLmM6Cj4+ID4+ID4gaW1hX2FkZF9rZXhlY19idWZmZXIoKSwgd2hlcmUg
-a2J1ZiBpcyBhZGRlZCBieSBrZXhlY19hZGRfYnVmZmVyKCksCj4+ID4+ID4gYnV0IGtidWYuYnVm
-ZmVyIGlzIE5VTEwuCj4+ID4+ID4KPj4gPj4gPiBGaXggdGhpcyBieSBzaW1wbHkgYWRkaW5nIGEg
-Y2hlY2sgYmVmb3JlIGNvcHkuCj4+ID4+ID4KPj4gPj4gPiBTaWduZWQtb2ZmLWJ5OiBUYW8gTGl1
-IDxsdGFvQHJlZGhhdC5jb20+Cj4+ID4+ID4gLS0tCj4+ID4+ID4gIGFyY2gvcmlzY3Yva2VybmVs
-L21hY2hpbmVfa2V4ZWMuYyB8IDMgKysrCj4+ID4+ID4gIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2Vy
-dGlvbnMoKykKPj4gPj4gPgo+PiA+PiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9t
-YWNoaW5lX2tleGVjLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tleGVjLmMKPj4gPj4g
-PiBpbmRleCAyMzA2Y2UzZTVmMjIuLmQ4MWQ1NzZmOWNiNSAxMDA2NDQKPj4gPj4gPiAtLS0gYS9h
-cmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tleGVjLmMKPj4gPj4gPiArKysgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC9tYWNoaW5lX2tleGVjLmMKPj4gPj4gPiBAQCAtNDEsNiArNDEsOSBAQCBtYWNoaW5l
-X2tleGVjX3ByZXBhcmUoc3RydWN0IGtpbWFnZSAqaW1hZ2UpCj4+ID4+ID4gICAgICAgICAgICAg
-ICAgIGlmIChpbWFnZS0+c2VnbWVudFtpXS5tZW1zeiA8PSBzaXplb2YoZmR0KSkKPj4gPj4gPiAg
-ICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPj4gPj4gPgo+PiA+PiA+ICsgICAgICAg
-ICAgICAgICBpZiAoaW1hZ2UtPnNlZ21lbnRbaV0uYnVmID09IE5VTEwpCj4+ID4+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgY29udGludWU7Cj4+ID4+ID4gKwo+PiA+Cj4+ID4gVGhpcyBpcyBh
-IGdvb2QgZml4LCBtYXliZSB3ZSBjYW4gYWRkIGNvZGUgY29tbWVudHMgdG8gZXhwbGFpbiBpdCBh
-cwo+PiA+IGJlbG93LCBqdXN0IGZvciByZWZlcmVuY2UuCj4+ID4KPj4gPiAgICAgICAgICAgICAg
-ICAvKgo+PiA+ICAgICAgICAgICAgICAgICAqIFNvbWUgc2VnbWVudHMgKGUuZy4gSU1BKSByZXNl
-cnZlIHNwYWNlIGJ1dCBoYXZlIG5vIGJ1ZmZlcgo+PiA+ICAgICAgICAgICAgICAgICAqIGxvYWRl
-ZCB5ZXQuIFNraXAgdGhlbSBhcyB0aGV5IGNhbm5vdCBjb250YWluIGFuIEZEVC4KPj4gPiAgICAg
-ICAgICAgICAgICAgKi8KPj4gPiBBbmQgaXMgdGhlcmUgYW55IG90aGVyIHBsYWNlIHdoZXJlIHRo
-ZSBzaW1pbGFyIGlzc3VlIGV4aXN0cz8gZS5nIG9uIExvb25nQXJjaD8KPj4gPgo+PiA+IE90aGVy
-IHRoYW4gYWJvdmUgY29uY2VybnMsIHRoaXMgcGF0Y2ggbG9va3MgZ29vZCB0byBtZToKPj4gPgo+
-PiA+IEFja2VkLWJ5OiBCYW9xdWFuIEhlIDxiaGVAcmVkaGF0LmNvbT4KPj4KPj4gWWVhaCwgdGhl
-IHBhdGNoIExHVE0gdG8gbWUgdG9vLgo+Pgo+PiBBY2tlZC1ieTogUHJhdHl1c2ggWWFkYXYgPHBy
-YXR5dXNoQGtlcm5lbC5vcmc+Cj4+Cj4+IEFsdGhvdWdoIEkgdGhpbmsgSU1BIGNhbiBtYWtlIHRo
-aXMgYSBiaXQgZWFzaWVyIHRvIHVuZGVyc3RhbmQuIEZpcnN0LCBpbgo+PiBpbWFfYWRkX2tleGVj
-X2J1ZmZlcigpIGl0IHNob3VsZCBzZXQga2J1Zi5idWZmZXIgdG8gTlVMTCBhbmQga2J1Zi5idWZz
-ego+PiB0byAwIGV4cGxpY2l0bHkgaW5zdGVhZCBvZiB1c2luZyBrZXhlY19idWZmZXIgYW5kIGtl
-eGVjX2J1ZmZlcl9zaXplCj4+IHdoaWNoIGFyZSBpbml0aWFsaXplZCB0byBOVUxMIGFuZCAwLCBi
-dXQgbmV2ZXIgdXBkYXRlZC4gVXNpbmcgdGhlCj4+IHZhcmlhYmxlcyBoZXJlIGFkZHMgYW4gZXh0
-cmEgbGV2ZWwgb2YgaW5kaXJlY3Rpb24uCj4+Cj4+IEFsc28sIHBlcmhhcHMgd2Ugc2hvdWxkIGFk
-ZCBhIGNvbW1lbnQgaW4gaW1hX2FkZF9rZXhlY19idWZmZXIoKSBhYm91dAo+PiBob3cgdGhpcyBh
-bGwgd29ya3MsIHNpbmNlIHdoZXJlIHRoZSBJTUEgYnVmZmVyIGxpdmVzIGFuZCB3aGVyZSBpdCBn
-ZXRzCj4+IHVwZGF0ZWQgaXQgZmFpcmx5IGNvbXBsaWNhdGVkIGFuZCB0b29rIG1lIHNvbWUgdGlt
-ZSB0byBwaWVjZSB0b2dldGhlci4KPgo+IFRoYW5rcyBmb3IgeW91ciBwYXRjaCByZXZpZXcgYW5k
-IHN1Z2dlc3Rpb25zISBJIGFncmVlIHdpdGggeW91ciBwb2ludAo+IG9uIHRoZSBJTUEgcGFydCwg
-SSB3YXMgY29uZnVzZWQgYnkgdGhlIGNvZGUgdG9vLCBlLmcgaW4KPiBpbWFfYWRkX2tleGVjX2J1
-ZmZlcigpOgo+Cj4gdm9pZCAqa2V4ZWNfYnVmZmVyID0gTlVMTDsKPiBrYnVmLmJ1ZmZlciA9IGtl
-eGVjX2J1ZmZlcjsKPiByZXQgPSBrZXhlY19hZGRfYnVmZmVyKCZrYnVmKTsKPiBpZiAocmV0KSB7
-Cj4gICAgIHByX2VycigiRXJyb3IgcGFzc2luZyBvdmVyIGtleGVjIG1lYXN1cmVtZW50IGJ1ZmZl
-ci5cbiIpOwo+ICAgICB2ZnJlZShrZXhlY19idWZmZXIpOwo+ICAgICByZXR1cm47Cj4gfQo+Cj4g
-RG8gd2UgbmVlZCB0byB2ZnJlZShrZXhlY19idWZmZXIpPyBXaGVuIGtleGVjX2J1ZmZlciBpcyBO
-VUxMIGFuZCBzZWVtcwo+IG5ldmVyIGdldCB1cGRhdGVkLgo+Cj4gSSdtIG5vdCBmYW1pbGlhciB3
-aXRoIElNQSBjb2RlLCBtYXliZSB0aGVyZSBpcyBhIHJlYXNvbiB3aGljaCBJJ20gdW5hd2FyZSBv
-Zi4uLgoKSSB0aGluayBpdCBpcyBqdXN0IGxlZnRvdmVyIGZyb20gcmVmYWN0b3JzLiBrZXhlY19i
-dWZmZXIgdXNlZCB0byBwb2ludAp0byBhbiBhY3R1YWwgYnVmZmVyIGF0IHNvbWUgcG9pbnQgYW5k
-IHJlZmFjdG9ycyB0byB0aGUgZnVuY3Rpb24gbGVmdAp0aGVtIGFsd2F5cyBOVUxMIGJ1dCBuZXZl
-ciByZW1vdmVkIHRoZW0uCgotLSAKUmVnYXJkcywKUHJhdHl1c2ggWWFkYXYKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Eager Page Splitting is implemented on x86 and ARM. It improves the
+performance of dirty logging (used in live migrations) when guest memory
+is backed by huge pages.
+
+This series implement Eager Page Splitting for RISC-V. The Implementation
+similar to x86 and ARM. It provides two ways to split huge pages in ioctl
+context instead of on fault in vCPU context:
+
+- Split huge pages when dirty logging is enabled when
+  KVM_DIRTY_LOG_INITIALLY_SET is not set. This happens when enabling the
+  KVM_MEM_LOG_DIRTY_PAGES flag of a memslot, and splits the whole memslot
+  into 4K mappings.
+
+- Split huge pages during KVM_CLEAR_DIRTY_LOG when
+  KVM_DIRTY_LOG_INITIALLY_SET is set. This happens when enabling dirty log
+  in small chunks. It does not split the whole memslot, but only the
+  requested chunk range.
+
+Changes in v4:
+ - Rebase on v7.2-rc1 version.
+ sashiko-bot AI review
+ (https://sashiko.dev/#/patchset/20260624160054463wcDvJaMoydSggcNOWgcfB@zte.com.cn)
+ - Add the rwlock_needbreak() check when toup split cache.
+ - ALIGN_DOWN the start addr to PMD_SIZE.
+
+Changes in v3 resend:
+ - Fix patch format to ensure emails reach the linux-riscv and kvm-riscv
+   mailing lists.
+ - Move the free pgd_split_page_cache into kvm_arch_destroy_vm().
+ https://lore.kernel.org/kvm-riscv/20260624160054463wcDvJaMoydSggcNOWgcfB@zte.com.cn/
+
+Changes in v3:
+ - Rebase on v7.1 version.
+ - Add patch03 to remove the redundant TLB flush operations.
+ 
+ sashiko-bot AI review
+ (https://sashiko.dev/#/message/20260603104847.9692C1F00893%40smtp.kernel.org)
+ - Check the kvm->arch.pgd before split huge pages.
+ - Align the start address to PMD_SIZE before split.
+ - Flushing remote TLBs before Dropping mmu_lock.
+
+Changes in v2:
+ - Rename the split_page_cache.
+ - Rename the kvm_riscv_split_huge_pages and
+   kvm_riscv_split_memory_region.
+ - Add lockdep_assert_held check before split huge pages.
+ - Update Documentation/admin-guide/kernel-parameters.txt.
+ - Link to v2
+ https://lore.kernel.org/linux-riscv/20260603175256408L0jnqGs1cJGc0ijCdujci@zte.com.cn/
+
+ - Link to v1:
+ https://lore.kernel.org/linux-riscv/20260513153656847l3c4fI5hBsAyoIZi8aGIs@zte.com.cn/
+
+Wang Yechao (5):
+  RISC-V: KVM: Add the split page cache for ioctl context
+  RISC-V: KVM: Split huge pages when dirty logging is enabled
+  RISC-V: KVM: Remove redundant TLB flush operations
+  RISC-V: KVM: Split huge pages during KVM_CLEAR_DIRTY_LOG
+  RISC-V: KVM: Add the eager_page_split module parameter
+
+ .../admin-guide/kernel-parameters.txt         |  7 +-
+ arch/riscv/include/asm/kvm_gstage.h           |  6 +-
+ arch/riscv/include/asm/kvm_host.h             |  1 +
+ arch/riscv/kvm/gstage.c                       | 23 +++--
+ arch/riscv/kvm/mmu.c                          | 93 ++++++++++++++++++-
+ arch/riscv/kvm/vm.c                           |  6 ++
+ 6 files changed, 119 insertions(+), 17 deletions(-)
+
+-- 
+2.43.5
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
