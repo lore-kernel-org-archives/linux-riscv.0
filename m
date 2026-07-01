@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C849C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340F5C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fe5+FUdgsXg1w8RbRtAkfGGW0M1A6CZZTOZ3DPUvbIg=; b=zHrClKx4BvgyKW
-	EDkEK0f1LAxJMTP1rxLK/V3loSEncCIYOjUUkeK4MUY4KsUPythPxgt+WBm8DkfeiRCpof0C90SWJ
-	WqC5Ev+FaWW7i8rfsP9rP8ViSm65MVWQ0MMQVpx9WE37Uy+8+Zd3O5Kgc70Wg9VFlwwWULxzp1dEp
-	+i68gF99HCQzzZZ2M4rWNv+tFxAZ3dejll+v4srKdS/zbPBlmJlBdQMmQizNHmH3M9k/lK66oEHJu
-	90eKz/i5BMDVnh58F78b+1LlqDxgHg+idX/j4QK6zh1HkcTvftVkP6NaA+sM946shECs3pHtgaOhb
-	FT5KeqdyLhaqBu9VAF4w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7CQEndd9d5UaY8/WQfBJPJYk9P0LE/NgYAcR2AERp4M=; b=0iOIEK4KcNXnaj
+	FxodPL5Yz8b/6aMWth+Q3TGuWGqT81H0eUoyp99uoOLQJrYdRmpeIrS+9LbdR/EEziwW0kVf6hW9R
+	zAqsosnf22SKQMAT/znIvHU336+F1eVKC0HluVK3UTeHnB936vH1KoYhPadlVHT77ZEF3ZeOc1S+8
+	fVitR+qWhApYhx0sW0t9tg6dLMX+lGYNGdy8zt2KNhvkQcawXxUYI4gnabwvegqRlPlfcNpBKLX2+
+	dcsCl5A+ihTOvgn0PW4V/BJX1Yn0MLR2qvmEso5qjnDqDMokIX1En11uY/js82L4iZMzbNVcyx8bW
+	/Ci52vhNYAj20TNNQtHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weq2Y-00000000zgU-27sK;
+	id 1weq2Y-00000000zgQ-18Zr;
 	Wed, 01 Jul 2026 08:11:26 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weq2T-00000000zew-3ByJ
+	id 1weq2T-00000000zfI-26LT
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 08:11:25 +0000
+	Wed, 01 Jul 2026 08:11:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=K2
-	X7FP2+XbaqjMe4yrmXcuX7vip8Xbbw8s+9bXwDLvE=; b=WX+oIeFzCjYNVBGhD6
-	8t30BmeaxmmdjcnmqaROR7I/s2zI9mP9t1YhomIJqdDHYZdibPCumBXCtX/jwQwJ
-	rPRZQV1YAgPNe3FUzeDQ9saD1sPK4iaubrBUqVRr6jQxuHNFmmY7mwTj8P7vj+F9
-	+4LtGgzycWbE1tyQ84zaZZtTo=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Wb
+	wcrkvltTRky39IqZSfJP2Rrr6GyP3++S2L3ERsYI8=; b=WihMo6NO4h8yiD0DtI
+	r5dRnTLAlL+8NzEyTunzM4lxx3Zz+zvFJiHZpDTmUF7Yxe66vYN/eKfiG0cQwfem
+	tjIvvwfuSppZR4w36LcDzAhjV/jBML733vze38m604HFJPICcMWrIvIzvchTwse9
+	MHPeJRAsaq37BX3EdMo/UFqbQ=
 Received: from Ubuntu.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgBHa+Z5y0Rqn4gyFA--.16458S4;
-	Wed, 01 Jul 2026 16:10:36 +0800 (CST)
+	by gzsmtp4 (Coremail) with SMTP id PygvCgBHa+Z5y0Rqn4gyFA--.16458S2;
+	Wed, 01 Jul 2026 16:10:34 +0800 (CST)
 From: Xiaofeng Yuan <xiaofengmian@163.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -45,23 +45,21 @@ Cc: Charlie Jenkins <thecharlesjenkins@gmail.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	xiaofengmian@163.com
-Subject: [PATCH v6 2/2] riscv: kprobes: add test case for c.jal instruction simulation
-Date: Wed,  1 Jul 2026 08:10:33 +0000
-Message-ID: <20260701081033.49871-3-xiaofengmian@163.com>
+Subject: [PATCH v6 0/2] riscv: add c.jal instruction simulation for kprobes
+Date: Wed,  1 Jul 2026 08:10:31 +0000
+Message-ID: <20260701081033.49871-1-xiaofengmian@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260701081033.49871-1-xiaofengmian@163.com>
-References: <20260701081033.49871-1-xiaofengmian@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: PygvCgBHa+Z5y0Rqn4gyFA--.16458S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw1kWrWDur17XFyxtFWkJFb_yoW8uF1DpF
-	nrJr15KFW8Jas3Jry3WF1rAryFya1kA3yagr1DZr4rCr48Gw12yr9FgFWDtFnrKrWFv3yS
-	vry8WrWxKF9xZFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zioqcUUUUUU=
+X-CM-TRANSID: PygvCgBHa+Z5y0Rqn4gyFA--.16458S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw1UKw1UCF17WF1kWrykKrg_yoW8Gw1fpF
+	s8C3y5tFWjvFs7GFy3JF4xZr4Sga1rGr43WF12yw4Fq348ur92vF1qgrWakFsIgr4Sg3sF
+	9ry2qF95uFy3ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEv38UUUUUU=
 X-Originating-IP: [39.144.122.37]
-X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAhy9wGpEy3xwqAAA3i
+X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbC5Rq8v2pEy3rHgAAA3k
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_011122_244225_D84B83A2 
-X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-CacheID: sfid-20260701_011122_178587_6098E30E 
+X-CRM114-Status: UNSURE (   8.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,71 +77,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nam Cao <namcao@linutronix.de>
+The c.jal instruction is part of the RISC-V compressed instruction set
+and is defined only on RV32.  Currently kprobes rejects it, causing
+probes placed on c.jal to fail.
 
-Add a test case validating that kprobes correctly simulates the
-c.jal instruction on RV32.
+This series adds simulation support for c.jal and includes a test
+case by Nam Cao.
 
-The test uses two probe points: a forward c.jal and a backward
-c.jal, and verifies that the containing function returns the
-expected magic value KPROBE_TEST_MAGIC after kprobe interception.
+Changes since v5:
+  - Removed the #if __riscv_xlen == 32 guards around simulate_c_jal()
+    as both Charlie Jenkins and Nam Cao agreed they are unnecessary.
+    On RV64, riscv_insn_is_c_jal() always returns 0 so the simulation
+    code is never invoked, and the small overhead in kernel size is
+    acceptable.
+  - Included Nam Cao's test case for c.jal instruction simulation.
 
-Co-developed-by: Xiaofeng Yuan <xiaofengmian@163.com>
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
----
+Changes since v4:
+  - Reuse simulate_c_j() for the jump logic (Nam Cao)
+  - Use direct register assignment instead of rv_insn_reg_set_val()
+  - Move RISCV_INSN_SET_SIMULATE(c_jal) to group with other compressed
+    jump instructions
+
+Nam Cao (1):
+  riscv: kprobes: add test case for c.jal instruction simulation
+
+Xiaofeng Yuan (1):
+  riscv: probes: simulate c.jal instruction
+
+Nam Cao (1):
+  riscv: kprobes: add test case for c.jal instruction simulation
+
+Xiaofeng Yuan (1):
+  riscv: probes: simulate c.jal instruction
+
+ arch/riscv/kernel/probes/decode-insn.c        |  2 +-
+ arch/riscv/kernel/probes/simulate-insn.c      |  7 ++++++
+ arch/riscv/kernel/probes/simulate-insn.h      |  1 +
  .../kernel/tests/kprobes/test-kprobes-asm.S   | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ 4 files changed, 33 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-index f16deee9e..15e50934b 100644
---- a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-+++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-@@ -179,6 +179,23 @@ test_kprobes_c_bnez_addr3:
- 	ret
- SYM_FUNC_END(test_kprobes_c_bnez)
- 
-+#ifdef CONFIG_32BIT
-+SYM_FUNC_START(test_kprobes_c_jal)
-+	li a0, 0
-+	mv a1, ra
-+test_kprobes_c_jal_addr1:
-+	c.jal 2f
-+	ret
-+1:	li a0, KPROBE_TEST_MAGIC_UPPER
-+	ret
-+test_kprobes_c_jal_addr2:
-+2:	c.jal 1b
-+	li a2, KPROBE_TEST_MAGIC_LOWER
-+	add a0, a0, a2
-+	jr a1
-+SYM_FUNC_END(test_kprobes_c_jal)
-+#endif
-+
- #endif /* CONFIG_RISCV_ISA_C */
- 
- .section .rodata
-@@ -209,6 +226,10 @@ SYM_DATA_START(test_kprobes_addresses)
- 	RISCV_PTR test_kprobes_c_bnez_addr1
- 	RISCV_PTR test_kprobes_c_bnez_addr2
- 	RISCV_PTR test_kprobes_c_bnez_addr3
-+#ifdef CONFIG_32BIT
-+	RISCV_PTR test_kprobes_c_jal_addr1
-+	RISCV_PTR test_kprobes_c_jal_addr2
-+#endif
- #endif /* CONFIG_RISCV_ISA_C */
- 	RISCV_PTR 0
- SYM_DATA_END(test_kprobes_addresses)
-@@ -226,6 +247,9 @@ SYM_DATA_START(test_kprobes_functions)
- 	RISCV_PTR test_kprobes_c_jalr
- 	RISCV_PTR test_kprobes_c_beqz
- 	RISCV_PTR test_kprobes_c_bnez
-+#ifdef CONFIG_32BIT
-+	RISCV_PTR test_kprobes_c_jal
-+#endif
- #endif /* CONFIG_RISCV_ISA_C */
- 	RISCV_PTR 0
- SYM_DATA_END(test_kprobes_functions)
 -- 
 2.43.0
 
