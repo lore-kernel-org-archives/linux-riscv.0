@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDD6C44500
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D858DC44501
 	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 08:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4hMrxVeenm9TacfyE5zqoD+j9+06hzICaLNP7Pk3eNE=; b=tbIWz1jzFjx4QK
-	y3/pWtp5r43oaqOfoxOGKKoDuJgybIUyv6aXXsUaOVy8FiB7oaHqlhh71YeViX7YB5BtrjHNBkYjC
-	YEKZ71vnxzIWnQj4FJO/pOC480+surBhYmuYOA9pSaPqbuw0V7I5hH7kpdLht2E7ZLvCkkuYEqzHO
-	sdU3nmBLC7QrGBxOgGfPLEWYIYL+dh1SF/NoqhUjiKyx5BvvsThkaDAKDptI9njlFllWCWz1N1ilQ
-	GCzEjYDfYlydnKmIwGNKcjx3LrVqAQ5/QTrkfwlRdR1JqlxVNDGF4uquseSbMeoUqUGLVInVYeUYU
-	2smwfaeO0EsJ2BcXau+g==;
+	List-Owner; bh=XN0afxrgfRIIeXme26+9BQDXAnUVvG05z0lGb1EmIgM=; b=m4IbLr+SLp79aF
+	0bBrc+v/fGCpVo+GTgF9DmeEcEhbQj05NE8xo60eddouApeDj02f6OFo+0NE8jquspR724wzhS9eL
+	mUGlnrJUpIWYYZVA8Ujz7+NZJZpH3I5FFpmG1bWc/LREcolaZCxm69l4L04CXRjTPw/zH8ay7ar+A
+	XaQYbYZ4k0Sj+6UusRlv4fddhoByhjj0rukP9ZHCe3TtDSQPaGXn0zyyMay3ojWW6TwLfyhFrZE38
+	udgI1AW9Js480Jc6Mq2H7muLFb3v3dvWbTUq/zVoRzyV0GB4T1p8m5uv8KRCbH2RYyktfatiKrNLC
+	0qtePmdKNVtzQvQJYHNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqbc-0000000148f-2wYu;
+	id 1weqbc-0000000148X-2ApD;
 	Wed, 01 Jul 2026 08:47:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqba-0000000145s-36FN
+	id 1weqba-0000000145r-2uBr
 	for linux-riscv@bombadil.infradead.org;
 	Wed, 01 Jul 2026 08:47:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=q3CU0znujUTwcxjeKNolaCbQsHD6AswnEQkiO1fL85Y=; b=kipOBfe/DrFf1EFKnjjCn9leG7
-	lq21iWkM5YlfeQz6u7qO31p5MVVlbyJg7bJOG3lYlctjgfWGboWH4HyyRSAM1GPStk1SG0/Q/oW5q
-	1K4iO/bSHKUPwj8Z+Rqs92LzklhU1MNztAWBumSGvLwIOw3h3O4H8pvItxsIgqzR990ByKWWw6bWQ
-	NwM+D4b2d/3+/KtXgA58Ku1TsHZZGBj/lGmMgC1hKVtgzOLgD5HjIhtPRWgQb8xmppzVvr+XGHO/o
-	Ba3YTpzTki12Lj5y0MRDx+gEYH/USLPDrWW4Y6HXUgeDoEzppB4pkvLLRHLVFvWYUfaJ+ZF0d4O5l
-	uY7PIPUg==;
-Received: from out-181.mta1.migadu.com ([95.215.58.181])
+	bh=9jkYTJZ76o1QfeUeruk/BApgLfDf2mjQsJprrfSgBCQ=; b=QT3Fwtr9ZqQnFCIJO+xWfUClJN
+	4TeAN1wISVO4B28zX2hORMfiZsqrfnQviiySnBxwzkhxmbW/Rh4crfhzUbHsaMrollyskop4gdR7J
+	4XGdMrrYX+Oyqb7/bjJdss3/jqjqmDsI3wJVafBQQfRL8K6DOlf1Xj2NP3ZH+0Pi9+mooVNzkL+0V
+	TamX3MDqXBO4uXI2UmbOmahmd1blmZZuR60hXLbEnFK5eMsUBW9NJnSQ6fYl3U8SX02bYDOvXfDAI
+	vNh/dSPSrjv9vMn4ZsnewawZAN7botU422vMGdcVjGxWkR4OvZ9auIJS48u/aHEVv6Pu2U5xJoxSH
+	GPu/OhiA==;
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weqbX-00000002WZo-3ao5
+	id 1weqbX-00000002WZp-3DpX
 	for linux-riscv@lists.infradead.org;
 	Wed, 01 Jul 2026 08:47:37 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782895652;
+	t=1782895642;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q3CU0znujUTwcxjeKNolaCbQsHD6AswnEQkiO1fL85Y=;
-	b=h4ZVPuN74ylcIjDvtDiE9C6IU/R16DyA59zWn/3nQKQidAqMCx8sdQv7Amia68ooxMEwQz
-	mlyA7yuRlFOjNn5Zblo29Zy1Fc2IxS+BQoaCEuJfeUsM4EwVv7ttTMZfZxwESQmUuCmocr
-	/6IkNJqlll6D/svFSUmOWZU2DxUo1po=
+	bh=9jkYTJZ76o1QfeUeruk/BApgLfDf2mjQsJprrfSgBCQ=;
+	b=viR8aRra2txaWnJTugOoW7+0kM9QWgabNryKjWO2M3CkuQ5Fxi/WApRf8MqOM3omSVqx8U
+	8yq/pM6cTJhEXNkauymsk1cZ7x8YNrpEOb5kfQeKBUV349+tUy0AMs5/15VmmvIgQEAVGe
+	QfG6yuER74q3Tt+b/Qsk/bmlP27zJUI=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Wed, 01 Jul 2026 01:46:52 -0700
-Subject: [PATCH v8 04/22] dt-bindings: riscv: add Sxcsrind ISA extension
- description
+Date: Wed, 01 Jul 2026 01:46:49 -0700
+Subject: [PATCH v8 01/22] RISC-V: perf: fix resource cleanup on driver
+ probe failure
 MIME-Version: 1.0
-Message-Id: <20260701-counter_delegation-v8-4-7909f863a645@meta.com>
+Message-Id: <20260701-counter_delegation-v8-1-7909f863a645@meta.com>
 References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 To: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -73,9 +73,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_094736_041149_70A54B9E 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_094735_945881_A1385AFC 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,50 +91,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atishp@rivosinc.com>
+From: Atish Patra <atishp@meta.com>
 
-Add the S[m|s]csrind ISA extension description.
+Sashiko pointed out various UAF and memory leak issues around
+pmu_sbi_device_probe() error paths.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
+If the probe fails, here are list of cleanups needed.
+a. Already registered pmu must be freed
+b. per cpu IRQ must be released
+c. pmu_ctr_list data structure must be freed
+d. cpu hotplug state must be cleaned up only if added.
+
+Fix the resource cleanup by reorganizing the code around probe failure.
+
+Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+Signed-off-by: Atish Patra <atishp@meta.com>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/perf/riscv_pmu_sbi.c | 33 +++++++++++++++++++++++++++------
+ 1 file changed, 27 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 2b0a8a93bb21..15cf0e2ee3ed 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -181,6 +181,14 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 385af5e6e6d0..5c8924ce1f38 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1220,22 +1220,29 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 					  DOMAIN_BUS_ANY);
+ 	if (!domain) {
+ 		pr_err("Failed to find INTC IRQ root domain\n");
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err;
+ 	}
  
-+        - const: smcsrind
-+          description: |
-+            The standard Smcsrind machine-level extension extends the
-+            indirect CSR access mechanism defined by the Smaia extension. This
-+            extension allows other ISA extensions to use indirect CSR access
-+            mechanism in M-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
-+
-         - const: smmpm
-           description: |
-             The standard Smmpm extension for M-mode pointer masking as
-@@ -226,6 +234,14 @@ properties:
-             Profiles Version 1.0, with commit b1d806605f87 ("Updated to
-             ratified state.")
+ 	riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
+ 	if (!riscv_pmu_irq) {
+ 		pr_err("Failed to map PMU interrupt for node\n");
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err;
+ 	}
  
-+        - const: sscsrind
-+          description: |
-+            The standard Sscsrind supervisor-level extension extends the
-+            indirect CSR access mechanism defined by the Ssaia extension. This
-+            extension allows other ISA extensions to use indirect CSR access
-+            mechanism in S-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
+ 	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
+ 	if (ret) {
+ 		pr_err("registering percpu irq failed [%d]\n", ret);
+-		return ret;
++		irq_dispose_mapping(riscv_pmu_irq);
++		riscv_pmu_irq = 0;
++		goto err;
+ 	}
+ 
+ 	return 0;
++err:
++	riscv_pmu_use_irq = false;
++	return ret;
+ }
+ 
+ #ifdef CONFIG_CPU_PM
+@@ -1302,7 +1309,8 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+ 		}
+ 	}
+ 	riscv_pm_pmu_unregister(pmu);
+-	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
++	if (!hlist_unhashed(&pmu->node))
++		cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
+ }
+ 
+ static void pmu_sbi_event_init(struct perf_event *event)
+@@ -1424,6 +1432,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	struct riscv_pmu *pmu = NULL;
+ 	int ret = -ENODEV;
+ 	int num_counters;
++	bool irq_requested = false;
+ 
+ 	pr_info("SBI PMU extension is available\n");
+ 	pmu = riscv_pmu_alloc();
+@@ -1452,6 +1461,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+ 	}
++	irq_requested = (ret == 0);
+ 
+ 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
+ 	pmu->pmu.parent = &pdev->dev;
+@@ -1470,11 +1480,11 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 
+ 	ret = riscv_pm_pmu_register(pmu);
+ 	if (ret)
+-		goto out_unregister;
++		goto out_destroy;
+ 
+ 	ret = perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
+ 	if (ret)
+-		goto out_unregister;
++		goto out_destroy;
+ 
+ 	/* SBI PMU Snapsphot is only available in SBI v2.0 */
+ 	if (sbi_v2_available) {
+@@ -1515,9 +1525,20 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ out_unregister:
++	perf_pmu_unregister(&pmu->pmu);
 +
-         - const: ssnpm
-           description: |
-             The standard Ssnpm extension for next-mode pointer masking as
++out_destroy:
+ 	riscv_pmu_destroy(pmu);
++	if (irq_requested) {
++		free_percpu_irq(riscv_pmu_irq, pmu->hw_events);
++		irq_dispose_mapping(riscv_pmu_irq);
++		riscv_pmu_irq = 0;
++	}
+ 
+ out_free:
++	free_percpu(pmu->hw_events);
++	kfree(pmu_ctr_list);
++	pmu_ctr_list = NULL;
+ 	kfree(pmu);
+ 	return ret;
+ }
 
 -- 
 2.53.0-Meta
