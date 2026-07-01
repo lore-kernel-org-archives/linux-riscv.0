@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFFDC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 09:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C316C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 09:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RoxRlUG5gfsPKvzjBDpSXb2ZfxGX7dqAZLbdppU6aSA=; b=h0XF6Igz+GUDZU
-	D8ObFCe9TA5fyDXh8s9hpe67aqWPNH1cNapsvqfDDMO0dWihArTJU2oupEYNvNK5YORPmnFgoP7VD
-	4yVvFlLmN0tiZ5uiDMB18FdKADnsmnN/HoLltDDhZDEREFyKaMM9qz9ep6pJfK32Pe5HZ/mszviGB
-	K09jLNyIupnzrMxPVkHDqu9UVrGCN0z7WbJeFUrPOyIblVRVT/8z5V1VJLtFUQZn85vmLCxmNi9Zj
-	xjvQ6/t9NhEYFws5XFT2Yuw01iAIRCYsaIh2lgDMKeoUbs7/LvWgkvndMz7ZguQyGSzv12il80KLW
-	QzumOB7ZigX2Jrh6PYVg==;
+	List-Owner; bh=Vaj5urGiGP1HsP9JjTue0YWKNO2knjS/e1esnaxehDI=; b=mR8YK6ddxZzWO1
+	qsShAtVCVnHoMk1cqYEtr0qlCRVdNiZi0H7u2hI/LTMlqh7Abu6v8I8LiVFeknfB2tw6wZlmhBr4U
+	9F1lmaAulXilZt6rEbn9u+92nsTw9atvjBPfsg3RLNkQtRO16/4HKDFZ3yDzfbOhz70XRKLYGqe85
+	bshFEYfFRMmmLcri2+3X6P0WzmpEqYXjBxNuW/XaBG2dMrQkDdV6AXk5J4VGcfPXTDn8cVIZ/pU/e
+	hsW8KEFr8ob0Pr7pCqsqznmitwIxXYDSXMC9UlzkOncaCbA6MK3b+XVkc6mCPFAVRVgshoKibCNOx
+	tL3fzLm8moY3n7MAPCdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werY8-00000001EGF-3BxQ;
-	Wed, 01 Jul 2026 09:48:08 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1werY6-00000001EDn-1XNb;
+	Wed, 01 Jul 2026 09:48:06 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werY6-00000001EDH-1TTI
+	id 1werY3-00000001EBm-3fPN
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 09:48:07 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-37ffdc718f8so255481a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 02:48:06 -0700 (PDT)
+	Wed, 01 Jul 2026 09:48:04 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c6b67d5fa1so2791295ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 02:48:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782899285; x=1783504085; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782899283; x=1783504083; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Yrr5FtvU4l5TINA7e2cy7RSaKqJTIqgiZF3cWni4toU=;
-        b=DXGHU593ElB87Mvsph6QW9xs8Y4dSw//nEPJZHi7BzXi9LC3Fvha8RUApI3kFTXHqy
-         qI8dDvpPFAKYhBOwgqQX3QU8OLCX7t/nCzBoFdGslondPSWetVrhfgpX4ZoGpHjPK5es
-         3Ppyy0TKtD0NTcXwtEAFlIBrODXhwKKk2TNxPBEq8TX44hfzGwRKMWtvOqKs/d7lkhks
-         Wzr8rVFU7xXImDTv/XHZ2Z3Bg6mNj0lxg4anDYspILv9Nxd5eCkYGiZDHIn39pz2pbyA
-         tqh8R48yuhFRfZ50dh4lQ97FDCIpJQzm9EOMIPWLoIrXE95W4RXwaDEoImPjJN5KWl6u
-         fknQ==
+        bh=/YsyBUeISRtTsmCW0fRgq5oh/PaolZ1FgVZ4dpWHLHI=;
+        b=Xox29ZQjZExnTx1tVktgF9h+B3whTEt+mXrk6k2tLE2StYCnLbctrYsw5WhC8Y4HVQ
+         lRDwAlhTVxsfC4yKdvcQIDEsPvyCsIVzEP8wkAo+NLZ0Q3041JKCe+Kavh9XuP/IUSUZ
+         +gNUfYyghQaiiJaCyS3ypXc67pmir1Rl+m8gfNt0+oDwGdxVumCNBo/nXD47qzT3oOf0
+         3aAU5DtXN6gckdVv/Jnr8L4/GIDtmM5BFnAEZSGGkcCHqoD+l2hDoYIwqsCkL9U54lJh
+         a7rGSX6rrrFNQqC7fCFEl5MZpRQV124t51qviT6tZkvTg9+yQlPszKpNoqupSjOlWsXp
+         RzDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782899285; x=1783504085;
+        d=1e100.net; s=20251104; t=1782899283; x=1783504083;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Yrr5FtvU4l5TINA7e2cy7RSaKqJTIqgiZF3cWni4toU=;
-        b=AM6CAAQuFK17THhlYBkRIGCbDS8kZtoghCXy1LLEtaqb570UM6ojvm9Sf+cv3o7gcC
-         V2k1j7xs7zaKC56ItMUhcEG1TTrSxSeIjHMOuu+yws/KnU/LLJUtepQ8c4dp31bA8HXl
-         ShTpQ3ziIaEFbDC6kD7r/VfxBlB10Wy+y1dIpcOFfJzlFk3X6m2uBtTJsly8cbN0JbwN
-         sfdwGG/bxy32bxkk9X4zVlG86z22ZdhzmX8JhjRva+JWkSJhF8TIh0DsvhV7O2zxn2Z8
-         6Co8wKORrOyv3j0yXCFZy3TGFaUYtWgpE1dW5A31rpcVqetSS1fVlQecjo/+FcJCUFrx
-         P4cg==
-X-Forwarded-Encrypted: i=1; AHgh+RrH27fCTyBGrkENqdCA3pExUbCUgA8IEOBS858v0B4qc7hvOsRgNrzRQyaAqKp+0v1OlcQ4XxAmKWZFvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1DDoh5zJ1lSvzO/945PhJiTNHJvcltXO/AAF9vP6AtQfok8nF
-	Cc/6fVtKfOillAgdFc6lMEvSLtZWk2/W3yHEEdLKIXc3f9k8R299ooCD
-X-Gm-Gg: AfdE7cl9tTgDTt/6b8viHuep4Mmq7AQW05g0RdXYIy7kcR2UbB5jhgaC+NjIudJCj7f
-	xm//JX48aYVXCvI37hg2PqH/Yg49tqPXP+WycOpj+Y5MEwK2ShpAGyvUCn5/t/dGXtOcONnHdll
-	mMrHCllEN7X5eVzhnpltqtIWm0ky9P/D1O1phCJSiB+++2pWqwVG+imlITpPZD5yjDKUYdyvHzm
-	oUQbXG7nAha05oxbULq4aXeOg4QLTTCk7l2AOQxSkaFrmp0GehKMGQmZF/5SNONsXytAIcj30y/
-	WlU4DQYLsoMYsVfe1Z6tUSwhPtnJsC0xoyccxeNUecy+zmyPCp05Ty7DA9SXvVWjtXyd+XA0HGE
-	CZjYp+9AsxwOwHPtrcaaY6qO4mZwqrnIQUdbggP6x0UuHL+gK4aQwjRC/+PGQm10jfgnNL+zbAu
-	nVViiS2crjT0o=
-X-Received: by 2002:a17:90b:3b4f:b0:37f:9ce1:736a with SMTP id 98e67ed59e1d1-380aa21ecd0mr967241a91.32.1782899285410;
-        Wed, 01 Jul 2026 02:48:05 -0700 (PDT)
+        bh=/YsyBUeISRtTsmCW0fRgq5oh/PaolZ1FgVZ4dpWHLHI=;
+        b=DPJMzdYEFA4VNsBW2Tjh9sHt58J5t+moP4Wune9TXtCZL1NzziydxoIlnOXeQoeIbE
+         vfFInJPdSo389IEAJ5NgwO8kppcJ23YSsw4jp3gkWBUtfEdePftRF841biPSUiG6aAMr
+         Hrdol3VIKXlpj20NO01Vesc8UYpDQXPYnZFMviBjgBqefVkrNNq4RGaba6ZqDKReIQAk
+         pdO7SdRrgdf3SlTOI0N1HEMg1VEfGaAgZ9IKgDfVutFAF9g5ynVN7Uv6N+xuQUAEU3HL
+         OdJzFncMZgp2AcaU931nQ6d9Ubpnfy6YyyU1yavAM4AFWfbVvF0ImUj4kWgxyXeG6hUi
+         uFGA==
+X-Forwarded-Encrypted: i=1; AHgh+RqbMigFg018XZPOO2URrDz6H2bBG4E5/qepOGA0VALSbBEYhTrfy+EPRYVpd4ARgnBUPtCHF/j4RleyYg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHOYjHBspsHSJso9WfKTLXiel1EGVVLnqsl8G97AShhEb0JBEe
+	8uG8ttVx93Fp9j9QhfEfz7W/L5hLDrNbhQAXCpxlYNsD+fj10+6lcwx6
+X-Gm-Gg: AfdE7cnJyFDtdgbOmQdU6FAULwF+KfCiwxVKe6aANar7i5xak6nhcgXOfCMSwLG1uMa
+	9toXn5jIvB9iSHq7B+a04ZBLiIQpc7zzns3zSvckDF9Ujk8m5sHMe195nNx3gkN5u7SuDi3hFWi
+	rK0fndjo5vitomAg63TBFiNb9ZbuEjldehWVJEszUzWxlmDA/vbt7ErP5R9+cawy2OHdZPfvqVO
+	J41SPEswUmkfDrBbIGQLs4kuehBhGR5HzEg+SU3yzBYtU6Ghf3XawV9w/Q5Ffz9dsW8ATVBg6cg
+	QB8rhE2HEFxMg7ubPjfmRtJevSRtSWeGLF+F4Hc30CqqMGTaeERzamQBTL6WStWHHHqoQcNEP1L
+	uKRHtlW5ZarlA1sbRZ3njiZsKjsQY1huRgiVajp39XvovSsQfcGCnOZew+pHam/CvkwccP2utof
+	6qKpiZ/RB3eEA=
+X-Received: by 2002:a17:902:e5c3:b0:2c9:c18f:7446 with SMTP id d9443c01a7336-2ca7e8dbc1amr9889895ad.27.1782899282902;
+        Wed, 01 Jul 2026 02:48:02 -0700 (PDT)
 Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38095ea9ef3sm1590317a91.17.2026.07.01.02.48.04
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca4f2a71a9sm21530155ad.44.2026.07.01.02.48.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 02:48:05 -0700 (PDT)
+        Wed, 01 Jul 2026 02:48:02 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Anup Patel <anup@brainfault.org>,
 	Atish Patra <atish.patra@linux.dev>,
@@ -83,16 +83,16 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 2/3] RISC-V: KVM: Add SBI FWFT validation support
-Date: Wed,  1 Jul 2026 17:47:29 +0800
-Message-ID: <20260701094731.1022163-3-inochiama@gmail.com>
+Subject: [PATCH 1/3] RISC-V: KVM: Add SBI extension validate callback
+Date: Wed,  1 Jul 2026 17:47:28 +0800
+Message-ID: <20260701094731.1022163-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260701094731.1022163-1-inochiama@gmail.com>
 References: <20260701094731.1022163-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_024806_540276_57BB1151 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20260701_024803_913587_4C0263F6 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,57 +109,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since the KVM SBI has extension parameters validation support,
-implement it for the SBI FWFT support.
+When user disable FWFT extension after setting any value of the
+FWFT feature, the state of vCPU will be broken since the value
+of disable FWFT feature is still functional.
+
+Add the generic SBI extension validate callback so the FWFT
+extension can fix its parameters before the first run.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- arch/riscv/kvm/vcpu_sbi_fwft.c | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ arch/riscv/include/asm/kvm_vcpu_sbi.h |  4 ++++
+ arch/riscv/kvm/vcpu_config.c          |  2 ++
+ arch/riscv/kvm/vcpu_sbi.c             | 23 +++++++++++++++++++++++
+ 3 files changed, 29 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
-index bc514ae6521d..74eab72b2dd9 100644
---- a/arch/riscv/kvm/vcpu_sbi_fwft.c
-+++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
-@@ -604,6 +604,30 @@ static void kvm_sbi_ext_fwft_reset(struct kvm_vcpu *vcpu)
- 	}
+diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+index c1a7e3b40d9c..f01a2860c751 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
++++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+@@ -60,6 +60,9 @@ struct kvm_vcpu_sbi_extension {
+ 
+ 	void (*reset)(struct kvm_vcpu *vcpu);
+ 
++	/* Allow the extension to correct its parameters before the first run */
++	void (*validate)(struct kvm_vcpu *vcpu);
++
+ 	unsigned long state_reg_subtype;
+ 	unsigned long (*get_state_reg_count)(struct kvm_vcpu *vcpu);
+ 	int (*get_state_reg_id)(struct kvm_vcpu *vcpu, int index, u64 *reg_id);
+@@ -93,6 +96,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run);
+ void kvm_riscv_vcpu_sbi_init(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_sbi_deinit(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_sbi_reset(struct kvm_vcpu *vcpu);
++void kvm_riscv_vcpu_sbi_validate(struct kvm_vcpu *vcpu);
+ 
+ #ifdef CONFIG_RISCV_SBI_V01
+ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01;
+diff --git a/arch/riscv/kvm/vcpu_config.c b/arch/riscv/kvm/vcpu_config.c
+index 238418fed2b9..b68aa830aaf5 100644
+--- a/arch/riscv/kvm/vcpu_config.c
++++ b/arch/riscv/kvm/vcpu_config.c
+@@ -69,6 +69,8 @@ void kvm_riscv_vcpu_config_ran_once(struct kvm_vcpu *vcpu)
+ 
+ 	if (vcpu->guest_debug)
+ 		cfg->hedeleg &= ~BIT(EXC_BREAKPOINT);
++
++	kvm_riscv_vcpu_sbi_validate(vcpu);
  }
  
-+static void kvm_sbi_ext_fwft_validate(struct kvm_vcpu *vcpu)
+ void kvm_riscv_vcpu_config_load(struct kvm_vcpu *vcpu)
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+index 46ab7b989432..b737e9a7a12a 100644
+--- a/arch/riscv/kvm/vcpu_sbi.c
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -723,3 +723,26 @@ void kvm_riscv_vcpu_sbi_reset(struct kvm_vcpu *vcpu)
+ 		ext->reset(vcpu);
+ 	}
+ }
++
++void kvm_riscv_vcpu_sbi_validate(struct kvm_vcpu *vcpu)
 +{
-+	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
-+	const struct kvm_sbi_fwft_feature *feature;
-+	struct kvm_sbi_fwft_config *conf;
-+	int i;
++	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
++	const struct kvm_riscv_sbi_extension_entry *entry;
++	const struct kvm_vcpu_sbi_extension *ext;
++	int idx, i;
 +
-+	for (i = 0; i < ARRAY_SIZE(features); i++) {
-+		feature = &features[i];
-+		conf = &fwft->configs[i];
-+		if (!conf->supported)
++	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
++		entry = &sbi_ext[i];
++		ext = entry->ext_ptr;
++		idx = entry->ext_idx;
++
++		if (idx < 0 || idx >= ARRAY_SIZE(scontext->ext_status))
 +			continue;
 +
-+		if (feature->supported(vcpu))
++		if (scontext->ext_status[idx] != KVM_RISCV_SBI_EXT_STATUS_ENABLED ||
++		    !ext->validate)
 +			continue;
 +
-+		conf->enabled = false;
-+		conf->flags = 0;
-+
-+		if (feature->reset)
-+			feature->reset(vcpu);
++		ext->validate(vcpu);
 +	}
 +}
-+
- static unsigned long kvm_sbi_ext_fwft_get_reg_count(struct kvm_vcpu *vcpu)
- {
- 	unsigned long max_reg_count = sizeof(struct kvm_riscv_sbi_fwft) / sizeof(unsigned long);
-@@ -756,6 +780,7 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft = {
- 	.init = kvm_sbi_ext_fwft_init,
- 	.deinit = kvm_sbi_ext_fwft_deinit,
- 	.reset = kvm_sbi_ext_fwft_reset,
-+	.validate = kvm_sbi_ext_fwft_validate,
- 	.state_reg_subtype = KVM_REG_RISCV_SBI_FWFT,
- 	.get_state_reg_count = kvm_sbi_ext_fwft_get_reg_count,
- 	.get_state_reg_id = kvm_sbi_ext_fwft_get_reg_id,
 -- 
 2.55.0
 
