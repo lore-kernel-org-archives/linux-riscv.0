@@ -4,142 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6E3C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 13:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C47C43327
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 14:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOdMWv1odEb2YdASAWPkH1p8ePX+/mFG7+QwN7EyH+c=; b=WGy6gl2XIwqqWr
-	6YkH8fNTjZWoSQ+crE5QrX1RAonq7my9bGlOwJMn7E4HHLPXXhyQyFkmE36OtRwMOSHINWQG8MORY
-	u9GurhTeB7olWdbQGO32SFJn5LoWLYGPL8ne9I+o07oCt+S+L1R2OVWyUInIXCWg1Eliw3tOumquR
-	kOBOg55Uk32ripkuf2nGPTEINtUQOEUqXexo5+kiYR2uZMsZX4bXb6JTTizqulatWYXDz5Y0ygg/r
-	nciSYeg+ObM8IqhGBO79cK6JXHybo2n+8Ke6YSmhsMJU0ATYG3yB6uSarrO8zzGXRbLglVe2egcJ4
-	sITDBDt+CC6itF+mpWoQ==;
+	List-Owner; bh=48zHaHa69HVp+Q7SNEnz0fIOTqb9uKcIcOqVoGpaK/w=; b=dclxUZULooKAou
+	RoPil6AesAYDlbEd6o0Rw2saFdpu5NO3tDiGa9AJ2zqjeklBPjbb6HWT1o8CkLmTxdBIsJEnL7UNA
+	R2pWjWDweZtCPsqY0dlMPg0qXfsE4Rv4s3CEPEKz53YtbAoA4bVhrvWb0C/t9GJXk1aByO2r2vIZK
+	k+6uC7O1NqauX2dImC9hY4Sgw8U4JkFwEKqOnqGkYEah6+mz6WKHsdoWsaTGn2ylTvEJ4VDHEvg2i
+	FRM8le9hmADwjUN+mzkAJ/zacH9zfbpG/TNERjZYCLsO+Xcyyn1bTXqmb6+Knb+yI4hpwA+cMOSMb
+	szWSH6G1oFj6Bx1ISf3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevFZ-00000002CpN-3CdD;
-	Wed, 01 Jul 2026 13:45:13 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wevYx-00000002FaX-1cRP;
+	Wed, 01 Jul 2026 14:05:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevFX-00000002Cob-0LWa
+	id 1wevYv-00000002FaQ-4C89
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 13:45:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ufiCkIodUstiLJtnynRWTMW3Ja7iGq2a8PWgUBch66KDs181zLfEUPDT/tB582MCjKpbOj9i8aMK3TsY3os9DMPdv43BEuZGac7O1a4AhiLO6xNss22bg2CB+8qW9HZgA5R1Qo53/kJTgPz9OMObEMxCbPWLexBqRLMZ/F9dFZLhoukorMn4s9v+tWAmqPgUfx3a9X6YUSj2Ctv7O7fwqndQKnFdg4jWl8KPbQN4BKauyDk3JM9nhVK2Y3WDbobjxQCqiMwXaE1tTZnLDfjOtJ6zm6BWh4n7bKPY1RT04ub7CvDOwPPpAkO3OqETXnwtFHvd0MdyZDlJ22bBXi5gtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rHcYZaOuwX+fbf1W4KEKK55wxqsesZ+6j9yL/3aH3kA=;
- b=FXVHWv10haikQmYnC6udckE1JmS7JQ3kIzs8DV0ScT/BS0DlmgoK5MRMZKzG9VTmvh51HUmj4q03a4JFdy4lvsS+Fy4GoZilQzh970Ahh+1Ly0Exm3iXKDZwX2yqjIx0ifTHF085M87Y5S7QQLUM9/FZ4PpCmAZgqhQVRsx1WzZcG+uTK65i4JjPvLHOTltLAY0/ZYx0xJl/E0MX7ysTKHelCOIixx35oQtxUPUcKvRcmQn4lDTFR+xwA8he6rFhAR9wR8cn74vG92DukB9NIGuDrWdknpNyy/JnoYMhA7S3G7tEKgW/At4zXRnBO4VgrhaSDOslx2+A+hFB8wxTXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=htecgroup.com; dmarc=pass action=none
- header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rHcYZaOuwX+fbf1W4KEKK55wxqsesZ+6j9yL/3aH3kA=;
- b=e3JQcuRkojq7nj2yU4PBRNu5LErwRbORa5YXNkW9FTemVwwr4K4ulfWlu7I2tsgC1+Gb9HSN65c/m8n3Hj44H2nytI2XYSAeDhJxwYlS3tBZQ1ND3KJR8d9wYI5lbDurnbn2EgZV4iRcuX7MAG21Wxltj7Tfxv9nWGWYFIQDucsK3w4KybZNYZFYW6I09ZcEXMrZCxxqR2REHq8XhZUChQNhKmF2tcKgMM72NUJ2hyP5vbhHt4uGpQqdJZOm5E38bmvHVW+dHm5qq8pdXYQEk+7mzfxBxCicZ7FIpSdntKbn9KDeP8PKFoPCJ3m1p+ywcGl91soDsyzb1pVBdfwKlg==
-Received: from AS4PR09MB5681.eurprd09.prod.outlook.com (2603:10a6:20b:4fc::5)
- by DU0PR09MB6096.eurprd09.prod.outlook.com (2603:10a6:10:404::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 13:45:03 +0000
-Received: from AS4PR09MB5681.eurprd09.prod.outlook.com
- ([fe80::8d2b:5798:928f:9faa]) by AS4PR09MB5681.eurprd09.prod.outlook.com
- ([fe80::8d2b:5798:928f:9faa%4]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
- 13:45:02 +0000
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-To: "devnull+aleksa.paunovic.htecgroup.com@kernel.org"
-	<devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-CC: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, "alex@ghiti.fr"
-	<alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, Djordje
- Todorovic <Djordje.Todorovic@htecgroup.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "macro@orcam.me.uk" <macro@orcam.me.uk>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>
-Subject: Re: [PATCH v2] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
- mips.pause
-Thread-Topic: [PATCH v2] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
- mips.pause
-Thread-Index: AQHc91TyNI1Ix3DNNESPJxgTEBAs3rZY0PAA
-Date: Wed, 1 Jul 2026 13:45:01 +0000
-Message-ID: <9cc0632e-4b40-40fa-8c37-858825a52dbe@htecgroup.com>
-References: <20260608-p8700-wfi-v2-1-77efc7459f3d@htecgroup.com>
-In-Reply-To: <20260608-p8700-wfi-v2-1-77efc7459f3d@htecgroup.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=htecgroup.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS4PR09MB5681:EE_|DU0PR09MB6096:EE_
-x-ms-office365-filtering-correlation-id: 48c4039f-5b15-437c-a9a8-08ded776f2f0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|18002099003|22082099003|38070700021|5023799004|11063799006|3023799007|6133799003|56012099006;
-x-microsoft-antispam-message-info: xOo9yzdhLm1N8lVghqyyVGp/PIBoPyn2LO7NDrK1xLw8gdifcnmv993RtHUPmnRQj4MCaFw9j0apYRyfiiZ3gRss9X5U/3nSSJ2AILw4IDhrvRMESoGKzEWPVkqXwz2wd0beDzobmctKL1kTviAy6WJNqT/0oRrkk8czsFBJRi6Z/0xJBaoFOW3YX4VCCJm1fs9v/36wGOo7h6IUIFEnFxWTwgRBU6wHNc/ugXA2i1cf4BdnVrW80Ih3BhtV6aNPHuTusmYT/vfscB2GfUj1fKrfpBdrlW1oEbLGOG8CEtamt5kp7cfW0qy6iKcQiIDPjVgliX9XyBnkrIVNVHyGhKzOWcRItoptBCXS5lUakouiKcOE4zY3zffQOqOfJvp3f5cI25V6Uuw6d7RK59Oma0QpLiO9Bg2G2xjl3OOWZtKZ3oSzBclMvgTGGSpzwW3Rl3LdoY3dyGCdw0mGhgfl8IDOhRl7sPCSj7ueGLjBtHRfsRgM2si012eh7WXWco0RhWtkYY4gp5Hy9fG9AiFM0IaeNu8TaezRPPigEOBpPOBZSwjzyqD5tgRnu7ykccOK40IMpzePOQy6L6BpWgYHRzmR/k+JTp65VP5K7wPBvsJ67G5NCReY1CTqX1+Ud9FvVlFcuzmCdb5kCdUzPLrQVUdJAlw1S/QhoZ1D+bBS5nPcBeZVFsFCw/pCjS2Fp36Y5m3vnTrXX33pi+xpBvbML0QX25bL1gAMsyOAbx/7EU4=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR09MB5681.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(18002099003)(22082099003)(38070700021)(5023799004)(11063799006)(3023799007)(6133799003)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MWJ4ekl4eENMVU51aUtoUmlwcENDVWhwdkc5QUlwVURYUkdFZmFDMWlqdktW?=
- =?utf-8?B?SWxrWHdXVnp1WEVIdWM4WkZ3a0U2dnIxbHVSbnJxRzVXTnpET2ozN0thS1Yz?=
- =?utf-8?B?aERaTjMvZEFPZ2djVHlNbFdYQVdtZjhmbm4ydmc3VWRLcmJUdnJIOXNKRTgv?=
- =?utf-8?B?UUxsbW9Rb29ZZWZIbzV3ZmZIY3pjZ3Q3OWFZTkt1MzJCMnltVzRVN01NVkh2?=
- =?utf-8?B?bDB4VHY1cjVTeUR2VXBqWklFSGw3SDcwOHNMb2s0S2RINUs5UDc0cm9PTGov?=
- =?utf-8?B?bllIZ29GZGlEL3F3NzJ1c2RSc0NNRmxMM2pkeXZIUENxaktQdEhVOGxwQWNN?=
- =?utf-8?B?TU1XRGE3ZkFSRzJmcWdpMTFTMXFIN3Jtb0dNWXdWa3Mwa2wzMUhlVDdpK1Jp?=
- =?utf-8?B?NXArQ3YxSXhTclU2Z0g1WnJ5aFZTVjNkelZHT2ZHd1Mxc2o3cWdibnFpSm04?=
- =?utf-8?B?UWptZ3ZUazJFcy9GTjJDVUFUZ2NpeTRTMzNtM2NLeHYwdTFqT1Rnd2htZWRQ?=
- =?utf-8?B?aXptWDBiKzE4cjA0cEZlbUgrSnUyd3BOeXpZblFsakllczZFMVphVTJzbmZt?=
- =?utf-8?B?TU5aSjRkeFBmclc4bnkrN0NNSm55RmZRQ2ZHWlZUbmlVaTdwUERTSXhvSWJt?=
- =?utf-8?B?akJ5akVMWnUxWGJGQmV6Vm1qZStFN2ZGczJGZFhsMFJJQXM3ZC9La1pTZ2o4?=
- =?utf-8?B?bGtNMlNxVnZoMEJlSlZzbEpsY3l1Z1M1SzBsVS9tUGxiRzZCSy8zK2NrQ0xN?=
- =?utf-8?B?NGdzdUtRMGFXcjE4YVRmSkp5Qlp0OTlNcFh0QW0zY3E5NTVZLzZaQzVyT0FC?=
- =?utf-8?B?c2ttMk9kMkcyUFlYVlJpM2ZNZjBzbERodVhIM3VLekNDR2ovend6WkRLWlZm?=
- =?utf-8?B?MWJBUG5HWTM0bFlWdk82NUF6RjUzVldpUFNzQTlXSWhzbFBvS0xPN3plNGsw?=
- =?utf-8?B?TUNEWkV4Y1hpZXUzbTdaUHRyNEliUktROEpkVDdmbTh0YzdQZlo4QlZZWVhr?=
- =?utf-8?B?WU5SWExXVTB2R0pTelFSQ0draklVSzhCVXVaN0gxZVg3WFhoZlRZU202Qnh5?=
- =?utf-8?B?cXg4anlGVWh2WVIwRlIzdEp1dEJFRGNOKytGN2hheTdTejhWNzQrRlRHR0hE?=
- =?utf-8?B?VDhaeElHWWRmK0MwaiswTUJLQ1VIRmluNWgwcXIvM0NHaHNGK3FXYlVXMEM5?=
- =?utf-8?B?L0w4THd6NWgzT1hjaUNNRGRjcS9CT3VJQWxnYjRUZTdONmhZdm4vNGMvQkpS?=
- =?utf-8?B?djIwU09mbnI0YWRKZ2txcTJudEFNaUdCMmR4dGtOMEl1bWw2NlFJNnNnZVdW?=
- =?utf-8?B?MnVlQjFJd1NsOTdOc0RXcXp2eDZyTmxpSmVrK2dnVHFtQVZ3L3VBeUZDcGZ3?=
- =?utf-8?B?bTdjK3RXZy9ZNnBpWUhWR1Q4aDROTyt5Q0ZzeWlEOXg0ZDJ6QmJyMVBNTEJK?=
- =?utf-8?B?eGtnSk4xYTUrTlVkQ3dNM01RTGd0YlJmUHhERm52dlUrSGFtNDc4K2M4NDJ6?=
- =?utf-8?B?RXdBaXNHcFVRdFpiUUZncVlBK1k0Z3FINUVocTdEM216Rk1PeGx5NUpKbHhD?=
- =?utf-8?B?a0dvM1lINGx4RzNMR2k4cFNINGRlWFAwVUc0YStWQzljMUhEYWkydUlEc1Fa?=
- =?utf-8?B?SnVDMXgxenhOcTVKcmNoWi9Kbk90SjhleVNsaUt1N0s3VzdRdjN4L0tYTVpn?=
- =?utf-8?B?V3pDUlc0ZytBalM1NFZXU1lKRmdyQlFoQ0dBSnJnUTNSTThiazFhaGF3RXhU?=
- =?utf-8?B?SUI3TWxzaXN6a3p6SjlsL2VHNWJPQWFhdng1eUZiOEV2Q2l4NVdZYjVIb1pN?=
- =?utf-8?B?cVVwWHhlbDl2WFhkSHR4WWJRNml3a1c3Wi9Eb01kb0ZJRlJCYk5IUUdrWDFC?=
- =?utf-8?B?LzJqdHpOaHJ4WDFic29WS0l2UXR5MmN5Q3NVSzlwZ3QzVThnbFlkZWhBbHhR?=
- =?utf-8?B?MmNoZy8zOVpUZzRWbmZCaGhwdzhUTzg2VUN5NlhIYkluZDdCNHBxRHhBenl0?=
- =?utf-8?B?MzRCMHJ6NlRJcStFUzh6WUt0VVFYd2JSOUhSZ2RQYW5VSmRPYkgyRFl3R0lR?=
- =?utf-8?B?OFhuNzZjVFF4amJzeExDaVRtaStXdjlTa2FBWk5iSURoZTNnelFTUUZaZVVa?=
- =?utf-8?B?dE1nakoreE1zRTBkWjBVRWhQWkZtZzdXYnBlNG5ESnVlTUxETldLdzhlUlNP?=
- =?utf-8?B?OUdMR2FRajk5eko2NWh4RlJWWXpzNFVUTHhtcnowMGcyMThwcXZHaXNiWExC?=
- =?utf-8?B?R2ttWWpzWXRpVnFsU05nSis2dmg3MFltbFNuRVQ3WmdzVEtKMFV1WGFkWUpC?=
- =?utf-8?B?TmRKUThCbGdreWk2UGJhTWRLdHA5MWtoejdqbTQ2YUptTThzRWdUM0RZQlZW?=
- =?utf-8?Q?Vwik9zemm/AXNQZ0=3D?=
-Content-ID: <3EBEFAEEC484FF46A8961BD2E434EE13@eurprd09.prod.outlook.com>
+	Wed, 01 Jul 2026 14:05:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E42A06001D;
+	Wed,  1 Jul 2026 14:05:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A6B1F000E9;
+	Wed,  1 Jul 2026 14:05:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782914712;
+	bh=KN1ZZoShUes6sGFwycYM2qI4rRpQvujeGBBYwd462qg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HkdidmL8i7jVnVEjIIcgCKSXScek/60dRiwAAP4oj30EEDyou9nVafCvtV0b4RP5P
+	 6onzkAjRbCfPb+7nwMtEcqM11iptMzCwQddnSVo3pbpwJbuJSuxkJ6irwsfaosg3H8
+	 GEDGaZH8D1YX8evg5Hr0wbpPaL22jF0c2eBjNDroBmoZAuhg+AYByAFvS0bOCGtafy
+	 xzbTcAvQRWGD0mivnctUacPxws5yxqWSHTpw1rI92Wa6W1690Y2FNWtUiTvGNIBWLJ
+	 T2jxlffovycLkIGQ62LA/zrL2J/YDc1YECLvNM2/zsHFENrUJbUr5LxWbk0rxtvG/4
+	 fq79uJdC33FWg==
+Message-ID: <70068ae8-ede1-41d2-899b-98ed11e19953@kernel.org>
+Date: Wed, 1 Jul 2026 16:05:05 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: htecgroup.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR09MB5681.eurprd09.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 48c4039f-5b15-437c-a9a8-08ded776f2f0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 13:45:01.3628
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: v78E7W0TP5BcX5VuotYTWJ4pyyfEWRB+O1ox3sAvRBFrpvHzc/o/g19+BJNnPGOfat+jFWUI95tM9p3nA5SQezjEroM9sGZgtH1Ai9nnGtI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR09MB6096
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_064511_306217_D33A5D6F 
-X-CRM114-Status: GOOD (  25.69  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] dt-bindings: firmware: add mbedtee,rpc binding
+To: Xing Loong <xing.xl.loong@gmail.com>,
+ Jens Wiklander <jens.wiklander@linaro.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260701132514.186953-1-xing.xl.loong@gmail.com>
+ <20260701132514.186953-3-xing.xl.loong@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260701132514.186953-3-xing.xl.loong@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,216 +118,230 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/8/26 16:41, Aleksa Paunovic via B4 Relay wrote:
-> From: Djordje Todorovic <djordje.todorovic@htecgroup.com>
->
-> The MIPS P8700 has bugs with the WFI instruction. This errata
-> uses the RISC-V alternatives framework to patch all WFI
-> instructions with the MIPS P8700 pause opcode (0x00501013)
-> at runtime when running on P8700 hardware.
->
-> Two call sites are patched:
->  - arch/riscv/kernel/head.S: secondary hart parking loop
->  - arch/riscv/include/asm/processor.h: wait_for_interrupt()
->
-> Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+On 01/07/2026 15:25, Xing Loong wrote:
+> Add YAML devicetree binding for the MbedTEE Trusted Execution
+
+Drop YAML, there is no such thing as YAML binding.
+
+> Environment driver.
+
+We don't take bindings for drivers but for hardware or firmware. Please
+describe these instead.
+
+> 
+> The binding covers two platform configurations:
+>   - ARM/AArch64 (TrustZone, SMC): two reserved-memory regions
+>     (rpc-t2r-ring and rpc-t2r-shm) plus a GIC SPI edge interrupt
+>     for TEE-to-REE notifications.
+>   - RISC-V (IMSIC): three reserved-memory regions, adding
+>     rpc-r2t-ring for REE-to-TEE command submissions; no interrupts
+>     property (T2R notifications use IMSIC MSI allocated at runtime).
+> 
+> Signed-off-by: Xing Loong <xing.xl.loong@gmail.com>
 > ---
-> This patch was tested on QEMU configured with eight P8700 harts,
-> as well as on the MIPS Boston board, configured with a single P8700 CPU.
-> Errata application was tested by disassembling with GDB on QEMU
-> and inserting an illegal instruction on the Boston board.
-> Correctness was tested with a combination of kselftests
-> and torture tests (rcu, locktorture), along with coremark testing.
-> ---
-> Changes in v2:
-> - Replace .insn with .4byte in ALT_WFI macro
-> - Add explanatory comments
-> - Link to v1: https://lore.kernel.org/r/20260511-p8700-wfi-v1-1-099b1d10fcf2@htecgroup.com
-> ---
->  arch/riscv/Kconfig.errata                    | 11 ++++++++++
->  arch/riscv/errata/mips/errata.c              | 14 ++++++++++++
->  arch/riscv/include/asm/errata_list.h         | 33 ++++++++++++++++++++++++++++
->  arch/riscv/include/asm/errata_list_vendors.h |  5 +++--
->  arch/riscv/include/asm/processor.h           |  3 ++-
->  arch/riscv/kernel/head.S                     |  4 +++-
->  6 files changed, 66 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index 3c945d086c7d0266b685f9506d58b0662af071c4..cc75e6f70513d08afeedf650b14dba83eea84632 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -44,6 +44,17 @@ config ERRATA_MIPS_P8700_PAUSE_OPCODE
->
->            If you are not using the P8700 processor, say n.
->
-> +config ERRATA_MIPS_P8700_WFI
-> +       bool "Replace WFI with mips.pause for MIPS P8700"
-> +       depends on ERRATA_MIPS && 64BIT
-> +       default n
-> +       help
-> +          The RISCV MIPS P8700 has bugs with the WFI instruction.
-> +          This errata replaces all WFI instructions with the MIPS
-> +          P8700 pause opcode to avoid these issues.
+>  .../bindings/firmware/mbedtee,rpc.yaml        | 221 ++++++++++++++++++
+>  1 file changed, 221 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml b/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
+> new file mode 100644
+> index 0000000..08ae255
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
+> @@ -0,0 +1,221 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/firmware/mbedtee,rpc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +          If you are not using the P8700 processor, say n.
+> +title: MbedTEE Trusted Execution Environment
 > +
->  config ERRATA_SIFIVE
->         bool "SiFive errata"
->         depends on RISCV_ALTERNATIVE
-> diff --git a/arch/riscv/errata/mips/errata.c b/arch/riscv/errata/mips/errata.c
-> index e984a8152208c34690f89d8101571b097485c360..67b59f8c1708ea8b7a040f7939e111b8f30e6a75 100644
-> --- a/arch/riscv/errata/mips/errata.c
-> +++ b/arch/riscv/errata/mips/errata.c
-> @@ -23,6 +23,17 @@ static inline bool errata_probe_pause(void)
->         return true;
->  }
->
-> +static inline bool errata_probe_wfi(void)
-> +{
-> +       if (!IS_ENABLED(CONFIG_ERRATA_MIPS_P8700_WFI))
-> +               return false;
+> +maintainers:
+> +  - Xing Loong <xing.xl.loong@gmail.com>
 > +
-> +       if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
-> +               return false;
+> +description: |
+> +  MbedTEE is a Trusted Execution Environment for embedded systems.
+> +  This binding describes the shared-memory regions used for RPC
+
+Describe firmware, not the binding. It's redundant to say what the
+binding is about, just say what is the hardware.
+
+> +  communication between the Linux REE driver and MbedTEE OS.
 > +
-> +       return true;
-> +}
+> +  The REE and TEE CPUs sharing the RPC memory must be in a
+> +  hardware-coherent domain (same CPU cluster, coherent caches).
 > +
->  static u32 mips_errata_probe(void)
->  {
->         u32 cpu_req_errata = 0;
-> @@ -30,6 +41,9 @@ static u32 mips_errata_probe(void)
->         if (errata_probe_pause())
->                 cpu_req_errata |= BIT(ERRATA_MIPS_P8700_PAUSE_OPCODE);
->
-> +       if (errata_probe_wfi())
-> +               cpu_req_errata |= BIT(ERRATA_MIPS_P8700_WFI);
+> +  Two or three reserved-memory regions are required:
 > +
->         return cpu_req_errata;
->  }
->
-> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> index 6694b5ccdcf85cfe7e767ea4de981b34f2b17b04..5c936882c42a90bac2bf40369a795d067a86d31d 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -25,6 +25,16 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),                    \
->             __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),       \
->             SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,                    \
->             CONFIG_ERRATA_SIFIVE_CIP_453)
+> +    rpc-t2r-ring  ring buffer for TEE-to-REE notifications (all platforms)
+> +    rpc-t2r-shm   shared memory for TEE-to-REE RPC payloads (all platforms)
+> +    rpc-r2t-ring  ring buffer for REE-to-TEE command submissions (RISC-V only)
 > +
-> +#ifdef CONFIG_ERRATA_MIPS_P8700_WFI
-> +#define ALT_WFI                                                                \
-> +ALTERNATIVE("wfi; .rept 7; nop; .endr;",                               \
-> +       ".rept 8; .4byte 0x00501013; .endr;", MIPS_VENDOR_ID,           \
-> +       ERRATA_MIPS_P8700_WFI, CONFIG_ERRATA_MIPS_P8700_WFI)
-> +#else
-> +#define ALT_WFI        wfi
-> +#endif
+> +  On ARM/AArch64 the transport uses SMC calls; TEE-to-REE
+> +  notifications use a GIC SPI edge interrupt.
 > +
->  #else /* !__ASSEMBLER__ */
->
->  #define ALT_SFENCE_VMA_ASID(asid)                                      \
-> @@ -53,6 +63,29 @@ asm(ALTERNATIVE(     \
->         : /* no inputs */       \
->         : "memory")
->
-> +#ifdef CONFIG_ERRATA_MIPS_P8700_WFI
-> +/*
-> + * A WFI instruction after a mispredicted branch can result in erroneous address translation
-> + * on the MIPS P8700.
-> + * The number of MIPS_PAUSE instructions required was determined by measuring
-> + * Coremark performance on a one-core, two-hart configuration.
-> + */
-> +#define ALT_RISCV_WFI()                                                                                \
-> +asm volatile(ALTERNATIVE(                                                                      \
-> +               "wfi\n" /* Original RISC-V wfi insn */                                          \
-> +               __nops(7),                                                                      \
-> +               ".rept 8;" MIPS_PAUSE ".endr;\n", /* Replacement: mips.pause for P8700 */       \
-> +               MIPS_VENDOR_ID, /* Vendor ID to match */                                        \
-> +               ERRATA_MIPS_P8700_WFI, /* patch_id */                                           \
-> +               CONFIG_ERRATA_MIPS_P8700_WFI)                                                   \
-> +               : /* no outputs */                                                              \
-> +               : /* no inputs */                                                               \
-> +               : "memory")
-> +#else
-> +#define ALT_RISCV_WFI()                \
-> +       __asm__ __volatile__ ("wfi")
-> +#endif
+> +  On RISC-V the TEE notifies the REE via IMSIC MSI; the REE submits
+> +  commands via shared-memory rpc-r2t-ring that the TEE polls. No
+> +  REE-to-TEE interrupt is used. No SBI ecall is involved.
 > +
->  /*
->   * _val is marked as "will be overwritten", so need to set it to 0
->   * in the default case.
-> diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
-> index ec7eba3734371a2d8b68fbd4cbd88a8e7135a413..4505317a6b949be602f507547fc9cd495c923e32 100644
-> --- a/arch/riscv/include/asm/errata_list_vendors.h
-> +++ b/arch/riscv/include/asm/errata_list_vendors.h
-> @@ -22,8 +22,9 @@
->  #endif
->
->  #ifdef CONFIG_ERRATA_MIPS
-> -#define        ERRATA_MIPS_P8700_PAUSE_OPCODE 0
-> -#define        ERRATA_MIPS_NUMBER 1
-> +#define ERRATA_MIPS_P8700_PAUSE_OPCODE 0
-> +#define ERRATA_MIPS_P8700_WFI 1
-> +#define ERRATA_MIPS_NUMBER 2
->  #endif
->
->  #endif /* ASM_ERRATA_LIST_VENDORS_H */
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 4c3dd94d0f63844fecc32a7e2c1a184113ee49d9..ae4faed371c16ba33f31373561de03e89d35d04c 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -17,6 +17,7 @@
->  #include <asm/alternative-macros.h>
->  #include <asm/hwcap.h>
->  #include <asm/usercfi.h>
-> +#include <asm/errata_list.h>
->
->  #define arch_get_mmap_end(addr, len, flags)                    \
->  ({                                                             \
-> @@ -176,7 +177,7 @@ extern unsigned long __get_wchan(struct task_struct *p);
->
->  static inline void wait_for_interrupt(void)
->  {
-> -       __asm__ __volatile__ ("wfi");
-> +       ALT_RISCV_WFI();
->  }
->
->  extern phys_addr_t dma32_phys_limit;
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index 9c99c5ad6fe8a32e24c8ce7e0badd63469d2c387..14935e8eec2639844c45bd37db29db74fee38a22 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -16,6 +16,8 @@
->  #include <asm/scs.h>
->  #include <asm/xip_fixup.h>
->  #include <asm/usercfi.h>
-> +#include <asm/alternative.h>
-> +#include <asm/errata_list.h>
->  #include "efi-header.S"
->
->  __HEAD
-> @@ -196,7 +198,7 @@ secondary_start_sbi:
->          *  - receive an early trap, before setup_trap_vector finished
->          *  - fail in smp_callin(), as a successful one wouldn't return
->          */
-> -       wfi
-> +       ALT_WFI
->         j .Lsecondary_park
->
->  .align 2
->
-> ---
-> base-commit: c369299895a591d96745d6492d4888259b004a9e
-> change-id: 20260415-p8700-wfi-9083b1d87d22
->
-> Best regards,
-> --
-> Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
->
->
-Gentle ping.
+> +properties:
+> +  $nodename:
+> +    const: mbedtee
+
+Drop, why would it be relevant?
+
+> +
+> +  compatible:
+> +    const: mbedtee,rpc
+
+Feels way too generic. First, Google results on mbedtee are basically
+non-existing, so what sort of company is that?
+
+Second, rpc is just not specific enough. Please carefully read writing
+bindings doc.
+
+> +
+> +  interrupts:
+> +    description:
+> +      GIC interrupt used by the TEE to notify the REE of pending RPC
+> +      responses (ARM/AArch64 only). Not present on RISC-V platforms which
+> +      use IMSIC platform MSI interrupts allocated dynamically at runtime.
+
+Please read writing bindings doc.
+
+> +
+> +  msi-parent:
+> +    maxItems: 1
+> +    description:
+> +      IMSIC MSI controller used by the Linux driver to allocate the
+
+Again drivers...
+
+> +      TEE-to-REE notification interrupt on RISC-V platforms. Not present on
+> +      ARM/AArch64 platforms, which use the interrupts property.
+> +
+> +  memory-region:
+> +    minItems: 2
+> +    maxItems: 3
+> +    description:
+> +      References to reserved-memory regions for REE<->TEE communication.
+> +      Entries must match memory-region-names order.
+
+Obvious. Please do not come with your own style of bindings.
+
+> +
+> +  memory-region-names:
+> +    minItems: 2
+> +    maxItems: 3
+
+Why is this flexible?
+
+> +    items:
+> +      enum:
+> +        - rpc-t2r-ring
+
+rpc is redundant, drop
+
+> +        - rpc-t2r-shm
+> +        - rpc-r2t-ring
+> +
+> +required:
+> +  - compatible
+> +
+> +allOf:
+> +  - if:
+> +      required:
+> +        - interrupts
+> +    then:
+> +      required:
+> +        - interrupts
+> +        - memory-region
+> +        - memory-region-names
+> +      properties:
+> +        msi-parent: false
+> +        memory-region:
+> +          minItems: 2
+> +          maxItems: 2
+> +        memory-region-names:
+> +          items:
+> +            - const: rpc-t2r-ring
+> +            - const: rpc-t2r-shm
+> +    else:
+> +      required:
+> +        - msi-parent
+> +        - memory-region
+> +        - memory-region-names
+
+So memory-region is always required?
+
+> +      properties:
+> +        memory-region:
+> +          minItems: 3
+> +          maxItems: 3
+> +        memory-region-names:
+> +          items:
+> +            - const: rpc-t2r-ring
+> +            - const: rpc-t2r-shm
+> +            - const: rpc-r2t-ring
+
+Your top level schema said that. You only need minItems.
+
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    /* ARM TrustZone (SMC) */
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    / {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      gic: interrupt-controller@2f000000 {
+> +        compatible = "arm,gic-v3";
+> +        reg = <0 0x2f000000 0 0x10000>,
+> +              <0 0x2f100000 0 0x200000>;
+> +        interrupt-controller;
+> +        #interrupt-cells = <3>;
+> +      };
+> +
+> +      reserved-memory {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +        ranges;
+> +
+> +        mbedtee_t2r_ring: rpc-t2r-ring@85f10000 {
+> +          reg = <0 0x85f10000 0 0x20000>;
+> +          no-map;
+> +        };
+> +
+> +        mbedtee_t2r_shm: rpc-t2r-shm@85f30000 {
+> +          reg = <0 0x85f30000 0 0x40000>;
+> +          no-map;
+> +        };
+> +      };
+
+None of the above is relevant, drop.
+
+
+> +
+> +      firmware {
+> +        mbedtee {
+> +          compatible = "mbedtee,rpc";
+> +          interrupt-parent = <&gic>;
+> +          interrupts = <GIC_SPI 72 IRQ_TYPE_EDGE_RISING>;
+> +          memory-region = <&mbedtee_t2r_ring>, <&mbedtee_t2r_shm>;
+> +          memory-region-names = "rpc-t2r-ring", "rpc-t2r-shm";
+> +        };
+> +      };
+> +    };
+> +
+
+
+Best regards,
+Krzysztof
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
