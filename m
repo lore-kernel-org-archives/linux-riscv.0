@@ -4,72 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B5BC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 06:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68389C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 06:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hHolCDeWjDbJm9xOsx4bqf5Fc/ZBl+EXMHc/9CuaJf8=; b=QZfOg/7VRZ29+h
-	f8dkid2lrKZINNzTG1tjf75zXSXbiZvEyY24rL6DCgxEz/K1g7w1vxE1pl94TgWni1x2wgnr6zx3b
-	L+Q0FARxWFzVYqCgPMZZGEhSpa2NRuYMDHcJJVVVwbg4QhzgbfeorQOecWi70RONqeVZYlYChT24M
-	DMO8qhgGs0kiev/I+oO2we1n903brDEY5gy/F0UAeYcOu6Ilj2+5QW9PtTNQzdd2++AjYdjOwSjq5
-	iw+LSvNWkwevXlT6UaABZb7U5wGn8B8Y/Ity5i/SPvq80xQFpxeaOp8HPZj1RAfk3Gl2xOBou5ukA
-	5JavT3Sw9Igf3U/+fnag==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:To:From:Date:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=egGxMa1pGg4U/mkaOj/I/1JRVoxhWsG4QPs3dFRITxQ=; b=L9HrTLMOvfh0pGHF5errXOH2IA
+	oJfK6ApeaNNiyoGTl2Hh290SgXVy9YfM5ARIHkTqEIvZNbRl23CH8zef24UrB54mQ1VDQfl75f8Cb
+	AhuCc1wyIYX5uojKJIuHLFeR3TX13qXEQj/JU6ogKhXyIVrMXH/g7as5EOiCBZ2hKUEANVJamI41n
+	nGtBkxtBJPBh53wSYUN4tBuZGPJcmyEIS52B0JLX0zw8kOqXR/6HuxAxbh48N8s8SEhycU2Y/TQ9/
+	qmUNVqHrRZxPTSRF4OclJ4mxJNXZbLslbDUSoE+bUMz0/qjA1pYpdxiJDWYhjAPsGp16hhxF+YDVC
+	Enn0gNQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoLe-00000000mwt-41Ly;
-	Wed, 01 Jul 2026 06:23:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weoO7-00000000nKa-3OKX;
+	Wed, 01 Jul 2026 06:25:35 +0000
+Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoLc-00000000mwO-3NGJ;
-	Wed, 01 Jul 2026 06:23:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC4CB6001D;
-	Wed,  1 Jul 2026 06:22:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CCAF1F000E9;
-	Wed,  1 Jul 2026 06:22:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782886979;
-	bh=+CV7vM2cx+5CJ4FbmSzaWHO/QerFhIw/VFpB9UKLnag=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=mebOUl/bwwqf4S7w7kuJFeK55aOXArL3TFyTg+YwHZM0Aqo11A2cwS2qc5uyoKBt3
-	 dO1KZT7hVdrx3UQSma8+4XOmo21d0bOAN1LIlAgM9Y8eOKJY0Am34vRTyrvlFkADQo
-	 x2jOHdyCdZ4ScD80uScfDrZqs4dIm7ltOQlidHQ4sEnEeMHf6nhJANmcdrRyxybp9x
-	 JiBCaAsNQyVRCHvCxSm8C+u/RhJQ7nrDRUq8ub8VwDsYeOka1bmYijdNL1YvAxDwRy
-	 dbxGH1+8CZ5cX5Q+oodtuhxPWpU3U8Kh2r3L9QxGBPoQqcrIq4NLslPud4kI2Fins+
-	 hgjq0enJu8OWw==
-From: Mike Rapoport <rppt@kernel.org>
-To: Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Huacai Chen <chenhuacai@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Muchun Song <muchun.song@linux.dev>, 
- Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Will Deacon <will@kernel.org>, Sang-Heon Jeon <ekffu200098@gmail.com>
-Cc: linux-mm@kvack.org, Alexander Potapenko <glider@google.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, Andrey Konovalov <andreyknvl@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- David Hildenbrand <david@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
- kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
- Nicholas Piggin <npiggin@gmail.com>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- WANG Xuerui <kernel@xen0n.name>
-In-Reply-To: <20260630150413.1718632-1-ekffu200098@gmail.com>
-References: <20260630150413.1718632-1-ekffu200098@gmail.com>
-Subject: Re: [PATCH v3 0/8] treewide: remove unnecessary invalid range
- checks in memblock iteration loops
-Message-Id: <178288696837.1179975.5183177963398478769.b4-ty@b4>
-Date: Wed, 01 Jul 2026 09:22:48 +0300
+	id 1weoO5-00000000nJD-2QAN
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Jul 2026 06:25:35 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id 35EDA1380326;
+	Wed,  1 Jul 2026 02:25:32 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Wed, 01 Jul 2026 02:25:32 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1782887132;
+	 x=1782894332; bh=b44fp/Xs200vmVmERTgFd09AZSIVEJbxoZ/zLTkjWAs=; b=
+	ZAEo/ZNklCq7HmQEk3ZyRkEqqp0NAs1NuYnrrERijClIWx+s19L6FuvIXKdtFruy
+	4V89DusI3RY+PWxVDApjhWzHTyjpdA2xSUWFPAsFdcFupvmlqwaUhmnKBG1Qj+A3
+	aGgtYpFNkgAjsd/I4/5LLU/QklAxLdmIa7rQMcIiR6atyFIFZJTE5nOy6AMIH0RE
+	lyvdf1uqqx8qwClvFZS3mWbrktvGFtDL2wj+5vdLJTyzu++JTDl0jY/qaQFuTovj
+	gDaDaoC/5siXjVCoY0jI7GyPsU8yQM2K39vtKFpR3GQQ9wMuIymhBSRBRIY9A719
+	BH0I0QP55BkqHPusExFKyg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm1; t=1782887132; x=1782894332; bh=b
+	44fp/Xs200vmVmERTgFd09AZSIVEJbxoZ/zLTkjWAs=; b=KH4gK04VMYiP2pLwR
+	0x9WgN+0wkRQBW+gE0J4ZyalbyvhKPaSGAr1c3UqG2YKkiW5B8ELH3HIr9CXBe3N
+	UQjjBRP6whm1/bfbFFamkf4sAOD7pGrqQWvYJPBn3NSiserEHozBs2EjA5I3GFBI
+	VEvaP+gNWAudrlx9py8bakkizoWWV+qi7NNPJIWMEBk7/6izbZ1iOUtQwcnCZIFB
+	/aqQlRI74LOsotM8lwcmH1Yw0Tv8CSz9W6J+X1v+9uiliFFPg2VX5AFAPiuJMez6
+	Vd8bxd1c+PO36W6Zj5kUkNluLwp8Z4iQh1ooHvEo1wZpOs0IwOtaj8czVZu2nQ3P
+	dtpXg==
+X-ME-Sender: <xms:2bJEajJRWO8kVZq70X044fUeLf0f76XltHggeVJX48t491vhArm9TQ>
+    <xme:2bJEah9SNFNYnnAb1J_vkZotnw3X4i1g3o8fu7TssuHiXQo5W2VjJZRgP8swVnGlz
+    X4CymXicSA7ZWVxw69O8AjpeWLmZVDRxDX1oNv7x3h18SxceiNAVCYW>
+X-ME-Proxy-Cause: dmFkZTF1VoUsxJAijmmlORYiQyK9Goe4LUYUDFLRIryl+jqUeZtZW3yO5gJDbpHv3EB9xX
+    0aLPbAIfQieGYioCKK3co9wXz8U+shxephSBq5+VUjtIdlQEq07P/ElJPcfp3rEbsUbCW0
+    l7whtRe1Yr3PnTNdRTBIZQJ9PcaK+K3csO1DgQcA8BLFNtW7cyHVxo3P2rmNk7SW0lVEt2
+    /RD362A2qa/XvfS2m7DMJyFC7DMueziHirYypDh/c0u2a+Kc3xajINpZ1UwB7QSvGTZlii
+    DLQiMQRnSTgxvgcLUTQzuPJ9XiTQP+uKdmA5s/je+k6H6aL16kXT8Ijk8X2Rcg/HGr+zpz
+    7z/ssG2wd3dId5yDIhYXpEsbZGkwAzg/SZ2S3SltFeOeO49dDXuOHe8OVHJKD39gonqLBy
+    gd2qKEm93sQu8V2hKL8wI1iRJbtjdBfWO7F9O82etnW+ff4w0qCiuMHKqZ509jgwm0ezaO
+    yq2/pUblQLEf8lwgpKPFSyILpZHZRKofIJQfR5QP9emF7ID+ha6kqUuJDgzwO39OCs14te
+    lNXcHj/U0d7hEDTA+yLc6mK6Os+/wuLZLhWF/Qxfba4P9Hiz42uRyERz+mVNyvqJ7pYzaM
+    0WVqv/7cFLaZAEqmqZTNoBwuzXvL8ZbM9Sz3uNVKGMexSSDT9buVIexiEfkw
+X-ME-Proxy: <xmx:2bJEauRPKsD8riqousolZE0WI0zXAE_JCKfx1UY3IMK9PKky9lP7vw>
+    <xmx:2bJEavhFfU4kCmHPJrS1vVPtAVbhvCWvwICQzm9xJwnom6erP6Z9Dg>
+    <xmx:2bJEakYaAolbEk3jQRR1gnJNxKPYk9wJisr8ue5-6jmqz4Di0prDYA>
+    <xmx:2bJEarJJliJWNzjwLDjDG-UZUmdP2JUvsmN5H-BMD1reGuBdz3PGLA>
+    <xmx:3LJEamxytfe7H_axgE5obOZ_MbiIy8MkZAEWJzfhzKF5EIjf7S7IGDjZ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 5CAE8182007E; Wed,  1 Jul 2026 02:25:29 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-Mailer: b4 0.15.2
+X-ThreadId: AFAd_idRoH9R
+Date: Wed, 01 Jul 2026 08:24:35 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Yunhui Cui" <cuiyunhui@bytedance.com>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Dennis Zhou" <dennis@kernel.org>, "Tejun Heo" <tj@kernel.org>,
+ "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+ "Alexei Starovoitov" <ast@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>,
+ "Andrii Nakryiko" <andrii@kernel.org>,
+ "Martin KaFai Lau" <martin.lau@linux.dev>,
+ "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
+ "Song Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>,
+ "Jiri Olsa" <jolsa@kernel.org>,
+ =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, pulehui@huawei.com,
+ puranjay@kernel.org, "Thomas Huth" <thuth@redhat.com>,
+ "Andrew Jones" <ajones@ventanamicro.com>,
+ "Ben Dooks" <ben.dooks@codethink.co.uk>,
+ =?UTF-8?Q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>,
+ "Samuel Holland" <samuel.holland@sifive.com>,
+ "Zong Li" <zong.li@sifive.com>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Deepak Gupta" <debug@rivosinc.com>,
+ seanwascoding@gmail.com, "Andy Chiu" <andybnac@gmail.com>,
+ menglong8.dong@gmail.com, cyrilbur@tenstorrent.com,
+ "Vivian Wang" <wangruikang@iscas.ac.cn>,
+ "Atish Patra" <atishp@rivosinc.com>,
+ "Anup Patel" <apatel@ventanamicro.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, bpf@vger.kernel.org,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
+ "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, qingfang.deng@siflower.com.cn,
+ Linux-Arch <linux-arch@vger.kernel.org>, llvm@lists.linux.dev
+Message-Id: <ea525a80-1e6f-4304-a371-3ec17d91ee96@app.fastmail.com>
+In-Reply-To: <7988df83f6341ea045ebd7294af2e8907dbd5ee7.1782877663.git.cuiyunhui@bytedance.com>
+References: <cover.1782877663.git.cuiyunhui@bytedance.com>
+ <7988df83f6341ea045ebd7294af2e8907dbd5ee7.1782877663.git.cuiyunhui@bytedance.com>
+Subject: Re: [PATCH v5 1/3] riscv: io: avoid null-pointer arithmetic in PIO helpers
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_232533_825310_D7EF1EAB 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +141,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Jul 2026 00:04:05 +0900, Sang-Heon Jeon wrote:
-> treewide: remove unnecessary invalid range checks in memblock iteration loops
+On Wed, Jul 1, 2026, at 06:20, Yunhui Cui wrote:
+> @@ -56,6 +56,8 @@
+>  #define __io_pbw()	RISCV_FENCE(iow, o)
+>  #define __io_paw()	RISCV_FENCE(o, io)
 > 
-> The memblock API guarantees that for_each_mem_range() and
-> for_each_mem_pfn_range() never return an invalid range, meaning start is
-> always less than end.
+> +#define PCI_IO_ADDR(addr)	((void __iomem *)((unsigned long)PCI_IOBASE 
+> + (addr)))
+
+This does not seem to have any purpose, is this just left over
+from the previous version?
+
 > 
-> Several memblock callers still have unnecessary invalid range checks in
-> their loop bodies, so remove them.
-> 
-> [...]
+> +#ifdef CONFIG_HAS_IOPORT
+>  __io_reads_ins(ins,  u8, b, __io_pbr(), __io_par(addr))
+>  __io_reads_ins(ins, u16, w, __io_pbr(), __io_par(addr))
+>  __io_reads_ins(ins, u32, l, __io_pbr(), __io_par(addr))
+> -#define insb(addr, buffer, count) __insb(PCI_IOBASE + (addr), buffer, count)
+> -#define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
+> -#define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
+> +#define insb(addr, buffer, count) __insb(PCI_IO_ADDR(addr), buffer, count)
+> +#define insw(addr, buffer, count) __insw(PCI_IO_ADDR(addr), buffer, count)
+> +#define insl(addr, buffer, count) __insl(PCI_IO_ADDR(addr), buffer, count)
+> +#endif
+ 
+As far as I can tell, just adding the #ifdef here should be sufficient.
 
-Applied to range-checks branch of memblock.git tree, thanks!
-
-[1/8] arm64: mm: remove unreachable invalid range check in kasan_init_shadow()
-      commit: f6e6c57f2e100813be6d5882060fef81cb6f32de
-[2/8] LoongArch: remove unreachable invalid range check in kasan_init()
-      commit: 68d3b7d58237b8794d9343210d4c90b8381cfa96
-[3/8] riscv: remove unreachable invalid range check in create_linear_mapping_page_table()
-      commit: 99e60ebe108817fd48791f2cb81f1e672ad8285b
-[4/8] riscv: remove unreachable invalid range check in kasan_init()
-      commit: 8008f6995d0c0cf22e7b4d60e95fe14085c10f35
-[5/8] ARM: remove unreachable invalid range check in kasan_init()
-      commit: 3db1a9ccf9290ea3fe01aadf3bd743ef7032b24a
-[6/8] powerpc64/kasan: Remove unreachable invalid range check in kasan_init_phys_region()
-      commit: 21e95a4b6f34770571eeeaa6adb535efba1b7281
-[7/8] mm: remove unnecessary empty range check in early_calculate_totalpages()
-      commit: c6af91e48594191f62ad3c1fcc8269b1eb539ef8
-[8/8] mm/hugetlb: remove unnecessary empty range check in hugetlb_bootmem_set_nodes()
-      commit: 2db44dc8bdd3cfc933a3193724f4d38b03e35b80
-
-tree: https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock
-branch: range-checks
-
---
-Sincerely yours,
-Mike.
-
-
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
