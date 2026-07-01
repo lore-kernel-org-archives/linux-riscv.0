@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30FDC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9ADDC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 12:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uMfOd7WG24W3KG73mLqdGeHhcmVqzffr9FZBUpvxI2A=; b=DR+IH4z0M9crj4
-	DgAkXQw19y3bDPGHlwYIY2boWLT+HV4Q9TiJm6sFsROW3LEHeIHU90ijo5BIJfWndeMqygGMaXI6x
-	4LR3umAd7eN0a9MFUpH1paR2gNrJd95EWdFBIuPsGiixiolOYPop6k/GYXVzMDIY8h3+6BPozDAgo
-	ueBK3HapGObP70lZZz6ktnSsrHmH+mMhtcv9PDFaBMjERQdkiGQd2HDalwYyzUigIxLSRBQBj3MRV
-	n6YWOdQ/jj8Yp+GM0Bc/raFaC/Qq3nPJZ6jIBJjga9WGA4tdd8jhXDoarn5zJOLjth6YKf7soOnBB
-	q/sKsBGPFsylgi3bU88A==;
+	List-Owner; bh=hLRzZ1DoLmw766KBkYeWRDNe2nj48Y7noxuEbJVZkiQ=; b=XsWoPXmcY/XA6b
+	0XRZkAhD84A18wC/VePgyevlARK1H+Jqj6TgnybLSV6d5Tio8EuezdvIsr6U+cKRMRcN4NiQ3aWcM
+	PgFAOE0wGaQt+ufRdATvrouLXkthbRuzrm1hF/OuW+FgsThpk6T2FX9+QNIFBctX0pJSbIq+xNKTd
+	j2sjHb/X+Lo8V3z/VDXqdvct+e1jmty95NcgDF3o13tqkxNkr4D96pCm0Ih2nZRt8cchRoGVz7bQF
+	4k5YI/EtDbOdXDo3dc1Xw0NOXUooyIWkSTKII/MhTUJJMT6rf4akU3XCytOtaIsIieLpSJgIfNO1d
+	3KytyDr1AzP1HHlMg+iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetmp-00000001nto-3rGN;
-	Wed, 01 Jul 2026 12:11:27 +0000
+	id 1wetmv-00000001ny6-0tNd;
+	Wed, 01 Jul 2026 12:11:33 +0000
 Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetmm-00000001nox-2rpv;
-	Wed, 01 Jul 2026 12:11:25 +0000
+	id 1wetmp-00000001ns9-2Pav;
+	Wed, 01 Jul 2026 12:11:31 +0000
 Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gqzPw0jlrz55RJV;
-	Wed, 01 Jul 2026 20:11:16 +0800 (CST)
-Received: from szxlzmapp01.zte.com.cn ([10.5.231.85])
-	by mse-fl2.zte.com.cn with SMTP id 661CAxLr077498;
-	Wed, 1 Jul 2026 20:10:59 +0800 (+08)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gqzQ204dTz55RJ4;
+	Wed, 01 Jul 2026 20:11:22 +0800 (CST)
+Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
+	by mse-fl2.zte.com.cn with SMTP id 661CB3aG077670;
+	Wed, 1 Jul 2026 20:11:03 +0800 (+08)
 	(envelope-from wang.yechao255@zte.com.cn)
 Received: from localhost.localdomain (unknown [10.234.74.162])
 	by smtp (Zmail) with SMTP;
-	Wed, 1 Jul 2026 20:11:01 +0800
-X-Zmail-TransId: 3e816a4503d5008-1d5ea
+	Wed, 1 Jul 2026 20:11:06 +0800
+X-Zmail-TransId: 3e816a4503d9008-1d5f9
 X-Zmail-LocalSMTP: 1
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
 X-Zmail-RealSender: wang.yechao255@zte.com.cn
@@ -51,23 +51,23 @@ Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
         Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@linux.dev>,
         Alexandre Ghiti <alex@ghiti.fr>,
         Wang Yechao <wang.yechao255@zte.com.cn>
-Subject: [PATCH v4 3/5] RISC-V: KVM: Remove redundant TLB flush operations
-Date: Wed,  1 Jul 2026 20:09:46 +0800
-Message-ID: <20260701120954.129873-4-wang.yechao255@zte.com.cn>
+Subject: [PATCH v4 4/5] RISC-V: KVM: Split huge pages during KVM_CLEAR_DIRTY_LOG
+Date: Wed,  1 Jul 2026 20:09:47 +0800
+Message-ID: <20260701120954.129873-5-wang.yechao255@zte.com.cn>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20260701120954.129873-1-wang.yechao255@zte.com.cn>
 References: <20260701120954.129873-1-wang.yechao255@zte.com.cn>
 MIME-Version: 1.0
-X-MAIL: mse-fl2.zte.com.cn 661CAxLr077498
+X-MAIL: mse-fl2.zte.com.cn 661CB3aG077670
 X-TLS: YES
 X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 01 Jul 2026 20:11:16 +0800
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 01 Jul 2026 20:11:22 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A4503E4.000/4gqzPw0jlrz55RJV
+X-Fangmail-MID-QID: 6A4503EA.000/4gqzQ204dTz55RJ4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_051124_885011_B8BB25FF 
-X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-CacheID: sfid-20260701_051127_772958_56599ADA 
+X-CRM114-Status: UNSURE (   6.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,43 +85,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The function kvm_arch_mmu_enable_log_dirty_pt_masked() is invoked from
-two distinct call paths:
-
-kvm_clear_dirty_log_protect()
-  kvm_arch_mmu_enable_log_dirty_pt_masked()
-
-kvm_vm_ioctl_reset_dirty_pages()
-  kvm_dirty_ring_reset()
-    kvm_reset_dirty_gfn()
-        kvm_arch_mmu_enable_log_dirty_pt_masked()
-
-In both scenarios, the caller already performs a remote TLB flush after
-dirty logging is enabled, so the TLB flush inside
-kvm_arch_mmu_enable_log_dirty_pt_masked() is unnecessary. Remove it.
+Split huge pages on the range specified using KVM_CLEAR_DIRTY_LOG.
+And do not split when enabling dirty logging if
+KVM_DIRTY_LOG_INITIALLY_SET is set.
 
 Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/kvm/mmu.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ arch/riscv/kvm/mmu.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 363238efaedb4..056c0abe278af 100644
+index 056c0abe278af..29a7ac023d4db 100644
 --- a/arch/riscv/kvm/mmu.c
 +++ b/arch/riscv/kvm/mmu.c
-@@ -162,14 +162,10 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
- 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
- 
+@@ -166,6 +166,9 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
  	kvm_riscv_gstage_init(&gstage, kvm);
  
--	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
--	if (flush)
--		kvm_flush_remote_tlbs_range(kvm, start >> PAGE_SHIFT,
--					    (end - start) >> PAGE_SHIFT);
-+	kvm_riscv_gstage_wp_range(&gstage, start, end);
+ 	kvm_riscv_gstage_wp_range(&gstage, start, end);
++
++	if (kvm_dirty_log_manual_protect_and_init_set(kvm))
++		mmu_split_huge_pages(&gstage, start, end);
  }
  
  void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
