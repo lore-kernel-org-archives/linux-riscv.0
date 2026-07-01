@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C126C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 14:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B97BC43602
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 15:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T1poJfoRz2507IE51V6zQnSEMvI1GUzfiS9gifN9tJk=; b=DS/Q4BdaN+jOjs
-	TXdfA/i7LVJubi8uob4G64OfJ5DHhkEAEo/2W3S9coq5QKDcWCxsmN8u9p02FkuDOmBYux2IM+swK
-	fEDACZHcYXCy3jecyXLzCd5sz4fxW6aV/3t7Rg6AtItdQmcwO7w7jHYp5EsKf7iD8bo3gBUqcXONo
-	asBMNwJ1Ubv1rIhNnbbXoOoblHkvB2Z8KS7KKQ7A5svk+4dgy7DQ2KELh8c6o1jfEc9KQb8AeasTF
-	2x+Z1KROtg8keoN77TVbulv3/7duQQLcoXdCmGcP1ITUEZMZKA2OvRRedzldQDVRVqhC8ziVkbErd
-	N0+y8mYV/HpWBmBZ8VDA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=LAscpO4DE+yPJzw6P0sw7gpM+5I6mWKH4T9Iex3oJLY=; b=vrP72e3IjAAlyp2JtR/cG+1JBv
+	+6/Zren0C4Vzo2enL/bT3CbqYqlrT9UsOYmzUn8wC07QPmQFUHsQiN5TQpQQlrl09pm97ncVb8G4n
+	pZZqGcfBWtvBu2D7o++oFxcjhOhF46I9pbLOYY+TGUvItvGBR1fKNJ05dlNMAWGqJFubZI0Eg3oQt
+	bO5jV6fN/sQ+YVM5I1URXlpjThy5lH89Ei0XVsi6vnjsmO5KlThh/Y9aAhAmgyI27aDJsf8AtSehr
+	0g9R+E0J42JvggaZpEAV45H2JvrUE9f62U0sJlmrdq3DMlhXcE7Lkdf/ujfs9tmWUn0hCxLRUEaSU
+	Af6AXzcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wew6D-00000002Juu-1dQj;
-	Wed, 01 Jul 2026 14:39:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wexGS-00000002Rk3-0EBC;
+	Wed, 01 Jul 2026 15:54:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wew6C-00000002JtE-2mX7;
-	Wed, 01 Jul 2026 14:39:36 +0000
+	id 1wexGQ-00000002RjW-1eve;
+	Wed, 01 Jul 2026 15:54:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C05D40884;
-	Wed,  1 Jul 2026 14:39:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 541911F00A3A;
-	Wed,  1 Jul 2026 14:39:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 825246001D;
+	Wed,  1 Jul 2026 15:54:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E90E71F000E9;
+	Wed,  1 Jul 2026 15:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782916776;
-	bh=FHnEU2cWOeE/SJ4pLk0OaaCpWkfm5he3fR+uDqxMHpc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Tri4RibRz0rLKkiWQesj5+TrZ6WsxzeDDot/YI3M3DllgoPNtve0GXXGg8PS/m1w7
-	 vvBDak1fhDDs/gyPkCZcitAw4CtNzZROVpxo4gx0US9/EL8kho1LPZzfNzpVgxiro0
-	 YOTCj8M27QpL12yLzs7FGQ3rDmAF2ya14DxrsurPzXm19c/ALt165N9WPFgNx36aRq
-	 IeWFE1IoreijSyodjAM9JUzhIuKRMdn0mgC71Hj2gv6ooW0b2SlHVU306F4Ml+0/Tc
-	 8ebETIEjMryVQR2ku0pJpaSh0d3ftfeJJkudzUJCaf/34BfoZLwnwsyT0mrwNQT+8d
-	 /JvUfYedZ8CfA==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Wed, 01 Jul 2026 16:38:55 +0200
-Subject: [PATCH v3 7/7] irqchip/gic-v5: Enable GICv5 IWB ACPI probe
- ordering detection
+	s=k20260515; t=1782921253;
+	bh=Day1pHQbKZLb168bI+sP1UZxbLRw56ZZ/BDr3gtOMiQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=OEOXN1CbmqbmzOHS4xMU9zz61FwVoCI0s68qSt/fMFnPQAtQDSI9WRjlK+tUTfm7W
+	 YMGFkMn0G8o79DO1GWLJHoAFBmpvbYb7AMyNFQ1CBAOH3lIZ1XdwqwfXztENUdEGOP
+	 VsJ8LHmL5fgC5eFahjw3d+/4fx6zGP30xf5NOjXyx57RHcxnBNqPOqpIcjlEu09pgX
+	 kM2HD76Qskh2xjdNXvo423hw6HGkgGW4VB6wuRzMNJ90GISmxlQfHInTfCe6v9hs0B
+	 S3fk2J2JC82vh8hKsk0tW2YbnNLhgV8eJWG7PcgoKKGbVj8C8+JV1L+g+4CbHU04gr
+	 MuldJFsj5M1IQ==
+Date: Wed, 01 Jul 2026 10:54:12 -0500
 MIME-Version: 1.0
-Message-Id: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-7-c5562cf0fe29@kernel.org>
-References: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org>
-In-Reply-To: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-X-Mailer: b4 0.15.2
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Deepak Gupta <debug@rivosinc.com>, sophgo@lists.linux.dev, 
+ Conor Dooley <conor.dooley@microchip.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Jonathan Corbet <corbet@lwn.net>, Inochi Amaoto <inochiama@gmail.com>, 
+ kvm@vger.kernel.org, spacemit@lists.linux.dev, 
+ Jesse Taube <jtaubepe@redhat.com>, Atish Patra <atish.patra@linux.dev>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Chen Wang <unicorn_wang@outlook.com>, linux-doc@vger.kernel.org, 
+ Zong Li <zong.li@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Anup Patel <anup@brainfault.org>, 
+ Charlie Jenkins <thecharlesjenkins@gmail.com>, 
+ Andrew Jones <andrew.jones@oss.qualcomm.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, 
+ Chen Wang <chen.wang@linux.dev>, linux-kselftest@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>
+To: Guodong Xu <docular.xu@gmail.com>
+In-Reply-To: <20260701-rva23u64-hwprobe-v2-v5-8-2c61f94a695a@gmail.com>
+References: <20260701-rva23u64-hwprobe-v2-v5-0-2c61f94a695a@gmail.com>
+ <20260701-rva23u64-hwprobe-v2-v5-8-2c61f94a695a@gmail.com>
+Message-Id: <178292125218.626337.4829523300943840761.robh@kernel.org>
+Subject: Re: [PATCH v5 08/17] dt-bindings: riscv: Require block-size for
+ Zicbom, Zicbop, and Zicboz
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +85,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Register an ACPI hook in the ACPI interrupt management code for GICv5 to
-retrieve the ACPI interrupt controller handle (if any) of the controller
-handling a specific GSI, by updating the acpi_set_irq_model() call with
-the gic_v5_get_gsi_handle() function pointer parameter.
 
-gicv5_get_gsi_handle() allows ACPI core to detect the ACPI handle
-of the controller that manages a specific GSI interrupt.
+On Wed, 01 Jul 2026 08:52:21 -0400, Guodong Xu wrote:
+> Zicbom, Zicbop, and Zicboz have no default cache block size, so a
+> devicetree that declares one must also provide the matching
+> riscv,cbom/cbop/cboz-block-size property. Make it required so a
+> missing block-size property can be caught by dtbs_check.
+> 
+> Suggested-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+> ---
+> v5: New patch.
+> ---
+>  .../devicetree/bindings/riscv/extensions.yaml      | 26 ++++++++++++++++++++++
+>  1 file changed, 26 insertions(+)
+> 
 
-Update the IWB driver to clear device dependencies in ACPI core once the
-IWB driver has probed.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
----
- drivers/irqchip/irq-gic-v5-iwb.c |  2 ++
- drivers/irqchip/irq-gic-v5.c     | 11 ++++++++++-
- 2 files changed, 12 insertions(+), 1 deletion(-)
+yamllint warnings/errors:
 
-diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-index 9103feb70ce8..2546fc74dd99 100644
---- a/drivers/irqchip/irq-gic-v5-iwb.c
-+++ b/drivers/irqchip/irq-gic-v5-iwb.c
-@@ -269,6 +269,8 @@ static int gicv5_iwb_device_probe(struct platform_device *pdev)
- 	if (IS_ERR(iwb_node))
- 		return PTR_ERR(iwb_node);
- 
-+	acpi_device_clear_dep(&pdev->dev);
-+
- 	return 0;
- }
- 
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index 7ea39cb19f75..5dcf404ab4c8 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -1231,6 +1231,14 @@ static struct fwnode_handle *gic_v5_get_gsi_domain_id(u32 gsi)
- 	return gsi_domain_handle;
- }
- 
-+static acpi_handle gic_v5_get_gsi_handle(u32 gsi)
-+{
-+	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
-+		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+
-+	return NULL;
-+}
-+
- static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsigned long end)
- {
- 	struct acpi_madt_gicv5_irs *irs = (struct acpi_madt_gicv5_irs *)header;
-@@ -1251,7 +1259,8 @@ static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsig
- 	if (ret)
- 		goto out_irs;
- 
--	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id, NULL);
-+	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id,
-+			   gic_v5_get_gsi_handle);
- 
- 	return 0;
- 
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@0 (riscv): 'riscv,cbom-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@0 (riscv): 'riscv,cbop-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@0 (riscv): 'riscv,cboz-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@0 (riscv): Unevaluated properties are not allowed ('riscv,isa' was unexpected)
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@1 (riscv): 'riscv,cbom-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@1 (riscv): 'riscv,cbop-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@1 (riscv): 'riscv,cboz-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@1 (riscv): Unevaluated properties are not allowed ('riscv,isa' was unexpected)
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@10 (riscv): 'riscv,cbom-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@10 (riscv): 'riscv,cbop-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@10 (riscv): 'riscv,cboz-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@10 (riscv): Unevaluated properties are not allowed ('riscv,isa' was unexpected)
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@11 (riscv): 'riscv,cbom-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@11 (riscv): 'riscv,cbop-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@11 (riscv): 'riscv,cboz-block-size' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@11 (riscv): Unevaluated properties are not allowed ('riscv,isa' was unexpected)
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
 
--- 
-2.34.1
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260701-rva23u64-hwprobe-v2-v5-8-2c61f94a695a@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
 _______________________________________________
