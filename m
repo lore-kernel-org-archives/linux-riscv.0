@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF8CC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 06:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B5BC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 06:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZSzgC6vzkMN8CK+smcsQ7MnTgrYxn8MkbvCGSqKyI+w=; b=4Pdkslj06vxxgW
-	s68u9SB/GtdQj4VZU8DVXfkkde6HbNrXvr2YSd8gIGu7gCYCdICv/FqR8ZM807KUcm+D8QLSRYmdR
-	XkktEaxanP/PE/4IJYmGfZKjEqJ02cdaoiaE2nwMa4Dw+WciIFSWyVFosXW3nZiU5fG4GksPTwlBG
-	myrHnbEjqArrz8h+6d4B7y2XRX/XyNevh/vq2ZyNHLvK00kiNihbNiMJ2oCE6fTBUJHSflxus2SDo
-	ZA1yiBPsP2aX7uzj9I0xMTimW/vJizDiNsFwJ78DhWhvL5ICVpo0EZ53fPB+yPGbkZ3DAEh6vznbK
-	Foy5lzP3RSxVF+o8p4/Q==;
+	List-Owner; bh=hHolCDeWjDbJm9xOsx4bqf5Fc/ZBl+EXMHc/9CuaJf8=; b=QZfOg/7VRZ29+h
+	f8dkid2lrKZINNzTG1tjf75zXSXbiZvEyY24rL6DCgxEz/K1g7w1vxE1pl94TgWni1x2wgnr6zx3b
+	L+Q0FARxWFzVYqCgPMZZGEhSpa2NRuYMDHcJJVVVwbg4QhzgbfeorQOecWi70RONqeVZYlYChT24M
+	DMO8qhgGs0kiev/I+oO2we1n903brDEY5gy/F0UAeYcOu6Ilj2+5QW9PtTNQzdd2++AjYdjOwSjq5
+	iw+LSvNWkwevXlT6UaABZb7U5wGn8B8Y/Ity5i/SPvq80xQFpxeaOp8HPZj1RAfk3Gl2xOBou5ukA
+	5JavT3Sw9Igf3U/+fnag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weo1D-00000000lBz-1Cn9;
-	Wed, 01 Jul 2026 06:01:55 +0000
-Received: from mout.web.de ([212.227.15.4])
+	id 1weoLe-00000000mwt-41Ly;
+	Wed, 01 Jul 2026 06:23:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weo1A-00000000lBQ-16D5;
-	Wed, 01 Jul 2026 06:01:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1782885645; x=1783490445; i=markus.elfring@web.de;
-	bh=Xy6Q8nTosbzVtz/e2WE19ikj/aI/XnvgQ7NJOmIDfOU=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=DjQyLh6kqzlQsS+ixe9+/5RSUrrgV+7vVIGEECTEVsC/J5fFowHOyjMr4xNcN5vE
-	 6bfyLnthv/Tmh4cNIzr6v+XxXkPxbzQEPNrKcvp2lJSdCp+/IoaemGlmqUpl+DjLI
-	 mgQuCquGhgI9ScSvJ5sp3CHaLlU6jBN7XL269EWDGA3r8Ive1CtALNRgG7Plni2vt
-	 ga1+X2HityIMwOWa9Ded7JnctnMZIyRrgT1ezGbb8syobqZZtFHUUH4OMWY5PFrgC
-	 P7A2B9z33UsNDBfEdocnGuFQlD1z4RReFWlgSQ5dOUSkIYp8+hO/i6QxXxDMCvbhG
-	 AHEW0oH0zfteuSaAzw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MYLmo-1wb0fv0Yza-00T5WP; Wed, 01
- Jul 2026 08:00:45 +0200
-Message-ID: <4b21e0d5-07d1-438b-a6ea-a2be596a3044@web.de>
-Date: Wed, 1 Jul 2026 08:00:14 +0200
+	id 1weoLc-00000000mwO-3NGJ;
+	Wed, 01 Jul 2026 06:23:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC4CB6001D;
+	Wed,  1 Jul 2026 06:22:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CCAF1F000E9;
+	Wed,  1 Jul 2026 06:22:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782886979;
+	bh=+CV7vM2cx+5CJ4FbmSzaWHO/QerFhIw/VFpB9UKLnag=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=mebOUl/bwwqf4S7w7kuJFeK55aOXArL3TFyTg+YwHZM0Aqo11A2cwS2qc5uyoKBt3
+	 dO1KZT7hVdrx3UQSma8+4XOmo21d0bOAN1LIlAgM9Y8eOKJY0Am34vRTyrvlFkADQo
+	 x2jOHdyCdZ4ScD80uScfDrZqs4dIm7ltOQlidHQ4sEnEeMHf6nhJANmcdrRyxybp9x
+	 JiBCaAsNQyVRCHvCxSm8C+u/RhJQ7nrDRUq8ub8VwDsYeOka1bmYijdNL1YvAxDwRy
+	 dbxGH1+8CZ5cX5Q+oodtuhxPWpU3U8Kh2r3L9QxGBPoQqcrIq4NLslPud4kI2Fins+
+	 hgjq0enJu8OWw==
+From: Mike Rapoport <rppt@kernel.org>
+To: Albert Ou <aou@eecs.berkeley.edu>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Huacai Chen <chenhuacai@kernel.org>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Muchun Song <muchun.song@linux.dev>, 
+ Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Will Deacon <will@kernel.org>, Sang-Heon Jeon <ekffu200098@gmail.com>
+Cc: linux-mm@kvack.org, Alexander Potapenko <glider@google.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Andrey Konovalov <andreyknvl@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ David Hildenbrand <david@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
+ kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+ Nicholas Piggin <npiggin@gmail.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ WANG Xuerui <kernel@xen0n.name>
+In-Reply-To: <20260630150413.1718632-1-ekffu200098@gmail.com>
+References: <20260630150413.1718632-1-ekffu200098@gmail.com>
+Subject: Re: [PATCH v3 0/8] treewide: remove unnecessary invalid range
+ checks in memblock iteration loops
+Message-Id: <178288696837.1179975.5183177963398478769.b4-ty@b4>
+Date: Wed, 01 Jul 2026 09:22:48 +0300
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] riscv: Fix a NULL pointer dereference in
- machine_kexec_prepare
-To: Tao Liu <ltao@redhat.com>, linux-riscv@lists.infradead.org,
- kexec@lists.infradead.org, linux-integrity@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
-Cc: kernel-janitors@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Baoquan He <bhe@redhat.com>, Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
- Eric Snowberg <eric.snowberg@oracle.com>, Jarkko Sakkinen
- <jarkko@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>,
- Nutty Liu <nutty.liu@hotmail.com>, Pratyush Yadav <pratyush@kernel.org>,
- Roberto Sassu <roberto.sassu@huawei.com>
-References: <20260701025732.66330-2-ltao@redhat.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260701025732.66330-2-ltao@redhat.com>
-X-Provags-ID: V03:K1:xbA5c1UHwIqj5RgD3GZl8yVj/SkfKs060P78SZpqof6yn2HulB2
- dWSH1UF2uNBy8wolOto6JKlPpEZMtSdz86DEbz4hIP57B8rXcYQlMJDStg5CFMFZzFtWbfB
- 71qFmCm7q/eo2XAQgp+9ZAKkoqequpiOIKUhBnnGw552Y8z92UCPaaNUHfhz44DYAVxOl5p
- GMNdArGbpEI8vXO4j/LoA==
-UI-OutboundReport: notjunk:1;M01:P0:GKIGm79yHUg=;LgABditdxeGX6Bc+BUoCZ6BdNCp 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 QgxYJBCH40W7p9ITUk=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_230152_697058_74569164 
-X-CRM114-Status: UNSURE (   3.96  )
-X-CRM114-Notice: Please train this message.
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,19 +81,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-4oCmCj4gRml4IHRoaXMgYnkgc2ltcGx5IGFkZGluZyBhIGNoZWNrIGJlZm9yZSBjb3B5LgoKICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGEgZGF0YSBjb3B5IGF0dGVt
-cHQ/CgoKCj4gRml4ZXM6IGI3ZmI0ZDc4YTZhZCAoIlJJU0MtVjogdXNlIG1lbWNweSBmb3Iga2V4
-ZWNfZmlsZSBtb2RlIikKClNlZSBhbHNvIG9uY2UgbW9yZToKaHR0cHM6Ly9naXQua2VybmVsLm9y
-Zy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdG9ydmFsZHMvbGludXguZ2l0L3RyZWUvRG9jdW1l
-bnRhdGlvbi9wcm9jZXNzL3N0YWJsZS1rZXJuZWwtcnVsZXMucnN0P2g9djcuMi1yYzEjbjM0CgoK
-V291bGQgYSBzdW1tYXJ5IHBocmFzZSBsaWtlIOKAnFByZXZlbnQgbnVsbCBwb2ludGVyIGRlcmVm
-ZXJlbmNlIGluIG1hY2hpbmVfa2V4ZWNfcHJlcGFyZSgp4oCdCmJlIG5pY2VyPwoKUmVnYXJkcywK
-TWFya3VzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, 01 Jul 2026 00:04:05 +0900, Sang-Heon Jeon wrote:
+> treewide: remove unnecessary invalid range checks in memblock iteration loops
+> 
+> The memblock API guarantees that for_each_mem_range() and
+> for_each_mem_pfn_range() never return an invalid range, meaning start is
+> always less than end.
+> 
+> Several memblock callers still have unnecessary invalid range checks in
+> their loop bodies, so remove them.
+> 
+> [...]
+
+Applied to range-checks branch of memblock.git tree, thanks!
+
+[1/8] arm64: mm: remove unreachable invalid range check in kasan_init_shadow()
+      commit: f6e6c57f2e100813be6d5882060fef81cb6f32de
+[2/8] LoongArch: remove unreachable invalid range check in kasan_init()
+      commit: 68d3b7d58237b8794d9343210d4c90b8381cfa96
+[3/8] riscv: remove unreachable invalid range check in create_linear_mapping_page_table()
+      commit: 99e60ebe108817fd48791f2cb81f1e672ad8285b
+[4/8] riscv: remove unreachable invalid range check in kasan_init()
+      commit: 8008f6995d0c0cf22e7b4d60e95fe14085c10f35
+[5/8] ARM: remove unreachable invalid range check in kasan_init()
+      commit: 3db1a9ccf9290ea3fe01aadf3bd743ef7032b24a
+[6/8] powerpc64/kasan: Remove unreachable invalid range check in kasan_init_phys_region()
+      commit: 21e95a4b6f34770571eeeaa6adb535efba1b7281
+[7/8] mm: remove unnecessary empty range check in early_calculate_totalpages()
+      commit: c6af91e48594191f62ad3c1fcc8269b1eb539ef8
+[8/8] mm/hugetlb: remove unnecessary empty range check in hugetlb_bootmem_set_nodes()
+      commit: 2db44dc8bdd3cfc933a3193724f4d38b03e35b80
+
+tree: https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock
+branch: range-checks
+
+--
+Sincerely yours,
+Mike.
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
