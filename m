@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D4AC43327
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFFDC43458
 	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 09:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uPV4WfCRA1gdDW5R6dAyklVNsctKOtifyEGbnMFpmFw=; b=QQyJvcYIRnrjE9
-	4YF0DejTD1K5or0Eopqb1YYfek8qBlYg6opyA4iYtQtvNoJAIjiuWXv1CqE6GR4753g5KY7+yzrTu
-	o59nmtzk1Jrh+KKuY6afUVdj+u+/12Lv9CIjC9q2Tm6raRZvaRfHmvLrqk3t4XgC+HPwUQ0wIUHz9
-	+3zH1X63tPC/VUIMJxtorOcNxLlymB7LPnpO8Ra3IYo9jHq3/qR6qegTpuJks3EpqSlI8O+Pw5uGK
-	MV9lYFhIBNjzxfK8A4RdRHrzrSxiZGGZivPq1IUczqvfgmsCIcqhd05nNI+uBR2UD+RfXAr7NJQ56
-	MCnIN544JedfT2csFiZg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RoxRlUG5gfsPKvzjBDpSXb2ZfxGX7dqAZLbdppU6aSA=; b=h0XF6Igz+GUDZU
+	D8ObFCe9TA5fyDXh8s9hpe67aqWPNH1cNapsvqfDDMO0dWihArTJU2oupEYNvNK5YORPmnFgoP7VD
+	4yVvFlLmN0tiZ5uiDMB18FdKADnsmnN/HoLltDDhZDEREFyKaMM9qz9ep6pJfK32Pe5HZ/mszviGB
+	K09jLNyIupnzrMxPVkHDqu9UVrGCN0z7WbJeFUrPOyIblVRVT/8z5V1VJLtFUQZn85vmLCxmNi9Zj
+	xjvQ6/t9NhEYFws5XFT2Yuw01iAIRCYsaIh2lgDMKeoUbs7/LvWgkvndMz7ZguQyGSzv12il80KLW
+	QzumOB7ZigX2Jrh6PYVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werY4-00000001EC5-08T0;
-	Wed, 01 Jul 2026 09:48:04 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1werY8-00000001EGF-3BxQ;
+	Wed, 01 Jul 2026 09:48:08 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werY1-00000001EAx-1pwI
+	id 1werY6-00000001EDH-1TTI
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 09:48:02 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c9dad3afec2so167095a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 02:48:01 -0700 (PDT)
+	Wed, 01 Jul 2026 09:48:07 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-37ffdc718f8so255481a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2026 02:48:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782899280; x=1783504080; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nRpp8Aarym9MAbA9S6grsKajHp/qT3ZkQCLbPzfeNPY=;
-        b=bM/RXe/rqoYrdT3abvdklMOx0RR2rM8mOi+lEsIOAujXVjA6o6fR2P5EiitJ1CnP7O
-         s0/KWUN3tEGwEdE4xQn7UyEMx23jf/0CCciWHzCtB/5PDkY02+yUZvjKEazYydmvZeyb
-         uDkjii8hC2Alwm13XAjZHybKqWq6dxxvEvgCxyBwtXvIxVJMqNJgTpgxEWc6jJgOrPx4
-         b5mTikz4EJZLNPPDUR5ts7/qv9VQSf1gVZqVfyYzUJOjre+q7PPJZ9/FVkslQg3aAegg
-         YTEFj3YcWkymWeOd7hDKqbB55nmABOI2FCSuMXi+IuHsSrz894BmCnhSabMDJ/cAv8o1
-         Jl9A==
+        d=gmail.com; s=20251104; t=1782899285; x=1783504085; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Yrr5FtvU4l5TINA7e2cy7RSaKqJTIqgiZF3cWni4toU=;
+        b=DXGHU593ElB87Mvsph6QW9xs8Y4dSw//nEPJZHi7BzXi9LC3Fvha8RUApI3kFTXHqy
+         qI8dDvpPFAKYhBOwgqQX3QU8OLCX7t/nCzBoFdGslondPSWetVrhfgpX4ZoGpHjPK5es
+         3Ppyy0TKtD0NTcXwtEAFlIBrODXhwKKk2TNxPBEq8TX44hfzGwRKMWtvOqKs/d7lkhks
+         Wzr8rVFU7xXImDTv/XHZ2Z3Bg6mNj0lxg4anDYspILv9Nxd5eCkYGiZDHIn39pz2pbyA
+         tqh8R48yuhFRfZ50dh4lQ97FDCIpJQzm9EOMIPWLoIrXE95W4RXwaDEoImPjJN5KWl6u
+         fknQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782899280; x=1783504080;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nRpp8Aarym9MAbA9S6grsKajHp/qT3ZkQCLbPzfeNPY=;
-        b=FkmwTQF0yr0Vpuohl92Oj0XiNhlRfLKuGvOYHBQq5bE9suNqGLWmP3fbW/6cV0ZCz2
-         E4FFrdhJDM8s5d78rAMfKeQFBBr05/iG3ZOVcLtTBhBz2yQCX6o4CLxj1CLboz1ym38k
-         v61hI6c1eyLjuBHZhZpZXcgvi7GkN5IQWL8PL0xt4yO63hCSVCly/tcDNX3DOIBMOfN+
-         o8m1vSD4vXCZ5Fn/soJt6dXwEx7ZMjPqu30rwHqbfK2qf5CetKL7IAa0Ez/TPzxTdCLT
-         mR2U4+n1che5QNjo0eVnZ6u3a9HEKiNBQZXKDZiIMi6BA5DfOj7RHUB38Nm2+TuJUzxg
-         dYoQ==
-X-Forwarded-Encrypted: i=1; AFNElJ//zEKvNWxKGtSNO+4cUh8MjuXhJj4rCXIl1jgAAmKkdzP/JwbUQFbS7boYKXdSxcerDsEjpSCPV1Qkxw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhtkyfFgnUiT5fwMld3MURajCc7gImlXEGVHndqWNTTIDOzmLo
-	4OKjrxGMAC8g334MUbmSRabTigyJsp1HeB9zNoejM1UkGG6eXdluC+m4
-X-Gm-Gg: AfdE7cmw2f/NM3ORmoGuBUdZ7v8NDEWrfmgjy1gMt8lN0m1QuORkbAOjir7X3ad89ni
-	2hparhuSjhXkTjowx9xZ4STydm4Rz0mmYh8V/72XyHvemWKlbc2E/tpPfntuVvrdiERIvgpsvPp
-	pWZnI13XsQf7LSziK7QWmLywxrMU/a3mQ/pfRRLjk0G1Grp4R/zlAus3ZH1jej5htcrF+vHdGak
-	ujvieX+pdjTmCZ5Q7ZTyM4/y7J3OB777ClfHZGRBlFzTE6cXS2EQUfPQfJ2p11OAr9yBpcTCH+h
-	FTiYrfKM9mpX7GavT0bR6vZwZCokO7UClzZPfwALnDFnovBWDg2K+VNvpAB3BuPRS6pOQeiZ8VN
-	LnpPPs5hEikQ0pez3OXyCJTpDhIq7kHuO7nVj04m8guEzLCsuLPSDHUfXgP3ahcZAlcQICqoW5l
-	1lDrNODPxfU70=
-X-Received: by 2002:a05:6a21:7d06:b0:3bf:6c08:2b32 with SMTP id adf61e73a8af0-3bff431786dmr33434637.58.1782899280562;
-        Wed, 01 Jul 2026 02:48:00 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1782899285; x=1783504085;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Yrr5FtvU4l5TINA7e2cy7RSaKqJTIqgiZF3cWni4toU=;
+        b=AM6CAAQuFK17THhlYBkRIGCbDS8kZtoghCXy1LLEtaqb570UM6ojvm9Sf+cv3o7gcC
+         V2k1j7xs7zaKC56ItMUhcEG1TTrSxSeIjHMOuu+yws/KnU/LLJUtepQ8c4dp31bA8HXl
+         ShTpQ3ziIaEFbDC6kD7r/VfxBlB10Wy+y1dIpcOFfJzlFk3X6m2uBtTJsly8cbN0JbwN
+         sfdwGG/bxy32bxkk9X4zVlG86z22ZdhzmX8JhjRva+JWkSJhF8TIh0DsvhV7O2zxn2Z8
+         6Co8wKORrOyv3j0yXCFZy3TGFaUYtWgpE1dW5A31rpcVqetSS1fVlQecjo/+FcJCUFrx
+         P4cg==
+X-Forwarded-Encrypted: i=1; AHgh+RrH27fCTyBGrkENqdCA3pExUbCUgA8IEOBS858v0B4qc7hvOsRgNrzRQyaAqKp+0v1OlcQ4XxAmKWZFvA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1DDoh5zJ1lSvzO/945PhJiTNHJvcltXO/AAF9vP6AtQfok8nF
+	Cc/6fVtKfOillAgdFc6lMEvSLtZWk2/W3yHEEdLKIXc3f9k8R299ooCD
+X-Gm-Gg: AfdE7cl9tTgDTt/6b8viHuep4Mmq7AQW05g0RdXYIy7kcR2UbB5jhgaC+NjIudJCj7f
+	xm//JX48aYVXCvI37hg2PqH/Yg49tqPXP+WycOpj+Y5MEwK2ShpAGyvUCn5/t/dGXtOcONnHdll
+	mMrHCllEN7X5eVzhnpltqtIWm0ky9P/D1O1phCJSiB+++2pWqwVG+imlITpPZD5yjDKUYdyvHzm
+	oUQbXG7nAha05oxbULq4aXeOg4QLTTCk7l2AOQxSkaFrmp0GehKMGQmZF/5SNONsXytAIcj30y/
+	WlU4DQYLsoMYsVfe1Z6tUSwhPtnJsC0xoyccxeNUecy+zmyPCp05Ty7DA9SXvVWjtXyd+XA0HGE
+	CZjYp+9AsxwOwHPtrcaaY6qO4mZwqrnIQUdbggP6x0UuHL+gK4aQwjRC/+PGQm10jfgnNL+zbAu
+	nVViiS2crjT0o=
+X-Received: by 2002:a17:90b:3b4f:b0:37f:9ce1:736a with SMTP id 98e67ed59e1d1-380aa21ecd0mr967241a91.32.1782899285410;
+        Wed, 01 Jul 2026 02:48:05 -0700 (PDT)
 Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9bbc6d9ed9sm2903779a12.7.2026.07.01.02.47.59
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38095ea9ef3sm1590317a91.17.2026.07.01.02.48.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 02:48:00 -0700 (PDT)
+        Wed, 01 Jul 2026 02:48:05 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Anup Patel <anup@brainfault.org>,
 	Atish Patra <atish.patra@linux.dev>,
@@ -82,15 +83,16 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 0/3] RISC-V: KVM: Cleanup SBI extension status when disble
-Date: Wed,  1 Jul 2026 17:47:27 +0800
-Message-ID: <20260701094731.1022163-1-inochiama@gmail.com>
+Subject: [PATCH 2/3] RISC-V: KVM: Add SBI FWFT validation support
+Date: Wed,  1 Jul 2026 17:47:29 +0800
+Message-ID: <20260701094731.1022163-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260701094731.1022163-1-inochiama@gmail.com>
+References: <20260701094731.1022163-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_024801_505998_B4C9856B 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_024806_540276_57BB1151 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +109,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM SBI FWFT extension has multiple internal state can be programmed
-by the userspace. However, when the FWFT feature or the FWFT extension
-is disabled, the internal state will be kept as it is, which may cause
-some side effect for the vCPU, cleanup these state when a SBI extension
-or FWFT feature is disabled.
+Since the KVM SBI has extension parameters validation support,
+implement it for the SBI FWFT support.
 
-Inochi Amaoto (3):
-  RISC-V: KVM: Add SBI extension validate callback
-  RISC-V: KVM: Add SBI FWFT validation support
-  RISC-V: KVM: Reset the SBI extension when disable it
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ arch/riscv/kvm/vcpu_sbi_fwft.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  4 ++++
- arch/riscv/kvm/vcpu_config.c          |  2 ++
- arch/riscv/kvm/vcpu_sbi.c             | 33 +++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi_fwft.c        | 25 ++++++++++++++++++++
- 4 files changed, 64 insertions(+)
-
---
+diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
+index bc514ae6521d..74eab72b2dd9 100644
+--- a/arch/riscv/kvm/vcpu_sbi_fwft.c
++++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
+@@ -604,6 +604,30 @@ static void kvm_sbi_ext_fwft_reset(struct kvm_vcpu *vcpu)
+ 	}
+ }
+ 
++static void kvm_sbi_ext_fwft_validate(struct kvm_vcpu *vcpu)
++{
++	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
++	const struct kvm_sbi_fwft_feature *feature;
++	struct kvm_sbi_fwft_config *conf;
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(features); i++) {
++		feature = &features[i];
++		conf = &fwft->configs[i];
++		if (!conf->supported)
++			continue;
++
++		if (feature->supported(vcpu))
++			continue;
++
++		conf->enabled = false;
++		conf->flags = 0;
++
++		if (feature->reset)
++			feature->reset(vcpu);
++	}
++}
++
+ static unsigned long kvm_sbi_ext_fwft_get_reg_count(struct kvm_vcpu *vcpu)
+ {
+ 	unsigned long max_reg_count = sizeof(struct kvm_riscv_sbi_fwft) / sizeof(unsigned long);
+@@ -756,6 +780,7 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft = {
+ 	.init = kvm_sbi_ext_fwft_init,
+ 	.deinit = kvm_sbi_ext_fwft_deinit,
+ 	.reset = kvm_sbi_ext_fwft_reset,
++	.validate = kvm_sbi_ext_fwft_validate,
+ 	.state_reg_subtype = KVM_REG_RISCV_SBI_FWFT,
+ 	.get_state_reg_count = kvm_sbi_ext_fwft_get_reg_count,
+ 	.get_state_reg_id = kvm_sbi_ext_fwft_get_reg_id,
+-- 
 2.55.0
 
 
