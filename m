@@ -4,72 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F90EC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2026 22:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F84BC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 00:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5U6TNfE4jPSF4UHj9/1CF+KHRkWtVoc/9hagC74Uklc=; b=zoZQO619FbOk+K
-	1mWmhq2bDIxmo4IzQ2WTxIgAxiTWUAGFP9h5vbcxF06IeH/6mEH5/5R7xlnSubhHvrT5yr9xiiBNZ
-	uOkI3GbXrcZUATQX7UBgc7RWJiRBLCoG1nMTX9m0Osm3WePJgIucflf5ccUjBDWORczBzQVLz/YcC
-	1edSs4oXYtfxx2EUP+1JcT3ESlkR7IsmxfViwQUBXnHpaYaP2boT/TUMh9uRS26Qmiw+inr+PuoYo
-	D/SMYX0Cq05aujJF4DPK7YUy5R86A/vXzSCVj8AHFYgNxniso/B+62xGwGvvTtHWmNnl1HNdIMZ3/
-	CX+vHFFgTyr2yBkmelHQ==;
+	List-Owner; bh=q54vY/dh8tmdD4a6Z7dZWAvpxIDGrzLfdK7qxdHfmBs=; b=xDMh+IZ1+fAJqf
+	0ZGv1rKlosvDQK8YQcNoWWpmi/BF3wo28graSBwBbzJhhcQOApEa9n/qS+tnbCWwm+Tu1KH+mCjOW
+	+5A7Bzf2cRTFQeNQhaCXg8ZYGbE6mq0BEbM/RBLp5y48uAqGFZWGMvpVjxl3Se3vzZUx94Yxtrk8t
+	HNM1Iqg/rjYfXw+weD0U76LcmL+7N9USHlVZyrwgLFqfsr4gPHwuNj5v6XO7L8mbubRrtnlhIfuYN
+	+7w03kKKQNdcA9sY8e1CYyurO+ic6ZbvuxeZmXJ2rlQntyWSxma+eVx+vDhmmrHobw8WIKLmPFf9+
+	aqTJHW+4SJGAk0+YRVOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wehHq-00000000KXH-0fB0;
-	Tue, 30 Jun 2026 22:50:38 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1weilB-00000000PsL-1YYr;
+	Wed, 01 Jul 2026 00:25:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wehHm-00000000KWR-4BEe
+	id 1weil9-00000000Pri-2vjT
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jun 2026 22:50:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=4yOHXYidOTt8EhkcSsV80MxwAjWABsRVdmYL86w7iKY=; b=nv6C1qCZ52dQll0ATVWSGqe61j
-	4GGPxai7Q/raLVXMvWoQ5+8asMYzfXqfDlrjwOhFvHTY3WNhIljufACORK1A1RSc8OnPrVv1uXV80
-	7rB1YPCnN9fhwe2JG5MlrXWjvL6dMsr49mFyXqcMXWE2DDOVyFGB7HOCX74d9X29cGe85wgySbEkN
-	fy+PxMWty6OyWs6rtTJHPf5an7OkYQ0ky4rGhtmqD6h3tbvpihcniA64emjVcZBu7PVaYzqqqugrA
-	nH7+GXRf9t+Y7X42UW+55iH5NK+VaUjsMMAJJvh0E1v/AhgRoYMFgirglEIGDZF86rmEbMZEp8H00
-	vOEyxhFQ==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1wehHV-0000000DyYV-30ci;
-	Wed, 01 Jul 2026 00:50:17 +0200
-Date: Wed, 1 Jul 2026 00:50:17 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>,
-	Drew Fustini <fustini@kernel.org>, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] clk: spacemit: k3: set hdma clock as critical
-Message-ID: <akRIKSoI8zWlfcfJ@aurel32.net>
-Mail-Followup-To: Yixun Lan <dlan@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>,
-	Drew Fustini <fustini@kernel.org>, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-References: <20260630-06-clk-hdma-critial-v1-0-443c0ac88c5f@kernel.org>
- <20260630-06-clk-hdma-critial-v1-1-443c0ac88c5f@kernel.org>
+	Wed, 01 Jul 2026 00:24:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF19043FDF;
+	Wed,  1 Jul 2026 00:24:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB94E1F000E9;
+	Wed,  1 Jul 2026 00:24:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782865498;
+	bh=dci6dX6+MP6gKFnB5cQVptU1hDsXvIN+MC/UNHCIfHQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=foX0Ox/QwIvyIleWA2WFWcoNl7Zwe7QcewaoAY2tu2MSXtSQlxkdP9idrRq6oIPd2
+	 FwXoxH+6DXIVebeRVKDms+XGKkBbFgACM3qE+PS3ZsEgb6wn2lNVZ5uZtfpFBR2Bya
+	 LsEd1TQbW+fO1cs1LA/395KjC58z8odqcLEKOgHhzOywrhNu0ICHgDaR32Li7P0Ki5
+	 rgmtyzSaFxp7LVM7rV7qZdEifyHU3R05ceoMZW272Ok/7P/SsDPttz0e9I6+zObO0Q
+	 sUmnrLp2N1+dT6sMtQY5EFEa99wqb4MqTeO/FA33k7cEsCJtqid7XZU9lODDydXFfI
+	 2uLKCzM3Rzqlg==
+Date: Tue, 30 Jun 2026 17:24:57 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 4/8] riscv_cbqri: Add capacity controller probe and
+ allocation device ops
+Message-ID: <akReWcXqVmmIxPmM@thelio>
+References: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
+ <20260628-dfustini-atl-sc-cbqri-dt-v3-4-c9c1342fe3cf@kernel.org>
+ <20260628212810.05F6D1F00A3A@smtp.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260630-06-clk-hdma-critial-v1-1-443c0ac88c5f@kernel.org>
-User-Agent: Mutt/2.2.13 (2024-03-09)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_155035_075771_7D6958ED 
-X-CRM114-Status: GOOD (  14.43  )
+In-Reply-To: <20260628212810.05F6D1F00A3A@smtp.kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +71,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-06-30 08:53, Yixun Lan wrote:
-> HDMA clock is responsible for the internal TCM access path of X100 RISC-V
-> core, so set the clock flag as critical to prevent it from being shut off,
-> otherwise the Linux system will hang.
+On Sun, Jun 28, 2026 at 09:28:09PM +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
+> - [Medium] Unspecified evaluation order in `cbqri_readq` causes a torn read during hardware polling, leading to false AT capability detection.
+> --
 > 
-> Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
-> Reported-by: Han Gao <gaohan@iscas.ac.cn>
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  drivers/clk/spacemit/ccu-k3.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> commit a52377aec62b1aa81e5439ad733c3839af6693c6
+> Author: Drew Fustini <fustini@kernel.org>
 > 
-> diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
-> index cb0c4277f72a..f0160b4c0e1b 100644
-> --- a/drivers/clk/spacemit/ccu-k3.c
-> +++ b/drivers/clk/spacemit/ccu-k3.c
-> @@ -1026,7 +1026,7 @@ CCU_MUX_DIV_GATE_DEFINE(isim_vclk_out3, isim_vclk_parents, APMU_SNR_ISIM_VCLK_CT
->  /* APMU clocks end */
->  
->  /* DCIU clocks start */
-> -CCU_GATE_DEFINE(hdma_clk, CCU_PARENT_HW(axi_clk), DCIU_DMASYS_CLK_EN, BIT(0), 0);
-> +CCU_GATE_DEFINE(hdma_clk, CCU_PARENT_HW(axi_clk), DCIU_DMASYS_CLK_EN, BIT(0), CLK_IS_CRITICAL);
->  CCU_GATE_DEFINE(dma350_clk, CCU_PARENT_HW(axi_clk), DCIU_DMASYS_SDMA_CLK_EN, BIT(0), 0);
->  CCU_GATE_DEFINE(c2_tcm_pipe_clk, CCU_PARENT_HW(axi_clk), DCIU_C2_TCM_PIPE_CLK, BIT(0), 0);
->  CCU_GATE_DEFINE(c3_tcm_pipe_clk, CCU_PARENT_HW(axi_clk), DCIU_C3_TCM_PIPE_CLK, BIT(0), 0);
+> riscv_cbqri: Add capacity controller probe and allocation device ops
+> 
+> Add support for the RISC-V CBQRI capacity controller. A platform driver
+> passes a cbqri_controller_info descriptor together with the cache level
+> to riscv_cbqri_register_cc_dt(), which probes the controller and adds it
+> to the controller list.
+> 
+> > diff --git a/drivers/resctrl/cbqri_devices.c b/drivers/resctrl/cbqri_devices.c
+> > new file mode 100644
+> > index 0000000000000..69df46e07df17
+> > --- /dev/null
+> > +++ b/drivers/resctrl/cbqri_devices.c
+> [ ... ]
+> > +static u64 cbqri_readq(void __iomem *addr)
+> > +{
+> > +	return (u64)readl(addr) | ((u64)readl(addr + 4) << 32);
+> > +}
+> 
+> [Severity: Medium]
+> Could the unspecified evaluation order here cause a torn read during hardware
+> polling?
+> 
+> Since the C standard does not specify the evaluation order of the operands
+> to the bitwise OR operator, the compiler may emit the lower 32-bit read
+> before the upper 32-bit read.
+> 
+> During the polling loop, if the final iteration reads the lower 32 bits
+> while the busy flag is still set, and then the hardware completes the
+> operation and clears the busy flag before the upper 32-bit read executes,
+> the loop will terminate and return this torn value.
 
-Thanks for the patch. It fixes a system hang occuring when a vector 
-instruction access generates a page fault.
+A tear is theoretically possible, but it is harmless here because the
+two halves carry independent fields. BUSY and STATUS both live in the
+high word, so a single readl(addr + 4) reads both at once. AT lives in
+the low word, which the poll never inspects. The poll consumes only BUSY
+and STATUS, so a tear cannot change when it ends or the STATUS it
+returns.
 
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+> [ ... ]
+> > +static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
+> > +			       int operation, int *status, bool *access_type_supported)
+> > +{
+> [ ... ]
+> > +		writel(lower_32_bits(reg), ctrl->base + reg_offset);
+> > +		if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
+> > +			pr_err("BUSY timeout setting AT field\n");
+> > +			return -EIO;
+> > +		}
+> > +
+> > +		/*
+> > +		 * If the AT field value has been reset to zero,
+> > +		 * then the AT support is not present
+> > +		 */
+> > +		at = FIELD_GET(CBQRI_CONTROL_REGISTERS_AT_MASK, reg);
+> > +		if (at == CBQRI_CONTROL_REGISTERS_AT_CODE)
+> > +			*access_type_supported = true;
+> 
+> [Severity: Medium]
+> Does the torn read from cbqri_readq() result in misdetecting capability
+> support here?
+> 
+> If cbqri_wait_busy_flag() returns a torn value with a stale lower half, the
+> driver may incorrectly detect Access Type support on hardware that does not
+> support it.
+> 
+> This could break cache allocation isolation guarantees, as the driver will
+> split capacity blocks into CODE and DATA masks, but the hardware will silently
+> treat them as a single pool.
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+No. The AT read back is the result of the drivers's own AT=CODE write,
+not a live hardware status. A tear cannot catch it mid-change. Per the
+CBQRI spec, a controller without AT support makes AT read-only zero. The
+write is dropped and AT reads 0, never transiently CODE. On hardware
+that does support AT, the write takes effect and AT reads back CODE, so
+that direction is correct too.
+
+-Drew
 
 _______________________________________________
 linux-riscv mailing list
