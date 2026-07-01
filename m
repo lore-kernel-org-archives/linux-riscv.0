@@ -4,104 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C47C43327
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 14:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED7FC43602
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 14:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=48zHaHa69HVp+Q7SNEnz0fIOTqb9uKcIcOqVoGpaK/w=; b=dclxUZULooKAou
-	RoPil6AesAYDlbEd6o0Rw2saFdpu5NO3tDiGa9AJ2zqjeklBPjbb6HWT1o8CkLmTxdBIsJEnL7UNA
-	R2pWjWDweZtCPsqY0dlMPg0qXfsE4Rv4s3CEPEKz53YtbAoA4bVhrvWb0C/t9GJXk1aByO2r2vIZK
-	k+6uC7O1NqauX2dImC9hY4Sgw8U4JkFwEKqOnqGkYEah6+mz6WKHsdoWsaTGn2ylTvEJ4VDHEvg2i
-	FRM8le9hmADwjUN+mzkAJ/zacH9zfbpG/TNERjZYCLsO+Xcyyn1bTXqmb6+Knb+yI4hpwA+cMOSMb
-	szWSH6G1oFj6Bx1ISf3g==;
+	List-Owner; bh=7GhUmbsJswg8KlvZFc39KGrYmJMcEBgFNk67vbV19rg=; b=oORFQwdZVAOpe0
+	68u2FvBcyz8NBXoHAkqHJ089KyzSlf8FftJ+7EEHh94E8+6Cdb7PzApU+UFeJ7wMa3RaTU1j2bjFH
+	xbd1MDUO84jyg9fCD5tVokw844fb/TSHJpP16kx/axzThOCLB1rAPB7Fzk1h+jPqNeS2exxjUrDpi
+	zl/rAlGOQbXo/o/Qjqcun+3zZPmORZpqz10GNFmGOTc0O8NxTqkQLYeTKpChzGFyOdjrdP5Ip3XgW
+	9eDZa3VcvAjp2oJnBMgZvyyg5e7tgNZVa58RlrIRIRIQkv7k0Obj+432j2ouhkjgMN7v8rvP3B7TM
+	+AsnI5skS9SUE+G0lltw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevYx-00000002FaX-1cRP;
-	Wed, 01 Jul 2026 14:05:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wew5m-00000002JRn-2Mo9;
+	Wed, 01 Jul 2026 14:39:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevYv-00000002FaQ-4C89
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 Jul 2026 14:05:14 +0000
+	id 1wew5k-00000002JQA-36Mp;
+	Wed, 01 Jul 2026 14:39:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E42A06001D;
-	Wed,  1 Jul 2026 14:05:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A6B1F000E9;
-	Wed,  1 Jul 2026 14:05:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 62D434321D;
+	Wed,  1 Jul 2026 14:39:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B54F1F00A3A;
+	Wed,  1 Jul 2026 14:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782914712;
-	bh=KN1ZZoShUes6sGFwycYM2qI4rRpQvujeGBBYwd462qg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HkdidmL8i7jVnVEjIIcgCKSXScek/60dRiwAAP4oj30EEDyou9nVafCvtV0b4RP5P
-	 6onzkAjRbCfPb+7nwMtEcqM11iptMzCwQddnSVo3pbpwJbuJSuxkJ6irwsfaosg3H8
-	 GEDGaZH8D1YX8evg5Hr0wbpPaL22jF0c2eBjNDroBmoZAuhg+AYByAFvS0bOCGtafy
-	 xzbTcAvQRWGD0mivnctUacPxws5yxqWSHTpw1rI92Wa6W1690Y2FNWtUiTvGNIBWLJ
-	 T2jxlffovycLkIGQ62LA/zrL2J/YDc1YECLvNM2/zsHFENrUJbUr5LxWbk0rxtvG/4
-	 fq79uJdC33FWg==
-Message-ID: <70068ae8-ede1-41d2-899b-98ed11e19953@kernel.org>
-Date: Wed, 1 Jul 2026 16:05:05 +0200
+	s=k20260515; t=1782916748;
+	bh=vlACwBlkYsz5jXiaB1uBPPwdDHwbTrrlRYMHHMPY2L0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=mgz+Ljps5aVGf6x6W5F7TdknZYM2fx/pL0xEJyyLGiJs6Q4AVv0uFkPD0KfaUyWNv
+	 Ur13BMXRFD6fMLNuKuNgLWramyoQQaRIP2yrkvtbeGv72wSQLyN5v95Dk5nRVs+9Hx
+	 KtCU6LfjPexTgFU9kTL5CWM6dr27W9/ASrJhB3q7tUTFYPqLH570zfykUpY63dUCUY
+	 XdWvX8EShhzQk/fp7wwmg+FJIwTcZhD4G8LYIt7+A83rIX1b7lL4U4HCypoKjOpTcw
+	 eV3d+buysa2lXhW+h5zPNHveS3SegmfVcHubnS/qWmpFoozDUg4lUzc1iFoM0GsN51
+	 Hcg8xTJT1QI6g==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Date: Wed, 01 Jul 2026 16:38:49 +0200
+Subject: [PATCH v3 1/7] ACPI: Add acpi_device_clear_dep() helper function
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: firmware: add mbedtee,rpc binding
-To: Xing Loong <xing.xl.loong@gmail.com>,
- Jens Wiklander <jens.wiklander@linaro.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260701132514.186953-1-xing.xl.loong@gmail.com>
- <20260701132514.186953-3-xing.xl.loong@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260701132514.186953-3-xing.xl.loong@gmail.com>
+Message-Id: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-1-c5562cf0fe29@kernel.org>
+References: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org>
+In-Reply-To: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,229 +75,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2026 15:25, Xing Loong wrote:
-> Add YAML devicetree binding for the MbedTEE Trusted Execution
+Code clearing device dependencies in ACPI in drivers through
 
-Drop YAML, there is no such thing as YAML binding.
+acpi_dev_clear_dependencies()
 
-> Environment driver.
+requires annoying ifdeffery to make sure it is compiled out on
+!CONFIG_ACPI configurations.
 
-We don't take bindings for drivers but for hardware or firmware. Please
-describe these instead.
+Implement a wrapper function to clear device dependencies that can be used
+in device drivers without conditional compilation.
 
-> 
-> The binding covers two platform configurations:
->   - ARM/AArch64 (TrustZone, SMC): two reserved-memory regions
->     (rpc-t2r-ring and rpc-t2r-shm) plus a GIC SPI edge interrupt
->     for TEE-to-REE notifications.
->   - RISC-V (IMSIC): three reserved-memory regions, adding
->     rpc-r2t-ring for REE-to-TEE command submissions; no interrupts
->     property (T2R notifications use IMSIC MSI allocated at runtime).
-> 
-> Signed-off-by: Xing Loong <xing.xl.loong@gmail.com>
-> ---
->  .../bindings/firmware/mbedtee,rpc.yaml        | 221 ++++++++++++++++++
->  1 file changed, 221 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml b/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
-> new file mode 100644
-> index 0000000..08ae255
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
-> @@ -0,0 +1,221 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/mbedtee,rpc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MbedTEE Trusted Execution Environment
-> +
-> +maintainers:
-> +  - Xing Loong <xing.xl.loong@gmail.com>
-> +
-> +description: |
-> +  MbedTEE is a Trusted Execution Environment for embedded systems.
-> +  This binding describes the shared-memory regions used for RPC
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+---
+ include/linux/acpi.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Describe firmware, not the binding. It's redundant to say what the
-binding is about, just say what is the hardware.
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 10d6c6c11bdf..4f950f5386d7 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -94,6 +94,12 @@ static inline void acpi_preset_companion(struct device *dev,
+ 	ACPI_COMPANION_SET(dev, acpi_find_child_device(parent, addr, false));
+ }
+ 
++static inline void acpi_device_clear_dep(struct device *dev)
++{
++	if (has_acpi_companion(dev))
++		acpi_dev_clear_dependencies(ACPI_COMPANION(dev));
++}
++
+ static inline const char *acpi_dev_name(struct acpi_device *adev)
+ {
+ 	return dev_name(&adev->dev);
+@@ -908,6 +914,8 @@ static inline void acpi_preset_companion(struct device *dev,
+ {
+ }
+ 
++static inline void acpi_device_clear_dep(struct device *dev) {}
++
+ static inline const char *acpi_dev_name(struct acpi_device *adev)
+ {
+ 	return NULL;
 
-> +  communication between the Linux REE driver and MbedTEE OS.
-> +
-> +  The REE and TEE CPUs sharing the RPC memory must be in a
-> +  hardware-coherent domain (same CPU cluster, coherent caches).
-> +
-> +  Two or three reserved-memory regions are required:
-> +
-> +    rpc-t2r-ring  ring buffer for TEE-to-REE notifications (all platforms)
-> +    rpc-t2r-shm   shared memory for TEE-to-REE RPC payloads (all platforms)
-> +    rpc-r2t-ring  ring buffer for REE-to-TEE command submissions (RISC-V only)
-> +
-> +  On ARM/AArch64 the transport uses SMC calls; TEE-to-REE
-> +  notifications use a GIC SPI edge interrupt.
-> +
-> +  On RISC-V the TEE notifies the REE via IMSIC MSI; the REE submits
-> +  commands via shared-memory rpc-r2t-ring that the TEE polls. No
-> +  REE-to-TEE interrupt is used. No SBI ecall is involved.
-> +
-> +properties:
-> +  $nodename:
-> +    const: mbedtee
+-- 
+2.34.1
 
-Drop, why would it be relevant?
-
-> +
-> +  compatible:
-> +    const: mbedtee,rpc
-
-Feels way too generic. First, Google results on mbedtee are basically
-non-existing, so what sort of company is that?
-
-Second, rpc is just not specific enough. Please carefully read writing
-bindings doc.
-
-> +
-> +  interrupts:
-> +    description:
-> +      GIC interrupt used by the TEE to notify the REE of pending RPC
-> +      responses (ARM/AArch64 only). Not present on RISC-V platforms which
-> +      use IMSIC platform MSI interrupts allocated dynamically at runtime.
-
-Please read writing bindings doc.
-
-> +
-> +  msi-parent:
-> +    maxItems: 1
-> +    description:
-> +      IMSIC MSI controller used by the Linux driver to allocate the
-
-Again drivers...
-
-> +      TEE-to-REE notification interrupt on RISC-V platforms. Not present on
-> +      ARM/AArch64 platforms, which use the interrupts property.
-> +
-> +  memory-region:
-> +    minItems: 2
-> +    maxItems: 3
-> +    description:
-> +      References to reserved-memory regions for REE<->TEE communication.
-> +      Entries must match memory-region-names order.
-
-Obvious. Please do not come with your own style of bindings.
-
-> +
-> +  memory-region-names:
-> +    minItems: 2
-> +    maxItems: 3
-
-Why is this flexible?
-
-> +    items:
-> +      enum:
-> +        - rpc-t2r-ring
-
-rpc is redundant, drop
-
-> +        - rpc-t2r-shm
-> +        - rpc-r2t-ring
-> +
-> +required:
-> +  - compatible
-> +
-> +allOf:
-> +  - if:
-> +      required:
-> +        - interrupts
-> +    then:
-> +      required:
-> +        - interrupts
-> +        - memory-region
-> +        - memory-region-names
-> +      properties:
-> +        msi-parent: false
-> +        memory-region:
-> +          minItems: 2
-> +          maxItems: 2
-> +        memory-region-names:
-> +          items:
-> +            - const: rpc-t2r-ring
-> +            - const: rpc-t2r-shm
-> +    else:
-> +      required:
-> +        - msi-parent
-> +        - memory-region
-> +        - memory-region-names
-
-So memory-region is always required?
-
-> +      properties:
-> +        memory-region:
-> +          minItems: 3
-> +          maxItems: 3
-> +        memory-region-names:
-> +          items:
-> +            - const: rpc-t2r-ring
-> +            - const: rpc-t2r-shm
-> +            - const: rpc-r2t-ring
-
-Your top level schema said that. You only need minItems.
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    /* ARM TrustZone (SMC) */
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    / {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      gic: interrupt-controller@2f000000 {
-> +        compatible = "arm,gic-v3";
-> +        reg = <0 0x2f000000 0 0x10000>,
-> +              <0 0x2f100000 0 0x200000>;
-> +        interrupt-controller;
-> +        #interrupt-cells = <3>;
-> +      };
-> +
-> +      reserved-memory {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        ranges;
-> +
-> +        mbedtee_t2r_ring: rpc-t2r-ring@85f10000 {
-> +          reg = <0 0x85f10000 0 0x20000>;
-> +          no-map;
-> +        };
-> +
-> +        mbedtee_t2r_shm: rpc-t2r-shm@85f30000 {
-> +          reg = <0 0x85f30000 0 0x40000>;
-> +          no-map;
-> +        };
-> +      };
-
-None of the above is relevant, drop.
-
-
-> +
-> +      firmware {
-> +        mbedtee {
-> +          compatible = "mbedtee,rpc";
-> +          interrupt-parent = <&gic>;
-> +          interrupts = <GIC_SPI 72 IRQ_TYPE_EDGE_RISING>;
-> +          memory-region = <&mbedtee_t2r_ring>, <&mbedtee_t2r_shm>;
-> +          memory-region-names = "rpc-t2r-ring", "rpc-t2r-shm";
-> +        };
-> +      };
-> +    };
-> +
-
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
