@@ -4,127 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D87C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 06:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB71FC43327
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 07:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:To:From:Date:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=UxL8M+popV/R+yJupVohtROdMyA3G8CorwYFNn+R63U=; b=t7kpzUPRTQDhOj3zilRyqP7l4f
-	5mqPj3caHa9p91Bv/AqjaO9b6AIpB08B3q+nClY+lhMSKLm2m/GzXJNrgZ9Xa3If14EkTj0sWkuWe
-	Jf//pG3m2sIBjPf11Mqv7EpBWLakwltD++Jx1QHpByt/pLrXCSB6ukzsOhcY2RQVyUhGT4ZrvOcCk
-	HaKPtV6Lys/tAu4eLRRGpFQz00V9F4XdEK3YWW9e/Mvaw/b0GoYXotaPWdWYR27E3WPcTYDLfoZJP
-	8XPxpPuochlyBavgbazLMwIVL/iFsyAWFxiSWovlSMR2qRPTasrsA2p5wCX2hDtTRl5FLuCHMiBnb
-	24TMCXdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Em3RQ1TLiJQZ3/iHyyOFfnDMzjoNPc9Bol/cWjZSkAo=; b=nFYLKXgFwgszyQ
+	lsKoJYd3GSLapE0g1nYjlt2I6DKFb9eXWiYFauYFJpcKFCKT+wkUfRwesKkXGriyBP+63mJojcVm2
+	3O/vDyIu4ec8jWkW7ARQbAGjSCMD3eZ6mpMC+D/ckoCMPfcWBEplTTyAxJD7oyowfZDOX4JzyQcX7
+	ViMIQOV77Un83hGMaymgOD1DKEvrUjMSpoeYBMHhTfKwelxpmtXfnWsR6qGaN+a72HyS/xUxvx25C
+	V2+eTy/1DTTb3FmK3kah5yDV10rLIj9TtsAuiE3Bs/Va5gDpQxvSMBcHDEM3Qp55lEVTqJ8iFoXCb
+	8pUU3KIKYPMOqoCTWrKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAnO-00000003dfJ-12i6;
-	Thu, 02 Jul 2026 06:21:10 +0000
-Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
+	id 1wfCF1-00000003mU8-1ApB;
+	Thu, 02 Jul 2026 07:53:47 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAnL-00000003df0-1xQj
+	id 1wfCEy-00000003mT9-1vf6
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 06:21:08 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.phl.internal (Postfix) with ESMTP id EFC121380BEE;
-	Thu,  2 Jul 2026 02:21:05 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Thu, 02 Jul 2026 02:21:06 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1782973265;
-	 x=1782980465; bh=b3PWSBg4KChgsJan4tuQCL8jbVLFvYUrGfeJer055uM=; b=
-	pHG6L5mHwpZ3+t5ToOn88ZFsBk/C4OTZhsX4TG3c/Jn22zYlndw3yAb5k+Xi0afh
-	pmgxFuvKvn2WzbHsGmYr8xpNhshaVrqt8RX/YVKMcsNY7+HhVHcAUKmJCtg0C8iJ
-	pq6uQxeZKcxSHthNbdF2GgtA/DtusqRQMjNsF9VDT+ehZsXFv3K0UH/81+Z17GAW
-	qmsyyAhPIYBsJFRGSDOmS8s0QjXy57JKLTBlLoy2divLD816rwL5dRpZuum7DQ+T
-	2jG0Vi428hRsMde6LRDHrXKy+ohPp1d/bjF9p1bA3Q6PxLStspEz6TERmv7GyLpB
-	TjjgXYDVBay3ayP5X4Sp+A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1782973265; x=1782980465; bh=b
-	3PWSBg4KChgsJan4tuQCL8jbVLFvYUrGfeJer055uM=; b=nL/rU/Yw5uhaXwXhi
-	Pd3VAx3B2hx7wViUybdKoAQE+tVB17JWqmgJ85oRMoaLYHDoDWVbGQqP7/jPlIPU
-	hzbo9kt/XdamhIBRpkOv4/lunP1reK+zNkZgOQjxx115BlKGKezHMD05psIryBAj
-	5LRCN7P9/fAgRQO8SWm/ccU53eWMTgwM9u2dEhWtqDmP0bBoyNtcEzjQh3+7oJ1B
-	ZjGO8+Gmq9TqtIRRgJOO3n9v6MLzQ8TSKTFNIABkPUFjxvQtCrMk6GYaK/w6YIf9
-	vvIaPZTtgA5tQsOEZsbx6RUGGOSIIQXvDiI07XWpmunN5bmAAH1o1FX6lIjes+k4
-	FJCQg==
-X-ME-Sender: <xms:TgNGak7Ze3et09HaNnBg_7EeQDX1WpWebr4V831dQRQ0tvGSRYeivA>
-    <xme:TgNGagtubviHB1QN1yH-MEOhjFwJ8OckeYJXHlsGjoKr7RueVhicU1OBsXy2_s9kp
-    RsZM6FGHSlUvd4aJTwHseRgONcCnDljF7qFg43tXxjmj3ZPxkWMv4q4>
-X-ME-Proxy-Cause: dmFkZTFLXnvGPrjS72UE2Cqoo5k3ZB5gW2fmq0+H7vA6q9/xqCZId+5ccMWvDzoGXPw/0n
-    bjmGiO0C5Lo3nj4814huzfyegsEBWSnqZoUE37P6yUUBXeBynDaNZOtEBZabAT6pGBLEgU
-    TEXwWHPQDy4swa2ntT+PIpDMucMVt6OvaMl5lrlzMeK7PZwOzrwQDo9+/Gzz/Ie0GPu+Tm
-    kbTjJ/ulLLG9DyncXMFNYmwJcjO6WDGqMUTanigqlUey17X5CJkl0f5gb2UEykQU+/4Cjo
-    mfffcyLiE7gORaIWIJTK/7sCi1c8oo/WWzgxdhxPbFkX7CHDV/F+fGNobcmZI3WILujIku
-    kiedAWW3wRu29mXJiSRShIxXoXZ5aZqgbsuWLiW6ge3WV8Hb+V3JwhBVZWtnluFGL+P1Ns
-    4Z5fVXr51VV6UZILO2z+SSwiFlEu7tZlvb5FQn7yigxfSJGrT4rMcV3J/B+VlYDYX5gEDU
-    V6u8xf8P2wj9O9ZpESK00kmIyUHTVbXQlq6l7G4dzuHWpBQG8cvL7+wxEaBV6d8AzjoyNB
-    5/rkY8Z2KYSOkqZoV39s+5tQtJs9f64Or/qTG1GQcjMVv0vUkB43dqvpcEeDCp2r5ZAyW1
-    Anmp3iBPSl4IC2zBhhx5W5jKsXeXS7eXQveoueb2CZRFXBR0D+w/2xtPZQlg
-X-ME-Proxy: <xmx:TgNGaqCgZyrr9Xnr787Z91vrIHBNiHjg43elOA4_XUWAhfKmGuwMdw>
-    <xmx:TgNGagSOcRYgdkPiRpDyOyP4_XAjmTow4SSXpP2BodR0JaFbxyJeqQ>
-    <xmx:TgNGamKPz_fqI_hnI52rvFsBrZFhzD9m9HQVojzO4Mmyabb9IIP9fg>
-    <xmx:TgNGap5OGCVE8hEKbrsOGNvpaduUNlxToEz72V_Qp4afO3lJIy6hRg>
-    <xmx:UQNGalg_WH4O8rD15jW7viiZk_F5cGP2IcPo9TPcvYnUn-YFbaXQEXfz>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C0D98182007E; Thu,  2 Jul 2026 02:21:02 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 02 Jul 2026 07:53:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 1A7AC2003DD;
+	Thu, 02 Jul 2026 09:53:41 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wfCEv-005i6i-02;
+	Thu, 02 Jul 2026 09:53:41 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wfCEp-0000000032p-3mmg;
+	Thu, 02 Jul 2026 09:53:35 +0200
+Message-ID: <c49d9bea7f9a172a97d0acfaa9680bdac80f75e1.camel@pengutronix.de>
+Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
+ driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yixun Lan <dlan@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Avri
+ Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>, Rob
+ Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley	 <conor+dt@kernel.org>, "James E.J. Bottomley"	
+ <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"	
+ <martin.petersen@oracle.com>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti	 <alex@ghiti.fr>
+Cc: linux-scsi@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Date: Thu, 02 Jul 2026 09:53:35 +0200
+In-Reply-To: <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
+References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+	 <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-X-ThreadId: AGRLTTzEx-Mw
-Date: Thu, 02 Jul 2026 08:20:42 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Yunhui Cui" <cuiyunhui@bytedance.com>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Dennis Zhou" <dennis@kernel.org>, "Tejun Heo" <tj@kernel.org>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>,
- "Alexei Starovoitov" <ast@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>,
- "Andrii Nakryiko" <andrii@kernel.org>,
- "Martin KaFai Lau" <martin.lau@linux.dev>,
- "Eduard Zingerman" <eddyz87@gmail.com>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
- "Song Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>,
- "Jiri Olsa" <jolsa@kernel.org>,
- =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, pulehui@huawei.com,
- puranjay@kernel.org, "Thomas Huth" <thuth@redhat.com>,
- "Andrew Jones" <ajones@ventanamicro.com>,
- "Ben Dooks" <ben.dooks@codethink.co.uk>,
- =?UTF-8?Q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>,
- "Samuel Holland" <samuel.holland@sifive.com>,
- "Zong Li" <zong.li@sifive.com>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- "Thomas Gleixner" <tglx@kernel.org>, "Deepak Gupta" <debug@rivosinc.com>,
- seanwascoding@gmail.com, "Andy Chiu" <andybnac@gmail.com>,
- menglong8.dong@gmail.com, cyrilbur@tenstorrent.com,
- "Vivian Wang" <wangruikang@iscas.ac.cn>,
- "Atish Patra" <atishp@rivosinc.com>,
- "Anup Patel" <apatel@ventanamicro.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, bpf@vger.kernel.org,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
- "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, qingfang.deng@siflower.com.cn,
- Linux-Arch <linux-arch@vger.kernel.org>, llvm@lists.linux.dev
-Message-Id: <c190a4ea-8c87-4b4a-9146-20e06d0250b0@app.fastmail.com>
-In-Reply-To: <20260702025443.83389-2-cuiyunhui@bytedance.com>
-References: <20260702025443.83389-1-cuiyunhui@bytedance.com>
- <20260702025443.83389-2-cuiyunhui@bytedance.com>
-Subject: Re: [PATCH v7 1/3] riscv: io: avoid null-pointer arithmetic in PIO helpers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_232107_577863_61FFCD6E 
-X-CRM114-Status: UNSURE (   6.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260702_005344_652309_4B762294 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,16 +81,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 2, 2026, at 04:54, Yunhui Cui wrote:
-> When port I/O is not supported, exposing the port-string helpers is both
-> unnecessary and can make clang diagnose null-pointer arithmetic from the
-> PCI_IOBASE based address expression.  Keep the MMIO string helpers
-> available as before, but only provide the port I/O variants when
-> CONFIG_HAS_IOPORT is enabled.
->
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+On Do, 2026-07-02 at 02:31 +0000, Yixun Lan wrote:
+> SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
+> which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
+> M-PHY v3.0 standard.
+> 
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  drivers/ufs/host/Kconfig        |  12 +
+>  drivers/ufs/host/Makefile       |   1 +
+>  drivers/ufs/host/ufs-spacemit.c | 931 ++++++++++++++++++++++++++++++++++++++++
+>  drivers/ufs/host/ufs-spacemit.h |  90 ++++
+>  4 files changed, 1034 insertions(+)
+> 
+[...]
+> --- /dev/null
+> +++ b/drivers/ufs/host/ufs-spacemit.c
+> @@ -0,0 +1,931 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/delay.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Missing #include <linux/reset.h> for
+devm_reset_control_get_optional_exclusive_deasserted() below.
+Don't rely on indirect includes.
+
+[...]
+> +/**
+> + * ufs_spacemit_init - init phy and prepare clk
+> + * @hba: host controller instance
+> + */
+> +static int ufs_spacemit_init(struct ufs_hba *hba)
+> +{
+> +	int err = 0;
+> +	struct device *dev = hba->dev;
+> +	struct ufs_spacemit_host *host;
+> +
+> +	host = devm_kzalloc(dev, sizeof(*host), GFP_KERNEL);
+> +	if (!host)
+> +		return -ENOMEM;
+> +
+> +	host->rst = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
+
+Why is this stored in struct ufs_spacemit_host at all? As far as I can
+see it is never used again, so this could be a local variable.
+
+[...]
+> diff --git a/drivers/ufs/host/ufs-spacemit.h b/drivers/ufs/host/ufs-spacemit.h
+> new file mode 100644
+> index 000000000000..6ae3c263a360
+> --- /dev/null
+> +++ b/drivers/ufs/host/ufs-spacemit.h
+> @@ -0,0 +1,90 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * SpacemiT UFS Host Controller driver
+> + *
+> + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
+> + */
+> +
+> +#ifndef _UFS_SPACEMIT_H_
+> +#define _UFS_SPACEMIT_H_
+> +
+> +#include <linux/reset-controller.h>
+
+Drop this, we are not implementing a reset controller driver here.
+
+> +#include <linux/reset.h>
+
+You could replace this with a struct reset_control forward declaration.
+Or drop it ...
+
+[...]
+> +struct ufs_spacemit_host {
+> +	struct ufs_hba *hba;
+> +	struct ufs_pa_layer_attr dev_req_params;
+> +	struct reset_control *rst;
+
+... if you end up removing the rst field entirely.
+
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
