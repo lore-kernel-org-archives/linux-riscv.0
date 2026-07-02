@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C79C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 09:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD4BC43327
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 09:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=rrrYScvh9OjozIbqwZq6ldRHBOGXB4KFz/hPRRODFKk=; b=qf/KMcc+IXjBYcfNhAtSiezx9K
-	khsoILkUG6ku+62qHp/6Jkq6bz64rKYh12UWsqpH8/gup56WBE9adQf92OP/RLfa0C3yQOJPfFDf9
-	Fu5JHw9BYh1Yb52wI+JnZ3N1iDyxIF1lmKsr02hhwZjxqOjHAaBnG1rgCbA08TXw+4qmoaEc1+CmS
-	8Zmj+fyYswpUwKCol65+661zCkLgey7WiLjGyVJMcWbtd+KE1HYuS7sSIj4YRcdWD+kAdgfIQqR+j
-	/hgpXpYlLEv7rNjR21KMUyge2pcQ5ZjE/ldH/TmPxCAo9TbZyddbi6q1xRtsB6CjpGxW4yok7lKdB
-	tiUMbvGw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=a9nCRC2+LHVJeu5s4crYDxO8NfdIKdM8ePXFVE0W9zc=; b=WzCwJb9l2oPYP3
+	HECXvPoX1L2X/A44J1gulfdBGsrqHIgThMu6xwkxLDptpKsvkzqXlRLs16cdidNu0i/Eh/mH9PDMq
+	tVgRlNxVuj0Ba8WaX+lNkj/5cmDpbY1A2HiAQdKxvttE+u416hDNOf51lajUf+oQ4Uxqw7kbvr9cy
+	01VBPY4g3Mq3iYH9sqWfgQe8wC0HfZIcAo0vfrIOPU0mxOYYuyw7gwwfoXhZv5VwwKdmpZTO0Wjwr
+	N7HrZC1NKbxtpTdMj3vZMC4KFi4yOgKjQN1dJrcWOuGjU0dNRNhobOCuNZTdFO+BOwJOLmXDjjyRg
+	lGdPpe8Gr2v0IyOH/mkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDTZ-00000003yio-2oDU;
-	Thu, 02 Jul 2026 09:12:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfDXE-00000003zIO-0TG5;
+	Thu, 02 Jul 2026 09:16:40 +0000
+Received: from mail-vk1-f182.google.com ([209.85.221.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDTY-00000003yi3-2yrA
+	id 1wfDXA-00000003zHq-3Ipx
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 09:12:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AD02404C4
-	for <linux-riscv@lists.infradead.org>; Thu,  2 Jul 2026 09:12:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 527BE1F0155E
-	for <linux-riscv@lists.infradead.org>; Thu,  2 Jul 2026 09:12:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782983572;
-	bh=z3us1EYcPhA08D2V/YJ+nWiOnRiCmeZ4lZeMhncdG0g=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=lPyvPnDueqS9ZIaG4AR8IxxE8u+oV1PYjwXXaoyKWknbM6OhQLYanydVuc1qzgo3z
-	 R+JWVZq5YV93ScxHlquZZEI93rboq8ubHxikSWMv+AFhTH61bnsbIfLwDQqmN/fcDh
-	 L7OatAaU/eNHLzOUDAhmQAWRK86el8sgoojYtGqc2e+aa4Ab7EPhmdyDoi/e3911uD
-	 H9YT4uVHlukHAKxHgypn/78J+0kzaG/PPT63uA23z0e0Jy2jiwUJiGiPEI4aLZoKPK
-	 fgZnHkddf2MFQObw8Uq2YbfAhlewJXDrb5n2lpce9v8zY+WoWQU5rj6NBSeycKhtT0
-	 BpJ6v3y8RhK+A==
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-39957d210f4so15245061fa.0
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 02:12:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rp4D96o905HWGPLgkISmS5Hu5em9ImSiB33pH51NxiHFNd/sJncS+0S0+HoGcYZNpwnk79YltMgMo+AfQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpmRZjPfpuLkKbj/RXcQbCSP3d8zz2h/DbHGGyym4kcf3xKQBr
-	OYcpPpiR0URbkNXQCaLQDTnYmHoNA7q2EZq1B2rc5ftKpO+BOYy9xZd/uyXcI5yfMrzdeoCaILC
-	LKLJ9G+sarMBZ1UojZHsNHbfdmNB9qPK10H1oee8AXQ==
-X-Received: by 2002:a2e:9c86:0:b0:39b:35bd:e705 with SMTP id
- 38308e7fff4ca-39b35bdebfemr6340391fa.37.1782983570078; Thu, 02 Jul 2026
- 02:12:50 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 2 Jul 2026 04:12:46 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 2 Jul 2026 04:12:46 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <akOZFIowVvprnAMf@vaman>
+	Thu, 02 Jul 2026 09:16:38 +0000
+Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-59e8ededf4dso973876e0c.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 02:16:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782983795; x=1783588595;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w3iqz34neGUxAgVEYrpwzzcpe57aRQt9k5cgKzpkuWc=;
+        b=MxxTjgia+B0kZj4CilX9MP6/bR/U6vkISQ5Jmy8LwvReHDDidJq9iZrHEIQ2Dv2ooV
+         N4EXoOuwapp0xkop5GPzHlMUV44kQzquJtPildJNX2ZpFKyca1gmSLeMlswpg200QdNg
+         juzUXsez2cuY/vB4V0pBUeWPMEgtbxmwxteB7z+8svW5ozZStfPqHxNpYT/vJDV/3Wd/
+         8RYncZfQBnSjFeE/r08SouOJBIzvJTMXgSDVocP0sk1PzGwL4nwNqpgdxMECiqogbuY6
+         dnZBXQtugya2QB0PqUK6nLy9pEG5DgyR1mNJ4b+GdbE93hlgEs0vQEcQnrjn2X/WUY/A
+         tccw==
+X-Forwarded-Encrypted: i=1; AHgh+RrXvdw5psjCP5m66QH1b45pT9zRETOiwnh2Ou4kBZJTm/uGOpOhWqOclTs4Yp4sGYpRIvTS+JmPSFZeaw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHUh4jllQ8Aa4qYfbAQVkKPonp1QDnCdY/7ra3JQLGIQ1pdlLZ
+	H0KQmU+kCQYmohwUFMtlNLWuBCeXN4mmFeCYgCrVwIUgUS851VZdT5NwRtXRUJu1N4Q=
+X-Gm-Gg: AfdE7cmSP5uVgPNrdr+bbmRN2J1OQmx1xHREOnfmR93eAXHtJWVnDHmCNACXPHGvYgR
+	EH+CrjJEwPQdbKRDqKVdy6Gf0jBlrDMxF+38oUCvMluH5xW8cIFgeQXPoBTlYWFXddMRKZtXwpP
+	++xCmdecnGOiD0yuBF+VIaLBkuB4cOVMgr9NAtb50lmiaTHRoihWlE40oEZge9KfOvOmJ4CQ35J
+	UX8uRI1nhTiy96QMwh0wJixo5GS8puQElD6aFFwyi/rj8r6Tpoz8Mr7USVCmZfgqsYqoqSipHsR
+	KT21kvWgNAnRgAGTl2V4twfMNUqPIms1uJ3TFDbAdp72xckksQm1DkwBYAoWTfQZnYlGcIpF+FL
+	RUyehk0L3voWwQIsxQ20fxqnrIAf99DUyYf7O5AqrKXr+OWKAeiLsBF4TUTHEA31MRqh39Qjpv+
+	Oj6hosCenx8wfNqEtskjx47arrN9OS7Xn1wdETXV3V4K6C2DqGXg==
+X-Received: by 2002:a05:6122:a15:b0:575:634a:a604 with SMTP id 71dfb90a1353d-5bddf58e0a2mr2374588e0c.6.1782983794761;
+        Thu, 02 Jul 2026 02:16:34 -0700 (PDT)
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bdec51940esm651280e0c.6.2026.07.02.02.16.33
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Jul 2026 02:16:33 -0700 (PDT)
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-966d4748ad5so982482241.3
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 02:16:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rr3Rtb5amx2olZP84jvNNb/wR8g2JIfYLWx6Qhics/L6zX0xwFNPhkJBuwfqREyjtoQysJOM2rxDiM8/Q==@lists.infradead.org
+X-Received: by 2002:a05:6102:1620:b0:62f:46be:8318 with SMTP id
+ ada2fe7eead31-73da7681403mr2525301137.6.1782983793184; Thu, 02 Jul 2026
+ 02:16:33 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
  <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
  <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
  <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
- <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com> <akOZFIowVvprnAMf@vaman>
-Date: Thu, 2 Jul 2026 04:12:46 -0500
-X-Gmail-Original-Message-ID: <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
-X-Gm-Features: AVVi8Cc0cbGsvWIHn6Ltbm1wzcUWjyqAHy25YdAMNK19MIl0j9ziewcxopNMKrw
-Message-ID: <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
+ <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+ <akOZFIowVvprnAMf@vaman> <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
+In-Reply-To: <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 2 Jul 2026 11:16:22 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
+X-Gm-Features: AVVi8Cef5-UyxrfN1fWvFDcXcIwIbwhU7f5lsircbKpxY8MZwCT2oXalNKmt_xQ
+Message-ID: <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
 Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
  PHY on sa8255p
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
 	Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
@@ -94,8 +103,10 @@ Cc: Bartosz Golaszewski <brgl@kernel.org>, Bjorn Andersson <andersson@kernel.org
 	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_021636_839599_CF4627B6 
+X-CRM114-Status: GOOD (  28.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +123,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
-> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
->> > Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
->> > driver instead of the MAC driver where it was previously. Instead of cramming
->> > both HLOS and firmware handling into the same driver, I figured it makes more
->> > sense to have a dedicated, cleaner driver as the two share very little code (if
->> > any).
->>
->> I think you are mixing up DT bindings and driver implementation?
+Hi Bartosz,
+
+On Thu, 2 Jul 2026 at 11:12, Bartosz Golaszewski <brgl@kernel.org> wrote:
+> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
+> > On 29-06-26, 16:51, Geert Uytterhoeven wrote:
+> >> > Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
+> >> > driver instead of the MAC driver where it was previously. Instead of cramming
+> >> > both HLOS and firmware handling into the same driver, I figured it makes more
+> >> > sense to have a dedicated, cleaner driver as the two share very little code (if
+> >> > any).
+> >>
+> >> I think you are mixing up DT bindings and driver implementation?
+> >
+> > Should the bindings change if we have different driver and firmware
+> > implementations? Isn't binding supposed to be agnostic of
+> > implementations..?
 >
-> Should the bindings change if we have different driver and firmware
-> implementations? Isn't binding supposed to be agnostic of
-> implementations..?
+> I've thought about it some more and I believe this question is philosophical in
+> nature.
 >
+> sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
+> the same Lemans Ride board and it becomes one or the other. Yet they are not
+> described by the same DTS and the bindings differ as well. I don't see why we
+> wouldn't allow the same approach for the this PHY.
+>
+> We treat it as different HW variant when it's managed by firmware - just like
+> we do with the rest of the SoC.
 
-I've thought about it some more and I believe this question is philosophical in
-nature.
+DT describes hardware, not software policy.
 
-sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
-the same Lemans Ride board and it becomes one or the other. Yet they are not
-described by the same DTS and the bindings differ as well. I don't see why we
-wouldn't allow the same approach for the this PHY.
+Gr{oetje,eeting}s,
 
-We treat it as different HW variant when it's managed by firmware - just like
-we do with the rest of the SoC.
+                        Geert
 
-Bart
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
