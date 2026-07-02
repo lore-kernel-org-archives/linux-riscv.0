@@ -4,156 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BFDC43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 11:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9FBC43327
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 12:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vsRmRJbAjVtSfvtIKAT1WFwUB6hcD4PR8HKJ4E+UT4c=; b=pgqpjRB3nno2b6
-	ve2a9OjM17AUOwisghSMmMNi9pnWLTt9NO830aVRxV7WrPzwHYM9pfrKrBTLZR8DbG3XdVVAt4PbD
-	3F2DY+66JXnNSV0SS/YhXXt16ERtFTP32hNPL/mWqy9YjjwzhJ5mPZAfHOw1ymSS746rdVjPPNcd6
-	xCwGh70zulgMMKml02QGIOdyv397RGS6TEo7y02bRmmaLd4ZoaPpDA80ec6KuebXyyQUJa9Mm7kxh
-	qVxhM76Cjrl9WL0EZ7hqg9P+s57Aghvkz1SwLnlAIGZykBtPeBTo/2sH1Co71ZlXHq7wvFvWtF+uM
-	wMbnRAJDtSRJ8zSbUKYw==;
+	List-Owner; bh=a6pefjCk8nPFl8zFIyTz0Suw+ZTej/uaXAnhucIRInI=; b=arqJJyw0MRuKXG
+	XkCkxdg4H4ZbaxWBl27B6mYZeZ0/S20ccBZToMiAXp46z8mE/BYkiDTByHLmEe7WKbVmtm1lCQI/K
+	Fh5s+qLebUk+GJnicTtwYM97YKT34NRoia6J2SxiAflSfNwX8ZUpnDORyFIGRa58qBbaopSTYZeVh
+	R9WCkb+k9G8zajnlQB7z5kPMI0F8gHkaOBWtY272lW2uRAPM2RzsFaT5sJOrLj27Se/qAv83UobD6
+	oQ1GGY707JGZVqNKnMLdgN0B9GUwIMHk+6UFCH1dWu4S4DAg1+0Bv815FisrOeOU9tMrT1EWvF+Qb
+	0FUFUyRdIxYLcFxS1CWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfFrc-00000004LtB-0TYz;
-	Thu, 02 Jul 2026 11:45:52 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wfG7i-00000004Ol9-3vAT;
+	Thu, 02 Jul 2026 12:02:30 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfFrZ-00000004LsF-2Oy3
+	id 1wfG7e-00000004OhC-1Ynh
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 11:45:50 +0000
-Received: from kunlun.suse.cz (unknown [IPv6:2a07:de40:b306:2000::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 9393375C35;
-	Thu,  2 Jul 2026 11:45:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1782992747; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7sE5mvMjaed8Js4BiYjZ4KNoj5NHyhgaZgvHetARXIY=;
-	b=S/IosL+Tzknzx5iaQYdkXBA9cX2U6axC0l8QFQJVZw4SSt5lzPuOhuAEKcOXi0o5YUTNR9
-	Nw71o4rDsmcI05DH/48sQEQ5KafiSK7QR3+OmqxfRwrsOlxeFM5ONp1+OlmJSH4YMgw8BC
-	jnF8mJq8iwbn8aLCSxV9v+4uWe4/VZI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1782992747;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7sE5mvMjaed8Js4BiYjZ4KNoj5NHyhgaZgvHetARXIY=;
-	b=loCKWFsBT/7dFcBvmpE0VlQqhM/VS05dnHzMePJDdt6iY0tayVWWilEx9AEo2o/iuHk5CG
-	ThxnObHRscAr1iDg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="S/IosL+T";
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=loCKWFsB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1782992747; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7sE5mvMjaed8Js4BiYjZ4KNoj5NHyhgaZgvHetARXIY=;
-	b=S/IosL+Tzknzx5iaQYdkXBA9cX2U6axC0l8QFQJVZw4SSt5lzPuOhuAEKcOXi0o5YUTNR9
-	Nw71o4rDsmcI05DH/48sQEQ5KafiSK7QR3+OmqxfRwrsOlxeFM5ONp1+OlmJSH4YMgw8BC
-	jnF8mJq8iwbn8aLCSxV9v+4uWe4/VZI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1782992747;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7sE5mvMjaed8Js4BiYjZ4KNoj5NHyhgaZgvHetARXIY=;
-	b=loCKWFsBT/7dFcBvmpE0VlQqhM/VS05dnHzMePJDdt6iY0tayVWWilEx9AEo2o/iuHk5CG
-	ThxnObHRscAr1iDg==
-Date: Thu, 2 Jul 2026 13:45:46 +0200
-From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mukesh Kumar Chaurasiya <mkchauras@linux.ibm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Zong Li <zong.li@sifive.com>, Nam Cao <namcao@linutronix.de>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Lukas Gerlach <lukas.gerlach@cispa.de>,
-	Rui Qi <qirui.001@bytedance.com>, Kees Cook <kees@kernel.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+	Thu, 02 Jul 2026 12:02:29 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6621L37U2348150;
+	Thu, 2 Jul 2026 12:01:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=QXmH97
+	+rWFoE2LAC88xt78ijllYCri9Xy6EsF1mVG6c=; b=ml+WJYctAzI5wdjjSDMgvP
+	yYV2w0V14fb3FrleDRxXeZt2X9/C22lawvIy7y0+0JO66Vi6gKw1lfHi9eAyE3iB
+	yoS3fYqtxvDpQ43tfL4lGRPA5bWXjXIUzVbxyYQxDdyfE1K1xqrHplG4o7Hdt20S
+	AAsRGGTujytG5lXsdMbtKS8RLTE8pa6avsUyvnDduHvV2z5CY707mxKR2JNyI+r7
+	IyOEJGe3WbV44naL8/o58lDH/tLH40lAil+soXDKPbWG+Z9RTVSTWMSdqkH2nDOb
+	QLgPM5fv80o4n+0Z6dHnxoe02Eo3+yY6DnjNa6v6ZGL9BhLroq2Z252BbEu2DIUQ
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f26mk1c1b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Jul 2026 12:01:08 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 662BnaEX019880;
+	Thu, 2 Jul 2026 12:01:07 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f2tbhkrrx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Jul 2026 12:01:07 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 662C13ZQ50987300
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 2 Jul 2026 12:01:03 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4769020049;
+	Thu,  2 Jul 2026 12:01:03 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CF39620040;
+	Thu,  2 Jul 2026 12:01:02 +0000 (GMT)
+Received: from tuxmaker.linux.ibm.com (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu,  2 Jul 2026 12:01:02 +0000 (GMT)
+From: Sven Schnelle <svens@linux.ibm.com>
+To: Michal =?utf-8?Q?Such=C3=A1nek?= <msuchanek@suse.de>
+Cc: Peter Zijlstra <peterz@infradead.org>, Jonathan Corbet
+ <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+        Madhavan
+ Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+ <alex@ghiti.fr>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+ <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Andy Lutomirski
+ <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin"
+ <hpa@zytor.com>,
+        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
+        Mark
+ Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Jiaxun
+ Yang <jiaxun.yang@flygoat.com>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Mukesh Kumar Chaurasiya
+ <mkchauras@linux.ibm.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>, Zong
+ Li <zong.li@sifive.com>,
+        Nam Cao <namcao@linutronix.de>, Deepak Gupta
+ <debug@rivosinc.com>,
+        Lukas Gerlach <lukas.gerlach@cispa.de>,
+        Rui Qi
+ <qirui.001@bytedance.com>, Kees Cook <kees@kernel.org>,
+        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
 Subject: Re: [RFC] entry: Untangle the return value of
  syscall_enter_from_user_mode from syscall NR
-Message-ID: <akZPakNl6JT_jgGd@kunlun.suse.cz>
-References: <akVRcPsD_R_CE1qW@kunlun.suse.cz>
- <878q7tprau.ffs@fw13>
+In-Reply-To: <akYreY_BHuRbxSsO@kunlun.suse.cz>
+References: <akVRcPsD_R_CE1qW@kunlun.suse.cz> <yt9dechlbyj0.fsf@linux.ibm.com>
+	<akYreY_BHuRbxSsO@kunlun.suse.cz>
+Date: Thu, 02 Jul 2026 14:01:02 +0200
+Message-ID: <yt9d5x2xbny9.fsf@linux.ibm.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <878q7tprau.ffs@fw13>
-X-Spamd-Bar: +++
-X-Rspamd-Queue-Id: 9393375C35
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [3.99 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
-	RDNS_NONE(2.00)[];
-	SUSPICIOUS_RECIPS(1.50)[];
-	ONCE_RECEIVED(1.20)[];
-	HFILTER_HELO_IP_A(1.00)[kunlun.suse.cz];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	HFILTER_HELO_NORES_A_OR_MX(0.30)[kunlun.suse.cz];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[45];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b306:2000::2:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[infradead.org,lwn.net,linuxfoundation.org,kernel.org,xen0n.name,linux.ibm.com,ellerman.id.au,gmail.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,redhat.com,alien8.de,linux.intel.com,zytor.com,donnellan.id.au,arm.com,arndb.de,flygoat.com,sifive.com,linutronix.de,rivosinc.com,cispa.de,bytedance.com,vger.kernel.org,lists.linux.dev,lists.ozlabs.org,lists.infradead.org];
-	RCVD_COUNT_ZERO(0.00)[0];
-	MISSING_XM_UA(0.00)[];
-	TAGGED_RCPT(0.00)[kernel];
-	R_RATELIMIT(0.00)[to_ip_from(RLs1yuyu6ywojxyk8y3ncu5g39)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim]
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDEyMyBTYWx0ZWRfX/Q+2VIkEZeXm
+ zSpy3sSNQGU/T2UgslNS6VsPuREql8uSSdJVoQTob97qLRSMv8GJjVr6kKiJKJCJeXAZoKLkJvq
+ 5f+8ytV2grsx0grvISHbwQ84vmEGrrdzVPGn9ShEzfJJHyfO1sPZ67aE51b4LMU/UA4XKMH4nm3
+ i3aZUnP9MOw4vJ1Gv1srPH7aTjCuWOOkR4qKRHoTc08VZ+RLjIvr8Wq1ycDRZScggqf8vwMr62U
+ JjJTrtJxIQEPkt6pbRVU3+sX0S+j9wkj8f1eX7QLV6sX7z6Zs+pNzCEJDl3mKhspgytP+uB/ism
+ Cbiu9d27//atMwvdZ67Jmyysa6pe9elrVf0h5Ag/2OdiGgMqcKBh7JR9tfXjSJ286bhQpmHm/WG
+ VZ+c5pOODZgvCHxA60BGuyRiMofbgW+8J+7uiJsQ4y6cR6g7q0HtmmyhZwGSkt8korNuifin5NM
+ AFNwBLKljHK92fKlxUQ==
+X-Proofpoint-GUID: 4HRNE-F5FeM-i_rZBbEwAtB_lah-fAD7
+X-Authority-Analysis: v=2.4 cv=Z8bc2nRA c=1 sm=1 tr=0 ts=6a465304 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=96I0iGyHsLkaCD_aHbUA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDEyMyBTYWx0ZWRfX3fqq5rJK1Pw6
+ XAlVAtz6S5ae1lDAR5UGIg8LAyH/oHFacO80fJr93TGA5Wz3SkDELaofBJAuvm8s6hTRnqUcZGM
+ jGAhDbq6yYnrtndAHrmEOWgPfMLlxrw=
+X-Proofpoint-ORIG-GUID: COL-UTUh6U9SgZkk02MSCnjQmBsVFo93
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-02_01,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 spamscore=0 priorityscore=1501 impostorscore=0
+ malwarescore=0 phishscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607020123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_044549_768673_1AACBA7D 
-X-CRM114-Status: GOOD (  34.47  )
+X-CRM114-CacheID: sfid-20260702_050226_545488_5629CE95 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,121 +163,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 01:24:57PM +0200, Thomas Gleixner wrote:
-> On Wed, Jul 01 2026 at 19:42, Michal Such=E1nek wrote:
-> > The return value of syscall_enter_from_user_mode is used both for the
-> > adjusted syscall number and the indicator that a syscall should be
-> > skipped.
-> >
-> > As seccomp can be invoked on any syscall, including invalid ones this
-> > somewhat undermines seccomp.
-> >
-> > While the seccomp variants that terminate the process do not need to
-> > care about this for the filter that sets the syscall return value this
-> > disctinction is required.
-> =
-
-> You completely fail to explain why and what actual problem you are
-> trying to solve. At least I can't figure it out from the above word
-> salad.
-
-syscall_enter_from_user_mode returns the new syscall number after doing
-something arbitrarry with it, including running seccomp.
-
-Wehn the syscall is already handled, eg. by seccomp filtering it returns
--1 as the new syscall number. -1 is an invalid syscall number but it can
-still be filtered by seccomp. When the syscall number was -1 to start
-with it's not possible to determine if the syscall was fileterd from the
-return value. s390 returns the filtered state in a flag it sets on the
-regs structure, avoiding this problem.
-
-However, the API should be specified in a way that does not require
-everyone implementing such flag.
-
-> =
-
-> > Pass the syscall number as a pointer to the inline entry functions, and
-> > use the return value exclusively for the indication that the syscall is
-> > already handled.
-> >
-> > This should avoid the need for the s390 PIF_SYSCALL_RET_SET which is the
-> > workaround for exactly this deficiency.
-> >
-> > If this is desirable the patch could be split into some series that
-> > adjusts the code flow where needed so that the final change is mostly
-> > mechanical.
-> =
-
-> That's not a matter of desire. That's mandatory.
-
-So long as it's desirable to implement an API change in this direction,
-it's not clear to me so far.
-
-> > -	instrumentation_begin();
-> > -	if (!invoke_syscall(regs, nr) && nr !=3D -1)
-> > -	 	result_reg(regs) =3D __sys_ni_syscall(regs);
-> > -	instrumentation_end();
-> > +	/* Skip syscall when -1 is returned */
-> > +	if (!syscall_enter_from_user_mode(regs, &nr)) {
-> =
-
-> Seriously?
-> =
-
-> If we go and separate the syscall number from the return value, then the
-> return value 0 means success and anything else fail. Which in other
-> words is a boolean. So instead of tastelessly adding a completely
-> nonsensical comment about -1 here, syscall_enter_from_user_mode() wants
-> to have the return value type bool with a proper boolean logic: true =3D
-> success, false =3D abort.
-
-We have that very same API down to __secure_computing() which returns
-boolean represented as -1 and 0 values. That does not mean it's not
-tasteless.
-
-> =
-
-> > @@ -168,8 +168,7 @@ __visible noinstr void do_int80_emulation(struct pt=
-_regs *regs)
-> >  	nr =3D syscall_32_enter(regs);
-> >  =
-
-> >  	local_irq_enable();
-> > -	nr =3D syscall_enter_from_user_mode_work(regs, nr);
-> > -	do_syscall_32_irqs_on(regs, nr);
-> > +	syscall_enter_from_user_mode_work(regs, &nr);
-> =
-
-> How exactly is this ever going to invoke a valid syscall?
-
-That's one of the problems with giant all-in-one patch, things like this
-easily slip in. However, it is in cluded mostly for illustration, I
-don't expect anyone to merge this as-is.
-
-> =
-
-> > +	if (!syscall_enter_from_user_mode_work(regs, &nr)) {
-> > +		nr &=3D GENMASK(31, 0);
-> > +		do_syscall_32_irqs_on(regs, nr);
-> =
-
->   do_syscall_32_irqs_on(regs, (int)nr);
-> =
-
-> would be too simple, right?
-
-Also way less explicit.
-
-Thanks
-
-Michal
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TWljaGFsIFN1Y2jDoW5layA8bXN1Y2hhbmVrQHN1c2UuZGU+IHdyaXRlczoKCj4gT24gVGh1LCBK
+dWwgMDIsIDIwMjYgYXQgMTA6MTI6MzVBTSArMDIwMCwgU3ZlbiBTY2huZWxsZSB3cm90ZToKPj4g
+TWljaGFsIFN1Y2jDoW5layA8bXN1Y2hhbmVrQHN1c2UuZGU+IHdyaXRlczoKPj4gCj4+ID4gVGhl
+IHJldHVybiB2YWx1ZSBvZiBzeXNjYWxsX2VudGVyX2Zyb21fdXNlcl9tb2RlIGlzIHVzZWQgYm90
+aCBmb3IgdGhlCj4+ID4gYWRqdXN0ZWQgc3lzY2FsbCBudW1iZXIgYW5kIHRoZSBpbmRpY2F0b3Ig
+dGhhdCBhIHN5c2NhbGwgc2hvdWxkIGJlCj4+ID4gc2tpcHBlZC4KPj4gPgo+PiA+IEFzIHNlY2Nv
+bXAgY2FuIGJlIGludm9rZWQgb24gYW55IHN5c2NhbGwsIGluY2x1ZGluZyBpbnZhbGlkIG9uZXMg
+dGhpcwo+PiA+IHNvbWV3aGF0IHVuZGVybWluZXMgc2VjY29tcC4KPj4gPgo+PiA+IFdoaWxlIHRo
+ZSBzZWNjb21wIHZhcmlhbnRzIHRoYXQgdGVybWluYXRlIHRoZSBwcm9jZXNzIGRvIG5vdCBuZWVk
+IHRvCj4+ID4gY2FyZSBhYm91dCB0aGlzIGZvciB0aGUgZmlsdGVyIHRoYXQgc2V0cyB0aGUgc3lz
+Y2FsbCByZXR1cm4gdmFsdWUgdGhpcwo+PiA+IGRpc2N0aW5jdGlvbiBpcyByZXF1aXJlZC4KPj4g
+Pgo+PiA+IFBhc3MgdGhlIHN5c2NhbGwgbnVtYmVyIGFzIGEgcG9pbnRlciB0byB0aGUgaW5saW5l
+IGVudHJ5IGZ1bmN0aW9ucywgYW5kCj4+ID4gdXNlIHRoZSByZXR1cm4gdmFsdWUgZXhjbHVzaXZl
+bHkgZm9yIHRoZSBpbmRpY2F0aW9uIHRoYXQgdGhlIHN5c2NhbGwgaXMKPj4gPiBhbHJlYWR5IGhh
+bmRsZWQuCj4+ID4KPj4gPiBUaGlzIHNob3VsZCBhdm9pZCB0aGUgbmVlZCBmb3IgdGhlIHMzOTAg
+UElGX1NZU0NBTExfUkVUX1NFVCB3aGljaCBpcyB0aGUKPj4gPiB3b3JrYXJvdW5kIGZvciBleGFj
+dGx5IHRoaXMgZGVmaWNpZW5jeS4KPj4gCj4+IEknbSBub3Qgc3VyZSB3aGV0aGVyIFBJRl9TWVND
+QUxMX1JFVF9TRVQgY2FuIGJlIHJlbW92ZWQgLSB0aGUgc3lzY2FsbAo+PiByZXR1cm4gbWlnaHQg
+c3RpbGwgZ2V0IHNldCBieSBQVFJBQ0VfU0VUX1NZU0NBTExfSU5GTyB3aGVuIHRoZSB0cmFjZWUg
+aXMKPj4gc3RvcHBlZC4gVGhpcyBtaWdodCBiZSBhIHBvc2l0aXZlIG51bWJlciB3aGljaCBjYW4n
+dCBiZSBkaXN0aW5ndWlzaGVkCj4+IGZyb20gYSBzeXNjYWxsIG51bWJlci4gQnV0IG1heWJlIGkn
+bSBtaXNzaW5nIHNvbWV0aGluZz8gSXQncyBiZWVuIHF1aXRlCj4+IGEgd2hpbGUgc2luY2UgSSB0
+b3VjaGVkIGFsbCB0aGF0IHB0cmFjZSBzdHVmZi4KPgo+IFdoZW4gdGhlIHN5c2NhbGwgcmV0dXJu
+IHZhbHVlIGlzIHNldCAoaW4gdGhlIHJlZ2lzdGVycykgdGhlIHJldHVybiB2YWx1ZQo+IHdoaWNo
+IGlzIGFsc28gdGhlIG1vZGlmaWVkIHN5c2NhbGwgbnVtYmVyIGlzIHNldCB0byAtMSBpbmRpY2F0
+aW5nIHRoZQo+IHN5c2NhbGwgd2FzIGhhbmRsZWQuIEF0IGxlYXN0IHRoYXQncyBob3cgdGhlIEFQ
+SSBpcyBkZXNjcmliZWQuCj4KPiBTbyB5ZXMsIGlmIHRoZSBzeXNjYWxsIG51bWJlciByYW5nZSBp
+cyByZXN0cmljdGVkIG9yIHRoZSBzeXNjYWxsIG51bWJlcgo+IGlzIHJldHVybmVkIHRocm91Z2gg
+YSBwYXRoIGRpZmZlcmVudCBmcm9tIHRoZSBmdW5jdGlvbiByZXR1cm4gdmFsdWUgdGhlCj4gZmxh
+ZyBzaG91bGQgbm90IGJlIG5lZWRlZCBpbiB0aGUgZW50cnkgcGF0aCBiZWNhdXNlIHRoZSBjYXNl
+IGNhbiBiZQo+IGRldGVjdGVkIHRocm91Z2ggdGhlIHJldHVybiB2YWx1ZSBhbG9uZS4KCkknbSBz
+dGlsbCBmYWlsaW5nIHRvIHNlZSBob3cgdGhpcyB3b3VsZCB3b3JrIHdpdGhvdXQgYW4gYWRkaXRp
+b25hbApmbGFnLiBBc3N1bWUgYSBwcm9ncmFtICh0aGUgdHJhY2VlKSBpcyBzdG9wcGVkIGJlY2F1
+c2Ugb2YgYSBzeXNjYWxsCmVudHJ5LiBUaGUgdHJhY2VyIHRoZW4gZGVjaWRlcyB0byBza2lwIHRo
+ZSBzeXNjYWxsIGFuZCBjaGFuZ2VzCnJlZ3MtPmdwcjIgKHdoaWNoIGNvbnRhaW5zIGVpdGhlciB0
+aGUgc3lzY2FsbCBudW1iZXIgb3IgcmV0dXJuIHZhbHVlKQp0byBjb250YWluIDQyLiBXaGVuIHRo
+ZSB0cmFjZXIgdGhhbiByZXN0YXJ0cyB0aGUgc3lzY2FsbCwgaG93IGRvZXMKZG9fc3lzY2FsbCgp
+IGtub3cgdGhhdCBncHIyIGlzIG5vdyBhIHJldHVybiB2YWx1ZSBhbmQgbm90IGEgc3lzY2FsbCBu
+dW1iZXI/CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
