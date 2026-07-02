@@ -4,104 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E660C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 15:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A5EC43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 15:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Hkih7qTvi+J/7GLI4OvbIuM3XWiYeL1WBWIcIQSnM8=; b=GwzXvWtCLd3I2P
-	K4lJG7pdOz0keh8C96+Dgz1/9GoBIajN/YINDlj7x48I1e9TuclPaIVtRBreSLLkQQlxOwm8CajVF
-	otmhb5uLESp0tOdT2FPcSvXwoxxPLZpcT2LUX0/Lr9p54B0NgrYeDMePftsOeOytL9lmO0tHv38w4
-	DiWctskz6ZKlN+58o7kqDg4lgSLGbvHtoeEW/r/DJ1VpEtfhXhqfEYpO5RxXeZIQ7Wp71kxrX3Heo
-	/7cTNR+sdXEoB0DIaapBlpqNAy2H83iFyZgsFL7PyO0nL2tsviSA31rPK8LG5IQU9KMKLPxZWIiy1
-	es9OtMn1zk9eYl0v4HSQ==;
+	List-Owner; bh=leeFc0spWOvm8470LEN/qjmpndtWfZpI7xmBtqdKAkU=; b=JEa/lS2u2dX+t8
+	9oYTlFvRaQQAnW0nPUwKbybLUTq/PJonsXomFnXnGEmwuRvyejOynxpwKdAYwMz+I6Eeqmv2/vN61
+	3D3Th6nPHjc1OaCOC8HSrAyKIljZuMgl41vaB3P9kE3oZCfBaJISb+S0NvSp2y/G60xjQ9lbNU9ut
+	dzBOGjevCAU7ZTbh9weerLlvVfpGUvWa+S09AOZQUuglYzr6vFLQAXx0zO5IPJ4CPPaoGSah14jp2
+	KZk8WUAq62qSdNRYdtEWwoR5/ZKBtlZt+nOfNoQl9Kb+TXXaEGMODILtlp/op9Bx+kk2hKoYqDrJC
+	rw5PpdZo0qp1owtk+mRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJKA-00000004oDj-44qu;
-	Thu, 02 Jul 2026 15:27:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfJbA-00000004qhC-1WCK;
+	Thu, 02 Jul 2026 15:45:08 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJKA-00000004oDd-1FZC
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 15:27:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1319540374;
-	Thu,  2 Jul 2026 15:27:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 543E81F000E9;
-	Thu,  2 Jul 2026 15:27:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783006054;
-	bh=cEk3W3lizBUZfsulzFqYmAOYLzNf3b65ISLECKrKSas=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dzVzO9rxa+s+zlk9tebkHcboJ/TilCie+zjXBszJVjzUhbyOW9LnSEPQhUTC4IN5v
-	 JzNozJRLVaWij5NqMhTShnnRa/nSszoa2Ijf4gx+o/Dksaclx9MG5jdLAkcFv4ICg9
-	 EBnRanjvFSexO2ZkF7UjGqEuePNMUd7CcjZ2EfSvbaWi5/fLYBgGIyi1uQFM1oRGG3
-	 i/XIPGNtcD3DBnL9AJebvJ6KW/loqa6KXfqsQm9AEdu4sw5BnzqdVW/xSSTGvr4giI
-	 8MqwLt7QSRIHq9lV09czgPadJJAvL1uE7HODeNVKx8j5zb87qcGLbeWTUSVyLApmWi
-	 siNRPYnRHCrZQ==
-Message-ID: <f5f6aa5f-8c28-43eb-b254-17816f976f19@kernel.org>
-Date: Thu, 2 Jul 2026 17:27:27 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: firmware: add mbedtee,tee binding
-To: Xing Loong <xing.xl.loong@gmail.com>, Jens Wiklander <jenswi@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260701132514.186953-1-xing.xl.loong@gmail.com>
- <20260702151115.544016-1-xing.xl.loong@gmail.com>
- <20260702151115.544016-3-xing.xl.loong@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260702151115.544016-3-xing.xl.loong@gmail.com>
+	id 1wfJb5-00000004qfA-4B0e;
+	Thu, 02 Jul 2026 15:45:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783007077; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XzPzW8zhLp1++PSVm0XzKWsrOZe0GF0flkwjFuZNZHAbfp3EbOvXla2d8vVLXu4SoFnIAxWM4Byk1PJ9sTLiCfay62YbaFkuqplK64t2ZCQIfp0gbxGYikxtNkArcPWlMjme19GUtG1bsX/sl/nAniBlw5tDzm0LmvNuO07ddSU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783007077; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QQJMn8myl3NxMk5d1ZskradRQLy1mGcGTZNCkisiW0A=; 
+	b=cZITeNJ+oB4/NZ4WmLa/xHrbEsSBgeiBrjRV2n4kupPlFJfA4UPPpJUf8EwoC+2vSKDD4DsINTRoHCUFwWRJM8CkMgkobPxSpMVT8Yd3FNcBd5NzCrceQGol68xpwXkUgd1/lpJTeEUdiNUyeZwNg1dnhz3XWTeji5uRNe+jtoo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783007077;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Subject:Subject:From:From:To:To:Cc:Cc:References:In-Reply-To:Reply-To;
+	bh=QQJMn8myl3NxMk5d1ZskradRQLy1mGcGTZNCkisiW0A=;
+	b=rVuYw//9Vqqpy+NtvvJiCkynLOyTnT0LaFydnguLYH+L0sLNxWoO3Tad7/s2IvHB
+	bwPg2n34dOQHorMZ+339GS0RwlHTKXOVP38cU2B2spDAaJK8lfvL+U9jO8HRl55nMer
+	Ynf1o9j9pTrE4eK0GKeHM/fXbBpOuuv0kLxpNrcM=
+Received: by mx.zohomail.com with SMTPS id 1783007074425420.57335506567745;
+	Thu, 2 Jul 2026 08:44:34 -0700 (PDT)
+Mime-Version: 1.0
+Date: Thu, 02 Jul 2026 23:44:18 +0800
+Message-Id: <DJO79318OW0A.2RDQOAXRTHNCW@pigmoral.tech>
+Subject: Re: [PATCH RFC 0/8] clk: sunxi-ng: Add support for Allwinner A733
+ CCU and PRCM
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Enzo Adriano" <enzo.adriano.code@gmail.com>, "Junhui Liu"
+ <junhui.liu@pigmoral.tech>
+Cc: "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Brian Masney" <bmasney@redhat.com>, "Chen-Yu Tsai"
+ <wens@kernel.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel
+ Holland" <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Andre Przywara"
+ <andre.przywara@arm.com>, "Jerome Brunet" <jbrunet@baylibre.com>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Richard
+ Cochran" <richardcochran@gmail.com>, <linux-clk@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+ <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
+In-Reply-To: <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_084504_425751_78D6D5AE 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,90 +91,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2026 17:11, Xing Loong wrote:
-> +
-> +  On RISC-V the TEE signals the REE via IMSIC MSI; the REE submits
-> +  commands via r2t-ring that the TEE polls. No REE-to-TEE interrupt
-> +  is used. No SBI ecall is involved.
-> +
-> +properties:
-> +  compatible:
-> +    const: mbedtee,tee
+Hi Enzo,
 
+On Thu Jul 2, 2026 at 12:07 AM CST, Enzo Adriano wrote:
+> Hi Junhui,
+>
+> Thanks for the A733 CCU/PRCM RFC v1. I've been reading through the
+> series and the review feedback, including the NSI clock/reset handling,
+> the binding naming and ordering comments, the SDM macro cleanup, and the
+> question around modeled but otherwise-unused clocks such as the GIC clock.
+>
+> I do not see a v2 on the list yet, so I wanted to check in: are you still
+> planning to take this series forward? No rush at all, and I am happy to
+> leave it entirely with you if so.
+>
+> If you have moved on to other things, I would be glad to help carry the
+> series forward and address the review comments, keeping your authorship
+> and prior work intact. I have A733 hardware here and can help test the
+> changes.
+>
+> Either way, please let me know what works best for you.
 
-No, you need to respond to feedback instead of sending the same code
-called v2. You received comments for a reason. Sending v2 now hides all
-this comments and people might think discussion is resolved. This is
-very bad practice.
+Thanks for reaching out. I have already been preparing a v2 based on
+Jerome's new RTC patch series. I moved to a new city this week though,
+so there may be some delay, but I will try to get it out as soon as
+possible.
 
-Also,
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+>
+> Thanks,
+> Enzo
 
-...
-
-> +
-> +examples:
-> +  - |
-> +    /* ARM TrustZone (SMC) */
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    firmware {
-> +      mbedtee {
-> +        compatible = "mbedtee,tee";
-> +        interrupts = <GIC_SPI 72 IRQ_TYPE_EDGE_RISING>;
-> +        memory-region = <&mbedtee_t2r_ring>, <&mbedtee_t2r_shm>;
-> +        memory-region-names = "t2r-ring", "t2r-shm";
-> +      };
-> +    };
-> +
-> +    /* memory-region phandle targets */
-> +    mbedtee_t2r_ring: t2r-ring {};
-> +    mbedtee_t2r_shm: t2r-shm {};
-
-I asked you to drop all these irrelevant entries.
-
-> +
-> +  - |
-> +    /* RISC-V IMSIC (ring-buffer polling REE->TEE, MSI TEE->REE) */
-> +
-> +    firmware {
-> +      mbedtee {
-> +        compatible = "mbedtee,tee";
-> +        msi-parent = <&imsic>;
-> +        memory-region = <&rv_t2r_ring>, <&rv_t2r_shm>,
-> +                        <&rv_r2t_ring>;
-> +        memory-region-names = "t2r-ring", "t2r-shm",
-> +                              "r2t-ring";
-> +      };
-> +    };
-> +
-> +    /* msi-parent phandle target */
-> +    imsic: imsic {
-> +      msi-controller;
-> +      #msi-cells = <0>;
-> +    };
-
-Also drop.
-
-> +
-> +    /* memory-region phandle targets */
-> +    rv_t2r_ring: t2r-ring {};
-> +    rv_t2r_shm: t2r-shm {};
-> +    rv_r2t_ring: r2t-ring {};
-
-Also not relevant.
-
-I will not continue the review. Please go back to v1 and continue the
-discussion.
-
-I consider this version NAKed.
-
-
+-- 
 Best regards,
-Krzysztof
+Junhui Liu
+
 
 _______________________________________________
 linux-riscv mailing list
