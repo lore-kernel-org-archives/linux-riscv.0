@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 410F6C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 08:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6365AC43327
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 08:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wwOSoCzK10gaIyYhxYo04Q5jbmvo8wc5YNmwU4xIT68=; b=QMOyh3vT/UKkdY
-	gQzrg25otk49cVcgm3oVuliwTQawP3QXzYuj4ILGzviofPh6vheUBCA3wGlcCOdogg69tkL2xSs0Y
-	jMGhTkl/bY2AOj9/HdNdHc7npA0bNinSIeyEZ4/fC9irhcpKezMS0A4nleImlMDghRS6QZjT6wU0i
-	3GSTo8g7Nysoo8fn4Z0926sVLvbT5YlZNASlZJ5dyH61gnoPNGaPGe9JdY/EL0DhErPA2BwItX3HM
-	YO3mSQvC4OeD4a6XQOoL9MJM11APs1+aEe6cdMFixBHcpmQpTZO3FmA6jKjA5GHqEN64vgY+noWwB
-	jG0Jnh5TjTIAjza0Y5fQ==;
+	List-Owner; bh=m6j0Pa5jDg8a+QwmF4LUkoNAh5ivoTFhZnKLeHm6Hkw=; b=KRIDOqSIQITUvr
+	YRr05muB1KSa8AlHCps5HMnj8z5t8Pp28squ8tgsYZ2+MleS39m7yRdWxprrHuoWXioNGaopxIb7f
+	/PannnUjceKWwsZZ5u9/OigPorGlaQOrVH9AQhWsabiXf5hbqZfkBsItpcOJFJYprrBWjopW1miR1
+	abl6riT2HSGwkajjgdCJV90p5e/OlJjns+ioxKMCDXL1eIFiG973KjsKqjiUpPc+f/zxV2Yu4Mbdm
+	k2hg0O6e0i13gTGUIkD9SEO6rIIoEKE0Kq0ZedlY8QVwWbhZ/C8K/MxROWRXbl4eADxD8MckUJwy6
+	x/Xt5aFkGiG5o3bOYjGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCt1-00000003tC1-1QNd;
-	Thu, 02 Jul 2026 08:35:07 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCsx-00000003tAo-41hR
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 08:35:06 +0000
-Received: from fric.. (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowACnANSnIkZqB76GFg--.9178S2;
-	Thu, 02 Jul 2026 16:34:47 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: namcao@linutronix.de
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	dev.mbstr@gmail.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	qirui.001@bytedance.com,
-	samuel.holland@sifive.com,
-	xujiakai2025@iscas.ac.cn,
-	zhangchunyan@iscas.ac.cn
-Subject: Re: [PATCH v4] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe()
-Date: Thu,  2 Jul 2026 08:34:47 +0000
-Message-Id: <20260702083447.845741-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <87ik6xvmsf.fsf@yellow.woof>
-References: <87ik6xvmsf.fsf@yellow.woof>
+	id 1wfDEl-00000003vzh-3wRi;
+	Thu, 02 Jul 2026 08:57:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfDEj-00000003vyH-0HD8;
+	Thu, 02 Jul 2026 08:57:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4FF42288E;
+	Thu,  2 Jul 2026 01:57:25 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EFFB3F905;
+	Thu,  2 Jul 2026 01:57:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782982649; bh=MSbq6+W3UnipbgRe5OqNXC2h5o+vLMVg75Y2ERCCqF4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vxlIj29X8SyZB1IgbyT7B2lCW/p+J0QTyfWT5aKusya9JNXJDD72C2MXt0nB1jJBq
+	 L6w4cZPCwWj8mcv6ihhP+P0n5CwUEWYj6xE0SdD0s6CHqhEAm7j1wIRANnMYUKvYbY
+	 gChO0ak5hCTtvm8wzYEpFjegAHoefiu3EimrD+Us=
+Message-ID: <17e411b5-f025-4c72-90a7-5bdd5971654c@arm.com>
+Date: Thu, 2 Jul 2026 10:57:23 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACnANSnIkZqB76GFg--.9178S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrW8tr4xtF13Cr15Cw4fGrg_yoW8JFykpF
-	4kKa13ua17K34F9ry7ZFZ5Xr95GFs5Jr1akr47tFyUZrn8KF1Fk3y5CFZIqw4xCryjva17
-	ZFyxJws3Aa98Ja7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8Jr0_Cr
-	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
-	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2
-	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
-	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0x
-	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
-	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
-	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUopBTUUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBgUQCWpF8+aprQAAsk
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
+ and PRCM
+To: Enzo Adriano <enzo.adriano.code@gmail.com>,
+ Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Jerome Brunet <jbrunet@baylibre.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org
+References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+ <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_013504_371246_B1919F71 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260702_015733_149153_B8D71B74 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +78,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi! Thanks for your review!
+Hi Enzo,
 
-> > +	if (sp >= (unsigned long)task_stack_page(task) &&
-> > +	    sp < (unsigned long)task_stack_page(task) + THREAD_SIZE) {
-> > +		high = (unsigned long)task_pt_regs(task);
-> > +	} else if (task != current) {
-> > +		pr_warn("%s: sp (%lx) is not in task stack of %s\n",
-> > +			__func__, sp, task->comm);
-> > +		return;
-> > +	}
-> > +#ifdef CONFIG_VMAP_STACK
-> > +	else {
-> > +		unsigned long ovf_base =
-> > +			(unsigned long)this_cpu_ptr(overflow_stack);
-> > +
-> > +		if (sp >= ovf_base && sp < ovf_base + OVERFLOW_STACK_SIZE)
-> > +			high = ovf_base + OVERFLOW_STACK_SIZE;
-> > +	}
-> > +#endif
+On 7/1/26 18:07, Enzo Adriano wrote:
+> Hi Junhui,
 > 
-> Looks functionally correct to me. But this #ifdef goes against the
-> kernel's coding style. See:
-> https://docs.kernel.org/process/coding-style.html
+> Thanks for the A733 CCU/PRCM RFC v1. I've been reading through the
+> series and the review feedback, including the NSI clock/reset handling,
+> the binding naming and ordering comments, the SDM macro cleanup, and the
+> question around modeled but otherwise-unused clocks such as the GIC clock.
+
+that's great, but please tell the list, by replying to the respective 
+patches. There are still a few patches left that haven't been checked 
+against the manual or otherwise reviewed. I will probably do this at 
+some point in time, but we could use any help here.
+You don't need to be an expert for this: just comparing the numbers in 
+the struct (register offsets and bit positions) against the manual is 
+already very helpful, and can be done by most people, just with some 
+endurance ;-)
+
+Thanks,
+Andre
+
+> I do not see a v2 on the list yet, so I wanted to check in: are you still
+> planning to take this series forward? No rush at all, and I am happy to
+> leave it entirely with you if so.
 > 
-> Can we
->     else if (IS_ENABLED(CONFIG_VMAP_STACK))
-> just like the irq stack thing?
-
-You are right, that is my mistake. I will fix this.
-
-I will wait a couple of days to see if there are any other suggestions 
-from others. If not, I will submit a v5 with this change.
-
-Thanks for the review!
-
+> If you have moved on to other things, I would be glad to help carry the
+> series forward and address the review comments, keeping your authorship
+> and prior work intact. I have A733 hardware here and can help test the
+> changes.
 > 
-> > +	if (IS_ENABLED(CONFIG_IRQ_STACKS) && !high) {
-> > +		unsigned long irq_base =
-> > +			(unsigned long)this_cpu_read(irq_stack_ptr);
-> > +
-> > +		if (sp >= irq_base && sp < irq_base + IRQ_STACK_SIZE)
-> > +			high = irq_base + IRQ_STACK_SIZE;
-> > +	}
-
-Regards,
-Jiakai
+> Either way, please let me know what works best for you.
+> 
+> Thanks,
+> Enzo
 
 
 _______________________________________________
