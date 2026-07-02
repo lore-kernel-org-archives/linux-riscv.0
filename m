@@ -4,107 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FC5C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 18:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D81C43602
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 18:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GAZb91u5A+rMTm0q6iX8dXkSkwKqUwPEpMnMbFhl4hk=; b=iNjlZLMzQWO5vB
-	37sEAB4aTji7fIUnBaiEfU7w6yPX6LZ/Z0tFFf5Astq1q5yiWiDzeMwyrn2VUgSUcKKmqCl/Jm6RD
-	wLxv2SGDe0J/ijjcQ6ZFGhJEQYHxa+OC0ty+tff+4TC7/dM+DbgThczcBGmXG1my94YxwVEqFSkSQ
-	c4reTzBjxcfitQYfSQGs3nZyZU4bBW2KkJtdcZZGDzepB9A9RUYa/Ea04TOgG6w91XmiOoaCJc7Np
-	vA+kV3zgNgLzUkpjhUhm7oYWQeY3JIkZMEAHuhTTKl1Mowpvdm7UYNxoYqsFC4ivSDKuwJppYBle4
-	ji2TrxKDqgHxMx0W5tNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=leOJTvJUevOFAgnl7RcaO+lJ4Fhd3q2WbxP3AELHbo0=; b=UnelG1Zk2GgmQn8HggF6Mgah/G
+	Lid3Ulp1CbBfvbtetpMkVglqzphXFG33xbtuvat7gfkPKP4D9z864QG0E5OkDs0A9sIOITW2SdJDR
+	dB4V4d7JxGW6vyb0mcHqZEr9H3H7mP1FT+QEaKcUoN11vPURSBsRQlDNhh2Np/rEnxUaKKQnBeqJD
+	hRalBjkzDRz+OnJlWBo7jmIqT1XP4ZyQzjNSp2K2qtyYaI+fPyPagdhV+mgGGOSzecUusGACgYtkZ
+	CPMpWOW/CJ4h3F4Hmgi+zmmrlY2i8tVMXexqeDHNSxY4oy50j++TYpMgwz0MW7u+xNSWvqsw8rf/c
+	Typm7yTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfLt7-00000005Dw3-3Wy7;
-	Thu, 02 Jul 2026 18:11:49 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1wfM8S-00000005GZV-0TQF;
+	Thu, 02 Jul 2026 18:27:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfLt4-00000005Dts-0rl8
+	id 1wfM8R-00000005GYv-0lcu
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 18:11:47 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-92e5c9211d2so156448385a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 11:11:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783015905; x=1783620705; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wtCCML4GCtPrAf6qduQMkfSK95cYT1SxvrHR4pZoPOQ=;
-        b=fhj2zusfVSru5+nT/mLL2z6V+xBq4r3XphDGNda6FNlPgMRpTOp/q6EgaCECspxZH7
-         TrEwhTmQhunDM13iDQuxIzanP4MoBRtu6KwljaoYqS1D718u6T1aZbwPKLNFpn5EGWTS
-         Bucbt1QgYMeXbcIK+UsqsouMBVzD7yXnycOM04oMRE4vrFhhC1/jcJMZZOzbGW2KArKP
-         tAyE/Irn/ddPpTckMHMbw1kws6H1tIQFU/eWup/5LCmuZWTQHJE9WXsx4Nd1QXpdrBvH
-         pUug4MF5TIxcZ6EvPbrnZDYDneCJ9xGd/8Cf8q1z5U7wxmzSE8y2TFm7G2qUZh/CPp/N
-         XbWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783015905; x=1783620705;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wtCCML4GCtPrAf6qduQMkfSK95cYT1SxvrHR4pZoPOQ=;
-        b=fnZ48GmVcQENUwyJ+vYPtABbXpQCIah6Peb636UWO1JKahuTB4Z7PbAvmVGrdGR/A7
-         +13Igox65NEIvSdh+DqX9jZC3bcGTHiIPufmZFgBUmNekC/nlvSxTG2+pQpPJ9kawkL1
-         e/sSbQ3EMW3PwIsmMZIh6GgTWPz+jh/W3e3PBpIrfKeBb+7v+eBxAmDp3BJz5RvtXgbA
-         elw8Sj16f+3qLjFaCjic8f8uCyJf4yLEZ+xF/LqeIo4VPYLhZOgakXQ4OF6olTq2Zytg
-         5fFnOGuJjL0VGscv0Sr1C99tuyqL7de6RgI/iAPz80SYkaXrytUBBmuw5GIJmvSiQ+OJ
-         aLCg==
-X-Forwarded-Encrypted: i=1; AFNElJ++qCffc0JDIC4JAOZhW0WHH5jD74hmwBdva0q6OTEHIQKHDWbj5KFKU4TNBGLkpPwF1qWFM/03LCs/xQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7IMQdzn9oKs2+97P9MbTFjdZp7XXeN73wagJdyFCvstWwwUd9
-	yYNG4Woo5H0RYH/shq0mEVrS8BwQsDDQFMVcFs6QncHV+073rbrIztkG
-X-Gm-Gg: AfdE7cmwwwf3lnVVDBRhBRX7tQ8fKdlwp49Kjp9Y5AtcZA1xHUjx+bwkT56CKS4IodC
-	SWaNXfS1hMaaoRWlnp3IAQDlBNZMtYIYyP6ZohivVwcUfzHpOng3oUJLnY8sWiA85/aOZDatn3j
-	GyoP0+kZS18oYnZBf/vyi2WrO3wh8x1KnQeSoG3dr0bmAxfL2h+8y7gzfKtA5mR/6XhSqnkI/a2
-	ncm74MirkN8gsyFUthEddr8mdj9ZCV5oTjmVqnlNPqbpOpa7BQqnw644ynPFrpFgdSTWlfTV+EW
-	pZRqHl7KWmGXGObXphAwSBOEqwLywlY1El0WTQCto1pJE5HVU/dX+NUUNwVl0XFQzJJtf6bDPB/
-	ogtPTnkIpP+2JEEnKAVpE90BXQN6fzYok/K7dUPyb0r9h5uv7UB8OSUN3mpv+aed9IHQHvIf+C/
-	F+BFgVVLYysF5o4PYfebIrCMq8+5/TqnMG05U0MnebwRZNKlcjsLyCk1UFMYIpoVREjOYwLYw=
-X-Received: by 2002:a05:620a:3722:b0:92e:4927:1ffa with SMTP id af79cd13be357-92e7825b2d6mr905846685a.24.1783015904823;
-        Thu, 02 Jul 2026 11:11:44 -0700 (PDT)
-Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-92e80194291sm274217585a.37.2026.07.02.11.11.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 11:11:43 -0700 (PDT)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 8/8] clk: sunxi-ng: a733: Add reset lines
-Date: Thu,  2 Jul 2026 14:11:40 -0400
-Message-ID: <20260702181140.883070-1-enzo.adriano.code@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260310-a733-clk-v1-8-36b4e9b24457@pigmoral.tech>
-References: <20260310-a733-clk-v1-8-36b4e9b24457@pigmoral.tech>
+	Thu, 02 Jul 2026 18:27:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9543440A29;
+	Thu,  2 Jul 2026 18:27:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0F7C1F000E9;
+	Thu,  2 Jul 2026 18:27:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783016858;
+	bh=DeSCQ8pdGrSk9IgVsqX/etUdgJ6A9isrO5fR258BLOk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CFeduGhZbMxqkISWlGvydQ5dSYo9l+yikN4aOdsG+xSaxfXU64ILiTpR/FHjdPSFu
+	 7XHYfRvZ6nLJ/5hFHCsQWdLRTyNsEZE+WZJG7Cvbldw1ASP+Glyi+Ez3neVDGIGSFf
+	 o9hJaEzrkoOz48mG3fwx4LiLdBu15rvzxCNSQhceYZ1K0mTb3gvFv3ajonBDY5iPUw
+	 SAVRzJS1KcLLQagk+kiZJ6GWK2VPqLWOBdaUHVlM3W5ZwS5Wuk/V0yp6F4PQnIpz6R
+	 ovc3hB+8l9cGKqETdPWTL6ggCVg1mJVdQpDNkQRw77L3gpcdwyP9tw8eGiOyZcFhPP
+	 6HyGLRfcrQVbg==
+Date: Thu, 2 Jul 2026 19:27:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: linux-can@vger.kernel.org
+Cc: Naga Sureshkumar Relli <nagasuresh.relli@microchip.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Valentina.FernandezAlanis@microchip.com
+Subject: Re: [PATCH v1] net: can: mpfs_can: add Polarfire SoC MSS CAN
+Message-ID: <20260702-monitor-deodorize-26a5907b93b8@spud>
+References: <20260702-lens-constrict-6dc7d287c647@spud>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_111146_253778_CFA771C2 
-X-CRM114-Status: UNSURE (   6.80  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260702-lens-constrict-6dc7d287c647@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,41 +68,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6457487447363042025=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Junhui,
+--===============6457487447363042025==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="f2gwRrDM2wOky5yI"
+Content-Disposition: inline
 
-Same exercise for the reset map: I compared all 121 entries' offsets
-and bit positions against the public A733 User Manual V0.92. 115 match
-the manual exactly (including the multi-bit GMAC0 entry - 0x141C bits
-16/17 per section 4.1.6.212 - and RST_BUS_SYSDAP at 0x7ac, which is
-what makes the gate offset in patch 7/8 stand out).
+--f2gwRrDM2wOky5yI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The six that have no register in the public manual, in case you want
-to add provenance notes near them (as already discussed for other
-undocumented IDs in this series):
+On Thu, Jul 02, 2026 at 03:34:58PM +0100, Conor Dooley wrote:
+> From: Naga Sureshkumar Relli <nagasuresh.relli@microchip.com>
+>=20
+> The Microchip Polarfire SoC has two instances of CAN devices inside the
+> MSS block. Add driver to support this MSS CAN.
+>=20
+> Signed-off-by: Naga Sureshkumar Relli <nagasuresh.relli@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>=20
+> Hey Marc,
+> I've finally got around to sending this driver.
+>=20
+> Unfortunately the author left microchip (which is part of why sending it
+> took so long). I've done some mechanical cleanup, but left it mostly
+> functionally unchanged mainly because I lack a setup to test it
+> thoroughly were I to do so.
+> I'm hoping that what's here is by and large okay on that front, and
+> maybe that sasiko will point some stuff out if there's stuff I missed.
+> I did remove/modify some code, so hopefully I caught all the obviously
+> problematic stuff.
 
-  - RST_BUS_SPI4       { 0x0F2C, BIT(16) }
-  - RST_BUS_SGPIO      { 0x1064, BIT(16) }
-  - RST_BUS_LPC        { 0x1084, BIT(16) }
-  - RST_BUS_GMAC1      { 0x142C, BIT(16) }  [GMAC1 question]
-  - RST_BUS_GMAC1_AXI  { 0x142C, BIT(17) }  [GMAC1 question]
-  - RST_BUS_TCON_LCD2  { 0x1514, BIT(16) } - the manual documents only
-    VO0_TCONLCD0_BGR (0x1504) and VO0_TCONLCD1_BGR (0x150C); there is
-    no TCONLCD2 register set in V0.92
-
-Everything else in the reset map checks out against the manual.
-
-This analysis was done with AI assistance (Claude Code, claude-fable-5)
-and each finding was checked against the cited sources.
+Apparently there's a lot that I did not catch, given there's a wad of
+complaints from sashiko. Certainly feel free to ignore this version
+until I resolve the dozen or so things that it has raised.
 
 Thanks,
-Enzo
+Conor.
+
+>=20
+> The IP that we are using seems to lack an internal reset, so the reset
+> for the whole peripheral is used instead, and I wonder if it is
+> overeager? Doing ip link set xxx up causes a double reset, for example.
+>=20
+> There's no binding of course, because that's been upstream for quite a
+> while!
+
+--f2gwRrDM2wOky5yI
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakatlgAKCRB4tDGHoIJi
+0tW3AQDDSpv7nPtGgdoU/g6m5Uo/6OCbMr6TBlbYJ1gvDPgQ4QD/e6guV/XsRxiM
+djX8Ip8m4JVdFNe2xtl8J1ulqvbYzws=
+=R6q1
+-----END PGP SIGNATURE-----
+
+--f2gwRrDM2wOky5yI--
+
+
+--===============6457487447363042025==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6457487447363042025==--
+
