@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9891C43327
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21D4C43458
 	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 02:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,41 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W+HPVZVkXNeLvYUmXaSOGH8YK6rFc3J+SbuIavxtZRk=; b=sie/f+0QEm5MBm
-	GrTMqa2J3HzdYJ4ypK/0n42SrAKn2APWDg8uBFZvQ3kOuZJvvTJt9ex6NY5P+7fd7jyJpwzYpIpYL
-	Z2Yxe1TZki4hiOXfPAZr4taoYEy5R1Gwt+EW0NrZQxMxSRR1JuElL6UOvQLP/fsZymA4UMRYX7Qhz
-	k6U+NpTFplopPi3WkwqyMxo2mYiIxg8EzMzefLMXaAUXL/gdiTCFZdXShjyR4QFqY2U3Dweyz5f3t
-	zdFBsRRu5CMH82sVhFsEWEiJV6iI3cBsvA4zX7AVUs5MpFyo286HZlqJ1QFw939mTjetOelv9AOig
-	6tewc2BXZ21rg7GS36jw==;
+	List-Owner; bh=P83v4+pUL6Dx0SNI4qB8fYzUNJByoDhlLjzmeJ/8ZEM=; b=oDvRUiQOqyhkXE
+	RJqLKKqkLrCFCrNgOA34fT0P10Oj97yMBMcjneBF9dXf2qx1T4w8YJLzrz3J53bpJZfgTZoWNAVX5
+	zvZf4gy+kad+2dBLjLZ824YqpiqrNEZqj028mgm5tSPfWC/2jWEYvNKmIb+MH2KZIv+JMoU7B2Tc6
+	XhoqqokFxzcl40GAB4E29jLh6IT+JMapt08XrN4kRQWFkb4etjX3fBp/Q+Ls5E31yYlG+B4/rzDnU
+	hJPiqE4JsFECi8XJyk4YhMiYhLWLV5YzHjUEV/2mwVzE/gELPMcGam12Rq5Vqj4JCpvrJDtKFxC3i
+	zxzqQS36eeLkbxhG2NHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf7Du-00000003QUu-0Zj9;
-	Thu, 02 Jul 2026 02:32:18 +0000
+	id 1wf7Dk-00000003QSP-3uiI;
+	Thu, 02 Jul 2026 02:32:08 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf7Dt-00000003QUk-07LR
+	id 1wf7Dj-00000003QS7-3sXN
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 02:32:17 +0000
+	Thu, 02 Jul 2026 02:32:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C723542DD2;
-	Thu,  2 Jul 2026 02:32:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5F7A1F00A3E;
-	Thu,  2 Jul 2026 02:32:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D0AB41081;
+	Thu,  2 Jul 2026 02:32:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34FDD1F00A3A;
+	Thu,  2 Jul 2026 02:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782959536;
-	bh=emOkDmfG2STZLaSMkvxawB0ay9hEQME3tZW+Xh2U1o0=;
+	s=k20260515; t=1782959527;
+	bh=sb/AhCIO26GuC3Uw19TdrTEQzdISj6y/ZzHjKhcogZI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=F8eR/NQJbBbyOWi84JCbK67dKVIqwbSwQVy63Secmnp9j6bvny6tIEAGPxi5YTZdz
-	 h+sWl9JO+xDeBnEIWJj7NlB95s5Dw+zo8JSatzZTBC9KYVQuCGmjYI2H282YTORE+6
-	 Rf8TkiQblKyAhNGq1rdduIdEnO5t6lHil2lDcPO6VTDioJmGnSIgQ3ZNhLa+4dB4JU
-	 fJFn2QGgDfc1s65ItP5r/tpn3q/YhzpzQ83zR6v5rSBDkxauukBiiw+RkpUjQzcdT9
-	 yA3cb9vZxE3SGSQ6aHgohUuMGWcfpbhcIWv9c/zj4ezN8QhedpgzEXwS/ChtkOTct2
-	 0+SZL2+Lk418w==
+	b=KAgTIJFtWQcV2pX7SIsYmlqrUrngEY1eRY8JlDEpoRL3PXTzKjqrNNmj/CDWbny+I
+	 t4EO7Ez/pjCILmoVdfxn9Fc6Cr0+xSDl/m1F7T57P8nB/q3EAX9J+8nHDlRn4C0t3o
+	 GD3XfMUEaw0eJtjFzrnQtCDXBY9ttdV4P+kZyVv0uxR5IwPpu05ZyVcyaILdjFD2Ns
+	 r6oh4US//37Al93Xv1Cyc3H1xVWfgCnDYj9alhGmzAnBEVg3dEaPd4I6PzkeIIdM2w
+	 UnRk7b6pWeDwlj9eRGg0cWTN/jxndPXKP8Tu8MOTClboSxhSAe4GYRKN055NeJoTJm
+	 Vulu5S6jOLEbw==
 From: Yixun Lan <dlan@kernel.org>
-Date: Thu, 02 Jul 2026 02:31:37 +0000
-Subject: [PATCH 3/3] riscv: dts: spacemit: k3: Add UFS support
+Date: Thu, 02 Jul 2026 02:31:35 +0000
+Subject: [PATCH 1/3] scsi: ufs: spacemit: dt-bindings: Add UFS controller
+ for K3 SoC
 MIME-Version: 1.0
-Message-Id: <20260702-08-k3-ufs-support-v1-3-1a64a3ab128f@kernel.org>
+Message-Id: <20260702-08-k3-ufs-support-v1-1-1a64a3ab128f@kernel.org>
 References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
 In-Reply-To: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -62,22 +63,22 @@ Cc: linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1958; i=dlan@kernel.org;
- h=from:subject:message-id; bh=umn98I1DXmAMjrQ1TLwM14+BWqYWOVozRg/TMara5lQ=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqRc2awHZ2ozwoZE1YwXu2hLobFcHw29ROvi3BP
- BgYHyjrBXOJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCakXNmhsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2140; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=0DzLo9kHtCEbIpdfvRxJ5ac/4r14M0Je4bo1/GIYVLA=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqRc2TH4Ck36sb3GRMfq03yztUSfJqX2AvqJ8Gu
+ 9bTSZndsLmJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCakXNkxsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1dog//VswC+e+1V9gsErZaaIJb00liG5Li36yDIYzoVmd1oJ1/OwFI1iYEA
- fjS2uXEjkXQckX5WjxVVPjade78H0kpKk/0fCEMby5/d9l5jMXFIB3g/uzwIfFXzWRG4BUsHiCJ
- +Xzt/bNWmGeSNYmhbb/5KAmfK4loF+zOfJOCQcBiCHYCDQ1Sf79dIcTs7Qx9z9+Im2f0Vii45h2
- stnoYIgO5nqF58lai2HHnAAqRWQWkDoy0dg+f0xEmsvte+FZAkfcX1osMBcdO3IAKnPTJHSntlA
- zb69/+JXa+d8gVR98P0RZE8wJ87qY6uU+Z4oVOwx8B+/vHN4jzglmvwsQdtXUBHRTPsI7+r2mLZ
- TNsYPFGHsjqEE+p8bXfUI6T2/fuET1aEhDyD4AmAlkUpJcqjHMEMSfQDObNlk07XFpwxuCG231D
- fM0DaH8x+8z1fbL89K8YblIq+w5LTdEE/bZodwlo7oNHfjn8TTukeZrkx9GYsPGAZwnLp9Hb4gq
- pAVzB11apYEQF7n2XzpMfHuq6JyaEGoD5iVSLCNBGvV3gx7WbwNLHqQF4lg9SD+dcqV8qNobVzG
- a2/qdT60NoJaKr7ZWDyTEa8A2KK1AQlD3Z7ywtSDxwEIxwCn/6mUel5O+GTDM+Er7FT07YFMJ1Z
- YakhxHWtKm7cE+ppgYOMbePsvqUWcw=
+ QACgkQMarqR1lNu+0dxw//fyiur2eAIQj69Agy5fKb6dT0gIdaXdpXgYpikCxfBpM10XUxQJ5wh
+ FsIFTdBVIu6ZDCQe7Qc7/W3pEd7O4pd3OivsRfK1KQT2S3Rem0GkqNzS9oH0I4WS/w4BhxehWaf
+ 3ZoY+TBSPBTv57gcfFozHECiGuDM6QIK9qdZGoYQJx7VQ7EW/7oIUR76wSdlslKNnG0cPzFEaiM
+ NPun2NKrwPjSVOZVYbYGio0lsdTy3iRiWa8rpKqg3j5dElRNlJy47RU3WoaeaR9jwW1IuZFy1AU
+ V4uw96kww0c+3RBfG57n5V6n+QhY4Z/0sJYK7tp1FVybV7bon7I/fdTkR+9fD6zHFGLcm8BxgIV
+ +gfyM5wfBYyIHtbuUvTZc02cQp/Fgts76Ad5bHAxskSsV9YO8TNLipuEETrYV54+dVlQbKHXQoB
+ URJIziqoRCR16Z7IWZfrZm/Ngd6FypuCFHAuJHMSBInkRQVKTZT0jCJIhBy+2b8bWSvEm8rg+Kf
+ R1uSCfCaorHJ0csOz/I0M1WrefaVTtqfR542HCG9FrWSLXH6e9l2598khFJgnB2eptYGjw9CR8g
+ ptdfUNNLWvO8sW68HEmGlcV6RKDpU1gVlSxnEB0gYVfw8x57TcHgFrxwG6TfLLfma9rSz4UF81m
+ S9LWNbyITj4dpAGjRAMN97HrR+ujOc=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -96,63 +97,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add UFS Host Controller support for SpacemiT K3 SoC, and enable
-it both on both Pico-ITX and CoM260-IFX boards.
+Document the compatible for UFS (Universal Flash Storage) Host Controller
+which found in SpacemiT K3 SoC chip. Its features are listed below:
+
+- Compliant with MIPI UniPro v1.61 specification.
+- Compliant with M-PHY v3.0 specification.
+- Compliant with UFS HCI v2.1 specification.
+- Supports up to 2 Tx and 2 Rx lanes, up to HS-GEAR3 5.8 Gbps per lane.
+- Supports standard low-power hibernate to reduce power consumption.
 
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts |  4 ++++
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts   |  4 ++++
- arch/riscv/boot/dts/spacemit/k3.dtsi           | 13 +++++++++++++
- 3 files changed, 21 insertions(+)
+ .../devicetree/bindings/ufs/spacemit,k3-ufshc.yaml | 54 ++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-index 238bb03d0e9e..b37e1c7b03e3 100644
---- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-@@ -19,3 +19,7 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- };
+diff --git a/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml b/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml
+new file mode 100644
+index 000000000000..e6cb6fb2496c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/ufs/spacemit,k3-ufshc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+&ufshc {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index b89c1521e664..f1560a5a9031 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -221,3 +221,7 @@ hub@1 {
- &usb2_phy {
- 	status = "okay";
- };
++title: SpacemiT K3 SoC UFS Host Controller
 +
-+&ufshc {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-index 19fc9b49668e..6c0b0598d5c8 100644
---- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-@@ -1186,5 +1186,18 @@ maplic: interrupt-controller@f1800000 {
- 			riscv,num-sources = <512>;
- 			status = "reserved";
- 		};
++maintainers:
++  - Yixun Lan <dlan@kernel.org>
 +
-+		ufshc: ufshc@c0e00000 {
-+			compatible = "spacemit,k3-ufshc";
-+			reg = <0x0 0xc0e00000 0x0 0x40000>;
-+			clocks = <&syscon_apmu CLK_APMU_UFS_ACLK>,
-+				 <&syscon_apmu CLK_APMU_UFS_REFCLK>;
-+			clock-names = "aclk", "ref_clk";
-+			resets = <&syscon_apmu RESET_APMU_UFS_ACLK>;
-+			interrupts = <135 IRQ_TYPE_LEVEL_HIGH>;
-+			freq-table-hz = <491520000 491520000 19200000 19200000>;
-+			lanes-per-direction = <2>;
-+			status = "disabled";
-+		};
- 	};
- };
++properties:
++  compatible:
++    const: spacemit,k3-ufshc
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: aclk
++      - const: ref_clk
++
++  resets:
++    maxItems: 1
++
++required:
++  - reg
++  - clocks
++  - clock-names
++  - resets
++
++allOf:
++  - $ref: ufs-common.yaml
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k3-clocks.h>
++    #include <dt-bindings/reset/spacemit,k3-resets.h>
++    ufs@c0e00000 {
++        compatible = "spacemit,k3-ufshc";
++        reg = <0xc0e00000 0x40000>;
++        clocks = <&syscon_apmu CLK_APMU_UFS_ACLK>,
++        <&syscon_apmu CLK_APMU_UFS_REFCLK>;
++        clock-names = "aclk", "ref_clk";
++        resets = <&syscon_apmu RESET_APMU_UFS_ACLK>;
++        freq-table-hz = <491520000 491520000 19200000 19200000>;
++        lanes-per-direction = <2>;
++    };
 
 -- 
 2.54.0
