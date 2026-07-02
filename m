@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E47C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 15:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DEEDC43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 15:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fu51ccGKwF3LXbkHS5RvkCx6KPvdrwkK0FI/lhrZ3O4=; b=muV9Uri65MHimb
-	05NUB22zts/uKCkOfT+zzxH0lxN4dn9ZDji65OPhhlX/DnYFsXp72693uS6Ub1kyqbJWRuUgNNaaP
-	A9aRr0gntJ0YGjsiFh8yYde6GKlpwIQzJxYWNkueG0ue6HA/AGQbq53ceUjnjL49/zpAFjTQ5jTD+
-	F/Z1GLgBblG2wfAfzpVNk4bwcDwrPxd7uYQOouhZcGfs5ENEjJFcLA36Krx+cYJjdo/T2sf9FRbSb
-	Nhzb3pLdf5rY5Y2suQm/EKjM5KPZ6rATV+fJrgDdHYG3xtdSm1ZGZpuuaighF6CKnDzEkFImjuY7T
-	R4pVlevd8ZvfgG7V8dFw==;
+	List-Owner; bh=F0QVp5Bi7We3fJF0gAJrBzS8tf00Ew976X010rgCTQw=; b=EmX4gb7JoVqlkv
+	sWXRxxcUW3hqk2Ql9Mq3du/yjJdUSbZrHOr0pNguVU81RryeFS2QiFk0qZVu6QWQsEJ8d7pv4k9Ms
+	ZWqRtEp4imH9KW2ok7f/g3MJs4o18Bf1D/0IbtHatYk7LY+aWP3xtbn12fWV3lhLzgN3ouonyO6C7
+	8Ig3jyGDxSHqSyB6ilsLGZMEYeB/wD7oEj55WHw9nyukCTLPluUWCp8beMqmL6mLtiz2Iazsf4t8M
+	FHbJqfbSrmVsmkIfQXAaHoTu8NIBrr5+VKhVzO7NDYRQz1sYg8CY+Ei5kh6OS1UhbhATg588RMK52
+	nxY5SXoj8yZJnnUTSHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJ5B-00000004ld1-2Pvl;
-	Thu, 02 Jul 2026 15:12:05 +0000
-Received: from mail-oa2-x00.google.com ([2607:f8b0:4864:30::])
+	id 1wfJ5K-00000004lfw-3Mo8;
+	Thu, 02 Jul 2026 15:12:14 +0000
+Received: from mail-oo2-x05.google.com ([2607:f8b0:4864:31::5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJ58-00000004lcW-23fH
+	id 1wfJ5H-00000004lei-2NRT
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 15:12:03 +0000
-Received: by mail-oa2-x00.google.com with SMTP id 586e51a60fabf-44a8a4a2888so535507fac.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 08:12:02 -0700 (PDT)
+	Thu, 02 Jul 2026 15:12:12 +0000
+Received: by mail-oo2-x05.google.com with SMTP id 006d021491bc7-6a317229906so102209eaf.0
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 08:12:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783005122; x=1783609922; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783005130; x=1783609930; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P9ly6ZTzLYLZx8yS4TUkxxmSHINnr8BKtUdkBSO+x1w=;
-        b=LQOMnqKjkvxfDCG9iIZdx8IP7N9uUt0HDok4tSGY1fAaTlRzYQDtmQ/UvgTEZbhnic
-         1n3O6ca3/iKQFh22vN7/Aq1gzrQVU7JGxNWR2qVK20zBqwnK2NLY78cFB3Gf6JVTz+95
-         35QBZqAOFeh/PUg4hv8zMnoIAqrjQY6X87XUNdPw8nWQ11tWhJ2sK7R457yAjOchYQ9D
-         X4AMPLZ3OBBG7rL6+G5cDWu7bgUHamWm9DPrHQD9Oh34hqF388My+XKwTfCSUuwh8RDW
-         juglIGDMj26qk0qh2L6uYLXiF/dzo+ojRuYxF1H8xvemYDqhFR7Z59x8bPfamcvn7GOu
-         JDCQ==
+         :message-id:reply-to:content-type;
+        bh=EUdfn0E+HkL5zwEpZVP9/C/NdRDvTd2wtK5Vkg7/59k=;
+        b=CX1mQMJUwXLggJbJDOYAYhZE9Sk0PJ+xQdpiI/5LkK1NYdJdPmDG0DcOl6L6kN212e
+         Uzld0jP73bXRaQxFAq8qTTukYjns2nHVr3rZbHdIabssjxGKTsrGe1z8BjhQu4y9UVYb
+         Le9eZGYZ7a/1tW0PCFBY7cg9fcr+R7tCRDSsO9d1RTYymVJGZxYV91SGHUIzh7H5PPvG
+         yKWXw8lv0xgFxE7a41HX1jRXls8af9XTCxMaVvFmgZ6qcPe541/4ZIkTaAtUrPd9U2vj
+         SGDyPYryepjorDI9QMAp+M1nlrlHgRxSvVpowKBz7CLnVcGDrMneE6wmaJCe3pyMb59L
+         UKhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783005122; x=1783609922;
+        d=1e100.net; s=20251104; t=1783005130; x=1783609930;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=P9ly6ZTzLYLZx8yS4TUkxxmSHINnr8BKtUdkBSO+x1w=;
-        b=VgmwxfskBuHE/d1PsSIWHh60AWtJ7WXsCQVenWMOXuYFK+CJwZdoVnlelASa8zKLED
-         v2sxnaO2vyCcrJF3EY3Ci/Sn409hJbhcQFTEZ5sMQ2s8aHOEycjLbBRjPwcGK62ZYFB8
-         yC4M6l4OGljOrK4jCcDfzsCk2p94rUtEx3lJYf+L7aTeQ1MJ/kaUWrWEx3TZ+QIuRtnv
-         mmqHyKmJQxXxpc8NWby+gNXOx0a4xtpivbduxu3ROAdRFKwHOeI2Y9eVi0gx+dbgjpMi
-         g0nX0OP/JEcV8zkrA4rH+SdDsw/PX791hAMzc+rMv5YswRzjh4E8e+dMhTd3El32hWcy
-         LLoA==
-X-Forwarded-Encrypted: i=1; AHgh+Rrby6FM+bTb3kwUAOBemD6oFHE4gN3ha4OAOaRcOVcJQYV9kaNxapSW6wRZMqTX9vylwoUSxB7jW8oSlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/ddw3joHH8KcwXF2T85EZHQemdoNwvLiS+WBRB8trtmr2KgYD
-	9utV3HrgWp7IgT0inTAdak5wjkOBE/ryIt8sdbW9tld1hf9OFHAA8lTk
-X-Gm-Gg: AfdE7cnylAbTAZ+BkxGoNOidF+zWVxj8GsnT1uf+LCkT34+amriHvYJsX/ciZwBhx8T
-	LPTsQufioGb3KHUZIEX2S9Vi9aGw1STc2RxsoeKG4DYEaA6W/9g6djwB+SC/tmjeqd113RqaJev
-	r7zEbOwPX7sXQJsvFSO2K+lb2FW8m1v4WqjpKpYh8FEerW0FTx3CxIOPzp1v018VlZU6Eyp/dyU
-	3NbeD5LultjX1TyjZMqCv5/SI3m5PySgVNHd4haln6bl0Z3o5JBYaEwaJ+PKf0wV/r9CUccuKzH
-	GEedTrPdzMcigai97Ggo/9EflHaCxiPDYwCfOhtxB8m5zOYVsBj7gardawxJREcyIuzANuiAGUY
-	bPWFf6h2JzNHRPVwAlCynnGzxFGjct3n10QoU/UbCV5D8c4pWJruAm/hg8+1xMSyK8jT5eKSFMV
-	dn0UAktE1KVT8AP4wITtGvrfS3ii/m8PE5omDTkm3Oe/adiywz5CHLRLo=
-X-Received: by 2002:a05:6870:7055:20b0:43d:31dc:a6e2 with SMTP id 586e51a60fabf-44cad5682a5mr3142542fac.24.1783005121718;
-        Thu, 02 Jul 2026 08:12:01 -0700 (PDT)
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EUdfn0E+HkL5zwEpZVP9/C/NdRDvTd2wtK5Vkg7/59k=;
+        b=RKR30URoola6U9yodjds+P2dSztuzn8PHNLtNCYnmdgPmSqtIvGDn7FmMuT/zEZhbW
+         a5wHFmIa/AOWAsQl0lefPXVJvxH1+k8J0xQ1tYtRQYQgq/NfMPExhYOCGcuSd/IV1rh/
+         3C7E7ehJi3P5kDnL0vRflqPupiOG2RS52+G5gMuh7HAMIbGUZVVO0seFjX6o4oSqpCKd
+         rafEVHZXdHb/l2/OykUi34tpUxRlHTVXkYWzeaYib6fS7jZYPvgeq4z0zfbpTZv2Zrl4
+         hv8JiREIJKRH0O42qxhYibSZU8wmN2ZcmpiFtBZJT/rBgl4qZWVXa9UAUadKS2qC1W9T
+         Mg3Q==
+X-Forwarded-Encrypted: i=1; AFNElJ92IRSTHPswkkZGjlc2MUhrWGB4SlGuE1V+qvLotdooXFJU50TldgBNt05+KIC8DQvuyTUIFBnc0Om1Aw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu7zWAiploml1dpiOy5KUMCtIdKHnfL8OgFfGMOxDFE/5DF83s
+	RaWxioRNPcN+6c7Oo7ZGCphaBYKK5lpAXF47DyHkSmzPAucPs22K9HpY
+X-Gm-Gg: AfdE7cldhgkbyIRdzIx7Dw4L5slg/laVcnSn2HuR5rr3FdzxtSgi0B5ltYk9Lid0mH+
+	Ryz6PSkFzzeZYeRq4TgTj3hbxNcymGOFot/KB7EuRPkmAI+rL5nLV13jFruBHjA4w3gL9gyrLwU
+	mmyoGFDoww34kGzsOmzwimpPo/qnJm5sEvvA/lC4sOVHL/ccLOnVngrQRDQomaqzBRmpo7BeePV
+	gD8YLc/VVZJkuv8BHFwjV4oRCbatTNpx8rDAZDhTZTudAafLltL0DUQsUuCjq1TDRbCcqsRScsC
+	mLG32XtBnm9ZRb/5RWf/f6dwbssYdSEg8ed0lV2vtfsDsFLqsXz3jmxauaxABXrl9CVWn1qYOrf
+	th5kalMNBWb+5Jyf/720ilX5t5umA3pEl1ZQEzyGGhsCsafwOO7yNTuNscyMPJOuPThFfMjDbJp
+	VI4VJJGOEgYXHSvIr8Pnz4qkOsq0wNcJzLUUp2+cKrb8eks2ChXEPINJI=
+X-Received: by 2002:a05:6820:2903:b0:69e:98c0:a9c with SMTP id 006d021491bc7-6a30d747a2cmr3407719eaf.11.1783005130487;
+        Thu, 02 Jul 2026 08:12:10 -0700 (PDT)
 Received: from ubuntu24.. (dsl092-249-254.sfo4.dsl.speakeasy.net. [66.92.249.254])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-44cbec9a113sm3094561fac.9.2026.07.02.08.11.56
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-44cbec9a113sm3094561fac.9.2026.07.02.08.12.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 08:12:01 -0700 (PDT)
+        Thu, 02 Jul 2026 08:12:10 -0700 (PDT)
 From: Xing Loong <xing.xl.loong@gmail.com>
 To: Jens Wiklander <jenswi@kernel.org>
 Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -80,18 +80,17 @@ Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Xing Loong <xing.xl.loong@gmail.com>
-Subject: [PATCH v2 1/3] dt-bindings: vendor-prefixes: add mbedtee
-Date: Thu,  2 Jul 2026 23:11:13 +0800
-Message-ID: <20260702151115.544016-2-xing.xl.loong@gmail.com>
+Subject: [PATCH v2 2/3] dt-bindings: firmware: add mbedtee,tee binding
+Date: Thu,  2 Jul 2026 23:11:14 +0800
+Message-ID: <20260702151115.544016-3-xing.xl.loong@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260702151115.544016-1-xing.xl.loong@gmail.com>
 References: <20260701132514.186953-1-xing.xl.loong@gmail.com>
  <20260702151115.544016-1-xing.xl.loong@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_081202_526708_FAD65C95 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260702_081211_617261_CB513E5B 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,27 +107,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Register the "mbedtee" vendor prefix for the MbedTEE Trusted
-Execution Environment project (https://github.com/mbedtee).
+MbedTEE is a Trusted Execution Environment for embedded
+systems (https://github.com/mbedtee). It communicates with
+the REE via shared-memory ring buffers using a fixed RPC
+protocol. Two platform configurations are supported:
+
+  - ARM/AArch64 (TrustZone, SMC): two reserved-memory
+    regions (t2r-ring and t2r-shm) plus a GIC SPI edge
+    interrupt for TEE-to-REE notifications.
+  - RISC-V (IMSIC): three reserved-memory regions, adding
+    r2t-ring for REE-to-TEE command submissions; no
+    interrupts property (T2R notifications use IMSIC MSI
+    allocated at runtime).
 
 Signed-off-by: Xing Loong <xing.xl.loong@gmail.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v2:
+- Fix DT binding review comments from Krzysztof Kozlowski:
+  - Drop $nodename, "YAML devicetree binding" wording, property descriptions
+  - Rename compatible string to mbedtee,tee
+  - Rename memory regions: rpc-t2r-ring -> t2r-ring, rpc-t2r-shm -> t2r-shm,
+    rpc-r2t-ring -> r2t-ring
+  - Add memory-region / memory-region-names to required
+  - Simplify allOf constraints (drop redundant else-branch items)
+  - Rewrite description to describe hardware/firmware, not the binding or driver
+  - Drop all irrelevant platform nodes (gic, cpus, reserved-memory
+    containers, reg addresses, riscv wrapper); the ARM example now
+    uses bare interrupts (matching arm,sbsa-gwdt.yaml precedent)
+    with only phandle-required stubs (imsic, t2r-ring, r2t-ring)
+  - Add maxItems: 1 constraint to interrupts property (Sashiko AI review)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 28784d6..fd032a3 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1011,6 +1011,8 @@ patternProperties:
-     description: Maxtor Corporation
-   "^mayqueen,.*":
-     description: Mayqueen Technologies Ltd.
-+  "^mbedtee,.*":
-+    description: MbedTEE Trusted Execution Environment project
-   "^mbvl,.*":
-     description: Mobiveil Inc.
-   "^mcube,.*":
+---
+
+ .../bindings/firmware/mbedtee,tee.yaml        | 132 ++++++++++++++++++
+ 1 file changed, 132 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml
+
+diff --git a/Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml b/Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml
+new file mode 100644
+index 0000000..62f2522
+--- /dev/null
++++ b/Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml
+@@ -0,0 +1,132 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/firmware/mbedtee,tee.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MbedTEE Trusted Execution Environment
++
++maintainers:
++  - Xing Loong <xing.xl.loong@gmail.com>
++
++description: |
++  MbedTEE is a Trusted Execution Environment for embedded systems.
++  It communicates with the REE (Linux) via shared-memory ring
++  buffers using a fixed RPC protocol.
++
++  The REE and TEE CPUs sharing the RPC memory must be in a
++  hardware-coherent domain (same CPU cluster, coherent caches).
++
++  Two or three reserved-memory regions are required:
++
++    t2r-ring  ring buffer for TEE-to-REE notifications (all platforms)
++    t2r-shm   shared memory for TEE-to-REE RPC payloads (all platforms)
++    r2t-ring  ring buffer for REE-to-TEE command submissions (RISC-V only)
++
++  On ARM/AArch64 the TEE is invoked via SMC and signals the REE via
++  a GIC SPI edge interrupt.
++
++  On RISC-V the TEE signals the REE via IMSIC MSI; the REE submits
++  commands via r2t-ring that the TEE polls. No REE-to-TEE interrupt
++  is used. No SBI ecall is involved.
++
++properties:
++  compatible:
++    const: mbedtee,tee
++
++  interrupts:
++    maxItems: 1
++
++  msi-parent:
++    maxItems: 1
++
++  memory-region:
++    minItems: 2
++    maxItems: 3
++    # Minimum across platforms (ARM: 2, RISC-V: 3), constrained by allOf below
++
++  memory-region-names:
++    minItems: 2
++    maxItems: 3
++    items:
++      enum:
++        - t2r-ring
++        - t2r-shm
++        - r2t-ring
++
++required:
++  - compatible
++  - memory-region
++  - memory-region-names
++
++allOf:
++  - if:
++      required:
++        - interrupts
++    then:
++      required:
++        - interrupts
++      properties:
++        msi-parent: false
++        memory-region:
++          maxItems: 2
++        memory-region-names:
++          items:
++            - const: t2r-ring
++            - const: t2r-shm
++    else:
++      required:
++        - msi-parent
++      properties:
++        memory-region:
++          minItems: 3
++        memory-region-names:
++          items:
++            - const: t2r-ring
++            - const: t2r-shm
++            - const: r2t-ring
++
++additionalProperties: false
++
++examples:
++  - |
++    /* ARM TrustZone (SMC) */
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    firmware {
++      mbedtee {
++        compatible = "mbedtee,tee";
++        interrupts = <GIC_SPI 72 IRQ_TYPE_EDGE_RISING>;
++        memory-region = <&mbedtee_t2r_ring>, <&mbedtee_t2r_shm>;
++        memory-region-names = "t2r-ring", "t2r-shm";
++      };
++    };
++
++    /* memory-region phandle targets */
++    mbedtee_t2r_ring: t2r-ring {};
++    mbedtee_t2r_shm: t2r-shm {};
++
++  - |
++    /* RISC-V IMSIC (ring-buffer polling REE->TEE, MSI TEE->REE) */
++
++    firmware {
++      mbedtee {
++        compatible = "mbedtee,tee";
++        msi-parent = <&imsic>;
++        memory-region = <&rv_t2r_ring>, <&rv_t2r_shm>,
++                        <&rv_r2t_ring>;
++        memory-region-names = "t2r-ring", "t2r-shm",
++                              "r2t-ring";
++      };
++    };
++
++    /* msi-parent phandle target */
++    imsic: imsic {
++      msi-controller;
++      #msi-cells = <0>;
++    };
++
++    /* memory-region phandle targets */
++    rv_t2r_ring: t2r-ring {};
++    rv_t2r_shm: t2r-shm {};
++    rv_r2t_ring: r2t-ring {};
 -- 
 2.43.0
 
