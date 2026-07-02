@@ -4,71 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AC1C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 09:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A13C43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 09:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ejTKL+QoSMn0Z1WcK9tONKkujfKP+daf8MdwGvBB1E0=; b=vjSZNaZ7amkyHR
-	RG68biEQG5lyvcnSY2A0kHqsRIAaAcFdktzXaZCdaTY8G2df00eRevU5wN1H9ZACDL53vcKeqYFmd
-	orwZ4Rin9ja1b8H+a//Ayc8ZynB9/g6POFl+0+Cwi4Q22GFxKB1tgEMf/ZVcW+DxNs9uwmqn/4YsN
-	tT7kV47yIEyYF5PPA67d2hBc4GdrDvq0ZHdU/0NwX8peXggT7YOjpn1V6Hdlz3FZmthaFlJ8K4V3n
-	NWA3KcjHhlF2QIjG0WZq9yr7TKYymmIc4l3l4RhowlBSmVDyH8MYk+Zw9/iEHRsPuHn7sckprRd4a
-	vppfMuVaDzlr+hvNysIg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=aETlptrKsJNibfw8xaeSl/1tSPUXnqQR0BiG4DzgVjU=; b=yUrBu9af9LjR5tVemBD+4TZ9xj
+	J+GdIm8ONWI/XaVV/U7cVWO9BaRvhdpq3wEMu4Mu1o/qhVP93IygbriXgjTRZr5qYUQIqhpxNDCN9
+	09nTppKaBmiZqFfyhX+pLW+1CgTKEs7/ZFBG6DqCv2Ss7FVuEZZQsxi99GxoeBUwly1UwvoMq563h
+	/OkMKOHS33gmZzu8w9Stj+UIRjd7Un+GGfVa1+r1M3oLmfVHxQ4kJBTX3x7rv7UHDNY5GI8mclfV6
+	iDHUkjpOuaOSPfvz+Zw9mAH6eQMc5zc4AYTr/QpglMQ9o0qa+JVJFrbgM8YnirjExjKjwktPxBpPY
+	zw1CVcRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDsR-0000000445S-1jkH;
-	Thu, 02 Jul 2026 09:38:35 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wfDye-000000045AW-2wuQ;
+	Thu, 02 Jul 2026 09:45:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDsO-000000043zh-0oMk
+	id 1wfDyd-0000000459l-28Fp
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 09:38:33 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782985108;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=le1pY0cZzch4KB3xevM5B8Vs1Omxe5BuEZ41Xr3LB1w=;
-	b=k2JsrNzjKN9sdTwU1KQIhBcQnL37+Bgh58nrQhF8Zs4QOklPCoMMWd5wUu9O70RzDYqB41
-	SMX/N7HYsPQawlZKev4fiKNSwoxOPujo0EmrMcm3VJHoxxQMAu3m7+6GPJACNq7hZBeGqc
-	lgV4dI3h3S5lhzLlUR6FNZ1WQooO80fdSj1P5d/kbEpdcSKAjG5tYlqDG9CxLkKT19oSiq
-	1lkgyS4G+ly5PRw6vOIPLJqPZZRUVWJ8UOwiYAYZ3J09rh6NwePVQ1jSP43H8Ys6+eeMO+
-	AE1x1/04fsPAE+cOhXkNktBJ+l2oMsRxNQAa3RPK8hyz6M4UXwz2UsOicVbS2A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782985108;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=le1pY0cZzch4KB3xevM5B8Vs1Omxe5BuEZ41Xr3LB1w=;
-	b=HGS1HUgcxEI0vVmM7UnXSpfhK8UD0pyk0iOseX5a5RKfDvA+OAq4MfG3jIBNb+zCS35nSg
-	67Zx1WG+/SO5nyDg==
-To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Nathan
- Chancellor <nathan@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
- Wende Tan <twd2.me@gmail.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Thomas =?utf-8?Q?Wei=C3=9Fschuh?=
- <thomas.weissschuh@linutronix.de>, kernel test robot <lkp@intel.com>,
- stable@vger.kernel.org
-Subject: Re: [PATCH 0/2] riscv: vdso: Do not use LTO for the vDSO
-In-Reply-To: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de>
-References: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de>
-Date: Thu, 02 Jul 2026 11:38:26 +0200
-Message-ID: <87bjcpu3xp.fsf@yellow.woof>
+	Thu, 02 Jul 2026 09:44:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 83E6560120
+	for <linux-riscv@lists.infradead.org>; Thu,  2 Jul 2026 09:44:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3030E1F00A3D
+	for <linux-riscv@lists.infradead.org>; Thu,  2 Jul 2026 09:44:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782985498;
+	bh=ECZSUW9hSj34SFz4G8bfbFkApIByTwPPDgQgHBlg2lY=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=CM1pHfbLgxMYkSotRohphHAwfHiS2Jq6WgdNtLNVx9uS9WhtbtNpBou5sFbv3Zfbs
+	 t4EYEkBRrQ2RPOdC3sKXIYU/bXdz1i/2PmuYsFxoCMwyYQGcvrEq342mZyLtAsgOpG
+	 w/sfT7k5FjdRPizXj5j9sXzzoLSxaH4bXp0ZuISOJV1Aj9GCea4PDHBExCwb2cLFYk
+	 vD2m1iI2wTjiyqshwUVGQuj011ZBWZgfKMQS8l8tVqa50gCgevokuKhUvpXzlG1EZ+
+	 4tnuwDISjYXV/puQzCG1Qd5pr3KEdBJbwvMtN8gpQX6Ik/85EwSf3YqBWFGGYzSx4P
+	 2QjvHhzDq8Dhw==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-39b26e2ad5eso15192171fa.0
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 02:44:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqHn/D4hi1OePDBrM3lfU2yR+qJfeNHHX2sQG3m9YC3Yy4xmMsztwBqCIgawz6sJhNyz4JYFH1v9FKL/g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbEPOrA9k1QohP33yHoid060ObZOmbjZDeL99vIBdD+2lC144W
+	o/LX3dAjShn7JPwX/030xJDyIV3EGNikSs8F1lsqPpsyqU407vHTfuTSrNr2FkQ9KBJCcZSqkKi
+	9CtSo9M0bbkQfD8bLwl7ukJxPLVjRdv44LeIy2DsAWA==
+X-Received: by 2002:a05:651c:2129:b0:39b:128e:ae5d with SMTP id
+ 38308e7fff4ca-39b36e539cdmr10506381fa.9.1782985496830; Thu, 02 Jul 2026
+ 02:44:56 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 2 Jul 2026 04:44:55 -0500
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 2 Jul 2026 04:44:55 -0500
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_023832_376195_14071723 
-X-CRM114-Status: UNSURE (   4.39  )
-X-CRM114-Notice: Please train this message.
+References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
+ <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
+ <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
+ <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
+ <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+ <akOZFIowVvprnAMf@vaman> <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
+ <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
+Date: Thu, 2 Jul 2026 04:44:55 -0500
+X-Gmail-Original-Message-ID: <CAMRc=MfwB_51OLjX_19eagZ1m3UUM2iHny5rx6besR6+Np_A0g@mail.gmail.com>
+X-Gm-Features: AVVi8Cfm4QcPsY-kBu80DyHJVbYDW8Jkdy81l2_sPTIAALqyBLBgGUF_GjAGTTs
+Message-ID: <CAMRc=MfwB_51OLjX_19eagZ1m3UUM2iHny5rx6besR6+Np_A0g@mail.gmail.com>
+Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
+ PHY on sa8255p
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, Radu Rendec <rrendec@redhat.com>, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
+	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +109,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0cm9uaXguZGU+IHdyaXRl
-czoKPiBXaXRoIExUTyBlbmFibGVkIHRoZSBjb21waWxlciBhc3N1bWVzIHRoYXQgdGhlIHZEU08g
-ZnVuY3Rpb25zIGFyZSBub3QKPiB1c2VkIGFuZCBvcHRpbWl6ZXMgdGhlbSBhd2F5IGNvbXBsZXRl
-bHkuCj4KPiBEaXNhYmxlIExUTyBmb3IgdGhlIHZEU08sIGFzIHRoZXNlIGZ1bmN0aW9ucyBhcmUg
-aGFuZC1vcHRpbWl6ZWQgYW55d2F5cy4KPgo+IFNpZ25lZC1vZmYtYnk6IFRob21hcyBXZWnDn3Nj
-aHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPgoKUmV2aWV3ZWQtYnk6IE5hbSBD
-YW8gPG5hbWNhb0BsaW51dHJvbml4LmRlPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Thu, 2 Jul 2026 11:16:22 +0200, Geert Uytterhoeven
+<geert@linux-m68k.org> said:
+> Hi Bartosz,
+>
+> On Thu, 2 Jul 2026 at 11:12, Bartosz Golaszewski <brgl@kernel.org> wrote:
+>> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
+>> > On 29-06-26, 16:51, Geert Uytterhoeven wrote:
+>> >> > Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
+>> >> > driver instead of the MAC driver where it was previously. Instead of cramming
+>> >> > both HLOS and firmware handling into the same driver, I figured it makes more
+>> >> > sense to have a dedicated, cleaner driver as the two share very little code (if
+>> >> > any).
+>> >>
+>> >> I think you are mixing up DT bindings and driver implementation?
+>> >
+>> > Should the bindings change if we have different driver and firmware
+>> > implementations? Isn't binding supposed to be agnostic of
+>> > implementations..?
+>>
+>> I've thought about it some more and I believe this question is philosophical in
+>> nature.
+>>
+>> sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
+>> the same Lemans Ride board and it becomes one or the other. Yet they are not
+>> described by the same DTS and the bindings differ as well. I don't see why we
+>> wouldn't allow the same approach for the this PHY.
+>>
+>> We treat it as different HW variant when it's managed by firmware - just like
+>> we do with the rest of the SoC.
+>
+> DT describes hardware, not software policy.
+>
+
+I'll defer to DT maintainers then for that particular case because it affects
+more than just this platform. For instance: Qualcomm Nord[1] is already being
+upstreamed with a similar split into common parts and then sources specific to
+the SCMI and non-SCMI variants - even though it's the same SoC.
+
+Bartosz
+
+[1] https://lore.kernel.org/all/20260526051300.1669201-1-shengchao.guo@oss.qualcomm.com/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
