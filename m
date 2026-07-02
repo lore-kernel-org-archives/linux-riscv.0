@@ -4,107 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30BBC43327
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 17:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914A8C43327
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 17:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gJfyI5lDpDMWDnzEGvMOMnYSxI0Iz67STTfZe60/Ziw=; b=O+L3apBHip+Nug
-	D7Z2VzTWyE9g+ghkFSjQQTPh8er40JxicjRUK4ZOcBefpJ/MiBXh0xefUKdTEx/hvC5vfFnEBjxDH
-	oQl8XULSHlxBcX7GnCxeW2SpeznD2/lyX74fT6OmVzMuvH8kpPSPX6n9AJqCXeq0zaQIy781UAu+L
-	+K6y1qK70gsYLFkAOCx2LTn4K8j0uCzUpKvuirsnAZXw8rX0DtPtUvoUsFtxZ0psfYI0S+Ko65Ykb
-	x3fh368H6EUdz219s3esjUXaX7+QsbTAbWiyQDZYaOECXfR1P6sA4tAXYS83eGeok85Tm3dsPapOI
-	1pED8RWPfWzPDBobeArQ==;
+	List-Owner; bh=Ew6NOwwBtY7RtiDLfvFTXZ+ZgIwBavTxndfRG+8JuR8=; b=Z0ZLx0BRdESO7X
+	1ryERXUQwb3QcHWQKwGRgFoz+E/eK69hqx31fqLj/lvCp+d0MGoLnoisibofQnxFy/nReOixATWTk
+	3P9QMwQUDbBx4gPHQXTJS3nSojQrYfbquQwttZyuj+uZKkFOJhQZJWMfHmSCa8OIJS8V7L/MWDkro
+	pV5pZUAeo2Z51NOc0YlapqwhonRnOvROQFCKpEuj73PDNXgZ4XX3CXgPiRQlQyJZtc2BLOBhfbtX6
+	i7gw5rht3ga3qiDcVxEEoYUnsQ+Fpn7KUuNjf8YPVY1pHK92voYM4h5PeGeZFmBZIDMugQ//ykrnT
+	Syb2oFvAM86TO1zZgolA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKvl-000000055yq-2EVf;
-	Thu, 02 Jul 2026 17:10:31 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1wfL6s-000000057kL-444W;
+	Thu, 02 Jul 2026 17:21:58 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKvh-000000055xq-0oo5
+	id 1wfL6q-000000057jN-0foF
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 17:10:27 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-664ae993e4bso1673782d50.0
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 10:10:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783012224; x=1783617024; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZACK+Wxf4gf4Bv0H2VF868lUB/6WpdvSpaEj4a+bI0k=;
-        b=VHWisjmDrX0mU0ZbMHQB1HuxDXJBYotdCAc3BcOT2YpD0aTc8qBXRduYtK4M1r4rn8
-         hnHVW8pXSD/AQWIed2fyQ2/kc+vWmhMtrdrx3m/WoGXj51akiFVgDntu3es5sJS93+ZD
-         65i5bru8M4Sk9FWuqSW/8UZQ9J0AD9dFBKF6GG4+n9detnE2Ihkok8aBdvXjOxZj4ewv
-         OQRb4l0n7AqdYKgrAgbnF6ZcRt+j9NFb0e9GvaqQBqQ11QMGyunsIiq5ZUSyrpoondE5
-         tj9FEGA+sj8yWcSZtzMpA17BUxttknm3h0tIB7YvG41gsap+4I33HqxzxVqO20WKEKrT
-         lBXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783012224; x=1783617024;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZACK+Wxf4gf4Bv0H2VF868lUB/6WpdvSpaEj4a+bI0k=;
-        b=LA+6+owNmhFVBKcN4h2qzc6er7WIR6Iv8m0NIvWxpyjSn80RFEQUhZ3UKZzCU22QOl
-         eqVy+XmbYn2VEWda6ZiZOEBWLCl/PockAH5DzgW6Zq6jk1XHviE7N45P6LF9dmBbbvo/
-         5tpmVKNQqpiJ37BkgVJMdzsfDXpQMThdhp/pXWtGz8HYq064poPwwIPW0hVT0rwJMgjq
-         fVgazvWV+4w5uthkfNGKusLciFQmnvxMo2GvKeBJCfrnRO3uI8XOypv8YrVJ/KaO4Jd/
-         ZpDMpQXaJPo0HY/t4OLuUkdKpKRk8pdNBfc6MAXbU3SCN6KujqRTr6tg8hp9tynDG45+
-         W4mg==
-X-Forwarded-Encrypted: i=1; AHgh+RpF8w7GvfdksqYCQAta4iAQDtgXFP0+8O0kCcjGvrUQ0hUdcLFm9tFlKMMrj6eG0iUF0OHgyCvNW+teug==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmtOTC3Q7XHoIwFJm79/tF5CdGNpe1OXgeiAxhtL7owbCjNp9v
-	TKK46nuXOMt6qFapx9/wpf+LZmsKihGgceDbYzcweVhFQBYKsQ6LNYbd
-X-Gm-Gg: AfdE7ckavdJSnRlGWyDbg+b8/fBUXnPe6ShaGeeL6Gtll5uUCdxK14PTL07DmYD18BF
-	w0EiWO3mENREwPVT9Q0YofBEr+64cTcJBgA3KjeSXqaKjVZq95kDkBBo3VlpnSDOCnlOcmulouJ
-	phxD20VzOk/JNOFBoMF5T8yXIlrXmb7E24nYySQ7gO5w/7jw2yasQ/PpBsuQLLiiUgD6km5zGy6
-	j1vpTu/osj5C7viOXeUZDIgKFL7fede8Ec+njYo5BkMbVL++AJ4tFe9u3yGO2A7ypRP4Wwm7QmF
-	P8BELhjkSrKJTRiGK395y416ZcurELZXvrpI8ofw7rlbhcIqquado2ANNJAJpNK1eskwne8Y0KD
-	ztiCr92OHwEfSBeSnB/pP6HfVF9A+X9CQgVLPKUIHnaXMBA/IZblbXhg+WRbZZLuET238t1BCa9
-	ypq283SU4DGziCogAjv5rFNeTNMHfEr4Cp5E06etlQhK+mNWd/11VZZu5Pd60i
-X-Received: by 2002:a05:690e:2447:b0:664:f562:1fa5 with SMTP id 956f58d0204a3-66636ba95e5mr448218d50.46.1783012223973;
-        Thu, 02 Jul 2026 10:10:23 -0700 (PDT)
-Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-66624021a75sm1354880d50.11.2026.07.02.10.10.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 10:10:23 -0700 (PDT)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
+	Thu, 02 Jul 2026 17:21:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783012899; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=JHbhhu4+gy/a0FtQBodKmH8tfye9dtnI1bra6MNmLaCFkNqrb6FXQm+VYdeZBVT1XDPEzGR+7i/ylQHeq2Oa2tgpQ+uOuURs5SAAeZPLdm7RqW4j6QEIvUgCmCfb/emvoiH8kDK4XAD0liQ4DojFCNT1i018rJGIqegCfkqAk2g=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783012899; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=3pNo6VHmqaTxuE9Yer6GmVl/yimS+PJKHFrww1qNWgY=; 
+	b=OFguuJ8cZm/Z2FXaJI8Xjy5LXQWg71bg1+t2pLK8ialmgDWF5vwlUBuZlJJpApz39jT27oiMKHfEFibUxg7grafkn3BmhAsgpuNMOFXAeyCuaVhJeqmUtYNJNYBZDhyc6AvIhXR4nuPA/KqLbEBvrkQjQZlHzxr6FbBgIpdpP7U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783012899;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=3pNo6VHmqaTxuE9Yer6GmVl/yimS+PJKHFrww1qNWgY=;
+	b=GyeG/LbvT2GVo1Bb8LvkcalxaeCk2VKhcP9DZy7NKFE0TZ3C8Uokxn91yfyBo/RR
+	aK45+fEeyVHJXFO2ePAQhUUZVr3s7ZCG8b+XbFNxhaVerhRczGNuJqZTER5j5zOWOUr
+	+AG0Va499glfZqqM6lkE9WYO+Ab1ZBbhbqC/nNKQ=
+Received: by mx.zohomail.com with SMTPS id 1783012895431464.9970225222668;
+	Thu, 2 Jul 2026 10:21:35 -0700 (PDT)
+Date: Thu, 2 Jul 2026 17:21:08 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Yixun Lan <dlan@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 4/8] clk: sunxi-ng: a733: Add PLL clocks support
-Date: Thu,  2 Jul 2026 13:10:20 -0400
-Message-ID: <20260702171020.836546-1-enzo.adriano.code@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260310-a733-clk-v1-4-36b4e9b24457@pigmoral.tech>
-References: <20260310-a733-clk-v1-4-36b4e9b24457@pigmoral.tech>
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
+ driver
+Message-ID: <akaeBJv5T3YmlfpC@pie>
+References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+ <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_101026_112417_017F311A 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260702_102156_396599_0AF630B3 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,24 +90,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Junhui,
+On Thu, Jul 02, 2026 at 02:31:36AM +0000, Yixun Lan wrote:
+> SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
+> which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
+> M-PHY v3.0 standard.
+> 
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  drivers/ufs/host/Kconfig        |  12 +
+>  drivers/ufs/host/Makefile       |   1 +
+>  drivers/ufs/host/ufs-spacemit.c | 931 ++++++++++++++++++++++++++++++++++++++++
+>  drivers/ufs/host/ufs-spacemit.h |  90 ++++
+>  4 files changed, 1034 insertions(+)
 
-Register check for the PLLs against the public A733 User Manual V0.92:
-13 of the 14 PLL control registers match the manual's offsets
-(PLL_DDR 0x0020 through PLL_DE 0x02E0, section 4.1.6.1 onwards).
+...
 
-The one exception is pll-ref at 0x0000: the manual's CCU register list
-starts at 0x0020 (PLL_DDR), so the PLL_REF control register is not in
-the public V0.92 document. It does match the vendor kernel's CCU
-(SUN60IW2_PLL_REF_CTRL_REG 0x0000), so a short provenance note near the
-definition might help future readers, same as for the other
-vendor-sourced entries discussed in this thread. For what it's worth,
-on a Radxa Cubie A7S (26 MHz DCXO) we can confirm at runtime that
-pll-ref produces the normalized 24 MHz reference with the hosc-side
-clocks reading 26 MHz, so the modeling demonstrably works on hardware.
+> +static int ufs_spacemit_wait_mphy_pll_lock(struct ufs_hba *hba)
+> +{
+> +	int timeout = MPHY_PLL_LOCK_TIMEOUT_US;
+> +	u32 val;
+> +
+> +	while (timeout-- > 0) {
+> +		val = ufshcd_readl(hba, UFS_PHY_MNG_BASE + UFS_MPHY_PU_CTRL);
+> +		if (val & MPHY_PLL_LOCK_BIT)
+> +			return 0;
+> +
+> +		udelay(1);
+> +	}
+> +
+> +	dev_err(hba->dev, "M-PHY PLL lock timeout\n");
+> +	return -ETIMEDOUT;
+> +}
 
-Thanks,
-Enzo
+Could this loop be replaced by read_poll_timeout() like
+
+	read_poll_timeout(ufshcd_readl, val, val & MPHY_PLL_LOCK_BIT,
+			 1, MPHY_PLL_LOCK_TIMEOUT_US, false, hba,
+			 UFS_PHY_MSG_BASE + UFS_MPHY_PU_CTRL);
+
+
+...
+
+> +/**
+> + * ufs_spacemit_init - init phy and prepare clk
+> + * @hba: host controller instance
+> + */
+> +static int ufs_spacemit_init(struct ufs_hba *hba)
+> +{
+> +	int err = 0;
+> +	struct device *dev = hba->dev;
+> +	struct ufs_spacemit_host *host;
+> +
+> +	host = devm_kzalloc(dev, sizeof(*host), GFP_KERNEL);
+> +	if (!host)
+> +		return -ENOMEM;
+> +
+> +	host->rst = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
+
+"resets" property is marked as required in the binding, but the optional
+API is used here. Is this expected?
+
+...
+
+> +/**
+> + * ufs_spacemit_hce_enable_notify - Configure HCE enable sequence
+> + * @hba: host controller instance
+> + * @status: notification status (PRE_CHANGE or POST_CHANGE)
+> + *
+> + * Configures host controller enable with proper sequencing.
+> + * Handles crypto enable if supported.
+> + *
+> + * Returns: 0 on success
+> + */
+> +static int ufs_spacemit_hce_enable_notify(struct ufs_hba *hba,
+> +					  enum ufs_notify_change_status status)
+> +{
+> +	struct ufs_spacemit_host *host = ufshcd_get_variant(hba);
+> +	u32 enable_val, val;
+> +
+> +	if (status == PRE_CHANGE) {
+> +		enable_val = CONTROLLER_ENABLE;
+> +
+> +		if (hba->caps & UFSHCD_CAP_CRYPTO)
+> +			enable_val = CRYPTO_GENERAL_ENABLE | CONTROLLER_ENABLE;
+> +
+> +		if (!host->first_hce_done) {
+> +			host->first_hce_done = true;
+> +			dev_dbg(hba->dev, "First HCE enable\n");
+> +		} else {
+> +			val = ufshcd_readl(hba, REG_CONTROLLER_ENABLE);
+> +			if (val == enable_val) {
+> +				ufshcd_writel(hba, enable_val & (1 << CONTROLLER_ENABLE),
+> +					      REG_CONTROLLER_ENABLE);
+> +
+> +				while (ufshcd_readl(hba, REG_CONTROLLER_ENABLE) ==
+> +				       (enable_val & (1 << CONTROLLER_ENABLE)))
+> +					;
+
+Shouldn't we set a timeout for the polling loop?
+
+> +			}
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+
+Regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
