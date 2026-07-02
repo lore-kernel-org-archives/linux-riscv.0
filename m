@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6365AC43327
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 08:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AACFC43602
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 08:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m6j0Pa5jDg8a+QwmF4LUkoNAh5ivoTFhZnKLeHm6Hkw=; b=KRIDOqSIQITUvr
-	YRr05muB1KSa8AlHCps5HMnj8z5t8Pp28squ8tgsYZ2+MleS39m7yRdWxprrHuoWXioNGaopxIb7f
-	/PannnUjceKWwsZZ5u9/OigPorGlaQOrVH9AQhWsabiXf5hbqZfkBsItpcOJFJYprrBWjopW1miR1
-	abl6riT2HSGwkajjgdCJV90p5e/OlJjns+ioxKMCDXL1eIFiG973KjsKqjiUpPc+f/zxV2Yu4Mbdm
-	k2hg0O6e0i13gTGUIkD9SEO6rIIoEKE0Kq0ZedlY8QVwWbhZ/C8K/MxROWRXbl4eADxD8MckUJwy6
-	x/Xt5aFkGiG5o3bOYjGw==;
+	List-Owner; bh=Q1cwuzJnOcS0HiyTP1JzA7xoMAUypZzYuJtYpVk+Ce4=; b=yUxmYp8eRG6apl
+	I1IpY5E1eKaN4ZN2qyADRDCZuuE5nZG/cfFoI+FDZ6bzCuehfLMwtLbMLHNzILjKLq4oVzjRVdEMN
+	LLcSwTPtknVqXSppZw9WWzd3Kwy++Zj1vJI80UHdAIGWsG4IphKdJjGiBmUjdvK8lMdOft+Iio1yR
+	9ncWQfvCjUAvHmr8UTxLvulqXOtQEzube8FvkW8pZUMiZATTf6cF+R29muwkSKrJX3pmhp5fSI9Oe
+	7bYIEepsGLNirt5hn+OsbEeECyQuH5+cz68e54SU79wJfiz8UCXi7JI+9QC7DAQItj2Xuov/go2xl
+	0gxT4OX8ppV1SJMrstyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDEl-00000003vzh-3wRi;
-	Thu, 02 Jul 2026 08:57:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDEj-00000003vyH-0HD8;
-	Thu, 02 Jul 2026 08:57:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4FF42288E;
-	Thu,  2 Jul 2026 01:57:25 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EFFB3F905;
-	Thu,  2 Jul 2026 01:57:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782982649; bh=MSbq6+W3UnipbgRe5OqNXC2h5o+vLMVg75Y2ERCCqF4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vxlIj29X8SyZB1IgbyT7B2lCW/p+J0QTyfWT5aKusya9JNXJDD72C2MXt0nB1jJBq
-	 L6w4cZPCwWj8mcv6ihhP+P0n5CwUEWYj6xE0SdD0s6CHqhEAm7j1wIRANnMYUKvYbY
-	 gChO0ak5hCTtvm8wzYEpFjegAHoefiu3EimrD+Us=
-Message-ID: <17e411b5-f025-4c72-90a7-5bdd5971654c@arm.com>
-Date: Thu, 2 Jul 2026 10:57:23 +0200
+	id 1wfDGe-00000003wMn-3Vtl;
+	Thu, 02 Jul 2026 08:59:32 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfDGZ-00000003wKP-2Zxu;
+	Thu, 02 Jul 2026 08:59:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=usqHyr4FCppk89cjD1Lh8z87EZeT9dV/v0SgCLCx+zE=; b=g7X4++BeQ2q3zvMDe0NyPsUx45
+	3RF7kSMPpRJbYt9i13rM6nx2YrMi6bglLo9KaWHX2kW0o8LMDoTT//Ifa+E2G6xEy8JVh7LI3VLhV
+	pfLPjaeloaGkxDf/EyrDWK2d7ZPwETD3mnRd+Zm8U6Wo+zHIzbHkfvtnSaV65UQjpEgZlRWPz74t1
+	uZ+2Qyh1y+o5EGlK7R8iiQorjBWQbQ11s5JP91ZxzfTGtLpP9bGB4U2aA3Jjn9RfPRYqPUK6KqVbt
+	qrDiRFk4oGgCIyvEEwrlJoQ1fPKiasr1jqeVQKiw9AwCA6vyTYqUeBHmOLeCCitZYCa+2W1O3HTS0
+	CCZNiKSQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfDGU-00000008EIf-3h8q;
+	Thu, 02 Jul 2026 08:59:23 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id EF899300402; Thu, 02 Jul 2026 10:59:21 +0200 (CEST)
+Date: Thu, 2 Jul 2026 10:59:21 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: K Prateek Nayak <kprateek.nayak@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>
+Subject: Re: [PATCH] futex: Optimise the size check get_futex_key()
+Message-ID: <20260702085921.GD49951@noisy.programming.kicks-ass.net>
+References: <20260630045531.3939-1-kprateek.nayak@amd.com>
+ <20260630045531.3939-9-kprateek.nayak@amd.com>
+ <20260701075714.GP48970@noisy.programming.kicks-ass.net>
+ <20260701084150.GNOeboLw@linutronix.de>
+ <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
+ <20260701161736.xYYizA0e@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
- and PRCM
-To: Enzo Adriano <enzo.adriano.code@gmail.com>,
- Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Jerome Brunet <jbrunet@baylibre.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
- <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_015733_149153_B8D71B74 
-X-CRM114-Status: GOOD (  18.84  )
+Content-Disposition: inline
+In-Reply-To: <20260701161736.xYYizA0e@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +91,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Enzo,
+On Wed, Jul 01, 2026 at 06:17:36PM +0200, Sebastian Andrzej Siewior wrote:
+> The futex address must be naturally aligned and this is checked via
+> "address % size" where `address' is the supplied address and `size' is
+> the expected size of futex. It is guaranteed that `size' is power of two
+> but the compiler does not see it and creates here a `div' operation
+> (x86, arm, gcc-15).
 
-On 7/1/26 18:07, Enzo Adriano wrote:
-> Hi Junhui,
-> 
-> Thanks for the A733 CCU/PRCM RFC v1. I've been reading through the
-> series and the review feedback, including the NSI clock/reset handling,
-> the binding naming and ordering comments, the SDM macro cleanup, and the
-> question around modeled but otherwise-unused clocks such as the GIC clock.
+That's pretty stupid, since size = futex_size() := 1 << (blah); so it
+has every opportunity to actually see this. Also, see below, clang does!
 
-that's great, but please tell the list, by replying to the respective 
-patches. There are still a few patches left that haven't been checked 
-against the manual or otherwise reviewed. I will probably do this at 
-some point in time, but we could use any help here.
-You don't need to be an expert for this: just comparing the numbers in 
-the struct (register offsets and bit positions) against the manual is 
-already very helpful, and can be done by most people, just with some 
-endurance ;-)
+> We can take advantage of the pow2 property and rewrite it as
+> "address & (size-1)".
+> 
+> As per testing, the command
+> |perf bench futex hash -f 1 -b 16384 -t 1 -r 30
+> 
+> improved from
+> | [thread  0] futex: 0x5619f931f740 [ 7001583 ops/sec ]
+> to
+> | [thread  0] futex: 0x55da173e5740 [ 7376137 ops/sec ]
+> 
+> or by 5.3%
+> 
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> ---
+> 
+> Could someone verify this, please? The 5% look a bit high. This is on
+> top of the series (but not worsen by the series).
 
-Thanks,
-Andre
+Bah, I tried to reproduce and couldn't. Then I noticed I did a clang
+build and that is in fact clever enough to do this optimization itself.
 
-> I do not see a v2 on the list yet, so I wanted to check in: are you still
-> planning to take this series forward? No rush at all, and I am happy to
-> leave it entirely with you if so.
-> 
-> If you have moved on to other things, I would be glad to help carry the
-> series forward and address the review comments, keeping your authorship
-> and prior work intact. I have A733 hardware here and can help test the
-> changes.
-> 
-> Either way, please let me know what works best for you.
-> 
-> Thanks,
-> Enzo
+/me tries again with a GCC build.
+
+pre:  [thread  0] futex: 0x561f14430680 [ 9021408 ops/sec ]
+post: [thread  0] futex: 0x55feadbbb680 [ 8977527 ops/sec ]
+
+(and this seems to be well inside the error threshold of this test).
+
+So I see the GCC build do the DIV, and no longer with his patch applied,
+but for some reason I cannot get the runtime performance to actually
+improve much of anything on my system.
 
 
 _______________________________________________
