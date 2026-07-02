@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB71FC43327
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 07:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24BDC43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 08:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Em3RQ1TLiJQZ3/iHyyOFfnDMzjoNPc9Bol/cWjZSkAo=; b=nFYLKXgFwgszyQ
-	lsKoJYd3GSLapE0g1nYjlt2I6DKFb9eXWiYFauYFJpcKFCKT+wkUfRwesKkXGriyBP+63mJojcVm2
-	3O/vDyIu4ec8jWkW7ARQbAGjSCMD3eZ6mpMC+D/ckoCMPfcWBEplTTyAxJD7oyowfZDOX4JzyQcX7
-	ViMIQOV77Un83hGMaymgOD1DKEvrUjMSpoeYBMHhTfKwelxpmtXfnWsR6qGaN+a72HyS/xUxvx25C
-	V2+eTy/1DTTb3FmK3kah5yDV10rLIj9TtsAuiE3Bs/Va5gDpQxvSMBcHDEM3Qp55lEVTqJ8iFoXCb
-	8pUU3KIKYPMOqoCTWrKw==;
+	List-Owner; bh=668m3YTgLYyxv50CXdGiMozugphvpYsE7AUPKKdTuVc=; b=DCKPHceNJ46pnX
+	OUaS+JZpiJMe26MSqPoPNIKF9aGadySuXatoTfp4lxilHHzPLSpFjUPISGRwcEOSpxXzg7B8+aWbG
+	9V+l6ZPMuAoqZ7vbhKSpLFz3H4WEx2G4d2OaC3bbqOIf74lIudUkHWyNlxrRAATrMOV2lluOnLgYt
+	D8CpxrZ8KrfSG2h4mWN8Ji7+4myVvLDo64ANKYufj1y0xJNI8cdVMt7DZ4yjnP4yQO2xOeJcL2FM1
+	4RgFQ5r7og2jZ/ATDbs+EvLPmkk7vrraWpS0ghXnG+MAeYRj2Y0xOyojwnHcNq/l53y853Xog2nZU
+	D7sukzeEH5oNeACrxNqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCF1-00000003mU8-1ApB;
-	Thu, 02 Jul 2026 07:53:47 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wfCQo-00000003npd-3rIX;
+	Thu, 02 Jul 2026 08:05:58 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCEy-00000003mT9-1vf6
+	id 1wfCQm-00000003npD-3iG8
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 07:53:46 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 1A7AC2003DD;
-	Thu, 02 Jul 2026 09:53:41 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wfCEv-005i6i-02;
-	Thu, 02 Jul 2026 09:53:41 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wfCEp-0000000032p-3mmg;
-	Thu, 02 Jul 2026 09:53:35 +0200
-Message-ID: <c49d9bea7f9a172a97d0acfaa9680bdac80f75e1.camel@pengutronix.de>
-Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
- driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Yixun Lan <dlan@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Avri
- Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>, Rob
- Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, "James E.J. Bottomley"	
- <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"	
- <martin.petersen@oracle.com>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti	 <alex@ghiti.fr>
-Cc: linux-scsi@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Date: Thu, 02 Jul 2026 09:53:35 +0200
-In-Reply-To: <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
-References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
-	 <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 02 Jul 2026 08:05:58 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782979553;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=apPfLj+gjuzmcrLfZV7sgRMeKt4CRcU2qNQMbTTFI9U=;
+	b=j2AJN2M3bKrt/J26eTY3rOSeGSjeFRbqlq7tSXIxoOQNIF6FsAQXYkaQGO4X3RO/IhSOWc
+	79ylhfi33BYdjD2jNMAY+doU1cD42JEyxujjDRvF0JM/+W3h5bcmjLqXX2o+TbpfNO6/N3
+	GKCLJcmguuoi3qCysFiBGY2WAMhswhBNSFlqHHAgEh9BbFbUwVKWw8tT/edfojB8BExllL
+	PtGPXvI2e0M4DaOfWg+NbOHSNS0WdNzyOzS8KyWMGe0KWqhZl6r2bEXFBqFFLFySkspRsL
+	firnjo/5y2JOwtbhR2bv7vN84bLO0zV1LFgcS7cfi0dyfibYDccZk2QULruL+A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782979553;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=apPfLj+gjuzmcrLfZV7sgRMeKt4CRcU2qNQMbTTFI9U=;
+	b=anAp3VxZ8/TKdcujyX1qfRn0SKjeCQmsUPw+RQnPm6A3UWauqfE3VHUWYz3RZvy4cokTBS
+	FQdxDHNBFHjfr4Cw==
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Jiakai Xu
+ <xujiakai2025@iscas.ac.cn>, Matthew Bystrin <dev.mbstr@gmail.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rui Qi
+ <qirui.001@bytedance.com>, Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v4] riscv: stacktrace: fix stack-out-of-bounds in
+ walk_stackframe()
+In-Reply-To: <20260630090535.4103888-1-xujiakai2025@iscas.ac.cn>
+References: <20260630090535.4103888-1-xujiakai2025@iscas.ac.cn>
+Date: Thu, 02 Jul 2026 10:05:52 +0200
+Message-ID: <87ik6xvmsf.fsf@yellow.woof>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_005344_652309_4B762294 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20260702_010557_079509_637CA439 
+X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,96 +81,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Do, 2026-07-02 at 02:31 +0000, Yixun Lan wrote:
-> SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
-> which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
-> M-PHY v3.0 standard.
-> 
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  drivers/ufs/host/Kconfig        |  12 +
->  drivers/ufs/host/Makefile       |   1 +
->  drivers/ufs/host/ufs-spacemit.c | 931 ++++++++++++++++++++++++++++++++++++++++
->  drivers/ufs/host/ufs-spacemit.h |  90 ++++
->  4 files changed, 1034 insertions(+)
-> 
-[...]
-> --- /dev/null
-> +++ b/drivers/ufs/host/ufs-spacemit.c
-> @@ -0,0 +1,931 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
-> + */
+Jiakai Xu <xujiakai2025@iscas.ac.cn> writes:
+> +	if (sp >= (unsigned long)task_stack_page(task) &&
+> +	    sp < (unsigned long)task_stack_page(task) + THREAD_SIZE) {
+> +		high = (unsigned long)task_pt_regs(task);
+> +	} else if (task != current) {
+> +		pr_warn("%s: sp (%lx) is not in task stack of %s\n",
+> +			__func__, sp, task->comm);
+> +		return;
+> +	}
+> +#ifdef CONFIG_VMAP_STACK
+> +	else {
+> +		unsigned long ovf_base =
+> +			(unsigned long)this_cpu_ptr(overflow_stack);
 > +
-> +#include <linux/clk.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
+> +		if (sp >= ovf_base && sp < ovf_base + OVERFLOW_STACK_SIZE)
+> +			high = ovf_base + OVERFLOW_STACK_SIZE;
+> +	}
+> +#endif
 
-Missing #include <linux/reset.h> for
-devm_reset_control_get_optional_exclusive_deasserted() below.
-Don't rely on indirect includes.
+Looks functionally correct to me. But this #ifdef goes against the
+kernel's coding style. See:
+https://docs.kernel.org/process/coding-style.html
 
-[...]
-> +/**
-> + * ufs_spacemit_init - init phy and prepare clk
-> + * @hba: host controller instance
-> + */
-> +static int ufs_spacemit_init(struct ufs_hba *hba)
-> +{
-> +	int err = 0;
-> +	struct device *dev = hba->dev;
-> +	struct ufs_spacemit_host *host;
+Can we
+    else if (IS_ENABLED(CONFIG_VMAP_STACK))
+just like the irq stack thing?
+
+> +	if (IS_ENABLED(CONFIG_IRQ_STACKS) && !high) {
+> +		unsigned long irq_base =
+> +			(unsigned long)this_cpu_read(irq_stack_ptr);
 > +
-> +	host = devm_kzalloc(dev, sizeof(*host), GFP_KERNEL);
-> +	if (!host)
-> +		return -ENOMEM;
-> +
-> +	host->rst = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
-
-Why is this stored in struct ufs_spacemit_host at all? As far as I can
-see it is never used again, so this could be a local variable.
-
-[...]
-> diff --git a/drivers/ufs/host/ufs-spacemit.h b/drivers/ufs/host/ufs-spacemit.h
-> new file mode 100644
-> index 000000000000..6ae3c263a360
-> --- /dev/null
-> +++ b/drivers/ufs/host/ufs-spacemit.h
-> @@ -0,0 +1,90 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * SpacemiT UFS Host Controller driver
-> + *
-> + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
-> + */
-> +
-> +#ifndef _UFS_SPACEMIT_H_
-> +#define _UFS_SPACEMIT_H_
-> +
-> +#include <linux/reset-controller.h>
-
-Drop this, we are not implementing a reset controller driver here.
-
-> +#include <linux/reset.h>
-
-You could replace this with a struct reset_control forward declaration.
-Or drop it ...
-
-[...]
-> +struct ufs_spacemit_host {
-> +	struct ufs_hba *hba;
-> +	struct ufs_pa_layer_attr dev_req_params;
-> +	struct reset_control *rst;
-
-... if you end up removing the rst field entirely.
-
-regards
-Philipp
+> +		if (sp >= irq_base && sp < irq_base + IRQ_STACK_SIZE)
+> +			high = irq_base + IRQ_STACK_SIZE;
+> +	}
 
 _______________________________________________
 linux-riscv mailing list
