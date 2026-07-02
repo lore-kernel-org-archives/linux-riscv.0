@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB16C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2026 20:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9891C43327
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 02:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8yl7grIYvRTEgKXwnjh2tEQmGmsjeflGZk5Qiz73Cc=; b=U7mv5rSpVxUh0NUHX8GkgJIPhl
-	JUo/PoMOOSBV3WNLotqM63vyzvMWsBwZbWDL5FCowoWdmobnB3TsJdwoh3WkKXjAO9wgzCk85SKVn
-	q2GYxAVIEAoSAlIIqmCM67fiSWurTI1AjSZWY3TJewm0OsqL27qCoIFR03/6VwQOeNIg7HuG5od5y
-	mIM1OdySYSKKkMjZe5XdytWgoV8CUrQNLtEhiZcEPXI9Uula4+UvY1b3LezN0SkIty6CM7iKhNHXF
-	CwzT9VtiqTpAhI8EIFLSMf/QgKW2cmu9WHCGEGBOGJtYZtz2pRuo741WNmu7bKdy3iZ8/JOcPY10/
-	MmNGS73A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W+HPVZVkXNeLvYUmXaSOGH8YK6rFc3J+SbuIavxtZRk=; b=sie/f+0QEm5MBm
+	GrTMqa2J3HzdYJ4ypK/0n42SrAKn2APWDg8uBFZvQ3kOuZJvvTJt9ex6NY5P+7fd7jyJpwzYpIpYL
+	Z2Yxe1TZki4hiOXfPAZr4taoYEy5R1Gwt+EW0NrZQxMxSRR1JuElL6UOvQLP/fsZymA4UMRYX7Qhz
+	k6U+NpTFplopPi3WkwqyMxo2mYiIxg8EzMzefLMXaAUXL/gdiTCFZdXShjyR4QFqY2U3Dweyz5f3t
+	zdFBsRRu5CMH82sVhFsEWEiJV6iI3cBsvA4zX7AVUs5MpFyo286HZlqJ1QFw939mTjetOelv9AOig
+	6tewc2BXZ21rg7GS36jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1iS-00000002yU6-45cg;
-	Wed, 01 Jul 2026 20:39:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wf7Du-00000003QUu-0Zj9;
+	Thu, 02 Jul 2026 02:32:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1iR-00000002yTo-2Sqi;
-	Wed, 01 Jul 2026 20:39:27 +0000
+	id 1wf7Dt-00000003QUk-07LR
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Jul 2026 02:32:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 184124004F;
-	Wed,  1 Jul 2026 20:39:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC711F000E9;
-	Wed,  1 Jul 2026 20:39:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C723542DD2;
+	Thu,  2 Jul 2026 02:32:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5F7A1F00A3E;
+	Thu,  2 Jul 2026 02:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782938367;
-	bh=f6QVBJJnOqTAmv9bGgn42fUJj2cY0FZxJ1ME1xdC+T8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RJRDi4cwA05SdSW+713uFlPiyHLZCwR49gpm/dBeCn1+LQodBzos5L0rNrOeB3byQ
-	 WYhZPYks9Se42SWieNvBWgUMjEsqBcwWOs4xOFFLRMbHi6ddQDqKg30NUNu0SRnybo
-	 Dxb53nC6CoI0/DRmyz5F3NPVghBQyDdplb73P47xUpH/v/YS8//CW0poBUhA6iC8QZ
-	 umZIFhJEUn1UA3tMpqYUH5xGl95l2jJ2JSaktuQKz/5/5/JCb3OwudfJXCtAean9jS
-	 MjQR6siiOHHeuqOsor+6mVOYZFjNM2kgMm41a5faaSghy28LcMtS8/BW+wK19MQomK
-	 Bdzqn1x2pljIA==
-Date: Wed, 1 Jul 2026 21:39:19 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Guodong Xu <docular.xu@gmail.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Chen Wang <chen.wang@linux.dev>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Jesse Taube <jtaubepe@redhat.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
-	sophgo@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 08/17] dt-bindings: riscv: Require block-size for
- Zicbom, Zicbop, and Zicboz
-Message-ID: <20260701-squiggle-aging-459cd99cb2dc@spud>
-References: <20260701-rva23u64-hwprobe-v2-v5-0-2c61f94a695a@gmail.com>
- <20260701-rva23u64-hwprobe-v2-v5-8-2c61f94a695a@gmail.com>
+	s=k20260515; t=1782959536;
+	bh=emOkDmfG2STZLaSMkvxawB0ay9hEQME3tZW+Xh2U1o0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=F8eR/NQJbBbyOWi84JCbK67dKVIqwbSwQVy63Secmnp9j6bvny6tIEAGPxi5YTZdz
+	 h+sWl9JO+xDeBnEIWJj7NlB95s5Dw+zo8JSatzZTBC9KYVQuCGmjYI2H282YTORE+6
+	 Rf8TkiQblKyAhNGq1rdduIdEnO5t6lHil2lDcPO6VTDioJmGnSIgQ3ZNhLa+4dB4JU
+	 fJFn2QGgDfc1s65ItP5r/tpn3q/YhzpzQ83zR6v5rSBDkxauukBiiw+RkpUjQzcdT9
+	 yA3cb9vZxE3SGSQ6aHgohUuMGWcfpbhcIWv9c/zj4ezN8QhedpgzEXwS/ChtkOTct2
+	 0+SZL2+Lk418w==
+From: Yixun Lan <dlan@kernel.org>
+Date: Thu, 02 Jul 2026 02:31:37 +0000
+Subject: [PATCH 3/3] riscv: dts: spacemit: k3: Add UFS support
 MIME-Version: 1.0
-In-Reply-To: <20260701-rva23u64-hwprobe-v2-v5-8-2c61f94a695a@gmail.com>
+Message-Id: <20260702-08-k3-ufs-support-v1-3-1a64a3ab128f@kernel.org>
+References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+In-Reply-To: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+To: Alim Akhtar <alim.akhtar@samsung.com>, 
+ Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-scsi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1958; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=umn98I1DXmAMjrQ1TLwM14+BWqYWOVozRg/TMara5lQ=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqRc2awHZ2ozwoZE1YwXu2hLobFcHw29ROvi3BP
+ BgYHyjrBXOJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCakXNmhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+1dog//VswC+e+1V9gsErZaaIJb00liG5Li36yDIYzoVmd1oJ1/OwFI1iYEA
+ fjS2uXEjkXQckX5WjxVVPjade78H0kpKk/0fCEMby5/d9l5jMXFIB3g/uzwIfFXzWRG4BUsHiCJ
+ +Xzt/bNWmGeSNYmhbb/5KAmfK4loF+zOfJOCQcBiCHYCDQ1Sf79dIcTs7Qx9z9+Im2f0Vii45h2
+ stnoYIgO5nqF58lai2HHnAAqRWQWkDoy0dg+f0xEmsvte+FZAkfcX1osMBcdO3IAKnPTJHSntlA
+ zb69/+JXa+d8gVR98P0RZE8wJ87qY6uU+Z4oVOwx8B+/vHN4jzglmvwsQdtXUBHRTPsI7+r2mLZ
+ TNsYPFGHsjqEE+p8bXfUI6T2/fuET1aEhDyD4AmAlkUpJcqjHMEMSfQDObNlk07XFpwxuCG231D
+ fM0DaH8x+8z1fbL89K8YblIq+w5LTdEE/bZodwlo7oNHfjn8TTukeZrkx9GYsPGAZwnLp9Hb4gq
+ pAVzB11apYEQF7n2XzpMfHuq6JyaEGoD5iVSLCNBGvV3gx7WbwNLHqQF4lg9SD+dcqV8qNobVzG
+ a2/qdT60NoJaKr7ZWDyTEa8A2KK1AQlD3Z7ywtSDxwEIxwCn/6mUel5O+GTDM+Er7FT07YFMJ1Z
+ YakhxHWtKm7cE+ppgYOMbePsvqUWcw=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,110 +91,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6012840628299154664=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6012840628299154664==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dKXZ0SKTAmT4FGH2"
-Content-Disposition: inline
+Add UFS Host Controller support for SpacemiT K3 SoC, and enable
+it both on both Pico-ITX and CoM260-IFX boards.
 
---dKXZ0SKTAmT4FGH2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+ arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts |  4 ++++
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts   |  4 ++++
+ arch/riscv/boot/dts/spacemit/k3.dtsi           | 13 +++++++++++++
+ 3 files changed, 21 insertions(+)
 
-On Wed, Jul 01, 2026 at 08:52:21AM -0400, Guodong Xu wrote:
-> Zicbom, Zicbop, and Zicboz have no default cache block size, so a
-> devicetree that declares one must also provide the matching
-> riscv,cbom/cbop/cboz-block-size property. Make it required so a
-> missing block-size property can be caught by dtbs_check.
->=20
-> Suggested-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
-> ---
-> v5: New patch.
-> ---
->  .../devicetree/bindings/riscv/extensions.yaml      | 26 ++++++++++++++++=
-++++++
->  1 file changed, 26 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index 5ffc40d599c02..f4dd34d446c02 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -1142,6 +1142,32 @@ allOf:
->            not:
->              contains:
->                const: zilsd
-> +  # All three Zicbo* extensions require their block size property as the=
-re's no
-> +  # default.
-> +  - if:
-> +      properties:
-> +        riscv,isa-extensions:
-> +          contains:
-> +            const: zicbom
+diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+index 238bb03d0e9e..b37e1c7b03e3 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+@@ -19,3 +19,7 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ };
++
++&ufshc {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index b89c1521e664..f1560a5a9031 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -221,3 +221,7 @@ hub@1 {
+ &usb2_phy {
+ 	status = "okay";
+ };
++
++&ufshc {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index 19fc9b49668e..6c0b0598d5c8 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -1186,5 +1186,18 @@ maplic: interrupt-controller@f1800000 {
+ 			riscv,num-sources = <512>;
+ 			status = "reserved";
+ 		};
++
++		ufshc: ufshc@c0e00000 {
++			compatible = "spacemit,k3-ufshc";
++			reg = <0x0 0xc0e00000 0x0 0x40000>;
++			clocks = <&syscon_apmu CLK_APMU_UFS_ACLK>,
++				 <&syscon_apmu CLK_APMU_UFS_REFCLK>;
++			clock-names = "aclk", "ref_clk";
++			resets = <&syscon_apmu RESET_APMU_UFS_ACLK>;
++			interrupts = <135 IRQ_TYPE_LEVEL_HIGH>;
++			freq-table-hz = <491520000 491520000 19200000 19200000>;
++			lanes-per-direction = <2>;
++			status = "disabled";
++		};
+ 	};
+ };
 
-I think the way to fix this is to add
-  required:
-    - riscv,isa-extensions
-to each of these if conditions
-(not got time to test it right now, sorry)
+-- 
+2.54.0
 
-> +    then:
-> +      required:
-> +        - riscv,cbom-block-size
-> +  - if:
-> +      properties:
-> +        riscv,isa-extensions:
-> +          contains:
-> +            const: zicbop
-> +    then:
-> +      required:
-> +        - riscv,cbop-block-size
-> +  - if:
-> +      properties:
-> +        riscv,isa-extensions:
-> +          contains:
-> +            const: zicboz
-> +    then:
-> +      required:
-> +        - riscv,cboz-block-size
-> =20
->  additionalProperties: true
->  ...
->=20
-> --=20
-> 2.43.0
->=20
-
---dKXZ0SKTAmT4FGH2
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakV69wAKCRB4tDGHoIJi
-0qZuAPsE7PpkS7Q9Q/QdOXMXVi0vMgDYbeEgMRtzf0lMlv6w6gEA1JDV5vGVvkwY
-e3dZ2Ec1Eq1CjjFHEnDtDfSSbocyhQw=
-=AQmB
------END PGP SIGNATURE-----
-
---dKXZ0SKTAmT4FGH2--
-
-
---===============6012840628299154664==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6012840628299154664==--
-
