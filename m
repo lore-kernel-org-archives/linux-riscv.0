@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DDDC43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 15:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA5DC43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jul 2026 16:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aF9+5QwU4IwbINv/J3y4zMfsQTeQABf5yigs86O6olA=; b=MPjEdHDl0YLeQE
-	Ls6qjn9HTqvH/WJYtBohyqW/pZXdZdtZ9vcaB5CLX2rdsLxlEJhbo5ueb77TvZ8J2IbSWNTEFK2uJ
-	s/Yqx7Jfjf+5TTY0Vge31xYGQqyElHSHk4pqGLk6f5IBfzQ9zyo0P/nfRvsXWG/GePfQeq56WoxGk
-	MuoEw/IldBCYQqeFK4b1ZtYngg/u9Vo5YYEWPtNBszuMsYhWhuRZeu+4UAAVVJcFKvaV6qaOxP52/
-	Cg54JRDPaFmUOab2mJ0qI+vUXmQoPPCzNZHGTBMeaqfXv8dwiorrxxXX64eZLiogmTRHOcz57u3EK
-	G+O3Z2Gw8dwAi691fETw==;
+	List-Owner; bh=Ft+laCyTQMC1WrkgrW/B87HicR0zINGnMS5YPyNHALg=; b=QxpuN9nb6g83GK
+	YhancgefnUejL3oV/aJCA/nJPh1ok8JB/0Jmw/0J+uLhRe0Km5RjNwHggCQs2Ic7RvqPbMK6k/PMO
+	ueQudGmbL9OjKEeyhE1x44g9zDNe66DDMtLt564yQDcQdue9OH5oGkGxa93D/Nq5/8JDyw0sg2JwW
+	NXBiOeLnYsWhSMSUiTjqC+H1ABRyXovZUK22y4FoP4TxS3PagjrGx4n0tq/uDukXoXjnEYpd/BipD
+	pZaISqjf8K/hzYfWqdV9fnTngI6GGHU8URHHUTinwscErej3ViaNll4jGTtlbnQ12p8Sf+91kadYf
+	sPS3zeYKUEvhX3iO7U9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJjQ-00000004smj-2brQ;
-	Thu, 02 Jul 2026 15:53:40 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wfKAj-00000004z4q-2y46;
+	Thu, 02 Jul 2026 16:21:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJjN-00000004slm-0T1x
+	id 1wfKAi-00000004z4i-1ZR8
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Jul 2026 15:53:39 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9E7DD200EDF;
-	Thu, 02 Jul 2026 17:53:34 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wfJjK-005lg1-1j;
-	Thu, 02 Jul 2026 17:53:34 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wfJjK-00000000Fe5-1uow;
-	Thu, 02 Jul 2026 17:53:34 +0200
-Message-ID: <ae1e67ae363956c1df695213c13f2463b73dfa72.camel@pengutronix.de>
-Subject: Re: [PATCH 0/2] spacemit: fix USB2 clock and reset
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Yixun Lan <dlan@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Michael
- Turquette <mturquette@baylibre.com>
-Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, Junzhong Pan
-	 <panjunzhong@linux.spacemit.com>
-Date: Thu, 02 Jul 2026 17:53:34 +0200
-In-Reply-To: <20260518-06-clk-reset-usb-fix-v1-0-14fc235e692b@kernel.org>
-References: <20260518-06-clk-reset-usb-fix-v1-0-14fc235e692b@kernel.org>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 02 Jul 2026 16:21:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AD93601CA;
+	Thu,  2 Jul 2026 16:21:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEAEF1F00A3D;
+	Thu,  2 Jul 2026 16:21:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783009311;
+	bh=lRYYfuzSFOeRYJmv5cGsJm2KFhklobIhVjufiS+redM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=htVfk/trvNAhdz5EgvVqZggl3T8bU4hz3U6oSLizhXEk3qThqH20gxrU5CiwHTRsU
+	 9EnrfDOZxbrZQI1ZBdWAxM9SQr/A5duQR1wxwTi8k300wQiY0mnyNDgjxteyX09xlc
+	 5kBywlNeIjzldoQUpMHO335lTjyYrrvwuuAPwrXvSRc2YVMpekFs3EN5fwAdRx58Gh
+	 aHFob/YFUb7yh2hvOR0bkTQS3Heimnq2veu2PW4zpmsznZ0g+729gQDUDUI6bjQDuJ
+	 7kF8HLbvNoyabpInTuS72WHN7MVqpsVnpFP4mFCkLuyyz7nXOE4bUdy//+qHvG07Fr
+	 Gws/FRVC2IlNg==
+Date: Thu, 2 Jul 2026 17:21:45 +0100
+From: Lee Jones <lee@kernel.org>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Min Lin <linmin@eswincomputing.com>,
+	Yulin Lu <luyulin@eswincomputing.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>
+Subject: Re: [PATCH 4/7] dt-bindings: mfd: syscon: add ESWIN EIC7700
+ compatible
+Message-ID: <20260702162145.GC2108533@google.com>
+References: <20260615122016.1110206-1-pinkesh.vaghela@einfochips.com>
+ <20260615122016.1110206-5-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_085337_322500_006F6892 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20260615122016.1110206-5-pinkesh.vaghela@einfochips.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,26 +80,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mo, 2026-05-18 at 02:58 +0000, Yixun Lan wrote:
-> In current code (v7.1-rc1), the register bit of bus clock and ahb reset
-> for USB2 were wrongly swapped, but this didn't cause any problem, because
-> from setting the register bits perspective, the de-assert reset operation
-> is effectly equivalent to enabling the clock bit, both of them will set
-> value 1.
+On Mon, 15 Jun 2026, Pinkesh Vaghela wrote:
+
+> Document ESWIN EIC7700 SoC compatible for syscon registers.
 > 
-> This issue was found during suspend/resume test with vendor's internal
-> kernel.
+> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+> ---
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-[...]
+Doesn't apply.  Please rebase.
 
-Applied to reset/fixes, thanks!
-
-[2/2] reset: spacemit: k3: fix USB2 ahb reset
-      https://git.kernel.org/pub/scm/linux/kernel/git/pza/linux.git/commit/?id=1ca22c6aa006
-
-regards
-Philipp
-
+-- 
+Lee Jones
 
 _______________________________________________
 linux-riscv mailing list
