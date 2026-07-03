@@ -4,153 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4E7C43458
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 10:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEFCC43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 10:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uSczqqgtYBy2D2DyUcs/etgZNnb8pLjlvBQmgoIJyLA=; b=u9IZKFcO7q729D
-	K2AGHZOu2oVTHaGHHq4hSwS29xpzQtTQMOtG5/vpuznvjPfylP6XJXViFbl4/c3Wjm923NpkwQdnm
-	QJ6d2q8grWGnKTfrV9/+AHPBM51qqIc4KqcPfUq2giwRCFXu05En1FVcyTiJhP4D4cmxVnQskySab
-	MYbzypycI8tfj3JTHyr6DMqv4/OjfONSf/mEHYVoguljyZE51dO/8mR1wuM/w2y+jlBRkiyy2gy2M
-	bcpJ7f4ni9WCXz7NGT5s8nefJPbMFIlq+NeULWop8cJwYjWE3zwxjHWkK9vsM7BOhOvCVY1KXIuxx
-	avZBQOWdcRrC94jVeqWQ==;
+	List-Owner; bh=+0JlM8E7+Li/HSKtNjXxNwy+57Lpa//7sPs0+eW61IM=; b=ySBmPvp1sS4uX2
+	jNWs9nZjAcDPC8QeofjrzXWMtSjnvyKk6PCHrYWwjpK6rb2a84lf16odOgyGk+aw3868d7C8mhza8
+	QQ1WaQWYYWHUyA1pvqXVdDgkBxs4wKk6tu2jDbYnn2yeb7rS7vDW9M+Td5I0gLYhZqWBaiEMERLsH
+	Py53Y8FISlMCFRO81nMUHpUqvSebqjbBF3585l+pnXpInQokoGtXlKM2fMiCUXlDHXMvyr48a/mtW
+	tgvLkcSn/cZK2HMt5Nbb6D7nBfcxxlb2lrKitNgtrI9jGtxSFVTmmGn+5awROVG3KLVKbphofUbJ9
+	kqz1hi2N3tQGblvRdYqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfah2-00000006WyL-3XLV;
-	Fri, 03 Jul 2026 10:00:20 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfah0-00000006Wxe-1r9b
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 10:00:19 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6636JW2R1762888;
-	Fri, 3 Jul 2026 09:59:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=XkZRwCRa2XhLgna4NJMGvoHXqep1IU
-	GIjBvB5bpJuls=; b=sNzsJBSJE0At5moOOpohmVjQzetUDhecbWJtU/m6Bze7zq
-	z+RrCESoaCZmvBe++NZ1sOGEfWnxfJFd31TdIHLW/TxZO1nxuCSC7zqBofLiGUt7
-	eY9t51b8vVsYwVu5zi2pHQUeRg0uooWAhwfH64a1V1CSxYVhEITXRkMoPZEwgKSI
-	3LVExr7ylz5KDKZQJyFauWLV26RwjqkUwgElPJxZqNL7sPGCYZ/QkjXnAHGLxz2o
-	AadgZh2Nx47mH+l9cfY2Puqix6XBXJPgRDm4gypdKviCzsIDlio9B6EBH2jOZ53r
-	LP9GtE8SPV4qoBaQhkyE3iSOH/EoHLMhgyTUpSpQ==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f26mk63uk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Jul 2026 09:59:13 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6639na9h008970;
-	Fri, 3 Jul 2026 09:59:12 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f2s7wgamb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Jul 2026 09:59:12 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6639x8AG50135304
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 3 Jul 2026 09:59:08 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AB02320043;
-	Fri,  3 Jul 2026 09:59:08 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 419EF20040;
-	Fri,  3 Jul 2026 09:59:08 +0000 (GMT)
-Received: from tuxmaker.linux.ibm.com (unknown [9.87.85.9])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri,  3 Jul 2026 09:59:08 +0000 (GMT)
-From: Sven Schnelle <svens@linux.ibm.com>
+	id 1wfahE-00000006X0J-01sr;
+	Fri, 03 Jul 2026 10:00:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfahB-00000006Wzb-2Dsh;
+	Fri, 03 Jul 2026 10:00:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77B231FC4;
+	Fri,  3 Jul 2026 03:00:23 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A98773FAA1;
+	Fri,  3 Jul 2026 03:00:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783072827; bh=aCTCeigzdW+DLmQcURYHBbc2LLCBHkNsbpfYvvGCiJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S7QhjRah1ACbDsWq1fyjeQXt+EKdqlo9vLYGLe10grZ3du51t6ZFb4OLnHfKmugvC
+	 xYIGBaOHJhM7/+St8RX1L1+kEfNfOXq3codPouX1rlw+gMBwRumJ3t0IzbR4AAn6ks
+	 AEhSYO6Tc+ug7ijrNB2evf01wmU75WbW8DbnvJvM=
+Date: Fri, 3 Jul 2026 11:00:11 +0100
+From: Mark Rutland <mark.rutland@arm.com>
 To: Thomas Gleixner <tglx@kernel.org>
-Cc: "H. Peter Anvin" <hpa@zytor.com>,
-        Michal =?utf-8?Q?Such=C3=A1nek?=
- <msuchanek@suse.de>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-        Madhavan
- Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Andy Lutomirski
- <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov
- <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-        Mark
- Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Jiaxun
- Yang <jiaxun.yang@flygoat.com>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Mukesh Kumar Chaurasiya
- <mkchauras@linux.ibm.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, Zong
- Li <zong.li@sifive.com>,
-        Nam Cao <namcao@linutronix.de>, Deepak Gupta
- <debug@rivosinc.com>,
-        Lukas Gerlach <lukas.gerlach@cispa.de>,
-        Rui Qi
- <qirui.001@bytedance.com>, Kees Cook <kees@kernel.org>,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [RFC] entry: Untangle the return value of
- syscall_enter_from_user_mode from syscall NR
-In-Reply-To: <87ldbsmnie.ffs@fw13>
-References: <akVRcPsD_R_CE1qW@kunlun.suse.cz>
-	<BA7CD91D-C0E5-47A1-B49C-BC6AF6604182@zytor.com> <87h5mhnjsr.ffs@fw13>
-	<yt9dwlvca8rn.fsf@linux.ibm.com> <87ldbsmnie.ffs@fw13>
-Date: Fri, 03 Jul 2026 11:59:07 +0200
-Message-ID: <yt9d5x2w5r84.fsf@linux.ibm.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+Cc: Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>,
+	Jinjie Ruan <ruanjinjie@huawei.com>, oleg@redhat.com,
+	richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	kees@kernel.org, guoren@kernel.org, chenhuacai@kernel.org,
+	kernel@xen0n.name, geert@linux-m68k.org, tsbogend@alpha.franken.de,
+	James.Bottomley@hansenpartnership.com, deller@gmx.de,
+	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com,
+	gor@linux.ibm.com, agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com,
+	ysato@users.sourceforge.jp, dalias@libc.org,
+	glaubitz@physik.fu-berlin.de, richard@nod.at,
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
+	luto@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, chris@zankel.net,
+	jcmvbkbc@gmail.com, peterz@infradead.org, wad@chromium.org,
+	thuth@redhat.com, ada.coupriediaz@arm.com, kevin.brodsky@arm.com,
+	linusw@kernel.org, yeoreum.yun@arm.com, song@kernel.org,
+	james.morse@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
+	liqiang01@kylinos.cn, pengcan@kylinos.cn, ryan.roberts@arm.com,
+	yangtiezhu@loongson.cn, sshegde@linux.ibm.com,
+	mchauras@linux.ibm.com, austin.kim@lge.com, jchrist@linux.ibm.com,
+	arnd@arndb.de, thomas.weissschuh@linutronix.de,
+	sohil.mehta@intel.com, andrew.cooper3@citrix.com, jgross@suse.com,
+	kas@kernel.org, x86@kernel.org, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-um@lists.infradead.org
+Subject: Re: [PATCH v16 01/18] seccomp: Convert __secure_computing() to
+ return boolean
+Message-ID: <akeIK5TRCjlKbzbp@J2N7QTR9R3>
+References: <20260629130616.642022-1-ruanjinjie@huawei.com>
+ <20260629130616.642022-2-ruanjinjie@huawei.com>
+ <akdp6GAu77-ipsXA@kunlun.suse.cz>
+ <87cxx4mmim.ffs@fw13>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDA5NCBTYWx0ZWRfX9FMLwetAf5KQ
- ndfxMBLSR49ue71Xv2NR40Icekc2MOvRbwixUqeEGtjdNkCalSSoGb966whocZ1gXXqpEriij7i
- lynNNC3vb2CQvMQydbLaS3VAu0jrXMOm+jrv0ORIZSdXnj7Vi1yorOQLGdSZSAOdWCDMFX3r3pN
- OuxRPVsNiZ9CQ3hGPyW9d4jjGhtQEH4JbcTwHIUqcZ7kznMyp1iLXVpiAu42PsAq9HSVzRZ1xeF
- OvamAeXQ82LGybWvpxvCiyLv5wDWgXgkKO8Hf7eaiVVVSAu3moZrspj1/CUqHGOp0ZISuFiCOfm
- 6AWwmNs4Kr04L5enCaF4YgWYGrYLmt6j4D8H0M1WcGM1ayQeiM6Yok1G5GskscCRoSEIeV8DpbU
- tkC4ar4pU/D2r9uqicbUF56hge/NSmTFC3OSbbHRYF3sz6B3Za9sH3Juh93DjTwWc9D28Pc5hiX
- 1sXDVTwSc86kcB2B9Rg==
-X-Proofpoint-GUID: fyPeOXFOcSecTLM12SqKB2NhFn9No9dY
-X-Authority-Analysis: v=2.4 cv=Z8bc2nRA c=1 sm=1 tr=0 ts=6a4787f2 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8 a=QZGpZFnrDBDqr2p2_-4A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDA5NCBTYWx0ZWRfXw6X4LK9BAJr/
- jeW91FBp5LTSjcZFRxjPIFSbzH40kzNpBhFPHP3F9N4dLBEIibxelkNLlh5TXnBBP24GksYOxGs
- cdYngkRwuJr0O4yJ1YvQBiRfSdFRCMk=
-X-Proofpoint-ORIG-GUID: Zheb6wdsp5g_GwqVLO_LBTgHraVWDNxT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 spamscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 phishscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030094
+Content-Disposition: inline
+In-Reply-To: <87cxx4mmim.ffs@fw13>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_030018_606972_8B23085F 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20260703_030029_649594_75F36FF1 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,48 +99,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thomas Gleixner <tglx@kernel.org> writes:
-
-> On Fri, Jul 03 2026 at 08:26, Sven Schnelle wrote:
->> Thomas Gleixner <tglx@kernel.org> writes:
->>> It's less than obvious and I have no objections to clean that up and
->>> make it more intuitive, but I still fail to see what Michal is actually
->>> trying to solve and what the magic flag is for. If s390 requires it,
->>> then that's an s390 problem, but definitely x86 does not.
->>
->> The difference between x86 and s390 is that on s390, regs->gprs[2] is
->> used for both the syscall number and the syscall return value.
->> That was a design mistake early in the begin about 25 years ago, but
->> it's ABI now, so it cannot be changed.
->
-> Cute.
->
->> When seccomp decides to skip a syscall, it write a return value into
->> regs->gprs[2]. When syscall_enter_from_user_mode_work() returns, it
->> returns this number. If it's negative all is good - the 'if (likely(nr <
->> NR_syscalls))' conditiion would just catch it and skip the syscall.
->>
->> But if it's a positive number, the code cannot distinguish whether
->> that's a return value or a syscall number.
->>
->> So I introduced PIF_SYSCALL_RET_SET when converting s390 to generic
->> entry. This flag tells the syscall code that a return value was set in
->> ptregs and the syscall should be skipped.
->
-> You also could have added a 'syscall_ret' member to pt_regs, operate
-> on that for the return values (seccomp, syscall...) and swap it into
-> gprs[2] right before returning to user space.
-
-That would likely also work, but I found it easier to read and
-understand to have an additional flag with a descriptive name than having
-yet another 'somehow-related-to-gpr2' member in ptregs.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdWwgMDMsIDIwMjYgYXQgMTE6NDg6NDlBTSArMDIwMCwgVGhvbWFzIEdsZWl4bmVy
+IHdyb3RlOgo+IE9uIEZyaSwgSnVsIDAzIDIwMjYgYXQgMDk6NTEsIE1pY2hhbCBTdWNow6FuZWsg
+d3JvdGU6Cj4gPiBPbiBNb24sIEp1biAyOSwgMjAyNiBhdCAwOTowNTo1OVBNICswODAwLCBKaW5q
+aWUgUnVhbiB3cm90ZToKPiA+PiAtCWlmIChzZWN1cmVfY29tcHV0aW5nKCkpCj4gPj4gKwlpZiAo
+IXNlY3VyZV9jb21wdXRpbmcoKSkKPiA+PiAgCQlyZXR1cm4gLTE7Cj4gPgo+ID4gSGVsbG8sCj4g
+Pgo+ID4gSSBhbSBub3QgZm9uZCBvZiB0aGlzIGxvZ2ljIGludmVyc2lvbi4gVGhlIGJvb2xlYW4g
+aXMgbWVhbmluZ2xlc3MgaW4KPiA+IGl0c2VsZi4KPiA+Cj4gPiBQcmV2aW91c2x5IC0xIHdhcyB1
+c2VkIHRvIGluZGljYXRlIHRoYXQgdGhlIHN5c2NhbGwgd2FzIGZpbHRlcmVkIGJ1dCB5b3UKPiA+
+IGNob3NlIHRvIGludmVydCB0aGUgbG9naWMgY2hvb3NpbmcgdHJ1ZSB0byBtZWFuIHN5c2NhbGwg
+d2FzIG5vdCBmaWx0ZXJlZC4KPiA+Cj4gPiBZb3UgY291bGQgY2hvb3NlIHRydWUgdG8gbWVhbiB0
+aGF0IHN5c2NhbGwgd2FzIGZpdGVyZWQgYXZvaWRpbmcgdGhpcwo+ID4gaW52ZXJzaW9uLgo+IAo+
+IFRoYXQncyBqdXN0IHdyb25nLiBCb29sZWFuIGxvZ2ljIG1ha2VzIG1vcmUgc2Vuc2Ugd2l0aCBo
+YXZpbmcKPiAoIWNvbmRpdGlvbigpKS4gSnVzdCBiZWNhdXNlIHRoZSBvbGQgMC8tMSBub25zZW5z
+ZSBoYWQgaXQgdGhlIG90aGVyIHdheQo+IHJvdW5kIGRvZXMgbm90IG1lYW4gaXQgaGFzIHRvIHN0
+YXkgdGhhdCB3YXkuCgoxMDAlIGFncmVlZCEKCkJpa2VzaGVkZGluZyBiZWxvdzsgc29ycnkuCgpJ
+IHRoaW5rIHRoZSBiaWdnZXIgcHJvYmxlbSBpcyBqdXN0IHRoYXQgc2VjdXJlX2NvbXB1dGluZygp
+IGlzIGEgdGVycmlibGUKbmFtZSB0aGF0IGRvZXMgbm90IGV4cHJlc3MgdGhlIGludGVuZGVkIHNl
+bWFudGljIC0tIGl0J3Mgbm90IGNsZWFyCndoZXRoZXIgInNlY3VyZSBjb21wdXRpbmciIG1lYW5z
+ICJzZWNjb21wIHBlcm1pdCB0aGUgc3lzY2FsbCIgb3IKInNlY2NvbXAgaXMgZW5hYmxlZCBhbmQg
+c29tZSBzcGVjaWFsIHJ1bGVzIG5vdyBhcHBseSIgb3Igc29tZXRoaW5nIGVsc2UKZW50aXJlbHku
+CgpJZiB3ZSdyZSBjaGFuZ2luZyB0aGUgcmV0dXJuIHR5cGUsIGl0IG1pZ2h0IGJlIHdvcnRoIHJl
+bmFtaW5nIHRoZQpmdW5jdGlvbiBzb21ldGhpbmcgbGlrZToKCglzZWNjb21wX3Blcm1pdHNfc3lz
+Y2FsbCgpCgouLi4gc28gZm9yIHRoZSBjb2RlIHF1b3RlZCBhdCB0aGUgc3RhcnQgb2YgdGhlIG1h
+aWwsIHdlJ2QgaGF2ZToKCglpZiAoIXNlY2NvbXBfcGVybWl0c19zeXNjYWxsKCkpCgkJcmV0dXJu
+IC0xOwoKLi4uIG9yIGZvciBhcm02NCwgd2hlcmUgd2UgaGF2ZSBOT19TWVNDQUxMOgoKCSBpZiAo
+IXNlY2NvbXBfcGVybWl0c19zeXNjYWxsKCkpCgkgCXJldHVybiBOT19TWVNDQUxMLgoKVGhvbWFz
+LCBhbnkgdGhvdWdodHMgb24gdGhhdD8KCkl0J3MgYWxzbyBvZGQgdGhhdCBzZWNjb21wIGFxdWly
+ZXMgdGhlIHN5c2NhbGwgbnVtYmVyIGl0c2VsZiB2aWEgLCByYXRoZXIKdGhhbiB0aGFuIGJlaW5n
+IHBhc3NlZCBkb3duIGV4cGxpY2l0bHkgYnkgdGhlIGFyY2ggY29kZS4gVGhhdCBjb21wbGV0ZWx5
+Cm9ic2N1cmVzIHdoYXQgc2VjY29tcCBpcyBkb2luZywgdnMgaGF2aW5nOgoKCWlmICghc2VjY29t
+cF9wZXJtaXNfc3lzY2FsbChzeXNjYWxsKSkKCQkuLi4KCi4uLiBidXQgSSBndWVzcyB0aGF0IHNh
+dmVzIHNvbWUgZHVwbGljYXRpb24gaW4gdGhlIHB0cmFjZSBjb2RlLgoKTWFyay4KCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
