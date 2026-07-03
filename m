@@ -4,50 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2745BC43458
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 18:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE8AC43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 20:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=o13+kBtOahz0HF/n83Qn7M9lfhT+sg9cHVwEih0r3v4=; b=OamjDB75CoW2MW
-	jjh9CLnJRHpZR5mzrr14Hy4wVJYMWFFSNuN1Cv5yfsNRLzooXs0ZHl8B1WvkhhiiyUhg51XOUZ7Ty
-	+xEVSB+T0PZOSFnIusNNG5v1VdsN6dVfu8mBTlbaFiBPD5H4B759U/8eOZS6nr54GD6oHZXPEh/7y
-	sxxaGtalcPiBYlqWFmEcVuhlkr2G25KoMQ2THv2BetmZWhCh2oQX6LQY0KDKXbm0Iupb7ejgL5H6a
-	w1DClzcrdIdHzGvLiMlyIxQg4aZzL8AdZ2FmPbnxOB9PgSfz+XNdkB2rMjKjChfTk+mnkP+7E4iU+
-	OSffCOJBwVvtUCCK8oFA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0luvEKrY/MQiqJ5nEe9Pmvn26NdqiYUsyMZ9kgOJIzw=; b=4wAEcPd15HCsnD
+	bO4mQUYQ0dWFC2SqVN/RkvF4D80GJHzNa35XQ4jmimLamQiFZYEoklI7AXxsxD8XQnyVyFJRFPq38
+	2X7DydlktF063pMk05Zi1SfTZ5TNS6DefcZpIHPHlZqdZ2vhmZn0NkmHHLS55TU5r8qf58NNSlkCV
+	+fGgwOxGb0ETUJULT1lcVKc4IInanFX5IyGrvCQ5fiJ0g22cXXMKbp3OYyZ5uvQNIfISF5jnlPGrs
+	8lXb2tOdKljlxBq8bi854wve4mjFje8CHZIb3VfAWEAEcDTumQI0Ckzircf3ZAKs5w3Zef6SqJME2
+	fBxrvSIgf+PkwHPp7ocg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfiIb-00000007dNe-2bsg;
-	Fri, 03 Jul 2026 18:07:37 +0000
+	id 1wfksU-00000007tQj-1eMS;
+	Fri, 03 Jul 2026 20:52:50 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfiIa-00000007dNJ-1Sia
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 18:07:36 +0000
+	id 1wfksS-00000007tPo-1P2y;
+	Fri, 03 Jul 2026 20:52:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F8BE600B0;
-	Fri,  3 Jul 2026 18:07:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1A0A1F000E9;
-	Fri,  3 Jul 2026 18:07:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A304600B0;
+	Fri,  3 Jul 2026 20:52:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49A6E1F00A3E;
+	Fri,  3 Jul 2026 20:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783102055;
-	bh=nfq9dRTmBphxoh5eGcZE2hsuYy5SKVL/7yX7BtQZa/I=;
-	h=Date:From:To:cc:Subject;
-	b=aK493ubAbGt4vsgPvAUSaUKE+U0RmhQX3ByIZEbI4S1Wrwg3Jlsh98WHzKwFTAX77
-	 WXIz6MFP14qGBdJzlLUtSSiEZ3iKbVBEZgZNFFHmzhBbpLN+r5q7Uy68zl5al/TZw6
-	 93qY8M7+7rRIy4vIcNBEuzcb4jC2v8rZDmgsP/KVU8wigdHM9DyCzDM6wuUHDaEk3u
-	 mwP32kH7vJFq/Eed5enIdheVOyB0qAHMOyIl/4FBumtf2Ac/xh17sQjBEk5zhwXHjN
-	 E7Kj40UBRZlrscnH1sfdrpdtlnhJKjZ2sDrPsaVf5j1HqBXeHqE+IPBLWCwQH0EW43
-	 Qs6+2RpZyHhzQ==
-Date: Fri, 3 Jul 2026 12:07:31 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v7.2-rc2
-Message-ID: <98c1a609-5ce9-5703-77d4-bdb2d92d7338@kernel.org>
+	s=k20260515; t=1783111965;
+	bh=qc6RQIMJ3TCgtwMlpFywp2lkPnh2VJAI6hIxptvIyMs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=m/AEFhD/QQMVr60LVSSrHBJhZzSHloaCLPk21mBJcgCOInHXk9skqaY/SzJJ84tEX
+	 UmT6M2g7SmZe+Xfl7u66KmHjHFowNBAw9iuDKrQPpkA0d+AKOFoNGiI4ScRdGq9tzV
+	 5Bw71e6tMbrrNqTc7h68y+P8wFXYypmrKhsg4IoUL3B2t/kFt2ZfrsDK6qF5Axq7m+
+	 0X+YpoR5DWk7RItGPbLuh218SieWYIlmdker7qyk9wbsyvgoZgAjV4Uu3czl1MVLAt
+	 DcAB4UvUtBhMMozkhoRv21B/k0znEvzlBngIXWCHw9H0yTbipW6aseVsPvTnj3WZDs
+	 DRMEjZMu/EqhQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>, Michal =?utf-8?Q?Such=C3=A1nek?=
+ <msuchanek@suse.de>, Mark Rutland <mark.rutland@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, oleg@redhat.com,
+ richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+ linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+ kees@kernel.org, guoren@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, geert@linux-m68k.org, tsbogend@alpha.franken.de,
+ James.Bottomley@hansenpartnership.com, deller@gmx.de, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, svens@linux.ibm.com,
+ ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de,
+ richard@nod.at, anton.ivanov@cambridgegreys.com,
+ johannes@sipsolutions.net, luto@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ chris@zankel.net, jcmvbkbc@gmail.com, peterz@infradead.org,
+ wad@chromium.org, thuth@redhat.com, ada.coupriediaz@arm.com,
+ linusw@kernel.org, yeoreum.yun@arm.com, song@kernel.org,
+ james.morse@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
+ liqiang01@kylinos.cn, pengcan@kylinos.cn, ryan.roberts@arm.com,
+ yangtiezhu@loongson.cn, sshegde@linux.ibm.com, mchauras@linux.ibm.com,
+ austin.kim@lge.com, jchrist@linux.ibm.com, arnd@arndb.de,
+ thomas.weissschuh@linutronix.de, sohil.mehta@intel.com,
+ andrew.cooper3@citrix.com, jgross@suse.com, kas@kernel.org,
+ x86@kernel.org, linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org
+Subject: Re: [PATCH v16 01/18] seccomp: Convert __secure_computing() to
+ return boolean
+In-Reply-To: <fa1f5b39-2703-40a1-81d6-3feba87e19b0@arm.com>
+References: <20260629130616.642022-1-ruanjinjie@huawei.com>
+ <20260629130616.642022-2-ruanjinjie@huawei.com>
+ <akdp6GAu77-ipsXA@kunlun.suse.cz> <87cxx4mmim.ffs@fw13>
+ <akeIK5TRCjlKbzbp@J2N7QTR9R3> <akeOjqMy7HVgRRCr@kunlun.suse.cz>
+ <fa1f5b39-2703-40a1-81d6-3feba87e19b0@arm.com>
+Date: Fri, 03 Jul 2026 22:52:43 +0200
+Message-ID: <87echjlrs4.ffs@fw13>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -60,152 +96,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
-
-Please pull these RISC-V updates for v7.2-rc2.  Nothing too
-remarkable, I think.  The signficant kernel size changes on
-SMP-capable configs are due to increasing the default NR_CPUS.
-
-thanks,
-
-- Paul
-
-
-The following changes since commit c75597caada080effbfbc0a7fb10dc2a3bb543ad:
-
-  Merge tag 'for-linus' of git://git.kernel.org/pub/scm/virt/kvm/kvm (2026-06-25 10:21:13 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-rc2
-
-for you to fetch changes up to bc7b086a45521a986a49045907f017e3e46c763e:
-
-  riscv: probes: save original sp in rethook trampoline (2026-06-30 18:46:54 -0600)
-
-----------------------------------------------------------------
-RISC-V updates for v7.2-rc2
-
-- Fix a crash when a kretprobe reads from the stack
-
-- Fix an issue with the build-time mcount sorter that broke ftrace
-
-- Fix the rv32 IRQ stack frame padding to match the ABI
-
-- Only defer IOMMU configuration during initialization.  This avoids
-  an issue where IOMMU configuration could be indefinitely deferred
-
-- Add the missing build salt to the vDSO
-
-- Now that RISC-V systems with higher numbers of cores are starting to
-  become available, raise NR_CPUS for RISC-V to 256
-
-- Clean up some warnings from sparse caused by the RISC-V-optimized
-  RAID6 code
-
-- Clean up our __cpu_up() code with a few minor fixes
-
-----------------------------------------------------------------
-Bastian Blank (1):
-      riscv: Add build salt to the vDSO
-
-Ben Dooks (2):
-      raid6: fix riscv symbol undeclared warnigns
-      raid6: fix raid6_recov_rvv symbol undeclared warning
-
-Martin Kaiser (1):
-      riscv: probes: save original sp in rethook trampoline
-
-Samuel Holland (1):
-      riscv: Fix 32-bit call_on_irq_stack() frame pointer ABI
-
-Thorsten Blum (1):
-      riscv: smp: use secs_to_jiffies in __cpu_up
-
-Vivian Wang (1):
-      riscv: Raise default NR_CPUS for 64BIT to 256
-
-Wang Han (1):
-      scripts/sorttable: Handle RISC-V patchable ftrace entries
-
-Yicong Yang (1):
-      ACPI: RIMT: Only defer the IOMMU configuration in init stage
-
- arch/riscv/Kconfig                            |  3 ++-
- arch/riscv/kernel/asm-offsets.c               |  4 ++--
- arch/riscv/kernel/entry.S                     |  8 ++++----
- arch/riscv/kernel/probes/rethook_trampoline.S |  3 +++
- arch/riscv/kernel/smpboot.c                   |  5 ++---
- arch/riscv/kernel/vdso/note.S                 |  3 +++
- drivers/acpi/riscv/rimt.c                     |  7 ++++---
- lib/raid/raid6/riscv/recov_rvv.c              |  1 +
- lib/raid/raid6/riscv/rvv.c                    |  1 +
- scripts/sorttable.c                           | 11 ++++++++---
- 10 files changed, 30 insertions(+), 16 deletions(-)
-
-vmlinux size differences in bytes (from c75597caada0):
-   text    data     bss     dec    hex  filename                             
- -73892  +26028  +52160   +4296  +10c8  vmlinux.defconfig.gcc-16             
-      .       .       .       .      .  vmlinux.nosmp_defconfig.gcc-16       
-  +1540  +13408  +42904  +57852  +e1fc  vmlinux.rv32_defconfig.gcc-16        
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.gcc-16  
- -29730  +17120  +41624  +29014  +7156  vmlinux.nommu_virt_defconfig.gcc-16  
- -74788  +21268  +52120   -1400   -578  vmlinux.defconfig.clang-20           
-   -172       .       .    -172    -ac  vmlinux.nosmp_defconfig.clang-20     
-  +8052  +13344  +42904  +64300  +fb2c  vmlinux.rv32_defconfig.clang-20      
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.clang-20
- -47664  +33600  +41632  +27568  +6bb0  vmlinux.nommu_virt_defconfig.clang-20
- -75892  +21900  +52160   -1832   -728  vmlinux.defconfig.gcc-15             
-      .       .       .       .      .  vmlinux.nosmp_defconfig.gcc-15       
-  +1744  +13376  +42904  +58024  +e2a8  vmlinux.rv32_defconfig.gcc-15        
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.gcc-15  
- -30352  +13024  +41624  +24296  +5ee8  vmlinux.nommu_virt_defconfig.gcc-15  
- -72280  +21904  +52160   +1784   +6f8  vmlinux.defconfig.gcc-14             
-      .       .       .       .      .  vmlinux.nosmp_defconfig.gcc-14       
-  +1664  +13408  +42904  +57976  +e278  vmlinux.rv32_defconfig.gcc-14        
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.gcc-14  
- -30814  +33504  +41624  +44314  +ad1a  vmlinux.nommu_virt_defconfig.gcc-14  
- -72900  +21300  +52040    +440   +1b8  vmlinux.defconfig.clang-19           
-   -172     +32       .    -140    -8c  vmlinux.nosmp_defconfig.clang-19     
-  +7748  +13344  +42792  +63884  +f98c  vmlinux.rv32_defconfig.clang-19      
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.clang-19
- -44302  +17296  +41608  +14602  +390a  vmlinux.nommu_virt_defconfig.clang-19
- -65824  +21904  +52160   +8240  +2030  vmlinux.defconfig.gcc-13             
-      .       .       .       .      .  vmlinux.nosmp_defconfig.gcc-13       
-  +1436  +13408  +42904  +57748  +e194  vmlinux.rv32_defconfig.gcc-13        
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.gcc-13  
- -33186  +17120  +41624  +25558  +63d6  vmlinux.nommu_virt_defconfig.gcc-13  
- -78660  +20820  +52040   -5800  -16a8  vmlinux.defconfig.clang-18           
-   -180       .       .    -180    -b4  vmlinux.nosmp_defconfig.clang-18     
-  +7588  +13312  +42792  +63692  +f8cc  vmlinux.rv32_defconfig.clang-18      
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.clang-18
- -45364  +13200  +41608   +9444  +24e4  vmlinux.nommu_virt_defconfig.clang-18
- -67314  +21824  +52160   +6670  +1a0e  vmlinux.defconfig.gcc-12             
-     +8       .       .      +8     +8  vmlinux.nosmp_defconfig.gcc-12       
-  +1732  +13408  +42904  +58044  +e2bc  vmlinux.rv32_defconfig.gcc-12        
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.gcc-12  
- -35232  +21216  +41624  +27608  +6bd8  vmlinux.nommu_virt_defconfig.gcc-12  
--100792  +24916  +52040  -23836  -5d1c  vmlinux.defconfig.clang-17           
-   -176     +32       .    -144    -90  vmlinux.nosmp_defconfig.clang-17     
-  +7228  +13344  +42792  +63364  +f784  vmlinux.rv32_defconfig.clang-17      
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.clang-17
- -49254  +29584  +41608  +21938  +55b2  vmlinux.nommu_virt_defconfig.clang-17
- -67502  +25904  +52160  +10562  +2942  vmlinux.defconfig.gcc-11             
-    +16       .       .     +16    +10  vmlinux.nosmp_defconfig.gcc-11       
-   +200  +17184  +42904  +60288  +eb80  vmlinux.rv32_defconfig.gcc-11        
-      .       .       .       .      .  vmlinux.rv32_nosmp_defconfig.gcc-11  
- -35826  +21216  +41624  +27014  +6986  vmlinux.nommu_virt_defconfig.gcc-11  
-      .       .       .       .      .  vmlinux.allnoconfig.gcc-15           
- +12824     -68     +64  +12820  +3214  vmlinux.allmodconfig.gcc-15          
-      .       .       .       .      .  vmlinux.allnoconfig.clang-19         
-  +3848    -184     +64   +3728   +e90  vmlinux.allmodconfig.clang-19        
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdWwgMDMgMjAyNiBhdCAxMzo1OSwgS2V2aW4gQnJvZHNreSB3cm90ZToKPiBPbiAw
+My8wNy8yMDI2IDEyOjI3LCBNaWNoYWwgU3VjaMOhbmVrIHdyb3RlOgo+Pj4gSWYgd2UncmUgY2hh
+bmdpbmcgdGhlIHJldHVybiB0eXBlLCBpdCBtaWdodCBiZSB3b3J0aCByZW5hbWluZyB0aGUKPj4+
+IGZ1bmN0aW9uIHNvbWV0aGluZyBsaWtlOgo+Pj4KPj4+IAlzZWNjb21wX3Blcm1pdHNfc3lzY2Fs
+bCgpCj4+IFRoZW4gbm90IG9ubHkgaXQgaXMgY2xlYXIgd2hpY2ggd2F5IHRoZSBib29sZWFuIHZh
+bHVlIHNob3VsZCBiZQo+PiBpbnRlcnByZXRlZCwgaXQgYWxzbyBwZXJ2ZW50cyB0aGUgYWNjaWRl
+bnRhbCBpbnZlcnNpb24gb2YgZXhpc3RpbmcKPj4gY2FsbHMuIE92ZXJhbGwgZ3JlYXQuCj4KPiBU
+b3RhbGx5IGFncmVlZCwgaWYgd2UgaGF2ZSB0aGUgb3Bwb3J0dW5pdHkgdG8gcmVuYW1lIGEgY29t
+cGxldGVseQo+IHVuZGVzY3JpcHRpdmUgZnVuY3Rpb24gbmFtZSBsaWtlICJzZWN1cmVfY29tcHV0
+aW5nIiB3ZSBzaG91bGQgdGFrZSBpdC4KCkFic29sdXRlbHkgbm8gb2JqZWN0aW9ucyBmcm9tIG15
+IHNpZGUgb24gdGhhdC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
