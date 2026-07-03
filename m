@@ -4,152 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA2DC43458
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 06:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95733C43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 07:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NUpaDGRecfArFLtaQQ0RrLALqzxz0ygGv+F2iO8G4Zw=; b=uo/MZnVAtxf1qm
-	a4X0i9eKi2i88ilyjZ1jdajbPycX5G1VcNl7dWaeWyd3dMXXvrGKXf3U+rlF0lwYQ8ASBb3jSN+DH
-	vFU/5yDqKetQ8Rhw69uldGbwJwEkckPv6lg7SrN+bG8JZjEpSnZzDMRD14j5mRWWT2O/6joBgCrzN
-	/NNrp8fSBBQKuJkhnBPXqZIxWtnJ9X6fWxJqxNevC0Ja9jNVM69Y9lFxzao7RoZ13z1ocOBQqPCOj
-	eMq7tYSGSCYWTNE0vhetQjJVrYrzIPjoTynGzhxlkcSSAr01IZQzqoauEgBJ0K39/fDeRADbihrga
-	N4Y0/dDMJUX+gAa9sR9Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=WoaofxZ/qwAL+1XiLbhN1XRu15OrYTyJ4achrFPf8H4=; b=RacDyh6lKv5PeM
+	U1LmxmxWDI9xvX6IRYtfgurCCmJM+LB+HW3ODKQMAOG/1Cfqr/BEp2c61dI/4zGyvZwQSxMKQuILp
+	KgdGJt2dsRzKxaejqYHhmfCXb0eElrq/N+F092DoDtiBFjybJU3AQAr3aEoJjtU8G1d0UYxl4NK8y
+	QkFpU/E7MBE+nn2YSEZWoJ3MEE0dHETSwsxQCri+zix3ozQXG5m3pTXLhadCoYWG8hS9EaSqv1Bfh
+	v7xOJ+V42TSPjYcuCNd+w8dfj6egCJl7G3acUH7aujpJmb7iSPD/kkZmyFi6D/UAXhnfVRV1C/Apz
+	2nurcesAugHcmG4UZ/Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXN4-000000069se-2KGZ;
-	Fri, 03 Jul 2026 06:27:30 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wfY8h-00000006GOv-1mBw;
+	Fri, 03 Jul 2026 07:16:43 +0000
+Received: from mail-oa2-x01.google.com ([2607:f8b0:4864:30::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXN2-000000069s2-0459
+	id 1wfY8c-00000006GMj-18su
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 06:27:29 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6636IOgf1930697;
-	Fri, 3 Jul 2026 06:26:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=bzSJ5oINpFJ908+/DlXAb6mMKV/rQA
-	7/s/nikIgFT8M=; b=Pw6s5+CmmFCb80gIoq6tsI0q0aCGJX6vTC9bDMoCWv8rCQ
-	BQwT/k3RlVT5PB9oWiN3yIzwYfdrpmtzUdOduS56aevlvXaQj3i/71DPXlv5pAom
-	jQa7qZgOiU2Snvpu77TNqHz2DYwzG7DqMhjcrK3gcsJTPvoSEa1M3WeZfwIc0zpb
-	YvyPQWRATqXq60c7TJJAiUzJCyhIhkCsoFUFvxpJjsM2ey9v5BdeITB2p/3n6IBK
-	E5eu6p2C164OppwPOcYhHC99iNQfPsu61NFaORG3G0fLEjM5YPMJqdA8z9mJ+xEr
-	FzyiId6iEfjL9fio1XMXnvIrEBqQfpm84/TrO/KQ==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f26pedu3m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Jul 2026 06:26:43 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6636JeVe018576;
-	Fri, 3 Jul 2026 06:26:42 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f2s7wfmh7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Jul 2026 06:26:41 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6636Qb3J10551638
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 3 Jul 2026 06:26:37 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9948E20040;
-	Fri,  3 Jul 2026 06:26:37 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 196EF20043;
-	Fri,  3 Jul 2026 06:26:37 +0000 (GMT)
-Received: from tuxmaker.linux.ibm.com (unknown [9.87.85.9])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri,  3 Jul 2026 06:26:37 +0000 (GMT)
-From: Sven Schnelle <svens@linux.ibm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: "H. Peter Anvin" <hpa@zytor.com>,
-        Michal =?utf-8?Q?Such=C3=A1nek?=
- <msuchanek@suse.de>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-        Madhavan
- Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Andy Lutomirski
- <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov
- <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-        Mark
- Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Jiaxun
- Yang <jiaxun.yang@flygoat.com>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Mukesh Kumar Chaurasiya
- <mkchauras@linux.ibm.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, Zong
- Li <zong.li@sifive.com>,
-        Nam Cao <namcao@linutronix.de>, Deepak Gupta
- <debug@rivosinc.com>,
-        Lukas Gerlach <lukas.gerlach@cispa.de>,
-        Rui Qi
- <qirui.001@bytedance.com>, Kees Cook <kees@kernel.org>,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [RFC] entry: Untangle the return value of
- syscall_enter_from_user_mode from syscall NR
-In-Reply-To: <87h5mhnjsr.ffs@fw13>
-References: <akVRcPsD_R_CE1qW@kunlun.suse.cz>
-	<BA7CD91D-C0E5-47A1-B49C-BC6AF6604182@zytor.com> <87h5mhnjsr.ffs@fw13>
-Date: Fri, 03 Jul 2026 08:26:36 +0200
-Message-ID: <yt9dwlvca8rn.fsf@linux.ibm.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Fri, 03 Jul 2026 07:16:41 +0000
+Received: by mail-oa2-x01.google.com with SMTP id 586e51a60fabf-447489dd9c7so125062fac.1
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Jul 2026 00:16:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783062997; x=1783667797; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8/To5uu366iTzXiach4JBOKu6hRxUbkL3Sh+ENphnrM=;
+        b=hPxP282euhfBcgOQ17R9Y8SUfnmAnqFSbUGioQxNXTfjCYk/l4NnTtsXOnyxjDAeVM
+         zXWuTv/hWkt1oxp1hIVmtCdyZaeoVmdnpV+ITUXVJLnypKNqbZsJpxCLlr9jy93C96ks
+         ga5BRWz/zlApOQrsR68iTticXjbFI8so6cxtA5unJ3qEXY6jRC0qRvldKl6FHQ3yxl4B
+         ApERA0pqGAgL3rxUnkFbzy24W3r0+aYQszcU+OujSNMJvHp4hAzKWrgVxLi7gn0L1wda
+         xxz/imIYBv17A7gVRHmE3cZQg2qosy2YFezTSmVSclCbn5shvFGOXDWHCru+FZHQKWNx
+         bTsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783062997; x=1783667797;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8/To5uu366iTzXiach4JBOKu6hRxUbkL3Sh+ENphnrM=;
+        b=VPoDwB5DuA4YQQ4sglyMSa99Ns87kbpwaxLHlgLmbpxEzt5eZp/LOkNme9oDBsBx79
+         eJJwRu5mc/sJOy/CZX+RCegmIrxlTpii0JZIOlT2WMyGY38l4DxCyTeF82l8Aly8+IZ8
+         fwtJ4TTUv5I9rXHdPxtoq1dvK8cjKzPqdFvoQjeRz8TtrCHHgJLrq6/SWZlx9MdT7JQh
+         iLX6GkmAE+DxCXZUzxALigx6JGUdo4jvrn7kfVjRSABM84gbnNrwE4hmIp+9GgQe0MIW
+         zfdN5OL594/w5hobEvpUYD9vnTHIC1AOfzL21nEeqgigS4QkY618TTUsLoMPdUJ+ORQ0
+         Icvg==
+X-Forwarded-Encrypted: i=1; AFNElJ+RigJmEZmiUFBduSv6Vs36GIXRMU7TKgg1aEcd1i4vEC71gU0iPL+3A4vptVBl+19CEaPj1Ih+7XjYOg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV+kevN9ac+guxCjbIcwFy8IYw37mv7UzF8Dw3atCXMlCnnw6k
+	vgRt3zhx6S6v332wJi9MMFqpa3JH/lfHWSCuKPsRaXVrvm0dQvDUw+Pz
+X-Gm-Gg: AfdE7cls8hVDjKAxeP7uszrDlZc60lBfNBMlHaVO+uSw1Gn9rAItv8SIVJeCoTUkwQh
+	TdYnMNC1WEJFgzd0RHMQsq2/zWROPDeMe5ylpgeLEBB7cdCWTl3vtARy1IBxZsUzXMW7va1/2br
+	gEs9YYGSNw4V59s+W36AiPeoKFM7AFoUkZ7fGo4/7zYKCDM3/775Olc0nWmyTiCGClSaSlX4x3+
+	bAy3ZwOivEOEqT4mcLhHxCY3j1oPDnM8IDzhdvE8tdxj0cHw45IOmMzl1LUTF/8FlO4SGdS2XLH
+	T0LmmhptxHXPp6PT083/v/OoPn20wTE6EnaNq2WE+nx6dDpZFSMViiVX3tlYhuPHJazqrydK9w4
+	8F2Z5NS2T964OvdcMRU9WkguoMLiRpyRt5lJ29dINVvvzVuPbFAgvtU/XlIXXlPVjtuMqI1WPPr
+	eJdNv0VSl9CiZYZ2DZGtHAWkhaqyC8+25aACM7mUNzjXJQ23oeKzOABVOyOy0jf60=
+X-Received: by 2002:a05:6870:2187:b0:449:bccd:79fb with SMTP id 586e51a60fabf-44cab961fb9mr6076032fac.24.1783062997063;
+        Fri, 03 Jul 2026 00:16:37 -0700 (PDT)
+Received: from ubuntu24 (dsl092-249-254.sfo4.dsl.speakeasy.net. [66.92.249.254])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-44cfb54f775sm1162626fac.10.2026.07.03.00.16.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 00:16:36 -0700 (PDT)
+Date: Fri, 3 Jul 2026 15:16:29 +0800
+From: Xing Loong <xing.xl.loong@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jens Wiklander <jenswi@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] dt-bindings: firmware: add mbedtee,rpc binding
+Message-ID: <akdhzUQWPsUS69P5@ubuntu24>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: V512ICONGfIMzJeZgVibyqNOAgCIuMj8
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDA1OCBTYWx0ZWRfX9npPGr21F1Qu
- IxrtK/vAbfCr/GjsGc0u2aK9/RjeRqQQxIqfLJKEbYS2rVdUgC0sRFh4WVLTWusnXUlzaONkVSv
- QpZLyXZQc1kKsiJGmHdrvgQ2beaxoYk=
-X-Authority-Analysis: v=2.4 cv=edsNubEH c=1 sm=1 tr=0 ts=6a475624 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8 a=CrRPdQPxwsYmpd-Ypb0A:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDA1OCBTYWx0ZWRfX6VwZUBxp6jeb
- YMK4Efb+Qc4f6HI3qRM6LEVMnYXnaV7F2JIWD9cC8n/1Ua0yROt/ntMjQ7JjawRqYb2UhuJEhIf
- kwff4gdG3VgvqVsSfAcTszHO1TVWNO8+/UxgPZ8zWhBBCttRy2m+q4SNKXaJq7tBN1MSLpUj8M0
- 7W4FP1ssOGWe8L+/ua2YzHBud8HlGnMOWBzHt+GDxv3KTwfzuHqZ/kVo2rwvOV731TLu1Jpnt1e
- jWK2FjpN2ieAhYzNCHjrSOUjUqKO+qMBIEW8xL1CXx73aSSAQCNyNVpp6dCu6gaRnOJzPqT0ZfH
- sGkwpzfIYoBDH9tmtUWbOrSgC3Ic5tyrmNxrdnyp6ONquF4Srhz07xLlirUJImU90/i7eUG1W0K
- JAD4aY7gp37lGzleaK0YwCjHEWTB4OpcPGWdlh1FKYX5CIhKuawlelq8rIa7CO8kac5pdLoBC65
- sK8KQichxzL7mL8vqcQ==
-X-Proofpoint-ORIG-GUID: 48DwgYVDq6x5ccTjcsfSLPConSUTJzSs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 adultscore=0 impostorscore=0 bulkscore=0
- spamscore=0 suspectscore=0 clxscore=1015 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030058
+Content-Disposition: inline
+In-Reply-To: <70068ae8-ede1-41d2-899b-98ed11e19953@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_232728_066943_9F4A5D4E 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20260703_001638_337947_E3D5E99C 
+X-CRM114-Status: GOOD (  35.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,44 +101,270 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thomas Gleixner <tglx@kernel.org> writes:
 
-> If seccomp overwrites regs->eax and aborts any syscall (including -1) by
-> returning -1, then the value seccomp wrote into regs->eax is preserved
-> and returned to user space.
->
-> The same applies for syscall_user_dispatch() and ptrace...() if they
-> decide to overwrite regs->eax _and_ abort the syscall by letting
-> syscall_enter_from_user_mode() return -1.
->
-> trace_syscall_enter() is not any different. If the magic BPF in there
-> rewrites the syscall number to -1 then either the original -ENOSYS or
-> the BPF induced overwrite is returned to user space.
->
-> It's less than obvious and I have no objections to clean that up and
-> make it more intuitive, but I still fail to see what Michal is actually
-> trying to solve and what the magic flag is for. If s390 requires it,
-> then that's an s390 problem, but definitely x86 does not.
+On 01/07/2026 16:05, Krzysztof Kozlowski wrote:
+> On 01/07/2026 15:25, Xing Loong wrote:
+> > Add YAML devicetree binding for the MbedTEE Trusted Execution
+> 
+> Drop YAML, there is no such thing as YAML binding.
 
-The difference between x86 and s390 is that on s390, regs->gprs[2] is
-used for both the syscall number and the syscall return value.
-That was a design mistake early in the begin about 25 years ago, but
-it's ABI now, so it cannot be changed.
+Will drop.
 
-When seccomp decides to skip a syscall, it write a return value into
-regs->gprs[2]. When syscall_enter_from_user_mode_work() returns, it
-returns this number. If it's negative all is good - the 'if (likely(nr <
-NR_syscalls))' conditiion would just catch it and skip the syscall.
+> > Environment driver.
+> 
+> We don't take bindings for drivers but for hardware or firmware. Please
+> describe these instead.
 
-But if it's a positive number, the code cannot distinguish whether
-that's a return value or a syscall number.
+Will rewrite the description to describe what MbedTEE is as
+firmware, not the driver or the binding.
 
-So I introduced PIF_SYSCALL_RET_SET when converting s390 to generic
-entry. This flag tells the syscall code that a return value was set in
-ptregs and the syscall should be skipped.
+> > The binding covers two platform configurations:
+> >   - ARM/AArch64 (TrustZone, SMC): two reserved-memory regions
+> >     (rpc-t2r-ring and rpc-t2r-shm) plus a GIC SPI edge interrupt
+> >     for TEE-to-REE notifications.
+> >   - RISC-V (IMSIC): three reserved-memory regions, adding
+> >     rpc-r2t-ring for REE-to-TEE command submissions; no interrupts
+> >     property (T2R notifications use IMSIC MSI allocated at runtime).
+> > 
+> > Signed-off-by: Xing Loong <xing.xl.loong@gmail.com>
+> > ---
+> >  .../bindings/firmware/mbedtee,rpc.yaml        | 221 ++++++++++++++++++
+> >  1 file changed, 221 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml b/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
+> > new file mode 100644
+> > index 0000000..08ae255
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/firmware/mbedtee,rpc.yaml
+> > @@ -0,0 +1,221 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/firmware/mbedtee,rpc.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: MbedTEE Trusted Execution Environment
+> > +
+> > +maintainers:
+> > +  - Xing Loong <xing.xl.loong@gmail.com>
+> > +
+> > +description: |
+> > +  MbedTEE is a Trusted Execution Environment for embedded systems.
+> > +  This binding describes the shared-memory regions used for RPC
+> 
+> Describe firmware, not the binding. It's redundant to say what the
+> binding is about, just say what is the hardware.
 
-I'd like to see something like the change from Michal going in - cleaned
-up of course. It would allow us to get rid of PIF_SYSCALL_RET_SET.
+Will rewrite, removing "driver", "YAML" and "This binding
+describes" wording throughout.
+
+> > +  communication between the Linux REE driver and MbedTEE OS.
+> > +
+> > +  The REE and TEE CPUs sharing the RPC memory must be in a
+> > +  hardware-coherent domain (same CPU cluster, coherent caches).
+> > +
+> > +  Two or three reserved-memory regions are required:
+> > +
+> > +    rpc-t2r-ring  ring buffer for TEE-to-REE notifications (all platforms)
+> > +    rpc-t2r-shm   shared memory for TEE-to-REE RPC payloads (all platforms)
+> > +    rpc-r2t-ring  ring buffer for REE-to-TEE command submissions (RISC-V only)
+> > +
+> > +  On ARM/AArch64 the transport uses SMC calls; TEE-to-REE
+> > +  notifications use a GIC SPI edge interrupt.
+> > +
+> > +  On RISC-V the TEE notifies the REE via IMSIC MSI; the REE submits
+> > +  commands via shared-memory rpc-r2t-ring that the TEE polls. No
+> > +  REE-to-TEE interrupt is used. No SBI ecall is involved.
+> > +
+> > +properties:
+> > +  $nodename:
+> > +    const: mbedtee
+> 
+> Drop, why would it be relevant?
+
+Will drop.
+
+> > +
+> > +  compatible:
+> > +    const: mbedtee,rpc
+> 
+> Feels way too generic. First, Google results on mbedtee are basically
+> non-existing, so what sort of company is that?
+> 
+> Second, rpc is just not specific enough. Please carefully read writing
+> bindings doc.
+
+Will rename to "mbedtee,tee". mbedtee is an open-source TEE
+project (https://github.com/mbedtee), not a company. Patch 1/3 adds
+the corresponding "mbedtee" entry to vendor-prefixes.yaml.
+
+> > +
+> > +  interrupts:
+> > +    description:
+> > +      GIC interrupt used by the TEE to notify the REE of pending RPC
+> > +      responses (ARM/AArch64 only). Not present on RISC-V platforms which
+> > +      use IMSIC platform MSI interrupts allocated dynamically at runtime.
+> 
+> Please read writing bindings doc.
+
+Will drop the description.  Will add maxItems: 1 instead.
+
+> > +
+> > +  msi-parent:
+> > +    maxItems: 1
+> > +    description:
+> > +      IMSIC MSI controller used by the Linux driver to allocate the
+> 
+> Again drivers...
+
+Will drop the description.  Will keep only maxItems: 1.
+
+> > +      TEE-to-REE notification interrupt on RISC-V platforms. Not present on
+> > +      ARM/AArch64 platforms, which use the interrupts property.
+> > +
+> > +  memory-region:
+> > +    minItems: 2
+> > +    maxItems: 3
+> > +    description:
+> > +      References to reserved-memory regions for REE<->TEE communication.
+> > +      Entries must match memory-region-names order.
+> 
+> Obvious. Please do not come with your own style of bindings.
+
+Will drop the description.  Understood, will follow the standard
+style used by existing bindings.
+
+> > +
+> > +  memory-region-names:
+> > +    minItems: 2
+> > +    maxItems: 3
+> 
+> Why is this flexible?
+
+Will constrain it via the allOf: if/then branches (ARM: fixed at 2,
+RISC-V: fixed at 3).
+
+> > +    items:
+> > +      enum:
+> > +        - rpc-t2r-ring
+> 
+> rpc is redundant, drop
+
+Will drop the "rpc-" prefix.  Will use t2r-ring, t2r-shm, r2t-ring.
+
+> > +        - rpc-t2r-shm
+> > +        - rpc-r2t-ring
+> > +
+> > +required:
+> > +  - compatible
+> > +
+> > +allOf:
+> > +  - if:
+> > +      required:
+> > +        - interrupts
+> > +    then:
+> > +      required:
+> > +        - interrupts
+> > +        - memory-region
+> > +        - memory-region-names
+> > +      properties:
+> > +        msi-parent: false
+> > +        memory-region:
+> > +          minItems: 2
+> > +          maxItems: 2
+> > +        memory-region-names:
+> > +          items:
+> > +            - const: rpc-t2r-ring
+> > +            - const: rpc-t2r-shm
+> > +    else:
+> > +      required:
+> > +        - msi-parent
+> > +        - memory-region
+> > +        - memory-region-names
+> 
+> So memory-region is always required?
+
+Yes.  Will move memory-region and memory-region-names to the
+top-level required: list to make this explicit.  The interrupts and
+msi-parent properties will also be made mutually exclusive per
+platform (msi-parent: false on ARM, interrupts: false on RISC-V).
+
+> > +      properties:
+> > +        memory-region:
+> > +          minItems: 3
+> > +          maxItems: 3
+> > +        memory-region-names:
+> > +          items:
+> > +            - const: rpc-t2r-ring
+> > +            - const: rpc-t2r-shm
+> > +            - const: rpc-r2t-ring
+> 
+> Your top level schema said that. You only need minItems.
+
+Will drop the redundant constraints from the else branch.
+
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    /* ARM TrustZone (SMC) */
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +    / {
+> > +      #address-cells = <2>;
+> > +      #size-cells = <2>;
+> > +
+> > +      gic: interrupt-controller@2f000000 {
+> > +        compatible = "arm,gic-v3";
+> > +        reg = <0 0x2f000000 0 0x10000>,
+> > +              <0 0x2f100000 0 0x200000>;
+> > +        interrupt-controller;
+> > +        #interrupt-cells = <3>;
+> > +      };
+> > +
+> > +      reserved-memory {
+> > +        #address-cells = <2>;
+> > +        #size-cells = <2>;
+> > +        ranges;
+> > +
+> > +        mbedtee_t2r_ring: rpc-t2r-ring@85f10000 {
+> > +          reg = <0 0x85f10000 0 0x20000>;
+> > +          no-map;
+> > +        };
+> > +
+> > +        mbedtee_t2r_shm: rpc-t2r-shm@85f30000 {
+> > +          reg = <0 0x85f30000 0 0x40000>;
+> > +          no-map;
+> > +        };
+> > +      };
+> 
+> None of the above is relevant, drop.
+
+Will drop all platform infrastructure nodes.  Will follow the
+minimal example pattern seen in linaro,optee-tz.yaml.
+
+> > +
+> > +      firmware {
+> > +        mbedtee {
+> > +          compatible = "mbedtee,rpc";
+> > +          interrupt-parent = <&gic>;
+> > +          interrupts = <GIC_SPI 72 IRQ_TYPE_EDGE_RISING>;
+> > +          memory-region = <&mbedtee_t2r_ring>, <&mbedtee_t2r_shm>;
+> > +          memory-region-names = "rpc-t2r-ring", "rpc-t2r-shm";
+> > +        };
+> > +      };
+> > +    };
+> > +
+> 
+> Best regards,
+> Krzysztof
+
+Thanks for the thorough review.  Will send v3 after incorporating
+all of the above.
+
+Best regards,
+Xing Loong
 
 _______________________________________________
 linux-riscv mailing list
