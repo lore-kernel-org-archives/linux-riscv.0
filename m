@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9C8C43458
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 09:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E246C43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 09:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FYERMfmDG7QkY/P1AxhGVOS398pKefGP7ruJXJ6yrqc=; b=Q18nWZUz/G26hi
-	zABX0Asw0UV+5sWhaqVkcCAfmy5ScQpU6M/cJCz8Kyza79T5OApIohtW5YMT/85+BnejNUFhq1Fte
-	JIqk3nrFQzZQ4hBrZpxxjkeHeKDUsp9eSp0BDCvTOOs0VAmdOiCDWJE0J7xYaAYun7qQ8JcGoy+UV
-	uTJJjS/BlxgQJRRrXUh4u0GtHQSm6dGgC+ODL1c68crLBANlX0o3Nzp1qblRM3Sck2IF7uLLOwWfC
-	VeSqt7dH3y3FwitbTZV80wD11L/QDKu5+POfpejWotd1lhcfYBd+a8TCT4dJjPf50w/OvrGWaQTIT
-	AkPD2DDzMepE38z9RelQ==;
+	List-Owner; bh=p3eo/4keDPxq7LASgpUQH+812/0RwXGxsuCDlYZZrQo=; b=Ip7lwx4Oi6c1Ib
+	LwUZKJq+roKe+Zi09yCQXyqqUB4NYgjpseBHsVleWsM9XfPgWMvv2KwQ09Xm7QFNuxHIxqk9CDACW
+	5O26BCPnzcVPhL57O8vYAEIjsBcNyVuY9LG9VuS8ql7ylhbPzgOsR1HTobrJjTF/nBmNYoczJo3/3
+	hRsK4JCH+LjLW+OgJOefKuhnwCsfIuOQ09rR8D5qxwF91QI+M6rTieieQ6qT8JcQxgUxMNeWWMqiJ
+	914+SV246W4buYtWITDsBdsVbImLTV2vEQRBTNY7l34ViYZcwagE26vbn15BuiMKVcEAq8hePXiM0
+	mCNGn7JK97Lv0AI3x7gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfaIG-00000006Udi-1PDG;
-	Fri, 03 Jul 2026 09:34:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfaRe-00000006VLY-0SVq;
+	Fri, 03 Jul 2026 09:44:26 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfaIF-00000006UdV-2dBN
+	id 1wfaRb-00000006VKr-3F0t
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 09:34:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D09566001A;
-	Fri,  3 Jul 2026 09:34:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6B011F000E9;
-	Fri,  3 Jul 2026 09:34:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783071282;
-	bh=nMY8UZyvI/HF5Rdv1bSkWyNbGRbx1G27seV2ZaZUbN4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=K4JQ6Zc8TPguGmkEN1toHL2v5PXz61h6EWt7zZ8rNB04Nv/OFyWtRbIK7/fVYv1YG
-	 B2iavueYbkcwMfN5GGnSDuP3/Y2ypQOlduP9C9EH0oHedTCI4eVb8GN99XZ7K3gk2U
-	 mKiWTX7nFzp9NihhXbgvqGtv6EZe36azyYLF8fKo4DpnPtV9M5EwlFIg4kabWNJ5dR
-	 ivYvj8LWnh2+s/7LGPHBUsOszJO62d4z94v7KFjNFI2CueHXILKryvycsxAeIyGtSG
-	 s98h3rggiuosCqsSmQ0MRnvTtW2Y2rrZ6VdGUVtB9Peojv9MYzNR0W2Zxz87hN6G4/
-	 UM7w31V/ebUew==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Michal =?utf-8?Q?Such=C3=A1nek?= <msuchanek@suse.de>
-Cc: Peter Zijlstra <peterz@infradead.org>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Madhavan
- Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, Andy Lutomirski <luto@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
- <hpa@zytor.com>, Andrew Donnellan <andrew+kernel@donnellan.id.au>, Mark
- Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, Jiaxun Yang
- <jiaxun.yang@flygoat.com>, Ryan Roberts <ryan.roberts@arm.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Mukesh Kumar Chaurasiya
- <mkchauras@linux.ibm.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Zong
- Li <zong.li@sifive.com>, Nam Cao <namcao@linutronix.de>, Deepak Gupta
- <debug@rivosinc.com>, Lukas Gerlach <lukas.gerlach@cispa.de>, Rui Qi
- <qirui.001@bytedance.com>, Kees Cook <kees@kernel.org>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [RFC] entry: Untangle the return value of
- syscall_enter_from_user_mode from syscall NR
-In-Reply-To: <akdqlO0eJ6jKH-wU@kunlun.suse.cz>
-References: <akVRcPsD_R_CE1qW@kunlun.suse.cz> <878q7tprau.ffs@fw13>
- <akZPakNl6JT_jgGd@kunlun.suse.cz> <87jyrdnmrh.ffs@fw13>
- <akdqlO0eJ6jKH-wU@kunlun.suse.cz>
-Date: Fri, 03 Jul 2026 11:34:39 +0200
-Message-ID: <87ik6wmn68.ffs@fw13>
+	Fri, 03 Jul 2026 09:44:25 +0000
+Date: Fri, 3 Jul 2026 11:44:18 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1783071859;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vbkc8C6vPfuFCPiBlHwfq26ZgkZnTR7YZfJ6x+U6dgw=;
+	b=3wx+GZN3lUFtMi+zC9r4PUHex2Hrj5bj/px96NRFCJxYeFrkRhdZG9a3JlWoIIwuWfBB83
+	NpUbJBYKtbr4ddLbrNs4614/5mxWlN05qbtSQd6qkg4lSMTrgqGvwZmIHZsaP1toX3NAek
+	3QTdMQwVqxC5axCIplVnugf8z8LiXafTIE4g36P2y7qPSIWuErov/HgzcSaUrr72jtDC7s
+	fxKwEfoe0OmdhQWbw6qxKWo1xYy6m6CfkjRgZTFRW0/ka6CXtzjYQb58xn2gTZ4k844eGN
+	vOYXyPHHNEgyt1STYuuxIFlmwOVqk9dndhYl0jB/QpI5kA1XMlU5IAlDsqPTAA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1783071859;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vbkc8C6vPfuFCPiBlHwfq26ZgkZnTR7YZfJ6x+U6dgw=;
+	b=whrD/IxmYah58ALJenVjpQsAGHKeODZYizVPDeOc6rM12TMi1TbQNAexWnah0bkE32iMFF
+	08t3rz9pX05lChAw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Leon Hwang <leon.hwang@linux.dev>
+Subject: Re: [PATCH] mm/mseal: fix mseal documentation for 32-bit kernels
+Message-ID: <20260703114128-2a7a4723-0060-436b-99d9-7499bd90fa82@linutronix.de>
+References: <20260703022507.187457-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260703022507.187457-1-leon.hwang@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_024423_973059_FA61C3CD 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +70,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-doc@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Gary Guo <gary@garyguo.net>, linux-riscv@lists.infradead.org, Vlastimil Babka <vbabka@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Jann Horn <jannh@google.com>, Nathan Chancellor <nathan@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, Pedro Falcato <pfalcato@suse.de>, Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, "Liam R . Howlett" <liam@infradead.org>, Nicolas Schier <nsc@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Douglas Anderson <dianders@chromium.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMDMgMjAyNiBhdCAwOTo1MywgTWljaGFsIFN1Y2jDoW5layB3cm90ZToKPiBP
-biBUaHUsIEp1bCAwMiwgMjAyNiBhdCAxMDo0NTo1NFBNICswMjAwLCBUaG9tYXMgR2xlaXhuZXIg
-d3JvdGU6Cj4+ID4gV2hlbiB0aGUgc3lzY2FsbCBudW1iZXIgd2FzIC0xIHRvIHN0YXJ0IHdpdGgg
-aXQncyBub3QgcG9zc2libGUgdG8KPj4gPiBkZXRlcm1pbmUgaWYgdGhlIHN5c2NhbGwgd2FzIGZp
-bGV0ZXJkIGZyb20gdGhlIHJldHVybiB2YWx1ZS4gczM5MAo+PiA+IHJldHVybnMgdGhlIGZpbHRl
-cmVkIHN0YXRlIGluIGEgZmxhZyBpdCBzZXRzIG9uIHRoZSByZWdzIHN0cnVjdHVyZSwKPj4gPiBh
-dm9pZGluZyB0aGlzIHByb2JsZW0uCj4+IAo+PiBXaGF0IG5lZWRzIHRvIGRldGVybWluZSB3aGV0
-aGVyIHRoZSBzeXNjYWxsIHdhcyBmaWx0ZXJlZCBvciBub3Q/Cj4KPiBUaGUgY29kZSB0aGF0IGV4
-ZWN1dGVzIHN5c2NhbGxfZW50ZXJfZnJvbV91c2VyX21vZGUoKSBuZWVkcyB0byBkZXRlcm1pbmUK
-PiB0aGF0Lgo+Cj4gQWZ0ZXIgc3lzY2FsbF9lbnRlcl9mcm9tX3VzZXJfbW9kZSgpIHJldHVybnMg
-dGhlIHN5c2NhbGwgbmVlZHMgdG8gYmUKPiBleGVjdXRlZCBvciBza2lwcGVkLgo+Cj4gJ0V4ZWN1
-dGluZycgYW4gaW52YWxpZCBzeXNjYWxsIGJvaWxzIGRvd24gdG8gc2V0dGluZyB0aGUgcmV0dXJu
-IHZhbHVlIHRvCj4gLUVOT1NZUy4KPgo+IEJ1dCBpZiB0aGUgc3lzY2FsbCBudW1iZXIgcmV0dXJu
-ZWQgaXMgLTEgd2FzIHRoZSBzeXNjYWxsIGZpbHRlcmVkIGFuZAo+IHRoZSByZXR1cm4gdmFsdWUg
-c2V0IGJ5IHN5c2NhbGxfZW50ZXJfZnJvbV91c2VyX21vZGUoKSBvciBzaG91bGQgaXQgYmUKPiBz
-ZXQgYnkgdGhlIGNhbGxlciB0byAtRU5PU1lTPwoKU2VlIHRoZSBleHBsYW5hdGlvbiBJIGdhdmUg
-dG8gUGV0ZXIuIEl0J3MgY29uY2x1c2l2ZSwgYnV0IGFkbWl0dGVkbHkgbm90CmludHVpdGl2ZS4K
-ClRoZSBmYWN0LCB0aGF0IHMzOTAgZGVjaWRlZCB0byBoYXZlIHRoZSBzeXNjYWxsIG51bWJlciBh
-bmQgdGhlIHJldHVybgp2YWx1ZSBpbiB0aGUgc2FtZSByZWdpc3RlciBpcyBhIGRpZmZlcmVudCBw
-cm9ibGVtLCBidXQgYXMgSSBwb2ludGVkIG91dAp0byBTdmVuIGl0IGNvdWxkIGhhdmUgYmVlbiBz
-b2x2ZWQgY29tcGxldGVseSB3aXRob3V0IHRoYXQgZmxhZy4KClRoYW5rcywKCiAgICAgICAgdGds
-eAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, Jul 03, 2026 at 10:25:07AM +0800, Leon Hwang wrote:
+(...)
+
+>    The following architectures currently support this feature: x86-64, arm64,
+> -  loongarch and s390.
+> +  loongarch, riscv, and s390.
+
+For per-architecture feature documentation we also have
+Documentation/features/. Maybe move it there.
+
+>  
+>    WARNING: This feature breaks programs which rely on relocating
+>    or unmapping system mappings. Known broken software at the time
+
+(...)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
