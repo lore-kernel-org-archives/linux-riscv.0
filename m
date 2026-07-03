@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE4CC43602
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 02:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B9AC43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 02:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zXDPoopYAEd1/wHRC+SSohV++5OXvWDSKTy83bqA9+I=; b=YpD357eBf2xEQN
-	Wu4FojQhcDsHRWPJg3dBn57zGJHjMdM8dy0a7ImQRcpROZIqP/Ij993NOm+VBq8ap298tXKn+5lRr
-	ZaofCvELI892gb/hmlAW55kBH8fDdLIaw4cJH0T57Ik4f1mIhfIsqr9e24QfL6aN5GFdqCgU+8R6u
-	Yo6AVlMf+lbGVo0nlzb44zOIWz2zAiAsJWXDJgDeqwPRoT8GMWn4Hvy2d1KP6H0srm3SbHHddqJBr
-	OPxe2NDSvMl1oMu1AIDNrAukaMm0CVSiSJL0CsE73r8Cx/VYzat2QwEOrcf2dmhmMwNi3HtPqDF/8
-	pnIQaTYe7P2Nx/kR0AKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HzZTbM1QRTtZs7+CYQLlN10cZJR2d8oR2a9ohbCvjzU=; b=R5R7wsqgfXq4TL
+	Rt1zwmIj1+Ztoi0l3dw2qh6RtlFtCvz/k3cWd9NrSKCQvoDpRiGbdDxbgeIuBeLRvl5l+YKuuaZRF
+	XmPmjC/uCAqGOfIyS0VX0TB7kc/YXrpc6ISbJHMf2ExS6uxPjQvMXmZqaZkiRjXIgnEWxjCN70pfS
+	oPKIeBm05408/moEc5/ww0NzNCGarFc6I5iVzhc/Sh31CpY/JzM+xXaN3pvw0uK6qYzMdbRXYggvu
+	S3kFzq37ZYbS0bNTbp0MUewbf+qHUhVQWWr8oavUY2krYHsvqXowO9rBuu4DIRSTUw9imhBr1zJa0
+	OE5ezmngHfGKOZhxUF5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfTCs-00000005qrQ-33eq;
-	Fri, 03 Jul 2026 02:00:42 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1wfTCv-00000005qsa-3RYB;
+	Fri, 03 Jul 2026 02:00:45 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfTCq-00000005qqu-1XfB
+	id 1wfTCs-00000005qrP-3xm4
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 02:00:41 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c9c26a5fb98so51212a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 19:00:39 -0700 (PDT)
+	Fri, 03 Jul 2026 02:00:44 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3811f512167so44382a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jul 2026 19:00:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783044039; x=1783648839; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ngIdo3QRj8SJ2wejaOldu+l1ZMsTWJa1beGhYYg+kyE=;
-        b=g166oir0fQaTzMJvVKd6vB4RiXqaHlN+WkvATwaQn0US6amgyUVTTXy5Dgog9HXtTL
-         jJOb0h8ejXg9DNDshLejxfLf1sfWZk9rHcJiNhLgnQNjsvRudUbjjqi70vruDBR/RRzq
-         pPSDxm713e1T728/uaCmpt82fM9+vwdWrIHHFYQXm1Fs247YwKA5WNoTimO+Rn/GfR0/
-         2GCA/ZmVaFK+zgbI9obKg6aMGgw12Pps2uirgYS1j0S/AEnN4kgsmo7rgZEUbJaVHlC+
-         z3mIibCjGXxD06EZXtmdpHh/OabdokjF1ARzR4bJnObtejq3t6+Tb8sGiNMh0p08TuRl
-         /fIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783044039; x=1783648839;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1783044042; x=1783648842; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ngIdo3QRj8SJ2wejaOldu+l1ZMsTWJa1beGhYYg+kyE=;
-        b=lDhkNae+tT2etAffSuHqTtIN7RTZ8P2X0YTNBCeqFerzjChGBnLcaUkc2YctbeWt8X
-         BCGnHVwlMiep1HBsIU7UEuRBLkWlR/Z4U87e+GTfV4y5CCNta8Jxxqe75EQLQuGWC6p3
-         rxPQUyoZN2bYZvGo3NujdpHO6tv6yF8fdLzSf7mI26fy7J5207th/k86mt0Ev73aE/27
-         Z48MEjcZKWJgCEJj7nXraJAsr7gly9frVMJyOKCQEn674wkZW6TWNYv/0bW1pEjUs34A
-         oHQPKf9oYISyPmOkNWWB7aRB0JiayRNbRT3VFhWHscIVn9kV05sXqCDtIUuX6qeqXoM1
-         Nhfw==
-X-Forwarded-Encrypted: i=1; AFNElJ9Kf7hRJfwN2uJ+T2NsuWgBnK1G+4K0EqFtV7TIFrZBDAJIBn5cR+OXaR4OqMuj9V8c7BZlbnQEcKPGAg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmzHxK2QM/+1wwm70T8DJHS3YOTkbJqF/5KvyA/3yYXxaP/oC1
-	Hp889K8cPsL/FDp9R5WQ7mQtJqkvycjoA7oDkl72B3VysiFAB96Xj+Ps
-X-Gm-Gg: AfdE7clyJdFR8AMefGvIROW8YzKQvoMQRJrFi7ExGLZfUP1fay4fXiC+2wJKLZlJVH3
-	9Aq8Ck8v65c4AwopoAG9+HspauywHQcQundYal0F6oWroFIXhEpO+96VMuLKjTSh6WBBh1xJf8V
-	nuItbkguo2oEDMFg4YumQzgZr+KAtO4AXBOGcxFpgiaJFNh1zaVsLbeRpcbrzeJKQsN+e6RP5Yc
-	xTIScug0dJuiIFcmKl49euUq6HKzG1+If7Wswswd13Dp3ausRCtE227pwv3AchV02bfvrBFKMTy
-	gZrnzRByesEmX1zsLHwt++DEQPMEHhrDm3ukxs4bJuXdj8ekTztUwzQhpH9JEbg5Rl1cy1Jk4Bh
-	BA9eCTdJmRX7MndjwVvDFFwkmr0dB9f1a9AwLR/mr4gMGkNkeb8AJrjLKMPw9u/Ii4vgT0laFnj
-	2Q5h85m9I0oQM=
-X-Received: by 2002:a05:6a21:7a9b:b0:3b4:731e:6fad with SMTP id adf61e73a8af0-3c01c6d75c9mr2593383637.16.1783044039066;
-        Thu, 02 Jul 2026 19:00:39 -0700 (PDT)
+        bh=KkWnYh3cllnXcTwBIcvBSJWZoRydH1m54nLp+o8irTo=;
+        b=OxvydABTnSjRzAuWbkfBIxn3PVettazh9oij1kN2mKCe1OxdA9LHag+Tsri5+QTIvg
+         e0CQOL5+0rvm7m3mG9Zwx05AxF2D+hkQIaYBvjKN+NDOFUGXmcdLjgHn6RqpOINMhloa
+         3kSBSPe6jani/g7bcJrFfJ4mrAzULBKD8jxHiCFvgUXYcgavj7ZVdrBMpmSrRkn86kQo
+         An/Z5z88w5iOEIBKzS92vJDEy+Cv0fjC1mx2roKFFMTd5JPQMMCJJRI4zMz0/UgS4mFy
+         IdUMp0NkPgvZtqDOe3t7oC8QqR0grd4A/Uy3SXCUuo2GJeZfkAF4tXz9t6Vt00NKD4bh
+         1snQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783044042; x=1783648842;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=KkWnYh3cllnXcTwBIcvBSJWZoRydH1m54nLp+o8irTo=;
+        b=gNO9iOkxmCDbf2tDcjOZXzdCbN89BD+WqflHDFfckzwTFSv3vYCuJMBwJMvuWDqa3p
+         10AXYtyoWY1C2QSKn5lBD+Ua9l9QxAz9hqB98dnUfAMAj6xh4fPadbNDlZtFOP92rM5n
+         yEWpEFqlU0vf206F6j3G4ijN+RH5B1GcUn+UAd/LZKWtIDFt+tWQFAGzMoHoNtCQS6Ti
+         f7RKj1mLGV0UwSZYIdFJG+ilzkd7Ifte6WhpJGbOxW2DF5PwBRfFhLFpzVkiaRUB7mre
+         kRe/m7tSmXVvfOE3ym5bFoYkciAWzinYWrgCzjv6ebuD5NaOYWSmr4QHqAUkuM+xK/Ff
+         CFCQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrucCA9L9rb0hR9jTUdmHlhtLCzXAVdGqM3FQwebC1+C6mzlf9wGqZcPF8vkIjmMzIX3Uj/m7rEgf0MmA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJP8fJwdHwcATUBx9kCSenXe72VreAsDhz/hLvEKCZ66MaDjTn
+	wE5NcXyY7M9GBJ1vs6CGcvj3ZYmu2KLqxadFxyxaPcVX5PMVC0MoNJ14
+X-Gm-Gg: AfdE7cnN+ecgv4YoShJHWr9wz1eoZPZhGSqBPXFJ8tRXucW0zOotUtqJJ28sNbWZqRp
+	18w4RUjriqqmoeS7+Zn8hXEazcBBAkrXtkJNtWxSsO/+1Rfu0+0c/fbBW6zVVZwVNbNqsojHeru
+	LMLfXn+KwHFxo8JQLf6YwCpc3uhLrkKw9T4Q16/X8TfjZoLMCDvwZJDV9Tn+skWitp5TiHNNL58
+	mNEYDEG9nPssPZWddMlHCWQ701CnajdpVhYN9DnF/eXWM5X8W4sWupKeZMr3L2ZnWh58Z+0zw4F
+	LYeuENwl2FJ9J7uECvWK7kWun5ssevHJcfC9IjXBYNxiyT5y26VdQUQ3sPieqWSyLSOpISGKkaK
+	OuEKWlK4t9+X8346IIssna9w9KJo4T4YrIXyMjnxk+2jcNOcnRsSw50X3BAKtjLQrj8J5WbZmqm
+	z7dZDH8GCYk44=
+X-Received: by 2002:a17:90b:2c87:b0:37f:ed7e:7e42 with SMTP id 98e67ed59e1d1-380aa0e0512mr8521066a91.14.1783044041818;
+        Thu, 02 Jul 2026 19:00:41 -0700 (PDT)
 Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9e8eb10638sm1905295a12.2.2026.07.02.19.00.38
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38127c12792sm190602a91.5.2026.07.02.19.00.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 19:00:38 -0700 (PDT)
+        Thu, 02 Jul 2026 19:00:41 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jingoo Han <jingoohan1@gmail.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
@@ -101,15 +102,16 @@ Cc: linux-pci@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v3 0/6] riscv: spacemit: Add PCIe RC controller support for K3
-Date: Fri,  3 Jul 2026 09:59:56 +0800
-Message-ID: <20260703020003.485436-1-inochiama@gmail.com>
+Subject: [PATCH v3 1/6] PCI: spacemit-k1: Add device data support
+Date: Fri,  3 Jul 2026 09:59:57 +0800
+Message-ID: <20260703020003.485436-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260703020003.485436-1-inochiama@gmail.com>
+References: <20260703020003.485436-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_190040_422512_F04DC170 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260702_190043_010272_F6E70C74 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,61 +128,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PCIe controller on Spacemit K3 is almost a standard Synopsys
-Designware PCIe IP with extra control and external MSI controller
-(IMSIC).
+To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
+data to handle the K1 specific logic and make room for the incoming
+logic for K3.
 
-Add binding and driver support for PCIe RC controller support on K3.
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c | 30 ++++++++++++++++---
+ 1 file changed, 26 insertions(+), 4 deletions(-)
 
-Changed from v2:
-- https://lore.kernel.org/linux-pci/20260517014841.254085-1-inochiama@gmail.com/
-patch 2:
-1. Use unify PCIe phy get/enable/exit function for both K1 and K3.
-patch 3:
-1. New patch for updating device id for both K1/K3
-patch 5:
-1. Reuse binding for spacemit,k1-pcie-host
-patch 6:
-1. Multiple cleanup for the logic already generalized in the previous
-   patches.
-2. Use generic description for the Kconfig entry.
-
-Changed from v1:
-patch 1:
-1. Remove post_init callback.
-patch 2:
-1. Fix devm_kmalloc_array arguments order and error check.
-patch 3:
-1. Apply Rob's tag.
-2. Change check from oneOf to anyOf.
-3. Fix spelling mistakes in commit message.
-patch 4:
-1. Add comment about PHY handle.
-2. Remove interrupt "app".
-3. Fix spelling mistakes in commit message.
-patch 5:
-1. Remove all logic related to link up interrupt.
-2. Clean up all unused macros.
-3. Fix devm_kmalloc_array arguments order and error check.
-4. Remove unnecessary start_link logic.
-5. Make all magic number as a macro.
-6. Fix spelling mistakes in code and commit message.
-
-Inochi Amaoto (6):
-  PCI: spacemit-k1: Add device data support
-  PCI: spacemit-k1: Add multiple PHY handles support
-  PCI: spacemit-k1: Add device id update helper
-  dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check
-  dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller
-  PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support
-
- .../devicetree/bindings/pci/snps,dw-pcie.yaml |   7 +-
- .../bindings/pci/spacemit,k1-pcie-host.yaml   |  46 +++-
- drivers/pci/controller/dwc/Kconfig            |   4 +-
- drivers/pci/controller/dwc/pcie-spacemit-k1.c | 237 ++++++++++++++++--
- 4 files changed, 267 insertions(+), 27 deletions(-)
-
---
+diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+index be20a520255b..f6ae8ff3589a 100644
+--- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
++++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+@@ -49,8 +49,17 @@
+ #define PCIE_CONTROL_LOGIC			0x0004
+ #define PCIE_SOFT_RESET			BIT(0)
+ 
++struct k1_pcie;
++
++struct k1_pcie_device_data {
++	const struct dw_pcie_host_ops *host_ops;
++	const struct dw_pcie_ops *ops;
++	int (*parse_port)(struct k1_pcie *k1);
++};
++
+ struct k1_pcie {
+ 	struct dw_pcie pci;
++	const struct k1_pcie_device_data *data;
+ 	struct phy *phy;
+ 	void __iomem *link;
+ 	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
+@@ -278,14 +287,21 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+ 
+ static int k1_pcie_probe(struct platform_device *pdev)
+ {
++	const struct k1_pcie_device_data *data;
+ 	struct device *dev = &pdev->dev;
+ 	struct k1_pcie *k1;
+ 	int ret;
+ 
++	data = device_get_match_data(dev);
++	if (!data)
++		return -ENODEV;
++
+ 	k1 = devm_kzalloc(dev, sizeof(*k1), GFP_KERNEL);
+ 	if (!k1)
+ 		return -ENOMEM;
+ 
++	k1->data = data;
++
+ 	k1->pmu = syscon_regmap_lookup_by_phandle_args(dev_of_node(dev),
+ 						       SYSCON_APMU, 1,
+ 						       &k1->pmu_off);
+@@ -299,11 +315,11 @@ static int k1_pcie_probe(struct platform_device *pdev)
+ 				     "failed to map \"link\" registers\n");
+ 
+ 	k1->pci.dev = dev;
+-	k1->pci.ops = &k1_pcie_ops;
++	k1->pci.ops = data->ops;
+ 	k1->pci.pp.num_vectors = MAX_MSI_IRQS;
+ 	dw_pcie_cap_set(&k1->pci, REQ_RES);
+ 
+-	k1->pci.pp.ops = &k1_pcie_host_ops;
++	k1->pci.pp.ops = data->host_ops;
+ 
+ 	/* Hold the PHY in reset until we start the link */
+ 	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
+@@ -320,7 +336,7 @@ static int k1_pcie_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, k1);
+ 
+-	ret = k1_pcie_parse_port(k1);
++	ret = data->parse_port(k1);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to parse root port\n");
+ 
+@@ -338,8 +354,14 @@ static void k1_pcie_remove(struct platform_device *pdev)
+ 	dw_pcie_host_deinit(&k1->pci.pp);
+ }
+ 
++static const struct k1_pcie_device_data k1_pcie_device_data = {
++	.host_ops	= &k1_pcie_host_ops,
++	.ops		= &k1_pcie_ops,
++	.parse_port	= k1_pcie_parse_port,
++};
++
+ static const struct of_device_id k1_pcie_of_match_table[] = {
+-	{ .compatible = "spacemit,k1-pcie", },
++	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data},
+ 	{ }
+ };
+ 
+-- 
 2.55.0
 
 
