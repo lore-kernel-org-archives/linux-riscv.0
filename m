@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF05C43458
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 21:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F22CC43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 21:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F5lliJuG/omvSg8Hl3BHEfpx9wKlJs2cvg/h/4A0b1g=; b=rZTYmE1aZx33dN
-	7Q87Skbvnuq9VLj2ncaWMJjHoAx5wZxKCnVqoRj3h8a2p7vWVt+VmpLc5JjMrXv96dQEsLnF4klFr
-	i8ACy8u48ENoOUcNBNwEGj43A2dOIHNeCME4k7PnfGBfIUndgImbTGDxBT1UtXeoTyl80yuvXlCtV
-	pCZ/SY39frwb9C6DeEW4aBk2mRhu4+jEPK5aqX7CWOcNPWrTi9/iPyShufNFSGnlFthJzaFuNzQXr
-	3elzlp+yL3yBxLpXs2uuVTwvo4eCCf+3ohzxvRYxFrgYM0azP89BwNyZGh/+tBEKI4dLBETYNerKs
-	ftiFh4G5c0B15xxWOIwA==;
+	List-Owner; bh=gqYO73cGdDRjIH2qYRMt5Yj7f2ogMqfr4TLt5NmzO4I=; b=tEI9MnMkqYNCfH
+	7CI92rzsvBffzDVXxT76ds5sravGvAmLKA2EUbh1Qu/SgN5lIoRxkZGgFBHbPHllZQBWoQ0ZoPHOD
+	19+43NJxegZKdVXzpLhavcbStXKKxoAJns+pWCmVWy69ZzMQ7KGJv8lMdPdFqcmyhCc8SYd5CfQHv
+	adB0ccZ87sjEjbcifDkhdheIz9XP50ch/iPlhugZq9ClgnhY9lB15YJfAG+k6LXXKD8bV4pwejJkG
+	UNB9O8meTkXy40AbgiGobz4CvxsOjwUKHW14uN39WoLJjH5NrRNYKJnmXwTCX4Gln4zY80L2umBpR
+	tFTVrL6L4E3lmiuPZ5ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfl1t-00000007uku-05da;
-	Fri, 03 Jul 2026 21:02:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wflJI-00000007vUx-00IH;
+	Fri, 03 Jul 2026 21:20:32 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfl1s-00000007ukj-11QE
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 21:02:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7FED1418BC;
-	Fri,  3 Jul 2026 21:02:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95E9A1F000E9;
-	Fri,  3 Jul 2026 21:02:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783112551;
-	bh=Kxy/nHrA/YPl3oQA1s1YUJFp/UiroxEca2CIOkGyN+4=;
-	h=From:To:Subject:In-Reply-To:References:Date;
-	b=QxG157Of+hFM+LFQ7BvmTo4/2xtWWbjNv088utFW0+XMcajzFhzht7bVw+dS/5+ve
-	 z13t+B9J2d3OEuDdefTJaMFUi/E8wR9R4/Gm8FumDxvtidM05Sl+GmAf2UF3yFReVv
-	 mqr0Uto/z7L5q4vJJuYvvkeRGjFR+vVDM1RsyJd1bHmq1AjopoNWuiUQKDN+DOiMd5
-	 UKtcLljh6CArSl8nMs/YrmJNWbVz3y0ScJwJjIVzXckAgbDblGcbOkJB3HG6JTvDY7
-	 ze5vM6LRITBpSbB+6er3+uBCHXU5LgTycppqNNQ6CQSegRpkLv+Lmifi7rpWsij9EC
-	 tLM3kGlume1GQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- dennis@kernel.org, tj@kernel.org, cl@gentwo.org, ast@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
- eddyz87@gmail.com, memxor@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, jolsa@kernel.org, bjorn@kernel.org,
- pulehui@huawei.com, puranjay@kernel.org, thuth@redhat.com,
- ajones@ventanamicro.com, ben.dooks@codethink.co.uk,
- rkrcmar@ventanamicro.com, cuiyunhui@bytedance.com,
- samuel.holland@sifive.com, zong.li@sifive.com, conor.dooley@microchip.com,
- debug@rivosinc.com, seanwascoding@gmail.com, andybnac@gmail.com,
- menglong8.dong@gmail.com, cyrilbur@tenstorrent.com,
- wangruikang@iscas.ac.cn, atishp@rivosinc.com, apatel@ventanamicro.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, bpf@vger.kernel.org, arnd@arndb.de, nathan@kernel.org,
- nick.desaulniers+lkml@gmail.com, morbo@google.com, justinstitt@google.com,
- qingfang.deng@siflower.com.cn, linux-arch@vger.kernel.org,
- llvm@lists.linux.dev
-Subject: Re: [PATCH v8 3/3] riscv: store percpu offset into thread_info
-In-Reply-To: <20260703122832.15984-4-cuiyunhui@bytedance.com>
-References: <20260703122832.15984-1-cuiyunhui@bytedance.com>
- <20260703122832.15984-4-cuiyunhui@bytedance.com>
-Date: Fri, 03 Jul 2026 23:02:28 +0200
-Message-ID: <87bjcnlrbv.ffs@fw13>
+	id 1wflJC-00000007vUA-39EH;
+	Fri, 03 Jul 2026 21:20:30 +0000
+Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 663L1ZSA3634717
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Fri, 3 Jul 2026 14:01:35 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 663L1ZSA3634717
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2026062701; t=1783112500;
+	bh=GmRpAk0oLfd0gWfVh+rqnEOK9BfphxBIPqfUy4WToJg=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=XsI115ZBOQE6RF8kLr3qg2nWr/ZTSr4Cc85qgkCOplrXGEthFkxyO4lr4Oxope3Ei
+	 uXNwCi3aZ7FCtu+IMJnAqz2+ucRqWMj1Z7USJtc8sJ3JeZ97gpLik9L3v7EKJiITZs
+	 v3dorB7yOn0T5r2CkG54hpyoXlryh4wtyjAKA2DelYGyZEF7zAgS971DjfDngm3ESi
+	 xNG5a833nv7cyD8PK/+FW1vBKez1uSFK+Mw4JZVnFQTsSNU/45Xgc7/odbqex1xmxx
+	 hXA4rZMcbl0HR+NkDB+kp5lErI+aTQzy/C6IBW2f20LsUByG25W5uHpF7doGhQ6iHG
+	 wsGBsVIphvsfg==
+Date: Fri, 03 Jul 2026 14:01:29 -0700
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: Thomas Gleixner <tglx@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>,
+        =?ISO-8859-1?Q?Michal_Such=E1nek?= <msuchanek@suse.de>,
+        Mark Rutland <mark.rutland@arm.com>
+CC: Jinjie Ruan <ruanjinjie@huawei.com>, oleg@redhat.com,
+        richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+        linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+        kees@kernel.org, guoren@kernel.org, chenhuacai@kernel.org,
+        kernel@xen0n.name, geert@linux-m68k.org, tsbogend@alpha.franken.de,
+        James.Bottomley@hansenpartnership.com, deller@gmx.de,
+        maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+        chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+        aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com,
+        gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+        svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
+        glaubitz@physik.fu-berlin.de, richard@nod.at,
+        anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
+        luto@kernel.org, mingo@redhat.com, bp@alien8.de,
+        dave.hansen@linux.intel.com, chris@zankel.net, jcmvbkbc@gmail.com,
+        peterz@infradead.org, wad@chromium.org, thuth@redhat.com,
+        ada.coupriediaz@arm.com, linusw@kernel.org, yeoreum.yun@arm.com,
+        song@kernel.org, james.morse@arm.com, anshuman.khandual@arm.com,
+        broonie@kernel.org, liqiang01@kylinos.cn, pengcan@kylinos.cn,
+        ryan.roberts@arm.com, yangtiezhu@loongson.cn, sshegde@linux.ibm.com,
+        mchauras@linux.ibm.com, austin.kim@lge.com, jchrist@linux.ibm.com,
+        arnd@arndb.de, thomas.weissschuh@linutronix.de, sohil.mehta@intel.com,
+        andrew.cooper3@citrix.com, jgross@suse.com, kas@kernel.org,
+        x86@kernel.org, linux-alpha@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mm@kvack.org, linux-csky@vger.kernel.org,
+        loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-um@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v16_01/18=5D_seccomp=3A_Convert?=
+ =?US-ASCII?Q?_=5F=5Fsecure=5Fcomputing=28=29_to_return_boolean?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <87echjlrs4.ffs@fw13>
+References: <20260629130616.642022-1-ruanjinjie@huawei.com> <20260629130616.642022-2-ruanjinjie@huawei.com> <akdp6GAu77-ipsXA@kunlun.suse.cz> <87cxx4mmim.ffs@fw13> <akeIK5TRCjlKbzbp@J2N7QTR9R3> <akeOjqMy7HVgRRCr@kunlun.suse.cz> <fa1f5b39-2703-40a1-81d6-3feba87e19b0@arm.com> <87echjlrs4.ffs@fw13>
+Message-ID: <F0993CE8-27EB-42D9-80F7-04A7A73C2395@zytor.com>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_142028_934364_C2ACA1F9 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +100,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03 2026 at 20:28, Yunhui Cui wrote:
-> +
->  extern struct task_struct *__switch_to(struct task_struct *,
->  				       struct task_struct *);
->  
-> @@ -122,6 +129,7 @@ do {							\
->  	if (switch_to_should_flush_icache(__next))	\
->  		local_flush_icache_all();		\
->  	__switch_to_envcfg(__next);			\
-> +	__switch_to_pcpu_offset(__next);		\
-
-Why do you want to go through the indirection of current:
-
-> +static inline void __switch_to_pcpu_offset(struct task_struct *next)
-> +{
-> +#ifdef CONFIG_SMP
-> +	next->thread_info.pcpu_offset = __my_cpu_offset;
-> +#endif
-> +}
-
-instead of using __prev->.....offset, which is right there available?
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gSnVseSAzLCAyMDI2IDE6NTI6NDMgUE0gUERULCBUaG9tYXMgR2xlaXhuZXIgPHRnbHhAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj5PbiBGcmksIEp1bCAwMyAyMDI2IGF0IDEzOjU5LCBLZXZpbiBCcm9k
+c2t5IHdyb3RlOgo+PiBPbiAwMy8wNy8yMDI2IDEyOjI3LCBNaWNoYWwgU3VjaMOhbmVrIHdyb3Rl
+Ogo+Pj4+IElmIHdlJ3JlIGNoYW5naW5nIHRoZSByZXR1cm4gdHlwZSwgaXQgbWlnaHQgYmUgd29y
+dGggcmVuYW1pbmcgdGhlCj4+Pj4gZnVuY3Rpb24gc29tZXRoaW5nIGxpa2U6Cj4+Pj4KPj4+PiAJ
+c2VjY29tcF9wZXJtaXRzX3N5c2NhbGwoKQo+Pj4gVGhlbiBub3Qgb25seSBpdCBpcyBjbGVhciB3
+aGljaCB3YXkgdGhlIGJvb2xlYW4gdmFsdWUgc2hvdWxkIGJlCj4+PiBpbnRlcnByZXRlZCwgaXQg
+YWxzbyBwZXJ2ZW50cyB0aGUgYWNjaWRlbnRhbCBpbnZlcnNpb24gb2YgZXhpc3RpbmcKPj4+IGNh
+bGxzLiBPdmVyYWxsIGdyZWF0Lgo+Pgo+PiBUb3RhbGx5IGFncmVlZCwgaWYgd2UgaGF2ZSB0aGUg
+b3Bwb3J0dW5pdHkgdG8gcmVuYW1lIGEgY29tcGxldGVseQo+PiB1bmRlc2NyaXB0aXZlIGZ1bmN0
+aW9uIG5hbWUgbGlrZSAic2VjdXJlX2NvbXB1dGluZyIgd2Ugc2hvdWxkIHRha2UgaXQuCj4KPkFi
+c29sdXRlbHkgbm8gb2JqZWN0aW9ucyBmcm9tIG15IHNpZGUgb24gdGhhdC4KPgoKSGVsbCB5ZXMu
+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
