@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7AEC44500
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 10:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28721C43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 10:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QCtN9o7VPHcs4hPcCcLijny7OWogdTtUad4qVaICMFk=; b=dDooVJFfSjOsbv
-	ErpVfyactCijrBC/XngEQLmAxkgljrJuunmsqCPpOskdjA9GsCrYiwMffT3nTRdcx4+B4RxkhS588
-	uGGX16f3lJ1/gLAs7D8Vyr6H3Yk1HlaY8UguFFgMGde+zGt5lSVefjeke+sdgm1anuYrGoetkg4+z
-	khKCaDukap7HaEjdB/9Dy055yCJ1soseNxWZbNV06XvRDcstNq6dWULeEU+infY3Hz9IThz0sz/N8
-	H0uqckjca6ysyDqMssu/QiX6u3Cqn8BDbgkb//wCFbEp7Hz1TObk/PMCuHzZ3mnNWk8fDO8Z80+ry
-	jJPWbQ/ZJi7decJwWXIQ==;
+	List-Owner; bh=GbA4Z1ovX2OwBlm2eCX7Btctk+eLe8wdE6jROORjTEg=; b=LOx30qgyor5hsT
+	wrlBaCUUWlBem7/RS2hEeLcNWf3RGev7qY/5ocG1w+oc3FUgWsQtQ+ad2GdQMRqLpcZDV3Dvm2sds
+	aQRyvuy48PZ7t3PGDkY8toCcStqhRCmPrcmf+IgP2jpy/wXKnOOiZYLQmJ5MV5UYGnJehzUf7VV9Y
+	fInBFUFYQUHMyp5nKpl+fcJGYC1GM0xlTwMvDgOAzI4oJoOPahga5gHjFr1LjIsIL0yG5yVtGcR2v
+	o0I/sIZTD8RMem25vilCi8j+GheOu40hhZg4Bg1g7LBOD0P2fVE0hqFa+AIVeZ10yYvMJjew+gBwY
+	p95HVRmFTgDN5uHZUg1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb0z-00000006a8s-2xOO;
-	Fri, 03 Jul 2026 10:20:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfb1m-00000006aSA-1Jdp;
+	Fri, 03 Jul 2026 10:21:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb0y-00000006a8P-0iSI;
-	Fri, 03 Jul 2026 10:20:56 +0000
+	id 1wfb1l-00000006aRB-18Eo;
+	Fri, 03 Jul 2026 10:21:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E0D6443808;
-	Fri,  3 Jul 2026 10:20:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 915EC1F000E9;
-	Fri,  3 Jul 2026 10:20:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B1AB34042D;
+	Fri,  3 Jul 2026 10:21:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB6181F000E9;
+	Fri,  3 Jul 2026 10:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783074054;
-	bh=ZPRUjDwMrZAbF6fJGgjWgznfOUhgHM/af5VhyMMGGzQ=;
+	s=k20260515; t=1783074104;
+	bh=AU9ipdiKtSSheUdfxQE+uoCI7onY+7JIv+CgJmSkn4s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=F4S3Dy7vLMZgBhj7UCqBvjp7mzSuBWMNBDq6Iviel9rIuDWstawXddpKaEjAyynL/
-	 6E76Th8kGRjDswvQ/XAxTl52xqhfcgDC6d0SkZpmznOxL4rfnWarCH45TXvcuGGNQS
-	 9kPgVNGCd7suDm7gWRv5W4AI4S9nQr42Bp7V97kKhuPYPaWa6fMlVOB51lsjZ1Wtqm
-	 7jwJK8WCVa6owazYnl+vd/Z0AVF3PquzNPskDcjbw/SRz4kBtBMRQV/H6603ty8CbO
-	 utuOMyWAZPx4kguiwDOKVdemHE9FSlnpLrSIAu/54ruHHaRVV0sOAk4Wj59KLq2tCU
-	 YYVkHhCodvNeQ==
-Message-ID: <9da51cde-cc89-405c-afb8-ccdc37879770@kernel.org>
-Date: Fri, 3 Jul 2026 12:20:35 +0200
+	b=KkIcm4LLntVxghboTdtO3MguHzwJfDma39wqKZaCfeAYH6+3jxHntCnu2hczHu9Kj
+	 h/I68QPcCpg0GdnC8k7NKXCZSDMAMgswafC+/hzJ2e/NPPGlUI+Z7hOhLc+ybCiczI
+	 Xuc8CgMVwEwPFZQ5nV9rQHkZw2PW2PFsRKD5I+pfxDMp5mFMVhkXRgei2UFatUfC4f
+	 0poeUqp1mF3stKuV9yrBAfVUa4xAo0t/ZyY48xJldva0Uqc2VHCoSdmUJif0HdF05F
+	 EWjEFL3Yn5TKZWlZ6B/U6o4Ntnqaa2TcafrIDhJaJIo+dqnQ8w2cBsGNJsnyJIx9wu
+	 9PkMXMcgPyhNw==
+Message-ID: <c83ca485-1e2e-46ba-bd15-1168aa8955d3@kernel.org>
+Date: Fri, 3 Jul 2026 12:21:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
  PHY on sa8255p
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Bartosz Golaszewski <brgl@kernel.org>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>
 Cc: Vinod Koul <vkoul@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
  Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -86,6 +86,7 @@ References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
  <akOZFIowVvprnAMf@vaman>
  <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
  <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
+ <CAMRc=MfwB_51OLjX_19eagZ1m3UUM2iHny5rx6besR6+Np_A0g@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -131,7 +132,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
+In-Reply-To: <CAMRc=MfwB_51OLjX_19eagZ1m3UUM2iHny5rx6besR6+Np_A0g@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,39 +149,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2026 11:16, Geert Uytterhoeven wrote:
-> Hi Bartosz,
-> 
-> On Thu, 2 Jul 2026 at 11:12, Bartosz Golaszewski <brgl@kernel.org> wrote:
->> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
->>> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
->>>>> Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
->>>>> driver instead of the MAC driver where it was previously. Instead of cramming
->>>>> both HLOS and firmware handling into the same driver, I figured it makes more
->>>>> sense to have a dedicated, cleaner driver as the two share very little code (if
->>>>> any).
+On 02/07/2026 11:44, Bartosz Golaszewski wrote:
+> On Thu, 2 Jul 2026 11:16:22 +0200, Geert Uytterhoeven
+> <geert@linux-m68k.org> said:
+>> Hi Bartosz,
+>>
+>> On Thu, 2 Jul 2026 at 11:12, Bartosz Golaszewski <brgl@kernel.org> wrote:
+>>> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
+>>>> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
+>>>>>> Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
+>>>>>> driver instead of the MAC driver where it was previously. Instead of cramming
+>>>>>> both HLOS and firmware handling into the same driver, I figured it makes more
+>>>>>> sense to have a dedicated, cleaner driver as the two share very little code (if
+>>>>>> any).
+>>>>>
+>>>>> I think you are mixing up DT bindings and driver implementation?
 >>>>
->>>> I think you are mixing up DT bindings and driver implementation?
+>>>> Should the bindings change if we have different driver and firmware
+>>>> implementations? Isn't binding supposed to be agnostic of
+>>>> implementations..?
 >>>
->>> Should the bindings change if we have different driver and firmware
->>> implementations? Isn't binding supposed to be agnostic of
->>> implementations..?
+>>> I've thought about it some more and I believe this question is philosophical in
+>>> nature.
+>>>
+>>> sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
+>>> the same Lemans Ride board and it becomes one or the other. Yet they are not
+>>> described by the same DTS and the bindings differ as well. I don't see why we
+>>> wouldn't allow the same approach for the this PHY.
+>>>
+>>> We treat it as different HW variant when it's managed by firmware - just like
+>>> we do with the rest of the SoC.
 >>
->> I've thought about it some more and I believe this question is philosophical in
->> nature.
+>> DT describes hardware, not software policy.
 >>
->> sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
->> the same Lemans Ride board and it becomes one or the other. Yet they are not
->> described by the same DTS and the bindings differ as well. I don't see why we
->> wouldn't allow the same approach for the this PHY.
->>
->> We treat it as different HW variant when it's managed by firmware - just like
->> we do with the rest of the SoC.
 > 
-> DT describes hardware, not software policy.
+> I'll defer to DT maintainers then for that particular case because it affects
 
-So everything is fine here. Bartosz described the hardware how it is
-available to the software (OS).
+I provided the review tag. It is still valid, also after reading the
+discussions here.
 
 Best regards,
 Krzysztof
