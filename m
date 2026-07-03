@@ -4,121 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75851C43458
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 10:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7AEC44500
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 10:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kb8vQNwlGtn+BgWR/ZGr41g20ri3uKTOdNgamw2B94U=; b=KAb2U9KOh0uGdy
-	sC76vAuPFulb7Y2SrBWUQGf0vIzbIJMUapPmNizPX8hFuHh4KiyGUPbBHY1aUvwagEswOdYLcUci7
-	iYVRE63jRiVqCYbwX3dc1Q50x3E2bAJPQKSgZOUihpAdgIt99s9dHST0I0eJmLas3zU2gcVu6Sf+9
-	SRi3kFJtcJHGOTRJZ2FjEsr2eKQ91KRlcK38OY7wGvWZ4D0+3m6DcKjOffZH/VgkGLueZDI4fnq28
-	qJchc5slcFXQVKKvLYy+BCH/gIDD+rvqZ3IN7OMqx//AduD+JGhgAzaw/qfjoD/IpCG8PPsUoWuS0
-	OwV3cTveb3GBKfw6mlAw==;
+	List-Owner; bh=QCtN9o7VPHcs4hPcCcLijny7OWogdTtUad4qVaICMFk=; b=dDooVJFfSjOsbv
+	ErpVfyactCijrBC/XngEQLmAxkgljrJuunmsqCPpOskdjA9GsCrYiwMffT3nTRdcx4+B4RxkhS588
+	uGGX16f3lJ1/gLAs7D8Vyr6H3Yk1HlaY8UguFFgMGde+zGt5lSVefjeke+sdgm1anuYrGoetkg4+z
+	khKCaDukap7HaEjdB/9Dy055yCJ1soseNxWZbNV06XvRDcstNq6dWULeEU+infY3Hz9IThz0sz/N8
+	H0uqckjca6ysyDqMssu/QiX6u3Cqn8BDbgkb//wCFbEp7Hz1TObk/PMCuHzZ3mnNWk8fDO8Z80+ry
+	jJPWbQ/ZJi7decJwWXIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfazo-00000006Zyj-1CI4;
-	Fri, 03 Jul 2026 10:19:44 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1wfb0z-00000006a8s-2xOO;
+	Fri, 03 Jul 2026 10:20:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfazl-00000006ZxP-2mOA
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 10:19:43 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783073967;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kh3FyxapX81U/ZPkDXPQ35eHo8l1a0EYTCkh/tPyQcQ=;
-	b=e0Cuc7JvJVHteKushc+UtNVkwNT9o1lVu5LvqWVmdqPsMSPQgu9A2kRfsnx0xQfRnUHPYp
-	E5DoGGsQTiJ/6LeWKpBLgQMBOdLAW9HcOCrzUybirGsEQP8UiAZrRmv4xietGvdTMPXY2X
-	gD/tE/T+aE5W3zMioXiLzp1kYJy+Cz0=
-Date: Fri, 03 Jul 2026 10:19:10 +0000
-Message-Id: <DJOUYOKL6N3R.BFIO8HEL03OA@linux.dev>
-Subject: Re: [PATCH v12 02/16] set_memory: add
- folio_{zap,restore}_direct_map helpers
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Brendan Jackman" <brendan.jackman@linux.dev>
-To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, "kvm@vger.kernel.org"
- <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
- <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
- <kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org"
- <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
- "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
- "kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
- <linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev"
- <loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org"
- <linux-pm@vger.kernel.org>
-Cc: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net"
- <corbet@lwn.net>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "will@kernel.org"
- <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
- "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com"
- <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>,
- "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>,
- "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org"
- <willy@infradead.org>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>,
- "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>,
- "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org"
- <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>,
- "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>,
- "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com"
- <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>,
- "yonghong.song@linux.dev" <yonghong.song@linux.dev>,
- "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org"
- <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>,
- "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org"
- <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com"
- <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>,
- "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de"
- <pfalcato@suse.de>, "skhan@linuxfoundation.org"
- <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>,
- "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com"
- <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>,
- "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>,
- "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org"
- <yosry@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>,
- "tabba@google.com" <tabba@google.com>, "prsampat@amd.com"
- <prsampat@amd.com>, "jthoughton@google.com" <jthoughton@google.com>,
- "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "aou@eecs.berkeley.edu"
- <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com"
- <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org"
- <chenhuacai@kernel.org>, "baolu.lu@linux.intel.com"
- <baolu.lu@linux.intel.com>, "dev.jain@arm.com" <dev.jain@arm.com>,
- "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com"
- <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com"
- <shijie@os.amperecomputing.com>, "svens@linux.ibm.com"
- <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>,
- "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>,
- "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com"
- <urezki@gmail.com>, "zhengqi.arch@bytedance.com"
- <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com"
- <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com"
- <jiayuan.chen@shopee.com>, "rafael@kernel.org" <rafael@kernel.org>,
- "yangyicong@hisilicon.com" <yangyicong@hisilicon.com>,
- "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com"
- <jackmanb@google.com>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>,
- "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek"
- <derekmn@amazon.com>
-References: <20260410151746.61150-1-kalyazin@amazon.com>
- <20260410151746.61150-3-kalyazin@amazon.com>
-In-Reply-To: <20260410151746.61150-3-kalyazin@amazon.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_031941_977866_3B626309 
-X-CRM114-Status: GOOD (  25.53  )
+	id 1wfb0y-00000006a8P-0iSI;
+	Fri, 03 Jul 2026 10:20:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E0D6443808;
+	Fri,  3 Jul 2026 10:20:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 915EC1F000E9;
+	Fri,  3 Jul 2026 10:20:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783074054;
+	bh=ZPRUjDwMrZAbF6fJGgjWgznfOUhgHM/af5VhyMMGGzQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=F4S3Dy7vLMZgBhj7UCqBvjp7mzSuBWMNBDq6Iviel9rIuDWstawXddpKaEjAyynL/
+	 6E76Th8kGRjDswvQ/XAxTl52xqhfcgDC6d0SkZpmznOxL4rfnWarCH45TXvcuGGNQS
+	 9kPgVNGCd7suDm7gWRv5W4AI4S9nQr42Bp7V97kKhuPYPaWa6fMlVOB51lsjZ1Wtqm
+	 7jwJK8WCVa6owazYnl+vd/Z0AVF3PquzNPskDcjbw/SRz4kBtBMRQV/H6603ty8CbO
+	 utuOMyWAZPx4kguiwDOKVdemHE9FSlnpLrSIAu/54ruHHaRVV0sOAk4Wj59KLq2tCU
+	 YYVkHhCodvNeQ==
+Message-ID: <9da51cde-cc89-405c-afb8-ccdc37879770@kernel.org>
+Date: Fri, 3 Jul 2026 12:20:35 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
+ PHY on sa8255p
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+ Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Christophe Roullier <christophe.roullier@foss.st.com>,
+ Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini
+ <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
+ linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
+ imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
+ <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
+ <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
+ <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
+ <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+ <akOZFIowVvprnAMf@vaman>
+ <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
+ <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,151 +148,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri Apr 10, 2026 at 3:18 PM UTC, Nikita Kalyazin wrote:
-> From: Nikita Kalyazin <nikita.kalyazin@linux.dev>
->
-> Let's provide folio_{zap,restore}_direct_map helpers as preparation for
-> supporting removal of the direct map for guest_memfd folios.
-> In folio_zap_direct_map(), flush TLB to make sure the data is not
-> accessible.  On some architectures, there may be a double TLB flush
-> issued because set_direct_map_valid_noflush already performs a flush
-> internally.
->
-> The new helpers need to be accessible to KVM on architectures that
-> support guest_memfd (x86 and arm64).
->
-> Direct map removal gives guest_memfd the same protection that
-> memfd_secret does, such as hardening against Spectre-like attacks
-> through in-kernel gadgets.
->
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Nikita Kalyazin <nikita.kalyazin@linux.dev>
-> ---
->  include/linux/set_memory.h | 13 +++++++++++
->  mm/memory.c                | 45 ++++++++++++++++++++++++++++++++++++++
->  2 files changed, 58 insertions(+)
->
-> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-> index 1a2563f525fc..24caea2931f9 100644
-> --- a/include/linux/set_memory.h
-> +++ b/include/linux/set_memory.h
-> @@ -41,6 +41,15 @@ static inline int set_direct_map_valid_noflush(const void *addr,
->  	return 0;
->  }
->  
-> +static inline int folio_zap_direct_map(struct folio *folio)
-> +{
-> +	return 0;
-> +}
-> +
-> +static inline void folio_restore_direct_map(struct folio *folio)
-> +{
-> +}
-> +
->  static inline bool kernel_page_present(struct page *page)
->  {
->  	return true;
-> @@ -57,6 +66,10 @@ static inline bool can_set_direct_map(void)
->  }
->  #define can_set_direct_map can_set_direct_map
->  #endif
-> +
-> +int folio_zap_direct_map(struct folio *folio);
-> +void folio_restore_direct_map(struct folio *folio);
-> +
->  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
->  
->  #ifdef CONFIG_X86_64
-> diff --git a/mm/memory.c b/mm/memory.c
-> index 2f815a34d924..3b9ada2cc19c 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -78,6 +78,7 @@
->  #include <linux/sched/sysctl.h>
->  #include <linux/pgalloc.h>
->  #include <linux/uaccess.h>
-> +#include <linux/set_memory.h>
->  
->  #include <trace/events/kmem.h>
->  
-> @@ -7479,3 +7480,47 @@ void vma_pgtable_walk_end(struct vm_area_struct *vma)
->  	if (is_vm_hugetlb_page(vma))
->  		hugetlb_vma_unlock_read(vma);
->  }
-> +
-> +#ifdef CONFIG_ARCH_HAS_SET_DIRECT_MAP
-> +/**
-> + * folio_zap_direct_map - remove a folio from the kernel direct map
-> + * @folio: folio to remove from the direct map
-> + *
-> + * Removes the folio from the kernel direct map and flushes the TLB.  This may
-> + * require splitting huge pages in the direct map, which can fail due to memory
-> + * allocation.  So far, only order-0 folios are supported.
-> + *
-> + * Return: 0 on success, or a negative error code on failure.
-> + */
-> +int folio_zap_direct_map(struct folio *folio)
-> +{
-> +	const void *addr = folio_address(folio);
-> +	int ret;
-> +
-> +	if (folio_test_large(folio))
-> +		return -EINVAL;
-> +
-> +	ret = set_direct_map_valid_noflush(addr, folio_nr_pages(folio), false);
-> +	flush_tlb_kernel_range((unsigned long)addr,
-> +			       (unsigned long)addr + folio_size(folio));
-> +
-> +	return ret;
-> +}
+On 02/07/2026 11:16, Geert Uytterhoeven wrote:
+> Hi Bartosz,
+> 
+> On Thu, 2 Jul 2026 at 11:12, Bartosz Golaszewski <brgl@kernel.org> wrote:
+>> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
+>>> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
+>>>>> Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
+>>>>> driver instead of the MAC driver where it was previously. Instead of cramming
+>>>>> both HLOS and firmware handling into the same driver, I figured it makes more
+>>>>> sense to have a dedicated, cleaner driver as the two share very little code (if
+>>>>> any).
+>>>>
+>>>> I think you are mixing up DT bindings and driver implementation?
+>>>
+>>> Should the bindings change if we have different driver and firmware
+>>> implementations? Isn't binding supposed to be agnostic of
+>>> implementations..?
+>>
+>> I've thought about it some more and I believe this question is philosophical in
+>> nature.
+>>
+>> sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
+>> the same Lemans Ride board and it becomes one or the other. Yet they are not
+>> described by the same DTS and the bindings differ as well. I don't see why we
+>> wouldn't allow the same approach for the this PHY.
+>>
+>> We treat it as different HW variant when it's managed by firmware - just like
+>> we do with the rest of the SoC.
+> 
+> DT describes hardware, not software policy.
 
-My local Sashiko run pointed out that this is broken for highmem.
+So everything is fine here. Bartosz described the hardware how it is
+available to the software (OS).
 
-There's no highmem for guest_memfd but there is for secretmem.
-
-... but this isn't actually an issue with the patch, it's currently
-broken in Linus' master:
-
-Su[   30.071284] ------------[ cut here ]------------
-ccessfully allocated and mapped 2097152000 bytes at 0x3a449000
-Populating memor[   30.074614] CPA: called for zero pte. vaddr = 0 cpa->vaddr = 0
-y...
-[   30.078636] WARNING: arch/x86/mm/pat/set_memory.c:1840 at __cpa_process_fault+0x34d/0x360, CPU#5: allocate_secret/570
-[   30.084789] CPU: 5 UID: 0 PID: 570 Comm: allocate_secret Not tainted 7.1.0-14063-g4edcdefd4083-dirty #10 PREEMPTLAZY
-[   30.090937] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.17.0-0-gb52ca86e094d-prebuilt.qemu.org 04/01/2014
-[   30.097543] EIP: __cpa_process_fault+0x34d/0x360
-[   30.100514] Code: ff ff 85 c0 0f 89 7d fe ff ff e9 3d fe ff ff 8b 03 8b 00 c7 04 24 c8 ff 64 c1 89 44 24 08 8b 45 e8 89 44 24 04 e8 53 7a 00 00 <0f> 0b c7 45 f0 f2 ff ff ff e9 fc fc ff ff 90 8d 74 26 00 55 25 00
-[   30.110829] EAX: 00000000 EBX: f64afe98 ECX: 00000000 EDX: 00000000
-[   30.114799] ESI: 00000000 EDI: f64afe98 EBP: f64afe04 ESP: f64afdcc
-[   30.118785] DS: 007b ES: 007b FS: 00d8 GS: 0033 SS: 0068 EFLAGS: 00010246
-[   30.123020] CR0: 80050033 CR2: 46c48ffc CR3: 038c8000 CR4: 00000690
-[   30.127010] Call Trace:
-[   30.129078]  __change_page_attr_set_clr+0x5e7/0x870
-[   30.132275]  ? console_unlock+0x99/0x130
-[   30.135069]  ? irq_work_queue+0x36/0x70
-[   30.137853]  ? page_address+0xd3/0xf0
-[   30.140421]  set_direct_map_invalid_noflush+0x52/0x60
-[   30.143782]  secretmem_fault+0x128/0x210
-[   30.146560]  __do_fault+0x25/0x90
-[   30.149053]  handle_mm_fault+0x6d1/0xcb0
-[   30.151759]  exc_page_fault+0x135/0x3b0
-[   30.154487]  ? doublefault_shim+0x150/0x150
-[   30.157416]  handle_exception+0x130/0x130
-[   30.160137] EIP: 0x804d29f
-[   30.162307] Code: 89 54 08 e1 89 54 08 e5 89 54 08 e9 89 54 08 ed c3 0f b6 44 24 08 89 7c 24 0c 69 c0 01 01 01 01 8b 7c 24 04 f7 c7 0f 00 00 00 <89> 44 0f fc 75 0e c1 e9 02 f3 ab 8b 44 24 04 8b 7c 24 0c c3 31 d2
-[   30.172936] EAX: 5a5a5a5a EBX: 00000000 ECX: 0c800000 EDX: 3a449000
-[   30.176927] ESI: 00000000 EDI: 3a449000 EBP: bfbbae18 ESP: bfbbadac
-[   30.180897] DS: 007b ES: 007b FS: 0000 GS: 0033 SS: 007b EFLAGS: 00010246
-[   30.185161]  ? doublefault_shim+0x150/0x150
-[   30.187979] ---[ end trace 0000000000000000 ]---
-Bus error                  (core dumped) ./allocate_secret_i686 2000M
-
-Fixing this directly in secretmem.c is kinda yucky but if we can just
-make folio_zap_direct_map() a NOP for highmem folios it's nice and easy
-so I propose to just fix it as a followup to this series.
-
-Alternatively, we maybe should disable secretmem for highmem systems
-since it evidently doesn't have any users.
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
