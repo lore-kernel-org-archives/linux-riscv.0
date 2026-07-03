@@ -4,76 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2B9C44500
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 14:44:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B636C43458
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 14:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y1ktGK4KW7nJZ1PQINedrdY81yG78xO9nL3NekTimY8=; b=Oe8QGeT8VUosdp
-	CEhrNyuI49zsjcYgFBxxw84Z32GtzcrTIoPBDNvg8fKQv664Q5OVJQ4sOSOJtwrGFqiAN5tbPEXrY
-	9wudZ6qr2EIPo37upJg/irGhytnw//hCpPcqoj2aBOxWTgmMS9i+Fl6wD+b88v6SXsjfK89kpUlpf
-	jIFimmYSIo0XrjUaLTUgHVcmUO+VtZ7BKIy05705Oqs67qe1Xcomo50XKxSrvqlfBipM/qZx9SUxC
-	47nvhrewZ+k/l6/PmHbujJ7L89esgzekX5+I9ClIbnox5Mbkksgrjxqut15PHMxPvfTEPH3hloD1K
-	Je/sSwuhEmTcw7vF/JYQ==;
+	List-Owner; bh=pcleEhbC+dTWtJEQxQVfa82QuKy95U7nQIPkrIDg3l0=; b=fNRmh3CqHOjuqu
+	x5RGhdLdNjnhNfKOHLLY+N6It3aiINH/1JrCHCdt1igOKxZhQl3QR03/w5NK1c0GhObGSMl6wIX4I
+	1c+zld2kVHVqyVWHDIA9YodIxoVf+lMK/dmHYT1nhRh8vU+vLcDuMy7Aa/13wAM0w2jQlfli5d8Sd
+	2vyNDfRy5ReriTylJHzVm/NyGiSsTJHDQF9yvrkj5dTca3LjXCJuRYKKLGLB92SQ5jfOhfVzQmSyq
+	khnvw2JR/geUv0n1lMYVmmIGGM2QUasJWKLMl6Wj3P1jTJyBgIbD88WJoiqU0lZCwptDn85kHae2J
+	kOXUDSfcte5u8oHMR/IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wff7O-00000007J0V-2sLU;
-	Fri, 03 Jul 2026 14:43:50 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1wffEO-00000007JzK-3Oss;
+	Fri, 03 Jul 2026 14:51:04 +0000
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wff7L-00000007IzJ-21pR;
-	Fri, 03 Jul 2026 14:43:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1783089494; x=1783694294; i=markus.elfring@web.de;
-	bh=EB2g52ML9w7Ti0I5lh6WIZuElr5+ILDxpx38iWGZDv0=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=FnsWbW47FjvALC7zgV3+0fiQShsfqWGiz7rlBDL1wFFlt9DbWhtxOFoyTM3/EoxO
-	 Vf6v9Hc8zomuc4aCIUDssZ9a70iVFomO8YecCugNAriVqw4mpf3jg6bbR6QHQn1JX
-	 DHLB5ToKyi+SrfsCYpIAsvCycS++rMOJQ9eYW84cny7ETZ9ivMi6HKiLkluxm6g02
-	 /h4MfCVaH2oNihYnffWdg1kHVug9SWdZTjjkdRLQNW/qzDCAD0qezYz3rs3g2ih/3
-	 af8sr8Z4nhWwpDlJH6QalwlfSJvcXpZbu4vmq0BN8ZHQo38N8alz4tysSM+hCjIm/
-	 ciYloj0Sir8jJCt6YA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MrOhx-1xQ3L03Q9v-00mp6N; Fri, 03
- Jul 2026 16:38:13 +0200
-Message-ID: <5df82d42-89cd-4e39-95a9-a0f164c0ac58@web.de>
-Date: Fri, 3 Jul 2026 16:38:09 +0200
+	id 1wffEM-00000007Jxl-0aFy
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 Jul 2026 14:51:03 +0000
+Message-ID: <8f75dc18-dd4c-4989-a76c-eec6cc513ccf@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783090246;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CXlZY4gPG+zU33k3H0xm4g/0VaNA0tr7HNt5303WUBg=;
+	b=UDBNB8/0B1x3/BrOa/t8tH6XYsteLhqIKb6sFPxo+8voiJoXwSGbGVTm7m2V2fKjxbZfG5
+	wYXqGIpNv/UsD7//6L9xKs/IvOligQC3lhghGNicG75MZUNKdc91kSBysgQAuIKoLqiQ3k
+	zeQenTliY3QJ+tbtFUjK7MHFfZ7WXFo=
+Date: Fri, 3 Jul 2026 22:50:29 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] riscv: Prevent NULL pointer dereference in
- machine_kexec_prepare
-To: Tao Liu <ltao@redhat.com>, linux-riscv@lists.infradead.org,
- kexec@lists.infradead.org, linux-integrity@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
-Cc: kernel-janitors@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Baoquan He <bhe@redhat.com>, Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
- Eric Snowberg <eric.snowberg@oracle.com>, Jarkko Sakkinen
- <jarkko@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>,
- Nutty Liu <nutty.liu@hotmail.com>, Pratyush Yadav <pratyush@kernel.org>,
- Roberto Sassu <roberto.sassu@huawei.com>
-References: <20260703111530.91285-2-ltao@redhat.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260703111530.91285-2-ltao@redhat.com>
-X-Provags-ID: V03:K1:flxU61AON1tOB/5zV1NWRLFjDo9z4XR+iONMuTkfID4WUXbAAHJ
- wjej4JJ56IcMz11JLo9GZw+YeFpRTaaljw4W1aAOLsTLlVHhZT6fqDngl/wbRFNYyC1QIDb
- d/WO0NR4AXZlGiBOky1skJXNAnZvsipnUKOXPXJAehMbxawkDgQS7fk9uxQoZt0oTm9NfX2
- 43/fgfxHWasbteYethxhw==
-UI-OutboundReport: notjunk:1;M01:P0:+MRkKKiSlJk=;Xlp2E5WYTtay1kxrKMBxgI0g//r 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 04Frq2IItzwMQh+oTs=
+Subject: Re: [PATCH] mm/mseal: fix mseal documentation for 32-bit kernels
+To: Pedro Falcato <pfalcato@suse.de>
+References: <20260703022507.187457-1-leon.hwang@linux.dev>
+ <akeDk49-pPgUDek1@pedro-suse>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Leon Hwang <leon.hwang@linux.dev>
+In-Reply-To: <akeDk49-pPgUDek1@pedro-suse>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_074347_893647_11BF8C4E 
-X-CRM114-Status: UNSURE (   3.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260703_075102_340078_923321EA 
+X-CRM114-Status: GOOD (  28.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,17 +63,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-doc@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Gary Guo <gary@garyguo.net>, linux-riscv@lists.infradead.org, Vlastimil Babka <vbabka@kernel.org>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Jonathan Corbet <corbet@lwn.net>, Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Jann Horn <jannh@google.com>, Nathan Chancellor <nathan@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Alexandre Ghiti <alex@ghiti.fr>, "Liam R . Howlett" <liam@infradead.org>, Nicolas Schier <nsc@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Douglas Anderson <dianders@chromium.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiBBIE5VTEwgcG9pbnRlciBkZXJlZmVyZW5jZSBpc3N1ZSBpcyBub3RpY2VkIGluIHJpc2N2J3Mg
-bWFjaGluZV9rZXhlY19wcmVwYXJlKCksCj4gd2hlcmUgaW1hZ2UtPnNlZ21lbnRbaV0uYnVmIG1p
-Z2h0IGJlIE5VTEwgYW5kIGNvcGllZCB1bmNoZWNrZWQuCuKApgoKV291bGQgaXQgYmUgaGVscGZ1
-bCB0byBhcHBlbmQgcGFyZW50aGVzZXMgdG8gYSBmdW5jdGlvbiBuYW1lIGFsc28gaW4gdGhlIHN1
-bW1hcnkgcGhyYXNlPwoKV2h5IHdhcyBzdWNoIGEgaGludCBub3QgYmUgdGFrZW4gaW50byBhY2Nv
-dW50IGZyb20gYSBwcmV2aW91cyBzdWdnZXN0aW9uPwoKUmVnYXJkcywKTWFya3VzCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2026/7/3 17:44, Pedro Falcato wrote:
+> On Fri, Jul 03, 2026 at 10:25:07AM +0800, Leon Hwang wrote:
+>> mseal.o is built only for 64-bit kernels, so 32-bit kernels fall back
+>> to sys_ni_syscall() and return -ENOSYS rather than -EPERM.
+>>
+>> Document the -EINTR return from mmap_write_lock_killable(), fix the
+>> CONFIG_MSEAL_SYSTEM_MAPPINGS typo, and describe system mappings in
+>> terms of VM_SEALED_SYSMAP.
+>>
+>> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+>> ---
+>>  Documentation/userspace-api/mseal.rst | 18 ++++++++++--------
+>>  init/Kconfig                          |  2 +-
+>>  mm/mseal.c                            |  4 ++--
+>>  3 files changed, 13 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/Documentation/userspace-api/mseal.rst b/Documentation/userspace-api/mseal.rst
+>> index ea9b11a0bd89..1f1cf206670c 100644
+>> --- a/Documentation/userspace-api/mseal.rst
+>> +++ b/Documentation/userspace-api/mseal.rst
+>> @@ -50,8 +50,10 @@ mseal syscall signature
+>>           * The start address (``addr``) is not allocated.
+>>           * The end address (``addr`` + ``len``) is not allocated.
+>>           * A gap (unallocated memory) between start and end address.
+>> -      - **-EPERM**:
+>> -         * sealing is supported only on 64-bit CPUs, 32-bit is not supported.
+>> +      - **-EINTR**:
+>> +         * Interrupted while waiting for the mmap write lock.
+>> +      - **-ENOSYS**:
+>> +         * The kernel does not implement ``mseal()``.
+>>  
+>>     **Note about error return**:
+>>        - For above error cases, users can expect the given memory range is
+> 
+> Honestly, this whole thing needs to be deleted. We need a proper manpage.
+
+$ man mseal
+No manual entry for mseal
+
+When searching "mseal manual" using Google, this doc is the first entry.
+
+So, this change is worthy.
+
+> 
+>> @@ -62,7 +64,8 @@ mseal syscall signature
+>>          memory range could happen. However, those cases should be rare.
+>>  
+>>     **Architecture support**:
+>> -      mseal only works on 64-bit CPUs, not 32-bit CPUs.
+>> +      mseal is built only for 64-bit kernels. 32-bit kernels return
+>> +      ``-ENOSYS``.
+> 
+> This LGTM.
+> 
+>>  
+>>     **Idempotent**:
+>>        users can call mseal multiple times. mseal on an already sealed memory
+>> @@ -131,20 +134,19 @@ Use cases
+>>  - Chrome browser: protect some security sensitive data structures.
+>>  
+>>  - System mappings:
+>> -  The system mappings are created by the kernel and includes vdso, vvar,
+>> +  The system mappings are created by the kernel and include vdso, vvar,
+>>    vvar_vclock, vectors (arm compat-mode), sigpage (arm compat-mode), uprobes.
+>>  
+>>    Those system mappings are readonly only or execute only, memory sealing can
+>> -  protect them from ever changing to writable or unmmap/remapped as different
+>> +  protect them from ever changing to writable or unmapped/remapped as different
+>>    attributes. This is useful to mitigate memory corruption issues where a
+>>    corrupted pointer is passed to a memory management system.
+> 
+> Also LGTM.
+> 
+>>  
+>>    If supported by an architecture (CONFIG_ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS),
+>> -  the CONFIG_MSEAL_SYSTEM_MAPPINGS seals all system mappings of this
+>> -  architecture.
+>> +  CONFIG_MSEAL_SYSTEM_MAPPINGS seals mappings marked with VM_SEALED_SYSMAP.
+> 
+> VM_SEALED_SYSMAP isn't meaningful to userspace.
+
+
+Got it. Will drop this change.
+
+> 
+>>  
+>>    The following architectures currently support this feature: x86-64, arm64,
+>> -  loongarch and s390.
+>> +  loongarch, riscv, and s390.
+> 
+> This is also useless, every 64-bit architecture will support this.
+
+
+Do you mean dropping this sentence, or this change?
+
+> 
+>>  
+>>    WARNING: This feature breaks programs which rely on relocating
+>>    or unmapping system mappings. Known broken software at the time
+>> diff --git a/init/Kconfig b/init/Kconfig
+>> index 5230d4879b1c..12bb39f637b1 100644
+>> --- a/init/Kconfig
+>> +++ b/init/Kconfig
+>> @@ -2112,7 +2112,7 @@ config ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
+>>  	  from a kernel perspective.
+>>  
+>>  	  After the architecture enables this, a distribution can set
+>> -	  CONFIG_MSEAL_SYSTEM_MAPPING to manage access to the feature.
+>> +	  CONFIG_MSEAL_SYSTEM_MAPPINGS to manage access to the feature.
+>>  
+>>  	  For complete descriptions of memory sealing, please see
+>>  	  Documentation/userspace-api/mseal.rst
+>> diff --git a/mm/mseal.c b/mm/mseal.c
+>> index 9781647483d1..0464c7b94ab9 100644
+>> --- a/mm/mseal.c
+>> +++ b/mm/mseal.c
+>> @@ -132,8 +132,8 @@ static int mseal_apply(struct mm_struct *mm,
+>>   *   addr is not a valid address (not allocated).
+>>   *   end (start + len) is not a valid address.
+>>   *   a gap (unallocated memory) between start and end.
+>> - *  -EPERM:
+>> - *  - In 32 bit architecture, sealing is not supported.
+>> + *  -EINTR:
+>> + *   interrupted while waiting for the mmap write lock.
+>>   * Note:
+>>   *  user can call mseal(2) multiple times, adding a seal on an
+>>   *  already sealed memory is a no-action (no error).
+> 
+> And this whole header needs to be deleted as well. No one's looking at
+> kernel code for documentation (and if they are, we did a horrendous job
+> at actually documenting the thing).
+> 
+
+
+Just to confirm, do you mean removing the entire function comment above
+do_mseal()?
+
+Thanks,
+Leon
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
