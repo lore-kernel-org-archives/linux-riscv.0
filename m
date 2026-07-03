@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6184C43327
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 00:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D39C43327
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2026 01:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PnaTlepbeWafOYgadDWvN4SRW9ewV0iFTcM+ReBVkLM=; b=Pi75MmYb5aouhb
-	xPqOvJYxxV7JCPm06CPwe70QD/579tqyEZ3LOXIDZMw47y8Q0NLy278BWg2/SQ+VCRoZFk3KPIcJt
-	YLaM0gtaEyKSGIsIxaw5eeWJQHt4sJUXd/XXkEFhuxZj45HqGTyHOxyJjKe/j+dzyBMm7hiQujc6e
-	geikonTb3VXb3XXRNNpWpWC8mPIPMFRGEdXPOMJjvmaovlQtrOuT1iGY+1oqGS185pCkCkLkN8vkm
-	8lA6ZGRxzNZRygustZGJ1DaeY+ggJjTDhpxaEOZtRMIp+PdhUkwQU4P26tGd+Wm/4Cp90Dxpewn6H
-	FuTzFlb+7u0vKSm288Yg==;
+	List-Owner; bh=JA3HblB8AKJuJioDjWFiHeqQs6Ug5z5PcnbLBUJ6OT0=; b=PX5/sN0KUjgi+O
+	cj1Hft55jUthBdEisJ4Ee+Gpzmp/AMGmhxCwTc5zvrfZDYdDr0UZ6iDnNmZqAd98h1FH4jH7lO+Nn
+	PkVfyRs8QQXpWAU29ZIIwHrfuz1L1SXEBJOcdKq6x1jOL5HDUMcllIEKAvc+dlYe8jX2OzUG300Ic
+	48V3kaDfT53kCwuXtm+WswHs6Mp2ZHAt1oAs2f9K15tsORrZQ2TVQ3aS8H97Ueig0+7oKHDi4xo+z
+	bX0QdxxK+kINc9+YuA4TiXjziPtgTXIkC7CJJogAzvPY5CvGw5hc2P7u8OLHbJ/JfEO+gVfFnYmz5
+	+aEpnro0osgeH7WO/WTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfRaU-00000005mtS-2NLR;
-	Fri, 03 Jul 2026 00:16:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfShK-00000005pKp-0wP5;
+	Fri, 03 Jul 2026 01:28:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfRaS-00000005mtM-38W3
+	id 1wfShJ-00000005pKf-04CA
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jul 2026 00:16:56 +0000
+	Fri, 03 Jul 2026 01:28:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 27D1741638;
-	Fri,  3 Jul 2026 00:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 801741F000E9;
-	Fri,  3 Jul 2026 00:16:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EB656001A;
+	Fri,  3 Jul 2026 01:28:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CDDE1F000E9;
+	Fri,  3 Jul 2026 01:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783037816;
-	bh=/LVC6Hmw6zMzHK5fUXwnxznVg9uaG7qwXcwGvD26sKI=;
+	s=k20260515; t=1783042083;
+	bh=0eXGKOcKQVdU/sbnJjxGRITWvo+67g14j4Em8TkDCvg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DuxZiwoVDzLb+2WqWHJo4iFuN5oSe2E+SNo5krcuygPlnGgdmVQ/Mc5Fe2zJiBadm
-	 DW2np4Cl9iUluvG/cJYBiDs6+KPeX0GKHNrtm8S75QlOdOZEvreSnuqQuRi3dBU2Fk
-	 EcGvPn1j+kOFTBbEnfChUNLvj60buJ7PAcfNdLIALjFVQKStya+VO10YCUb7GQNgAI
-	 r8GnFzlevfDRZ3O6FwHyJND1Yeo8sRjGGbApD6QAS1Xy8TcWft+JODRLkw+dmp8vbs
-	 kasKyK7y/2Hk4cyFjH7HWPFw6AI7YwIgSiBdRE0JXje8qc+VdSLzbynUxxziUeU+R1
-	 FjAIuyOex/Hwg==
-Date: Fri, 3 Jul 2026 00:16:53 +0000
+	b=TT0sywZD2HYWh3962wb2Zk7EFaRUAkSkh8KYupweqLXhoGcHxJC/ftAv+XD3uz/oL
+	 yB6EGIyqj8DjKp9sgh6Sg7wD+CycIhRZtn/ZuFwTjj5osNGk6WXj0Yx0mTogfV7Py7
+	 WOuL31iMTiW25Swp2w4nr8gW5ehQTCOr8lPmzv9pXDAyG/lVgLFrxLMLbpq6H6eDZF
+	 M2s1yOH7D9PW5kZ6dOhr5mkwVVLvu8ks1acPWETCoKdLrDc+shDHScUms8ACZmrE8L
+	 wZythJEl7kTS3xNOK1q4GVfYDGZsqSn6YmKNVYLwte5fS5UYIrKQBzlHyDy7SzZDK7
+	 RVHk3MWL5Q/oA==
+Date: Fri, 3 Jul 2026 01:28:00 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yao Zi <me@ziyao.cc>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	Avri Altman <avri.altman@sandisk.com>,
 	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
@@ -52,6 +52,7 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
 	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
@@ -59,13 +60,13 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
  driver
-Message-ID: <20260703001653-GKB35811@kernel.org>
+Message-ID: <20260703012800-GKC35811@kernel.org>
 References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
  <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
- <c49d9bea7f9a172a97d0acfaa9680bdac80f75e1.camel@pengutronix.de>
+ <akaeBJv5T3YmlfpC@pie>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <c49d9bea7f9a172a97d0acfaa9680bdac80f75e1.camel@pengutronix.de>
+In-Reply-To: <akaeBJv5T3YmlfpC@pie>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,11 +83,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Philipp,
- Thanks for your review
+Hi Yao,
 
-On 09:53 Thu 02 Jul     , Philipp Zabel wrote:
-> On Do, 2026-07-02 at 02:31 +0000, Yixun Lan wrote:
+On 17:21 Thu 02 Jul     , Yao Zi wrote:
+> On Thu, Jul 02, 2026 at 02:31:36AM +0000, Yixun Lan wrote:
 > > SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
 > > which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
 > > M-PHY v3.0 standard.
@@ -98,31 +98,37 @@ On 09:53 Thu 02 Jul     , Philipp Zabel wrote:
 > >  drivers/ufs/host/ufs-spacemit.c | 931 ++++++++++++++++++++++++++++++++++++++++
 > >  drivers/ufs/host/ufs-spacemit.h |  90 ++++
 > >  4 files changed, 1034 insertions(+)
-> > 
-> [...]
-> > --- /dev/null
-> > +++ b/drivers/ufs/host/ufs-spacemit.c
-> > @@ -0,0 +1,931 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
-> > + */
+> 
+> ...
+> 
+> > +static int ufs_spacemit_wait_mphy_pll_lock(struct ufs_hba *hba)
+> > +{
+> > +	int timeout = MPHY_PLL_LOCK_TIMEOUT_US;
+> > +	u32 val;
 > > +
-> > +#include <linux/clk.h>
-> > +#include <linux/clk-provider.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/io.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/platform_device.h>
+> > +	while (timeout-- > 0) {
+> > +		val = ufshcd_readl(hba, UFS_PHY_MNG_BASE + UFS_MPHY_PU_CTRL);
+> > +		if (val & MPHY_PLL_LOCK_BIT)
+> > +			return 0;
+> > +
+> > +		udelay(1);
+> > +	}
+> > +
+> > +	dev_err(hba->dev, "M-PHY PLL lock timeout\n");
+> > +	return -ETIMEDOUT;
+> > +}
 > 
-> Missing #include <linux/reset.h> for
-> devm_reset_control_get_optional_exclusive_deasserted() below.
-> Don't rely on indirect includes.
+> Could this loop be replaced by read_poll_timeout() like
 > 
-Will add in next version
+> 	read_poll_timeout(ufshcd_readl, val, val & MPHY_PLL_LOCK_BIT,
+> 			 1, MPHY_PLL_LOCK_TIMEOUT_US, false, hba,
+> 			 UFS_PHY_MSG_BASE + UFS_MPHY_PU_CTRL);
+> 
+I think so, thanks for the suggestion
 
-> [...]
+> 
+> ...
+> 
 > > +/**
 > > + * ufs_spacemit_init - init phy and prepare clk
 > > + * @hba: host controller instance
@@ -139,50 +145,51 @@ Will add in next version
 > > +
 > > +	host->rst = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
 > 
-> Why is this stored in struct ufs_spacemit_host at all? As far as I can
-> see it is never used again, so this could be a local variable.
+> "resets" property is marked as required in the binding, but the optional
+> API is used here. Is this expected?
 > 
-Ok, will make it a local variable
+Ok, I will switch to non-optional API and check return value
 
-> [...]
-> > diff --git a/drivers/ufs/host/ufs-spacemit.h b/drivers/ufs/host/ufs-spacemit.h
-> > new file mode 100644
-> > index 000000000000..6ae3c263a360
-> > --- /dev/null
-> > +++ b/drivers/ufs/host/ufs-spacemit.h
-> > @@ -0,0 +1,90 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * SpacemiT UFS Host Controller driver
+> ...
+> 
+> > +/**
+> > + * ufs_spacemit_hce_enable_notify - Configure HCE enable sequence
+> > + * @hba: host controller instance
+> > + * @status: notification status (PRE_CHANGE or POST_CHANGE)
 > > + *
-> > + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
+> > + * Configures host controller enable with proper sequencing.
+> > + * Handles crypto enable if supported.
+> > + *
+> > + * Returns: 0 on success
 > > + */
+> > +static int ufs_spacemit_hce_enable_notify(struct ufs_hba *hba,
+> > +					  enum ufs_notify_change_status status)
+> > +{
+> > +	struct ufs_spacemit_host *host = ufshcd_get_variant(hba);
+> > +	u32 enable_val, val;
 > > +
-> > +#ifndef _UFS_SPACEMIT_H_
-> > +#define _UFS_SPACEMIT_H_
+> > +	if (status == PRE_CHANGE) {
+> > +		enable_val = CONTROLLER_ENABLE;
 > > +
-> > +#include <linux/reset-controller.h>
+> > +		if (hba->caps & UFSHCD_CAP_CRYPTO)
+> > +			enable_val = CRYPTO_GENERAL_ENABLE | CONTROLLER_ENABLE;
+> > +
+> > +		if (!host->first_hce_done) {
+> > +			host->first_hce_done = true;
+> > +			dev_dbg(hba->dev, "First HCE enable\n");
+> > +		} else {
+> > +			val = ufshcd_readl(hba, REG_CONTROLLER_ENABLE);
+> > +			if (val == enable_val) {
+> > +				ufshcd_writel(hba, enable_val & (1 << CONTROLLER_ENABLE),
+> > +					      REG_CONTROLLER_ENABLE);
+> > +
+> > +				while (ufshcd_readl(hba, REG_CONTROLLER_ENABLE) ==
+> > +				       (enable_val & (1 << CONTROLLER_ENABLE)))
+> > +					;
 > 
-> Drop this, we are not implementing a reset controller driver here.
+> Shouldn't we set a timeout for the polling loop?
 > 
-Ok
-
-> > +#include <linux/reset.h>
-> 
-> You could replace this with a struct reset_control forward declaration.
-> Or drop it ...
-> 
-Will drop it
-
-> [...]
-> > +struct ufs_spacemit_host {
-> > +	struct ufs_hba *hba;
-> > +	struct ufs_pa_layer_attr dev_req_params;
-> > +	struct reset_control *rst;
-> 
-> ... if you end up removing the rst field entirely.
-> 
-Yes, I will remove it
+Yes, good idea and will do in next version
 
 -- 
 Yixun Lan (dlan)
