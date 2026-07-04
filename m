@@ -4,50 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92CB3C43458
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2026 00:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7A4C43458
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2026 02:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qM7Z9YhsDozJCcHdtxTvKOX5GJ2cBQXO3Q2rfS983hk=; b=OwBUeFTzj9trUL
-	pAuoznHOnAtzA8JPdpBNaYPobKMxPlpHCMdLsCnhj2Um1KmwG0cmmG7oawuzUb4mVdPlR5onoJZeb
-	cy/Ot8voY3UUmeCF4gPzo9K6+HT+K3oWRIgCsXnrbmfcpkuQjLkpX2uKl3cf/jpvryTaBczZu65QZ
-	BUekRwDWqUpABrGSlCe9KlJOm4r/LScoFLziVKoYgXQl958c/AeBOcn+2ebSmszGQdqagodL/BYek
-	VwyWeAMrJSP9yWRDFaWawvEYKRnjteSHH+SumxCPAAeDWxCkaWGHf7srP3UPhGXZyOA6XhFlAIQUq
-	1X41Imb5KOL+j0bAhq0A==;
+	List-Owner; bh=yCu2Eoodhfviz9pM4s/Xo3Ouu3IXxug7Apo5gPSu9vM=; b=W1CeT2jiR6Q2zX
+	f8jM39Vw6rUlhyIkh7mj2wWATo8BMEr/Z6uoYTkAgaTrV9EeW5GAD6uaZK3Xo+tgaCfKWLhP8RrwG
+	tRCJOdItCvHTlGVNkpXJ1/vGEU+VIy83q64Smr+2mVfw46TqwBhFwVzJCd9Foq96y+Qrp3Ae0amZF
+	HGZZWJ2OovdMEXTmBO7gxmeZpjyNY2NjQA3/7AslcAI/jpQ9E0oBQOJCXOz+v+qmEgGkdAdrFx7mm
+	VEai58B7AP0SfHlipLY6J8wLdb6+5fFhBhQ9XQkGgItGBvjz5xlxJ3sSq8LnDUHBtbReQG1W4Eqrh
+	odeEUnOB82NuF8CK8YZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfoPU-000000083Ru-3U6Y;
-	Sat, 04 Jul 2026 00:39:08 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wfpiG-000000085he-0OHD;
+	Sat, 04 Jul 2026 02:02:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfoPT-000000083Rg-0tnl;
-	Sat, 04 Jul 2026 00:39:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Tmeyv+yKDLe4sMQPHYRfOsYX6yQ2MKLh3F1KPVmHY7E=; b=OsAtGgpfn2ZZr0zNc4ly0ohzMQ
-	Z1saVpSbGF+o9EzTKmnHyHDrG1P94ZdjNxe/AYOxM5ySV4WyAMi5CExkGLqhrGWsyK45WZfXv1apn
-	W1x1PEsN80UGsHRRAwiIODsvazzWi3XAygJQe1DUvSE8nsEea3L6Duq1274b1yJOisaPgEAlvTYaH
-	Nt5TLyFBGOpqcudWTvSSKo0929jLnRELP+TeHSGdJojjcBA8986JvN6uf4/QU1H6sIJa1hQ3TnePo
-	ugM72E4JglvxCjXwU3XF8q9nG36o59d8rFIGxrH10IIPiljDGFd29QxUqaJsMkAjMYeKA21TPfsVN
-	tlQYC2dw==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfoPQ-0000000B5D1-34RK;
-	Sat, 04 Jul 2026 00:39:04 +0000
-Date: Sat, 4 Jul 2026 01:39:04 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Leon Hwang <leon.hwang@linux.dev>
-Subject: Re: [PATCH] mm/mseal: fix mseal documentation for 32-bit kernels
-Message-ID: <akhWKJSZLfDusVcL@casper.infradead.org>
-References: <20260703022507.187457-1-leon.hwang@linux.dev>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260703022507.187457-1-leon.hwang@linux.dev>
+	id 1wfpiF-000000085hT-1bfl
+	for linux-riscv@lists.infradead.org;
+	Sat, 04 Jul 2026 02:02:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EB526402E8;
+	Sat,  4 Jul 2026 02:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED151F000E9;
+	Sat,  4 Jul 2026 02:02:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783130553;
+	bh=FiFD+8IMwheGtPRC/Twtw5q7GRuybepWVsH85w1NW4U=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=AmDzGtc8OEOEk3jAawBoP/w0BWeW1B8MZPoL6Qfggs8QAftXTBY8l64NzwnAoLXv1
+	 PrZSWp4WpHsv/02iE+SeGf8dpt40gnknp9iyF5+vS+1GR/KOItamPern20zx9Ejf9c
+	 408bohEapuWA6DcvsZeQbxF/x7cxetmIrN6gNE+IeFAff0zXKuUxaeFDO3ihotPjsM
+	 1Qsy9ZFvxJnPvBrQH2epwnlQGFkiLo+xtrvAiL4bRKB4uAPigaGntUL2Xeq9GB928j
+	 nbMpt5rwThH29XC/bhitEnUUDZj0cRi07z8Dgr1u8Md5T0hSnC2TqVKJOgnpLMh9rg
+	 ekKG5Lq6Q2BwA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 19D2E3939F31;
+	Sat,  4 Jul 2026 02:02:17 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V updates for v7.2-rc2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <98c1a609-5ce9-5703-77d4-bdb2d92d7338@kernel.org>
+References: <98c1a609-5ce9-5703-77d4-bdb2d92d7338@kernel.org>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <98c1a609-5ce9-5703-77d4-bdb2d92d7338@kernel.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-rc2
+X-PR-Tracked-Commit-Id: bc7b086a45521a986a49045907f017e3e46c763e
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 590cae7152cab2dd954b8db20522769e1c62deec
+Message-Id: <178313053566.3392227.13313533276453141055.pr-tracker-bot@kernel.org>
+Date: Sat, 04 Jul 2026 02:02:15 +0000
+To: Paul Walmsley <pjw@kernel.org>
+Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,26 +71,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-doc@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Gary Guo <gary@garyguo.net>, linux-riscv@lists.infradead.org, Vlastimil Babka <vbabka@kernel.org>, Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>, Jonathan Corbet <corbet@lwn.net>, Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Jann Horn <jannh@google.com>, Nathan Chancellor <nathan@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, Pedro Falcato <pfalcato@suse.de>, Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Alexandre Ghiti <alex@ghiti.fr>, "Liam R . Howlett" <liam@infradead.org>, Nicolas Schier <nsc@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Douglas Anderson <dianders@chromium.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 10:25:07AM +0800, Leon Hwang wrote:
-> Document the -EINTR return from mmap_write_lock_killable(), fix the
+The pull request you sent on Fri, 3 Jul 2026 12:07:31 -0600 (MDT):
 
-No, you don't understand the whole concept of "killable".  If a
-task receives a fatal signal, it dies before it returns to userspace.
-So userspace never gets to see the -EINTR.  It's fine to document inside
-the kernel that function foo() can return -EINTR, but it's pointless to
-document it for userspace.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-rc2
 
-This is how "killable" differs from "interruptible".  Interruptible allows
-non-fatal signals to wake a task, and then the task can see the -EINTR.
-But many processes do not check the error code, and so read() and write()
-(despite being documented as being able to return EINTR!)  do not do so
-in practise.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/590cae7152cab2dd954b8db20522769e1c62deec
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
