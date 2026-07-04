@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35EAFC43458
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2026 12:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B60C43458
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2026 12:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=02gJ/g8hzVFLKFb/l4SZRpWJSM1wuWOPq9ZjOS3rF4k=; b=ckCOCIUOqDI9Ju
-	KSOnqx7uYoa8EVknWtbweePkjN1F94CmgHJFvEM7L9ot9eJmtVVQOnmfhnGSSLAK92w7o4ErRA5Kw
-	W+6KmsSQjyLgl8eisulGpR1xqXvSUu9aZZ8nauywKSM+SIxS9isbIPKSahce4ln3tbkUlGThRhIEu
-	CLA2Q4XZ9c7cf7RPFfn1QY1N5qczGdmOlV/A8AopgphQ4dcer4zD6QYVUu6GvSoq2cIBFOpjWkAZo
-	/W6nwjYRIweEb/zHuM63KtXLZaB+MY3nfqlWra573+3GxFDXzqPovpbeQEd1nPZTEca0+2LneB48B
-	CTfgiVxyKrjV3me/hQCQ==;
+	List-Owner; bh=co0IwVZzvXeAqjguL5ZNopwRUWXVLuYJ6IXYusUVQLo=; b=qK/Qx69nlNi0hn
+	TtHKyVfHvVFPj8CZDtLFhEilONaqZs80fvkD0BcOUr+yBKVt/t6WbkvG8STwB3lISSD4DrKeHK4pp
+	DOaIcdTTESzxPnWvWDtAU/U7oD8oCRXRkhh2jukg0iYzcMZHmdJFBZuAWUKDQig5I0+hF16bY7cR7
+	cjGay1MaFNqZEktorAjnUF5oFaS+O4DE6YW5iRxOzuNXqaAg4P/9RBJLQQRHgiaK40axWaFoISTL0
+	RHPrB+kRsipqNlqzItV3KFzG1cjL9ZCAdNv/lNN9nXO2oNniaYS+DyErlXqfQLJHyBgdM89lo9E9n
+	15Sr4YDTBHoc8i9Go/TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfzOH-00000008PY5-1LTN;
-	Sat, 04 Jul 2026 12:22:37 +0000
+	id 1wfzRJ-00000008Ppl-4000;
+	Sat, 04 Jul 2026 12:25:45 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfzOE-00000008PXh-2B9A
+	id 1wfzRG-00000008PpS-3Tlp
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Jul 2026 12:22:36 +0000
+	Sat, 04 Jul 2026 12:25:44 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowADXu+IH+0hqDhLWFg--.22592S2;
-	Sat, 04 Jul 2026 20:22:31 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAC3ydDE+0hqTRjWFg--.11381S2;
+	Sat, 04 Jul 2026 20:25:40 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Yixun Lan <dlan@kernel.org>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	linux-gpio@vger.kernel.org,
+	linux-pci@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] gpio: sifive: add missing MODULE_DEVICE_TABLE()
-Date: Sat,  4 Jul 2026 20:22:30 +0800
-Message-ID: <20260704122230.75964-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] PCI: dwc: spacemit: add missing MODULE_DEVICE_TABLE()
+Date: Sat,  4 Jul 2026 20:25:38 +0800
+Message-ID: <20260704122538.92830-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowADXu+IH+0hqDhLWFg--.22592S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtr45uw1rurW7Aw4DuryrtFb_yoWDZFX_Cr
-	ykXrW3Xr18CasYgF1Skw43Zr92ya4kuF93Zrn5KFWaq3sxZw13urZruwnIq3WDXr48JF9x
-	JFn5Ww1rCa12gjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbx8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+X-CM-TRANSID: rQCowAC3ydDE+0hqTRjWFg--.11381S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtr45uw1rurW7Aw4DuryrtFb_yoWkCwb_ur
+	98Xan7ZrW5Cr95Kwnayws3Ar9akay3ur1kKa4rtFnIv3WxXw13XFWkuF90va15Gry8JF98
+	Jw1DXF18CFW2gjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbaxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
 	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
 	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
 	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
 	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
-	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIY
-	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14
-	v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Cr0_
-	Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Cr1j6rxdYxBIdaVFxhVjvjDU0xZFpf9x0JUW6w
-	tUUUUU=
+	I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr
+	1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Cr1j6rxdYx
+	BIdaVFxhVjvjDU0xZFpf9x0JUCNtxUUUUU=
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_052234_932979_667A3540 
-X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-CacheID: sfid-20260704_052543_236585_03FFE496 
+X-CRM114-Status: UNSURE (   7.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,21 +98,21 @@ the platform driver, and the missing module alias publication.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/gpio/gpio-sifive.c | 1 +
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
-index 94ef2efbd14f..e9a992cd4b9c 100644
---- a/drivers/gpio/gpio-sifive.c
-+++ b/drivers/gpio/gpio-sifive.c
-@@ -260,6 +260,7 @@ static const struct of_device_id sifive_gpio_match[] = {
- 	{ .compatible = "sifive,fu540-c000-gpio" },
- 	{ },
+diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+index 04241df8fd59..0b187efe8551 100644
+--- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
++++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+@@ -341,6 +341,7 @@ static const struct of_device_id k1_pcie_of_match_table[] = {
+ 	{ .compatible = "spacemit,k1-pcie", },
+ 	{ }
  };
-+MODULE_DEVICE_TABLE(of, sifive_gpio_match);
++MODULE_DEVICE_TABLE(of, k1_pcie_of_match_table);
  
- static struct platform_driver sifive_gpio_driver = {
- 	.probe		= sifive_gpio_probe,
+ static struct platform_driver k1_pcie_driver = {
+ 	.probe	= k1_pcie_probe,
 
 
 _______________________________________________
