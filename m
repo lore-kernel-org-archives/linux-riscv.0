@@ -4,88 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA65C43458
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2026 17:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F6EC43458
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jul 2026 00:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nh4uJTFNUqBuh7HFuF2gUq0HjJt2v5LXT94UF348N2s=; b=2UwUpr2FwCEVQq
-	ojP8T963aYsPwSte4wNJNNbf+qv5v+SAykCdmk0yhUh0cKM2LhC9tS3uaCHcWEfp4R3JaPsrWylVH
-	deHrMsczBugk2q3b45+2jLkM2nOgp8yIhm1EyIhibonKp2muiUjUIouxMmG5nn6jSwVyCDJKzNnPw
-	XGiRQpYzZnkc1RkzOEOINMIp6nPZkFYFnMoXFWAJEgJe1iG2KAZZ/m4NPQEZDgtgysEUN9zbEyMkf
-	rcDaIO9uBPCR+3auJnnlywTvF4FFSzfwW8EK56T7gi5SSiKsz5EewFOkMrZFuSUC1No4Tfc41y7S3
-	3Hh3hqfoSAJ4mzvdus3A==;
+	List-Owner; bh=efciYmLKCCN/cKoBWZ4O4d1Ct+CYQpLjsM9oNMrYGFg=; b=HOxOrYbhrj+xde
+	6IzPXqFkadC7QbqdZ+5W55vZB0ZDoP7mxm1FPczvTYdscwlAMd2ANS5fjWqBgHbr6qkCUmOCEtRN8
+	/BgHY9EuV6BMdPw80q/XC3++3yHEUH/wQStAiXi3juKnvxugOLU1hlUukuvxxXAHOOPHzO7XuDcvJ
+	2huAGR+iHn0C7FZpq5LgWdUMfyxyNmuAXA/GeY2la1bOIfidYnYZuUBNhJCA3wXryvE3ggBjQbviz
+	BFoS8WEdK4MG3ksC9NxqkrhAIZ4Ituikb1p+ZLdAZ/pp0zI9fOJn0bIAaRoQ762NULt9IzLL2O7Ya
+	UpBZw3oidwmUDHzC3oSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg4I1-00000008czN-0lLt;
-	Sat, 04 Jul 2026 17:36:29 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1wgAsh-00000008sPl-2yy7;
+	Sun, 05 Jul 2026 00:38:47 +0000
+Received: from out-12.smtp.spacemail.com ([198.54.127.83])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg4Hy-00000008cyz-0Q6Q
+	id 1wgAse-00000008sPF-00K0
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Jul 2026 17:36:27 +0000
-Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 664HJ3VH1732288
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Sat, 4 Jul 2026 10:19:04 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 664HJ3VH1732288
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026062701; t=1783185548;
-	bh=dTFud6IYNn4nvyg1znQWrkcJonRufF/qiM6XZzzUK0c=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=CJF5CAKRz4eNOPyR8kG0iAzsmyc+IwhntrZI2+KNzBcxTwm4Pcp7ISaY7lclR6A+T
-	 R6iud2HrZonYFu7Ng8lIZ2Zy+h6YMeauv3txYKWEhoUf4+sfZRGAxFauHe9YYLo4uT
-	 C6dgcvSiTqEU+iIkY6G3PGqbNZPx4bFWNID7VQM3t0H3q9hYfHNBXSLVMX7VMkyGoT
-	 AchFenE1pkrCZJeaXw8wK9l7BRpqKAAfu9aoRxmSUBXrsCED1ggSW/SS3uws8TW93A
-	 TkiqPgvXsUI43KFbqW08LGibZW5bbrWgmswEj6zjL2nzb2J1On7jMSJi4qiHbO8w3j
-	 5g1n/GjjLwl9A==
-Date: Sat, 04 Jul 2026 10:18:58 -0700
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Sven Schnelle <svens@linux.ibm.com>,
-        =?ISO-8859-1?Q?Michal_Such=E1nek?= <msuchanek@suse.de>
-CC: Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-        Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Jiaxun Yang <jiaxun.yang@flygoat.com>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Mukesh Kumar Chaurasiya <mkchauras@linux.ibm.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, Zong Li <zong.li@sifive.com>,
-        Nam Cao <namcao@linutronix.de>, Deepak Gupta <debug@rivosinc.com>,
-        Lukas Gerlach <lukas.gerlach@cispa.de>,
-        Rui Qi <qirui.001@bytedance.com>, Kees Cook <kees@kernel.org>,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BRFC=5D_entry=3A_Untangle_the_return_value_of?=
- =?US-ASCII?Q?_syscall=5Fenter=5Ffrom=5Fuser=5Fmode_from_syscall_NR?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <yt9dtsqg480p.fsf@linux.ibm.com>
-References: <akVRcPsD_R_CE1qW@kunlun.suse.cz> <BA7CD91D-C0E5-47A1-B49C-BC6AF6604182@zytor.com> <87h5mhnjsr.ffs@fw13> <yt9dwlvca8rn.fsf@linux.ibm.com> <87ldbsmnie.ffs@fw13> <yt9d5x2w5r84.fsf@linux.ibm.com> <20260703105718.GO751831@noisy.programming.kicks-ass.net> <akecJWAJP-e5CYP_@kunlun.suse.cz> <yt9dtsqg480p.fsf@linux.ibm.com>
-Message-ID: <69ACC6A7-7845-41B4-B0D0-2E6FCDA7443D@zytor.com>
+	Sun, 05 Jul 2026 00:38:45 +0000
+Received: from gurudas.dev (107-194-158-19.lightspeed.sntcca.sbcglobal.net [107.194.158.19])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4gt7rn4SRMz2x99;
+	Sun, 05 Jul 2026 00:38:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gurudas.dev;
+	s=spacemail; t=1783211915;
+	bh=M633SL93BCN0PrL2e/cwx2xlbDs4y1U/AlCmHMhb3AI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NSAOyNTLPtXZ/k1vM23d4mp6kcF0MfY7hjEozE9ESHWUStbSSsqzbmiiD9bT9KmME
+	 xnAufNEJYHbKrfK7MERrVnvmbFeMgkIx6GxHLHSyiCFyy3RCzqYObOgb2IM2gkSkEl
+	 n5ETauFMijv8KmS/jXdluLdYQvgxUilcbOPVqAPT8FXUj6yRzgydyIO9gJ4MdAtdnt
+	 cxQgrF191paqd10Z5zniDfAmO76GJCGEoWxy3mQV3UO+ca0IHbz6G7bc9o/6KLFbTN
+	 eEaQWUGbFQiNK5sG4hbYbqVp7dDxT5pfkoyvnPCLpGPi6eDF8GCzqSTJ/ZeBQ4F+xV
+	 T2FbStM6b4UEQ==
+Date: Sat, 4 Jul 2026 17:38:31 -0700
+From: Guru Das Srinagesh <linux@gurudas.dev>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Danilo Krummrich <dakr@kernel.org>,
+	Abdiel Janulgue <abdiel.janulgue@gmail.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	FUJITA Tomonori <fujita.tomonori@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	driver-core@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-pwm@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-block@vger.kernel.org, netdev@vger.kernel.org,
+	nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 0/7] rust: Use kernel style vertical imports in various
+ drivers
+Message-ID: <akmnh0AKFfu9-OYn@gurudas.dev>
+Mail-Followup-To: Andrew Lunn <andrew@lunn.ch>,
+	Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Danilo Krummrich <dakr@kernel.org>,
+	Abdiel Janulgue <abdiel.janulgue@gmail.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	FUJITA Tomonori <fujita.tomonori@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	driver-core@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-pwm@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-block@vger.kernel.org, netdev@vger.kernel.org,
+	nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org
+References: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
+ <c89a1bc8-6cc1-4e16-ac95-add389e45a2b@lunn.ch>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <c89a1bc8-6cc1-4e16-ac95-add389e45a2b@lunn.ch>
+X-Envelope-From: linux@gurudas.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_103626_145923_F9DA7EC5 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260704_173844_414907_B36B51C5 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +132,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gSnVseSAzLCAyMDI2IDQ6Mzk6MTggQU0gUERULCBTdmVuIFNjaG5lbGxlIDxzdmVuc0BsaW51
-eC5pYm0uY29tPiB3cm90ZToKPk1pY2hhbCBTdWNow6FuZWsgPG1zdWNoYW5la0BzdXNlLmRlPiB3
-cml0ZXM6Cj4KPj4gVGhlIHNhbWUgY291bGQgYmUgYXNrZWQgb2Ygc3lzY2FsbF9lbnRlcl9mcm9t
-X3VzZXJfbW9kZS4gSSBmaW5kIGl0IHZlcnkKPj4gb2RkLiBXaHkgZG9lcyBpdCBjb25mbGF0ZSB0
-aGUgc3lzY2FsbCBudW1iZXIgd2l0aCBpdHMgcmV0dXJuIHZhbHVlPwo+Pgo+PiBJdCBuZXZlciB1
-c2VzIHRoZSBzeXNjYWxsIG51bWJlciBwYXNzZWQgaW4gZXhjZXB0IHdoZW4gcmV0dXJuaW5nIGl0
-Cj4+IHVuY2hhbmdlZC4gV2hlbiBpdCBwb2tlcyB0aGUgcmVnaXN0ZXJzIGl0IHJlYWRzIHRoZSBz
-eXNjYWxsIG51bWJlciBmcm9tCj4+IHRoZW0uCj4+Cj4+IElmIHRoZSBjYWxsZXIgb2Ygc3lzY2Fs
-bF9lbnRlcl9mcm9tX3VzZXJfbW9kZSBvbmx5IHJlYWQgdGhlIHN5c2NhbGwKPj4gbnVtYmVyIGZy
-b20gdGhlIHJlZ2lzdGVycyB3aGVuIHN5c2NhbGxfZW50ZXJfZnJvbV91c2VyX21vZGUgcmV0dXJu
-cyBhbmQKPj4gaW5kaWNhdGVzIHRoZSBzeXNjYWxsIHNob3VsZCBiZSBzdGlsbCBleGVjdXRlZCB0
-aGlzIHdob2xlIHNoZW5pZ2FuIHdvdWxkCj4KPkkgYWdyZWUuIFRoZSBmYWN0IHRoYXQgaWYgKG5y
-IDwgTlJfc3lzY2FsbCkganVzdCB3b3JrcyBiZWNhdXNlIC0xIGdldHMKPmNhc3RlZCB0byAweGZm
-ZmZmZmZmIGFuZCBpcyB0aGVyZWZvcmUgb3V0IG9mIGJvdW5kcyBpcyB2ZXJ5IG9kZC4KPgoKTm90
-IGF0IGFsbCBzdHJhbmdlLiBJdCBpcyBhbiAqZXh0cmVtZWx5KiBjb21tb24gY29uc3RydWN0IGlu
-IEMsIGVzcGVjaWFsbHkgZm9yIHJhbmdlIGNoZWNraW5nIHZhbHVlcyBpbnRvIFswLCBuKS4KCklu
-IGFkZGl0aW9uIHRvIGJlaW5nIGlkaW9tYXRpYywga2VlcCBpbiBtaW5kIHRoYXQgdGhpcyBpcyBv
-bmUgb2YgdGhlIGFic29sdXRlbHkgbW9zdCBwZXJmb3JtYW5jZSBjcml0aWNhbCBwYXRocyBpbiB0
-aGUgZW50aXJlIGtlcm5lbC4gT25lIG9mIHRoZSBmdW5kYW1lbnRhbCBjb3JuZXJzdG9uZXMgYmVo
-aW5kIFVuaXggaXMgdG8ga2VlcCBzeXN0ZW0gY2FsbHMgY2hlYXAgc28gdGhhdCB0aGV5IGNhbiBi
-ZSBzaW1wbGUgYnVpbGRpbmcgYmxvY2tzIGZvciBtb3JlIGNvbXBsZXggb3BlcmF0aW9ucy4gSXQg
-aXMgbm90IHRoZSBvbmx5IHBvc3NpYmxlIGRlc2lnbiBwaGlsb3NvcGh5LCBidXQgaXQgaXMgdGhl
-IG9uZSB3ZSBjaG9zZSB0byBhZG9wdCwgcXVpdGUgc3VjY2Vzc2Z1bGx5LgoKVGhlIGRvd25zaWRl
-PyBTcXVlZXppbmcgZXZlcnkgcG9zc2libGUgY3ljbGUgb3V0IG9mIHRoZSBzeXN0ZW0gY2FsbCBw
-YXRoIGJlY29tZXMgb25lIG9mIHRoZSBtb3N0IGVzc2VudGlhbCB0dW5pbmcgdGFza3MuIFRoZSBn
-b29kIHBhcnQgaXMgdGhhdCBrZWVwaW5nIHRoZSBzeXN0ZW0gY2FsbCBwYXRoIGNsZWFuIGFsc28g
-bWFrZXMgaXQgbWFpbnRhaW5hYmxlLCBldmVuIHdoZW4gdGhlcmUgYXJlIHF1aXJrcy4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Jun 29, 2026 at 04:06:36PM +0200, Andrew Lunn wrote:
+> On Sun, Jun 28, 2026 at 08:38:14PM -0700, Guru Das Srinagesh wrote:
+> > Came across a recent commit bc58905eb07 ("samples: rust_misc_device: use
+> > vertical import style") and found a few more locations that could
+> > benefit from this cleanup. No functional changes.
+> > 
+> > Signed-off-by: Guru Das Srinagesh <linux@gurudas.dev>
+> > ---
+> > Guru Das Srinagesh (7):
+> >       samples: rust_dma: use vertical import style
+> >       pwm: th1520: use vertical import style
+> >       cpufreq: rcpufreq_dt: use vertical import style
+> >       block: rnull: use vertical import style
+> >       net: phy: ax88796b: use vertical import style
+> >       net: phy: qt2025: use vertical import style
+> >       drm/nova: use vertical import style
+> 
+> You have multiple subsystems here, so you need to split this patch
+> setup, per subsystem, and submit them separately. Maintainers only
+> accept patchsets for their own subsystems.
+> 
+> For netdev, please take a read of:
+> 
+> https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+> 
+> You need to get the correct tree, and set the Subject: line correctly.
+> 
+>     Andrew
+
+Hi Andrew,
+
+Thanks for the feedback.
+
+I was aware of the per-subsystem rule, but reasoned that since these changes are
+purely about Rust import formatting coding style with no functional impact on any
+subsystem, they might go through the rust-for-linux tree with acks from the
+respective subsystem maintainers. The Rust coding style is independent of any
+subsystem-specific guidelines.
+
+Is that reasoning off-base, or is the right path to split these out per subsystem
+regardless?
+
+Miguel, could you please indicate if you have a preference here?
+
+Thank you.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
