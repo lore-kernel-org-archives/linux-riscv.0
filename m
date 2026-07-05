@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EA1C43458
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jul 2026 01:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE662C43602
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jul 2026 01:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lLBiHdTxAmoSt1ykIWIjA4/mAoH8wBSsHnYEzPE5Ayc=; b=GQ7fcbAz8RtxVi
-	Hre0ySQ0lYlI0G9Q+q29930mGnLL+ZpLT90xr/mG/U5oCKVQSWskKU2GIp7KuT18Q1hKR3LCJruW+
-	ymL1icpmVHdGD3GVW/mfMBDLeeCoFbKsckbvOIMTmB2rClPHO5zLUQLldIXG8AiRp0C7JvXy0kOkl
-	2PLfmZsvlCZZ6H4QFP3CbGM9BEmyYrYHbrRstjBqYWjef47yi1XubbTlMXZzaYKm6RmWeJSySyLIu
-	mHMTPTUh47ikpK3FPH8Afadhx8Zph67IZYgISP4FBPAQWwxmxoxkRiSw2uY3Xz6/wOlVYfmR2ntef
-	mv+b+5yz5imPZ0m3RtiQ==;
+	List-Owner; bh=oiFqxiQBOIH45Fl5kpO8G6Zv4Fs3cQT8jskQGvgpPqQ=; b=L+tWZYgv4LUNlj
+	/YRhBipQp8NeVwNWRXusLf099iBgMZUoMQOvHrvP0gYn5XutH5Ha8mbZy02nkvGjTFO6GTBWX/aWb
+	v9c7e0ldghDxcNJ11BWNv3Ns+umSLppKvZFAJvzmY9+dI5VZgFyhrM3ffL5BZ1Io0vRcp1dRxVGcZ
+	wEVznx4DqHd7uFB3uX6bK8Bi5imk0AKQH/TNXV6vez4z774J3HMaHlltX/0DbnHwdjqzTpXipltAn
+	KEsvVyUHCqEDKdFTAE2XFC9IL5lX0rBsKDf/8ufgsS3eRKtMMvJA94ySF/1pzWXN0ZtIkrTd2jP2Z
+	IGwVCzgM9NlwAHatvctg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgBFF-00000008szG-1xX5;
-	Sun, 05 Jul 2026 01:02:05 +0000
-Received: from out-06.smtp.spacemail.com ([66.29.159.77])
+	id 1wgBSe-00000008tU0-3r1Y;
+	Sun, 05 Jul 2026 01:15:56 +0000
+Received: from out-21.smtp.spacemail.com ([66.29.159.70])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgBFC-00000008syq-1zXN
+	id 1wgBSc-00000008tTc-2IVW
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Jul 2026 01:02:04 +0000
+	Sun, 05 Jul 2026 01:15:56 +0000
 Received: from gurudas.dev (107-194-158-19.lightspeed.sntcca.sbcglobal.net [107.194.158.19])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4gt8Mn0CXjz6tkM;
-	Sun, 05 Jul 2026 01:01:57 +0000 (UTC)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4gt8gn46MPz2x99;
+	Sun, 05 Jul 2026 01:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gurudas.dev;
-	s=spacemail; t=1783213318;
-	bh=2qJqLI5cYmY6XssOjT5mS6RQt8tME0zYaMT/RBuKHhI=;
+	s=spacemail; t=1783214151;
+	bh=OHTMZhj9UQl6REPNtWFTGyIxAJpWRu/Vu/bsjHn8Ex0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gxzDANV1JQoWbSrlTIw2Hbb83lUzmrjW19c3OZvI3lIFLUx0NWjORGAdcrfZ4Iy1r
-	 8iyC/nftZCN6RsgyVPXhGqT3xB7lKhDTIYvv4mPgt23HneL2vlZdPZGvj5/AKk5Pfp
-	 wZfKzZkjQvogs3VONlJW1oADetqYF+Z1IsjAZyW86GXa/ntxYiqBXIBTcI8TBWs5qC
-	 6LphD9AsDF1QQyi7SDc//YsSj4N4PrmToDXekNK0bsPhGwCiGJIgQfdhGPqBLM/i3q
-	 aiuUXbswiQh086BPfvu9FQvRyd8BtJCb/XDmrMZaTKsgOjTHbYsMvyE/xBsne6r0RG
-	 gHli7e1+IvGdA==
-Date: Sat, 4 Jul 2026 18:01:55 -0700
+	b=YCR0KndlSWOcBAYhlrSZDBeGTpdr14biiYKVLt+UmWumy96f3oqAWHqVF/TQ+IAtc
+	 W8CK29uX1Lh9CPRo7lR7pqTXojRf0OFI0LLCU7Px6m8NE+Kn2WS3aa7NRUioQkSDvc
+	 cgJAze28g5e+zTVGdX1qgjvHRlp4q9+m9doUoyofhgK1V4m2D5shrUlDAeXRZdXGcl
+	 SgncobJsd4Of3wxD2goIHgP2QgtaVKilrKBJlRnToBb0RV77b3HzBzq+HsOiO/jjii
+	 a4ALmIBRGCcVGFOd3uGxDUKLkPn8u+8SgblOttrfz3VAvBhsBRDTl8cEr+aABbPKOH
+	 LXVb/sykR+vPQ==
+Date: Sat, 4 Jul 2026 18:15:48 -0700
 From: Guru Das Srinagesh <linux@gurudas.dev>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>,
-	Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Danilo Krummrich <dakr@kernel.org>,
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	Abdiel Janulgue <abdiel.janulgue@gmail.com>,
 	Daniel Almeida <daniel.almeida@collabora.com>,
 	Robin Murphy <robin.murphy@arm.com>,
@@ -79,12 +78,11 @@ Cc: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>,
 	linux-pwm@vger.kernel.org, linux-pm@vger.kernel.org,
 	linux-block@vger.kernel.org, netdev@vger.kernel.org,
 	nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH 3/7] cpufreq: rcpufreq_dt: use vertical import style
-Message-ID: <akmtA7EbVBdhRAOq@gurudas.dev>
-Mail-Followup-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>,
+Subject: Re: [PATCH 1/7] samples: rust_dma: use vertical import style
+Message-ID: <akmwRDWy0FkAPeXf@gurudas.dev>
+Mail-Followup-To: Danilo Krummrich <dakr@kernel.org>,
 	Miguel Ojeda <ojeda@kernel.org>, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Danilo Krummrich <dakr@kernel.org>,
+	linux-kernel@vger.kernel.org,
 	Abdiel Janulgue <abdiel.janulgue@gmail.com>,
 	Daniel Almeida <daniel.almeida@collabora.com>,
 	Robin Murphy <robin.murphy@arm.com>,
@@ -116,16 +114,16 @@ Mail-Followup-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	linux-block@vger.kernel.org, netdev@vger.kernel.org,
 	nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org
 References: <20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev>
- <20260628-b4-rust-vertical-imports-v1-3-98bc71d4810b@gurudas.dev>
- <f0ed588a-6cfb-4079-a2fe-7c14f1b42727@oss.qualcomm.com>
- <CANiq72=SQK7pd-fj+4MOb=E6=R-DHCcLcuCvN=us2E5o7Rcy2A@mail.gmail.com>
+ <20260628-b4-rust-vertical-imports-v1-1-98bc71d4810b@gurudas.dev>
+ <DJMAFSKM4K9W.19ED2PVPU6S3R@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CANiq72=SQK7pd-fj+4MOb=E6=R-DHCcLcuCvN=us2E5o7Rcy2A@mail.gmail.com>
+In-Reply-To: <DJMAFSKM4K9W.19ED2PVPU6S3R@kernel.org>
 X-Envelope-From: linux@gurudas.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_180202_669963_CF5EAD86 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260704_181555_160462_7462A5EE 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,39 +135,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdW4gMzAsIDIwMjYgYXQgMTA6MzU6MDBBTSArMDIwMCwgTWlndWVsIE9qZWRhIHdy
-b3RlOgo+IE9uIE1vbiwgSnVuIDI5LCAyMDI2IGF0IDI6NDPigK9QTSBaaG9uZ3FpdSBIYW4KPiA8
-emhvbmdxaXUuaGFuQG9zcy5xdWFsY29tbS5jb20+IHdyb3RlOgo+ID4KPiA+IElmIHRoZSBwcmVm
-ZXJyZWQgc3R5bGUgaXMgdG8gcGxhY2UgZWFjaCBpbXBvcnRlZCBpdGVtIG9uIGl0cyBvd24gbGlu
-ZSwKPiA+IHNob3VsZG4ndCBpbXBvcnRzIHN1Y2ggYXMKPiA+Cj4gPiAgICAgIGNwdSwgY3B1ZnJl
-cSwKPiA+Cj4gPiBiZSBmb3JtYXR0ZWQgc2ltaWxhcmx5IGFzIHdlbGw/Cj4gCj4gSW5kZWVkLCBn
-b29kIGV5ZXMuCj4gCj4gVG8gZG8gd2hhdCB3ZSB3YW50LCBgcnVzdGZtdGAgbmVlZHMgdGhlIGAv
-L2AgYXQgdGhlIGVuZCBvZiB0aGF0IGxldmVsCj4gdG9vIChpbiB0aGUgZnV0dXJlLCBpdCB3aWxs
-IGJlIHdpdGhvdXQgdGhlIGAvL2ApLCBpLmUuIHRoZSBwYXRjaAo+IHByb2JhYmx5IHBhc3NlcyBg
-cnVzdGZtdGNoZWNrYCwgYnV0IGl0IHN0aWxsIG5lZWRzIHRvIHNwbGl0IHRoYXQgbGluZQo+IGFu
-ZCBhZGQgdGhlIG90aGVyIGAvL2AuCgpIaSBaaG9uZ3FpdSwgTWlndWVsOgoKWWVzLCBJIGRpZCBy
-dW4gYG1ha2UgTExWTT0xIHJ1c3RmbXRjaGVja2AgYW5kIGl0IHBhc3NlZCBvbiB0aGlzIHNlcmll
-cy4gSSB3aWxsIGZpeAp0aGUgbWlzc2VkIG9uZXMgaW4gdjIuCgpXaGlsZSBpbnZlc3RpZ2F0aW5n
-IHRoaXMsIEkgZm91bmQgdGhhdCB0aGF0IGFkZGluZyB0aGlzIGNvbmZpZyBgaW1wb3J0c19sYXlv
-dXQgPQoiVmVydGljYWwiYCB0byB0aGUgcnVzdGZtdCBvcHRpb25zIHdvdWxkIGZpeCBhbGwgdGhl
-IGltcG9ydHMgYXV0b21hdGljYWxseSwgaW5jbHVkaW5nCnRoZSBvbmVzIEkgbWlzc2VkLiBJIHJh
-biBpdCBsb2NhbGx5IG9uIHRoZSBmaWxlcyB0b3VjaGVkIGluIHRoaXMgc2VyaWVzIHVzaW5nIHJ1
-c3RmbXQKbmlnaHRseSBhbmQgaXQgY29ycmVjdGx5IGZpeGVkIHRoZSBpbXBvcnRzIGFzIGRlc2ly
-ZWQ6CgogICAgcnVzdHVwIHJ1biBuaWdodGx5IHJ1c3RmbXQgLS11bnN0YWJsZS1mZWF0dXJlcyBc
-CiAgICAgIC0tY29uZmlnICJpbXBvcnRzX2xheW91dD1WZXJ0aWNhbCIgXAogICAgICAtLWNvbmZp
-Zy1wYXRoIC5ydXN0Zm10LnRvbWwgPGZpbGU+CgpCdXQgdW5mb3J0dW5hdGVseSwgc2luY2UgYGlt
-cG9ydHNfbGF5b3V0YCBpcyBhbiB1bnN0YWJsZSBvcHRpb24gY3VycmVudGx5IFsxXSwgaXQKY2Fu
-bm90IGJlIHVzZWQgc3RyYWlnaHRhd2F5LgoKSG93ZXZlciwgLnJ1c3RmbXQudG9tbCBhbHJlYWR5
-IGhhcyBhIHNlY3Rpb24gb2YgY29tbWVudGVkLW91dCB1bnN0YWJsZSBvcHRpb25zIGtlcHQKYXMg
-YSByZWZlcmVuY2UgZm9yIHdoZW4gdGhleSBzdGFiaWxpemUuIFdvdWxkIGl0IG1ha2Ugc2Vuc2Ug
-dG8gYWRkIGAjaW1wb3J0c19sYXlvdXQgPQoiVmVydGljYWwiYCB0aGVyZT8gSWYgc28sIEkgY2Fu
-IGluY2x1ZGUgaXQgaW4gdjIuCgpbMV06IGh0dHBzOi8vZ2l0aHViLmNvbS9ydXN0LWxhbmcvcnVz
-dGZtdC9pc3N1ZXMvMzM2MQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+On Tue, Jun 30, 2026 at 11:48:48AM +0200, Danilo Krummrich wrote:
+> On Mon Jun 29, 2026 at 5:38 AM CEST, Guru Das Srinagesh wrote:
+> >      page, pci,
+> 
+> Can you please also convert this one? Patch 7 also misses at least one case.
+
+Will fix this and the missed ones in Patch 7 as well. Thanks for your review, Danilo.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
