@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61365C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFF9C44501
 	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 14:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yYA3wVUNCeCnIqL/Vfuwv/QFt1H9kMBECv/plz2mVtg=; b=VeCkWdILmpdr9F
-	UmnC+rFodGrBX/M2lLjrCoHd3wfHS0gIrDZOV4mNInRYm7xP1EV3NTEM9WPhkThA3MGSu8zg+iBiC
-	bZoYaHuyNnljcnDPZCj2xDCEj3sl3LVaO4ms7yORMriRkRFv1gyjN9zhFnwa088pP+kuz4i138AFv
-	CR421nstuJvYAK/Fdt48nKMC1zM7HT36CkmC/UfhzmFc7BKhn4hINS5pnfruzHz7HSxhl1vBMdsZL
-	K8kgp09xzTdWySyVY/h8xgDse/pOqkxvfZx8NEIulhUG6mNPCSKSAP9x90CeN/LkgUuVP0zmIhSDq
-	Z9LMw/R9JrrAcSJMuFXg==;
+	List-Owner; bh=f234WAe6fZTvkywfiUaQfQ7edJA7pUN9rLWUYwe9DSU=; b=T+R5CjGwRqKVTk
+	lDjwolfTDFBAhsQO/YoMhRyLugLCeSJvRfo7iZm3CajetXEboveYOczM5otLDcKz937JL3Y5M7Ff5
+	lO2r74owaYkFdmZptByg/8zhSxgJRbAyOQz7ChXg/mt5gZbwqxwZW/5H97I7N/XhtEbnm/G4cRR4x
+	+du1TlBEYNtbzLsnbMEsXKx+t3zvleDBjKoy7YUOhrb/HMRmrPq1i21iXOYy9MeI96eRPpfwOm4RA
+	NNnTFUS2bqNKWYrMYcklK4PmJIqdGpcuTbzOC+UkcuMJbQCPuQO3lSfSaPDONF43Wavd0j4iaZe0v
+	ZOaUiDz61dKBV3QRKKsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkSq-0000000ClnE-3eq6;
-	Mon, 06 Jul 2026 14:38:28 +0000
+	id 1wgkSt-0000000Clof-0KSv;
+	Mon, 06 Jul 2026 14:38:31 +0000
 Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkSm-0000000Clm0-094K
+	id 1wgkSq-0000000Clmp-1ffI
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 14:38:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783348674; cv=none; 
+	Mon, 06 Jul 2026 14:38:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783348666; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=fC1kHJIMI8EMzhCyfTZIwXDwzqZYFG38b79rW8RQkMPYTnLqa4c8q5FLuPef2MGonvs0ZHWpER0zycLEn8/EWEWZPXvBXa49Z7GWAMbMKWcQuauWo1oHKwa3gEBCuLVNCXOp3gM5aWu4B60+VGGpoCDUiiPICt3mxOjt8SlcRQ0=
+	b=fuyyuP1MRySyzsT8Mm+cyQV3QLe5uVRJt7hq71I3JnS0T11Me45vPw9Xtg6hH5QJfbIr2AmEvErqHyXx5BbNXjBpXI8OzHA5RmTRp2p7UTn1mNMl9WOKRhvJJPg43iM84VfCyWiET+lO6qgnRTrObgojQC2QsbUmRwgskkZUvC4=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783348674; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=nGOFMadA6trjWagAE4R3R81yB6gXYE/D7KXnaPswwtM=; 
-	b=bkpGybzdDSxBGUdhE67Doit2e7emaIN/k/WQRzsR284jOj4TwFMlnV20DjFC0EYX2w4SgRewjKCFv+rRZFE3iXTD7q2ohPikTUbOmUc15qI7ohe2IpkWUwuHxBBWwNQKwwtIq2HtgMCzu/bWtpLi/LwqpMV0qALQ4mhs9qSCKSc=
+	t=1783348666; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=T/zgfvNUmDyE3TB4DFfwT++P3v+ov4Zjeb1HOGHJm3w=; 
+	b=KoV3ZL9TmM8U0kFvaYVLe/I3PtZkUEdqDg2YdNhRy6x0QK71Oz82i2m6IToBYWjjX9PxQ4VQbviH6KmV7N/tMuRypfurnghzF4QO5cNRJqBDWSmsmrI7Bc2cb0XN5A9PUp7jvQPuO9uPvq1D7PFZLel6Yibz81SBsp7MwXHtKmM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
 	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783348674;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783348666;
 	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=nGOFMadA6trjWagAE4R3R81yB6gXYE/D7KXnaPswwtM=;
-	b=YzEdmPKh2Mco7bA/gnkich800xFRjea/TYKt8ZXIBjyjE847Aag1jdJEok9MojSF
-	aHzgfkog4KgjaIRW3cCdAjWRGWtVvLN/PG+YRLhYW3Cgx91WZx0H0x1s2U3R/bM83lt
-	PVFS8C5E7PnvRD4Nc8gDdIGpaiXDXvHU46oY+yx8=
-Received: by mx.zohomail.com with SMTPS id 1783348672663992.9747630995766;
-	Mon, 6 Jul 2026 07:37:52 -0700 (PDT)
+	bh=T/zgfvNUmDyE3TB4DFfwT++P3v+ov4Zjeb1HOGHJm3w=;
+	b=gX61wBBbgvsbwvYDPsnXWwHnktT0P4/lOgl1yfLPi4c/VXOh5En+XZXryQkR5bbZ
+	gOzUG/jYeUkpVmtz6qmpiNdjQmam9fM/NH+W+2bVhk3vy3sQUv4iynCoqY3eGUoM9EE
+	MOY7WAqBj6tR1jd3GlSYdLFKcvzp+UNLXqzVKka4=
+Received: by mx.zohomail.com with SMTPS id 1783348665694714.7937200385192;
+	Mon, 6 Jul 2026 07:37:45 -0700 (PDT)
 From: Daniel Almeida <daniel.almeida@collabora.com>
-Date: Mon, 06 Jul 2026 11:37:14 -0300
-Subject: [PATCH v5 3/4] rust: clk: add devres-managed clks
+Date: Mon, 06 Jul 2026 11:37:13 -0300
+Subject: [PATCH v5 2/4] rust: clk: implement Clone for Clk<T>
 MIME-Version: 1.0
-Message-Id: <20260706-clk-type-state-v5-3-67c5f326a16c@collabora.com>
+Message-Id: <20260706-clk-type-state-v5-2-67c5f326a16c@collabora.com>
 References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
 In-Reply-To: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -81,8 +81,8 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
 X-Mailer: b4 0.15.2
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_073824_123196_218C452D 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260706_073828_500899_C1E4ABD4 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,75 +99,358 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The clk API allows fine-grained control, but some drivers might be
-more interested in a "set and forget" API.
+The type-state pattern makes state transitions consume the Clk value,
+which means a single Clk cannot be shared between users that need to
+hold the clock in different states, nor can a driver keep a long-lived
+Clk<Prepared> around while temporarily enabling it for scoped sections.
 
-Expand the current API to support this. The clock will automatically be
-disabled, unprepared and freed when the device is unbound from the bus
-without further intervention by the driver.
+Implement Clone for Clk<T>: each clone is an independent view of the
+same underlying clock, in the same state, owning its own
+clk_prepare()/clk_enable() counts, e.g.:
 
+	let enabled_clk = prepared_clk.clone().enable()?;
+
+	// Do stuff that requires the clock to be enabled.
+
+	// enabled_clk goes out of scope and releases the counts it
+	// owns; the clock remains prepared through prepared_clk.
+
+Since struct clk is not refcounted on the C side, share it between
+clones by wrapping the pointer in an Arc'd RawClk, whose drop
+implementation calls clk_put() exactly once, when the last clone goes
+out of scope. This costs one small allocation per clk_get(), which was
+deemed negligible when compared against the pre-existing indirections
+in the clk framework.
+
+Cloning a prepared (or enabled) Clk calls clk_prepare() (and
+clk_enable()) on the underlying clock. These calls cannot fail here:
+the value being cloned already holds a count of each, so the C side
+only increments the respective counts. This is what makes an infallible
+Clone implementation possible.
+
+The DISABLE_ON_DROP and UNPREPARE_ON_DROP constants are renamed to
+ENABLED and PREPARED respectively, since they now describe the state
+for both Drop and Clone. #[repr(transparent)] is removed from Clk<T>,
+as the layout is no longer transparent over the raw clk pointer.
+
+This was proposed and discussed on the list in response to v3 [1], with
+a prototype by Boris Brezillon [2].
+
+Link: https://lore.kernel.org/r/20260203113902.501e5803@fedora [1]
+Link: https://gitlab.freedesktop.org/bbrezillon/linux/-/commit/d5d04da4f4f6192b6e6760d5f861c69596c7d837 [2]
 Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 ---
- rust/kernel/clk.rs | 46 ++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
+ rust/kernel/clk.rs | 181 ++++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 139 insertions(+), 42 deletions(-)
 
 diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
-index dd5fd656271e..b9a44f83843a 100644
+index a9edfdf9db68..dd5fd656271e 100644
 --- a/rust/kernel/clk.rs
 +++ b/rust/kernel/clk.rs
-@@ -96,6 +96,52 @@ impl Sealed for super::Prepared {}
-         impl Sealed for super::Enabled {}
-     }
+@@ -83,6 +83,7 @@ mod common_clk {
+         device::{Bound, Device},
+         error::{from_err_ptr, to_result, Result},
+         prelude::*,
++        sync::Arc,
+     };
  
-+    /// Obtains and enables a [`devres`]-managed [`Clk`] for a bound device.
-+    ///
-+    /// [`devres`]: crate::devres::Devres
-+    #[inline]
-+    pub fn devm_enable(dev: &Device<Bound>, name: Option<&CStr>) -> Result {
-+        let name = name.map_or(ptr::null(), |n| n.as_char_ptr());
-+
-+        // SAFETY: It is safe to call [`devm_clk_get_enabled`] with a valid
-+        // device pointer.
-+        from_err_ptr(unsafe { bindings::devm_clk_get_enabled(dev.as_raw(), name) })?;
-+        Ok(())
-+    }
-+
-+    /// Obtains and enables a [`devres`]-managed [`Clk`] for a bound device.
-+    ///
-+    /// This does not print any error messages if the clock is not found.
-+    ///
-+    /// [`devres`]: crate::devres::Devres
-+    #[inline]
-+    pub fn devm_enable_optional(dev: &Device<Bound>, name: Option<&CStr>) -> Result {
-+        let name = name.map_or(ptr::null(), |n| n.as_char_ptr());
-+
-+        // SAFETY: It is safe to call [`devm_clk_get_optional_enabled`] with a
-+        // valid device pointer.
-+        from_err_ptr(unsafe { bindings::devm_clk_get_optional_enabled(dev.as_raw(), name) })?;
-+        Ok(())
-+    }
-+
-+    /// Same as [`devm_enable_optional`], but also sets the rate.
-+    #[inline]
-+    pub fn devm_enable_optional_with_rate(
-+        dev: &Device<Bound>,
-+        name: Option<&CStr>,
-+        rate: Hertz,
-+    ) -> Result {
-+        let name = name.map_or(ptr::null(), |n| n.as_char_ptr());
-+
-+        // SAFETY: It is safe to call
-+        // [`devm_clk_get_optional_enabled_with_rate`] with a valid device
-+        // pointer.
-+        from_err_ptr(unsafe {
-+            bindings::devm_clk_get_optional_enabled_with_rate(dev.as_raw(), name, rate.as_hz())
-+        })?;
-+        Ok(())
-+    }
-+
+     use core::{marker::PhantomData, mem::ManuallyDrop, ptr};
+@@ -97,11 +98,11 @@ impl Sealed for super::Enabled {}
+ 
      /// A trait representing the different states that a [`Clk`] can be in.
      pub trait ClkState: private::Sealed {
-         /// Whether the clock is enabled in this state.
+-        /// Whether the clock should be disabled when dropped.
+-        const DISABLE_ON_DROP: bool;
++        /// Whether the clock is enabled in this state.
++        const ENABLED: bool;
+ 
+-        /// Whether the clock should be unprepared when dropped.
+-        const UNPREPARE_ON_DROP: bool;
++        /// Whether the clock is prepared in this state.
++        const PREPARED: bool;
+     }
+ 
+     /// A state where the [`Clk`] is not prepared and not enabled.
+@@ -114,18 +115,18 @@ pub trait ClkState: private::Sealed {
+     pub struct Enabled;
+ 
+     impl ClkState for Unprepared {
+-        const DISABLE_ON_DROP: bool = false;
+-        const UNPREPARE_ON_DROP: bool = false;
++        const ENABLED: bool = false;
++        const PREPARED: bool = false;
+     }
+ 
+     impl ClkState for Prepared {
+-        const DISABLE_ON_DROP: bool = false;
+-        const UNPREPARE_ON_DROP: bool = true;
++        const ENABLED: bool = false;
++        const PREPARED: bool = true;
+     }
+ 
+     impl ClkState for Enabled {
+-        const DISABLE_ON_DROP: bool = true;
+-        const UNPREPARE_ON_DROP: bool = true;
++        const ENABLED: bool = true;
++        const PREPARED: bool = true;
+     }
+ 
+     /// An error that can occur when trying to convert a [`Clk`] between states.
+@@ -183,13 +184,15 @@ fn from(err: Error<State>) -> Self {
+     /// portion of the kernel or a `NULL` pointer.
+     ///
+     /// Instances of this type are reference-counted. Calling [`Clk::get`] ensures that the
+-    /// allocation remains valid for the lifetime of the [`Clk`].
++    /// allocation remains valid for the lifetime of the [`Clk`] and of all its clones: the
++    /// underlying [`struct clk`] is obtained through a single call to `clk_get()`, which is
++    /// balanced by a single call to `clk_put()` when the last clone is dropped.
+     ///
+-    /// The [`Prepared`] state is associated with a single count of
+-    /// `clk_prepare()`, and the [`Enabled`] state is associated with a single
+-    /// count of both `clk_prepare()` and `clk_enable()`.
+-    ///
+-    /// All states are associated with a single count of `clk_get()`.
++    /// Each [`Clk`] value owns its own state counts: the [`Prepared`] state is
++    /// associated with a single count of `clk_prepare()`, and the [`Enabled`]
++    /// state is associated with a single count of both `clk_prepare()` and
++    /// `clk_enable()`. These counts are released when the value transitions to
++    /// a lower state or is dropped.
+     ///
+     /// # Examples
+     ///
+@@ -268,13 +271,57 @@ fn from(err: Error<State>) -> Self {
+     /// }
+     /// ```
+     ///
++    /// Cloning a [`Clk`] yields an independent view of the same underlying
++    /// clock, in the same state, owning its own state counts. This lets a
++    /// driver keep e.g. a long-lived [`Clk<Prepared>`] around and temporarily
++    /// enable a clone of it:
++    ///
++    /// ```
++    /// use kernel::clk::{Clk, Enabled, Prepared};
++    /// use kernel::error::Result;
++    ///
++    /// fn use_clk(prepared_clk: &Clk<Prepared>) -> Result {
++    ///     let enabled_clk: Clk<Enabled> = prepared_clk.clone().enable()?;
++    ///
++    ///     // Do something that requires the clock to be enabled.
++    ///
++    ///     // `enabled_clk` is dropped here and releases its own counts; the
++    ///     // clock remains prepared through `prepared_clk`.
++    ///     Ok(())
++    /// }
++    /// ```
++    ///
++    /// Note that cloning a [`Clk<Prepared>`] or a [`Clk<Enabled>`] may sleep.
++    ///
+     /// [`struct clk`]: https://docs.kernel.org/driver-api/clk.html
+-    #[repr(transparent)]
+     pub struct Clk<T: ClkState> {
+-        inner: *mut bindings::clk,
++        inner: Arc<RawClk>,
+         _phantom: core::marker::PhantomData<T>,
+     }
+ 
++    /// Owns a single `clk_get()` reference to a [`struct clk`].
++    ///
++    /// This is shared by every clone of a [`Clk`], so that `clk_put()` is
++    /// called exactly once, when the last clone is dropped.
++    ///
++    /// # Invariants
++    ///
++    /// The wrapped pointer is either a pointer to a valid [`struct clk`]
++    /// obtained through `clk_get()` or one of its variants, or `NULL`.
++    ///
++    /// [`struct clk`]: https://docs.kernel.org/driver-api/clk.html
++    #[repr(transparent)]
++    struct RawClk(*mut bindings::clk);
++
++    impl Drop for RawClk {
++        #[inline]
++        fn drop(&mut self) {
++            // SAFETY: By the type invariants, `self.0` is a valid argument for
++            // [`clk_put`], which also accepts a `NULL` pointer.
++            unsafe { bindings::clk_put(self.0) };
++        }
++    }
++
+     // SAFETY: It is safe to call `clk_put` on another thread than where `clk_get` was called.
+     unsafe impl<T: ClkState> Send for Clk<T> {}
+ 
+@@ -311,11 +358,14 @@ pub(crate) fn get_unbound(dev: &Device, name: Option<&CStr>) -> Result<Clk<Unpre
+ 
+             // SAFETY: It is safe to call [`clk_get`] for a valid device pointer
+             // and any `con_id`, including NULL.
+-            let inner = from_err_ptr(unsafe { bindings::clk_get(dev.as_raw(), con_id) })?;
++            let clk = from_err_ptr(unsafe { bindings::clk_get(dev.as_raw(), con_id) })?;
+ 
+-            // INVARIANT: The reference-count is decremented when [`Clk`] goes out of scope.
++            // INVARIANT: The single `clk_get()` reference is owned by `RawClk`,
++            // which releases it when the last clone of this [`Clk`] goes out of
++            // scope. If the allocation fails, `Arc::new` drops the `RawClk`,
++            // releasing the reference.
+             Ok(Self {
+-                inner,
++                inner: Arc::new(RawClk(clk), GFP_KERNEL)?,
+                 _phantom: PhantomData,
+             })
+         }
+@@ -329,11 +379,14 @@ pub fn get_optional(dev: &Device<Bound>, name: Option<&CStr>) -> Result<Clk<Unpr
+ 
+             // SAFETY: It is safe to call [`clk_get`] for a valid device pointer
+             // and any `con_id`, including NULL.
+-            let inner = from_err_ptr(unsafe { bindings::clk_get_optional(dev.as_raw(), con_id) })?;
++            let clk = from_err_ptr(unsafe { bindings::clk_get_optional(dev.as_raw(), con_id) })?;
+ 
+-            // INVARIANT: The reference-count is decremented when [`Clk`] goes out of scope.
++            // INVARIANT: The single `clk_get()` reference is owned by `RawClk`,
++            // which releases it when the last clone of this [`Clk`] goes out of
++            // scope. If the allocation fails, `Arc::new` drops the `RawClk`,
++            // releasing the reference.
+             Ok(Self {
+-                inner,
++                inner: Arc::new(RawClk(clk), GFP_KERNEL)?,
+                 _phantom: PhantomData,
+             })
+         }
+@@ -356,7 +409,10 @@ pub fn prepare(self) -> Result<Clk<Prepared>, Error<Unprepared>> {
+                 // `Clk<Prepared>` owns a single count of it, which is released
+                 // when it leaves the [`Prepared`] state.
+                 .map(|()| Clk {
+-                    inner: clk.inner,
++                    // SAFETY: `clk` is wrapped in `ManuallyDrop`, so its `Arc`
++                    // reference is never released; moving it out here keeps the
++                    // reference count balanced.
++                    inner: unsafe { ptr::read(&clk.inner) },
+                     _phantom: PhantomData,
+                 })
+                 .map_err(|error| Error {
+@@ -404,9 +460,12 @@ pub fn unprepare(self) -> Clk<Unprepared> {
+             unsafe { bindings::clk_unprepare(clk.as_raw()) }
+ 
+             // INVARIANT: The `clk_prepare()` count was released above, so the
+-            // returned `Clk<Unprepared>` owns only the `clk_get()` count.
++            // returned `Clk<Unprepared>` owns only the `clk_get()` reference.
+             Clk {
+-                inner: clk.inner,
++                // SAFETY: `clk` is wrapped in `ManuallyDrop`, so its `Arc`
++                // reference is never released; moving it out here keeps the
++                // reference count balanced.
++                inner: unsafe { ptr::read(&clk.inner) },
+                 _phantom: PhantomData,
+             }
+         }
+@@ -429,7 +488,10 @@ pub fn enable(self) -> Result<Clk<Enabled>, Error<Prepared>> {
+                 // `Clk<Enabled>` owns a single count of it, which is released
+                 // when it leaves the [`Enabled`] state.
+                 .map(|()| Clk {
+-                    inner: clk.inner,
++                    // SAFETY: `clk` is wrapped in `ManuallyDrop`, so its `Arc`
++                    // reference is never released; moving it out here keeps the
++                    // reference count balanced.
++                    inner: unsafe { ptr::read(&clk.inner) },
+                     _phantom: PhantomData,
+                 })
+                 .map_err(|error| Error {
+@@ -474,7 +536,10 @@ pub fn with_enabled<R>(&self, cb: impl FnOnce(&Clk<Enabled>) -> R) -> Result<R>
+             //
+             // INVARIANT: The clock is enabled for the lifetime of `enabled`.
+             let enabled = ManuallyDrop::new(Clk::<Enabled> {
+-                inner: self.inner,
++                // SAFETY: The duplicate `Arc` reference is wrapped in
++                // `ManuallyDrop` and thus never released, keeping the reference
++                // count balanced.
++                inner: unsafe { ptr::read(&self.inner) },
+                 _phantom: PhantomData,
+             });
+ 
+@@ -527,10 +592,13 @@ pub fn disable(self) -> Clk<Prepared> {
+             unsafe { bindings::clk_disable(clk.as_raw()) };
+ 
+             // INVARIANT: The `clk_enable()` count was released above, so the
+-            // returned `Clk<Prepared>` owns the `clk_get()` and `clk_prepare()`
+-            // counts.
++            // returned `Clk<Prepared>` owns the `clk_get()` reference and the
++            // `clk_prepare()` count.
+             Clk {
+-                inner: clk.inner,
++                // SAFETY: `clk` is wrapped in `ManuallyDrop`, so its `Arc`
++                // reference is never released; moving it out here keeps the
++                // reference count balanced.
++                inner: unsafe { ptr::read(&clk.inner) },
+                 _phantom: PhantomData,
+             }
+         }
+@@ -540,7 +608,7 @@ impl<T: ClkState> Clk<T> {
+         /// Obtain the raw [`struct clk`] pointer.
+         #[inline]
+         pub fn as_raw(&self) -> *mut bindings::clk {
+-            self.inner
++            self.inner.0
+         }
+ 
+         /// Get clock's rate.
+@@ -573,21 +641,50 @@ pub fn set_rate(&self, rate: Hertz) -> Result {
+ 
+     impl<T: ClkState> Drop for Clk<T> {
+         fn drop(&mut self) {
+-            if T::DISABLE_ON_DROP {
+-                // SAFETY: By the type invariants, self.as_raw() is a valid argument for
+-                // [`clk_disable`].
++            if T::ENABLED {
++                // SAFETY: By the type invariants, `self.as_raw()` is a valid
++                // argument for [`clk_disable`].
+                 unsafe { bindings::clk_disable(self.as_raw()) };
+             }
+ 
+-            if T::UNPREPARE_ON_DROP {
+-                // SAFETY: By the type invariants, self.as_raw() is a valid argument for
+-                // [`clk_unprepare`].
++            if T::PREPARED {
++                // SAFETY: By the type invariants, `self.as_raw()` is a valid
++                // argument for [`clk_unprepare`].
+                 unsafe { bindings::clk_unprepare(self.as_raw()) };
+             }
+ 
+-            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
+-            // [`clk_put`].
+-            unsafe { bindings::clk_put(self.as_raw()) };
++            // The `clk_get()` reference is owned by `RawClk`: it is released
++            // by its drop implementation when the last clone goes out of scope.
++        }
++    }
++
++    impl<T: ClkState> Clone for Clk<T> {
++        #[inline]
++        fn clone(&self) -> Self {
++            if T::PREPARED {
++                // SAFETY: By the type invariants, `self.as_raw()` is a valid
++                // argument for [`clk_prepare`]. `self` already holds a
++                // `clk_prepare()` count, so the underlying clock is already
++                // prepared and this call only increments the prepare count:
++                // it cannot fail.
++                unsafe { bindings::clk_prepare(self.as_raw()) };
++            }
++
++            if T::ENABLED {
++                // SAFETY: By the type invariants, `self.as_raw()` is a valid
++                // argument for [`clk_enable`]. `self` already holds a
++                // `clk_enable()` count, so the underlying clock is already
++                // enabled and this call only increments the enable count: it
++                // cannot fail.
++                unsafe { bindings::clk_enable(self.as_raw()) };
++            }
++
++            // INVARIANT: The new value owns the state counts acquired above
++            // and shares the `clk_get()` reference through the `Arc`.
++            Self {
++                inner: self.inner.clone(),
++                _phantom: PhantomData,
++            }
+         }
+     }
+ }
 
 -- 
 2.54.0
