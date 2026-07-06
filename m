@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E8AC43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 20:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C5DC43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 21:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RUdRcufKPntDZsMsTu5YUJ+EoyN9+RLZtR0WqMhn5X4=; b=IpsRmxH91SgMV9
-	EyrU6KUn+CiFIEnjjYy3ZM07gtJ7/AQbWsHA/zaeXOHosdxUvpcVS4dU6L2ZEjKMYPEoMA4rey9e1
-	BZv78EE0NBZUcR3ELywt2Dq11wmyydQHNwFZSVEEsVxHrFn3Q50MUx/KuebWOCHtvq4J0VZCVmL6j
-	uqUipmeYKevVV+wnWTXmcaPFesIwejAn9RGZfNOB15RKfJ9+Z5+R2sbFIFVDPcBz63V7HSSrgl26A
-	/JN3Tk7vGzb7HXe/mfDVxBjz5fmf5izw3FmeJEgUl8KY4ZzIawoFEPnCLg62JUEaOIMEDkfiPdY2o
-	plGF1O5w7szTI6eccjBQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YN0K+TJN/3smjCbrXJEMaqMhPTuygoD8LlK3i+mRx7o=; b=YB0he6snlSyzJZ
+	LzJqFXgh4DR22bEZugivocdGfgZXuAFq+rejqu/6Hjeg3cXLp5hrAm5g8RuXn9dlfsjFLaLeEDkan
+	CrJ6HkHKRMllKFJ0Mbu0eVXBMc9JuzAXFooBnm+FBQSm6gKa2atRXytL6qvOm2I5YQZabT/E4WOyQ
+	9tAYydPTkmytWrMPft6AoKKVMmhil6fnBv+JivPCC+t6HVqV51aroVVfu+hQyn4/94cfUzCrkr72Z
+	WQ92p9SgysT0lJrkuXOhY03dB0j5NG+CzzMkDBUD5gz0pzJAce8gq5l1GyeQ/VB5tevMg3xQaehAE
+	+mz3KULlglIxHqREYrtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgq38-0000000DZEO-42lZ;
-	Mon, 06 Jul 2026 20:36:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wgqS6-0000000Dalv-06wy;
+	Mon, 06 Jul 2026 21:02:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgq37-0000000DZEF-46or
+	id 1wgqS4-0000000Dall-2WE8
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 20:36:18 +0000
+	Mon, 06 Jul 2026 21:02:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60CBD61831;
-	Mon,  6 Jul 2026 20:36:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14D271F000E9;
-	Mon,  6 Jul 2026 20:36:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D22E402D7;
+	Mon,  6 Jul 2026 21:02:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6FDC1F000E9;
+	Mon,  6 Jul 2026 21:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783370177;
-	bh=CnbXOCT1WGn9UITK2bontSHU7zyzH+gzQkCjzXQv3ak=;
-	h=From:To:Cc:Subject:Date;
-	b=TIjo6xi+XLf0kYcvC0OzsTFrqzySzXNJ1ijbCQJtmjAicMEp//vyCIs2EeiWsGsOC
-	 vbMz+yU+kE14z8yHbvuAopR2XqTnAy6vHhnck+CW0g/cEy5HImJcBfS29JEXCodzyN
-	 g9wfpyJZC/nZ7lgJ9fYfct8vybJ/QZyyiqxI0FG19glQDqG7HBHsOLy4h3vG2A+hVd
-	 MeFktm8tmDsGiL9GcH11Z2AVL4RYWntqoDklrTUC8R1Bseh/s2AgwfHvmH5aLkec5y
-	 VipVjPIuIJQ3KheRQr/ahZIOtAAcGFfKp6pvVgxJrrWnwS4LAfLv8eybJIIUEXUYVw
-	 6J52Xd77iDb6w==
-From: Yixun Lan <dlan@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Yixun Lan <dlan@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-clk@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] clk: spacemit: fixes for v7.2-1
-Date: Mon,  6 Jul 2026 20:35:51 +0000
-Message-ID: <20260706203425-KYC2957292@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	s=k20260515; t=1783371723;
+	bh=YH94RBJ5oQWvPJxqF2lGknMcip56J1cYwGtMmIQc6zo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KlhEw/ctTtp3dv24zUaovOm+XpVqLihb5HsRRIpxaYCPrPgxi/MeJcHlUOLnQe3CP
+	 kH36SRATV/zWbKeZn/q0YDpQHTeMsmxbBAFnwNXhiI3ijOydR/4tttbtasf+P+zM+B
+	 re6lokUPzapg9CeGQ064v2EU9YCLMPu3XEb5MQserHK6avQki7PRuLY3qsT1/zK+O6
+	 ZMvi6i1HNLPIPmkMdQjTQPhSZBrvSdreOGuukGqHGwrmDtxvetav8Il5D7BZ1buXbg
+	 3Zfr5LyjXsLDC7GLcB5XnH7s9JSarGEuErPA11b4FEWcy51V1fyCfmYDOANVmd7ZhQ
+	 24gdMzeeMFU1w==
+Date: Mon, 6 Jul 2026 14:01:58 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Wende Tan <twd2.me@gmail.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Nam Cao <namcao@linutronix.de>, kernel test robot <lkp@intel.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: vdso: Do not use LTO for the vDSO
+Message-ID: <20260706210158.GA73349@ax162>
+References: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de>
+ <20260701-riscv-vdso-lto-v1-1-89db0cd82077@linutronix.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260701-riscv-vdso-lto-v1-1-89db0cd82077@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,46 +70,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
+On Wed, Jul 01, 2026 at 11:21:22AM +0200, Thomas Wei=DFschuh wrote:
+> With LTO enabled the compiler assumes that the vDSO functions are not
+> used and optimizes them away completely. Currently this happens to
+> __vdso_clock_getres(), __vdso_clock_gettime(), __vdso_getrandom(),
+> __vdso_gettimeofday() and __vdso_riscv_hwprobe().
+> =
 
-   Please pull two small SpacemiT's clock fixes for v7.2
-First patch for USB2 clock fix need to go in pair with USB2 reset fix, the
-reset part patch was already accepted by Philipp Zabel as a fix for v7.2.
-Second patch fixes a system hang due to HDMA clock being shut off.
-   Thank you
+> Disable LTO for the vDSO, as these functions are hand-optimized anyways.
+> =
 
-Yixun Lan
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202606301855.WvkSC4kD-lkp@i=
+ntel.com/
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+While this change seems correct, is this really the fix for that report?
+It seems like that error happens in clang but I would expect this sort
+of issue to only appear once LTO has run through ld.lld?
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+> Fixes: 021d23428bdb ("RISC-V: build: Allow LTO to be selected")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> ---
+>  arch/riscv/kernel/vdso/Makefile | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> =
 
-are available in the Git repository at:
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Mak=
+efile
+> index a842dc034571..43ee881f6c6f 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -69,9 +69,9 @@ CPPFLAGS_$(vdso_lds) +=3D -DHAS_VGETTIMEOFDAY
+>  endif
+>  =
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/ tags/spacemit-clk-fixes-for-7.2-1
+>  # Disable -pg to prevent insert call site
+> -CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> -CFLAGS_REMOVE_getrandom.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> -CFLAGS_REMOVE_hwprobe.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> +CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(C=
+C_FLAGS_LTO)
+> +CFLAGS_REMOVE_getrandom.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(CC_FL=
+AGS_LTO)
+> +CFLAGS_REMOVE_hwprobe.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(CC_FLAG=
+S_LTO)
+>  =
 
-for you to fetch changes up to eb525edd48907795c0d4e498ff57ad168070b289:
+>  # Force dependency
+>  $(obj)/$(vdso_o): $(obj)/$(vdso_so)
+> =
 
-  clk: spacemit: k3: set hdma clock as critical (2026-07-06 19:45:17 +0000)
+> -- =
 
-----------------------------------------------------------------
-RISC-V SpacemiT clock fixes for v7.2
+> 2.55.0
+> =
 
-- Fix USB2 bus clock
-- Fix HDMA clock
 
-----------------------------------------------------------------
-Yixun Lan (2):
-      clk: spacemit: k3: fix USB2 bus clock
-      clk: spacemit: k3: set hdma clock as critical
+-- =
 
- drivers/clk/spacemit/ccu-k3.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
