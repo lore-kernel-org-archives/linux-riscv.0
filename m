@@ -4,74 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A87BC44500
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 05:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1210DC43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 05:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UYq86gmjbvCN+J2vYHF53jkAtD7ipSX9slgTkxcnRlg=; b=mxypbQKigr20vM
-	O8/3vMs5UblNtseFMXM+x0/mqw06MAk30CnuIqw/2kUgsKqQxUe+HeoIXgPiGjdDTWYLRLVxbhGWX
-	hbjjwY5h3cfx2h98tbqHwm7WpO2J3eQPvxerRVI6UAaA1OTUjCzOK/rUHlFgPKfVfKzy+j3dOG0lU
-	Oedf9uo/lOCHeMkU3Hfi1u7I6RoVZsnB1c9FIO9wF50EYWh7d+Xvt3VsNcRZxWxktKSUPpbIU77ft
-	BMFT6LORWZaE3GcxgungM07tcksyQklQe+m4tK1+26VY27K8RoNrQkDgT6/k8Y9hlaH3rqll25WZF
-	4PzzIcOkt5FwZsDaFVMA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PUm7tr5fqkpUotyWJsja7eSGbpkguLnpZ+vBJDjOxIw=; b=XlytsA5B7QDZXK
+	OqmGEBmTYIcH8KJcXG5154IxW1bb1CWe2bjozy3f3xWtij5Epzqsi4qFnHJUht7jkY/bDlvPBIqEL
+	f7wKQhoDJ74JPdxhMGu7IZmqAQ/aTvhoGh7uNeE0HX6cBNzj83UflzcL3Sil4SyYaaoW6HoJb5w3e
+	p3A65FmUM9lBX4rpNiRE6lAVKGAj0RjE9m8NqgQ2v3dfeIvpY+/d8uuJgUyuGzdCetLR6mztgqlMl
+	HgcRABNdtUkT+jtiw02UgbDMDInsS9KO3dzYbA43yMTJEuo7lGY5f9rAvcX04dMkrNOSrjgN/wLfK
+	EECWrwnEAUVpnrahjp1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgc2i-0000000BXw5-3wFF;
-	Mon, 06 Jul 2026 05:38:56 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1wgc43-0000000BY4v-0UNp;
+	Mon, 06 Jul 2026 05:40:19 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgc2e-0000000BXvL-2o10
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 05:38:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783316328;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pUAU5zbAPO0Js6yoKRIHKJlwUkpSoy0U+ADQkMAFvw4=;
-	b=ReOqUr2ENps7GNtouB5b1kq70v6+GMA+MmHm4Lu4YoiIGaj08ODM4aUZ27AuI6XXzvyxq7
-	hAlCU/HhLOoI89xWph7v0c5H5EQhaPUoGzux1IrgOXvxHWDJXc0zZaYyaDWGRsec874IAy
-	SoEyYaa7fdTGn8n6VgHu24jYI0pKsgU=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH v4] riscv: mm: Avoid spurious fault after hotplugging
- vmemmap
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <5fac578c-ff97-4721-96f3-8ba495f0556a@iscas.ac.cn>
-Date: Mon, 6 Jul 2026 13:38:06 +0800
-Cc: linuxppc-dev@lists.ozlabs.org,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-mm@kvack.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Message-Id: <214FC970-465A-4E45-98C0-17978D63DE89@linux.dev>
-References: <20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn>
- <7B0CB4ED-C190-4F49-97EE-E1F14F08DED2@linux.dev>
- <5fac578c-ff97-4721-96f3-8ba495f0556a@iscas.ac.cn>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-X-Migadu-Flow: FLOW_OUT
+	id 1wgc40-0000000BY4S-0zP6;
+	Mon, 06 Jul 2026 05:40:17 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66641gpx3402327;
+	Mon, 6 Jul 2026 05:40:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=+C38mLKsnPV1WFsxwnDRTIc2w9x1MiAgR+n
+	/8xaRsw4=; b=EFPjML93YhRgqCmMJ0EoQVGms4HA9wdZPHVNiVuFrcLT12qe6l0
+	yYGc9Ih5ggwAWcQtXxc2KYG+ZnoYMklCxgH4hhVofwS3ESSx0LKQyxyi9QS21DYm
+	FQHYmvNftUca3T12vIO5Bb32s5K1gqehS5fTtEdhMKGkGPV3ULAoQBeSAwF/MU0J
+	Q0UVh2/a72qYvKiH9p8Vea5TusIcsI5FNFssOTb0sOartxJJeWQntaRTis2D8W7n
+	rjenVxTDUl8LYRf/Xa58zH76HN2KV55poBZCxM6r0pYVO4c0Dhnv3IoozMhnNBAB
+	5mcGyQ5sbYY6dqkIuovXRGEB1KSRxFYgKzQ==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f6ubgmcbu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 05:40:11 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 6665YO9i003120;
+	Mon, 6 Jul 2026 05:40:06 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4f6u8je963-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 05:40:06 +0000 (GMT)
+Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 6665e6lF012553;
+	Mon, 6 Jul 2026 05:40:06 GMT
+Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6665e6UW012551
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 05:40:06 +0000 (GMT)
+Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
+	id C504221CDB; Mon,  6 Jul 2026 11:10:05 +0530 (+0530)
+From: Anup Patel <anup.patel@oss.qualcomm.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atish.patra@linux.dev>
+Cc: Anup Patel <anup@brainfault.org>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+        linux-riscv@lists.infradead.org,
+        Anup Patel <anup.patel@oss.qualcomm.com>
+Subject: [PATCH] RISC-V: KVM: Zicbo[m|z|p] block sizes should be always present in ONE_REG
+Date: Mon,  6 Jul 2026 11:10:02 +0530
+Message-ID: <20260706054002.1089394-1-anup.patel@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA1MyBTYWx0ZWRfX4KxZ7lR/3dad
+ fKRUxMV4bh8XbiYM/Wenf1abgmf6OgreyWulgWCtUCbFkZLYQfvbzQ6UxmVk+DBSSK960QdUck9
+ 0qPbra0oE1tI07hFWWsG1RAmnD4t/uA=
+X-Proofpoint-ORIG-GUID: yXKazZIOC6fYOvlswaW69YzyBSXYjBPD
+X-Proofpoint-GUID: yXKazZIOC6fYOvlswaW69YzyBSXYjBPD
+X-Authority-Analysis: v=2.4 cv=FJwrAeos c=1 sm=1 tr=0 ts=6a4b3fbb cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8 a=z3A17_TG5Y3XFGgIDokA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA1MyBTYWx0ZWRfXw9tHakokPSW+
+ XZzyi4LMFcveIqDjIDJjDQFWg6u6L7YGJdl0PsfVIqpkNkxNSrwHu1pKZK+n5qkVDeGff6a4PxL
+ sQeS47G0bhkWJDi5WNR0+MLDk+g52tx787GlIV9GJkrI39jTBtIrjE965tmcMJSSqHLywBFfN2W
+ KehifpV03x0wC2WugvyInZI4hFRUv7pB0LVTPL5RZEfea6S2lwQuwdRLo7vN4eq3xXRGUYIKzPY
+ falVpWi/FQXCXRYuPojyGxq5d+OZlcRpJETNNK5mVxA5KEk0ik8j9Ox0hZxeu1rg2+o8S59LB87
+ Sl5Ki7W9gvq1MZXtmvBLRO3NccygQZNJbmAizw85wzdoDnxksCiQ2vNBgEW++2/HqPctSVqpEeS
+ grBBx/qAG3ME48gDrKoa0GBYD6zhHjcQTQQlKO9Wd1d1uGv4DcFwNPxWfLjJaVbiWCPrnSriHvo
+ wv3q8bjW4FE4iQ7juPQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
+ lowpriorityscore=0 clxscore=1015 spamscore=0 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060053
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_223853_403874_4F275961 
-X-CRM114-Status: GOOD (  31.38  )
+X-CRM114-CacheID: sfid-20260705_224016_281270_37EFDF35 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,182 +116,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+All config and core registers of the KVM RISC-V ONE_REG interface are
+expected to be always available to the KVM user-space and the KVM
+get-reg-list selftest assumes these registers to be as base registers.
 
+Currently, the Zicbo[m|z|p] block size config registers are only
+available when corresponding ISA extension is present on the host
+which breaks the above expectation. In fact, KVM get-reg-list selftest
+fails when any of the Zicbo[m|z|p] ISA extension is not present on
+host. To address this issue, drop the ISA extension checks from
+kvm_riscv_vcpu_get/set_reg_config() and copy_config_reg_indices()
+functions.
 
-> On Jul 6, 2026, at 13:04, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
-> 
-> [ powerpc maintainers: Thoughts on replacing the ptesync in
-> vmemmap_set_pmd() with a flush_cache_vmap() post-vmemmap-hotplug in the
-> generic code? ]
-> 
-> On 7/6/26 11:00, Muchun Song wrote:
->>> On Jun 30, 2026, at 15:51, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
->>> 
->>> section_activate() does not flush TLB after populating new vmemmap
->>> pages. On most architectures, this is okay. However it is a problem on
->>> RISC-V since there the TLB caching non-present entries is permitted,
->>> which causes spurious faults on some hardwares.
->>> 
->>> This seems to be most easily reproduced with DEBUG_VM=y and
->>> PAGE_POISONING=y, which causes these newly mapped struct pages to be
->>> poisoned i.e. written to immediately after mapping.
->>> 
->>> Add a hook vmemmap_populate_finalize() in __populate_section_memmap()
->>> after population, to allow architectures to handle such situations as
->>> needed. Then implement it on RISC-V to arrange for the existing
->>> exception handler code to deal with these faults if they happen.
->>> 
->>> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
->>> ---
->>> Changes in v4:
->>> - Rebase on v7.2-rc1, drop dependencies
->>> - (No code changes otherwise)
->>> - (A concurrency fix for mark_new_valid_map was sent independently)
->>> https://lore.kernel.org/linux-riscv/20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn/
->>> - Link to v3: https://patch.msgid.link/20260605-mark-after-vmemmap-populate-v3-1-a06001ac9264@iscas.ac.cn
->>> 
->>> Changes in v3:
->>> - Merged back into one patch (Mike)
->>> - (No code changes otherwise.)
->>> - Link to v2: https://patch.msgid.link/20260604-mark-after-vmemmap-populate-v2-0-ab6a7d03b434@iscas.ac.cn
->>> 
->>> Changes in v2:
->>> - Split patch in two, hook point and riscv hook 
->>> - Explain hook necessity in patch 1 message (Mike)
->>> - Make hook #define based (Mike)
->>> - Call finalize hook only on populate success
->>> - Link to v1: https://patch.msgid.link/20260525-mark-after-vmemmap-populate-v1-1-e698d859ba16@iscas.ac.cn
->>> ---
->>> arch/riscv/include/asm/pgtable.h | 4 ++++
->>> arch/riscv/mm/init.c             | 6 ++++++
->>> mm/sparse-vmemmap.c              | 8 ++++++++
->>> 3 files changed, 18 insertions(+)
->>> 
->>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->>> index 5d5756bda82e..6b000c990ba7 100644
->>> --- a/arch/riscv/include/asm/pgtable.h
->>> +++ b/arch/riscv/include/asm/pgtable.h
->>> @@ -1253,6 +1253,10 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
->>> #define TASK_SIZE FIXADDR_START
->>> #endif
->>> 
->>> +/* Needed on SPARSEMEM_VMEMMAP */
->>> +#define vmemmap_populate_finalize vmemmap_populate_finalize
->>> +void __meminit vmemmap_populate_finalize(void);
->>> +
->>> #else /* CONFIG_MMU */
->>> 
->>> #define PAGE_SHARED __pgprot(0)
->>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>> index 5b1b3c88b4d1..800cb5c007d1 100644
->>> --- a/arch/riscv/mm/init.c
->>> +++ b/arch/riscv/mm/init.c
->>> @@ -1372,6 +1372,12 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>> */
->>> return vmemmap_populate_hugepages(start, end, node, altmap);
->>> }
->>> +
->>> +void __meminit vmemmap_populate_finalize(void)
->>> +{
->>> +  /* Avoid faults on cached non-present TLB entries. */
->>> +  mark_new_valid_map();
->>> +}
->>> #endif
->>> 
->>> #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
->>> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
->>> index 99e2be39671b..290cafcfd723 100644
->>> --- a/mm/sparse-vmemmap.c
->>> +++ b/mm/sparse-vmemmap.c
->>> @@ -544,6 +544,12 @@ static int __meminit vmemmap_populate_compound_pages(unsigned long start_pfn,
->>> 
->>> #endif
->>> 
->>> +#ifndef vmemmap_populate_finalize
->>> +static void __meminit vmemmap_populate_finalize(void)
->>> +{
->>> +}
->>> +#endif
->>> +
->>> struct page * __meminit __populate_section_memmap(unsigned long pfn,
->>> unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
->>> struct dev_pagemap *pgmap)
->>> @@ -564,6 +570,8 @@ struct page * __meminit __populate_section_memmap(unsigned long pfn,
->>> if (r < 0)
->>> return NULL;
->>> 
->>> +  vmemmap_populate_finalize();
->> Does the hook of flush_cache_vmap() work for you?  From the document of
->> cachetlb.rst, it said: 
->> 
->> 6) ``void flush_cache_vmap(unsigned long start, unsigned long end)``
->>    ``void flush_cache_vunmap(unsigned long start, unsigned long end)``
->> 
->> Here in these two interfaces we are flushing a specific range
->> of (kernel) virtual addresses from the cache. After running,
->> there will be no entries in the cache for the kernel address
->> space for virtual addresses in the range 'start' to 'end-1'.
->> 
->> It seems that flush_cache_vmap() is supposed to be called after a new kernel
->> mapping has been installed, but before this address range is accessed.
-> 
-> Good point. I had initially avoided flush_cache_vmap() because, to be
-> honest, it looked scary. But the combination of "have vmemmap" and "have
-> flush_cache_vmap()" is much less scary.
-> 
-> I'd need to drop the address range check in RISC-V's flush_cache_vmap(),
-> but might as well.
+Fixes: 031f9efafc08 ("KVM: riscv: Add KVM_GET_REG_LIST API support")
+Fixes: a044ef71043e ("RISC-V: KVM: use ENOENT in *_one_reg() when extension is unavailable")
+Fixes: 48e2febcda74 ("RISC-V: KVM: Provide UAPI for Zicbop block size")
+Fixes: cf05b059d59f ("RISC-V: KVM: Introduce common kvm_riscv_isa_check_host()")
+Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+---
+ arch/riscv/kvm/vcpu_onereg.c | 26 --------------------------
+ 1 file changed, 26 deletions(-)
 
-No. Please a new check for vmemmap address range.
-
-> 
->> Therefore, invoking flush_cache_vmap() here aligns perfectly with its interface
->> definition. But how would this change impact other architectures? Currently,
->> among architectures where CONFIG_SPARSEMEM=y, only RISC-V and PowerPC provide
->> a concrete implementation for flush_cache_vmap().
->> 
->> For PowerPC, the implementation is as follows:
->> 
->> static inline void flush_cache_vmap(unsigned long start, unsigned long end)
->> {
->> asm volatile("ptesync" ::: "memory");
->> }
->> 
->> Here, flush_cache_vmap() is also intended to supply the ptesync instruction
->> that the kernel address mapping lacks. However, flush_cache_vmap() is not
->> called in the __populate_section_memmap() path. So, how does PowerPC ensure
->> ptesync is executed there? The answer lies in the architecture-specific
->> vmemmap_set_pmd(), which injects the necessary ptesync.
->> 
->> If we choose to reuse flush_cache_vmap() in the generic path, it yields the
->> following benefits:
->> 
->> - Avoids architectural churn: We do not need to introduce a new hook
->>  like vmemmap_populate_finalize().
->> - Cleans up arch code: PowerPC can deprecate its custom vmemmap_set_pmd()
->>  and migrate to the generic implementation.
->> 
->> Let me know if this rationale makes sense, or if there are any hidden edge
->> cases I might have overlooked regarding other architectures.
->> 
->> Thanks,
->> Muchun
-> 
-> At least on the face of it, it makes sense. The main thing is I don't
-> know much about powerpc. So I'm also hoping powerpc maintainers could
-> chime in. 
-
-You do not need to know about powerpc since the change of powerpc is not
-a part of this patch. It should be a separate code clean up for powerpc.
-
-> 
-> I also don't know how this would affect new archs, but if they need
-> flush_cache_vmap() they *probably* also want this treatment for vmemmap
-> hotplug? I guess we can deal with that when it happens.
-> 
-> Thanks,
-> Vivian "dramforever" Wang
-
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index bb920e8923c9..26d78987f2c2 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -50,18 +50,12 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+ 		reg_val = vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+-		if (kvm_riscv_isa_check_host(ZICBOM))
+-			return -ENOENT;
+ 		reg_val = riscv_cbom_block_size;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+-		if (kvm_riscv_isa_check_host(ZICBOZ))
+-			return -ENOENT;
+ 		reg_val = riscv_cboz_block_size;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbop_block_size):
+-		if (kvm_riscv_isa_check_host(ZICBOP))
+-			return -ENOENT;
+ 		reg_val = riscv_cbop_block_size;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
+@@ -144,20 +138,14 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 		}
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+-		if (kvm_riscv_isa_check_host(ZICBOM))
+-			return -ENOENT;
+ 		if (reg_val != riscv_cbom_block_size)
+ 			return -EINVAL;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+-		if (kvm_riscv_isa_check_host(ZICBOZ))
+-			return -ENOENT;
+ 		if (reg_val != riscv_cboz_block_size)
+ 			return -EINVAL;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbop_block_size):
+-		if (kvm_riscv_isa_check_host(ZICBOP))
+-			return -ENOENT;
+ 		if (reg_val != riscv_cbop_block_size)
+ 			return -EINVAL;
+ 		break;
+@@ -614,20 +602,6 @@ static int copy_config_reg_indices(const struct kvm_vcpu *vcpu,
+ 		u64 size;
+ 		u64 reg;
+ 
+-		/*
+-		 * Avoid reporting config reg if the corresponding extension
+-		 * was not available.
+-		 */
+-		if (i == KVM_REG_RISCV_CONFIG_REG(zicbom_block_size) &&
+-		    kvm_riscv_isa_check_host(ZICBOM))
+-			continue;
+-		else if (i == KVM_REG_RISCV_CONFIG_REG(zicboz_block_size) &&
+-			 kvm_riscv_isa_check_host(ZICBOZ))
+-			continue;
+-		else if (i == KVM_REG_RISCV_CONFIG_REG(zicbop_block_size) &&
+-			 kvm_riscv_isa_check_host(ZICBOP))
+-			continue;
+-
+ 		size = IS_ENABLED(CONFIG_32BIT) ? KVM_REG_SIZE_U32 : KVM_REG_SIZE_U64;
+ 		reg = KVM_REG_RISCV | size | KVM_REG_RISCV_CONFIG | i;
+ 
+-- 
+2.43.0
 
 
 _______________________________________________
