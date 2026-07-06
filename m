@@ -4,71 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD11DC43602
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 09:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3CABC43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 10:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lzGVzH9cvba/KW8vg1GCBVKriz9cgDwZP3Uo+sCIl0g=; b=XVMmaoSZc8NjTu
-	3eqMoEIT6d9MHM2wAgtmPRIHAkxvuEfTjVw4+TSBMSnGHjMHRq3TN9HOCVCXW6QorzB4OD9c61omh
-	HYCUVyjm2Oync3EBJkkW6VmgxW5FE9iik91QNpOldYfjPDmkNUy3UOlkEroBHbtfEmPUGf72NbLay
-	kmcNF6a+BDRFSz4ih1LLJuvpjil4f6/XT9DTict6Gc+7IR3EJ8yf2MUrsZ0J71UxDb6WHhYg7Ip8y
-	xd528G8ZOUBN6VUi2bVTUOBzPe3+uAh6rDo8GDP/zc+8uzhl1Lj4uqhh52aQFCd8guxMJQXHmojyT
-	J22uzoaWyQyUG4V88vGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JnxOCkAm6299xRxd7XElmaO8BTMlALqhwafTUv+Ka0k=; b=PTjpqKV7kfjlGHp50dyYuZD3c/
+	+6GpzmWDzCiddgxq/zxWbInr0dvKYMraSwzH1BQ7T4CWV86hYElxxhprOLkN0Rd2BTng/137qoWt5
+	dYyfXSZyakPMEDWmZjaeVSMpkBaOS22rAQ14JrJFttrWdU34mtYHErFo8DPj4K0Tw5i/AV65khPi+
+	aXXbXR7OsZ9LYfQZ/RLwKoa/ZAF4fkSutE21xZbOew+L3YPqZf6KhPMLQEi2UKNSvjoslsRXblQBC
+	BAmKFl7jb0z2vYYjn0gySdvUebapPwqMKsf9hisMbMoxbQaRzwGqvdjTbLqpaXdPWSFoi/PrBfioG
+	JeVQ6LHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfuL-0000000C6PW-35Km;
-	Mon, 06 Jul 2026 09:46:33 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wggjn-0000000CFEY-36WU;
+	Mon, 06 Jul 2026 10:39:43 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfuF-0000000C6Nm-39nW
+	id 1wggji-0000000CFCE-2Ipd
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 09:46:31 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-01 (Coremail) with SMTP id qwCowABX9c1teUtqVN3xBA--.1422S2;
-	Mon, 06 Jul 2026 17:46:21 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ACPI: RHCT: validate node reference bounds
-Date: Mon,  6 Jul 2026 17:46:19 +0800
-Message-ID: <20260706094619.83121-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	Mon, 06 Jul 2026 10:39:41 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47d70879764so791072f8f.2
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 03:39:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1783334376; x=1783939176; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Go7lNGQE+yUmjPgVI2sZRhO3/S4lEXiftKalvVFj+z0=;
+        b=RAGY7VJrRuV6fomU8zjBRG6mSXW+ITJOA42RcGien+zcjd72UOaCfhD+c1nPOef46M
+         ptSzfpkz/wlgqRQ1VvxsJXHDQnU+QIEqBuNI5MFsFhJ7LoiHXGogsBxDSIBDNjeeEoMu
+         Ho+YXKf1lm+mH/08yKs4ClhXSPmuunx1DwxBG8WQwszuoEUeRRtxEuXjXK4d2ixvwYdY
+         sjx7iS2my/sofW6IPS9e+yf9HKP5v0Ly/yk71fLyr3yVuHYyYOaYgE1SQ6+pvrbQpq3j
+         y9eMDcQ393Bq3KFUpKqikoyve4zdR4EEFfHjslQpggFK0g8grvS7GA3ba8D/xFb7Hgux
+         CX1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783334376; x=1783939176;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Go7lNGQE+yUmjPgVI2sZRhO3/S4lEXiftKalvVFj+z0=;
+        b=cj0sMXL86ad37fUCmUvp9FaN66g0P0CLQ+RtweVU8dYjZEuQ+T43ZHhGvHyxHURT3w
+         76THbeaK0mVVF9uAQ7qy88UuqrXmscfMYyjd3VrZEumbasRkTNuSLXZG6h1H6xHuXgvW
+         KYfpeYaE+jyLGyNpoRTwgPvRRGany+9D1/SwNAIVojGvvVA0gEiokwgj0xJJn6g15Cb7
+         XAjy1XodsslytdWfeHs3N383rajynQKPJ8okh3Pp6EJ0iF9C5C447PrGCi5+q3thLW0h
+         oENF/AuKWO6j6y6gI3qd4zG/wwFvwAvGVJkkFKBe2FYlQ/zm+g8cbAlgIl0rvdhCg/pV
+         ys8w==
+X-Forwarded-Encrypted: i=1; AHgh+Rqi8cLUiFmshythrUZ4AJPVnsc01y9zNqZ59ScDq2dTaJgswRjJZwSjT54owhx2E9wWNGh1GEMbhGBW8g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLmNgSZF96z8vDsNrxUG2ZQEUKPFTMydbxQTEXkAsXpl7Vh9zr
+	rphnt48GY4CNcFtowsnv+TnXZkU0Y9bNSuzZWxK0EM8mhTo82eY4ZBNzmysPlzG6Cp4=
+X-Gm-Gg: AfdE7ckkoZ94oeOoD8W1jy78A/nXI78MajkJ1F81mK7oGc8Y/iUQNBtFOWQEzPKp1Pr
+	ENs09quyI+q7S91vV3IAHZvs3h/dv7FMWLdmFtuDPZAFUVwBNPVZys/SuISaueebM113X9dvnHl
+	zkeMFjBnsrB1lBWflxi65TouIrhQ0+nSGcSEZsBRgEoFzddUGp+HCpQhJ9MimKKOGaz5wObLvj4
+	YKSGhjz1HYYh9da6UVflqq5EcyNy2crISZ8av2crnej+HnhY03D9AnIfqKHvPuJPDtsGb6zG4p6
+	0KqpSBmtwCTeS+oGVOeceZCXuETs9pob44ZbWez/qhhFGUvdQp0MsTsRJqcfikQQ/aPRjYiPR28
+	KKv0KabO0lcpgKXvCrqjwX56fnpSTd+7cOvJKicKfNBb5uOr7edbRDrzdQyom8DqB1hr1Ty+MSZ
+	/mHGqNgjBFADq6jDJhLNBub40/SQRZs0pkutiJsEgqh56llubfJBIG+lqZiSht+Vl/2KUynnhan
+	CCR
+X-Received: by 2002:a05:6000:4698:b0:475:36a:8c97 with SMTP id ffacd0b85a97d-47aab76f017mr8079359f8f.45.1783334376207;
+        Mon, 06 Jul 2026 03:39:36 -0700 (PDT)
+Received: from localhost (p200300f65f47db0426af56a07ec3b32d.dip0.t-ipconnect.de. [2003:f6:5f47:db04:26af:56a0:7ec3:b32d])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47a9de1d8cdsm25702223f8f.1.2026.07.06.03.39.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 03:39:35 -0700 (PDT)
+Date: Mon, 6 Jul 2026 12:39:34 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?= <philmd@oss.qualcomm.com>
+Cc: Chen Wang <chen.wang@linux.dev>, linux-pwm@vger.kernel.org, 
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Paul Walmsley <pjw@kernel.org>, 
+	Samuel Holland <samuel.holland@sifive.com>, Michael Walle <mwalle@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Hammer Hsieh <hammerh0314@gmail.com>, 
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Alexey Charkov <alchark@gmail.com>, 
+	Sean Anderson <sean.anderson@linux.dev>, Michal Simek <michal.simek@amd.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, imx@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v1 4/5] pwm: Unify coding style of of_device_id arrays
+Message-ID: <akuFirxGTqu_gt4O@monoceros>
+References: <cover.1783263835.git.ukleinek@kernel.org>
+ <20de6cd60c2938aad2d21397b92742849418ab1b.1783263835.git.ukleinek@kernel.org>
+ <973f3d6f-6ff4-4685-9c9f-b07987f74d98@linux.dev>
+ <aktWoIfY_DdO6gb4@monoceros>
+ <bc697542-b1e2-41c2-af36-b708ca4aad5c@oss.qualcomm.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABX9c1teUtqVN3xBA--.1422S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3JryUGry7Jr1xJr1rWF1xKrg_yoW3Wr1DpF
-	4S9345Aan8Jw1fWr1Iqa1ru3y3X340vF4UXFZ3Gayqyr1vk3WUKF4jk3429F15tF4vgw4x
-	Zr4DtFyDGF48ArUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jw0_WrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Gr0_Xr
-	1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJb
-	IYCTnIWIevJa73UjIFyTuYvjfU5byZUUUUU
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+In-Reply-To: <bc697542-b1e2-41c2-af36-b708ca4aad5c@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_024629_431251_466F403B 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260706_033938_621070_3B75E78C 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,239 +127,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3026975913438270007=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHCT hart-info nodes carry offset arrays that reference other
-nodes in the same firmware table.  Validate the current node,
-the hart-info offset array, and each referenced ISA or CMO node
-before reading type-specific fields.
 
-The ISA string path also checks that the advertised string range
-is present before returning it to the RISC-V ISA parser.
+--===============3026975913438270007==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vyrf5kfcddz5uoeo"
+Content-Disposition: inline
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/acpi/riscv/rhct.c | 146 +++++++++++++++++++++++++++++++++-----
- 1 file changed, 128 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-index 8f3f38c64a88..bb8f8d4ab137 100644
---- a/drivers/acpi/riscv/rhct.c
-+++ b/drivers/acpi/riscv/rhct.c
-@@ -9,6 +9,94 @@
- 
- #include <linux/acpi.h>
- #include <linux/bits.h>
-+#include <linux/overflow.h>
-+#include <linux/string.h>
-+
-+static bool rhct_node_valid(struct acpi_table_rhct *rhct,
-+			    struct acpi_rhct_node_header *node)
-+{
-+	struct acpi_rhct_node_header *end;
-+	size_t remaining;
-+
-+	end = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct,
-+			   rhct->header.length);
-+	if (node >= end)
-+		return false;
-+
-+	remaining = (char *)end - (char *)node;
-+	if (remaining < sizeof(*node) ||
-+	    node->length < sizeof(*node) ||
-+	    node->length > remaining) {
-+		pr_err(FW_BUG "Invalid RHCT node length\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static struct acpi_rhct_node_header *rhct_node_from_offset(struct acpi_table_rhct *rhct,
-+							   u32 offset)
-+{
-+	struct acpi_rhct_node_header *node;
-+
-+	if (offset > rhct->header.length)
-+		return NULL;
-+
-+	node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, offset);
-+	return rhct_node_valid(rhct, node) ? node : NULL;
-+}
-+
-+static bool rhct_node_has_data(struct acpi_rhct_node_header *node,
-+			       size_t data_size)
-+{
-+	if (node->length < sizeof(*node) + data_size) {
-+		pr_err(FW_BUG "Truncated RHCT node type %u\n", node->type);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static bool rhct_hart_info_valid(struct acpi_rhct_node_header *node)
-+{
-+	struct acpi_rhct_hart_info *hart_info;
-+	size_t offsets_size;
-+
-+	if (!rhct_node_has_data(node, sizeof(*hart_info)))
-+		return false;
-+
-+	hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node,
-+				 sizeof(*node));
-+	if (check_mul_overflow(hart_info->num_offsets, sizeof(u32),
-+			       &offsets_size) ||
-+	    offsets_size > node->length - sizeof(*node) -
-+			   sizeof(*hart_info)) {
-+		pr_err(FW_BUG "Invalid RHCT hart-info offset array\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static bool rhct_isa_string_valid(struct acpi_rhct_node_header *node)
-+{
-+	struct acpi_rhct_isa_string *isa_node;
-+	size_t remaining;
-+
-+	if (!rhct_node_has_data(node, sizeof(*isa_node)))
-+		return false;
-+
-+	isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string, node,
-+				sizeof(*node));
-+	remaining = node->length - sizeof(*node) - sizeof(*isa_node);
-+	if (isa_node->isa_length > remaining ||
-+	    !memchr(isa_node->isa, '\0', isa_node->isa_length)) {
-+		pr_err(FW_BUG "Invalid RHCT ISA string\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
- 
- static struct acpi_table_rhct *acpi_get_rhct(void)
- {
-@@ -38,8 +126,6 @@ static struct acpi_table_rhct *acpi_get_rhct(void)
- int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const char **isa)
- {
- 	struct acpi_rhct_node_header *node, *ref_node, *end;
--	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
--	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
- 	struct acpi_rhct_hart_info *hart_info;
- 	struct acpi_rhct_isa_string *isa_node;
- 	struct acpi_table_rhct *rhct;
-@@ -66,18 +152,32 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
- 	for (node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
- 	     node < end;
- 	     node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length)) {
-+		if (!rhct_node_valid(rhct, node))
-+			return -EINVAL;
-+
- 		if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO) {
--			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node, size_hdr);
--			hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
-+			if (!rhct_hart_info_valid(node))
-+				return -EINVAL;
-+
-+			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node,
-+						 sizeof(*node));
-+			hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info,
-+							     sizeof(*hart_info));
- 			if (acpi_cpu_id != hart_info->uid)
- 				continue;
- 
- 			for (int i = 0; i < hart_info->num_offsets; i++) {
--				ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
--							rhct, hart_info_node_offset[i]);
-+				ref_node = rhct_node_from_offset(rhct,
-+								 hart_info_node_offset[i]);
-+				if (!ref_node)
-+					return -EINVAL;
-+
- 				if (ref_node->type == ACPI_RHCT_NODE_TYPE_ISA_STRING) {
-+					if (!rhct_isa_string_valid(ref_node))
-+						return -EINVAL;
-+
- 					isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string,
--								ref_node, size_hdr);
-+								ref_node, sizeof(*ref_node));
- 					*isa = isa_node->isa;
- 					return 0;
- 				}
-@@ -89,22 +189,32 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
- }
- 
- static void acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
--					  struct acpi_rhct_hart_info *hart_info,
-+					  struct acpi_rhct_node_header *node,
- 					  u32 *cbom_size, u32 *cboz_size, u32 *cbop_size)
- {
--	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
--	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
- 	struct acpi_rhct_node_header *ref_node;
-+	struct acpi_rhct_hart_info *hart_info;
- 	struct acpi_rhct_cmo_node *cmo_node;
- 	u32 *hart_info_node_offset;
- 
--	hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
-+	if (!rhct_hart_info_valid(node))
-+		return;
-+
-+	hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node,
-+				 sizeof(*node));
-+	hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info,
-+					     sizeof(*hart_info));
- 	for (int i = 0; i < hart_info->num_offsets; i++) {
--		ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
--					rhct, hart_info_node_offset[i]);
-+		ref_node = rhct_node_from_offset(rhct, hart_info_node_offset[i]);
-+		if (!ref_node)
-+			return;
-+
- 		if (ref_node->type == ACPI_RHCT_NODE_TYPE_CMO) {
-+			if (!rhct_node_has_data(ref_node, sizeof(*cmo_node)))
-+				return;
-+
- 			cmo_node = ACPI_ADD_PTR(struct acpi_rhct_cmo_node,
--						ref_node, size_hdr);
-+						ref_node, sizeof(*ref_node));
- 			if (cbom_size && cmo_node->cbom_size <= 30) {
- 				if (!*cbom_size)
- 					*cbom_size = BIT(cmo_node->cbom_size);
-@@ -137,9 +247,7 @@ static void acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
- void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
- 			     u32 *cboz_size, u32 *cbop_size)
- {
--	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
- 	struct acpi_rhct_node_header *node, *end;
--	struct acpi_rhct_hart_info *hart_info;
- 	struct acpi_table_rhct *rhct;
- 
- 	if (acpi_disabled)
-@@ -166,9 +274,11 @@ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
- 	for (node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
- 	     node < end;
- 	     node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length)) {
-+		if (!rhct_node_valid(rhct, node))
-+			return;
-+
- 		if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO) {
--			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node, size_hdr);
--			acpi_parse_hart_info_cmo_node(rhct, hart_info, cbom_size,
-+			acpi_parse_hart_info_cmo_node(rhct, node, cbom_size,
- 						      cboz_size, cbop_size);
- 		}
- 	}
--- 
-2.43.0
+--vyrf5kfcddz5uoeo
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 4/5] pwm: Unify coding style of of_device_id arrays
+MIME-Version: 1.0
 
+Hello,
+
+On Mon, Jul 06, 2026 at 10:28:16AM +0200, Philippe Mathieu-Daud=E9 wrote:
+> Hi Uwe,
+>=20
+> On 6/7/26 09:19, Uwe Kleine-K=C3=B6nig (The Capable Hub) wrote:
+> > Hello Chen,
+> >=20
+> > On Mon, Jul 06, 2026 at 08:33:47AM +0800, Chen Wang wrote:
+> > > On 7/5/2026 11:14 PM, Uwe Kleine-K=F6nig (The Capable Hub) wrote:
+> > > >    - Use a single space in a of_device_id array terminator; A singl=
+e space
+> > > >      after the opening { and before the closing } in non-empty
+> > > >      initializers;
+> > > >    - No comma after an array terminator;
+> > > >    - Also no trailing comma after a named initializer iff the
+> > > iff -> if
+> >=20
+> > This is actually intended. iff =3D "if and only if", see e.g.
+> > https://en.wikipedia.org/wiki/If_and_only_if .
+>=20
+> I agree this scientific idiomatic expression is not well known
+> by non-native English speakers, and using the expanded form is
+> just simpler to review (thinking at non-native English speaker
+> reading your commit in the future).
+
+fine for me, I'll fixup to=20
+
+ - Also no trailing comma after a named initializer if (and only if) the
+   closing } is on the same line;
+
+when applying.
+
+Best regards
+Uwe
+
+--vyrf5kfcddz5uoeo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpLheQACgkQj4D7WH0S
+/k6DEQf+JKDZ+NcR412RMDPBxcWuk831SswOfJipQJVDxTsFWtpZIrZIbOu0ZlBp
+IEWpfB5nRfHwTSxF6Ceuf2jTc+wkwcRBKeH4MQsZFpGxBjGa4k7YEEfMSDU9S1vU
+39G1FIVXnf0sDkUOUGf5zIomYewh4gdCoWRwDnCHsV4QnZKAaKCCEpX0U6QdW2OP
+diy3iqasYf6KZyXnUyj0HBQRGjBYY4jBvVutXt4KtCqAKW+AcCANOtubadJgydWD
+xXNkFLpscFQ9aVdyKZK19UP9yKdOwzkjR9pul+TqXDviO0c5UoAZEwMZYDbB1YPi
+AJloqZ9/3vBcnEjZo3eWYk8zkrQifQ==
+=vnC0
+-----END PGP SIGNATURE-----
+
+--vyrf5kfcddz5uoeo--
+
+
+--===============3026975913438270007==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3026975913438270007==--
+
