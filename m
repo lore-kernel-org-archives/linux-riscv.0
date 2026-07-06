@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB78C44501
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13185C44500
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KuVuWF9WO70SstmmiiFSzI44QongJx/EDIDGw+p5dgg=; b=T5Kqrkux9XpDGZ
-	XKnjzplGOlxsXpQY8PDNpf8g0jBS1N88KkbF/TIwK6yMEJwarjy39g3/NrEaPeEzK1tcNHwaOmuU2
-	pxKERQG5w+KvC9fQksHfb/M9VHTSp9nE93d7/tD9bZWfCQVHxN73hcS4rhXhrUS1TPH7gASDCfEKq
-	E6+93AF0KsSAvHzS7W2PwqeMefSBPUwmZdIO/bjdWcgP7EcM4EB0YEoG02VI6quE/0eiTPKAgJJJ9
-	yhRkAZrYJGrGskXs7ZHnX6MvS18gPKutFXqTjB8aCATfveEsHegW1tCENR2v5eLEaSwKmbVKvyywQ
-	kqPILxQTHG5vGYCWulqA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HaNQXVDDj8vUOzEhneJVOs6r1qrBkRGbZ8+I6odTpZk=; b=EWKdxZ3pG9jUfm
+	8ZjjnLvO4KAetpZnGcXjoPGtpxUkF8BcZtWhSpwuHY29FF+JUwzOTYM8FlnRdmDLpKRNlQbyHbJfG
+	sPCk+hud7l0jnPGnVTjjDUrJhWaVVEMwvHbrSQA67XwTUytf+xh+iyn935LJd65jm+h6yeUNMCzfv
+	tlr6WuDgku1JHIgwAifyji//+uQfIfE83dd5aRt+Z2clyWIbze/6dFppHg2/WP+ZKEC/wh/UZlaNm
+	K77wFnPtx3GamVVdGrAPFcEgJYr4KyIo9DtXEeZ7VrG6Gpyu9uqhZefRcr1xGfWgFMjU7K6WSCsAy
+	dz894Upvzu+5g3gfkV/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgePy-0000000Bmk8-38kN;
-	Mon, 06 Jul 2026 08:11:06 +0000
-Received: from naesa04.arrow.com ([216.150.161.24])
+	id 1wgeVj-0000000Bo4X-2syA;
+	Mon, 06 Jul 2026 08:17:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgePv-0000000Bmhy-3Nao
+	id 1wgeVi-0000000Bo4K-0ejR
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 08:11:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=einfochips.com; i=@einfochips.com; l=1762; q=dns/txt;
-  s=NAESA-Selector1; t=1783325463; x=1814861463;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=DsT3k1JxGiBxu8sTPdmZdN71lJZTeiOhorI0VrVBI4Q=;
-  b=P1QDo9r5yqLP2YQw17GoP5re3ugRfHZn6qxAllOmiJaEoXKa81YuIq2/
-   riwpwZKoB6xDN4cHrkiZbeR3To0c9I8QACOIRvdzWxQ3BeYDoHZ7r3Y2Y
-   mC+yJ/kZFdH2NUOSGwl/f4JuBq+nNvSszaNM05YcjrZeokYlud/Tbz+zu
-   W281Jol7h7DZXebTOlUMpO31yBbuPaLdWbdCne7x2KYnS9dNDTud7QGaO
-   brmW8PkGv4CR2Jgz0jGrmr2i7IeJjJC+CnnIUUtNztm6AbAgbPC4zCxgX
-   jIKMX3chskfolcHdbwdPjU8xpKl7Y3VxQI51IOEfg/QR/v/O91seIQNYT
-   g==;
-X-CSE-ConnectionGUID: NVvB3EIJSByZH2LZBdT1og==
-X-CSE-MsgGUID: bMT16DHrRf6HHs5PKGfdcg==
-X-IronPort-AV: E=Sophos;i="6.25,149,1779170400"; 
-   d="scan'208";a="116963495"
-Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa04out.arrow.com with ESMTP; 06 Jul 2026 02:10:56 -0600
-Received: from AHMCPU1888.localdomain ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.20348.1);
-	 Mon, 6 Jul 2026 13:40:55 +0530
-From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Min Lin <linmin@eswincomputing.com>
-Cc: Yulin Lu <luyulin@eswincomputing.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: [PATCH v2 0/8] riscv: eswin: eic7700: Add support for clocks, resets, pinctrl, HSP bus, I2C and watchdog
-Date: Mon,  6 Jul 2026 13:40:47 +0530
-Message-Id: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
-X-Mailer: git-send-email 2.25.1
+	Mon, 06 Jul 2026 08:17:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08683600C3;
+	Mon,  6 Jul 2026 08:17:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7CF91F000E9;
+	Mon,  6 Jul 2026 08:16:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783325820;
+	bh=r7+ah1vbGAvQLsR+3yUG/Iv1avIrbLDskfWMmANIMpA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=XfC9H2UVpNQGtHq/xKLEWuvy4dBFo+F8wnT4a3nMjIvGfHuzuoXWCWWpR3IRGACyX
+	 ddDWKGu9BP+PsJvxUDK2bd/p/KeWLd0czr6A1n2oiorGfYOAORf0VSj4p8BpzPNLGs
+	 Ks/289z7wkXWc1DnJ7LrjlkM5r3LLyPV2aysSVO7Va/BtZrxeY3rlf3iV2jR28XK6V
+	 xvP1325V2CnieiUAnTaDerFyvnvz3so5txLMmGU2XfJvoVLUklK5D8L7xrnfvcxkuk
+	 3Zu/60IEr5IZRUAZ6W1jaKJhtWOhQgEXUqGG56v4UZ08TQLLk8BNUS0lXkVaayTddt
+	 u2lcP/zMPqcAw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Michal =?utf-8?Q?Such=C3=A1nek?= <msuchanek@suse.de>, Peter Zijlstra
+ <peterz@infradead.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Huacai Chen <chenhuacai@kernel.org>, WANG
+ Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
+ <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Heiko
+ Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
+ Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Andy
+ Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Andrew Donnellan
+ <andrew+kernel@donnellan.id.au>, Mark Rutland <mark.rutland@arm.com>,
+ Michal =?utf-8?Q?Such=C3=A1nek?= <msuchanek@suse.de>, Arnd Bergmann
+ <arnd@arndb.de>, Jiaxun
+ Yang <jiaxun.yang@flygoat.com>, Ryan Roberts <ryan.roberts@arm.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Mukesh Kumar Chaurasiya
+ <mkchauras@linux.ibm.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Zong
+ Li <zong.li@sifive.com>, Nam Cao <namcao@linutronix.de>, Deepak Gupta
+ <debug@rivosinc.com>, Lukas Gerlach <lukas.gerlach@cispa.de>, Rui Qi
+ <qirui.001@bytedance.com>, Kees Cook <kees@kernel.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [RFC] entry: Untangle the return value of
+ syscall_enter_from_user_mode from syscall NR
+In-Reply-To: <akVRcPsD_R_CE1qW@kunlun.suse.cz>
+References: <akVRcPsD_R_CE1qW@kunlun.suse.cz>
+Date: Mon, 06 Jul 2026 10:16:57 +0200
+Message-ID: <87ik6sjzwm.ffs@fw13>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 06 Jul 2026 08:10:55.0812 (UTC) FILETIME=[F85EB840:01DD0D1E]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_011103_904912_EEC5271A 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +88,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes in v2:
-- Rebased the patches to kernel v7.2-rc2
-- Updated dts file
-  - Changed "xtal" to "clock_24m".
-  - Changed the node name from "vcc1v8" to "regulator-vcc1v8".
-  - Changed the node names from "pac1934" to "adc" and "ina226" to
-    "power-sensor".
-- Updated eic7700.dtsi file
-  - Changed the label from "xtal" to "clock_24m".
-  - Changed the label from "hsp_power_domain" to "hsp".
-  - Added soc-specific compatible string for all i2c controllers.
-- Updated pinctrl.dtsi file
-  - Corrected the function of rgmii0, rgmii1, and the i2s pin groups.
-- Added "Acked-by" tag of "Conor Dooley" for Patch 4.
-- Updated the commit message for Patch 5.
-- Added patch(#6) that introduces ESWIN specific compatible string
-  "eswin,eic7700-i2c" in snps,designware-i2c.yaml file.
-- Link to v1: https://lore.kernel.org/lkml/20260615122016.1110206-1-pinkesh.vaghela@einfochips.com/
-
-Pinkesh Vaghela (2):
-  dt-bindings: mfd: syscon: add ESWIN EIC7700 compatible
-  riscv: dts: eswin: add hsp bus node
-
-Pritesh Patel (5):
-  riscv: dts: eswin: add reset generator for EIC7700 SoC
-  riscv: dts: eswin: add clock generator for EIC7700 SoC
-  dt-bindings: i2c: dw: add ESWIN EIC7700 SoC I2C controller
-  riscv: dts: eswin: add I2C controller support
-  riscv: dts: eswin: add watchdog support
-
-Yulin Lu (1):
-  riscv: dts: eswin: eic7700: add pinctrl support
-
- .../bindings/i2c/snps,designware-i2c.yaml     |   1 +
- .../devicetree/bindings/mfd/syscon.yaml       |   2 +
- .../dts/eswin/eic7700-hifive-premier-p550.dts | 182 ++++
- .../riscv/boot/dts/eswin/eic7700-pinctrl.dtsi | 888 ++++++++++++++++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 234 +++++
- 5 files changed, 1307 insertions(+)
- create mode 100644 arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdWwgMDEgMjAyNiBhdCAxOTo0MiwgTWljaGFsIFN1Y2jDoW5layB3cm90ZToKPiAg
+Cj4gIAlpZiAodW5saWtlbHkod29yayAmIFNZU0NBTExfV09SS19TWVNDQUxMX1RSQUNFUE9JTlQp
+KQo+IC0JCXN5c2NhbGwgPSB0cmFjZV9zeXNjYWxsX2VudGVyKHJlZ3MsIHN5c2NhbGwpOwo+ICsJ
+CSpzeXNjYWxsID0gdHJhY2Vfc3lzY2FsbF9lbnRlcihyZWdzLCAqc3lzY2FsbCk7Cj4gIAo+IC0J
+c3lzY2FsbF9lbnRlcl9hdWRpdChyZWdzLCBzeXNjYWxsKTsKPiArCXN5c2NhbGxfZW50ZXJfYXVk
+aXQocmVncywgKnN5c2NhbGwpOwo+ICAKPiAtCXJldHVybiByZXQgPyA6IHN5c2NhbGw7Cj4gKwly
+ZXR1cm4gMDsKClRoYXQgYnJlYWtzIHRyYWNlX3N5c2NhbGxfZW50ZXIoKSBiZWNhdXNlIHRoZSBw
+cm9iZXMvQlBGIG11Y2sgYXR0YWNoZWQKb3QgdGhhdCBjYW46CgogICAgIDEpIHNldCB0aGUgcmV0
+dXJuIGNvZGUKICAgICAyKSBzZXQgc3lzY2FsbCB0byAtMUwKClRoYXQgd29ya3MgY29ycmVjdGx5
+IHRvZGF5LCBidXQgd2l0aCB5b3VyIHNsb3BweSBoYWNrZXJ5IHRoZSBsb3cgbGV2ZWwKeDg2IGNv
+ZGUgZmFsbHMgaW50byBzeXNfbmlfc3lzY2FsbCgpIHdoaWNoIHNldHMgdGhlIHJldHVybiBjb2Rl
+IHRvCi1FTk9TWVMuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
