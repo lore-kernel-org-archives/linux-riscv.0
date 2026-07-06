@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20118C44503
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A568C43602
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5W/A05TETag1XVn3TRLkYo+tLYtEYwDu17QBmEnXxCk=; b=MLdIiENhlW7Enm
-	LzxnfcUkXA4o/JFtenjuXiLThO76TLl1v+0QfCzPQ109vukzgHwl9qnNGiBFGDJQTXMA1/cf28tcf
-	5eEopMqvMKm8s1rUn5t0cxCOL9EJCNnJD6YhEOxqHHdAeXPOufpJERQE8ZdZgiByvcqAY8Yyw4nBd
-	d4sX9FCMpOMAWTkjwnEuw20FQI4/GqFTavFvE0TOpEJl74tThesdQLwT9W0Jg0noCeMOApJqGwCSB
-	uFsDqpJYwBbewPRu/JJZYk2ZpNyxnI0cern08k4vqAZKLeLMwgTJhg4OHI0R7IgcqvRchTcn/eKol
-	64P+7TVpusYsVOTufkNg==;
+	List-Owner; bh=2afFWWQ/vNK1GjqGoW3gyImsW2p7I2n9iOYze01Sfoc=; b=Uk2hlAG1pOHV/5
+	aOP913JfbbiZ+GeG6nhK5OyF4Pmt0eJI2jVxnLKv5OyM5YArKW6RTwxgUSvyiZTygkt63F2HSLG85
+	N4sHGUjxBJrJjG32Z1mztu6p69y1VVwoRZgN73HEZygt2jxo5X8b8MTx3yE00XDBMQ/nQhLOUcCsM
+	PFhe7SQsUHxUdI2IrVyF7g/e1RZjsQmg8yluZCs+Rn4FeYLf8FoYKJmNQNcYYyZfCWZoiBpU2Bebd
+	VDtiQw2q2Iny6BIENO9K0htqdgIsUqWZNmg499udFK1quaKkfWT57LdRb0/93O4bM6W5w65cpZTK7
+	gsfBdeaH9tOr9iLqhzgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgeQ0-0000000Bmlf-0Plm;
-	Mon, 06 Jul 2026 08:11:08 +0000
+	id 1wgeQ1-0000000Bmns-3wZF;
+	Mon, 06 Jul 2026 08:11:09 +0000
 Received: from naesa04.arrow.com ([216.150.161.24])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgePw-0000000BmiQ-3A8h
+	id 1wgePz-0000000Bmhy-0eU6
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 08:11:06 +0000
+	Mon, 06 Jul 2026 08:11:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=einfochips.com; i=@einfochips.com; l=1906; q=dns/txt;
-  s=NAESA-Selector1; t=1783325464; x=1814861464;
+  d=einfochips.com; i=@einfochips.com; l=6621; q=dns/txt;
+  s=NAESA-Selector1; t=1783325467; x=1814861467;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=R5xklhqISih2SzU4VfviMo3Vox+xr0oG4tU6SqgB6RQ=;
-  b=ag6RVBc6BvwgplX99j1I/zo+xAji5aqdaH/FDuj4y31Q8DNVAC3eKfnp
-   fKDg6rKsgg2PxUvOnvGD/TxTJdUE0K48nD8LHFTEXEpZfXD8oePgGcsmf
-   gil8D11HKKaxHl5/yFRl2m1sN8uBbYgH2GqCD5c+ZBxy2sxNBZQ9Z15AK
-   pc0d794+9sMyh3FEZ06ByeWwo17w5YSZplNNC9fdyazxBOB/zV2jS39sc
-   71hVE+RMJGVPFVJoTA37nhTA4Ck9FHKeAMESnMfU1WJyLeZlryBwqxKjh
-   yeKlUAVUFRXGKjUNaZU16BD9GYgiEebFGO7jjZ3za5SVoD9jRX7LgUjFT
-   Q==;
-X-CSE-ConnectionGUID: mfvtPwn1TTyxEc8AH0/Fhw==
-X-CSE-MsgGUID: w+TQ+BL5T06nnLGyQ5muvQ==
+  bh=WM5v2Ov/1VfplXhonbtPoNhtShun/4PVQ7VllRkCxbE=;
+  b=mr9FJIwB1XrgrlOg3Fd5H16Ym1aif+Ih/m6c2DTH//Y/J5EpomDbKd8z
+   2qWoRFEuTrOBX6Dmt7DFuuKVFIAmoJUOSVOK1LFL4BqPEtXuZYlmhyEza
+   5my2fYDwy5KiRYihkikkA83qR6r3p99pF3t1TT6pmi4YuewqQ6K7VA290
+   VKH92XK6S4pQesoxa9k30b+niBSMgcx7jk9OxIGhNG+3E+VQBNZrwFHDB
+   4mWba0spL0Gaj/IIKW5gt59djgkv/A5qxrUjYvyKT6W5wlKp6WBkKtUrs
+   98Q1WddsLKx01xIlK8oKLKfElaBNZYpxUNcui/EKu4DiSdfTQmzWKHW3E
+   g==;
+X-CSE-ConnectionGUID: imV2PBl4SNuTTd4r/dzqmQ==
+X-CSE-MsgGUID: o7TuTPD1TIusmzN4l9I2WQ==
 X-IronPort-AV: E=Sophos;i="6.25,149,1779170400"; 
-   d="scan'208";a="116963503"
+   d="scan'208";a="116963518"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa04out.arrow.com with ESMTP; 06 Jul 2026 02:10:59 -0600
+  by naesa04out.arrow.com with ESMTP; 06 Jul 2026 02:11:04 -0600
 Received: from AHMCPU1888.localdomain ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.20348.1);
-	 Mon, 6 Jul 2026 13:40:55 +0530
+	 Mon, 6 Jul 2026 13:40:56 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 To: Lee Jones <lee@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -69,17 +69,17 @@ Cc: Yulin Lu <luyulin@eswincomputing.com>,
 	Darshan Prajapati <darshan.prajapati@einfochips.com>,
 	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
 	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: [PATCH v2 2/8] riscv: dts: eswin: add clock generator for EIC7700 SoC
-Date: Mon,  6 Jul 2026 13:40:49 +0530
-Message-Id: <20260706081055.1126275-3-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH v2 7/8] riscv: dts: eswin: add I2C controller support
+Date: Mon,  6 Jul 2026 13:40:54 +0530
+Message-Id: <20260706081055.1126275-8-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
 References: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 06 Jul 2026 08:10:55.0907 (UTC) FILETIME=[F86D3730:01DD0D1E]
+X-OriginalArrivalTime: 06 Jul 2026 08:10:56.0199 (UTC) FILETIME=[F899C570:01DD0D1E]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_011104_852438_0E0074FD 
-X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-CacheID: sfid-20260706_011107_312148_552C6DA9 
+X-CRM114-Status: UNSURE (   7.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,71 +99,247 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pritesh Patel <pritesh.patel@einfochips.com>
 
-Add clock generator node for EIC7700 SoC.
-HiFive Premier P550 boards have 24MHz crystal oscillator to provide
-the input clock.
+Add I2C nodes for EIC7700 SoC.
+Also add nodes for corresponding slave devices in dts file and
+enable them for HiFive Premier P550 board
 
 Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
 Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 ---
- .../boot/dts/eswin/eic7700-hifive-premier-p550.dts  |  5 +++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi              | 13 +++++++++++++
- 2 files changed, 18 insertions(+)
+ .../dts/eswin/eic7700-hifive-premier-p550.dts |  52 ++++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        | 156 ++++++++++++++++++
+ 2 files changed, 208 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-index 131ed1fc6b2e..1266762dfcd8 100644
+index 743dedbdb081..1e8c5a0da0b3 100644
 --- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
 +++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-@@ -20,6 +20,11 @@ chosen {
- 	};
+@@ -130,6 +130,58 @@ &gpio111_pins {
+ 	input-disable;
  };
  
-+&clock_24m {
-+	clock-frequency = <24000000>;
-+	clock-output-names = "clock_24m";
++&aon_i2c0 {
++	status = "okay";
++
++	eeprom@50 {
++		compatible = "atmel,24c02";
++		reg = <0x50>;
++	};
 +};
 +
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-index 430a210f01e6..af9e40d8739a 100644
---- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-+++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -4,6 +4,7 @@
-  */
- 
- /dts-v1/;
-+#include <dt-bindings/clock/eswin,eic7700-clock.h>
- #include <dt-bindings/reset/eswin,eic7700-reset.h>
- 
- / {
-@@ -203,6 +204,11 @@ pmu {
- 				<0x00000000 0x0000000f 0xfffffffc 0x000000ff 0x00000078>;
- 	};
- 
-+	clock_24m: clock-24m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
++&aon_i2c1 {
++	status = "okay";
 +
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
-@@ -343,6 +349,13 @@ gpioD: gpio-port@3 {
- 			};
- 		};
- 
-+		clk: clock-controller@51828000 {
-+			compatible = "eswin,eic7700-clock";
-+			reg = <0x0 0x51828000 0x0 0x300>;
-+			clocks = <&clock_24m>;
-+			#clock-cells = <1>;
++	adc@10 {
++		compatible = "microchip,pac1934";
++		reg = <0x10>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		channel@1 {
++			reg = <0x1>;
++			shunt-resistor-micro-ohms = <1000>;
++			label = "VDD_SOM";
 +		};
 +
- 		reset: reset-controller@51828300 {
- 			compatible = "eswin,eic7700-reset";
- 			reg = <0x0 0x51828300 0x0 0x200>;
++		channel@2 {
++			reg = <0x2>;
++			shunt-resistor-micro-ohms = <1000>;
++			label = "VDD_SOC";
++		};
++
++		channel@3 {
++			reg = <0x3>;
++			shunt-resistor-micro-ohms = <1000>;
++			label = "VDD_CPU";
++		};
++
++		channel@4 {
++			reg = <0x4>;
++			shunt-resistor-micro-ohms = <1000>;
++			label = "VDD_LPDDR";
++		};
++	};
++
++	power-sensor@44 {
++		compatible = "ti,ina226";
++		reg = <0x44>;
++		#io-channel-cells = <1>;
++		label = "sys_power";
++		shunt-resistor = <1000>;
++	};
++};
++
+ &pinctrl {
+ 	vrgmii-supply = <&vcc_1v8>;
+ };
+diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+index 08067d0c634b..6d328befc623 100644
+--- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
++++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+@@ -315,6 +315,162 @@ uart4: serial@50940000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c0: i2c@50950000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x50950000 0x0 0x8000>;
++			interrupts = <105>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C0_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c1: i2c@50960000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x50960000 0x0 0x8000>;
++			interrupts = <106>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C1_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c2: i2c@50970000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x50970000 0x0 0x8000>;
++			interrupts = <107>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C2_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c3: i2c@50980000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x50980000 0x0 0x8000>;
++			interrupts = <108>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C3_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c4: i2c@50990000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x50990000 0x0 0x8000>;
++			interrupts = <109>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C4_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C4>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c5: i2c@509a0000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x509a0000 0x0 0x8000>;
++			interrupts = <110>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C5_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C5>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c6: i2c@509b0000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x509b0000 0x0 0x8000>;
++			interrupts = <111>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C6_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C6>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c7: i2c@509c0000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x509c0000 0x0 0x8000>;
++			interrupts = <112>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C7_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C7>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c8: i2c@509d0000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x509d0000 0x0 0x8000>;
++			interrupts = <113>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C8_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C8>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c9: i2c@509e0000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x509e0000 0x0 0x8000>;
++			interrupts = <114>;
++			clocks = <&clk EIC7700_CLK_GATE_LSP_I2C9_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_I2C9>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		aon_i2c0: i2c@51830000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x51830000 0x0 0x8000>;
++			interrupts = <290>;
++			clocks = <&clk EIC7700_CLK_GATE_AON_I2C0_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_ANO0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		aon_i2c1: i2c@51838000 {
++			compatible = "eswin,eic7700-i2c", "snps,designware-i2c";
++			reg = <0x0 0x51838000 0x0 0x8000>;
++			interrupts = <291>;
++			clocks = <&clk EIC7700_CLK_GATE_AON_I2C1_PCLK>;
++			clock-names = "ref";
++			clock-frequency = <100000>;
++			resets = <&reset EIC7700_RESET_ANO1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
+ 		gpio@51600000 {
+ 			compatible = "snps,dw-apb-gpio";
+ 			reg = <0x0 0x51600000 0x0 0x80>;
 -- 
 2.34.1
 
