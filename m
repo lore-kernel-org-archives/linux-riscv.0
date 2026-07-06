@@ -4,146 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A51C43602
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 10:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C3DC43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 11:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hekckk1/HGDEsig076zGIkE3bkfYwemVKsT4rHPmQ3s=; b=GSeCYwFJ1qY6KN
-	RD7tVG2FMCaVZ5OOIO5rdmLerlRtCWufX75DwQ1ewbl72fJsRQtyizzZaT9SRazKWbTCdmkpQDgBG
-	7VOvF55kjoMQ5SKbxob4Y8055ueUcbZ698Niu4QUnpQU0VvYoXtZ0xbkwvAa9z8sZe57QWCMV0K6Z
-	mhmL2Fvw9Jj8DV28KuPN/jV9AQpZvh/9rRsQf6M5s2gZfafGjGLN81/jQJLuZBwJYRDvU0ip02Vzi
-	SS6NqTwPsQK25pG8MBDyLLbyLp2GUeA0G8irIFY9DP8bOP7iIv7ZuiNXmZnX/7VVHfJN0Xhr3Jlia
-	armkgXZH5UMZzkvRmKQA==;
+	List-Owner; bh=P8jMi/g+m3RKE8WNz1wKA1eN7vO94M6TKTKvu2ZMutw=; b=LE7nbc2KkTBi4B
+	zmcSeNINta0MbpPpUE3mszzbhpdevJg8VnvHRkOg48JT3P2j9qaLinL+GbB8kZkVieyj1jUYch+Xx
+	jt2aP9bmhDte0IuauZW2qGEjmalIWqmPkjiELk0QzN/2qElbYU3lY/F/D82nI0WXl9/7ad+bYO3NV
+	bMwKatSoCXaExFJcwkjFuuITBFG2QJ4bbh+40mMAPojpn++BIGhnTlIBRYWZsM5AeGDJbk5au2REc
+	GTpnvbF5/CgvS6mkOLv7RpKpY4ydDiqbezq3ppYCksntIyOD1+h2vuzasWq89uE91to9ZI8L/Vz9w
+	kZPekk5pQtOI6afQjxzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggmL-0000000CFjW-1Q5j;
-	Mon, 06 Jul 2026 10:42:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wghZb-0000000CNat-3fR8;
+	Mon, 06 Jul 2026 11:33:15 +0000
+Received: from relay.yourmailgateway.de ([188.68.61.103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggmF-0000000CFiC-3VCB;
-	Mon, 06 Jul 2026 10:42:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E38761389;
-	Mon,  6 Jul 2026 10:42:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9351F000E9;
-	Mon,  6 Jul 2026 10:41:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783334534;
-	bh=IPNGdHh56ZVB5CsH+UE6uKclV6wrHeJiGGx7ee1V988=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=niCT3sGc0nhu+MKE15cOmixqFTzPAzuM+JXHh8UIXYk/QBka7MHhqMK31Rs7xrUui
-	 xWGDcEAn0KH3fSUj83doKefDip0SFnyx16083vHWs+Kz/7ZVvzznmcx5qDRVfg8LRe
-	 3OGHJyq88POyqmD9Q0N+dHeptgzoKsLXAQyY56gXSsYYda9+mWdnG9RnCgZrXYhEbn
-	 w1koFeCcrUiwzWK3rjzPQ5TtnKvznRG4e/kjkMKoZSJ0vBmrMiHW0HZ0h857QzKX6G
-	 LzLqYxYxRMqnNvvlH6/OgMEZS0QJvZ9Ej3lAOZ6ChIR0MJF9B15eOAaE5AqCdfcyMC
-	 H0rD9sCNUcMXQ==
-Message-ID: <f5fad349-7086-4b3a-a91f-5a471f340c14@kernel.org>
-Date: Mon, 6 Jul 2026 12:41:49 +0200
+	id 1wghZW-0000000CNZJ-0zoy
+	for linux-riscv@lists.infradead.org;
+	Mon, 06 Jul 2026 11:33:14 +0000
+Received: from mors-relay-8403.netcup.net (localhost [127.0.0.1])
+	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gv2K93Nwkz8838;
+	Mon,  6 Jul 2026 13:32:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1783337565;
+	bh=CrAyFlNelNHVdYVgyLcMn88u7gZnj2u5kod5elb1DH0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cQmGraDOQdBWVgJ2Og2JqDPgqLdI2xwoEHZYWowjbE4fv7P1BkeFPXFRzNEzmZnUa
+	 hn+tUzGcgvXY9YilBYDcA2cIVBH5hqi+KHlL1Rlhm/PW51Jk1XGob/pZ33ZEU/ozXy
+	 cyE3s25knDwyIKGzC3gZDfScQzUNWbQ6CEQKXO23KD8gKKeLvdjJBkfaR5dlX+bJAt
+	 Xw3yBCngwvAVGdQuEWPs9LmUpiHyAkYzzrlj/MSwSMuzS27EaJCoCQkFSrfL7SKkdp
+	 lX1Nel3JBgGc9ao/F5Q+DnkDbIeWpfIahNjg+/zQyDFt/gAC98z7N3RsROJ0KkW68z
+	 g7PHoATYfJCqQ==
+Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gv2K92cvNz87md;
+	Mon,  6 Jul 2026 13:32:45 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4gv2K50Ys6z8tbb;
+	Mon,  6 Jul 2026 13:32:41 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id D6871603ED;
+	Mon,  6 Jul 2026 13:32:39 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <1a9a672d-914d-43c2-b1da-6a0deede4dac@leemhuis.info>
+Date: Mon, 6 Jul 2026 13:32:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 4/5] pwm: Unify coding style of of_device_id arrays
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
- <u.kleine-koenig@baylibre.com>,
- =?UTF-8?Q?Philippe_Mathieu-Daud=C3=A9?= <philmd@oss.qualcomm.com>
-Cc: Chen Wang <chen.wang@linux.dev>, linux-pwm@vger.kernel.org,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>,
- Vladimir Zapolskiy <vz@mleia.com>,
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Paul Walmsley <pjw@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>, Michael Walle
- <mwalle@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
- Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
- <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Hammer Hsieh <hammerh0314@gmail.com>,
- Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
- Alexey Charkov <alchark@gmail.com>, Sean Anderson <sean.anderson@linux.dev>,
- Michal Simek <michal.simek@amd.com>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, chrome-platform@lists.linux.dev,
- imx@lists.linux.dev, linux-mips@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
- linux-sunxi@lists.linux.dev
-References: <cover.1783263835.git.ukleinek@kernel.org>
- <20de6cd60c2938aad2d21397b92742849418ab1b.1783263835.git.ukleinek@kernel.org>
- <973f3d6f-6ff4-4685-9c9f-b07987f74d98@linux.dev> <aktWoIfY_DdO6gb4@monoceros>
- <bc697542-b1e2-41c2-af36-b708ca4aad5c@oss.qualcomm.com>
- <akuFirxGTqu_gt4O@monoceros>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <akuFirxGTqu_gt4O@monoceros>
+Subject: Re: [PATCH v2] rcu: Use an intermediate irq_work to start
+ process_srcu()
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Boqun Feng <boqun@kernel.org>, Samuel Holland <samuel.holland@sifive.com>
+Cc: Joel Fernandes <joelagnelf@nvidia.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, frederic@kernel.org,
+ neeraj.iitr10@gmail.com, urezki@gmail.com, boqun.feng@gmail.com,
+ rcu@vger.kernel.org, Tejun Heo <tj@kernel.org>, bpf@vger.kernel.org,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>, Andrea Righi <arighi@nvidia.com>,
+ Zqiang <qiang.zhang@linux.dev>, linux-riscv@lists.infradead.org,
+ Sarah Emery <sarah.emery@canonical.com>,
+ Indrek Kruusa <indrek.kruusa@gmail.com>,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <ab2yd35rm6OgZUmb@gpd4> <20260320222916.19987-1-boqun@kernel.org>
+ <CAJM55Z-hiNDuu5UwoBe7m0wq+_WJrRY0cwopALUgpG+r3ixj8g@mail.gmail.com>
+ <ajQPAk_ALP-84obp@MacBook-0RXW5>
+ <CAJM55Z_15U7GssTOims1=J34CYSj=8CDE_di1kJYs5hE3=J53w@mail.gmail.com>
+ <ajlW4oSzEqav6gxc@MacBook-0RXW5>
+ <CAJM55Z_7N40ARWGoZg04p-NnAy-w10v4=Em-e4Bx4+oNYMGBLg@mail.gmail.com>
+ <80773b89-f333-4c82-99b5-3fca44ea93b3@sifive.com>
+ <CAJM55Z_aUzPieiGKPgr_iETovgyGB0EUFau+=tLxZksT9CkpYQ@mail.gmail.com>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <CAJM55Z_aUzPieiGKPgr_iETovgyGB0EUFau+=tLxZksT9CkpYQ@mail.gmail.com>
+X-PPP-Message-ID: <178333756076.763651.5475009093779181864@mxe9fb.netcup.net>
+X-NC-CID: 5We4qmzXW0aQeF+1js2/uoL0nHzawYS6SjwmVksOB9uX0tTkc/8=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_043310_579400_F59AB0FE 
+X-CRM114-Status: GOOD (  26.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,36 +103,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDYvMDcvMjAyNiAxMjozOSwgVXdlIEtsZWluZS1Lw7ZuaWcgKFRoZSBDYXBhYmxlIEh1Yikg
-d3JvdGU6Cj4gSGVsbG8sCj4gCj4gT24gTW9uLCBKdWwgMDYsIDIwMjYgYXQgMTA6Mjg6MTZBTSAr
-MDIwMCwgUGhpbGlwcGUgTWF0aGlldS1EYXVkw6kgd3JvdGU6Cj4+IEhpIFV3ZSwKPj4KPj4gT24g
-Ni83LzI2IDA5OjE5LCBVd2UgS2xlaW5lLUvDg8K2bmlnIChUaGUgQ2FwYWJsZSBIdWIpIHdyb3Rl
-Ogo+Pj4gSGVsbG8gQ2hlbiwKPj4+Cj4+PiBPbiBNb24sIEp1bCAwNiwgMjAyNiBhdCAwODozMzo0
-N0FNICswODAwLCBDaGVuIFdhbmcgd3JvdGU6Cj4+Pj4gT24gNy81LzIwMjYgMTE6MTQgUE0sIFV3
-ZSBLbGVpbmUtS8O2bmlnIChUaGUgQ2FwYWJsZSBIdWIpIHdyb3RlOgo+Pj4+PiAgICAtIFVzZSBh
-IHNpbmdsZSBzcGFjZSBpbiBhIG9mX2RldmljZV9pZCBhcnJheSB0ZXJtaW5hdG9yOyBBIHNpbmds
-ZSBzcGFjZQo+Pj4+PiAgICAgIGFmdGVyIHRoZSBvcGVuaW5nIHsgYW5kIGJlZm9yZSB0aGUgY2xv
-c2luZyB9IGluIG5vbi1lbXB0eQo+Pj4+PiAgICAgIGluaXRpYWxpemVyczsKPj4+Pj4gICAgLSBO
-byBjb21tYSBhZnRlciBhbiBhcnJheSB0ZXJtaW5hdG9yOwo+Pj4+PiAgICAtIEFsc28gbm8gdHJh
-aWxpbmcgY29tbWEgYWZ0ZXIgYSBuYW1lZCBpbml0aWFsaXplciBpZmYgdGhlCj4+Pj4gaWZmIC0+
-IGlmCj4+Pgo+Pj4gVGhpcyBpcyBhY3R1YWxseSBpbnRlbmRlZC4gaWZmID0gImlmIGFuZCBvbmx5
-IGlmIiwgc2VlIGUuZy4KPj4+IGh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpL0lmX2FuZF9v
-bmx5X2lmIC4KPj4KPj4gSSBhZ3JlZSB0aGlzIHNjaWVudGlmaWMgaWRpb21hdGljIGV4cHJlc3Np
-b24gaXMgbm90IHdlbGwga25vd24KPj4gYnkgbm9uLW5hdGl2ZSBFbmdsaXNoIHNwZWFrZXJzLCBh
-bmQgdXNpbmcgdGhlIGV4cGFuZGVkIGZvcm0gaXMKPj4ganVzdCBzaW1wbGVyIHRvIHJldmlldyAo
-dGhpbmtpbmcgYXQgbm9uLW5hdGl2ZSBFbmdsaXNoIHNwZWFrZXIKPj4gcmVhZGluZyB5b3VyIGNv
-bW1pdCBpbiB0aGUgZnV0dXJlKS4KPiAKPiBmaW5lIGZvciBtZSwgSSdsbCBmaXh1cCB0byAKCk5v
-b29vLCByZWFsbHksIHRoaXMgaXMgbml0cGlja2luZyBvbiB0aGlzIGNvbW1pdC4gTm90IHRoYXQg
-SSBsaWtlIHRoYXQKY29tbWl0IC0gaXQncyBqdXN0IGNodXJuIC0gYnV0ICdpZmYnIGlzIHdpZGVs
-eSBrbm93biBhbmQgd2lkZWx5IHVzZWQgaW4KTGludXgga2VybmVsLiBJdCdzIGNvbXBsZXRlbHkg
-Y29ycmVjdCwgaXQgaXMgY29tbW9uIGFuZCBleHBlY3RlZC4KCkl0IGlzIG5vdCBzY2llbnRpZmlj
-IGV4cHJlc3Npb24uIEl0IGlzIGNvbW1vbiBpbiB0aGUga2VybmVsIGRvY3MuCgpCZXN0IHJlZ2Fy
-ZHMsCktyenlzenRvZgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On 6/24/26 10:55, Emil Renner Berthing wrote:
+> Quoting Samuel Holland (2026-06-23 17:53:19)
+>> On 2026-06-23 4:34 AM, Emil Renner Berthing wrote:
+>>> Quoting Boqun Feng (2026-06-22 17:38:10)
+>>>> On Sat, Jun 20, 2026 at 05:25:25AM -0400, Emil Renner Berthing wrote:
+>>>>> Quoting Boqun Feng (2026-06-18 17:30:10)
+>>>>>> On Thu, Jun 18, 2026 at 08:11:36AM -0500, Emil Renner Berthing wrote:
+>>>>>>> Quoting Boqun Feng (2026-03-20 23:29:16)
+>>>>>>>> Since commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms
+>>>>>>>> of SRCU-fast") we switched to SRCU in BPF. However as BPF instrument can
+>>>>>>>> happen basically everywhere (including where a scheduler lock is held),
+>>>>>>>> call_srcu() now needs to avoid acquiring scheduler lock because
+>>>>>>>> otherwise it could cause deadlock [1]. Fix this by following what the
+>>>>>>>> previous RCU Tasks Trace did: using an irq_work to delay the queuing of
+>>>>>>>> the work to start process_srcu().
+>>>>>>>>
+>>>>>>>> [boqun: Apply Joel's feedback]
+>>>>>>>> [boqun: Apply Andrea's test feedback]
+>>>>>>>>
+>>>>>>>> Reported-by: Andrea Righi <arighi@nvidia.com>
+>>>>>>>> Closes: https://lore.kernel.org/all/abjzvz_tL_siV17s@gpd4/
+>>>>>>>> Fixes: commit c27cea4416a3 ("rcu: Re-implement RCU Tasks Trace in terms of SRCU-fast")
+>>>>>>>> Link: https://lore.kernel.org/rcu/3c4c5a29-24ea-492d-aeee-e0d9605b4183@nvidia.com/ [1]
+>>>>>>>> Suggested-by: Zqiang <qiang.zhang@linux.dev>
+>>>>>>>> Tested-by: Andrea Righi <arighi@nvidia.com>
+>>>>>>>> Signed-off-by: Boqun Feng <boqun@kernel.org>
+>>>>>>>
+>>>>>>> Thanks for the patch, which is now upstream as
+>>>>>>> 7c405fb3279b ("rcu: Use an intermediate irq_work to start process_srcu()")
+>>>>>>>
+>>>>>>> Unfortunately it seems to halt booting on the Allwinner D1 single-core RISC-V
+>>>>>>> SoC both on the 7.0 and 7.1 kernels:
+>>>>>>>
+>>>>>>
+>>>>>> By "single-core", is it only one CPU in that system?
+>>>>>>
+>>>>>>> https://esmil.dk/d1-7.0.txt
+>>>>>>> https://esmil.dk/d1-7.1.txt
+>>>>>>>
+>>>>>
+>>>>> Yes, the SoC only has one CPU core capable of running Linux at least.
+>>>>>
+>>>>>> From the callstack,
+>>>>>>
+>>>>>> [  243.002818] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+>>>>>> [  243.010681] task:kworker/0:0     state:D stack:0     pid:9     tgid:9     ppid:2      task_flags:0x4208060 flags:0x00000000
+>>>>>> [  243.021858] Workqueue: device_link_wq device_link_release_fn
+>>>>>> [  243.027587] Call Trace:
+>>>>>> [  243.030079] [<ffffffff80745b66>] __schedule+0x232/0x530
+>>>>>> [  243.035365] [<ffffffff80745e82>] schedule+0x1e/0x94
+>>>>>> [  243.040298] [<ffffffff8074aa7a>] schedule_timeout+0x6e/0xa8
+>>>>>> [  243.045929] [<ffffffff8004d6a0>] wakeup_preempt+0x8c/0x98
+>>>>>> [  243.051380] [<ffffffff80746aee>] wait_for_completion+0x3a/0xb0
+>>>>>> [  243.057267] [<ffffffff80087226>] __synchronize_srcu.part.0+0x4e/0x60
+>>>>>> [  243.063712] [<ffffffff80084414>] rcu_tasks_get_gp_data+0xc/0x10
+>>>>>> [  243.069699] [<ffffffff80490898>] device_link_release_fn+0x14/0x80
+>>>>>> [  243.075850] [<ffffffff8003dbd0>] process_one_work+0xf8/0x1c8
+>>>>>> [  243.081583] [<ffffffff8003e282>] worker_thread+0x11a/0x254
+>>>>>> [  243.087127] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+>>>>>> [  243.092755] [<ffffffff8003e164>] rescuer_thread+0x3a0/0x3a4
+>>>>>> [  243.098381] [<ffffffff8004499e>] kthread+0xbe/0xe4
+>>>>>> [  243.103231] [<ffffffff8001349e>] ret_from_fork_kernel+0x6/0xd0
+>>>>>> [  243.109127] [<ffffffff800517a8>] schedule_tail+0x8/0xac
+>>>>>> [  243.114410] [<ffffffff800448dc>] kthreads_online_cpu+0x0/0x4
+>>>>>> [  243.120121] [<ffffffff8074be0a>] ret_from_fork_kernel_asm+0x12/0x18
+>>>>>>
+>>>>>> I will guess for some reasons the irq_work was missed or the IPI never
+>>>>>> happened. Is it possible for you to enable trace points ipi_send_cpu and
+>>>>>> ipi_entry to get more information?
+>>>>>
+>>>>> I have to admit I've not used tracepoints before, but it seems like only
+>>>>> ipi_send_cpu and ipi_send_cpumask is available on RISC-V.
+>>>>> I've now added trace_event=ipi:* and tp_printk to the command line, and this
+>>>>
+>>>> Thank you! Yeah, this is what I meant ;-)
+>>>>
+>>>>> is what I get:
+>>>>> https://esmil.dk/d1-7.0-2.txt
+>>>>>
+>>>>
+>>>>
+>>>> [    0.071132] rcu:     Max phase no-delay instances is 1000.
+>>>> [    0.077837] ipi_send_cpu: cpu=0 callsite=irq_work_queue+0x22/0x4c callback=srcu_irq_work+0x0/0x58
+>>>>
+>>>> Is this the last line you can see from your (serial?) console, or we are
+>>>> missing a few more lines? Maybe it'll should the same hung task
+>>>> messages?
+>>>
+>>> Yes, sorry for not being clear about that. This is the exact same binary booted
+>>> without the two extra command line parametrs:
+>>> https://esmil.dk/d1-7.0-3.txt
+>>>
+>>> But with the two parameters added the board reboots before getting to the hung
+>>> task messages. The bootloader enables the watchdog, so I think what happens is
+>>> that the kernel halts earlier with the tracepoints enabled, and doesn't get to
+>>> load the watchdog driver to keep the machine from rebooting.
+>>>
+>>> The same happens with just trace_event=ipi:* added, just without the last
+>>> message above.
+>>>
+>>>>
+>>>> The ipi_send_cpu message means RCU was able to send an IPI, now if there
+>>>> is no ipi_handler between the send and the hung task, that would mean
+>>>> the IPI was missed.
+>>
+>> Assuming that your OpenSBI version is exactly v1.3 per the boot log, and not
+>> "v1.3 + patches", then you would indeed not be receiving IPIs. You need at least
+>> this commit: https://github.com/riscv-software-src/opensbi/commit/446fa65eb579
+>> (included in v1.4) or alternatively to add the CLINT to the M-mode devicetree.
+> 
+> So then we're in a situation similar to [1], where upgrading the kernel from
+> 6.19 to 7.0 requires you to update the firmware first.
+
+Which normally should never happen to ensure users feel save to update
+the kernel. But I wonder if that is relevant, as Indrek Kruusa reported
+problems with that board, too -- and there is a fix that fixes it:
+https://lore.kernel.org/linux-riscv/20260624220434.4183732-1-felixonmars@archlinux.org/
+
+Does that maybe fix your problem, too (even if it was bisected to a
+different commit, it might be related somehow, that's why I'm asking)?
+
+Ciao, Thorsten
+
+> To me and from the thread
+> that seems like a really obvious regression. So the question is, how can we make
+> the current kernel work like < 7.0 kernels worked?
+> 
+> [1]: https://lore.kernel.org/all/87jzgjnh9z.ffs@tglx/#t
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
