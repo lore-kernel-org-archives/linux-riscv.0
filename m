@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C50C43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 03:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E1CEC43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 05:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CLomc/aquC19w/8r4Ihaba3hGlAASJ6Ocj+/zfsuG7U=; b=oypfkX9QUWA8an
-	9ta5X/EJ9e/Abaqc7aWM97fhiXP3FPkrEA13fo0t01iECwVKHtyrMQvFLr/fpnqyhGW9l0xI4bRfV
-	asPyF5HM+2tAO64+gAwuD7E7yc5GEeTaCu+3wzgdv+Gsu0mCVZFF6jGgJi8vc2HJj6HhFTqXteLpR
-	UYHeB284Twy90Cwy9Vf/lAkvRAIIH5CFsAR+WV9gxh1ITStceccVBdIYY+97fcN+QAtrm9ZRMEq8w
-	NlNgMHEzzM+EhXsEkZXX2efjeQ8TBq7QgeCN3M6LAK9FrjERVNpRTI6civkEP2jd0vP8pskP+ug/2
-	DX1/lC9Jyc2p9OpODsHw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1vz0SrnDrAP0Bdq6qjJjduFjbQfPq84wR8r41unOJdM=; b=BjH2xM6/+KDV5l
+	h7FB85FG8HPfonGATiySkQZW8mloMN11Lw6x/HR/cNe2G91wBT0fPaly2GYmJ7sW5lXWXhtBwg1ir
+	kSc2QIsnQnU5mbtF9ES3E948+cuFcrvbT2a1dftGn5ooADSYAKhHGtyJ10O64ITj3oGGChfNq8ja9
+	Zxq2Foho/zDJe2GWBdM/3TEsdHvnN6m6RwZpW44RoBKf+Fi+GqdGKtQ1cc2jNhiL+pmLt8cMmJnPd
+	sN+z8UJ1CCmKwHbKAZbNvJ7x2+8FFgBazwmDC0vTg8tHxd2wAQqCWTr3Cq1JvEFKj1nLtKkjWd7pM
+	8mvEmpQbcyC/zR4ck1Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZaR-0000000BRDo-2nLR;
-	Mon, 06 Jul 2026 03:01:35 +0000
-Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
+	id 1wgbVc-0000000BVtR-26pn;
+	Mon, 06 Jul 2026 05:04:44 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZaP-0000000BRDB-2O0p
+	id 1wgbVX-0000000BVsh-0clE
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 03:01:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783306878;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5mNg8uTBUEP+kdeHtZVc8H2D2K8xV49JXzmGSxQo2r8=;
-	b=h4WuptXJGTMFsEeIm0BZYZ4V0I4pmNKKI6vHYn577zDVcEx6pVWmMpEm1XnXvNhMPmL1J4
-	/68NGmhYURhAKTNPgwIopj8EEMzZ/nF87Z2r5SgH/ICOONcUzE7D7oX7gTIyA9JoiJEBOE
-	fte8zEQwW5s68CSiG75PABKsNuy2o2k=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
+	Mon, 06 Jul 2026 05:04:43 +0000
+Received: from [192.168.0.113] (unknown [123.118.218.239])
+	by APP-01 (Coremail) with SMTP id qwCowAC3VM1AN0tqdg_qBA--.32811S2;
+	Mon, 06 Jul 2026 13:04:00 +0800 (CST)
+Message-ID: <5fac578c-ff97-4721-96f3-8ba495f0556a@iscas.ac.cn>
+Date: Mon, 6 Jul 2026 13:04:00 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4] riscv: mm: Avoid spurious fault after hotplugging
  vmemmap
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn>
-Date: Mon, 6 Jul 2026 11:00:32 +0800
-Cc: Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-Message-Id: <7B0CB4ED-C190-4F49-97EE-E1F14F08DED2@linux.dev>
+To: Muchun Song <muchun.song@linux.dev>, linuxppc-dev@lists.ozlabs.org
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
 References: <20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-X-Migadu-Flow: FLOW_OUT
+ <7B0CB4ED-C190-4F49-97EE-E1F14F08DED2@linux.dev>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <7B0CB4ED-C190-4F49-97EE-E1F14F08DED2@linux.dev>
+X-CM-TRANSID: qwCowAC3VM1AN0tqdg_qBA--.32811S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3JF4UCw1DZF4xJF4kJr15twb_yoWxZw4kpF
+	Wj9an8KFs8Jr1xuw4Ivw17Wrn3twnYga4xGw18K34rZwn8JFy7Wr9YgayYqry5XFWkuayI
+	y3WYk345uwn8AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IUYsSdPUUUUU==
+X-Originating-IP: [123.118.218.239]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_200133_779477_99FB7A73 
-X-CRM114-Status: GOOD (  31.72  )
+X-CRM114-CacheID: sfid-20260705_220441_478257_807B2D30 
+X-CRM114-Status: GOOD (  33.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,173 +85,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> On Jun 30, 2026, at 15:51, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
-> 
-> section_activate() does not flush TLB after populating new vmemmap
-> pages. On most architectures, this is okay. However it is a problem on
-> RISC-V since there the TLB caching non-present entries is permitted,
-> which causes spurious faults on some hardwares.
-> 
-> This seems to be most easily reproduced with DEBUG_VM=y and
-> PAGE_POISONING=y, which causes these newly mapped struct pages to be
-> poisoned i.e. written to immediately after mapping.
-> 
-> Add a hook vmemmap_populate_finalize() in __populate_section_memmap()
-> after population, to allow architectures to handle such situations as
-> needed. Then implement it on RISC-V to arrange for the existing
-> exception handler code to deal with these faults if they happen.
-> 
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> ---
-> Changes in v4:
-> - Rebase on v7.2-rc1, drop dependencies
-> - (No code changes otherwise)
-> - (A concurrency fix for mark_new_valid_map was sent independently)
->  https://lore.kernel.org/linux-riscv/20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn/
-> - Link to v3: https://patch.msgid.link/20260605-mark-after-vmemmap-populate-v3-1-a06001ac9264@iscas.ac.cn
-> 
-> Changes in v3:
-> - Merged back into one patch (Mike)
-> - (No code changes otherwise.)
-> - Link to v2: https://patch.msgid.link/20260604-mark-after-vmemmap-populate-v2-0-ab6a7d03b434@iscas.ac.cn
-> 
-> Changes in v2:
-> - Split patch in two, hook point and riscv hook 
-> - Explain hook necessity in patch 1 message (Mike)
-> - Make hook #define based (Mike)
-> - Call finalize hook only on populate success
-> - Link to v1: https://patch.msgid.link/20260525-mark-after-vmemmap-populate-v1-1-e698d859ba16@iscas.ac.cn
-> ---
-> arch/riscv/include/asm/pgtable.h | 4 ++++
-> arch/riscv/mm/init.c             | 6 ++++++
-> mm/sparse-vmemmap.c              | 8 ++++++++
-> 3 files changed, 18 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 5d5756bda82e..6b000c990ba7 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -1253,6 +1253,10 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
-> #define TASK_SIZE FIXADDR_START
-> #endif
-> 
-> +/* Needed on SPARSEMEM_VMEMMAP */
-> +#define vmemmap_populate_finalize vmemmap_populate_finalize
-> +void __meminit vmemmap_populate_finalize(void);
-> +
-> #else /* CONFIG_MMU */
-> 
-> #define PAGE_SHARED __pgprot(0)
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 5b1b3c88b4d1..800cb5c007d1 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -1372,6 +1372,12 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
-> */
-> 	return vmemmap_populate_hugepages(start, end, node, altmap);
-> }
-> +
-> +void __meminit vmemmap_populate_finalize(void)
-> +{
-> + 	/* Avoid faults on cached non-present TLB entries. */
-> + 	mark_new_valid_map();
-> +}
-> #endif
-> 
-> #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
-> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-> index 99e2be39671b..290cafcfd723 100644
-> --- a/mm/sparse-vmemmap.c
-> +++ b/mm/sparse-vmemmap.c
-> @@ -544,6 +544,12 @@ static int __meminit vmemmap_populate_compound_pages(unsigned long start_pfn,
-> 
-> #endif
-> 
-> +#ifndef vmemmap_populate_finalize
-> +static void __meminit vmemmap_populate_finalize(void)
-> +{
-> +}
-> +#endif
-> +
-> struct page * __meminit __populate_section_memmap(unsigned long pfn,
-> unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
-> struct dev_pagemap *pgmap)
-> @@ -564,6 +570,8 @@ struct page * __meminit __populate_section_memmap(unsigned long pfn,
-> 	if (r < 0)
-> 		return NULL;
-> 
-> + 	vmemmap_populate_finalize();
-
-Does the hook of flush_cache_vmap() work for you?  From the document of
-cachetlb.rst, it said: 
-
-	6) ``void flush_cache_vmap(unsigned long start, unsigned long end)``
-	   ``void flush_cache_vunmap(unsigned long start, unsigned long end)``
-
-		Here in these two interfaces we are flushing a specific range
-		of (kernel) virtual addresses from the cache. After running,
-		there will be no entries in the cache for the kernel address
-		space for virtual addresses in the range 'start' to 'end-1'.
-
-It seems that flush_cache_vmap() is supposed to be called after a new kernel
-mapping has been installed, but before this address range is accessed.
-
-Therefore, invoking flush_cache_vmap() here aligns perfectly with its interface
-definition. But how would this change impact other architectures? Currently,
-among architectures where CONFIG_SPARSEMEM=y, only RISC-V and PowerPC provide
-a concrete implementation for flush_cache_vmap().
-
-For PowerPC, the implementation is as follows:
-
-	static inline void flush_cache_vmap(unsigned long start, unsigned long end)
-	{
-		asm volatile("ptesync" ::: "memory");
-	}
-
-Here, flush_cache_vmap() is also intended to supply the ptesync instruction
-that the kernel address mapping lacks. However, flush_cache_vmap() is not
-called in the __populate_section_memmap() path. So, how does PowerPC ensure
-ptesync is executed there? The answer lies in the architecture-specific
-vmemmap_set_pmd(), which injects the necessary ptesync.
-
-If we choose to reuse flush_cache_vmap() in the generic path, it yields the
-following benefits:
-
-- Avoids architectural churn: We do not need to introduce a new hook
-  like vmemmap_populate_finalize().
-- Cleans up arch code: PowerPC can deprecate its custom vmemmap_set_pmd()
-  and migrate to the generic implementation.
-
-Let me know if this rationale makes sense, or if there are any hidden edge
-cases I might have overlooked regarding other architectures.
-
-Thanks,
-Muchun
-
-		
-> +
-> 	return pfn_to_page(pfn);
-> }
-> 
-> 
-> ---
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> change-id: 20260525-mark-after-vmemmap-populate-68bd790839c9
-> 
-> Best regards,
-> --  
-> Vivian "dramforever" Wang
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+WyBwb3dlcnBjIG1haW50YWluZXJzOiBUaG91Z2h0cyBvbiByZXBsYWNpbmcgdGhlIHB0ZXN5bmMg
+aW4Kdm1lbW1hcF9zZXRfcG1kKCkgd2l0aCBhIGZsdXNoX2NhY2hlX3ZtYXAoKSBwb3N0LXZtZW1t
+YXAtaG90cGx1ZyBpbiB0aGUKZ2VuZXJpYyBjb2RlPyBdCgpPbiA3LzYvMjYgMTE6MDAsIE11Y2h1
+biBTb25nIHdyb3RlOgo+PiBPbiBKdW4gMzAsIDIwMjYsIGF0IDE1OjUxLCBWaXZpYW4gV2FuZyA8
+d2FuZ3J1aWthbmdAaXNjYXMuYWMuY24+IHdyb3RlOgo+Pgo+PiBzZWN0aW9uX2FjdGl2YXRlKCkg
+ZG9lcyBub3QgZmx1c2ggVExCIGFmdGVyIHBvcHVsYXRpbmcgbmV3IHZtZW1tYXAKPj4gcGFnZXMu
+IE9uIG1vc3QgYXJjaGl0ZWN0dXJlcywgdGhpcyBpcyBva2F5LiBIb3dldmVyIGl0IGlzIGEgcHJv
+YmxlbSBvbgo+PiBSSVNDLVYgc2luY2UgdGhlcmUgdGhlIFRMQiBjYWNoaW5nIG5vbi1wcmVzZW50
+IGVudHJpZXMgaXMgcGVybWl0dGVkLAo+PiB3aGljaCBjYXVzZXMgc3B1cmlvdXMgZmF1bHRzIG9u
+IHNvbWUgaGFyZHdhcmVzLgo+Pgo+PiBUaGlzIHNlZW1zIHRvIGJlIG1vc3QgZWFzaWx5IHJlcHJv
+ZHVjZWQgd2l0aCBERUJVR19WTT15IGFuZAo+PiBQQUdFX1BPSVNPTklORz15LCB3aGljaCBjYXVz
+ZXMgdGhlc2UgbmV3bHkgbWFwcGVkIHN0cnVjdCBwYWdlcyB0byBiZQo+PiBwb2lzb25lZCBpLmUu
+IHdyaXR0ZW4gdG8gaW1tZWRpYXRlbHkgYWZ0ZXIgbWFwcGluZy4KPj4KPj4gQWRkIGEgaG9vayB2
+bWVtbWFwX3BvcHVsYXRlX2ZpbmFsaXplKCkgaW4gX19wb3B1bGF0ZV9zZWN0aW9uX21lbW1hcCgp
+Cj4+IGFmdGVyIHBvcHVsYXRpb24sIHRvIGFsbG93IGFyY2hpdGVjdHVyZXMgdG8gaGFuZGxlIHN1
+Y2ggc2l0dWF0aW9ucyBhcwo+PiBuZWVkZWQuIFRoZW4gaW1wbGVtZW50IGl0IG9uIFJJU0MtViB0
+byBhcnJhbmdlIGZvciB0aGUgZXhpc3RpbmcKPj4gZXhjZXB0aW9uIGhhbmRsZXIgY29kZSB0byBk
+ZWFsIHdpdGggdGhlc2UgZmF1bHRzIGlmIHRoZXkgaGFwcGVuLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5
+OiBWaXZpYW4gV2FuZyA8d2FuZ3J1aWthbmdAaXNjYXMuYWMuY24+Cj4+IC0tLQo+PiBDaGFuZ2Vz
+IGluIHY0Ogo+PiAtIFJlYmFzZSBvbiB2Ny4yLXJjMSwgZHJvcCBkZXBlbmRlbmNpZXMKPj4gLSAo
+Tm8gY29kZSBjaGFuZ2VzIG90aGVyd2lzZSkKPj4gLSAoQSBjb25jdXJyZW5jeSBmaXggZm9yIG1h
+cmtfbmV3X3ZhbGlkX21hcCB3YXMgc2VudCBpbmRlcGVuZGVudGx5KQo+PiAgaHR0cHM6Ly9sb3Jl
+Lmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyNjA2MjktcmlzY3YtbW0tbmV3LXZhbGlkLW1hcC1v
+cmRlcmluZy12MS0xLTYwZDhjMTBjNjI5MkBpc2Nhcy5hYy5jbi8KPj4gLSBMaW5rIHRvIHYzOiBo
+dHRwczovL3BhdGNoLm1zZ2lkLmxpbmsvMjAyNjA2MDUtbWFyay1hZnRlci12bWVtbWFwLXBvcHVs
+YXRlLXYzLTEtYTA2MDAxYWM5MjY0QGlzY2FzLmFjLmNuCj4+Cj4+IENoYW5nZXMgaW4gdjM6Cj4+
+IC0gTWVyZ2VkIGJhY2sgaW50byBvbmUgcGF0Y2ggKE1pa2UpCj4+IC0gKE5vIGNvZGUgY2hhbmdl
+cyBvdGhlcndpc2UuKQo+PiAtIExpbmsgdG8gdjI6IGh0dHBzOi8vcGF0Y2gubXNnaWQubGluay8y
+MDI2MDYwNC1tYXJrLWFmdGVyLXZtZW1tYXAtcG9wdWxhdGUtdjItMC1hYjZhN2QwM2I0MzRAaXNj
+YXMuYWMuY24KPj4KPj4gQ2hhbmdlcyBpbiB2MjoKPj4gLSBTcGxpdCBwYXRjaCBpbiB0d28sIGhv
+b2sgcG9pbnQgYW5kIHJpc2N2IGhvb2sgCj4+IC0gRXhwbGFpbiBob29rIG5lY2Vzc2l0eSBpbiBw
+YXRjaCAxIG1lc3NhZ2UgKE1pa2UpCj4+IC0gTWFrZSBob29rICNkZWZpbmUgYmFzZWQgKE1pa2Up
+Cj4+IC0gQ2FsbCBmaW5hbGl6ZSBob29rIG9ubHkgb24gcG9wdWxhdGUgc3VjY2Vzcwo+PiAtIExp
+bmsgdG8gdjE6IGh0dHBzOi8vcGF0Y2gubXNnaWQubGluay8yMDI2MDUyNS1tYXJrLWFmdGVyLXZt
+ZW1tYXAtcG9wdWxhdGUtdjEtMS1lNjk4ZDg1OWJhMTZAaXNjYXMuYWMuY24KPj4gLS0tCj4+IGFy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oIHwgNCArKysrCj4+IGFyY2gvcmlzY3YvbW0v
+aW5pdC5jICAgICAgICAgICAgIHwgNiArKysrKysKPj4gbW0vc3BhcnNlLXZtZW1tYXAuYyAgICAg
+ICAgICAgICAgfCA4ICsrKysrKysrCj4+IDMgZmlsZXMgY2hhbmdlZCwgMTggaW5zZXJ0aW9ucygr
+KQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggYi9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+PiBpbmRleCA1ZDU3NTZiZGE4MmUuLjZi
+MDAwYzk5MGJhNyAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxl
+LmgKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPj4gQEAgLTEyNTMs
+NiArMTI1MywxMCBAQCBzdGF0aWMgaW5saW5lIHB0ZV90IHB0ZV9zd3BfY2xlYXJfZXhjbHVzaXZl
+KHB0ZV90IHB0ZSkKPj4gI2RlZmluZSBUQVNLX1NJWkUgRklYQUREUl9TVEFSVAo+PiAjZW5kaWYK
+Pj4KPj4gKy8qIE5lZWRlZCBvbiBTUEFSU0VNRU1fVk1FTU1BUCAqLwo+PiArI2RlZmluZSB2bWVt
+bWFwX3BvcHVsYXRlX2ZpbmFsaXplIHZtZW1tYXBfcG9wdWxhdGVfZmluYWxpemUKPj4gK3ZvaWQg
+X19tZW1pbml0IHZtZW1tYXBfcG9wdWxhdGVfZmluYWxpemUodm9pZCk7Cj4+ICsKPj4gI2Vsc2Ug
+LyogQ09ORklHX01NVSAqLwo+Pgo+PiAjZGVmaW5lIFBBR0VfU0hBUkVEIF9fcGdwcm90KDApCj4+
+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5j
+Cj4+IGluZGV4IDViMWIzYzg4YjRkMS4uODAwY2I1YzAwN2QxIDEwMDY0NAo+PiAtLS0gYS9hcmNo
+L3Jpc2N2L21tL2luaXQuYwo+PiArKysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+PiBAQCAtMTM3
+Miw2ICsxMzcyLDEyIEBAIGludCBfX21lbWluaXQgdm1lbW1hcF9wb3B1bGF0ZSh1bnNpZ25lZCBs
+b25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIGVuZCwgaW50IG5vZGUsCj4+ICovCj4+IAlyZXR1cm4g
+dm1lbW1hcF9wb3B1bGF0ZV9odWdlcGFnZXMoc3RhcnQsIGVuZCwgbm9kZSwgYWx0bWFwKTsKPj4g
+fQo+PiArCj4+ICt2b2lkIF9fbWVtaW5pdCB2bWVtbWFwX3BvcHVsYXRlX2ZpbmFsaXplKHZvaWQp
+Cj4+ICt7Cj4+ICsgCS8qIEF2b2lkIGZhdWx0cyBvbiBjYWNoZWQgbm9uLXByZXNlbnQgVExCIGVu
+dHJpZXMuICovCj4+ICsgCW1hcmtfbmV3X3ZhbGlkX21hcCgpOwo+PiArfQo+PiAjZW5kaWYKPj4K
+Pj4gI2lmIGRlZmluZWQoQ09ORklHX01NVSkgJiYgZGVmaW5lZChDT05GSUdfNjRCSVQpCj4+IGRp
+ZmYgLS1naXQgYS9tbS9zcGFyc2Utdm1lbW1hcC5jIGIvbW0vc3BhcnNlLXZtZW1tYXAuYwo+PiBp
+bmRleCA5OWUyYmUzOTY3MWIuLjI5MGNhZmNmZDcyMyAxMDA2NDQKPj4gLS0tIGEvbW0vc3BhcnNl
+LXZtZW1tYXAuYwo+PiArKysgYi9tbS9zcGFyc2Utdm1lbW1hcC5jCj4+IEBAIC01NDQsNiArNTQ0
+LDEyIEBAIHN0YXRpYyBpbnQgX19tZW1pbml0IHZtZW1tYXBfcG9wdWxhdGVfY29tcG91bmRfcGFn
+ZXModW5zaWduZWQgbG9uZyBzdGFydF9wZm4sCj4+Cj4+ICNlbmRpZgo+Pgo+PiArI2lmbmRlZiB2
+bWVtbWFwX3BvcHVsYXRlX2ZpbmFsaXplCj4+ICtzdGF0aWMgdm9pZCBfX21lbWluaXQgdm1lbW1h
+cF9wb3B1bGF0ZV9maW5hbGl6ZSh2b2lkKQo+PiArewo+PiArfQo+PiArI2VuZGlmCj4+ICsKPj4g
+c3RydWN0IHBhZ2UgKiBfX21lbWluaXQgX19wb3B1bGF0ZV9zZWN0aW9uX21lbW1hcCh1bnNpZ25l
+ZCBsb25nIHBmbiwKPj4gdW5zaWduZWQgbG9uZyBucl9wYWdlcywgaW50IG5pZCwgc3RydWN0IHZt
+ZW1fYWx0bWFwICphbHRtYXAsCj4+IHN0cnVjdCBkZXZfcGFnZW1hcCAqcGdtYXApCj4+IEBAIC01
+NjQsNiArNTcwLDggQEAgc3RydWN0IHBhZ2UgKiBfX21lbWluaXQgX19wb3B1bGF0ZV9zZWN0aW9u
+X21lbW1hcCh1bnNpZ25lZCBsb25nIHBmbiwKPj4gCWlmIChyIDwgMCkKPj4gCQlyZXR1cm4gTlVM
+TDsKPj4KPj4gKyAJdm1lbW1hcF9wb3B1bGF0ZV9maW5hbGl6ZSgpOwo+IERvZXMgdGhlIGhvb2sg
+b2YgZmx1c2hfY2FjaGVfdm1hcCgpIHdvcmsgZm9yIHlvdT8gIEZyb20gdGhlIGRvY3VtZW50IG9m
+Cj4gY2FjaGV0bGIucnN0LCBpdCBzYWlkOiAKPgo+IAk2KSBgYHZvaWQgZmx1c2hfY2FjaGVfdm1h
+cCh1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIGVuZClgYAo+IAkgICBgYHZvaWQg
+Zmx1c2hfY2FjaGVfdnVubWFwKHVuc2lnbmVkIGxvbmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5k
+KWBgCj4KPiAJCUhlcmUgaW4gdGhlc2UgdHdvIGludGVyZmFjZXMgd2UgYXJlIGZsdXNoaW5nIGEg
+c3BlY2lmaWMgcmFuZ2UKPiAJCW9mIChrZXJuZWwpIHZpcnR1YWwgYWRkcmVzc2VzIGZyb20gdGhl
+IGNhY2hlLiBBZnRlciBydW5uaW5nLAo+IAkJdGhlcmUgd2lsbCBiZSBubyBlbnRyaWVzIGluIHRo
+ZSBjYWNoZSBmb3IgdGhlIGtlcm5lbCBhZGRyZXNzCj4gCQlzcGFjZSBmb3IgdmlydHVhbCBhZGRy
+ZXNzZXMgaW4gdGhlIHJhbmdlICdzdGFydCcgdG8gJ2VuZC0xJy4KPgo+IEl0IHNlZW1zIHRoYXQg
+Zmx1c2hfY2FjaGVfdm1hcCgpIGlzIHN1cHBvc2VkIHRvIGJlIGNhbGxlZCBhZnRlciBhIG5ldyBr
+ZXJuZWwKPiBtYXBwaW5nIGhhcyBiZWVuIGluc3RhbGxlZCwgYnV0IGJlZm9yZSB0aGlzIGFkZHJl
+c3MgcmFuZ2UgaXMgYWNjZXNzZWQuCgpHb29kIHBvaW50LiBJIGhhZCBpbml0aWFsbHkgYXZvaWRl
+ZCBmbHVzaF9jYWNoZV92bWFwKCkgYmVjYXVzZSwgdG8gYmUKaG9uZXN0LCBpdCBsb29rZWQgc2Nh
+cnkuIEJ1dCB0aGUgY29tYmluYXRpb24gb2YgImhhdmUgdm1lbW1hcCIgYW5kICJoYXZlCmZsdXNo
+X2NhY2hlX3ZtYXAoKSIgaXMgbXVjaCBsZXNzIHNjYXJ5LgoKSSdkIG5lZWQgdG8gZHJvcCB0aGUg
+YWRkcmVzcyByYW5nZSBjaGVjayBpbiBSSVNDLVYncyBmbHVzaF9jYWNoZV92bWFwKCksCmJ1dCBt
+aWdodCBhcyB3ZWxsLgoKPiBUaGVyZWZvcmUsIGludm9raW5nIGZsdXNoX2NhY2hlX3ZtYXAoKSBo
+ZXJlIGFsaWducyBwZXJmZWN0bHkgd2l0aCBpdHMgaW50ZXJmYWNlCj4gZGVmaW5pdGlvbi4gQnV0
+IGhvdyB3b3VsZCB0aGlzIGNoYW5nZSBpbXBhY3Qgb3RoZXIgYXJjaGl0ZWN0dXJlcz8gQ3VycmVu
+dGx5LAo+IGFtb25nIGFyY2hpdGVjdHVyZXMgd2hlcmUgQ09ORklHX1NQQVJTRU1FTT15LCBvbmx5
+IFJJU0MtViBhbmQgUG93ZXJQQyBwcm92aWRlCj4gYSBjb25jcmV0ZSBpbXBsZW1lbnRhdGlvbiBm
+b3IgZmx1c2hfY2FjaGVfdm1hcCgpLgo+Cj4gRm9yIFBvd2VyUEMsIHRoZSBpbXBsZW1lbnRhdGlv
+biBpcyBhcyBmb2xsb3dzOgo+Cj4gCXN0YXRpYyBpbmxpbmUgdm9pZCBmbHVzaF9jYWNoZV92bWFw
+KHVuc2lnbmVkIGxvbmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5kKQo+IAl7Cj4gCQlhc20gdm9s
+YXRpbGUoInB0ZXN5bmMiIDo6OiAibWVtb3J5Iik7Cj4gCX0KPgo+IEhlcmUsIGZsdXNoX2NhY2hl
+X3ZtYXAoKSBpcyBhbHNvIGludGVuZGVkIHRvIHN1cHBseSB0aGUgcHRlc3luYyBpbnN0cnVjdGlv
+bgo+IHRoYXQgdGhlIGtlcm5lbCBhZGRyZXNzIG1hcHBpbmcgbGFja3MuIEhvd2V2ZXIsIGZsdXNo
+X2NhY2hlX3ZtYXAoKSBpcyBub3QKPiBjYWxsZWQgaW4gdGhlIF9fcG9wdWxhdGVfc2VjdGlvbl9t
+ZW1tYXAoKSBwYXRoLiBTbywgaG93IGRvZXMgUG93ZXJQQyBlbnN1cmUKPiBwdGVzeW5jIGlzIGV4
+ZWN1dGVkIHRoZXJlPyBUaGUgYW5zd2VyIGxpZXMgaW4gdGhlIGFyY2hpdGVjdHVyZS1zcGVjaWZp
+Ywo+IHZtZW1tYXBfc2V0X3BtZCgpLCB3aGljaCBpbmplY3RzIHRoZSBuZWNlc3NhcnkgcHRlc3lu
+Yy4KPgo+IElmIHdlIGNob29zZSB0byByZXVzZSBmbHVzaF9jYWNoZV92bWFwKCkgaW4gdGhlIGdl
+bmVyaWMgcGF0aCwgaXQgeWllbGRzIHRoZQo+IGZvbGxvd2luZyBiZW5lZml0czoKPgo+IC0gQXZv
+aWRzIGFyY2hpdGVjdHVyYWwgY2h1cm46IFdlIGRvIG5vdCBuZWVkIHRvIGludHJvZHVjZSBhIG5l
+dyBob29rCj4gICBsaWtlIHZtZW1tYXBfcG9wdWxhdGVfZmluYWxpemUoKS4KPiAtIENsZWFucyB1
+cCBhcmNoIGNvZGU6IFBvd2VyUEMgY2FuIGRlcHJlY2F0ZSBpdHMgY3VzdG9tIHZtZW1tYXBfc2V0
+X3BtZCgpCj4gICBhbmQgbWlncmF0ZSB0byB0aGUgZ2VuZXJpYyBpbXBsZW1lbnRhdGlvbi4KPgo+
+IExldCBtZSBrbm93IGlmIHRoaXMgcmF0aW9uYWxlIG1ha2VzIHNlbnNlLCBvciBpZiB0aGVyZSBh
+cmUgYW55IGhpZGRlbiBlZGdlCj4gY2FzZXMgSSBtaWdodCBoYXZlIG92ZXJsb29rZWQgcmVnYXJk
+aW5nIG90aGVyIGFyY2hpdGVjdHVyZXMuCj4KPiBUaGFua3MsCj4gTXVjaHVuCgpBdCBsZWFzdCBv
+biB0aGUgZmFjZSBvZiBpdCwgaXQgbWFrZXMgc2Vuc2UuIFRoZSBtYWluIHRoaW5nIGlzIEkgZG9u
+J3QKa25vdyBtdWNoIGFib3V0IHBvd2VycGMuIFNvIEknbSBhbHNvIGhvcGluZyBwb3dlcnBjIG1h
+aW50YWluZXJzIGNvdWxkCmNoaW1lIGluLsKgCgpJIGFsc28gZG9uJ3Qga25vdyBob3cgdGhpcyB3
+b3VsZCBhZmZlY3QgbmV3IGFyY2hzLCBidXQgaWYgdGhleSBuZWVkCmZsdXNoX2NhY2hlX3ZtYXAo
+KSB0aGV5ICpwcm9iYWJseSogYWxzbyB3YW50IHRoaXMgdHJlYXRtZW50IGZvciB2bWVtbWFwCmhv
+dHBsdWc/IEkgZ3Vlc3Mgd2UgY2FuIGRlYWwgd2l0aCB0aGF0IHdoZW4gaXQgaGFwcGVucy4KClRo
+YW5rcywKVml2aWFuICJkcmFtZm9yZXZlciIgV2FuZwoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
