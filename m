@@ -4,114 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C2CFC43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEE1C43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dMnEOpJTsI+fnF9MMfnk4pKBGqHQMiiStEDCMFmIMk8=; b=W4rp66R0TUv4Hh
-	ixbfNBG/iTwlAJi0431MttGKRJEM9r6GG1Q2k9tWcWlgEgrzNetoEsQ1XcYphm5I0PNASVt7fqeZv
-	0/rO8xEdK7xGaJgN99fK3Q3JMVavqiTjbzPbS5hH1VVOTvMF0AgfD8HxpyRR2c1VnKB8winUr8WiI
-	rBBGS4alrmKNNnHYB7XcQwFj7t+95oTIFRZKJtwC+whVbYguFlZt5GTnxug9gz+h2z+6SdZ8aoXvB
-	QqaNADcXYbgXUx76wYLnp3H1CiIHjT3BYpIeqB/1XRaYTX4S/TjcJHaxpijLbDHFWX0QGJLv6ONqv
-	15sQ8erJaLmPDQaP0X+A==;
+	List-Owner; bh=b4CZH2jaVpcnd2MdiT3VI6OWY67qYu5hjfjzwevSV+I=; b=mhJ21lqIBI66zA
+	Uoi9wMkCxfNIu6KfaxsNCsW3nUl06W8AzyXIqcKC8vJOk9iQ3nxU2tqRjfK93sqdwJS1q7tlBcPkJ
+	VdT9frhxS6BJ6faCdSfvQEOp3pdFlwv2r6qR9oh1/jG1UzNhqIE+3XWZroRXfU689HhNFfiwohQmN
+	FdbxAzw8HWRbfVxBjRAm7r7o1HQ8Dz80nH8JYdLgggeIZ6OyOFzOGgiqPqTtvaT4naLMNc1zckFc8
+	KVT7gNghM++A1P16xUKjN8GTQ06sTC5Doynx8EnmU02Dc0D+IxLgyw21v3nArsocy16we2XVXjYCv
+	kKXDTnWXum5BT19r/oIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgeNj-0000000BmV1-15Sz;
-	Mon, 06 Jul 2026 08:08:47 +0000
-Received: from mail-vs1-f41.google.com ([209.85.217.41])
+	id 1wgePy-0000000BmkH-3ylG;
+	Mon, 06 Jul 2026 08:11:06 +0000
+Received: from naesa04.arrow.com ([216.150.161.24])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgeNg-0000000BmUe-3Nve
+	id 1wgePw-0000000Bmi0-1Cot
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 08:08:45 +0000
-Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-738bd0b7960so2278854137.0
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 01:08:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783325323; x=1783930123;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xlcdnSGCAGaaD3Qtz41jPpd7wkV1TEYjW94sOKYd3zY=;
-        b=Ec0Rza5AJNt1CpYR16a0kCo8nedO/dIAE8DqhQjajH8CWj8OMhZsYLsPbBJyJrB34s
-         vMjL0Cobwo9AzkECewiyp7V0hO8zjNg+sFfWCecw1bGXLxGLegWdLw7Pha/RtFFTiSgv
-         7yAclyqJXE/v0Jj/GBUI/RnhGQYikMpvDdTZtmGC4maACYLtxLedpeJdHspDtQ2SM2cK
-         nD+wnE3NMIGVRRfo8+vEyjgbMdhoCSWDW77pgdD8wnR9d4HTZC1Vdc/OI7Id8abxPo/9
-         3pOcIcTBmYMTcGMvaIuomybfSEcrazJcQKyR9RqzW342TlLtMN/1lK9mtEy/R/Jz+1ec
-         noEQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqaOBPzhymVDPby/hc/yD8PeW4GiXY+uyNWicRvW9CVsG118BWHOqp9k0b7kElG2HKw18xkKDItdCkPRg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn8tSOq261XuAObsurCuUKHroMew9CQSzr9u0itDJM8k6z0jEp
-	FlCCE/oTUVu4hSmJf1Vzch0ahVj/F6CiKb8oKJHU7IRP6rBJNDTPsyHueVPco/fe
-X-Gm-Gg: AfdE7cn/kVt84/RB2BhFdPSQma1aSEk0cMS8vVGhxQEBXpT19PIQdqNckeiyy/0YnmU
-	MbbBLmPyVs05EXrb8F+DrOnIkNcmJ3tsHfgUydMUahihLjYzz9NFHwEtwTZEzTbMjlOZAzyf2Zm
-	x3kRQ8iwQ8KT8wOHfEmv02AJPHTEV5awj1sMnOlnvr5icwgWfXTGjMCfPYY5oKZ3EnhoDf4LYad
-	rUohuD78aY9NACDGMVDyHDaFd6aEfSXxkCHUB2SixABXQMBDdDrm3AMJsRqz3K4w0SISxo9CCLu
-	Jfc6AzHeMvuuDwFOZhA/MQz3pbw1/PlR8n8Gxr24iY5dTZ6mkdEBkvOAqUAd4B5VhwfOEzRadvA
-	kTTrjUqU1FDBpy6iwrYVepKM5ZXeSe5Kf7aQrKY3l3uG4VtvrhF6XvNmWsAYS0Zfz2vsW3ior31
-	HaU26fNI8To15Yw075LmuIbg8Q0emP5PTIAoeFRU1YRdFh6Do+gmwGEA==
-X-Received: by 2002:a05:6102:808f:b0:740:127:c81b with SMTP id ada2fe7eead31-7427d244e24mr3298887137.7.1783325323341;
-        Mon, 06 Jul 2026 01:08:43 -0700 (PDT)
-Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com. [209.85.221.179])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96b3890d5bfsm3120059241.11.2026.07.06.01.08.43
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 01:08:43 -0700 (PDT)
-Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-5bdb162ee53so2027669e0c.2
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 01:08:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpzVgsZrM4LornzNsmuFe+ynTfUw9ZWbmcEkqNLNb0oO9ycsp6bFZDCSfSwFDDKf9/oPtQekms6WK3PAQ==@lists.infradead.org
-X-Received: by 2002:a05:6102:800d:b0:722:826e:1423 with SMTP id
- ada2fe7eead31-7427f0478a0mr3286706137.20.1783324855096; Mon, 06 Jul 2026
- 01:00:55 -0700 (PDT)
+	Mon, 06 Jul 2026 08:11:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=einfochips.com; i=@einfochips.com; l=908; q=dns/txt;
+  s=NAESA-Selector1; t=1783325464; x=1814861464;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=5/2A2ZLlbiY9nslJ7nQB+Yn+IkxiipPp1ULDmEpmnRE=;
+  b=mi0dVfvh8pxSaUwD3jn/fwXLeVsEcMNwUIjXXEQ/sPMaYOWbic58CUoW
+   cxJ15vWLWLqP9CR20Jx5WwsSJ/5GPHF6EVr7125L1B0/ytwPcsm1vybCD
+   mOlHbV2AhzO63hNHL3tDAMOuUXgtjN98reJ1AgP979j/0j79GgumzO6E2
+   W4mHkYfq1uwuEpY+dkBSyF7mhUK4sy/Vcu3wL4HO6/nhswlKQqtqPG2TJ
+   K54+tNKfuDYMUpI7q37pfDniHy9AcqntNhnjI5xqwHaSsAsq9jBmkgjxu
+   EKNm9fuK2N6uS9fuUjJvBRE5sOU6KTrbz0e3L0A8w4udAnBgieLVcAcXW
+   A==;
+X-CSE-ConnectionGUID: 6Sm6QVssSSeWqe60tDOTvA==
+X-CSE-MsgGUID: f7zPlaLKSwarz1Nj5zfnvg==
+X-IronPort-AV: E=Sophos;i="6.25,149,1779170400"; 
+   d="scan'208";a="116963499"
+Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
+  by naesa04out.arrow.com with ESMTP; 06 Jul 2026 02:10:57 -0600
+Received: from AHMCPU1888.localdomain ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.20348.1);
+	 Mon, 6 Jul 2026 13:40:55 +0530
+From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Min Lin <linmin@eswincomputing.com>
+Cc: Yulin Lu <luyulin@eswincomputing.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>
+Subject: [PATCH v2 1/8] riscv: dts: eswin: add reset generator for EIC7700 SoC
+Date: Mon,  6 Jul 2026 13:40:48 +0530
+Message-Id: <20260706081055.1126275-2-pinkesh.vaghela@einfochips.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
+References: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-References: <cover.1783263835.git.ukleinek@kernel.org> <20de6cd60c2938aad2d21397b92742849418ab1b.1783263835.git.ukleinek@kernel.org>
-In-Reply-To: <20de6cd60c2938aad2d21397b92742849418ab1b.1783263835.git.ukleinek@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 6 Jul 2026 10:00:43 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXKyFJ20N6qKafvMZ_0sVj5+XTxcod_6wGkwTsokn7dvw@mail.gmail.com>
-X-Gm-Features: AVVi8CfQACxAMot5VlqKHI6FXvkOZpEWhTZp1dlkgWSruFHOk1f-I-dS5kVo31s
-Message-ID: <CAMuHMdXKyFJ20N6qKafvMZ_0sVj5+XTxcod_6wGkwTsokn7dvw@mail.gmail.com>
-Subject: Re: [PATCH v1 4/5] pwm: Unify coding style of of_device_id arrays
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: linux-pwm@vger.kernel.org, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Benson Leung <bleung@chromium.org>, 
-	Guenter Roeck <groeck@chromium.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
-	Michael Walle <mwalle@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
-	Inochi Amaoto <inochiama@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Hammer Hsieh <hammerh0314@gmail.com>, 
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Alexey Charkov <alchark@gmail.com>, 
-	Sean Anderson <sean.anderson@linux.dev>, Michal Simek <michal.simek@amd.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
-	imx@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-sunxi@lists.linux.dev
+X-OriginalArrivalTime: 06 Jul 2026 08:10:55.0875 (UTC) FILETIME=[F8685530:01DD0D1E]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_010844_872150_122F0B79 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260706_011104_381164_ABD0BFBB 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,30 +92,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCA1IEp1bCAyMDI2IGF0IDE3OjE0LCBVd2UgS2xlaW5lLUvDtm5pZyAoVGhlIENhcGFi
-bGUgSHViKQo8dS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNvbT4gd3JvdGU6Cj4gIC0gVXNlIGEg
-c2luZ2xlIHNwYWNlIGluIGEgb2ZfZGV2aWNlX2lkIGFycmF5IHRlcm1pbmF0b3I7IEEgc2luZ2xl
-IHNwYWNlCj4gICAgYWZ0ZXIgdGhlIG9wZW5pbmcgeyBhbmQgYmVmb3JlIHRoZSBjbG9zaW5nIH0g
-aW4gbm9uLWVtcHR5Cj4gICAgaW5pdGlhbGl6ZXJzOwo+ICAtIE5vIGNvbW1hIGFmdGVyIGFuIGFy
-cmF5IHRlcm1pbmF0b3I7Cj4gIC0gQWxzbyBubyB0cmFpbGluZyBjb21tYSBhZnRlciBhIG5hbWVk
-IGluaXRpYWxpemVyIGlmZiB0aGUKPiAgICBjbG9zaW5nIH0gaXMgb24gdGhlIHNhbWUgbGluZTsK
-Pgo+IFNpZ25lZC1vZmYtYnk6IFV3ZSBLbGVpbmUtS8O2bmlnIChUaGUgQ2FwYWJsZSBIdWIpIDx1
-LmtsZWluZS1rb2VuaWdAYmF5bGlicmUuY29tPgoKPiAgZHJpdmVycy9wd20vcHdtLXJjYXIuYyAg
-ICAgICAgICAgIHwgIDQgKystLQo+ICBkcml2ZXJzL3B3bS9wd20tcmVuZXNhcy10cHUuYyAgICAg
-fCAxMCArKysrKy0tLS0tCj4gIGRyaXZlcnMvcHdtL3B3bS1yemcybC1ncHQuYyAgICAgICB8ICAy
-ICstCgpSZXZpZXdlZC1ieTogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydCtyZW5lc2FzQGdsaWRl
-ci5iZT4gIyByZW5lc2FzCgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAgICAgICAgICAg
-ICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51
-eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVy
-c2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1
-dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIi
-IG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-LS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+From: Pritesh Patel <pritesh.patel@einfochips.com>
+
+Add reset generator node for EIC7700 SoC
+
+Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+---
+ arch/riscv/boot/dts/eswin/eic7700.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+index c3ed93008bca..430a210f01e6 100644
+--- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
++++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+@@ -4,6 +4,7 @@
+  */
+ 
+ /dts-v1/;
++#include <dt-bindings/reset/eswin,eic7700-reset.h>
+ 
+ / {
+ 	#address-cells = <2>;
+@@ -341,5 +342,11 @@ gpioD: gpio-port@3 {
+ 				#gpio-cells = <2>;
+ 			};
+ 		};
++
++		reset: reset-controller@51828300 {
++			compatible = "eswin,eic7700-reset";
++			reg = <0x0 0x51828300 0x0 0x200>;
++			#reset-cells = <1>;
++		};
+ 	};
+ };
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
