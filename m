@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C5DC43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 21:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 676B2C44502
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 22:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YN0K+TJN/3smjCbrXJEMaqMhPTuygoD8LlK3i+mRx7o=; b=YB0he6snlSyzJZ
-	LzJqFXgh4DR22bEZugivocdGfgZXuAFq+rejqu/6Hjeg3cXLp5hrAm5g8RuXn9dlfsjFLaLeEDkan
-	CrJ6HkHKRMllKFJ0Mbu0eVXBMc9JuzAXFooBnm+FBQSm6gKa2atRXytL6qvOm2I5YQZabT/E4WOyQ
-	9tAYydPTkmytWrMPft6AoKKVMmhil6fnBv+JivPCC+t6HVqV51aroVVfu+hQyn4/94cfUzCrkr72Z
-	WQ92p9SgysT0lJrkuXOhY03dB0j5NG+CzzMkDBUD5gz0pzJAce8gq5l1GyeQ/VB5tevMg3xQaehAE
-	+mz3KULlglIxHqREYrtg==;
+	List-Owner; bh=DmcIhN8AkAMgnHgtFijFW6fJabbGL8SyHKIQS+dXMCk=; b=kjc3s4z3EhQ5uz
+	I04j0hua394h0ur6mqQspsqplo8CyBrWwyabS5C/TiJlHB4DDZJo00UKXAi30bWLk8Mhb3jg/ev0B
+	veHNRejE6CyuPB2V/yjKxGnaneJd44fYWCgywgH9GANpzOX1gEZj6Fw/se0L4IeCoQXMpdexfu7cR
+	TBJx5us0/kvNWrezzTguo2BMNcSoqmbT6v1yEq3cJ1w3HgDAto7/gL4BGJQQPrOajmr8+p8cA04Hh
+	vwt5Qj9SQ8/KoNSPjTvMJ4RdyG6Ks5rFZ+jftNCnRoB5yzX0oNl5P0n12Yvswb0AsUsBx94OQcfQT
+	62XzaU7FJU9GdImkEwlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqS6-0000000Dalv-06wy;
-	Mon, 06 Jul 2026 21:02:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wgroT-0000000DiQp-3j6Y;
+	Mon, 06 Jul 2026 22:29:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqS4-0000000Dall-2WE8
+	id 1wgroS-0000000DiQb-1ctk
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 21:02:04 +0000
+	Mon, 06 Jul 2026 22:29:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D22E402D7;
-	Mon,  6 Jul 2026 21:02:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6FDC1F000E9;
-	Mon,  6 Jul 2026 21:02:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 92197417C3;
+	Mon,  6 Jul 2026 22:29:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4CBD1F000E9;
+	Mon,  6 Jul 2026 22:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783371723;
-	bh=YH94RBJ5oQWvPJxqF2lGknMcip56J1cYwGtMmIQc6zo=;
+	s=k20260515; t=1783376955;
+	bh=NIKhsdKujmUyo5f1I8e0key9LsLGYc70ehoq2AKl2uE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KlhEw/ctTtp3dv24zUaovOm+XpVqLihb5HsRRIpxaYCPrPgxi/MeJcHlUOLnQe3CP
-	 kH36SRATV/zWbKeZn/q0YDpQHTeMsmxbBAFnwNXhiI3ijOydR/4tttbtasf+P+zM+B
-	 re6lokUPzapg9CeGQ064v2EU9YCLMPu3XEb5MQserHK6avQki7PRuLY3qsT1/zK+O6
-	 ZMvi6i1HNLPIPmkMdQjTQPhSZBrvSdreOGuukGqHGwrmDtxvetav8Il5D7BZ1buXbg
-	 3Zfr5LyjXsLDC7GLcB5XnH7s9JSarGEuErPA11b4FEWcy51V1fyCfmYDOANVmd7ZhQ
-	 24gdMzeeMFU1w==
-Date: Mon, 6 Jul 2026 14:01:58 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	b=G1CpuDRrdmcEC3wEPp2EVGqS3HOURCh2yKP14x2Er3LIpE0Tkc0mbAgDMaBJN5W0X
+	 181F/jwiOAN1KUKl7d8Tt9eqaXftQp+0szy8NqHpE4ZGAN+l6ygxC6pQRp6QD4Qi9b
+	 PD+cjXv5G0p1b4RhnU3thcwBP/tAEKulVNe+MkjBA+OskiUYP4gz5Af3sxvILh5i9y
+	 NSaJwEybJx+Cmcj73mmLNBb+CZKxXIwmgW3FpsZ9uRWTaj3E2yosi1DEV/TEJrrTx1
+	 sRsIQcEh/TffxG3kOyZY+Vh0qjdF+17MokOULQIjZKL+OkpTJomQieKfasUeuzHmUS
+	 qgxzLhRCrca0A==
+Date: Mon, 6 Jul 2026 22:29:13 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Guodong Xu <docular.xu@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Wende Tan <twd2.me@gmail.com>, Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Nam Cao <namcao@linutronix.de>, kernel test robot <lkp@intel.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] riscv: vdso: Do not use LTO for the vDSO
-Message-ID: <20260706210158.GA73349@ax162>
-References: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de>
- <20260701-riscv-vdso-lto-v1-1-89db0cd82077@linutronix.de>
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v4] riscv: dts: spacemit: Use symbolic PDMA request
+ numbers on K1
+Message-ID: <20260706222913-GKD35811@kernel.org>
+References: <20260620-b4-k1-pdma-req-macros-v4-1-3cf77d0bd0d6@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260701-riscv-vdso-lto-v1-1-89db0cd82077@linutronix.de>
+In-Reply-To: <20260620-b4-k1-pdma-req-macros-v4-1-3cf77d0bd0d6@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,72 +72,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:21:22AM +0200, Thomas Wei=DFschuh wrote:
-> With LTO enabled the compiler assumes that the vDSO functions are not
-> used and optimizes them away completely. Currently this happens to
-> __vdso_clock_getres(), __vdso_clock_gettime(), __vdso_getrandom(),
-> __vdso_gettimeofday() and __vdso_riscv_hwprobe().
-> =
+On 01:07 Sat 20 Jun     , Guodong Xu wrote:
+> The PDMA request numbers (DRQ) are fixed values specific to the SoC from
+> a hardware perspective. The detailed definition can be found in K1 User
+> Manual [1], Chapter 9.4.3 DMA Connectivity & Assignments. Add a DTS
+> header file to define the symbolic names for the DRQs of non-secure DMA
+> peripherals.
+> 
+> Convert the K1 SPI3 node to these macros.
+> 
+> Link: https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k1/k1_docs/k1_usermanual/9.Top_System.md [1]
+> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+Thanks
 
-> Disable LTO for the vDSO, as these functions are hand-optimized anyways.
-> =
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202606301855.WvkSC4kD-lkp@i=
-ntel.com/
-
-While this change seems correct, is this really the fix for that report?
-It seems like that error happens in clang but I would expect this sort
-of issue to only appear once LTO has run through ld.lld?
-
-> Fixes: 021d23428bdb ("RISC-V: build: Allow LTO to be selected")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> ---
->  arch/riscv/kernel/vdso/Makefile | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> =
-
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Mak=
-efile
-> index a842dc034571..43ee881f6c6f 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -69,9 +69,9 @@ CPPFLAGS_$(vdso_lds) +=3D -DHAS_VGETTIMEOFDAY
->  endif
->  =
-
->  # Disable -pg to prevent insert call site
-> -CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
-> -CFLAGS_REMOVE_getrandom.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
-> -CFLAGS_REMOVE_hwprobe.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
-> +CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(C=
-C_FLAGS_LTO)
-> +CFLAGS_REMOVE_getrandom.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(CC_FL=
-AGS_LTO)
-> +CFLAGS_REMOVE_hwprobe.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(CC_FLAG=
-S_LTO)
->  =
-
->  # Force dependency
->  $(obj)/$(vdso_o): $(obj)/$(vdso_so)
-> =
-
-> -- =
-
-> 2.55.0
-> =
-
-
--- =
-
-Cheers,
-Nathan
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
