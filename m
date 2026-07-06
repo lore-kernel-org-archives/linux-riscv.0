@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81720C43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 17:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FB0C44500
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 17:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OEeszAYVgb0xorWvat5Eyugfum5+HV18LkFMRiNdfRE=; b=RBs8ZrNr8BBcOU
-	g1XlRYqx6PH5c72kD2Y8j7Bo2OQZbQSLiDQeBxQFFGJ1+PrDtkLWeEORnxnxBf4kmrZDgEm29Py1M
-	Dgg5gCF2TG+iPvmgm1FO+fQQdipdV+8fTqcB/U8oGdG6B3Qs7jcxPV+OsQoXxcMy1/N0FdWFTBlgt
-	pjl51d8DdN/Gr790XB7RnUM/5cDaY7U5KhHlnSz7tvAaN7hqM3DXOo2EGuJ7yxhmeoDemMfOffkmc
-	bft3F3wQbqu6AI7k//Hqni/ETh5/QxRuMluJCkOHsjF1JeXsXOZI9WlFoZ96nRR37M39D6nRdF6Eq
-	bBPVyMBEGUlLdO3NvT4Q==;
+	List-Owner; bh=f1HPv5VuGRRz5JBUAOBozmvuhxzOAb9z3H3xNfne6MI=; b=tZzCIP5hCXNjW2
+	gETxOU44oZrTCpC5IoDCLsPjjzpZpzyUaMGXIaq4lHzZ9Er/fGF7npNT9xgRum0SU53WcJqwQ2hBN
+	wOE1EpgADvDlp35J4A79iMEZf6P43L8GiMvUo+2n1M3TvRmI6BE5Tho5uyLmbfvNHcxWYM05PJzQ6
+	/uAyqgKo/3CGGqL9R3FR0KCs+J4r9maTTFa8sDXbHxjP4yShBVobSGZc2rBJiLNbnKlWoC66CS18R
+	uQQGDpYPtp4bmMiL1BiKWjHKzuxGBrd0zmQCIdbR9FOflUo+SE8g4Ko5LY7Em3sWzzbetjgVybhpJ
+	d+qxKiyQ0G6DTjrq+7ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmlH-0000000D9bI-0p4X;
-	Mon, 06 Jul 2026 17:05:39 +0000
+	id 1wgmmg-0000000D9pX-22GU;
+	Mon, 06 Jul 2026 17:07:06 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmlG-0000000D9ah-11r1
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 17:05:38 +0000
+	id 1wgmmf-0000000D9pI-3Cx3;
+	Mon, 06 Jul 2026 17:07:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 079F8407C7;
-	Mon,  6 Jul 2026 17:05:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50E71F000E9;
-	Mon,  6 Jul 2026 17:05:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 85C1F40840;
+	Mon,  6 Jul 2026 17:07:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2B3E1F000E9;
+	Mon,  6 Jul 2026 17:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783357537;
-	bh=cQC0CCHeb+nRGhmnTm+kOgmt7Ax4UHsY6IFI0qwAXtw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=chRQfo145b1N+VAnSPczv2KbFSL6ecr5fFLtPTg+GMbs66bYXCrB/noGAcdOHke7T
-	 oBM4shzfVLhLr4nRClwSi2NNJn1oGmdKa7aNwvkeNPpBa/bSXViMr+tchtscxr0eTP
-	 p3VMjwJXI5+ctIkKJaC0rXwdhaLp78LU2w+IOTdm8PX3itepPIX6+HRasuk+jfgmgy
-	 Kzb4petWMyYjafC1PFDt0JPeN9/eM8yJsI/H/O9D/j4+k0xPIYwboiT8FooyQRYc2H
-	 acJZDEr9IgYYDkMWOz+Nxvu+AjnovDoNayplO0GRpp38U6khMFHtb3bGsmSVqMDcPz
-	 A8Hyj5Yr2z7Eg==
-Date: Mon, 6 Jul 2026 10:05:36 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/8] riscv: Enable resctrl filesystem for Ssqosid
-Message-ID: <akvgYEMC1JPHfReR@x1>
-References: <20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org>
- <20260628-dfustini-atl-sc-cbqri-dt-v3-6-c9c1342fe3cf@kernel.org>
- <20260628213007.AE2CD1F000E9@smtp.kernel.org>
+	s=k20260515; t=1783357625;
+	bh=dMywXCAJz15ivj4H2yrF+Rr9wh7+wfvKgGEen90TIAo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=nrRzVFjCFJ2aQrk5qM0YNR/8+vCzDUz+4tXHVhST8RziP4UgWJBGo3srxngw9ZNIX
+	 rVeeuA4uD/N24HrvD2PkypQ0cslwGau/JrHHJZQsLUtH4Up/vzTf6xuncIppAU0YFH
+	 W0K3TOc7XJ/kJqAEQgXVpNvErUIAts2Zrszbi7cD6msPVYzWT50oAuWk3Q1fdKt7RP
+	 W81qpnnHmyDjkmbRlu/kmWCaS6z0JS2H49ZqIhk9EfQcD65wXKa0OR/LjcJFfMLfqK
+	 hW+yD004h2o4SDB0Lhcrc+XAybjpeld72/gd32LkAWT5sVJw6RELAIXhByDLgEY4xe
+	 d44eYiG5uvWGw==
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>, 
+ Lukas Schmid <lukas.schmid@netcube.li>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org
+In-Reply-To: <20260606205452.2386930-1-lukas.schmid@netcube.li>
+References: <20260606205452.2386930-1-lukas.schmid@netcube.li>
+Subject: Re: [PATCH v4 0/3] Add support for NetCube Systems OpenNMC
+ (dobermann)
+Message-Id: <178335762241.4010120.15331558144606875972.b4-ty@kernel.org>
+Date: Tue, 07 Jul 2026 01:07:02 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260628213007.AE2CD1F000E9@smtp.kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +76,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 28, 2026 at 09:30:07PM +0000, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
-> - [Medium] RISCV_ISA_SSQOSID unconditionally selects the user-visible menuconfig RISCV_CBQRI, defeating its prompt and violating Kconfig best practices.
-> --
+On Sat, 06 Jun 2026 22:54:40 +0200, Lukas Schmid wrote:
+> This series adds support for the NetCube Systems OpenNMC.
 > 
-> commit 6a7bfcfac7becb358efe0bde0c988634f28e5326
-> Author: Drew Fustini <fustini@kernel.org>
+> Sorry for the quick resend. This v4 includes the corrected Makefile
+> target name.
 > 
-> riscv: Enable resctrl filesystem for Ssqosid
+> Changes in v4:
+>  - fix the ARM Makefile target name for the new board
 > 
-> This commit enables the resctrl filesystem for the RISC-V Ssqosid extension.
-> It modifies the RISCV_ISA_SSQOSID config to select ARCH_HAS_CPU_RESCTRL and
-> RISCV_CBQRI.
-> 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index ee586925f9722..9c28bcbc29dc9 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -594,6 +594,8 @@ config RISCV_ISA_SSQOSID
-> >  	bool "Ssqosid extension support for supervisor mode Quality of Service ID"
-> >  	depends on 64BIT
-> >  	default n
-> > +	select ARCH_HAS_CPU_RESCTRL
-> > +	select RISCV_CBQRI
-> 
-> [Severity: Medium]
-> Is it intentional to use select on RISCV_CBQRI here?
-> 
-> RISCV_CBQRI appears to be defined as a user-visible menuconfig:
-> 
-> drivers/resctrl/Kconfig:
-> menuconfig RISCV_CBQRI
-> 	bool "RISC-V CBQRI support"
-> 	depends on RISCV && RISCV_ISA_SSQOSID
-> 
-> Using select on a user-visible symbol forces it on and overrides the prompt,
-> which can create a confusing configuration experience where the option is
-> visible but cannot be toggled.
-> 
-> Could this be addressed by either using "depends on" instead of select,
-> or by making RISCV_CBQRI a hidden symbol without a prompt?
+> [...]
 
-I'll make RISCV_CBQRI user-selectable in the next revision: drop the select
-from RISCV_ISA_SSQOSID, make RISCV_CBQRI depend on RISCV_ISA_SSQOSID with
-default y, and move select ARCH_HAS_CPU_RESCTRL onto it.
+Applied to sunxi/dt-for-7.3 in sunxi, thanks!
 
--Drew
+[1/3] dt-bindings: arm: sunxi: Add NetCube Systems OpenNMC (dobermann)
+      https://git.kernel.org/sunxi/linux/c/9995c8146bb9
+[2/3] riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl required by NetCube Systems OpenNMC
+      https://git.kernel.org/sunxi/linux/c/5b0fd777eb34
+[3/3] ARM: dts: sunxi: add support for NetCube Systems OpenNMC (dobermann)
+      https://git.kernel.org/sunxi/linux/c/9dc45b17fb85
+
+Best regards,
+-- 
+Chen-Yu Tsai <wens@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
