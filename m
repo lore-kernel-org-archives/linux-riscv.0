@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A42C43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 05:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4453C43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 07:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zC6gE52NN27FHDKzYslNMhhbIpe46rjkgUXm7YXNMP4=; b=Dtb7DEY69VZXF+
-	70sqmR4tYzDdJySTQ5XWkdM18NadO5/8PWjnVXCKZw51FGYADd2qAcbXVhWPeomPNVuaPr5FrlnUs
-	MeNLzRTDxV5tftamNi5xTaDAbUjJYYpxKNlbnh7kLG8Cv2MVhaDqSH3/Ui7HtLC7QCzNavWDBNTkM
-	ntn5lliBqEAMYd4GblO9iZHG7ErMjeid1Rgi7cpzsSvEVpw/IN+KuEjWR5dOPEqB3g52ZKU/8wfex
-	WXO2rwc4CgG/xfNWJNl0uLBLwZkc6diF35zJfhBR+NbIW0R9Kzs+x60QfJwIVG6z74BU9iRm+sW5L
-	5RBTgEYynHIw6MFucbrg==;
+	List-Owner; bh=BJTBNYBLEizxmODBV7PSYxSNK+OB8+9uol+WANvU9VU=; b=As1g7JSrg/a/VI
+	xo3lU8nOnMMkRJzHBY/aNbH6KEznQE/fPbV+vgnw4fq73cr6c0qK7QqoYJTCvka/FJrF4hlIWu3Tp
+	2jyd7sGkUZVN7lAa+bSYtKBsXzUCmXSO+66ItrU1Zcivh3NaT9ixzQMxEJ44IdiFjk3ZeD+ZdSHCp
+	DC+gi983AkV4u8/afcSg/Yi+WS6W3RctEe5OIY1cVvVzggAxh4sJejqhAa3vcLi99Av6eQoX1QS+9
+	Cl2ahoR1Lbc8jZHqKUG4xF4Gt/HE8lp6gizKaUD8ctAjyUQw6Is1a0BsmL/d71X/b0E6oTzI/00pq
+	bM2XcGu4mgftRfwYYBJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcCj-0000000BYPy-06IA;
-	Mon, 06 Jul 2026 05:49:17 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wgdSB-0000000BhBC-2IGx;
+	Mon, 06 Jul 2026 07:09:19 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcCg-0000000BYPa-14lv
+	id 1wgdS8-0000000BhAX-025A
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 05:49:16 +0000
-Received: from [192.168.0.113] (unknown [123.118.218.239])
-	by APP-05 (Coremail) with SMTP id zQCowADHNenDQUtqcJ4pFw--.19733S2;
-	Mon, 06 Jul 2026 13:48:51 +0800 (CST)
-Message-ID: <b1690a31-f11b-417a-bfdd-c4a357b12e7a@iscas.ac.cn>
-Date: Mon, 6 Jul 2026 13:48:51 +0800
+	Mon, 06 Jul 2026 07:09:18 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gtwSt596gzYQtlX
+	for <linux-riscv@lists.infradead.org>; Mon,  6 Jul 2026 15:09:02 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id E55274095A
+	for <linux-riscv@lists.infradead.org>; Mon,  6 Jul 2026 15:09:03 +0800 (CST)
+Received: from [10.67.110.68] (unknown [10.67.110.68])
+	by APP2 (Coremail) with UTF8SMTPA id Syh0CgDnzCiJVEtq7aPxAA--.22259S2;
+	Mon, 06 Jul 2026 15:09:03 +0800 (CST)
+Message-ID: <468262e0-43c6-46dd-a9dc-0b216f2beab1@huaweicloud.com>
+Date: Mon, 6 Jul 2026 15:08:57 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] riscv: mm: Avoid spurious fault after hotplugging
- vmemmap
-To: Muchun Song <muchun.song@linux.dev>
-Cc: linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-References: <20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn>
- <7B0CB4ED-C190-4F49-97EE-E1F14F08DED2@linux.dev>
- <5fac578c-ff97-4721-96f3-8ba495f0556a@iscas.ac.cn>
- <214FC970-465A-4E45-98C0-17978D63DE89@linux.dev>
+Subject: Re: [PATCH bpf-next v4 0/6] Mixing bpf2bpf and tailcalls for RV64
 Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <214FC970-465A-4E45-98C0-17978D63DE89@linux.dev>
-X-CM-TRANSID: zQCowADHNenDQUtqcJ4pFw--.19733S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxKw47XrWrKr1xJF45KryxAFb_yoW3Xr1kpF
-	Wj9an8Kr4DJr1fCw4Iqw17Wrn7trnYga4xWw1kKry8Zwn0qFnrGryFqa1Y9ry8Xrn7WayI
-	v3WYy343u345AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4
-	vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07bIBTOUUUUU=
-X-Originating-IP: [123.118.218.239]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Alexandre Ghiti <alex@ghiti.fr>, Pu Lehui <pulehui@huawei.com>,
+ Pu Lehui <pulehui@huaweicloud.com>
+References: <20260629140048.733346-1-pulehui@huaweicloud.com>
+ <CAJ+HfNhn9eK+3xsd3ewEsG-duCgBeYXeLAtNan=qefas2Ya0dQ@mail.gmail.com>
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <CAJ+HfNhn9eK+3xsd3ewEsG-duCgBeYXeLAtNan=qefas2Ya0dQ@mail.gmail.com>
+X-CM-TRANSID: Syh0CgDnzCiJVEtq7aPxAA--.22259S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXFy8XF18CFy7WrWkAr1kKrg_yoW5CF1kpa
+	97uw4ay34vqr4xuw47Ka1xJFWrGFZ3CayUAr15tr1rAF45Cryvkr17KFW0va45GrWvkw1j
+	vr4jqan8Za1DAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjTRNJ5oDUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_224914_877501_9B86DCE9 
-X-CRM114-Status: GOOD (  23.57  )
+X-CRM114-CacheID: sfid-20260706_000916_424829_6CC134E8 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,186 +91,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 13:38, Muchun Song wrote:
-
->
->> On Jul 6, 2026, at 13:04, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
->>
->> [ powerpc maintainers: Thoughts on replacing the ptesync in
->> vmemmap_set_pmd() with a flush_cache_vmap() post-vmemmap-hotplug in the
->> generic code? ]
->>
->> On 7/6/26 11:00, Muchun Song wrote:
->>>> On Jun 30, 2026, at 15:51, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
->>>>
->>>> section_activate() does not flush TLB after populating new vmemmap
->>>> pages. On most architectures, this is okay. However it is a problem on
->>>> RISC-V since there the TLB caching non-present entries is permitted,
->>>> which causes spurious faults on some hardwares.
->>>>
->>>> This seems to be most easily reproduced with DEBUG_VM=y and
->>>> PAGE_POISONING=y, which causes these newly mapped struct pages to be
->>>> poisoned i.e. written to immediately after mapping.
->>>>
->>>> Add a hook vmemmap_populate_finalize() in __populate_section_memmap()
->>>> after population, to allow architectures to handle such situations as
->>>> needed. Then implement it on RISC-V to arrange for the existing
->>>> exception handler code to deal with these faults if they happen.
->>>>
->>>> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
->>>> ---
->>>> Changes in v4:
->>>> - Rebase on v7.2-rc1, drop dependencies
->>>> - (No code changes otherwise)
->>>> - (A concurrency fix for mark_new_valid_map was sent independently)
->>>> https://lore.kernel.org/linux-riscv/20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn/
->>>> - Link to v3: https://patch.msgid.link/20260605-mark-after-vmemmap-populate-v3-1-a06001ac9264@iscas.ac.cn
->>>>
->>>> Changes in v3:
->>>> - Merged back into one patch (Mike)
->>>> - (No code changes otherwise.)
->>>> - Link to v2: https://patch.msgid.link/20260604-mark-after-vmemmap-populate-v2-0-ab6a7d03b434@iscas.ac.cn
->>>>
->>>> Changes in v2:
->>>> - Split patch in two, hook point and riscv hook 
->>>> - Explain hook necessity in patch 1 message (Mike)
->>>> - Make hook #define based (Mike)
->>>> - Call finalize hook only on populate success
->>>> - Link to v1: https://patch.msgid.link/20260525-mark-after-vmemmap-populate-v1-1-e698d859ba16@iscas.ac.cn
->>>> ---
->>>> arch/riscv/include/asm/pgtable.h | 4 ++++
->>>> arch/riscv/mm/init.c             | 6 ++++++
->>>> mm/sparse-vmemmap.c              | 8 ++++++++
->>>> 3 files changed, 18 insertions(+)
->>>>
->>>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->>>> index 5d5756bda82e..6b000c990ba7 100644
->>>> --- a/arch/riscv/include/asm/pgtable.h
->>>> +++ b/arch/riscv/include/asm/pgtable.h
->>>> @@ -1253,6 +1253,10 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
->>>> #define TASK_SIZE FIXADDR_START
->>>> #endif
->>>>
->>>> +/* Needed on SPARSEMEM_VMEMMAP */
->>>> +#define vmemmap_populate_finalize vmemmap_populate_finalize
->>>> +void __meminit vmemmap_populate_finalize(void);
->>>> +
->>>> #else /* CONFIG_MMU */
->>>>
->>>> #define PAGE_SHARED __pgprot(0)
->>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>>> index 5b1b3c88b4d1..800cb5c007d1 100644
->>>> --- a/arch/riscv/mm/init.c
->>>> +++ b/arch/riscv/mm/init.c
->>>> @@ -1372,6 +1372,12 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>>> */
->>>> return vmemmap_populate_hugepages(start, end, node, altmap);
->>>> }
->>>> +
->>>> +void __meminit vmemmap_populate_finalize(void)
->>>> +{
->>>> +  /* Avoid faults on cached non-present TLB entries. */
->>>> +  mark_new_valid_map();
->>>> +}
->>>> #endif
->>>>
->>>> #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
->>>> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
->>>> index 99e2be39671b..290cafcfd723 100644
->>>> --- a/mm/sparse-vmemmap.c
->>>> +++ b/mm/sparse-vmemmap.c
->>>> @@ -544,6 +544,12 @@ static int __meminit vmemmap_populate_compound_pages(unsigned long start_pfn,
->>>>
->>>> #endif
->>>>
->>>> +#ifndef vmemmap_populate_finalize
->>>> +static void __meminit vmemmap_populate_finalize(void)
->>>> +{
->>>> +}
->>>> +#endif
->>>> +
->>>> struct page * __meminit __populate_section_memmap(unsigned long pfn,
->>>> unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
->>>> struct dev_pagemap *pgmap)
->>>> @@ -564,6 +570,8 @@ struct page * __meminit __populate_section_memmap(unsigned long pfn,
->>>> if (r < 0)
->>>> return NULL;
->>>>
->>>> +  vmemmap_populate_finalize();
->>> Does the hook of flush_cache_vmap() work for you?  From the document of
->>> cachetlb.rst, it said: 
->>>
->>> 6) ``void flush_cache_vmap(unsigned long start, unsigned long end)``
->>>    ``void flush_cache_vunmap(unsigned long start, unsigned long end)``
->>>
->>> Here in these two interfaces we are flushing a specific range
->>> of (kernel) virtual addresses from the cache. After running,
->>> there will be no entries in the cache for the kernel address
->>> space for virtual addresses in the range 'start' to 'end-1'.
->>>
->>> It seems that flush_cache_vmap() is supposed to be called after a new kernel
->>> mapping has been installed, but before this address range is accessed.
->> Good point. I had initially avoided flush_cache_vmap() because, to be
->> honest, it looked scary. But the combination of "have vmemmap" and "have
->> flush_cache_vmap()" is much less scary.
->>
->> I'd need to drop the address range check in RISC-V's flush_cache_vmap(),
->> but might as well.
-> No. Please a new check for vmemmap address range.
-
-Okay, I'll do that in v5.
-
->
->>> Therefore, invoking flush_cache_vmap() here aligns perfectly with its interface
->>> definition. But how would this change impact other architectures? Currently,
->>> among architectures where CONFIG_SPARSEMEM=y, only RISC-V and PowerPC provide
->>> a concrete implementation for flush_cache_vmap().
->>>
->>> For PowerPC, the implementation is as follows:
->>>
->>> static inline void flush_cache_vmap(unsigned long start, unsigned long end)
->>> {
->>> asm volatile("ptesync" ::: "memory");
->>> }
->>>
->>> Here, flush_cache_vmap() is also intended to supply the ptesync instruction
->>> that the kernel address mapping lacks. However, flush_cache_vmap() is not
->>> called in the __populate_section_memmap() path. So, how does PowerPC ensure
->>> ptesync is executed there? The answer lies in the architecture-specific
->>> vmemmap_set_pmd(), which injects the necessary ptesync.
->>>
->>> If we choose to reuse flush_cache_vmap() in the generic path, it yields the
->>> following benefits:
->>>
->>> - Avoids architectural churn: We do not need to introduce a new hook
->>>  like vmemmap_populate_finalize().
->>> - Cleans up arch code: PowerPC can deprecate its custom vmemmap_set_pmd()
->>>  and migrate to the generic implementation.
->>>
->>> Let me know if this rationale makes sense, or if there are any hidden edge
->>> cases I might have overlooked regarding other architectures.
->>>
->>> Thanks,
->>> Muchun
->> At least on the face of it, it makes sense. The main thing is I don't
->> know much about powerpc. So I'm also hoping powerpc maintainers could
->> chime in. 
-> You do not need to know about powerpc since the change of powerpc is not
-> a part of this patch. It should be a separate code clean up for powerpc.
-
-Ah, good point. I'll just use flush_cache_vmap() in v5, and, as you
-said, the powerpc stuff can come later.
-
-Thanks,
-Vivian "dramforever" Wang
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQmrDtnJuLAoKU29ycnkgZm9yIGxhdGUgcmVwbHkuCgpPbiAyMDI2LzYvMjkgMjI6MjEsIEJq
+w7ZybiBUw7ZwZWwgd3JvdGU6Cj4gSGV5IQo+IAo+IE9uIE1vbiwgMjkgSnVuIDIwMjYgYXQgMTU6
+NTYsIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JvdGU6Cj4+Cj4+IEZyb206
+IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4+Cj4+IEluIHRoZSBjdXJyZW50IFJWNjQg
+SklULCBpZiB3ZSBqdXN0IGRvbid0IGluaXRpYWxpemUgdGhlIFRDQyBpbiBzdWJwcm9nLAo+PiB0
+aGUgVENDIGNhbiBiZSBwcm9wYWdhdGVkIGZyb20gdGhlIHBhcmVudCBwcm9jZXNzIHRvIHRoZSBz
+dWJwcm9jZXNzLCBidXQKPj4gdGhlIHVwZGF0ZWQgVENDIG9mIHRoZSBwYXJlbnQgcHJvY2VzcyBj
+YW5ub3QgYmUgcmVzdG9yZWQgd2hlbiB0aGUKPj4gc3VicHJvY2VzcyBleGl0cy4gU2luY2UgdGhl
+IFJWNjQgVENDIGlzIGluaXRpYWxpemVkIGJlZm9yZSBzYXZpbmcgdGhlCj4+IGNhbGxlZSBzYXZl
+ZCByZWdpc3RlcnMgaW50byB0aGUgc3RhY2ssIHdlIGNhbm5vdCB1c2UgdGhlIGNhbGxlZSBzYXZl
+ZAo+PiByZWdpc3RlciB0byBwYXNzIHRoZSBUQ0MsIG90aGVyd2lzZSB0aGUgb3JpZ2luYWwgdmFs
+dWUgb2YgdGhlIGNhbGxlZQo+PiBzYXZlZCByZWdpc3RlciB3aWxsIGJlIGRlc3Ryb3llZC4gU28g
+d2UgaW1wbGVtZW50ZWQgbWl4aW5nIGJwZjJicGYgYW5kCj4+IHRhaWxjYWxscyBzaW1pbGFyIHRv
+IHg4Nl82NCwgaS5lLiB1c2luZyBhIG5vbi1jYWxsZWUgc2F2ZWQgcmVnaXN0ZXIgdG8KPj4gdHJh
+bnNmZXIgdGhlIFRDQyBiZXR3ZWVuIGZ1bmN0aW9ucywgYW5kIHNhdmluZyB0aGF0IHJlZ2lzdGVy
+IHRvIHRoZQo+PiBzdGFjayB0byBwcm90ZWN0IHRoZSBUQ0MgdmFsdWUuIEFzIGZvciB0aGUgdGFp
+bGNhbGwgaGllcmFyY2h5IGlzc3VlLAo+PiBpbnNwaXJlZCBieSB0aGUgczM5MCdzIGxvdy1vdmVy
+aGVhZCBhcHByb2FjaCwgd2Ugc3RvcmUgVENDIGZyb20KPj4gUlZfUkVHX1RDQyBiYWNrIHRvIHN0
+YWNrIGFmdGVyIGNhbGxpbmcgYnBmMmJwZiBjYWxsIG9yIGNhbGxpbmcgb3JpZyBicGYKPj4gZnVu
+YyBpbiBicGYgdHJhbXBvbGluZS4KPj4KPj4gSW4gYWRkaXRpb24sIHNvbWUgY29kZSBjbGVhbnMg
+YXJlIGFsc28gYXR0YWNoZWQgdG8gdGhpcyBwYXRjaHNldC4KPj4KPj4gVGVzdHMgdGVzdF9icGYu
+a28gYW5kIHRlc3RfdmVyaWZpZXIgaGF2ZSBwYXNzZWQsIGFzIHdlbGwgYXMgdGhlIHJlbGF0aXZl
+Cj4+IHRlc3RjYXNlcyBvZiB0ZXN0X3Byb2dzKi4KPj4KPj4gdjQ6Cj4+IC0gRml4IHRhaWxjYWxs
+IGhpZXJhcmNoeSBpc3N1ZS4KPj4gLSB1c2UgaXNfc3RydWN0X29wc190cmFtcCBoZWxwZXIgaW4g
+YnBmIHRyYW1wb2xpbmUKPiAKPiBBbGV4ZWkgb3V0bGluZWQgc29tZSAobWFqb3IpIGNvbmNlcm5z
+IG9uIHRoZSB3aG9sZSBtaXhpbmcgc2lkZSBvZgo+IHRoaW5ncyBbMF0uIEkgaGF2ZW4ndCBiZWVu
+IGZvbGxvd2luZyB0aGF0IHNwYWNlIC0tIGRpZCBMZW9uIGhhdmUgYQoKWWVzLCBMZW9uIGFkZHJl
+c3NlZCB0aGlzIGlzc3VlIHllYXJzIGFnbyBbMF0uIEhlIHNvbHZlZCBpdCBieSBwYXNzaW5nIAp0
+aGUgVENDIFBUUiB0byB0aGUgc3VicHJvZywgZW5zdXJpbmcgdGhhdCB0aGUgdXBkYXRlZCBUQ0Mg
+aXMgY29ycmVjdGx5IApwcm9wYWdhdGVkIGJhY2sgdXBvbiB0aGUgc3VicHJvZydzIHJldHVybi4g
+SXQncyB0aW1lIGZvciByaXNjdjY0IHRvIAppbXBsZW1lbnQgdGhpcyBmZWF0dXJlLgoKWzBdIApo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvQ0FBRG5WUStUT0ZPQTBZYTRxenJMREZWMzMxdXha
+eThheTBzdkJNdC0yU2g1RTB0cjJBQG1haWwuZ21haWwuY29tLwoKPiB3b3JrYXJvdW5kL2ZpeD8g
+Q2FuIHlvdSBleHBsYWluIG1vcmUgaG93IHlvdSBmaXhlZCBpdCwgYW5kIHdoeSBpdAo+IHdvdWxk
+IG1ha2Ugc2Vuc2UgdG8gYWRkIGl0IHRvIFJJU0MtViBub3c/CgpXaGVuIGRlYWxpbmcgd2l0aCB0
+aGUgdGFpbGNhbGwgaGllcmFyY2h5IGlzc3VlLCB4NjQgYW5kIGFybTY0IGNoZWNrIGlmIGEgCnJl
+Z2lzdGVyIGlzIGEgVENDIFBUUiByaWdodCBpbiB0aGUgZnVuY3Rpb24gcHJvbG9ndWUsIHdoaWNo
+IG1heSBhZGRzIApzb21lIG92ZXJoZWFkLiBUbyBnZXQgYXJvdW5kIHRoaXMsIHJpc2N2NjQgcGxh
+biB0byBwYXNzIHRoZSB1cGRhdGVkIFRDQyAKdmFsdWUgdG8gdGhlIHN0YWNrIHVzaW5nIHRoZSBU
+Q0MgcmVnaXN0ZXIgYWZ0ZXIgY2FsbGluZyBhIHN1YnByb2cgb3IgYSAKdHJhbXBvbGluZSdzIG9y
+aWdfY2FsbCwgd2hpY2ggc29tZXRoaW5nIHNpbWlsYXIgdG8gczM5MC4KCkJlY2F1c2Ugb2YgdGhp
+cywgd2UgaGF2ZSB0byB1c2UgYSBjYWxsZXItc2F2ZWQgKG5vbi1jYWxsZWUtc2F2ZWQpIApyZWdp
+c3RlciBmb3IgdGhlIFRDQy4gSWYgd2UgdXNlZCBhIGNhbGxlZS1zYXZlZCBvbmUsIHRoZSBvbGQg
+VENDIHZhbHVlIAp3b3VsZCBqdXN0IGdldCByZXN0b3JlZCBieSBtaXN0YWtlIHdoZW4gdGhlIGZ1
+bmN0aW9uIHJldHVybnMuCgpBcyBmb3IgdGhlIG92ZXJhbGwgcGxhbiBmb3IgbWl4aW5nIHRhaWxj
+YWxscyBhbmQgYnBmMmJwZiwgdGhlIG1haW4gaWRlYSAKaXMgdG8ga2VlcCB0aGUgVENDIHZhbHVl
+IG9uIHRoZSBzdGFjayBhbmQgcGFzcyBpdCBiZXR3ZWVuIGZ1bmN0aW9uIGNhbGxzIAp1c2luZyB0
+aGF0IGNhbGxlci1zYXZlZCBUQ0MgcmVnaXN0ZXIuIFNpbmNlIHdlIG5lZWQgdG8gZ3JhYiB0aGUg
+bGF0ZXN0IAp1cGRhdGVkIFRDQyB2YWx1ZSBhZnRlciBjYWxsaW5nIGEgc3VicHJvZyBvciBhIHRh
+aWxjYWxsIGxlYWYgbm9kZSwgd2UgCmhhdmUgdG8gbWFrZSBzdXJlIHRoZSBwcm9sb2d1ZSBhbHdh
+eXMgcHVzaGVzIHRoZSBUQ0MgdG8gdGhlIHN0YWNrLCBhbmQgCnRoZSBlcGlsb2d1ZSBhbHdheXMg
+cmVzdG9yZXMgaXQgZnJvbSB0aGUgc3RhY2sgYmFjayBpbnRvIHRoZSBUQ0MgcmVnaXN0ZXIuCgo+
+IAo+IFRoYW5rcywKPiBCasO2cm4KPiAKPiAKPiBbMF0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+YnBmL0NBQURuVlErckxuZU80dD1ZWW1MWXRjOTQ1RnowPXVjTlRXWkJ4Z3ZzOHRvRlktb25SZ0Bt
+YWlsLmdtYWlsLmNvbS8KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
