@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB578C44501
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 09:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD11DC43602
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 09:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aMu9NA+o58sWn29vC90LXqkcIXDawigm1Iz67x69iD4=; b=J2WRJzsMZpPhAB
-	0BcwQyd8+pBnxTi4LwprNC7fG7RZ29UT543E9HiU8zAu1UpoPUqyBj1pnN0L9XE/LkJ8ySQ1zgG6P
-	gajjDqj0EGoJH3q3KyY0SGAzAabS6UV7hdYU+JU562oSjq1PjcvFMU40OIGmtgfbTvQ9B1xtJ6DxF
-	3e/hs1/mdziWZzUARFwnkT/htI702VaA3st5zKAZRYUiw7pSOIAYmo+/rGETzaMxpKaiQUIaQtyGA
-	ig2j4Rug9XCRjqkXxJ9TYAzh59vzeFjXl//BPAHyZv8GBnUMQAMG3rC3QlWUgbNlZ+anRgvO6fA6N
-	k9dFlcib0EEAROAaFOTw==;
+	List-Owner; bh=lzGVzH9cvba/KW8vg1GCBVKriz9cgDwZP3Uo+sCIl0g=; b=XVMmaoSZc8NjTu
+	3eqMoEIT6d9MHM2wAgtmPRIHAkxvuEfTjVw4+TSBMSnGHjMHRq3TN9HOCVCXW6QorzB4OD9c61omh
+	HYCUVyjm2Oync3EBJkkW6VmgxW5FE9iik91QNpOldYfjPDmkNUy3UOlkEroBHbtfEmPUGf72NbLay
+	kmcNF6a+BDRFSz4ih1LLJuvpjil4f6/XT9DTict6Gc+7IR3EJ8yf2MUrsZ0J71UxDb6WHhYg7Ip8y
+	xd528G8ZOUBN6VUi2bVTUOBzPe3+uAh6rDo8GDP/zc+8uzhl1Lj4uqhh52aQFCd8guxMJQXHmojyT
+	J22uzoaWyQyUG4V88vGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfsH-0000000C5zj-1VTy;
-	Mon, 06 Jul 2026 09:44:25 +0000
+	id 1wgfuL-0000000C6PW-35Km;
+	Mon, 06 Jul 2026 09:46:33 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfsE-0000000C5yJ-0ny5
+	id 1wgfuF-0000000C6Nm-39nW
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 09:44:24 +0000
+	Mon, 06 Jul 2026 09:46:31 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-01 (Coremail) with SMTP id qwCowABnBc7veEtqps_xBA--.35117S2;
-	Mon, 06 Jul 2026 17:44:16 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowABX9c1teUtqVN3xBA--.1422S2;
+	Mon, 06 Jul 2026 17:46:21 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
 To: Sunil V L <sunilvl@ventanamicro.com>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
@@ -42,15 +42,15 @@ Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
 	linux-acpi@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] ACPI: RIMT: validate node and mapping bounds
-Date: Mon,  6 Jul 2026 17:44:14 +0800
-Message-ID: <20260706094414.82794-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] ACPI: RHCT: validate node reference bounds
+Date: Mon,  6 Jul 2026 17:46:19 +0800
+Message-ID: <20260706094619.83121-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABnBc7veEtqps_xBA--.35117S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3tw4rKryrWFyUJrWUCFWkXrb_yoWDWFWfp3
-	y2gFy5JrZ7Jr17Wa1IqFs5AFWaqw18trW2kayYk3Wqyw1vgryxKFWI9Fy5W3W5JFWfGw47
-	Jrs8tF98ur4qyFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: qwCowABX9c1teUtqVN3xBA--.1422S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3JryUGry7Jr1xJr1rWF1xKrg_yoW3Wr1DpF
+	4S9345Aan8Jw1fWr1Iqa1ru3y3X340vF4UXFZ3Gayqyr1vk3WUKF4jk3429F15tF4vgw4x
+	Zr4DtFyDGF48ArUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
@@ -67,8 +67,8 @@ X-Coremail-Antispam: 1UD129KBjvJXoW3tw4rKryrWFyUJrWUCFWkXrb_yoWDWFWfp3
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_024422_788790_18210119 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20260706_024629_431251_466F403B 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,309 +85,229 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RIMT nodes and ID mappings are supplied by firmware. The parser
-must prove that the current node body, any ID mapping array, and
-any referenced destination node are inside the mapped RIMT table
-before consumers read type-specific fields.
+RHCT hart-info nodes carry offset arrays that reference other
+nodes in the same firmware table.  Validate the current node,
+the hart-info offset array, and each referenced ISA or CMO node
+before reading type-specific fields.
 
-Add common node and array validators, use them before matching
-IOMMU, PCI root complex, and platform-device nodes, and fetch
-mapping destinations through the same validated offset path.
+The ISA string path also checks that the advertised string range
+is present before returning it to the RISC-V ISA parser.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/acpi/riscv/rimt.c | 152 ++++++++++++++++++++++++++++++++++----
- 1 file changed, 138 insertions(+), 14 deletions(-)
+ drivers/acpi/riscv/rhct.c | 146 +++++++++++++++++++++++++++++++++-----
+ 1 file changed, 128 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
-index e4538fa6c2c8..7c9c8406a222 100644
---- a/drivers/acpi/riscv/rimt.c
-+++ b/drivers/acpi/riscv/rimt.c
-@@ -12,8 +12,10 @@
- #include <linux/device/driver.h>
- #include <linux/iommu.h>
- #include <linux/list.h>
+diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
+index 8f3f38c64a88..bb8f8d4ab137 100644
+--- a/drivers/acpi/riscv/rhct.c
++++ b/drivers/acpi/riscv/rhct.c
+@@ -9,6 +9,94 @@
+ 
+ #include <linux/acpi.h>
+ #include <linux/bits.h>
 +#include <linux/overflow.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
 +#include <linux/string.h>
- #include "init.h"
- 
- struct rimt_fwnode {
-@@ -31,6 +33,78 @@ static DEFINE_SPINLOCK(rimt_fwnode_lock);
- /* Root pointer to the mapped RIMT table */
- static struct acpi_table_header *rimt_table;
- 
-+static bool rimt_node_valid(struct acpi_rimt_node *node,
-+			    struct acpi_rimt_node *end)
++
++static bool rhct_node_valid(struct acpi_table_rhct *rhct,
++			    struct acpi_rhct_node_header *node)
 +{
++	struct acpi_rhct_node_header *end;
 +	size_t remaining;
 +
-+	if (WARN_TAINT(node >= end, TAINT_FIRMWARE_WORKAROUND,
-+		       "RIMT node pointer overflows, bad table!\n"))
++	end = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct,
++			   rhct->header.length);
++	if (node >= end)
 +		return false;
 +
 +	remaining = (char *)end - (char *)node;
-+	if (WARN_TAINT(remaining < sizeof(*node), TAINT_FIRMWARE_WORKAROUND,
-+		       "RIMT node header is truncated, bad table!\n"))
++	if (remaining < sizeof(*node) ||
++	    node->length < sizeof(*node) ||
++	    node->length > remaining) {
++		pr_err(FW_BUG "Invalid RHCT node length\n");
 +		return false;
-+
-+	if (WARN_TAINT(node->length < sizeof(*node) || node->length > remaining,
-+		       TAINT_FIRMWARE_WORKAROUND,
-+		       "RIMT node length overflows, bad table!\n"))
-+		return false;
++	}
 +
 +	return true;
 +}
 +
-+static struct acpi_rimt_node *rimt_node_from_offset(u32 offset)
++static struct acpi_rhct_node_header *rhct_node_from_offset(struct acpi_table_rhct *rhct,
++							   u32 offset)
 +{
-+	struct acpi_rimt_node *node, *end;
++	struct acpi_rhct_node_header *node;
 +
-+	if (!rimt_table || offset > rimt_table->length)
++	if (offset > rhct->header.length)
 +		return NULL;
 +
-+	node = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table, offset);
-+	end = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table,
-+			   rimt_table->length);
-+
-+	return rimt_node_valid(node, end) ? node : NULL;
++	node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, offset);
++	return rhct_node_valid(rhct, node) ? node : NULL;
 +}
 +
-+static bool rimt_node_has_data(struct acpi_rimt_node *node, size_t data_size)
++static bool rhct_node_has_data(struct acpi_rhct_node_header *node,
++			       size_t data_size)
 +{
 +	if (node->length < sizeof(*node) + data_size) {
-+		pr_err(FW_BUG "Truncated RIMT node %p type %d\n", node,
-+		       node->type);
++		pr_err(FW_BUG "Truncated RHCT node type %u\n", node->type);
 +		return false;
 +	}
 +
 +	return true;
 +}
 +
-+static bool rimt_node_array_valid(struct acpi_rimt_node *node, u32 offset,
-+				  u32 count, size_t elem_size,
-+				  size_t min_offset, const char *name)
++static bool rhct_hart_info_valid(struct acpi_rhct_node_header *node)
 +{
-+	size_t bytes;
++	struct acpi_rhct_hart_info *hart_info;
++	size_t offsets_size;
 +
-+	if (!count)
-+		return true;
-+
-+	if (!offset || offset < min_offset || offset > node->length) {
-+		pr_err(FW_BUG "Invalid %s offset in RIMT node %p\n", name,
-+		       node);
++	if (!rhct_node_has_data(node, sizeof(*hart_info)))
 +		return false;
-+	}
 +
-+	if (check_mul_overflow(count, elem_size, &bytes) ||
-+	    bytes > node->length - offset) {
-+		pr_err(FW_BUG "Invalid %s array in RIMT node %p\n", name,
-+		       node);
++	hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node,
++				 sizeof(*node));
++	if (check_mul_overflow(hart_info->num_offsets, sizeof(u32),
++			       &offsets_size) ||
++	    offsets_size > node->length - sizeof(*node) -
++			   sizeof(*hart_info)) {
++		pr_err(FW_BUG "Invalid RHCT hart-info offset array\n");
 +		return false;
 +	}
 +
 +	return true;
 +}
 +
- /**
-  * rimt_set_fwnode() - Create rimt_fwnode and use it to register
-  *		       iommu data in the rimt_fwnode_list
-@@ -69,7 +143,12 @@ static acpi_status rimt_match_node_callback(struct acpi_rimt_node *node,
- 	struct device *dev = context;
- 
- 	if (node->type == ACPI_RIMT_NODE_TYPE_IOMMU) {
--		struct acpi_rimt_iommu *iommu_node = (struct acpi_rimt_iommu *)&node->node_data;
-+		struct acpi_rimt_iommu *iommu_node;
++static bool rhct_isa_string_valid(struct acpi_rhct_node_header *node)
++{
++	struct acpi_rhct_isa_string *isa_node;
++	size_t remaining;
 +
-+		if (!rimt_node_has_data(node, sizeof(*iommu_node)))
-+			return status;
-+
-+		iommu_node = (struct acpi_rimt_iommu *)&node->node_data;
- 
- 		if (dev_is_pci(dev)) {
- 			struct pci_dev *pdev;
-@@ -97,6 +176,9 @@ static acpi_status rimt_match_node_callback(struct acpi_rimt_node *node,
- 		struct acpi_rimt_pcie_rc *pci_rc;
- 		struct pci_bus *bus;
- 
-+		if (!rimt_node_has_data(node, sizeof(*pci_rc)))
-+			return status;
-+
- 		bus = to_pci_bus(dev);
- 		pci_rc = (struct acpi_rimt_pcie_rc *)node->node_data;
- 
-@@ -112,6 +194,10 @@ static acpi_status rimt_match_node_callback(struct acpi_rimt_node *node,
- 		struct acpi_rimt_platform_device *ncomp;
- 		struct device *plat_dev = dev;
- 		struct acpi_device *adev;
-+		size_t name_len;
-+
-+		if (!rimt_node_has_data(node, sizeof(*ncomp)))
-+			return status;
- 
- 		/*
- 		 * Walk the device tree to find a device with an
-@@ -138,6 +224,12 @@ static acpi_status rimt_match_node_callback(struct acpi_rimt_node *node,
- 		}
- 
- 		ncomp = (struct acpi_rimt_platform_device *)node->node_data;
-+		name_len = node->length - sizeof(*node) - sizeof(*ncomp);
-+		if (!name_len || !memchr(ncomp->device_name, '\0', name_len)) {
-+			acpi_os_free(buf.pointer);
-+			return AE_NOT_FOUND;
-+		}
-+
- 		status = !strcmp(ncomp->device_name, buf.pointer) ?
- 							AE_OK : AE_NOT_FOUND;
- 		acpi_os_free(buf.pointer);
-@@ -164,8 +256,7 @@ static struct acpi_rimt_node *rimt_scan_node(enum acpi_rimt_node_type type,
- 				rimt_table->length);
- 
- 	for (i = 0; i < rimt->num_nodes; i++) {
--		if (WARN_TAINT(rimt_node >= rimt_end, TAINT_FIRMWARE_WORKAROUND,
--			       "RIMT node pointer overflows, bad table!\n"))
-+		if (!rimt_node_valid(rimt_node, rimt_end))
- 			return NULL;
- 
- 		if (rimt_node->type == type &&
-@@ -244,6 +335,9 @@ static bool rimt_pcie_rc_supports_ats(struct acpi_rimt_node *node)
- {
- 	struct acpi_rimt_pcie_rc *pci_rc;
- 
-+	if (!rimt_node_has_data(node, sizeof(*pci_rc)))
++	if (!rhct_node_has_data(node, sizeof(*isa_node)))
 +		return false;
 +
- 	pci_rc = (struct acpi_rimt_pcie_rc *)node->node_data;
- 	return pci_rc->flags & ACPI_RIMT_PCIE_ATS_SUPPORTED;
- }
-@@ -283,7 +377,7 @@ struct rimt_pci_alias_info {
- static int rimt_id_map(struct acpi_rimt_id_mapping *map, u8 type, u32 rid_in, u32 *rid_out)
++	isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string, node,
++				sizeof(*node));
++	remaining = node->length - sizeof(*node) - sizeof(*isa_node);
++	if (isa_node->isa_length > remaining ||
++	    !memchr(isa_node->isa, '\0', isa_node->isa_length)) {
++		pr_err(FW_BUG "Invalid RHCT ISA string\n");
++		return false;
++	}
++
++	return true;
++}
+ 
+ static struct acpi_table_rhct *acpi_get_rhct(void)
  {
- 	if (rid_in < map->source_id_base ||
--	    (rid_in > map->source_id_base + map->num_ids))
-+	    rid_in - map->source_id_base > map->num_ids)
- 		return -ENXIO;
- 
- 	*rid_out = map->dest_id_base + (rid_in - map->source_id_base);
-@@ -298,15 +392,24 @@ static struct acpi_rimt_node *rimt_node_get_id(struct acpi_rimt_node *node,
- 	struct acpi_rimt_pcie_rc *pci_node;
- 	struct acpi_rimt_id_mapping *map;
- 	struct acpi_rimt_node *parent;
-+	size_t min_offset;
- 
- 	if (node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
-+		if (!rimt_node_has_data(node, sizeof(*pci_node)))
-+			return NULL;
+@@ -38,8 +126,6 @@ static struct acpi_table_rhct *acpi_get_rhct(void)
+ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const char **isa)
+ {
+ 	struct acpi_rhct_node_header *node, *ref_node, *end;
+-	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
+-	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
+ 	struct acpi_rhct_hart_info *hart_info;
+ 	struct acpi_rhct_isa_string *isa_node;
+ 	struct acpi_table_rhct *rhct;
+@@ -66,18 +152,32 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
+ 	for (node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
+ 	     node < end;
+ 	     node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length)) {
++		if (!rhct_node_valid(rhct, node))
++			return -EINVAL;
 +
- 		pci_node = (struct acpi_rimt_pcie_rc *)&node->node_data;
- 		id_mapping_offset = pci_node->id_mapping_offset;
- 		num_id_mapping = pci_node->num_id_mappings;
-+		min_offset = sizeof(*node) + sizeof(*pci_node);
- 	} else if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE) {
-+		if (!rimt_node_has_data(node, sizeof(*plat_node)))
-+			return NULL;
+ 		if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO) {
+-			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node, size_hdr);
+-			hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
++			if (!rhct_hart_info_valid(node))
++				return -EINVAL;
 +
- 		plat_node = (struct acpi_rimt_platform_device *)&node->node_data;
- 		id_mapping_offset = plat_node->id_mapping_offset;
- 		num_id_mapping = plat_node->num_id_mappings;
-+		min_offset = sizeof(*node) + sizeof(*plat_node);
- 	} else {
- 		return NULL;
- 	}
-@@ -314,6 +417,10 @@ static struct acpi_rimt_node *rimt_node_get_id(struct acpi_rimt_node *node,
- 	if (!id_mapping_offset || !num_id_mapping || index >= num_id_mapping)
- 		return NULL;
++			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node,
++						 sizeof(*node));
++			hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info,
++							     sizeof(*hart_info));
+ 			if (acpi_cpu_id != hart_info->uid)
+ 				continue;
  
-+	if (!rimt_node_array_valid(node, id_mapping_offset, num_id_mapping,
-+				   sizeof(*map), min_offset, "ID mapping"))
-+		return NULL;
+ 			for (int i = 0; i < hart_info->num_offsets; i++) {
+-				ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
+-							rhct, hart_info_node_offset[i]);
++				ref_node = rhct_node_from_offset(rhct,
++								 hart_info_node_offset[i]);
++				if (!ref_node)
++					return -EINVAL;
 +
- 	map = ACPI_ADD_PTR(struct acpi_rimt_id_mapping, node,
- 			   id_mapping_offset + index * sizeof(*map));
+ 				if (ref_node->type == ACPI_RHCT_NODE_TYPE_ISA_STRING) {
++					if (!rhct_isa_string_valid(ref_node))
++						return -EINVAL;
++
+ 					isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string,
+-								ref_node, size_hdr);
++								ref_node, sizeof(*ref_node));
+ 					*isa = isa_node->isa;
+ 					return 0;
+ 				}
+@@ -89,22 +189,32 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
+ }
  
-@@ -324,7 +431,9 @@ static struct acpi_rimt_node *rimt_node_get_id(struct acpi_rimt_node *node,
- 		return NULL;
- 	}
+ static void acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
+-					  struct acpi_rhct_hart_info *hart_info,
++					  struct acpi_rhct_node_header *node,
+ 					  u32 *cbom_size, u32 *cboz_size, u32 *cbop_size)
+ {
+-	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
+-	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
+ 	struct acpi_rhct_node_header *ref_node;
++	struct acpi_rhct_hart_info *hart_info;
+ 	struct acpi_rhct_cmo_node *cmo_node;
+ 	u32 *hart_info_node_offset;
  
--	parent = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table, map->dest_offset);
-+	parent = rimt_node_from_offset(map->dest_offset);
-+	if (!parent)
-+		return NULL;
+-	hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
++	if (!rhct_hart_info_valid(node))
++		return;
++
++	hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node,
++				 sizeof(*node));
++	hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info,
++					     sizeof(*hart_info));
+ 	for (int i = 0; i < hart_info->num_offsets; i++) {
+-		ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
+-					rhct, hart_info_node_offset[i]);
++		ref_node = rhct_node_from_offset(rhct, hart_info_node_offset[i]);
++		if (!ref_node)
++			return;
++
+ 		if (ref_node->type == ACPI_RHCT_NODE_TYPE_CMO) {
++			if (!rhct_node_has_data(ref_node, sizeof(*cmo_node)))
++				return;
++
+ 			cmo_node = ACPI_ADD_PTR(struct acpi_rhct_cmo_node,
+-						ref_node, size_hdr);
++						ref_node, sizeof(*ref_node));
+ 			if (cbom_size && cmo_node->cbom_size <= 30) {
+ 				if (!*cbom_size)
+ 					*cbom_size = BIT(cmo_node->cbom_size);
+@@ -137,9 +247,7 @@ static void acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
+ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
+ 			     u32 *cboz_size, u32 *cbop_size)
+ {
+-	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
+ 	struct acpi_rhct_node_header *node, *end;
+-	struct acpi_rhct_hart_info *hart_info;
+ 	struct acpi_table_rhct *rhct;
  
- 	if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE ||
- 	    node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
-@@ -343,6 +452,7 @@ static struct acpi_rimt_node *rimt_node_map_id(struct acpi_rimt_node *node,
- 	u32 id_mapping_offset, num_id_mapping;
- 	struct acpi_rimt_pcie_rc *pci_node;
- 	u32 id = id_in;
-+	size_t min_offset;
- 
- 	/* Parse the ID mapping tree to find specified node type */
- 	while (node) {
-@@ -357,13 +467,21 @@ static struct acpi_rimt_node *rimt_node_map_id(struct acpi_rimt_node *node,
+ 	if (acpi_disabled)
+@@ -166,9 +274,11 @@ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
+ 	for (node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
+ 	     node < end;
+ 	     node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length)) {
++		if (!rhct_node_valid(rhct, node))
++			return;
++
+ 		if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO) {
+-			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node, size_hdr);
+-			acpi_parse_hart_info_cmo_node(rhct, hart_info, cbom_size,
++			acpi_parse_hart_info_cmo_node(rhct, node, cbom_size,
+ 						      cboz_size, cbop_size);
  		}
- 
- 		if (node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
-+			if (!rimt_node_has_data(node, sizeof(*pci_node)))
-+				goto fail_map;
-+
- 			pci_node = (struct acpi_rimt_pcie_rc *)&node->node_data;
- 			id_mapping_offset = pci_node->id_mapping_offset;
- 			num_id_mapping = pci_node->num_id_mappings;
-+			min_offset = sizeof(*node) + sizeof(*pci_node);
- 		} else if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE) {
-+			if (!rimt_node_has_data(node, sizeof(*plat_node)))
-+				goto fail_map;
-+
- 			plat_node = (struct acpi_rimt_platform_device *)&node->node_data;
- 			id_mapping_offset = plat_node->id_mapping_offset;
- 			num_id_mapping = plat_node->num_id_mappings;
-+			min_offset = sizeof(*node) + sizeof(*plat_node);
- 		} else {
- 			goto fail_map;
- 		}
-@@ -371,16 +489,14 @@ static struct acpi_rimt_node *rimt_node_map_id(struct acpi_rimt_node *node,
- 		if (!id_mapping_offset || !num_id_mapping)
- 			goto fail_map;
- 
-+		if (!rimt_node_array_valid(node, id_mapping_offset,
-+					   num_id_mapping, sizeof(*map),
-+					   min_offset, "ID mapping"))
-+			goto fail_map;
-+
- 		map = ACPI_ADD_PTR(struct acpi_rimt_id_mapping, node,
- 				   id_mapping_offset);
- 
--		/* Firmware bug! */
--		if (!map->dest_offset) {
--			pr_err(FW_BUG "[node %p type %d] ID map has NULL parent reference\n",
--			       node, node->type);
--			goto fail_map;
--		}
--
- 		/* Do the ID translation */
- 		for (i = 0; i < num_id_mapping; i++, map++) {
- 			rc = rimt_id_map(map, node->type, map_id, &id);
-@@ -391,8 +507,16 @@ static struct acpi_rimt_node *rimt_node_map_id(struct acpi_rimt_node *node,
- 		if (i == num_id_mapping)
- 			goto fail_map;
- 
--		node = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table,
--				    rc ? 0 : map->dest_offset);
-+		/* Firmware bug! */
-+		if (!map->dest_offset) {
-+			pr_err(FW_BUG "[node %p type %d] ID map has NULL parent reference\n",
-+			       node, node->type);
-+			goto fail_map;
-+		}
-+
-+		node = rimt_node_from_offset(map->dest_offset);
-+		if (!node)
-+			goto fail_map;
  	}
- 
- fail_map:
 -- 
 2.43.0
 
