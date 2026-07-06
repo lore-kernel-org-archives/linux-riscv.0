@@ -4,86 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D10C43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 14:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06465C43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 14:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jx65lpc+iC1LQ4jaa7xgviXqALYdxfcAeLW1xB0AIgA=; b=Cs9GDtqeYFwzgJ
-	KTvtw05fsypOywzWxAS6Ib+1mz4zyRDY9oynpzqG6lNJ8JoC9SCkkOS4vz1LeySthxDQq7Qype9vQ
-	2CNqhprF6cW5QkBIKpOXFiqNXhEWoEz0CcKnH+fgZFTwnzqg/2aLAS3ZywaplhzKbaXlx/B6vWiEm
-	4KgX4WLDm9p8DE76ndqvnwbOR6CVoaCEhgNcRZUullhn/5iJzH3bg9O4LAWGHNkXepxT3wcsEb5Xq
-	ARmjQLheMkywmBmKfL7M0SleUdjfNntBFepLfVEAWjoGAKyZPA5L26EHJOt91o19KEwaI6WG950hL
-	WV6sCm6/oLaK26ZUfuCw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8V1ZWjeeRb79rSlePv4WGjrHp5mbAmMas5pOzpKpdV4=; b=zJfLlCHMmKTNzY
+	OcFGOE2t/quwcHCr4cIAHQsVukQKCazMixWv9zMTUoFnHJtDy2M/b1ifqfPQI4ln59gkC2QM/hCg5
+	3utPvRpy2XzBpBVtn9XnkSgXcDiB3TsQKWU8mbJHlZsg2anAYtZMO4oFtfB7YSTdET9jhZbRH9TSI
+	1fPS5EdxkE/Jdf8CZwEQfqvnDegEzxvxONHEQ+aFZ6xb+PregFQheCpmgA7PvVnslE6isB1O7WD1k
+	JqHvTA66bycGRkfl9uhVcFtxwtOpiZw8EWre2vZh6oBbJ6i8f8MNC4qEfm0W5AKeneq5V2GGL1mBv
+	tE1boF/Pl/WRfD809euw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkTD-0000000Clxi-0mRG;
-	Mon, 06 Jul 2026 14:38:51 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wgkaP-0000000CnHq-0zNl;
+	Mon, 06 Jul 2026 14:46:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkT9-0000000ClwJ-47TB
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 14:38:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783348680; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MIOfhPRszk4c+sgy9Q6NAwEV1CdSkvErbwZmp5rbzyb565vspKxBHgnMfVxVORa+T3hEDUwKW8M+np6CCmV3JStrcyarSbIfNKuXRA8TmSDtPCyQYIi30L8eHntU5aaEqZgsNNVLmMDJ1QAxw4qqNDwzgZE/EnxMAhKhlRH3cFg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783348680; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=2E6p0yq7ndvFPYl6q3MG80gHOfGZKjQpLPchEo0gBIw=; 
-	b=Cg2VMHYUsOaNGsrCn2kVDjfMDV5+rjPn6OREHq8DhhUBmOPoi87YXY9zXjuuGqXy97MUOUUObzkky7dp9ibnqiZCRmrGCnFw1UKRJzOcbR63uEji6pWFCD1qwTEhqm87A4QAAZsjE9JJ6qEN+6MXO3hL13r4Z58cXl5CV7SrwjU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783348680;
-	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=2E6p0yq7ndvFPYl6q3MG80gHOfGZKjQpLPchEo0gBIw=;
-	b=VNI81rIS2LH0loqTTo9Vvthp9xxFAqm7CpfYOWYizZW/sK7SZPkKZQw9BscJYd+l
-	7GDHTG2ITjvDvaGRb67ulHDrG6sDrsNJCXDuTD/nxWSgjE1vidtf6XRWDRNlfOryUK1
-	5YQlXfYKEEW0EICTFIc4UmpeNy8ll8I+iTdw9jBU=
-Received: by mx.zohomail.com with SMTPS id 178334867955355.454678121945676;
-	Mon, 6 Jul 2026 07:37:59 -0700 (PDT)
-From: Daniel Almeida <daniel.almeida@collabora.com>
-Date: Mon, 06 Jul 2026 11:37:15 -0300
-Subject: [PATCH v5 4/4] rust: clk: use 'kernel vertical style' for imports
+	id 1wgkaO-0000000CnHa-1Wqa;
+	Mon, 06 Jul 2026 14:46:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E23DE402E8;
+	Mon,  6 Jul 2026 14:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A08B81F000E9;
+	Mon,  6 Jul 2026 14:46:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783349175;
+	bh=brx/0pjLPbIrtsCLKJMRSdKrfuPAmeeDj45TYZzCsts=;
+	h=Date:From:To:Cc:Subject;
+	b=GRPq8zRwdkOW2eJBU6A7QeKlcffOXU1DX1xaza+0LosuToaFcnIkkMEGkqSdvoM7+
+	 Y+Z5hDHWTp2y6DKnOJs2FeQboaNF59wGIXyQaCrlmFl76eZVomgy1x0pJYD2rBlzHj
+	 o+0vX2o8oJ9958leBdXSC+27RoclU6HxXWqyPH5h+86FS5oVj87SsoApDM8dgZR00T
+	 QijldAFHZzb7d7e0/j5zi3nIT9DI7ub/hLqoI4+rqGjwQ5AP0RbnHpqbZBRJpkjPQt
+	 OweeEOYVV4p8VZYcW3jhDYbzvjkXoHpMw4MYKwYedf6fezxNrMlwz/6cbrSWUopqjN
+	 SWyRyV7+EUiXQ==
+Date: Mon, 6 Jul 2026 07:46:13 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	opensbi@lists.infradead.org, u-boot@lists.denx.de,
+	qemu-riscv@nongnu.org
+Cc: Paul Walmsley <pjw@kernel.org>, Atish Patra <atish.patra@linux.dev>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>,
+	Conor Dooley <conor@kernel.org>
+Subject: CFP for Plumbers RISC-V MC          
+Message-ID: <aku/tckAJ71i952o@x1>
 MIME-Version: 1.0
-Message-Id: <20260706-clk-type-state-v5-4-67c5f326a16c@collabora.com>
-References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
-In-Reply-To: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Trevor Gross <tmgross@umich.edu>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Michal Wilczynski <m.wilczynski@samsung.com>, Boqun Feng <boqun@kernel.org>, 
- Boqun Feng <boqun@kernel.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
- linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org, 
- rust-for-linux@vger.kernel.org, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, Maurice <mhi@mailbox.org>
-X-Mailer: b4 0.15.2
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_073848_049929_64C7DE34 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,135 +69,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert all imports to use the new import style. This will make it easier
-to land new changes in the future.
-
-No change of functionality implied.
-
-Link: https://docs.kernel.org/rust/coding-guidelines.html#imports
-Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
----
- rust/kernel/clk.rs | 66 +++++++++++++++++++++++++++++++++++++++++-------------
- 1 file changed, 50 insertions(+), 16 deletions(-)
-
-diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
-index b9a44f83843a..e677156ffd21 100644
---- a/rust/kernel/clk.rs
-+++ b/rust/kernel/clk.rs
-@@ -80,13 +80,23 @@ fn from(freq: Hertz) -> Self {
- mod common_clk {
-     use super::Hertz;
-     use crate::{
--        device::{Bound, Device},
--        error::{from_err_ptr, to_result, Result},
-+        device::{
-+            Bound,
-+            Device, //
-+        },
-+        error::{
-+            from_err_ptr,
-+            to_result, //
-+        },
-         prelude::*,
--        sync::Arc,
-+        sync::Arc, //
-     };
+Hi all,
  
--    use core::{marker::PhantomData, mem::ManuallyDrop, ptr};
-+    use core::{
-+        marker::PhantomData,
-+        mem::ManuallyDrop,
-+        ptr, //
-+    };
- 
-     mod private {
-         pub trait Sealed {}
-@@ -193,9 +203,15 @@ impl<State: ClkState> From<Error<State>> for kernel::error::Error {
-         /// original [`Clk`], e.g.:
-         ///
-         /// ```
--        /// use kernel::clk::{Clk, Enabled, Unprepared};
--        /// use kernel::device::{Bound, Device};
--        /// use kernel::error::Result;
-+        /// use kernel::clk::{
-+        ///     Clk,
-+        ///     Enabled,
-+        ///     Unprepared, //
-+        /// };
-+        /// use kernel::device::{
-+        ///     Bound,
-+        ///     Device, //
-+        /// };
-         ///
-         /// fn get_enabled(dev: &Device<Bound>) -> Result<Clk<Enabled>> {
-         ///     let clk = Clk::<Unprepared>::get(dev, Some(c"apb_clk"))?
-@@ -245,9 +261,17 @@ fn from(err: Error<State>) -> Self {
-     /// The following example demonstrates how to obtain and configure a clock for a device.
-     ///
-     /// ```
--    /// use kernel::clk::{Clk, Enabled, Hertz, Unprepared, Prepared};
--    /// use kernel::device::{Bound, Device};
--    /// use kernel::error::Result;
-+    /// use kernel::clk::{
-+    ///     Clk,
-+    ///     Enabled,
-+    ///     Hertz,
-+    ///     Prepared,
-+    ///     Unprepared, //
-+    /// };
-+    /// use kernel::device::{
-+    ///     Bound,
-+    ///     Device, //
-+    /// };
-     ///
-     /// fn configure_clk(dev: &Device<Bound>) -> Result {
-     ///     // The fastest way is to use a version of `Clk::get` for the desired
-@@ -292,8 +316,11 @@ fn from(err: Error<State>) -> Self {
-     /// and move between the variants:
-     ///
-     /// ```
--    /// use kernel::clk::{Clk, Enabled, Prepared};
--    /// use kernel::error::Result;
-+    /// use kernel::clk::{
-+    ///     Clk,
-+    ///     Enabled,
-+    ///     Prepared, //
-+    /// };
-     ///
-     /// enum DeviceClk {
-     ///     Suspended(Clk<Prepared>),
-@@ -323,8 +350,11 @@ fn from(err: Error<State>) -> Self {
-     /// enable a clone of it:
-     ///
-     /// ```
--    /// use kernel::clk::{Clk, Enabled, Prepared};
--    /// use kernel::error::Result;
-+    /// use kernel::clk::{
-+    ///     Clk,
-+    ///     Enabled,
-+    ///     Prepared, //
-+    /// };
-     ///
-     /// fn use_clk(prepared_clk: &Clk<Prepared>) -> Result {
-     ///     let enabled_clk: Clk<Enabled> = prepared_clk.clone().enable()?;
-@@ -556,8 +586,12 @@ pub fn enable(self) -> Result<Clk<Enabled>, Error<Prepared>> {
-         /// clock or threading it through an intermediate state, e.g.:
-         ///
-         /// ```
--        /// use kernel::clk::{Clk, Enabled, Hertz, Prepared};
--        /// use kernel::error::Result;
-+        /// use kernel::clk::{
-+        ///     Clk,
-+        ///     Enabled,
-+        ///     Hertz,
-+        ///     Prepared, //
-+        /// };
-         ///
-         /// fn read_rate(clk: &Clk<Prepared>) -> Result<Hertz> {
-         ///     clk.with_enabled(|clk: &Clk<Enabled>| clk.rate())
+The RISC-V microconferecnce has been accepted for Linux Plumbers 2026 in Prague
+this October 5-7:
+https://lpc.events/event/20/contributions/2333/
 
--- 
-2.54.0
+The Call For Papers is currently open. The microconference is composed of
+sessions between 15 to 30 minutes for a total of 3.5 hours of technical  
+discussion:
+https://lpc.events/event/20/abstracts/
+
+Please remember to choose "RISC-V MC" as the track. It is ideal to submit your
+proposal before Friday, July 10.
+
+Thanks,     
+Drew
+~
+~
 
 
 _______________________________________________
