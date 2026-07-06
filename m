@@ -4,71 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF2DC43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 17:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC921C43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 17:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
-	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOzmJb7ZwH+lKPhRyfnzzGmYLj6s9+WcmWxIjPYHXbY=; b=V+QYW4qVKLB7b2
-	jru3Rc7XvUgAai4YMzok6XW1STtLgvRJU4sB3qEriAVyJ0l4OFFxcIpVwnAUA1Sk2AqsVdxCpJc5v
-	P7hvLmwbGUkScCDt4iDHeSPkif8/xJe33/PD+sngIw8JIuMHZWstEzJqB+OE2qVvEofEvhFyqFkRy
-	9/b9D5auNyHgsKLFbmtKyWvekC9udP23y1jrchYJsBegsSWFls3rUpqZoJcJHoOYzYed+8+0qM0+Y
-	X1IbLPGOapB0lrArUfq8AjZCuVCy497tZkmqNrErGpz26ITYPIxoeLpfunati2TyUtEerirbdpk8R
-	l5Fh7xceU+//Ul1Dth1g==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Xcg3QCH++cAnUdOtsYJdmgjGjlZXFvSQdRSz9C5AcTo=; b=SYiPpcSxASYW1R
+	GMV8meOn/JVVeiwIU93sGJjX9oYW8Xyk4V7UQL+Lt+UYfV4YE3YO07v7E/a1hEWm6entWLhg6QpkC
+	DcnL7lTpMz1KuIOd9EKB/iNCGxRavUoQIbO4Y1/pyGysJ93gyzLc9NK0wdB/GG7JKJufzC8BohoS3
+	+nasHTvZKH/hog1jhUkXhIbRq8NZHHvBeE7Dyv+MMhRQeU/zpLXZRSBSpbNPY0dc8G31f5QxJd/YJ
+	Dtw5QEYQ9g8k6XunA0JgbH+jHdbzeh3sKQD0St4Ctb7IvhHgY404XqcmHveiPxPSwI82vcEFvede3
+	m0bCz9maT/466/BeKxhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmxJ-0000000DBJ4-0xhh;
-	Mon, 06 Jul 2026 17:18:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgn7x-0000000DCIc-2gN9;
+	Mon, 06 Jul 2026 17:29:05 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmxI-0000000DBIY-2Ay1
+	id 1wgn7u-0000000DCIA-2JRF
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 17:18:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2C09600DA
-	for <linux-riscv@lists.infradead.org>; Mon,  6 Jul 2026 17:18:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 798A31F01558
-	for <linux-riscv@lists.infradead.org>; Mon,  6 Jul 2026 17:18:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783358282;
-	bh=6SzTceFp/6u/0U2ZsHukaDCb4DvB8gNfQxW2S2HmJSM=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=BwY1eDXK2casDflWj7FpxvSTaOUpF6I6RaUtfHX7uDXoOmvURB5vkHOFZ3pHN4mYY
-	 YSGGZqwOvbbnTMbL4JbqmeosKm3zElo1oh74xaK2cuIPRsJrRkelv0KgiuijDYQDgk
-	 jgkYTEOpsGsJKokmMJTN1q62s5tlSsBGpk+W8KAwQb+UN/LjcAfyhblYIeGfZWFvTR
-	 sbwG67ET6OUBfimy9x3NQAU/oXqkl5hFQGoxEbLS3JhRqqidEAQlkCbmy/TtOZqqjw
-	 mkqCCDLRDVkIqJHK62uiDjZ+hSojZjY67Rp5rHGYmscPI7iUW7H3YtnulR/weGeQvB
-	 rh6bbe2+N/ipg==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39b1026e171so32252971fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 10:18:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpdFlAjo2Vtu/uJzzajZo8r0pix+FgT9yPHIYzIk6rK/dVnsdiFpZlQHqNdd+0eU1ums9BLJ6TeRaVshQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrXuddbbbIWT7HoMr5nKF7m5VFfiFunNeNJniaCaxK5wjp0q5y
-	X4qYlLbVCgoro75I6zXLt3iBbqDQuVDh9L0pyxHp5wHwTUDMkLiVM4FvUF7DEH5y4DyyuoYfERs
-	q8VHTguDKSQGW++lXHMBv+wbRkwRedQI=
-X-Received: by 2002:a2e:a99d:0:b0:39a:fec6:efd0 with SMTP id
- 38308e7fff4ca-39c5ffae1cfmr4021431fa.23.1783358280803; Mon, 06 Jul 2026
- 10:18:00 -0700 (PDT)
+	Mon, 06 Jul 2026 17:29:03 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ca7aaa4b85so30457085ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 10:29:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783358941; x=1783963741; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Sc8UWUFIFca5T75Paxs4hgOTZtiZGU1HZksFlaVnRMg=;
+        b=I/WI7PMRFPWWU8h/Vxin9qomqe3yqNSJIohY5wXbWcp04zh3mtXZveyouJDRLxeZMF
+         M57ECn/If8T20OSusEOON1BeiP8uqcRkzoqEcsDY3hkd1PVQbZpolZma5SE2gcqGeI32
+         nnmVmPY/2aZ5A8t+fZ3N1ZY37yqf9UqqjrnU0/MpJQR4jUbOILmSwHN7QBkjDFnUI+c6
+         2F/msjL6btfllqwfH38XKsB4dvsf9eOQRjxw6Tj6cBBjViP+l/i5nRnrg12J27L0TU2Y
+         mqwvNnJBCPj+qTc4zpMLI9TLfRMuTDh5ZH1SQaBXiV/EQ/qGkA1OBrg8s0II376alcdH
+         jHFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783358941; x=1783963741;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Sc8UWUFIFca5T75Paxs4hgOTZtiZGU1HZksFlaVnRMg=;
+        b=Uh33vJuHoI2NOhtED6J/iPJUWGMmvc5TJJ44JMgfUB87xzkzuP1HTgDuOcsFGiibzM
+         FUS9Tttsd/5epnb1w94X4QuO8u+eNB4N4LTzv7XR05UJr91y7Al/va9IqK1mtFp6YLnd
+         mf8rl6ErGUuXaXfB8Nyn2Aze9vjSBdhwSGyT2k6XMELzJX8ILokcAvslq6DsDABGc4Bw
+         Ut05XrdtnCsoR78+kPZsv/9NJ1VDdWk1oh+wV8nSYTiX0xPXWVBuK0vWayXZJt6ua+Rr
+         2Xf79mYxnNqgfX9FO3ecrBNtk2r6C/vxWFtIhTqWAyZa6Kn5UEZBS9oH1NyybR3/d5y4
+         FUKA==
+X-Forwarded-Encrypted: i=1; AHgh+RqcuoBGPfyAfoSOg0YV0LmHNknpqBxQdgbx53J/7oUViYb4n9o5VXzMm1nJH7/AfkPADroXdL3dvaS17w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOaRPMMfv6gggYBB4PEScUCDHS6GlHUJ+/Nl2wisYtlFAdmIOz
+	aHRARep1P5+RxTv0ROicJJ1+9DubmQ+gL+zl5mrwzVOqHFee0BaQ+jUm
+X-Gm-Gg: AfdE7cmO/vCsn+t/ntNNBvjToVUAcfwCEojuZLye56vakfQsep+HEjeGKQZEcD5IIpP
+	mp7pAj3zUZUfkKfY70E+PsbZhMaX9aZUitzfC6MqrCeei/LeSmi05jalUd/W93Tl5Saf/eKe5Us
+	9SZNUmY34hvgOBXPfOpS0Dne8Eo+NW6oxrAFKe9L0UNR238d4ZasMcIvCf0deSQs9f67Qbrv/m/
+	QeC53biSAPxX0MgU/oeCKqPSb2aD5FRcKoG7fCuv8m1iKqkKqoWU/YfGXzyt8ZesOOQUs4ZTV0M
+	fMCnBib7HjfcqLz62m8BQsLTzvXXgwUH1yI/7mKLq5cc+WFVpIZj7nasRGq1rMVt5PWhLzA0/VB
+	lDnDpY/4xCc6xv7PLw08N8ilRjbKnOAmpWw0VrFvmQqaChR4KB+Y/9eGWA4l0mcn/GmgU7QxRjD
+	GrTvu0y8HrxPLfoO+zdiUdcI5rv0kLoLJEr6VGFLDEDOYx3Y1TbKRBhDDvL9rVaFsKpaPO44Eop
+	BXYTKTfuQDO
+X-Received: by 2002:a17:902:ec85:b0:2c6:a012:6241 with SMTP id d9443c01a7336-2ccbe3f7d69mr17749295ad.6.1783358941128;
+        Mon, 06 Jul 2026 10:29:01 -0700 (PDT)
+Received: from visitorckw-work01.c.googlers.com.com (32.237.80.34.bc.googleusercontent.com. [34.80.237.32])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cad6f25e54sm54667005ad.2.2026.07.06.10.28.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 10:29:00 -0700 (PDT)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	eddyz87@gmail.com,
+	memxor@gmail.com,
+	luke.r.nels@gmail.com,
+	xi.wang@gmail.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	pulehui@huawei.com
+Cc: martin.lau@linux.dev,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	jolsa@kernel.org,
+	emil@etsalapatis.com,
+	alex@ghiti.fr,
+	jserv@ccns.ncku.edu.tw,
+	eleanor15x@gmail.com,
+	marscheng@google.com,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kuan-Wei Chiu <visitorckw@gmail.com>
+Subject: [PATCH bpf-next v3 0/3] riscv, bpf: Add support for signed operations and 32-bit atomics
+Date: Mon,  6 Jul 2026 17:28:43 +0000
+Message-ID: <20260706172846.3876436-1-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.55.0.rc2.803.g1fd1e6609c-goog
 MIME-Version: 1.0
-References: <20260606205452.2386930-1-lukas.schmid@netcube.li> <178335762241.4010120.15331558144606875972.b4-ty@kernel.org>
-In-Reply-To: <178335762241.4010120.15331558144606875972.b4-ty@kernel.org>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 7 Jul 2026 01:17:45 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66nsmz63tMUpkb_p6nXGCtvVSX4z8tJ0Ojg_6md0sY=KA@mail.gmail.com>
-X-Gm-Features: AVVi8Cfs5u3u3Le8rfmIs2akFxo6f5Cg5zKm8U8X3Ch8xkPrjuDD5gQk7w4gesM
-Message-ID: <CAGb2v66nsmz63tMUpkb_p6nXGCtvVSX4z8tJ0Ojg_6md0sY=KA@mail.gmail.com>
-Subject: Re: [PATCH v4 0/3] Add support for NetCube Systems OpenNMC (dobermann)
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>, 
-	Lukas Schmid <lukas.schmid@netcube.li>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_102902_593623_1F03AFF9 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +114,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgNywgMjAyNiBhdCAxOjA34oCvQU0gQ2hlbi1ZdSBUc2FpIDx3ZW5zQGtlcm5l
-bC5vcmc+IHdyb3RlOgo+Cj4gT24gU2F0LCAwNiBKdW4gMjAyNiAyMjo1NDo0MCArMDIwMCwgTHVr
-YXMgU2NobWlkIHdyb3RlOgo+ID4gVGhpcyBzZXJpZXMgYWRkcyBzdXBwb3J0IGZvciB0aGUgTmV0
-Q3ViZSBTeXN0ZW1zIE9wZW5OTUMuCj4gPgo+ID4gU29ycnkgZm9yIHRoZSBxdWljayByZXNlbmQu
-IFRoaXMgdjQgaW5jbHVkZXMgdGhlIGNvcnJlY3RlZCBNYWtlZmlsZQo+ID4gdGFyZ2V0IG5hbWUu
-Cj4gPgo+ID4gQ2hhbmdlcyBpbiB2NDoKPiA+ICAtIGZpeCB0aGUgQVJNIE1ha2VmaWxlIHRhcmdl
-dCBuYW1lIGZvciB0aGUgbmV3IGJvYXJkCj4gPgo+ID4gWy4uLl0KPgo+IEFwcGxpZWQgdG8gc3Vu
-eGkvZHQtZm9yLTcuMyBpbiBzdW54aSwgdGhhbmtzIQo+Cj4gWzEvM10gZHQtYmluZGluZ3M6IGFy
-bTogc3VueGk6IEFkZCBOZXRDdWJlIFN5c3RlbXMgT3Blbk5NQyAoZG9iZXJtYW5uKQo+ICAgICAg
-IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvc3VueGkvbGludXgvYy85OTk1YzgxNDZiYjkKPiBbMi8z
-XSByaXNjdjogZHRzOiBhbGx3aW5uZXI6IGQxcy10MTEzOiBBZGQgdWFydDQgcGluY3RybCByZXF1
-aXJlZCBieSBOZXRDdWJlIFN5c3RlbXMgT3Blbk5NQwo+ICAgICAgIGh0dHBzOi8vZ2l0Lmtlcm5l
-bC5vcmcvc3VueGkvbGludXgvYy81YjBmZDc3N2ViMzQKPiBbMy8zXSBBUk06IGR0czogc3VueGk6
-IGFkZCBzdXBwb3J0IGZvciBOZXRDdWJlIFN5c3RlbXMgT3Blbk5NQyAoZG9iZXJtYW5uKQo+ICAg
-ICAgIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvc3VueGkvbGludXgvYy85ZGM0NWIxN2ZiODUKCkZv
-cmNlIHB1c2hlZCB0aGlzIG9uZSB0byBjaGFuZ2UgInN1bnhpIiB0byAiYWxsd2lubmVyIi4KCj4K
-PiBCZXN0IHJlZ2FyZHMsCj4gLS0KPiBDaGVuLVl1IFRzYWkgPHdlbnNAa2VybmVsLm9yZz4KPgo+
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Add support for missing signed operations and 32-bit atomics in the
+RV32 BPF JIT compiler.
+
+The current implementation lacks support for BPF_SDIV, BPF_SMOD, and
+BPF_MOVSX, ignoring the instruction offset field and treating them as
+unsigned or zero-extended. Introduce support for these operations by
+checking the offset field and emitting the corresponding instructions.
+
+Additionally, we leverage the mandatory A extension to natively support
+32-bit BPF atomics (and, or, xor, xchg) by mapping them directly to
+amo*.w instructions. BPF_CMPXCHG continues to fall back to the
+interpreter.
+
+As a result, test_bpf.ko now runs with 0 failures, and the total number
+of successfully JIT'ed test cases increases from 843 to 902.
+---
+Changes in v3:
+- Pass insn directly to emit_alu_r32().
+- Remove the Fixes: tag and update title.
+- Consolidate size, mode, and off into insn for emit_store_r64().
+
+Changes in v2:
+- Add missing Fixes tags.
+- Fix memory ordering by emitting aq=1, rl=1
+
+Kuan-Wei Chiu (3):
+  riscv, bpf: Add support for BPF_SDIV and BPF_SMOD in RV32 JIT
+  riscv, bpf: Add support for BPF_MOVSX in RV32 JIT
+  riscv, bpf: Add 32 bit atomic operations to RV32 JIT
+
+ arch/riscv/net/bpf_jit_comp32.c | 111 +++++++++++++++++++++++++++-----
+ 1 file changed, 95 insertions(+), 16 deletions(-)
+
+-- 
+2.55.0.rc2.803.g1fd1e6609c-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
