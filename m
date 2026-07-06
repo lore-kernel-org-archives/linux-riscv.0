@@ -4,95 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E03C43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A090C44500
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 09:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SFRnH6k+vAQUOlvAShEFO1exzPdMs4YlSwpKbwAnD48=; b=Ko5nvcfzX/I9Oy
-	tXi+3DSY0wRr6CFyYpv8UrtHusKZLPblcrltbmqKf6R2kF1ewoSGWzPwaTZYu7hb5hs7vxqB2uE7Q
-	xEquVlb0p4vUxhkfIGuTRZq0NGqkwOdAaExrRyiiemzgFu+SknrBSEaIuaNTvn589P63CmzyXeQMm
-	Nf8aaTsoJoWF38weYWhrbGm1XGB2eDT9I5OXGPbtfpGOy+tpn3gHHSU05szU8jSIhzl9pdKFU3FO3
-	Br3I6cycvMH+ECLlGyw4xRAYSM3dY7DW1sIP/lZDOhen5LvKcraZFwk0iX31bwEsAIxe+++ZR8naf
-	jk7Ob0o7iIhsES1gJ0WA==;
+	List-Owner; bh=l6Evy4uVrCibSQFVCz8TppsdiYBlXw3Kef/txSlEM8w=; b=Kx02gsuH5wwbxp
+	y1drCLWpn0FBzR8vbHkIGEGTJt+Np9CqLXElJ0u5ecG43kgTAFpZM3rhK2qc4i9jAFjUcvrcSzJCQ
+	8Da9e3bJ7y8QQs3rJ8o/t2kvv0FwUFopxSsUG8yXZaCVflYsO3dmK0ZnEJfu7gnbRcATPQdl3fr8q
+	A47DFyhmTV3MtjZ7u6uS611zDlXLhVsbIYqcYjlk+Oyu6p2i/attUBFDjTmA97FZVs6kgJh7NZVYM
+	iN6+05FkSrZrrYeEk8AGCqPRpDYMIPWhf0i1AVi2D8zKEOXhN8eIeSxPWHmEcHvNxLbYfNOTnN7P6
+	ds0XLPvqvnhA5NYHTZ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf70-0000000BwXA-1HZ7;
-	Mon, 06 Jul 2026 08:55:34 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1wgfEt-0000000Bxg3-3qcL;
+	Mon, 06 Jul 2026 09:03:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf6x-0000000BwWi-0rOc
+	id 1wgfEq-0000000BxfT-08cb
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 08:55:32 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-c96c92c0980so1433387a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 01:55:30 -0700 (PDT)
+	Mon, 06 Jul 2026 09:03:42 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66684tk54006739
+	for <linux-riscv@lists.infradead.org>; Mon, 6 Jul 2026 09:03:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0cvVHQUpzx009aA9mmeSGuOWTFjrnb86PTT/hoxJYOM=; b=dK0gmcyLM7biMCjv
+	3wFOKUN526X6Q0vlacvGoA3jp5sBkA6/E3x+LWCj7R/KiDrCaWlMzlkw8gnzuBng
+	5yijy1Uc/+orpxBi7AsouImZFASF8ND2EXFepsN5Eqt6/zZUz10rs0HIVfvx/EU9
+	Yo6wR7diLRbDSylQIFZnp+NKB6YDTnJqvUML4bsK5JDhGeQU48nG9/No/x6j2kG+
+	PqojKc34HM+5fcYC063WxgWEBUNQqzipu1CimpVyHiplgAj7zguOywOXDGEU3WTG
+	0J+AwK2CR25wHPRtcMaErzVsQ/4T6xwdsvI4uZNCqYhcjBgQgAOlTvM5TomH9Etz
+	lt+JXg==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f88hs88br-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 09:03:38 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92e5fc4c7e9so282964385a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 02:03:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783328130; x=1783932930; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E3v+HDjcgZfmVu7uYp2p3M9sp3YfufYRorQ2bJY9UiY=;
-        b=XR4yS43mqnvA/xqtrD15vLczDjMuP1Wc4UTKtL1bqFaBrlsKB9dfcpsMGjVK23MuOl
-         v5qZaLlSfdm++d9avrLcbJj8lJeA5d+37mnnlPGeUMmAKiacRDY2I5E7P45hZAgyH1Nk
-         5fvmzEwkvt7KXSaWHO9UszC6Qoc+a0FXYR7Px/MH8rTIzBlcGNSN9qaXomJGLc2aV+c5
-         BcrZVU+iFBAP2C2UWyVcm6imIDBztGZdquZdhw5Sq7nFCRxHR8xZaekg59X/2QumV3Gy
-         e86h/3nEUXYfCOlQKdjyWlHu2Rp0f2i3L9JCdBZgqGHqaJ9JtE96cAe93XGSUCB4UvB6
-         vHQg==
+        d=oss.qualcomm.com; s=google; t=1783328618; x=1783933418; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0cvVHQUpzx009aA9mmeSGuOWTFjrnb86PTT/hoxJYOM=;
+        b=C8AdiaN6jissRCfaJKRMVzo7o/+mXbMDowByZbfq0azNuLPMwbvDZj5spYLIqdHNRp
+         90AllK6L6QHIESImfLzRAqCsSGP1RT5bECIRZOdsRDGfa8oqYmvTXuc3iOIpWtL8pVUx
+         o6C1IbQU8jHzHonsodX6Gvj9ukyj9QxwaqWvk+KuSZeevT+Bn6Gvj0dqvwjhFGtremC5
+         kypXu+VyPwNGEIYmozfYPPhqcWEPBFleZVHi3fPQpSQ19CY1ypU5kO8bjVtX0agWyqTb
+         m4NDzkYBHwOmcFlzzevVhLy8RqnvAfjyrriv/wSDwJ+HzaYB/mQCRbuSfk+v4PX+k3+G
+         Dgjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783328130; x=1783932930;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=E3v+HDjcgZfmVu7uYp2p3M9sp3YfufYRorQ2bJY9UiY=;
-        b=Jtu9sIIvvx8h7/6wkR95LgD7luKrcRFNwz4gYgTFzVhKiJuGFMKKyk0rxrvgyqM4CZ
-         V0eSKi83bAGKPfAZW4XzEE9pXzz2wrRNx15+6c3WygSv9cMVWHQ3nhxpkQzi6RTB6LRg
-         Io7+PdLiIWzt8Lb5/JDukSTIlPacFY9bWWnEbHvRHc1l7i86wnTAwKR+f5piulSWTpMj
-         gs0/1iqOP0HH2gZCkNuT3nNephI5ethpJJ2pCTE3Sk/em29GVA/NxsUPXfMUwNZKA9hh
-         +nZxyYaqFMmrp7Hg8cTsrUsPa0RouL9b3E8ktGI2/boRClJSpeMWp/ZHiWdbAY8LdwuM
-         JiCg==
-X-Forwarded-Encrypted: i=1; AHgh+RqUcx9xXShHdNXHADLUERpSNy1enh3EEupT38PonOn28nkC1DV01uxvsl3UeUwW69ed/4ALIsCbUZ12tg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YylJvSjPaB1vt/snvPWEPvnx/mykuDH6OeAh6bwzGisDxIhy/OC
-	zyxuT5pHSS+tozjJodqYh9hW6IytfRCrZg1cFMARSZVMwXVL73YWeXxl
-X-Gm-Gg: AfdE7clLFcOr0+yWpFLPKnxVDCbCgUHnYA3ccqtTK7S7bQeTn3cPRkgowkfriGJxiYx
-	nNRsR60T9FWA0cmPpzbjPoqqbTA3F+OVsF3jwE9sQ9GSdILy3VJNZyK71R7W5MCmjnDYcrNVv8C
-	sdEjIqagJR3NDRkyIbYkK8MrOs2msncycSSJpC9pjdJMrL3Pqv4VaWREM1Gh0fLAieS+FNbFvf3
-	0YFXCwy8HDG8mH9hIeJYmcz56UUSXfp1t5CyykHxT4Ce5hnMutJlwRJWY/HJiwpF6rYXWp0bg7B
-	907eScEKH6eipgB6Q7fnjmGAbF2QHx0Hp9+Zgs6gP6jaiAghYiOyXByrS+YzH/jz6NskKSHqX/B
-	DBJnojhnRlPzKFh6UAaUaMV4Infp3fYVMfhcYtYZCsr9yy+uIEuQaLT6xzGuviW2L0oykOzCDmr
-	OlT1ENY2Kwz0DdPVzmnrZ//++PV1l/lE7IasN0tjAnJSFDzHIGzYuifHL9Kw==
-X-Received: by 2002:a05:6a21:32a3:b0:3b4:b24e:27b4 with SMTP id adf61e73a8af0-3c03e1ff0b4mr11851439637.1.1783328130255;
-        Mon, 06 Jul 2026 01:55:30 -0700 (PDT)
-Received: from computer ([2405:201:d015:d26b:41c5:151e:6e02:36c7])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b3c85bde6sm79992955c88.9.2026.07.06.01.55.23
+        d=1e100.net; s=20251104; t=1783328618; x=1783933418;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=0cvVHQUpzx009aA9mmeSGuOWTFjrnb86PTT/hoxJYOM=;
+        b=Ka6cyy+ULGL9JvQ3T0w8wmH+ZSFlBejsf3ix4wQiNNAdJACL6E0jLmTukM93A82PG5
+         hKe+ZXOvInH4f5rhTTFxDuPESr2JTLXFCZLSO12cN8S/H1CwHBi7KGnDEORxq1o/NDVR
+         IG3zritmkD6kBkt9GynYaR9HlYd5ntK11Nba6HYWWkYyMHSzmIhXXZOzfyXLW9DYqKWf
+         iuGOWJgFwPXZk02s0nnFYhbMJvq/TUkfNAQ+z2hMl0oPHukw8WxAMQL3auoS+x8Z1ANT
+         8DRE/6SnuTe4KJOBlVWVC0EBwx73RK0Kgxks1SJfAB4Cc597DT+RNx07RhjRxOv++Zet
+         1Idg==
+X-Forwarded-Encrypted: i=1; AHgh+Rrpj/02+30MDE8NmHGXKWwz8CXOeFYvfryjlXzH77Z+PqoG6rbN+MNrz/X5vOCQ0VQumza+5af8IVDMEg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9HxLqyjysS2fqaZ2T8+TLg3MrJDEtugO0bo8pFvEoFz6qNu0m
+	clupelBW0ZI2vmeMYTbyWEBJfdVfMf0n5L46dSfjZyaeskimFrsuFYgzqi902FOpnNAVabxuM6n
+	/begb4V7zwILKpOjbIL1aggmI2i4F0GKrU7y+BIOKdD/Zr77YBvF7rIv933XLY6eqibPNXPw=
+X-Gm-Gg: AfdE7cm2xxVeLstauvqzc0a8kMXSJ8eNgx5M1Cmw1kNDsw/BXsR7tme7Dx/w1Ts5uB7
+	GTWxWGzD0EKMelrpgETfc6iAInqdXY3oOW1ONBsgShBlAxemurZrG8JmLvoipr3aUHI8BNLLOva
+	QMjrAqVx4zFykEuIaaWDY4zneOw2izS/eiwAe/jEGEqanPbJHL4xD4W7PR7RyyNGN5+oe8stDdm
+	fHjs1Atx3vWOtjOdZWpjC93XslsHU+Na6aycTciu1z4mJVb3g8nyUwNjwbsgkUGjQYpswSZrRwl
+	n3qRaXhJKs7PvRnpcQAUu6XZeUa4T+dqUsTEvglPZ11vBAKXwJzfSPzqNsuCCGUq7B34pggyDOr
+	HBRqve8nr/W3BH2E5VUojLHuj7Q50w8xabmPMtMc=
+X-Received: by 2002:a05:620a:1b87:b0:915:8d82:b149 with SMTP id af79cd13be357-92e9a3a7bf2mr1291640985a.27.1783328617695;
+        Mon, 06 Jul 2026 02:03:37 -0700 (PDT)
+X-Received: by 2002:a05:620a:1b87:b0:915:8d82:b149 with SMTP id af79cd13be357-92e9a3a7bf2mr1291637785a.27.1783328617271;
+        Mon, 06 Jul 2026 02:03:37 -0700 (PDT)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:86f0:c42b:ef4c:d3bb])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493bef23feasm326998025e9.2.2026.07.06.02.03.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 01:55:29 -0700 (PDT)
-Date: Mon, 6 Jul 2026 14:25:19 +0530
-From: Varun R Mallya <varunrmallya@gmail.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
-	eddyz87@gmail.com, memxor@gmail.com, pulehui@huawei.com,
-	alex@ghiti.fr, martin.lau@linux.dev, song@kernel.org,
-	yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com,
-	puranjay@kernel.org, shuah@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH bpf-next v2 3/3] riscv, bpf: Remove BPF exceptions from
- BPF CI denylist
-Message-ID: <akttdwZOqvgj4h39@computer>
-References: <20260628081710.113333-1-varunrmallya@gmail.com>
- <20260628081710.113333-4-varunrmallya@gmail.com>
- <878q7yy28o.fsf@all.your.base.are.belong.to.us>
+        Mon, 06 Jul 2026 02:03:36 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>,
+        Samuel Holland <samuel.holland@sifive.com>,
+        Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] gpio: sifive: add missing MODULE_DEVICE_TABLE()
+Date: Mon,  6 Jul 2026 11:03:30 +0200
+Message-ID: <178332860259.18708.8157859220968783095.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260704122230.75964-1-pengpeng@iscas.ac.cn>
+References: <20260704122230.75964-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <878q7yy28o.fsf@all.your.base.are.belong.to.us>
+X-Proofpoint-ORIG-GUID: OsW3HvI0br2AaDK6iAJ9z1So74Cgf97m
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA5MCBTYWx0ZWRfXzN18QWLMXoMp
+ sXBS5Nyi4VgiPgYYXexZQsDupI+HLaEOHzMv6huzbwc2JjHZnYv0sWFiIbV5Tf7qhIBtk3d8im2
+ Kybc8wxqacB3iSUFzcy42AyvY0dOjGuzD+6uJDJQ7UyvkXrqblxTcNfMfLdDr/lTVtFGTvkbr2P
+ y7mXNu+z21gR3SN+Z03rLhfbhMyx7hm/URbvq8vcXbiA1uv+QxasgfDF7pmbmH7ujm+OEg0LP5D
+ QxxvWWtdKGQeOJl6MywD35KOBlrMz9/KLzKIjsQbuF4Dj3yLHS4H0Lp2tK6/Gw0an94wvukoFiy
+ OTjUHTv7FjlUiGC7oIPwc3dOmWGebZTTbPmSamq1XOnfYIihcE80KaNMsRUGr/xWqGLXr8ddv2r
+ h1H8i8CjzghdtAbrUrmD0XfM5NR83Mxeu6VGsCkryTZEDwkDM6ZNU61RWWYNRGdCXfsBAQ4BuS7
+ d0LdLGtJOdaHDB0NOKA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA5MCBTYWx0ZWRfXwYhF60ATapff
+ LTmC+o1RyRGySlHeU/AQEklUh3/tiTWCNmWv4VbM60SUiNXV/IZoESoLg7tx2tzDhWvNrq3UomA
+ D36w69I6e/Vk5Id1FP0VvyDufcqkQPY=
+X-Authority-Analysis: v=2.4 cv=XIwAjwhE c=1 sm=1 tr=0 ts=6a4b6f6a cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=QiFXtDutrJn2_FFymrwA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-GUID: OsW3HvI0br2AaDK6iAJ9z1So74Cgf97m
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 bulkscore=0 priorityscore=1501 impostorscore=0
+ malwarescore=0 lowpriorityscore=0 spamscore=0 phishscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_015531_246667_2F3E2AA2 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260706_020340_188795_B829C9CF 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +144,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 28, 2026 at 11:00:07AM -0700, Bj=F6rn T=F6pel wrote:
-> Varun R Mallya <varunrmallya@gmail.com> writes:
-> =
 
-> > This patch removes BPF exceptions from riscv64 denylist on
-> > BPF selftests since support for exceptions has been added now.
-> >
-> > Signed-off-by: Varun R Mallya <varunrmallya@gmail.com>
-> > Reviewed-by: Pu Lehui <pulehui@huawei.com>
-> > ---
-> >  tools/testing/selftests/bpf/DENYLIST.riscv64 | 1 -
-> >  1 file changed, 1 deletion(-)
-> >
-> > diff --git a/tools/testing/selftests/bpf/DENYLIST.riscv64 b/tools/testi=
-ng/selftests/bpf/DENYLIST.riscv64
-> > index 4fc4dfdde293..9268351ce4c1 100644
-> > --- a/tools/testing/selftests/bpf/DENYLIST.riscv64
-> > +++ b/tools/testing/selftests/bpf/DENYLIST.riscv64
-> > @@ -1,3 +1,2 @@
-> >  # riscv64 deny list for BPF CI and local vmtest
-> > -exceptions					# JIT does not support exceptions
-> =
+On Sat, 04 Jul 2026 20:22:30 +0800, Pengpeng Hou wrote:
+> The driver has an OF match table wired to .of_match_table, but does
+> not export the table with MODULE_DEVICE_TABLE().
+> 
+> Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
+> information is generated for OF based module autoloading.
+> 
+> This is a source-level fix.  It does not claim dynamic hardware
+> reproduction; the evidence is the driver-owned match table, its use by
+> the platform driver, and the missing module alias publication.
+> 
+> [...]
 
-> Hmm, reading your cover the kselftest run still says "#113
-> exceptions:FAIL", so from a CI perspective this is not much help. ;-)
-> Can we restructure/split so that we're not bitten by the lack of
-> BPF-to-BPF calls and tail calls?
+Applied, thanks!
 
-Yeah, that was pretty foolish of me. My next version won't include a
-denylist change, but if [1] lands, then we won't have to
-worry about this anymore!
+[1/1] gpio: sifive: add missing MODULE_DEVICE_TABLE()
+      https://git.kernel.org/brgl/c/8fe6fa0f223f44b8b869319d1b9c383749aa147b
 
-[1]: https://lore.kernel.org/bpf/bf647816-d292-419c-b79f-fc048122aebc@huawe=
-icloud.com
-
-> =
-
-> Thanks,
-> Bj=F6rn
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
 _______________________________________________
 linux-riscv mailing list
