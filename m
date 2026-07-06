@@ -4,79 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D4BC43458
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 07:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C2CFC43458
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2026 08:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=38i2XUjOVX3sIOCF+rbD7nPhRclIwxBYQQAKhmGzsc8=; b=TpZKiAO5kMI3ii
-	nWVl8BWnPO6OgSHV20Yoe6f3dhEn9rDY4nM+NFOkh/bvlMYvfcSICP7rdxLdEpZvEehAY1RDwJzx3
-	8d16Xw/ESk79WtOiN/JdzxfLq1GTUXgqq4Y4k+aSD7OPnNeJmJgc22ZiyJiDPiqMo7LxOhftCKHKq
-	kuqtBoCkr4QlzfvAg/miH4oCL1Vx3ed4EADWDzZVG5FV+lBaBsxqEJTIuva22XAllgCdR/yPGQ2UX
-	7d/tfIe6zoiVvUA6pgAzDCays3TFiFKiIgOFnnAk9qNBetkHsCEN34MnPFlIIVnzguudHEYBTHus1
-	n6u9OUQZ3LiOmbyZeO/g==;
+	List-Owner; bh=dMnEOpJTsI+fnF9MMfnk4pKBGqHQMiiStEDCMFmIMk8=; b=W4rp66R0TUv4Hh
+	ixbfNBG/iTwlAJi0431MttGKRJEM9r6GG1Q2k9tWcWlgEgrzNetoEsQ1XcYphm5I0PNASVt7fqeZv
+	0/rO8xEdK7xGaJgN99fK3Q3JMVavqiTjbzPbS5hH1VVOTvMF0AgfD8HxpyRR2c1VnKB8winUr8WiI
+	rBBGS4alrmKNNnHYB7XcQwFj7t+95oTIFRZKJtwC+whVbYguFlZt5GTnxug9gz+h2z+6SdZ8aoXvB
+	QqaNADcXYbgXUx76wYLnp3H1CiIHjT3BYpIeqB/1XRaYTX4S/TjcJHaxpijLbDHFWX0QGJLv6ONqv
+	15sQ8erJaLmPDQaP0X+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdgO-0000000BixA-1p1H;
-	Mon, 06 Jul 2026 07:24:00 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wgeNj-0000000BmV1-15Sz;
+	Mon, 06 Jul 2026 08:08:47 +0000
+Received: from mail-vs1-f41.google.com ([209.85.217.41])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdgM-0000000BiwF-1Qid
+	id 1wgeNg-0000000BmUe-3Nve
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jul 2026 07:24:00 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gtwnx5rVQzYQtFR
-	for <linux-riscv@lists.infradead.org>; Mon,  6 Jul 2026 15:23:49 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 0FA8A40592
-	for <linux-riscv@lists.infradead.org>; Mon,  6 Jul 2026 15:23:51 +0800 (CST)
-Received: from [10.67.110.68] (unknown [10.67.110.68])
-	by APP4 (Coremail) with UTF8SMTPA id gCh0CgB3qVoGWEtqqtDzAA--.50057S2;
-	Mon, 06 Jul 2026 15:23:50 +0800 (CST)
-Message-ID: <bf647816-d292-419c-b79f-fc048122aebc@huaweicloud.com>
-Date: Mon, 6 Jul 2026 15:23:50 +0800
+	Mon, 06 Jul 2026 08:08:45 +0000
+Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-738bd0b7960so2278854137.0
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 01:08:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783325323; x=1783930123;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=xlcdnSGCAGaaD3Qtz41jPpd7wkV1TEYjW94sOKYd3zY=;
+        b=Ec0Rza5AJNt1CpYR16a0kCo8nedO/dIAE8DqhQjajH8CWj8OMhZsYLsPbBJyJrB34s
+         vMjL0Cobwo9AzkECewiyp7V0hO8zjNg+sFfWCecw1bGXLxGLegWdLw7Pha/RtFFTiSgv
+         7yAclyqJXE/v0Jj/GBUI/RnhGQYikMpvDdTZtmGC4maACYLtxLedpeJdHspDtQ2SM2cK
+         nD+wnE3NMIGVRRfo8+vEyjgbMdhoCSWDW77pgdD8wnR9d4HTZC1Vdc/OI7Id8abxPo/9
+         3pOcIcTBmYMTcGMvaIuomybfSEcrazJcQKyR9RqzW342TlLtMN/1lK9mtEy/R/Jz+1ec
+         noEQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqaOBPzhymVDPby/hc/yD8PeW4GiXY+uyNWicRvW9CVsG118BWHOqp9k0b7kElG2HKw18xkKDItdCkPRg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxn8tSOq261XuAObsurCuUKHroMew9CQSzr9u0itDJM8k6z0jEp
+	FlCCE/oTUVu4hSmJf1Vzch0ahVj/F6CiKb8oKJHU7IRP6rBJNDTPsyHueVPco/fe
+X-Gm-Gg: AfdE7cn/kVt84/RB2BhFdPSQma1aSEk0cMS8vVGhxQEBXpT19PIQdqNckeiyy/0YnmU
+	MbbBLmPyVs05EXrb8F+DrOnIkNcmJ3tsHfgUydMUahihLjYzz9NFHwEtwTZEzTbMjlOZAzyf2Zm
+	x3kRQ8iwQ8KT8wOHfEmv02AJPHTEV5awj1sMnOlnvr5icwgWfXTGjMCfPYY5oKZ3EnhoDf4LYad
+	rUohuD78aY9NACDGMVDyHDaFd6aEfSXxkCHUB2SixABXQMBDdDrm3AMJsRqz3K4w0SISxo9CCLu
+	Jfc6AzHeMvuuDwFOZhA/MQz3pbw1/PlR8n8Gxr24iY5dTZ6mkdEBkvOAqUAd4B5VhwfOEzRadvA
+	kTTrjUqU1FDBpy6iwrYVepKM5ZXeSe5Kf7aQrKY3l3uG4VtvrhF6XvNmWsAYS0Zfz2vsW3ior31
+	HaU26fNI8To15Yw075LmuIbg8Q0emP5PTIAoeFRU1YRdFh6Do+gmwGEA==
+X-Received: by 2002:a05:6102:808f:b0:740:127:c81b with SMTP id ada2fe7eead31-7427d244e24mr3298887137.7.1783325323341;
+        Mon, 06 Jul 2026 01:08:43 -0700 (PDT)
+Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com. [209.85.221.179])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96b3890d5bfsm3120059241.11.2026.07.06.01.08.43
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 01:08:43 -0700 (PDT)
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-5bdb162ee53so2027669e0c.2
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 01:08:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpzVgsZrM4LornzNsmuFe+ynTfUw9ZWbmcEkqNLNb0oO9ycsp6bFZDCSfSwFDDKf9/oPtQekms6WK3PAQ==@lists.infradead.org
+X-Received: by 2002:a05:6102:800d:b0:722:826e:1423 with SMTP id
+ ada2fe7eead31-7427f0478a0mr3286706137.20.1783324855096; Mon, 06 Jul 2026
+ 01:00:55 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v4 6/6] selftests/bpf: Remove tailcalls tests
- from DENYLIST.riscv64
-Content-Language: en-US
-To: bot+bpf-ci@kernel.org, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: bjorn@kernel.org, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, eddyz87@gmail.com, martin.lau@linux.dev, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, pulehui@huawei.com,
- martin.lau@kernel.org, clm@meta.com, ihor.solodrai@linux.dev
-References: <20260629140048.733346-7-pulehui@huaweicloud.com>
- <0c8408eb97828eb59c171d971793a92654f8018ada812d6ac1703330ec4059fb@mail.kernel.org>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <0c8408eb97828eb59c171d971793a92654f8018ada812d6ac1703330ec4059fb@mail.kernel.org>
-X-CM-TRANSID: gCh0CgB3qVoGWEtqqtDzAA--.50057S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GF43KF4ruw18Aw17AF4kCrg_yoWDJwb_WF
-	4Iyr93W3y8Jay7WF48Ca1UXrnxuan7ua4UAw15Jry3WrnFkrs5uF9rXrs0vryUWa9xWr9r
-	ZayrJ3y5Kw4UGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbxkYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	7PEDUUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+References: <cover.1783263835.git.ukleinek@kernel.org> <20de6cd60c2938aad2d21397b92742849418ab1b.1783263835.git.ukleinek@kernel.org>
+In-Reply-To: <20de6cd60c2938aad2d21397b92742849418ab1b.1783263835.git.ukleinek@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 6 Jul 2026 10:00:43 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXKyFJ20N6qKafvMZ_0sVj5+XTxcod_6wGkwTsokn7dvw@mail.gmail.com>
+X-Gm-Features: AVVi8CfQACxAMot5VlqKHI6FXvkOZpEWhTZp1dlkgWSruFHOk1f-I-dS5kVo31s
+Message-ID: <CAMuHMdXKyFJ20N6qKafvMZ_0sVj5+XTxcod_6wGkwTsokn7dvw@mail.gmail.com>
+Subject: Re: [PATCH v1 4/5] pwm: Unify coding style of of_device_id arrays
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: linux-pwm@vger.kernel.org, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+	Neal Gompa <neal@gompa.dev>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Benson Leung <bleung@chromium.org>, 
+	Guenter Roeck <groeck@chromium.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
+	Michael Walle <mwalle@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
+	Inochi Amaoto <inochiama@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Hammer Hsieh <hammerh0314@gmail.com>, 
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Alexey Charkov <alchark@gmail.com>, 
+	Sean Anderson <sean.anderson@linux.dev>, Michal Simek <michal.simek@amd.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
+	imx@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-sunxi@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_002358_563556_A9113790 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_010844_872150_122F0B79 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +123,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2026/6/30 0:19, bot+bpf-ci@kernel.org wrote:
->> selftests/bpf: Remove tailcalls tests from DENYLIST.riscv64
->>
->> Remove tailcalls tests from DENYLIST.riscv64.
->>
->> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> 
-> This isn't a bug, but the changelog restates the subject and the diff
-> without saying why the entry can be dropped now.
-> 
-> The deny-list line being removed documented that the JIT could not mix
-> bpf2bpf and tailcalls, and the preceding commit "riscv, bpf: Mixing
-> bpf2bpf and tailcalls" adds that support.
-> 
-> Could the changelog note that the RV64 JIT now supports mixing bpf2bpf
-> and tailcalls, rather than restating the diff?
-
-alright, will add more detail to commit msg.
-
-> 
-> 
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-> 
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/28384109028
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCA1IEp1bCAyMDI2IGF0IDE3OjE0LCBVd2UgS2xlaW5lLUvDtm5pZyAoVGhlIENhcGFi
+bGUgSHViKQo8dS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNvbT4gd3JvdGU6Cj4gIC0gVXNlIGEg
+c2luZ2xlIHNwYWNlIGluIGEgb2ZfZGV2aWNlX2lkIGFycmF5IHRlcm1pbmF0b3I7IEEgc2luZ2xl
+IHNwYWNlCj4gICAgYWZ0ZXIgdGhlIG9wZW5pbmcgeyBhbmQgYmVmb3JlIHRoZSBjbG9zaW5nIH0g
+aW4gbm9uLWVtcHR5Cj4gICAgaW5pdGlhbGl6ZXJzOwo+ICAtIE5vIGNvbW1hIGFmdGVyIGFuIGFy
+cmF5IHRlcm1pbmF0b3I7Cj4gIC0gQWxzbyBubyB0cmFpbGluZyBjb21tYSBhZnRlciBhIG5hbWVk
+IGluaXRpYWxpemVyIGlmZiB0aGUKPiAgICBjbG9zaW5nIH0gaXMgb24gdGhlIHNhbWUgbGluZTsK
+Pgo+IFNpZ25lZC1vZmYtYnk6IFV3ZSBLbGVpbmUtS8O2bmlnIChUaGUgQ2FwYWJsZSBIdWIpIDx1
+LmtsZWluZS1rb2VuaWdAYmF5bGlicmUuY29tPgoKPiAgZHJpdmVycy9wd20vcHdtLXJjYXIuYyAg
+ICAgICAgICAgIHwgIDQgKystLQo+ICBkcml2ZXJzL3B3bS9wd20tcmVuZXNhcy10cHUuYyAgICAg
+fCAxMCArKysrKy0tLS0tCj4gIGRyaXZlcnMvcHdtL3B3bS1yemcybC1ncHQuYyAgICAgICB8ICAy
+ICstCgpSZXZpZXdlZC1ieTogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydCtyZW5lc2FzQGdsaWRl
+ci5iZT4gIyByZW5lc2FzCgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAgICAgICAgICAg
+ICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51
+eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVy
+c2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1
+dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIi
+IG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+LS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
