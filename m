@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B971C43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 12:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37FCDC44500
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 12:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1GhDPznnTGdwqBhgKxrm86+KiGF/oXTeYnyqGtmugaw=; b=Y85I+qbUGlqI93
-	CF7SS7PuOAk7DeK4lrrqHWDNJqEMgtuXjLU3EVDVWW7Dv8Eo/cnzoFN0c2u4nMueiurDKoiICo5pJ
-	wAvwwEVqzRUfwt/AQ1VGcWbxopOVHkQOi+ZeGAeBtRFxCsexGT1kgJRMw3R/I4zdDM0ZwA3iEgppU
-	Bj5cUAZdKXUDolkwm5DIFkLuwMxv2M6fU7tiwLijEVCwTzrNgecjm+gRYldZGvYfeDOK2swuyZDlF
-	PVPh9/mW6kvS6ZhQxhae36miDztD8xjzIL6SdHhiMxUvkj8OPhY7YlUvtyCC5ApsK4+fBmoOGjM71
-	X/aDDWfk0AqvKQPGbYuA==;
+	List-Owner; bh=nIPSdmIH0OKm00dtnTthCiTen1wq0aUbnBJh36269Cw=; b=zphkOvwZGguX+N
+	3U0zgDcPmcesTHkC3YnZuocSKPwRfo/7xnQjfB52cG9cCOLs6LP8JWJPN3tZWFPJgWpmrdl8QSb2A
+	stscTY4YLlVu+caO3Zn2VN4ato6b/B+DipQ7PEODS6VxDF8+Y8mI706ifrDqGxUteogiE8A7diWfE
+	NVojUdGHGtGbE3ScejAiD2vJYncVSS04gwGHMSu9Ke62jbWga6Z5vlfGx5uPZEdl7jIXCuqwON7J6
+	bnpjaLR76nqBdd8GIzVyLYB9YPGSNzfGcPsjQl0JV4UtRa+mp06xqsr3wAePdDVm8ShLO8YRKUIoo
+	vsVt1NtUZRjsQrkgzf4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5IP-0000000F00r-22FB;
-	Tue, 07 Jul 2026 12:53:05 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1wh5IQ-0000000F01Z-2etX;
+	Tue, 07 Jul 2026 12:53:06 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5IM-0000000Ezz5-0UuC;
-	Tue, 07 Jul 2026 12:53:03 +0000
+	id 1wh5IN-0000000Ezz7-0KYn;
+	Tue, 07 Jul 2026 12:53:04 +0000
 Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gvh3J2Jllz8XrrM;
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gvh3J6mN6z4yjjH;
 	Tue, 07 Jul 2026 20:53:00 +0800 (CST)
-Received: from szxlzmapp04.zte.com.cn ([10.5.231.166])
-	by mse-fl2.zte.com.cn with SMTP id 667Cqntc020728;
-	Tue, 7 Jul 2026 20:52:49 +0800 (+08)
+Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
+	by mse-fl2.zte.com.cn with SMTP id 667CqpoG020731;
+	Tue, 7 Jul 2026 20:52:51 +0800 (+08)
 	(envelope-from wang.yechao255@zte.com.cn)
 Received: from localhost.localdomain (unknown [10.234.74.162])
 	by smtp (Zmail) with SMTP;
-	Tue, 7 Jul 2026 20:52:52 +0800
-X-Zmail-TransId: 3e816a4cf6a4009-66217
+	Tue, 7 Jul 2026 20:52:54 +0800
+X-Zmail-TransId: 3e816a4cf6a6009-66222
 X-Zmail-LocalSMTP: 1
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
 X-Zmail-RealSender: wang.yechao255@zte.com.cn
@@ -51,23 +51,23 @@ Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
         Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@linux.dev>,
         Alexandre Ghiti <alex@ghiti.fr>,
         Wang Yechao <wang.yechao255@zte.com.cn>
-Subject: [PATCH v2 1/2] RISC-V: KVM: Introduce make_xfence_request_nodata for FENCE.I requests
-Date: Tue,  7 Jul 2026 20:50:20 +0800
-Message-ID: <20260707125034.416521-2-wang.yechao255@zte.com.cn>
+Subject: [PATCH v2 2/2] RISC-V: KVM: Separate req and fallback_req masks in make_xfence_request
+Date: Tue,  7 Jul 2026 20:50:21 +0800
+Message-ID: <20260707125034.416521-3-wang.yechao255@zte.com.cn>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20260707125034.416521-1-wang.yechao255@zte.com.cn>
 References: <20260707125034.416521-1-wang.yechao255@zte.com.cn>
 MIME-Version: 1.0
-X-MAIL: mse-fl2.zte.com.cn 667Cqntc020728
+X-MAIL: mse-fl2.zte.com.cn 667CqpoG020731
 X-TLS: YES
 X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
 X-SOURCE-IP: 10.5.228.133 unknown Tue, 07 Jul 2026 20:53:00 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A4CF6AC.000/4gvh3J2Jllz8XrrM
+X-Fangmail-MID-QID: 6A4CF6AC.000/4gvh3J6mN6z4yjjH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_055302_312987_FA991D89 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260707_055303_269027_75F95A85 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,83 +84,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-FENCE.I does not need hfence data, but it currently goes through the
-generic make_xfence_request() path with NULL data, incurring unnecessary
-per-VCPU checks.
+When handling hfence requests in make_xfence_request(), the current code
+uses a single 'actual_req' variable and a single vcpu_mask. If any VCPU
+fails to enqueue the hfence data (because its queue is full), the request
+falls back to 'fallback_req' for all VCPUs, even if other VCPUs still
+have available queue space.
 
-Split out a separate make_xfence_request_nodata() function to handle
-FENCE.I directly, and move the data validity check to the top of the
-generic function to avoid redundant checks.
+This can cause unnecessary fallback for healthy VCPUs, and more seriously,
+those healthy VCPUs will not process their already-enqueued hfence
+requests because no 'req' is set for them. As a result, their queues will
+quickly become full as well, degrading performance for SMP guests.
 
+Fix this by maintaining two separate bitmaps: one for VCPUs that
+successfully enqueued the hfence data (req_vcpu_mask) and another for
+those that failed (fallback_req_vcpu_mask). Then send the appropriate
+requests to each group. This ensures that fallback is only applied to
+VCPUs that actually need it, preserving the efficiency of the normal
+path for others.
+
+Fixes: 13acfec2dbcc ("RISC-V: KVM: Add remote HFENCE functions based on VCPU requests")
 Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
 ---
- arch/riscv/kvm/tlb.c | 32 +++++++++++++++++++++++++++-----
- 1 file changed, 27 insertions(+), 5 deletions(-)
+ arch/riscv/kvm/tlb.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
 diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-index 993b25ea94d67..5a9c75e458013 100644
+index 5a9c75e458013..fd445e9fa3f94 100644
 --- a/arch/riscv/kvm/tlb.c
 +++ b/arch/riscv/kvm/tlb.c
-@@ -325,6 +325,29 @@ void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu)
- 	}
- }
+@@ -355,13 +355,14 @@ static void make_xfence_request(struct kvm *kvm,
+ {
+ 	unsigned long i;
+ 	struct kvm_vcpu *vcpu;
+-	unsigned int actual_req = req;
+-	DECLARE_BITMAP(vcpu_mask, KVM_MAX_VCPUS);
++	DECLARE_BITMAP(req_vcpu_mask, KVM_MAX_VCPUS);
++	DECLARE_BITMAP(fallback_req_vcpu_mask, KVM_MAX_VCPUS);
  
-+static void make_xfence_request_nodata(struct kvm *kvm, unsigned long hbase,
-+				       unsigned long hmask, unsigned int req)
-+{
-+	unsigned long i;
-+	struct kvm_vcpu *vcpu;
-+	DECLARE_BITMAP(vcpu_mask, KVM_MAX_VCPUS);
-+
-+	bitmap_zero(vcpu_mask, KVM_MAX_VCPUS);
-+	kvm_for_each_vcpu(i, vcpu, kvm) {
-+		if (hbase != -1UL) {
-+			if (vcpu->vcpu_id < hbase ||
-+				vcpu->vcpu_id >= hbase + BITS_PER_LONG)
-+				continue;
-+			if (!(hmask & (1UL << (vcpu->vcpu_id - hbase))))
-+				continue;
-+		}
-+
-+		bitmap_set(vcpu_mask, i, 1);
-+	}
-+
-+	kvm_make_vcpus_request_mask(kvm, req, vcpu_mask);
-+}
-+
- static void make_xfence_request(struct kvm *kvm,
- 				unsigned long hbase, unsigned long hmask,
- 				unsigned int req, unsigned int fallback_req,
-@@ -335,6 +358,9 @@ static void make_xfence_request(struct kvm *kvm,
- 	unsigned int actual_req = req;
- 	DECLARE_BITMAP(vcpu_mask, KVM_MAX_VCPUS);
+ 	if (!data || !data->type)
+ 		return;
  
-+	if (!data || !data->type)
-+		return;
-+
- 	bitmap_zero(vcpu_mask, KVM_MAX_VCPUS);
+-	bitmap_zero(vcpu_mask, KVM_MAX_VCPUS);
++	bitmap_zero(req_vcpu_mask, KVM_MAX_VCPUS);
++	bitmap_zero(fallback_req_vcpu_mask, KVM_MAX_VCPUS);
  	kvm_for_each_vcpu(i, vcpu, kvm) {
  		if (hbase != -1UL) {
-@@ -347,9 +373,6 @@ static void make_xfence_request(struct kvm *kvm,
+ 			if (vcpu->vcpu_id < hbase ||
+@@ -371,18 +372,19 @@ static void make_xfence_request(struct kvm *kvm,
+ 				continue;
+ 		}
  
- 		bitmap_set(vcpu_mask, i, 1);
- 
--		if (!data || !data->type)
--			continue;
+-		bitmap_set(vcpu_mask, i, 1);
 -
  		/*
  		 * Enqueue hfence data to VCPU hfence queue. If we don't
  		 * have space in the VCPU hfence queue then fallback to
-@@ -365,8 +388,7 @@ static void make_xfence_request(struct kvm *kvm,
- void kvm_riscv_fence_i(struct kvm *kvm,
- 		       unsigned long hbase, unsigned long hmask)
- {
--	make_xfence_request(kvm, hbase, hmask, KVM_REQ_FENCE_I,
--			    KVM_REQ_FENCE_I, NULL);
-+	make_xfence_request_nodata(kvm, hbase, hmask, KVM_REQ_FENCE_I);
+ 		 * a more conservative hfence request.
+ 		 */
+ 		if (!vcpu_hfence_enqueue(vcpu, data))
+-			actual_req = fallback_req;
++			bitmap_set(fallback_req_vcpu_mask, i, 1);
++		else
++			bitmap_set(req_vcpu_mask, i, 1);
+ 	}
+ 
+-	kvm_make_vcpus_request_mask(kvm, actual_req, vcpu_mask);
++	kvm_make_vcpus_request_mask(kvm, req, req_vcpu_mask);
++	kvm_make_vcpus_request_mask(kvm, fallback_req, fallback_req_vcpu_mask);
  }
  
- void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
+ void kvm_riscv_fence_i(struct kvm *kvm,
 -- 
 2.43.5
 
