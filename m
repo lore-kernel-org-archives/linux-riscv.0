@@ -4,57 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32131C43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 00:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 821EFC43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 01:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OPioFNRrcKfoJfaYTuX0ZBVgzKBKOX5cGvRzf697Gj8=; b=vns+e1NdH4GxkA
-	6NpLTy1Ot7X4J3Are82ZZ1zZ1xxwXT4Y6nou/1BPEXvqQ7InThqhlyTFJZt8E79YCKUZim8uJWejd
-	BRxfZ65AGPVgfp33DKt9GSbroTIETSvSygPHp21MIkUs0zVShiJWufiRV7j/gGqGIySQhKXgW9gJb
-	Z+tNegRc+j/kvry5IVcfISKBxEvpTAETRLjxifmodhRJRbzhbOYkJGYDUWzCLN8X5QcKFwMd2TFBm
-	xpkVeriW44tUBi1MDHod+Zmnfyl/caiNrjnXR3IpHO6KwkgGg7tI8dYjMmC9+XCWzLY6UoUGOAQ/i
-	puGYKzl7Qpgi4lAODlfw==;
+	List-Owner; bh=nyLZULK+0d3ir6btgd9lvPM5DrV1P8TEQsDbW4yLHv0=; b=SDhSJaG4+S5jqD
+	WsH8sZjH4Sl67yKggzdN16d13h/3IWp8UrGDg92MScpnjAW1AzfcudYhIWCV/jwaogPU0oRR58O3z
+	m1eAi73+h4PCSmiOrkarjrndixwSnzmjJ2EEk1NFxusdceCYbF3vTc7zzN1udNWjGRsNbd9UL42qy
+	Xzrk15h3yipTGhr8GSzYFA+90xdspaBT53Gxe1yh9Klloqfu53Paw3OTK7R4hfwFNth5oxCQcibt4
+	2x4ynuy0ySZDXdLkLhWfoe851Mcm00LqG619yLhA52+KhVTYNoXB8JF9hAW2fk5Esim2p/RXGL1t5
+	P7xqH7Idn+hcRJfHO1MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgtwM-0000000DqQB-1EIJ;
-	Tue, 07 Jul 2026 00:45:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wguei-0000000Dsc3-1rCC;
+	Tue, 07 Jul 2026 01:31:24 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgtwK-0000000DqPz-3sXS
+	id 1wguef-0000000DsbS-3Vzq
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 00:45:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6DD86004E;
-	Tue,  7 Jul 2026 00:45:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A9DF1F000E9;
-	Tue,  7 Jul 2026 00:45:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783385131;
-	bh=v8+K3znB3MAe4tgPmMUKy+aJKRXY6ZUDTmKIVv/zF2I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lPyatc3XbY4QpTKASirQKvVOei2XGodtwEsqv7qNKOJNtVz4LUwphPMGJeGuyE8a9
-	 1WMJRRODm0LOePEKcMFQ4TYjCd+b4MBVl4susQP8tyANodhrBYQA68r+PAZAf8uaU7
-	 PxuT05LmVE/RdcpkGivLyJAaLKQhE92gJE5FLimVoNUjZ3bP1EmeTc88T9qDR3wm3A
-	 Uad3qcdB/Oyds14r/oQJp0pIOp0zjzdrzXGtWbQtHULZe56ugdZslBYXhF3JMQ1bZo
-	 yXvaPVlDrvZZrXfnLK9BlNnSYXLAKUPj9TEUZO/9GSg5RbM2IiKYysS+a69dpmsIS6
-	 vHjROyR/dxZDQ==
-Date: Mon, 6 Jul 2026 17:45:30 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 5/8] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
-Message-ID: <akxMKn6HVbCfvAPE@x1>
-References: <20260706-dfustini-atl-sc-cbqri-dt-v4-0-e75c20201d64@kernel.org>
- <20260706-dfustini-atl-sc-cbqri-dt-v4-5-e75c20201d64@kernel.org>
- <20260706232031.D95C21F000E9@smtp.kernel.org>
+	Tue, 07 Jul 2026 01:31:23 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gvNwc3bhZzYQtKL
+	for <linux-riscv@lists.infradead.org>; Tue,  7 Jul 2026 09:31:12 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 08133406A1
+	for <linux-riscv@lists.infradead.org>; Tue,  7 Jul 2026 09:31:15 +0800 (CST)
+Received: from [10.67.110.68] (unknown [10.67.110.68])
+	by APP4 (Coremail) with UTF8SMTPA id gCh0CgDnFljhVkxqvRxPAQ--.41591S2;
+	Tue, 07 Jul 2026 09:31:14 +0800 (CST)
+Message-ID: <b4ca552c-58b6-49dd-bd83-dc27ca49368a@huaweicloud.com>
+Date: Tue, 7 Jul 2026 09:31:13 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260706232031.D95C21F000E9@smtp.kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v4 0/6] Mixing bpf2bpf and tailcalls for RV64
+Content-Language: en-US
+To: Eduard Zingerman <eddyz87@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Alexandre Ghiti <alex@ghiti.fr>, Pu Lehui <pulehui@huawei.com>
+References: <20260629140048.733346-1-pulehui@huaweicloud.com>
+ <CAJ+HfNhn9eK+3xsd3ewEsG-duCgBeYXeLAtNan=qefas2Ya0dQ@mail.gmail.com>
+ <d6647f5eb213d2ece82753285a79f28f600420d7.camel@gmail.com>
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <d6647f5eb213d2ece82753285a79f28f600420d7.camel@gmail.com>
+X-CM-TRANSID: gCh0CgDnFljhVkxqvRxPAQ--.41591S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUY37kC6x804xWl14x267AKxVW5JVWrJwAF
+	c2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII
+	0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xv
+	wVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4
+	x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8C
+	rVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxV
+	WUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1l42xK82IYc2Ij64vIr41l4c8EcI0Ec7CjxVAaw2AFwI0_GFv_Wryl4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUFDGOUUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_183122_056435_D0042BB6 
+X-CRM114-Status: UNSURE (   7.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,107 +90,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 11:20:31PM +0000, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential issue(s) to consider:
-> - [High] CBQRI controllers registered after system boot are not validated for mismatched capabilities when attached to resctrl domains.
-> - [Medium] Missing ARCH_HAS_CPU_RESCTRL selection in RISC-V Kconfig prevents RESCTRL_FS from being enabled.
-> --
-> 
-> --- Patch [5]: [PATCH v4 5/8] riscv_cbqri: resctrl: Add cache allocation via capacity block mask ---
-> commit bf65a655f2aedc980d538dde50ae87b2b9ea72e4
-> Author: Drew Fustini <fustini@kernel.org>
-> 
-> riscv_cbqri: resctrl: Add cache allocation via capacity block mask
-> 
-> Wire CBQRI capacity controllers into resctrl as RDT_RESOURCE_L2 and
-> RDT_RESOURCE_L3 schemata. Domains are created lazily in the cpuhp online
-> callback so cpu_mask reflects only currently online CPUs.
-> 
-> > diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> > index 92b9c82cf9f39..f8566c003d495 100644
-> > --- a/drivers/resctrl/Kconfig
-> > +++ b/drivers/resctrl/Kconfig
-> > @@ -42,3 +42,7 @@ menuconfig RISCV_CBQRI
-> >  if RISCV_CBQRI
-> >  
-> >  endif
-> > +
-> > +config RISCV_CBQRI_RESCTRL_FS
-> > +	bool
-> > +	default y if RISCV_CBQRI && RESCTRL_FS
-> 
-> [Severity: Medium]
-> Will this feature ever be enabled? Since the RISC-V architecture Kconfig does
-> not currently select ARCH_HAS_CPU_RESCTRL, it appears RESCTRL_FS can never be
-> satisfied, making this newly added support unreachable.
-
-RISCV_CBQRI selects ARCH_HAS_CPU_RESCTRL in drivers/resctrl/Kconfig, so
-RESCTRL_FS becomes selectable once CBQRI is enabled. The select is in
-the CBQRI menuconfig rather than arch/riscv/Kconfig.
-
-> > diff --git a/drivers/resctrl/cbqri_resctrl.c b/drivers/resctrl/cbqri_resctrl.c
-> > new file mode 100644
-> > index 0000000000000..cb12a868561b9
-> > --- /dev/null
-> > +++ b/drivers/resctrl/cbqri_resctrl.c
-> 
-> [ ... ]
-> 
-> > +static int cbqri_attach_cpu_to_cap_ctrl(struct cbqri_controller *ctrl,
-> > +					unsigned int cpu)
-> > +{
-> > +	struct cbqri_resctrl_res *hw_res;
-> > +	struct rdt_ctrl_domain *domain;
-> > +	struct rdt_resource *res;
-> > +	int dom_id;
-> > +	int rid;
-> > +
-> > +	rid = cbqri_cache_level_to_rid(ctrl->cache.cache_level);
-> > +	if (rid < 0)
-> > +		return 0;
-> > +	hw_res = &cbqri_resctrl_resources[rid];
-> > +
-> > +	if (!hw_res->ctrl)
-> > +		return 0;
-> > +
-> > +	res = &hw_res->resctrl_res;
-> > +	dom_id = ctrl->cache.cache_id;
-> > +
-> > +	domain = cbqri_find_ctrl_domain(&res->ctrl_domains, dom_id);
-> > +	if (domain) {
-> > +		cpumask_set_cpu(cpu, &domain->hdr.cpu_mask);
-> > +		return 0;
-> > +	}
-> > +
-> > +	domain = cbqri_create_ctrl_domain(ctrl, res, cpu, dom_id);
-> 
-> [Severity: High]
-> Can a mismatched controller be attached here if it is probed after system boot?
-> 
-> While cbqri_resctrl_pick_caches() verifies that all controllers agree on
-> capabilities like rcid_count and ncblks during boot, this function seems to
-> unconditionally create a new control domain for late-attached controllers
-> without similar validation against the baseline hw_res->ctrl capabilities.
-> 
-> If a deferred probe or late module load brings up a controller with fewer
-> capabilities (such as a smaller capacity block mask or fewer RCIDs), could
-> the resctrl core's use of the baseline capabilities lead to out-of-bounds
-> hardware writes when programming this new controller?
-
-That is not possible. This driver is always built-in when enabled and
-the probe never returns deferred. The resctrl setup that calls
-cbqri_resctrl_pick_caches() runs later at late_initcall(), so every
-controller is already on cbqri_controllers by the time pick_caches()
-validates the set.
-
-Drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDI2LzcvNyAzOjI5LCBFZHVhcmQgWmluZ2VybWFuIHdyb3RlOgo+IE9uIE1vbiwgMjAy
+Ni0wNi0yOSBhdCAxNjoyMSArMDIwMCwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiAKPiBIaSBCasO2
+cm4sCj4gCj4gSSdtIHdvcmtpbmcgdGhyb3VnaCBicGYgcGF0Y2hlcyBxdWV1ZSBhbmQgaGF2ZSBh
+IHF1ZXN0aW9uIHJlZ2FyZGluZwo+IHRoaXMgc2VyaWVzLiBXaGF0J3MgeW91ciBzdGFuY2UsIGRv
+ZXMgaXQgbmVlZCBjaGFuZ2VzIG9yIGNhbiBJIGFwcGx5Cj4gaXQgdG8gYnBmLW5leHQ/CgpIaSBF
+ZHVhcmQsCgpJIG5lZWQgdG8gc2VuZCBvdXQgYSBuZXcgdmVyc2lvbiB0byBhZGRyZXNzIHRoZSBp
+c3N1ZSBzYXNoaWtvIG1lbnRpb25lZC4gCkl0J3MgYWxyZWFkeSBmaXhlZCBsb2NhbGx5LCBhbmQg
+SSdsbCBzZW5kIGl0IG91dCBhZnRlciBCasO2cm4ncyByZXZpZXcgCmZlZWRiYWNrLgoKVGhhbmtz
+LApMZWh1aQoKCj4gCj4gVGhhbmtzLAo+IEVkdWFyZAo+IAo+IFsuLi5dCgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
