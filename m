@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3368C43602
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 08:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B3BC43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 08:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:Date:From:Message-Id:
-	Subject:References:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AjnT/8JqEXvxKzUKS4Yvwp4taGg9H31SQZeA6QRW6O8=; b=AEB067q7a14qUI
-	PnVptQYAz1w2R7SufJT5uJsB0cqEAE2siVu35L2I9dM89yTXaInwtGckKcZKvH5r0Vm3/HqYog2rh
-	mxmaDii1AI+m95M3u0Bz9UhBdZq+yS17q/aOAb7MGBqFQfNKOBSTbd+K8sQcrvZXl4PkA1pJ3T9lp
-	urdaWJvrAu1kj7npL2bqpwULWatEPCJ+Mz3inaSnWmr1ShIKCTviO3xxcxp8zQZIWvEjaTUJj3naw
-	nH4ZKa2Lkrw8nKaPy4FEt7BnCqf6GSFA1v9eZV1dEJaA/5Iavy+g3rd8GY/5Q/sfocpEe83bSH1BV
-	8yH6HDzLmk+5mQGS/qtA==;
+	List-Owner; bh=qNVM77KQ+n7aGpAT5M4HtIm9zEaoYcze6kWGQ3pwmO8=; b=olvy4Ba8sMvu4P
+	XurU8h8T/IXxYHA+5mwO62zZ75nK+3ye9rs8237AP5n6ZWxXVzKQHsfoNIWFb6IUKgGlBdddg8QzJ
+	cDJCRgwUrTBkPWgp9ZWhXFdB8hcfbFd4AojVil59npIOibKBMXt212GMWUty8ToUcEO424f9XzKju
+	bG3ipdeiyg78qLtU5+83mawCAUuK7oHnVQXNc/8ZRlJ5Rsl/RY1u/s06hAP86aMlfbHnQFyLh7r7F
+	vHpHuPWFpUZFTzG6vpff1e+Y7pDFsjF8Q6vCM8H4HuMpR9LIjY85sJcx4Nhai5fAh0IXH5qqD0uzV
+	EVqDgpzWH8Idxpi9eqyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh17C-0000000ET2O-2jEs;
-	Tue, 07 Jul 2026 08:25:14 +0000
-Received: from va-2-37.ptr.blmpb.com ([209.127.231.37])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh178-0000000ET19-3Gkj
-	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 08:25:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1783412701; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=cw19VphC2mP7ckJXdDxnF8cbRI55kv2xFSetp7MLX3c=;
- b=QyvKidgCluIYr+MJzGvQQRboOzswlNKWxU7xCtdylKyvkhcD8DivVMdqqc1LywdUwMOArp
- PH87ufmF+Un/fIS62stZkXubuYASWgo3RO7PNsH4zS2DkribafG3XRL/572DL4I8YCW8VU
- bXG1cDkUJw5D4PHscbxR/YHXOkOINtLBl9wdhmlmFPmbnCcgbryIhDgTUlZAFfmsccqqiO
- uKdFItLf2rF5nG1YrJiQ+pCyWj7qAN44Vl8v8hgibyLU3P1ii4aUinML2v8VxkDsad2pyf
- 6SLR1uwlhpJjKnhL6BwrIBu017yoV8RmYaYyflooIWUTKCYBEpxmsOvx2DLzjA==
-Mime-Version: 1.0
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-14-7909f863a645@meta.com>
-User-Agent: Mozilla Thunderbird
-X-Lms-Return-Path: <lba+26a4cb7db+43a900+lists.infradead.org+yang.yicong@picoheart.com>
-Subject: Re: [PATCH v8 14/22] RISC-V: perf: Implement supervisor counter delegation support
-Message-Id: <46cc0a87-a6cf-44d0-87d0-187ae8f6791e@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Received: from [100.86.219.172] ([61.141.241.105]) by smtp.feishu.cn with ESMTPS; Tue, 07 Jul 2026 16:24:58 +0800
-Content-Language: en-US
-Date: Tue, 7 Jul 2026 16:24:55 +0800
-In-Reply-To: <20260701-counter_delegation-v8-14-7909f863a645@meta.com>
-To: "Atish Patra" <atish.patra@linux.dev>
-Cc: "Jiri Olsa" <jolsa@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
-	"Mark Rutland" <mark.rutland@arm.com>, "Rob Herring" <robh@kernel.org>, 
-	"Anup Patel" <anup@brainfault.org>, "Namhyung Kim" <namhyung@kernel.org>, 
-	"Arnaldo Carvalho de Melo" <acme@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Ian Rogers" <irogers@google.com>, "Will Deacon" <will@kernel.org>, 
-	"James Clark" <james.clark@linaro.org>, <yang.yicong@picoheart.com>, 
-	<linux-arm-kernel@lists.infradead.org>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<devicetree@vger.kernel.org>, <linux-perf-users@vger.kernel.org>, 
-	"Conor Dooley" <conor@kernel.org>
+	id 1wh19N-0000000ETSG-11CI;
+	Tue, 07 Jul 2026 08:27:29 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh19J-0000000ETQz-0LW3;
+	Tue, 07 Jul 2026 08:27:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:Date:From:To:Cc:Subject:
+	In-Reply-To:References:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-ID; bh=vcXUy1GtVd0vbPV0SOh5GbkinO28NWvuOfJz
+	Ofg4jus=; b=j4zZ5W1thu2WqsLd4CGByEZWUNBQlQqEKkDFmuLnEI7YTQnYLfXq
+	B3NJLCtvZXAlouC/It+1rwJEvkAul9GLwGmWqJU2p47YlTPVEJE5N7kKgbkF2SfE
+	jVtYwSyTZfT4bVr5Eu3ANH6I3K332AegyT+LgBBfZButzoIZSINSpNU=
+Received: from xb$ultrarisc.com ( [192.168.100.1] ) by
+ ajax-webmail-localhost.localdomain (Coremail) ; Tue, 7 Jul 2026 16:27:24
+ +0800 (GMT+08:00)
+X-Originating-IP: [192.168.100.1]
+Date: Tue, 7 Jul 2026 16:27:24 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?6LCi5rOi?= <xb@ultrarisc.com>
+To: "Anup Patel" <anup@brainfault.org>, kvm-riscv@lists.infradead.org
+Cc: "Atish Patra" <atish.patra@linux.dev>, "Paul Walmsley" <pjw@kernel.org>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>,
+	"Albert Ou" <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>,
+	"Paolo Bonzini" <pbonzini@redhat.com>,
+	"Alexander Graf" <graf@amazon.com>, kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] RISC-V: KVM: Fix lost virtual interrupts during IRQ
+ sync
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.3-cmXT6 build
+ 20250609(354f7833) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-8cc425bc-7df6-4523-bb46-a48cc1a964e6-ultrarisc.com
+In-Reply-To: <178159067899.108868.8176174463274678253@ultrarisc.com>
+References: <178159067899.108868.8176174463274678253@ultrarisc.com>
+X-CM-CTRLDATA: ml5Ta2Zvb3Rlcl90eHQ9MTE3NDg6ODQw
+MIME-Version: 1.0
+Message-ID: <fa57cd3.9e8.19f3bb0664f.Coremail.xb@ultrarisc.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: AQAAfwAXAkNsuExqTjcPAA--.1600W
+X-CM-SenderInfo: l0e63zxwud2x1vfou0bp/1tbiAQAAB2pLJk4ADQACsA
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWkKw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_012511_103218_1D22862B 
-X-CRM114-Status: GOOD (  45.63  )
+X-CRM114-CacheID: sfid-20260707_012725_688414_CC9CE14C 
+X-CRM114-Status: GOOD (  27.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,903 +80,239 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/1/26 4:47 PM, Atish Patra wrote:
-> From: Atish Patra <atishp@rivosinc.com>
-> 
-> There are few new RISC-V ISA exensions (ssccfg, sscsrind, smcntrpmf) which
-> allows the hpmcounter/hpmevents to be programmed directly from S-mode. The
-> implementation detects the ISA extension at runtime and uses them if
-> available instead of SBI PMU extension. SBI PMU extension will still be
-> used for firmware counters if the user requests it.
-> 
-> The current linux driver relies on event encoding defined by SBI PMU
-> specification for standard perf events. However, there are no standard
-> event encoding available in the ISA. In the future, we may want to
-> decouple the counter delegation and SBI PMU completely. In that case,
-> counter delegation supported platforms must rely on the event encoding
-> defined in the perf json file or in the pmu driver.
-> 
-> For firmware events, it will continue to use the SBI PMU encoding as
-> one can not support firmware event without SBI PMU.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/include/asm/csr.h   |   1 +
->  drivers/perf/riscv_pmu_sbi.c   | 578 +++++++++++++++++++++++++++++++++--------
->  include/linux/perf/riscv_pmu.h |   3 +
->  3 files changed, 478 insertions(+), 104 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index a3b24b88e401..cd22b5168689 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -258,6 +258,7 @@
->  #endif
->  
->  #define SISELECT_SSCCFG_BASE		0x40
-> +#define HPMEVENT_MASK			GENMASK_ULL(63, 56)
->  
->  /* mseccfg bits */
->  #define MSECCFG_PMM			ENVCFG_PMM
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 2568c6808f5d..7995da4a98a1 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -28,6 +28,8 @@
->  #include <asm/cpufeature.h>
->  #include <asm/vendor_extensions.h>
->  #include <asm/vendor_extensions/andes.h>
-> +#include <asm/hwcap.h>
-> +#include <asm/csr_ind.h>
->  
->  #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
->  asm volatile(ALTERNATIVE_2(						\
-> @@ -60,7 +62,20 @@ asm volatile(ALTERNATIVE(						\
->  #define PERF_EVENT_FLAG_USER_ACCESS	BIT(SYSCTL_USER_ACCESS)
->  #define PERF_EVENT_FLAG_LEGACY		BIT(SYSCTL_LEGACY)
->  
-> -PMU_FORMAT_ATTR(event, "config:0-55");
-> +#define RVPMU_SBI_PMU_FORMAT_ATTR	"config:0-47"
-> +#define RVPMU_CDELEG_PMU_FORMAT_ATTR	"config:0-55"
-> +
-> +static ssize_t __maybe_unused rvpmu_format_show(struct device *dev, struct device_attribute *attr,
-> +						char *buf);
-> +
-> +#define RVPMU_ATTR_ENTRY(_name, _func, _config)	(			\
-> +	&((struct dev_ext_attribute[]) {				\
-> +		{ __ATTR(_name, 0444, _func, NULL), (void *)_config }	\
-> +	})[0].attr.attr)
-> +
-> +#define RVPMU_FORMAT_ATTR_ENTRY(_name, _config) \
-> +	RVPMU_ATTR_ENTRY(_name, rvpmu_format_show, (char *)_config)
-> +
->  PMU_FORMAT_ATTR(firmware, "config:62-63");
->  
->  static bool sbi_v2_available;
-> @@ -68,7 +83,11 @@ static bool sbi_v3_available;
->  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
->  #define sbi_pmu_snapshot_available() \
->  	static_branch_unlikely(&sbi_pmu_snapshot_available)
-> +
->  static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
-> +#define riscv_pmu_sbi_available() \
-> +		static_branch_likely(&riscv_pmu_sbi_available)
-> +
->  static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
->  
->  /* Avoid unnecessary code patching in the one time booting path*/
-> @@ -83,19 +102,35 @@ static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
->  #define riscv_pmu_sbi_available() \
->  		static_branch_likely(&riscv_pmu_sbi_available)
->  
-> -static struct attribute *riscv_arch_formats_attr[] = {
-> -	&format_attr_event.attr,
-> +static struct attribute *riscv_sbi_pmu_formats_attr[] = {
-> +	RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_SBI_PMU_FORMAT_ATTR),
->  	&format_attr_firmware.attr,
->  	NULL,
->  };
->  
-> -static struct attribute_group riscv_pmu_format_group = {
-> +static struct attribute_group riscv_sbi_pmu_format_group = {
->  	.name = "format",
-> -	.attrs = riscv_arch_formats_attr,
-> +	.attrs = riscv_sbi_pmu_formats_attr,
->  };
->  
-> -static const struct attribute_group *riscv_pmu_attr_groups[] = {
-> -	&riscv_pmu_format_group,
-> +static const struct attribute_group *riscv_sbi_pmu_attr_groups[] = {
-> +	&riscv_sbi_pmu_format_group,
-> +	NULL,
-> +};
-> +
-> +static struct attribute *riscv_cdeleg_pmu_formats_attr[] = {
-> +	RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_CDELEG_PMU_FORMAT_ATTR),
-> +	&format_attr_firmware.attr,
-> +	NULL,
-> +};
-> +
-> +static struct attribute_group riscv_cdeleg_pmu_format_group = {
-> +	.name = "format",
-> +	.attrs = riscv_cdeleg_pmu_formats_attr,
-> +};
-> +
-> +static const struct attribute_group *riscv_cdeleg_pmu_attr_groups[] = {
-> +	&riscv_cdeleg_pmu_format_group,
->  	NULL,
->  };
->  
-> @@ -482,6 +517,14 @@ static void rvpmu_sbi_check_std_events(struct work_struct *work)
->  
->  static DECLARE_WORK(check_std_events_work, rvpmu_sbi_check_std_events);
->  
-> +static ssize_t rvpmu_format_show(struct device *dev,
-> +				 struct device_attribute *attr, char *buf)
-> +{
-> +	struct dev_ext_attribute *eattr = container_of(attr,
-> +				struct dev_ext_attribute, attr);
-> +	return sysfs_emit(buf, "%s\n", (char *)eattr->var);
-> +}
-> +
->  static int rvpmu_ctr_get_width(int idx)
->  {
->  	return pmu_ctr_list[idx].width;
-> @@ -599,6 +642,38 @@ static uint8_t rvpmu_csr_index(struct perf_event *event)
->  	return pmu_ctr_list[event->hw.idx].csr - CSR_CYCLE;
->  }
->  
-> +static uint64_t get_deleg_priv_filter_bits(struct perf_event *event)
-> +{
-> +	u64 priv_filter_bits = 0;
-
-could we explicitly initialize the priv_filter_bits to MINH? though this bit
-is S-mode read-only and won't have any effects, but considering the semantic
-is to inhibit counting at certain privilege mode, initialize it to MINH will
-make it clear.
-
-> +	bool guest_events = false;
-> +
-> +	if (event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS)
-> +		guest_events = true;
-
-use attr::config1 to distinguish the KVM events looks incorrect. it's a user
-visible interface and could be set explicitly by the user and break the
-logic here.. e.g. perf stat -e cycles/config1=0x1/
-
-> +	if (event->attr.exclude_kernel)
-> +		priv_filter_bits |= guest_events ? HPMEVENT_VSINH : HPMEVENT_SINH;
-> +	if (event->attr.exclude_user)
-> +		priv_filter_bits |= guest_events ? HPMEVENT_VUINH : HPMEVENT_UINH;
-> +	if (guest_events && event->attr.exclude_hv)
-> +		priv_filter_bits |= HPMEVENT_SINH;
-> +	if (event->attr.exclude_host)
-> +		priv_filter_bits |= HPMEVENT_UINH | HPMEVENT_SINH;
-> +	if (event->attr.exclude_guest)
-> +		priv_filter_bits |= HPMEVENT_VSINH | HPMEVENT_VUINH;
-> +
-> +	return priv_filter_bits;
-> +}
-> +
-> +static bool pmu_sbi_is_fw_event(struct perf_event *event)
-> +{
-> +	u32 type = event->attr.type;
-> +	u64 config = event->attr.config;
-> +
-> +	if (type == PERF_TYPE_RAW && ((config >> 63) == 1))
-> +		return true;
-> +	else
-> +		return false;
-> +}
-> +
->  static unsigned long rvpmu_sbi_get_filter_flags(struct perf_event *event)
->  {
->  	unsigned long cflags = 0;
-> @@ -627,7 +702,8 @@ static int rvpmu_sbi_ctr_get_idx(struct perf_event *event)
->  	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
->  	struct sbiret ret;
->  	int idx;
-> -	uint64_t cbase = 0, cmask = rvpmu->cmask;
-> +	u64 cbase = 0;
-> +	unsigned long ctr_mask = rvpmu->cmask;
->  	unsigned long cflags = 0;
->  
->  	cflags = rvpmu_sbi_get_filter_flags(event);
-> @@ -640,21 +716,23 @@ static int rvpmu_sbi_ctr_get_idx(struct perf_event *event)
->  	if ((hwc->flags & PERF_EVENT_FLAG_LEGACY) && (event->attr.type == PERF_TYPE_HARDWARE)) {
->  		if (event->attr.config == PERF_COUNT_HW_CPU_CYCLES) {
->  			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
-> -			cmask = 1;
-> +			ctr_mask = 1;
->  		} else if (event->attr.config == PERF_COUNT_HW_INSTRUCTIONS) {
->  			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
-> -			cmask = BIT(CSR_INSTRET - CSR_CYCLE);
-> +			ctr_mask = BIT(CSR_INSTRET - CSR_CYCLE);
->  		}
-> +	} else if (pmu_sbi_is_fw_event(event)) {
-> +		ctr_mask = firmware_cmask;
->  	}
->  
->  	/* retrieve the available counter index */
->  #if defined(CONFIG_32BIT)
->  	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
-> -			cmask, cflags, hwc->event_base, hwc->config,
-> +			ctr_mask, cflags, hwc->event_base, hwc->config,
->  			hwc->config >> 32);
->  #else
->  	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
-> -			cmask, cflags, hwc->event_base, hwc->config, 0);
-> +			ctr_mask, cflags, hwc->event_base, hwc->config, 0);
->  #endif
->  	if (ret.error) {
->  		pr_debug("Not able to find a counter for event %lx config %llx\n",
-> @@ -663,7 +741,7 @@ static int rvpmu_sbi_ctr_get_idx(struct perf_event *event)
->  	}
->  
->  	idx = ret.value;
-> -	if (!test_bit(idx, &rvpmu->cmask) || !pmu_ctr_list[idx].value)
-> +	if (!test_bit(idx, &ctr_mask) || !pmu_ctr_list[idx].value)
->  		return -ENOENT;
->  
->  	/* Additional sanity check for the counter id */
-> @@ -713,29 +791,98 @@ static int sbi_pmu_event_find_cache(u64 config)
->  	return ret;
->  }
->  
-> -static bool pmu_sbi_is_fw_event(struct perf_event *event)
-> +static int rvpmu_sbi_event_map(struct perf_event *event, u64 *econfig)
->  {
->  	u32 type = event->attr.type;
->  	u64 config = event->attr.config;
->  
-> -	if ((type == PERF_TYPE_RAW) && ((config >> 63) == 1))
-> -		return true;
-> -	else
-> -		return false;
-> +	/*
-> +	 * Ensure we are finished checking standard hardware events for
-> +	 * validity before allowing userspace to configure any events.
-> +	 */
-> +	flush_work(&check_std_events_work);
-> +
-> +	return riscv_pmu_get_event_info(type, config, econfig);
->  }
->  
-> -static int rvpmu_sbi_event_map(struct perf_event *event, u64 *econfig)
-> +static int cdeleg_pmu_event_find_cache(u64 config, u64 *eventid, uint32_t *counter_mask)
-> +{
-> +	unsigned int cache_type, cache_op, cache_result;
-> +
-> +	if (!current_pmu_cache_event_map)
-> +		return -ENOENT;
-> +
-> +	cache_type = (config >>  0) & 0xff;
-> +	if (cache_type >= PERF_COUNT_HW_CACHE_MAX)
-> +		return -EINVAL;
-> +
-> +	cache_op = (config >>  8) & 0xff;
-> +	if (cache_op >= PERF_COUNT_HW_CACHE_OP_MAX)
-> +		return -EINVAL;
-> +
-> +	cache_result = (config >> 16) & 0xff;
-> +	if (cache_result >= PERF_COUNT_HW_CACHE_RESULT_MAX)
-> +		return -EINVAL;
-> +
-> +	if (eventid)
-> +		*eventid = current_pmu_cache_event_map[cache_type][cache_op]
-> +						      [cache_result].event_id;
-> +	if (counter_mask)
-> +		*counter_mask = current_pmu_cache_event_map[cache_type][cache_op]
-> +							   [cache_result].counter_mask;
-> +
-> +	return 0;
-> +}
-> +
-> +static int rvpmu_cdeleg_event_map(struct perf_event *event, u64 *econfig)
->  {
->  	u32 type = event->attr.type;
->  	u64 config = event->attr.config;
-> +	int ret = 0;
->  
->  	/*
-> -	 * Ensure we are finished checking standard hardware events for
-> -	 * validity before allowing userspace to configure any events.
-> +	 * There are two ways standard perf events can be mapped to platform specific
-> +	 * encoding.
-> +	 * 1. The vendor may specify the encodings in the driver.
-> +	 * 2. The Perf tool for RISC-V may remap the standard perf event to platform
-> +	 * specific encoding.
-> +	 *
-> +	 * As RISC-V ISA doesn't define any standard event encoding. Thus, perf tool allows
-> +	 * vendor to define it via json file. The encoding defined in the json will override
-> +	 * the perf legacy encoding. However, some user may want to run performance
-> +	 * monitoring without perf tool as well. That's why, vendors may specify the event
-> +	 * encoding in the driver as well if they want to support that use case too.
-> +	 * If an encoding is defined in the json, it will be encoded as a raw event.
->  	 */
-> -	flush_work(&check_std_events_work);
->  
-> -	return riscv_pmu_get_event_info(type, config, econfig);
-> +	switch (type) {
-> +	case PERF_TYPE_HARDWARE:
-> +		if (config >= PERF_COUNT_HW_MAX)
-> +			return -EINVAL;
-> +		if (!current_pmu_hw_event_map)
-> +			return -ENOENT;
-> +
-> +		*econfig = current_pmu_hw_event_map[config].event_id;
-> +		if (*econfig == HW_OP_UNSUPPORTED)
-> +			ret = -ENOENT;
-> +		break;
-> +	case PERF_TYPE_HW_CACHE:
-> +		ret = cdeleg_pmu_event_find_cache(config, econfig, NULL);
-> +		if (ret)
-> +			break;
-> +		if (*econfig == CACHE_OP_UNSUPPORTED)
-> +			ret = -ENOENT;
-> +		break;
-> +	case PERF_TYPE_RAW:
-> +		*econfig = config & RISCV_PMU_DELEG_RAW_EVENT_MASK;
-> +		break;
-> +	default:
-> +		ret = -ENOENT;
-> +		break;
-> +	}
-> +
-> +	/* event_base is not used for counter delegation */
-> +	return ret;
->  }
->  
->  static void pmu_sbi_snapshot_free(struct riscv_pmu *pmu)
-> @@ -821,7 +968,7 @@ static int pmu_sbi_snapshot_setup(struct riscv_pmu *pmu, int cpu)
->  	return 0;
->  }
->  
-> -static u64 rvpmu_sbi_ctr_read(struct perf_event *event)
-> +static u64 rvpmu_ctr_read(struct perf_event *event)
->  {
->  	struct hw_perf_event *hwc = &event->hw;
->  	int idx = hwc->idx;
-
-the counter read logic need to coordinate the counter delegation
-and SBI PMU snapshot, since the diff here doesn't show the logic,
-so I paste the final applied code below:
-
-static u64 rvpmu_ctr_read(struct perf_event *event)
-{
-	struct hw_perf_event *hwc = &event->hw;
-	int idx = hwc->idx;
-	[...variables declarations and initilizations]
-
-	/* Read the value from the shared memory directly only if counter is stopped */
-	if (sbi_pmu_snapshot_available() && (hwc->state & PERF_HES_STOPPED)) {
-		val = sdata->ctr_values[idx];
-		return val;
-	}
-
-seems we shouldn't read from the SBI PMU snapshot memory for delegated
-counter, but here we always read from the snapshot memory if available.
-
-> @@ -898,10 +1045,6 @@ static void rvpmu_sbi_ctr_start(struct perf_event *event, u64 ival)
->  	if (ret.error && (ret.error != SBI_ERR_ALREADY_STARTED))
->  		pr_err("Starting counter idx %d failed with error %d\n",
->  			hwc->idx, sbi_err_map_linux_errno(ret.error));
-> -
-> -	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
-> -	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
-> -		rvpmu_set_scounteren((void *)event);
->  }
->  
->  static void rvpmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
-> @@ -912,10 +1055,6 @@ static void rvpmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
->  	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
->  	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
->  
-> -	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
-> -	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
-> -		rvpmu_reset_scounteren((void *)event);
-> -
->  	if (sbi_pmu_snapshot_available())
->  		flag |= SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
->  
-> @@ -951,12 +1090,6 @@ static int rvpmu_sbi_find_num_ctrs(void)
->  		return sbi_err_map_linux_errno(ret.error);
->  }
->  
-> -static u32 rvpmu_deleg_find_ctrs(void)
-> -{
-> -	/* TODO */
-> -	return 0;
-> -}
-> -
->  static int rvpmu_sbi_get_ctrinfo(u32 nsbi_ctr, u32 *num_fw_ctr, u32 *num_hw_ctr)
->  {
->  	struct sbiret ret;
-> @@ -1034,55 +1167,75 @@ static inline void rvpmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
->  	}
->  }
->  
-> -/*
-> - * This function starts all the used counters in two step approach.
-> - * Any counter that did not overflow can be start in a single step
-> - * while the overflowed counters need to be started with updated initialization
-> - * value.
-> - */
-> -static inline void rvpmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
-> -						u64 ctr_ovf_mask)
-> +static void rvpmu_deleg_ctr_start_mask(unsigned long mask)
->  {
-> -	int idx = 0, i;
-> -	struct perf_event *event;
-> -	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
-> -	unsigned long ctr_start_mask = 0;
-> -	uint64_t max_period;
-> -	struct hw_perf_event *hwc;
-> -	u64 init_val = 0;
-> +	unsigned long scountinhibit_val = 0;
->  
-> -	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
-> -		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
-> -		/* Start all the counters that did not overflow in a single shot */
-> -		if (ctr_start_mask) {
-> -			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
-> -				  ctr_start_mask, 0, 0, 0, 0);
-> -		}
-> -	}
-> +	scountinhibit_val = csr_read(CSR_SCOUNTINHIBIT);
-> +	scountinhibit_val &= ~mask;
-> +
-> +	csr_write(CSR_SCOUNTINHIBIT, scountinhibit_val);
-> +}
-> +
-> +static void rvpmu_deleg_ctr_enable_irq(struct perf_event *event)
-> +{
-> +	unsigned long hpmevent_curr;
-> +	unsigned long of_mask;
-> +	struct hw_perf_event *hwc = &event->hw;
-> +	int counter_idx = hwc->idx;
-> +	unsigned long sip_val = csr_read(CSR_SIP);
-> +
-> +	if (!is_sampling_event(event) || (sip_val & SIP_LCOFIP))
-
-we should also consider overflow for counters of non-sampling events..
-
-> +		return;
->  
-> -	/* Reinitialize and start all the counter that overflowed */
-> -	while (ctr_ovf_mask) {
-> -		if (ctr_ovf_mask & 0x01) {
-> -			event = cpu_hw_evt->events[idx];
-> -			hwc = &event->hw;
-> -			max_period = riscv_pmu_ctr_get_width_mask(event);
-> -			init_val = local64_read(&hwc->prev_count) & max_period;
->  #if defined(CONFIG_32BIT)
-> -			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx, 1,
-> -				  flag, init_val, init_val >> 32, 0);
-> +	hpmevent_curr = csr_ind_read(CSR_SIREG5, SISELECT_SSCCFG_BASE, counter_idx);
-> +	of_mask = (u32)~HPMEVENTH_OF;
->  #else
-> -			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx, 1,
-> -				  flag, init_val, 0, 0);
-> +	hpmevent_curr = csr_ind_read(CSR_SIREG2, SISELECT_SSCCFG_BASE, counter_idx);
-> +	of_mask = ~HPMEVENT_OF;
->  #endif
-> -			perf_event_update_userpage(event);
-> -		}
-> -		ctr_ovf_mask = ctr_ovf_mask >> 1;
-> -		idx++;
-> -	}
-> +
-> +	hpmevent_curr &= of_mask;
-> +#if defined(CONFIG_32BIT)
-> +	csr_ind_write(CSR_SIREG5, SISELECT_SSCCFG_BASE, counter_idx, hpmevent_curr);
-> +#else
-> +	csr_ind_write(CSR_SIREG2, SISELECT_SSCCFG_BASE, counter_idx, hpmevent_curr);
-> +#endif
-> +}
-> +
-> +static void rvpmu_deleg_ctr_start(struct perf_event *event, u64 ival)
-> +{
-> +	unsigned long scountinhibit_val = 0;
-> +	struct hw_perf_event *hwc = &event->hw;
-> +
-> +#if defined(CONFIG_32BIT)
-> +	csr_ind_write(CSR_SIREG, SISELECT_SSCCFG_BASE, hwc->idx, ival & 0xFFFFFFFF);
-> +	csr_ind_write(CSR_SIREG4, SISELECT_SSCCFG_BASE, hwc->idx, ival >> BITS_PER_LONG);
-> +#else
-> +	csr_ind_write(CSR_SIREG, SISELECT_SSCCFG_BASE, hwc->idx, ival);
-> +#endif
-> +
-> +	rvpmu_deleg_ctr_enable_irq(event);
-> +
-> +	scountinhibit_val = csr_read(CSR_SCOUNTINHIBIT);
-> +	scountinhibit_val &= ~BIT(hwc->idx);
-> +
-> +	csr_write(CSR_SCOUNTINHIBIT, scountinhibit_val);
-> +}
-> +
-> +static void rvpmu_deleg_ctr_stop_mask(unsigned long mask)
-> +{
-> +	unsigned long scountinhibit_val = 0;
-> +
-> +	scountinhibit_val = csr_read(CSR_SCOUNTINHIBIT);
-> +	scountinhibit_val |= mask;
-> +
-> +	csr_write(CSR_SCOUNTINHIBIT, scountinhibit_val);
->  }
->  
-> -static inline void rvpmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_evt,
-> -						     u64 ctr_ovf_mask)
-> +static void rvpmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_evt,
-> +					      u64 ctr_ovf_mask)
->  {
->  	int i, idx = 0;
->  	struct perf_event *event;
-> @@ -1116,15 +1269,53 @@ static inline void rvpmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_h
->  	}
->  }
->  
-> -static void rvpmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
-> -					  u64 ctr_ovf_mask)
-> +/*
-> + * This function starts all the used counters in two step approach.
-> + * Any counter that did not overflow can be start in a single step
-> + * while the overflowed counters need to be started with updated initialization
-> + * value.
-> + */
-> +static void rvpmu_start_overflow_mask(struct riscv_pmu *pmu, u64 ctr_ovf_mask)
->  {
-> +	int idx = 0, i;
-> +	struct perf_event *event;
-> +	unsigned long ctr_start_mask = 0;
-> +	u64 max_period, init_val = 0;
-> +	struct hw_perf_event *hwc;
->  	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
->  
->  	if (sbi_pmu_snapshot_available())
-> -		rvpmu_sbi_start_ovf_ctrs_snapshot(cpu_hw_evt, ctr_ovf_mask);
-> -	else
-> -		rvpmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
-> +		return rvpmu_sbi_start_ovf_ctrs_snapshot(cpu_hw_evt, ctr_ovf_mask);
-> +
-> +	/* Start all the counters that did not overflow */
-> +	if (riscv_pmu_cdeleg_available()) {
-> +		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[0] & ~ctr_ovf_mask;
-> +		rvpmu_deleg_ctr_start_mask(ctr_start_mask);
-> +	} else {
-> +		for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
-> +			ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
-> +			/* Start all the counters that did not overflow in a single shot */
-> +			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
-> +				  ctr_start_mask, 0, 0, 0, 0);
-> +		}
-> +	}
-> +
-> +	/* Reinitialize and start all the counter that overflowed */
-> +	while (ctr_ovf_mask) {
-> +		if (ctr_ovf_mask & 0x01) {
-> +			event = cpu_hw_evt->events[idx];
-> +			hwc = &event->hw;
-> +			max_period = riscv_pmu_ctr_get_width_mask(event);
-> +			init_val = local64_read(&hwc->prev_count) & max_period;
-> +			if (riscv_pmu_cdeleg_available())
-> +				rvpmu_deleg_ctr_start(event, init_val);
-> +			else
-> +				rvpmu_sbi_ctr_start(event, init_val);
-> +			perf_event_update_userpage(event);
-> +		}
-> +		ctr_ovf_mask = ctr_ovf_mask >> 1;
-> +		idx++;
-> +	}
->  }
->  
->  static irqreturn_t rvpmu_ovf_handler(int irq, void *dev)
-> @@ -1159,10 +1350,18 @@ static irqreturn_t rvpmu_ovf_handler(int irq, void *dev)
->  	}
->  
->  	pmu = to_riscv_pmu(event->pmu);
-> -	rvpmu_sbi_stop_hw_ctrs(pmu);
-> +	if (riscv_pmu_cdeleg_available())
-> +		rvpmu_deleg_ctr_stop_mask(cpu_hw_evt->used_hw_ctrs[0]);
-> +	else
-> +		rvpmu_sbi_stop_hw_ctrs(pmu);
->  
-> -	/* Overflow status register should only be read after counter are stopped */
-> -	if (sbi_pmu_snapshot_available())
-> +	/*
-> +	 * Overflow status register should only be read after counter are stopped.
-> +	 * In counter delegation mode the overflows are reported in scountovf, not
-> +	 * in the SBI snapshot area, so read the CSR directly even when an SBI PMU
-> +	 * snapshot is also available.
-> +	 */
-> +	if (sbi_pmu_snapshot_available() && !riscv_pmu_cdeleg_available())
->  		overflow = sdata->ctr_overflow_mask;
->  	else
->  		ALT_SBI_PMU_OVERFLOW(overflow);
-> @@ -1228,22 +1427,183 @@ static irqreturn_t rvpmu_ovf_handler(int irq, void *dev)
->  		hw_evt->state = 0;
->  	}
->  
-> -	rvpmu_sbi_start_overflow_mask(pmu, overflowed_ctrs);
-> +	rvpmu_start_overflow_mask(pmu, overflowed_ctrs);
->  	perf_sample_event_took(sched_clock() - start_clock);
->  
->  	return IRQ_HANDLED;
->  }
->  
-> +static int get_deleg_hw_ctr_width(int counter_offset)
-> +{
-> +	unsigned long hpm_warl;
-> +	int num_bits;
-> +
-> +	if (counter_offset < 3 || counter_offset > 31)
-> +		return 0;
-> +
-> +	hpm_warl = csr_ind_warl(CSR_SIREG, SISELECT_SSCCFG_BASE, counter_offset, -1);
-> +	if (!hpm_warl)
-> +		return 0;
-> +	num_bits = __fls(hpm_warl);
-> +
-> +#if defined(CONFIG_32BIT)
-> +	/*
-> +	 * The low half contributes a full BITS_PER_LONG bits when the counter is
-> +	 * wider than 32 bits; the high half's __fls() gives the remaining width.
-> +	 */
-> +	hpm_warl = csr_ind_warl(CSR_SIREG4, SISELECT_SSCCFG_BASE, counter_offset, -1);
-> +	if (hpm_warl)
-> +		num_bits = BITS_PER_LONG + __fls(hpm_warl);
-> +#endif
-> +	return num_bits;
-> +}
-> +
-> +static int rvpmu_deleg_find_ctrs(void)
-> +{
-> +	int i, num_hw_ctr = 0;
-> +	union sbi_pmu_ctr_info cinfo;
-> +	unsigned long scountinhibit_old = 0;
-> +
-> +	/* Do a WARL write/read to detect which hpmcounters have been delegated */
-> +	scountinhibit_old = csr_read(CSR_SCOUNTINHIBIT);
-> +	csr_write(CSR_SCOUNTINHIBIT, -1);
-> +	cmask = csr_read(CSR_SCOUNTINHIBIT);
-> +
-> +	csr_write(CSR_SCOUNTINHIBIT, scountinhibit_old);
-> +
-> +	for_each_set_bit(i, &cmask, RISCV_MAX_HW_COUNTERS) {
-> +		if (unlikely(i == 1))
-> +			continue; /* This should never happen as TM is read only */
-> +		cinfo.value = 0;
-> +		cinfo.type = SBI_PMU_CTR_TYPE_HW;
-> +		/*
-> +		 * If counter delegation is enabled, the csr stored to the cinfo will
-> +		 * be a virtual counter that the delegation attempts to read.
-> +		 */
-> +		cinfo.csr = CSR_CYCLE + i;
-> +		if (i == 0 || i == 2)
-> +			cinfo.width = 63;
-> +		else
-> +			cinfo.width = get_deleg_hw_ctr_width(i);
-> +
-> +		num_hw_ctr++;
-> +		pmu_ctr_list[i].value = cinfo.value;
-> +	}
-> +
-> +	return num_hw_ctr;
-> +}
-> +
-> +static int get_deleg_fixed_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
-> +{
-> +	return -EINVAL;
-> +}
-> +
-> +static int get_deleg_next_hpm_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
-> +{
-> +	unsigned long hw_ctr_mask = 0;
-> +
-> +	/*
-> +	 * TODO: Treat every hpmcounter can monitor every event for now.
-> +	 * The event to counter mapping should come from the json file.
-> +	 * The mapping should also tell if sampling is supported or not.
-> +	 */
-> +
-> +	/* Select only hpmcounters */
-> +	hw_ctr_mask = cmask & (~0x7);
-> +	hw_ctr_mask &= ~(cpuc->used_hw_ctrs[0]);
-> +	return __ffs(hw_ctr_mask);
-> +}
-> +
-> +static void update_deleg_hpmevent(int counter_idx, uint64_t event_value, uint64_t filter_bits)
-> +{
-> +	u64 hpmevent_value = 0;
-> +
-> +	/* OF bit should be enable during the start if sampling is requested */
-> +	hpmevent_value = (event_value & ~HPMEVENT_MASK) | filter_bits | HPMEVENT_OF;
-> +#if defined(CONFIG_32BIT)
-> +	csr_ind_write(CSR_SIREG2, SISELECT_SSCCFG_BASE, counter_idx, hpmevent_value & 0xFFFFFFFF);
-> +	if (riscv_isa_extension_available(NULL, SSCOFPMF))
-> +		csr_ind_write(CSR_SIREG5, SISELECT_SSCCFG_BASE, counter_idx,
-> +			      hpmevent_value >> BITS_PER_LONG);
-> +#else
-> +	csr_ind_write(CSR_SIREG2, SISELECT_SSCCFG_BASE, counter_idx, hpmevent_value);
-> +#endif
-> +}
-> +
-> +static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
-> +{
-> +	struct hw_perf_event *hwc = &event->hw;
-> +	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
-> +	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
-> +	unsigned long hw_ctr_max_id;
-> +	u64 priv_filter;
-> +	int idx;
-> +
-> +	/*
-> +	 * TODO: We should not rely on SBI Perf encoding to check if the event
-> +	 * is a fixed one or not.
-> +	 */
-> +	if (!is_sampling_event(event)) {
-> +		idx = get_deleg_fixed_hw_idx(cpuc, event);
-> +		if (idx == 0 || idx == 2) {
-> +			/* Priv mode filter bits are only available if smcntrpmf is present */
-> +			if (riscv_isa_extension_available(NULL, SMCNTRPMF))
-> +				goto found_idx;
-> +			else
-> +				goto skip_update;
-> +		}
-> +	}
-> +
-> +	if (!cmask)
-> +		goto out_err;> +	hw_ctr_max_id = __fls(cmask);
-> +	idx = get_deleg_next_hpm_hw_idx(cpuc, event);
-> +	if (idx < 3 || idx > hw_ctr_max_id)
-> +		goto out_err;
-> +found_idx:
-> +	priv_filter = get_deleg_priv_filter_bits(event);
-> +	update_deleg_hpmevent(idx, hwc->config, priv_filter);
-> +skip_update:
-> +	if (!test_and_set_bit(idx, cpuc->used_hw_ctrs))
-
-test is redundant, get_*_idx() above already gives a free idx
-
-> +		return idx;
-> +out_err:
-> +	return -ENOENT;
-> +}
-> +
->  static void rvpmu_ctr_start(struct perf_event *event, u64 ival)
->  {
-> -	rvpmu_sbi_ctr_start(event, ival);
-> -	/* TODO: Counter delegation implementation */
-> +	struct hw_perf_event *hwc = &event->hw;
-> +
-> +	if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event))
-> +		rvpmu_deleg_ctr_start(event, ival);
-> +	else
-> +		rvpmu_sbi_ctr_start(event, ival);
-> +
-> +	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
-> +	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
-> +		rvpmu_set_scounteren((void *)event);
->  }
->  
->  static void rvpmu_ctr_stop(struct perf_event *event, unsigned long flag)
->  {
-> -	rvpmu_sbi_ctr_stop(event, flag);
-> -	/* TODO: Counter delegation implementation */
-> +	struct hw_perf_event *hwc = &event->hw;
-> +
-> +	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
-> +	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
-> +		rvpmu_reset_scounteren((void *)event);
-> +
-> +	if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event)) {
-> +		/*
-> +		 * The counter is already stopped. No need to stop again. Counter
-> +		 * mapping will be reset in clear_idx function.
-> +		 */
-> +		if (flag != RISCV_PMU_STOP_FLAG_RESET)
-> +			rvpmu_deleg_ctr_stop_mask(BIT(hwc->idx));
-> +		else
-> +			update_deleg_hpmevent(hwc->idx, 0, 0);
-
-will crash here if idx=0x1 (CY counter) and !SMCNTRPMF.
-
-thanks.
-
-> +	} else {
-> +		rvpmu_sbi_ctr_stop(event, flag);
-> +	}
->  }
->  
->  static int rvpmu_find_ctrs(void)
-> @@ -1292,20 +1652,18 @@ static int rvpmu_find_ctrs(void)
->  
->  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
->  {
-> -	return rvpmu_sbi_event_map(event, econfig);
-> -	/* TODO: Counter delegation implementation */
-> +	if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event))
-> +		return rvpmu_cdeleg_event_map(event, econfig);
-> +	else
-> +		return rvpmu_sbi_event_map(event, econfig);
->  }
->  
->  static int rvpmu_ctr_get_idx(struct perf_event *event)
->  {
-> -	return rvpmu_sbi_ctr_get_idx(event);
-> -	/* TODO: Counter delegation implementation */
-> -}
-> -
-> -static u64 rvpmu_ctr_read(struct perf_event *event)
-> -{
-> -	return rvpmu_sbi_ctr_read(event);
-> -	/* TODO: Counter delegation implementation */
-> +	if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event))
-> +		return rvpmu_deleg_ctr_get_idx(event);
-> +	else
-> +		return rvpmu_sbi_ctr_get_idx(event);
->  }
->  
->  static int rvpmu_starting_cpu(unsigned int cpu, struct hlist_node *node)
-> @@ -1323,7 +1681,16 @@ static int rvpmu_starting_cpu(unsigned int cpu, struct hlist_node *node)
->  		csr_write(CSR_SCOUNTEREN, 0x2);
->  
->  	/* Stop all the counters so that they can be enabled from perf */
-> -	rvpmu_sbi_stop_all(pmu);
-> +	if (riscv_pmu_cdeleg_available()) {
-> +		rvpmu_deleg_ctr_stop_mask(cmask);
-> +		if (riscv_pmu_sbi_available()) {
-> +			/* Stop the firmware counters as well */
-> +			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, 0, firmware_cmask,
-> +				  0, 0, 0, 0);
-> +		}
-> +	} else {
-> +		rvpmu_sbi_stop_all(pmu);
-> +	}
->  
->  	if (riscv_pmu_use_irq) {
->  		cpu_hw_evt->irq = riscv_pmu_irq;
-> @@ -1632,8 +1999,11 @@ static int rvpmu_device_probe(struct platform_device *pdev)
->  	}
->  	irq_requested = (ret == 0);
->  
-> -	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
->  	pmu->pmu.parent = &pdev->dev;
-> +	if (riscv_pmu_cdeleg_available_boot())
-> +		pmu->pmu.attr_groups = riscv_cdeleg_pmu_attr_groups;
-> +	else
-> +		pmu->pmu.attr_groups = riscv_sbi_pmu_attr_groups;
->  	pmu->cmask = cmask;
->  	pmu->ctr_start = rvpmu_ctr_start;
->  	pmu->ctr_stop = rvpmu_ctr_stop;
-> diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-> index f82a28040594..3c64151cb038 100644
-> --- a/include/linux/perf/riscv_pmu.h
-> +++ b/include/linux/perf/riscv_pmu.h
-> @@ -20,6 +20,7 @@
->   */
->  
->  #define RISCV_MAX_COUNTERS	64
-> +#define RISCV_MAX_HW_COUNTERS	32
->  #define RISCV_OP_UNSUPP		(-EOPNOTSUPP)
->  #define RISCV_PMU_SBI_PDEV_NAME	"riscv-pmu-sbi"
->  #define RISCV_PMU_LEGACY_PDEV_NAME	"riscv-pmu-legacy"
-> @@ -28,6 +29,8 @@
->  
->  #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
->  
-> +#define RISCV_PMU_DELEG_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-> +
->  struct cpu_hw_events {
->  	/* currently enabled events */
->  	int			n_events;
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpKdXN0IGEgZnJpZW5kbHkgcGluZyBvbiB0aGlzIHBhdGNoLgoKQ291bGQgc29tZW9uZSBw
+bGVhc2UgdGFrZSBhIGxvb2sgd2hlbiBjb252ZW5pZW50PwoKVGhhbmtzLApYaWUgQm8KCgo+IC0t
+LS0t5Y6f5aeL6YKu5Lu2LS0tLS0KPiDlj5Hku7bkuro6ICJYaWUgQm8iIDx4YkB1bHRyYXJpc2Mu
+Y29tPgo+IOWPkemAgeaXtumXtDoyMDI2LTA2LTE2IDE0OjE3OjU4ICjmmJ/mnJ/kuowpCj4g5pS2
+5Lu25Lq6OiAiQW51cCBQYXRlbCIgPGFudXBAYnJhaW5mYXVsdC5vcmc+LCBrdm0tcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwo+IOaKhOmAgTogIkF0aXNoIFBhdHJhIiA8YXRpc2gucGF0cmFAbGlu
+dXguZGV2PiwgIlBhdWwgV2FsbXNsZXkiIDxwandAa2VybmVsLm9yZz4sICJQYWxtZXIgRGFiYmVs
+dCIgPHBhbG1lckBkYWJiZWx0LmNvbT4sICJBbGJlcnQgT3UiIDxhb3VAZWVjcy5iZXJrZWxleS5l
+ZHU+LCAiQWxleGFuZHJlIEdoaXRpIiA8YWxleEBnaGl0aS5mcj4sICJQYW9sbyBCb256aW5pIiA8
+cGJvbnppbmlAcmVkaGF0LmNvbT4sICJBbGV4YW5kZXIgR3JhZiIgPGdyYWZAYW1hem9uLmNvbT4s
+IGt2bUB2Z2VyLmtlcm5lbC5vcmcsIGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcsIGxp
+bnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcsIHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcsICJYaWUg
+Qm8iIDx4YkB1bHRyYXJpc2MuY29tPgo+IOS4u+mimDogW1BBVENIXSBSSVNDLVY6IEtWTTogRml4
+IGxvc3QgdmlydHVhbCBpbnRlcnJ1cHRzIGR1cmluZyBJUlEgc3luYwo+IAo+IFJJU0MtViBLVk0g
+dHJhY2tzIGd1ZXN0IHBlbmRpbmcgaW50ZXJydXB0cyB3aXRoIGlycXNfcGVuZGluZyBhbmQKPiBp
+cnFzX3BlbmRpbmdfbWFzay4gVGhlIGV4aXN0aW5nIGNvZGUgdXNlcyBhdG9taWMgYml0b3BzIGFu
+ZCBtb2RlbHMgdGhlCj4gc3RhdGUgYXMgYSBtdWx0aXBsZS1wcm9kdWNlciwgc2luZ2xlLWNvbnN1
+bWVyIHF1ZXVlIHdoZXJlIHRoZSB2Q1BVIGlzCj4gdGhlIGNvbnN1bWVyLgo+IAo+IFRoZSBhdG9t
+aWMgYml0b3BzIG1ha2UgZWFjaCBpbmRpdmlkdWFsIGJpdG1hcCBvcGVyYXRpb24gYXRvbWljLCBi
+dXQKPiB0aGV5IGRvIG5vdCBtYWtlIHRoZSBwYWlyIG9mIGlycXNfcGVuZGluZyBhbmQgaXJxc19w
+ZW5kaW5nX21hc2sgYW4KPiBhdG9taWMgc3RhdGUgdHJhbnNpdGlvbi4gVGhlIHZDUFUgaW50ZXJy
+dXB0IHN5bmMgcGF0aCBpcyBhbHNvIG5vdCBhCj4gcHVyZSBjb25zdW1lcjogaXQgd3JpdGVzIGJv
+dGggYml0bWFwcyB3aGVuIGl0IHJlZmxlY3RzIGd1ZXN0LXZpc2libGUKPiBIVklQIGNoYW5nZXMg
+YmFjayBpbnRvIEtWTSBzdGF0ZS4KPiAKPiBGb3IgZXhhbXBsZSwga3ZtX3Jpc2N2X3ZjcHVfc2V0
+X2ludGVycnVwdCgpIGNhbiBzZXQgSVJRX1ZTX1NPRlQgaW4KPiBpcnFzX3BlbmRpbmcgd2hpbGUg
+dGhlIHRhcmdldCB2Q1BVIGlzIGNvbmN1cnJlbnRseSBzeW5jaW5nIGEKPiBndWVzdC1jbGVhcmVk
+IEhWSVAuVlNTSVAgYml0LiBJZiBzeW5jIG9ic2VydmVzIGlycXNfcGVuZGluZ19tYXNrIGJlZm9y
+ZQo+IHRoZSBwcm9kdWNlciBzZXRzIGl0LCBzeW5jIGNhbiBzZXQgdGhlIG1hc2sgYW5kIGNsZWFy
+IGlycXNfcGVuZGluZy4gVGhlCj4gcHJvZHVjZXIgdGhlbiBzZXRzIHRoZSBtYXNrIGFuZCBraWNr
+cyB0aGUgdkNQVSwgYnV0IHRoZSBwZW5kaW5nIGJpdCBoYXMKPiBhbHJlYWR5IGJlZW4gbG9zdC4g
+QSBzdWJzZXF1ZW50IGZsdXNoIHVwZGF0ZXMgSFZJUCB3aXRob3V0IFZTU0lQLCBhbmQKPiB0aGUg
+Z3Vlc3QgY2FuIHJlbWFpbiBibG9ja2VkIGluIFdGSSBldmVuIHRob3VnaCBpdCBoYXMgd29yayBx
+dWV1ZWQuCj4gCj4gU2VyaWFsaXplIGFsbCB1cGRhdGVzIHRvIGlycXNfcGVuZGluZyBhbmQgaXJx
+c19wZW5kaW5nX21hc2sgd2l0aCBhCj4gcGVyLXZDUFUgcmF3IHNwaW5sb2NrLiBUaGlzIGludGVu
+dGlvbmFsbHkgcmVwbGFjZXMgdGhlIGxvY2tsZXNzCj4gcGVuZGluZy9tYXNrIHByb3RvY29sIHdp
+dGggb25lIHNtYWxsIGNyaXRpY2FsIHNlY3Rpb24gcGVyIHZDUFUsIHNvIHRoZQo+IHBlbmRpbmcg
+Yml0IGFuZCB0aGUgZGlydHkgbWFzayBhcmUgdXBkYXRlZCBhcyBvbmUgc3RhdGUgdHJhbnNpdGlv
+bi4KPiBVc2UgdGhlIHNhbWUgbG9jayBmb3Igc3luYywgZmx1c2gsIHJlc2V0LCBhbmQgdXNlcnNw
+YWNlIENTUiB3cml0ZXMgdGhhdAo+IGNsZWFyIHRoZSBkaXJ0eSBtYXNrLCBzbyBhIG5ld2x5IGlu
+amVjdGVkIGludGVycnVwdCBjYW5ub3QgYmUKPiBvdmVyd3JpdHRlbiBieSBhIGNvbmN1cnJlbnQg
+SFZJUCBzeW5jLgo+IAo+IEZpeGVzOiBjY2U2OWFmZjY4OWUgKCJSSVNDLVY6IEtWTTogSW1wbGVt
+ZW50IFZDUFUgaW50ZXJydXB0cyBhbmQgcmVxdWVzdHMgaGFuZGxpbmciKQo+IENjOiBzdGFibGVA
+dmdlci5rZXJuZWwub3JnCj4gU2lnbmVkLW9mZi1ieTogWGllIEJvIDx4YkB1bHRyYXJpc2MuY29t
+Pgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggfCAxMCArKysrKy0t
+LS0tCj4gIGFyY2gvcmlzY3Yva3ZtL2FpYS5jICAgICAgICAgICAgICB8IDI4ICsrKysrKysrKysr
+KysrKysrKysrKy0tLS0tLS0KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdS5jICAgICAgICAgICAgIHwg
+MjcgKysrKysrKysrKysrKysrKysrKysrKy0tLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfb25l
+cmVnLmMgICAgICB8IDEzICsrKysrKysrKy0tLS0KPiAgNCBmaWxlcyBjaGFuZ2VkLCA1NyBpbnNl
+cnRpb25zKCspLCAyMSBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9rdm1faG9zdC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5o
+Cj4gaW5kZXggNzViMGE5NTFjLi45N2U0MjY0NWMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9rdm1faG9zdC5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1f
+aG9zdC5oCj4gQEAgLTIwNywxMyArMjA3LDEzIEBAIHN0cnVjdCBrdm1fdmNwdV9hcmNoIHsKPiAg
+CS8qCj4gIAkgKiBWQ1BVIGludGVycnVwdHMKPiAgCSAqCj4gLQkgKiBXZSBoYXZlIGEgbG9ja2xl
+c3MgYXBwcm9hY2ggZm9yIHRyYWNraW5nIHBlbmRpbmcgVkNQVSBpbnRlcnJ1cHRzCj4gLQkgKiBp
+bXBsZW1lbnRlZCB1c2luZyBhdG9taWMgYml0b3BzLiBUaGUgaXJxc19wZW5kaW5nIGJpdG1hcCBy
+ZXByZXNlbnQKPiAtCSAqIHBlbmRpbmcgaW50ZXJydXB0cyB3aGVyZWFzIGlycXNfcGVuZGluZ19t
+YXNrIHJlcHJlc2VudCBiaXRzIGNoYW5nZWQKPiAtCSAqIGluIGlycXNfcGVuZGluZy4gT3VyIGFw
+cHJvYWNoIGlzIG1vZGVsZWQgYXJvdW5kIG11bHRpcGxlIHByb2R1Y2VyCj4gLQkgKiBhbmQgc2lu
+Z2xlIGNvbnN1bWVyIHByb2JsZW0gd2hlcmUgdGhlIGNvbnN1bWVyIGlzIHRoZSBWQ1BVIGl0c2Vs
+Zi4KPiArCSAqIFRoZSBpcnFzX3BlbmRpbmcgYml0bWFwIHJlcHJlc2VudHMgcGVuZGluZyBpbnRl
+cnJ1cHRzIHdoZXJlYXMKPiArCSAqIGlycXNfcGVuZGluZ19tYXNrIHJlcHJlc2VudHMgYml0cyBj
+aGFuZ2VkIGluIGlycXNfcGVuZGluZy4gVXBkYXRlcwo+ICsJICogdG8gdGhlc2UgYml0bWFwcyBh
+cmUgc2VyaWFsaXplZCBzbyB2Y3B1IGludGVycnVwdCBzeW5jL2ZsdXNoIGNhbm5vdAo+ICsJICog
+ZHJvcCBhIG5ld2x5IGluamVjdGVkIGludGVycnVwdCB3aGlsZSBzeW5jaW5nIGd1ZXN0LXZpc2li
+bGUgSFZJUC4KPiAgCSAqLwo+ICAjZGVmaW5lIEtWTV9SSVNDVl9WQ1BVX05SX0lSUVMJNjQKPiAr
+CXJhd19zcGlubG9ja190IGlycXNfcGVuZGluZ19sb2NrOwo+ICAJREVDTEFSRV9CSVRNQVAoaXJx
+c19wZW5kaW5nLCBLVk1fUklTQ1ZfVkNQVV9OUl9JUlFTKTsKPiAgCURFQ0xBUkVfQklUTUFQKGly
+cXNfcGVuZGluZ19tYXNrLCBLVk1fUklTQ1ZfVkNQVV9OUl9JUlFTKTsKPiAgCj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3Yva3ZtL2FpYS5jIGIvYXJjaC9yaXNjdi9rdm0vYWlhLmMKPiBpbmRleCA1
+ZWM1MDMyODguLjgyMWQyY2I2ZCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS9haWEuYwo+
+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL2FpYS5jCj4gQEAgLTUwLDE3ICs1MCwyMSBAQCB2b2lkIGt2
+bV9yaXNjdl92Y3B1X2FpYV9mbHVzaF9pbnRlcnJ1cHRzKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkK
+PiAgewo+ICAJc3RydWN0IGt2bV92Y3B1X2FpYV9jc3IgKmNzciA9ICZ2Y3B1LT5hcmNoLmFpYV9j
+b250ZXh0Lmd1ZXN0X2NzcjsKPiAgCXVuc2lnbmVkIGxvbmcgbWFzaywgdmFsOwo+ICsJdW5zaWdu
+ZWQgbG9uZyBmbGFnczsKPiAgCj4gIAlpZiAoIWt2bV9yaXNjdl9haWFfYXZhaWxhYmxlKCkpCj4g
+IAkJcmV0dXJuOwo+ICAKPiAtCWlmIChSRUFEX09OQ0UodmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdf
+bWFza1sxXSkpIHsKPiAtCQltYXNrID0geGNoZ19hY3F1aXJlKCZ2Y3B1LT5hcmNoLmlycXNfcGVu
+ZGluZ19tYXNrWzFdLCAwKTsKPiAtCQl2YWwgPSBSRUFEX09OQ0UodmNwdS0+YXJjaC5pcnFzX3Bl
+bmRpbmdbMV0pICYgbWFzazsKPiArCXJhd19zcGluX2xvY2tfaXJxc2F2ZSgmdmNwdS0+YXJjaC5p
+cnFzX3BlbmRpbmdfbG9jaywgZmxhZ3MpOwo+ICsJbWFzayA9IHZjcHUtPmFyY2guaXJxc19wZW5k
+aW5nX21hc2tbMV07Cj4gKwlpZiAobWFzaykgewo+ICsJCXZjcHUtPmFyY2guaXJxc19wZW5kaW5n
+X21hc2tbMV0gPSAwOwo+ICsJCXZhbCA9IHZjcHUtPmFyY2guaXJxc19wZW5kaW5nWzFdICYgbWFz
+azsKPiAgCj4gIAkJY3NyLT5odmlwaCAmPSB+bWFzazsKPiAgCQljc3ItPmh2aXBoIHw9IHZhbDsK
+PiAgCX0KPiArCXJhd19zcGluX3VubG9ja19pcnFyZXN0b3JlKCZ2Y3B1LT5hcmNoLmlycXNfcGVu
+ZGluZ19sb2NrLCBmbGFncyk7Cj4gIH0KPiAgCj4gIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfYWlhX3N5
+bmNfaW50ZXJydXB0cyhzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gQEAgLTIwNSw2ICsyMDksOSBA
+QCBpbnQga3ZtX3Jpc2N2X3ZjcHVfYWlhX3NldF9jc3Ioc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAo+
+ICB7Cj4gIAlzdHJ1Y3Qga3ZtX3ZjcHVfYWlhX2NzciAqY3NyID0gJnZjcHUtPmFyY2guYWlhX2Nv
+bnRleHQuZ3Vlc3RfY3NyOwo+ICAJdW5zaWduZWQgbG9uZyByZWdzX21heCA9IHNpemVvZihzdHJ1
+Y3Qga3ZtX3Jpc2N2X2FpYV9jc3IpIC8gc2l6ZW9mKHVuc2lnbmVkIGxvbmcpOwo+ICsjaWZkZWYg
+Q09ORklHXzMyQklUCj4gKwl1bnNpZ25lZCBsb25nIGZsYWdzOwo+ICsjZW5kaWYKPiAgCj4gIAlp
+ZiAoIXJpc2N2X2lzYV9leHRlbnNpb25fYXZhaWxhYmxlKHZjcHUtPmFyY2guaXNhLCBTU0FJQSkp
+Cj4gIAkJcmV0dXJuIC1FTk9FTlQ7Cj4gQEAgLTIxNCwxMSArMjIxLDE4IEBAIGludCBrdm1fcmlz
+Y3ZfdmNwdV9haWFfc2V0X2NzcihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4gIAlyZWdfbnVtID0g
+YXJyYXlfaW5kZXhfbm9zcGVjKHJlZ19udW0sIHJlZ3NfbWF4KTsKPiAgCj4gIAlpZiAoa3ZtX3Jp
+c2N2X2FpYV9hdmFpbGFibGUoKSkgewo+IC0JCSgodW5zaWduZWQgbG9uZyAqKWNzcilbcmVnX251
+bV0gPSB2YWw7Cj4gLQo+ICAjaWZkZWYgQ09ORklHXzMyQklUCj4gLQkJaWYgKHJlZ19udW0gPT0g
+S1ZNX1JFR19SSVNDVl9DU1JfQUlBX1JFRyhzaXBoKSkKPiAtCQkJV1JJVEVfT05DRSh2Y3B1LT5h
+cmNoLmlycXNfcGVuZGluZ19tYXNrWzFdLCAwKTsKPiArCQlpZiAocmVnX251bSA9PSBLVk1fUkVH
+X1JJU0NWX0NTUl9BSUFfUkVHKHNpcGgpKSB7Cj4gKwkJCXJhd19zcGluX2xvY2tfaXJxc2F2ZSgm
+dmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbG9jaywgZmxhZ3MpOwo+ICsJCQkoKHVuc2lnbmVkIGxv
+bmcgKiljc3IpW3JlZ19udW1dID0gdmFsOwo+ICsJCQl2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ19t
+YXNrWzFdID0gMDsKPiArCQkJcmF3X3NwaW5fdW5sb2NrX2lycXJlc3RvcmUoJnZjcHUtPmFyY2gu
+aXJxc19wZW5kaW5nX2xvY2ssCj4gKwkJCQkJCSAgIGZsYWdzKTsKPiArCQl9IGVsc2Ugewo+ICsJ
+CQkoKHVuc2lnbmVkIGxvbmcgKiljc3IpW3JlZ19udW1dID0gdmFsOwo+ICsJCX0KPiArI2Vsc2UK
+PiArCQkoKHVuc2lnbmVkIGxvbmcgKiljc3IpW3JlZ19udW1dID0gdmFsOwo+ICAjZW5kaWYKPiAg
+CX0KPiAgCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYyBiL2FyY2gvcmlzY3Yv
+a3ZtL3ZjcHUuYwo+IGluZGV4IGE3MzY5MGVkYS4uYjA0NzMwY2NkIDEwMDY0NAo+IC0tLSBhL2Fy
+Y2gvcmlzY3Yva3ZtL3ZjcHUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwo+IEBAIC04
+MCw2ICs4MCw3IEBAIHN0YXRpYyB2b2lkIGt2bV9yaXNjdl92Y3B1X2NvbnRleHRfcmVzZXQoc3Ry
+dWN0IGt2bV92Y3B1ICp2Y3B1LAo+ICAKPiAgc3RhdGljIHZvaWQga3ZtX3Jpc2N2X3Jlc2V0X3Zj
+cHUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBib29sIGt2bV9zYmlfcmVzZXQpCj4gIHsKPiArCXVu
+c2lnbmVkIGxvbmcgZmxhZ3M7Cj4gIAlib29sIGxvYWRlZDsKPiAgCj4gIAkvKioKPiBAQCAtMTA0
+LDggKzEwNSwxMCBAQCBzdGF0aWMgdm9pZCBrdm1fcmlzY3ZfcmVzZXRfdmNwdShzdHJ1Y3Qga3Zt
+X3ZjcHUgKnZjcHUsIGJvb2wga3ZtX3NiaV9yZXNldCkKPiAgCj4gIAlrdm1fcmlzY3ZfdmNwdV9h
+aWFfcmVzZXQodmNwdSk7Cj4gIAo+ICsJcmF3X3NwaW5fbG9ja19pcnFzYXZlKCZ2Y3B1LT5hcmNo
+LmlycXNfcGVuZGluZ19sb2NrLCBmbGFncyk7Cj4gIAliaXRtYXBfemVybyh2Y3B1LT5hcmNoLmly
+cXNfcGVuZGluZywgS1ZNX1JJU0NWX1ZDUFVfTlJfSVJRUyk7Cj4gIAliaXRtYXBfemVybyh2Y3B1
+LT5hcmNoLmlycXNfcGVuZGluZ19tYXNrLCBLVk1fUklTQ1ZfVkNQVV9OUl9JUlFTKTsKPiArCXJh
+d19zcGluX3VubG9ja19pcnFyZXN0b3JlKCZ2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ19sb2NrLCBm
+bGFncyk7Cj4gIAo+ICAJa3ZtX3Jpc2N2X3ZjcHVfcG11X3Jlc2V0KHZjcHUpOwo+ICAKPiBAQCAt
+MTUxLDYgKzE1NCw3IEBAIGludCBrdm1fYXJjaF92Y3B1X2NyZWF0ZShzdHJ1Y3Qga3ZtX3ZjcHUg
+KnZjcHUpCj4gIAo+ICAJLyogU2V0dXAgVkNQVSBoZmVuY2UgcXVldWUgKi8KPiAgCXNwaW5fbG9j
+a19pbml0KCZ2Y3B1LT5hcmNoLmhmZW5jZV9sb2NrKTsKPiArCXJhd19zcGluX2xvY2tfaW5pdCgm
+dmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbG9jayk7Cj4gIAo+ICAJc3Bpbl9sb2NrX2luaXQoJnZj
+cHUtPmFyY2gucmVzZXRfc3RhdGUubG9jayk7Cj4gIAo+IEBAIC0zNTIsMTQgKzM1NiwxOCBAQCB2
+b2lkIGt2bV9yaXNjdl92Y3B1X2ZsdXNoX2ludGVycnVwdHMoc3RydWN0IGt2bV92Y3B1ICp2Y3B1
+KQo+ICB7Cj4gIAlzdHJ1Y3Qga3ZtX3ZjcHVfY3NyICpjc3IgPSAmdmNwdS0+YXJjaC5ndWVzdF9j
+c3I7Cj4gIAl1bnNpZ25lZCBsb25nIG1hc2ssIHZhbDsKPiArCXVuc2lnbmVkIGxvbmcgZmxhZ3M7
+Cj4gIAo+IC0JaWYgKFJFQURfT05DRSh2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ19tYXNrWzBdKSkg
+ewo+IC0JCW1hc2sgPSB4Y2hnX2FjcXVpcmUoJnZjcHUtPmFyY2guaXJxc19wZW5kaW5nX21hc2tb
+MF0sIDApOwo+IC0JCXZhbCA9IFJFQURfT05DRSh2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ1swXSkg
+JiBtYXNrOwo+ICsJcmF3X3NwaW5fbG9ja19pcnFzYXZlKCZ2Y3B1LT5hcmNoLmlycXNfcGVuZGlu
+Z19sb2NrLCBmbGFncyk7Cj4gKwltYXNrID0gdmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbWFza1sw
+XTsKPiArCWlmIChtYXNrKSB7Cj4gKwkJdmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbWFza1swXSA9
+IDA7Cj4gKwkJdmFsID0gdmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdbMF0gJiBtYXNrOwo+ICAKPiAg
+CQljc3ItPmh2aXAgJj0gfm1hc2s7Cj4gIAkJY3NyLT5odmlwIHw9IHZhbDsKPiAgCX0KPiArCXJh
+d19zcGluX3VubG9ja19pcnFyZXN0b3JlKCZ2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ19sb2NrLCBm
+bGFncyk7Cj4gIAo+ICAJLyogRmx1c2ggQUlBIGhpZ2ggaW50ZXJydXB0cyAqLwo+ICAJa3ZtX3Jp
+c2N2X3ZjcHVfYWlhX2ZsdXNoX2ludGVycnVwdHModmNwdSk7Cj4gQEAgLTM2OCw2ICszNzYsNyBA
+QCB2b2lkIGt2bV9yaXNjdl92Y3B1X2ZsdXNoX2ludGVycnVwdHMoc3RydWN0IGt2bV92Y3B1ICp2
+Y3B1KQo+ICB2b2lkIGt2bV9yaXNjdl92Y3B1X3N5bmNfaW50ZXJydXB0cyhzdHJ1Y3Qga3ZtX3Zj
+cHUgKnZjcHUpCj4gIHsKPiAgCXVuc2lnbmVkIGxvbmcgaHZpcDsKPiArCXVuc2lnbmVkIGxvbmcg
+ZmxhZ3M7Cj4gIAlzdHJ1Y3Qga3ZtX3ZjcHVfYXJjaCAqdiA9ICZ2Y3B1LT5hcmNoOwo+ICAJc3Ry
+dWN0IGt2bV92Y3B1X2NzciAqY3NyID0gJnZjcHUtPmFyY2guZ3Vlc3RfY3NyOwo+ICAKPiBAQCAt
+Mzc2LDYgKzM4NSw3IEBAIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfc3luY19pbnRlcnJ1cHRzKHN0cnVj
+dCBrdm1fdmNwdSAqdmNwdSkKPiAgCj4gIAkvKiBTeW5jLXVwIEhWSVAuVlNTSVAgYml0IGNoYW5n
+ZXMgZG9lcyBieSBHdWVzdCAqLwo+ICAJaHZpcCA9IG5jc3JfcmVhZChDU1JfSFZJUCk7Cj4gKwly
+YXdfc3Bpbl9sb2NrX2lycXNhdmUoJnYtPmlycXNfcGVuZGluZ19sb2NrLCBmbGFncyk7Cj4gIAlp
+ZiAoKGNzci0+aHZpcCBeIGh2aXApICYgKDFVTCA8PCBJUlFfVlNfU09GVCkpIHsKPiAgCQlpZiAo
+aHZpcCAmICgxVUwgPDwgSVJRX1ZTX1NPRlQpKSB7Cj4gIAkJCWlmICghdGVzdF9hbmRfc2V0X2Jp
+dChJUlFfVlNfU09GVCwKPiBAQCAtMzk0LDYgKzQwNCw3IEBAIHZvaWQga3ZtX3Jpc2N2X3ZjcHVf
+c3luY19pbnRlcnJ1cHRzKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAgCQkgICAgIXRlc3RfYW5k
+X3NldF9iaXQoSVJRX1BNVV9PVkYsIHYtPmlycXNfcGVuZGluZ19tYXNrKSkKPiAgCQkJY2xlYXJf
+Yml0KElSUV9QTVVfT1ZGLCB2LT5pcnFzX3BlbmRpbmcpOwo+ICAJfQo+ICsJcmF3X3NwaW5fdW5s
+b2NrX2lycXJlc3RvcmUoJnYtPmlycXNfcGVuZGluZ19sb2NrLCBmbGFncyk7Cj4gIAo+ICAJLyog
+U3luYy11cCBBSUEgaGlnaCBpbnRlcnJ1cHRzICovCj4gIAlrdm1fcmlzY3ZfdmNwdV9haWFfc3lu
+Y19pbnRlcnJ1cHRzKHZjcHUpOwo+IEBAIC00MDQsNiArNDE1LDggQEAgdm9pZCBrdm1fcmlzY3Zf
+dmNwdV9zeW5jX2ludGVycnVwdHMoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+ICAKPiAgaW50IGt2
+bV9yaXNjdl92Y3B1X3NldF9pbnRlcnJ1cHQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCB1bnNpZ25l
+ZCBpbnQgaXJxKQo+ICB7Cj4gKwl1bnNpZ25lZCBsb25nIGZsYWdzOwo+ICsKPiAgCS8qCj4gIAkg
+KiBXZSBvbmx5IGFsbG93IFZTLW1vZGUgc29mdHdhcmUsIHRpbWVyLCBhbmQgZXh0ZXJuYWwKPiAg
+CSAqIGludGVycnVwdHMgd2hlbiBpcnEgaXMgb25lIG9mIHRoZSBsb2NhbCBpbnRlcnJ1cHRzCj4g
+QEAgLTQxNiw5ICs0MjksMTAgQEAgaW50IGt2bV9yaXNjdl92Y3B1X3NldF9pbnRlcnJ1cHQoc3Ry
+dWN0IGt2bV92Y3B1ICp2Y3B1LCB1bnNpZ25lZCBpbnQgaXJxKQo+ICAJICAgIGlycSAhPSBJUlFf
+UE1VX09WRikKPiAgCQlyZXR1cm4gLUVJTlZBTDsKPiAgCj4gKwlyYXdfc3Bpbl9sb2NrX2lycXNh
+dmUoJnZjcHUtPmFyY2guaXJxc19wZW5kaW5nX2xvY2ssIGZsYWdzKTsKPiAgCXNldF9iaXQoaXJx
+LCB2Y3B1LT5hcmNoLmlycXNfcGVuZGluZyk7Cj4gLQlzbXBfbWJfX2JlZm9yZV9hdG9taWMoKTsK
+PiAgCXNldF9iaXQoaXJxLCB2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ19tYXNrKTsKPiArCXJhd19z
+cGluX3VubG9ja19pcnFyZXN0b3JlKCZ2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ19sb2NrLCBmbGFn
+cyk7Cj4gIAo+ICAJa3ZtX3ZjcHVfa2ljayh2Y3B1KTsKPiAgCj4gQEAgLTQyNyw2ICs0NDEsOCBA
+QCBpbnQga3ZtX3Jpc2N2X3ZjcHVfc2V0X2ludGVycnVwdChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUs
+IHVuc2lnbmVkIGludCBpcnEpCj4gIAo+ICBpbnQga3ZtX3Jpc2N2X3ZjcHVfdW5zZXRfaW50ZXJy
+dXB0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgdW5zaWduZWQgaW50IGlycSkKPiAgewo+ICsJdW5z
+aWduZWQgbG9uZyBmbGFnczsKPiArCj4gIAkvKgo+ICAJICogV2Ugb25seSBhbGxvdyBWUy1tb2Rl
+IHNvZnR3YXJlLCB0aW1lciwgY291bnRlciBvdmVyZmxvdyBhbmQgZXh0ZXJuYWwKPiAgCSAqIGlu
+dGVycnVwdHMgd2hlbiBpcnEgaXMgb25lIG9mIHRoZSBsb2NhbCBpbnRlcnJ1cHRzCj4gQEAgLTQz
+OSw5ICs0NTUsMTAgQEAgaW50IGt2bV9yaXNjdl92Y3B1X3Vuc2V0X2ludGVycnVwdChzdHJ1Y3Qg
+a3ZtX3ZjcHUgKnZjcHUsIHVuc2lnbmVkIGludCBpcnEpCj4gIAkgICAgaXJxICE9IElSUV9QTVVf
+T1ZGKQo+ICAJCXJldHVybiAtRUlOVkFMOwo+ICAKPiArCXJhd19zcGluX2xvY2tfaXJxc2F2ZSgm
+dmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbG9jaywgZmxhZ3MpOwo+ICAJY2xlYXJfYml0KGlycSwg
+dmNwdS0+YXJjaC5pcnFzX3BlbmRpbmcpOwo+IC0Jc21wX21iX19iZWZvcmVfYXRvbWljKCk7Cj4g
+IAlzZXRfYml0KGlycSwgdmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbWFzayk7Cj4gKwlyYXdfc3Bp
+bl91bmxvY2tfaXJxcmVzdG9yZSgmdmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbG9jaywgZmxhZ3Mp
+Owo+ICAKPiAgCXJldHVybiAwOwo+ICB9Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3Zj
+cHVfb25lcmVnLmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJlZy5jCj4gaW5kZXggYmI5MjBl
+ODkyLi5jYmEzNjgyOTQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9vbmVyZWcu
+Ywo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMKPiBAQCAtMjk4LDYgKzI5OCw3
+IEBAIHN0YXRpYyBpbnQga3ZtX3Jpc2N2X3ZjcHVfZ2VuZXJhbF9zZXRfY3NyKHN0cnVjdCBrdm1f
+dmNwdSAqdmNwdSwKPiAgewo+ICAJc3RydWN0IGt2bV92Y3B1X2NzciAqY3NyID0gJnZjcHUtPmFy
+Y2guZ3Vlc3RfY3NyOwo+ICAJdW5zaWduZWQgbG9uZyByZWdzX21heCA9IHNpemVvZihzdHJ1Y3Qg
+a3ZtX3Jpc2N2X2NzcikgLyBzaXplb2YodW5zaWduZWQgbG9uZyk7Cj4gKwl1bnNpZ25lZCBsb25n
+IGZsYWdzOwo+ICAKPiAgCWlmIChyZWdfbnVtID49IHJlZ3NfbWF4KQo+ICAJCXJldHVybiAtRU5P
+RU5UOwo+IEBAIC0zMDksMTAgKzMxMCwxNCBAQCBzdGF0aWMgaW50IGt2bV9yaXNjdl92Y3B1X2dl
+bmVyYWxfc2V0X2NzcihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4gIAkJcmVnX3ZhbCA8PD0gVlNJ
+UF9UT19IVklQX1NISUZUOwo+ICAJfQo+ICAKPiAtCSgodW5zaWduZWQgbG9uZyAqKWNzcilbcmVn
+X251bV0gPSByZWdfdmFsOwo+IC0KPiAtCWlmIChyZWdfbnVtID09IEtWTV9SRUdfUklTQ1ZfQ1NS
+X1JFRyhzaXApKQo+IC0JCVdSSVRFX09OQ0UodmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbWFza1sw
+XSwgMCk7Cj4gKwlpZiAocmVnX251bSA9PSBLVk1fUkVHX1JJU0NWX0NTUl9SRUcoc2lwKSkgewo+
+ICsJCXJhd19zcGluX2xvY2tfaXJxc2F2ZSgmdmNwdS0+YXJjaC5pcnFzX3BlbmRpbmdfbG9jaywg
+ZmxhZ3MpOwo+ICsJCSgodW5zaWduZWQgbG9uZyAqKWNzcilbcmVnX251bV0gPSByZWdfdmFsOwo+
+ICsJCXZjcHUtPmFyY2guaXJxc19wZW5kaW5nX21hc2tbMF0gPSAwOwo+ICsJCXJhd19zcGluX3Vu
+bG9ja19pcnFyZXN0b3JlKCZ2Y3B1LT5hcmNoLmlycXNfcGVuZGluZ19sb2NrLCBmbGFncyk7Cj4g
+Kwl9IGVsc2Ugewo+ICsJCSgodW5zaWduZWQgbG9uZyAqKWNzcilbcmVnX251bV0gPSByZWdfdmFs
+Owo+ICsJfQo+ICAKPiAgCXJldHVybiAwOwo+ICB9Cj4gCj4gYmFzZS1jb21taXQ6IDQ4MTMyOWVj
+NWIzMWQyYzQ4YWM2YjhiNzAzYzgwMDgxMzM4ODRjN2UKPiAtLSAKPiAyLjU0LjAKDQoNCl9fX19f
+X19fX19fX19fX19fX19fX193d3cudWx0cmFyaXNjLmNvbQ0K6YeN6KaB5o+Q56S677ya5pys6YKu
+5Lu25YyF5ous6ZmE5Lu255qE5YaF5a655piv5Y+X5rOV5b6L5L+d5oqk55qE5L+d5a+G5L+h5oGv
+77yM5aaC5p6c5oKo5LiN5piv5oyH5a6a5pS25Lu25Lq677yM6K+356uL5Y2z5bCG5pys6YKu5Lu2
+5Yig6Zmk77yM5rOV5b6L56aB5q2i5Lu75L2V6Z2e5rOV55qE5oqr6Zyy44CB5aSN5Yi244CB5Lyg
+5pKt5oiW5Lul5Lu75L2V5pa55byP5L2/55So5pys6YKu5Lu244CC5pys6YKu5Lu25Lit5YyF5ZCr
+55qE5oSP6KeB44CB5bu66K6u5piv5Z+65LqO5oiW5Y+X5Yiw5oiR5pa56KGo6L6+5ZKM5a6a5LmJ
+55qE5p2h5qy+5Y+K5p2h5Lu255qE6ZmQ5a6a77yM5aaC5peg5oiR5pa555qE5q2j5byP5Lmm6Z2i
+5r6E5riF5oiW5o6I5p2D77yM5LiN5Y+v6KKr5Y2V54us5L2c5Li65Lu75L2V5oOF5b2i5LiL55qE
+6K+B5o2u5oiW5L6d5o2u44CC5oSf6LCi5oKo55qE55CG6Kej5LiO6YWN5ZCI44CC54mI5p2D5omA
+5pyJ44CCSU1QT1JUQU5UIE5PVElDRTogVGhpcyBlbWFpbCwgaW5jbHVkaW5nIGl0cyBhdHRhY2ht
+ZW50IGlmIGFueSwgaXMgY29uZmlkZW50aWFsLiBJZiB5b3UgYXJlIG5vdCB0aGUgaW50ZW5kZWQg
+cmVjaXBpZW50LCBwbGVhc2UgZGVsZXRlIGl0IGZyb20geW91ciBjb21wdXRlciBpbW1lZGlhdGVs
+eS4gQW55IGRpc2Nsb3N1cmUsIGNvcHlpbmcsIG9yIGRpc3RyaWJ1dGlvbiBvZiB0aGlzIG1lc3Nh
+Z2UsIG9yIHRha2luZyBvZiBhbnkgYWN0aW9uIGJhc2VkIG9uIGl0IGlzIHN0cmljdGx5IHByb2hp
+Yml0ZWQuICBBbnkgb3BpbmlvbnMgYW5kIHN1Z2dlc3Rpb25zIGNvbnRhaW5lZCBpbiB0aGlzIGVt
+YWlsIGFyZSBzdWJqZWN0IHRvIHRoZSB0ZXJtcyBhbmQgY29uZGl0aW9ucyBleHByZXNzZWQgYW5k
+IGRlZmluZWQgYnkgdXMgYW5kIHNob3VsZCBub3QgYmUgcmVsaWVkIHVwb24gdW5jb25kaXRpb25h
+bGx5IHVuZGVyIGFueSBjaXJjdW1zdGFuY2VzIHVubGVzcyB0aGV5IGFyZSBjb25maXJtZWQgaW4g
+b2ZmaWNpYWwgd3JpdHRlbiBjbGFyaWZpY2F0aW9uIG9yIGF1dGhvcml6YXRpb24gZnJvbSB1cy4g
+IFRoYW5rIHlvdSBmb3IgeW91ciB1bmRlcnN0YW5kaW5nIGFuZCBjb29wZXJhdGlvbi5BbGwgcmln
+aHRzIHJlc2VydmVkLgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
