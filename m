@@ -4,61 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBD5C43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 13:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA77BC43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 13:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B0DgR+I7k1j6IFPprYJTKUXwYq07BiU0mDY4Pb7ks8o=; b=ZEkFP3yM3VofON
-	sKUIQ54OqvHLTMb8ZKW4G0oOmWOYXpcAdMYLv8XIGEQkPTp1rGIixC6BH0tLSxEg2YcG1xFppD0YQ
-	f1bDdATvCJSIhBv644hX8SNYeuK+ioPuu3zKh9G/Nsbr0wPADBXr82x1w3wUXIGPYxJ1VUH8W4XtG
-	qDWPJPs1FKj9k8rhU4rayAjZCPYSnXZilGkblpW9J13F1wYoGEeDrd2XHwb/DCqYcnuZjiH3+OQSp
-	e9+8RJ9WgvRDXuCPlNuXagX8YmBH226lbCPLW0+ioShUdsHCbIMgxJ4OSIFHmhN2mkN4i41zEdQaP
-	oZnjCPkt9KvLitC62SRQ==;
+	List-Owner; bh=3q99ps+7BYQGBYKv7J+BHHZAK1dKE+6iv2iW9UX2s/I=; b=C6LIjsIMOkQNe0
+	6+kQ/iskrP+WHlmXSgB1Khw9F58nwIpeYLgWu/ssG3rFnV4apUbpEs9YUYmwDj1F3QTQ+81sdvD9w
+	9Rmc3T3u6gsvz6F7FW9jZ3O4v3Sg8/BoxDHdiZugKmihnkGoehUgeWUbZWKGQrXPDtaRkv356DY9A
+	1x/TTMew6W/RxwsWaqa8Saf6zbsy4QkYNrJJJLwkaDcoFa0fE8y/eypFqTA0RhMUN7rahcv8Y7LO2
+	cvt29wGPhGEIc7dn+mCdVdDklPwhfnmRkdK44lPGMYNjaNojTiYuZjq3wCiUgE3IUy9LVmkIPCw8D
+	D37kJ1AoIet/cHP1GJ1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5ok-0000000F3Bk-0S2H;
-	Tue, 07 Jul 2026 13:26:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5og-0000000F3BF-0Q6h
+	id 1wh6AD-0000000F5I1-2nsa;
+	Tue, 07 Jul 2026 13:48:41 +0000
+Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh6A9-0000000F5Gi-0xY7
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 13:26:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D940419F6;
-	Tue,  7 Jul 2026 06:26:20 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E766B3F85F;
-	Tue,  7 Jul 2026 06:26:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783430785; bh=a9h/UPEhXHJcQUJXaij0kLNRiuVX+h3HSouNcW4ixWI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mW7bcfoIOacfPHTmaL5YDUPi+l4RzE6GYxxKDiZPmCku89Pv4N1JbCGHW0FesrY/f
-	 o3soNc3De1LjahTmzUuMp4AG2OpdD698osyi5edFdDpHomyqDhQuuJ3bViGDqjhZeZ
-	 JMRThJSD45VXhFoFymjWeyNn2IT3GHd0MGckTKJM=
-Message-ID: <5786468d-a4bc-41d6-ad8b-56f9fd43f5f7@arm.com>
-Date: Tue, 7 Jul 2026 14:26:20 +0100
+	Tue, 07 Jul 2026 13:48:40 +0000
+Message-ID: <4320145e-a0ba-40f6-b99b-f01f32634f28@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783432101;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PeXRy5OWREcqxAhLOrbYEMd2NpniYtCVndcj0EJ5z58=;
+	b=jxfgT/1XOYBNftDoCCQtjO1UTLEGZqcaSM3erJbI5MSNI1hw+uNxPNVFEMZ1k1OYxIlRDQ
+	bARn0NHa6HqJR4RgWsVPTof/V3DqEHP8Agcf7McGO5jsUtB+UuoOAeU8Yl+tlkM+J2dtsj
+	WHZIZ7UGeXrjpEtk5qwhtCKwL02ZdUo=
+Date: Tue, 7 Jul 2026 21:48:02 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] iommu/riscv: Drop superflous zeros in pci_device_id
- array
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
- <u.kleine-koenig@baylibre.com>, Tomasz Jeznach <tjeznach@rivosinc.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260522145943.774344-2-u.kleine-koenig@baylibre.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260522145943.774344-2-u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH] mm/mseal: fix mseal documentation for 32-bit kernels
+To: Pedro Falcato <pfalcato@suse.de>
+References: <20260703022507.187457-1-leon.hwang@linux.dev>
+ <akeDk49-pPgUDek1@pedro-suse>
+ <8f75dc18-dd4c-4989-a76c-eec6cc513ccf@linux.dev>
+ <akzN_HNJJWBW7htL@pedro-suse.lan>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Leon Hwang <leon.hwang@linux.dev>
+In-Reply-To: <akzN_HNJJWBW7htL@pedro-suse.lan>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_062626_234248_9353DA1B 
-X-CRM114-Status: GOOD (  29.75  )
+X-CRM114-CacheID: sfid-20260707_064837_443020_35D6BD66 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,77 +65,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: linux-doc@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Gary Guo <gary@garyguo.net>, linux-riscv@lists.infradead.org, Vlastimil Babka <vbabka@kernel.org>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Jonathan Corbet <corbet@lwn.net>, Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Jann Horn <jannh@google.com>, Nathan Chancellor <nathan@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Alexandre Ghiti <alex@ghiti.fr>, "Liam R . Howlett" <liam@infradead.org>, Nicolas Schier <nsc@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Douglas Anderson <dianders@chromium.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjIvMDUvMjAyNiAzOjU5IHBtLCBVd2UgS2xlaW5lLUvDtm5pZyAoVGhlIENhcGFibGUgSHVi
-KSB3cm90ZToKPiBUaGUgLmRyaXZlcl9kYXRhIG1lbWJlciBvZiB0aGUgc3RydWN0IHBjaV9kZXZp
-Y2VfaWQgYXJyYXkgd2VyZQo+IGluaXRpYWxpemVkIGJ5IGEgbGlzdCBleHByZXNzaW9ucyB0byB6
-ZXJvIHdpdGhvdXQgbWFraW5nIHVzZSBvZiB0aGF0Cj4gdmFsdWUuIEluIHRoaXMgY2FzZSBpdCdz
-IGJldHRlciB0byBub3Qgc3BlY2lmeSBhIHZhbHVlIGF0IGFsbCBhbmQgbGV0Cj4gdGhlIGNvbXBp
-bGVyIGZpbGwgaW4gdGhlIHplcm9zLiBTYW1lIGZvciB0aGUgbGlzdCB0ZXJtaW5hdG9yIHRoYXQg
-Y2FuCj4gYmV0dGVyIGJlIGNvbXBsZXRlbHkgZW1wdHkuCgpJIHRoaW5rIEknZCBhZ3JlZSB0aGlz
-IGNvdW50cyBhcyBhIG5pY2UgZW5vdWdoIGNsZWFudXAgaW4gaXRzIG93biByaWdodC4KClJldmll
-d2VkLWJ5OiBSb2JpbiBNdXJwaHkgPHJvYmluLm11cnBoeUBhcm0uY29tPgoKPiBTaWduZWQtb2Zm
-LWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyAoVGhlIENhcGFibGUgSHViKSA8dS5rbGVpbmUta29lbmln
-QGJheWxpYnJlLmNvbT4KPiAtLS0KPiBIZWxsbywKPiAKPiB3aGlsZSBiZWluZyBhIGNsZWFudXAg
-dGhhdCBjYW4gc3RhbmQgb24gaXRzIG93biB0aGlzIGlzIGFsc28gYQo+IHByZXBhcmF0aW9uIGZv
-ciBtYWtpbmcgZHJpdmVyX2RhdGEgYW4gYW5vbnltb3VzIHVuaW9uIHRoYXQgcmVxdWlyZXMgdGhh
-dAo+IC5kcml2ZXJfZGF0YSBpcyBpbml0aWFsaXplZCBieSBuYW1lIGFuZCBub3QgYnkgbGlzdCBv
-cmRlci4gVGhlIHVuaW9uCj4gYWxsb3dzIHRvIG1ha2UgYmV0dGVyIHVzZSBvZiB0aGUgQyB0eXBl
-IHN5c3RlbSBhbmQgZHJvcHMgdGhlIG5lZWQgZm9yCj4gY2FzdGluZy4gVGhlIGNoYW5nZSB0byBh
-IGRyaXZlciB3aWxsIGxvb2sgYXMgZm9sbG93czoKPiAKPiAJZGlmZiAtLWdpdCBhL2FyY2gveDg2
-L3BsYXRmb3JtL2ludGVsLW1pZC9wd3IuYyBiL2FyY2gveDg2L3BsYXRmb3JtL2ludGVsLW1pZC9w
-d3IuYwo+IAlpbmRleCAxNzM5OTcxNDc4ZmYuLmMwZDlkYTgxZDUxMiAxMDA2NDQKPiAJLS0tIGEv
-YXJjaC94ODYvcGxhdGZvcm0vaW50ZWwtbWlkL3B3ci5jCj4gCSsrKyBiL2FyY2gveDg2L3BsYXRm
-b3JtL2ludGVsLW1pZC9wd3IuYwo+IAlAQCAtMzQ3LDcgKzM0Nyw3IEBAIHN0cnVjdCBtaWRfcHdy
-X2RldmljZV9pbmZvIHsKPiAJCj4gCSBzdGF0aWMgaW50IG1pZF9wd3JfcHJvYmUoc3RydWN0IHBj
-aV9kZXYgKnBkZXYsIGNvbnN0IHN0cnVjdCBwY2lfZGV2aWNlX2lkICppZCkKPiAJIHsKPiAJLQlz
-dHJ1Y3QgbWlkX3B3cl9kZXZpY2VfaW5mbyAqaW5mbyA9ICh2b2lkICopaWQtPmRyaXZlcl9kYXRh
-Owo+IAkrCXN0cnVjdCBtaWRfcHdyX2RldmljZV9pbmZvICppbmZvID0gaWQtPmRyaXZlcl9kYXRh
-X3B0cjsKPiAJCXN0cnVjdCBkZXZpY2UgKmRldiA9ICZwZGV2LT5kZXY7Cj4gCQlzdHJ1Y3QgbWlk
-X3B3ciAqcHdyOwo+IAkJaW50IHJldDsKPiAJQEAgLTQ3MSw4ICs0NzEsOCBAQCBzdGF0aWMgY29u
-c3Qgc3RydWN0IG1pZF9wd3JfZGV2aWNlX2luZm8gdG5nX2luZm8gPSB7Cj4gCQo+IAkgLyogVGhp
-cyB0YWJsZSBzaG91bGQgYmUgaW4gc3luYyB3aXRoIHRoZSBvbmUgaW4gZHJpdmVycy9wY2kvcGNp
-LW1pZC5jICovCj4gCSBzdGF0aWMgY29uc3Qgc3RydWN0IHBjaV9kZXZpY2VfaWQgbWlkX3B3cl9w
-Y2lfaWRzW10gPSB7Cj4gCS0JeyBQQ0lfVkRFVklDRShJTlRFTCwgUENJX0RFVklDRV9JRF9QRU5X
-RUxMKSwgLmRyaXZlcl9kYXRhID0gKGtlcm5lbF91bG9uZ190KSZwbndfaW5mbyB9LAo+IAktCXsg
-UENJX1ZERVZJQ0UoSU5URUwsIFBDSV9ERVZJQ0VfSURfVEFOR0lFUiksIC5kcml2ZXJfZGF0YSA9
-IChrZXJuZWxfdWxvbmdfdCkmdG5nX2luZm8gfSwKPiAJKwl7IFBDSV9WREVWSUNFKElOVEVMLCBQ
-Q0lfREVWSUNFX0lEX1BFTldFTEwpLCAuZHJpdmVyX2RhdGFfcHRyID0gJnBud19pbmZvIH0sCj4g
-CSsJeyBQQ0lfVkRFVklDRShJTlRFTCwgUENJX0RFVklDRV9JRF9UQU5HSUVSKSwgLmRyaXZlcl9k
-YXRhX3B0ciA9ICZ0bmdfaW5mbyB9LAo+IAkJe30KPiAJIH07Cj4gICAKPiB3aGljaCBpcyBhIG5p
-Y2UgaW1wcm92ZW1lbnQgZHJvcHBpbmcgdGhyZWUgY2FzdHMgYW5kIHRoYXQgd2lsbCBtYWtlIHRo
-ZQo+IGNvbXBpbGVyIHNheToKPiAKPiBhcmNoL3g4Ni9wbGF0Zm9ybS9pbnRlbC1taWQvcHdyLmM6
-IEluIGZ1bmN0aW9uIOKAmG1pZF9wd3JfcHJvYmXigJk6Cj4gYXJjaC94ODYvcGxhdGZvcm0vaW50
-ZWwtbWlkL3B3ci5jOjM1MDo0NDogZXJyb3I6IGluaXRpYWxpemF0aW9uIGRpc2NhcmRzIOKAmGNv
-bnN04oCZIHF1YWxpZmllciBmcm9tIHBvaW50ZXIgdGFyZ2V0IHR5cGUgWy1XZXJyb3I9ZGlzY2Fy
-ZGVkLXF1YWxpZmllcnNdCj4gICAgMzUwIHwgICAgICAgICBzdHJ1Y3QgbWlkX3B3cl9kZXZpY2Vf
-aW5mbyAqaW5mbyA9IGlkLT5kcml2ZXJfZGF0YV9wdHI7Cj4gICAgICAgIHwgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+Cj4gCj4gKHNvIGl0IHByb21vdGVzIHRo
-YXQgZHJpdmVyIGRhdGEgaXMgc3VwcG9zZWQgdG8gYmUgY29uc3QpLgo+IAo+IFRoZXJlIGlzIG5v
-IGlvbW11IGRyaXZlciB1c2luZyBwb2ludGVycyBmb3IgZHJpdmVyIGRhdGEsIHNvIHRoZSBleGFt
-cGxlCj4gaXMgZnJvbSBhIGRpZmZlcmVudCBzdWJzeXN0ZW0uIEFsc28gdGhpcyBpcyB0aGUgb25s
-eSBwY2kgZHJpdmVyIGluCj4gZHJpdmVycy9pb21tdSwgc28gbm8gZnVydGhlciBwYXRjaGVzIGZv
-ciB0aGlzIHBhcnQgb2YgbXkgcXVlc3QgdG8gdGhhdAo+IHN1YnN5c3RlbS4KPiAKPiBCZXN0IHJl
-Z2FyZHMKPiBVd2UKPiAKPiAgIGRyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUtcGNpLmMgfCA2ICsr
-Ky0tLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkK
-PiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS1wY2kuYyBiL2RyaXZl
-cnMvaW9tbXUvcmlzY3YvaW9tbXUtcGNpLmMKPiBpbmRleCBkODJkMmIwMDkwNGMuLjhhYmY1MmRm
-YjRjOSAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LXBjaS5jCj4gKysr
-IGIvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS1wY2kuYwo+IEBAIC0xMDksOSArMTA5LDkgQEAg
-c3RhdGljIHZvaWQgcmlzY3ZfaW9tbXVfcGNpX3NodXRkb3duKHN0cnVjdCBwY2lfZGV2ICpwZGV2
-KQo+ICAgfQo+ICAgCj4gICBzdGF0aWMgY29uc3Qgc3RydWN0IHBjaV9kZXZpY2VfaWQgcmlzY3Zf
-aW9tbXVfcGNpX3RibFtdID0gewo+IC0Je1BDSV9WREVWSUNFKFJFREhBVCwgUENJX0RFVklDRV9J
-RF9SRURIQVRfUklTQ1ZfSU9NTVUpLCAwfSwKPiAtCXtQQ0lfVkRFVklDRShSSVZPUywgUENJX0RF
-VklDRV9JRF9SSVZPU19SSVNDVl9JT01NVV9HQSksIDB9LAo+IC0JezAsfQo+ICsJeyBQQ0lfVkRF
-VklDRShSRURIQVQsIFBDSV9ERVZJQ0VfSURfUkVESEFUX1JJU0NWX0lPTU1VKSB9LAo+ICsJeyBQ
-Q0lfVkRFVklDRShSSVZPUywgUENJX0RFVklDRV9JRF9SSVZPU19SSVNDVl9JT01NVV9HQSkgfSwK
-PiArCXsgfQo+ICAgfTsKPiAgIAo+ICAgc3RhdGljIHN0cnVjdCBwY2lfZHJpdmVyIHJpc2N2X2lv
-bW11X3BjaV9kcml2ZXIgPSB7Cj4gCj4gYmFzZS1jb21taXQ6IDI1NGY0OTYzNGVlMTZhNzMxMTc0
-ZDJhZTM0YmM1MGJkNWY0NWU3MzEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On 2026/7/7 18:01, Pedro Falcato wrote:
+> On Fri, Jul 03, 2026 at 10:50:29PM +0800, Leon Hwang wrote:
+>> On 2026/7/3 17:44, Pedro Falcato wrote:
+[...]
+>>>
+>>>>  
+>>>>    The following architectures currently support this feature: x86-64, arm64,
+>>>> -  loongarch and s390.
+>>>> +  loongarch, riscv, and s390.
+>>>
+>>> This is also useless, every 64-bit architecture will support this.
+>>
+>>
+>> Do you mean dropping this sentence, or this change?
+> 
+> This sentence (this is not architecture specific...).
+
+
+Got it.
+
+> 
+>>
+>>>
+>>>>  
+>>>>    WARNING: This feature breaks programs which rely on relocating
+>>>>    or unmapping system mappings. Known broken software at the time
+>>>> diff --git a/init/Kconfig b/init/Kconfig
+>>>> index 5230d4879b1c..12bb39f637b1 100644
+>>>> --- a/init/Kconfig
+>>>> +++ b/init/Kconfig
+>>>> @@ -2112,7 +2112,7 @@ config ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
+>>>>  	  from a kernel perspective.
+>>>>  
+>>>>  	  After the architecture enables this, a distribution can set
+>>>> -	  CONFIG_MSEAL_SYSTEM_MAPPING to manage access to the feature.
+>>>> +	  CONFIG_MSEAL_SYSTEM_MAPPINGS to manage access to the feature.
+>>>>  
+>>>>  	  For complete descriptions of memory sealing, please see
+>>>>  	  Documentation/userspace-api/mseal.rst
+>>>> diff --git a/mm/mseal.c b/mm/mseal.c
+>>>> index 9781647483d1..0464c7b94ab9 100644
+>>>> --- a/mm/mseal.c
+>>>> +++ b/mm/mseal.c
+>>>> @@ -132,8 +132,8 @@ static int mseal_apply(struct mm_struct *mm,
+>>>>   *   addr is not a valid address (not allocated).
+>>>>   *   end (start + len) is not a valid address.
+>>>>   *   a gap (unallocated memory) between start and end.
+>>>> - *  -EPERM:
+>>>> - *  - In 32 bit architecture, sealing is not supported.
+>>>> + *  -EINTR:
+>>>> + *   interrupted while waiting for the mmap write lock.
+>>>>   * Note:
+>>>>   *  user can call mseal(2) multiple times, adding a seal on an
+>>>>   *  already sealed memory is a no-action (no error).
+>>>
+>>> And this whole header needs to be deleted as well. No one's looking at
+>>> kernel code for documentation (and if they are, we did a horrendous job
+>>> at actually documenting the thing).
+>>>
+>>
+>> Just to confirm, do you mean removing the entire function comment above
+>> do_mseal()?
+> 
+> Yes. Again, not your fault, just old gripes :)
+> 
+
+Got it.
+
+Thanks,
+Leon
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
