@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FB4C44500
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 06:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55478C43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 06:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W+LUxFcZF5e9YMVYpQY+Jus8VCyuYuHznqKdSMo6KJg=; b=sldU3lUg8FjuZS
-	MZyh0y9k8pm3xvktKjE/ruXozZ2w/9QB/CBRYM8uuo9MM0+vF8U9Od5uJ0JtwJqekQ5GCHtRmcHWX
-	m+MX9OcBtuU1BrIUsheHc1SSB3TI8OMss6L2CIfnzaxNYL0PO7sQ9Fi/P/tzrY3ADSJYaijDbBJKt
-	CKzN3plEjg8l7otLnHMobIEjfRkzv5S33nPCG6L6Xil8fU8LRQOTWCCfCWnPFKAPYBzwj00t41Vpn
-	ISNvs0Vc2Y2ppG9olLFKEwTo3zPAK7ZAetYpXVy2CTYG85rl/FnMXVTYXvPpAiP+xI5Vac1KHfU/K
-	6XimLk+RBgdbtndKlT+A==;
+	List-Owner; bh=McC/0swLBrmynyA8lXErv73o+sWgkQmTrC2H8IQ6RAU=; b=w8KJWy9+t0vIAl
+	s/N9oSyMuI4UEGbfr92GBgzWoeY7smRj/znhYzpvQBvU6Bp7Im3aidBhavNDcilqtPCahRMXmrQUU
+	HA28CbgZcfv9QJM513j6/VZCLoWV7cMZNowQyh2AE/QyOoNidSMpOGJskUsomlVcTETsloyxwS00x
+	TtCZZdruVncjKLB+OzufGwwjm0ltCRnLQXrUAFYGGeUMmwQZMUem201aZnU1oAHsZ9p1R3Q2Ea1Qt
+	0nE8Q7OA2Z+K93Ka+xsjmZh5MXDy17wMR0l36pyNFEVMDh2QZdsPM39wNOez7pLck2GIiHUK3LuOf
+	PtUK9yCNl7vYfH/K6Vpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgz88-0000000EC6w-3dYj;
-	Tue, 07 Jul 2026 06:18:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wgzC5-0000000ECVY-1uIn;
+	Tue, 07 Jul 2026 06:22:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgz88-0000000EC6n-0feH
-	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 06:18:04 +0000
+	id 1wgzC4-0000000ECVF-2PeM;
+	Tue, 07 Jul 2026 06:22:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 97C1D43D4D;
-	Tue,  7 Jul 2026 06:18:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 746B31F000E9;
-	Tue,  7 Jul 2026 06:18:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8463861897;
+	Tue,  7 Jul 2026 06:22:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E881F00A3A;
+	Tue,  7 Jul 2026 06:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783405083;
-	bh=5yHbzKzGNqiUCBIQAfXyOuu/Ap/WwSqdBvZYe/QZ19o=;
+	s=k20260515; t=1783405327;
+	bh=yn/kZO4u9dWBVxPs71FKMvr7XU7SEACJ62k7H7NLLHk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=os1AnOLTHq6Jt7FndhS5zenrQc8ZDHoss2lgmiMee3GQLoa1k10cyFdgt8AAcmWxt
-	 JZKnRTWSxOf+I2+mcCGYmnvpUNDvIRMHfvGk1L4M/Xo9g7bBwCzT6+84SMBDXwnO7B
-	 o7fR5Hc2jQdusYtrvTgauhFoxBO8ui5P+32RsPYrnx8nczhjk1640vn7wEoUrIxV/5
-	 82PoLs4O5XQ3+5z4IU3YD8/o1Ieq8T+n3vRCDeGK+bXqzLGLokGrstcO0bCrCLEGOk
-	 X0Z/OjA870aXM1HZh3gnfHKaSpZP9NTK4pc8r/DiK/cXWL11PkRQN0L0XnisGYqQk2
-	 CHe9zWxB+NvVQ==
-Date: Tue, 7 Jul 2026 06:18:00 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v2 0/5] riscv: dts: spacemit: serial/i2c/ethernet
- improvements for the K3 Pico-ITX board
-Message-ID: <20260707061800-GKE35811@kernel.org>
-References: <20260623204431.498700-1-aurelien@aurel32.net>
+	b=KX6oQElB50riJguELkN1/oM9JSIx8kufrjmms3fiXJNuW5KspQJmZPSt5txAZwfZ2
+	 qmwzwv32TZ5VQ3oVo86MzmGlBTLY0Bult2je9cYUNm2GumxPfXXh02U5/eP8vmHATh
+	 l0yk6hi+eNbFC6j4Z2RJlqcTzZ7DOp8Uj1YjkWzycPc4UWvkIAm4v5o6S6kgQnsXsC
+	 E5uOMqlHsQQayQziHVuprBAfwDQOqDDMnD6V8Q0bGxtuBz+B3iFjgb7Li8Vf9AlbpN
+	 RpGXmnITZ7hRagUJHFpM3AfnuqLKeiy/VdtNQMbB8VYinItP9T+2lm4M+HfkO2i1RE
+	 HQyPN68VjyoBw==
+Date: Tue, 7 Jul 2026 09:21:58 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Pnina Feder <pnina.feder@mobileye.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Dave Young <ruirui.yang@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>, Alexandre Ghiti <alex@ghiti.fr>,
+	kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH 0/4] vmcore-tasks: export per-task metadata to vmcoreinfo
+Message-ID: <akybBoCAm-kJbfHL@kernel.org>
+References: <20260622211430.4008899-1-pnina.feder@mobileye.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260623204431.498700-1-aurelien@aurel32.net>
+In-Reply-To: <20260622211430.4008899-1-pnina.feder@mobileye.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +78,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-hi Aurelien,
+(adding new Baoquan's email)
 
-On 22:43 Tue 23 Jun     , Aurelien Jarno wrote:
-> This patch series tries to improve the K3 Pico-ITX board DTS by configuring the
-> default baud rate for the serial port, enabling the 24c02 eeprom on i2c2,
-> adding aliases for i2c2 and i2c8 ports, and enabling power saving features on
-> the RTL8211F PHY.
+Hi Pnina,
+On Tue, Jun 23, 2026 at 12:14:26AM +0300, Pnina Feder wrote:
+> This series extends vmcoreinfo with struct offsets and sizes needed by
+> the vmcore-tasks userspace tool to extract per-task state from a vmcore
+> dump without requiring kernel debug symbols (DWARF/BTF).
 > 
-> Changes in v2:
-> - Collect Reviewed-by tag
-> - Fix issues reported by Sashiko AI in patch 2
-> - Link to v1: https://lore.kernel.org/linux-riscv/20260620062238.3199108-1-aurelien@aurel32.net
+> The vmcore-tasks tool reads /proc/vmcore (or a saved vmcore file) and
+> reconstructs, for each task:
+>   - task name, pid, state, flags
+>   - VMA list (start, end, flags, backing file)
+>   - user register state (saved on the kernel stack at kernel entry)
+>   - user-space backtrace with VMA/filename mapping
+>   - kernel dmesg buffer
 > 
-for the series, looks good, so
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+> This provides a lightweight post-mortem crash analysis capability for
+> production environments where full debug info (DWARF/BTF) is not
+> available.
+> 
+> The companion userspace tool is submitted to kexec-tools:
+>   https://lore.kernel.org/all/20260622205550.1087163-1-pnina.feder@mobileye.com/
 
-> 
-> Aurelien Jarno (5):
->   riscv: dts: spacemit: set console baud rate on K3 Pico-ITX board
->   riscv: dts: spacemit: enable the i2c2 adapter on K3 Pico-ITX board
->   riscv: dts: spacemit: add 24c02 eeprom on K3 Pico-ITX board
->   riscv: dts: spacemit: add i2c aliases on K3 Pico-ITX board
->   riscv: dts: spacemit: improve RTL8211F PHY configuration on K3
->     Pico-ITX board
-> 
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 42 +++++++++++++++++++-
->  arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 11 +++++
->  2 files changed, 52 insertions(+), 1 deletion(-)
-> 
-> -- 
-> 2.53.0
-> 
+Sorry for the delay, this fell between the cracks somehow.
+
+The kernel side looks fine overall, but to merge it there should be an agreement
+from the userspace side maintainers that vmcore-tasks is something they are
+wishing to accept.
 
 -- 
-Yixun Lan (dlan)
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
