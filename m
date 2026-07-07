@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C898C43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 14:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A4ACC43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 14:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D0YKodcbVdBKVH8cbgn6bIKololBJhHBVKTSQwechNE=; b=PvBjtLMtVtzmK2
-	DPGaKfy12WbEIwezYhwE/JJdBQ/LRLfUwH+M8PJLIfsWCg/UTP01Sp6OfICEuh/w2GsMZODf3HVln
-	sIsN9XAmmQK2vlYYe23k/dzGwA/YlxCtW/0PiEe7aDzHofWMQrSwSm/EP1la6aRnLTA16pdfvKsWO
-	7jcXR2oMFUxh6sO1NuCsX19gTe53vBgO8Ji3EHIO3OT+QQXjpddpHwG5iVCnbtnU3yGMtoC1kOc++
-	+mTb6+y7bWJxojid/VPWRI6ZQVEUcWjghQD96Eoquz+DzRSlN3L65CQI0TphjH6/TOjj5YAFuFb9f
-	3fxnP9R8llipkhcpLfQA==;
+	List-Owner; bh=tDnASJrLd5lzCpbGR46UqLlqzYsN7Wz7gRssv9zqlQ4=; b=drNPu9lfQ1AB5b
+	jR0qzPkN27WvKbPNrtiqm5Lg4BYDehRPIJs8DUG48Vc+TUoCBIpP5OaODDEO6GfqqER4tLji+HW7x
+	re1vHfjFQtOOCoirIaR1CNcIkMlZaE9sPxg8v9DuceIrsqxoYNblygQammKRzZL0TGuQ6vbYx2E2q
+	d+eNkllNRCIiOlQThc8oWG1T8RRYjNWveUw4b8xbi09j6q9z8T6AUHnPkbhk5WIbNawMzRJTvShJW
+	cSacBfbgSNAEwX4WQ/Sqa/a5aEkdGdCwTjksJMXrkK25yyoQczZ2ijaL4ICOKoGTYIKTwTa4z+NrH
+	v92JsCor96IDfTbE+sPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6cr-0000000F8DT-1v3t;
-	Tue, 07 Jul 2026 14:18:17 +0000
+	id 1wh6cs-0000000F8Du-2frr;
+	Tue, 07 Jul 2026 14:18:18 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6cn-0000000F8BA-1g25
+	id 1wh6cq-0000000F8BD-04By
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 14:18:15 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gvjxK6GVGzYQtkn
+	Tue, 07 Jul 2026 14:18:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gvjxK5V1zzYQtjW
 	for <linux-riscv@lists.infradead.org>; Tue,  7 Jul 2026 22:17:57 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 4D3BC409F0
+	by mail.maildlp.com (Postfix) with ESMTP id 334184056E
 	for <linux-riscv@lists.infradead.org>; Tue,  7 Jul 2026 22:18:01 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with UTF8SMTPA id cCh0CgBnd3OXCk1qwUWNAQ--.43005S5;
-	Tue, 07 Jul 2026 22:18:01 +0800 (CST)
+	by APP1 (Coremail) with UTF8SMTPA id cCh0CgBnd3OXCk1qwUWNAQ--.43005S3;
+	Tue, 07 Jul 2026 22:18:00 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -58,35 +58,36 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v5 3/6] riscv, bpf: Fix kernel stack corruption in tailcall with CFI
-Date: Tue,  7 Jul 2026 14:22:16 +0000
-Message-Id: <20260707142219.2871758-4-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v5 1/6] bpf: Extract the is_struct_ops_tramp helper
+Date: Tue,  7 Jul 2026 14:22:14 +0000
+Message-Id: <20260707142219.2871758-2-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260707142219.2871758-1-pulehui@huaweicloud.com>
 References: <20260707142219.2871758-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgBnd3OXCk1qwUWNAQ--.43005S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7tryxGr4Uur4Dur15tr45GFg_yoW8Zw1DpF
-	45Gwn3urykXr1vkr9rAF4Dtw4YgrsY9a17Wr9ruayayan29r1xG3Z8Kw43ZFyrZFW8K3Wr
-	AFy29rn3u34DZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPab4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUWw
+X-CM-TRANSID: cCh0CgBnd3OXCk1qwUWNAQ--.43005S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxCryfGr1kGF4UXF1kGr4rZrb_yoW5tr4UpF
+	1fur13Cr4kWr1xWFyktay8ZFya9F1vqrW2gFWUGaySka1aqryUXF1rGw4UCFZ8GrWYk3Wf
+	ZrWj9rWDCrykZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGw
 	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ew
-	Av7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY
-	6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14
-	v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
-	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXw
-	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
-	67AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r
-	1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxU
-	IF4iUUUUU
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	WxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
+	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
+	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
+	0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
+	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
+	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
+	14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJV
+	W8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIw0e
+	DUUUU
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_071813_801589_FFCF4B7F 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260707_071816_428186_3F6DDDCF 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,50 +106,81 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-When CONFIG_CFI_CLANG is enabled, prog->bpf_func already skips the kcfi
-instruction during setup. Including it again in the tailcall jump offset
-causes it to jump over an extra 4 bytes, skipping the stack pointer
-adjustment, which will result in kernel stack corruption.
+Extract the is_struct_ops_tramp helper, and use it in riscv and loongarch
+as the current checks are somewhat hacky.
 
-Fixes: 30a59cc79754 ("riscv, bpf: Fix possible infinite tailcall when CONFIG_CFI_CLANG is enabled")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/arm64/net/bpf_jit_comp.c   | 6 ------
+ arch/loongarch/net/bpf_jit.c    | 2 +-
+ arch/riscv/net/bpf_jit_comp64.c | 2 +-
+ include/linux/bpf.h             | 6 ++++++
+ 4 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 2f06752fb036..cedf40927474 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -18,7 +18,6 @@
- #define RV_MAX_REG_ARGS 8
- #define RV_FENTRY_NINSNS 2
- #define RV_FENTRY_NBYTES (RV_FENTRY_NINSNS * 4)
--#define RV_KCFI_NINSNS (IS_ENABLED(CONFIG_CFI) ? 1 : 0)
- /* imm that allows emit_imm to emit max count insns */
- #define RV_MAX_COUNT_IMM 0x7FFF7FF7FF7FF7FF
- 
-@@ -272,8 +271,8 @@ static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
- 	if (!is_tail_call)
- 		emit_addiw(RV_REG_A0, RV_REG_A5, 0, ctx);
- 	emit_jalr(RV_REG_ZERO, is_tail_call ? RV_REG_T3 : RV_REG_RA,
--		  /* kcfi, fentry and TCC init insns will be skipped on tailcall */
--		  is_tail_call ? (RV_KCFI_NINSNS + RV_FENTRY_NINSNS + 1) * 4 : 0,
-+		  /* fentry and TCC init insns will be skipped on tailcall */
-+		  is_tail_call ? (RV_FENTRY_NINSNS + 1) * 4 : 0,
- 		  ctx);
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index b0075ece4a6e..36337c3dad85 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -2544,12 +2544,6 @@ static void restore_args(struct jit_ctx *ctx, int bargs_off, int nregs)
+ 	}
  }
  
-@@ -2033,6 +2032,8 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
- 	/* emit kcfi type preamble immediately before the  first insn */
- 	emit_kcfi(is_subprog ? cfi_bpf_subprog_hash : cfi_bpf_hash, ctx);
+-static bool is_struct_ops_tramp(const struct bpf_tramp_nodes *fentry_nodes)
+-{
+-	return fentry_nodes->nr_nodes == 1 &&
+-		fentry_nodes->nodes[0]->link->type == BPF_LINK_TYPE_STRUCT_OPS;
+-}
+-
+ static void store_func_meta(struct jit_ctx *ctx, u64 func_meta, int func_meta_off)
+ {
+ 	emit_a64_mov_i64(A64_R(10), func_meta, ctx);
+diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
+index 2738b4db1165..686e2991ff6d 100644
+--- a/arch/loongarch/net/bpf_jit.c
++++ b/arch/loongarch/net/bpf_jit.c
+@@ -1843,11 +1843,11 @@ static int __arch_prepare_bpf_trampoline(struct jit_ctx *ctx, struct bpf_tramp_i
+ 	int stack_size, args_off, stk_args_off, nr_arg_slots = 0;
+ 	int retval_off, func_meta_off, ip_off, run_ctx_off, sreg_off, tcc_ptr_off;
+ 	unsigned long long func_meta;
+-	bool is_struct_ops = flags & BPF_TRAMP_F_INDIRECT;
+ 	void *orig_call = func_addr;
+ 	struct bpf_tramp_nodes *fentry = &tnodes[BPF_TRAMP_FENTRY];
+ 	struct bpf_tramp_nodes *fexit = &tnodes[BPF_TRAMP_FEXIT];
+ 	struct bpf_tramp_nodes *fmod_ret = &tnodes[BPF_TRAMP_MODIFY_RETURN];
++	bool is_struct_ops = is_struct_ops_tramp(fentry);
+ 	u32 **branches = NULL;
  
-+	/* bpf prog starts here as kcfi skipped during prog->bpf_func setup */
+ 	/*
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index f9d5347ba966..406e774b4ac3 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1033,7 +1033,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	struct bpf_tramp_nodes *fentry = &tnodes[BPF_TRAMP_FENTRY];
+ 	struct bpf_tramp_nodes *fexit = &tnodes[BPF_TRAMP_FEXIT];
+ 	struct bpf_tramp_nodes *fmod_ret = &tnodes[BPF_TRAMP_MODIFY_RETURN];
+-	bool is_struct_ops = flags & BPF_TRAMP_F_INDIRECT;
++	bool is_struct_ops = is_struct_ops_tramp(fentry);
+ 	void *orig_call = func_addr;
+ 	bool save_ret;
+ 	u64 func_meta;
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index adf53f7edf28..70aad8d7d84f 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -2196,6 +2196,12 @@ static inline bool is_tracing_multi(enum bpf_attach_type type)
+ 	       type == BPF_TRACE_FSESSION_MULTI;
+ }
+ 
++static inline bool is_struct_ops_tramp(const struct bpf_tramp_nodes *fentry_nodes)
++{
++	return fentry_nodes->nr_nodes == 1 &&
++	       fentry_nodes->nodes[0]->link->type == BPF_LINK_TYPE_STRUCT_OPS;
++}
 +
- 	/* nops reserved for auipc+jalr pair */
- 	for (i = 0; i < RV_FENTRY_NINSNS; i++)
- 		emit(rv_nop(), ctx);
+ #if defined(CONFIG_BPF_JIT) && defined(CONFIG_BPF_SYSCALL)
+ /* This macro helps developer to register a struct_ops type and generate
+  * type information correctly. Developers should use this macro to register
 -- 
 2.34.1
 
