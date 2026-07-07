@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17ECC43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 11:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA8B9C43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 12:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DwMrR84PwI+Zl1b3kqsw4/A6Z3IZpVaoMh/6Tbl3Tlo=; b=kMa4p0sdwxrKGD
-	Ry0VmETMSWDrdMWHQX3BXfm8/aSFB5emzwlSGuoov3CXKLoLwkqeaLPX3kYjna1ShT84PFpGyQ194
-	YKopo0kCSXzYEqFl9sHYfm0AG6MPEWxLMB0op2RYCCt3b5opPhPG9W3E56YoOcx8OecasfxWb/Qfc
-	MIKo/ihmuppV+3GTi4qugCYo0mwp+BwvGs4I4YCnqxeQIJ9hKxNoMkHhHJmUugBYXHjiAeMjy+u4g
-	ZkVV6sFRQSC2raFyuXVf3JITQi5DMydrW/EZpTH9cmb1C+a/k6NhREGLO3N4dQqFl4PF2v9rj+XwV
-	ljlCZzb7sDDxzSaH85bA==;
+	List-Archive:List-Unsubscribe:List-Id:Date:From:Cc:Message-Id:Subject:
+	Mime-Version:To:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=yy53CpgOxAAKxxr8CNhmnAGROJo3u0CgH57dSKWbwjk=; b=rI5
+	EfqPiwHErgJc5PhyzgBUMLx6rDFfRPFBpeiUusC1pwVsIuScXeLhUCAUaeDAyODXo9SF50gxiWpKO
+	RTXJ2vEIi9rSEDD78Ou1mdsTUyCGu1NaJ2jCM4SmmR7mDcNJLSp3+Hrmfv3mVlBJqZu0Dr2a3hbY0
+	I6xhdS4VAVG1leFosbgl22188kI8Y7ljtl3vAGJnC/eHOpMNhfViE97b4FLBl2qupNUgZmFKGnHif
+	F97YRUaZ/SWG/U9j9L1eaFrQscLZOzJ2qB2K4x8SZFIZxfc6QGlpFcdksrleJLxwhp8I67i8jv5HF
+	Sak902i7pxqksJlNfxnaaKp9uavPaYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh48Q-0000000Erzn-48es;
-	Tue, 07 Jul 2026 11:38:42 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1wh4fd-0000000Evft-0Bo3;
+	Tue, 07 Jul 2026 12:13:01 +0000
+Received: from va-1-114.ptr.blmpb.com ([209.127.230.114])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh48M-0000000ErwU-27BA;
-	Tue, 07 Jul 2026 11:38:41 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gvfPB5VnVz57KTp;
-	Tue, 07 Jul 2026 19:38:22 +0800 (CST)
-Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
-	by mse-fl2.zte.com.cn with SMTP id 667BcK5b063386;
-	Tue, 7 Jul 2026 19:38:20 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from localhost.localdomain (unknown [10.234.74.162])
-	by smtp (Zmail) with SMTP;
-	Tue, 7 Jul 2026 19:38:22 +0800
-X-Zmail-TransId: 3e816a4ce52e009-636fb
-X-Zmail-LocalSMTP: 1
-X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-Zmail-RealSender: wang.yechao255@zte.com.cn
-From: Wang Yechao <wang.yechao255@zte.com.cn>
-To: Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@linux.dev>,
-        Alexandre Ghiti <alex@ghiti.fr>,
-        Wang Yechao <wang.yechao255@zte.com.cn>
-Subject: [PATCH 1/2] RISC-V: KVM: Move hfence type check out of loop
-Date: Tue,  7 Jul 2026 19:37:06 +0800
-Message-ID: <20260707113715.413265-2-wang.yechao255@zte.com.cn>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20260707113715.413265-1-wang.yechao255@zte.com.cn>
-References: <20260707113715.413265-1-wang.yechao255@zte.com.cn>
-MIME-Version: 1.0
-X-MAIL: mse-fl2.zte.com.cn 667BcK5b063386
-X-TLS: YES
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Tue, 07 Jul 2026 19:38:22 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A4CE52E.000/4gvfPB5VnVz57KTp
+	id 1wh4fZ-0000000EveF-31Ap
+	for linux-riscv@lists.infradead.org;
+	Tue, 07 Jul 2026 12:12:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1783426371; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=WUCot7/K7DvmbTXO2aDp1/r+7gn1NIAyCFsZSusXrB8=;
+ b=qbz4j2yoKqjCaocxE32aFItWOAxRvP0QTmvv4udmAldvRXJ2ehNoRwnSoFz6CU+I9IKjCv
+ dDQaj5fCPjoyzE5Jp01AnoVJr8Iydtb1vhLNNdTqlhzhzpSgFWYzgPM7S9kzZKaqrLlpZh
+ 7CjuI521xEIY/GHKOj+t8qNEeLIdQm3OjfBuZH+HgGlg8htLbNf6tSGE4j6pvoat2Sj4nw
+ 9w02pq/3QPwDoaUT1fc8PwWsP6BuCP5YneLDi3JGwl0Ow45gZSShg49IRH8HuucEkkgQ26
+ Swp+ro/2Qaci+/pLQeyp2CiscASSIyiNi+6Do8f0J9wL4W8qxqM0s2FM31PHfw==
+To: <rostedt@goodmis.org>, <mhiramat@kernel.org>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.20.1
+Subject: [PATCH] riscv: ftrace: reject out-of-range non-direct targets
+Message-Id: <20260707121235.759104-1-qirui.001@bytedance.com>
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+Cc: <mark.rutland@arm.com>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <linux-kernel@vger.kernel.org>, 
+	<linux-trace-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
+	"Rui Qi" <qirui.001@bytedance.com>
+From: "Rui Qi" <qirui.001@bytedance.com>
+Date: Tue,  7 Jul 2026 20:12:35 +0800
+X-Lms-Return-Path: <lba+26a4ced41+d5684b+lists.infradead.org+qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_043839_097702_D92FFCF8 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20260707_051258_591631_D1887A02 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +69,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the check for `data` and `data->type` is performed inside
-the loop iterating over each VCPU. Since these values are invariant
-during the loop, this check is redundant and adds unnecessary
-overhead.
+RISC-V initializes the AUIPC half of each ftrace callsite to reach
+ftrace_caller and later only patches the JALR instruction. The old
+ftrace_make_call() code redirected any requested target outside the
+JALR immediate range back to FTRACE_ADDR.
 
-Move the validation to the beginning of the function, returning early
-if the hfence data or its type is invalid. This avoids repeated
-checks and reduces CPU cycles, which is particularly beneficial for
-SMP guests with a large number of VCPUs.
+That fallback is only valid for direct-call targets, where
+ftrace_caller can still dispatch through op->direct_call. For an
+ops-specific trampoline, the generic ftrace core requested a call to
+ops->trampoline. Redirecting the site to FTRACE_ADDR instead enters
+ftrace_caller and invokes op->func, bypassing that trampoline.
 
-Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+ftrace_modify_call() had the same issue more directly: it ignored
+old_addr and addr and always validated and updated the site as
+FTRACE_ADDR.
+
+Add a helper to resolve call targets consistently. Keep targets that
+fit in the existing AUIPC/JALR window, redirect only out-of-range
+direct-call targets through FTRACE_ADDR, and reject other out-of-range
+targets. Use the resolved old and new targets in ftrace_modify_call()
+so the architecture implementation follows the generic contract.
+
+Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 ---
- arch/riscv/kvm/tlb.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/ftrace.c | 79 +++++++++++++++++++++++++++++++-------
+ 1 file changed, 65 insertions(+), 14 deletions(-)
 
-diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-index 993b25ea94d67..a67b44a4d1d7a 100644
---- a/arch/riscv/kvm/tlb.c
-+++ b/arch/riscv/kvm/tlb.c
-@@ -335,6 +335,9 @@ static void make_xfence_request(struct kvm *kvm,
- 	unsigned int actual_req = req;
- 	DECLARE_BITMAP(vcpu_mask, KVM_MAX_VCPUS);
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index b430edfb83f4..26604bbc4bb5 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -46,16 +46,19 @@ void arch_ftrace_update_code(int command)
+ 	flush_icache_all();
+ }
  
-+	if (!data || !data->type)
-+		return;
-+
- 	bitmap_zero(vcpu_mask, KVM_MAX_VCPUS);
- 	kvm_for_each_vcpu(i, vcpu, kvm) {
- 		if (hbase != -1UL) {
-@@ -347,9 +350,6 @@ static void make_xfence_request(struct kvm *kvm,
+-static int __ftrace_modify_call(unsigned long source, unsigned long target, bool validate)
++static int __ftrace_modify_call(unsigned long source, unsigned long old,
++				unsigned long target, bool validate)
+ {
+-	unsigned int call[2], offset;
++	unsigned int call[2], old_call[2], offset;
+ 	unsigned int replaced[2];
  
- 		bitmap_set(vcpu_mask, i, 1);
+ 	offset = target - source;
+ 	call[1] = to_jalr_t0(offset);
  
--		if (!data || !data->type)
--			continue;
--
+ 	if (validate) {
+-		call[0] = to_auipc_t0(offset);
++		offset = old - source;
++		old_call[0] = to_auipc_t0(offset);
++		old_call[1] = to_jalr_t0(offset);
  		/*
- 		 * Enqueue hfence data to VCPU hfence queue. If we don't
- 		 * have space in the VCPU hfence queue then fallback to
+ 		 * Read the text we want to modify;
+ 		 * return must be -EFAULT on read error
+@@ -63,9 +66,10 @@ static int __ftrace_modify_call(unsigned long source, unsigned long target, bool
+ 		if (copy_from_kernel_nofault(replaced, (void *)source, 2 * MCOUNT_INSN_SIZE))
+ 			return -EFAULT;
+ 
+-		if (replaced[0] != call[0]) {
+-			pr_err("%p: expected (%08x) but got (%08x)\n",
+-			       (void *)source, call[0], replaced[0]);
++		if (replaced[0] != old_call[0] || replaced[1] != old_call[1]) {
++			pr_err("%p: expected (%08x %08x) but got (%08x %08x)\n",
++			       (void *)source, old_call[0], old_call[1],
++			       replaced[0], replaced[1]);
+ 			return -EINVAL;
+ 		}
+ 	}
+@@ -77,6 +81,46 @@ static int __ftrace_modify_call(unsigned long source, unsigned long target, bool
+ 	return 0;
+ }
+ 
++static bool ftrace_call_target_in_range(unsigned long addr)
++{
++	unsigned long ftrace_addr = FTRACE_ADDR;
++	unsigned long distance;
++
++	distance = addr > ftrace_addr ? addr - ftrace_addr : ftrace_addr - addr;
++
++	return distance <= JALR_RANGE;
++}
++
++static int ftrace_resolve_call_addr(struct dyn_ftrace *rec, unsigned long addr,
++				    unsigned long *target)
++{
++	unsigned long direct;
++
++	/*
++	 * The AUIPC instruction is initialized for ftrace_caller and this
++	 * implementation only patches the JALR instruction afterwards. Targets
++	 * that fit in the existing AUIPC/JALR window can be called as-is.
++	 */
++	if (ftrace_call_target_in_range(addr)) {
++		*target = addr;
++		return 0;
++	}
++
++	/*
++	 * Out-of-range direct-call targets can still be reached through the
++	 * ftrace_caller path, which dispatches via op->direct_call. Do not use
++	 * this fallback for ops-specific trampolines, because ftrace_caller
++	 * invokes op->func and would not preserve the requested trampoline.
++	 */
++	direct = ftrace_find_rec_direct(rec->ip);
++	if (direct && addr == direct) {
++		*target = FTRACE_ADDR;
++		return 0;
++	}
++
++	return -EINVAL;
++}
++
+ #ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+ static const struct ftrace_ops *riscv64_rec_get_ops(struct dyn_ftrace *rec)
+ {
+@@ -116,19 +160,18 @@ static int ftrace_rec_update_ops(struct dyn_ftrace *rec) { return 0; }
+ 
+ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+ {
+-	unsigned long distance, orig_addr, pc = rec->ip - MCOUNT_AUIPC_SIZE;
++	unsigned long pc = rec->ip - MCOUNT_AUIPC_SIZE;
+ 	int ret;
+ 
+-	ret = ftrace_rec_update_ops(rec);
++	ret = ftrace_resolve_call_addr(rec, addr, &addr);
+ 	if (ret)
+ 		return ret;
+ 
+-	orig_addr = (unsigned long)&ftrace_caller;
+-	distance = addr > orig_addr ? addr - orig_addr : orig_addr - addr;
+-	if (distance > JALR_RANGE)
+-		addr = FTRACE_ADDR;
++	ret = ftrace_rec_update_ops(rec);
++	if (ret)
++		return ret;
+ 
+-	return __ftrace_modify_call(pc, addr, false);
++	return __ftrace_modify_call(pc, 0, addr, false);
+ }
+ 
+ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec, unsigned long addr)
+@@ -215,11 +258,19 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+ 	unsigned long caller = rec->ip - MCOUNT_AUIPC_SIZE;
+ 	int ret;
+ 
++	ret = ftrace_resolve_call_addr(rec, old_addr, &old_addr);
++	if (ret)
++		return ret;
++
++	ret = ftrace_resolve_call_addr(rec, addr, &addr);
++	if (ret)
++		return ret;
++
+ 	ret = ftrace_rec_update_ops(rec);
+ 	if (ret)
+ 		return ret;
+ 
+-	return __ftrace_modify_call(caller, FTRACE_ADDR, true);
++	return __ftrace_modify_call(caller, old_addr, addr, true);
+ }
+ #endif
+ 
 -- 
-2.43.5
-
+2.20.1
 
 _______________________________________________
 linux-riscv mailing list
