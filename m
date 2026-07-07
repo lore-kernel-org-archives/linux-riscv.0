@@ -4,108 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6240DC43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 16:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DE5C43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 17:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Th71WXOWjBhOEEzTsE948pQl7bwMWkUlyidmVCAjk/Y=; b=dAC25cwZA+7wxf
-	ng3Tpp4EivIULK4Y4k8ZYeWi4mHbsNJUoeoZ3ongZbOc8sUK69Db77CPO5XJ+WETNtoYPINDpk2nE
-	JRNHgjJB3wSCb00OiIUqUWF89mL+0fulIOh1FqS8fP8cCCBGKM0GL4Q4ndNTeLV0c0ojDQ9oNmKd/
-	HyKJc72G3uj4a7NFSAbziiCRm73525Ane5XWxLOGgR0UhwbQJNVAanMW4qQdOE9VgnpzeyncbiNcH
-	tZdvHVETPRbRZSpBhMFySqUb2s2x6BPdab4wyno5njDNL/4oDEfjJlbFNkc+g2dD+ooaGIEEkoy4Z
-	rhd6AO05Wed0Ztnctdog==;
+	List-Owner; bh=VG9Wx3eddYgcYNCAZen2Ql9zp47ON3gHjsDtCSVFUw0=; b=GWWZfh74QuIU6y
+	AZ7BOo0BSxqc8LjFltUN8HheLj5t/cPAd0fOo42jdqpMQYTlCsZf4ZoL5GKW1/M1xHyo9ppkCtIFx
+	G9feNylImnVNcuoRj9lgSdCggs+tWnnLwgQetEqfbMvWP6g/onX0p1I9pibL8Hf/8tecgzYIEjIzj
+	AQonfQreguS8ZFTB9I+6nLHLliMK09eGbiTeqKTGqP4GtAN5SwltifAVXHlzRwfDaShFE0u4fkbYo
+	RdecZJdM4yEgp0cxyVRE6gkOzNCOelr27cRZr4XUEWQZXNpjmBfPkrKh/V4C3j4Rz+FR+EfI/f6OY
+	Gp9BlYEbb0yfHwHfdyRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8Ii-0000000FQLw-1t9y;
-	Tue, 07 Jul 2026 16:05:36 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wh9IF-0000000FWqF-2K1u;
+	Tue, 07 Jul 2026 17:09:11 +0000
+Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8If-0000000FQL3-0Iwe
+	id 1wh9ID-0000000FWpV-1X5H
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 16:05:34 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-493c733f15aso42096945e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 09:05:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783440330; cv=none;
+	Tue, 07 Jul 2026 17:09:10 +0000
+Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-45133d2974fso254700fac.1
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 10:09:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783444147; cv=none;
         d=google.com; s=arc-20260327;
-        b=fNx1ipjHON4macnTPWEIHC6TE6wWKKTeQxNVmQzfKQ+40jnz25WOu6PQnE7SUN3Q/2
-         kD0INE5nMiortuBH0J2kM0o1XJS1rLwyKG9oPJwHzaZGaHcZTskB1BylbQppVpfwwtTb
-         B/u4giAFwRkheXDZPzPvxLY1gu1ELCnd7JOJY0qvYc5tuGiJftXKrRxYha+LWDOBTUtc
-         1DKqkoPz8i4PJ3MV9jOrrKiTkrNVMJjAfqTsGzxnWAsq2yPM5U0yFsFiBf3MLtLjcGCe
-         RWtfOcBiL51QMZ+NasWRxUIc311RmVmzo/KihKyWUeSQu7PH5kzujQGnFOhqKnS2obqg
-         fiHg==
+        b=QjoRqjS1BfoC0oFHY3ZgYuNY7Cgy1jdeAAj2B5tpEqxBl1eadfD4smalnQQ9dIQRHU
+         WkAKMa9mqwz8vjUA5uB9/KJZeXSDjtwXF9Mx8Wm8KyOgQf4emt0oc14APwF9LC5k+jYs
+         6zRguSJI/4uJ7aCk6x0lm6Hse0UQx1iai+ixNiLK3dHPnQKDYR8qn1b+Lk/ZwIHTg2JR
+         7DAEzohyjnjKuh2+8XAYLslGPT0nm7P1UzhowVPKhAuuRiMdekaV4ow04qQQJo2F/T1o
+         kTXiJVdmS8Q9JYgX7n++wUsn0dsL7QpeQnodr7TdGk0q2G4kH+OeHMMLAtDSPmkHGvFE
+         Uv1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=V/DlJkDGqxbF36EBGePC3r0EE77kaV1bH979h2i3FPo=;
-        fh=pYArmMv/4qJmRCB+8qxH7SMFkw4K/TRdmVHpgDJxbRo=;
-        b=NOMjV/fQJ1dZYhWdsgj5WwDgsHCogSUcDd5afFdKRC/6ITp5hiDBBm781zqk7Jr2EO
-         q+BZDNGzBFnJwBbIolVMrEW4N8zflo1pO3C5k/GHFIlgjol2e7mwei4jjhfMdDdanG8a
-         ssKV/L9bIqlF9lLk59XoQrPRgX81MCRuQasKW+v1fsr7m2+LP2ZoJo9+rQO2Z5zwTA/e
-         M8Zf4p6jrNTVSiGxzO1gRfsCGY5tjpCUxC6AMN90MhySsjS3VOUlxhatF84/z2UgYu1N
-         HKz09t8/rM6gRxA9G0YausyVcwODtntcurJ7LemPgda7/Zjfep8+ZNuPmZbmOML5vwNx
-         PtNw==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=O9lfVufk5V6ONvrwxd5qwRqQ5dHF658hNKhamzFjYII=;
+        fh=sPmQr6GjD/AyiGgCk4aZfc+0TnzPtCRVbRtSMqnA51g=;
+        b=oY2P74L9W53fL61pjXmcTxUmGbn8bHotKl+ZiNpO39KRrv08P3xEFbhN1y/YlSw4sX
+         ecltP+hs0B5vESHDYx2ip5Scc0B7fco+GwMsdGW3tpCvyKEj99dBnesbakhm+JE5Sd7G
+         D2No1zZTO58c5SrqQjgrjuBsk46Kc84vIfP/lf082qi1kJbg8O32xzByvENllMi8bGrw
+         fiICLqRBLKhqLu43iJQLRU7G3npoVdCyofwkq42VuTT+l3M8NbYPWI7jcgkRK65ZmjsY
+         pKQR3+Lcqxq16WLdOGw7RRb2dTSD+X1HiuUOE7zcAWvuMqMfOd8RnLoTmYKWOoxbXsdS
+         3z/g==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20251104.gappssmtp.com; s=20251104; t=1783440330; x=1784045130; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V/DlJkDGqxbF36EBGePC3r0EE77kaV1bH979h2i3FPo=;
-        b=qL3tpiqc+RXt7aq4xIKWlrAKYzn1O4C4BfPbbnylofuvXfDEoWkSsmN1ztMyc+kyKa
-         noIe/vCLEK8T/RF58ugaTHNOUTmAj+cGSZ3eMDX5hp6VTiW+uvmp+AIEehXAu90Sl97e
-         16gxtFjtFMXiDLepu+XIbjtdk4KiKgmyF/oLRcW59VqeAPKTtvb7vQbyT1+F5exJNdEn
-         +uoEBbKA1XLUNowj3sZAcYjtBT5Pl/CIT+311d+y3WgG4Vzzn9fPeOfjtScu+GKv8zi7
-         Qln2y1zTFtfUl6VSuyU1AsK9swbnNyhnhlTNbXb8kvTpOSlMo+QwXXjlEAQPthh8Gn2J
-         Kzcg==
+        d=gmail.com; s=20251104; t=1783444147; x=1784048947; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=O9lfVufk5V6ONvrwxd5qwRqQ5dHF658hNKhamzFjYII=;
+        b=h1WR0YeuaeiQTpWcFchWc0Fdyv8AJ0V73QkwESlvWIpbxY09mK7RkqrOA+rJbuFYIr
+         iCycdkxAbnEb7XHYmDMXwlTIFA7vAGYFXWvyM06s15qus47v6NOJNnMNI/+OfNT5pU5a
+         4wUn/HZbScCbVuvHQxwymoz5myrcprzdRhLGW+bcTiz8BtIcnIRW63toZREniUd2dAUG
+         xz7sMhHLSh9CsZnS7Nowgy10ILQZWBmYFb85pGp3uSBLoP2gDwsPaIhwuMDuLZeOToFV
+         hGBC6oVxID/+Hi6SO5RLwoZoK58g9bHvvMEdhGVde6Cu3+J/K7jb+WwgJ/EFAdcevjzS
+         kptQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783440330; x=1784045130;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=V/DlJkDGqxbF36EBGePC3r0EE77kaV1bH979h2i3FPo=;
-        b=acHn0FGCSLZ+JWiw3l79oya0+Q5QQUnzkzWr8onZd4HWoQ9KxjO8nsuYLqZURzpdiy
-         mxqjczkN79Egow/hD1rdLS88ct6WUAdB7o0m1F7FpxGSOz6KNZfP6MnJf8TMYDBQ77gF
-         i7z+xkpnI5WbRe68eIakrp1cwlR1jFNKtMPp1nccWeZDXfnks43aLCPeD+Lwefm+z5M4
-         iBbWi329x+68WpVsl/DFleOlfLrR1Rmzn2f6dw9Q/BCZ8AIXEj/+VqrRXQ/by2BuaFY6
-         xPgxYRYn88BgFJfBTNWcKA8Tx3WI54bZMGvxKepSK5WDKRRwjIjORwGrwSu0QrVxLciD
-         DtOA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro074A9U0z7oJHyN8HvE6HFrqUVATI7SCPwkAAxyRSgAwKrkUYNuXSTAF3hyDoz4jPww7bd+ymDKdaQ0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1DDgrGSiyBUISvNkyZKzkffPRA1hFij5CZLr02iI/ZktliPyB
-	DxAA3G+RYEv6cK5fsdjWIYmzki63eOIsmToGQjMIKMLLWsfNohjv3HPP4OY5WFdiVnT4g9Dy1QH
-	tCvo8otDzGwQ35pUbORx/IwBM977y8s1+UoPb5oVT3g==
-X-Gm-Gg: AfdE7cl14ufQNqD5X9oVj9iUNkTOj+0bzMd5cn8K03vG8PCT4rpFJbD4JXkhaAiFpts
-	yjsNO5zfLAAy38ZRzEKFWG2wS9hpIq6nY9xTx5szRfLjDescjwrwedjtj2FMQuFWataRQ6ErbQt
-	O8BryS+Owhftq+xz2Ymvrmf/XwhzTZ0hZrvybanNdNEjU9uFsthTY/q/jGKhq+enXPtaSd1h0oq
-	B/aL1LElhgPfqOzqVIUip9KkYkJNYtXhgRbP8WJtwPo2mEpNp7yT9Lm6vN8+NLwX+r9Hx5q0nSt
-	tdyvE5RsjCz6Wty7F215Lp4TU3HLNySgLd6B6aqVXZRhqbOqoqBwMDSd8glP12Ht+ShQBLMYwcq
-	cf96pPTtcovvk420=
-X-Received: by 2002:a05:600c:5297:b0:493:b2c1:b2f9 with SMTP id
- 5b1f17b1804b1-493df06214bmr68876505e9.8.1783440330210; Tue, 07 Jul 2026
- 09:05:30 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783444147; x=1784048947;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O9lfVufk5V6ONvrwxd5qwRqQ5dHF658hNKhamzFjYII=;
+        b=eqG1BBlB2U3nxlnobg5WvkbIMSUphk3/X7ZCBNE3xKgzoj9B6EcKUA+dsuJe3DvST3
+         0w0xkE6nfHaUmPHqQnCDj9kCcKtvWHU0XvVfsaI6tmhpe5DYb3C0Phqw3enqUQMMXcRA
+         xL+yPma/MJveuJNTDAV6Ae8IGoiKU2jF2dzCCB15vaWkrQpTXNpdyK2Hh0fzZ6jUUTLM
+         6xPADhSvJedeEbO/DxpOWC2PWYkmIUff+PAhxtl7b7QmifIsfFMKosxtDyA1jH//UyHa
+         5qQvOanezvNqVWDTTdxKpMu7kCO8YlE12N6+RJuzDpAlcbSpdyWMujBEq0JK6hihzBkQ
+         Hjlg==
+X-Forwarded-Encrypted: i=1; AFNElJ9Gq6ugJXgS4Imwz8UEPAVcC5PoyVSIkif53YEoDQlpUHy9XOjG2muqwr+rNBWYjKjzKCc1NOdmtZhzhg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE+t5A1d3+IVF9Z++v0QcvX77Ly19xT4oYe7Yn5DL5EB9CtKTM
+	69JPBFB+CwRobAsPbmMzj9BfN35gt7P8XRs2LPYj1DGAtrJa6qHcitEYRYhoSCQlfxlnZ69RzPf
+	IqCzP1uGJdK8Ve0cnohHLKu1joEU/+Hg=
+X-Gm-Gg: AfdE7cnX7rcWEZ6sVS2lqhW8FfaSqXLZYZHPdKaCFIpYsXyzTosKeJySZV9sshdxJY6
+	HfPRsfphLpkuevCw8s5HtQ/xB9/oCdTPtbYHqf/fZX2VB/Ur+ljXw2eZiMvTY+XJ/YENGas/0Fp
+	1krKGMcnLVbABYIw14/s9F6W5rj5uQqJTNQfsWWSxfHS6SZFKCpuilTPjfgg1CQZ5mJnm/vvTUL
+	pJ/jRQOh6qvFUM1Zko65vHcv4pOJLKyFzI6TPjZjZbecUmd3fs8Uk/8Ri5Rii/njTLqzlH5liZy
+	yB0yCfY2g6CCmVWR5TN8dkaB65k=
+X-Received: by 2002:a05:687c:1d0:10b0:451:25f2:da63 with SMTP id
+ 586e51a60fabf-45125f37d48mr1081836fac.6.1783444142894; Tue, 07 Jul 2026
+ 10:09:02 -0700 (PDT)
 MIME-Version: 1.0
-References: <ag_N8H3e3YzjRb8j@chonkvm.lixom.net> <20260528190927.886558-1-tchiu@tenstorrent.com>
- <20260528190927.886558-2-tchiu@tenstorrent.com>
-In-Reply-To: <20260528190927.886558-2-tchiu@tenstorrent.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 7 Jul 2026 21:35:18 +0530
-X-Gm-Features: AVVi8CcWdFCu1n2raU_TmAMBKLSfTrwte2kK_76gBl0xIpAUvJ1Tsw2-3WZveWM
-Message-ID: <CAAhSdy0UTST5W7wvTcpF0y-+1AE0Mz6cPChBxrtsr7PWCAqh2w@mail.gmail.com>
-Subject: Re: [[PATCH] v4 1/4] riscv: vector: refactor vector context operations
-To: Andy Chiu <tchiu@tenstorrent.com>
-Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+References: <20260706203128.162335-1-devnexen@gmail.com> <ak0YI9KjSstnj9rJ@lucifer>
+In-Reply-To: <ak0YI9KjSstnj9rJ@lucifer>
+From: David CARLIER <devnexen@gmail.com>
+Date: Tue, 7 Jul 2026 18:08:49 +0100
+X-Gm-Features: AVVi8CeAguKb-2D6-6uZGOkqLgTNCfKzyhQ0b9NrJMamMVdmP0NqOcPU8DLT3gM
+Message-ID: <CA+XhMqzvFtLq1OT-qh207aJhSf+okdE8o8Joe8e_KBvdCjcQfQ@mail.gmail.com>
+Subject: Re: [PATCH v8] mm: pgtable: free kernel page tables via RCU to fix
+ ptdump UAF
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Dev Jain <dev.jain@arm.com>, 
+	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Paul Walmsley <pjw@kernel.org>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, dfustini@oss.tenstorrent.com, 
-	greentime.hu@sifive.com, daichengrong <daichengrong@iscas.ac.cn>, 
-	Han Gao <rabenda.cn@gmail.com>, Yong-Xuan Wang <yongxuan.wang@sifive.com>
+	Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <chleroy@kernel.org>, Ritesh Harjani <ritesh.list@gmail.com>, 
+	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_090533_407271_E854E62C 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20260707_100909_476844_31E33C95 
+X-CRM114-Status: GOOD (  55.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,192 +121,300 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMjksIDIwMjYgYXQgMTI6NDHigK9BTSBBbmR5IENoaXUgPHRjaGl1QHRlbnN0
-b3JyZW50LmNvbT4gd3JvdGU6Cj4KPiBMaWZ0IHJpc2N2X3Zfe2VuYWJsZSxkaXNhYmxlfSBvdXQg
-b2YgX18qdnN0YXRlX3tzYXZlLHJlc3RvcmUsZGlzY2FyZH0gc28KPiB0aGF0IHdlIGNhbiByZXVz
-ZSBzb21lIGZ1bmN0aW9ucyB3aXRob3V0IHJlcGVhdGVkbHkgdHVybmluZyBvbi9vZmYKPiB2ZWN0
-b3IuCj4KPiBBbHNvLCByZWZhY3RvciBhbmQgZG9jdW1lbnQgYWJvdXQgdGhlIHVzZXIgY29udGV4
-dCBzYXZlIGluIHByZWVtcHRfdiB0bwo+IG1ha2UgY29kZSBtb3JlIHJlYWRhYmxlLgo+Cj4gU2ln
-bmVkLW9mZi1ieTogQW5keSBDaGl1IDx0Y2hpdUB0ZW5zdG9ycmVudC5jb20+CgpGb3IgS1ZNIFJJ
-U0MtVjoKQWNrZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdhcmRz
-LApBbnVwCgo+IC0tLQo+IENoYW5nZWxvZyB2NDoKPiAgLSBmaXggYW4gdW51c2VkIHZhcmlhYmxl
-IHdhcm5pbmcgKE9sb2YpCj4gQ2hhbmdlbG9nIHYzOgo+ICAtIG5ldyBwYXRjaCBzaW5jZSB2Mwo+
-IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3ZlY3Rvci5oIHwgIDggKysr
-KystLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oICAgICAgICAgIHwgMTUgKysr
-KysrLS0tLS0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL2tlcm5lbF9tb2RlX3ZlY3Rvci5jICAgfCAy
-OSArKysrKysrKysrKysrKysrKysrLS0tLS0KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV92ZWN0b3Iu
-YyAgICAgICAgICAgICB8ICA4ICsrKy0tLS0KPiAgNCBmaWxlcyBjaGFuZ2VkLCA0MSBpbnNlcnRp
-b25zKCspLCAxOSBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2t2bV92Y3B1X3ZlY3Rvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdmNw
-dV92ZWN0b3IuaAo+IGluZGV4IDU3YTc5OGE0Y2IwZC4uZTY3OTg2OWUyYmEzIDEwMDY0NAo+IC0t
-LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfdmVjdG9yLmgKPiArKysgYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3ZlY3Rvci5oCj4gQEAgLTE2LDE0ICsxNiwxOCBA
-QAo+ICAjaW5jbHVkZSA8YXNtL3ZlY3Rvci5oPgo+ICAjaW5jbHVkZSA8YXNtL2t2bV9ob3N0Lmg+
-Cj4KPiAtc3RhdGljIF9fYWx3YXlzX2lubGluZSB2b2lkIF9fa3ZtX3Jpc2N2X3ZlY3Rvcl9zYXZl
-KHN0cnVjdCBrdm1fY3B1X2NvbnRleHQgKmNvbnRleHQpCj4gK3N0YXRpYyBfX2Fsd2F5c19pbmxp
-bmUgdm9pZCBrdm1fcmlzY3ZfdmVjdG9yX3NhdmUoc3RydWN0IGt2bV9jcHVfY29udGV4dCAqY29u
-dGV4dCkKPiAgewo+ICsgICAgICAgcmlzY3Zfdl9lbmFibGUoKTsKPiAgICAgICAgIF9fcmlzY3Zf
-dl92c3RhdGVfc2F2ZSgmY29udGV4dC0+dmVjdG9yLCBjb250ZXh0LT52ZWN0b3IuZGF0YXApOwo+
-ICsgICAgICAgcmlzY3Zfdl9kaXNhYmxlKCk7Cj4gIH0KPgo+IC1zdGF0aWMgX19hbHdheXNfaW5s
-aW5lIHZvaWQgX19rdm1fcmlzY3ZfdmVjdG9yX3Jlc3RvcmUoc3RydWN0IGt2bV9jcHVfY29udGV4
-dCAqY29udGV4dCkKPiArc3RhdGljIF9fYWx3YXlzX2lubGluZSB2b2lkIGt2bV9yaXNjdl92ZWN0
-b3JfcmVzdG9yZShzdHJ1Y3Qga3ZtX2NwdV9jb250ZXh0ICpjb250ZXh0KQo+ICB7Cj4gKyAgICAg
-ICByaXNjdl92X2VuYWJsZSgpOwo+ICAgICAgICAgX19yaXNjdl92X3ZzdGF0ZV9yZXN0b3JlKCZj
-b250ZXh0LT52ZWN0b3IsIGNvbnRleHQtPnZlY3Rvci5kYXRhcCk7Cj4gKyAgICAgICByaXNjdl92
-X2Rpc2FibGUoKTsKPiAgfQo+Cj4gIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfdmVjdG9yX3Jlc2V0KHN0
-cnVjdCBrdm1fdmNwdSAqdmNwdSk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vdmVjdG9yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oCj4gaW5kZXggMDBj
-YjljMDk4MmIxLi40NTgyMGNkOTAwZDYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS92ZWN0b3IuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmgKPiBA
-QCAtMTk4LDcgKzE5OCw2IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3ZfdnN0YXRlX3Nh
-dmUoc3RydWN0IF9fcmlzY3Zfdl9leHRfc3RhdGUgKnNhdmVfdG8sCj4gIHsKPiAgICAgICAgIHVu
-c2lnbmVkIGxvbmcgdmw7Cj4KPiAtICAgICAgIHJpc2N2X3ZfZW5hYmxlKCk7Cj4gICAgICAgICBf
-X3ZzdGF0ZV9jc3Jfc2F2ZShzYXZlX3RvKTsKPiAgICAgICAgIGlmIChoYXNfeHRoZWFkdmVjdG9y
-KCkpIHsKPiAgICAgICAgICAgICAgICAgYXNtIHZvbGF0aWxlICgKPiBAQCAtMjI3LDcgKzIyNiw2
-IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3ZfdnN0YXRlX3NhdmUoc3RydWN0IF9fcmlz
-Y3Zfdl9leHRfc3RhdGUgKnNhdmVfdG8sCj4gICAgICAgICAgICAgICAgICAgICAgICAgIi5vcHRp
-b24gcG9wXG5cdCIKPiAgICAgICAgICAgICAgICAgICAgICAgICA6ICI9JnIiICh2bCkgOiAiciIg
-KGRhdGFwKSA6ICJtZW1vcnkiKTsKPiAgICAgICAgIH0KPiAtICAgICAgIHJpc2N2X3ZfZGlzYWJs
-ZSgpOwo+ICB9Cj4KPiAgc3RhdGljIGlubGluZSB2b2lkIF9fcmlzY3Zfdl92c3RhdGVfcmVzdG9y
-ZShzdHJ1Y3QgX19yaXNjdl92X2V4dF9zdGF0ZSAqcmVzdG9yZV9mcm9tLAo+IEBAIC0yMzUsNyAr
-MjMzLDYgQEAgc3RhdGljIGlubGluZSB2b2lkIF9fcmlzY3Zfdl92c3RhdGVfcmVzdG9yZShzdHJ1
-Y3QgX19yaXNjdl92X2V4dF9zdGF0ZSAqcmVzdG9yZV8KPiAgewo+ICAgICAgICAgdW5zaWduZWQg
-bG9uZyB2bDsKPgo+IC0gICAgICAgcmlzY3Zfdl9lbmFibGUoKTsKPiAgICAgICAgIGlmIChoYXNf
-eHRoZWFkdmVjdG9yKCkpIHsKPiAgICAgICAgICAgICAgICAgYXNtIHZvbGF0aWxlICgKPiAgICAg
-ICAgICAgICAgICAgICAgICAgICAibXYgdDAsICUwXG5cdCIKPiBAQCAtMjY0LDE0ICsyNjEsMTIg
-QEAgc3RhdGljIGlubGluZSB2b2lkIF9fcmlzY3Zfdl92c3RhdGVfcmVzdG9yZShzdHJ1Y3QgX19y
-aXNjdl92X2V4dF9zdGF0ZSAqcmVzdG9yZV8KPiAgICAgICAgICAgICAgICAgICAgICAgICA6ICI9
-JnIiICh2bCkgOiAiciIgKGRhdGFwKSA6ICJtZW1vcnkiKTsKPiAgICAgICAgIH0KPiAgICAgICAg
-IF9fdnN0YXRlX2Nzcl9yZXN0b3JlKHJlc3RvcmVfZnJvbSk7Cj4gLSAgICAgICByaXNjdl92X2Rp
-c2FibGUoKTsKPiAgfQo+Cj4gIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3ZfdnN0YXRlX2Rp
-c2NhcmQodm9pZCkKPiAgewo+ICAgICAgICAgdW5zaWduZWQgbG9uZyB2bCwgdnR5cGVfaW52YWwg
-PSAxVUwgPDwgKEJJVFNfUEVSX0xPTkcgLSAxKTsKPgo+IC0gICAgICAgcmlzY3Zfdl9lbmFibGUo
-KTsKPiAgICAgICAgIGlmIChoYXNfeHRoZWFkdmVjdG9yKCkpCj4gICAgICAgICAgICAgICAgIGFz
-bSB2b2xhdGlsZSAoVEhFQURfVlNFVFZMSV9UNFgwRThNOEQxIDogOiA6ICJ0NCIpOwo+ICAgICAg
-ICAgZWxzZQo+IEBAIC0yOTEsMTQgKzI4NiwxNCBAQCBzdGF0aWMgaW5saW5lIHZvaWQgX19yaXNj
-dl92X3ZzdGF0ZV9kaXNjYXJkKHZvaWQpCj4gICAgICAgICAgICAgICAgICJ2c2V0dmwgICAgICAg
-ICAlMCwgeDAsICUxXG5cdCIKPiAgICAgICAgICAgICAgICAgIi5vcHRpb24gcG9wXG5cdCIKPiAg
-ICAgICAgICAgICAgICAgOiAiPSZyIiAodmwpIDogInIiICh2dHlwZV9pbnZhbCkpOwo+IC0KPiAt
-ICAgICAgIHJpc2N2X3ZfZGlzYWJsZSgpOwo+ICB9Cj4KPiAgc3RhdGljIGlubGluZSB2b2lkIHJp
-c2N2X3ZfdnN0YXRlX2Rpc2NhcmQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gIHsKPiAgICAgICAg
-IGlmIChyaXNjdl92X3ZzdGF0ZV9xdWVyeShyZWdzKSkgewo+ICsgICAgICAgICAgICAgICByaXNj
-dl92X2VuYWJsZSgpOwo+ICAgICAgICAgICAgICAgICBfX3Jpc2N2X3ZfdnN0YXRlX2Rpc2NhcmQo
-KTsKPiArICAgICAgICAgICAgICAgcmlzY3Zfdl9kaXNhYmxlKCk7Cj4gICAgICAgICAgICAgICAg
-IF9fcmlzY3Zfdl92c3RhdGVfZGlydHkocmVncyk7Cj4gICAgICAgICB9Cj4gIH0KPiBAQCAtMzA3
-LDcgKzMwMiw5IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCByaXNjdl92X3ZzdGF0ZV9zYXZlKHN0cnVj
-dCBfX3Jpc2N2X3ZfZXh0X3N0YXRlICp2c3RhdGUsCj4gICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gIHsKPiAgICAgICAgIGlmIChf
-X3Jpc2N2X3ZfdnN0YXRlX2NoZWNrKHJlZ3MtPnN0YXR1cywgRElSVFkpKSB7Cj4gKyAgICAgICAg
-ICAgICAgIHJpc2N2X3ZfZW5hYmxlKCk7Cj4gICAgICAgICAgICAgICAgIF9fcmlzY3Zfdl92c3Rh
-dGVfc2F2ZSh2c3RhdGUsIHZzdGF0ZS0+ZGF0YXApOwo+ICsgICAgICAgICAgICAgICByaXNjdl92
-X2Rpc2FibGUoKTsKPiAgICAgICAgICAgICAgICAgX19yaXNjdl92X3ZzdGF0ZV9jbGVhbihyZWdz
-KTsKPiAgICAgICAgIH0KPiAgfQo+IEBAIC0zMTYsNyArMzEzLDkgQEAgc3RhdGljIGlubGluZSB2
-b2lkIHJpc2N2X3ZfdnN0YXRlX3Jlc3RvcmUoc3RydWN0IF9fcmlzY3Zfdl9leHRfc3RhdGUgKnZz
-dGF0ZSwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3Qg
-cHRfcmVncyAqcmVncykKPiAgewo+ICAgICAgICAgaWYgKHJpc2N2X3ZfdnN0YXRlX3F1ZXJ5KHJl
-Z3MpKSB7Cj4gKyAgICAgICAgICAgICAgIHJpc2N2X3ZfZW5hYmxlKCk7Cj4gICAgICAgICAgICAg
-ICAgIF9fcmlzY3Zfdl92c3RhdGVfcmVzdG9yZSh2c3RhdGUsIHZzdGF0ZS0+ZGF0YXApOwo+ICsg
-ICAgICAgICAgICAgICByaXNjdl92X2Rpc2FibGUoKTsKPiAgICAgICAgICAgICAgICAgX19yaXNj
-dl92X3ZzdGF0ZV9jbGVhbihyZWdzKTsKPiAgICAgICAgIH0KPiAgfQo+IEBAIC0zNzgsOCArMzc3
-LDEwIEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3N3aXRjaF90b192ZWN0b3Ioc3RydWN0IHRhc2tf
-c3RydWN0ICpwcmV2LAo+ICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYtPnRocmVhZC5yaXNj
-dl92X2ZsYWdzIHw9IFJJU0NWX1BSRUVNUFRfVl9JTl9TQ0hFRFVMRTsKPiAgICAgICAgICAgICAg
-ICAgfQo+ICAgICAgICAgICAgICAgICBpZiAocmlzY3ZfcHJlZW1wdF92X2RpcnR5KHByZXYpKSB7
-Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmlzY3Zfdl9lbmFibGUoKTsKPiAgICAgICAgICAg
-ICAgICAgICAgICAgICBfX3Jpc2N2X3ZfdnN0YXRlX3NhdmUoJnByZXYtPnRocmVhZC5rZXJuZWxf
-dnN0YXRlLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBw
-cmV2LT50aHJlYWQua2VybmVsX3ZzdGF0ZS5kYXRhcCk7Cj4gKyAgICAgICAgICAgICAgICAgICAg
-ICAgcmlzY3Zfdl9kaXNhYmxlKCk7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgcmlzY3ZfcHJl
-ZW1wdF92X2NsZWFyX2RpcnR5KHByZXYpOwo+ICAgICAgICAgICAgICAgICB9Cj4gICAgICAgICB9
-IGVsc2Ugewo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9rZXJuZWxfbW9kZV92ZWN0
-b3IuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2tlcm5lbF9tb2RlX3ZlY3Rvci5jCj4gaW5kZXggOTk5
-NzJhNDhlODZiLi4yMTEyN2IzM2ZlYTggMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
-a2VybmVsX21vZGVfdmVjdG9yLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9rZXJuZWxfbW9k
-ZV92ZWN0b3IuYwo+IEBAIC0xMjMsNyArMTIzLDcgQEAgc3RhdGljIGludCByaXNjdl92X3N0b3Bf
-a2VybmVsX2NvbnRleHQodm9pZCkKPgo+ICBzdGF0aWMgaW50IHJpc2N2X3Zfc3RhcnRfa2VybmVs
-X2NvbnRleHQoYm9vbCAqaXNfbmVzdGVkKQo+ICB7Cj4gLSAgICAgICBzdHJ1Y3QgX19yaXNjdl92
-X2V4dF9zdGF0ZSAqa3ZzdGF0ZSwgKnV2c3RhdGU7Cj4gKyAgICAgICBzdHJ1Y3QgX19yaXNjdl92
-X2V4dF9zdGF0ZSAqa3ZzdGF0ZTsKPgo+ICAgICAgICAga3ZzdGF0ZSA9ICZjdXJyZW50LT50aHJl
-YWQua2VybmVsX3ZzdGF0ZTsKPiAgICAgICAgIGlmICgha3ZzdGF0ZS0+ZGF0YXApCj4gQEAgLTEz
-NCwyMCArMTM0LDM1IEBAIHN0YXRpYyBpbnQgcmlzY3Zfdl9zdGFydF9rZXJuZWxfY29udGV4dChi
-b29sICppc19uZXN0ZWQpCj4gICAgICAgICAgICAgICAgICppc19uZXN0ZWQgPSB0cnVlOwo+ICAg
-ICAgICAgICAgICAgICBnZXRfY3B1X3ZlY3Rvcl9jb250ZXh0KCk7Cj4gICAgICAgICAgICAgICAg
-IGlmIChyaXNjdl9wcmVlbXB0X3ZfZGlydHkoY3VycmVudCkpIHsKPiArICAgICAgICAgICAgICAg
-ICAgICAgICByaXNjdl92X2VuYWJsZSgpOwo+ICAgICAgICAgICAgICAgICAgICAgICAgIF9fcmlz
-Y3Zfdl92c3RhdGVfc2F2ZShrdnN0YXRlLCBrdnN0YXRlLT5kYXRhcCk7Cj4gKyAgICAgICAgICAg
-ICAgICAgICAgICAgcmlzY3Zfdl9kaXNhYmxlKCk7Cj4gICAgICAgICAgICAgICAgICAgICAgICAg
-cmlzY3ZfcHJlZW1wdF92X2NsZWFyX2RpcnR5KGN1cnJlbnQpOwo+ICAgICAgICAgICAgICAgICB9
-Cj4gICAgICAgICAgICAgICAgIHJpc2N2X3ByZWVtcHRfdl9zZXRfcmVzdG9yZShjdXJyZW50KTsK
-PiAgICAgICAgICAgICAgICAgcmV0dXJuIDA7Cj4gICAgICAgICB9Cj4KPiAtICAgICAgIC8qIFRy
-YW5zZmVyIHRoZSBvd25lcnNoaXAgb2YgViBmcm9tIHVzZXIgdG8ga2VybmVsLCB0aGVuIHNhdmUg
-Ki8KPiAtICAgICAgIHJpc2N2X3Zfc3RhcnQoUklTQ1ZfUFJFRU1QVF9WIHwgUklTQ1ZfUFJFRU1Q
-VF9WX0RJUlRZKTsKPiArICAgICAgIC8qCj4gKyAgICAgICAgKiBTa2lwIHNhdmluZyB1c2VyJ3Mg
-Y29udGV4dCBpZiBpdCBpcyBub3QgRElSVFkuIFdlIHdvdWxkIGhhdmUgdG8gc3RhcnQgS01WIGlu
-ICJkaXJ0eSIgaWYKPiArICAgICAgICAqIHRoaXMgY2hlY2sgaXMgcGVyZm9ybWVkIGFmdGVyIEtN
-ViBzdGFydHMsIHRvIHByb3RlY3QgdXNlcidzIGN0eC4gVGhlbiwgd2UgY291bGQgd2FzdGUKPiAr
-ICAgICAgICAqIHRpbWUgc2F2aW5nIGFscmVhZHkgImNsZWFuIiBjb250ZXh0IG9uY2UgS01WIGlz
-IHN0YXJ0ZWQgaW4gImRpcnR5Ii4KPiArICAgICAgICAqLwo+ICAgICAgICAgaWYgKF9fcmlzY3Zf
-dl92c3RhdGVfY2hlY2sodGFza19wdF9yZWdzKGN1cnJlbnQpLT5zdGF0dXMsIERJUlRZKSkgewo+
-IC0gICAgICAgICAgICAgICB1dnN0YXRlID0gJmN1cnJlbnQtPnRocmVhZC52c3RhdGU7Cj4gLSAg
-ICAgICAgICAgICAgIF9fcmlzY3Zfdl92c3RhdGVfc2F2ZSh1dnN0YXRlLCB1dnN0YXRlLT5kYXRh
-cCk7Cj4gKyAgICAgICAgICAgICAgIC8qIFRyYW5zZmVyIHRoZSBvd25lcnNoaXAgb2YgViBmcm9t
-IHVzZXIgdG8ga2VybmVsLCB0aGVuIHNhdmUgKi8KPiArICAgICAgICAgICAgICAgcmlzY3Zfdl9z
-dGFydChSSVNDVl9QUkVFTVBUX1YgfCBSSVNDVl9QUkVFTVBUX1ZfRElSVFkpOwo+ICsgICAgICAg
-ICAgICAgICAvKgo+ICsgICAgICAgICAgICAgICAgKiBDYWxsaW5nIHRoZSBndWFyZGVkIHZlcnNp
-b24gb2YgdnN0YXRlX3NhdmUgdG8gbWFrZSB0aGUgY29kZSBjbGVhbmVyLiBBbHNvLCB0aGUKPiAr
-ICAgICAgICAgICAgICAgICogdnN0YXRlIGNoZWNrIHdpdGhpbiB0aGUgY2FsbCBpcyBuZWNlc3Nh
-cnkgYXMgY29udGV4dCBzd2l0Y2ggbWF5IGhhcHBlbiBiZXR3ZWVuCj4gKyAgICAgICAgICAgICAg
-ICAqIF9fcmlzY3Zfdl92c3RhdGVfY2hlY2sgYW5kIHJpc2N2X3Zfc3RhcnQuIEluIHN1Y2ggY2Fz
-ZSB3ZSBhcmUgbm90IHN1cHBvc2VkIHRvCj4gKyAgICAgICAgICAgICAgICAqIHNhdmUgdGhlIGNv
-bnRleHQgYWdhaW4uCj4gKyAgICAgICAgICAgICAgICAqLwo+ICsgICAgICAgICAgICAgICByaXNj
-dl92X3ZzdGF0ZV9zYXZlKCZjdXJyZW50LT50aHJlYWQudnN0YXRlLCB0YXNrX3B0X3JlZ3MoY3Vy
-cmVudCkpOwo+ICsgICAgICAgICAgICAgICByaXNjdl9wcmVlbXB0X3ZfY2xlYXJfZGlydHkoY3Vy
-cmVudCk7Cj4gKyAgICAgICAgICAgICAgIHJldHVybiAwOwo+ICAgICAgICAgfQo+IC0gICAgICAg
-cmlzY3ZfcHJlZW1wdF92X2NsZWFyX2RpcnR5KGN1cnJlbnQpOwo+ICsKPiArICAgICAgIHJpc2N2
-X3Zfc3RhcnQoUklTQ1ZfUFJFRU1QVF9WKTsKPiAgICAgICAgIHJldHVybiAwOwo+ICB9Cj4KPiBA
-QCAtMTgwLDcgKzE5NSw5IEBAIGFzbWxpbmthZ2Ugdm9pZCByaXNjdl92X2NvbnRleHRfbmVzdGlu
-Z19lbmQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gICAgICAgICBkZXB0aCA9IHJpc2N2X3ZfY3R4
-X2dldF9kZXB0aCgpOwo+ICAgICAgICAgaWYgKGRlcHRoID09IDApIHsKPiAgICAgICAgICAgICAg
-ICAgaWYgKHJpc2N2X3ByZWVtcHRfdl9yZXN0b3JlKGN1cnJlbnQpKSB7Cj4gKyAgICAgICAgICAg
-ICAgICAgICAgICAgcmlzY3Zfdl9lbmFibGUoKTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBf
-X3Jpc2N2X3ZfdnN0YXRlX3Jlc3RvcmUodnN0YXRlLCB2c3RhdGUtPmRhdGFwKTsKPiArICAgICAg
-ICAgICAgICAgICAgICAgICByaXNjdl92X2Rpc2FibGUoKTsKPiAgICAgICAgICAgICAgICAgICAg
-ICAgICBfX3Jpc2N2X3ZfdnN0YXRlX2NsZWFuKHJlZ3MpOwo+ICAgICAgICAgICAgICAgICAgICAg
-ICAgIHJpc2N2X3ByZWVtcHRfdl9yZXNldF9mbGFncygpOwo+ICAgICAgICAgICAgICAgICB9Cj4g
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfdmVjdG9yLmMgYi9hcmNoL3Jpc2N2L2t2
-bS92Y3B1X3ZlY3Rvci5jCj4gaW5kZXggNjJkMmZiNzdiYjliLi5kYTZjNmRiODQ2YzEgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV92ZWN0b3IuYwo+ICsrKyBiL2FyY2gvcmlzY3Yv
-a3ZtL3ZjcHVfdmVjdG9yLmMKPiBAQCAtNDYsNyArNDYsNyBAQCB2b2lkIGt2bV9yaXNjdl92Y3B1
-X2d1ZXN0X3ZlY3Rvcl9zYXZlKHN0cnVjdCBrdm1fY3B1X2NvbnRleHQgKmNudHgsCj4gIHsKPiAg
-ICAgICAgIGlmICgoY250eC0+c3N0YXR1cyAmIFNSX1ZTKSA9PSBTUl9WU19ESVJUWSkgewo+ICAg
-ICAgICAgICAgICAgICBpZiAocmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUoaXNhLCB2KSkK
-PiAtICAgICAgICAgICAgICAgICAgICAgICBfX2t2bV9yaXNjdl92ZWN0b3Jfc2F2ZShjbnR4KTsK
-PiArICAgICAgICAgICAgICAgICAgICAgICBrdm1fcmlzY3ZfdmVjdG9yX3NhdmUoY250eCk7Cj4g
-ICAgICAgICAgICAgICAgIGt2bV9yaXNjdl92Y3B1X3ZlY3Rvcl9jbGVhbihjbnR4KTsKPiAgICAg
-ICAgIH0KPiAgfQo+IEBAIC01Niw3ICs1Niw3IEBAIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfZ3Vlc3Rf
-dmVjdG9yX3Jlc3RvcmUoc3RydWN0IGt2bV9jcHVfY29udGV4dCAqY250eCwKPiAgewo+ICAgICAg
-ICAgaWYgKChjbnR4LT5zc3RhdHVzICYgU1JfVlMpICE9IFNSX1ZTX09GRikgewo+ICAgICAgICAg
-ICAgICAgICBpZiAocmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUoaXNhLCB2KSkKPiAtICAg
-ICAgICAgICAgICAgICAgICAgICBfX2t2bV9yaXNjdl92ZWN0b3JfcmVzdG9yZShjbnR4KTsKPiAr
-ICAgICAgICAgICAgICAgICAgICAgICBrdm1fcmlzY3ZfdmVjdG9yX3Jlc3RvcmUoY250eCk7Cj4g
-ICAgICAgICAgICAgICAgIGt2bV9yaXNjdl92Y3B1X3ZlY3Rvcl9jbGVhbihjbnR4KTsKPiAgICAg
-ICAgIH0KPiAgfQo+IEBAIC02NSwxMyArNjUsMTMgQEAgdm9pZCBrdm1fcmlzY3ZfdmNwdV9ob3N0
-X3ZlY3Rvcl9zYXZlKHN0cnVjdCBrdm1fY3B1X2NvbnRleHQgKmNudHgpCj4gIHsKPiAgICAgICAg
-IC8qIE5vIG5lZWQgdG8gY2hlY2sgaG9zdCBzc3RhdHVzIGFzIGl0IGNhbiBiZSBtb2RpZmllZCBv
-dXRzaWRlICovCj4gICAgICAgICBpZiAoIWt2bV9yaXNjdl9pc2FfY2hlY2tfaG9zdChWKSkKPiAt
-ICAgICAgICAgICAgICAgX19rdm1fcmlzY3ZfdmVjdG9yX3NhdmUoY250eCk7Cj4gKyAgICAgICAg
-ICAgICAgIGt2bV9yaXNjdl92ZWN0b3Jfc2F2ZShjbnR4KTsKPiAgfQo+Cj4gIHZvaWQga3ZtX3Jp
-c2N2X3ZjcHVfaG9zdF92ZWN0b3JfcmVzdG9yZShzdHJ1Y3Qga3ZtX2NwdV9jb250ZXh0ICpjbnR4
-KQo+ICB7Cj4gICAgICAgICBpZiAoIWt2bV9yaXNjdl9pc2FfY2hlY2tfaG9zdChWKSkKPiAtICAg
-ICAgICAgICAgICAgX19rdm1fcmlzY3ZfdmVjdG9yX3Jlc3RvcmUoY250eCk7Cj4gKyAgICAgICAg
-ICAgICAgIGt2bV9yaXNjdl92ZWN0b3JfcmVzdG9yZShjbnR4KTsKPiAgfQo+Cj4gIGludCBrdm1f
-cmlzY3ZfdmNwdV9hbGxvY192ZWN0b3JfY29udGV4dChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4g
-LS0KPiAyLjQzLjAKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Sure thing :)
+
+On Tue, 7 Jul 2026 at 16:19, Lorenzo Stoakes <ljs@kernel.org> wrote:
+>
+> Hi David C,
+>
+> This has been through a lot of revisions so I think for the sake of expediency
+> the best solution here is for me to grab this and fiddle with it a bit then post
+> it out myself.
+>
+> TO BE VERY CLEAR - I will keep your authorship and attribution :), and simply
+> stick my name on a Co-developed-by tag.
+>
+> So this will remain your patch.
+>
+> Cheers, Lorenzo
+>
+> On Mon, Jul 06, 2026 at 09:31:27PM +0100, David Carlier wrote:
+> > ptdump_walk_pgd() walks the kernel page tables under get_online_mems().
+> > That does not stop vmalloc from freeing a kernel PTE page underneath the
+> > walk.
+> >
+> > When vmap_try_huge_pmd() promotes a range to a huge PMD it collapses the
+> > existing PTE table and frees it via pmd_free_pte_page(). On x86, riscv and
+> > powerpc this runs without the init_mm mmap lock; only arm64 takes it, and
+> > not on the block-split path. So ptdump can dereference a just-freed PTE
+> > page, which is the use after free syzbot hit in ptdump_pte_entry().
+> >
+> > The race is not new. ptdump walks the whole kernel address space, including
+> > ranges other code is actively mapping, so it reads page tables it does not
+> > own. Commit 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page
+> > tables") only widened the window; the Fixes tag points there for that
+> > reason.
+> >
+> > Every other walker works on a range it owns and is the only one mutating
+> > it: set_memory() on arm64/riscv/loongarch, the arm64 block-split path, the
+> > openrisc DMA path and the hugetlb_vmemmap remap. Nothing frees those ranges
+> > concurrently, so they cannot race and do not need RCU. ptdump is the only
+> > walker that traverses ranges it does not own.
+> >
+> > Defer the free by an RCU grace period. pagetable_free_kernel() now frees
+> > via call_rcu() in both the async and non-async configs. The async path
+> > still flushes the TLB first, then queues the per-page RCU free. The page
+> > stays valid until any walk that may have observed it drops its RCU read
+> > lock.
+> >
+> > x86, arm64 and riscv reach pagetable_free_kernel() for the collapsed PTE
+> > page (the ptdesc carries PT_kernel), so the deferral covers them. powerpc
+> > uses its own fragment allocator: pte_free_kernel() there frees the page
+> > synchronously via pte_fragment_free() and the ptdesc is not flagged kernel,
+> > so defer the kernel case in pte_fragment_free() as well. arm64 also takes
+> > init_mm.mmap_lock around the free under a static key; that is now redundant
+> > with the RCU deferral but left in place.
+> >
+> > On the read side walk_page_range_debug() walks the init_mm range in bounded
+> > chunks, taking rcu_read_lock() around each chunk and calling cond_resched()
+> > between them. It uses the lockless walker as the mmap lock is no longer
+> > held, and pgd_addr_end() to bound each chunk without overflowing at the top
+> > of the address space. A walker either sees the cleared PMD and skips, or
+> > keeps the page alive until it drops the lock. The owned-range walkers are
+> > unchanged.
+> >
+> > Stop taking mmap_write_lock() in ptdump_walk_pgd() for init_mm. It never
+> > guarded against this free -- most architectures free the collapsed PTE
+> > table without it -- and RCU now provides the synchronisation. efi_mm and
+> > current->mm page tables are not RCU-freed, so they keep the mmap write
+> > lock.
+> >
+> > ptdump callbacks run under RCU within a chunk, so they must not sleep. The
+> > arch note_page() and effective_prot() callbacks only format into the
+> > preallocated seq_file buffer; the only GFP_KERNEL marker setup runs before
+> > the walk, and cond_resched() happens between chunks, outside the read lock.
+> >
+> > Fixes: 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page tables")
+> > Reported-by: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+> > Closes: https://lore.kernel.org/all/6a287988.39669fcc.33b062.00a0.GAE@google.com/T/
+> > Assisted-by: Claude:claude-opus-4-8
+> > Signed-off-by: David Carlier <devnexen@gmail.com>
+> > ---
+> > v8: fix four issues raised by the Gemini review of v7 (relayed by Andrew).
+> >     - the init_mm walk called walk_kernel_page_table_range(), which
+> >       asserts init_mm.mmap_lock -- but that lock is now dropped; use the
+> >       lockless walker instead.
+> >     - only stop taking mmap_write_lock() for init_mm; efi_mm and
+> >       current->mm are not RCU-freed and keep it.
+> >     - bound each chunk with pgd_addr_end() so the last chunk does not
+> >       overflow at the top of the address space.
+> >     - powerpc frees kernel PTE pages synchronously via pte_fragment_free()
+> >       and never sets PT_kernel, so it bypassed the RCU deferral; defer the
+> >       kernel case there too.
+> > v7: no code change; add version tag and per-revision changelog (Dev).
+> > v6: chunk the init_mm walk in walk_page_range_debug() and take
+> >     rcu_read_lock() per chunk (reverting v5's caller-side lock + assert)
+> >     so the read section stays bounded on large kernel address spaces and
+> >     can cond_resched() between chunks; drop the now-redundant
+> >     mmap_write_lock() in ptdump_walk_pgd().
+> > v5: reframe changelog around the pre-existing race and range ownership;
+> >     correct the mmap-lock description (arm64 is the exception, not x86);
+> >     move rcu_read_lock() into ptdump_walk_pgd() and assert it in
+> >     walk_page_range_debug(); drop walk_kernel_page_table_range_rcu(); fix
+> >     the pgtable-generic.c comment; document the no-sleep audit of the
+> >     callbacks.
+> > v4: defer the free in both the async and non-async configs, not just the
+> >     async one; add a walk_kernel_page_table_range_rcu() helper.
+> > v3: take rcu_read_lock() in the init_mm branch of walk_page_range_debug().
+> > v2: use call_rcu() instead of synchronize_rcu().
+> >  arch/powerpc/mm/pgtable-frag.c |  7 ++++++-
+> >  include/linux/mm.h             |  7 -------
+> >  mm/pagewalk.c                  | 36 +++++++++++++++++++++++++++++-----
+> >  mm/pgtable-generic.c           | 22 ++++++++++++++++++++-
+> >  mm/ptdump.c                    | 11 +++++++++--
+> >  5 files changed, 67 insertions(+), 16 deletions(-)
+> >
+> > diff --git a/arch/powerpc/mm/pgtable-frag.c b/arch/powerpc/mm/pgtable-frag.c
+> > index ae742564a3d5..1e1e88f831f7 100644
+> > --- a/arch/powerpc/mm/pgtable-frag.c
+> > +++ b/arch/powerpc/mm/pgtable-frag.c
+> > @@ -123,7 +123,12 @@ void pte_fragment_free(unsigned long *table, int kernel)
+> >
+> >       BUG_ON(atomic_read(&ptdesc->pt_frag_refcount) <= 0);
+> >       if (atomic_dec_and_test(&ptdesc->pt_frag_refcount)) {
+> > -             if (kernel || !folio_test_clear_active(ptdesc_folio(ptdesc)))
+> > +             /*
+> > +              * Kernel page tables may be walked locklessly under RCU by
+> > +              * ptdump, so defer their free by a grace period too, like the
+> > +              * lockless-GUP case below for user tables.
+> > +              */
+> > +             if (!kernel && !folio_test_clear_active(ptdesc_folio(ptdesc)))
+> >                       pte_free_now(&ptdesc->pt_rcu_head);
+> >               else
+> >                       call_rcu(&ptdesc->pt_rcu_head, pte_free_now);
+> > diff --git a/include/linux/mm.h b/include/linux/mm.h
+> > index 485df9c2dbdd..79408a17a1b0 100644
+> > --- a/include/linux/mm.h
+> > +++ b/include/linux/mm.h
+> > @@ -3695,14 +3695,7 @@ static inline void __pagetable_free(struct ptdesc *pt)
+> >       __free_pages(page, compound_order(page));
+> >  }
+> >
+> > -#ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
+> >  void pagetable_free_kernel(struct ptdesc *pt);
+> > -#else
+> > -static inline void pagetable_free_kernel(struct ptdesc *pt)
+> > -{
+> > -     __pagetable_free(pt);
+> > -}
+> > -#endif
+> >  /**
+> >   * pagetable_free - Free pagetables
+> >   * @pt:      The page table descriptor
+> > diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+> > index 3ae2586ff45b..fc2fe014ac8c 100644
+> > --- a/mm/pagewalk.c
+> > +++ b/mm/pagewalk.c
+> > @@ -620,7 +620,7 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
+> >   * Note: Be careful to walk the kernel pages tables, the caller may be need to
+> >   * take other effective approaches (mmap lock may be insufficient) to prevent
+> >   * the intermediate kernel page tables belonging to the specified address range
+> > - * from being freed (e.g. memory hot-remove).
+> > + * from being freed (e.g. memory hot-remove, vmap huge page promotion).
+> >   */
+> >  int walk_kernel_page_table_range(unsigned long start, unsigned long end,
+> >               const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
+> > @@ -643,7 +643,7 @@ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
+> >   * Use this function to walk the kernel page tables locklessly. It should be
+> >   * guaranteed that the caller has exclusive access over the range they are
+> >   * operating on - that there should be no concurrent access, for example,
+> > - * changing permissions for vmalloc objects.
+> > + * changing permissions for vmalloc objects, or vmap huge page promotion.
+> >   */
+> >  int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end,
+> >               const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
+> > @@ -692,9 +692,35 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
+> >       };
+> >
+> >       /* For convenience, we allow traversal of kernel mappings. */
+> > -     if (mm == &init_mm)
+> > -             return walk_kernel_page_table_range(start, end, ops,
+> > -                                                 pgd, private);
+> > +     if (mm == &init_mm) {
+> > +             unsigned long addr = start;
+> > +
+> > +             /*
+> > +              * Walk in bounded chunks so the RCU read lock is never held
+> > +              * across the whole kernel address space.  A kernel page table
+> > +              * freed via pagetable_free_kernel() stays valid until the walk
+> > +              * that may have observed it drops the lock; releasing the lock
+> > +              * between chunks is safe as no page table pointer is held
+> > +              * across the gap. The mmap lock is not held, so use the
+> > +              * lockless walker; RCU, not the lock, keeps the table alive.
+> > +              */
+> > +             while (addr < end) {
+> > +                     unsigned long next = pgd_addr_end(addr, end);
+> > +                     int err;
+> > +
+> > +                     rcu_read_lock();
+> > +                     err = walk_kernel_page_table_range_lockless(addr, next, ops,
+> > +                                                                 pgd, private);
+> > +                     rcu_read_unlock();
+> > +                     if (err)
+> > +                             return err;
+> > +
+> > +                     addr = next;
+> > +                     cond_resched();
+> > +             }
+> > +             return 0;
+> > +     }
+> > +
+> >       if (start >= end || !walk.mm)
+> >               return -EINVAL;
+> >       if (!check_ops_safe(ops))
+> > diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> > index b91b1a98029c..7a32e4821957 100644
+> > --- a/mm/pgtable-generic.c
+> > +++ b/mm/pgtable-generic.c
+> > @@ -410,6 +410,13 @@ pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
+> >       goto again;
+> >  }
+> >
+> > +static void kernel_pgtable_free_rcu(struct rcu_head *head)
+> > +{
+> > +     struct ptdesc *pt = container_of(head, struct ptdesc, pt_rcu_head);
+> > +
+> > +     __pagetable_free(pt);
+> > +}
+> > +
+> >  #ifdef CONFIG_ASYNC_KERNEL_PGTABLE_FREE
+> >  static void kernel_pgtable_work_func(struct work_struct *work);
+> >
+> > @@ -434,8 +441,15 @@ static void kernel_pgtable_work_func(struct work_struct *work)
+> >       spin_unlock(&kernel_pgtable_work.lock);
+> >
+> >       iommu_sva_invalidate_kva_range(PAGE_OFFSET, TLB_FLUSH_ALL);
+> > +
+> > +     /*
+> > +      * Debug walkers (ptdump) may walk ranges they do not own and race this
+> > +      * free, so they walk under rcu_read_lock(). Free after a grace period:
+> > +      * a walker either already saw the cleared PMD, or keeps the page alive
+> > +      * until it drops the RCU lock.
+> > +      */
+> >       list_for_each_entry_safe(pt, next, &page_list, pt_list)
+> > -             __pagetable_free(pt);
+> > +             call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
+> >  }
+> >
+> >  void pagetable_free_kernel(struct ptdesc *pt)
+> > @@ -446,4 +460,10 @@ void pagetable_free_kernel(struct ptdesc *pt)
+> >
+> >       schedule_work(&kernel_pgtable_work.work);
+> >  }
+> > +#else
+> > +void pagetable_free_kernel(struct ptdesc *pt)
+> > +{
+> > +     /* Defer the free by a grace period; see kernel_pgtable_work_func(). */
+> > +     call_rcu(&pt->pt_rcu_head, kernel_pgtable_free_rcu);
+> > +}
+> >  #endif
+> > diff --git a/mm/ptdump.c b/mm/ptdump.c
+> > index 973020000096..537be9995e1a 100644
+> > --- a/mm/ptdump.c
+> > +++ b/mm/ptdump.c
+> > @@ -177,13 +177,20 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
+> >       const struct ptdump_range *range = st->range;
+> >
+> >       get_online_mems();
+> > -     mmap_write_lock(mm);
+> > +     /*
+> > +      * init_mm is walked locklessly under RCU by walk_page_range_debug().
+> > +      * efi_mm / current->mm page tables are not RCU-freed, so hold the
+> > +      * mmap write lock to keep them stable against concurrent teardown.
+> > +      */
+> > +     if (mm != &init_mm)
+> > +             mmap_write_lock(mm);
+> >       while (range->start != range->end) {
+> >               walk_page_range_debug(mm, range->start, range->end,
+> >                                     &ptdump_ops, pgd, st);
+> >               range++;
+> >       }
+> > -     mmap_write_unlock(mm);
+> > +     if (mm != &init_mm)
+> > +             mmap_write_unlock(mm);
+> >       put_online_mems();
+> >
+> >       /* Flush out the last page */
+> > --
+> > 2.53.0
+> >
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
