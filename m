@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA60C43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 19:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBC6C43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 19:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=AUEBAJVF90MlL0/iHAkYoKXWg0xzwUvu+JHEEpN2V7U=; b=KR3W6kZsu6ZNJh
-	2zyW9ckDC5m9SU/qKIlv3tkG5UwnVjS/BD8Lz9AXhgOEbu2QjHeGVPtMfDwzVzeSj1e0gFohySMga
-	gBMqMacm/qSqD0y4fZrAloEFSBb4WhVW4x8lukDipWM/zom2GEFVChm0vluBPXBO3o4ut5j1V6mGn
-	46kisS3B9bvZmuCtIIm68TDBj5bczkESnsGo8i2m9/OpP9bRxIqVvl43JxbmEHF5W+byo2ba0uoNT
-	di48jQwW85oHAwMN/eR0mk54BUhlYs+E+bKYkry/I04W8gTAvD0nhjIa4QyzB0KiU6JVr31tJztj5
-	lxTM5a1+Bh7JVmHn/l6w==;
+	List-Owner; bh=82m7G4kaQ9OIazSivHSbnnKTGrQl5xtX6WKQObAY0z0=; b=TNaAKtSyN1J8jH
+	lw+tlrLeDgQoAqiNVSC/DYHP9SnXeFXTwIZZ5jDfROu+LbWKn1MbfC9CnxzyplfVGtLG4RpucVlZh
+	3wtS09PoLDTop9vqOQDfODtCJgf0pWAdQBzQJq3Pzj0hpJxYUWyWtaLHo2AtlKa54j1Suqw7GRhY4
+	YjyTkmHn5Ow4XBsx4NCAADS0Lle5+JwuMPZ8ng4q/vjb8DA/Ohh7aJFoyr28nL3ZAKBsF6gpuve5b
+	kACKnRCw1Gdu1JHKYXlZGoQlLO6+Cb3/yiI5XYdoqLFTE1/h8P2TlsoluC/3Wfc894+w6CQT4Nc3b
+	sU3bWWO+AAMtQ0TcTQkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB8r-0000000FiGE-2JUc;
-	Tue, 07 Jul 2026 19:07:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1whB8v-0000000FiNU-2KMV;
+	Tue, 07 Jul 2026 19:07:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB8C-0000000FhYj-00m7;
-	Tue, 07 Jul 2026 19:06:56 +0000
+	id 1whB8G-0000000Fhbx-2swC;
+	Tue, 07 Jul 2026 19:07:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB45E40166;
-	Tue,  7 Jul 2026 19:06:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF4E71F00A3D;
-	Tue,  7 Jul 2026 19:06:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 22341601ED;
+	Tue,  7 Jul 2026 19:07:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0645A1F000E9;
+	Tue,  7 Jul 2026 19:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783451215;
-	bh=M6M79H685AEiWZ8EuGvrBs5I7Y5P9Ee9ippfe5S1H4o=;
+	s=k20260515; t=1783451219;
+	bh=TiJrYE33DXumkQwt2/+W2OjkQTFHtAcxd2PwMoVTvyY=;
 	h=Date:From:To:Cc:Subject:References;
-	b=Z9pGvu6HNUZ1HEZ1iYllaavjjFKOFgTqadPIozXIv9JGgx2jiaihgSbjZ3dmUzUJU
-	 hfjd2RhwbRCe4/RE6GxyfPq09ROnl/NCd1HaUQk2oMKLyHrrLWVUfmEQIWNgG4H0yV
-	 BATAOIL2AA4szex3DJbzo2snz+LuHQ5mvQ28B8yiZeSewg4gWEoZdYSbZCcErqheQA
-	 uNsdYnJB/6z23NzIIqnXgmHg+EkSOB5aumXG9do1DJbSPpj9mBvOvIqZlR1k7iJd+n
-	 ifnsuEaoUlbMIslTJD3wtnmpXeWlKWS3cwSDNZNKQCEZLL2h2iYwy4NYNlzBrzTYMO
-	 XibetjyLr85WQ==
-Date: Tue, 07 Jul 2026 21:06:53 +0200
-Message-ID: <20260707190254.392010241@kernel.org>
+	b=mLelz5RMvm7eytF+jRJ4D5fjNpUVxBoHH7hg2nYnZT/UFPrsYUFlgsa1ekVxmkuNT
+	 gqUlNLdwWLgnYzjvuNk4q4mfdBDP4L9l+PTvTfQrCbLe3tZ/yCqRzAo7NlwS8PHVVI
+	 49mJ8Q2tJOFblQl3o/L9kClWZZm2mywKm7GJNLZxIBpy3Ihnr2srvP1DZLhHyNUo1f
+	 Hc4RmwqJyFgE/dUEvlOSzi5K2ghRbH1MWuPc5m+aohcMKTewB0AZ3WteDH3gsBS7Ig
+	 eb6bs+QZFAyC8WgWIMWvxdkpIA0RxkwSS687u/2TmUsTZblqnvzwjAyicI3Zcq5CI+
+	 B67Z6TZ23hK0Q==
+Date: Tue, 07 Jul 2026 21:06:57 +0200
+Message-ID: <20260707190254.438361565@kernel.org>
 User-Agent: quilt/0.69
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
@@ -97,7 +97,7 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
  =?UTF-8?q?Michal=20Such=C3=A1nek?= <msuchanek@suse.de>,
  Jonathan Corbet <corbet@lwn.net>,
  linux-doc@vger.kernel.org
-Subject: [patch 14/18] entry: Make return type of syscall_trace_enter() bool
+Subject: [patch 15/18] x86/entry: Make syscall functions static
 References: <20260707181957.433213175@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -116,92 +116,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This prepares for changing the return types of
-syscall_enter_from_user_mode[_work]() to bool, which in turn separates the
-decision of invoking the syscall from the syscall number, which might have
-been changed in the call by ptrace, seccomp, tracing.
+They are only used in the respective source files. No point in exposing
+them.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
 ---
- include/linux/entry-common.h |   28 +++++++++++++++-------------
- 1 file changed, 15 insertions(+), 13 deletions(-)
+ arch/x86/entry/syscall_32.c    |    2 +-
+ arch/x86/entry/syscall_64.c    |   10 ++++++----
+ arch/x86/include/asm/syscall.h |    8 --------
+ 3 files changed, 7 insertions(+), 13 deletions(-)
 
---- a/include/linux/entry-common.h
-+++ b/include/linux/entry-common.h
-@@ -71,8 +71,8 @@ static inline void syscall_enter_audit(s
- 	}
- }
+--- a/arch/x86/entry/syscall_32.c
++++ b/arch/x86/entry/syscall_32.c
+@@ -41,7 +41,7 @@ const sys_call_ptr_t sys_call_table[] =
+ #endif
  
--static __always_inline long syscall_trace_enter(struct pt_regs *regs, unsigned long work,
--						long syscall)
-+static __always_inline bool syscall_trace_enter(struct pt_regs *regs, unsigned long work,
-+						long *syscall)
+ #define __SYSCALL(nr, sym) case nr: return __ia32_##sym(regs);
+-long ia32_sys_call(const struct pt_regs *regs, unsigned int nr)
++static noinline long ia32_sys_call(const struct pt_regs *regs, unsigned int nr)
  {
- 	/*
- 	 * Handle Syscall User Dispatch.  This must comes first, since
-@@ -81,7 +81,7 @@ static __always_inline long syscall_trac
- 	 */
- 	if (work & SYSCALL_WORK_SYSCALL_USER_DISPATCH) {
- 		if (syscall_user_dispatch(regs))
--			return -1L;
-+			return false;
- 	}
+ 	switch (nr) {
+ 	#include <asm/syscalls_32.h>
+--- a/arch/x86/entry/syscall_64.c
++++ b/arch/x86/entry/syscall_64.c
+@@ -32,7 +32,7 @@ const sys_call_ptr_t sys_call_table[] =
+ #undef  __SYSCALL
  
- 	/*
-@@ -90,32 +90,32 @@ static __always_inline long syscall_trac
- 	 * through hrtimer_interrupt().
- 	 */
- 	if (work & SYSCALL_WORK_SYSCALL_RSEQ_SLICE)
--		rseq_syscall_enter_work(syscall);
-+		rseq_syscall_enter_work(*syscall);
- 
- 	/* Handle ptrace */
- 	if (work & (SYSCALL_WORK_SYSCALL_TRACE | SYSCALL_WORK_SYSCALL_EMU)) {
- 		if (!arch_ptrace_report_syscall_permit_entry(regs) ||
- 		    (work & SYSCALL_WORK_SYSCALL_EMU))
--			return -1L;
-+			return false;
- 	}
- 
- 	/* Do seccomp after ptrace, to catch any tracer changes. */
- 	if (work & SYSCALL_WORK_SECCOMP) {
- 		if (!__seccomp_permit_syscall())
--			return -1L;
-+			return false;
- 	}
- 
- 	/* Either of the above might have changed the syscall number */
--	syscall = syscall_get_nr(current, regs);
-+	*syscall = syscall_get_nr(current, regs);
- 
- 	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT)) {
--		if (!trace_syscall_enter(regs, &syscall))
--			return -1L;
-+		if (!trace_syscall_enter(regs, syscall))
-+			return false;
- 	}
- 
--	syscall_enter_audit(regs, syscall);
-+	syscall_enter_audit(regs, *syscall);
- 
--	return syscall;
-+	return true;
- }
- 
- /**
-@@ -145,8 +145,10 @@ static __always_inline long syscall_ente
+ #define __SYSCALL(nr, sym) case nr: return __x64_##sym(regs);
+-long x64_sys_call(const struct pt_regs *regs, unsigned int nr)
++static noinline long x64_sys_call(const struct pt_regs *regs, unsigned int nr)
  {
- 	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
- 
--	if (work & SYSCALL_WORK_ENTER)
--		syscall = syscall_trace_enter(regs, work, syscall);
-+	if (work & SYSCALL_WORK_ENTER) {
-+		if (!syscall_trace_enter(regs, work, &syscall))
-+			return -1L;
-+	}
- 
- 	return syscall;
+ 	switch (nr) {
+ 	#include <asm/syscalls_64.h>
+@@ -40,15 +40,17 @@ long x64_sys_call(const struct pt_regs *
+ 	}
  }
+ 
+-#ifdef CONFIG_X86_X32_ABI
+-long x32_sys_call(const struct pt_regs *regs, unsigned int nr)
++static noinline long x32_sys_call(const struct pt_regs *regs, unsigned int nr)
+ {
++#ifdef CONFIG_X86_X32_ABI
+ 	switch (nr) {
+ 	#include <asm/syscalls_x32.h>
+ 	default: return __x64_sys_ni_syscall(regs);
+ 	}
+-}
++#else
++	return -ENOSYS;
+ #endif
++}
+ 
+ static __always_inline bool do_syscall_x64(struct pt_regs *regs, int nr)
+ {
+--- a/arch/x86/include/asm/syscall.h
++++ b/arch/x86/include/asm/syscall.h
+@@ -21,14 +21,6 @@ typedef long (*sys_call_ptr_t)(const str
+ extern const sys_call_ptr_t sys_call_table[];
+ 
+ /*
+- * These may not exist, but still put the prototypes in so we
+- * can use IS_ENABLED().
+- */
+-extern long ia32_sys_call(const struct pt_regs *, unsigned int nr);
+-extern long x32_sys_call(const struct pt_regs *, unsigned int nr);
+-extern long x64_sys_call(const struct pt_regs *, unsigned int nr);
+-
+-/*
+  * Only the low 32 bits of orig_ax are meaningful, so we return int.
+  * This importantly ignores the high bits on 64-bit, so comparisons
+  * sign-extend the low 32 bits.
 
 
 _______________________________________________
