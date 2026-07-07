@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E756CC43602
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 11:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17ECC43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 11:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rx09DwA5akDcKn+5beBwjG3ImdzhPaO0lnYkA6yR7A0=; b=Iv8QAZRyeP2esM
-	Xj7ObC3HpMogQkKeWScO+ZSOAYnGjD7Yq2XwmwXAr8qUEqxdt905W4LsZQ0Acbr2CGQ/Wz3UW91lK
-	5MHvokUfSuFWv1l7/HvhWl1VGcF8fTgpt2DJhUrVoCvCNfpPJP60sxqL4n8IDiFFK8P15NjbFA+H5
-	dMEzAGr89YsYPCprSOCOnmKIF98Otfnettp9EP9VPDoGiW+dYcpEBy2HGnF+Sa09j2kqUIAxfAG7P
-	YkjIufMdsXJD/tAc3yutMO/2rYnGdUpWH7nKWNkCk3KqaDTQlC72okc3C32xqmu5QJ30A6vTqQq73
-	OMU9ptNa8C0zt0TEirzQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DwMrR84PwI+Zl1b3kqsw4/A6Z3IZpVaoMh/6Tbl3Tlo=; b=kMa4p0sdwxrKGD
+	Ry0VmETMSWDrdMWHQX3BXfm8/aSFB5emzwlSGuoov3CXKLoLwkqeaLPX3kYjna1ShT84PFpGyQ194
+	YKopo0kCSXzYEqFl9sHYfm0AG6MPEWxLMB0op2RYCCt3b5opPhPG9W3E56YoOcx8OecasfxWb/Qfc
+	MIKo/ihmuppV+3GTi4qugCYo0mwp+BwvGs4I4YCnqxeQIJ9hKxNoMkHhHJmUugBYXHjiAeMjy+u4g
+	ZkVV6sFRQSC2raFyuXVf3JITQi5DMydrW/EZpTH9cmb1C+a/k6NhREGLO3N4dQqFl4PF2v9rj+XwV
+	ljlCZzb7sDDxzSaH85bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh48Q-0000000ErzT-29Kd;
+	id 1wh48Q-0000000Erzn-48es;
 	Tue, 07 Jul 2026 11:38:42 +0000
 Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh48M-0000000ErwV-2FMy;
+	id 1wh48M-0000000ErwU-27BA;
 	Tue, 07 Jul 2026 11:38:41 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gvfPD1bDLz57KTs;
-	Tue, 07 Jul 2026 19:38:24 +0800 (CST)
-Received: from szxlzmapp01.zte.com.cn ([10.5.231.85])
-	by mse-fl1.zte.com.cn with SMTP id 667BcHxc018822;
-	Tue, 7 Jul 2026 19:38:17 +0800 (+08)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4gvfPB5VnVz57KTp;
+	Tue, 07 Jul 2026 19:38:22 +0800 (CST)
+Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
+	by mse-fl2.zte.com.cn with SMTP id 667BcK5b063386;
+	Tue, 7 Jul 2026 19:38:20 +0800 (+08)
 	(envelope-from wang.yechao255@zte.com.cn)
 Received: from localhost.localdomain (unknown [10.234.74.162])
 	by smtp (Zmail) with SMTP;
-	Tue, 7 Jul 2026 19:38:20 +0800
-X-Zmail-TransId: 3e816a4ce52b009-636ed
+	Tue, 7 Jul 2026 19:38:22 +0800
+X-Zmail-TransId: 3e816a4ce52e009-636fb
 X-Zmail-LocalSMTP: 1
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
 X-Zmail-RealSender: wang.yechao255@zte.com.cn
@@ -51,22 +51,23 @@ Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
         Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@linux.dev>,
         Alexandre Ghiti <alex@ghiti.fr>,
         Wang Yechao <wang.yechao255@zte.com.cn>
-Subject: [PATCH 0/2] RISC-V: KVM: Optimize hfence request handling for SMP guests
-Date: Tue,  7 Jul 2026 19:37:05 +0800
-Message-ID: <20260707113715.413265-1-wang.yechao255@zte.com.cn>
+Subject: [PATCH 1/2] RISC-V: KVM: Move hfence type check out of loop
+Date: Tue,  7 Jul 2026 19:37:06 +0800
+Message-ID: <20260707113715.413265-2-wang.yechao255@zte.com.cn>
 X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20260707113715.413265-1-wang.yechao255@zte.com.cn>
+References: <20260707113715.413265-1-wang.yechao255@zte.com.cn>
 MIME-Version: 1.0
-X-MAIL: mse-fl1.zte.com.cn 667BcHxc018822
+X-MAIL: mse-fl2.zte.com.cn 667BcK5b063386
 X-TLS: YES
 X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Tue, 07 Jul 2026 19:38:24 +0800
+X-SOURCE-IP: 10.5.228.133 unknown Tue, 07 Jul 2026 19:38:22 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A4CE530.000/4gvfPD1bDLz57KTs
+X-Fangmail-MID-QID: 6A4CE52E.000/4gvfPB5VnVz57KTp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_043839_128482_FDCE93E7 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260707_043839_097702_D92FFCF8 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +84,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series improves the hfence request handling in RISC-V KVM,
-targeting scenarios where multiple VCPUs are running an SMP guest.
+Currently, the check for `data` and `data->type` is performed inside
+the loop iterating over each VCPU. Since these values are invariant
+during the loop, this check is redundant and adds unnecessary
+overhead.
 
-The first patch moves the hfence data/type validation out of the
-VCPU loop to avoid redundant checks on every iteration.
+Move the validation to the beginning of the function, returning early
+if the hfence data or its type is invalid. This avoids repeated
+checks and reduces CPU cycles, which is particularly beneficial for
+SMP guests with a large number of VCPUs.
 
-The second patch fixes a more subtle performance issue: when one
-VCPU's hfence queue becomes full and triggers a fallback, the
-current code applies the fallback to all VCPUs indiscriminately.
-This unnecessarily degrades healthy VCPUs and can cause their
-queues to fill up prematurely due to lack of processing it.
+Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+---
+ arch/riscv/kvm/tlb.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-With these changes, fallback is applied only to the VCPUs that
-actually need it, preserving the efficiency of the normal path
-for others.
-
-Wang Yechao (2):
-  RISC-V: KVM: Move hfence type check out of loop
-  RISC-V: KVM: Separate req and fallback_req masks in
-    make_xfence_request
-
- arch/riscv/kvm/tlb.c | 22 ++++++++++++----------
- 1 file changed, 12 insertions(+), 10 deletions(-)
-
+diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+index 993b25ea94d67..a67b44a4d1d7a 100644
+--- a/arch/riscv/kvm/tlb.c
++++ b/arch/riscv/kvm/tlb.c
+@@ -335,6 +335,9 @@ static void make_xfence_request(struct kvm *kvm,
+ 	unsigned int actual_req = req;
+ 	DECLARE_BITMAP(vcpu_mask, KVM_MAX_VCPUS);
+ 
++	if (!data || !data->type)
++		return;
++
+ 	bitmap_zero(vcpu_mask, KVM_MAX_VCPUS);
+ 	kvm_for_each_vcpu(i, vcpu, kvm) {
+ 		if (hbase != -1UL) {
+@@ -347,9 +350,6 @@ static void make_xfence_request(struct kvm *kvm,
+ 
+ 		bitmap_set(vcpu_mask, i, 1);
+ 
+-		if (!data || !data->type)
+-			continue;
+-
+ 		/*
+ 		 * Enqueue hfence data to VCPU hfence queue. If we don't
+ 		 * have space in the VCPU hfence queue then fallback to
 -- 
 2.43.5
 
