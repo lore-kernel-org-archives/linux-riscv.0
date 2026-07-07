@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5BAC43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3614EC43602
 	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 19:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
-	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=B+gQZPovFetCERer6yAR9D+qC9SbKIjuyWXOiQkyuv0=; b=TkTmWcgvkwSluD
-	rXHzAocNRcP1vX4IMlBbZfM4ZPG/LyEUFwL5NZop7JUY4ZCMMfzbx/ZhvwZ6TbsXbobD4JSeTWkC0
-	sG+8J1G80Vn5SRDxTE+dSOqQ55RXJe8YFGz7t+spXhcW1U1hR8VKXInZJmoMWf8M7tZ5Dd+wUPN33
-	V5cK/3pQS96s8T2WqB4c0hm9cK9ciym4q4WycaGyQQuzx8Epk22v1o4FzV4ULglU+ax7KKFhykZm0
-	5SG5JwK6RzuPrjvMlLDZYzd0TYhfn+d+ZKvfUFmxxpNkdUm/p5aUlbFph522b8WMzqC4xQaeb6yf6
-	KpKz3qvW+GfEC0hmUtGA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Message-ID
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CGOGynJ5eSHqsBntTX1uR5kA9UX03iFwIoRNz5+Z2CI=; b=rpDhjx0Ykm3HgD
+	4Wm6T7uoXpzDDpvE/EF7SLfBioCEp3254PH3VDuUgW9DI5muxBVIVDr6Sc46sP8DhuHCFKlWyEzpC
+	4reQQ0PAoNyemcXYJmiXfg83PtrpWcm4fXPvlS9zH++RbY6x/V70E9mguHMagVYEfDkRTNNVBIzi2
+	4dDo7YM7zPtCAZ17XuG/jlSms0AlxZVWFXmAP8Z1hoMWR8zQbkTNE6D+684qisaYYnnKOCSZY6KWP
+	PIVCWQCeCS/pwpSKpLrbgBgp8tGpd53Mm0NBGfsH37k6rzfIxHtQzhlJzG05Hu05bGJANkojm5TQV
+	saJ9aOTtk9K5islJoxvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB7T-0000000FgmB-20NL;
-	Tue, 07 Jul 2026 19:06:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whB7J-0000000Fggy-0Tvd;
+	Tue, 07 Jul 2026 19:06:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB7O-0000000Fghv-1jSF;
-	Tue, 07 Jul 2026 19:06:06 +0000
+	id 1whB7F-0000000FggT-1O5w;
+	Tue, 07 Jul 2026 19:05:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2DD86138A;
-	Tue,  7 Jul 2026 19:06:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 836131F00A3A;
-	Tue,  7 Jul 2026 19:06:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0192043206;
+	Tue,  7 Jul 2026 19:05:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 113781F000E9;
+	Tue,  7 Jul 2026 19:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783451165;
-	bh=On6NfRZNP83GQAwWkJi2QY5gy7RW6c7PPEtomv7P1Dc=;
-	h=Date:From:To:Cc:Subject:References;
-	b=Kyf4FHpFsIS+Ydmvpd4dDjaw6LA3z5qA3tk9jQCRiEW5qX1inNO9gy7FOgieh3baY
-	 hYOJJlHaPUBmLHJ7GT1+snJJu9GDe/I9LBY8DO5JtbHEjuAUTNBhEUGadk4Jt3mT6M
-	 jfM460+qa8cBdINqLxhonst5REsB87hmc78d5eqMEOoD5gBYWK0lJNv1XzAl9UsuvK
-	 VcyLhfQ5RZnjt+w12lkO4zxWbhBNKXx+std7IviKWtj5txrPrCsYKXUlRXGm9L5b6C
-	 x3lWCb9/6igNz1lMUWNia6Ofl2ESSU4en1Tc99OlWes1QnxVBl0HIc9O5ffHHzCd75
-	 Lv0AL/D7KjB7Q==
-Date: Tue, 07 Jul 2026 21:06:02 +0200
-Message-ID: <20260707190253.768842729@kernel.org>
+	s=k20260515; t=1783451156;
+	bh=sKaa6jqJcnZ3kixdUKctGHCLE8bgvUhOgv/iQQ4U2eg=;
+	h=Date:From:To:Cc:Subject;
+	b=VFkWTdo5yhgpXx9sxvRHZ3HlP4xSZ4aHXa1zsGtMnp9mQpMvU4qieroT0K0+AUmNe
+	 mH4Zbvrp37BWRtV+WSrFvOBwzQyMx5YfHARXuOrmubRPkhjAk6NgYYQTWgkAhazAju
+	 1djGcOQc2V77x2qVXGFvC6BkwM/+Iezw2J7QhqUY7M9Y5saOvbXsETd73JhuSwTJ1e
+	 Hk7rq39ys7eddzm/Skk6nfXmoJIZBJVZnDdD7rbJtFga+XVDyFyYEDjJyfJdP9Y2Vt
+	 rb/jER5CfvGmtQfb87VuvQHb1UgZTCkpnw26sWY8rQ0z0x4vkc0U56YUbxw1o0tQkB
+	 6sQc63NXlLiVQ==
+Date: Tue, 07 Jul 2026 21:05:53 +0200
+Message-ID: <20260707181957.433213175@kernel.org>
 User-Agent: quilt/0.69
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>,
- Kees Cook <kees@kernel.org>,
  Michael Ellerman <mpe@ellerman.id.au>,
  Shrikanth Hegde <sshegde@linux.ibm.com>,
  linuxppc-dev@lists.ozlabs.org,
+ Kees Cook <kees@kernel.org>,
  Huacai Chen <chenhuacai@kernel.org>,
  loongarch@lists.linux.dev,
  Paul Walmsley <pjw@kernel.org>,
@@ -97,10 +97,7 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
  =?UTF-8?q?Michal=20Such=C3=A1nek?= <msuchanek@suse.de>,
  Jonathan Corbet <corbet@lwn.net>,
  linux-doc@vger.kernel.org
-Subject: [patch 02/18] randomize_kstack: Provide
- add_random_kstack_offset_irqsoff()
-References: <20260707181957.433213175@kernel.org>
-MIME-Version: 1.0
+Subject: [patch 00/18] entry: Consolidate and rework syscall entry handling
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +109,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-add_random_kstack_offset() uses get/put_cpu_var() which is pointless
-overhead when it is invoked from low level entry code with interrupts
-disabled.
+Sorry for the long CC list, but this is a treewide change.
 
-Provide a irqsoff() variant, which avoids that.
+Michal recently posted a RFC patch to separate the potential syscall number
+modifications in syscall_enter_user_mode_work() from the information
+whether the syscall should be processed and the return value modified:
 
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Kees Cook <kees@kernel.org>
+  https://lore.kernel.org/lkml/CE1qW@kunlun.suse.cz
+
+The existing logic is:
+
+arch_syscall()
+	regs->result = -ENOSYS;
+
+	syscallnr = syscall_enter_from_user_mode(regs, syscall);
+
+	if (syscallnr != -1L)
+		regs->result = invoke_syscall(regs, syscall;
+
+syscall_enter_from_user_mode() invokes ptrace, seccomp and
+tracing/BPF/Probes. All of them can modify the syscall number.
+
+ptrace and seccomp explicitly set the syscall number to -1L to indicate
+that the syscall invocation needs to be skipped and the result has not to
+be modified as it might have been modified by ptrace or seccomp. The
+tracer/BPF/Probes mechanism can modify the syscall number as well and
+relies implicitly on the -1L logic.
+
+This can obviously not be differentiated from a syscall invocation where
+userspace provided -1 as syscall number.
+
+The general agreement of the discussion was that the current mechanism,
+while functionally correct is non-intuitive and something like Michals
+proposal would make that code clearer and easier to handle on the
+architecture side:
+
+arch_syscall()
+	regs->result = -ENOSYS;
+
+	if (syscall_enter_from_user_mode(regs, &syscall)) 
+		regs->result = invoke_syscall(regs, syscall;
+
+That discussion made me look deeper into the related code and as usual
+there were a lot of other things to discover.
+
+  1) Stack randomization
+
+     add_random_kstack_offset() can only be invoked after
+     enter_from_user_mode() established proper state as it calls into
+     instrumentable code.
+
+     PowerPC got that wrong and the other architectures either invoke it
+     after enter_from_user_mode() or after syscall_enter_from_user_mode().
+
+     The latter is suboptimal as the randomization takes place after all
+     the user mode entry work. Aside of that add_random_kstack_offset()
+     uses get/put_cpu_var(), which makes it usable in preemptible code, but
+     when invoked in the interrupt disabled region that's pointless
+     overhead.
+
+  2) As discussed in the above thread just changing the function signature
+     of syscall_enter_from_user_mode[_work]() so they take a pointer
+     argument for the syscall and then return 0 on success is not really
+     intuitive either. Aside of that this breaks the implicit assumption of
+     the tracer when setting the syscall number to -1.
+
+  3) The x86 entry code has some historically accumulated oddities
+
+The following series addresses this by:
+
+  1) Providing new [syscall_]enter_from_user_mode() variants, which include
+     stack randomization and utilize a new add_random_kstack_offset_irqsoff()
+     variant, which avoids the get/put_cpu_var() overhead and converting all
+     usage sites over
+
+  2) Picking up Jinjie's seccomp patch from:
+
+     https://lore.kernel.org/lkml/20260629130616.642022-2-ruanjinjie@huawei.com
+
+     and addressing the feedback (renaming the seccomp functions)
+
+  3) Making the ptrace and tracer related functions return a boolean value
+     to indicate syscall permission
+
+  4) Addressing the x86 oddities
+
+  5) Converting the tree over to the new scheme
+
+With that all architectures using the generic syscall entry code follow the
+same scheme, apply stack randomization at the correct and earliest possible
+place and skip syscall processing depending on the boolean return value of
+syscall_enter_from_user_mode[_work]().
+
+There should be no functional changes, at least there are none intended.
+
+The resulting text size for the syscall entry code on x8664 is slightly
+smaller than before these changes.
+
+Testing syscall heavy workloads and micro benchmarks shows a small
+performance gain for the general rework, but the last patch, which changes
+the logic to be more understandable has no measurable impact in either
+direction.
+
+The series applies on Linus tree and is also available from git:
+
+        git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git entry-rework-v1
+
+Thanks,
+
+	tglx
 ---
- include/linux/randomize_kstack.h |   19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ Documentation/core-api/entry.rst      |   33 +++++---
+ arch/alpha/kernel/ptrace.c            |    4 -
+ arch/arc/kernel/ptrace.c              |    2 
+ arch/arm/kernel/ptrace.c              |    4 -
+ arch/arm64/kernel/ptrace.c            |    4 -
+ arch/csky/kernel/ptrace.c             |    4 -
+ arch/hexagon/kernel/traps.c           |    2 
+ arch/loongarch/kernel/syscall.c       |   17 +---
+ arch/m68k/kernel/ptrace.c             |    4 -
+ arch/microblaze/kernel/ptrace.c       |    2 
+ arch/mips/kernel/ptrace.c             |    4 -
+ arch/nios2/kernel/ptrace.c            |    2 
+ arch/openrisc/kernel/ptrace.c         |    2 
+ arch/parisc/kernel/ptrace.c           |   12 +--
+ arch/powerpc/kernel/syscall.c         |    5 -
+ arch/riscv/kernel/traps.c             |   14 +--
+ arch/s390/kernel/syscall.c            |   11 +-
+ arch/sh/kernel/ptrace_32.c            |    4 -
+ arch/sparc/kernel/ptrace_32.c         |    2 
+ arch/sparc/kernel/ptrace_64.c         |    2 
+ arch/um/kernel/ptrace.c               |    2 
+ arch/um/kernel/skas/syscall.c         |    2 
+ arch/x86/entry/syscall_32.c           |   70 +++++++------------
+ arch/x86/entry/syscall_64.c           |   61 ++++++----------
+ arch/x86/entry/vsyscall/vsyscall_64.c |   14 +--
+ arch/x86/include/asm/entry-common.h   |    1 
+ arch/x86/include/asm/syscall.h        |   10 --
+ arch/xtensa/kernel/ptrace.c           |    5 -
+ include/asm-generic/syscall.h         |    4 -
+ include/linux/entry-common.h          |  125 ++++++++++++++++++++--------------
+ include/linux/irq-entry-common.h      |    6 -
+ include/linux/ptrace.h                |   13 +--
+ include/linux/randomize_kstack.h      |   19 +++++
+ include/linux/seccomp.h               |   12 +--
+ kernel/entry/syscall-common.c         |    7 +
+ kernel/seccomp.c                      |   35 ++++-----
+ 36 files changed, 264 insertions(+), 256 deletions(-)
 
---- a/include/linux/randomize_kstack.h
-+++ b/include/linux/randomize_kstack.h
-@@ -77,8 +77,27 @@ static __always_inline u32 get_kstack_of
- 	}								\
- } while (0)
- 
-+/**
-+ * add_random_kstack_offset_irqsoff - Increase stack utilization by a random offset.
-+ *
-+ * This should be used in the syscall entry path after user registers have been
-+ * stored to the stack. Interrupts must be still disabled.
-+ */
-+#define add_random_kstack_offset_irqsoff()					\
-+do {										\
-+	lockdep_assert_irqs_disabled();						\
-+	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,		\
-+				&randomize_kstack_offset)) {			\
-+		u32 offset = prandom_u32_state(raw_cpu_ptr(&kstack_rnd_state));	\
-+		u8 *ptr = __kstack_alloca(KSTACK_OFFSET_MAX(offset));		\
-+		/* Keep allocation even after "ptr" loses scope. */		\
-+		asm volatile("" :: "r"(ptr) : "memory");			\
-+	}									\
-+} while (0)
-+
- #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
- #define add_random_kstack_offset()		do { } while (0)
-+#define add_random_kstack_offset_irqsoff()	do { } while (0)
- #endif /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
- 
- #endif
 
 
 _______________________________________________
