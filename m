@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208D4C43602
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 06:08:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B5E3C43458
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 06:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NTRsj1g1OIW+RsF+vNudYtqsXx/9z70GOEZ2JT6klAw=; b=M1oLuCCnMXveYP
-	L1eUJb/fYg80lhU/jbgdhPV4I6GhS5eigbKpt44CO7jtd1n3O6qUF+0QzFe4BTPo8tRLa21eoRMRy
-	pDvkyiyZxce3ODolpw57GrjvIDPULtvmyWiM3s/zNqwAC2C6KKJ/FbtEsfGjeyTM0aQTrMjVPqbwq
-	GgNrceaXk2vMO3Pf5FXiNbAvz0cnHq8pWhn9tRVONRTRBFv/MaNB9j2okMS486oibS7gFwBmNt1ZT
-	0z5yBDo8oxFZ97cdflGnOrkrR5AwSHdQ8yPG+t9WjBPuPAbMVtewR8m8z16Y5zJPjxTfBwMdsP6mq
-	JLjfnjIEdxV9XIKSoDbA==;
+	List-Owner; bh=nNViIKYHSMWmfymyZbaF0N+Xnl5nxxcNOwKqlPaS79k=; b=Iw6FcCYR+bWVAt
+	cwHRTK+btKT9XkYTv9TadlXfWXOHSRr700gjowjY0i5Xw/xDsCQ1p8S3aRu9GP3rPXLZL7AdSeQRB
+	qKcx1ewFK6CnTg4xm/UkQKvvIvM6buwUJt4U0iGmtqb07oqhJTDWjqQL171Hya9J2qDzP4JPlDhwR
+	X1ZGsOMdB5g/7hLgo/ko/XT8+2GKYxd7UGAUv+LN4Z4dQx3fJkvp+/5MKfzMTOJyigHlVGbbRLhqu
+	kTOpt9lUB5WB0Z1Mv+jpVrsOFtMMTJK9JAQKvzEIbxIDWsbTGyliZQHAXUs1IdjPLzxZ1ET1lyQGf
+	yJeGoVP/nwi5RkuVDMWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgyyt-0000000EAeA-1oLA;
-	Tue, 07 Jul 2026 06:08:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgz0k-0000000EAnL-2giE;
+	Tue, 07 Jul 2026 06:10:26 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgyyr-0000000EAdu-3FDH
+	id 1wgz0i-0000000EAmt-2V5r
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 06:08:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED94261897
-	for <linux-riscv@lists.infradead.org>; Tue,  7 Jul 2026 06:08:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A67BF1F000E9
-	for <linux-riscv@lists.infradead.org>; Tue,  7 Jul 2026 06:08:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783404508;
-	bh=S1aeP97yylgk0q1gm2EoL15Tj+ZSUMdIt7IJmejCISE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=amuusODhUNcpG+aNvo/8nf2PMqoRUdfTxVAKMCJcggdvo2WzppXXp3eYeEY9PeiN4
-	 RS+OMp+b994AAy1lqQby6ZeuINcBslTbiP38sVA4mrdQzfPEJ1wmd+An3EnY+fbJtD
-	 3GjlabhSM4eZu/4Z1ruyCIsbFsQCWaVeJMsHb2RjqNjHxcAJPafzEmoTKBZj9w2ebO
-	 xOVS+yeWYt37gsFuwvTE9Cx+k77hd1NRY8ZCRkqk1FIgupEaAQL6MMMx3OBVuAujJm
-	 xexojw9+QQ6ErqjG0kmcHi1m3o+M2M443qd/vnqIGLkc1hqrCNlw+U/c7sTw1YGox5
-	 4aBwW86T+6Rag==
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8143daf89c7so35558297b3.1
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2026 23:08:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrNtLIuFizdrftlSMxTlzD+zRhmVdjQSQ8KfKejjtdil/BO5U4e+XmAD97/hoqh6EhHeSdmFUkLqP8H2g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziDyNatz9FMI2QPCuLwtuTe+Nc2caeeVk2jcHDLNkG6gddzyVC
-	f9ggvFXkIB78Gqhfh/2ig3zdFghHCU6znnV4cKaWKq9zPJn1hZdtlYPRw6ybm5TZZ0GvIRNMR1T
-	EiVkvgOpLuSANI0YZz+OFnPPrywbWLZ4=
-X-Received: by 2002:a05:690c:c452:b0:7f8:7e11:d023 with SMTP id
- 00721157ae682-81be2d7a098mr27493797b3.49.1783404508016; Mon, 06 Jul 2026
- 23:08:28 -0700 (PDT)
+	Tue, 07 Jul 2026 06:10:26 +0000
+Date: Tue, 7 Jul 2026 08:10:19 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1783404619;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0G9aukPV8pHjfG+rgqcQ/xQgpRWVh1vDYEUguo9B9Ag=;
+	b=ZwmlMDRN9xRHfKOH5ruRR1URwK7dGw9QLIo/Qh0p5RPvQiLOMmbvkJHa+C1B/tAF1xi7OC
+	20fO60M/VWCv1vtHjBCf52h+pqyXJ/5toDs0w07W0z7YpSyhRmEM7KkA9HwCNBcHKApK4C
+	etG9k7ICTkBGR0zg3mNq6YQUUwfkDdeJNuOs4AccYHNfqIwn9AGL52TPKzdDXInSOBTIqM
+	RGQ64SNvm57vbngaxCUM6O/xCVcLxboCaXCd1W91xOKwLtpxLRdQ1si92oJOAaCUZkUBPu
+	gV6Jbb5haelguk1Q8vJfZT/rdvFonH4uvUAVlR64Uyfm8uV8lc1n/ROAtmc7qA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1783404619;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0G9aukPV8pHjfG+rgqcQ/xQgpRWVh1vDYEUguo9B9Ag=;
+	b=sy2kZwDTxAMLzqOr8h49dlNPDrKsyK/x6j4NGuclLiX5Jz+hKAwucdCw92/wYzD7GQORNZ
+	iQTynay+/hT3JeAA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Conor Dooley <conor.dooley@microchip.com>, Wende Tan <twd2.me@gmail.com>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Nam Cao <namcao@linutronix.de>, kernel test robot <lkp@intel.com>, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: vdso: Do not use LTO for the vDSO
+Message-ID: <20260707080753-4e88aca1-b88d-4f6c-b37a-f7f3064bda5e@linutronix.de>
+References: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de>
+ <20260701-riscv-vdso-lto-v1-1-89db0cd82077@linutronix.de>
+ <20260706210158.GA73349@ax162>
 MIME-Version: 1.0
-References: <20260629140048.733346-1-pulehui@huaweicloud.com>
- <CAJ+HfNhn9eK+3xsd3ewEsG-duCgBeYXeLAtNan=qefas2Ya0dQ@mail.gmail.com>
- <d6647f5eb213d2ece82753285a79f28f600420d7.camel@gmail.com> <b4ca552c-58b6-49dd-bd83-dc27ca49368a@huaweicloud.com>
-In-Reply-To: <b4ca552c-58b6-49dd-bd83-dc27ca49368a@huaweicloud.com>
-From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Date: Tue, 7 Jul 2026 08:08:15 +0200
-X-Gmail-Original-Message-ID: <CAJ+HfNiHMzcB6BsW3gER1-2X9EgSDnjzJ4r=ijQuPvKHx2U_FQ@mail.gmail.com>
-X-Gm-Features: AVVi8CeF4tOKsvACopP39T59swPHySqB9E_OsWFganTcvFVBHkNmkbvFlwPOfA8
-Message-ID: <CAJ+HfNiHMzcB6BsW3gER1-2X9EgSDnjzJ4r=ijQuPvKHx2U_FQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v4 0/6] Mixing bpf2bpf and tailcalls for RV64
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: Eduard Zingerman <eddyz87@gmail.com>, bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Pu Lehui <pulehui@huawei.com>
+Content-Disposition: inline
+In-Reply-To: <20260706210158.GA73349@ax162>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_231024_803825_A1D6098C 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +78,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGV5IQoKT24gVHVlLCA3IEp1bCAyMDI2IGF0IDAzOjMxLCBQdSBMZWh1aSA8cHVsZWh1aUBodWF3
-ZWljbG91ZC5jb20+IHdyb3RlOgo+Cj4KPgo+IE9uIDIwMjYvNy83IDM6MjksIEVkdWFyZCBaaW5n
-ZXJtYW4gd3JvdGU6Cj4gPiBPbiBNb24sIDIwMjYtMDYtMjkgYXQgMTY6MjEgKzAyMDAsIEJqw7Zy
-biBUw7ZwZWwgd3JvdGU6Cj4gPgo+ID4gSGkgQmrDtnJuLAo+ID4KPiA+IEknbSB3b3JraW5nIHRo
-cm91Z2ggYnBmIHBhdGNoZXMgcXVldWUgYW5kIGhhdmUgYSBxdWVzdGlvbiByZWdhcmRpbmcKPiA+
-IHRoaXMgc2VyaWVzLiBXaGF0J3MgeW91ciBzdGFuY2UsIGRvZXMgaXQgbmVlZCBjaGFuZ2VzIG9y
-IGNhbiBJIGFwcGx5Cj4gPiBpdCB0byBicGYtbmV4dD8KPgo+IEhpIEVkdWFyZCwKPgo+IEkgbmVl
-ZCB0byBzZW5kIG91dCBhIG5ldyB2ZXJzaW9uIHRvIGFkZHJlc3MgdGhlIGlzc3VlIHNhc2hpa28g
-bWVudGlvbmVkLgo+IEl0J3MgYWxyZWFkeSBmaXhlZCBsb2NhbGx5LCBhbmQgSSdsbCBzZW5kIGl0
-IG91dCBhZnRlciBCasO2cm4ncyByZXZpZXcKPiBmZWVkYmFjay4KCkkgaGFkIGEgbG9vayBhdCB0
-aGUgc2VyaWVzLiBJIGhhdmUgbm90aGluZyB0byBhZGQsIG90aGVyIHRoYW4gd2hhdApTYXNoaWtv
-IGhhZCwgUGxlYXNlIHNlbmQgb3V0IHRoZSBuZXh0IHZlcnNpb24hCgpOaWNlIHdvcmshCgoKQmrD
-tnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, Jul 06, 2026 at 02:01:58PM -0700, Nathan Chancellor wrote:
+> On Wed, Jul 01, 2026 at 11:21:22AM +0200, Thomas Wei=DFschuh wrote:
+> > With LTO enabled the compiler assumes that the vDSO functions are not
+> > used and optimizes them away completely. Currently this happens to
+> > __vdso_clock_getres(), __vdso_clock_gettime(), __vdso_getrandom(),
+> > __vdso_gettimeofday() and __vdso_riscv_hwprobe().
+> > =
+
+> > Disable LTO for the vDSO, as these functions are hand-optimized anyways.
+> > =
+
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202606301855.WvkSC4kD-lkp=
+@intel.com/
+> =
+
+> While this change seems correct, is this really the fix for that report?
+> It seems like that error happens in clang but I would expect this sort
+> of issue to only appear once LTO has run through ld.lld?
+
+At this point the vDSO userspace library has already run through ld.lld.
+That has optimized away the futex symbols, which means their offsets are not
+defined when building the regular vDSO *kernel* code.
+
+> > Fixes: 021d23428bdb ("RISC-V: build: Allow LTO to be selected")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> > ---
+> >  arch/riscv/kernel/vdso/Makefile | 6 +++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> > =
+
+> > diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/M=
+akefile
+> > index a842dc034571..43ee881f6c6f 100644
+> > --- a/arch/riscv/kernel/vdso/Makefile
+> > +++ b/arch/riscv/kernel/vdso/Makefile
+> > @@ -69,9 +69,9 @@ CPPFLAGS_$(vdso_lds) +=3D -DHAS_VGETTIMEOFDAY
+> >  endif
+> >  =
+
+> >  # Disable -pg to prevent insert call site
+> > -CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> > -CFLAGS_REMOVE_getrandom.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> > -CFLAGS_REMOVE_hwprobe.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> > +CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $=
+(CC_FLAGS_LTO)
+> > +CFLAGS_REMOVE_getrandom.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(CC_=
+FLAGS_LTO)
+> > +CFLAGS_REMOVE_hwprobe.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS) $(CC_FL=
+AGS_LTO)
+> >  =
+
+> >  # Force dependency
+> >  $(obj)/$(vdso_o): $(obj)/$(vdso_so)
+> > =
+
+> > -- =
+
+> > 2.55.0
+> > =
+
+> =
+
+> -- =
+
+> Cheers,
+> Nathan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
