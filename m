@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBC6C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 02:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FCCBC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 03:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xXC7hNibclN+FYSZ2B1AMDlc+EwAzj91L33o/rA9QF8=; b=wyj82yqLcJeweR
-	Xp+GAgheXJST0Iy+Tz3Yj0zC+Xs6mpkexJmTRxd82hHqeV1LlvYuBAsBzMY3V7lnF93HRdguQxycL
-	hdRaXfWmTYwVFgrxYpETNvu6m3koQh6z/IPoLOgbvYUkWqBMnr3h+qkJCHkCdQgCr4Dv5ELkNalHn
-	LfXv8BQ3x5yI5ZU8vJ2O+GvGfUaf+F+D4+S4iZ+KJM5I8qbLh9gPByBuv+OfFjHOU/BmnP/SJpar9
-	Aee3U7McbHECzW1bsTridt4mpheZBJs3+jLes28inpwhKhJMVDojYssqsL9W9kfcnpPn+aCU0zLe8
-	pOW5oVpUCIqWCcw1hXWw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZfsfiNOhlHCSuAh6fiCFPyquIDQdrHUWc4mti+fg7W0=; b=jOPqLLf9lG22Oo
+	udPHNjb6FE99R05goADLe2BWGQpx1oHWAln/tPcUnb/hixFkczualiw5npCKnNQ+S790R5Yx70tfz
+	1w7IPPRSHg0rzFBO4FHF6UhAbGxovbMb279uGl/w5wMiNGzwp3AbWU7OhVDrhzcLVwuORGotEJfJg
+	og5Ubi1+0vm9aroDcmK1o17F34RGt+eKNDmsSY2ZnPTEVquKCvcueblTqqyRYHpQ1dbcA6zz4KNii
+	u/g7z/tcrhmnfZqElVQN40ln/Rhe6rAPmTYPvhBTxAcuoIdfh0j1UV6aAadd0acaiQwaGdTf8uflc
+	5pXaM+TUV6B8yfzXUyMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHrI-0000000G975-3fja;
-	Wed, 08 Jul 2026 02:17:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHrH-0000000G96u-1EBq
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 02:17:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C395432AD;
-	Wed,  8 Jul 2026 02:17:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FBE81F000E9;
-	Wed,  8 Jul 2026 02:17:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783477074;
-	bh=kIHZQkBG4dVsKYZdSJUwIGIZF8zO/xu9yTXMYf0l6VQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y6UWUk8VT6ihOiUv++Oz7SIr67DpWO6YoStjUxH4/PfZiOWTU0OcaZf892wY1UDvP
-	 F0MapI4xSAZJ+QFGVi6A50PRDgS1Vujai4RQ6dY6Db+OmxUO7YzwRZnnFSv7nhzYUE
-	 ZZUKUSnWUglSMeq9MhoFk8exLwWi8L+7W3IGwZ7xZVZnzuR1FmLSNn1KHbzkkbGPV5
-	 QvLMJpf0/pSlOaST9j7bjr6enu+n9J/DAPVLsemdgKhFsBbL+E3n2tf2MtZharPatR
-	 6judu/G7/szzJ9gfcZKN0n5pbornbc4f5hVwsbuWJK5YUTGxv3qglsIhW0JzO+0zDo
-	 voCxKcQzB/S3A==
-Date: Wed, 8 Jul 2026 02:17:52 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Jennifer Berringer <jberring@redhat.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k3: Add UFS support
-Message-ID: <20260708021752-GKI35811@kernel.org>
-References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
- <20260702-08-k3-ufs-support-v1-3-1a64a3ab128f@kernel.org>
- <akkSL1nQ5UieqHNs@rhdev>
+	id 1whJ4m-0000000GFTk-1SJc;
+	Wed, 08 Jul 2026 03:35:56 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whJ4i-0000000GFSL-05Pf;
+	Wed, 08 Jul 2026 03:35:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=yIm/R+UfKG6ozRg3WZyqHLKZhdaLouDOHlH/xTo8KtU=; b=jmTOj9Z1zbuC8
+	QTDDjncUaA/bNYyRHJ11FQsetLK1gwXc5nbWf2nQfL2B6swi+Xd1k+L68m1xrf3j
+	25SkZ4VNGAGxxp6CDJNLd0zlEL+IPVxP5lTI5X3hlbllufFDyPrUgC5O32m9iRxz
+	J1Qlyy07tgENMe1GDWn7IDiCG/pOsU=
+Received: from [127.0.1.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cUKoxU1qq0gPAA--.15489S2;
+	Wed, 08 Jul 2026 11:36:08 +0800 (CST)
+From: Xie Bo <xb@ultrarisc.com>
+To: Anup Patel <anup@brainfault.org>, kvm-riscv@lists.infradead.org
+Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Paolo Bonzini <pbonzini@redhat.com>,
+ Alexander Graf <graf@amazon.com>, kvm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Xie Bo <xb@ultrarisc.com>
+Subject: [PATCH v2 0/1] RISC-V: KVM: Serialize virtual interrupt pending state updates
+Date: Wed, 08 Jul 2026 11:35:36 +0800
+Message-ID: <178348173646.64306.17443207006998871369@ultrarisc.com>
+X-Mailer: python-smtplib kernel patch sender
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <akkSL1nQ5UieqHNs@rhdev>
+X-CM-TRANSID: AQAAfwA3cUKoxU1qq0gPAA--.15489S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw48Ww1rur15Aw1DCw48WFg_yoW8KF43pF
+	Z8G34Sgr1kJrWfCwn3Jr48Zr1SgF1kGa15Grn7G347Ars0vF10vF1kKa4jyF1UCr97Zw1j
+	vr4YgryDu3yUZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
+	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
+	xVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
+	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
+	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
+	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU5byZUUUUU
+X-CM-SenderInfo: l0e63zxwud2x1vfou0bp/1tbiAQABB2pMd84ABQABsc
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_203552_708074_4FFBE2AF 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +86,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jennifer,
+Hi,
 
-On 10:01 Sat 04 Jul     , Jennifer Berringer wrote:
-> On Thu, Jul 02, 2026 at 02:31:37AM +0000, Yixun Lan wrote:
-> > Add UFS Host Controller support for SpacemiT K3 SoC, and enable
-> > it both on both Pico-ITX and CoM260-IFX boards.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
-> > ---
-> >  arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts |  4 ++++
-> >  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts   |  4 ++++
-> >  arch/riscv/boot/dts/spacemit/k3.dtsi           | 13 +++++++++++++
-> >  3 files changed, 21 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-> > index 238bb03d0e9e..b37e1c7b03e3 100644
-> > --- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-> > +++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-> > @@ -19,3 +19,7 @@ chosen {
-> >  		stdout-path = "serial0:115200n8";
-> >  	};
-> >  };
-> > +
-> > +&ufshc {
-> > +	status = "okay";
-> > +};
-> 
-> I believe k3-com260.dtsi would be a more fitting file for this change.
-> UFS is soldered on the underside of the compute module and not part of
-> the carrier board.
-> 
-Right, I agree
+This is v2 of the RISC-V KVM virtual interrupt synchronization fix.
 
-> Because it is next to the microSD card slot, a picture showing both can
-> be seen in section 5.12 (TF-Card Interface) of the PDF version of the K3
-> CoM260 User Guide. That picture is notably not visible in the HTML
-> version.
-> 
-> https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k3_com260/com260_user_guide.md
-> 
-> > diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > index b89c1521e664..f1560a5a9031 100644
-> > --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > @@ -221,3 +221,7 @@ hub@1 {
-> >  &usb2_phy {
-> >  	status = "okay";
-> >  };
-> > +
-> > +&ufshc {
-> > +	status = "okay";
-> > +};
-> 
-> Nit: if sorted by label, ufshc would be before usb2_host.
-> 
-Right, will sort in next version
+The first version described the irqs_pending/irqs_pending_mask race, but
+it did not provide enough context on:
+
+  - the exact lost-interrupt interleaving
+  - the user-visible failure mode
+  - why the existing lockless protocol is replaced instead of being
+    repaired with additional barriers
+  - what was exercised during validation
+
+This version updates only the commit message and keeps the code change
+the same.
+
+Problem summary
+===============
+
+The current code treats irqs_pending and irqs_pending_mask as a lockless
+multiple-producer, single-consumer state machine.  In practice,
+kvm_riscv_vcpu_sync_interrupts() is not a pure consumer because it also
+writes both bitmaps while synchronizing guest-visible HVIP state back
+into KVM state.
+
+That means the two bitmaps represent one logical state transition, but
+they are updated independently.  A host-side interrupt injection can
+race with guest-side VSSIP clearing and lose the newly injected pending
+bit.
+
+Observed symptom
+================
+
+The failure that motivated this patch was an occasional guest hang where
+the guest remained blocked in WFI even though host-side virtual
+interrupt injection and vCPU kick had already happened.
+
+Why replace the lockless protocol
+=================================
+
+This is not just a missing barrier.  The bug comes from encoding one
+shared state machine in two separate bitmaps while allowing both
+producers and the sync path to modify them.
+
+Repairing that while staying lockless would require redesigning the
+state transition protocol itself.  A per-vCPU raw spinlock makes the
+state transition explicit and keeps the fix small enough for stable
+backporting.
+
+Validation
+==========
+
+The issue was reproduced under RISC-V KVM stress workloads that exposed
+guest stalls in WFI.  After applying this patch, the same stress setup
+no longer reproduced the lost-VSSIP hang.
+
+Thanks,
+Xie Bo
+
+Xie Bo (1):
+  RISC-V: KVM: Serialize virtual interrupt pending state updates
+
+ arch/riscv/include/asm/kvm_host.h | 10 +++++-----
+ arch/riscv/kvm/aia.c              | 28 +++++++++++++++++++++-------
+ arch/riscv/kvm/vcpu.c             | 27 ++++++++++++++++++++++-----
+ arch/riscv/kvm/vcpu_onereg.c      | 13 +++++++++----
+ 4 files changed, 57 insertions(+), 21 deletions(-)
 
 -- 
-Yixun Lan (dlan)
+2.54.0
+
 
 _______________________________________________
 linux-riscv mailing list
