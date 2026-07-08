@@ -4,54 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56749C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 07:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A131FC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 07:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vjSBYIEXBCL1f9cu98w7jaFOxxkv+9kmrahE9b29GJk=; b=v2HDA+7iVIB9mSYO5vMmh/HkAR
-	uuvtBAHt1GtxoleOQsKPbmr53QpqLLCpHCf6WbN00aFpGegjODKX9qvxFDZnEb93+ZU3YlqC8FocF
-	22lIowXpp0Xjf6umqAauOzduUWc0O7KWagvorLvN4YPLd860XT/v7s8IFbCyLcryt9PXeVVcQK3Bo
-	tM4gGTVzYJ27Bs/ZpWzClLPZiUfpx3Dm5vMOjiJJ/TGUSinQSqQsCwTT3+yEFqvGOJg/m2UvPoGM3
-	wcs/PuTWZ04Jj8F1vT/HBWiLsO7OApBDJNmzo4mv+7S2evmXrLcmHH7fZUoz9iz63Wc61ocI+fXF0
-	7/+CvFxA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HJ0NQbNuelctGk/bRrrybxKEy+JCHH3iiZjFv/g9hhk=; b=hevexM+pIX9/2O
+	Xn2KjWqLARnK0c7W1LwmSv2QNddMYLN4eQZvu6ApzO1DMFiMRqb/DFhfItFDKZCK4IA8H7xzMvWwO
+	Pm8biVkkHDPuz20XrYrb/4gZfKEF6B05nEedVrQyzqVcCe08jLwubdFVEi0xx3KgdPbB9PaTkeYEc
+	d55MNd2iMNMOFC+nunh6ychQvZzltZL5PCwf83KT61cAqTg5EZt4sBMvnHqD6Z3dUv+oAPpgyKYkg
+	nC6eyD742pbHurLyjGbecbg+XdhFViwNxEnNeD3nuHCcQZW/q+Kn8sEwi40p6NOrEhJ3wl4pGfxK2
+	u9GsBWPRf1pSNe0ngGow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMoS-0000000GW6F-1KiH;
-	Wed, 08 Jul 2026 07:35:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whMsa-0000000GWWZ-13aj;
+	Wed, 08 Jul 2026 07:39:36 +0000
+Received: from 82-65-109-163.subs.proxad.net ([82.65.109.163] helo=luna.linkmauve.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMoQ-0000000GW69-3DGB
+	id 1whMsW-0000000GWW4-3UpG
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 07:35:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2ECE243727;
-	Wed,  8 Jul 2026 07:35:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEA9B1F000E9;
-	Wed,  8 Jul 2026 07:35:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783496118;
-	bh=P57j/DWZB4+uEQI3XzfbJrp9QFW+ToKKA6MqRAvGAcw=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=LvieW4vl02wqy6B0cNtWpTJMX9qyAs4jd13SEp/glDJvlxkVdfqf6aW7qT4bPmjI2
-	 zARSqr+w/s1UhtZJ1MM8BoqipYjbZue0KwLZrFlw2KZP508hjXac4NC5L+4WKdduZo
-	 OdqrTKcbDT1RsxYw7+gNYLmuOatMjGSJfEQT9i5WBa6p0YN8386Hb2yfNTBY3WlR0E
-	 zpwZRFRIfa7/VTjrCWiUr8X2tsHGXoOADGDoyqJbC72Ou015x3CwDI7c9ak7ci8Q0G
-	 LxfY8M5ZY5paEJein5LsBQjUTLGQ23qkwISXV8NlKPfaarcV8GeQ9Onf1SnkC+qBTL
-	 K00aL8d2TWYEw==
-Content-Type: multipart/mixed; boundary="===============3837806813243507359=="
+	Wed, 08 Jul 2026 07:39:34 +0000
+Received: by luna.linkmauve.fr (Postfix, from userid 1000)
+	id 1183CF40CC8; Wed, 08 Jul 2026 09:39:25 +0200 (CEST)
+Date: Wed, 8 Jul 2026 09:39:25 +0200
+From: Link Mauve <linkmauve@linkmauve.fr>
+To: Guru Das Srinagesh <linux@gurudas.dev>
+Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH] pwm: th1520: use vertical import style
+Message-ID: <ak3-rU3IRYaLTCC5@luna>
+References: <20260705-pwm-rust-vert-imp-v1-1-753dbbfc6061@gurudas.dev>
 MIME-Version: 1.0
-Message-Id: <a721df30ec2f824295000183c8e91f2c19d0bd56ae115b835b402be9eacc1c71@mail.kernel.org>
-In-Reply-To: <20260708064436.2971933-7-pulehui@huaweicloud.com>
-References: <20260708064436.2971933-7-pulehui@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v6 6/7] riscv, bpf: Mixing bpf2bpf and tailcalls
-From: bot+bpf-ci@kernel.org
-To: pulehui@huaweicloud.com,bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org
-Cc: bjorn@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,john.fastabend@gmail.com,kpsingh@kernel.org,sdf@fomichev.me,haoluo@google.com,jolsa@kernel.org,puranjay@kernel.org,pjw@kernel.org,palmer@dabbelt.com,alex@ghiti.fr,pulehui@huawei.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Wed,  8 Jul 2026 07:35:17 +0000 (UTC)
+Content-Disposition: inline
+In-Reply-To: <20260705-pwm-rust-vert-imp-v1-1-753dbbfc6061@gurudas.dev>
+Jabber-ID: linkmauve@linkmauve.fr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_003933_020410_72D6B8BA 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,112 +75,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3837806813243507359==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Sun, Jul 05, 2026 at 07:52:05PM -0700, Guru Das Srinagesh wrote:
+> Convert `use` imports to vertical layout for better readability and
+> maintainability.
+> 
+> Signed-off-by: Guru Das Srinagesh <linux@gurudas.dev>
+> ---
+> Came across a recent commit bc58905eb07 ("samples: rust_misc_device: use
+> vertical import style") and found a few more locations that could
+> benefit from this cleanup. No functional changes.
+> 
+> Separating out patches per-subsystem as per the review feedback in [0].
+> 
+> Tested via:
+> 
+>     $ make LLVM=1 rustfmtcheck || echo "fail"
+>     $
+> 
+> [0]: https://lore.kernel.org/lkml/20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev/
+> ---
+>  drivers/pwm/pwm_th1520.rs | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+> index 3e3fa51ccef9..2a3b107157ac 100644
+> --- a/drivers/pwm/pwm_th1520.rs
+> +++ b/drivers/pwm/pwm_th1520.rs
+> @@ -23,15 +23,21 @@
+>  use core::ops::Deref;
+>  use kernel::{
+>      clk::Clk,
+> -    device::{Bound, Core, Device},
+> +    device::{
+> +        Bound,
+> +        Core,
+> +        Device, //
+> +    },
+>      devres,
+>      io::{
+>          mem::IoMem,
+>          Io, //
+>      },
+> -    of, platform,
+> +    of,
+> +    platform, //
 
-> commit 64161f8a9f1c78ecd88b27109e6ed8b53282f94b
-> Author: Pu Lehui <pulehui@huawei.com>
-> Date:   Wed Jul 8 06:44:35 2026 +0000
->
->     riscv, bpf: Mixing bpf2bpf and tailcalls
->
->     In the current RV64 JIT, if we just don't initialize the TCC in subprog,
->     the TCC can be propagated from the parent process to the subprocess, but
->     the updated TCC of the parent process cannot be restored when the
->     subprocess exits. Since the RV64 TCC is initialized before saving the
->     callee saved registers into the stack, we cannot use the callee saved
->     register to pass the TCC, otherwise the original value of the callee
->     saved register will be destroyed. So we implemented mixing bpf2bpf and
->     tailcalls similar to x86_64, i.e. using a non-callee saved register to
->     transfer the TCC between functions, and saving that register to the
->     stack to protect the TCC value. As for the tailcall hierarchy issue,
->     inspired by the s390's low-overhead approach, we store TCC from
->     RV_REG_TCC back to stack after calling bpf2bpf call or calling orig bpf
->     func in bpf trampoline.
->
->     Tests test_bpf.ko and test_verifier have passed, as well as the relative
->     testcases of test_progs*.
->
->     Signed-off-by: Pu Lehui <pulehui@huawei.com>
+Same here, you just need the empty comment after time, not the one after
+platform.
 
-This looks like a bug fix for TCC handling across bpf2bpf calls and
-tailcalls. Should this include:
-
-  Fixes: 2353ecc6f91f ("bpf, riscv: add BPF JIT for RV64G")
-
-> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-> index da02717902442..419b9d795f2a7 100644
-> --- a/arch/riscv/net/bpf_jit.h
-> +++ b/arch/riscv/net/bpf_jit.h
-> @@ -81,6 +81,7 @@ struct rv_jit_context {
->  	int ex_jmp_off;
->  	unsigned long flags;
->  	int stack_size;
-> +	int tcc_offset;
->  	u64 arena_vm_start;
->  	u64 user_vm_start;
+>      prelude::*,
+> -    pwm, time,
+> +    pwm,
+> +    time, //
 >  };
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index 7c6304e0b846a..823262ca47ebf 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
+>  
+>  const TH1520_MAX_PWM_NUM: u32 = 6;
+> 
+> ---
+> base-commit: 1a4920940ebfd8d907858abd8f8dd09b13752946
+> change-id: 20260705-pwm-rust-vert-imp-59a3d18bd0cf
+> 
+> Best regards,
+> --  
+> Guru Das Srinagesh <linux@gurudas.dev>
+> 
+> 
 
-[ ... ]
-
-> @@ -2038,11 +2038,10 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
->  	for (i = 0; i < RV_FENTRY_NINSNS; i++)
->  		emit(rv_nop(), ctx);
->
-> -	/* First instruction is always setting the tail-call-counter
-> -	 * (TCC) register. This instruction is skipped for tail calls.
-> -	 * Force using a 4-byte (non-compressed) instruction.
-> -	 */
-> -	emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
-> +	if (!is_subprog)
-> +		emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
-> +
-> +	/* tailcall starts here, emit insn before it must be fixed */
->
->  	emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
-
-The TCC initialization is now conditionally emitted based on is_subprog.
-Does this affect the RV_TAILCALL_OFFSET calculation?
-
-Looking at the RV_TAILCALL_OFFSET macro definition:
-
-  #define RV_TAILCALL_OFFSET ((RV_FENTRY_NINSNS + 1) * 4)
-
-This assumes a fixed number of instructions before the tailcall entry
-point. When is_subprog is true, the rv_addi() instruction is not emitted,
-which means the tailcall entry point moves forward by 4 bytes relative to
-where RV_TAILCALL_OFFSET expects it to be.
-
-The tailcall entry is used in emit_bpf_tail_call() when calculating the
-jump target for the tail call. If RV_TAILCALL_OFFSET doesn't account for
-the conditional emission, could this cause the wrong entry point to be
-used when tail calling into subprograms?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/28923410500
---===============3837806813243507359==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Link Mauve
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3837806813243507359==--
-
