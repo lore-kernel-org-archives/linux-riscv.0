@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005ADC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 07:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3D0C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 07:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VN8IOboDoWpDsE6qsNnWd9io7i5aXDWahtwkGwo4ENY=; b=Qv2h4b1YycXXc5
-	PVR1FCUXo3GKC/cTnBYqWuMYT1SD0PwzCZ5+X/qwWl4IT5yLgMhpa9PJOffQ68b2m9wprGS1eAQlh
-	fNgA091R15nqGAFo/OO3ca3txLBTrgCF+6oXdAqoOD+HaZTOp4ZN3Y779Tis/qj0Ip6yqL15u5MBX
-	Sciw/VfA0wJa0d1Sc4vNOH9ZioHDEIIUu7oK0MSnAqatWymfwvb79cZJbe50zij9EjVmhGvlKc/62
-	2EXUCKlPlqyLpM/VWsvrx2Zp6Pf5SHooRy4O5Cin0VhM9RvOXgQ/Qn2TrvsSqDlHTIBoaaujIXK9C
-	LvbEOXSozy/DPEN/l4uA==;
+	List-Owner; bh=V+B3ZjEMGo7mhdHG250XP6IZc5JnyLBp8onDcfrwp2o=; b=NeYJTyJbyKkFoz
+	eZDiI9+Gk9orjsBJuB7ITQkF3ayOlmrZ9JDTCozWVgO4ZIvshNDOGYdfm5br0X0+SYNx6MUeQk/Ju
+	ybEJ7e16JzYFJ1hiMI0TYmMFmnJUH/+xMVcM/g38tkKHOLdOFBygrFz4EcI75XR6hYRFaPeq124CI
+	HZWgEPEES8aURf5ctFblvs0isJNvzrIUBq+3rIP68WtoOBG9cFtvix/Sbcp8W8OFxSizd3jZ7h1SE
+	VEw/mf6JnBqgdqyqU/uqDB9F9B6Pw0TCsfr5jK3tOsidfPITLbJ5aBWNGL0O44Ffi7pHlhqOj32Xq
+	X1d3WSXg3UFJcevrDFXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMWf-0000000GTbO-0k5J;
-	Wed, 08 Jul 2026 07:16:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whMbu-0000000GUhq-0bX3;
+	Wed, 08 Jul 2026 07:22:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMWe-0000000GTb5-0Zfr
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 07:16:56 +0000
+	id 1whMbr-0000000GUha-3bGt;
+	Wed, 08 Jul 2026 07:22:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E078B4177C;
-	Wed,  8 Jul 2026 07:16:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 645341F000E9;
-	Wed,  8 Jul 2026 07:16:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 23D3D60008;
+	Wed,  8 Jul 2026 07:22:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 023DB1F000E9;
+	Wed,  8 Jul 2026 07:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783495015;
-	bh=/dRpSm0Wfc3gb2hQ1lfBTFrclpun0KfQynpXPzaG5S8=;
+	s=k20260515; t=1783495338;
+	bh=nXrz1JhJYkK5xTRspbR1Vl1uzVDLKgTjni3ddD1l4bI=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=iDnbou0Rj6/sk1duNwUGKMJ2pWe2fL1AKR0c7OGvlYweLhnQxbfSPk6/9q1QgdfLW
-	 bXxfB6wZh/dJqBsYiVsCSamd4C/efqZvymjgUHz/bPTz/LSl/IeO97IkJQBQgg5KGx
-	 dShWf6EHvFGZsDmLgw0932qKOsobhnMnLrmA1vQZLADmUoYR/uWxcRe+410dJkUV6l
-	 ZMzmy0Pn9Kpw0seMmnK829ZqEJ2PQkqkdn2ZwB98FD3eBN+lQjiFGJM/GIA2FBuX8h
-	 5LKnepT5tW/ZN9NiqfoYuKDo+BgbdG3R7GZMoAPnqcPft+CJ8P4tYmRK9us3kA1u1b
-	 cKaUrdolYK4+g==
-Date: Wed, 8 Jul 2026 01:16:52 -0600 (MDT)
+	b=nyhJAboTtmB+ho6GeJp/6cio7XVRXPa1T6M1RlCOTdimLwLY+xzrwBDvzXmPnsuq2
+	 mv9kWcMCKFUT5hl7fbZz/yRoVLwoiDyfrPuvMYNNe457u1Qi8y4nrWWNh1hj+1HHf/
+	 kMlRCkf16ojSdgwMWOmJnP/Xt4r6lAGeJyY+cwTgGtVksnL5xH2ahCVMK6ZK7kdvF7
+	 sOO+nEwHzJ/CgmE5o5O4yWIOECzDqCWI9LPuaq2vQ/039UdRwdVTpQFjPt9z5e4/Gf
+	 8L+rEg0VswcoNaRSrv3siM9TIOYteqCLPc7HQOwTZHDpYhIv6s5BweMF7b25+fy9vl
+	 B76dTAN3GGf4Q==
+Date: Wed, 8 Jul 2026 01:22:16 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    pjw@kernel.org, palmer@dabbelt.com, Andy Chiu <tchiu@tenstorrent.com>
-Subject: Re: [PATCH] selftests: riscv: Bypass libc in inactive vector ptrace
- test
-In-Reply-To: <20260707153827.175245-1-andrew.jones@oss.qualcomm.com>
-Message-ID: <7d7bcba8-7fe7-a7ed-c493-17f8c82dc37d@kernel.org>
-References: <20260707153827.175245-1-andrew.jones@oss.qualcomm.com>
+To: Guodong Xu <docular.xu@gmail.com>
+cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>, 
+    Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+    Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+    Chen Wang <chen.wang@linux.dev>, linux-doc@vger.kernel.org, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+    Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
+    Jesse Taube <jtaubepe@redhat.com>, 
+    Charlie Jenkins <thecharlesjenkins@gmail.com>, 
+    Andrew Jones <andrew.jones@oss.qualcomm.com>, devicetree@vger.kernel.org, 
+    spacemit@lists.linux.dev, sophgo@lists.linux.dev, 
+    linux-kselftest@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 01/17] dt-bindings: riscv: sort multi-letter Z extensions
+ alphanumerically
+In-Reply-To: <20260701-rva23u64-hwprobe-v2-v5-1-2c61f94a695a@gmail.com>
+Message-ID: <a9f1aaa4-aca9-64fa-bf1c-100297a42d22@kernel.org>
+References: <20260701-rva23u64-hwprobe-v2-v5-0-2c61f94a695a@gmail.com> <20260701-rva23u64-hwprobe-v2-v5-1-2c61f94a695a@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,23 +83,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Jul 2026, Andrew Jones wrote:
+On Wed, 1 Jul 2026, Guodong Xu wrote:
 
-> The ptrace_v_not_enabled test expects the child to reach its ebreak
-> before it has used the vector extension. That is not guaranteed when
-> using fork(), because libc may run child atfork handlers before
-> returning to the test code. In those cases PTRACE_GETREGSET for
-> NT_RISCV_VECTOR then succeeds instead of returning ENODATA for
-> inactive vector state.
+> The multi-letter extension enum is documented as being sorted
+> alphanumerically (see the "multi-letter extensions, sorted
+> alphanumerically" comment), but several Z entries have drifted out of
+> order.
 > 
-> Use the raw clone syscall with SIGCHLD to keep fork-like semantics
-> while bypassing libc's fork wrapper and atfork handler chain.
+> Reorder the affected entries so the multi-letter Z list is sorted
+> alphanumerically again.
 > 
-> Cc: Andy Chiu <tchiu@tenstorrent.com>
-> Assisted-by: Claude:claude-sonnet-4-6
-> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
 
-Thanks, queued for v7.2-rc.
+Thanks, will plan to send this for v7.2-rc.
+
 
 - Paul
 
