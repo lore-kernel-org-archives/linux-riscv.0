@@ -4,105 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843D7C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 06:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60209C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 06:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j5d4/oLIdTM5P55ke997G5kxCx4jOWIiURphifSr1rM=; b=D7wucbAmQwdgkL
-	c+vf4p5yG9eVM6CUYTg0IseTvVhQleeqqcfDNiYucXuz7dCEOuBX+injJ3kCKr5zOed8Gi0a/Uq2Y
-	3Ew1lEV+yi9dhyguEZShcAoq8yXmtQnl9o1gRhvPvbErELDuJV+5IyPYeyngcNMJWIIrAf5ndXo6h
-	k8IrzkTq74c6iJ1RX51KOfwbGpaPkr0VH0UAp6AROOdWpYp0NCjxepiexjLjZiLzZgN9EIEyj6cGe
-	iNUy1daZnO1UBDgTLKRSqrCIguf+4FXFkamXdVUwmAZpeThNShXXofzFps/E7Bdvj2KXGBGHWRhG4
-	FpufnBXYWxtChf6fdDnA==;
+	List-Owner; bh=KxGQK8/pc3aQW9SRrWSmUPCejcZwQ4aKbZSGIo6G8UA=; b=NRxz1RgN41Q330
+	l5CaPJgG0owyMKWYgWDG5yiNg8YIE0YYlrY9qVFiqiBFwv7iVu0OyhRbDpOtokj1w27utA7uX+6hN
+	sMhNuUFQyz8Dm4mc0Kt90k/qxXSCsK7H4pS3EWLOpA2F3qeL5RWhQW+39iL5M66xOnnDQYyThMM0Z
+	yZAN8ltW35QoCc62yhxBC2y11p1Tanzgy65dLNPKG1BhanXV2q1/qt7OJhnQubR6ntol/Q7K6jVvq
+	nFUL7OVZdL7c8ZUXm2J0hChDM8FNXGVNnynA8yaW4rVbJkIsTbBdMg3cofokNubrs38TOVwHLgZaT
+	lORQQBR2Qca2lDJgPzvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLxc-0000000GQ4w-1Oqs;
-	Wed, 08 Jul 2026 06:40:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whM4b-0000000GR0x-3HlQ;
+	Wed, 08 Jul 2026 06:47:57 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLxb-0000000GQ4B-3dti
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 08 Jul 2026 06:40:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=spDFx5j2BTKoaJXOtXnPcGCwvsAlDIymWAmhnKxAjqU=; b=eN1kT6UiKSdWu6i4dNHR8SsjMc
-	NCsa5aw9VbpKIygpA8N4ENm89lFPjoOD8SgFoJ9VUR5IutvciBESmyhDDUHchonCGgpif8HBX/SjZ
-	SHfkwpIRMmHiN4GJY+SGfh2PLlN6qNL7URQv19e3VgFhaJ1q2Mkj8vSi8uA7bx0wq8ogvbmwYgoNw
-	BrWHRooEQ7EH9Xo7Zl8PQHYlAb7QCEJ3FZAxMrX52qVt3OdhWpFJkbA1zs27b2LRbkGXPGfEzPdNs
-	zijEbsPe8wyTpoV4RMbDi7z/08MoMf4ce6jETnRrZyFbFYLxaGozRjtoE+Wit6VMprG9COdVgA6kA
-	v+O9/00w==;
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whLxX-000000083b8-3CuT
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 06:40:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gw7kh1XgvzYQtl0
-	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:40:12 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id C47724056D
-	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:40:16 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with UTF8SMTPA id Syh0CgD32yfQ8E1qblLgAQ--.30661S3;
-	Wed, 08 Jul 2026 14:40:16 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v6 1/7] bpf: Extract the is_struct_ops_tramp helper
-Date: Wed,  8 Jul 2026 06:44:30 +0000
-Message-Id: <20260708064436.2971933-2-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260708064436.2971933-1-pulehui@huaweicloud.com>
-References: <20260708064436.2971933-1-pulehui@huaweicloud.com>
+	id 1whM4Y-0000000GQzc-36WW;
+	Wed, 08 Jul 2026 06:47:55 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 667MmZNI820082;
+	Wed, 8 Jul 2026 06:47:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=5NHaxsIUhuT4+gPoK3v5GAm1W4gFqo
+	zMGBzG5dhHB64=; b=J3VvRJOPVCo8sfswlNLclj5tEllTcDb/5mOo4UwrcEmwj9
+	kOcib6SJfoOPHBqfKEFzjNZQd2EwJ57/yD6sG6B0H0tNDzXD0wPRsIJ0gKTgnWVA
+	9JsrNlpGhEja0n+s390NL3qqR6LSh3vnBOyCGMWPrvuvLPrc+xg0eqGbCG9GpFQt
+	T6IXomRuMHhJ8IUHLiU8SEMvKhLQvSru/L88QBvsa6uwMTaUt3hfk/CVTVbxikmA
+	E2o0GDHMrGc6K06KjQtEHO/0pun9gVtSFIiO8WD/BwEDrzHsyEsZJRJzRzP90hSH
+	1GPjR3pHagQg1Xr7sMrs+qCTC9VvOfizqWMYYnbA==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sw4u21t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jul 2026 06:47:19 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6686YexQ019843;
+	Wed, 8 Jul 2026 06:47:18 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7eqg65y6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jul 2026 06:47:18 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6686lGMb12976422
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 8 Jul 2026 06:47:16 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 84BCD20049;
+	Wed,  8 Jul 2026 06:47:16 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 09F8D20040;
+	Wed,  8 Jul 2026 06:47:16 +0000 (GMT)
+Received: from tuxmaker.linux.ibm.com (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  8 Jul 2026 06:47:15 +0000 (GMT)
+From: Sven Schnelle <svens@linux.ibm.com>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+        Peter Zijlstra
+ <peterz@infradead.org>, linux-s390@vger.kernel.org,
+        Michael Ellerman
+ <mpe@ellerman.id.au>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+        Kees Cook <kees@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>,
+        loongarch@lists.linux.dev, Paul Walmsley
+ <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+        x86@kernel.org, Mark Rutland
+ <mark.rutland@arm.com>,
+        Jinjie Ruan <ruanjinjie@huawei.com>,
+        Andy
+ Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>,
+        Richard
+ Henderson <richard.henderson@linaro.org>,
+        Russell King
+ <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Guo
+ Ren <guoren@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Helge Deller
+ <deller@gmx.de>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Richard
+ Weinberger <richard@nod.at>, Chris Zankel <chris@zankel.net>,
+        linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
+        linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+        Arnd Bergmann
+ <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>,
+        Will Deacon
+ <will@kernel.org>, Brian Cain <bcain@kernel.org>,
+        Michal Simek
+ <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Andreas Larsson <andreas@gaisler.com>,
+        linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
+        linux-arch@vger.kernel.org,
+        Michal =?utf-8?Q?Such=C3=A1nek?=
+ <msuchanek@suse.de>,
+        Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Subject: Re: [patch 07/18] s390/syscall: Use
+ enter_from_user_mode_randomize_stack()
+In-Reply-To: <20260707190254.030598804@kernel.org>
+References: <20260707181957.433213175@kernel.org>
+	<20260707190254.030598804@kernel.org>
+Date: Wed, 08 Jul 2026 08:47:15 +0200
+Message-ID: <yt9d1pde6kr0.fsf@linux.ibm.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgD32yfQ8E1qblLgAQ--.30661S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFy3WFy8Kr4fKF4DWFykXwb_yoW5JF17pF
-	4xur13Cr4kWr1xWFyktay8ZFya9an2q3y2krWUG3ySka1aqry7JF1rGw45CrZ8GrWYk3Wf
-	AFWj9rs8urykZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUP2b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGw
-	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ew
-	Av7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY
-	6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14
-	v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
-	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXw
-	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
-	67AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
-	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0U8
-	n5UUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: _L7edkq3BwnBWML6vUHeJ0rb1UtEu9CY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA4MDA1OCBTYWx0ZWRfXy3LHxWa7PIH+
+ 8urugSBuUbrtJi57OI87IYjkuqIiXGOGFK+88q8gEVOe7ERBr8TsrVGypKfNgvFuShFuK5wtiHj
+ Zfx4VvtSTJG9XBXaO4MYfRBFI5rBkjhHVxI5WzazNrE1rEbw178sbd/cxA6Auww+KIhdddwtejJ
+ 248bkWj12S+T6W3/mrf0LUiPVaXvbe32OIrqpAKj3jON8/Z4sW461FTCn6oauugcrSdf4ngCG9A
+ Bjd+1hUZ81iR2MpsmkN2NtBwDJEQ+ZZf2mqghRWaGHeLLWTgm34cVk/vHeRpsZXUWFoQ1vYe+5X
+ tbeYGoFzMCGLc9Qs5veIX8EC8xAv74iY/tqVUC8qt3d6EAvNIn5PzUFU1St8HVwn1XFeDmcRHny
+ oEoQT+YS+miZuXlhWPhpBKCjMLxdBjJ9JOvWOsxszLTqO3yRBp31v2W/sChgHwIr1VV7XgJC5Cp
+ eAQ5TpTCNimIS0W4vmA==
+X-Proofpoint-ORIG-GUID: pEfjwvvoAjoHowG9Dv6PDIJZE3RmcFmr
+X-Authority-Analysis: v=2.4 cv=FqQ1OWrq c=1 sm=1 tr=0 ts=6a4df278 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=buEBMWGfP5CXRQqppmAA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA4MDA1OCBTYWx0ZWRfX+R5HcxjXVv1w
+ RVsRwLeD9F3N1eXzMOe+apX4IAesgta7GXGOixJqeU/NBHDn+tO8IhjIk+MU7dU+sY37T5/6W7w
+ fxWFhXVc37deMYvOOlkRHjGNzgYwS7c=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-07_06,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 impostorscore=0 clxscore=1011 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 suspectscore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607080058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_074040_527828_37E45B39 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260707_234754_844601_85E4AC3C 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,68 +169,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
+Thomas Gleixner <tglx@kernel.org> writes:
 
-Extract the is_struct_ops_tramp helper, and use it in riscv
-as the current checks are somewhat hacky.
+> enter_from_user_mode_randomize_stack() replaces enter_from_user_mode() and
+> the subsequent invocation of add_random_kstack_offset_irqsoff().
+>
+> As a bonus this avoids the overhead of get/put_cpu_var() in
+> add_random_kstack_offset().
+>
+> No functional change.
+>
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> Cc: Sven Schnelle <svens@linux.ibm.com>
+> Cc: linux-s390@vger.kernel.org
+> ---
+>  arch/s390/kernel/syscall.c |    4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> --- a/arch/s390/kernel/syscall.c
+> +++ b/arch/s390/kernel/syscall.c
+> @@ -97,8 +97,8 @@ void noinstr __do_syscall(struct pt_regs
+>  {
+>  	unsigned long nr;
+>  
+> -	enter_from_user_mode(regs);
+> -	add_random_kstack_offset();
+> +	enter_from_user_mode_randomize_stack(regs);
+> +
+>  	regs->psw = get_lowcore()->svc_old_psw;
+>  	regs->int_code = get_lowcore()->svc_int_code;
+>  	update_timer_sys();
 
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- arch/arm64/net/bpf_jit_comp.c   | 6 ------
- arch/riscv/net/bpf_jit_comp64.c | 2 +-
- include/linux/bpf.h             | 6 ++++++
- 3 files changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index b0075ece4a6e..36337c3dad85 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -2544,12 +2544,6 @@ static void restore_args(struct jit_ctx *ctx, int bargs_off, int nregs)
- 	}
- }
- 
--static bool is_struct_ops_tramp(const struct bpf_tramp_nodes *fentry_nodes)
--{
--	return fentry_nodes->nr_nodes == 1 &&
--		fentry_nodes->nodes[0]->link->type == BPF_LINK_TYPE_STRUCT_OPS;
--}
--
- static void store_func_meta(struct jit_ctx *ctx, u64 func_meta, int func_meta_off)
- {
- 	emit_a64_mov_i64(A64_R(10), func_meta, ctx);
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index f9d5347ba966..406e774b4ac3 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -1033,7 +1033,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
- 	struct bpf_tramp_nodes *fentry = &tnodes[BPF_TRAMP_FENTRY];
- 	struct bpf_tramp_nodes *fexit = &tnodes[BPF_TRAMP_FEXIT];
- 	struct bpf_tramp_nodes *fmod_ret = &tnodes[BPF_TRAMP_MODIFY_RETURN];
--	bool is_struct_ops = flags & BPF_TRAMP_F_INDIRECT;
-+	bool is_struct_ops = is_struct_ops_tramp(fentry);
- 	void *orig_call = func_addr;
- 	bool save_ret;
- 	u64 func_meta;
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index adf53f7edf28..70aad8d7d84f 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -2196,6 +2196,12 @@ static inline bool is_tracing_multi(enum bpf_attach_type type)
- 	       type == BPF_TRACE_FSESSION_MULTI;
- }
- 
-+static inline bool is_struct_ops_tramp(const struct bpf_tramp_nodes *fentry_nodes)
-+{
-+	return fentry_nodes->nr_nodes == 1 &&
-+	       fentry_nodes->nodes[0]->link->type == BPF_LINK_TYPE_STRUCT_OPS;
-+}
-+
- #if defined(CONFIG_BPF_JIT) && defined(CONFIG_BPF_SYSCALL)
- /* This macro helps developer to register a struct_ops type and generate
-  * type information correctly. Developers should use this macro to register
--- 
-2.34.1
-
+Reviewed-by: Sven Schnelle <svens@linux.ibm.com>
 
 _______________________________________________
 linux-riscv mailing list
