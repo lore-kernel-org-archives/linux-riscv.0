@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDC2C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 17:38:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86810C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 18:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fa/J9oLmcscRWJd0t1E1XPLWGiZmoL9J0+LTvjJRoaA=; b=nLaBMGMnztwKgg
-	OuqH3nSOCEXU4RjfqAdSnnFdys/7X47aJjiR4DZDqWilZzqLvWwyAiiMB7yn72BvNOvpo7VYQOBUN
-	4flp6lsJwf9MebKL8/pCqtxiOJGd+eiGb6UEq4AS0CUB3SYPWXV+6iDcACGtiZ55/qKHitaMg6xAx
-	2LcSB5TOa+LMUi5t75hbRsBidKGbFf/868wFk5YZKtyNVPC8j8DR0FffwrE4QHPyw7dGKZtvUJ5Kd
-	g2bUsYSnxvKe1BbpKzbni7t1f5pMUkssO8uIL0+nhtnE5qpzuZK0U6iJJvJGKSG+SD+aPNF10uac7
-	b8vxciqypqWg3b0iQYSg==;
+	List-Owner; bh=fFvRYmHPSvXSfKR7aw+ihfzqbXrdrmY16XyiaHKzeNI=; b=2eufCVAEtVjP+x
+	2jhaPSdyfX2XF3srOc5Ls1zi5wtGzeMTFiBL4ceZTyj9RHg5oSWwdTqfmIQqaYIgCFF380lu6pZy3
+	wRHFikiQh23C9dICoM67lzM5URqUd9Tnp8j/+9J062u/f1CDtGqWb5EDbYe+m/IPpz7eu87SlNbeR
+	p7Dl052l0WwNu5ozp57M1DvJGF/l7A6J+JJszNxe3Az3jRWhhq6K4b8SCDcDat0CCtsR0d/lMSCv2
+	RR9kIVVOWgX5dNs0NBJ0GD1PyqcumdDOLH1jjtfC/3i36/aa9l17HzC7r8z5aVx/uYgwiFbejrSJR
+	PYLZeRNzMeRrMRxZO6mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWES-000000007lj-1u62;
-	Wed, 08 Jul 2026 17:38:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whX8F-00000000C2w-2JGa;
+	Wed, 08 Jul 2026 18:36:27 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWEQ-000000007lb-3pKp
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 17:38:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A867543A08;
-	Wed,  8 Jul 2026 17:38:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D74C1F00A3A;
-	Wed,  8 Jul 2026 17:38:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783532326;
-	bh=9V10ZeP0GQsP4iVy9VhSI/lI04caCn9a45QxaUqe0d4=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=GVDBTL44OP6LCxySK26ft2Tytx+EtFDjg9GBcLEPtmPXNtO4nZrkUiCTksePT/rh3
-	 9R4pClvgn9g+HVbv1etI4tL1gUwaoPzNHjUNqgktAKydRY4yACmbneBzRedMNOoXh3
-	 qcjiIUT56Rh3exJv5P1IK6WOUqRgFR27VqdiobA3IdVLmf9IGjgIzmgnfFIhQb8pF5
-	 PgvP7Dw1y+ZVS4qWTi3+aUZXiA7cEJUB9IJP/yqXSgFC+8NcBqD/OrQ/Auh56PXkxT
-	 wAkvhazebXOv6ZkfdfmY+cjIPBzNB2lSg1kokiq9GTohZ1a8k5ZEI/29yvL1RQOrOQ
-	 3YxpvjCzYuDhQ==
-Date: Wed, 8 Jul 2026 11:38:44 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Jia Wang <wangjia@ultrarisc.com>
-cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Linus Walleij <linusw@kernel.org>, 
-    Bartosz Golaszewski <brgl@kernel.org>, 
-    Samuel Holland <samuel.holland@sifive.com>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
-    devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 9/9] riscv: defconfig: enable ARCH_ULTRARISC
-In-Reply-To: <177995553472.929162.16657480414876825285.b4-reply@b4>
-Message-ID: <d23703f7-29c3-c1f9-6f6b-80e155c56746@kernel.org>
-References: <20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com> <20260515-ultrarisc-pinctrl-v1-9-bf559589ea8a@ultrarisc.com> <1b822b1e-cf1c-45c7-8109-3e0330911419@kernel.org> <177995553472.929162.16657480414876825285.b4-reply@b4>
+	id 1whX88-00000000BwI-3RVs;
+	Wed, 08 Jul 2026 18:36:26 +0000
+Received: from bat.kanata.rendec.net (unknown [24.114.111.125])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id A4061C3435;
+	Wed,  8 Jul 2026 21:35:54 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro A4061C3435
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1783535777;
+	bh=HOFoesOyB88RJQpCsNVT6CnljJeq85zHo9ievtK6il8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=R0pckaM7uzKJhnfLsd+EasA5iL0B7ZA4xUo2QedrlgePDqSCeceDdoKrCaUXSgH75
+	 15MPZ33HpRCU30hqcMI0PUJAA4ul+9XUwxAhJeXTpBoywEuKewGCk7m21xK7GBO94b
+	 NpDa7pro6OWmXqh5IS/WT+qx6ABBrkCA+Kv5g9jMDrLVH+mh9k+/398rw04b/Uiitl
+	 a9blgckrqg3HTXMb7xcAzYPWQFRHvTBk4ekkJmwrZessc3xf9tFXhmpN0qrpZBt8yq
+	 5Qao1qyCtvtsSHKBGAM0cGKH+LVrTaTCbKcejqQuUrZPKj01pL+BpzMYflQ9YS3rRx
+	 JbQnyYBWoKGdQ==
+Message-ID: <a8c5cc7d9296d59bf3d5851a3a2ba5f3a271bb9a.camel@rendec.net>
+Subject: Re: [patch 05/18] powerpc/syscall: Use
+ syscall_enter_from_user_mode_randomize_stack()
+From: Radu Rendec <radu@rendec.net>
+To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Michael Ellerman
+ <mpe@ellerman.id.au>,  Shrikanth Hegde <sshegde@linux.ibm.com>,
+ linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, Huacai Chen	
+ <chenhuacai@kernel.org>, loongarch@lists.linux.dev, Paul Walmsley
+ <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Sven Schnelle <svens@linux.ibm.com>, 
+	linux-s390@vger.kernel.org, x86@kernel.org, Mark Rutland
+ <mark.rutland@arm.com>,  Jinjie Ruan <ruanjinjie@huawei.com>, Andy
+ Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>,  Richard
+ Henderson <richard.henderson@linaro.org>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Guo
+ Ren <guoren@kernel.org>, Geert Uytterhoeven	 <geert@linux-m68k.org>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>,  Helge Deller	 <deller@gmx.de>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
+ <richard@nod.at>, Chris Zankel <chris@zankel.net>,
+ linux-arm-kernel@lists.infradead.org, 	linux-alpha@vger.kernel.org,
+ linux-csky@vger.kernel.org, 	linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, 	linux-parisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, 	linux-um@lists.infradead.org, Arnd Bergmann
+ <arnd@arndb.de>, Vineet Gupta	 <vgupta@kernel.org>, Will Deacon
+ <will@kernel.org>, Brian Cain <bcain@kernel.org>,  Michal Simek
+ <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
+ <davem@davemloft.net>,  Andreas Larsson <andreas@gaisler.com>,
+ linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-arch@vger.kernel.org, Michal =?ISO-8859-1?Q?Such=E1nek?=	
+ <msuchanek@suse.de>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-doc@vger.kernel.org
+Date: Wed, 08 Jul 2026 14:35:48 -0400
+In-Reply-To: <20260707190253.918861529@kernel.org>
+References: <20260707181957.433213175@kernel.org>
+	 <20260707190253.918861529@kernel.org>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_113621_033130_E2C0E179 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,54 +93,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 May 2026, Jia Wang wrote:
-
-> On 2026-05-21 22:57 +0200, Krzysztof Kozlowski wrote:
-> > On 15/05/2026 03:18, Jia Wang via B4 Relay wrote:
-> > > From: Jia Wang <wangjia@ultrarisc.com>
-> > > 
-> > > Enable `ARCH_ULTRARISC` in the default RISC-V defconfig.
-> > > 
-> > > Link: https://lore.kernel.org/lkml/20260427-ultrarisc-pcie-v4-1-98935f6cdfb5@ultrarisc.com/
-> > 
-> > Drop link, not relevant here.
-> >
-> 
-> Will drop the link, thanks.
->  
-> > > 
-> > > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> > > ---
-> > >  arch/riscv/configs/defconfig | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > > 
-> > > diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> > > index c2c37327b987..9fdc4d1831ed 100644
-> > > --- a/arch/riscv/configs/defconfig
-> > > +++ b/arch/riscv/configs/defconfig
-> > > @@ -32,6 +32,7 @@ CONFIG_SOC_STARFIVE=y
-> > >  CONFIG_ARCH_SUNXI=y
-> > >  CONFIG_ARCH_TENSTORRENT=y
-> > >  CONFIG_ARCH_THEAD=y
-> > > +CONFIG_ARCH_ULTRARISC=y
-> > 
-> > This patch should be sent with with the patch adding that config option.
-> >
-> 
-> Ack, will include it in the same series as the config option patch.
-
-I've pulled this out, dropped the link, and queued it for v7.2-rc along 
-with the arch/riscv/Kconfig patch.
-
-
-- Paul
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAyMDI2LTA3LTA3IGF0IDIxOjA2ICswMjAwLCBUaG9tYXMgR2xlaXhuZXIgd3JvdGU6
+Cj4gc3lzY2FsbF9lbnRlcl9mcm9tX3VzZXJfbW9kZV9yYW5kb21pemVfc3RhY2soKSByZXBsYWNl
+cwo+IHN5c2NhbGxfZW50ZXJfZnJvbV91c2VyX21vZGUoKSBhbmQgdGhlIHN1YnNlcXVlbnQgaW52
+b2NhdGlvbiBvZgo+IGFkZF9yYW5kb21fa3N0YWNrX29mZnNldCgpLgo+IAo+IFRoZSBhZHZhbnRh
+Z2UgaXMgdGhhdCBpdCBhcHBsaWVzIHRoZSBzdGFjayByYW5kb21pemF0aW9uIHJpZ2h0IGFmdGVy
+Cj4gZW50ZXJfZnJvbV91c2VyX21vZGUoKSBhbmQgdGhlcmVieSBhdm9pZHMgdGhlIG92ZXJoZWFk
+IG9mIGdldC9wdXRfY3B1X3ZhcigpCj4gYXMgdGhhdCBjb2RlIGlzIGludm9rZWQgd2l0aCBpbnRl
+cnJ1cHRzIGRpc2FibGVkLgo+IAo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlLgo+IAo+IFNpZ25lZC1v
+ZmYtYnk6IFRob21hcyBHbGVpeG5lciA8dGdseEBrZXJuZWwub3JnPgo+IENjOiBNaWNoYWVsIEVs
+bGVybWFuIDxtcGVAZWxsZXJtYW4uaWQuYXU+Cj4gQ2M6IFNocmlrYW50aCBIZWdkZSA8c3NoZWdk
+ZUBsaW51eC5pYm0uY29tPgo+IENjOiBsaW51eHBwYy1kZXZAbGlzdHMub3psYWJzLm9yZwo+IC0t
+LQo+IMKgYXJjaC9wb3dlcnBjL2tlcm5lbC9zeXNjYWxsLmMgfMKgwqDCoCA0ICstLS0KPiDCoDEg
+ZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMyBkZWxldGlvbnMoLSkKPiAKPiAtLS0gYS9h
+cmNoL3Bvd2VycGMva2VybmVsL3N5c2NhbGwuYwo+ICsrKyBiL2FyY2gvcG93ZXJwYy9rZXJuZWwv
+c3lzY2FsbC5jCj4gQEAgLTIsNyArMiw2IEBACj4gwqAKPiDCoCNpbmNsdWRlIDxsaW51eC9jb21w
+YXQuaD4KPiDCoCNpbmNsdWRlIDxsaW51eC9jb250ZXh0X3RyYWNraW5nLmg+Cj4gLSNpbmNsdWRl
+IDxsaW51eC9yYW5kb21pemVfa3N0YWNrLmg+Cj4gwqAjaW5jbHVkZSA8bGludXgvZW50cnktY29t
+bW9uLmg+Cj4gwqAKPiDCoCNpbmNsdWRlIDxhc20vaW50ZXJydXB0Lmg+Cj4gQEAgLTE5LDggKzE4
+LDcgQEAgbm90cmFjZSBsb25nIHN5c3RlbV9jYWxsX2V4Y2VwdGlvbihzdHJ1Ywo+IMKgCWxvbmcg
+cmV0Owo+IMKgCXN5c2NhbGxfZm4gZjsKPiDCoAo+IC0JcjAgPSBzeXNjYWxsX2VudGVyX2Zyb21f
+dXNlcl9tb2RlKHJlZ3MsIHIwKTsKPiAtCWFkZF9yYW5kb21fa3N0YWNrX29mZnNldCgpOwo+ICsJ
+cjAgPSBzeXNjYWxsX2VudGVyX2Zyb21fdXNlcl9tb2RlX3JhbmRvbWl6ZV9zdGFjayhyZWdzLCBy
+MCk7Cj4gwqAKPiDCoAlpZiAodW5saWtlbHkocjAgPj0gTlJfc3lzY2FsbHMpKSB7Cj4gwqAJCWlm
+ICh1bmxpa2VseSh0cmFwX2lzX3Vuc3VwcG9ydGVkX3NjdihyZWdzKSkpIHsKClJldmlld2VkLWJ5
+OiBSYWR1IFJlbmRlYyA8cmFkdUByZW5kZWMubmV0PgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
