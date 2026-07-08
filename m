@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B572C44503
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43E3C44507
 	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 06:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xRUBOcWsM8jmmNpEnp5PylkDpglvik4laDTUtgB5Nek=; b=iLo4IicChspGB9
-	POGx+bavOxANwvnnZaUj0/2AHHZMm6Eqso7Cnqg92mtcZ287rNuDmMuCMRke6LVsLdYMGhWqJB/Nq
-	HrrZMJKNjomTHccfu7CAEqOddzaed6EWwjk647oFy3GPZO8zGL+a4zbTVRF4NiQ39V8q/m2CETC0Y
-	mhInVRWjfSZ9sY/TkhZLMOpn7GobsZaIHT7r3QUrqE9AKs12bzxAwSnK67EFJ2r2k5GgzrpDX/XUo
-	R8WbWHy5xyIfW6zw+eteKIcmCsdXuDmdT3cq93IlYvRz4eHJoHIJ1eHcQ2Nqo+xstsmQcK+abroqM
-	YUGeAbLRxbJezfXDD71w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=D0YKodcbVdBKVH8cbgn6bIKololBJhHBVKTSQwechNE=; b=G6kIUjGt3rZWtY
+	031M4+dAIUTsH+jnOobRqCDWlqe+OdGIW5GKr7zydTe7HmGJtUHrIozoszxU9eI6Do6nBRPv6+xWb
+	+/Rum/rnGu33weEcnf+cTNz/Im8eu9i6uYRHFdbbUNZ6wwhcgvxvz1I61qFbZxgqIojRI8u9p7+4O
+	AWx7erdS9ZQ+4YYbCnnDwAZ40cvh2Pt0+Ov6Jo5kcQqYvVAMjVnRRwOMdVNmvB20so2OL4YQw+e/b
+	dbQQeCToT1W+I5MmXcQlPKp0xW/MomZok6bV8JlqzGQAbesDnajx0lOr0Oszrt27qjXHnSJEhnqwi
+	Ajx8qZW1f+1nntaEAorA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLxR-0000000GPyk-0H6N;
+	id 1whLxR-0000000GPz0-13sB;
 	Wed, 08 Jul 2026 06:40:33 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLxJ-0000000GPvL-3cNS
+	id 1whLxJ-0000000GPvK-3bvZ
 	for linux-riscv@lists.infradead.org;
 	Wed, 08 Jul 2026 06:40:30 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gw7kh0vGzzYQtkT
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gw7kh2m4szYQtlm
 	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:40:12 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id AF20C40570
+	by mail.maildlp.com (Postfix) with ESMTP id 003D640AFF
 	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:40:16 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with UTF8SMTPA id Syh0CgD32yfQ8E1qblLgAQ--.30661S2;
+	by APP2 (Coremail) with UTF8SMTPA id Syh0CgD32yfQ8E1qblLgAQ--.30661S6;
 	Wed, 08 Jul 2026 14:40:16 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -58,32 +58,35 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v6 0/7] Mixing bpf2bpf and tailcalls for RV64
-Date: Wed,  8 Jul 2026 06:44:29 +0000
-Message-Id: <20260708064436.2971933-1-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v6 4/7] riscv, bpf: Fix kernel stack corruption in tailcall with CFI
+Date: Wed,  8 Jul 2026 06:44:33 +0000
+Message-Id: <20260708064436.2971933-5-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260708064436.2971933-1-pulehui@huaweicloud.com>
+References: <20260708064436.2971933-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgD32yfQ8E1qblLgAQ--.30661S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGrWDuFyUZr1fCFyktF1rXrb_yoW5Cr1rpa
-	yfuw13Wryvgr40yan7Ga18Ja4rJan5u3W5Cr17Jw1rAa15uFyqgF1xGFWFva45AFZag34Y
-	vr1qqF15C3y8Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvIb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7
-	CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8C
-	rVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4
-	IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x02
-	62kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s
-	026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_
-	GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20x
-	vEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE
-	14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf
-	9x07j7l19UUUUU=
+X-CM-TRANSID: Syh0CgD32yfQ8E1qblLgAQ--.30661S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7tryxGr4Uur4Dur15tr45GFg_yoW8Zw1DpF
+	45Gwn3urykXr1vkr9rAF4Dtw4YgrsY9a17Wr9ruayayan29r1xG3Z8Kw43ZFyrZFW8K3Wr
+	AFy29rn3u34DZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPmb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
+	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
+	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267
+	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x02
+	67AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I
+	80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCj
+	c4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4
+	kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
+	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZV
+	WrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY
+	1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67
+	AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZE
+	Xa7IU0189tUUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_234026_351790_CD19F71D 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260707_234026_342297_40CE9D5E 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +98,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SW4gdGhlIGN1cnJlbnQgUlY2NCBKSVQsIGlmIHdlIGp1c3QgZG9uJ3QgaW5pdGlhbGl6ZSB0aGUg
-VENDIGluIHN1YnByb2csCnRoZSBUQ0MgY2FuIGJlIHByb3BhZ2F0ZWQgZnJvbSB0aGUgcGFyZW50
-IHByb2Nlc3MgdG8gdGhlIHN1YnByb2Nlc3MsIGJ1dAp0aGUgdXBkYXRlZCBUQ0Mgb2YgdGhlIHBh
-cmVudCBwcm9jZXNzIGNhbm5vdCBiZSByZXN0b3JlZCB3aGVuIHRoZQpzdWJwcm9jZXNzIGV4aXRz
-LiBTaW5jZSB0aGUgUlY2NCBUQ0MgaXMgaW5pdGlhbGl6ZWQgYmVmb3JlIHNhdmluZyB0aGUKY2Fs
-bGVlIHNhdmVkIHJlZ2lzdGVycyBpbnRvIHRoZSBzdGFjaywgd2UgY2Fubm90IHVzZSB0aGUgY2Fs
-bGVlIHNhdmVkCnJlZ2lzdGVyIHRvIHBhc3MgdGhlIFRDQywgb3RoZXJ3aXNlIHRoZSBvcmlnaW5h
-bCB2YWx1ZSBvZiB0aGUgY2FsbGVlCnNhdmVkIHJlZ2lzdGVyIHdpbGwgYmUgZGVzdHJveWVkLiBT
-byB3ZSBpbXBsZW1lbnRlZCBtaXhpbmcgYnBmMmJwZiBhbmQKdGFpbGNhbGxzIHNpbWlsYXIgdG8g
-eDg2XzY0LCBpLmUuIHVzaW5nIGEgbm9uLWNhbGxlZSBzYXZlZCByZWdpc3RlciB0bwp0cmFuc2Zl
-ciB0aGUgVENDIGJldHdlZW4gZnVuY3Rpb25zLCBhbmQgc2F2aW5nIHRoYXQgcmVnaXN0ZXIgdG8g
-dGhlCnN0YWNrIHRvIHByb3RlY3QgdGhlIFRDQyB2YWx1ZS4gQXMgZm9yIHRoZSB0YWlsY2FsbCBo
-aWVyYXJjaHkgaXNzdWUsCmluc3BpcmVkIGJ5IHRoZSBzMzkwJ3MgbG93LW92ZXJoZWFkIGFwcHJv
-YWNoLCB3ZSBzdG9yZSBUQ0MgZnJvbQpSVl9SRUdfVENDIGJhY2sgdG8gc3RhY2sgYWZ0ZXIgY2Fs
-bGluZyBicGYyYnBmIGNhbGwgb3IgY2FsbGluZyBvcmlnIGJwZgpmdW5jIGluIGJwZiB0cmFtcG9s
-aW5lLgoKSW4gYWRkaXRpb24sIHNvbWUgY29kZSBjbGVhbnMgYXJlIGFsc28gYXR0YWNoZWQgdG8g
-dGhpcyBwYXRjaHNldC4KClRlc3RzIHRlc3RfYnBmLmtvIGFuZCB0ZXN0X3ZlcmlmaWVyIGhhdmUg
-cGFzc2VkLCBhcyB3ZWxsIGFzIHRoZSByZWxhdGl2ZQp0ZXN0Y2FzZXMgb2YgdGVzdF9wcm9ncyou
-Cgp2NjoKLSBBZGQgbmV3IHBhdGNoIHRvIGZpeCBtZW1vcnkgbGVhayBpbiBicGZfaml0X2ZyZWUu
-IChTYXNoaWtvKQoKdjU6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2JwZi8yMDI2MDcwNzE0MjIx
-OS4yODcxNzU4LTEtcHVsZWh1aUBodWF3ZWljbG91ZC5jb20KLSBGaXggVENDIHZhbHVlIHdhcyBu
-b3QgcmVzdG9yZWQgdG8gUlZfUkVHX1RDQyB1cG9uIHRyYW1wb2xpbmUgZXhpdCwKICByZXN1bHRp
-bmcgaW4gYW4gaW5maW5pdGUgdGFpbCBjYWxsLiAoU2FzaGlrbykKLSBGaXggZXBpbG9ndWUgbm90
-IHJlc3RvcmVkIFRDQyB2YWx1ZSB0byBSVl9SRUdfVENDLCByZXN1bHRpbmcgaW4KICBsZWFmIHRh
-aWxjYWxsIGNhbGxlZSBtYXkgY2xvYmJlcmVkIFJWX1JFR19UQ0MuIChTYXNoaWtvKQotIFJlbW92
-ZSBwYXRjaCBvZiBgUmVtb3ZlIGN0eC0+b2Zmc2V0IGluaXRpYWxpemF0aW9uYCBhcyBpdCB3b3Vs
-ZCBoaXQKICBzb21lIGNvcm5lciBjYXNlLiAoU2FzaGlrbykKLSBGaXggZG91YmxlLWNvdW50IGtj
-ZmkgaW5zbiB3aGVuIHRhaWxjYWxsIHRvIHRhcmdldC4gKFNhc2hpa28pCi0gQWRkIGRldGFpbCBm
-b3Igc2VsZnRlc3QgY29tbWl0IG1lc3NhZ2UuIChCUEYgQk9UKQoKdjQ6IGh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2JwZi8yMDI2MDYyOTE0MDA0OC43MzMzNDYtMS1wdWxlaHVpQGh1YXdlaWNsb3Vk
-LmNvbQotIEZpeCB0YWlsY2FsbCBoaWVyYXJjaHkgaXNzdWUuCi0gdXNlIGlzX3N0cnVjdF9vcHNf
-dHJhbXAgaGVscGVyIGluIGJwZiB0cmFtcG9saW5lCgp2MzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvYnBmLzIwMjQwMjAxMDgzMzUxLjk0MzEyMS0xLXB1bGVodWlAaHVhd2VpY2xvdWQuY29tCi0g
-UmVtb3ZlIGR1cGxpY2F0ZSBSVl9SRUdfVENDIGxvYWQgaW4gZXBpbG9ndWVpLiAoQmrDtnJuIFTD
-tnBlbCkKCnYyOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9icGYvMjAyNDAxMzAwNDA5NTguMjMw
-NjczLTEtcHVsZWh1aUBodWF3ZWljbG91ZC5jb20KLSBGaXggZW1pdCByZXN0b3JlIFJWX1JFR19U
-Q0MgZG91YmxlIHRpbWVzIHdoZW4gYGZsYWdzICYKICBCUEZfVFJBTVBfRl9DQUxMX09SSUdgCi0g
-VXNlIGJwZl9pc19zdWJwcm9nIGhlbHBlcgoKdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2Jw
-Zi8yMDIzMDkxOTAzNTcxMS4zMjk3MjU2LTEtcHVsZWh1aUBodWF3ZWljbG91ZC5jb20KClB1IExl
-aHVpICg3KToKICBicGY6IEV4dHJhY3QgdGhlIGlzX3N0cnVjdF9vcHNfdHJhbXAgaGVscGVyCiAg
-cmlzY3YsIGJwZjogRml4IG1lbW9yeSBsZWFrIGluIGJwZl9qaXRfZnJlZQogIHJpc2N2LCBicGY6
-IFVzaW5nIGt2emFsbG9jX29ianMgdG8gYWxsb2NhdGUgY2FjaGUgYnVmZmVyCiAgcmlzY3YsIGJw
-ZjogRml4IGtlcm5lbCBzdGFjayBjb3JydXB0aW9uIGluIHRhaWxjYWxsIHdpdGggQ0ZJCiAgcmlz
-Y3YsIGJwZjogQWRkIFJWX1RBSUxDQUxMX09GRlNFVCBtYWNybyB0byBmb3JtYXQgdGFpbGNhbGwg
-b2Zmc2V0CiAgcmlzY3YsIGJwZjogTWl4aW5nIGJwZjJicGYgYW5kIHRhaWxjYWxscwogIHNlbGZ0
-ZXN0cy9icGY6IFJlbW92ZSB0YWlsY2FsbHMgdGVzdHMgZnJvbSBERU5ZTElTVC5yaXNjdjY0Cgog
-YXJjaC9hcm02NC9uZXQvYnBmX2ppdF9jb21wLmMgICAgICAgICAgICAgICAgfCAgIDYgLQogYXJj
-aC9yaXNjdi9uZXQvYnBmX2ppdC5oICAgICAgICAgICAgICAgICAgICAgfCAgIDEgKwogYXJjaC9y
-aXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyAgICAgICAgICAgICAgfCAxMjUgKysrKysrKysrLS0t
-LS0tLS0tLQogYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb3JlLmMgICAgICAgICAgICAgICAgfCAg
-IDUgKy0KIGluY2x1ZGUvbGludXgvYnBmLmggICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA2
-ICsKIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9ERU5ZTElTVC5yaXNjdjY0IHwgICAxIC0K
-IDYgZmlsZXMgY2hhbmdlZCwgNzIgaW5zZXJ0aW9ucygrKSwgNzIgZGVsZXRpb25zKC0pCgotLSAK
-Mi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Pu Lehui <pulehui@huawei.com>
+
+When CONFIG_CFI_CLANG is enabled, prog->bpf_func already skips the kcfi
+instruction during setup. Including it again in the tailcall jump offset
+causes it to jump over an extra 4 bytes, skipping the stack pointer
+adjustment, which will result in kernel stack corruption.
+
+Fixes: 30a59cc79754 ("riscv, bpf: Fix possible infinite tailcall when CONFIG_CFI_CLANG is enabled")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 2f06752fb036..cedf40927474 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -18,7 +18,6 @@
+ #define RV_MAX_REG_ARGS 8
+ #define RV_FENTRY_NINSNS 2
+ #define RV_FENTRY_NBYTES (RV_FENTRY_NINSNS * 4)
+-#define RV_KCFI_NINSNS (IS_ENABLED(CONFIG_CFI) ? 1 : 0)
+ /* imm that allows emit_imm to emit max count insns */
+ #define RV_MAX_COUNT_IMM 0x7FFF7FF7FF7FF7FF
+ 
+@@ -272,8 +271,8 @@ static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
+ 	if (!is_tail_call)
+ 		emit_addiw(RV_REG_A0, RV_REG_A5, 0, ctx);
+ 	emit_jalr(RV_REG_ZERO, is_tail_call ? RV_REG_T3 : RV_REG_RA,
+-		  /* kcfi, fentry and TCC init insns will be skipped on tailcall */
+-		  is_tail_call ? (RV_KCFI_NINSNS + RV_FENTRY_NINSNS + 1) * 4 : 0,
++		  /* fentry and TCC init insns will be skipped on tailcall */
++		  is_tail_call ? (RV_FENTRY_NINSNS + 1) * 4 : 0,
+ 		  ctx);
+ }
+ 
+@@ -2033,6 +2032,8 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+ 	/* emit kcfi type preamble immediately before the  first insn */
+ 	emit_kcfi(is_subprog ? cfi_bpf_subprog_hash : cfi_bpf_hash, ctx);
+ 
++	/* bpf prog starts here as kcfi skipped during prog->bpf_func setup */
++
+ 	/* nops reserved for auipc+jalr pair */
+ 	for (i = 0; i < RV_FENTRY_NINSNS; i++)
+ 		emit(rv_nop(), ctx);
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
