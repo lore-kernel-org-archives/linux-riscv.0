@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271E7C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 06:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C29C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 07:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sa2S/UYCYckcRERguBFmkG7LqqMZ8r8U4Iy+CbgoDug=; b=F/8El8jN1RAlfc
-	wF0EUApshsRLUlYwix13E0zlOXYlrAotTUjUU8KDHydQJPpnk+QDKZ3qhy5xkGWrPAyzqSoBvqa+t
-	/66nHaqhvYlYgGf6wKcQinm1SrtUl9yQDP8DJM16xbRNRnx6bYh0Gmi27cB/SrtRHfl9MG5ezqI4J
-	66lsOBQjqbE2N5RgXQFn4VvIJWMnw9zOkll7kNqLFE1PIekCVFyX9kBH5tZMspExz8tLNUHWGDzMd
-	JBX/UTVPToAxx2XsTQlEEto/6Cu/NGKtEBeEUjmASIsMsNCNNSK/o9moHPv26czdUlo+Hu8zpdIxK
-	h+jK95awrX8M00jo2qRg==;
+	List-Owner; bh=Gm1D2E2pnJvcUYSbY8HMT4B7siUGJmzsvLBGEMYnsoU=; b=u719JQ5AjpVWXf
+	tYxkHgNftlfkQvV/X3/1uDNHRkNWUTn3JOP7AxCOwwwXj9At8NxqbikUgf7bS5EWxl0WdmjqKhU8P
+	P4ju47BOayGSRZy1weXOBZJDprHQZsnjYKW6fXcwNO7vRFDJNNvuHI++g5DrO3AbCVABNEW7FrAWv
+	xIEucIsI9RxLeqsPbgYElVGIoyEeneXaPs5RfB4rir5TRTaEPvY998ult/hJL7yaJ3NVyeblyeotQ
+	Yecq+jDxG9RCfhB/8YMFdtHxxo6978lzoMQ4o7zv8GzKxFv1tFSQOx83N8EC+MwW39a1P9rDcJMIe
+	OgzykIqNxlIgsxxWvs0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMFe-0000000GRwV-1Hcc;
-	Wed, 08 Jul 2026 06:59:22 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1whMQr-0000000GSfX-0EBN;
+	Wed, 08 Jul 2026 07:10:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMFb-0000000GRw6-1Yzn
+	id 1whMQp-0000000GSfR-3n7a
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 06:59:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1783493957; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=VqOzBHcezIdJbCw9H20f4ApkMFhu+ojhnSlVxGo7tKM=;
-	b=no+u8D2g1UUReVfqYg5XbJb+Zrp7Bju+RU/+EU3IFgomgM9/fDak3rlF30AFAXX44M/b1a8k7pHgZHnhXDlqHt6MD7kOW2c2u5BmzGhD8DsoQSulsYJxa3F/qBZj2AiHKoSZuKe1kDc3S1vGeSnNI0tPIbDTwVcFMOE1Sv0/Cy4=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R681e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X6gnBaq_1783493952;
-Received: from 30.246.161.237(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X6gnBaq_1783493952 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 08 Jul 2026 14:59:14 +0800
-Message-ID: <9228c07a-8879-41de-ba87-b9f879648ba8@linux.alibaba.com>
-Date: Wed, 8 Jul 2026 14:59:11 +0800
+	Wed, 08 Jul 2026 07:10:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3806843502;
+	Wed,  8 Jul 2026 07:10:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 927AE1F000E9;
+	Wed,  8 Jul 2026 07:10:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783494655;
+	bh=9lFckwIb4MzKsBiFEkNV2g14zZYu8DPrganDJnFIB54=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=f+Cp9KODOsntNhrZioFLgu6XB/1aYTT3+tkAtYydVccet0AkopOetcASLqj2E2aLz
+	 +q3XG51TaNoalrrULQrWDR2Q7ZG6M4Es7o8dw18Z59NgGLqldEwNcr5PSUVfPY6yi0
+	 TZG4nGmsxX4Uau/OsArg0PGCgOTIfI51ZwM9UV4JShInWRzZqBrp8e2TVK3ntKCIJC
+	 OSShf7ckqXLuvd485rzh8ozEHoo0YJ6BkHpV5ySMisWkOl01+LILPYLHKEQhKj48D/
+	 yYqc9RXX3veVxNC0Nhr63yr9Y/R+F3czrNPmnrwTjE8+0lhh7Q7ggTRmYdFAFuC9Jn
+	 1ll3nkp0Dshrw==
+Date: Wed, 8 Jul 2026 07:10:51 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Bart Van Assche <bvanassche@acm.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
+ driver
+Message-ID: <20260708071051-GKJ35811@kernel.org>
+References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+ <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
+ <f46d7520-bc2e-49f7-9049-ecdba2837b5d@acm.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 RESEND 4/7] riscv: stacktrace: introduce stack-bound
- tracking helpers
-To: Wang Han <wanghan@linux.alibaba.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
- Oleg Nesterov <oleg@redhat.com>, Steven Rostedt <rostedt@goodmis.org>,
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
- Jiri Kosina <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
- Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>,
- Shuah Khan <shuah@kernel.org>, oliver.yang@linux.alibaba.com,
- zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com,
- Marcos Paulo de Souza <mpdesouza@suse.com>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260629072713.3273743-1-wanghan@linux.alibaba.com>
- <20260629072713.3273743-5-wanghan@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20260629072713.3273743-5-wanghan@linux.alibaba.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_235919_772047_3CD86D26 
-X-CRM114-Status: GOOD (  20.95  )
+Content-Disposition: inline
+In-Reply-To: <f46d7520-bc2e-49f7-9049-ecdba2837b5d@acm.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,86 +78,174 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Bart,
 
-
-On 6/29/26 3:27 PM, Wang Han wrote:
-> A reliable unwinder needs to validate that every frame record it reads
-> is fully contained in a known kernel stack, and it needs to refuse to
-> walk back into a stack it has already left. Add the building blocks
-> for that:
+On 07:01 Mon 06 Jul     , Bart Van Assche wrote:
 > 
->    * struct stack_info / struct unwind_state in a new
->      asm/stacktrace/common.h, modelled on the arm64 reference
->      implementation.
->    * stackinfo_get_irq() / stackinfo_get_task() / stackinfo_get_overflow()
->      plus the corresponding on_*_stack() predicates in asm/stacktrace.h,
->      so callers can ask "is this object on stack X?" by stack kind
->      rather than open-coded address arithmetic.
->    * unwind_init_common(), unwind_find_stack() and
->      unwind_consume_stack() helpers that enforce the
->      forward-progress-only invariant required for reliability.
+> On 7/1/26 7:31 PM, Yixun Lan wrote:
+> > +config SCSI_UFS_SPACEMIT
+> > +	tristate "SpacemiT UFS controller driver"
+> > +	depends on SCSI_UFSHCD_PLATFORM && ARCH_SPACEMIT
 > 
-> No existing user is wired up to these helpers in this commit; the
-> unwinder switch comes in a follow-up. The header changes leave
-> on_thread_stack() with the same semantics as before, just expressed in
-> terms of the new helpers.
+> What would break if ARCH_SPACEMIT is left out?
 > 
-> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
-> ---
->   arch/riscv/include/asm/stacktrace.h        |  65 ++++++++-
->   arch/riscv/include/asm/stacktrace/common.h | 159 +++++++++++++++++++++
->   2 files changed, 222 insertions(+), 2 deletions(-)
->   create mode 100644 arch/riscv/include/asm/stacktrace/common.h
+Should be fine, I see no hard build dependency
+
+> Please make sure that this driver can be compile-tested easily.
 > 
-> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
-> index b1495a7e06ce..bc87c4940379 100644
-> --- a/arch/riscv/include/asm/stacktrace.h
-> +++ b/arch/riscv/include/asm/stacktrace.h
-> @@ -3,8 +3,13 @@
->   #ifndef _ASM_RISCV_STACKTRACE_H
->   #define _ASM_RISCV_STACKTRACE_H
->   
-> +#include <linux/percpu.h>
->   #include <linux/sched.h>
-> +#include <linux/sched/task_stack.h>
-> +
-> +#include <asm/irq_stack.h>
->   #include <asm/ptrace.h>
-> +#include <asm/stacktrace/common.h>
->   
->   struct stackframe {
->   	unsigned long fp;
-> @@ -16,14 +21,70 @@ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *re
->   extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
->   			   const char *loglvl);
->   
-> -static inline bool on_thread_stack(void)
-> +/*
-> + * IRQ stack accessors
-> + */
-> +static inline struct stack_info stackinfo_get_irq(void)
-> +{
-> +	unsigned long low = (unsigned long)raw_cpu_read(irq_stack_ptr);
+I could make it "SCSI_UFSHCD_PLATFORM && (ARCH_SPACEMIT || COMPILE_TEST)"
 
- From https://sashiko.dev/#/patchset/20260629072713.3273743-1-wanghan%40linux.alibaba.com
+> > +	u32 host_reg[] = {
+> > +		(UFS_PHY_MNG_BASE + UFS_MPHY_RST_CTRL),
+> > +		(UFS_PHY_MNG_BASE + UFS_MPHY_PU_CTRL),
+> > +		(UFS_PHY_MNG_BASE + UFS_DEVICE_IO_CTRL),
+> > +		0xFFF,
+> > +	};
+> 
+> Can this array be declared 'static const'?
+> 
+Yes, sure
 
-Will this cause a link error when CONFIG_IRQ_STACKS is disabled?
-Looking at arch/riscv/kernel/irq.c, irq_stack_ptr is defined inside an
-#ifdef CONFIG_IRQ_STACKS block. Since stackinfo_get_irq() unconditionally
-references it here, it seems this might result in an undefined reference
-to irq_stack_ptr during linking.
+> The parentheses in the above array definition are superfluous.
+> Please remove these.
+> 
+Ok, will do
 
-Should this accessor be conditionally compiled, or should it provide a
-fallback when CONFIG_IRQ_STACKS is not set?
+> > +	buf = kzalloc(VENDOR_DUMP_BUF_SIZE, GFP_ATOMIC);
+> 
+> Why GFP_ATOMIC? ufs_spacemit_dump_host_regs() is never called from
+> atomic context, isn't it?
+> 
+No, it will be called from interrupt context
 
-Thanks.
-Shuai
+devm_request_threaded_irq(dev, irq, ufshcd_intr, ufshcd_threaded_intr,..)
+ufshcd_intr() 
+    ufshcd_sl_intr()
+         ufshcd_check_errors() 
+            ufshcd_update_evt_hist
+                 ufshcd_vops_event_notify()
+                       ufs_spacemit_event_notify
+
+but I will see if able to move this function to .dbg_register_dump() and
+redesign it with ufshcd_dump_regs(), or simply drop it from this version,
+ and implement it as a separate patch in future.
+
+P.S, checked ufshcd_dump_regs() also use GFP_ATOMIC for memory allocation,
+see drivers/ufs/core/ufshcd.c:174
+
+> > +	len += scnprintf(buf + len, VENDOR_DUMP_BUF_SIZE - len, "vendor specific registers:");
+> 
+> This function will be much easier to review and to maintain if a struct
+> seq_buf instance is created for 'buf' and if seq_buf_printf() would be
+> used instead of scnprintf().
+> 
+should depend on above..
+
+> > +static bool is_fsm_state_valid(u32 state)
+> > +{
+> > +	return (state == FSM_STATE_ACTIVE || state == FSM_STATE_LS_BURST);
+> > +}
+> 
+> "return" is not a function. Please remove the superfluous parentheses.
+> 
+Ok
+
+> > +static int ufs_spacemit_mphy_init(struct ufs_hba *hba)
+> > +{
+> > +	int ret;
+> > +
+> > +	/* reset all mphy logical */
+> > +	ufshcd_writel(hba, 0x003, UFS_PHY_MNG_BASE + 0x0);
+> > +	mdelay(1);
+> 
+> Why mdelay() instead of msleep()?
+> 
+Ok, TBO, I need to check more widely about the delay functions,
+generally there are too many, too long delay()s ..
+
+some could be simply dropped, some could be reduced,
+some could be converted into sleepable function..
+
+> > +static int ufs_spacemit_uniprov1p6_init(struct ufs_hba *hba)
+> > +{
+> > +	/* PA_TXHSG1SYNCLENGTH */
+> > +	ufshcd_dme_set(hba, UIC_ARG_MIB(0x1552), 0x4f);
+> > +
+> > +	/* PA_TXHSG1PREPARELENGTH */
+> > +	ufshcd_dme_set(hba, UIC_ARG_MIB(0x1553), 0xf);
+> 
+> The code in this function is very repetitive. Please convert all the
+> ufshcd_dme_set() calls into a loop over an array.
+> 
+Ok
+
+> > +	/*LCC_DISABLE*/
+> 
+> Here and everywhere else in this source file, please follow the
+> convention used elsewhere in the Linux kernel and change /*comment*/
+> into /* comment */.
+> 
+Ok
+
+> > +/**
+> > + * ufs_spacemit_hibern8_notify - Handle hibernate enter/exit
+> > + * @hba: host controller instance
+> > + * @cmd: UIC command (HIBER_ENTER or HIBER_EXIT)
+> > + * @status: notification status
+> > + *
+> > + * Manages M-PHY power state during hibernate transitions.
+> > + */
+> > +static void ufs_spacemit_hibern8_notify(struct ufs_hba *hba, enum uic_cmd_dme cmd,
+> > +					enum ufs_notify_change_status status)
+> > +{
+> > +	int ret;
+> > +
+> > +	dev_dbg(hba->dev, "Hibern8 notify: cmd=%d, status=%d\n", cmd, status);
+> > +	if (status == PRE_CHANGE) {
+> > +		if (cmd == UIC_CMD_DME_HIBER_EXIT) {
+> > +			mdelay(1);
+> > +
+> > +			/* Enable reference clock */
+> > +			ufshcd_writel(hba, MPHY_DEVICE_RESET_DEASSERT,
+> > +				      UFS_PHY_MNG_BASE + UFS_DEVICE_IO_CTRL);
+> > +			mdelay(1);
+> > +
+> > +			/* Power up all */
+> > +			ufshcd_writel(hba, MPHY_PU_ALL, UFS_PHY_MNG_BASE + UFS_MPHY_PU_CTRL);
+> > +			mdelay(1);
+> > +
+> > +			/* Assert ana_rx_hb8_reset */
+> > +			ufshcd_writel(hba, MPHY_PU_WITH_HB8_RESET,
+> > +				      UFS_PHY_MNG_BASE + UFS_MPHY_PU_CTRL);
+> > +			mdelay(1);
+> > +
+> > +			/* Deassert ana_rx_hb8_reset */
+> > +			ufshcd_writel(hba, MPHY_PU_ALL, UFS_PHY_MNG_BASE + UFS_MPHY_PU_CTRL);
+> > +
+> > +			ret = ufs_spacemit_wait_mphy_pll_lock(hba);
+> > +			if (ret < 0)
+> > +				return;
+> > +
+> > +			mdelay(1);
+> > +			ufshcd_dme_set(hba, UIC_ARG_MIB(0xdd), 0x57);
+> > +			mdelay(1);
+> > +			ufshcd_dme_set(hba, UIC_ARG_MIB(0xe8), 0x57);
+> > +		}
+> > +	}
+> 
+> Please move all the code in this function that is indented by two tabs 
+> into new functions to improve code readability and to reduce
+> indentation. This advice comes from the Linux kernel coding style guide.
+> 
+Ok, will do
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
