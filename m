@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66691C43458
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2026 19:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD07C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 01:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wsV1yKU8e8zsc0M5Q6tAc97BCxdYtED/Ooh8A5yjr3M=; b=Rgf+b3AguvNfSVc53/bg/lOEpP
-	f6XeJJXhAaD4Itk0abzbGTQchBky9mcCSgIjJEJltZPgWwis0uH03qejehc+EWyx6MHdBXCggEeT1
-	oN2n/Xk8oSekDXI7TlOi+XACqjWR+4Sv7TRN4rgjV3ttTLILPjlVjalXNPb4aJnyWFirERkrrG67L
-	nmPZWMw32hkwwCy+PfH2l/RFDt/W89+hCCypvFshiE9Rweb25tRKsPGZTeJA/vP2dfPDNdjXgg0kL
-	/V+mqsdwAE5YWBkM2DesopDWFbRi3b/YgzVjSg/6rLM7jMQuxap9Be5HcGPQuE2uEUs3knu8tGsU2
-	hXtXD1Dw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HuNrwp/lWtUKRQLIQKP+qJiYwZLpIA4epGri9pXWaP0=; b=DEb3MpTRjcsHvq
+	gfs0DiycP7CDuE60rNVA1yyzDuIT+btXqfC5mT5m4v45mykqZJd4OJxEMA9qMd1wNTHPEDP/pcTVK
+	6G35KiACFPrqa+Y7Ip9Sq3vGuLOLWeUWI/FpVBdJzywPo/YgQEQoIVjKkaoAcWt5RQIZFnVj9qhMY
+	R+21bmnWFDvneYrSLlHO6TMXeiPW/9q+BEgZcp1maTjaLKsxDeLZvWp+k+CSXc+6KNYPTmw24rEOI
+	ZhcoOdWH2FaebdIRzHZXr7eV4CqUV5gae3SdMB2/p6SprW+2R1DEUZZdbgmAXUvVpaXZHQjzCxa2Z
+	m9KISnbcYhcZ4Uv7xQCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whBRH-0000000Fkwn-2OHi;
-	Tue, 07 Jul 2026 19:26:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whHKZ-0000000G7Mu-2N9g;
+	Wed, 08 Jul 2026 01:44:07 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whBRG-0000000FkwA-06Dn
-	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jul 2026 19:26:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07D41601EC;
-	Tue,  7 Jul 2026 19:26:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36ABD1F000E9;
-	Tue,  7 Jul 2026 19:26:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783452396;
-	bh=0/PYz8AAmDx6GuhrFyTeLVO7zjHVCWvDmL+dQgw4xUs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jAjyaq67h3aIS9SIgV3N0ca/py7U5gGDJ5aC89MvU5eUoWjT2RFZfjUSEj1vuXR83
-	 tYWNCEnr5HCkvXepgUF7RdE0QqgA+hLFANm2im06mOdZlQcmn4TfowtJpDxm3eBfr7
-	 zDAmVP7b3JwKrQrbo06YmWuXRzbRckx7BIB/+uAQL9jG/n30RwCnt5DU+HNvCk7kNf
-	 RAwD1VOkmng/NF3jVTWYOcqZJdpTQCzgZCsQ63cGVg4V6HfDGw8ighstkSVEHfejcx
-	 YcPDR5ug8USqSHoAlzkOZmXGQdKb40oB3UtBvhhaOtk3sNbiEEnocRHWly7kr5H8+V
-	 s/U/yP7WAP4rA==
-Date: Tue, 7 Jul 2026 12:26:34 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v4 8/8] riscv_cbqri: Add CBQRI capacity allocation
- platform driver
-Message-ID: <ak1S6stZ6Y1iLj2f@thelio>
-References: <20260706-dfustini-atl-sc-cbqri-dt-v4-0-e75c20201d64@kernel.org>
- <20260706-dfustini-atl-sc-cbqri-dt-v4-8-e75c20201d64@kernel.org>
- <aky9S8A5dgIJjd7b@monoceros>
+	id 1whHKU-0000000G7M4-0bIV;
+	Wed, 08 Jul 2026 01:44:06 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=PdZvJupbHpc2hOYnTOWKrk/la+Cgt9ShW3j2lWe0WJs=;
+	b=5hA9y/nbJT2Rdg9agSG6EdreDMBgYhixnmJvdWlfr8XidFnsSzCZu1Z1RT4/0VWszYj3O4mq/
+	EgOdnVoPIUBGLqZev43itv9gO4V5NDlaHCFpwiBMuwwoePes9JuQ/NhfwH1VMdkJPUaHTUdzc7M
+	av1A0vhQhzopjwvWZCaC8Vk=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gw0y549jNzLlTw;
+	Wed,  8 Jul 2026 09:34:37 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 665034057C;
+	Wed,  8 Jul 2026 09:43:51 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 8 Jul 2026 09:43:48 +0800
+Message-ID: <2e6ed364-ce8f-4b4b-8675-acd07f140f4f@huawei.com>
+Date: Wed, 8 Jul 2026 09:43:46 +0800
 MIME-Version: 1.0
-In-Reply-To: <aky9S8A5dgIJjd7b@monoceros>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [patch 11/18] seccomp, treewide: Rename and convert
+ __secure_computing() to return boolean
+To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+CC: Peter Zijlstra <peterz@infradead.org>, Mark Rutland
+	<mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, Andy Lutomirski
+	<luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard Henderson
+	<richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer
+	<tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>, Yoshinori Sato
+	<ysato@users.sourceforge.jp>, Richard Weinberger <richard@nod.at>, Chris
+ Zankel <chris@zankel.net>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-alpha@vger.kernel.org>, <linux-csky@vger.kernel.org>,
+	<linux-m68k@lists.linux-m68k.org>, <linux-mips@vger.kernel.org>,
+	<linux-parisc@vger.kernel.org>, <linux-sh@vger.kernel.org>,
+	<linux-um@lists.infradead.org>, Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>, <linuxppc-dev@lists.ozlabs.org>,
+	Huacai Chen <chenhuacai@kernel.org>, <loongarch@lists.linux.dev>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	<linux-riscv@lists.infradead.org>, Sven Schnelle <svens@linux.ibm.com>,
+	<linux-s390@vger.kernel.org>, <x86@kernel.org>, Arnd Bergmann
+	<arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
+	<will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
+	<monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
+	<davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
+	<linux-snps-arc@lists.infradead.org>, <linux-hexagon@vger.kernel.org>,
+	<linux-openrisc@vger.kernel.org>, <sparclinux@vger.kernel.org>,
+	<linux-arch@vger.kernel.org>, =?UTF-8?Q?Michal_Such=C3=A1nek?=
+	<msuchanek@suse.de>, Jonathan Corbet <corbet@lwn.net>,
+	<linux-doc@vger.kernel.org>
+References: <20260707181957.433213175@kernel.org>
+ <20260707190254.230735780@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260707190254.230735780@kernel.org>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_184402_844728_2E7E95B7 
+X-CRM114-Status: GOOD (  30.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,59 +98,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7244505823109084268=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7244505823109084268==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wBdm7NaO/F3mvZ63"
-Content-Disposition: inline
+
+On 7/8/2026 3:06 AM, Thomas Gleixner wrote:
+> From: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> The return value of __secure_computing() currently uses 0 to indicate
+> that a system call should be allowed, and -1 to indicate that it should
+> be blocked/killed. This 0/-1 pattern is non-intuitive for a security
+> check function and makes the control flow at the call sites less readable.
+> 
+> Furthermore, any potential future changes to these return values would
+> require a high-risk, error-prone audit of all its users across different
+> architectures.
+> 
+> Sanitize this logic by converting the return type of __secure_computing()
+> to a proper boolean, where 'true' explicitly means 'allow' and 'false'
+> means 'fail/deny'.
+> 
+> Update all the two dozen or so call sites across the tree to align with
+> this new boolean semantic. No functional changes are intended, as the
+> callers still return -1 to the lower-level assembly entry code upon
+> seccomp denial.
+> 
+> Rename the function to __seccomp_permit_syscall() so that the purpose is
+> entirely clear.
+> 
+> [ tglx: Rename the function ]
+> 
+> Suggested-by: Thomas Gleixner <tglx@kernel.org>
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> Cc: Kees Cook <kees@kernel.org>
+> Cc: Andy Lutomirski <luto@kernel.org>
+> Cc: Oleg Nesterov <oleg@redhat.com>
+> Cc: Richard Henderson <richard.henderson@linaro.org>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Guo Ren <guoren@kernel.org>
+> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: Helge Deller <deller@gmx.de>
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Richard Weinberger <richard@nod.at>
+> Cc: Chris Zankel <chris@zankel.net>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-alpha@vger.kernel.org
+> Cc: linux-csky@vger.kernel.org
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: linux-um@lists.infradead.org
+> ---
+>  arch/alpha/kernel/ptrace.c            |    2 -
+>  arch/arm/kernel/ptrace.c              |    2 -
+>  arch/arm64/kernel/ptrace.c            |    2 -
+>  arch/csky/kernel/ptrace.c             |    2 -
+>  arch/m68k/kernel/ptrace.c             |    2 -
+>  arch/mips/kernel/ptrace.c             |    2 -
+>  arch/parisc/kernel/ptrace.c           |    2 -
+>  arch/sh/kernel/ptrace_32.c            |    2 -
+>  arch/um/kernel/skas/syscall.c         |    2 -
+>  arch/x86/entry/vsyscall/vsyscall_64.c |   14 ++++++-------
+>  arch/xtensa/kernel/ptrace.c           |    3 --
+>  include/linux/entry-common.h          |    9 +++-----
+>  include/linux/seccomp.h               |   12 +++++------
+>  kernel/seccomp.c                      |   35 +++++++++++++++++-----------------
+>  14 files changed, 45 insertions(+), 46 deletions(-)
+
+As Ada pointed out, the description of secure_computing in arch/Kconfig
+need to be updated, a possible suggestion:
+
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -636,8 +636,8 @@ config HAVE_ARCH_SECCOMP_FILTER
+          - syscall_rollback()
+          - syscall_set_return_value()
+          - SIGSYS siginfo_t support
+-         - secure_computing is called from a ptrace_event()-safe context
+-         - secure_computing return value is checked and a return value
+of -1
++         - seccomp_permits_syscall is called from a ptrace_event()-safe
+context
++         - seccomp_permits_syscall return value is checked and if false
 
 
---wBdm7NaO/F3mvZ63
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Link:
+https://lore.kernel.org/all/b8f3b5cd-8d8a-4396-ba0c-011a83234dd9@arm.com/
 
-On Tue, Jul 07, 2026 at 10:48:32AM +0200, Uwe Kleine-K=F6nig wrote:
-> Hello,
->=20
-> On Mon, Jul 06, 2026 at 04:06:18PM -0700, Drew Fustini wrote:
-> > +#include <linux/mod_devicetable.h>
->=20
-> Please don't add new users for this header file. Only use those
-> <linux/device-id/*.h> that you actually need (if any).
+> --- a/arch/alpha/kernel/ptrace.c
+> +++ b/arch/alpha/kernel/ptrace.c
+> @@ -387,7 +387,7 @@ asmlinkage unsigned long syscall_trace_e
+>  	 * If this fails, seccomp may already have set up the return value
+>  	 * (e.g. SECCOMP_RET_ERRNO / TRACE).
+>  	 */
+> -	if (secure_computing() == -1) {
+> +	if (!seccomp_permit_syscall()) {
+>  		if (regs->r19 == 0 && regs->r0 == (unsigned long)-1)
+>  			syscall_set_return_value(current, regs, -ENOSYS, 0);
+>  		syscall_set_nr(current, regs, -1);
 
-Thanks for the review. I will switch to just including device-id/of.h
+[...]
 
-Drew
+> -static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
+> +static bool __seccomp_filter(int this_syscall, const bool recheck_after_trace)
+>  {
+>  	u32 filter_ret, action;
+>  	struct seccomp_data sd;
+> @@ -1294,7 +1295,7 @@ static int __seccomp_filter(int this_sys
+>  	case SECCOMP_RET_TRACE:
+>  		/* We've been put in this state by the ptracer already. */
+>  		if (recheck_after_trace)
+> -			return 0;
+> +			return true;
+>  
+>  		/* ENOSYS these calls if there is no tracer attached. */
+>  		if (!ptrace_event_enabled(current, PTRACE_EVENT_SECCOMP)) {
+> @@ -1330,19 +1331,19 @@ static int __seccomp_filter(int this_sys
+>  		 * a skip would have already been reported.
+>  		 */
+>  		if (__seccomp_filter(this_syscall, true))
+> -			return -1;
+> +			return false;
 
---wBdm7NaO/F3mvZ63
-Content-Type: application/pgp-signature; name="signature.asc"
+The return value of __seccomp_filter is checked in the wrong way, check
+-1 should be replaced with check false, maybe:
 
------BEGIN PGP SIGNATURE-----
+-               if (__seccomp_filter(this_syscall, true))
+-                       return -1;
++               if (!__seccomp_filter(this_syscall, true))
++                       return false;
 
-iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCak1S5gAKCRDb7CzD2Six
-DHlpAQDdGHQhtjb5i4voWvj8dOvD9/iBGOUI20Vlg8krBkESVQD8Dx9SgPodnTs4
-Y2Jx/hpo8cNk9JmOdZ9qfpeGwS1pPAE=
-=rAy4
------END PGP SIGNATURE-----
+otherwise,
 
---wBdm7NaO/F3mvZ63--
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
+>  
+> -		return 0;
+> +		return true;
+>  
+>  	case SECCOMP_RET_USER_NOTIF:
+>  		if (seccomp_do_user_notification(this_syscall, match, &sd))
+>  			goto skip;
+>  
+> -		return 0;
+> +		return true;
+>  
+>  	case SECCOMP_RET_LOG:
+>  		seccomp_log(this_syscall, 0, action, true);
+> -		return 0;
+> +		return true;
+>  
+>  	case SECCOMP_RET_ALLOW:
+>  		/*
+> @@ -1350,7 +1351,7 @@ static int __seccomp_filter(int this_sys
+>  		 * this action since SECCOMP_RET_ALLOW is the starting
+>  		 * state in seccomp_run_filters().
+>  		 */
+> -		return 0;
+> +		return true;
+>  
+>  	case SECCOMP_RET_KILL_THREAD:
+>  	case SECCOMP_RET_KILL_PROCESS:
+> @@ -1367,46 +1368,46 @@ static int __seccomp_filter(int this_sys
+>  		} else {
+>  			do_exit(SIGSYS);
+>  		}
+> -		return -1; /* skip the syscall go directly to signal handling */
+> +		return false; /* skip the syscall go directly to signal handling */
+>  	}
+>  
+>  	unreachable();
+>  
+>  skip:
+>  	seccomp_log(this_syscall, 0, action, match ? match->log : false);
+> -	return -1;
+> +	return false;
+>  }
+>  #else
+> -static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
+> +static bool __seccomp_filter(int this_syscall, const bool recheck_after_trace)
+>  {
+>  	BUG();
+>  
+> -	return -1;
+> +	return false;
+>  }
+>  #endif
+>  
+> -int __secure_computing(void)
+> +bool __seccomp_permit_syscall(void)
+>  {
+>  	int mode = current->seccomp.mode;
+>  	int this_syscall;
+>  
+>  	if (IS_ENABLED(CONFIG_CHECKPOINT_RESTORE) &&
+>  	    unlikely(current->ptrace & PT_SUSPEND_SECCOMP))
+> -		return 0;
+> +		return true;
+>  
+>  	this_syscall = syscall_get_nr(current, current_pt_regs());
+>  
+>  	switch (mode) {
+>  	case SECCOMP_MODE_STRICT:
+>  		__secure_computing_strict(this_syscall);  /* may call do_exit */
+> -		return 0;
+> +		return true;
+>  	case SECCOMP_MODE_FILTER:
+>  		return __seccomp_filter(this_syscall, false);
+>  	/* Surviving SECCOMP_RET_KILL_* must be proactively impossible. */
+>  	case SECCOMP_MODE_DEAD:
+>  		WARN_ON_ONCE(1);
+>  		do_exit(SIGKILL);
+> -		return -1;
+> +		return false;
+>  	default:
+>  		BUG();
+>  	}
+> 
 
---===============7244505823109084268==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7244505823109084268==--
-
