@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD07C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 01:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8E3C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 01:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HuNrwp/lWtUKRQLIQKP+qJiYwZLpIA4epGri9pXWaP0=; b=DEb3MpTRjcsHvq
-	gfs0DiycP7CDuE60rNVA1yyzDuIT+btXqfC5mT5m4v45mykqZJd4OJxEMA9qMd1wNTHPEDP/pcTVK
-	6G35KiACFPrqa+Y7Ip9Sq3vGuLOLWeUWI/FpVBdJzywPo/YgQEQoIVjKkaoAcWt5RQIZFnVj9qhMY
-	R+21bmnWFDvneYrSLlHO6TMXeiPW/9q+BEgZcp1maTjaLKsxDeLZvWp+k+CSXc+6KNYPTmw24rEOI
-	ZhcoOdWH2FaebdIRzHZXr7eV4CqUV5gae3SdMB2/p6SprW+2R1DEUZZdbgmAXUvVpaXZHQjzCxa2Z
-	m9KISnbcYhcZ4Uv7xQCQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=C+JST3QO6VsW2nj/URjnyHXVEMAeXYcCXbFlU20dtmc=; b=hj47MWHMhmApb2
+	n1cKWHYW5jx4pEzE3iFkcw5D6xiE+ax1LRd4uJ1x6eX25aKGOh5tA/Cnux7BLUuXo2ScR2o7n1jAc
+	GB4QmXgABoO7mnh9k3mUmpNUzBesY/3ZdBWrVkOopmlg6UousKQnK9iaYERLikf+Y3S4TK3fQCZoz
+	ojvFLt+RxgW95FCHef5c8Xepy9Vri+X9emIHQTcBmdmOGM00HPzEESmGEqIDr+GF5R8ggoN8Kk+4I
+	P00ZrTzdREo+l+t+4WjeyZ9kXAq6HitaPbPEHcvfO1C3Xs8ECWw73StzPgNQdOjVfIYp2EitcQcef
+	6qu0tSM3F+9sxanrsZaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHKZ-0000000G7Mu-2N9g;
-	Wed, 08 Jul 2026 01:44:07 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1whHRF-0000000G7ne-0fYF;
+	Wed, 08 Jul 2026 01:51:01 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHKU-0000000G7M4-0bIV;
-	Wed, 08 Jul 2026 01:44:06 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=PdZvJupbHpc2hOYnTOWKrk/la+Cgt9ShW3j2lWe0WJs=;
-	b=5hA9y/nbJT2Rdg9agSG6EdreDMBgYhixnmJvdWlfr8XidFnsSzCZu1Z1RT4/0VWszYj3O4mq/
-	EgOdnVoPIUBGLqZev43itv9gO4V5NDlaHCFpwiBMuwwoePes9JuQ/NhfwH1VMdkJPUaHTUdzc7M
-	av1A0vhQhzopjwvWZCaC8Vk=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gw0y549jNzLlTw;
-	Wed,  8 Jul 2026 09:34:37 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 665034057C;
-	Wed,  8 Jul 2026 09:43:51 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 8 Jul 2026 09:43:48 +0800
-Message-ID: <2e6ed364-ce8f-4b4b-8675-acd07f140f4f@huawei.com>
-Date: Wed, 8 Jul 2026 09:43:46 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch 11/18] seccomp, treewide: Rename and convert
- __secure_computing() to return boolean
-To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-CC: Peter Zijlstra <peterz@infradead.org>, Mark Rutland
-	<mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, Andy Lutomirski
-	<luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard Henderson
-	<richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, Catalin
- Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, Geert
- Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer
-	<tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>, Yoshinori Sato
-	<ysato@users.sourceforge.jp>, Richard Weinberger <richard@nod.at>, Chris
- Zankel <chris@zankel.net>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-alpha@vger.kernel.org>, <linux-csky@vger.kernel.org>,
-	<linux-m68k@lists.linux-m68k.org>, <linux-mips@vger.kernel.org>,
-	<linux-parisc@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<linux-um@lists.infradead.org>, Michael Ellerman <mpe@ellerman.id.au>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>, <linuxppc-dev@lists.ozlabs.org>,
-	Huacai Chen <chenhuacai@kernel.org>, <loongarch@lists.linux.dev>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	<linux-riscv@lists.infradead.org>, Sven Schnelle <svens@linux.ibm.com>,
-	<linux-s390@vger.kernel.org>, <x86@kernel.org>, Arnd Bergmann
-	<arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
-	<will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
-	<monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
-	<davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
-	<linux-snps-arc@lists.infradead.org>, <linux-hexagon@vger.kernel.org>,
-	<linux-openrisc@vger.kernel.org>, <sparclinux@vger.kernel.org>,
-	<linux-arch@vger.kernel.org>, =?UTF-8?Q?Michal_Such=C3=A1nek?=
-	<msuchanek@suse.de>, Jonathan Corbet <corbet@lwn.net>,
-	<linux-doc@vger.kernel.org>
-References: <20260707181957.433213175@kernel.org>
- <20260707190254.230735780@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260707190254.230735780@kernel.org>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+	id 1whHRB-0000000G7mt-1kFD
+	for linux-riscv@lists.infradead.org;
+	Wed, 08 Jul 2026 01:50:59 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gw1Jr2JCgz8XrrJ;
+	Wed, 08 Jul 2026 09:50:52 +0800 (CST)
+Received: from xaxapp04.zte.com.cn ([10.99.98.157])
+	by mse-fl1.zte.com.cn with SMTP id 6681ojIQ011042;
+	Wed, 8 Jul 2026 09:50:45 +0800 (+08)
+	(envelope-from zhang.anmeng@zte.com.cn)
+Received: from mapi (xaxapp04[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Wed, 8 Jul 2026 09:50:46 +0800 (CST)
+X-Zmail-TransId: 2afb6a4dacf6642-59625
+X-Mailer: Zmail v1.0
+Message-ID: <20260708095046716mVQlEvhyoXko9eueCxict@zte.com.cn>
+Date: Wed, 8 Jul 2026 09:50:46 +0800 (CST)
+Mime-Version: 1.0
+From: <zhang.anmeng@zte.com.cn>
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <alex@ghiti.fr>, <qirui.001@bytedance.com>, <hu.shengming@zte.com.cn>,
+        <gao.rui@zte.com.cn>, <luo.haiyang@zte.com.cn>, <zhang.run@zte.com.cn>,
+        <zhangchunyan@iscas.ac.cn>
+Subject: =?UTF-8?B?W1BBVENIXSByaXNjdjogc3RhY2t0cmFjZTogRml4IE5VTEwgdGFzayBwb2ludGVyIGluCiBmdHJhY2VfZ3JhcGhfcmV0X2FkZHIoKQ==?=
+X-MAIL: mse-fl1.zte.com.cn 6681ojIQ011042
+X-TLS: YES
+X-ENVELOPE-SENDER: zhang.anmeng@zte.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Wed, 08 Jul 2026 09:50:52 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A4DACFC.000/4gw1Jr2JCgz8XrrJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_184402_844728_2E7E95B7 
-X-CRM114-Status: GOOD (  30.52  )
+X-CRM114-CacheID: sfid-20260707_185057_614590_562C4AE8 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,228 +79,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Anmeng Zhang <zhang.anmeng@zte.com.cn>
 
+When dump_backtrace() is called with a NULL task argument, and the
+call stack contains functions that are being traced,
+walk_stackframe() eventually calls ftrace_graph_ret_addr() with the
+NULL task pointer, which results in a NULL pointer dereference when
+accessing task->curr_ret_stack.
 
-On 7/8/2026 3:06 AM, Thomas Gleixner wrote:
-> From: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
-> The return value of __secure_computing() currently uses 0 to indicate
-> that a system call should be allowed, and -1 to indicate that it should
-> be blocked/killed. This 0/-1 pattern is non-intuitive for a security
-> check function and makes the control flow at the call sites less readable.
-> 
-> Furthermore, any potential future changes to these return values would
-> require a high-risk, error-prone audit of all its users across different
-> architectures.
-> 
-> Sanitize this logic by converting the return type of __secure_computing()
-> to a proper boolean, where 'true' explicitly means 'allow' and 'false'
-> means 'fail/deny'.
-> 
-> Update all the two dozen or so call sites across the tree to align with
-> this new boolean semantic. No functional changes are intended, as the
-> callers still return -1 to the lower-level assembly entry code upon
-> seccomp denial.
-> 
-> Rename the function to __seccomp_permit_syscall() so that the purpose is
-> entirely clear.
-> 
-> [ tglx: Rename the function ]
-> 
-> Suggested-by: Thomas Gleixner <tglx@kernel.org>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Kees Cook <kees@kernel.org>
-> Cc: Andy Lutomirski <luto@kernel.org>
-> Cc: Oleg Nesterov <oleg@redhat.com>
-> Cc: Richard Henderson <richard.henderson@linaro.org>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Guo Ren <guoren@kernel.org>
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Richard Weinberger <richard@nod.at>
-> Cc: Chris Zankel <chris@zankel.net>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-alpha@vger.kernel.org
-> Cc: linux-csky@vger.kernel.org
-> Cc: linux-m68k@lists.linux-m68k.org
-> Cc: linux-mips@vger.kernel.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linux-sh@vger.kernel.org
-> Cc: linux-um@lists.infradead.org
-> ---
->  arch/alpha/kernel/ptrace.c            |    2 -
->  arch/arm/kernel/ptrace.c              |    2 -
->  arch/arm64/kernel/ptrace.c            |    2 -
->  arch/csky/kernel/ptrace.c             |    2 -
->  arch/m68k/kernel/ptrace.c             |    2 -
->  arch/mips/kernel/ptrace.c             |    2 -
->  arch/parisc/kernel/ptrace.c           |    2 -
->  arch/sh/kernel/ptrace_32.c            |    2 -
->  arch/um/kernel/skas/syscall.c         |    2 -
->  arch/x86/entry/vsyscall/vsyscall_64.c |   14 ++++++-------
->  arch/xtensa/kernel/ptrace.c           |    3 --
->  include/linux/entry-common.h          |    9 +++-----
->  include/linux/seccomp.h               |   12 +++++------
->  kernel/seccomp.c                      |   35 +++++++++++++++++-----------------
->  14 files changed, 45 insertions(+), 46 deletions(-)
+Fix this by assigning the task pointer to the current task in
+walk_stackframe() when it is NULL, keeping the behavior consistent
+with other architectures.
 
-As Ada pointed out, the description of secure_computing in arch/Kconfig
-need to be updated, a possible suggestion:
+Fixes: ecbf894165a2 ("riscv: Fix ftrace_graph_ret_addr() to use the correct task pointer")
+Reviewed-by: Shengming Hu <hu.shengming@zte.com.cn>
+Reviewed-by: Rui Gao <gao.rui@zte.com.cn>
+Reviewed-by: Luo Haiyang <luo.haiyang@zte.com.cn>
+Reviewed-by: Run Zhang <zhang.run@zte.com.cn>
+Signed-off-by: Anmeng Zhang <zhang.anmeng@zte.com.cn>
+---
+ arch/riscv/kernel/stacktrace.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -636,8 +636,8 @@ config HAVE_ARCH_SECCOMP_FILTER
-          - syscall_rollback()
-          - syscall_set_return_value()
-          - SIGSYS siginfo_t support
--         - secure_computing is called from a ptrace_event()-safe context
--         - secure_computing return value is checked and a return value
-of -1
-+         - seccomp_permits_syscall is called from a ptrace_event()-safe
-context
-+         - seccomp_permits_syscall return value is checked and if false
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index c7555447149b..d19545efb5dd 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -52,11 +52,14 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 	int graph_idx = 0;
+ 	int level = 0;
 
-
-Link:
-https://lore.kernel.org/all/b8f3b5cd-8d8a-4396-ba0c-011a83234dd9@arm.com/
-
-> --- a/arch/alpha/kernel/ptrace.c
-> +++ b/arch/alpha/kernel/ptrace.c
-> @@ -387,7 +387,7 @@ asmlinkage unsigned long syscall_trace_e
->  	 * If this fails, seccomp may already have set up the return value
->  	 * (e.g. SECCOMP_RET_ERRNO / TRACE).
->  	 */
-> -	if (secure_computing() == -1) {
-> +	if (!seccomp_permit_syscall()) {
->  		if (regs->r19 == 0 && regs->r0 == (unsigned long)-1)
->  			syscall_set_return_value(current, regs, -ENOSYS, 0);
->  		syscall_set_nr(current, regs, -1);
-
-[...]
-
-> -static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
-> +static bool __seccomp_filter(int this_syscall, const bool recheck_after_trace)
->  {
->  	u32 filter_ret, action;
->  	struct seccomp_data sd;
-> @@ -1294,7 +1295,7 @@ static int __seccomp_filter(int this_sys
->  	case SECCOMP_RET_TRACE:
->  		/* We've been put in this state by the ptracer already. */
->  		if (recheck_after_trace)
-> -			return 0;
-> +			return true;
->  
->  		/* ENOSYS these calls if there is no tracer attached. */
->  		if (!ptrace_event_enabled(current, PTRACE_EVENT_SECCOMP)) {
-> @@ -1330,19 +1331,19 @@ static int __seccomp_filter(int this_sys
->  		 * a skip would have already been reported.
->  		 */
->  		if (__seccomp_filter(this_syscall, true))
-> -			return -1;
-> +			return false;
-
-The return value of __seccomp_filter is checked in the wrong way, check
--1 should be replaced with check false, maybe:
-
--               if (__seccomp_filter(this_syscall, true))
--                       return -1;
-+               if (!__seccomp_filter(this_syscall, true))
-+                       return false;
-
-otherwise,
-
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  
-> -		return 0;
-> +		return true;
->  
->  	case SECCOMP_RET_USER_NOTIF:
->  		if (seccomp_do_user_notification(this_syscall, match, &sd))
->  			goto skip;
->  
-> -		return 0;
-> +		return true;
->  
->  	case SECCOMP_RET_LOG:
->  		seccomp_log(this_syscall, 0, action, true);
-> -		return 0;
-> +		return true;
->  
->  	case SECCOMP_RET_ALLOW:
->  		/*
-> @@ -1350,7 +1351,7 @@ static int __seccomp_filter(int this_sys
->  		 * this action since SECCOMP_RET_ALLOW is the starting
->  		 * state in seccomp_run_filters().
->  		 */
-> -		return 0;
-> +		return true;
->  
->  	case SECCOMP_RET_KILL_THREAD:
->  	case SECCOMP_RET_KILL_PROCESS:
-> @@ -1367,46 +1368,46 @@ static int __seccomp_filter(int this_sys
->  		} else {
->  			do_exit(SIGSYS);
->  		}
-> -		return -1; /* skip the syscall go directly to signal handling */
-> +		return false; /* skip the syscall go directly to signal handling */
->  	}
->  
->  	unreachable();
->  
->  skip:
->  	seccomp_log(this_syscall, 0, action, match ? match->log : false);
-> -	return -1;
-> +	return false;
->  }
->  #else
-> -static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
-> +static bool __seccomp_filter(int this_syscall, const bool recheck_after_trace)
->  {
->  	BUG();
->  
-> -	return -1;
-> +	return false;
->  }
->  #endif
->  
-> -int __secure_computing(void)
-> +bool __seccomp_permit_syscall(void)
->  {
->  	int mode = current->seccomp.mode;
->  	int this_syscall;
->  
->  	if (IS_ENABLED(CONFIG_CHECKPOINT_RESTORE) &&
->  	    unlikely(current->ptrace & PT_SUSPEND_SECCOMP))
-> -		return 0;
-> +		return true;
->  
->  	this_syscall = syscall_get_nr(current, current_pt_regs());
->  
->  	switch (mode) {
->  	case SECCOMP_MODE_STRICT:
->  		__secure_computing_strict(this_syscall);  /* may call do_exit */
-> -		return 0;
-> +		return true;
->  	case SECCOMP_MODE_FILTER:
->  		return __seccomp_filter(this_syscall, false);
->  	/* Surviving SECCOMP_RET_KILL_* must be proactively impossible. */
->  	case SECCOMP_MODE_DEAD:
->  		WARN_ON_ONCE(1);
->  		do_exit(SIGKILL);
-> -		return -1;
-> +		return false;
->  	default:
->  		BUG();
->  	}
-> 
-
++	if (task == NULL)
++		task = current;
++
+ 	if (regs) {
+ 		fp = frame_pointer(regs);
+ 		sp = user_stack_pointer(regs);
+ 		pc = instruction_pointer(regs);
+-	} else if (task == NULL || task == current) {
++	} else if (task == current) {
+ 		fp = (unsigned long)__builtin_frame_address(0);
+ 		sp = current_stack_pointer;
+ 		pc = (unsigned long)walk_stackframe;
+-- 
+2.43.5
 
 _______________________________________________
 linux-riscv mailing list
