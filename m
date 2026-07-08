@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC39C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 22:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDD0C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 23:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykAa1EjcOCyHq2MhSqEWhE1Ym2ca3+ogvqUBrb796GY=; b=0SAj026g9BylS5
-	4FIBGz61LdfffPgCJgLLS/ukdfhiSxzLgOvWMRPlMbA9V1XD65SQ42vl8bMddB/y8xvUDA8QDVv/t
-	yYIWNAbqU1uechL8s2YNxbcM8Cruk7fxndOfdjNj/H3+3N8I3bmX/u6K2cZjA/IipnbGNFIcERL9/
-	zpeAyoRQeiP+YhOEvD1iDJqYNR0ekDVpXIVWotBAHsbZe1hdsz62sW7UI/wC6AWrzoe1xtQrmHXlu
-	WVQG93EC5AkFaRit05V2nPh6+RHH0+DauGSu3HA7bn+jGANXfbxBJNo3kVNxIIZ78Nv62CB7EQc0+
-	EcVOEKztmfUs3c7Ymviw==;
+	List-Owner; bh=hTeGg4W+N5RcUBfEhqacZHAOlYWtiS9l+TWUrfbd2g8=; b=Sf5VdRW1v/SMyx
+	Kbn7bNp1DfFwQlC4mNcyv3Axo5Q+0OILcQFlPxzJVad2XSMcOovWPkWpZ7Hmr/GeuOf8q3Eio1cfm
+	QEeqfa9jh9kQ57dkUk/CwV3xowOKMXF38kn1nf7ERAsU/Z7ZB5OspIdIQ5IVoBDdMSrSI1uEh4+5k
+	TE7Eivn1lrrBdzZ1QuWYFDpE+WrU0SYjwmzQViz72fIAYWKV5IQ27LOlAFj4TcCSO+NdRQrv2HvjZ
+	r1cPz5+M7lBBPQBBCP9scMpbT5g38zwDNqSJq9ie8h4EbHV+0102jqIyn0fQotDpsZxMRFNU2JyAm
+	xEcslgYJAhpo6o4NOV9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaRE-00000000WP1-0DJh;
-	Wed, 08 Jul 2026 22:08:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whbKj-00000000ZtK-2ity;
+	Wed, 08 Jul 2026 23:05:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaRD-00000000WOl-0IpH;
-	Wed, 08 Jul 2026 22:08:15 +0000
+	id 1whbKi-00000000Zt9-0lBr
+	for linux-riscv@lists.infradead.org;
+	Wed, 08 Jul 2026 23:05:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 137E040751;
-	Wed,  8 Jul 2026 22:08:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A72C1F000E9;
-	Wed,  8 Jul 2026 22:08:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4CCC1600C3;
+	Wed,  8 Jul 2026 23:05:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 548651F000E9;
+	Wed,  8 Jul 2026 23:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783548494;
-	bh=6Cz8BOTHw08E9NcS2yyN9pfUWQWxwh/AbZG3/5oSlNo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=FHRxCIVTukQAG3miFmDwBEU6I209sFjCARp6kEzFqtKLvTVeoIbUSsC2eSN9qIdnR
-	 VQXn9bZShPRC0JvYyhaNRqG/HqxM+0wwkl21YMKvZbZEbwDcCKokdsns9i9ZzyHYbj
-	 JPwH4nZrvGyAqtNPEHE5kgl0uyruw7Hao0EDZtv1yI13czTm2pC4iPHCUKvnl9ttoA
-	 FQw80n5mm74fyWAHSi+eqhPD70ioINDjajTGwworQYlA/8+7sT+AhOFmASXWzYgLLf
-	 IhREvhCoeEVhqiVsSYxwG/avxpiZWCQ9oe9o7pb6I/zkL58DG4nCbi8UNCb/vvui/f
-	 nhrMJDrJBHLcg==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Radu Rendec <radu@rendec.net>, LKML <linux-kernel@vger.kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Michael Ellerman
- <mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>,
- linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, loongarch@lists.linux.dev, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Sven Schnelle <svens@linux.ibm.com>,
- linux-s390@vger.kernel.org, x86@kernel.org, Mark Rutland
- <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Andy
- Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard
- Henderson <richard.henderson@linaro.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Guo
- Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
- <richard@nod.at>, Chris Zankel <chris@zankel.net>,
- linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann
- <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
- <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
- <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
- linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
- linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-arch@vger.kernel.org, Michal =?utf-8?Q?Such=C3=A1nek?=
- <msuchanek@suse.de>, Jonathan
- Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Subject: Re: [patch 09/18] entry: Remove syscall_enter_from_user_mode()
-In-Reply-To: <28fb0a8fd840bbf5223c60fea156584cb0f0f208.camel@rendec.net>
-References: <20260707181957.433213175@kernel.org>
- <20260707190254.132654198@kernel.org>
- <28fb0a8fd840bbf5223c60fea156584cb0f0f208.camel@rendec.net>
-Date: Thu, 09 Jul 2026 00:08:11 +0200
-Message-ID: <87mrw1qgms.ffs@fw13>
+	s=k20260515; t=1783551935;
+	bh=IQw8Fmyq60Hd93Fj+TzQiJzIQ3vI9pEs45BmOecGf9Y=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=Dya7nyRRTuBslB+p/TsWw7zZcOhWHzgKIIwPb2YT7ucCHpOmXS9+bk+2OgvBT7lYu
+	 Q40PAZgcaBLTPbN/9AaAdmpr7XHolSCU/K1WyvJh4JCIQljF1/CATw9mVrut8Vb8N9
+	 Jtdv3Tx1NbVypq99qB7ubYoeO13CsHjhayb49AffwHk40tdUDuwcr/0pYJgMPMnQsg
+	 Dgu4gsi4uAvjC/oc5iI6eqGtfv3XoZP/mo04kGwm029YGnNehetoFjcoHB1u+AU/wc
+	 40IVffo8Gzg23/ygelihPQ2Viq3mE7xc4kSeej34ryNdt3mPmbxM1maY5z7BeSBXjj
+	 V+C+BGlci8hMA==
+Date: Wed, 8 Jul 2026 17:05:29 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Hui Wang <hui.wang@canonical.com>
+cc: mathieu.desnoyers@efficios.com, peterz@infradead.org, shuah@kernel.org, 
+    paulmck@kernel.org, boqun@kernel.org, zhouquan@iscas.ac.cn, 
+    ajones@ventanamicro.com, linux-kselftest@vger.kernel.org, 
+    linux-riscv@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] selftests/rseq: Fix a building error for riscv arch
+In-Reply-To: <20260707082348.36896-1-hui.wang@canonical.com>
+Message-ID: <073d4140-ac91-1b5d-26a2-f519d6a2792b@kernel.org>
+References: <20260707082348.36896-1-hui.wang@canonical.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,32 +65,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgMDggMjAyNiBhdCAxNzoyMSwgUmFkdSBSZW5kZWMgd3JvdGU6Cgo+IE9uIFR1
-ZSwgMjAyNi0wNy0wNyBhdCAyMTowNiArMDIwMCwgVGhvbWFzIEdsZWl4bmVyIHdyb3RlOgo+PiBB
-bGwgYXJjaGl0ZWN0dXJlIHVzZSBlaXRoZXI6Cj4+IAo+PiDCoMKgwqAgbnIgPSBlbnRlcl9mcm9t
-X3VzZXJfbW9kZV9yYW5kb21pemVfc3RhY2socmVncywgbnIpOwo+Cj4gWW91IHByb2JhYmx5IG1l
-YW4gc3lzY2FsbF9lbnRlcl9mcm9tX3VzZXJfbW9kZV9yYW5kb21pemVfc3RhY2suCgpEdWguIEkg
-b2J2aW91c2x5IGdvdCB0aGF0IHdyb25nIGluIGEgaHVycnkuIFRoYW5rcyBmb3IgcG9pbnRpbmcg
-aXQgb3V0IQo+PiDCoHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCByZXBvcnRfc2luZ2xlX3N0
-ZXAodW5zaWduZWQgbG9uZyB3b3JrKQo+PiDCoHsKPj4gLS0tIGEvaW5jbHVkZS9saW51eC9pcnEt
-ZW50cnktY29tbW9uLmgKPj4gKysrIGIvaW5jbHVkZS9saW51eC9pcnEtZW50cnktY29tbW9uLmgK
-Pj4gQEAgLTQ5LDkgKzQ5LDkgQEAKPj4gwqAgKiBEZWZhdWx0cyB0byBhbiBlbXB0eSBpbXBsZW1l
-bnRhdGlvbi4gQ2FuIGJlIHJlcGxhY2VkIGJ5IGFyY2hpdGVjdHVyZQo+PiDCoCAqIHNwZWNpZmlj
-IGNvZGUuCj4+IMKgICoKPj4gLSAqIEludm9rZWQgZnJvbSBzeXNjYWxsX2VudGVyX2Zyb21fdXNl
-cl9tb2RlKCkgaW4gdGhlIG5vbi1pbnN0cnVtZW50YWJsZQo+PiAtICogc2VjdGlvbi4gVXNlIF9f
-YWx3YXlzX2lubGluZSBzbyB0aGUgY29tcGlsZXIgY2Fubm90IHB1c2ggaXQgb3V0IG9mIGxpbmUK
-Pj4gLSAqIGFuZCBtYWtlIGl0IGluc3RydW1lbnRhYmxlLgo+PiArICogSW52b2tlZCBmcm9tIGVu
-dGVyX2Zyb21fdXNlcl9tb2RlX3N5c2NhbGxfYW5kX3JhbmRvbWl6ZV9zdGFjaygpIGluIHRoZQo+
-ICAgICAgICAgICAgICAgICAgICBeXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5e
-Xl5eXl5eXl5eXl4KPgo+IFByb2JhYmx5IHN5c2NhbGxfZW50ZXJfZnJvbV91c2VyX21vZGVfcmFu
-ZG9taXplX3N0YWNrKCk/IEJ1dCB0aGUKPiByZWFsaXR5IGlzIGl0J3Mgb25seSBldmVyIGludm9r
-ZWQgZnJvbSBlbnRlcl9mcm9tX3VzZXJfbW9kZSgpLCB3aGljaCBpcwo+IGJlbG93IGluIHRoZSBz
-YW1lIGZpbGUgKGluY2x1ZGUvbGludXgvaXJxLWVudHJ5LWNvbW1vbi5oKS4KClllcy4gSW5kZWVk
-LgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, 7 Jul 2026, Hui Wang wrote:
+
+> RISC-V rseq selftests include asm/fence.h from tools/arch/riscv,
+> but the rseq Makefile only adds tools/include in the CFLAGS, this
+> results in the building failure both for native and cross build:
+> 
+>     In file included from rseq.h:131,
+>                      from rseq.c:37:
+>     rseq-riscv.h:11:10: fatal error: asm/fence.h: No such file or directory
+> 
+> To fix it, add the matching tools/arch/$(ARCH)/include path in the
+> CFLAGS and derive ARCH from SUBARCH for standalone native builds where
+> ARCH is not set.
+> 
+> Fixes: c92786e179e0 ("KVM: riscv: selftests: Use the existing RISCV_FENCE macro in `rseq-riscv.h`")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hui Wang <hui.wang@canonical.com>
+
+Thanks, queued for v7.2-rc.
+
+
+- Paul
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
