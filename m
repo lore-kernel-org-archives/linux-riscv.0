@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF25CC43602
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 03:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3914AC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 03:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=79F3BnfS4TQuzrls+Oh/7tni19vtJZEjAssy+Q7ILfo=; b=aoV7oKnKDy61xI
-	ejRJL6RK6nfC9zyNNzwPZek0NqEnOQJd7+Tup8Gjamf/xyJKDBfgbDkqZh6mvSAZ+YHv7jebpfByi
-	4weVIJihiD96GOf2pS2fXCXeTtvx6On+yxn7VDfQ7S2uCPvnbkezTHLD8+g0CEVhKpA+qSJvOoUnE
-	8n6qcaCeo/X7nYJWo9FRDMihwJFcGMYbIHt/V1CyXC9Xk+JaqkkcrzbCtjiWxh7b4PDuhiQfn5ME6
-	1c+EKZSaXwWV4yHLv0JD4K3QZSNKBgCueKJKGK9wjx1myxXlmsap/pxILe16fxcRehriRBIwaIsNZ
-	G0SVDTES5YmGJQGI/VGA==;
+	List-Owner; bh=PalSQvjL4R76+PR0mcIFVK1klwO1CJ0oxAiSKsGLMSI=; b=AgdUqcwJB7/5WV
+	JFOJ8Xwvz7TEkqSrtwTYkk6WrIIahqCxxbo1tN0GD38NUfXSaqW7q38/GjFef9JHWAXUVnSxhMe94
+	hDmOgcpYUhpyYjOCZyFyraWGLmfhGxlERc1u69Miekh7nwKOgIeWBPKtHDhJwvFqCJZAE9Z+x/iqw
+	N5fv6ng5kD9GNXWBZM1sqAnYzlJCGpkmqLQi3TxJ0VvD9dnrUeqgtUmmGFphX8LF7G5WTJ0FMY338
+	IJ6Z6Hz7mYQFGTV+KMl9QPQp56hRmuj+dw7WX5lLsUMDa5ZwG56cZozASJi0CG/g7ccVUKuM/1/hE
+	Vz1gyjwM4D2xegcT/8VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJ61-0000000GGRn-1WJE;
-	Wed, 08 Jul 2026 03:37:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whJ64-0000000GGW5-0Wyv;
+	Wed, 08 Jul 2026 03:37:16 +0000
+Received: from mail-pg1-f171.google.com ([209.85.215.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJ5c-0000000GFxX-1GzT
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 08 Jul 2026 03:36:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=/bprvjfkZ0oqVTmlvbtRw94STPHY60J1TjXPxacGDgk=; b=R9vFi2y9gzOqmT0uqyddfRsIiU
-	TBeik3v29hH2RgPGUHld7HZ40E0v/q/i4jk1RtloL+iug+VSPCGkLCNipatVXVRkrGk/3Npf1Yaub
-	jknkWa92sU+EegROcZxqemE0+kY9AdbZlaoFMTC1ke8rlEavbdgdTfY+6jGtLln0a7f/Eyw0cHk06
-	K38Lv/75XAo8Zt+ht5Ood0j+QvsaB6hCiJ9S4wvfoDKbaPXMJa2PVnat+dm0tYkKTxccq1cCz59tv
-	6BfUQ60NyH0gqopnXMJsCcRAYdbisN6B5TAJxy/bPH8kv6l6vcF54rY+w07Q1PFAC/fr1mh7ugPu6
-	z1iLhJdw==;
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whJ5Z-00000007yXm-0bFn
+	id 1whJ5U-0000000GFnm-3HNi
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 03:36:46 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c99eaa1f020so170437a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 20:36:44 -0700 (PDT)
+	Wed, 08 Jul 2026 03:36:53 +0000
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-c9cf07d2df6so109824a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 20:36:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783481803; x=1784086603; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783481800; x=1784086600; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/bprvjfkZ0oqVTmlvbtRw94STPHY60J1TjXPxacGDgk=;
-        b=AwqMnNfp52lis0MRWk9U6Pd5tFqQwclPVNMFLR8xe8GOHiZIc7cALfKrbBq0e8XwQ7
-         HSm8Gdl3DBMhkuOL/wMM2i5/FkW/AoU7aaGy6Qc3DaiRmoztwarFWaICUC0uVUJoLNJs
-         IAWrUEHDzlpVfP/NST1uzEnG8qfbes+7LLrMY+GfWmcM/+56R0X5UwLC2zEArlaIA3zG
-         llrSWrSKPIPOcdqYyW2PUI9hzwexr6ykgxjfum2f8Je29DYje422rOoGwwnStPlPdHmQ
-         BCqtEgBHtCzpJ+WiBGuZiMMBHubV2kB3h743k5c6ffuohSRjiTKJeTV+7cg1xTjhTLrd
-         KfeA==
+        bh=aUBZvRnL+ZXJbHfTUcziKP3eKEVdrudg5Rhw4iw5elg=;
+        b=hp60B3ikVWZj1+29bepkxnNUQ4JFHh3/GfQZkYcSdjSFF/YOB1ALlm32VZWPrChf/Z
+         EHf2VjoLHV3GWTRGKcytffd965ZyQduf5S4YgY7vWFofnQYZvzFHqHTe8JngSh5FkgWm
+         OoWSUhRH4zwiKdJjn020qpxS4+B4yWy/hrLtDPD5HuIw83oo+hRBgL9phVV0yGYy64ge
+         MKSGOeTGa92d/Ut/8T7Q8uPS9/A0izPuKycyi0iOvFccOsag3IgMKZVOBMv/bU6t12CJ
+         V5jbWPjKS6s8Iuwuzba7JS8eNeMoefFjis1I1g/ZEH2k1kWmINnOfDlfGOGSb87YS3FO
+         rPaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783481803; x=1784086603;
+        d=1e100.net; s=20251104; t=1783481800; x=1784086600;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/bprvjfkZ0oqVTmlvbtRw94STPHY60J1TjXPxacGDgk=;
-        b=o2gOmpcNC6O7iT4odLAMAHPO3KUx+6AwdD6Un6IDClwEAQUCA69iZBjiIMBnpUDvMk
-         eSYn44mwd4IWw0MP8XiyKZLY33lZr1uuytH0kMkqrTckTULN0ex7wYO6wmSBcVCk1tzY
-         Zl41VyhYbqwJYkUDAwA+/y+pUX8e34wYXkQ/xiXXtlW+k9GX+by9mF4M3rGa90mB8zi3
-         f6MYhyWDJ7yofDJtrKjzUKVMXmAh4LM1y4LUFNELS6KG6LB8FZRcuupw8OeAv2vNmOkr
-         i1CcYnqxKTN7A/CRfPAPl4JTjEGTyo4KsijHujyZg0kQuIPzVA3Yr6AgXkClZ3Pj/xjo
-         qyKA==
-X-Gm-Message-State: AOJu0YyRZqFwys3466UlNeC7Lkt0css/DcnEJ2+FVwf5FeuBykq42D3Q
-	tDbsJYw2DA389GAcMBCP95gbrGGAy3bzvNmMPxZt2qa65pI73qxpaTp0
-X-Gm-Gg: AfdE7clvqalEJb5vTFLOG2XMNL+8GMR3gC9EoeqZb/u0h23ElDRLVIYWMolRMn+A9zJ
-	N5pTlAjt3EiN3zz9yFE4l03Z6AglsmTtCssuBrKRi9qnOoBvCOd0sKwWAYWUlEqxKZZHG9DFZQX
-	LFcKrzkb3XKsVdMu+UzVOedsLDyZ9cmj+MvZ12KK0imHxsAvpAoNOzjXUjGeTE1yeGRpti8cswM
-	2hBOMDFTeLIw4tyeGrZpTNdJTGgVLEIojKNgLNB2/laGQ9E0DFrUb85U0qjKlyn9nAGUAdcr1aD
-	GwxwsDyfbLdWMOzeZXW3GnojqdWa3nfPq/5qkBHvXawwXtFreLRFKvZ/1MInrHOtPBXg2zpV6p2
-	+AzPsulE+ZJvtQ8OVwb3vge5cQJoq6stDSXP+knXrBp+TxWbRiWhd0iqwUEijJaSsIGUaHrwfbf
-	2ppXhIzexOTZBHPElcsWncYQ7/rkvY2BHS0MCL8Sw=
-X-Received: by 2002:a05:6300:220d:b0:3bf:6c08:2843 with SMTP id adf61e73a8af0-3c0bd23ef9dmr601090637.50.1783481802761;
-        Tue, 07 Jul 2026 20:36:42 -0700 (PDT)
+        bh=aUBZvRnL+ZXJbHfTUcziKP3eKEVdrudg5Rhw4iw5elg=;
+        b=klDXvGGKyW3Ggee9leKmo5W+ciJV62Zn6i276KzBPv/m5gUM1YBRS+iZHeHAggjewb
+         ZFPpkI+7Ul+g6HlagEftRkxx596JkCPmR7lGzC3VsfIK1DwWA3LpPFw8vuja7vlFlcUf
+         3npr0oB780vr/dUTbG+1qL4X3FPKeior2ApNQNhEf3JA86F21qeu7+BIt7REUgkh0tUN
+         oZnvtV+CysUQmlOOhVSA+IFJs87PuPysX9ojhWtYsRaEfvbHZ6UcnZAHZjGN7yqi87gN
+         9E9QDYm2KljZX8C8TP4c3lXXQccGignZROmXaeLqqgrSVAiMDWVmwacvYB7BhNzzlzJg
+         su+g==
+X-Gm-Message-State: AOJu0YzL58UWWhLVnX2u4YY6Eki337c/YAYTROx7mQKHufQ89aGUZ90u
+	ZmxxMWhYk4N7u6WNvsskVFfvnxl75E+DPRP/w7sK9iJVvMz9eyfkp9Af
+X-Gm-Gg: AfdE7cl7jjh5i9vFDqu7cmcMEI0ayrJiC73aUlNZj2i+wHvBrMt479bjtczZik1COX+
+	dGlwlWRgz/de8XGTSfsLLtxTNc0CPgzK007vPfyaMqJGhpYnSi+/HS4W00pJO+TIMz6/zvJtag8
+	gWGH15ayblcYd6H4U2ZKpMmpYpWDr5VeA9be4UoAMKmGEPB+wBe9MYiEdzaFIVzttXlidyB5Lj/
+	AQxgMcDxjgPvx2fzWvsQBvxXogul98prFi48eFOEMyd+0a7my6F/rxsrK/oxow/piLwR1jbdhH7
+	qZjaItmRgo/Gq5QLTp7xga1HbehXfAb5QZIz0oPc+I/vX61fHDQ6YdakcDUJuo3PlI0Tnn7p97G
+	OSiPOUyOUzWlvy35Bw0YupF7mKmt8fd1/xcuqg4OzFCcVgO7hRz38I3GJc++pYAmo8oayeokqmn
+	7GIJ8zzNt8rsLqLQ+bmngFSeJsfycCewK/nRUHDsQ=
+X-Received: by 2002:a05:6a21:9148:b0:3bf:b885:2fad with SMTP id adf61e73a8af0-3c0bd15d917mr601381637.53.1783481799581;
+        Tue, 07 Jul 2026 20:36:39 -0700 (PDT)
 Received: from [10.0.0.65] ([2601:647:6700:64d0::94ac])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174accae5sm21092850eec.29.2026.07.07.20.36.41
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174accae5sm21092850eec.29.2026.07.07.20.36.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 20:36:42 -0700 (PDT)
+        Tue, 07 Jul 2026 20:36:39 -0700 (PDT)
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Date: Tue, 07 Jul 2026 20:34:37 -0700
-Subject: [PATCH v3 14/17] KVM: riscv: selftests: Add csr emulation test
+Date: Tue, 07 Jul 2026 20:34:35 -0700
+Subject: [PATCH v3 12/17] riscv: kvm: Use generated instruction headers for
+ mmio emulation
 MIME-Version: 1.0
-Message-Id: <20260707-riscv_insn_table-v3-14-3f8e5f75ba97@gmail.com>
+Message-Id: <20260707-riscv_insn_table-v3-12-3f8e5f75ba97@gmail.com>
 References: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
 In-Reply-To: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -103,16 +89,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783481778; l=4678;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783481777; l=10392;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=qi/WyV6rxMYApvKgE9MTfWvRwuKF3Auj3h2yBnFI9Mg=;
- b=QczF1j024KNg8/dB49Lgm4Ao2CfVqUU6ddLzHSDUYeMCWduTnE82y0t5vR2FFGF8EVkyU4Mi0
- eWDQJmNv8UjAE94S/3gzb4BUmUKXenPsYliWICDyA0ktInJOh35mlXn
+ bh=N89WIRnSp7+lccD6RgSHGp1cFmRNkUgBxIpUGtfogCs=;
+ b=xU60Iju/q7Uht8YVBsvojIlHWK4nDYtS77/JpXjoZFghY/EkcRwtDpB3cgwJ0Zt77D+OJ3xXs
+ 0yU3825ThEhCfY8H02GeXVVzrmVt9L60PYhistlObWfW7d4qTVmxY+b
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_043645_432324_24131C45 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20260707_203641_033863_F91E4812 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,166 +115,324 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a kvm test that uses the emulated test csr to validate that
-all emulated reads/writes to csrs function as expected.
+Migrate the mmio emulation code to use the generated instruction headers
+instead of the hand-written instruction composition functions.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm     |   1 +
- tools/testing/selftests/kvm/riscv/csr_test.c | 133 +++++++++++++++++++++++++++
- 2 files changed, 134 insertions(+)
+ arch/riscv/include/asm/kvm_vcpu_insn.h |   2 +-
+ arch/riscv/kvm/vcpu_insn.c             | 156 +++++++++++++++------------------
+ virt/kvm/mmio_test.c                   |   9 +-
+ 3 files changed, 75 insertions(+), 92 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 07a5fc2bf67c..88ccd15e8f94 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -212,6 +212,7 @@ TEST_GEN_PROGS_s390 += s390/irq_routing
- TEST_GEN_PROGS_s390 += mmu_stress_test
+diff --git a/arch/riscv/include/asm/kvm_vcpu_insn.h b/arch/riscv/include/asm/kvm_vcpu_insn.h
+index 350011c83581..106fb4c45108 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_insn.h
++++ b/arch/riscv/include/asm/kvm_vcpu_insn.h
+@@ -11,7 +11,7 @@ struct kvm_run;
+ struct kvm_cpu_trap;
  
- TEST_GEN_PROGS_riscv = $(TEST_GEN_PROGS_COMMON)
-+TEST_GEN_PROGS_riscv += riscv/csr_test
- TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
- TEST_GEN_PROGS_riscv += riscv/ebreak_test
- TEST_GEN_PROGS_riscv += riscv/mmio_test
-diff --git a/tools/testing/selftests/kvm/riscv/csr_test.c b/tools/testing/selftests/kvm/riscv/csr_test.c
-new file mode 100644
-index 000000000000..bdedf7c84001
---- /dev/null
-+++ b/tools/testing/selftests/kvm/riscv/csr_test.c
-@@ -0,0 +1,133 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * csr_test.c - Tests the csr functionality. CONFIG_RISCV_KVM_TEST_CSR needs to be enabled.
-+ */
-+#include "kvm_util.h"
-+#include "ucall_common.h"
+ struct kvm_mmio_decode {
+-	unsigned long insn;
++	unsigned long rd;
+ 	int insn_len;
+ 	int len;
+ 	int shift;
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index a1898ab8bbe8..78adc2830819 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -379,7 +379,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     unsigned long htinst)
+ {
+ 	u8 data_buf[8];
+-	unsigned long insn;
++	unsigned long insn, rd;
+ 	int shift = 0, len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+ 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
+@@ -411,44 +411,47 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	}
+ 
+ 	/* Decode length of MMIO and shift */
+-	if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
++	if (riscv_insn_is_lw(insn)) {
+ 		len = 4;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LB) == INSN_MATCH_LB) {
++		rd = riscv_insn_lw_extract_xd(insn);
++	} else if (riscv_insn_is_lb(insn)) {
+ 		len = 1;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LBU) == INSN_MATCH_LBU) {
++		rd = riscv_insn_lb_extract_xd(insn);
++	} else if (riscv_insn_is_lbu(insn)) {
+ 		len = 1;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
++		rd = riscv_insn_lbu_extract_xd(insn);
++	} else if (riscv_insn_is_ld(insn)) {
+ 		len = 8;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LWU) == INSN_MATCH_LWU) {
++		rd = riscv_insn_ld_extract_xd(insn);
++	} else if (riscv_insn_is_lwu(insn)) {
+ 		len = 4;
+-#endif
+-	} else if ((insn & INSN_MASK_LH) == INSN_MATCH_LH) {
++		rd = riscv_insn_lwu_extract_xd(insn);
++	} else if (riscv_insn_is_lh(insn)) {
+ 		len = 2;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LHU) == INSN_MATCH_LHU) {
++		rd = riscv_insn_lh_extract_xd(insn);
++	} else if (riscv_insn_is_lhu(insn)) {
+ 		len = 2;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_C_LD) == INSN_MATCH_C_LD) {
++		rd = riscv_insn_lhu_extract_xd(insn);
++	} else if (riscv_insn_is_c_ld(insn)) {
+ 		len = 8;
+ 		shift = 8 * (sizeof(ulong) - len);
+-		insn = RVC_RS2S(insn) << SH_RD;
+-	} else if ((insn & INSN_MASK_C_LDSP) == INSN_MATCH_C_LDSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rd = riscv_insn_c_ld_extract_xd(insn);
++	} else if (riscv_insn_is_c_ldsp(insn)) {
+ 		len = 8;
+ 		shift = 8 * (sizeof(ulong) - len);
+-#endif
+-	} else if ((insn & INSN_MASK_C_LW) == INSN_MATCH_C_LW) {
++		rd = riscv_insn_c_ldsp_extract_xd(insn);
++	} else if (riscv_insn_is_c_lw(insn)) {
+ 		len = 4;
+ 		shift = 8 * (sizeof(ulong) - len);
+-		insn = RVC_RS2S(insn) << SH_RD;
+-	} else if ((insn & INSN_MASK_C_LWSP) == INSN_MATCH_C_LWSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rd = riscv_insn_c_lw_extract_xd(insn);
++	} else if (riscv_insn_is_c_lwsp(insn)) {
+ 		len = 4;
+ 		shift = 8 * (sizeof(ulong) - len);
++		rd = riscv_insn_c_lwsp_extract_xd(insn);
+ 	} else {
+ 		return -EOPNOTSUPP;
+ 	}
+@@ -458,7 +461,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		return -EIO;
+ 
+ 	/* Save instruction decode info */
+-	vcpu->arch.mmio_decode.insn = insn;
++	vcpu->arch.mmio_decode.rd = rd;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+ 	vcpu->arch.mmio_decode.shift = shift;
+ 	vcpu->arch.mmio_decode.len = len;
+@@ -501,11 +504,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			      unsigned long fault_addr,
+ 			      unsigned long htinst)
+ {
+-	u8 data8;
+-	u16 data16;
+-	u32 data32;
+-	u64 data64;
+-	ulong data;
++	ulong data, rs2;
+ 	unsigned long insn;
+ 	int len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+@@ -537,35 +536,30 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		insn_len = INSN_LEN(insn);
+ 	}
+ 
+-	data = GET_RS2(insn, &vcpu->arch.guest_context);
+-	data8 = data16 = data32 = data64 = data;
+-
+-	if ((insn & INSN_MASK_SW) == INSN_MATCH_SW) {
++	if (riscv_insn_is_sw(insn)) {
+ 		len = 4;
+-	} else if ((insn & INSN_MASK_SB) == INSN_MATCH_SB) {
++		rs2 = riscv_insn_sw_extract_xs2(insn);
++	} else if (riscv_insn_is_sb(insn)) {
+ 		len = 1;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_SD) == INSN_MATCH_SD) {
++		rs2 = riscv_insn_sb_extract_xs2(insn);
++	} else if (riscv_insn_is_sd(insn)) {
+ 		len = 8;
+-#endif
+-	} else if ((insn & INSN_MASK_SH) == INSN_MATCH_SH) {
++		rs2 = riscv_insn_sd_extract_xs2(insn);
++	} else if (riscv_insn_is_sh(insn)) {
+ 		len = 2;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_C_SD) == INSN_MATCH_C_SD) {
++		rs2 = riscv_insn_sh_extract_xs2(insn);
++	} else if (riscv_insn_is_c_sd(insn)) {
+ 		len = 8;
+-		data64 = GET_RS2S(insn, &vcpu->arch.guest_context);
+-	} else if ((insn & INSN_MASK_C_SDSP) == INSN_MATCH_C_SDSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rs2 = riscv_insn_c_sd_extract_xs2(insn);
++	} else if (riscv_insn_is_c_sdsp(insn)) {
+ 		len = 8;
+-		data64 = GET_RS2C(insn, &vcpu->arch.guest_context);
+-#endif
+-	} else if ((insn & INSN_MASK_C_SW) == INSN_MATCH_C_SW) {
++		rs2 = riscv_insn_c_sdsp_extract_xs2(insn);
++	} else if (riscv_insn_is_c_sw(insn)) {
+ 		len = 4;
+-		data32 = GET_RS2S(insn, &vcpu->arch.guest_context);
+-	} else if ((insn & INSN_MASK_C_SWSP) == INSN_MATCH_C_SWSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rs2 = riscv_insn_c_sw_extract_xs2(insn);
++	} else if (riscv_insn_is_c_swsp(insn)) {
+ 		len = 4;
+-		data32 = GET_RS2C(insn, &vcpu->arch.guest_context);
++		rs2 = riscv_insn_c_swsp_extract_xs2(insn);
+ 	} else {
+ 		return -EOPNOTSUPP;
+ 	}
+@@ -574,26 +568,24 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (fault_addr & (len - 1))
+ 		return -EIO;
+ 
+-	/* Save instruction decode info */
+-	vcpu->arch.mmio_decode.insn = insn;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+-	vcpu->arch.mmio_decode.shift = 0;
+-	vcpu->arch.mmio_decode.len = len;
+ 	vcpu->arch.mmio_decode.return_handled = 0;
+ 
++	data = *((ulong *)(&vcpu->arch.guest_context) + rs2);
 +
-+#define CSR_TEST 0x240
-+#define MASK 0x15
-+#define FP 0x00006000
+ 	/* Copy data to kvm_run instance */
+ 	switch (len) {
+ 	case 1:
+-		*((u8 *)run->mmio.data) = data8;
++		*((u8 *)run->mmio.data) = data;
+ 		break;
+ 	case 2:
+-		*((u16 *)run->mmio.data) = data16;
++		*((u16 *)run->mmio.data) = data;
+ 		break;
+ 	case 4:
+-		*((u32 *)run->mmio.data) = data32;
++		*((u32 *)run->mmio.data) = data;
+ 		break;
+ 	case 8:
+-		*((u64 *)run->mmio.data) = data64;
++		*((u64 *)run->mmio.data) = data;
+ 		break;
+ 	default:
+ 		return -EOPNOTSUPP;
+@@ -629,48 +621,40 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+  */
+ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ {
+-	u8 data8;
+-	u16 data16;
+-	u32 data32;
+-	u64 data64;
+-	ulong insn;
+ 	int len, shift;
++	unsigned long data;
+ 
+ 	if (vcpu->arch.mmio_decode.return_handled)
+ 		return 0;
+ 
+ 	vcpu->arch.mmio_decode.return_handled = 1;
+-	insn = vcpu->arch.mmio_decode.insn;
+ 
+ 	if (run->mmio.is_write)
+ 		goto done;
+ 
+-	len = vcpu->arch.mmio_decode.len;
+-	shift = vcpu->arch.mmio_decode.shift;
++	if (vcpu->arch.mmio_decode.rd) {
++		len = vcpu->arch.mmio_decode.len;
++		shift = vcpu->arch.mmio_decode.shift;
+ 
+-	switch (len) {
+-	case 1:
+-		data8 = *((u8 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)((ulong)data8 << shift) >> shift);
+-		break;
+-	case 2:
+-		data16 = *((u16 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)((ulong)data16 << shift) >> shift);
+-		break;
+-	case 4:
+-		data32 = *((u32 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)((ulong)data32 << shift) >> shift);
+-		break;
+-	case 8:
+-		data64 = *((u64 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)((ulong)data64 << shift) >> shift);
+-		break;
+-	default:
+-		return -EOPNOTSUPP;
++		switch (len) {
++		case 1:
++			data = *((u8 *)run->mmio.data);
++			break;
++		case 2:
++			data = *((u16 *)run->mmio.data);
++			break;
++		case 4:
++			data = *((u32 *)run->mmio.data);
++			break;
++		case 8:
++			data = *((u64 *)run->mmio.data);
++			break;
++		default:
++			return -EOPNOTSUPP;
++		}
 +
-+/*
-+ * Use the fcsr as a U-mode accesible csr and compare against the custom 'test'
-+ * hypervisor csr (currently using vsscratch)
-+ */
-+#define test_csr(write, initial, mode)								\
-+static void test_##write(void)									\
-+{												\
-+	unsigned long hypervisor_result, reference_result, old_hypervisor;			\
-+	asm volatile (										\
-+		"csrs	sstatus, %[enable_fp]\n"						\
-+		"csrw	fcsr, %[init]\n"							\
-+		#write"	zero, fcsr, %[mask]\n"							\
-+		"csrr	%[ref_res], fcsr\n"							\
-+		: [ref_res] "=&r" (reference_result)						\
-+		: [enable_fp] "r" (FP), [mask] #mode(MASK), [init] "r" (initial)		\
-+		: "memory"									\
-+	);											\
-+	asm volatile (										\
-+		"csrw	%[test_csr], %[init]\n"							\
-+		#write"	%[old], %[test_csr], %[mask]\n"						\
-+		"csrr	%[hyp_res], %[test_csr]\n"						\
-+		: [hyp_res] "=&r" (hypervisor_result), [old] "=&r" (old_hypervisor)		\
-+		: [test_csr] "i"(CSR_TEST), [mask] #mode(MASK), [init] "r" (initial)		\
-+		: "memory"									\
-+	);											\
-+	/* Check that writing works */								\
-+	GUEST_ASSERT_EQ(reference_result, hypervisor_result);					\
-+	/* Check that reading works */								\
-+	GUEST_ASSERT_EQ(old_hypervisor, initial);						\
-+	GUEST_DONE();										\
-+}
-+
-+test_csr(csrrw, 0x0, r)
-+test_csr(csrrs, 0x0, r)
-+test_csr(csrrc, 0x15, r)
-+test_csr(csrrwi, 0x0, i)
-+test_csr(csrrsi, 0x0, i)
-+test_csr(csrrci, 0x15, i)
-+
-+static void run(void *guest_code, char *instruction)
-+{
-+	int fd;
-+	struct ucall uc;
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-+
-+	fd = kvm_create_device(vm, KVM_DEV_TYPE_TEST);
-+
-+	vcpu_run(vcpu);
-+
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE,
-+		    "CSR instruction '%s' failed: '%s'", instruction,
-+		    uc.buffer);
-+
-+	close(fd);
-+	kvm_vm_free(vm);
-+}
-+
-+static void check_test_csr_guest(void)
-+{
-+	unsigned long scause, stvec;
-+
-+	asm volatile(
-+		".option push\n"
-+		".option norvc\n"
-+		"la	%[stvec], 1f\n"
-+		"csrw	stvec, %[stvec]\n"
-+		"csrwi	%[test_csr], 0x0\n"
-+		"1:\n"
-+		"csrr	%[scause], scause\n"
-+		".option pop\n"
-+		: [scause] "=&r" (scause), [stvec] "=&r" (stvec)
-+		: [test_csr] "i" (CSR_TEST)
-+	);
-+
-+	/* An illegal instruction will be generated if CONFIG_RISCV_KVM_TEST_CSR is not enabled. */
-+	if (scause == 2)
-+		GUEST_FAIL("CONFIG_RISCV_KVM_TEST_CSR not enabled.\n");
-+	GUEST_DONE();
-+}
-+
-+static int check_test_csr(void)
-+{
-+	struct ucall uc;
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	int success;
-+	int fd;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, check_test_csr_guest);
-+
-+	fd = __kvm_create_device(vm, KVM_DEV_TYPE_TEST);
-+	if (fd < 0)
-+		return 0;
-+
-+	vcpu_run(vcpu);
-+
-+	success = get_ucall(vcpu, &uc) == UCALL_DONE;
-+
-+	close(fd);
-+	kvm_vm_free(vm);
-+
-+	return success;
-+}
-+
-+int main(void)
-+{
-+	/* Skip if CONFIG_RISCV_KVM_TEST_CSR not enabled */
-+	if (!check_test_csr())
-+		exit(KSFT_SKIP);
-+
-+	run(test_csrrw, "csrrw");
-+	run(test_csrrs, "csrrs");
-+	run(test_csrrc, "csrrc");
-+	run(test_csrrwi, "csrrwi");
-+	run(test_csrrsi, "csrrsi");
-+	run(test_csrrci, "csrrci");
-+
-+	return 0;
-+}
++		*((ulong *)(&vcpu->arch.guest_context) + vcpu->arch.mmio_decode.rd) =
++			(long)data << shift >> shift;
+ 	}
+ 
+ done:
+diff --git a/virt/kvm/mmio_test.c b/virt/kvm/mmio_test.c
+index bd5f21a43ba8..b3fec6988333 100644
+--- a/virt/kvm/mmio_test.c
++++ b/virt/kvm/mmio_test.c
+@@ -55,6 +55,7 @@ static const struct kvm_io_device_ops mmio_ops = {
+ static int mmio_test_create(struct kvm_device *dev, u32 type)
+ {
+ 	struct mmio_test *mmio_test;
++	int ret;
+ 
+ 	mmio_test = kzalloc_obj(struct mmio_test, GFP_KERNEL);
+ 	if (!mmio_test)
+@@ -66,10 +67,10 @@ static int mmio_test_create(struct kvm_device *dev, u32 type)
+ 	dev->private = mmio_test;
+ 
+ 	kvm_iodevice_init(&mmio_test->dev, &mmio_ops);
+-	mutex_lock(&kvm->slots_lock);
++	mutex_lock(&dev->kvm->slots_lock);
+ 	ret = kvm_io_bus_register_dev(dev->kvm, KVM_MMIO_BUS, mmio_test->start,
+ 				mmio_test->size, &mmio_test->dev);
+-	mutex_unlock(&kvm->slots_lock);
++	mutex_unlock(&dev->kvm->slots_lock);
+ 
+ 	if (ret < 0)
+ 		kfree(mmio_test);
+@@ -79,9 +80,7 @@ static int mmio_test_create(struct kvm_device *dev, u32 type)
+ 
+ static void mmio_test_destroy(struct kvm_device *dev)
+ {
+-	struct mmio_test *mmio_test = kvm_to_mmio_test_dev(dev);
+-
+-	kvm_io_bus_unregister_dev(dev->kvm, KVM_MMIO_BUS, &mmio_test->dev);
++	kvm_io_bus_unregister_dev(dev->kvm, KVM_MMIO_BUS, &((struct mmio_test *)dev->private)->dev);
+ 	kfree(dev->private);
+ 	kfree(dev);
+ }
 
 -- 
 2.54.0
