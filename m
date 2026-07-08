@@ -4,59 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F510C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 17:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C574BC43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 17:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gRCCTs4zLpW7a17Hbg8xR7t8jztvMoCsD2aRGL5zLHk=; b=NGsEpBHmXHDwXM
-	X9VRAL8iAvUoisp1EWx0nUPX0mnXS2vWhEEnTln/mgRF3Pkal4V0FDVluRGGGG0K45wvydUsC1UI3
-	zRWg93QcskexKlL+puGCYjZsWU/kalQkXJh56LD0iymTzMb1mIb3D42/S2iz4yOLbPe+3NXen/AhB
-	K2UbvSKl2eJ8vOrEVurSTzrr4P+zruSPPw3HmYYyvAVQihayrungSP/bip1HG9/OoXxFJMrR93WV/
-	GKBUKRJHD6XdpAhVdnYFAAUlwt7idh2BtHM1ikY9oDrA5K43g0gZh3QRQxk4VngrUUbPloktbh5vb
-	SJ9p/yzpq13+sGgL7XFw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OhbNQlwHYAh5aPqSL1J6p9ukIJCZBgnJtIcyTFsHVr0=; b=xNabiBXMMqwkyl
+	o19AZQVDRo9QJ1daDvrhsY2jydzMplJG5kDnyHKhbd0Sp7XRMr2Ayq5Z/Cz41ATTt6jDL6vA3FIN9
+	M8ZbKbgfCgiXaiK3sqwTIZpwZ7ioeM2pRZbAhstOdvMipR+gEqQmQKMnc+h6zbo8JmgR5tbqkBrzM
+	4Sed6sEs2gVfDT8aEivEPlsNTJdATljjdsgzIDm6d5g9rQ53ij87kIKsox2QV7qnnEW3Owagw/AGZ
+	CzSNIaP26bO1jK3RUq8SGFMcnOOaSQ+RCUKL4xmLcIzDfKqJK2sWUQAyonoR0UZhRzHf+NKC0eZ+0
+	oIDCjBXeEFcEGa1w3vIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVdN-000000002Uq-1ycJ;
-	Wed, 08 Jul 2026 17:00:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whVjm-000000003BR-2ltd;
+	Wed, 08 Jul 2026 17:07:06 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVdL-000000002Ud-209m
+	id 1whVjj-000000003Ae-3qBF
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 17:00:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0AC47600C3;
-	Wed,  8 Jul 2026 17:00:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B15791F000E9;
-	Wed,  8 Jul 2026 17:00:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783530025;
-	bh=c+9/nNYjkvw0jgf1j3Gv5o89wJBSkJjLM95B716OQQQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=HCeM0wDY15E/tfFBnPMEbpinf3jUnu6sLOcrDRcP7xct+vgE/zvGyQRqtaC9R2pj6
-	 v6hcmLN/XY/M0vVJLAm4gcJhiqpYvPm3zncgmMEb2Bxc+ag3YAEffoUDPk4nYKKVhV
-	 pQB6JsfSfLPMSz3+Ntg2STMsws+ADpTuVKLJFLoen7tr/SqH5vAtOCWu/TiJDQJBwE
-	 L4syWn53xAzTAgK8uiPTi7Xw9VdqpUFcAA4Jty2y49b5MLb0PTn2ie7vqCov12VxpM
-	 j//n751hV98KrZ+jc9kJuyhky96ryLExTgiMj9lRLkdACIEPUS+p3MUpamqN8IEhab
-	 FnE8TTELk9meA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1A4523938446;
-	Wed,  8 Jul 2026 17:00:06 +0000 (UTC)
+	Wed, 08 Jul 2026 17:07:05 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-847e6f03df8so1104111b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Jul 2026 10:07:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783530423; x=1784135223; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=amf9A3ny0stjzBNYa5xxQpkuKUHxHwl/QGUYuXrMddg=;
+        b=jiRz4hjv8tOT3T0Klo5vBE7wQsacDisZVt0TDNIPseZfrlFUD3dUff//h0wq0+YxTn
+         yX4VJbEo0KHqbYwMXt3PGxON1tGGEjwbQpSgFzYKRzjZQy0nYsJRox+6WGhShsDK1nmt
+         0NeIDgAMnuxIdUPJr42kr5YSRr0lcG/cjYChc7CR69k0PDSPVB8SDPETvZ5OcAsQzXz8
+         PwK92I5KP3xXW69VisICPpZQkz8Z8W3BGD8Q+O5CEfVS/wZeoGeunA8Tb2Jv7kg6h9pt
+         v84yiwL3QUktRUwOKw531rE1jaJKafpJfWJaz74FtTISAY9MuLcto6sA9PueWSDf2AW2
+         Uncg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783530423; x=1784135223;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=amf9A3ny0stjzBNYa5xxQpkuKUHxHwl/QGUYuXrMddg=;
+        b=KtVbYbjzihnkfsgr6TNFXCyI1NwE5ZMQQ2vpygVsr98Vo9IDVRzAGXXjOO6JObfYlH
+         8tRaM5xq4vT5BPiwSipPGqX+2zkcFCNN2mmrTmgootXkJ13aSYZf0u+7VbpjAybjrNnh
+         bCLrrmHMhCj0Q3p0gHk6TRGX4TyOqN2eJXSDW4F2lUZAjrjz2msoXl4cFB5O50Nfouv0
+         JcvpkyAQO/lxzxdXbc+beCcS5nfLbser8OBcLXGC4b1Bfsx8CajFgKczwLaBcU0BjeO6
+         dQpK2K2+IzXA7pZlHryMN5oOLvZbR8+SZc/0C1GviLuYWXuQIeQAiPMaseurBnLS98H3
+         qZjQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrQiDwr1xgYgKS3CSYHf1uO9DSjTeYpJcjbqwmX1v2fCL7R/m+MwFPfPjDrXTncGUzbp7t6YSMFLWMQuw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqS2ZkP9ZNQCFHoJHtXJI0ZQP9KjRX4EYOHHUQ9stKFK0dmnIk
+	w1YmXfm1m5aKYa85UJpqI3nmgxFmt9voULlZH5wrju4Ml+c+xyYMAYZC
+X-Gm-Gg: AfdE7clfM6lZG8LMNVyqnfTc8OQYN0/OQ/iNvajheQTaYuftOYtCKWIYJrc68fT+HSQ
+	conPlG1xqEH5YrG/7Nm2TBW41sDyWTO00yvGLsOTe/UiFLjoKy/6HBI3e6ZgiM6IzL/l88miZJs
+	wGnwXxm5WZt2JBlrw+1+FiWa39nwt9/PZwa+clkTxx/D3mF+qVl8583uH5rzk9AsoVDTKJvD70p
+	m2NuZzZBxAwuIkpnfGK1A81iT1+o7laSmsMkHZizP/bhdx3MTNnG5Rhq78N860msn5pSA3aY8gt
+	0fTow09zSiJJba9XMXDDxnXjsL1lG0VMV+oIr96rC3yZJKMYer6JTD6vF4brWzkhiOvwxrzQ6jG
+	E0wJGHz0WmDFGvI76Sfrjzw6yRswEvsuFak1fPNoFqRKxR12MNuiZ9xJnU5ILmf5wqkzr/mfJf5
+	r+qjl2ROfedNFtiYr7vg==
+X-Received: by 2002:a05:6a00:a15:b0:848:2f77:e2df with SMTP id d2e1a72fcca58-8484392f4a8mr3717327b3a.72.1783530422835;
+        Wed, 08 Jul 2026 10:07:02 -0700 (PDT)
+Received: from ubuntu.. ([110.9.142.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84847275fa0sm1119528b3a.22.2026.07.08.10.06.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jul 2026 10:07:02 -0700 (PDT)
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+To: akpm@linux-foundation.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Will Deacon <will@kernel.org>
+Cc: linux-mm@kvack.org,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>
+Subject: [PATCH 0/3] mm/early_ioremap: clarify and clean up early_ioremap_reset()
+Date: Thu,  9 Jul 2026 02:06:44 +0900
+Message-ID: <20260708170647.362562-1-ekffu200098@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] selftests/rseq: Fix a building error for riscv arch
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178353000492.3027451.2869777955092824432.git-patchwork-notify@kernel.org>
-Date: Wed, 08 Jul 2026 17:00:04 +0000
-References: <20260707082348.36896-1-hui.wang@canonical.com>
-In-Reply-To: <20260707082348.36896-1-hui.wang@canonical.com>
-To: Hui Wang <hui.wang@canonical.com>
-Cc: linux-riscv@lists.infradead.org, mathieu.desnoyers@efficios.com,
- peterz@infradead.org, shuah@kernel.org, paulmck@kernel.org, boqun@kernel.org,
- zhouquan@iscas.ac.cn, ajones@ventanamicro.com,
- linux-kselftest@vger.kernel.org, stable@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_100703_959693_E12745D6 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +114,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+__late_set_fixmap() and __late_clear_fixmap() are only used after
+early_ioremap_reset() has been called, but the comment above them does
+not say anything about that. So arm64, riscv and powerpc, whose
+__set_fixmap() works before and after paging_init(), describe the same
+situation in three different ways:
 
-This patch was applied to riscv/linux.git (fixes)
-by Paul Walmsley <pjw@kernel.org>:
+                 calls reset    defines the macros
+        arm64    yes            yes
+        riscv    no             yes
+        powerpc  no             no
 
-On Tue,  7 Jul 2026 16:23:48 +0800 you wrote:
-> RISC-V rseq selftests include asm/fence.h from tools/arch/riscv,
-> but the rseq Makefile only adds tools/include in the CFLAGS, this
-> results in the building failure both for native and cross build:
-> 
->     In file included from rseq.h:131,
->                      from rseq.c:37:
->     rseq-riscv.h:11:10: fatal error: asm/fence.h: No such file or directory
-> 
-> [...]
+Patch 1 documents when early_ioremap_reset() needs to be called and
+that only architectures calling it need to define the macros.
 
-Here is the summary with links:
-  - [v2] selftests/rseq: Fix a building error for riscv arch
-    https://git.kernel.org/riscv/c/a2ac823d8a22
+Patches 2 and 3 remove the unneeded riscv macros, which are
+unreachable, and the arm64 reset call and macros, which change
+nothing.
 
-You are awesome, thank you!
+No functional change.
+
+Sang-Heon Jeon (3):
+  mm/early_ioremap: clarify early_ioremap_reset() semantics
+  riscv: remove unused __late_set_fixmap() and __late_clear_fixmap()
+  arm64: remove early_ioremap_reset() call and __late_* macros
+
+ arch/arm64/include/asm/fixmap.h |  3 ---
+ arch/arm64/kernel/setup.c       |  2 --
+ arch/riscv/include/asm/fixmap.h |  3 ---
+ mm/early_ioremap.c              | 10 +++++++---
+ 4 files changed, 7 insertions(+), 11 deletions(-)
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
 _______________________________________________
