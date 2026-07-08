@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9BEC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 03:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24252C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 03:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C159obp/ErMkC/iYA2tWsd59piUf22Qayyvf5W9jfSE=; b=ME4hPXy2n2rkq7
-	L7/NscD8wfureq3vi+dMoAFn1dhLoHg4qxJbHYV3DkSTtnf1fajyDxAdgAZVOZ2hCLusTyewvaNMu
-	ZyZvuaJS+aA9ysO/lkxLXSy11PpzcPY/oECuFLt0sQS4uI5UEpnyi0fn59XZAIntbQPz8E3PH4Qat
-	IQISK+M3WlY09oDDyzJmtOZ/5QVLJABgoHj0M0JYPQsTLD5cQzA+zEuuhT7eXzlP1oNq4a1d7Jfvq
-	NdG6eWpnKnW7EZwBv6NTOVDcQXlVghdIK1JbA700N9zukvcInfValo/kiwEYybfDICblk/DHwNznD
-	hj2iPYolKVbvSPAHCAzQ==;
+	List-Owner; bh=k/11cjFwMJZ36qQwtUnNtvoYCpggzM+es5hxFBxMrv8=; b=y50qbpzId0lyhP
+	llX5ogay2v0CUbITjyQqyH+UiJtMiAiwZBWJ0R6RZ7sd0uWDw5fSprKTjefhPuX5CXOHSDbjdjmUr
+	yiuRzIYd07JZ2NUoN8sJ2COFcyLKDJ6g4Xmnp4CcyoUFAocYvBovuj/5sNi0mSoi7wZ4euNyRTTc0
+	8s1/ThvuBtpJaXWMj52+1wA7fqYmrWzugSjXiumeVIUxLDHxaIkl+/yOfbZBTogK3+INLh22Zg4pl
+	WPH5VFm5zRpIAaBP8nXcLHi8+RDwQEGYlVNOkYQvKmnTkQRzGMUVZpZBHBqoOA7PUJO1sQMrYMFAf
+	pk6vY4RTAsBEXM8hbSVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJ5p-0000000GGC6-2Bun;
-	Wed, 08 Jul 2026 03:37:01 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1whJ5v-0000000GGKf-2yU0;
+	Wed, 08 Jul 2026 03:37:07 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJ5N-0000000GFgt-3f3R
+	id 1whJ5R-0000000GFk3-0TsG
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 03:36:42 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c8fee9f63d5so79532a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 20:36:33 -0700 (PDT)
+	Wed, 08 Jul 2026 03:36:45 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c96cb024ee0so113866a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 20:36:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783481793; x=1784086593; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783481796; x=1784086596; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XuL5cndtDjBcVPpgbJ+RzvkeL6t9sknxgo0zZEVVPzo=;
-        b=m6t3evT8lcZBg+tFR33qI3uh9Kmd6G1AjjKaVB9kXlDZCiDdmpf1xDjs4NF6NZJ1kf
-         DNhCeuyKRtWxdnktFvvl9QR8X2qqsii+BLy7f9M1rrFhZqlneoG3nbKCfr9ZnhTFwdFZ
-         YV3zIlfwjwFaDW+0XLAx2wMBwPAWpba1NQVILS8uUFa0xz6fVvCjPrQrmnQjCxcYH3KI
-         fXWXg7Roy030yk64LCBRb/P0Js675vk9kwOrv/gLDmf0qse0SqxzOkd4npPOyvHJSVVM
-         zsVIQQjAAq9NN65fWUZnrCGfVnALDkIXDHhu0iShN5OBEhQ7C5iEqioOgRDOJW3kJBIL
-         tTkA==
+        bh=vjX6FO2qO71qG5oypVgq6TFAZybUUZeVcCZBZbkx40Q=;
+        b=dUP2V5fC6/K6DkGURoHH2ZVHFsO2It1zzgaK2vRiEUDyqf3JRzRyCPpSb3S6yC7l2K
+         lZIzrukS2BAurjn0KVnz22yPrCmwn+McW7y4JuJ6Z9pt/rnznQ+ak9TPOOf5Iosr24V+
+         HN/3AleNq7AB0/1iss3b9cZWaduiADdO1YX9y3dkr91NbQz+Go2xJW7EtaAWxSU92BDr
+         DE33nm7lW1xjxfxJZw1pE/zzgwvjMtngImVgySOPft5ouizzlf4f5/9dAqfEoNnbgJTm
+         6GjGfOW/ZyCxqtV98aikW5Gi2ngQ3/8K4lqpLRY7c6OR5pWW83Ew7LttJdO+BVe6DHj3
+         tUIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783481793; x=1784086593;
+        d=1e100.net; s=20251104; t=1783481796; x=1784086596;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XuL5cndtDjBcVPpgbJ+RzvkeL6t9sknxgo0zZEVVPzo=;
-        b=JLurw03YC1VBAarev02fbikd7m55vtztNdAWO8uKGS7BeuLTqIB9fveHUJ7LKHlJ6q
-         MoTXz0Bgt5JfoyZS7WxXIYiDgZF8ZxK16Tjsdv/2q4gP52TWI1L+tjznzfO+3JaDEpgv
-         +souavXtsHcVAnUwWiApr0T5gRiqJqFbAwKlrC8Cgk73EiF2WIXFeMFauWtBhyMar/de
-         yWFByf6VnRu2j2TDUwu5EHnqRaC1Sd9Sic3b04EsBT7ERBjrr8gELT6O9hySby9GWOuS
-         Vk7wJFMaGFedJKW9oKCe3aE6SrZMkHMoZGZXQQKKNSmDKkVYHSP1ZzGFz4QpfeuKxBlV
-         AP0Q==
-X-Gm-Message-State: AOJu0Yww4ITTfU/XvmfoTMDGpHLyyoWjmPQgaGyp3sSdHx3dYdYk2v0r
-	vmcNZR0naA2/cue3kpI40rllo3LJhruq6yU/q+I0ISmWsgLvUDuJhB9J
-X-Gm-Gg: AfdE7cmP2k7yFRdjOG+XHPGja41ShQg6SAh0LblHUMQioji6AiCedZ/Abp3RXQfF0lJ
-	1V/e4kwE8BcHbi54DETWys4HqwGpxAut9D5o+pepJjO4byMVK5IQxeHLhg67UikNz19nFiEIJnS
-	zy3bAbjSHaU/yfAtZ/x6RhvnosOWFwJHYApsFsoy63WErDhLttQ7qro8Gn35RTtcIPjf/yQnohu
-	VIGR81N8Jqbr5iyJfqmKuPLRcZ80lmfxosHfQxc/sUWyQtRFdsO39BSNjxqVFt/C/rQH94meCSB
-	J5cJQZ2jk1boPLHPaECkeVx2Z9fSyrUn6L8rwqT0TrVOT7a1vvipZC6aF9+0LrfTxKnkVK1l8xx
-	+Nt4GxaV+PJGq72svAITiYp7Y5jOl9ugltGOOvvSSMkis10xqqYHPGnsZ4plS670pdQtrgGdkdB
-	gkdoxfH4JJx2Z2xMwYC/B0HVWi7QK2/Ch5TRc9w+ygokv663OpSQ==
-X-Received: by 2002:a05:6a21:4516:b0:39c:235:c5ec with SMTP id adf61e73a8af0-3c0bc9d0fbcmr684699637.34.1783481792993;
-        Tue, 07 Jul 2026 20:36:32 -0700 (PDT)
+        bh=vjX6FO2qO71qG5oypVgq6TFAZybUUZeVcCZBZbkx40Q=;
+        b=jmJyAUh+4oeEXKqe9r7yKgN57qRWNY8PZZTDumZMvQYdvzhltZdrfJe61new+dScSd
+         zhOPG1Jy9LX58yWyHd7kiS0AHa+lDRTCu6UhqDMHj6Lf4NioleDJtn4X2pFGWqgxDxF3
+         LGFcGbUqYbKwCI44XzFe42iAnZTcjI985WaVV3MaBI+CM2goiyjEsZuILPjSr5+kevlm
+         KkRce8NFto53hTWnpHvDFVXRoT57bQ/h7NIm6TQUSYSn6ujAd+sI79TYw5oqZ2xvHvKA
+         svQ4OuwFXr1ls/yu7BJHsxGBAEVggeGgVEwMoI6NETEkI2Zfn9Tuakx3E/9R+lrRNygX
+         YJ2g==
+X-Gm-Message-State: AOJu0YyltMmYygfdjGSNmO+Be0ygQQ4NVVztlHeIGt3/PjfgI75MChao
+	qV1P57PEkpCTzVggiC70EMuDJfH6bfQGmVTVpXWSTLnOSFsjs5uodooG
+X-Gm-Gg: AfdE7cmnce+qejZYZbRMLqKY9OC4OtAiXQgQ/xEfEDeGP24hArZPrCjRU6NeHZbTOlM
+	1k0/+hcH8NX6jap8xEACmyd2kErwwNFhx/OYQqT73172YuU4dGxH+rZ6uNTl8jOAZsPQpZH+hLC
+	Gnhm/+dhzncMsl/CHzJ8kU0l45pi3vsa8UJ0ayfHWa4zOlXwhpc44MD1pAblQevx1+dd3cYwKnU
+	tI+YLsoWC40Sh8cQ6cQunN9pHbbzjRsuzD5z4eNQAVc2SXS4ujSOORVdVsXv9QGD6tFBhG+aba1
+	qfSmflEqGKWUOY6cXEwyvBD0P0acHBcXR1d2r0lEbjPs6GdvwPp4oNSjcM9Hz2IdHWbQ0IcpmqZ
+	epiFP4NgkwCJSlaM088u46SAj+D8cxF0wdikhyTnObDWQO2wCPeZryZk6cpvFsK65L1LaYkAtdO
+	TvnOcn89/OOoYn9BCmlMH/QxOa/ztIlv7drBlMG7k=
+X-Received: by 2002:a05:6a20:da1b:b0:398:c0ba:9ceb with SMTP id adf61e73a8af0-3c0bce1bfa3mr587516637.12.1783481796219;
+        Tue, 07 Jul 2026 20:36:36 -0700 (PDT)
 Received: from [10.0.0.65] ([2601:647:6700:64d0::94ac])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174accae5sm21092850eec.29.2026.07.07.20.36.31
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174accae5sm21092850eec.29.2026.07.07.20.36.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 20:36:32 -0700 (PDT)
+        Tue, 07 Jul 2026 20:36:35 -0700 (PDT)
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Date: Tue, 07 Jul 2026 20:34:31 -0700
-Subject: [PATCH v3 08/17] riscv: Use generated instruction headers for
- misaligned loads/stores
+Date: Tue, 07 Jul 2026 20:34:33 -0700
+Subject: [PATCH v3 10/17] KVM: device: Add test device
 MIME-Version: 1.0
-Message-Id: <20260707-riscv_insn_table-v3-8-3f8e5f75ba97@gmail.com>
+Message-Id: <20260707-riscv_insn_table-v3-10-3f8e5f75ba97@gmail.com>
 References: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
 In-Reply-To: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -89,16 +88,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783481777; l=13216;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783481777; l=7230;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=sxLtVDSOFNa/G4iQ6MMmQTH9uBA/e/XtcS9fjLnlddk=;
- b=bUmzwV+6NqMTkJe5SGVTjMDWe5ErNckgKrdmp3FdCB4yh2hC9ITsfAVF4B59OY1guEPytgE49
- JJWPOcpJqqPDg1DvdfmL/Ul+zJ3lBpKe8O4k1S1QhltHT0tPvUC5zQ3
+ bh=VXLfHyJoNIAn0EsJoF8wUoDz0DWD+fShqEOYQdFMdVI=;
+ b=HiyjHCmOOFuKhTpnHcr0UOv2JRep5AtpgV7suEoPPIgEC7r0SF4CptZEPmIjdYOqx6KSnhFpd
+ ymlCIrEJ9SSBqIwj99bmiCcu2a4pyKJ9GcZVl9t12uB5OkNXFUeMRY9
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_203634_163538_EC2C9F07 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20260707_203638_394642_BE029E9F 
+X-CRM114-Status: GOOD (  23.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,389 +114,259 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Migrate the misaligned loads/store code to use the generated instruction
-headers instead of the hand-written instruction composition functions.
+Create a KVM test device to help verify mmio reads and write emulation.
+This is a simple device that will store the data in a buffer on writes
+and echo back that stored data on a read.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-
 ---
+ include/uapi/linux/kvm.h |   2 +
+ lib/Kconfig.debug        |   6 +++
+ virt/kvm/Kconfig.debug   |  16 ++++++++
+ virt/kvm/Makefile.kvm    |   1 +
+ virt/kvm/kvm_main.c      |   8 ++++
+ virt/kvm/mmio_test.c     | 104 +++++++++++++++++++++++++++++++++++++++++++++++
+ virt/kvm/mmio_test.h     |  18 ++++++++
+ 7 files changed, 155 insertions(+)
 
-Similar to the other patches of this series, I extracted out the logic
-of this function and brute forced all possible inputs to validate that
-the outputs are the same. To verify this change in the kernel, I booted
-on Spike and used the misaligned access checker which does some
-misaligned accesses.
----
- arch/riscv/kernel/traps_misaligned.c | 205 +++++++++++++++++------------------
- 1 file changed, 97 insertions(+), 108 deletions(-)
-
-diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-index 524215a186e0..ca9a3da3d24f 100644
---- a/arch/riscv/kernel/traps_misaligned.c
-+++ b/arch/riscv/kernel/traps_misaligned.c
-@@ -22,15 +22,11 @@
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 6c8afa2047bf..abbbf74627a2 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -1235,6 +1235,8 @@ enum kvm_device_type {
+ #define KVM_DEV_TYPE_LOONGARCH_DMSINTC	KVM_DEV_TYPE_LOONGARCH_DMSINTC
+ 	KVM_DEV_TYPE_ARM_VGIC_V5,
+ #define KVM_DEV_TYPE_ARM_VGIC_V5	KVM_DEV_TYPE_ARM_VGIC_V5
++	KVM_DEV_TYPE_TEST,
++#define KVM_DEV_TYPE_TEST		KVM_DEV_TYPE_TEST
  
- #ifdef CONFIG_FPU
+ 	KVM_DEV_TYPE_MAX,
  
--#define FP_GET_RD(insn)		(insn >> 7 & 0x1F)
--
- extern void put_f32_reg(unsigned long fp_reg, unsigned long value);
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index 8ff5adcfe1e0..0d235bdc94ec 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -754,6 +754,12 @@ source "net/Kconfig.debug"
  
--static int set_f32_rd(unsigned long insn, struct pt_regs *regs,
-+static int set_f32_rd(unsigned long fp_reg, struct pt_regs *regs,
- 		      unsigned long val)
- {
--	unsigned long fp_reg = FP_GET_RD(insn);
--
- 	put_f32_reg(fp_reg, val);
- 	regs->status |= SR_FS_DIRTY;
+ endmenu # "Networking Debugging"
  
-@@ -39,9 +35,8 @@ static int set_f32_rd(unsigned long insn, struct pt_regs *regs,
- 
- extern void put_f64_reg(unsigned long fp_reg, unsigned long value);
- 
--static int set_f64_rd(unsigned long insn, struct pt_regs *regs, u64 val)
-+static int set_f64_rd(unsigned long fp_reg, struct pt_regs *regs, u64 val)
- {
--	unsigned long fp_reg = FP_GET_RD(insn);
- 	unsigned long value;
- 
- #if __riscv_xlen == 32
-@@ -58,10 +53,8 @@ static int set_f64_rd(unsigned long insn, struct pt_regs *regs, u64 val)
- #if __riscv_xlen == 32
- extern void get_f64_reg(unsigned long fp_reg, u64 *value);
- 
--static u64 get_f64_rs(unsigned long insn, u8 fp_reg_offset,
--		      struct pt_regs *regs)
-+static u64 get_f64_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
--	unsigned long fp_reg = (insn >> fp_reg_offset) & 0x1F;
- 	u64 val;
- 
- 	get_f64_reg(fp_reg, &val);
-@@ -73,10 +66,8 @@ static u64 get_f64_rs(unsigned long insn, u8 fp_reg_offset,
- 
- extern unsigned long get_f64_reg(unsigned long fp_reg);
- 
--static unsigned long get_f64_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f64_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
--	unsigned long fp_reg = (insn >> fp_reg_offset) & 0x1F;
- 	unsigned long val;
- 
- 	val = get_f64_reg(fp_reg);
-@@ -89,10 +80,8 @@ static unsigned long get_f64_rs(unsigned long insn, u8 fp_reg_offset,
- 
- extern unsigned long get_f32_reg(unsigned long fp_reg);
- 
--static unsigned long get_f32_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f32_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
--	unsigned long fp_reg = (insn >> fp_reg_offset) & 0x1F;
- 	unsigned long val;
- 
- 	val = get_f32_reg(fp_reg);
-@@ -107,28 +96,18 @@ static void set_f32_rd(unsigned long insn, struct pt_regs *regs,
- 
- static void set_f64_rd(unsigned long insn, struct pt_regs *regs, u64 val) {}
- 
--static unsigned long get_f64_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f64_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
- 	return 0;
- }
- 
--static unsigned long get_f32_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f32_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
- 	return 0;
- }
- 
- #endif
- 
--#define GET_F64_RS2(insn, regs) (get_f64_rs(insn, 20, regs))
--#define GET_F64_RS2C(insn, regs) (get_f64_rs(insn, 2, regs))
--#define GET_F64_RS2S(insn, regs) (get_f64_rs(RVC_RS2S(insn), 0, regs))
--
--#define GET_F32_RS2(insn, regs) (get_f32_rs(insn, 20, regs))
--#define GET_F32_RS2C(insn, regs) (get_f32_rs(insn, 2, regs))
--#define GET_F32_RS2S(insn, regs) (get_f32_rs(RVC_RS2S(insn), 0, regs))
--
- #define __read_insn(regs, insn, insn_addr, type)	\
- ({							\
- 	int __ret;					\
-@@ -217,13 +196,13 @@ static int handle_vector_misaligned_load(struct pt_regs *regs)
- }
- #endif
- 
--static int handle_scalar_misaligned_load(struct pt_regs *regs)
-+static noinline int handle_scalar_misaligned_load(struct pt_regs *regs)
- {
- 	union reg_data val;
- 	unsigned long epc = regs->epc;
- 	unsigned long insn;
- 	unsigned long addr = regs->badaddr;
--	int fp = 0, shift = 0, len = 0;
-+	int fp = 0, shift = 0, len = 0, rd = 0;
- 
- 	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
- 
-@@ -238,68 +217,71 @@ static int handle_scalar_misaligned_load(struct pt_regs *regs)
- 	if (get_insn(regs, epc, &insn))
- 		return -1;
- 
--	if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
-+	if (riscv_insn_is_lw(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(unsigned long) - len);
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
-+		rd = riscv_insn_lw_extract_xd(insn);
-+	} else if (riscv_insn_is_ld(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(unsigned long) - len);
--	} else if ((insn & INSN_MASK_LWU) == INSN_MATCH_LWU) {
-+		rd = riscv_insn_ld_extract_xd(insn);
-+	} else if (riscv_insn_is_lwu(insn)) {
- 		len = 4;
--#endif
--	} else if ((insn & INSN_MASK_FLD) == INSN_MATCH_FLD) {
-+		rd = riscv_insn_lwu_extract_xd(insn);
-+	} else if (riscv_insn_is_fld(insn)) {
- 		fp = 1;
- 		len = 8;
--	} else if ((insn & INSN_MASK_FLW) == INSN_MATCH_FLW) {
-+		rd = riscv_insn_fld_extract_fd(insn);
-+	} else if (riscv_insn_is_flw(insn)) {
- 		fp = 1;
- 		len = 4;
--	} else if ((insn & INSN_MASK_LH) == INSN_MATCH_LH) {
-+		rd = riscv_insn_flw_extract_fd(insn);
-+	} else if (riscv_insn_is_lh(insn)) {
- 		len = 2;
- 		shift = 8 * (sizeof(unsigned long) - len);
--	} else if ((insn & INSN_MASK_LHU) == INSN_MATCH_LHU) {
-+		rd = riscv_insn_lh_extract_xd(insn);
-+	} else if (riscv_insn_is_lhu(insn)) {
- 		len = 2;
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_C_LD) == INSN_MATCH_C_LD) {
-+		rd = riscv_insn_lhu_extract_xd(insn);
-+	} else if (riscv_insn_is_c_ld(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(unsigned long) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LDSP) == INSN_MATCH_C_LDSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rd = (8 + riscv_insn_c_ld_extract_xd(insn));
-+	} else if (riscv_insn_is_c_ldsp(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(unsigned long) - len);
--#endif
--	} else if ((insn & INSN_MASK_C_LW) == INSN_MATCH_C_LW) {
-+		rd = riscv_insn_c_ldsp_extract_xd(insn);
-+	} else if (riscv_insn_is_c_lw(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(unsigned long) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LWSP) == INSN_MATCH_C_LWSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rd = (8 + riscv_insn_c_lw_extract_xd(insn));
-+	} else if (riscv_insn_is_c_lwsp(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(unsigned long) - len);
--	} else if ((insn & INSN_MASK_C_FLD) == INSN_MATCH_C_FLD) {
-+		rd = riscv_insn_c_lwsp_extract_xd(insn);
-+	} else if (riscv_insn_is_c_fld(insn)) {
- 		fp = 1;
- 		len = 8;
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_FLDSP) == INSN_MATCH_C_FLDSP) {
-+		rd = (8 + riscv_insn_c_fld_extract_fd(insn));
-+	} else if (riscv_insn_is_c_fldsp(insn)) {
- 		fp = 1;
- 		len = 8;
--#if defined(CONFIG_32BIT)
--	} else if ((insn & INSN_MASK_C_FLW) == INSN_MATCH_C_FLW) {
-+		rd = riscv_insn_c_fldsp_extract_fd(insn);
-+	} else if (riscv_insn_is_c_flw(insn)) {
- 		fp = 1;
- 		len = 4;
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_FLWSP) == INSN_MATCH_C_FLWSP) {
-+		rd = (8 + riscv_insn_c_flw_extract_fd(insn));
-+	} else if (riscv_insn_is_c_flwsp(insn)) {
- 		fp = 1;
- 		len = 4;
--#endif
--	} else if ((insn & INSN_MASK_C_LHU) == INSN_MATCH_C_LHU) {
-+		rd = riscv_insn_c_flwsp_extract_fd(insn);
-+	} else if (riscv_insn_is_c_lhu(insn)) {
- 		len = 2;
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LH) == INSN_MATCH_C_LH) {
-+		rd = (8 + riscv_insn_c_lhu_extract_xd(insn));
-+	} else if (riscv_insn_is_c_lh(insn)) {
- 		len = 2;
--		shift = 8 * (sizeof(ulong) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
-+		shift = 8 * (sizeof(unsigned long) - len);
-+		rd = (8 + riscv_insn_c_lh_extract_xd(insn));
- 	} else {
- 		return -1;
- 	}
-@@ -315,14 +297,16 @@ static int handle_scalar_misaligned_load(struct pt_regs *regs)
- 		memcpy(&val, (u8 *)addr, len);
- 	}
- 
--	if (!fp)
--		SET_RD(insn, regs, (long)(val.data_ulong << shift) >> shift);
--	else if (len == 8)
--		set_f64_rd(insn, regs, val.data_u64);
--	else
--		set_f32_rd(insn, regs, val.data_ulong);
-+	if (rd) {
-+		if (!fp)
-+			*(unsigned long *)((unsigned long *)regs + rd) = (val.data_ulong << shift) >> shift;
-+		else if (len == 8)
-+			set_f64_rd(rd, regs, val.data_u64);
-+		else
-+			set_f32_rd(rd, regs, val.data_ulong);
- 
--	regs->epc = epc + INSN_LEN(insn);
-+		regs->epc = epc + INSN_LEN(insn);
-+	}
- 
- 	return 0;
- }
-@@ -333,7 +317,7 @@ static int handle_scalar_misaligned_store(struct pt_regs *regs)
- 	unsigned long epc = regs->epc;
- 	unsigned long insn;
- 	unsigned long addr = regs->badaddr;
--	int len = 0, fp = 0;
-+	int fp = 0, len = 0, rd = 0;
- 
- 	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
- 
-@@ -346,71 +330,76 @@ static int handle_scalar_misaligned_store(struct pt_regs *regs)
- 	if (get_insn(regs, epc, &insn))
- 		return -1;
- 
--	val.data_ulong = GET_RS2(insn, regs);
--
--	if ((insn & INSN_MASK_SW) == INSN_MATCH_SW) {
-+	if (riscv_insn_is_sw(insn)) {
- 		len = 4;
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_SD) == INSN_MATCH_SD) {
-+		rd = riscv_insn_sw_extract_xs2(insn);
-+	} else if (riscv_insn_is_sd(insn)) {
- 		len = 8;
--#endif
--	} else if ((insn & INSN_MASK_FSD) == INSN_MATCH_FSD) {
-+		rd = riscv_insn_sd_extract_xs2(insn);
-+	} else if (riscv_insn_is_fsd(insn)) {
- 		fp = 1;
- 		len = 8;
--		val.data_u64 = GET_F64_RS2(insn, regs);
--	} else if ((insn & INSN_MASK_FSW) == INSN_MATCH_FSW) {
-+		rd = riscv_insn_fsd_extract_fs2(insn);
-+	} else if (riscv_insn_is_fsw(insn)) {
- 		fp = 1;
- 		len = 4;
--		val.data_ulong = GET_F32_RS2(insn, regs);
--	} else if ((insn & INSN_MASK_SH) == INSN_MATCH_SH) {
-+		rd = riscv_insn_fsw_extract_fs2(insn);
-+	} else if (riscv_insn_is_sh(insn)) {
- 		len = 2;
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_C_SD) == INSN_MATCH_C_SD) {
-+		rd = riscv_insn_sh_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sd(insn)) {
- 		len = 8;
--		val.data_ulong = GET_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_SDSP) == INSN_MATCH_C_SDSP) {
-+		rd = (8 + riscv_insn_c_sd_extract_xs2(insn));
-+	} else if (riscv_insn_is_c_sdsp(insn)) {
- 		len = 8;
--		val.data_ulong = GET_RS2C(insn, regs);
--#endif
--	} else if ((insn & INSN_MASK_C_SW) == INSN_MATCH_C_SW) {
-+		rd = riscv_insn_c_sdsp_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sw(insn)) {
- 		len = 4;
--		val.data_ulong = GET_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_SWSP) == INSN_MATCH_C_SWSP) {
-+		rd = (8 + riscv_insn_c_sw_extract_xs2(insn));
-+	} else if (riscv_insn_is_c_swsp(insn)) {
- 		len = 4;
--		val.data_ulong = GET_RS2C(insn, regs);
--	} else if ((insn & INSN_MASK_C_FSD) == INSN_MATCH_C_FSD) {
-+		rd = riscv_insn_c_swsp_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_fsd(insn)) {
- 		fp = 1;
- 		len = 8;
--		val.data_u64 = GET_F64_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_FSDSP) == INSN_MATCH_C_FSDSP) {
-+		rd = (8 + riscv_insn_c_fsd_extract_fs2(insn));
-+	} else if (riscv_insn_is_c_fsdsp(insn)) {
- 		fp = 1;
- 		len = 8;
--		val.data_u64 = GET_F64_RS2C(insn, regs);
--#if !defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_C_FSW) == INSN_MATCH_C_FSW) {
-+		rd = riscv_insn_c_fsdsp_extract_fs2(insn);
-+	} else if (riscv_insn_is_c_fsw(insn)) {
- 		fp = 1;
- 		len = 4;
--		val.data_ulong = GET_F32_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_FSWSP) == INSN_MATCH_C_FSWSP) {
-+		rd = (8 + riscv_insn_c_fsw_extract_fs2(insn));
-+	} else if (riscv_insn_is_c_fswsp(insn)) {
- 		fp = 1;
- 		len = 4;
--		val.data_ulong = GET_F32_RS2C(insn, regs);
--#endif
--	} else if ((insn & INSN_MASK_C_SH) == INSN_MATCH_C_SH) {
-+		rd = riscv_insn_c_fswsp_extract_fs2(insn);
-+	} else if (riscv_insn_is_c_sh(insn)) {
- 		len = 2;
--		val.data_ulong = GET_RS2S(insn, regs);
-+		rd = (8 + riscv_insn_c_sh_extract_xs2(insn));
- 	} else {
-+		regs->epc = epc;
- 		return -1;
- 	}
- 
- 	if (!IS_ENABLED(CONFIG_FPU) && fp)
- 		return -EOPNOTSUPP;
- 
--	if (user_mode(regs)) {
--		if (copy_to_user((u8 __user *)addr, &val, len))
--			return -1;
--	} else {
--		memcpy((u8 *)addr, &val, len);
-+	if (rd) {
-+		if (!fp)
-+			val.data_ulong = *(unsigned long *)((unsigned long *)regs + rd);
-+		else if (len == 8)
-+			val.data_u64 = get_f64_rs(rd, regs);
-+		else
-+			val.data_ulong = get_f32_rs(rd, regs);
++menu "KVM Debugging"
 +
-+		if (user_mode(regs)) {
-+			if (copy_to_user((u8 __user *)addr, &val, len))
-+				return -1;
-+		} else {
-+			memcpy((u8 *)addr, &val, len);
-+		}
- 	}
++source "virt/kvm/Kconfig.debug"
++
++endmenu # "KVM Debugging"
++
+ menu "Memory Debugging"
  
- 	regs->epc = epc + INSN_LEN(insn);
+ source "mm/Kconfig.debug"
+diff --git a/virt/kvm/Kconfig.debug b/virt/kvm/Kconfig.debug
+new file mode 100644
+index 000000000000..d9dd326374e0
+--- /dev/null
++++ b/virt/kvm/Kconfig.debug
+@@ -0,0 +1,16 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config KVM_MMIO_TEST
++       bool "Enable kvm mmio testing"
++       depends on KVM
++       depends on KVM_MMIO
++       default n
++       help
++         Enable testing for kvm mmio. This is a test-only mmio device that
++         stores writes in a buffer and returns the buffered data on a read.
++
++         This is useful for testing the kvm mmio emulation code. Enabling
++         this does not run any tests, just builds in the support for the test
++         device into the kernel.
++
++         If unsure, say N.
+diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
+index d047d4cf58c9..bd4da8c23923 100644
+--- a/virt/kvm/Makefile.kvm
++++ b/virt/kvm/Makefile.kvm
+@@ -8,6 +8,7 @@ KVM ?= ../../../virt/kvm
+ kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
+ kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
+ kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
++kvm-$(CONFIG_KVM_MMIO_TEST) += $(KVM)/mmio_test.o
+ kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
+ kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
+ kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 881f92d7a469..42d17dcaf9c9 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -58,6 +58,7 @@
+ #include "async_pf.h"
+ #include "kvm_mm.h"
+ #include "vfio.h"
++#include "mmio_test.h"
+ 
+ #include <trace/events/ipi.h>
+ 
+@@ -6532,6 +6533,10 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ 	if (WARN_ON_ONCE(r))
+ 		goto err_vfio;
+ 
++	r = kvm_mmio_test_ops_init();
++	if (WARN_ON_ONCE(r))
++		goto err_mmio_test;
++
+ 	r = kvm_gmem_init(module);
+ 	if (r)
+ 		goto err_gmem;
+@@ -6557,6 +6562,8 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ err_virt:
+ 	kvm_gmem_exit();
+ err_gmem:
++	kvm_mmio_test_ops_exit();
++err_mmio_test:
+ 	kvm_vfio_ops_exit();
+ err_vfio:
+ 	kvm_async_pf_deinit();
+@@ -6589,6 +6596,7 @@ void kvm_exit(void)
+ 		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
+ 	kmem_cache_destroy(kvm_vcpu_cache);
+ 	kvm_gmem_exit();
++	kvm_mmio_test_ops_exit();
+ 	kvm_vfio_ops_exit();
+ 	kvm_async_pf_deinit();
+ 	kvm_irqfd_exit();
+diff --git a/virt/kvm/mmio_test.c b/virt/kvm/mmio_test.c
+new file mode 100644
+index 000000000000..bd5f21a43ba8
+--- /dev/null
++++ b/virt/kvm/mmio_test.c
+@@ -0,0 +1,104 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * mmio_test.c - Kernel module side for testing the KVM riscv mmio functionality.
++ */
++
++#include <linux/kvm_host.h>
++
++#include <kvm/iodev.h>
++#include "mmio_test.h"
++
++struct mmio_test {
++	struct kvm *kvm;
++	struct kvm_io_device dev;
++	unsigned long start;
++	unsigned long size;
++	char cache[16];
++};
++
++static struct mmio_test *kvm_to_mmio_test_dev(const struct kvm_io_device *dev)
++{
++	return container_of(dev, struct mmio_test, dev);
++}
++
++static int mmio_read(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
++		     gpa_t addr, int len, void *val)
++{
++	struct mmio_test *mmio_test = kvm_to_mmio_test_dev(dev);
++
++	if ((addr - mmio_test->start + len) >= mmio_test->size)
++		return -1;
++
++	/* Write back cached value */
++	memcpy(val, &mmio_test->cache[(addr - mmio_test->start)], len);
++	return 0;
++}
++
++static int mmio_write(struct kvm_vcpu *vcpu, struct kvm_io_device *dev,
++		      gpa_t addr, int len, const void *val)
++{
++	struct mmio_test *mmio_test = kvm_to_mmio_test_dev(dev);
++
++	if ((addr - mmio_test->start + len) >= mmio_test->size)
++		return -1;
++
++	/* Cache value */
++	memcpy(&mmio_test->cache[(addr - mmio_test->start)], val, len);
++	return 0;
++}
++
++static const struct kvm_io_device_ops mmio_ops = {
++	.read = mmio_read,
++	.write = mmio_write,
++};
++
++static int mmio_test_create(struct kvm_device *dev, u32 type)
++{
++	struct mmio_test *mmio_test;
++
++	mmio_test = kzalloc_obj(struct mmio_test, GFP_KERNEL);
++	if (!mmio_test)
++		return -ENOMEM;
++
++	mmio_test->start = 0x20000000;
++	mmio_test->size = 16;
++
++	dev->private = mmio_test;
++
++	kvm_iodevice_init(&mmio_test->dev, &mmio_ops);
++	mutex_lock(&kvm->slots_lock);
++	ret = kvm_io_bus_register_dev(dev->kvm, KVM_MMIO_BUS, mmio_test->start,
++				mmio_test->size, &mmio_test->dev);
++	mutex_unlock(&kvm->slots_lock);
++
++	if (ret < 0)
++		kfree(mmio_test);
++
++	return ret;
++}
++
++static void mmio_test_destroy(struct kvm_device *dev)
++{
++	struct mmio_test *mmio_test = kvm_to_mmio_test_dev(dev);
++
++	kvm_io_bus_unregister_dev(dev->kvm, KVM_MMIO_BUS, &mmio_test->dev);
++	kfree(dev->private);
++	kfree(dev);
++}
++
++struct kvm_device_ops kvm_riscv_mmio_test_device_ops = {
++	.name = "kvm-riscv-mmio_test",
++	.create = mmio_test_create,
++	.destroy = mmio_test_destroy,
++};
++
++int kvm_mmio_test_ops_init(void)
++{
++	return kvm_register_device_ops(&kvm_riscv_mmio_test_device_ops,
++					KVM_DEV_TYPE_TEST);
++}
++
++void kvm_mmio_test_ops_exit(void)
++{
++	kvm_unregister_device_ops(KVM_DEV_TYPE_TEST);
++}
+diff --git a/virt/kvm/mmio_test.h b/virt/kvm/mmio_test.h
+new file mode 100644
+index 000000000000..49a6e900eec9
+--- /dev/null
++++ b/virt/kvm/mmio_test.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __KVM_MMIO_TEST_H
++#define __KVM_MMIO_TEST_H
++
++#ifdef CONFIG_KVM_MMIO_TEST
++int kvm_mmio_test_ops_init(void);
++void kvm_mmio_test_ops_exit(void);
++#else
++static inline int kvm_mmio_test_ops_init(void)
++{
++	return 0;
++}
++static inline void kvm_mmio_test_ops_exit(void)
++{
++}
++#endif
++
++#endif
 
 -- 
 2.54.0
