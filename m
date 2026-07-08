@@ -4,55 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDD0C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 23:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE33C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 23:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hTeGg4W+N5RcUBfEhqacZHAOlYWtiS9l+TWUrfbd2g8=; b=Sf5VdRW1v/SMyx
-	Kbn7bNp1DfFwQlC4mNcyv3Axo5Q+0OILcQFlPxzJVad2XSMcOovWPkWpZ7Hmr/GeuOf8q3Eio1cfm
-	QEeqfa9jh9kQ57dkUk/CwV3xowOKMXF38kn1nf7ERAsU/Z7ZB5OspIdIQ5IVoBDdMSrSI1uEh4+5k
-	TE7Eivn1lrrBdzZ1QuWYFDpE+WrU0SYjwmzQViz72fIAYWKV5IQ27LOlAFj4TcCSO+NdRQrv2HvjZ
-	r1cPz5+M7lBBPQBBCP9scMpbT5g38zwDNqSJq9ie8h4EbHV+0102jqIyn0fQotDpsZxMRFNU2JyAm
-	xEcslgYJAhpo6o4NOV9A==;
+	List-Owner; bh=aqBDS/z5Kn91n0S6wiKdWa+wqPe//gfwdXgj1UL9Uz4=; b=QxDJi2KVxg8qjq
+	w0dKPWPpNSU7mjARu7BxC4kiZXOefFiErW4JcXDh/wF0ZO1zimicX6DkLNMJGFTlUFX86qHRvWZM6
+	IgW461c/6oRssyFuBuccYPATybrj3Zu31V0IUyyCwvZw64qqu50IJO5oPWi8DEAir68Bly1i++bC+
+	DjPN6UxKI78twk84l9xX+ww//MENHXBc1YGW9Y247T3VwHmJXaV1QYvhxoEtrcxw/jA4GAzwYSH8w
+	G1EJMLGZvVkYGlPDxHtkOj7A0z/hy86NGC4TUFmhjkG4C4M47qaxQbrE4zfWleJcsjZIsl4MwIPku
+	ZJR/XRV3GUB/T61gPEkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whbKj-00000000ZtK-2ity;
-	Wed, 08 Jul 2026 23:05:37 +0000
+	id 1whbTL-00000000aG5-2g1n;
+	Wed, 08 Jul 2026 23:14:31 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whbKi-00000000Zt9-0lBr
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 23:05:36 +0000
+	id 1whbTJ-00000000aFl-0hp8;
+	Wed, 08 Jul 2026 23:14:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4CCC1600C3;
-	Wed,  8 Jul 2026 23:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 548651F000E9;
-	Wed,  8 Jul 2026 23:05:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D4A506001A;
+	Wed,  8 Jul 2026 23:14:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5FD11F000E9;
+	Wed,  8 Jul 2026 23:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783551935;
-	bh=IQw8Fmyq60Hd93Fj+TzQiJzIQ3vI9pEs45BmOecGf9Y=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=Dya7nyRRTuBslB+p/TsWw7zZcOhWHzgKIIwPb2YT7ucCHpOmXS9+bk+2OgvBT7lYu
-	 Q40PAZgcaBLTPbN/9AaAdmpr7XHolSCU/K1WyvJh4JCIQljF1/CATw9mVrut8Vb8N9
-	 Jtdv3Tx1NbVypq99qB7ubYoeO13CsHjhayb49AffwHk40tdUDuwcr/0pYJgMPMnQsg
-	 Dgu4gsi4uAvjC/oc5iI6eqGtfv3XoZP/mo04kGwm029YGnNehetoFjcoHB1u+AU/wc
-	 40IVffo8Gzg23/ygelihPQ2Viq3mE7xc4kSeej34ryNdt3mPmbxM1maY5z7BeSBXjj
-	 V+C+BGlci8hMA==
-Date: Wed, 8 Jul 2026 17:05:29 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Hui Wang <hui.wang@canonical.com>
-cc: mathieu.desnoyers@efficios.com, peterz@infradead.org, shuah@kernel.org, 
-    paulmck@kernel.org, boqun@kernel.org, zhouquan@iscas.ac.cn, 
-    ajones@ventanamicro.com, linux-kselftest@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] selftests/rseq: Fix a building error for riscv arch
-In-Reply-To: <20260707082348.36896-1-hui.wang@canonical.com>
-Message-ID: <073d4140-ac91-1b5d-26a2-f519d6a2792b@kernel.org>
-References: <20260707082348.36896-1-hui.wang@canonical.com>
+	s=k20260515; t=1783552467;
+	bh=znSNM+MGjR1fppYrLy7qoTqjpqFxQICpffN75ccsbrI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=U7j9DuQ2nc8ydd23uGNZv2p9cQUiXygCkAVxSq71mj+NkX2cdLrmoGsFASFGg4Ml0
+	 bDwc3/JpNMt1iiuBfO2+u2t8OwVWEKPRBEqFojt4WTEHrS5dyU+Rrl+iHhRZJ43XFU
+	 Tp4PiEAswwCoD7KapE0e4aTY0MQO/lRQruojDYgw6tkvWRm9BrYDb1Uy0bxO7Zv6Ig
+	 NQWzkZJfqj2mxHN2D5QfuxwgKNzrkIccqqWhDuluZJB6zK0q7BbhRN+Pi08TxExqdC
+	 M1JIWRaFxQmoW8FElnvw5Vst8d3UaIMnUJuT2C8niIgtq2a4qubF9EJ5FQZPKi1rPF
+	 fpIGbT8HGVkAQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Michal =?utf-8?Q?Such=C3=A1nek?= <msuchanek@suse.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, Shrikanth
+ Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook
+ <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Sven Schnelle
+ <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, Mark
+ Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Andy
+ Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard
+ Henderson <richard.henderson@linaro.org>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Guo
+ Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
+ <richard@nod.at>, Chris Zankel <chris@zankel.net>,
+ linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann
+ <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
+ <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
+ <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
+ <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
+ linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-arch@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org
+Subject: Re: [patch 13/18] entry: Make trace_syscall_enter() return type bool
+In-Reply-To: <87se5tqkyp.ffs@fw13>
+References: <20260707181957.433213175@kernel.org>
+ <20260707190254.338083894@kernel.org> <ak5ySpil83TNWxeq@kunlun.suse.cz>
+ <87se5tqkyp.ffs@fw13>
+Date: Thu, 09 Jul 2026 01:14:24 +0200
+Message-ID: <87ik6pqdkf.ffs@fw13>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -65,35 +89,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Jul 2026, Hui Wang wrote:
-
-> RISC-V rseq selftests include asm/fence.h from tools/arch/riscv,
-> but the rseq Makefile only adds tools/include in the CFLAGS, this
-> results in the building failure both for native and cross build:
-> 
->     In file included from rseq.h:131,
->                      from rseq.c:37:
->     rseq-riscv.h:11:10: fatal error: asm/fence.h: No such file or directory
-> 
-> To fix it, add the matching tools/arch/$(ARCH)/include path in the
-> CFLAGS and derive ARCH from SUBARCH for standalone native builds where
-> ARCH is not set.
-> 
-> Fixes: c92786e179e0 ("KVM: riscv: selftests: Use the existing RISCV_FENCE macro in `rseq-riscv.h`")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hui Wang <hui.wang@canonical.com>
-
-Thanks, queued for v7.2-rc.
-
-
-- Paul
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdWwgMDggMjAyNiBhdCAyMjozNCwgVGhvbWFzIEdsZWl4bmVyIHdyb3RlOgo+IE9u
+IFdlZCwgSnVsIDA4IDIwMjYgYXQgMTc6NTIsIE1pY2hhbCBTdWNow6FuZWsgd3JvdGU6Cj4gUTog
+SXMgaXQgcGVyZmVjdD8KPiBBOiBObwo+Cj4gUTogQ2FuIGl0IGJlIG1hZGUgcGVyZmVjdD8KPiBB
+OiBObywgYmVjYXVzZSB5b3UgY2FuJ3QgY2hhbmdlIGhpc3RvcnkgYW5kIGVzdGFibGlzaGVkIHBy
+YWN0aWNlLgo+Cj4gSnVzdCBmb3IgaWxsdXN0cmF0aW9uLiBDaGFuZ2luZyB0aGUgbG9naWMgaW4g
+dHJhY2Vfc3lzY2FsbF9lbnRlcigpIHRvOgo+Cj4gLS0tIGEva2VybmVsL2VudHJ5L3N5c2NhbGwt
+Y29tbW9uLmMKPiArKysgYi9rZXJuZWwvZW50cnkvc3lzY2FsbC1jb21tb24uYwo+IEBAIC05LDEz
+ICs5LDE1IEBACj4gIAo+ICBib29sIHRyYWNlX3N5c2NhbGxfZW50ZXIoc3RydWN0IHB0X3JlZ3Mg
+KnJlZ3MsIGxvbmcgKnN5c2NhbGwpCj4gIHsKPiArCWxvbmcgb3JpZ19zeXNjYWxsID0gKnN5c2Nh
+bGw7Cj4gKwo+ICAJdHJhY2Vfc3lzX2VudGVyKHJlZ3MsICpzeXNjYWxsKTsKPiAgCS8qCj4gIAkg
+KiBQcm9iZXMgb3IgQlBGIGhvb2tzIGluIHRoZSB0cmFjZXBvaW50IG1heSBoYXZlIGNoYW5nZWQg
+dGhlCj4gIAkgKiBzeXN0ZW0gY2FsbCBudW1iZXIuIFJlcmVhZCBpdC4KPiAgCSAqLwo+ICAJKnN5
+c2NhbGwgPSBzeXNjYWxsX2dldF9ucihjdXJyZW50LCByZWdzKTsKPiAtCXJldHVybiAqc3lzY2Fs
+bCAhPSAtMUw7Cj4gKwlyZXR1cm4gKnN5c2NhbGwgPT0gb3JpZ19zeXNjYWxsIHx8ICpzeXNjYWxs
+ICE9IC0xTDsKPiAgfQo+ICAKPiAgdm9pZCB0cmFjZV9zeXNjYWxsX2V4aXQoc3RydWN0IHB0X3Jl
+Z3MgKnJlZ3MsIGxvbmcgcmV0KQo+Cj4gZG9lcyBub3QgbWFrZSAjMiBtYWdpY2FsbHkgZ28gYXdh
+eS4gSXQncyBzdGlsbCB0aGUgc2FtZSBwcm9ibGVtIHdoZXRoZXIKPiB5b3UgbGlrZSBpdCBvciBu
+b3QuCgpBbmQganVzdCB0byBiZSBlbnRpcmVseSBjbGVhciwgdGhlIHN5c2NhbGwoKSBpbnRlcmZh
+Y2UgaGFzIHRvIGJlIGNvcnJlY3QKaW4gdGhlIGZpcnN0IHBsYWNlLCBidXQgdGhlbiBpdCdzIGFs
+bCBhYm91dCBwZXJmb3JtYW5jZS4KClNvIHRoZSBzZXF1ZW5jZSBvZjoKCiAgIHB0X3JlZ3MgPSBQ
+VVNIX1JFR1MoKTsKICAgc3lzY2FsbCA9IHB0X3JlZ3MtPnN5c2NhbGxfcmVnOwogICBwdF9yZWdz
+LT5yZXN1bHQgPSAtRU5PU1lTOwoKICAgYXJjaF9zeXNjYWxsKHB0X3JlZ3MsIHN5c2NhbGwpIHsK
+ICAgICAgaWYgKGxpa2VseShzeXNjYWxsX2VudGVyX2Zyb21fdXNlcl9tb2RlKHB0X3JlZ3MsICZz
+eXNjYWxsKSB7CiAgICAgICAgIGlmIChzeXNjYWxsIDwgU1lTQ0FMTF9tYXgpCiAgICAgICAgICAg
+IHB0X3JlZ3MtPnJlc3VsdCA9IGludm9rZV9zeXNjYWxsKHB0X3JlZ3MsIHN5c2NhbGwpOwogICAg
+ICB9CiAgICAgICwsLCwKICAgfQogICBwdF9yZWdzLT4oJFJFVFVSTl9WQUxVRSkgPSBwdF9yZWdz
+LT5yZXN1bHQ7CiAgIFBPUF9SRUdTKCk7CiAgIHJldHVybjsKCmlzIHRoZSBjb3JyZWN0IGFuZCBv
+YnZpdW9zbHkgbW9zdCBlZmZpY2llbnQgd2F5IGlkZXBlbmRlbnQgb2YgdGhlIC0xTApyZXR1cm4g
+dmFsdWUgb3ZlcmxvYWQgaW4gdGhlIG9yaWdpbmFsIGltcGxlbWVudGF0aW9uLCB3aGljaCB0aGlz
+IHNlcmllcwpnZXRzIHJpZCBvZiBmb3IgY2xhcml0eS4KCklmIGFuIGFyY2hpdGVjdHVyZSBkZWNp
+ZGVbc2RdIHRvIGRvIG90aGVyd2lzZSBhbmQgbWFrZXMgdXAgaXQncyBvd24gcnVsZXMKd2hpY2gg
+b25seSBjb3ZlciBwYXJ0cyBvZiB0aGUgcHJvYmxlbSB0aGVuIGl0IF9pc18gYW4gYXJjaGl0ZWN0
+dXJlCnByb2JsZW0gYW5kIG5vdCBzb21ldGhpbmcgd2hpY2ggaGFzIHRvIGJlIHNvbHZlZCBieSBj
+bGFpbWluZyB0aGF0IGV2ZXJ5CmFyY2hpdGVjdHVyZSBoYXMgdG8gaW1wbGVtZW50IHRoZSBzYW1l
+IG5vbnNlbnNlIGFzIHlvdSBmYWxzZWx5IGNsYWltZWQKaW4geW91ciBSRkNeV1BPQ15XaGFjayB0
+aHJlYWQ6CgogICJIb3dldmVyLCB0aGUgQVBJIHNob3VsZCBiZSBzcGVjaWZpZWQgaW4gYSB3YXkg
+dGhhdCBkb2VzIG5vdCByZXF1aXJlCiAgIGV2ZXJ5b25lIGltcGxlbWVudGluZyBzdWNoIGZsYWcu
+IgoKVGhlcmUgaXMgX1pFUk9fIHJlcXVpcmVtZW50IGZvciBhbnkgYXJjaGl0ZWN0dXJlIHRvIGlt
+cGxlbWVudCB0aGF0CmZsYWcuIEp1c3QgYmVjYXVzZSBTMzkwIGRlY2lkZWQgaXQncyBhIGJyaWxs
+aWFudCBpZGVhIHRvIGRvIHNvIGRvZXMgbm90Cm1ha2UgaXQgYSByZXF1aXJlbWVudCBmb3IgZXZl
+cnlvbmUuCgpOby4gRXZlcnkgb3RoZXIgYXJjaGl0ZWN0dXJlIGdvdCBpdCByaWdodCBiZWNhdXNl
+IHRoZXkgbG9va2VkIGF0IHRoZQpoaXN0b3JpY2FsIHBhdHRlcm5zIGRlc3BpdGUgaGF2aW5nIGNv
+cnJlY3QgZG9jdW1lbnRhdGlvbiBhdCBoYW5kLgoKRmVlbCBmcmVlIHRvIHByb3ZlIG1lIHdyb25n
+IHdpdGggYWN0dWFsIGZhY3RzLgoKVGhhbmtzLAoKICAgICAgICB0Z2x4CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
