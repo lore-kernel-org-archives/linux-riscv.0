@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0FEC43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 08:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD5DC43602
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 09:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ihK1M/1BwD4AsUUDIXS+Hk4T6miMfxe/SnAv6oyKmT8=; b=sfxbVeu9wR89zl
-	aG5BhT6oJF3EFcaedGHc1zlZ8vMB4npTzSzhClQLEfi1rt1530rtRd56JKIeAsdbrHy68GGYDy171
-	JXeawLCd5SRG6XuBB5lLBA/BspsmJ/gS81CWzbfd1CEaN7dlmS+trAjjQmYF6b9xuiOP1ChK3+3Cc
-	k1f3K6vcjJmXUWRG3Yxgm0MIrhrUPSGK4TlXnUxKtNafkTuegwp5V49PkktzI+x5Xh8KbY23btnD9
-	ooS0XVWb58LpvqVl81RrBEt/rFhXPmpLWKIiqszFnp8PqXqQPeKpM2V2TR2n2SSImb0Rp16pYKBA5
-	7G0ZIytrZ55dvuJJ776Q==;
+	List-Owner; bh=qxs2nFhQMbnjBkeF/rlhxru/wqyGgYneVR4zs74+sR8=; b=V1RN8PKCumkrp2
+	MpmjDni0mnSE8q1TdWa9fxf3X7p7SR+G/Dkaf/JITxqNDl7/Rwofb/MML08km0PbCP+s1KQlef+6S
+	npCsPrv+HzUU7ZOtOG6L6oIo0/UgKMpYOSZZ2CTdXmCeWitf/pb/LC8rd+q+rtvs2ZuAKpdPRbFdD
+	W/wJ71vPBb5KawPDKrvlqkXZEI66HNLaEtu3AUvSEcaa3U4qNu6GOSQ7aacUbeVLYdHDf0nbxa4It
+	RJxzc0uXJ/W4K6xCuzxrzLkgjnvPOQwGc8nYmezGr/X8W/g6pmU3zKOzitVW7qG0JIi2ko+KGokHt
+	p5M35bxhyJRH3DAFl1xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO3l-0000000GfIO-1hbi;
-	Wed, 08 Jul 2026 08:55:13 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1whONB-0000000Giu2-00P0;
+	Wed, 08 Jul 2026 09:15:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO3i-0000000GfHQ-0YZ8
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 08:55:12 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gwBjy0VlPzYQtdm
-	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 16:54:46 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id CDA204056B
-	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 16:54:50 +0800 (CST)
-Received: from [10.67.110.68] (unknown [10.67.110.68])
-	by APP1 (Coremail) with UTF8SMTPA id cCh0CgA3RnJaEE5qfZjqAQ--.40631S2;
-	Wed, 08 Jul 2026 16:54:50 +0800 (CST)
-Message-ID: <b4aadfde-9745-4c71-8dd4-ce433331f91b@huaweicloud.com>
-Date: Wed, 8 Jul 2026 16:54:50 +0800
+	id 1whON8-0000000GitZ-1Ak3;
+	Wed, 08 Jul 2026 09:15:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC95A40128;
+	Wed,  8 Jul 2026 09:15:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D697D1F00A3A;
+	Wed,  8 Jul 2026 09:15:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783502113;
+	bh=QXKIkU3dsIb83LaNl9YeImi7A85K1dyuGPQma33N644=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=DFMxLuEi7KbiLxKOKr7+5tYyHQCk3JpHfb6tuRzE2WRkuMx1mPUf9jIugzEHb8/5x
+	 LO8Xyowg5mKltHMmbDOr+gi5tZvNMk+K5CLlhuwiVeBNQv3EKRcMCXRbA9wKg3qjXN
+	 yktK4sMH/4XosacPFHJ3cmJotsn19Buu9FUV++AMzk2yr3c1ztSf7A6xr+F2FPufYH
+	 7C4ovIQAnZoRC6G/Qa1C+7b0RWd5ohzlBHkaLFo1vS55Av8D6fJzCv3nFP2MI70JYw
+	 B1ItdudtjTbPFz/5q4TbBg2sVxB0g3L5dtrLprFMkBcrpN5g+UQIf8TbjYMP31tAm2
+	 nw7+qD9T59MIw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>, LKML <linux-kernel@vger.kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Mark Rutland
+ <mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, Andy Lutomirski
+ <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard Henderson
+ <richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin
+ Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>, Yoshinori Sato
+ <ysato@users.sourceforge.jp>, Richard Weinberger <richard@nod.at>, Chris
+ Zankel <chris@zankel.net>, linux-arm-kernel@lists.infradead.org,
+ linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-um@lists.infradead.org, Michael Ellerman <mpe@ellerman.id.au>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+ Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org, x86@kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, Brian
+ Cain <bcain@kernel.org>, Michal Simek <monstr@monstr.eu>, Dinh Nguyen
+ <dinguyen@kernel.org>, "David S. Miller" <davem@davemloft.net>, Andreas
+ Larsson <andreas@gaisler.com>, linux-snps-arc@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-arch@vger.kernel.org, Michal
+ =?utf-8?Q?Such=C3=A1nek?=
+ <msuchanek@suse.de>, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org
+Subject: Re: [patch 11/18] seccomp, treewide: Rename and convert
+ __secure_computing() to return boolean
+In-Reply-To: <2e6ed364-ce8f-4b4b-8675-acd07f140f4f@huawei.com>
+References: <20260707181957.433213175@kernel.org>
+ <20260707190254.230735780@kernel.org>
+ <2e6ed364-ce8f-4b4b-8675-acd07f140f4f@huawei.com>
+Date: Wed, 08 Jul 2026 11:15:10 +0200
+Message-ID: <871pddsuzl.ffs@fw13>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v6 6/7] riscv, bpf: Mixing bpf2bpf and tailcalls
-Content-Language: en-US
-To: bot+bpf-ci@kernel.org, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: bjorn@kernel.org, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, eddyz87@gmail.com, martin.lau@linux.dev, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, pulehui@huawei.com,
- martin.lau@kernel.org, clm@meta.com, ihor.solodrai@linux.dev
-References: <20260708064436.2971933-7-pulehui@huaweicloud.com>
- <a721df30ec2f824295000183c8e91f2c19d0bd56ae115b835b402be9eacc1c71@mail.kernel.org>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <a721df30ec2f824295000183c8e91f2c19d0bd56ae115b835b402be9eacc1c71@mail.kernel.org>
-X-CM-TRANSID: cCh0CgA3RnJaEE5qfZjqAQ--.40631S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCFWDJw1ftrWUGr4xZr4ktFb_yoWrXryfpa
-	yfCws3CFWvqr18Cw17tF4kXayYkrs5uw47Gr15GrySyanxZF1kKF13Kw4ruFyUJrWFk340
-	vrWjq3WfuaykA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8
-	JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	7PEDUUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_015510_534723_A054F29D 
-X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,106 +91,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 08 2026 at 09:43, Jinjie Ruan wrote:
+> On 7/8/2026 3:06 AM, Thomas Gleixner wrote:
+> As Ada pointed out, the description of secure_computing in arch/Kconfig
+> need to be updated, a possible suggestion:
+>
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -636,8 +636,8 @@ config HAVE_ARCH_SECCOMP_FILTER
+>           - syscall_rollback()
+>           - syscall_set_return_value()
+>           - SIGSYS siginfo_t support
+> -         - secure_computing is called from a ptrace_event()-safe context
+> -         - secure_computing return value is checked and a return value
+> of -1
+> +         - seccomp_permits_syscall is called from a ptrace_event()-safe
+> context
+> +         - seccomp_permits_syscall return value is checked and if false
 
+Makes sense.
+>>  		if (__seccomp_filter(this_syscall, true))
+>> -			return -1;
+>> +			return false;
+>
+> The return value of __seccomp_filter is checked in the wrong way, check
+> -1 should be replaced with check false, maybe:
+>
+> -               if (__seccomp_filter(this_syscall, true))
+> -                       return -1;
+> +               if (!__seccomp_filter(this_syscall, true))
+> +                       return false;
 
-On 2026/7/8 15:35, bot+bpf-ci@kernel.org wrote:
->> commit 64161f8a9f1c78ecd88b27109e6ed8b53282f94b
->> Author: Pu Lehui <pulehui@huawei.com>
->> Date:   Wed Jul 8 06:44:35 2026 +0000
->>
->>      riscv, bpf: Mixing bpf2bpf and tailcalls
->>
->>      In the current RV64 JIT, if we just don't initialize the TCC in subprog,
->>      the TCC can be propagated from the parent process to the subprocess, but
->>      the updated TCC of the parent process cannot be restored when the
->>      subprocess exits. Since the RV64 TCC is initialized before saving the
->>      callee saved registers into the stack, we cannot use the callee saved
->>      register to pass the TCC, otherwise the original value of the callee
->>      saved register will be destroyed. So we implemented mixing bpf2bpf and
->>      tailcalls similar to x86_64, i.e. using a non-callee saved register to
->>      transfer the TCC between functions, and saving that register to the
->>      stack to protect the TCC value. As for the tailcall hierarchy issue,
->>      inspired by the s390's low-overhead approach, we store TCC from
->>      RV_REG_TCC back to stack after calling bpf2bpf call or calling orig bpf
->>      func in bpf trampoline.
->>
->>      Tests test_bpf.ko and test_verifier have passed, as well as the relative
->>      testcases of test_progs*.
->>
->>      Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> 
-> This looks like a bug fix for TCC handling across bpf2bpf calls and
-> tailcalls. Should this include:
-> 
->    Fixes: 2353ecc6f91f ("bpf, riscv: add BPF JIT for RV64G")
-> 
->> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
->> index da02717902442..419b9d795f2a7 100644
->> --- a/arch/riscv/net/bpf_jit.h
->> +++ b/arch/riscv/net/bpf_jit.h
->> @@ -81,6 +81,7 @@ struct rv_jit_context {
->>   	int ex_jmp_off;
->>   	unsigned long flags;
->>   	int stack_size;
->> +	int tcc_offset;
->>   	u64 arena_vm_start;
->>   	u64 user_vm_start;
->>   };
->> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
->> index 7c6304e0b846a..823262ca47ebf 100644
->> --- a/arch/riscv/net/bpf_jit_comp64.c
->> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> 
-> [ ... ]
-> 
->> @@ -2038,11 +2038,10 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
->>   	for (i = 0; i < RV_FENTRY_NINSNS; i++)
->>   		emit(rv_nop(), ctx);
->>
->> -	/* First instruction is always setting the tail-call-counter
->> -	 * (TCC) register. This instruction is skipped for tail calls.
->> -	 * Force using a 4-byte (non-compressed) instruction.
->> -	 */
->> -	emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
->> +	if (!is_subprog)
->> +		emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
->> +
->> +	/* tailcall starts here, emit insn before it must be fixed */
->>
->>   	emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
-> 
-> The TCC initialization is now conditionally emitted based on is_subprog.
-> Does this affect the RV_TAILCALL_OFFSET calculation?
-> 
-> Looking at the RV_TAILCALL_OFFSET macro definition:
-> 
->    #define RV_TAILCALL_OFFSET ((RV_FENTRY_NINSNS + 1) * 4)
-> 
-> This assumes a fixed number of instructions before the tailcall entry
-> point. When is_subprog is true, the rv_addi() instruction is not emitted,
-> which means the tailcall entry point moves forward by 4 bytes relative to
-> where RV_TAILCALL_OFFSET expects it to be.
-> 
-> The tailcall entry is used in emit_bpf_tail_call() when calculating the
-> jump target for the tail call. If RV_TAILCALL_OFFSET doesn't account for
-> the conditional emission, could this cause the wrong entry point to be
-> used when tail calling into subprograms?
-
-This is not an issue, subprog can not be the tailcall callee.
-
-> 
-> 
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-> 
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/28923410500
-
+Ooops.
 
 _______________________________________________
 linux-riscv mailing list
