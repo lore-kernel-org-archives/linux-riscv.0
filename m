@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE554C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 03:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF25CC43602
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 03:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NcKZxamwZW5TDbfCwjh9E8KkKbvxWrHKrS1sMzXHREQ=; b=GoyFBs7/amDgyQ
-	4jQpAw5NY8iAi+UiQJi3jWkmQRt5T1VYr9J7+g1Pb/aDFY0aOv6ys1KzGAazoqjd4zajda6qrHlG8
-	JyTUIyAj9laLbUHHy5zriF10L3b1RpKkGeBLyWj2QqA5LfHjPLxhzkMuJ6XoVkZxu3cm+6GlbdZWE
-	BmOj1UPhWbF7Q35WZSxWVPE3+HrvrnIfa7cpZXSG8CjMtHUJ/JWV2f+Xk/6Pfwx5v6oThfaQT0qw2
-	/RAj7bYAzLe0nVp1ZZPMBl63WV1CgZLwnl7EahelNL9w0WbpTGfA6vCFQyH6l9ESJ7Fndx5OEqyI4
-	bnSW2iT0vr0W/e8eH3CA==;
+	List-Owner; bh=79F3BnfS4TQuzrls+Oh/7tni19vtJZEjAssy+Q7ILfo=; b=aoV7oKnKDy61xI
+	ejRJL6RK6nfC9zyNNzwPZek0NqEnOQJd7+Tup8Gjamf/xyJKDBfgbDkqZh6mvSAZ+YHv7jebpfByi
+	4weVIJihiD96GOf2pS2fXCXeTtvx6On+yxn7VDfQ7S2uCPvnbkezTHLD8+g0CEVhKpA+qSJvOoUnE
+	8n6qcaCeo/X7nYJWo9FRDMihwJFcGMYbIHt/V1CyXC9Xk+JaqkkcrzbCtjiWxh7b4PDuhiQfn5ME6
+	1c+EKZSaXwWV4yHLv0JD4K3QZSNKBgCueKJKGK9wjx1myxXlmsap/pxILe16fxcRehriRBIwaIsNZ
+	G0SVDTES5YmGJQGI/VGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJ5s-0000000GGGW-3A4i;
-	Wed, 08 Jul 2026 03:37:04 +0000
+	id 1whJ61-0000000GGRn-1WJE;
+	Wed, 08 Jul 2026 03:37:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJ5Y-0000000GFsN-042b
+	id 1whJ5c-0000000GFxX-1GzT
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 08 Jul 2026 03:36:44 +0000
+	Wed, 08 Jul 2026 03:36:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=2zWjmjX847p2DKDjhGEU6haOXKl59H/UFpmrJDlC52A=; b=q85ed69eH8/ebZm75qD8PPRTQe
-	ZF/BPTjYKZgqtV105vH1Kpb15E9B4B4ecIjDACnomY8KRgaw7cLo+evr9AlyV8tlnBD4MbU5U+Het
-	Vc6BGgEbDNzaalXUoi0XmQMF5tGgAOzvF/ZrliXbQaoEl/I/q/rJvr9+5IBsc1MB9ujI+wEW/xess
-	iD2mnDFqM0DPlnqiSBhp4T5SUelZW2ekxZKdXQivEf4vepqVjB5veoENFcFijQdWZ3xuiiasR01p6
-	016XWKc+664ak5P5+GwltCHjTxH1cAXfI6nkfXOzS3CZBfwrtSDPn9Pfg2SUl+5gWVw75AN7gRViM
-	0KFqgNAQ==;
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	bh=/bprvjfkZ0oqVTmlvbtRw94STPHY60J1TjXPxacGDgk=; b=R9vFi2y9gzOqmT0uqyddfRsIiU
+	TBeik3v29hH2RgPGUHld7HZ40E0v/q/i4jk1RtloL+iug+VSPCGkLCNipatVXVRkrGk/3Npf1Yaub
+	jknkWa92sU+EegROcZxqemE0+kY9AdbZlaoFMTC1ke8rlEavbdgdTfY+6jGtLln0a7f/Eyw0cHk06
+	K38Lv/75XAo8Zt+ht5Ood0j+QvsaB6hCiJ9S4wvfoDKbaPXMJa2PVnat+dm0tYkKTxccq1cCz59tv
+	6BfUQ60NyH0gqopnXMJsCcRAYdbisN6B5TAJxy/bPH8kv6l6vcF54rY+w07Q1PFAC/fr1mh7ugPu6
+	z1iLhJdw==;
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whJ5U-00000007yWe-3SCO
+	id 1whJ5Z-00000007yXm-0bFn
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 03:36:42 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c8894387780so94415a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 20:36:39 -0700 (PDT)
+	Wed, 08 Jul 2026 03:36:46 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c99eaa1f020so170437a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2026 20:36:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783481798; x=1784086598; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783481803; x=1784086603; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2zWjmjX847p2DKDjhGEU6haOXKl59H/UFpmrJDlC52A=;
-        b=YChuIJ/tu70bckza0FqtxcDApmHUNaVq4LjZBaH308mx/eNNTRVuD1DRjhcmvlXjhA
-         X3DRrMS6W28L71Fp5VaBG/G/QchW9pP1COszcC2RhywrxR8bY1c6LTUjcZCXBHlSSf2C
-         Vf3HWv93vB03ax+m5qrn2F/8A9rCrLkCGbqtLd4Cn+Ac/fwuMK8tWjebri9CJLDhudQN
-         qLWKF+dEJLIuVJR/i6nbm2Hb6mxLCcw4o0O/IId0tF06zFzGT2stRfH1hqbDqEs2nWP4
-         q0BbJ2z4cIFBNrD31hAFmASuGRTiMcdxuYfBHr6TaCFzU71yMQIESHks/PU0ipDInvQc
-         RtCg==
+        bh=/bprvjfkZ0oqVTmlvbtRw94STPHY60J1TjXPxacGDgk=;
+        b=AwqMnNfp52lis0MRWk9U6Pd5tFqQwclPVNMFLR8xe8GOHiZIc7cALfKrbBq0e8XwQ7
+         HSm8Gdl3DBMhkuOL/wMM2i5/FkW/AoU7aaGy6Qc3DaiRmoztwarFWaICUC0uVUJoLNJs
+         IAWrUEHDzlpVfP/NST1uzEnG8qfbes+7LLrMY+GfWmcM/+56R0X5UwLC2zEArlaIA3zG
+         llrSWrSKPIPOcdqYyW2PUI9hzwexr6ykgxjfum2f8Je29DYje422rOoGwwnStPlPdHmQ
+         BCqtEgBHtCzpJ+WiBGuZiMMBHubV2kB3h743k5c6ffuohSRjiTKJeTV+7cg1xTjhTLrd
+         KfeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783481798; x=1784086598;
+        d=1e100.net; s=20251104; t=1783481803; x=1784086603;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2zWjmjX847p2DKDjhGEU6haOXKl59H/UFpmrJDlC52A=;
-        b=i4dypjYD7v1S4+lm5qLatPzk9IQWx+A4eW7VKNcc4mzy9uT4En1rV9dCqdfUpos227
-         g20P0OmLTvbRIRwBHb7kgWNTNna4gN27p76ubJiug2BNxhqXsKgDIKWL4eztwZTCHggZ
-         v014OLFGt3RF/QJZIPiQSkagL3BZ49V2n3h0Dx/yXJi2Q3CpuhIyV124NVAnK76ucDf0
-         mlaLxEQFC9HcebzEMVjqh/DiVOgHol4Wwq7mY6CTV6E89+OhfmfNtVb4zryix+5Dor/O
-         6FUBoqg+/pUTR0GKMvYBtq9W8LQ/BQIa9BBnGM/6fPVZ7A2nmvfIpgWJgjwXMs4j1Ffq
-         GiFw==
-X-Gm-Message-State: AOJu0Yw66gQgxhm0G+NiOW4ccNC4Gzj51F3+VbE+7YNzwjQAu7Ch+6xK
-	gLgLP4/S9EG5ubNm9FySqkDVj+7YqrG/ZlQmXv704zlO5wXr+JraJntZ
-X-Gm-Gg: AfdE7cm1UWtjneXfcIeiWMU5EtKx/yT5lCJTEROGr7IIYCHEtJZdPKeFlxoXUSmckK9
-	b1CRJi+kmzhfDVpJ2Xgh6lVNWOTTEtLhyGILbWh2pCETrhXo6nnviI5dt8DeOK4uxypOiLEZKva
-	NCKsuAmtGsD+KnQakiftmWoDCJFZ0ez1LdtqyUDP+n6dPVEJSyw05EMtZC0dZxM1SLai0RSg3ad
-	q0y5hSqRZ6sFi/yLajVufViGBxixCawNfoza8rdcJNk2keKh3o8MWR6ksPC1D8pv/eVlohiuILn
-	7QXIkers9nZjXnPeaECRFfispuRL8XNyKvvqpL4hozgJGSLYKVH+0n3GrJDAOK3UvrKBD2f/i8f
-	GSE/fU7ES8e6XQHpz/fT2/BtnaF3EySmyY4w7uazKY7/GLcByyJsHk1LU7OWeGzYJYm6YU49nKU
-	y9qXC9Pqw9eGtmY3nYlm0hVKrtThJOBsskv/lmcBLv2xLJvkCHcw==
-X-Received: by 2002:a05:6a21:e083:b0:3b2:a8cd:ef4a with SMTP id adf61e73a8af0-3c0bd0207b7mr633916637.30.1783481798022;
-        Tue, 07 Jul 2026 20:36:38 -0700 (PDT)
+        bh=/bprvjfkZ0oqVTmlvbtRw94STPHY60J1TjXPxacGDgk=;
+        b=o2gOmpcNC6O7iT4odLAMAHPO3KUx+6AwdD6Un6IDClwEAQUCA69iZBjiIMBnpUDvMk
+         eSYn44mwd4IWw0MP8XiyKZLY33lZr1uuytH0kMkqrTckTULN0ex7wYO6wmSBcVCk1tzY
+         Zl41VyhYbqwJYkUDAwA+/y+pUX8e34wYXkQ/xiXXtlW+k9GX+by9mF4M3rGa90mB8zi3
+         f6MYhyWDJ7yofDJtrKjzUKVMXmAh4LM1y4LUFNELS6KG6LB8FZRcuupw8OeAv2vNmOkr
+         i1CcYnqxKTN7A/CRfPAPl4JTjEGTyo4KsijHujyZg0kQuIPzVA3Yr6AgXkClZ3Pj/xjo
+         qyKA==
+X-Gm-Message-State: AOJu0YyRZqFwys3466UlNeC7Lkt0css/DcnEJ2+FVwf5FeuBykq42D3Q
+	tDbsJYw2DA389GAcMBCP95gbrGGAy3bzvNmMPxZt2qa65pI73qxpaTp0
+X-Gm-Gg: AfdE7clvqalEJb5vTFLOG2XMNL+8GMR3gC9EoeqZb/u0h23ElDRLVIYWMolRMn+A9zJ
+	N5pTlAjt3EiN3zz9yFE4l03Z6AglsmTtCssuBrKRi9qnOoBvCOd0sKwWAYWUlEqxKZZHG9DFZQX
+	LFcKrzkb3XKsVdMu+UzVOedsLDyZ9cmj+MvZ12KK0imHxsAvpAoNOzjXUjGeTE1yeGRpti8cswM
+	2hBOMDFTeLIw4tyeGrZpTNdJTGgVLEIojKNgLNB2/laGQ9E0DFrUb85U0qjKlyn9nAGUAdcr1aD
+	GwxwsDyfbLdWMOzeZXW3GnojqdWa3nfPq/5qkBHvXawwXtFreLRFKvZ/1MInrHOtPBXg2zpV6p2
+	+AzPsulE+ZJvtQ8OVwb3vge5cQJoq6stDSXP+knXrBp+TxWbRiWhd0iqwUEijJaSsIGUaHrwfbf
+	2ppXhIzexOTZBHPElcsWncYQ7/rkvY2BHS0MCL8Sw=
+X-Received: by 2002:a05:6300:220d:b0:3bf:6c08:2843 with SMTP id adf61e73a8af0-3c0bd23ef9dmr601090637.50.1783481802761;
+        Tue, 07 Jul 2026 20:36:42 -0700 (PDT)
 Received: from [10.0.0.65] ([2601:647:6700:64d0::94ac])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174accae5sm21092850eec.29.2026.07.07.20.36.36
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174accae5sm21092850eec.29.2026.07.07.20.36.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 20:36:37 -0700 (PDT)
+        Tue, 07 Jul 2026 20:36:42 -0700 (PDT)
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Date: Tue, 07 Jul 2026 20:34:34 -0700
-Subject: [PATCH v3 11/17] KVM: riscv: selftests: Add mmio test
+Date: Tue, 07 Jul 2026 20:34:37 -0700
+Subject: [PATCH v3 14/17] KVM: riscv: selftests: Add csr emulation test
 MIME-Version: 1.0
-Message-Id: <20260707-riscv_insn_table-v3-11-3f8e5f75ba97@gmail.com>
+Message-Id: <20260707-riscv_insn_table-v3-14-3f8e5f75ba97@gmail.com>
 References: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
 In-Reply-To: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -103,16 +103,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783481777; l=7342;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783481778; l=4678;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=flhGK1cZlSB5RszV7FH4hbM+9rZBqj+41XqhLfCb3Wo=;
- b=7z/sq1C5QkABZJ08eLwPrGCQCGs4rIkpvETSlgM26LZdj47BbE0APnCXxkYDsFFGp+9PCA7BC
- rj0oOqSFdX/DoKumtNDJAqKygQdAEps8OnXHRd8G3BqJjiMoZGF9FAF
+ bh=qi/WyV6rxMYApvKgE9MTfWvRwuKF3Auj3h2yBnFI9Mg=;
+ b=QczF1j024KNg8/dB49Lgm4Ao2CfVqUU6ddLzHSDUYeMCWduTnE82y0t5vR2FFGF8EVkyU4Mi0
+ eWDQJmNv8UjAE94S/3gzb4BUmUKXenPsYliWICDyA0ktInJOh35mlXn
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_043641_140113_B32EC8D4 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260708_043645_432324_24131C45 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,159 +129,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the test KVM device to validate that reads and writes to a device
-are properly emulated by KVM. This test checks all load and store
-instructions that are emulated by KVM.
+Introduce a kvm test that uses the emulated test csr to validate that
+all emulated reads/writes to csrs function as expected.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- tools/testing/selftests/kvm/riscv/mmio_test.c | 189 ++++++++++++++++++++++++++
- 2 files changed, 190 insertions(+)
+ tools/testing/selftests/kvm/Makefile.kvm     |   1 +
+ tools/testing/selftests/kvm/riscv/csr_test.c | 133 +++++++++++++++++++++++++++
+ 2 files changed, 134 insertions(+)
 
 diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 9118a5a51b89..07a5fc2bf67c 100644
+index 07a5fc2bf67c..88ccd15e8f94 100644
 --- a/tools/testing/selftests/kvm/Makefile.kvm
 +++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -214,6 +214,7 @@ TEST_GEN_PROGS_s390 += mmu_stress_test
+@@ -212,6 +212,7 @@ TEST_GEN_PROGS_s390 += s390/irq_routing
+ TEST_GEN_PROGS_s390 += mmu_stress_test
+ 
  TEST_GEN_PROGS_riscv = $(TEST_GEN_PROGS_COMMON)
++TEST_GEN_PROGS_riscv += riscv/csr_test
  TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
  TEST_GEN_PROGS_riscv += riscv/ebreak_test
-+TEST_GEN_PROGS_riscv += riscv/mmio_test
- TEST_GEN_PROGS_riscv += access_tracking_perf_test
- TEST_GEN_PROGS_riscv += arch_timer
- TEST_GEN_PROGS_riscv += coalesced_io_test
-diff --git a/tools/testing/selftests/kvm/riscv/mmio_test.c b/tools/testing/selftests/kvm/riscv/mmio_test.c
+ TEST_GEN_PROGS_riscv += riscv/mmio_test
+diff --git a/tools/testing/selftests/kvm/riscv/csr_test.c b/tools/testing/selftests/kvm/riscv/csr_test.c
 new file mode 100644
-index 000000000000..ea3837771a33
+index 000000000000..bdedf7c84001
 --- /dev/null
-+++ b/tools/testing/selftests/kvm/riscv/mmio_test.c
-@@ -0,0 +1,189 @@
++++ b/tools/testing/selftests/kvm/riscv/csr_test.c
+@@ -0,0 +1,133 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * mmio_test.c - Tests the mmio functionality.
++ * csr_test.c - Tests the csr functionality. CONFIG_RISCV_KVM_TEST_CSR needs to be enabled.
 + */
 +#include "kvm_util.h"
 +#include "ucall_common.h"
 +
-+#define MMIO_TEST_REGION 0x20000000
++#define CSR_TEST 0x240
++#define MASK 0x15
++#define FP 0x00006000
 +
-+#define test_standard_read(len, instruction, name, options)					\
-+static void test_##name(void)									\
++/*
++ * Use the fcsr as a U-mode accesible csr and compare against the custom 'test'
++ * hypervisor csr (currently using vsscratch)
++ */
++#define test_csr(write, initial, mode)								\
++static void test_##write(void)									\
 +{												\
-+	unsigned long mmio_result, reference_result;						\
-+	/* Configure the MMIO to return 0xff for each byte to check sign extension */		\
-+	unsigned long reference = ((unsigned long)-1 >> ((sizeof(long) - len) * 8));		\
-+	*((unsigned long *)MMIO_TEST_REGION) = reference;					\
-+	/* Check that reads through MMIO are equivalent to standard reads. */			\
++	unsigned long hypervisor_result, reference_result, old_hypervisor;			\
 +	asm volatile (										\
-+		".option push\n"								\
-+		options										\
-+		#instruction "	%[mmio_res], 0(%[region])\n"					\
-+		#instruction "	%[ref_res], 0(%[ref])\n"					\
-+		".option pop\n"									\
-+		: [mmio_res] "=&cr" (mmio_result), [ref_res] "=&cr" (reference_result)		\
-+		: [region] "cr" (MMIO_TEST_REGION), [ref] "cr" (&reference)			\
++		"csrs	sstatus, %[enable_fp]\n"						\
++		"csrw	fcsr, %[init]\n"							\
++		#write"	zero, fcsr, %[mask]\n"							\
++		"csrr	%[ref_res], fcsr\n"							\
++		: [ref_res] "=&r" (reference_result)						\
++		: [enable_fp] "r" (FP), [mask] #mode(MASK), [init] "r" (initial)		\
++		: "memory"									\
 +	);											\
-+	GUEST_ASSERT_EQ(mmio_result, reference_result);						\
++	asm volatile (										\
++		"csrw	%[test_csr], %[init]\n"							\
++		#write"	%[old], %[test_csr], %[mask]\n"						\
++		"csrr	%[hyp_res], %[test_csr]\n"						\
++		: [hyp_res] "=&r" (hypervisor_result), [old] "=&r" (old_hypervisor)		\
++		: [test_csr] "i"(CSR_TEST), [mask] #mode(MASK), [init] "r" (initial)		\
++		: "memory"									\
++	);											\
++	/* Check that writing works */								\
++	GUEST_ASSERT_EQ(reference_result, hypervisor_result);					\
++	/* Check that reading works */								\
++	GUEST_ASSERT_EQ(old_hypervisor, initial);						\
 +	GUEST_DONE();										\
 +}
 +
-+#define test_sp_read(len, instruction, name)							\
-+static void test_##name(void)									\
-+{												\
-+	unsigned long mmio_result, reference_result;						\
-+	unsigned long tmp;									\
-+	/* Configure the MMIO to return 0xff for each byte to check sign extension */		\
-+	unsigned long reference = ((unsigned long)-1 >> ((sizeof(long) - len) * 8));		\
-+	*(((unsigned long *)MMIO_TEST_REGION)) = reference;					\
-+	/* Check that reads through MMIO are equivalent to standard reads. */			\
-+	asm volatile (										\
-+		"mv	%[tmp], sp\n"								\
-+		"mv	sp, %[region]\n"							\
-+		".option push\n"								\
-+		".option arch,+c\n"								\
-+		#instruction "	%[mmio_res], 0(sp)\n"						\
-+		"mv	sp, %[ref]\n"								\
-+		#instruction "	%[ref_res], 0(sp)\n"						\
-+		".option pop\n"									\
-+		"mv	sp, %[tmp]\n"								\
-+		: [mmio_res]  "=&cr" (mmio_result), [ref_res] "=&cr" (reference_result),	\
-+		  [tmp] "=&r" (tmp)								\
-+		: [region] "r" (MMIO_TEST_REGION), [ref] "cr" (&reference)			\
-+	);											\
-+	GUEST_ASSERT_EQ(mmio_result, reference_result);						\
-+	GUEST_DONE();										\
-+}
-+
-+test_standard_read(1, lb, lb, "")
-+test_standard_read(1, lbu, lbu, "")
-+test_standard_read(2, lh, lh, "")
-+test_standard_read(2, lhu, lhu, "")
-+test_standard_read(4, lw, lw, "")
-+test_standard_read(4, c.lw, c_lw, ".option arch,+c\n")
-+test_sp_read(4, c.lwsp, c_lwsp)
-+
-+#if __riscv_xlen == 64
-+test_standard_read(4, lwu, lwu, "")
-+test_standard_read(8, ld, ld, "")
-+test_standard_read(8, c.ld, c_ld, ".option arch,+c\n")
-+test_sp_read(8, c.ldsp, c_ldsp)
-+#endif
-+
-+#define test_standard_write(len, write, read, name, options)					\
-+static void test_##name(void)									\
-+{												\
-+	unsigned long result;									\
-+	unsigned long reference = (0x5555555555555555ULL >> ((sizeof(long) - len) * 8));	\
-+	/* Check that we can write and then read the same value. */				\
-+	asm volatile (										\
-+		".option push\n"								\
-+		options										\
-+		#write "	%[ref], 0(%[region])\n"						\
-+		#read "		%[res], 0(%[region])\n"						\
-+		".option pop\n"									\
-+		: [res] "=&cr" (result)								\
-+		: [region] "cr" (MMIO_TEST_REGION), [ref] "cr" (reference)			\
-+	);											\
-+	GUEST_ASSERT_EQ(result, reference);							\
-+	GUEST_DONE();										\
-+}
-+
-+#define test_sp_write(len, write, read, name)							\
-+static void test_##name(void)									\
-+{												\
-+	unsigned long result;									\
-+	unsigned long tmp;									\
-+	unsigned long reference = (0x5555555555555555ULL >> ((sizeof(long) - len) * 8));	\
-+	/* Check that we can write and then read the same value. */				\
-+	asm volatile (										\
-+		"mv	%[tmp], sp\n"								\
-+		"mv	sp, %[region]\n"							\
-+		".option push\n"								\
-+		".option arch,+c\n"								\
-+		#write "	%[ref], 0(sp)\n"						\
-+		#read "		%[res], 0(sp)\n"						\
-+		".option pop\n"									\
-+		"mv	sp, %[tmp]\n"								\
-+		: [res] "=&cr" (result), [tmp] "=&r" (tmp)					\
-+		: [region] "cr" (MMIO_TEST_REGION), [ref] "cr" (reference)			\
-+	);											\
-+	GUEST_ASSERT_EQ(result, reference);							\
-+	GUEST_DONE();										\
-+}
-+
-+test_standard_write(1, sb, lb, sb, "")
-+test_standard_write(2, sh, lh, sh, "")
-+test_standard_write(4, sw, lw, sw, "")
-+test_standard_write(4, c.sw, c.lw, c_sw, ".option arch,+c\n")
-+test_sp_write(4, c.swsp, c.lwsp, c_swsp)
-+
-+#if __riscv_xlen == 64
-+test_standard_write(8, sd, ld, sd, "")
-+test_standard_write(8, c.sd, c.ld, c_sd, ".option arch,+c\n")
-+test_sp_write(8, c.sdsp, c.ldsp, c_sdsp)
-+#endif
++test_csr(csrrw, 0x0, r)
++test_csr(csrrs, 0x0, r)
++test_csr(csrrc, 0x15, r)
++test_csr(csrrwi, 0x0, i)
++test_csr(csrrsi, 0x0, i)
++test_csr(csrrci, 0x15, i)
 +
 +static void run(void *guest_code, char *instruction)
 +{
@@ -291,61 +214,81 @@ index 000000000000..ea3837771a33
 +	struct kvm_vcpu *vcpu;
 +
 +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-+	fd = kvm_create_device(vm, KVM_DEV_TYPE_TEST);
 +
-+	virt_map(vm, (unsigned long)MMIO_TEST_REGION, MMIO_TEST_REGION, 1);
++	fd = kvm_create_device(vm, KVM_DEV_TYPE_TEST);
 +
 +	vcpu_run(vcpu);
 +
 +	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE,
-+		    "MMIO with instruction '%s' failed: '%s'", instruction,
++		    "CSR instruction '%s' failed: '%s'", instruction,
 +		    uc.buffer);
 +
 +	close(fd);
 +	kvm_vm_free(vm);
 +}
 +
-+void test_mmio_read_sign_extension(void)
++static void check_test_csr_guest(void)
 +{
-+	run(test_lb, "lb");
-+	run(test_lbu, "lbu");
-+	run(test_lh, "lh");
-+	run(test_lhu, "lhu");
-+	run(test_lw, "lw");
-+	run(test_c_lw, "c.lw");
-+	run(test_c_lwsp, "c.lwsp");
++	unsigned long scause, stvec;
 +
-+#if __riscv_xlen == 64
-+	run(test_lwu, "lwu");
-+	run(test_ld, "ld");
-+	run(test_c_ld, "c.ld");
-+	run(test_c_ldsp, "c.ldsp");
-+#endif
++	asm volatile(
++		".option push\n"
++		".option norvc\n"
++		"la	%[stvec], 1f\n"
++		"csrw	stvec, %[stvec]\n"
++		"csrwi	%[test_csr], 0x0\n"
++		"1:\n"
++		"csrr	%[scause], scause\n"
++		".option pop\n"
++		: [scause] "=&r" (scause), [stvec] "=&r" (stvec)
++		: [test_csr] "i" (CSR_TEST)
++	);
++
++	/* An illegal instruction will be generated if CONFIG_RISCV_KVM_TEST_CSR is not enabled. */
++	if (scause == 2)
++		GUEST_FAIL("CONFIG_RISCV_KVM_TEST_CSR not enabled.\n");
++	GUEST_DONE();
 +}
 +
-+void test_mmio_write(void)
++static int check_test_csr(void)
 +{
-+	run(test_sb, "sb");
-+	run(test_sh, "sh");
-+	run(test_sw, "sw");
-+	run(test_c_sw, "c.sw");
-+	run(test_c_swsp, "c.swsp");
++	struct ucall uc;
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++	int success;
++	int fd;
 +
-+#if __riscv_xlen == 64
-+	run(test_sd, "sd");
-+	run(test_c_sd, "c.sd");
-+	run(test_c_sdsp, "c.sdsp");
-+#endif
++	vm = vm_create_with_one_vcpu(&vcpu, check_test_csr_guest);
++
++	fd = __kvm_create_device(vm, KVM_DEV_TYPE_TEST);
++	if (fd < 0)
++		return 0;
++
++	vcpu_run(vcpu);
++
++	success = get_ucall(vcpu, &uc) == UCALL_DONE;
++
++	close(fd);
++	kvm_vm_free(vm);
++
++	return success;
 +}
 +
 +int main(void)
 +{
-+	test_mmio_read_sign_extension();
-+	test_mmio_write();
++	/* Skip if CONFIG_RISCV_KVM_TEST_CSR not enabled */
++	if (!check_test_csr())
++		exit(KSFT_SKIP);
++
++	run(test_csrrw, "csrrw");
++	run(test_csrrs, "csrrs");
++	run(test_csrrc, "csrrc");
++	run(test_csrrwi, "csrrwi");
++	run(test_csrrsi, "csrrsi");
++	run(test_csrrci, "csrrci");
 +
 +	return 0;
 +}
-+
 
 -- 
 2.54.0
