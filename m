@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8E3C43458
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 01:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBC6C43458
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 02:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=C+JST3QO6VsW2nj/URjnyHXVEMAeXYcCXbFlU20dtmc=; b=hj47MWHMhmApb2
-	n1cKWHYW5jx4pEzE3iFkcw5D6xiE+ax1LRd4uJ1x6eX25aKGOh5tA/Cnux7BLUuXo2ScR2o7n1jAc
-	GB4QmXgABoO7mnh9k3mUmpNUzBesY/3ZdBWrVkOopmlg6UousKQnK9iaYERLikf+Y3S4TK3fQCZoz
-	ojvFLt+RxgW95FCHef5c8Xepy9Vri+X9emIHQTcBmdmOGM00HPzEESmGEqIDr+GF5R8ggoN8Kk+4I
-	P00ZrTzdREo+l+t+4WjeyZ9kXAq6HitaPbPEHcvfO1C3Xs8ECWw73StzPgNQdOjVfIYp2EitcQcef
-	6qu0tSM3F+9sxanrsZaw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xXC7hNibclN+FYSZ2B1AMDlc+EwAzj91L33o/rA9QF8=; b=wyj82yqLcJeweR
+	Xp+GAgheXJST0Iy+Tz3Yj0zC+Xs6mpkexJmTRxd82hHqeV1LlvYuBAsBzMY3V7lnF93HRdguQxycL
+	hdRaXfWmTYwVFgrxYpETNvu6m3koQh6z/IPoLOgbvYUkWqBMnr3h+qkJCHkCdQgCr4Dv5ELkNalHn
+	LfXv8BQ3x5yI5ZU8vJ2O+GvGfUaf+F+D4+S4iZ+KJM5I8qbLh9gPByBuv+OfFjHOU/BmnP/SJpar9
+	Aee3U7McbHECzW1bsTridt4mpheZBJs3+jLes28inpwhKhJMVDojYssqsL9W9kfcnpPn+aCU0zLe8
+	pOW5oVpUCIqWCcw1hXWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHRF-0000000G7ne-0fYF;
-	Wed, 08 Jul 2026 01:51:01 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1whHrI-0000000G975-3fja;
+	Wed, 08 Jul 2026 02:17:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHRB-0000000G7mt-1kFD
+	id 1whHrH-0000000G96u-1EBq
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 01:50:59 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4gw1Jr2JCgz8XrrJ;
-	Wed, 08 Jul 2026 09:50:52 +0800 (CST)
-Received: from xaxapp04.zte.com.cn ([10.99.98.157])
-	by mse-fl1.zte.com.cn with SMTP id 6681ojIQ011042;
-	Wed, 8 Jul 2026 09:50:45 +0800 (+08)
-	(envelope-from zhang.anmeng@zte.com.cn)
-Received: from mapi (xaxapp04[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Wed, 8 Jul 2026 09:50:46 +0800 (CST)
-X-Zmail-TransId: 2afb6a4dacf6642-59625
-X-Mailer: Zmail v1.0
-Message-ID: <20260708095046716mVQlEvhyoXko9eueCxict@zte.com.cn>
-Date: Wed, 8 Jul 2026 09:50:46 +0800 (CST)
-Mime-Version: 1.0
-From: <zhang.anmeng@zte.com.cn>
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <alex@ghiti.fr>, <qirui.001@bytedance.com>, <hu.shengming@zte.com.cn>,
-        <gao.rui@zte.com.cn>, <luo.haiyang@zte.com.cn>, <zhang.run@zte.com.cn>,
-        <zhangchunyan@iscas.ac.cn>
-Subject: =?UTF-8?B?W1BBVENIXSByaXNjdjogc3RhY2t0cmFjZTogRml4IE5VTEwgdGFzayBwb2ludGVyIGluCiBmdHJhY2VfZ3JhcGhfcmV0X2FkZHIoKQ==?=
-X-MAIL: mse-fl1.zte.com.cn 6681ojIQ011042
-X-TLS: YES
-X-ENVELOPE-SENDER: zhang.anmeng@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Wed, 08 Jul 2026 09:50:52 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A4DACFC.000/4gw1Jr2JCgz8XrrJ
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_185057_614590_562C4AE8 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+	Wed, 08 Jul 2026 02:17:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C395432AD;
+	Wed,  8 Jul 2026 02:17:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FBE81F000E9;
+	Wed,  8 Jul 2026 02:17:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783477074;
+	bh=kIHZQkBG4dVsKYZdSJUwIGIZF8zO/xu9yTXMYf0l6VQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y6UWUk8VT6ihOiUv++Oz7SIr67DpWO6YoStjUxH4/PfZiOWTU0OcaZf892wY1UDvP
+	 F0MapI4xSAZJ+QFGVi6A50PRDgS1Vujai4RQ6dY6Db+OmxUO7YzwRZnnFSv7nhzYUE
+	 ZZUKUSnWUglSMeq9MhoFk8exLwWi8L+7W3IGwZ7xZVZnzuR1FmLSNn1KHbzkkbGPV5
+	 QvLMJpf0/pSlOaST9j7bjr6enu+n9J/DAPVLsemdgKhFsBbL+E3n2tf2MtZharPatR
+	 6judu/G7/szzJ9gfcZKN0n5pbornbc4f5hVwsbuWJK5YUTGxv3qglsIhW0JzO+0zDo
+	 voCxKcQzB/S3A==
+Date: Wed, 8 Jul 2026 02:17:52 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Jennifer Berringer <jberring@redhat.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k3: Add UFS support
+Message-ID: <20260708021752-GKI35811@kernel.org>
+References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+ <20260702-08-k3-ufs-support-v1-3-1a64a3ab128f@kernel.org>
+ <akkSL1nQ5UieqHNs@rhdev>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <akkSL1nQ5UieqHNs@rhdev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +82,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anmeng Zhang <zhang.anmeng@zte.com.cn>
+Hi Jennifer,
 
-When dump_backtrace() is called with a NULL task argument, and the
-call stack contains functions that are being traced,
-walk_stackframe() eventually calls ftrace_graph_ret_addr() with the
-NULL task pointer, which results in a NULL pointer dereference when
-accessing task->curr_ret_stack.
+On 10:01 Sat 04 Jul     , Jennifer Berringer wrote:
+> On Thu, Jul 02, 2026 at 02:31:37AM +0000, Yixun Lan wrote:
+> > Add UFS Host Controller support for SpacemiT K3 SoC, and enable
+> > it both on both Pico-ITX and CoM260-IFX boards.
+> > 
+> > Signed-off-by: Yixun Lan <dlan@kernel.org>
+> > ---
+> >  arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts |  4 ++++
+> >  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts   |  4 ++++
+> >  arch/riscv/boot/dts/spacemit/k3.dtsi           | 13 +++++++++++++
+> >  3 files changed, 21 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> > index 238bb03d0e9e..b37e1c7b03e3 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> > +++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> > @@ -19,3 +19,7 @@ chosen {
+> >  		stdout-path = "serial0:115200n8";
+> >  	};
+> >  };
+> > +
+> > +&ufshc {
+> > +	status = "okay";
+> > +};
+> 
+> I believe k3-com260.dtsi would be a more fitting file for this change.
+> UFS is soldered on the underside of the compute module and not part of
+> the carrier board.
+> 
+Right, I agree
 
-Fix this by assigning the task pointer to the current task in
-walk_stackframe() when it is NULL, keeping the behavior consistent
-with other architectures.
+> Because it is next to the microSD card slot, a picture showing both can
+> be seen in section 5.12 (TF-Card Interface) of the PDF version of the K3
+> CoM260 User Guide. That picture is notably not visible in the HTML
+> version.
+> 
+> https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k3_com260/com260_user_guide.md
+> 
+> > diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > index b89c1521e664..f1560a5a9031 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > @@ -221,3 +221,7 @@ hub@1 {
+> >  &usb2_phy {
+> >  	status = "okay";
+> >  };
+> > +
+> > +&ufshc {
+> > +	status = "okay";
+> > +};
+> 
+> Nit: if sorted by label, ufshc would be before usb2_host.
+> 
+Right, will sort in next version
 
-Fixes: ecbf894165a2 ("riscv: Fix ftrace_graph_ret_addr() to use the correct task pointer")
-Reviewed-by: Shengming Hu <hu.shengming@zte.com.cn>
-Reviewed-by: Rui Gao <gao.rui@zte.com.cn>
-Reviewed-by: Luo Haiyang <luo.haiyang@zte.com.cn>
-Reviewed-by: Run Zhang <zhang.run@zte.com.cn>
-Signed-off-by: Anmeng Zhang <zhang.anmeng@zte.com.cn>
----
- arch/riscv/kernel/stacktrace.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index c7555447149b..d19545efb5dd 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -52,11 +52,14 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 	int graph_idx = 0;
- 	int level = 0;
-
-+	if (task == NULL)
-+		task = current;
-+
- 	if (regs) {
- 		fp = frame_pointer(regs);
- 		sp = user_stack_pointer(regs);
- 		pc = instruction_pointer(regs);
--	} else if (task == NULL || task == current) {
-+	} else if (task == current) {
- 		fp = (unsigned long)__builtin_frame_address(0);
- 		sp = current_stack_pointer;
- 		pc = (unsigned long)walk_stackframe;
 -- 
-2.43.5
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
