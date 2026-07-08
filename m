@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8011C44508
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9136DC44501
 	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2026 06:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PTamD5EM9PY2Oqbbujj0h10ga3xJ/qW0ApylvNSg1sk=; b=CKRrIt8QcGhNNB
-	jy2flmQDiQ5gWZdUVuwF8I7bmertJ5F/h7VR/iXLMUgWIdVlfyRF7j6QC7znPPKd9M8rB/EtMO5LM
-	fsVBvPX41RHRbF7Y2O13NeOffdatrZf7/ymyYhL62dw+/v8kKDcr2vMOZRCbWul7hezfkGmxSn9uS
-	N+d2klyvdfaCajtMtuxv7MatNc/ZCk7Irv4bhtCoVrAkueWtbDOKSfz4CEP9pH2+wwrjT3PYHEqmj
-	CzDXd9FLeKy7PnoASgNMLEWZnnywKt9JKrdQhqtxdL1xgusFckeU6yvoaBKac1Fa5rH7Y+yNnBsAj
-	k4BfGYX92PhuYB2KwwWA==;
+	List-Owner; bh=SwTRXzkrB80e+s1oiAwp8TNu9zVxvEu+MRsI3F+2c+c=; b=HnmhsJ6PVfHTuv
+	mfZN6GNS0Berz31B4CiQbb9PiOoTlj2YbkMuhEZZpNCZvqWcHSNK46ASuYMQyp/ZFU59frn+DpYBO
+	GOjAOkP9dDS3G2VJV+axIZsks7w07pZZmFruEdabaNeVno8gsfmi3qXA8ncnGTBarPAYVfPM0SOW/
+	MFUpGPQkHYm5x+p0JoOWxdkyt190xY4zCb3BiFv8eLPLFpyEKg+WfvmdbW8XK2Ss9pqPargdO3QAo
+	EoYv8nKmBjZp7msDhU0p8Tc1xAWwlVD29C0Dds24iVBnJnaB0mgAsHcGiXn6eBUJUsfuD3J8txiB3
+	EZBGlqA1ChYqCZHdFN0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLxN-0000000GPws-3Sys;
-	Wed, 08 Jul 2026 06:40:29 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1whLxP-0000000GPxb-47OP;
+	Wed, 08 Jul 2026 06:40:32 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLxJ-0000000GPvI-3b1b
+	id 1whLxJ-0000000GPvJ-3b1V
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jul 2026 06:40:28 +0000
+	Wed, 08 Jul 2026 06:40:29 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gw7kN4ZzvzKHMNv
-	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:39:56 +0800 (CST)
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gw7kh1qchzYQtlK
+	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:40:12 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 33C4E4057D
-	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:40:17 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id D408140593
+	for <linux-riscv@lists.infradead.org>; Wed,  8 Jul 2026 14:40:16 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with UTF8SMTPA id Syh0CgD32yfQ8E1qblLgAQ--.30661S9;
+	by APP2 (Coremail) with UTF8SMTPA id Syh0CgD32yfQ8E1qblLgAQ--.30661S4;
 	Wed, 08 Jul 2026 14:40:16 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -58,35 +58,35 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v6 7/7] selftests/bpf: Remove tailcalls tests from DENYLIST.riscv64
-Date: Wed,  8 Jul 2026 06:44:36 +0000
-Message-Id: <20260708064436.2971933-8-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v6 2/7] riscv, bpf: Fix memory leak in bpf_jit_free
+Date: Wed,  8 Jul 2026 06:44:31 +0000
+Message-Id: <20260708064436.2971933-3-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260708064436.2971933-1-pulehui@huaweicloud.com>
 References: <20260708064436.2971933-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgD32yfQ8E1qblLgAQ--.30661S9
-X-Coremail-Antispam: 1UD129KBjvdXoW7GF13KFyUKFW3ur1kJF1DWrg_yoW3uFgEga
-	y0qrn3ZayrAF9rAF1fG3WrWry3uw43Wr4UJF45XasxJF4DWF18Aa1DZFZ8tFyrurWqqF9F
-	vFWkXFW3Kr4DKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbgkYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7IE14v26r126s
-	0DM28IrcIa0xkI8VCY1x0267AKxVW5JVCq3wA2ocxC64kIII0Yj41l84x0c7CEw4AK67xG
-	Y2AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14
-	v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E
-	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
-	xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
-	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
-	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
-	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
-	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
-	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
-	v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
-	vjxUxrcTDUUUU
+X-CM-TRANSID: Syh0CgD32yfQ8E1qblLgAQ--.30661S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7tr1fXF18XryfAry3tr1UZFb_yoW8Jw17pF
+	WDG343C3yqgr1kKrsrJrW0gay8Jws5Ww1SgryUur1xKFsIgFykW3Zak34Yga98AFWUJ3yr
+	WrWFkrnxCrykJrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPIb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXw
+	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ew
+	Av7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY
+	6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14
+	v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r
+	1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07j7
+	hLnUUUUU=
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_234026_069218_DE160A38 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20260707_234026_246547_5FD2FE3A 
+X-CRM114-Status: UNSURE (   9.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,23 +106,37 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-The RV64 BPF JIT now supports mixing bpf2bpf and tailcalls.
-Therefore, the tailcall_bpf2bpf tests can be safely removed
-from the riscv64 denylist.
+When bpf_int_jit_compile() is called for subprograms, it returns early
+during the first pass (!prog->is_func || extra_pass is false), keeping
+ctx->offset alive for the subsequent extra pass.
 
+If JIT compilation fails for a later subprogram, the BPF core aborts
+and calls bpf_jit_free() to clean up the first subprogram. However,
+bpf_jit_free() fails to free jit_data->ctx.offset, which causes a
+memory leak of the JIT context offsets array.
+
+Fix this by adding the missing kfree(jit_data->ctx.offset) in
+bpf_jit_free().
+
+Fixes: 48a8f78c50bd ("bpf, riscv: use prog pack allocator in the BPF JIT")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- tools/testing/selftests/bpf/DENYLIST.riscv64 | 1 -
- 1 file changed, 1 deletion(-)
+ arch/riscv/net/bpf_jit_core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/tools/testing/selftests/bpf/DENYLIST.riscv64 b/tools/testing/selftests/bpf/DENYLIST.riscv64
-index 4fc4dfdde293..ca1beae7fe8f 100644
---- a/tools/testing/selftests/bpf/DENYLIST.riscv64
-+++ b/tools/testing/selftests/bpf/DENYLIST.riscv64
-@@ -1,3 +1,2 @@
- # riscv64 deny list for BPF CI and local vmtest
- exceptions					# JIT does not support exceptions
--tailcalls/tailcall_bpf2bpf*			# JIT does not support mixing bpf2bpf and tailcalls
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index ce3bd3762e08..7cce19118619 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -234,6 +234,7 @@ void bpf_jit_free(struct bpf_prog *prog)
+ 		 */
+ 		if (jit_data) {
+ 			bpf_jit_binary_pack_finalize(jit_data->ro_header, jit_data->header);
++			kfree(jit_data->ctx.offset);
+ 			kfree(jit_data);
+ 		}
+ 		hdr = bpf_jit_binary_pack_hdr(prog);
 -- 
 2.34.1
 
