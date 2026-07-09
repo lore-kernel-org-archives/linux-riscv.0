@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D774BC43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 04:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6BDC44506
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 04:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8KJlju/CNXkuxpz+bYrSyrsDfFEt+12RvYxzUkdq53I=; b=gLaGs0GeInu+FS
-	12kodAhEjWQSazlG5wLhhkMoGVKB7dzXoWoGabGfAYIpml38cCGINYKusBvw6yXiKiM8ak3zvyqyP
-	RI6vQW7BnUuyk0QB7PdpxIcLv07s+9F+pxQPt3W3Gcm9JWCugq4b0I+2V4OYaWIuLvck4XeBwx41l
-	O+u5jddx9PDNV6JDX9e50pPTQXfFPSkiPCrcy2A/TnVTmmqOwoUXEYHdMVpydw5q3nKSYOCIchufm
-	rBSgqVWGfuXCJal4MfydxxyFNOKHX8nEVO82j8t/DU0SaFbgy02d0elRa41t1SbjM44gzfQfbnJ1Z
-	bs1wjMokKU8z64DuuNAg==;
+	List-Owner; bh=Jx5PEh/vNYkmwBCq81htLrt2fU1Nt3/9yUmxy7EZGHw=; b=Oq/dNhSNRe6uvs
+	1G2dnE87e8wJQqq46Ik7f6sc+qq9aTvy1oMyjKz3v1m0jVZ/s7d4RMyGvSywbezlvXzJGHVmMvtc/
+	dbKqF3BovItm6Gc0wjtYxdPHsS8DvMjVPOfnR2/8wvsBSJIZtwkEP2d7m4EfpZDjS/cggNIDBoxjv
+	5r1JPEQn3HodZLYwh+kHshjvoPWho15Q5F2fimHIw3GGxKLztfrBaK/zvbW95QmuU7qYnjTO2TKm1
+	xEhT2/vlNKaAXgbswMBJCgqMvqO+N0yrfkRaIlNwSbHVUYFcAguMafJV+hLhpdL7pg2jVeuwcpyDW
+	FTNS+4An8KRIJOvkpGiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whfxA-00000000xGY-0vx9;
-	Thu, 09 Jul 2026 04:01:36 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1whfxC-00000000xHe-1nYA;
+	Thu, 09 Jul 2026 04:01:38 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whfx7-00000000xEt-3x0D
+	id 1whfxA-00000000xG0-0INh
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 04:01:35 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-84832ec2615so513584b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Jul 2026 21:01:33 -0700 (PDT)
+	Thu, 09 Jul 2026 04:01:37 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-84861fc51a5so14702b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Jul 2026 21:01:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783569693; x=1784174493; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783569695; x=1784174495; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=z4ITEkWMTQ7J+Xoqp3nk8zHPj5XC/FSGr4Xf18I5rrE=;
-        b=IKHz5kxItov1QAS21edxmLtF3rTSdI5/FiJLPSQmbtef2Zlw0FkfypdxvL3pxjYaju
-         Jil5i0sAPH5SUgw+gglvdAcea7ej5cx9XB8wIpc1P7yNXSkzThE7AimqgcV4qNnbTU2u
-         q42isHMc9lzCSAN0uaJSQVspXgjLbPtJJ31UnVvTzXwGUOXMGhSKMZDNAtDzVR016adL
-         A84A3uHxk8da6adeIcH/RTf264hV6M+7aW8EgVZGWDu1jqkVJ/oV61jv1Cz3x1XOdwRH
-         /3JM/NM8WTC1D51ey7V71sx8debFH8IxqJX61h10tx7oSabWLSjlAjBa1sqYqED1FeGV
-         nY1g==
+        bh=4z6AQAHmf9aogx8IP1q5n8kkbecJEDiIeqsrEqoRDzg=;
+        b=JpRHupFWSZ3e5zC+s2nbTJOESCYHyX3hPafRnAAx1NoyZIYUTHMrhe+Joi0IfllxUX
+         gAH1rikeqRTPCupR9Gyj0YMomjtKejobsslVAaG6Zx+DUp6nmiCKIp4f07kEBD2wrMLd
+         F3RmAS+uX+LV4AWjC94TJRZSUGfpdvebIIbvRYcVDm34m/pKi2Pyv8DQcVAm1qkaLleh
+         9GP6k5m2CJ9CVjIVAGsMYPsc4SCmaEmSVmOcxQHMW2fr1qfZJRnIZj9vpTsIpzk/Xctl
+         8Fn13uiAAW+AQo+XaOtoC+iMNMDHDqNAPuKm7ix1gz2VG1UtKHwqf/XbSpBsrhpImKvr
+         ROMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783569693; x=1784174493;
+        d=1e100.net; s=20251104; t=1783569695; x=1784174495;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=z4ITEkWMTQ7J+Xoqp3nk8zHPj5XC/FSGr4Xf18I5rrE=;
-        b=q/SQUV0sDl9kEwawyWN60nU8N/vos9MMHRKTmxpwEFOpaGjYV9efMei6elUu3oKQkI
-         mDZfECgUKvtbCOym06AXv0YTjyhjqWOi5JhzgQv3ffoxpdVf/N0gcKr4bIuj2Ji9EvwH
-         qXk60xEG8A2hg7jItX0F8Xz49Dg6vf8rVXo0+PRS6y7FNbKx+/rrbRM0gsctXvIOzOXd
-         KgNktp7ZRL/3Y2COEdwIgU8ZxpzNC1lDNsy/KXD7hCuOtGSJdNA05p9O0Otovx+ForOW
-         Apav7EXaCdnsQEPIMm3aPiQVrmqqgshYAar1Lp4929zYY8LjUKgRzxWccGI9KybQwGvH
-         ZHcA==
-X-Forwarded-Encrypted: i=1; AHgh+RofhV4l3MaawSBgpw2L5raqxXBnVs+66pEG0/Frg47Ts3MfNLnMKCloVjq2FQ3UcQ/ORtaQWjxn08O+3A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUIWRTdvH5GIQpBYhhgWt2uBrg26mKrZEzhkCDC+C5PC3LvLHp
-	19AKOTyfSS+mp8xj6mOidEvA0EozNgua/guoz/tjx7fL9fohueh5uGvX
-X-Gm-Gg: AfdE7clqKRwnNITpS1dPMk3qCVuLXigCJmSqWtvAKdA2TPvrG/HnvPfsXY+AdujJn/u
-	vOC1dmWDRcJKMfR/eMCUjZc64Js7Z1EwujAH+qJ8DSg8ck2w/qeTOI5IYGiY9nPTbUzeTRMwUn9
-	0v6DcO4Dx8ihsCz6QSTXsrjIJTrE/fuQ8URITg2n2nQEHNzq9/VveXVtg2ugafBjI52a0rBOfPl
-	ymITagoh8lXY82BljlPHspUBcqrP2M3eh0fpEtmTCxDiifB9CdL/HlsmVabFluVLB84JM1/+RhS
-	/tYp3q8es8HQbnxNbz0GITurFD8bUSjYXH04T8pmL9U7tZH4kQQYs3k7/pqp/eLuVFrvInPuiHs
-	BkLhi81LUQ0wJPRMTl7F2uXIVlg08gHB5ODGFyNVRQDwAUrvxd4+x+zYZPiQOCE2w
-X-Received: by 2002:a05:6a00:9493:b0:848:4754:28e5 with SMTP id d2e1a72fcca58-84847542dbbmr4333053b3a.16.1783569692809;
-        Wed, 08 Jul 2026 21:01:32 -0700 (PDT)
+        bh=4z6AQAHmf9aogx8IP1q5n8kkbecJEDiIeqsrEqoRDzg=;
+        b=a0VDIaaGOnEUTf7+PW2SOSHM5KH8eAKZ0ujk4NxXNj15EchG2Kn+96qJqwoAxvBpQm
+         QMT1lI6UWk1g5CibdTLuzHBkWA3kUskpVpOD0BkzTMmnJUCqR6Bhf+wJzMkN9LCZEv6+
+         bZgTAw5npM1XoIF0U/vWBq8ym+/p0aDK9MASeJW2N5496qWY0IIJ4idSda3fkCXR5f84
+         MFFD/OrELf+EUY4ofCoGM3IDdXZm4M37DZMQpD6ulegQanQTez+xN8PbM7Radn57vcik
+         CmLMBchpMVRjjMOqSQ1RF8ZczpQdewYAPaJGQowHSH/Z8Z6rIzGSww71TmtMV9v7qYle
+         UrAA==
+X-Forwarded-Encrypted: i=1; AHgh+RovueN7tXWybkef8OyAhRD//gslfzCR9pTGGZ/lNpSMgIa6gRf+LEt4T70dIM7bIXY3xSTX9nwPQ0QaQQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNJQLvK4yzMH6hx80aCdUFM1FF/IMxPT2l0w2Ay/Ya/BcYBFcR
+	IQYwG/ougRShaHVSbrNsb1JzdN1ft13Rv2g4gPiW9TzRoTP0f0qk2Yhe
+X-Gm-Gg: AfdE7ckeF5tr0BTxpkCw9m5jD8tQ2HYAARsNp/9We5YxZx+6EUdK3kvZ7Ex8lqALM2+
+	oHMeIbZqJG2CXQNDq/FUGP7/vleS3OUbF5yfGV9UtcEXIvBKfW5ueOuOY58uQCk6DneOmgcyIbe
+	IsGpdP/GC8LMIuV+C01b3O589d0Tq9cBsO2EtMdUktVyw08jRhe7iYKPdgpmOwCdiLNO63Se0ya
+	IadXbdXXrCDaLxeEldJpkq8LlLZe7+ogI3E86Iq+NRcTt6+HxnDPODEcBAvMS9f1yHyBlEt+qNq
+	vidvmn9hKD7egj2sxVHCUrtwlqAHt+i2DMNUsFYykVv9EpdZ3puuZzob03SHpvXLgHd9uRDDzL8
+	ign27+qCXAyD5rbix2rOHnp/qit8s1voWQ6ERk7xrp2nWZML7MlowJX11Encs+nco84NEV7fexn
+	4=
+X-Received: by 2002:a05:6a00:c88:b0:82c:e9cc:f61d with SMTP id d2e1a72fcca58-84842eb7f5dmr4880962b3a.9.1783569695001;
+        Wed, 08 Jul 2026 21:01:35 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6b6057dsm8064705b3a.7.2026.07.08.21.01.32
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6dbdc8dsm7889342b3a.55.2026.07.08.21.01.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 21:01:32 -0700 (PDT)
+        Wed, 08 Jul 2026 21:01:34 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jingoo Han <jingoohan1@gmail.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
@@ -102,17 +103,16 @@ Cc: linux-pci@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v4 5/6] dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller
-Date: Thu,  9 Jul 2026 12:00:25 +0800
-Message-ID: <20260709040027.958400-6-inochiama@gmail.com>
+Subject: [PATCH v4 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support
+Date: Thu,  9 Jul 2026 12:00:26 +0800
+Message-ID: <20260709040027.958400-7-inochiama@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260709040027.958400-1-inochiama@gmail.com>
 References: <20260709040027.958400-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_210133_984103_4B803F56 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260708_210136_115759_9F6E415E 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,118 +129,210 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add binding support for the PCIe controller on the SpacemiT K3 SoC.
-This controller is almost a standard Synopsys DesignWare PCIe IP,
-with some extra link and reset state control.
+The PCIe controller on Spacemit K3 is almost a standard Synopsys
+DesignWare PCIe IP with extra link and reset control. Unlike
+the PCIe controller on K1, this controller supports external MSI
+interrupt controller and can use multiple PHYs at the same time.
+
+Add driver to support PCIe controller on Spacemit K3 PCIe.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- .../bindings/pci/spacemit,k1-pcie-host.yaml   | 50 ++++++++++++++++---
- 1 file changed, 43 insertions(+), 7 deletions(-)
+ drivers/pci/controller/dwc/Kconfig            |   4 +-
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c | 126 ++++++++++++++++++
+ 2 files changed, 128 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
-index c4c00b5fcdc0..54817d6fd9af 100644
---- a/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
-@@ -14,26 +14,29 @@ description: >
-   PCIe IP.  The controller uses the DesignWare built-in MSI interrupt
-   controller, and supports 256 MSIs.
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index aa0b784c85b4..dacbac5cc35c 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -440,7 +440,7 @@ config PCIE_SOPHGO_DW
+ 	  Sophgo SoCs.
  
--allOf:
--  - $ref: /schemas/pci/snps,dw-pcie.yaml#
--
- properties:
-   compatible:
--    const: spacemit,k1-pcie
-+    enum:
-+      - spacemit,k1-pcie
-+      - spacemit,k3-pcie
+ config PCIE_SPACEMIT_K1
+-	tristate "SpacemiT K1 PCIe controller (host mode)"
++	tristate "SpacemiT PCIe controller (host mode)"
+ 	depends on ARCH_SPACEMIT || COMPILE_TEST
+ 	depends on HAS_IOMEM
+ 	select PCIE_DW_HOST
+@@ -448,7 +448,7 @@ config PCIE_SPACEMIT_K1
+ 	default ARCH_SPACEMIT
+ 	help
+ 	  Enables support for the DesignWare based PCIe controller in
+-	  the SpacemiT K1 SoC operating in host mode.  Three controllers
++	  the SpacemiT SoC operating in host mode. Three controllers
+ 	  are available on the K1 SoC; the first of these shares a PHY
+ 	  with a USB 3.0 host controller (one or the other can be used).
  
-   reg:
-+    minItems: 4
-     items:
-       - description: DesignWare PCIe registers
-       - description: ATU address space
-       - description: PCIe configuration space
-       - description: Link control registers
-+      - description: Data Bus Interface (DBI) shadow registers.
+diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+index 31aac056b68e..680acc93f539 100644
+--- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
++++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+@@ -23,6 +23,7 @@
  
-   reg-names:
-+    minItems: 4
-     items:
-       - const: dbi
-       - const: atu
-       - const: config
-       - const: link
-+      - const: dbi2
+ #define PCI_VENDOR_ID_SPACEMIT		0x201f
+ #define PCI_DEVICE_ID_SPACEMIT_K1	0x0001
++#define PCI_DEVICE_ID_SPACEMIT_K3	0x0002
  
-   clocks:
-     items:
-@@ -66,6 +69,8 @@ properties:
-   interrupt-names:
-     const: msi
+ /* Offsets and field definitions for link management registers */
+ #define K1_PHY_AHB_IRQ_EN			0x0000
+@@ -32,8 +33,18 @@
+ #define SMLH_LINK_UP			BIT(1)
+ #define RDLH_LINK_UP			BIT(12)
  
-+  msi-parent: true
++#define INTR_STATUS				0x0010
 +
-   spacemit,apmu:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-     description:
-@@ -84,7 +89,8 @@ patternProperties:
- 
-     properties:
-       phys:
--        maxItems: 1
-+        minItems: 1
-+        maxItems: 6
- 
-       vpcie3v3-supply:
-         description:
-@@ -96,13 +102,43 @@ patternProperties:
- 
-     unevaluatedProperties: false
- 
-+allOf:
-+  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: spacemit,k1-pcie
-+    then:
-+      properties:
-+        reg:
-+          maxItems: 4
+ #define INTR_ENABLE				0x0014
+ #define MSI_CTRL_INT			BIT(11)
++#define RDLH_LINK_UP_INT		BIT(20)
 +
-+        reg-names:
-+          maxItems: 4
++#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
 +
-+      patternProperties:
-+        '^pcie@':
-+          properties:
-+            phys:
-+              maxItems: 1
++#define K3_ADDR_INTR_STATUS1			0x0018
 +
-+      required:
-+        - interrupts
-+        - interrupt-names
-+    else:
-+      properties:
-+        reg:
-+          minItems: 5
-+
-+        reg-names:
-+          minItems: 5
-+
- required:
-   - clocks
-   - clock-names
-   - resets
-   - reset-names
--  - interrupts
--  - interrupt-names
-   - spacemit,apmu
++#define K3_CACHE_MSTR_AWCACHE_MODE	GENMASK(14, 11)
++#define K3_CACHE_MSTR_AWCACHE_BEHAVIOR	0xf
  
- unevaluatedProperties: false
+ /* Some controls require APMU regmap access */
+ #define SYSCON_APMU			"spacemit,apmu"
+@@ -48,6 +59,9 @@
+ 
+ #define PCIE_CONTROL_LOGIC			0x0004
+ #define PCIE_SOFT_RESET			BIT(0)
++#define PCIE_PERSTN_OE			BIT(24)
++#define PCIE_PERSTN_OUT			BIT(25)
++#define PCIE_IGNORE_PERSTN		BIT(31)
+ 
+ struct k1_pcie;
+ 
+@@ -340,6 +354,109 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+ 	return ret;
+ }
+ 
++static int k3_pcie_init(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct k1_pcie *k1 = to_k1_pcie(pci);
++	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
++	u32 val;
++	int ret;
++
++	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
++
++	k1_pcie_toggle_soft_reset(k1);
++
++	ret = k1_pcie_enable_resources(k1);
++	if (ret)
++		return ret;
++
++	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
++	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
++
++	ret = k1_pcie_enable_phy(k1);
++	if (ret) {
++		k1_pcie_disable_resources(k1);
++		return ret;
++	}
++
++	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
++	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
++			PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT);
++	usleep_range(1000, 2000);
++	regmap_clear_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC, PCIE_PERSTN_OUT);
++
++	msleep(PCIE_T_PVPERL_MS);
++
++	/*
++	 * Put the controller in root complex mode, and indicate that
++	 * Vaux (3.3v) is present.
++	 */
++	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
++			PCIE_PERSTN_OUT | PCIE_PERSTN_OE);
++
++	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
++	val = u32_replace_bits(val, BIT(7),
++			       GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC);
++	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
++
++	k1_pcie_set_device_id(k1);
++
++	/* Finally, as a workaround, disable ASPM L1 */
++	k1_pcie_disable_aspm_l1(k1);
++
++	return 0;
++}
++
++static int k3_pcie_msi_host_init(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	u32 val;
++
++	dw_pcie_dbi_ro_wr_en(pci);
++
++	val = dw_pcie_readl_dbi(pci, COHERENCY_CONTROL_3_OFF);
++	val = u32_replace_bits(val, K3_CACHE_MSTR_AWCACHE_BEHAVIOR,
++			       K3_CACHE_MSTR_AWCACHE_MODE);
++	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, val);
++
++	dw_pcie_dbi_ro_wr_dis(pci);
++
++	return 0;
++}
++
++static const struct dw_pcie_host_ops k3_pcie_host_ops = {
++	.init		= k3_pcie_init,
++	.deinit		= k1_pcie_deinit,
++	.msi_init	= k3_pcie_msi_host_init,
++};
++
++static const struct dw_pcie_ops k3_pcie_ops = {
++	.link_up	= k1_pcie_link_up,
++	.start_link	= k1_pcie_start_link,
++	.stop_link	= k1_pcie_stop_link,
++};
++
++static void k3_pcie_clear_irq_status(struct k1_pcie *k1,
++				     u32 *status0, u32 *status1, u32 *status2)
++{
++	*status0 = readl_relaxed(k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
++	*status1 = readl_relaxed(k1->link + INTR_STATUS);
++	*status2 = readl_relaxed(k1->link + K3_ADDR_INTR_STATUS1);
++
++	writel_relaxed(*status0, k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
++	writel_relaxed(*status1, k1->link + INTR_STATUS);
++	writel_relaxed(*status2, k1->link + K3_ADDR_INTR_STATUS1);
++}
++
++static int k3_pcie_parse_port(struct k1_pcie *k1)
++{
++	u32 status0, status1, status2;
++
++	k3_pcie_clear_irq_status(k1, &status0, &status1, &status2);
++
++	return k1_pcie_parse_port(k1);
++}
++
+ static int k1_pcie_probe(struct platform_device *pdev)
+ {
+ 	const struct k1_pcie_device_data *data;
+@@ -417,8 +534,17 @@ static const struct k1_pcie_device_data k1_pcie_device_data = {
+ 	.device_id	= PCI_DEVICE_ID_SPACEMIT_K1,
+ };
+ 
++static const struct k1_pcie_device_data k3_pcie_device_data = {
++	.host_ops	= &k3_pcie_host_ops,
++	.ops		= &k3_pcie_ops,
++	.parse_port	= k3_pcie_parse_port,
++	.max_phy_count	= 6,
++	.device_id	= PCI_DEVICE_ID_SPACEMIT_K3,
++};
++
+ static const struct of_device_id k1_pcie_of_match_table[] = {
+ 	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data},
++	{ .compatible = "spacemit,k3-pcie", .data = &k3_pcie_device_data},
+ 	{ }
+ };
+ 
 -- 
 2.55.0
 
