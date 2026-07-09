@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17626C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 06:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19926C44501
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 06:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	In-Reply-To:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=tPSKI+OKB0nE/ZXeaSXPH5WSyX/BKOHVwATMpgDlO9o=; b=ucP
-	edtBPwTrY+mRoFHkWckMRAwxQPjWPYCRwc1/v6xKVY47CeqLuL4vmmrCEHqTb/T8BnYOw+R3o5qys
-	1Jkc5ubiwMofh4KfEzulCFZrd8sRQL1mEmrCY/D9EOD0rtxI/iLFtAmHHTU6HvpLAuFpWNFXIQ5ea
-	OhwLbr3ZUeZ0999Lk10/4zdZqX+DmPXaDctq9Pxl2xw0xsCKHgemyc9eOVGZ1kXefUOHDQ6Dop2qO
-	IkgSW26ncCRAr6yfDteNTvvyDoKOIkspOo2sseXtWT7+vYqYHbAquz8FZzfzeDQjoe7KFkGlO4nD7
-	3Y9+P2VaGOde/4iMO0HZGHLlL4UmXZA==;
+	List-Owner; bh=xQZjX2wsLbJ8Cx7b6DrnCAhklG7I2xtTE6MvdxIMp1Q=; b=s4Z8l5WuCIoa/E
+	g2IsRm8dwDpGTRt8Jy2iSMX4aHOptD1j0MhxS5njCxm1ZxhHtoFwR1B7HPZekNSg1bjeE+Cve6Lhw
+	hqDCh732OJYblh3Z1ZxklL4OtIv9hksa8mkgH+9VUfD9M57PyHPlJWm/MYWmd9Rp/fA8EwbalEDnF
+	wj9iMs8fgJ+rj+w4QIDSMz6EpIP+JnuyQ2WopgEzFJ21ib98L6bd/GNiUTTP0OK0Smr6CcYuzdutL
+	eA6UWBEvo3GhN1BRPzLhXi7L75X2sk5amIk61LO/s6Y8aZIrPbb9Mq52YXEPgl7EB1uruqD1J1Kyh
+	Z46C6RMNMIqJ26BJ97vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whiDL-000000019TS-3L7s;
-	Thu, 09 Jul 2026 06:26:27 +0000
-Received: from mail-ot1-f70.google.com ([209.85.210.70])
+	id 1whiHH-00000001AVs-20JO;
+	Thu, 09 Jul 2026 06:30:31 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whiDI-000000019Pe-3rNZ
-	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 06:26:26 +0000
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-7eb88e7f641so2182147a34.3
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Jul 2026 23:26:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783578383; x=1784183183;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=aGYb6cIYWCwKklV7e199C3toXW7ue1Oty8gsT7/cke4=;
-        b=Dz8y1djnePfugWoOhx4SbnUKHXpprPmQrFIN4mTik7M3H8Tzv7iP3yaJtKZFejUhWq
-         3NGVMPuGpI1iZNQbf4FSoSNOZIT4QF9KfSd0aEhwcevuqp9zWX7TU835S6uHQKnl91vr
-         mfG5LwLiNTFv9aepf0pNOM7F4y0t/aCyq4fwNrD/tksY8GNiNKtWJp8ZoNdwD+UNxT+2
-         3mmAaL1130zTbLDqv63r/7RXDvJZTLb+OI2VTyVbLD8ger1L2KlwsS+VGtkZ3osW1kLP
-         guzLkG3KHjRshRyKqXTWZgH/fenQludskEzqgCf3RWMlxBbof9RekNO4HB7c+uBT92bV
-         Vvew==
-X-Forwarded-Encrypted: i=1; AFNElJ8a7r+GjL2hgX9DUxY/nlwPHJDu8ETJhp4tzATzMFfaBQvt7ATJXEjOg+BMqzgaJVLsiC1Lkap1xlIsIw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvvHzpSTSCX+QjOhUiTE4t2nMLkVb6eA62Of1p5YCAftl2k2+g
-	KLNxgBrBZpGaMVqORNXugvHj1DfIQHpN4lDdf+TPgFwuR8JvfrS1f26m1bU92+tJRC4RefFvasC
-	KZ57fjLVYDgA4N0HdDgaXb6nVGlSC7UZfx71qQSMezqiptGtAvq7Hufy2q2U=
+	id 1whiHB-00000001ATM-28e4;
+	Thu, 09 Jul 2026 06:30:29 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=XPEUhf19vuUBFdiEFO1XIuZL6JrCsEiMauadhYQeXkI=;
+	b=ezKkmXBTzR/qNWnLeDbF+5BJNIo8pxBj9ojrafj3ZsTNYsFYXSZEejUWq4j67MLSYDOtlML8b
+	4d5j0Apq64AYWvH9mkFxelT89X6YltSvbtnX3ieBwv4tiM+7+5GgVA1Sav5ubsVZtqfEBcyCMa8
+	2mgoep7V9O3WqitLx2zHOl8=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gwlGl0dzBzpStn;
+	Thu,  9 Jul 2026 14:21:35 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id CAD922012A;
+	Thu,  9 Jul 2026 14:30:16 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 9 Jul 2026 14:30:12 +0800
+Message-ID: <3ac6d4be-7c57-44c2-80a0-408e2c6f8136@huawei.com>
+Date: Thu, 9 Jul 2026 14:30:11 +0800
 MIME-Version: 1.0
-X-Received: by 2002:a05:6820:2d09:b0:6a3:66dd:c9fa with SMTP id
- 006d021491bc7-6a36da10ff8mr3986082eaf.55.1783578382884; Wed, 08 Jul 2026
- 23:26:22 -0700 (PDT)
-Date: Wed, 08 Jul 2026 23:26:22 -0700
-In-Reply-To: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6a4f3f0e.57639fcc.86d58.001b.GAE@google.com>
-Subject: [syzbot ci] Re: riscv: Generate riscv instruction functions
-From: syzbot ci <syzbot+ci19dac46105b003f7@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
-	atish.patra@linux.dev, conor@kernel.org, jtaubepe@redhat.com, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, namcao@linutronix.de, palmer@dabbelt.com, 
-	pbonzini@redhat.com, pjw@kernel.org, radim.krcmar@oss.qualcomm.com, 
-	shuah@kernel.org, thecharlesjenkins@gmail.com
-Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 02/18] syscall_user_dispatch: Introduce a weak
+ fallback for arch_syscall_is_vdso_sigreturn()
+To: Mark Rutland <mark.rutland@arm.com>
+CC: <oleg@redhat.com>, <richard.henderson@linaro.org>, <mattst88@gmail.com>,
+	<linmag7@gmail.com>, <linux@armlinux.org.uk>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <kees@kernel.org>, <guoren@kernel.org>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <geert@linux-m68k.org>,
+	<tsbogend@alpha.franken.de>, <James.Bottomley@hansenpartnership.com>,
+	<deller@gmx.de>, <maddy@linux.ibm.com>, <mpe@ellerman.id.au>,
+	<npiggin@gmail.com>, <chleroy@kernel.org>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<hca@linux.ibm.com>, <gor@linux.ibm.com>, <agordeev@linux.ibm.com>,
+	<borntraeger@linux.ibm.com>, <svens@linux.ibm.com>,
+	<ysato@users.sourceforge.jp>, <dalias@libc.org>,
+	<glaubitz@physik.fu-berlin.de>, <richard@nod.at>,
+	<anton.ivanov@cambridgegreys.com>, <johannes@sipsolutions.net>,
+	<luto@kernel.org>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <chris@zankel.net>,
+	<jcmvbkbc@gmail.com>, <peterz@infradead.org>, <wad@chromium.org>,
+	<thuth@redhat.com>, <ada.coupriediaz@arm.com>, <kevin.brodsky@arm.com>,
+	<linusw@kernel.org>, <yeoreum.yun@arm.com>, <song@kernel.org>,
+	<james.morse@arm.com>, <anshuman.khandual@arm.com>, <broonie@kernel.org>,
+	<liqiang01@kylinos.cn>, <pengcan@kylinos.cn>, <ryan.roberts@arm.com>,
+	<yangtiezhu@loongson.cn>, <sshegde@linux.ibm.com>, <mchauras@linux.ibm.com>,
+	<austin.kim@lge.com>, <jchrist@linux.ibm.com>, <arnd@arndb.de>,
+	<thomas.weissschuh@linutronix.de>, <sohil.mehta@intel.com>,
+	<andrew.cooper3@citrix.com>, <jgross@suse.com>, <kas@kernel.org>,
+	<x86@kernel.org>, <linux-alpha@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mm@kvack.org>, <linux-csky@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linux-m68k@lists.linux-m68k.org>,
+	<linux-mips@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
+	<linux-um@lists.infradead.org>
+References: <20260629130616.642022-1-ruanjinjie@huawei.com>
+ <20260629130616.642022-3-ruanjinjie@huawei.com> <akegeU59jSK9t7FX@J2N7QTR9R3>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <akegeU59jSK9t7FX@J2N7QTR9R3>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_232625_038613_0A367C19 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260708_233026_237371_FE17E160 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,106 +108,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-syzbot ci has tested the following series
-
-[v3] riscv: Generate riscv instruction functions
-https://lore.kernel.org/all/20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com
-* [PATCH v3 01/17] riscv: Introduce instruction table generation
-* [PATCH v3 02/17] riscv: alternatives: Use generated instruction headers for patching code
-* [PATCH v3 03/17] riscv: kgdb: Use generated instruction headers
-* [PATCH v3 04/17] riscv: Add kprobes instruction simulation KUnit
-* [PATCH v3 05/17] riscv: kprobes: Use generated instruction headers
-* [PATCH v3 06/17] riscv: cfi: Use generated instruction headers
-* [PATCH v3 07/17] riscv: Maintain epc on misaligned emulation error
-* [PATCH v3 08/17] riscv: Use generated instruction headers for misaligned loads/stores
-* [PATCH v3 09/17] riscv: kvm: Use generated instruction headers for csr code
-* [PATCH v3 10/17] KVM: device: Add test device
-* [PATCH v3 11/17] KVM: riscv: selftests: Add mmio test
-* [PATCH v3 12/17] riscv: kvm: Use generated instruction headers for mmio emulation
-* [PATCH v3 13/17] riscv: kvm: Add emulated test csr
-* [PATCH v3 14/17] KVM: riscv: selftests: Add csr emulation test
-* [PATCH v3 15/17] riscv: kvm: Use generated instruction headers for csr emulation
-* [PATCH v3 16/17] riscv: kexec: Use generated instruction headers for kexec relocations
-* [PATCH v3 17/17] riscv: Remove unused instruction headers
-
-and found the following issue:
-WARNING in kvm_io_bus_unregister_dev
-
-Full report is available here:
-https://ci.syzbot.org/series/f3c61796-0ca0-4bfd-add1-23a20352fb7b
-
-***
-
-WARNING in kvm_io_bus_unregister_dev
-
-tree:      bpf-next
-URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/bpf/bpf-next.git
-base:      8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-arch:      amd64
-compiler:  Debian clang version 22.1.6 (++20260514074242+fc4aad7b5db3-1~exp1~20260514074407.73), Debian LLD 22.1.6
-config:    https://ci.syzbot.org/builds/65190eb6-0d65-4629-b225-e3b7089a0b10/config
-syz repro: https://ci.syzbot.org/findings/fa2c789e-ba9f-4d55-b3ba-0d5f22f78a4d/syz_repro
-
-------------[ cut here ]------------
-debug_locks && !(lock_is_held(&(&kvm->slots_lock)->dep_map) != 0)
-WARNING: arch/x86/kvm/../../../virt/kvm/kvm_main.c:6027 at kvm_io_bus_unregister_dev+0x4b0/0x580 virt/kvm/kvm_main.c:6027, CPU#1: syz.2.19/5828
-Modules linked in:
-CPU: 1 UID: 0 PID: 5828 Comm: syz.2.19 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
-RIP: 0010:kvm_io_bus_unregister_dev+0x4b0/0x580 virt/kvm/kvm_main.c:6027
-Code: 3f fc ff ff e8 a1 ce 86 00 48 c7 c7 40 f7 c1 8b e8 a5 29 e9 ff 48 89 ef e8 ed 00 00 00 b8 f4 ff ff ff eb a3 e8 81 ce 86 00 90 <0f> 0b 90 e9 cd fb ff ff 48 c7 c1 e0 bb 2f 90 80 e1 07 80 c1 03 38
-RSP: 0018:ffffc900032afc30 EFLAGS: 00010293
-RAX: ffffffff813e81af RBX: ffff88816b133688 RCX: ffff888160aba540
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-RBP: 0000000000000000 R08: ffffc900032afb7f R09: 0000000000000000
-R10: ffffc900032afb70 R11: ffffffff81404850 R12: dffffc0000000000
-R13: 0000000000000000 R14: dffffc0000000000 R15: ffff8881a5354000
-FS:  000055555b90c500(0000) GS:ffff8882a92b9000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000001b33663fff CR3: 00000001bceb8000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- mmio_test_destroy+0x66/0x90 virt/kvm/mmio_test.c:83
- kvm_destroy_devices virt/kvm/kvm_main.c:1251 [inline]
- kvm_destroy_vm virt/kvm/kvm_main.c:1296 [inline]
- kvm_put_kvm+0x902/0xae0 virt/kvm/kvm_main.c:1332
- kvm_vm_release+0x43/0x50 virt/kvm/kvm_main.c:1355
- __fput+0x418/0xa50 fs/file_table.c:510
- task_work_run+0x1d9/0x270 kernel/task_work.c:233
- resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
- __exit_to_user_mode_loop kernel/entry/common.c:67 [inline]
- exit_to_user_mode_loop+0x193/0x6b0 kernel/entry/common.c:98
- __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
- syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
- syscall_exit_to_user_mode include/linux/entry-common.h:318 [inline]
- do_syscall_64+0x353/0x580 arch/x86/entry/syscall_64.c:100
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f2f43d9ce59
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007ffde9296e78 EFLAGS: 00000246 ORIG_RAX: 00000000000001b4
-RAX: 0000000000000000 RBX: 00007ffde9296f60 RCX: 00007f2f43d9ce59
-RDX: 0000000000000000 RSI: 000000000000001e RDI: 0000000000000003
-RBP: 0000000000011938 R08: 0000000000000001 R09: 0000000000000000
-R10: 0000001b32a20000 R11: 0000000000000246 R12: 00007ffde9296fa0
-R13: 00007f2f44015fac R14: 0000000000011971 R15: 00007f2f44015fa0
- </TASK>
 
 
-***
+On 7/3/2026 7:43 PM, Mark Rutland wrote:
+> On Mon, Jun 29, 2026 at 09:06:00PM +0800, Jinjie Ruan wrote:
+>> Currently, multiple architectures (LoongArch, RISC-V, S390, Powerpc)
+>> provide identical stubs for arch_syscall_is_vdso_sigreturn() that simply
+>> return false. This results in redundant boilerplate code across the tree.
+>>
+>> Introduce a default __weak implementation of
+>> arch_syscall_is_vdso_sigreturn() directly in syscall_user_dispatch.c that
+>> returns false. This allows architectures that do not utilize a vDSO
+>> sigreturn to entirely drop their redundant inline definitions.
+>>
+>> Architectures requiring a specialized check (such as x86) will continue to
+>> override this fallback with their strong symbol definitions.
+>>
+>> Clean up the redundant implementations in loongarch, riscv, s390
+>> and powerpc.
+> 
+>> +bool __weak arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+>> +{
+>> +	return false;
+>> +}
+> 
+> If we need this, please make it:
+> 
+> #ifndef arch_syscall_is_vdso_sigreturn
+> static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+> {
+> 	return false;
+> }
+> #endif
+> 
+> ... and require that architectures which need this provide a CPP
+> definition.
+> 
+> The use of __weak is generally problematic, as it prevents the compiler
+> form being able to elide code, and gets in the way of symbol resolution.
+> It's perfectly fine to require that architectures need to provide a CPP
+> definition alongside their own implementation of this function.
+> 
+> That said, as per my comment on v15, I'd prefer that for now we DO NOT
+> enable syscall user dispatch on arm64, and we first make it possible for
+> architecture to express whether or not they support that, even if they
+> use GENERIC_ENTRY. That might mean this patch isn't necessary right now.
 
-If these findings have caused you to resend the series or submit a
-separate fix, please add the following tag to your commit message:
-  Tested-by: syzbot@syzkaller.appspotmail.com
+That sounds good. First, focus on switching to generic entry, without
+having to implement syscall user dispatch immediately.
 
----
-This report is generated by a bot. It may contain errors.
-syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/akZgV0Y4YAmB43_g@J2N7QTR9R3.cambridge.arm.com/
+> 
+> Mark.
+> 
 
-To test a patch for this bug, please reply with `#syz test`
-(should be on a separate line).
-
-The patch should be attached to the email.
-Note: arguments like custom git repos and branches are not supported.
 
 _______________________________________________
 linux-riscv mailing list
