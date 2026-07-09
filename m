@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA8EBC43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 06:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17626C43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 06:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	In-Reply-To:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ew6lCm6OxdxR6YLM8GnJvQ1jvNUY3SQboVmPAQ2pSXs=; b=yLFu8I1zRZ8ZxQ
-	8HzFst2SJyaKIncwe20aO2IBh9tg4evt1N2Vfz+GiFsjCRyNHkqZSjHLa2Z71m+DihjTnUF4giIqv
-	f4zHFIIIito4L5q/fAAw8mUPX6AWG7wj4fku2sZ3QZHnvwP5ptquZ/NDNdr+YWS7eW4Uk370SuwtD
-	0FEj9WZddsZ8hyk49xfPvODEwpzpqheokm4Rds/uWBlHoh1reoaq5/lx9rUEn+NYEp2NiaDP5h+Uz
-	oUTKd24yBdqpKnr8JYHK/Redsv/FJ+UOpvdANmu1CWYp5kcSyPBDhKrnkqowjwsr8ME0dw+w9tAbo
-	6FQDcthse+l3d2OHqP7g==;
+	References:List-Owner; bh=tPSKI+OKB0nE/ZXeaSXPH5WSyX/BKOHVwATMpgDlO9o=; b=ucP
+	edtBPwTrY+mRoFHkWckMRAwxQPjWPYCRwc1/v6xKVY47CeqLuL4vmmrCEHqTb/T8BnYOw+R3o5qys
+	1Jkc5ubiwMofh4KfEzulCFZrd8sRQL1mEmrCY/D9EOD0rtxI/iLFtAmHHTU6HvpLAuFpWNFXIQ5ea
+	OhwLbr3ZUeZ0999Lk10/4zdZqX+DmPXaDctq9Pxl2xw0xsCKHgemyc9eOVGZ1kXefUOHDQ6Dop2qO
+	IkgSW26ncCRAr6yfDteNTvvyDoKOIkspOo2sseXtWT7+vYqYHbAquz8FZzfzeDQjoe7KFkGlO4nD7
+	3Y9+P2VaGOde/4iMO0HZGHLlL4UmXZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhxI-0000000177l-2c6F;
-	Thu, 09 Jul 2026 06:09:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whiDL-000000019TS-3L7s;
+	Thu, 09 Jul 2026 06:26:27 +0000
+Received: from mail-ot1-f70.google.com ([209.85.210.70])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhxH-0000000177f-25Pv
+	id 1whiDI-000000019Pe-3rNZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 06:09:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 435886001A;
-	Thu,  9 Jul 2026 06:09:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A291F000E9;
-	Thu,  9 Jul 2026 06:09:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783577390;
-	bh=lCHi1e9QI0Ga1lXJQGpOqbkAO2YTzghw/JqNHU2bxQI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hPMJlGNTj+M+nkvcEklgtjY+0tH7KNKRKyhxkrUxCNh+nZhVWgpYpqYGRA8jdMz1k
-	 1lEm24UmjaPDd0Q8RlKm99Iaq4moo+WzwVWRzD1l0szmauO2L5gK6Bc1qoQjM60iT/
-	 YBoRoO18L7OuY6MPebeMGA0gm3ZNeMCDCx31fphua3EPMd6hTXEfaw84DcaExg1a8u
-	 d9i0Zt9be035GedCoMgwLrceOfk+vWkzPgrrehvxSd11l2gcTzC+fCAaNc5e/w1KmP
-	 t6BBtzAeaAmY2vX8X4L4v0Hj84tyXSFMyaJIAIpXRgwV3zVcmi74tiElzs/8OUCGuO
-	 24ubekO9dvrUA==
-Date: Wed, 8 Jul 2026 23:09:47 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	x86@kernel.org, devicetree@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v4 8/8] riscv_cbqri: Add CBQRI capacity allocation
- platform driver
-Message-ID: <ak87K0bIqIPZbMoY@x1>
-References: <20260706-dfustini-atl-sc-cbqri-dt-v4-0-e75c20201d64@kernel.org>
- <20260706-dfustini-atl-sc-cbqri-dt-v4-8-e75c20201d64@kernel.org>
+	Thu, 09 Jul 2026 06:26:26 +0000
+Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-7eb88e7f641so2182147a34.3
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Jul 2026 23:26:23 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783578383; x=1784183183;
+        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=aGYb6cIYWCwKklV7e199C3toXW7ue1Oty8gsT7/cke4=;
+        b=Dz8y1djnePfugWoOhx4SbnUKHXpprPmQrFIN4mTik7M3H8Tzv7iP3yaJtKZFejUhWq
+         3NGVMPuGpI1iZNQbf4FSoSNOZIT4QF9KfSd0aEhwcevuqp9zWX7TU835S6uHQKnl91vr
+         mfG5LwLiNTFv9aepf0pNOM7F4y0t/aCyq4fwNrD/tksY8GNiNKtWJp8ZoNdwD+UNxT+2
+         3mmAaL1130zTbLDqv63r/7RXDvJZTLb+OI2VTyVbLD8ger1L2KlwsS+VGtkZ3osW1kLP
+         guzLkG3KHjRshRyKqXTWZgH/fenQludskEzqgCf3RWMlxBbof9RekNO4HB7c+uBT92bV
+         Vvew==
+X-Forwarded-Encrypted: i=1; AFNElJ8a7r+GjL2hgX9DUxY/nlwPHJDu8ETJhp4tzATzMFfaBQvt7ATJXEjOg+BMqzgaJVLsiC1Lkap1xlIsIw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvvHzpSTSCX+QjOhUiTE4t2nMLkVb6eA62Of1p5YCAftl2k2+g
+	KLNxgBrBZpGaMVqORNXugvHj1DfIQHpN4lDdf+TPgFwuR8JvfrS1f26m1bU92+tJRC4RefFvasC
+	KZ57fjLVYDgA4N0HdDgaXb6nVGlSC7UZfx71qQSMezqiptGtAvq7Hufy2q2U=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260706-dfustini-atl-sc-cbqri-dt-v4-8-e75c20201d64@kernel.org>
+X-Received: by 2002:a05:6820:2d09:b0:6a3:66dd:c9fa with SMTP id
+ 006d021491bc7-6a36da10ff8mr3986082eaf.55.1783578382884; Wed, 08 Jul 2026
+ 23:26:22 -0700 (PDT)
+Date: Wed, 08 Jul 2026 23:26:22 -0700
+In-Reply-To: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6a4f3f0e.57639fcc.86d58.001b.GAE@google.com>
+Subject: [syzbot ci] Re: riscv: Generate riscv instruction functions
+From: syzbot ci <syzbot+ci19dac46105b003f7@syzkaller.appspotmail.com>
+To: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	atish.patra@linux.dev, conor@kernel.org, jtaubepe@redhat.com, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, namcao@linutronix.de, palmer@dabbelt.com, 
+	pbonzini@redhat.com, pjw@kernel.org, radim.krcmar@oss.qualcomm.com, 
+	shuah@kernel.org, thecharlesjenkins@gmail.com
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_232625_038613_0A367C19 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +84,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Reinette,
+syzbot ci has tested the following series
 
-(replying in v4 as you suggested)
+[v3] riscv: Generate riscv instruction functions
+https://lore.kernel.org/all/20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com
+* [PATCH v3 01/17] riscv: Introduce instruction table generation
+* [PATCH v3 02/17] riscv: alternatives: Use generated instruction headers for patching code
+* [PATCH v3 03/17] riscv: kgdb: Use generated instruction headers
+* [PATCH v3 04/17] riscv: Add kprobes instruction simulation KUnit
+* [PATCH v3 05/17] riscv: kprobes: Use generated instruction headers
+* [PATCH v3 06/17] riscv: cfi: Use generated instruction headers
+* [PATCH v3 07/17] riscv: Maintain epc on misaligned emulation error
+* [PATCH v3 08/17] riscv: Use generated instruction headers for misaligned loads/stores
+* [PATCH v3 09/17] riscv: kvm: Use generated instruction headers for csr code
+* [PATCH v3 10/17] KVM: device: Add test device
+* [PATCH v3 11/17] KVM: riscv: selftests: Add mmio test
+* [PATCH v3 12/17] riscv: kvm: Use generated instruction headers for mmio emulation
+* [PATCH v3 13/17] riscv: kvm: Add emulated test csr
+* [PATCH v3 14/17] KVM: riscv: selftests: Add csr emulation test
+* [PATCH v3 15/17] riscv: kvm: Use generated instruction headers for csr emulation
+* [PATCH v3 16/17] riscv: kexec: Use generated instruction headers for kexec relocations
+* [PATCH v3 17/17] riscv: Remove unused instruction headers
 
-On Tue, Jul 07, 2026 at 11:18:00AM -0700, Reinette Chatre wrote:
-> On 6/28/26 2:18 PM, Drew Fustini wrote:
-> > +   cache_id = -1;
-> > +   cpus_read_lock();
-> > +   for_each_online_cpu(cpu) {
-> > +           struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, cache_level);
-> > +
-> > +           if (ci && ci->fw_token == cache_np) {
-> > +                   cache_id = ci->id; 
-> > +                   cpumask_copy(cpu_mask, &ci->shared_cpu_map);
->
-> The way I understand cacheinfo::shared_cpu_map is that it only contains the
-> online CPUs that share the cache with this CPU and if the CPU is offline
-> then shared_cpu_map only contains the CPU self.
->
-> It is thus not clear to me that this handles all the possible CPU online vs
-> offline scenarios. For example, if all or some CPUs of a domain are offline
-> during cbqri_capacity_probe() and then come online later. It is not clear
-> to me whether cbqri_controller_info::cache_id, 
-> cbqri_controller::cache_controller::cache_id, or
-> cbqri_controller::cache_controller::cpu_mask are needed. Could the cache ID
-> associated with a CPU at the time it comes online to dynamically associate
-> it with the resctrl domain that is indexed by the cache ID? This may
-> simplify a couple of flows.
+and found the following issue:
+WARNING in kvm_io_bus_unregister_dev
 
-Thank you for the suggestion, it does simplify things. I will drop the
-probe-time cpu_mask and associate CPUs with domains the way you suggest,
-from the CPU's own cache id at hotplug time.
+Full report is available here:
+https://ci.syzbot.org/series/f3c61796-0ca0-4bfd-add1-23a20352fb7b
 
-Thanks,
-Drew
+***
+
+WARNING in kvm_io_bus_unregister_dev
+
+tree:      bpf-next
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/bpf/bpf-next.git
+base:      8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+arch:      amd64
+compiler:  Debian clang version 22.1.6 (++20260514074242+fc4aad7b5db3-1~exp1~20260514074407.73), Debian LLD 22.1.6
+config:    https://ci.syzbot.org/builds/65190eb6-0d65-4629-b225-e3b7089a0b10/config
+syz repro: https://ci.syzbot.org/findings/fa2c789e-ba9f-4d55-b3ba-0d5f22f78a4d/syz_repro
+
+------------[ cut here ]------------
+debug_locks && !(lock_is_held(&(&kvm->slots_lock)->dep_map) != 0)
+WARNING: arch/x86/kvm/../../../virt/kvm/kvm_main.c:6027 at kvm_io_bus_unregister_dev+0x4b0/0x580 virt/kvm/kvm_main.c:6027, CPU#1: syz.2.19/5828
+Modules linked in:
+CPU: 1 UID: 0 PID: 5828 Comm: syz.2.19 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:kvm_io_bus_unregister_dev+0x4b0/0x580 virt/kvm/kvm_main.c:6027
+Code: 3f fc ff ff e8 a1 ce 86 00 48 c7 c7 40 f7 c1 8b e8 a5 29 e9 ff 48 89 ef e8 ed 00 00 00 b8 f4 ff ff ff eb a3 e8 81 ce 86 00 90 <0f> 0b 90 e9 cd fb ff ff 48 c7 c1 e0 bb 2f 90 80 e1 07 80 c1 03 38
+RSP: 0018:ffffc900032afc30 EFLAGS: 00010293
+RAX: ffffffff813e81af RBX: ffff88816b133688 RCX: ffff888160aba540
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000000 R08: ffffc900032afb7f R09: 0000000000000000
+R10: ffffc900032afb70 R11: ffffffff81404850 R12: dffffc0000000000
+R13: 0000000000000000 R14: dffffc0000000000 R15: ffff8881a5354000
+FS:  000055555b90c500(0000) GS:ffff8882a92b9000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b33663fff CR3: 00000001bceb8000 CR4: 0000000000352ef0
+Call Trace:
+ <TASK>
+ mmio_test_destroy+0x66/0x90 virt/kvm/mmio_test.c:83
+ kvm_destroy_devices virt/kvm/kvm_main.c:1251 [inline]
+ kvm_destroy_vm virt/kvm/kvm_main.c:1296 [inline]
+ kvm_put_kvm+0x902/0xae0 virt/kvm/kvm_main.c:1332
+ kvm_vm_release+0x43/0x50 virt/kvm/kvm_main.c:1355
+ __fput+0x418/0xa50 fs/file_table.c:510
+ task_work_run+0x1d9/0x270 kernel/task_work.c:233
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ __exit_to_user_mode_loop kernel/entry/common.c:67 [inline]
+ exit_to_user_mode_loop+0x193/0x6b0 kernel/entry/common.c:98
+ __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
+ syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
+ syscall_exit_to_user_mode include/linux/entry-common.h:318 [inline]
+ do_syscall_64+0x353/0x580 arch/x86/entry/syscall_64.c:100
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f2f43d9ce59
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffde9296e78 EFLAGS: 00000246 ORIG_RAX: 00000000000001b4
+RAX: 0000000000000000 RBX: 00007ffde9296f60 RCX: 00007f2f43d9ce59
+RDX: 0000000000000000 RSI: 000000000000001e RDI: 0000000000000003
+RBP: 0000000000011938 R08: 0000000000000001 R09: 0000000000000000
+R10: 0000001b32a20000 R11: 0000000000000246 R12: 00007ffde9296fa0
+R13: 00007f2f44015fac R14: 0000000000011971 R15: 00007f2f44015fa0
+ </TASK>
+
+
+***
+
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+  Tested-by: syzbot@syzkaller.appspotmail.com
+
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+
+To test a patch for this bug, please reply with `#syz test`
+(should be on a separate line).
+
+The patch should be attached to the email.
+Note: arguments like custom git repos and branches are not supported.
 
 _______________________________________________
 linux-riscv mailing list
