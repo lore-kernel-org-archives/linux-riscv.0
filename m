@@ -4,49 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0180C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 16:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1555C43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 16:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JTyoX4mx57RNQFn1JBuK2uBwcK272Iy+v2qKfLUOnCc=; b=TNtE0Gg213fV9h
-	5x+EMGzFUTi0Mbrcl9DV49zfmgc++J8rDyPBYRc9uU+7IWRdEUQzVn3LpBzqK6RcXhorXeVyzyCy1
-	VfjwpDJTAXMNrrha5Ayi7DWupAbXm19S+8yV9nj89JRjSaSQG64kbDNessSI6eYtygAdugXiIPUZ/
-	TZidUD4iNARQT8kU0uYXbGillgCHTjUHO5J5MESNby1m3UkXVXR/dpbxYRfzxcq8FCBVFmnvin97P
-	LNveNS2osOtZqIln/VnXxmdqR0NDdX/mccq8yTAZI9ipEu05QvT3jFrHMN7xOZf3FhDbS5XF4EWwj
-	P+oHlFC0r9eygn+8vzYg==;
+	List-Owner; bh=IGJbYaHCyK949FwefUTFBHY38U/FL3SLqFgCztE9VPY=; b=amr9wEL6/08NeQ
+	uDG+ysIVRaaju/by7IUIRWfHxMOUtJxTt7f12OgtMujB1rJsq1tBZMK86GmDo4KVk5nEi4tC+QKbj
+	ceU4SfAXLHdrPBTQWHGUEKJuubDbzpl/D/94Zasmo2FoFdX8eTdLOIHkn6z7Io4GVeMlSiu+jJxgO
+	cokYXSWSDaYh1o6vbNTu3CCGY7DmTKn0Up/tEqPm07GHwjQKICteEo4pNVAJqj9EMp0nmX0NDFjiQ
+	5W6ELIBvU6cuGcIsdUOhrtqorjKItqtFdBW544im3u5yE9e9CMvlQ24cvbpV9zwEALB8k+vzotrWq
+	JVe/0ZHpihsxMf2zCVKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whrVq-000000031c1-1wMm;
-	Thu, 09 Jul 2026 16:22:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whrXT-0000000321H-0d3M;
+	Thu, 09 Jul 2026 16:23:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whrVo-000000031ba-0NlY;
-	Thu, 09 Jul 2026 16:22:08 +0000
+	id 1whrXQ-000000031zu-3R3W;
+	Thu, 09 Jul 2026 16:23:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EECAA600C3;
-	Thu,  9 Jul 2026 16:22:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B0FB1F000E9;
-	Thu,  9 Jul 2026 16:22:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 16346405C4;
+	Thu,  9 Jul 2026 16:23:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F271F00A3A;
+	Thu,  9 Jul 2026 16:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783614126;
-	bh=E3GKiVGCG/M7FltpcGzY43WO5HnNe5q++QmCFGBnpG0=;
+	s=k20260515; t=1783614228;
+	bh=PVNPrFU1PGB9ZkQlUfz3ePnrtlBWmUW1vci7gbMc020=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=S/Uien6vGeymdukHshCIRbD/qQirZnmNv1fkPyrZGO6+K+ckkFdEYSDwlnKFpi2BF
-	 tuyJKBhR0dyYdYiHulLx/LgusylN0RPtbaGzeJM/aCdOjZzg650pi7YEBbg+JGqSHR
-	 64dXPeQbq2evJa22r52hBC05ICSGISNW2xikw530YpQ+nCbruCjZdneQ5mim5aCUCw
-	 Xf0AYTbfJ+wFGM1bNULmUZblGmQ7iYYE8zwgMJIETdC1+LLXgejWycDXueD9QUnxdI
-	 F83JV94XXQwp5V/iZ2sAm+8m4as7p5Y/PmHH5g0nCXnFS05/jmhxEmyZJZGFezfdfB
-	 UQzRtgW6GQfPA==
-Date: Thu, 9 Jul 2026 09:22:06 -0700
+	b=dEsGFvG0entc+CRLpmVOaUBCJG4D03DxA7ZPHMA+0bz+ArzFZ4oZ25h3XsZAVyxRR
+	 x10/LoE7lElTzHD06XWpE2m6rYMtKRUGebUhQapIBfB+ep4fG37Ng0RaVsx6GdmjM4
+	 W83GkVnhwTOjct2PRlsvXAgfF8WsuxadhgjUrZKIFxbiAgM07wgLkRHLtXBID76WXL
+	 vXpw2i5GZ2AEQYDFtIGxLdWwAY7AsLhILvFuoodFrluXUPHF4msNedMhyKYrHXoB8T
+	 JJj34DTu2/8Sq2sDLaSW1Xi2u/2ZNgMk1vZ51THvkxDDB/2K6ZsmwZ7UkwuT1KfO4D
+	 Hq6xN5eyBwNEw==
+Date: Thu, 9 Jul 2026 09:23:47 -0700
 From: Kees Cook <kees@kernel.org>
 To: Thomas Gleixner <tglx@kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Huacai Chen <chenhuacai@kernel.org>,
+	loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	x86@kernel.org, Mark Rutland <mark.rutland@arm.com>,
 	Jinjie Ruan <ruanjinjie@huawei.com>,
 	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>,
 	Richard Henderson <richard.henderson@linaro.org>,
@@ -63,17 +70,9 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
 	linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
 	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
 	linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	linuxppc-dev@lists.ozlabs.org, Huacai Chen <chenhuacai@kernel.org>,
-	loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
-	x86@kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	Brian Cain <bcain@kernel.org>, Michal Simek <monstr@monstr.eu>,
-	Dinh Nguyen <dinguyen@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>,
+	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>,
 	Andreas Larsson <andreas@gaisler.com>,
 	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
@@ -81,14 +80,14 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
 	linux-arch@vger.kernel.org,
 	Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>,
 	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Subject: Re: [patch 11/18] seccomp, treewide: Rename and convert
- __secure_computing() to return boolean
-Message-ID: <202607090921.ABE4BB4A@keescook>
+Subject: Re: [patch 02/18] randomize_kstack: Provide
+ add_random_kstack_offset_irqsoff()
+Message-ID: <202607090922.4ECAE32C07@keescook>
 References: <20260707181957.433213175@kernel.org>
- <20260707190254.230735780@kernel.org>
+ <20260707190253.768842729@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260707190254.230735780@kernel.org>
+In-Reply-To: <20260707190253.768842729@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,16 +104,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 09:06:40PM +0200, Thomas Gleixner wrote:
-> From: Jinjie Ruan <ruanjinjie@huawei.com>
+On Tue, Jul 07, 2026 at 09:06:02PM +0200, Thomas Gleixner wrote:
+> add_random_kstack_offset() uses get/put_cpu_var() which is pointless
+> overhead when it is invoked from low level entry code with interrupts
+> disabled.
 > 
-> The return value of __secure_computing() currently uses 0 to indicate
-> that a system call should be allowed, and -1 to indicate that it should
-> be blocked/killed. This 0/-1 pattern is non-intuitive for a security
-> check function and makes the control flow at the call sites less readable.
+> Provide a irqsoff() variant, which avoids that.
+> 
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
 
-Conceptually, I'm good with this. Just make sure that the
-tools/testing/selftests/seccomp/seccomp_bpf tests still passes. :)
+Seems good. I don't think macro'izing the interior is worth it since
+both cases are very short, with only the lockdep and raw bits changed.
+
+Reviewed-by: Kees Cook <kees@kernel.org>
+
+-Kees
 
 -- 
 Kees Cook
