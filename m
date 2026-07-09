@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A651FC43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 08:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84437C44501
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 08:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cZYD91CsShnZTHNVhyuTGyiEmF3plmp0YfOJ8AjvcuY=; b=FRHD4ndGkQYe2X
-	X9ylOAEIfTqKdd1P6RYae3s0BBanuCZGCoR5Dhs0xvhAEbtU943B8euF+J5N0GU8ToGmHNcjXhb5Z
-	s+rLlQSYvpZFS+EjJFexMAda6qBNWxqlKuW4q3730rmexVyHQ3xZcPVKnGF/IUrjxyDzY0Ntw/Zu8
-	G7lTWctAe/g3CB2sWJNPT93lw3U1wHI7zHqfoT8n139KUv7V+QzJ0s5ZKvHHkdbrouFIOQtbLO5oy
-	umPPaSaW6meIJ9wV4EuykZ6Iuo6mZ3LK8t5tgQObI7Cvubrd/KyBbnaO4pM+8msfiu/TQ97GJXsbV
-	et3tqqtn0v2yMzQwu24A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aOmbXusNyrXfPCFLpPXct98KSJA8F49KgeWROO/WREo=; b=ZYAjZhoC5gbH9n
+	gmhxViQgdGeZaz+T7zCFS9cyhgBlyDKjVB1hz/vcZuMk5LC1DACP3uHZeRNgBzhpvRmpYrDXoDPHi
+	q0wdR15GXEnCd6L0KyQE59Yfcc67EoCl21yAhZzr1zkyNTfijkrIgVfHgGapUVi73bJtw55X67q5B
+	GvTgI2M048TYicyOg72CCgp7fDWMAYDrFX7eXIyCzidinZ+U2R7Vl8UIgumi5bhXA837YKaI1O6pY
+	z+q9Yt3Sh4QIGUM208x+6q0GsdvE/yYu7wBwk7J1xZyKwP7b8QQzz/gVciBEIyOnapIuIGESvtXJx
+	crDu25BnRBHgvQqbY27g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whk79-00000001QGV-1QFk;
-	Thu, 09 Jul 2026 08:28:11 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1whkJc-00000001Rts-1A83;
+	Thu, 09 Jul 2026 08:41:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whk75-00000001QFU-0sqQ;
-	Thu, 09 Jul 2026 08:28:09 +0000
-Date: Thu, 9 Jul 2026 10:27:59 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783585679;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Lx0GPfIb+p9dvxHOdBuxBw9NKashWf8lY5lGPcZuetQ=;
-	b=UMXxHBppphhTbYxa+BqOd80W4ngqWYhzPYL77GljpeFMyXukW5uGAsLDprtKEJyeETmgFN
-	msqYnUBjEJpozd4qRINi/gEyl3eXmF2JPhb5bRF2Yb5RUoZMBkLPEgJNOqb7n5jnrIsz1J
-	T/EBLiEGVbgE7kFtiNNGRfmCBxiNT6X9Xm8U+cdKwvRKu4vfD+B+cdupmGQos4JbCaBuBM
-	3S2JvvwStqAxmiRXN9m9xk6wUV5Sz8TVKl60PYbK5h/Xqn/t8B/VKJmV+gEAfJXWT5pqum
-	3QEumRjVd9w0RwuzH4WlnvukX96IcDYpjIFc4OGRgiDohFmqu7XaFHUL9oUstQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783585679;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Lx0GPfIb+p9dvxHOdBuxBw9NKashWf8lY5lGPcZuetQ=;
-	b=ja1LHTEEnpn4UBUpRMLUNv43JZPCLqwtNJbKK8I1pjYisGl/FUXT1xQeXCjf2brcux0Cb1
-	vjeEfDRtTffYYZCQ==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: oleg@redhat.com, richard.henderson@linaro.org, mattst88@gmail.com, 
-	linmag7@gmail.com, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	kees@kernel.org, guoren@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
-	geert@linux-m68k.org, tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com, 
-	deller@gmx.de, maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
-	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
-	borntraeger@linux.ibm.com, svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org, 
-	glaubitz@physik.fu-berlin.de, richard@nod.at, anton.ivanov@cambridgegreys.com, 
-	johannes@sipsolutions.net, luto@kernel.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com, 
-	peterz@infradead.org, wad@chromium.org, thuth@redhat.com, mark.rutland@arm.com, 
-	ada.coupriediaz@arm.com, kevin.brodsky@arm.com, linusw@kernel.org, yeoreum.yun@arm.com, 
-	song@kernel.org, james.morse@arm.com, anshuman.khandual@arm.com, 
-	broonie@kernel.org, liqiang01@kylinos.cn, pengcan@kylinos.cn, ryan.roberts@arm.com, 
-	yangtiezhu@loongson.cn, sshegde@linux.ibm.com, mchauras@linux.ibm.com, 
-	austin.kim@lge.com, jchrist@linux.ibm.com, arnd@arndb.de, sohil.mehta@intel.com, 
-	andrew.cooper3@citrix.com, jgross@suse.com, kas@kernel.org, x86@kernel.org, 
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, linux-csky@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, linux-um@lists.infradead.org
-Subject: Re: [PATCH v16 18/18] arm64: vdso: Expose sigreturn address on vdso
- to the kernel
-Message-ID: <20260709102117-c4dc4d58-f8d9-46b0-8246-61e8fb8825ce@linutronix.de>
-References: <20260629130616.642022-1-ruanjinjie@huawei.com>
- <20260629130616.642022-19-ruanjinjie@huawei.com>
- <20260630172619-6c78c2e2-c2d3-44be-88e6-6c82de12baf4@linutronix.de>
- <21875fb4-434b-480d-b68b-e2ffd5fff5ae@huawei.com>
- <20260709090525-b1e5ae06-1fb4-454e-919c-6503dcf3d073@linutronix.de>
- <d9c9686c-dfd8-4539-b301-8726bab7443b@huawei.com>
+	id 1whkJa-00000001Rtd-3bTx;
+	Thu, 09 Jul 2026 08:41:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F47243625;
+	Thu,  9 Jul 2026 08:41:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D089B1F000E9;
+	Thu,  9 Jul 2026 08:40:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783586462;
+	bh=D4umqGeoeFLr6ftk+dGLX5Hz/2l8UNfoWaVJnZJbcDk=;
+	h=From:Subject:Date:To:Cc;
+	b=TF+sRJn9wetWvMfU0qANWtkHuUr6cJTyk9itf1gBHkAh32EYt1HTY2pL0rxdNrjzV
+	 3fs6VMBOFuLWXmxOcWpiJRRwukZuLhSzgntG1d2zMAsmYnNIvcAGXnLFvHxYFReGvK
+	 LIzak11bgPIsrJAsh6Azp8TIiGVrWLyBwDgmcHC809MyfqoIaHaqnGlR4rJKtdc8/b
+	 xb9QvH6auIofaK7mlzSB/wpXkcesBMymRDmkBcOwBbi480wbYden5ujV4QsTC66oO3
+	 Z/FYvFFqVdozJlsMUdnkdXDFCJLIe17Rhs1qz8/BCDAkwdsYPgQDXMcP0ofaGRjUcr
+	 rb0iTUeFcYb/Q==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v4 0/7] irqchip/ACPI: Arm GICv5 IWB ACPI IRQ probe deferral
+Date: Thu, 09 Jul 2026 10:40:10 +0200
+Message-Id: <20260709-gic-v5-acpi-iwb-probe-deferral-v4-0-48dae790f871@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <d9c9686c-dfd8-4539-b301-8726bab7443b@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_012808_107691_4B779803 
-X-CRM114-Status: GOOD (  23.19  )
+X-B4-Tracking: v=1; b=H4sIAGpeT2oC/4XOQU7DMBCF4atUXjPIHsdO0hX3QCxsZ5waqiQaF
+ wOqcnecdlEhFlk+afT9cxWZOFEWx8NVMJWU0zzV0TwdRDi5aSRIQ90CJVrZYAtjClAMuLAkSF8
+ eFp49wUCRmN0ZwhC6pvfKdaYRFVmYYvq+BV7f7jt/+ncKl03dLk4pX2b+uX1Q1HZ3jxlp9mJFg
+ QSvW9+Zvu+0xZcP4onOzzOPYqsVfHhW6l0Pq4c6Rqest+T9P08/vFaqXU9XLxhjMUQZCfs/3rq
+ uv8jwKKl/AQAA
+X-Change-ID: 20260427-gic-v5-acpi-iwb-probe-deferral-cdc849b1a854
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ Sunil V L <sunilvl@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,139 +75,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 04:15:15PM +0800, Jinjie Ruan wrote:
-> On 7/9/2026 3:17 PM, Thomas Wei=DFschuh wrote:
-> > On Thu, Jul 09, 2026 at 02:37:05PM +0800, Jinjie Ruan wrote:
-> >> On 6/30/2026 11:32 PM, Thomas Wei=DFschuh wrote:
-> >>> On Mon, Jun 29, 2026 at 09:06:16PM +0800, Jinjie Ruan wrote:
-> > (..)
-> > =
+On Arm GICv5 systems, the IWB (Interrupt Wire Bridge) handles wired interrupts
+and it is in charge of translating interrupt wires to GICv5 ITS messages.
 
-> >>>> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-> >>>> index 592dd8668de4..5a0314a3c26e 100644
-> >>>> --- a/arch/arm64/kernel/vdso.c
-> >>>> +++ b/arch/arm64/kernel/vdso.c
-> >>>> @@ -343,3 +343,19 @@ int arch_setup_additional_pages(struct linux_bi=
-nprm *bprm, int uses_interp)
-> >>>>  =
+In ACPI systems, an IWB is backed by a platform device. Device drivers for
+devices whose IRQs are routed to an IWB might probe earlier than the IWB device
+driver, which can result in failures in that until the IWB driver is probed and
+its IRQ domain is duly registered, IRQs routed to it cannot be resolved.
 
-> >>>>  	return ret;
-> >>>>  }
-> >>>> +
-> >>>> +bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
-> >>>> +{
-> >>>> +	unsigned long sigtramp;
-> >>>> +
-> >>>> +#ifdef CONFIG_COMPAT
-> >>>> +	if (is_compat_task()) {
-> >>>> +		unsigned long sigpage =3D (unsigned long)current->mm->context.sig=
-page;
-> >>>> +
-> >>>> +		return regs->pc >=3D sigpage && regs->pc < (sigpage + PAGE_SIZE);
-> >>>> +	}
-> >>>> +#endif
-> >>>> +	sigtramp =3D (unsigned long)VDSO_SYMBOL(current->mm->context.vdso,=
- sigtramp);
-> >>>> +
-> >>>> +	return regs->pc =3D=3D (sigtramp + 8);
-> >>>
-> >>> Instead of hardcoding 'sigtramp + 8' you could add a new label to the=
- 'svc #0'
-> >>> instruction and use that with VDSO_SYMBOL().
-> >>
-> >> It seems that the modification of __kernel_rt_sigreturn() is not recom=
-mended
-> > =
+Some interrupt controllers for the RISC-V architecture suffer from the same
+issue; RISC-V, in its ACPI IRQ layer solved the problem by automatically
+creating device dependencies that result in the interrupt controllers drivers
+being probed before any device driver whose devices IRQs are routed to them is
+probed.
 
-> > For the changes to the object code of the function this is obvious and
-> > well explained in the comments.
-> > =
+Instead of reinventing the wheel, this series move the aforementioned RISC-V
+code to generic ACPI IRQ handling code (while fixing some bits and pieces) and
+implement GICv5 IWB ACPI probe deferral on top of it.
 
-> > Such a label however would not change the object code of the function.
-> > In fact it would not change any bit whatsoever in the final vDSO,
-> > save for a new build ID.
-> =
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+---
+Changes in v4:
+- Applied v3 review comments and tags
+- Link to v3: https://patch.msgid.link/20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org
 
-> Yes, and using labels is easier to maintain than hardcoding offsets
-> directly.
-> =
+Changes in v3:
+- Added stub to clear ACPI device dependencies
+- Added review tags
+- Rebased against v7.2-rc1
+- Link to v2: https://patch.msgid.link/20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org
 
-> Similar to the code below?
+Changes in v2:
+- Split the patchset in several logic units according to review
+- Link to v1: https://patch.msgid.link/20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org
 
-Exactly.
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Len Brown <lenb@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+To: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Huacai Chen <chenhuacai@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+To: Hanjun Guo <guohanjun@huawei.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-acpi@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: loongarch@lists.linux.dev
 
-(...)
+---
+Lorenzo Pieralisi (7):
+      ACPI: Add acpi_device_clear_deps() helper function
+      ACPI: RISC-V: Fix riscv_acpi_irq_get_dep() loop termination
+      ACPI: RISC-V: Check acpi_get_handle() status in riscv_acpi_add_prt_dep()
+      ACPI: RISC-V: Fix riscv_acpi_add_prt_dep() loop handling
+      ACPI: irq: Move RISC-V interrupt controllers autodep to ACPI IRQ code
+      ACPI/IORT: Implement ACPI infrastructure to enable GICv5 IWB probe deferral
+      irqchip/gic-v5: Enable GICv5 IWB ACPI probe ordering detection
 
-> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-> index 592dd8668de4..609d7bcd8308 100644
-> --- a/arch/arm64/kernel/vdso.c
-> +++ b/arch/arm64/kernel/vdso.c
-> @@ -343,3 +343,19 @@ int arch_setup_additional_pages(struct linux_binprm
-> *bprm, int uses_interp)
-> =
+ arch/riscv/include/asm/acpi.h       |   1 +
+ drivers/acpi/arm64/iort.c           |  22 ++++-
+ drivers/acpi/irq.c                  | 172 +++++++++++++++++++++++++++++++++++-
+ drivers/acpi/riscv/irq.c            | 141 +----------------------------
+ drivers/acpi/scan.c                 |   1 +
+ drivers/irqchip/irq-gic-v3.c        |   2 +-
+ drivers/irqchip/irq-gic-v5-iwb.c    |   2 +
+ drivers/irqchip/irq-gic-v5.c        |  13 ++-
+ drivers/irqchip/irq-gic.c           |   2 +-
+ drivers/irqchip/irq-loongarch-cpu.c |   2 +-
+ drivers/irqchip/irq-riscv-intc.c    |   3 +-
+ include/linux/acpi.h                |  13 ++-
+ include/linux/acpi_iort.h           |   3 +-
+ 13 files changed, 223 insertions(+), 154 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260427-gic-v5-acpi-iwb-probe-deferral-cdc849b1a854
 
->         return ret;
->  }
-> +
-> +bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
-> +{
-> +       unsigned long sigtramp;
+Best regards,
+--  
+Lorenzo Pieralisi <lpieralisi@kernel.org>
 
-Could be named better now.
-
-> +#ifdef CONFIG_COMPAT
-> +       if (is_compat_task()) {
-> +               unsigned long sigpage =3D (unsigned
-> long)current->mm->context.sigpage;
-> +
-> +               return regs->pc >=3D sigpage && regs->pc < (sigpage +
-> PAGE_SIZE);
-> +       }
-> +#endif
-> +       sigtramp =3D (unsigned long)VDSO_SYMBOL(current->mm->context.vdso,
-> sigreturn_landing_pad);
-> +
-> +       return regs->pc =3D=3D sigtramp;
-> +}
-> diff --git a/arch/arm64/kernel/vdso/sigreturn.S
-> b/arch/arm64/kernel/vdso/sigreturn.S
-> index 0e18729abc3b..8d2d413ff45e 100644
-> --- a/arch/arm64/kernel/vdso/sigreturn.S
-> +++ b/arch/arm64/kernel/vdso/sigreturn.S
-> @@ -73,6 +73,7 @@ SYM_CODE_START(__kernel_rt_sigreturn)
->         mov     x8, #__NR_rt_sigreturn
->  //     PLEASE DO NOT MODIFY
->         svc     #0
-> +       SYM_INNER_LABEL(__sigreturn_landing_pad, SYM_L_GLOBAL)
->  //     PLEASE DO NOT MODIFY
->  //     .cfi_endproc
->  SYM_CODE_END(__kernel_rt_sigreturn)
-> diff --git a/arch/arm64/kernel/vdso/vdso.lds.S
-> b/arch/arm64/kernel/vdso/vdso.lds.S
-> index 52314be29191..5fee2927e4c5 100644
-> --- a/arch/arm64/kernel/vdso/vdso.lds.S
-> +++ b/arch/arm64/kernel/vdso/vdso.lds.S
-> @@ -104,6 +104,7 @@ VERSION
->                 __kernel_clock_gettime;
->                 __kernel_clock_getres;
->                 __kernel_getrandom;
-> +               __sigreturn_landing_pad;
-
-This should not be done. The symbol is not intended to be used by userspace.
-
->         local: *;
->         };
->  }
-> @@ -112,3 +113,4 @@ VERSION
->   * Make the sigreturn code visible to the kernel.
->   */
->  VDSO_sigtramp          =3D __kernel_rt_sigreturn;
-> +VDSO_sigreturn_landing_pad     =3D __sigreturn_landing_pad;
 
 _______________________________________________
 linux-riscv mailing list
