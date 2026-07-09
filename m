@@ -4,107 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893A6C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 14:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2631FC44501
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 15:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wLJEi2uY8mRmVQVn84hRzDeRqZVX9k8/EAZOUb/2ZKU=; b=vZss92BvZqerUS
-	jIDxQxF7bjo0TAgOi7NnDugS3GQLSbKxcrlXeB1jbXEF5y3pT02+ASpBv87kgRVgCu2RHSSoZR2Jc
-	OuaTs7P/YhyicC4nK0CJJAIQqqjj8huA9gCqGawcgQdoVZP6h9mhwGSxI+UsemeRSqtbsI2oJsrC2
-	s6sq4wg7GoCnrjaO89zURStVza7gSwfpiwK4qLH9NJOSje1xraSYMimgzsBXKNwvUItMMsZPVtW5/
-	XuO5C/VOfO+etTrV6Y0w4bNennu8AGPNy5TmsmmtDs/8fan8SvWXjC0iiOXzR2aSFyBXxMbcCUGZ7
-	xVgEjfl/9KTvKYDsevBA==;
+	List-Owner; bh=lJheNk6ByIWnOjyPYzBgKQrFNmWcHPhWCaZYQMk/7ao=; b=reIo30BhiTcShp
+	4y/s9O9wiR2j4SUdEtB7tC5xeVRsd57cE+j9vNMdFazutmgEHEHJl2gixu50Of6Q8OuaZOl1Sc0Ai
+	CoZJlFgoqvSKEFro/YjfCjAU3dhRYO8UQ2YmxOADmVRhywCJzYvZGV+4FWIbetzix/kYyFFeprq21
+	hdKuwpOfCwtQwsvw+hMiMs1nx172heHvjcYsIoIxDVU1x5q8rm249IeynGNHdI8cTE5NIl47OJU6c
+	oWbY1zsZsgcMmNWAHuBTAZ/AIU79/8x41mZ9yNKhuULahzvllMiWpPQrV8yO6aKaQ96QJffrXF1S6
+	Jnr6WPFvOCtxFCo9Qk8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpi5-00000002kf9-30gX;
-	Thu, 09 Jul 2026 14:26:41 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1whqNv-00000002shN-0ThF;
+	Thu, 09 Jul 2026 15:09:55 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpi1-00000002kcO-1BXW
+	id 1whqNr-00000002sg2-3j1e
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 14:26:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=ULW9
-	VBv4cRlM6iC85iVcPrTJ/RUoBanK7j5g1mX7o9s=; b=PUzFH9mSrFXR0BT7bcHZ
-	Edu7cwpTc+qJ+OrNpmfIGFDVhxIXkWvuhCfoFDFMwIRDsg61YTEhJsUS9CVKi6az
-	P6v9kZs22j7OxfFuONh4fL96A7/4aZXTeYEKXEFLvDnbaWjtQMvRU/sqEcZFKEHD
-	8CbLj3eD9wSCrMFlNxTu44NT6Nq72wdBYP4Zha/eGHVeKZZ2hJbbBLrepfix+5y8
-	wPbx7qBDvD10x4wZ1uvqlRfiKPJQNDeM6c9wbZwAjaetlqpPufip7tXqIrrtvEGv
-	yj/byiXXftAa0kvhgazHR8mM/mwB9T9fZRFwzl2sGHwDRyxeR+oELM4DKsYB1m8w
-	Vg==
-Received: (qmail 1163672 invoked from network); 9 Jul 2026 16:26:26 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 9 Jul 2026 16:26:26 +0200
-X-UD-Smtp-Session: l3s3148p1@Of/AaC5WFLZQT+F6
-Date: Thu, 9 Jul 2026 16:26:25 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	=?utf-8?Q?Am=C3=A9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Kees Cook <kees@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	Miaoqian Lin <linmq006@gmail.com>,
-	Jyothi Kumar Seerapu <quic_jseerapu@quicinc.com>,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>,
-	John Madieu <john.madieu.xa@bp.renesas.com>,
-	Thomas Andreatta <thomasandreatta2000@gmail.com>,
-	"open list:FREESCALE eDMA DRIVER" <imx@lists.linux.dev>,
-	"open list:FREESCALE eDMA DRIVER" <dmaengine@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:MIPS/LOONGSON1 ARCHITECTURE" <linux-mips@vger.kernel.org>,
-	"moderated list:MEDIATEK DMA DRIVER" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:MEDIATEK DMA DRIVER" <linux-mediatek@lists.infradead.org>,
-	"moderated list:ARM/ACTIONS SEMI ARCHITECTURE" <linux-actions@lists.infradead.org>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
-	"open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
-	"open list:ARM/RISC-V/RENESAS ARCHITECTURE" <linux-renesas-soc@vger.kernel.org>,
-	"moderated list:STM32 DMA DRIVERS" <linux-stm32@st-md-mailman.stormreply.com>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH 00/26] dmaengine: Remove redundant error messages on IRQ
- request failure
-Message-ID: <ak-vkQ8g_ePdY15f@shikoro>
-References: <20260709135846.97972-1-panchuang@vivo.com>
+	Thu, 09 Jul 2026 15:09:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gwyzc3bNlzKHMKr
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Jul 2026 23:09:16 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 414A3406C5
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Jul 2026 23:09:39 +0800 (CST)
+Received: from [10.67.110.68] (unknown [10.67.110.68])
+	by APP2 (Coremail) with UTF8SMTPA id Syh0CgBnTCixuU9qsKCDAg--.2779S2;
+	Thu, 09 Jul 2026 23:09:39 +0800 (CST)
+Message-ID: <fc972c33-1b66-4979-97e9-71627fb6179f@huaweicloud.com>
+Date: Thu, 9 Jul 2026 23:09:37 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260709135846.97972-1-panchuang@vivo.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v6 6/7] riscv, bpf: Mixing bpf2bpf and tailcalls
+Content-Language: en-US
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: bot+bpf-ci@kernel.org, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+ haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, alex@ghiti.fr, pulehui@huawei.com,
+ martin.lau@kernel.org, clm@meta.com, ihor.solodrai@linux.dev
+References: <20260708064436.2971933-7-pulehui@huaweicloud.com>
+ <a721df30ec2f824295000183c8e91f2c19d0bd56ae115b835b402be9eacc1c71@mail.kernel.org>
+ <b4aadfde-9745-4c71-8dd4-ce433331f91b@huaweicloud.com>
+ <CAJ+HfNi_icVbeB=jw-xnXrwzigZwP2OVRbzaF3VC87i6fDpdDw@mail.gmail.com>
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <CAJ+HfNi_icVbeB=jw-xnXrwzigZwP2OVRbzaF3VC87i6fDpdDw@mail.gmail.com>
+X-CM-TRANSID: Syh0CgBnTCixuU9qsKCDAg--.2779S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF48GrWkAF4xJrW7Kry3Jwb_yoW8ZF4UpF
+	yruasrKFWkJFn2k3W7JF48Can0yrsxJ3yUGF1rJrnxA3s8Crn0gFW7G39Y9FyDursYkFy0
+	9a1jgw45Jwn5A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
+	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
+	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIa
+	0PDUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_072638_210867_B9ED7270 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20260709_080952_281983_FE71A7F9 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,63 +89,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 09:58:04PM +0800, Pan Chuang wrote:
-> Commit 55b48e23f5c4b6f5ca9b7ab09599b17dcf501c10 ("genirq/devres: Add
-> error handling in devm_request_*_irq()") added automatic error logging
-> to devm_request_threaded_irq() and devm_request_any_context_irq() via
-> the new devm_request_result() helper. The helper prints device name,
-> IRQ number, handler functions, and error code on failure.
-> 
-> Since devm_request_irq() is a static inline wrapper around
-> devm_request_threaded_irq(), it also benefits from this automatic
-> logging.
-> 
-> This series removes the now-redundant dev_err() and dev_err_probe() calls
-> in dmaengine drivers that follow these devm_request_*_irq() functions,
-> as the core now provides more detailed diagnostic information on failure.
-> 
-> Pan Chuang (26):
->   dmaengine: fsl-edma-main: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: fsl-qdma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: loongson-loongson1-apb-dma: Remove redundant
->     dev_err()/dev_err_probe()
->   dmaengine: mediatek-mtk-cqdma: Remove redundant
->     dev_err()/dev_err_probe()
->   dmaengine: mediatek-mtk-hsdma: Remove redundant
->     dev_err()/dev_err_probe()
->   dmaengine: mmp_pdma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: moxart-dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: owl-dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: pxa_dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: qcom-gpi: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: sf-pdma-sf-pdma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: sh-rcar-dmac: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: sh-rz-dmac: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: sh-shdmac: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: sh-usb-dmac: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: sprd-dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: st_fdma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: stm32-stm32-dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: stm32-stm32-dma3: Remove redundant
->     dev_err()/dev_err_probe()
->   dmaengine: stm32-stm32-mdma: Remove redundant
->     dev_err()/dev_err_probe()
->   dmaengine: sun4i-dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: sun6i-dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: tegra20-apb-dma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: ti-edma: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: uniphier-xdmac: Remove redundant dev_err()/dev_err_probe()
->   dmaengine: xgene-dma: Remove redundant dev_err()/dev_err_probe()
-
-One patch per subsystem for such trivial changes, please.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjYvNy85IDE5OjM3LCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IFNvcnJ5IGZvciB0aGUg
+ZGVsYXkgaGVyZSAtLSB0aGUgYm90IGhhZCBtZSB0aGlua2luZyBhIGJpdC4KPiAKPiBPbiBXZWQs
+IDggSnVsIDIwMjYgYXQgMTA6NTQsIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4g
+d3JvdGU6Cj4gCj4gLi4uCj4gCj4+PiBUaGlzIGFzc3VtZXMgYSBmaXhlZCBudW1iZXIgb2YgaW5z
+dHJ1Y3Rpb25zIGJlZm9yZSB0aGUgdGFpbGNhbGwgZW50cnkKPj4+IHBvaW50LiBXaGVuIGlzX3N1
+YnByb2cgaXMgdHJ1ZSwgdGhlIHJ2X2FkZGkoKSBpbnN0cnVjdGlvbiBpcyBub3QgZW1pdHRlZCwK
+Pj4+IHdoaWNoIG1lYW5zIHRoZSB0YWlsY2FsbCBlbnRyeSBwb2ludCBtb3ZlcyBmb3J3YXJkIGJ5
+IDQgYnl0ZXMgcmVsYXRpdmUgdG8KPj4+IHdoZXJlIFJWX1RBSUxDQUxMX09GRlNFVCBleHBlY3Rz
+IGl0IHRvIGJlLgo+Pj4KPj4+IFRoZSB0YWlsY2FsbCBlbnRyeSBpcyB1c2VkIGluIGVtaXRfYnBm
+X3RhaWxfY2FsbCgpIHdoZW4gY2FsY3VsYXRpbmcgdGhlCj4+PiBqdW1wIHRhcmdldCBmb3IgdGhl
+IHRhaWwgY2FsbC4gSWYgUlZfVEFJTENBTExfT0ZGU0VUIGRvZXNuJ3QgYWNjb3VudCBmb3IKPj4+
+IHRoZSBjb25kaXRpb25hbCBlbWlzc2lvbiwgY291bGQgdGhpcyBjYXVzZSB0aGUgd3JvbmcgZW50
+cnkgcG9pbnQgdG8gYmUKPj4+IHVzZWQgd2hlbiB0YWlsIGNhbGxpbmcgaW50byBzdWJwcm9ncmFt
+cz8KPj4KPj4gVGhpcyBpcyBub3QgYW4gaXNzdWUsIHN1YnByb2cgY2FuIG5vdCBiZSB0aGUgdGFp
+bGNhbGwgY2FsbGVlLgo+IAo+IFNheSwgdGhhdCB3ZSBoYXZlIGFuIGVudHJ5IGZ1bmN0aW9uIHRo
+YXQgZG9lcyBicGZfZm9yX2VhY2hfbWFwX2FycmF5KCkKPiBpbnRvIGEgY2FsbGJhY2sgY2IoKS4g
+Y2IoKSBpcyBhIHN1YnByb2dyYW0sIHNvIG5vIGluaXQgb2YgVENDLiBOb3csCj4gY2IoKSBjYWxs
+cyBhbm90aGVyIHN1YnByb2dyYW0gdGhhdCBkb2VzIGEgdGFpbGNhbGwuCj4gCj4gVGhlIGNhbGxi
+YWNrIHRvIGNiKCkgaXMgY29taW5nIGZyb20gdGhlIGtlcm5lbCwgc28gYTYgY291bGQgaGF2ZSBi
+ZWVuCj4gY2xvYmJlcmVkLCBubz8gV2UncmUgZW50ZXJpbmcgYSBzdWJwcm9ncmFtIGNvbWluZyBm
+cm9tIHRoZSBDIEFCSS4gTm93LAo+IGlmIHRoZSBjYWxsYmFjayBjYWxscyBhIHN1YnByb2cgdGhh
+dCdzIHRhaWwtY2FsbCByZWFjaGFibGUsIHRoZSBUQ0MKPiBjYW4gYmUgZ2FyYmFnZT8KClNhc2hp
+a28gcmVwb3J0ZWQgdGhlIHNhbWUgaXNzdWUgeWVzdGVyZGF5LiBJIHZlcmlmaWVkIHRoYXQgdGhl
+IHZlcmlmaWVyIApyZWplY3RzIGNhc2VzIHdoZXJlIGEgdGFpbCBjYWxsIGlzIGludm9rZWQgd2l0
+aGluIGEgY2FsbGJhY2s7IApzcGVjaWZpY2FsbHksIHdoaWxlIHRoZSBjYWxsYmFjaydzIHJldHVy
+biB2YWx1ZSByYW5nZSBpcyBbMCwgMV0sIHRoZSAKc2ltdWxhdGlvbiBvZiB0aGUgZXhpdCBwYXRo
+IGluIGBjaGVja19oZWxwZXJfY2FsbGAgKGhhbmRsaW5nIHRoZSB0YWlsIApjYWxsIGhlbHBlcikg
+bWFya3MgUjAgYXMgVU5LTk9XTiwgY2F1c2luZyB0aGUgdmVyaWZpZXIgdG8gcmVqZWN0IGl04oCU
+c28gSSAKZGlkbid0IGludmVzdGlnYXRlIGZ1cnRoZXIuIEhvd2V2ZXIsIEkganVzdCB2ZXJpZmll
+ZCB0aGF0IHRoZSB2ZXJpZmllciAKKmRvZXMqIGFjY2VwdCB0aGUgc2NlbmFyaW8gd2hlcmUgYSBj
+YWxsYmFjayBjYWxscyBhIHN1YnByb2dyYW0sIGFuZCB0aGF0IApzdWJwcm9ncmFtIHN1YnNlcXVl
+bnRseSBjYWxscyBhIHRhaWwgY2FsbC4gSSBiZWxpZXZlIHRoaXMgc2NlbmFyaW8gb3VnaHQgCnRv
+IGJlIHJlamVjdGVkOyBwZXJoYXBzIHNvbWUgY2hhbmdlcyBhcmUgbmVlZGVkIGluIHRoZSB2ZXJp
+ZmllciwgCm90aGVyd2lzZSB0YWlsIGNhbGxzIG9uIG90aGVyIGFyY2hpdGVjdHVyZXMgKGxpa2Ug
+eDg2KSB3b3VsZCBhbHNvIGJlIApzdXNjZXB0aWJsZSB0byBpbmZpbml0ZSBsb29wIGlzc3Vlcy4K
+Cj4gCj4gCj4gQmrDtnJuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
