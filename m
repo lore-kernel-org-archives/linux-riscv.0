@@ -4,108 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F72C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 20:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82FC8C44501
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 20:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qwV5vy32mJlZYnO48S/NiYb7nwdXpxshI92jfqjReug=; b=A6gv/qmNo+OuRi
-	OB20NyMCiJsRChbGKZCH1UN9iOHcCwpcXjcIuQDtgNkjv/s+7VvRni0lNKkzkkQNzgF8Z+GgE2AhU
-	lsqiPT6mrLxtzSE5M7evIVgxnxssRMyPqbk7WlDTyeLozvIHm03nJF03RaWtWxDI9iwJqvq/oF3mH
-	W0mnYlmjV2BT22ljqojXpTr+y1XWb9sC88RgDDKSzZiJQ/E6MtiPJpgp2Kt/dpoVzlC8l2DoyzgbM
-	yBPkRbSgmiJi8L/PYujBKDfyfhuko2V/Xw1WWCyUoTw3j0mFIsKsSaEGbxl17eKrLqAaQz3I/YVW1
-	CUdGSX7j3EVrJ4AJWMbw==;
+	List-Owner; bh=mzNEtGcaqpwHXuXT//rrXuxD6TFlSIir5OLpAfI4baA=; b=oyrCYEGCL0MLpF
+	yj2XgeCQaTBtuPUFAI9drxSGxkE1zQ0dCpRRRHavJ1L9XgGRWtK4YvJF3R6NpyOzQ8Sd+8beCs8ah
+	RFlpD+L1meNp9E9ajfm5EErh8d/XHD2fBaYkdaAn1a2SlNeb3Cf01Hd8Msy9t1ruZdNWy6z35YMGT
+	WMS8lzj1FTpdZzakuYwFVdIk1L+zyRAPOR0rPpP9gR99/EfVPpiFRCIuDHr1hazAAdOZBIWZW9Imu
+	MLiCETjKQfprJtJCowUOXQAE9QfKAvvH17n/8UfmakNM+CEOHict4J9p9JJwX4u4R5EcUHecUcv7p
+	4md3sUvLbJNm4TppF10w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whvAk-00000003Yhp-2P7f;
-	Thu, 09 Jul 2026 20:16:38 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1whvPF-00000003aT5-2lRN;
+	Thu, 09 Jul 2026 20:31:37 +0000
+Received: from mail-southcentralusazon11022108.outbound.protection.outlook.com ([40.93.195.108] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whvAh-00000003YgV-3lWz
+	id 1whvPC-00000003aP9-0PBF
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 20:16:37 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cad8076b01so1755395ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 13:16:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783628195; x=1784232995; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=5lqgggpghOuMWXpzCLQ94POSykk42wtAfFSu9QYNYOQ=;
-        b=T+sPNz1J59zPc7pkb8sEYVxWIJp7pHwwY3HiWfuL34CCAIPN6/9Wr7msOnKUmgG9A9
-         MI1qK1qsSMSra+Ppq56eYhzLnhu0IkQ0uF9GMxF2KFy7XixVosgDuSvdiN2HonDALxL6
-         87YiHEm/MaAQEMZs3P7q1UuCGQC99/C3C72OcqlnDko5OC/Kc2WlX0ArgnY2h7MNPWjl
-         JYUlpE1Jr8tlpf4LD6GLJb0Kxdd09xEJKWQ8bJPtXpt3FGkvVHPncQOKqMZqJDPtmw57
-         vwZCYjMZHNRXXj7ZBcdHeMr3FhVBH1FJ0jW9osvkcpG8jmW/X6hbVxNk6lLPVVHLlhUQ
-         bThg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783628195; x=1784232995;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5lqgggpghOuMWXpzCLQ94POSykk42wtAfFSu9QYNYOQ=;
-        b=YOuGVHMBX0qs6nq6ztGIbymfLQXVtMx3gi3/RLAsooCJshyBUAycGJYIB4fKgKT+0G
-         zXvVPX1R0ZRZr5qtixcu3NhJh3qI9KtDzA6hvUDdi7wVgCQb7wTIrTZ2EFK/4Md+vd1R
-         FmMOcS2HMjv0zjp3VEcvJQ4d3CicSvtmkPOUx9IiJ126U+/Rs2nXuO4AvAY2Yqs2W7L6
-         oMO/mlFLoUSWkpHTt1zc1b+30bnwJ/IMNigEIPlTZoMeAcxuoI8E/AWj3Tbx7PqsVHKY
-         NQcFBGDBY/DNCqEn9Y+jVGKJBLAqoaO3ti2w5iL8bBFPeiwTb8zx6WyQemK/+bqQ5/qN
-         PQYQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoVU1eMh5iyVGmw4gUbRB5eoxoCicQXnweT0hh5v5E/Zh+HTsowapewhJQKl7/nxhn6aYTLS4+evidaUw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbBKfDCCdpzUP8aWKXm4b3gnkWhOB7snLLj+zZ+3afoTbXK2rY
-	eJb9KiIvKB79xsEKvokpbSKNfugDhxT15nsoFGVDbdi7XeBLp+ovUqQR
-X-Gm-Gg: AfdE7cl2KeZ01q2gg95E1Slmkss3n7Nxap6wmupLzo9xtcvh274cofXTEEbgrb4R1k7
-	gRJsFNJ/UjmTRd8M8mq/TeBRoPaYPgyWRRzsS++lQbtv6JQptvz5vxbfSI0eiC0cNbYu6rCvw3A
-	NfW7i0tU362463qwzibYxZXyvwcoMwpmgSLu3p2sa4MA3SUaNJI6cO6Iwk3gyuNPUoTo7Wcwsbo
-	wi8bKgy2WOu59goxa4xooP7DHuEaWK5WqK2hNBJwWa8MylK2PPDiT9jW7x3O5iP1snw6e49hHbs
-	Yqxb04b0urfhe8iEz9gW+CEABBACsgqyyjjLruZRDQBmAvQx7lsI/3PSdTTRjWbQCftxSyHtsPz
-	TiSfeg4B0xDZ5JWC7t4e7thRmtl0O7UfIh7OXV240tPcBXvanzT8FppVwzPeKcz3vF/MoNfw5LU
-	HmBFG0+fk/XAmBSQdOSeAnhEX2j4HPiaif9lc8q4MGlccJUfoTs1s58FoDFhlV
-X-Received: by 2002:a05:6a20:12d0:b0:3b1:882a:607b with SMTP id adf61e73a8af0-3c0bc95630amr10563387637.22.1783628195005;
-        Thu, 09 Jul 2026 13:16:35 -0700 (PDT)
-Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([106.51.160.236])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174a583bcsm38446663eec.19.2026.07.09.13.16.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 13:16:34 -0700 (PDT)
-Date: Fri, 10 Jul 2026 01:46:15 +0530
-From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, 
-	Mark Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, 
-	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
-	Richard Henderson <richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Helge Deller <deller@gmx.de>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Richard Weinberger <richard@nod.at>, Chris Zankel <chris@zankel.net>, 
-	linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
-	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
-	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org, linux-openrisc@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-arch@vger.kernel.org, 
-	Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Subject: Re: [patch 03/18] entry: Provide
- [syscall_]enter_from_user_mode_randomize_stack()
-Message-ID: <alABgaW3OpGvH_Oc@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-References: <20260707181957.433213175@kernel.org>
- <20260707190253.816918647@kernel.org>
+	Thu, 09 Jul 2026 20:31:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k6F8iij4a5vLv5KORVVN/RLPn+2Guh2CAyy6aXxc0BVCb1fItONn+1JRc7Kyr3yAJOuzqif10dWT7ikENu9wooqyrq7vO8tnsRb0a+CDKj+5/DNpnzyTmlbk85uCau2PsQeXY1y2sfpkDVaLQOMDmniEbXNSdj1oyl82Dk8yXIzT+0y5IrKoFGnnVpc6W1j1UEGftbASN30SO2XThYs/q2rZAY/x5eqWp7h3/eyH4vSjMzOzHgpRV5mo5JXaEWL8QPrTi2cPGKBinvxlJfphVYi/2qslmV6xEWWVVrl7o9+TImPQlIzGVVkYxzcI0yZgCeEoxCq0ECaNCwJyWmw2bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eAe70nvrSjAG2BNw2BTnhrdhSiYbIbt/hwEX60N7GaU=;
+ b=rjHNO1XmMSxTgu3K3scz31SQ6ZzWmD/OrmsyN17a8ZwG5ewlq7+6i/KDVvoS3kwxiqoNiwhM2LZRXF3ZVfKkReg4JDZV3VgdYU6Q15xQxHY8dHsS/5QU213N8BomlYohDVrV6Qzg9H2pjzQMBM72Q0x+Mf4FnmIRRR7Fx/q9zgSJ7sRh+Y+KpIZg8HCt9naBT3ED93m5+Vb/5v05W/fnk4farnTCsq7I/j8DbJgkKZVeSrHejfkbWewC5jaXWPOEXKGYhPjrcqEym90+RhYlZ6hbkun8+y7yzupjxKhNSO9DC6DkTqipsQaCPT38yVANDtCKZM//r5oC1i/vGDCmYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eAe70nvrSjAG2BNw2BTnhrdhSiYbIbt/hwEX60N7GaU=;
+ b=XYKVe4Ds9Cuzt8vcb8MdVHcYSIKA8e2uKWlHCOB7JfhHZ1XchICFZf5+/7oXgY3qZkTm/zEGjOyRpaYczCgPD8gIfz0zjWzV1O9g4F/dXaJE585+rx0x06TBk0p0fiCb9f3kmPs37Bjp7U1C3GmeQH3KdQ8HAgu9/NYuQQmNFu6emgnoR3eL3A4GpoAyTg+cuK/IR7NJ7x3Z8oE4JAwCgiIGhlfUTgft4RpceAjNr+/NBCDjCQgB3BxLZEkg5wGfwwJl+96fLfTN//uEwcSv2IKTjqa2+6lE8OAIv8e9OVc5sFtK9+OrUGt30DxwzDFlPCvkeGqMEBqXcak3uQbrzw==
+Received: from BN8PR04CA0056.namprd04.prod.outlook.com (2603:10b6:408:d4::30)
+ by BY5PR04MB6616.namprd04.prod.outlook.com (2603:10b6:a03:1de::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.16; Thu, 9 Jul
+ 2026 20:31:21 +0000
+Received: from BN1PEPF00004680.namprd03.prod.outlook.com
+ (2603:10b6:408:d4:cafe::15) by BN8PR04CA0056.outlook.office365.com
+ (2603:10b6:408:d4::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Thu, 9
+ Jul 2026 20:31:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
+ smtp.mailfrom=rambus.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=rambus.com;
+Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
+ 192.86.86.210 as permitted sender) receiver=protection.outlook.com;
+ client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
+Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
+ BN1PEPF00004680.mail.protection.outlook.com (10.167.243.85) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
+ via Frontend Transport; Thu, 9 Jul 2026 20:31:20 +0000
+Received: from hqxsv-cmdev3-skrishnamoorthy.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
+	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id 135451801749;
+	Thu,  9 Jul 2026 20:31:20 +0000 (UTC)
+From: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+To: Albert Ou <aou@eecs.berkeley.edu>,
+	Alex Ousherovitch <aousherovitch@rambus.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
+	linux-api@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Thi Nguyen <thin@rambus.com>
+Subject: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager Hub
+Date: Thu,  9 Jul 2026 13:30:19 -0700
+Message-ID: <20260709203037.1884436-2-skrishnamoorthy@rambus.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
+References: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260707190253.816918647@kernel.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004680:EE_|BY5PR04MB6616:EE_
+X-MS-Office365-Filtering-Correlation-Id: a557af88-fc53-4c7d-a0d7-08deddf90985
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|23010399003|3023799007|921020|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: /f1U9Cql6gOhWRK7hdAtYDoxuIjGUmxTolwYtxGFMA6OIoK7OQeOejkhWqOPCeUrZb335QGTPLzUBzWgZq7JBl2MYZrLDBeQ8K4m6ZEx1gKultDLLw/2B4DSIsHSTFy5uxrszPQQOh+u9RZp1HHzhqH+nLvvyfExQg/DcUISkDYhetA+7Yp75q0uC57EZ5hjVc1wnXmaKf1YOFw/ZAHCzUQUTmnC7gsPHpyNdJVrcAYs0X2CQS0JfX9JePFzZTfR76fBuOUWReffchi2vAgLDAsxLO91ov0P4NgY7VKZAY2BTxA4nWO8uAe77lSJXbeXv726q9nbc0/eNa24FPG05azHv5+189n4DTxPvZBg2kaPct/r2ePLoXHfnQ1xYDXy31/fbseQTEsmbeuk7f7E7YkP/SRkk60/YxTdlmD79OC6EU3Zi9XIdyof0prNKrpLBI+pBXcG0ljoPnmNzmPS9qnA0JEJQWviCmo2RniMDwEkX9jVyYfGA4Czi0LXXBaiybcYVUTlirN0Xh9+kZ4IundA68gIYeY4cjYR9TIIoDPePsp0p0CuGIK4XbbryysF1M71OG3kyd8Ws9F9zDax7HKH/dQI6Yp/zXGbAkEGtY3cBFb0PH0LLyeTHGUujrRPVP2f3LTuoAoEBf6+zz8n38lVzstePS6XyhY41DUyOk50an/pN1chANR2duLZvpE0
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(23010399003)(3023799007)(921020)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: QfQeYaRoyvvAO3oH4jmsi04UHxJPVDVVBMVO0EmFGpC499n81XgnO8dBVdXT6zZ0FXHa4iDRvs/1O40r2PTtEQL8YfTKu600Bqof6ByurYNfYk64x8kEmQUmPqdA+TZihfAMnyh1hrTFyBGO+osiN2etN7ZzDGU8Qs1IX4oquqnSiHWAGTMgVLKzSMbQyYwsru6E90TWedKXhfwShXGIWNQQ5dSZdRzWJP9GIIcMcwHq62LIgawt1BeC03IJYUQCizvfosY08xciSPdPoh6VhQRUJW1O7vly5GI9KHqGY8L5XkDpKF49mrdev15dFoos7x9xo/Jif6C9zHnQLLnwu7GepGpkjtj/Ob4QvsSHusfzHQxxRT0nj5ej64RyTKTtimuH7bwnUApfmjo67zWK7Rc9zP079L7CQDLFw4UeC0axt0I+W5V8XaJpPOydQKq3
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 20:31:20.7770
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a557af88-fc53-4c7d-a0d7-08deddf90985
+X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004680.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR04MB6616
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_131635_962643_07212F3A 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20260709_133134_171774_687F205B 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,110 +137,270 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 09:06:07PM +0200, Thomas Gleixner wrote:
-> Randomizing the syscall stack can only happen after state is established
-> via enter_from_user_mode() or syscall_enter_from_user_mode(). The earlier
-> it happens the better.
-> 
-> Provide two new macros to consolidate that:
-> 
->   - enter_from_user_mode_randomize_stack()
-> 	enter_from_user_mode();
-> 	add_random_kstack_offset_irqsoff();
-> 
->   - syscall_enter_from_user_mode_randomize_stack()
-> 	enter_from_user_mode_randomize_stack();
-> 	syscall_enter_from_user_mode_work();
->     
-> to reduce boiler plate code.
-> 
-> Those are macros and not inline functions as the latter would limit the
-> stack randomization scope to the inline function itself.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> ---
->  include/linux/entry-common.h |   56 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 56 insertions(+)
-> 
-> --- a/include/linux/entry-common.h
-> +++ b/include/linux/entry-common.h
-> @@ -6,6 +6,7 @@
->  #include <linux/irq-entry-common.h>
->  #include <linux/livepatch.h>
->  #include <linux/ptrace.h>
-> +#include <linux/randomize_kstack.h>
->  #include <linux/resume_user_mode.h>
->  #include <linux/seccomp.h>
->  #include <linux/sched.h>
-> @@ -150,6 +151,61 @@ static __always_inline long syscall_ente
->  }
->  
->  /**
-> + * enter_from_user_mode_randomize_stack - Establish state and add stack randomization
-> + *					  before invoking syscall_enter_from_user_mode_work()
-> + * @regs:	Pointer to currents pt_regs
-> + *
-> + * Invoked from architecture specific syscall entry code with interrupts
-> + * disabled. The calling code has to be non-instrumentable. When the function
-> + * returns all state is correct, interrupts are still disabled and the
-> + * subsequent functions can be instrumented.
-> + *
-> + * Implemented as a macro so that the stack randomization is effective
-> + * throughout the function in which it is invoked. An inline would only make it
-> + * effective in the scope of the inline function.
-> + */
-> +#define enter_from_user_mode_randomize_stack(regs)			\
-> +do {									\
-> +	enter_from_user_mode(regs);					\
-> +	instrumentation_begin();					\
-> +	add_random_kstack_offset_irqsoff();				\
-> +	instrumentation_end();						\
-> +} while (0)
-> +
-> +/**
-> + * syscall_enter_from_user_mode_randomize_stack - Establish state and check and handle work
-> + *						  before invoking a syscall
-> + * @regs:	Pointer to currents pt_regs
-> + * @syscall:	The syscall number
-> + *
-> + * Invoked from architecture specific syscall entry code with interrupts
-> + * disabled. The calling code has to be non-instrumentable. When the
-> + * function returns all state is correct, interrupts are enabled and the
-> + * subsequent functions can be instrumented.
-> + *
-> + * This is the combination of enter_from_user_mode_randomize_stack() and
-> + * syscall_enter_from_user_mode_work() to be used when there is no
-> + * architecture specific work to be done between the two.
-> + *
-> + * Returns: The original or a modified syscall number. See
-> + * syscall_enter_from_user_mode_work() for further explanation.
-> + *
-> + * Implemented as a macro to make stack randomization effective in the calling
-> + * scope.
-> + */
-> +#define syscall_enter_from_user_mode_randomize_stack(regs, syscall)	\
-> +({									\
-> +	enter_from_user_mode_randomize_stack(regs);			\
-> +									\
-> +	instrumentation_begin();					\
-> +	local_irq_enable();						\
-> +	long _ret = syscall_enter_from_user_mode_work(regs, syscall);	\
-> +	instrumentation_end();						\
-> +									\
-> +	_ret;								\
-> +})
-> +
-> +/**
->   * syscall_enter_from_user_mode - Establish state and check and handle work
->   *				  before invoking a syscall
->   * @regs:	Pointer to currents pt_regs
-> 
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-> 
-> _______________________________________________
-> linux-snps-arc mailing list
-> linux-snps-arc@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-snps-arc
+From: Alex Ousherovitch <aousherovitch@rambus.com>
+
+Add device tree binding schema for the CRI CryptoManager Hub (CMH)
+hardware crypto accelerator.  The binding covers the parent SoC-level
+node with register region, interrupt, DMA properties, and per-core
+child nodes identified by compatible string and unit address.
+
+Register the 'cri' vendor prefix for Cryptography Research, Inc.
+
+Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
+Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
+Reviewed-by: Thi Nguyen <thin@rambus.com>
+---
+ .../devicetree/bindings/crypto/cri,cmh.yaml   | 222 ++++++++++++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ 2 files changed, 224 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/cri,cmh.yaml
+
+diff --git a/Documentation/devicetree/bindings/crypto/cri,cmh.yaml b/Documentation/devicetree/bindings/crypto/cri,cmh.yaml
+new file mode 100644
+index 000000000000..db41132e0591
+--- /dev/null
++++ b/Documentation/devicetree/bindings/crypto/cri,cmh.yaml
+@@ -0,0 +1,222 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/crypto/cri,cmh.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: CRI CryptoManager Hub (CMH) Hardware Crypto Accelerator
++
++maintainers:
++  - Alex Ousherovitch <aousherovitch@rambus.com>
++  - Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
++  - Joel Wittenauer <Joel.Wittenauer@cryptography.com>
++
++description: |
++  The CRI CryptoManager Hub (CMH) is a hardware cryptographic accelerator accessed
++  via a mailbox-based VCQ (Virtual Command Queue) interface.  The host
++  writes VCQ command sequences into per-mailbox DMA queue buffers and
++  rings a doorbell; the CMH eSW processes them and signals completion
++  via interrupt.
++
++  Supported algorithm families: SHA-2, SHA-3, SM3, AES, SM4,
++  ChaCha20-Poly1305, RSA, ECDSA, EdDSA, ECDH, SM2, ML-KEM, ML-DSA,
++  SLH-DSA, LMS, XMSS, DRBG.
++
++properties:
++  compatible:
++    const: cri,cmh
++
++  reg:
++    maxItems: 1
++    description:
++      SIC (System Interface Controller) MMIO region.  Mailbox instance
++      registers are at offsets N * 0x1000 within this region.
++
++  interrupts:
++    minItems: 1
++    maxItems: 64
++    description:
++      Per-mailbox completion/error interrupts from the CryptoManager Hub,
++      matching the real CMH ch_sys_interrupt_mbx[N-1:0] topology.
++      Entry i corresponds to MBX instance i.  The driver maps each
++      configured mailbox (cri,mbx-instances) to its DT interrupt
++      index and registers a separate threaded IRQ handler per MBX.
++
++  interrupt-names:
++    minItems: 1
++    maxItems: 64
++    items:
++      pattern: '^mbx[0-9]+$'
++    description:
++      Names for each mailbox interrupt, matching the interrupts array.
++      Format is "mbxN" where N is the mailbox instance index.
++
++  cri,mbx-instances:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 1
++    maxItems: 64
++    description:
++      Array of 0-based mailbox instance indices to configure.
++      Each index N maps to register offset N * 0x1000 within the
++      SIC region.  If absent, defaults to instances 0 and 1.
++
++  cri,mbx-slots-log2:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 1
++    maxItems: 64
++    description:
++      Per-mailbox slot count as log2.  Valid range 1..15.
++      Array length must match cri,mbx-instances.
++      Default is 5 (32 slots).
++
++  cri,mbx-strides-log2:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 1
++    maxItems: 64
++    description:
++      Per-mailbox stride (bytes per slot) as log2.  Valid range 7..10.
++      Array length must match cri,mbx-instances.
++      Default is 7 (128 bytes per slot).
++
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 0
++
++patternProperties:
++  "^(hc|aes|sm4|sm3|hcq|qse|pke|drbg|ccp)@[0-9a-f]+$":
++    type: object
++    description:
++      Per-core-type child nodes.  Each child represents one crypto core
++      instance available in the hardware.  The driver enumerates these at
++      probe to discover which algorithm families are present.
++
++    properties:
++      reg:
++        maxItems: 1
++        description:
++          Hardware core ID for this core type (e.g. 0x02 for HC, 0x03 for AES).
++          Must match the CORE_ID_* values defined by the CMH hardware.
++
++      cri,mbx:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description:
++          Pin this core instance to a specific mailbox instance index.
++          Multiple child nodes of the same core type may each specify a
++          different cri,mbx value to spread instances across mailboxes.
++          When absent, the driver auto-assigns a mailbox via round-robin
++          across the instances listed in cri,mbx-instances.
++
++    required:
++      - reg
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - "#address-cells"
++  - "#size-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        crypto@a4800000 {
++            compatible = "cri,cmh";
++            reg = <0x0 0xa4800000 0x0 0x41000>;
++            interrupts = <1 2>;
++            interrupt-names = "mbx0", "mbx1";
++            cri,mbx-instances = <0 1>;
++            cri,mbx-slots-log2 = <5 5>;
++            cri,mbx-strides-log2 = <7 7>;
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            hc@2 {
++                reg = <0x02>;
++            };
++
++            aes@3 {
++                reg = <0x03>;
++            };
++
++            sm4@4 {
++                reg = <0x04>;
++            };
++
++            sm3@5 {
++                reg = <0x05>;
++            };
++
++            hcq@8 {
++                reg = <0x08>;
++            };
++
++            qse@9 {
++                reg = <0x09>;
++            };
++
++            pke@a {
++                reg = <0x0a>;
++                cri,mbx = <1>;
++            };
++
++            drbg@f {
++                reg = <0x0f>;
++            };
++
++            ccp@18 {
++                reg = <0x18>;
++            };
++        };
++    };
++
++  - |
++    /* Multi-instance: two AES cores on separate MBXes (future eSW support) */
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        crypto@a4800000 {
++            compatible = "cri,cmh";
++            reg = <0x0 0xa4800000 0x0 0x41000>;
++            interrupts = <1 2>;
++            interrupt-names = "mbx0", "mbx1";
++            cri,mbx-instances = <0 1>;
++            cri,mbx-slots-log2 = <5 5>;
++            cri,mbx-strides-log2 = <7 7>;
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            hc@2 {
++                reg = <0x02>;
++            };
++
++            aes@3 {
++                reg = <0x03>;
++                cri,mbx = <0>;
++            };
++
++            /* Second AES instance at core ID 0x06, pinned to MBX 1 */
++            aes@6 {
++                reg = <0x06>;
++                cri,mbx = <1>;
++            };
++
++            pke@a {
++                reg = <0x0a>;
++                cri,mbx = <1>;
++            };
++
++            drbg@f {
++                reg = <0x0f>;
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f368e7..8b7187ea0194 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -375,6 +375,8 @@ patternProperties:
+     description: Crane Connectivity Solutions
+   "^creative,.*":
+     description: Creative Technology Ltd
++  "^cri,.*":
++    description: Cryptography Research, Inc.
+   "^crystalfontz,.*":
+     description: Crystalfontz America, Inc.
+   "^csky,.*":
+-- 
+2.43.7
+
 
 _______________________________________________
 linux-riscv mailing list
