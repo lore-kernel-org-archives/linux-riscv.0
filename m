@@ -4,109 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02612C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 19:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848EEC44501
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 19:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z3aRDz5ucrrPXjnO38kA01JICX2DtBFRxLH2ysWmfK4=; b=MswSXHPB5o0uri
-	0n3bik53Z73ElqQwAIU43rRhYClqhRKOucbulMR1SpfOCMFbk73UBCbqiqeY8VALwYF1iOgH0/n2D
-	q8K78/1b2sdlC91cwiGJGdgdFMFqz/gpRDYChwPwQpUnYsCBmwd/T7HxS6KGuR8Jn8lBzwgx+1Pox
-	S7nMiRLbFAiDkPr/Jgm4+MmMOvBA0PQK/7hrbf5gqydjzgP/JMM2LiscOeMO6LkGFBdf+XDaHPZIh
-	OndKT6+Zhwm+Jo+f0Y8QmlSJzSo3d3tx7So9UGE8gYs3jNzzDCoE/U9uIE3SXRrs/894DhxWDf+I8
-	p5i18oEyVVbhS1y4yl9A==;
+	List-Owner; bh=Wj1zx2KSvmy9hPZUFA/MQGsM3JEA6oBSPYx9XNlPBSM=; b=ql2+9j0M66r7MT
+	lyYo5pQwa37dXHqVPRWcVlsT9JM+GXDvoHr7gknQNgLohZlbTw5XhEJP+3atDl9B0wrktGQejw7HO
+	tjMTv7VwdCEtvmTh3f2ZjbUKQPl0VJAuxo8r95kTaKCX/0wgCtMszjix1qh31y6QO6rwh6iTTBizw
+	91+ce/M3rCh+IcW5C0p+0tMHPvK8y3Tit1zHY1pcVuvQFFlzOT+37uNLvA+sWSl+N8nG484XVbjtc
+	ae2lkYC9FOlZbZrqb72yScBO8pOOlEoKGpCMf7PZr220imNflHABNF8pICGNSG0hV+xZ5WTcQCGWX
+	0Qi4Jc04mhAfhrwKMatw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whukp-00000003WHI-0wxW;
-	Thu, 09 Jul 2026 19:49:51 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1whumj-00000003WVF-2mxo;
+	Thu, 09 Jul 2026 19:51:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whukm-00000003WFw-3WEX
+	id 1whumi-00000003WV7-2PPH
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 19:49:50 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ccdb73f0e1so1181105ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 12:49:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783626588; x=1784231388; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wZIZ82kjBIDu2ZrVW8MGg3L6TnunPhQvQy9pezlSzDk=;
-        b=rqX7zj7j7P1L2JxvuvLzjgTHpENxL0PFVPfgqxB5M0rkb9ty1uVMy8LpFiuzxvgr+8
-         A60DrbcQqlq//a471a84VPg8P8ZBa5i175FMh7qcqnYK0Dh7TZB4Dg47AJbAb228avPr
-         RJWhdfs7pVplwQ7vZxK0bAArgSFXPDLFEfaKLztvzrhUtuXXHhB4clzM7eeUG73ESV9G
-         sNlPg9GrC2k0gzXl8GXES7IVc6ivI0iXode07baVIwrgK/rq5DGESArRBU/3U9jQvJTi
-         9tcLo1vOAyCVqSOhzJyyFjdN9kWpZAAW2q5e4QG5s11NuV8YeX+buP2Ln+KQSNK05IWj
-         AfFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783626588; x=1784231388;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=wZIZ82kjBIDu2ZrVW8MGg3L6TnunPhQvQy9pezlSzDk=;
-        b=X/TNb7PQeTxYsDg9JbSfJE536k894NUb46KucFxmpUXF+jlUYpCuCjPVAU3B+Smhgf
-         Ugd9dydR7PFMkbNZWGF4lJTBjMwSo00dL5cwAYdsTy/g9n4AlbLtatotqGzgqavmurW1
-         q7rr6p/YhnAD0zrp4z2HeTvQi4mMTdlbxjyKHPoYZ4K4Z+fEmv+mEwsm+VhwMrWFUElk
-         V1owp+Ea5DnR8z0p6fWtRpay/rFEMNlHZ4BenUvQ0o8mkgX+735cyYtWmFymJb+sfyp7
-         Ut5gSIkhAy/nEd4vubEJE0q8fMDSHInW4+Z7Np6zzeVf03FyiBsSzdkolPEKCc5OEh4D
-         gt3A==
-X-Forwarded-Encrypted: i=1; AHgh+Rrm84XRCOK+7KL+XoAYWTb3s6NchXEtzmOYczgj1Y/GmlPzsn8H1EaC+cxiY+jWsRDhWReC9NTA06vz0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsNObrExrQDIRtBz9VycA3YVjii5GUBoX6VB7oZvPUcxSYBS89
-	vtlSNxPEQcMtAe5jt2H8VnXtc/rl6TIgCYE+5l8/9iuhrXH0XhJ+DUUO
-X-Gm-Gg: AfdE7cmG1fAmRNJ444uDS+yhTrvrLJ76KmRkVnAr/1ICrvA+ZedxUc0QM2wnduWl2+R
-	zLiJ9pYiivfOtcPRJbtN4mut3g1HVT5uIq+qdSZ8JwOo6+9T0HlUzNi4ZOQa/G0hqOy5i7bhqAq
-	7ONOTjrXoNhNZNzBShQvTUwpUgxY6TTnoAmC+p6Ok059mAJN/dI3uDcyu/IJq3V2ap6rwmOC7Ya
-	GLwQPjEDUxiDfmbAyntuYv5CUXYpfZYLS/zq5GiVqNZA5vHhnj4G7B3MNLaSjamJ3AZ3d3YXzdA
-	1OggznYQFMC4tnskGD9667SPANMMEovZbv2bxiHrJ8rsItxJkCoHEjBAbxMToZNEtT41TvTxubm
-	h6whrHgxsWQ51I4FYrfkzE9O36XQUxWtDTwqADHPPo95N+llu/9G+yznAjZkiseBaXC8QrquH9U
-	lPtZ/mZBmr+l/OVekd7uzF4yyjdceawIO/mt9yvDnRHewyGZvSai7l79ctsSD2
-X-Received: by 2002:a05:6a21:512:b0:3bf:a0e5:999f with SMTP id adf61e73a8af0-3c0bcfab03dmr10300238637.22.1783626587867;
-        Thu, 09 Jul 2026 12:49:47 -0700 (PDT)
-Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([106.51.160.236])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174a56848sm34548981eec.16.2026.07.09.12.49.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 12:49:47 -0700 (PDT)
-Date: Fri, 10 Jul 2026 01:19:28 +0530
-From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>, 
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>, 
-	Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, linux-doc@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Kees Cook <kees@kernel.org>, x86@kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>, 
-	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
-	Richard Henderson <richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Helge Deller <deller@gmx.de>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Richard Weinberger <richard@nod.at>, Chris Zankel <chris@zankel.net>, 
-	linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Vineet Gupta <vgupta@kernel.org>, 
-	Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek <monstr@monstr.eu>, 
-	Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, linux-snps-arc@lists.infradead.org, 
-	linux-hexagon@vger.kernel.org, linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-arch@vger.kernel.org
-Subject: Re: [patch 18/18] entry, treewide: Make
- syscall_enter_from_user_mode[_work]() indicate syscall execution
-Message-ID: <ak_63WGVz28C2dc0@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-References: <20260707181957.433213175@kernel.org>
- <20260707190254.603111179@kernel.org>
+	Thu, 09 Jul 2026 19:51:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 10D2B43D11
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Jul 2026 19:51:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E52141F00ACF
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Jul 2026 19:51:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783626707;
+	bh=kBZwb2cRE68I1czVBQGrvfPjZQW9fylv6EksNu1C5sY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=bnj1QrJMofrGHPUBoKhNDozC1fobzi4qoKI68gCP5CuljjsONokCwiyppJUZAKzek
+	 xU6nHi1xMkn6h8XP/5UuD44nhfxuDGOQql4T+JhmOwE/df3J2L/GnNHXNRUnZHNWxV
+	 nXlJ3jl5nMvHvGyHtUd/GvF9mb/fOD+joo6dtO1yd5p5b7aoZ1qeZf7aLgDh0i2mRr
+	 elGh2MFpb/8ymTLon4qlRW79IwmyuloznbZDXBnmJAzpJViCPiQJR7KsOo9H4yb2Cn
+	 RugKCXPluXE1TX/UxklTA6Xc2V44iuT4sWK70magqmZ7QsKLQk7ZKB3/FyvBVVdM97
+	 bWonxzN54Isuw==
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-80cebd41372so2525577b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 12:51:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpMQQRRGEmbpCabxLceWxxtM/4XF35Nkwo+Y/Fbx0segCknlvMZQQn2eUpWME3WuUHvEgvPO3LLpQQEIw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfQHiTYSp8NY9vZKXYcKWyeOPSQKjXfucPJ2gPnfKxQmJrX1El
+	vRAWiJIcpsUr2bzgMdcOE1/5roTEMk1fcwVPS/ZXSUZ7l1504mzuYNcILZDYpqaxQb/sh4IjK0n
+	9QQPisWLXeNCwsjkRXQrCF04FRWHX2jU=
+X-Received: by 2002:a05:690c:6982:b0:81d:3b37:30c1 with SMTP id
+ 00721157ae682-81dbeb62c28mr66172477b3.58.1783626707206; Thu, 09 Jul 2026
+ 12:51:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260707190254.603111179@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_124948_888625_1D86286F 
-X-CRM114-Status: GOOD (  30.17  )
+References: <20260708064436.2971933-7-pulehui@huaweicloud.com>
+ <a721df30ec2f824295000183c8e91f2c19d0bd56ae115b835b402be9eacc1c71@mail.kernel.org>
+ <b4aadfde-9745-4c71-8dd4-ce433331f91b@huaweicloud.com> <CAJ+HfNi_icVbeB=jw-xnXrwzigZwP2OVRbzaF3VC87i6fDpdDw@mail.gmail.com>
+ <fc972c33-1b66-4979-97e9-71627fb6179f@huaweicloud.com>
+In-Reply-To: <fc972c33-1b66-4979-97e9-71627fb6179f@huaweicloud.com>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Date: Thu, 9 Jul 2026 21:51:36 +0200
+X-Gmail-Original-Message-ID: <CAJ+HfNgPWwX3dfu=62TSMKeLD8m9S0rc2k9G8rVN7r2SuzQ6MQ@mail.gmail.com>
+X-Gm-Features: AUfX_mzRdJWsTfK-NsIC-FwuP0A4MWVi9F1vZPgfsDKDjIV5ebRacxEBUg4UWps
+Message-ID: <CAJ+HfNgPWwX3dfu=62TSMKeLD8m9S0rc2k9G8rVN7r2SuzQ6MQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v6 6/7] riscv, bpf: Mixing bpf2bpf and tailcalls
+To: Pu Lehui <pulehui@huaweicloud.com>
+Cc: bot+bpf-ci@kernel.org, bpf@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com, 
+	martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev, 
+	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me, 
+	haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org, pjw@kernel.org, 
+	palmer@dabbelt.com, alex@ghiti.fr, pulehui@huawei.com, martin.lau@kernel.org, 
+	clm@meta.com, ihor.solodrai@linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,129 +83,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 09:07:09PM +0200, Thomas Gleixner wrote:
-> From: Michal Such=E1nek <msuchanek@suse.de>
-> =
-
-> The return values of syscall_enter_from_user_mode[_work]() are
-> non-intuitive. Both functions return the syscall number which should be
-> invoked by the architecture specific syscall entry code. The returned
-> number can be:
-> =
-
->   - the unmodified syscall number which was handed in by the caller
-> =
-
->   - a modified syscall number (ptrace, seccomp, trace/probe/bpf)
-> =
-
-> That has an additional twist. If the return value is -1L then the caller =
-is
-> not allowed to modify the return value as that indicates that the modifyi=
-ng
-> entity requests to abort the syscall and set the return value already. Th=
-at
-> can obviously not be differentiated from a syscall which handed in -1 as
-> syscall number.
-> =
-
-> The established way to deal with that is:
-> =
-
->     set_return_value(regs, -ENOSYS);
->     nr =3D syscall_enter_from_user_mode(regs, nr);
->     if ((unsigned)nr < SYSCALLNR_MAX)
->     	handle_syscall(regs, nr);
->     else if (nr !=3D -1)
->     	set_return_value(regs, -ENOSYS);
-> =
-
-> The latter is obviously redundant, but that's just a leftover of the
-> historical evolution of this code. S390 has some special requirements her=
-e,
-> which can be avoided when the return value is not ambiguous.
-> =
-
-> Now that the functions which modify the syscall number and want to abort
-> are converted to indicate that with a boolean return value, it's obvious =
-to
-> hand this through to the callers.
-> =
-
-> Rework syscall_enter_from_user_mode[_work]) so they take a pointer to the
-> syscall number and return a boolean, which indicates whether the syscall
-> should be handled or not.
-> =
-
-> That's not only more intuitive, it also results in slightly denser
-> executable code on x86 at least, but perf results are neutral and within
-> the noise.
-> =
-
-> [ tglx: Adopted it to the changes in the generic entry code, fixed up the
->   	32-bit fallout and rewrote change log ]
-> =
-
-> Signed-off-by: Michal Such=E1nek <msuchanek@suse.de>
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Jonathan Corbet <corbet@lwn.net>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Huacai Chen <chenhuacai@kernel.org>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Shrikanth Hegde <sshegde@linux.ibm.com>
-> Cc: Paul Walmsley <pjw@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Sven Schnelle <svens@linux.ibm.com>
-> Cc: linux-doc@vger.kernel.org
-> Cc: loongarch@lists.linux.dev
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-s390@vger.kernel.org
-> ---
->  Documentation/core-api/entry.rst |   18 +++++++++++-------
->  arch/loongarch/kernel/syscall.c  |   14 +++++++-------
->  arch/powerpc/kernel/syscall.c    |    3 ++-
->  arch/riscv/kernel/traps.c        |   11 +++++------
->  arch/s390/kernel/syscall.c       |    7 +++++--
->  arch/x86/entry/syscall_32.c      |   25 ++++++++++++-------------
->  arch/x86/entry/syscall_64.c      |   12 ++++++------
->  include/linux/entry-common.h     |   12 +++++-------
->  8 files changed, 53 insertions(+), 49 deletions(-)
-> =
-
->  =
-
-[...]
->  	syscall_exit_to_user_mode(regs);
-> --- a/arch/powerpc/kernel/syscall.c
-> +++ b/arch/powerpc/kernel/syscall.c
-> @@ -18,7 +18,8 @@ notrace long system_call_exception(struc
->  	long ret;
->  	syscall_fn f;
->  =
-
-> -	r0 =3D syscall_enter_from_user_mode_randomize_stack(regs, r0);
-> +	if (unlikely(!syscall_enter_from_user_mode_randomize_stack(regs, &r0))
-Missing one closing ')'.
-
-> +		return syscall_get_error(current, regs);
->  =
-
->  	if (unlikely(r0 >=3D NR_syscalls)) {
->  		if (unlikely(trap_is_unsupported_scv(regs))) {
-
-Apart from this.
-
-
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCA5IEp1bCAyMDI2IGF0IDE3OjA5LCBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWljbG91
+ZC5jb20+IHdyb3RlOgo+Cj4KPiBPbiAyMDI2LzcvOSAxOTozNywgQmrDtnJuIFTDtnBlbCB3cm90
+ZToKPiA+IFNvcnJ5IGZvciB0aGUgZGVsYXkgaGVyZSAtLSB0aGUgYm90IGhhZCBtZSB0aGlua2lu
+ZyBhIGJpdC4KPiA+Cj4gPiBPbiBXZWQsIDggSnVsIDIwMjYgYXQgMTA6NTQsIFB1IExlaHVpIDxw
+dWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JvdGU6Cj4gPgo+ID4gLi4uCj4gPgo+ID4+PiBUaGlz
+IGFzc3VtZXMgYSBmaXhlZCBudW1iZXIgb2YgaW5zdHJ1Y3Rpb25zIGJlZm9yZSB0aGUgdGFpbGNh
+bGwgZW50cnkKPiA+Pj4gcG9pbnQuIFdoZW4gaXNfc3VicHJvZyBpcyB0cnVlLCB0aGUgcnZfYWRk
+aSgpIGluc3RydWN0aW9uIGlzIG5vdCBlbWl0dGVkLAo+ID4+PiB3aGljaCBtZWFucyB0aGUgdGFp
+bGNhbGwgZW50cnkgcG9pbnQgbW92ZXMgZm9yd2FyZCBieSA0IGJ5dGVzIHJlbGF0aXZlIHRvCj4g
+Pj4+IHdoZXJlIFJWX1RBSUxDQUxMX09GRlNFVCBleHBlY3RzIGl0IHRvIGJlLgo+ID4+Pgo+ID4+
+PiBUaGUgdGFpbGNhbGwgZW50cnkgaXMgdXNlZCBpbiBlbWl0X2JwZl90YWlsX2NhbGwoKSB3aGVu
+IGNhbGN1bGF0aW5nIHRoZQo+ID4+PiBqdW1wIHRhcmdldCBmb3IgdGhlIHRhaWwgY2FsbC4gSWYg
+UlZfVEFJTENBTExfT0ZGU0VUIGRvZXNuJ3QgYWNjb3VudCBmb3IKPiA+Pj4gdGhlIGNvbmRpdGlv
+bmFsIGVtaXNzaW9uLCBjb3VsZCB0aGlzIGNhdXNlIHRoZSB3cm9uZyBlbnRyeSBwb2ludCB0byBi
+ZQo+ID4+PiB1c2VkIHdoZW4gdGFpbCBjYWxsaW5nIGludG8gc3VicHJvZ3JhbXM/Cj4gPj4KPiA+
+PiBUaGlzIGlzIG5vdCBhbiBpc3N1ZSwgc3VicHJvZyBjYW4gbm90IGJlIHRoZSB0YWlsY2FsbCBj
+YWxsZWUuCj4gPgo+ID4gU2F5LCB0aGF0IHdlIGhhdmUgYW4gZW50cnkgZnVuY3Rpb24gdGhhdCBk
+b2VzIGJwZl9mb3JfZWFjaF9tYXBfYXJyYXkoKQo+ID4gaW50byBhIGNhbGxiYWNrIGNiKCkuIGNi
+KCkgaXMgYSBzdWJwcm9ncmFtLCBzbyBubyBpbml0IG9mIFRDQy4gTm93LAo+ID4gY2IoKSBjYWxs
+cyBhbm90aGVyIHN1YnByb2dyYW0gdGhhdCBkb2VzIGEgdGFpbGNhbGwuCj4gPgo+ID4gVGhlIGNh
+bGxiYWNrIHRvIGNiKCkgaXMgY29taW5nIGZyb20gdGhlIGtlcm5lbCwgc28gYTYgY291bGQgaGF2
+ZSBiZWVuCj4gPiBjbG9iYmVyZWQsIG5vPyBXZSdyZSBlbnRlcmluZyBhIHN1YnByb2dyYW0gY29t
+aW5nIGZyb20gdGhlIEMgQUJJLiBOb3csCj4gPiBpZiB0aGUgY2FsbGJhY2sgY2FsbHMgYSBzdWJw
+cm9nIHRoYXQncyB0YWlsLWNhbGwgcmVhY2hhYmxlLCB0aGUgVENDCj4gPiBjYW4gYmUgZ2FyYmFn
+ZT8KPgo+IFNhc2hpa28gcmVwb3J0ZWQgdGhlIHNhbWUgaXNzdWUgeWVzdGVyZGF5LiBJIHZlcmlm
+aWVkIHRoYXQgdGhlIHZlcmlmaWVyCj4gcmVqZWN0cyBjYXNlcyB3aGVyZSBhIHRhaWwgY2FsbCBp
+cyBpbnZva2VkIHdpdGhpbiBhIGNhbGxiYWNrOwo+IHNwZWNpZmljYWxseSwgd2hpbGUgdGhlIGNh
+bGxiYWNrJ3MgcmV0dXJuIHZhbHVlIHJhbmdlIGlzIFswLCAxXSwgdGhlCj4gc2ltdWxhdGlvbiBv
+ZiB0aGUgZXhpdCBwYXRoIGluIGBjaGVja19oZWxwZXJfY2FsbGAgKGhhbmRsaW5nIHRoZSB0YWls
+Cj4gY2FsbCBoZWxwZXIpIG1hcmtzIFIwIGFzIFVOS05PV04sIGNhdXNpbmcgdGhlIHZlcmlmaWVy
+IHRvIHJlamVjdCBpdOKAlHNvIEkKPiBkaWRuJ3QgaW52ZXN0aWdhdGUgZnVydGhlci4gSG93ZXZl
+ciwgSSBqdXN0IHZlcmlmaWVkIHRoYXQgdGhlIHZlcmlmaWVyCj4gKmRvZXMqIGFjY2VwdCB0aGUg
+c2NlbmFyaW8gd2hlcmUgYSBjYWxsYmFjayBjYWxscyBhIHN1YnByb2dyYW0sIGFuZCB0aGF0Cj4g
+c3VicHJvZ3JhbSBzdWJzZXF1ZW50bHkgY2FsbHMgYSB0YWlsIGNhbGwuIEkgYmVsaWV2ZSB0aGlz
+IHNjZW5hcmlvIG91Z2h0Cj4gdG8gYmUgcmVqZWN0ZWQ7IHBlcmhhcHMgc29tZSBjaGFuZ2VzIGFy
+ZSBuZWVkZWQgaW4gdGhlIHZlcmlmaWVyLAo+IG90aGVyd2lzZSB0YWlsIGNhbGxzIG9uIG90aGVy
+IGFyY2hpdGVjdHVyZXMgKGxpa2UgeDg2KSB3b3VsZCBhbHNvIGJlCj4gc3VzY2VwdGlibGUgdG8g
+aW5maW5pdGUgbG9vcCBpc3N1ZXMuCgpUaGFua3MgZm9yIHRyeWluZyBpdCBvdXQhCgpPaywgc28g
+c2VlbXMgbGlrZSB3ZSBuZWVkIGEgdmVyaWZpZXIgZml4IHByZS1sYW5kaW5nPwoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
