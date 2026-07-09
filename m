@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448D8C43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 07:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77EDC44501
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 07:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=crFQmWugZUEws8YCKDixDM9u6D4Du30bOEtQQE9OBxM=; b=kKdofcQnP1bqOq
-	7wSn35TR8XCXwecNXxbNlGD7aL4TzPWpvkJowdaRzGh5RkMmhzutUpY+emFj9aiL71aYwqLhMthhb
-	HvII59r/vPLH0ejcMwpZ+Pd38AnlbzbGPoe5nlKdJyI77sf+iOfX07E3ihMn0IOtiUDCtrJnqSd1g
-	Pl96FhrxtOPseC6akP31yLKo/MqJag71HyHGw0mlbKhll+kgIdLmkFRuhbV6+LgiQhRKlAJfPTCOm
-	g1Ivpv7F1dlbPPSmcj+VXbNkNFQx+Gs6L5Hz2CZrMDmyfVplhLNDzU0tdB23uzD7m4ZkQGB3Ph1X9
-	ibKkLXIqQBwZb1fF2/hg==;
+	List-Owner; bh=M3hSeuuHa0hzm6OJzm/tSp+iWC6rqYIwZ9kjUpwiNbU=; b=Ice0c403ZnoRuT
+	4hUuyUvLGpktfhS7QZgK37H7uncQnoiQ/sHCr/XETsDCfcukm0rPuVy3AbsGB4b73JrgsVQf8xCmB
+	shlZTvWqUHVhoEAcaLOPgf5rhywTfbRYlKv/jzIJrDivkMfaNEvQR/E0HU4yUgQqX/FB1s0FKga67
+	s3K8BHFIFStUVC/PF4AEBKQ8HdbwqbtmDzXDUvBiNKgtBE4N40qmeJYq8/npg4pq2PKJ8hrI2qVY5
+	Hir4ARWgiQ4Mpl/9aiZ3fei8USjg2h1PutwNLk6ini5w41lmxtGklItNHqP0iATTSr8PnEMUiMnML
+	xh6hMNpXwZQINEATZMyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjJE-00000001JgX-0WAe;
-	Thu, 09 Jul 2026 07:36:36 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1whjfX-00000001MvH-2dgZ;
+	Thu, 09 Jul 2026 07:59:39 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjJB-00000001Jfd-3TNu
+	id 1whjfU-00000001Muo-0Td1
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 07:36:35 +0000
-Date: Thu, 9 Jul 2026 09:36:29 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783582589;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fpSVJy70b3xqWnZXpAlUFJdEu5JY/bMxQLCNfbP622U=;
-	b=g2iecoGHP1Q35gwzozGqpuJ0N4IBF+7Mb6UtjI//sGz3GDw2QvbFIwzqQxpn8FGVErlS7s
-	omQVYbjmgyDJmhF1MmCJlIHllgyUO01Sr/yBhSgxI73gtjpY4E1vXqhtHTENlpaAPa12sQ
-	COfi9C4/Sj1r2xVrGyKnP9WxPszidYfKAY5LkVWbCCQrazun7IsY1JN+lXSdvSLidQy+zJ
-	JM42AdQNLsIiZHirxAYPzrO+5JXzDJKtydCvmMQjV1j+RrDzi32PI8QdtKB5/Db1jOP9ap
-	STdYW58tGV3g9BcaZaDXSYefwyq4ViT1/8sPNvUgcWKCHxRJXZjUOZPPxh01TQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783582589;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fpSVJy70b3xqWnZXpAlUFJdEu5JY/bMxQLCNfbP622U=;
-	b=aPsm4KX2JqjVkOTd9TekKMBY/H0/KYVBKvaYO+P4E5asdbyGTnkQwhT9fbb+nkBTJB3oUI
-	nJc65qufMiJf3XAQ==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com, 
-	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com, 
-	gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, 
-	svens@linux.ibm.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, hpa@zytor.com, nathan@kernel.org, kees@kernel.org, 
-	xur@google.com, peterz@infradead.org, gourry@gourry.net, 
-	lukas.bulwahn@redhat.com, ryan.roberts@arm.com, yangtiezhu@loongson.cn, 
-	sshegde@linux.ibm.com, mchauras@linux.ibm.com, austin.kim@lge.com, arnd@arndb.de, 
-	jchrist@linux.ibm.com, x86@kernel.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
+	Thu, 09 Jul 2026 07:59:38 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=amF18KHfc8NodmLlIFl9+tYxitLhQeTXu6ioMRTAIhg=;
+	b=DwmhEa4JsZH1zyt75IBFUEkYJMYW+ez6g3GqbaAAdGlvMivx7XQMpEbeY+BIMBJbg82eFYJRv
+	A6w879pWEbnndkDFcInfs1Lz7SgEszZcAusSMg9XCYhmUtHeZlgmbQA/qxsMc6wVD2uKd7y78Pu
+	9gaY7eN4pgIJHOHwJ3k/0pg=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gwnF96JgNzcb0T;
+	Thu,  9 Jul 2026 15:50:21 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id C128A40537;
+	Thu,  9 Jul 2026 15:59:26 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 9 Jul 2026 15:59:22 +0800
+Message-ID: <dfc05f53-6cef-4da2-83c1-6e765ec419fe@huawei.com>
+Date: Thu, 9 Jul 2026 15:59:21 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] syscall_user_dispatch: Introduce
  ARCH_SUPPORTS_SYSCALL_USER_DISPATCH
-Message-ID: <20260709093404-0b19988f-8d19-4fae-86d8-396aa747307d@linutronix.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+CC: <chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.fr>, <hca@linux.ibm.com>, <gor@linux.ibm.com>,
+	<agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>, <svens@linux.ibm.com>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <nathan@kernel.org>,
+	<kees@kernel.org>, <xur@google.com>, <peterz@infradead.org>,
+	<gourry@gourry.net>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<yangtiezhu@loongson.cn>, <sshegde@linux.ibm.com>, <mchauras@linux.ibm.com>,
+	<austin.kim@lge.com>, <arnd@arndb.de>, <jchrist@linux.ibm.com>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>
 References: <20260709072803.3843948-1-ruanjinjie@huawei.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260709072803.3843948-1-ruanjinjie@huawei.com>
+ <20260709093404-0b19988f-8d19-4fae-86d8-396aa747307d@linutronix.de>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709093404-0b19988f-8d19-4fae-86d8-396aa747307d@linutronix.de>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003634_082760_496346F8 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260709_005936_798322_9DD8405E 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,67 +86,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 03:28:03PM +0800, Jinjie Ruan wrote:
-> Currently, only x86 genuinely implements and supports Syscall User
-> Dispatch (SUD). Multiple architectures provide a stub
-> arch_syscall_is_vdso_sigreturn() returning 'false' simply to satisfy
-> GENERIC_ENTRY compilation, which creates a false impression of feature
-> support.
-> =
-
-> Introduce ARCH_SUPPORTS_SYSCALL_USER_DISPATCH to decouple this mechanism
-> from GENERIC_ENTRY. Select it exclusively on x86 and remove the redundant
-> stub functions from other architectures.
-
-Nice, this confused me before.
-
-> Link: https://lore.kernel.org/linux-arm-kernel/akZgV0Y4YAmB43_g@J2N7QTR9R=
-3.cambridge.arm.com/
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Cc: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/Kconfig                         | 1 +
->  arch/loongarch/include/asm/syscall.h | 6 ------
->  arch/powerpc/include/asm/syscall.h   | 5 -----
->  arch/riscv/include/asm/syscall.h     | 5 -----
->  arch/s390/include/asm/syscall.h      | 5 -----
->  arch/x86/Kconfig                     | 1 +
->  6 files changed, 2 insertions(+), 21 deletions(-)
-> =
-
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 0c01521c2f3f..393d0fb75eac 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -116,6 +116,7 @@ config GENERIC_ENTRY
->  =
-
->  config SYSCALL_USER_DISPATCH
->  	bool "Syscall User Dispatch"
-> +	depends on ARCH_SUPPORTS_SYSCALL_USER_DISPATCH
-
-ARCH_SUPPORTS_SYSCALL_USER_DISPATCH is not declared as a config option,
-so the 'select' will not do anything. Needs this:
-
-config ARCH_SUPPORTS_SYSCALL_USER_DISPATCH
-	bool
-
->  	depends on GENERIC_ENTRY
->  	default y
->  	help
-
-(...)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA3LzkvMjAyNiAzOjM2IFBNLCBUaG9tYXMgV2Vpw59zY2h1aCB3cm90ZToKPiBPbiBUaHUs
+IEp1bCAwOSwgMjAyNiBhdCAwMzoyODowM1BNICswODAwLCBKaW5qaWUgUnVhbiB3cm90ZToKPj4g
+Q3VycmVudGx5LCBvbmx5IHg4NiBnZW51aW5lbHkgaW1wbGVtZW50cyBhbmQgc3VwcG9ydHMgU3lz
+Y2FsbCBVc2VyCj4+IERpc3BhdGNoIChTVUQpLiBNdWx0aXBsZSBhcmNoaXRlY3R1cmVzIHByb3Zp
+ZGUgYSBzdHViCj4+IGFyY2hfc3lzY2FsbF9pc192ZHNvX3NpZ3JldHVybigpIHJldHVybmluZyAn
+ZmFsc2UnIHNpbXBseSB0byBzYXRpc2Z5Cj4+IEdFTkVSSUNfRU5UUlkgY29tcGlsYXRpb24sIHdo
+aWNoIGNyZWF0ZXMgYSBmYWxzZSBpbXByZXNzaW9uIG9mIGZlYXR1cmUKPj4gc3VwcG9ydC4KPj4K
+Pj4gSW50cm9kdWNlIEFSQ0hfU1VQUE9SVFNfU1lTQ0FMTF9VU0VSX0RJU1BBVENIIHRvIGRlY291
+cGxlIHRoaXMgbWVjaGFuaXNtCj4+IGZyb20gR0VORVJJQ19FTlRSWS4gU2VsZWN0IGl0IGV4Y2x1
+c2l2ZWx5IG9uIHg4NiBhbmQgcmVtb3ZlIHRoZSByZWR1bmRhbnQKPj4gc3R1YiBmdW5jdGlvbnMg
+ZnJvbSBvdGhlciBhcmNoaXRlY3R1cmVzLgo+IAo+IE5pY2UsIHRoaXMgY29uZnVzZWQgbWUgYmVm
+b3JlLgo+IAo+PiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1hcm0ta2VybmVs
+L2FrWmdWMFk0WUFtQjQzX2dASjJON1FUUjlSMy5jYW1icmlkZ2UuYXJtLmNvbS8KPj4gQ2M6IFRo
+b21hcyBHbGVpeG5lciA8dGdseEBrZXJuZWwub3JnPgo+PiBDYzogTWFyayBSdXRsYW5kIDxtYXJr
+LnJ1dGxhbmRAYXJtLmNvbT4KPj4gQ2M6IEFkYSBDb3VwcmllIERpYXogPGFkYS5jb3VwcmllZGlh
+ekBhcm0uY29tPgo+PiBDYzogVGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxp
+bnV0cm9uaXguZGU+Cj4+IFN1Z2dlc3RlZC1ieTogTWFyayBSdXRsYW5kIDxtYXJrLnJ1dGxhbmRA
+YXJtLmNvbT4KPj4gU2lnbmVkLW9mZi1ieTogSmluamllIFJ1YW4gPHJ1YW5qaW5qaWVAaHVhd2Vp
+LmNvbT4KPj4gLS0tCj4+ICBhcmNoL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgfCAx
+ICsKPj4gIGFyY2gvbG9vbmdhcmNoL2luY2x1ZGUvYXNtL3N5c2NhbGwuaCB8IDYgLS0tLS0tCj4+
+ICBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vc3lzY2FsbC5oICAgfCA1IC0tLS0tCj4+ICBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3N5c2NhbGwuaCAgICAgfCA1IC0tLS0tCj4+ICBhcmNoL3MzOTAv
+aW5jbHVkZS9hc20vc3lzY2FsbC5oICAgICAgfCA1IC0tLS0tCj4+ICBhcmNoL3g4Ni9LY29uZmln
+ICAgICAgICAgICAgICAgICAgICAgfCAxICsKPj4gIDYgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRp
+b25zKCspLCAyMSBkZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvS2NvbmZpZyBi
+L2FyY2gvS2NvbmZpZwo+PiBpbmRleCAwYzAxNTIxYzJmM2YuLjM5M2QwZmI3NWVhYyAxMDA2NDQK
+Pj4gLS0tIGEvYXJjaC9LY29uZmlnCj4+ICsrKyBiL2FyY2gvS2NvbmZpZwo+PiBAQCAtMTE2LDYg
+KzExNiw3IEBAIGNvbmZpZyBHRU5FUklDX0VOVFJZCj4+ICAKPj4gIGNvbmZpZyBTWVNDQUxMX1VT
+RVJfRElTUEFUQ0gKPj4gIAlib29sICJTeXNjYWxsIFVzZXIgRGlzcGF0Y2giCj4+ICsJZGVwZW5k
+cyBvbiBBUkNIX1NVUFBPUlRTX1NZU0NBTExfVVNFUl9ESVNQQVRDSAo+IAo+IEFSQ0hfU1VQUE9S
+VFNfU1lTQ0FMTF9VU0VSX0RJU1BBVENIIGlzIG5vdCBkZWNsYXJlZCBhcyBhIGNvbmZpZyBvcHRp
+b24sCj4gc28gdGhlICdzZWxlY3QnIHdpbGwgbm90IGRvIGFueXRoaW5nLiBOZWVkcyB0aGlzOgo+
+IAo+IGNvbmZpZyBBUkNIX1NVUFBPUlRTX1NZU0NBTExfVVNFUl9ESVNQQVRDSAo+IAlib29sCgpZ
+ZXMsIHRoaXMgaXMgbWlzc2luZyBoZXJlLgo+IAo+PiAgCWRlcGVuZHMgb24gR0VORVJJQ19FTlRS
+WQo+PiAgCWRlZmF1bHQgeQo+PiAgCWhlbHAKPiAKPiAoLi4uKQoKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
