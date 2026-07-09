@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99086C44501
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 20:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17D2C44507
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 20:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sXMq4rsiNs9hCd7JWye6/Zw/9KIADpGMr+E6W3eIcjs=; b=SFMgZt+dCv7UZX
-	khki27c2iaFcii2CIp5Wx8e8R1xRUCKHjCN9w62u+QcZW9LNdpGLB5iA+Tc9MLCQnjRk/BQbj6Jf5
-	e/nv5HM3oByE/EWkSFCEGrjQt5NLKWDy8W95NNBcJ3bbCYMQxcH6KPnj3Z1n5CvrEpJt//NHWW5xV
-	K+wWpoxeb+PSPN4ykW6WCKenFH5Omp+Anqs22Or+hfS+pcQcSVt8/utOTaknSgOAmv2H4thu8zMD2
-	XbEfoL3Lwfkv7G9ISsoiDVifxiVYhdaWrdFSxrIr6L8nIy9h4PK+ehOVZYDFBGrIwMkHeeeGCooCV
-	OqTY5dEikWSbMd2uNxcQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0cMdRgsSUYW4/81lz+jj2DC1oAzokXOVv+D5dgZ4Tq8=; b=hI2h9V3a3z6bIC
+	3xqNBEp05+qpnchQE42nhRM8biF/QWoBBPiUVjQNK1bOX8Ed7fWcFM0JvhErGyA4DMVQfMVrvGcVT
+	Y7VpsFvzcXZHi1oeWcj952WUPnx0EYToaaEDkT5w9kX3/EUOQUa3uz6XV7YJF541PB8GDXKPh4X2L
+	BrucntvbFnWBEzeE5t8Jc6fOU/JcqqHo6D+20QFUTZ7p/fwKNaashwngs6ec7YYbHTejEWNNZtVh8
+	eoa6ODbI8OKy1kqUzA7FvvT0Om8xwKOMk9lnQ+MfDHLS6MtJMQGn9uCblEBRe3pD4IiCldhVCEiJ5
+	ZOkAJmE0P3/4nGX+kYIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whvPI-00000003aWy-30Gd;
+	id 1whvPI-00000003aWH-1nfH;
 	Thu, 09 Jul 2026 20:31:40 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+Received: from mail-westcentralusazon11023136.outbound.protection.outlook.com ([40.93.201.136] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whvPD-00000003aO5-0Pau
+	id 1whvPD-00000003aPq-1Epa
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 20:31:38 +0000
+	Thu, 09 Jul 2026 20:31:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F0/EINbW2PFRHdJ2gK9bPlKcJ5noVrP2qbWJ0zewQiySU4Hp2aV+kR5B3M9tL33x9xqzoF+t3ZBHdE1rTtIGhcQd5nr0nfCHfPyFwVRXtq7TQLsBWFirtvkEx/tTpEO9X81lI7Aija1+zKZu0PC/ogCfGlkPxcnUUsphE1TIwH/9CVKL6YvC0nVm7YHIJfpwUqWQeDHph5M1+BpwLMak9MRrtBowVegYw6/2oYUST8EkwG3F/e1e//uA3sO1hWi/HJbEFh2H5l0D8yrk2m2Uakqe2ZoWrXvT0+6ygmWbyMTn9eF2JO1Hy/D59vk+0YCI/c3ViZsSi0gMqhTJ+QdgtA==
+ b=WpR25NGOEr5fdoXKpxQd+4Ut54KBV7YAzG28Zi3vyPPXpC6UQppc4jtl63/iOb4xInIYNN3Gl+N9ejLsZII9xp/0C8tQWYrUm7bsP56uAcfXAJTLtBpGGOQx8+PNZ4jh4l83YYAv+YRGH84MZIbtFRiqHAX5D31tQVjPtoiFSKxIjoqC/S2zyQ+WiW9wlVE1leuiJI4wSXD3LFhSWQrtYnKA382wg46VT8X6evW5z+5Y5sJsa+B6D+Lj/HuqfYs17MYgyFWAk0cDzdoEQBCmNLS2VRGfHQv8LsP7iHbVH22K34qHbDnbolRdhpWUI/tNHqE0ZT4PdZkCDvd9WUh2FQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qJokKJ6NXURz//PX9o7RexvE9Rsmjs2lVLBugAi8SAQ=;
- b=PAjBe4dEMMr/lMFV1Tuhw7gyqXRmLNHydTcXjxicA+vadsZ6GXz+DVdYpH4aIPVKqwvlVlZqj2aoStIxEh/gm3JlP10CQb/93rcmS/r4zjAlJz3gqmXFYyQh7BKfUxA6f3EY5YbLAlxR9h8bejIEk9SBjTNVLk3pCl5wZXZPLj2EK8bHWacNFvTxhaQG7sz6DQJdz/mTbuST3cYlhIf+F/U0sEROR05ZWWiQttlOi+flnDUQfPhbQDEnWbhnneix6ludhq1PVKUcsXTRF6BDXcXb0gK6L7y3lks/F75n3W9apSTILSK91ugZ9kxrKaHyiZUNXMcDDWGk1WDpJHUXPw==
+ bh=ByeLc5VUpJ2UFHqDjzh1lk+KODqdbPfPoAryXVjPJyc=;
+ b=v3ZHd1WGfo+kZrofORccqpQ6TMUkkakPv2oXvpfYm+9dv8rlHy0HacEMlqrY/Mj4/5jg0HmghHeLqSnY/kW3Mom/XVpQEjysEq7wXYpeOMgqk2KxFWJZe3ldyOQo6Rlfe/JC1o971+dM8obkJM1zBvzsK7gpGP8uRpk+UIWNW1gvWLoGmzdOX2DgIQojm+9FCgYFp2na6q+h4mPDKnVfgW3nzanG6P9bnLBKckqKgQd5/+hXhD755Iww493aTqGYDmQDtf+uITv4717B7ZwwCsMpB3bMf6p67AG2n5zZYW5uS/yxK+S49NmXNVW5go+q7A/ba5/qu0mkRlDWfxv2CA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qJokKJ6NXURz//PX9o7RexvE9Rsmjs2lVLBugAi8SAQ=;
- b=XPWlzXnz7QVKM60LAWG9ISOElOl1MjeAoFcQSvx5Gt3G+y4La3EiSM/IiW/DorDFlwwkHGU53mLtV6QIbMIBNoDAt5slBmXMhQDI6qOpNU5daZqQHnmP48mAz7K3ZDiBUGfY7PRZ7EOLf5H9TJxcH2xBXWJcF6EnqQEWWpmH/eZQmq9BKhiFo88/OsGXQNP47vLXILlWY0lkqQ9nkuNCQHvvv26tdVJ8KC0w13y57K7FaYrPhkGc0j0OAceJGIwTqMSNrh9kZokbhs+iH/UiGd1G0tj2k0BZu0rckmetbwTde67eTa9muAAODHkyjxYMbOsBgoCPrlwQQNd6SvX0Aw==
-Received: from SJ0PR03CA0247.namprd03.prod.outlook.com (2603:10b6:a03:3a0::12)
- by CH3PR04MB9055.namprd04.prod.outlook.com (2603:10b6:610:169::19) with
+ bh=ByeLc5VUpJ2UFHqDjzh1lk+KODqdbPfPoAryXVjPJyc=;
+ b=YlvLhl2xlf5Hh/OLbrfuAwsmd65DKQHLUlkrycqoNQ1fiJdh4kGt3F2CiSadvBek8hj8IUYIN2oh455OYyYv8AlaGz+pkk0sNc2WJo+4/6rmmt7t+Ysy8O34XGm65ozdoeW1UYNJs6XipU9HDCKnWakito1JUW/W0mHPfP3QuFBGiomllhbphdntg7zO79cNOlF+utq0WSTy0tFB6oTrucPxVgaVrfuzuTCfW7pb3eDDUCTKPukU+qh7ykV+pu8rqKoiaQb8P8jitZZryU0CM09sW32XPWAwFcXZp0LxptNMiQXbn1FUM366F+anjogt4cL0HG4BA/mFl2QmKQ2Rmg==
+Received: from LV3P220CA0026.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:234::27)
+ by SJ0PR04MB10223.namprd04.prod.outlook.com (2603:10b6:a03:3e8::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 9 Jul
- 2026 20:31:13 +0000
-Received: from SJ1PEPF00002318.namprd03.prod.outlook.com
- (2603:10b6:a03:3a0:cafe::6f) by SJ0PR03CA0247.outlook.office365.com
- (2603:10b6:a03:3a0::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Thu, 9
- Jul 2026 20:31:11 +0000
+ 2026 20:31:23 +0000
+Received: from BN1PEPF00004682.namprd03.prod.outlook.com
+ (2603:10b6:408:234:cafe::7d) by LV3P220CA0026.outlook.office365.com
+ (2603:10b6:408:234::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.11 via Frontend Transport; Thu, 9
+ Jul 2026 20:31:23 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
  smtp.mailfrom=rambus.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=rambus.com;
@@ -60,12 +60,12 @@ Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
  192.86.86.210 as permitted sender) receiver=protection.outlook.com;
  client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
 Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
- SJ1PEPF00002318.mail.protection.outlook.com (10.167.242.228) with Microsoft
+ BN1PEPF00004682.mail.protection.outlook.com (10.167.243.88) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Thu, 9 Jul 2026 20:31:11 +0000
+ via Frontend Transport; Thu, 9 Jul 2026 20:31:22 +0000
 Received: from hqxsv-cmdev3-skrishnamoorthy.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
-	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id D97201801749;
-	Thu,  9 Jul 2026 20:31:10 +0000 (UTC)
+	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id 18D6B1801762;
+	Thu,  9 Jul 2026 20:31:21 +0000 (UTC)
 From: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alex Ousherovitch <aousherovitch@rambus.com>,
@@ -90,35 +90,37 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	Thi Nguyen <thin@rambus.com>
-Subject: [PATCH v2 00/19] crypto: cmh - add CRI CryptoManager Hub driver
-Date: Thu,  9 Jul 2026 13:30:18 -0700
-Message-ID: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
+Subject: [PATCH v2 11/19] crypto: cmh - add DRBG hwrng
+Date: Thu,  9 Jul 2026 13:30:29 -0700
+Message-ID: <20260709203037.1884436-12-skrishnamoorthy@rambus.com>
 X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
+References: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
 MIME-Version: 1.0
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002318:EE_|CH3PR04MB9055:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93189629-da2d-4801-e994-08deddf903a9
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004682:EE_|SJ0PR04MB10223:EE_
+X-MS-Office365-Filtering-Correlation-Id: b0c9c8cd-3248-4898-4ed9-08deddf90aca
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|82310400026|7416014|36860700016|13003099007|921020|6133799003|11063799006|56012099006|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: g/1uw9hjdSbkpAvZyzAaQ1m/fvAeug2M2WBMja8IrFtHncCRNiGAdYNJupF/I7Cj9jvOK6ejRt+q8iIWj5tnusDhw2WGGShEIMtziCG8sv9mCI2kypt8UkWtMn/Mj4VtzUbZq09EfApPfBpXnaWwjDgdhhWbAvjhrfyyq91dExsKXX6ppHpHOYEm1AGM9AMz+gqrGejoNPXV+RXxxYvy8n05gBi9VYfi92xFzvKImafac6ppoMgIefOdFEKsPdC+dkOuJzIQ+TtAT0oA7kyjQyY88TFJP1b66ljq0Rg08LvF36fa2kNjv4K4UgQWlxs+wYcX8DVzZsRZhZcCjpQvKMAE+EMutuSn2Hm0oujT1SrEb8um6i1OXyqbgquEujehEoN2rsEDMhHFt/wIUUUons7xFem0mePs5w0n4QxCeAZXl67sWu6o7thpUE8GBnConfK30nM4mmeLeDJOOWTLMR26+1ACp+OCTfnm2sRNLyVE8MBA0vdS9n4fyGAAPqgMbf+hhbU7TxUzOKF73VwxGzMwHI6/Wm4ShcuE1QlNMOgx6y5fOS1MKlREgQaD3BSqSJn7O8RBrTORNSbSivcsxgvMUwUtCqRrVehPVCBXdsoQaDXYEP4iPaY2TYIKPCR2DhneFun5pnEPbOu00UPgGfHn4TRO6iY8Z8xkVLkbKBtoYg3+37aOiZff681TtN026oho9GUWMYqqu97isAgWQa9M7din9Ux39xxG3dRn0Ky9cmW8XI6K/e94mTLwE0s/
-X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(82310400026)(7416014)(36860700016)(13003099007)(921020)(6133799003)(11063799006)(56012099006)(18002099003)(3023799007);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|7416014|1800799024|23010399003|3023799007|11063799006|18002099003|56012099006|6133799003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: Z5MZsJMXbmXLLQt0vBknxu2zIJc6gPFaMQIPISgfuyvL3ng8mkUJM/8IE9ij57jC5cFh8KLV3xb8n+fsT6FLHj3SlQFAicsgPjxn+tb9D6URwFah8zkdI5RclwdOPQXzkOKSakWlvlf0U1cumQwSjW4JL28S5KOmK4dV0ILc4osDKIwDyDQXciqrh+yhI0sdXVKHUwjHur6eYsicJsjIUWFyHd/80IAb4wJWl49eoCVxOmc3YH+YjrUguyHIfTy9MMW2WYei50G2dmj0b5Hx6cd3ptqhIGBXojp3xSp6soBRr+XXRmVKhwM+NSVuuf9j3THTqk0TwRHL4kPvsaPfDN1ckeOANXBOFPR14Fbodj7VUd6/AktqDowSadntjpSbYLaiFuzGVt4VFPAb5b//rOZno8kdkQHvZ+ogbXqJPaQMeewaPXm0DO/ZZbDn6HAi8HQQ7G3vyNZlA7zAYBJsa8oOFq50vOOgVdijS4zOHUvUvR5JUb0cl+6t5tMPJEGeVA0+0zt4DGHqz6FIoK3JXbFPRpmG53p9oarcT39oidIWkaCETk2yvpx+UVQQSmjdFVtSgPmC1Sybtva4jsDlHJPMuhq40kWd+odWtFYAy+5XRCkeJ6CRP41+nZvrZ8QvPJBK00lUtdrNHnKXXhhI6g7BLWWLtBFJQFx45rs3APjqHPW76EQOtr/rwgs7dmnHCWwxAFcabG6R+OJz5QZ1VpRpDdIckl5x7c6B3VVQzCWGMTRKl75nxM05ymS/yrSu
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(7416014)(1800799024)(23010399003)(3023799007)(11063799006)(18002099003)(56012099006)(6133799003)(22082099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 7tIaAkCBTXbQR6QJ0S2F3MptOOWZlBpi9KVVr8pmsZuUTcllNc+R52VZiq4RPZ3dY9o1ABcW2XSlkePZIufIo/HY0GrtQfutS3MD8DZwLiEf4Lqx2z4DWHqS6stwM6x5yA4viVnv1z2qxOvOylc6UzyI76ufq4lz2+s68sue/SeiqXmH3wRShgLGCTNcGLibVC69C7wVnJKkFl9ihpkmZfh7V3afmk2+88drdXK8EdpFgQt2akq6LogfBHcFn9YEHwfoNkHHQeRuaKcet1xxTFIEfGKqIlppewNL9Yz4TstypC366hr6fX3jPKIqZpq34azEyrGQe7BsWFyZZXxZOaoA9bW5/wAEIwfHXONYADj5jz0kc4dHcUjqHhf1Wtf2Ihc+JGJeTO5x+1riDGh4P5ezs2jwSLRdgg5Cr5wKfQY3MfjxZ6ZBGoQOh88B+JGs
+X-MS-Exchange-AntiSpam-MessageData-0: EzGMuESpdKy+3ysx+Bz2eAeQlsS4Q6JHrU6L0j1/oWyBVfHDBaloP0a6w0+pElYuGQcJYb7Xlp9Xv93kA7aPXgvyTxXflRHyzWZAU52KWmGT8Z8kDCMkGv37mpivANgI6k2KnkYns2T2Ar852zRu5lBK3KSfADrkKkVOfZq8yY2U0AqN8AmZ54VQaI/OioeWNV4E5wOhm5j6p/Z38HHPjWmgIH+HJ4mvMnoBzSwYsrY4X+V7s9cSKApwL+q7cmwzzAnoL67fE2g8icWcmpO+uHU+TE52PAWHUbxAf3OA3Li7fXWS2po/jjVQqqi33s7nVh3fQcWaRi9JFdByH23vEBFTLo4w9I02e0JlfsD8H/9IsfTML5/gb4w6J3naLG6NI6clwYnCq/B3TDafCY9Kl3Lcr3j61Ok3yURAf16pSGm9KFE62pCnnJf5sbvtg3fn
 X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 20:31:11.0734
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 20:31:22.9004
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93189629-da2d-4801-e994-08deddf903a9
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0c9c8cd-3248-4898-4ed9-08deddf90aca
 X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002318.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004682.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR04MB9055
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB10223
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_133135_388937_FB9FDFD4 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260709_133135_435826_3F4621A8 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,241 +139,402 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Alex Ousherovitch <aousherovitch@rambus.com>
 
-crypto: cmh - add CRI CryptoManager Hub hardware crypto accelerator
+Register the CMH DRBG core (core ID 0x0f) as an hwrng provider.
+The hardware implements a NIST SP 800-90A compliant DRBG with
+automatic self-seeding.
 
-This series adds a driver for the CRI CryptoManager Hub (CMH), a
-hardware cryptographic accelerator IP from Cryptography Research at
-Rambus Inc. (https://www.rambus.com/cryptographyresearch/).
-CMH provides a broad set of symmetric, asymmetric, and post-quantum
-cryptographic algorithms accelerated in hardware, accessed via a
-mailbox-based Virtual Command Queue (VCQ) interface.
+Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
+Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
+Reviewed-by: Thi Nguyen <thin@rambus.com>
+---
+ drivers/crypto/cmh/Makefile   |   3 +-
+ drivers/crypto/cmh/cmh_main.c |   9 +
+ drivers/crypto/cmh/cmh_rng.c  | 316 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 327 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/crypto/cmh/cmh_rng.c
 
-The hardware is a platform device matched via device tree
-(compatible = "cri,cmh").  It exposes a single MMIO register region
-(SIC) with per-mailbox doorbell, status, and command registers.
-Each mailbox has DMA-coherent queue memory for VCQ command
-submission and completion.
-
-Driver architecture:
-
-  In-kernel users                       /dev/cmh_mgmt (ioctl)
-  (dm-crypt, IPsec, kTLS, fscrypt)      (key management)
-       |                                        |
-       v                                        v
-  +----------------------------------------------------+
-  |        Kernel Crypto API + hwrng (72 total)        |
-  |   ahash | skcipher | aead | akcipher | sig | kpp   |
-  +----------------------------------------------------+
-       |                                           |
-       v                                           v
-  +------------------+    +------------------------+
-  | Transaction Mgr  |--->| Key / Mgmt subsystem   |
-  | (kthread, CMQ)   |    | (datastore, ioctl ops) |
-  +------------------+    +------------------------+
-       |
-       v
-  +------------------+     +-------------------+
-  | MQI (VCQ pack,   |---->| Response Handler  |
-  |  DMA map, submit)|     | (threaded IRQ,    |
-  +------------------+     |  watchdog, unmap) |
-       |                   +-------------------+
-       v                          ^
-  +-----------+              +-----------+
-  | Hardware  |--- IRQ ----->| Hardware  |
-  | (mailbox) |              | (mailbox) |
-  +-----------+              +-----------+
-
-The transaction manager runs as a dedicated kthread that pulls
-requests from a central command queue, packs VCQ entries, maps DMA
-buffers, and submits to the least-loaded mailbox.  Completion is
-handled by per-mailbox threaded IRQs.  The driver returns
--EINPROGRESS for async crypto requests and supports the
-CRYPTO_TFM_REQ_MAY_BACKLOG flag for queue-full backpressure.
-
-Registered algorithms (72 total):
-
-  Type       Count  Algorithms
-  ---------  -----  --------------------------------------------------
-  ahash         15  SHA-{224,256,384,512}, SHA3-{224,256,384,512},
-                     SHAKE-{128,256}, cSHAKE-{128,256},
-                     KMAC-{128,256}, SM3
-  ahash(HMAC)    8  HMAC-SHA-{224,256,384,512},
-                     HMAC-SHA3-{224,256,384,512}
-  ahash(MAC)     4  CMAC(AES), CMAC(SM4), XCBC(SM4), Poly1305
-  skcipher      11  AES-{ECB,CBC,CTR,CFB,XTS},
-                     SM4-{ECB,CBC,CTR,CFB,XTS}, ChaCha20
-  aead           6  AES-{GCM,CCM}, SM4-{GCM,CCM},
-                     rfc7539(chacha20,poly1305),
-                     rfc7539esp(chacha20,poly1305)
-  akcipher       1  RSA (2048--4096 bit; 512/1024 legacy/test)
-  sig           23  ECDSA P-{256,384,521}, SM2 (verify-only),
-                     ML-DSA-{44,65,87},
-                     SLH-DSA (12 parameter sets),
-                     LMS, LMS-HSS, XMSS, XMSS-MT
-  kpp            3  ECDH P-{256,384}, X25519
-  hwrng          1  DRBG-backed /dev/hwrng
-
-Ioctl-only algorithms (not registered with the crypto API at all):
-  - EdDSA (Ed25519, Ed448): sign and verify
-  - ML-KEM (ML-KEM-512/768/1024): no standard kernel KEM API exists
-
-The driver also exposes /dev/cmh_mgmt, a misc device providing 44
-ioctl commands.  Relative to the in-kernel crypto API these fall into
-two groups; the distinction matters because some commands name the
-same primitives the driver also registers, and that overlap is
-deliberate and bounded:
-
-(1) Operations with no crypto API representation - the large
-    majority.  The crypto API has no transform type or verb for
-    these, so a character device is the only available UAPI:
-      - hardware key lifecycle: create, import, export, derive,
-        destroy, enumerate (keystore CRUD) - no keystore verb
-      - KIC key derivation (HKDF, AES-CMAC-KDF, DKEK)
-      - asymmetric key generation (RSA, EC, EdDSA, ML-DSA, SLH-DSA)
-        and public-key derivation - the crypto API has no keygen verb
-      - ML-KEM encapsulate/decapsulate - no kernel KEM API exists
-      - SM2 encrypt/decrypt and key exchange (multi-step GM/T 0003)
-      - EdDSA sign/verify - not registered with the crypto API
-      - EAC Chip Authentication and DRBG (re)configuration
-
-(2) Hardware-held-key operations on algorithms that ARE also
-    registered (RSA decrypt, ECDSA/ML-DSA/SLH-DSA sign, ECDH).  These
-    name the same primitives as the registered akcipher/sig/kpp
-    transforms, but the crypto API's set_priv_key()/set_secret()
-    accept only raw key bytes supplied by the caller; they cannot
-    reference a private key that is generated inside, and never
-    leaves, the hardware datastore - the central security property of
-    this device.  The ioctl path keeps the private key
-    hardware-resident, while the registered transforms serve raw-key
-    in-kernel users.  The two paths are complementary, not redundant.
-
-The device requires CAP_SYS_ADMIN.
-
-/dev/cmh_mgmt is built conditionally on CONFIG_CRYPTO_DEV_CMH_MGMT
-(default n); when disabled the ioctl interface is absent while all
-kernel crypto API algorithms remain registered.
-
-The ML-DSA sig algorithms are registered at priority 5001.  The
-kernel's crypto/mldsa.c registers at priority 5000 with verify-only
-(sign returns -EOPNOTSUPP).  Our driver provides full HW-accelerated
-sign + verify, so the higher priority ensures the hardware
-implementation is preferred when the driver is loaded.
-
-Power management uses DEFINE_SIMPLE_DEV_PM_OPS.  On suspend the
-transaction manager drains in-flight requests (configurable 10s
-timeout, returns -ECANCELED on timeout), stops the kthread, and
-masks IRQs.  On resume it re-verifies SIC/boot status and restarts
-the kthread.
-
-Dependencies:
-  - Kernel 7.1+ (based on Herbert Xu's cryptodev-2.6 tree, 7.2.0-rc1)
-  - sig_alg backend (upstream since 6.13)
-  - CRYPTO_AHASH_REQ_VIRT (native support, no fallback needed)
-  - CMH eSW loaded independently by hardware before driver probe
-
-The driver registers all algorithms through the standard in-kernel
-crypto API; in-kernel users (dm-crypt, fscrypt, IPsec, etc.) consume
-them directly.  Key provisioning and hardware-held-key operations are
-exposed to user space via /dev/cmh_mgmt ioctls.
-
-Public hardware documentation:
-  Product brief: https://go.rambus.com/ch-7xx-and-cc-7xx-product-brief
-  No public datasheets are currently available.  The driver was
-  developed against the CRI CryptoManager Hub Hardware Reference
-  Manual (Rambus Inc. confidential).  Detailed hardware reference is
-  available under NDA from Rambus Inc.; contact the maintainers listed
-  in MAINTAINERS for access during review.
-
-Tested on RISC-V and ARM64 QEMU emulation with the CMH hardware
-model (QEMU TCG, 512 MiB RAM).  Also exercised on Xilinx VMK180
-FPGA board with real CMH IP.
-
-  - testmgr: 41 CMH algorithm registrations matched by upstream
-    test vectors, all pass; 30 names report "No test for" (PQC
-    families, KMAC, cSHAKE - no upstream vectors yet).
-  - kselftest tools/testing/selftests/drivers/crypto/cmh:
-    6 pass, 0 fail.
-
-checkpatch.pl --strict: 0 errors, 0 warnings, 0 checks on all
-files (the only output is the expected per-file "does MAINTAINERS
-need updating?" reminder, satisfied by the MAINTAINERS patch).
-sparse (C=2): 0 warnings.
-W=1 -Werror: clean.
-make dt_binding_check: clean (dtschema validates the
-cri,cmh.yaml binding).
-
-Tested with the following debug options enabled simultaneously
-(submit-checklist "Test your code" item 1):
-  CONFIG_PROVE_LOCKING, CONFIG_PROVE_RCU, CONFIG_DEBUG_LOCK_ALLOC,
-  CONFIG_DEBUG_OBJECTS_RCU_HEAD, CONFIG_SLUB_DEBUG,
-  CONFIG_DEBUG_PAGEALLOC, CONFIG_DEBUG_MUTEXES, CONFIG_DEBUG_SPINLOCK,
-  CONFIG_DEBUG_PREEMPT, CONFIG_DEBUG_ATOMIC_SLEEP.
-  Result: no lockdep warnings, no ODEBUG splats, no slab corruption.
-
-Additionally tested (separate passes - mutually exclusive configs):
-  - CONFIG_KASAN + CONFIG_UBSAN + CONFIG_DEBUG_KMEMLEAK + CONFIG_KFENCE:
-    no sanitizer findings; KMEMLEAK scan reports 0 unreferenced objects.
-  - CONFIG_KCSAN (arm64; riscv64 lacks HAVE_ARCH_KCSAN):
-    0 data-race reports attributed to the driver.
-
-Stack usage: worst-case under 1 KB on both riscv64 and arm64
-(scripts/checkstack.pl).  Hardware command buffers live in
-per-request context (heap-allocated by the crypto framework).
-
-Alex Ousherovitch (19):
-  dt-bindings: crypto: add Rambus CryptoManager Hub
-  crypto: cmh - add core platform driver
-  crypto: cmh - add key provisioning and management
-  crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
-  crypto: cmh - add HMAC ahash
-  crypto: cmh - add CSHAKE/KMAC ahash
-  crypto: cmh - add SM3 ahash
-  crypto: cmh - add AES skcipher/aead/cmac
-  crypto: cmh - add SM4 skcipher/aead/cmac/xcbc
-  crypto: cmh - add ChaCha20-Poly1305
-  crypto: cmh - add DRBG hwrng
-  crypto: cmh - add RSA akcipher
-  crypto: cmh - add ECDSA/SM2 sig
-  crypto: cmh - add ECDH/X25519 kpp
-  crypto: cmh - add ML-KEM/ML-DSA (QSE)
-  crypto: cmh - add SLH-DSA/LMS/XMSS (HCQ)
-  Documentation: ioctl: add CMH ioctl documentation and register 'J'
-  selftests: crypto: cmh - add kselftest for management ioctl
-  MAINTAINERS: add Rambus CryptoManager Hub (CMH)
-
-Changes in v2:
- - crypto: cmh: wait for both eSW readiness bits at probe. The probe
-   readiness gate polled SW_BOOT_STATUS for MISSION (bit 6, primary
-   VCQ engine) only, but the sidecar engine signals readiness
-   separately via MISSION2 (bit 7), asserted asynchronously. Gate on
-   both bits so an operation offloaded to the sidecar cannot race an
-   engine that is not yet up.
- - crypto: cmh: compute cmac(sm4) of a zero-length message in software.
-   The SM4 core mishandles an empty CMAC input, so -- exactly like the
-   existing xcbc(sm4) empty-message path, and per NIST SP 800-38B -- the
-   driver now derives the K2 subkey and computes the tag with a software
-   cipher. Surfaced by the testmgr fuzz comparison against the generic
-   cmac(sm4); no change for non-empty messages.
- - Documentation: link cmh_mgmt.rst into the userspace-api/ioctl index
-   toctree, fixing a "document isn't included in any toctree" htmldocs
-   warning reported on the v1 posting of patch 17.
- - crypto: cmh: carry the XTS block offset (xts_offset) inline in the
-   AES INIT command, matching the updated CMH hardware ABI that
-   retired the separate XTS_OFFSET command. Always 0 on the skcipher
-   path (data units start at block 0); no functional change.
- - MAINTAINERS: drop the internal moderated list (sipsupport@rambus.com)
-   and the T: tree line from the CMH entry, per review. The driver
-   goes through the crypto tree, so keep only linux-crypto@vger.kernel.org
-   and no T: line.
- - Rebased onto current cryptodev-2.6 (v7.2-rc1); no code changes were
-   required (the merge window touches none of the crypto APIs the driver
-   uses).
-
-v1: https://lore.kernel.org/linux-crypto/20260625173328.1140487-1-skrishnamoorthy@rambus.com/
-
-base-commit: e264401ce4776a288524e5b87593d4d864147115
+diff --git a/drivers/crypto/cmh/Makefile b/drivers/crypto/cmh/Makefile
+index 4ebd0e1d10bc..1c4cb817424c 100644
+--- a/drivers/crypto/cmh/Makefile
++++ b/drivers/crypto/cmh/Makefile
+@@ -28,7 +28,8 @@ cmh-y := \
+ 	cmh_sm4_cmac.o \
+ 	cmh_ccp.o \
+ 	cmh_ccp_aead.o \
+-	cmh_ccp_poly.o
++	cmh_ccp_poly.o \
++	cmh_rng.o
+ 
+ # Management ioctl device (/dev/cmh_mgmt): key lifecycle, PKE, PQC ioctls.
+ cmh-$(CONFIG_CRYPTO_DEV_CMH_MGMT) += \
+diff --git a/drivers/crypto/cmh/cmh_main.c b/drivers/crypto/cmh/cmh_main.c
+index e5b2a86c3149..40440e2b73b4 100644
+--- a/drivers/crypto/cmh/cmh_main.c
++++ b/drivers/crypto/cmh/cmh_main.c
+@@ -34,6 +34,7 @@
+ #include "cmh_cshake.h"
+ #include "cmh_kmac.h"
+ #include "cmh_sm3.h"
++#include "cmh_rng.h"
+ #include "cmh_aes.h"
+ #include "cmh_sm4.h"
+ #include "cmh_ccp.h"
+@@ -230,6 +231,11 @@ static int cmh_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_sm3_register;
+ 
++	/* Register hwrng backed by DRBG core */
++	ret = cmh_rng_register(pdev);
++	if (ret)
++		goto err_rng_register;
++
+ 	/* Register AES skcipher algorithms */
+ 	ret = cmh_aes_register();
+ 	if (ret)
+@@ -305,6 +311,8 @@ static int cmh_probe(struct platform_device *pdev)
+ err_aes_aead_register:
+ 	cmh_aes_unregister();
+ err_aes_register:
++	cmh_rng_unregister();
++err_rng_register:
+ 	cmh_sm3_unregister();
+ err_sm3_register:
+ 	cmh_kmac_unregister();
+@@ -350,6 +358,7 @@ static void cmh_remove(struct platform_device *pdev)
+ 	cmh_aes_cmac_unregister();
+ 	cmh_aes_aead_unregister();
+ 	cmh_aes_unregister();
++	cmh_rng_unregister();
+ 	cmh_sm3_unregister();
+ 	cmh_kmac_unregister();
+ 	cmh_cshake_unregister();
+diff --git a/drivers/crypto/cmh/cmh_rng.c b/drivers/crypto/cmh/cmh_rng.c
+new file mode 100644
+index 000000000000..c9693f6cc360
+--- /dev/null
++++ b/drivers/crypto/cmh/cmh_rng.c
+@@ -0,0 +1,316 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
++ * CMH LKM -- Hardware RNG (DRBG) Driver
++ *
++ * Implements a Linux hwrng backed by the CMH DRBG core.  Each .read()
++ * builds a 3-entry VCQ (header + GENERATE + FLUSH) and submits it
++ * synchronously through the Transaction Manager.
++ *
++ * DRBG configuration (CONFIG) is a management-host operation in the
++ * CMH security model.  The driver's behaviour is controlled by the
++ * drbg_config setting (debug-only module parameter):
++ *
++ *   "auto" (default) -- attempt CONFIG at probe with the hardcoded
++ *     ratio/strength defaults.  Succeeds in stateless mode (any host may
++ *     CONFIG) or when this host is the management host in stateful
++ *     mode.  On -EPERM the driver logs a notice and continues --
++ *     GENERATE will work once the management host configures the DRBG.
++ *
++ *   "skip" -- do not issue CONFIG; assume an external management host
++ *     will configure the DRBG.  hwrng is still registered; .read()
++ *     returns -EAGAIN until GENERATE succeeds.
++ *
++ * The management host (or any privileged user-space process) can also
++ * reconfigure the DRBG at runtime via CMH_IOCTL_DRBG_CONFIG.
++ */
++
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/hw_random.h>
++#include <linux/slab.h>
++#include <linux/platform_device.h>
++
++#include "cmh_rng.h"
++#include "cmh_vcq.h"
++#include "cmh_txn.h"
++#include "cmh_dma.h"
++#include "cmh_sys.h"
++#include "cmh_config.h"
++
++/* VCQ layout for .read(): header + GENERATE + FLUSH = 3 entries. */
++#define DRBG_READ_VCQ_CMDS	3
++
++/* VCQ layout for CONFIG: header + RESET + CONFIG + FLUSH = 4 entries. */
++#define DRBG_CONFIG_VCQ_CMDS	4
++
++/*
++ * Linux hwrng quality is expressed in bits of entropy per 1024 bits of
++ * input.  The kernel clamps to this maximum; mirror it here so our
++ * MODULE_PARM_DESC and clamp logic stay in sync.
++ */
++#define CMH_HWRNG_QUALITY_MAX	1024
++
++/* Module parameters */
++
++static int hwrng_quality;
++module_param(hwrng_quality, int, 0444);
++MODULE_PARM_DESC(hwrng_quality,
++		 "hwrng quality (0=no CRNG seeding, 1-1024=enable; default: 0)");
++
++#ifdef CONFIG_CRYPTO_DEV_CMH_DEBUG
++static char *drbg_config = "auto";
++module_param(drbg_config, charp, 0444);
++MODULE_PARM_DESC(drbg_config,
++		 "[debug] DRBG config at probe: \"auto\"=attempt CONFIG, \"skip\"=assume external (default: auto)");
++#else
++static const char *drbg_config = "auto";
++#endif
++
++/*
++ * DRBG parameters -- hardcoded to production defaults.
++ * Entropy ratio 0 = 1:1 (full entropy), security strength 0x10 = 256-bit.
++ */
++#define CMH_DRBG_ENTROPY_RATIO		0
++#define CMH_DRBG_SECURITY_STRENGTH	0x10
++
++static unsigned int drbg_timeout_ms = 500;
++
++/* VCQ Builders */
++
++static void vcq_add_drbg_generate(struct vcq_cmd *slot, u64 dst_phys, u32 len)
++{
++	memset(slot, 0, sizeof(*slot));
++	slot->magic = VCQ_CMD_MAGIC;
++	slot->id = VCQ_CMD_ID(CORE_ID_DRBG, 0, 1, DRBG_CMD_GENERATE);
++	slot->hwc.drbg.cmd_generate.dst = dst_phys;
++	slot->hwc.drbg.cmd_generate.len = len;
++}
++
++/*
++ * Maximum bytes per DRBG GENERATE request.  The kernel calls .read()
++ * repeatedly to fill larger requests, so capping here is safe.
++ * 32 bytes matches the 256-bit security strength natural output size.
++ */
++#define CMH_DRBG_MAX_GENERATE	32U
++
++/* hwrng .read() callback */
++
++static int cmh_rng_read(struct hwrng *rng, void *data, size_t max, bool wait)
++{
++	struct cmh_dma_orphan *orphan;
++	struct vcq_cmd vcq[DRBG_READ_VCQ_CMDS];
++	dma_addr_t dma_addr;
++	void *dmabuf;
++	size_t nbytes;
++	int ret;
++
++	if (max == 0)
++		return 0;
++
++	/*
++	 * Our path uses GFP_KERNEL allocations and synchronous VCQ
++	 * submission -- both may sleep.  When the caller indicates
++	 * non-blocking context (!wait), return 0 ("no data yet") so
++	 * the hwrng core retries later.
++	 */
++	if (!wait)
++		return 0;
++
++	nbytes = min_t(size_t, max, CMH_DRBG_MAX_GENERATE);
++
++	orphan = kmalloc_obj(*orphan, GFP_KERNEL);
++	if (!orphan)
++		return -ENOMEM;
++
++	dmabuf = kmalloc(nbytes, GFP_KERNEL);
++	if (!dmabuf) {
++		kfree(orphan);
++		return -ENOMEM;
++	}
++
++	dma_addr = cmh_dma_map_single(dmabuf, nbytes, DMA_FROM_DEVICE);
++	if (cmh_dma_map_error(dma_addr)) {
++		kfree(dmabuf);
++		kfree(orphan);
++		return -ENOMEM;
++	}
++
++	orphan->buf  = dmabuf;
++	orphan->addr = dma_addr;
++	orphan->len  = nbytes;
++	orphan->dir  = DMA_FROM_DEVICE;
++
++	vcq_set_header(&vcq[0], DRBG_READ_VCQ_CMDS);
++	vcq_add_drbg_generate(&vcq[1], dma_addr, nbytes);
++	vcq_add_flush(&vcq[2], CORE_ID_DRBG);
++
++	/*
++	 * Use the noabort variant: if the MBX is occupied by a slow
++	 * operation (e.g. SLH-DSA sign at 120 s), we must not issue
++	 * MBX_COMMAND_ABORT -- that would kill the unrelated in-flight
++	 * VCQ.  On timeout with an in-flight VCQ (-EINPROGRESS), the
++	 * orphan callback defers DMA cleanup until the RH fires.
++	 */
++	ret = cmh_tm_submit_sync_noabort(vcq, DRBG_READ_VCQ_CMDS, 1,
++					 msecs_to_jiffies(drbg_timeout_ms),
++					 cmh_dma_orphan_free, orphan);
++	if (ret == -EINPROGRESS) {
++		/* Orphan callback owns dmabuf -- will free on VCQ completion */
++		return -EAGAIN;
++	}
++
++	/* Normal path or cancelled-from-queue: caller owns DMA */
++	cmh_dma_unmap_single(dma_addr, nbytes, DMA_FROM_DEVICE);
++	kfree(orphan);
++
++	if (ret) {
++		/*
++		 * Only translate known transient conditions to -EAGAIN
++		 * so the hwrng subsystem retries later.  Propagate
++		 * unexpected failures unchanged to avoid masking real
++		 * faults and causing indefinite retry loops.
++		 */
++		switch (ret) {
++		case -EAGAIN:
++		case -EBUSY:
++		case -ETIMEDOUT:
++		case -EIO:
++		/*
++		 * -ENODEV: the TM is not running -- occurs when the
++		 * hwrng kthread (PF_NOFREEZE, not frozen during
++		 * suspend) calls .read() while the device is suspended.
++		 * Treat as transient: the TM restarts on resume.
++		 */
++		case -ENODEV:
++			dev_dbg_ratelimited(cmh_dev(),
++					    "rng: transient DRBG failure (rc=%d)\n",
++					    ret);
++			kfree(dmabuf);
++			return -EAGAIN;
++		default:
++			dev_err_ratelimited(cmh_dev(),
++					    "rng: DRBG generate failed (rc=%d)\n",
++					    ret);
++			kfree(dmabuf);
++			return ret;
++		}
++	}
++
++	memcpy(data, dmabuf, nbytes);
++	kfree(dmabuf);
++
++	return nbytes;
++}
++
++/* Registration */
++
++static bool cmh_rng_registered;
++
++static struct hwrng cmh_hwrng = {
++	.name = "cri-cmh-drbg",
++	.read = cmh_rng_read,
++};
++
++/**
++ * cmh_rng_register() - Register the CMH hardware RNG device
++ * @pdev: Platform device for the CMH accelerator
++ *
++ * Reads hwrng quality from device tree and module parameters, validates
++ * DRBG configuration, optionally sends a DRBG CONFIG VCQ to firmware,
++ * and registers the hwrng device with the kernel hwrng framework.
++ *
++ * Return: 0 on success, negative errno on failure.
++ */
++int cmh_rng_register(struct platform_device *pdev)
++{
++	int ret;
++
++	cmh_hwrng.quality = hwrng_quality;
++
++	if (cmh_hwrng.quality > CMH_HWRNG_QUALITY_MAX)
++		cmh_hwrng.quality = CMH_HWRNG_QUALITY_MAX;
++
++	/*
++	 * DRBG CONFIG is a management-host operation.  In "auto" mode,
++	 * attempt it -- this succeeds in stateless mode (any host) or
++	 * when we are the management host in stateful mode.  On -EPERM
++	 * (not management host) we continue without error -- GENERATE
++	 * will work once the management host configures the DRBG.
++	 *
++	 * In "skip" mode, do not issue CONFIG -- assume the management
++	 * host has already configured (or will configure) the DRBG.
++	 */
++	if (strcmp(drbg_config, "skip") != 0) {
++		struct vcq_cmd cfg_vcq[DRBG_CONFIG_VCQ_CMDS];
++
++		if (strcmp(drbg_config, "auto") != 0)
++			dev_warn(&pdev->dev,
++				 "rng: unrecognized drbg_config=\"%s\", treating as \"auto\"\n",
++				 drbg_config);
++
++		vcq_set_header(&cfg_vcq[0], DRBG_CONFIG_VCQ_CMDS);
++		vcq_add_drbg_reset(&cfg_vcq[1]);
++		vcq_add_drbg_config(&cfg_vcq[2], CMH_DRBG_ENTROPY_RATIO,
++				    CMH_DRBG_SECURITY_STRENGTH);
++		vcq_add_flush(&cfg_vcq[3], CORE_ID_DRBG);
++		ret = cmh_tm_submit_sync(cfg_vcq, DRBG_CONFIG_VCQ_CMDS, 1);
++		if (ret == -EPERM)
++			dev_notice(&pdev->dev,
++				   "rng: DRBG config not permitted (not management host); assuming external configuration\n");
++		else if (ret)
++			dev_warn(&pdev->dev,
++				 "rng: DRBG config failed (rc=%d)\n", ret);
++		else
++			dev_info(&pdev->dev,
++				 "rng: DRBG configured (ratio=%u strength=0x%02x)\n",
++				 CMH_DRBG_ENTROPY_RATIO,
++				 CMH_DRBG_SECURITY_STRENGTH);
++	} else {
++		dev_info(&pdev->dev,
++			 "rng: DRBG config skipped (drbg_config=skip); assuming external configuration\n");
++	}
++
++	ret = hwrng_register(&cmh_hwrng);
++	if (ret) {
++		dev_err(&pdev->dev, "rng: hwrng_register failed (rc=%d)\n",
++			ret);
++		return ret;
++	}
++
++	dev_info(&pdev->dev,
++		 "rng: registered cri-cmh-drbg (quality=%d timeout=%ums)\n",
++		 cmh_hwrng.quality, drbg_timeout_ms);
++
++	cmh_rng_registered = true;
++	return 0;
++}
++
++/**
++ * cmh_rng_unregister() - Unregister the CMH hardware RNG device
++ *
++ * Unregisters the hwrng device from the kernel hwrng framework if it
++ * was previously registered.
++ */
++void cmh_rng_unregister(void)
++{
++	if (!cmh_rng_registered)
++		return;
++	hwrng_unregister(&cmh_hwrng);
++	cmh_rng_registered = false;
++	dev_info(cmh_dev(), "rng: unregistered cri-cmh-drbg\n");
++}
++
++/* -- debugfs timeout accessor ------------------------------------------ */
++
++#ifdef CONFIG_CRYPTO_DEV_CMH_DEBUG
++/**
++ * cmh_rng_timeout_drbg_ptr() - Return pointer to drbg_timeout_ms for debugfs
++ *
++ * Exposes the DRBG operation timeout for runtime tuning via debugfs
++ * config/ directory.
++ *
++ * Return: pointer to the static drbg_timeout_ms variable.
++ */
++unsigned int *cmh_rng_timeout_drbg_ptr(void) { return &drbg_timeout_ms; }
++#endif
 -- 
 2.43.7
+
 
 _______________________________________________
 linux-riscv mailing list
