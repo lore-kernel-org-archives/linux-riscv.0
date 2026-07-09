@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2631FC44501
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 15:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0180C43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 16:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lJheNk6ByIWnOjyPYzBgKQrFNmWcHPhWCaZYQMk/7ao=; b=reIo30BhiTcShp
-	4y/s9O9wiR2j4SUdEtB7tC5xeVRsd57cE+j9vNMdFazutmgEHEHJl2gixu50Of6Q8OuaZOl1Sc0Ai
-	CoZJlFgoqvSKEFro/YjfCjAU3dhRYO8UQ2YmxOADmVRhywCJzYvZGV+4FWIbetzix/kYyFFeprq21
-	hdKuwpOfCwtQwsvw+hMiMs1nx172heHvjcYsIoIxDVU1x5q8rm249IeynGNHdI8cTE5NIl47OJU6c
-	oWbY1zsZsgcMmNWAHuBTAZ/AIU79/8x41mZ9yNKhuULahzvllMiWpPQrV8yO6aKaQ96QJffrXF1S6
-	Jnr6WPFvOCtxFCo9Qk8w==;
+	List-Owner; bh=JTyoX4mx57RNQFn1JBuK2uBwcK272Iy+v2qKfLUOnCc=; b=TNtE0Gg213fV9h
+	5x+EMGzFUTi0Mbrcl9DV49zfmgc++J8rDyPBYRc9uU+7IWRdEUQzVn3LpBzqK6RcXhorXeVyzyCy1
+	VfjwpDJTAXMNrrha5Ayi7DWupAbXm19S+8yV9nj89JRjSaSQG64kbDNessSI6eYtygAdugXiIPUZ/
+	TZidUD4iNARQT8kU0uYXbGillgCHTjUHO5J5MESNby1m3UkXVXR/dpbxYRfzxcq8FCBVFmnvin97P
+	LNveNS2osOtZqIln/VnXxmdqR0NDdX/mccq8yTAZI9ipEu05QvT3jFrHMN7xOZf3FhDbS5XF4EWwj
+	P+oHlFC0r9eygn+8vzYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqNv-00000002shN-0ThF;
-	Thu, 09 Jul 2026 15:09:55 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1whrVq-000000031c1-1wMm;
+	Thu, 09 Jul 2026 16:22:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqNr-00000002sg2-3j1e
-	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 15:09:54 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gwyzc3bNlzKHMKr
-	for <linux-riscv@lists.infradead.org>; Thu,  9 Jul 2026 23:09:16 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 414A3406C5
-	for <linux-riscv@lists.infradead.org>; Thu,  9 Jul 2026 23:09:39 +0800 (CST)
-Received: from [10.67.110.68] (unknown [10.67.110.68])
-	by APP2 (Coremail) with UTF8SMTPA id Syh0CgBnTCixuU9qsKCDAg--.2779S2;
-	Thu, 09 Jul 2026 23:09:39 +0800 (CST)
-Message-ID: <fc972c33-1b66-4979-97e9-71627fb6179f@huaweicloud.com>
-Date: Thu, 9 Jul 2026 23:09:37 +0800
+	id 1whrVo-000000031ba-0NlY;
+	Thu, 09 Jul 2026 16:22:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EECAA600C3;
+	Thu,  9 Jul 2026 16:22:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B0FB1F000E9;
+	Thu,  9 Jul 2026 16:22:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783614126;
+	bh=E3GKiVGCG/M7FltpcGzY43WO5HnNe5q++QmCFGBnpG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=S/Uien6vGeymdukHshCIRbD/qQirZnmNv1fkPyrZGO6+K+ckkFdEYSDwlnKFpi2BF
+	 tuyJKBhR0dyYdYiHulLx/LgusylN0RPtbaGzeJM/aCdOjZzg650pi7YEBbg+JGqSHR
+	 64dXPeQbq2evJa22r52hBC05ICSGISNW2xikw530YpQ+nCbruCjZdneQ5mim5aCUCw
+	 Xf0AYTbfJ+wFGM1bNULmUZblGmQ7iYYE8zwgMJIETdC1+LLXgejWycDXueD9QUnxdI
+	 F83JV94XXQwp5V/iZ2sAm+8m4as7p5Y/PmHH5g0nCXnFS05/jmhxEmyZJZGFezfdfB
+	 UQzRtgW6GQfPA==
+Date: Thu, 9 Jul 2026 09:22:06 -0700
+From: Kees Cook <kees@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Guo Ren <guoren@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Helge Deller <deller@gmx.de>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Richard Weinberger <richard@nod.at>,
+	Chris Zankel <chris@zankel.net>,
+	linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Huacai Chen <chenhuacai@kernel.org>,
+	loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	x86@kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	Brian Cain <bcain@kernel.org>, Michal Simek <monstr@monstr.eu>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>,
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Subject: Re: [patch 11/18] seccomp, treewide: Rename and convert
+ __secure_computing() to return boolean
+Message-ID: <202607090921.ABE4BB4A@keescook>
+References: <20260707181957.433213175@kernel.org>
+ <20260707190254.230735780@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v6 6/7] riscv, bpf: Mixing bpf2bpf and tailcalls
-Content-Language: en-US
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: bot+bpf-ci@kernel.org, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com,
- martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
- john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
- haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org, pjw@kernel.org,
- palmer@dabbelt.com, alex@ghiti.fr, pulehui@huawei.com,
- martin.lau@kernel.org, clm@meta.com, ihor.solodrai@linux.dev
-References: <20260708064436.2971933-7-pulehui@huaweicloud.com>
- <a721df30ec2f824295000183c8e91f2c19d0bd56ae115b835b402be9eacc1c71@mail.kernel.org>
- <b4aadfde-9745-4c71-8dd4-ce433331f91b@huaweicloud.com>
- <CAJ+HfNi_icVbeB=jw-xnXrwzigZwP2OVRbzaF3VC87i6fDpdDw@mail.gmail.com>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <CAJ+HfNi_icVbeB=jw-xnXrwzigZwP2OVRbzaF3VC87i6fDpdDw@mail.gmail.com>
-X-CM-TRANSID: Syh0CgBnTCixuU9qsKCDAg--.2779S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZF48GrWkAF4xJrW7Kry3Jwb_yoW8ZF4UpF
-	yruasrKFWkJFn2k3W7JF48Can0yrsxJ3yUGF1rJrnxA3s8Crn0gFW7G39Y9FyDursYkFy0
-	9a1jgw45Jwn5A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIa
-	0PDUUUU
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_080952_281983_FE71A7F9 
-X-CRM114-Status: GOOD (  15.67  )
+Content-Disposition: inline
+In-Reply-To: <20260707190254.230735780@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +100,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjYvNy85IDE5OjM3LCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IFNvcnJ5IGZvciB0aGUg
-ZGVsYXkgaGVyZSAtLSB0aGUgYm90IGhhZCBtZSB0aGlua2luZyBhIGJpdC4KPiAKPiBPbiBXZWQs
-IDggSnVsIDIwMjYgYXQgMTA6NTQsIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4g
-d3JvdGU6Cj4gCj4gLi4uCj4gCj4+PiBUaGlzIGFzc3VtZXMgYSBmaXhlZCBudW1iZXIgb2YgaW5z
-dHJ1Y3Rpb25zIGJlZm9yZSB0aGUgdGFpbGNhbGwgZW50cnkKPj4+IHBvaW50LiBXaGVuIGlzX3N1
-YnByb2cgaXMgdHJ1ZSwgdGhlIHJ2X2FkZGkoKSBpbnN0cnVjdGlvbiBpcyBub3QgZW1pdHRlZCwK
-Pj4+IHdoaWNoIG1lYW5zIHRoZSB0YWlsY2FsbCBlbnRyeSBwb2ludCBtb3ZlcyBmb3J3YXJkIGJ5
-IDQgYnl0ZXMgcmVsYXRpdmUgdG8KPj4+IHdoZXJlIFJWX1RBSUxDQUxMX09GRlNFVCBleHBlY3Rz
-IGl0IHRvIGJlLgo+Pj4KPj4+IFRoZSB0YWlsY2FsbCBlbnRyeSBpcyB1c2VkIGluIGVtaXRfYnBm
-X3RhaWxfY2FsbCgpIHdoZW4gY2FsY3VsYXRpbmcgdGhlCj4+PiBqdW1wIHRhcmdldCBmb3IgdGhl
-IHRhaWwgY2FsbC4gSWYgUlZfVEFJTENBTExfT0ZGU0VUIGRvZXNuJ3QgYWNjb3VudCBmb3IKPj4+
-IHRoZSBjb25kaXRpb25hbCBlbWlzc2lvbiwgY291bGQgdGhpcyBjYXVzZSB0aGUgd3JvbmcgZW50
-cnkgcG9pbnQgdG8gYmUKPj4+IHVzZWQgd2hlbiB0YWlsIGNhbGxpbmcgaW50byBzdWJwcm9ncmFt
-cz8KPj4KPj4gVGhpcyBpcyBub3QgYW4gaXNzdWUsIHN1YnByb2cgY2FuIG5vdCBiZSB0aGUgdGFp
-bGNhbGwgY2FsbGVlLgo+IAo+IFNheSwgdGhhdCB3ZSBoYXZlIGFuIGVudHJ5IGZ1bmN0aW9uIHRo
-YXQgZG9lcyBicGZfZm9yX2VhY2hfbWFwX2FycmF5KCkKPiBpbnRvIGEgY2FsbGJhY2sgY2IoKS4g
-Y2IoKSBpcyBhIHN1YnByb2dyYW0sIHNvIG5vIGluaXQgb2YgVENDLiBOb3csCj4gY2IoKSBjYWxs
-cyBhbm90aGVyIHN1YnByb2dyYW0gdGhhdCBkb2VzIGEgdGFpbGNhbGwuCj4gCj4gVGhlIGNhbGxi
-YWNrIHRvIGNiKCkgaXMgY29taW5nIGZyb20gdGhlIGtlcm5lbCwgc28gYTYgY291bGQgaGF2ZSBi
-ZWVuCj4gY2xvYmJlcmVkLCBubz8gV2UncmUgZW50ZXJpbmcgYSBzdWJwcm9ncmFtIGNvbWluZyBm
-cm9tIHRoZSBDIEFCSS4gTm93LAo+IGlmIHRoZSBjYWxsYmFjayBjYWxscyBhIHN1YnByb2cgdGhh
-dCdzIHRhaWwtY2FsbCByZWFjaGFibGUsIHRoZSBUQ0MKPiBjYW4gYmUgZ2FyYmFnZT8KClNhc2hp
-a28gcmVwb3J0ZWQgdGhlIHNhbWUgaXNzdWUgeWVzdGVyZGF5LiBJIHZlcmlmaWVkIHRoYXQgdGhl
-IHZlcmlmaWVyIApyZWplY3RzIGNhc2VzIHdoZXJlIGEgdGFpbCBjYWxsIGlzIGludm9rZWQgd2l0
-aGluIGEgY2FsbGJhY2s7IApzcGVjaWZpY2FsbHksIHdoaWxlIHRoZSBjYWxsYmFjaydzIHJldHVy
-biB2YWx1ZSByYW5nZSBpcyBbMCwgMV0sIHRoZSAKc2ltdWxhdGlvbiBvZiB0aGUgZXhpdCBwYXRo
-IGluIGBjaGVja19oZWxwZXJfY2FsbGAgKGhhbmRsaW5nIHRoZSB0YWlsIApjYWxsIGhlbHBlcikg
-bWFya3MgUjAgYXMgVU5LTk9XTiwgY2F1c2luZyB0aGUgdmVyaWZpZXIgdG8gcmVqZWN0IGl04oCU
-c28gSSAKZGlkbid0IGludmVzdGlnYXRlIGZ1cnRoZXIuIEhvd2V2ZXIsIEkganVzdCB2ZXJpZmll
-ZCB0aGF0IHRoZSB2ZXJpZmllciAKKmRvZXMqIGFjY2VwdCB0aGUgc2NlbmFyaW8gd2hlcmUgYSBj
-YWxsYmFjayBjYWxscyBhIHN1YnByb2dyYW0sIGFuZCB0aGF0IApzdWJwcm9ncmFtIHN1YnNlcXVl
-bnRseSBjYWxscyBhIHRhaWwgY2FsbC4gSSBiZWxpZXZlIHRoaXMgc2NlbmFyaW8gb3VnaHQgCnRv
-IGJlIHJlamVjdGVkOyBwZXJoYXBzIHNvbWUgY2hhbmdlcyBhcmUgbmVlZGVkIGluIHRoZSB2ZXJp
-ZmllciwgCm90aGVyd2lzZSB0YWlsIGNhbGxzIG9uIG90aGVyIGFyY2hpdGVjdHVyZXMgKGxpa2Ug
-eDg2KSB3b3VsZCBhbHNvIGJlIApzdXNjZXB0aWJsZSB0byBpbmZpbml0ZSBsb29wIGlzc3Vlcy4K
-Cj4gCj4gCj4gQmrDtnJuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+On Tue, Jul 07, 2026 at 09:06:40PM +0200, Thomas Gleixner wrote:
+> From: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> The return value of __secure_computing() currently uses 0 to indicate
+> that a system call should be allowed, and -1 to indicate that it should
+> be blocked/killed. This 0/-1 pattern is non-intuitive for a security
+> check function and makes the control flow at the call sites less readable.
+
+Conceptually, I'm good with this. Just make sure that the
+tools/testing/selftests/seccomp/seccomp_bpf tests still passes. :)
+
+-- 
+Kees Cook
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
