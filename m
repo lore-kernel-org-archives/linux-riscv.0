@@ -4,122 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B76C44501
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 19:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593CCC43458
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 19:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FhAyVAqQut04nQbFQydLXqJgSv0zjxZVyStnZ2Lw9ls=; b=cbk59hR+UfXK9o
-	5B9QXeOHHMB5XmHAkmpp/M0jixizIOi0lLd+TmkbaDaVmEPf98q/6PWL74tktTx9CUoz3hp5Dthby
-	qqrtqwnEf7/LY4K3jCkDqf6dgJR1cg3yPe7x/YHYOuHgoAuqarAMM9ey69PfcJPeZbS2o5SrL076E
-	ERMZigACjPakDAr0khh5unbBpeL95qALy0oLxGdXGb17kF8QoJpLfbxJEL3svToojljlGbfoE1/dX
-	07QWkEmbbc4UCFcTNcu1MlnDn29hJTHbP1lZ4Ch+j/uQahq1nmHDs2QliJs/4cL4++rReoe6e4awz
-	0XEj2XYzYeakhKmEpGTw==;
+	List-Owner; bh=isKhUE2NqP+ZxskVFeWbGWAXMvHF+pHLhlPP7eKFUFM=; b=haCCzBfbbDZjeR
+	yPk7wRUdEES1w1p/iE521vvkQEUCO8zNsTeVSzitX6MCXagv68CewlvFWVdUbaF2mYWXf34QhYD8h
+	p6y9FQwRHv/p3wbumoPzd3vwzorPogGyRRXcuDEIQdNc2lfKWVjPY6z1EOkU/S89ol2athwE326dX
+	tmQmJcL8igJoUnevt3nlgmXcTheuC/e3wn0aKok217t9i3n5yze+qRBujY4ZgX0KJ5vg/6wjBsVYX
+	xJulmJJL3coZpbWDbeLwFspT6+wP54fGAaVr+jPv2le9m7bIJvW4GdrnWpGkNtwbrjBltEiPJRigz
+	Xq+W7EnRCRbbZt+W+2qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whuL5-00000003SKO-1MSW;
-	Thu, 09 Jul 2026 19:23:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whuYC-00000003UDw-1VY3;
+	Thu, 09 Jul 2026 19:36:48 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whuL4-00000003SJQ-1rR5
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 09 Jul 2026 19:23:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=bVq923fN3xICcTFI/CD38blZ0rxbZHjRTcEK6CjQmAw=; b=aCPOGhtfwLxOnYvD0wsuD94StS
-	hN06MJ/itKy1VqTSvRFzsVUz97jyhS/OTiRh/vWSJtgiPxea+yCt+03a8GhDX/NGV2euPmp266TMC
-	k7krCzBMlLDEzM3SnQvD78ieb5hM/lfsBbCMjEqoSWSRgbGx2yzdG/LaMEcon6OwNmv+9q94g1hq2
-	nyUsZu1HK0IqqvssHSIh1kZtCae5FbU/5bdTPXseF5K2jWFpwvrKsPKA506FqsLAbWnE6uHY+o2fI
-	HASUnU2WoiNZLRBcfpDEDKCDXafSPl5dwrzh8TMMDqaU1wwUYrSgQ1+4L1uvKT7zJYJJkWusIPR/v
-	BSwCCtKw==;
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whuKy-00000009UUP-2TSG
+	id 1whuY8-00000003UCF-37yw
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 19:23:12 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c95d0a54ea5so170161a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 12:23:07 -0700 (PDT)
+	Thu, 09 Jul 2026 19:36:47 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-37ff8e0ad0fso301281a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 12:36:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783624986; x=1784229786; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783625804; x=1784230604; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=bVq923fN3xICcTFI/CD38blZ0rxbZHjRTcEK6CjQmAw=;
-        b=eQDe0OJLza2UmQ57UmBMBLafI1MaOaFOOUF1rWIx7gvlqCPdIyO7sW8lmW4P/hVB5C
-         HH28IGWYCQy6PWxj0tygmmUlCR3c64PuYUfOdgaZzFBQ25DquI79OE5mi6Jm5n/8JcjQ
-         YRzYARvCi5d+cPJ39m8jS0Koa43K71ZCRTK/Y0/XphQTvpSPb4fgIAZ1MURJoMlvzvgq
-         fh30JT3pRFIrquiez4ngujmShSG0ltaz1sngvCXofyYZQLPJ5xc2RhlzPFirl/sBk7iJ
-         IkylJxMw2kjbWiyxtwEqkUs0hGMsLTsTtU2rmbuPiI+ZIrvYVFAT0NnOFKU4hqsGrhg0
-         icbQ==
+        bh=9elVVpqR9aiL0byPjRlVnER0ZdQgMR4U6A5Xm6QA3+4=;
+        b=F2EYes7IQDfvCluU1vot0D05Kcryl5uMhk2rthg3Qe5CQbF7Y3tCFxakS/ma+mhot8
+         /wtTQP+tMDWRqokPMzLg/yMfcqPgbIrD/p045M3dH6A8ajSCZsBr4YIM8vJczj/AwGKH
+         v5RTNQ9N/bToNsg3BxJvZyReHKnOFhKk1eTFAU7F8c46cwU52NFjdgsYGZyWqnX7DOQ1
+         WkROlWY0peFnxtwIXXCtxVlbW/xJqMFu3AUMSH4q9iD8/yGZ51gpP3Ug6/FkBX3N2rOu
+         8ulzQtloN35S6tSCyTl9wjcyAcARWnA8U9arZXr1fKsxqgJT5WdybSJ7Bg+CuNBI2AAM
+         RIrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783624986; x=1784229786;
+        d=1e100.net; s=20251104; t=1783625804; x=1784230604;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bVq923fN3xICcTFI/CD38blZ0rxbZHjRTcEK6CjQmAw=;
-        b=awmcv1yeQtfwskWB/2K7ugY0hUj0deHBQcLV21SdGb8PRFissGX0phkEFyHL20c09V
-         ehjAGEcCo+9ihYmOcnbytkYJvYAEO5VoEgWIamXPbkjdOtLgZoJxu7sbhGYtxkpF286H
-         kjGUotigjw23bxx0Ob+soRTB2aWMSBktCb5o0cOInsszeGy9VKkCLuHhC2YK8G8xXQqY
-         mmM8gWssuF+8aFQcaJIP1FeYtJl8ZTsH5LDL1lmbtPqKniv1BEJcoNGkh5Aq6i4mI6Ru
-         D0nq1SaMk6AuwK2Z/HfI/BN6Y7KGd3yeXzzEdZ/PAavQXk/ccV5yGuKH15Z5wAblsjST
-         16Pg==
-X-Forwarded-Encrypted: i=1; AHgh+RoFpVMOfFYABEohZYPBtiAvCKJ6hpnEIwjyBwyD5nvxe6sfLPfLjn6CAxP9zes1LH10Tyh46deQMSAUyQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1/igBW4w+ovykGl7u+rly6qYncU//UXGHY+nCWYcHt2FRhhSB
-	yxmLl9pKDCxnM7mUcqXbFef+ZA9rH2oHSAtSoSsGlF6+512Du0z2gQxR
-X-Gm-Gg: AfdE7cntOBc1FA3VFuKM8mGTKCL6CCNoCJFiVz3b5txEU0BPDe7q43A8KQ9kGTOxCCY
-	5g95FlQr+s40nQxddeewuDwPiPVd3WD32/JYbL+XpUNMXnkop1iWOxMnSeXx4tDq0fHKIkP/Dr2
-	L88aoU8RnmtBRB6SpN4CeZyoLpkX3zuGnI8STllcMEu40nyCqCIGe3WB3RuMa46gN0Q6dbBE5cu
-	1p0O79butOmHJBkFqMI7urSGPOvyz/HU92DNutxeqWN+RqG2xL7uiu4pONJihaJqB3X15UYOw2S
-	5tnOV9GmDs/VYWyZxe/2sqWPBUnqsEcfJvit/rm9Mn/ETHabDTBzu9oSX3boFHxuYZ0JGhMKaqb
-	rjeV44U8zuc6HJO0SqtfjMLfS8zKA1EURNSDoA1oQc5iFTbUpYTbulaFO3oKIX1aJn29ml46imZ
-	08r/YXavwME2QbqcfBgJok6vwErYLgxSlUP+rACizADwAaq8sz5PImfKep/P7z
-X-Received: by 2002:a05:6a21:6e8f:b0:3b3:1951:489b with SMTP id adf61e73a8af0-3c0bcbc046bmr10368851637.45.1783624986079;
-        Thu, 09 Jul 2026 12:23:06 -0700 (PDT)
+        bh=9elVVpqR9aiL0byPjRlVnER0ZdQgMR4U6A5Xm6QA3+4=;
+        b=RuA1DBgGKi0Nb55txFBZF//WQ7MHmF2kW82k37t5Qsw3ZGHiAWlNjw+b1sYWboqm/O
+         CAblBOrGj52XdTRU83341keSajK8kQPb2B3Of9+pSXstLzdsxptmKoVI9cOhhl/a6lkq
+         /ed/AUGih/XYkG5ERV48IOAgWB1iTk9ohioC4hn0qWQk5MbWWLuYwk0jg6rOic8fSTLO
+         wB1pz/D+4D7EPYJm5gCc8E/g+jPjq0lt64oBmFBIVdJDuI3kqSdYfWZP5A8j/7tDmNuH
+         n0CTWj1RIokV7RLagtxdWFvyjDNtqr9LPlNcWkQEK/huGbJVeW5coP4AW9EEq5D9hN0N
+         wYFA==
+X-Forwarded-Encrypted: i=1; AHgh+RqcxjqKaozLkQyBP1DbOP+LczScSqFebuvCEHNmXp1V3rNDpgkXuqFNqglcCwUKJC/LRrRWi/Ez5lbJ0A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZrefartVrVM7Aes58P+MRrm9YoC50FzkdUitJw7MxD1DF6C7c
+	NvdywCudSbL4xf9EzLWyyo1msNB+W500CwG/xCS8mAYSkBln7wya9Zdg
+X-Gm-Gg: AfdE7ckSIGr7sJZUVVJoNey8lN/j3NJhgABPCj5weVR723kMGoVVGqjAgBitnJpaaXw
+	RCWQHudsVSHo/kPynXGGR7LWNxiNtxXWUpY41QevrTTwyQiW0TOumlP6ykeDt+iPPbEzBJUDVbW
+	FEhkDJAfGr21rWbpyfQWmoxNSW0dlGeWVHbsT2cwmj0QC3RenW5+jp66USdkoeqvKdvKEaXwVKY
+	xpLfhCJW32cOWICv0yd+ZzBOiy5RHLoksb7a9VGkMTTG9MXejp9Tcfe4tET1b8KXDNzWzgteFsC
+	IqaSSUi1RflGxNSC9wlO0tDLAZHue8V6pY61/b2ppIHMuZSerYqHFSUINRTwBVxK534m3TpTZzn
+	TffuJLpCI7F1uJy/pZ4oOsgcLFHTGcY5zwOKMhH26AtFb/UwwSizvOoDumI4eR3u47CLlXDHiJG
+	nsU4zSHqDVDnc6CzG7eN8juW8f5VNKxL7Dg5D5VQrHurzvxdu/AL3NVzpG7xjW
+X-Received: by 2002:a05:6a20:430b:b0:3bf:bfe6:ab6e with SMTP id adf61e73a8af0-3c0bcf49b4emr10854965637.6.1783625803970;
+        Thu, 09 Jul 2026 12:36:43 -0700 (PDT)
 Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([106.51.160.236])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3118ee6091dsm29005934eec.14.2026.07.09.12.22.38
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b658a99afsm33007037c88.0.2026.07.09.12.36.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 12:23:04 -0700 (PDT)
-Date: Fri, 10 Jul 2026 00:52:35 +0530
+        Thu, 09 Jul 2026 12:36:42 -0700 (PDT)
+Date: Fri, 10 Jul 2026 01:06:23 +0530
 From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
 To: Thomas Gleixner <tglx@kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>, 
-	Richard Henderson <richard.henderson@linaro.org>, Vineet Gupta <vgupta@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, Helge Deller <deller@gmx.de>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Chris Zankel <chris@zankel.net>, linux-alpha@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
-	Michael Ellerman <mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
-	loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
 	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, 
 	Mark Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, 
-	Andy Lutomirski <luto@kernel.org>, Richard Weinberger <richard@nod.at>, 
+	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+	Richard Henderson <richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Helge Deller <deller@gmx.de>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	Richard Weinberger <richard@nod.at>, Chris Zankel <chris@zankel.net>, 
+	linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
+	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-arch@vger.kernel.org, 
 	Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Subject: Re: [patch 12/18] ptrace, treewide: Rename
- ptrace_report_syscall_entry() to ptrace_report_syscall_permit_entry()
-Message-ID: <ak_0g7JaD9Z_ApYe@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
+Subject: Re: [patch 14/18] entry: Make return type of syscall_trace_enter()
+ bool
+Message-ID: <ak_4LT2HMSi88bA6@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
 References: <20260707181957.433213175@kernel.org>
- <20260707190254.280015701@kernel.org>
+ <20260707190254.392010241@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260707190254.280015701@kernel.org>
+In-Reply-To: <20260707190254.392010241@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_202308_790332_5E28F9A5 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20260709_123644_810037_F4107ED3 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,101 +122,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 09:06:44PM +0200, Thomas Gleixner wrote:
-> The return value of that function is boolean and tells the caller whether
-> to permit the syscall processing or not.
-> 
-> Rename the function so the purpose is clear and make the return type bool.
+On Tue, Jul 07, 2026 at 09:06:53PM +0200, Thomas Gleixner wrote:
+> This prepares for changing the return types of
+> syscall_enter_from_user_mode[_work]() to bool, which in turn separates the
+> decision of invoking the syscall from the syscall number, which might have
+> been changed in the call by ptrace, seccomp, tracing.
 > 
 > Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Oleg Nesterov <oleg@redhat.com>
-> Cc: Richard Henderson <richard.henderson@linaro.org>
-> Cc: Vineet Gupta <vgupta@kernel.org>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Guo Ren <guoren@kernel.org>
-> Cc: Brian Cain <bcain@kernel.org>
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Cc: Michal Simek <monstr@monstr.eu>
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: Dinh Nguyen <dinguyen@kernel.org>
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: Andreas Larsson <andreas@gaisler.com>
-> Cc: Chris Zankel <chris@zankel.net>
-> Cc: linux-alpha@vger.kernel.org
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-csky@vger.kernel.org
-> Cc: linux-hexagon@vger.kernel.org
-> Cc: linux-m68k@lists.linux-m68k.org
-> Cc: linux-mips@vger.kernel.org
-> Cc: linux-openrisc@vger.kernel.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linux-sh@vger.kernel.org
-> Cc: sparclinux@vger.kernel.org
-> Cc: linux-um@lists.infradead.org
-> Cc: linux-arch@vger.kernel.org
 > ---
->  arch/alpha/kernel/ptrace.c      |    2 +-
->  arch/arc/kernel/ptrace.c        |    2 +-
->  arch/arm/kernel/ptrace.c        |    2 +-
->  arch/arm64/kernel/ptrace.c      |    2 +-
->  arch/csky/kernel/ptrace.c       |    2 +-
->  arch/hexagon/kernel/traps.c     |    2 +-
->  arch/m68k/kernel/ptrace.c       |    2 +-
->  arch/microblaze/kernel/ptrace.c |    2 +-
->  arch/mips/kernel/ptrace.c       |    2 +-
->  arch/nios2/kernel/ptrace.c      |    2 +-
->  arch/openrisc/kernel/ptrace.c   |    2 +-
->  arch/parisc/kernel/ptrace.c     |   10 ++++------
->  arch/sh/kernel/ptrace_32.c      |    2 +-
->  arch/sparc/kernel/ptrace_32.c   |    2 +-
->  arch/sparc/kernel/ptrace_64.c   |    2 +-
->  arch/um/kernel/ptrace.c         |    2 +-
->  arch/xtensa/kernel/ptrace.c     |    2 +-
->  include/asm-generic/syscall.h   |    4 ++--
->  include/linux/entry-common.h    |   25 ++++++++++++-------------
->  include/linux/ptrace.h          |   13 ++++++-------
->  20 files changed, 40 insertions(+), 44 deletions(-)
+>  include/linux/entry-common.h |   28 +++++++++++++++-------------
+>  1 file changed, 15 insertions(+), 13 deletions(-)
 > 
-[...]
-> --- a/arch/parisc/kernel/ptrace.c
-> +++ b/arch/parisc/kernel/ptrace.c
-> @@ -326,7 +326,7 @@ long compat_arch_ptrace(struct task_stru
->  long do_syscall_trace_enter(struct pt_regs *regs)
+> --- a/include/linux/entry-common.h
+> +++ b/include/linux/entry-common.h
+> @@ -71,8 +71,8 @@ static inline void syscall_enter_audit(s
+>  	}
+>  }
+>  
+> -static __always_inline long syscall_trace_enter(struct pt_regs *regs, unsigned long work,
+> -						long syscall)
+> +static __always_inline bool syscall_trace_enter(struct pt_regs *regs, unsigned long work,
+> +						long *syscall)
 >  {
->  	if (test_thread_flag(TIF_SYSCALL_TRACE)) {
-> -		int rc = ptrace_report_syscall_entry(regs);
-> +		bool permit = ptrace_report_syscall_permit_entry(regs);
+>  	/*
+>  	 * Handle Syscall User Dispatch.  This must comes first, since
+> @@ -81,7 +81,7 @@ static __always_inline long syscall_trac
+>  	 */
+>  	if (work & SYSCALL_WORK_SYSCALL_USER_DISPATCH) {
+>  		if (syscall_user_dispatch(regs))
+> -			return -1L;
+> +			return false;
+>  	}
 >  
->  		/*
->  		 * As tracesys_next does not set %r28 to -ENOSYS
-> @@ -334,12 +334,10 @@ long do_syscall_trace_enter(struct pt_re
->  		 */
->  		regs->gr[28] = -ENOSYS;
+>  	/*
+> @@ -90,32 +90,32 @@ static __always_inline long syscall_trac
+>  	 * through hrtimer_interrupt().
+>  	 */
+>  	if (work & SYSCALL_WORK_SYSCALL_RSEQ_SLICE)
+> -		rseq_syscall_enter_work(syscall);
+> +		rseq_syscall_enter_work(*syscall);
 >  
-> -		if (rc) {
-> +		if (!permit) {
->  			/*
-> -			 * A nonzero return code from
-> -			 * ptrace_report_syscall_entry() tells us
-> -			 * to prevent the syscall execution.  Skip
-> -			 * the syscall call and the syscall restart handling.
-> +			 * Skip the syscall call and the syscall restart
-> +			 * handling.
-Hey Thomas,
-
-This comment `syscall call` sounds a bit weird.
-
-Apart from this, Everything looks good.
-
-Regards,
-Mukesh
-
+>  	/* Handle ptrace */
+>  	if (work & (SYSCALL_WORK_SYSCALL_TRACE | SYSCALL_WORK_SYSCALL_EMU)) {
+>  		if (!arch_ptrace_report_syscall_permit_entry(regs) ||
+>  		    (work & SYSCALL_WORK_SYSCALL_EMU))
+> -			return -1L;
+> +			return false;
+>  	}
+>  
+>  	/* Do seccomp after ptrace, to catch any tracer changes. */
+>  	if (work & SYSCALL_WORK_SECCOMP) {
+>  		if (!__seccomp_permit_syscall())
+> -			return -1L;
+> +			return false;
+>  	}
+>  
+>  	/* Either of the above might have changed the syscall number */
+> -	syscall = syscall_get_nr(current, regs);
+> +	*syscall = syscall_get_nr(current, regs);
+>  
+>  	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT)) {
+> -		if (!trace_syscall_enter(regs, &syscall))
+> -			return -1L;
+> +		if (!trace_syscall_enter(regs, syscall))
+> +			return false;
+>  	}
+>  
+> -	syscall_enter_audit(regs, syscall);
+> +	syscall_enter_audit(regs, *syscall);
+>  
+> -	return syscall;
+> +	return true;
+>  }
+>  
+>  /**
+> @@ -145,8 +145,10 @@ static __always_inline long syscall_ente
+>  {
+>  	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
+>  
+> -	if (work & SYSCALL_WORK_ENTER)
+> -		syscall = syscall_trace_enter(regs, work, syscall);
+> +	if (work & SYSCALL_WORK_ENTER) {
+> +		if (!syscall_trace_enter(regs, work, &syscall))
+> +			return -1L;
+> +	}
+>  
+>  	return syscall;
+>  }
+> 
 Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
 
 _______________________________________________
