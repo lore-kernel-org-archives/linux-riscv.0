@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593CCC43458
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 19:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973A3C44501
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2026 19:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=isKhUE2NqP+ZxskVFeWbGWAXMvHF+pHLhlPP7eKFUFM=; b=haCCzBfbbDZjeR
-	yPk7wRUdEES1w1p/iE521vvkQEUCO8zNsTeVSzitX6MCXagv68CewlvFWVdUbaF2mYWXf34QhYD8h
-	p6y9FQwRHv/p3wbumoPzd3vwzorPogGyRRXcuDEIQdNc2lfKWVjPY6z1EOkU/S89ol2athwE326dX
-	tmQmJcL8igJoUnevt3nlgmXcTheuC/e3wn0aKok217t9i3n5yze+qRBujY4ZgX0KJ5vg/6wjBsVYX
-	xJulmJJL3coZpbWDbeLwFspT6+wP54fGAaVr+jPv2le9m7bIJvW4GdrnWpGkNtwbrjBltEiPJRigz
-	Xq+W7EnRCRbbZt+W+2qg==;
+	List-Owner; bh=FGv6CocS2h7rfuzfPhKT03yqRxBzVPc27U7a6gDDWDA=; b=hfQsnGpiGYczTT
+	UEyQ5KilAGOcfvCoAW1zGeHg2cCyJO8qVZ65usg3MKUydOzoHjjHjuWl/Bw46Dke9K4AHdougL6mQ
+	510SQnGLtYoyOYZGk1epw+69leEKPImo8U5xNtGLObMH2pHNYl74E9kRLZJmNgNkQdO1OvKH8Agh8
+	1g6vZGcUuIfSMbrBaK3Dehp26G3t5Dj/t1HpxYOI6Tl4ubRNjkmcwCkhG2hWdOvwUYKPdnz1ykV9Q
+	Dc/viteuNSWSDnOK0YiDMNzaJmKYGMJGYqwu9y//Dp3CMejbv3WuYv9ACOBjLN9nPO7VTBu9i+gBN
+	c0Nn6pcomdc8ylmvHfYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whuYC-00000003UDw-1VY3;
-	Thu, 09 Jul 2026 19:36:48 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1whuep-00000003Vf6-2V6I;
+	Thu, 09 Jul 2026 19:43:39 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whuY8-00000003UCF-37yw
+	id 1whuem-00000003Vcg-0PPU
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jul 2026 19:36:47 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-37ff8e0ad0fso301281a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 12:36:44 -0700 (PDT)
+	Thu, 09 Jul 2026 19:43:38 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c9e0b89e228so126803a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 12:43:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783625804; x=1784230604; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783626215; x=1784231015; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=9elVVpqR9aiL0byPjRlVnER0ZdQgMR4U6A5Xm6QA3+4=;
-        b=F2EYes7IQDfvCluU1vot0D05Kcryl5uMhk2rthg3Qe5CQbF7Y3tCFxakS/ma+mhot8
-         /wtTQP+tMDWRqokPMzLg/yMfcqPgbIrD/p045M3dH6A8ajSCZsBr4YIM8vJczj/AwGKH
-         v5RTNQ9N/bToNsg3BxJvZyReHKnOFhKk1eTFAU7F8c46cwU52NFjdgsYGZyWqnX7DOQ1
-         WkROlWY0peFnxtwIXXCtxVlbW/xJqMFu3AUMSH4q9iD8/yGZ51gpP3Ug6/FkBX3N2rOu
-         8ulzQtloN35S6tSCyTl9wjcyAcARWnA8U9arZXr1fKsxqgJT5WdybSJ7Bg+CuNBI2AAM
-         RIrw==
+        bh=vcViCEZV9Tm/crNMdaH3VAbncnTvlz/mpQaPDKjBGxQ=;
+        b=Rk6QvIPchZE/vkYoAn3ZcO0kGqzpH6P+NZWTLdSKjwRRCpIhKURVGl6UB3hGh6HEEB
+         ez8268U/f9Onu73FYgb96Km7O4ZGH2OdLSS1HmWsDtWNXiUbnr+PLLNtO6phijXJ36YH
+         LGkk68B0cZzQQUXi3nyUyQ746qg951l8Rcdnfp/ZRvDOIsMJkHkyZq/uOcknesURebyH
+         J7MUWTAuZdNfaf8Ev8T2XgRKbkg2jpaX2tYpQWb3/ATWGpYlzNkGVZ/4GLN1nWHmxM4n
+         QVNWWUUJWCmW6eztlIqPm4JbzVrxn7aiUOrAY0+nPfdDM7Rez9INsjhH2RF7krwFQhqI
+         diEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783625804; x=1784230604;
+        d=1e100.net; s=20251104; t=1783626215; x=1784231015;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=9elVVpqR9aiL0byPjRlVnER0ZdQgMR4U6A5Xm6QA3+4=;
-        b=RuA1DBgGKi0Nb55txFBZF//WQ7MHmF2kW82k37t5Qsw3ZGHiAWlNjw+b1sYWboqm/O
-         CAblBOrGj52XdTRU83341keSajK8kQPb2B3Of9+pSXstLzdsxptmKoVI9cOhhl/a6lkq
-         /ed/AUGih/XYkG5ERV48IOAgWB1iTk9ohioC4hn0qWQk5MbWWLuYwk0jg6rOic8fSTLO
-         wB1pz/D+4D7EPYJm5gCc8E/g+jPjq0lt64oBmFBIVdJDuI3kqSdYfWZP5A8j/7tDmNuH
-         n0CTWj1RIokV7RLagtxdWFvyjDNtqr9LPlNcWkQEK/huGbJVeW5coP4AW9EEq5D9hN0N
-         wYFA==
-X-Forwarded-Encrypted: i=1; AHgh+RqcxjqKaozLkQyBP1DbOP+LczScSqFebuvCEHNmXp1V3rNDpgkXuqFNqglcCwUKJC/LRrRWi/Ez5lbJ0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZrefartVrVM7Aes58P+MRrm9YoC50FzkdUitJw7MxD1DF6C7c
-	NvdywCudSbL4xf9EzLWyyo1msNB+W500CwG/xCS8mAYSkBln7wya9Zdg
-X-Gm-Gg: AfdE7ckSIGr7sJZUVVJoNey8lN/j3NJhgABPCj5weVR723kMGoVVGqjAgBitnJpaaXw
-	RCWQHudsVSHo/kPynXGGR7LWNxiNtxXWUpY41QevrTTwyQiW0TOumlP6ykeDt+iPPbEzBJUDVbW
-	FEhkDJAfGr21rWbpyfQWmoxNSW0dlGeWVHbsT2cwmj0QC3RenW5+jp66USdkoeqvKdvKEaXwVKY
-	xpLfhCJW32cOWICv0yd+ZzBOiy5RHLoksb7a9VGkMTTG9MXejp9Tcfe4tET1b8KXDNzWzgteFsC
-	IqaSSUi1RflGxNSC9wlO0tDLAZHue8V6pY61/b2ppIHMuZSerYqHFSUINRTwBVxK534m3TpTZzn
-	TffuJLpCI7F1uJy/pZ4oOsgcLFHTGcY5zwOKMhH26AtFb/UwwSizvOoDumI4eR3u47CLlXDHiJG
-	nsU4zSHqDVDnc6CzG7eN8juW8f5VNKxL7Dg5D5VQrHurzvxdu/AL3NVzpG7xjW
-X-Received: by 2002:a05:6a20:430b:b0:3bf:bfe6:ab6e with SMTP id adf61e73a8af0-3c0bcf49b4emr10854965637.6.1783625803970;
-        Thu, 09 Jul 2026 12:36:43 -0700 (PDT)
+        bh=vcViCEZV9Tm/crNMdaH3VAbncnTvlz/mpQaPDKjBGxQ=;
+        b=kOulIfMnPArmuAUGPbK0SNNR3qVw2A9v0VtvlgfqPkR4ZS7veWG1xLnqeU9+7f6YmG
+         XtulAU8iDuV9/EdkO5x+1NqerR6UPdjwrXv9WGrDLixaW3VI6bzCe0JmoXYJ2e0s4/ct
+         VtBuw6W/yNJO/YgNifRyRw5g51k7jHQ9SRUrBl8n+dIPH1cEwytyJhQSnev0PGmsss1z
+         rd3Gjj41NZJ1CBu+og/4UMCwqEZdZS0W5NJvc7tREhWZUz8rvGSIw3jeuAAB48mgyZtd
+         xGKAqJfUzhOqqEFolhUS6mrwv2CxQ8ieP+gbKQnNBQTc72QcSNTmLO2jbFCYwdVld3g6
+         389Q==
+X-Forwarded-Encrypted: i=1; AHgh+Rp9Qpyo36LbhJgu4N5cX284lgnrIYemMr4JO5S4WQ6REQHO+N/TeLRCXiYWwZ7GJWUJSVxqE2EpU8sBnA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnBWzDCRy7GILjQzU/eSbN72LRyWtBv63heqKtG6WWELdl8eHW
+	+wpxfn5ljHV+IBvFmoTlWwfIfWRMsps9+Z42CWhHp2FPruAiChMJCd5X
+X-Gm-Gg: AfdE7cmE5kY8hC8qZ2+W/Zbfi5DsmJ3YEa0T8XuAxaEBLR5SgEcc5EUljWeuau1YL60
+	PCCpFmPHKz6SWbeFRj15ZReHM3uloOmUJicQRjH64bUgEgCPUi8kqr9u7MuI9He3G6qIuZLIfYC
+	CUQqlo5QjwJcuXjOOjmk9trVOduusP994PO48Tlx7zkzSQQ6olI3s8G4UL/Ri+Y9Ij+XMKOV1f4
+	duFBYTmn0Ztqrx5Rken2o95xrn31zGQlUfLsNbvv2kTAfIyhh+G+/DYDmzGeY9wQuAB0EOhOn5N
+	fhPiKZWW2lKn4wOsJVhRYS/6M5Gbh4k2SGgbKDbojcYvCfQgR6058LeFLvy7jZL/bnbeujr+yD8
+	W+1xeERlMwPq8qJHjxpMi0cAxWNBHKogbxfRA+Ve5mJl6/YqmyLhp0TWR+DCoaSxAyaYp5heZvI
+	6c2us94s2XrKh9GIyO2o4wX5pULjBtyBq9ETPcSI9ctXddM0y6/QmJg3ALx9iR
+X-Received: by 2002:a05:6a21:6daa:b0:3c0:9c1a:8949 with SMTP id adf61e73a8af0-3c0bd287dd3mr11145411637.65.1783626215188;
+        Thu, 09 Jul 2026 12:43:35 -0700 (PDT)
 Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([106.51.160.236])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b658a99afsm33007037c88.0.2026.07.09.12.36.26
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b6593c9a1sm39667491c88.2.2026.07.09.12.43.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 12:36:42 -0700 (PDT)
-Date: Fri, 10 Jul 2026 01:06:23 +0530
+        Thu, 09 Jul 2026 12:43:34 -0700 (PDT)
+Date: Fri, 10 Jul 2026 01:13:15 +0530
 From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
 To: Thomas Gleixner <tglx@kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>, 
@@ -95,17 +95,16 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
 	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org, linux-openrisc@vger.kernel.org, 
 	sparclinux@vger.kernel.org, linux-arch@vger.kernel.org, 
 	Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Subject: Re: [patch 14/18] entry: Make return type of syscall_trace_enter()
- bool
-Message-ID: <ak_4LT2HMSi88bA6@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
+Subject: Re: [patch 15/18] x86/entry: Make syscall functions static
+Message-ID: <ak_5y-p4DPztR-CH@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
 References: <20260707181957.433213175@kernel.org>
- <20260707190254.392010241@kernel.org>
+ <20260707190254.438361565@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260707190254.392010241@kernel.org>
+In-Reply-To: <20260707190254.438361565@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_123644_810037_F4107ED3 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20260709_124336_133699_53ED1224 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,93 +121,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 09:06:53PM +0200, Thomas Gleixner wrote:
-> This prepares for changing the return types of
-> syscall_enter_from_user_mode[_work]() to bool, which in turn separates the
-> decision of invoking the syscall from the syscall number, which might have
-> been changed in the call by ptrace, seccomp, tracing.
+On Tue, Jul 07, 2026 at 09:06:57PM +0200, Thomas Gleixner wrote:
+> They are only used in the respective source files. No point in exposing
+> them.
 > 
 > Signed-off-by: Thomas Gleixner <tglx@kernel.org>
 > ---
->  include/linux/entry-common.h |   28 +++++++++++++++-------------
->  1 file changed, 15 insertions(+), 13 deletions(-)
+>  arch/x86/entry/syscall_32.c    |    2 +-
+>  arch/x86/entry/syscall_64.c    |   10 ++++++----
+>  arch/x86/include/asm/syscall.h |    8 --------
+>  3 files changed, 7 insertions(+), 13 deletions(-)
 > 
-> --- a/include/linux/entry-common.h
-> +++ b/include/linux/entry-common.h
-> @@ -71,8 +71,8 @@ static inline void syscall_enter_audit(s
->  	}
->  }
+> --- a/arch/x86/entry/syscall_32.c
+> +++ b/arch/x86/entry/syscall_32.c
+> @@ -41,7 +41,7 @@ const sys_call_ptr_t sys_call_table[] =
+>  #endif
 >  
-> -static __always_inline long syscall_trace_enter(struct pt_regs *regs, unsigned long work,
-> -						long syscall)
-> +static __always_inline bool syscall_trace_enter(struct pt_regs *regs, unsigned long work,
-> +						long *syscall)
+>  #define __SYSCALL(nr, sym) case nr: return __ia32_##sym(regs);
+> -long ia32_sys_call(const struct pt_regs *regs, unsigned int nr)
+> +static noinline long ia32_sys_call(const struct pt_regs *regs, unsigned int nr)
 >  {
->  	/*
->  	 * Handle Syscall User Dispatch.  This must comes first, since
-> @@ -81,7 +81,7 @@ static __always_inline long syscall_trac
->  	 */
->  	if (work & SYSCALL_WORK_SYSCALL_USER_DISPATCH) {
->  		if (syscall_user_dispatch(regs))
-> -			return -1L;
-> +			return false;
->  	}
+>  	switch (nr) {
+>  	#include <asm/syscalls_32.h>
+> --- a/arch/x86/entry/syscall_64.c
+> +++ b/arch/x86/entry/syscall_64.c
+> @@ -32,7 +32,7 @@ const sys_call_ptr_t sys_call_table[] =
+>  #undef  __SYSCALL
 >  
->  	/*
-> @@ -90,32 +90,32 @@ static __always_inline long syscall_trac
->  	 * through hrtimer_interrupt().
->  	 */
->  	if (work & SYSCALL_WORK_SYSCALL_RSEQ_SLICE)
-> -		rseq_syscall_enter_work(syscall);
-> +		rseq_syscall_enter_work(*syscall);
->  
->  	/* Handle ptrace */
->  	if (work & (SYSCALL_WORK_SYSCALL_TRACE | SYSCALL_WORK_SYSCALL_EMU)) {
->  		if (!arch_ptrace_report_syscall_permit_entry(regs) ||
->  		    (work & SYSCALL_WORK_SYSCALL_EMU))
-> -			return -1L;
-> +			return false;
->  	}
->  
->  	/* Do seccomp after ptrace, to catch any tracer changes. */
->  	if (work & SYSCALL_WORK_SECCOMP) {
->  		if (!__seccomp_permit_syscall())
-> -			return -1L;
-> +			return false;
->  	}
->  
->  	/* Either of the above might have changed the syscall number */
-> -	syscall = syscall_get_nr(current, regs);
-> +	*syscall = syscall_get_nr(current, regs);
->  
->  	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT)) {
-> -		if (!trace_syscall_enter(regs, &syscall))
-> -			return -1L;
-> +		if (!trace_syscall_enter(regs, syscall))
-> +			return false;
->  	}
->  
-> -	syscall_enter_audit(regs, syscall);
-> +	syscall_enter_audit(regs, *syscall);
->  
-> -	return syscall;
-> +	return true;
->  }
->  
->  /**
-> @@ -145,8 +145,10 @@ static __always_inline long syscall_ente
+>  #define __SYSCALL(nr, sym) case nr: return __x64_##sym(regs);
+> -long x64_sys_call(const struct pt_regs *regs, unsigned int nr)
+> +static noinline long x64_sys_call(const struct pt_regs *regs, unsigned int nr)
 >  {
->  	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
->  
-> -	if (work & SYSCALL_WORK_ENTER)
-> -		syscall = syscall_trace_enter(regs, work, syscall);
-> +	if (work & SYSCALL_WORK_ENTER) {
-> +		if (!syscall_trace_enter(regs, work, &syscall))
-> +			return -1L;
-> +	}
->  
->  	return syscall;
+>  	switch (nr) {
+>  	#include <asm/syscalls_64.h>
+> @@ -40,15 +40,17 @@ long x64_sys_call(const struct pt_regs *
+>  	}
 >  }
+>  
+> -#ifdef CONFIG_X86_X32_ABI
+> -long x32_sys_call(const struct pt_regs *regs, unsigned int nr)
+> +static noinline long x32_sys_call(const struct pt_regs *regs, unsigned int nr)
+>  {
+> +#ifdef CONFIG_X86_X32_ABI
+>  	switch (nr) {
+>  	#include <asm/syscalls_x32.h>
+>  	default: return __x64_sys_ni_syscall(regs);
+>  	}
+> -}
+> +#else
+> +	return -ENOSYS;
+>  #endif
+> +}
+>  
+>  static __always_inline bool do_syscall_x64(struct pt_regs *regs, int nr)
+>  {
+> --- a/arch/x86/include/asm/syscall.h
+> +++ b/arch/x86/include/asm/syscall.h
+> @@ -21,14 +21,6 @@ typedef long (*sys_call_ptr_t)(const str
+>  extern const sys_call_ptr_t sys_call_table[];
+>  
+>  /*
+> - * These may not exist, but still put the prototypes in so we
+> - * can use IS_ENABLED().
+> - */
+> -extern long ia32_sys_call(const struct pt_regs *, unsigned int nr);
+> -extern long x32_sys_call(const struct pt_regs *, unsigned int nr);
+> -extern long x64_sys_call(const struct pt_regs *, unsigned int nr);
+> -
+> -/*
+>   * Only the low 32 bits of orig_ax are meaningful, so we return int.
+>   * This importantly ignores the high bits on 64-bit, so comparisons
+>   * sign-extend the low 32 bits.
 > 
 Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
 
