@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74819C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 01:58:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C5BC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 02:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NkLjF7cQZCBfYYoQvN6yShcspxFR4nVtaMiy7xm+xZs=; b=Emkxa9+fYryq0g
-	/e805L/VA3hiMpRAkyjq/C/1IaXLjUhHA5ZV6E3Uo//b6uCZWc2pmuvRt4KeeWoHu5nM87/Od4och
-	Gk7tvKP8FNOSl99uYsRwz2u8CmvgwEtpOMsiVfj4iDbZzDHTutZmhqsrbgSnowOXzBf91iYsD3yMQ
-	5OcDWyERe+dbCPDkzi2JpjM0FJ9ar/+M9QCpNGS2XiAIFQxg0cDOocp/9/kjYd3wfckZLo4IgJwto
-	WEIYXHr+Em5xJ1M0Q1fBML/1g+Z7ocKMQCH7rKX3Oj9NZtxRwTAkZXH0A2oDS8MqjemmKnXWjkDOB
-	CbjLTqvc1+Asmd2YVfLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nCjkOAFmKXqChrK798fOmbo2NcfOr/Ioo2a2IFXlue0=; b=o0HUnyDz171p5f3++TnmRAa9G7
+	BOKbaaRl7B7jHF+568BS9UP7cQSuSH90mSySzGXPiV7EQT7JLhM3q7Wt3WsDWba11GGUu1oc2kG3g
+	FoArZsMlOeyS3g9a/uJrqOVIDHn5WmcSANNW2kWud60Uc9Tocwq+gSSXv5R0VgHtyXyk6keXHudyR
+	X6Ur95/WHpov9iPJH/BqzuFVUUbRLEaS+R07F9zZc31lfA7exy4dsuUUUWtRw8ScIpNzBIAnROn1B
+	fSf2ekVl1tkRsVV5zTG0p3D8lGq6jz5PImT1x+ectKnUvhdIHjBxDv0vjSc+jWoGs6QlgdkiHhIlG
+	Ndu2rRYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi0VX-00000003vxa-1Up0;
-	Fri, 10 Jul 2026 01:58:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wi0XF-00000003w7L-2JJR;
+	Fri, 10 Jul 2026 02:00:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi0VW-00000003vxD-2RAK
+	id 1wi0XE-00000003w7E-10VQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 01:58:26 +0000
+	Fri, 10 Jul 2026 02:00:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF53F42CBF;
-	Fri, 10 Jul 2026 01:58:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDC281F000E9;
-	Fri, 10 Jul 2026 01:58:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EC4E6001A;
+	Fri, 10 Jul 2026 02:00:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EDF81F000E9;
+	Fri, 10 Jul 2026 02:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783648705;
-	bh=31QGHBL7hL4Fq4DMfqiOa2FOYxi7YJIdv0o6jQ5a0cE=;
+	s=k20260515; t=1783648810;
+	bh=JQR/fpTAp3uFk/SAvTzxTjMYm0emoVldxDMGrSK5aOA=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=MGalIMuSksQjYh3t9v2KG/f3fveZH7k1wlOpxdiQrmVDRZTtwPlcMyaO5qXxQTHo7
-	 +yK3DO3g3dkP/103x3fpxGVwvsG0aEUo5o+FfBbjaFsq03/jnJ0SOimJ76IXBL8zjg
-	 gP186Lyy7UJQ9xoyIJ6GGR1lBEKONAAn5d+N1Jow/we7QS1mq+9Qee9rGzjgouUqf8
-	 +Aqfw0SZrsj02mxky66wvNy2dQQAaOm1zh+QsdwoqO69fsUvzJK8FETbE6o9Xy7bgI
-	 F11xwp/iOfKPjg5Qd+PoOeh1VZA5HNR7TXc7XCu3FPfUG18fEDf3cXm4gBFrEdVh12
-	 7AcCj1awkMXpQ==
-Date: Thu, 9 Jul 2026 19:58:23 -0600 (MDT)
+	b=mp80hfLZiUhiVHFAjrFWCTiaw0XyEZAS6YGFXDz7KSeyINOaCRED4vOMALf4T2QMF
+	 QW+/b8bH25XrqSs8A7eBiT2FDLbD/XFw4UbhOAJkL6fEIv5Tk+TCS6X2AC/Onags0L
+	 e5IQB/CzBO7dv71AS1f6IshsFzhvVBLEfKZmpap7nJ3YE86jA+be2qASHacR6xjMTX
+	 VtvR2QTAcYML5ZfHztuqQHaXww+ZucmPUTWcqe7/ftgvvOEnJozLDC+ROoPZid1Ga4
+	 wDm6+CiOnswBzHvNj0lnMsrQrLWqQucl2KX3l7RhrUSmL2mnKrF1WoESKMGA2fmpLc
+	 s5wTGo/GNTy4w==
+Date: Thu, 9 Jul 2026 20:00:08 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-cc: Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
-    David Hildenbrand <david@kernel.org>, 
-    "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-    Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-    Suren Baghdasaryan <surenb@google.com>, 
-    Vlastimil Babka <vbabka@kernel.org>, linux-kernel@vger.kernel.org, 
-    linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-    Muchun Song <muchun.song@linux.dev>
-Subject: Re: [PATCH v5] mm/sparse-vmemmap: flush_cache_vmap() after hotplugging
+To: Andrew Morton <akpm@linux-foundation.org>
+cc: Vivian Wang <wangruikang@iscas.ac.cn>, Paul Walmsley <pjw@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+    David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+    "Liam R. Howlett" <liam@infradead.org>, 
+    Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+    Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    linux-mm@kvack.org
+Subject: Re: [PATCH v4] riscv: mm: Avoid spurious fault after hotplugging
  vmemmap
-In-Reply-To: <20260707-mark-after-vmemmap-populate-v5-1-77d1ded3cae3@iscas.ac.cn>
-Message-ID: <db0de3be-a6e1-e4c7-6a1f-2f573499a2b7@kernel.org>
-References: <20260707-mark-after-vmemmap-populate-v5-1-77d1ded3cae3@iscas.ac.cn>
+In-Reply-To: <20260630223332.534218a41b2f574de327e4db@linux-foundation.org>
+Message-ID: <b7ab255d-8d0a-24f7-2953-4f5decf11432@kernel.org>
+References: <20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn> <20260630211100.5c8f09c607595fbb5bca0a74@linux-foundation.org> <cd8cd425-7615-49a2-b26e-81a9aff0af28@iscas.ac.cn>
+ <20260630223332.534218a41b2f574de327e4db@linux-foundation.org>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="8323329-1875493869-1783648810=:300523"
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,77 +72,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vivian,
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-On Tue, 7 Jul 2026, Vivian Wang wrote:
+--8323329-1875493869-1783648810=:300523
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8BIT
 
-> section_activate() does not flush TLB after populating new vmemmap
-> pages. On most architectures, this is okay. However it is a problem on
-> RISC-V since there the TLB caching non-present entries is permitted,
-> which causes spurious faults on some hardwares.
-> 
-> This seems to be most easily reproduced with DEBUG_VM=y and
-> PAGE_POISONING=y, which causes these newly mapped struct pages to be
-> poisoned i.e. written to immediately after mapping.
-> 
-> Extend the RISC-V flush_cache_vmap() to also handle the vmemmap range,
-> and call it after hotplugging vmemmap, which gets the possible spurious
-> fault handled in the exception handler.
-> 
-> At least for now, the only other architecture with both
-> SPARSEMEM_VMEMMAP and flush_cache_vmap() is PowerPC, which has a similar
-> problem with newly valid PTEs. But there flush_cache_vmap() is just a
-> ptesync. So it should be safe to do this for generic code while having
-> minimal performance impact.
-> 
-> Suggested-by: Muchun Song <muchun.song@linux.dev>
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> ---
-> Changes in v5:
-> - Remove hook, use existing flush_cache_vmap() (Muchun)
-> - Link to v4: https://patch.msgid.link/20260630-mark-after-vmemmap-populate-v4-1-febbc15da028@iscas.ac.cn
-> 
-> Changes in v4:
-> - Rebase on v7.2-rc1, drop dependencies
-> - (No code changes otherwise)
-> - (A concurrency fix for mark_new_valid_map was sent independently)
->   https://lore.kernel.org/linux-riscv/20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn/
-> - Link to v3: https://patch.msgid.link/20260605-mark-after-vmemmap-populate-v3-1-a06001ac9264@iscas.ac.cn
-> 
-> (See v3 link for older changes)
-> ---
->  arch/riscv/include/asm/cacheflush.h | 3 ++-
->  arch/riscv/mm/init.c                | 1 +
->  mm/sparse-vmemmap.c                 | 2 ++
->  3 files changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> index 8cfe59483a8f..e935db27f09f 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -56,7 +56,8 @@ static inline void mark_new_valid_map(void)
->  #define flush_cache_vmap flush_cache_vmap
->  static inline void flush_cache_vmap(unsigned long start, unsigned long end)
->  {
-> -	if (is_vmalloc_or_module_addr((void *)start))
-> +	if (is_vmalloc_or_module_addr((void *)start) ||
-> +	    (start >= VMEMMAP_START && end <= VMEMMAP_END))
+Hi Andrew,
 
-Is there an off-by-one error here?  VMEMMAP_END is currently set to
-VMALLOC_START on RISC-V.
+On Tue, 30 Jun 2026, Andrew Morton wrote:
 
-Am assuming you'll update this patch one more time?  At that point I'll 
-plan to add it into v7.2-rc, assuming Andrew doesn't object.
+> On Wed, 1 Jul 2026 13:01:15 +0800 Vivian Wang <wangruikang@iscas.ac.cn> wrote:
+> 
+> > which made it miss:
+> > 
+> >     Changes in v4:
+> >     - Rebase on v7.2-rc1, drop dependencies
+> >     - (No code changes otherwise)
+> >     - (A concurrency fix for mark_new_valid_map was sent independently)
+> >       https://lore.kernel.org/linux-riscv/20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn/
+> >       ^--- this
+> 
+> Cool, I grabbed that.  Same caveats: riscv maintainers, please?
+
+I just responded to Vivian's v5.  I guess he'll probably do a v6, at which 
+point, will plan to queue it for v7.2-rc here, unless you have any 
+objections?
+
+Thanks for helping out on this one,
 
 
 - Paul
+--8323329-1875493869-1783648810=:300523
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1875493869-1783648810=:300523--
+
