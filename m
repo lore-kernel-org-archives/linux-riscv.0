@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86AAC43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 10:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2628DC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 10:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BP5poHEyD6nWG4kDUNfq3Gt/iPQMg7WJIZFk5gDv5J0=; b=z6R/xGVqpBUD6o
-	IxfjWTp7KJO8BfNSzi6Nfyh0fBHQBosYqkGAal48Qyymbt2L/fbjHCL7NQ2KHwQfpBZOLNDPY/fRa
-	V9fp1tFqObULmBA2xS8tldE8+XHDLjK/4Kand4YVp2DbVm3wTmwEv84XmYPavW4+QiZfjXpdHtyqH
-	w2YrbWk27mwAITcofi7pEvno6fUO8ERt/updA0hLfVYCe6vOpqTpXZJpdh2WEQlwQux98R/w9YYqe
-	u247bGWatcrcWqbtQow/+GyqYCkYJGMR/s7yPxF5wDEkWe3VYhNsW3CYu0i6w8z9B5ex7Ec/9KcfR
-	skQTLP0delYLlRC/DRig==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rgh/TE4k+xVS1lbST+XVO0kf+G8kUmBjciFNX6lVrYs=; b=JzKNGtW5PPqCoM
+	Nk7iUm1hHU29JTKHRach6h8CVFkYwuQreN3SUqMXddgv/Rm3QF9qAVOKVyDCV8JGrKepOp04L2sm6
+	s1DTQ0SG3eDwNh7KP5HQN7sufCiyseb1AhDfn8gDTP1FXTk3aMQNajyMkieRrP8yhxnhpD0/mfQQm
+	zrsRmybp9hMmijgGQNaFhoQBj116/Hb2niwFrx9ZLZAMk9qFAWbTiC4j59zqmhCh01TVGjFfjmznZ
+	y2+hB+gIBzluu06ShO7P0DELsmHQY87bRDFQ+OmgrjjDiYhYMS8QP5ncUnFjvcmQiQZ55d/J1VSFX
+	ZuIToTHsPDoTAFqqtCnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8AD-00000004fEb-34xN;
-	Fri, 10 Jul 2026 10:08:57 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wi8HF-00000004gFe-0MTF;
+	Fri, 10 Jul 2026 10:16:13 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8AA-00000004fEA-3wBr
+	id 1wi8HB-00000004gEv-2GP2
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 10:08:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-493b1710405so3581915e9.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jul 2026 03:08:53 -0700 (PDT)
+	Fri, 10 Jul 2026 10:16:11 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493f431e317so3698785e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jul 2026 03:16:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783678132; x=1784282932; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lRikmQyOKgqKnyLuQ+vxx3W3W3hQlqGIgJrN16gls5I=;
-        b=eNqsAsyqfM3wdbxsP4f76O2Ld0Xhrn4r+AHZUd0AXymO9mjRvx9255Bu9HLongd1MK
-         iKeycDZv9gav4Ey/lRLQFUrsOWFimCr2ptUc8e9ZyTjzJ+5bbqLf2w1n3fg5URxVHyy2
-         KDx7NM49rCI0ZZJl/AzzUkwQ7+xxo1A4n1ypUHrgu0kkBHHbW70KljmFY28S3hvfNhSY
-         n66hAeQ2VCKNcm7ZQNfQ9v4KknakIYAl+lzhqkTodK0iV/Vb+N8X+QYTzJoGR/IOPq7I
-         LhgeCk5467+ZMeae7d+wx6QSeBAQpGo30y7g8EmHaN6CuCaN5x5hUg9KXRLDXO3VBCC7
-         iYPQ==
+        d=gmail.com; s=20251104; t=1783678567; x=1784283367; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1vIQWYleDgGJPSPgzFWyTV1QrDZqaDu8yW8UkA/woeQ=;
+        b=oWbph3543spQC8HhTDitwgVxYIxX747B5f0awoW1wwnqKyCieGZUI+6q13Arc9tQ0N
+         ekpvXHGD7hPqfktD0p708idxB1GY1AUXxOnTiEEYnOt9dfirsza8pVL+kuOfbtHay9QB
+         jIvxLrx9NWo1O79rQ8emSAeuO+TYdB9Ux6cYypDGorcXfLqSJr5yLn3nqtSTlL4+cDTF
+         Fa+t1GzXrYdEZit3aJYM2iwmBdjZSr3gXVr3yLSyeYffzhb/OWxw88eXotjuRRdhChyV
+         +e3tYOadylEr1qug0nIs59USnUDf3kRTDWx+G6tbpoomzMoxYc+6yE2tRNKdZYo79TDi
+         BE8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783678132; x=1784282932;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lRikmQyOKgqKnyLuQ+vxx3W3W3hQlqGIgJrN16gls5I=;
-        b=AJHIbxeoPE0h5ndUpHDJ0x1IanWyPjfmY8AKP54VRxoON9FYZiXD5Ck4NWLZr7eUic
-         R3SVlFg+9+QKYWj5ZxiXkRqv5U4mqJsO8PyXXlLELexMoWvdcYbUPJq6NvMsI4DQO2sA
-         wydfCvix5ACq5RVGfvKukjgxwg9gnM2QLRSQ+LgSOOOq7FcKZaJFD98Pry8RDsWE4b6b
-         94t6hECDOBNNDtWaD+yJlJyyKryCAradMZ1AYykT2kuXVZcTiD4LW4j1DMuZ2NzEG+J+
-         6Ra9sveethzpfKOOWpBIJHcOEDgh165TNkgHWLm4imTtwDLnRwSM8x5Qy8kd1zBD68is
-         pngg==
-X-Gm-Message-State: AOJu0YwSBWKmJffluKgzkgQfm4ayl9qE1VhBDe/wRUKQ2it2yJHMXMdk
-	8euTIAI8S3EpYZxmAaDo3kisHa4hZledD23x4XcSkzb4kt/XuYCeS6lqG4VCHutnmjzjEg==
-X-Gm-Gg: AfdE7cmSdEixXXSAqFatru5mp/S7sbYq8/AzNj5BdNt70BEJTFEoUpRoqoue3nWXmY1
-	IbxglmGEARzfRvu2hT6yXm0T8c1O9VN2szhNTq+wYz0MUHu3n9S1Jw7Qn625xPon74yOBnOCC/s
-	/x1C6Rn9s35O04oQQiAo3ftzrZs4Xj5wHHlhdWvWPkEunj/+A+0xGLsUzU2eGZP9hjFCP7i3Gpc
-	LewqNkqns2pSxKR3f3RV67/2iH6fzNPT/2F7XkAIXvmSKj1MGFSF+2NytXPT4eaFyBGE8pIn2w1
-	o33rxV0NjQCFMEJb7ie7eYhUwgnfGhJ2i6IOOFdPUPH0O2G/SmrgGikeWIt/CZB9uGV9q+xP+Hb
-	1QRkEK+VCr1v/30kTKGEtjGeXoEAtpQSVshtsgP0RpkGo8v3jNhOPfwDtWeeAkfFhFNDmDXiOT4
-	BZMm3XBHt82rmOSK4r
-X-Received: by 2002:a05:600c:6208:b0:492:3e44:214b with SMTP id 5b1f17b1804b1-493e6843fb6mr101057725e9.13.1783678132163;
-        Fri, 10 Jul 2026 03:08:52 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783678567; x=1784283367;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1vIQWYleDgGJPSPgzFWyTV1QrDZqaDu8yW8UkA/woeQ=;
+        b=KftbF5KqJ35Y1XMS2uj5N9rVat2VXTijkfttfBrBEc7q8n10mnDVVWg2n+aT6cRYLI
+         x3/unGu2TC7h48Lf/Z8NIg6iUOBEAOjjC4aVzgAOsGFrDdNMK19QNAJEwFxCjCSWuwnV
+         F8E8xPfH+mqTS4kZeslmGMTPEhX1eQOtSQ/WVIvsrEWDTl95ZKYiPx7uJbBBXQIkgNB6
+         KrGTriaeQ56df5C4mtZ6vDM8MT4F6Su0WIM/wADlrOnleu//NyLiwkoEjK0xxk1Clfm/
+         Kn+Vmcm4/9PmwFvRpSaP0+SNHK3rf8ggJNszcA6J42dfuVyLQIPJELUnYDIQ+H0rA6OJ
+         IcdQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqNfk9fWcYfZzrvbFToHlDGKy0omE1Id1XTPNim6MYgrYbTbkK4d0bjWuCNM/JA3bbaKXSzHRTxiDUFHw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRtU4SJ+PBFnrGR50XI8h5sCFPOvho3CUo1Mx5oZs7FBszkXUL
+	Og80DArAHXfMnW2efKBNKdyOUdoiEfzdrWJN7i2TXexzm+LQzpthqFda
+X-Gm-Gg: AfdE7cnHJK72uUrjtEz0dA9j2AbIEtmhAyLY4KhqTA94Odt4pSlOipORb3il4GWz+Ac
+	f7QRLTnRuaTNvj3g2bXepNvQzf2dVd31y66UTbeSIQYi+7nq2QP88WW7i6UyHg1g5+qDLNdKlI9
+	pxY1tRlIM4JSBsiGT+eGermZFyBOQvR2MpGxYpsKGT0SrW8OGal7NY2AFfI5U97oMQWx//DEQqG
+	EdYRNLTsSww/OJFqjzflV0la7iBjN1B9Q1W1oNeKjOLWFluSOWDiJFvC+TMBuAekEvu0hk1xPD6
+	K5VFZFzsNTpe6y7Pf2e5PEUoUQFDBBUNeJk8y6EBjwxzS87tpEv7u22tuIoYbGzMkQrvLFtpDTz
+	+2WbHHyYJIl4wcUwlakGCRfAaPNGHg+scg8hqUJNVFLlJ+SLNT72br+YfxnTBWRbIngkNhXtgT0
+	NGsGMRVQ==
+X-Received: by 2002:a05:600c:828c:b0:493:bed9:b53d with SMTP id 5b1f17b1804b1-493e68ee07cmr95829375e9.31.1783678567070;
+        Fri, 10 Jul 2026 03:16:07 -0700 (PDT)
 Received: from curiosity ([80.211.22.60])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-493eb6f3b85sm207711765e9.2.2026.07.10.03.08.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493f49755f9sm34621525e9.8.2026.07.10.03.16.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 03:08:51 -0700 (PDT)
+        Fri, 10 Jul 2026 03:16:06 -0700 (PDT)
+Date: Fri, 10 Jul 2026 13:16:02 +0300
 From: Sergey Matyukevich <geomatsi@gmail.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Patra <atish.patra@linux.dev>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH] drivers/perf: riscv: handle legacy fallback in event check
-Date: Fri, 10 Jul 2026 13:08:35 +0300
-Message-ID: <20260710100837.1362558-1-geomatsi@gmail.com>
-X-Mailer: git-send-email 2.54.0
+To: Wang Yan <wangyan01@kylinos.cn>
+Cc: shuah@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, andybnac@gmail.com,
+	andrew.jones@oss.qualcomm.com, thecharlesjenkins@gmail.com,
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] selftests/riscv: ptrace: Fix memory leak of regset_data
+ in vector tests
+Message-ID: <alDGYu3qkX2B6J2_@curiosity>
+References: <20260710083437.489648-1-wangyan01@kylinos.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260710083437.489648-1-wangyan01@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_030855_022810_64391BA9 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20260710_031609_616504_0A78ACC6 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +104,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Common events PERF_COUNT_HW_CPU_CYCLES and PERF_COUNT_HW_INSTRUCTIONS
-can fall back to the legacy counters. So do not mark them as invalid
-if OpenSBI reports that they are not mapped to sampling counters
-in PMU DT node.
+> The regset_data buffer allocated with calloc() in the parent process
+> of several vector ptrace tests is never freed before returning,
+> causing memory leaks in:
+> 
+> - ptrace_v_not_enabled
+> - ptrace_v_early_debug
+> - ptrace_v_syscall_clobbering
+> - v_csr_invalid/ptrace_v_invalid_values
+> - v_csr_valid/ptrace_v_valid_values
+> 
+> Add free(regset_data) before kill(pid, SIGKILL) to release the
+> allocated buffer.
+> 
+> Signed-off-by: Wang Yan <wangyan01@kylinos.cn>
+> ---
+>  .../testing/selftests/riscv/vector/validate_v_ptrace.c | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+> index b038e2175c80..a388b7963d47 100644
+> --- a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+> +++ b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+> @@ -75,7 +75,7 @@ TEST(ptrace_v_not_enabled)
+>  		ASSERT_EQ(-1, ret);
+>  
+>  		/* cleanup */
+> -
+> +		free(regset_data);
+>  		ASSERT_EQ(0, kill(pid, SIGKILL));
+>  	}
+>  }
+> @@ -207,7 +207,7 @@ TEST(ptrace_v_early_debug)
+>  		EXPECT_EQ(vl_csr, regset_data->vl);
+>  
+>  		/* cleanup */
+> -
+> +		free(regset_data);
+>  		ASSERT_EQ(0, kill(pid, SIGKILL));
+>  	}
+>  }
+> @@ -331,7 +331,7 @@ TEST(ptrace_v_syscall_clobbering)
+>  		EXPECT_EQ(0UL, regset_data->vl);
+>  
+>  		/* cleanup */
+> -
+> +		free(regset_data);
+>  		ASSERT_EQ(0, kill(pid, SIGKILL));
+>  	}
+>  }
+> @@ -649,7 +649,7 @@ TEST_F(v_csr_invalid, ptrace_v_invalid_values)
+>  		ASSERT_EQ(ret, -1);
+>  
+>  		/* cleanup */
+> -
+> +		free(regset_data);
+>  		ASSERT_EQ(0, kill(pid, SIGKILL));
+>  	}
+>  }
+> @@ -911,7 +911,7 @@ TEST_F(v_csr_valid, ptrace_v_valid_values)
+>  		EXPECT_EQ(regset_data->vlenb, vlenb);
+>  
+>  		/* cleanup */
+> -
+> +		free(regset_data);
+>  		ASSERT_EQ(0, kill(pid, SIGKILL));
+>  	}
+>  }
 
-Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
----
- drivers/perf/riscv_pmu_sbi.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Thanks !
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index dfc886dee5ad..8f7aa71dc96f 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -335,7 +335,8 @@ static int pmu_sbi_check_event_info(void)
- 		goto free_mem;
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++) {
-+	/* skip check for cycles and instructions as they can fall back to legacy counters */
-+	for (i = 2; i < ARRAY_SIZE(pmu_hw_event_map); i++) {
- 		if (!(event_info_shmem[i].output & RISCV_PMU_EVENT_INFO_OUTPUT_MASK))
- 			pmu_hw_event_map[i].event_idx = -ENOENT;
- 	}
+Reviewed-by: Sergey Matyukevich <geomatsi@gmai.com>
 
-base-commit: a635d6748234582ea287c5ffeae28b9b23f91c7e
--- 
-2.54.0
+Regards,
+Sergey
 
 
 _______________________________________________
