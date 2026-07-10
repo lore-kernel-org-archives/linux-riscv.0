@@ -4,61 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7579FC43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 22:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C91C43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 23:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jD7WKnbOLb/UxUXQTaGGUlAHQKqS407LTvGcY116+DY=; b=B93Yx/lC2IA3cJ
-	c3kWMKQfVN8T/9eY2Zvjpb5fHbUYcqRsmbuCJ7ACyIg6r2oQFqnD9G55ufZ83a5hkn42Fty5VFIsW
-	cjpQhi1Su6EOOTEmiy3dditsQhtYt8ifsW35OSR/v3jLTaUo5CyTYRU4pVYWuCszk3st2KX4yNJCk
-	zgN++FoKgQTb4eObNsr+ub8JgKqb1oq/ZKzTO9WEReMF/1eq5g0c8bgwCCMg9JYECVEZUIZylcwJK
-	qETaXiw0fNeHvVFX1V3L5VZHP3bW+k/mw5K+9G1HBrRUVTEpawZSDxLsetn/H/RlmpAxB9SfCqG9A
-	6U+BY5X2160zW70ZCbRg==;
+	List-Owner; bh=kP9fwqjzOm7agdH3/NtClXFr9IWB2tPSCLikn7qF7jo=; b=jw9wnpVK78ZJT0
+	cFATCNOm+0/T50U4dQWNGfRheRPowii5Z4YFvG/askjW0Fui7g+eZJh9zVP1mJS7z+okL+QnBnPXU
+	sZVFgWsKv310MCZT8MKgx78O+zbZ6Z2rSTA3zV/ZoxqlYlpDtDhOyMVaCMVFLhNnDXiq0izGU0mgO
+	aL+we7l/NkEKdqltlDyvXK1XoBKDLSBKQ/R9yMgZo4pRMnR7C8V9kznvBgwPUA5WynDc84YRCJiBK
+	9OccuvIqAU4XLFSUrZY2e2gDWpS8JyRb2WpjUlpDOQA4k3Ul9jH0PNHz47+Cqh3MbgjKnvrirXcgJ
+	EvAFiLIDcfC1XWmz0RHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiJrF-00000005xuq-0b9t;
-	Fri, 10 Jul 2026 22:38:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wiKQK-00000005zZL-3PrK;
+	Fri, 10 Jul 2026 23:14:24 +0000
+Received: from mail-westus3azon11020087.outbound.protection.outlook.com ([52.101.201.87] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiJrD-00000005xuW-0SbQ
+	id 1wiKQH-00000005zYv-2YW0
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 22:38:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88172438EE;
-	Fri, 10 Jul 2026 22:38:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE27C1F000E9;
-	Fri, 10 Jul 2026 22:38:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783723086;
-	bh=bT+lBDZmy3qgOlVkIU92FEFu8S6OCaCVxq9KDzjctNo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Tnws5BCVipZU6j4wfdKOwN1lJ2RzRfJatEeoUES8MFfCI12PozQCI7bF6Crly5qLw
-	 0tUGqWfTbOIzA638RAq8Qb7UcUZWQ+g0W3j4uUo91ObrhoPcK4i/vb7fRqcVkseCm1
-	 Dx5tKdSe/YeJlAYfTt2vgSvZJ73Qa158aWWwgAAFzZsp9R7W+NRvQ4OjMIAVsWP0xh
-	 jdXPIxBFDcfyDi9gZ4F7C4Q8i1OGwF3+GIX2N5+ghGxnglmPljWqNGLCMin7jTi5bx
-	 69FTM9oScvgEdqQGgvbI4iA14V/1L+InmA+LXvBCmA/Rl7Nd1/YS1wQLQeCN8LFEhi
-	 eSW0guh4SZU/Q==
-Date: Fri, 10 Jul 2026 22:38:04 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/2] riscv: dts: spacemit: Add enough deassert time for
- the PHY on PICO ITX
-Message-ID: <20260710223804-GKB106000@kernel.org>
-References: <20260710063314.1030249-1-inochiama@gmail.com>
+	Fri, 10 Jul 2026 23:14:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fMB7nhjXOkqAu+fWCaQf6UKRAOu+eWxSJySUSfffkCdWpcjXElbgAyLhREL6syuQ4TVYC8tr/xrFdCgsnbRC0z9GbSb2Ep7/G7AX2jhVkI5Rp9ndAKYFFI208usgN566X1SU08Zp9dACxK5hzj/ltq1AG7p6BYQjAKCZ6VDVSWR3KGsaO+hOKMosV8fmw00fLax/gfSjbUjlw7STFH2qrZcvddbOKT70RzzzH7yWIIK7bqnOG3rWYsUfTUg/okCp2x4bZzX+lHSWfaW82cNniYH02MtlqmMCNUXQy5jjeDWvVPUCEGwUV/4OF9HS+a1ZCxqeI7w4rPhz3tKFfb7R6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JI1nOgpMbHbZz9QBC7nmNhlcJEMqsGjSWesFDJnuluM=;
+ b=Hy3xmbh25gIvdFWtSXEYEF0FlfNkQ8403KWtunhuZyhkyhVxW8uWOqqYJ6VCa1gvjhC1PalSNfL8NeKI/0lTgwHzMGYM9UeB/CAJAFCcxTWEda3hL4KYe8L7/8yKFi1W2HoPP8rOqtlkj1PfWxjFdXR8OBt3MgIvtYNqMnJDMwNlj8B9DNpQOhn+agcSyms7fZD7/FVjLGdKCzHg5f+/qb1YywFESYgF71zcVpF1JsPRMKa6BnbpT1mdVxMPjLN1RdnaXuakZIEbTY4jcVEk15Xh28BVoxKC+prQsam/4mVRSULQ2Wr/odovQnX9D2S80ASwfdG8OnNiEImEXWvj1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
+ dkim=pass header.d=rambus.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JI1nOgpMbHbZz9QBC7nmNhlcJEMqsGjSWesFDJnuluM=;
+ b=1B/q9c7Q4c9YqYDyr3O40QaFPu3AWlyeBKWGuZKp8pFYiEekr0Zm+1aZSPZ+OlNQkaknb66qQSV9J14qNK+Y0+n/+pfLjPCD7iRwFMYXzjcsZlaHYJbEJFnJF3HTSuXP703kvH0CLfEDb+8rosz92XR/ILWfMbTb5L5f/G5mTzzyCKFCcNPOuOYFA21Uc+E0nCXxOjVCNuTMKqyGMdHrL6yI8VONx1DK3OhRlRtT7w85ejRtiruk6r8wO3uV8vlnzhxBBsKiU0c/lkWEnrf1SYxQXTr7dM4Nu6neTFR68BXg07Ggz0+kIGhmLYHH6swuEAOi/HbpjE6VQhwo625MaA==
+Received: from SA3PR04MB9001.namprd04.prod.outlook.com (2603:10b6:806:398::17)
+ by PH0PR04MB8279.namprd04.prod.outlook.com (2603:10b6:510:105::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.18; Fri, 10 Jul
+ 2026 23:14:12 +0000
+Received: from SA3PR04MB9001.namprd04.prod.outlook.com
+ ([fe80::3da3:45d7:8860:e196]) by SA3PR04MB9001.namprd04.prod.outlook.com
+ ([fe80::3da3:45d7:8860:e196%6]) with mapi id 15.21.0181.017; Fri, 10 Jul 2026
+ 23:14:12 +0000
+From: "Ousherovitch, Alex" <aousherovitch@rambus.com>
+To: Conor Dooley <conor.dooley@microchip.com>, "Krishnamoorthy,
+ Saravanakrishnan" <skrishnamoorthy@rambus.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, Herbert Xu
+	<herbert@gondor.apana.org.au>, Jonathan Corbet <corbet@lwn.net>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>, Shuah Khan
+	<shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "Wittenauer, Joel"
+	<Joel.Wittenauer@cryptography.com>, "linux-api@vger.kernel.org"
+	<linux-api@vger.kernel.org>, "linux-crypto@vger.kernel.org"
+	<linux-crypto@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Shuah Khan <skhan@linuxfoundation.org>,
+	"Nguyen, Thi" <thin@rambus.com>
+Subject: RE: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager
+ Hub
+Thread-Topic: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager
+ Hub
+Thread-Index: AQHdD+HshuImNmj2q0GDF9X/lpOPwbZmdM8AgADs7vA=
+Date: Fri, 10 Jul 2026 23:14:11 +0000
+Message-ID: <SA3PR04MB9001E7DC9B2D4788EDCE2390D7FD2@SA3PR04MB9001.namprd04.prod.outlook.com>
+References: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
+ <20260709203037.1884436-2-skrishnamoorthy@rambus.com>
+ <20260710-siding-unmatched-5e066fbe4c01@wendy>
+In-Reply-To: <20260710-siding-unmatched-5e066fbe4c01@wendy>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+dlp-product: dlpe-windows
+dlp-version: 11.11.2.117
+dlp-reaction: no-action
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=rambus.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA3PR04MB9001:EE_|PH0PR04MB8279:EE_
+x-ms-office365-filtering-correlation-id: 3d81d6f3-1286-4f69-8186-08deded8f3f9
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|38070700021|56012099006|4143699003|11063799006|22082099003|18002099003;
+x-microsoft-antispam-message-info: cKElAf2hElcTrc30MNdglEnoajQqDxXtzsqfpiiB6zBA3K2g0M6hNpR4UFd/cKLDwCYEBeVRYNZPCiGhuZgVB+BzitikIwNaZQdgT+5opstrLBwFIb4MkyNY3WWGo9KPEWzoc2PG9fWEShtznbFoauBUJO3gFh+czFcv81zjo8bE3690uLJ8TB3bMFNh7wI5rakJc1sMviOE+XTIAQgCUDmH8BzzqHeCKM8oFVMOKM0vHHlyO/DeA8UNFY97J22ufIVdCQVB5p6Rda0kXkhzTiL7Z/INLUCiCFtEg1h+4CPhbdBSxb5W1yMRN4XJEeAIrO0TwEjrXSsgmXQD+/twsMiGoslUjSkyhhCaMkjSxwTseJ3YM+B5JwBhQ7AGk9cl+2Ic1DYu3iTtsY3s2vrhVvsd0vcaUQYqhmvvZ2kSmozkolFyrKw3ky/zYP6fXIgdvkfFHkmZIYAiytRl4HA8VKDqxDi8NIxaeT5WWgYLe4nDk4EUhVk5SoWgzfqNNNH6ASduclEgL0YkiMeCOwQgDNWimk6DQhqc2pw8dnMB1XZzpXSq1nunWyhs5Vk+6gFa2THfgBc3jDH3Fqz6eu42zkA6+Xze+vprTYJr+5VMAmWiK97p+j+UiXha5mjlGstv2w/3U/rlNOpR/mxvzWF5jDoqXgO4w9kHb0oPqcwmoAdrbaMdw9Mwib5oJRx99fGkleGBtK1At8L5Yl6SBVuaICwwYoiMIkXb5Ro7I8g86AA=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR04MB9001.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(38070700021)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?zg89MWmfEpDkNexMjoRsJdbDAbiDg59nAjSJZL/4vLiKPs/K5GovK0idWtno?=
+ =?us-ascii?Q?4nSMfxUCwvA1TVD7iKV+Avi/5LijHxI8f5ttY2xIQajFseQYJY/lweqgpBf1?=
+ =?us-ascii?Q?5XD/NDJ+9CsUJgQAOvGsXKIvSc/TYtWFO856mem+VGktwddsjD9mw/Wq75Tp?=
+ =?us-ascii?Q?1MwpBJQgW6tHwiVqNULyZVRwTgdjjg3A4EN67hVcQvVTIiVM5+kOo6QsM0Oy?=
+ =?us-ascii?Q?LADcM4oP7U9V1MPcUeweSXRFqHdoyv1KS2OL0MTtCcBnGytEVwlF2ePw07Gs?=
+ =?us-ascii?Q?IRG5Dz4D3Ao70AyRfFkiiefqWXbpoh931arzNADL4tc/6n/RrMfJHx6bpZHV?=
+ =?us-ascii?Q?aNOiu+to3V22jd9c37VYoyGlfFFGmzzoNTLO2R+cku58bv5TanBClbFh2Mq6?=
+ =?us-ascii?Q?DsN4/w5QtANSKeYad/KQTD31O331EvhqxWNsILV4y17WpOFV7zntMutvNKkx?=
+ =?us-ascii?Q?waTrbMrIo4eSBcW24qUlca+NDP6GQ8EDFPigfaKceVbjwX+kNPzV0D9q50UH?=
+ =?us-ascii?Q?bAxQ2zoPBQkDOJ/g4ahbBqKxLAhy4KBRFx69SfD/g5WvyrYQ7i1LxBJHPzRY?=
+ =?us-ascii?Q?9PRGCU+L9jrEuOfN2k4UFA+UtWbMamLVLDkn+ED0ouwD2r5+6uVz1BQuD3Xy?=
+ =?us-ascii?Q?W35/kd5Ih8G1r3BqwcoEFBBBKMGJQExiULeT8bVsf6tZmLcvJR4c/uISaAIy?=
+ =?us-ascii?Q?MU3mh9nRJuyTtDhB1us2YYryGPGG9B3Doi8xnSbJygh7KX16ER+Z1pFf/P7V?=
+ =?us-ascii?Q?7ffFvafdDDwp8XFPeW1QJDkxHwpIXhKB527JG/AA30R84M8cMy+VC53KSuZU?=
+ =?us-ascii?Q?ZNkyh1syLyMCCUAuC/Bm9CpUX3qoQTo9T/Wz5Kpm4foPlBE+VRXpnkIfD2nA?=
+ =?us-ascii?Q?xMOUthOVfBoVhJ7YZchoU/AiQGrOvOch1wAgV9Q0jFKJAh0i5cC2IoBUkDwQ?=
+ =?us-ascii?Q?PQ0B2j7xkbOuzCfpGjAfRvPMsTl2Qu/5Cv8SUhR/ZJhnF/52cTRB5ndhVUIY?=
+ =?us-ascii?Q?fIkfSh62DisxoVjPH0V+c6jg9f82NhaP1bhxHmITWkRfOWiGdrmQxBbFnadW?=
+ =?us-ascii?Q?WZSR8+wRvAl/4MLQAm6o5h38qX9WicA1NNaxIcvM7pPFV8mEZQoSrqGqSWEV?=
+ =?us-ascii?Q?WMmxOLsj+n6ZI/hwwRqk97JxF92EOAqKrfBT0qO+oJf6ghFZoIzeYC6epEMs?=
+ =?us-ascii?Q?3POYDEz26IsG5xQl3NKB1xc9hVaH8wQMroPocRYBh/DGcOTzKSh6/Mo1wBZH?=
+ =?us-ascii?Q?QLoF1oxIZ9KI/kXWrvsCBAkgraGjbEf3/D0xsNeHEvc3YC1x28Gs4a3AcEvK?=
+ =?us-ascii?Q?2ekWP7f/jWuV5F+EvTdPAxKzgKnn3qeS8LyE2hXgrerNpWOYERUmbb6KpXBH?=
+ =?us-ascii?Q?2OGDgY3Ny7ZkPh6acz+f/QHslJkRQQDl5dpJWXcDqdIvAwR4/nW2KSL88DIM?=
+ =?us-ascii?Q?B7ueiDdmQobBIdVxSTEE8Y8k6nuHTu8Qk5ZC6Tpn5Ho6eABCFy/gtCadTgJX?=
+ =?us-ascii?Q?KATdgwpQg7UWpBealJvsRsEa6HU3M+2UrvS4fLDMapz4oAAa/yKNTaxw7gDR?=
+ =?us-ascii?Q?AnPPkmyVkvvTygo7j0hO6wwa5bt9fDmFg07VUCRZK0IFJbMZQWp1oIVaAhBG?=
+ =?us-ascii?Q?4FFRdw2Jv6CNDoxrFX69XUoRpyZ42fNYBOIJMHG4uXMzhCSaDT/OuBBFjnN6?=
+ =?us-ascii?Q?QWRE8s03zHrbJhZM/ri/GIcgm+FUsl60ktfgCF2bmjPTDWguiMs0eWolWKo2?=
+ =?us-ascii?Q?GoA6ZCjkWg=3D=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260710063314.1030249-1-inochiama@gmail.com>
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA3PR04MB9001.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d81d6f3-1286-4f69-8186-08deded8f3f9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jul 2026 23:14:12.0688
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PUbuGh22NwrSEbGxQqb2+hwmWkaheiiISUQ8ylUhdelsOjElDbM0FbVMigZjFzINUBnkeJj7OqrWYznYHFlV+FYSj8fERMV8aNA1c+J/394=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR04MB8279
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260710_161421_696024_F293EDB8 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +159,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
+On Fri, Jul 10, 2026 at 1:59 AM, Conor Dooley <conor.dooley@microchip.com> wrote:
 
-On 14:33 Fri 10 Jul     , Inochi Amaoto wrote:
-> RTL8211F require at least 50ms deassert to guarantee the register
-> access, 10ms is only enough for the PHY reset.
-> 
-IMO, it's kind of too trivial to split into two separate patches,
-while duplicating the commit message
+> This company no longer exists, you should probably introduce a rambus
+> vendor prefix instead.
 
-> Fixes: 74657a376960 ("riscv: dts: spacemit: Add ethernet device for K3")
-If you agree to squash the patches, then should be fine to put both Fixes here
-also suggest to adjust title to be more simple and explict
-riscv: dts: spacemit: Increase deassert time for PHY RTL8211F
+Cryptography Research, Inc. does still exist -- it's now a wholly-owned
+subsidiary of Rambus (our co-maintainer is @cryptography.com). The
+prefix names the IP originator, which is consistent with existing
+subsidiary/acquired-vendor prefixes in the tree (e.g. al = Annapurna
+Labs under Amazon, mstar noted as acquired by MediaTek, fsl, cavium,
+xlnx). We'd prefer to keep "cri" on that basis, and can annotate the
+description as "Cryptography Research, Inc. (a Rambus company)" to make
+the ownership explicit. Happy to switch if you feel strongly.
 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-the fix looks good to me, so
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+> This property seems like it could be replaced by having a reg entry
+> for each mailbox.
 
-> ---
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> index 1eb5abbc61f9..b2a7d2d0d3a8 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> @@ -200,7 +200,7 @@ phy0: phy@1 {
->  			reg = <1>;
->  			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
->  			reset-assert-us = <10000>;
-> -			reset-deassert-us = <10000>;
-> +			reset-deassert-us = <50000>;
->  		};
->  	};
->  };
-> -- 
-> 2.55.0
-> 
-> 
+Agreed -- v3 will make each mailbox a subnode with its own reg window
+and drop cri,mbx-instances.
 
--- 
-Yixun Lan (dlan)
+> This looks like it should be deducible from a device-specific
+> compatible. [slots/strides]
+
+These aren't fixed per silicon -- they're the per-mailbox layout of the
+VCQ rings in host DMA memory, chosen at platform integration and
+programmed by the driver into the mailbox QUEUE/SLOTS/STRIDE registers.
+They can differ per mailbox on the same silicon, so a compatible can't
+encode them. v3 will keep them as optional, defaulted properties on the
+per-mailbox subnodes.
+
+> This whole subnode thing seems like it is only required because you
+> don't have device-specific compatibles [cores].
+
+Core presence is actually discoverable at runtime from the CORE_ENABLE
+register, so v3 will drop the per-core child nodes entirely and probe
+for enabled cores -- no per-variant compatible needed.
+
+> this could probably be handled via reg-names? [affinity]
+
+Yes -- v3 will express affinity per mailbox (a "role" of a specific core
+type for a dedicated mailbox, or "generic" for the round-robin pool),
+which is the subnode analog of your reg-names idea. One caveat: this
+cleanly covers 1:1 core-to-mailbox dedication plus a shared pool; a
+mailbox dedicated to several specific cores would need multiple role
+tokens.
+
+Thanks -- this restructures nicely.
 
 _______________________________________________
 linux-riscv mailing list
