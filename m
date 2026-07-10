@@ -4,103 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F992C44501
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 10:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5BEC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 11:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xRDQSI94B6eQCYtYrw9KIZflcZjsZfetJ7z9JDJEqiA=; b=sS5/d21wDZ00TC
-	J7YP8mvPY0bSG3Duhk4xE8Q67sO1KkxnlJt+PGlLORTjqmqGam+tZU2WpZpyUb/Lpt30hDZbHAmxp
-	BPrafpoQQ2spHCPB9w8qSohnR41kSZmD289Ez8Dz3SePNxwj1idGhOcU3PPcEYZMsJuz8D0Z/FwqX
-	yOB49DyY+/pmQj/UWOjEKtTZkLXbt84pQ9bxcMFgzrh+GNR74mOcZ4E5Na1S6ih8cRCN0pq1Oiu3x
-	O5EuFOWoaimwQmAkarPDvZsBC9mEl0cFe5/3ZwKXNctOIp8FDKQIIk5O4rYzSiHBW9vgqqPJ/iCzi
-	HI2Bs/fcY0kt8yTG4yBg==;
+	List-Owner; bh=a6+T95IkMzcHe6opJKwBhvdfil1bdp0R8F91fjg0AV8=; b=L19sLHhdDFxIqb
+	IT9W+/2yLNx/9F4v8jykcVTa1d48lDNtuGazVGiagKqQQzA4I3QCKYnm5yQ4YMqzo9Tdy1+FKy1WY
+	gOh5NsVkQmlLhWgI1iL2uBzrkF1YA6zxV/1CMiVnPbRe5EyCowcwY3n5fZxE5PD/+XCY863ROtNrd
+	1KZBqaM2/l+wPudSl4qTn7VRWLNOPlAqsLmc6AHoJQ3do4rk4ErT2CBJu17Ku/zUAT/JrhzjW0k+m
+	BOcgssGXJCIGH0j52H+VQ7hMIzWooA+ac3TZIUduh0kycwdTYYdXFKeVnPzqx+ucgBBEmX3oio83F
+	MSO+p1uoHiuaHZ6O77KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8tf-00000004l97-2mG7;
-	Fri, 10 Jul 2026 10:55:55 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1wi9E1-00000004oNw-4AZ6;
+	Fri, 10 Jul 2026 11:16:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8td-00000004l8Z-1HYr
+	id 1wi9Dz-00000004oK0-2AHh
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 10:55:54 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-84864086bfeso672046b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jul 2026 03:55:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783680952; x=1784285752; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DYS+VjE3ZeLF6fGUZwF6+bVV7JweMtmHNhPsPcBJC0k=;
-        b=XV0gxsL2nSTPiDqnm8l6Get8mcsuCJBR+HAT7CrwX1prLp7gJjZRIIPJJIgfJ9eLFl
-         DXHMcNRATvC2q6kan9Zv24ynisLZQv8WRUNjwE5EPJKjojNQtXPISrVAJeWDJOv/J5qG
-         W+pr915rGQLxZGrMLkDa+vV308cXT1l+L9aukoAHRlmw3W0J1j4n6KvVz2k5tXncaiP+
-         Fcl6k2sIpRqfTwy/2CEdYAalTf3pfOl8VIHwLSrooKfduUtoZ2NAIZVTfo6BWFsiQsGp
-         SHOW25z/s03XCbmdvyw3iV2sk7B12zgiY5q2pnMGsaQ4qZxsBaEKYZY3Eubq4/QSazT0
-         DhMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783680952; x=1784285752;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DYS+VjE3ZeLF6fGUZwF6+bVV7JweMtmHNhPsPcBJC0k=;
-        b=OIeQJrZ+d39+OwYgqLtyMYxEHMUKDkNb+JYEPAjhKZb3zCQBbUpn7G660TnxkKp0mO
-         BlyE6IlmMGUFXOvPgfjJyDEPhagmwoBiYIvlXxbtNkVrfBAZu/rzv92HD9bYfHfSfv66
-         exslL0K6AVH65SnoUxnqLSKLyNwrhRDYSYGlUzmz7Egq2g0/TtTMnBiLvqY/v6zzozV9
-         K1F4l98fEMnsnj18D0xGBWmJDq73b03NWOWANu3DCz7JyEx7gj2oLoL3lYd6/SHDmklt
-         DITbi6/odfHoYrd4JRICHgW5d+3jpypiJD3NgSaSmK/M1qypNjF/l9x2K4LFZfjNhlHe
-         m+Jg==
-X-Forwarded-Encrypted: i=1; AHgh+Roex9XfMj9CPfwJ/WuVRxECM1ccCqojX5pq6C7DqttYp5LeNkwjoqiF2Zf9VE9I3TF+zCPCRSjxtXF19w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDqgOEtsUIzBqit1Qbsq5Mhco4FG8hRtqEoa59UtlBnTOGIFLE
-	6rcVqLT/NRSAbXFwRi2F7G6bxzWQA7ZJaggRqo7fpW4zTThLd13jnq89
-X-Gm-Gg: AfdE7cnMgiK302LT4fw0Fi9KEdbYdQbbierFK20IPK1gaVd+aB18j6zrPfOEZ6/YqTs
-	CFbUTm6R8HCTMHv1Qk/P+TN9dKfxp0bCCgRGm55Ra5Zsx5AvXNp9t0cjgNBJXtiSZk9xQVub8jl
-	STdzx4bu8J8i9gY4Y4+ElXpXDS1iO8ZF9W59mYuB5IeV0yz09fWdutA001YDVvdyoCjxpjmjXDj
-	Hmcr8NqG0lzbbbeZYzxoOr0lnKpmxzCnRtth452J5xnTe7vT2TH73uts0NQqbDXTpzU7FnXPTN3
-	AFmWZDjkmgyhHUGErjN9YnUOmrUeDGXq3X3tV/4JJdX70ZwBK464omRXmCxZy/Z+PwMItzmpL6x
-	XY+j50j4yrenorejsiZXwINfLuAbhEGJJutf03JtWiNCtvHob+FGEkASqFvabfPSp
-X-Received: by 2002:a05:6a00:288f:b0:845:4888:74c5 with SMTP id d2e1a72fcca58-84842eecdafmr10377896b3a.23.1783680952357;
-        Fri, 10 Jul 2026 03:55:52 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ca5af6df87fsm4986672a12.5.2026.07.10.03.55.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 03:55:51 -0700 (PDT)
-Date: Fri, 10 Jul 2026 18:55:10 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Christian Bruel <christian.bruel@foss.st.com>, 
-	Frank Li <Frank.Li@nxp.com>, Nam Cao <namcao@linutronix.de>, 
-	Qiang Yu <qiang.yu@oss.qualcomm.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>, Alex Elder <elder@riscstar.com>, 
-	Siddharth Vadapalli <s-vadapalli@ti.com>, Vidya Sagar <vidyas@nvidia.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 2/6] PCI: spacemit-k1: Add multiple PHY handles support
-Message-ID: <alDNlfb0_T9g-ATO@inochi.infowork>
-References: <20260709040027.958400-1-inochiama@gmail.com>
- <20260709040027.958400-3-inochiama@gmail.com>
- <ak9KzNFF26B0Kttz@ashevche-desk.local>
- <alBNXgMAwXPKwiJ2@inochi.infowork>
- <alCoTEDUY8AO9OzD@ashevche-desk.local>
+	Fri, 10 Jul 2026 11:16:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1783682213;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hft+KFsru/NQK2GFVwrW+rNgrjQeb+hZeEo2ASl1/i4=;
+	b=ZiKBCJyyRh1QDSgXHAhHhxlW1FNyf7Ep7K9ys5KUmHOPgG4nJ87zqzlpADMjXDNjYS9lx2
+	orhTPa4/SQbV7dEs6FmOg8U6c42e5tcKkYQ+XDFPlb6lsfWszp5ilJW4KM+e7rId49cuQp
+	tjoyAd1gF3CQDHYI23ELdMi7PmAAP/w=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-640-1rPiqdCGMI-DqX1kFaFhcQ-1; Fri,
+ 10 Jul 2026 07:16:50 -0400
+X-MC-Unique: 1rPiqdCGMI-DqX1kFaFhcQ-1
+X-Mimecast-MFC-AGG-ID: 1rPiqdCGMI-DqX1kFaFhcQ_1783682205
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D3A3E1800BDF;
+	Fri, 10 Jul 2026 11:16:41 +0000 (UTC)
+Received: from fedora (unknown [10.44.49.164])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 4B2CE195419E;
+	Fri, 10 Jul 2026 11:16:21 +0000 (UTC)
+Received: by fedora (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Fri, 10 Jul 2026 13:16:41 +0200 (CEST)
+Date: Fri, 10 Jul 2026 13:16:20 +0200
+From: Oleg Nesterov <oleg@redhat.com>
+To: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
+Cc: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Helge Deller <deller@gmx.de>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Chris Zankel <chris@zankel.net>, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	x86@kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Richard Weinberger <richard@nod.at>,
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Subject: Re: [patch 12/18] ptrace, treewide: Rename
+ ptrace_report_syscall_entry() to ptrace_report_syscall_permit_entry()
+Message-ID: <alDUhFt9eadC880v@redhat.com>
+References: <20260707181957.433213175@kernel.org>
+ <20260707190254.280015701@kernel.org>
+ <alDMlSYN1eKkjNCL@kunlun.suse.cz>
 MIME-Version: 1.0
+In-Reply-To: <alDMlSYN1eKkjNCL@kunlun.suse.cz>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: F7NJUt5IWjKfsmwQMXFtvR6AejpNoLh3YZjVGKmLKnk_1783682205
+X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-In-Reply-To: <alCoTEDUY8AO9OzD@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_035553_347266_7381DF02 
-X-CRM114-Status: GOOD (  40.45  )
+X-CRM114-CacheID: sfid-20260710_041655_637372_E32C0574 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,111 +119,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 11:07:40AM +0300, Andy Shevchenko wrote:
-> On Fri, Jul 10, 2026 at 09:57:05AM +0800, Inochi Amaoto wrote:
-> > On Thu, Jul 09, 2026 at 10:16:28AM +0300, Andy Shevchenko wrote:
-> > > On Thu, Jul 09, 2026 at 12:00:22PM +0800, Inochi Amaoto wrote:
-> 
-> ...
-> 
-> > > >  struct k1_pcie {
-> > > >  	struct dw_pcie pci;
-> > > >  	const struct k1_pcie_device_data *data;
-> > > > -	struct phy *phy;
-> > > > +	struct phy **phy;
-> > > 
-> > > Should it be annotated by __counted_by_ptr() ?
-> > 
-> > Yes, I think it can, this is something I have missed.
-> > 
-> > > > +	unsigned int phy_count;
-> > > 
-> > > Ah, you allocate much more memory than possible PHYs... Can you redesign and
-> > > use the above annotation?
-> > 
-> > IIRC use the annotation does not reduce this memory usage...
-> 
-> It's about how you allocate it, the code uses max_phy_count instead of
-> phy_count.
-> 
-> > > >  	void __iomem *link;
-> > > >  	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
-> > > >  	u32 pmu_off;
-> > > 
-> > > >  }
-> 
-> ...
-> 
-> > > > +	k1->phy_count = i;
-> > > > +	if (k1->phy_count == 0)
-> > > > +		return -EINVAL;
-> > > > +
-> > > > +	return 0;
-> > > 
-> > > This doesn't seem correct to me, I would expect phy_count to be assigned only
-> > > when it's valid. (Yes, perhaps 0 is the same as it was, but semantically it's
-> > > different 0 in this case.)
-> > 
-> > I guess you think 0 is a valid number? I can not understand what you thing
-> > Assign this to 0 if there is no phy is fine to me, which shows there is 0
-> > vaild phy found.
-> 
-> Isn't it already 0? Semantically code is wrong in a flow (not in the result).
-> 
+On 07/10, Michal Such=E1nek wrote:
+>
+> > --- a/arch/alpha/kernel/ptrace.c
+> > +++ b/arch/alpha/kernel/ptrace.c
+> > @@ -375,7 +375,7 @@ asmlinkage unsigned long syscall_trace_e
+> >  	struct pt_regs *regs =3D current_pt_regs();
+> >
+> >  	if (test_thread_flag(TIF_SYSCALL_TRACE) &&
+> > -		ptrace_report_syscall_entry(regs)) {
+> > +		!ptrace_report_syscall_permit_entry(regs)) {
+> >  		syscall_set_nr(current, regs, -1);
+>
+> Why is this done here?
+>
+> Presumably the ptrace_report_syscall_entry returns false here becasue
+> the tracer put -1 into whatever register specifies the syscall number
+> (or it was there to start with) which was then read back, compared to
+> -1, leading to returning false.  Now it's set to -1 again?
 
-In fact it is already 0 here. But I am not understand why you thing is wrong.
-Could you explain it in detail? (Maybe you think it is not good to return 
--EINVAL?)
+I don't know why arch/alpha/ does syscall_set_nr(-1).
 
-> > > See also above. Do we have some PHY API that just counts provided PHYs?
-> > > If not, that what you should probably add first, before this patch.
-> > 
-> > I have not found any api for this. But the actual problem is, how the api
-> > is designed. I have checked both the array bulk api for reset and clock,
-> > it seems like it is much more than this patch...
-> 
-> Yeah, I looked at the phy-core and I think it will be hard to implement.
-> So, the idea is then is to reallocate the pointer each time you get a new PHY.
-> In this case the phy_count will reflect the actual memory consumption by phy.
-> 
+But note that ptrace_report_syscall_entry() doesn't even check whether
+the syscall number was changed. It only checks fatal_signal_pending().
 
-Emmm, I think it is kind of buggy and not necessary. In most case
-this array is not long actually, so allocate some pointer should be
-fine and be an acceptable cost.
+Oleg.
 
-> ...
-> 
-> > > > +	for (i = 0; i < k1->phy_count; i++)
-> > > 
-> > > 	for (unsigned int i = 0; i < k1->phy_count; i++)
-> > > 
-> > 
-> > I agree with the unsigned int, but I guess this definition is not
-> > allowed in linux.
-> 
-> It's allowed and it's encouraged even by Linus. As long as iterator is local,
-> use this syntax sugar and reduce its scope. It hardens the code.
-> 
-
-Could you give me a reference url to check, I have not found this
-on the coding-style.
-https://www.kernel.org/doc/html/latest/process/coding-style.html
-
-> > > > +		phy_exit(k1->phy[i]);
-> 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
-
-Regards,
-Inochi
 
 _______________________________________________
 linux-riscv mailing list
