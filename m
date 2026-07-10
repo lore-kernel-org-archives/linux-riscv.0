@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CF7C44501
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 14:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFBFC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 14:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bdPeqmG2jXK8ftS0QXlxeTfdwsYeYoWNAKiGXFnguwY=; b=s5cTzyOZ1MJfkB
-	6AZN2nsM2O7uBphpCPUGrDddVgGUHdDSbYVg0vn8pRck84q8D4Oau3CRuWRvlPQ8bH2CTL7aZ3xpO
-	nx/yvqMl4t7hXknAru1o8KXOWPeHMavf446I28m+ZDe535t4LePbneRQdQDLACyycBkdB3mJ2LbWv
-	B5akR8VacBMju6m/eyzuxd0nfVmRFvETwts8seI8SnZBGhOr6cP+O8oOD+teMfRblIZrHhdKF5RUZ
-	ejZmLl/Ywf7RIHp1LVzJAWHvhD8IWPxY+f8Cebegwvlj7vQfQaPMK39HKR571QsomYYnVkm1IvlRD
-	+fQReqbkqYuXlIU+OVqg==;
+	List-Owner; bh=uSf9p6wg3LUU7KnvwUphl+Gy+/g9kZya+Po7lIFgIDc=; b=SyWDD8fWvF7IDC
+	O5vwXcFrFCoC4ubq9Ya0lKMbf3bUmNr9wKp23dKOCCTstQAFf/UYOgh0gxKHzbGfvFOZ9kqSsv1p9
+	xpd8UQZ405U21nc3StNSmTV213nTP+/INdEdKhlfVtH2Z6FqmBU7ZV36cZmy37sMjgEJjG8LHuwmr
+	9u+5Aq+Ga5BSB3z27U1Z7Bg7ktUSVzcsI7z37OubsDPyfCKNrs9M9F3S2aMYFx13VpMvSVDOgaJoJ
+	PPMRyOfW4BgjujTbCVZdLtf4eAc9xu2gPf5HAoE2l9341BV9w9NQYKNcVTXEgurn4hDgwVRIayG8j
+	2TqvhvU6Ez8MBIKe5qhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCJm-000000055rB-2ITr;
-	Fri, 10 Jul 2026 14:35:06 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1wiCes-000000058Qr-2cpB;
+	Fri, 10 Jul 2026 14:56:54 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCJj-000000055pW-1gES
-	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 14:35:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1783694084;
-	bh=86FHXPa2XXe0jpQafsCvPbpMnYcFK7y2K3Df68+mJKk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lYd2+YJCdkpWfiyt34fYgzav+QBwTBrGQ8g8y14C2NJaYu2FaZgoEvPxcNJVg5CQx
-	 SGaIpwkn/Nc3/2cgIpEtIp0dlEVq+ayUjQxo4LYmXeEdIR6gZDLEsupr4gOamtyuvB
-	 fwY8snMn84TiVbX7+nOzgR9SImP5eBhsXLhhVmMJbl0FY9hZV9OZaEoSwwFhapeEHV
-	 mHLk+kumdOGOwOCOF+OLGdHp/cyRNOp3dYbeCPtKzA9/Xts43s99Kbw1JEJTsQntm9
-	 tz9cnPYuWzq3SKmrddGUIpR0L2oQuBerK3yLoMM2FxwufklZ4WJL9+FhorLhktD2rR
-	 JOs+ncGQ7qrFQ==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 42B5FB221FCB;
-	Fri, 10 Jul 2026 16:34:43 +0200 (CEST)
-Message-ID: <738ce6b8-798b-4689-a0f5-791fe85addbc@freeshell.de>
-Date: Fri, 10 Jul 2026 07:34:34 -0700
+	id 1wiCep-000000058QC-36it;
+	Fri, 10 Jul 2026 14:56:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783695392; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ml+DhCpPf45Z/4qAMFDX1inJx4ll4cpAPqHX1XAOkFYrT3SBF+2X1xNUUPJLWRvizcJMZUrNGm2F2YGl/aoMJOcZge7IU26m8GPDfrDoTX1hgMCr9GVbSyGzS3xCtLP82LHD9t/b5hDYAYnC6hvjNE5xA5DCn5XmRu1NlOpUyoY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783695392; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=zLiGYp9m/wGqSY8bb0fHrZAj5ElYrLF6yiGUlfJ+qMQ=; 
+	b=M0Eg0nQ4cf9rVWSHsT/sNKKmgpk+zGv+qg8eJwb/b/K4Yr3DkpJx054fB1YayRO8z7wd/DQCiNNHDwc04nIUI9x1nvK1zCDeBO2py7aQ6gcgNnqFwzGKcc9jJrPexN5jFSUJFX/nqh4BdiG2OY5ZzByJNj1JuO/PBfQCP/jeBKM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783695392;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=zLiGYp9m/wGqSY8bb0fHrZAj5ElYrLF6yiGUlfJ+qMQ=;
+	b=m40ImWUgrfvL+/QoCcMwwJ+Pgtlgx9LtjVk4mi7IQhGrkVavVKfwHBbkFtCEx2Ud
+	+Jdk0QkYo/qTGfUPcl+d6JuSfpcDp72ihGQWc7IVQYiTZ95yqP5DnbTyciiYdtZIxwe
+	cjQ1Spgu6g5lMsaqJlYOfs2B4CeqjFV5DOubRgrKMfxnPiK0zfeMgD1E0Z97vZDUw7I
+	jPp0Cn42fZt04GrRKzr1h2Qffkvw3f0SejtLcHYPSzl+H0xkk86YquVYa8bd3aWB65A
+	/1oZJabrJh9qMJ/g19xZ/RYhSbc2UJt7EgHL1rU7HbhFnUEv0mIE30v3O3f8IByUtyc
+	foDq8sKiIw==
+Received: by mx.zohomail.com with SMTPS id 1783695388721436.80504654321703;
+	Fri, 10 Jul 2026 07:56:28 -0700 (PDT)
+Message-ID: <b8fc8356212012d92186a1a4cd3ad641f01461a6.camel@icenowy.me>
+Subject: Re: [PATCH 11/12] riscv: dts: thead: Add Lichee Pi 4A IO expansions
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei	
+ <wefu@redhat.com>, Michael Turquette <mturquette@baylibre.com>, Stephen
+ Boyd	 <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vinod
+ Koul	 <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
+ 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org, Han Gao	
+ <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>, Emil Renner Berthing	
+ <emil.renner.berthing@canonical.com>
+Date: Fri, 10 Jul 2026 22:56:08 +0800
+In-Reply-To: <20260507081710.4090814-12-zhengxingda@iscas.ac.cn>
+References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
+	 <20260507081710.4090814-12-zhengxingda@iscas.ac.cn>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: spacemit: k3-pico-itx: Fix non-functional
- ethernet TX timing
-To: Yixun Lan <dlan@kernel.org>
-Cc: Andrew Rembrandt <kernel@rembrandt.dev>,
- Inochi Amaoto <inochiama@gmail.com>, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260608182358.170489-1-kernel@rembrandt.dev>
- <aiemGajqcQeY9avz@inochi.infowork> <aihYftGNcpUd4UUR@mcmanus>
- <aiid4Y6x6Dbbwszf@inochi.infowork> <aikmOfazxdrhpty7@mcmanus>
- <77a48b81-7906-4e18-9229-48643a67f402@freeshell.de>
- <20260710022551-GKA106000@kernel.org>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20260710022551-GKA106000@kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_073503_900638_E219A19E 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20260710_075651_855155_F34DCADF 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,90 +88,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yixun,
-
-On 7/9/26 19:25, Yixun Lan wrote:
-> Hi E Shattow,
-> 
-> On 00:29 Thu 11 Jun     , E Shattow wrote:
->> Hi Andrew,
->>
->> On 6/10/26 02:05, Andrew Rembrandt wrote:
->>> On Wed, Jun 10, 2026 at 07:14:56 am Inochi Amaoto wrote:
->>>> Do not do this, just leave the rx-internal-delay-ps untouched.
->>>
->>> Sounds good, I'll leave v1 as-is. Many thanks for the review.
->>>
->>> Regards,
->>>
->>> Andrew
->>>
->>> _______________________________________________
->>> linux-riscv mailing list
->>> linux-riscv@lists.infradead.org
->>> http://lists.infradead.org/mailman/listinfo/linux-riscv
->>
->> I do not notice any difference with or without this property present,
->> tested Linux -next with U-Boot modification to devicetree:
->>
->> load usb 0:1 $fdt_addr_r /dtb/spacemit/k3-pico-itx.dtb
->> fdt addr $fdt_addr_r
->> fdt resize
->> fdt header get filesize totalsize
->> fdt set /soc/ethernet@cac80000 tx-internal-delay-ps <400>
->> load usb 0:1 $kernel_addr_r /EFI/BOOT/BOOTRISCV64.EFI
->> # throwaway use of ping is workaround for broken vendor U-Boot
->> ping 127.0.0.1; bootefi $kernel_addr_r $fdt_addr_r
->>
->> Aside, there is still some problem with the driver which does cause it
->> to fail. This can be reproduced by unloading the module and then loading
->> the module; built from -next with 'olddefconfig' of debian Kconfig for
->> kernel 7.1, no patches.
->>
->> # modprobe -r dwmac_spacemit
->> # modprobe dwmac_spacemit
->> [   61.469745] spacemit-dwmac cac80000.ethernet end0: cannot attach to
->> PHY (error: -ENODEV)
->>
->> [   91.544646] spacemit-dwmac cac80000.ethernet end0: cannot attach to
->> PHY (error: -ENODEV)
->>
-> The problem is unrelated to this patch itself, but I can actually confirm here
-> 
->> If not reloading the module then I don't see any difference, traffic
->> passes (ping 1.1.1.1) with or without your suggested
->> tx-internal-delay-ps property. Is there a specific test to run to
->> observe expected difference?
->>
-> 
-> Although I haven't narrowed down to the root cause, but it's kind of
-> something wrong with the reset procedure, remove it from phy node will fix
-> this issue..
-> 
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> @@ -232,9 +232,6 @@ mdio {
->                 phy0: phy@1 {
->                         compatible = "ethernet-phy-ieee802.3-c22";
->                         reg = <1>;
-> -                       reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
-> -                       reset-assert-us = <10000>;
-> -                       reset-deassert-us = <10000>;
-> 
-> 
-
-Yes, confirming that workaround (removing nodes as you suggested) is
-functional for debian-installer where that reset trouble is being
-observed. If there is a patch or discussion later I will follow up then,
-also.  On the topic of this ethernet TX timing thread I don't know what
-this does? Is there a test situation I may try to know if it is doing
-anything? Thanks very much, -E
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMDUtMDflm5vnmoQgMTY6MTcgKzA4MDDvvIxJY2Vub3d5IFpoZW5n5YaZ6YGT77ya
+Cj4gRnJvbTogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGVtaWwucmVubmVyLmJlcnRoaW5nQGNhbm9u
+aWNhbC5jb20+Cj4gCj4gTGljaGVlIFBpIDRBIGhhcyAzIEkyQyBJTyBleHBhbnNpb24gY2hpcHMg
+b25ib2FyZCwgY29ubmVjdGVkIHRvIHRoZQo+IEkyQzAvMS8zIGJ1c3Nlcy4KPiAKPiBBZGQgZGV2
+aWNlIHRyZWUgbm9kZXMgZm9yIHRoZW0uCj4gCj4gU2lnbmVkLW9mZi1ieTogRW1pbCBSZW5uZXIg
+QmVydGhpbmcKPiA8ZW1pbC5yZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbT4KPiBbSWNlbm93
+eTogYWRkZWQgY29tbWl0IGRlc2NyaXB0aW9uXQo+IFNpZ25lZC1vZmYtYnk6IEljZW5vd3kgWmhl
+bmcgPHpoZW5neGluZ2RhQGlzY2FzLmFjLmNuPgoKSSBhbSBnb2luZyB0byBzZW5kIGEgbmV3ZXIg
+cmV2aXNpb24gb2YgUEFUQ0ggOX4xMSBpbiBhIGZldyBkYXlzLApiZWNhdXNlIHRoZSBJMkMxIGNv
+bnRyb2xsZXIgaXMgYWxyZWFkeSBhZGRlZCB0byB0aGUgbWFpbmxpbmUgZGV2aWNlCnRyZWUgZm9y
+IFdpLUZpIHN1cHBvcnQsIGFsdGhvdWdoIHRoZSBhbHJlYWR5LW1lcmdlZCBwYXRjaGVzIGFyZSBh
+CmxpdHRsZSB3ZWlyZC4KClRoYW5rcywKSWNlbm93eQoKPiAtLS0KPiDCoC4uLi9ib290L2R0cy90
+aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0c8KgwqDCoCB8IDExMQo+ICsrKysrKysrKysrKysr
+KysrKwo+IMKgMSBmaWxlIGNoYW5nZWQsIDExMSBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLWxpY2hlZS1waS00YS5kdHMKPiBi
+L2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLWxpY2hlZS1waS00YS5kdHMKPiBpbmRl
+eCA0MTk4ZGJmOTUzZjA2Li4zNTRmMzg5M2FhOGNmIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvdGhlYWQvdGgxNTIwLWxpY2hlZS1waS00YS5kdHMKPiArKysgYi9hcmNoL3Jpc2N2
+L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtcGktNGEuZHRzCj4gQEAgLTE2LDYgKzE2LDkg
+QEAgYWxpYXNlcyB7Cj4gwqAJCWdwaW8zID0gJmdwaW8zOwo+IMKgCQlncGlvNCA9ICZncGlvNDsK
+PiDCoAkJZ3BpbzUgPSAmYW9ncGlvOwo+ICsJCWkyYzAgPSAmaTJjMDsKPiArCQlpMmMxID0gJmky
+YzE7Cj4gKwkJaTJjMyA9ICZpMmMzOwo+IMKgCQlzZXJpYWwwID0gJnVhcnQwOwo+IMKgCQlzZXJp
+YWwxID0gJnVhcnQxOwo+IMKgCQlzZXJpYWwyID0gJnVhcnQyOwo+IEBAIC0xMTAsNiArMTEzLDc2
+IEBAIGhkbWlfb3V0X2NvbjogZW5kcG9pbnQgewo+IMKgCX07Cj4gwqB9Owo+IMKgCj4gKyZpMmMw
+IHsKPiArCXBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4gKwlwaW5jdHJsLTAgPSA8JmkyYzBf
+cGlucz47Cj4gKwljbG9jay1mcmVxdWVuY3kgPSA8MTAwMDAwPjsKPiArCWkyYy1zZGEtaG9sZC10
+aW1lLW5zID0gPDMwMD47Cj4gKwlpMmMtc2RhLWZhbGxpbmctdGltZS1ucyA9IDw1MTA+Owo+ICsJ
+aTJjLXNjbC1mYWxsaW5nLXRpbWUtbnMgPSA8NTEwPjsKPiArCXN0YXR1cyA9ICJva2F5IjsKPiAr
+Cj4gKwlpb2V4cDE6IGdwaW9AMTggewo+ICsJCWNvbXBhdGlibGUgPSAibnhwLHBjYTk1NTciOwo+
+ICsJCXJlZyA9IDwweDE4PjsKPiArCQlncGlvLWNvbnRyb2xsZXI7Cj4gKwkJI2dwaW8tY2VsbHMg
+PSA8Mj47Cj4gKwkJZ3Bpby1saW5lLW5hbWVzID0gImNhbTBfZHZkZDEyIiwKPiArCQkJCcKgICJj
+YW0wX2F2ZGQyOCIsCj4gKwkJCQnCoCAiY2FtMF9kb3ZkZDE4IjsKPiArCX07Cj4gK307Cj4gKwo+
+ICsmaTJjMSB7Cj4gKwlwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ICsJcGluY3RybC0wID0g
+PCZpMmMxX3BpbnM+Owo+ICsJY2xvY2stZnJlcXVlbmN5ID0gPDEwMDAwMD47Cj4gKwlpMmMtc2Rh
+LWhvbGQtdGltZS1ucyA9IDwzMDA+Owo+ICsJaTJjLXNkYS1mYWxsaW5nLXRpbWUtbnMgPSA8NTEw
+PjsKPiArCWkyYy1zY2wtZmFsbGluZy10aW1lLW5zID0gPDUxMD47Cj4gKwlzdGF0dXMgPSAib2th
+eSI7Cj4gKwo+ICsJaW9leHAyOiBncGlvQDE4IHsKPiArCQljb21wYXRpYmxlID0gIm54cCxwY2E5
+NTU3IjsKPiArCQlyZWcgPSA8MHgxOD47Cj4gKwkJZ3Bpby1jb250cm9sbGVyOwo+ICsJCSNncGlv
+LWNlbGxzID0gPDI+Owo+ICsJCWdwaW8tbGluZS1uYW1lcyA9ICIiLAo+ICsJCQkJwqAgImNhbTBf
+cmVzZXQiLAo+ICsJCQkJwqAgImNhbTFfcmVzZXQiLAo+ICsJCQkJwqAgImNhbTJfcmVzZXQiLAo+
+ICsJCQkJwqAgIndsX2hvc3Rfd2FrZSIsCj4gKwkJCQnCoCAiYnRfcmVzZXRuIiwKPiArCQkJCcKg
+ICIiLAo+ICsJCQkJwqAgImJ0X2hvc3Rfd2FrZSI7Cj4gKwl9Owo+ICt9Owo+ICsKPiArJmkyYzMg
+ewo+ICsJcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiArCXBpbmN0cmwtMCA9IDwmaTJjM19w
+aW5zPjsKPiArCWNsb2NrLWZyZXF1ZW5jeSA9IDwxMDAwMDA+Owo+ICsJaTJjLXNkYS1ob2xkLXRp
+bWUtbnMgPSA8MzAwPjsKPiArCWkyYy1zZGEtZmFsbGluZy10aW1lLW5zID0gPDUxMD47Cj4gKwlp
+MmMtc2NsLWZhbGxpbmctdGltZS1ucyA9IDw1MTA+Owo+ICsJc3RhdHVzID0gIm9rYXkiOwo+ICsK
+PiArCWlvZXhwMzogZ3Bpb0AxOCB7Cj4gKwkJY29tcGF0aWJsZSA9ICJueHAscGNhOTU1NyI7Cj4g
+KwkJcmVnID0gPDB4MTg+Owo+ICsJCWdwaW8tY29udHJvbGxlcjsKPiArCQkjZ3Bpby1jZWxscyA9
+IDwyPjsKPiArCQlncGlvLWxpbmUtbmFtZXMgPSAidHAwX3JzdCIsCj4gKwkJCQnCoCAiIiwKPiAr
+CQkJCcKgICIiLAo+ICsJCQkJwqAgInZjYzV2X3VzYiIsCj4gKwkJCQnCoCAidmRkMjhfdHAwIiwK
+PiArCQkJCcKgICJ2ZGQzM19sY2QwIiwKPiArCQkJCcKgICJ2ZGQxOF9sY2QwIiwKPiArCQkJCcKg
+ICJsY2QwX3Jlc2V0IjsKPiArCX07Cj4gK307Cj4gKwo+IMKgJnBhZGN0cmwwX2Fwc3lzIHsKPiDC
+oAlmYW5fcGluczogZmFuLTAgewo+IMKgCQlwd20xLXBpbnMgewo+IEBAIC0xMjMsNiArMTk2LDE4
+IEBAIHB3bTEtcGlucyB7Cj4gwqAJCX07Cj4gwqAJfTsKPiDCoAo+ICsJaTJjM19waW5zOiBpMmMz
+LTAgewo+ICsJCWkyYy1waW5zIHsKPiArCQkJcGlucyA9ICJJMkMzX1NDTCIsICJJMkMzX1NEQSI7
+Cj4gKwkJCWZ1bmN0aW9uID0gImkyYyI7Cj4gKwkJCWJpYXMtZGlzYWJsZTsgLyogZXh0ZXJuYWwg
+cHVsbC11cCAqLwo+ICsJCQlkcml2ZS1zdHJlbmd0aCA9IDw3PjsKPiArCQkJaW5wdXQtZW5hYmxl
+Owo+ICsJCQlpbnB1dC1zY2htaXR0LWVuYWJsZTsKPiArCQkJc2xldy1yYXRlID0gPDA+Owo+ICsJ
+CX07Cj4gKwl9Owo+ICsKPiDCoAl1YXJ0MF9waW5zOiB1YXJ0MC0wIHsKPiDCoAkJdHgtcGlucyB7
+Cj4gwqAJCQlwaW5zID0gIlVBUlQwX1RYRCI7Cj4gQEAgLTE0Niw2ICsyMzEsMzIgQEAgcngtcGlu
+cyB7Cj4gwqAJfTsKPiDCoH07Cj4gwqAKPiArJnBhZGN0cmwxX2Fwc3lzIHsKPiArCWkyYzBfcGlu
+czogaTJjMC0wIHsKPiArCQlpMmMtcGlucyB7Cj4gKwkJCXBpbnMgPSAiSTJDMF9TQ0wiLCAiSTJD
+MF9TREEiOwo+ICsJCQlmdW5jdGlvbiA9ICJpMmMiOwo+ICsJCQliaWFzLWRpc2FibGU7IC8qIGV4
+dGVybmFsIHB1bGwtdXAgKi8KPiArCQkJZHJpdmUtc3RyZW5ndGggPSA8Nz47Cj4gKwkJCWlucHV0
+LWVuYWJsZTsKPiArCQkJaW5wdXQtc2NobWl0dC1lbmFibGU7Cj4gKwkJCXNsZXctcmF0ZSA9IDww
+PjsKPiArCQl9Owo+ICsJfTsKPiArCj4gKwlpMmMxX3BpbnM6IGkyYzEtMCB7Cj4gKwkJaTJjLXBp
+bnMgewo+ICsJCQlwaW5zID0gIkkyQzFfU0NMIiwgIkkyQzFfU0RBIjsKPiArCQkJZnVuY3Rpb24g
+PSAiaTJjIjsKPiArCQkJYmlhcy1kaXNhYmxlOyAvKiBleHRlcm5hbCBwdWxsLXVwICovCj4gKwkJ
+CWRyaXZlLXN0cmVuZ3RoID0gPDc+Owo+ICsJCQlpbnB1dC1lbmFibGU7Cj4gKwkJCWlucHV0LXNj
+aG1pdHQtZW5hYmxlOwo+ICsJCQlzbGV3LXJhdGUgPSA8MD47Cj4gKwkJfTsKPiArCX07Cj4gK307
+Cj4gKwo+IMKgJnVhcnQwIHsKPiDCoAlwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+IMKgCXBp
+bmN0cmwtMCA9IDwmdWFydDBfcGlucz47CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
