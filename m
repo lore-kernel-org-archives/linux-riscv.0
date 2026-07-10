@@ -4,56 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C66C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 00:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84CFC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 01:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b6ImvfCevW/q6Z12f8llvxWtFHYK80G8JezgmyhBQB8=; b=rk1uPVsS207bLs
-	WxuZlMwQULl0P12rqnVOIJDrhbdI2XoP8pxhF1I9EFiGSqqtuZEwM08kEXUK40sc2xHAIzFnMjfUe
-	n+hW4o52tlV/TIsA8xaHsSRbPhRnruN6EoC28RBafduMtGQ1YoSZZtCyFlf7KQKJHeXy1RLwQVdlz
-	JfK41wix23P6aJvtzxYsGg5o1oKCMBrc/FxYmNW5Fc3iw3pt2dISMRniWh2lIsjKmFWAr0ytdK7P/
-	AReHX06iNRVD1oNOaJE8nrhxF2f7Bw9aHpRnVatKUZE8pCoQ37ff5P/f5UUPQqO7adhF0G9L/l++A
-	LeKKeatEuAmKXbz34cSQ==;
+	List-Owner; bh=PxsKRT9X8LzOBHGbf5hwF3QyuU1zIBZtR5i369MhmGE=; b=mPSWpd8PRvcuV8
+	+OgJki67OCXM1Y4//ixuWvlRZmdbjcc/g/747mCdsc6RmT/key2iGe0ObfvEozWIUJ/EudTfeGet9
+	9n6c5etVmunV4Rr9hXOR1HANIdx9vt5VUKBuMlxqjqA1ZF1Nd6u5AvdX2qt0UwZb6WxJIh+AYuT8n
+	Zburwp+p+mVhqgNYKLFTE0dv9nLne7sKMk9ttWjmCVShnhyDYDF6IvcxPdo+toCQJWay+sJjth1o5
+	Qp/2liklxDylMTcYiikJzKx3TmOJHhUxRiMCMnRul+M9D4BRJ8GPEHEGtKMka6rxSR0j7enFuNE1Q
+	d3CsX0UtZBBVMpyRGN3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whzaB-00000003tcC-0j5I;
-	Fri, 10 Jul 2026 00:59:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whzaA-00000003tc4-0Zd4
-	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 00:59:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D13E36001A;
-	Fri, 10 Jul 2026 00:59:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09D151F00A3A;
-	Fri, 10 Jul 2026 00:59:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783645147;
-	bh=G+HtOVZhSA/XK6KhiOlTNBigwnMnYqdSliXWSDDRVpw=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=BffutR+j0EOnrb3k7FsSup/k58GyMGzYn8/7pnQxlvLyiYI79jlcfpjekjwZwpR7u
-	 C5VEpreEtCO9b3p8xl97QZHrrj2vFx9trPsBwxN71sdd+KqwTiRZrgGf7yDxWqU5AA
-	 RWYeoK13LvGGqz925qO2gQx4eSkA+tDSxvPHTYx4M8vim8NN8ES/bww6RDxttrW8R6
-	 hLfplqCwONArfu+RZZc6P3aX2WP4/s5D6KOykHExjK34T7liXB7a7Uqqm8RCpb6yFs
-	 RxdQErtj5ZaFyuKo+QXVmN2dZjjQrRNrw5diKSoNc4nteAdCTb+zbkCWGoxhOVbXPz
-	 WbPTY97p1QCwQ==
-Date: Thu, 9 Jul 2026 18:59:04 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, Yaxing Guo <guoyaxing@bosc.ac.cn>, 
-    "David Hildenbrand (Arm)" <david@kernel.org>
-Subject: Re: [PATCH] riscv: mm: Fix concurrency in mark_new_valid_map()
-In-Reply-To: <20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn>
-Message-ID: <38dad5db-e298-fe26-2189-3a67ed156a4a@kernel.org>
-References: <20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn>
+	id 1whzfh-00000003twp-3k99;
+	Fri, 10 Jul 2026 01:04:53 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whzfe-00000003twW-1ujf;
+	Fri, 10 Jul 2026 01:04:50 +0000
+Message-ID: <fd2e3b89-339a-4964-9b0c-e24ed7f7b31f@infradead.org>
+Date: Thu, 9 Jul 2026 18:04:49 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 19/19] MAINTAINERS: add Rambus CryptoManager Hub (CMH)
+To: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alex Ousherovitch <aousherovitch@rambus.com>,
+ Conor Dooley <conor+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Herbert Xu <herbert@gondor.apana.org.au>, Jonathan Corbet <corbet@lwn.net>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Rob Herring <robh@kernel.org>, Shuah Khan <shuah@kernel.org>,
+ Ninad Palsule <ninad@linux.ibm.com>, linux-hwmon@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+ Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
+ linux-api@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Shuah Khan <skhan@linuxfoundation.org>, Thi Nguyen <thin@rambus.com>
+References: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
+ <20260709203037.1884436-20-skrishnamoorthy@rambus.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260709203037.1884436-20-skrishnamoorthy@rambus.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +67,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vivian,
 
-On Mon, 29 Jun 2026, Vivian Wang wrote:
 
-> Turns out, the concurrency concerns [1] were justified - BOSC reported a
-> spurious fault in KFENCE that still triggers despite previous fixes,
-> which KFENCE reports as a false-positive.
+On 7/9/26 1:30 PM, Saravanakrishnan Krishnamoorthy wrote:
+> From: Alex Ousherovitch <aousherovitch@rambus.com>
 > 
-> Fix the concurrency problems in mark_new_valid_map():
+> Add MAINTAINERS entry for the CRI CryptoManager Hub (CMH) hardware
+> crypto accelerator driver under drivers/crypto/cmh/.
 > 
-> - Add smp_wmb() before filling the bitmap, to make sure page table
->   writes are "received".
+> Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+> Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+> Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
+> Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
+> Reviewed-by: Thi Nguyen <thin@rambus.com>
+> ---
+>  MAINTAINERS | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index d1dbf2f07104..1c153a84f70f 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -6891,6 +6891,23 @@ F:	kernel/cred.c
+>  F:	rust/kernel/cred.rs
+>  F:	Documentation/security/credentials.rst
+>  
+> +CRI CRYPTOMANAGER HUB (CMH) HARDWARE CRYPTO ACCELERATOR
+> +M:	Alex Ousherovitch <aousherovitch@rambus.com>
+> +M:	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+> +R:	Joel Wittenauer <Joel.Wittenauer@cryptography.com>
+> +R:	Thi Nguyen <thin@rambus.com>
+> +L:	linux-crypto@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/ABI/testing/cmh-mgmt
+> +F:	Documentation/ABI/testing/debugfs-driver-cmh
+> +F:	Documentation/ABI/testing/sysfs-driver-cmh
+> +F:	Documentation/crypto/device_drivers/cmh.rst
+> +F:	Documentation/devicetree/bindings/crypto/cri,cmh.yaml
+> +F:	Documentation/userspace-api/ioctl/cmh_mgmt.rst
+> +F:	drivers/crypto/cmh/
+> +F:	include/uapi/linux/cmh_mgmt_ioctl.h
+> +F:	tools/testing/selftests/drivers/crypto/cmh/
+> +
 
-Probably this expression should be clarified.  I guess the intent here is 
-to ensure that the page table write is visible by other cores either 
-before or simultaneously with the bitmap fill?  And the purpose of that is 
-to avoid a situation where another core could execute an sfence.vma before 
-the PTE write is observable by the other core?  If so, we should probably 
-write something like this out in the commit message.
+Hm, I thought for a moment there that this new CRI entry was out of
+place (alphabetically). No, it's the next entry that is so far
+out of place. :(
 
-I wonder if there's still a window where spurious faults could be observed 
-by kfence.  If another core "B" faults (due to its local TLB caching an 
-invalid PTE) after the PTE write is observable by B, but before the bitmap 
-write is observable by B, core B won't sfence.vma.  If this possibility 
-still exists, we should probably document it.  It might be possible to 
-narrow that window further with a smp_mb() after the bitmap fill, but 
-unclear that it's worth trying unless more spurious faults are seen.
-  
-...
+>  INTEL CRPS COMMON REDUNDANT PSU DRIVER
+>  M:	Ninad Palsule <ninad@linux.ibm.com>
+>  L:	linux-hwmon@vger.kernel.org
 
-Also, now that we're adding an smp_wmb(), we should probably expand the 
-preemption-disabled section in kfence_protect_page() to cover the entire 
-function, to eliminate any risk that the PTE writes execute on a separate 
-CPU from the smp_wmb().
+-- 
+~Randy
 
-
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
