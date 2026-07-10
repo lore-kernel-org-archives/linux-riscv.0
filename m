@@ -4,97 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC08C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 08:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9ABC43458
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 08:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HUE48XWeIAULm54OUHOY7c80cafINcVUE53EG1HKHFE=; b=zaJzr/uC7g3JS3
-	aWeZDIIO2BeXsnUvDrGyBMtqGsudHxa2DOXAC21OxZNejVuRrkCM4Zc9oCZpSRdei+dp73+krDs24
-	tA8TSU26UD8fmYlX2JItGxA92tOK0a/AGahbmaTUwdKz3I502GbHMf59dkTNDSGwMx106KOr6dAeA
-	t/iDv3UWIuam3Pyuh/Nqk51nEutNH8FyYZuxtrnHbYwko6cupaCgEc53LhvplqXa3gI1Ypj3m2A0q
-	aWd+06LboNrcsauJDjg0Pq7PyGQ5n21Jt8zLZEoIOa1tYLFOV3Q3aog5/mXvcfAYrt4faoEVQyshF
-	TTNudJSHIeqCI219CQGA==;
+	List-Owner; bh=AmNcWLap8sciHK+rA89dMIefbAURy5CJ8Yn8LQH+Mck=; b=EAdTOCyVPsh4Fc
+	h7dD6utdtYrw0Wb/60feCFkRnE8kPvMFWlT3EZAVqJh21dVzj8zqqwMrgVRR5oRyePgeB9cPwTETt
+	ufOtcp/GN0K6rITfBw+6shKPOhD8pW8hlG4uD8RjI5TS1iYyPlXoy2jB2hDcIVmdbvX/3oJTJheQg
+	SooQ5LhJraYmk2gGcfa9J+drEVYBZc/Txi/RcBVU0tqDQPCKluQpxJlYIUaMvjTgKtX+fvHlBUJtc
+	Jh3yijTRCurjDyfbM0gWExzysc03+Jx3Z4yMZtCeY2NvCyfeq0mfb7MP4+OCQq2ebeeIw5PUlV7KO
+	EzboynFU6YONMRIEsshQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6H7-00000004QDV-1E2v;
-	Fri, 10 Jul 2026 08:07:57 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1wi6QK-00000004RLF-2iHQ;
+	Fri, 10 Jul 2026 08:17:28 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6H5-00000004QCK-2GZp
-	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 08:07:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783670876; x=1815206876;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=naUIyFM2ineqBmx6cpwvg+5iO9MPbuiQdUMA+z7fCpA=;
-  b=JOUplMr1ujHhKexuHtb+MZyZwQsmykhDkPVOwF4IF3M5OG1a1axYRD3p
-   AAkJrYO2YYo+euptSDjqHd9+p2mYsKOv/RIPvCz3DFcXH97zKitTHqzya
-   qOfPMFaQtNAHCNsC+NyyrQ1X99B8PfyRmqUXeQetLeEc2AfkUZkH49JFc
-   d8WAyCOHsEVIWmBj0b2/3HZEestLrXCg60ExZwDZm5znjgGeBgLKLuFbT
-   mR9rXSxYFhejAhA21/VyJ7cc2lR8aLRbumdckRPbsYyQWR6qjjECd07zy
-   iM7o6ptehv+AsFc1UKCqcjU8/oeaxwd6uhPPHlrYBZOdc2Mi1HZRZnFlj
-   w==;
-X-CSE-ConnectionGUID: Yo4/Z32kRyq/IlLgSgY4wQ==
-X-CSE-MsgGUID: lifKt1cSQBm20ajc9c4xzw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84467114"
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="84467114"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2026 01:07:55 -0700
-X-CSE-ConnectionGUID: k7BT+p0WS6GXZTFCbLFfbQ==
-X-CSE-MsgGUID: ZEvW6qjkTVuzuBJ7QTu3sw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="253089844"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.100])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2026 01:07:47 -0700
-Date: Fri, 10 Jul 2026 11:07:40 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Bruel <christian.bruel@foss.st.com>,
-	Frank Li <Frank.Li@nxp.com>, Nam Cao <namcao@linutronix.de>,
-	Qiang Yu <qiang.yu@oss.qualcomm.com>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
-	Alex Elder <elder@riscstar.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Vidya Sagar <vidyas@nvidia.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 2/6] PCI: spacemit-k1: Add multiple PHY handles support
-Message-ID: <alCoTEDUY8AO9OzD@ashevche-desk.local>
-References: <20260709040027.958400-1-inochiama@gmail.com>
- <20260709040027.958400-3-inochiama@gmail.com>
- <ak9KzNFF26B0Kttz@ashevche-desk.local>
- <alBNXgMAwXPKwiJ2@inochi.infowork>
+	id 1wi6QH-00000004RK7-0uRN;
+	Fri, 10 Jul 2026 08:17:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bADy4MyDlRtFS7Ey6zhS7/3ranOwzmkHDZMwLNpDFivy6cDI9k9xI/onzlKl/pyYyeGzvLfqH3F/x8BvfbXeCWdUHnTY3P9hHMGf83AhcP7CLXI2DU5wUsUkmyGIDmiP89GuTVXPcilsXYVlQs4JhSTJvtiaSH27bQDDfW2f6P3ngyb8GUShv3zgvmpJCbjYLhsmMuiD1mh4ohL1f4mMFMWuYaMpPaPBVagF+ZcTzXF10T5Kr+vkVnvw+RfVuASVa+ItRcdqmDCpTmiP/rmgy+Hnf/zkCzUFfGQQ0mkCPmgAnD+vmVofOwIgPuowgIxd/6uglDcptZKCL9DVNyprrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OXOHSZK3138l5feHcf8tQrpnH6XzX3HFkUrrAbxwBf4=;
+ b=SJKWY4xnsFFZrSrQRbWoL2ejWmjW2wn/fDKWSywaEly38uKoxdP76qcGjG3r1rm6HBLIv6tN8kZsA+lCvrzVzNbkGS15bQr2WsGbor3/jcThJzc8h5jOOptT87mUviiw7ZFoppRh0HDZuHDIa4/ScsC0OT2vlvhxkorcJVWAHWiYd+TeCIZ0PzVrAoqHXTZzoDkxlspnDqAGr6UWMiJOGH7ak9STCV7Chgg+NxgQacgSdqiPffFcElJdtcBWzafvFUG7Y5YbQGz3r02732mC7iFdKd/xnrXERI0XhSSzEuyg/bbxT59UO64CX9w4Px1IYHp/amqJWni1fimSJW0Bgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OXOHSZK3138l5feHcf8tQrpnH6XzX3HFkUrrAbxwBf4=;
+ b=2CsJejtt2+4ndMVIgzhYdgnZ5q2vSQz52BTNmZD8cUh/wm23YNtEB34cZHChS1Aq+y2vXV08M3tgqOBVm4bbcVrOLVpSk/bTMSPw4iG87Dejfafit0I8PK9S+Ueq5JM0JDray3ApZ2Jo+A92G5phRQQY+VJC+c6TiIGbPxHB8tM=
+Received: from MN0P223CA0017.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:52b::8)
+ by CH8PR12MB9816.namprd12.prod.outlook.com (2603:10b6:610:262::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
+ 2026 08:17:17 +0000
+Received: from BN3PEPF0000B371.namprd21.prod.outlook.com
+ (2603:10b6:208:52b:cafe::8a) by MN0P223CA0017.outlook.office365.com
+ (2603:10b6:208:52b::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.13 via Frontend Transport; Fri,
+ 10 Jul 2026 08:17:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BN3PEPF0000B371.mail.protection.outlook.com (10.167.243.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.0 via Frontend Transport; Fri, 10 Jul 2026 08:17:16 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 10 Jul
+ 2026 03:17:16 -0500
+Received: from [10.136.35.241] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Fri, 10 Jul 2026 03:17:11 -0500
+Message-ID: <650c7050-2a77-4415-b597-3bb39ccfb1e8@amd.com>
+Date: Fri, 10 Jul 2026 13:47:10 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alBNXgMAwXPKwiJ2@inochi.infowork>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 5/8] riscv/runtime-const: Introduce
+ runtime_const_mask_32()
+To: Charlie Jenkins <thecharlesjenkins@gmail.com>
+CC: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Sebastian
+ Andrzej Siewior <bigeasy@linutronix.de>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Samuel Holland
+	<samuel.holland@sifive.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Alexandre
+ Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>
+References: <20260630045531.3939-1-kprateek.nayak@amd.com>
+ <20260630045531.3939-6-kprateek.nayak@amd.com>
+ <178366995930.1208691.2993932866462893112.b4-review@b4>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <178366995930.1208691.2993932866462893112.b4-review@b4>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B371:EE_|CH8PR12MB9816:EE_
+X-MS-Office365-Filtering-Correlation-Id: 32fd8548-7dad-4237-4418-08dede5ba7b3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700016|23010399003|11063799006|4143699003|5023799004|22082099003|56012099006|18002099003|3023799007|13003099007;
+X-Microsoft-Antispam-Message-Info: Q/9ktpJsUqU9YY6zkbyoOn1QUlbJ+/6RwN3a5/mkWn6etdYrVp1Xwp+3HQeSVP3DwNzktZfDBLO59E+NnE9xir8SKzrRrkqaq34aOKn0YbrYj2t+FcXATn/c2vJ2+LeB+zOtDHC/z9fMRd+ZDBBkNzALUKLzmooT71j7MLUzpwWWKQ4O/SJ/0PqAGPNUswbvpGh1IumXJXP/VXccbUbPHbN+NQf9h8pyrzNIcV/IRKCuEdbYtSTslgL6IciYD+u/JINXvijcgkznQx8qXYh3Vh5IYaU++GjQlpRYN5gJ1ogHi8c10wREkHZWmWkwA7q+slgQasvsYY/paW5q56Islubv3jw85tN5itm3F1/Va5tK89TfrN/hLJoqACcREaefetPxLXPb86eiD/XRgvs3jX/Qh2W8k92EvbkmFRK6XHQnxGadMATBABsx9rSAlHCTsn5z0E2clqlXbbBL9ztqinVoB7/tTA2cDQHCf3xNABV1OrXxZY6GniPl4WheQ8qIpeZ+iGbDbe3CZdS7r9kHlczkUX74c5/zsdwHk/rjBDX0eVwxfsamiJQ+3cyd3InsZ8IyjjPw0wCt71gK4Q607/PBiiHf0cGpiBWwfsgs8X/I81mo3uSsmeXOl9Jj1V4tLnPP7w15N1lkmsaEFG0g8xxtWPS7St2nqYdyf/JoM5MtYriGBwiSL4EvrN8NR/qv3MjZb3libzkv9wImUFVMeQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700016)(23010399003)(11063799006)(4143699003)(5023799004)(22082099003)(56012099006)(18002099003)(3023799007)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 60pdV8geNf2LGy6amrH9UHz4HB+liaHa8OSGHsqTNViw7oXQ249X9/AxDXEBPT7AnEg8ZdRXgUBHxlYACOmZQGYW87ZjV6+TxVG2cyOG9c6BLMYOjzC1nP5NQn4+PaREJZUZvfXdr4LeQyTIGNWLIB0s1nzxYg+tFD2DgvDdG/QwyaWMRLRdmp/g8tHkI78gp1Wv5qk45RzbrqP6uvgGImmtG7kRzs3ss/ovE+nC5lWeewQ3jD5vK//MvYhWHJDhi/Wjss3OJgLPR9ENljPxVLxOxqIqWT/pG2P07+arTG+p/07FfAyTOeuH4/eZ/Ze+VQtAWfXsRNAuX9b8wBnN+RpKYQs28YmfhsMpQsShvtAfykKsjTiQna8TYWCjVeYU6RJDQgpOZNJxgyf4yas6IuPaWqlJziwI9WM1hTrkuZGFRWs9pbuthM4acsYljNrq
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 08:17:16.9680
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 32fd8548-7dad-4237-4418-08dede5ba7b3
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B371.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9816
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_010755_653147_1E2A5A27 
-X-CRM114-Status: GOOD (  33.10  )
+X-CRM114-CacheID: sfid-20260710_011725_267877_0C020C74 
+X-CRM114-Status: GOOD (  31.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,86 +131,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 09:57:05AM +0800, Inochi Amaoto wrote:
-> On Thu, Jul 09, 2026 at 10:16:28AM +0300, Andy Shevchenko wrote:
-> > On Thu, Jul 09, 2026 at 12:00:22PM +0800, Inochi Amaoto wrote:
+Hello Charlie,
 
-...
-
-> > >  struct k1_pcie {
-> > >  	struct dw_pcie pci;
-> > >  	const struct k1_pcie_device_data *data;
-> > > -	struct phy *phy;
-> > > +	struct phy **phy;
-> > 
-> > Should it be annotated by __counted_by_ptr() ?
+On 7/10/2026 1:22 PM, Charlie Jenkins wrote:
+> [You don't often get email from thecharlesjenkins@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> Yes, I think it can, this is something I have missed.
+> On Tue, 30 Jun 2026 04:55:28 +0000, K Prateek Nayak <kprateek.nayak@amd.com> wrote:
+>> Futex hash computation requires a mask operation with read-only after
+>> init data that will be converted to a runtime constant in the subsequent
+>> commit.
+>>
+>> Introduce runtime_const_mask_32 to further optimize the mask operation
+>> in the futex hash computation hot path. Since all the current use-cases
+>> are of the form GENMASK(n, 0), with n > 0, following sequence:
 > 
-> > > +	unsigned int phy_count;
-> > 
-> > Ah, you allocate much more memory than possible PHYs... Can you redesign and
-> > use the above annotation?
+> I really appreciate you spending the time to do this, thank you!
+
+My pleasure! And I really appreciate you taking time to review and test
+this series. Thanks a ton for that!
+
 > 
-> IIRC use the annotation does not reduce this memory usage...
-
-It's about how you allocate it, the code uses max_phy_count instead of
-phy_count.
-
-> > >  	void __iomem *link;
-> > >  	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
-> > >  	u32 pmu_off;
-> > 
-> > >  }
-
-...
-
-> > > +	k1->phy_count = i;
-> > > +	if (k1->phy_count == 0)
-> > > +		return -EINVAL;
-> > > +
-> > > +	return 0;
-> > 
-> > This doesn't seem correct to me, I would expect phy_count to be assigned only
-> > when it's valid. (Yes, perhaps 0 is the same as it was, but semantically it's
-> > different 0 in this case.)
+>>
+>>
+>> diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+>> index 1ce02605d2e4..dbf96c937dbb 100644
+>> --- a/arch/riscv/include/asm/runtime-const.h
+>> +++ b/arch/riscv/include/asm/runtime-const.h
+>> @@ -262,6 +279,33 @@ static inline void __runtime_fixup_shift(void *where, unsigned long val)
+>> [ ... skip 24 lines ... ]
+>> +     BUG_ON(!val || width > 31 || (GENMASK(width - 1, 0) != val));
+>> +
+>> +     __runtime_fixup_shift(where, 32 - width);
+>> +     __runtime_fixup_shift(where + 4, 32 - width);
+>> +}
+>> +
 > 
-> I guess you think 0 is a valid number? I can not understand what you thing
-> Assign this to 0 if there is no phy is fine to me, which shows there is 0
-> vaild phy found.
-
-Isn't it already 0? Semantically code is wrong in a flow (not in the result).
-
-> > See also above. Do we have some PHY API that just counts provided PHYs?
-> > If not, that what you should probably add first, before this patch.
+> It would be "optimal" to use an andi when the mask is <=11 bits since
+> andi can fit an 11 bit mask. What you have is good enough but I'll leave
+> my stab at doing the andi patching here in case you want to apply it.
 > 
-> I have not found any api for this. But the actual problem is, how the api
-> is designed. I have checked both the array bulk api for reset and clock,
-> it seems like it is much more than this patch...
+> From 9e5527aaddd464783af795aacdb6d094e11cc31e Mon Sep 17 00:00:00 2001
+> From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Date: Thu, 9 Jul 2026 23:18:09 -0700
+> Subject: [PATCH] riscv: Optimize __runtime_fixup_mask for masks with <= 11
+>  bits
 
-Yeah, I looked at the phy-core and I think it will be hard to implement.
-So, the idea is then is to reallocate the pointer each time you get a new PHY.
-In this case the phy_count will reflect the actual memory consumption by phy.
+Peter seems to have merged the v5 series in his tree but If you could give
+your S-o-b, I can throw in a commit log, some testing along with a few
+cosmetic modifications, and send it for official review on top of
+queue:locking/core ;-)
 
-...
-
-> > > +	for (i = 0; i < k1->phy_count; i++)
-> > 
-> > 	for (unsigned int i = 0; i < k1->phy_count; i++)
-> > 
 > 
-> I agree with the unsigned int, but I guess this definition is not
-> allowed in linux.
+> ---
+>  arch/riscv/include/asm/insn.h          |  2 ++
+>  arch/riscv/include/asm/runtime-const.h | 29 ++++++++++++++++++++++++--
+>  2 files changed, 29 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+> index c3005573e8c9..0a34cd7305d0 100644
+> --- a/arch/riscv/include/asm/insn.h
+> +++ b/arch/riscv/include/asm/insn.h
+> @@ -141,6 +141,7 @@
+>  #define RVG_OPCODE_JALR                0x67
+>  #define RVG_OPCODE_JAL         0x6f
+>  #define RVG_OPCODE_SYSTEM      0x73
+> +#define RVG_OPCODE_ANDI                0x13
+>  #define RVG_SYSTEM_CSR_OFF     20
+>  #define RVG_SYSTEM_CSR_MASK    GENMASK(12, 0)
+> 
+> @@ -175,6 +176,7 @@
+>  #define RVG_FUNCT3_BGE         0x5
+>  #define RVG_FUNCT3_BLTU                0x6
+>  #define RVG_FUNCT3_BGEU                0x7
+> +#define RVG_FUNCT3_ANDI                0x7
+> 
+>  /* parts of funct3 code for C extension*/
+>  #define RVC_FUNCT3_C_BEQZ      0x6
+> diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+> index dbf96c937dbb..24a9b13081f7 100644
+> --- a/arch/riscv/include/asm/runtime-const.h
+> +++ b/arch/riscv/include/asm/runtime-const.h
+> @@ -9,6 +9,7 @@
+>  #include <asm/asm.h>
+>  #include <asm/alternative.h>
+>  #include <asm/cacheflush.h>
+> +#include <asm/insn.h>
+>  #include <asm/insn-def.h>
+>  #include <linux/memory.h>
+>  #include <asm/text-patching.h>
+> @@ -302,8 +303,32 @@ static inline void __runtime_fixup_mask(void *where, unsigned long val)
+>          */
+>         BUG_ON(!val || width > 31 || (GENMASK(width - 1, 0) != val));
+> 
+> -       __runtime_fixup_shift(where, 32 - width);
+> -       __runtime_fixup_shift(where + 4, 32 - width);
+> +       /*
+> +        * A riscv 'andi' instruction can fit an 11 bit immediate, so the mask
+> +        * can be directly applied. Otherwise fall back to SRLI + SLLI.
+> +        */
+> +       if (width < 11) {
+> +               __le16 *parcel = where;
+> +               u32 insn;
+> +               __le32 res, nop;
+> +
+> +               insn = (u32)le16_to_cpu(parcel[0]) | (u32)le16_to_cpu(parcel[1]) << 16;
+> +
+> +               /* Replace the slli/slliw with an andi */
+> +               insn &= 0x000fcf80;
+> +               insn |= val << 20 | RV_ENCODE_FUNCT3(ANDI) | RVG_OPCODE_ANDI;
+> +
+> +               res = cpu_to_le32(insn);
+> +               /* Replace the srli/srliw with a nop */
+> +               nop = cpu_to_le32(RISCV_INSN_NOP4);
+> +               mutex_lock(&text_mutex);
+> +               patch_text_nosync(where, &res, sizeof(insn));
+> +               patch_text_nosync(where + 4, &nop, sizeof(insn));
+> +               mutex_unlock(&text_mutex);
+> +       } else {
+> +               __runtime_fixup_shift(where, 32 - width);
+> +               __runtime_fixup_shift(where + 4, 32 - width);
+> +       }
+>  }
+> 
+>  static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
+> --
+> 2.54.0
+> 
+> 
+> I would prefer including this, but I am happy to approve this
+> regardless.
 
-It's allowed and it's encouraged even by Linus. As long as iterator is local,
-use this syntax sugar and reduce its scope. It hardens the code.
+Ack! I'll keep it as an optimization on top to retain your attribution.
 
-> > > +		phy_exit(k1->phy[i]);
+> 
+> Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+
+Thank you again!
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+Thanks and Regards,
+Prateek
 
 
 _______________________________________________
