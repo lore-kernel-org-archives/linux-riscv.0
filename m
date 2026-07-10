@@ -4,136 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16934C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 08:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7F1C44501
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 08:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kdQ67js0DPWx+MAfN/RBh5YhjFCKvlY2uFIO3u14HoQ=; b=UDc9SjxLqD2X8t
-	553FkIcFryYom1CWwwAedQ1DWkUF5mWF6ZIL/EjNDncsh4pWCtSYnuaHbR07/vWLwgWuSx2+ebmMB
-	JO0+qcqCmgORBA+cKtanTRLcdTktYQTGJxb3tdjHijo66pZEzeUhliZrharxCkLNdZPY4fUs7vAy+
-	RTH91JulYjYdeDEREiSjhrxLenAKqdPSd1NIgmYTtatyQhBV3tWtmkBScB88W5wu4ZRUSQ4qO+RFF
-	PsDMCy56TV5ivSkblMioKqhNvytJ8xQzzg9r77PVUXrZEW3SkHpUbkiLK+1pCriVIjK2bKk9MVk7D
-	O+eOy/bCavjvu4etyCmw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7iuVylFppRjIDout2i5BZlU3qxn49eCR+FjX70fHDRU=; b=tKOoRyQUG/RPQiKoTEgIrwibtW
+	UZJNK87O8jCjbOFo007mNlP0OfKdk/c4LwODpIwEztzG9sPG5Kks89BKb6XVoJf0gbveK6X2/Jj2R
+	98HzKwWYAUppkiCJ2L4jQm+KqDOfTQndxV+Xea7l9Yug7JQo8hwS65OYaK/H98Rb5D4HCf9Y9iJXT
+	QhipfZo5a7JvWhxIaPORtLhT8jf1zUlbIk8ZG0cAf+7/DF1FF38khqS6vt/xDDE9K20nk0Pa7foTv
+	rfh31ggCxqBmlrA5kZHJP2kkEVGAebwXkoKhrYs1MGJse+HFSB7RHL2wFzUHWbfpn5yDssfU6G7kI
+	otEhpezw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6wD-00000004Uih-0lyB;
-	Fri, 10 Jul 2026 08:50:25 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wi759-00000004VzO-3SkB;
+	Fri, 10 Jul 2026 08:59:39 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6wA-00000004UiF-0QxO
+	id 1wi756-00000004VyA-12Y7
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 08:50:23 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66A7eJcM141562
-	for <linux-riscv@lists.infradead.org>; Fri, 10 Jul 2026 08:50:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0vPVQ1ErU/pGixkPNw1WBsE9kjQFwY0ce2USBSASEqE=; b=Xg42b0g9MUSCQ9s9
-	qurkfwSTMG6N35ozQPKaN5u+nbzys08f8XsFv4NIhisNMtn7IcSV0gUsuyb1v13A
-	/gtHNuvVFUSE50JwppjGYTR0czD3xR0F3WnsuT64VgQvZUahdJNCf14Q39IJLLBm
-	htVWmPmThcCn302tmihCRcdtCYhyl8q244e4BBMfDw78RwVgyOB/HH4/Qw7HmelH
-	LVtzEIAzW8OgqQxMOGXsQyH8dzdGQJh5ocqJMvg2od/JmyA+H0o24kFPgau22FYd
-	h9lp10hZTxXxxPEgOwj8sDJmK3+TZlRzdZdDZGmqqhsyTUyh8CG+hFZcgv1hj+Q+
-	coGAWA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4faf5mucf5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 10 Jul 2026 08:50:19 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ce7dff6253so7913445ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jul 2026 01:50:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783673418; x=1784278218; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0vPVQ1ErU/pGixkPNw1WBsE9kjQFwY0ce2USBSASEqE=;
-        b=Cnu1ZLQC6sqt9o7Cqymxu9WRd2xgZTYhToBTIDqNoHa/qIFFetiTrgBBpmrf5av+K3
-         e+BEFY/UC1cryQwWG6Kh2tRhHs8bSCJ5/PassiSB7AnayKOSr3bTQ2c7PQnFvM2KqaTd
-         7qjirnjqwC/ONejFxZ6WPGRnzRH2oWedWxVtB2DaPcPdctWg1haT9JvW06uXL+QukrZI
-         DDgxJ9nNObsA/8LFC567IjoSY7dcJHJi93aLNmU+Z/3xB11So0bR5tX3FybY2tb8O2l0
-         +PNz7zY+84eC+ZyGECFmFZrX9uvYdyap8Oe0Sjt80j5Sl5/LqALW3VjgcB629dhj64JS
-         N+bA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783673418; x=1784278218;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0vPVQ1ErU/pGixkPNw1WBsE9kjQFwY0ce2USBSASEqE=;
-        b=T5V97kJ33vDevl2twQw/JXfafwyCMgvmS5/BtXVW1HVIfdTQUBypU5YGfBsS08UjXZ
-         JFBwp0ubt/5JpksdVqUuO/xozwu+9kLi3H8z3ZDG4BUCW/Nx7ilPzG7qZpsbqaJMOHkM
-         emC8m0PeZcNuvb6Mf0gjdeIhkFkJE4RZvOKzv60uz0uZPiyHaktQSReqPplWkVxp6gtY
-         TxDkGGKsPibmwfmdM3q8QOSP5y+DTiRoHUcKVAhjxRtSlAcUs8t4jhxPgRxWb3ruIvFw
-         YEu2VEK9stWSp8LeloEco0/NUip05p/YAbN3+Ewzj4nq3Ug1a1rjjnCeS2c1dtnlrmbE
-         onoA==
-X-Forwarded-Encrypted: i=1; AHgh+Rqtl7U0wiIb64DDBVFkx6Xkud9slw6biPUg4YCqc9wJOFA842WQqWnSTfP3tHKehpDl/1DBPecQpp5Wsg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiwkxLeWDGDcRI6+HuUx8iwZtiuipHf1/jC6nv//QCLp+mgGCj
-	5n7hX0gd6Mp/h4IuhFXagOBjlmhTXrm+WwFkcWFhHFknQCA2gGbXenNfC8MjHMm5tNoffyjsS4s
-	sSKsqNtXuuDdrTtgpdJuO4178kiDBg+DDQZHImFoVgBRoOt3XGakmknDQNX17GOT/0wydTi0=
-X-Gm-Gg: AfdE7clHqBKiScMqPz4iM51ZMQwBrl1Rs0ArwumybJJOWfOunhfYmSYuV66Rg9bLw0L
-	2ajmfxDlFsMzDFl5hcC/vfHAAkZKEpip5Sk+RW7o5mI2bswVQBGpNjr0aJ2VObGSKe++e46zMS3
-	Pd29ld6wubqKVo5YbxLz72HxOsArimAjnwCPTZCYWMDDxEYBJzMmiSnP0w9hxZpRklwzXPgahR8
-	o9r2ixieTmx2fYLMguaXiB3WnUZHwdemofVk4KDwoyE5XCEYqOlbU5oWebXjzbGR0dOhm7GZE5X
-	SCg+44RBvRfpAV+fCXJQYKR7y4AzHUaGZzZMhAAaIMA13AOje/jMG6GQ2JDipIV64ihpWXaaSDx
-	LiXI/DeTMkcjOGaHOrKqqUFjOAUiI+DQ9b6S+GZomLrr5
-X-Received: by 2002:a05:6a21:6115:b0:3bf:aa54:4cbc with SMTP id adf61e73a8af0-3c0f0b6fda4mr3080656637.26.1783673418508;
-        Fri, 10 Jul 2026 01:50:18 -0700 (PDT)
-X-Received: by 2002:a05:6a21:6115:b0:3bf:aa54:4cbc with SMTP id adf61e73a8af0-3c0f0b6fda4mr3080616637.26.1783673418002;
-        Fri, 10 Jul 2026 01:50:18 -0700 (PDT)
-Received: from [10.217.219.87] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b6593c76dsm38642648c88.3.2026.07.10.01.50.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jul 2026 01:50:17 -0700 (PDT)
-Message-ID: <76c5567a-cc93-422c-a18f-a32dcb101428@oss.qualcomm.com>
-Date: Fri, 10 Jul 2026 14:20:11 +0530
+	Fri, 10 Jul 2026 08:59:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1783673975; x=1815209975;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ySeEdVyfLJ1FoqK1KDCiOu5dWvFOr79CGcqcGkC6+pU=;
+  b=h7gka5UMawPiznYay4s6fC6IIC+P8vVytahz6E82tOcvGo933lvHpuZR
+   /d4/HEScXNb6YAQOw+6QQJDY0lzRLD8IbI43JIooGwfneIxPhKAfa3vZs
+   Q+PtdzLXuvMMElErXCrbpVmzVlBRGo5soQtHWFZ17OTyMNUgWVlNEnbvJ
+   xqR0s6fqUAw8P5JiX8nAfdkZRcSKNAuQCGmryMBA2MCmrNcMuaRnC6ESZ
+   YVXdlxwrx7BOeD6QRfWiOuCDqk9Gg8maBz4U/ioc9nKNCgS3DoSqYtrE2
+   k+LRISOhUjYbxuztO/HEUNUW3NDNle7r2VEMnbijr6Pxn4bzndeeKXwTD
+   w==;
+X-CSE-ConnectionGUID: 93p7ykEDR4iIaWuQKtugoQ==
+X-CSE-MsgGUID: d97xofyKSd+Bzpg62yGSuw==
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="asc'?scan'208";a="59540370"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2026 01:59:33 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.43; Fri, 10 Jul 2026 01:59:32 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Fri, 10 Jul 2026 01:59:29 -0700
+Date: Fri, 10 Jul 2026 09:58:34 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>, Alex Ousherovitch
+	<aousherovitch@rambus.com>, Conor Dooley <conor+dt@kernel.org>, "David S.
+ Miller" <davem@davemloft.net>, Herbert Xu <herbert@gondor.apana.org.au>,
+	Jonathan Corbet <corbet@lwn.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rob
+ Herring <robh@kernel.org>, Shuah Khan <shuah@kernel.org>, Alexandre Ghiti
+	<alex@ghiti.fr>, <devicetree@vger.kernel.org>, Joel Wittenauer
+	<Joel.Wittenauer@cryptography.com>, <linux-api@vger.kernel.org>,
+	<linux-crypto@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Shuah Khan <skhan@linuxfoundation.org>,
+	Thi Nguyen <thin@rambus.com>
+Subject: Re: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager
+ Hub
+Message-ID: <20260710-siding-unmatched-5e066fbe4c01@wendy>
+References: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
+ <20260709203037.1884436-2-skrishnamoorthy@rambus.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] i2c: spacemit: fix spurious IRQ handling returning
- IRQ_HANDLED
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: andi.shyti@kernel.org, linux-i2c@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        spacemit@lists.linux.dev, troy.mitchell@linux.spacemit.com
-References: <ef8b623f45d4e430721e46572c2598d882044aed.1783667603.git.xiaopei01@kylinos.cn>
- <ef8b623f45d4e430721e46572c2598d882044aed.1783667875.git.xiaopei01@kylinos.cn>
-Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <ef8b623f45d4e430721e46572c2598d882044aed.1783667875.git.xiaopei01@kylinos.cn>
-X-Proofpoint-ORIG-GUID: JwSb4gAeKn-1Wu_Hdi1WX2Nft3SJ0Tr9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDA4NSBTYWx0ZWRfX7XSlYbxVBxqb
- +dJwRWmGu23+qkIr0aG5csMGr6NHC7lKeUd16itC1Sg3NHO9iMccWLm4kD4qS9StaV2CyseIv49
- +iB16xBjdRcCZwGHu4y3+PCeGMn9Y5Q=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDA4NSBTYWx0ZWRfX7kx25Ut+xQqZ
- 1j5quGJnzfl4zawqpqBsd6N6vAmT+0rZ5avJT0iw76KKZoja7egUXAQnu0j7MrI322B3+c4KVuI
- bDQ+LVVzhH0/R5Q8GQ7oR6bivMDN5ml785Zb2dRKgrOMpGOzqR5Bl9x0d92jd9CoG/PpVHBz0Mg
- XWHgZ47n60ErcUKuYzhidjYw/v6I1N3LiUHE9rW6RsdS1TN+pFE3VVx5XuvGOLaKt0A1YWXjY63
- F21yRCyviCI0CxWzfUyuWROhuZtnWn5jI/4OaxPBCSHsvXOyY8CDZcOWBOtwpPdfqXVp4OP2S8L
- M9B2mFb3h9TekrG3lZB8HwLGbX+LuNgOCBhSRb03sUWNPdi9/DxXJg1w0/9TJypMqSl/xHJTX2V
- lq2/h2PCRUeg4KG6YOFT6zeMf2Vy06fbRzT1N+t6tehNX8m85VRcpk5vcIJTYFZI1wZltoz+Ks0
- w3SbEUaFgRzgdGEpdMg==
-X-Proofpoint-GUID: JwSb4gAeKn-1Wu_Hdi1WX2Nft3SJ0Tr9
-X-Authority-Analysis: v=2.4 cv=N+QZ0W9B c=1 sm=1 tr=0 ts=6a50b24b cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=fdZnArvSVwIb3KS3I78A:9 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-10_02,2026-07-09_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 malwarescore=0 priorityscore=1501 phishscore=0 adultscore=0
- suspectscore=0 impostorscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100085
+In-Reply-To: <20260709203037.1884436-2-skrishnamoorthy@rambus.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_015022_285279_74645334 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20260710_015936_358325_D9A963FC 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,48 +92,348 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8467266887848405482=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============8467266887848405482==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="tVV5lCAGuauPQznU"
+Content-Disposition: inline
 
+--tVV5lCAGuauPQznU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 7/10/2026 12:51 PM, Pei Xiao wrote:
-> When the interrupt status register reads zero, the handler should
-> return IRQ_NONE instead of IRQ_HANDLED. What the return value
-> actually feeds into is the spurious interrupt accounting in
-> note_interrupt(): falsely claiming IRQ_HANDLED defeats the "irq XX:
-note_interrupt() ? You mean to say No interrupt OR invalid interrupt 
-here ? I could not understand function name.
-> nobody cared" detection, so a stuck interrupt source would never be
-> caught.
-> 
-> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+Hey,
+
+On Thu, Jul 09, 2026 at 01:30:19PM -0700, Saravanakrishnan Krishnamoorthy w=
+rote:
+> From: Alex Ousherovitch <aousherovitch@rambus.com>
+>=20
+> Add device tree binding schema for the CRI CryptoManager Hub (CMH)
+> hardware crypto accelerator.  The binding covers the parent SoC-level
+> node with register region, interrupt, DMA properties, and per-core
+> child nodes identified by compatible string and unit address.
+>=20
+> Register the 'cri' vendor prefix for Cryptography Research, Inc.
+
+This company no longer exists, you should probably introduce a rambus
+vendor prefix instead.
+
+>=20
+> Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.=
+com>
+> Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.co=
+m>
+> Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
+> Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
+> Reviewed-by: Thi Nguyen <thin@rambus.com>
 > ---
-> changlog in v2:
-> modify gitlog for Modify the incorrect Git commit message to match the reason for the modification.
-> ---
->   drivers/i2c/busses/i2c-k1.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> index c2d090f6ba80..487f23fde725 100644
-> --- a/drivers/i2c/busses/i2c-k1.c
-> +++ b/drivers/i2c/busses/i2c-k1.c
-> @@ -728,7 +728,7 @@ static irqreturn_t spacemit_i2c_irq_handler(int irq, void *devid)
->   
->   	status = readl(i2c->base + SPACEMIT_ISR);
->   	if (!status)
-> -		return IRQ_HANDLED;
-> +		return IRQ_NONE;
->   
->   	i2c->status = status;
->   
+>  .../devicetree/bindings/crypto/cri,cmh.yaml   | 222 ++++++++++++++++++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  2 files changed, 224 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/crypto/cri,cmh.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/crypto/cri,cmh.yaml b/Docu=
+mentation/devicetree/bindings/crypto/cri,cmh.yaml
+> new file mode 100644
+> index 000000000000..db41132e0591
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/crypto/cri,cmh.yaml
+> @@ -0,0 +1,222 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/crypto/cri,cmh.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: CRI CryptoManager Hub (CMH) Hardware Crypto Accelerator
+> +
+> +maintainers:
+> +  - Alex Ousherovitch <aousherovitch@rambus.com>
+> +  - Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+> +  - Joel Wittenauer <Joel.Wittenauer@cryptography.com>
+> +
+> +description: |
+> +  The CRI CryptoManager Hub (CMH) is a hardware cryptographic accelerato=
+r accessed
+> +  via a mailbox-based VCQ (Virtual Command Queue) interface.  The host
+> +  writes VCQ command sequences into per-mailbox DMA queue buffers and
+> +  rings a doorbell; the CMH eSW processes them and signals completion
+> +  via interrupt.
+> +
+> +  Supported algorithm families: SHA-2, SHA-3, SM3, AES, SM4,
+> +  ChaCha20-Poly1305, RSA, ECDSA, EdDSA, ECDH, SM2, ML-KEM, ML-DSA,
+> +  SLH-DSA, LMS, XMSS, DRBG.
+> +
+> +properties:
+> +  compatible:
+> +    const: cri,cmh
+> +
+> +  reg:
+> +    maxItems: 1
+> +    description:
+> +      SIC (System Interface Controller) MMIO region.  Mailbox instance
+> +      registers are at offsets N * 0x1000 within this region.
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 64
+> +    description:
+> +      Per-mailbox completion/error interrupts from the CryptoManager Hub,
+> +      matching the real CMH ch_sys_interrupt_mbx[N-1:0] topology.
+> +      Entry i corresponds to MBX instance i.  The driver maps each
+> +      configured mailbox (cri,mbx-instances) to its DT interrupt
+> +      index and registers a separate threaded IRQ handler per MBX.
+> +
+> +  interrupt-names:
+> +    minItems: 1
+> +    maxItems: 64
+> +    items:
+> +      pattern: '^mbx[0-9]+$'
+> +    description:
+> +      Names for each mailbox interrupt, matching the interrupts array.
+> +      Format is "mbxN" where N is the mailbox instance index.
+> +
+> +  cri,mbx-instances:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 1
+> +    maxItems: 64
+> +    description:
+> +      Array of 0-based mailbox instance indices to configure.
+> +      Each index N maps to register offset N * 0x1000 within the
+> +      SIC region.  If absent, defaults to instances 0 and 1.
 
+This property seems like it could be replaced by having a reg entry for
+each mailbox.
+
+> +  cri,mbx-slots-log2:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 1
+> +    maxItems: 64
+> +    description:
+> +      Per-mailbox slot count as log2.  Valid range 1..15.
+> +      Array length must match cri,mbx-instances.
+> +      Default is 5 (32 slots).
+
+This looks like it should be deducible from a device-specific compatible.
+
+> +
+> +  cri,mbx-strides-log2:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 1
+> +    maxItems: 64
+> +    description:
+> +      Per-mailbox stride (bytes per slot) as log2.  Valid range 7..10.
+> +      Array length must match cri,mbx-instances.
+> +      Default is 7 (128 bytes per slot).
+
+Ditto here.
+
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +patternProperties:
+> +  "^(hc|aes|sm4|sm3|hcq|qse|pke|drbg|ccp)@[0-9a-f]+$":
+> +    type: object
+> +    description:
+> +      Per-core-type child nodes.  Each child represents one crypto core
+> +      instance available in the hardware.  The driver enumerates these at
+> +      probe to discover which algorithm families are present.
+
+This whole subnode thing seems like it is only required because you
+don't have device-specific compatibles to deduce what is supported.
+
+> +
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+> +        description:
+> +          Hardware core ID for this core type (e.g. 0x02 for HC, 0x03 fo=
+r AES).
+> +          Must match the CORE_ID_* values defined by the CMH hardware.
+> +
+> +      cri,mbx:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        description:
+> +          Pin this core instance to a specific mailbox instance index.
+> +          Multiple child nodes of the same core type may each specify a
+> +          different cri,mbx value to spread instances across mailboxes.
+> +          When absent, the driver auto-assigns a mailbox via round-robin
+> +          across the instances listed in cri,mbx-instances.
+
+With the mailboxes converted to individual reg entries, this could
+probably be handled via reg-names? If the reg name is "aes" or w/e, use
+that mailbox for aes only, if it is $something-generic then it's
+available for round robin assignment.
+
+pw-bot: changes-requested
+
+Cheers,
+Conor.
+
+> +
+> +    required:
+> +      - reg
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    soc {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        crypto@a4800000 {
+> +            compatible =3D "cri,cmh";
+> +            reg =3D <0x0 0xa4800000 0x0 0x41000>;
+> +            interrupts =3D <1 2>;
+> +            interrupt-names =3D "mbx0", "mbx1";
+> +            cri,mbx-instances =3D <0 1>;
+> +            cri,mbx-slots-log2 =3D <5 5>;
+> +            cri,mbx-strides-log2 =3D <7 7>;
+> +            #address-cells =3D <1>;
+> +            #size-cells =3D <0>;
+> +
+> +            hc@2 {
+> +                reg =3D <0x02>;
+> +            };
+> +
+> +            aes@3 {
+> +                reg =3D <0x03>;
+> +            };
+> +
+> +            sm4@4 {
+> +                reg =3D <0x04>;
+> +            };
+> +
+> +            sm3@5 {
+> +                reg =3D <0x05>;
+> +            };
+> +
+> +            hcq@8 {
+> +                reg =3D <0x08>;
+> +            };
+> +
+> +            qse@9 {
+> +                reg =3D <0x09>;
+> +            };
+> +
+> +            pke@a {
+> +                reg =3D <0x0a>;
+> +                cri,mbx =3D <1>;
+> +            };
+> +
+> +            drbg@f {
+> +                reg =3D <0x0f>;
+> +            };
+> +
+> +            ccp@18 {
+> +                reg =3D <0x18>;
+> +            };
+> +        };
+> +    };
+> +
+> +  - |
+> +    /* Multi-instance: two AES cores on separate MBXes (future eSW suppo=
+rt) */
+> +    soc {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        crypto@a4800000 {
+> +            compatible =3D "cri,cmh";
+> +            reg =3D <0x0 0xa4800000 0x0 0x41000>;
+> +            interrupts =3D <1 2>;
+> +            interrupt-names =3D "mbx0", "mbx1";
+> +            cri,mbx-instances =3D <0 1>;
+> +            cri,mbx-slots-log2 =3D <5 5>;
+> +            cri,mbx-strides-log2 =3D <7 7>;
+> +            #address-cells =3D <1>;
+> +            #size-cells =3D <0>;
+> +
+> +            hc@2 {
+> +                reg =3D <0x02>;
+> +            };
+> +
+> +            aes@3 {
+> +                reg =3D <0x03>;
+> +                cri,mbx =3D <0>;
+> +            };
+> +
+> +            /* Second AES instance at core ID 0x06, pinned to MBX 1 */
+> +            aes@6 {
+> +                reg =3D <0x06>;
+> +                cri,mbx =3D <1>;
+> +            };
+> +
+> +            pke@a {
+> +                reg =3D <0x0a>;
+> +                cri,mbx =3D <1>;
+> +            };
+> +
+> +            drbg@f {
+> +                reg =3D <0x0f>;
+> +            };
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
+umentation/devicetree/bindings/vendor-prefixes.yaml
+> index 396044f368e7..8b7187ea0194 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -375,6 +375,8 @@ patternProperties:
+>      description: Crane Connectivity Solutions
+>    "^creative,.*":
+>      description: Creative Technology Ltd
+> +  "^cri,.*":
+> +    description: Cryptography Research, Inc.
+>    "^crystalfontz,.*":
+>      description: Crystalfontz America, Inc.
+>    "^csky,.*":
+> --=20
+> 2.43.7
+>=20
+
+--tVV5lCAGuauPQznU
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCalC0JQAKCRB4tDGHoIJi
+0lDOAP4lM7VqD2SV+kzpePgkDgsK+A4p1hJGMNL/A0QhQxSjSgD8C+6gZEUcIcPi
+73MwrF0YJ8Q/LuZsV0RCYOPYGqMSIAc=
+=1fAE
+-----END PGP SIGNATURE-----
+
+--tVV5lCAGuauPQznU--
+
+
+--===============8467266887848405482==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8467266887848405482==--
+
