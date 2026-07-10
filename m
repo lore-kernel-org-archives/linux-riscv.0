@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA262C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 05:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009E7C44501
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 06:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=74R0klrYBwWijRXcSvW7NTK+EIQGJCDVBe/twugqQkc=; b=ptYF4VXtP3l40w
-	rdjKViJBW3tAF+PzQqBAFPKAlgXRDntRihm6soXJviadRMOvVFJC6aUugvkKM7dHuOyK6e94h0p4T
-	8NevgxKHVa0z5NVHvVkJaFeWy1gSEpz8ce8OEe+12kW7XbwhUgPUChiMBUmbBepOm9pcXoMvawxX6
-	L/TMHAJ/KCFCIT0NUX6D3txtoZOjnEgRvrPHI0fLLa7vkoV36JbpHrrfdoLn0jXoD9IpUE8k6wYmn
-	atydmL1k54j7Y5DqBMnsUPoMu0DiyX8ZHXTzFMRG7gcjm7kPNXpIHThcxWhaZVTsiBGQsfmuHGgb9
-	VWGHSIuDcL8JzwnR8oMA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Sb4AzVKY9S50Rzpj1MHIYp+o8Bmvg2zX//oT7jWwGVE=; b=xzeZYSVfXA+wNM
+	jolsYC6wzES2PzvX+uMwB3QieLT9LjpJ0wZHLfSPjEWH6ESgBGYxLSerwEUofDhJbH19RdPWJ0Iqe
+	TnfkxcHcMbgocHjQF9dtsVwoOxnLRpirFwWYn9Sdpj8bA6X54hrRNaswDAMnhuxxsTyjdnZRVxy0b
+	tgCU8yrl3gXYNsz29LxSFuLOcNbYWBgFdQYCI3VCKraFc4So1hARvysKNlIqKGBsuGyxZzr9PPu8A
+	sZXc5eaUy6i8MPiBUFlmRhXIEtun/U54o/06uBHtUAjkepjkfe8d0dxEq5J73tMqXOUvHL2fNkj/S
+	Zw3KxFAzi3vdoCvfzn9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi3dt-00000004BcF-07rx;
-	Fri, 10 Jul 2026 05:19:17 +0000
-Received: from mail-pz2-x00.google.com ([2607:f8b0:4864:3b::])
+	id 1wi4oF-00000004GZb-1TWm;
+	Fri, 10 Jul 2026 06:34:03 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi3dp-00000004BbO-3O19
+	id 1wi4oC-00000004GYq-3VPr
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 05:19:14 +0000
-Received: by mail-pz2-x00.google.com with SMTP id 41be03b00d2f7-c888c19b85dso100603a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 22:19:13 -0700 (PDT)
+	Fri, 10 Jul 2026 06:34:02 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-8486ac3f347so986933b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2026 23:34:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783660753; x=1784265553; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eaT2VzoKRrCEsQJsGJsh7iwXPoQA/5ukSwz33vQMgQA=;
-        b=i6C4LMoeIkSz58hgBpuD8mCDqj9I420sEfnsh4UQnhLz6G+DBUaH6B/R6neLx3+Uh9
-         1v/J1weY0HoyKFfR5LXHBOwW/66XOTSkuBZz7v/5P33p3Xwz2KU/LCv4wl5xiOthNps8
-         0V7CzeQuEEgjbo7IMe5kD/TZGJK/Ln7NWMmI4J+ulVRNRqk9fbWJDRGNsF+79AE3n0IM
-         7dAMHb3MdhyEwDFDTrDujPdOft1HsSqwvKty6/n9Jt+UEBZxq/StkLlZw0u+thljdmGB
-         kxha+GUmlScVJkoTLbHmvifpk31JWXRUIZIFrcdpS2J7taxdu5l3LNSCRzvCZ+EJq/rQ
-         BomQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783660753; x=1784265553;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1783665240; x=1784270040; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eaT2VzoKRrCEsQJsGJsh7iwXPoQA/5ukSwz33vQMgQA=;
-        b=sSysFGBJwn9F6zNt6qEvK8XdKv+q9ZxVp2iyOGUojX4ganjtjRHeHJ93HrGBhElrdh
-         dwDrahAOsHt3o/D5imVSTs+PqO5mhEC7+GAU+gZIs9siOnLpcyC4+r7wk70lHvGd9x+S
-         p5YAYi17bkhGfk3VOcgYuIJNfxLCmxYK2eqQqoMj8bbclmAcmEuikq9fscPU7IhqjYKH
-         VX8MGsLXLP9+VVz/5ea53Xj/RuNjTlmfrHHmEc2EhFZelU6iZASorKxUMfZ4eQ704frn
-         AfpmW6XhxR/PCq1XnKJUmuqBBRiq9ZRHu1APpbEzVoLjV0adsFQfOJUL7Tp17DBM5+WN
-         C/wA==
-X-Forwarded-Encrypted: i=1; AHgh+RqbFLR8XlozgAocsCcghdW3IqyIUOmAYfaPZ1MfKGrUAAccUImfltXAJy6EAtOF+x8TvZsnkoqkkq0zjA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFRoIu77jVfgFkSqlhgp8G72keuLsYSGxHoch3KifwtHDVBFh7
-	sx/g7p/Tyc0GDEm2+PrEdYHcfTSot37jkfmhJEk65U1zRm6125lOyL75
-X-Gm-Gg: AfdE7cm77QC1h3tlaGKXwP4LgSNoMMW07LzS04F9tObtjKJlAkDQbyGOYMAqTGtPL9w
-	ueydI0JAOYzPgCmwtQNpxSmCcZCRiN3eHu3v9Fi96XyAgFoh9IymOttZolJX2ckfLsLETiQmFvR
-	sCnEVbhiJoV7OoWNoq3EU67a0II63TnM52bxYHc2Z30gopuD6+HaY7VTzX+dsSBqAW2MqnR8ETZ
-	OpzL8r61ENj9W0fLiySCTncPItB7vIq2jw/pZsLdW3kOD83NreAlUDNGMus6tolYrQW0MZtwkgz
-	uTETbK/RAq+Q9zHfTcdaKdh6GHZL9e4JNbYtJICrC7GsXXe5RRV6VjEKeF0SAqR8cwq1J/f6e65
-	OGkmbpUYyGn0q9/PD4Vp1jMoH4Y2h1KKgGblF0wAqOQShc5+m9fEcVvSzQ5Bj+0lQzvlSmfl6bf
-	+WcXqLhrK9QHat97cohOQXHrN2SHyqu9zyk4i8iA==
-X-Received: by 2002:a05:6a00:451a:b0:842:6a3b:60d1 with SMTP id d2e1a72fcca58-84842f01e28mr10330536b3a.31.1783660752671;
-        Thu, 09 Jul 2026 22:19:12 -0700 (PDT)
-Received: from q-System-Product-Name ([129.227.183.200])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8483dc66f2asm3970019b3a.24.2026.07.09.22.19.10
+        bh=hVhq88axF1qV0hsa5snykJF0ozONqTGS7mDXfQTF8KU=;
+        b=Cu27CyVCN4+0c7ELOpo9vVncSiCHkZWJ7SxjFdegIBaQ1fIeC4mBxzFKmiF2LnDsYD
+         YgQDMVphLrlmGJfyptJW38iyeRoNgkTvVwGytaaZfdbM5FD2x+dYfXfJR4d2QjKzdnoZ
+         sC9vazRDLQu1S8jFYt08QTWWGcuhuoRh+cF2TiaT8fIvQwiq3T7JUWarjjS+CZ283wnM
+         dziDu8KQiEtum2z+tU7cC5DTpjVyfDeYd/V/JZ1NqxGqBhfrL+RFbt3lgK+/aqrQSGxD
+         bjNrPYNFbC21hvJ0YyphRd0nuWFe1ajOdNqzM+wkxy5mPH9qVXaDAmfyA3AJ6en3qncG
+         pjmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783665240; x=1784270040;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hVhq88axF1qV0hsa5snykJF0ozONqTGS7mDXfQTF8KU=;
+        b=gXtBtdPuSmfHTRdx9KkJN+KowFXS0VTbimVQBiJd/y7qg9IgJZOYncT0Dcep/Y/GVz
+         pv3i4X5Fy43R24u29wX3XvXcyQHeJPWs0Q4KD2ViEPiNxGPOemy0LZHUwmtJV9Tbjsxo
+         SGzZ/ic1hLDWTcmnAGkuz0TZcYvmjgNItRhImIcRagNtHpLPnd8aXsjTNppE9aLDW8Nf
+         0xS9jNW7MbZK6JPzo4ciW0W8rXnVpv7ll+QNjdlw/kOnRlmC/KmKmGE1AC17yA2rx74W
+         qb9cOgB76yGvkRfkzcGdO8tnZc22VimmIcg2eBba/EELqDOID/8lakCraIzT3YZtisxO
+         Em4A==
+X-Forwarded-Encrypted: i=1; AHgh+Rq1pMgeRHt2uiLXfGMaAJ/pyx1gGua6UPMBfzofOIFsMu3JyEkFXThlDLgARQny8a/ipHJ5rOqNOGYl5g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0qQrgHnL+Kp0/5vGkc/kghIh1Os4os/HYg6+f2+z3A8m2jzqr
+	fHDLVPZRknCxsKG0z2QSiAxoTRvNsQuMPJhcFUv4Ay6eAAl0w8UiTZQQ
+X-Gm-Gg: AfdE7ckRcGegxwfZnwXf0g/y1fpo9x0m3/VY56dr9MMIMlgNRzNKhGGi+d4hsujRSq1
+	1PpmbGQsIFgCcxp0aAcTghKmZU0bebATcX2jFsfkg84ZRmm8XjaAGYUyLiZ7ioQZfL+JaS3jFX9
+	FBSrClPVLI7J/hnN59REbDTRi3dVA5wKN1f9DQjJGcJyh/e8WKU1wILkC1pNkCOZiGyTs7nh29t
+	8Mzxu6ZvPspFxOT4JUek/AxXh9/VVxL0iP1U/2ME/vjl0oUOmQXh9o3/coKdpc59WNgq8wt4ZCd
+	8BKDpYwGjFsdpqEm8Yyp95FQrsvnNf8kZcuvemVrtMm4eZr8Cc23aGDDhyOqktYQE1apzZ50Uz2
+	cRgOHC4nqR5wlLq8eQyc8oE3xieFO59UkbtD77/XAIR2d2pAOOatUMjR5Iev30ayWmLmE/JrZhf
+	FT/YAYVtbogZY=
+X-Received: by 2002:a05:6a00:850:b0:848:2ef5:50dc with SMTP id d2e1a72fcca58-84870ba9000mr2044134b3a.36.1783665239872;
+        Thu, 09 Jul 2026 23:33:59 -0700 (PDT)
+Received: from localhost ([121.250.214.124])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8480da8bab0sm8174681b3a.8.2026.07.09.23.33.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 22:19:12 -0700 (PDT)
-From: "Bingyu.Xian" <shanbeeyoo@gmail.com>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
+        Thu, 09 Jul 2026 23:33:59 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	"Bingyu.Xian" <Shanbeeyoo@gmail.com>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	"bingyu.xian" <shanbeenyoo@gmail.com>
-Subject: [PATCH RFC v2] KVM: riscv: Allow G-stage PMD block mappings for VM_PFNMAP
-Date: Fri, 10 Jul 2026 13:19:03 +0800
-Message-ID: <20260710051903.3454598-1-shanbeeyoo@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH 2/2] riscv: dts: spacemit: Add enough deassert time for the PHY on com260 board
+Date: Fri, 10 Jul 2026 14:33:13 +0800
+Message-ID: <20260710063314.1030249-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260710063314.1030249-1-inochiama@gmail.com>
+References: <20260710063314.1030249-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_221913_852745_03302873 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20260709_233400_874503_998938FE 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,204 +111,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Bingyu.Xian" <Shanbeeyoo@gmail.com>
+RTL8211F require at least 50ms deassert to guarantee the register
+access, 10ms is only enough for the PHY reset.
 
-RISC-V KVM currently forces all VM_PFNMAP faults to PAGE_SIZE, so a
-256 MB VFIO BAR requires 65 536 G-stage PTEs instead of 128 PMD blocks.
-This becomes critical as RISC-V targets server workloads with GPU/NPU
-VFIO passthrough and the RISC-V IOMMU nears mainstream support.
-
-Adapt arm64's "stage-2 block mapping for host device MMIO" idea
-(commit 2aa53d68cee6) but with a safer approach: instead of deriving
-the host physical address from vma->vm_pgoff (unreliable since the
-VFIO unmap_mapping_range() changes), pfnmap_mapping_size() walks the
-host page tables via get_hva_mapping_size().  If the host mm installed
-a PMD leaf, physical contiguity is guaranteed and KVM uses a 2 MB
-G-stage block; otherwise it falls back to 4 KB as before.
-
-RISC-V has an advantage here: memory type comes from the physical
-address PMA, not the G-stage PTE attributes, so 4 KB -> 2 MB promotion
-does not alter memory-type semantics.
-
-Also generalize fault_supports_gstage_huge_mapping() to accept a
-map_size parameter, fix gfn alignment to use vma_pagesize instead of
-huge_page_mask(hstate_vma(vma)) since PFNMAP VMAs are not hugetlb, and
-add a kvm_mmu_map tracepoint for debugging.
-
-Conservative for now: only PMD (2 MB), not PUD (1 GB); dirty logging
-still forces PAGE_SIZE; falls back whenever contiguity/alignment
-cannot be proven.
-
-Tested on QEMU (rv64) with a custom module that installs a PMD leaf
-for a VM_PFNMAP VMA: tracepoint confirms 4 KB fallback when host has
-no PMD leaf, and 2 MB block mapping when host does.
-
-Changed from v1:
-- https://lore.kernel.org/kvm/20260709153000.1-1-shanbeenyoo@gmail.com/
-1. Drop the cover letter, merge into a single patch
-2. Simplify the commit message to focus on functionality
-3. Add Co-developed-by and Assisted-by tags
-4. Fix the sign-off chain order
-
-Assisted-by: YuanSheng: deepseek-v4-pro
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: bingyu.xian <shanbeenyoo@gmail.com>
+Fixes: cfe5c91cb73c ("riscv: dts: spacemit: k3: Initial support for CoM260-IFX board")
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- arch/riscv/kvm/mmu.c   | 45 ++++++++++++++++++++++++++++++++++++------
- arch/riscv/kvm/trace.h | 29 +++++++++++++++++++++++++++
- 2 files changed, 68 insertions(+), 6 deletions(-)
+ arch/riscv/boot/dts/spacemit/k3-com260.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 2d3def024270..53fb34d4b76d 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -16,6 +16,8 @@
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nacl.h>
- 
-+#include "trace.h"
-+
- static void mmu_wp_memory_region(struct kvm *kvm, int slot)
- {
- 	struct kvm_memslots *slots = kvm_memslots(kvm);
-@@ -286,7 +288,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- }
- 
- static bool fault_supports_gstage_huge_mapping(struct kvm_memory_slot *memslot,
--					       unsigned long hva)
-+					       unsigned long hva, unsigned long map_size)
- {
- 	hva_t uaddr_start, uaddr_end;
- 	gpa_t gpa_start;
-@@ -321,7 +323,7 @@ static bool fault_supports_gstage_huge_mapping(struct kvm_memory_slot *memslot,
- 	 *   e -> g
- 	 *   f -> h
- 	 */
--	if ((gpa_start & (PMD_SIZE - 1)) != (uaddr_start & (PMD_SIZE - 1)))
-+	if ((gpa_start & (map_size - 1)) != (uaddr_start & (map_size - 1)))
- 		return false;
- 
- 	/*
-@@ -336,7 +338,7 @@ static bool fault_supports_gstage_huge_mapping(struct kvm_memory_slot *memslot,
- 	 * userspace_addr or the base_gfn, as both are equally aligned (per
- 	 * the check above) and equally sized.
- 	 */
--	return (hva >= ALIGN(uaddr_start, PMD_SIZE)) && (hva < ALIGN_DOWN(uaddr_end, PMD_SIZE));
-+	return (hva >= ALIGN(uaddr_start, map_size)) && (hva < ALIGN_DOWN(uaddr_end, map_size));
- }
- 
- static int get_hva_mapping_size(struct kvm *kvm,
-@@ -404,7 +406,7 @@ static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
- 	 * sure that the HVA and GPA are sufficiently aligned and that the
- 	 * block map is contained within the memslot.
- 	 */
--	if (fault_supports_gstage_huge_mapping(memslot, hva)) {
-+	if (fault_supports_gstage_huge_mapping(memslot, hva, PMD_SIZE)) {
- 		int sz;
- 
- 		sz = get_hva_mapping_size(kvm, hva);
-@@ -421,6 +423,31 @@ static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
- 	return PAGE_SIZE;
- }
- 
-+/*
-+ * Determine the G-stage mapping size for a VM_PFNMAP (e.g. host device
-+ * MMIO) fault.  Unlike arm64's original implementation, we never derive the
-+ * host physical address from vma->vm_pgoff (which is unreliable since the
-+ * VFIO unmap_mapping_range() changes).  Instead we walk the host page tables
-+ * via get_hva_mapping_size(): if the host itself installed a leaf block for
-+ * this address, physical contiguity within that block is already guaranteed
-+ * by the host mm.  The memory type stays correct because RISC-V derives it
-+ * from the physical address' PMA, independent of the G-stage PTE size.
-+ *
-+ * Be conservative for now and only promote to PMD-sized blocks; PUD-sized
-+ * device blocks are left as future work.  Fall back to PAGE_SIZE whenever
-+ * contiguity or HVA/GPA alignment cannot be proven.
-+ */
-+static unsigned long pfnmap_mapping_size(struct kvm *kvm,
-+					 struct kvm_memory_slot *memslot,
-+					 unsigned long hva)
-+{
-+	if (get_hva_mapping_size(kvm, hva) >= PMD_SIZE &&
-+	    fault_supports_gstage_huge_mapping(memslot, hva, PMD_SIZE))
-+		return PMD_SIZE;
-+
-+	return PAGE_SIZE;
-+}
-+
- int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 		      gpa_t gpa, unsigned long hva, bool is_write,
- 		      struct kvm_gstage_mapping *out_map)
-@@ -465,11 +492,14 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	else
- 		vma_pageshift = PAGE_SHIFT;
- 	vma_pagesize = 1ULL << vma_pageshift;
--	if (logging || (vma->vm_flags & VM_PFNMAP))
-+
-+	if (logging)
- 		vma_pagesize = PAGE_SIZE;
-+	else if (vma->vm_flags & VM_PFNMAP)
-+		vma_pagesize = pfnmap_mapping_size(kvm, memslot, hva);
- 
- 	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
--		gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
-+		gfn = (gpa & ~(vma_pagesize - 1)) >> PAGE_SHIFT;
- 
- 	/*
- 	 * Read mmu_invalidate_seq so that KVM can detect if the results of
-@@ -515,6 +545,9 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	if (!logging && (vma_pagesize == PAGE_SIZE))
- 		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, hva, &hfn, &gpa);
- 
-+	trace_kvm_mmu_map(gpa, hva, hfn, vma_pagesize,
-+			  !!(vma->vm_flags & VM_PFNMAP));
-+
- 	if (writable) {
- 		mark_page_dirty_in_slot(kvm, memslot, gfn);
- 		ret = kvm_riscv_gstage_map_page(&gstage, pcache, gpa, hfn << PAGE_SHIFT,
-diff --git a/arch/riscv/kvm/trace.h b/arch/riscv/kvm/trace.h
-index 3d54175d805c..db2d28f1d714 100644
---- a/arch/riscv/kvm/trace.h
-+++ b/arch/riscv/kvm/trace.h
-@@ -56,6 +56,35 @@ TRACE_EVENT(kvm_exit,
- 		__entry->htinst)
- );
- 
-+TRACE_EVENT(kvm_mmu_map,
-+	TP_PROTO(unsigned long gpa, unsigned long hva, unsigned long hfn,
-+		 unsigned long map_size, bool is_pfnmap),
-+	TP_ARGS(gpa, hva, hfn, map_size, is_pfnmap),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, gpa)
-+		__field(unsigned long, hva)
-+		__field(unsigned long, hfn)
-+		__field(unsigned long, map_size)
-+		__field(bool, is_pfnmap)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->gpa		= gpa;
-+		__entry->hva		= hva;
-+		__entry->hfn		= hfn;
-+		__entry->map_size	= map_size;
-+		__entry->is_pfnmap	= is_pfnmap;
-+	),
-+
-+	TP_printk("GPA:0x%lx, HVA:0x%lx, HFN:0x%lx, size:%luKB, pfnmap:%d",
-+		__entry->gpa,
-+		__entry->hva,
-+		__entry->hfn,
-+		__entry->map_size >> 10,
-+		__entry->is_pfnmap)
-+);
-+
- #endif /* _TRACE_RSICV_KVM_H */
- 
- #undef TRACE_INCLUDE_PATH
+diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
+index a38d7b738258..b704b537385c 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
+@@ -178,7 +178,7 @@ phy1: phy@1 {
+ 			reg = <1>;
+ 			reset-gpios = <&gpio 1 5 GPIO_ACTIVE_LOW>;
+ 			reset-assert-us = <10000>;
+-			reset-deassert-us = <10000>;
++			reset-deassert-us = <50000>;
+ 		};
+ 	};
+ };
 -- 
-2.54.0
+2.55.0
 
 
 _______________________________________________
