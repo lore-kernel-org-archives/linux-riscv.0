@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 521E6C43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 07:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66517C43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 07:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bt8QKB5oaQ8shK8W3mOFCoi4d2BreAWxGGNa14MFe4I=; b=CtAN34cV4oPsju
-	BzM8K+XTqhczPhHptznHA7vymXRf3aRQEZqoE/cmkfG7w1+0bTIfyUj8EHLgU5juuibcuY94zChsG
-	K6LHRDkaTt+NIinTCuhrYHEkqWqnVUloX4dO/mIs1QP0DRfKPlSHqo5r1g01NOWJa3Or5fPEfzQS8
-	TVraDbT/QBCHiJwFHo3woYb41s41Y34eUKNoEpG1fh3HesWageo/kYZiUNvnewR4er63tz4O9//ua
-	36fRGr9OK7tEvzCFE6RuinQk/JRYX4xnrGf+fXIQH0RqSN+BFRCYucNuAOAfs2ozsNLevdIC9UGlN
-	uaBn+Ou7rxSABFY+hp5w==;
+	List-Owner; bh=eUgh+CKMR7FO2NdGfW7GnaiexjBSKFv807IVAtxT74E=; b=r/oSSfJ9BE9E4u
+	HxEJvN1wRY0IL23HJXs/CBwCjYAVw/JXw6LlA8cb1UF09hzSOmGuRsab0Iu7z35KGt0ASOWYdb508
+	AjMrrFA11QmvrGvwgpQtbvrKYKuhaumv8TT1hPozp5bIS0B/igTKSANW7eFEKg/Wv2HxSpNTxe9OL
+	NX5p/5KVN5xacrJDSpy5A/etvp+rtwlK6sbkCJYWXr7dGIfSZ1rXtqG4anT66nsuUC7QNxIpaEFkT
+	/wMaD32s1JdABeGFlKynkzy2Xb3nqlksFVAVs7vJxx06JlV1tZ0Hxq0XNLsbL1LuR9QY+sTTfmDK3
+	BeUbY6j3CL1xXygOp3uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiS0R-00000006JA0-26QO;
-	Sat, 11 Jul 2026 07:20:11 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1wiSLJ-00000006KQV-0j41;
+	Sat, 11 Jul 2026 07:41:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiS0N-00000006J9F-324L
+	id 1wiSLH-00000006KQJ-3PTe
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 Jul 2026 07:20:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1783754367;
-	bh=ngWbz8DrOWdmcWpLkZogRY7ab+fCnSeo75BW8o2EQes=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iQSoRTtQZRu/nW1sc6xNC538QoXSWRk9gIIv9Cp3eRJ9B2AIb+II9nmI2QYNYcGJZ
-	 nATa6FvHJO86pldUgN2951/HhzAw6O5l3h2RKu6gsWvoNdDC3kWLt74trNQL3w4/6j
-	 dWhG/bcZ2VxuQYPlkBBILuPsCrOpjDHlgXprU4Y6B/BU/vcxuoZs7eOPeOnIY8Taap
-	 lRk09eUVROo+3p0S91KVd0UaQrz9IH/c5fzz4IGXvbHC15fBfWuflAtwfd+owb5cXB
-	 ZpAxTcMkpOFhpeeaVAUdTKVFkwwJoZtrS9hBPjC9zwaJtoNL8Wg46WFlAnDfSVA6zC
-	 mDgdgi/kjvA6g==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id DFDCCB2215A9;
-	Sat, 11 Jul 2026 09:19:24 +0200 (CEST)
-Message-ID: <65498313-582e-4891-9468-a38a76cb4626@freeshell.de>
-Date: Sat, 11 Jul 2026 00:19:15 -0700
+	Sat, 11 Jul 2026 07:41:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08117600C3;
+	Sat, 11 Jul 2026 07:41:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CE311F000E9;
+	Sat, 11 Jul 2026 07:41:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783755702;
+	bh=FfSritx/PtEBrsGP3lbGQMekJE8MmJCr9d3EgkR1zwo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KE1e5R5MLRMZ5mWs3Dpq4fi2fB/ZDPPgUTHy12YnFJdhMG9l4FWItXwYpe2hKDf9X
+	 SyP1C1klHJNrWx7NqlynSXTbvkrVo0Lz3DAqoxpnU71g6r/uTsDpfM+xlWY6849GfR
+	 qfuoYiBbeGk9bAr3/m9iWEb4MDb+4AOC+CTYkrGzamkhBSdyKBMRFEgKAio5lZ1FMJ
+	 xUZuhN8S24XxCVR6uny9gWtiIZYlJRebNoMGHNwt1TazQNcaHIQoea0ZQITPMCqjpj
+	 xYu/w4axLIUFOlJb4SpjwXVhx3CQ/HKPj0Z03126qxD+INTkI41wqGE2v5s+jFbzWK
+	 HKnDpxyjuAKog==
+Date: Sat, 11 Jul 2026 07:41:39 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Shuwei Wu <shuwei.wu@mailbox.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] cpufreq: dt-platdev: Add SpacemiT K1 SoC to the
+ allowlist
+Message-ID: <20260711074139-GKA36656@kernel.org>
+References: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
+ <20260626-shadow-deps-v4-1-bba9831f2f1d@mailbox.org>
+ <7x5mgpk3z3aiebifhxto2v7m5yrikj52lwf5pzegzhk5aiehhj@jqm6opm6nrub>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] riscv: dts: spacemit: Add enough deassert time for
- the PHY on PICO ITX
-To: Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-References: <20260710063314.1030249-1-inochiama@gmail.com>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20260710063314.1030249-1-inochiama@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_002008_226275_40F23CFA 
-X-CRM114-Status: GOOD (  14.98  )
+Content-Disposition: inline
+In-Reply-To: <7x5mgpk3z3aiebifhxto2v7m5yrikj52lwf5pzegzhk5aiehhj@jqm6opm6nrub>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +80,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Inochi,
+Hi Viresh,
 
-On 7/9/26 23:33, Inochi Amaoto wrote:
-> RTL8211F require at least 50ms deassert to guarantee the register
-> access, 10ms is only enough for the PHY reset.
+On 10:28 Mon 29 Jun     , Viresh Kumar wrote:
+> On 26-06-26, 16:10, Shuwei Wu wrote:
+> > Add the compatible string for supporting the generic
+> > cpufreq driver on the SpacemiT K1 SoC.
+> > 
+> > Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+> > ---
+> > Changes in v4:
+> > - Drop the K1-specific cpufreq driver and use cpufreq-dt again
+> > - Add spacemit,k1 back to the cpufreq-dt allowlist
+> > 
+> > Changes in v3:
+> > - Add a K1-specific cpufreq driver for the shared-rail, dual-clock topology
+> > - Add spacemit,k1 to the cpufreq-dt blocklist
+> > ---
+> > ---
+> >  drivers/cpufreq/cpufreq-dt-platdev.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> > 
+> > diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+> > index 25fd3b191b7e..e262394b56f9 100644
+> > --- a/drivers/cpufreq/cpufreq-dt-platdev.c
+> > +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+> > @@ -81,6 +81,8 @@ static const struct of_device_id allowlist[] __initconst = {
+> >  		{ .have_governor_per_policy = true, },
+> >  	},
+> >  
+> > +	{ .compatible = "spacemit,k1", },
+> > +
+> >  	{ .compatible = "st-ericsson,u8500", },
+> >  	{ .compatible = "st-ericsson,u8540", },
+> >  	{ .compatible = "st-ericsson,u9500", },
 > 
-> Fixes: 74657a376960 ("riscv: dts: spacemit: Add ethernet device for K3")
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Please take this via arch tree.
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> index 1eb5abbc61f9..b2a7d2d0d3a8 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> @@ -200,7 +200,7 @@ phy0: phy@1 {
->  			reg = <1>;
->  			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
->  			reset-assert-us = <10000>;
-> -			reset-deassert-us = <10000>;
-> +			reset-deassert-us = <50000>;
->  		};
->  	};
->  };
 
-applying this as vendor pre-installed u-boot runtime command modifying
-Fdt as...
+Ok, in this case, I will take it via SpacemiT SoC tree along with DT patch [2/2]
 
-load usb 0:1 $fdt_addr_r
-/debian-installer/device-tree-custom/spacemit/k3-pico-itx.dtb
-load usb 0:1 $kernel_addr_r /debian-installer/riscv64/linux-custom
-load usb 0:1 $ramdisk_addr_r /debian-installer/riscv64/initrd-custom.gz
-fdt addr $fdt_addr_r
-fdt resize
-fdt rm /soc/ethernet@cac80000/mdio/phy@1 reset-deassert-us
-fdt set /soc/ethernet@cac80000/mdio/phy@1 reset-deassert-us <50000>
-env set bootargs 'initrd='$ramdisk_addr_r',0x'$filesize'
-console=ttyS0,115200'
-ping 127.0.0.1; bootefi $kernel_addr_r $fdt_addr_r
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-...before booting 7.2-rc2 and debian-installer initrd is successful to
-allow debian-installer hardware probe to continue with the network
-device, on Sipeed K3 Pico ITX. I don't know if that is a full fix for
-the problem I observed with rmmod/modprobe cycle of network module but
-at least it is resolving this trouble observed from debian-installer
-usage with K3 Pico ITX.
+> Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+> 
+> -- 
+> viresh
 
-Non-functional values are 10000 25000 30000 35000 39000 39750 39700
-39600 39585 39581.
-Functioning values are 39582 39583 39580 39575 39550 39500 40000 50000.
-
-For this particular hardware I have thus observed an exact minimum
-required delay value of 39582.
-
-Tested-by: E Shattow <e@freeshell.de>
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
