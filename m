@@ -4,124 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D561C43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 12:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860C3C43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 12:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lf4m2bi8fp2cgickoYTqO4KqeqjcV+6vfYIA9yz1NHw=; b=R9WTHTR4LYNpAD
-	eNx2V4gY5OjgR3Bs6rxa8GU4EyzOTy9Cl4c7XOvMxKghfUCBC3COMg+cyG/bmRtfPAhLTfY2Xz5ri
-	WzFRRO60+P20dmP0dS3ze/1zELjvb6WCDJjHn0FEsPzZxmxr4/Y51nxtTdGTzOaKlCBWt1Xz8J8Bp
-	PNNmKP3TB1jr/fTBjCvpo0KHoF4LhZ/Zd96CUgG1z8u2KQj9PmVFSj/+KWEyvIWgYD0tdvK62gDW0
-	53rMF4egW9wuT3kbWK5C21bRrQydiHukgvlBj7UZTbDpmLSVOc+Bp/GTBeZbM6hKGlS/6DBsD+4yZ
-	iUEc3/apTgcWzRydffTA==;
+	List-Owner; bh=sBfxhN6fi5+7XKZdPrcYOXnXeVf27mS3H3+9AtffNxo=; b=fqag3LrB2a7e3j
+	RIBkr7fOsGSbPH6T6Ogq5nxOq+cj2S4KbExDR7Hp7PNVKLhA0fcKI3CumVbRbvBS20MD8ig3U9+b6
+	PQ9wEIqT3OUwZo9QcCWew0sOtC1E+5l2Va6dUXILzaXApPKfuLVZHjzn4QPvSifNm/eVW12R8tnxv
+	pqk1BUBxDlu9/eHoUwx6KnnXu+OHreAI1JtPP5obD4FL2H7tTEmwGmoPfKTvRgwG54l+Mougxtadt
+	5MnsT27H05ASso6xXyWK4T+A4rANBnm02xkw7ShxiHFZJTVoTtNdA3K8gu1c4TV6bbP0YH21DoTXB
+	LERZF+eiKKNYQiOAEZgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiWpn-00000006XDF-0ABt;
-	Sat, 11 Jul 2026 12:29:31 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1wiX4E-00000006Xfk-1RWV;
+	Sat, 11 Jul 2026 12:44:26 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiWpi-00000006XBB-2XBn
+	id 1wiX4A-00000006XfN-2lGz
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 Jul 2026 12:29:29 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-69a5ecbbfb2so2734947a12.2
-        for <linux-riscv@lists.infradead.org>; Sat, 11 Jul 2026 05:29:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783772964; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pBDs9N8PnHnFRErBkOuP/1fhVTf5MBMHjiCXpbEIWjdypBqcHH7oU1AhhoHeJptbLJ
-         5DAbBLXElm+gedGYuHc/TlzGI63Zct094hDhQW2FXbQH69CO6wiDN3zTb5DRKYhXlu6Z
-         NApXsiZhXqHLtxZvXw5PNOFR2gf3t7oxu5xUpxKgFZiLhdDvH7TMjVNWCUHb7sJw67Dm
-         GDhDUje8g9J5eeUBn30DFRwlPowmlvzldaeWH5P6/gAhpWTcjxZwLja+lGTxXQrcLmcT
-         gXPYfpQTnkBd1EG37GKf4LZfjZtifL2e1QGZHJYieyALJEvQtczM5rAADKkyzECBaGZi
-         g5TQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=83oOaaTreHaoFIhiDoHcddDWSjKDujW9xu9zE75la/o=;
-        fh=iH0mJ5aBm5l01/jM8KfHKcc2nLfM3/yvCQzkPx0NRGg=;
-        b=p2ptgY6/nyjRiAdpVE1nneIQwgTgSjABtxrVE1Cr5KxoosHyX1160GPGMgxPGqy7hj
-         kW2QpJshNXOficIHZuIl1x/Z+TJOjKEe4H37/9mL4c0fwJVg7IoEjkMkoScOFcYfBrFu
-         5oP2DUdoCZeBuDIDlCJOI7ZBS07RslV6qpkPQcNzQtmx5fj6F+8jIaG/0IJTmy44ytxR
-         J//qsk/+4QYYBxZJJ2gBuZ062UGV8Yiim8wyQUoyhGSVfLdrODEq0g9y98p/2KLWtG9Z
-         Q2BOmjfLDKxXvqeXD8zNeMGsVuH7vW2DxKc9enmc4NUf+mQcNXXLIBzWJltWqD24KDA3
-         8A4A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783772964; x=1784377764; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=83oOaaTreHaoFIhiDoHcddDWSjKDujW9xu9zE75la/o=;
-        b=AEPV4U7oDhfoNmqPDLaJ5QJXi/cv5i1t9ID+/SIMQcOTMF855h0YJxeIClVcO8nsxU
-         /QHXNkyvYDFV9l9RfKYAv27CiZkFIhxggU4ZZ7em2xpr/rQMXmPbiGmKE0RiRswiq2en
-         r1geol2s09atm+oDNqTF6Q867dOKKrsIfc1uNwZkJ2KXqTUVPbIKR/0YYRauvd/x50qj
-         du+9HvPAU8TAwFLofxhJsiR5yT2kUBK/M6Zw3ksqFF3R2KB6SEgskVOEdZbT752LCQmX
-         k1iHJ5ok59FaSc3Ka0tBupMMcM1rSw+2KcNHmwiaPfY4B8N+SQF6lFVqIbbpZrAqoNZM
-         f0ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783772964; x=1784377764;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=83oOaaTreHaoFIhiDoHcddDWSjKDujW9xu9zE75la/o=;
-        b=U87E7Rs4Es8axX6itrSslzR+Jkx7tgbOFbE2O1W7C100zTjF03uXvI5DfjwtLeFjKt
-         Z22uijkJeZj4rgtQyPWsL5G65y6/xpRIyynbGj3NM8fYnUpLjR0ovTFDtOVtR6uRk8hL
-         A0uM2mN92obgYYJmOhhIkLFjvs5QijWEs1qzZLZujrAbFp0S3o+iUmDLVGWzCElxxl+z
-         0MjiaSm1q+YTeNC9B1I2aObA9ouFuICmLMBTV/3TUKDU8bO3HTRHcC/KCKKKCPAPZ5o+
-         J3RHBGARFVgJy5lHFxX1FCnIAV9XVetXbADLry8lMFA3rLzAPcf5cvrZnk0vZm7nNhl7
-         H9cw==
-X-Forwarded-Encrypted: i=1; AHgh+Roi8H9EimQPVc+qWFVZg1Xg5Y+r9hsKYEzVRgnQp9pQg5fC3RowfGjVSYjZFrPljQnu2A/xQPBzFJp88Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMpcn43B+aB56QagcbXNx9KM/+AK1rvh4QkmPsGJPGnxVsCcn1
-	C3hS7MNiiF1Gvo+gxxTBpJZPKubp/wwfcEmsMJXHWxVQ/g5pexQFu6GogZid6ZG8AUUi5CJG5aJ
-	Q0Tr19D7z5s8Oaqgy601kgkmucfwMIoY=
-X-Gm-Gg: AfdE7clBfA5MWtbq1BX0JPOA0tvB+CKn/aq5zEfyZdvhc0K04rmWwSSdM0ThSM1PJef
-	uY1fqPZvJmlCkHp5jsDAIjCSClSiHwjDPngZLYKYgnZSUCLyyrrN51z62anFPnK8fR5adH5Z6bR
-	rxufz/eMc1nfni5zxNfjTvPs46fAsKub8/OIAqvz+txGft8xoxZGYcO2EMavaLZZWQESCpezE07
-	HMvyC3SQSEOuDK6hRgU5J3/jBefc6rJj3XVVCW5e7xFC6nAJ5FAlbatfAGVa89yp9opBL5vJPVn
-	t4TZNtOcsLvEtVl+htzKdiDsG+NwlO51V4DTHYCwNBDoVwg3BB3Xa87pB/p64Yg=
-X-Received: by 2002:a05:6402:3512:b0:699:728e:48b9 with SMTP id
- 4fb4d7f45d1cf-69c5edb9cb3mr1210325a12.0.1783772963919; Sat, 11 Jul 2026
- 05:29:23 -0700 (PDT)
+	Sat, 11 Jul 2026 12:44:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783773863; x=1815309863;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qqdphEGA6+7P5vo5z9LUEDm4KQwk81RmJ+HPo2OWlqU=;
+  b=l9H7NO3ANnIRmIj0MhsN8w/ko0khxW2raoR1uRoQxxdak8pnNNCJku1s
+   /1fUEJqkAiXsoFF0BFlaLelxAYwRdc+ydytEceQ7LJd2uypM4pzEn2mux
+   mkkczS8/nE/BqvShF+A5OJBcFcOL3YUcDHHezEyo5p6WMteVOD8M/6dH/
+   pzh2r7CZjAlrSLyDtjIw6FaOCv1wcvUyHub6BrldlAz1BRHcsZjMIxkvg
+   vsgXILZ+Vn41TNFkc/A/3dlW1gQQXcUzqkI6jvpo5pV9zOXRcBfH8awx3
+   pmK3YaFd3dHpsELEEN2rWzeed8tVd6C9jpAvDySZdCcmTB2U+wkPnx5UP
+   g==;
+X-CSE-ConnectionGUID: uvrjcy0XRF2mxaIwyILQeQ==
+X-CSE-MsgGUID: gJf7B+ToSqqAUvTQlPZJaw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84505112"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84505112"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2026 05:44:20 -0700
+X-CSE-ConnectionGUID: I0xxxA1WRZ+3GkRt9TAmmg==
+X-CSE-MsgGUID: ro29f7pBQWioi7CrIV0nXQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="254622845"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.254])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2026 05:44:13 -0700
+Date: Sat, 11 Jul 2026 15:44:10 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Frank Li <Frank.Li@nxp.com>, Nam Cao <namcao@linutronix.de>,
+	Qiang Yu <qiang.yu@oss.qualcomm.com>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
+	Alex Elder <elder@riscstar.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Vidya Sagar <vidyas@nvidia.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v4 2/6] PCI: spacemit-k1: Add multiple PHY handles support
+Message-ID: <alI6ml4xQboFOgxG@ashevche-desk.local>
+References: <20260709040027.958400-1-inochiama@gmail.com>
+ <20260709040027.958400-3-inochiama@gmail.com>
+ <ak9KzNFF26B0Kttz@ashevche-desk.local>
+ <alBNXgMAwXPKwiJ2@inochi.infowork>
+ <alCoTEDUY8AO9OzD@ashevche-desk.local>
+ <alDNlfb0_T9g-ATO@inochi.infowork>
 MIME-Version: 1.0
-References: <20260707181957.433213175@kernel.org>
-In-Reply-To: <20260707181957.433213175@kernel.org>
-From: Magnus Lindholm <linmag7@gmail.com>
-Date: Sat, 11 Jul 2026 14:29:12 +0200
-X-Gm-Features: AUfX_mzOlRB8ana7x7qPQc4frMU9J060tNH0Z2GPCNvL1LYqDKQBjM-XzHbrvno
-Message-ID: <CA+=Fv5RpgQ-UeGAT+VcLufte2gAp0H=J5GqZEFR_SuQsmnzy=A@mail.gmail.com>
-Subject: Re: [patch 00/18] entry: Consolidate and rework syscall entry handling
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, 
-	Mark Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, 
-	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
-	Richard Henderson <richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Helge Deller <deller@gmx.de>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Richard Weinberger <richard@nod.at>, Chris Zankel <chris@zankel.net>, linux-arm-kernel@lists.infradead.org, 
-	linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-um@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
-	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
-	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-arch@vger.kernel.org, =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>, 
-	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <alDNlfb0_T9g-ATO@inochi.infowork>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_052926_670892_03CCA854 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20260711_054422_715364_E19C3E27 
+X-CRM114-Status: GOOD (  38.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,51 +113,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->
-> With that all architectures using the generic syscall entry code follow the
-> same scheme, apply stack randomization at the correct and earliest possible
-> place and skip syscall processing depending on the boolean return value of
-> syscall_enter_from_user_mode[_work]().
->
-> There should be no functional changes, at least there are none intended.
->
-> The resulting text size for the syscall entry code on x8664 is slightly
-> smaller than before these changes.
->
-> Testing syscall heavy workloads and micro benchmarks shows a small
-> performance gain for the general rework, but the last patch, which changes
-> the logic to be more understandable has no measurable impact in either
-> direction.
->
-> The series applies on Linus tree and is also available from git:
->
->         git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git entry-rework-v1
->
+On Fri, Jul 10, 2026 at 06:55:10PM +0800, Inochi Amaoto wrote:
+> On Fri, Jul 10, 2026 at 11:07:40AM +0300, Andy Shevchenko wrote:
+> > On Fri, Jul 10, 2026 at 09:57:05AM +0800, Inochi Amaoto wrote:
+> > > On Thu, Jul 09, 2026 at 10:16:28AM +0300, Andy Shevchenko wrote:
+> > > > On Thu, Jul 09, 2026 at 12:00:22PM +0800, Inochi Amaoto wrote:
+
+...
+
+> > > > > +	k1->phy_count = i;
+> > > > > +	if (k1->phy_count == 0)
+> > > > > +		return -EINVAL;
+> > > > > +
+> > > > > +	return 0;
+> > > > 
+> > > > This doesn't seem correct to me, I would expect phy_count to be assigned only
+> > > > when it's valid. (Yes, perhaps 0 is the same as it was, but semantically it's
+> > > > different 0 in this case.)
+> > > 
+> > > I guess you think 0 is a valid number? I can not understand what you thing
+> > > Assign this to 0 if there is no phy is fine to me, which shows there is 0
+> > > vaild phy found.
+> > 
+> > Isn't it already 0? Semantically code is wrong in a flow (not in the result).
+> 
+> In fact it is already 0 here. But I am not understand why you thing is wrong.
+> Could you explain it in detail? (Maybe you think it is not good to return 
+> -EINVAL?)
+
+You rewrite 0 by 0, but the fact of the rewriting is inaccuracy.
+We should not rewrite the default (whatever it is) with 0 count
+as semantically they are different cases. The rule of thumb, we
+don't assign values in case of errors, we leave them as is and
+it's user / caller responsibility to assign the default and handle
+errors properly. This is simple layering violation.
+
+Your code should be
+
+	if (i == 0)
+		return -EINVAL;
+
+	k1->phy_count = i;
+	return 0;
+
+> > > > See also above. Do we have some PHY API that just counts provided PHYs?
+> > > > If not, that what you should probably add first, before this patch.
+> > > 
+> > > I have not found any api for this. But the actual problem is, how the api
+> > > is designed. I have checked both the array bulk api for reset and clock,
+> > > it seems like it is much more than this patch...
+> > 
+> > Yeah, I looked at the phy-core and I think it will be hard to implement.
+> > So, the idea is then is to reallocate the pointer each time you get a new PHY.
+> > In this case the phy_count will reflect the actual memory consumption by phy.
+> 
+> Emmm, I think it is kind of buggy and not necessary. In most case
+> this array is not long actually, so allocate some pointer should be
+> fine and be an acceptable cost.
+
+Then the counted_by will be incorrect as it may access valid memory, but
+unused by the driver.
+
+...
+
+> > > > > +	for (i = 0; i < k1->phy_count; i++)
+> > > > 
+> > > > 	for (unsigned int i = 0; i < k1->phy_count; i++)
+> > > > 
+> > > 
+> > > I agree with the unsigned int, but I guess this definition is not
+> > > allowed in linux.
+> > 
+> > It's allowed and it's encouraged even by Linus. As long as iterator is local,
+> > use this syntax sugar and reduce its scope. It hardens the code.
+> 
+> Could you give me a reference url to check,
+
+Sure, there are two (one for integers and one for pointers)
+https://lore.kernel.org/lkml/CAHk-=wiCOTW5UftUrAnvJkr6769D29tF7Of79gUjdQHS_TkF5A@mail.gmail.com/
+https://lore.kernel.org/lkml/CAHk-=wgy8p4is8ApEQCT5NS7XFb+NXeo-TKz7jRRZVksLLBSrQ@mail.gmail.com/
+
+> I have not found this on the coding-style.
+> https://www.kernel.org/doc/html/latest/process/coding-style.html
+
+Feel free to update the documentation.
+
+> > > > > +		phy_exit(k1->phy[i]);
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-Hi Thomas,
-
-Thanks for the series.
-
-I have an Alpha GENERIC_ENTRY series posted and planned for the next
-merge window:
-
-https://lore.kernel.org/linux-alpha/20260706170019.2941459-1-linmag7@gmail.com/T/#t
-
-Only its final patch intersects with this work.
-
-That patch removes Alpha's architecture-specific syscall_trace_enter()
-and syscall_trace_leave() implementations, so the Alpha changes in
-patches 11 and 12 will disappear once the GENERIC_ENTRY conversion is
-applied.
-
-It also currently uses syscall_enter_from_user_mode(), so I will need to
-rebase it onto the new entry interface introduced by this series. I
-expect the integration to be confined to the final GENERIC_ENTRY patch.
-
-The Alpha-specific changes in patches 11 and 12 look correct to me.
-
-Acked-by: Magnus Lindholm <linmag7@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
