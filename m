@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B97BC43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 07:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42EFEC43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 08:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8tcGfA7PPWu97SK44HODS72lsVt0EpbHJB7fh8wjehw=; b=lCjHQwi0XFSyep
-	5MzvL/sB2lRXiBQ/Hq17zqN0L4b0HVnNgP8PRxfZIg0hkBapYrG6N3B/r7I6ecK1V8paLETO66sB/
-	rcFFS5cVJ+6IgEfvNqSvYTgWag3Io/nB1QpmVtZLIGgeUwsN556O7VpRwyFohEh8MMqLQZAzI1ooO
-	rFqupLDGAnn6wnOkuNitj8XwrzCOkMDc766M6KATBhIiYdwKYO7PLNkrNAl/NAJyNaD+0e5L3LCxJ
-	3bKn3ui2eZ48cxYu/aB2bIZso0+Mj5tQp0r86AuQikfniMUqCgWkwUFvA1EnchS7k9f6I8CdXXz9W
-	gXPclvMH7yaWRcm2afYw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SkpqprwsNtuogiOAIN9e2pFhphVjUus+Z7detL7eLoA=; b=ec5GPHVqR+PV6J
+	8XO692hHU74WmiNcl8AsXkPrjWqcMLBaMc1hhVTgHEQHKx5C0TwFtsYTXPVe5fYm5QyCliRBKNtqd
+	k7UoX64p3o44JemlIo2TBOc/lnkt9AB+H8dhwoRsFSlAh74KhSdL8crQgnNJXY3KYTDAKXhXRqZKZ
+	iJwoyCT+ZfZqf135aAbjGZinnN3yNchGNicDFWXnnTXOFxc6rOuzswbfvYCvX/eXd4c4+jR4yKP1z
+	s44/0iTK4E20yMgCHW3hh6eOsu95G0msjrbHpz7pEiMuKX5UlO8Uo9P/Tt7jMoenVwsCvCnzyiPY/
+	8zMOqk6e1OwJvekX2NpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSOQ-00000006KeX-2vwr;
-	Sat, 11 Jul 2026 07:44:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wiSo6-00000006LdW-0pDU;
+	Sat, 11 Jul 2026 08:11:30 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSOP-00000006KeB-1Ybo
-	for linux-riscv@lists.infradead.org;
-	Sat, 11 Jul 2026 07:44:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 550DD429C8;
-	Sat, 11 Jul 2026 07:44:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3ED61F000E9;
-	Sat, 11 Jul 2026 07:44:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783755896;
-	bh=b0CpmOWLm2vb+ALVgOzFuf2ikhKbi8vr3l51aLzsp4g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ek28vN3IHp2WFK7uen+eCu8vrfSzkYl6XFS2Rgqux3Rwn3djoDjd+uFzkKG6FPo+7
-	 PxeDmXVumlVj7ghYyfjp4i5Kq+n+Qg/rcRq0pd3YQ1tXUl25x87uvRgfGnd5yJ5v9t
-	 Vk0uGNFeFlRKtN8PaFNCykAhv1Hq3XL3AvGdeH3cdr/dyXnAqTVbA6ZViyStlTsCE6
-	 0IsWM2TSev3ruqOuFIpihZTiBT7edbqkdhpPN6gPjsYAA2sStd5CfR2r2RjWa6PG/7
-	 TK8T37e1P1aRUF/KQxyirmS0smYjrftZEBJG5/FB+U1uXMp6D5Hh+aQlrjXoeYeMI5
-	 b+/eeiBJCKGcg==
-Date: Sat, 11 Jul 2026 07:44:52 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Shuwei Wu <shuwei.wu@mailbox.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
-Message-ID: <20260711074452-GKB36656@kernel.org>
-References: <20260626-shadow-deps-v4-0-bba9831f2f1d@mailbox.org>
- <20260626-shadow-deps-v4-2-bba9831f2f1d@mailbox.org>
+	id 1wiSo1-00000006Ld1-1KTl;
+	Sat, 11 Jul 2026 08:11:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783757468; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Vp84AO56jRRT0ZQ9JWyaymHr1uGFyI/D7Vj31wvH1Rz+js/bE1WcoB5nBKEI4n+pFeJF0nH1LnenHxjHTymeBFUZLWEfyw6Pi4G0eKBnie7xojv4DPhhdPLqil9nwMIHMnI8vIdqhFcJTMfw4QsjpvMc7NFV3evVaJXdHMZ2sAQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783757468; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jyzBEPuIilIp5vlpq1+O3NegYQSfadwH2sc1+j1+Ngg=; 
+	b=W4dbxzu89yigXajnMtawGCTizlPgz61Ew2O5Da/8k4UOES4wXsrhyiXa5lTmxfBVp3rXNKG5LrJUAd4E9Pa7fcvltGltzUGxD1eTqB06k+nLMj4ONuw56J98/F7iCbpRCU1yfwYMr4HEU9SyNTafDjA/oPY2aeL4R/dMo9vjZ8k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783757468;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=jyzBEPuIilIp5vlpq1+O3NegYQSfadwH2sc1+j1+Ngg=;
+	b=m8Y2rSDvrdU4Iw2dpCtIEo/BycS6EHwBz6R641v9p9WDf7GQZLMdNoGNAjbgB1gb
+	kzQNUAv39v4MWKyP6US2Ko8xxXSlH1GmlqM8DAc47FifSFLxivw1mWNtLVTDiIpZxQv
+	W0fvf5oSLX7Qz5GmJ7gFniaHZwTf2UzsMGPuIhP4=
+Received: by mx.zohomail.com with SMTPS id 1783757465990476.2860850817026;
+	Sat, 11 Jul 2026 01:11:05 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH v2 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
+ and PRCM
+Date: Sat, 11 Jul 2026 16:10:26 +0800
+Message-Id: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260626-shadow-deps-v4-2-bba9831f2f1d@mailbox.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/0XMQQ6CMBCF4auQWVsztBWCK+9hWJQypRORkpYQD
+ eHuVly4meSfvHwbJIpMCa7FBpFWThymHPJUgPVmGkhwnxskygrzEaZWStjxIbDXziKaxjUW8ny
+ O5Ph1UPc2t+e0hPg+5LX8fn+IKvGPrKVAoapOU9NJrS/1bebhGaIZzwtZD+2+7x+tk2VtpAAAA
+ A==
+X-Change-ID: 20260202-a733-clk-0d4fc00a9f9c
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783757449; l=3794;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=C4/qzNHgAQL8cgNF9m01gDg70Z4cEsgSM7Av3F+071A=;
+ b=owef9gnwxUPldZnALee1bOMiT2P4HbKPi5VdAYR4Oyw8i/dhVZVODKcuh/PWpayDV07gjftiU
+ LJ8e/kSmDDiDFHenfID0+du6wCn8UFbdBU7o1blvMUJiKKZ/vgB2yyA
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260711_011125_707474_50CF9AE3 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +99,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Shuwei,
+Add support for the main CCU and the PRCM module (R-CCU) found in the
+Allwinner A733 SoC. The clock architecture of the A733 is an evolution
+of the previous A523 design but introduces several significant changes.
 
-On 16:10 Fri 26 Jun     , Shuwei Wu wrote:
-> Add CPU clock properties and OPP tables for the two CPU clusters in the
-> SpacemiT K1 SoC. The OPP entries use voltage ranges because the CPU
-> supply is shared by both clusters.
-> 
-> Enable CPU DVFS on Banana Pi BPI-F3 by including the OPP tables and
-> wiring the CPU nodes to the CPU regulator supply.
-> 
-> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+One of the key changes is the introduction of a "pll-ref" clock that
+normalizes the physical oscillator frequency (which can be 19.2MHz,
+24MHz, or 26MHz) into a consistent 24MHz reference for the entire clock
+tree. Additionally, while the A733 inherits many module clock structures
+from the A523, the MCU_CCU has been removed, and the overall clock tree
+has been expanded to support more new functional units.
 
-Looks good, thanks for working on this
+Also update the sunxi-ng SDM (Sigma-Delta Modulation) helper to support
+a new dual-pattern register design. On the A733, the SDM enable bit has
+been moved from the main PLL register to a second pattern register
+(PATTERN1). The driver is updated to handle this register layout to
+ensure accurate frequency synthesis for "pll-audio0".
 
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+The parent clocks for several instances in the main CCU are difficult
+to determine as the user manual provides limited information on their
+specific clock sources. In these cases, the implementation follows
+vendor practices and previous SoC designs, generally defaulting to
+"hosc" where documentation is lacking. The bus clock gates in the PRCM
+(R-CCU) are explicitly defined based on the Memory Map in the manual,
+which clearly associates each module with its respective bus.
 
--- 
-Yixun Lan (dlan)
+---
+Changes in v2:
+- Rework the clocks property in DT bindings to source hosc directly from
+  the oscillator to adapt to the new RTC binding
+- Clean up the SDM dual-pattern helper macro and add the missing enable
+  parameter for pll-audio0
+- Number single-instance clocks with 0, e.g. GPU0, VE_ENC0/VE_DEC0,
+  DRAM0, NAND0, GPADC0, THS0, etc
+- Correct 8x PLL post-divider names to 12x for video and DE PLLs
+  (pll-videoX-12x, pll-de-12x)
+- Drop gic, cpu-peri, nsi clocks
+- Rename clocks: OWA -> SPDIF, USB_REF -> USB01_REF, HDMI_ESM -> HDCP_ESM,
+  PWMCTRL -> PWM
+- Mark bus-dram0, ahb-store and mbus-store critical to avoid DMA, MMC and
+  SPI NOR failures when unused clocks are disabled
+- Switch PRCM timer clocks to P-only helpers
+- Fix bus gate bit positions for UARTs and correct the sysdap register
+  address
+- Interleave bus clocks into function clocks
+- Link to v1: https://lore.kernel.org/r/20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech
+
+---
+Junhui Liu (8):
+      dt-bindings: clk: sun60i-a733-ccu: Add allwinner A733 support
+      clk: sunxi-ng: sdm: Add dual patterns support
+      clk: sunxi-ng: a733: Add PRCM CCU
+      clk: sunxi-ng: a733: Add PLL clocks support
+      clk: sunxi-ng: a733: Add bus clocks support
+      clk: sunxi-ng: a733: Add mod clocks support
+      clk: sunxi-ng: a733: Add bus clock gates
+      clk: sunxi-ng: a733: Add reset lines
+
+ .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  |  107 +
+ drivers/clk/sunxi-ng/Kconfig                       |   10 +
+ drivers/clk/sunxi-ng/Makefile                      |    4 +
+ drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c           |  273 +++
+ drivers/clk/sunxi-ng/ccu-sun60i-a733.c             | 2360 ++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu_sdm.c                     |   51 +-
+ drivers/clk/sunxi-ng/ccu_sdm.h                     |   29 +-
+ include/dt-bindings/clock/sun60i-a733-ccu.h        |  290 +++
+ include/dt-bindings/clock/sun60i-a733-r-ccu.h      |   39 +
+ include/dt-bindings/reset/sun60i-a733-ccu.h        |  129 ++
+ include/dt-bindings/reset/sun60i-a733-r-ccu.h      |   23 +
+ 11 files changed, 3289 insertions(+), 26 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260202-a733-clk-0d4fc00a9f9c
+
+Best regards,
+--  
+Junhui Liu <junhui.liu@pigmoral.tech>
+
 
 _______________________________________________
 linux-riscv mailing list
