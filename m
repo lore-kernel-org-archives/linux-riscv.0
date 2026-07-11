@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860C3C43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 12:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69498C44501
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 13:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sBfxhN6fi5+7XKZdPrcYOXnXeVf27mS3H3+9AtffNxo=; b=fqag3LrB2a7e3j
-	RIBkr7fOsGSbPH6T6Ogq5nxOq+cj2S4KbExDR7Hp7PNVKLhA0fcKI3CumVbRbvBS20MD8ig3U9+b6
-	PQ9wEIqT3OUwZo9QcCWew0sOtC1E+5l2Va6dUXILzaXApPKfuLVZHjzn4QPvSifNm/eVW12R8tnxv
-	pqk1BUBxDlu9/eHoUwx6KnnXu+OHreAI1JtPP5obD4FL2H7tTEmwGmoPfKTvRgwG54l+Mougxtadt
-	5MnsT27H05ASso6xXyWK4T+A4rANBnm02xkw7ShxiHFZJTVoTtNdA3K8gu1c4TV6bbP0YH21DoTXB
-	LERZF+eiKKNYQiOAEZgw==;
+	List-Owner; bh=0aNw6M8fvdMr2C7X7Q8RuDWBh5FZKGnl1MXr5xRGQG0=; b=fsHcftwiRPlE4W
+	z2D3DLjYWv+llXDzg3rzjI25AlEuDHbSsvCh/AiAANHFpbeYNZBHqQSzixYfxEM8CGM0vDcn1IzwD
+	nkDaZF3kwlQMV9fVF4sjm5VnzovLo5hJPuPfOCOhH9sp2KlYW9ZSJkQuKiJdGu2FilkxMm1lWsrGs
+	l4fWHYQrhfHYtGbE/WMAAG0BY1ARivTGNracy0NTkf3/YH462A+gmcHALX4DAnEZQvbQRwewPvCuM
+	zSU8OSNxqa6UTz63mBX9zgHLnyQrEjuKTZKPMGwaPXT5Y4aktzeAqgKHXhqXOVjJ77z2wBdJHJtLM
+	zl42L9+vcmxAUosdapMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiX4E-00000006Xfk-1RWV;
-	Sat, 11 Jul 2026 12:44:26 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1wiXKe-00000006YW7-0frm;
+	Sat, 11 Jul 2026 13:01:24 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiX4A-00000006XfN-2lGz
+	id 1wiXKb-00000006YVi-1Des
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 Jul 2026 12:44:24 +0000
+	Sat, 11 Jul 2026 13:01:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783773863; x=1815309863;
+  t=1783774882; x=1815310882;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=qqdphEGA6+7P5vo5z9LUEDm4KQwk81RmJ+HPo2OWlqU=;
-  b=l9H7NO3ANnIRmIj0MhsN8w/ko0khxW2raoR1uRoQxxdak8pnNNCJku1s
-   /1fUEJqkAiXsoFF0BFlaLelxAYwRdc+ydytEceQ7LJd2uypM4pzEn2mux
-   mkkczS8/nE/BqvShF+A5OJBcFcOL3YUcDHHezEyo5p6WMteVOD8M/6dH/
-   pzh2r7CZjAlrSLyDtjIw6FaOCv1wcvUyHub6BrldlAz1BRHcsZjMIxkvg
-   vsgXILZ+Vn41TNFkc/A/3dlW1gQQXcUzqkI6jvpo5pV9zOXRcBfH8awx3
-   pmK3YaFd3dHpsELEEN2rWzeed8tVd6C9jpAvDySZdCcmTB2U+wkPnx5UP
-   g==;
-X-CSE-ConnectionGUID: uvrjcy0XRF2mxaIwyILQeQ==
-X-CSE-MsgGUID: gJf7B+ToSqqAUvTQlPZJaw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84505112"
+  bh=gDyYXc0xkS1qjYwLDld4FPWvWyjEMY3IdZ86KmQ4NSU=;
+  b=CALQbsrI4bF8jHT8Kl8LRez3YAV1xRSTHB9p3oxKOIrfm2MNqxsMtiaO
+   12mA1BxsA9k6YYdf3eWgHj8IMK1sbYpF7CHKD1oGa0noSwR0hlPwMc5Tk
+   Tjx+/FhTxbt8xQT0yNB9/IBvd4UCwPD4mI0/Z1A+jHwZQaUL5LAiMl5to
+   13004Fu1Wt091qGT2A9tQHVK+lL3wC7GBx00ipV5xAvDwyzoCDxIGjLks
+   gSdZ520pZWePUG6LpwZcwrsxVz2ypc2f8oQUXWUGam7GHLvb5Xi3I9cdK
+   cQW0NAkpl09FMAF5itKjFaEoSsikbmivbbkOCkuG5GOLkNSBmmj8aRGcj
+   Q==;
+X-CSE-ConnectionGUID: poV5TvcoTzC87uSh5N3LzQ==
+X-CSE-MsgGUID: Hj7ofggKTuqV1XWnGPzyxA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84474374"
 X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="84505112"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2026 05:44:20 -0700
-X-CSE-ConnectionGUID: I0xxxA1WRZ+3GkRt9TAmmg==
-X-CSE-MsgGUID: ro29f7pBQWioi7CrIV0nXQ==
+   d="scan'208";a="84474374"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2026 06:01:20 -0700
+X-CSE-ConnectionGUID: H7u5/OdeQhypTaspD0rwew==
+X-CSE-MsgGUID: QEf1nTayQUOEsvaa1qOQGw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="254622845"
+   d="scan'208";a="285214246"
 Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.254])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2026 05:44:13 -0700
-Date: Sat, 11 Jul 2026 15:44:10 +0300
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2026 06:01:13 -0700
+Date: Sat, 11 Jul 2026 16:01:10 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
+To: Alex Elder <elder@riscstar.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, Jingoo Han <jingoohan1@gmail.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -72,7 +72,6 @@ Cc: Jingoo Han <jingoohan1@gmail.com>,
 	Qiang Yu <qiang.yu@oss.qualcomm.com>,
 	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
 	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
-	Alex Elder <elder@riscstar.com>,
 	Siddharth Vadapalli <s-vadapalli@ti.com>,
 	Vidya Sagar <vidyas@nvidia.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -82,21 +81,22 @@ Cc: Jingoo Han <jingoohan1@gmail.com>,
 	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
 Subject: Re: [PATCH v4 2/6] PCI: spacemit-k1: Add multiple PHY handles support
-Message-ID: <alI6ml4xQboFOgxG@ashevche-desk.local>
+Message-ID: <alI-lmctZShbXCHs@ashevche-desk.local>
 References: <20260709040027.958400-1-inochiama@gmail.com>
  <20260709040027.958400-3-inochiama@gmail.com>
  <ak9KzNFF26B0Kttz@ashevche-desk.local>
  <alBNXgMAwXPKwiJ2@inochi.infowork>
  <alCoTEDUY8AO9OzD@ashevche-desk.local>
  <alDNlfb0_T9g-ATO@inochi.infowork>
+ <3cece33f-375f-4cb2-b07d-e75f065fe5ea@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <alDNlfb0_T9g-ATO@inochi.infowork>
+In-Reply-To: <3cece33f-375f-4cb2-b07d-e75f065fe5ea@riscstar.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_054422_715364_E19C3E27 
-X-CRM114-Status: GOOD (  38.57  )
+X-CRM114-CacheID: sfid-20260711_060121_365644_092635A3 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,92 +113,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 06:55:10PM +0800, Inochi Amaoto wrote:
-> On Fri, Jul 10, 2026 at 11:07:40AM +0300, Andy Shevchenko wrote:
-> > On Fri, Jul 10, 2026 at 09:57:05AM +0800, Inochi Amaoto wrote:
-> > > On Thu, Jul 09, 2026 at 10:16:28AM +0300, Andy Shevchenko wrote:
-> > > > On Thu, Jul 09, 2026 at 12:00:22PM +0800, Inochi Amaoto wrote:
-
-...
-
-> > > > > +	k1->phy_count = i;
-> > > > > +	if (k1->phy_count == 0)
-> > > > > +		return -EINVAL;
-> > > > > +
-> > > > > +	return 0;
-> > > > 
-> > > > This doesn't seem correct to me, I would expect phy_count to be assigned only
-> > > > when it's valid. (Yes, perhaps 0 is the same as it was, but semantically it's
-> > > > different 0 in this case.)
+On Fri, Jul 10, 2026 at 07:42:18AM -0500, Alex Elder wrote:
+> On 7/10/26 5:55 AM, Inochi Amaoto wrote:
+> > > > > > +	k1->phy_count = i;
+> > > > > > +	if (k1->phy_count == 0)
+> > > > > > +		return -EINVAL;
+> > > > > > +
+> > > > > > +	return 0;
+> > > > > This doesn't seem correct to me, I would expect phy_count to be assigned only
+> > > > > when it's valid. (Yes, perhaps 0 is the same as it was, but semantically it's
+> > > > > different 0 in this case.)
+> > > > I guess you think 0 is a valid number? I can not understand what you thing
+> > > > Assign this to 0 if there is no phy is fine to me, which shows there is 0
+> > > > vaild phy found.
+> > > Isn't it already 0? Semantically code is wrong in a flow (not in the result).
 > > > 
-> > > I guess you think 0 is a valid number? I can not understand what you thing
-> > > Assign this to 0 if there is no phy is fine to me, which shows there is 0
-> > > vaild phy found.
-> > 
-> > Isn't it already 0? Semantically code is wrong in a flow (not in the result).
+> > In fact it is already 0 here. But I am not understand why you thing is wrong.
+> > Could you explain it in detail? (Maybe you think it is not good to return
+> > -EINVAL?)
 > 
-> In fact it is already 0 here. But I am not understand why you thing is wrong.
-> Could you explain it in detail? (Maybe you think it is not good to return 
-> -EINVAL?)
-
-You rewrite 0 by 0, but the fact of the rewriting is inaccuracy.
-We should not rewrite the default (whatever it is) with 0 count
-as semantically they are different cases. The rule of thumb, we
-don't assign values in case of errors, we leave them as is and
-it's user / caller responsibility to assign the default and handle
-errors properly. This is simple layering violation.
-
-Your code should be
-
-	if (i == 0)
-		return -EINVAL;
-
-	k1->phy_count = i;
-	return 0;
-
-> > > > See also above. Do we have some PHY API that just counts provided PHYs?
-> > > > If not, that what you should probably add first, before this patch.
-> > > 
-> > > I have not found any api for this. But the actual problem is, how the api
-> > > is designed. I have checked both the array bulk api for reset and clock,
-> > > it seems like it is much more than this patch...
-> > 
-> > Yeah, I looked at the phy-core and I think it will be hard to implement.
-> > So, the idea is then is to reallocate the pointer each time you get a new PHY.
-> > In this case the phy_count will reflect the actual memory consumption by phy.
+> What Andy is saying is that assigning the value of phy_count
+> before checking that it is valid is not the expected order of
+> things.
 > 
-> Emmm, I think it is kind of buggy and not necessary. In most case
-> this array is not long actually, so allocate some pointer should be
-> fine and be an acceptable cost.
-
-Then the counted_by will be incorrect as it may access valid memory, but
-unused by the driver.
-
-...
-
-> > > > > +	for (i = 0; i < k1->phy_count; i++)
-> > > > 
-> > > > 	for (unsigned int i = 0; i < k1->phy_count; i++)
-> > > > 
-> > > 
-> > > I agree with the unsigned int, but I guess this definition is not
-> > > allowed in linux.
-> > 
-> > It's allowed and it's encouraged even by Linus. As long as iterator is local,
-> > use this syntax sugar and reduce its scope. It hardens the code.
+> The point is about best practice, not about the end result.
 > 
-> Could you give me a reference url to check,
+> Best practice would be "don't touch anything if the return
+> value will indicate an error."
 
-Sure, there are two (one for integers and one for pointers)
-https://lore.kernel.org/lkml/CAHk-=wiCOTW5UftUrAnvJkr6769D29tF7Of79gUjdQHS_TkF5A@mail.gmail.com/
-https://lore.kernel.org/lkml/CAHk-=wgy8p4is8ApEQCT5NS7XFb+NXeo-TKz7jRRZVksLLBSrQ@mail.gmail.com/
+Yes, precisely.
 
-> I have not found this on the coding-style.
-> https://www.kernel.org/doc/html/latest/process/coding-style.html
-
-Feel free to update the documentation.
-
-> > > > > +		phy_exit(k1->phy[i]);
+> And therefore, better coding practice would be to check for
+> a bad value, and only after that has been done should you
+> assign the k1->phy_count value.
 
 -- 
 With Best Regards,
