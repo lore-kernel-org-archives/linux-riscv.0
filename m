@@ -4,145 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C91C43458
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2026 23:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9130FC44501
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 00:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kP9fwqjzOm7agdH3/NtClXFr9IWB2tPSCLikn7qF7jo=; b=jw9wnpVK78ZJT0
-	cFATCNOm+0/T50U4dQWNGfRheRPowii5Z4YFvG/askjW0Fui7g+eZJh9zVP1mJS7z+okL+QnBnPXU
-	sZVFgWsKv310MCZT8MKgx78O+zbZ6Z2rSTA3zV/ZoxqlYlpDtDhOyMVaCMVFLhNnDXiq0izGU0mgO
-	aL+we7l/NkEKdqltlDyvXK1XoBKDLSBKQ/R9yMgZo4pRMnR7C8V9kznvBgwPUA5WynDc84YRCJiBK
-	9OccuvIqAU4XLFSUrZY2e2gDWpS8JyRb2WpjUlpDOQA4k3Ul9jH0PNHz47+Cqh3MbgjKnvrirXcgJ
-	EvAFiLIDcfC1XWmz0RHA==;
+	List-Owner; bh=HauzZcXeJFOVwgrnn7yo9fznIVtooV6BT0lV45uEv6w=; b=g9QjdoU7Khpb9t
+	PLUeMQD/pNzUGJFsXdGsS4U5VxD8uYLaTfTjcouVOfL1R1KhrteUxscJtRAHy71/p4dfmt3YFyF3o
+	yTxtWY4PH0J3ftT4mc2Jcgfi8VTxV3QeOl+dRrPqYLTXq6GQUpep4hbIG0Hij+szjc3W3YY8VPq4h
+	zLs+GgQ+pHSPy6Z7tk2tMrVFT+qvif8n2H8ei6R9bXtwLwCbgFx+vdlwphtY8KxbvkXnoaH2wzTM1
+	FVd0erj3yst56huZAwpPXJmgFzvGrJDmBj7ONfiafMVgq/ZEkBSVhCTEsy6rTlznuoHPa0NUme2S3
+	g0dE9aerwEFe91gvYvnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiKQK-00000005zZL-3PrK;
-	Fri, 10 Jul 2026 23:14:24 +0000
-Received: from mail-westus3azon11020087.outbound.protection.outlook.com ([52.101.201.87] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wiLCm-000000061q4-1vp3;
+	Sat, 11 Jul 2026 00:04:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiKQH-00000005zYv-2YW0
+	id 1wiLCl-000000061py-0817
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jul 2026 23:14:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fMB7nhjXOkqAu+fWCaQf6UKRAOu+eWxSJySUSfffkCdWpcjXElbgAyLhREL6syuQ4TVYC8tr/xrFdCgsnbRC0z9GbSb2Ep7/G7AX2jhVkI5Rp9ndAKYFFI208usgN566X1SU08Zp9dACxK5hzj/ltq1AG7p6BYQjAKCZ6VDVSWR3KGsaO+hOKMosV8fmw00fLax/gfSjbUjlw7STFH2qrZcvddbOKT70RzzzH7yWIIK7bqnOG3rWYsUfTUg/okCp2x4bZzX+lHSWfaW82cNniYH02MtlqmMCNUXQy5jjeDWvVPUCEGwUV/4OF9HS+a1ZCxqeI7w4rPhz3tKFfb7R6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JI1nOgpMbHbZz9QBC7nmNhlcJEMqsGjSWesFDJnuluM=;
- b=Hy3xmbh25gIvdFWtSXEYEF0FlfNkQ8403KWtunhuZyhkyhVxW8uWOqqYJ6VCa1gvjhC1PalSNfL8NeKI/0lTgwHzMGYM9UeB/CAJAFCcxTWEda3hL4KYe8L7/8yKFi1W2HoPP8rOqtlkj1PfWxjFdXR8OBt3MgIvtYNqMnJDMwNlj8B9DNpQOhn+agcSyms7fZD7/FVjLGdKCzHg5f+/qb1YywFESYgF71zcVpF1JsPRMKa6BnbpT1mdVxMPjLN1RdnaXuakZIEbTY4jcVEk15Xh28BVoxKC+prQsam/4mVRSULQ2Wr/odovQnX9D2S80ASwfdG8OnNiEImEXWvj1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
- dkim=pass header.d=rambus.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JI1nOgpMbHbZz9QBC7nmNhlcJEMqsGjSWesFDJnuluM=;
- b=1B/q9c7Q4c9YqYDyr3O40QaFPu3AWlyeBKWGuZKp8pFYiEekr0Zm+1aZSPZ+OlNQkaknb66qQSV9J14qNK+Y0+n/+pfLjPCD7iRwFMYXzjcsZlaHYJbEJFnJF3HTSuXP703kvH0CLfEDb+8rosz92XR/ILWfMbTb5L5f/G5mTzzyCKFCcNPOuOYFA21Uc+E0nCXxOjVCNuTMKqyGMdHrL6yI8VONx1DK3OhRlRtT7w85ejRtiruk6r8wO3uV8vlnzhxBBsKiU0c/lkWEnrf1SYxQXTr7dM4Nu6neTFR68BXg07Ggz0+kIGhmLYHH6swuEAOi/HbpjE6VQhwo625MaA==
-Received: from SA3PR04MB9001.namprd04.prod.outlook.com (2603:10b6:806:398::17)
- by PH0PR04MB8279.namprd04.prod.outlook.com (2603:10b6:510:105::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.18; Fri, 10 Jul
- 2026 23:14:12 +0000
-Received: from SA3PR04MB9001.namprd04.prod.outlook.com
- ([fe80::3da3:45d7:8860:e196]) by SA3PR04MB9001.namprd04.prod.outlook.com
- ([fe80::3da3:45d7:8860:e196%6]) with mapi id 15.21.0181.017; Fri, 10 Jul 2026
- 23:14:12 +0000
-From: "Ousherovitch, Alex" <aousherovitch@rambus.com>
-To: Conor Dooley <conor.dooley@microchip.com>, "Krishnamoorthy,
- Saravanakrishnan" <skrishnamoorthy@rambus.com>
-CC: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, Herbert Xu
-	<herbert@gondor.apana.org.au>, Jonathan Corbet <corbet@lwn.net>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
- Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>, Shuah Khan
-	<shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "Wittenauer, Joel"
-	<Joel.Wittenauer@cryptography.com>, "linux-api@vger.kernel.org"
-	<linux-api@vger.kernel.org>, "linux-crypto@vger.kernel.org"
-	<linux-crypto@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, Shuah Khan <skhan@linuxfoundation.org>,
-	"Nguyen, Thi" <thin@rambus.com>
-Subject: RE: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager
- Hub
-Thread-Topic: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager
- Hub
-Thread-Index: AQHdD+HshuImNmj2q0GDF9X/lpOPwbZmdM8AgADs7vA=
-Date: Fri, 10 Jul 2026 23:14:11 +0000
-Message-ID: <SA3PR04MB9001E7DC9B2D4788EDCE2390D7FD2@SA3PR04MB9001.namprd04.prod.outlook.com>
-References: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
- <20260709203037.1884436-2-skrishnamoorthy@rambus.com>
- <20260710-siding-unmatched-5e066fbe4c01@wendy>
-In-Reply-To: <20260710-siding-unmatched-5e066fbe4c01@wendy>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-dlp-product: dlpe-windows
-dlp-version: 11.11.2.117
-dlp-reaction: no-action
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=rambus.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA3PR04MB9001:EE_|PH0PR04MB8279:EE_
-x-ms-office365-filtering-correlation-id: 3d81d6f3-1286-4f69-8186-08deded8f3f9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|38070700021|56012099006|4143699003|11063799006|22082099003|18002099003;
-x-microsoft-antispam-message-info: cKElAf2hElcTrc30MNdglEnoajQqDxXtzsqfpiiB6zBA3K2g0M6hNpR4UFd/cKLDwCYEBeVRYNZPCiGhuZgVB+BzitikIwNaZQdgT+5opstrLBwFIb4MkyNY3WWGo9KPEWzoc2PG9fWEShtznbFoauBUJO3gFh+czFcv81zjo8bE3690uLJ8TB3bMFNh7wI5rakJc1sMviOE+XTIAQgCUDmH8BzzqHeCKM8oFVMOKM0vHHlyO/DeA8UNFY97J22ufIVdCQVB5p6Rda0kXkhzTiL7Z/INLUCiCFtEg1h+4CPhbdBSxb5W1yMRN4XJEeAIrO0TwEjrXSsgmXQD+/twsMiGoslUjSkyhhCaMkjSxwTseJ3YM+B5JwBhQ7AGk9cl+2Ic1DYu3iTtsY3s2vrhVvsd0vcaUQYqhmvvZ2kSmozkolFyrKw3ky/zYP6fXIgdvkfFHkmZIYAiytRl4HA8VKDqxDi8NIxaeT5WWgYLe4nDk4EUhVk5SoWgzfqNNNH6ASduclEgL0YkiMeCOwQgDNWimk6DQhqc2pw8dnMB1XZzpXSq1nunWyhs5Vk+6gFa2THfgBc3jDH3Fqz6eu42zkA6+Xze+vprTYJr+5VMAmWiK97p+j+UiXha5mjlGstv2w/3U/rlNOpR/mxvzWF5jDoqXgO4w9kHb0oPqcwmoAdrbaMdw9Mwib5oJRx99fGkleGBtK1At8L5Yl6SBVuaICwwYoiMIkXb5Ro7I8g86AA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR04MB9001.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(38070700021)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?zg89MWmfEpDkNexMjoRsJdbDAbiDg59nAjSJZL/4vLiKPs/K5GovK0idWtno?=
- =?us-ascii?Q?4nSMfxUCwvA1TVD7iKV+Avi/5LijHxI8f5ttY2xIQajFseQYJY/lweqgpBf1?=
- =?us-ascii?Q?5XD/NDJ+9CsUJgQAOvGsXKIvSc/TYtWFO856mem+VGktwddsjD9mw/Wq75Tp?=
- =?us-ascii?Q?1MwpBJQgW6tHwiVqNULyZVRwTgdjjg3A4EN67hVcQvVTIiVM5+kOo6QsM0Oy?=
- =?us-ascii?Q?LADcM4oP7U9V1MPcUeweSXRFqHdoyv1KS2OL0MTtCcBnGytEVwlF2ePw07Gs?=
- =?us-ascii?Q?IRG5Dz4D3Ao70AyRfFkiiefqWXbpoh931arzNADL4tc/6n/RrMfJHx6bpZHV?=
- =?us-ascii?Q?aNOiu+to3V22jd9c37VYoyGlfFFGmzzoNTLO2R+cku58bv5TanBClbFh2Mq6?=
- =?us-ascii?Q?DsN4/w5QtANSKeYad/KQTD31O331EvhqxWNsILV4y17WpOFV7zntMutvNKkx?=
- =?us-ascii?Q?waTrbMrIo4eSBcW24qUlca+NDP6GQ8EDFPigfaKceVbjwX+kNPzV0D9q50UH?=
- =?us-ascii?Q?bAxQ2zoPBQkDOJ/g4ahbBqKxLAhy4KBRFx69SfD/g5WvyrYQ7i1LxBJHPzRY?=
- =?us-ascii?Q?9PRGCU+L9jrEuOfN2k4UFA+UtWbMamLVLDkn+ED0ouwD2r5+6uVz1BQuD3Xy?=
- =?us-ascii?Q?W35/kd5Ih8G1r3BqwcoEFBBBKMGJQExiULeT8bVsf6tZmLcvJR4c/uISaAIy?=
- =?us-ascii?Q?MU3mh9nRJuyTtDhB1us2YYryGPGG9B3Doi8xnSbJygh7KX16ER+Z1pFf/P7V?=
- =?us-ascii?Q?7ffFvafdDDwp8XFPeW1QJDkxHwpIXhKB527JG/AA30R84M8cMy+VC53KSuZU?=
- =?us-ascii?Q?ZNkyh1syLyMCCUAuC/Bm9CpUX3qoQTo9T/Wz5Kpm4foPlBE+VRXpnkIfD2nA?=
- =?us-ascii?Q?xMOUthOVfBoVhJ7YZchoU/AiQGrOvOch1wAgV9Q0jFKJAh0i5cC2IoBUkDwQ?=
- =?us-ascii?Q?PQ0B2j7xkbOuzCfpGjAfRvPMsTl2Qu/5Cv8SUhR/ZJhnF/52cTRB5ndhVUIY?=
- =?us-ascii?Q?fIkfSh62DisxoVjPH0V+c6jg9f82NhaP1bhxHmITWkRfOWiGdrmQxBbFnadW?=
- =?us-ascii?Q?WZSR8+wRvAl/4MLQAm6o5h38qX9WicA1NNaxIcvM7pPFV8mEZQoSrqGqSWEV?=
- =?us-ascii?Q?WMmxOLsj+n6ZI/hwwRqk97JxF92EOAqKrfBT0qO+oJf6ghFZoIzeYC6epEMs?=
- =?us-ascii?Q?3POYDEz26IsG5xQl3NKB1xc9hVaH8wQMroPocRYBh/DGcOTzKSh6/Mo1wBZH?=
- =?us-ascii?Q?QLoF1oxIZ9KI/kXWrvsCBAkgraGjbEf3/D0xsNeHEvc3YC1x28Gs4a3AcEvK?=
- =?us-ascii?Q?2ekWP7f/jWuV5F+EvTdPAxKzgKnn3qeS8LyE2hXgrerNpWOYERUmbb6KpXBH?=
- =?us-ascii?Q?2OGDgY3Ny7ZkPh6acz+f/QHslJkRQQDl5dpJWXcDqdIvAwR4/nW2KSL88DIM?=
- =?us-ascii?Q?B7ueiDdmQobBIdVxSTEE8Y8k6nuHTu8Qk5ZC6Tpn5Ho6eABCFy/gtCadTgJX?=
- =?us-ascii?Q?KATdgwpQg7UWpBealJvsRsEa6HU3M+2UrvS4fLDMapz4oAAa/yKNTaxw7gDR?=
- =?us-ascii?Q?AnPPkmyVkvvTygo7j0hO6wwa5bt9fDmFg07VUCRZK0IFJbMZQWp1oIVaAhBG?=
- =?us-ascii?Q?4FFRdw2Jv6CNDoxrFX69XUoRpyZ42fNYBOIJMHG4uXMzhCSaDT/OuBBFjnN6?=
- =?us-ascii?Q?QWRE8s03zHrbJhZM/ri/GIcgm+FUsl60ktfgCF2bmjPTDWguiMs0eWolWKo2?=
- =?us-ascii?Q?GoA6ZCjkWg=3D=3D?=
+	Sat, 11 Jul 2026 00:04:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D9A8600C3;
+	Sat, 11 Jul 2026 00:04:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 556671F000E9;
+	Sat, 11 Jul 2026 00:04:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783728265;
+	bh=NIBkWpvs94ifP9DOH15o1FfiAVlDV0ggO/H3owjMavQ=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=Ci6t2GSikykjNwFxmDpqQYwroTakRV6up3m8CXbJsjetN0ReFJ4cKT7qmsSxxqqJH
+	 hj4iSaeL4shGPMcRJ6l2PO9ONZSMx5Mb2BbtkKOPUw2pomQkS8uxrfqnMNqiBDFzHy
+	 V5Kva4ZWD4HpEPEt8aG0svrMLfHY33qQZjg8zQ2VSlO4iGOppgxlMP+BG5c/+T3m0F
+	 et1jaDwJwkVJ7VkgbPMRjCAXBVnckDos0z42gHvZZEaG5/bvM39EFn7nXnke4tIpJC
+	 xwdrebTIdRDWMKC9IikiqKv5Al1PaiX3RR1Bv0KlT7r9NN7TpZt9mY1lAaBUKHGH3c
+	 wfCCmi/7tFVig==
+Date: Fri, 10 Jul 2026 18:04:22 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Xu Lu <luxu.kernel@bytedance.com>
+cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+    alex@ghiti.fr, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, apw@canonical.com, joe@perches.com
+Subject: Re: [PATCH RESEND 1/2] riscv: mm: Apply svinval in
+ update_mmu_cache()
+In-Reply-To: <20250901114141.5438-2-luxu.kernel@bytedance.com>
+Message-ID: <dcd61aba-8622-b14d-6466-44a7f0dc0615@kernel.org>
+References: <20250901114141.5438-1-luxu.kernel@bytedance.com> <20250901114141.5438-2-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
-X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA3PR04MB9001.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d81d6f3-1286-4f69-8186-08deded8f3f9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jul 2026 23:14:12.0688
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: PUbuGh22NwrSEbGxQqb2+hwmWkaheiiISUQ8ylUhdelsOjElDbM0FbVMigZjFzINUBnkeJj7OqrWYznYHFlV+FYSj8fERMV8aNA1c+J/394=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR04MB8279
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_161421_696024_F293EDB8 
-X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,53 +70,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 1:59 AM, Conor Dooley <conor.dooley@microchip.com> wrote:
+Hi,
 
-> This company no longer exists, you should probably introduce a rambus
-> vendor prefix instead.
+On Mon, 1 Sep 2025, Xu Lu wrote:
 
-Cryptography Research, Inc. does still exist -- it's now a wholly-owned
-subsidiary of Rambus (our co-maintainer is @cryptography.com). The
-prefix names the IP originator, which is consistent with existing
-subsidiary/acquired-vendor prefixes in the tree (e.g. al = Annapurna
-Labs under Amazon, mstar noted as acquired by MediaTek, fsl, cavium,
-xlnx). We'd prefer to keep "cri" on that basis, and can annotate the
-description as "Cryptography Research, Inc. (a Rambus company)" to make
-the ownership explicit. Happy to switch if you feel strongly.
+> Only flush tlb of the specified mm, and apply svinval if available.
+> 
+> Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 
-> This property seems like it could be replaced by having a reg entry
-> for each mailbox.
+I wound up splitting this into two separate patches, rather than one 
+patch, since there seem to be two orthogonal changes.  The first change
+restricts the sfence.vma to a particular ASID (below).  The second change 
+involves the Svinval path, and is sent in a subsequent message.
+What do you think?
 
-Agreed -- v3 will make each mailbox a subnode with its own reg window
-and drop cri,mbx-instances.
 
-> This looks like it should be deducible from a device-specific
-> compatible. [slots/strides]
+- Paul
 
-These aren't fixed per silicon -- they're the per-mailbox layout of the
-VCQ rings in host DMA memory, chosen at platform integration and
-programmed by the driver into the mailbox QUEUE/SLOTS/STRIDE registers.
-They can differ per mailbox on the same silicon, so a compatible can't
-encode them. v3 will keep them as optional, defaulted properties on the
-per-mailbox subnodes.
 
-> This whole subnode thing seems like it is only required because you
-> don't have device-specific compatibles [cores].
+From: Xu Lu <luxu.kernel@bytedance.com>
+Date: Mon, 1 Sep 2025 19:41:40 +0800
+Subject: [PATCH 1/2] riscv: mm: flush TLB by ASID in update_mmu_cache_range()
 
-Core presence is actually discoverable at runtime from the CORE_ENABLE
-register, so v3 will drop the per-core child nodes entirely and probe
-for enabled cores -- no per-variant compatible needed.
+Only flush the TLB of the specified mm (via local_flush_tlb_page_asid)
 
-> this could probably be handled via reg-names? [affinity]
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+Link: https://patch.msgid.link/20250901114141.5438-2-luxu.kernel@bytedance.com
+[pjw@kernel.org: split the non-Svinval code in the original into this patch; update description]
+Signed-off-by: Paul Walmsley <pjw@kernel.org>
+---
+ arch/riscv/include/asm/pgtable.h  | 7 +++++--
+ arch/riscv/include/asm/tlbflush.h | 5 +++++
+ arch/riscv/mm/tlbflush.c          | 5 -----
+ 3 files changed, 10 insertions(+), 7 deletions(-)
 
-Yes -- v3 will express affinity per mailbox (a "role" of a specific core
-type for a dedicated mailbox, or "generic" for the round-robin pool),
-which is the subnode analog of your reg-names idea. One caveat: this
-cleanly covers 1:1 core-to-mailbox dedication plus a shared pool; a
-mailbox dedicated to several specific cores would need multiple role
-tokens.
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 5d5756bda82e..755495a542cc 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -568,6 +568,8 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 		struct vm_area_struct *vma, unsigned long address,
+ 		pte_t *ptep, unsigned int nr)
+ {
++	unsigned long asid;
++
+ 	/*
+ 	 * Svvptc guarantees that the new valid pte will be visible within
+ 	 * a bounded timeframe, so when the uarch does not cache invalid
+@@ -583,10 +585,11 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
+ 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+ 	 */
++	asid = get_mm_asid(vma->vm_mm);
+ 	while (nr--)
+-		local_flush_tlb_page(address + nr * PAGE_SIZE);
+-
++		local_flush_tlb_page_asid(address + nr * PAGE_SIZE, asid);
+ }
++
+ #define update_mmu_cache(vma, addr, ptep) \
+ 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+ 
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index eed0abc40514..7c2cd5cc92d3 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -15,6 +15,11 @@
+ #define FLUSH_TLB_NO_ASID       ((unsigned long)-1)
+ 
+ #ifdef CONFIG_MMU
++static inline unsigned long get_mm_asid(struct mm_struct *mm)
++{
++	return mm ? cntx2asid(atomic_long_read(&mm->context.id)) : FLUSH_TLB_NO_ASID;
++}
++
+ static inline void local_flush_tlb_all(void)
+ {
+ 	__asm__ __volatile__ ("sfence.vma" : : : "memory");
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 8404530ec00f..73c226f719c7 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -110,11 +110,6 @@ static void __ipi_flush_tlb_range_asid(void *info)
+ 	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
+ }
+ 
+-static inline unsigned long get_mm_asid(struct mm_struct *mm)
+-{
+-	return mm ? cntx2asid(atomic_long_read(&mm->context.id)) : FLUSH_TLB_NO_ASID;
+-}
+-
+ static void __flush_tlb_range(struct mm_struct *mm,
+ 			      const struct cpumask *cmask,
+ 			      unsigned long start, unsigned long size,
+-- 
+2.53.0
 
-Thanks -- this restructures nicely.
+
+
 
 _______________________________________________
 linux-riscv mailing list
