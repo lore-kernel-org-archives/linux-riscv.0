@@ -4,95 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08AA0C43458
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 08:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3268DC43458
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jul 2026 10:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xesEeqWpf6YRAfzb/LaI7bwQ3az2jX0PtrVWF+yiDzU=; b=TsOqLpeMlNwyyi
-	EwDUEPD+wjgNZFNVkgdqdkUuU+PJUvKbB0G9ut22oMh9fve0aFsQllIFNJ2WNG9w+KJMhyb1hAkx2
-	IXgc5W0ZuyVdBGWhFHpWAg58/8zBw95k2ir/faYIGo7npHqrRsNDXQWCVDh/x1IMwIcK7zfPZ997g
-	3mQbxTSW0RsAde1hlKlN6StRGEB0OvCpEJ8Add3WZ0Vq/J3ZsUXCNqHZYLW5eZovCDb7sUP6EtvHY
-	jP+spJDYQAZhq9x8cf0E2Hw/w4wEeVSqwccz1BfiSxfyxrdghTUvC3o8hr5Wjg3kVyxAX7wVH4Ujc
-	AXyT2aH1RRntidXPRpXw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OEEi0eJSWs3qcgxTVKz5amssRsNzFvQ7cIfmLwv5Bl4=; b=3e17zPKmaF4GAd
+	qbpEAhEngsmvGvi5ubChYSz6to/+sA+5nZecPOD6yV9fpleicAw+7BHzsEbE3lz07f2oe4zjhmc1w
+	0udgw/bzYFD3yX1KlqgNK9v/SBcvF55qyk/wJZsdcrc96auwYO1qwubQqYFhoUTS8VpBcWKRBhIma
+	pdnwZjzlDsPSgUe/7X7mfWTYXRehLPnKifmClfF0/93n9gZJQHAgSIIA+Xq72/aJ0K+fIblWdvgvl
+	ecN7a24lX1j+MMpTY397HPUQYjKJCacpXfouIA8VpePW1vmbpFsWOOvffFHsfu5ml7mw9nnKeVb7C
+	Ynfyk7alWSaWm3v2kFpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSpy-00000006Mvn-1Dqd;
-	Sat, 11 Jul 2026 08:13:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wiUlh-00000006S0b-2sfW;
+	Sat, 11 Jul 2026 10:17:09 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSpx-00000006Mun-3Kmj;
-	Sat, 11 Jul 2026 08:13:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=WGl7teXPgThhyd7Mnm7ajod1+36ftebilIYFXIlgL0M=; b=c1GENjPY7UNmytdf99kLSD64Zl
-	HKS/oKYQS/ryem+aSC9l1bM9Qf+J5XVGVvIXqUATsT/1G63kzmnjyKnw6W0rkqQ7s9e2SkAKDYSkN
-	qvvqE2wybUKOaUSBtvcY1TsqokkmXionGpJlbBeWOQ+MB2cUbLaUSBTSqf9qEnkn0o11FiyKWZeYg
-	/Q5/S9W697lKZiqjvXDn5seF9vat3lWLkDYYaWt60lT5kWjmc2ZG2zXBjmzPYDTRiIZQmwcG1STMD
-	ZMrbIFBCfpvaSrEq6aRRZRaQIdtA/j11zREfh5hQMAsUqwdI23hWxXZ7sr4Nxi6PV72lINVILWcOd
-	A0t13YsA==;
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wiSpk-0000000AY0o-0FzW;
-	Sat, 11 Jul 2026 08:13:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783757574; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=B86tUVUVurn1RROWNOeRi7HDvHZ+NJPXU18H7kAni6XpkuIMPi7sfCj+suIFXBo7Z6DIZXffawpGkrwrLnu0mSoEviWZ9krlwW3CurYJYW6V7XOsScUSylzTpC08eo1XnJ9BVIzYi1xE5+OUFhkEEMWVdfr1bkL3B/kpcCN2duE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783757574; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=WGl7teXPgThhyd7Mnm7ajod1+36ftebilIYFXIlgL0M=; 
-	b=Eg3Hr7LpcmlWcz1DAEd2GDnyi1R3b5xZzH6iZ85WDmpLmK4Sf3/+lQcoD+WfbHhYOa10O110Z8b0c4WSYyRs51TQ/LKtgsfJ6X+A7ZahSL6wuQ25gaoeM7BhZ/wSRnKhGX6XAnCsRFbVuQCieim3Ca69hLI5eNYGiCOY+Rzlk7w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783757574;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=WGl7teXPgThhyd7Mnm7ajod1+36ftebilIYFXIlgL0M=;
-	b=po3bRHUv6o0xx84bNe5QIus8JM8sM98N3FhxR24HZ2aaqDE2v728A+Om4IP5q+H+
-	pxSp4eSqPeGr5eybdYGnPMqpAoCtMouscJA0LNCeoTD1fyO5l/hhIPkR21B+oIXEGxc
-	w0T6nu4IpdiyOBppUdK3qpczDt9PjpRAetjWWNx0=
-Received: by mx.zohomail.com with SMTPS id 1783757571732200.7153726655515;
-	Sat, 11 Jul 2026 01:12:51 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sat, 11 Jul 2026 16:10:34 +0800
-Subject: [PATCH v2 8/8] clk: sunxi-ng: a733: Add reset lines
+	id 1wiUlb-00000006Rya-2YBi
+	for linux-riscv@lists.infradead.org;
+	Sat, 11 Jul 2026 10:17:08 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gy4PP0dlZzKvv9;
+	Sat, 11 Jul 2026 12:16:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783765017;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=U3ImstQrsA9UW+38lhQ1sNds7gu/oGbkbhambfG/NR0=;
+	b=M/h8gBoOZzGcKOjKkhO2U3RWnN/IbG1O1jBcYDl9RQ4AA5snm9OVJEtarFLd9J3rDReFj6
+	cNpOq7imAUFtt6EZ8L/lnnrdHaG+lLjh/ygkcd2tV06KZPvPWWJKqTNn2AItsvYuXUB3Qj
+	iutPsL6iGbqfXhp6eFBgCIjMRq1ZpedOUVrV22S9WqnVI5V4bQpL41lYMBsFU4uc07gPzh
+	+21VEAw93+HcFc9lffr2jdn4pjKKLg6hpVtlv7+7M0dWCcObsRjYFe7i8elsi0z9jB/T7U
+	qGi/mlOMjMCU3zWv8qR3f+MamcxyaSqqFh9Ggfh0srW7njLA+ZfE71s8pqrc+Q==
+From: Maurice Hieronymus <mhi@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783765014;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=U3ImstQrsA9UW+38lhQ1sNds7gu/oGbkbhambfG/NR0=;
+	b=p8w14CPZ0kWEU7bX10C1ghN0UHreb54mtp4opQHTe3FNRthqsgGq7vqIfcp7mTgjL7iyBq
+	asnDirQLwQNdcRS9mp5FYmRd7q/e6/mY1/lZZA6ZhUE4vayuQXfwjpLnc4EdrPyfF22o0Y
+	8Oo8fFnYiwoNeRIB954FI0S0S3XEnmETjWFaaS4+7O7U5YK2y/nRUrIlLcRoMZHHeyN4LZ
+	QG+4EeZFnI3eJ+YZ+OUv3oApZHbkyxJ7rPX3ZnpxbrVP80sOkGemDtSRB6SWmhVkY4KLpe
+	DWvoxZOHglK7I3Mq+AvdP1sHQshrQl3Q6nSCWDKgmDXKbpll++Y3b4Unh722zQ==
+Subject: [PATCH v4 0/2] rust: clk: Add ExclusiveClk and use it in
+ pwm-th1520
+Date: Sat, 11 Jul 2026 12:16:28 +0200
+Message-Id: <20260711-rate-exclusive-get-th1520-v4-0-8244a0666a71@mailbox.org>
 MIME-Version: 1.0
-Message-Id: <20260711-a733-clk-v2-8-974d188cbe0c@pigmoral.tech>
-References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
-In-Reply-To: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43QTW7DIBAF4KtYrEsFw4+NV71H1QWGwUZN4hSI5
+ SjK3YuTRVpVirqckeZ7o3chGVPETPrmQhIuMcf5UAf50hA32cOINPo6E2CgmQJNky1IcXW7U44
+ L0hELLRNXwGirpTXSeOQdknp/TBjierPfP+o8xVzmdL5FLXzb/kddOGVUSBeYkMhrxtvext0wr
+ 69zGsnmLvCwqvbMgmppo7RkQ2hBmr+W+GFB98wS1XKtswIHFzQLv63rvYCEX6faabm38Ki0b2q
+ EYoYZ6naftJyPSHPZwhzj1rbeK8V9v6ityMHmup/3+1j6xgDjDMA4OYiuM23gghtf3+UaPASjD
+ Sj0vK0vXL8BKCEg+94BAAA=
+X-Change-ID: 20260526-rate-exclusive-get-th1520-764a949de18e
 To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Stephen Boyd <sboyd@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Brian Masney <bmasney@redhat.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>, 
+ linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783757449; l=6917;
- i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=2nbAp5wgLvB3GVbm/bh5SLh3tvImZ6mCw5JMPh8KgPQ=;
- b=hEKIEUQ7/k4zgY9aOi6OTBUpFGX7wJsm0EGyQFA9u7IbtBfkXDW5bXNeraYVJdCjsVLutevno
- ZWU7DKBnd1ZDHpJsZrNYTQVsK4+Fyr9uuWAWUw6QUiUEaC0PrIq7q9+
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
-X-ZohoMailClient: External
+ linux-pwm@vger.kernel.org, Maurice Hieronymus <mhi@mailbox.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783765003; l=2054;
+ i=mhi@mailbox.org; s=20260525; h=from:subject:message-id;
+ bh=+Q01IOSPpbl6YaJ1sx2U1xpDg/zo1GCHE9ISpCMdGX4=;
+ b=wrIw8EiPXBMgXwOPtE10nUhaLnGuBvvXnluKQnp020xOGAt974/hFA4jcJSIM/LAIYqar4qEW
+ TwOwcYvbqCsAW9XZmIYQ5zix6qVPq2cHcCTaxtX3rG7/0g/ox4qJTaR
+X-Developer-Key: i=mhi@mailbox.org; a=ed25519;
+ pk=AHlEkGG3hpXZHntlEzF42Ip/LFyXWOgsNUvaHqAnV80=
+X-MBO-RS-META: p68pwkc35abrj1qzbhy65xyydo66i3rj
+X-MBO-RS-ID: 17a3b90175c5235e027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_091319_421998_76E0AAA3 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260711_031703_951019_B70A7795 
+X-CRM114-Status: UNSURE (   5.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,179 +107,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the reset lines for the Allwinner A733 SoC. These reset control bits
-are integrated into the Bus Gate Reset (BGR) registers, typically
-sharing the same register address with their corresponding bus clock
-gates. Integrate them into the main CCU driver using the existing
-sunxi-ng ccu_reset framework, allowing the CCU to also function as a
-reset controller for the SoC.
-
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
-
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-index 48d7c0395ae8..ff64c35206d2 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-@@ -17,6 +17,7 @@
- #include "../clk.h"
- 
- #include "ccu_common.h"
-+#include "ccu_reset.h"
- 
- #include "ccu_div.h"
- #include "ccu_gate.h"
-@@ -2156,11 +2157,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
- 	.num	= CLK_FANOUT3 + 1,
- };
- 
-+static struct ccu_reset_map sun60i_a733_ccu_resets[] = {
-+	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
-+	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
-+	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
-+	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
-+	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
-+	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
-+	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
-+	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
-+	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
-+	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
-+	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
-+	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
-+	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
-+	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
-+	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
-+	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
-+	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
-+	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
-+	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
-+	[RST_BUS_DI]			= { 0xa24, BIT(16) },
-+	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
-+	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
-+	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
-+	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
-+	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
-+	[RST_BUS_CE]			= { 0xac4, BIT(16) },
-+	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
-+	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
-+	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
-+	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
-+	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
-+	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
-+	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
-+	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
-+	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
-+	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
-+	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
-+	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
-+	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
-+	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
-+	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
-+	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
-+	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
-+	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
-+	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
-+	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
-+	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
-+	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
-+	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
-+	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
-+	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
-+	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
-+	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
-+	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
-+	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
-+	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
-+	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
-+	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
-+	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
-+	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
-+	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
-+	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
-+	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
-+	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
-+	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
-+	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
-+	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
-+	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
-+	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
-+	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
-+	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
-+	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
-+	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
-+	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
-+	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
-+	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
-+	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
-+	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
-+	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
-+	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
-+	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
-+	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
-+	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
-+	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
-+	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
-+	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
-+	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
-+	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
-+	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
-+	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
-+	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
-+	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
-+	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
-+	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
-+	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
-+	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
-+	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
-+	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
-+	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
-+	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
-+	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
-+	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
-+	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
-+	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
-+	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
-+	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
-+	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
-+	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
-+	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
-+	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
-+	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
-+	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
-+	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
-+	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
-+};
-+
- static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
- 	.ccu_clks	= sun60i_a733_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
- 
- 	.hw_clks	= &sun60i_a733_hw_clks,
-+
-+	.resets		= sun60i_a733_ccu_resets,
-+	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
- };
- 
- static const u32 pll_regs[] = {
-
--- 
-2.54.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWRkIGEgUnVzdCBiaW5kaW5nIGZvciBjbGtfcmF0ZV9leGNsdXNpdmVfZ2V0KCkgLyBjbGtfcmF0
+ZV9leGNsdXNpdmVfcHV0KCkKYW5kIHVzZSBpdCBpbiBwd20tdGgxNTIwLCB3aGljaCBwcmV2aW91
+c2x5IGNhcnJpZWQgYSBUT0RPIG5vdGluZyB0aGUKbWlzc2luZyBiaW5kaW5nLgoKU2lnbmVkLW9m
+Zi1ieTogTWF1cmljZSBIaWVyb255bXVzIDxtaGlAbWFpbGJveC5vcmc+Ci0tLQpDaGFuZ2VzIGlu
+IHY0OgotIFJlYmFzZWQgb24gdjUgb2YgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvcnVzdC1mb3It
+bGludXgvMjAyNjA3MDYtY2xrLXR5cGUtc3RhdGUtdjUtMC02N2M1ZjMyNmExNmNAY29sbGFib3Jh
+LmNvbS8KLSBMaW5rIHRvIHYzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwNjI4LXJh
+dGUtZXhjbHVzaXZlLWdldC10aDE1MjAtdjMtMC1jN2NhM2ViY2Y2MGZAbWFpbGJveC5vcmcKCkNo
+YW5nZXMgaW4gdjM6Ci0gQWRkICNbaW5saW5lXSB0byBDbGs6OnJhdGVfZXhjbHVzaXZlX2dldCgp
+IChPbnVyIMOWemthbikKLSBEcm9wIGludHJhLWRvYyBsaW5rcyBmcm9tIHRoZSByZWd1bGFyIFNB
+RkVUWSBjb21tZW50cyAoT251ciDDlnprYW4pCi0gUmViYXNlIG9uIERhbmllbCBBbG1laWRhJ3Mg
+Q2xrIHR5cGUtc3RhdGUgcGF0dGVybgogIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3J1c3QtZm9y
+LWxpbnV4LzIwMjYwNjE4LWNsay10eXBlLXN0YXRlLXY0LTAtOGJlMDgyNzg2MDgwQGNvbGxhYm9y
+YS5jb20vCi0gVXNlIHZlcnRpY2FsIGltcG9ydHMgaW4gcHdtX3RoMTUyMC5ycwotIExpbmsgdG8g
+djI6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjA2MDUtcmF0ZS1leGNsdXNpdmUtZ2V0
+LXRoMTUyMC12Mi0wLTY5NTY0MGJmNzI0OUBtYWlsYm94Lm9yZwoKQ2hhbmdlcyBpbiB2MjoKLSBS
+ZWJhc2Ugb24gcHdtL2Zvci1uZXh0Ci0gUmVtb3ZlIG5ld2xpbmUgYWZ0ZXIgW2BjbGtfcmF0ZV9l
+eGNsdXNpdmVfZ2V0YF0gY29tbWVudAotIFJlbW92ZSB1bnVzZWQgW2BzdHJ1Y3QgY2xrYF0gbGlu
+awotIFB1dCBzZW1pY29sb24gb3V0c2lkZSBvZiB1bnNhZmUgYmxvY2sKLSBMaW5rIHRvIHYxOiBo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwNTI2LXJhdGUtZXhjbHVzaXZlLWdldC10aDE1
+MjAtdjEtMC0zNGNmMDM0ZTE3NjRAbWFpbGJveC5vcmcKCi0tLQpNYXVyaWNlIEhpZXJvbnltdXMg
+KDIpOgogICAgICBydXN0OiBjbGs6IEFkZCBgRXhjbHVzaXZlQ2xrYCB3cmFwcGVyIGZvciBgY2xr
+X3JhdGVfZXhjbHVzaXZlX2dldGAKICAgICAgcHdtOiB0aDE1MjA6IExvY2sgY2xvY2sgcmF0ZSB3
+aXRoIGNsa19yYXRlX2V4Y2x1c2l2ZV9nZXQKCiBkcml2ZXJzL3B3bS9wd21fdGgxNTIwLnJzIHwg
+MTggKysrKysrKystLS0tLQogcnVzdC9rZXJuZWwvY2xrLnJzICAgICAgICB8IDY3ICsrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCiAyIGZpbGVzIGNoYW5nZWQs
+IDc5IGluc2VydGlvbnMoKyksIDYgZGVsZXRpb25zKC0pCi0tLQpiYXNlLWNvbW1pdDogOTIwMTAy
+MjljNGIzODg5N2YxMzE5ZDI2MDE2MmQyZjk2OTI1ZWQxNwpjaGFuZ2UtaWQ6IDIwMjYwNTI2LXJh
+dGUtZXhjbHVzaXZlLWdldC10aDE1MjAtNzY0YTk0OWRlMThlCnByZXJlcXVpc2l0ZS1jaGFuZ2Ut
+aWQ6IDIwMjUwOTA5LWNsay10eXBlLXN0YXRlLWMwMWFhN2RkNTUxZDp2NQpwcmVyZXF1aXNpdGUt
+cGF0Y2gtaWQ6IDJkM2RjNDVjMjQxZDkwNjJhMGQyNTQ2ZWM2NDllZWM3OTcwZmE1MGEKcHJlcmVx
+dWlzaXRlLXBhdGNoLWlkOiA2N2FkNTM1ZmUxMTAyMDdlYmM3OTA0NWJhMDIyZWJiNzEzN2IwMzA5
+CnByZXJlcXVpc2l0ZS1wYXRjaC1pZDogM2QxZDhlZTVjMmE0OTU3ZWRkMDgwN2I3YTVjYjY1ZGFi
+YWIzNDViNQpwcmVyZXF1aXNpdGUtcGF0Y2gtaWQ6IGUyNjU5MDM3YjhhYWY1MTgzMWRhMDk5Y2M1
+NjhhZDViM2MyNGE0ZGQKCkJlc3QgcmVnYXJkcywKLS0gCk1hdXJpY2UgSGllcm9ueW11cyA8bWhp
+QG1haWxib3gub3JnPgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
