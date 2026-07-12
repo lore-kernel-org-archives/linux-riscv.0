@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30A8C43458
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 14:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DCCC43458
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 14:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gIHDkxo6IWHL9No3Pvqk7NN2mxFlKfcg/0TfzKxSZvg=; b=mZDTzXuciurqJ9
-	IBpbdRHzKHQ0AqUGKxbEwkS32lWWzor9c5+LmCoWI41iqTJJmoD+V9L/4CZqmP2vbBdtmHRNK6I2g
-	watgp3n6mi03rocSUmnRiM75ZQCWz6FhvhT9e1RzZbcVFMJbd99hio16HxIFz7PS9V9ZC0N0iEJnh
-	cgUbtVhkF1Kv8GukirO8m6wZ0ME7nDslLWh8OAn6txRh4h3i+sxw5ZAxYHA+HXlmjncMT3GvbY3sS
-	99DkUkcYx17L681Yfus3oE9XaEjVcs9QZjlEUKxfB2raV9Kntc44P3PRHQfI2mDKnanh6njry4IlA
-	dNla6q64wQw9XYXt2YpQ==;
+	List-Owner; bh=48y3WE0Ub/tjpPGjyFdHjazD0LXURKcwFD9fJTEnamI=; b=eEXYhvPf61EPi+
+	ibtQLDnYv2dMYRskQrlEJ3X6S8PsIpS8+lzYovaD+0skFrWLdgHq2QORU5vU48AjPp90lzS1aXzxp
+	aE6eyIF2OHpZr0D3RAsA3ErS2fOKHgLPeUMIB6NBmffXTdy0R8oNzHmx1vcF1fLsJyChQsHG8289y
+	UFFQMXLrD/x8gH9EoleUU4dbXWFJg1LFB7Ks7n2j6TRGKYvUdUumQjmUeGoJ/Te+u9cNyoMwbRSyI
+	LGSoBTONZhjUm72baIk3KRQJAyJcTtSAzO3M9zdqImnv7Liy9zblGBS4fHat3QXkmzEqX3vIQDyBU
+	GiWgc132NRBvq15Owf0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wivH9-00000007WEp-39pP;
-	Sun, 12 Jul 2026 14:35:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wivMu-00000007WiG-2ZuL;
+	Sun, 12 Jul 2026 14:41:20 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wivH7-00000007WEb-2daw;
-	Sun, 12 Jul 2026 14:35:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FBE3408CB;
-	Sun, 12 Jul 2026 14:35:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76F021F000E9;
-	Sun, 12 Jul 2026 14:35:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783866920;
-	bh=7RWLP70+Lk7x6klHiPJCyXJm7RPKA7hKo0HmQbHzxBo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HsT6GE5sB5DUFUCMRQkNuUttWd6ae45mL6NHMgYoLcwatlYsmmGzSSeuoN4SwpbrE
-	 IT+svOg66VoMcq0agaiYVBUdh4MfFXYOqG05kS1le79jwP59Yp4T9iaTG5i20I3ixs
-	 Hnaszlbs0H7ItxEj9ncxu9i5jFuSIos3/5l4v5CEhE9QKMDMsdmHvd6+AkQabYVoni
-	 F2sHw1IjVBiS1c2Mb+vSl2dUIp0tOfGAOoxZl9wRxT+a0tQMz+q9AStLX47/3AFeM6
-	 nbh+DJ3IHV9Gjuc0EqmNRToJTUwUNzS5FF7T/QznODpqDSXOU9y+wPKhxceobGSCG2
-	 V9B0EoktaUhwQ==
-Date: Sun, 12 Jul 2026 16:35:16 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
-Subject: Re: [PATCH v2 1/8] dt-bindings: clk: sun60i-a733-ccu: Add allwinner
- A733 support
-Message-ID: <20260712-sexy-polar-cuckoo-cefee4@quoll>
+	id 1wivMr-00000007Who-3R9l;
+	Sun, 12 Jul 2026 14:41:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783867266; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ua0hV+q9YwWdierF0d3tTHArRa58XYI355ifeJIbWW4LZtaawtl20H96TbVmRQjqbSO56vOFPYpJkcOKAnwZLk41DUgWI6NBLxOKHS150cqIcbguHE/i2Dzfl7xsESTR2Xl8qHs1jZdr2oxv9KJGh3bWnllNWCTo8cThhDSAgrA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783867266; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SLS/kMhYXvqtbxCJZsqYcevLj6Cy5NnjgCrCPkzJMk8=; 
+	b=aoh2WX9UcchPAoc6jZ2+7rUQ8S2O8lFa6QhYvdJ5DUkNr3W4qYNoX4JyGeP0uu6v9ZLglioPjgdNlVGRuy4VhhpqbgTU2hdFFv6MeypNTb7xTlgIQs5KDxKeFIUdmMH9uRKh6Vn6vNplJt9nOVb8yn+nBh+d0PJyEFPEXDJNDxI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783867266;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
+	bh=SLS/kMhYXvqtbxCJZsqYcevLj6Cy5NnjgCrCPkzJMk8=;
+	b=pzyy9pATPvLJ5OdbAKgQIexqjPkcTp36x4ezLL3ngOF7JnVnEZGnT1j/CZzlbiP2
+	WSEhCCeBy8H27PBqBkn7L4Eby5OjedwYGAs9h65RhVrIkJzg5gpa1jjN3r5EtAYLrbt
+	6LGBXRYBXx1IwS0pbyTPypDBB5SSeHGDPQNuQAuQ=
+Received: by mx.zohomail.com with SMTPS id 1783866353179481.00549749606785;
+	Sun, 12 Jul 2026 07:25:53 -0700 (PDT)
+Mime-Version: 1.0
+Date: Sun, 12 Jul 2026 22:25:39 +0800
+Message-Id: <DJWNUAW00DTS.1L26UVJEYHZ0L@pigmoral.tech>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <netdev@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>
+Subject: Re: [PATCH v2 6/8] clk: sunxi-ng: a733: Add mod clocks support
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
+ Masney" <bmasney@redhat.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>
+X-Mailer: aerc 0.21.0
 References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
- <20260711-a733-clk-v2-1-974d188cbe0c@pigmoral.tech>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260711-a733-clk-v2-1-974d188cbe0c@pigmoral.tech>
+ <20260711-a733-clk-v2-6-974d188cbe0c@pigmoral.tech>
+In-Reply-To: <20260711-a733-clk-v2-6-974d188cbe0c@pigmoral.tech>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260712_074118_256675_D28F33BC 
+X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,160 +90,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 11, 2026 at 04:10:27PM +0800, Junhui Liu wrote:
-> +properties:
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
+On Sat Jul 11, 2026 at 4:10 PM CST, Junhui Liu wrote:
 
-Please order according to DTS coding style. compatible is ALWAYS the
-first, then reg. Then name ordering, so reset-cells go to the end.
+[...]
 
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer0_clk, "timer0", timer_parents, 0x800,
 
-> +  compatible:
-> +    enum:
-> +      - allwinner,sun60i-a733-ccu
-> +      - allwinner,sun60i-a733-r-ccu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 4
-> +    maxItems: 7
-> +
-> +  clock-names:
-> +    minItems: 4
-> +    maxItems: 7
-> +
-> +required:
-> +  - "#clock-cells"
-> +  - "#reset-cells"
+I will update these to SUNXI_CCU_P_DATA_WITH_MUX_GATE in next version.
 
-As well.
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer1_clk, "timer1", timer_parents, 0x804,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer2_clk, "timer2", timer_parents, 0x808,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer3_clk, "timer3", timer_parents, 0x80c,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer4_clk, "timer4", timer_parents, 0x810,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer5_clk, "timer5", timer_parents, 0x814,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer6_clk, "timer6", timer_parents, 0x818,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer7_clk, "timer7", timer_parents, 0x81c,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer8_clk, "timer8", timer_parents, 0x820,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer9_clk, "timer9", timer_parents, 0x824,
+> +				       0, 0,		/* no M */
+> +				       0, 3,		/* P */
+> +				       24, 3,		/* mux */
+> +				       BIT(31),		/* gate */
+> +				       0);
 
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun60i-a733-ccu
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: High Frequency Oscillator (19.2MHz, 24MHz, or 26MHz)
-> +            - description: Low Frequency Oscillator (usually at 32kHz)
-> +            - description: Internal Oscillator
-> +            - description: Low Frequency Oscillator fanout
-> +
-> +        clock-names:
-> +          items:
-> +            - const: hosc
-> +            - const: losc
-> +            - const: iosc
-> +            - const: losc-fanout
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun60i-a733-r-ccu
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: High Frequency Oscillator (19.2MHz, 24MHz, or 26MHz)
-> +            - description: Low Frequency Oscillator (usually at 32kHz)
-> +            - description: Internal Oscillator
-> +            - description: System 24MHz Clock
-> +            - description: Peripherals PLL 0 (200 MHz output)
-> +            - description: Peripherals PLL 0 (300 MHz output)
-> +            - description: Peripherals PLL 1 (300 MHz output)
-> +
-> +        clock-names:
-> +          items:
-> +            - const: hosc
-> +            - const: losc
-> +            - const: iosc
-> +            - const: sys-24m
-> +            - const: pll-periph0-200m
-> +            - const: pll-periph0-300m
-> +            - const: pll-periph1-300m
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@2002000 {
-> +      compatible = "allwinner,sun60i-a733-ccu";
-> +      reg = <0x02002000 0x2000>;
-> +      clocks = <&osc>, <&rtc 0>, <&rtc 2>, <&rtc 1>;
-> +      clock-names = "hosc", "losc", "iosc", "losc-fanout";
-> +      #clock-cells = <1>;
-> +      #reset-cells = <1>;
-> +    };
-> +
-> +...
-> diff --git a/include/dt-bindings/clock/sun60i-a733-ccu.h b/include/dt-bindings/clock/sun60i-a733-ccu.h
-> new file mode 100644
-> index 000000000000..6742070e3086
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun60i-a733-ccu.h
+[...]
 
-Filename must match compatible.
-
-> @@ -0,0 +1,290 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-
-Why different license than the binding?
-
-> +/*
-> + * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
-
-...
-
-> +#define CLK_BUS_DSC		257
-> +#define CLK_CSI_MASTER0		258
-> +#define CLK_CSI_MASTER1		259
-> +#define CLK_CSI_MASTER2		260
-> +#define CLK_CSI			261
-> +#define CLK_BUS_CSI		262
-> +#define CLK_ISP			263
-> +#define CLK_RES_DCAP_24M	264
-> +#define CLK_APB2JTAG		265
-> +#define CLK_FANOUT_24M		266
-> +#define CLK_FANOUT_12M		267
-> +#define CLK_FANOUT_16M		268
-> +#define CLK_FANOUT_25M		269
-> +#define CLK_FANOUT_27M		270
-> +#define CLK_FANOUT_PCLK		271
-> +#define CLK_FANOUT0		272
-> +#define CLK_FANOUT1		273
-> +#define CLK_FANOUT2		274
-> +#define CLK_FANOUT3		275
-> +
-> +#endif /* _DT_BINDINGS_CLK_SUN60I_A733_CCU_H_ */
-> diff --git a/include/dt-bindings/clock/sun60i-a733-r-ccu.h b/include/dt-bindings/clock/sun60i-a733-r-ccu.h
-> new file mode 100644
-> index 000000000000..1d3845b483bf
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun60i-a733-r-ccu.h
-
-Here as well and so on (other places as well).
-
+-- 
 Best regards,
-Krzysztof
+Junhui Liu
 
 
 _______________________________________________
