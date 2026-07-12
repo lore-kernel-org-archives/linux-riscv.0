@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BC9C43458
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 04:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D291C43458
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 04:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z8JhiYJY/apIMjLcF6U+KQ35CYWksrJHRaDbDuHEi6k=; b=1zoEoZiPKTiUSR
-	d4Or9rbLJAgaan9dy0FyK5VWj+/gEn2vflBet0SwbVuPFL0fYZ74b6BF5y601hX3lyQoqoDd/9EHK
-	9XkKPk8G9qarXjd0jnVRmDr7O8NbAdivUneMUQSl6efBpe43RWctM13ZALGpaKVXz3SoCp1J2OA+b
-	gdpA+nIpSqKHZWnq7UUYzp/2KTgmlXustFI6k3meU4a4KqIZTrJLWWNFLGwGUBWTk9fh3bkfxVkOg
-	sS7xI7p5OJ36z3g5qizqspXE88nTSjlUY68MxzsnE+25tGIW3vIBGfGHDxUG0ENf2l0UzeTz+b5BR
-	cdcHZSMTI7MbfVzHVy0A==;
+	List-Owner; bh=fCuzBKkrvqYzNj2UWdQnUrObl5NzOrEONt+ABuYmD5w=; b=iYg0anqjQXSHJH
+	3H11LMeo1eMnkqyeTbKtRcRTQTOh2pUIt40H7GWiQg61iMhzyAL6HdQMstwv/NsO1+k5MUZ243rxT
+	wssnZ7Ycz97nWpbdx/OSIItUd6R1lcBEWNMh8XuHsvgnHDVEI8+WOpY0ZvXGqAMySJlXS1pG39SWB
+	baveQaA8KBiKCCPMyoJANSC3eul1pbs/mgzur2SFHMb5x6ZynAOmkE4DfBCrM3dpdqIOhROvAIUEn
+	Fb1lMjo8FRErxcMppjkaxfYnx1xCxg0rWOl7ZHkNRVuIpu9U7RyfSgDPGLo+x70+wwAdpfLa6kTNh
+	1Uat+q5Dz0/wJg2DcLJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wilNP-000000076sv-2AXY;
-	Sun, 12 Jul 2026 04:01:11 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1wilNK-000000076s9-1lUM;
+	Sun, 12 Jul 2026 04:01:06 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wilNN-000000076sV-2jgR
+	id 1wilNH-000000076rC-0QWT
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Jul 2026 04:01:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783828866; cv=none; 
+	Sun, 12 Jul 2026 04:01:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783828858; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=kJ9SSB68Gz80bCFEsRL77dqirIUUCG1irvQM7/wS7gcUK991b1dXU6Jz1byuoh5n3cYUMQCVcEv/90/OjrkoHKq7tNtG7sCcJ568vzyvzS9cMxRT8HwDlrNse6lkxB+3qBtmQPNo43iin2z+vF3dUPmv1zRf+JnsKs12HyCYots=
+	b=mwwdWwmUttni2cJuSVFItLC/pg67qtjjnSR2eo9FcJd2V6DR//h0QkZaIscX9trelRonBo1rLKEwHfaqWYggvUGTz4tZmxkGOaiVv72DvAJZjFjtzqnTGDP/UW8mEdcFw2tznNE+qqc6lLgi0ZS1IjtNnM54dMM62B4RD3x7Bak=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783828866; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=FhKv/NOQ51gp+emFhYMgfPNNQOG8OVl9ALOq2GaEjZ0=; 
-	b=UwBLZFNZbI5P0Eye+9EOQMw5jG5YQecNWw3ttI9yfCY7YwCWRb75HtwJuVAWOcm3cMZ7Wb4kjJxJt0nQncLcd5l9JrC4uNuyvpsGszleE1LtWHFU2TbAlTALq0b9goHY65uUjkiKSKqa8WzhgLj5i8/o/zNatIe5JqzxUpA/6F0=
+	t=1783828858; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1XM9WhEYjo7g6ksDbiUNrS4SEmNY6DP2S7J0vO6k1QQ=; 
+	b=XQ3/pBzGIWjEHF94NONby5PozjyMvGJ22IDKatWRspVvwudjX4AuJUA0hNB7n3vqCRMNa+a4YB+Ikvltek9ZseyrwMIW8Ad5QV7k8/q7g3XT1vsR8oh9RiYclfidNSoB7MsN61tFeDfKOFCHy69+7kPl+oNbfBfxouxk+G2wIkE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783828866;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783828858;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=FhKv/NOQ51gp+emFhYMgfPNNQOG8OVl9ALOq2GaEjZ0=;
-	b=ZwI8M3ro4Sa+t0LQeHs7qcbpOztSPXHlInIU0mrZOUJLjG6DHpBThuwmHdNfAHI2
-	GznGy1+vDrT4bNJqN5ALJLp5qy94xM12ZgDO5R8J0uSJbQ3GwKKjpeObmC9Qv1VUbFs
-	h4pcgvUIyP4poPLVhuTwONa0HU+iJdJhBElrFqz8=
-Received: by mx.zohomail.com with SMTPS id 1783828865178779.5191332733751;
-	Sat, 11 Jul 2026 21:01:05 -0700 (PDT)
+	bh=1XM9WhEYjo7g6ksDbiUNrS4SEmNY6DP2S7J0vO6k1QQ=;
+	b=IeFM9NHYwKvJCp+FM4JpcCCKGhGuL8zNAeepxY4iH/LlMbd6KfJpEERSQBNymDlV
+	+PNRozTByXuHZn6oZZKop9y43sNGMX+U5pdB5B+roZ082J/evMSPBAvc/R5aWY7Li5t
+	ix4MQqpi+BjoGGjQHkede+N2m5CGpDbt/ZulEXX4=
+Received: by mx.zohomail.com with SMTPS id 1783828856840857.1737428996421;
+	Sat, 11 Jul 2026 21:00:56 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sun, 12 Jul 2026 12:00:03 +0800
-Subject: [PATCH v3 3/3] riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO
- board
+Date: Sun, 12 Jul 2026 12:00:02 +0800
+Subject: [PATCH v3 2/3] riscv: dts: spacemit: k1: Split gmac_clk_ref into
+ independent pinctrl groups
 MIME-Version: 1.0
-Message-Id: <20260712-bpi-cm6-v3-3-8d1e2045179d@pigmoral.tech>
+Message-Id: <20260712-bpi-cm6-v3-2-8d1e2045179d@pigmoral.tech>
 References: <20260712-bpi-cm6-v3-0-8d1e2045179d@pigmoral.tech>
 In-Reply-To: <20260712-bpi-cm6-v3-0-8d1e2045179d@pigmoral.tech>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,20 +63,19 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Vivian Wang <wangruikang@iscas.ac.cn>, Paolo Abeni <pabeni@redhat.com>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Junhui Liu <junhui.liu@pigmoral.tech>, 
- Michael Opdenacker <michael.opdenacker@rootcommit.com>
+ Junhui Liu <junhui.liu@pigmoral.tech>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783828822; l=10439;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783828822; l=5834;
  i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=MZXEXQIk8F725sOuGB+g/ngZXiCO+dadYbYgR98n6iE=;
- b=7n7jzT1dH7W6oIsup+v1ASyRuKQvcm6nDl+5LhJvNd6VhfQhf0FSBEqiIyI2LTgH/9HvAXQiO
- /3XC4gdSStLDP2Ozclpsz+r2Q/UKwsYfXip+G/Ey9+okfWg7m8+Biv9
+ bh=sSeTbiBwPQ6DjLkmKLnOfkPCA53RLd/BeJlLx3h0kms=;
+ b=tDazRhIsIjPkuU8N7Zi53BHneDrpSn+uv2IdJy12dN+5v0KUCaQMNmr7cxIjP2ARM+fZGFfey
+ Siw1ufR9eMFC2XygNhwhWv383Iqirz3GjGcw/KfWz3InQe5OoeXODev
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_210109_774557_AB42B5D6 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260711_210103_184898_5E20862F 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,447 +92,155 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Banana Pi BPI-CM6 IO board combines the BPI-CM6 compute module with
-an IO carrier board. The core module integrates the SpacemiT K1 SoC,
-PMIC, DDR, eMMC, the eth0 PHY, and wireless connectivity. The companion
-IO carrier board extends it by providing the eth1 PHY and exposing
-standard interfaces, including dual Gigabit Ethernet, MicroSD, two USB-A
-ports, a USB Type-C port, two PCIe M.2 slots, and a serial console.
+The gmac_clk_ref signal is optional for the GMAC controller and is not
+strictly required for all hardware designs. The pins for gmac0_clk_ref
+(GPIO 45) and gmac1_clk_ref (GPIO 46) may also be used as GPIOs for
+other functions even when the Ethernet controller is active.
 
-The board also has two I2C EEPROMs. One is on the core module, which
-stores factory manufacturing data and is marked read-only. The other is
-on the carrier board, which is shipped unprogrammed and left writable
-for evaluation purposes.
+Split the refclk pins into independent pinctrl groups so boards can
+request them only when the reference clock path is actually needed.
 
-Add initial support for UART console, eMMC, SD card, I2C, EEPROMs,
-PCIe, USB, and dual Ethernet interfaces.
+Among the already mainlined boards, BPI-F3, Jupiter and MusePi Pro have
+optional hardware paths for the GMAC refclk pins. BPI-F3 and Jupiter
+route both GMAC refclk pins to the PHYs through NC/0R option resistors,
+while MusePi Pro only does so for GMAC0. Keep referencing the new
+clk-ref pinctrl groups on these boards so the optional hardware paths
+remain usable if the option resistors are populated.
 
-Link: https://docs.banana-pi.org/en/BPI-CM6/BananaPi_BPI-CM6
-Reviewed-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Tested-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+OrangePi R2S has no publicly available schematic, so also keep the
+clk-ref groups there to preserve the previous pinmux behavior.
+
+Fixes: 60775f28cfb7 ("riscv: dts: spacemit: Add Ethernet support for K1")
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- arch/riscv/boot/dts/spacemit/Makefile              |   1 +
- .../riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts | 177 +++++++++++++++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi  | 217 +++++++++++++++++++++
- 3 files changed, 395 insertions(+)
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   |  4 ++--
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  4 ++--
+ arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    |  2 +-
+ arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  |  4 ++--
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi      | 24 +++++++++++++++++++----
+ 5 files changed, 27 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
-index 28ec9e1e0a62..851b701e5da4 100644
---- a/arch/riscv/boot/dts/spacemit/Makefile
-+++ b/arch/riscv/boot/dts/spacemit/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_SPACEMIT) += k1-bananapi-cm6-io.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-bananapi-f3.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts
-new file mode 100644
-index 000000000000..2c2d78aee98a
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6-io.dts
-@@ -0,0 +1,177 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 72f77e9edd63..e6ab43be301a 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -101,7 +101,7 @@ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+ 	status = "okay";
+@@ -124,7 +124,7 @@ &eth1 {
+ 	phy-handle = <&rgmii1>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
++	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <250>;
+ 	status = "okay";
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+index 2fc8d6533786..b61f5995ec77 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+@@ -121,7 +121,7 @@ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+ 	status = "okay";
+@@ -144,7 +144,7 @@ &eth1 {
+ 	phy-handle = <&rgmii1>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
++	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <250>;
+ 	status = "okay";
+diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+index 0d809e4ad3b1..3078ffb5cb87 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+@@ -102,7 +102,7 @@ &combo_phy {
+ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	pinctrl-names = "default";
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+index b13a8d6a2670..dd72c33bd54c 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+@@ -60,7 +60,7 @@ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>;
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <0>;
+ 	status = "okay";
+@@ -84,7 +84,7 @@ &eth1 {
+ 	phy-handle = <&rgmii1>;
+ 	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>;
++	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
+ 	rx-internal-delay-ps = <0>;
+ 	tx-internal-delay-ps = <250>;
+ 	status = "okay";
+diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+index 4e9a62d0e85b..8c57ca05dabd 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+@@ -27,8 +27,16 @@ gmac0-pins {
+ 				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
+ 				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
+ 				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
+-				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
+-				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
++				 <K1_PADCONF(14, 1)>;	/* gmac0_int_n */
 +
-+#include "k1-bananapi-cm6.dtsi"
-+
-+#include <dt-bindings/leds/common.h>
-+
-+/ {
-+	model = "Banana Pi BPI-CM6 IO Board";
-+	compatible = "bananapi,bpi-cm6-io", "bananapi,bpi-cm6", "spacemit,k1";
-+
-+	aliases {
-+		ethernet0 = &eth0;
-+		ethernet1 = &eth1;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led0 {
-+			color = <LED_COLOR_ID_RED>;
-+			gpios = <&gpio K1_GPIO(96) GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led1 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&gpio K1_GPIO(97) GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	pcie_vcc_3v3: regulator-pcie-vcc-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "NGFF_KEYM_VDD";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	usb_vbus_5v: regulator-usb-vbus-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VBUS_A_B";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpio K1_GPIO(124) GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	sd_vcc_3v3: regulator-sd-vcc-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3.3VS_CARD";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio K1_GPIO(127) GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+};
-+
-+&combo_phy {
-+	status = "okay";
-+};
-+
-+&eth0 {
-+	status = "okay";
-+};
-+
-+&eth1 {
-+	nvmem-cells = <&mac_address 1>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&rgmii1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <250>;
-+	status = "okay";
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(46) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii1: phy@1 {
-+			reg = <0x1>;
++			bias-pull-up = <0>;
++			drive-strength = <21>;
 +		};
 +	};
-+};
 +
-+&i2c2 {
-+	eeprom@54 {
-+		compatible = "atmel,24c08";
-+		reg = <0x54>;
-+		vcc-supply = <&buck3_1v8>;
-+		pagesize = <16>;
-+		size = <1024>;
-+	};
-+};
++	gmac0_clk_ref_cfg: gmac0-clk-ref-cfg {
++		gmac0-clk-ref-pins {
++			pinmux = <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
+ 
+ 			bias-pull-up = <0>;
+ 			drive-strength = <21>;
+@@ -51,8 +59,16 @@ gmac1-pins {
+ 				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
+ 				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
+ 				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
+-				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
+-				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
++				 <K1_PADCONF(43, 1)>;	/* gmac1_int_n */
 +
-+&pcie1_phy {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie1_3_cfg>;
-+	status = "okay";
-+};
-+
-+&pcie1_port {
-+	phys = <&pcie1_phy>;
-+	vpcie3v3-supply = <&pcie_vcc_3v3>;
-+};
-+
-+&pcie1 {
-+	status = "okay";
-+};
-+
-+&pcie2_phy {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2_4_cfg>;
-+	status = "okay";
-+};
-+
-+&pcie2_port {
-+	phys = <&pcie2_phy>;
-+	vpcie3v3-supply = <&pcie_vcc_3v3>;
-+};
-+
-+&pcie2 {
-+	status = "okay";
-+};
-+
-+&qspi {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&qspi_cfg>;
-+	status = "okay";
-+};
-+
-+&sdhci0 {
-+	pinctrl-names = "default", "uhs";
-+	pinctrl-0 = <&mmc1_cfg>;
-+	pinctrl-1 = <&mmc1_uhs_cfg>;
-+	bus-width = <4>;
-+	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	vmmc-supply = <&sd_vcc_3v3>;
-+	vqmmc-supply = <&aldo1>;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_2_cfg>;
-+	status = "okay";
-+};
-+
-+&usbphy2 {
-+	status = "okay";
-+};
-+
-+&usb_dwc3 {
-+	dr_mode = "host";
-+	vbus-supply = <&usb_vbus_5v>;
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi b/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi
-new file mode 100644
-index 000000000000..bf502c87040a
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi
-@@ -0,0 +1,217 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
-+
-+#include "k1.dtsi"
-+#include "k1-pinctrl.dtsi"
-+
-+/ {
-+	model = "Banana Pi BPI-CM6 Module";
-+	compatible = "bananapi,bpi-cm6", "spacemit,k1";
-+
-+	aliases {
-+		i2c2 = &i2c2;
-+		i2c8 = &i2c8;
-+	};
-+
-+	reg_vcc_4v: regulator-vcc-4v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC4V0_SYS";
-+		regulator-min-microvolt = <4000000>;
-+		regulator-max-microvolt = <4000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+};
-+
-+&emmc {
-+	bus-width = <8>;
-+	mmc-hs400-1_8v;
-+	mmc-hs400-enhanced-strobe;
-+	non-removable;
-+	no-sd;
-+	no-sdio;
-+	status = "okay";
-+};
-+
-+&eth0 {
-+	nvmem-cells = <&mac_address 0>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&rgmii0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <0>;
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(45) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii0: phy@1 {
-+			reg = <0x1>;
++			bias-pull-up = <0>;
++			drive-strength = <21>;
 +		};
 +	};
-+};
 +
-+&pdma {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c2_0_cfg>;
-+	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c02";
-+		reg = <0x50>;
-+		vcc-supply = <&buck3_1v8>;
-+		pagesize = <16>;
-+		read-only;
-+		size = <256>;
-+
-+		nvmem-layout {
-+			compatible = "onie,tlv-layout";
-+
-+			mac_address: mac-address {
-+				#nvmem-cell-cells = <1>;
-+			};
-+
-+			num-macs {
-+			};
-+
-+			serial-number {
-+			};
-+		};
-+	};
-+};
-+
-+&i2c8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c8_cfg>;
-+	status = "okay";
-+
-+	pmic@41 {
-+		compatible = "spacemit,p1";
-+		reg = <0x41>;
-+		interrupts = <64>;
-+		vin1-supply = <&reg_vcc_4v>;
-+		vin2-supply = <&reg_vcc_4v>;
-+		vin3-supply = <&reg_vcc_4v>;
-+		vin4-supply = <&reg_vcc_4v>;
-+		vin5-supply = <&reg_vcc_4v>;
-+		vin6-supply = <&reg_vcc_4v>;
-+		aldoin-supply = <&reg_vcc_4v>;
-+		dldoin1-supply = <&buck5>;
-+		dldoin2-supply = <&buck5>;
-+
-+		regulators {
-+			buck1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck3_1v8: buck3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck5: buck5 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3450000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			aldo1: aldo1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-boot-on;
-+			};
-+
-+			aldo2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-boot-on;
-+			};
-+
-+			dldo2 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-always-on;
-+			};
-+
-+			dldo5 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			dldo6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-always-on;
-+			};
-+
-+			dldo7 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+		};
-+	};
-+};
++	gmac1_clk_ref_cfg: gmac1-clk-ref-cfg {
++		gmac1-clk-ref-pins {
++			pinmux = <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
+ 
+ 			bias-pull-up = <0>;
+ 			drive-strength = <21>;
 
 -- 
 2.54.0
