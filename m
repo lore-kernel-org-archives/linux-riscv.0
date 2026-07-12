@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C59C44506
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A404C44509
 	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 21:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
-	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=IfCwYXtDMz860ACM94f6oojGPHxIU1b5WrqoTSwt6UU=; b=sEWE8YzgaOXlab
-	1T8IhFWd2A8L05QHtcHjZhsLRk9IWSBpNttG+j/nmXqV3vqMMsVoVJql7KB+BFpJ0FXIKIM8K4lYx
-	LqViuz6pnLWMXMHT9VwxqkO/fv3uz9W51eysQHLrc8gdQkHf4HKqrbg7cNbpyKU3xBlWTLpYW0bc+
-	jxaBOdJJgOWp71VGhgLRF+m31SHGiSSZerUezPglRncN59AmfhRbB81f1zR17qVF0opcjpqqEqr7L
-	STSlpn7+b7XJpwETajlB7NzR5WEM4doPwvnYlBIuH7SNi1OddDftr8qJ/5Mkgqx+RsXVMaPr/vejf
-	j0pM8IfWeBzDzTsi3DaA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Message-ID
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DqkkBlXEuT1HhQw3m+KGbT7amtFPHH7OKbtBcfANyYE=; b=ID1UT10F20bgAF
+	P+nvuzPb4ahAdNXAocGp04ItyJiE7BdgHhGs8SKsQRmkAoBUYvsLy+N36yUHrwSbAIIcaQ6oL+P0u
+	4vOgTTTsX6Jc2X+/EW2uMx1hbst+ivXyiHogw5YTo3Ldo1pBaf/ICLHvDce4raMlUFDrhlxOd78Xv
+	n8gSwhmWsv7fOWSL98Rp8sj9ap0csKKl/kJHKr2ievBp3oHI9i0BGeWyoldqpw4YHT2BHvg2v5RPL
+	fg78HKoyE4nYk3exN0qqMtEfftdBCakLGHewb2QRqDij818D4IG3KvP5OO7xEAiOeqUOgMjcAzDHX
+	SiRvGL1S/9Vw2wD/9cug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1g0-00000007mHC-0YOe;
-	Sun, 12 Jul 2026 21:25:28 +0000
+	id 1wj1fq-00000007mFn-3wfh;
+	Sun, 12 Jul 2026 21:25:18 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1fy-00000007mH3-22q3
+	id 1wj1fp-00000007mFh-1XtL
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Jul 2026 21:25:26 +0000
+	Sun, 12 Jul 2026 21:25:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E837F600FC;
-	Sun, 12 Jul 2026 21:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BF891F000E9;
-	Sun, 12 Jul 2026 21:25:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A67760018;
+	Sun, 12 Jul 2026 21:25:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 767DE1F000E9;
+	Sun, 12 Jul 2026 21:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783891525;
-	bh=2JItWlUO0RtFZwJ9AedXkVw8o5YILdxQ5hx8qr2Nb5s=;
-	h=Date:From:To:Cc:Subject:References;
-	b=mzeCuuT0JQcjq0ffdG1mMOXvwVg7uBygi4ikhxj2XYUNlmMfzmfn3U2nH5Q/s2tYT
-	 hE6So6oMIRH9zZo8P+kLDM1SHxS9ep4XeX4OI3bWj66SvgdPaw44aKEwaw1MYINh0H
-	 4zCSmz9lTSmItEjpfX/V5TRcJOf34STaoyRjMoXNl0u96NUZtWitt5VWhcdZN+gCWy
-	 1VFaBHkKtdt0C3blUBtUpl6PbzJYJ53qjO+yF+0U6mYoA2Nbt0/kmPWWjLEgxJP/cY
-	 oOTjW6RijF7rhFsJnEwV9x1TsJubt24VulGi6dqcPQSyG1yrH+hb9EUlxjDaCvPx9L
-	 hy+Ix8nbOcXZQ==
-Date: Sun, 12 Jul 2026 23:25:22 +0200
-Message-ID: <20260712141346.639115923@kernel.org>
+	s=k20260515; t=1783891516;
+	bh=lwBg36/x+UtK8CJqmuUc9WLztI2cbur8/uNJ6nqvy3A=;
+	h=Date:From:To:Cc:Subject;
+	b=iUihrXXVEGq2SYK9UQGaK/ixJHkvadpYQ4DOH4S/nAejgcD/b7GUWwBZ5jduOfGTp
+	 i2GmHCBrjqnQqhqfy4uM2Nm1ZqAGGaYxEbfVavR0WHrnlVlBrqHw8lCXBF+I+H4UYL
+	 rp//e3HRjshpQ+bNYw6Guvww3ARF7O7HJsAP1v+ktF8f16Gw0ufg7Kv+IvYnQqmnDd
+	 nOouURl3ey8GIdW1RylaSmhjzQZmjZJj0NnC6v8qojx/WotJKtYEUPvgrJhaLKZf29
+	 MvSWr2X6GY8DZQ/V7/XPuTag3oQfy5KgCPYjv4bZ3cYiQUKKlTvDFxz1jtaHpcPEp9
+	 9manpI38rMBQQ==
+Date: Sun, 12 Jul 2026 23:25:12 +0200
+Message-ID: <20260712134433.549076055@kernel.org>
 User-Agent: quilt/0.69
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
@@ -65,9 +65,7 @@ Cc: =?UTF-8?q?Michal=20Such=C3=A1nek?= <msuchanek@suse.de>,
  "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>,
  Jonathan Corbet <corbet@lwn.net>,
  Radu Rendec <radu@rendec.net>
-Subject: [patch 2/4] entry: Rework trace_syscall_enter()
-References: <20260712134433.549076055@kernel.org>
-MIME-Version: 1.0
+Subject: [patch 0/4] entry: Rework syscall skip logic
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +77,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reread the syscall number from pt_regs and stop returning the eventually
-modified syscall number.
+This are the reworked leftovers of the larger entry logic rework series,
+which can be found here:
 
-That moves the reread to the end of the syscall_trace_enter() and prepares
-for moving it to the call site.
+  https://lore.kernel.org/lkml/20260707181957.433213175@kernel.org
 
-No functional change.
+The undisputed part of the series has been merged into:
 
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+  git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/entry
+
+After a fruitless discussion about the most resilent approach, I decided to
+give up wasting my time and reworked the series so it caters to the desire
+of powerpc and s390 to be special.
+
+That results in almost identical behavior except for the case where
+tracing/probe/BPF sets the syscall number to -1 (or any other out of range
+value) and also sets the syscall return value to something different than
+-ENOSYS.
+
+PowerPC and S390 will overwrite that value with -ENOSYS.
+
+Loongarch, RISC-V and x86 will not overwrite it because those architectures
+preset the return value to -ENOSYS and skip out of range syscalls
+completely. Loongarch and RISC-V always did the out of range skip. X86
+gained that in the already applied rework, which means that the final patch
+which splits the skip decision from the syscall number does not longer
+change x86 behavior for the above case.
+
+Documentation is also updated and describes the two implementation variants
+and the subtle difference in the resulting behavior.
+
+The series applies on top of:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/entry
+
+and is also available from git:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git entry/rework
+
+Thanks,
+
+	tglx
 ---
- include/linux/entry-common.h  |   10 ++++------
- kernel/entry/syscall-common.c |    9 ++-------
- 2 files changed, 6 insertions(+), 13 deletions(-)
-
---- a/include/linux/entry-common.h
-+++ b/include/linux/entry-common.h
-@@ -58,7 +58,7 @@ static __always_inline bool arch_ptrace_
- }
- #endif
- 
--long trace_syscall_enter(struct pt_regs *regs, long syscall);
-+void trace_syscall_enter(struct pt_regs *regs);
- void trace_syscall_exit(struct pt_regs *regs, long ret);
- void syscall_enter_audit(struct pt_regs *regs);
- 
-@@ -96,16 +96,14 @@ static __always_inline long syscall_trac
- 			return -1L;
- 	}
- 
--	/* Either of the above might have changed the syscall number */
--	syscall = syscall_get_nr(current, regs);
--
- 	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT))
--		syscall = trace_syscall_enter(regs, syscall);
-+		trace_syscall_enter(regs);
- 
- 	if (unlikely(audit_context()))
- 		syscall_enter_audit(regs);
- 
--	return syscall;
-+	/* Either of the above might have changed the syscall number */
-+	return syscall_get_nr(current, regs);
- }
- 
- /**
---- a/kernel/entry/syscall-common.c
-+++ b/kernel/entry/syscall-common.c
-@@ -8,14 +8,9 @@
- 
- /* Out of line to prevent tracepoint code duplication */
- 
--long trace_syscall_enter(struct pt_regs *regs, long syscall)
-+void trace_syscall_enter(struct pt_regs *regs)
- {
--	trace_sys_enter(regs, syscall);
--	/*
--	 * Probes or BPF hooks in the tracepoint may have changed the
--	 * system call number. Reread it.
--	 */
--	return syscall_get_nr(current, regs);
-+	trace_sys_enter(regs, syscall_get_nr(current, regs));
- }
- 
- void trace_syscall_exit(struct pt_regs *regs, long ret)
+ Documentation/core-api/entry.rst |   45 +++++++++++++++++++++++-------
+ arch/loongarch/kernel/syscall.c  |   14 ++++-----
+ arch/powerpc/kernel/syscall.c    |    3 +-
+ arch/riscv/kernel/traps.c        |   11 +++----
+ arch/s390/kernel/syscall.c       |    7 +++-
+ arch/x86/entry/syscall_32.c      |   25 ++++++++--------
+ arch/x86/entry/syscall_64.c      |   12 ++++----
+ include/linux/entry-common.h     |   58 +++++++++++++++++----------------------
+ kernel/entry/syscall-common.c    |   19 ++++++++----
+ 9 files changed, 110 insertions(+), 84 deletions(-)
 
 
 _______________________________________________
