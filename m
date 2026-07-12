@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA05C43458
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 13:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A118C43458
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 14:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xwy/IU3cTygVB4WMj1i0SEXmWPsOYMuGwXNhrAaYRhg=; b=b6RIZty1M7oRxA
-	lRVpcYgW6hGxz7af4YDluRkHA+fTe9bkveixS+Tfbp+PfqUKJOPPp1YxjyanIchaOjf0g1kXcWJr/
-	o+fBZbc8waUqG+URoOep3Znhng47dIGaqFZd0l+46cQTRXIdD9lrZvRUyRMoN1rLXf2ujNtN+I7o7
-	A90A4NAappw9KAqP5N/wpzaRQOZ5QxmmHP0Uk7zf3DMVwN/lmxnXjITCpowZmK3ydCYx2WqE8p7Io
-	MgeNAWDu2k70/4E/3rqOTi7SuHIs2PkLH6GcYRwEnXYWDBh8M2Bi9Hahdvl0XNsy3HKOvY1qazG2S
-	aOqKVGXKDJfAkaqClfZw==;
+	List-Owner; bh=sa8lmuyiHjsN/JLLeA6QaoOjPJMHcPe7Wu47+OjfBFw=; b=T+kPzaq2lxiuSH
+	o5Y9a//Ug955Gi6jH4wm1Zwt1G9+6ru5V9ho26d6XDSJCAWXQ3ub4yihzbM1q45fivNYUSlFL6RGW
+	xxyl2YAcWdMUHuOHYwFa0qYEW/pF1oG5BoAZNJv5bXZNtl1IZgv59EgqhpIGAjxCkHT73dw/s1gWq
+	uuGHSdRwLznkAIaCmM2jYH55qwTYjQNuAntpG1EBH6Zz5nzubkUKLbc3uX6QeUC+Gs6sqaBliVQWu
+	NroEuof0MU2mMv4MyZ0J7zR01OWnhOv/pNIQazZSrjlQYXWdWwLVTtItbekepwwp5GoVt8J7DFYFf
+	ihnNVst4mZvshxKU6PEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiuZM-00000007UAl-2YVq;
-	Sun, 12 Jul 2026 13:50:08 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wivBq-00000007VxC-0OdZ;
+	Sun, 12 Jul 2026 14:29:54 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiuZK-00000007UAH-2JXW;
-	Sun, 12 Jul 2026 13:50:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=aJQLR1BZeiLOJtrMrJZsDmYK7XktL1Qw34JZsr4WT9U=; b=Ok/hkJ5DV6vMXXo56g9YdXpbOk
-	7ywYGl6xicj493JvdcbNXNUxSp8gA+nMZ5XXPPS2bXPXli32bj0R/6lPT+fqiswTmtxTbtjfpLUin
-	/lYT6Dz7ruNgsZXQSZAjHXyRLrPFJ8PXLtyEXkQRX03NJRnoD0CvO9gJ2LKiyKLZhGnk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wiuYx-00Bv9D-IP; Sun, 12 Jul 2026 15:49:43 +0200
-Date: Sun, 12 Jul 2026 15:49:43 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Yixun Lan <dlan@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	E Shattow <e@freeshell.de>, Han Gao <gaohan@iscas.ac.cn>
-Subject: Re: Failed to reinit phy of spacemit-dwmac when reset-gpio is present
-Message-ID: <8689bf7d-e00d-4097-bd3c-4d7d7844d1d2@lunn.ch>
-References: <20260712045233.800748-1-inochiama@gmail.com>
- <bc78469c-3f45-4234-88b0-49f050d651db@bootlin.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <bc78469c-3f45-4234-88b0-49f050d651db@bootlin.com>
+	id 1wivBl-00000007Vwj-473v;
+	Sun, 12 Jul 2026 14:29:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783866572; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=CbSThQwVFKuvcUyMJAZMQMjEGfBe+S0u3AYavMf4uAL9cH8dhDMtYxTmTxcHMlX2Zpq846FJ1vHxLqz5czyzGw7u1B+xwqxZZppc8ZGqvOVWt+up/kboYR+82ZLmF4vPKlYsubWm7g82iNhicIQEfeQX67Srl7Wyh3rX+3OtoRQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783866572; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=kW0o9UPJNg9AiaH8DSDghz5FDDxObOe1q9wX485ILPE=; 
+	b=b8lO66kWioDHgWFO9xDePdqvN4v+z/TTkf+KW6oLnVL3/7etC+D8wubfhR1qWqEADAPUAKJnnupOsQ+giMD8zR2BavWin+vb8if2doUVwYpgTQK7W6VktHlaG5hWx4ECUuHuM2zCjebWQpJOhnCkS57rM3FO/6ksD9FQLVLQgYg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783866572;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:From:From:To:To:Cc:Cc:Subject:Subject:References:In-Reply-To:Reply-To;
+	bh=kW0o9UPJNg9AiaH8DSDghz5FDDxObOe1q9wX485ILPE=;
+	b=lW/5oxaO/c02GuF4ZI5GwC/QM/JtLE8JZtR1q+1ScpoHN22vN/zPs8UsKpyF7oq9
+	HycEte8i9DKiSCV4Kc1Q6gwkXBWuEiqPMXS7D3Te3oS8KLrJ+YzjFyC0aVGOxsZ0BoP
+	33xO5kdx++JJ6JUekSpkIePLuwYTO5enKOGfbOGA=
+Received: by mx.zohomail.com with SMTPS id 1783866570656662.824676365365;
+	Sun, 12 Jul 2026 07:29:30 -0700 (PDT)
+Mime-Version: 1.0
+Date: Sun, 12 Jul 2026 22:29:16 +0800
+Message-Id: <DJWNX2QDTLFF.17I9ING28DUWM@pigmoral.tech>
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
+ Masney" <bmasney@redhat.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <netdev@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>
+Subject: Re: [PATCH v2 7/8] clk: sunxi-ng: a733: Add bus clock gates
+X-Mailer: aerc 0.21.0
+References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
+ <20260711-a733-clk-v2-7-974d188cbe0c@pigmoral.tech>
+In-Reply-To: <20260711-a733-clk-v2-7-974d188cbe0c@pigmoral.tech>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_065006_615067_872DC119 
-X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-CacheID: sfid-20260712_072950_422786_B23C3F20 
+X-CRM114-Status: UNSURE (   4.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,23 +90,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > @@ -196,7 +196,8 @@ &eth0 {
-> > 
-> >  	mdio {
-> >  		phy0: phy@1 {
-> > -			compatible = "ethernet-phy-ieee802.3-c22";
-> > +			compatible = "ethernet-phy-id001c.c916",
-> > +				     "ethernet-phy-ieee802.3-c22";
-> 
-> Indeed that's merely a workaround :(
+On Sat Jul 11, 2026 at 4:10 PM CST, Junhui Liu wrote:
 
-Despite is being a workaround, there has not been much progress on a
-generic framework for dealing with clocks, resets, regulators etc,
-before probing PHYs. So this is probably what you want to do.
+[...]
 
-       Andrew
+> +
+> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbus_hws, 0x5b4, BIT(0), 0);
+> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb_iommu1-sys", apb0_hws, 0x5b4, BIT(1), 0);
+> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb_iommu1-sys", ahb_hws, 0x5b4, BIT(2), 0);
+
+The clock names here should be "apb-iommu1-sys" and "ahb-iommu1-sys". I
+will update them in next version.
+
+-- 
+Best regards,
+Junhui Liu
 
 _______________________________________________
 linux-riscv mailing list
