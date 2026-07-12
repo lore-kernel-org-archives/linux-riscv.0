@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09263C43458
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 07:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD187C43458
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 07:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HS50SvnKkl0j9L4trahatOBLb7o6+rmL7K273cVImQI=; b=uPV+qXfonGBwuR
-	zKzTmVeoJM4+7gPIlk/f6/2M+B2NC729NxjU5feQ+1LLOKgjxOh/AIP2aLYRDElH/vUR8J8imQ3Vf
-	GEjxr8TdY3dXKE1a0cm4YfN6wPbe515FFRRfgRjS90l6ALYz98fpIMDJe59rSDXHbnnNBu7OjO69F
-	VoVu7iL+GviQ+K2P41+snC2A/LHvaoUeY7VWPtWjexuvfVaJZxWHiMKc8DePxoIjNj3k9oXfDbGqN
-	EYepII7ENDOktQE3NMevysVc7xm3Wh+WeOGXuwbA7oKMuie+M1XN3CcN8t0l2hGgHHl4kUwTLj2c+
-	LwKTI5hUruo7mCq/1ASQ==;
+	List-Owner; bh=HEfw0vqAUhffr42j4hiIiifwXpXOtJbzTgcx/u+ii/w=; b=m+6KMjixi2elqh
+	PEm30AC6ivINCnVVJzBXHxv462T5LCsn+ibvW5UcLZuoZl3LLDg7PdU7QbRjILxfDW6jinRhH4p9i
+	uAjF8qMObu0PYBT0N3xvJHKifRuW878oIj7xSezUHJIL3k3PkcZDFUntNihZSYWPAtI57crGqR2/M
+	snI8hCZOICBMpiYfz2CLEepieeOFaK4p7e9X7Eskg6TKD1UOkUctL6J7cE7uN3rIHwwALqbmtAlGu
+	lgtJb//psqtG/JtsMxTvv5NSij56m/IB51OXZqxnzzwcmg17SdBIHDMzxcGTH0fiN83PibsY3Xi89
+	8cFxkuWd6vI4jsENU+NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wioWZ-00000007Dlh-2DmJ;
-	Sun, 12 Jul 2026 07:22:51 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wioc5-00000007E4L-1GFs;
+	Sun, 12 Jul 2026 07:28:33 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wioWW-00000007DlM-3tap
+	id 1wioc3-00000007E3v-0sIT
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Jul 2026 07:22:50 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cca0c5799eso21928145ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Jul 2026 00:22:48 -0700 (PDT)
+	Sun, 12 Jul 2026 07:28:32 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2cca0c5799eso21945345ad.0
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Jul 2026 00:28:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783840968; x=1784445768; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783841310; x=1784446110; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=1YVff9t5wehszsbuc81mT3z1iJBzopqdoQscWyTxBF8=;
-        b=m1PFe7tbFYLzj9CxG0S6np2+6V9uP0AO7ssbhBziV/lEQeAefeqhlEchEjRgf8yOmU
-         fAkGQ67fCDAx431RowrWcPTyxmPtvkjzUp11vA0/bfQ2FfYZC05bHBkGBdjyvhVMJ0CF
-         byOaXGz40uVRgrRVEkT8XzzyXWogvT4CaO2kSB/WBl9U+eg4WxYwn1I5fN6lNnXpytEZ
-         cMVmA7CzC0mRaHQljKBE3O4pFvOTIVS4wUHjXD8nT0rVSTvMGU7yeOyy4OXfzIz2hjhr
-         7Mn+kIFjaSreXZrA1e3RVdwFX/hO1Cw55ipK50h9p41KnrZYj8Q1x5ntdb9JcbZd/Wyh
-         +xHg==
+        bh=lJkGlW1PNIgDL2QJ4YXVngoWTLt4PyzuUrEHmd42bds=;
+        b=BI1/iu9IBeYspCn1a73CyNLqdWmArkoPA+Q42sv6jl6IDEEwRvtCD+u9BC3ai+C5Bz
+         YMrPwcWH5yoI9wTmy3RB0clkrN3zCxj9XpWpJPd9L+/rqN/TUbnctqTKHqmXhorjQuEx
+         bZAII6q2t0gR8FCnI8YST3F5gIGqj6B1heN0qQhR3IlAfJw1MwfC/kkrdGko0rZ8GGEY
+         ciR8TI3xJ43ElVyg3GrgaA0jWv85+1mSPTVdCj4Cn21cVjcpYxh5TSPsvI+n1Ak139NU
+         /NZ8YLlfvmgMrcg3twGJAw2BMaWmz9fgVRHB/NisFwJZmu3EHNMeFl1y259y36+gP4Fc
+         Q3mQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783840968; x=1784445768;
+        d=1e100.net; s=20251104; t=1783841310; x=1784446110;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1YVff9t5wehszsbuc81mT3z1iJBzopqdoQscWyTxBF8=;
-        b=VZmQuwrSRqf31IwRfss6enJcOObtZ2fzkpqWaNEssnbbSemrFiiZ17k80SqzUHkXZw
-         LA2Rhg995U/EmZ7rd4Dp8lpCgErulYqMEDNy1tH7ZcM1dOy9byX+QfRYwuzeG/YwZLfb
-         D5i3jo8YXX76/aW5+Nd2uTG4dKIDBHAU2ckliJrvVBm6evFcP47MImdw8+xj7NSmFNXx
-         EXVoZ801cWuNZ3+R8uRgYozlgSHudetZF4APGuH+t/UZmo006SiJo52LdetQ7pVwH4m+
-         FFu+EAtz4xFRBkFLpgDR3GJEwKfRDyWd4PifT8WXB+Ysl5Lk8ci8NmRi+hkjGUEx+d6A
-         881A==
-X-Forwarded-Encrypted: i=1; AHgh+RrA7hPVBFNyt2qftRMPFT2gg5z4ioANZ9gn9z9aIxDCJEAWRwzPsGXoQowdtgi9397NT/TDqCfNeXYuVA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQBnUdz5ooX71HnPg1rcU0HTUGl9xpbP19WzZ2nW/chb1E+2Kp
-	S6PxQceiImL5sHaaaY57dSwWEstRKktVVq8kmqfWYrSQI3ZP8Gaxqami
-X-Gm-Gg: AfdE7ckd6P/Q3RUzHjqS23Qje0zdkEUjRUuZOz/1KgxGc5LNknbw/9j3b/8kHCRlDqb
-	IeywEjMR6M7YT2kgKccqq68yRua0JMdIqBkbMZ29O4FKpua7M/cwkBZoQsGrm4Li/H4mNCsgw22
-	3Y4URpFDrLbyoyd+Ql5xEBA9hSz1Hf9fY6rJ7FNIs4dtlRr6CuWiH04dHbT7ol/+DLE7fl3HI7k
-	H5J5BiXKpd24mqnlaOx33CFKk9OAZbCTz5A/PRcoep8qCuTGqzqWwPCCllj/I0zIJFZSV57Gdxb
-	JVrofnnxJaUrz6D8QpS4PsYG0xqzz0g47eOuMpdVBYI7vV1YgN1doLikmDflsZ0IxhIZWhTAeMg
-	+NSIerYrlUB1e7lIANOLle8xuyvnqGl2DKPGxXMoHIacLo+tEQlqH1PtCoUuB3haa
-X-Received: by 2002:a17:903:1aeb:b0:2c9:97a8:aff5 with SMTP id d9443c01a7336-2ce9f4d41acmr56801705ad.46.1783840967850;
-        Sun, 12 Jul 2026 00:22:47 -0700 (PDT)
+        bh=lJkGlW1PNIgDL2QJ4YXVngoWTLt4PyzuUrEHmd42bds=;
+        b=rEVgNF6WXPGmR89itT3Hdz/PaObcunhuPk+Gnw8BkZIHGlHl6fiFIJmxtDhLiHN+Hx
+         NyYiWb9L/sGrvQ+YdLbZjsPGdG3xaJ4jNWcoYzEpY4BKgxZjfVESCIctcRYnNT3NIqDn
+         jQWvOfu3TWRB6o8b+UeMR0LgwEkC5TvT+sLz6Zv2IfuZ1fiqwXQ0ifFBguXlW9gbd6uQ
+         yXKsaof79mPX0BuWSUgxJdZ8rERT6tCZQ8lwAHig6Aes5TPaFpvqj2cFBjn3BQcWXVVK
+         WSwJ8LEFafEXvIaaytZ8ewIpjP29GRgrI5TFDoT9x1V6EkNyt8ktuOv12pEuJ1LdqZpz
+         WbJg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro0D6V1p5iiOKRHoRWSstm1G9/D+6IWl67YTcwDNUbZL39HmaN1f52q9TbXekhJTZNWHuysVy37RqHciw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhaQ7e2bPnCZWOjmNNnTt448tKQaSmneHSBWzOUWSRegIyJFfl
+	R7Pd6Y3/N503/A99fTuAQCgRwSs4p9+zk1y8boMIN0Qrf3DRv0CMGPE1
+X-Gm-Gg: AfdE7clCJO94/NGkRS1INSOI5WzpbKygbf9yI1FbTE27qVUTEwVcLWulnMcFidEGWsg
+	thay/cuoQ93jcItLN28TIWT6UsatQmOT6lCuYjauPrvZBeoqpq8fUp23DT2jFPdVrCjA3BXp2de
+	J/DmkDeweHFvt+rWTz6AAjfYSoAo+dmQ/7XKgZjArRAROLJUn3xB9EoCLk9x7fHHUGCE9PpjDq3
+	YQ0aS7EGiJczZ/uPxFgoKaA8i/dgcdFacB32gssDqI4HQn62tuv9yA+duBbLTRV5jkYyp+JSqW1
+	/Xgeg0iS+SYBst4R65zHHoeJVbtVYpyFtC6RZo20BCxltqNTWqtMOvmMI98s08VvxT7xkD10AzJ
+	hI0Qn8ykZiAfk1lbl8Dw6N7ii10z/lc+pw3dEKd+q+u0taJk6LLSXM7Lj+AcLf3a/
+X-Received: by 2002:a17:903:1b08:b0:2ca:17a8:cfce with SMTP id d9443c01a7336-2ce9f2852b2mr53150225ad.29.1783841310195;
+        Sun, 12 Jul 2026 00:28:30 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d3d451sm82121015ad.65.2026.07.12.00.22.46
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9c25fc0sm82771295ad.36.2026.07.12.00.28.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 00:22:47 -0700 (PDT)
-Date: Sun, 12 Jul 2026 15:22:03 +0800
+        Sun, 12 Jul 2026 00:28:29 -0700 (PDT)
+Date: Sun, 12 Jul 2026 15:27:46 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Alex Elder <elder@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>, 
 	Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
@@ -86,18 +86,17 @@ To: Alex Elder <elder@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>,
 Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
 	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host
- controller support
-Message-ID: <alM8oPEsZ1lJU0DM@inochi.infowork>
+Subject: Re: [PATCH v4 2/6] PCI: spacemit-k1: Add multiple PHY handles support
+Message-ID: <alNA03enTCy0RNAt@inochi.infowork>
 References: <20260709040027.958400-1-inochiama@gmail.com>
- <20260709040027.958400-7-inochiama@gmail.com>
- <900e6239-bc00-46b6-aa9f-abe219c039d2@riscstar.com>
+ <20260709040027.958400-3-inochiama@gmail.com>
+ <7e8cc486-8d0c-4bb0-ada9-fb4dd53e53e8@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <900e6239-bc00-46b6-aa9f-abe219c039d2@riscstar.com>
+In-Reply-To: <7e8cc486-8d0c-4bb0-ada9-fb4dd53e53e8@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_002249_015042_22B16A71 
-X-CRM114-Status: GOOD (  70.68  )
+X-CRM114-CacheID: sfid-20260712_002831_260190_591B19EB 
+X-CRM114-Status: GOOD (  51.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,337 +113,240 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 11:01:44AM -0500, Alex Elder wrote:
+On Fri, Jul 10, 2026 at 11:01:23AM -0500, Alex Elder wrote:
 > On 7/8/26 11:00 PM, Inochi Amaoto wrote:
-> > The PCIe controller on Spacemit K3 is almost a standard Synopsys
-> > DesignWare PCIe IP with extra link and reset control. Unlike
-> > the PCIe controller on K1, this controller supports external MSI
-> > interrupt controller and can use multiple PHYs at the same time.
+> > The PCIe controller on Spacemit K3 may use multiple PHYs at the
+> 
+> s/use/uses/
+> 
+> > same time. The feature is not support by the current driver.
+> 
+> s/support/supported/
+> 
+> > So extend the PHY definition to support multiple PHY handles.
 > > 
-> > Add driver to support PCIe controller on Spacemit K3 PCIe.
-> 
-> I think it would be good to summarize how the K3 differs from
-> the K1 here as well, since they're sharing code.  It looks
-> like it supports up to 6 PHYs, not just 1 (as the K1 does).
-> 
-
-Thanks
-
 > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > > ---
-> >   drivers/pci/controller/dwc/Kconfig            |   4 +-
-> >   drivers/pci/controller/dwc/pcie-spacemit-k1.c | 126 ++++++++++++++++++
-> >   2 files changed, 128 insertions(+), 2 deletions(-)
+> >   drivers/pci/controller/dwc/pcie-spacemit-k1.c | 70 ++++++++++++++++---
+> >   1 file changed, 59 insertions(+), 11 deletions(-)
 > > 
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index aa0b784c85b4..dacbac5cc35c 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -440,7 +440,7 @@ config PCIE_SOPHGO_DW
-> >   	  Sophgo SoCs.
-> >   config PCIE_SPACEMIT_K1
-> > -	tristate "SpacemiT K1 PCIe controller (host mode)"
-> > +	tristate "SpacemiT PCIe controller (host mode)"
-> >   	depends on ARCH_SPACEMIT || COMPILE_TEST
-> >   	depends on HAS_IOMEM
-> >   	select PCIE_DW_HOST
-> > @@ -448,7 +448,7 @@ config PCIE_SPACEMIT_K1
-> >   	default ARCH_SPACEMIT
-> >   	help
-> >   	  Enables support for the DesignWare based PCIe controller in
-> > -	  the SpacemiT K1 SoC operating in host mode.  Three controllers
-> > +	  the SpacemiT SoC operating in host mode. Three controllers
-> >   	  are available on the K1 SoC; the first of these shares a PHY
-> >   	  with a USB 3.0 host controller (one or the other can be used).
 > > diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > index 31aac056b68e..680acc93f539 100644
+> > index f6ae8ff3589a..e22ecbd09579 100644
 > > --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
 > > +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > @@ -23,6 +23,7 @@
-> >   #define PCI_VENDOR_ID_SPACEMIT		0x201f
-> >   #define PCI_DEVICE_ID_SPACEMIT_K1	0x0001
-> > +#define PCI_DEVICE_ID_SPACEMIT_K3	0x0002
-> >   /* Offsets and field definitions for link management registers */
-> >   #define K1_PHY_AHB_IRQ_EN			0x0000
-> > @@ -32,8 +33,18 @@
-> >   #define SMLH_LINK_UP			BIT(1)
-> >   #define RDLH_LINK_UP			BIT(12)
-> > +#define INTR_STATUS				0x0010
+> > @@ -55,12 +55,14 @@ struct k1_pcie_device_data {
+> >   	const struct dw_pcie_host_ops *host_ops;
+> >   	const struct dw_pcie_ops *ops;
+> >   	int (*parse_port)(struct k1_pcie *k1);
+> > +	unsigned int max_phy_count;
 > 
-> This register offset should probably be named K3_PHY_INTR_STATUS
-> (or maybe it's just K3_INTR_STATUS?).  I see that INTR_ENABLE
-> doesn't have a prefix, and I don't know why--that should have
-> a similar name.  (Please fix that in your next version as well;
-> I think it's OK to included it with this patch with a simple
-> mention in the patch description.)
+> Is the name "max_phy_count" meant to suggest that there
+> could be fewer "actual" PHYs than the number provided in
+> this field?  If not--if it is simply "the number of PHYs
+> this platform uses"--then just call this phy_count.
 > 
 
-I suggest not adding prefix here, as you have added a INTR_ENABLE,
-I guess they are a pair. The thing I am sure is the INTR_STATUS1,
-it should be K3 specific.
+Yes.
 
-> > +
-> >   #define INTR_ENABLE				0x0014
-> >   #define MSI_CTRL_INT			BIT(11)
-> > +#define RDLH_LINK_UP_INT		BIT(20)
-> > +
-> > +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
+> >   };
+> >   struct k1_pcie {
+> >   	struct dw_pcie pci;
+> >   	const struct k1_pcie_device_data *data;
+> > -	struct phy *phy;
+> > +	struct phy **phy;
+> > +	unsigned int phy_count;
 > 
-> So is this enabling INTX support?  If so, you should do that
-> first in a separate patch that only applies to K1 (and that
-> should be verified to work correctly).  If all you're doing
-> is ensuring the status is cleared, that's OK here, but if
-> you don't enable it I'm not sure it matters.
+> If this is always the same as what's in data->max_phy_count,
+> you don't need to replicate the value here (since you're
+> also keeping the data pointer in this structure).  (But it
+> looks like it might be less than max_phy_count.)
 > 
-
-No, it is just cleared.
-
-> > +
-> > +#define K3_ADDR_INTR_STATUS1			0x0018
-> > +
-> > +#define K3_CACHE_MSTR_AWCACHE_MODE	GENMASK(14, 11)
-> > +#define K3_CACHE_MSTR_AWCACHE_BEHAVIOR	0xf
-> >   /* Some controls require APMU regmap access */
-> >   #define SYSCON_APMU			"spacemit,apmu"
-> > @@ -48,6 +59,9 @@
-> >   #define PCIE_CONTROL_LOGIC			0x0004
-> >   #define PCIE_SOFT_RESET			BIT(0)
-> > +#define PCIE_PERSTN_OE			BIT(24)
-> > +#define PCIE_PERSTN_OUT			BIT(25)
-> > +#define PCIE_IGNORE_PERSTN		BIT(31)
-> >   struct k1_pcie;
-> > @@ -340,6 +354,109 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
-> >   	return ret;
+> I believe I suggested making this structure use a flexible
+> array member for the PHYs.  If that's possible, it should
+> go at the end of the structure, and the way you allocate
+> it needs to change.
+> 
+> >   	void __iomem *link;
+> >   	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
+> >   	u32 pmu_off;
+> > @@ -119,6 +121,54 @@ static void k1_pcie_disable_resources(struct k1_pcie *k1)
+> >   	clk_bulk_disable_unprepare(ARRAY_SIZE(pci->app_clks), pci->app_clks);
 > >   }
+> > +static int k1_pcie_get_phy_handle(struct k1_pcie *k1, struct device_node *node)
 > 
-> I ask a few questions in this function; I'm basically
-> asking "are you *sure* this must be different for K3
-> than K1?"  Because for the most part this function looks
-> very similar to k1_pcie_init().
+> I would call this k1_pci_get_phy_handles() (or perhaps
+> just k1_pci_get_phys()).  Or even k1_pci_phy_get_all().
+> The name you have seems like you're just getting one handle.
 > 
 
-Actually I was told from the vendor, and I had limit detail
-about the regsiter. So I have to treat them as different
-chip. And there is no public evidence that show they share
-a similar design.
+OK, it is good for me.
 
-In my personal view, the common part of the IP should be
-the same as they are both desingware IP, but for the vendor
-specific part, I think the vendor does change something
-heavily.
-
-By checking your following advice, I found you stepped into
-a bad design that reuse everything without checking its logic.
-I agree with the common function point should be abstracted
-and reused. But I do not think it is a good way to reuse the
-a logic sequence as it improve nothing and make the reader
-confused.
-
-Also, Improving K1 is beyond this patchset , this patchset
-only add the K3 support and reuse some obvious things. This
-will following the minimal change. And since I know nothing
-about K1 PCIe and you, as the author of this driver, should
-know more details about K1 than me. Stop asking me for 
-anything about improving K1. It is not the part of this
-patchset ane make you silly.
-
-> > +static int k3_pcie_init(struct dw_pcie_rp *pp)
 > > +{
-> > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > +	struct k1_pcie *k1 = to_k1_pcie(pci);
-> > +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
-> > +	u32 val;
-> > +	int ret;
+> > +	const struct k1_pcie_device_data *data = k1->data;
+> > +	struct device *dev = k1->pci.dev;
+> > +	unsigned int i;
 > > +
-> > +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
+> > +	k1->phy = devm_kmalloc_array(dev, data->max_phy_count,
+> > +				     sizeof(*k1->phy), GFP_KERNEL);
 > 
-> Would it be OK to clear this bit in the reset control
-> register for K1 as well?
+> Use kzalloc not kmalloc.  Even if you're initializing all fields
+> now, a future change might not (and in that case having it zeroed
+> is safest).
 > 
+
+Thanks.
+
+> Also, if you find fewer than max_phy_count PHYs, I think it
+> would be better to only allocate as many needed.  If you
+> used a flexible array size, you would need to count the
+> number of entries before allocating it.  It would require
+> changing the structure a bit--providing a single function
+> that would allocate the k1_pcie structure after doing that,
+> and most likely initializing the phy array within the same
+> function.
+> 
+
+Currently, it does not know the phy number before parsing,
+the only thing we can is to parse this twice. I think it is
+kind of unnecessary.
+
+> > +	if (!k1->phy)
+> > +		return -ENOMEM;
 > > +
-> > +	k1_pcie_toggle_soft_reset(k1);
+> > +	for (i = 0; i < data->max_phy_count; i++) {
+> > +		k1->phy[i] = devm_of_phy_get_by_index(dev, node, i);
+> > +		if (IS_ERR(k1->phy[i])) {
+> 
+> If this returns -ENODEV, you are done getting PHYs.  So
+> max_phy_count could be more than the "actual" number.
+> 
+> Is that reasonable?  You indicate that at least one PHY
+> must be found below, but is it OK for a platform to
+> define fewer than some expected number of PHYs?
+> 
+> (Maybe it is.)
+> 
+
+Yes
+
+> > +			if (PTR_ERR(k1->phy[i]) == -ENODEV)
+> > +				break;
 > > +
-> > +	ret = k1_pcie_enable_resources(k1);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
-> > +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
-> > +
-> > +	ret = k1_pcie_enable_phy(k1);
-> > +	if (ret) {
-> > +		k1_pcie_disable_resources(k1);
-> > +		return ret;
+> > +			return PTR_ERR(k1->phy[i]);
+> > +		}
 > > +	}
 > > +
-> 
-> The handling of PERSTN looks different for K3 than K1.  Could you
-> implement a helper function that abstracts the differences?
-> 
-> I don't really understand what's happening here, but if it's
-> comparable to this for K1:
-> 
->         /* Deassert fundamental reset (drive PERST# high) */
->         regmap_clear_bits(k1->pmu, reset_ctrl, PCIE_RC_PERST);
-> 
-> ...then a callback function (similar to parse_port) in the device
-> data might be able to be called for both platforms, allowing
-> the init function to be common for both.
-> 
-> > +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
-> > +	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> > +			PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT);
-> > +	usleep_range(1000, 2000);
-> > +	regmap_clear_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC, PCIE_PERSTN_OUT);
-> > +
-> > +	msleep(PCIE_T_PVPERL_MS);
-> > +
-> > +	/*
-> > +	 * Put the controller in root complex mode, and indicate that
-> > +	 * Vaux (3.3v) is present.
-> 
-> Here too, you could abstract what's happening and that might
-> allow the init function to be common for both (all) platforms.
-> 
-
-The comment will be removed as it does not reflect on the real
-logic.
-
-> > +	 */
-> > +	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> > +			PCIE_PERSTN_OUT | PCIE_PERSTN_OE);
-> > +
-> > +	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
-> > +	val = u32_replace_bits(val, BIT(7),
-> > +			       GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC);
-> > +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
-> > +
-> > +	k1_pcie_set_device_id(k1);
-> 
-> This is done earlier in k1_pcie_init().  Could it be done at the
-> same time for both platforms?
-> 
-
-It can move, but I think it is necessary. See the consideration 
-above.
-
-> > +
-> > +	/* Finally, as a workaround, disable ASPM L1 */
-> > +	k1_pcie_disable_aspm_l1(k1);
+> > +	k1->phy_count = i;
+> > +	if (k1->phy_count == 0)
+> > +		return -EINVAL;
 > > +
 > > +	return 0;
 > > +}
 > > +
-> > +static int k3_pcie_msi_host_init(struct dw_pcie_rp *pp)
+> > +static int k1_pcie_enable_phy(struct k1_pcie *k1)
 > 
-> Why is this needed for K3, but not for K1?  Does this
-> enable any functionality that K1 could use and benefit
-> from?
+> I would call this k1_pcie_enable_phys().  But actually,
+> because what you're calling within this is phy_init(),
+> I'd probably call it k1_pcie_init_phys(), or possibly
+> k1_pcie_phy_init_all().
 > 
+
+I will take care of this in the next version.
+
 > > +{
-> > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > +	u32 val;
+> > +	unsigned int i;
+> > +	int ret;
 > > +
-> > +	dw_pcie_dbi_ro_wr_en(pci);
-> > +
-> > +	val = dw_pcie_readl_dbi(pci, COHERENCY_CONTROL_3_OFF);
-> > +	val = u32_replace_bits(val, K3_CACHE_MSTR_AWCACHE_BEHAVIOR,
-> > +			       K3_CACHE_MSTR_AWCACHE_MODE);
-> > +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, val);
-> > +
-> > +	dw_pcie_dbi_ro_wr_dis(pci);
+> > +	for (i = 0; i < k1->phy_count; i++) {
+> > +		ret = phy_init(k1->phy[i]);
+> > +		if (ret)
+> > +			goto err_phy;
+> > +	}
 > > +
 > > +	return 0;
+> > +
+> > +err_phy:
+> > +	while (i--)
+> > +		phy_exit(k1->phy[i]);
+> > +
+> > +	return ret;
 > > +}
 > > +
-> > +static const struct dw_pcie_host_ops k3_pcie_host_ops = {
-> > +	.init		= k3_pcie_init,
-> > +	.deinit		= k1_pcie_deinit,
-> > +	.msi_init	= k3_pcie_msi_host_init,
-> > +};
-> > +
-> > +static const struct dw_pcie_ops k3_pcie_ops = {
-> 
-> This is identical to k1_pcie_ops, so isn't needed.
-> 
-
-OK for me.
-
-> > +	.link_up	= k1_pcie_link_up,
-> > +	.start_link	= k1_pcie_start_link,
-> > +	.stop_link	= k1_pcie_stop_link,
-> > +};
-> > +
-> > +static void k3_pcie_clear_irq_status(struct k1_pcie *k1,
-> > +				     u32 *status0, u32 *status1, u32 *status2)
-> 
-> I don't see any value in this helper function, at
-> least not based on how it's used now.  It is used
-> exactly once, to clear (by writing) three interrupt
-> status registers.  Just do that inline.
-> 
-> Even if you want to use this helper function in a
-> second place (when handling the itnerrupt), don't
-> pass in these status arguments, they're not needed
-> in the caller.  Just define them here.
-> 
-> Also you could read/write each register, and use
-> a single local variable (status) to hold the value
-> read and written.
-> 
-
-It fine for me. I will merge it in to the probe function.
-
-> > +{
-> > +	*status0 = readl_relaxed(k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
-> > +	*status1 = readl_relaxed(k1->link + INTR_STATUS);
-> > +	*status2 = readl_relaxed(k1->link + K3_ADDR_INTR_STATUS1);
-> > +
-> > +	writel_relaxed(*status0, k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
-> > +	writel_relaxed(*status1, k1->link + INTR_STATUS);
-> > +	writel_relaxed(*status2, k1->link + K3_ADDR_INTR_STATUS1);
-> > +}
-> > +
-> > +static int k3_pcie_parse_port(struct k1_pcie *k1)
-> > +{
-> > +	u32 status0, status1, status2;
-> > +
-> > +	k3_pcie_clear_irq_status(k1, &status0, &status1, &status2);
-> 
-> Is it really necessary to clear the IRQ status *only* for K3?
-> It seems like it would be a good idea (or at least harmless)
-> to do it for K1 as well.  And in that case, it should just be
-> added to the existing k1_pcie_parse_port() function.
-> 
-> > +
-> > +	return k1_pcie_parse_port(k1);
-> > +}
-> > +
-> >   static int k1_pcie_probe(struct platform_device *pdev)
+> >   /* FIXME: Disable ASPM L1 to avoid errors reported on some NVMe drives */
+> >   static void k1_pcie_disable_aspm_l1(struct k1_pcie *k1)
 > >   {
-> >   	const struct k1_pcie_device_data *data;
-> > @@ -417,8 +534,17 @@ static const struct k1_pcie_device_data k1_pcie_device_data = {
-> >   	.device_id	= PCI_DEVICE_ID_SPACEMIT_K1,
-> >   };
-> > +static const struct k1_pcie_device_data k3_pcie_device_data = {
-> > +	.host_ops	= &k3_pcie_host_ops,
-> > +	.ops		= &k3_pcie_ops,
+> > @@ -174,7 +224,7 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
+> >   	 */
+> >   	regmap_set_bits(k1->pmu, reset_ctrl, DEVICE_TYPE_RC | PCIE_AUX_PWR_DET);
+> > -	ret = phy_init(k1->phy);
+> > +	ret = k1_pcie_enable_phy(k1);
+> >   	if (ret) {
+> >   		k1_pcie_disable_resources(k1);
+> > @@ -194,12 +244,14 @@ static void k1_pcie_deinit(struct dw_pcie_rp *pp)
+> >   {
+> >   	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> >   	struct k1_pcie *k1 = to_k1_pcie(pci);
+> > +	int i;
+> >   	/* Assert fundamental reset (drive PERST# low) */
+> >   	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
+> >   			PCIE_RC_PERST);
+> > -	phy_exit(k1->phy);
+> > +	for (i = 0; i < k1->phy_count; i++)
+> > +		phy_exit(k1->phy[i]);
 > 
-> I think ops could just point to k1_pcie_ops here.
+> Please create an inverse of k1_pcie_enable_phy(), like
+> k1_pcie_disable_phy(), to encapsulate this code.
 > 
+
+Sound reasonable.
+
+> >   	k1_pcie_disable_resources(k1);
+> >   }
+> > @@ -266,23 +318,18 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+> >   {
+> >   	struct device *dev = k1->pci.dev;
+> >   	struct device_node *root_port;
+> > -	struct phy *phy;
+> > +	int ret;
+> >   	/* We assume only one root port */
+> 
+> Maybe you could get and put the root_port within
+> k1_pcie_get_phy_handle(), since that's the only
+> place it's needed.
+> 
+
+I think it is better to not do that, it is better to keep the function
+do the thing as it claims.
+
+
 > 					-Alex
 > 
-> > +	.parse_port	= k3_pcie_parse_port,
-> > +	.max_phy_count	= 6,
-> > +	.device_id	= PCI_DEVICE_ID_SPACEMIT_K3,
-> > +};
-> > +
-> >   static const struct of_device_id k1_pcie_of_match_table[] = {
-> >   	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data},
-> > +	{ .compatible = "spacemit,k3-pcie", .data = &k3_pcie_device_data},
-> >   	{ }
+> >   	root_port = of_get_next_available_child(dev_of_node(dev), NULL);
+> >   	if (!root_port)
+> >   		return -EINVAL;
+> > -	phy = devm_of_phy_get(dev, root_port, NULL);
+> > +	ret = k1_pcie_get_phy_handle(k1, root_port);
+> >   	of_node_put(root_port);
+> > -	if (IS_ERR(phy))
+> > -		return PTR_ERR(phy);
+> > -
+> > -	k1->phy = phy;
+> > -
+> > -	return 0;
+> > +	return ret;
+> >   }
+> >   static int k1_pcie_probe(struct platform_device *pdev)
+> > @@ -358,6 +405,7 @@ static const struct k1_pcie_device_data k1_pcie_device_data = {
+> >   	.host_ops	= &k1_pcie_host_ops,
+> >   	.ops		= &k1_pcie_ops,
+> >   	.parse_port	= k1_pcie_parse_port,
+> > +	.max_phy_count	= 1,
 > >   };
+> >   static const struct of_device_id k1_pcie_of_match_table[] = {
 > 
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
