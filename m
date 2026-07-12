@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB1EC43458
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 19:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57001C44501
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 19:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VPnvdZl+TM6wCtf22YsI3SE3lhZLEFU+NJSjSmZsyao=; b=RIzRNxxU9pO6SG
-	IONr96nvWYdQ/l7of/4oLuo+0rCgd9XDcJlFQIVG4KSPPFtIyKTnW0wy7ezDb62pj1PM3PLn0XXXD
-	xHybnfNxOMRIxVg3I5L44qz+IkrgTX9htvO8gboLQqK/Z+DvPYl1D4LGA4N5Z0mzNUM2EA/WuXlfZ
-	MzLaaVqbBkfVgQay8YBVacBQwOksUoqorSiVqkX84Ddn3Aiyz8Ee1JxCLiTJHwB875qs7e1hnsH1f
-	U3spG3glrSMpjMptMd0vSj3Lzn8azK40O9/H5UHIPC+QoOx8/e8EY/ugLnIwjR1Qm7Q3ap31D1JkL
-	y4hYvMdJdXKz+tKTVftA==;
+	List-Owner; bh=fGKOlbrD9qsZIVZxTXl7WA6Pwc0ZrT5uyvaV4BJ7k1s=; b=enjT2HWqy3Bet8
+	J8EzfL5Ftym65G3wGrpX99TshHMewxmSFAJ/vce4YNU8npD/cMbfi7RYp+LCyJ/xvR8bdburLK7jK
+	IzAt26eL74jkMhpL7KBzkrL9pyLkHRO4CVWeKEyhHXdIZGe65ptk6yfqjOwDHfM2pubfF94FbSGv/
+	t6J0CT+ryx7Xh0wiZCTETGPmICXJ4HIVLKnqZo60AUQ3t+Thm2lPx8WcxHn/ULdBsEJMrPxignCPJ
+	wK9PeMFk4F2ZaxSpw3QFsaqRIB8v1ORd8ZP6w6G0yxp5n1ooxyTN/8GXAjPCAoAazYdstkqt2JRbY
+	SIFMCbqHjXJ5dvpInjWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wizcO-00000007h6U-3zkR;
-	Sun, 12 Jul 2026 19:13:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wizdq-00000007hGV-0bIo;
+	Sun, 12 Jul 2026 19:15:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wizcN-00000007h6B-4Anb
+	id 1wizdp-00000007hG9-0pTx
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Jul 2026 19:13:36 +0000
+	Sun, 12 Jul 2026 19:15:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB8D2600FC;
-	Sun, 12 Jul 2026 19:13:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 939261F000E9;
-	Sun, 12 Jul 2026 19:13:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FE8B41A90;
+	Sun, 12 Jul 2026 19:15:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B0A1F000E9;
+	Sun, 12 Jul 2026 19:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783883614;
-	bh=H/FtddJ65Y2uyjPMVR8lZIHR8qa0n0zxJQjVcd7UNMQ=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=AYBY3a4vvUx4/t7MH5mK9M7nJNMdpJfJskr84zAtzLPdPYGpu+wZ/b9rvJgM1NAeA
-	 0Qzi8t0qPWksLbzXojPb9p26EBNKN6OS0xWz4Fs8IPFWfoL/RANkTEGlwsFO75G2Xh
-	 nSqIohDiq+m5RYlegvSf91LMGCnYD6qljjHQ7txe/vkjArg7o33FNu6z61uukRdmuS
-	 afRpS8cs6XWlPIWhG6yhStblGC0W6kydRxCTqNe2da71amzppXUiULfrn0rWtkoIUk
-	 ypudkVf8dFYeqqC4g3Txayt89PaaEhvxaqyHrtwHh9lAed2PM/8iQNdnTHzhr8GwKb
-	 ku2dBVgfiiGfw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0A24383BF4F;
-	Sun, 12 Jul 2026 19:13:11 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V updates for v7.2-rc3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <3eee4a66-e241-8779-e99d-2403abe88433@kernel.org>
-References: <3eee4a66-e241-8779-e99d-2403abe88433@kernel.org>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <3eee4a66-e241-8779-e99d-2403abe88433@kernel.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-rc3
-X-PR-Tracked-Commit-Id: 58a37e7317b06665e21609a2f867a9962e9e2919
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 2f9eb0c54a834009a22f08903d4fdff48be62e28
-Message-Id: <178388359042.1462520.7244139816063876743.pr-tracker-bot@kernel.org>
-Date: Sun, 12 Jul 2026 19:13:10 +0000
-To: Paul Walmsley <pjw@kernel.org>
-Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	s=k20260515; t=1783883704;
+	bh=73b4pL2XQtnec2/Fy5ja53Ba+xumzUzAkyQQn/NfjQc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=A+1O9GP1ucy3KjYEern4zyQU/VnyDWPh8PtiWqJT8ty6GYQZqbKu1DkSIavsJncpD
+	 y3RZOJt5cI+dOZnoZefjzOrN+aUrcYds6YmyMBOdD8ssSPDV63Qs7o22SDqmlSGLjp
+	 umHQkoGwuBXkG2XG/EBnZ5+nkhIVtfYEXUtgGxWSatDlouhoNvsxnqqwrANc4Ppo4Q
+	 XmcRRIf8VIiN5HosFT/oTtM3/zjkNmI/IapPKXbFOfWY2+Dan3wVUw1AqY0v6nEmZt
+	 bGtHO4VTdUx30RXwrWDrLT7NgTHC47U+uf//4DgQpir0YXJ9Ho+XxNYaTEiUEu1h6b
+	 fwbdSyh1O4DQA==
+Date: Sun, 12 Jul 2026 12:15:02 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Reinette Chatre <reinette.chatre@intel.com>
+Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
+	James Morse <james.morse@arm.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Newman <peternewman@google.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Tony Luck <tony.luck@intel.com>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>,
+	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
+	yunhui cui <cuiyunhui@bytedance.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org,
+	devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 5/8] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
+Message-ID: <alPntkIPbl17bEiD@x1>
+References: <20260706-dfustini-atl-sc-cbqri-dt-v4-0-e75c20201d64@kernel.org>
+ <20260706-dfustini-atl-sc-cbqri-dt-v4-5-e75c20201d64@kernel.org>
+ <3e7070fa-16f3-453e-9f0e-9c1a2ef38f9f@intel.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <3e7070fa-16f3-453e-9f0e-9c1a2ef38f9f@intel.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,24 +94,196 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sun, 12 Jul 2026 11:35:34 -0600 (MDT):
+On Tue, Jul 07, 2026 at 11:17:14AM -0700, Reinette Chatre wrote:
+> Hi Drew,
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-rc3
+Thanks for reviewing and your suggestions.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/2f9eb0c54a834009a22f08903d4fdff48be62e28
+> On 7/6/26 4:06 PM, Drew Fustini wrote:
+> 
+> ...
+> 
+> > diff --git a/drivers/resctrl/cbqri_resctrl.c b/drivers/resctrl/cbqri_resctrl.c
+> > new file mode 100644
+> > index 000000000000..cb12a868561b
+> > --- /dev/null
+> > +++ b/drivers/resctrl/cbqri_resctrl.c
+> 
+> ...
+> 
+> > +
+> > +/*
+> > + * fs/resctrl unconditionally references the symbols below before checking
+> > + * mon_capable. They are stubs for features CBQRI does not yet support.
+> > + */
+> 
+> resctrl should not access monitoring related arch functions if the arch
+> does not support monitoring. Could you please highlight which ones are causing
+> problems? From what I can tell, the first one below, resctrl_arch_is_evt_configurable(),
+> is indeed only called via resctrl_l3_mon_resource_init() if the L3 resource is
+> mon_capable.
 
-Thank you!
+You are right, none of the monitoring stubs run for the allocation-only
+CBQRI implementation in this series. The stubs exist only so fs/resctrl
+resolves the symbols at link time. I'll drop the comment.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+> > +bool resctrl_arch_is_evt_configurable(enum resctrl_event_id evt)
+> > +{
+> > +	return false;
+> > +}
+> > +
+> > +void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r,
+> > +				 enum resctrl_event_id evtid)
+> 
+> Similarly, this should only be called when reading monitoring data which should only be
+> possible if the resource is capable of monitoring.
+
+Agreed, same as above.
+
+> > +/*
+> > + * Walk cbqri_controllers and pick one capacity controller (CC) per cache
+> > + * level (L2/L3) to back the corresponding RDT_RESOURCE_L*. When more than
+> > + * one CC sits at the same level (e.g. one per socket), they must agree on
+> > + * rcid_count / ncblks / alloc_capable. A level whose controllers disagree
+> > + * is dropped, since resctrl exposes a single set of caps per rid, but the
+> > + * other level is still picked. The first matching controller wins.
+> > + */
+> 
+> It works but I find it to be a potentially confusing approach (just a personal opinion!).
+
+Good point. I'll restructure it to pick per cache level instead of per
+controller, which removes the separate dropped[] array and the
+overloaded NULL that made it confusing.
+
+> > +static struct rdt_ctrl_domain *cbqri_create_ctrl_domain(struct cbqri_controller *ctrl,
+> > +							struct rdt_resource *res,
+> > +							unsigned int cpu, int dom_id)
+> > +{
+> > +	struct rdt_ctrl_domain *domain;
+> > +	struct list_head *pos = NULL;
+> > +	int err;
+> > +
+> > +	domain = cbqri_new_domain(ctrl);
+> > +	if (!domain)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	cpumask_set_cpu(cpu, &domain->hdr.cpu_mask);
+> > +	domain->hdr.id = dom_id;
+> > +	domain->hdr.type = RESCTRL_CTRL_DOMAIN;
+> 
+> Please also initialize domain->hdr.rid that is referenced by the often-used 
+> domain_header_is_valid() helper.
+
+Okay, I will set 'domain->hdr.rid = res->rid'.
+
+> > +
+> > +	err = cbqri_init_domain_ctrlval(res, domain);
+> > +	if (err) {
+> > +		kfree(container_of(domain, struct cbqri_resctrl_dom,
+> > +				   resctrl_ctrl_dom));
+> > +		return ERR_PTR(err);
+> > +	}
+> > +
+> > +	/* Insert sorted by id so user-visible ordering is deterministic. */
+> > +	resctrl_find_domain(&res->ctrl_domains, dom_id, &pos);
+> > +	list_add_tail(&domain->hdr.list, pos);
+> 
+> The domain list became an RCU list when resctrl started supporting MPAM. 
+> commit fb700810d30b ("x86/resctrl: Separate arch and fs resctrl locks") contains
+> a great description of the motivation and the different accesses that the list
+> should support. Historically resctrl always accessed the list with CPU hotplug lock
+> held for which above is ok but there are some planned changes as part of a fix
+> that accesses the list via an RCU read-side critical section. Even with this addition
+> there is no immediate impact to this enabling since it is related to the
+> MBA software controller but I think it is best for archs and resctrl to agree on
+> how the domain list can be accessed safely.
+> 
+> For reference to the upcoming resctrl usage see
+> https://lore.kernel.org/lkml/4c88e01e29df638d9ecad71b2ee3b411e24067bd.1783377598.git.reinette.chatre@intel.com/
+>
+> > +
+> > +	resctrl_online_ctrl_domain(res, domain);
+> 
+> With the transition to RCU list the domain should only be added to the list after it is
+> fully initialized.
+
+Thanks for the explanation. I will adopt the RCU list convention. Fully
+initialize the domain, online it, and then publish it.
+
+> > +static void cbqri_detach_cpu_from_ctrl_domains(struct rdt_resource *res,
+> > +					       unsigned int cpu)
+> > +{
+> > +	struct rdt_ctrl_domain *domain, *tmp;
+> > +
+> > +	list_for_each_entry_safe(domain, tmp, &res->ctrl_domains, hdr.list) {
+> > +		if (!cpumask_test_cpu(cpu, &domain->hdr.cpu_mask))
+> > +			continue;
+> > +		cpumask_clear_cpu(cpu, &domain->hdr.cpu_mask);
+> > +		if (cpumask_empty(&domain->hdr.cpu_mask)) {
+> > +			resctrl_offline_ctrl_domain(res, domain);
+> > +			list_del(&domain->hdr.list);
+> 
+> (also related to switch to RCU list, remove domain from list before
+> starting to offline it)
+
+Will do, thanks.
+
+> > +			kfree(container_of(domain, struct cbqri_resctrl_dom,
+> > +					   resctrl_ctrl_dom));
+> > +		}
+> > +	}
+> > +}
+> 
+> How CPUs are associated with control domains are not clear to me. Above appears to
+> be consequence of how platform driver initializes so I will comment more there (patch #8).
+> Just for above, it is unexpected that a CPU needs to be tested against cpu_mask
+> of all control domains. Would a direct query that uses the CPU's cache ID not be
+> quicker? Also, above creates impression that a CPU may belong to multiple control
+> domains which should not happen.
+
+Thanks for the suggestion. I will change it to lookup the domain up directly by
+the cache id.
+
+> > +/*
+> > + * Attach a CPU to every controller that claims it. On failure, detach the
+> > + * CPU from everything attached so far: the cpuhp core does not run this
+> > + * state's offline teardown when its startup fails, so a partial attach
+> > + * would otherwise leak into the domain cpu_masks. Caller holds
+> > + * cbqri_domain_list_lock.
+> > + */
+> > +static int cbqri_attach_cpu_to_all_ctrls(unsigned int cpu)
+> > +{
+> > +	struct cbqri_controller *ctrl;
+> > +	int err = 0;
+> > +
+> > +	lockdep_assert_held(&cbqri_domain_list_lock);
+> > +
+> > +	/*
+> > +	 * Hold cbqri_controllers_lock across the walk so a controller
+> > +	 * registered after boot cannot corrupt it. The register path takes
+> > +	 * it as a leaf and never cbqri_domain_list_lock, so this nesting
+> > +	 * cannot invert.
+> > +	 */
+> > +	guard(mutex)(&cbqri_controllers_lock);
+> > +	list_for_each_entry(ctrl, &cbqri_controllers, list) {
+> > +		if (ctrl->type != CBQRI_CONTROLLER_TYPE_CAPACITY)
+> > +			continue;
+> > +		if (!cpumask_test_cpu(cpu, &ctrl->cache.cpu_mask))
+> > +			continue;
+> 
+> What will happen if @cpu was offline when cbqri_capacity_probe() ran? From what
+> I can tell @cpu will not be in ctrl->cache.cpu_mask in this scenario?
+
+Yes, this is a problem. I will drop the probe-time cpu_mask and associate cpus
+with domains the way you suggest, from the cpu's own cache id at hotplug time.
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
