@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6634C44501
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 07:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA88C43458
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2026 08:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nt1CyWGmg9Sk1XmokR1rpNOIo2nmYJG0elg5HgINcd4=; b=ZH2DZ6dQo1Al84
-	Lq4yw4wTVk5y6aIvr1M4/sxYgLE3x8nlWnGh6U3eubOpSWVDEtagNk7eSNiE8YGzY9lsjXnSQZR7F
-	95tzlURpyx0pc/DxPqie4pG8PccKTidh+ZtrkEA9761QlxaImWBqSUuE37lRyWIkEbXUSp4n1t1ln
-	WMKFzr0VwB7mPIF+HRq5/2UIY87+/oA7DHZp+gzuzcDPjjtOMxsuWPXzdbygyMJaWqpV4H2o04SZH
-	YlnOKPZmYsgfOEjcXCi+xG6ljJ8qZb19Grr5gPH8i2AczDcan4yhzVK5heauHcS1/TIwNvcfaz0yj
-	VgynhrRrLyV9CGk3NHog==;
+	List-Owner; bh=eEfr53UoVNnge5/Yoj4I9GBxAXwwQtcUkaGQoEmqz6o=; b=A+QjKvgvCr5H9A
+	xEacjq17/v/G6ewS0ZyRRoOecbOQRwQoCFGs5af96h1gYxdIMyoiSB/P2OmjfrvCq9ub3/hiuzZtt
+	bFFbHzxWeruuGo4H083CsI7umpzBiKjAZbrUA1Hms0Z1G6tLkJm+ydAnINX3vdMPVjDXb/PiP+mzM
+	vKs5dj9jffgNVbTxQ/KuUjYITx16IafH3xVyNtu11lKFQusLuC4aE2JPvlVu9rqnpzqdfwF9kNWw5
+	12goSxJ104Th2QCZESbS77m9ovdV4QHP6k+GENaNwUIOE05HZx2xpYnRfitG5o0Mgm5lM6g3OGyQM
+	S+v5NgiSRA9irW/7Nwjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiomo-00000007EVU-2t8p;
-	Sun, 12 Jul 2026 07:39:38 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wipyt-00000007Ham-3oh9;
+	Sun, 12 Jul 2026 08:56:11 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiomm-00000007EV5-2Y7E
+	id 1wipyq-00000007Ha1-00PK
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Jul 2026 07:39:38 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38deea72eebso114751a91.1
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Jul 2026 00:39:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783841976; x=1784446776; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/eu7dHrjo+8poscG/MBw9L5sZo7bmfQR/ckNZrU5PQs=;
-        b=a9P1mbCOpi89SUXzXIeGw1JDKrlRcmxtosZQLnSrcnEp+EYfIIj5Y5law/Z0koqaVD
-         BcQxGGdIPVW5bONooRuEgTUXK/T5UiNDYIAiOcZGcaWJKd2IqbC7WFTdw08MxofFFGuF
-         IwwQZFqZOMa/yXAuvW4zzZQDgmQK3Rd1k/NtYFOeh9DWL9NCd4TE68JTxwCBsTbqb8fn
-         hS3+JInIp9BixR2icsAYyLbVe478dWz6YzQMOCH8X2FLQUFSvZQpuWxZfnVJwnf+qZ2v
-         mF4ktb35Axn6JFKWUn+SX+V/RaDPb6FIXC/TuwQvEkR5QVqejnqDds41pAHtRrpb3yyF
-         e2iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783841976; x=1784446776;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/eu7dHrjo+8poscG/MBw9L5sZo7bmfQR/ckNZrU5PQs=;
-        b=I+RKRzrb9f22k/Ca3YoQFVO47SycKas/v3IbcUknElaEhgsbjOGZ4+BIDsnNaBszjw
-         vM/a3ZouuGMttbZ12D0Tm/AE/qBkwZ2EF8dQkLOAEtnYKHqg0aVxyOPOnqkuSDSq6Dtu
-         urYrHbn/MyZskoMNG38IePXak/U5AaNrMWXR8xWlz1PkruazWp34mA/2G5w/sQaaDJzL
-         KBVIl9Qv/ofcdbkMDxuY/IAklvLFz1saFOUpQaTXhadNpKKcio7ZmRh59jKb1mdwT+tF
-         7WJ/Xgl+JazEU++xRNna9jpKt1iVl5HUuiCPgH+QmM4wOzH3eIjZjaO5yXl998hLZITu
-         3rsg==
-X-Forwarded-Encrypted: i=1; AHgh+RrPIOaWptpx86l5+KOUtWLMxaplaBw6PFR88WKyt7tUbYYT+/uz0T96IxdVLRoVutc+VMF+iUZbio+AzQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqXCpkE6NxyFVsBESL9cVS2CIrREXol4s/Yrpshw/9OxppbSLW
-	2CsuQMxT6ygDXdEsrSAmVPeimMXVXRqyyiBJZJVocewaMjWRKGPah/SV
-X-Gm-Gg: AfdE7clWQyWbfFDKKipPGIqNyB2fqgGYsTu8kPTC7BfI28H1m4oCgneM3CYQtyOEAzM
-	JQbHBq0OJyT6C1G7ctZ2aXBCU9jTC0rIYmX4U4mPPnYk3VYkuqxERn06T4Tlv6UaEYS3Es0tMre
-	4bzGzs6aFXiSVgN7H4cZpKx8ahFlkyxmbX0TEWJHjP9ecWImeA3bKu2JYKI/r1wh8WF0QGY+68r
-	bY1+ry1ipXrVvSlGzU7y+bA4bKGoiA7ZuG+bvREeWhK9QsCfxFx2gCFYH2QdsIXbieM9eH82RMk
-	8Lt5fpD/qlWcIjoaGvTRmhWG/96cFZTx9rlytyKC/7ma+dQani0TtDugrp3LO14T0lJLTjvMaSO
-	aizoupuv8QM/TJpgc2nzXn2d6PMuGMo08RGO6+8CkVUEe5GNZrMscqrIql+VCU+CT
-X-Received: by 2002:a17:90b:390f:b0:387:df8f:1406 with SMTP id 98e67ed59e1d1-38dc77ce51amr4336096a91.39.1783841975574;
-        Sun, 12 Jul 2026 00:39:35 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38a5516ad85sm4803452a91.2.2026.07.12.00.39.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 00:39:35 -0700 (PDT)
-Date: Sun, 12 Jul 2026 15:38:51 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alex Elder <elder@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Christian Bruel <christian.bruel@foss.st.com>, Frank Li <Frank.Li@nxp.com>, Nam Cao <namcao@linutronix.de>, 
-	Qiang Yu <qiang.yu@oss.qualcomm.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Vidya Sagar <vidyas@nvidia.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 1/6] PCI: spacemit-k1: Add device data support
-Message-ID: <alNDI8JVUuhpJblo@inochi.infowork>
-References: <20260709040027.958400-1-inochiama@gmail.com>
- <20260709040027.958400-2-inochiama@gmail.com>
- <338687f9-e80e-40e8-b14e-1218e61e4e0c@riscstar.com>
+	Sun, 12 Jul 2026 08:56:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9B2BFC2BB0D;
+	Sun, 12 Jul 2026 08:56:18 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DC3B560341;
+	Sun, 12 Jul 2026 08:56:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 743A811BD39CB;
+	Sun, 12 Jul 2026 10:55:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1783846561; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Y7El/GvvQcgfO05yr3MPYiblRZfsw0etG5ZwJOy721U=;
+	b=eBTmwlyq5grs9SuLbAKD5Y75NROGxAC1QetQ5b7HUGAnFwTASj+WWM9Y2Iot07rey7XZXP
+	dJ0YFCv8Carw54kXlnGxJE/UfFRe1GE5u6FuZv37KeO3KFh7WR4Cf4O4tbdJcYj5mg6bz7
+	0Cjqq3AkI+EXauwXN+Fl+CLvRiO597RuxtO5GpSkyHIwkww0pu4ABAmGHXuH7iniyCLzWC
+	n2O7JocA0WdizEixyG5XtkjLeNAqVVNlcFbJwOzKWAy9/XtXLivw47muUa7buKjuXB15J8
+	R37JSbRS8ynuqRJaJJsnMzV+lKRWSBvpjNNQF+/zwqu25Hkx79lJHJ5MNvk+6A==
+Message-ID: <bc78469c-3f45-4234-88b0-49f050d651db@bootlin.com>
+Date: Sun, 12 Jul 2026 10:55:51 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <338687f9-e80e-40e8-b14e-1218e61e4e0c@riscstar.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: Failed to reinit phy of spacemit-dwmac when reset-gpio is present
+To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ E Shattow <e@freeshell.de>, Han Gao <gaohan@iscas.ac.cn>
+References: <20260712045233.800748-1-inochiama@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260712045233.800748-1-inochiama@gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_003936_676313_BE9C8385 
-X-CRM114-Status: GOOD (  36.36  )
+X-CRM114-CacheID: sfid-20260712_015608_236438_CF4213A8 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,126 +83,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 11:01:16AM -0500, Alex Elder wrote:
-> On 7/8/26 11:00 PM, Inochi Amaoto wrote:
-> > To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
-> > data to handle the K1 specific logic and make room for the incoming
-> > logic for K3.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> 
-> I have two suggestions/questions, but I think this looks
-> good overall (please add the space that Andy suggested).
-> 
-> If you drop the data field in the k1_pcie structure you
-> can keep this tag:
-> 
-> Reviewed-by: Alex Elder <elder@riscstar.com>
-> 
-> > ---
-> >   drivers/pci/controller/dwc/pcie-spacemit-k1.c | 30 ++++++++++++++++---
-> >   1 file changed, 26 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > index be20a520255b..f6ae8ff3589a 100644
-> > --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > @@ -49,8 +49,17 @@
-> >   #define PCIE_CONTROL_LOGIC			0x0004
-> >   #define PCIE_SOFT_RESET			BIT(0)
-> > +struct k1_pcie;
-> > +
-> > +struct k1_pcie_device_data {
-> > +	const struct dw_pcie_host_ops *host_ops;
-> > +	const struct dw_pcie_ops *ops;
-> > +	int (*parse_port)(struct k1_pcie *k1);
-> > +};
-> > +
-> >   struct k1_pcie {
-> >   	struct dw_pcie pci;
-> > +	const struct k1_pcie_device_data *data;
-> 
-> Is it strictly necessary to keep a copy of the data
-> pointer in the k1_pcie structure?
-> 
-> It can be convenient to do so if you reuse the fields
-> in that structure rather than duplicating them, but
-> often the constant platform data is meant only for
-> initialization, and never needed after that.
-> 
+Hi Inochi,
 
-In fact it is not, I think it is fine to remove it.
-Recording this is more like a habit for me for the
-future usage.
-
-> >   	struct phy *phy;
-> >   	void __iomem *link;
-> >   	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
-> > @@ -278,14 +287,21 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
-> >   static int k1_pcie_probe(struct platform_device *pdev)
-> >   {
-> > +	const struct k1_pcie_device_data *data;
-> >   	struct device *dev = &pdev->dev;
-> >   	struct k1_pcie *k1;
-> >   	int ret;
-> > +	data = device_get_match_data(dev);
-> > +	if (!data)
-> > +		return -ENODEV;
-> > +
-> >   	k1 = devm_kzalloc(dev, sizeof(*k1), GFP_KERNEL);
-> >   	if (!k1)
-> >   		return -ENOMEM;
-> > +	k1->data = data;
-> > +
-> >   	k1->pmu = syscon_regmap_lookup_by_phandle_args(dev_of_node(dev),
-> >   						       SYSCON_APMU, 1,
-> >   						       &k1->pmu_off);
-> > @@ -299,11 +315,11 @@ static int k1_pcie_probe(struct platform_device *pdev)
-> >   				     "failed to map \"link\" registers\n");
-> >   	k1->pci.dev = dev;
-> > -	k1->pci.ops = &k1_pcie_ops;
-> > +	k1->pci.ops = data->ops;
-> >   	k1->pci.pp.num_vectors = MAX_MSI_IRQS;
-> >   	dw_pcie_cap_set(&k1->pci, REQ_RES);
-> > -	k1->pci.pp.ops = &k1_pcie_host_ops;
-> > +	k1->pci.pp.ops = data->host_ops;
-> >   	/* Hold the PHY in reset until we start the link */
-> >   	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
-> > @@ -320,7 +336,7 @@ static int k1_pcie_probe(struct platform_device *pdev)
-> >   	platform_set_drvdata(pdev, k1);
-> > -	ret = k1_pcie_parse_port(k1);
-> > +	ret = data->parse_port(k1);
-> >   	if (ret)
-> >   		return dev_err_probe(dev, ret, "failed to parse root port\n");
-> > @@ -338,8 +354,14 @@ static void k1_pcie_remove(struct platform_device *pdev)
-> >   	dw_pcie_host_deinit(&k1->pci.pp);
-> >   }
-> > +static const struct k1_pcie_device_data k1_pcie_device_data = {
-> > +	.host_ops	= &k1_pcie_host_ops,
-> > +	.ops		= &k1_pcie_ops,
-> > +	.parse_port	= k1_pcie_parse_port,
-> > +};
-> > +
-> >   static const struct of_device_id k1_pcie_of_match_table[] = {
-> > -	{ .compatible = "spacemit,k1-pcie", },
-> > +	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data},
+On 7/12/26 06:52, Inochi Amaoto wrote:
+> TL;DR:
 > 
-> In addition to the missing space that Andy mentioned,
-> adding a comma means the line won't need to change
-> when you add another entry to the array.
+> The DWMAC on Spacemit K3 is failled to register phy after the reload
+> the driver module (rmmod then insmod). Because the reset-gpio is
+> asserted while unloading the driver and is not desserted before reading
+> the c22 id, which leads to a fault.
+
+You're not the first one facing this type of issues, this is a long standing
+source of issues. The problem is partially hidden by the fact that often times
+the bootloader deals with the PHY reset (like the case you're facing)
+
+Take a look at these discussions :
+
+https://lore.kernel.org/netdev/cover.1761732347.git.buday.csaba@prolan.hu/
+
+and maybe more intersting, Russell suggested an approach on how we could potentially
+address this here :
+
+https://lore.kernel.org/all/aTBeVTlsElGXUCSN@shell.armlinux.org.uk/
+
+
+> ---
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -196,7 +196,8 @@ &eth0 {
 > 
+>  	mdio {
+>  		phy0: phy@1 {
+> -			compatible = "ethernet-phy-ieee802.3-c22";
+> +			compatible = "ethernet-phy-id001c.c916",
+> +				     "ethernet-phy-ieee802.3-c22";
 
-I do not think the comma has this meaning in this scene. It is
-weird to wrap in the device table when having enough space.
-Further more, this line must be changed for the last "}", so
-it always require a change for adding data.
+Indeed that's merely a workaround :(
 
-> >   	{ }
-> >   };
-> 
-
-Regards,
-Inochi
+Maxime
 
 _______________________________________________
 linux-riscv mailing list
