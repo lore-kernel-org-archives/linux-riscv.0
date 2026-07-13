@@ -4,147 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BC8C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 23:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD0BC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 23:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xTPhXYT4AR+mVB04F9yKnYW5sN/03LNPQ7SHmePT4CY=; b=SmG7qKZgIgZgLy
-	nNfFBEAg//WkgONWQ0mtorqGekGOAcWGX9AQxA9JyXtyCOFivUghyFE2htBePNAfxRE3a3k2Jv7Xv
-	DXvD7c8CJieC+ZfFCRVuF9k4CXkW5pNirrQ3p9AXCJaql7ksJXajPUFLDbiYBy6mDpOzv9Zh7triw
-	TB1+DmdoQvco1qesWdhZNsUAHMm7XTvKywtgVgRu0+IvMCdY1qVPJ7Wszxc52wbIoprjKtzCQYyBa
-	wODqTJFN04chI/9UoHzraS5lzDzMCvf/MJeIvtUzKV6xo/xWBhd7iyHjr+clxx0zdtVMnm1WB8IDi
-	UPzLxgr4+ydSoSspZTuA==;
+	List-Owner; bh=c6UqJUcix8O/5aTI1AJ8M0La1EqfRVRHNs5YfJrukzc=; b=LU/TJgDE+H84Qn
+	9STAYNz93TOvAQ1YzBsIr30MNEzH1+3btr+FlyrCudZcQxYTvO9Mv8BbSoDmihvfm9SnLVaO/S2id
+	BT8TC0SFZeWeQ96WeU8JRKgyuS5/vGG+gVrKFbnEpfcIuDutP/OL9Ez3WPBwmrLztZNw2BAQ/hIQK
+	f9KzZT4YQEt68Nt96R5UkUVYFDJlbahwj3DD4qMYuVHFY1sxFVnFR8dp+Um8SzZ9rqFcEKYKixScp
+	xPLHyLzwF7O6V2di9ksG6a2gFf9q6Xu+YM5dVhY50PEQhH1s1ReVYFkuhd2HFty/5DE0Kr1JfiCRz
+	sHeRrziirQrRCN8zA2NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjPu7-0000000AXe5-3hc7;
-	Mon, 13 Jul 2026 23:17:39 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wjQWx-0000000AZds-04uZ;
+	Mon, 13 Jul 2026 23:57:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjPu5-0000000AXdC-0u7c
+	id 1wjQWv-0000000AZdm-3MCZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 23:17:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G6OZar+1sCmvc5v5PbjYAebfk/NnNYOfskcMS9Xq0dbp5hgIlEIB9ReIlkRt+boE8unQm3J4wkSE0VGFY0OoDQKvM2Lx48Hk5lrvu5xbkkCnWTD7bYIloh6YFHiJw6n/WDEh2YjjAHg3GVLkazHvVmP5xPxXUO0rZPGfX9ZihvMkwJjvA63xL1H0bAyZl6UymR6qnhekyVbQejx4XSoD0Mij/3duOqLP4vJThy6+W9+5jXqzW297ssYbcAb77Gxpqt0cE2fekIRDj4eHGH8s2HdQpSseqh6tpivvMm8EjSttCtWtu5Q/BQQMIIJ9dBazHwAKbG+ZuAO/ArS4IcK5uw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XlokhTNmQnMlSk/SvVWNKFln8Yvmnxi25KW4cKZf+0o=;
- b=iEMx1E02zcM9kkDlC2+TWsFMhYzIvQZSYqFwu3qEQ8hPjSy9v1wYXtlBKzwXYk4vDoGlU+N7FktWB5bZr6RV7NSCCVrfUBBmU4Og2TdggOXn0DKOe0fJxhWK9n5WLufS/OlwVS0AJJF4ChL7nvKy8Kac3pu0DORAbMhCfETl59rXq8w/D0qxr0fI4vRd2XokswBtZ+5TvR7xmTE0XE+sKmFnQ6uW/9eX1I5NT4JiABWx4AAbVYXYAGZjJaM+1mk17rWxvJ9IT5PgEPWk8I3ryafDxDJZP+vlYufcRRSdB3dW4v0KG5/CMTMT71Uh91pArg96MhjfgopvESmHZhKsRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
- dkim=pass header.d=rambus.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XlokhTNmQnMlSk/SvVWNKFln8Yvmnxi25KW4cKZf+0o=;
- b=4paO3ghMNdGwTzp6i732ze+Kb5YZPqgdqSLD7Mi4ZG5BrEYgvLEf14FvHs++EZYxn62EAa5jg0mporcWv2j83XKrJpK5VyghvrScIvjhzjE4f2kCdqs7Uggi3Gg11uOuL0z7QUvM+d7mMkaL+1l9RlHdGU9coNyRZt80TVHKrDxGwo2JfUu/BQF+oBkdAxmYz3FS+PQUFBNV3/my8edm1uq4CpmKvdpibqClEpoVlcW8trNBN6L6Sq9ZRmup8AWkqeVBUkloMjbbcxNjJ/2SstvUn0G5yf6wYY+MU2ut7f0OEhQv1vUUvcntcWJMrajO8HZQEGpNikEkb42l6/bjNQ==
-Received: from SA3PR04MB9001.namprd04.prod.outlook.com (2603:10b6:806:398::17)
- by MN6PR04MB9431.namprd04.prod.outlook.com (2603:10b6:208:4f6::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
- 2026 23:17:23 +0000
-Received: from SA3PR04MB9001.namprd04.prod.outlook.com
- ([fe80::3da3:45d7:8860:e196]) by SA3PR04MB9001.namprd04.prod.outlook.com
- ([fe80::3da3:45d7:8860:e196%6]) with mapi id 15.21.0202.018; Mon, 13 Jul 2026
- 23:17:22 +0000
-From: "Ousherovitch, Alex" <aousherovitch@rambus.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>, "Krishnamoorthy,
- Saravanakrishnan" <skrishnamoorthy@rambus.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>, "David S.
- Miller" <davem@davemloft.net>, Herbert Xu <herbert@gondor.apana.org.au>,
-	Jonathan Corbet <corbet@lwn.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rob
- Herring <robh@kernel.org>, Shuah Khan <shuah@kernel.org>, Alexandre Ghiti
-	<alex@ghiti.fr>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
-	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Shuah
- Khan <skhan@linuxfoundation.org>, "Nguyen, Thi" <thin@rambus.com>
-Subject: RE: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager
- Hub
-Thread-Topic: [PATCH v2 01/19] dt-bindings: crypto: add Rambus CryptoManager
- Hub
-Thread-Index: AQHdD+HshuImNmj2q0GDF9X/lpOPwbZmdM8AgADs7vCAAn+MAIACOkyA
-Date: Mon, 13 Jul 2026 23:17:22 +0000
-Message-ID: <SA3PR04MB9001B1D246895B224C6EFD54D7FA2@SA3PR04MB9001.namprd04.prod.outlook.com>
-References: <20260709203037.1884436-1-skrishnamoorthy@rambus.com>
- <20260709203037.1884436-2-skrishnamoorthy@rambus.com>
- <20260710-siding-unmatched-5e066fbe4c01@wendy>
- <SA3PR04MB9001E7DC9B2D4788EDCE2390D7FD2@SA3PR04MB9001.namprd04.prod.outlook.com>
- <20260712-washable-clapping-5dfb79d1bdef@spud>
-In-Reply-To: <20260712-washable-clapping-5dfb79d1bdef@spud>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-dlp-product: dlpe-windows
-dlp-version: 11.11.2.117
-dlp-reaction: no-action
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=rambus.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA3PR04MB9001:EE_|MN6PR04MB9431:EE_
-x-ms-office365-filtering-correlation-id: f7d72489-590d-486e-23f8-08dee134e494
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|23010399003|7416014|366016|38070700021|3023799007|5023799004|22082099003|6133799003|4143699003|56012099006|11063799006|18002099003;
-x-microsoft-antispam-message-info: 1p5nyxPAOO5cqcwyZtpdemqAxdbMjfuU1CnYgQ8goM0Kx4roEXXMuaXWsJLpB4FnuLmIGo0OLIxWKd7brCugb8PgNBlP9D1ebPrNhFDk++dDtt6D75h2y1vQEcPPGmDSZqVqWvvuWrEVnSf+O3Gn52I4zMQJ6j/AUwXqwinPu+okdARJzkOZnD52S0jC1lyaWOPKGsK/ArngFLhUbI6uWWS0YAuo1zIfCPKqkYw3mh+lgaiBAwU3YJk2AgKtrBA+5j/dUGF2KSCIVcDHlAvOrul5ksO5WhchQeOneRvS6jfWqN6wFczUlvNas6pluoU4qzMqMbgU5+eO8OAADKpEvmgbmoIn+pqdpnU24NrLM2MsaaTSKzYrRpVaPlyQlcxpndZ2vf5kqfrw7nK2W0oWVt6vHZ+ivZdBlJ1E1RnIyubnJAn9xP+eIPejr9S8AkhsIYGXiUIpXd1XEhNbCbDg2Pe2orEXnwbI/SgD1SwS2YC1U7O69CozJhOG11ZU/x1uMuDLK43iJSwRqXbzd91ZbtnhUeWurnJCP9ZHa3ZxYjA+cJY/oojc6eNFmv8kP2fqppHJL43ZXn6a9MUVBJE/8gJAObN9mcA7L+kqU/kYQtEyMD9YlN1voxYlh4Yx2tdr6GatJlx3Kb1uVgivF/On8jyGCKd33yE6rUWI4BeFXz6rtlFetf78P9J2gWEVUrWu4cs9lPovgKQd6fxgs98rt5mosSd+3KpttxJMux2CW4w=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR04MB9001.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(7416014)(366016)(38070700021)(3023799007)(5023799004)(22082099003)(6133799003)(4143699003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Qp1/DADRpG65yC/3V0VJ2vIjTcOKaTb8U73vZgIVSNGxIqTbqiwshHCk6A+0?=
- =?us-ascii?Q?qexc6u8mjCCKQSsWxNsF8d07lZht4gSHh3CN1cjCUOIJ5AmWQvKiPYErDDcs?=
- =?us-ascii?Q?DQ/gL9tNdZXsy3PImXAqcTQu9cTPVgCRGtX6VUxT3nX2c8FcnyEesOwD+SFh?=
- =?us-ascii?Q?kYCBpzR2zZogj24ya78PYOv3uhw1JkeDVK8jeaPAP4jSyVSYy0ZInPfSS420?=
- =?us-ascii?Q?M5AFcIxRc4HfYHgu5mzsZ+iX6lNqrtVcF1sISDbReasUd8MaguwxeSYGuHYC?=
- =?us-ascii?Q?9HKFDq+klHMVd0BG4aqTkqdJ1nM48O0/yF2n8kUD7J0Jfl1/qhnjBaIiMleN?=
- =?us-ascii?Q?nXpEvEQ7ZpMTfiRcWBgjEpEaGgkSxh8q+gNbL8TBp+PxzpoPHbTmvXUvubdF?=
- =?us-ascii?Q?wLMsC0HiCiOceKFm5zXyol/TjGoBKmOsUEC2PXxi6Kd/Kz4g3RYaAptRsn1q?=
- =?us-ascii?Q?sfh5snwWPSW39HlUuQJpFwM5quJgKk3bPuEiMPvrGcp4Oc8NHaQgPKYbcXPU?=
- =?us-ascii?Q?dGvukhYUmNoFnAOXy72bVbkTnz/kw648e2uhYXX0ui4rCK+65/UFSg0dDbwR?=
- =?us-ascii?Q?vXcQSdX3nhWOSwJS3O/Uatgw4xeCGs4xC+k7HLXULlTF8stjbw29kKR/c/Iv?=
- =?us-ascii?Q?TFZbGFuUZXm74VfDb34G5+6UpLdHz8UXNxj0kyVYFjYiA17JtFcpI/c1NCa4?=
- =?us-ascii?Q?ioflrY9bynO0IBvg0LPEuFfqmTJDA2aMwi52qsCd0b+tHEKEPydZnN0S734C?=
- =?us-ascii?Q?5cOENPwm0oEuxVKPKcl8n3I5fXH1mpKFzfc8t0x09e7YG8tcE5FEWRl7RvC9?=
- =?us-ascii?Q?OdNBieNkH4AU5NIT8rA2Rj5s3r0Y5aGXQzEmK0o0qcm20+Jp1Q3g+pA5u69E?=
- =?us-ascii?Q?pIV5JrG4s3qVLjoC7hZ83YJsW1u0hE5NMMGFycgt27Nn8zBHk/iBmjsw1Jib?=
- =?us-ascii?Q?o/SEYT8wlYly/NtivJidHcdzG9WKco/f1ymXsji32iL6HEuiJp6xjxWhXsJD?=
- =?us-ascii?Q?lH6ANa0tvJBmQcZgFMwyN/QGDHLQci2AtR+r3wtx0eSNHZng2M+uO5wQmnrg?=
- =?us-ascii?Q?PF+gMnaSnOazymXHyUJs24GgXlowi2vJMkWv0JfBdc9F31mItKCItpjC5ntZ?=
- =?us-ascii?Q?FeqLsNKUM8v4lAQBPhH3j65OgIgi+zl3cx9kFchP8lmfax0EObTHgIfTurCj?=
- =?us-ascii?Q?AEoJ/H64TmOChShajn5GNYfUehkyzBzu2EMHiqDDSSDWId4Cyoq0fbZ9mrUI?=
- =?us-ascii?Q?67nsr8vhkeG6yNygcrhmM8bAEzzNsl1yioXi0Z7iXK4X/Z9D3BLttHRQT6lz?=
- =?us-ascii?Q?JlJfsuQNn7hrc4QVtSQRbZ50l1KTW/WWeuXp8/dCjH9mk21PZy9hVwql4Xfg?=
- =?us-ascii?Q?S4UgYwixlK+F8UrTffzoPMD4GbWbP5H9aNd4f13NsV1H1PCUhtzXl5rLp1Iy?=
- =?us-ascii?Q?WmNNoeJxTbKOh6XVid19DH4xsW6kFtMgj1r1zqY/+RvWjQXpGc/rB/gXg/Uz?=
- =?us-ascii?Q?FdDxS1ddqvZate3n4jUoLTQD8msP/Us2RZb0ID4f0rx0s5/h7GSossQmIskh?=
- =?us-ascii?Q?zRU7mG/aRYGeUZ/LgDZi8M/kmeSd+Emyx4pbbmGrw0QFd6q9eyCgH1E64TQl?=
- =?us-ascii?Q?rPdOucVuQCTQOZ6/DevAe57T/hfe2lTHblH0yzJSg9QbWThZ4m/T6MrCU026?=
- =?us-ascii?Q?Cpyh7d+LYPyYw156BzX7uX/CYkpOEWcFGKgk3gHTJFpetNBp1dLzgkTNvxpU?=
- =?us-ascii?Q?G3TxSuGT9Q=3D=3D?=
+	Mon, 13 Jul 2026 23:57:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 961074175D;
+	Mon, 13 Jul 2026 23:57:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1FE21F000E9;
+	Mon, 13 Jul 2026 23:57:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783987064;
+	bh=xIhyR3zgIocehUTam0YtcBB6EqA+r73EXcnFWOui1a4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fq7zOW9xN/onRd4/dFSQRSTXLCOxG14Xv/GM3rN4tHxAaVmnlvkQkaMZvRc5tkni/
+	 OmgLQuza8B/thbJq8udck8bYCe2DrMcooTzy28LTcKkDE6c43PVO8w52FDiqolhibu
+	 wTPypcN3vs9GoQRP32YsTmjSVfcJkS78xZc8HjTn/uwtr0TGKMirpvK7d63tASXw90
+	 GCXbPFkqqySHnXWKNDb7GNCHj0111QOz+PBD/2cx7YOGADFadkD92F0lEmAkoPoz9O
+	 pnbIGwJYdNUSdP7qBrxzem0u5tGaLwtXuqBh40GVMuLLzL+d4LfEI7cY/6TZmNMGCy
+	 Vq2LNGgiUdlcA==
+Date: Mon, 13 Jul 2026 23:57:42 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] Add UFS Host driver support for SpacemiT K3 SoC
+Message-ID: <20260713235742-GKE106000@kernel.org>
+References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+ <wjbz5tp7vjrsjwjaiu3n7du5ksbrlsduuxhwg2wriyxshkrqd5@t3sdxr6ua2sg>
+ <20260713123759-GKD106000@kernel.org>
+ <CAEev2e-g3bZcohFf_7b5CaVyi0BeWi5uwLGj6MuhQXp16jiyEQ@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA3PR04MB9001.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7d72489-590d-486e-23f8-08dee134e494
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jul 2026 23:17:22.2524
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sTE0WmePlUJ2pOQjM34m121XHF6DSEA4QwW1WEDnYdtaFguhbF8ztPDjELtfuxrcMslykacqWYKRDpB+rPIDMF9StK5t5ur9DFyR0o29K/0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR04MB9431
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_161737_305676_3C5ABEF4 
-X-CRM114-Status: GOOD (  39.77  )
+Content-Disposition: inline
+In-Reply-To: <CAEev2e-g3bZcohFf_7b5CaVyi0BeWi5uwLGj6MuhQXp16jiyEQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,149 +78,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 06:16, Conor Dooley <conor@kernel.org> wrote:
-> Please fix your quoting, you need to retain context beyond what I said
-> so that people who get 100s of mails per day (me) remember what it was
-> in response to.
-
-Apologies -- retained the context here, and I'll keep it in future
-replies.
-
-Short version: v3 switches the vendor prefix to "rambus", makes each
-mailbox a subnode with its own reg (as agreed), adds a device-specific
-compatible, and adds clocks + an optional reset. One property (the VCQ
-ring geometry) I'd like to keep in DT -- reasoning below, happy to be
-overruled.
-
-> > > This company no longer exists, you should probably introduce a
-> > > rambus vendor prefix instead.
-> >
-> > Cryptography Research, Inc. does still exist -- it's now a
-> > wholly-owned subsidiary of Rambus (our co-maintainer is
-> > @cryptography.com). The prefix names the IP originator, which is
-> > consistent with existing subsidiary/acquired-vendor prefixes in the
-> > tree (e.g. al = Annapurna Labs under Amazon, mstar noted as acquired
-> > by MediaTek, fsl, cavium, xlnx). We'd prefer to keep "cri" on that
-> > basis, and can annotate the description as "Cryptography Research,
-> > Inc. (a Rambus company)" to make the ownership explicit. Happy to
-> > switch if you feel strongly.
->
-> I'm not sure that these examples actually aid your cause. al has been
-> replaced by amazon, fsl is not used for new devices, new xlnx devices
-> use amd (only example for now is the riscv stuff I think), cavium has
-> had nothing added in donkey's years etc. mstar I don't see anything
-> new in years either.
-
-Fair enough -- point taken. v3 uses a "rambus" vendor prefix (added to
-vendor-prefixes.yaml) and drops "cri". The description still credits
-Cryptography Research, Inc. as the IP originator.
-
-> > > This whole subnode thing seems like it is only required because you
-> > > don't have device-specific compatibles [cores].
-> >
-> > Core presence is actually discoverable at runtime from the
-> > CORE_ENABLE register, so v3 will drop the per-core child nodes
-> > entirely and probe for enabled cores -- no per-variant compatible
-> > needed.
->
-> No, per-variant compatibles (for the devices/socs that this IP is
-> integrated into) are a requirement. While it would have been handy for
-> detecting capabilities, it's a requirement for other reasons:
-> differences between integrations be that functional or enforcing the
-> correct constraints on properties, issues only present on select
-> devices, etc.
-
-Agreed, and done. Runtime CORE_ENABLE probing stays only for capability
-detection; it does not replace the compatible. v3 adds a device-specific
-compatible keyed to the IP revision:
-
-    compatible = "rambus,cmh-v1030";
-
-with an SoC integration expected to list its own compatible first and
-fall back to the IP one:
-
-    compatible = "<vendor>,<soc>-cmh", "rambus,cmh-v1030";
-
-This follows the pattern already used for licensable security IP, e.g.
-inside-secure,safexcel-eip197b and arm,cryptocell-712-ree.
-
-> On that note, I see there's no clocks or resets properties added by
-> your patch. While the IP may not have a reset (although I suspect it
-> probably does) there's no way it functions without a clock.
-
-Correct on both. v3 adds them:
-
-- clocks: the hub has a main functional input clock (plus, on
-  side-channel-core configurations, a half-rate variant, and a
-  real-time-tick clock). The block gates its clocks internally, so the
-  host doesn't gate them -- the property just describes the input
-  pin(s). Where a secure power controller owns the clock and Linux has
-  no handle, it's absent, as drivers/crypto/xilinx/zynqmp-* do.
-
-- reset: the hub has two external, active-low reset inputs -- a power-on
-  reset and a hard reset. On an integration these are top-level wires
-  driven by a reset controller in the management domain, not by Linux.
-  Where the Linux host is the management host and one of those lines is
-  exposed to it as a GPIO, v3 describes it via reset-gpios; otherwise
-  it's absent and Linux doesn't reset the block.
-
-> > > This looks like it should be deducible from a device-specific
-> > > compatible. [slots/strides]
-> >
-> > These aren't fixed per silicon -- they're the per-mailbox layout of
-> > the VCQ rings in host DMA memory, chosen at platform integration and
-> > programmed by the driver into the mailbox QUEUE/SLOTS/STRIDE
-> > registers. They can differ per mailbox on the same silicon, so a
-> > compatible can't encode them. v3 will keep them as optional,
-> > defaulted properties on the per-mailbox subnodes.
->
-> I'm not sure. Unless there's more than one instance, this definitely
-> sounds like something that you can determine from the compatible.
-> Generally these kinds of accelerators tend not to have multiple
-> instances though, so each platform will have a different compatible,
-> and the driver can store an array of mailbox configurations.
-
-This is the one I'd like to keep in DT. The slot count and stride are
-the host-DMA ring geometry the driver programs into QUEUE_SLOTS /
-QUEUE_STRIDE at probe. They're fixed neither by the silicon nor by the
-integration: the same SoC (same compatible) ships to multiple customers
-who provision different amounts of host memory for the rings, and a
-customer may tune it further per board -- so two boards can share a
-compatible yet need different geometry. They're optional with defaults
-(6 / 9), so the common case sets nothing.
-
-The reason I reached for DT is that the alternatives are each worse for
-a per-board value that has to be known at probe: per-compatible
-match_data means a new compatible and a driver patch for every board
-that tunes it (two boards on the same SoC can't differ), and a module
-parameter is exactly the sort of global knob I'd expect you'd rather not
-add. DT lets the integrator set it without touching the driver. If you'd
-still prefer one of those, tell me which and I'll switch.
-
-> > > this could probably be handled via reg-names? [affinity]
-> >
-> > Yes -- v3 will express affinity per mailbox (a "role" of a specific
-> > core type for a dedicated mailbox, or "generic" for the round-robin
-> > pool), which is the subnode analog of your reg-names idea. One
-> > caveat: this cleanly covers 1:1 core-to-mailbox dedication plus a
-> > shared pool; a mailbox dedicated to several specific cores would need
-> > multiple role tokens.
-
-Following up on my own reply: I kept an explicit core-ID affinity list
-on each mailbox node rather than roles/reg-names. As the caveat above
-hinted, roles get awkward once a mailbox serves several cores, and they
-can't distinguish separate instances of the same core type -- the core
-ID handles both, and the driver would map a role back to an ID anyway.
-
-Thanks for the review,
-Alex
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW5pcnVkaCwKCk9uIDA5OjU2IE1vbiAxMyBKdWwgICAgICwgQW5pcnVkaCBTcmluaXZhc2Fu
+IHdyb3RlOgo+IEhpIFlpeHVuLAo+IAo+IE9uIE1vbiwgSnVsIDEzLCAyMDI2IGF0IDc6MzjigK9B
+TSBZaXh1biBMYW4gPGRsYW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gSGkgQW5pcnVkaCwK
+PiA+Cj4gPiBPbiAyMjo0MCBTdW4gMTIgSnVsICAgICAsIEFuaXJ1ZGggU3Jpbml2YXNhbiB3cm90
+ZToKPiA+ID4gSGkgWWl4dW4sCj4gPiA+Cj4gPiA+IE9uIFRodSwgSnVsIDAyLCAyMDI2IGF0IDAy
+OjMxOjM0QU0gKzAwMDAsIFlpeHVuIExhbiB3cm90ZToKPiA+ID4gPiBUaGlzIHNlcmllcyB0cnkg
+dG8gYWRkIFVGUyBzdXBwb3J0IGZvciBTcGFjZW1pVCBLMyBTb0MsIHRoZSBjb250cm9sbGVyCj4g
+PiA+ID4gY29tcG9uZW50cyBjb25zaXN0cyBvZiBTeXN0ZW0gQnVzIEludGVyZmFjZSBVbml0LCBV
+RlMgSG9zdCBDb250cm9sbGVyCj4gPiA+ID4gSW50ZXJmYWNlLCBVRlMgVHJhbnNwb3J0IFByb3Rv
+Y29sIExheWVyLCBVRlMgSG9zdCBSZWdpc3RlcnMsIERldmljZQo+ID4gPiA+IE1hbmFnZW1lbnQg
+RW50aXR5IChETUUpLCBUcmFuc3BvcnQgTGF5ZXIsIE5ldHdvcmsgTGF5ZXIsIERhdGEgTGluawo+
+ID4gPiA+IExheWVyLCBQSFkgQWRhcHRlciBMYXllciwgYW5kIE0tUEhZIEludGVyZmFjZS4gQSBt
+b3JlIGRldGFpbCBmdW5jdGlvbmFsCj4gPiA+ID4gYmxvY2sgZGlhZ3JhbSBjYW4gYmUgZm91bmQg
+aW4gU3BhY2VtaVQgd2Vic2l0ZSwgY2hhcHRlciA5LjcuMyBbMV0KPiA+ID4gPgo+ID4gPiA+IFBs
+ZWFzZSBub3RlLCBpbiBvcmRlciB0byB0ZXN0IHRoaXMgZHJpdmVyLCB0aGUgVUZTIGNsb2NrIGRy
+aXZlclsyXSBoZXJlCj4gPiA+ID4gc2hvdWxkIGJlIGFwcGxpZWQgZmlyc3QgYXMgYSBwcmVyZXF1
+aXNpdGUgcGF0Y2guCj4gPiA+ID4KPiA+ID4gPiBPbmUga25vd24gaXNzdWUgaXMgdGhhdCB0aGUg
+ZGV2aWNlIHdpbGwgb2NjYXNpb25hbGx5IHJhaXNlIEJLT1BTIGludGVycnVwdAo+ID4gPiA+IHdo
+ZW4gZG9pbmcgc29tZSBoaWdoIGxvYWQgdGVzdCwgbG9nIGZyb20gZG1lc2cgc2hvd3MKPiA+ID4g
+Pgo+ID4gPiA+IFsgIDgwNi43MTA3NjNdIHVmc2hjZC1zcGFjZW1pdCBjMGUwMDAwMC51ZnNoYzog
+dWZzaGNkX2Jrb3BzX2V4Y2VwdGlvbl9ldmVudF9oYW5kbGVyOiBkZXZpY2UgcmFpc2VkIHVyZ2Vu
+dCBCS09QUyBleGNlcHRpb24gZm9yIGJrb3BzIHN0YXR1cyAxCj4gPiA+ID4KPiA+ID4gPiBMaW5r
+OiBodHRwczovL3NwYWNlbWl0LmNvbS9jb21tdW5pdHkvZG9jdW1lbnQvaW5mbz9ub2RlcGF0aD1o
+YXJkd2FyZS9rZXlfc3RvbmUvazMvazNfZG9jcy9rM191c2VybWFudWFsLzA5X21lbW9yeV9zdG9y
+YWdlLm1kJmxhbmc9ZW4gWzFdCj4gPiA+ID4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+YWxsLzIwMjYwNjMwLTA2LWNsay11ZnMtc3VwcG9ydC12MS0wLWNmNzUyMWQxZDBmZUBrZXJuZWwu
+b3JnLyBbMl0KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBZaXh1biBMYW4gPGRsYW5Aa2VybmVsLm9y
+Zz4KPiA+ID4KPiA+ID4gSSBzZWUgdGhpcyBkdXJpbmcgcHJvYmUgb24gYSBrMy1waWNvLWl0eC4g
+RG9lcyB0aGUgVUZTIGNoaXAgb24gYm9hcmQKPiA+ID4gaGF2ZSBhbiBSUE1CIGJsb2NrIG9uIGl0
+PyBJcyB0aGlzIGVycm9yIG9mIGFueSBjb25jZXJuLgo+ID4gPgo+ID4gSXQncyBwcm9iYWJseSB0
+cnVlIG9mIGhhdmluZyBhIFJQTUIgYmxvY2ssIGJ1dCBub3QgdXNlZCBpbiBLMyBwbGF0Zm9ybSwg
+c28gY2FuIGlnbm9yZQo+ID4KPiA+ID4gWyAgICA1Ljk1Nzg2NF0gdWZzaGNkLXNwYWNlbWl0IGMw
+ZTAwMDAwLnVmc2hjOiB1ZnNoY2Rfc2NzaV9hZGRfd2x1czogQk9PVCBXTFVOIG5vdCBmb3VuZAou
+Lgo+ID4gPiBbICAgIDUuOTYzMzE5XSBidXNfYWRkX2RldmljZTogY2Fubm90IGFkZCBkZXZpY2Ug
+J3Vmc19ycG1iMCcgdG8gdW5yZWdpc3RlcmVkIGJ1cyAndWZzX3JwbWInCgpKdXN0IGNoZWNrZWQg
+Y29kZSB1bmRlciBkcml2ZXJzL3Vmcy8sIGFuZCBjb3VsZG4ndCBmaW5kIHdoZXJlIHVmc19ycG1i
+IGJ1cyBpcyByZWdpc3RlcmVkLApzbyB0aGlzIGtpbmQgb2Ygd2FybmluZy9lcnJvciBtZXNzYWdl
+IGlzIGV4cGVjdGVkLCBvciBjb3VsZCBVRlMgbWFpbnRhaW5lciBjb25maXJtIHRoaXM/Cgo+ID4g
+PiBbICAgIDUuOTcxMTU1XSB1ZnNoY2Qtc3BhY2VtaXQgYzBlMDAwMDAudWZzaGM6IEZhaWxlZCB0
+byByZWdpc3RlciBVRlMgUlBNQiBkZXZpY2UgMAo+ID4gPgo+ID4gTWF5YmUgZGlzYWJsZSBDT05G
+SUdfUlBNQiB0byBzaWxlbnQgdGhpcz8gSSd2ZSBub3QgdGVzdGVkIHRoaXMgb3B0aW9uIGxvY2Fs
+bHkKPiAKPiBJJ20gdGVzdGluZyBvbiBhIGRpc3RybyBkZWZjb25maWcsIHNvIGl0IGhhcyB0aGlz
+IG9wdGlvbiBlbmFibGVkLgo+IAo+IElzIHRoZXJlIGFueXRoaW5nIHdlIGNhbiBkbyBpbiB0aGUg
+ZHJpdmVyIHRvIGhhdmUgaXQgaWdub3JlIHRoZSBSUE1CPwoKTm8sIGJ1dCB3aHkgbm90IGRpc2Fi
+bGUgQ09ORklHX1JQTUIgaW4gdGhlIGZpcnN0IHBsYWNlCgo+IElmIHRoZSBlcnJvciBpcyBhIHJl
+ZC1oZXJyaW5nLCB3ZSBzaG91bGRuJ3QgYmUgZGlzcGxheWluZyBpdCBhdCBhbGwgaW4KPiB0aGUg
+Zmlyc3QgcGxhY2UuCj4gCgpFaXRoZXIgZml4IHRoZSBjb2RlIG9yIGp1c3QgaWdub3JlIGl0Li4K
+Ci0tIApZaXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
