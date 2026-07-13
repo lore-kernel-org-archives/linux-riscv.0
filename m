@@ -4,107 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C397C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 17:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C7DC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 17:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YYPDu3Wsx/Gc8SZ/r8cYAv5ou6/lr9+i/93aK0aSisw=; b=fIfUz52xOBgzqN
-	BCciqsW2jWjoIIOO2CDcwgMJgIE7/DDtTphZPec0bT20+0UR2gd3lPGkOuX6vK5Blv6Hs344/+F/v
-	pbvOh0DIL67oeNlunca10iqKf509ncVs9QmxYLT1m/2wKzQmnh4FrOKZefz2kV4rEuQVm04MQNfNH
-	FBRblqWzkS1OdYUqx25Q1uLGVg5k3m3FDp8tsYL7QJ+xh85cj5Y9fU8xck16IWEtP41PVNquf2OUE
-	DEBp71gQn4k88fYNKkFF0oXaB077qr4k8wqGU2YnG/xZYYH0z3kyBTnpX+8/VhI94yTqqyk0rJPQc
-	wcPr2exyM9w+NU0X3EEg==;
+	List-Owner; bh=RhttdtFAW4PEqd+RbLg+dB4ECvEe+t1Y2tvALVCPD9w=; b=cudfX71bVoIRYw
+	KXSoridYZs4GBFyxNfr4gssD0C6+E5B89f8J9Tmtqy3TLEt2MHzueIZCNWW6auJlFzDPXNjTo56QF
+	Xdtdx6w8P+QS6deBlSwIAGH6vq6EtOCHe7sc6Pq/BYP+biwLaDVq1bYEPhgAp3X+EOCw6x8LQhlSw
+	nwMzwG+9fadaPJ8sHBn7zutKXkRyo0ySYduY2rdh78RisSEcO78H6T7GElNiSQziF8UmTh4VdInmK
+	1YplDvHPZuR4J6o4lkhdgtIbXDSaX0Fwjln3qmTgXKS1ymGv97//UU8/DWYOMwZrrT9NQIPD2wfzI
+	BcQTe/Zv95an1GQ74f6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKBs-0000000A5CI-3ODV;
-	Mon, 13 Jul 2026 17:11:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjKdb-0000000A8CY-3q3p;
+	Mon, 13 Jul 2026 17:40:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKBr-0000000A5Bn-0gF9
+	id 1wjKdb-0000000A8CS-0fhV
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 17:11:35 +0000
+	Mon, 13 Jul 2026 17:40:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5BE52600D8;
-	Mon, 13 Jul 2026 17:11:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A20451F00A3E;
-	Mon, 13 Jul 2026 17:11:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C6B442E5A;
+	Mon, 13 Jul 2026 17:40:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6D311F000E9;
+	Mon, 13 Jul 2026 17:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783962694;
-	bh=4n2+420PsvWKB6fOrF1XvEX/qnF3xVintdlvrK6vykU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=bkWcOVc8auovep/LxjUzqlQErnTNu07yEGIEFenSX5s/99s9nbCBMxdw3DNl7X8BO
-	 Ldp3Z4fynz6eyLVgxQlzLsT+74cnccePggfMcQxIjwfC4TXWMqqbKI12LOHPgdP+WE
-	 38eSXUPpIu6GmpgchAkCGUJgNXnLZMQnFNHFzllSW7duT41cWsrgt1Ix+fSMGN2Lhc
-	 ckpyE/OcUDdQAJxvMYh26VHpmfU2qI6eakvSGoIahds2X4NGGTWjG9os4jnlIfwCYi
-	 vn9MCNYTWhk2xE50x5HJCpA1m6mp3w/aOsUVL9ppea0W5FHHlu1dI9lpA9reHfO5Ah
-	 /8+AT/2V073dw==
-Message-ID: <731cdaa8-6d0c-4a88-b398-806c28c698b9@kernel.org>
-Date: Mon, 13 Jul 2026 19:11:30 +0200
+	s=k20260515; t=1783964414;
+	bh=zFtG0nvrj3NH4oQfVqsdZuKnWzNdjcmSutSX77OAy68=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=ncnNgxNQDHgL/D4fmP+v4PhhqBUNuku1df2jFag9T79beLLfxxUntnTHnUA7vCIyg
+	 FzKcxCXVZzM1/wWCDDr7EDdBuOHmAJ8MWgPjndb4wY617EwPMKTkpte5UXedrvf/C9
+	 qgUk+AOlvQTaTBrzYv4iEghO8R54/vgloB8VKh2QCCkTDJ2yzexOsq0c6/mKGBF6AY
+	 +RftqSaNkxgpfRDGjoDpHjZVbpG64H+pk3hp86xk46Bgb2+xisyPmTTyRsEYdplUBf
+	 ntDrlW7ZUBQIdDSJzEMsXTXRhSUTvpqKWWZf1th2fuUrYaEsBFWgZYNhPb6rxiFzuM
+	 JOIzborr4J6Gw==
+Date: Mon, 13 Jul 2026 11:40:10 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Rui Qi <qirui.001@bytedance.com>
+cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, 
+    Alexandre Ghiti <alex@ghiti.fr>, Andy Chiu <andybnac@gmail.com>, 
+    =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, 
+    "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, 
+    open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: Gate FUNCTION_ALIGNMENT_4B on DYNAMIC_FTRACE
+In-Reply-To: <20260706130415.463682-1-qirui.001@bytedance.com>
+Message-ID: <03933583-e2ce-ead0-65c8-320e43d9be97@kernel.org>
+References: <20260706130415.463682-1-qirui.001@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] mm/sparse-vmemmap: flush_cache_vmap() after
- hotplugging vmemmap
-To: Vivian Wang <wangruikang@iscas.ac.cn>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Morton <akpm@linux-foundation.org>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, Muchun Song <muchun.song@linux.dev>
-References: <20260713-mark-after-vmemmap-populate-v6-0-b945ceba29d4@iscas.ac.cn>
- <20260713-mark-after-vmemmap-populate-v6-2-b945ceba29d4@iscas.ac.cn>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260713-mark-after-vmemmap-populate-v6-2-b945ceba29d4@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,36 +71,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/13/26 08:15, Vivian Wang wrote:
-> section_activate() does not flush TLB after populating new vmemmap
-> pages. On most architectures, this is okay. However it is a problem on
-> RISC-V since there the TLB caching non-present entries is permitted,
-> which causes spurious faults on some hardwares.
-> 
-> This seems to be most easily reproduced with DEBUG_VM=y and
-> PAGE_POISONING=y, which causes these newly mapped struct pages to be
-> poisoned i.e. written to immediately after mapping.
-> 
-> Extend the RISC-V flush_cache_vmap() to also handle the vmemmap range,
-> and call it after hotplugging vmemmap, which gets the possible spurious
-> fault handled in the exception handler.
-> 
-> At least for now, the only other architecture with both
-> SPARSEMEM_VMEMMAP and flush_cache_vmap() is PowerPC, which has a similar
-> problem with newly valid PTEs. But there flush_cache_vmap() is just a
-> ptesync. So it should be safe to do this for generic code while having
-> minimal performance impact.
-> 
-> Suggested-by: Muchun Song <muchun.song@linux.dev>
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> ---
+On Mon, 6 Jul 2026, Rui Qi wrote:
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> The FUNCTION_ALIGNMENT_4B select forces the whole kernel to be built
+> with -fmin-function-alignment=4. This alignment is only needed so the
+> patchable-function-entry NOPs, which arch/riscv/Makefile emits under
+> CONFIG_DYNAMIC_FTRACE, can be patched reliably on RISCV_ISA_C=y builds
+> where compressed instructions otherwise allow 2-byte function
+> alignment.
+> 
+> The select is currently gated on HAVE_DYNAMIC_FTRACE, a capability bit
+> that is selected whenever the toolchain supports dynamic ftrace, rather
+> than on whether tracing is actually enabled. As a result every
+> RISCV_ISA_C=y build gets 4-byte function alignment across the entire
+> kernel even when function tracing is disabled, needlessly growing the
+> kernel image and wasting instruction cache for a feature that is not
+> in use.
+> 
+> Gate the select on DYNAMIC_FTRACE instead, matching the condition under
+> which arch/riscv/Makefile emits -fpatchable-function-entry, so the
+> alignment is only applied when it is actually needed.
+> 
+> Fixes: c41bf4326c7b ("riscv: ftrace: align patchable functions to 4 Byte boundary")
+> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 
--- 
-Cheers,
+Thanks, queued for v7.2-rc.
 
-David
+- Paul
+
 
 _______________________________________________
 linux-riscv mailing list
