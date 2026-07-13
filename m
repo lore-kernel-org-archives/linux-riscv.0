@@ -4,40 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD7AFC44501
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 14:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E642C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 14:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CJHeV7FzTQdwyYKiNu6lLguDlcfyoUsNqz5pAsARI+U=; b=z7oBdNQ90DdYR6
-	a1QaZDKenRc8e0OTEoFQpA0ERmZeEul8qRj+ywepOVUrF9eyFIZ20TDDWZzf5hdLLOnuUz7jGoz/N
-	aFg++m2rU/XFbawJLDXnxdGVM9HLOFdZ5Lw/ecnuhUg1TDwdI8W9ZtSn/6CZwuLq/QgeHenePEGE3
-	8WmazALljx340AFuRwasd+VEfsrPbAc/megQ5fAeuogxr54g/8H1DilvGyljzYA6jIJUmVWyMLCyx
-	Gmsy4E4n0YKFoaP0N7h84GpMxXwqEV362mK4tZmD+S30A3F4sEVodj7oZMx7ekRfnquDzLldf1NEf
-	cP0LT1fVQERwSUO/rgjg==;
+	List-Owner; bh=duiXrKCwwxyZf+fqyW8/xXtwDxphc9QMPHWoW8zcdFU=; b=m7Z2PqseG0sc9W
+	e05iTrsMmCQwtJ2tUcN+VCdKf11/4IvNF8BctLAfiK2mWmUgmhxQlKT7UO+QQSgfZAGx4NBYSfm91
+	18LJ+eAVdV+AKZ3n+FbU5bQIZErluSRFHppFOeeZ4g4u9wRiI3CJknJiKZIN1+nUUxrpQ4kwslogt
+	e9TLci0tMqySORxF9pQGdHIMUV7OxVkcsNdfsEGMYmQPMHSNYBVZR6mQjf8Uke+46HC8l/H3JFdKQ
+	zYVJtpvFQcKMbPlReHz1LtcJgi8CHOlhxiQwgyXOJpsfptaW4u4sZFcSysLEIkufQTaoAO19IjCZC
+	9/7rg3MmwnK76VZtZKJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHCl-00000009V1L-45ve;
-	Mon, 13 Jul 2026 14:00:19 +0000
+	id 1wjHD1-00000009V9G-1NUq;
+	Mon, 13 Jul 2026 14:00:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjHCz-00000009V86-2phI;
+	Mon, 13 Jul 2026 14:00:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=pCQv8M7VrBm4TU+MPV6p2csh/ijl3jkmOGWWVQbEQ04=; b=Ci4j027mCCQslE/WTOtKLmPpNC
+	EI/f/D+pT9DKcjm9+Y0RcMHjl/dMC11yiUfZ4UeVQsilhUjsvC/m0raTf6jZ1k4ORn2DRfhaCZTcP
+	QVYitg6JY5wZpANWlNj1zPfWcc/pam1r8OtXDwgJX27TigNeW8xVNAJHcvR4V4Q42zKJOKeAqJZDB
+	4J1BcFF4y70qLhKEmmyamS468JV4zVj3sVsMIU/w10e346ZgIeuSitGhdaylRMvDhtpzEtt17d3zV
+	pmpusdagNBjjTk6VEZvnxrKi2gmMFfrG53Ky0Bc4aBUv8jMsUh2LfZQxIiOXW/giztZwdiJPA2plo
+	Aof5YFPA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHCi-00000009UyQ-1K71;
-	Mon, 13 Jul 2026 14:00:17 +0000
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjHCv-0000000BgDo-19WN;
+	Mon, 13 Jul 2026 14:00:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C824B202C;
-	Mon, 13 Jul 2026 07:00:10 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F1DC2103;
+	Mon, 13 Jul 2026 07:00:23 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CD5DA3F7B4;
-	Mon, 13 Jul 2026 07:00:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 651783F7B4;
+	Mon, 13 Jul 2026 07:00:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783951215; bh=Paq3n4cO8HdYy4FFfkUp6FGCvWu1boCvdBHEQkzpEzo=;
+	t=1783951227; bh=LTSOz6r8IXywEsuWgl9722tiR9WcqjiHFXGXDRX3spM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=f7EldcMFAotp2m+ZhFGMuVYzDzUE1W3xYD2M61Z32+4Lp6LM2uG0bFpTaMxAUabky
-	 GXRnAFeDJZQABUA65JAt+2/I+UMycHxGaMD0oKMyNfBY1Wx5aC0cEO7Fj/aGoXMZAY
-	 tYNv5K6voYS794ZDDPyqysxYS3g7IcY1aTIJ4qUY=
+	b=pGt+wVwXPP9bqbNiSoGoTQf7vUj9+h+rjcGEu7v6x9h5jUGGL61je/MuOfCB0IGbL
+	 MCwtdgvHi9xbeiGHPrEgzoOWMgwuAwIORymTP+QSMvNXbWLSJ5lnVb/8rcQcLGe2HS
+	 V32gOsFvzZEGe9nESYJjvb3kHILH3HN1uCBfzjGg=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -134,16 +148,16 @@ Cc: david@kernel.org,
 	jonas@southpole.se,
 	stefan.kristiansson@saunalahti.fi,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [RFC PATCH 18/34] riscv: mm: use proper set_pXd() for generic compile-time folded patable in setup_vm_final()
-Date: Mon, 13 Jul 2026 14:55:57 +0100
-Message-ID: <20260713135614.1618183-19-yeoreum.yun@arm.com>
+Subject: [RFC PATCH 19/34] x86: power: use proper set_pXd() for generic compile-time folded patable in resume_one_md_table_init()
+Date: Mon, 13 Jul 2026 14:55:58 +0100
+Message-ID: <20260713135614.1618183-20-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260713135614.1618183-1-yeoreum.yun@arm.com>
 References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_070016_439029_BF6283D0 
-X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-CacheID: sfid-20260713_150029_654526_60C0E55E 
+X-CRM114-Status: UNSURE (   9.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -163,37 +177,64 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 We want to rework how set_pXd() behaves for generic compile-time folded
 page tables by disallowing its use and triggering a compile-time error
-when it is used improperly, ensuring that the actual first-level
-set_pXd() function is used instead.
+when it is used improperly, ensuring that the actual first-level set_pXd()
+function is used instead.
 
-Therefore, replace set_pgd() with set_pmd() to setup swapper_pg_dir
-in setup_vm_final() since PGTABLE_LEVELS is always 2 in CONFIG_32BIT.
+Therefore, replace set_pgd() with set_pud() to setup first-level pgtable
+in case of X86_PAE.
 
 There should be no functional change.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- arch/riscv/mm/init.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ arch/x86/power/hibernate_32.c | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 5b1b3c88b4d13..78017edf7c343 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1264,7 +1264,12 @@ static void __init setup_vm_final(void)
- 	 */
- 	unsigned long idx = pgd_index(__fix_to_virt(FIX_FDT));
+diff --git a/arch/x86/power/hibernate_32.c b/arch/x86/power/hibernate_32.c
+index 223d5bca29b86..ab5a203b45cb3 100644
+--- a/arch/x86/power/hibernate_32.c
++++ b/arch/x86/power/hibernate_32.c
+@@ -29,8 +29,7 @@ pgd_t *resume_pg_dir;
+  */
+ static pmd_t *resume_one_md_table_init(pgd_t *pgd)
+ {
+-	p4d_t *p4d;
+-	pud_t *pud;
++	pud_t *pud = pud_offset(p4d_offset(pgd, 0), 0);
+ 	pmd_t *pmd_table;
  
--	set_pgd(&swapper_pg_dir[idx], early_pg_dir[idx]);
-+	BUILD_BUG_ON (CONFIG_PGTABLE_LEVELS != 2);
-+
-+	pmd_t *pmdp_s = (void *)&swapper_pg_dir[idx];
-+	pmd_t *pmdp = (void *)&early_pg_dir[idx];
-+
-+	set_pmd(pmdp_s, pmdp_get(pmdp));
+ #ifdef CONFIG_X86_PAE
+@@ -38,14 +37,10 @@ static pmd_t *resume_one_md_table_init(pgd_t *pgd)
+ 	if (!pmd_table)
+ 		return NULL;
+ 
+-	set_pgd(pgd, __pgd(__pa(pmd_table) | _PAGE_PRESENT));
+-	p4d = p4d_offset(pgd, 0);
+-	pud = pud_offset(p4d, 0);
++	set_pud(pud, __pud(__pa(pmd_table) | _PAGE_PRESENT));
+ 
+ 	BUG_ON(pmd_table != pmd_offset(pud, 0));
+ #else
+-	p4d = p4d_offset(pgd, 0);
+-	pud = pud_offset(p4d, 0);
+ 	pmd_table = pmd_offset(pud, 0);
  #endif
- 	create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
- 			   __pa_symbol(fixmap_pgd_next),
+ 
+@@ -134,11 +129,12 @@ static inline void resume_init_first_level_page_table(pgd_t *pg_dir)
+ {
+ #ifdef CONFIG_X86_PAE
+ 	int i;
++	pud_t *pud = pud_offset(p4d_offset(pg_dir, 0), 0);
+ 
+ 	/* Init entries of the first-level page table to the zero page */
+ 	for (i = 0; i < PTRS_PER_PGD; i++)
+-		set_pgd(pg_dir + i,
+-			__pgd(__pa(empty_zero_page) | _PAGE_PRESENT));
++		set_pud(pud + i,
++			__pud(__pa(empty_zero_page) | _PAGE_PRESENT));
+ #endif
+ }
+ 
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
