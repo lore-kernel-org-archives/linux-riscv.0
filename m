@@ -4,158 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA705C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 15:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26629C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 15:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=u9w0Or2YtqaLqGeNUQy7t5rBxi1GH3LBooiuFTbrJ64=; b=FFF8QtugwghlUUQ0tWwaoVle6F
-	21bCRlKMFVZurQzxG7kvd4fvcbh8ll+XmReykzgqBAys7lntDcRhoWtk31G+xIcp1BC05jHbbufw5
-	bvfP/4By1W2Huw2AkZ1/+wj1kXzzqkgUMRHqOEXh81FL7sFmI8Fb8kzKI/QA0zpjNmE2jd1kqTbPE
-	l+piNH15iMGN3J+JqHbws9l9iFy0+aNFmcfDEUQAbq6vOu5XJmegvlHzvc942YXCy+gkTKxGeWhme
-	XNwNecDP3hknako5Un5j8MF+737nmfzBvR+EjNtkUJ0w7YEYOaD2/n97pvYu+tcnPw9T5i5KVzNfY
-	5ykCFn2Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VqdSQ1ro+A7sc54e/0CS1n1CGplEGSJj4mk/hjcnA64=; b=1MWPR89b9wgUa3
+	VakyZXPOSQObxQ0IJvdnL5N/UHeEGtBSvvCSgUVREWIJ+c6yDTEeQ7tTWToRX6HZqdh+kwK2Td48B
+	7pus5egAqcoodOLrAPIbLPzw3EL6SF5BqOLe7anKKw+BlVcWKmxNgUYHRiURZ/3lEU0V89lUmq8Pm
+	cQzR6OxX0KS82fgkyv4DFX2kGcWTLyYkGRpCBWZWd2dV1Ijbh46DzGGR98U/WXPqHAZFX3OccozRt
+	3vl7aqoQrqUYUeM0TeLwgGT8xcQjSiOZRkTlhNdAZRN/gQZMdVVF0noeMOFXugvwCu+Z79qSXqwO6
+	Gfg2yIt9oovmXlRkZjKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIlc-00000009p7q-3EWX;
-	Mon, 13 Jul 2026 15:40:24 +0000
-Received: from flow-b2-smtp.messagingengine.com ([202.12.124.137])
+	id 1wjHVk-00000009Zoa-0pyE;
+	Mon, 13 Jul 2026 14:19:56 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIlV-00000009p5y-3qRH;
-	Mon, 13 Jul 2026 15:40:20 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.stl.internal (Postfix) with ESMTP id 1564713001CE;
-	Mon, 13 Jul 2026 11:40:13 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Mon, 13 Jul 2026 11:40:14 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1783957212;
-	 x=1783964412; bh=63sZ2jVYn8LdZA7gH95m3khl+qIGq2b3k4vaJqArUP4=; b=
-	iW4sWePT3v5RuiExrfF6A/7tVQ1jM80vt6+qaUuiSXX3xzi8TcKDoEMcLpC1Wycj
-	YLGNDisot0aKbYabG11AiSqgAcEv+hchD7ePUn3Q7QegSB63SFitKnIvf8Ti5kJx
-	Ow6wHq6FRA8HlIDy3+vSZ+o5LqkVyEACeWvE2KeOw18SdWdmOSIo/GUwP5W4SA6K
-	mKTyKFVlWjx8My63P00L4s3EMdG8oh9p/ofSZoJXBBP4mbRVd+E+xZ0mPRjcLmAt
-	WVCZZZf+RPZDpr59W8GBdVkmu2RsFbrHEETXg75tSH6h1O4S9IWJHkZnYe4bDtPg
-	0VPe9WYzzmoe5YVydhyDvQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783957212; x=
-	1783964412; bh=63sZ2jVYn8LdZA7gH95m3khl+qIGq2b3k4vaJqArUP4=; b=U
-	LQnKlUIywRVFQz2T48udoC33TJAoCXdIAZSeuGP1N0ZPr7fcEG7S0TpEcaVnVn+c
-	G/SRa5VYTCQiMflK18sIgpnNhTHIZmCtVUou1s85jLllfrcplhXWmtZKcOfuxqKz
-	9OQxUpM9VVkLqu+9JHpcM1AfRqAyklLXOkI+caA/S4eOsPJ5KLTh7w5jSxlilDkX
-	8RFtQB2RucnR3YZ8hSAs6eIBOegmwS2ddCbQF+9kknh7pkz44rxlTKTyBe+AZOQ/
-	ngdVzQah4hXX7/v48Y2rsKaJyDh0/T4dziQmFdciXJJWCTgGF//fvmhuxjpfTstx
-	j1m7omfM4V4qrGYPJq3nw==
-X-ME-Sender: <xms:2QZVajyDP5U2h6P0anHj9JfCWAn69RWfRVsmfSB45SDelYt8TMDVvA>
-    <xme:2QZVamGc0XqHIvkwMsHO4mWsiOnb7hMXqrIg0Z9S0bntAfwEBmc3umVA2d79R592f
-    N_MVD951nak7HALIaxj0ArFMqNFmrR1lPSWSEicJrK--CML9TnjJw>
-X-ME-Proxy-Cause: dmFkZTGiBa7nyoJvLHpB9RMkM4BhBJPI163JjTDxEnYj0dxDppPFOS0iQb76r61dIHKZoH
-    doew5BVKOzJl0BxEjQHPQAXL339ylWw9vfj91e6+EvGpmugWu4l6FgfHGT8veDQl14YlPk
-    azrbgOlYeMoe8q4O6tOdPBWZ3gkfzjXB3MpP5ZSS4pVL3cODDv5o9sdlZZ82AnAYTD4dX1
-    ZFEmxiB6y+c1WjQCjWbG2Tuy/F+AydS2qapXYfVj/nzoLQFdxYjff2W121CSyjD96Jqz/I
-    RYFG+TB6hnYHG9pcozXzRhRj+7dUC7mbo9HM5um7P+xMaKCVbsxuHzrZLXSTZvkQV2DqfL
-    ymeLwexCZPabJK55d5sxK/21hOkUFoUb+ExTnzslr1kLuW1SR9WWu7ZvVZMwIF4IWgoi/o
-    j/VpQgVmgwhpVLtp5lgzTBmrTiT5gbnZ7Q7GXYbiO8QeTCwgQIZC6c35txMZjS6TWKAANZ
-    lL+3RIdvFvspxp+zwMu1615CC5kCx8DC7tXphYZD0u/gz62IOXC21Cm6XtX7xtSF81yIbe
-    SwtTDOBQfx6km50Rqc7jckoTHgvu2LsUahDrxwpgeQTFkFeEql548ztZEJ0FWTv/essIyv
-    UwEUdfW3DUphCt4+X7M4Fr0an8HZRkO0QIWnSfi10X3VjRXmi2o6LGa4b21g
-X-ME-Proxy: <xmx:2QZVaocb2-tYeEHCaWBxgGheyA65_oTe6yElM-79QvtibuE8CbqF-w>
-    <xmx:2QZVahZIVXxuJflYOYjXtypUb3ndXfW6BSq6O-Nx5ec44O4MR9j6JQ>
-    <xmx:2QZVat5rur89DlMEW9X7wm3q_ETqCbi-hkT8JmSntCdi1RMWYpE9dw>
-    <xmx:2QZVamrLcy7aR6UUg0zEbQdsla3UgqHgVCBl_7RyAYMi3djwF8Z8Jg>
-    <xmx:3AZVavasLut-hiuJDfIOSq7WvJC-hw5uzoQuGquD6DedXn23rWIKYKnL>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E2258182008C; Mon, 13 Jul 2026 11:40:08 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wjHVh-00000009Znu-0fFi;
+	Mon, 13 Jul 2026 14:19:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783952393; x=1815488393;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=ACEEsriG9dCD5Makw171QvwlNnRaGMIWxBoV9AUffyw=;
+  b=PF9aArZ/c7feJhtAJstOq0HyU1Eh9f6tZKO7S0mm6x5dLWcYF0lNR+E0
+   BNbP8K8ydJ9gSaBQxeecnKFDEjQSss644QqDGTEnRNvwX4Sk3koehWBlH
+   JU1zhR35973zIObXyrB8pjAUvZlBaXbq0siDgd/UEEFyBT4quzsJBZCl0
+   tmhvDypxFVvvCnJ6o/ioaVz/x78PkQZmRKVRcTLQSFiLNZCfV9KG+G8aw
+   uoSAOW2F8ei4vWezfLdYH37/Ir8qWBtd6VMoy1jur5Bj3IxVhUxzAg4wA
+   2wv/7V2fuhIkj24pzvldV5mV66pGlG99sWoUv5QVKbt0MzYfo0t10QtyL
+   Q==;
+X-CSE-ConnectionGUID: zCNeEY++Sn6vYQTchLk1lw==
+X-CSE-MsgGUID: 3K53w8RkRpSCK5N6L9asIw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="101986175"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="101986175"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 07:19:50 -0700
+X-CSE-ConnectionGUID: Bhu909OcTi2Jw8FWWspLNQ==
+X-CSE-MsgGUID: etPWERUSRBqiiOVfAtNJ+A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="249209989"
+Received: from gabaabhi-mobl2.amr.corp.intel.com (HELO [10.125.108.45]) ([10.125.108.45])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 07:19:47 -0700
+Message-ID: <c3edfb13-08ec-419c-bc05-8f3f64186b24@intel.com>
+Date: Mon, 13 Jul 2026 07:19:47 -0700
 MIME-Version: 1.0
-X-ThreadId: ASU80-mPZ9gg
-Date: Mon, 13 Jul 2026 17:38:53 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Yeoreum Yun" <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
+ folded pgtable case in effective_prot()
+To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-mips@vger.kernel.org, linux-arch@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, linux-mm@kvack.org, kasan-dev@googlegroups.com,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-m68k@lists.linux-m68k.org,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>
-Cc: "David Hildenbrand (Red Hat)" <david@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Ankur Arora" <ankur.a.arora@oracle.com>,
- "Mike Rapoport" <rppt@kernel.org>, "Magnus Lindholm" <linmag7@gmail.com>,
- "Christophe Leroy" <chleroy@kernel.org>,
- "Klara Modin" <klarasmodin@gmail.com>,
- "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
- "Kirill A. Shutemov" <kas@kernel.org>, zhangtianyang@loongson.cn,
- wangyuli@aosc.io, "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Lorenzo Stoakes" <ljs@kernel.org>, "Jason Gunthorpe" <jgg@ziepe.ca>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Pasha Tatashin" <pasha.tatashin@soleen.com>,
- "Rohan McLure" <rmclure@linux.ibm.com>,
- "Baolin Wang" <baolin.wang@linux.alibaba.com>,
- "Tejun Heo" <tj@kernel.org>, "Kevin Brodsky" <kevin.brodsky@arm.com>,
- "Anup Patel" <anup@brainfault.org>, atish.patra@linux.dev,
- "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Andy Lutomirski" <luto@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
- "Johannes Weiner" <hannes@cmpxchg.org>,
- "Michal Hocko" <mhocko@kernel.org>, qi.zheng@linux.dev,
- "Shakeel Butt" <shakeel.butt@linux.dev>,
- "Kairui Song" <kasong@tencent.com>, "Barry Song" <baohua@kernel.org>,
- "Axel Rasmussen" <axelrasmussen@google.com>,
- "Yuanchu Xie" <yuanchu@google.com>, "Wei Xu" <weixugc@google.com>,
- "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
- "Alexander Potapenko" <glider@google.com>,
- "Andrey Konovalov" <andreyknvl@gmail.com>,
- "Dmitry Vyukov" <dvyukov@google.com>,
- "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Yang Shi" <yang@os.amperecomputing.com>, chaitanyas.prakash@arm.com,
- "Ard Biesheuvel" <ardb@kernel.org>, guoren <guoren@kernel.org>,
- yang.li85200@gmail.com, "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Dinh Nguyen" <dinguyen@kernel.org>,
- "schuster.simon@siemens-energy.com" <schuster.simon@siemens-energy.com>,
- "Vivian Wang" <wangruikang@iscas.ac.cn>, junhui.liu@pigmoral.tech,
- "Muchun Song" <muchun.song@linux.dev>,
- "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
- "Nam Cao" <namcao@linutronix.de>, "Pavel Machek" <pavel@kernel.org>,
- djbw@kernel.org, yu-cheng.yu@intel.com,
- "Baolu Lu" <baolu.lu@linux.intel.com>,
- "Jonathan Cameron" <Jonathan.Cameron@huawei.com>,
- "Coiby Xu" <coxu@redhat.com>, "Andreas Larsson" <andreas@gaisler.com>,
- "Liam R. Howlett" <liam@infradead.org>,
- "Vlastimil Babka (SUSE)" <vbabka@kernel.org>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Michal Hocko" <mhocko@suse.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Stafford Horne" <shorne@gmail.com>, "Jonas Bonn" <jonas@southpole.se>,
- "Stefan Kristiansson" <stefan.kristiansson@saunalahti.fi>
-Message-Id: <d57f5b18-583d-4848-9d74-65b15c93dcf8@app.fastmail.com>
-In-Reply-To: <20260713135614.1618183-3-yeoreum.yun@arm.com>
+ linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org
+Cc: david@kernel.org, linux@armlinux.org.uk, akpm@linux-foundation.org,
+ ankur.a.arora@oracle.com, rppt@kernel.org, linmag7@gmail.com,
+ chleroy@kernel.org, klarasmodin@gmail.com, chenhuacai@kernel.org,
+ kernel@xen0n.name, kas@kernel.org, zhangtianyang@loongson.cn,
+ wangyuli@aosc.io, tsbogend@alpha.franken.de, ljs@kernel.org, jgg@ziepe.ca,
+ catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+ ryan.roberts@arm.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
+ baolin.wang@linux.alibaba.com, tj@kernel.org, kevin.brodsky@arm.com,
+ anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de, hpa@zytor.com,
+ hannes@cmpxchg.org, mhocko@kernel.org, qi.zheng@linux.dev,
+ shakeel.butt@linux.dev, kasong@tencent.com, baohua@kernel.org,
+ axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com,
+ ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+ dvyukov@google.com, vincenzo.frascino@arm.com, anshuman.khandual@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com, ardb@kernel.org,
+ guoren@kernel.org, yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
+ dinguyen@kernel.org, schuster.simon@siemens-energy.com,
+ wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech, muchun.song@linux.dev,
+ vishal.moola@gmail.com, namcao@linutronix.de, pavel@kernel.org,
+ djbw@kernel.org, yu-cheng.yu@intel.com, baolu.lu@linux.intel.com,
+ Jonathan.Cameron@huawei.com, coxu@redhat.com, andreas@gaisler.com,
+ liam@infradead.org, vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
+ geert@linux-m68k.org, shorne@gmail.com, jonas@southpole.se,
+ stefan.kristiansson@saunalahti.fi
 References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
- <20260713135614.1618183-3-yeoreum.yun@arm.com>
-Subject: Re: [RFC PATCH 02/34] ARM: mm: make 2-level pgd_t a scalar
+ <20260713135614.1618183-11-yeoreum.yun@arm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20260713135614.1618183-11-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_084018_833967_1FA2A031 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_071953_259301_ED40E82C 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,26 +160,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026, at 15:55, Yeoreum Yun wrote:
-> From: "David Hildenbrand (Arm)" <david@kernel.org>
->
-> We don't want pgd_t to be an array, as it prohibits returning it from a
-> function, like pgdp_get().
+On 7/13/26 06:55, Yeoreum Yun wrote:
+> We want to change how pXdp_get() works with generic compile-time folded
+> page tables. To prepare for that, rework effective_prot() to ignore any
+> folded page tables entries, as it will unconditionally get called by
+> ptdump core with pXd_val(pXdp_get()), and we really should be ignoring
+> that value for folded entries.
+> 
+> For this, identify the first real page-table level and
+> update effective_prot only when the current entry is not folded.
 
-What should pgdp_get() return on ARM 2-stage page tables then?
-Does it return just the first entry or concatenate the two?
+Nit: could you please clean up the "we's" and move over to imperative
+voice for the series? We're picky about it on the x86 side, but I do
+think it's generally a good preferred practice across the kernel.
 
-> +typedef u64 pgdval_t;
+Also I really do think this made the code worse. effective_prot() is a
+pretty tidy function. This change more than doubles the size and is also
+basically the same block copied and pasted twice.
 
-> +static inline pmdval_t pgd_val(pgd_t pgd)
-> +{
-> +	return (*(pmdval_t (*)[2])&pgd)[0];
-> +}
+Further, this does seem like it will stop filling out some of the
+st->prot_levels[] entries. That seems like it might break things. It
+definitely needs to be covered in the changelog.
 
-This could use a comment to explain what this actually
-returns and why the second entry is discarded.
-
-      Arnd
+So, in the end, I'm not 100% sure what this is doing. Is it "optimizing"
+the ptdump code? Or is it preemptively fixing code that will soon be
+throwing a compile error?
 
 _______________________________________________
 linux-riscv mailing list
