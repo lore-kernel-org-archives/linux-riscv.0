@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E102AC44501
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 03:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8924C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 04:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dxvwAEi+N+ILqUC6wZoGWeED6Xmmp5PFyofeM8/uiso=; b=1q5Ma5QbzeKztQ
-	wwBUnby2y9JB2j+ZbQfJT4Jqsjz/GCaZwnZ36cwLIu6iWjnzopC15R249JvIlEPSL3l2x6+z/mOL4
-	IDpGP3pMvZIrm9l7yC51AiGo7fhEhjEz1YnfJzUCajh68vs3GuoxeDHLwh22YPeXfF04Vce24mHBH
-	VKbBAcPIpyaxHOVyRl3+A+xuuS/87052OyiAqUXWAwdQV66ob+MhDzrkhrgbmljcQAoueOnF60tRr
-	Fz9PE7ohTifmvtGEEsBiPT8yshasHasKFBi8+sTjJXbfo8rzZEZfMrcl/toVKAi43lCzNiyAskQFT
-	8G7CtIuH7wo/FOTdl2vg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O+Agwc5i8BV6j/uqRnibCo/oYxF35Xf+S5crQ09M3a4=; b=er7tv1p3TnCNo8
+	R+sn2hgMn8FY4oHJPVt69abMZ4GuHl5I0Jx1f0+v6TIvYeTJ2zP/k3w/kAYRYQZpkfx0YYlknzb1N
+	TXbO35o8t5Va5CQvX8HFyaU5XkJTYFfnxZFTzBgy2PHflZESbMHCuLreXhfFc0mZSXFVMpHIN54vC
+	McTmYALwX1TBF8LsyAKMbpR3rXX+d8pAHgSKFJOgRPYg+0LY7vqRSkqRDYjd5zyy4FkyI6HzGN0cv
+	rg+Cy4Ue0gmiVRG73Bn18ax7xUrpEehi3YhGqpYdgYkXvhYmbs9UCGQAP24+GrBet4HBgwF3oFJPu
+	kCK+siA9YfNYy1GjHqOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj7kT-000000083cv-13qZ;
-	Mon, 13 Jul 2026 03:54:29 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wj82n-000000084UK-3xZe;
+	Mon, 13 Jul 2026 04:13:25 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj7kP-000000083cX-0gWY
+	id 1wj82k-000000084TY-2hRy
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 03:54:27 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Wll8mTLBn9B2fPK9pm24mOajugHT7OtRM0GeQhTtfeg=;
-	b=EHSxG8IT53N6k+cl2pDQ/HnOvdvCXTaXD5Wu1EI7I5nfI2mEAXDXd3NzfNSDRc23QAHsZL9OK
-	18UrkbYTp1rtOo5ehYoaYcq+JhN138Umz5lQOKl81MDZhFz/A5xndUvG09QEDEjbHiu4F/kVhpq
-	6xZtSFLFEo2Rih9MgpKl2ho=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gz7ch73wrzpT0s;
-	Mon, 13 Jul 2026 11:45:24 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9517640561;
-	Mon, 13 Jul 2026 11:54:13 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 13 Jul
- 2026 11:54:11 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <hca@linux.ibm.com>, <gor@linux.ibm.com>,
-	<agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>, <svens@linux.ibm.com>,
-	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <nathan@kernel.org>,
-	<kees@kernel.org>, <xur@google.com>, <arnd@arndb.de>, <peterz@infradead.org>,
-	<gourry@gourry.net>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
-	<yangtiezhu@loongson.cn>, <mchauras@linux.ibm.com>, <sshegde@linux.ibm.com>,
-	<austin.kim@lge.com>, <jchrist@linux.ibm.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH RESEND] syscall_user_dispatch: Introduce ARCH_SUPPORTS_SYSCALL_USER_DISPATCH
-Date: Mon, 13 Jul 2026 11:54:22 +0800
-Message-ID: <20260713035422.582771-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 13 Jul 2026 04:13:23 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-80bb41f7f3cso23156907b3.2
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Jul 2026 21:13:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1783916001; x=1784520801; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=439ZOYrlaCUAeJZ+aD63soMn8aH9d6icmDr23SwquhM=;
+        b=eyOs1wAFBwBvxOxM4xnyI57jpTmfkG9Cg74dMX6m517AGBUi3fwbrw+80acrGzribH
+         DcjeU9B8uSoEzrAnnfWVYFs0t5uPRRrgXWJuILpDPoXeGmSlGnoOV7lhTnLRNWYf7zr9
+         VxDzkhL/RGlSvSf+Ds1MBjiGOoyy0ydVR9SE55SgojgqYX0969rUj9BFlJMuTq/g5WW7
+         XE647b44UG1uq2anBEpQt54udqqqL4ynM1lLNr7+bz89tv7gztTA0hojr7ePTzScok/t
+         J2Sag9E6Y5VBlUrKWe2PzsIPwQR3Wu2wzVFr/rAEV+NSeFZjAKfV1qScNs1SzH21l0BM
+         iW2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783916001; x=1784520801;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=439ZOYrlaCUAeJZ+aD63soMn8aH9d6icmDr23SwquhM=;
+        b=TSlukdP7Ltq1oCLJTbpDpSsSwgGEuoHIVw3gaQ7b2WiOgtH3s+iVlOjReoDgtHKGfw
+         JSw5wPg03dpK9W3pmSy6UvKPBRpH8xOPy8+LuDYBekRzBTCQGvqENg6bUrkLGCAFsPda
+         rfB7lE6e20kf2IyqlTC2ClrefydPaYldMNq48f0pNs0DYlzHW9cvkDeLoCP6ikEKSYye
+         TjfhD4q+JG5XZg6jC91FGoxe+AgPjz1yGxw6Q/lV8lgYSACyLzYrZbUmitIDbeDUAii7
+         /2j2TlR2Qx7NNpJQcrzdUpJHvMJvwk+bbE44XJHfKy8xbrcHagb21g2E/7HViEjJkC8L
+         FBZA==
+X-Forwarded-Encrypted: i=1; AHgh+RopIp21WPCQiN+v2lVpzrQCEQCJJxOeqVorOUqXBy9YcXQURTb1dcswjZbtbr+eOcLG9OXfesy8PK9wlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi+ZsFIJZpB0NsgZspYGJqOKfF+qt4n5wa7qeJ2MlGuquOPo0J
+	Vtc5Ctg5BGin0thQ7kgFh1kx3btczauH03cDGFVhdw07dbYTSpgKk2mcpUVUCkTxrU8=
+X-Gm-Gg: AfdE7cmqqc1OrHEUHiwqNoqQVlueJVJivEfDswBtc9KKQaB7V0TS3PUDXHEeNrl705I
+	8wqxpk51dp7EZ2AqwANQncR3ZLodhsc/Ko2qaEoKKZ4QfJWl5UC4CQXn+wb7QbNVzmlbma20qBf
+	YL03hYOaPsjn7nHwjK/hBiuMhTVsU5bsvD5nov6AvGuFyrElJxTb/ZGchpPtDGmbv0jDrn100NO
+	RfSURP+2zbRtzYmBny6oXQHFHsRyPMHF6S6yrrgSNwYRbtnlVG0lWZw4dndrgFeYQWgHKfuFEBu
+	Sliuy2AGbICs5m4Eq4SRxYPo9vCNnqI2L1ida4TbwWIA0UengDHnZGggwczM/A03xmtNmQjRd8t
+	uCs4/DBzz+SG9pkDSRU+S3sB/nTcUf8qsKuwFS7ukbri+bt2avu2VSDJvnq8IIprsWURd1ThtfO
+	JW/2vzaHDRv8wIetQRYtHqaaYr0nHs8mysI8fSd8E8nyLjQRDRO4CZtQSZdA==
+X-Received: by 2002:a05:690c:b03:b0:80c:f6bb:5666 with SMTP id 00721157ae682-81e901491a3mr57346417b3.47.1783916001448;
+        Sun, 12 Jul 2026 21:13:21 -0700 (PDT)
+Received: from toolbox ([2600:1700:220:59e0:55c1:a162:6cca:b98a])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6be99124sm106251787b3.4.2026.07.12.21.13.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Jul 2026 21:13:21 -0700 (PDT)
+Date: Sun, 12 Jul 2026 23:13:07 -0500
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: k3: Add PCIe device node
+Message-ID: <2ml6mcgwkf4eidwjetmd75henrkig4zzugzfww7buirucddho7@qrs4gasurnv3>
+References: <20260709040415.977784-1-inochiama@gmail.com>
+ <20260709040415.977784-3-inochiama@gmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Disposition: inline
+In-Reply-To: <20260709040415.977784-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_205425_854374_1072013B 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260712_211322_693834_7457F684 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,84 +100,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q3VycmVudGx5LCBvbmx5IHg4NiBnZW51aW5lbHkgaW1wbGVtZW50cyBhbmQgc3VwcG9ydHMgU3lz
-Y2FsbCBVc2VyCkRpc3BhdGNoIChTVUQpLiBNdWx0aXBsZSBhcmNoaXRlY3R1cmVzIHByb3ZpZGUg
-YSBzdHViCmFyY2hfc3lzY2FsbF9pc192ZHNvX3NpZ3JldHVybigpIHJldHVybmluZyAnZmFsc2Un
-IHNpbXBseSB0byBzYXRpc2Z5CkdFTkVSSUNfRU5UUlkgY29tcGlsYXRpb24sIHdoaWNoIGNyZWF0
-ZXMgYSBmYWxzZSBpbXByZXNzaW9uIG9mIGZlYXR1cmUKc3VwcG9ydC4KCkludHJvZHVjZSBBUkNI
-X1NVUFBPUlRTX1NZU0NBTExfVVNFUl9ESVNQQVRDSCB0byBkZWNvdXBsZSB0aGlzIG1lY2hhbmlz
-bQpmcm9tIEdFTkVSSUNfRU5UUlkuIFNlbGVjdCBpdCBleGNsdXNpdmVseSBvbiB4ODYgYW5kIHJl
-bW92ZSB0aGUgcmVkdW5kYW50CnN0dWIgZnVuY3Rpb25zIGZyb20gb3RoZXIgYXJjaGl0ZWN0dXJl
-cy4KCkxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWFybS1rZXJuZWwvYWtaZ1Yw
-WTRZQW1CNDNfZ0BKMk43UVRSOVIzLmNhbWJyaWRnZS5hcm0uY29tLwpDYzogVGhvbWFzIEdsZWl4
-bmVyIDx0Z2x4QGtlcm5lbC5vcmc+CkNjOiBNYXJrIFJ1dGxhbmQgPG1hcmsucnV0bGFuZEBhcm0u
-Y29tPgpDYzogR3JlZ29yeSBQcmljZSA8Z291cnJ5QGdvdXJyeS5uZXQ+CkNjOiBBZGEgQ291cHJp
-ZSBEaWF6IDxhZGEuY291cHJpZWRpYXpAYXJtLmNvbT4KQ2M6IFRob21hcyBXZWnDn3NjaHVoIDx0
-aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPgpTdWdnZXN0ZWQtYnk6IE1hcmsgUnV0bGFu
-ZCA8bWFyay5ydXRsYW5kQGFybS5jb20+ClNpZ25lZC1vZmYtYnk6IEppbmppZSBSdWFuIDxydWFu
-amluamllQGh1YXdlaS5jb20+Ci0tLQp2MSAtPiBSRVNFTkQKLSBEZWZpbmUgbWlzc2luZyBBUkNI
-X1NVUFBPUlRTX1NZU0NBTExfVVNFUl9ESVNQQVRDSC4KLS0tCiBhcmNoL0tjb25maWcgICAgICAg
-ICAgICAgICAgICAgICAgICAgfCA0ICsrKysKIGFyY2gvbG9vbmdhcmNoL2luY2x1ZGUvYXNtL3N5
-c2NhbGwuaCB8IDYgLS0tLS0tCiBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vc3lzY2FsbC5oICAg
-fCA1IC0tLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N5c2NhbGwuaCAgICAgfCA1IC0tLS0t
-CiBhcmNoL3MzOTAvaW5jbHVkZS9hc20vc3lzY2FsbC5oICAgICAgfCA1IC0tLS0tCiBhcmNoL3g4
-Ni9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgfCAxICsKIDYgZmlsZXMgY2hhbmdlZCwgNSBp
-bnNlcnRpb25zKCspLCAyMSBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL0tjb25maWcg
-Yi9hcmNoL0tjb25maWcKaW5kZXggZDJkYmVkNTI0ZjE1Li4wNjYyNjNjYzQ0ZmUgMTAwNjQ0Ci0t
-LSBhL2FyY2gvS2NvbmZpZworKysgYi9hcmNoL0tjb25maWcKQEAgLTExNCw4ICsxMTQsMTIgQEAg
-Y29uZmlnIEdFTkVSSUNfRU5UUlkKIAlzZWxlY3QgR0VORVJJQ19JUlFfRU5UUlkKIAlzZWxlY3Qg
-R0VORVJJQ19TWVNDQUxMCiAKK2NvbmZpZyBBUkNIX1NVUFBPUlRTX1NZU0NBTExfVVNFUl9ESVNQ
-QVRDSAorCWJvb2wKKwogY29uZmlnIFNZU0NBTExfVVNFUl9ESVNQQVRDSAogCWJvb2wgIlN5c2Nh
-bGwgVXNlciBEaXNwYXRjaCIKKwlkZXBlbmRzIG9uIEFSQ0hfU1VQUE9SVFNfU1lTQ0FMTF9VU0VS
-X0RJU1BBVENICiAJZGVwZW5kcyBvbiBHRU5FUklDX0VOVFJZCiAJZGVmYXVsdCB5CiAJaGVscApk
-aWZmIC0tZ2l0IGEvYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vc3lzY2FsbC5oIGIvYXJjaC9s
-b29uZ2FyY2gvaW5jbHVkZS9hc20vc3lzY2FsbC5oCmluZGV4IGRmOGVhMjIzYzc3Yi4uZDkyNzUw
-MTBmNTQ4IDEwMDY0NAotLS0gYS9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9zeXNjYWxsLmgK
-KysrIGIvYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vc3lzY2FsbC5oCkBAIC04NCwxMCArODQs
-NCBAQCBzdGF0aWMgaW5saW5lIGludCBzeXNjYWxsX2dldF9hcmNoKHN0cnVjdCB0YXNrX3N0cnVj
-dCAqdGFzaykKIAlyZXR1cm4gQVVESVRfQVJDSF9MT09OR0FSQ0g2NDsKICNlbmRpZgogfQotCi1z
-dGF0aWMgaW5saW5lIGJvb2wgYXJjaF9zeXNjYWxsX2lzX3Zkc29fc2lncmV0dXJuKHN0cnVjdCBw
-dF9yZWdzICpyZWdzKQotewotCXJldHVybiBmYWxzZTsKLX0KLQogI2VuZGlmCS8qIF9fQVNNX0xP
-T05HQVJDSF9TWVNDQUxMX0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvcG93ZXJwYy9pbmNsdWRlL2Fz
-bS9zeXNjYWxsLmggYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vc3lzY2FsbC5oCmluZGV4IDgz
-NGZjYzRmN2I1NC4uNGIzYzUyZWQ2ZTlkIDEwMDY0NAotLS0gYS9hcmNoL3Bvd2VycGMvaW5jbHVk
-ZS9hc20vc3lzY2FsbC5oCisrKyBiL2FyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS9zeXNjYWxsLmgK
-QEAgLTEzOSw5ICsxMzksNCBAQCBzdGF0aWMgaW5saW5lIGludCBzeXNjYWxsX2dldF9hcmNoKHN0
-cnVjdCB0YXNrX3N0cnVjdCAqdGFzaykKIAllbHNlCiAJCXJldHVybiBBVURJVF9BUkNIX1BQQzY0
-OwogfQotCi1zdGF0aWMgaW5saW5lIGJvb2wgYXJjaF9zeXNjYWxsX2lzX3Zkc29fc2lncmV0dXJu
-KHN0cnVjdCBwdF9yZWdzICpyZWdzKQotewotCXJldHVybiBmYWxzZTsKLX0KICNlbmRpZgkvKiBf
-QVNNX1NZU0NBTExfSCAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zeXNj
-YWxsLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N5c2NhbGwuaAppbmRleCA4MDY3ZTY2NmE0
-Y2EuLjk4N2M5YTc4ODA2ZiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zeXNj
-YWxsLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zeXNjYWxsLmgKQEAgLTExMiwxMSAr
-MTEyLDYgQEAgc3RhdGljIGlubGluZSB2b2lkIHN5c2NhbGxfaGFuZGxlcihzdHJ1Y3QgcHRfcmVn
-cyAqcmVncywgdWxvbmcgc3lzY2FsbCkKIAlyZWdzLT5hMCA9IGZuKHJlZ3MpOwogfQogCi1zdGF0
-aWMgaW5saW5lIGJvb2wgYXJjaF9zeXNjYWxsX2lzX3Zkc29fc2lncmV0dXJuKHN0cnVjdCBwdF9y
-ZWdzICpyZWdzKQotewotCXJldHVybiBmYWxzZTsKLX0KLQogYXNtbGlua2FnZSBsb25nIHN5c19y
-aXNjdl9mbHVzaF9pY2FjaGUodWludHB0cl90LCB1aW50cHRyX3QsIHVpbnRwdHJfdCk7CiAKIGFz
-bWxpbmthZ2UgbG9uZyBzeXNfcmlzY3ZfaHdwcm9iZShzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSAqLCBz
-aXplX3QsIHNpemVfdCwKZGlmZiAtLWdpdCBhL2FyY2gvczM5MC9pbmNsdWRlL2FzbS9zeXNjYWxs
-LmggYi9hcmNoL3MzOTAvaW5jbHVkZS9hc20vc3lzY2FsbC5oCmluZGV4IDQyNzFlNDE2OWY0NS4u
-NWYzMTBjYWFkMWZjIDEwMDY0NAotLS0gYS9hcmNoL3MzOTAvaW5jbHVkZS9hc20vc3lzY2FsbC5o
-CisrKyBiL2FyY2gvczM5MC9pbmNsdWRlL2FzbS9zeXNjYWxsLmgKQEAgLTg5LDExICs4OSw2IEBA
-IHN0YXRpYyBpbmxpbmUgaW50IHN5c2NhbGxfZ2V0X2FyY2goc3RydWN0IHRhc2tfc3RydWN0ICp0
-YXNrKQogCXJldHVybiBBVURJVF9BUkNIX1MzOTBYOwogfQogCi1zdGF0aWMgaW5saW5lIGJvb2wg
-YXJjaF9zeXNjYWxsX2lzX3Zkc29fc2lncmV0dXJuKHN0cnVjdCBwdF9yZWdzICpyZWdzKQotewot
-CXJldHVybiBmYWxzZTsKLX0KLQogI2RlZmluZSBTWVNDQUxMX0ZNVF8wCiAjZGVmaW5lIFNZU0NB
-TExfRk1UXzEgLCAiMCIgKHIyKQogI2RlZmluZSBTWVNDQUxMX0ZNVF8yICwgImQiIChyMykgU1lT
-Q0FMTF9GTVRfMQpkaWZmIC0tZ2l0IGEvYXJjaC94ODYvS2NvbmZpZyBiL2FyY2gveDg2L0tjb25m
-aWcKaW5kZXggYmRhZDkwZjIxMGU0Li5mM2Y4YWQxMDdlZWIgMTAwNjQ0Ci0tLSBhL2FyY2gveDg2
-L0tjb25maWcKKysrIGIvYXJjaC94ODYvS2NvbmZpZwpAQCAtMzM1LDYgKzMzNSw3IEBAIGNvbmZp
-ZyBYODYKIAlzZWxlY3QgU0NIRURfU01UCQkJaWYgU01QCiAJc2VsZWN0IEFSQ0hfU1VQUE9SVFNf
-U0NIRURfQ0xVU1RFUglpZiBTTVAKIAlzZWxlY3QgQVJDSF9TVVBQT1JUU19TQ0hFRF9NQwkJaWYg
-U01QCisJc2VsZWN0IEFSQ0hfU1VQUE9SVFNfU1lTQ0FMTF9VU0VSX0RJU1BBVENICiAJc2VsZWN0
-IEhBVkVfU0lOR0xFX0ZUUkFDRV9ESVJFQ1RfT1BTCWlmIFg4Nl82NCAmJiBEWU5BTUlDX0ZUUkFD
-RV9XSVRIX0RJUkVDVF9DQUxMUwogCiBjb25maWcgSU5TVFJVQ1RJT05fREVDT0RFUgotLSAKMi4z
-NC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Inochi,
+
+On Thu, Jul 09, 2026 at 12:04:14PM +0800, Inochi Amaoto wrote:
+> Add all PCIe device node for Spacemit K3.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts |  38 ++++
+>  arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi |  33 ++++
+>  arch/riscv/boot/dts/spacemit/k3.dtsi         | 195 +++++++++++++++++++
+>  3 files changed, 266 insertions(+)
+> 
+
+I see some warnings printed during probe
+
+[   10.842955] r8169 0002:01:00.0: of_irq_parse_pci: failed with rc=-22
+
+[   10.937754] rtw89_8852be 0004:01:00.0: of_irq_parse_pci: failed with rc=-22
+
+I see that all the 3 rc nodes are missing an interrupts node and an
+interrupt parent (saplic). The vendor DT seems to have this. Not sure if
+this is related.
+
+The 10G ethernet probes fine, but the wifi card fails to probe. Seems
+like the card is trying to request 32 bit DMA addresses and we're
+failing cause we have 64 bit memory only.
+The vendor kernel seems to have a patch to enable 36 bit DMA in
+the rtw89 driver. That'll probably fix this.
+
+[   10.937754] rtw89_8852be 0004:01:00.0: of_irq_parse_pci: failed with rc=-22
+[   10.987983] rtw89_8852be 0004:01:00.0: loaded firmware rtw89/rtw8852b_fw-2.bin
+[   10.988151] rtw89_8852be 0004:01:00.0: enabling device (0000 -> 0003)
+[   10.988215] (udev-worker): page allocation failure: order:2, mode:0xcc4(GFP_KERNEL|GFP_DMA32), nodemask=(null),cpuset=/,mems_allowed=0
+[   10.988243] CPU: 5 UID: 0 PID: 503 Comm: (udev-worker) Not tainted 7.2.0-rc1-00034-gc57907b4459d #1 PREEMPT(lazy)
+[   10.988249] Hardware name: SpacemiT K3 Pico-ITX (DT)
+[   10.988252] Call Trace:
+[   10.988255] [<ffffffff8001f2b8>] dump_backtrace+0x28/0x48
+[   10.988265] [<ffffffff80002612>] show_stack+0x3a/0x58
+[   10.988269] [<ffffffff80016432>] dump_stack_lvl+0x5a/0x88
+[   10.988274] [<ffffffff80016478>] dump_stack+0x18/0x22
+[   10.988277] [<ffffffff803984da>] warn_alloc+0x102/0x120
+[   10.988283] [<ffffffff80398b7a>] __alloc_frozen_pages_noprof+0x682/0x1470 
+[   10.988288] [<ffffffff80399980>] __alloc_pages_noprof+0x18/0x38
+[   10.988292] [<ffffffff80113494>] __dma_direct_alloc_pages.isra.0+0x26c/0x428
+[   10.988298] [<ffffffff801137a8>] dma_direct_alloc+0x78/0x3d0
+[   10.988301] [<ffffffff8011282c>] dma_alloc_attrs+0x74/0x240
+[   10.988309] [<ffffffff031a6bb6>] rtw89_pci_probe+0x20e/0xc90 [rtw89_pci]
+[   10.988375] [<ffffffff8087cd1c>] local_pci_probe+0x3c/0x90
+[   10.988381] [<ffffffff8087def6>] pci_device_probe+0xde/0x298
+[   10.988385] [<ffffffff80a80f3e>] really_probe+0x9e/0x3e0
+[   10.988390] [<ffffffff80a81308>] __driver_probe_device+0x88/0x190
+[   10.988393] [<ffffffff80a814f8>] driver_probe_device+0x38/0xc0
+[   10.988396] [<ffffffff80a81796>] __driver_attach+0xbe/0x208
+[   10.988399] [<ffffffff80a7e22c>] bus_for_each_dev+0x6c/0xd0
+[   10.988404] [<ffffffff80a806ce>] driver_attach+0x26/0x40
+[   10.988407] [<ffffffff80a7fcac>] bus_add_driver+0x15c/0x298
+[   10.988410] [<ffffffff80a82a82>] driver_register+0x52/0x118
+[   10.988413] [<ffffffff8087c44c>] __pci_register_driver+0x4c/0x70
+[   10.988417] [<ffffffff02fbc038>] rtw89_8852be_driver_init+0x30/0xff8 [rtw89_8852be]
+[   10.988422] [<ffffffff80017b2a>] do_one_initcall+0x5a/0x2d0
+[   10.988427] [<ffffffff8011d7b6>] do_init_module+0x96/0x2c0
+[   10.988430] [<ffffffff8011f6c6>] load_module+0x19a6/0x2078
+[   10.988434] [<ffffffff80120046>] init_module_from_file+0xce/0x138
+[   10.988437] [<ffffffff801202d0>] __riscv_sys_finit_module+0x220/0x398
+[   10.988441] [<ffffffff81010c40>] do_trap_ecall_u+0x108/0x588
+[   10.988446] [<ffffffff81022a14>] handle_exception+0x16c/0x178
+[   10.988455] Mem-Info:
+[   10.988483] active_anon:5773 inactive_anon:0 isolated_anon:0
+                active_file:0 inactive_file:30149 isolated_file:0
+                unevictable:0 dirty:222 writeback:0
+                slab_reclaimable:3461 slab_unreclaimable:8595
+                mapped:5588 shmem:115 pagetables:949
+                sec_pagetables:0 bounce:0
+                kernel_misc_reclaimable:0
+                free:4028911 free_pcp:0 free_cma:0
+[   10.988493] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=1048576kB
+[   10.988497] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=64kB
+[   10.988501] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=2048kB 
+[   10.988505] 30300 total pagecache pages
+[   10.988508] 0 pages in swap cache
+[   10.988511] Free swap  = 0kB
+[   10.988514] Total swap = 0kB
+[   10.988516] 4186368 pages RAM
+[   10.988519] 0 pages HighMem/MovableOnly
+[   10.988522] 86381 pages reserved
+[   10.988525] 0 pages cma reserved
+[   10.988528] Memory cgroup min protection 0kB -- low protection 0kB
+[   10.988532] rtw89_8852be 0004:01:00.0: failed to alloc dma tx rings
+[   10.994421] rtw89_8852be 0004:01:00.0: failed to alloc pci trx rings
+[   11.000734] rtw89_8852be 0004:01:00.0: failed to setup pci resource
+[   11.007088] rtw89_8852be 0004:01:00.0: probe with driver rtw89_8852be failed with error -12
+
+Regards
+Anirudh Srinivasan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
