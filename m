@@ -4,91 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A41C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 00:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025C3C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 01:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NefJeqnRjb4Q4O0xlnblWHvUmiieKN3uDuG59H6HMPs=; b=OXN1pHk7NEuEBV
-	HwrC45ZB+G3WqZ7K535RX6+YuLgcT8z+ScHd+3oZj3r432D8vhcrQT0KQQI1huwwAHNexFBFPfiiz
-	IJ9q921FY6PhXjggJv19Gn5PDTchLofpzCEQtegbc9/C6oNXEdDT9NJtGwr0EiBQ7Li0YEPCvo7bV
-	P4fPmihZEswCnXWKyXRFzO3wpO7GkKayfpDwQlcTC8VUH8T72QWdQMBpZjFkkWLke18WKc3FzVwFS
-	ntJ8L/fPnhOUv+Ewu0aBcO+8Kcu2S56P/YlLfS7VAhdjdHnUsxts8eEKHAasNaUpN3GvnHYNiv2DA
-	JsNei0SoDf6dBkHlyBng==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IkGmDVIeafQMhp20UICu8S2oC+gsh0VAVGv8rfkRMlw=; b=frADqxKWgFovET
+	OoPPvnX3Ci0inZYy9SPpM/eAOXcMntfEYUG1HWglA2nRykc5Aaq1C5zUCX39hXX/fSc4YfcWvrPfJ
+	dilcu1vgQEHUvOCVH1laf8tfmwz8aQ75Tr3bLtrSaIlDxpku4A635Lfexj2xuVqT8FR+cqYWDuUe/
+	PmE4xx9RKg1HjyaxZumHmLjBKn2AJdYje1N44C8GOOchYz1O2Cdq2y0329occoG282czSaJK64BvV
+	V3nw0Cs63AoMa17ucVIfJVsEq7KHRLk4ZYP2tEQAy+r5XhV4U/EJrZLws7y8UxYwUVNFJpBfqvpW5
+	+lD/Fi8Ber32LTf07WOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj4zC-00000007tHo-1z24;
-	Mon, 13 Jul 2026 00:57:30 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wj55M-00000007tU0-1ATK;
+	Mon, 13 Jul 2026 01:03:52 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj4z9-00000007tHQ-3SFj
+	id 1wj55J-00000007tTE-2O7F
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 00:57:28 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2cad8076b01so30513895ad.2
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Jul 2026 17:57:27 -0700 (PDT)
+	Mon, 13 Jul 2026 01:03:50 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-848882fdb18so1669962b3a.0
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Jul 2026 18:03:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783904247; x=1784509047; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rcAmTvO8VZf1EU8sxDKdiXNrU6FxGa8pq7WzxSsB/Lc=;
-        b=XtMdxdXJPPo3vPBjlpZ7fRA2EqNnUHsV153+tVr2KE8vKk1TTzeErFOL9ICykEVuGm
-         DKyQTsVuR0kdi5ort9e6wKSjskxGBp5UHpFO/YdVMJM8UqZERibfzwpCvgZ2vtjTsr7+
-         sUP6Mon3qyDRmja5H91dqmZB7wfJByv44eV87Zua7wZlgUwAnxVBw+biJCUDIm9KqKc4
-         /K0B2vvvCXkVScWYEWpjxMOGNd9rABJyc+lRQUzfq/CiCtld0vS6AwK28qSAtGTTB/OR
-         a5HQRA4ZmYR7WY4k1xJpPClipUFgbKOQHqVMI2u+pcnXYYN2q2SPvYffdZOS9v1ywzOl
-         oq6A==
+        d=gmail.com; s=20251104; t=1783904629; x=1784509429; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PHNlMRDMMMe/DeM+KYptR6x1Xol+X7QDPM1SwrT/UAU=;
+        b=QicWshbCVLWfa294Q9J2o0omrCEfZlCR96VauHrRV84Q3aOMdldm/ly9PZ0ys7pdbD
+         bdcMli2doDy6o1W54QwlskquYd45WlmuOi7nsS4vmG0twWkdHVaMeUVjpvf+R2VbzRmV
+         WOC4No2HxC3ecHHIaTsEEn7JgWinmsJSGNve3sdwD8uMlA6oIcXYTiViii/9wwtpOpz5
+         bWYvK1B1af8d5nDP+v6/KKkboIkqo/4fwegkayEzbAYv6xftcWW3BZQMedWO6CstIl1e
+         z7BM+/63B6oVRGGMmDWIhXgDgYW05lfUZyHO7yHEabPKLOcjA2m7at1I6CqcLKQghujt
+         aOoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783904247; x=1784509047;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rcAmTvO8VZf1EU8sxDKdiXNrU6FxGa8pq7WzxSsB/Lc=;
-        b=jqQEShZt5VfOIBPDlXvH3307sk36GU4dsCDIhnSV8IrHdVr9ughnIjRpMmLtkUCrER
-         sxFvRwLzyEy+CUBmqx2HleWEnBIn8Ze2rA8xHvL1XK9kKuhNrRa8epxqj+8Ll79oI2as
-         LFZaEYAP7djAYsJe9BVGL1Cu9OYim0R86mbkWwt2iIR8c65Yd62eE9ni+YehLgtHuSOq
-         NAmE0umPySw829uzvDLklZnZkvCf4jRcrHQKAQMJZtygLXtNlfzlKHw9ZqdjO0HUP72x
-         178JTRl0+nLjfmFi1sguPalJhEu98b2ieDM335mccohTKsbrUvlGvQzswEnOXWohEL/t
-         uBUQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqxvQVugORmoTf3/XaG+ypQi19vtEMx/5jHY4CaROJJLIR83VRdWxjBWnQR+g1/l/Iy56g996Sw0/4U8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaGPhPorvOFg/kWfRzwNhVRAQ/WDzFZiSryxswQa3QEFjWYRA3
-	aoHQR7ZMQYwymjYsiVJQYnQ+BKOHDR0vbVf4/EFUBvbmsa7D4D9grejc
-X-Gm-Gg: AfdE7cmPeLt4XgK1y4nC6mcZ85opcdlXllIDlQwYQdgJHcnRfKVwT0qwoIp36cJveI6
-	cieoJEGX1lYQmjGgmifAxhD8piySRJpPIr7Obb2P46hb0NTGHZWN05DmTmxJlCH6WO3h94Q1Ffr
-	jSMyKD4m1omsLfSus69Ld9jUn/GT/N/Ry2CseFQC/2rKnSnTRVxJe0Sv3FR4XASkrBnK5imwswj
-	w1tDfo0P1WxFqBmFzWKyL3uD1Dom/00CSLyGAVVUY3XiHovskCL61kNhGDu6VUbVjYid8pWnmzH
-	5LHPFmpuSr8NOcBzMnzx4iK0V5kM6UoxF0wleEp0TElT13aN5Ka/37ValI4g6SbTdDQEpFSgeh1
-	/kko8ciupOnJU0GEdY0np7GBEHqFv2xBz8RzFqCDQeIhaUsF2XZJL+OwLnRfTycEt
-X-Received: by 2002:a17:902:d2c8:b0:2ca:ecfa:1308 with SMTP id d9443c01a7336-2ce9ead153emr69863775ad.20.1783904246723;
-        Sun, 12 Jul 2026 17:57:26 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783904629; x=1784509429;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PHNlMRDMMMe/DeM+KYptR6x1Xol+X7QDPM1SwrT/UAU=;
+        b=qzwv9J7bEr2AD3MgAWWrTH7c7Ntf7rAd0n+fMD5OT9z8KyRaLDzI9xO9YRNHxeVX/Q
+         kVi/3Cy6fp3g7K/v64e7Bwd8xvW07snxuAYm8dUsHP+8bm4rZgpvKRpEKy/OkZxoaEpO
+         kJevcAlZZQ8dwbWtKfNtAoWsMd0HUt9XXRQFGbjkH3+vMhF6aODK7myZ+UXRZ6u/f5ih
+         vvpcs8wC9DhY3tPs0Sy8iuVWNwWOw3/KEX4D7VgdJWiBDwPMXtIVthdANsC51RyDzco/
+         3j33mM5wzMOOy51wNjYlhpNIDYnTuLxS1ifLXhEBVXG0+UlpU+GkCGO4YvDfvQAjpmLj
+         urKg==
+X-Gm-Message-State: AOJu0YzX57RxO8uqSHC7lbp+OCX53sITpVG/Zjdo/qSEKtEFiHgatQeO
+	ZaJRzzVd3jKvoNTnpdg4Dyb3rUyWptZ5v71QJneNKAHrZMnLQSFnVimS66S3l5CpTtg=
+X-Gm-Gg: AfdE7cnjybWChRh9YPsfGxSD5B7Gq11uK4pz7MqjQGfKeGcAZ1umB9MiCxVJ8b9c+LN
+	miY19tR5Rzl0FlIAwfldpcLTr7pWfO8aygo3NhtNvZU0TxWOmGOp3x6GXiKEy5Ee1wx5w2va0jM
+	2qP2qNlF671Gbl8vYzdK4EedeqJAzncWyupcZx8WkyM/wZ0k/AkcSLuW0nCFhv+7087nGeS2kfN
+	kmgHG0AlpvYS4jwnSEGVrjq1lUo2NGtUUqO/EF1n/yHTwOfGNTk/a9w2OzAWnhYQZinMXvRrO3k
+	BpzVKSbcnXPVxJZ0Y2Wa25/no3S/peVJ0meeQ6rIhjiWKzJvB/TW5EsuQJ17YL/w8XFEXyJEgEs
+	ipLf3wc7RlZuXdbgHp7OqKh48KJXYymVLul02o0F6jbVTlhQ6AaK94lXXdZG4zmoz5jZsIbuukW
+	4=
+X-Received: by 2002:a05:6a00:4fc4:b0:847:7f6a:c56d with SMTP id d2e1a72fcca58-8488967b436mr6947225b3a.30.1783904628530;
+        Sun, 12 Jul 2026 18:03:48 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9bf92bfsm90539215ad.28.2026.07.12.17.57.25
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84909673e32sm2292135b3a.56.2026.07.12.18.03.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 17:57:26 -0700 (PDT)
-Date: Mon, 13 Jul 2026 08:56:41 +0800
+        Sun, 12 Jul 2026 18:03:48 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen-Yu Yeh <chenyou910331@gmail.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] riscv: dts: sophgo: cv180x: Add PWR_GPIO
- controller
-Message-ID: <alQ3mqUPItCP2CVT@inochi.infowork>
-References: <20260710075917.159969-1-chenyou910331@gmail.com>
- <20260710075917.159969-3-chenyou910331@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Andy Chiu <andybnac@gmail.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH v6 0/8] RISC-V: KVM: Add Svadu/Zicfiss/Zicfilp FWFT support
+Date: Mon, 13 Jul 2026 09:02:53 +0800
+Message-ID: <20260713010302.303278-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260710075917.159969-3-chenyou910331@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_175727_889902_9620D173 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260712_180349_649624_D7A25F80 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +113,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 03:59:16PM +0800, Chen-Yu Yeh wrote:
-> The CV180x/CV181x family has an additional DesignWare APB GPIO
-> controller (PWR_GPIO) located in the always-on power domain at
-> 0x5021000. Add the node so that boards can reference GPIOs in this
-> bank, such as status LEDs.
-> 
-> Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
-> ---
-> The base address and interrupt number match the vendor SDK device
-> tree (cv181x_base_riscv.dtsi: gpio@05021000, PLIC interrupt 70,
-> i.e. SOC_PERIPHERAL_IRQ(54)). Verified on Milk-V Duo 256M hardware
-> via the onboard status LED on porte 2.
-> 
->  arch/riscv/boot/dts/sophgo/cv180x.dtsi | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> index 06b0ce5a2db7..25ad2bd265d7 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> @@ -160,6 +160,24 @@ portd: gpio-controller@0 {
->  			};
->  		};
->  
-> +		gpio4: gpio@5021000 {
-> +			compatible = "snps,dw-apb-gpio";
-> +			reg = <0x5021000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			porte: gpio-controller@0 {
-> +				compatible = "snps,dw-apb-gpio-port";
-> +				gpio-controller;
-> +				#gpio-cells = <2>;
-> +				ngpios = <32>;
-> +				reg = <0>;
-> +				interrupt-controller;
-> +				#interrupt-cells = <2>;
-> +				interrupts = <SOC_PERIPHERAL_IRQ(54) IRQ_TYPE_LEVEL_HIGH>;
-> +			};
-> +		};
-> +
+This patchset based on the patchset "RISC-V: KVM: Add Zicfiss/Zicfilp
+support".
 
-You should follow the device address order. not by the device name.
+The patch includes all the function of original patchset from Quan:
+adding the Svadu/Zicfiss/Zicfilp FWFT for the RISC-V KVM. And this
+patchset already passes the KVM unit test.
 
->  		saradc: adc@30f0000 {
->  			compatible = "sophgo,cv1800b-saradc";
->  			reg = <0x030f0000 0x1000>;
-> -- 
-> 2.43.0
-> 
+Test with the patch applied
+https://lore.kernel.org/all/20260618064406.14508-1-cuiyunhui@bytedance.com/
+
+Changed from v5:
+- https://lore.kernel.org/kvm/20260706022046.214956-1-inochiama@gmail.com/
+patch 1, 5:
+1. Switch to csr_read()/csr_write() to update csr
+patch 8:
+1. Fix the macro name.
+
+Changed from v4:
+- https://lore.kernel.org/kvm/20260701020746.170157-1-inochiama@gmail.com/
+patch 1:
+1. Use NACL for csr update
+2. Check ISA mapping before cleaning the ADUE bit
+patch 4:
+1. Clear the zicfiss csr during a VCPU reset
+2. Add zicfiss csr to num_csr_regs()
+patch 6:
+1. Cleanup SPELP after redirecting the trap
+patch 7:
+1. Use interrupt bit instead of number for masking/unmasking
+patch 8:
+1. Add missing entry for the test
+2. Fix the wrong comment.
+
+Changed from v3:
+- https://lore.kernel.org/kvm/20260607081105.993908-1-inochiama@gmail.com/
+1. rebase to the v7.2-rc1
+2. Tested with the updated Svadu patch
+3. Remove the dependency as it is already merged.
+
+Changed from v2:
+- https://lore.kernel.org/kvm/20260601084336.2601675-1-inochiama@gmail.com/
+1. rebase with Yong-Xuan's patch set
+2. Add SSP CSR context switch/set/get
+3. Move the software-check exception set/unset into FWFT
+4. Only delegate software-check exception when Zicfiss/Zicfilp is enabled.
+5. Make KVM SBI_FWFT_PTE_AD_HW_UPDATING depends on both Svadu and Svade
+   enabled.
+
+Changed from Quan's v1:
+- https://lore.kernel.org/kvm/cover.1764509485.git.zhouquan@iscas.ac.cn/
+1. rebase to the latest master.
+2. Split Svadu change as separate patch
+3. Fix all build error from the original series
+4. Remove the Svadu check in kvm_riscv_vcpu_config_ran_once() and in
+   favor of the FWFT.
+5. Remove the LPE/SSE setting bit in kvm_riscv_vcpu_config_ran_once()
+   (kvm_riscv_vcpu_setup_config() in original patchset)
+
+Inochi Amaoto (8):
+  RISC-V: KVM: Add support for Svadu FWFT features
+  KVM: riscv: selftests: add Svadu FWFT extension to get-reg-list test
+  RISC-V: KVM: Allow Zicfiss/Zicfilp extensions for Guest/VM
+  RISC-V: KVM: Add ssp context save/restore
+  RISC-V: KVM: Handle software-check exits for VCPU
+  RISC-V: KVM: Delegate SPELP bit to VS/VU mode if landing pad is
+    enabled.
+  RISC-V: KVM: Add support for control-flow integrity FWFT features
+  KVM: riscv: selftests: add Zicfiss/Zicfilp extension to get-reg-list
+    test
+
+ arch/riscv/include/asm/csr.h                  |   1 +
+ arch/riscv/include/asm/kvm_host.h             |   7 +
+ arch/riscv/include/uapi/asm/kvm.h             |  13 ++
+ arch/riscv/kvm/isa.c                          |   2 +
+ arch/riscv/kvm/vcpu.c                         |   7 +
+ arch/riscv/kvm/vcpu_exit.c                    |  11 ++
+ arch/riscv/kvm/vcpu_onereg.c                  |  68 ++++++-
+ arch/riscv/kvm/vcpu_sbi_fwft.c                | 183 ++++++++++++++++++
+ .../selftests/kvm/riscv/get-reg-list.c        |  90 +++++++++
+ 9 files changed, 380 insertions(+), 2 deletions(-)
+
+--
+2.55.0
+
 
 _______________________________________________
 linux-riscv mailing list
