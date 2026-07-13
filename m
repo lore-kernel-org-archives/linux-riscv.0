@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6A0C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 07:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50959C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 07:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rtk71SQNCPWlbApmQBIdrByvNyUyb2V//G8brKqVXSY=; b=kj+uKiYDNN3x8i
-	IQd643qdaoCdyicvJb8dxM0ljqtIOASDFCDyd+bINcs645lVn3QkZOrK8Vslsb/pzcR84jPpZM1vD
-	JfIPIOxLYqlWqVn69x6HvJ8f97iR6D5l6XvbcYrjo4PnawZeEqX9/lP0sn6xXJ9EdV0trTQXvJJlz
-	mt5X1BNeaPG5C4itiCVqkTGa0LQwuHMegvtawNb9vAM1TKbOPaQ9JIWVAC5Rl8diXelVcZVYB/AKC
-	47b7kdtjCDvVy+RmjKDyNpskb4vyaualOrAVw5Qesasimh8EK4jB4Fc1qBMBIhlsKeBzOIpBP5eVP
-	esMBxJSJVh8bq06oYZ1Q==;
+	List-Owner; bh=rWTaw5WEW4CV4QrEpN6sGHoJAPbDwXcRg4RQCM7n4mI=; b=qRo0UjLojoEEOv
+	tTVQq9BjP3y/O+Gb9kcRHEl0CBA/zEnnA4k6XFJ+EXBhIqqAM7XpL+60WBLGHvNragqkuqX2nsjhu
+	yhg/LP0Ay4T/ROX0zu7EKh15H6/hLv8j9kgJTLeaKaDwoiY80CKlBpEeIqumSUW6m1e2EKyuyKSKQ
+	9lYL05pLzwi0J1zFJomhZqzBtGnxn+JSmJ6WwJon+DoIs+HeBqKJUDISc8LyL7dXY0etB6yDOHIcf
+	iZIzKDhyS78ndM2ykfH7jskposcnMXkh+ETVhQWhjEB/KFPJVLj50TiHPVk7ZjsgowU6W1Rmfeqhy
+	28q6T2iMgMNOfYxEICtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAhF-00000008KBM-3RbX;
-	Mon, 13 Jul 2026 07:03:21 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wjAkE-00000008KiJ-31Xv;
+	Mon, 13 Jul 2026 07:06:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAhC-00000008KAk-45ex
+	id 1wjAkC-00000008KhO-3tnv
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 07:03:20 +0000
-Received: from [10.213.6.115] (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAAHF86rjVRqPpeSFw--.30299S2;
-	Mon, 13 Jul 2026 15:03:07 +0800 (CST)
-Message-ID: <7bcc6988-f225-44fb-b616-a3ca12632187@iscas.ac.cn>
-Date: Mon, 13 Jul 2026 15:03:07 +0800
+	Mon, 13 Jul 2026 07:06:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 506C543B0C
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 07:06:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F56D1F00ADF
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 07:06:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783926384;
+	bh=MaoMLNzrQSdilHBAPxvn7cFGYo6KCQRZiQrYmmdeSDg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=TbglOxZrZc+8ho1Z2BcK0IhS3egNUSq0c5Yekd6nxDBKZQhVPPnrHghm6ItjXrvW8
+	 myYXJ6x6lFh7QX5ecmuh/vq7Qwc4aN3eTk8kvvmFs1d8wRQY7vrvAGfQK8ML7sZ4Yj
+	 k2WeLrzUteazWoeRwgjCCUDZJ2+PWRLzL1ozd2prV95l5uW3ki91C/T/KpUndY2saf
+	 +I1D4H0CLwMJu74DptZISJOOYDmUct5uhnCyLsAUx2HSrcK3fC5VZsBannIxQYZ7Rq
+	 GNjV6d1+IgN8jsegZ7lli5dbQ5dULez5iyH6dt+oUZzipNLSJVSN9n9AB3HDQyztKw
+	 NLk2nciGwWqEA==
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-493c5220cb7so21544305e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 00:06:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqBBHNv4wOej3Lpn4WMGZvoKOL8HB5p8n9bTFD4bQC3HC9j5NhKG6GoVuxbKekK7lxv/1KP+gKC+Usw7A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm6YQQa3aXQurwy7TUlyzg9C3cAe/bCdt/l9DCMn7s+AiATujT
+	st6aLNrqYaKTxrfxnqX9zchclIbHBFSV9+UMmwTo0NdpioMXPMeSccC2QVRa2AWmfzFKtHkksfA
+	GYKxyfdinxDX9zMvt39rbQgnFilYR6ng=
+X-Received: by 2002:a05:6000:186c:b0:476:d13f:bb74 with SMTP id
+ ffacd0b85a97d-47f2dc9bac8mr8770361f8f.15.1783926382749; Mon, 13 Jul 2026
+ 00:06:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] mm/sparse-vmemmap: flush_cache_vmap() after
- hotplugging vmemmap
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton
- <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org
-References: <20260713-mark-after-vmemmap-populate-v6-0-b945ceba29d4@iscas.ac.cn>
- <20260713-mark-after-vmemmap-populate-v6-2-b945ceba29d4@iscas.ac.cn>
- <E058B2BD-768A-4949-B5F3-7CBAC1347410@linux.dev>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <E058B2BD-768A-4949-B5F3-7CBAC1347410@linux.dev>
-X-CM-TRANSID: rQCowAAHF86rjVRqPpeSFw--.30299S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cw1rWF48Cr47tFy8ur4kJFb_yoW8ZFyxpr
-	Z3C3WqkF4kJr45Aw4UZw1I9FZa9w43Kay8JFsYvr1j93s8Xr12gryakan29a48u3s5Ca42
-	k3yY93s5WFyDAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8Jr0_Cr
-	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07bnXd8UUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_000319_391264_D917AF79 
-X-CRM114-Status: GOOD (  15.97  )
+References: <20260707181957.433213175@kernel.org> <20260707190253.974626922@kernel.org>
+In-Reply-To: <20260707190253.974626922@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 13 Jul 2026 15:06:10 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTjW0RfZsJmHVAqrRsHpK4cJ+01G_Kkytt=0Wpm4sZpkg@mail.gmail.com>
+X-Gm-Features: AUfX_mzuKA4JwmuMUWB774bzpkP7q4a7PrJvxtp8N1GWwrENQwGP0BULxiqlyqc
+Message-ID: <CAJF2gTTjW0RfZsJmHVAqrRsHpK4cJ+01G_Kkytt=0Wpm4sZpkg@mail.gmail.com>
+Subject: Re: [patch 06/18] riscv/syscall: Use syscall_enter_from_user_mode_randomize_stack()
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+	Michael Ellerman <mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
+	linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, 
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, 
+	Mark Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, 
+	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+	Richard Henderson <richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger <richard@nod.at>, 
+	Chris Zankel <chris@zankel.net>, linux-arm-kernel@lists.infradead.org, 
+	linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-um@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
+	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-arch@vger.kernel.org, =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>, 
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +96,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 7/13/26 14:56, Muchun Song wrote:
->
->> On Jul 13, 2026, at 14:15, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
->>
->> section_activate() does not flush TLB after populating new vmemmap
->> pages. On most architectures, this is okay. However it is a problem on
->> RISC-V since there the TLB caching non-present entries is permitted,
->> which causes spurious faults on some hardwares.
->>
->> This seems to be most easily reproduced with DEBUG_VM=y and
->> PAGE_POISONING=y, which causes these newly mapped struct pages to be
->> poisoned i.e. written to immediately after mapping.
->>
->> Extend the RISC-V flush_cache_vmap() to also handle the vmemmap range,
->> and call it after hotplugging vmemmap, which gets the possible spurious
->> fault handled in the exception handler.
->>
->> At least for now, the only other architecture with both
->> SPARSEMEM_VMEMMAP and flush_cache_vmap() is PowerPC, which has a similar
->> problem with newly valid PTEs. But there flush_cache_vmap() is just a
-> PowerPC is actually unaffected here since it achieves the desired effect
-> via vmemmap_set_pmd. However, your patch will pave the way for a great
-> cleanup to remove PowerPC's architectural vmemmap_set_pmd, given that it
-> already relies on flush_cache_vmap() for the required barrier operations.
-
-I agree. I was just talking about PowerPC in general, which requires a
-ptesync after "newly valid PTEs". In this sense, PowerPC in general is
-affected.
-
->> ptesync. So it should be safe to do this for generic code while having
->> minimal performance impact.
-> After the cleanup for the PowerPC, it will emit only once ptesync operation,
-> so it will be a minor performance improvement.
-
-I haven't mentioned the future cleanup because, well, future. Otherwise
-I agree on this as well.
-
->> Suggested-by: Muchun Song <muchun.song@linux.dev>
->> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> Reviewed-by: Muchun Song <muchun.song@linux.dev>
-
-Thanks for your review.
-
-Vivian "dramforever" Wang
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdWwgOCwgMjAyNiBhdCAzOjA24oCvQU0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gc3lzY2FsbF9lbnRlcl9mcm9tX3VzZXJfbW9kZV9yYW5kb21p
+emVfc3RhY2soKSByZXBsYWNlcwo+IHN5c2NhbGxfZW50ZXJfZnJvbV91c2VyX21vZGUoKSBhbmQg
+dGhlIHN1YnNlcXVlbnQgaW52b2NhdGlvbiBvZgo+IGFkZF9yYW5kb21fa3N0YWNrX29mZnNldCgp
+Lgo+Cj4gVGhlIGFkdmFudGFnZSBpcyB0aGF0IGl0IGFwcGxpZXMgdGhlIHN0YWNrIHJhbmRvbWl6
+YXRpb24gcmlnaHQgYWZ0ZXIKPiBlbnRlcl9mcm9tX3VzZXJfbW9kZSgpIGFuZCB0aGVyZWJ5IGF2
+b2lkcyB0aGUgb3ZlcmhlYWQgb2YgZ2V0L3B1dF9jcHVfdmFyKCkKPiBhcyB0aGF0IGNvZGUgaXMg
+aW52b2tlZCB3aXRoIGludGVycnVwdHMgZGlzYWJsZWQuCj4KPiBObyBmdW5jdGlvbmFsIGNoYW5n
+ZS4KPgo+IFNpZ25lZC1vZmYtYnk6IFRob21hcyBHbGVpeG5lciA8dGdseEBrZXJuZWwub3JnPgo+
+IENjOiBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9yZz4KPiBDYzogUGFsbWVyIERhYmJlbHQg
+PHBhbG1lckBkYWJiZWx0LmNvbT4KPiBDYzogbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+Zwo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jIHwgICAgNSArLS0tLQo+ICAxIGZp
+bGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDQgZGVsZXRpb25zKC0pCj4KPiAtLS0gYS9hcmNo
+L3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+
+IEBAIC03LDcgKzcsNiBAQAo+ICAjaW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4gICNpbmNsdWRl
+IDxsaW51eC9pbml0Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC9pcnFmbGFncy5oPgo+IC0jaW5jbHVk
+ZSA8bGludXgvcmFuZG9taXplX2tzdGFjay5oPgo+ICAjaW5jbHVkZSA8bGludXgvc2NoZWQuaD4K
+PiAgI2luY2x1ZGUgPGxpbnV4L3NjaGVkL2RlYnVnLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9zY2hl
+ZC9zaWduYWwuaD4KPiBAQCAtMzMzLDkgKzMzMiw3IEBAIHZvaWQgZG9fdHJhcF9lY2FsbF91KHN0
+cnVjdCBwdF9yZWdzICpyZWcKPgo+ICAgICAgICAgICAgICAgICByaXNjdl92X3ZzdGF0ZV9kaXNj
+YXJkKHJlZ3MpOwo+Cj4gLSAgICAgICAgICAgICAgIHN5c2NhbGwgPSBzeXNjYWxsX2VudGVyX2Zy
+b21fdXNlcl9tb2RlKHJlZ3MsIHN5c2NhbGwpOwo+IC0KPiAtICAgICAgICAgICAgICAgYWRkX3Jh
+bmRvbV9rc3RhY2tfb2Zmc2V0KCk7Cj4gKyAgICAgICAgICAgICAgIHN5c2NhbGwgPSBzeXNjYWxs
+X2VudGVyX2Zyb21fdXNlcl9tb2RlX3JhbmRvbWl6ZV9zdGFjayhyZWdzLCBzeXNjYWxsKTsKClJl
+dmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KCi0tIApCZXN0IFJlZ2FyZHMK
+IEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
