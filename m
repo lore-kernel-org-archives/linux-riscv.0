@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0CAC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 01:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3B6C44501
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 01:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iXvRQVtIR2+qswEKX+4CJQ+5l1XbW7cgd/1Mn0gJ1Iw=; b=ZBKUMLpKzyi/1Y
-	cZpF9XFcLXXhnKe4bnOI9ix0gC42PKE43AgCGOa+TvfMksdiuzhtgDAOEr/2Ad3RTRduyTdRrubHf
-	I2d8+YlC6RK/Uv3mq4na0bR/2p6tFkCJsR/78roDFPEpQvxdLICcc20JDSQ7dqz/HAAZKNlKByZ/5
-	B3T/3PBGhQsCX4IZ7oS9B5yatWIEavTMN2v9FwoJSB0zvNM4/lvwJXnPgZgkTGIo9OR3qMIdM4CQb
-	Ii1m4HM77lWlD+sd1oLkjaGuH0XBuNa87RvJ+5vLX4DXl6X+VjrFaoklDuuB3SnU6dE3AKSlrNUcA
-	U0Ms6iVjhYWnXTMw0oOQ==;
+	List-Owner; bh=Cd2M5V8TM1o0VxxGxpFINKxzVdBq4xiQh4t626vdm+M=; b=vlPuxZcLDc/RzH
+	O/aJpbxzZDRSHZjkj942PCAcCixO5ECREHjwJYNgAaeKhK11mhKeCBfeGNoTvoXVbe3T8stN3yF78
+	WIEIjmjpN6KolZDhs0BjlKLWZk0HVrZOwvi6bFhrKTqBJufPOOSfx5qVC7TAW0e/LnKBxdHAyHOEy
+	yQJZLJuqWiMOD0OOoEjotNYXjUx2bihaBusqGE6rLDx1nIQoKwIy0EZzodqfYemFD591OEzPA3XO+
+	LtHMhYunJD/5AdE16v0C6UeW/CP/KpFK6DbiJTc09QEdMZNNoM3Y4iBe6H/Z2ozaTsiwZfLzxaaBR
+	t12iV/9oGeljfagmwZXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj5Yv-00000007vjE-1Y4o;
-	Mon, 13 Jul 2026 01:34:25 +0000
-Received: from [113.46.200.220] (helo=canpmsgout05.his.huawei.com)
+	id 1wj5ai-00000007vqy-2U2P;
+	Mon, 13 Jul 2026 01:36:16 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj5Yq-00000007viV-3VaC
+	id 1wj5af-00000007vqZ-1Dlv
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 01:34:24 +0000
+	Mon, 13 Jul 2026 01:36:14 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=nIM4m5e9jGc2sCxhzH+mYlnpqbqKe9faxrdPztB+tkM=;
-	b=As7yTkFfrwDJVeeOgWTYV+UMEyVi3b+jQMQX7rfkp/tm1wuMS9j4Dw2TgZKn8WKc6c7OKl2xJ
-	4J+tM+ADkcJXS8glDkArkowYGIiT2JlAmOdOPIng5dw3tqTx9gh09KANnSex0ZsCV4lA0wnaDZY
-	fsG/wYMyPD4R0cNbSBIwSTI=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gz4Tr5crRz12LF7;
-	Mon, 13 Jul 2026 09:24:16 +0800 (CST)
+	bh=iSKyRunqi7Efa2Mu72Zd3vRWZxizzKBzPxtAO2+QtZI=;
+	b=OhHsWWrFqDF4iw01ju/V/wuedSNvk4Qd5RncBOtws+2WzWqGVxRMLU8DWnT+L5aKc3F63rC9o
+	zSQF8j/UbvpacJIgfpEFOqJvNSjHOZU8gpv7Avy6L6yPLnkBEoTgPNgjsMMuUcSswDQ5mIW5KFE
+	AkTfC23kF7UYdY3K6BSmLV8=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gz4Xm1fF1zmV8S;
+	Mon, 13 Jul 2026 09:26:48 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id DD07540561;
-	Mon, 13 Jul 2026 09:33:55 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 559ED4055B;
+	Mon, 13 Jul 2026 09:36:05 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 13 Jul 2026 09:33:54 +0800
-Message-ID: <7480b818-d44c-47f5-944a-5f17f3429d09@huawei.com>
-Date: Mon, 13 Jul 2026 09:33:53 +0800
+ 15.2.1544.11; Mon, 13 Jul 2026 09:36:04 +0800
+Message-ID: <ad9b5f8f-7c4d-4fbb-b0a3-69859ee8b365@huawei.com>
+Date: Mon, 13 Jul 2026 09:36:02 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [patch 1/4] entry: Rework syscall_audit_enter()
+Subject: Re: [patch 2/4] entry: Rework trace_syscall_enter()
 To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
 CC: =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>, Michael Ellerman
 	<mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>,
@@ -60,15 +60,15 @@ CC: =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>, Michael Ellerman
  Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>, Jonathan Corbet
 	<corbet@lwn.net>, Radu Rendec <radu@rendec.net>
 References: <20260712134433.549076055@kernel.org>
- <20260712141346.576865340@kernel.org>
+ <20260712141346.639115923@kernel.org>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260712141346.576865340@kernel.org>
+In-Reply-To: <20260712141346.639115923@kernel.org>
 X-Originating-IP: [10.67.109.254]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_183421_553487_BCD30B5C 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260712_183613_641531_8C99B494 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,71 +88,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 7/13/2026 5:25 AM, Thomas Gleixner wrote:
-> Move it out of line and let it reread the syscall number on it's own. That
-> makes the low level entry code denser and allows to move the reread to the
-> call site of syscall_trace_enter() once the tracer is fixed up.
+> Reread the syscall number from pt_regs and stop returning the eventually
+> modified syscall number.
+> 
+> That moves the reread to the end of the syscall_trace_enter() and prepares
+> for moving it to the call site.
+> 
+> No functional change.
 > 
 > Signed-off-by: Thomas Gleixner <tglx@kernel.org>
 > ---
->  include/linux/entry-common.h  |   14 +++-----------
->  kernel/entry/syscall-common.c |   10 ++++++++++
->  2 files changed, 13 insertions(+), 11 deletions(-)
+>  include/linux/entry-common.h  |   10 ++++------
+>  kernel/entry/syscall-common.c |    9 ++-------
+>  2 files changed, 6 insertions(+), 13 deletions(-)
 > 
 > --- a/include/linux/entry-common.h
 > +++ b/include/linux/entry-common.h
-> @@ -60,16 +60,7 @@ static __always_inline bool arch_ptrace_
+> @@ -58,7 +58,7 @@ static __always_inline bool arch_ptrace_
+>  }
+>  #endif
 >  
->  long trace_syscall_enter(struct pt_regs *regs, long syscall);
+> -long trace_syscall_enter(struct pt_regs *regs, long syscall);
+> +void trace_syscall_enter(struct pt_regs *regs);
 >  void trace_syscall_exit(struct pt_regs *regs, long ret);
-> -
-> -static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
-> -{
-> -	if (unlikely(audit_context())) {
-> -		unsigned long args[6];
-> -
-> -		syscall_get_arguments(current, regs, args);
-> -		audit_syscall_entry(syscall, args[0], args[1], args[2], args[3]);
-> -	}
-> -}
-> +void syscall_enter_audit(struct pt_regs *regs);
+>  void syscall_enter_audit(struct pt_regs *regs);
 >  
->  static __always_inline long syscall_trace_enter(struct pt_regs *regs, unsigned long work,
->  						long syscall)
-> @@ -111,7 +102,8 @@ static __always_inline long syscall_trac
+> @@ -96,16 +96,14 @@ static __always_inline long syscall_trac
+>  			return -1L;
+>  	}
+>  
+> -	/* Either of the above might have changed the syscall number */
+> -	syscall = syscall_get_nr(current, regs);
+> -
 >  	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT))
->  		syscall = trace_syscall_enter(regs, syscall);
+> -		syscall = trace_syscall_enter(regs, syscall);
+> +		trace_syscall_enter(regs);
 >  
-> -	syscall_enter_audit(regs, syscall);
-> +	if (unlikely(audit_context()))
-> +		syscall_enter_audit(regs);
+>  	if (unlikely(audit_context()))
+>  		syscall_enter_audit(regs);
+>  
+> -	return syscall;
+> +	/* Either of the above might have changed the syscall number */
+> +	return syscall_get_nr(current, regs);
 
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
->  
->  	return syscall;
 >  }
+>  
+>  /**
 > --- a/kernel/entry/syscall-common.c
 > +++ b/kernel/entry/syscall-common.c
-> @@ -1,5 +1,6 @@
->  // SPDX-License-Identifier: GPL-2.0
+> @@ -8,14 +8,9 @@
 >  
-> +#include <linux/audit.h>
->  #include <linux/entry-common.h>
+>  /* Out of line to prevent tracepoint code duplication */
 >  
->  #define CREATE_TRACE_POINTS
-> @@ -21,3 +22,12 @@ void trace_syscall_exit(struct pt_regs *
+> -long trace_syscall_enter(struct pt_regs *regs, long syscall)
+> +void trace_syscall_enter(struct pt_regs *regs)
 >  {
->  	trace_sys_exit(regs, ret);
+> -	trace_sys_enter(regs, syscall);
+> -	/*
+> -	 * Probes or BPF hooks in the tracepoint may have changed the
+> -	 * system call number. Reread it.
+> -	 */
+> -	return syscall_get_nr(current, regs);
+> +	trace_sys_enter(regs, syscall_get_nr(current, regs));
 >  }
-> +
-> +void syscall_enter_audit(struct pt_regs *regs)
-> +{
-> +	long syscall = syscall_get_nr(current, regs);
-> +	unsigned long args[6];
-> +
-> +	syscall_get_arguments(current, regs, args);
-> +	__audit_syscall_entry(syscall, args[0], args[1], args[2], args[3]);
-> +}
+>  
+>  void trace_syscall_exit(struct pt_regs *regs, long ret)
 > 
 
 
