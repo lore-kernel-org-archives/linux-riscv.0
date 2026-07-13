@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C7DC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 17:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDC4C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 17:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RhttdtFAW4PEqd+RbLg+dB4ECvEe+t1Y2tvALVCPD9w=; b=cudfX71bVoIRYw
-	KXSoridYZs4GBFyxNfr4gssD0C6+E5B89f8J9Tmtqy3TLEt2MHzueIZCNWW6auJlFzDPXNjTo56QF
-	Xdtdx6w8P+QS6deBlSwIAGH6vq6EtOCHe7sc6Pq/BYP+biwLaDVq1bYEPhgAp3X+EOCw6x8LQhlSw
-	nwMzwG+9fadaPJ8sHBn7zutKXkRyo0ySYduY2rdh78RisSEcO78H6T7GElNiSQziF8UmTh4VdInmK
-	1YplDvHPZuR4J6o4lkhdgtIbXDSaX0Fwjln3qmTgXKS1ymGv97//UU8/DWYOMwZrrT9NQIPD2wfzI
-	BcQTe/Zv95an1GQ74f6A==;
+	List-Owner; bh=QAaHcNc6Zy+W1ljO7SqgMoNcVNxaVHDU4HSzIFc5h7s=; b=CQhVHcPi3q+ICK
+	xtWOTDrRfzSg2pXGCHqxTUoCLm1ngoVFcJnTDW9ZTLPG2r6pCXnIBxHWlk0bmZLulRv96r0yEbt8i
+	WV2bvp7P71lNS1BZB0NZhHNJ7YGGBQpHIKPMUAS8S5B+ceaLj/DlWgqo1KX01UZSTRCx2vskUenz6
+	5IDaC68N94aQgDuf2bis6T2N7/74T4pKb6pkvCgBwYhpwBtk+ClayyLLEgWiP50GG+YlEO05cBAyS
+	h1t4vlGxwI251yrzVX5cMSvo5KtPhWY1kM/iYftyaAy1rLvSTNcR6NfjkICxByZB6NH7bKPb1a0A6
+	PX7lqxopuT/LCZf5fg8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKdb-0000000A8CY-3q3p;
-	Mon, 13 Jul 2026 17:40:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjKmn-0000000A94s-3kRx;
+	Mon, 13 Jul 2026 17:49:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKdb-0000000A8CS-0fhV
+	id 1wjKmm-0000000A94m-2vCM
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 17:40:15 +0000
+	Mon, 13 Jul 2026 17:49:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C6B442E5A;
-	Mon, 13 Jul 2026 17:40:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6D311F000E9;
-	Mon, 13 Jul 2026 17:40:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B64E160008;
+	Mon, 13 Jul 2026 17:49:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0C661F000E9;
+	Mon, 13 Jul 2026 17:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783964414;
-	bh=zFtG0nvrj3NH4oQfVqsdZuKnWzNdjcmSutSX77OAy68=;
+	s=k20260515; t=1783964983;
+	bh=dGy4xA7VBrH77+dnE3wGOeN0tFiTv5YW0W3wU8tF+5k=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=ncnNgxNQDHgL/D4fmP+v4PhhqBUNuku1df2jFag9T79beLLfxxUntnTHnUA7vCIyg
-	 FzKcxCXVZzM1/wWCDDr7EDdBuOHmAJ8MWgPjndb4wY617EwPMKTkpte5UXedrvf/C9
-	 qgUk+AOlvQTaTBrzYv4iEghO8R54/vgloB8VKh2QCCkTDJ2yzexOsq0c6/mKGBF6AY
-	 +RftqSaNkxgpfRDGjoDpHjZVbpG64H+pk3hp86xk46Bgb2+xisyPmTTyRsEYdplUBf
-	 ntDrlW7ZUBQIdDSJzEMsXTXRhSUTvpqKWWZf1th2fuUrYaEsBFWgZYNhPb6rxiFzuM
-	 JOIzborr4J6Gw==
-Date: Mon, 13 Jul 2026 11:40:10 -0600 (MDT)
+	b=QGavDvgiJfS+BebQFG3SQ5Q/pvOKfYsBgwhR+Sgb0uZCIY5fP4/IzcD00buyPBpWl
+	 x+dWFVvczrCExOr7qXwhh5sLQdtAKrmB3MZS5DQA2Y62xFiHZLi/TxByA8oDUszHRv
+	 0ZmVp/kPukI1Dy01EAKNhVHQKy4NqR+hulZETuUHaw4yFqzvNjVpS7bS9a7PCHIBu9
+	 HUiOiIr3UT/3do4poqXhCsQj+eQJbKC5txQNoN/mbE08v6XkaNKzwu1YybtjbK5eTz
+	 92QoYOAW1dN+AC4BzV/SIG0LrLO2+u1xiwU6131Y7rpK0vLJmesdC4maOpOUd3PJ1w
+	 jiiEPPDxsq2BQ==
+Date: Mon, 13 Jul 2026 11:49:42 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Rui Qi <qirui.001@bytedance.com>
-cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, 
-    Alexandre Ghiti <alex@ghiti.fr>, Andy Chiu <andybnac@gmail.com>, 
-    =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, 
-    "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, 
-    open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Gate FUNCTION_ALIGNMENT_4B on DYNAMIC_FTRACE
-In-Reply-To: <20260706130415.463682-1-qirui.001@bytedance.com>
-Message-ID: <03933583-e2ce-ead0-65c8-320e43d9be97@kernel.org>
-References: <20260706130415.463682-1-qirui.001@bytedance.com>
+To: Xu Lu <luxu.kernel@bytedance.com>
+cc: Paul Walmsley <pjw@kernel.org>, paul.walmsley@sifive.com, 
+    palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    apw@canonical.com, joe@perches.com
+Subject: Re: [External] Re: [PATCH RESEND 1/2] riscv: mm: Apply svinval in
+ update_mmu_cache()
+In-Reply-To: <CAPYmKFt3t0C0R4iVea=MRf0zu4F9gkkanPsepqC+XEJLAT8ecQ@mail.gmail.com>
+Message-ID: <7a82645c-504e-2db6-165f-c4593982f04e@kernel.org>
+References: <20250901114141.5438-1-luxu.kernel@bytedance.com> <20250901114141.5438-2-luxu.kernel@bytedance.com> <dcd61aba-8622-b14d-6466-44a7f0dc0615@kernel.org> <CAPYmKFt3t0C0R4iVea=MRf0zu4F9gkkanPsepqC+XEJLAT8ecQ@mail.gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,34 +71,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026, Rui Qi wrote:
+On Mon, 13 Jul 2026, Xu Lu wrote:
 
-> The FUNCTION_ALIGNMENT_4B select forces the whole kernel to be built
-> with -fmin-function-alignment=4. This alignment is only needed so the
-> patchable-function-entry NOPs, which arch/riscv/Makefile emits under
-> CONFIG_DYNAMIC_FTRACE, can be patched reliably on RISCV_ISA_C=y builds
-> where compressed instructions otherwise allow 2-byte function
-> alignment.
-> 
-> The select is currently gated on HAVE_DYNAMIC_FTRACE, a capability bit
-> that is selected whenever the toolchain supports dynamic ftrace, rather
-> than on whether tracing is actually enabled. As a result every
-> RISCV_ISA_C=y build gets 4-byte function alignment across the entire
-> kernel even when function tracing is disabled, needlessly growing the
-> kernel image and wasting instruction cache for a feature that is not
-> in use.
-> 
-> Gate the select on DYNAMIC_FTRACE instead, matching the condition under
-> which arch/riscv/Makefile emits -fpatchable-function-entry, so the
-> alignment is only applied when it is actually needed.
-> 
-> Fixes: c41bf4326c7b ("riscv: ftrace: align patchable functions to 4 Byte boundary")
-> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+> Yes, it makes more sense. Go ahead please.
 
-Thanks, queued for v7.2-rc.
+Great, thanks, I queued the two split patches for v7.3.
+
 
 - Paul
-
 
 _______________________________________________
 linux-riscv mailing list
