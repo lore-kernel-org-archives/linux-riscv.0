@@ -4,89 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77EFC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 21:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9796DC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 21:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Q57lXPLBr8BFM8bChnaDNiFPXc+ga5DelKnhjFj5FE=; b=hrYAVoHNgQxHN4
-	Y8/nhcjUf38rRYLoHfYY9YeoONd+MSnWSP9+GdhiQ/of65Mfzh30aGtUjLmLGeBTeZYNpZGkL9S24
-	angf7LPZ/Dlh5NZyUk60STpP2zhcgjiIiXmdcP4rTgI4bljwGdGxNF/5RWYC6TEF76a6LZl2LGW6z
-	oD1Y+yMYnhxlOz7U1piRiiNIEfJwRaZ/pTTLqKly/TwWx3HP/Quud7GvHfvZ0cWmFcWgHLPsHx7Fn
-	7lpJPb45fCQXBXD2IZu56Ftt/O0WKFLN7PDyjcRLuY3uSKvhrQNUC/fpoNMmXZdYOA243D9ITBYqc
-	jb1Vb7wNlndNT4SaIv3w==;
+	List-Owner; bh=6/srZP7Q1eguGjF+eAoaMxoEIcYRiNnFnJyu/xrcbSM=; b=Pb1MKUEkcCvhkB
+	slyGuMD8VLEqjnp/QHz/BwAc37/mPMxXzlfzDKr+6VyF3qb0PAz1cIby6kEO8PmcU3fITJvCtPyNS
+	9cElN2wB5MgJh0NQo5NOvXtdr5NVB6iFw9NF7VikKR8oXhNqXV/sL90qM9XQF+C9F+AFh4E9VPRJI
+	LZECfEd1Z1KPPJjVoL1PYD2UaC156H9OmDMatN/fntPoACwB092M7SxXw0V3RSvh/2+Ler4gEnW/u
+	gfaSYoeB6SD1G/WOfLE66n/dWatuKsHFuJcncmYDBo8emOTLLLp+IsBLR/X/0+ptSr2MhBiY3/jCJ
+	JTDFUdn1rShWKT7amWbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjO7b-0000000AR3i-035U;
-	Mon, 13 Jul 2026 21:23:27 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wjOO1-0000000ASty-3A12;
+	Mon, 13 Jul 2026 21:40:25 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjO7X-0000000AR38-41xT
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 21:23:25 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493f431e317so3043355e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 14:23:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783977801; x=1784582601; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HxoV5fOrooveUw60/Ip0S/Xhhh8viNbeuiWPNBZqotQ=;
-        b=e42PGQKmukKTXxvMRf+Om4/juzUAYqtXl72fJUC4VLdMgH0SZUB5UWAv5yy+YDbkpo
-         TiOeFgPrB1CNBWAvKrJz+XMcEq42931IBxM0IB1E89TBP017rT8d2c/0f9RoQBUZ2CK/
-         ejJ308D1tXTZ/9ZUIuXK3bgeQeX08puDVBTbT5omHNzHyrlgLIA/xSu7agzN38jefnHB
-         dxdAS7DZGfQTWGhzQ6p1wAFBzd1Biad1m4grxIetSnx/77tanbRTimIRKKzroQefZbM7
-         41nsIRlEhSx/zgPi16gP0UCp6Bb3pPcax7ftRzdn23Jn/qoyJXb4is3A9xNQaAxl6I3K
-         WL3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783977801; x=1784582601;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HxoV5fOrooveUw60/Ip0S/Xhhh8viNbeuiWPNBZqotQ=;
-        b=cjMZxJaELjN4281LR1KahXuHGRR05g9dkzu2zaLoYztdDcMP1BrrqotJI3Zuf8U6Gw
-         F83mG+yM3c251zuFmyUq1CxfN7OAvCPtCQaCUBXuKFUhGmYn5T+LXCwOtn5jhX42/fuH
-         6Js3CuV1LFpLrnkrSJHGceA4bqn4zysY92Ldu2WeaRIuqF8FR0CaGnojUAwbCH1VxPbM
-         g7H56i8fbl5DvBKYAkPeMq0tc02ZhGN1/rXytguTC0vjuJhE83mrEyvoRmIjPNdVuAaO
-         IaOcDanylFI+IO8ovtAPam/Fa0+2zphdynHhmXTByfaTmTmHjFD4KUmATHzb13H5lB7S
-         imwA==
-X-Forwarded-Encrypted: i=1; AHgh+RrwE3Bots71m+QxPaXKrVROLzgOrtQ4TINp50qaj2nVfoPV3Mv4GoPs8KzBSqw1nAkPFBJoqVL/jDzMSg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziuEDwx+i7wcA4Crag04e9Dz/9gbmYnu8q7cTAv6T+Sq/nujMw
-	kr1SSDMIkTVuyQd1/5GUTbqDXsNiAnPaPLREQu6zDiwMOkYEqRrBcxQo7dEP0K+x
-X-Gm-Gg: AfdE7ckUa3u7EX0pItWiXvz4RBeU3xTRpoJFTp6LQuTMz8MWG5YAFhooFzZAnxw5E/c
-	gbnDK/4mNYe57nCr1FsG2x7EyKPm/0koGDWQuI/XebUseQr4MVz+CByuPUYoD8jQ11jWuHF3EuO
-	OxVahfKz2iGvoel3y/A10jNSzvYJ4t5/GwgoSPvS6AuPezYOFQS+xeJ18qDbPGRJT0oZaGOvNHC
-	Sb5Jhx2KvKkfhMHeoVIBxvUwTJvILGM6YX5asVKb3J40yFWmTMregJ44fcNgvlw8DCKA7pP3m/y
-	OrO2PEt8C1DBDvyWn51LRbm2r6iuX/wyPz8uxiq40lBUcEmoyVJW2WpNOdDCOX/IO/nv3i/pU7I
-	MSvbcT3HYU+qYUEpLGgF3mtTqMpyBOKTsdKsALt5f3JkGsithVtJ7WUFg3o8kyFVR3zggMF7srj
-	fjvY/P6lRbOnRncXNPHO2SftREV3QcRkYUxmEdOIj0uY9CTXR3bg==
-X-Received: by 2002:a5d:64ef:0:b0:475:f0d1:eb5a with SMTP id ffacd0b85a97d-47f2dd132e0mr13483336f8f.53.1783977801424;
-        Mon, 13 Jul 2026 14:23:21 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464c30a9sm2251049f8f.31.2026.07.13.14.23.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 14:23:21 -0700 (PDT)
-Date: Mon, 13 Jul 2026 22:23:20 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: "Rui Qi" <qirui.001@bytedance.com>
-Cc: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Andy Chiu" <andybnac@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, "open list:RISC-V
- ARCHITECTURE" <linux-riscv@lists.infradead.org>, "open list"
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Gate FUNCTION_ALIGNMENT_4B on DYNAMIC_FTRACE
-Message-ID: <20260713222320.12ad21f3@pumpkin>
-In-Reply-To: <20260706130415.463682-1-qirui.001@bytedance.com>
-References: <20260706130415.463682-1-qirui.001@bytedance.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1wjONy-0000000AStH-2Ukq;
+	Mon, 13 Jul 2026 21:40:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783978823; x=1815514823;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=bTce3NANGkMxQwl5/BPNI0R4Y8vE5s2I+Fl2WAV2VZU=;
+  b=cm9pnHT98Jjq1CPfmYkMF4X59BaOVTbqQOGkbZw3g3tVvSrT78JYT0Ot
+   fWyOKrLKdHnkVizzYLGoPQtA12/s1KeNpcAHX7ckNEvpEK1CnS+9qO+VD
+   mPtzUyA98JEZx4s06c7Hpn6Oaax7VN3RlBdKQ9TduNAkYkS6F7lmI2fpS
+   fnWrHRZkLgkwsN5r5S5MnUv4P4lwaox5Qh/ZEYqgS0mSks9DHJROqxJu9
+   YGSVIvPCSBl/fqKVae3K0sXHim0fTqsEz5uctqpYuUqe546MeWYupQanq
+   DcWaTk/R0LZc37Fvy60xi4TW/sS+e1w1xe4rwQ2TasonK0iE2HiRuNtC2
+   Q==;
+X-CSE-ConnectionGUID: dGwLtxPkQQmmQt03cvREFQ==
+X-CSE-MsgGUID: s3FhLtc5Rj6aLmdaV0mHwA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84613468"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84613468"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 14:40:21 -0700
+X-CSE-ConnectionGUID: zjSlVSWlTm2TZi8lRy7/jQ==
+X-CSE-MsgGUID: Ohjm+R33SxugWQdGgvdrlA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="253927987"
+Received: from smithj1-mobl2.amr.corp.intel.com (HELO [10.125.108.83]) ([10.125.108.83])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 14:40:18 -0700
+Message-ID: <14e250db-1641-4085-8d13-02f819657d5f@intel.com>
+Date: Mon, 13 Jul 2026 14:40:18 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
+ folded pgtable case in effective_prot()
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-arch@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ x86@kernel.org, linux-mm@kvack.org, kasan-dev@googlegroups.com,
+ linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org
+Cc: linux@armlinux.org.uk, akpm@linux-foundation.org,
+ ankur.a.arora@oracle.com, rppt@kernel.org, linmag7@gmail.com,
+ chleroy@kernel.org, klarasmodin@gmail.com, chenhuacai@kernel.org,
+ kernel@xen0n.name, kas@kernel.org, zhangtianyang@loongson.cn,
+ wangyuli@aosc.io, tsbogend@alpha.franken.de, ljs@kernel.org, jgg@ziepe.ca,
+ catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+ ryan.roberts@arm.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
+ baolin.wang@linux.alibaba.com, tj@kernel.org, kevin.brodsky@arm.com,
+ anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de, hpa@zytor.com,
+ hannes@cmpxchg.org, mhocko@kernel.org, qi.zheng@linux.dev,
+ shakeel.butt@linux.dev, kasong@tencent.com, baohua@kernel.org,
+ axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com,
+ ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+ dvyukov@google.com, vincenzo.frascino@arm.com, anshuman.khandual@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com, ardb@kernel.org,
+ guoren@kernel.org, yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
+ dinguyen@kernel.org, schuster.simon@siemens-energy.com,
+ wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech, muchun.song@linux.dev,
+ vishal.moola@gmail.com, namcao@linutronix.de, pavel@kernel.org,
+ djbw@kernel.org, yu-cheng.yu@intel.com, baolu.lu@linux.intel.com,
+ Jonathan.Cameron@huawei.com, coxu@redhat.com, andreas@gaisler.com,
+ liam@infradead.org, vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
+ geert@linux-m68k.org, shorne@gmail.com, jonas@southpole.se,
+ stefan.kristiansson@saunalahti.fi
+References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
+ <20260713135614.1618183-11-yeoreum.yun@arm.com>
+ <c3edfb13-08ec-419c-bc05-8f3f64186b24@intel.com>
+ <ac365196-8ccc-4d8b-83d7-28fec763e75c@kernel.org>
+ <710b7eb0-8e0c-4f07-991c-2285c77e1beb@intel.com>
+ <6007625e-c3f9-4ad6-99a8-61396bccbcec@kernel.org>
+ <32d459d1-ad19-4baf-bbb1-0565458001d2@intel.com>
+ <3ea30f8a-bb29-4bf5-8400-1c4840d46a88@kernel.org>
+ <7e84b200-25eb-43a6-b5e2-5f27f2d82a77@intel.com>
+ <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_142324_045115_B3366565 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20260713_144022_715909_1998256B 
+X-CRM114-Status: UNSURE (   5.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,54 +170,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon,  6 Jul 2026 21:04:14 +0800
-"Rui Qi" <qirui.001@bytedance.com> wrote:
+On 7/13/26 14:17, David Hildenbrand (Arm) wrote:
+>> To me, the double READ_ONCE() is a non-issue.
+> To other arch maintainers, it is!
 
-> The FUNCTION_ALIGNMENT_4B select forces the whole kernel to be built
-> with -fmin-function-alignment=4. This alignment is only needed so the
-> patchable-function-entry NOPs, which arch/riscv/Makefile emits under
-> CONFIG_DYNAMIC_FTRACE, can be patched reliably on RISCV_ISA_C=y builds
-> where compressed instructions otherwise allow 2-byte function
-> alignment.
-> 
-> The select is currently gated on HAVE_DYNAMIC_FTRACE, a capability bit
-> that is selected whenever the toolchain supports dynamic ftrace, rather
-> than on whether tracing is actually enabled. As a result every
-> RISCV_ISA_C=y build gets 4-byte function alignment across the entire
-> kernel even when function tracing is disabled, needlessly growing the
-> kernel image and wasting instruction cache for a feature that is not
-> in use.
+Ahh, so it seems like Christophe in ppc32 land was looking at this more
+like a regression that needed to get fixed.
 
-I'd have thought that 4-byte aligning functions would increase performance.
-(cache-line aligning is likely to be best, but that adds a lot more bloat.)
-
-	David
-
-> 
-> Gate the select on DYNAMIC_FTRACE instead, matching the condition under
-> which arch/riscv/Makefile emits -fpatchable-function-entry, so the
-> alignment is only applied when it is actually needed.
-> 
-> Fixes: c41bf4326c7b ("riscv: ftrace: align patchable functions to 4 Byte boundary")
-> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
-> ---
->  arch/riscv/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 66638fc9ba43..0c00f6aa715a 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -158,7 +158,7 @@ config RISCV
->  	select HAVE_DEBUG_KMEMLEAK
->  	select HAVE_DMA_CONTIGUOUS if MMU
->  	select HAVE_DYNAMIC_FTRACE if MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
-> -	select FUNCTION_ALIGNMENT_4B if HAVE_DYNAMIC_FTRACE && RISCV_ISA_C
-> +	select FUNCTION_ALIGNMENT_4B if DYNAMIC_FTRACE && RISCV_ISA_C
->  	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS if HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
->  	select HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS if (DYNAMIC_FTRACE_WITH_ARGS && !CFI)
->  	select HAVE_DYNAMIC_FTRACE_WITH_ARGS if HAVE_DYNAMIC_FTRACE
-
+Christophe, just out of curiosity, was this something that was causing
+you practical problems like measurable performance regressions, or was
+it really just insane code generation that seems unacceptably suboptimal?
 
 _______________________________________________
 linux-riscv mailing list
