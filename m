@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50959C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 07:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9DBFC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 07:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rWTaw5WEW4CV4QrEpN6sGHoJAPbDwXcRg4RQCM7n4mI=; b=qRo0UjLojoEEOv
-	tTVQq9BjP3y/O+Gb9kcRHEl0CBA/zEnnA4k6XFJ+EXBhIqqAM7XpL+60WBLGHvNragqkuqX2nsjhu
-	yhg/LP0Ay4T/ROX0zu7EKh15H6/hLv8j9kgJTLeaKaDwoiY80CKlBpEeIqumSUW6m1e2EKyuyKSKQ
-	9lYL05pLzwi0J1zFJomhZqzBtGnxn+JSmJ6WwJon+DoIs+HeBqKJUDISc8LyL7dXY0etB6yDOHIcf
-	iZIzKDhyS78ndM2ykfH7jskposcnMXkh+ETVhQWhjEB/KFPJVLj50TiHPVk7ZjsgowU6W1Rmfeqhy
-	28q6T2iMgMNOfYxEICtg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dbQVbhW7h3XLaRaOCZd8holaiUd+q2CfAxhgjrTRHzk=; b=jHi7dRG9WSWzFi
+	JIWIL1JB6pNNanZeZYpy7o2lNweSL2IQ/V9PfB2dVeS87Sq3q6MgSn2wFhLsRWVpfw/sHZz3Gr5jO
+	vwKZw+FCvD6JrQlU+EIaOroWKPpW6m29IYBf7cgfN1ZKFA2XfXCxpyTQQsEAUeA/voqAF59Afy4De
+	0wvmuqQ+EnxDpYSFidnlJb5IekP3L3ol2HAHu/4Fo807SJ5PIkz9y8kFcc2d+qvFhxedO0Jtmn9ZR
+	0NXlI8ubIdhCCDC3S3G0wvndmLda77NMQ2Z6SYep9bC3Kz/Fg8D+dj1rkfNSuxT9zgZHXeK5fDuDi
+	jhM/2gGYvO7hKqHWQpCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAkE-00000008KiJ-31Xv;
-	Mon, 13 Jul 2026 07:06:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjAz2-00000008NtP-3K0I;
+	Mon, 13 Jul 2026 07:21:44 +0000
+Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAkC-00000008KhO-3tnv
+	id 1wjAyz-00000008Nrc-3Fcx
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 07:06:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 506C543B0C
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 07:06:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F56D1F00ADF
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 07:06:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783926384;
-	bh=MaoMLNzrQSdilHBAPxvn7cFGYo6KCQRZiQrYmmdeSDg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=TbglOxZrZc+8ho1Z2BcK0IhS3egNUSq0c5Yekd6nxDBKZQhVPPnrHghm6ItjXrvW8
-	 myYXJ6x6lFh7QX5ecmuh/vq7Qwc4aN3eTk8kvvmFs1d8wRQY7vrvAGfQK8ML7sZ4Yj
-	 k2WeLrzUteazWoeRwgjCCUDZJ2+PWRLzL1ozd2prV95l5uW3ki91C/T/KpUndY2saf
-	 +I1D4H0CLwMJu74DptZISJOOYDmUct5uhnCyLsAUx2HSrcK3fC5VZsBannIxQYZ7Rq
-	 GNjV6d1+IgN8jsegZ7lli5dbQ5dULez5iyH6dt+oUZzipNLSJVSN9n9AB3HDQyztKw
-	 NLk2nciGwWqEA==
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-493c5220cb7so21544305e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 00:06:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqBBHNv4wOej3Lpn4WMGZvoKOL8HB5p8n9bTFD4bQC3HC9j5NhKG6GoVuxbKekK7lxv/1KP+gKC+Usw7A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywm6YQQa3aXQurwy7TUlyzg9C3cAe/bCdt/l9DCMn7s+AiATujT
-	st6aLNrqYaKTxrfxnqX9zchclIbHBFSV9+UMmwTo0NdpioMXPMeSccC2QVRa2AWmfzFKtHkksfA
-	GYKxyfdinxDX9zMvt39rbQgnFilYR6ng=
-X-Received: by 2002:a05:6000:186c:b0:476:d13f:bb74 with SMTP id
- ffacd0b85a97d-47f2dc9bac8mr8770361f8f.15.1783926382749; Mon, 13 Jul 2026
- 00:06:22 -0700 (PDT)
+	Mon, 13 Jul 2026 07:21:43 +0000
+Received: by mail-pj2-x04.google.com with SMTP id d9443c01a7336-2cad1448ddcso24697585ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 00:21:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783927300; x=1784532100; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uoXDjnnGnfjdjZLeKSIkqLVfLmi5f0feB1W9q0yXDSk=;
+        b=UNTjNPlrGzHu9O5cxHxdYk8k8tJ8eqpjBs9Ts3luSrZ2jD4PizdUax8S4LfsSlVdHA
+         7JvUm7lMkwYW3pKRWxV/PsRA+drFn/iJl9TVnuFEtXO6aKV86+ql8WFWqqQof/SW/TmA
+         GDgdE3QdshQkrQXC7p34/G1uwCE2huR7OPFC+QszKz+azSLtDSz9YhG648+L0GXIaSZG
+         ed+V3phRArqkcha2kGW8rf22iTt0xlYmMqSUTjI/T90EjXhRewZcpc17ZMOIV8XY1KfT
+         EPWnOjmOKA+zDnbhkAec3lKXM9PCGaz4pncnUdDqXdU99ZLZFFHsADUdMYzqxl1vMDBY
+         ON+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783927300; x=1784532100;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uoXDjnnGnfjdjZLeKSIkqLVfLmi5f0feB1W9q0yXDSk=;
+        b=UV5eyQw2Z4/Wvt9q/+iwOPvWG9P1potfjSs8YUl4vLRX8hVJG9ra3MTn627iQzst7O
+         zpVMnLp7fE/ssrdODaTzXNAYBcAuVk990H1SOGU4B5uZ6zjmzDFbKFMWvRZ0KeF7364K
+         FY3ZkszNHlfMFj9a5/cEBay16wAyyDKCbVupwhsQfAUN/AXffcesjdCfYhBzzTf69CgQ
+         zmUztTp0YN4UJVx7u72cjOExfofiLNZ6lG8Rj5aP6OuqnJpbCV2YrGLOeyArt1+mHiPB
+         cbp5Nu+XJfPoZoSEa5+bkMqIUHMpxeU6fD3IRBDKz74sewOcMln/EWwqweBpLeDekBJE
+         Aphg==
+X-Forwarded-Encrypted: i=1; AHgh+Rr21mMCjmhXL956q44GRtm3tZtr03RymJHC6+dlf86L0lKN7Wa+dM8JdITPHifvzNVcBZrYEIeC8FWKfQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yydd42sXl0VtqgNOAMPcTz89IfVfWkhUkuuNRaXnLWLZ3DtmIh5
+	HSoy/3KhWk0gso4OSh7mi8Y4TFz/IzT24fVNR5zL2lPup1V6KM9OK0Td
+X-Gm-Gg: AfdE7clPZ7G6CnhMJmrSeZLWg4WHxicoaWFAhaUZUzQcJPAR6uLML676jxrB62rYIvr
+	Q3so2+B/afo50MLy/thd1g4lYYY+B/Sdx64G67T1p1qgEdfYfUBsc4iuovlDmfeJzKxCXOJVHr1
+	/OJLBOzZMR0LdtmhmPCXLyIF9f1xJqAbUSiyYbO1JwENyizx+DzS74mSmNVj6mrLVtRWprtDNQn
+	9zQm0xIxgEcVyHRxWE/gPKJWIO3wZ/m8UouiPEOBJpatUEdIJUf1Na9RxOpIlSooQBUgizJu+r+
+	cjTyCXi1y+vAp0QLGwK7Uztmwljfp8cJuWiQK+HfgWxCQU0SWPN6JKUEeD+U2faqi3M05cwxr8P
+	ffVNUC9p5ypXSXlgdQchS8etgCIXkIbuToN2fADQPa1qbC15ybSXmK2KZxjoxyx/+s08sbCCB/y
+	+bh13hWhjRJnO84o1z8tZXXV8pvtTR5A8rX0c7Tg==
+X-Received: by 2002:a17:902:fc45:b0:2ca:e08e:9e70 with SMTP id d9443c01a7336-2ce9f18381dmr80811085ad.46.1783927300494;
+        Mon, 13 Jul 2026 00:21:40 -0700 (PDT)
+Received: from q-System-Product-Name ([129.227.183.200])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9bdb7e9sm97547295ad.10.2026.07.13.00.21.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 00:21:40 -0700 (PDT)
+From: "Bingyu.Xian" <shanbeeyoo@gmail.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Quan Zhou <zhouquan@iscas.ac.cn>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RFC v3] KVM: riscv: Allow G-stage PMD block mappings for VM_PFNMAP
+Date: Mon, 13 Jul 2026 15:21:23 +0800
+Message-ID: <20260713072123.1591097-1-shanbeeyoo@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260707181957.433213175@kernel.org> <20260707190253.974626922@kernel.org>
-In-Reply-To: <20260707190253.974626922@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 13 Jul 2026 15:06:10 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTjW0RfZsJmHVAqrRsHpK4cJ+01G_Kkytt=0Wpm4sZpkg@mail.gmail.com>
-X-Gm-Features: AUfX_mzuKA4JwmuMUWB774bzpkP7q4a7PrJvxtp8N1GWwrENQwGP0BULxiqlyqc
-Message-ID: <CAJF2gTTjW0RfZsJmHVAqrRsHpK4cJ+01G_Kkytt=0Wpm4sZpkg@mail.gmail.com>
-Subject: Re: [patch 06/18] riscv/syscall: Use syscall_enter_from_user_mode_randomize_stack()
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Michael Ellerman <mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, 
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, 
-	Mark Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, 
-	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
-	Richard Henderson <richard.henderson@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger <richard@nod.at>, 
-	Chris Zankel <chris@zankel.net>, linux-arm-kernel@lists.infradead.org, 
-	linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-um@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
-	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
-	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-arch@vger.kernel.org, =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>, 
-	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_002141_822820_5AF11BFA 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +99,210 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgOCwgMjAyNiBhdCAzOjA24oCvQU0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gc3lzY2FsbF9lbnRlcl9mcm9tX3VzZXJfbW9kZV9yYW5kb21p
-emVfc3RhY2soKSByZXBsYWNlcwo+IHN5c2NhbGxfZW50ZXJfZnJvbV91c2VyX21vZGUoKSBhbmQg
-dGhlIHN1YnNlcXVlbnQgaW52b2NhdGlvbiBvZgo+IGFkZF9yYW5kb21fa3N0YWNrX29mZnNldCgp
-Lgo+Cj4gVGhlIGFkdmFudGFnZSBpcyB0aGF0IGl0IGFwcGxpZXMgdGhlIHN0YWNrIHJhbmRvbWl6
-YXRpb24gcmlnaHQgYWZ0ZXIKPiBlbnRlcl9mcm9tX3VzZXJfbW9kZSgpIGFuZCB0aGVyZWJ5IGF2
-b2lkcyB0aGUgb3ZlcmhlYWQgb2YgZ2V0L3B1dF9jcHVfdmFyKCkKPiBhcyB0aGF0IGNvZGUgaXMg
-aW52b2tlZCB3aXRoIGludGVycnVwdHMgZGlzYWJsZWQuCj4KPiBObyBmdW5jdGlvbmFsIGNoYW5n
-ZS4KPgo+IFNpZ25lZC1vZmYtYnk6IFRob21hcyBHbGVpeG5lciA8dGdseEBrZXJuZWwub3JnPgo+
-IENjOiBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9yZz4KPiBDYzogUGFsbWVyIERhYmJlbHQg
-PHBhbG1lckBkYWJiZWx0LmNvbT4KPiBDYzogbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-Zwo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jIHwgICAgNSArLS0tLQo+ICAxIGZp
-bGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDQgZGVsZXRpb25zKC0pCj4KPiAtLS0gYS9hcmNo
-L3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+
-IEBAIC03LDcgKzcsNiBAQAo+ICAjaW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4gICNpbmNsdWRl
-IDxsaW51eC9pbml0Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC9pcnFmbGFncy5oPgo+IC0jaW5jbHVk
-ZSA8bGludXgvcmFuZG9taXplX2tzdGFjay5oPgo+ICAjaW5jbHVkZSA8bGludXgvc2NoZWQuaD4K
-PiAgI2luY2x1ZGUgPGxpbnV4L3NjaGVkL2RlYnVnLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9zY2hl
-ZC9zaWduYWwuaD4KPiBAQCAtMzMzLDkgKzMzMiw3IEBAIHZvaWQgZG9fdHJhcF9lY2FsbF91KHN0
-cnVjdCBwdF9yZWdzICpyZWcKPgo+ICAgICAgICAgICAgICAgICByaXNjdl92X3ZzdGF0ZV9kaXNj
-YXJkKHJlZ3MpOwo+Cj4gLSAgICAgICAgICAgICAgIHN5c2NhbGwgPSBzeXNjYWxsX2VudGVyX2Zy
-b21fdXNlcl9tb2RlKHJlZ3MsIHN5c2NhbGwpOwo+IC0KPiAtICAgICAgICAgICAgICAgYWRkX3Jh
-bmRvbV9rc3RhY2tfb2Zmc2V0KCk7Cj4gKyAgICAgICAgICAgICAgIHN5c2NhbGwgPSBzeXNjYWxs
-X2VudGVyX2Zyb21fdXNlcl9tb2RlX3JhbmRvbWl6ZV9zdGFjayhyZWdzLCBzeXNjYWxsKTsKClJl
-dmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KCi0tIApCZXN0IFJlZ2FyZHMK
-IEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+RISC-V KVM currently forces all VM_PFNMAP faults to PAGE_SIZE, so a
+256 MB VFIO BAR requires 65 536 G-stage PTEs instead of 128 PMD blocks.
+This becomes critical as RISC-V targets server workloads with GPU/NPU
+VFIO passthrough and the RISC-V IOMMU nears mainstream support.
+
+Adapt arm64's "stage-2 block mapping for host device MMIO" idea from
+commit 2aa53d68cee6 ("KVM: arm64: Try stage2 block mapping for host
+device MMIO"), but with a safer approach: instead of deriving the host
+physical address from vma->vm_pgoff (unreliable since the VFIO
+unmap_mapping_range() changes), pfnmap_mapping_size() walks the host page
+tables via get_hva_mapping_size().  If the host mm installed a PMD leaf,
+physical contiguity is guaranteed and KVM uses a 2 MB G-stage block;
+otherwise it falls back to 4 KB as before.
+
+RISC-V has an advantage here: memory type comes from the physical
+address PMA, not the G-stage PTE attributes, so 4 KB -> 2 MB promotion
+does not alter memory-type semantics.
+
+Also generalize fault_supports_gstage_huge_mapping() to accept a
+map_size parameter, fix gfn alignment to use vma_pagesize instead of
+huge_page_mask(hstate_vma(vma)) since PFNMAP VMAs are not hugetlb, and
+add a kvm_mmu_map tracepoint for debugging.
+
+Conservative for now: only PMD (2 MB), not PUD (1 GB); dirty logging
+still forces PAGE_SIZE; falls back whenever contiguity/alignment
+cannot be proven.
+
+Tested on QEMU (rv64) with a custom module that installs a PMD leaf
+for a VM_PFNMAP VMA: tracepoint confirms 4 KB fallback when host has
+no PMD leaf, and 2 MB block mapping when host does.
+
+Assisted-by: YuanSheng:deepseek-v4-pro
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Bingyu.Xian <shanbeeyoo@gmail.com>
+---
+Changes from v2:
+- https://lore.kernel.org/kvm-riscv/20260710051903.3454598-1-shanbeeyoo@gmail.com/
+- Correct the author and Signed-off-by identity to:
+  Bingyu.Xian <shanbeeyoo@gmail.com>
+- Use the canonical commit-reference and Assisted-by formats.
+- No code changes.
+
+ arch/riscv/kvm/mmu.c   | 45 ++++++++++++++++++++++++++++++++++++------
+ arch/riscv/kvm/trace.h | 29 +++++++++++++++++++++++++++
+ 2 files changed, 68 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 2d3def024270..53fb34d4b76d 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -16,6 +16,8 @@
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_nacl.h>
+ 
++#include "trace.h"
++
+ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
+ {
+ 	struct kvm_memslots *slots = kvm_memslots(kvm);
+@@ -286,7 +288,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ }
+ 
+ static bool fault_supports_gstage_huge_mapping(struct kvm_memory_slot *memslot,
+-					       unsigned long hva)
++					       unsigned long hva, unsigned long map_size)
+ {
+ 	hva_t uaddr_start, uaddr_end;
+ 	gpa_t gpa_start;
+@@ -321,7 +323,7 @@ static bool fault_supports_gstage_huge_mapping(struct kvm_memory_slot *memslot,
+ 	 *   e -> g
+ 	 *   f -> h
+ 	 */
+-	if ((gpa_start & (PMD_SIZE - 1)) != (uaddr_start & (PMD_SIZE - 1)))
++	if ((gpa_start & (map_size - 1)) != (uaddr_start & (map_size - 1)))
+ 		return false;
+ 
+ 	/*
+@@ -336,7 +338,7 @@ static bool fault_supports_gstage_huge_mapping(struct kvm_memory_slot *memslot,
+ 	 * userspace_addr or the base_gfn, as both are equally aligned (per
+ 	 * the check above) and equally sized.
+ 	 */
+-	return (hva >= ALIGN(uaddr_start, PMD_SIZE)) && (hva < ALIGN_DOWN(uaddr_end, PMD_SIZE));
++	return (hva >= ALIGN(uaddr_start, map_size)) && (hva < ALIGN_DOWN(uaddr_end, map_size));
+ }
+ 
+ static int get_hva_mapping_size(struct kvm *kvm,
+@@ -404,7 +406,7 @@ static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
+ 	 * sure that the HVA and GPA are sufficiently aligned and that the
+ 	 * block map is contained within the memslot.
+ 	 */
+-	if (fault_supports_gstage_huge_mapping(memslot, hva)) {
++	if (fault_supports_gstage_huge_mapping(memslot, hva, PMD_SIZE)) {
+ 		int sz;
+ 
+ 		sz = get_hva_mapping_size(kvm, hva);
+@@ -421,6 +423,31 @@ static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
+ 	return PAGE_SIZE;
+ }
+ 
++/*
++ * Determine the G-stage mapping size for a VM_PFNMAP (e.g. host device
++ * MMIO) fault.  Unlike arm64's original implementation, we never derive the
++ * host physical address from vma->vm_pgoff (which is unreliable since the
++ * VFIO unmap_mapping_range() changes).  Instead we walk the host page tables
++ * via get_hva_mapping_size(): if the host itself installed a leaf block for
++ * this address, physical contiguity within that block is already guaranteed
++ * by the host mm.  The memory type stays correct because RISC-V derives it
++ * from the physical address' PMA, independent of the G-stage PTE size.
++ *
++ * Be conservative for now and only promote to PMD-sized blocks; PUD-sized
++ * device blocks are left as future work.  Fall back to PAGE_SIZE whenever
++ * contiguity or HVA/GPA alignment cannot be proven.
++ */
++static unsigned long pfnmap_mapping_size(struct kvm *kvm,
++					 struct kvm_memory_slot *memslot,
++					 unsigned long hva)
++{
++	if (get_hva_mapping_size(kvm, hva) >= PMD_SIZE &&
++	    fault_supports_gstage_huge_mapping(memslot, hva, PMD_SIZE))
++		return PMD_SIZE;
++
++	return PAGE_SIZE;
++}
++
+ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 		      gpa_t gpa, unsigned long hva, bool is_write,
+ 		      struct kvm_gstage_mapping *out_map)
+@@ -465,11 +492,14 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	else
+ 		vma_pageshift = PAGE_SHIFT;
+ 	vma_pagesize = 1ULL << vma_pageshift;
+-	if (logging || (vma->vm_flags & VM_PFNMAP))
++
++	if (logging)
+ 		vma_pagesize = PAGE_SIZE;
++	else if (vma->vm_flags & VM_PFNMAP)
++		vma_pagesize = pfnmap_mapping_size(kvm, memslot, hva);
+ 
+ 	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE)
+-		gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
++		gfn = (gpa & ~(vma_pagesize - 1)) >> PAGE_SHIFT;
+ 
+ 	/*
+ 	 * Read mmu_invalidate_seq so that KVM can detect if the results of
+@@ -515,6 +545,9 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	if (!logging && (vma_pagesize == PAGE_SIZE))
+ 		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, hva, &hfn, &gpa);
+ 
++	trace_kvm_mmu_map(gpa, hva, hfn, vma_pagesize,
++			  !!(vma->vm_flags & VM_PFNMAP));
++
+ 	if (writable) {
+ 		mark_page_dirty_in_slot(kvm, memslot, gfn);
+ 		ret = kvm_riscv_gstage_map_page(&gstage, pcache, gpa, hfn << PAGE_SHIFT,
+diff --git a/arch/riscv/kvm/trace.h b/arch/riscv/kvm/trace.h
+index 3d54175d805c..db2d28f1d714 100644
+--- a/arch/riscv/kvm/trace.h
++++ b/arch/riscv/kvm/trace.h
+@@ -56,6 +56,35 @@ TRACE_EVENT(kvm_exit,
+ 		__entry->htinst)
+ );
+ 
++TRACE_EVENT(kvm_mmu_map,
++	TP_PROTO(unsigned long gpa, unsigned long hva, unsigned long hfn,
++		 unsigned long map_size, bool is_pfnmap),
++	TP_ARGS(gpa, hva, hfn, map_size, is_pfnmap),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, gpa)
++		__field(unsigned long, hva)
++		__field(unsigned long, hfn)
++		__field(unsigned long, map_size)
++		__field(bool, is_pfnmap)
++	),
++
++	TP_fast_assign(
++		__entry->gpa		= gpa;
++		__entry->hva		= hva;
++		__entry->hfn		= hfn;
++		__entry->map_size	= map_size;
++		__entry->is_pfnmap	= is_pfnmap;
++	),
++
++	TP_printk("GPA:0x%lx, HVA:0x%lx, HFN:0x%lx, size:%luKB, pfnmap:%d",
++		__entry->gpa,
++		__entry->hva,
++		__entry->hfn,
++		__entry->map_size >> 10,
++		__entry->is_pfnmap)
++);
++
+ #endif /* _TRACE_RSICV_KVM_H */
+ 
+ #undef TRACE_INCLUDE_PATH
+-- 
+2.54.0
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
