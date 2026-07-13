@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF46AC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 09:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512B5C43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 09:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=93Am70EGs+iXoTJ2NxA16AircisefO7Cmg6vJ5NnlUs=; b=w9qPLE96zktnCV
-	pRlUYU5GdRk0FDKbIbVeOet2OQ/eIGdvrUpiBqB4nTRLn/+TKtb7mFP/4NtjO2+lyeAZpF3U+FMmV
-	amrJCI5OEvy4ZbneO0FZTRRuX2gMz+tTeXVeLgZDaI1EQK0QfM1mEjXwLnlI/HY2GMBJLZ9LySP64
-	mqpGbwjaKxshaYZ3oLsPWbMlrffGO2WH5CECl53/9RbhBbdWT9//ij9sUhv9dDYSjQtxGpu25bVDf
-	clx1toG1kgnvID2CQ6glYWfsLlQEIe37F3QhfDmsyKzqoYX4RfXNuP3urCNiGpo55Vu3jxKsxWMkl
-	JD8JnxBcNy9c3R6xM++g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=faIdLkK38tohZl9cQzzrWZR0WJCf4EZsmkWbgK8OtlI=; b=VISENGKf3m3KigIKTVV9vlFW35
+	bSIjuaGSEAeBgyJPbtyvx++i4+ystx0W8OO8Bi4HPteAK1aCT+6B/vezI5239bb69Bg8WKahv9tJh
+	LHfV9tXlrfPnIJU2CkzJbQXBUDyvIVRNmvRAojB0BXPfX8X3P5tDWATZ75aMG59jHUCmZ6dG0tMA1
+	u9muZivBPQAoos4i1UuQSF5OzAtNEIoFOEYpfAAu8Iutb0ZiMV7pj05naC14temDUL+fmCeL1RJHx
+	fqKfBozQRUHRqu8hRJ9USV+nOhU0KMc0FgXVj9nbWKOZXBB922+lHLn3OOrSzq5xoEppyt8sgn/6g
+	pY6w6eXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCY4-00000008f4w-2Gdk;
-	Mon, 13 Jul 2026 09:02:00 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1wjCgJ-00000008fut-1LOF;
+	Mon, 13 Jul 2026 09:10:31 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCY1-00000008f3H-15SC
+	id 1wjCgE-00000008fsN-3qg0
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 09:01:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1783933291;
-	bh=rfDq6XPlv8R4XIJ1/9itc+1o8grDKU8S7i/xorOHrq8=;
-	h=Mime-Version:Date:Message-Id:From:To:Subject;
-	b=vhcE8S4aZ1b1Gfj5eZ5STO6ok2DGOdR5gXFNXhXlD1+fvk9j5dJ1LkRxp/3m1eTB/
-	 vnmNL1fhNoPt72dHy92JcMEh0O6/UY1JDhE4Hpp03GFetgzrrlZVyVtQfWxEWYi7cc
-	 ihEqkEdDjDn5a54C70E3ket81RqH2qiHDlj9VqZA=
-X-QQ-mid: esmtpgz13t1783933289t8710c04f
-X-QQ-Originating-IP: uYeZvJY1YPz9m9I2VRUZhVLMDbWxBVchNNwN8t2JL+0=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 13 Jul 2026 17:01:28 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12062326101475102107
-EX-QQ-RecipientCnt: 7
-Mime-Version: 1.0
-Date: Mon, 13 Jul 2026 02:01:27 -0700
-Message-Id: <DJXBKMGB3NLZ.1NH7HSR669XF0@linux.spacemit.com>
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Pei Xiao" <xiaopei01@kylinos.cn>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-Cc: <andi.shyti@kernel.org>, <linux-i2c@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v2] i2c: spacemit: fix spurious IRQ handling returning
- IRQ_HANDLED
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <ef8b623f45d4e430721e46572c2598d882044aed.1783667603.git.xiaopei01@kylinos.cn> <ef8b623f45d4e430721e46572c2598d882044aed.1783667875.git.xiaopei01@kylinos.cn> <DJUQ3TZHM7OO.34ULEC76Z2BDY@linux.spacemit.com> <e453a825-4d73-4d35-a699-a495b0ca1058@kylinos.cn>
-In-Reply-To: <e453a825-4d73-4d35-a699-a495b0ca1058@kylinos.cn>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NVu/uN2EcufQ2/Vo4zOzxog+GCp25ZAKLkVyCAD0xt5o3OyOPeBT+7uQ
-	V0eHXCPXv19kK1QXZU8RB/mBaK/+TZYD88T+6uJjQnQrEqc4GPObqF26TIPrNF2rt0Orjff
-	5I920LXehgsPFU6+UIrKBlZjsSjuOVaqed6wMBGZUKnds+/4I9Q8vLJdC0uS1m//YYnFv18
-	L8RFyFHeh2zD4MYO/XWLL6gAjzZrqSLyjPIYHVmcG9KjWQHUCFfG/d+yEgBjOxFNo1G95DR
-	OoIECL/gnlGWW7BQNxjQo6d9Qm7dDrS8ZFEPzabn01/EAjB6vu8GWDHNA/drLqt7th299gr
-	Wu1YoNqFbN6mP1plYw0KY2xCPeflLe9bgS6jM2SKNhup5VQHG6DE6L98Z2J6xa0hadwJU5q
-	ExEFRKL6U9RuyOzDEoSW7Y4rXpcfUIhIR1o2h8NmHU2v3T99znvwrVVx3jQY0ss4j9zwrvn
-	7i66MfXV28UEJgBUNAI4TechIp84cgAKSkhpM0OX45WVnDw15pLKnx7QvmdtJuAvuKr/ns3
-	l104MfE24rN2FpD1trdK4c4ojvKRbDe+H6EPRJzUofLc/TgK3yXwQoe8uWiUzbSrkx0MHhS
-	DBJPP6rBwRIvK4t9e++xwur95tiJax6iwD2w3sqMKcIQ77bS4IbNg3wT2XhMlEBcnRgpH1L
-	Uojh824Wzq4Y538zR/vmcnEgXU/DwKBykUW2t2VMQbhbBw7FHHZp889OZSAB66CCe0B1ViR
-	LSBgtblOwQg9JdRVzL54KuQGCgvoKzeF9JJ16LPnEfqJrpvf0zEcLlRx0ji+EZ9Pga1gewk
-	uR+K5wNhYC+/2oSdoQBFLV2Z5dxNSa+2yySIDd4t/0r6QneUrdI6FBLzTrKy3xIWbwlLY8B
-	9c6nMvok/N/YXiyzgKMEI7ORiz24LHK0B3HphWhY+D7nmPip9kMEwnmD6JvrhGsCfmVfOdQ
-	u/hIdLanVA9CROX/aLcQ23pk9WzqNJyaIPXddwiMJ9a+WCUccA+S8CbfmQ7fZ2Fs6x0eKtW
-	V3sH75HfaOmpKJdr2t7yYUXUWbhA/UwXlU9dl5cHmomtUdrQ/kdm2MKQnRqnCV7d3MfxPru
-	jUj0fqXywKN34oqjZodXsQ=
-X-QQ-XMRINFO: OD9hHCdaPRBw6CmXJi6UaqSbLUGYIq/CyA==
-X-QQ-RECHKSPAM: 0
+	Mon, 13 Jul 2026 09:10:30 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gzGqG2jl2zMlDW;
+	Mon, 13 Jul 2026 11:10:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mssola.com; s=MBO0001;
+	t=1783933802;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CW1QIlAxM8lyL/yJZcuBvFadkSDPUJo184tHnC67Ync=;
+	b=KFxospHaM+ss8tATB4K+FGoOMvraeIyXHaNJtS/g0+9y/CEif9rX8cUcMz0Nl3klPZ7qpV
+	SGOZAV7HuD2mXUFRn/vCbLx78hg5wJ3e2bYjUzTjAXyfr6bPU9eZiAWidnyZkBVEq9qXaG
+	Psw2IFRjqwWtBpujbxKSpxcJtVNknUgJM3X/SKmDOiXd3kAwaNgEKAa/Rdv1k5S+oKWL75
+	MAZgAGKt8pwKfVrki1HhWboXaz2qwJtBiKavQvCYWqKdoFN4Koez6/JsqKJUeZDpO1sslw
+	yQ3XTka3hzd+JA/FY9GE4jshzH5/czjG2CsaLisPPYU/Cs4hhMpnYCF9N2LXEQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=softfail (outgoing_mbo_mout: 2001:67c:2050:b231:465::2 is neither permitted nor denied by domain of mssola@mssola.com) smtp.mailfrom=mssola@mssola.com
+From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mssola@mssola.com>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org,  corbet@lwn.net,
+  skhan@linuxfoundation.org,  palmer@dabbelt.com,  alex@ghiti.fr,
+  linux-doc@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND] riscv: enable HAVE_CMPXCHG_{DOUBLE,LOCAL}
+In-Reply-To: <87ldc12wo0.fsf@mssola.com> ("Miquel =?utf-8?Q?Sabat=C3=A9_So?=
+ =?utf-8?Q?l=C3=A0=22's?= message of
+	"Fri, 26 Jun 2026 16:39:27 +0200")
+References: <20260605141247.253315-1-mssola@mssola.com>
+	<f63eefc9-769d-409c-4099-274254432129@kernel.org>
+	<87ldc12wo0.fsf@mssola.com>
+Date: Mon, 13 Jul 2026 11:09:54 +0200
+Message-ID: <87bjcb2r31.fsf@>
+MIME-Version: 1.0
+X-Rspamd-Queue-Id: 4gzGqG2jl2zMlDW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_020158_133681_41F81DEC 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260713_021027_487976_DB890F09 
+X-CRM114-Status: GOOD (  56.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +77,250 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8798663959117837907=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpIEp1bCAxMCwgMjAyNiBhdCAyOjE4IEFNIFBEVCwgUGVpIFhpYW8gd3JvdGU6Cj4KPgo+
-IOWcqCAyMDI2LzcvMTAgMTU6NDYsIFRyb3kgTWl0Y2hlbGwg5YaZ6YGTOgo+PiBPbiBGcmkgSnVs
-IDEwLCAyMDI2IGF0IDEyOjIxIEFNIFBEVCwgUGVpIFhpYW8gd3JvdGU6Cj4+PiBXaGVuIHRoZSBp
-bnRlcnJ1cHQgc3RhdHVzIHJlZ2lzdGVyIHJlYWRzIHplcm8sIHRoZSBoYW5kbGVyIHNob3VsZAo+
-Pj4gcmV0dXJuIElSUV9OT05FIGluc3RlYWQgb2YgSVJRX0hBTkRMRUQuIFdoYXQgdGhlIHJldHVy
-biB2YWx1ZQo+Pj4gYWN0dWFsbHkgZmVlZHMgaW50byBpcyB0aGUgc3B1cmlvdXMgaW50ZXJydXB0
-IGFjY291bnRpbmcgaW4KPj4+IG5vdGVfaW50ZXJydXB0KCk6IGZhbHNlbHkgY2xhaW1pbmcgSVJR
-X0hBTkRMRUQgZGVmZWF0cyB0aGUgImlycSBYWDoKPj4+IG5vYm9keSBjYXJlZCIgZGV0ZWN0aW9u
-LCBzbyBhIHN0dWNrIGludGVycnVwdCBzb3VyY2Ugd291bGQgbmV2ZXIgYmUKPj4+IGNhdWdodC4K
-Pj4+Cj4+PiBGaXhlczogNWVhNTU4NDczZmEzICgiaTJjOiBzcGFjZW1pdDogYWRkIHN1cHBvcnQg
-Zm9yIFNwYWNlbWlUIEsxIFNvQyIpCj4+PiBTaWduZWQtb2ZmLWJ5OiBQZWkgWGlhbyA8eGlhb3Bl
-aTAxQGt5bGlub3MuY24+Cj4+IFRoZSBjb21taXQgbWVzc2FnZSBub3cgZGVzY3JpYmVzIHRoZSBh
-Y3R1YWwgbWVjaGFuaXNtIGNvcnJlY3RseSwKPj4gdGhhbmtzIGZvciByZXdvcmtpbmcgaXQ6Cj4+
-Cj4+IFJldmlld2VkLWJ5OiBUcm95IE1pdGNoZWxsIDx0cm95Lm1pdGNoZWxsQGxpbnV4LnNwYWNl
-bWl0LmNvbT4KPj4KPj4gT25lIHByb2Nlc3Mgbm90ZSwgdGhvdWdoOiBwbGVhc2UgZG9uJ3QgcmVw
-b3N0IG5ldyB2ZXJzaW9ucyB0aGlzCj4+IHF1aWNrbHkuIHYyIGZvbGxvd2VkIHRoZSByZXZpZXcg
-Y29tbWVudHMgYWxtb3N0IGltbWVkaWF0ZWx5LCB3aGljaAo+PiBtZWFucyBvdGhlciByZXZpZXdl
-cnMgd2hvIHdlcmUgc3RpbGwgbG9va2luZyBhdCB2MSBuZXZlciBnb3QgYQo+PiBjaGFuY2UgdG8g
-Y2hpbWUgaW4gYmVmb3JlIHRoZSB0aHJlYWQgbW92ZWQgb24sIGFuZCB0aGUgZGlzY3Vzc2lvbgo+
-PiBnZXRzIGZyYWdtZW50ZWQgYWNyb3NzIHZlcnNpb25zLgo+IEJlY2F1c2UgSSBub3RpY2VkIGEg
-c2ltcGxlIG1pc3Rha2UgcmlnaHQgYWZ0ZXIgc2VuZGluZyB2MQo+IOKAlEkgZm9yZ290IHRvIGlu
-Y2x1ZGUgdGhlIHZlcnNpb24gbnVtYmVyIGFuZCBjaGFuZ2Vsb2cgZm9yIHYy4oCUCj4gc28gSSB0
-aG91Z2h0IHRoYXQgYnkgZml4aW5nIGl0IHdpdGhvdXQgd2FpdGluZyBmb3IgcmV2aWV3ZXJzIHRv
-IHBvaW50IGl0Cj4gb3V0LMKgCj4gSSBjb3VsZCBzYXZlIHJldmlld2VycycgdGltZSBhbmQgZ2V0
-IHRoZSBwYXRjaCBtZXJnZWQgbW9yZSBxdWlja2x5Lgo+IMKgSSBtYXkgaGF2ZSBiZWVuIHdyb25n
-IGFib3V0IHRoYXQuIFNvcnJ5Lgo+CkknbSBub3QgcmVmZXJyaW5nIHRvIHRoaXMgdGhyZWFkLiBZ
-b3UgcG9zdGVkIGFuIGVhcmxpZXIgdmVyc2lvbiBbMV0sCmFuZCB0aGVuIHNlbnQgdGhlIHBhdGNo
-ZXMgaW4gdGhpcyB0aHJlYWQganVzdCBvbmUgZGF5IGxhdGVyIChJIGtub3cgdGhhdApvbmUgd2Fz
-IHNlbnQgYnkgbWlzdGFrZSwgd2l0aG91dCBhIGNoYW5nZWxvZykuCgpMaW5rOiBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9hbGwvYWFiYThiYTIyOGE5OWY1ODAwNTAwMDRjNWI3ZTI2MmQ4NTVkZTQ0
-Yy4xNzgzNTkwNzUyLmdpdC54aWFvcGVpMDFAa3lsaW5vcy5jbi8gWzFdCgogICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtIFRyb3kKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============8798663959117837907==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
+
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Miquel Sabat=C3=A9 Sol=C3=A0 @ 2026-06-26 16:39 +02:
+
+> Hello,
+>
+> Miquel Sabat=C3=A9 Sol=C3=A0 @ 2026-06-07 22:38 +02:
+>
+>> Hi,
+>>
+>> Paul Walmsley @ 2026-06-06 18:50 -06:
+>>
+>>> Hi,
+>>>
+>>> On Fri, 5 Jun 2026, Miquel Sabat=C3=A9 Sol=C3=A0 wrote:
+>>>
+>>>> Support for atomic Compare-And-Swap instructions has been in the RISC-V
+>>>> port of the Linux kernel for a long time. That being said, we apparent=
+ly
+>>>> never bothered to set HAVE_CMPXCHG_DOUBLE and HAVE_CMPXCHG_LOCAL in the
+>>>> Kconfig, despite having all the framework to support them.
+>>>>
+>>>> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mssola@mssola.com>
+>>>> ---
+>>>> This is a resend of [1], rebased on top of the latest commit from the
+>>>> for-next branch.
+>>>>
+>>>> I have built this patch with multiple configurations and ran it with K=
+VM
+>>>> (the VisionFive2 board that I have lacks the needed extensions). All s=
+eems
+>>>> to work, but I do wonder if we did not enable these for a reason or th=
+is
+>>>> just slipped through. So far in the code I believe everything is in pl=
+ace,
+>>>> and I haven't seen any commit in the git log stating otherwise.
+>>>>
+>>>> [1] https://lore.kernel.org/all/20260220074449.8526-1-mssola@mssola.co=
+m/
+>>>
+>>> Thanks for the patch.  Your comments above are why I've been hesitant to
+>>> merge it.  I'm not aware of any publicly available hardware that suppor=
+ts
+>>> Zacas/Zabha.  No one has stepped forward to provide any Tested-by:s on
+>>> hardware that hasn't been released yet.  You mention that you tested on
+>>> your VisionFive2 board, but it would not have exercised those code path=
+s.
+>>
+>> No, I mention that I ran it _only_ on KVM, as my VisionFive2 board lacks
+>> these extensions and hence I couldn't possible have tested this there :)
+>>
+>>>
+>>> Of course, we already have Zacas/Zabha support, merged back in 2024, in
+>>> cmpxchg.h.  I assume (?) that it was tested in QEMU, but I don't see any
+>>> comments about that in the patch series.  No one sent any Tested-by:s
+>>> then, either.
+>>>
+>>> It would be good if you (and ideally others) could put this patch throu=
+gh
+>>> some testing on QEMU with Zacas and Zabha enabled, before we merge it.
+>>> The affected code paths for HAVE_CMPXCHG_LOCAL seem to primarily involve
+>>> per-CPU counters and MM zone counters, so those would be the areas to
+>>> focus.  HAVE_CMPXCHG_DOUBLE seems to do nothing useful other than
+>>> preventing the AMD IOMMU driver from being selected if it's not present,
+>>> so that part of the patch seems fairly useless.  In fact I'd suggest
+>>> dropping that from the patch and just sending a separate patch to remove
+>>> HAVE_CMPXCHG_DOUBLE from the kernel completely.
+>>
+>> To be fair, on QEMU I only "tested" it by booting it, running a few
+>> things for some time and ensuring that nothing got totally broken in the
+>> process while taking a look at the kernel logs.
+>>
+>> In any case, let me double check with QEMU with these extensions enabled
+>> and I'll try to be more thorough about it. I'll do just that whenever I
+>> have some spare time during the following week :)
+>
+> So much for "the following week" :) Sorry for being a bit late.
+>
+> I have finally taken a deeper look at this, and I have the following
+> comments that I hope you can further clarify so we can land a more
+> precise patch.
+>
+> First of all, HAVE_CMPXCHG_LOCAL is fundamentally used in two places: in
+> mm/vmstat.c and in lib/percpu_counter.c. In the latter it is used in the
+> percpu_counter_add_batch() function, which is used tree-wide. Hence,
+> selecting this config option has a wide effect.
+>
+> As far as I can tell, both HAVE_CMPXCHG_LOCAL and HAVE_CMPXCHG_DOUBLE
+> could have been added in this patch series [1] by Alexandre Ghiti, but
+> I've been unable to tell how it was actually tested (no mentions on that
+> on no Tested-by either). On my side, the board I have doesn't have
+> neither Zacas nor the Zabha extensions so, as I mentioned on my previous
+> email, I have to test everything via KVM.
+>
+> Having that into account, if I build the kernel with or without the
+> patch applied, functions like percpu_counter_add_batch() have a
+> different implementation, as expected (good ol' objdump -d vmlinux
+> --disassemble=3Dpercpu_counter_add_batch confirmed as much); and from a
+> general outlook, the given assembly code is what I'd expect. In order to
+> test it, I have to say that I've relied on checking that selftests and
+> similar continue to pass before/after the patch. In particular, I've run
+> the selftests from btrfs, and they seem just fine (and toggling a
+> breakpoint inside of percpu_counter_add_batch() confirms that it's being
+> constantly called, so we are definitely calling the "new" code).
+>
+>>
+>> As for HAVE_CMPXCHG_DOUBLE, removing it makes sense. Let me just take
+>> another look and I will send a separate patch whenever I'm ready for it.
+>
+> Here I'm a bit conflicted, because you mentioned that it's only used for =
+the AMD
+> IOMMU driver, but support on different architectures like 5284e1b4bc8a ("=
+arm64:
+> xchg: Implement cmpxchg_double") or f0e4b1b6e295 ("LoongArch: Add 128-bit=
+ atomic
+> cmpxchg support") hint into other places where this is needed. In fact, f=
+or
+> loongarch, it's apparently needed to fix multiple tests on sched_ext. Thu=
+s, I
+> believe that sending a patch to drop it from the kernel would be misguide=
+d.
+>
+> As for RISC-V, first of all I believe that my patch should've also includ=
+ed that
+> HAVE_CMPXCHG_DOUBLE can only be selected on CONFIG_64BIT. In fact, commit
+> f7bd2be7663c ("riscv: Implement arch_cmpxchg128() using Zacas"), which br=
+ings
+> support for this (again, from the same series [1]), also requires this
+> configuration option. That being said, this commit doesn't say how it was
+> tested, and there are not Tested-by either. On my end, so far I got no lu=
+ck
+> trying the sched_ext route mentioned in the loongarch support, which is a=
+ bit of
+> a hussle in KVM with cross-compilation and the library requirements.
+>
+> But as a final note, I have used hackbench on this. I have statically com=
+piled
+> hackbench from source [2] at commit e6fb0b2c8ad1 ("rt-tests: Add AGENTS.m=
+d guide
+> for AI coding assistants") (i.e. current master). This binary has been de=
+ployed
+> in three iterations where the kernel was built as:
+>
+> 1. Before the patch.
+> 2. With the patch (both HAVE_CMPXCHG_LOCAL and HAVE_CMPXCHG_DOUBLE select=
+ed).
+> 3. With only HAVE_CMPXCHG_LOCAL selected.
+>
+> Again, given that I can only test this on QEMU, this whole thing is teste=
+d on
+> virtualized environments, so take it with a grain of salt :)
+>
+> In any case, I got the following results:
+>
+> |        | Mainline | Both selected | Only _LOCAL selected |
+> |--------+----------+---------------+----------------------|
+> | Mean   |  50.9966 |       54.2076 |              51.6488 |
+> | StdDev |   0.1508 |        0.1097 |               0.7051 |
+>
+> As you can see, the results on Mainline and "only _LOCAL selected" are mo=
+re or
+> less the same, but not so much whenever _DOUBLE is also selected. I figur=
+e that
+> that these instructions are not as fast as expected on my virtualized
+> environment.
+>
+> With all of this, I'm torned on whether we should include HAVE_CMPXCHG_DO=
+UBLE,
+> as code-wise is pretty much the same as HAVE_CMPXCHG_LOCAL, but I can als=
+o see
+> how it can be removed as I cannot properly test it. As a middle ground, m=
+aybe we
+> can leave a TODO in __arch_cmpxchg128() asking to introduce HAVE_CMPXCHG_=
+DOUBLE
+> whenever someone can actually test it and guarantee that there are no
+> performance penalties as I saw on my virtualized environment.
+>
+> And that's enough of my rumblings :) I'd appreciate any comments on this.
+>
+> Thanks,
+> Miquel
+>
+> [1] https://lore.kernel.org/all/20241103145153.105097-1-alexghiti@rivosin=
+c.com/
+> [2] https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
+>
+>>
+>>>
+>>>
+>>> - Paul
+>>
+>> Thanks for your input!
+>> Miquel
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+Gently ping :)
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJiBAEBCgBMFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmpUq2MbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyEhxtc3NvbGFAbXNzb2xhLmNvbQAKCRCWvoxv2J1l
+ZYzqD/9ftCv3bnPdGUQ2avQ/0HPX7/S2ZgXC4clyq0Xt2DrLfRN+zMtMrOWKy0EB
+4f0NqQ6u5Uz48QWvdgmfbWBXZtBm5VCXXgevnbO26X3gF3wf5g3McamouaW3z9P5
+BeP1dTEGPGOseF/rzUDyrh9tbykKJbQgMXsOXTo2xpPz6VNkxledh6u7j4Z2nQDh
+Mkn5Kxxb9ZnvNoc0XVHIJ41EpFqdeNneB6nMMYvDUg6WB1MWZK4zi2c8/aS/qUFY
+LNDc69zQSfI6BTAo0ieLzJQN7Y+zrJ02GceL9OExvd2LWtD+JyQpkHi33B15cUGh
+Kd7M0xSlfKbfoVo7mWPgzNFZ4J0Yc08Q3M36Mif1YoReKyXPpTutg1h+MuzNfkv1
+goVRPlZZo7/+rsu1YOvaigRJSBn+y7yg5BQ2XU/eZwWN9dSoOQ1siOm5RCoylUXl
+wtgHFvM06EvZ8RJ6gvY6Ux3J0YpsqWPRHiL2OBzQb5jczgDUAQ5Zbz65uJVQEWuw
+j7ciGNCM0ahDZXF+s2CtqpFDxutZhHzVEwBWdK5Cwnkv9Igkj7PI8rlRfo5nP2lh
+jks6U2diXKSJb5L+8f7c1TAQmtUxaxn8GMlBkyOawqZJafQu/byOY7naHtcPfk5h
+agSodQhtMo2lPw6fYi1PSkZQKWRPWQ0Ot5oaLKRF1qUPxelCmw==
+=rjMP
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+
+--===============8798663959117837907==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8798663959117837907==--
+
