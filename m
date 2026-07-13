@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D56CDC43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 13:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E08C44501
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 13:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4bdPP1sK7e9gpno1ByTe2yQZ4TDWNxgomqciF7Zz2lU=; b=GTWzpjDW1oNgDO
-	qE8e6NA47402H7vvSzuK2lfeQHNWQqcLHHH7dF04aElGlLjzANargQ18JnkHFzUaBucL4P31uhv2U
-	0qXwVXzXqrulnekZ7+vnIgqt/hi0AWJgQsDVV6/hSyxS3OCqHNIJsOyKl7D1CeWRVi2BgM9Cr/BWi
-	Pvzn5dJyebIa/jBqoDB4b8BSQzRErQoWjnDiGqaYwp0MbNS0o6u0j2i/Gfc0fflMYxFI3jrJt30nG
-	F8cGzEbSoVGEEgf5K9CAc/kFETAejeA/KlXLfMr7IOJA01XAOS3A9ah3pR0vfvWOQWWK3eXMiVCLf
-	PzUgQCw78RD8opDgHdHA==;
+	List-Owner; bh=HsBTT7hMe/WF05Mb9LAo0+Yn1FxGiWFqMBxfcndGMe4=; b=qWam3+lyxCryqj
+	NM3b6Rg5WEshhWqdw9LrFyA6kVgoRBA458HwzBqzcn0bxNs7sgZtRPwcf3JC8p87za9z4prb2kQbp
+	6Qazsm24GLN186m+MMujnJt0wg1GBenXceBru1tHsqy3fIbChOqt+sYZf8Igk01fBTYi8Og/v86lN
+	u3J1oyj7b3ZIueHtAeXp5DdUklmrxk1i9HcFM6Fz5TuuQAibf8DVDmEM9CXqLDmJacLL8XE4iAjLd
+	1CTd7ef/VaQGAz0dESJAhU5Z41vyVBOwmnObZ4cr/Kuaa1GuiypZrwqvbnN3py8BtFI5wfEdv97sg
+	GNEwx9emNMOPSe976Avw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjH9V-00000009T15-3aLt;
-	Mon, 13 Jul 2026 13:56:58 +0000
+	id 1wjH9j-00000009T8b-1HPZ;
+	Mon, 13 Jul 2026 13:57:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjH9S-00000009SzT-3usU;
-	Mon, 13 Jul 2026 13:56:56 +0000
+	id 1wjH9g-00000009T6y-2zNi;
+	Mon, 13 Jul 2026 13:57:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 076881688;
-	Mon, 13 Jul 2026 06:56:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94063165C;
+	Mon, 13 Jul 2026 06:57:02 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 142EB3F7B4;
-	Mon, 13 Jul 2026 06:56:41 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9ACA33F7B4;
+	Mon, 13 Jul 2026 06:56:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783951014; bh=44z1wBJifkHFimU5xGRNMG/SbMPtbykrozIR+gUI3Nw=;
+	t=1783951026; bh=61pfZh3L2BFiEUYO9pwGf4QNoQBqRqpHE9XdwbRRZTI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FxTyvS8qe2nR1wDA6bZf9hyifEUuooXjQ3QH6FJgDkDMtu51FrZ9fyaVHohjsKzs7
-	 JrbpYKfSMFGrWkdX/8WN///JYZVuY1cZWpYJFpKgXYaleaoed56OSowZ2fwKwkw0Qf
-	 PHqx6TGBqcJPBCOAmqYNZpK951O2pgmMU5517rI0=
+	b=IT+wndoznhcd9BNCrm+AgnU6xmr98dNBoR+A0JbldC+T/kd+yOTHE0zGhmeE/Ahx9
+	 5leuluMVUsbCTPRSRUOYSApj4ZaPZHw/345XsBhpuJa2E68Xb/VtE7kkomxszQ95pm
+	 pPIAfSJw3UXhlpSfK2wWgq2ACUJatIHGEhpHr5Q4=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -134,16 +134,16 @@ Cc: david@kernel.org,
 	jonas@southpole.se,
 	stefan.kristiansson@saunalahti.fi,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [RFC PATCH 02/34] ARM: mm: make 2-level pgd_t a scalar
-Date: Mon, 13 Jul 2026 14:55:41 +0100
-Message-ID: <20260713135614.1618183-3-yeoreum.yun@arm.com>
+Subject: [RFC PATCH 03/34] ARM: mm: remove custom pgdp_get()
+Date: Mon, 13 Jul 2026 14:55:42 +0100
+Message-ID: <20260713135614.1618183-4-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260713135614.1618183-1-yeoreum.yun@arm.com>
 References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_065655_067825_41EB7427 
-X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-CacheID: sfid-20260713_065708_839999_54DB5435 
+X-CRM114-Status: UNSURE (   7.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -163,61 +163,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 
-We don't want pgd_t to be an array, as it prohibits returning it from a
-function, like pgdp_get().
-
-So let's just use an u64, and extract the right 32bit value in
-pgd_val().
-
-Leave the STRICT_MM_TYPECHECKS case alone for now.
-
-As an alternative, we could use the STRICT_MM_TYPECHECKS approach here
-as well, but using an u64 looks conceptually cleaner, even though
-pgd_val() gets a bit more involved.
+Now that pgd_t is no longer an array, we can just rely on the common
+code pgdp_get(), which is a static inline function that returns pgd_t.
 
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- arch/arm/include/asm/pgtable-2level-types.h | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+ arch/arm/include/asm/pgtable.h | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/arm/include/asm/pgtable-2level-types.h b/arch/arm/include/asm/pgtable-2level-types.h
-index 650e793f41429..02052cef9437a 100644
---- a/arch/arm/include/asm/pgtable-2level-types.h
-+++ b/arch/arm/include/asm/pgtable-2level-types.h
-@@ -25,7 +25,7 @@ typedef struct { pteval_t pgprot; } pgprot_t;
+diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
+index 982795cf45637..eadd027fe0ee4 100644
+--- a/arch/arm/include/asm/pgtable.h
++++ b/arch/arm/include/asm/pgtable.h
+@@ -141,8 +141,6 @@ extern pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
  
- #define pte_val(x)      ((x).pte)
- #define pmd_val(x)      ((x).pmd)
--#define pgd_val(x)	((x).pgd[0])
-+#define pgd_val(x)      ((x).pgd[0])
- #define pgprot_val(x)   ((x).pgprot)
+ extern pgd_t swapper_pg_dir[PTRS_PER_PGD];
  
- #define __pte(x)        ((pte_t) { (x) } )
-@@ -36,14 +36,21 @@ typedef struct { pteval_t pgprot; } pgprot_t;
- /*
-  * .. while these make it easier on the compiler
-  */
-+typedef u64 pgdval_t;
-+
- typedef pteval_t pte_t;
- typedef pmdval_t pmd_t;
--typedef pmdval_t pgd_t[2];
-+typedef pgdval_t pgd_t;
- typedef pteval_t pgprot_t;
+-#define pgdp_get(pgpd)		READ_ONCE(*pgdp)
+-
+ #define pud_page(pud)		pmd_page(__pmd(pud_val(pud)))
+ #define pud_write(pud)		pmd_write(__pmd(pud_val(pud)))
  
- #define pte_val(x)      (x)
- #define pmd_val(x)      (x)
--#define pgd_val(x)	((x)[0])
-+
-+static inline pmdval_t pgd_val(pgd_t pgd)
-+{
-+	return (*(pmdval_t (*)[2])&pgd)[0];
-+}
-+
- #define pgprot_val(x)   (x)
- 
- #define __pte(x)        (x)
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
