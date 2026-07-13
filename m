@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91113C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 18:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52726C44501
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 18:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zZ3dgbaJbuTGGK5QXUD775abLEAoI2UAb4AmRozqPWM=; b=JRQSW6g7NxQBkM
-	Yk3Yke7PBTbI7kRhRpOhS+rU+sVfWIS17cD5iKTa9UOfI1tWtma6ATZ85KYdDxYVP1nUrwuEmSHB9
-	u6mrc5sB2phtPVnTkWTPPaZ9hT2bn6XY67z1FqZ8BMkBkIFpGGJeIvJLb2PggEubNnTgLnZJWn+Ww
-	pMehQ5E/6ImDbD6pZn3hw+HvAG+Weh9Jk3EfPQxd0ENcXC8YCusIXL3ogt2BSqDYtKwDnoktgqDSz
-	nW4hy2VJnjs8BWaSJ246MJnO/GNxjBprpboWUXgyjACG9ngOVJW6KA8kk6Nwl08g0RI0lpBvUV3EG
-	oW7VjXCZwGxnJsxdZy8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dRdNRVHooIshsLkIv2q/B5JwgrNhoAl+jG8ENbzPx6w=; b=nXephnY3XUyQtxWL3Hq5F9JOQt
+	Pc0JPKqg4Ixk7gYh5e/kEWhpNb8DKzVhxCcdiEJ0rf4mrInByqHoTb5pdZMIvRT3IX/lr2CD0GTVN
+	6aSbhyCN7TtszxxcuOWRBpLURBLyETVxPPninXBOCGytstuvNx4b8vyqIHsAka9gTf0SmWQyW7cZO
+	bHG1hN+J95XvujgdeoxQc1iZe/DTevZEl9fRYFQZiwNp7x14FB8nkncf64CJS3v3aq4E+AfJa7Z3z
+	v41ERXMPgA2yGhAwPrN/j2x2ZJzaks/96XdCOPx35uz2bgR83YwQ2yAuGkLCqyqJi2qOhfiJAVqXa
+	vvpr/erg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjL0T-0000000AAY5-1GIY;
-	Mon, 13 Jul 2026 18:03:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjLBQ-0000000ABkx-1yI4;
+	Mon, 13 Jul 2026 18:15:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjL0S-0000000AAXz-1sFi
+	id 1wjLBP-0000000ABkg-0rjb
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 18:03:52 +0000
+	Mon, 13 Jul 2026 18:15:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A656C60103;
-	Mon, 13 Jul 2026 18:03:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5A7E1F000E9;
-	Mon, 13 Jul 2026 18:03:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E7A7D41905;
+	Mon, 13 Jul 2026 18:15:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D5771F000E9;
+	Mon, 13 Jul 2026 18:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783965831;
-	bh=0R1cR7bKh7ixS3Ep3XrpKwenEOmJrkdIxyoKz6OerB0=;
+	s=k20260515; t=1783966510;
+	bh=FtIK6d8KhW9gvIH3mwN6+s7WsPS3oKZXi1x7D0y+Ro8=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=ESOKP2rZPyACXFW/kfBTOgmI3+3qmraqLbjJMYdrj3rjM8G8wl+2yrsV7SboHyQbQ
-	 cBQkXKgK008NzCXQZBYUI1VDd6+5Mm6vuxOTstiYXXI/Q3pDB2tCojuKfgnSuCvzjM
-	 mN9qDvnOrt37OWH8edLykRMnH6QeT13rxLkBs8tWhSHW0bDEv2Ir070kOlNO1UcyVh
-	 f6rkxiqi58tXvghJ0k6P9qzrj/Dwdz3FJfy2KGLkNvzJXlFaRJ3mvnyhXloQv8wM33
-	 XLg8vWZPxDV6NMnxwRU0qLkg+LHyAJ8SoA/7d8IkuYuaefHVETGtQdaIk/CCXPTt4L
-	 6ZeGlodc0aoBg==
-Date: Mon, 13 Jul 2026 12:03:47 -0600 (MDT)
+	b=AYChUWzmEkMEtgz8Fu4qda2UQL5TGk5kpKmh3rtaL5E6aLXLqkyeSbCGsae4MKJJa
+	 96HjAXwgOgtTrxgb+PadHDgciKTnOok/Jq+hkdpa3p5UXMDIvEa1xAlmRBXQkhilaB
+	 hfAoBRx1wfuuqsmU4S2M0j/bCJcbDXc2A3lnQ89CwsQzXaYJlo6prdmatst7e3bvSf
+	 Jn25o5EDDH5j0TeRR3HthHmvuhxfm5qKVSh4p0roV+wkT5G6Kx/HldlaXUpHAaz39m
+	 wf4opje9Ug6/nyQ3rcLYyJ4k+69z4SMaJYuXvy6cpNkPTR3PRjBjApGEgI4jRbYdNj
+	 HxP32/JED3V0Q==
+Date: Mon, 13 Jul 2026 12:15:09 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-    dennis@kernel.org, tj@kernel.org, cl@gentwo.org, ast@kernel.org, 
-    daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev, 
-    eddyz87@gmail.com, memxor@gmail.com, song@kernel.org, 
-    yonghong.song@linux.dev, jolsa@kernel.org, bjorn@kernel.org, 
-    pulehui@huawei.com, puranjay@kernel.org, thuth@redhat.com, 
-    ajones@ventanamicro.com, ben.dooks@codethink.co.uk, 
-    rkrcmar@ventanamicro.com, samuel.holland@sifive.com, zong.li@sifive.com, 
-    conor.dooley@microchip.com, tglx@kernel.org, debug@rivosinc.com, 
-    seanwascoding@gmail.com, andybnac@gmail.com, menglong8.dong@gmail.com, 
-    cyrilbur@tenstorrent.com, wangruikang@iscas.ac.cn, atishp@rivosinc.com, 
-    apatel@ventanamicro.com, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, linux-mm@kvack.org, bpf@vger.kernel.org, 
-    arnd@arndb.de, nathan@kernel.org, nick.desaulniers+lkml@gmail.com, 
-    morbo@google.com, justinstitt@google.com, qingfang.deng@siflower.com.cn, 
-    linux-arch@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v8 1/3] riscv: io: avoid null-pointer arithmetic in PIO
- helpers
-In-Reply-To: <20260703122832.15984-2-cuiyunhui@bytedance.com>
-Message-ID: <74ffb0c5-4edd-7b64-3d3f-be76c2aec4c2@kernel.org>
-References: <20260703122832.15984-1-cuiyunhui@bytedance.com> <20260703122832.15984-2-cuiyunhui@bytedance.com>
+To: =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Nathan Chancellor <nathan@kernel.org>, 
+    Conor Dooley <conor.dooley@microchip.com>, Wende Tan <twd2.me@gmail.com>, 
+    Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 2/2] riscv: vdso: Simplify cflags remove logic
+In-Reply-To: <20260701-riscv-vdso-lto-v1-2-89db0cd82077@linutronix.de>
+Message-ID: <568f24a9-0190-30fa-6009-f39056390bb1@kernel.org>
+References: <20260701-riscv-vdso-lto-v1-0-89db0cd82077@linutronix.de> <20260701-riscv-vdso-lto-v1-2-89db0cd82077@linutronix.de>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="8323329-832212244-1783966510=:1536112"
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +68,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Jul 2026, Yunhui Cui wrote:
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-> When port I/O is not supported, exposing the port-string helpers is both
-> unnecessary and can make clang diagnose null-pointer arithmetic from the
-> PCI_IOBASE based address expression.  Keep the MMIO string helpers
-> available as before, but only provide the port I/O variants when
-> CONFIG_HAS_IOPORT is enabled.
+--8323329-832212244-1783966510=:1536112
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8BIT
+
+On Wed, 1 Jul 2026, Thomas Weißschuh wrote:
+
+> Listing all flags for each object file is tedious and error-prone.
 > 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> Replace it with a simpler solution.
+> 
+> Link: https://lore.kernel.org/all/20260630135316-f26f0e0f-c08c-4d4d-9963-10f9985a7689@linutronix.de/
+> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
-Thanks, queued for v7.2-rc.
+Thanks, queued for v7.3.
 
 
 - Paul
+--8323329-832212244-1783966510=:1536112
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-832212244-1783966510=:1536112--
+
