@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFC8C43458
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 14:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFAAC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 14:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=teFKobvNAYXilXcXe86Y2q/di9BwVFuK+gPM2ndjZJg=; b=GTfmH6aX3ewHCU
-	RLxgBCyFVEonRS4grlWQDc7QuRWh35liHlx85FsOvpnzzDWjbSIHvqKbhTWVjYS39b7UCXWMDZNlb
-	8IpRYVAaGV82ZdJh1DUbhogOG0xPjL9Kly85Ii8oWP9EydBHnSROfwVsTk6BFms6Z0E3jEJBzjmmw
-	aQavKFzU4w+gA6Gu3rIRMXyC7Nidzpr8tiLNLgt+ZuJ6XrJed7DynqNP3uAMhaTZNPqWH81Rnfxps
-	J7SXoeIqbLzf89Z5Q+Vvb5YKMgHY/nUaNH4Fk6t/w5yjLBTr9AwyMIV1bDUuk1YAHsc5rcf+VQS4F
-	/Pyu0quTL6RpSYDgyEFg==;
+	List-Owner; bh=c9hRam6V+8mH2Xt9aitTMeC/75kfUZXAbrBOS5TorA4=; b=1GvmL6kmaO3v7y
+	EB6uvGWiI2lPJkRjPvUm+BUrKT8olE47u98cMbrv1xozYzrJZDX0Cp47Q6SgM1nXy0eclGuaSrACx
+	VaPH07Wu4GLUfFbh7mAnUxrsbJxIZWjbUdHxBnT851kh/vAlX9q91SdjOgLqLMmCovX64qrdGoMjP
+	bxrjh5Sp9QS5vXZbzqx+tq6Id2ZnwMrFLPxohzFp8OEqlma6SkNHPvwW4DIZlLvT8N3j6e1GHk/Be
+	JlJ2AJwsohQ5ZhTOo0dDtsWBlkf6N71r839W8jPhk+2YW12AnVScRVta6j4phKhYK5EezJo3QMyXI
+	+NA+uGGjWYqtHAxeIcrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHDy-00000009Vuv-41R9;
-	Mon, 13 Jul 2026 14:01:34 +0000
+	id 1wjHEC-00000009W4e-0wxO;
+	Mon, 13 Jul 2026 14:01:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHDv-00000009VrL-3aFJ;
-	Mon, 13 Jul 2026 14:01:33 +0000
+	id 1wjHE7-00000009W1t-3D96;
+	Mon, 13 Jul 2026 14:01:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A01A2050;
-	Mon, 13 Jul 2026 07:01:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A69112050;
+	Mon, 13 Jul 2026 07:01:38 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 25E193F7B4;
-	Mon, 13 Jul 2026 07:01:18 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AC5243F7B4;
+	Mon, 13 Jul 2026 07:01:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783951290; bh=rrBwQUNghxkMeytXEUNPpto8wZMFntDlW0SzsHEzoAk=;
+	t=1783951302; bh=LOmsIF99gDivwRx9XPk8OZOaXIoiL2NNZLIFwLFlP7s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IVRIV9T1flpA0gOrme1V1eRRplwrh4TOVZQ26715JQXP4QS1CmEmFLuEQckZtZvv4
-	 4p+gq0ht2Chb+NH1sjxzNiEzIZeyEPeVbwJ1KM74ZeocLv5XHo0v7Uh1Lze0qxAo+P
-	 JXkmUcVeya83Vz4L/uprN4mXjJ5dFsFizk8SHMNA=
+	b=MBKMtffjH/2TsrVbH+SkmMXbiGJBeEJHhF8LadP3YgGbjdont1gw/VdepmxscZqrJ
+	 /zxxH1NjBOLeGlqg7U0kAEtuxNOn3OYUZZYCUv8EE0HqcQu7y53to5uLHDgursFMhJ
+	 NOUTvMkS9bdptcq+ZJMUX8Jo+95uFVvJ1WPxsglA=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -134,16 +134,16 @@ Cc: david@kernel.org,
 	jonas@southpole.se,
 	stefan.kristiansson@saunalahti.fi,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [RFC PATCH 24/34] x86: mm: call try_to_free_pmd_page() when CONFIG_PGTABLE_LEVELS > 2
-Date: Mon, 13 Jul 2026 14:56:03 +0100
-Message-ID: <20260713135614.1618183-25-yeoreum.yun@arm.com>
+Subject: [RFC PATCH 25/34] x86: mm: remove usage of pgd_page_vaddr() for CONFIG_x86_PAE
+Date: Mon, 13 Jul 2026 14:56:04 +0100
+Message-ID: <20260713135614.1618183-26-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260713135614.1618183-1-yeoreum.yun@arm.com>
 References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_070131_985646_CBE4E1D8 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260713_070143_908868_14FEE013 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,41 +162,104 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 We want to rework how pgd_page_vaddr() behaves for generic compile-time
 folded page tables by disallowing its use and triggering a compile-time
-error when it is used improperly, ensuring that the actual
-first-level pXd_pgtable() function is used instead.
+error when it is used improperly, ensuring that the actual first-level
+pXd_pgtable() function is used instead.
 
-The try_to_free_pmd_page() wouldn't need to call when
-CONFIG_PGTABLE_LEVELS=2. therefore call it when CONFIG_PGTABLE_LEVELS > 2.
+For this, change usage of pgd_page_vaddr() to pud_pgtable() for
+the functions used when CONFIG_x86_PAE is enabled where PGTABLE_LEVELS=3
+and replace direct check value of pgd_val() with pud_none().
 
 There should be no functional change.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- arch/x86/mm/pat/set_memory.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/x86/mm/pgtable.c | 41 ++++++++++++++++++++++++-----------------
+ 1 file changed, 24 insertions(+), 17 deletions(-)
 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index cffb1cef869cc..2137174b733ae 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -1452,7 +1452,7 @@ static bool unmap_pte_range(pmd_t *pmd, unsigned long start, unsigned long end)
- static void __unmap_pmd_range(pud_t *pud, pmd_t *pmd,
- 			      unsigned long start, unsigned long end)
+diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
+index f32facdb30354..e4bf6a1d63618 100644
+--- a/arch/x86/mm/pgtable.c
++++ b/arch/x86/mm/pgtable.c
+@@ -207,14 +207,17 @@ static int preallocate_pmds(struct mm_struct *mm, pmd_t *pmds[], int count)
+  */
+ static void mop_up_one_pmd(struct mm_struct *mm, pgd_t *pgdp)
  {
--	if (unmap_pte_range(pmd, start, end))
-+	if (unmap_pte_range(pmd, start, end) && CONFIG_PGTABLE_LEVELS > 2)
- 		if (try_to_free_pmd_page(pud_pgtable(*pud)))
- 			pud_clear(pud);
+-	pgd_t pgd = *pgdp;
++	pud_t *pudp, pud;
+ 
+-	if (pgd_val(pgd) != 0) {
+-		pmd_t *pmd = (pmd_t *)pgd_page_vaddr(pgd);
++	pudp = pud_offset(p4d_offset(pgdp, 0), 0);
++	pud = *pudp;
+ 
+-		pgd_clear(pgdp);
++	if (!pud_none(pud)) {
++		pmd_t *pmd = pud_pgtable(pud);
+ 
+-		paravirt_release_pmd(pgd_val(pgd) >> PAGE_SHIFT);
++		pud_clear(pudp);
++
++		paravirt_release_pmd(pud_pfn(pud));
+ 		pmd_free(mm, pmd);
+ 		mm_dec_nr_pmds(mm);
+ 	}
+@@ -239,23 +242,24 @@ static void pgd_mop_up_pmds(struct mm_struct *mm, pgd_t *pgdp)
+ #endif
  }
-@@ -1496,7 +1496,7 @@ static void unmap_pmd_range(pud_t *pud, unsigned long start, unsigned long end)
- 	/*
- 	 * Try again to free the PMD page if haven't succeeded above.
- 	 */
--	if (!pud_none(*pud))
-+	if (!pud_none(*pud) && CONFIG_PGTABLE_LEVELS > 2)
- 		if (try_to_free_pmd_page(pud_pgtable(*pud)))
- 			pud_clear(pud);
+ 
+-static void pgd_prepopulate_pmd(struct mm_struct *mm, pgd_t *pgd, pmd_t *pmds[])
++static void pgd_prepopulate_pmd(struct mm_struct *mm, pgd_t *pgdp, pmd_t *pmds[])
+ {
+-	p4d_t *p4d;
+-	pud_t *pud;
++	pud_t *pudp, *pudp_s;
+ 	int i;
+ 
+-	p4d = p4d_offset(pgd, 0);
+-	pud = pud_offset(p4d, 0);
++	pudp = pud_offset(p4d_offset(pgdp, 0), 0);
+ 
+-	for (i = 0; i < PREALLOCATED_PMDS; i++, pud++) {
++	for (i = 0; i < PREALLOCATED_PMDS; i++, pudp++) {
+ 		pmd_t *pmd = pmds[i];
+ 
+-		if (i >= KERNEL_PGD_BOUNDARY)
+-			memcpy(pmd, (pmd_t *)pgd_page_vaddr(swapper_pg_dir[i]),
++		if (i >= KERNEL_PGD_BOUNDARY) {
++			pudp_s = pud_offset(p4d_offset(&swapper_pg_dir[i], 0), 0);
++
++			memcpy(pmd, (pmd_t *)pud_pgtable(*pudp_s),
+ 			       sizeof(pmd_t) * PTRS_PER_PMD);
++		}
+ 
+-		pud_populate(mm, pud, pmd);
++		pud_populate(mm, pudp, pmd);
+ 	}
  }
+ 
+@@ -265,8 +269,8 @@ static void pgd_prepopulate_user_pmd(struct mm_struct *mm,
+ {
+ 	pgd_t *s_pgd = kernel_to_user_pgdp(swapper_pg_dir);
+ 	pgd_t *u_pgd = kernel_to_user_pgdp(k_pgd);
+-	p4d_t *u_p4d;
+-	pud_t *u_pud;
++	p4d_t *s_p4d, *u_p4d;
++	pud_t *s_pud, *u_pud;
+ 	int i;
+ 
+ 	u_p4d = p4d_offset(u_pgd, 0);
+@@ -278,7 +282,10 @@ static void pgd_prepopulate_user_pmd(struct mm_struct *mm,
+ 	for (i = 0; i < PREALLOCATED_USER_PMDS; i++, u_pud++, s_pgd++) {
+ 		pmd_t *pmd = pmds[i];
+ 
+-		memcpy(pmd, (pmd_t *)pgd_page_vaddr(*s_pgd),
++		s_p4d = p4d_offset(s_pgd, 0);
++		s_pud = pud_offset(s_p4d, 0);
++
++		memcpy(pmd, (pmd_t *)pud_pgtable(*s_pud),
+ 		       sizeof(pmd_t) * PTRS_PER_PMD);
+ 
+ 		pud_populate(mm, u_pud, pmd);
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
