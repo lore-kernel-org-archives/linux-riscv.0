@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16223C44507
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 16:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E491DC43458
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2026 16:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yClTrfxYnUKC3BapxdmC5Yqu510KxUXOGEdqDzlTcro=; b=tjke9Z++nSvqhd
-	sVOy974januD0UaFNFcYmhv+61mbxrubPo14B6wbztQlVSyhVodHkmTSo74zjAoohSe/aBKBH+XY4
-	W0i464lLBQeLVIuGTpjxHJc1wskQmScv5kkyNLKnzjX+4eaqAt+q9PqzrnINk+l7Vx0I5gSzqqKBw
-	4I2w7af/GxKOvvlGZ5d2wFQ2tUHXsqWzVODR2+Z9VETRzFjUydxwixoRds6VXbHgK5LAoq++UQnzZ
-	hFg/wbX/FodNdao7SQ1Dawra6YP9Wp/Oe2BX+Oe8DiikEzkbPKfYIG2cTUL4O3SJABZL/327OSuO7
-	c00zWeOcaI6SQnj+ib2w==;
+	List-Owner; bh=TwIudcJ4shSViAy8N6icf1QyVZuKjENND25cVyuVb78=; b=UDNfNWx4HwK+xy
+	/4T00d7O9n22gcSTHVvv/9h0jKPkx7xgB07cUJyrfsEgA6UL7alHxvkKKnZZ+q+h//NmlvCaU5+IS
+	S72mkFX4/xUVpcH+/urCoDytfOtNXv+KpHHCzRQWAdml/9kBkGFP3WkcbgdQhkLq9zL/BiWm31Kpg
+	gBV1vqqPmY6ZjiAfIQfIMIn1ewbHASgmEU7vi2UceULbIR9bn7QG3KwrU6njJg36gDEypJ3Z9Q+OS
+	RsDWLRMoyxJhW+SkQQOdTHEFMtkpH/r7Q0N2chBWP23tiuTpY30s95n/TbzZmPXuwqoGQ8EaRuw/F
+	tfGtx0oBcQ3Qlj/3BayA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJWi-00000009ydP-1Knp;
-	Mon, 13 Jul 2026 16:29:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjJfP-00000009zqz-2j0N;
+	Mon, 13 Jul 2026 16:38:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJWg-00000009yd5-1DFD
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jul 2026 16:29:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 102F941FC0;
-	Mon, 13 Jul 2026 16:29:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEA341F000E9;
-	Mon, 13 Jul 2026 16:29:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783960141;
-	bh=CFDmixcUjoeF5+PlFwCEhk46S7uxAFIdPx361f4C1CQ=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=AbywF//uoTfPbKUnjWCbbXRhBTXlj10/bnq8WvBoRKz3OyYZQBjkWUpVRW4sS73uQ
-	 k26h8Gj3JQo6mBpxHK5SbYlTHdo6ia1xxwIQoV2vfyOvFpQHHMkcvtza1vuPhIx2Th
-	 q1/04r6c9gAamcYGBJAgz97VNhNiA37XNLrNALVPnZPbKRMuhv4+ip8kcBEZUm4HmI
-	 8pncJF8EFHY2ywf3pHuGLDcCAvDe3BbGzrBV249qfZcDDOPojNt/tRgKwJzP9Eg+MW
-	 vlmT8ur589pf7NICrCU3ocwDci/vDhuNPoCWNLO9weFX1WdPJTdZ/b5DjtdXRv7PEO
-	 WAFwsZx8xJ5dg==
-Date: Mon, 13 Jul 2026 10:28:58 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-cc: Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
-    David Hildenbrand <david@kernel.org>, 
-    "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-    Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-    Suren Baghdasaryan <surenb@google.com>, 
-    Vlastimil Babka <vbabka@kernel.org>, linux-kernel@vger.kernel.org, 
-    linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-    Muchun Song <muchun.song@linux.dev>
-Subject: Re: [PATCH v6 0/2] mm/sparse-vmemmap: flush_cache_vmap() after
- hotplugging vmemmap
-In-Reply-To: <20260713-mark-after-vmemmap-populate-v6-0-b945ceba29d4@iscas.ac.cn>
-Message-ID: <4bc663fc-76ae-f6a0-32e1-6f9b1610f790@kernel.org>
-References: <20260713-mark-after-vmemmap-populate-v6-0-b945ceba29d4@iscas.ac.cn>
+	id 1wjJfO-00000009zqY-2IRB;
+	Mon, 13 Jul 2026 16:38:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+8bn+J1m/2WVL2HRQqPjPX3jby4LCx/UUlRbPjdP5Mc=; b=maZ04DwFOeZI3/p+3+c8d8Aq29
+	dLI2YSSOcSCKt3zuw6VDEAP7hNr+Xh+AABGxRthTJU03zHAszRqpRRqlx7Nxn6q/aH2E0PSA7InS2
+	RAOE91M5kTVvPIXLO13mvNfQCAEOWesIlQlzjBBWszwBSQNLbRjGLtkCeHm9D42Rw8MKUXuyyOgsk
+	5OdBkivpqF+TnC/Cwa74BcyuD/SQ8IbJxaUdSCy9m3zzjKl5/z9cNmMj+QJ/L7vH/0PeLgJ0/v7P3
+	XPOCE906nydtCFDVzbcIKSdF7yWYrigm+KkapOLjp9qLG7Agq4a0kQNL9ikVVx7ovT1WtNQYzQzUM
+	1BrLWwMQ==;
+Received: from mgamail.intel.com ([198.175.65.16])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjJfK-0000000BrDX-1oXN;
+	Mon, 13 Jul 2026 16:38:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783960679; x=1815496679;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4kZEQHCKkpYpxkKyYJlUA0Zza6SQ8vOAw/fP08uqXDo=;
+  b=cQXVCGBJmIGQ3cB7gicDP+9isOj/PsucTY9v0STicXTqfz0DQrxJSxrX
+   7r/Xhs3uamx+mAoTTAi+NyUVpTl6fFQwRjRfPqFgZAGSJFrve2f+rccpW
+   iqd7aYpUpQTL68EHTo4WoGoCyvbZ+jX4Y6/YDQW5Y2YWT4Q+ANEJbX8jk
+   kPv76ULdr+RtW+Du5fC09VNKpGHfakkgEsuIPKIVjtj5Ysgc3go/COuwK
+   ADPwqr6MlIwA/gdrsYWDYmiMbh+NKvR9j21VtshWcXAKN7CSuENDAElQ/
+   KaP1Me53t1C9OwAMIZ2kGZG+kc/E52OURINOAa2U+9krAxyO+SHY7UNhr
+   w==;
+X-CSE-ConnectionGUID: 0lnt/pZYRpCIPd9uexI0Hg==
+X-CSE-MsgGUID: Bo1foV6zRCyCuNF9KSFJqQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84768095"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84768095"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 09:37:53 -0700
+X-CSE-ConnectionGUID: hWdotUdbRAyEFlX+x/kfWQ==
+X-CSE-MsgGUID: leJxOZsNRQSKnAtRZj8eFA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="249245643"
+Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 09:37:52 -0700
+Date: Mon, 13 Jul 2026 09:37:45 -0700
+From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+To: bot+bpf-ci@kernel.org
+Cc: stable@vger.kernel.org, gregkh@linuxfoundation.org, sashal@kernel.org, 
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, x86@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, martin.lau@kernel.org, eddyz87@gmail.com, 
+	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
+Subject: Re: [PATCH 7.1.y 1/6] bpf: Support for hardening against JIT spraying
+Message-ID: <ehtglcrfzb4feb2ysknrcyvz7t2vc2ui2nfbunypteeexbsfu7@x477johvq6pl>
+References: <20260709-cbpf-jit-spray-hardening-7-1-y-v1-1-5ac5a2d6797f@linux.intel.com>
+ <de3ebfe684f280473617b560a9dcf501df07833f835a08eb6e75720cd03662b4@mail.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <de3ebfe684f280473617b560a9dcf501df07833f835a08eb6e75720cd03662b4@mail.kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_173758_839143_3F9D0EF9 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,20 +101,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jul 2026, Vivian Wang wrote:
-
-> Patch 1 is a bit of clean up that fixes the compilation error with patch
-> 2, since VMEMMAP_{START,END} is not defined when MMU=n.
+On Thu, Jul 09, 2026 at 10:52:04PM +0000, bot+bpf-ci@kernel.org wrote:
+> > commit 96cce16e26dd02a8678f1e87f88a4b5cdb63b995 upstream.
+> > The BPF JIT allocator packs many small programs into larger executable
+> > allocations and reuses space within those allocations as programs are
+> > loaded and freed. When fresh code is written into space that a previous
+> > program occupied, an indirect jump into the new program can reuse a branch
+> > prediction left behind by the old one.
+> > Flush the indirect branch predictors before reusing JIT memory so that
+> > indirect jumps into a newly written program don't reuse predictions from an
+> > old program that occupied the same space.
+> > Introduce bpf_arch_pred_flush_enabled static key and bpf_arch_pred_flush
+> > static call for flushing the branch predictors on JIT memory reuse.
+> > Architectures that need a flush, can update it to a predictor flush
+> > function. By default, its a NOP and does not emit any CALL.
+> > Allocations larger than a pack are not covered by this flush. That is safe
+> > because cBPF programs (the unprivileged attack surface) are bounded well
+> > below a pack size. Issue a warning if this assumption is ever violated
+> > while the flush is active.
+> > Signed-off-by: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+> > Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+> > Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
 > 
-> The mark_new_valid_map() thing doesn't do anything useful on MMU=n
-> anyway, and the new_valid_maps_cpus_check code is only used on 64BIT, so
-> I just made it all of it conditional on 64BIT && MMU. I hope this is
-> acceptable.
+> The reuse path this patch hardens (bpf_prog_pack_alloc() finding a free
+> area within a pack, and the size > BPF_PROG_PACK_SIZE branch) comes from
+> the pack allocator that first packed many programs into shared executable
+> allocations and reused freed space within a pack.
+> 
+> Should this carry a Fixes: tag pointing at that commit?
+> 
+>   Fixes: 57631054fae6 ("bpf: Introduce bpf_prog_pack allocator")
 
-Thanks, queued for v7.2-rc.
-
-
-- Paul
+It doesn't add much value. This commit insn't really buggy, it needs no fix
+for the eBPF. The fact that cBPF is unprivileged, opens a window for a JIT
+spraying attack. Also, the the patch is a backport, so it should stay close
+to upstream.
 
 _______________________________________________
 linux-riscv mailing list
