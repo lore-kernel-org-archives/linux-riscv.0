@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905BCC44507
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 18:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF791C4450A
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 18:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Io+Esn+Mgw1QJ1aXyaaq3P2n3YzSO52YapjEX9vN+iM=; b=XsM/uUK13lAsN1
-	qFEJw84jKArH7artvspjCpHZVRrXcK2cjGg2pGKy0uymcbJy4K0x19Hw2CBePI6Ni9yiypewzKCW1
-	+O6r8tE5HzBB4/s/zRBnXXWwZZ5maFHn9685SflKVSRAf1PrOAar9+cwlcW7DNbP5/f10wECSz/oC
-	Mp2FkeTo0PdVBJ5C9APs64gR2nIjUTkoNwKi+DJ88tetuuLNjrLlE6fd3obZAahTxC+nF7eqwKWoU
-	ANbELlDM+RWdd63XNDIWzoU7ijPe+PKdQa+E//97OpY76ygGU9eA53OOnssvHw/IUdS/S2mMRFi6S
-	4C9dlNKfsZbUKG4PM6sg==;
+	List-Owner; bh=a22sAEFI0mSP7GhJWxhxGTFrm66GHVRzR1mW9/gwrBk=; b=brW2IO/aYw98LR
+	iOj7+HH9GMdEcs0WGuBF5tFPUaUnHcBHQw//cJoZs9vjYFut8uh28Xs3EPJHlHneE+ZmytBChxQLy
+	47bL0p6TEgPL2DR0lzUFITO1/6dDRBmNOsIeIYRaK0vefsXaBaX+OytP5riEiAFpm/hcAKPQt7Uze
+	PsO1k80NR6f3osjuBRDPUDd/9sO4lyJgGFTbTza1hvorQi6VwOWWhqZ+kwQEqIw2ua3i47jux7WIr
+	X3ERTI+zsgoeHGBZncuMrNWp3UcTGcLGhZqz6JOrHka9HwQD/RKuJh/rsJyLQBu8WnHnSQPBlPSxj
+	ITxU+a2xWEBEgoEuKsMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjiKs-0000000Cwuq-3WGd;
-	Tue, 14 Jul 2026 18:58:30 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wjiL0-0000000Cwy6-3vm4;
+	Tue, 14 Jul 2026 18:58:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjiKp-0000000Cwt2-1Cgx;
-	Tue, 14 Jul 2026 18:58:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784055508; x=1815591508;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=DzLA4w38CFwdzu/Uzj79RDIxzZT2AwfMc39nX/r/t9k=;
-  b=WeyPOlhU0U0KEpvrP2IZJm6g9dHcRCwKTCTCCy8dRPSfeNXdopCqVbha
-   4AglvXvOeAXkgiRC6qnyh3cW4GY5MIY4gycIGsgKmaRsT/SZhuvWYD0Vd
-   bUJXNYL6gzoHBeGn0G7/AA5zaqDULicqppQez3LHFqRLTR/im1Qk+sY0V
-   +w7ukdt76HUobwa/8m3bYCqZbTIvmGs4rCq8x8yZpu8j1FjDph9Zcprgs
-   Hm4DQoHoiD2wl7hoydVdfQ31ebLoW8QweienKO3QqKvfYCFgcXbnlyey+
-   AacZLN9h86rkpXxoZuEvHckVwGjdHVlIsbBC50eY6LiJpwD2QkYQ9SubB
-   w==;
-X-CSE-ConnectionGUID: CM5nIlsgQb27wKiUBEFqXg==
-X-CSE-MsgGUID: jZaP+C/EQZOwqruvI1XT1Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="88586660"
-X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
-   d="scan'208";a="88586660"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 11:58:25 -0700
-X-CSE-ConnectionGUID: zJdJZMFdTvexCooRz9Lb5w==
-X-CSE-MsgGUID: eYih6CtRRc+2gVaty5xw2A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
-   d="scan'208";a="255442489"
-Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 11:58:25 -0700
-Date: Tue, 14 Jul 2026 11:58:24 -0700
-From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
-To: stable@vger.kernel.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>
-Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Dave Hansen <dave.hansen@linux.intel.com>
-Subject: [PATCH 6.16.y 0/6] cBPF JIT spray hardening
-Message-ID: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-0-2fc3e16263ac@linux.intel.com>
-X-B4-Tracking: v=1; b=H4sIAGOGVmoC/yWNvQ6CMBRGX4Xc2UvaBurPRlwcHdyMQykXuAy1a
- dHYEN7douP58uWcBSIFpginYoFAb478dBnkrgA7GjcQcpcZlFBa7GWFtvU9Tjxj9MEkHE3oyLE
- bUKPUmLC2taiqY39QwkK2+EA9f36FO1yb2/myrbqUukzw+B/iq53IzlsH1vULVVaQGZQAAAA=
-X-Change-ID: 20260714-cbpf-jit-spray-hardening-6-16-y-5c50449f820c
-X-Mailer: b4 0.16-dev
+	id 1wjiKx-0000000CwwD-2XQ4
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Jul 2026 18:58:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784055513;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=RfsI6HLQGXe6K3Z7dJ8d5kqjISwd3J2Qdz2e+YoCrRA=;
+	b=fNTBL+S1a6/fqlOYfcoJug5MaRyA/us/XjGmie7s7Edw1PXI9D3Hrl7QjVraULFv7iBK3X
+	bcliHW2GI91dVa0V1NRqdmfAzlUIGmHKU6SfmA9NjkP118X8mX8q7BczEpchOxTZk53XXG
+	lmGgqLzUNEycUlECvxcb0eiOxdUIiAg=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-198--3G9Xf4oMe2KES4EIy5AxA-1; Tue,
+ 14 Jul 2026 14:57:04 -0400
+X-MC-Unique: -3G9Xf4oMe2KES4EIy5AxA-1
+X-Mimecast-MFC-AGG-ID: -3G9Xf4oMe2KES4EIy5AxA_1784055423
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D72E6195606E;
+	Tue, 14 Jul 2026 18:57:02 +0000 (UTC)
+Received: from ezulian-p1gen7.rmtde.csb (unknown [10.44.48.131])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2D4DD30002DD;
+	Tue, 14 Jul 2026 18:56:59 +0000 (UTC)
+From: Eder Zulian <ezulian@redhat.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Eder Zulian <ezulian@redhat.com>
+Subject: [PATCH] riscv: mm: Move dma_contiguous_reserve() after NUMA initialization
+Date: Tue, 14 Jul 2026 20:56:48 +0200
+Message-ID: <20260714185648.1082483-1-ezulian@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Mimecast-MFC-PROC-ID: ejerNNVQKIIFycG5vMCTagD8y1W4HgZxY5CPPQ5kibE_1784055423
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_115827_413574_2F00FF45 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260714_115835_716935_EBD5141B 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +86,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Move the dma_contiguous_reserve() call from setup_bootmem() to
+misc_mem_init(), placing it after arch_numa_init(). This ensures that
+NUMA topology is initialized when reserving contiguous memory for DMA.
 
-These backports harden BPF JIT against spectre-v2 class of attacks. Without
-a predictor flush, execution of new BPF program may use stale prediction
-left behind by the freed one.
+Tested with CMA_SIZE_PERNUMA enabled and two NUMA nodes on QEMU:
 
-To avoid this, issue an IBPB flush on all CPUs on JIT program allocation.
-The flush is conditional to spectre-v2 mitigation applied.
+qemu-system-riscv64 \
+	-machine virt \
+	-nographic \
+	-smp 2 -m 512M \
+	-numa node,nodeid=0,cpus=0,memdev=m0 \
+	-numa node,nodeid=1,cpus=1,memdev=m1 \
+	-object memory-backend-ram,id=m0,size=256M \
+	-object memory-backend-ram,id=m1,size=256M \
+	-kernel arch/riscv/boot/Image \
+	-append "console=ttyS0 earlycon loglevel=7 cma=16M"
 
-Patch 1-2: Adds the predictor flush hook and enables it on x86 via IBPB.
+Unpatched kernel's log (one global CMA pool and no per-nodepools, 16 MiB
+cma-reserved):
 
-	  bpf: Support for hardening against JIT spraying
-	  x86/bugs: Enable IBPB flush on BPF JIT allocation
+	[    0.000000] cma: Reserved 16 MiB at 0x000000009ee00000
+	...
+	[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x000000008fffffff]
+	[    0.000000] Initmem setup node 1 [mem 0x0000000090000000-0x000000009fffffff]
+	...
+	[    0.056397] smp: Brought up 2 nodes, 2 CPUs
+	[    0.066135] Memory: 449288K/524288K available (12279K kernel code, 5980K rwdata, 6144K rodata, 2467K init, 482K bss, 54504K reserved, 16384K cma-reserved)
 
-Patch 3-6: Narrow the flush to only unprivileged JIT allocations
-	   to avoid redundant flushes. Also adds pack-selection changes
-	   that minimizes flushes.
+Patched kernel's log (three CMA pools are created, 48 MiB total),
 
-	  bpf: Restrict JIT predictor flush to cBPF
-	  bpf: Skip redundant IBPB in pack allocator
-	  bpf: Prefer packs that won't trigger an IBPB flush on allocation
-	  bpf: Prefer dirty packs for eBPF allocations
+	[    0.000000] cma: Reserved 16 MiB at 0x000000009ee00000
+	[    0.000000] cma: Reserved 16 MiB at 0x000000008ee00000
+	[    0.000000] cma: Reserved 16 MiB at 0x000000009de00000
+	...
+	[    0.054251] smp: Brought up 2 nodes, 2 CPUs
+	[    0.064082] Memory: 416520K/524288K available (12279K kernel code, 5980K rwdata, 6144K rodata, 2467K init, 482K bss, 54504K reserved, 49152K cma-reserved)
 
-This one is mostly similar to 6.18:
-
-  https://lore.kernel.org/all/20260713-cbpf-jit-spray-hardening-6-18-y-v1-0-755f60c55705@linux.intel.com/
-
+Signed-off-by: Eder Zulian <ezulian@redhat.com>
 ---
-Pawan Gupta (6):
-      bpf: Support for hardening against JIT spraying
-      x86/bugs: Enable IBPB flush on BPF JIT allocation
-      bpf: Restrict JIT predictor flush to cBPF
-      bpf: Skip redundant IBPB in pack allocator
-      bpf: Prefer packs that won't trigger an IBPB flush on allocation
-      bpf: Prefer dirty packs for eBPF allocations
+ arch/riscv/mm/init.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
- arch/arm64/net/bpf_jit_comp.c        |  4 +--
- arch/powerpc/net/bpf_jit_comp.c      |  4 +--
- arch/riscv/net/bpf_jit_comp64.c      |  2 +-
- arch/riscv/net/bpf_jit_core.c        |  3 +-
- arch/x86/include/asm/nospec-branch.h |  4 +++
- arch/x86/kernel/cpu/bugs.c           | 50 +++++++++++++++++++++++---
- arch/x86/net/bpf_jit_comp.c          |  5 +--
- include/linux/filter.h               | 15 ++++++--
- kernel/bpf/core.c                    | 68 ++++++++++++++++++++++++++++++++----
- kernel/bpf/dispatcher.c              |  2 +-
- 10 files changed, 135 insertions(+), 22 deletions(-)
----
-base-commit: d997d33eb340e2add100eac1222e107cc1396e76
-change-id: 20260714-cbpf-jit-spray-hardening-6-16-y-5c50449f820c
-
-Best regards,
---  
-Pawan
-
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 85bdcce63a3e..79a658ebe74d 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -295,8 +295,6 @@ static void __init setup_bootmem(void)
+ 	 */
+ 	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
+ 		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+-
+-	dma_contiguous_reserve(dma32_phys_limit);
+ }
+ 
+ #ifdef CONFIG_RELOCATABLE
+@@ -1349,6 +1347,7 @@ void __init misc_mem_init(void)
+ {
+ 	early_memtest(min_low_pfn << PAGE_SHIFT, max_low_pfn << PAGE_SHIFT);
+ 	arch_numa_init();
++	dma_contiguous_reserve(dma32_phys_limit);
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
+ 	/* The entire VMEMMAP region has been populated. Flush TLB for this region */
+ 	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
+-- 
+2.55.0
 
 
 _______________________________________________
