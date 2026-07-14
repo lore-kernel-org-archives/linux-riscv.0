@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BBCC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 10:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1A8C44501
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 10:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
 	Message-Id:Date:Mime-Version:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lRdfCoX76IhhrbyXLfa2V2zeRzw15oOLNy5zMxflIrA=; b=Ppesz2icMVADvA
-	6oP8es7gXN/+DlYDv75tu9YgYFs83tCJDoyKIvNYh3fR6oo+V22vVf75mHvL74Tvb4qurxB4nhfuD
-	EnQ4lTFfqzdTLnAuOE28BF1jTn0w8ojhqxfrft/Eb4fxnfyzANpC6je0hhVBm5T4O7/pxEtIYL1zR
-	VV3hnJTuc6b2eQQ0kgnISXtHKhCuKU5oEyRSMi4dhSLex5zzYObui9lQNYP5p/6kCxeZENGfnkT8x
-	UrPGaGpRqyY+QCyTvim0iw42vGQ4KE9skiW8hck7WG71qSRGNsLtL2WS/OG/Qe9H6IAkOqPD2YrQc
-	wVWfHHg/4dgt2p3GsQng==;
+	List-Owner; bh=6TUV7pjiM1OPqkxUkvyvyqBbFvwAModMJ7Li/nXGVxo=; b=fEOJfdF8/e/cFG
+	zG3W+iWbPeGuXfnoXoChDEKAhq/Hl6KnYZ4NrBk2CFQjQmYrRNaE6aFRM//kXhVWqOExtPtMp4sj2
+	Rm07XJfLQFU1sjUU5PVjMgidiqmQ4WkBLP9sc+vpv2xrRwS9pwKTFP8M0zS+RtPgI5zvw5EgnDrq6
+	KqU7OuxV7jY3M69dvbjdERmdpdgaksOl2yTsmYlT+JEKDc2/ZtrDyYmacRY4wSRPUOjhACri+/mxE
+	fsvuu67DJILhNqZ/rUGN37KCuHBXFabQHj8Mgw7fIbxDIYlfNYg4HMTVHHgn1ZonUgrTdwr+H1G+v
+	P81dUw1NxgUVYxMXulUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaVu-0000000BaOa-36w8;
-	Tue, 14 Jul 2026 10:37:22 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1wjaXP-0000000BaUm-01Xu;
+	Tue, 14 Jul 2026 10:38:55 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaVs-0000000BaOB-0XPR
+	id 1wjaXM-0000000BaUE-2jAA
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 10:37:21 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	Tue, 14 Jul 2026 10:38:53 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gzwjR2vkfzKngL;
-	Tue, 14 Jul 2026 12:37:15 +0200 (CEST)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gzwlF1FH2zKn6W;
+	Tue, 14 Jul 2026 12:38:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1784025435;
+	t=1784025529;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1fJftTlqcE8eGqPtuk9WNWMOkdgjG7MBJckMaW+Ctd4=;
-	b=yjCk071X+S4HfzaHmqtjhvuSeEbGlGnYTbaY9AzfBzULBfWei2jZwsSwtScHtZ3WtJuVKz
-	DkIK3HyDU6JOLOhI+zu/38QN3BeaEX4gHoE7JFTJWPShdJf2WfTm7tiLUtGfmK+cIykg/E
-	+e1qlSXSs6GRBYVotVNAa+rO8bq6p4brai7k4VaQsBZW/v2qN7IoMS2bu1hDSXb1AQ3+2C
-	13e60lwZYNqxvsr2CY1yxcOpeGQY8KIE+LHGFL0H1mgpaNmTX2jz6sALoSI7j9gSrf+8Ai
-	O0G4hwMGpPJy/my2bbXjA8pxRey7qNCUR7Npro88+gpDXPBvIe6r23YgBX2UPQ==
+	bh=xQRClI1WHGqvIeiewR59N1xWQ5Dskfhayb2qkUVyZyk=;
+	b=GVjizdYYnDvtzhcGVhi53BMPE6ECY25CIiUjvHtRW2n8R0Ay4OUB3BZA5mBaQNX+WcC0ls
+	yEVYBAapDQmKYalE5Q50VppsXKSjwtV3+Jt33btsFhUwY94Hd5jSRTaSeXyLjxB8H8IaW3
+	nTxxBaXnbKx4FG0TbgE3jIZtBkAE9Ib6J5l8Tq/AbsTLNjnMKUDzCnp8wP30oXRrQaIMc0
+	sjwtQ/t27k+GKA/xN7X0FpyuVUoblCw7c+A95Er5K99PxuF7XVmEYj3+o7vdH4dUa+XHlD
+	BIjj0ARlthj23hcWRJxdRww8g2zodEqY2NoXUwnB6xbVTHbvnhFshVJ+3HPwzw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=wx9EybNJ;
+	spf=pass (outgoing_mbo_mout: domain of shuwei.wu@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=shuwei.wu@mailbox.org
 Mime-Version: 1.0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1784025433;
+	t=1784025527;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1fJftTlqcE8eGqPtuk9WNWMOkdgjG7MBJckMaW+Ctd4=;
-	b=V5T5SpTduNeivrpuenzg45SjjTyc8GkSKnn3uTMiGldsqUP9gNRJl0cyId5d+yelfTi6XT
-	rPVPXo6uc+6yxydWEMrHqmFOt+4Bx05i+amAk+2zQ6YllKqiWAt3qM05J8thgofCGFxN8x
-	Y+BHe4jy2Nurb6fFVRK/JHL8kw+sXEuRtaxTL94eS8ukPBxJ4JtjPsBWE4nftpG6JbgfDU
-	7EnIfrppq1zILJ81GDS9DPuvQkidImOdidp6OONjdFJ65eXuHA0RM3Lf8oNTmqYjKJaWfQ
-	wBDVophvGdyV1fv1B8Qv8ocj/hJG7lS6twlj7eHIXzZdWnR6COg4o3vygmEjkw==
-Date: Tue, 14 Jul 2026 18:36:59 +0800
-Message-Id: <DJY88BBD7RCM.20K3BATZ6JIM7@mailbox.org>
+	bh=xQRClI1WHGqvIeiewR59N1xWQ5Dskfhayb2qkUVyZyk=;
+	b=wx9EybNJh/mNTtcPVrb+Oo3WjXlCx+IH5OVOTsN+UA06FT7OEVBhuHgUfdtDMjoI0oH5nJ
+	tF3aw2KbR2S4ARSDCYCg45o103pJpM0TIjqb6QBLFFpqXl1LFCBKfkE/US2lmko+ibaHtj
+	O5rcUpSo5ECyvMUf3Wr03b8nCpQrEJNryB3q7qFTzwI8uVC1mumnru+sy+Jrjx3+0ZmFhO
+	FO7yiVFt5wNsb2YH3OhL4L7+f2KDXcTttDaaCQfPwMCinuBeUqEjaj7osaIt7hIkEdyrnZ
+	2tuMhVDr9F9C40vsf6fXmM9RfS7cegPOLZFvpgY101/FNZSJv7Lc7/wY2fa3Pg==
+Date: Tue, 14 Jul 2026 18:38:35 +0800
+Message-Id: <DJY89JCAP6HK.2RUO09KG9FSWA@mailbox.org>
 Subject: Re: [PATCH] thermal: spacemit: k1: disable hardware on driver
  remove
 From: "Shuwei Wu" <shuwei.wu@mailbox.org>
-To: "Pei Xiao" <xiaopei01@kylinos.cn>, <dlan@kernel.org>,
- <rafael@kernel.org>, <troy.mitchell@linux.spacemit.com>,
+To: "Pei Xiao" <xiaopei01@kylinos.cn>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>, <dlan@kernel.org>, <rafael@kernel.org>,
  <shuwei.wu@mailbox.org>, <linux-pm@vger.kernel.org>,
  <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
  <linux-kernel@vger.kernel.org>
-References: <1db7d94eeaced9a92e3670d28e0c97c22f15f108.1783931396.git.xiaopei01@kylinos.cn>
-In-Reply-To: <1db7d94eeaced9a92e3670d28e0c97c22f15f108.1783931396.git.xiaopei01@kylinos.cn>
-X-MBO-RS-META: dawor4uopnap8bhihc8hfk6snj5jbmo4
-X-MBO-RS-ID: 9c12ea2705f8e50f429
+References: <1db7d94eeaced9a92e3670d28e0c97c22f15f108.1783931396.git.xiaopei01@kylinos.cn> <DJXB4PDMYX0G.1TC9VBR96MHMA@linux.spacemit.com> <b7803ac7-c9e1-4905-9256-4b67e41ad1ac@kylinos.cn>
+In-Reply-To: <b7803ac7-c9e1-4905-9256-4b67e41ad1ac@kylinos.cn>
+X-MBO-RS-META: g1pnnbscjrnt9rtbja9g3w6t59ioi4yr
+X-MBO-RS-ID: 45e1db2ad9b25c0df3c
+X-Rspamd-Queue-Id: 4gzwlF1FH2zKn6W
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_033720_475504_736DCC4A 
-X-CRM114-Status: GOOD (  27.20  )
+X-CRM114-CacheID: sfid-20260714_033852_862214_1EE4B948 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,198 +90,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Pei,
-
-On Mon Jul 13, 2026 at 4:32 PM CST, Pei Xiao wrote:
-> The driver uses devm_request_threaded_irq() but never disables the
-> hardware interrupt enable, sensor enable, or sensor power bits when
-> the driver is unbound.
->
-> Add a devm action that clears K1_TSENSOR_INT_EN_REG,
-> K1_TSENSOR_EN_ALL, and K1_TSENSOR_PCTRL_ENABLE on remove, mirroring
-> what k1_tsensor_init() sets up.
->
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-> ---
->  drivers/thermal/spacemit/k1_tsensor.c | 27 +++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
->
-> diff --git a/drivers/thermal/spacemit/k1_tsensor.c b/drivers/thermal/spacemit/k1_tsensor.c
-> index 79222d233129..cf79dc7d403f 100644
-> --- a/drivers/thermal/spacemit/k1_tsensor.c
-> +++ b/drivers/thermal/spacemit/k1_tsensor.c
-> @@ -199,6 +199,29 @@ static irqreturn_t k1_tsensor_irq_thread(int irq, void *data)
->  	return IRQ_HANDLED;
->  }
->  
-> +static void k1_tsensor_shutdown(struct k1_tsensor *ts)
-> +{
-> +	u32 val;
-> +
-> +	/* Disable all interrupts */
-> +	writel(0xffffffff, ts->base + K1_TSENSOR_INT_EN_REG);
-> +
-> +	/* Disable all sensor */
-> +	val = readl(ts->base + K1_TSENSOR_EN_REG);
-> +	val &= ~K1_TSENSOR_EN_ALL;
-> +	writel(val, ts->base + K1_TSENSOR_EN_REG);
-> +
-> +	/* Power down the sensor module */
-> +	val = readl(ts->base + K1_TSENSOR_PCTRL_REG);
-> +	val &= ~K1_TSENSOR_PCTRL_ENABLE;
-> +	writel(val, ts->base + K1_TSENSOR_PCTRL_REG);
-> +}
-> +
-> +static void devm_k1_tsensor_shutdown(void *data)
-> +{
-> +	k1_tsensor_shutdown(data);
-> +}
-> +
->  static int k1_tsensor_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
-> @@ -229,6 +252,10 @@ static int k1_tsensor_probe(struct platform_device *pdev)
->  
->  	k1_tsensor_init(ts);
->  
-> +	ret = devm_add_action_or_reset(dev, devm_k1_tsensor_shutdown, ts);
-> +	if (ret)
-> +		return ret;
-> +
->  	irq = platform_get_irq(pdev, 0);
->  	if (irq < 0)
->  		return irq;
-
-Sorry, I missed the hardware cleanup in the original driver.
-Thanks for fixing it.
-
-I also found that registering the shutdown action immediately after
-k1_tsensor_init() would cause the thermal zones to be released before
-the IRQ during devres cleanup. The IRQ thread may then access an
-unregistered thermal zone.
-
-I changed the order so that the thermal zones are registered first,
-followed by the IRQ and the shutdown action.
-On removal, the hardware interrupt is disabled first, then the IRQ
-is released, and finally the thermal zones are released.
-
--> % git --no-pager diff drivers/thermal/spacemit/k1_tsensor.c
-diff --git a/drivers/thermal/spacemit/k1_tsensor.c b/drivers/thermal/spacemit/k1_tsensor.c
-index 79222d233129..57dbc652a405 100644
---- a/drivers/thermal/spacemit/k1_tsensor.c
-+++ b/drivers/thermal/spacemit/k1_tsensor.c
-@@ -199,6 +199,32 @@ static irqreturn_t k1_tsensor_irq_thread(int irq, void *data)
- 	return IRQ_HANDLED;
- }
-
-+static void k1_tsensor_shutdown(struct k1_tsensor *ts)
-+{
-+	u32 val;
-+
-+	/* Disable all interrupts */
-+	writel(0xffffffff, ts->base + K1_TSENSOR_INT_EN_REG);
-+
-+	/* Disable all sensors */
-+	val = readl(ts->base + K1_TSENSOR_EN_REG);
-+	val &= ~K1_TSENSOR_EN_ALL;
-+	writel(val, ts->base + K1_TSENSOR_EN_REG);
-+
-+	/* Clear the sampling configuration set by k1_tsensor_init(). */
-+	val = readl(ts->base + K1_TSENSOR_TIME_REG);
-+	val &= ~(K1_TSENSOR_TIME_FILTER_PERIOD |
-+		 K1_TSENSOR_TIME_ADC_CNT_RST |
-+		 K1_TSENSOR_TIME_WAIT_REF_CNT);
-+	writel(val, ts->base + K1_TSENSOR_TIME_REG);
-+
-+	/* Clear the control bits configured by k1_tsensor_init(). */
-+	val = readl(ts->base + K1_TSENSOR_PCTRL_REG);
-+	val &= ~(K1_TSENSOR_PCTRL_RAW_SEL |
-+		 K1_TSENSOR_PCTRL_TEMP_MODE |
-+		 K1_TSENSOR_PCTRL_HW_AUTO_MODE |
-+		 K1_TSENSOR_PCTRL_ENABLE);
-+	writel(val, ts->base + K1_TSENSOR_PCTRL_REG);
-+}
-+
-+static void devm_k1_tsensor_shutdown(void *data)
-+{
-+	k1_tsensor_shutdown(data);
-+}
-+
- static int k1_tsensor_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -229,34 +255,48 @@ static int k1_tsensor_probe(struct platform_device *pdev)
-
- 	k1_tsensor_init(ts);
-
--	irq = platform_get_irq(pdev, 0);
--	if (irq < 0)
--		return irq;
--
--	ret = devm_request_threaded_irq(dev, irq, NULL,
--					k1_tsensor_irq_thread,
--					IRQF_ONESHOT, "k1_tsensor", ts);
--	if (ret < 0)
--		return ret;
--
- 	for (i = 0; i < MAX_SENSOR_NUMBER; ++i) {
- 		ts->ch[i].id = i;
- 		ts->ch[i].ts = ts;
- 		ts->ch[i].tzd = devm_thermal_of_zone_register(dev, i, ts->ch + i, &k1_tsensor_ops);
--		if (IS_ERR(ts->ch[i].tzd))
--			return PTR_ERR(ts->ch[i].tzd);
-+		if (IS_ERR(ts->ch[i].tzd)) {
-+			ret = PTR_ERR(ts->ch[i].tzd);
-+			goto err_shutdown;
-+		}
-
- 		/* Attach sysfs hwmon attributes for userspace monitoring */
- 		ret = devm_thermal_add_hwmon_sysfs(dev, ts->ch[i].tzd);
- 		if (ret)
- 			dev_warn(dev, "Failed to add hwmon sysfs attributes\n");
-+	}
-
--		k1_tsensor_enable_irq(ts->ch + i);
-+	ret = platform_get_irq(pdev, 0);
-+	if (ret < 0) {
-+		goto err_shutdown;
- 	}
-
-+	ret = devm_request_threaded_irq(dev, irq, NULL,
-+					k1_tsensor_irq_thread,
-+					IRQF_ONESHOT, "k1_tsensor", ts);
-+	if (ret < 0)
-+		goto err_shutdown;
-+
-+	ret = devm_add_action_or_reset(dev, devm_k1_tsensor_shutdown, ts);
-+	if (ret)
-+		return ret;
-+
-+	/* Enable interrupts only after all zones and the handler are ready. */
-+	for (i = 0; i < MAX_SENSOR_NUMBER; ++i)
-+		k1_tsensor_enable_irq(ts->ch + i);
-+
- 	platform_set_drvdata(pdev, ts);
-
- 	return 0;
-+
-+err_shutdown:
-+	k1_tsensor_shutdown(ts);
-+	return ret;
- }
-
- static const struct of_device_id k1_tsensor_dt_ids[] = {
-
--- 
-Best regards,
-Shuwei Wu
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUGVpLAoKT24gTW9uIEp1bCAxMywgMjAyNiBhdCA0OjU1IFBNIENTVCwgUGVpIFhpYW8gd3Jv
+dGU6Cj4KPgo+IOWcqCAyMDI2LzcvMTMgMTY6NDAsIFRyb3kgTWl0Y2hlbGwg5YaZ6YGTOgo+PiBP
+biBNb24gSnVsIDEzLCAyMDI2IGF0IDE6MzIgQU0gUERULCBQZWkgWGlhbyB3cm90ZToKPj4+IFRo
+ZSBkcml2ZXIgdXNlcyBkZXZtX3JlcXVlc3RfdGhyZWFkZWRfaXJxKCkgYnV0IG5ldmVyIGRpc2Fi
+bGVzIHRoZQo+Pj4gaGFyZHdhcmUgaW50ZXJydXB0IGVuYWJsZSwgc2Vuc29yIGVuYWJsZSwgb3Ig
+c2Vuc29yIHBvd2VyIGJpdHMgd2hlbgo+Pj4gdGhlIGRyaXZlciBpcyB1bmJvdW5kLgo+Pj4KPj4+
+IEFkZCBhIGRldm0gYWN0aW9uIHRoYXQgY2xlYXJzIEsxX1RTRU5TT1JfSU5UX0VOX1JFRywKPj4+
+IEsxX1RTRU5TT1JfRU5fQUxMLCBhbmQgSzFfVFNFTlNPUl9QQ1RSTF9FTkFCTEUgb24gcmVtb3Zl
+LCBtaXJyb3JpbmcKPj4+IHdoYXQgazFfdHNlbnNvcl9pbml0KCkgc2V0cyB1cC4KPj4+Cj4+PiBT
+aWduZWQtb2ZmLWJ5OiBQZWkgWGlhbyA8eGlhb3BlaTAxQGt5bGlub3MuY24+Cj4+PiAtLS0KPj4+
+ICBkcml2ZXJzL3RoZXJtYWwvc3BhY2VtaXQvazFfdHNlbnNvci5jIHwgMjcgKysrKysrKysrKysr
+KysrKysrKysrKysrKysrCj4+PiAgMSBmaWxlIGNoYW5nZWQsIDI3IGluc2VydGlvbnMoKykKPj4+
+Cj4+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy90aGVybWFsL3NwYWNlbWl0L2sxX3RzZW5zb3IuYyBi
+L2RyaXZlcnMvdGhlcm1hbC9zcGFjZW1pdC9rMV90c2Vuc29yLmMKPj4+IGluZGV4IDc5MjIyZDIz
+MzEyOS4uY2Y3OWRjN2Q0MDNmIDEwMDY0NAo+Pj4gLS0tIGEvZHJpdmVycy90aGVybWFsL3NwYWNl
+bWl0L2sxX3RzZW5zb3IuYwo+Pj4gKysrIGIvZHJpdmVycy90aGVybWFsL3NwYWNlbWl0L2sxX3Rz
+ZW5zb3IuYwo+Pj4gQEAgLTE5OSw2ICsxOTksMjkgQEAgc3RhdGljIGlycXJldHVybl90IGsxX3Rz
+ZW5zb3JfaXJxX3RocmVhZChpbnQgaXJxLCB2b2lkICpkYXRhKQo+Pj4gIAlyZXR1cm4gSVJRX0hB
+TkRMRUQ7Cj4+PiAgfQo+Pj4gIAo+Pj4gK3N0YXRpYyB2b2lkIGsxX3RzZW5zb3Jfc2h1dGRvd24o
+c3RydWN0IGsxX3RzZW5zb3IgKnRzKQo+Pj4gK3sKPj4+ICsJdTMyIHZhbDsKPj4+ICsKPj4+ICsJ
+LyogRGlzYWJsZSBhbGwgaW50ZXJydXB0cyAqLwo+Pj4gKwl3cml0ZWwoMHhmZmZmZmZmZiwgdHMt
+PmJhc2UgKyBLMV9UU0VOU09SX0lOVF9FTl9SRUcpOwo+Pj4gKwo+Pj4gKwkvKiBEaXNhYmxlIGFs
+bCBzZW5zb3IgKi8KPj4+ICsJdmFsID0gcmVhZGwodHMtPmJhc2UgKyBLMV9UU0VOU09SX0VOX1JF
+Ryk7Cj4+PiArCXZhbCAmPSB+SzFfVFNFTlNPUl9FTl9BTEw7Cj4+PiArCXdyaXRlbCh2YWwsIHRz
+LT5iYXNlICsgSzFfVFNFTlNPUl9FTl9SRUcpOwo+Pj4gKwo+Pj4gKwkvKiBQb3dlciBkb3duIHRo
+ZSBzZW5zb3IgbW9kdWxlICovCj4+PiArCXZhbCA9IHJlYWRsKHRzLT5iYXNlICsgSzFfVFNFTlNP
+Ul9QQ1RSTF9SRUcpOwo+Pj4gKwl2YWwgJj0gfksxX1RTRU5TT1JfUENUUkxfRU5BQkxFOwo+PiBX
+aHkgaXMgb25seSB0aGUgRU5BQkxFIGJpdCBjbGVhcmVkIGhlcmU/Cj4+IEF0IGluaXQgdGltZSB0
+aGUgZHJpdmVyIGFsc28gc2V0czoKPj4gICAgIHZhbCB8PSBLMV9UU0VOU09SX1BDVFJMX1JBV19T
+RUwgfAo+PiAgICAgSzFfVFNFTlNPUl9QQ1RSTF9URU1QX01PREUgfAo+PiAgICAgSzFfVFNFTlNP
+Ul9QQ1RSTF9IV19BVVRPX01PREUgfAo+PiAgICAgSzFfVFNFTlNPUl9QQ1RSTF9FTkFCTEU7Cj4+
+Cj4+IFNob3VsZCB0aGUgb3RoZXIgYml0cyBiZSBjbGVhcmVkIGluIHNodXRkb3duIGFzIHdlbGws
+IG9yIGlzIGNsZWFyaW5nIEVOQUJMRQo+PiBhbG9uZT8KPiBIaSBUcm95LAo+IMKgTWF5YmUgV3Uo
+YXV0aG9yKSBoYXZlIHNvbWV0aW5nIHRvIHNheSBhYm91dCB0aGVzZSByZWdzLgo+IMKgVGhhbmtz
+Lgo+Cj4gUGVpLgoKVGhhbmtzIGZvciBwb2ludGluZyB0aGlzIG91dC4KCkkgYWdyZWUgdGhhdCB0
+aGUgc2h1dGRvd24gcGF0aCBzaG91bGQgY2xlYXIgYWxsIGNvbnRyb2wgYml0cwpzZXQgYnkgazFf
+dHNlbnNvcl9pbml0KCkuCgpUaGUgbWFuYWdlZCBjbGVhbnVwIHdpbGwgYXNzZXJ0IHRoZSByZXNl
+dCwgYnV0IHRoZSByZXNldCBvcGVyYXRpb24gbWF5IGZhaWwKYW5kIGl0cyByZXR1cm4gdmFsdWUg
+aXMgaWdub3JlZC4gVGhlcmVmb3JlLCBpdCBpcyBzYWZlciB0byBkaXNhYmxlIHRoZXNlCnNldHRp
+bmdzIGV4cGxpY2l0bHkgYmVmb3JlIHJlbGVhc2luZyB0aGUgcmVzb3VyY2VzLgoKPgo+Cj4+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtIFRyb3kKCi0tIApCZXN0IHJlZ2FyZHMsClNodXdl
+aSBXdQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
