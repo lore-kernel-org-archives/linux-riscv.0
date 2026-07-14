@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1365AC44508
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94550C4450A
 	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 14:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,51 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OrIwRJaqRNjdXkegK6MTCVXHByB+PlkHfwe9kyizSTE=; b=XFd5OUXqWeHALp
-	fYvYGNopolBNF41aPTn0Y5g1I94R1tBncbCbqyhldDQhMqVLKubTaExqveBcwykDWU8V4WmeEfoQz
-	2uiAPSmd03MraQNtQc32VUEo2tn+UCUdwgw1gdfpCL/a0R/UUPftT0KelJOe7UUcoZFw6KY2W9sWj
-	D7iE12lesr0zaCDaAn5xaozoPcS0nM87YLDSBID819e1IBtaPtzmVjF5iFoYN3a5n9ekf8MRVi5ZZ
-	F76Fql1rB4y+BDlfJAWF86n8dF/EWnCGfzb44O9ndPB8PKB57aY62IloIRtHUUH2S7ANM+dQ6+EdG
-	ZkxKexgulp3PM0qKdR6g==;
+	List-Owner; bh=zgRnzHRga4cTvRkB4Y8VKlmHoDx/Y7nEl7VqklBP4AI=; b=OMg1Hy//XKWuGb
+	ATNJq+du7+O+PpV3GRgnwALvxIt30CKF3UoJGp5iWmMnCw2hLi0UzVH70fb0pXaWHrhxDi3SLep66
+	f2/jrCk9/qytqIy5Laj7gDCF4b4NaKuBXlgI0lKwIjRB0G5Dph5BMm0BRn9C1oGDeKkNjI22N4xnK
+	g7iNhNUR9wvy4F6EgijwP6EHikpQIYL4k458T7aOOgwFzyGxkEU6TutJXOS2bp37ft6hTmlJ5cm8Y
+	Kc3QABOucMvAoXOPT/Ma8Qo1e0vlSC6+EvaF2fUzH6EYcW20IIFcfdJcALj4c9OdsQs3bTX7BxkFU
+	WyJluD75YN6kVH/CyTaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdmt-0000000CJIG-1dCL;
-	Tue, 14 Jul 2026 14:07:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdmr-0000000CJG1-3lU6;
-	Tue, 14 Jul 2026 14:07:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=3zQydgPZJ7Jyvl0nKZs4MsunHOywP/c9ek9M9Qkn7Jk=; b=QWEcJSOR+qNi966uvx8Ka3glyG
-	3dU4UISHuyCNy9tz6UTOssriX6McJoZC2IhHw5KaupQQf1Vt3E11/8t28AMkdMd6EHFDhdRt1CN6Y
-	oA/pA4pdmpSbwVFU5AWP4UwgiWiJmf97tZb2iV55XzhyiyeoTHZ8/7kvCHs3tEOJKRz8vKS+AzaH0
-	L+80nBvDSY4BWc+nRvaIfjf7UiCV95TdfxKO0MF5L6Dj8cqXIjv5eepzeIX1xDV/gHrZnJz5QQqfY
-	yEruORCwrLU2xiNl+nCJFvwpaa37umqO9EI+gRG7LrCMI9uNyxqqV7hi3Tf5URUUGtRFVAjz8qQiE
-	GN4ysitA==;
+	id 1wjdmw-0000000CJMw-2wuA;
+	Tue, 14 Jul 2026 14:07:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjdmm-0000000CZJa-1l5n;
-	Tue, 14 Jul 2026 14:07:04 +0000
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjdms-0000000CJH7-38dX;
+	Tue, 14 Jul 2026 14:07:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AFDD1C00;
-	Tue, 14 Jul 2026 07:06:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE41D1576;
+	Tue, 14 Jul 2026 07:07:01 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB3453FBB1;
-	Tue, 14 Jul 2026 07:06:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A6BF83F7B4;
+	Tue, 14 Jul 2026 07:06:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784038018; bh=4PNxqxq/jrUer27xvNkwvequvxQnPhBMXV3o8mC51Ps=;
+	t=1784038026; bh=wRRvDY7vvj6o45l8yT2Q7WPIKaOL0Wfu1AKN4gUTBNM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WLxWEHcbiO2GB5LbtNB+92/zwEdWv+8J6pCRQbs3PGmarOdTkL8G1gUMIDPggJIxD
-	 N9phhhgOR7QXBCkkB6FWwKpw6kiO73Y49hy9kAZeBD1ExbuR501MLF5gHb3/X1UjRF
-	 0YbOoaXts+8XwZ3/78QN/pRZ3IolUppQVMb9mRqM=
+	b=CCHuQj4boJkfZHO19ek7AVQhcn2j5x9Inj92YhvCDOQNMYxw1wJHqVP3lNtmrXDor
+	 z8dfztuTF5HxmmtkzWEn0bGB/ntiIdARdTp3OUTIiy6d1Pv6qDLGuwuR1khXjO+Vzy
+	 5ViCvZtIVrztie1QTQbSWYbDcViyYQGhZmv5eaSk=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 14 Jul 2026 15:04:03 +0100
-Subject: [PATCH 14/22] mm: set page table page type when allocated
+Date: Tue, 14 Jul 2026 15:04:04 +0100
+Subject: [PATCH 15/22] mm: only initialise pt_share_count for user pgtables
 MIME-Version: 1.0
-Message-Id: <20260714-remove_pgtable_cdtor-v1-14-44be8a7685d7@arm.com>
+Message-Id: <20260714-remove_pgtable_cdtor-v1-15-44be8a7685d7@arm.com>
 References: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 In-Reply-To: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 To: linux-mm@kvack.org
@@ -95,16 +81,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=3368;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=1093;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=4PNxqxq/jrUer27xvNkwvequvxQnPhBMXV3o8mC51Ps=;
- b=0VdQOf0nra1WPYggXNBDDOliZvhTj/vQmWZ9BxkvIcGSO9bbshMd8ZPkLRqWmNwzRE1zk4sMb
- RKD72ZNcXaiBd0YaTV+GgCHvQw7s/IzNuDs0JxkPVAN8TuJt7kaNkpn
+ bh=wRRvDY7vvj6o45l8yT2Q7WPIKaOL0Wfu1AKN4gUTBNM=;
+ b=Ly1CUGmQU4MNOAvYijXTm6a0Oy5bg25WoXD9BoAv+N4SapepeLDfsykLmzz2cpJ5XS9tuoOVI
+ p8vbo57maMnDOD6whiBPPJLuCq0Skgv9I5RprwD5SM3O65zdB1a2N0T
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_150701_062905_C831A04F 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20260714_070706_896949_98D22190 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,107 +107,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As a step towards removing pagetable ctor/dtor calls for kernel
-mm's, move the page type updates from the ctor/dtor to
-pagetable_{alloc,free}.
+ptdesc_pmd_pts_init() initialises the pt_share_count ptdesc field.
+That field is only used for hugetlb tracking purposes, so there is
+no need to initialise it for kernel page tables. Skip the call for
+kernel page tables, like pmd_ptlock_init().
 
-__pagetable_ctor() is now empty so remove it;
-pagetable_{pud,p4d,pgd}_ctor() will be removed at a later stage.
+From now on pagetable_*_ctor() and pagetable_dtor() do nothing for
+kernel page tables.
 
-The ctor is normally called after pagetable_alloc() (and dtor before
-pagetable_free()) so this patch should have no functional effect in
-most cases. Where calls to ctor/dtor are currently missing (e.g.
-x86's split_large_page()), this patch will ensure the page type is
-set correctly.
-
-This patch is based on Matthew's earlier implementation linked
-below, with the difference that when freeing the page type is
-cleared in __pagetable_free(), meaning that the update is delayed
-until the pages are actually freed in the
-CONFIG_ASYNC_KERNEL_PGTABLE_FREE case. This shouldn't matter in
-practice.
-
-Suggested-by: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-Link: https://lore.kernel.org/r/20251113140448.1814860-4-willy@infradead.org
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- include/linux/mm.h | 17 ++---------------
- 1 file changed, 2 insertions(+), 15 deletions(-)
+ include/linux/mm.h | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
 diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 361a0d7b74c5..94f0fb1c662a 100644
+index 94f0fb1c662a..b217ccbed5a3 100644
 --- a/include/linux/mm.h
 +++ b/include/linux/mm.h
-@@ -3684,6 +3684,7 @@ static inline struct ptdesc *pagetable_alloc_noprof(gfp_t gfp, unsigned int orde
- 	if (!page)
- 		return NULL;
- 
-+	__folio_set_pgtable(page_folio(page));
- 	lruvec_stat_add_folio(page_folio(page), NR_PAGETABLE);
- 
- 	return page_ptdesc(page);
-@@ -3694,6 +3695,7 @@ static inline void __pagetable_free(struct ptdesc *pt)
+@@ -3905,9 +3905,12 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
+ static inline bool pagetable_pmd_ctor(struct mm_struct *mm,
+ 				      struct ptdesc *ptdesc)
  {
- 	struct page *page = ptdesc_page(pt);
- 
-+	__folio_clear_pgtable(page_folio(page));
- 	lruvec_stat_sub_folio(page_folio(page), NR_PAGETABLE);
- 
- 	__free_pages(page, compound_order(page));
-@@ -3799,19 +3801,9 @@ static inline bool ptlock_init(struct ptdesc *ptdesc) { return true; }
- static inline void ptlock_free(struct ptdesc *ptdesc) {}
- #endif /* defined(CONFIG_SPLIT_PTE_PTLOCKS) */
- 
--static inline void __pagetable_ctor(struct ptdesc *ptdesc)
--{
--	struct folio *folio = ptdesc_folio(ptdesc);
--
--	__folio_set_pgtable(folio);
--}
--
- static inline void pagetable_dtor(struct ptdesc *ptdesc)
- {
--	struct folio *folio = ptdesc_folio(ptdesc);
--
- 	ptlock_free(ptdesc);
--	__folio_clear_pgtable(folio);
- }
- 
- static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
-@@ -3825,7 +3817,6 @@ static inline bool pagetable_pte_ctor(struct mm_struct *mm,
- {
- 	if (!mm_is_kernel(mm) && !ptlock_init(ptdesc))
- 		return false;
--	__pagetable_ctor(ptdesc);
+-	if (!mm_is_kernel(mm) && !pmd_ptlock_init(ptdesc))
+-		return false;
+-	ptdesc_pmd_pts_init(ptdesc);
++	if (!mm_is_kernel(mm)) {
++		if (!pmd_ptlock_init(ptdesc))
++			return false;
++		ptdesc_pmd_pts_init(ptdesc);
++	}
++
  	return true;
  }
  
-@@ -3917,7 +3908,6 @@ static inline bool pagetable_pmd_ctor(struct mm_struct *mm,
- 	if (!mm_is_kernel(mm) && !pmd_ptlock_init(ptdesc))
- 		return false;
- 	ptdesc_pmd_pts_init(ptdesc);
--	__pagetable_ctor(ptdesc);
- 	return true;
- }
- 
-@@ -3942,17 +3932,14 @@ static inline spinlock_t *pud_lock(struct mm_struct *mm, pud_t *pud)
- 
- static inline void pagetable_pud_ctor(struct ptdesc *ptdesc)
- {
--	__pagetable_ctor(ptdesc);
- }
- 
- static inline void pagetable_p4d_ctor(struct ptdesc *ptdesc)
- {
--	__pagetable_ctor(ptdesc);
- }
- 
- static inline void pagetable_pgd_ctor(struct ptdesc *ptdesc)
- {
--	__pagetable_ctor(ptdesc);
- }
- 
- extern void __init pagecache_init(void);
 
 -- 
 2.51.2
