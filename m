@@ -4,60 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6D8C44501
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 15:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF53C44501
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 15:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zV3ho0eMYuARTcJH+d+D+Ude4hDl0LnLgrNSBvrcg0k=; b=ih8N3RVjo/BnWE
-	WMDpK2VnI8suaAwdCkW/f1CSfshiu5En2xWUEvZoHVo3Tjw3d6+UiySPUPDouTb0NKqD1HLR/Bx+B
-	alnqXJJdYdTqnOBX/AfSmgZ9MLlLpgwwD2ILilmGKYY721xrL00WG5OmBK7m3Sqted3Zx8FVJfDRw
-	DgvFZD6cAbwGMratez5NqxL91tH2gLlnqLp17g7Mhq3KVA6feEMWeOikuW3+eBRb/q6eagYUbQync
-	nsgnJJ6A86a1ZWK+nWqM20bqvxocEqKKd5ou9jrLarfG0jRArIUUz2e9XJjF4Zcm9QsmY93gUGBW9
-	Jv7jKlgfDROav+qb9A1g==;
+	List-Owner; bh=TnIpseUPp8yeTFErykSxWx6WE7i+d5PuI1HXRWukEGo=; b=h8JTXnW2IazI1+
+	RsueHbKDG5NEs6gC0RZyPVm47vRflZekOxBfIdvWI+N1aZofF65Bx1B7ahFVBBPYC6SP1WUDV3ymA
+	VbHOuCvutM0SjDNVsOt+c3p+jsNTYclAQjjiFGMuYCAfhD4JaQ/5R/9LMapTYlu8qC+a5pysJ8T11
+	0qffOWAWBp7fuW2w0QFmLKkjEPi8AA1qDmMPz5J889faZMoA3kTmwYZYHbgY/zotSkzsVBCCkDF4i
+	c7F33vAVDpA/MhPl+aD3tnF/thH6RPIUDkTVJsBQYSFMYaM2YqCqUtqxpGZH5woor0303dYKncIK1
+	Usez1PTYkbDjAjrV/OoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfCA-0000000CYON-0dM7;
-	Tue, 14 Jul 2026 15:37:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjfCd-0000000CYU9-192u;
+	Tue, 14 Jul 2026 15:37:47 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfC8-0000000CYO6-2sKm
+	id 1wjfCY-0000000CYT3-4AXh
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 15:37:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D65840086;
-	Tue, 14 Jul 2026 15:37:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F2191F000E9;
-	Tue, 14 Jul 2026 15:37:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784043436;
-	bh=p/WVKNRgG6HCMh8QdcHkpFgg2wBA4OGdLOMQQGR5bXg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mSudT+fhGsjkm1g7cHqsqzU9OFwdWKZdQdeL6LMnf8iYmh+1TH0pMbblp2eT5BvVR
-	 EQc7YaED2+psd6tI4QUVFHYcWtjr0Bq7/Ia/Fl94B6DY4k6b85Qk8e+hDJPw4F1wir
-	 ZhFCa1sR6Swq0A+/zlsBdmOhCtrpx9L8JpVDdOdAEX08Wp2evSJmnd7YxvjX62Of+0
-	 uWmLmcAeURVSEe1HCSbCKazOC91BCEMdVreaIerBOtWzB2/vERh2FNWTsQu0jNN1Kr
-	 gxabJOOOFZxHjoleatK3GksI3w/tEZZEgWJy61vBEOCW4jEqz8Oy8/h4myZPxkVzOz
-	 8tv0PjlkgtzmQ==
-Date: Tue, 14 Jul 2026 17:37:12 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Tue, 14 Jul 2026 15:37:46 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-81e8fa1b8d6so35906027b3.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 08:37:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1784043461; x=1784648261; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WA6CdRsuIEfzWnFUXJQW7oI+G4RwVrl/m9/NqdXdUbg=;
+        b=ZCXFfC4QyAkOaU6FH/07OfQRbUw7n5yKv5lCqIbTw19dpaWmPdkhYJ531sEgAYI6cR
+         s2BtmbjXO/QLXPiQK76FA9vvyW8GlCD0tCibfJTQMzqhDDXfwxpaI7MgfZJ3AWNLFvpK
+         jtjtydJ3c8ISjTuohrpUrmA6rxSuZwcrjC+hJ7k269qkNgx21SCDVPdJkR8nfq0OpbNJ
+         cryp2R3+TwHAhTtxpxmv6XScwjruQ5Dx+Kz1tAFyyCnlybXNW+D2gdjrcfccNEW5zE65
+         emprKFQxDjhYwgxigTGpmpYcDmIgFqK/CpaBgYIWflW3y4b+nmXsUNZFHPHMDskVAuuc
+         UWcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784043461; x=1784648261;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WA6CdRsuIEfzWnFUXJQW7oI+G4RwVrl/m9/NqdXdUbg=;
+        b=m30Cjflpp2iJ7QEq0byVbhcDSJtPFq0/BLiV8Jk/qLxEbWU44j3xJpE151eK8vknlV
+         /YmbfbXJiVhLcV87hFPK22V96AurFAt4arta22894S3NJRAdXKzRf7hmoCiyCop+IYuS
+         mvdK8ALf7iej4cPyk0xTzrLuUGjLjspMTN1kMr42od07q/LSTAip0PzBXbaaBZLRBj8n
+         TOzxHBYj/YH1WbSiutlv7d0oVPLPYQwi+v6E0gbN1VGf5wzvLYbu8dL+C7XefwnwFwzu
+         TX3++ETVLl+Sq5XE4e9m3SnhfqQvS7BiLNI3Pc25tcCrzh13OxyPGHPAshhpz73hOEZO
+         L9Sg==
+X-Forwarded-Encrypted: i=1; AHgh+RpuycpVLAMFi5vYqs5/ii+YAaD8qTZqU2JfMdHKTVRzQcWcjPf4yYcvzqB4IJkqyJbDPo8dsIHc6tSnzQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZjNq74S3iBHcACf4Aa89t960iXFOuvjsk89OPNyut+Km9G43V
+	ZxEZYIeEfSHiJcJUcxaW4qSyASUHkNZ0/6KHxNyI166YGgUN0jmuy1nog32YOs7m8pPLMKIhQwf
+	WEsIgmTc=
+X-Gm-Gg: AfdE7clZSVPQhHJjKm4g0i2AYXSsY4/yKbja71510Op0RdzACSh0DnpfIT/s8fJs4pE
+	s3OfMmCY9qaGbhq21914YmbdqEm+zLmW1cY5gI3uG82z+bNLC5v8KehstW2Oty5qkOTh+cQzD/k
+	3MINstQM2YT9yyCtUlWk6oWNV4mDmneiUuRW53Tp8JsqC2UcVRB5JKUGRVY0yqY9irrPk+Thwj8
+	ZVNa/egGslnVxOj3ePkNJ165w6aT3UQQTdhSpMOVml6ZJIUi9DNa/lYlhHzvfaexgbjscwMQ5zu
+	OBg79D1XStEpgwE11PH6ppKe8jdZ3WbbPwRhPUfNom5tuVaVZQqG5b6Lr6zIEQHHoKivKSe0p/c
+	HsHYB3F5vFzBzn81kjMx+HlKGNdQxAndc/6MboPTQ2x50mx60SmvBe63NG17PN0LEF1BlMnaGCg
+	eyfYdUn4gca1gUlVRbFISja+0EU0nzl2Ljkxd5kh4OSELFTUKOzPp2
+X-Received: by 2002:a05:690c:316:b0:81e:6d9b:156e with SMTP id 00721157ae682-81ebffe8f58mr18337777b3.47.1784043461541;
+        Tue, 14 Jul 2026 08:37:41 -0700 (PDT)
+Received: from toolbox ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6c1e5706sm144738627b3.34.2026.07.14.08.37.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 08:37:41 -0700 (PDT)
+Date: Tue, 14 Jul 2026 10:37:31 -0500
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Troy Mitchell <troy.mitchell@linux.dev>, 
+	Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	spacemit@lists.linux.dev
-Subject: Re: [PATCH v2] i2c: spacemit: fix spurious IRQ handling returning
- IRQ_HANDLED
-Message-ID: <alZXX4xX-f2EPNIJ@zenone.zhora.eu>
-References: <ef8b623f45d4e430721e46572c2598d882044aed.1783667603.git.xiaopei01@kylinos.cn>
- <ef8b623f45d4e430721e46572c2598d882044aed.1783667875.git.xiaopei01@kylinos.cn>
- <DJUQ3TZHM7OO.34ULEC76Z2BDY@linux.spacemit.com>
- <e453a825-4d73-4d35-a699-a495b0ca1058@kylinos.cn>
+Subject: Re: [PATCH v2] riscv: mm: fix SWIOTLB initialization for systems
+ with DRAM above 4GB
+Message-ID: <k55h7j5qnn3dryqro2oof7kgjcdhyoarvg7uvtm6sbrgdtnfzy@br6areeqp4ng>
+References: <20260429-fix-riscv-swiotlb-v2-1-fa99dfdfc94d@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <e453a825-4d73-4d35-a699-a495b0ca1058@kylinos.cn>
+In-Reply-To: <20260429-fix-riscv-swiotlb-v2-1-fa99dfdfc94d@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_083743_089538_D39F778C 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,24 +99,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGVpLAoKPiA+IE9uZSBwcm9jZXNzIG5vdGUsIHRob3VnaDogcGxlYXNlIGRvbid0IHJlcG9z
-dCBuZXcgdmVyc2lvbnMgdGhpcwo+ID4gcXVpY2tseS4gdjIgZm9sbG93ZWQgdGhlIHJldmlldyBj
-b21tZW50cyBhbG1vc3QgaW1tZWRpYXRlbHksIHdoaWNoCj4gPiBtZWFucyBvdGhlciByZXZpZXdl
-cnMgd2hvIHdlcmUgc3RpbGwgbG9va2luZyBhdCB2MSBuZXZlciBnb3QgYQo+ID4gY2hhbmNlIHRv
-IGNoaW1lIGluIGJlZm9yZSB0aGUgdGhyZWFkIG1vdmVkIG9uLCBhbmQgdGhlIGRpc2N1c3Npb24K
-PiA+IGdldHMgZnJhZ21lbnRlZCBhY3Jvc3MgdmVyc2lvbnMuCgo+IEJlY2F1c2UgSSBub3RpY2Vk
-IGEgc2ltcGxlIG1pc3Rha2UgcmlnaHQgYWZ0ZXIgc2VuZGluZyB2MQo+IOKAlEkgZm9yZ290IHRv
-IGluY2x1ZGUgdGhlIHZlcnNpb24gbnVtYmVyIGFuZCBjaGFuZ2Vsb2cgZm9yIHYy4oCUCj4gc28g
-SSB0aG91Z2h0IHRoYXQgYnkgZml4aW5nIGl0IHdpdGhvdXQgd2FpdGluZyBmb3IgcmV2aWV3ZXJz
-IHRvIHBvaW50IGl0Cj4gb3V0LMKgCj4gSSBjb3VsZCBzYXZlIHJldmlld2VycycgdGltZSBhbmQg
-Z2V0IHRoZSBwYXRjaCBtZXJnZWQgbW9yZSBxdWlja2x5Lgo+IMKgSSBtYXkgaGF2ZSBiZWVuIHdy
-b25nIGFib3V0IHRoYXQuIFNvcnJ5LgoKWW91IGNvdWxkIGhhdmUganVzdCByZXBsaWVkIHRvIHlv
-dXIgb3duIHBhdGNoLiBJdCBoYXBwZW5zIHRvCmV2ZXJ5b25lIHRvIG1ha2Ugc3VjaCBtaXN0YWtl
-cy4KCkFuZGkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Paul,
+
+On Wed, Apr 29, 2026 at 07:41:54PM +0800, Troy Mitchell wrote:
+> On RISC-V platforms where the entire physical memory (DRAM) resides
+> above the 32-bit address space (i.e., above dma32_phys_limit), the
+> current SWIOTLB initialization logic fails.
+> 
+> This patch addresses two interconnected issues on such platforms:
+> 
+> 1. Incorrect 32-bit DMA bounce assumption:
+> The existing condition `max_pfn > PFN_DOWN(dma32_phys_limit)` assumes
+> that a 32-bit DMA bounce buffer is required simply because the maximum
+> PFN exceeds the 32-bit limit. However, if all DRAM starts above 4GB,
+> no memory exists below the limit to satisfy this allocation. Fix
+> this by adding a check to ensure `memblock_start_of_DRAM()` is actually
+> below the 32-bit limit before enforcing 32-bit SWIOTLB.
+> 
+> 2. kmalloc() bounce buffer allocation failure on non-coherent systems:
+> For non-coherent hardware, a bounce buffer is still mandatory for
+> cache-line-aligned kmalloc(), even if 32-bit DMA bouncing is skipped.
+> Without the `SWIOTLB_ANY` flag, swiotlb_init() defaults to allocating
+> from low memory, which fails completely when DRAM only exists in high
+> memory. By appending `SWIOTLB_ANY` to swiotlb_flags, the allocator is
+> permitted to allocate this alignment buffer from high memory.
+> 
+> With this patch, systems with non-coherent DMA and DRAM entirely above
+> 4GB can successfully map the software IO TLB in high memory and boot
+> normally.
+> 
+> Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+
+Do you think you can take this patch in?
+
+Regards
+Anirudh Srinivasan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
