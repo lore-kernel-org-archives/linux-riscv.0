@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CDCC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 22:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A8BC43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 22:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a5w+yNHveOfStIhGD4owZL/FdUyyxVJzP37DF4kWBm4=; b=tdp3iejFNdVUkR
-	OTZJtGS1UsNWDUEfUQN8cB7kB8XxcGPicyTUXA5retcx/+3NAzTfOL9mveAOMlFgMCrHp2BXpb65a
-	5j+LzSJtMFWY15FthCR0/SS2C1zBdekfllgF/6AvOrsIr/MPwlGpZZV9vjsIkdNzf1Ea98JKYO0V8
-	agGvfKuaQWKEw43mL14EFomCqX8p+MI0r3AciYaWNd+MSlhdNYE5Yc/Kvlg/bo438nFTYcRguiuPg
-	qICBUwQft4KVPB3k5kF7zh6sbeQYP9K0na4D0yWsrdZ2In1m8R46ov0LR+gQuLPMeS9onCmaBVepg
-	u/4Y1+bQs7/cE3zTTxeg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9tX3+CPNth9TTvhSX83cqKam5NwtlXcvmIwf6GI8C18=; b=rwyNSQBgMKTZxW
+	XGdqcHFeuRn8VhkQmgqpykCZOTsGkcf1Ib3DGD47nvcnjnfBH8P6+9S4ef7UA6OOK+a8mFxB4XUi7
+	nx6L6GTCCuDl+Rt4dbjoOoWDmdgk0iB30w5S6Y0JILAwhiiB9GZu0mye2DWl7rQVTI4hJoa7ARdyG
+	EScnFYEQkfPm1/1PxuhY23iiWQRvCiB2OnZd5+52JIyCs2I3Md8l9df2RV2k1oSHCzyAohDjC1hlP
+	rrXy2KY4S7ddPSoe5wfQ2NehEQieUoEKNX/b/682+EgLovWcQoTewSH1b3YDpb3fYh4RIpXjI8Fn3
+	T2W2/fOmu4B1lHVRcwEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjlOH-0000000DOAY-2D6B;
-	Tue, 14 Jul 2026 22:14:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjlgm-0000000DPYg-0z02;
+	Tue, 14 Jul 2026 22:33:20 +0000
+Received: from mail-yx1-xb130.google.com ([2607:f8b0:4864:20::b130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjlOG-0000000DOA9-0Z1p
+	id 1wjlgj-0000000DPYJ-3RyM
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 22:14:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6796E406D8
-	for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 22:14:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DB041F00ADB
-	for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 22:14:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784067251;
-	bh=BLIsbd3rIu0q440Nh2W6RF4EH0NXixw4UPs/AFN2KRU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=FaKgu+vB2YYShsFe2M1JXkalONH4g3PsMIU7elO6lSWiO9dMoJwlqx4j8W/8cPjYg
-	 x+t2lVWhdjNNhMEYK4ngb8iqlT1Kj+JEQ/eCDilp9c4RWCuPiwkFuxCiatLqDGF5SL
-	 2MOtduM7IRUQnPl2+LwD636S9a16tBhEDpCJaBLWK3zViZ4djKjamY+ToFzDEE/FFy
-	 VAGAvB9TamK+/1fem6UcIodLpkiMqFiO/QyajNcoQu6P2ak6ssvHffzC3O7E81K1WG
-	 GApTL//Y4RCUu/ta84KBQWM8VeimHtoQaOyZ/XPxfPQxb/EJi3FtHkRTc8dzmjVhZ3
-	 7HsXS5GEem7zw==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c15ba3a2b4bso554588066b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 15:14:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqSdUbz5e5nHldhCZZUoY4RD2rw8EmFSAFVF4oM2qO60cUHuC0vixmqprtOON9tdfcL2m+0SznYxo0Lqg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDocDWi+uTyLPR9/hjnB2E+Gv/lyedUkMlG5k8BFHdCAncmgEu
-	rIMsgQ+Y974Yp+E0AfVnhTcCBjNxwXhVOfYnJ74mkjmPpjuk8YlNS6HlERxICNuW8NCGlTQQB1t
-	PZFm6hGsqhhBJDjutofJJRknlkZMWXA==
-X-Received: by 2002:a17:907:97ca:b0:c12:73fd:a6cd with SMTP id
- a640c23a62f3a-c1661928df9mr370952366b.52.1784067249841; Tue, 14 Jul 2026
- 15:14:09 -0700 (PDT)
+	Tue, 14 Jul 2026 22:33:18 +0000
+Received: by mail-yx1-xb130.google.com with SMTP id 956f58d0204a3-664c6304683so1514014d50.2
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 15:33:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784068396; x=1784673196; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1YX/e2y6lHS+kDRmAFlX9c4rfDe87oNHdseMQt4gGJI=;
+        b=Csf4FQtQ3i+rUR8uKygMVrONRcqyg1F9cWMkj4TJNnLO9+GQrni8wHXF7lWddvm0gq
+         8KsynMtCw1hHTW7bsXXQdhASdFdoJcI2FQwq0vBfBYAOaeYjL2x+uoMnHg3/oeW4/RdV
+         WFzx9Yl1thoRoduSai/5R3oWtJ/jODCaCg67E5Pp3ZdIGwsD+kysphAZHkHQHBdofVUO
+         9m7NgmlD5QauV78aWPOA0wH3i6f82fcH38Qdk7oUmXE/H0ePQ3OIR57p5qSNCz10csXB
+         g1AnOyQR+48IsBxgrzLCN5jNzFlNZ7bDt2j/+PFwO3Fd3LN7ILn49WeKUS3pftuaWtjB
+         HftQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784068396; x=1784673196;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1YX/e2y6lHS+kDRmAFlX9c4rfDe87oNHdseMQt4gGJI=;
+        b=SpkLvykIuQ+R1VTWttL67llcG6oH7lWxC8z/gUcFxFk7+Ho9oPFsTzw2xB7JZq3b7V
+         4O5kFVaYH2QLNejqr8rZswMK84zV+MzZcEO7EBa+kuy5zwuPzfMAHgLgig2juhHAEKyN
+         HSaInG8ctvzgwfignNSYav/ZMcRkndGwc72v+GdX9NmrMZG+0Yr57Kz1j56pKU3tsfV8
+         gl25iZ4juXtMz6wBiN3TlZTlNCXB8KbmwrYmzE2Dp8ile+wftcr77OXec04shpJTJOTD
+         bgWJ63ugb1zP+ZvmC01mwOIIjrs2b2ODVhJ938Rmvtlr928yyN1gcXsCYizjQ3mAFv7D
+         R7kw==
+X-Gm-Message-State: AOJu0YxKna025pTccBKt0n0prCLaG0ZGkibe1wce+zu1OJHDnd8/3i0J
+	Q9jkp1Kb4Hb/faNIzpow0JgeX0pmTQ3F7iosaVkaWUQ89VZEOVokNUcPA6MlMHMR
+X-Gm-Gg: AfdE7ckl+V149s2KhwhboVwdZIg6LI951p+zuWofDBkmZOHXr5trMScnRTrNf22cHWU
+	1rlQeB8h6HMJop/F9PiGvjh69rjVZL7iEXOZuRAkKpdWVh8LhBQQxBHHCiqjDNWQ4EmEZ4HvkA3
+	j+xnf7bJMUR4eLSvNiWur6pOpp2oz5vS2tXnFXuvTbnbc7YDgC3ZipaR/ItRlAOtRP9eUwJydgB
+	c1cQmzGdoJwE0g4vuZyKKpKzpPspDLpJaSYBqQukVVMWwdwCfmsDzvcvRr/+3paRHNJ+19KJkOn
+	P1KJABTAaRypd6MGHRggx83TFdl+EwIC+9rv7MdyCmz9zUTmLdZLWfW3A6jHzymPVhKDmGV5fPH
+	rGpBxDD01YYT512YWbbMvvSQukpnO7OFZb0Z84duUepSwZTRDMyDcc0e38zmfxw4lMmyTBrP0Fm
+	MkdmV4NYHZDmVcfN9AMrDoDaCRmr1JzM7X8Uza+2HV2kGXDWPuXSActNrPAA3hbu3zygZalcqW7
+	yG7
+X-Received: by 2002:a05:690c:3603:b0:80c:85e5:873b with SMTP id 00721157ae682-81e9017294dmr119016137b3.57.1784068396137;
+        Tue, 14 Jul 2026 15:33:16 -0700 (PDT)
+Received: from localhost.localdomain ([107.198.84.185])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6bf82412sm154677207b3.21.2026.07.14.15.33.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 15:33:14 -0700 (PDT)
+From: Paul Sherman <shermanpauldylan@gmail.com>
+To: linux-riscv@lists.infradead.org
+Cc: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	Paul Sherman <shermanpauldylan@gmail.com>
+Subject: [PATCH v2] riscv: smp: set CPU 0 possible in setup_smp()
+Date: Tue, 14 Jul 2026 15:33:01 -0700
+Message-ID: <20260714223301.5265-1-shermanpauldylan@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260714-add-coresight-nodes-for-shikra-v1-0-b1cf85962455@oss.qualcomm.com>
- <20260714-add-coresight-nodes-for-shikra-v1-2-b1cf85962455@oss.qualcomm.com>
-In-Reply-To: <20260714-add-coresight-nodes-for-shikra-v1-2-b1cf85962455@oss.qualcomm.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 14 Jul 2026 17:13:58 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLqbSrQKnnj2=57d-hFFeQ4xsDigLzmD-LHfufm=Mpp-Q@mail.gmail.com>
-X-Gm-Features: AUfX_myV2MEj_WnNpL4PNdWyXrVcH3TfBaO-6JJmtqnBFQREW3AFA5aOuTd8Dkw
-Message-ID: <CAL_JsqLqbSrQKnnj2=57d-hFFeQ4xsDigLzmD-LHfufm=Mpp-Q@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: qcom: shikra: Add coresight nodes
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_153317_866576_CD5D5D0C 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,18 +94,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMTMsIDIwMjYgYXQgODo1OOKAr1BNIEppZSBHYW4gPGppZS5nYW5Ab3NzLnF1
-YWxjb21tLmNvbT4gd3JvdGU6Cj4KPiBBZGQgRFQgbm9kZXMgZm9yIHRoZSBDb3JlU2lnaHQgZGVi
-dWcgYW5kIHRyYWNlIHN1YnN5c3RlbSBvbiBRdWFsY29tbQo+IFNoaWtyYSBTb0MuCj4KPiBTaWdu
-ZWQtb2ZmLWJ5OiBKaWUgR2FuIDxqaWUuZ2FuQG9zcy5xdWFsY29tbS5jb20+Cj4gLS0tCj4gIGFy
-Y2gvYXJtNjQvYm9vdC9kdHMvcWNvbS9zaGlrcmEuZHRzaSB8IDEyOTggKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgMTI5OCBpbnNlcnRpb25zKCsp
-CgpOQUsKCkZpeCB0aGUgc2FzaGlrbyBpc3N1ZS4KClJvYgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+setup_smp() calls set_cpu_possible() for CPUs 1..nr_cpu_ids-1 but
+never for CPU 0 (the boot CPU). x86 handles this via
+init_cpu_possible(cpumask_of(0)); RISC-V has no equivalent.
+
+Without CPU 0 in cpu_possible_mask, rcu_init_one()'s
+for_each_possible_cpu() loop skips it, leaving rdp->mynode=NULL.
+rcutree_prepare_cpu() then dereferences NULL and hangs.
+
+Exposed on Sophgo SG2042 (64-hart, 4-NUMA) with Linux 7.2-rc3.
+
+Fixes: a4166aec1130 ("riscv: Deduplicate code in setup_smp()")
+Signed-off-by: Paul Sherman <shermanpauldylan@gmail.com>
+---
+ arch/riscv/kernel/smpboot.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index f6ef57930b50..8d3a437c0f30 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -171,6 +171,15 @@ void __init setup_smp(void)
+ 	for (cpuid = 1; cpuid < nr_cpu_ids; cpuid++)
+ 		if (cpuid_to_hartid_map(cpuid) != INVALID_HARTID)
+ 			set_cpu_possible(cpuid, true);
++
++	/*
++	 * Boot CPU (cpuid=0) is never set possible by the loop above.
++	 * x86 and arm64 call init_cpu_possible(cpumask_of(0)) explicitly;
++	 * RISC-V was missing this. Without it, rcu_init_one()'s
++	 * for_each_possible_cpu loop skips CPU 0, leaving rdp->mynode=NULL,
++	 * causing rcutree_prepare_cpu() to dereference NULL and hang.
++	 */
++	set_cpu_possible(0, true);
+ }
+ 
+ static int start_secondary_cpu(int cpu, struct task_struct *tidle)
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
