@@ -4,106 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0462C43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 12:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD49C43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 12:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tsCBHN8Ci84rjHF2brhntUOTQ+3ZyMGwCjOQnUCLNow=; b=Gr8lPDEzZeG7lQ
-	a5QRmI+hIAXqfgZ13qfmPpAbEdn4TrSOauO3YCsk3BnfpPDxAZQbdLFhexxNpEdjiYhI0QwB8QL7q
-	vrsnsNFvQdl6Icw8oETUQAcrQnCvRhcFBoSZAuCZuuhtyQ8jkI74B0Zl8nIYOuscZ9afWVOqKgJ/t
-	fFRbJHTRx0khTHbGsFo/9QS5d3p7+Ay34SslbNoTmu7zQE/yX+tyx6NWByRmlwvrkqlprusjoN7E1
-	R0f9uCsyHdgXjwKRDRhjAG26FwtlG2iJ9Vrogx+pXylUfRiMwwp6ON9EyJ8ce2cLxnZsHEMxLQCXV
-	axPbMkHQNby/vpSeQnCw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/PkzNkUXkcceuwE6xa7gT46fIY/rPjeUbFEyPHfGZY4=; b=jeKWQiXkSnCIBH
+	ifVq1xCLXDoXooecVLoDfvTN0UBwHmee3V6FMlzDSUzaAJhkBNLMKes86OGqrsqo1eBmyIdtHwbvR
+	LO69FG9vmoV/sThPbGmGYjy2S+TkKOoNS7UKP/pz1+6yPQ28nPX4dy5pLNYS5YSAgBF8Aqzq+oGNs
+	Ev1mZHe5TQBsHBgec17vhzuOLgXFDkGPI375Mltm5R8/uLMJl1K564Q77XGamIA47Fd6JC05EbBgz
+	uOM7FYbRzsMJikvUNN6d22yBDQb3TGLsRolEimSHn6WZ/3AIpsqaqyPC/YHFzVrDcmA5oTVbH6pic
+	uIJ9QrWDowAEDETF3sOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbu0-0000000Br50-2o7h;
-	Tue, 14 Jul 2026 12:06:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjc3o-0000000Bt7T-40d4;
+	Tue, 14 Jul 2026 12:16:28 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbtz-0000000Br4B-0wxy;
-	Tue, 14 Jul 2026 12:06:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0A8B411D9;
-	Tue, 14 Jul 2026 12:06:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 985521F000E9;
-	Tue, 14 Jul 2026 12:06:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784030778;
-	bh=zXjAh2537yo9G5vWAgQyYke6ki6Lnw1UTZmZWsxbjhc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JALI0fxfqvUbwOcumUkWMdf9+m8l9v/z9X4lZj/ehsLJwp7ooqiwniR8gwMwjlGX4
-	 KQm5hPhANenPfd2Bwl7Lw10CTxhcLtoJlVyhmsg2A4CH0cM2OlgloQDORZXOtineLC
-	 LSXy7jBY23Sl0ZuCS3XZeGNWqADdOIypDvJINA7+5rlsAPvHLK4n6INGqXPYHq43z0
-	 TChJyIoFjVyZF6bcTAaSLXrQYMnVCU5gag1jLCsHntMDSLG6NIQt9Oy31Q263sVXSw
-	 1vNiRk46Ol5RAtKDAakIkefOUYXtHCPa0UXek/BlAs8NXTFuLNcB3vZN6MkZkKKMuD
-	 FpfTkmjJaiaEg==
-Date: Tue, 14 Jul 2026 17:36:14 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Pan Chuang <panchuang@vivo.com>, Frank Li <Frank.Li@nxp.com>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Kees Cook <kees@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	Miaoqian Lin <linmq006@gmail.com>,
-	Jyothi Kumar Seerapu <quic_jseerapu@quicinc.com>,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>,
-	John Madieu <john.madieu.xa@bp.renesas.com>,
-	Thomas Andreatta <thomasandreatta2000@gmail.com>,
-	"open list:FREESCALE eDMA DRIVER" <imx@lists.linux.dev>,
-	"open list:FREESCALE eDMA DRIVER" <dmaengine@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:MIPS/LOONGSON1 ARCHITECTURE" <linux-mips@vger.kernel.org>,
-	"moderated list:MEDIATEK DMA DRIVER" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:MEDIATEK DMA DRIVER" <linux-mediatek@lists.infradead.org>,
-	"moderated list:ARM/ACTIONS SEMI ARCHITECTURE" <linux-actions@lists.infradead.org>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
-	"open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
-	"open list:ARM/RISC-V/RENESAS ARCHITECTURE" <linux-renesas-soc@vger.kernel.org>,
-	"moderated list:STM32 DMA DRIVERS" <linux-stm32@st-md-mailman.stormreply.com>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH 00/26] dmaengine: Remove redundant error messages on IRQ
- request failure
-Message-ID: <alYmNl--mxMK1-86@vaman>
-References: <20260709135846.97972-1-panchuang@vivo.com>
- <ak-vkQ8g_ePdY15f@shikoro>
+	id 1wjc3m-0000000Bt6X-0mbJ
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Jul 2026 12:16:28 +0000
+X-UUID: d30591827f7d11f1aa26b74ffac11d73-20260714
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:65e49d9b-65f5-41a1-a931-ce6cdd9a7377,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:f2db2523097771b0a60b2a2a278609e7,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d30591827f7d11f1aa26b74ffac11d73-20260714
+X-User: jiangfeng@kylinos.cn
+Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 620455899; Tue, 14 Jul 2026 20:16:21 +0800
+From: Feng Jiang <jiangfeng@kylinos.cn>
+Subject: [PATCH v2 0/2] bpf, riscv: add timed may_goto support
+Date: Tue, 14 Jul 2026 20:16:14 +0800
+Message-Id: <20260714-riscv-bpf-timed-may-goto-v2-0-eeb6201aedcc@kylinos.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ak-vkQ8g_ePdY15f@shikoro>
+X-B4-Tracking: v=1; b=H4sIAI4oVmoC/x3MTQqAIBBA4avErBswKfu5SrQwHW0WZWhEEd09a
+ fkt3nsgUWRKMBQPRDo5cdgyZFmAWfTmCdlmgxRSibYSGDmZE+fd4cErWVz1jT4cAYU11Ki67xr
+ tIOd7JMfXvx6n9/0AABaH+2oAAAA=
+X-Change-ID: 20260710-riscv-bpf-timed-may-goto-0dce564985af
+To: Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+ Emil Tsalapatis <emil@etsalapatis.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Feng Jiang <jiangfeng@kylinos.cn>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_051626_538637_0C183C9F 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,61 +92,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09-07-26, 16:26, Wolfram Sang wrote:
-> On Thu, Jul 09, 2026 at 09:58:04PM +0800, Pan Chuang wrote:
-> > Commit 55b48e23f5c4b6f5ca9b7ab09599b17dcf501c10 ("genirq/devres: Add
-> > error handling in devm_request_*_irq()") added automatic error logging
-> > to devm_request_threaded_irq() and devm_request_any_context_irq() via
-> > the new devm_request_result() helper. The helper prints device name,
-> > IRQ number, handler functions, and error code on failure.
-> > 
-> > Since devm_request_irq() is a static inline wrapper around
-> > devm_request_threaded_irq(), it also benefits from this automatic
-> > logging.
-> > 
-> > This series removes the now-redundant dev_err() and dev_err_probe() calls
-> > in dmaengine drivers that follow these devm_request_*_irq() functions,
-> > as the core now provides more detailed diagnostic information on failure.
-> > 
-> > Pan Chuang (26):
-> >   dmaengine: fsl-edma-main: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: fsl-qdma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: loongson-loongson1-apb-dma: Remove redundant
-> >     dev_err()/dev_err_probe()
-> >   dmaengine: mediatek-mtk-cqdma: Remove redundant
-> >     dev_err()/dev_err_probe()
-> >   dmaengine: mediatek-mtk-hsdma: Remove redundant
-> >     dev_err()/dev_err_probe()
-> >   dmaengine: mmp_pdma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: moxart-dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: owl-dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: pxa_dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: qcom-gpi: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: sf-pdma-sf-pdma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: sh-rcar-dmac: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: sh-rz-dmac: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: sh-shdmac: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: sh-usb-dmac: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: sprd-dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: st_fdma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: stm32-stm32-dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: stm32-stm32-dma3: Remove redundant
-> >     dev_err()/dev_err_probe()
-> >   dmaengine: stm32-stm32-mdma: Remove redundant
-> >     dev_err()/dev_err_probe()
-> >   dmaengine: sun4i-dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: sun6i-dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: tegra20-apb-dma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: ti-edma: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: uniphier-xdmac: Remove redundant dev_err()/dev_err_probe()
-> >   dmaengine: xgene-dma: Remove redundant dev_err()/dev_err_probe()
-> 
-> One patch per subsystem for such trivial changes, please.
+This series adds RISC-V JIT support for the timed may_goto loop bound.
 
-Yes pretty please
+Patch 1 implements arch_bpf_timed_may_goto() and enables
+bpf_jit_supports_timed_may_goto() so the verifier uses the timed
+expansion path.
 
+Patch 2 enables the verifier_may_goto_1, stream_cond_break, and
+may_goto_interaction fastcall tests on riscv64.
+
+Tested on riscv64 QEMU (rva23s64): may_goto programs load and JIT
+correctly, and the 250ms timeout path works as expected.
+
+Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+---
+Changes in v2:
+- Fix BPF_REG_0 being clobbered after arch_bpf_timed_may_goto() calls.
+- Enable the may_goto_interaction fastcall test on riscv64.
+
+---
+Feng Jiang (2):
+      bpf, riscv: add support for timed may_goto
+      selftests/bpf: enable timed may_goto tests for riscv64
+
+ arch/riscv/net/Makefile                            |  2 +-
+ arch/riscv/net/bpf_jit_comp64.c                    | 13 ++++++-
+ arch/riscv/net/bpf_timed_may_goto.S                | 44 ++++++++++++++++++++++
+ tools/testing/selftests/bpf/progs/stream.c         |  1 +
+ .../selftests/bpf/progs/verifier_bpf_fastcall.c    |  1 +
+ .../selftests/bpf/progs/verifier_may_goto_1.c      |  4 ++
+ 6 files changed, 63 insertions(+), 2 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260710-riscv-bpf-timed-may-goto-0dce564985af
+
+Best regards,
 -- 
-~Vinod
+Feng Jiang <jiangfeng@kylinos.cn>
+
 
 _______________________________________________
 linux-riscv mailing list
