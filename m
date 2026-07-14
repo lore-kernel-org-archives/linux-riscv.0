@@ -4,67 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BA8C4450B
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 15:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 921BBC44508
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 16:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I2ghT+eXzoG8lia6WK2HnuJgphzyRsSOn6MLIvcDLjA=; b=QWY/SWh6yzMuel
-	zMODolW3450ZX6oOusAb8avmvx/9k2eAZtA0ub7BIz5c/uAl2Gq0duQC53bdwkJf5wwcO2H1kFSzv
-	fHTvkhHDnUUB4u4gfMYIrxcPySfDvAf0pS4Bd2cOXkJ6ro02PVQEkcIXCxi+4nCp4wtSbLXd6EEHR
-	U0PBwgTnQ0mZn5n4pkMMFAj3qi1VywsJ4fSLDfPhR8wpUuvZz7puXo97A7RjPlG3SL2LjnoC/UnfG
-	igOUIwg+E/YoOgs4mrh2L+maA2V0dw+Iu9/Rh/4r9JgfXvPEBJVUC+hbBqif7mxcvFQdCFg7N0fW7
-	vL7LRRr9zWmZw0RjoxnQ==;
+	List-Owner; bh=Az54Wxc0UizfMnN+NwwQ41X0LbSvlKTKDW32pwtWZqE=; b=iNy7xvJUMjV8zL
+	hG/ZCAxhcHSFZbHAYezkymn2D0zzN6aYPb87HK+l418DuaSgz0sJwWlJClOXMAQQUI7xcP2/RZU+c
+	0zclYaKkKheySAbjxD/8noHfYdnln478E9YxIZ7LYNGICkeOz62eqjjP0bZ17XNWMZcHhmTZp10ac
+	I7T5+jWJfyG+QqiX/JbMj783q9aKZ/T9/uYkvgtPRQkLC6Wet07yzvANRDU19jz8Kyu6QkErPYe/h
+	4NF5j8AXQMkPn/78+wKd1zUc0jZFpbQiJdpBR4eK9KQBkELJ5y1xlSUVDDlLWTtEmIFoiPBqx1LZT
+	tcm548mDbaWziDIPU2dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfMp-0000000CaVA-3t7d;
-	Tue, 14 Jul 2026 15:48:19 +0000
+	id 1wjfgb-0000000Cd7a-2L6l;
+	Tue, 14 Jul 2026 16:08:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjfgY-0000000Cd74-2pce;
+	Tue, 14 Jul 2026 16:08:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Vi1DydRXtX7bGPT3LMqOXRQKIoXwlIclgcCEzEexLhk=; b=cNFsZby7g45FBUcL7TbwNiY1pa
+	LKzDh6I9EJwgzzjVsOZtTIIol5lWUHO63Z0sS3dCX7OK2acujNcJFewyqAy+Ag76jPMxtFv9J9VG9
+	fP5RZs/I8xI+xx9XE2NO4/a2YWoZEDtUpdaNNvYMxDzAMj1h7AxbBBW1fa4w/GNq2My2erDwwe1HW
+	kLUnRErJFUciFH3shTNyqGstypUdhlHXEinqlyAQ4/JfXKQUOhD+5exPzdTk8E2eWUpW4zmnd6iFy
+	orSFuiBIA8VWbPNQwxAmwVTZvk+LYqir9Ja8pkt3hManqpZC+k1RySEYmjnU+xsInYk6QUdMcrBtq
+	+hRki6tA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfMn-0000000CaTB-0DJl
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 15:48:18 +0000
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjfgV-0000000Cg2I-0Yxe;
+	Tue, 14 Jul 2026 16:08:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9907114BF;
-	Tue, 14 Jul 2026 08:48:09 -0700 (PDT)
-Received: from fedora (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A25A3F915;
-	Tue, 14 Jul 2026 08:48:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C0F7339;
+	Tue, 14 Jul 2026 09:08:32 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E9193F7B4;
+	Tue, 14 Jul 2026 09:08:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784044093; bh=9/YWlV5TSXUMBp/ymIq49v2XGDkawLw3WU86wtMXh0Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ck+tRRDbAqBVC1L8QCIe83oQY+1ui9WeuVVQ0qk0yr8ZlucPKImLO304IwpSi3Pnc
-	 BgfFpp7Irsx3JDlsYz7NnzmHTrX6V+bMg17rTtlp2S02WSfBxEtUTt2uwyusNKBciV
-	 WzjuHmCP/QcWQL8OKlbhqfxw6lLD66KvwRe88BH0=
-From: Bill Roberts <bill.roberts@arm.com>
-To: "H. Peter Anvin" <hpa@zytor.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	x86@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Bill Roberts <bill.roberts@arm.com>
-Subject: [PATCH 2/2] selftests/x86: add generic prctl shadow stack test
-Date: Tue, 14 Jul 2026 10:47:40 -0500
-Message-ID: <20260714154740.140431-3-bill.roberts@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260714154740.140431-1-bill.roberts@arm.com>
-References: <20260714154740.140431-1-bill.roberts@arm.com>
+	t=1784045316; bh=zgLVwM1JwHFja7lLv/ELj5WdO9n9zTqb8IzXUFezT90=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iCzZbGETk1sjjX6eOrBH+8HsRtioG5p9ficyglXR5ZOGjWAywCxpvKBCX5YKjzVO3
+	 lqTbW4BkVoCgjyW6aQc14TvI91LoFiK/lix5zRJXBa7aprCYI8FSFGSdrtX3ku0RTb
+	 mnDMqhPMuq2pJz8eXOt4MCF6VA5P5DAEnERr6DDk=
+Date: Tue, 14 Jul 2026 17:08:24 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org,
+	kasan-dev@googlegroups.com, linux-csky@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+	linux@armlinux.org.uk, akpm@linux-foundation.org,
+	ankur.a.arora@oracle.com, rppt@kernel.org, linmag7@gmail.com,
+	chleroy@kernel.org, klarasmodin@gmail.com, chenhuacai@kernel.org,
+	kernel@xen0n.name, kas@kernel.org, zhangtianyang@loongson.cn,
+	wangyuli@aosc.io, tsbogend@alpha.franken.de, ljs@kernel.org,
+	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org,
+	arnd@arndb.de, ryan.roberts@arm.com, pasha.tatashin@soleen.com,
+	rmclure@linux.ibm.com, baolin.wang@linux.alibaba.com, tj@kernel.org,
+	kevin.brodsky@arm.com, anup@brainfault.org, atish.patra@linux.dev,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, dave.hansen@linux.intel.com, luto@kernel.org,
+	peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
+	bp@alien8.de, hpa@zytor.com, hannes@cmpxchg.org, mhocko@kernel.org,
+	qi.zheng@linux.dev, shakeel.butt@linux.dev, kasong@tencent.com,
+	baohua@kernel.org, axelrasmussen@google.com, yuanchu@google.com,
+	weixugc@google.com, ryabinin.a.a@gmail.com, glider@google.com,
+	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
+	anshuman.khandual@arm.com, yang@os.amperecomputing.com,
+	chaitanyas.prakash@arm.com, ardb@kernel.org, guoren@kernel.org,
+	yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
+	dinguyen@kernel.org, schuster.simon@siemens-energy.com,
+	wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech,
+	muchun.song@linux.dev, vishal.moola@gmail.com, namcao@linutronix.de,
+	pavel@kernel.org, djbw@kernel.org, yu-cheng.yu@intel.com,
+	baolu.lu@linux.intel.com, Jonathan.Cameron@huawei.com,
+	coxu@redhat.com, andreas@gaisler.com, liam@infradead.org,
+	vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
+	geert@linux-m68k.org, shorne@gmail.com, jonas@southpole.se,
+	stefan.kristiansson@saunalahti.fi
+Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
+ folded pgtable case in effective_prot()
+Message-ID: <alZe-Cu7yQw9qRXU@e129823.arm.com>
+References: <710b7eb0-8e0c-4f07-991c-2285c77e1beb@intel.com>
+ <6007625e-c3f9-4ad6-99a8-61396bccbcec@kernel.org>
+ <32d459d1-ad19-4baf-bbb1-0565458001d2@intel.com>
+ <3ea30f8a-bb29-4bf5-8400-1c4840d46a88@kernel.org>
+ <7e84b200-25eb-43a6-b5e2-5f27f2d82a77@intel.com>
+ <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
+ <14e250db-1641-4085-8d13-02f819657d5f@intel.com>
+ <d83c76b3-ea4d-4c41-b4c5-f5ae558ace55@kernel.org>
+ <alYgMxKqRnF6_X0A@e129823.arm.com>
+ <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_084817_198975_CEA1345D 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260714_170839_492184_4E4D494A 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,177 +127,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Run the same test suite for arch_prctl, against prctl, to ensure
-consisteny and correctness between the interfaces.
+On Tue, Jul 14, 2026 at 07:35:19AM -0700, Dave Hansen wrote:
+> On 7/14/26 04:40, Yeoreum Yun wrote:
+> > @@ -254,22 +255,8 @@ static void effective_prot(struct ptdump_state *pt_st, int level, u64 val)
+> >         struct pg_state *st = container_of(pt_st, struct pg_state, ptdump);
+> >         pgprotval_t prot = val & PTE_FLAGS_MASK;
+> >         pgprotval_t effective;
+> > -       bool first_level = false;
+> > 
+> > -       /* Ignore folded levels ... */
+> > -       if (((level == 0) && mm_p4d_folded(st->mm)) ||
+> > -           ((level == 1) && mm_pud_folded(st->mm)) ||
+> > -           ((level == 2) && mm_pmd_folded(st->mm)))
+> > -               return;
+> > -
+> > -       /* ... and make the actual first level remember the protection. */
+> > -       if (((level == 0)) ||
+> > -           ((level == 1) && mm_p4d_folded(st->mm)) ||
+> > -           ((level == 2) && mm_pud_folded(st->mm)) ||
+> > -           ((level == 3) && mm_pmd_folded(st->mm)))
+> > -               first_level = true;
+> > -
+> > -       if (!first_level) {
+> > +       if (first_level > st->first_level) {
+> >                 pgprotval_t higher_prot = st->prot_levels[level - 1];
+> > 
+> >                 effective = (higher_prot & prot & (_PAGE_USER | _PAGE_RW)) |
+> > @@ -471,6 +458,15 @@ bool ptdump_walk_pgd_level_core(struct seq_file *m,
+> >                 .seq            = m
+> >         };
+> > 
+> > +       if (mm_pmd_folded (mm))
+> > +               st->first_level = 3;
+> > +       else if (mm_pud_folded (mm))
+> > +               st->first_level = 2;
+> > +       else if (mm_p4d_folded (mm))
+> > +               st->first_level = 1;
+> > +       else
+> > +               st->first_level = 0;
+> > +
+> >         ptdump_walk_pgd(&st.ptdump, mm, pgd);
+> 
+> This is indeed an improvement and a step in the right direction! Thanks
+> for looking at this.
+> 
+> But one of my test for whether it's good x86 code is whether there's any
+> actually x86-specific logic in it. Isn't this basically a translation
+> between the integer level number and whether it is folded?
+> 
+> That seems like a common helper that more than one arch could use. Could
+> this be stuck in a helper so that all arch/x86 has to do is:
+> 
+> 	if (mm_pt_level_folded(mm, level))
+> 		return;
 
-Signed-off-by: Bill Roberts <bill.roberts@arm.com>
----
- tools/testing/selftests/x86/Makefile          |  3 +-
- .../testing/selftests/x86/test_shadow_stack.c | 55 +++++++++++++++----
- .../selftests/x86/test_shadow_stack_prctl.c   |  3 +
- 3 files changed, 50 insertions(+), 11 deletions(-)
- create mode 100644 tools/testing/selftests/x86/test_shadow_stack_prctl.c
+Yes. at least the level semantic in ptdump (pgd is level 0,
+p4d is level 1, ...) is same to all archs where use ptdump.
+So It seems reasonable to add this common helper in ptdump.c
 
-diff --git a/tools/testing/selftests/x86/Makefile b/tools/testing/selftests/x86/Makefile
-index 434065215d12..6a505b42ff66 100644
---- a/tools/testing/selftests/x86/Makefile
-+++ b/tools/testing/selftests/x86/Makefile
-@@ -19,7 +19,8 @@ TARGETS_C_32BIT_ONLY := entry_from_vm86 test_syscall_vdso unwind_vdso \
- 			test_FCMOV test_FCOMI test_FISTTP \
- 			vdso_restorer
- TARGETS_C_64BIT_ONLY := fsgsbase sysret_rip syscall_numbering \
--			corrupt_xstate_header amx lam test_shadow_stack avx apx
-+			corrupt_xstate_header amx lam test_shadow_stack avx apx \
-+			test_shadow_stack_prctl
- # Some selftests require 32bit support enabled also on 64bit systems
- TARGETS_C_32BIT_NEEDED := ldt_gdt ptrace_syscall
- 
-diff --git a/tools/testing/selftests/x86/test_shadow_stack.c b/tools/testing/selftests/x86/test_shadow_stack.c
-index 3d6ca33edba4..0d14a7f444aa 100644
---- a/tools/testing/selftests/x86/test_shadow_stack.c
-+++ b/tools/testing/selftests/x86/test_shadow_stack.c
-@@ -92,6 +92,7 @@ static inline unsigned long __attribute__((always_inline)) get_ssp(void)
-  * Based on code from nolibc.h. Keep a copy here because this can't pull in all
-  * of nolibc.h.
-  */
-+ #ifndef BUILD_PRCTL
- #define ARCH_PRCTL(arg1, arg2)					\
- ({								\
- 	long _ret;						\
-@@ -109,6 +110,40 @@ static inline unsigned long __attribute__((always_inline)) get_ssp(void)
- 	_ret;							\
- })
- 
-+#define SHADOW_STACK_DISABLE() ARCH_PRCTL(ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK)
-+#define SHADOW_STACK_ENABLE() ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_SHSTK)
-+#define SHADOW_STACK_ENABLE_WRITE() ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_WRSS)
-+
-+#else
-+
-+#define PRCTL(option, arg2, arg3, arg4, arg5)             \
-+({                                                        \
-+	long _ret;                                        \
-+	register long _num  asm("rax") = __NR_prctl;      \
-+	register long _arg1 asm("rdi") = (long)(option);  \
-+	register long _arg2 asm("rsi") = (long)(arg2);    \
-+	register long _arg3 asm("rdx") = (long)(arg3);    \
-+	register long _arg4 asm("r10") = (long)(arg4);    \
-+	register long _arg5 asm("r8")  = (long)(arg5);    \
-+							  \
-+	asm volatile (                                    \
-+		"syscall"                                 \
-+		: "=a"(_ret)                              \
-+		: "0"(_num),                              \
-+		  "r"(_arg1), "r"(_arg2), "r"(_arg3),     \
-+		  "r"(_arg4), "r"(_arg5)                  \
-+		: "rcx", "r11", "memory", "cc"            \
-+	);                                                \
-+	_ret;                                             \
-+})
-+
-+#define SHADOW_STACK_DISABLE() PRCTL(PR_SET_SHADOW_STACK_STATUS, 0, 0, 0, 0)
-+#define SHADOW_STACK_ENABLE() PRCTL(PR_SET_SHADOW_STACK_STATUS, PR_SHADOW_STACK_ENABLE, 0, 0, 0)
-+#define SHADOW_STACK_ENABLE_WRITE() \
-+	PRCTL(PR_SET_SHADOW_STACK_STATUS, PR_SHADOW_STACK_ENABLE|PR_SHADOW_STACK_WRITE, 0, 0, 0)
-+
-+#endif
-+
- void *create_shstk(void *addr)
- {
- 	return (void *)syscall(__NR_map_shadow_stack, addr, SS_SIZE, SHADOW_STACK_SET_TOKEN);
-@@ -691,7 +726,7 @@ void segv_gp_handler(int signum, siginfo_t *si, void *uc)
- 	 * To work with old glibc, this can't rely on siglongjmp working with
- 	 * shadow stack enabled, so disable shadow stack before siglongjmp().
- 	 */
--	ARCH_PRCTL(ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK);
-+	SHADOW_STACK_DISABLE();
- 	siglongjmp(jmp_buffer, -1);
- }
- 
-@@ -854,7 +889,7 @@ static int test_uretprobe(void)
- 	if (sigsetjmp(jmp_buffer, 1))
- 		goto out;
- 
--	ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_SHSTK);
-+	SHADOW_STACK_ENABLE();
- 
- 	/*
- 	 * This either segfaults and goes through sigsetjmp above
-@@ -866,7 +901,7 @@ static int test_uretprobe(void)
- 	err = 0;
- 
- out:
--	ARCH_PRCTL(ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK);
-+	SHADOW_STACK_DISABLE();
- 	signal(SIGSEGV, SIG_DFL);
- 	if (fd)
- 		close(fd);
-@@ -933,7 +968,7 @@ static int test_uprobe_call(void)
- 	if (sigsetjmp(jmp_buffer, 1))
- 		goto out;
- 
--	if (ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_SHSTK))
-+	if (SHADOW_STACK_ENABLE())
- 		goto out;
- 
- 	/*
-@@ -946,7 +981,7 @@ static int test_uprobe_call(void)
- 	err = 0;
- 
- out:
--	ARCH_PRCTL(ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK);
-+	SHADOW_STACK_DISABLE();
- 	signal(SIGSEGV, SIG_DFL);
- 	if (fd >= 0)
- 		close(fd);
-@@ -1059,22 +1094,22 @@ int main(int argc, char *argv[])
- {
- 	int ret = 0;
- 
--	if (ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_SHSTK)) {
-+	if (SHADOW_STACK_ENABLE()) {
- 		printf("[SKIP]\tCould not enable Shadow stack\n");
- 		return 1;
- 	}
- 
--	if (ARCH_PRCTL(ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK)) {
-+	if (SHADOW_STACK_DISABLE()) {
- 		ret = 1;
- 		printf("[FAIL]\tDisabling shadow stack failed\n");
- 	}
- 
--	if (ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_SHSTK)) {
-+	if (SHADOW_STACK_ENABLE()) {
- 		printf("[SKIP]\tCould not re-enable Shadow stack\n");
- 		return 1;
- 	}
- 
--	if (ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_WRSS)) {
-+	if (SHADOW_STACK_ENABLE_WRITE()) {
- 		printf("[SKIP]\tCould not enable WRSS\n");
- 		ret = 1;
- 		goto out;
-@@ -1164,7 +1199,7 @@ int main(int argc, char *argv[])
- 	 * Disable shadow stack before the function returns, or there will be a
- 	 * shadow stack violation.
- 	 */
--	if (ARCH_PRCTL(ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK)) {
-+	if (SHADOW_STACK_DISABLE()) {
- 		ret = 1;
- 		printf("[FAIL]\tDisabling shadow stack failed\n");
- 	}
-diff --git a/tools/testing/selftests/x86/test_shadow_stack_prctl.c b/tools/testing/selftests/x86/test_shadow_stack_prctl.c
-new file mode 100644
-index 000000000000..9c9e2728a9f9
---- /dev/null
-+++ b/tools/testing/selftests/x86/test_shadow_stack_prctl.c
-@@ -0,0 +1,3 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#define BUILD_PRCTL 1
-+#include "test_shadow_stack.c"
+> 
+> This makes a *ton* of sense in effective_prot() especially. Its entire
+> job is mirroring the hardware's job of inheriting permissions from
+> higher levels of the page tables and enforcing them on lower level leaf
+> entries. If a higher level is folded, there's nothing to inherit.
+> 
+> I also think it's worth taking a brief pause on the coding to think
+> about what kind of design would actually be nice here. If the design
+> really is that the pgd is folded, the 'struct mm_walk_ops' code would
+> ideally not even call ->pgd_entry(). It would just (for example) *start*
+> at ->pud_entry() for a 3-level hardware page table.
+> 
+> If there are no pgds, why bother calling ->pgd_entry()? It couldn't be
+> done transparently to mm_walk users of course but it could be done
+> incrementally where users move one at a time over to a new scheme.
+
+Agree. Calling a pXd_entry() about folded one seems meaningless.
+But seems enough to check mm_pXd_folded() before calling pXd_entry()
+in each walk_pXd_range().
+
+[...]
+
 -- 
-2.54.0
-
+Sincerely,
+Yeoreum Yun
 
 _______________________________________________
 linux-riscv mailing list
