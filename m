@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA26C43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 02:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5CFC43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 02:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t6NfTmHqxe7BYbMKEmZXFbYgeN+He8Y/SBiBhBNptEY=; b=XMqdDfpFHBuf+G
-	3UDPmtN4tuwiZtHnfoOIYUPyWG3sp565HZMhCLGR6Y5gaV0md8iRjk2PskXlG98kYbel+MfbD/LNM
-	iclsSfHbqSBWquIowNVtEvZfdaKWHgNBGEERWA7Hvo6iwBcLpZQtKB4F7VpeORMeePwW/TiW2Htro
-	0uXAGGT9lta1IRjgwCm/wnq88c+hPn2mnj0fv5xxAp0jZPcxes5klFZiVdAYBlv+7PSbmoWSXDhM+
-	guYyHDQEelD3mxlDwo8EYYHgn1a7MOTsYqXnEnDnWJBI9DV4v/WrGCyEWgbO+xzIZgM859F0zrwfF
-	rIYk+LwHo186WVWXgCOw==;
+	List-Owner; bh=LXq7pt1NxLQEnH0s21kLZN6gk9EdGN63XGajycHxNos=; b=vAyJ5mw8FNVc4u
+	PTsQ5CPI70wlYh3ogvzE4TDBjlMcWb3Bg5NMctbznJNUEYTJYDpQu0SBYUZDOjHsIEkMKy3PPikdW
+	ofRIfupqswG1bklLSPk1b5UcWIk06hMMkAycOYecBFEkjTvdZUOsz/l2hJrMH37EYzMzVQhN7Jgsp
+	1R3GdCxM8TRkzMmZBUlkd9Qnb33Bsf6iCM8d8ffY/QRTK0kqmKn68YVIdiuTcS7+FocF6oLjQb0ri
+	b/appBKvOHaVDqdtAJcWLI8CeRRJB1Ays2EsbD6I7siDfqARX+Y26x38+RID4kheaDOlwd9xKgG28
+	Cnv5MyevCTQlKGn62Hpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjSTU-0000000Ai5W-2AJK;
-	Tue, 14 Jul 2026 02:02:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjSyw-0000000AkzF-0oLX;
+	Tue, 14 Jul 2026 02:34:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjSTS-0000000Ai5N-2ku8
+	id 1wjSyu-0000000Akyy-2xBC
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jul 2026 02:34:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qqpE1DPNHlP97IVzgSIh0XiGAFcsNkwfTot6IyvEl+o=; b=UjCQOihXw3naoV5xYMwHtwBcbn
+	VtfTcprSZPSHYew51CXxM77rTGQIS5T0J+Ht7Gwa5pLyzKlSbM0L0jdXiBbfyO1sWO2DUM+SXHUK7
+	NnbZNNCGW+7mboCvGek69K0NQc65xAGgT3T4oGPZFHl+3kxjDuEk/vPpy1FvQIyJrICzJjavYIqMy
+	jPvHiucloY4LFYJMbr+twqGf80yovpEREliE8bi2Rgch37uUaChXfHjKE6Q2I+nDpq5eUvxjcsani
+	DTQ4PZChuE+ZNdtJraYgb55YrYIS1626c3h5r4mCYCfmpb4og8XioWIFye7i9FiiS7JujU4shXs2C
+	wV4cF/tw==;
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjSyp-0000000C8aj-2X35
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 02:02:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5665F43C0C
-	for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 02:02:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E02A1F00A3E
-	for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 02:02:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783994538;
-	bh=JPG8KJkkby84Nl2p+va7Q/OZia1JnxQSsep3QJTzGik=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=CYtxoeVGMI2VeLL+qKdcAcEbbzTCJwn3jA7RwyUyFDLzXrOrGxkYQVTJOWDMUn3ff
-	 Wu4HEThhVkvxU4Y799ThqjM0hycUl3dOCHsnvEiKDRy518R/gVGAuy2i1siJEbaNk7
-	 aBJuXAmJzYvGt3oOpnFHHh/sUwzHp95JEleAUfWXpJllw388wmp9yUrBCA6AareiaD
-	 S8tQrDg0pANOUPpftTr20fHEzWzABqnGn/dL9R7G2mDBJgA90YlsN2id9M837v0OnM
-	 d7sSiP0qSMp7AiGTqmxk08Brp6ICl3FrCVmtTztNmV0g3pLh3Bl2khBbign1yVuheg
-	 mwGNFeyQVFVAA==
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-47dec32798aso3817259f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2026 19:02:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrRKc12IqicFMr2PLEyty17UoOdPByvlF6RimSkaF7bIP6XwlGp8Yp8HW8ea3S1ZYBveZT5nDndslFlbA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj0Fe7zXXqHQjfsPvBgJ/zannWuju9ASm19cixrvlG8E3N0sum
-	wy/RXFO3sgjzDaGoNEb0RrqRa3K33tNUWkILGS6x0vEutMBAImIv4ZaTyuXzEDvGlRQtwqvJ4VH
-	fdfN+ltNMHOnkvN/3r5Y27Teww1NHce4=
-X-Received: by 2002:a05:6000:25fc:b0:47d:eb17:3bee with SMTP id
- ffacd0b85a97d-47f4884871emr464793f8f.6.1783994536738; Mon, 13 Jul 2026
- 19:02:16 -0700 (PDT)
+	Tue, 14 Jul 2026 02:34:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=qqpE1DPNHlP97IVzgSIh0XiGAFcsNkwfTot6IyvEl+o=;
+	b=0Yqbc9OD3qlAoEoRmkH9CEhcVEtRveFLplL1WmrNIYlNXc62kAQw6oZLxvd+Ottg2UxuDqnSt
+	lQsw3TGHx7uigsUltOwvigeeDplpWzGWa1bV5ireMh+eDiILP85+KtEJ1z+lrfu38B8n8d3AnnJ
+	mSrLJyksADpfunCvW9A1JDo=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gzjnk1p6Xz1cyVb;
+	Tue, 14 Jul 2026 10:25:14 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5CB344056C;
+	Tue, 14 Jul 2026 10:34:30 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 14 Jul
+ 2026 10:34:29 +0800
+Message-ID: <45db6d96-9cac-46e1-ba86-3d3552efbdb8@huawei.com>
+Date: Tue, 14 Jul 2026 10:34:28 +0800
 MIME-Version: 1.0
-References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com> <20260713122903.9458-1-zhangzhanpeng.jasper@bytedance.com>
-In-Reply-To: <20260713122903.9458-1-zhangzhanpeng.jasper@bytedance.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 14 Jul 2026 10:02:04 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRsE=sHeK+qHdSp5_mAZF_=3JYOg3O7uZqUtXLUte+y8g@mail.gmail.com>
-X-Gm-Features: AUfX_mxv-rDVQ-sRl5v_ZvLetOTEQcTb4z6swSsoJc6I4J4f-kN-VaGIj5bIac4
-Message-ID: <CAJF2gTRsE=sHeK+qHdSp5_mAZF_=3JYOg3O7uZqUtXLUte+y8g@mail.gmail.com>
-Subject: Re: [PATCH v3] iommu/riscv: Use 32-bit MMIO accesses for 64-bit registers
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: Tomasz Jeznach <tomasz.jeznach@linux.dev>, Joerg Roedel <joro@8bytes.org>, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, David Laight <david.laight.linux@gmail.com>, 
-	Vivian Wang <wangruikang@iscas.ac.cn>, Zong Li <zong.li@sifive.com>, cuiyunhui@bytedance.com, 
-	yuanzhu@bytedance.com, iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v4 3/3] riscv, bpf: Add 32 bit atomic operations
+ to RV32 JIT
+Content-Language: en-US
+To: Kuan-Wei Chiu <visitorckw@gmail.com>, <ast@kernel.org>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <eddyz87@gmail.com>,
+	<memxor@gmail.com>, <luke.r.nels@gmail.com>, <xi.wang@gmail.com>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+CC: <martin.lau@linux.dev>, <song@kernel.org>, <yonghong.song@linux.dev>,
+	<jolsa@kernel.org>, <emil@etsalapatis.com>, <alex@ghiti.fr>,
+	<jserv@ccns.ncku.edu.tw>, <eleanor15x@gmail.com>, <marscheng@google.com>,
+	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260714002451.4091139-1-visitorckw@gmail.com>
+ <20260714002451.4091139-4-visitorckw@gmail.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20260714002451.4091139-4-visitorckw@gmail.com>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_033444_355233_180BF0BD 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,99 +96,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TEdUTSEKClJldmlld2VkLWJ5OiBHdW8gUmVuIChBbGliYWJhIERBTU8gQWNhZGVteSkgPGd1b3Jl
-bkBrZXJuZWwub3JnPgpDby1kZXZlbG9wZWQtYnk6IEd1byBSZW4gKEFsaWJhYmEgREFNTyBBY2Fk
-ZW15KSA8Z3VvcmVuQGtlcm5lbC5vcmc+ClNpZ25lZC1vZmYtYnk6IEd1byBSZW4gKEFsaWJhYmEg
-REFNTyBBY2FkZW15KSA8Z3VvcmVuQGtlcm5lbC5vcmc+CgpPbiBNb24sIEp1bCAxMywgMjAyNiBh
-dCA4OjI54oCvUE0gWmhhbnBlbmcgWmhhbmcKPHpoYW5nemhhbnBlbmcuamFzcGVyQGJ5dGVkYW5j
-ZS5jb20+IHdyb3RlOgo+Cj4gVGhlIFJJU0MtViBJT01NVSBzcGVjaWZpY2F0aW9uIFsxXSBwZXJt
-aXRzIDY0LWJpdCByZWdpc3RlcnMgdG8gYmUgYWNjZXNzZWQKPiB1c2luZyB0d28gMzItYml0IHRy
-YW5zYWN0aW9ucywgaGlnaCBoYWxmIGZpcnN0LCBhbmQgbGVhdmVzIHRoZSBzaW5nbGUtY29weQo+
-IGF0b21pY2l0eSBvZiA4LWJ5dGUgSU9NTVUgcmVnaXN0ZXIgYWNjZXNzZXMgdW5zcGVjaWZpZWQu
-Cj4KPiBVc2UgdGhlIGdlbmVyaWMgaGlfbG9fcmVhZHFfcmVsYXhlZCgpIGFuZCBoaV9sb193cml0
-ZXFfcmVsYXhlZCgpIGhlbHBlcnMKPiBmb3Igb3JkaW5hcnkgNjQtYml0IElPTU1VIHJlZ2lzdGVy
-cy4gRm9yIEREVFAsIHBvbGwgQlVTWSBpbiB0aGUgbG93IGhhbGYsCj4gdGhlbiByZWFkIHRoZSBo
-aWdoIGhhbGYgYW5kIGNvbXBvc2UgdGhlIHJlZ2lzdGVyIHZhbHVlIGZyb20gdGhlIHBvbGxlZCBs
-b3cKPiBoYWxmLiBIUE0gY291bnRlciByZWFkcyByZXF1aXJlIGEgcm9sbG92ZXItYXdhcmUgc2Vx
-dWVuY2UgYW5kIHJlbWFpbgo+IG91dHNpZGUgdGhlc2UgYWNjZXNzb3JzLgo+Cj4gVGhpcyBmb2xs
-b3dzIHRoZSAzMi1iaXQgYWNjZXNzIGRpcmVjdGlvbiBwcm9wb3NlZCBieSBHdW8gUmVuIFsyXSBh
-bmQgdXNlcwo+IHRoZSBnZW5lcmljIG5vbi1hdG9taWMgTU1JTyBoZWxwZXJzIHN1Z2dlc3RlZCBi
-eSBEYXZpZCBMYWlnaHQuCj4KPiBbMV0gaHR0cHM6Ly9kb2NzLnJpc2N2Lm9yZy9yZWZlcmVuY2Uv
-aW9tbXUvCj4gWzJdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTA5MDMxNDQyMTcuODM3
-NDQ4LTEtZ3VvcmVuQGtlcm5lbC5vcmcKPgo+IFN1Z2dlc3RlZC1ieTogR3VvIFJlbiA8Z3VvcmVu
-QGtlcm5lbC5vcmc+Cj4gU3VnZ2VzdGVkLWJ5OiBEYXZpZCBMYWlnaHQgPGRhdmlkLmxhaWdodC5s
-aW51eEBnbWFpbC5jb20+Cj4gU2lnbmVkLW9mZi1ieTogWmhhbnBlbmcgWmhhbmcgPHpoYW5nemhh
-bnBlbmcuamFzcGVyQGJ5dGVkYW5jZS5jb20+Cj4gLS0tCj4gQ2hhbmdlcyBpbiB2MzoKPiAtIFVz
-ZSB0aGUgRERUUCBhY2Nlc3Mgc2VxdWVuY2UgZnJvbSBbMV06IHJldGFpbiB0aGUgbG93IGhhbGYg
-cmV0dXJuZWQgYnkKPiAgIEJVU1kgcG9sbGluZywgcmVhZCBvbmx5IHRoZSBoaWdoIGhhbGYsIGFu
-ZCBjb21wb3NlIHRoZSBERFRQIHZhbHVlIGZyb20KPiAgIHRob3NlIHR3byAzMi1iaXQgcmVhZHMu
-Cj4KPiBDaGFuZ2VzIGluIHYyOgo+IC0gUmV3b3JrIHRoZSBwYXRjaCBiYXNlZCBvbiBHdW8gUmVu
-J3MgZWFybGllciBwcm9wb3NhbCBbMV0uCj4gLSBEcm9wIHRoZSBidWlsZC10aW1lIG9wdGlvbiBh
-bmQgdXNlIDMyLWJpdCBhY2Nlc3NlcyB1bmNvbmRpdGlvbmFsbHkuCj4gLSBEcm9wIHRoZSBnbG9i
-YWwgbG9jayBhbmQgdXNlIHRoZSBnZW5lcmljIGhpZ2gtbG93IE1NSU8gaGVscGVycywgYXMKPiAg
-IHN1Z2dlc3RlZCBieSBEYXZpZCBMYWlnaHQuCj4gLSBQb2xsIEREVFAuQlVTWSB0aHJvdWdoIGl0
-cyBsb3cgaGFsZi4KPgo+IExpbmsgdG8gdjE6IFsyXQo+IFNwZWNpZmljYXRpb24gZGlzY3Vzc2lv
-bjogWzNdCj4KPiBbMV06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTA5MDMxNDQyMTcu
-ODM3NDQ4LTEtZ3VvcmVuQGtlcm5lbC5vcmcKPiBbMl06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L3IvMjAyNjA2MTUwNjQ4NTUuOTAzMTYtMS16aGFuZ3poYW5wZW5nLmphc3BlckBieXRlZGFuY2Uu
-Y29tCj4gWzNdOiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1pb21tdS9p
-c3N1ZXMvNzY1Cj4KPiAgZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5jIHwgOSArKysrKystLS0K
-PiAgZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5oIHwgOSArKystLS0tLS0KPiAgMiBmaWxlcyBj
-aGFuZ2VkLCA5IGluc2VydGlvbnMoKyksIDkgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5jIGIvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5j
-Cj4gaW5kZXggY2VjM2RkZDdhYjEuLmQ2NDdiNzFlYmVjIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMv
-aW9tbXUvcmlzY3YvaW9tbXUuYwo+ICsrKyBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+
-IEBAIC02NzAsOSArNjcwLDEyIEBAIHZvaWQgcmlzY3ZfaW9tbXVfZGlzYWJsZShzdHJ1Y3Qgcmlz
-Y3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPgo+ICAjZGVmaW5lIHJpc2N2X2lvbW11X3JlYWRfZGR0
-cChpb21tdSkgKHsgXAo+ICAgICAgICAgdTY0IGRkdHA7IFwKPiAtICAgICAgIHJpc2N2X2lvbW11
-X3JlYWRxX3RpbWVvdXQoKGlvbW11KSwgUklTQ1ZfSU9NTVVfUkVHX0REVFAsIGRkdHAsIFwKPiAt
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIShkZHRwICYgUklTQ1ZfSU9NTVVfRERU
-UF9CVVNZKSwgMTAsIFwKPiArICAgICAgIHUzMiBkZHRwX2xvLCBkZHRwX2hpOyBcCj4gKyAgICAg
-ICByaXNjdl9pb21tdV9yZWFkbF90aW1lb3V0KChpb21tdSksIFJJU0NWX0lPTU1VX1JFR19ERFRQ
-LCBkZHRwX2xvLCBcCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICEoZGR0cF9s
-byAmIFJJU0NWX0lPTU1VX0REVFBfQlVTWSksIDEwLCBcCj4gICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIFJJU0NWX0lPTU1VX0REVFBfVElNRU9VVCk7IFwKPiArICAgICAgIGRkdHBf
-aGkgPSByaXNjdl9pb21tdV9yZWFkbCgoaW9tbXUpLCBSSVNDVl9JT01NVV9SRUdfRERUUCArIDQp
-OyBcCj4gKyAgICAgICBkZHRwID0gKCh1NjQpZGR0cF9oaSA8PCAzMikgfCBkZHRwX2xvOyBcCj4g
-ICAgICAgICBkZHRwOyB9KQo+Cj4gIHN0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfaW9kaXJfYWxsb2Mo
-c3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUpCj4gQEAgLTE1MDEsNyArMTUwNCw3IEBA
-IHN0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfaW5pdF9jaGVjayhzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2
-aWNlICppb21tdSkKPiAgICAgICAgICAqIHJlZ3VsYXIgYm9vdCBmbG93IGFuZCBkaXNhYmxlIHRy
-YW5zbGF0aW9uIHdoZW4gd2UgYm9vdCBpbnRvIGEga2V4ZWMKPiAgICAgICAgICAqIGtlcm5lbCBh
-bmQgdGhlIHByZXZpb3VzIGtlcm5lbCBsZWZ0IHRoZW0gZW5hYmxlZC4KPiAgICAgICAgICAqLwo+
-IC0gICAgICAgZGR0cCA9IHJpc2N2X2lvbW11X3JlYWRxKGlvbW11LCBSSVNDVl9JT01NVV9SRUdf
-RERUUCk7Cj4gKyAgICAgICBkZHRwID0gcmlzY3ZfaW9tbXVfcmVhZF9kZHRwKGlvbW11KTsKPiAg
-ICAgICAgIGlmIChkZHRwICYgUklTQ1ZfSU9NTVVfRERUUF9CVVNZKQo+ICAgICAgICAgICAgICAg
-ICByZXR1cm4gLUVCVVNZOwo+Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9t
-bXUuaCBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuaAo+IGluZGV4IDQ2ZGY3OWRkNTQ5Li4x
-YjAzNzkwZmJlMSAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmgKPiAr
-KysgYi9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmgKPiBAQCAtMTEsNiArMTEsNyBAQAo+ICAj
-aWZuZGVmIF9SSVNDVl9JT01NVV9IXwo+ICAjZGVmaW5lIF9SSVNDVl9JT01NVV9IXwo+Cj4gKyNp
-bmNsdWRlIDxsaW51eC9pby02NC1ub25hdG9taWMtaGktbG8uaD4KPiAgI2luY2x1ZGUgPGxpbnV4
-L2lvbW11Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgo+ICAjaW5jbHVkZSA8bGludXgv
-aW9wb2xsLmg+Cj4gQEAgLTcwLDE3ICs3MSwxMyBAQCB2b2lkIHJpc2N2X2lvbW11X2Rpc2FibGUo
-c3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUpOwo+ICAgICAgICAgcmVhZGxfcmVsYXhl
-ZCgoaW9tbXUpLT5yZWcgKyAoYWRkcikpCj4KPiAgI2RlZmluZSByaXNjdl9pb21tdV9yZWFkcShp
-b21tdSwgYWRkcikgXAo+IC0gICAgICAgcmVhZHFfcmVsYXhlZCgoaW9tbXUpLT5yZWcgKyAoYWRk
-cikpCj4gKyAgICAgICBoaV9sb19yZWFkcV9yZWxheGVkKChpb21tdSktPnJlZyArIChhZGRyKSkK
-Pgo+ICAjZGVmaW5lIHJpc2N2X2lvbW11X3dyaXRlbChpb21tdSwgYWRkciwgdmFsKSBcCj4gICAg
-ICAgICB3cml0ZWxfcmVsYXhlZCgodmFsKSwgKGlvbW11KS0+cmVnICsgKGFkZHIpKQo+Cj4gICNk
-ZWZpbmUgcmlzY3ZfaW9tbXVfd3JpdGVxKGlvbW11LCBhZGRyLCB2YWwpIFwKPiAtICAgICAgIHdy
-aXRlcV9yZWxheGVkKCh2YWwpLCAoaW9tbXUpLT5yZWcgKyAoYWRkcikpCj4gLQo+IC0jZGVmaW5l
-IHJpc2N2X2lvbW11X3JlYWRxX3RpbWVvdXQoaW9tbXUsIGFkZHIsIHZhbCwgY29uZCwgZGVsYXlf
-dXMsIHRpbWVvdXRfdXMpIFwKPiAtICAgICAgIHJlYWR4X3BvbGxfdGltZW91dChyZWFkcV9yZWxh
-eGVkLCAoaW9tbXUpLT5yZWcgKyAoYWRkciksIHZhbCwgY29uZCwgXAo+IC0gICAgICAgICAgICAg
-ICAgICAgICAgICAgIGRlbGF5X3VzLCB0aW1lb3V0X3VzKQo+ICsgICAgICAgaGlfbG9fd3JpdGVx
-X3JlbGF4ZWQoKHZhbCksIChpb21tdSktPnJlZyArIChhZGRyKSkKPgo+ICAjZGVmaW5lIHJpc2N2
-X2lvbW11X3JlYWRsX3RpbWVvdXQoaW9tbXUsIGFkZHIsIHZhbCwgY29uZCwgZGVsYXlfdXMsIHRp
-bWVvdXRfdXMpIFwKPiAgICAgICAgIHJlYWR4X3BvbGxfdGltZW91dChyZWFkbF9yZWxheGVkLCAo
-aW9tbXUpLT5yZWcgKyAoYWRkciksIHZhbCwgY29uZCwgXAo+IC0tCj4gMi41MC4xIChBcHBsZSBH
-aXQtMTU1KQoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 2026/7/14 8:24, Kuan-Wei Chiu wrote:
+> The RV32 BPF JIT compiler currently only supports the BPF_ADD atomic
+> operation. Other 32 bit atomic operations (and, or, xor, xchg) and
+> their BPF_FETCH variants are not supported and gracefully fall back to
+> the interpreter.
+> 
+> Since the RISC-V A extension is required for Linux on RV32, we can
+> natively support these 32-bit BPF atomic operations by mapping them
+> directly to the corresponding RISC-V amo*.w instructions.
+> 
+> Implement BPF_ADD, BPF_AND, BPF_OR, BPF_XOR, and BPF_XCHG with and
+> without BPF_FETCH. BPF_CMPXCHG requires a more complex lr.w/sc.w
+> loop and is left to fall back to the interpreter.
+> 
+> Before this patch:
+> [  138.862161] test_bpf: Summary: 1054 PASSED, 0 FAILED, [843/1042 JIT'ed]
+> 
+> After this patch:
+> [  157.024124] test_bpf: Summary: 1054 PASSED, 0 FAILED, [902/1042 JIT'ed]
+> 
+> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+> ---
+>   arch/riscv/net/bpf_jit_comp32.c | 64 +++++++++++++++++++++++++++------
+>   1 file changed, 53 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
+> index 39e2b0b907dc..a9e0bd5cc81d 100644
+> --- a/arch/riscv/net/bpf_jit_comp32.c
+> +++ b/arch/riscv/net/bpf_jit_comp32.c
+> @@ -874,14 +874,58 @@ static int emit_load_r64(const s8 *dst, const s8 *src, s16 off,
+>   	return 0;
+>   }
+>   
+> -static int emit_store_r64(const s8 *dst, const s8 *src, s16 off,
+> -			  struct rv_jit_context *ctx, const u8 size,
+> -			  const u8 mode)
+> +static int emit_bpf_atomic(s8 dst, const s8 *src, const s8 *rs,
+> +			   struct rv_jit_context *ctx,
+> +			   const struct bpf_insn *insn)
+> +{
+> +	s32 imm = insn->imm;
+> +	bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
+> +	s8 fetch_reg = is_fetch ? lo(rs) : RV_REG_ZERO;
+> +	int aq = is_fetch ? 1 : 0;
+> +	int rl = is_fetch ? 1 : 0;
+> +
+> +	switch (imm) {
+> +	case BPF_ADD:
+> +	case BPF_ADD | BPF_FETCH:
+> +		emit(rv_amoadd_w(fetch_reg, lo(rs), dst, aq, rl), ctx);
+> +		break;
+> +	case BPF_AND:
+> +	case BPF_AND | BPF_FETCH:
+> +		emit(rv_amoand_w(fetch_reg, lo(rs), dst, aq, rl), ctx);
+> +		break;
+> +	case BPF_OR:
+> +	case BPF_OR | BPF_FETCH:
+> +		emit(rv_amoor_w(fetch_reg, lo(rs), dst, aq, rl), ctx);
+> +		break;
+> +	case BPF_XOR:
+> +	case BPF_XOR | BPF_FETCH:
+> +		emit(rv_amoxor_w(fetch_reg, lo(rs), dst, aq, rl), ctx);
+> +		break;
+> +	case BPF_XCHG:
+> +		emit(rv_amoswap_w(fetch_reg, lo(rs), dst, aq, rl), ctx);
+> +		break;
+> +	default:
+> +		return -1;
+> +	}
+> +
+> +	if (is_fetch) {
+> +		emit(rv_addi(hi(rs), RV_REG_ZERO, 0), ctx);
+> +		bpf_put_reg64(src, rs, ctx);
+> +	}
+> +	return 0;
+> +}
+> +
+> +static int emit_store_r64(const s8 *dst, const s8 *src,
+> +			  struct rv_jit_context *ctx,
+> +			  const struct bpf_insn *insn)
+>   {
+>   	const s8 *tmp1 = bpf2rv32[TMP_REG_1];
+>   	const s8 *tmp2 = bpf2rv32[TMP_REG_2];
+>   	const s8 *rd = bpf_get_reg64(dst, tmp1, ctx);
+>   	const s8 *rs = bpf_get_reg64(src, tmp2, ctx);
+> +	u8 size = BPF_SIZE(insn->code);
+> +	u8 mode = BPF_MODE(insn->code);
+> +	s16 off = insn->off;
+>   
+>   	if (mode == BPF_ATOMIC && size != BPF_W)
+>   		return -1;
+> @@ -901,9 +945,9 @@ static int emit_store_r64(const s8 *dst, const s8 *src, s16 off,
+>   		case BPF_MEM:
+>   			emit(rv_sw(RV_REG_T0, 0, lo(rs)), ctx);
+>   			break;
+> -		case BPF_ATOMIC: /* Only BPF_ADD supported */
+> -			emit(rv_amoadd_w(RV_REG_ZERO, lo(rs), RV_REG_T0, 0, 0),
+> -			     ctx);
+> +		case BPF_ATOMIC:
+> +			if (emit_bpf_atomic(RV_REG_T0, src, rs, ctx, insn))
+> +				return -1;
+>   			break;
+>   		}
+>   		break;
+> @@ -1303,21 +1347,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   			src = tmp2;
+>   		}
+>   
+> -		if (emit_store_r64(dst, src, off, ctx, BPF_SIZE(code),
+> -				   BPF_MODE(code)))
+> +		if (emit_store_r64(dst, src, ctx, insn))
+>   			return -1;
+>   		break;
+>   
+>   	case BPF_STX | BPF_ATOMIC | BPF_W:
+> -		if (insn->imm != BPF_ADD) {
+> +		if (insn->imm == BPF_CMPXCHG) {
+>   			pr_info_once(
+>   				"bpf-jit: not supported: atomic operation %02x ***\n",
+>   				insn->imm);
+>   			return -EFAULT;
+>   		}
+>   
+> -		if (emit_store_r64(dst, src, off, ctx, BPF_SIZE(code),
+> -				   BPF_MODE(code)))
+> +		if (emit_store_r64(dst, src, ctx, insn))
+>   			return -1;
+>   		break;
+>   
+
+looks quite good to me, thanks
+
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
