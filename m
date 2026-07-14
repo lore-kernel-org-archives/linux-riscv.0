@@ -4,68 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D10AC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 13:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69883C43458
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 13:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cPKD/IszVhQGwvxGhwNG8AoGMUSQ3Zp6Q1z2idbHons=; b=Pp3P5IR6uc+T/v
-	o1RjBsQ2X1UCdnGvRnGHgRt8h9O3sixwCCcXawL21xfZG3P8XlebvBMh2UH0x87UakuNRk5raTaiZ
-	S0GdNSYvBtKYA3cLD25o8mMmJJKEtu0tjRZ13J3dNnoMSGRvUWQbOz1/obLziSqT1645YxELMre6j
-	C+ZF7VAnw3yaXJcud1D9B5i9BgXg7GMqut+MRoUjbUhTgMpcrgR7MJUn+5MXZt/LMnc/B1egugRFH
-	vQrM15xd1mkaHLBKEKb7TuOb2GFfAtr7YdfIaJaMs2qUlS/WhckFjfIUDkISsHzsRkO7qg6F2/XfE
-	aj7UMPBn967dVnN5M6zg==;
+	List-Owner; bh=/8M8c1ZaxiVzbi4J7Y737MoDFIzpD9EaLY0VWnWh75E=; b=chejpgiBjJjcbg
+	ZrHBq5jtkSfyi/DgyuVZHlUMAnqSoJIudZOAuNMfuZwzqztNVOKIWAny47qPFSu+tS+Fe0UKXUGej
+	Chz9obtIweZIdNIGgcWYrFU1f/JBIHpTNHVFURL7tZbfRA0G0uB247Tp9wC4s0G8RlrQ9xucydLUj
+	v4WKDyg3htcQmyRbV8tL72CHRRruXpjy1E7OSXxbDmF/2bz6nmIPnXpIUg1dGWE55JvfWj9eobDzk
+	JdmYl2LClLZnRLFbGe4DIK/uKxjpJfSnelsULquXV8XybEb8PHnfUauYLiYueVrCOCijpWK/DPZwr
+	ADidVKmaCAg/BJRzXTvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjd8M-0000000CAR3-2z2G;
-	Tue, 14 Jul 2026 13:25:14 +0000
-Received: from out203-205-221-236.mail.qq.com ([203.205.221.236])
+	id 1wjdHp-0000000CC1j-1vRo;
+	Tue, 14 Jul 2026 13:35:01 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjd8H-0000000CAPA-3JEx
+	id 1wjdHj-0000000CBz0-3p6G
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 13:25:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1784035499; bh=BgcfPTlAW4ZkrVktnHYyLoftRs8DvUUUiqXzc0BRnK0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dlJfhImirMjVod2uYKiJ3LLJYMpTA3KWsLviIWKOC9Feu+TqPxf7QWe7gsEGnUIjv
-	 akECdilG7I54OBruBMbRE602cwUyZBw3Q8dtWorFl/fu4V9tnvDELx4PO2Ums3azFp
-	 S1mOmNzVUJFIo2YCoQ4KR6lA8JQ2NwrZX77D01Fc=
-Received: from localhost.localdomain ([116.128.244.169])
-	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
-	id 6383F6EE; Tue, 14 Jul 2026 21:24:56 +0800
-X-QQ-mid: xmsmtpt1784035496twq166pem
-Message-ID: <tencent_A781C26C35482A03F6BD42B277ED977B8F08@qq.com>
-X-QQ-XMAILINFO: MB5+LsFw85NoQ2aGi58qIhW3zO5H6sWOgWO/OGMpD2qezJajP9n6UVuXR+RcY4
-	 LZdxd0RrhCiUr80UqpMF3uGJ5zwPsyvjDML/OkSPK55g4WEizl2ozuarmRKohiM+vNzRgoSodiZh
-	 uMUSau1vwhaZZtCP4MM+8XyV2MnXUZmuSlf2YDH+rveTxJz0ACbQHNeT/ndwRGO9uLSf2iiG6slC
-	 /W7GIe/Cepw4CnnUQ9o3pkuCCiqGdGzYnq51+VR1GPe6iY1xN8zB5Z7O3zU6vwl3V9VEO3+DCBLy
-	 macRAj5FB6iGmg4YnF6fzicCgQp/wiCD3evlVFq6i86z4RUrynwu5WVmcYNZ4HncEYS+BPXCutrg
-	 pHd7Rqem5tCZNXfE0OdaRns2z9xMj/mksFa+7b4Oo1mp3Sbige2RZHA6A+a1z2ChzIG9zyWv1vVt
-	 +7SDI4Qb84Z535QQBUkdI7JXMc8VhJWm34PWHTt/hU9tQA0I/y04TT51EwApARgWgw0OnEcuBIe3
-	 Lh6koXOQ1WYcrxcIMMhSa1Z6/2QnuM0yaXP66cbG+AB7WGB8EoI2MALgP+cZMkUsJtn/OWLcivHI
-	 NstC3VnWj/8kRqVQ+0zT/ss9nQkh6R3mvWXz+ReZio9rMuw0tgjREgTnWVGFT9850sOQQx5frLrQ
-	 gB/N+iuT0qvr8mIjFnfMlg+B8nc9+9iDjFquYsyggaemlWF8QgiwiRN/MEUZ1f3+0StBylIE5fMN
-	 Xv5zvnPdcpCd4Spmlh9CCAWhlCoSvvxGf9WXyT9ELXEhuC5sQMjRrglnyF6c+y5bBrg8bIv02XvR
-	 33bD9uMrAOrqlVEfNV3fAFdJSZSioUvJXU6OtNRE8pQFKN0yMgWo2ElmMzkZ/FwnmTP16vdjSaf5
-	 2EAUWBPRR48LZubr12U12Om0UoNMT1y9eCwsGOolz/l79HcKyCkbwiI0D1FXUuO0Ra3XAdnz5HM8
-	 brSo8itpKuRShKyvAuAJSC11wKiwkCTP55eOjLosK/PN2EjEemVrkpfiBA8x8LKM268A9dLQatha
-	 azBMOjsySZzyy/zqnP0vOi2mS3oMs6q08ib7eH+Ly3hsI4des3+rGk2+sdxeH5Z93pRrIe1w==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Haofeng Li <920484857@qq.com>
-To: tglx@kernel.org
-Subject: [PATCH 03/16] irqchip/sifive-plic: do not iounmap devm mappings
-Date: Tue, 14 Jul 2026 21:24:39 +0800
-X-OQ-MSGID: <20260714132453.3302672-1-920484857@qq.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260714122351.3274006-1-lihaofeng@kylinos.cn>
-References: <20260714122351.3274006-1-lihaofeng@kylinos.cn>
+	Tue, 14 Jul 2026 13:34:59 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47df440fcd5so2406832f8f.3
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 06:34:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784036094; x=1784640894; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+1tfMkiBqW2Fu1p0sa+0Qy+YQWqKnxqq1+cNEQovCl0=;
+        b=b83yhHzBkmNluMoe0lPPjI/d+8OSnVmVDyEYo2+65aimu83rz+OJSfBQsNvqdMsdch
+         LCcauAs1GyO1zcSIyZyww1sb3tuExI6/KQJl5sXk4OgRhdTprzIt//zcP00v0Dxb1id+
+         s7sxqtWLkntERpepb6eMohJoCdrMLZiH7XNWS24b1m684A+lYbnUE/z+BvJvKlkvRM4d
+         z7rNACabpsO/yIBmYHY0HOywIdVoyfzIunbzAb7vIbu0BEwd5fbxwTI2YZyw+yVxxp/a
+         5Upj6vbaRLaQw0OauOmLOAs2WOtHnE29Ddgb5WrI7nDlCOjMop0gUHr6JVR4TD7NCtzR
+         r1Ag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784036094; x=1784640894;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+1tfMkiBqW2Fu1p0sa+0Qy+YQWqKnxqq1+cNEQovCl0=;
+        b=dDMLBvul1/ACl138bYFbyCTNtSvslq3qM7rlleFWRGoJja2AOT/tLcpevRTy5ZJtLC
+         +e5gx8RzWN6bPJal1xOcuXuui0pdtUna21TrJAwGyeeoIMz3X+8CcXP0ngInedVkhUDP
+         ovIjYfl4tpdxURDF/Ojmkdw2LNxu9HhLJZLvBmaxp1zTxAUipMCRdLI5uH/qmn103ArP
+         kfzCY4d8lONF5H4sdlrf7yoD0Of7YeASsud85733ezouqY/4TIp1Ad1nSxDUjMpd4aiY
+         bys8ZhVqhtfCzjmSo++bdCji8ODCHVUZJc7wDCVfZ8ZmStoEnol+yTNnwSox9xqQhAge
+         VvTA==
+X-Forwarded-Encrypted: i=1; AHgh+RoCddp5SGz3FMKAW7p05cL54AJsD94Y1BLruAat0ex8osqUQCqF0jIzO3z1MWzRIaXlxB3GPYRR9uWisQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBUbDHxHwa04eSXBhzXS/fD8XXTovLrCVJeSzAm+zA6Icz0hcd
+	KhBTWmSJxbm0OmX/PFaiiwuuwMdfVWYBkN6S60fd9ETrz+K0NpC7bK1n
+X-Gm-Gg: AfdE7cmQMROFzzSGfidiCYglrlIxgUNa55zvKgr3vvVo2p3uTBzQoxo1MtMFRvosUDS
+	MTeJe2yKAlUZlWycRLwLGzR/cesI43nMe3XgjhYicdOer9GWCFxpH9NQ/kozlD+5rLEUEg1ILiS
+	3vb0hfzfx9a5NkZMSPNtC2gY/3tqz2k0Dz1L9rLYACZOfsTClWrkKmgMtB3B198LZsy6iQ6icCS
+	2agJSdvXtcF6W4SMj9dCaWVzVd1I12BmPZpq5vWq0byvC7Az7jzSKiDd+FTsxj3xeFZltAb/koh
+	2jnpUXR9wkQn1h2C4luGXUgqYkhbFiOyJZiCHKvy3zSwsMXFbLH3DiUeeX6nb9QKfnOU3aDthPv
+	V+algWwXF9S+MTcUZVaWZRa9onGK6eeol5HTxQA4sr2hozu2S5R6rjBPy9cKfBqm4L8E6xP74qC
+	JggKbxwAlO4ko5qhQ2t4jsQ3YYWYtl5za7e8K7G+hT3yQwc4MYf/5kh5DDy7CF
+X-Received: by 2002:a05:6000:26c7:b0:47d:f441:5f93 with SMTP id ffacd0b85a97d-47f2dcc02eemr15207624f8f.25.1784036093714;
+        Tue, 14 Jul 2026 06:34:53 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a63esm8687695f8f.9.2026.07.14.06.34.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 06:34:52 -0700 (PDT)
+Date: Tue, 14 Jul 2026 14:34:50 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: "Pedro Falcato" <pfalcato@suse.de>, "Yeoreum Yun" <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org, Linux-Arch
+ <linux-arch@vger.kernel.org>, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org,
+ kasan-dev@googlegroups.com, "linux-csky@vger.kernel.org"
+ <linux-csky@vger.kernel.org>, linux-m68k@lists.linux-m68k.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>, "David
+ Hildenbrand (Red Hat)" <david@kernel.org>, "Russell King"
+ <linux@armlinux.org.uk>, "Andrew Morton" <akpm@linux-foundation.org>,
+ "Ankur Arora" <ankur.a.arora@oracle.com>, "Mike Rapoport"
+ <rppt@kernel.org>, "Magnus Lindholm" <linmag7@gmail.com>, "Christophe
+ Leroy" <chleroy@kernel.org>, "Klara Modin" <klarasmodin@gmail.com>, "Huacai
+ Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>, "Kirill
+ A. Shutemov" <kas@kernel.org>, zhangtianyang@loongson.cn, wangyuli@aosc.io,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, "Lorenzo Stoakes"
+ <ljs@kernel.org>, "Jason Gunthorpe" <jgg@ziepe.ca>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Ryan Roberts"
+ <ryan.roberts@arm.com>, "Pasha Tatashin" <pasha.tatashin@soleen.com>,
+ "Rohan McLure" <rmclure@linux.ibm.com>, "Baolin Wang"
+ <baolin.wang@linux.alibaba.com>, "Tejun Heo" <tj@kernel.org>, "Kevin
+ Brodsky" <kevin.brodsky@arm.com>, "Anup Patel" <anup@brainfault.org>,
+ atish.patra@linux.dev, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, "Dave Hansen" <dave.hansen@linux.intel.com>, "Andy
+ Lutomirski" <luto@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+ "Johannes Weiner" <hannes@cmpxchg.org>, "Michal Hocko" <mhocko@kernel.org>,
+ qi.zheng@linux.dev, "Shakeel Butt" <shakeel.butt@linux.dev>, "Kairui Song"
+ <kasong@tencent.com>, "Barry Song" <baohua@kernel.org>, "Axel Rasmussen"
+ <axelrasmussen@google.com>, "Yuanchu Xie" <yuanchu@google.com>, "Wei Xu"
+ <weixugc@google.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
+ "Alexander Potapenko" <glider@google.com>, "Andrey Konovalov"
+ <andreyknvl@gmail.com>, "Dmitry Vyukov" <dvyukov@google.com>, "Vincenzo
+ Frascino" <vincenzo.frascino@arm.com>, "Anshuman Khandual"
+ <anshuman.khandual@arm.com>, "Yang Shi" <yang@os.amperecomputing.com>,
+ chaitanyas.prakash@arm.com, "Ard Biesheuvel" <ardb@kernel.org>, guoren
+ <guoren@kernel.org>, yang.li85200@gmail.com, "Alexander Viro"
+ <viro@zeniv.linux.org.uk>, "Dinh Nguyen" <dinguyen@kernel.org>,
+ "schuster.simon@siemens-energy.com" <schuster.simon@siemens-energy.com>,
+ "Vivian Wang" <wangruikang@iscas.ac.cn>, junhui.liu@pigmoral.tech, "Muchun
+ Song" <muchun.song@linux.dev>, "Vishal Moola (Oracle)"
+ <vishal.moola@gmail.com>, "Nam Cao" <namcao@linutronix.de>, "Pavel Machek"
+ <pavel@kernel.org>, djbw@kernel.org, yu-cheng.yu@intel.com, "Baolu Lu"
+ <baolu.lu@linux.intel.com>, "Jonathan Cameron"
+ <Jonathan.Cameron@huawei.com>, "Coiby Xu" <coxu@redhat.com>, "Andreas
+ Larsson" <andreas@gaisler.com>, "Liam R. Howlett" <liam@infradead.org>,
+ "Vlastimil Babka (SUSE)" <vbabka@kernel.org>, "Suren Baghdasaryan"
+ <surenb@google.com>, "Michal Hocko" <mhocko@suse.com>, "Geert Uytterhoeven"
+ <geert@linux-m68k.org>, "Stafford Horne" <shorne@gmail.com>, "Jonas Bonn"
+ <jonas@southpole.se>, "Stefan Kristiansson"
+ <stefan.kristiansson@saunalahti.fi>
+Subject: Re: [RFC PATCH 02/34] ARM: mm: make 2-level pgd_t a scalar
+Message-ID: <20260714143450.61a94085@pumpkin>
+In-Reply-To: <b7dbc476-1477-4004-93b3-c5e667e24df8@app.fastmail.com>
+References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
+	<20260713135614.1618183-3-yeoreum.yun@arm.com>
+	<alYL7B0HAvmLVHGU@pedro-suse>
+	<b7dbc476-1477-4004-93b3-c5e667e24df8@app.fastmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_062510_150631_0AC98F31 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20260714_063456_015055_82A2328B 
+X-CRM114-Status: GOOD (  36.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +149,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Haofeng Li <13266079573@163.com>, Haibo Xu <haibo1.xu@intel.com>, Anup Patel <anup@brainfault.org>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Paul Walmsley <pjw@kernel.org>, Haofeng Li <lihaofeng@kylinos.cn>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Haofeng Li <lihaofeng@kylinos.cn>
+On Tue, 14 Jul 2026 13:55:18 +0200
+"Arnd Bergmann" <arnd@arndb.de> wrote:
 
-plic_probe() maps registers with of_iomap() on the OF path, but with
-devm_platform_ioremap_resource() on the ACPI/platform path.
-fail_free_regs always calls iounmap(regs), which double-unmaps managed
-mappings on the non-OF path.
+> On Tue, Jul 14, 2026, at 12:26, Pedro Falcato wrote:
+> > On Mon, Jul 13, 2026 at 02:55:41PM +0100, Yeoreum Yun wrote:  
+> >> From: "David Hildenbrand (Arm)" <david@kernel.org>
+> >> 
+> >> We don't want pgd_t to be an array, as it prohibits returning it from a
+> >> function, like pgdp_get().
+> >> 
+> >> So let's just use an u64, and extract the right 32bit value in
+> >> pgd_val().
+> >> 
+> >> Leave the STRICT_MM_TYPECHECKS case alone for now.  
+> >
+> > I have to ask: is there a good reason for the STRICT_MM_TYPECHECKS ifdef?
+> >
+> > I see the compiler has an awkward time returning a u64 struct (see
+> > https://godbolt.org/z/qejbv6j9a), but if this doesn't work maybe we should
+> > get rid of the STRICT_MM_TYPECHECKS stuff? I seriously doubt anyone is
+> > purposefully toggling it on for testing from time to time.  
+> 
+> As far as I can tell, the #ifdef was originally in i386 and
+> got copied to all other architectures at the time, but was
+> removed in linux-2.3.23 from the original copy when CONFIG_X86_PAE
+> was introduced.
 
-Only call iounmap(regs) when the fwnode is an OF node.
+For x86-32 the makefiles request 64bit structures be returned in registers
+(at the same place regparm=3 is set - probably added at the same time
+between 2.4 and 2.6).
 
-Fixes: 206dd13a1011 ("irqchip/sifive-plic: Add ACPI support")
-Signed-off-by: Haofeng Li <lihaofeng@kylinos.cn>
----
- drivers/irqchip/irq-sifive-plic.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Note that arm32 can will return a 32bit struct in a register and
+arm64 will return a 128bit struct in two registers.
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 5b0dac104814..0bddad388741 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -819,7 +819,9 @@ static int plic_probe(struct fwnode_handle *fwnode)
- fail_free_priv:
- 	kfree(priv);
- fail_free_regs:
--	iounmap(regs);
-+	/* Only OF path uses of_iomap(); ACPI/platform uses devm mapping. */
-+	if (is_of_node(fwnode))
-+		iounmap(regs);
- 	return error;
- }
- 
--- 
-2.25.1
+The only problem is returning a 64bit struct in 32bit mode.
+
+I'm sure this code is arm64 only.
+
+	David
+
+
+> 
+> For some reason, only sparc32 and arm32 still use the non-strict
+> version, with arm having changed from the struct version in 2002:
+> 
+> https://github.com/tbodt/linux-history/commit/5a8202f0259a
+> https://archive.armlinux.org.uk/lurker/message/20020306.213958.cd486eeb.en.html
+> 
+> > If STRICT_MM_TYPEDEFS's worse codegen doesn't matter then maybe we should
+> > permanently toggle it on.  
+> 
+> This would definitely need good testing. It's possible that it's
+> not that bad on modern EABI builds (i.e. everyone these days) as
+> well as modern compilers, as OABI definitely had bigger problems
+> with 64-bit arguments.
+> 
+> >> +static inline pmdval_t pgd_val(pgd_t pgd)
+> >> +{
+> >> +	return (*(pmdval_t (*)[2])&pgd)[0];  
+> >
+> > Ugh. This isn't correct C code. It only works because the kernel passes
+> > -fno-strict-aliasing.  
+> 
+> I think the bigger problem is the code dereferencing the pgd
+> pointer in the first place: Since the pgd pair is written in
+> 32-bit units in __pmd_populate(), anything reading it would
+> technically have to operate on both entries.
+> 
+> As the kernel relies on -fno-strict-aliasing, the type mismatch
+> is less of a problem than actually doing the potentially wrong
+> thing.
+> 
+> As far as I can tell, we are however saved by pgd_val()
+> only ever being used for debug prints, where printing
+> the first entry is likely all that is needed to analyse
+> the real bug.
+> 
+> > I would recommend either forcing a struct here, or
+> > using a u64 with bitmasks/shifts.  
+> 
+> That would require extra complexity for the big-endian
+> case though.
+> 
+>     Arnd
+> 
 
 
 _______________________________________________
