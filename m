@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94550C4450A
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 14:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731BEC4450A
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 14:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zgRnzHRga4cTvRkB4Y8VKlmHoDx/Y7nEl7VqklBP4AI=; b=OMg1Hy//XKWuGb
-	ATNJq+du7+O+PpV3GRgnwALvxIt30CKF3UoJGp5iWmMnCw2hLi0UzVH70fb0pXaWHrhxDi3SLep66
-	f2/jrCk9/qytqIy5Laj7gDCF4b4NaKuBXlgI0lKwIjRB0G5Dph5BMm0BRn9C1oGDeKkNjI22N4xnK
-	g7iNhNUR9wvy4F6EgijwP6EHikpQIYL4k458T7aOOgwFzyGxkEU6TutJXOS2bp37ft6hTmlJ5cm8Y
-	Kc3QABOucMvAoXOPT/Ma8Qo1e0vlSC6+EvaF2fUzH6EYcW20IIFcfdJcALj4c9OdsQs3bTX7BxkFU
-	WyJluD75YN6kVH/CyTaw==;
+	List-Owner; bh=ixuD7RXIfdDHB3n1nYdMfazefxCChaDQiJQL8J94JmM=; b=WFpZCE2ATzKfsA
+	3bjD6DdJLYDEYCdd+bmW/xL7f5f6l0ACFixOReXgElNUnPMIVF5Pb2zHpSuZL3Oe6EpRIGvwtLpwC
+	PezXujjsLMH11xBXcCYeLbz8CoaKH6mt6aXsfegrrFVs0Hj7+bgIWcKMK5FCBGqC2iO3p1YZ83whY
+	gXPj2bEBrpCjqoGnDeULRM3zwVtOhA8G1aEagGcsuq0Uc3OQHVcyiCTacjyCtmW/KY7O60t+Puk1B
+	2RVkW59JX8U1WZLw4vTGg1avGPcJDUboI8DsO093ueIV5fCQ3/eq2KOKLRDiITnuwbzHNnCL0U88n
+	EttRApSJJDIyXI4mtKCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdmw-0000000CJMw-2wuA;
-	Tue, 14 Jul 2026 14:07:10 +0000
+	id 1wjdnC-0000000CJbH-2MVU;
+	Tue, 14 Jul 2026 14:07:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdms-0000000CJH7-38dX;
-	Tue, 14 Jul 2026 14:07:08 +0000
+	id 1wjdn8-0000000CJVx-0r1d;
+	Tue, 14 Jul 2026 14:07:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE41D1576;
-	Tue, 14 Jul 2026 07:07:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49CFE1CDD;
+	Tue, 14 Jul 2026 07:07:17 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A6BF83F7B4;
-	Tue, 14 Jul 2026 07:06:58 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 211913FBB1;
+	Tue, 14 Jul 2026 07:07:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784038026; bh=wRRvDY7vvj6o45l8yT2Q7WPIKaOL0Wfu1AKN4gUTBNM=;
+	t=1784038041; bh=W5yMHnXfWcnH1ZpiyUJxzPFiGyzR0nmofTO/4v3XglM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CCHuQj4boJkfZHO19ek7AVQhcn2j5x9Inj92YhvCDOQNMYxw1wJHqVP3lNtmrXDor
-	 z8dfztuTF5HxmmtkzWEn0bGB/ntiIdARdTp3OUTIiy6d1Pv6qDLGuwuR1khXjO+Vzy
-	 5ViCvZtIVrztie1QTQbSWYbDcViyYQGhZmv5eaSk=
+	b=tcs2QjbOfi2UrOaEb3Be0yDpY6GZomCe7QbbhuAt79rvxsFv0nPzL+CWkgYpCVks/
+	 ogkFHzzFifaJTeH1MCRm+XyD/611Im1Ut2kp5sQ9dzHO1o7eUkGFrrRiH6Z4V/RDtz
+	 /vlFqoX8JwYVcEUc2qvYwpr+Gn4LoNg3DQ/uWfI4=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 14 Jul 2026 15:04:04 +0100
-Subject: [PATCH 15/22] mm: only initialise pt_share_count for user pgtables
+Date: Tue, 14 Jul 2026 15:04:06 +0100
+Subject: [PATCH 17/22] mm: pagewalk: drop redundant address check for
+ kernel mm walks
 MIME-Version: 1.0
-Message-Id: <20260714-remove_pgtable_cdtor-v1-15-44be8a7685d7@arm.com>
+Message-Id: <20260714-remove_pgtable_cdtor-v1-17-44be8a7685d7@arm.com>
 References: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 In-Reply-To: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 To: linux-mm@kvack.org
@@ -81,16 +82,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=1093;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=1902;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=wRRvDY7vvj6o45l8yT2Q7WPIKaOL0Wfu1AKN4gUTBNM=;
- b=Ly1CUGmQU4MNOAvYijXTm6a0Oy5bg25WoXD9BoAv+N4SapepeLDfsykLmzz2cpJ5XS9tuoOVI
- p8vbo57maMnDOD6whiBPPJLuCq0Skgv9I5RprwD5SM3O65zdB1a2N0T
+ bh=W5yMHnXfWcnH1ZpiyUJxzPFiGyzR0nmofTO/4v3XglM=;
+ b=TFBgeJD80Ix+w11MAOvfP3+Vh87dI14Hnq0FHr8NrSRBwD9XPKoZw/aAqVJc1+sG5OV8cIA+P
+ hlg2L1E8nGiAdR9B4tzknmDLhA26Dhv64+3Fs4YGAcZ8Y3UcdoWIKP6
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_070706_896949_98D22190 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20260714_070722_361770_0E56D3C9 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +108,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ptdesc_pmd_pts_init() initialises the pt_share_count ptdesc field.
-That field is only used for hugetlb tracking purposes, so there is
-no need to initialise it for kernel page tables. Skip the call for
-kernel page tables, like pmd_ptlock_init().
+Commit 8b1cb4a2e819 ("mm/pagewalk: fix EFI_PGT_DUMP of
+espfix area") made no-VMA page table walks use
+pte_offset_kernel() for any address above TASK_SIZE. This avoided
+pte_offset_map() validation on EFI page table dumps, where efi_mm
+could walk x86 espfix PMDs that intentionally look bad to pmd_bad().
 
-From now on pagetable_*_ctor() and pagetable_dtor() do nothing for
-kernel page tables.
+efi_mm is now marked with MMF_KERNEL, and no-VMA walks use
+mm_is_kernel() to select pte_offset_kernel() for kernel mm's. As a
+result we no longer need to handle the EFI_PGT_DUMP case explicitly.The
+address check is therefore redundant for EFI_PGT_DUMP and makes the
+condition harder to reason about.
 
+Remove the address check and associated comment; mm_is_kernel()
+should be sufficient on its own.
+
+Tested by booting x86 QEMU with CONFIG_EFI_PGT_DUMP=y and reading
+/sys/kernel/debug/page_tables/efi.
+
+Assisted-by: Codex:GPT-5.5
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- include/linux/mm.h | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ mm/pagewalk.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 94f0fb1c662a..b217ccbed5a3 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3905,9 +3905,12 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
- static inline bool pagetable_pmd_ctor(struct mm_struct *mm,
- 				      struct ptdesc *ptdesc)
- {
--	if (!mm_is_kernel(mm) && !pmd_ptlock_init(ptdesc))
--		return false;
--	ptdesc_pmd_pts_init(ptdesc);
-+	if (!mm_is_kernel(mm)) {
-+		if (!pmd_ptlock_init(ptdesc))
-+			return false;
-+		ptdesc_pmd_pts_init(ptdesc);
-+	}
-+
- 	return true;
- }
- 
+diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+index a3f47d1de3c5..0dd9d4ad9b68 100644
+--- a/mm/pagewalk.c
++++ b/mm/pagewalk.c
+@@ -68,17 +68,14 @@ static int walk_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 	if (walk->no_vma) {
+ 		/*
+ 		 * pte_offset_map() might apply user-specific validation.
+-		 * Indeed, on x86_64 the pmd entries set up by init_espfix_ap()
+-		 * fit its pmd_bad() check (_PAGE_NX set and _PAGE_RW clear),
+-		 * and CONFIG_EFI_PGT_DUMP efi_mm goes so far as to walk them.
+ 		 */
+-		if (mm_is_kernel(walk->mm) || addr >= TASK_SIZE)
++		if (mm_is_kernel(walk->mm))
+ 			pte = pte_offset_kernel(pmd, addr);
+ 		else
+ 			pte = pte_offset_map(pmd, addr);
+ 		if (pte) {
+ 			err = walk_pte_range_inner(pte, addr, end, walk);
+-			if (!mm_is_kernel(walk->mm) && addr < TASK_SIZE)
++			if (!mm_is_kernel(walk->mm))
+ 				pte_unmap(pte);
+ 		}
+ 	} else {
 
 -- 
 2.51.2
