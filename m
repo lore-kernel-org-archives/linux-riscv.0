@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731BEC4450A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F7ACC4450B
 	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 14:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,38 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ixuD7RXIfdDHB3n1nYdMfazefxCChaDQiJQL8J94JmM=; b=WFpZCE2ATzKfsA
-	3bjD6DdJLYDEYCdd+bmW/xL7f5f6l0ACFixOReXgElNUnPMIVF5Pb2zHpSuZL3Oe6EpRIGvwtLpwC
-	PezXujjsLMH11xBXcCYeLbz8CoaKH6mt6aXsfegrrFVs0Hj7+bgIWcKMK5FCBGqC2iO3p1YZ83whY
-	gXPj2bEBrpCjqoGnDeULRM3zwVtOhA8G1aEagGcsuq0Uc3OQHVcyiCTacjyCtmW/KY7O60t+Puk1B
-	2RVkW59JX8U1WZLw4vTGg1avGPcJDUboI8DsO093ueIV5fCQ3/eq2KOKLRDiITnuwbzHNnCL0U88n
-	EttRApSJJDIyXI4mtKCA==;
+	List-Owner; bh=h6FwP9X3xV0oXzV2EnVnpc80tu9+LeOHQyne9jpm6gc=; b=qviSjjuOT8sj+M
+	B1nRbNpNFgrOklJAMQhciZuiVToI+a8cHGUgIplCayzDhdW5c4fJeBk9QUU88/dM4iClDPXXvmIRz
+	vTkVMzXmyOJMw1yiqAfqEHxvEwpYJM2XnBAMqlOKqH5SsLKHtGYb2NaV1Jci8iPTO7zW5OdLqZjg2
+	+EjC2Ap6EGsfnUZrSwiFn+0TllBDdxQu1YOGpt82XlvsMjJydbtUN37rknr0CyFGqmMFX6S/oWEbh
+	mrKSHyRHZixDgQ2QTGwYo0HA7bYPI8PjfE2yuhFkgJpia9r4T++Y7OBHKbrqX+Fi4B9xaqBTqfs7s
+	ne23mr0Bl9jusSadBzBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdnC-0000000CJbH-2MVU;
-	Tue, 14 Jul 2026 14:07:26 +0000
+	id 1wjdn8-0000000CJWA-0t6N;
+	Tue, 14 Jul 2026 14:07:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdn8-0000000CJVx-0r1d;
-	Tue, 14 Jul 2026 14:07:25 +0000
+	id 1wjdn1-0000000CJS2-0DDI;
+	Tue, 14 Jul 2026 14:07:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49CFE1CDD;
-	Tue, 14 Jul 2026 07:07:17 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEF3A1CC4;
+	Tue, 14 Jul 2026 07:07:09 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 211913FBB1;
-	Tue, 14 Jul 2026 07:07:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 645503F7B4;
+	Tue, 14 Jul 2026 07:07:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784038041; bh=W5yMHnXfWcnH1ZpiyUJxzPFiGyzR0nmofTO/4v3XglM=;
+	t=1784038033; bh=rJhmHjtmDwxS2CewudUO1k4saVZojxZevQnlJp6OZ7c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tcs2QjbOfi2UrOaEb3Be0yDpY6GZomCe7QbbhuAt79rvxsFv0nPzL+CWkgYpCVks/
-	 ogkFHzzFifaJTeH1MCRm+XyD/611Im1Ut2kp5sQ9dzHO1o7eUkGFrrRiH6Z4V/RDtz
-	 /vlFqoX8JwYVcEUc2qvYwpr+Gn4LoNg3DQ/uWfI4=
+	b=P+LRFNmiDvhW3q79+Et/h/V1cKdtJE0WCcRDkD/ESazXMLOt5jc8Kgt41NbWh4J4L
+	 irPYHd6dn5v2zgZP369nbxfm7fp2OsfV6xC2C9cTmmDmdF9sgXDGCBBMWKG6COr/1p
+	 x9UUMt3JnkFOkdtZWVFuRaLX87Bjnkvu74XTX8nc=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 14 Jul 2026 15:04:06 +0100
-Subject: [PATCH 17/22] mm: pagewalk: drop redundant address check for
- kernel mm walks
+Date: Tue, 14 Jul 2026 15:04:05 +0100
+Subject: [PATCH 16/22] efi: mark efi_mm as a kernel mm
 MIME-Version: 1.0
-Message-Id: <20260714-remove_pgtable_cdtor-v1-17-44be8a7685d7@arm.com>
+Message-Id: <20260714-remove_pgtable_cdtor-v1-16-44be8a7685d7@arm.com>
 References: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 In-Reply-To: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 To: linux-mm@kvack.org
@@ -82,16 +81,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=1902;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=1355;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=W5yMHnXfWcnH1ZpiyUJxzPFiGyzR0nmofTO/4v3XglM=;
- b=TFBgeJD80Ix+w11MAOvfP3+Vh87dI14Hnq0FHr8NrSRBwD9XPKoZw/aAqVJc1+sG5OV8cIA+P
- hlg2L1E8nGiAdR9B4tzknmDLhA26Dhv64+3Fs4YGAcZ8Y3UcdoWIKP6
+ bh=rJhmHjtmDwxS2CewudUO1k4saVZojxZevQnlJp6OZ7c=;
+ b=xEbohehI3oM6XdwxICHsVginMSV7tAi9MA1ZH+OAmyTQN4j1iQ5NsQqwBRdPZXQYf6lyJ7RCE
+ SjcaLPZMgbgBfEX879PTsxhhu4WlXQHubYLk+EEaXhOv3f1B8VSkhhq
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_070722_361770_0E56D3C9 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260714_070717_451670_580C2885 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,54 +107,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 8b1cb4a2e819 ("mm/pagewalk: fix EFI_PGT_DUMP of
-espfix area") made no-VMA page table walks use
-pte_offset_kernel() for any address above TASK_SIZE. This avoided
-pte_offset_map() validation on EFI page table dumps, where efi_mm
-could walk x86 espfix PMDs that intentionally look bad to pmd_bad().
+efi_mm is a kernel-owned address space used for EFI runtime
+mappings, but it is currently treated like a user address space when
+manipulating its page tables. There does not seem to be a good
+reason for this, and it creates unnecessary complications when
+creating its page tables.
 
-efi_mm is now marked with MMF_KERNEL, and no-VMA walks use
-mm_is_kernel() to select pte_offset_kernel() for kernel mm's. As a
-result we no longer need to handle the EFI_PGT_DUMP case explicitly.The
-address check is therefore redundant for EFI_PGT_DUMP and makes the
-condition harder to reason about.
+Mark it with the new MMF_KERNEL flag so that the page table handling
+treats it like init_mm. In particular, this means that:
 
-Remove the address check and associated comment; mm_is_kernel()
-should be sufficient on its own.
+* Split page table locks are no longer initialised or used for
+  efi_mm's page tables.
 
-Tested by booting x86 QEMU with CONFIG_EFI_PGT_DUMP=y and reading
-/sys/kernel/debug/page_tables/efi.
+* pagetable_*_ctor() and pagetable_dtor() no longer need to be
+  called for efi_mm's page tables.
 
 Assisted-by: Codex:GPT-5.5
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- mm/pagewalk.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ drivers/firmware/efi/efi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-index a3f47d1de3c5..0dd9d4ad9b68 100644
---- a/mm/pagewalk.c
-+++ b/mm/pagewalk.c
-@@ -68,17 +68,14 @@ static int walk_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
- 	if (walk->no_vma) {
- 		/*
- 		 * pte_offset_map() might apply user-specific validation.
--		 * Indeed, on x86_64 the pmd entries set up by init_espfix_ap()
--		 * fit its pmd_bad() check (_PAGE_NX set and _PAGE_RW clear),
--		 * and CONFIG_EFI_PGT_DUMP efi_mm goes so far as to walk them.
- 		 */
--		if (mm_is_kernel(walk->mm) || addr >= TASK_SIZE)
-+		if (mm_is_kernel(walk->mm))
- 			pte = pte_offset_kernel(pmd, addr);
- 		else
- 			pte = pte_offset_map(pmd, addr);
- 		if (pte) {
- 			err = walk_pte_range_inner(pte, addr, end, walk);
--			if (!mm_is_kernel(walk->mm) && addr < TASK_SIZE)
-+			if (!mm_is_kernel(walk->mm))
- 				pte_unmap(pte);
- 		}
- 	} else {
+diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
+index 0327a39d31fa..e5ca45bdc890 100644
+--- a/drivers/firmware/efi/efi.c
++++ b/drivers/firmware/efi/efi.c
+@@ -69,6 +69,7 @@ struct mm_struct efi_mm = {
+ 	.mm_mt			= MTREE_INIT_EXT(mm_mt, MM_MT_FLAGS, efi_mm.mmap_lock),
+ 	.mm_users		= ATOMIC_INIT(2),
+ 	.mm_count		= ATOMIC_INIT(1),
++	.flags			= MM_FLAGS_INIT(MMF_KERNEL_MASK),
+ 	.write_protect_seq      = SEQCNT_ZERO(efi_mm.write_protect_seq),
+ 	MMAP_LOCK_INITIALIZER(efi_mm)
+ 	.page_table_lock	= __SPIN_LOCK_UNLOCKED(efi_mm.page_table_lock),
 
 -- 
 2.51.2
