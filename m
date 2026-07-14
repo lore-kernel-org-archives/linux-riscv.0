@@ -4,45 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F7ACC4450B
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 14:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E71EFC4450B
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 14:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h6FwP9X3xV0oXzV2EnVnpc80tu9+LeOHQyne9jpm6gc=; b=qviSjjuOT8sj+M
-	B1nRbNpNFgrOklJAMQhciZuiVToI+a8cHGUgIplCayzDhdW5c4fJeBk9QUU88/dM4iClDPXXvmIRz
-	vTkVMzXmyOJMw1yiqAfqEHxvEwpYJM2XnBAMqlOKqH5SsLKHtGYb2NaV1Jci8iPTO7zW5OdLqZjg2
-	+EjC2Ap6EGsfnUZrSwiFn+0TllBDdxQu1YOGpt82XlvsMjJydbtUN37rknr0CyFGqmMFX6S/oWEbh
-	mrKSHyRHZixDgQ2QTGwYo0HA7bYPI8PjfE2yuhFkgJpia9r4T++Y7OBHKbrqX+Fi4B9xaqBTqfs7s
-	ne23mr0Bl9jusSadBzBQ==;
+	List-Owner; bh=7lwHr2cMO7tO+bBYmJcdd//gI37Tzhjudb7TEqUcU9g=; b=fQYAkLFFNjNLzm
+	yjkcvbvmuSeYSj6FP3bEwAWKjtxbhzMZzxIRIkdXYOF/v4wuKNuZIOdDdwjq4pShyVUSWR+nUHYsr
+	7oRxec0GFVehMhkhHCwT4tL0yb0DS3WWj4k3s98ojqAMHn5tmWcPX+iK8oF89fWMt86DC8RU79HK6
+	l+znPp1Be0CbTz6j/BxkY3I3nAStcuoFkv5busVyFEhDzNVc/IFxDogccn9wumtJdfvGpvGD7bv+L
+	4JFZvJSPkJKy1vTfwiidToybjwA60+O0qxublSnlssr7GQG60l+9rz+EwQKWiOfftXLnR7b1/ykOC
+	UdtRAaDr/YEh9XwRBVyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdn8-0000000CJWA-0t6N;
-	Tue, 14 Jul 2026 14:07:22 +0000
+	id 1wjdnM-0000000CJlX-3yJR;
+	Tue, 14 Jul 2026 14:07:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjdnL-0000000CJjO-0Ivz;
+	Tue, 14 Jul 2026 14:07:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=865cl54nJQTbOF3eykkMxymd6hEBxnf3a3hksIMsfuE=; b=nBNQX4+mbigCJBhnTmF58J7kYl
+	xbYJmiw5HVx6s5ZPr2i0+t5RCYc941t9nJAXz9pjoMaTmkTTKmClCKxie1aXhZnBNhGIy0ZQiNXbj
+	F1WSRIxd6juWL6/BCTZoSH2LF40GslVY/03znwmUCspeuWvhkCH9M0KbFaFzLPKaCL+yVgzgoz/it
+	/qwm/7qQlMFFTCU+lHQIogm6FMR90n4XkBHbFhvTssKF33MWg0DAFvHHiNuuSLPBonu+dyKY2Vvry
+	fAA4HMM42JvyE2crmRdfFcMZVlEciZghabqyXRVPqPqFf3GOF8pXkTKCV4LxzWXBKitOZV4j3bVs6
+	ojH8MspA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdn1-0000000CJS2-0DDI;
-	Tue, 14 Jul 2026 14:07:20 +0000
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjdnG-0000000CZWG-3Q0y;
+	Tue, 14 Jul 2026 14:07:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEF3A1CC4;
-	Tue, 14 Jul 2026 07:07:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0350F1C25;
+	Tue, 14 Jul 2026 07:07:25 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 645503F7B4;
-	Tue, 14 Jul 2026 07:07:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2ACB3F7B4;
+	Tue, 14 Jul 2026 07:07:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784038033; bh=rJhmHjtmDwxS2CewudUO1k4saVZojxZevQnlJp6OZ7c=;
+	t=1784038049; bh=VE9T6pQuQsM82lM79rZVxS9mOIiIj6SKheB2t7eP+e8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=P+LRFNmiDvhW3q79+Et/h/V1cKdtJE0WCcRDkD/ESazXMLOt5jc8Kgt41NbWh4J4L
-	 irPYHd6dn5v2zgZP369nbxfm7fp2OsfV6xC2C9cTmmDmdF9sgXDGCBBMWKG6COr/1p
-	 x9UUMt3JnkFOkdtZWVFuRaLX87Bjnkvu74XTX8nc=
+	b=LM6l4iVarrFVDA4j9SWJAplc2WkKEHlGEtdlAtv7pOYj1y3dATl0KnbkElc5xhenP
+	 ErHq3OM3B9mOaLihBDgBjY6YaXcTg/I+07sfZRGvHPhPtHlUZIL/cU1EpblJJAXbkJ
+	 UH/xAtOtw9tn/FqSE+wrtOg61lpQnXFpNRh+nTaw=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 14 Jul 2026 15:04:05 +0100
-Subject: [PATCH 16/22] efi: mark efi_mm as a kernel mm
+Date: Tue, 14 Jul 2026 15:04:07 +0100
+Subject: [PATCH 18/22] arm64: mm: drop explicit mm_is_efi() check in
+ contpte
 MIME-Version: 1.0
-Message-Id: <20260714-remove_pgtable_cdtor-v1-16-44be8a7685d7@arm.com>
+Message-Id: <20260714-remove_pgtable_cdtor-v1-18-44be8a7685d7@arm.com>
 References: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 In-Reply-To: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
 To: linux-mm@kvack.org
@@ -81,16 +96,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=1355;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037902; l=2365;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=rJhmHjtmDwxS2CewudUO1k4saVZojxZevQnlJp6OZ7c=;
- b=xEbohehI3oM6XdwxICHsVginMSV7tAi9MA1ZH+OAmyTQN4j1iQ5NsQqwBRdPZXQYf6lyJ7RCE
- SjcaLPZMgbgBfEX879PTsxhhu4WlXQHubYLk+EEaXhOv3f1B8VSkhhq
+ bh=VE9T6pQuQsM82lM79rZVxS9mOIiIj6SKheB2t7eP+e8=;
+ b=IJb3I/i6HXAVQpbcZffARFaIRNRmoRCmPcfDA+y7q25vE/t36H63xBNhz/u8eBXK9/0ECckK8
+ YJz0OELUjVVA+CXShhe5YzEf7ewVjSRMYhD9KGxFsYnbUmRuESOa0pX
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_070717_451670_580C2885 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260714_150731_261885_FDEB2107 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +122,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-efi_mm is a kernel-owned address space used for EFI runtime
-mappings, but it is currently treated like a user address space when
-manipulating its page tables. There does not seem to be a good
-reason for this, and it creates unnecessary complications when
-creating its page tables.
+efi_mm is now marked as a kernel mm, like init_mm. mm_is_kernel()
+therefore gives the right answer for efi_mm and mm_is_user() is now
+equivalent to !mm_is_kernel().
 
-Mark it with the new MMF_KERNEL flag so that the page table handling
-treats it like init_mm. In particular, this means that:
-
-* Split page table locks are no longer initialised or used for
-  efi_mm's page tables.
-
-* pagetable_*_ctor() and pagetable_dtor() no longer need to be
-  called for efi_mm's page tables.
+Remove mm_is_user() and directly use mm_is_kernel() instead.
 
 Assisted-by: Codex:GPT-5.5
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- drivers/firmware/efi/efi.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/mm/contpte.c | 26 +++++++++-----------------
+ 1 file changed, 9 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
-index 0327a39d31fa..e5ca45bdc890 100644
---- a/drivers/firmware/efi/efi.c
-+++ b/drivers/firmware/efi/efi.c
-@@ -69,6 +69,7 @@ struct mm_struct efi_mm = {
- 	.mm_mt			= MTREE_INIT_EXT(mm_mt, MM_MT_FLAGS, efi_mm.mmap_lock),
- 	.mm_users		= ATOMIC_INIT(2),
- 	.mm_count		= ATOMIC_INIT(1),
-+	.flags			= MM_FLAGS_INIT(MMF_KERNEL_MASK),
- 	.write_protect_seq      = SEQCNT_ZERO(efi_mm.write_protect_seq),
- 	MMAP_LOCK_INITIALIZER(efi_mm)
- 	.page_table_lock	= __SPIN_LOCK_UNLOCKED(efi_mm.page_table_lock),
+diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+index ad5c04cf66ff..e21e279101ca 100644
+--- a/arch/arm64/mm/contpte.c
++++ b/arch/arm64/mm/contpte.c
+@@ -4,23 +4,9 @@
+  */
+ 
+ #include <linux/mm.h>
+-#include <linux/efi.h>
+ #include <linux/export.h>
+ #include <asm/tlbflush.h>
+ 
+-static inline bool mm_is_user(struct mm_struct *mm)
+-{
+-	/*
+-	 * Don't attempt to apply the contig bit to kernel mappings, because
+-	 * dynamically adding/removing the contig bit can cause page faults.
+-	 * These racing faults are ok for user space, since they get serialized
+-	 * on the PTL. But kernel mappings can't tolerate faults.
+-	 */
+-	if (unlikely(mm_is_efi(mm)))
+-		return false;
+-	return !mm_is_kernel(mm);
+-}
+-
+ static inline pte_t *contpte_align_down(pte_t *ptep)
+ {
+ 	return PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
+@@ -263,7 +249,13 @@ void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
+ 
+ 	int i;
+ 
+-	if (!mm_is_user(mm))
++	/*
++	 * Don't attempt to apply the contig bit to kernel mappings, because
++	 * dynamically adding/removing the contig bit can cause page faults.
++	 * These racing faults are ok for user space, since they get serialized
++	 * on the PTL. But kernel mappings can't tolerate faults.
++	 */
++	if (mm_is_kernel(mm))
+ 		return;
+ 
+ 	page = pte_page(pte);
+@@ -302,7 +294,7 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
+ 	 * We have already checked that the ptes are contiguous in
+ 	 * contpte_try_unfold(), so just check that the mm is user space.
+ 	 */
+-	if (!mm_is_user(mm))
++	if (mm_is_kernel(mm))
+ 		return;
+ 
+ 	pte = pte_mknoncont(pte);
+@@ -465,7 +457,7 @@ void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
+ 	 */
+ 	VM_WARN_ON(nr == 1);
+ 
+-	if (!mm_is_user(mm))
++	if (mm_is_kernel(mm))
+ 		return __set_ptes(mm, addr, ptep, pte, nr);
+ 
+ 	end = addr + (nr << PAGE_SHIFT);
 
 -- 
 2.51.2
