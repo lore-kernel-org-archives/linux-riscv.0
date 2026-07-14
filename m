@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF791C4450A
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 18:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C09C44507
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2026 18:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=a22sAEFI0mSP7GhJWxhxGTFrm66GHVRzR1mW9/gwrBk=; b=brW2IO/aYw98LR
-	iOj7+HH9GMdEcs0WGuBF5tFPUaUnHcBHQw//cJoZs9vjYFut8uh28Xs3EPJHlHneE+ZmytBChxQLy
-	47bL0p6TEgPL2DR0lzUFITO1/6dDRBmNOsIeIYRaK0vefsXaBaX+OytP5riEiAFpm/hcAKPQt7Uze
-	PsO1k80NR6f3osjuBRDPUDd/9sO4lyJgGFTbTza1hvorQi6VwOWWhqZ+kwQEqIw2ua3i47jux7WIr
-	X3ERTI+zsgoeHGBZncuMrNWp3UcTGcLGhZqz6JOrHka9HwQD/RKuJh/rsJyLQBu8WnHnSQPBlPSxj
-	ITxU+a2xWEBEgoEuKsMA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n82CENZ/M54VgW8IQqVMMM4AMmUuqOkTh+N2EC6WdxY=; b=fv6ZpVldLYkY0M
+	19vaxULUkRsdFeKEZ5fQp7U3jKeSNpKh+HnqHWo+acbEWFYablWH7vExuvxi9hILADcaWu/GK7IY+
+	1RRRCNYS///rmglArgL+5QWNS+f0FWTwuwpV+TT3P1c4slnW/T2DBOCorSwe4r7tWv/a8NJ8yToY1
+	lieXtbHmUAcIItLVjM91mBKaukz4QawRgLuG0LTyMKIfewC277lmwwKyHvGlpmOYe0E5gUvkL/Cgz
+	7v97upWrZMuLptdxSX17fMFj/bSAzqkti0cah+VEqaxvx5bTQ7HbgXUptRQ7QWg/tCxGDbufXLz/u
+	kukRFZ+YMApG8qRX+Ung==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjiL0-0000000Cwy6-3vm4;
-	Tue, 14 Jul 2026 18:58:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wjiL7-0000000Cx0z-0r9S;
+	Tue, 14 Jul 2026 18:58:45 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjiKx-0000000CwwD-2XQ4
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 18:58:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784055513;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=RfsI6HLQGXe6K3Z7dJ8d5kqjISwd3J2Qdz2e+YoCrRA=;
-	b=fNTBL+S1a6/fqlOYfcoJug5MaRyA/us/XjGmie7s7Edw1PXI9D3Hrl7QjVraULFv7iBK3X
-	bcliHW2GI91dVa0V1NRqdmfAzlUIGmHKU6SfmA9NjkP118X8mX8q7BczEpchOxTZk53XXG
-	lmGgqLzUNEycUlECvxcb0eiOxdUIiAg=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-198--3G9Xf4oMe2KES4EIy5AxA-1; Tue,
- 14 Jul 2026 14:57:04 -0400
-X-MC-Unique: -3G9Xf4oMe2KES4EIy5AxA-1
-X-Mimecast-MFC-AGG-ID: -3G9Xf4oMe2KES4EIy5AxA_1784055423
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D72E6195606E;
-	Tue, 14 Jul 2026 18:57:02 +0000 (UTC)
-Received: from ezulian-p1gen7.rmtde.csb (unknown [10.44.48.131])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2D4DD30002DD;
-	Tue, 14 Jul 2026 18:56:59 +0000 (UTC)
-From: Eder Zulian <ezulian@redhat.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Eder Zulian <ezulian@redhat.com>
-Subject: [PATCH] riscv: mm: Move dma_contiguous_reserve() after NUMA initialization
-Date: Tue, 14 Jul 2026 20:56:48 +0200
-Message-ID: <20260714185648.1082483-1-ezulian@redhat.com>
+	id 1wjiL4-0000000CwzM-0EzZ;
+	Tue, 14 Jul 2026 18:58:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784055522; x=1815591522;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ldL91FHSaPTCR8SS8MmTe3PfK8ednI15fmuZ71fExU4=;
+  b=Y1s5X0wBOQaPVTtJgmYngzhnhloYBnSKV6EiwGR07K8XdR4o6bTpyJQ/
+   azB6noaQV/iB/AwUNQXb1pgFL4FDXUulk5XAi924h5kdlEFC2bS7e15PK
+   It60GXAeapE91k2fHQvNbfROETPZbKf9vMOE54sdD5EfTozZYmNa/dQ0E
+   1hIcFdLIiQMYyFIu4W6EvAZSkv8rB/ZC1bUCAHYB4YmTlGJs12LWy56ua
+   j5rjmJbeppVY5RLT3X1MAAHpa46JPrWZVqbMgMZkgHqBTJmTsSdwQvSAM
+   MHMAckzN8flt8U98nKuFgCZ+LNOHpIXHdZZul7BJl0kTQNo1+AI7k1kYC
+   A==;
+X-CSE-ConnectionGUID: 0eXkCL5zQl+iPYkuCAkOew==
+X-CSE-MsgGUID: x851og/hQiCZnSTjDHElhg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="102241233"
+X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
+   d="scan'208";a="102241233"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 11:58:41 -0700
+X-CSE-ConnectionGUID: 6UHUP5zjQMal+XvuHOwceQ==
+X-CSE-MsgGUID: U6ORjMIiSuSaLeR+SFouLQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
+   d="scan'208";a="279224620"
+Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 11:58:40 -0700
+Date: Tue, 14 Jul 2026 11:58:40 -0700
+From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+To: stable@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>
+Subject: [PATCH 6.16.y 1/6] bpf: Support for hardening against JIT spraying
+Message-ID: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-1-2fc3e16263ac@linux.intel.com>
+X-Mailer: b4 0.16-dev
+References: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-0-2fc3e16263ac@linux.intel.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Mimecast-MFC-PROC-ID: ejerNNVQKIIFycG5vMCTagD8y1W4HgZxY5CPPQ5kibE_1784055423
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-0-2fc3e16263ac@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_115835_716935_EBD5141B 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20260714_115842_110122_5CE653E1 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +87,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the dma_contiguous_reserve() call from setup_bootmem() to
-misc_mem_init(), placing it after arch_numa_init(). This ensures that
-NUMA topology is initialized when reserving contiguous memory for DMA.
+commit 96cce16e26dd02a8678f1e87f88a4b5cdb63b995 upstream.
 
-Tested with CMA_SIZE_PERNUMA enabled and two NUMA nodes on QEMU:
+The BPF JIT allocator packs many small programs into larger executable
+allocations and reuses space within those allocations as programs are
+loaded and freed. When fresh code is written into space that a previous
+program occupied, an indirect jump into the new program can reuse a branch
+prediction left behind by the old one.
 
-qemu-system-riscv64 \
-	-machine virt \
-	-nographic \
-	-smp 2 -m 512M \
-	-numa node,nodeid=0,cpus=0,memdev=m0 \
-	-numa node,nodeid=1,cpus=1,memdev=m1 \
-	-object memory-backend-ram,id=m0,size=256M \
-	-object memory-backend-ram,id=m1,size=256M \
-	-kernel arch/riscv/boot/Image \
-	-append "console=ttyS0 earlycon loglevel=7 cma=16M"
+Flush the indirect branch predictors before reusing JIT memory so that
+indirect jumps into a newly written program don't reuse predictions from an
+old program that occupied the same space.
 
-Unpatched kernel's log (one global CMA pool and no per-nodepools, 16 MiB
-cma-reserved):
+Introduce bpf_arch_pred_flush_enabled static key and bpf_arch_pred_flush
+static call for flushing the branch predictors on JIT memory reuse.
+Architectures that need a flush, can update it to a predictor flush
+function. By default, its a NOP and does not emit any CALL.
 
-	[    0.000000] cma: Reserved 16 MiB at 0x000000009ee00000
-	...
-	[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x000000008fffffff]
-	[    0.000000] Initmem setup node 1 [mem 0x0000000090000000-0x000000009fffffff]
-	...
-	[    0.056397] smp: Brought up 2 nodes, 2 CPUs
-	[    0.066135] Memory: 449288K/524288K available (12279K kernel code, 5980K rwdata, 6144K rodata, 2467K init, 482K bss, 54504K reserved, 16384K cma-reserved)
+Allocations larger than a pack are not covered by this flush. That is safe
+because cBPF programs (the unprivileged attack surface) are bounded well
+below a pack size. Issue a warning if this assumption is ever violated
+while the flush is active.
 
-Patched kernel's log (three CMA pools are created, 48 MiB total),
-
-	[    0.000000] cma: Reserved 16 MiB at 0x000000009ee00000
-	[    0.000000] cma: Reserved 16 MiB at 0x000000008ee00000
-	[    0.000000] cma: Reserved 16 MiB at 0x000000009de00000
-	...
-	[    0.054251] smp: Brought up 2 nodes, 2 CPUs
-	[    0.064082] Memory: 416520K/524288K available (12279K kernel code, 5980K rwdata, 6144K rodata, 2467K init, 482K bss, 54504K reserved, 49152K cma-reserved)
-
-Signed-off-by: Eder Zulian <ezulian@redhat.com>
+Signed-off-by: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
 ---
- arch/riscv/mm/init.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ include/linux/filter.h | 10 ++++++++++
+ kernel/bpf/core.c      | 19 +++++++++++++++++++
+ 2 files changed, 29 insertions(+)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 85bdcce63a3e..79a658ebe74d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -295,8 +295,6 @@ static void __init setup_bootmem(void)
- 	 */
- 	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
- 		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
--
--	dma_contiguous_reserve(dma32_phys_limit);
+diff --git a/include/linux/filter.h b/include/linux/filter.h
+index f5cf4d35d83e..65e2e804a5cd 100644
+--- a/include/linux/filter.h
++++ b/include/linux/filter.h
+@@ -22,6 +22,7 @@
+ #include <linux/vmalloc.h>
+ #include <linux/sockptr.h>
+ #include <crypto/sha1.h>
++#include <linux/static_call.h>
+ #include <linux/u64_stats_sync.h>
+ 
+ #include <net/sch_generic.h>
+@@ -1237,6 +1238,15 @@ extern long bpf_jit_limit_max;
+ 
+ typedef void (*bpf_jit_fill_hole_t)(void *area, unsigned int size);
+ 
++/*
++ * Flush the indirect branch predictors before reusing JIT memory, so that
++ * indirect jumps into a newly written program don't reuse predictions left
++ * behind by an old program that occupied the same space.
++ */
++void bpf_arch_pred_flush(void);
++DECLARE_STATIC_CALL(bpf_arch_pred_flush, bpf_arch_pred_flush);
++DECLARE_STATIC_KEY_FALSE(bpf_pred_flush_enabled);
++
+ void bpf_jit_fill_hole_with_zero(void *area, unsigned int size);
+ 
+ struct bpf_binary_header *
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 17e5cf18da1e..48208c3f5814 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -38,6 +38,7 @@
+ #include <linux/bpf_mem_alloc.h>
+ #include <linux/memcontrol.h>
+ #include <linux/execmem.h>
++#include <linux/static_call.h>
+ 
+ #include <asm/barrier.h>
+ #include <linux/unaligned.h>
+@@ -892,6 +893,15 @@ void bpf_jit_fill_hole_with_zero(void *area, unsigned int size)
+ 	memset(area, 0, size);
  }
  
- #ifdef CONFIG_RELOCATABLE
-@@ -1349,6 +1347,7 @@ void __init misc_mem_init(void)
- {
- 	early_memtest(min_low_pfn << PAGE_SHIFT, max_low_pfn << PAGE_SHIFT);
- 	arch_numa_init();
-+	dma_contiguous_reserve(dma32_phys_limit);
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
- 	/* The entire VMEMMAP region has been populated. Flush TLB for this region */
- 	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
++DEFINE_STATIC_CALL_NULL(bpf_arch_pred_flush, bpf_arch_pred_flush);
++
++/*
++ * Enabled once bpf_arch_pred_flush points at a real flush routine. Lets the
++ * pack allocator test "is a predictor flush wired up at all" with a cheap
++ * static branch instead of repeatedly querying the static call target.
++ */
++DEFINE_STATIC_KEY_FALSE(bpf_pred_flush_enabled);
++
+ #define BPF_PROG_SIZE_TO_NBITS(size)	(round_up(size, BPF_PROG_CHUNK_SIZE) / BPF_PROG_CHUNK_SIZE)
+ 
+ static DEFINE_MUTEX(pack_mutex);
+@@ -951,6 +961,14 @@ void *bpf_prog_pack_alloc(u32 size, bpf_jit_fill_hole_t bpf_fill_ill_insns)
+ 
+ 	mutex_lock(&pack_mutex);
+ 	if (size > BPF_PROG_PACK_SIZE) {
++		/*
++		 * Allocations larger than a pack get their own pages, and
++		 * predictors are not flushed for such allocation. This is only
++		 * safe because cBPF programs (the unprivileged attack surface)
++		 * are bounded well below a pack size.
++		 */
++		if (static_branch_unlikely(&bpf_pred_flush_enabled))
++			pr_warn_once("BPF: Predictors not flushed for allocations greater than BPF_PROG_PACK_SIZE\n");
+ 		size = round_up(size, PAGE_SIZE);
+ 		ptr = bpf_jit_alloc_exec(size);
+ 		if (ptr) {
+@@ -981,6 +999,7 @@ void *bpf_prog_pack_alloc(u32 size, bpf_jit_fill_hole_t bpf_fill_ill_insns)
+ 	pos = 0;
+ 
+ found_free_area:
++	static_call_cond(bpf_arch_pred_flush)();
+ 	bitmap_set(pack->bitmap, pos, nbits);
+ 	ptr = (void *)(pack->ptr) + (pos << BPF_PROG_CHUNK_SHIFT);
+ 
+
 -- 
-2.55.0
+2.43.0
+
 
 
 _______________________________________________
