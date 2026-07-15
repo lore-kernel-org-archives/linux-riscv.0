@@ -4,88 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40481C44508
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 13:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 306C3C44519
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 13:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lf2OXAPxph06vLFM6Qq5DP3I5v8tc66GCKikF0qKaxE=; b=QciAsphE8kvxwi
-	iQHbje9B/UkYBmZZPQOTo6NEtYam/EWv182vxPFcpbB8FMHJIALqwmCtnpy/fsbYg3YVTqBkregRx
-	XJrtyQ8H4JneyAAWCyBtM8ZR8M8Oqmz1MP0FXvDrONQTbNMe2MEq6E95ARw0VV6aqDJU4Wx8ZL6V3
-	AICDtl2HTOPRfi7wkRJB7UIX+wksmnoodDkuHsVVbafj9CGOoaDeMXINzsFNardfqelCZ1V0ANUzy
-	haBMk29CVYw+QqJf2iGs+N/8QjrhZ4r17OEkpdo31loqqZdRiC9H9oQHdJAYbji0t4mq4m2YzaeZx
-	TKUKy6YljuSOqWvdB7OQ==;
+	List-Owner; bh=qwXihj20T/pTI6KSU/ujGtNkyp0wnb/Rn/Kdi8p09ec=; b=mEaJDx2RKliiN7
+	4N+BqJyNXO7mmCiqV530XF//Aq2gEWwWx3124MzQlxT89DO+ncTKVcAbUd3+VJkPSUcTG1V0eA4yu
+	6XWUsaP2w7Q8vHFYtK2YsCGKnt2NJrhTm/x9rW1cUr1S3wwt7Xk37FDyTvuQDCllvCgwYNDnXSwQ/
+	sIZ+5bzh0JRROYack0tGATegchDiEft1NLHTA8DQF0jIo+1cqILTixXWS7LZDhpaqwB/55GaruLcd
+	iPbkFW69nxJaCu2awpznVBMB9HoBXLhkQc3UOZtmA/FSAzrmGbzTKL54nli5GVbfAEo0yVo4GK/wV
+	0vx5d6QYubUjhfYJuSrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzuX-0000000EyoF-1G4H;
-	Wed, 15 Jul 2026 13:44:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzuU-0000000EynT-1oXW;
-	Wed, 15 Jul 2026 13:44:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC4D31477;
-	Wed, 15 Jul 2026 06:44:18 -0700 (PDT)
-Received: from [10.2.198.93] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A51C63F915;
-	Wed, 15 Jul 2026 06:44:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784123063; bh=eIgpCTRPgqPTqdx54P+55ycRFoiVAMVPyrH/hSOkxIw=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=XUDBCE9uKhapcjpn3hEyydo6n8Z10XJL4DGb4h958hMrkQQ51e4U0TkwAjNzJDzOk
-	 eD/LOzYvppL+1IQtFhflB4XCT6Ncvq4/Hh0/F3eNv5PwdHMKH6kHWKs0fpugu38REX
-	 eGLtl9O5j7jNXOw9fMgYIdBX0uaZplN8x21Nq5zc=
-Message-ID: <1dcd93fa-4922-433b-9f1d-c096c0de3665@arm.com>
-Date: Wed, 15 Jul 2026 14:44:11 +0100
+	id 1wk06p-0000000F1IZ-2735;
+	Wed, 15 Jul 2026 13:57:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk06n-0000000F1HE-3DcU
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Jul 2026 13:57:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E969414FA;
+	Wed, 15 Jul 2026 13:57:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E02F1F000E9;
+	Wed, 15 Jul 2026 13:57:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784123829;
+	bh=6L+vazQzDXMLa/yjhu8CrwcvdpiJna1r16t0Ef63MtI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=XQOPV/w6jbclzedaGV+pbm6Ps+bkLkulvSxSGscKzEqZ1QkFhr72D9+LeLREzTTNU
+	 wjmUafwLEuBcmg93wmSzFO8mIA2WiLFhinoVsXqC70reA+Pqg7Fxw4NR5w8Lb4hCvj
+	 CuOZurkZ79dBArFKFGTbhBGMv/XPrP+2ijd1piV1oJE9OOoZ0VpnSdMTh0YdjiU0Gp
+	 X81BPceIxIWeB8YSSmA8GJrIfEkPX58LkOXzYC86JjSYuCGuR9H+BIT3ji1IX8PkYM
+	 NuNfzot3s9JAe2rAnFEgVFWZ7aJWemewCfm72/5CfJpT0CNKVlaAkYk5jLFZWczLDJ
+	 skNbekyTLQtrQ==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Yixun Lan <dlan@kernel.org>, Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20260704122538.92830-1-pengpeng@iscas.ac.cn>
+References: <20260704122538.92830-1-pengpeng@iscas.ac.cn>
+Subject: Re: [PATCH] PCI: dwc: spacemit: add missing MODULE_DEVICE_TABLE()
+Message-Id: <178412382616.147568.15614000262290190322.b4-ty@b4>
+Date: Wed, 15 Jul 2026 15:57:06 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: usama.anjum@arm.com, david@kernel.org, linux@armlinux.org.uk,
- akpm@linux-foundation.org, ankur.a.arora@oracle.com, rppt@kernel.org,
- linmag7@gmail.com, chleroy@kernel.org, klarasmodin@gmail.com,
- chenhuacai@kernel.org, kernel@xen0n.name, kas@kernel.org,
- zhangtianyang@loongson.cn, wangyuli@aosc.io, tsbogend@alpha.franken.de,
- ljs@kernel.org, jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org,
- arnd@arndb.de, ryan.roberts@arm.com, pasha.tatashin@soleen.com,
- rmclure@linux.ibm.com, baolin.wang@linux.alibaba.com, tj@kernel.org,
- kevin.brodsky@arm.com, anup@brainfault.org, atish.patra@linux.dev,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
- tglx@kernel.org, mingo@redhat.com, bp@alien8.de, hpa@zytor.com,
- hannes@cmpxchg.org, mhocko@kernel.org, qi.zheng@linux.dev,
- shakeel.butt@linux.dev, kasong@tencent.com, baohua@kernel.org,
- axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com,
- ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
- dvyukov@google.com, vincenzo.frascino@arm.com, anshuman.khandual@arm.com,
- yang@os.amperecomputing.com, chaitanyas.prakash@arm.com, ardb@kernel.org,
- guoren@kernel.org, yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
- dinguyen@kernel.org, schuster.simon@siemens-energy.com,
- wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech, muchun.song@linux.dev,
- vishal.moola@gmail.com, namcao@linutronix.de, pavel@kernel.org,
- djbw@kernel.org, yu-cheng.yu@intel.com, baolu.lu@linux.intel.com,
- Jonathan.Cameron@huawei.com, coxu@redhat.com, andreas@gaisler.com,
- liam@infradead.org, vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
- geert@linux-m68k.org, shorne@gmail.com, jonas@southpole.se,
- stefan.kristiansson@saunalahti.fi
-Subject: Re: [RFC PATCH 11/34] mm: vmscan: remove stack copy address of pud
- pass in wallk_pud_range()
-To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-arch@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- x86@kernel.org, linux-mm@kvack.org, kasan-dev@googlegroups.com,
- linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-openrisc@vger.kernel.org
-References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
- <20260713135614.1618183-12-yeoreum.yun@arm.com>
-From: Usama Anjum <usama.anjum@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260713135614.1618183-12-yeoreum.yun@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_064426_716122_3BFE0755 
-X-CRM114-Status: GOOD (  15.77  )
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,45 +67,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/07/2026 2:55 pm, Yeoreum Yun wrote:
-> We want to change how pXdp_get() works with generic compile-time folded
-> page tables. To prepare for that, replace passing the address of a stack
-> copy of a pXd to walk_pmd_range() with pud pointer directly so that
-> the ignoring the value of folded entries.
-> 
-> There should be no functional change.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  mm/vmscan.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/mm/vmscan.c b/mm/vmscan.c
-> index 986dde8e7429f..61470223d8213 100644
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -3725,7 +3725,7 @@ static int walk_pud_range(p4d_t *p4d, unsigned long start, unsigned long end,
->  		if (!pud_present(val) || WARN_ON_ONCE(pud_leaf(val)))
->  			continue;
->  
-> -		walk_pmd_range(&val, addr, next, args);
-> +		walk_pmd_range(pud + i, addr, next, args);
-While I was working on converting these page table types to hardware types, I
-had this exact patch for this problem.
-
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@arm.com>
-
->  
->  		if (need_resched() || walk->batched >= MAX_LRU_BATCH) {
->  			end = (addr | ~PUD_MASK) + 1;
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIFNhdCwgMDQgSnVsIDIwMjYgMjA6MjU6MzggKzA4MDAsIFBlbmdwZW5nIEhvdSB3cm90ZToK
+PiBUaGUgZHJpdmVyIGhhcyBhbiBPRiBtYXRjaCB0YWJsZSB3aXJlZCB0byAub2ZfbWF0Y2hfdGFi
+bGUsIGJ1dCBkb2VzCj4gbm90IGV4cG9ydCB0aGUgdGFibGUgd2l0aCBNT0RVTEVfREVWSUNFX1RB
+QkxFKCkuCj4gCj4gQWRkIHRoZSBtaXNzaW5nIE1PRFVMRV9ERVZJQ0VfVEFCTEUob2YsIC4uLikg
+ZW50cnkgc28gbW9kdWxlIGFsaWFzCj4gaW5mb3JtYXRpb24gaXMgZ2VuZXJhdGVkIGZvciBPRiBi
+YXNlZCBtb2R1bGUgYXV0b2xvYWRpbmcuCj4gCj4gVGhpcyBpcyBhIHNvdXJjZS1sZXZlbCBmaXgu
+ICBJdCBkb2VzIG5vdCBjbGFpbSBkeW5hbWljIGhhcmR3YXJlCj4gcmVwcm9kdWN0aW9uOyB0aGUg
+ZXZpZGVuY2UgaXMgdGhlIGRyaXZlci1vd25lZCBtYXRjaCB0YWJsZSwgaXRzIHVzZSBieQo+IHRo
+ZSBwbGF0Zm9ybSBkcml2ZXIsIGFuZCB0aGUgbWlzc2luZyBtb2R1bGUgYWxpYXMgcHVibGljYXRp
+b24uCj4gCj4gWy4uLl0KCkFwcGxpZWQsIHRoYW5rcyEKClsxLzFdIFBDSTogZHdjOiBzcGFjZW1p
+dDogYWRkIG1pc3NpbmcgTU9EVUxFX0RFVklDRV9UQUJMRSgpCiAgICAgIGNvbW1pdDogNDZhMWI3
+NGYyY2FmYWEwMTUyYTRjOTk0YzYwMDM0ZjE0MTE5NTcwYgoKQmVzdCByZWdhcmRzLAotLSAK4K6u
+4K6j4K6/4K614K6j4K+N4K6j4K6p4K+NIOCumuCupOCuvuCumuCuv+CuteCuruCvjQoKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
