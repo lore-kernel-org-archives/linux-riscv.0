@@ -4,117 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D83BC44508
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 07:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CDB4C44508
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 08:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yxJxZfc3SXF97tSlM3TXrJOgMV9E8M9++ZAzAL73hsw=; b=Ve0uJZ7qRYEFC2
-	SEO1Sq3NiBP8LcmLcb4DubAmrfriDUvvHVV6DxyGcH/VnjUlqFr8gfEszosv9WIR+nuSmfEEAS6KF
-	I+/fDCfNene3OHKUYC7QLd6SxEC8jIX8LoMCpIyvCvg2fKWR0nqHFs5pMsNEaa3utQyHrGdYqhi9v
-	CmHgNtmNGlMFmcYKoTPqMUHnFju6nbfdhEbd5jCSpTG1QTsspMK08NgiaVDmzTQ+7BxhfyYva8oFW
-	bo0DCDyet2oQeV9BC7ddwfFNlwshH5mkc3hcjioZUMuoJ05fl7yViCtr5zbJP/uwkcvz/MRYZqrhE
-	93yimrtk4IKQbJto9Erg==;
+	List-Owner; bh=IGorF/L/9XJspnEu3xQMrekzQ51z3VzslWh5BGqKJVg=; b=rvgsc+x308TteE
+	pqvPcoNXACboFWapxTcxAwyANgVvOo4XF5ffdpy+b2ZRKo15/QsXgGK/1hLxalsz4KL6XOXpbkZyI
+	uJuIV+5y8s0c2AQb0Q25e2dg7NXDs3HCzhgKaSuRyMJkU66ixu8uZ8Nt+pO4pjH1QIdjPhl6Fl/lU
+	KuakxHek68mNTc71W7VQFE3vwUz1mHLRwIPKgeGi2KNltW3659LvchuL+b646l0iK+nZc2Pevec4m
+	RfLFuNn4XxGlEb8yn5YkUbbGWEWgk8EDdnz7b40FWJ8GQCxP+vBwnJ/w0OAbBQeFVL3hSCeX9fYzA
+	VuMo2wfSrMw2WsRac9Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuPz-0000000E4tB-1rv5;
-	Wed, 15 Jul 2026 07:52:35 +0000
-Received: from mail-yw1-f177.google.com ([209.85.128.177])
+	id 1wjuvm-0000000E9jV-3bf6;
+	Wed, 15 Jul 2026 08:25:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuPx-0000000E4sY-0fEo
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jul 2026 07:52:34 +0000
-Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-7ff05e5d009so68712857b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 00:52:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784101952; x=1784706752;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=hqKDqOfd26TqLmXrf6Sno+8+vAQxzNMwBOFafeUJRw4=;
-        b=HGfhhzaBQKyOyc6T9BwoymVOBaYkcB/05cMCqUpXdD5qxxfKgcsoYjQcXb7b0JmhPE
-         TbJbRmtijwdJeDfxz8DYvkzJ7DESAImOkW4B92S1ex4x12tMhPK1PLUmbc6Zg8/QRC9b
-         cTzLj+Cu7gU8aZvF3QjfgWhUWD7eTFUIfCvZcu2cLGnO1cCX6dCWKVHUld7t6WLhWdtB
-         q/ah21533eyBQXLk5NxxayxPVHkDJjlfjJzwMOTAuqpDsCNdbFWIp5Mc3G4Baxpx5/MM
-         lU1BhANimefaxvS22ETHSgeScS37wDR1LtqjgCdFci07Z35yoSVXQFD2QFANu9LGS8oy
-         iUHw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq3hgScVBbrWMOBYF8vDfo/h5NX5D3C/SQ+LrMVG8yNPMYUZ6XBO08lNiiwJy7yIDFDiSVo/wTEClYdiA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNpmw/zbMbTnblgAliQoXbYCaiKtAlss0+Helo/acit9xL6fqE
-	2Wk/U/BO8ITeh7J+kv3CXmLCRRiQHKT6wZ+VaaPPmmrVGf0vYnNODImfMMEE/q70w/Y=
-X-Gm-Gg: AfdE7cnHwnqBUxJCKKjAypACHlkAVnm3ZjT5PFzN54PNFGva3ZOa8/JVKNWFVPJ9Vxd
-	U3dek3GZXZVnvqFqQhzZIxtU0jq0EAFuc88k+wbhIOJ8El2TuTq+J3NRQQsiLt6fZe+ffxZgiYz
-	IZ+MXtuUAoI/mYND9a1RGy6kGZjHs1hGFhckOmqyHlTe4PpcGkSQ+A3x6fKBjOqLo4QqU9tDOtv
-	jnzkOLAjOtRg5sroXzhsGkn3+UJ78ZoHQTqkGylA/jHMAbsgEeWX3AQOfFqyYgj7wxSbd9Shv2k
-	gG1zKJnDmouSauLD0lykRzSJ/7PRYblFRWwRmsHPPmZIsKkF+NAGR1YvtUEtSu67pMBqI4SScy1
-	xwRSSl6mmnDtfaYyCt09J2iKUdR8fV4SRUxt6uFXAfyxyrnWCbe/O4f3rLWNB+u9GPrloWiGjB2
-	+JlTc0MCw8O2pH0GJgMr0aX5LNWPpC1TTNKHkuV/W6r+Gzvn/y1gB57w==
-X-Received: by 2002:a05:690c:4882:b0:81d:5ee3:aef9 with SMTP id 00721157ae682-81ebfda0da3mr38291847b3.8.1784101951796;
-        Wed, 15 Jul 2026 00:52:31 -0700 (PDT)
-Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com. [209.85.128.175])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6c1eea67sm163103267b3.37.2026.07.15.00.52.31
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jul 2026 00:52:31 -0700 (PDT)
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-81ed2a00f12so5840127b3.2
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 00:52:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RogjS2GGYeN6h7vgSEU1Dcnu5SJvQS1Jn6SVVARcMwoIYTHewjxNnW22sKUNb6qYPhz1Hfg3sC8CvHUEg==@lists.infradead.org
-X-Received: by 2002:a05:6102:6891:b0:73e:9fae:584c with SMTP id
- ada2fe7eead31-745875199aemr2922337137.19.1784101517020; Wed, 15 Jul 2026
- 00:45:17 -0700 (PDT)
+	id 1wjuvk-0000000E9iW-3A1i;
+	Wed, 15 Jul 2026 08:25:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2172943A31;
+	Wed, 15 Jul 2026 08:25:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B4271F000E9;
+	Wed, 15 Jul 2026 08:25:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784103924;
+	bh=0hWGr6yIYZ3hmyl+qH6n3K7Fm452o43E71VabCLMJ2s=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=M1Pb9WQu0IhR3P6JRYVgpOzljOTuLBL5n6r0R+i3T6Cj6Pfq/BbEAeyvAAd6q+GwU
+	 yoh16hddpke8YRXj4bfC0BlqZXoh2oOxkxxfr/ZZ4LtH1IwctkRUOsAZ2DTsl5MwXL
+	 OgwbU2Z0EXRTi2suwmOEdZwMcMw1UwD4qnCb2U0UIGMxWSKqmkI4rJV0fOaz7frsyp
+	 2UgeFb3NExlZX58pouMZoZOq3U2RBWV9ghRcw3YrJThQyIqJBrSR5X77jMSfD+Yh9P
+	 Vqa0sNn/IVBkbkj+87yT6Eh8x08MbkvvvCwenfxyZ52gn69bWZbYdUyMpeOjJGr8Vu
+	 P097FVeUHn00g==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Arnd Bergmann
+ <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, Vincenzo Frascino
+ <vincenzo.frascino@arm.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, Thomas =?utf-8?Q?Wei=C3=9Fschuh?=
+ <thomas.weissschuh@linutronix.de>
+Subject: Re: [PATCH 3/7] MIPS: csrc-r4k: Replace CONFIG_GENERIC_GETTIMEOFDAY
+ ifdeffery with IS_ENABLED()
+In-Reply-To: <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
+References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
+ <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
+Date: Wed, 15 Jul 2026 10:25:19 +0200
+Message-ID: <87wluwoe1c.ffs@fw13>
 MIME-Version: 1.0
-References: <6007625e-c3f9-4ad6-99a8-61396bccbcec@kernel.org>
- <32d459d1-ad19-4baf-bbb1-0565458001d2@intel.com> <3ea30f8a-bb29-4bf5-8400-1c4840d46a88@kernel.org>
- <7e84b200-25eb-43a6-b5e2-5f27f2d82a77@intel.com> <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
- <14e250db-1641-4085-8d13-02f819657d5f@intel.com> <d83c76b3-ea4d-4c41-b4c5-f5ae558ace55@kernel.org>
- <alYgMxKqRnF6_X0A@e129823.arm.com> <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
- <alZe-Cu7yQw9qRXU@e129823.arm.com> <alZo9feSrSB_StfO@e129823.arm.com>
-In-Reply-To: <alZo9feSrSB_StfO@e129823.arm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 15 Jul 2026 09:45:05 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUqL=vJFAzYgcRVNbD_VWWwhehwTuhTfwLt_yRR8c+B0g@mail.gmail.com>
-X-Gm-Features: AUfX_mwGugbyQZ1JX8fgK_JNKs5rGnucGlnBlUaIc_V2N3HkDTrdgggdZ_cY0do
-Message-ID: <CAMuHMdUqL=vJFAzYgcRVNbD_VWWwhehwTuhTfwLt_yRR8c+B0g@mail.gmail.com>
-Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
- folded pgtable case in effective_prot()
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Dave Hansen <dave.hansen@intel.com>, "David Hildenbrand (Arm)" <david@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org, 
-	kasan-dev@googlegroups.com, linux-csky@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
-	linux@armlinux.org.uk, akpm@linux-foundation.org, ankur.a.arora@oracle.com, 
-	rppt@kernel.org, linmag7@gmail.com, chleroy@kernel.org, klarasmodin@gmail.com, 
-	chenhuacai@kernel.org, kernel@xen0n.name, kas@kernel.org, 
-	zhangtianyang@loongson.cn, wangyuli@aosc.io, tsbogend@alpha.franken.de, 
-	ljs@kernel.org, jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, 
-	arnd@arndb.de, ryan.roberts@arm.com, pasha.tatashin@soleen.com, 
-	rmclure@linux.ibm.com, baolin.wang@linux.alibaba.com, tj@kernel.org, 
-	kevin.brodsky@arm.com, anup@brainfault.org, atish.patra@linux.dev, 
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org, 
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de, hpa@zytor.com, 
-	hannes@cmpxchg.org, mhocko@kernel.org, qi.zheng@linux.dev, 
-	shakeel.butt@linux.dev, kasong@tencent.com, baohua@kernel.org, 
-	axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com, 
-	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, 
-	dvyukov@google.com, vincenzo.frascino@arm.com, anshuman.khandual@arm.com, 
-	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com, ardb@kernel.org, 
-	guoren@kernel.org, yang.li85200@gmail.com, viro@zeniv.linux.org.uk, 
-	dinguyen@kernel.org, schuster.simon@siemens-energy.com, 
-	wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech, muchun.song@linux.dev, 
-	vishal.moola@gmail.com, namcao@linutronix.de, pavel@kernel.org, 
-	djbw@kernel.org, yu-cheng.yu@intel.com, baolu.lu@linux.intel.com, 
-	Jonathan.Cameron@huawei.com, coxu@redhat.com, andreas@gaisler.com, 
-	liam@infradead.org, vbabka@kernel.org, surenb@google.com, mhocko@suse.com, 
-	shorne@gmail.com, jonas@southpole.se, stefan.kristiansson@saunalahti.fi
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_005233_212809_44EF4605 
-X-CRM114-Status: GOOD (  37.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,120 +76,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yeoreum,
-
-On Tue, 14 Jul 2026 at 18:51, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> On Tue, Jul 14, 2026 at 05:08:24PM +0100, Yeoreum Yun wrote:
-> > On Tue, Jul 14, 2026 at 07:35:19AM -0700, Dave Hansen wrote:
-> > > On 7/14/26 04:40, Yeoreum Yun wrote:
-> > > > @@ -254,22 +255,8 @@ static void effective_prot(struct ptdump_state *pt_st, int level, u64 val)
-> > > >         struct pg_state *st = container_of(pt_st, struct pg_state, ptdump);
-> > > >         pgprotval_t prot = val & PTE_FLAGS_MASK;
-> > > >         pgprotval_t effective;
-> > > > -       bool first_level = false;
-> > > >
-> > > > -       /* Ignore folded levels ... */
-> > > > -       if (((level == 0) && mm_p4d_folded(st->mm)) ||
-> > > > -           ((level == 1) && mm_pud_folded(st->mm)) ||
-> > > > -           ((level == 2) && mm_pmd_folded(st->mm)))
-> > > > -               return;
-> > > > -
-> > > > -       /* ... and make the actual first level remember the protection. */
-> > > > -       if (((level == 0)) ||
-> > > > -           ((level == 1) && mm_p4d_folded(st->mm)) ||
-> > > > -           ((level == 2) && mm_pud_folded(st->mm)) ||
-> > > > -           ((level == 3) && mm_pmd_folded(st->mm)))
-> > > > -               first_level = true;
-> > > > -
-> > > > -       if (!first_level) {
-> > > > +       if (first_level > st->first_level) {
-> > > >                 pgprotval_t higher_prot = st->prot_levels[level - 1];
-> > > >
-> > > >                 effective = (higher_prot & prot & (_PAGE_USER | _PAGE_RW)) |
-> > > > @@ -471,6 +458,15 @@ bool ptdump_walk_pgd_level_core(struct seq_file *m,
-> > > >                 .seq            = m
-> > > >         };
-> > > >
-> > > > +       if (mm_pmd_folded (mm))
-> > > > +               st->first_level = 3;
-> > > > +       else if (mm_pud_folded (mm))
-> > > > +               st->first_level = 2;
-> > > > +       else if (mm_p4d_folded (mm))
-> > > > +               st->first_level = 1;
-> > > > +       else
-> > > > +               st->first_level = 0;
-> > > > +
-> > > >         ptdump_walk_pgd(&st.ptdump, mm, pgd);
-> > >
-> > > This is indeed an improvement and a step in the right direction! Thanks
-> > > for looking at this.
-> > >
-> > > But one of my test for whether it's good x86 code is whether there's any
-> > > actually x86-specific logic in it. Isn't this basically a translation
-> > > between the integer level number and whether it is folded?
-> > >
-> > > That seems like a common helper that more than one arch could use. Could
-> > > this be stuck in a helper so that all arch/x86 has to do is:
-> > >
-> > >     if (mm_pt_level_folded(mm, level))
-> > >             return;
-> >
-> > Yes. at least the level semantic in ptdump (pgd is level 0,
-> > p4d is level 1, ...) is same to all archs where use ptdump.
-> > So It seems reasonable to add this common helper in ptdump.c
-> >
->
-> Furthermore, the effective_prot() need to require to identify whether
-> it's the first pgtable to prevent the inheriting from dummy value.
-> So I think it seems to make a ptdump_pt_level_first() like:
->
-> diff --git a/mm/ptdump.c b/mm/ptdump.c
-> index 973020000096c..2ec5700e4be5e 100644
-> --- a/mm/ptdump.c
-> +++ b/mm/ptdump.c
-> @@ -190,6 +190,23 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
->         st->note_page_flush(st);
->  }
->
-> +bool pdtump_pt_level_first(struct mm_struct *mm, int level)
-> +{
-> +       if (!mm || level > CONFIG_PGTABLE_LEVELS)
-> +               return false;
-> +
-> +       if (mm_pmd_folded(mm) && level == 3)
-> +               return true;
-> +       if (mm_pud_folded(mm) && level == 2)
-> +               return true;
-> +       if (mm_p4d_folded(mm) && level == 1)
-> +               return true;
-
-Is this order (... && level == ...) the optimal order?
-On arm64, mm_pud_folded() and mm_p4d_folded() perform several checks.
-
-> +       if (level == 0)
-> +               return true;
-> +
-> +       return false;
-> +}
->
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdWwgMDkgMjAyNiBhdCAxMzozMiwgVGhvbWFzIFdlacOfc2NodWggd3JvdGU6Cj4g
+Tm93IHRoYXQgdGhlcmUgaXMgYSBkdW1teSBkZWNsYXJhdGlvbiBvZiBWRFNPX0NMT0NLTU9ERV9S
+NEssIGV2ZW4gaWYgbm8KPiB2RFNPIGlzIGJ1aWx0LCB0aGUgdWdseSBpZmRlZmZlcnkgY2FuIGJl
+IHJlcGxhY2VkIHdpdGggYSBjbGVhbmVyCj4gSVNfRU5BQkxFRCgpIGNoZWNrLgoKRHVoLiBUaGlz
+IHN0dWZmIGlzIHJlYWxseSBvYmZ1c2NhdGVkLiBJIGp1c3QgcmVhbGl6ZWQgdGhhdCB0aGUgcHJl
+dmlvdXMKb25lIGFjdHVhbGx5IGV4cGFuZHMgdGhlIGFyY2hpdGVjdHVyZSBkZWZpbmVzIHRvIG5v
+bi1kZWZpbmVkIGludGVnZXIKdmFyaWFibGUgZGVjbGFyYXRpb25zLgoKU21hcnQsIGJ1dCBzZXJp
+b3VzbHk/CgpJIGp1c3QgZG91YmxlIGNoZWNrZWQgYW5kIGl0IHR1cm5zIG91dCB0aGF0IG5vbmUg
+b2YgdGhpcyBpZmRlZmZlcnkgaXMKcmVxdWlyZWQuIElmIENPTkZJR19HRU5FUklDX0dFVFRJTUVP
+RkRBWSBpcyBkaXNhYmxlZCwgdGhlbiBpdCBkb2VzIG5vdAptYXR0ZXIgYXQgYWxsIHdoZXRoZXIg
+dGhlIGFjdHVhbCBBUkNIX0NMT0NLX1ZEU09fTU9ERSBpcyBzZXQgaW4KY2xvY2tzb3VyY2U6OnZk
+c29fbW9kZSBvciBub3QuCgpOb3RoaW5nIHVzZXMgdGhlIHZkc28gbW9kZSBmaWVsZCBvdXRzaWRl
+IG9mIHVwZGF0ZV92c3lzY2FsbCBhbmQgdGhhdCdzCmNvbXBpbGVkIG91dCB3aGVuIENPTkZJR19H
+RU5FUklDX0dFVFRJTUVPRkRBWT1uLgoKU28gYWxsIHdoYXQncyByZXF1aXJlZCBpczoKCi0tLSBh
+L2luY2x1ZGUvdmRzby9jbG9ja3NvdXJjZS5oCisrKyBiL2luY2x1ZGUvdmRzby9jbG9ja3NvdXJj
+ZS5oCkBAIC0zLDE0ICszLDExIEBACiAjZGVmaW5lIF9fVkRTT19DTE9DS1NPVVJDRV9ICiAKICNp
+bmNsdWRlIDx2ZHNvL2xpbWl0cy5oPgotCi0jaWZkZWYgQ09ORklHX0dFTkVSSUNfR0VUVElNRU9G
+REFZCiAjaW5jbHVkZSA8YXNtL3Zkc28vY2xvY2tzb3VyY2UuaD4KLSNlbmRpZiAvKiBDT05GSUdf
+R0VORVJJQ19HRVRUSU1FT0ZEQVkgKi8KIAogZW51bSB2ZHNvX2Nsb2NrX21vZGUgewogCVZEU09f
+Q0xPQ0tNT0RFX05PTkUsCi0jaWZkZWYgQ09ORklHX0dFTkVSSUNfR0VUVElNRU9GREFZCisjaWZk
+ZWYgVkRTT19BUkNIX0NMT0NLTU9ERVMKIAlWRFNPX0FSQ0hfQ0xPQ0tNT0RFUywKICNlbmRpZgog
+CVZEU09fQ0xPQ0tNT0RFX01BWCwKCmFuZCB0aGVuIHlvdSBjYW4ganVzdCB1bmNvbmRpdGlvbmFs
+bHkgc2V0IGNsb2Nrc291cmNlOjp2ZHNvX2Nsb2NrX21vZGUKaW4gYWxsIGRyaXZlcnMuCgpObz8K
+ClRoYW5rcywKCiAgICAgICAgdGdseAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
