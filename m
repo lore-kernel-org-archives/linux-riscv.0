@@ -4,173 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892CCC44508
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 06:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3536AC44501
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 07:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=arJm4L+5TeJVO/mYsLTusXB1iMUXu/GXqOvXq7WBN24=; b=0Z1367+jskLSfg
-	ZlRY37Aq5/0iA4/WTH2ic7Tkh2wPODtoUjmlwzgKE0TH6AvmR1pQoyGZNoR34yymtum0OLDmOd1Vi
-	W8ccEuCORWp1slnNL7fhfjOxSdYQQ6EvBpqbaEhHzmjjfdBSGd8mUCXDZUj2J4p1P8JKUQYEPGGHS
-	A6QVc43Hs7kDBcmbmz22V9efQrY82dXoVrOTFNeKN6HAjjaDBZmP+Lo+gc+8Bf7VW6dbKKa6XOv9f
-	K04feyZ9BExjZqN6ZCzBu7Twvgn6MFRrL9tqCYcgdiBn3ArRyNrgtcbyEe/u3f4gP2X9ICfz1sjca
-	dgpQBctRWKe+NTkoylbg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=p3+LmLjXUMC6W2VnhJ/3CstbPdt1KeTzSpW7lMeajto=; b=faYXmUUYv+ax98
+	1qFYjmZ/S0mkKYj/inGjI2LNrA7D2MDhRWwFNnI6C7hDuuBvxkVoZD1W/lGR4TCbMwmkH/qTOTNKA
+	T++bo4ZVIhT7hswoqopeY3ABceLc9uErv9nKgqhmvMCWXo/UxZwN2zvcjb6fe27QBrY4jsR1PMP2b
+	TXCrFbmHNHb5l2RWl540IFctSyEKhcNpcez0cNwSEWF5bz8EmAqe8RayE2bSamKhD5Z5Vl6GQXO1H
+	zB6xLDDwdpcxLqi46DK/L4DRaL3n2C1xmn+2yzYSVcaJ3uW0gxccN452lrDQMFS+MqOsUzWRx2dt1
+	L9xFOgIyLmDWmylesP6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtMi-0000000Dw65-2vS9;
-	Wed, 15 Jul 2026 06:45:08 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wjtne-0000000DzCJ-0STq;
+	Wed, 15 Jul 2026 07:12:58 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtMf-0000000Dw4z-3DgK;
-	Wed, 15 Jul 2026 06:45:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n1/6Z3VoJIXc/UuF229/0tDEru66wok/Fr/6Q2rXXK4pBiOaoBKfBMqyLUTvQ5j0g8+HRXsM34lOfUAZ/9KOhgBo+YvNRrq2PEI72XSu5kwo1DYNYo2VLxMTMQYEAUjHzn/X2+uWASk0vtADuoOsUoGoNxCJSuI+5qvm5mSZ3e4FnLQX3fU4ds7LLXx+M3o/3Uxsc0htT9mxvsM2rxd0EZtx8uoXkR93EBYHLbty0Cs4A5DrcrX9PBlJyxFg+6B05BefFr4vzYvfEmd305VDBBBBQKm+QIqWZApgdzB++dj5r106rt8Cof20Cpz7FcwJupQGpH6Rs03x0ty3szrMJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/YFeYk5xw3Boy/uxWkTtMdNPJjZVZwbmeuLoGuj3ujw=;
- b=L9+LsQFgZ8u0XGwgOlt6saJwJQFM5aLMgY0Hk8XlrQWNV2Ce/1bfwXRD0xuGO1A2OXLSilAsIRSIrPhdnDvX37Y9DJSw2NsJ7a+dLhK2nnJ7Xt+vqBaNEFK6OPw/4pSAHzg88FVXs5JOKnWiwemJEZqghfXu07GhtrrBScLvA4wmT3hG8Uq94MoZtJzpYRZMiR0Q3cGngHcicH7Y+MkE91Tww62rZAl2tdybG2+2DJ3r8eFJMk5oCtTE6jcTIn07+6qQi56A0UZtoUmgbHHYDzGlcXTz38DZpw9HCXMeW9s4m0nqI4F0sUSlb2QokyLWf3LYaSkAQwX1VfEwwT68ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/YFeYk5xw3Boy/uxWkTtMdNPJjZVZwbmeuLoGuj3ujw=;
- b=h34pInHaiepLDLqZECA43/EhYdisi8vD/eFRPLK5buu6hFdhlR0GZ6++DYoCSokJalHJZeGJqLlek0f/J7m7CYnlJT5tDG5XgubvFGQ//Q6tL4kB3dMHZOH3/GOrfAoXFi4gy41sYI1QEEMoACM7tjG0caDFw7eFdHD/qMcsAMbZ65x64MG1KqhmciPibRinXIyxuvxI6yEazaQI1coQrPvuMuoCFgaKg5+4PfBWHKrU81Vt+ELdOVewv064uDpPOs0EDvqlQMqeNdSXwHWum1eORpDq9AcU2oLpudfi6NcdAmFQg+e01MHUh4yykWX7Wrz/Hxvs4yvn3NlSKh51HA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by KUZPR06MB8991.apcprd06.prod.outlook.com (2603:1096:d10:88::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Wed, 15 Jul
- 2026 06:44:58 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 06:44:58 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: vkoul@kernel.org
-Cc: Frank.Li@nxp.com,
-	afaerber@suse.de,
-	alexandre.torgue@foss.st.com,
-	amelie.delaunay@foss.st.com,
-	andersson@kernel.org,
-	angelogioacchino.delregno@collabora.com,
-	baolin.wang@linux.alibaba.com,
-	biju.das.jz@bp.renesas.com,
-	claudiu.beznea.uj@bp.renesas.com,
-	cosmin-gabriel.tanislav.xa@renesas.com,
-	daniel@zonque.org,
-	dmaengine@vger.kernel.org,
-	dmitry.baryshkov@oss.qualcomm.com,
-	geert+renesas@glider.be,
-	haojian.zhuang@gmail.com,
-	hayashi.kunihiko@socionext.com,
-	imx@lists.linux.dev,
-	jernej.skrabec@gmail.com,
-	john.madieu.xa@bp.renesas.com,
-	jonathanh@nvidia.com,
-	kees@kernel.org,
-	keguang.zhang@gmail.com,
-	ldewangan@nvidia.com,
-	linmq006@gmail.com,
-	linux-actions@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	magnus.damm@gmail.com,
-	mani@kernel.org,
-	matthias.bgg@gmail.com,
-	mcoquelin.stm32@gmail.com,
-	mhiramat@kernel.org,
-	orsonzhai@gmail.com,
-	panchuang@vivo.com,
-	patrice.chotard@foss.st.com,
-	pjw@kernel.org,
-	quic_jseerapu@quicinc.com,
-	robert.jarzmik@free.fr,
-	samuel.holland@sifive.com,
-	sean.wang@mediatek.com,
-	thierry.reding@kernel.org,
-	thomasandreatta2000@gmail.com,
-	vigneshr@ti.com,
-	wens@kernel.org,
-	wsa+renesas@sang-engineering.com,
-	zhang.lyra@gmail.com,
-	zhengxingda@iscas.ac.cn
-Subject: Re: [PATCH 00/26] dmaengine: Remove redundant dev_err()/dev_err_probe() calls
-Date: Wed, 15 Jul 2026 14:44:43 +0800
-Message-Id: <20260715064443.525836-1-panchuang@vivo.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <alYmNl--mxMK1-86@vaman>
-References: <alYmNl--mxMK1-86@vaman>
-X-ClientProxiedBy: TPYP295CA0042.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:7::20) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
+	id 1wjtnZ-0000000Dz9w-2wWY
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Jul 2026 07:12:56 +0000
+X-UUID: 90e8b9f6801c11f1aa26b74ffac11d73-20260715
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:7dee691f-853c-4c14-a751-72a2246c7f10,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:e350770af9135fe67bfba6aa55e33a5c,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 90e8b9f6801c11f1aa26b74ffac11d73-20260715
+X-User: jiangfeng@kylinos.cn
+Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1477231556; Wed, 15 Jul 2026 15:12:40 +0800
+From: Feng Jiang <jiangfeng@kylinos.cn>
+Subject: [PATCH v3 0/2] bpf, riscv: add timed may_goto support
+Date: Wed, 15 Jul 2026 07:12:24 +0000
+Message-Id: <20260715-riscv-bpf-timed-may-goto-v3-0-cf2a9c3d843f@kylinos.cn>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|KUZPR06MB8991:EE_
-X-MS-Office365-Filtering-Correlation-Id: fbc5fe82-180b-4eea-939c-08dee23c9625
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|52116014|1800799024|366016|38350700014|6133799003|56012099006|11063799006|22082099003|18002099003|41080700001;
-X-Microsoft-Antispam-Message-Info: WYVFUGViK+AT6BFkkPqTRL8TgunUVYUvcmKa9R1UGcC8OuYQ/2Z1OdZS+tH9DVdv/a489oc9t9gx65if2FHp03cWAZWw6BgDnsMdMCGbi03vIU4bbFDzGktwFv0U6q5If/nmQUTBLlMpavxqgpfZ6bX6Z0KIQqiLTsCsioATcQ0Yp5v4M0iTRggz/jlGgvV4OPdfkVXnxbw3lEuwCHHU1J+1GN0Rg2zRslEqQeC0mwKNYv/fuqgKWOcVy4Dvkgrv5R0Xsfa9d6bPlT85TGm0WEvUQCKCbPgwwXRVT3EKjP6svoLlIDIGkISK5h2g9JZ8xzMOP74uSElmvkS/r+6HRqgceVTg8E5bC2S7z2fRdp41vX9eCYBPZh2slybArkvO8Bn0YQxraCSO+HwpQVPhVBQzmh4OF87dCV8pJKyvARhQCzKtUKjx5lkZE/cK8lpxDNzWsX0Gq0H6+nguZlZx1IMJb/OYLMFBoVDmSR1zf1GhCC2G3eRYxIW3VsSf6yZps7evsXVnywmBercgifvUK42Jd8GlrjZo1E89+BDf3/VP//HEV5w/K1BEtvaI9MKMQ6pPzd2c9Fsd6wHbZFFEDOHzSYG3Fgf/zihBT3qAaWtFGp6kfBEbTeUcVFq63EnqlkQCkGFm37Xq6AcQW9TuHvPRyHzjOQUNKFj3XHtpBIWndx9N6m/laiDR6mhg4R1XXj8WFSZHFnKTFUozQ/rpy/48o0ivaSmOItRC/9KvN//HnB2OSOpsJfRUGn7AQeTN
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014)(6133799003)(56012099006)(11063799006)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XX7d341lm0+hgQrKIp9/x9htYftyMTv5vZIOSom1XPuqtAw0vS6LILbpzaoV?=
- =?us-ascii?Q?j4In7qk7HasidjUHtvwZo/Ou8ZzMM7ibeXM8U5Lyv2GmrSEFNF6wZjgFRinj?=
- =?us-ascii?Q?xHPoJn/EenXJ4TmqsjmDPje4Vu3Es3Nv4HlYoTZ7UH0JyddTqx7aKjnGN9iR?=
- =?us-ascii?Q?Od8XCMoxR8/m7X/jTSf49L1j6lO/RBGPVRLNNWWJ57HWcYS6u8DO+71KXeoS?=
- =?us-ascii?Q?Kxchz1CEvP1f3qP+EMHVpzutKIkk1AVcXoqSy6+yG8sNl+GInBheb0xQhoL/?=
- =?us-ascii?Q?FXTl0BGHVTpjgpK2WyllcJIyC4yhw6ArgW+g6c7rkN3UgGaGxuBn3N/wThvO?=
- =?us-ascii?Q?JMTK3mIB11/Stjs2tswxFIAApbHKHZkAoLV4e39FJSxiCf5Y2fvkvmEhXmLG?=
- =?us-ascii?Q?MNnOAJd/DLT2B7QpvGETM6T9YtHTWgTP4tKLNKvlfR4/rPcL8lsZoA3RgFWI?=
- =?us-ascii?Q?70mg1q8ZEjoCQmn4ub5lalvXtSKiRtHAR5CQmGb9mqJ6tVvGOG+APEh/fETn?=
- =?us-ascii?Q?vlFAk2Y2tdDrm4zw0xtYgDOZuaq1M3Dw6BayVQ2w4AF7JFay6gdhAv7PsiT7?=
- =?us-ascii?Q?rkz+gWgSLaLvX9El3bSiQKdNoCTqVkU8ZQIO2Z1Po5fHZ6yzE0MTGgyNpgq8?=
- =?us-ascii?Q?FHyerwpCCE9KafITNVU8BE+xVceZ+bF1wFbBHmshWBKqfMm2GwhDiRXrN+nw?=
- =?us-ascii?Q?rLPcK8aM5MzwJoFeti17wXxwsgl0QmQt3sYaK/kaYu2N0dXNJ9fYZQRHYwF4?=
- =?us-ascii?Q?nfIhVT+0xyvvwUEQYc/WCavQnIEDX7h4kTuOV4UKQQrC04qvvsgY+/VP49bT?=
- =?us-ascii?Q?cEyy0s55/xt79oU2QWrind8HNcMd54szhis+YJh2vwhnsd2eTMDnUfG18MUN?=
- =?us-ascii?Q?oP6kBCDBk4E+v/+5v2p3w1SGCu2G0DF5JEXP1X02oCyDw0DBvqO6aZXakU6V?=
- =?us-ascii?Q?fJTkAqXI1Irh/ZMK80CIY1zHQRuxZHc2xNvMZ4MNJFXLFZnPqUmypaSboPfj?=
- =?us-ascii?Q?6ln0a4ZXeewlC5ZJtpvJ49WDCQ/sBZz9cLlPWl6Yjwu0ULUMjv2UlZHaBfCu?=
- =?us-ascii?Q?HrFcdl/4bQLSLB+A8BXLPYUGAKPamCctDPHG4UhtRA1FYtaO13V/kzDQfJkn?=
- =?us-ascii?Q?842rolaL/OSM7d6GrKHXPSyTgTBWbQgt11rlMba75ZXLACmoWnfrDuSKKUZE?=
- =?us-ascii?Q?VG0lBxMwRwnNNi6/5pVTsb5YGhbEx3cycv3S4W/boQeI1TZgReKWzZwFPzeD?=
- =?us-ascii?Q?G96r4CYgl1NMzoIBfc7ybzMGUuEbOmyslbcH1sofvF51jgV7R11DGCjK/zz1?=
- =?us-ascii?Q?3ve6NtsfCceGHs9FogujGBu7OLt7MLx33CeNA/U0OgTA4KAMDRR37zSJJaY4?=
- =?us-ascii?Q?7keYajo57njgq2VmXLWiz+DnJBrFgyFABSOVMpWzIXmrrSf3jvH19eu3UXzS?=
- =?us-ascii?Q?ul70UHnw9GA22eduMlZUsjB5W3qUU8/6rKupBQqGQzqz3po53sfw9Bais+/u?=
- =?us-ascii?Q?5fn9TGd437kGQmR5bi+RDtOZ+5aJyDCCjYCRQcS1O9rmJxtNuxFxY9yFjvTX?=
- =?us-ascii?Q?C0M3Fja+a6Nd3iMNUOikfV+lRrXxwtb4hGtJL6npZEtD81JwPLcJItYgxOj8?=
- =?us-ascii?Q?lM/8sTUpGnj/agT6ggU2XliFj419UFcRsM45JYAp7YZ9XSurQb6eiTZAlduM?=
- =?us-ascii?Q?AguyDZePmuxAG/z35nfDTGiXW5hTvQI2jMErqDU87ux9aOEiSs5D5iPtJaV+?=
- =?us-ascii?Q?UsvLz0J13g=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fbc5fe82-180b-4eea-939c-08dee23c9625
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 06:44:58.0134
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IV1eCzCAFMOqLCkkSyOqdg4aBiGm3bqN16cYaZK3pY2/atV4o+JJKB2hQqnKR7xOETHjwRL0kbbzqvHpOlo6yw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR06MB8991
+X-B4-Tracking: v=1; b=H4sIANgyV2oC/x3MOQ6AIBBA0auYqZ0EF3C5irFAGHQKxYAxGuPdJ
+ Zav+P+BSIEpQp89EOjkyH5LqPIMzKK3mZBtMpSiVKIpBAaO5sRpd3jwShZXfePsD4/CGpKq7lq
+ pHaR8D+T4+tfD+L4fRffmMmoAAAA=
+X-Change-ID: 20260710-riscv-bpf-timed-may-goto-0dce564985af
+To: Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+ Emil Tsalapatis <emil@etsalapatis.com>, Luke Nelson <luke.r.nels@gmail.com>, 
+ Xi Wang <xi.wang@gmail.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Feng Jiang <jiangfeng@kylinos.cn>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_234505_825040_9C6DE8BF 
-X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-CacheID: sfid-20260715_001254_410084_F03168B7 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -188,64 +92,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-14 20:06, Vinod Koul wrote:
-> On 09-07-26, 16:26, Wolfram Sang wrote:
->> On Thu, Jul 09, 2026 at 09:58:04PM +0800, Pan Chuang wrote:
->>> Commit 55b48e23f5c4b6f5ca9b7ab09599b17dcf501c10 ("genirq/devres: Add
->>> error handling in devm_request_*_irq()") added automatic error logging
->>> to devm_request_threaded_irq() and devm_request_any_context_irq() via
->>> the new devm_request_result() helper. The helper prints device name,
->>> IRQ number, handler functions, and error code on failure.
->>>
->>> Since devm_request_irq() is a static inline wrapper around
->>> devm_request_threaded_irq(), it also benefits from this automatic
->>> logging.
->>>
->>> This series removes the now-redundant dev_err() and dev_err_probe() calls
->>> in dmaengine drivers that follow these devm_request_*_irq() functions,
->>> as the core now provides more detailed diagnostic information on failure.
->>>
->>> Pan Chuang (26):
->>>   dmaengine: fsl-edma-main: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: fsl-qdma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: loongson-loongson1-apb-dma: Remove redundant
->>>     dev_err()/dev_err_probe()
->>>   dmaengine: mediatek-mtk-cqdma: Remove redundant
->>>     dev_err()/dev_err_probe()
->>>   dmaengine: mediatek-mtk-hsdma: Remove redundant
->>>     dev_err()/dev_err_probe()
->>>   dmaengine: mmp_pdma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: moxart-dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: owl-dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: pxa_dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: qcom-gpi: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: sf-pdma-sf-pdma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: sh-rcar-dmac: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: sh-rz-dmac: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: sh-shdmac: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: sh-usb-dmac: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: sprd-dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: st_fdma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: stm32-stm32-dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: stm32-stm32-dma3: Remove redundant
->>>     dev_err()/dev_err_probe()
->>>   dmaengine: stm32-stm32-mdma: Remove redundant
->>>     dev_err()/dev_err_probe()
->>>   dmaengine: sun4i-dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: sun6i-dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: tegra20-apb-dma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: ti-edma: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: uniphier-xdmac: Remove redundant dev_err()/dev_err_probe()
->>>   dmaengine: xgene-dma: Remove redundant dev_err()/dev_err_probe()
->>
->> One patch per subsystem for such trivial changes, please.
->
-> Yes pretty please
->
-Thanks, I'll merge them in v2.
+This series adds RISC-V JIT support for the timed may_goto loop bound.
 
-Best Regards,
-PanChuang
+Patch 1 implements arch_bpf_timed_may_goto() and enables
+bpf_jit_supports_timed_may_goto() so the verifier uses the timed
+expansion path.
+
+Patch 2 enables the verifier_may_goto_1, stream_cond_break, and
+may_goto_interaction fastcall tests on riscv64.
+
+Tested on riscv64 QEMU (rva23s64): may_goto programs load and JIT
+correctly, and the 250ms timeout path works as expected.
+
+Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+---
+Changes in v3:
+- Set up the frame pointer in arch_bpf_timed_may_goto() so the function
+  does not break stack unwinding under CONFIG_FRAME_POINTER.
+
+Changes in v2:
+- Fix BPF_REG_0 being clobbered after arch_bpf_timed_may_goto() calls.
+- Enable the may_goto_interaction fastcall test on riscv64.
+
+---
+Feng Jiang (2):
+      bpf, riscv: add support for timed may_goto
+      selftests/bpf: enable timed may_goto tests for riscv64
+
+ arch/riscv/net/Makefile                            |  2 +-
+ arch/riscv/net/bpf_jit_comp64.c                    | 13 +++++-
+ arch/riscv/net/bpf_timed_may_goto.S                | 47 ++++++++++++++++++++++
+ tools/testing/selftests/bpf/progs/stream.c         |  1 +
+ .../selftests/bpf/progs/verifier_bpf_fastcall.c    |  1 +
+ .../selftests/bpf/progs/verifier_may_goto_1.c      |  4 ++
+ 6 files changed, 66 insertions(+), 2 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260710-riscv-bpf-timed-may-goto-0dce564985af
+
+Best regards,
+-- 
+Feng Jiang <jiangfeng@kylinos.cn>
+
 
 _______________________________________________
 linux-riscv mailing list
