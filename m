@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFBEDC44501
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 13:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F4BBC44508
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 13:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gQyPIqnaek163gmO3hPWed/vXS88ngMNLIUXBbjMYM0=; b=YV5N3PVBIlL7VR
-	uag+f5ywELbSwr0iKlJg7qokGQlJpDF/xF1IPpbaMwMLffzJ0XSPQpTGI9XmZdh0/1Uzfn6yUDybP
-	H+wUTCMGRkusSEXELgpEo/czi/UJlY8BuPLoTrdyPCsr8iL8VsmJnN8VjzwYItRLwQgMVUgKGco9J
-	lJyYh/fRoiyBKslWf6PNs9gDL+CIlKbYrWBdN5meRIxzbLOshNBH0FKHksmo8SQutHY+o0+aVhv//
-	15HxQBKkLqamsEuFadB95CmSA03z9rOuh/eTtF4kO/d4742Ec8YbQM4fMBjJ9INh/cxZrGr2231C+
-	52effBBQTO+dZAZrZOOw==;
+	List-Owner; bh=rRdXyxI0WNHlCrv+VCOnxcoFd0++bBtk+8zJnXR7p+s=; b=Znq8Vnnt32Qf+y
+	/9VDVqxMWMauuM8XhAo2Q8qqE2A72UOQk50S6CIcluFIDVh5DkRV/Wxf67nN0yY8VJFcfySEg9vbQ
+	dK3PSayiP9xsyCHkRGh+jU+ctSn+ASGoVHTOGivz7C/27tCu+LA7MKHXJ/UsFJJOdH7rnwuFX5hFD
+	1z9lATW2AfpYMZlWhHjDjiCF0pZM0+881nl9pEOtPf6GlBv8xpiQqY7kqskB7mqK0S2ASu7WpjZ01
+	wNUgGWriV7e+2uF1cRXwd54u1Ddoo+4vT6YYH/sripF1eMpbt19VNTde1tg3w9gSVXqyF6vIgPRMg
+	QE5oT0uMj7goMb/ausiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzXG-0000000EvAD-4BUx;
-	Wed, 15 Jul 2026 13:20:27 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wjzXJ-0000000EvBL-0VcO;
+	Wed, 15 Jul 2026 13:20:29 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzXB-0000000Ev7o-2hvh
+	id 1wjzXE-0000000Ev9A-3fSE
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jul 2026 13:20:23 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cab973140bso63183155ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 06:20:21 -0700 (PDT)
+	Wed, 15 Jul 2026 13:20:26 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2cad8076b01so64603725ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 06:20:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1784121621; x=1784726421; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1784121624; x=1784726424; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M5Al+sJZCP/A2YqMMRE5O11m7TbG/oT9KeekulTJ1Xs=;
-        b=SSQiLj0EXm/KlQXU2XkW5R+jGp7vITcS0aufWgtYI4U/k3TNzWm8m4/iVA4udKlxhE
-         39EwenAkYPK5M/tS0968MQCsfzjdNdyTof2hjD7m7L/Uf2QYN2Tzw62CEwBSpxsA5d90
-         92sezS/NHlHuB3GcFo/NyoN+RiYOJVSXbhJxseZqcVAVHvPkiiLHF2p73kIa7YfLC/oh
-         GXwQKaYFYlRDOHi9xtCeKydihbXj1X8KeynmBgPFwbW9b/INMc9cGo6MDE9yx/4OTpWD
-         ehkdDry3xE8D4rBWmHc942aPl6CZj9W8Ocq7fHH8tZhl7wBGE/eZLyF7sgoLh3mbuo7T
-         k7Jw==
+        bh=O0419pZYviwlgi7RrpR+vOHIO7im/1AWoluL/ZKMJxE=;
+        b=V9tvWsg+xP1IFRSWZLgQiG7IXNQ9aSdteR26Eowf1Dod/ozQWUL4Aga6Vy9ePA65F3
+         qucYbWAqPJUBac1FQVXIuBNLYOdvwEsGdObrRNdZLx2uftnF8hNytyOqiSzuNXHmJhDx
+         eRx/Sd1uLteIsGVXk4M2jDYkQCzyPO0GWYjJH9LcAc07eMb62Hz4WMbWFglPbhOFPwwT
+         CsSmqWENX3BD499uL57h2UbHp3gTA69EmBq7e+B8wGP8WCUhf2X83XpQRlWEHlOvyyBk
+         E9SzNL/iijmZvCp/Tb1ByWnli8YqTX+4GZuR4KFV6qPNUUyuwAc3RHQmWLhyxjmquiWV
+         g0AA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784121621; x=1784726421;
+        d=1e100.net; s=20251104; t=1784121624; x=1784726424;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=M5Al+sJZCP/A2YqMMRE5O11m7TbG/oT9KeekulTJ1Xs=;
-        b=WeuI96q6hzPzqpRa1YQyYFqR5ShEraFp76+4skOhz1lJv1qpzRG7K6JCR/tTlAi5Do
-         yNyFAriuCoLHtIvoDKQN1VIcVhe3/ZygS+hKgrQNDmHhbQ2P5dw17HO0+oehR+m4iItE
-         fjPq/n3S0z0xoQrnOkD78k+pcwn9/g6zcCqtcMKu6OA+UmBpStMc0JXCs5KjOHgNCtxW
-         tbBgomcSZMabKo9vEzEN9bOEiMu8ARtwZsr6EZ/o/XkAcvfLUBgufHxuj2G7aq8itS3n
-         Hz1+FVTTFIvfIZ41d2J/SQL4vBRc2h3EDcAnHfgsZ2LZT2csvEsKnLQZSIx5Xz2yG7KT
-         94KA==
-X-Gm-Message-State: AOJu0YxIE6y/w8JAu/ziOYOxtutK9ioPSP5KsqmHWOdyNUeqECqh4Ps1
-	xDwko6k0b+W5XZT+0+y37O1MDpvjErfWCZoFxRaoH++gVvB9EUztSkw1o4ztc+Q39UM=
-X-Gm-Gg: AfdE7cnM2cL/qoF5em/C+fQRGpQpZ6mohPrHlzT4lm5Awvn6X9qlKDKmN69dBmyVHC/
-	6/gg0zsAoMYdArVIaPxMf513lUux+JzWQmQAEU4hLfFBIOhSJWkC4cRjEiMUv20o9xZ1DD8cCT2
-	jLheKVCK0mDjdiWTEHWwJcr2n/6YC0na8iWQASWG6qwxEzozGZGHKPpf9GfIh/q5FAkIn5oZQKh
-	Yf7vHqCeeyniCCRfi+oDklQKWJVjavgQaqr+ls5i98hIv+6rLkUh3gFIRyfAHzwRrpTNp/HzPIj
-	4CuecxSLfeX/jq1RK0K05pHAIhEd8x+vlcegSOtcA+d8bLJCxHbJqCWsUzMc8g5IT+FAFfr7QgD
-	Hbb6VD3+pk8etU97VtP9l71NWNSdT27yboUa+PJFwO4JWwR9f6G82mA/Uhfn8M++Dieh51J5ZkN
-	RfJ8zt7mh8KLztYd/pSLELy6Ac/PoaOs67HeRaJom4lHP767SOt74+JLrlgsfZ5eW72OCte038v
-	WgVzfsuguOPEpfOUZuko4E1E4CgvxJ1u2I=
-X-Received: by 2002:a17:903:41cd:b0:2cc:a977:4260 with SMTP id d9443c01a7336-2cf03c40414mr25734955ad.21.1784121620466;
-        Wed, 15 Jul 2026 06:20:20 -0700 (PDT)
+        bh=O0419pZYviwlgi7RrpR+vOHIO7im/1AWoluL/ZKMJxE=;
+        b=eQDA7HE3Z3pOygmNVLkna5HGru+fui0kR9TcNnjkpBOMtTPqPnStKB8EI8wMudLPuF
+         U2uCg5O30KDWJNKmP/sn9Ox0HT5LF1a3AhWwvOqt/m2bMi3lG2noCGavj1DfCcKOpGnq
+         MhLmMLW7PmAha7t7e4GxINnbS9Ulxn7y+vgRQkCbAGDCwzJDZ+LB3muLCZIVcRO8h5qv
+         Kl68cziZ30OBPC3R6gdguTM6A8oEqqUias8nQkE4nwl/DpWxHAaeuaktK9A4wv0YEdzO
+         +snkvHa3SoRLXoXJJEjC4ImmUcoxJVqk071q01Z9cgiHwjsTGykrCTZmKAq8Fu7rPkfz
+         4hJQ==
+X-Gm-Message-State: AOJu0YwCnyCpIdSZ187IV3mrymVl3f3Wuyt3c/wDeg65R/L1zKX2k+bI
+	NKHmi78OiqyMnqo7O9eOJocbFWoiZh2ziV6gk3sojZKndW1pd6PZXD1MOpipMPCm9BI=
+X-Gm-Gg: AfdE7cmduCmrnE27hGK0B0cRVNqp0wqOTKkiRZExwprGgtfxDCMHweQF4viAoKwFFZD
+	SbdHv/mWlH/vdNhmdaVnERsboXHURW+FZAGF/Nq4iK05lhntX+3tXeNeUQOVdAF3/BUCABnB4ga
+	H2w8AZkbmnGjkEmMrz1CN9Wt0NYFhJ2ugoiiu5oRwAQ4/NkhPZspfIXSyUMmlhUDtpwPDzUwcmp
+	czjX86Y1DeQEgXOxBn2GJdKRnIV2+Xp4lMZUdttxnQbEVZUy/lUp1DivwiS/SZNcCV6DJA3w6YU
+	t7Tcln0/cZUM/q/S2gK2kA8mzmNUAbW2oPCRXifRKRBcAwBt8n+SgocLfJD9D3F6GZfsO6pab5D
+	MVsLJvjQU6GQg0YDhZ+Eu5XoUpOFM+E1UXYXYQaTjG8I0oUrWGRriSLkGquo3c5OoEhtVbE3M+6
+	51PhlKH6KTfS6fbOypMAruDyy5gJzXIan92Nb0A+JPGigvklk9TZfoiehu6Wh7D/xo8H0BMVXaT
+	FZgaK0xwgTb2hh1MpyoGlSYDayOzjJxaY/SAUyH/6rs4w==
+X-Received: by 2002:a17:903:1b25:b0:2cc:df15:91de with SMTP id d9443c01a7336-2cee9bb19b8mr80986835ad.42.1784121623726;
+        Wed, 15 Jul 2026 06:20:23 -0700 (PDT)
 Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf100e42c6sm2465085ad.9.2026.07.15.06.20.17
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf100e42c6sm2465085ad.9.2026.07.15.06.20.20
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 15 Jul 2026 06:20:20 -0700 (PDT)
+        Wed, 15 Jul 2026 06:20:22 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: paul.walmsley@sifive.com,
 	klarasmodin@gmail.com,
@@ -80,16 +80,16 @@ Cc: linux-riscv@lists.infradead.org,
 	apw@canonical.com,
 	joe@perches.com,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH v2 1/3] riscv: mm: Use ASID in update_mmu_cache()
-Date: Wed, 15 Jul 2026 21:20:07 +0800
-Message-ID: <20260715132009.10634-2-luxu.kernel@bytedance.com>
+Subject: [PATCH v2 2/3] riscv: mm: Apply Svinval in update_mmu_cache()
+Date: Wed, 15 Jul 2026 21:20:08 +0800
+Message-ID: <20260715132009.10634-3-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260715132009.10634-1-luxu.kernel@bytedance.com>
 References: <20260715132009.10634-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_062021_694112_7417C822 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260715_062024_921855_7D4C9DFB 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,69 +106,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Only flush TLB entries for the specified mm in update_mmu_cache_range().
+Use Svinval in update_mmu_cache_range() when the extension is available.
 
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- arch/riscv/include/asm/pgtable.h  | 4 +++-
- arch/riscv/include/asm/tlbflush.h | 5 +++++
- arch/riscv/mm/tlbflush.c          | 5 -----
- 3 files changed, 8 insertions(+), 6 deletions(-)
+ arch/riscv/include/asm/pgtable.h  |  8 ++++++++
+ arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
+ arch/riscv/mm/tlbflush.c          | 18 ------------------
+ 3 files changed, 26 insertions(+), 18 deletions(-)
 
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 5d5756bda82e..9926556099ae 100644
+index 9926556099ae..823805cc465a 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -568,6 +568,8 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 		struct vm_area_struct *vma, unsigned long address,
- 		pte_t *ptep, unsigned int nr)
- {
-+	unsigned long asid = get_mm_asid(vma->vm_mm);
+@@ -578,6 +578,14 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVVPTC))
+ 		return;
+ 
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)) {
++		local_sfence_w_inval();
++		while (nr--)
++			local_sinval_vma(address + nr * PAGE_SIZE, asid);
++		local_sfence_inval_ir();
++		return;
++	}
 +
  	/*
- 	 * Svvptc guarantees that the new valid pte will be visible within
- 	 * a bounded timeframe, so when the uarch does not cache invalid
-@@ -584,7 +586,7 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
- 	 */
- 	while (nr--)
--		local_flush_tlb_page(address + nr * PAGE_SIZE);
-+		local_flush_tlb_page_asid(address + nr * PAGE_SIZE, asid);
- 
- }
- #define update_mmu_cache(vma, addr, ptep) \
+ 	 * The kernel assumes that TLBs don't cache invalid entries, but
+ 	 * in RISC-V, SFENCE.VMA specifies an ordering constraint, not a
 diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index eed0abc40514..7c2cd5cc92d3 100644
+index 7c2cd5cc92d3..9636d07fe9ee 100644
 --- a/arch/riscv/include/asm/tlbflush.h
 +++ b/arch/riscv/include/asm/tlbflush.h
-@@ -15,6 +15,11 @@
- #define FLUSH_TLB_NO_ASID       ((unsigned long)-1)
+@@ -20,6 +20,24 @@ static inline unsigned long get_mm_asid(struct mm_struct *mm)
+ 	return mm ? cntx2asid(atomic_long_read(&mm->context.id)) : FLUSH_TLB_NO_ASID;
+ }
  
- #ifdef CONFIG_MMU
-+static inline unsigned long get_mm_asid(struct mm_struct *mm)
++static inline void local_sfence_inval_ir(void)
 +{
-+	return mm ? cntx2asid(atomic_long_read(&mm->context.id)) : FLUSH_TLB_NO_ASID;
++	asm volatile(SFENCE_INVAL_IR() ::: "memory");
++}
++
++static inline void local_sfence_w_inval(void)
++{
++	asm volatile(SFENCE_W_INVAL() ::: "memory");
++}
++
++static inline void local_sinval_vma(unsigned long vma, unsigned long asid)
++{
++	if (asid != FLUSH_TLB_NO_ASID)
++		asm volatile(SINVAL_VMA(%0, %1) : : "r" (vma), "r" (asid) : "memory");
++	else
++		asm volatile(SINVAL_VMA(%0, zero) : : "r" (vma) : "memory");
 +}
 +
  static inline void local_flush_tlb_all(void)
  {
  	__asm__ __volatile__ ("sfence.vma" : : : "memory");
 diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 8404530ec00f..73c226f719c7 100644
+index 73c226f719c7..962db300a166 100644
 --- a/arch/riscv/mm/tlbflush.c
 +++ b/arch/riscv/mm/tlbflush.c
-@@ -110,11 +110,6 @@ static void __ipi_flush_tlb_range_asid(void *info)
- 	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
- }
+@@ -11,24 +11,6 @@
  
--static inline unsigned long get_mm_asid(struct mm_struct *mm)
+ #define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
+ 
+-static inline void local_sfence_inval_ir(void)
 -{
--	return mm ? cntx2asid(atomic_long_read(&mm->context.id)) : FLUSH_TLB_NO_ASID;
+-	asm volatile(SFENCE_INVAL_IR() ::: "memory");
 -}
 -
- static void __flush_tlb_range(struct mm_struct *mm,
- 			      const struct cpumask *cmask,
- 			      unsigned long start, unsigned long size,
+-static inline void local_sfence_w_inval(void)
+-{
+-	asm volatile(SFENCE_W_INVAL() ::: "memory");
+-}
+-
+-static inline void local_sinval_vma(unsigned long vma, unsigned long asid)
+-{
+-	if (asid != FLUSH_TLB_NO_ASID)
+-		asm volatile(SINVAL_VMA(%0, %1) : : "r" (vma), "r" (asid) : "memory");
+-	else
+-		asm volatile(SINVAL_VMA(%0, zero) : : "r" (vma) : "memory");
+-}
+-
+ /*
+  * Flush entire TLB if number of entries to be flushed is greater
+  * than the threshold below.
 -- 
 2.39.5
 
