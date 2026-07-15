@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9478BC44501
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 09:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DD1C44501
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 09:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i4pAbYXN1Ffqlt4wFd14pzFUKm5idLdRugVBh+nkJKo=; b=gXDS0FVVlpe3x0
-	vgPpHrOI6ewawU6qdZWkd+WnB8jjyF8iGGx9UOdfP4FWkbghmKnnlieRC5Ci8CbuIwrgbzdAMVSlF
-	BJy+rg4Ju/8gZwHxw3LhslcaHL7Tx83ns4142PohfQwLDQGRX/hcx3W2PnK20kKLP+RLqtE8xRxZ9
-	85xoTiWlCmUNqOsax0FlIjnMraqsi1SHmTpPhMgprDuivzbohogXNP27gclqsyTUPnBb9/Mxv941o
-	Pohpudjh+qJFp6e1SnI79ZfZeN1ddVMCFg7DWw+dzIywH+6nvjnq+k9m99ymmmYTuv9sl6WDUDwxK
-	Q/sV8ubCpGh9HlU21gEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YOBAohNWAS1lInfzZ6PC/sr3N1sz0KfM6ez83URHgaI=; b=K18xp/aCrXaZyCFEVc7cBquJyQ
+	2vv0kS5VaLYXDHLOFRy2PKcsgFT9Ks6TXPakmhnGM4SR1plEkyu26AmXre9IgFSEkEpNJk5UUvdzL
+	xLhaUHlKX/RTv0jDu1oEn+l+aks0lz+OOo5+oedd7gGxWHMpJFOs0IePFGT+U4HPN8RJnRmXB8N6r
+	uBeXL/TeuAsze6hyD4Pp9HikCNhbycgHgCjaXUjk6lWRInmlkDM3r6DPtIjp+GZQZqTmPaNZk4dsm
+	BsRuZ30RGGSL9ICnqtGfsZdkEeGm8f5ZS17Lceb3xxtlyyqAhwKK6/6l+vqw9oAGZ/k/deQRfuJar
+	5VwQQ+LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjw7x-0000000ELhS-42Gb;
-	Wed, 15 Jul 2026 09:42:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjw7t-0000000ELfa-2zWo;
-	Wed, 15 Jul 2026 09:42:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6C47153B;
-	Wed, 15 Jul 2026 02:41:55 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 06C903F915;
-	Wed, 15 Jul 2026 02:41:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784108519; bh=FTxhv/K9xHL17XVl29du51KO0/EQlL+ghCHZmx4gNaE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G0RUjlJz3owlWeTlpPV8u3FIp5RuBGK/3NB7wbcP+UXQAmCYCXmS34xYdScxVlpRC
-	 0bRxrex7ATIWiVwavRFx8SXG/TT09iNUF63YzL6JCoJZGGx+GkRwGDdjMbNE7EKjBK
-	 y4iGiJK1D0syrrUl+zvzYTCLcyhE/eREzIUSEcVU=
-Date: Wed, 15 Jul 2026 10:41:47 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Dave Hansen <dave.hansen@intel.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org,
-	kasan-dev@googlegroups.com, linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
-	linux@armlinux.org.uk, akpm@linux-foundation.org,
-	ankur.a.arora@oracle.com, rppt@kernel.org, linmag7@gmail.com,
-	chleroy@kernel.org, klarasmodin@gmail.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, kas@kernel.org, zhangtianyang@loongson.cn,
-	wangyuli@aosc.io, tsbogend@alpha.franken.de, ljs@kernel.org,
-	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org,
-	arnd@arndb.de, ryan.roberts@arm.com, pasha.tatashin@soleen.com,
-	rmclure@linux.ibm.com, baolin.wang@linux.alibaba.com, tj@kernel.org,
-	kevin.brodsky@arm.com, anup@brainfault.org, atish.patra@linux.dev,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, dave.hansen@linux.intel.com, luto@kernel.org,
-	peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
-	bp@alien8.de, hpa@zytor.com, hannes@cmpxchg.org, mhocko@kernel.org,
-	qi.zheng@linux.dev, shakeel.butt@linux.dev, kasong@tencent.com,
-	baohua@kernel.org, axelrasmussen@google.com, yuanchu@google.com,
-	weixugc@google.com, ryabinin.a.a@gmail.com, glider@google.com,
-	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
-	anshuman.khandual@arm.com, yang@os.amperecomputing.com,
-	chaitanyas.prakash@arm.com, ardb@kernel.org, guoren@kernel.org,
-	yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
-	dinguyen@kernel.org, schuster.simon@siemens-energy.com,
-	wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech,
-	muchun.song@linux.dev, vishal.moola@gmail.com, namcao@linutronix.de,
-	pavel@kernel.org, djbw@kernel.org, yu-cheng.yu@intel.com,
-	baolu.lu@linux.intel.com, Jonathan.Cameron@huawei.com,
-	coxu@redhat.com, andreas@gaisler.com, liam@infradead.org,
-	vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
-	shorne@gmail.com, jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi
-Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
- folded pgtable case in effective_prot()
-Message-ID: <aldV23PwIXnFloaN@e129823.arm.com>
-References: <3ea30f8a-bb29-4bf5-8400-1c4840d46a88@kernel.org>
- <7e84b200-25eb-43a6-b5e2-5f27f2d82a77@intel.com>
- <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
- <14e250db-1641-4085-8d13-02f819657d5f@intel.com>
- <d83c76b3-ea4d-4c41-b4c5-f5ae558ace55@kernel.org>
- <alYgMxKqRnF6_X0A@e129823.arm.com>
- <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
- <alZe-Cu7yQw9qRXU@e129823.arm.com>
- <alZo9feSrSB_StfO@e129823.arm.com>
- <CAMuHMdUqL=vJFAzYgcRVNbD_VWWwhehwTuhTfwLt_yRR8c+B0g@mail.gmail.com>
+	id 1wjw94-0000000ELzP-2ZW6;
+	Wed, 15 Jul 2026 09:43:14 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjw8z-0000000ELxo-49mc
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Jul 2026 09:43:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1784108588; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=R2HmU9UJ2IBaGQSpvN6c/A3uULuxNh34EiIl7381Gmo=;
+	b=blsm8iUxbUrUWPFekEikTYZv/lIrKQXKVbxOUlmTzV+nDK4MV+EEhPgdXBz0pFQik2jW2nvFudBhkpS1fVW8/5nGcJ/X5Ce0i0aY2o25fITgHR37RpHGtVVNsyX3KPbIT1bqp9hPVD8Mckc9/lbjO7Cblza1T7yhhePIuJMwPzU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X78miZk_1784108582;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X78miZk_1784108582 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 15 Jul 2026 17:43:06 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
+	Tomasz Jeznach <tomasz.jeznach@linux.dev>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	David Laight <david.laight.linux@gmail.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Zong Li <zong.li@sifive.com>,
+	cuiyunhui@bytedance.com,
+	yuanzhu@bytedance.com,
+	iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] iommu/riscv: Use 32-bit MMIO accesses for 64-bit registers
+Date: Wed, 15 Jul 2026 17:43:00 +0800
+Message-ID: <20260715094305.2783-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAJF2gTT7TPA+K+JgkvvUtb0x5BSzfox+s5rG8OtrP0QzPetHFw@mail.gmail.com>
+References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
+  <20260713122903.9458-1-zhangzhanpeng.jasper@bytedance.com>
+  <3591a185-d0b5-4cb0-a0d5-ae9608a4e244@arm.com>
+  <CAJF2gTT7TPA+K+JgkvvUtb0x5BSzfox+s5rG8OtrP0QzPetHFw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdUqL=vJFAzYgcRVNbD_VWWwhehwTuhTfwLt_yRR8c+B0g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_024202_791701_7789A052 
-X-CRM114-Status: GOOD (  30.55  )
+X-CRM114-CacheID: sfid-20260715_024310_337353_39062AB3 
+X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,119 +80,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8970774816914846444=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+--===============8970774816914846444==
+Content-Transfer-Encoding: quoted-printable
 
-> Hi Yeoreum,
-> 
-> On Tue, 14 Jul 2026 at 18:51, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > On Tue, Jul 14, 2026 at 05:08:24PM +0100, Yeoreum Yun wrote:
-> > > On Tue, Jul 14, 2026 at 07:35:19AM -0700, Dave Hansen wrote:
-> > > > On 7/14/26 04:40, Yeoreum Yun wrote:
-> > > > > @@ -254,22 +255,8 @@ static void effective_prot(struct ptdump_state *pt_st, int level, u64 val)
-> > > > >         struct pg_state *st = container_of(pt_st, struct pg_state, ptdump);
-> > > > >         pgprotval_t prot = val & PTE_FLAGS_MASK;
-> > > > >         pgprotval_t effective;
-> > > > > -       bool first_level = false;
-> > > > >
-> > > > > -       /* Ignore folded levels ... */
-> > > > > -       if (((level == 0) && mm_p4d_folded(st->mm)) ||
-> > > > > -           ((level == 1) && mm_pud_folded(st->mm)) ||
-> > > > > -           ((level == 2) && mm_pmd_folded(st->mm)))
-> > > > > -               return;
-> > > > > -
-> > > > > -       /* ... and make the actual first level remember the protection. */
-> > > > > -       if (((level == 0)) ||
-> > > > > -           ((level == 1) && mm_p4d_folded(st->mm)) ||
-> > > > > -           ((level == 2) && mm_pud_folded(st->mm)) ||
-> > > > > -           ((level == 3) && mm_pmd_folded(st->mm)))
-> > > > > -               first_level = true;
-> > > > > -
-> > > > > -       if (!first_level) {
-> > > > > +       if (first_level > st->first_level) {
-> > > > >                 pgprotval_t higher_prot = st->prot_levels[level - 1];
-> > > > >
-> > > > >                 effective = (higher_prot & prot & (_PAGE_USER | _PAGE_RW)) |
-> > > > > @@ -471,6 +458,15 @@ bool ptdump_walk_pgd_level_core(struct seq_file *m,
-> > > > >                 .seq            = m
-> > > > >         };
-> > > > >
-> > > > > +       if (mm_pmd_folded (mm))
-> > > > > +               st->first_level = 3;
-> > > > > +       else if (mm_pud_folded (mm))
-> > > > > +               st->first_level = 2;
-> > > > > +       else if (mm_p4d_folded (mm))
-> > > > > +               st->first_level = 1;
-> > > > > +       else
-> > > > > +               st->first_level = 0;
-> > > > > +
-> > > > >         ptdump_walk_pgd(&st.ptdump, mm, pgd);
-> > > >
-> > > > This is indeed an improvement and a step in the right direction! Thanks
-> > > > for looking at this.
-> > > >
-> > > > But one of my test for whether it's good x86 code is whether there's any
-> > > > actually x86-specific logic in it. Isn't this basically a translation
-> > > > between the integer level number and whether it is folded?
-> > > >
-> > > > That seems like a common helper that more than one arch could use. Could
-> > > > this be stuck in a helper so that all arch/x86 has to do is:
-> > > >
-> > > >     if (mm_pt_level_folded(mm, level))
-> > > >             return;
-> > >
-> > > Yes. at least the level semantic in ptdump (pgd is level 0,
-> > > p4d is level 1, ...) is same to all archs where use ptdump.
-> > > So It seems reasonable to add this common helper in ptdump.c
-> > >
-> >
-> > Furthermore, the effective_prot() need to require to identify whether
-> > it's the first pgtable to prevent the inheriting from dummy value.
-> > So I think it seems to make a ptdump_pt_level_first() like:
-> >
-> > diff --git a/mm/ptdump.c b/mm/ptdump.c
-> > index 973020000096c..2ec5700e4be5e 100644
-> > --- a/mm/ptdump.c
-> > +++ b/mm/ptdump.c
-> > @@ -190,6 +190,23 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
-> >         st->note_page_flush(st);
-> >  }
-> >
-> > +bool pdtump_pt_level_first(struct mm_struct *mm, int level)
-> > +{
-> > +       if (!mm || level > CONFIG_PGTABLE_LEVELS)
-> > +               return false;
-> > +
-> > +       if (mm_pmd_folded(mm) && level == 3)
-> > +               return true;
-> > +       if (mm_pud_folded(mm) && level == 2)
-> > +               return true;
-> > +       if (mm_p4d_folded(mm) && level == 1)
-> > +               return true;
-> 
-> Is this order (... && level == ...) the optimal order?
-> On arm64, mm_pud_folded() and mm_p4d_folded() perform several checks.
-> 
-> > +       if (level == 0)
-> > +               return true;
-> > +
-> > +       return false;
-> > +}
-
-It is. since the purpose of ptdump_pt_level_first is designed to be used
-in the *callback* of pXd_entry(). IOW, if we check level 0 first,
-it always returns wrong return in folded case.
+On Tue, Jul 14, 2026 at 09:55:19PM +0800, Guo Ren wrote:=0D
+> The specification is deliberately precise. It uses "may", not "shall"=0D
+> or "must". We should not introduce speculative implications that break=0D
+> the spec's consistency on RV32. The safe and portable interpretation=0D
+> is that software is explicitly allowed to use 32-bit accesses for=0D
+> these registers on any system, which is exactly what this patch does.=0D
+=0D
+The RV32 argument is quite compelling. The RISC-V IOMMU is a=0D
+platform-level IP that must serve both RV32 and RV64 software stacks.=0D
+Mandating 64-bit MMIO accesses would directly conflict with RV32, where=0D
+such accesses are impossible =E2=80=94 so any interpretation that turns "ma=
+y be=0D
+accessed using either a 32-bit or a 64-bit access" into an implicit=0D
+hardware requirement for 64-bit accesses breaks the spec's own=0D
+consistency on RV32.=0D
+=0D
+The RFC 2119 argument is equally strong. In RFC 2119 terms, "MAY" means=0D
+an item is truly optional =E2=80=94 a specification should express obligati=
+ons=0D
+through these well-defined normative keywords, not leave them to be=0D
+inferred from everyday-language intuition. If the spec authors had=0D
+intended to require hardware to support 64-bit accesses, they would have=0D
+said "must" or "shall".=0D
+=0D
+Given both points, treating 32-bit MMIO accesses as the default for the=0D
+RISC-V IOMMU driver is the safe, portable, and more inclusive choice: it=0D
+is explicitly permitted on every conformant implementation, whereas=0D
+64-bit access atomicity is left unspecified.=0D
+=0D
+Acked-by: Chen Pei <cp0613@linux.alibaba.com>=0D
+=0D
+Thanks,=0D
+Pei=0D
+=0D
 
 
--- 
-Sincerely,
-Yeoreum Yun
+--===============8970774816914846444==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8970774816914846444==--
