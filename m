@@ -4,74 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053F4C44507
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 08:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB1EC44507
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 08:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XxbqEPeFLIKbSSvaQGMWbqGFIovYufQu/qudm7pS2kM=; b=h6M36ES7w6GXwN
-	rrsOGUAsQdQ60U9htcGA6CKoE4pT1EIH/gjwRe41bRobpDgDFIY25+NJGPdJj/aX8GBifvJcLZxGA
-	FR284izPBzfVSSsJXXJ61n3rdzaYll4lmA4Un8uqR1JRI3vhqPZ1CW78ZcfY6gqV0qvxac4AQrhB4
-	cyWPrEVQALP1XLaQd/HqodEVXMMop89bleMtL7q1SzYOllSvaro6nNTEJJxTTYjYDYCybGiYjWufa
-	ExIDmz1REi4NN7wTOpMnQxdiZAf0w+u/1i/OqtU9dFk2QOTjW6nZGrKOiPjLzC75E+uRsgYdnoHDL
-	KJJ9HMT7yaf8/xGte90A==;
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:To:Mime-Version:From
+	:Date:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UBlrdQAS5HJv3CNkJTCcy5ydV7lkO8s/jILN7WHw/2k=; b=2eoaDLVfVA/7p9
+	TXm42WMzd801TVwfA3RL3VSpIpPUc6/G6vilfugrQcoe8DV/REwRBlr3L41BC/A8fiSAUa2OpI6sG
+	jnn5KXFTyMRS/X8rx1uFhJLLgzCICKLo2dOCe/iFuTWcGrzFqREMVB64rmNy00vsYNM/W7R9KwGEt
+	GQG8WKIvvtGX1+qI2Uak/KGVbriwLtLbSICLdWeD+OpsvUOjH25imZdoGx4E280+2QC5R7nlTHnF1
+	0KRCi+Cdsi68eVchQPcCX9Y5lKdTbud60rc/umO3k2shQKodrq64HZaK2rrmMunhUnLXSepO610gG
+	KCT3aHpjjL4pLEXT8OQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvDs-0000000EBdJ-06xN;
-	Wed, 15 Jul 2026 08:44:08 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wjvHK-0000000ECAO-05m5;
+	Wed, 15 Jul 2026 08:47:42 +0000
+Received: from va-2-26.ptr.blmpb.com ([209.127.231.26])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvDo-0000000EBcJ-33ng;
-	Wed, 15 Jul 2026 08:44:06 +0000
-Date: Wed, 15 Jul 2026 10:43:57 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784105042;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o8pixiHE+4PXxCGaQx5Hl8gBRS82rPyfLLhsedDMY+s=;
-	b=QKxHOIoHlp9u8M8n7Bkrh/HzI/ySdA78pU1ti/pDCkw/MSn0MWNaQRHJOk/MmAqJZPGA/U
-	755oRYJ6WL4SPpfkD+hMgpByfPye6Iqf07ZTiJZRrtUauZO46auwLjWX4DLPSD2PxfxpgT
-	v2cQg1lgK+iT5uxdzTKiEfzLtT2TblweDfuxLjQzAXlTplMVhTNqLdpVBqJGMBvYshMFRC
-	509eIK1zzpfwv92fNZWDETfzk+qTbknHABmd53JaVHVBM2pd2VgQgBtJGuRmhmfbFF44zY
-	ODM7urNC9FO+TS82heAptFv+XiDhksIGAOOcbPd2WHcxqkgWP/5MVs5Hi4ZbFw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784105042;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o8pixiHE+4PXxCGaQx5Hl8gBRS82rPyfLLhsedDMY+s=;
-	b=hmDYfd6U6mGyUoOlO2p4RjVL+21CJL8XTw+s2nT0Ecrrq23qvMl/Btmh/e257h781FfwnR
-	H8elA9RqAIp+yrDA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nsc@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH 3/7] MIPS: csrc-r4k: Replace CONFIG_GENERIC_GETTIMEOFDAY
- ifdeffery with IS_ENABLED()
-Message-ID: <20260715102751-d1ed7195-f541-484e-9843-73ee4237b7b5@linutronix.de>
-References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
- <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
- <87wluwoe1c.ffs@fw13>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87wluwoe1c.ffs@fw13>
+	id 1wjvHH-0000000EC9M-1Rky
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Jul 2026 08:47:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1784105250; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=rq0GZ1ZG2gU7ZVhf3vfT21vG/Iblw41YHZKVS8MsPdI=;
+ b=xKge4aUpZtqDOmJS0RKbKvtyW8UVyPiQgg8uKtU5qI7N0zx9MkT5OVSZiAiO5dl2RcF36f
+ ndndmL7HsjeFlw6DGqhrRph1gvxfgAvTUuvw85HHLwE5SFPTHYydPGNk/1Y7aKuT5BLA5W
+ kBPvho7BtBJedy4ltq25CkbxTr04PqQMQNbogpaqV0+vA/IBIbzaOGbGp6+E9Y6vXCgY1O
+ m7aPgJ0JXRWxFtlqRJsx63AbPduKYdyeorBzQdFpi/nAFxT63SIi12kzb6sd2atFh/NM6B
+ 3Dgl2nz0bVXEdAUky9dmlQ574fFIWAdHIOevtofbZouNqk7DzZf1q3wVZHWR2g==
+X-Mailer: git-send-email 2.50.1
+Cc: <geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
+	<yang.yicong@picoheart.com>, <cuiyunhui@bytedance.com>
+Date: Wed, 15 Jul 2026 16:47:21 +0800
+X-Lms-Return-Path: <lba+26a574920+29069a+lists.infradead.org+yang.yicong@picoheart.com>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Mime-Version: 1.0
+Received: from G9WYR9K0VW.bytedance.net ([61.141.241.112]) by smtp.feishu.cn with ESMTPS; Wed, 15 Jul 2026 16:47:27 +0800
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v1 0/3] Add workarounds for Picoheart erratas
+Message-Id: <20260715084724.26578-1-yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_014404_975293_405E3A6D 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20260715_014739_580433_90DA6987 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,74 +65,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 10:25:19AM +0200, Thomas Gleixner wrote:
-> On Thu, Jul 09 2026 at 13:32, Thomas Wei=DFschuh wrote:
-> > Now that there is a dummy declaration of VDSO_CLOCKMODE_R4K, even if no
-> > vDSO is built, the ugly ifdeffery can be replaced with a cleaner
-> > IS_ENABLED() check.
-> =
+This series add basic errata framework for Picoheart SoCs for handling
+upcoming Picoheart erratas. And add workarounds for the first two
+erratas on our hardware.
 
-> Duh. This stuff is really obfuscated. I just realized that the previous
-> one actually expands the architecture defines to non-defined integer
-> variable declarations.
-> =
+Yicong Yang (3):
+  riscv: errata: Add init framework for picoheart errata
+  riscv: errata: picoheart: Add workaround for cbo.clean errata
+  riscv: errata: picoheart: Add workaround for AMOCASQ errata
 
-> Smart, but seriously?
-> =
+ arch/riscv/Kconfig.errata                    |  34 +++
+ arch/riscv/errata/Makefile                   |   1 +
+ arch/riscv/errata/picoheart/Makefile         |   5 +
+ arch/riscv/errata/picoheart/errata.c         | 223 +++++++++++++++++++
+ arch/riscv/include/asm/alternative.h         |   3 +
+ arch/riscv/include/asm/cmpxchg.h             |   2 +-
+ arch/riscv/include/asm/cpufeature.h          |   8 +
+ arch/riscv/include/asm/errata_list.h         |  25 ++-
+ arch/riscv/include/asm/errata_list_vendors.h |   4 +
+ arch/riscv/include/asm/insn.h                |   4 +
+ arch/riscv/include/asm/vendorid_list.h       |   1 +
+ arch/riscv/kernel/alternative.c              |   5 +
+ arch/riscv/kernel/cpufeature.c               |  16 +-
+ arch/riscv/kernel/traps.c                    |   4 +
+ 14 files changed, 332 insertions(+), 3 deletions(-)
+ create mode 100644 arch/riscv/errata/picoheart/Makefile
+ create mode 100644 arch/riscv/errata/picoheart/errata.c
 
-> I just double checked and it turns out that none of this ifdeffery is
-> required. If CONFIG_GENERIC_GETTIMEOFDAY is disabled, then it does not
-> matter at all whether the actual ARCH_CLOCK_VDSO_MODE is set in
-> clocksource::vdso_mode or not.
-> =
-
-> Nothing uses the vdso mode field outside of update_vsyscall and that's
-> compiled out when CONFIG_GENERIC_GETTIMEOFDAY=3Dn.
-
-__clocksource_register_scale() does.
-
-> So all what's required is:
-> =
-
-> --- a/include/vdso/clocksource.h
-> +++ b/include/vdso/clocksource.h
-> @@ -3,14 +3,11 @@
->  #define __VDSO_CLOCKSOURCE_H
->  =
-
->  #include <vdso/limits.h>
-> -
-> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
->  #include <asm/vdso/clocksource.h>
-> -#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
->  enum vdso_clock_mode {
->  	VDSO_CLOCKMODE_NONE,
-> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-> +#ifdef VDSO_ARCH_CLOCKMODES
->  	VDSO_ARCH_CLOCKMODES,
->  #endif
->  	VDSO_CLOCKMODE_MAX,
-> =
-
-> and then you can just unconditionally set clocksource::vdso_clock_mode
-> in all drivers.
-> =
-
-> No?
-
-It will weaken the sanity check in __clocksouce_register_scale() if
-CONFIG_GENERIC_GETTIMEOFDAY=3Dn. I am not sure what that sanity check
-is supposed to protect against, so I left it as is.
-If we can weaken the check, or maybe even remove it,
-I'm all for your simpler aproach.
-
-
-Thomas
+-- 
+2.50.1 (Apple Git-155)
 
 _______________________________________________
 linux-riscv mailing list
