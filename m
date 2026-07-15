@@ -4,71 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DD1C44501
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 09:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC431C44501
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 09:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YOBAohNWAS1lInfzZ6PC/sr3N1sz0KfM6ez83URHgaI=; b=K18xp/aCrXaZyCFEVc7cBquJyQ
-	2vv0kS5VaLYXDHLOFRy2PKcsgFT9Ks6TXPakmhnGM4SR1plEkyu26AmXre9IgFSEkEpNJk5UUvdzL
-	xLhaUHlKX/RTv0jDu1oEn+l+aks0lz+OOo5+oedd7gGxWHMpJFOs0IePFGT+U4HPN8RJnRmXB8N6r
-	uBeXL/TeuAsze6hyD4Pp9HikCNhbycgHgCjaXUjk6lWRInmlkDM3r6DPtIjp+GZQZqTmPaNZk4dsm
-	BsRuZ30RGGSL9ICnqtGfsZdkEeGm8f5ZS17Lceb3xxtlyyqAhwKK6/6l+vqw9oAGZ/k/deQRfuJar
-	5VwQQ+LA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xhFgDvLDTP8azet1mcE5l/3s1ElomF+JAy42YWC+JcM=; b=m/GWnumToxhKqv
+	Zb4dWl+IfFdhoC1Y4I7Nb2MPMLUKOSl3ZB9XIKTpQz0T6KVyyWD73W6p90zITztnNNJudXbJwXlR+
+	RZ05njqroCWdV/rmqeKCUCCkw7YS+z5HRs8RcGzWamZ8KkAXrPZf2lyEKdv9HESbT/BSO+0KNNY3c
+	j3MNT3fOogaQ+T/e1h2ErKrhHijUrim1hi3p43pa5NmHs4LxzQS9Iz/xNVnEzDaTJBgXYlf3CcZEB
+	IgaJepBRjx+lUIWYl0Wp+dqdWVPyiR3x1E2HKK5JzOONCi3mlwkY14bb07ubhfoG1If7xyfJW3f+7
+	Z6YrPKwhoruCYQGPh2Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjw94-0000000ELzP-2ZW6;
-	Wed, 15 Jul 2026 09:43:14 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1wjw9S-0000000EM5Q-3S5J;
+	Wed, 15 Jul 2026 09:43:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjw8z-0000000ELxo-49mc
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jul 2026 09:43:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1784108588; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=R2HmU9UJ2IBaGQSpvN6c/A3uULuxNh34EiIl7381Gmo=;
-	b=blsm8iUxbUrUWPFekEikTYZv/lIrKQXKVbxOUlmTzV+nDK4MV+EEhPgdXBz0pFQik2jW2nvFudBhkpS1fVW8/5nGcJ/X5Ce0i0aY2o25fITgHR37RpHGtVVNsyX3KPbIT1bqp9hPVD8Mckc9/lbjO7Cblza1T7yhhePIuJMwPzU=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X78miZk_1784108582;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X78miZk_1784108582 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 15 Jul 2026 17:43:06 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: Guo Ren <guoren@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
-	Tomasz Jeznach <tomasz.jeznach@linux.dev>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	David Laight <david.laight.linux@gmail.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Zong Li <zong.li@sifive.com>,
-	cuiyunhui@bytedance.com,
-	yuanzhu@bytedance.com,
-	iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] iommu/riscv: Use 32-bit MMIO accesses for 64-bit registers
-Date: Wed, 15 Jul 2026 17:43:00 +0800
-Message-ID: <20260715094305.2783-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CAJF2gTT7TPA+K+JgkvvUtb0x5BSzfox+s5rG8OtrP0QzPetHFw@mail.gmail.com>
-References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
-  <20260713122903.9458-1-zhangzhanpeng.jasper@bytedance.com>
-  <3591a185-d0b5-4cb0-a0d5-ae9608a4e244@arm.com>
-  <CAJF2gTT7TPA+K+JgkvvUtb0x5BSzfox+s5rG8OtrP0QzPetHFw@mail.gmail.com>
+	id 1wjw9R-0000000EM4W-0UH4;
+	Wed, 15 Jul 2026 09:43:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5E2CC601C6;
+	Wed, 15 Jul 2026 09:43:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464261F000E9;
+	Wed, 15 Jul 2026 09:43:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784108616;
+	bh=CC+e/Z0BaeZIfuy0GA+8f2VQ0SUjP7mL+FiN+wpHZDM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DBliIrs1Vie421HB7pFithfaf6+UeS3O6z2aoh/aN1WWGPjXflmiUACQdZ3xpskBY
+	 xMfYSp2UqXDvXFvK55J+NuyWH3rQs+JwYDOnaQ0FnmpRHN6bsvs75KwaUdohNozQJj
+	 XSf940SX0+vO09aO3jHGkAXGyO7J8nwLLVm3PGMTkrAf2Uj/RNJe0WW9mYrpDx4w16
+	 2hht1+fq5ju7pSYbsa+Git3edPTDAqecJ+sV2mJ0+WNWq7ptmUxMNEQvPoQ3QcSlCp
+	 m9Teaq/0qIGpP303+Rl9w/iFPHMOESoof6nsGY/ZidS26od+bMOS/kWhVtaM7LyALb
+	 j4kx/9RfCKujg==
+Message-ID: <14019379-1725-4cad-8158-322714b19ace@kernel.org>
+Date: Wed, 15 Jul 2026 11:43:20 +0200
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_024310_337353_39062AB3 
-X-CRM114-Status: UNSURE (   6.59  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
+ folded pgtable case in effective_prot()
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Dave Hansen <dave.hansen@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org,
+ kasan-dev@googlegroups.com, linux-csky@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+ linux@armlinux.org.uk, akpm@linux-foundation.org, ankur.a.arora@oracle.com,
+ rppt@kernel.org, linmag7@gmail.com, chleroy@kernel.org,
+ klarasmodin@gmail.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ kas@kernel.org, zhangtianyang@loongson.cn, wangyuli@aosc.io,
+ tsbogend@alpha.franken.de, ljs@kernel.org, jgg@ziepe.ca,
+ catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+ ryan.roberts@arm.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
+ baolin.wang@linux.alibaba.com, tj@kernel.org, kevin.brodsky@arm.com,
+ anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de, hpa@zytor.com,
+ hannes@cmpxchg.org, mhocko@kernel.org, qi.zheng@linux.dev,
+ shakeel.butt@linux.dev, kasong@tencent.com, baohua@kernel.org,
+ axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com,
+ ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+ dvyukov@google.com, vincenzo.frascino@arm.com, anshuman.khandual@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com, ardb@kernel.org,
+ guoren@kernel.org, yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
+ dinguyen@kernel.org, schuster.simon@siemens-energy.com,
+ wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech, muchun.song@linux.dev,
+ vishal.moola@gmail.com, namcao@linutronix.de, pavel@kernel.org,
+ djbw@kernel.org, yu-cheng.yu@intel.com, baolu.lu@linux.intel.com,
+ Jonathan.Cameron@huawei.com, coxu@redhat.com, andreas@gaisler.com,
+ liam@infradead.org, vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
+ geert@linux-m68k.org, shorne@gmail.com, jonas@southpole.se,
+ stefan.kristiansson@saunalahti.fi
+References: <32d459d1-ad19-4baf-bbb1-0565458001d2@intel.com>
+ <3ea30f8a-bb29-4bf5-8400-1c4840d46a88@kernel.org>
+ <7e84b200-25eb-43a6-b5e2-5f27f2d82a77@intel.com>
+ <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
+ <14e250db-1641-4085-8d13-02f819657d5f@intel.com>
+ <d83c76b3-ea4d-4c41-b4c5-f5ae558ace55@kernel.org>
+ <alYgMxKqRnF6_X0A@e129823.arm.com>
+ <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
+ <alZe-Cu7yQw9qRXU@e129823.arm.com>
+ <2d51a1ad-85be-46bf-ac36-18eca199b449@kernel.org>
+ <alZ_6HFc56zC7tt0@e129823.arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <alZ_6HFc56zC7tt0@e129823.arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +151,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8970774816914846444=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8970774816914846444==
-Content-Transfer-Encoding: quoted-printable
+On 7/14/26 20:28, Yeoreum Yun wrote:
+> On Tue, Jul 14, 2026 at 06:31:22PM +0200, David Hildenbrand (Arm) wrote:
+>>
+>>>
+>>> Agree. Calling a pXd_entry() about folded one seems meaningless.
+>>> But seems enough to check mm_pXd_folded() before calling pXd_entry()
+>>> in each walk_pXd_range().
+>>
+>> Needs some double-checking that callers can handle it (like effective_prot()
+>> would currently not), but certainly something to look into!
+> 
+> Most of mm_walk_ops *implicitly* handles the folded pgtable case
+> (e.x) pXd_none() / pXd_present() and other can handle explicitly in
+> its own handler.
+> 
+> But, IMHO, It would be better to skip calling pXd_entry() in the
+> walk_pXd_range() by checking the folded and this is clearer conceptually.
+> 
+> For this, it  requires the rewrite the walk_mm() where use only *p4d_entry()*
+> to gather the leaf/non-leaf information for MGLRU.
 
-On Tue, Jul 14, 2026 at 09:55:19PM +0800, Guo Ren wrote:=0D
-> The specification is deliberately precise. It uses "may", not "shall"=0D
-> or "must". We should not introduce speculative implications that break=0D
-> the spec's consistency on RV32. The safe and portable interpretation=0D
-> is that software is explicitly allowed to use 32-bit accesses for=0D
-> these registers on any system, which is exactly what this patch does.=0D
-=0D
-The RV32 argument is quite compelling. The RISC-V IOMMU is a=0D
-platform-level IP that must serve both RV32 and RV64 software stacks.=0D
-Mandating 64-bit MMIO accesses would directly conflict with RV32, where=0D
-such accesses are impossible =E2=80=94 so any interpretation that turns "ma=
-y be=0D
-accessed using either a 32-bit or a 64-bit access" into an implicit=0D
-hardware requirement for 64-bit accesses breaks the spec's own=0D
-consistency on RV32.=0D
-=0D
-The RFC 2119 argument is equally strong. In RFC 2119 terms, "MAY" means=0D
-an item is truly optional =E2=80=94 a specification should express obligati=
-ons=0D
-through these well-defined normative keywords, not leave them to be=0D
-inferred from everyday-language intuition. If the spec authors had=0D
-intended to require hardware to support 64-bit accesses, they would have=0D
-said "must" or "shall".=0D
-=0D
-Given both points, treating 32-bit MMIO accesses as the default for the=0D
-RISC-V IOMMU driver is the safe, portable, and more inclusive choice: it=0D
-is explicitly permitted on every conformant implementation, whereas=0D
-64-bit access atomicity is left unspecified.=0D
-=0D
-Acked-by: Chen Pei <cp0613@linux.alibaba.com>=0D
-=0D
-Thanks,=0D
-Pei=0D
-=0D
+Yeah, this needs a thought indeed.
 
+-- 
+Cheers,
 
---===============8970774816914846444==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+David
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8970774816914846444==--
