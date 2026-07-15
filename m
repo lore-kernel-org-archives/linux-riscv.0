@@ -4,104 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16ABEC44508
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 12:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9270C44508
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 13:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7pwrm1TEEeogKUZTthDsvCwdRA4qzqkwAeiIFWAgeto=; b=WqNFyo5aEDh+1x
-	yHzrHZ0iuyr6kl8aF9EDZ1unCIfLqkh4rkSZ1rgdLBpIIc+P74JCwU5RRvxW+8F5Sqs37HdNJaNTp
-	/gRZwpphOPPE52joB0UZAhcvpulkTsFTXbex5gRvVlqXpKvAwt2e7xxsF6B14EtsB1SO++u9FXD2l
-	9Zo0mlmnr0VJZhSlrvfjQqtkoLURr/Qruzj7zJGFqDhKfPRg4LXKBc37ePGjkaSTYb4qapDUmfT5Z
-	//z1txqYvPWqtWhD4eK28FsJkUXOUDZHfQI2ljlMQEBZPx6eoSETo9blEEWLFUwJJfW8pHSIUoTul
-	OyD991vMubzP+Q2q2aeA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DWEE9DXb3l/GZJ+CDs+Nc6X7sX1sj8583/748/xsPns=; b=pNMHVOI3NB+qOU
+	AlczkJmXMTsEb9MRYzbz7EMtRq6VA3NAN8t85B2ufrOat/GDlK6xdSKeJ/fbtsx5nvj+5YkJ7jAro
+	GFSwB0M79/dmjYTlkS24KRGZt9XGpRRu+jqp3ag7fmFJv4rTVmw/fcfu8Nuq9WzNelb57CSHaG4R/
+	T15tKaMHKeZE+aVJhUhFmmBwHwrl9G/lnIUme2mnVbdL4dhhT3MNWCU1aVWKPRSGF2AHZLUfkFbe5
+	HY43epMbxoJ68AhE7TvuvLJ0JmBrJR5kn5ESA1jbalbv/O/OPPwfm9S/yyAYiCt0rpxgNjO3tqL0R
+	DSpYNS7RlLHA+HM3EkZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzBD-0000000EsJb-1nNe;
-	Wed, 15 Jul 2026 12:57:39 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1wjzXB-0000000Ev8E-42NB;
+	Wed, 15 Jul 2026 13:20:23 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzBA-0000000EsJ8-49qI
+	id 1wjzX8-0000000Ev6v-2w2k
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jul 2026 12:57:38 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-737de52625cso2516674137.3
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 05:57:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784120253; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QG5QjBSp5xJs212ekhbp1tMJOSjtf51m6ksQ0TYCg9MvZskFOE0Udrc3GV31FCBQJl
-         8VFbsG1L6lNhbDGdTfVkU8LtDowBLJrALBhZ+p6SBV8GBaUAiE10orHN6tXunVdbaHOy
-         6NEHtuYmWFt//bKS87u+qNykK+vbGuow3G5vzmI4REOeZMcL/oCuDGlnXBxSsIXAZg1M
-         X3CFN9zybInocNcRBkBFSTwAB3fRwHZpAZoo9lDzLE52uRHx6vmCksWvb1M3SXNxeWTv
-         sPyt4pBQgqUmbEd+Tf5995OiDJhkSKq088jIc+L4ucsAe3nNcGd+6dcJtKrroS2DXmP7
-         NgZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9H0XuRVlEsxWOSXa2jKa5m2j6f+/bLtY4cyYhqTfTDk=;
-        fh=LTGAhH3tBJcCwBz1GcbtgImkjIcx0rnLZbIl/2Cuhcs=;
-        b=jGBxPgMYwGFQRAjXU+6cM7LUEMQ0KUxgJkct8NQ2DSvNaghImk2r+JGcJx2CLNmzdR
-         kKmCDpSknQobnVKzyT+jIQqYVGdQ6drdHg55q+eSmSUEANaYWKafu12SDxFbV2Jvj0d1
-         UoKQdcRCVKdH/0trMu7KXumIzmQx97Apy5TPLZlouAwDRqGF8E9CTgvdCMR4Y7MJOCkg
-         OeWI0NtEh9jTJnGcvI8DPx51XP3I5urovjlQjqLkonDCihnT/o3jmn3fXa8hWwlOv3vx
-         SQU4EylXr5dsnkvMFlstNL9CbxVvgSLYBD3yQxeBLPMHsaNTsj41cD24FXhgJyuOxGuF
-         FFgg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 15 Jul 2026 13:20:20 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2cc97653887so62243605ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 06:20:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1784120253; x=1784725053; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9H0XuRVlEsxWOSXa2jKa5m2j6f+/bLtY4cyYhqTfTDk=;
-        b=iWVKFVXHxFR2MIyvXOxTk/QrbXsLWRpGnJuvF+/cCrTJ+iY8X7vR6J4CF65AcZYfSF
-         guxcEyLYJA/FfKjrUuw7B8KP6Gho9YlR3Vrvor3WtyNclj9uB9ldYxZQ1ZsMVoXNfg4x
-         nYNQNyEGxDkaglk4H9JGkdGFzabio2nxbTgJ7p3xS4Y70vYkGpVYK6tk6/w2qWGalkPd
-         NX40Zm5gIS/vEqnBm9Pr5Y/tZh3XiWtie4T48y9xyVVLcbxtCL2rKv/QWRHAivg9jiXH
-         P0fF3g9ZGCCG1O0e3bMlCh5DlGr6immPjcYChD115//X3X1qQzAJwj9Ety7kbt6sh6CJ
-         igVw==
+        d=bytedance.com; s=google; t=1784121618; x=1784726418; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=T/y13290HREwIAZ9kl25aMNAKQ9TkHoZHGqR+8kmNks=;
+        b=jUnpWuU7/eAmpBSmx6zwl+K4pzjX92JjHVAcRCjgDyyjUV6KFgfUMFV0KvGhzUp//A
+         MTRx2rlnfayM5AgQD4uY76zWndWVQwfk8fixhhzjd5ve6HCOuirTEquKN5AqQoipNTYf
+         6f1aG5Q2vMcqqqj9FHSWbnA+XXGi6AmIG4GkOR4LqdO82zvKnKYP+Bnm3EJz1MLnneXG
+         xxWH2La6fuWPfGv5ExXEIXfyhpV6D6nOwlJHL7dKvWSyn5moRzaXLJNi1K+Bi1YIY5D7
+         7mN/33tpNYKF2fqDwQXuas/mlchCsodBhZXYWbFaAQlyUZTcm+gR7ckuTNDEJufXFiaK
+         pccw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784120253; x=1784725053;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=9H0XuRVlEsxWOSXa2jKa5m2j6f+/bLtY4cyYhqTfTDk=;
-        b=qQxqi0WfGCeOebQsekg4ZLdckLGmnjDaHwyjoxC90KXmuhxlMgiWCIMwPKMRIF3IXW
-         lF4ITJpQ3qX/yc9MtmiYykCJZT6ZBWPclcAPPzdAe8Wjr9w1THqZChP+ujxOQV3QIh3S
-         7dvOYvJKx+2Y1OmT84HDXg47n+xOXvolKzLQ+GPDljSebtbjH8RRcuqIanKZA0F6ow5J
-         J+QnJamkwTg83RTi0q3Mv0nBD/lf04V2V6HlKbe/2s0/7LUTEbxp609qozFrWfzy1Ygy
-         BCI7BbnhqV5RXAAacUROAE5VW+MXtAGrNl6BfopiZqjNfOc8AM4TSBA5DWhjnfwrfse/
-         xUDg==
-X-Forwarded-Encrypted: i=1; AHgh+RrgpEy+puHxrrsKtBfAzYEHm/7tVGNTev6TkHXMmftqAgsxpEGd1iIMiGB/CJcuTOvYj4qp3p3Rezu1xg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxf3uQU0RRvn4DI02NeHSuYhq7Yp46JurZHjIlcNOwrnf08tas3
-	UNgtIOsjm/syS1AeFQOt2gHnRE8QKXZ+UdwknBxDrYXI+pTuWJJes68qgOATYKJQKzbTAMp7Ih3
-	EEPogluQGmWHdzga9s40rQfc+gw2dzPniTbQeHUPYqLe/X5uwMCN8PHk=
-X-Gm-Gg: AfdE7clCfEJ5EBBANyGwJZee5qboQhL81CdKrCAdZtiS4rC54eCAXPn6RerF/x1SYY0
-	RAoKkhpzYqz4SMn/Xm0Iswsn+y+QyClZyF6z8fGQip8d41agm88LJBOAPa9xozyoQkoBx+p7b0C
-	jj/RKB71TnW2ydxT1U0BRNW8VYGGNrb+ZKtB+qGWGp6ataQ8/fE5v/bMvPr0f95POUyttGwBRdD
-	yM2Ck1I9VjD36veUGBTBhn64VwKDEVT3eE/sj8M81MGY/izhxXzF14YcAUMmMo2gqZZN52mZhUh
-	K6OsScZh9lf0SQqQVpoWBg8hHaMDmIKCazYD51vuZA==
-X-Received: by 2002:a05:6102:d87:b0:737:9edc:36f6 with SMTP id
- ada2fe7eead31-7458757b204mr3810424137.26.1784120253173; Wed, 15 Jul 2026
- 05:57:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250901114141.5438-1-luxu.kernel@bytedance.com>
- <20250901114141.5438-2-luxu.kernel@bytedance.com> <albbQtulrnpOmmBp@soda.int.kasm.eu>
-In-Reply-To: <albbQtulrnpOmmBp@soda.int.kasm.eu>
+        d=1e100.net; s=20251104; t=1784121618; x=1784726418;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=T/y13290HREwIAZ9kl25aMNAKQ9TkHoZHGqR+8kmNks=;
+        b=XD8239/I3IDKqwzBWDY22m39FBXBXVOi82NAh1auitCok+xKhKreTfvpbZbu4BiNCm
+         //lpFaO7Fkb9rabYFDd2mMmcBHWSGU257c7IgTgox0VaZOC4a+qqCXNFv9hpIkmoIjeO
+         cmxejm2kacQ/YGeFvUQcxv8KsFTIW9YJfdizwC4u/lFsRrpLzdwqMC2IvhZHvL1/BgQz
+         /uxNcBpsMkqX4coFHPxuM3AxCf9T2nZWj4yrYrULw5hk/jMTqWhrPW4G/KJChJg00I4j
+         jcAQXipVz00CFQbrKvQpuUgwhn3yYafrwU57RlGsXe9EBUAJmNo4QwlI6LuFxB3CcDCT
+         00mQ==
+X-Gm-Message-State: AOJu0YyE+Vt6jXdV1MhdgPYNIgnL0tArF7+dSY5SnMx54SJNLQGW29M9
+	n6ycEh2JT6UuK09Bs1IHtl6AQu6qkROPrJLr5/O2OpOiQNJLwdp3YMufwsC616HekEPwD4ILDE0
+	yXl6OENc=
+X-Gm-Gg: AfdE7clHpm/Y+R/BGTTgPtNDHMY0fsmVsdpAJIpQBFMTZT3QluEiNpKQdw2TRidkdgd
+	yqPoSaD8RjGwIyIrYmCZKRYGnnDUNiheAi35L8sWkg51anvi73sSkCg4NL2proRNhQ1Cz42K8yn
+	q/rIhH3orQxuph5Es2KdXClheCUc735lQxT+BKvbGdPOzFAk4CFTol61ysCtEGuR1ooK+TU7O7l
+	UQmq5HmjTixBfp9+Gc3thFg+Jx2fLm+BEeiGb/1Su3ugKOqN5OfYxWcXY6sXe9xPrUqIfrQr2Pa
+	p8aizPhmfbluyN4AZnstZrhxuSALRj3gp3R5nY/BWGhSUKtIhsJ4ntGJSpnnXzWm63S/FdkplOz
+	+2fLsgg8P/jpptkSiPcsMS5hX67pCqNVEkT7lyDb5jeT/zYt7jLqpHfUeJx0PoU4uvRBTo2DPDH
+	zrLnKPGSneeSF7W5dpd8S5CnLhGEPL4XmYece6BtTNmX1mqlHEpeuy4i6BjbwIKla1s+G/meLb6
+	jHrck68+vallPMO+x74dKgXNmztNO7k3Hw=
+X-Received: by 2002:a17:902:fdac:b0:2ca:5a42:d8c5 with SMTP id d9443c01a7336-2cf03e1f2f5mr22432835ad.46.1784121617542;
+        Wed, 15 Jul 2026 06:20:17 -0700 (PDT)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf100e42c6sm2465085ad.9.2026.07.15.06.20.14
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 15 Jul 2026 06:20:16 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Wed, 15 Jul 2026 20:57:20 +0800
-X-Gm-Features: AUfX_mwi4ZGyTY9hzEr4eHldimfWXlRLPotdJuLVydh1afQE-jQnOZAmgocRYwI
-Message-ID: <CAPYmKFuUNgr-+SMH=5pHYKPiQ6sB4DqTwf4ge+vg83YkpXb6cg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH RESEND 1/2] riscv: mm: Apply svinval in update_mmu_cache()
-To: Klara Modin <klarasmodin@gmail.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	apw@canonical.com, joe@perches.com
+To: paul.walmsley@sifive.com,
+	klarasmodin@gmail.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	apw@canonical.com,
+	joe@perches.com,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH v2 0/3] riscv: mm: Some optimizations for tlb flush
+Date: Wed, 15 Jul 2026 21:20:06 +0800
+Message-ID: <20260715132009.10634-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_055737_435652_D7288DF1 
-X-CRM114-Status: UNSURE (   4.38  )
+X-CRM114-CacheID: sfid-20260715_062019_175217_38D210E1 
+X-CRM114-Status: UNSURE (   5.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,13 +105,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Klara,
+Some optimizations for tlb flush on RISC-V smp:
+1. Apply Svinval in update_mmu_cache() to avoid flushing irrelevant tlb
+entries.
+2. Clear bit of current cpu in mm_cpumask after local_flush_tlb_all_asid()
+to avoid potential IPIs in the future.
 
-Nice catch! Thanks for your review. I will fix it and resend the patch
-series later.
+Some false positive spacing error happens during patch checking. Thus I
+CCed maintainers of checkpatch.pl as well.
 
-Best regards,
-Xu Lu
+Changes in V2:
+1. Split the modification on update_mmu_cache() into two commits. Thanks
+to Paul.
+2. Fix address errors in the svinval processing path in V1. Thanks to
+Klara.
+
+Xu Lu (3):
+  riscv: mm: Use ASID in update_mmu_cache()
+  riscv: mm: Apply Svinval in update_mmu_cache()
+  riscv: mm: Clear cpu in mm_cpumask after local_flush_tlb_all_asid
+
+ arch/riscv/include/asm/pgtable.h  | 12 +++++-
+ arch/riscv/include/asm/tlbflush.h | 23 +++++++++++
+ arch/riscv/mm/tlbflush.c          | 64 ++++++++++++-------------------
+ 3 files changed, 59 insertions(+), 40 deletions(-)
+
+-- 
+2.39.5
+
 
 _______________________________________________
 linux-riscv mailing list
