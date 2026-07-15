@@ -4,54 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68BEC44507
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 01:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2167C44508
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 02:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s2rdpDDsb9K4vRAT1LN9Kv9TMIXT8xGL30chH1S22xw=; b=0HMC4+TLyQvFd8
-	RglD8iz0uIdc2SYlOnkSPGHz+k82vFHnqDnU7LocfJvXJCk3Y2ZARVxV99AEhtukHDdn0llDccJ6j
-	x0BFv+v5a4776FBMScxfIHJ+9WRlJzCkS7yGnhHKblo9RGQ2Rq+3P8DbuU02FAattsD8IEqolDyGZ
-	HJhQ6KGNpTBEuEb9Zm6tI8MsU5Tt0qx7tVbttYOnGXap8/UDGb41XOxB6AZfnUPKG1nuIIozIXK8r
-	Hbn7ZNYaoDSmC5vqp8TNBYdn5K6JHwOt2AwZaMuRO5zh+wOC7TLrDJDOBwVRq/yop0nzt8zw7u/Gl
-	p5fm6fv/9MrZqZMxdQ/A==;
+	List-Owner; bh=MJL6qO3505IJomcoNUw+NnewI7xDVrZr9boWUxLV3FU=; b=SWHxGk8ox2fMOm
+	7UqH6DDS3OLJomoogq9UgzK1BkxqCm8CN0bZwAFMgmxhzygy7YPAHl2tySiYNIbBMpSIDgE87y4DV
+	8rFvRB+s+HR1nVi4MryQ0T5uUTuV1ba6iP2cG0Zwi9eRsLQQCdKNaS7z3BstAmhuk3ElExZKFIXwh
+	qBVhHA0W/f6OUzEQxQJqkYi1BuDygo3kvB15b4VdH1BV1QU9L3MDsZkZBVZ+MrmpmnsqKpp28Ec1e
+	V/BdEDbHMeCCzES0o2qz4FWTzlrILZVc0+U8CoIg6AmoRBEQFIhKsVUIwp+v0KPkr+cplWa0/mQqR
+	Svk80lVoVBSkKRBjNJsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjoca-0000000Da7r-3Bsl;
-	Wed, 15 Jul 2026 01:41:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjocZ-0000000Da7i-1VZ6
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jul 2026 01:41:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C0EDE4386F;
-	Wed, 15 Jul 2026 01:41:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 552791F000E9;
-	Wed, 15 Jul 2026 01:41:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784079670;
-	bh=c2yD+a6SRC6DPgaNSBntZqirVxqqAFQ+OowsdXoQtSQ=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=GQsS7p/4MNsG2Bh6lSkaDurZkB6L+AOzAA5JltpVhzOfHYetwXyLzw2L+ANR0/4NH
-	 l0r0QA5HxLOvbt7GaxVH2H5h23EvZhPD3u0AaXUPnhik5uGPI2wD2xC2QSX5WuAiVB
-	 mxoZFQvqB3nrPVzHFnY5fD36t/jpSg7unDlu/lIbhRJVNdAJJd9nBwuGe/rRpkYBQt
-	 s3dh609pqakvvr8xfdMGoBIXMvGVwfDoxVWvfFkQrJ09Ruhn+1nyXyfYuSikuHJrnf
-	 HNVyoJaodvJuoHuaQQJ7mBMCFmBivmX1nxiwng93hj+I3MzjSsB5aiz9/bOOLHyN7P
-	 Y5onR4hTUdN+g==
-Date: Tue, 14 Jul 2026 19:41:09 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Paul Sherman <shermanpauldylan@gmail.com>
-cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-    paul.walmsley@sifive.com, aou@eecs.berkeley.edu
-Subject: Re: [PATCH v2] riscv: smp: set CPU 0 possible in setup_smp()
-In-Reply-To: <20260714223301.5265-1-shermanpauldylan@gmail.com>
-Message-ID: <0fcf59d9-fbf5-3f1c-910d-3e269fdadf75@kernel.org>
-References: <20260714223301.5265-1-shermanpauldylan@gmail.com>
+	id 1wjoz4-0000000DbAp-1gQU;
+	Wed, 15 Jul 2026 02:04:26 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjoz0-0000000Db8p-0V8K;
+	Wed, 15 Jul 2026 02:04:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=Ux+YlDFnPNWIMjq0BvNP9tiG0/QVCKDhsi
+	CSzr+cmBM=; b=ECfOVz8JkJ/xiz+0tGE5UVlsczMbKo580e3uvhIWyTrGXXtKP9
+	iBrfeVxO70nCGlb0tOmssK6DlPMV9RCAxvtLSd6GaV1+Hhh+rDXXP9v05mZv0GZ1
+	QlXb3JQQdf8dy0O1CCDQzzTxCyYmwVD8yCTn/VV0uJcB8jvbXeNG9P89Y=
+Received: from ur-dp1000 (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnYUKu6lZqDtkRAA--.16825S2;
+	Wed, 15 Jul 2026 10:04:31 +0800 (CST)
+From: Xie Bo <xb@ultrarisc.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Xie Bo <xb@ultrarisc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Alexander Graf <graf@amazon.com>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4] RISC-V: KVM: Serialize virtual interrupt pending state updates
+Date: Wed, 15 Jul 2026 10:03:58 +0800
+Message-ID: <20260715020359.1521354-1-xb@ultrarisc.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <CAAhSdy0hX0z6BpOUZSnCmhh7aeHUm3Yh5k9TdzUGC+4A1W+Czw@mail.gmail.com>
+References: <178159067899.108868.8176174463274678253@ultrarisc.com> <CAAhSdy3_YnzNiSE=KykriwSWU8X2CLhdr2E8CB=32JxA_L7caA@mail.gmail.com> <20260713073346.1293408-1-xb@ultrarisc.com> <20260713073346.1293408-2-xb@ultrarisc.com> <CAAhSdy0hX0z6BpOUZSnCmhh7aeHUm3Yh5k9TdzUGC+4A1W+Czw@mail.gmail.com>
 MIME-Version: 1.0
+X-CM-TRANSID: AQAAfwAnYUKu6lZqDtkRAA--.16825S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtrW8KF1xur43XFWDJw1UJrb_yoWxArg_W3
+	4aka17G34kJF43ta95Ar48CrsYgw1DCa4xGw4Sgr9rtrn5CF43WFZ7ArnxWwn7J3yYva43
+	twn09an2gayayjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb-AFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr
+	1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVCm-wCF04k20xvY0x0EwIxGrwCFx2
+	IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v2
+	6r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67
+	AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IY
+	s7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr
+	0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-CM-SenderInfo: l0e63zxwud2x1vfou0bp/1tbiAQAHB2pUYNAARQAEsO
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_190422_671969_533D72F4 
+X-CRM114-Status: UNSURE (   3.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,25 +96,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026, Paul Sherman wrote:
+Hi Anup,
 
-> setup_smp() calls set_cpu_possible() for CPUs 1..nr_cpu_ids-1 but
-> never for CPU 0 (the boot CPU). x86 handles this via
-> init_cpu_possible(cpumask_of(0)); RISC-V has no equivalent.
-> 
-> Without CPU 0 in cpu_possible_mask, rcu_init_one()'s
-> for_each_possible_cpu() loop skips it, leaving rdp->mynode=NULL.
-> rcutree_prepare_cpu() then dereferences NULL and hangs.
-> 
-> Exposed on Sophgo SG2042 (64-hart, 4-NUMA) with Linux 7.2-rc3.
-> 
-> Fixes: a4166aec1130 ("riscv: Deduplicate code in setup_smp()")
-> Signed-off-by: Paul Sherman <shermanpauldylan@gmail.com>
+I addressed your comments in v5:
 
-Thanks, queued for v7.2-rc.
+- kept kvm_riscv_vcpu_aia_has_interrupts() as a single helper and made
+  it acquire irqs_pending_lock internally while checking the high
+  pending bitmap;
+- released irqs_pending_lock before the IMSIC VS-file check, since that
+  path takes vsfile_lock;
+- kept the guest CSR updates outside the critical section and protected
+  only the dirty bitmap updates; and
+- added the requested whitespace and clarified the race example.
 
+The patch remains based on Linux 7.2-rc3. RV64, RV32, and RV64 with
+PREEMPT_RT KVM builds pass, and checkpatch reports no issues.
 
-- Paul
+The v5 patch follows this reply.
+
+Regards,
+Xie Bo
+
 
 _______________________________________________
 linux-riscv mailing list
