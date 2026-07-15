@@ -4,89 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D519DC44510
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 00:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740D4C44507
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 00:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g9KgHye3VOXuqfzv6KaHM5TkfHWO2pVfgU+a81YIe84=; b=Ah20Jn2QaBKfvY
-	9FMWrBGVC0hSt8anhn8ZHBg6IwihVStCmVnuASELMrrq9cFwXLY4aOWc1m0EnBSLocHZwMabiTleW
-	E2yn2pq+xBA/CeY5mn5lVqItMkb/CPMDU2i5468CPSTdmfTdFEyWflkivQrhADXLJ/Ns96viC5TCn
-	YVWtWuSxUyZSf/J+wYL+MKPSYimcAilostbJQsuH/3eiyk2kNk+P72cIyQqDBy6fi61CofCK5uoXM
-	ROpQL2527CuXTz6yyl6INVOMysY7Mcx1h9ujVeSIS6i+wVdpdBLKbrenBEiV5BFWmaCGIX4k0DH3O
-	DreaIuiHg9gXlky80d+w==;
+	List-Owner; bh=aaA1EQ3GMSzgF2HezHwTGWGJ2ZufWpm88cViEsLUhi4=; b=NjJgn3LITQ28fa
+	zeClmzfvP82Zp4vWdSKhaVXjDO8FDg+0y5eIvDSHHhuK5kGavMeVZ5NdO5WaNGIfNQufQ5nMhjppw
+	JTZJQ+Rezqd6680b+k78QoOsBu38PAt07UDyqNcBSWQCgdETPK3HwlNLgH4yTVDc4OIg8EOrjg6Nz
+	/0T0Gqps0joKMYA4AzlpzsPmb8h3cr2pjVJrZSvioFoIBGGgjEzbv0CxgwCn5MHFcKK7VVkVLvyjm
+	YDZTTbQF9ZEkyMDgsJ4V/kAXGc8p+dxtfdDYnhC3v8EH8b1qv7YEkou2vbqC5ybZPAAH5UoK+YVDt
+	t/83CXa4ksscDf1vO+Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjnPn-0000000DUhw-409J;
-	Wed, 15 Jul 2026 00:23:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjnp6-0000000DW3I-2cy7;
+	Wed, 15 Jul 2026 00:50:04 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjnPh-0000000DUf6-3Ja2
+	id 1wjnp3-0000000DW26-19Pv
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jul 2026 00:23:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E7726136E;
-	Wed, 15 Jul 2026 00:23:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703DC1F00ADF;
-	Wed, 15 Jul 2026 00:23:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784075028;
-	bh=NRZG2+OGDxMQIpdaGTdc2Eyjub696Fy6GXO6xjLxP+4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=RME50KP71323qmt1SYl0yEvmTaTazSMdRuYBQnqB0P2TiR4swwIgafvPG0Dmq9607
-	 zACFj6eH7UqhO765qllsiNLSCbH2YmJWKwWXfbSGcFKzNHO/3VEIiVn5nXgBaR7DNI
-	 5AfzswxZ1GgwyCnkmNeaU+EcQZ00JnaADFOmKT4aTA8GVai05EutwOSVCIDoHt7S2B
-	 ashIJWOOffCc6DP1F4HFR3kSEvYqQwqo7fVYussT/iJ4RYWOpkvkCVtHvs3ZhMznXv
-	 GvY9suSlXpbWYns50WbymqbnSipod0uNfPfEw2O7fZx1hGCz2VQUCH3eojVYVhnvLC
-	 9bdhI3aLmdgtA==
-From: Drew Fustini <fustini@kernel.org>
-Date: Tue, 14 Jul 2026 17:23:27 -0700
-Subject: [PATCH v5 5/8] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
+	Wed, 15 Jul 2026 00:50:03 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66F0IrTs2076909
+	for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 00:49:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	jUGR1Dey91RMv6/UrlIf+RTVS0A3peDLMNZcwXJR00o=; b=UxM3n7GHhTu9Z4EV
+	DUFuDd7MSIHmG2bG5x2S6YD+v/a9tM2U4acC12QxZ7kmjWhrpIBCQukUFJDwEeAe
+	67iqBvmEbKl74UqYpxohEC5VH5v3EdgYK/GBvmkZIvf6WF2pmDTuc5tyK/kUGo7V
+	wdwB17KSKIZ2eI9L4z90BfX8ghTH0XILKLdFfjwympdgJIPbz4FPseDypQq+rcs0
+	hhBO0wBFVaYdpSGjGkTuRbLe1HZ/NMZBuwl/oG/4HQ6ESw7CDjGYuVdEZVdvSoDW
+	9oiJ0Q39uzSCTcyCOUocW7mubJ4ZYCT8cBsPPePgfDk/UJrOdmmOoVi8wPFOqEI0
+	ALnHnw==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fdnnr2d6h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 00:49:58 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c9d5a5b63c5so7341683a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 17:49:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784076598; x=1784681398; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jUGR1Dey91RMv6/UrlIf+RTVS0A3peDLMNZcwXJR00o=;
+        b=W3VpqAtgUIezpRrC5Pzb3sv4O4HSS4baK5sE3I27nmFsrQr22Uhp18Sn3KvDvEZVB7
+         5U4FR1f+aCYh7A5qpssEDSutIOIf3FuRpLFaP4GQTylpGg0rNLW/2VaQafOZFU7FgOKC
+         FfLMQzYtCKRiyvXMsCKvSH6PSu4wYhQZrlHFOvAcncgYRxU/6HZYCpeiIBRXfKqDU+Qh
+         WdlUmvwReZzEVPElufwRJe8xf02P/VITkjm+ySbRGyYMwIlTgCm9bb1M6oUvfNGztbLW
+         2e0ensEd/DK1sXEKfN4DXCAUjilV8kiaU2QguUWRlAjhCqJbO814LAJsHy0gYks1SK7R
+         5gRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784076598; x=1784681398;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jUGR1Dey91RMv6/UrlIf+RTVS0A3peDLMNZcwXJR00o=;
+        b=j9fCTb2V5k2tFbeVDZ+i0hFd+1yLC2j60Kv6gLbrr6b7KmmpQFLLWY8zPog6j7vfaW
+         z0JJ1MEOnSvdMf3bZx1RJVGWInKioXGHLo3P4eT1D4713WILpBZInSqu/RvkP/4tgPg7
+         n3ReTHe5sAXv5RZo0mdrML9NRYDCK47J8ilmwAIlgGS3fg7qbdUDrmWCxCjxOx2CZLrI
+         F8bYRZCH7JWrsMsrnnT9dvPEEdU1sIz5Fit+4M94FkMu6mfSuvWmLeT1CEIzJj2KNAkB
+         q/Yf6KPGqDwQN80R0zzgVFapnmT8MdgukrS5baFDhmCRcKKth1yscJnx2IcFdwv3Z53Q
+         W8Ew==
+X-Forwarded-Encrypted: i=1; AHgh+Rpy4ga8pshRYrjhlV0HB4+ptb5boiwOsx6dC8k/ZIhR5ijxUQ1DlMrJVnO6PEGIcgeVLWrAA/v9skDfAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAYvaefew9t4RxlWyfINF0XiiH+e/6G0NEBaMjwRhCPQkm2qLa
+	4kT5vzClpzPmZyMorgzjbrHn5viVHskqU9eU+D9se/7Itq/Ni3gmN3ja/VtXIEgo0/zcfR4oqdN
+	EQGc3DJcu2Q2LmoV6GzSQim9z4tekm6veWAuCs+/VzZmWgVbg2DjVFapk8TI1Wh4h/5ziMEE=
+X-Gm-Gg: AfdE7ck5ra4HS9+oFZdXYswtIEt8qMGU5YbpyAxgqdEuMscaDUaLgewH0n8nt5O28iG
+	E/8SKgKcs3Yq6YJj1SVqGWbYVR0k1gWqtuP/9LUoVKpqbLgL4fBF9/DZrPhv/rWNJEaYxfb9TQ3
+	ujBW7EeR6ViRdan5CI+TlCdtu9Bx0e0lTW9IBpmnBR+5pX+rr9xApbwDf+CgsLRym7xrSydkelE
+	v9tOCi9Gz7CJianIXsei2UP484LSO64pJb/dqy3LO1vc5TEB1BH7arXhrXEhkdWfDSkr4iZmYzf
+	AZZSo1XQs/IIkU6l+iOYCVjiir76HMT00OKtMEhLG/P/wWqougtTIQXr2G+k+ptCxVXIY5MKpx8
+	S1roXHwkYcT5Wt5MLTILc2e1vYWDNxCZ69W7bi4UPtg4fHZyPkNyYNSqK9P8e14eV4NNYBel+Jr
+	U=
+X-Received: by 2002:a05:6a21:9a4a:b0:39b:ba95:b14c with SMTP id adf61e73a8af0-3c3570141a9mr5161162637.24.1784076597662;
+        Tue, 14 Jul 2026 17:49:57 -0700 (PDT)
+X-Received: by 2002:a05:6a21:9a4a:b0:39b:ba95:b14c with SMTP id adf61e73a8af0-3c3570141a9mr5161142637.24.1784076597207;
+        Tue, 14 Jul 2026 17:49:57 -0700 (PDT)
+Received: from [10.133.33.53] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ca5b3c1f77fsm10602524a12.32.2026.07.14.17.49.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jul 2026 17:49:56 -0700 (PDT)
+Message-ID: <603db28d-32eb-4187-bd10-e77e663f106d@oss.qualcomm.com>
+Date: Wed, 15 Jul 2026 08:49:50 +0800
 MIME-Version: 1.0
-Message-Id: <20260714-dfustini-atl-sc-cbqri-dt-v5-5-b0ae7e9c932e@kernel.org>
-References: <20260714-dfustini-atl-sc-cbqri-dt-v5-0-b0ae7e9c932e@kernel.org>
-In-Reply-To: <20260714-dfustini-atl-sc-cbqri-dt-v5-0-b0ae7e9c932e@kernel.org>
-To: Adrien Ricciardi <aricciardi@baylibre.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra <atishp@rivosinc.com>, 
- Atish Patra <atish.patra@linux.dev>, Babu Moger <babu.moger@amd.com>, 
- Ben Horgan <ben.horgan@arm.com>, Borislav Petkov <bp@alien8.de>, 
- Chen Pei <cp0613@linux.alibaba.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>, 
- Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai <gsh517@gmail.com>, 
- guo.wenjia23@zte.com.cn, James Morse <james.morse@arm.com>, 
- =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn, 
- Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
- Peter Newman <peternewman@google.com>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
- Reinette Chatre <reinette.chatre@intel.com>, Rob Herring <robh@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Tony Luck <tony.luck@intel.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, 
- Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>, 
- yunhui cui <cuiyunhui@bytedance.com>, 
- Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>, 
- Drew Fustini <fustini@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
- linux-doc@vger.kernel.org
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=29167; i=fustini@kernel.org;
- h=from:subject:message-id; bh=xySg1BkQZya5L5mGACslmBIaz9OJyZFiBE6kqPn8Yeo=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWSFXRbUf3Boe+hi5eMcPSLqp/YKRlmwzzztuZZx38aWn
- y198RXWHaUsDGJcDLJiiiybPuRdWOIV+nXB/BfbYOawMoEMYeDiFICJnAtjZDh88lC3dUCiV0xb
- 3EumyMW77/jsXr3f78j9DTV1S2RmGV1hZOgJXrajcmZcsURdt6P0a6OqdREL7WdadUtVflkZdm3
- bYz4A
-X-Developer-Key: i=fustini@kernel.org; a=openpgp;
- fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: qcom: shikra: Add coresight nodes
+To: Rob Herring <robh@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Leo Yan <leo.yan@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+References: <20260714-add-coresight-nodes-for-shikra-v1-0-b1cf85962455@oss.qualcomm.com>
+ <20260714-add-coresight-nodes-for-shikra-v1-2-b1cf85962455@oss.qualcomm.com>
+ <CAL_JsqLqbSrQKnnj2=57d-hFFeQ4xsDigLzmD-LHfufm=Mpp-Q@mail.gmail.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <CAL_JsqLqbSrQKnnj2=57d-hFFeQ4xsDigLzmD-LHfufm=Mpp-Q@mail.gmail.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE1MDAwNCBTYWx0ZWRfX0IBZUW/gzimo
+ /wBGJRJfg8lXsGRYgwfKyj1OG8Vlv8jt+XCr4/N94hfJJijeYRiN9JV5ysLFi1hHVRV8sO/x3kT
+ asT8/5WAfxgFk3FTWzIAlcucUqRS5UQ=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE1MDAwNCBTYWx0ZWRfXyFjSu7pbXmvw
+ lEYtKletztD4GCWIO8RZI62A1Ojk61h7Qh58F45mg2WI4n2i2vnUEhGLoB91ZdUg91KrX46yMQm
+ pKBfqm5BcW1TPuEwHIpFDDHiQD1MNwWx9VNkoh2FYV88dAf2QYUMRpA11K4EqJ8YYk4bqDd1oc7
+ ij49fP7+2wfz/sWcJ3C/O79QXj9y9SoWbZlyqbLjGI/WynDEMuD9EX/qzjIlS8r2vYJfmmxXryQ
+ mHkQIn8aYQaTHYrpGxzOXHy8XbCHbH20VLx4lsDelwI2emay4NZzqsN1BhzWp7ENcAbYjNNKWgh
+ GvYGHQMTi6y/OlcDDFatXDQCoKHo2cU/6z3wGgU5PYoAcJ5uWL8pHejmy3u0U0GC+R1lvc6+Bnn
+ URE7M/OLignI9kF0wb8X1Kr72/6H0qrGQwzP7MKfz0g7dCyltoG9HDmqQEXTzXfUVaJGcrcQcOf
+ 7zjiB5Ulmf0xXAxUwKw==
+X-Proofpoint-ORIG-GUID: tt7JfHBs9Dnu8GWM5TefLHDc1UJiSvL1
+X-Authority-Analysis: v=2.4 cv=NfPWEWD4 c=1 sm=1 tr=0 ts=6a56d936 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=miRBm6SHGmt7Tc25g28A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-GUID: tt7JfHBs9Dnu8GWM5TefLHDc1UJiSvL1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-15_01,2026-07-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 malwarescore=0 phishscore=0 clxscore=1015 spamscore=0
+ suspectscore=0 bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607150004
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_175001_473252_E661B88D 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,1025 +155,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wire CBQRI capacity controllers into resctrl as RDT_RESOURCE_L2 and
-RDT_RESOURCE_L3 schemata.
-
-resctrl exposes a single cap set per rid, so when more than one capacity
-controller backs a cache level they must agree on those caps. A level
-whose controllers disagree is left unexposed. Other levels are
-unaffected.
-
-Control domains are created in the cpuhp online callback and keyed on
-the onlining CPU's cache id from cacheinfo, so a CPU that is offline at
-probe time still joins its domain once it comes online. A domain is
-published on the ctrl_domains RCU list only after it is fully
-initialized and brought online, and removed from the list before it is
-taken offline, following the documented safe traversal rules.
-
-Assisted-by: Claude:claude-opus-4-8
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
- MAINTAINERS                      |   2 +
- arch/riscv/include/asm/resctrl.h | 147 ++++++++
- drivers/resctrl/Kconfig          |   4 +
- drivers/resctrl/Makefile         |   1 +
- drivers/resctrl/cbqri_resctrl.c  | 785 +++++++++++++++++++++++++++++++++++++++
- 5 files changed, 939 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 064a6ae2823e..b9bded8d3dd6 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23364,9 +23364,11 @@ R:	yunhui cui <cuiyunhui@bytedance.com>
- L:	linux-riscv@lists.infradead.org
- S:	Supported
- F:	arch/riscv/include/asm/qos.h
-+F:	arch/riscv/include/asm/resctrl.h
- F:	arch/riscv/kernel/qos.c
- F:	drivers/resctrl/cbqri_devices.c
- F:	drivers/resctrl/cbqri_internal.h
-+F:	drivers/resctrl/cbqri_resctrl.c
- F:	include/linux/riscv_cbqri.h
- 
- RISC-V RPMI AND MPXY DRIVERS
-diff --git a/arch/riscv/include/asm/resctrl.h b/arch/riscv/include/asm/resctrl.h
-new file mode 100644
-index 000000000000..b08f4e12f7aa
---- /dev/null
-+++ b/arch/riscv/include/asm/resctrl.h
-@@ -0,0 +1,147 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ASM_RISCV_RESCTRL_H
-+#define _ASM_RISCV_RESCTRL_H
-+
-+#include <linux/resctrl_types.h>
-+#include <linux/sched.h>
-+#include <linux/types.h>
-+
-+#include <asm/qos.h>
-+
-+struct rdt_resource;
-+
-+/*
-+ * Sentinel "no CLOSID assigned" used by resctrl_arch_rmid_idx_decode().
-+ * fs/resctrl treats this opaquely. CBQRI uses MCID directly as the linear
-+ * rmid index, so closid is unused on decode.
-+ */
-+#define RISCV_RESCTRL_EMPTY_CLOSID	((u32)~0)
-+
-+/*
-+ * Terminology mapping between x86 (Intel RDT/AMD QoS) and RISC-V:
-+ *
-+ *  CLOSID on x86 is RCID on RISC-V
-+ *    RMID on x86 is MCID on RISC-V
-+ *     CDP on x86 is AT (access type) on RISC-V
-+ */
-+
-+/**
-+ * resctrl_arch_alloc_capable() - any CBQRI controller exposes resctrl alloc
-+ *
-+ * Returns true once at least one CBQRI controller has successfully probed for
-+ * a resctrl-exposed cache capacity allocation feature. Only meaningful after
-+ * cbqri_resctrl_setup() runs at late_initcall.
-+ */
-+bool resctrl_arch_alloc_capable(void);
-+
-+/**
-+ * resctrl_arch_mon_capable() - any CBQRI controller exposes resctrl monitoring
-+ *
-+ * The CBQRI driver implements capacity allocation only and wires up no
-+ * monitoring events, so this always returns false. fs/resctrl references it
-+ * unconditionally, hence the stub.
-+ */
-+bool resctrl_arch_mon_capable(void);
-+
-+/**
-+ * resctrl_arch_rmid_idx_encode() - encode (RCID, MCID) into a linear index
-+ * @closid: RCID (resource control id)
-+ * @rmid:   MCID (monitoring counter id)
-+ *
-+ * RISC-V uses MCID directly as the linear index into per-RMID arrays
-+ * managed by fs/resctrl, since CBQRI controllers admit any MCID for any
-+ * RCID. closid is unused here. CDP is encoded via the AT field on each
-+ * CBQRI op rather than via the index.
-+ */
-+u32  resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
-+
-+/**
-+ * resctrl_arch_rmid_idx_decode() - inverse of resctrl_arch_rmid_idx_encode()
-+ * @idx:    linear index
-+ * @closid: out: always RISCV_RESCTRL_EMPTY_CLOSID
-+ * @rmid:   out: the MCID that @idx encodes
-+ */
-+void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
-+
-+/**
-+ * resctrl_arch_set_cpu_default_closid_rmid() - install per-CPU srmcfg default
-+ * @cpu:    CPU number
-+ * @closid: RCID to use when no task is matched
-+ * @rmid:   MCID to use when no task is matched
-+ *
-+ * Sets the per-CPU cpu_srmcfg_default so __switch_to_srmcfg() can fall back
-+ * to the CPU's default RCID/MCID for default-group tasks (those whose
-+ * thread.srmcfg encodes to 0, i.e. closid == RESCTRL_RESERVED_CLOSID and
-+ * rmid == RESCTRL_RESERVED_RMID). Implements resctrl allocation rule 2
-+ * ("CPU default") on RISC-V.
-+ */
-+void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
-+
-+/**
-+ * resctrl_arch_sched_in() - context-switch hook to install task RCID/MCID
-+ * @tsk: the task being scheduled in
-+ *
-+ * Called from finish_task_switch() to write tsk->thread.srmcfg into the
-+ * srmcfg CSR. Tasks tagged with RISCV_RESCTRL_EMPTY_CLOSID inherit the
-+ * per-CPU default set via resctrl_arch_set_cpu_default_closid_rmid().
-+ */
-+void resctrl_arch_sched_in(struct task_struct *tsk);
-+
-+/**
-+ * resctrl_arch_set_closid_rmid() - tag a task with an RCID/MCID
-+ * @tsk:    task to tag
-+ * @closid: RCID to install
-+ * @rmid:   MCID to install
-+ *
-+ * Updates tsk->thread.srmcfg with the encoded (RCID, MCID) pair. The new
-+ * value takes effect on the next resctrl_arch_sched_in() for this task.
-+ */
-+void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
-+
-+/**
-+ * resctrl_arch_match_closid() - test whether a task carries a given RCID
-+ * @tsk:    task
-+ * @closid: RCID
-+ */
-+bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
-+
-+/**
-+ * resctrl_arch_match_rmid() - test whether a task carries a given (RCID, MCID)
-+ * @tsk:    task
-+ * @closid: RCID
-+ * @rmid:   MCID
-+ */
-+bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
-+
-+/**
-+ * resctrl_arch_mon_ctx_alloc() - allocate per-monitor-event arch context
-+ * @r:     resctrl resource being monitored
-+ * @evtid: which monitor event needs context
-+ *
-+ * The CBQRI driver implements no monitoring events, so there is no per-event
-+ * context to allocate and the stub returns NULL. fs/resctrl references it
-+ * unconditionally before checking resctrl_arch_mon_capable().
-+ */
-+void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
-+
-+/**
-+ * resctrl_arch_mon_ctx_free() - release context returned by mon_ctx_alloc()
-+ * @r:            resctrl resource
-+ * @evtid:        monitor event id
-+ * @arch_mon_ctx: pointer returned by resctrl_arch_mon_ctx_alloc()
-+ */
-+void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid,
-+			       void *arch_mon_ctx);
-+
-+static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
-+{
-+	return val;
-+}
-+
-+/* Not needed for RISC-V */
-+static inline void resctrl_arch_enable_mon(void) { }
-+static inline void resctrl_arch_disable_mon(void) { }
-+static inline void resctrl_arch_enable_alloc(void) { }
-+static inline void resctrl_arch_disable_alloc(void) { }
-+
-+#endif /* _ASM_RISCV_RESCTRL_H */
-diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-index 92b9c82cf9f3..f8566c003d49 100644
---- a/drivers/resctrl/Kconfig
-+++ b/drivers/resctrl/Kconfig
-@@ -42,3 +42,7 @@ menuconfig RISCV_CBQRI
- if RISCV_CBQRI
- 
- endif
-+
-+config RISCV_CBQRI_RESCTRL_FS
-+	bool
-+	default y if RISCV_CBQRI && RESCTRL_FS
-diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
-index 4d8a2c4b5627..a7631712dba9 100644
---- a/drivers/resctrl/Makefile
-+++ b/drivers/resctrl/Makefile
-@@ -6,3 +6,4 @@ ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
- 
- obj-$(CONFIG_RISCV_CBQRI)			+= cbqri.o
- cbqri-y						+= cbqri_devices.o
-+cbqri-$(CONFIG_RISCV_CBQRI_RESCTRL_FS)		+= cbqri_resctrl.o
-diff --git a/drivers/resctrl/cbqri_resctrl.c b/drivers/resctrl/cbqri_resctrl.c
-new file mode 100644
-index 000000000000..0c4bfa2a7f43
---- /dev/null
-+++ b/drivers/resctrl/cbqri_resctrl.c
-@@ -0,0 +1,785 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
-+
-+#include <linux/bitfield.h>
-+#include <linux/cacheinfo.h>
-+#include <linux/cleanup.h>
-+#include <linux/riscv_cbqri.h>
-+#include <linux/cpu.h>
-+#include <linux/cpufeature.h>
-+#include <linux/cpuhotplug.h>
-+#include <linux/err.h>
-+#include <linux/init.h>
-+#include <linux/rculist.h>
-+#include <linux/resctrl.h>
-+#include <linux/slab.h>
-+#include <linux/types.h>
-+
-+#include <asm/csr.h>
-+#include <asm/qos.h>
-+
-+#include "cbqri_internal.h"
-+
-+struct cbqri_resctrl_res {
-+	struct cbqri_controller *ctrl;
-+	struct rdt_resource     resctrl_res;
-+	bool                    cdp_enabled;
-+};
-+
-+struct cbqri_resctrl_dom {
-+	struct rdt_ctrl_domain  resctrl_ctrl_dom;
-+	struct cbqri_controller *hw_ctrl;
-+};
-+
-+static struct cbqri_resctrl_res cbqri_resctrl_resources[RDT_NUM_RESOURCES];
-+
-+static bool exposed_alloc_capable;
-+
-+/* Protects ctrl_domain list mutations across CPU hotplug. */
-+static DEFINE_MUTEX(cbqri_domain_list_lock);
-+
-+static struct rdt_ctrl_domain *
-+cbqri_find_ctrl_domain(struct list_head *h, int id)
-+{
-+	struct rdt_domain_hdr *hdr = resctrl_find_domain(h, id, NULL);
-+
-+	return hdr ? container_of(hdr, struct rdt_ctrl_domain, hdr) : NULL;
-+}
-+
-+/* Map a hardware cache level to its resctrl resource id, or -ENODEV. */
-+static int cbqri_cache_level_to_rid(u32 cache_level)
-+{
-+	switch (cache_level) {
-+	case 2:
-+		return RDT_RESOURCE_L2;
-+	case 3:
-+		return RDT_RESOURCE_L3;
-+	default:
-+		return -ENODEV;
-+	}
-+}
-+
-+static int cbqri_apply_cache_config_dom(struct cbqri_resctrl_dom *hw_dom,
-+					struct rdt_resource *r,
-+					u32 closid, enum resctrl_conf_type t,
-+					u64 cbm)
-+{
-+	struct cbqri_resctrl_res *hw_res =
-+		container_of(r, struct cbqri_resctrl_res, resctrl_res);
-+	struct cbqri_cc_config cfg = {
-+		.cbm = cbm,
-+		.at = (t == CDP_CODE) ? CBQRI_CONTROL_REGISTERS_AT_CODE :
-+					CBQRI_CONTROL_REGISTERS_AT_DATA,
-+		.cdp_enabled = hw_res->cdp_enabled,
-+	};
-+
-+	return cbqri_apply_cache_config(hw_dom->hw_ctrl, closid, &cfg);
-+}
-+
-+bool resctrl_arch_alloc_capable(void)
-+{
-+	return exposed_alloc_capable;
-+}
-+
-+bool resctrl_arch_mon_capable(void)
-+{
-+	return false;
-+}
-+
-+bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
-+{
-+	if (rid != RDT_RESOURCE_L2 && rid != RDT_RESOURCE_L3)
-+		return false;
-+	return cbqri_resctrl_resources[rid].cdp_enabled;
-+}
-+
-+int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
-+{
-+	struct cbqri_resctrl_res *cbqri_res;
-+
-+	if (rid != RDT_RESOURCE_L2 && rid != RDT_RESOURCE_L3)
-+		return -ENODEV;
-+
-+	cbqri_res = &cbqri_resctrl_resources[rid];
-+	if (!cbqri_res->resctrl_res.cdp_capable)
-+		return -ENODEV;
-+
-+	cbqri_res->cdp_enabled = enable;
-+	return 0;
-+}
-+
-+struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
-+{
-+	if (l >= RDT_NUM_RESOURCES)
-+		return NULL;
-+
-+	return &cbqri_resctrl_resources[l].resctrl_res;
-+}
-+
-+bool resctrl_arch_is_evt_configurable(enum resctrl_event_id evt)
-+{
-+	return false;
-+}
-+
-+void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r,
-+				 enum resctrl_event_id evtid)
-+{
-+	return NULL;
-+}
-+
-+void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
-+			       enum resctrl_event_id evtid, void *arch_mon_ctx)
-+{
-+}
-+
-+void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			      enum resctrl_event_id evtid, u32 rmid, u32 closid,
-+			      u32 cntr_id, bool assign)
-+{
-+}
-+
-+int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			   u32 unused, u32 rmid, int cntr_id,
-+			   enum resctrl_event_id eventid, u64 *val)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
-+{
-+	return false;
-+}
-+
-+int resctrl_arch_mbm_cntr_assign_set(struct rdt_resource *r, bool enable)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			     u32 unused, u32 rmid, int cntr_id,
-+			     enum resctrl_event_id eventid)
-+{
-+}
-+
-+bool resctrl_arch_get_io_alloc_enabled(struct rdt_resource *r)
-+{
-+	return false;
-+}
-+
-+int resctrl_arch_io_alloc_enable(struct rdt_resource *r, bool enable)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+void resctrl_arch_mon_event_config_read(void *info)
-+{
-+}
-+
-+void resctrl_arch_mon_event_config_write(void *info)
-+{
-+}
-+
-+void resctrl_arch_reset_rmid_all(struct rdt_resource *r, struct rdt_l3_mon_domain *d)
-+{
-+}
-+
-+void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			     u32 unused, u32 rmid, enum resctrl_event_id eventid)
-+{
-+}
-+
-+int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
-+			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
-+			   void *arch_priv, u64 *val, void *arch_mon_ctx)
-+{
-+	return -ENODATA;
-+}
-+
-+/*
-+ * Note about terminology between x86 (Intel RDT/AMD QoS) and RISC-V:
-+ *   CLOSID on x86 is RCID on RISC-V
-+ *     RMID on x86 is MCID on RISC-V
-+ */
-+u32 resctrl_arch_get_num_closid(struct rdt_resource *res)
-+{
-+	struct cbqri_resctrl_res *hw_res;
-+
-+	hw_res = container_of(res, struct cbqri_resctrl_res, resctrl_res);
-+
-+	if (!hw_res->ctrl)
-+		return 0;
-+
-+	return hw_res->ctrl->rcid_count;
-+}
-+
-+u32 resctrl_arch_system_num_rmid_idx(void)
-+{
-+	return 1;
-+}
-+
-+u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
-+{
-+	return rmid;
-+}
-+
-+void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
-+{
-+	*closid = RISCV_RESCTRL_EMPTY_CLOSID;
-+	*rmid = idx;
-+}
-+
-+void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid)
-+{
-+	u32 srmcfg = FIELD_PREP(SRMCFG_RCID_MASK, closid) |
-+		     FIELD_PREP(SRMCFG_MCID_MASK, rmid);
-+
-+	WRITE_ONCE(per_cpu(cpu_srmcfg_default, cpu), srmcfg);
-+}
-+
-+void resctrl_arch_sched_in(struct task_struct *tsk)
-+{
-+	__switch_to_srmcfg(tsk);
-+}
-+
-+void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
-+{
-+	u32 srmcfg = FIELD_PREP(SRMCFG_RCID_MASK, closid) |
-+		     FIELD_PREP(SRMCFG_MCID_MASK, rmid);
-+
-+	WRITE_ONCE(tsk->thread.srmcfg, srmcfg);
-+}
-+
-+void resctrl_arch_sync_cpu_closid_rmid(void *info)
-+{
-+	struct resctrl_cpu_defaults *r = info;
-+
-+	lockdep_assert_preemption_disabled();
-+
-+	if (r) {
-+		resctrl_arch_set_cpu_default_closid_rmid(smp_processor_id(),
-+							 r->closid, r->rmid);
-+	}
-+
-+	resctrl_arch_sched_in(current);
-+}
-+
-+bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid)
-+{
-+	return FIELD_GET(SRMCFG_RCID_MASK, READ_ONCE(tsk->thread.srmcfg)) == closid;
-+}
-+
-+bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
-+{
-+	return FIELD_GET(SRMCFG_MCID_MASK, READ_ONCE(tsk->thread.srmcfg)) == rmid;
-+}
-+
-+void resctrl_arch_pre_mount(void)
-+{
-+	/* All controllers discovered at boot via late_initcall. Nothing to do. */
-+}
-+
-+int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
-+			    u32 closid, enum resctrl_conf_type t, u32 cfg_val)
-+{
-+	struct cbqri_resctrl_dom *dom;
-+
-+	dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
-+
-+	if (!r->alloc_capable)
-+		return -EINVAL;
-+
-+	switch (r->rid) {
-+	case RDT_RESOURCE_L2:
-+	case RDT_RESOURCE_L3:
-+		return cbqri_apply_cache_config_dom(dom, r, closid, t, cfg_val);
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+int resctrl_arch_update_domains(struct rdt_resource *r, u32 closid)
-+{
-+	struct resctrl_staged_config *cfg;
-+	enum resctrl_conf_type t;
-+	struct rdt_ctrl_domain *d;
-+	int err = 0;
-+
-+	/* Walking r->ctrl_domains, ensure it can't race with cpuhp */
-+	lockdep_assert_cpus_held();
-+
-+	list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
-+		for (t = 0; t < CDP_NUM_TYPES; t++) {
-+			cfg = &d->staged_config[t];
-+			if (!cfg->have_new_ctrl)
-+				continue;
-+			err = resctrl_arch_update_one(r, d, closid, t, cfg->new_ctrl);
-+			if (err)
-+				return err;
-+		}
-+	}
-+	return err;
-+}
-+
-+u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
-+			    u32 closid, enum resctrl_conf_type type)
-+{
-+	struct cbqri_resctrl_dom *hw_dom;
-+	struct cbqri_controller *ctrl;
-+	u32 at;
-+	u32 val;
-+	int err;
-+
-+	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
-+	ctrl = hw_dom->hw_ctrl;
-+	val = resctrl_get_default_ctrl(r);
-+
-+	if (!r->alloc_capable)
-+		return val;
-+
-+	switch (r->rid) {
-+	case RDT_RESOURCE_L2:
-+	case RDT_RESOURCE_L3:
-+		at = (type == CDP_CODE) ? CBQRI_CONTROL_REGISTERS_AT_CODE :
-+					  CBQRI_CONTROL_REGISTERS_AT_DATA;
-+		err = cbqri_read_cache_config(ctrl, closid, at, &val);
-+		if (err < 0)
-+			val = resctrl_get_default_ctrl(r);
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	return val;
-+}
-+
-+void resctrl_arch_reset_all_ctrls(struct rdt_resource *r)
-+{
-+	struct cbqri_resctrl_res *hw_res;
-+	struct rdt_ctrl_domain *d;
-+	enum resctrl_conf_type t;
-+	u32 default_ctrl;
-+	int i;
-+
-+	lockdep_assert_cpus_held();
-+
-+	hw_res = container_of(r, struct cbqri_resctrl_res, resctrl_res);
-+	default_ctrl = resctrl_get_default_ctrl(r);
-+
-+	if (!hw_res->ctrl)
-+		return;
-+
-+	list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
-+		for (i = 0; i < hw_res->ctrl->rcid_count; i++) {
-+			for (t = 0; t < CDP_NUM_TYPES; t++) {
-+				int rerr;
-+
-+				rerr = resctrl_arch_update_one(r, d, i, t, default_ctrl);
-+				if (rerr)
-+					pr_err_ratelimited("rid=%d reset RCID %u type %u failed (%d)\n",
-+							   r->rid, i, t, rerr);
-+			}
-+		}
-+	}
-+}
-+
-+static struct rdt_ctrl_domain *cbqri_new_domain(struct cbqri_controller *ctrl)
-+{
-+	struct cbqri_resctrl_dom *hw_dom;
-+	struct rdt_ctrl_domain *domain;
-+
-+	hw_dom = kzalloc_obj(*hw_dom, GFP_KERNEL);
-+	if (!hw_dom)
-+		return NULL;
-+
-+	hw_dom->hw_ctrl = ctrl;
-+	domain = &hw_dom->resctrl_ctrl_dom;
-+
-+	INIT_LIST_HEAD(&domain->hdr.list);
-+
-+	return domain;
-+}
-+
-+static int cbqri_init_domain_ctrlval(struct rdt_resource *r, struct rdt_ctrl_domain *d)
-+{
-+	struct cbqri_resctrl_dom *hw_dom;
-+	enum resctrl_conf_type t;
-+	int err = 0;
-+	int i;
-+
-+	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
-+
-+	for (i = 0; i < hw_dom->hw_ctrl->rcid_count; i++) {
-+		/*
-+		 * Seed both DATA and CODE staged slots so a later mount
-+		 * with -o cdp does not see stale CODE values.
-+		 * On non-AT controllers cbqri_cc_alloc_op() masks AT to 0
-+		 * so all three iterations land on the same hardware state.
-+		 * The redundant writes are harmless.
-+		 */
-+		for (t = 0; t < CDP_NUM_TYPES; t++) {
-+			err = resctrl_arch_update_one(r, d, i, t,
-+						      resctrl_get_default_ctrl(r));
-+			if (err)
-+				return err;
-+		}
-+	}
-+	return 0;
-+}
-+
-+/*
-+ * Two capacity controllers at the same cache level are interchangeable to
-+ * resctrl only if they expose identical caps, since resctrl publishes one
-+ * set of caps per rid but any of the level's controllers may service a
-+ * given RCID.
-+ */
-+static bool cbqri_cc_caps_agree(const struct cbqri_controller *a,
-+				const struct cbqri_controller *b)
-+{
-+	return a->rcid_count == b->rcid_count &&
-+	       a->cc.ncblks == b->cc.ncblks &&
-+	       a->cc.supports_alloc_at_code == b->cc.supports_alloc_at_code &&
-+	       a->alloc_capable == b->alloc_capable;
-+}
-+
-+/*
-+ * Walk cbqri_controllers and pick one capacity controller (CC) per cache
-+ * level (L2/L3) to back the corresponding RDT_RESOURCE_L*. When more than
-+ * one CC sits at the same level (e.g. one per socket), they must agree on
-+ * rcid_count / ncblks / supports_alloc_at_code / alloc_capable. A level
-+ * whose controllers disagree is dropped, since resctrl exposes a single
-+ * set of caps per rid, but the other level is still picked. The first
-+ * matching controller wins.
-+ */
-+static void cbqri_resctrl_pick_caches(void)
-+{
-+	struct cbqri_controller *ctrl, *pick;
-+	int rid;
-+
-+	guard(mutex)(&cbqri_controllers_lock);
-+
-+	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++) {
-+		pick = NULL;
-+
-+		list_for_each_entry(ctrl, &cbqri_controllers, list) {
-+			if (ctrl->type != CBQRI_CONTROLLER_TYPE_CAPACITY ||
-+			    !ctrl->alloc_capable ||
-+			    cbqri_cache_level_to_rid(ctrl->cache.cache_level) != rid)
-+				continue;
-+
-+			if (!pick) {
-+				pick = ctrl;
-+			} else if (!cbqri_cc_caps_agree(pick, ctrl)) {
-+				pr_err("L%u controllers have mismatched capabilities, skipping this level\n",
-+				       ctrl->cache.cache_level);
-+				pick = NULL;
-+				break;
-+			}
-+		}
-+
-+		cbqri_resctrl_resources[rid].ctrl = pick;
-+	}
-+}
-+
-+/*
-+ * Fill the rdt_resource fields for one picked rid. An rid with no picked
-+ * controller is left untouched so it stays out of resctrl_arch_get_resource().
-+ */
-+static void cbqri_resctrl_control_init(struct cbqri_resctrl_res *cbqri_res)
-+{
-+	struct cbqri_controller *ctrl = cbqri_res->ctrl;
-+	struct rdt_resource *res = &cbqri_res->resctrl_res;
-+
-+	if (!ctrl)
-+		return;
-+
-+	switch (res->rid) {
-+	case RDT_RESOURCE_L2:
-+	case RDT_RESOURCE_L3:
-+		res->name = (res->rid == RDT_RESOURCE_L2) ? "L2" : "L3";
-+		res->schema_fmt = RESCTRL_SCHEMA_BITMAP;
-+		res->ctrl_scope = (res->rid == RDT_RESOURCE_L2) ?
-+				    RESCTRL_L2_CACHE : RESCTRL_L3_CACHE;
-+		res->cache.cbm_len = ctrl->cc.ncblks;
-+		res->cache.shareable_bits = 0;
-+		res->cache.min_cbm_bits = 1;
-+		res->cache.arch_has_sparse_bitmasks = false;
-+		res->cdp_capable = ctrl->cc.supports_alloc_at_code;
-+		res->alloc_capable = ctrl->alloc_capable;
-+		INIT_LIST_HEAD(&res->ctrl_domains);
-+		INIT_LIST_HEAD(&res->mon_domains);
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
-+static void cbqri_resctrl_accumulate_caps(void)
-+{
-+	int rid;
-+
-+	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++) {
-+		struct cbqri_resctrl_res *hw_res = &cbqri_resctrl_resources[rid];
-+
-+		if (!hw_res->ctrl)
-+			continue;
-+		if (hw_res->ctrl->alloc_capable)
-+			exposed_alloc_capable = true;
-+	}
-+}
-+
-+/*
-+ * Create, list-insert, and online a fresh ctrl_domain backing ctrl on
-+ * resource res, seeded with cpu and identified by dom_id. Caller must
-+ * hold cbqri_domain_list_lock and must have already verified that no
-+ * existing ctrl_domain on res carries this id.
-+ */
-+static struct rdt_ctrl_domain *cbqri_create_ctrl_domain(struct cbqri_controller *ctrl,
-+							struct rdt_resource *res,
-+							unsigned int cpu, int dom_id)
-+{
-+	struct rdt_ctrl_domain *domain;
-+	struct list_head *pos = NULL;
-+	int err;
-+
-+	domain = cbqri_new_domain(ctrl);
-+	if (!domain)
-+		return ERR_PTR(-ENOMEM);
-+
-+	cpumask_set_cpu(cpu, &domain->hdr.cpu_mask);
-+	domain->hdr.id = dom_id;
-+	domain->hdr.type = RESCTRL_CTRL_DOMAIN;
-+	domain->hdr.rid = res->rid;
-+
-+	err = cbqri_init_domain_ctrlval(res, domain);
-+	if (err)
-+		goto free;
-+
-+	err = resctrl_online_ctrl_domain(res, domain);
-+	if (err)
-+		goto free;
-+
-+	/*
-+	 * Publish only after the domain is fully initialized and online, so a
-+	 * reader walking the RCU list never sees a half-built domain.
-+	 */
-+	resctrl_find_domain(&res->ctrl_domains, dom_id, &pos);
-+	list_add_tail_rcu(&domain->hdr.list, pos);
-+
-+	return domain;
-+free:
-+	kfree(container_of(domain, struct cbqri_resctrl_dom, resctrl_ctrl_dom));
-+	return ERR_PTR(err);
-+}
-+
-+/*
-+ * Remove a CPU from the domain at each level whose cache it shares. The
-+ * domain is looked up by the CPU's own cache id and the lookup returns NULL
-+ * if it is already gone, so this is idempotent and undoes a partial online
-+ * attach as well as a full offline. Caller holds cbqri_domain_list_lock.
-+ */
-+static void cbqri_detach_cpu_from_all_ctrls(unsigned int cpu)
-+{
-+	static const u32 levels[] = { 2, 3 };
-+	struct cbqri_resctrl_res *hw_res;
-+	struct rdt_ctrl_domain *d;
-+	struct rdt_resource *res;
-+	struct cacheinfo *ci;
-+	int i, rid;
-+
-+	lockdep_assert_held(&cbqri_domain_list_lock);
-+
-+	for (i = 0; i < ARRAY_SIZE(levels); i++) {
-+		ci = get_cpu_cacheinfo_level(cpu, levels[i]);
-+		if (!ci)
-+			continue;
-+
-+		rid = cbqri_cache_level_to_rid(levels[i]);
-+		hw_res = &cbqri_resctrl_resources[rid];
-+		if (!hw_res->ctrl)
-+			continue;
-+
-+		res = &hw_res->resctrl_res;
-+		d = cbqri_find_ctrl_domain(&res->ctrl_domains, ci->id);
-+		if (!d)
-+			continue;
-+
-+		cpumask_clear_cpu(cpu, &d->hdr.cpu_mask);
-+		if (cpumask_empty(&d->hdr.cpu_mask)) {
-+			list_del_rcu(&d->hdr.list);
-+			synchronize_rcu();
-+			resctrl_offline_ctrl_domain(res, d);
-+			kfree(container_of(d, struct cbqri_resctrl_dom,
-+					   resctrl_ctrl_dom));
-+		}
-+	}
-+}
-+
-+/*
-+ * Attach a CPU to the capacity controller at each cache level whose cache
-+ * the CPU shares. On failure, detach the CPU from everything attached so
-+ * far: the cpuhp core does not run this state's offline teardown when its
-+ * startup fails, so a partial attach would otherwise leak into the domain
-+ * cpu_masks. Caller holds cbqri_domain_list_lock.
-+ */
-+static int cbqri_attach_cpu_to_all_ctrls(unsigned int cpu)
-+{
-+	static const u32 levels[] = { 2, 3 };
-+	struct cbqri_controller *ctrl, *c;
-+	struct cbqri_resctrl_res *hw_res;
-+	struct rdt_ctrl_domain *d;
-+	struct cacheinfo *ci;
-+	int i, rid;
-+
-+	lockdep_assert_held(&cbqri_domain_list_lock);
-+
-+	/*
-+	 * Hold cbqri_controllers_lock across the walk so a controller
-+	 * registered after boot cannot corrupt it. The register path takes
-+	 * it as a leaf and never cbqri_domain_list_lock, so this nesting
-+	 * cannot invert.
-+	 */
-+	guard(mutex)(&cbqri_controllers_lock);
-+
-+	for (i = 0; i < ARRAY_SIZE(levels); i++) {
-+		ci = get_cpu_cacheinfo_level(cpu, levels[i]);
-+		if (!ci)
-+			continue;
-+
-+		rid = cbqri_cache_level_to_rid(levels[i]);
-+		hw_res = &cbqri_resctrl_resources[rid];
-+		if (!hw_res->ctrl)
-+			continue;
-+
-+		/* The controller backing this CPU's cache at this level. */
-+		ctrl = NULL;
-+		list_for_each_entry(c, &cbqri_controllers, list) {
-+			if (c->type == CBQRI_CONTROLLER_TYPE_CAPACITY &&
-+			    c->alloc_capable &&
-+			    c->cache.cache_level == levels[i] &&
-+			    c->cache.cache_id == ci->id) {
-+				ctrl = c;
-+				break;
-+			}
-+		}
-+		if (!ctrl)
-+			continue;
-+
-+		d = cbqri_find_ctrl_domain(&hw_res->resctrl_res.ctrl_domains,
-+					   ci->id);
-+		if (d) {
-+			cpumask_set_cpu(cpu, &d->hdr.cpu_mask);
-+			continue;
-+		}
-+
-+		d = cbqri_create_ctrl_domain(ctrl, &hw_res->resctrl_res, cpu,
-+					     ci->id);
-+		if (IS_ERR(d)) {
-+			cbqri_detach_cpu_from_all_ctrls(cpu);
-+			return PTR_ERR(d);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static bool cbqri_resctrl_inited;
-+
-+static void cbqri_resctrl_teardown(void)
-+{
-+	int rid;
-+
-+	if (!cbqri_resctrl_inited)
-+		return;
-+
-+	resctrl_exit();
-+
-+	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++) {
-+		struct cbqri_resctrl_res *hw_res = &cbqri_resctrl_resources[rid];
-+
-+		hw_res->ctrl = NULL;
-+		hw_res->cdp_enabled = false;
-+	}
-+	exposed_alloc_capable = false;
-+	cbqri_resctrl_inited = false;
-+}
-+
-+static int cbqri_resctrl_setup(void)
-+{
-+	int rid;
-+	int err;
-+
-+	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++)
-+		cbqri_resctrl_resources[rid].resctrl_res.rid = rid;
-+
-+	cbqri_resctrl_pick_caches();
-+
-+	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++)
-+		cbqri_resctrl_control_init(&cbqri_resctrl_resources[rid]);
-+
-+	cbqri_resctrl_accumulate_caps();
-+
-+	if (!exposed_alloc_capable) {
-+		pr_debug("no resctrl-capable CBQRI controllers found\n");
-+		return -ENODEV;
-+	}
-+
-+	err = resctrl_init();
-+	if (err)
-+		return err;
-+
-+	cbqri_resctrl_inited = true;
-+	return 0;
-+}
-+
-+static int cbqri_resctrl_online_cpu(unsigned int cpu)
-+{
-+	int err;
-+
-+	mutex_lock(&cbqri_domain_list_lock);
-+	err = cbqri_attach_cpu_to_all_ctrls(cpu);
-+	mutex_unlock(&cbqri_domain_list_lock);
-+	if (err)
-+		return err;
-+
-+	/*
-+	 * Seed the per-CPU default RCID/MCID to the reserved (0, 0) pair and
-+	 * notify the resctrl core so it tracks this CPU in the default group.
-+	 */
-+	resctrl_arch_set_cpu_default_closid_rmid(cpu, 0, 0);
-+	resctrl_online_cpu(cpu);
-+	return 0;
-+}
-+
-+static int cbqri_resctrl_offline_cpu(unsigned int cpu)
-+{
-+	resctrl_offline_cpu(cpu);
-+
-+	mutex_lock(&cbqri_domain_list_lock);
-+	cbqri_detach_cpu_from_all_ctrls(cpu);
-+	mutex_unlock(&cbqri_domain_list_lock);
-+	return 0;
-+}
-+
-+static int __init cbqri_arch_late_init(void)
-+{
-+	int err;
-+
-+	if (!riscv_isa_extension_available(NULL, SSQOSID))
-+		return -ENODEV;
-+
-+	err = cbqri_resctrl_setup();
-+	if (err)
-+		return err;
-+
-+	err = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "cbqri:online",
-+				cbqri_resctrl_online_cpu,
-+				cbqri_resctrl_offline_cpu);
-+	if (err < 0) {
-+		cbqri_resctrl_teardown();
-+		return err;
-+	}
-+
-+	return 0;
-+}
-+late_initcall(cbqri_arch_late_init);
-
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA3LzE1LzIwMjYgNjoxMyBBTSwgUm9iIEhlcnJpbmcgd3JvdGU6Cj4gT24gTW9uLCBKdWwg
+MTMsIDIwMjYgYXQgODo1OOKAr1BNIEppZSBHYW4gPGppZS5nYW5Ab3NzLnF1YWxjb21tLmNvbT4g
+d3JvdGU6Cj4+Cj4+IEFkZCBEVCBub2RlcyBmb3IgdGhlIENvcmVTaWdodCBkZWJ1ZyBhbmQgdHJh
+Y2Ugc3Vic3lzdGVtIG9uIFF1YWxjb21tCj4+IFNoaWtyYSBTb0MuCj4+Cj4+IFNpZ25lZC1vZmYt
+Ynk6IEppZSBHYW4gPGppZS5nYW5Ab3NzLnF1YWxjb21tLmNvbT4KPj4gLS0tCj4+ICAgYXJjaC9h
+cm02NC9ib290L2R0cy9xY29tL3NoaWtyYS5kdHNpIHwgMTI5OCArKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrCj4+ICAgMSBmaWxlIGNoYW5nZWQsIDEyOTggaW5zZXJ0aW9ucygrKQo+
+IAo+IE5BSwo+IAo+IEZpeCB0aGUgc2FzaGlrbyBpc3N1ZS4KClRoYW5rcyBmb3IgcG9pbnRpbmcg
+b3V0LCBmaXhlZCBpbiBuZXh0IHZlcnNpb24uCgpzeXNyZWcgRVRNIHNob3VsZCBub3QgaGF2ZSBN
+TUlPIGJ1dCBhZGRlZCBieSBtaXN0YWtlLgoKVGhhbmtzLApKaWUKCj4gCj4gUm9iCgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
