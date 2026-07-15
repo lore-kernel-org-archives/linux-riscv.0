@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC431C44501
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 09:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F3BC44501
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 09:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xhFgDvLDTP8azet1mcE5l/3s1ElomF+JAy42YWC+JcM=; b=m/GWnumToxhKqv
-	Zb4dWl+IfFdhoC1Y4I7Nb2MPMLUKOSl3ZB9XIKTpQz0T6KVyyWD73W6p90zITztnNNJudXbJwXlR+
-	RZ05njqroCWdV/rmqeKCUCCkw7YS+z5HRs8RcGzWamZ8KkAXrPZf2lyEKdv9HESbT/BSO+0KNNY3c
-	j3MNT3fOogaQ+T/e1h2ErKrhHijUrim1hi3p43pa5NmHs4LxzQS9Iz/xNVnEzDaTJBgXYlf3CcZEB
-	IgaJepBRjx+lUIWYl0Wp+dqdWVPyiR3x1E2HKK5JzOONCi3mlwkY14bb07ubhfoG1If7xyfJW3f+7
-	Z6YrPKwhoruCYQGPh2Ig==;
+	List-Owner; bh=NMplhrE992ED/mjTCEjWe16+aPoXYRKbUW5qVQxEPFg=; b=j5t50CXVQDX1iW
+	gKewNDT08QWHrt/NA/41cmoeuT1cSu2F5/9K2BxYkjvLlqfJFdFeuPrxjPlsuhklq4iYFLbvSLx+E
+	VO0CR1qX/cH8UWwQRw9oX8QM7mwdhXcQ5pbjRK4vCy6hi2SACUtjgTyIWKf8vmkDE6ksU0ofWI/uF
+	BxzCWAWORGPchS4u8y1gM3ZiKwTlzpeZMu4O5oJo3Zavub5A5MLS3/o/q1WC3twP6IeaJAVg+gR9X
+	wGfROt2oFo0tGTqYZowyYz2kuoPnE8PIgV2FhFaY7cVBaB2XpNCFtLyKWxk+6EGki/cJqUNxi8pDi
+	43vMscHTj15/XodkLzEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjw9S-0000000EM5Q-3S5J;
-	Wed, 15 Jul 2026 09:43:38 +0000
+	id 1wjwAv-0000000EMXm-2R0X;
+	Wed, 15 Jul 2026 09:45:09 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjw9R-0000000EM4W-0UH4;
-	Wed, 15 Jul 2026 09:43:37 +0000
+	id 1wjwAt-0000000EMWs-3J5d;
+	Wed, 15 Jul 2026 09:45:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5E2CC601C6;
-	Wed, 15 Jul 2026 09:43:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464261F000E9;
-	Wed, 15 Jul 2026 09:43:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3AF4D601E0;
+	Wed, 15 Jul 2026 09:45:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854EF1F000E9;
+	Wed, 15 Jul 2026 09:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784108616;
-	bh=CC+e/Z0BaeZIfuy0GA+8f2VQ0SUjP7mL+FiN+wpHZDM=;
+	s=k20260515; t=1784108706;
+	bh=LuVl8Gp4FOi0jul12AJHuxapg87GtfqNqhigUNaC5y0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DBliIrs1Vie421HB7pFithfaf6+UeS3O6z2aoh/aN1WWGPjXflmiUACQdZ3xpskBY
-	 xMfYSp2UqXDvXFvK55J+NuyWH3rQs+JwYDOnaQ0FnmpRHN6bsvs75KwaUdohNozQJj
-	 XSf940SX0+vO09aO3jHGkAXGyO7J8nwLLVm3PGMTkrAf2Uj/RNJe0WW9mYrpDx4w16
-	 2hht1+fq5ju7pSYbsa+Git3edPTDAqecJ+sV2mJ0+WNWq7ptmUxMNEQvPoQ3QcSlCp
-	 m9Teaq/0qIGpP303+Rl9w/iFPHMOESoof6nsGY/ZidS26od+bMOS/kWhVtaM7LyALb
-	 j4kx/9RfCKujg==
-Message-ID: <14019379-1725-4cad-8158-322714b19ace@kernel.org>
-Date: Wed, 15 Jul 2026 11:43:20 +0200
+	b=gRbAD1iKDkw8yDV8gg3Q5r0WLx5WQmVYoXzpFDvbOAHPayy6Xnl1W1FB43wZImKG+
+	 Ao3GuNYf6pHDWn7/p8Z3OzNqxyoIMoMBrrcCFfTg2a2SinBtcEIfX+OC10qnOewNUT
+	 pEdW/nlFbFU1rQO82xZ+Ybr1ChhKGliB1ExbjfzzKQ3sJxpFICyYAsPOMko2zRfLxI
+	 VxuwLDhn+wRc63Fnf/SxkJCL90jXU+8tH4qlSqSR8Ga8erwhGTPzRRJK+9BUojazIW
+	 zwBuRZVN6wEIFyxddHMo+ITnMYgb3u05rViivHqtYGfoH1BGZtIX94KYyszByXrhcK
+	 Lk3hWyndjrjvQ==
+Message-ID: <a7e6a281-d1a4-42a6-9672-b1304107f888@kernel.org>
+Date: Wed, 15 Jul 2026 11:44:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
@@ -82,17 +82,16 @@ Cc: Dave Hansen <dave.hansen@intel.com>,
  liam@infradead.org, vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
  geert@linux-m68k.org, shorne@gmail.com, jonas@southpole.se,
  stefan.kristiansson@saunalahti.fi
-References: <32d459d1-ad19-4baf-bbb1-0565458001d2@intel.com>
- <3ea30f8a-bb29-4bf5-8400-1c4840d46a88@kernel.org>
+References: <3ea30f8a-bb29-4bf5-8400-1c4840d46a88@kernel.org>
  <7e84b200-25eb-43a6-b5e2-5f27f2d82a77@intel.com>
  <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
  <14e250db-1641-4085-8d13-02f819657d5f@intel.com>
  <d83c76b3-ea4d-4c41-b4c5-f5ae558ace55@kernel.org>
  <alYgMxKqRnF6_X0A@e129823.arm.com>
  <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
- <alZe-Cu7yQw9qRXU@e129823.arm.com>
- <2d51a1ad-85be-46bf-ac36-18eca199b449@kernel.org>
- <alZ_6HFc56zC7tt0@e129823.arm.com>
+ <alZe-Cu7yQw9qRXU@e129823.arm.com> <alZo9feSrSB_StfO@e129823.arm.com>
+ <7cff02d6-d3ce-4315-b667-34911fc6f321@kernel.org>
+ <alZ44XdgTEVFX6jU@e129823.arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -139,7 +138,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <alZ_6HFc56zC7tt0@e129823.arm.com>
+In-Reply-To: <alZ44XdgTEVFX6jU@e129823.arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,28 +155,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 20:28, Yeoreum Yun wrote:
-> On Tue, Jul 14, 2026 at 06:31:22PM +0200, David Hildenbrand (Arm) wrote:
->>
+On 7/14/26 19:58, Yeoreum Yun wrote:
+> On Tue, Jul 14, 2026 at 07:29:38PM +0200, David Hildenbrand (Arm) wrote:
+>> On 7/14/26 18:51, Yeoreum Yun wrote:
 >>>
->>> Agree. Calling a pXd_entry() about folded one seems meaningless.
->>> But seems enough to check mm_pXd_folded() before calling pXd_entry()
->>> in each walk_pXd_range().
+>>> Furthermore, the effective_prot() need to require to identify whether
+>>> it's the first pgtable to prevent the inheriting from dummy value.
+>>> So I think it seems to make a ptdump_pt_level_first() like:
+>>>
+>>> diff --git a/mm/ptdump.c b/mm/ptdump.c
+>>> index 973020000096c..2ec5700e4be5e 100644
+>>> --- a/mm/ptdump.c
+>>> +++ b/mm/ptdump.c
+>>> @@ -190,6 +190,23 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
+>>>         st->note_page_flush(st);
+>>>  }
+>>>
+>>> +bool pdtump_pt_level_first(struct mm_struct *mm, int level)
+>>> +{
+>>> +       if (!mm || level > CONFIG_PGTABLE_LEVELS)
+>>> +               return false;
 >>
->> Needs some double-checking that callers can handle it (like effective_prot()
->> would currently not), but certainly something to look into!
+>> Do we actually ever get !mm ?
 > 
-> Most of mm_walk_ops *implicitly* handles the folded pgtable case
-> (e.x) pXd_none() / pXd_present() and other can handle explicitly in
-> its own handler.
-> 
-> But, IMHO, It would be better to skip calling pXd_entry() in the
-> walk_pXd_range() by checking the folded and this is clearer conceptually.
-> 
-> For this, it  requires the rewrite the walk_mm() where use only *p4d_entry()*
-> to gather the leaf/non-leaf information for MGLRU.
+> Yes. for the case of s390 use mm anyway for folded check.
+That's not what I meant, let me clarify.
 
-Yeah, this needs a thought indeed.
+I think in ptdump_walk_pgd() it is guaranteed that mm != NULL, so I am wondering
+why you are handling mm == NULL.
 
 -- 
 Cheers,
