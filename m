@@ -4,88 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53028C44508
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 01:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42050C4450B
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2026 01:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vVP07IzesanqY+9wQ+YYOZ+LXcJcfLuRqji5/nnZlSU=; b=LgXyF2rZZKbqN2
-	fkWWlVeXe9YbNzRxkCoLNWlGWhRMVbYzjxnHArY3k0XCIVfCkehaR9HBJ6ugYSkK0Y+MiusmVQmbF
-	8HRscW0+QSCaU834xuA90kn4bGddT0mi9pa6kvs1bvtfZOHBo080+KhoiR7+gbXOPatIPsCgDGtSc
-	35549eidWISc67d4xHIIt+TLvhQecw+vWrH6WCYjnK4rDCOmHwUlKlnFEuF/3efjHhWYIIbD5VLW8
-	H7Ex4KgXUnriN+IC9vOyA07jq+rJKteRTrTLoH/BbQt+B3eiwHGrzfiLqZiXhD+IoAG6SSJc8I+qJ
-	UqZG8iwOcHFGF4JEWmfQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VgEOIcuw+XzwBQoDn+qCAyuj8p3RnrJz/fhFXFrRQMM=; b=N6kpQxjpO9yS3O
+	ceZdVfcyKUmgHkq4gHey2mVU9orndWfO2jnL561sxHkmUxXM1vQgsIsEX7YgTyaTfPxpjrJTrhZwc
+	6Zk+Rx/URz0pLm6aUVzqyiQZSdtc8YqRfBt5m3mQaDlp5FZlGA7zzyY8U0dTOFT8OC+NHUQOEAXYD
+	RzfszUdBfqiHRDFWDtXyeUyLkSEgNyZ8AqV9f2NoUkq5AWmNzmBH3H1jahtYBlvE7rqOWYDBA0HEH
+	IjIdsmWiU8L/yLahHXXGiws+97p1HvFDi14mfn87l7xY6m1IbLsFHCysCggb/o7AhhnEmshWeV7oN
+	S9dPmCsYoIp7eD42syDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjoCl-0000000DXJC-32vO;
-	Wed, 15 Jul 2026 01:14:31 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1wjoEt-0000000DXX0-0d9t;
+	Wed, 15 Jul 2026 01:16:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjoCj-0000000DXIb-2b0M
+	id 1wjoEq-0000000DXW0-1cvX
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jul 2026 01:14:30 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5b01cb18515so4600139e87.2
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 18:14:28 -0700 (PDT)
+	Wed, 15 Jul 2026 01:16:41 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66F0IM511954119
+	for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 01:16:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=pAtH5G57y5Gbyi1Jlqywtr
+	XzbSjK544adRCQmBhjzoA=; b=iii4boXyuleGRQ6V5NlVuC5I8eyHZ6YgyCZQOx
+	1zZSqWLNeL1bN0G+jwsidoGpONzkVtOPPQ3bLg2tIEswsMCIQKxwzwqDETz9GWa7
+	EnHGaa7veKyZhZvFGblqkUi0ShjeRDOcw5s1lezsemkX3D6+0pv452AYkNeCSqng
+	PfRQngf0op/0NPE4WguuQorCokY1ks0tsQlg76eyBGH99uhl1yGth66egjzuuaRm
+	wkb42OlLx20Mz+fZCFutBSZFkW5yFPpZMKawuSRp1UXxeaiTLl+khejmtj/v05Rf
+	hXKCeWt0pPtHFgxZzJgkwtOCFiuh2vgC64IQE6ARUyanI+yw==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fds9g1d1y-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 01:16:39 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2cce02cb769so20061365ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2026 18:16:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784078067; x=1784682867; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CdOsTQfXE50dQ/gtPaAu82kIIO4TZ1iHe040cbYLQyo=;
-        b=kgKFdngCyKXPpiqf19O4lr3PbOcswcrk/2wGegh686g/ltshjbBoHRWY/tzARAMDYT
-         L+hu87+9lYjeyrYNkIZSvnUFtk4CcyRMSXjmLA+oocP+gzACPeBrOEXgwNc9+VF1o/Q7
-         S15dwd0fX2AAzdPlF5AJP3+2+O5ZWC5S/psjcEzOu1/zrOPBGh9G9EOu4APqm0zQLBlT
-         wbFVEDTqF8r+A1HRe7g8QiiA2a4zRJMTqkhjX7wmFEYXNbFblHLpHTEuHYLsVGpTJ4Ci
-         J7LzlC0d50sQQgdYEqGifV5gI/VZoiYwFgjPXWn+xJizZWAjUk4XbwNKZANaLSksycFx
-         t+Kg==
+        d=oss.qualcomm.com; s=google; t=1784078198; x=1784682998; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pAtH5G57y5Gbyi1JlqywtrXzbSjK544adRCQmBhjzoA=;
+        b=jpn82WuSxa52KsPjdu0YZRbdIE4jnQSORPqWiLb5hQCv3eYnwfbnflzsosxjQgvVYt
+         ItcxsMcRODWrd7vIZuizpYefitdkHRJwrwg8ClKHOXuAm4/Bfn0AO381TUUPz0uXJgqC
+         hO8kV7jPguIvtZPN8TNXSriPpy82UgPkxgEJSDKrWEkNuhvcTypGatv0sz0ZDAX0mTt5
+         7h1/fLCl6SMlD2k+76hH/V9XKA4SmWTLhNcagDBRTbJQkKRxdvH5MTRXFM0yiDgIzYaX
+         S8zPvOfV5ZUCYBf7CRmZh6rPmJ8HRQmsy5qubDgan32mSOCWCC/cbWMi62dRbyaLxR6Q
+         f7uQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784078067; x=1784682867;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CdOsTQfXE50dQ/gtPaAu82kIIO4TZ1iHe040cbYLQyo=;
-        b=S5+6pSXQArUxULD8rxNfglEyUc2JeqE/4CWnCEC2LHFYh2WiSeen+6t+WNpevWl2KR
-         HNd9QgaIwMHg2IELNZo0th7BLS+e/Pikn4eTFE2itbd+ivEqIhRm5m3xnz/jmEtszyb3
-         7xbaD9IpaQ2ktI9hLmd3ZkuByamTgnSdeqRrxpvwSdHnkO9ZQEcund0+9nB7OyAMEV42
-         KvgSBouBUH7DXoHlYHbtV1c8E/YLeXf+9WP6EOIQBjilInf145tOmT3HIle1SlQSG3BC
-         8Mzmci74ZupQJRm6s2wyy5qwP5blt/ZziavRjBSSVRQ7sOfoXWbljE/PdO5RDnKCxRyu
-         6Zyw==
-X-Forwarded-Encrypted: i=1; AHgh+RrcH4o3lwnhyWG006udXJA9asMS8MCY8ogdJJLt02qcCX4hvN55LGEIqqhIrJXIstO6yOFWRpnY4ZQJeA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVSQBQOGMTK4Hx5czul76pOorj4uCsjDIrO5o0lEshVAgek5sw
-	Ku5GJ4eFnohufBnasZW+hAs4RHsb8QWR8vhGSvjeKGMHgf3N3S5W5OLO
-X-Gm-Gg: AfdE7cmrWz9CfjAZUH4jx8GV3PtyX8iKULWJCJsME82wOF12xh99EN9VJio1XjgRKEw
-	mVZS7Y/MXSodrCedsM6ljvvvM3Q58xjEiUv/DrvSYgXM7dRbO6bcKaIHSphoiFqx1OCfPK2UpHp
-	bigFEmXZzJvCFsbCKH2k5k0dnwai/90Un9CAKedxpKSWjPL4TsVpOFaDVrLcHlYBO9721fKYuw6
-	PESvgw7C7Q7Ff+jRXcLP3gV1Jgqn8S/0ineQxPvxRC1jNAz51v1MiiFsRi1nhUijNCoyTQKaPO5
-	mipJqxbp1GcSYVDJk4NQeHWlYbIm9f1cO22j1cvJ3e9OAxOZF9YrkgZG4MhxiirQyWq2g6kySfT
-	+jrRgp2xBq+G2ejpGyf0/mSZvMno5BYf0PdS0e+3e29ebcW9gU1vpC1vMAtGTphMMbZTPNPaHJo
-	7KvYh1yzTCaHESZj+XUDcos9Qcn8Z3OXySQB1IE5xhP3Zqgzmk
-X-Received: by 2002:a05:6512:3b8a:b0:5b0:bc3:dc06 with SMTP id 2adb3069b0e04-5b159b74eebmr874120e87.26.1784078066758;
-        Tue, 14 Jul 2026 18:14:26 -0700 (PDT)
-Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:7b92:9ac1:b9ef:5287])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b0531606ecsm3150123e87.80.2026.07.14.18.14.26
+        d=1e100.net; s=20251104; t=1784078198; x=1784682998;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=pAtH5G57y5Gbyi1JlqywtrXzbSjK544adRCQmBhjzoA=;
+        b=s1ywxXbg7K6n8m1ebubDojtd52Ke/3pKHqum5grQxB51s3TV96qLqR8HfT7PTnlkrP
+         bps4DO3DisitbdKzq2xIBPD2v7hF1TsLp3X1hmwXmvMBtYHGVQX0Ai75n8ydYmynDUq4
+         dUq/Y3DNCnkB3NT64pv/PSiH80fzT4XJzHp+jCz72jMASttSKWrhgsPdhnv62QzgqJQE
+         Bi15zK9lw9nDzwMbdfQxM2pLluX9Za+Iw7ciU6V6RSjrVMHquFdDrlEjyove9Bf8xHon
+         WkCgn/YjeYFh1CUwMjxLT7sdjHhl82lT+UYfxThOdUDZwWHM+Rp5TAFcV0kEBNIu6wKX
+         hrpQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrM/KCHZ5/ClxmQK+p795h/moewf+/2xcekc216zsBzXg6P6w7Dveb1avdKLVXkR3k/SR3vrrCSpupxWw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4PVn5lilVYw2ykuJqO0idFXiJp+HjydxhUT05bPSH37FOoQQK
+	poHgrdBY+XXLNRE3q1OzJkwsnY34T7XFRvOJww17c6JBx1YuFsPCO0NgKDwq4YG8dQ8BHAmawlG
+	wMiEgb30K+zDR5n0NJCGLKo9QkAx9uIxnrboXM1wO4k/XMUzLKiQl2VWkNfoD5jHxDFtc4G8=
+X-Gm-Gg: AfdE7cnCjuOM/HGs+jbdSQ82ayK7GoT3xEGCzfJMC9/njCiPcq3CMGs70gRA7FQcvxZ
+	T5rOPORqHIz8qASsuFMPYumbdJUqQGNYFVbZx3oiHqEDaYqNivEWvrnF61JPxeZkq/BmkPGX8gY
+	c8wsrM1KhY/odbeqADrDg6ZhxgNU++S2n9XiUPC4A4EqB8HZClOR9UKdwVUsEY9Gu+6lySYck61
+	nJkVpYjaAvAyOorYu6YoYHHH5a7DCmVbs0EFWIHZ1WMCIHU9r5JiXDcyFJIhtK05c+NwaGGH/IG
+	iSSq47ZEdQSqNmC5RCdfihIiBEyVpYDwM7vBV26zNH4UUVBV7Ree7H0kByMUD23e+LpbHPmIYBN
+	K3uPD3kWWTjQbcBxiuCfke2/A/xUHY+SuoNluSaGDsGOsxq4UPsVZ5atVwfiyUKgwbx7tNAvb5A
+	==
+X-Received: by 2002:a17:90b:3a83:b0:382:1a6f:ba3b with SMTP id 98e67ed59e1d1-38dc74d04d6mr13821914a91.5.1784078198085;
+        Tue, 14 Jul 2026 18:16:38 -0700 (PDT)
+X-Received: by 2002:a17:90b:3a83:b0:382:1a6f:ba3b with SMTP id 98e67ed59e1d1-38dc74d04d6mr13821886a91.5.1784078197613;
+        Tue, 14 Jul 2026 18:16:37 -0700 (PDT)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e1745a3fesm2207487a91.13.2026.07.14.18.16.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 18:14:26 -0700 (PDT)
-Date: Wed, 15 Jul 2026 03:14:25 +0200
-From: Klara Modin <klarasmodin@gmail.com>
-To: Xu Lu <luxu.kernel@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	apw@canonical.com, joe@perches.com
-Subject: Re: [PATCH RESEND 1/2] riscv: mm: Apply svinval in update_mmu_cache()
-Message-ID: <albbQtulrnpOmmBp@soda.int.kasm.eu>
-References: <20250901114141.5438-1-luxu.kernel@bytedance.com>
- <20250901114141.5438-2-luxu.kernel@bytedance.com>
+        Tue, 14 Jul 2026 18:16:37 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: [PATCH v2 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
+Date: Wed, 15 Jul 2026 09:16:13 +0800
+Message-Id: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250901114141.5438-2-luxu.kernel@bytedance.com>
+X-B4-Tracking: v=1; b=H4sIAF7fVmoC/42NTQ6CMBBGr0K6dghtaP1ZeQ/DorZTOlGodpBoC
+ He3cgI3X/K+xXuLYMyELE7VIjLOxJTGAmpXCRft2COQLyxUo0yzly1Y78GljEx9nGBMHhlCysC
+ RbtlCCMEqI9F604oieWQM9N4Cl65wJJ5S/my9Wf7ev9WzhAau0oWDPhrVan1OzPXzZe8uDUNdR
+ nTrun4BMGpfPNMAAAA=
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        Jie Gan <jie.gan@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784078191; l=1381;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=aFIWDU6AlfYlaPP8X5OcNF9jcaSZ/urzY1gk6bBHoCE=;
+ b=WEFYv59/YJRcXk5HjnUKTQ+mT91vfzOOTpTQoQY20Vt8nnM5uVg9+ccZhEhHFAl+sTdfH6+09
+ fDtaLiZtefRAzHpWJWnHQCV0A7bNjLVlQFQvvbiro07GyVvMDvcCNA3
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE1MDAwOCBTYWx0ZWRfXwuQEqTRXT61f
+ gD3BB7lQavEVOXx5MMSY/56cVu8gDecSmaYQ7t/oWjNhSZg6N7P8SajxFuEbmv91y9IDYXaZeuA
+ azbyBovbeK+MzkHE+Y1H4+SM0jUT5uY=
+X-Proofpoint-ORIG-GUID: OzEkYDCbUn-p3RzD1hRq3qRoIAyIFTFb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE1MDAwOCBTYWx0ZWRfXy0X7UwToCzdB
+ +dbeUyGl01DSwg193WaY/LAlJosJQR/CIe1UXpcdnIjQm18pZJg6OwBKiSX5o9O3DCk5GYqFkGE
+ jcMk48yruKc1C8Kj9eCKqMqgTtq9Xu7LD5ac44WIzIjtxGAWosnN6hYmafF5Gf3TuvAerGJDdSs
+ yn8gpwtbsFtX2oiYCiWvAnMgySkRwzC6t9qmixjsgsiu3uR0vdvzhS5zEBIqat1eO7VPsjSoSp1
+ fVjmv/y3zQPepdGlVgHWMOqwLZHQuOo7eDfqaKcvBz0QMJR2zmerdgVltKha2mUgvEtEguujrVW
+ JHGRZxGcESBCtVUjyTu7Mvj4SJzhgHwfY0HrgBxzxjQvBpejXSokt6kVSzkohkx98lW9neS6Yu6
+ afz7BVi3yM7F1ZwzF9DFANCqowgXF66Rsn5ThcoQlHi7bxnog+OqgclId/cFaoTi1zfZAZneazV
+ uVd/8fdNm4NKkKLZjRg==
+X-Proofpoint-GUID: OzEkYDCbUn-p3RzD1hRq3qRoIAyIFTFb
+X-Authority-Analysis: v=2.4 cv=VoATxe2n c=1 sm=1 tr=0 ts=6a56df77 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=anp7WcwJjaQlINPkyJkA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-15_01,2026-07-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0
+ priorityscore=1501 impostorscore=0 suspectscore=0 adultscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607150008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_181429_677079_1ACD039C 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20260714_181640_538418_C3E66766 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,70 +167,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This series adds the CoreSight debug and trace subsystem for the
+Qualcomm Shikra SoC.
 
-On 2025-09-01 19:41:40 +0800, Xu Lu wrote:
-> Only flush tlb of the specified mm, and apply svinval if available.
-> 
-> Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
-> ---
->  arch/riscv/include/asm/pgtable.h  | 16 +++++++++++++++-
->  arch/riscv/include/asm/tlbflush.h | 23 +++++++++++++++++++++++
->  arch/riscv/mm/tlbflush.c          | 23 -----------------------
->  3 files changed, 38 insertions(+), 24 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 91697fbf1f901..165cd02d51629 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -495,9 +495,15 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
->  		struct vm_area_struct *vma, unsigned long address,
->  		pte_t *ptep, unsigned int nr)
->  {
-> +	int i;
-> +	unsigned long asid = get_mm_asid(vma->vm_mm);
-> +
->  	asm goto(ALTERNATIVE("nop", "j %l[svvptc]", 0, RISCV_ISA_EXT_SVVPTC, 1)
->  		 : : : : svvptc);
->  
-> +	asm goto(ALTERNATIVE("nop", "j %l[svinval]", 0, RISCV_ISA_EXT_SVINVAL, 1)
-> +		 : : : : svinval);
-> +
->  	/*
->  	 * The kernel assumes that TLBs don't cache invalid entries, but
->  	 * in RISC-V, SFENCE.VMA specifies an ordering constraint, not a
-> @@ -506,7 +512,15 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
->  	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
->  	 */
->  	while (nr--)
-> -		local_flush_tlb_page(address + nr * PAGE_SIZE);
-> +		local_flush_tlb_page_asid(address + nr * PAGE_SIZE, asid);
-> +	return;
-> +
-> +svinval:
-> +	local_sfence_w_inval();
+The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
+Trace Control Unit). The CTCU on Shikra shares the same configuration as
+the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
+"qcom,sa8775p-ctcu" compatible.
 
-> +	for (i = 0; i < nr; i++)
-> +		local_sinval_vma(address + nr * PAGE_SIZE, asid);
+The second patch adds the DT nodes describing the CoreSight topology on
+Shikra, including the funnels, replicators, TMC sinks (ETR/ETF), STM,
+per-core ETMs, CTIs, and the TPDM/TPDA trace collection blocks, along
+with the CTCU and the dummy source/sink endpoints that model external
+trace sources and the EUD sink.
 
-Probably should be
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+Changes in v2:
+- remove MMIO for the ETM devices.
+- Link to v1: https://lore.kernel.org/r/20260714-add-coresight-nodes-for-shikra-v1-0-b1cf85962455@oss.qualcomm.com
 
- +	for (i = 0; i < nr; i++)
- +		local_sinval_vma(address + i * PAGE_SIZE, asid);
+---
+Jie Gan (2):
+      dt-bindings: arm: add CTCU device for shikra
+      arm64: dts: qcom: shikra: Add coresight nodes
 
-instead. My BPI-f3 hangs when entering the initramfs with the original
-patch. Reverting also fixes it.
+ .../bindings/arm/qcom,coresight-ctcu.yaml          |    1 +
+ arch/arm64/boot/dts/qcom/shikra.dtsi               | 1295 ++++++++++++++++++++
+ 2 files changed, 1296 insertions(+)
+---
+base-commit: 49362394dad7df66c274c867a271394c10ca2bb8
+change-id: 20260714-add-coresight-nodes-for-shikra-fffa261ead64
 
-> +	local_sfence_inval_ir();
-> +	return;
->  
->  svvptc:;
->  	/*
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
 
-Regards,
-Klara Modin
-
-...
 
 _______________________________________________
 linux-riscv mailing list
