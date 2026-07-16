@@ -4,98 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93991C44501
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 08:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB4FC4450A
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 09:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fmcOFNgvyDp2vdoDWh6y9Q2s7dT25YeziVTUB6xqdNc=; b=lZw6FD5DoXUYkF
-	W6iWpjay7MC1TRDdyYgCj8c2HXA5YalzL4ADwo0cmDEgLjs2tyr797LJiByCUAqEw0w3ZKODhrHUl
-	JYrNkXcNJqkYZg4Ppr2xHGYBRpOaz2Pxu2+IMq9GHCOy+yq6cUOs+6KnhGF5J2N02jVZOyQQrYPmW
-	M3gHCRFBwmp0ExvMlMZUPrhw5/tZ0j3dA3TF8LoYp9xN6wGgclik5JiMGDJjsIAlg/iwqzFKe+evR
-	AIf34ZTbZSKUWKOyRPNdacPu+fA9C+4ySdVg4f7t5lmJfX3qPo73i0Oh+xHEGRplZM/+j/4h/Fx8E
-	VrTT2iWK4xaoe20LG27Q==;
+	List-Owner; bh=0zaXIw6Q7v4jVt3PXzHWQhinfX5fZmiWYH4xz9/5VTQ=; b=QM9p5vaXjD4mCY
+	d3LviG9LQ6sd3FkLXoB0FDfH45RbsT09t/siQndwNWpcfUdItb/n89O1ynQ5c5FvDegWpA+E0d5rV
+	G+NBqOTU2Ofigkpqa2wngpR6dTyAXBgJtXO8eoFR04J8DwInjgzRqMTs7lPqZUtT3SCUrNtSwEY3B
+	pH+iZAxP880ll11JIZHVtil1fO9GuFlR8rja5zUJJe/Fwssuml8c5QkH4SUHY1hjvradvFRhCiZYe
+	EEey9NttYYa/WHwhNCABv5f9zOKL8oEw4P3+hgAeCVsbjOKArHhc0ubb7tJqDB+bNxbrIgZfKBE0g
+	XhaDCo9ToYzsGnIaHy+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHlD-0000000Gmg7-36Ky;
-	Thu, 16 Jul 2026 08:48:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHlA-0000000GmfK-3yOS;
-	Thu, 16 Jul 2026 08:48:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B9A21477;
-	Thu, 16 Jul 2026 01:47:54 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49F693F7B4;
-	Thu, 16 Jul 2026 01:47:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784191678; bh=7QMKKDkHs0y71hejlsCYJzHb+xCedfa9P65PLvvFIKc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=axdTxfndxhIm2l9wF115JT8EyHK0aYwwshKm81eWDFzjzgjVJJ7BS+4WpMIvME3P1
-	 uIFkxgagimtncp13PjU0JSxgZ0WhcaaecC63vGJVGl7xPiIi3KUjXJnW5Hw9bPiUOw
-	 JESTB8MB3ZDJ0nw4fAi/iJ9gtqgqsVDoZ01LWgek=
-Date: Thu, 16 Jul 2026 09:47:43 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Dave Hansen <dave.hansen@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org,
-	kasan-dev@googlegroups.com, linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
-	linux@armlinux.org.uk, akpm@linux-foundation.org,
-	ankur.a.arora@oracle.com, rppt@kernel.org, linmag7@gmail.com,
-	chleroy@kernel.org, klarasmodin@gmail.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, kas@kernel.org, zhangtianyang@loongson.cn,
-	wangyuli@aosc.io, tsbogend@alpha.franken.de, ljs@kernel.org,
-	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org,
-	arnd@arndb.de, ryan.roberts@arm.com, pasha.tatashin@soleen.com,
-	rmclure@linux.ibm.com, baolin.wang@linux.alibaba.com, tj@kernel.org,
-	kevin.brodsky@arm.com, anup@brainfault.org, atish.patra@linux.dev,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, dave.hansen@linux.intel.com, luto@kernel.org,
-	peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
-	bp@alien8.de, hpa@zytor.com, hannes@cmpxchg.org, mhocko@kernel.org,
-	qi.zheng@linux.dev, shakeel.butt@linux.dev, kasong@tencent.com,
-	baohua@kernel.org, axelrasmussen@google.com, yuanchu@google.com,
-	weixugc@google.com, ryabinin.a.a@gmail.com, glider@google.com,
-	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
-	anshuman.khandual@arm.com, yang@os.amperecomputing.com,
-	chaitanyas.prakash@arm.com, ardb@kernel.org, guoren@kernel.org,
-	yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
-	dinguyen@kernel.org, schuster.simon@siemens-energy.com,
-	wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech,
-	muchun.song@linux.dev, vishal.moola@gmail.com, namcao@linutronix.de,
-	pavel@kernel.org, djbw@kernel.org, yu-cheng.yu@intel.com,
-	baolu.lu@linux.intel.com, Jonathan.Cameron@huawei.com,
-	coxu@redhat.com, andreas@gaisler.com, liam@infradead.org,
-	vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
-	geert@linux-m68k.org, shorne@gmail.com, jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi
-Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
- folded pgtable case in effective_prot()
-Message-ID: <aliar2eyG2WMFWMz@e129823.arm.com>
-References: <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
- <14e250db-1641-4085-8d13-02f819657d5f@intel.com>
- <d83c76b3-ea4d-4c41-b4c5-f5ae558ace55@kernel.org>
- <alYgMxKqRnF6_X0A@e129823.arm.com>
- <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
- <alZe-Cu7yQw9qRXU@e129823.arm.com>
- <alZo9feSrSB_StfO@e129823.arm.com>
- <7cff02d6-d3ce-4315-b667-34911fc6f321@kernel.org>
- <alZ44XdgTEVFX6jU@e129823.arm.com>
- <a7e6a281-d1a4-42a6-9672-b1304107f888@kernel.org>
+	id 1wkIJ8-0000000Gqjs-0VqD;
+	Thu, 16 Jul 2026 09:23:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkIJ6-0000000Gqjj-3H1V
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 16 Jul 2026 09:23:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=oWR/+zaRnb0CksvjCoRnlIkdqqWHcmWebf50cRymkmw=; b=m/4BRlXnqC2ZkCaVQaoWy1ngI8
+	OSNM/oMsXtWppP1ow6QKzx9lDeT9PQTWcu1RxegraJLezkrJLfgNDuWcoLfYZgD8LNNjZUEQeInJT
+	lMi8JsnqzRRg6n+kpc1D/wIB2R9iVexBEjqxDDmwajoKzs+FdLvFCPrtfmrddzd0BTpS+zyPFbnZM
+	AVHNaF94wlA9xy/jzsMcYGwDeDKlNIacMiGv7t/wqI06b+Vvi54RSFAcCjLGNHRQxKaBTazl7RCL+
+	FrEiiQktWQz6wX/yGg2U8bZbpBtzOMuTK+RcFI4m5y3Td1rUbC4pSQP8VlgleDxXkQGGXNoaA25EV
+	+p6pFCQA==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wkIJ3-0000000DuzB-0NXA
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Jul 2026 09:23:03 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66G9MIdvC3536744, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1784193738; bh=oWR/+zaRnb0CksvjCoRnlIkdqqWHcmWebf50cRymkmw=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=RxHhN5Lu3I1LU0f6JBkimisE+FmdRFhb3cXIRcmmU7r4yYjhjJb8Vv9+PtuZrZxde
+	 PinFV0xHX+Bxp3dgiIdr6xpI0YuPOUc5zgoQGLgXp8kZns6CYOQVRkiVDXtCiNQ/zf
+	 UckzKBl/7rjpthevb9o/Gdc5rUmcA+kntCA1JbvaOin0Zhp5MyA9030V8wpX0XqUC3
+	 OOquG0hZ4AZ+X6df7pyWtsuL3m+k7rEQA4VBFwGPZFBZ3NVjro4qt8O5A8ElhnXS8f
+	 UKYAnWrQoz1R/HNYRow48MX3Z9+2HGS4S/75VdkPG+ly0CQCWj1JDiA/JKh5gv/awT
+	 AbXTyzenX9F1g==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66G9MIdvC3536744
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 16 Jul 2026 17:22:18 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Thu, 16 Jul 2026 17:22:17 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::e6fd:5a3f:8946:92c4%10]) with mapi id
+ 15.02.2562.017; Thu, 16 Jul 2026 17:22:17 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Bjorn Helgaas
+	<bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, =?utf-8?B?S3J6eXN6dG9mIFdpbGN6ecWEc2tp?=
+	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"spacemit@lists.linux.dev" <spacemit@lists.linux.dev>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>
+Subject: RE: [PATCH 2/2] wifi: rtw89: pci: enable 36-bit DMA on spacemit K3
+Thread-Topic: [PATCH 2/2] wifi: rtw89: pci: enable 36-bit DMA on spacemit K3
+Thread-Index: AQHdFNJRP59ehs1nXEC4sFhzEXMQ0LZv3oqg
+Date: Thu, 16 Jul 2026 09:22:17 +0000
+Message-ID: <e7a43955e41c4dbdb864e89edc3d9fe6@realtek.com>
+References: <20260715-rtw89-spacemit-k3-v1-0-e577bc63706b@oss.tenstorrent.com>
+ <20260715-rtw89-spacemit-k3-v1-2-e577bc63706b@oss.tenstorrent.com>
+In-Reply-To: <20260715-rtw89-spacemit-k3-v1-2-e577bc63706b@oss.tenstorrent.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+x-originating-ip: [172.21.6.42]
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a7e6a281-d1a4-42a6-9672-b1304107f888@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_014801_091976_891E09B2 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20260716_102301_806164_35BD20E0 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,108 +106,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 11:44:51AM +0200, David Hildenbrand (Arm) wrote:
-> On 7/14/26 19:58, Yeoreum Yun wrote:
-> > On Tue, Jul 14, 2026 at 07:29:38PM +0200, David Hildenbrand (Arm) wrote:
-> >> On 7/14/26 18:51, Yeoreum Yun wrote:
-> >>>
-> >>> Furthermore, the effective_prot() need to require to identify whether
-> >>> it's the first pgtable to prevent the inheriting from dummy value.
-> >>> So I think it seems to make a ptdump_pt_level_first() like:
-> >>>
-> >>> diff --git a/mm/ptdump.c b/mm/ptdump.c
-> >>> index 973020000096c..2ec5700e4be5e 100644
-> >>> --- a/mm/ptdump.c
-> >>> +++ b/mm/ptdump.c
-> >>> @@ -190,6 +190,23 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
-> >>>         st->note_page_flush(st);
-> >>>  }
-> >>>
-> >>> +bool pdtump_pt_level_first(struct mm_struct *mm, int level)
-> >>> +{
-> >>> +       if (!mm || level > CONFIG_PGTABLE_LEVELS)
-> >>> +               return false;
-> >>
-> >> Do we actually ever get !mm ?
-> > 
-> > Yes. for the case of s390 use mm anyway for folded check.
-> That's not what I meant, let me clarify.
+Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com> wrote:
+> The Spacemit K3 Pico ITX Board has a RTL8852BE pcie card behind a PCIe
+> root port, but the SoC doesn't have any 32 DMA addreseses which the
+> rtw89 seems to use by default. Enable 36 bit DMA ability that the driver
+> has when this particular root port is detected so that the driver can
+> probe on this SoC.
 > 
-> I think in ptdump_walk_pgd() it is guaranteed that mm != NULL, so I am wondering
-> why you are handling mm == NULL.
+> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 
-Agree. I'll remove it.
-BTW, this helper is incorrect because it returns true even for folded
-upper-level page tables. For example, if p4d is folded,
-level 0 would still be treated as the first level.
+This patch looks good to me:
 
-So, it would better to the following:
+Acked-by: Ping-Ke Shih <pkshih@realtek.com>
 
-diff --git a/arch/x86/mm/dump_pagetables.c b/arch/x86/mm/dump_pagetables.c
-index 2afa7a23340e9..4e545988953a0 100644
---- a/arch/x86/mm/dump_pagetables.c
-+++ b/arch/x86/mm/dump_pagetables.c
-@@ -27,6 +27,7 @@
-  */
- struct pg_state {
-        struct ptdump_state ptdump;
-+       int first_level;
-        int level;
-        pgprotval_t current_prot;
-        pgprotval_t effective_prot;
-@@ -254,7 +255,7 @@ static void effective_prot(struct ptdump_state *pt_st, int level, u64 val)
-        pgprotval_t prot = val & PTE_FLAGS_MASK;
-        pgprotval_t effective;
+But I wonder how this patchset goes via which tree. I'm happy to merge
+them into rtw tree and then wireless-next tree if people can ack
+patch 1/2.
 
--       if (level > 0) {
-+       if (level > st->first_level) {
-                pgprotval_t higher_prot = st->prot_levels[level - 1];
-
-                effective = (higher_prot & prot & (_PAGE_USER | _PAGE_RW)) |
-@@ -455,6 +456,8 @@ bool ptdump_walk_pgd_level_core(struct seq_file *m,
-                .seq            = m
-        };
-
-+       st.first_level = ptdump_pt_level_first(mm);
-+
-        ptdump_walk_pgd(&st.ptdump, mm, pgd);
-
-        if (!checkwx)
-diff --git a/include/linux/ptdump.h b/include/linux/ptdump.h
-index 240bd3bff18dd..26fa624eac44e 100644
---- a/include/linux/ptdump.h
-+++ b/include/linux/ptdump.h
-@@ -29,6 +29,7 @@ bool ptdump_walk_pgd_level_core(struct seq_file *m,
-                                struct mm_struct *mm, pgd_t *pgd,
-                                bool checkwx, bool dmesg);
- void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd);
-+int ptdump_pt_level_first(struct mm_struct *mm);
- bool ptdump_check_wx(void);
-
- static inline void debug_checkwx(void)
-diff --git a/mm/ptdump.c b/mm/ptdump.c
-index 973020000096c..b1d06ac4c0555 100644
---- a/mm/ptdump.c
-+++ b/mm/ptdump.c
-@@ -190,6 +190,17 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
-        st->note_page_flush(st);
- }
-
-+int ptdump_pt_level_first(struct mm_struct *mm)
-+{
-+       if (mm_pmd_folded(mm))
-+               return 3;
-+       if (mm_pud_folded(mm))
-+               return 2;
-+       if (mm_p4d_folded(mm))
-+               return 1;
-+       return 0;
-+}
-+
-
--- 
-Sincerely,
-Yeoreum Yun
 
 _______________________________________________
 linux-riscv mailing list
