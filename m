@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBCEC4450E
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 11:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01393C4450E
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 11:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XezpdGYlrRDsN/JaYO5KsPrRnVF7IJd8upm4j92xpUE=; b=WgrAqjAe5AyP74
-	atMAEhCa1nB82sNizKFOkLSHuCviLJjjDV158EDyQSR2l34z569dvVodQDFmRdmw2R3n5gfMYIHzU
-	Ct1NEjtaDtU4/hMsNW5X9/EvrRHEi7x0WmzsMtGzY2yqPrXsBPjpaO1INT4mOpnL9oWwTo+ohgYOd
-	4rRTzCqKpnWxdgRTt42rcjfAaUOQgclFm927FsPGmNmnhkv2EPGDNZb5b9PfvUgsjAKagWbb8UPsm
-	VIjCyLaKHWInZ2Z8cix5yzfuELR4V+okgs8wYyMYMO5FQCZqF8HnCsTAloctyDKZVDWMc67GxKYs7
-	IZBDfjRg1ZBWZz9y5vyA==;
+	List-Owner; bh=XezpdGYlrRDsN/JaYO5KsPrRnVF7IJd8upm4j92xpUE=; b=ww7gIV8WC7rhKX
+	9Bq+ix/eW6oyt19654/rlhojdznyZq3XQZQ61LHUlboA/bB57QCbpldK5Cxs8a9DBB6ab15/lSnhN
+	7ivvHeoPbrlmygZWUGl3HiRsVltBQN+uLPz107fb9ejrjm4Ceu6dQJ/Pw6NX8OV6NTGhibibKEbfP
+	lHJLs2o82AVjmGewHaSOvZCPbXM2h/agvlW/n8D6avRHDayVtPfJ06r/BZdinylKim5AR3wBNWxFJ
+	/ELygEWVhr+npZiuZ4aQ4uau32h+HVCbbDZLvRMdbc42HCwfJD4hZxdvZFZbaua1pqXlWfRFiFBl/
+	uqNagXQ0uPVUenY+dfDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKam-0000000HB2U-2l36;
-	Thu, 16 Jul 2026 11:49:28 +0000
+	id 1wkKeq-0000000HBVO-1XNs;
+	Thu, 16 Jul 2026 11:53:40 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKai-0000000HB1y-3plp
+	id 1wkKen-0000000HBTl-330F
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 11:49:27 +0000
+	Thu, 16 Jul 2026 11:53:39 +0000
 Received: from fric.. (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowADngPQwxVhqCVQfAA--.22319S2;
-	Thu, 16 Jul 2026 19:49:04 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowABHHfE4xlhqA2gfAA--.8524S2;
+	Thu, 16 Jul 2026 19:53:28 +0800 (CST)
 From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
@@ -49,31 +49,31 @@ Cc: David Hildenbrand <david@kernel.org>,
 	Vivian Wang <wangruikang@iscas.ac.cn>,
 	Jiakai Xu <xujiakai2025@iscas.ac.cn>
 Subject: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
-Date: Thu, 16 Jul 2026 11:49:02 +0000
-Message-Id: <20260716114902.3455029-1-xujiakai2025@iscas.ac.cn>
+Date: Thu, 16 Jul 2026 11:53:25 +0000
+Message-Id: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADngPQwxVhqCVQfAA--.22319S2
+X-CM-TRANSID: qwCowABHHfE4xlhqA2gfAA--.8524S2
 X-Coremail-Antispam: 1UD129KBjvJXoW7Zr18KF4kXr1rKw17ury7Awb_yoW8Zr1fpF
 	s0kF4q9ayUXr18ua9Fvw18WF4UW3s0kF17Kr42yr9xZF1YgFyxurWjq343uryDG3Wxua4k
-	Gr1ayFWrC3WrZa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	Gr1ayFWrC3WrZa7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
 	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
 	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVW8Jr0_Cr
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8Jr0_Cr
 	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
-	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Wrv_ZF1l42xK82IYc2
 	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
 	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0x
 	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
 	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
-	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTR_9NVDUUUU
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRGhFxUUUUU
 X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwMKCWpYpPBVKAAAsc
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAQKCWpYpKxZAQAAsp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_044925_344304_F94DA113 
+X-CRM114-CacheID: sfid-20260716_045338_140232_EBFB1E3C 
 X-CRM114-Status: UNSURE (   8.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
