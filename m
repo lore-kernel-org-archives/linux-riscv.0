@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE807C44512
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 21:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8CAC44514
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 21:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=H1B0UzsJEclL0HQPENYQ6qcLt8bd6cpD2z8Y4rF3izY=; b=VjzG2QDk+dFwHL
-	A/AqNz2xMICbUDBR3C9p9njtNH0JlOl4hR2rUM1U0/Kh5tyfbTfBR8MUOEHO5al/DCQCvtLTV9499
-	XhAstIjAOCRzVmDqaM1wO+At2agMYtykj3PBO0Rfu7PHvaVRDeyP+//OsWPUYW9z0pmcXi45LmnYl
-	EU4NxHYcdjac/XhPnKfBNaDUtHmnZVmNLvH3vApdKEkdi48vrl1p0N9ophJmpNjl20GYx/s2kzZzx
-	PZYFLX7IDPc8v8Fm46tPondIPsXgvqQ2k4Szaga5gYFeN486SaDeyp5rhSt0G616uryy59+Z73fTs
-	ieNc//OUn0f4mAs9ld7g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GxTdeKZ4tldrACTBmRd5HCL/RhOZxnt4L+XrCz5XJA8=; b=zZxJhtUg+Y7uzz
+	KBfN61kBNg1U8GvHCvaN6T/tFqlTmiB4QDUYfC1p1QL45MPttSB00TxeWpBlK4YwNmfpRyF2BhGSU
+	iwB1xSWVdeA5p3pQRO1IeErISXFe5G66/RmclfcJxscqoZHtAJBYrPGAqPLZFwKnobNFnom9l9E3X
+	unU6ukdbUKhAd0ImGtyadCD1G9dWg5iK6HPjKa/pmRbcKTUU/r3s7YRqRF8Xl2foD6tCU9rAaWGSm
+	FCfz5MuragQO/yg0rckAnjnPgShKjbK2/ZAws6ZiTmk434Z++clCDXEwOpRQ5a81aD4IOOiUZ1VJ9
+	UJiPWDP2Ti8V/fu/OsMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkThx-00000000dBe-1G0R;
-	Thu, 16 Jul 2026 21:33:29 +0000
+	id 1wkTi0-00000000dDq-01E5;
+	Thu, 16 Jul 2026 21:33:32 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkThv-00000000d9u-06jS
+	id 1wkThw-00000000dAh-2QZJ
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 21:33:28 +0000
+	Thu, 16 Jul 2026 21:33:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
-	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
-	bh=0HiuZgwH8psQJ3IEbbD0GhfaiOqaajADnn4e7kt49ps=; b=uBwsOZEZW7IJxO8GwedATLuBoD
-	w2Bhxbq19q5xeELX8wBqIel3PgLdQLjAwA2bjADbyzn+XeY/ybulnOG9oLgJLYLc1bd/tuAcOaDeT
-	vFeJ8Sd4RRfIxX/J01lYxX/+CPEQlCEBtUSkWh+HdCm7Snb5710JB8d3z5OjeYXzocIjoegvnFkcZ
-	v4kNdlrB9cqxIiBU6GeG1v1iXTjpV6z8nLLHHdFH2PQfnQ3UbPf8LO4boUWdIqL+VK3uysMtipMZ7
-	avF9CqadBTgc5zVm8279V2Fr8CGYoH6y7nWm1M9stI+AKndkRG4RCyzzS57Jy0uqgGmdDKT/SzRSp
-	hCxewZBQ==;
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=w20tFWjgl7SpbISkFY39+gk/LQYyndb7IGAWxD+7QfM=; b=wiWyipM/QjvIzgDdjiDYPAGepM
+	KnUTcKBBfBW9lQ4tPzBG7wc3GqcTWNUhAmM4nPoToxEYpGBpiGqOnuTlXo9AbJVry2Q0o/pJBGrI9
+	SXyac/e0i5y/jf5APjVm9nThQWzVv0QjQkQvaqSjS2XsYtMGry5eyiiYzhrwN5HT6gV1puKZLzSZ/
+	irIUdeo40Zt9/MAJ5W4IBb0v289S17O3pW0AWjsIaovvHcEGmNmCzo/miRCcYBLywgTnTeflhSgfm
+	XsTXdoLCTdD9qqxcPRdPU/lwsZbxSzFU3tnayiaMtL5PX6NYYm8CRyKXDfcYetvSY91QOvYJoM1wu
+	nCieDbmQ==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wkThs-00000003GYa-1fVF;
-	Thu, 16 Jul 2026 23:33:24 +0200
+	id 1wkThu-00000003GZK-1Wew;
+	Thu, 16 Jul 2026 23:33:26 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>
+	Alexandre Ghiti <alex@ghiti.fr>
 Cc: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
 	Aurelien Jarno <aurelien@aurel32.net>,
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE:Keyword:riscv),
-	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit)
-Subject: [PATCH 0/4] Enable Bluetooth and WiFi rfkill on K3 Pico ITX
-Date: Thu, 16 Jul 2026 23:19:00 +0200
-Message-ID: <20260716213314.3027969-1-aurelien@aurel32.net>
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
+Subject: [PATCH 4/4] riscv: dts: spacemit: k3: add rfkill node for WLAN on Pico-ITX board
+Date: Thu, 16 Jul 2026 23:19:04 +0200
+Message-ID: <20260716213314.3027969-5-aurelien@aurel32.net>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260716213314.3027969-1-aurelien@aurel32.net>
+References: <20260716213314.3027969-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_143327_068531_04BAFCAF 
-X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-CacheID: sfid-20260716_143328_620339_365206F9 
+X-CRM114-Status: UNSURE (   8.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,28 +85,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset enables Bluetooth through USB on the K3 Pico ITX board and adds the
-rfkill nodes for Bluetooth and WiFi so that the devices can be activated.
+By default the GPIO pin that connects to the RTL8852BE WLAN enable
+signal is driven low, resulting in impossibility to connect to any
+network. Add a DT node to expose it as an RFKILL device, which lets the
+WiFi driver or userspace toggle it as required.
 
-Note that the patch 4 is only useful with the following patch series:
-- https://lore.kernel.org/spacemit/20260709040027.958400-1-inochiama@gmail.com/
-- https://lore.kernel.org/spacemit/20260703021024.495433-1-inochiama@gmail.com/
-- https://lore.kernel.org/spacemit/20260709040415.977784-1-inochiama@gmail.com/
-- https://lore.kernel.org/spacemit/20260715-rtw89-spacemit-k3-v1-0-e577bc63706b@oss.tenstorrent.com/
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Aurelien Jarno (4):
-  riscv: defconfig: enable RFKILL and RFKILL_GPIO
-  riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX
-    board
-  riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX
-    board
-  riscv: dts: spacemit: k3: add rfkill node for WLAN on Pico-ITX board
-
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 32 ++++++++++
- arch/riscv/boot/dts/spacemit/k3.dtsi         | 65 ++++++++++++++++++++
- arch/riscv/configs/defconfig                 |  2 +
- 3 files changed, 99 insertions(+)
-
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index 011a35e6372e1..328f4c2cd7e14 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -44,6 +44,13 @@ reg_aux_vcc5v: regulator-aux-vcc5v {
+ 		regulator-always-on;
+ 	};
+ 
++	rfkill-pcie-wlan {
++		compatible = "rfkill-gpio";
++		label = "rfkill-pcie-wlan";
++		radio-type = "wlan";
++		shutdown-gpios = <&gpio 1 3 GPIO_ACTIVE_HIGH>;
++	};
++
+ 	rfkill-usb-bt {
+ 		compatible = "rfkill-gpio";
+ 		label = "rfkill-usb-bt";
 -- 
 2.53.0
 
