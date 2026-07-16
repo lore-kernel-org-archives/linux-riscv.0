@@ -4,99 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECBCC4450A
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 07:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D7BC44501
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 07:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n2z18BjDfyI/P9uIaSRe4lhNxAeOl7pTejt644PDL98=; b=bOGfPIhBgEjUwL
-	z00xondaFbKPRvBola8K+GCDjP1XmkGZ7J4E9kD+NhLuc4UNStp3ZAdfYriZRDYDL3Rk5QkkbB01V
-	qQPTeY9bXKLOa8ixi6HkX09J/1dLSCcOJIpXLOPKyJu7FjoCfcJeHfuqsgquszKng3WF6RWrO5To2
-	fKnYNhrdPiHY/ZyKTgHf0UWr3/nfutYyT0HGMBW7xOpV+HbxO3AXKyHSACWR6Fe8/44kyHiRG4OS3
-	iwR3RSMPsKocsCMIcpSlE6UTtqLl0aGCnLlT8yXdhx05ovBgB4IbWkbsEDMmfRAadVM7ZMlPhKJjj
-	i/xnTPUPUjQ30AwhJdog==;
+	List-Owner; bh=wGIqJP4FGOplOi+w3VdlA/IcxOWhTqC9d0GQuFLEot0=; b=45IdWhno90po1z
+	HaedPeUtqMP8urtSQv+N55/EsUXfj8WyaASk3wuGlUPzCdamxKUe/zkmYpGu/4ABgfw+ve4u4VXuL
+	VyRZQqAgLjdj/Zl+wiXJ7vYPc6Ix9Qjw/ui7bncDyqZ4C++hjmwAiq3hGfaF5vNW6iNhNq3MACnW5
+	+vEA/D/Wi00ItDL4LUdrE3ym+VI5wcMyvB9/DTk0JZBZjUAMBE2H6NPe/ogcmQ1AZhwX5xXTOlP0U
+	FGq2m4Wy3SCN70DpVAA0/52/EYlTOwZ8scFPU4lgxAlJbLZ55kPodUpFNHnOjz/L7YKLQLzoKGGIj
+	HvnJy2Vd/TsMnZr+PP/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkGr8-0000000Ggvq-3fWL;
-	Thu, 16 Jul 2026 07:50:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkGr5-0000000Gguu-1KwI;
-	Thu, 16 Jul 2026 07:50:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7269C168F;
-	Thu, 16 Jul 2026 00:49:55 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4FEE73F905;
-	Thu, 16 Jul 2026 00:49:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784188199; bh=SezQaQ3kr0/h0JyFQ0VLykJSkvx0NJJphcsYvOpsEN4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gQRl7YUQCBVoiNIinaXRRJ6iLdSG3Rzd0xV0hEu2lGo5w6z86vYyNhkSIYX9L3nd9
-	 q4q4/O6JNDXm4XNPNif4MOp4E6vcDqWFBACswg6z3701KGFgiJeJvUAoj008c2kew8
-	 5BJk9bAjoi8xDDesBwIO6jPMcRzOrdrOp8BTmyaQ=
-Date: Thu, 16 Jul 2026 08:49:47 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Dave Hansen <dave.hansen@intel.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org,
-	kasan-dev@googlegroups.com, linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
-	linux@armlinux.org.uk, akpm@linux-foundation.org,
-	ankur.a.arora@oracle.com, rppt@kernel.org, linmag7@gmail.com,
-	chleroy@kernel.org, klarasmodin@gmail.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, kas@kernel.org, zhangtianyang@loongson.cn,
-	wangyuli@aosc.io, tsbogend@alpha.franken.de, ljs@kernel.org,
-	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org,
-	arnd@arndb.de, ryan.roberts@arm.com, pasha.tatashin@soleen.com,
-	rmclure@linux.ibm.com, baolin.wang@linux.alibaba.com, tj@kernel.org,
-	kevin.brodsky@arm.com, anup@brainfault.org, atish.patra@linux.dev,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, dave.hansen@linux.intel.com, luto@kernel.org,
-	peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
-	bp@alien8.de, hpa@zytor.com, hannes@cmpxchg.org, mhocko@kernel.org,
-	qi.zheng@linux.dev, shakeel.butt@linux.dev, kasong@tencent.com,
-	baohua@kernel.org, axelrasmussen@google.com, yuanchu@google.com,
-	weixugc@google.com, ryabinin.a.a@gmail.com, glider@google.com,
-	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
-	anshuman.khandual@arm.com, yang@os.amperecomputing.com,
-	chaitanyas.prakash@arm.com, ardb@kernel.org, guoren@kernel.org,
-	yang.li85200@gmail.com, viro@zeniv.linux.org.uk,
-	dinguyen@kernel.org, schuster.simon@siemens-energy.com,
-	wangruikang@iscas.ac.cn, junhui.liu@pigmoral.tech,
-	muchun.song@linux.dev, vishal.moola@gmail.com, namcao@linutronix.de,
-	pavel@kernel.org, djbw@kernel.org, yu-cheng.yu@intel.com,
-	baolu.lu@linux.intel.com, Jonathan.Cameron@huawei.com,
-	coxu@redhat.com, andreas@gaisler.com, liam@infradead.org,
-	vbabka@kernel.org, surenb@google.com, mhocko@suse.com,
-	shorne@gmail.com, jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi
-Subject: Re: [RFC PATCH 10/34] x86: mm: carve out the generic compile-time
- folded pgtable case in effective_prot()
-Message-ID: <aliNG7OGphxzH7Wr@e129823.arm.com>
-References: <31988089-095a-4eed-b5e2-c677c70f79f6@kernel.org>
- <14e250db-1641-4085-8d13-02f819657d5f@intel.com>
- <d83c76b3-ea4d-4c41-b4c5-f5ae558ace55@kernel.org>
- <alYgMxKqRnF6_X0A@e129823.arm.com>
- <6df814c9-405c-48d8-96ea-929c4b28949b@intel.com>
- <alZe-Cu7yQw9qRXU@e129823.arm.com>
- <alZo9feSrSB_StfO@e129823.arm.com>
- <CAMuHMdUqL=vJFAzYgcRVNbD_VWWwhehwTuhTfwLt_yRR8c+B0g@mail.gmail.com>
- <aldV23PwIXnFloaN@e129823.arm.com>
- <CAMuHMdVOHm6MmP9QsNVvxLsGp1e0jC9u9RGb6+xee0ZBs4Zwfw@mail.gmail.com>
+	id 1wkGzd-0000000GheR-02pb;
+	Thu, 16 Jul 2026 07:58:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkGzb-0000000GheG-0xbD
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Jul 2026 07:58:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 147B242E7E;
+	Thu, 16 Jul 2026 07:58:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E7F01F000E9;
+	Thu, 16 Jul 2026 07:58:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784188729;
+	bh=XFGB9EYTJwH+N4BI/qhn6r7GPkURnLDExNdsrN16I9k=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=QWKRQEdDiRTpwlxFhKtRwDV6MX9vBuTKRz3k1VfevFlBG+b6rXCBDO5CZjsL8QqL7
+	 d0dN1XFfBltaKe56b6y/0CbtnFP/SVnL67XU/txpIidjorkHlqvlPlcT4Qfs2B4DG7
+	 x83SrrwBpmXQBQFS3NOYjXxW8J/BdjYCC5EP0mckkD0maDzYCNuWSRPZjd+MNefeYx
+	 ukrVcR4hwYZr37KxVQ7ksFbjeyrwht3BgI8zYwuSsjkUJShdaEcDWXYkyHjU8aAbzP
+	 QnmTSfrxyrdp2g3Vy1UpCgAzPU8uB7D5Q/RXzgTUJ0FhetG7DLi1fVBjaCFJM6bSyx
+	 XJ2XEJ/5LGx8A==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Feng Jiang <jiangfeng@kylinos.cn>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya
+ Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song
+ Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
+ <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Luke Nelson
+ <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Pu Lehui
+ <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Shuah Khan
+ <shuah@kernel.org>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, Feng Jiang
+ <jiangfeng@kylinos.cn>
+Subject: Re: [PATCH v3 2/2] selftests/bpf: enable timed may_goto tests for
+ riscv64
+In-Reply-To: <20260715-riscv-bpf-timed-may-goto-v3-2-cf2a9c3d843f@kylinos.cn>
+References: <20260715-riscv-bpf-timed-may-goto-v3-0-cf2a9c3d843f@kylinos.cn>
+ <20260715-riscv-bpf-timed-may-goto-v3-2-cf2a9c3d843f@kylinos.cn>
+Date: Thu, 16 Jul 2026 09:58:45 +0200
+Message-ID: <877bmvwekq.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdVOHm6MmP9QsNVvxLsGp1e0jC9u9RGb6+xee0ZBs4Zwfw@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_005003_529079_B313CC8F 
-X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,59 +76,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 12:34:29PM +0200, Geert Uytterhoeven wrote:
-> Hi Yeoreum,
-> 
-> On Wed, 15 Jul 2026 at 11:42, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > > On Tue, 14 Jul 2026 at 18:51, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > > > --- a/mm/ptdump.c
-> > > > +++ b/mm/ptdump.c
-> > > > @@ -190,6 +190,23 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
-> > > >         st->note_page_flush(st);
-> > > >  }
-> > > >
-> > > > +bool pdtump_pt_level_first(struct mm_struct *mm, int level)
-> > > > +{
-> > > > +       if (!mm || level > CONFIG_PGTABLE_LEVELS)
-> > > > +               return false;
-> > > > +
-> > > > +       if (mm_pmd_folded(mm) && level == 3)
-> > > > +               return true;
-> > > > +       if (mm_pud_folded(mm) && level == 2)
-> > > > +               return true;
-> > > > +       if (mm_p4d_folded(mm) && level == 1)
-> > > > +               return true;
-> > >
-> > > Is this order (... && level == ...) the optimal order?
-> > > On arm64, mm_pud_folded() and mm_p4d_folded() perform several checks.
-> > >
-> > > > +       if (level == 0)
-> > > > +               return true;
-> > > > +
-> > > > +       return false;
-> > > > +}
-> >
-> > It is. since the purpose of ptdump_pt_level_first is designed to be used
-> > in the *callback* of pXd_entry(). IOW, if we check level 0 first,
-> > it always returns wrong return in folded case.
-> 
-> I meant the order inside the if () conditions.
-> E.g.
-> "if (mm_pud_folded(mm) && level == 2)" does the expensive check first.
-> "if (level == 2 && mm_pud_folded(mm))" does the cheap check first.
-
-Ah. Yeap that would be better. Thanks!
-
--- 
-Sincerely,
-Yeoreum Yun
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RmVuZyBKaWFuZyA8amlhbmdmZW5nQGt5bGlub3MuY24+IHdyaXRlczoKCj4gRW5hYmxlIHZlcmlm
+aWVyX21heV9nb3RvXzEgKHJhdyBpbnN0cnVjdGlvbiB0ZXN0cyksIHN0cmVhbV9jb25kX2JyZWFr
+Cj4gKDI1MG1zIHRpbWVvdXQgcGF0aCksIGFuZCB0aGUgbWF5X2dvdG9faW50ZXJhY3Rpb25fYXJt
+NjQgZmFzdGNhbGwgdGVzdAo+IG9uIHJpc2N2NjQgbm93IHRoYXQgdGhlIEpJVCBzdXBwb3J0cyB0
+aW1lZCBtYXlfZ290by4KClJlYWxseSBhIG5pdCwgYnV0IG5vdyB0aGF0IG1heV9nb3RvX2ludGVy
+YWN0aW9uX2FybTY0KCkgaGFuZGxlcyBtb3JlCnRoYW4ganVzdCBhYXJjaDY0LCBtYXliZSByZW5h
+bWUgdGhhdCBmdW5jdGlvbj8KCgpCasO2cm4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
