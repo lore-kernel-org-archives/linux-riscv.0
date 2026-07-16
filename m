@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4739C44501
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 08:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CFEC4450A
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 08:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RPkEJZwTDTLuK3mWdmGzxm98nzCyJzf1ToZUoq/BWzM=; b=YrSfZUIr3xO//l
-	LYMHXVDqxjSwXu4vbxnXsgsbUm65fqstUoNANKQz0Fsx05/tpeVw019Ph2O8xpFTh7TzM7jNwspLT
-	8SutBiS4XogSyjkUthy5QnVRctu4ww6ygyjzCefSreWAEOJ/b2oGK9pjG6BvL0s5Zrd0B1kIq2iob
-	dKfVvQV2K/cuKteEfKEUSCJY3fMKAbXvr+j4MxzYMEFUbzSoWTIl0uerq/OA4kmOyXZ4oG++pKuzG
-	BeWGG0aJFidPkpxagd+yv3Ij2dowyxVx6+WrGv5dhJYJ/UaOe4OT6IISXEQfo9siWvsuAFlRn4Jdc
-	HbgZeXJFCLx7th/s9lJQ==;
+	List-Owner; bh=f8sLfCRFo0yQixsWFVXcajhMdNUUOTstHksqaa9iCtc=; b=wtTimeStPoE8DH
+	sV3ajz8MNw0NcQhPsmdFsWrW/nOqDZYfQ24xadjOeoct8O1zsYMxuJOJmcMlytvCxFslsi1QC2rUb
+	8/RtrvdsCg18ngAglTnO/ZG83chyefVWst1YNWLgX+0fntacC8lyD0AZ3HP239FNHcRsHUkdTsO0H
+	sPS97bBEzvZk7aO14mgng/SWrghnbDLTpnAMwjZrdgD+KaT52pfBZmRxVX93rbbiHFs3BclLau/Vw
+	aWkOaBaJc0LG//EdqNlRbW5bfgPe0rN07xzA8U7FRnlTbQ4jUBuNBcT7PNQFO22YVpy/6kl5Ib0F6
+	4KESCA5T8RPpqGgJ0MMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkH8Y-0000000GiIL-0oFU;
-	Thu, 16 Jul 2026 08:08:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkHBr-0000000GiYS-2UYo;
+	Thu, 16 Jul 2026 08:11:31 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkH8X-0000000GiIB-3Sl0
+	id 1wkHBo-0000000GiXX-0QnB
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 08:08:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF97160054;
-	Thu, 16 Jul 2026 08:08:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23BF21F000E9;
-	Thu, 16 Jul 2026 08:08:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784189284;
-	bh=j19L2Iuj7nf3YuWOyNn/pNo1TKaAQ7yjwz7bZzfQ9ac=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=niXas0v57O5WQpY58b8mKCqlJ7dbVaCI3Py6WSwSc5gkHVGbCUZW5oEqoxbknAWHh
-	 0K7n5HnWYxU7xKHbQoDNR7A/pb0GYJ5Wn/4PbKDefCuurGySZCvYN20SZz+73QBbXU
-	 YGAlK1zTHlhloyHXzdMAvOjukVO9sH09lkjN8cPQYS2DzN7pFA3hr8L4nAYERwVArN
-	 ltqtZFRxPn1ILi/evJYOL9SdeUocw00/7ejmW4Xqd1+GfNlSlkmYQV/7z/5XytHMU0
-	 /+2IVy8RA3Mx7uMrnEbUumAK0Yh5NXFg9yzz2ChGfRRvyfFwnIo0opZZORFnmYVOZq
-	 ZlXJx9AqHnmOg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Feng Jiang <jiangfeng@kylinos.cn>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
- <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya
- Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song
- Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
- <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Luke Nelson
- <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Pu Lehui
- <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Shuah Khan
- <shuah@kernel.org>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, Feng Jiang
- <jiangfeng@kylinos.cn>
-Subject: Re: [PATCH v3 1/2] bpf, riscv: add support for timed may_goto
-In-Reply-To: <20260715-riscv-bpf-timed-may-goto-v3-1-cf2a9c3d843f@kylinos.cn>
-References: <20260715-riscv-bpf-timed-may-goto-v3-0-cf2a9c3d843f@kylinos.cn>
- <20260715-riscv-bpf-timed-may-goto-v3-1-cf2a9c3d843f@kylinos.cn>
-Date: Thu, 16 Jul 2026 10:08:01 +0200
-Message-ID: <8733xjwe5a.fsf@all.your.base.are.belong.to.us>
+	Thu, 16 Jul 2026 08:11:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Pv577sMTFwQrPwgjiG8MvpB+Qkw1Yz2v2aLJ0k98900=;
+	b=dSMQrXWvx4FaFbFNk7qY1QSnHXcM7SHSjFqDKlhSrPVOA98pSi4G73tjuZekZyNsj+YgeHf0k
+	j+tW1qcCNNL7/vLdROyNlMdIZDcXGhZ+dlHvzEVZ5zIEGBxxseD0Oz6+Ij5ie04TJXB6xdv0aPi
+	kr/VLIm1/uqwVocgyN3wj24=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4h158z1pNPz12LCc;
+	Thu, 16 Jul 2026 16:01:39 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7A9C940537;
+	Thu, 16 Jul 2026 16:11:16 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 16 Jul
+ 2026 16:11:15 +0800
+Message-ID: <bff2043e-1efd-41ad-b285-0436a5df346d@huawei.com>
+Date: Thu, 16 Jul 2026 16:11:15 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] bpf, riscv: fix missing extable entry for arena
+ load_acquire
+Content-Language: en-US
+To: Feng Jiang <jiangfeng@kylinos.cn>, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
+	<memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
+	<song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
+	<jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>,
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Puranjay Mohan
+	<puranjay@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>
+CC: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260716-bpf-riscv-fix-extable-v2-1-421f75812533@kylinos.cn>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20260716-bpf-riscv-fix-extable-v2-1-421f75812533@kylinos.cn>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_011128_795902_65B9AECB 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +84,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RmVuZyBKaWFuZyA8amlhbmdmZW5nQGt5bGlub3MuY24+IHdyaXRlczoKCj4gSW1wbGVtZW50IGFy
-Y2hfYnBmX3RpbWVkX21heV9nb3RvKCkgZm9yIHRoZSBSVjY0IEpJVC4gVGhlIGFyZ3VtZW50IGFu
-ZAo+IHJldHVybiB2YWx1ZSBhcmUgY2FycmllZCBpbiBCUEZfUkVHX0FYLCBhbmQgQlBGIFIwLVI1
-IGFyZSBwcmVzZXJ2ZWQKPiBhY3Jvc3MgdGhlIGNhbGwgdG8gdGhlIGdlbmVyaWMgYnBmX2NoZWNr
-X3RpbWVkX21heV9nb3RvKCkuCj4KPiBFbmFibGUgYnBmX2ppdF9zdXBwb3J0c190aW1lZF9tYXlf
-Z290bygpIHNvIHRoZSB2ZXJpZmllciB1c2VzIHRoZSB0aW1lZAo+IGV4cGFuc2lvbiBwYXRoLgoK
-VGhhbmtzIGZvciB3b3JraW5nIG9uIHRoaXMhCgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25l
-dC9icGZfaml0X2NvbXA2NC5jIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+IGlu
-ZGV4IGMwM2MxZGUxNmI3OS4uNGY4OGE0NDYyNzhhIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
-bmV0L2JwZl9qaXRfY29tcDY0LmMKPiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2
-NC5jCj4gQEAgLTE4NDEsNyArMTg0MSwxMyBAQCBpbnQgYnBmX2ppdF9lbWl0X2luc24oY29uc3Qg
-c3RydWN0IGJwZl9pbnNuICppbnNuLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCwKPiAgCQlp
-ZiAocmV0KQo+ICAJCQlyZXR1cm4gcmV0Owo+ICAKPiAtCQlpZiAoaW5zbi0+c3JjX3JlZyAhPSBC
-UEZfUFNFVURPX0NBTEwpCj4gKwkJLyoKPiArCQkgKiBhcmNoX2JwZl90aW1lZF9tYXlfZ290bygp
-IGlzIGVtaXR0ZWQgYnkgdGhlIHZlcmlmaWVyIGFuZAo+ICsJCSAqIHJldHVybnMgaXRzIHJlc3Vs
-dCBpbiBCUEZfUkVHX0FYIGluc3RlYWQgb2YgQlBGX1JFR18wLCBzbwo+ICsJCSAqIHNraXAgdGhl
-IG5vcm1hbCAibW92ZSByZXR1cm4gcmVnaXN0ZXIgaW50byBSMCIuCj4gKwkJICovCj4gKwkJaWYg
-KGluc24tPnNyY19yZWcgIT0gQlBGX1BTRVVET19DQUxMICYmCj4gKwkJICAgIGFkZHIgIT0gKHU2
-NClhcmNoX2JwZl90aW1lZF9tYXlfZ290bykKCk5pdDogSW4gdGhlIGZ1dHVyZSwgcGxlYXNlIHVz
-ZSBmdWxsIDEwMCBjaGFycyBsaW5lcywgaW5zdGVhZCBvZiBicmVha2luZwp0aGUgbGluZS4KCldv
-dWxkIGl0IGJlIHBvc3NpYmxlIHRvIGFkZCBhIHRlc3QgZm9yIHRoaXMgY3VzdG9tIEFCST8gVGhl
-IGZhY3QgdGhhdCBpdAp3YXMgbWlzc2VkIGluIHYxIGhpbnRzIHRoYXQgaXQgd291bGQgYmUgZ29v
-ZC4KCkkgYXNrZWQgYW4gTExNIHRvIHN1Z2dlc3QgYSB0ZXN0IFsxXS4gRmVlbCBmcmVlIHRvIGJl
-IGluc3BpcmVkIGJ5IGl0Lgo7LSkKCgpCasO2cm4KClsxXSBodHRwczovL3Bhc3RlLmRlYmlhbi5u
-ZXQvaGlkZGVuLzlkZDc2OWQ2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+
+On 2026/7/16 15:38, Feng Jiang wrote:
+> emit_atomic_ld_st() returns 1 to have build_body() skip the zext after
+> a sub-word load_acquire. The caller does "ret = ret ?:
+> add_exception_handler(...)", which skips add_exception_handler() on any
+> non-zero ret, so the extable entry is missing and a faulting
+> PROBE_ATOMIC load_acquire oopses.
+> 
+> Check ret >= 0 before calling add_exception_handler(), and return ret
+> unchanged so build_body() still skips the zext.
+> 
+> Fixes: fb7cefabae81 ("riscv, bpf: Add support arena atomics for RV64")
+> Suggested-by: Pu Lehui <pulehui@huawei.com>
+
+A small matter.
+
+Feel free to add:
+
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
+
+> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+> ---
+> Changes in v2:
+> - Drop extra variable as suggested by Pu Lehui.
+> - Link to v1: https://lore.kernel.org/r/20260716-bpf-riscv-fix-extable-v1-1-af023cc17af4@kylinos.cn
+> ---
+>   arch/riscv/net/bpf_jit_comp64.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index f9d5347ba966..0db89093ff89 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -1986,7 +1986,10 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   		else
+>   			ret = emit_atomic_rmw(rd, rs, insn, ctx);
+>   
+> -		ret = ret ?: add_exception_handler(insn, REG_DONT_CLEAR_MARKER, ctx);
+> +		/* ret can be 1 (skip-zext); extable entry still needs to be added */
+> +		if (ret >= 0)
+> +			ret = add_exception_handler(insn, REG_DONT_CLEAR_MARKER, ctx) ?: ret;
+> +
+>   		if (ret)
+>   			return ret;
+>   		break;
+> 
+> ---
+> base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+> change-id: 20260716-bpf-riscv-fix-extable-399947ca778d
+> 
+> Best regards,
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
