@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DA6C44512
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 17:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EF2C44516
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 17:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kKubAHq0qwUkFvMTCTLpAkLGUvh13Gz0HdgnxzvIDD0=; b=07sM6Sv9HfK+EV
-	QaWMBE5rIY/UqOGEi9vFAHdizB92glalGDo3jvtpEfkJdW7i9PgkmtwMpwRp6PPj8+0Kbn2A4ngEX
-	WI1HvnZpGQEjdHkrb25zybrYp2aRdexjOIw/9kDqbzrSsLcXwaIKT4G2rxoBVqpmZsP7VF4NQNsrg
-	lRzfVqjgsUFe/EurrBwXJ0432k4Dq7rvdpnCZubNeJEk+IPnCyn0UN2Qj0Wq/Mu+6MluptcQGTlHH
-	HAFNMGAEQg9eWy3xPsGB5NvMnCqVnZjHtGMikF2fnNW9pHiVGOH+RDG5aS8N0e5ArwbWVKoMf8FWr
-	tACNUpI7bYqbC2xl13vQ==;
+	List-Owner; bh=vQozKbz5904Z1w82bpgxEqiXD0xghTS3AUcIihNaxPI=; b=L4vDH5hDf5jw9j
+	yRFtuFFOdgW2Q6o0RecMyOStyb6uXy5xe0l6QZE908NoV8F/HBjrsIh91ljEISgF+Rf+hjDflOu5t
+	ms4ZG4EohpFhf2aec/31D7xsu5ZQp+10mpSPp9U0N5dl7nKoQHnT6Mpu+i0k2neGNXXVjjVwGBtmI
+	21InYFYQ7bzu9cMlUpRiwVUbac7NoDxaSsUHqD+8Lq6T1ZFVcl3atd6Oc5FI8Qcf9VSCxQC5yzEts
+	rDYUomH0WKJ9UEqQKeBNPVwi4lHLw47W1EQDrpxrmuPaaNuT1XndNB8A3kYKSAH4sXjzdoNtF9o6F
+	08ZumHasgcJuX84mcpJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ8D-00000000Irm-2eZC;
-	Thu, 16 Jul 2026 17:44:21 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1wkQ9H-00000000J5c-0lzL;
+	Thu, 16 Jul 2026 17:45:27 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ8A-00000000Ir7-1OeX;
-	Thu, 16 Jul 2026 17:44:19 +0000
+	id 1wkQ9D-00000000J4i-1abO;
+	Thu, 16 Jul 2026 17:45:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784223858; x=1815759858;
+  t=1784223923; x=1815759923;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:content-transfer-encoding:in-reply-to;
-  bh=jR5j9NUUUDWrKfOXsM73JV6fyT1VqUxtuhsCIIn6jKM=;
-  b=D7QnHeLRacmdz4Nd6pY6gn5fyUUkoaStawf1F89wB1NPlNT/z/Lu6zbA
-   tR2IpcQJsRaFTYSI8GLYWWzGO3or8flZccHQE7NZH8v3oF5mB3aZV0RYN
-   He6ZDjfnKdyhWW+Nyivi2hE2XTmPubxSuOwcANBNNFvHm9ityOdFFVQ6G
-   gMbeoR22Ajw7CQW5MyYaD1zcLfJa9D1qRIkvmeCk1j2f8bG0Jp+d6Hmsi
-   gIcKFye7Iw2gWoq0jZeYtyOCRluaN8ki1XiaF53SGmoGfTiouPQm/rbKr
-   umD9cm2zcdtiwMpdV3UzMmkER+LzIfkyjLGT6GMv5xulZKxZkTewVBK00
-   Q==;
-X-CSE-ConnectionGUID: S3Y5L6V2THiDiyuTc8jieA==
-X-CSE-MsgGUID: EEZoah43SxClRD5d0ZmeaA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="83877246"
+  bh=zbVibP9aLTK8oNvSIhVNQ4AgGcuyaBeKvV56UEcTcpQ=;
+  b=fa1lntsR0KjstL+qAvyVKMc1vA2g4rw5JjZ+lcdVvSGiUTBrrAS6812V
+   f+uiFX9SR05hATboMM1i3aGrDUAbd1sqs7OinwzrKT2kz7C6cs1DGPJ5b
+   gtaCMcj8c98+KwyDGMce8L5l0U68UGIvmy8Pk1a3DBFNfRI9T5TdD1+xM
+   /bI9DrcPoO4EdDXvSqb3NIAUcWJd7ycc4GU4686JXRUHfeONjmPy+MDYZ
+   1foP+4QkdWzzDwkF9HugSBn2MIlGaq6YnQmJgOjXHQYrP3oABlqxS6nEI
+   uhqvDJPmzC8o1NwlL5ae6ajWoDhUgz+UgXo5u1Ii4Q9Nr6ngDaw/8c09D
+   w==;
+X-CSE-ConnectionGUID: yHdGRxANQ2OfYssfQgMqNw==
+X-CSE-MsgGUID: T/BpK44UTGGicYvt5N9+ww==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="85090271"
 X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="83877246"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:44:15 -0700
-X-CSE-ConnectionGUID: aMxhVdAuQT2VWNRoxPa/nw==
-X-CSE-MsgGUID: NDeukz9TQ02LlIOQEavzaw==
+   d="scan'208";a="85090271"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:45:22 -0700
+X-CSE-ConnectionGUID: tUarK1GxR1ydTColBfz7Rw==
+X-CSE-MsgGUID: kqVQX9ajR9KmsayDkRu5Zg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="256023287"
+   d="scan'208";a="279834026"
 Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:43:55 -0700
-Date: Thu, 16 Jul 2026 20:43:53 +0300
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:45:03 -0700
+Date: Thu, 16 Jul 2026 20:45:01 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
 Cc: Linus Walleij <linusw@kernel.org>,
@@ -133,16 +133,17 @@ Cc: Linus Walleij <linusw@kernel.org>,
 	Michael Buesch <m@bues.ch>, William Breathitt Gray <wbg@kernel.org>,
 	Robert Richter <rric@kernel.org>, linux-acpi@vger.kernel.org
 Subject: Re: [PATCH v2 00/21] gpio: Improvements around device-id arrays
-Message-ID: <alkYWcuMsfE5jkLR@ashevche-desk.local>
+Message-ID: <alkYnQdzZlKf2bfB@ashevche-desk.local>
 References: <cover.1784133987.git.u.kleine-koenig@baylibre.com>
+ <alkYWcuMsfE5jkLR@ashevche-desk.local>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <cover.1784133987.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <alkYWcuMsfE5jkLR@ashevche-desk.local>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_104418_416592_5F9E8B42 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260716_104523_462759_91D74D0A 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,26 +160,31 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 06:55:05PM +0200, Uwe Kleine-K=F6nig (The Capable H=
-ub) wrote:
-> Hello,
+On Thu, Jul 16, 2026 at 08:44:14PM +0300, Andy Shevchenko wrote:
+> On Wed, Jul 15, 2026 at 06:55:05PM +0200, Uwe Kleine-K=F6nig (The Capable=
+ Hub) wrote:
+> > Hello,
+> > =
+
+> > as with v1 the original motivation for this series are the patches that
+> > convert the arrays to use named initializers, see
+> > https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylib=
+re.com/
+> > for the idea behind it. Then by not closing the eyes for small issues
+> > spotted while working on that, this series grew a bit.
+> > =
+
+> > Changes since v1 (available at
+> > https://lore.kernel.org/linux-kernel/cover.1784013063.git.u.kleine-koen=
+ig@baylibre.com):
 > =
 
-> as with v1 the original motivation for this series are the patches that
-> convert the arrays to use named initializers, see
-> https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylibre=
-.com/
-> for the idea behind it. Then by not closing the eyes for small issues
-> spotted while working on that, this series grew a bit.
-> =
+> Sorry, but at first glance it seems this version is messed up.
+> I'm not going to look into it deeply, waiting for *carefully*
+> checked v3...
 
-> Changes since v1 (available at
-> https://lore.kernel.org/linux-kernel/cover.1784013063.git.u.kleine-koenig=
-@baylibre.com):
-
-Sorry, but at first glance it seems this version is messed up.
-I'm not going to look into it deeply, waiting for *carefully*
-checked v3...
+And with the above being said, my tags against v2 are not valid
+(withdrawn).
 
 -- =
 
