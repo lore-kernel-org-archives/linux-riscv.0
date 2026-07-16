@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01393C4450E
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 11:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77E4C4450E
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 12:04:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XezpdGYlrRDsN/JaYO5KsPrRnVF7IJd8upm4j92xpUE=; b=ww7gIV8WC7rhKX
-	9Bq+ix/eW6oyt19654/rlhojdznyZq3XQZQ61LHUlboA/bB57QCbpldK5Cxs8a9DBB6ab15/lSnhN
-	7ivvHeoPbrlmygZWUGl3HiRsVltBQN+uLPz107fb9ejrjm4Ceu6dQJ/Pw6NX8OV6NTGhibibKEbfP
-	lHJLs2o82AVjmGewHaSOvZCPbXM2h/agvlW/n8D6avRHDayVtPfJ06r/BZdinylKim5AR3wBNWxFJ
-	/ELygEWVhr+npZiuZ4aQ4uau32h+HVCbbDZLvRMdbc42HCwfJD4hZxdvZFZbaua1pqXlWfRFiFBl/
-	uqNagXQ0uPVUenY+dfDw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M+qWcgog/1J+wHipJPbQ8EeI5kxT8zM/BDT24gHzlns=; b=1u2T+PuYkJl4Gl
+	/2FwkaQNjrLRtK9hmAo0nmO+PuKbT5sx076+0sGk32GKHCK5kVxt+TkwEL3UTpmOMaVBGfvXhQYi6
+	7YRydouj4cDnFxrma1mHE/Dt3N/X90q3eysD6aOs8NJnIs26dLSTSDiUogtB3hnAyb8NhNSmkfIV+
+	S8lp2clQ2uK3uV3CH4attaoKiMYWSItpeJkkD93QangPRmS11h7l4IEtKzfJ75+UZ7A+n6Urnxa59
+	RyCQyfzEVRFfsJwEZ6t8THLkGPwhI9XvGK3i9BcClWxZzebr3b7WavqFUTT7ojocc6Ll2yINo2NBj
+	DCmrE35cBVL+yOQ1+oBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKeq-0000000HBVO-1XNs;
-	Thu, 16 Jul 2026 11:53:40 +0000
+	id 1wkKpd-0000000HCTS-1G7c;
+	Thu, 16 Jul 2026 12:04:49 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKen-0000000HBTl-330F
+	id 1wkKpa-0000000HCSQ-25Jt
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 11:53:39 +0000
+	Thu, 16 Jul 2026 12:04:48 +0000
 Received: from fric.. (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowABHHfE4xlhqA2gfAA--.8524S2;
-	Thu, 16 Jul 2026 19:53:28 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowACnf_PUyFhqVZ0fAA--.22460S2;
+	Thu, 16 Jul 2026 20:04:36 +0800 (CST)
 From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: David Hildenbrand <david@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Vishal Moola <vishal.moola@gmail.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Kiryl Shutsemau <kas@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Nam Cao <namcao@linutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Subject: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
-Date: Thu, 16 Jul 2026 11:53:25 +0000
-Message-Id: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
+To: xujiakai2025@iscas.ac.cn
+Cc: akpm@linux-foundation.org,
+	alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	david@kernel.org,
+	guoren@kernel.org,
+	junhui.liu@pigmoral.tech,
+	kas@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	muchun.song@linux.dev,
+	namcao@linutronix.de,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	rppt@kernel.org,
+	vishal.moola@gmail.com,
+	wangruikang@iscas.ac.cn
+Subject: Re: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
+Date: Thu, 16 Jul 2026 12:04:36 +0000
+Message-Id: <20260716120436.3503989-1-xujiakai2025@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260716114902.3455029-1-xujiakai2025@iscas.ac.cn>
+References: <20260716114902.3455029-1-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABHHfE4xlhqA2gfAA--.8524S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zr18KF4kXr1rKw17ury7Awb_yoW8Zr1fpF
-	s0kF4q9ayUXr18ua9Fvw18WF4UW3s0kF17Kr42yr9xZF1YgFyxurWjq343uryDG3Wxua4k
-	Gr1ayFWrC3WrZa7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8Jr0_Cr
-	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
-	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Wrv_ZF1l42xK82IYc2
-	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
-	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0x
-	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
-	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
-	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRGhFxUUUUU
+X-CM-TRANSID: qwCowACnf_PUyFhqVZ0fAA--.22460S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E
+	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
+	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8I
+	cVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2js
+	IEc7CjxVAFwI0_GcCE3s1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAa
+	Y2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4
+	A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0
+	x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCF04k20xvY0x0EwI
+	xGrwCF54CYxVCY1x0262kKe7AKxVW8ZVWrXwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
+	6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GF
+	v_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
+	c7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x
+	0JUlYL9UUUUU=
 X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAQKCWpYpKxZAQAAsp
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBggKCWpYolRpMgAAsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_045338_140232_EBFB1E3C 
-X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-CacheID: sfid-20260716_050446_912866_FE665EB4 
+X-CRM114-Status: UNSURE (   4.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,51 +93,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
-VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
-physical-address domain.
+Hi,
 
-Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-attempted to account for the maximal folio alignment by feeding
-MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
-MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
-whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
+My previous reply containing the kernel log and the relevant kernel
+configuration was held for moderation because the message body exceeded 
+the mailing list size limit.
 
-The mask-based compound_info encoding requires pfn_to_page(0) to be
-naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
-("mm/sparse: check memmap alignment for compound_info_has_mask()")
-added a check for that requirement and exposed the unit mismatch on
-systems such as QEMU virt, where the DRAM base is not aligned to
-MAX_FOLIO_NR_PAGES * PAGE_SIZE.
+I have uploaded the full information here instead:
+https://gist.github.com/6eanut/e4302872c5a761f10f2e2486505bdd2f
 
-Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
-before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
-round_down() logic while making the resulting vmemmap base satisfy the
-mask-alignment requirement.
+Sorry for the inconvenience.
 
-Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Assisted-by: YuanSheng:DeepSeek-V4-Flash
----
- arch/riscv/mm/init.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 3e450890be07..422efa11824b 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -63,7 +63,8 @@ EXPORT_SYMBOL(phys_ram_base);
- 
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
- #define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
--				    MAX_FOLIO_VMEMMAP_ALIGN)
-+				    PFN_PHYS(MAX_FOLIO_VMEMMAP_ALIGN / \
-+					     sizeof(struct page)))
- 
- unsigned long vmemmap_start_pfn __ro_after_init;
- EXPORT_SYMBOL(vmemmap_start_pfn);
--- 
-2.34.1
+Best regards,
+Jiakai
 
 
 _______________________________________________
