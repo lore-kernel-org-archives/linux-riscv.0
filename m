@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47A63C4450A
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 07:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9784C4450A
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 07:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BNR0NhD2l2XM6AQhcfqlko6v3xRd4Td/15ZfpoL9Acc=; b=dM2E/xHXKNERFO
-	nRMYOVhOppZWzQfZxt2Es9Zh+z93mu+gTe+OZ0Yh82lKVno42oY5bzF9T0i8i+ODtFWMBLUCzyWVL
-	s9qTv048k8qa5GvS51QOJT4tU9RwYAsjAaPneSbaf2CpPqXnFQHWY+x1Vev/axh54TQOemnNzAsF8
-	sWTYUe7Eu5R4TRnibj+Ys/c94gNBV8a0qK9ZtiJb1x7MXNXb1aYtbBy6pMvU4/0ZUr4F2FGtE6Qq/
-	hmxv2Rot1GsU6zOySLO/StymcXLzSg6LbU6RL6+FMJf4isQChQmo5ssL8Aqo9AWANBrJSiHhdvB0k
-	ExOeZ8TQp/EWyvn0zMhw==;
+	List-Owner; bh=LQFoILI0pFh8WKdFMT3tV5b71n/Q4dM/39Q0zQkKeo8=; b=rah+13fK//2JRl
+	e8Uu8ADePfu8Fho1g5z2C09peI/45vVcem6rMNkYXcHOo7jOJ0Zs6qvyu513OulDL2rA1Ebe2nF+V
+	aTbf8jOaKFK2QITUPPILOUXeh1xPxVmabfMXH3W6uJFotgNlaNDmZjKK9k41HBs/n5PxiJQJ7/qIB
+	9f2mT9Yi5FVVv9CTgi7FVr9sBLdJ7j5b69v7kWJ0krhB34XliA0t6b21lSSWX7nBAHlAoBTabXD94
+	rFtZpjZU/OZ0G9mSPddKweofvgB7rZ6PlxpBgfS28dBle7ZKseqleMfZzILyFOS9H/SLEmmB2Y8cj
+	ccuaqGaY1TRrBvJIFIWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkGgN-0000000GfkV-0Bbd;
-	Thu, 16 Jul 2026 07:38:59 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wkGgc-0000000Gfnv-0uob;
+	Thu, 16 Jul 2026 07:39:14 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkGgJ-0000000GfjX-0R4q
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 07:38:58 +0000
-X-UUID: 60cebc8e80e911f1aa26b74ffac11d73-20260716
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:84d47a8e-53a5-486f-8042-8414e40789a1,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:2dde9d5cd799cfa9fce1dea7b08f5605,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
-	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 60cebc8e80e911f1aa26b74ffac11d73-20260716
-X-User: jiangfeng@kylinos.cn
-Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 507581892; Thu, 16 Jul 2026 15:38:46 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-Date: Thu, 16 Jul 2026 07:38:33 +0000
-Subject: [PATCH v2] bpf, riscv: fix missing extable entry for arena
- load_acquire
+	id 1wkGgZ-0000000GflU-1a2I;
+	Thu, 16 Jul 2026 07:39:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0J
+	XU3cAUzaSbuwG+IlW2Ctt3lxfI9p33+cxpVmrZTCY=; b=BpfmbnTxJjIhkGOMH4
+	evePfG+TieRPYpeMG7SNLkqTTeuA1k8xRJmqZbjG3CM+xyanBeAa10dvjwGALRw+
+	d9mtF3Auf40V8cyk4QvabMEiBdgZdaPWrHZZZaOkHyE6oZizvbxxf9f5IUylarnS
+	3z5yiL4qxscG9vju/XdDlscS0=
+Received: from thinkpadx13gen2i.. (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wBXvgNdilhqW6A9Jw--.32504S2;
+	Thu, 16 Jul 2026 15:38:06 +0800 (CST)
+From: Zongmin Zhou <min_halo@163.com>
+To: anup@brainfault.org,
+	atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zongmin Zhou <zhouzongmin@kylinos.cn>
+Subject: [PATCH] KVM: riscv: Fix infinite loop in NACL hfence entry allocation
+Date: Thu, 16 Jul 2026 15:37:56 +0800
+Message-Id: <20260716073756.44153-1-min_halo@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-Id: <20260716-bpf-riscv-fix-extable-v2-1-421f75812533@kylinos.cn>
-X-B4-Tracking: v=1; b=H4sIAHiKWGoC/4WNQQqDMBBFryKz7pQkiqldeY/iIsZJHSpREgmKe
- PemXqDL9z///QMiBaYIz+KAQIkjzz6DuhVgR+PfhDxkBiVULbSssV8cBo42oeMNaVtNPxGWTdN
- U2hqtHwPk7RIo15f31WUeOa5z2K+bJH/pP2OSKNE4oUprpTauaj/7xH6Od+uhO8/zC7sdDzG7A
- AAA
-X-Change-ID: 20260716-bpf-riscv-fix-extable-399947ca778d
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
- bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Feng Jiang <jiangfeng@kylinos.cn>
-X-Mailer: b4 0.14.3
+X-CM-TRANSID: _____wBXvgNdilhqW6A9Jw--.32504S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrKrWrGFy3AF45Gr1UAry3XFb_yoWDWwc_C3
+	WxX3yxWrW8ta1jv3Z3Ww4rXF4aya98C34DGr1Iyry7ta4Fq3yaqa4kKw1DGryUAr45Zasx
+	Jr1rXr13Z3ZrujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8jiiDUUUUU==
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pplqsxxdorqiywtou0bp/xtbC8x5qFmpYil75OQAA33
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_003855_491959_DAEA46DD 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260716_003911_851164_ED513363 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,50 +78,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-emit_atomic_ld_st() returns 1 to have build_body() skip the zext after
-a sub-word load_acquire. The caller does "ret = ret ?:
-add_exception_handler(...)", which skips add_exception_handler() on any
-non-zero ret, so the extable entry is missing and a faulting
-PROBE_ATOMIC load_acquire oopses.
+From: Zongmin Zhou <zhouzongmin@kylinos.cn>
 
-Check ret >= 0 before calling add_exception_handler(), and return ret
-unchanged so build_body() still skips the zext.
+try_count is initialized to 5 but never decremented in the retry path,
+making the `if (try_count)` check always true. If all NACL shared memory
+hfence entries remain in the pending state after sync, the function loops
+forever, causing a soft lockup. Decrement try_count on each retry so the
+fallback warning and return become reachable.
 
-Fixes: fb7cefabae81 ("riscv, bpf: Add support arena atomics for RV64")
-Suggested-by: Pu Lehui <pulehui@huawei.com>
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+Fixes: d466c19cead5 ("RISC-V: KVM: Add common nested acceleration support")
+Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
 ---
-Changes in v2:
-- Drop extra variable as suggested by Pu Lehui.
-- Link to v1: https://lore.kernel.org/r/20260716-bpf-riscv-fix-extable-v1-1-af023cc17af4@kylinos.cn
----
- arch/riscv/net/bpf_jit_comp64.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/riscv/kvm/nacl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index f9d5347ba966..0db89093ff89 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -1986,7 +1986,10 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 		else
- 			ret = emit_atomic_rmw(rd, rs, insn, ctx);
+diff --git a/arch/riscv/kvm/nacl.c b/arch/riscv/kvm/nacl.c
+index 6f9f8963e9dd..9aff03c4f667 100644
+--- a/arch/riscv/kvm/nacl.c
++++ b/arch/riscv/kvm/nacl.c
+@@ -33,7 +33,7 @@ void __kvm_riscv_nacl_hfence(void *shmem,
+ 	}
  
--		ret = ret ?: add_exception_handler(insn, REG_DONT_CLEAR_MARKER, ctx);
-+		/* ret can be 1 (skip-zext); extable entry still needs to be added */
-+		if (ret >= 0)
-+			ret = add_exception_handler(insn, REG_DONT_CLEAR_MARKER, ctx) ?: ret;
-+
- 		if (ret)
- 			return ret;
- 		break;
-
----
-base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
-change-id: 20260716-bpf-riscv-fix-extable-399947ca778d
-
-Best regards,
+ 	if (ent < 0) {
+-		if (try_count) {
++		if (try_count--) {
+ 			nacl_sync_hfence(-1UL);
+ 			goto again;
+ 		} else {
 -- 
-Feng Jiang <jiangfeng@kylinos.cn>
+2.34.1
+
+
+No virus found
+		Checked by Hillstone Network AntiVirus
 
 
 _______________________________________________
