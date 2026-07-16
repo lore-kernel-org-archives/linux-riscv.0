@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32747C44507
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 03:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58913C44501
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 03:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QOl8zuEhc6aDVNKVtgcCYbeFFfhQD3Ki72RojWxGN8A=; b=hHcbK+f3EHb4mL
-	sgwxDcf3pQel6FnDJbQRsYwnP9WkCdtwAIpVyOI9/tTz5OhKWrB0od88uqVeU3BR2eNQJ0D8GRAlr
-	5MAHeHvbdnbvEeKfNpxkQLbPXG9bvTJtEgZu4RYgeMEn8JABfwjAnKDxCrVn9oliON4fkBQsvfEBv
-	G4PLiPI+OpHDiPMe5/5+JlDPRJypCJYnSsecGs/+09mkKmS0zS5siLnJ27/Pyvw3cJcGbuj7qelDz
-	AoF5xQgZtpi7Cle7AUypAavL9gi5UYibv9T0iqHTO5b+PDZuDEErq7yh3HWfE9+zzBUS2/yimFq2K
-	COtanDuPe52b2WA51Hzg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BQJi5ijYhTdy8wRBWRz1n+PE05HFbcPmArcSEsyPkMM=; b=U6UKWoNEZ3nuAW
+	9Sk3cNNvvdD07s9BU1+Prv0xyef/ze3ednaBUlpDChx6RSriysQrKFRzGahuj0pi5NOkOGAEGEUHb
+	RKiYIGY0lyaM9Som+53Rn44R7GATLuHwgVyTYzyHubI9zjKSYLiLZ9KTENrQY/JNZ/VLm7xEVhNrC
+	eCta4gZEsNOFNJAlhXSQG00gs1WjgS/P11KKIYynzHXSj0Ixd/eB2D08NLwGEua4fc+qNo1foD+DU
+	cYx0xjZOILeC7QZ2rYH4dO35nB/K8zfCbYyIczwgW50dSV7JlB3I30yeU7fGAW529eI/SZh6d9Aa6
+	/NxXGFthHPiZOwIYy4Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkCg2-0000000GKyd-0TvB;
+	id 1wkCg2-0000000GKym-0tgH;
 	Thu, 16 Jul 2026 03:22:22 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkCfz-0000000GKxd-1RMg
+	id 1wkCfz-0000000GKxk-3ETB
 	for linux-riscv@lists.infradead.org;
 	Thu, 16 Jul 2026 03:22:20 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-81e69a2db34so111456957b3.0
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 20:22:18 -0700 (PDT)
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-81ee2c048acso1910627b3.3
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2026 20:22:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1784172138; x=1784776938; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=32tsfE8uTtDxzdpxN/nRKCIyJZygTroSQ6UN8Ha/aFo=;
-        b=evkCy09MmhhtdAJWjSjMNnBU+tC7u+Er31/QlNXQOUcvhsOQMHK50j0/0+VPmwgYnu
-         tM7vd72p8p1ICj4Fw0GbXvAjfhU4MZLh4A2GlcrUdH6RwPxKkrNP6j4r/gHWarsttmym
-         68WIMlLYxY2BxJwwt2/N+Y51mLJBGPBQKXn95TRjxwongtqCfElUIVrhSkMoqF63eaIC
-         j9gFVR/z6mu6z469QCpoHrNeMbYZsD/aoWPywK/mRrJcDFGy5YRX4DqjhOJqZtl6TM13
-         t0fPGQs6bX9YeMfivvKipZ/BPs+w/tMfM/TeGuYl1hf+QRhUUC8qsn/uIOizIbX3RBbo
-         jmWw==
+        d=tenstorrent.com; s=google; t=1784172139; x=1784776939; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KmLTscAEY1O1j8tiZ/+N1t1kAFbbT11AKs1SQQgixyU=;
+        b=Mj0wnsCwjDPIigKz+rBR/hcE01bZKPb/A3ZVgReF/5cwdWAP+Mu2S+XiiYVw+dnkP/
+         WsFFJ2aErCOcyx4YraydYPQy+Ug2m5Ez0i9S4fy9DIPERW9//6Irxt7cvmzO46OTlHos
+         EyU64nO4EBo1zFLFGXbOPn4FDKuRlRnuLQqrZOa2rWHQTlCfRHIFlDnLw+6iza2pYOVn
+         22Kjb7LoWvJdawq1ytllZl+B3g/vGzqLaTeS5VJd5cX6qaRkryDZYEe5EQYLhEjMta9f
+         XbCiXSc4Ad9wsHqOxj4iItV2sKMlIsUj4KfKlgjDTGJG4Bv7Kw2ciyQODTUgm7JR/td6
+         Dbvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784172138; x=1784776938;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=32tsfE8uTtDxzdpxN/nRKCIyJZygTroSQ6UN8Ha/aFo=;
-        b=sXoMQHfAzVb0UV3y3DqaB4vSRkQ4mhqRqOoHUSYigvpYvRLIMhCK+PpkxvE9XlofXk
-         crBYOGTRZKg5OHRpDzGUMQx/XWIDIB0UHF2fhsbSfw5v7yZGF4r/8N69qTO2M/HHREmo
-         4oLjwK3kE6e2KHah/58qv104zEUOR99pCqpnkbWkSLeuKhROw3hFs0NniUz1nxDCbJlC
-         WELAFwNeyEL7gOhaBWgERWpqT1BZCQuj6aW3AkMNtlE6uwOdtiL4PkwjpDl5yK5O6tSe
-         d6w8biasUbTkWX2ihaiQbUHXExgS8mHZQ1fC+cYFpYnF/OQXpHdAoSyiQfMedTPcnHNj
-         YYGg==
-X-Forwarded-Encrypted: i=1; AHgh+RondMU1aE54VALD/oNjnLP9iFzH22tlqnwbnM63ASK2vO6sshZbmi69iMJZh9EjTpSk7DBWYt+7bSyG2w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/PeyXmHtBET0+X7RojI156erkPzfUBmU2+KB8m6sTNeL8i++h
-	M4t8mtuss0bbLhBfJgdKNoBfvp/pFmoqCycvp0J34W7ha5lClbt3CVeyEU9SrhgYOMc=
-X-Gm-Gg: AfdE7cmZ+MvT/sQ7X/bJmued6riIoOidnsE8ij+3UcLlFIo9CSrKuIzAD2wXUWIcoR3
-	x0qCidpWdYqh93f9lqaIwpc9KXsDHtVu76EdL1AYTY9MBjMvTKJ8wFKy8aMe5682Y5oViNdGgLI
-	A/xPRJT+Q8DYPeRkijUYNvLKLx0pcdxCtNHOMZBWUxbhbK1JF3NaP8jaDLj1iVVgJe4Hst3PUYy
-	OPNV3bdYNUDCAQHMbRsK+dDzJoTco9iyMKJ2eXudf3I4qsaEc3xOK05K4m6IQzlaA7cCs0w8C+N
-	4UKM1Buh9ehoqIu3ly4jebvXblUrWnDGj20YdoQ4arsbFODp0U2TlUo8Sk/Gb1/kljQ5VUHPHYA
-	8JSGYhHMZOPQ7IdZoYsFnFDfuBUp9FuoepeVNfx/1fny9PAZ+qxT5mM1kbrhPT0EftmzlYktldW
-	Hzlaorgu+Z0eD/W/kuWrMR3Ti83nG2zk+mEbMbuVtqHXROw67GZSsGs/0upQ==
-X-Received: by 2002:a05:690c:22c5:b0:80c:85e5:8751 with SMTP id 00721157ae682-81ecfa9075amr49331957b3.58.1784172137811;
-        Wed, 15 Jul 2026 20:22:17 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1784172139; x=1784776939;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KmLTscAEY1O1j8tiZ/+N1t1kAFbbT11AKs1SQQgixyU=;
+        b=CS+sMon+1MHItSYLeqc1uKDzOvwh6c1V9qbJT+O1gWYde1S5gkwqmxt0yxfr7s6o6e
+         KfM7/feBCadHKy+/anD2yvgSeXu8DopBUaNDBiQsV9Bhr9z64aMO88plwPICLxxAdT7z
+         2dBD40rIgx7q+ftrzPMt6/72Swszf97vGFx5FFgmFlccjBO96wlFluRudAeiUfbhsU0C
+         Hvxb1ngRY6CLYwBy8T8AC9NZoj84Ub48omoGVkQqCZQtn/ZERt5v068ewYMmocRFHLNF
+         TRiht92hrQsTVb5CKZWxJfcrZHP+tBxnZ7u1eHkdEogUFAt8vDXzjxsdThRx46xKuXw2
+         Vmxw==
+X-Forwarded-Encrypted: i=1; AHgh+RoWvz/DlE2VyBrC0ha6KFg9UnCOOd37h1Z+qGgj4FJogP7v7PVo8aAlDwhofRdT5a01Tl+5IJj20vZubA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxb8fISBk3fk1j7h/zWt4RTzL6JTNOvCmW7ywQKjTw6pM/jLcJZ
+	86n6t8NbKTqrSRWP9BbIkILYktwK4mp3eK/NH1VvpVhfxmUdsmDTpnhmGFXQXc3SlRo=
+X-Gm-Gg: AfdE7clIr5KWPHsBAqAXKjtFwR7u2Pt6j95DIwIwR1uXYuieoNVLP4bvyIpKtP8EIrE
+	zb7sAAvUoNSWWScE0gwIVIlKusR9AiBNMssyw3ZutiGV5bvbn7Nmi5pUIcIprb/PCpSTBpLc7IM
+	BoB1VwhgaeruQw31cz5k+zlEhZq12vJfmpt0SPvjVnirUDsAj3g9Uor5YWUV101P0CsXVlpTqsb
+	cAfhhHmQqWflKUih1YX97GXh5Npr8LCBCgI6eKDSjdKep8nFlTSSgCc3C7NtNzHHccAqjnnN9Nw
+	ew/vsN/LxMbOsOX5hBdI1pUBTodP5m/btwMPpLfLWM2I1Ac/XVC9w9NhoygoVkDOeP8vf1t2B/f
+	6KlFvaiCbbwcwD9QnfVwQKp2r4EcxIxuce0d03I8kUIv/gFF3mULyZAzgOIviOP+i5D7yrX3wCa
+	6mA+6zQSrF6P/KxJpijZSXYILUCOg9MY7I54HQVKEgnGNGvxXYMgept1sAhg==
+X-Received: by 2002:a05:690c:c86:b0:7f5:87d3:c38c with SMTP id 00721157ae682-81ebb136b12mr83075437b3.21.1784172138727;
+        Wed, 15 Jul 2026 20:22:18 -0700 (PDT)
 Received: from [192.168.2.129] ([2600:1700:220:59e0:56e1:f9cd:8869:2218])
         by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6befb688sm185039127b3.14.2026.07.15.20.22.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 20:22:17 -0700 (PDT)
+        Wed, 15 Jul 2026 20:22:18 -0700 (PDT)
 From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Subject: [PATCH 0/2] Enable WiFi on Spacemit K3 Pico ITX
-Date: Wed, 15 Jul 2026 22:21:53 -0500
-Message-Id: <20260715-rtw89-spacemit-k3-v1-0-e577bc63706b@oss.tenstorrent.com>
+Date: Wed, 15 Jul 2026 22:21:54 -0500
+Subject: [PATCH 1/2] PCI: Move Spacemit vendor and device ID to
+ linux/pci_Ids.h
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFJOWGoC/y2OQQ6CMBBFr0K6dkhbxAoxxnsYFqWOMGoBW0ATw
- t0t4G5e8v/7MzGPjtCzPJqYw5E8tU0AsYuYqXVTIdAtMJNcHrgSKbj+c8zAd9qgpR6eCehEmUw
- pUSYmYaHXObzTd3Vei439UD7Q9Ivon3D4HsJYv8WYRe/1OpZHp22LZ3zPuVRxlh7DAQKoaU1N2
- upLZTW9YtPa86IrtUcIEP7Jo1HFEpwRrJjnH09nhv3eAAAA
-X-Change-ID: 20260715-rtw89-spacemit-k3-a37c9771b3c3
+Message-Id: <20260715-rtw89-spacemit-k3-v1-1-e577bc63706b@oss.tenstorrent.com>
+References: <20260715-rtw89-spacemit-k3-v1-0-e577bc63706b@oss.tenstorrent.com>
+In-Reply-To: <20260715-rtw89-spacemit-k3-v1-0-e577bc63706b@oss.tenstorrent.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, 
  Ping-Ke Shih <pkshih@realtek.com>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -91,8 +90,9 @@ Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
  Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_202219_414629_1F44B8F2 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260715_202219_822261_01965FD0 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,58 +109,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Spacemit K3 Pico ITX has a RTL8852BE Wifi card attached via PCIe.
-The probe for the rtw89 driver currently fails because driver tries to
-allocate a kernel page with GFP_DMA32, and this board has memory only
-above the 32 bit range. The rtw89 driver has the ability to use 36 bit
-DMA addresses, but this is only enabled for certain PCIe bridge/rootport
-that have been validated to work on. Enable this ability for the PCIe
-root port. A similar patch seems to exist in the vendor kernel tree.
-
-To test this, you'll need the 3 patch series adding the K3 PCIe RC
-Driver[1], K3 PCIe Phy[2] and K3 PCIe DTS[3].I have marked only [1] as
-a depedency in b4 because this series doesn't depend on [2] or [3] to be
-applied cleanly.
-
-Inochi, Patch 1 could be potentially be merged in with your series [1],
-any thougts on this?
-
-One question I had was about whether the IOMMU on the K3 could be used
-to do DMA mappings and allow the wifi card to work with a 32 bit virtual
-address. The K3's IOMMU isn't supported currently in the kernel DT. It
-seems to not be enabled in the vendor kernel too. Even if the IOMMU was
-enabled, I'm not sure if it would help with this exact problem. The fix
-proposed in this patch works to solve this problem, so I've sent it to
-the list.
-
-[1] https://lore.kernel.org/spacemit/20260709040027.958400-1-inochiama@gmail.com/
-[2] https://lore.kernel.org/spacemit/20260703021024.495433-1-inochiama@gmail.com/
-[3] https://lore.kernel.org/spacemit/20260709040415.977784-1-inochiama@gmail.com/ 
+Move the vendor and device IDs for Spacemit PCIe Root Complexes to
+include/linux/pci_ids.h so that they can be referenced elsewhere.
 
 Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 ---
-Anirudh Srinivasan (2):
-      PCI: Move Spacemit vendor and device ID to linux/pci_Ids.h
-      wifi: rtw89: pci: enable 36-bit DMA on spacemit K3
-
- drivers/net/wireless/realtek/rtw89/pci.c      | 4 ++++
  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 4 ----
  include/linux/pci_ids.h                       | 4 ++++
- 3 files changed, 8 insertions(+), 4 deletions(-)
----
-base-commit: 728e68a889bcf257b1e67298b12c360e5c3a13e0
-change-id: 20260715-rtw89-spacemit-k3-a37c9771b3c3
-prerequisite-message-id: <20260709040027.958400-1-inochiama@gmail.com>
-prerequisite-patch-id: ab02c35a752a1e8f0fff9bc06ebcf8961afef933
-prerequisite-patch-id: e7cececa9950600cfeee3dc6d73d6c3a7cc16f32
-prerequisite-patch-id: 49ba2fa5aa2d2069b8d857bbda6cc4813bfc015f
-prerequisite-patch-id: f33c229b37442babb1289af29a33fd2a222304f0
-prerequisite-patch-id: c91a780415fe64f11fe921761d213634d042fac7
-prerequisite-patch-id: b2bbf0fe6a7d90be354bb266d311982ead5a0e6d
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-Best regards,
---  
-Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+index 680acc93f5395..7b0bc1802954a 100644
+--- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
++++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+@@ -21,10 +21,6 @@
+ 
+ #include "pcie-designware.h"
+ 
+-#define PCI_VENDOR_ID_SPACEMIT		0x201f
+-#define PCI_DEVICE_ID_SPACEMIT_K1	0x0001
+-#define PCI_DEVICE_ID_SPACEMIT_K3	0x0002
+-
+ /* Offsets and field definitions for link management registers */
+ #define K1_PHY_AHB_IRQ_EN			0x0000
+ #define PCIE_INTERRUPT_EN		BIT(0)
+diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
+index 1c9d40e09107d..d6f26cacc8e35 100644
+--- a/include/linux/pci_ids.h
++++ b/include/linux/pci_ids.h
+@@ -2640,6 +2640,10 @@
+ #define PCI_VENDOR_ID_SUNIX		0x1fd4
+ #define PCI_DEVICE_ID_SUNIX_1999	0x1999
+ 
++#define PCI_VENDOR_ID_SPACEMIT		0x201f
++#define PCI_DEVICE_ID_SPACEMIT_K1	0x0001
++#define PCI_DEVICE_ID_SPACEMIT_K3	0x0002
++
+ #define PCI_VENDOR_ID_HINT             0x3388
+ #define PCI_DEVICE_ID_HINT_VXPROII_IDE 0x8013
+ 
+
+-- 
+2.43.0
 
 
 _______________________________________________
