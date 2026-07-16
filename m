@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC82C44512
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 21:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FDBC4450A
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 21:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eiDEhMo+HqHvaBEnFuaXNAKRmIkgif/DS5hb9mo+MjM=; b=q5HFAL59IgZalK
-	Ue3Nl4KgADc7od7jk2TvjWpUlBUoGKr9Tgg3beUidWvhGmD//qAclgYPB2kDow0dbJAZ9qdPvP1Fj
-	NLK6RDDGDXHtsZdXGEitP9M1C2gZnfU3PsGrWPrUnaLHykuBR1B7ftVZXWzmCm/YlF9GtaPfIMDyH
-	gN9XkNWSqZTLQ/eqZcNibh9+t9NeVjV9UXyXCFoaIKE//4XiM7tHNPR5PNbpwYDE3bJ6BYuer1MGe
-	qan14yg94X4HHuDiwSqFCSEfa8Py6YknVdxEgGH9cK34nFU+dytQEebV74ISq96jSeHB3fqBHwcfq
-	rzXdFyw3D+zm2brbOB3A==;
+	List-Owner; bh=e/GXJsWmRadqiBrHo70aHzaky3D9tmXxmN7Nijtdoss=; b=vPdjR6GHIR8DfW
+	l27zfwfkQMAO0Y3F+/d+lPzMSJCSRRMrPGeM9MTPFwKVmOu+lmSJ8qIyksC/yeodoM8dFomdtIfOi
+	10aPg388ZRe162UR1dXvl+0bSYAsQpdUGDxGI8QKbX5pL27mqOLl5J0CDBGf8o9TDyLWja86V/r9L
+	qfCuRpQ3GrkXOu1AIJk8pWLagCFu4qf92FXvlZFEM2UK+5t+wBwV7IWfFAd1G9Til1/jra1x+wyv/
+	b3e3HFg08vVPCZn87uAeUTymD0mzYjQ3b+nNXi+d/ieyv0siM66RFO/z41dry4w2rzJT9zNCBFm/f
+	LvDtCNPwIirdXG+ONCww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTad-00000000boV-2Jqe;
-	Thu, 16 Jul 2026 21:25:55 +0000
+	id 1wkTbU-00000000bxW-35mC;
+	Thu, 16 Jul 2026 21:26:48 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTaa-00000000bnP-2mGT
+	id 1wkTbR-00000000bwj-3idf
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 21:25:53 +0000
+	Thu, 16 Jul 2026 21:26:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=Y8FmT3HFXYrk7ENIeJmg/IEGhGheqHbxiOlmgGR4eeg=; b=kuZSNqinHgO/Dm3HClMp8Ov6IC
-	w6kFqOnw8//ls3jFHL+wGJf08JAxkBoYBOMHnAFRE9a8KkUREq0/m5PUNHBPC2eeL3Bo9g+JbeCSh
-	Iiflw9EBswXxu6mO9kaWyy03IlbR1FHOUrqxp2OnNWqos2Hoi1CqLMJXS+dx6snx66uWbBjoTStlv
-	aoD+DxwNC+fTvoNB3N9YxAFxBoyYMy7SDd4VrMR0gE4IvsuvpwJuP5vz2hFmmDp3QM70xDWYHjSJk
-	B/fBt+P/+wIj8ZcyxE/vnVu6sUY2A91PgFkfi09iZyBUBxqdc86WImYVjgS/Y9TAeevJLro9xQnFP
-	v9uWQnWQ==;
+	bh=IHHFZjWtMO0vAPMAs5btZr8tg9GjbzOdB+otmk/vwXE=; b=cETsKBSL6nUmD7VJt4o3Zp8jqG
+	xs+K/FktxVlsQBPuvrY7A80KwrljJJGEaVST+WolVNYk4CV2Z3WD5ILuBqJf153xu8Sw5QNUmXQ6Q
+	vH3e+2fT6JHUv+4sO/9THyFf/YeXQrUXtTYpS5LpRo/zi1clDvsvT0ZJoRimxIlmxs1bV0BHiPRER
+	fLMVf4ERAWxNBQQdwaCFIuK11Bbj3gtvM5YdzbIu8uVHAY8D+7Z35G5rZMSiW09dfLpIs9yWidYxt
+	2lQ5GTjs7VN3hXokGWUKW5RemGv9yCM2Y79TxMHELEIKWYV9664IknlrorIilev8q/hzwGfBNqemy
+	+erHCU1g==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wkTaH-00000003G8E-06mV;
-	Thu, 16 Jul 2026 23:25:33 +0200
-Date: Thu, 16 Jul 2026 23:25:32 +0200
+	id 1wkTbL-00000003GBa-2jK7;
+	Thu, 16 Jul 2026 23:26:39 +0200
+Date: Thu, 16 Jul 2026 23:26:38 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: Yixun Lan <dlan@kernel.org>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
@@ -59,9 +59,8 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
- driver
-Message-ID: <allMTB6R7eHf_UZO@aurel32.net>
+Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k3: Add UFS support
+Message-ID: <allMjjHX9JhMm1M4@aurel32.net>
 Mail-Followup-To: Yixun Lan <dlan@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
 	Avri Altman <avri.altman@sandisk.com>,
@@ -77,15 +76,14 @@ Mail-Followup-To: Yixun Lan <dlan@kernel.org>,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
 References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
- <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
+ <20260702-08-k3-ufs-support-v1-3-1a64a3ab128f@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
+In-Reply-To: <20260702-08-k3-ufs-support-v1-3-1a64a3ab128f@kernel.org>
 User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_142552_706050_F4E872A8 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260716_142645_924113_3EE651BA 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,17 +101,42 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2026-07-02 02:31, Yixun Lan wrote:
-> SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
-> which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
-> M-PHY v3.0 standard.
+> Add UFS Host Controller support for SpacemiT K3 SoC, and enable
+> it both on both Pico-ITX and CoM260-IFX boards.
 > 
 > Signed-off-by: Yixun Lan <dlan@kernel.org>
 > ---
->  drivers/ufs/host/Kconfig        |  12 +
->  drivers/ufs/host/Makefile       |   1 +
->  drivers/ufs/host/ufs-spacemit.c | 931 ++++++++++++++++++++++++++++++++++++++++
->  drivers/ufs/host/ufs-spacemit.h |  90 ++++
->  4 files changed, 1034 insertions(+)
+>  arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts |  4 ++++
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts   |  4 ++++
+>  arch/riscv/boot/dts/spacemit/k3.dtsi           | 13 +++++++++++++
+>  3 files changed, 21 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> index 238bb03d0e9e..b37e1c7b03e3 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> @@ -19,3 +19,7 @@ chosen {
+>  		stdout-path = "serial0:115200n8";
+>  	};
+>  };
+> +
+> +&ufshc {
+> +	status = "okay";
+> +};
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> index b89c1521e664..f1560a5a9031 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -221,3 +221,7 @@ hub@1 {
+>  &usb2_phy {
+>  	status = "okay";
+>  };
+> +
+> +&ufshc {
+> +	status = "okay";
+> +};
+
+I guess you want to keep the nodes sorted and put it before usb2_host. Anyway:
 
 Tested-by: Aurelien Jarno <aurelien@aurel32.net>
 
