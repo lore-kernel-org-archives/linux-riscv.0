@@ -4,123 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB4DC44515
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 19:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00453C44512
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 20:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QvuPkZ5eaEa3WIEjR7K8gTj/2B+NKcNYuR1ValOvNUc=; b=Q9H4IgTPqkggQF
-	1zgFS+fHn8rKvXMceaHRRuX+S3pB26N6thm9VXhgzY8fK/GZ+75hgvlareo1wlwdxAsYHMy2MVttb
-	mKJjCmd+0ipeAEyBNxydo5zbgTveNzdqEtYZJdonCvtFrzo6Xgbg1y0YT4gEPe80/vZlAFrabZy38
-	8k+VlZy0PLwx7QAg4Pn6fB04cifdJtfjoaIwY8A53AU71F94Em8n4LAFv+3FXdae+gqtWrG3wD6Yq
-	8YV2OjqXSRNqLdlqspL0Rro/GR0UADZqB5fUVIrvBV4rQzqDFc1YeGEXbOLSFx8uwpLwqBZm4MBYH
-	RjWyClsPShaqbJb0iRDw==;
+	List-Owner; bh=eT3qxynNVrG3kQRjlUSdZrHhwRvhm/C+k5R7z0vRsXc=; b=qbs74l1RfXcZLY
+	7DojzEziKI00hqcnvp1zLVLHgYpue5FLMYmIzmP9ksDfYRumiseb0K3m6APCaBg59GO7HAgrPSzTA
+	Oz2UzzsImNjSZq/TS7tGciUeB9JQtbNQwG5Rt8EcGW29kOKFwMVUwHykZow1PRxzztSUN3X935zui
+	vl07E/TzlQ0FvxEq1S4IxgWO7TbG+Mw+AwBxRElkV/fcZbHcQa2+2KEX2nKTJPbUsJspWGsv1mQ2s
+	hlBOu1c1Flx/KnB3IlRBQO5UA8ayZhmGp3SHuaI2u+0Naf9Spl9JoOTQnSQuOjoCcc7wbyxj3lXiO
+	eotSawGzoQDjgBNZLBzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkROX-00000000RPv-2jFK;
-	Thu, 16 Jul 2026 19:05:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkROU-00000000ROs-1xqJ;
-	Thu, 16 Jul 2026 19:05:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C1121477;
-	Thu, 16 Jul 2026 12:05:05 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 138523F66F;
-	Thu, 16 Jul 2026 12:04:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784228709; bh=f1ULhbuK1iL4hbXSB2hrLrFezeJ/gE3hgeZAl2sOvUs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gqrSwabcapydV8BcaRXrJ+3InJ/tYr8/7EQjfec8M11rV1LYtTO+i0hHOG3fWMVI8
-	 dzyFvALZUm6i3TwmO5xjMl+fdsthUr0DH07IaBF30UE5oiJvESqOEKP1mAzb+bHmtc
-	 WHJaM3g6tBoTuQz7uLK9ZM2XZRplDibEbr4kfqX4=
-Date: Thu, 16 Jul 2026 20:04:56 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Pedro Falcato <pfalcato@suse.de>, Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	Linux-Arch <linux-arch@vger.kernel.org>,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	x86@kernel.org, linux-mm@kvack.org, kasan-dev@googlegroups.com,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-m68k@lists.linux-m68k.org,
-	"linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
-	"David Hildenbrand (Red Hat)" <david@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ankur Arora <ankur.a.arora@oracle.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Klara Modin <klarasmodin@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	"Kirill A. Shutemov" <kas@kernel.org>, zhangtianyang@loongson.cn,
-	wangyuli@aosc.io, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Lorenzo Stoakes <ljs@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Rohan McLure <rmclure@linux.ibm.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Tejun Heo <tj@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anup Patel <anup@brainfault.org>, atish.patra@linux.dev,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Michal Hocko <mhocko@kernel.org>, qi.zheng@linux.dev,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Kairui Song <kasong@tencent.com>, Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>, chaitanyas.prakash@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>, guoren <guoren@kernel.org>,
-	yang.li85200@gmail.com, Alexander Viro <viro@zeniv.linux.org.uk>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	"schuster.simon@siemens-energy.com" <schuster.simon@siemens-energy.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>, junhui.liu@pigmoral.tech,
-	Muchun Song <muchun.song@linux.dev>,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Nam Cao <namcao@linutronix.de>, Pavel Machek <pavel@kernel.org>,
-	djbw@kernel.org, yu-cheng.yu@intel.com,
-	Baolu Lu <baolu.lu@linux.intel.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Coiby Xu <coxu@redhat.com>, Andreas Larsson <andreas@gaisler.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	"Vlastimil Babka (SUSE)" <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Stafford Horne <shorne@gmail.com>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-Subject: Re: [RFC PATCH 02/34] ARM: mm: make 2-level pgd_t a scalar
-Message-ID: <alkrWNECXmoxkrUC@e129823.arm.com>
-References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
- <20260713135614.1618183-3-yeoreum.yun@arm.com>
- <alYL7B0HAvmLVHGU@pedro-suse>
- <b7dbc476-1477-4004-93b3-c5e667e24df8@app.fastmail.com>
+	id 1wkT4B-00000000XDc-3jOI;
+	Thu, 16 Jul 2026 20:52:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkT4A-00000000XDC-17VH
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Jul 2026 20:52:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 708AB40565;
+	Thu, 16 Jul 2026 20:52:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F9051F000E9;
+	Thu, 16 Jul 2026 20:52:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784235141;
+	bh=EvHV1pVV4qzoVfR956q6ToCZBhjKMPu1tVO7pvo9JGw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PTNnjblk9AdZs4ZbqjHCDpuk6WCRWxsb0WiZuQZ4SQlv9CyXF23K+ZAe45/6HZ5Gj
+	 0jcRy2hqglfqsNSnf9u+TPgG6/WqLDocT582AveS3gO5AJHmr2ed1ytiKWThZZsTSO
+	 ja5uaut5qMB0RyzJA6o6hr0gLXrePuL8oN0k0+WJDLyoMgXaiN0QmNRzKBynqR6cu1
+	 lkNJI4hrkrTaXVFryRfpJJeSScS9fhD6j7VbB8+xZy7H19WlBeX3+r24m76zdfNcxv
+	 NTTEdR5vQtVAu+hyPbIaIeC+Vi/DpttckPgkHuqRpQ8LhPuCh4HtP+esdLxSvT456q
+	 +JvzMPkqZqiWQ==
+Date: Thu, 16 Jul 2026 13:52:19 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v2 4/5] riscv: dts: thead: Add IO labels for the IO
+ expansion on I2C1
+Message-ID: <allEg/A+Gt/em0Hs@x1>
+References: <20260714074515.1959352-1-zhengxingda@iscas.ac.cn>
+ <20260714074515.1959352-5-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <b7dbc476-1477-4004-93b3-c5e667e24df8@app.fastmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_120514_762732_034AF768 
-X-CRM114-Status: GOOD (  17.63  )
+In-Reply-To: <20260714074515.1959352-5-zhengxingda@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,50 +64,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, MoeLeak <i@leak.moe>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Paul Walmsley <pjw@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[...]
-
-> > Ugh. This isn't correct C code. It only works because the kernel passes
-> > -fno-strict-aliasing.
+On Tue, Jul 14, 2026 at 03:45:14PM +0800, Icenowy Zheng wrote:
+> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 > 
-> I think the bigger problem is the code dereferencing the pgd
-> pointer in the first place: Since the pgd pair is written in
-> 32-bit units in __pmd_populate(), anything reading it would
-> technically have to operate on both entries.
+> Add labels for GPIOs on the IO expansion chip on the I2C1 bus.
 > 
-> As the kernel relies on -fno-strict-aliasing, the type mismatch
-> is less of a problem than actually doing the potentially wrong
-> thing.
+> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> [Icenowy: Splitted off the patch adding all 3 IO expansions]
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> ---
+>  arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 > 
-> As far as I can tell, we are however saved by pgd_val()
-> only ever being used for debug prints, where printing
-> the first entry is likely all that is needed to analyse
-> the real bug.
-> 
-> > I would recommend either forcing a struct here, or
-> > using a u64 with bitmasks/shifts.
-> 
-> That would require extra complexity for the big-endian
-> case though.
+> diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+> index 74b120c6b063a..78f5979a56c14 100644
+> --- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+> +++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+> @@ -128,6 +128,14 @@ ioexp2: gpio@18 {
+>  		reg = <0x18>;
+>  		gpio-controller;
+>  		#gpio-cells = <2>;
+> +		gpio-line-names = "",
+> +				  "cam0_reset",
+> +				  "cam1_reset",
+> +				  "cam2_reset",
+> +				  "wl_host_wake",
 
-Agree. And since the users of pgd_val() mostly uses with
-pmd_pfn(), pmd_page() and etc. I think it doesn't matter to return
-lower pmdval_t or higher one.
+I am not sure the line name really matters all that, but it seems that
+pin 4 is also used as a reset gpio:
 
-Therefore, without considering endianess, it's enough with downcast
-like:
+  wifi_pwrseq: wifi-pwrseq {
+      compatible = "mmc-pwrseq-simple";
+      reset-gpios = <&ioexp2 4 GPIO_ACTIVE_LOW>;
+      post-power-on-delay-ms = <200>;
+  };       
 
-   #define pgd_val(x)      ((pmdval_t)x)
+Did you notice that too?
 
-Could we apply this in next version?
-
--- 
-Sincerely,
-Yeoreum Yun
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
