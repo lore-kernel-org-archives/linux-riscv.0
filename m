@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 371E8C43458
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 04:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E252C43458
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 05:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Message-Id:Date:Mime-Version:Reply-To:Cc:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q+f7GxPtciZPO2dn0h2rnBgBdDOPah55xDNsdcQ+ku4=; b=R/LtnE55LPnW4v
-	McOYl/+C+pdvgJTX/Y39Esb/kUZiKY1uPlTQ7FpUxOGMEk1pAUf8uGqaslK8EPCdr2LhFxc/Aw/qz
-	NXR3Kf2VD2UaC/08dR87s5kq3zAOARjdGlAqpWefhAlwSci7RN33Fliah/7MvqPEI8IhcDPFTuuSi
-	ka1ipWR3APyTX9XMpt0pQlipmtRRq5sRDOlej2kQIjOoE5DoAU9e/OWK+mJ1fKOXnFga8j1tx86k3
-	h5jsjZp0D2HEe4Zoah+oZjWblEQkdjRxUj1T3tNY0K74+aoC2HZBYmFZk+DR35vDhnrsHMzLrD2bJ
-	ofXhPJp15pRyd90Z1XMA==;
+	List-Owner; bh=FZ27Z5jG1711YBNY7LMUa/1k+/1cPZ7JxmYE+Er1gpE=; b=FTEEMwXv6vwfpn
+	wD/yWmXqJ/kCITjS6fa11CzjtscY5rhd3q6syY31UR5II9ZoVAltM++m0buyowwR6uJRt7ByW4Nfv
+	C8HJNm7Mz1qSMbnMBrP8JfI8hojCO/8OoTV/jTl32XAiiEJKnONNZylxQdkqKJ5PnAV081tsXuBMe
+	9/LhKbe3Mqdf9di9wpM5VDZBbX8sPv0dmU4FWExv3AijXdjou+axvAlfiwka06pLtEdB+oV3b2Kfc
+	/LGLg9H7wOTQMiNVK/L75ohlIufpeQUgFmc1l2Devkg06kDO7nrgr8Cmmj04LEqu5eUnpyItfQRP0
+	qYIr05LhpKnSMVOi+0GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkDtE-0000000GQIU-3R39;
-	Thu, 16 Jul 2026 04:40:04 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1wkEhZ-0000000GTMl-1fgQ;
+	Thu, 16 Jul 2026 05:32:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkDtC-0000000GQGs-1Sfm
+	id 1wkEhX-0000000GTMI-38b0
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 04:40:03 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4h10hC1dx1zKsGZ;
-	Thu, 16 Jul 2026 06:39:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1784176795;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JcpkV9siobUpO+f7IdelxmPLDPFX/aFAfSsv5BsO2uo=;
-	b=kObxUABIKDkKw1LnU/pAk1nBEJo1kIXNiOx3DMGefy5Jd+NpXcSKuTl89RxJhR09FmDTqf
-	cXyYUNsy+MqcQYG8/MjoKqnzkk46UOI8x9x0LSr4vY8QmJz8IEIG/lBvWAyl2sLqgvlArL
-	IEqHCXAkW75S+jSpJX3naAOfwklnmWwYASn4MeyyxaPe/NLvcfakLE/p14oVSsqv7MiWRb
-	C3Ydf6AkVm42eU2056hAXGo4I7HuNF68srLr2tdzMECPon2SClj+ZPWq/f6ytb7k8yya2u
-	RiND1A9m5HiUNMmbN7EdJF9g7Ou10D3ayE0+fkCOJhg3G2bbxI+Q97xmEpNC8Q==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=RPBrLGvj;
-	spf=pass (outgoing_mbo_mout: domain of shuwei.wu@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=shuwei.wu@mailbox.org
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1784176794;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JcpkV9siobUpO+f7IdelxmPLDPFX/aFAfSsv5BsO2uo=;
-	b=RPBrLGvjcV/+Lfmvn4bVyUypkYIW58wSNxEe8hKBD4BaPZCUFLNRGclbguxtwPHxuZ/JHS
-	uUVl5qgoNHTh0uu/AruB1EhUS1dYxN57JUxROMfvSKV0rSSrQR5VONGPyU6G07BR7PtQD7
-	p8y0QG9GLngtry0pwfpuRrEpmUzKQ5kt4q0UbHf5283711EMxhgJV9o7oEEdSn4feBV+0t
-	+Df22U9+gjPvAuQW9vWgdcEUMEtlB8Bs1fsGv5YbKQqWiq9JgA1N8oOP50QtphAXGNYrDD
-	NUQW4Gu4W0eZ0liZBSM3eIg5VB5SypU1C/Evx8wmZjlNzfoWRntmLAa/ZvjgdA==
-Date: Thu, 16 Jul 2026 12:39:41 +0800
-Message-Id: <DJZPVU5G5M3L.QJOUYNYKKDCJ@mailbox.org>
-Subject: Re: [PATCH] thermal: spacemit: k1: disable hardware on driver
- remove
-From: "Shuwei Wu" <shuwei.wu@mailbox.org>
-To: "Pei Xiao" <xiaopei01@kylinos.cn>, "Shuwei Wu" <shuwei.wu@mailbox.org>,
- <dlan@kernel.org>, <rafael@kernel.org>, <troy.mitchell@linux.spacemit.com>,
- <linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-References: <1db7d94eeaced9a92e3670d28e0c97c22f15f108.1783931396.git.xiaopei01@kylinos.cn> <DJY88BBD7RCM.20K3BATZ6JIM7@mailbox.org> <c054b269-9507-4da1-8e20-cbc85cdafe23@kylinos.cn>
-In-Reply-To: <c054b269-9507-4da1-8e20-cbc85cdafe23@kylinos.cn>
-X-MBO-RS-ID: f29254968fa440c7861
-X-MBO-RS-META: qwk9mydffxwmycptreb4fndyc16ocqj7
-X-Rspamd-Queue-Id: 4h10hC1dx1zKsGZ
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_214002_543758_D404EC57 
-X-CRM114-Status: GOOD (  28.05  )
+	Thu, 16 Jul 2026 05:32:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F7B443C88;
+	Thu, 16 Jul 2026 05:32:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EB017C2BCC9;
+	Thu, 16 Jul 2026 05:32:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784179923;
+	bh=K0/fBpvEVREYxAiLlkvLaBfaiGgV73UlQbngXGM401c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=pTHEJbrTAB4h/ToeJQ/nV7mPrkm7baTfm9LUP/JbnPIBGjH/hQHzwTXcyJ+k25TGX
+	 +sq1EtecKRe2CwDhUZJa2u16qG1vY1FZUY+3BbTcwhXXILTDPo+jNaEed9cpR3vfG5
+	 iB1yDsRF91MpqSPCs1WFNFAhRWK8vTnP7FdnXl6ddigq+X2ni31a3F8Hx+3MVRNPke
+	 y/wY6S1kuyjYRQJcOW4dXZNgIIPdEmYWmo6v18EN0zujj5CfHTcLxUfDGE0JDEzhOr
+	 SuUin9uUQYwHAbN+yzMUvrmADQ0pPu/zdHpzjgbnkKilVAy3TlGXRxzVkp6Mu2NVCp
+	 5X5H4OiarQLNQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD830C44511;
+	Thu, 16 Jul 2026 05:32:02 +0000 (UTC)
+From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
+Date: Thu, 16 Jul 2026 13:31:49 +0800
+Subject: [PATCH 1/2] modpost: ignore generated GCOV and RISC-V local relocs
+MIME-Version: 1.0
+Message-Id: <20260716-modpost-v1-1-8eab36cc7310@ultrarisc.com>
+References: <20260716-modpost-v1-0-8eab36cc7310@ultrarisc.com>
+In-Reply-To: <20260716-modpost-v1-0-8eab36cc7310@ultrarisc.com>
+To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Jia Wang <wangjia@ultrarisc.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784179921; l=6237;
+ i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
+ bh=Qmcrh0ELG719bfZpzSpb/gjTYnW7s0pXlwROWQGT5ys=;
+ b=MjwTgun4996uhG+72Cge2Wt8gh9lXuzarMQqAKiDdWhEPqtokFnkCGZq1qwlRPlu0T5iJKfuJ
+ TLL9keOWHMSDHujPLTMdvuryg9oHoTjpjuBC8JMCwKOGa5WVOaIjVXT
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
+X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
+ auth_id=779
+X-Original-From: Jia Wang <wangjia@ultrarisc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,132 +79,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: wangjia@ultrarisc.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGVpLAoKT24gV2VkIEp1bCAxNSwgMjAyNiBhdCAxMToxMSBBTSBDU1QsIFBlaSBYaWFvIHdy
-b3RlOgo+Cj4KPiDlnKggMjAyNi83LzE0IDE4OjM2LCBTaHV3ZWkgV3Ug5YaZ6YGTOgo+PiBIaSBQ
-ZWksCj4+Cj4+IE9uIE1vbiBKdWwgMTMsIDIwMjYgYXQgNDozMiBQTSBDU1QsIFBlaSBYaWFvIHdy
-b3RlOgo+Pj4gVGhlIGRyaXZlciB1c2VzIGRldm1fcmVxdWVzdF90aHJlYWRlZF9pcnEoKSBidXQg
-bmV2ZXIgZGlzYWJsZXMgdGhlCj4+PiBoYXJkd2FyZSBpbnRlcnJ1cHQgZW5hYmxlLCBzZW5zb3Ig
-ZW5hYmxlLCBvciBzZW5zb3IgcG93ZXIgYml0cyB3aGVuCj4+PiB0aGUgZHJpdmVyIGlzIHVuYm91
-bmQuCj4+Pgo+Pj4gQWRkIGEgZGV2bSBhY3Rpb24gdGhhdCBjbGVhcnMgSzFfVFNFTlNPUl9JTlRf
-RU5fUkVHLAo+Pj4gSzFfVFNFTlNPUl9FTl9BTEwsIGFuZCBLMV9UU0VOU09SX1BDVFJMX0VOQUJM
-RSBvbiByZW1vdmUsIG1pcnJvcmluZwo+Pj4gd2hhdCBrMV90c2Vuc29yX2luaXQoKSBzZXRzIHVw
-Lgo+Pj4KPj4+IFNpZ25lZC1vZmYtYnk6IFBlaSBYaWFvIDx4aWFvcGVpMDFAa3lsaW5vcy5jbj4K
-Pj4+IC0tLQo+Pj4gIGRyaXZlcnMvdGhlcm1hbC9zcGFjZW1pdC9rMV90c2Vuc29yLmMgfCAyNyAr
-KysrKysrKysrKysrKysrKysrKysrKysrKysKPj4+ICAxIGZpbGUgY2hhbmdlZCwgMjcgaW5zZXJ0
-aW9ucygrKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3RoZXJtYWwvc3BhY2VtaXQvazFf
-dHNlbnNvci5jIGIvZHJpdmVycy90aGVybWFsL3NwYWNlbWl0L2sxX3RzZW5zb3IuYwo+Pj4gaW5k
-ZXggNzkyMjJkMjMzMTI5Li5jZjc5ZGM3ZDQwM2YgMTAwNjQ0Cj4+PiAtLS0gYS9kcml2ZXJzL3Ro
-ZXJtYWwvc3BhY2VtaXQvazFfdHNlbnNvci5jCj4+PiArKysgYi9kcml2ZXJzL3RoZXJtYWwvc3Bh
-Y2VtaXQvazFfdHNlbnNvci5jCj4+PiBAQCAtMTk5LDYgKzE5OSwyOSBAQCBzdGF0aWMgaXJxcmV0
-dXJuX3QgazFfdHNlbnNvcl9pcnFfdGhyZWFkKGludCBpcnEsIHZvaWQgKmRhdGEpCj4+PiAgCXJl
-dHVybiBJUlFfSEFORExFRDsKPj4+ICB9Cj4+PiAgCj4+PiArc3RhdGljIHZvaWQgazFfdHNlbnNv
-cl9zaHV0ZG93bihzdHJ1Y3QgazFfdHNlbnNvciAqdHMpCj4+PiArewo+Pj4gKwl1MzIgdmFsOwo+
-Pj4gKwo+Pj4gKwkvKiBEaXNhYmxlIGFsbCBpbnRlcnJ1cHRzICovCj4+PiArCXdyaXRlbCgweGZm
-ZmZmZmZmLCB0cy0+YmFzZSArIEsxX1RTRU5TT1JfSU5UX0VOX1JFRyk7Cj4+PiArCj4+PiArCS8q
-IERpc2FibGUgYWxsIHNlbnNvciAqLwo+Pj4gKwl2YWwgPSByZWFkbCh0cy0+YmFzZSArIEsxX1RT
-RU5TT1JfRU5fUkVHKTsKPj4+ICsJdmFsICY9IH5LMV9UU0VOU09SX0VOX0FMTDsKPj4+ICsJd3Jp
-dGVsKHZhbCwgdHMtPmJhc2UgKyBLMV9UU0VOU09SX0VOX1JFRyk7Cj4+PiArCj4+PiArCS8qIFBv
-d2VyIGRvd24gdGhlIHNlbnNvciBtb2R1bGUgKi8KPj4+ICsJdmFsID0gcmVhZGwodHMtPmJhc2Ug
-KyBLMV9UU0VOU09SX1BDVFJMX1JFRyk7Cj4+PiArCXZhbCAmPSB+SzFfVFNFTlNPUl9QQ1RSTF9F
-TkFCTEU7Cj4+PiArCXdyaXRlbCh2YWwsIHRzLT5iYXNlICsgSzFfVFNFTlNPUl9QQ1RSTF9SRUcp
-Owo+Pj4gK30KPj4+ICsKPj4+ICtzdGF0aWMgdm9pZCBkZXZtX2sxX3RzZW5zb3Jfc2h1dGRvd24o
-dm9pZCAqZGF0YSkKPj4+ICt7Cj4+PiArCWsxX3RzZW5zb3Jfc2h1dGRvd24oZGF0YSk7Cj4+PiAr
-fQo+Pj4gKwo+Pj4gIHN0YXRpYyBpbnQgazFfdHNlbnNvcl9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1f
-ZGV2aWNlICpwZGV2KQo+Pj4gIHsKPj4+ICAJc3RydWN0IGRldmljZSAqZGV2ID0gJnBkZXYtPmRl
-djsKPj4+IEBAIC0yMjksNiArMjUyLDEwIEBAIHN0YXRpYyBpbnQgazFfdHNlbnNvcl9wcm9iZShz
-dHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+Pj4gIAo+Pj4gIAlrMV90c2Vuc29yX2luaXQo
-dHMpOwo+Pj4gIAo+Pj4gKwlyZXQgPSBkZXZtX2FkZF9hY3Rpb25fb3JfcmVzZXQoZGV2LCBkZXZt
-X2sxX3RzZW5zb3Jfc2h1dGRvd24sIHRzKTsKPj4+ICsJaWYgKHJldCkKPj4+ICsJCXJldHVybiBy
-ZXQ7Cj4+PiArCj4+PiAgCWlycSA9IHBsYXRmb3JtX2dldF9pcnEocGRldiwgMCk7Cj4+PiAgCWlm
-IChpcnEgPCAwKQo+Pj4gIAkJcmV0dXJuIGlycTsKPj4gU29ycnksIEkgbWlzc2VkIHRoZSBoYXJk
-d2FyZSBjbGVhbnVwIGluIHRoZSBvcmlnaW5hbCBkcml2ZXIuCj4+IFRoYW5rcyBmb3IgZml4aW5n
-IGl0Lgo+Pgo+PiBJIGFsc28gZm91bmQgdGhhdCByZWdpc3RlcmluZyB0aGUgc2h1dGRvd24gYWN0
-aW9uIGltbWVkaWF0ZWx5IGFmdGVyCj4+IGsxX3RzZW5zb3JfaW5pdCgpIHdvdWxkIGNhdXNlIHRo
-ZSB0aGVybWFsIHpvbmVzIHRvIGJlIHJlbGVhc2VkIGJlZm9yZQo+PiB0aGUgSVJRIGR1cmluZyBk
-ZXZyZXMgY2xlYW51cC4gVGhlIElSUSB0aHJlYWQgbWF5IHRoZW4gYWNjZXNzIGFuCj4+IHVucmVn
-aXN0ZXJlZCB0aGVybWFsIHpvbmUuCj4+Cj4+IEkgY2hhbmdlZCB0aGUgb3JkZXIgc28gdGhhdCB0
-aGUgdGhlcm1hbCB6b25lcyBhcmUgcmVnaXN0ZXJlZCBmaXJzdCwKPj4gZm9sbG93ZWQgYnkgdGhl
-IElSUSBhbmQgdGhlIHNodXRkb3duIGFjdGlvbi4KPj4gT24gcmVtb3ZhbCwgdGhlIGhhcmR3YXJl
-IGludGVycnVwdCBpcyBkaXNhYmxlZCBmaXJzdCwgdGhlbiB0aGUgSVJRCj4+IGlzIHJlbGVhc2Vk
-LCBhbmQgZmluYWxseSB0aGUgdGhlcm1hbCB6b25lcyBhcmUgcmVsZWFzZWQuCj4gSSBub3RpY2Ug
-dGhhdCB0aGUgY2hhbmdlcyB5b3UndmUgbWFkZSBhcmUgc2lnbmlmaWNhbnRseSBtb3JlIGV4dGVu
-c2l2ZQo+IHRoYW4gbXkgb3JpZ2luYWwgcGF0Y2guCj4gwqBDb3VsZCB5b3UgcGxlYXNlIGxldCBt
-ZSBrbm93IHdoZXRoZXIgeW91IHBsYW4gdG8gc3VibWl0IHRoaXMgcGF0Y2gKPiB5b3Vyc2VsZizC
-oAo+IG9yIHdoZXRoZXIgeW91IHdvdWxkIGxpa2UgbWUgdG8gc2VuZCBpdD8gSWYgeW91IHdvdWxk
-IHByZWZlciBtZSB0bwo+IHN1Ym1pdCBpdCzCoAo+IEkgd291bGQgYmUgZGVsaWdodGVkIHRvIGNv
-bnRyaWJ1dGUgdG8gdGhlIGNvbW11bml0eS4KClRoYW5rIHlvdSBmb3IgeW91ciByZXBseS4gU2lu
-Y2UgdGhlIG9yaWdpbmFsIGNsZWFudXAgaXNzdWUgd2FzCmlkZW50aWZpZWQgYnkgeW91LCBJIHdv
-dWxkIGJlIGhhcHB5IGZvciB5b3UgdG8gc3VibWl0IHRoZSB1cGRhdGUgcGF0Y2guCgo+Cj4gVGhh
-bmtz77yBCj4gUGVpLgo+Cj4+IC0+ICUgZ2l0IC0tbm8tcGFnZXIgZGlmZiBkcml2ZXJzL3RoZXJt
-YWwvc3BhY2VtaXQvazFfdHNlbnNvci5jCj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3RoZXJtYWwv
-c3BhY2VtaXQvazFfdHNlbnNvci5jIGIvZHJpdmVycy90aGVybWFsL3NwYWNlbWl0L2sxX3RzZW5z
-b3IuYwo+PiBpbmRleCA3OTIyMmQyMzMxMjkuLjU3ZGJjNjUyYTQwNSAxMDA2NDQKPj4gLS0tIGEv
-ZHJpdmVycy90aGVybWFsL3NwYWNlbWl0L2sxX3RzZW5zb3IuYwo+PiArKysgYi9kcml2ZXJzL3Ro
-ZXJtYWwvc3BhY2VtaXQvazFfdHNlbnNvci5jCj4+IEBAIC0xOTksNiArMTk5LDMyIEBAIHN0YXRp
-YyBpcnFyZXR1cm5fdCBrMV90c2Vuc29yX2lycV90aHJlYWQoaW50IGlycSwgdm9pZCAqZGF0YSkK
-Pj4gIAlyZXR1cm4gSVJRX0hBTkRMRUQ7Cj4+ICB9Cj4+Cj4+ICtzdGF0aWMgdm9pZCBrMV90c2Vu
-c29yX3NodXRkb3duKHN0cnVjdCBrMV90c2Vuc29yICp0cykKPj4gK3sKPj4gKwl1MzIgdmFsOwo+
-PiArCj4+ICsJLyogRGlzYWJsZSBhbGwgaW50ZXJydXB0cyAqLwo+PiArCXdyaXRlbCgweGZmZmZm
-ZmZmLCB0cy0+YmFzZSArIEsxX1RTRU5TT1JfSU5UX0VOX1JFRyk7Cj4+ICsKPj4gKwkvKiBEaXNh
-YmxlIGFsbCBzZW5zb3JzICovCj4+ICsJdmFsID0gcmVhZGwodHMtPmJhc2UgKyBLMV9UU0VOU09S
-X0VOX1JFRyk7Cj4+ICsJdmFsICY9IH5LMV9UU0VOU09SX0VOX0FMTDsKPj4gKwl3cml0ZWwodmFs
-LCB0cy0+YmFzZSArIEsxX1RTRU5TT1JfRU5fUkVHKTsKPj4gKwo+PiArCS8qIENsZWFyIHRoZSBz
-YW1wbGluZyBjb25maWd1cmF0aW9uIHNldCBieSBrMV90c2Vuc29yX2luaXQoKS4gKi8KPj4gKwl2
-YWwgPSByZWFkbCh0cy0+YmFzZSArIEsxX1RTRU5TT1JfVElNRV9SRUcpOwo+PiArCXZhbCAmPSB+
-KEsxX1RTRU5TT1JfVElNRV9GSUxURVJfUEVSSU9EIHwKPj4gKwkJIEsxX1RTRU5TT1JfVElNRV9B
-RENfQ05UX1JTVCB8Cj4+ICsJCSBLMV9UU0VOU09SX1RJTUVfV0FJVF9SRUZfQ05UKTsKPj4gKwl3
-cml0ZWwodmFsLCB0cy0+YmFzZSArIEsxX1RTRU5TT1JfVElNRV9SRUcpOwo+PiArCj4+ICsJLyog
-Q2xlYXIgdGhlIGNvbnRyb2wgYml0cyBjb25maWd1cmVkIGJ5IGsxX3RzZW5zb3JfaW5pdCgpLiAq
-Lwo+PiArCXZhbCA9IHJlYWRsKHRzLT5iYXNlICsgSzFfVFNFTlNPUl9QQ1RSTF9SRUcpOwo+PiAr
-CXZhbCAmPSB+KEsxX1RTRU5TT1JfUENUUkxfUkFXX1NFTCB8Cj4+ICsJCSBLMV9UU0VOU09SX1BD
-VFJMX1RFTVBfTU9ERSB8Cj4+ICsJCSBLMV9UU0VOU09SX1BDVFJMX0hXX0FVVE9fTU9ERSB8Cj4+
-ICsJCSBLMV9UU0VOU09SX1BDVFJMX0VOQUJMRSk7Cj4+ICsJd3JpdGVsKHZhbCwgdHMtPmJhc2Ug
-KyBLMV9UU0VOU09SX1BDVFJMX1JFRyk7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyB2b2lkIGRldm1f
-azFfdHNlbnNvcl9zaHV0ZG93bih2b2lkICpkYXRhKQo+PiArewo+PiArCWsxX3RzZW5zb3Jfc2h1
-dGRvd24oZGF0YSk7Cj4+ICt9Cj4+ICsKPj4gIHN0YXRpYyBpbnQgazFfdHNlbnNvcl9wcm9iZShz
-dHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+PiAgewo+PiAgCXN0cnVjdCBkZXZpY2UgKmRl
-diA9ICZwZGV2LT5kZXY7Cj4+IEBAIC0yMjksMzQgKzI1NSw0OCBAQCBzdGF0aWMgaW50IGsxX3Rz
-ZW5zb3JfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPj4KPj4gIAlrMV90c2Vu
-c29yX2luaXQodHMpOwo+Pgo+PiAtCWlycSA9IHBsYXRmb3JtX2dldF9pcnEocGRldiwgMCk7Cj4+
-IC0JaWYgKGlycSA8IDApCj4+IC0JCXJldHVybiBpcnE7Cj4+IC0KPj4gLQlyZXQgPSBkZXZtX3Jl
-cXVlc3RfdGhyZWFkZWRfaXJxKGRldiwgaXJxLCBOVUxMLAo+PiAtCQkJCQlrMV90c2Vuc29yX2ly
-cV90aHJlYWQsCj4+IC0JCQkJCUlSUUZfT05FU0hPVCwgImsxX3RzZW5zb3IiLCB0cyk7Cj4+IC0J
-aWYgKHJldCA8IDApCj4+IC0JCXJldHVybiByZXQ7Cj4+IC0KPj4gIAlmb3IgKGkgPSAwOyBpIDwg
-TUFYX1NFTlNPUl9OVU1CRVI7ICsraSkgewo+PiAgCQl0cy0+Y2hbaV0uaWQgPSBpOwo+PiAgCQl0
-cy0+Y2hbaV0udHMgPSB0czsKPj4gIAkJdHMtPmNoW2ldLnR6ZCA9IGRldm1fdGhlcm1hbF9vZl96
-b25lX3JlZ2lzdGVyKGRldiwgaSwgdHMtPmNoICsgaSwgJmsxX3RzZW5zb3Jfb3BzKTsKPj4gLQkJ
-aWYgKElTX0VSUih0cy0+Y2hbaV0udHpkKSkKPj4gLQkJCXJldHVybiBQVFJfRVJSKHRzLT5jaFtp
-XS50emQpOwo+PiArCQlpZiAoSVNfRVJSKHRzLT5jaFtpXS50emQpKSB7Cj4+ICsJCQlyZXQgPSBQ
-VFJfRVJSKHRzLT5jaFtpXS50emQpOwo+PiArCQkJZ290byBlcnJfc2h1dGRvd247Cj4+ICsJCX0K
-Pj4KPj4gIAkJLyogQXR0YWNoIHN5c2ZzIGh3bW9uIGF0dHJpYnV0ZXMgZm9yIHVzZXJzcGFjZSBt
-b25pdG9yaW5nICovCj4+ICAJCXJldCA9IGRldm1fdGhlcm1hbF9hZGRfaHdtb25fc3lzZnMoZGV2
-LCB0cy0+Y2hbaV0udHpkKTsKPj4gIAkJaWYgKHJldCkKPj4gIAkJCWRldl93YXJuKGRldiwgIkZh
-aWxlZCB0byBhZGQgaHdtb24gc3lzZnMgYXR0cmlidXRlc1xuIik7Cj4+ICsJfQo+Pgo+PiAtCQlr
-MV90c2Vuc29yX2VuYWJsZV9pcnEodHMtPmNoICsgaSk7Cj4+ICsJcmV0ID0gcGxhdGZvcm1fZ2V0
-X2lycShwZGV2LCAwKTsKPj4gKwlpZiAocmV0IDwgMCkgewo+PiArCQlnb3RvIGVycl9zaHV0ZG93
-bjsKPj4gIAl9Cj4gaXJxID0gcGxhdGZvcm1fZ2V0X2lycShwZGV2LCAwKTsgaWYgKGlycSA8IDAp
-IHsgcmV0ID0gaXJxOyBnb3RvCj4gZXJyX3NodXRkb3duOyB9wqAgwqDCoAoKYWdyZWVkLgoKPgo+
-Pgo+PiArCXJldCA9IGRldm1fcmVxdWVzdF90aHJlYWRlZF9pcnEoZGV2LCBpcnEsIE5VTEwsCj4+
-ICsJCQkJCWsxX3RzZW5zb3JfaXJxX3RocmVhZCwKPj4gKwkJCQkJSVJRRl9PTkVTSE9ULCAiazFf
-dHNlbnNvciIsIHRzKTsKPj4gKwlpZiAocmV0IDwgMCkKPj4gKwkJZ290byBlcnJfc2h1dGRvd247
-Cj4+ICsKPj4gKwlyZXQgPSBkZXZtX2FkZF9hY3Rpb25fb3JfcmVzZXQoZGV2LCBkZXZtX2sxX3Rz
-ZW5zb3Jfc2h1dGRvd24sIHRzKTsKPiAqRG8gd2UgbmVlZCB0byByZW5hbWXCoHxkZXZtX2sxX3Rz
-ZW5zb3Jfc2h1dGRvd258wqB0byBhIGZ1bmN0aW9uIG5hbWXCoAo+IHdpdGhvdXQgdGhlwqB8ZGV2
-bXzCoHByZWZpeD8gSSBmZWVsIHRoZcKgfGRldm18wqBwcmVmaXggaXMgYSBiaXQgcmVkdW5kYW50
-LgoKeWVzLCBrMV90c2Vuc29yX3NodXRkb3duX2FjdGlvbigpIHdvdWxkIGJlIGEgY2xlYXJlciBu
-YW1lLgoKPgo+ICoKPj4gKwlpZiAocmV0KQo+PiArCQlyZXR1cm4gcmV0Owo+PiArCj4+ICsJLyog
-RW5hYmxlIGludGVycnVwdHMgb25seSBhZnRlciBhbGwgem9uZXMgYW5kIHRoZSBoYW5kbGVyIGFy
-ZSByZWFkeS4gKi8KPj4gKwlmb3IgKGkgPSAwOyBpIDwgTUFYX1NFTlNPUl9OVU1CRVI7ICsraSkK
-Pj4gKwkJazFfdHNlbnNvcl9lbmFibGVfaXJxKHRzLT5jaCArIGkpOwo+PiArCj4+ICAJcGxhdGZv
-cm1fc2V0X2RydmRhdGEocGRldiwgdHMpOwo+Pgo+PiAgCXJldHVybiAwOwo+PiArCj4+ICtlcnJf
-c2h1dGRvd246Cj4+ICsJazFfdHNlbnNvcl9zaHV0ZG93bih0cyk7Cj4+ICsJcmV0dXJuIHJldDsK
-Pj4gIH0KPj4KPj4gIHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGsxX3RzZW5zb3Jf
-ZHRfaWRzW10gPSB7Cj4+CgotLSAKQmVzdCByZWdhcmRzLApTaHV3ZWkgV3UKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Jia Wang <wangjia@ultrarisc.com>
+
+GCOV_PROFILE_ALL can make GCC emit constructor and metadata symbols
+that reference init or exit sections. modpost may then report section
+mismatches through generated symbols such as _sub_I_* and __gcov_.*,
+even though those references do not describe a normal section lifetime
+dependency in kernel code.
+
+RISC-V also uses local branch and PC-relative relocation pairs that can
+resolve through compiler local or mapping symbols near init or exit
+code. Treating those local relocations as ordinary lifetime references
+creates a large number of bogus section mismatch warnings.
+
+Teach modpost to keep the raw target symbol for generated-symbol checks
+and pass the relocation type into the mismatch filter. Ignore GCOV
+constructor and metadata symbols, compiler mapping symbols, and RISC-V
+local branch or PC-relative relocations when they target init or exit
+sections.
+
+This was seen with an rv32 randconfig using KCONFIG_SEED=277518 with
+CONFIG_GCOV_PROFILE_ALL=y, CONFIG_KCOV_INSTRUMENT_ALL=y and
+CONFIG_DEBUG_INFO_BTF=y, where modpost emitted a large number of bogus
+.text to .init.text section mismatch warnings through generated GCOV
+and local RISC-V symbols.
+
+This keeps named symbol section mismatch diagnostics while avoiding the
+warning flood from compiler-generated references.
+
+Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+---
+ scripts/mod/modpost.c | 78 ++++++++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 71 insertions(+), 7 deletions(-)
+
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index a7b72a81d248..6869822446bd 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -951,8 +951,50 @@ static const struct sectioncheck *section_mismatch(
+  *   refsymname = *.constprop.*
+  *
+  **/
++#ifndef R_RISCV_BRANCH
++#define R_RISCV_BRANCH		16
++#endif
++
++#ifndef R_RISCV_PCREL_HI20
++#define R_RISCV_PCREL_HI20	23
++#endif
++
++#ifndef R_RISCV_PCREL_LO12_I
++#define R_RISCV_PCREL_LO12_I	24
++#endif
++
++#ifndef R_RISCV_PCREL_LO12_S
++#define R_RISCV_PCREL_LO12_S	25
++#endif
++
++#ifndef R_RISCV_RVC_BRANCH
++#define R_RISCV_RVC_BRANCH	44
++#endif
++
++#ifndef R_RISCV_RVC_JUMP
++#define R_RISCV_RVC_JUMP	45
++#endif
++
++static bool is_gcov_generated_symbol(const char *sym)
++{
++	return strstarts(sym, "_sub_I_") ||
++	       strstarts(sym, "__gcov_.");
++}
++
++static bool is_riscv_local_reloc(unsigned int r_type)
++{
++	return r_type == R_RISCV_BRANCH ||
++	       r_type == R_RISCV_RVC_BRANCH ||
++	       r_type == R_RISCV_RVC_JUMP ||
++	       r_type == R_RISCV_PCREL_HI20 ||
++	       r_type == R_RISCV_PCREL_LO12_I ||
++	       r_type == R_RISCV_PCREL_LO12_S;
++}
++
+ static int secref_whitelist(const char *fromsec, const char *fromsym,
+-			    const char *tosec, const char *tosym)
++			    const char *tosec, const char *tosym,
++			    const char *raw_tosym, unsigned int r_type,
++			    unsigned int e_machine)
+ {
+ 	/* Check for pattern 1 */
+ 	if (match(tosec, PATTERNS(ALL_INIT_DATA_SECTIONS)) &&
+@@ -981,6 +1023,21 @@ static int secref_whitelist(const char *fromsec, const char *fromsym,
+ 	if (match(tosym, PATTERNS("__init_begin", "_sinittext", "_einittext")))
+ 		return 0;
+ 
++	/*
++	 * Compiler-generated local labels and GCOV constructors can produce
++	 * relocations that are later reported as section mismatches against
++	 * nearby init/exit symbols. Do not use those generated symbols as
++	 * evidence of a real section lifetime dependency.
++	 */
++	if (match(tosec, PATTERNS(ALL_INIT_SECTIONS, ALL_EXIT_SECTIONS)) &&
++	    (is_mapping_symbol(raw_tosym) || is_gcov_generated_symbol(fromsym)))
++		return 0;
++
++	if (e_machine == EM_RISCV &&
++	    is_riscv_local_reloc(r_type) &&
++	    match(tosec, PATTERNS(ALL_INIT_SECTIONS, ALL_EXIT_SECTIONS)))
++		return 0;
++
+ 	/* Check for pattern 5 */
+ 	if (match(fromsec, PATTERNS(ALL_TEXT_SECTIONS)) &&
+ 	    match(tosec, PATTERNS(ALL_INIT_SECTIONS)) &&
+@@ -1025,21 +1082,25 @@ static void default_mismatch_handler(const char *modname, struct elf_info *elf,
+ 				     const struct sectioncheck* const mismatch,
+ 				     Elf_Sym *tsym,
+ 				     unsigned int fsecndx, const char *fromsec, Elf_Addr faddr,
+-				     const char *tosec, Elf_Addr taddr)
++				     const char *tosec, Elf_Addr taddr,
++				     unsigned int r_type)
+ {
+ 	Elf_Sym *from;
+ 	const char *tosym;
+ 	const char *fromsym;
+ 	char taddr_str[16];
++	const char *raw_tosym;
+ 
+ 	from = find_fromsym(elf, faddr, fsecndx);
+ 	fromsym = sym_name(elf, from);
+ 
++	raw_tosym = sym_name(elf, tsym);
+ 	tsym = find_tosym(elf, taddr, tsym);
+ 	tosym = sym_name(elf, tsym);
+ 
+ 	/* check whitelist - we may ignore it */
+-	if (!secref_whitelist(fromsec, fromsym, tosec, tosym))
++	if (!secref_whitelist(fromsec, fromsym, tosec, tosym, raw_tosym,
++			      r_type, elf->hdr->e_machine))
+ 		return;
+ 
+ 	sec_mismatch_count++;
+@@ -1152,7 +1213,8 @@ static void check_export_symbol(struct module *mod, struct elf_info *elf,
+ static void check_section_mismatch(struct module *mod, struct elf_info *elf,
+ 				   Elf_Sym *sym,
+ 				   unsigned int fsecndx, const char *fromsec,
+-				   Elf_Addr faddr, Elf_Addr taddr)
++				   Elf_Addr faddr, Elf_Addr taddr,
++				   unsigned int r_type)
+ {
+ 	const char *tosec = sec_name(elf, get_secindex(elf, sym));
+ 	const struct sectioncheck *mismatch;
+@@ -1168,7 +1230,7 @@ static void check_section_mismatch(struct module *mod, struct elf_info *elf,
+ 
+ 	default_mismatch_handler(mod->name, elf, mismatch, sym,
+ 				 fsecndx, fromsec, faddr,
+-				 tosec, taddr);
++				 tosec, taddr, r_type);
+ }
+ 
+ static Elf_Addr addend_386_rel(uint32_t *location, unsigned int r_type)
+@@ -1382,7 +1444,8 @@ static void section_rela(struct module *mod, struct elf_info *elf,
+ 		}
+ 
+ 		check_section_mismatch(mod, elf, tsym,
+-				       fsecndx, fromsec, r_offset, taddr);
++				       fsecndx, fromsec, r_offset, taddr,
++				       r_type);
+ 	}
+ }
+ 
+@@ -1419,7 +1482,8 @@ static void section_rel(struct module *mod, struct elf_info *elf,
+ 		}
+ 
+ 		check_section_mismatch(mod, elf, tsym,
+-				       fsecndx, fromsec, r_offset, taddr);
++				       fsecndx, fromsec, r_offset, taddr,
++				       r_type);
+ 	}
+ }
+ 
+
+-- 
+2.34.1
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
