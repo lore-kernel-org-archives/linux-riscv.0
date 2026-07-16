@@ -4,67 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0DDC44515
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 17:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DA6C44512
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 17:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QzKTkJWbaAPV0DUbGBWZS1xuCKxX/7DtI4oXt3Gvaw0=; b=ashRv66lJtFvXE
-	xES9Eswq0LaqaljdKnE38g0o5AKjwnbHn4YV9JYNR0zLuWIeeXpc8lh1FUhuGOsXqir2GOHzbnwCl
-	wb09WBgwjlM4romtO/HQN00tCP0BFYk13hs7J8ftwwOVV6j2hWPtue97ZJ6l85XFvVEyMkGi2/OmY
-	oGaw2vjRYJEDZ6VQH7023sJj0HA0C/xjktCaFBK5itERlm5j5wHFCncDPTrp4af3nSGaCr4SJG/dm
-	lngdZ+EHGRsRQLIJBwwPL/6Telp5nApLjaVS357X07fQgLuNx77iZzUB8Oe1X5twikv5xcvyGO+8D
-	bwlOKyeVXnHdOdXiAeaw==;
+	List-Owner; bh=kKubAHq0qwUkFvMTCTLpAkLGUvh13Gz0HdgnxzvIDD0=; b=07sM6Sv9HfK+EV
+	QaWMBE5rIY/UqOGEi9vFAHdizB92glalGDo3jvtpEfkJdW7i9PgkmtwMpwRp6PPj8+0Kbn2A4ngEX
+	WI1HvnZpGQEjdHkrb25zybrYp2aRdexjOIw/9kDqbzrSsLcXwaIKT4G2rxoBVqpmZsP7VF4NQNsrg
+	lRzfVqjgsUFe/EurrBwXJ0432k4Dq7rvdpnCZubNeJEk+IPnCyn0UN2Qj0Wq/Mu+6MluptcQGTlHH
+	HAFNMGAEQg9eWy3xPsGB5NvMnCqVnZjHtGMikF2fnNW9pHiVGOH+RDG5aS8N0e5ArwbWVKoMf8FWr
+	tACNUpI7bYqbC2xl13vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ4h-00000000Ib0-0tuv;
-	Thu, 16 Jul 2026 17:40:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkQ8D-00000000Irm-2eZC;
+	Thu, 16 Jul 2026 17:44:21 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ4f-00000000Iai-3YJA;
-	Thu, 16 Jul 2026 17:40:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 35C7660A5E;
-	Thu, 16 Jul 2026 17:40:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C16FA1F00A3A;
-	Thu, 16 Jul 2026 17:40:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784223640;
-	bh=JybiWbfiaZr00Rdf/DsbwkKIST2oJ+WNcEjStes2TLI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EYV2Nhqsz6SjNvJ+a55nlCvJ5OB+ZB62OoQoNFVTecINTlhj1vvCQeUvcj793xr1h
-	 Z5oj/bkzcgAZ6pUHT2qDfZSqIbihkolR22VczBJvwnObxNzH5wfZty1pGDR2S4GHHe
-	 yLkGR42MLl6etZa3j1/tY1Ehjon6ylLOY+mnXAVqUjWdskfeRhf5Q/9QfsvUB8950T
-	 F5StoQdpduxNz7BIglh6rQfDfr4gJUHi9z9/RWXIljPKeDS0W0W0beRiQ6GKzsMdtv
-	 G05iwBRGgqUcRFKv/lSkWJKxUJ5qM5Tpo+R7iLlopHBDGPdK3Gqm4FQac7atyIYYw3
-	 4OSgEBdgBCvyA==
-Date: Thu, 16 Jul 2026 12:40:40 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
-	Ze Huang <huang.ze@linux.dev>, linux-hardening@vger.kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-phy@lists.infradead.org,
-	Kees Cook <kees@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Alex Elder <elder@riscstar.com>, Yixun Lan <dlan@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: phy: Add Spacemit K3 USB3/PCIe comb
- phy support
-Message-ID: <178422363982.585904.17467058424948637917.robh@kernel.org>
-References: <20260703021024.495433-1-inochiama@gmail.com>
- <20260703021024.495433-2-inochiama@gmail.com>
+	id 1wkQ8A-00000000Ir7-1OeX;
+	Thu, 16 Jul 2026 17:44:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784223858; x=1815759858;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=jR5j9NUUUDWrKfOXsM73JV6fyT1VqUxtuhsCIIn6jKM=;
+  b=D7QnHeLRacmdz4Nd6pY6gn5fyUUkoaStawf1F89wB1NPlNT/z/Lu6zbA
+   tR2IpcQJsRaFTYSI8GLYWWzGO3or8flZccHQE7NZH8v3oF5mB3aZV0RYN
+   He6ZDjfnKdyhWW+Nyivi2hE2XTmPubxSuOwcANBNNFvHm9ityOdFFVQ6G
+   gMbeoR22Ajw7CQW5MyYaD1zcLfJa9D1qRIkvmeCk1j2f8bG0Jp+d6Hmsi
+   gIcKFye7Iw2gWoq0jZeYtyOCRluaN8ki1XiaF53SGmoGfTiouPQm/rbKr
+   umD9cm2zcdtiwMpdV3UzMmkER+LzIfkyjLGT6GMv5xulZKxZkTewVBK00
+   Q==;
+X-CSE-ConnectionGUID: S3Y5L6V2THiDiyuTc8jieA==
+X-CSE-MsgGUID: EEZoah43SxClRD5d0ZmeaA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="83877246"
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="83877246"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:44:15 -0700
+X-CSE-ConnectionGUID: aMxhVdAuQT2VWNRoxPa/nw==
+X-CSE-MsgGUID: NDeukz9TQ02LlIOQEavzaw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="256023287"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:43:55 -0700
+Date: Thu, 16 Jul 2026 20:43:53 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Lixu Zhang <lixu.zhang@intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Hans de Goede <hansg@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Imre Kaloz <kaloz@openwrt.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Alan Borzeszkowski <alan.borzeszkowski@linux.intel.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	"Enrico Weigelt, metux IT consult" <info@metux.net>,
+	Viresh Kumar <vireshk@kernel.org>, virtualization@lists.linux.dev,
+	Yinbo Zhu <zhuyinbo@loongson.cn>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Alban Bedel <albeu@free.fr>,
+	James Cowgill <james.cowgill@blaize.com>,
+	Matt Redfearn <matt.redfearn@blaize.com>,
+	Neil Jones <neil.jones@blaize.com>,
+	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
+	Doug Berger <opendmb@gmail.com>, Keerthy <j-keerthy@ti.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Bamvor Jian Zhang <bamv2005@gmail.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-aspeed@lists.ozlabs.org,
+	asahi@lists.linux.dev, linux-mediatek@lists.infradead.org,
+	openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-unisoc@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Michael Buesch <m@bues.ch>, William Breathitt Gray <wbg@kernel.org>,
+	Robert Richter <rric@kernel.org>, linux-acpi@vger.kernel.org
+Subject: Re: [PATCH v2 00/21] gpio: Improvements around device-id arrays
+Message-ID: <alkYWcuMsfE5jkLR@ashevche-desk.local>
+References: <cover.1784133987.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260703021024.495433-2-inochiama@gmail.com>
+In-Reply-To: <cover.1784133987.git.u.kleine-koenig@baylibre.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_104418_416592_5F9E8B42 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +154,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 15, 2026 at 06:55:05PM +0200, Uwe Kleine-K=F6nig (The Capable H=
+ub) wrote:
+> Hello,
+> =
 
-On Fri, 03 Jul 2026 10:10:22 +0800, Inochi Amaoto wrote:
-> The USB3/PCIe comb PHY on the K3 is a complex PHY group that
-> can provide multiple phy for both PCIe and USB controller.
-> Its mux configuration is controlled by the APMU syscon device.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  .../bindings/phy/spacemit,k3-combo-phy.yaml   | 68 +++++++++++++++++++
->  1 file changed, 68 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k3-combo-phy.yaml
-> 
+> as with v1 the original motivation for this series are the patches that
+> convert the arrays to use named initializers, see
+> https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylibre=
+.com/
+> for the idea behind it. Then by not closing the eyes for small issues
+> spotted while working on that, this series grew a bit.
+> =
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Changes since v1 (available at
+> https://lore.kernel.org/linux-kernel/cover.1784013063.git.u.kleine-koenig=
+@baylibre.com):
+
+Sorry, but at first glance it seems this version is messed up.
+I'm not going to look into it deeply, waiting for *carefully*
+checked v3...
+
+-- =
+
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
