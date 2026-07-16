@@ -4,146 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EF2C44516
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 17:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB4DC44515
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 19:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vQozKbz5904Z1w82bpgxEqiXD0xghTS3AUcIihNaxPI=; b=L4vDH5hDf5jw9j
-	yRFtuFFOdgW2Q6o0RecMyOStyb6uXy5xe0l6QZE908NoV8F/HBjrsIh91ljEISgF+Rf+hjDflOu5t
-	ms4ZG4EohpFhf2aec/31D7xsu5ZQp+10mpSPp9U0N5dl7nKoQHnT6Mpu+i0k2neGNXXVjjVwGBtmI
-	21InYFYQ7bzu9cMlUpRiwVUbac7NoDxaSsUHqD+8Lq6T1ZFVcl3atd6Oc5FI8Qcf9VSCxQC5yzEts
-	rDYUomH0WKJ9UEqQKeBNPVwi4lHLw47W1EQDrpxrmuPaaNuT1XndNB8A3kYKSAH4sXjzdoNtF9o6F
-	08ZumHasgcJuX84mcpJg==;
+	List-Owner; bh=QvuPkZ5eaEa3WIEjR7K8gTj/2B+NKcNYuR1ValOvNUc=; b=Q9H4IgTPqkggQF
+	1zgFS+fHn8rKvXMceaHRRuX+S3pB26N6thm9VXhgzY8fK/GZ+75hgvlareo1wlwdxAsYHMy2MVttb
+	mKJjCmd+0ipeAEyBNxydo5zbgTveNzdqEtYZJdonCvtFrzo6Xgbg1y0YT4gEPe80/vZlAFrabZy38
+	8k+VlZy0PLwx7QAg4Pn6fB04cifdJtfjoaIwY8A53AU71F94Em8n4LAFv+3FXdae+gqtWrG3wD6Yq
+	8YV2OjqXSRNqLdlqspL0Rro/GR0UADZqB5fUVIrvBV4rQzqDFc1YeGEXbOLSFx8uwpLwqBZm4MBYH
+	RjWyClsPShaqbJb0iRDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ9H-00000000J5c-0lzL;
-	Thu, 16 Jul 2026 17:45:27 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ9D-00000000J4i-1abO;
-	Thu, 16 Jul 2026 17:45:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784223923; x=1815759923;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=zbVibP9aLTK8oNvSIhVNQ4AgGcuyaBeKvV56UEcTcpQ=;
-  b=fa1lntsR0KjstL+qAvyVKMc1vA2g4rw5JjZ+lcdVvSGiUTBrrAS6812V
-   f+uiFX9SR05hATboMM1i3aGrDUAbd1sqs7OinwzrKT2kz7C6cs1DGPJ5b
-   gtaCMcj8c98+KwyDGMce8L5l0U68UGIvmy8Pk1a3DBFNfRI9T5TdD1+xM
-   /bI9DrcPoO4EdDXvSqb3NIAUcWJd7ycc4GU4686JXRUHfeONjmPy+MDYZ
-   1foP+4QkdWzzDwkF9HugSBn2MIlGaq6YnQmJgOjXHQYrP3oABlqxS6nEI
-   uhqvDJPmzC8o1NwlL5ae6ajWoDhUgz+UgXo5u1Ii4Q9Nr6ngDaw/8c09D
-   w==;
-X-CSE-ConnectionGUID: yHdGRxANQ2OfYssfQgMqNw==
-X-CSE-MsgGUID: T/BpK44UTGGicYvt5N9+ww==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="85090271"
-X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="85090271"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:45:22 -0700
-X-CSE-ConnectionGUID: tUarK1GxR1ydTColBfz7Rw==
-X-CSE-MsgGUID: kqVQX9ajR9KmsayDkRu5Zg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="279834026"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:45:03 -0700
-Date: Thu, 16 Jul 2026 20:45:01 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Lixu Zhang <lixu.zhang@intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans de Goede <hansg@kernel.org>, Andy Shevchenko <andy@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Imre Kaloz <kaloz@openwrt.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Alan Borzeszkowski <alan.borzeszkowski@linux.intel.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	"Enrico Weigelt, metux IT consult" <info@metux.net>,
-	Viresh Kumar <vireshk@kernel.org>, virtualization@lists.linux.dev,
-	Yinbo Zhu <zhuyinbo@loongson.cn>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Alban Bedel <albeu@free.fr>,
-	James Cowgill <james.cowgill@blaize.com>,
-	Matt Redfearn <matt.redfearn@blaize.com>,
-	Neil Jones <neil.jones@blaize.com>,
-	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
-	Doug Berger <opendmb@gmail.com>, Keerthy <j-keerthy@ti.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Bamvor Jian Zhang <bamv2005@gmail.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
+	id 1wkROX-00000000RPv-2jFK;
+	Thu, 16 Jul 2026 19:05:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkROU-00000000ROs-1xqJ;
+	Thu, 16 Jul 2026 19:05:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C1121477;
+	Thu, 16 Jul 2026 12:05:05 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 138523F66F;
+	Thu, 16 Jul 2026 12:04:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784228709; bh=f1ULhbuK1iL4hbXSB2hrLrFezeJ/gE3hgeZAl2sOvUs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gqrSwabcapydV8BcaRXrJ+3InJ/tYr8/7EQjfec8M11rV1LYtTO+i0hHOG3fWMVI8
+	 dzyFvALZUm6i3TwmO5xjMl+fdsthUr0DH07IaBF30UE5oiJvESqOEKP1mAzb+bHmtc
+	 WHJaM3g6tBoTuQz7uLK9ZM2XZRplDibEbr4kfqX4=
+Date: Thu, 16 Jul 2026 20:04:56 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Pedro Falcato <pfalcato@suse.de>, Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	Linux-Arch <linux-arch@vger.kernel.org>,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	x86@kernel.org, linux-mm@kvack.org, kasan-dev@googlegroups.com,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-m68k@lists.linux-m68k.org,
+	"linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+	"David Hildenbrand (Red Hat)" <david@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Klara Modin <klarasmodin@gmail.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	"Kirill A. Shutemov" <kas@kernel.org>, zhangtianyang@loongson.cn,
+	wangyuli@aosc.io, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Lorenzo Stoakes <ljs@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Rohan McLure <rmclure@linux.ibm.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Michael Walle <mwalle@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>, linux-aspeed@lists.ozlabs.org,
-	asahi@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-unisoc@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Michael Buesch <m@bues.ch>, William Breathitt Gray <wbg@kernel.org>,
-	Robert Richter <rric@kernel.org>, linux-acpi@vger.kernel.org
-Subject: Re: [PATCH v2 00/21] gpio: Improvements around device-id arrays
-Message-ID: <alkYnQdzZlKf2bfB@ashevche-desk.local>
-References: <cover.1784133987.git.u.kleine-koenig@baylibre.com>
- <alkYWcuMsfE5jkLR@ashevche-desk.local>
+	Tejun Heo <tj@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anup Patel <anup@brainfault.org>, atish.patra@linux.dev,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Michal Hocko <mhocko@kernel.org>, qi.zheng@linux.dev,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Kairui Song <kasong@tencent.com>, Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>, chaitanyas.prakash@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>, guoren <guoren@kernel.org>,
+	yang.li85200@gmail.com, Alexander Viro <viro@zeniv.linux.org.uk>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	"schuster.simon@siemens-energy.com" <schuster.simon@siemens-energy.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>, junhui.liu@pigmoral.tech,
+	Muchun Song <muchun.song@linux.dev>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Nam Cao <namcao@linutronix.de>, Pavel Machek <pavel@kernel.org>,
+	djbw@kernel.org, yu-cheng.yu@intel.com,
+	Baolu Lu <baolu.lu@linux.intel.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Coiby Xu <coxu@redhat.com>, Andreas Larsson <andreas@gaisler.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	"Vlastimil Babka (SUSE)" <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Stafford Horne <shorne@gmail.com>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+Subject: Re: [RFC PATCH 02/34] ARM: mm: make 2-level pgd_t a scalar
+Message-ID: <alkrWNECXmoxkrUC@e129823.arm.com>
+References: <20260713135614.1618183-1-yeoreum.yun@arm.com>
+ <20260713135614.1618183-3-yeoreum.yun@arm.com>
+ <alYL7B0HAvmLVHGU@pedro-suse>
+ <b7dbc476-1477-4004-93b3-c5e667e24df8@app.fastmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <alkYWcuMsfE5jkLR@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <b7dbc476-1477-4004-93b3-c5e667e24df8@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_104523_462759_91D74D0A 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20260716_120514_762732_034AF768 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,43 +132,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 08:44:14PM +0300, Andy Shevchenko wrote:
-> On Wed, Jul 15, 2026 at 06:55:05PM +0200, Uwe Kleine-K=F6nig (The Capable=
- Hub) wrote:
-> > Hello,
-> > =
+[...]
 
-> > as with v1 the original motivation for this series are the patches that
-> > convert the arrays to use named initializers, see
-> > https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylib=
-re.com/
-> > for the idea behind it. Then by not closing the eyes for small issues
-> > spotted while working on that, this series grew a bit.
-> > =
+> > Ugh. This isn't correct C code. It only works because the kernel passes
+> > -fno-strict-aliasing.
+> 
+> I think the bigger problem is the code dereferencing the pgd
+> pointer in the first place: Since the pgd pair is written in
+> 32-bit units in __pmd_populate(), anything reading it would
+> technically have to operate on both entries.
+> 
+> As the kernel relies on -fno-strict-aliasing, the type mismatch
+> is less of a problem than actually doing the potentially wrong
+> thing.
+> 
+> As far as I can tell, we are however saved by pgd_val()
+> only ever being used for debug prints, where printing
+> the first entry is likely all that is needed to analyse
+> the real bug.
+> 
+> > I would recommend either forcing a struct here, or
+> > using a u64 with bitmasks/shifts.
+> 
+> That would require extra complexity for the big-endian
+> case though.
 
-> > Changes since v1 (available at
-> > https://lore.kernel.org/linux-kernel/cover.1784013063.git.u.kleine-koen=
-ig@baylibre.com):
-> =
+Agree. And since the users of pgd_val() mostly uses with
+pmd_pfn(), pmd_page() and etc. I think it doesn't matter to return
+lower pmdval_t or higher one.
 
-> Sorry, but at first glance it seems this version is messed up.
-> I'm not going to look into it deeply, waiting for *carefully*
-> checked v3...
+Therefore, without considering endianess, it's enough with downcast
+like:
 
-And with the above being said, my tags against v2 are not valid
-(withdrawn).
+   #define pgd_val(x)      ((pmdval_t)x)
 
--- =
+Could we apply this in next version?
 
-With Best Regards,
-Andy Shevchenko
-
-
+-- 
+Sincerely,
+Yeoreum Yun
 
 _______________________________________________
 linux-riscv mailing list
