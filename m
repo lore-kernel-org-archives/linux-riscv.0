@@ -4,52 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F32C44517
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 07:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08AD1C44515
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 07:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RyFzvGyWO5UEBscSloQBdiJQX5/Geepd2cN8x5WQOXM=; b=w7Pe7fwEgUN+rZ
-	cJqsYWlBRpGgwNGlOnMVXvMVAtNRL0D6wFmHtgumVAedbtCcklqRhh48W/O5VS7NQGByJ8Gfxf8xx
-	BvlsDTlZlLEHX5phJDTsMElEZQmXj369eZLV0jZ9mhOVQBryoHTb06U2sx6g7t5UF1A+LveH5X+Cx
-	kaqoaLW4dIc0eJfpEwEcvcf//aOSN4sgQYkfXF65huauoBiuHFlGKvjmkFjmyn9KUT+8mONKuGGIW
-	xJwZAHDCoF29DXRe248ZzI4nRbNlyOWR+Nlm48mAAPMoVJl0/Z0cSQ3kh5oUdWRh/ozIaxYcYVRcu
-	5qgImpcovh6c6+iiwQhw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gGgblNEOGZlwfdDBgS5cbbU+6Tb/iRfdA3BJtph8jFs=; b=L9SS7C2Waquf1B
+	nG/a8CgsGM9Nd67IXOaQunOS1z1ax6btMfDeQ8AqI1jQlrpK7cAub4d95951uAlTwed7MhxyLloIW
+	jUH/9wVH6dj5CeyVnhCoQu+VISMoBWlPHFrwRaQSFp/EuTRFGVzUHeVJsOXjMS3mexpmQG2IuglGN
+	SYRorjXGNSj9tn7VpgvP4rjEaCNA1bhT04zPQGd73XzF8FU2woyT75naL24Dl84HfMwYIqo3vfaP0
+	hmFK6vsAcUCvVgJLRh2or2VsPzA1EtQ4/Hpx6Dir56slGeINc+qL5irbRHvbx82C5Yj2ZvYTwRS9T
+	7gzzx6+deNYPJ7SG8yhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcyO-00000001RSF-0iCD;
-	Fri, 17 Jul 2026 07:27:04 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcyL-00000001RGx-0MBj
-	for linux-riscv@lists.infradead.org;
+	id 1wkcyN-00000001RRu-2TjG;
 	Fri, 17 Jul 2026 07:27:03 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkcyG-00000001RDV-0l04
+	for linux-riscv@lists.infradead.org;
+	Fri, 17 Jul 2026 07:26:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1784273190;
-	bh=3sqi+qTYcpi2NJ4kQU7sMVmsgzOJTpn+3qWETJCDzUA=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=gZpcR1sj1OeZ18XX/IUrEsUXZrYqsTrAIrEvuIa20xU8ProFqQaibTj8B/yuoQ4U0
-	 q8iGgxTsZwgJ5U8FfKd0ht1CmD1gLZbKr8Qsk9f0u80g5R7E0h/QtjbmE7IJ1cwyTx
-	 AGXIChd81ySwzyZ8DdGYO+sBQf1K5abcPBSN0vv4=
-X-QQ-mid: esmtpsz16t1784273181te34484dd
-X-QQ-Originating-IP: jhJhuuxRTxxyu4B4UrVc9so84zNiH/hNsX0G8dLdNDM=
+	s=mxsw2412; t=1784273182;
+	bh=jEptvT1X09De8R5/A6uLESasfKVE1BpRXqYYNEEYFJw=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=aFGslG8v03MRxdtofzmH+ks5RHh4NDpKLX+9oFJklUC7bi+XgfxRQU7mjpMoFPYsP
+	 qE/2Ka/C+OAetdtyuJ2Bged2Tp/zPqMDgRO6YPMmu+2gFkPcFixpYxoArTExckPQmk
+	 Axjk3VQNW9ySDyesifkKN7CWV+nNITYEM9NqWgrI=
+X-QQ-mid: esmtpsz11t1784273172t86be77f2
+X-QQ-Originating-IP: Bw9tCNH376+ZtWl5C6e6i58YBeeAjXoMSEuf/COzNQY=
 Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 17 Jul 2026 15:26:18 +0800 (CST)
+	id ; Fri, 17 Jul 2026 15:26:10 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8878662463003206756
+X-BIZMAIL-ID: 7455975292204269396
 EX-QQ-RecipientCnt: 14
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Fri, 17 Jul 2026 00:26:02 -0700
-Subject: [PATCH 2/3] clk: spacemit: k3: fix i2s clock topology
+Subject: [PATCH 0/3] clk: spacemit: k3: fix i2s clock topology and divider
+ rates
+Date: Fri, 17 Jul 2026 00:26:00 -0700
+Message-Id: <20260717-k3-clk-fix-i2s-v1-0-e95001a692ee@linux.spacemit.com>
 MIME-Version: 1.0
-Message-Id: <20260717-k3-clk-fix-i2s-v1-2-e95001a692ee@linux.spacemit.com>
-References: <20260717-k3-clk-fix-i2s-v1-0-e95001a692ee@linux.spacemit.com>
-In-Reply-To: <20260717-k3-clk-fix-i2s-v1-0-e95001a692ee@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMSwqDUAwAryJZG9D4K15FutBn1FSx5aWKIN7dq
+ MthmNlB2QsrlMEOnldR+c4GcRiAG+q5Z5TWGCiiPMrjDMcE3TRiJxsKKWZMxatOCzIJFv08m7q
+ H1fthXZoPu/91geM4ASF9h2ByAAAA
+X-Change-ID: 20260615-k3-clk-fix-i2s-5e278a472061
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
  Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -61,39 +64,40 @@ Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, 
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4976;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1867;
  i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=ccCpnKQ15ic8pJiIzlgrsDeRCORSw6fGPFWzhkR936U=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFmRN/k5l1XOS3lZFvpm0efdSw/mf2G8IBYpz2Z092P86
- a4Xf/4s7ChlYRDjYpAVU2TpfsCzrcAnyrZAoNAXZg4rE8gQBi5OAZjIrThGhp2nAuNLfBatz8me
- ovFh8qmuiSqLzz9e+yxvT+W+DomNW4sZGQ6wzmJ6sfZf9Ub+12qWSycyxdY5RB+yy7f44VtxWVJ
- YnhEA
+ bh=FUEnUCyCQt8oabfZeZlckH5YssHKTRkpCvLvgorY36Y=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFmRN3m5TV4lvbAMKDFa7Tl9styp+r7sLs+wbon1Rn/ZH
+ 07d58rbUcrCIMbFICumyNL9gGdbgU+UbYFAoS/MHFYmkCEMXJwCMJFDpYwMm/UFp/5NnNVamblJ
+ cvHN4rtZvJOZHl45xf1JYGbenyv6igz/02bw7zI1DfzXKv1C/tS1P7KFb5++nWrYdP/RDOnM25F
+ n2AA=
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
  fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NWth7vBa++Gdi9gh1igUg3F2KH2WcwTrhlFIlVhPFUhhPb8GLs3sCPVx
-	30eHDydKk14gywhg8L9HpTOcVfeeQnEY8B2k4WxhXi/g0+2aAgl3jOcb82Bdptr1Ogdc3Fn
-	XMvt4WKuOYvgxmBV+kXpAfkIy+QxMmbo/qiTAEMog5sqZBrveh7I5I0m5XF4Cs9551gqCEn
-	SpaMMbDKvBCBHIX3uiUPh2aKCRe7sNDB7cKzV0cmOWAfCNBR6lHIHnbPq91c0rJlVn0kn/C
-	x+vE/5Gq9WRSr6Lin9HqCgo26vgzYvVG+2qxxcjM8UAF/sSg63I/dqGzBphNmnJgJHsu9ht
-	EzKSPhHDw4WDolvkutSQsJJnOWvdsHItoEOooVsY9ZZf2MIudIKD6JvldFJYtwZf8WgONvP
-	wyWItrpA5zjEw4cUB7GRJGTSaZxRGZKIqfJS7B8DMtHURIkp+gTwCZSVVBHI/SmYMhMYB98
-	ptXqrp8Pj7U6i+wFwi0ZWMFLnmCLsc+/v/AqH11qJt7RubiadDaf80FiKnbkh206w+4lybH
-	tKifDFT/WLwSBLZJ+oQiXKQhbYkoybns3hcAKEwYRHaSJoxVOVJIEUvAvcc9xEeIqc/JYt1
-	S7oAXLkTsxGAk7Z5Bi0HDTA09z/1wmYAXF46HG9D+sB7tAq/kmMwdCdD3Is2tuhFRhiA8aD
-	64Q3YSGLNukvWQhIX9PEy2Mwym9+qmDC8Hq8AbfCLhmVAK+FhJqUZfEAEivk83r3t/0Yyt1
-	hJllkkPqeSHw0EyhmTpuJQgOYsXaWlutaXQDWYGPjk+yNdIgRoo2qu3HO6/0nhqcPRj3Pqc
-	ZDo2iJ7JtyrQh4jG0R3rGuZkv0kWiIXvA7ASZav4d77VguHXWkMpRNEUllLBasFHFxrcJpy
-	pHBwxN0QQ6p5yvyOUVp9vI2mjccj9Hn9vY2z0v0dZwZIyMHFyf+0MQf2jXUIRFAp+rWn6zV
-	HLcRXU4eq21Sxj33HXwmsUvSHro3X0ITVUHRegPjz1QwnmsIZWsZOKIoCTkCO0zjDEVorCQ
-	fTQ5VM49nh8jJSUeshLJZLV9fEM7Gm0xQv+meojKCEkBuNT9Glbl6wzApzjtso3dGNbvTU+
-	A==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-XMAILINFO: NzOHSugmTg7XFhOqTQmyscbdQ5wyP0fH3xplLwdQ2sm1dexmGbPII3oP
+	JeZKinuWiHB20hLoCnUOvtEuhZnUFoG/p+uDVUJQ5JUBYvwqsVINYgplSx+45ctAVOQguHI
+	eWYKCKnlNl0hKggvq/b6venkNHNPC98OEiLM3ebEhDC9qx1eMRd6edNjgsjwq7X6SLhPWJG
+	4PyLgAwcvPGmNJkepCFhl7+Bawm5uKVcCLW0uckHpD2lDuywUHJXQkf+pw5du+e3ZjMm5wx
+	KeAJhFhWg6m75xL6ny4ufX9hHWbCkkd/PrVEchibONmRgwaChmp45VhI0p4sNcC+FTqqUig
+	yHLVpg2DKB9eI36nkP2fpJNXJfHnJwF9lGX7uewXkxh6zZKgyneAqxKXS6dNGFl4p8W+4sd
+	ll96tbiq/Fjz9aZXVX77EJfayVpdmy26ocPIgD3fjyRzbIgKoYCYyCam0ejLwJ4myScmB0a
+	Av6Ie3HVs3aCDFKFN8IHGz+dR9EAC1GwEfhztCXkI5DTQuu9kOQK/Tb6C6mHGgrejTWMRXk
+	L/kO7PuB0SaA1rYfWtGdZd5Mrfa9Q9/zKqWPvLeoAWw99ZaOhL2mwEbiO6bURXzXpsedgqY
+	p9QVAqCGLiiJEbty9FgiTwDk7yk+ejohNb8r4sHDW0we1Hj/S7Vtlb/K1IcRLxg0EnZdqtm
+	YehUZRHWXbW29GOVdheyFMkdLkrg2PSN3zWmqW1tScwGAtp9ZRAIZ25ubJh7BgTl10svn67
+	tRVDKt8PJEoSSOs++PCLcqRD9PAMqLoGzbDpo8ELJwxdXn0rL0LtJJO6nGNe/bWnh4NGNes
+	oo8nTHVGLVxN8hQFTTjvg7c879rygX4b7VtGALtCByHYFwbNuNeSdUCpuhy+0vdIO+0QD3C
+	4OU66YiCgjXG2UEAw78C39rK6iCQ4N00ZhShAygm4IIrfhYG0oHVoIvbQymenhHSzKEu6qE
+	SbRdmag6QyEwFh+b+c7MmblZL3BJIRKXbSBQa4GtS+qsJpAr7ziRHUgD5wYxSNjAdTtgO+I
+	NXVF9AVtMmrKMEsEbh4k8bzyV2/eignEUXGCy74CLffC4Bysy2hS+owdYNJGxUqHxEfrk0C
+	w==
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_002701_590969_F4309C3E 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260717_002657_098772_B659B4CB 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,114 +114,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The K3 i2s clocks were modelled as a single path behind one MPMU
-register:
+The K3 i2s clock tree was modelled on the K1 layout but does not match
+the actual K3 hardware topology, leading to incorrect clock rates being
+reported and programmed.
 
-    pll1_d96_25p6 / i2s_153p6_base
-      `-- i2s_sysclk_src (mux+gate, MPMU_ISCCR)
-            `-- i2s1_sysclk (DDN, MPMU_ISCCR)
-                  |-- i2s_bclk (div+gate, MPMU_ISCCR)
-                  `-- i2s2_sysclk (mux, parent 0)
+Three fixes are provided in dependency order:
 
-The hardware actually has two i2s clock control registers, ISCCR0
-(0x0040) and ISCCR1 (0x0044): ISCCR1 drives the common sysclk shared
-by i2s0/2/3/4/5 and the common bclk, whose divider always implies a
-fixed 1/2 factor in front, while ISCCR0 drives a dedicated path for
-i2s1:
+First, the MPMU_ISCCR syscon register is renamed to MPMU_ISCCR1 to
+match the hardware register name, and MPMU_ISCCR0 (offset 0x0040) is
+added. This prepares the header for the clock topology corrections that
+follow.
 
-    pll1_d96_25p6 / i2s_153p6_base
-      |-- i2s_sysclk_src (mux+gate, MPMU_ISCCR1)
-      |     `-- i2s_sysclk (DDN, MPMU_ISCCR1)
-      |           |-- i2s_bclk_factor (fixed factor, /2)
-      |           |     `-- i2s_bclk (div+gate, MPMU_ISCCR1)
-      |           `-- i2s2_sysclk (mux, parent 0)
-      `-- i2s1_sysclk_src (mux+gate, MPMU_ISCCR0)
-            `-- i2s1_sysclk (DDN, MPMU_ISCCR0)
+Second, the clock topology is reworked to reflect the real hardware:
+the common i2s_sysclk DDN at MPMU_ISCCR1 is renamed from "i2s1_sysclk",
+an implicit 1/2 factor (i2s_bclk_factor) is introduced before i2s_bclk,
+and the dedicated i2s1 clock path (i2s1_sysclk_src MUX + i2s1_sysclk
+DDN backed by MPMU_ISCCR0) is added. CLK_MPMU_I2S1_SYSCLK keeps its
+existing ID but now refers to the real per-instance i2s1 clock; no
+in-tree user references this ID so the semantic change is contained.
 
-Because of this mismatch, i2s_bclk reported twice the real rate, and
-the dedicated i2s1 clock path could not be described in DT at all.
+Third, the per-instance i2s sysclk DDNs (i2s{0,2,3,4,5}_sysclk_div)
+are corrected to account for the hardware-internal 1/2 factor by setting
+pre_div to 2 instead of 1, so clk_get_rate() and clk_set_rate() report
+and program the real hardware rate.
 
-Model the tree as above: split the MPMU_ISCCR register macro into
-MPMU_ISCCR0 and MPMU_ISCCR1 to match the hardware register names,
-rename the common DDN to i2s_sysclk, insert the fixed 1/2 factor
-i2s_bclk_factor in front of i2s_bclk, and add the i2s1_sysclk_src mux
-and i2s1_sysclk DDN backed by MPMU_ISCCR0. CLK_MPMU_I2S1_SYSCLK now
-refers to the dedicated i2s1 clock; no in-tree user references this
-ID, so nothing is affected by the change of meaning.
-
-Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- drivers/clk/spacemit/ccu-k3.c    | 21 ++++++++++++++++-----
- include/soc/spacemit/k3-syscon.h |  3 ++-
- 2 files changed, 18 insertions(+), 6 deletions(-)
+Troy Mitchell (3):
+      dt-bindings: soc: spacemit: k3: add i2s_sysclk, i2s_bclk_factor and i2s1_sysclk_src IDs
+      clk: spacemit: k3: fix i2s clock topology
+      clk: spacemit: k3: fix missing /2 factor in i2s sysclk dividers
 
-diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
-index cb0c4277f72a..abcc5caa67bd 100644
---- a/drivers/clk/spacemit/ccu-k3.c
-+++ b/drivers/clk/spacemit/ccu-k3.c
-@@ -218,11 +218,19 @@ static const struct clk_parent_data i2s_sysclk_src_parents[] = {
- 	CCU_PARENT_HW(pll1_d96_25p6),
- 	CCU_PARENT_HW(i2s_153p6_base),
- };
--CCU_MUX_GATE_DEFINE(i2s_sysclk_src, i2s_sysclk_src_parents, MPMU_ISCCR, 30, 1, BIT(31), 0);
-+CCU_MUX_GATE_DEFINE(i2s_sysclk_src, i2s_sysclk_src_parents, MPMU_ISCCR1, 30, 1, BIT(31), 0);
- 
--CCU_DDN_DEFINE(i2s1_sysclk, i2s_sysclk_src, MPMU_ISCCR, 0, 15, 15, 12, 1, 0);
-+CCU_DDN_DEFINE(i2s_sysclk, i2s_sysclk_src, MPMU_ISCCR1, 0, 15, 15, 12, 1, 0);
- 
--CCU_DIV_GATE_DEFINE(i2s_bclk, CCU_PARENT_HW(i2s1_sysclk), MPMU_ISCCR, 27, 2, BIT(29), 0);
-+CCU_FACTOR_DEFINE(i2s_bclk_factor, CCU_PARENT_HW(i2s_sysclk), 2, 1);
-+/*
-+ * Divider of i2s_bclk always implies a 1/2 factor, which is
-+ * described by i2s_bclk_factor.
-+ */
-+CCU_DIV_GATE_DEFINE(i2s_bclk, CCU_PARENT_HW(i2s_bclk_factor), MPMU_ISCCR1, 27, 2, BIT(29), 0);
-+
-+CCU_MUX_GATE_DEFINE(i2s1_sysclk_src, i2s_sysclk_src_parents, MPMU_ISCCR0, 30, 1, BIT(31), 0);
-+CCU_DDN_DEFINE(i2s1_sysclk, i2s1_sysclk_src, MPMU_ISCCR0, 0, 15, 15, 12, 1, 0);
- 
- static const struct clk_parent_data i2s_sysclk_parents[] = {
- 	CCU_PARENT_HW(pll1_d4_614p4),
-@@ -243,7 +251,7 @@ CCU_DDN_DEFINE(i2s4_sysclk_div, i2s4_sysclk_sel, MPMU_I2S4_SYSCLK, 0, 16, 16, 16
- CCU_DDN_DEFINE(i2s5_sysclk_div, i2s5_sysclk_sel, MPMU_I2S5_SYSCLK, 0, 16, 16, 16, 1, 0);
- 
- static const struct clk_parent_data i2s2_sysclk_parents[] = {
--	CCU_PARENT_HW(i2s1_sysclk),
-+	CCU_PARENT_HW(i2s_sysclk),
- 	CCU_PARENT_HW(i2s2_sysclk_div),
- };
- CCU_GATE_DEFINE(i2s0_sysclk, CCU_PARENT_HW(i2s0_sysclk_div), MPMU_I2S_SYSCLK_CTRL, BIT(2), 0);
-@@ -1161,8 +1169,11 @@ static struct clk_hw *k3_ccu_mpmu_hws[] = {
- 	[CLK_MPMU_I2S_153P6]		= &i2s_153p6.common.hw,
- 	[CLK_MPMU_I2S_153P6_BASE]	= &i2s_153p6_base.common.hw,
- 	[CLK_MPMU_I2S_SYSCLK_SRC]	= &i2s_sysclk_src.common.hw,
--	[CLK_MPMU_I2S1_SYSCLK]		= &i2s1_sysclk.common.hw,
-+	[CLK_MPMU_I2S_SYSCLK]		= &i2s_sysclk.common.hw,
-+	[CLK_MPMU_I2S_BCLK_FACTOR]	= &i2s_bclk_factor.common.hw,
- 	[CLK_MPMU_I2S_BCLK]		= &i2s_bclk.common.hw,
-+	[CLK_MPMU_I2S1_SYSCLK_SRC]	= &i2s1_sysclk_src.common.hw,
-+	[CLK_MPMU_I2S1_SYSCLK]		= &i2s1_sysclk.common.hw,
- 	[CLK_MPMU_I2S0_SYSCLK_SEL]	= &i2s0_sysclk_sel.common.hw,
- 	[CLK_MPMU_I2S2_SYSCLK_SEL]	= &i2s2_sysclk_sel.common.hw,
- 	[CLK_MPMU_I2S3_SYSCLK_SEL]	= &i2s3_sysclk_sel.common.hw,
-diff --git a/include/soc/spacemit/k3-syscon.h b/include/soc/spacemit/k3-syscon.h
-index a68255dd641f..959d8d0786fe 100644
---- a/include/soc/spacemit/k3-syscon.h
-+++ b/include/soc/spacemit/k3-syscon.h
-@@ -45,7 +45,8 @@
- #define POSR_PLL7_LOCK			BIT(30)
- #define POSR_PLL8_LOCK			BIT(31)
- #define MPMU_SUCCR			0x0014
--#define MPMU_ISCCR			0x0044
-+#define MPMU_ISCCR0			0x0040
-+#define MPMU_ISCCR1			0x0044
- #define MPMU_WDTPCR			0x0200
- #define MPMU_RIPCCR			0x0210
- #define MPMU_ACGR			0x1024
+ drivers/clk/spacemit/ccu-k3.c                  | 31 +++++++++++++++++---------
+ include/dt-bindings/clock/spacemit,k3-clocks.h |  3 +++
+ include/soc/spacemit/k3-syscon.h               |  3 ++-
+ 3 files changed, 26 insertions(+), 11 deletions(-)
+---
+base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
+change-id: 20260615-k3-clk-fix-i2s-5e278a472061
 
--- 
-2.55.0
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 
 _______________________________________________
