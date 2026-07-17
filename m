@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFF0C4451C
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 12:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E748C44520
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 12:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MvEqwCIdosrENti2YBScJ3hLYQk3ewVJq3HS1Xtj2Lo=; b=RzO9iuXYmGUf0k
-	tEVdd/+bcy5fgVNnolGJ8Vy6lgp/Al40oy11Gkgs60jfRNpFANCdDMmqMh9kjTr6fvu0kjPM3DrwT
-	BV+Xd8wfxgunf74dpMIif8pjhGhg3kmJ53KVXGhbpYAL5oTnJQ9xm00fEhVzQXujDb12VZFhVgqFk
-	b4u07XR4x/vH5nr5T805NPAWupWLNVs7GoK8OQ63G7dcASkRK7k5pAjXJb21zxoudQHTi8+aV5Ucf
-	PNOLXO+aq6m82xypLt74Py4F41rcprMiDFH/9PhnviARdgpcA6sQVbSdpOBFQrUcdOcMpcf6oPppR
-	Al0DSbWsqMjuIy6F8YIw==;
+	List-Owner; bh=juRz5ioM5DK7uEaWGNbBPtKOW2EwvNwvJiJx6V6n08Y=; b=uuwjtBhE/NKGTy
+	ItM/V1BMmyyKdDzW8Lj4qaN6zfHx0lhwIFHG7txfzqWg1eD3w3INQEYX/ZPFTP+caNl0j6kysHkMW
+	dZKuLh6bffS34eBFnu4heWj/AbzwCukM0PRiYSDMuLTpkflvsAfIaN7CPITeKAW/kZdViJhDsFLIA
+	Xb54CU7pomLZhzqLzGzeamOG6wosrAp+cN5SvRo1eY1Us9gm9H33dISpxdxRHFQPUyFSfOG+R2+J0
+	Btjx1v1ISWblM2cnOD5Ub9typ37msc9SCsym5KKAE4tmXo12vnoB3Ed3LV35WSvluwET7UTHS8FBq
+	RVzXIJSVcLpArYHBM8aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhog-00000002IyA-26Dz;
-	Fri, 17 Jul 2026 12:37:22 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wkhqZ-00000002JJl-3OsF;
+	Fri, 17 Jul 2026 12:39:19 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhoe-00000002IxT-0jQP
+	id 1wkhqW-00000002JIZ-0qZ0
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Jul 2026 12:37:21 +0000
-Date: Fri, 17 Jul 2026 14:37:17 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784291837;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ous9T1OifkieYAddXD/qSd5Bb5rc4D0/T59mWTAeVmk=;
-	b=O5Ws/EVGp4lerZ/AXCHpqyNnzBAzq8uyl+qAH3pCfuWujdOkqWw5iSO8oE1Zle5cmuvuGG
-	8LeidrWE1MyibP5ctNWXLl+ckyf4oB+pRbbI9B8VK1QZbDckidokTDcDzINhSfEEjpcOFD
-	UzdhxrKdVc4EqBjMpa6M+UJEje0k8oH5mCG4QixVq2LFPQRQnP8JuXvXETNrvFdZgs5eJ3
-	1EGUlKBENm1akmoPOwYTku/nj4m+0nM9aZAdcyveYgbyLPKljYb+TwABks1y7lWSUvHIBE
-	RERAhW+g5pjWPAWeCCVQQuRR1bR27NX6s331y54Fjlbgh5roDVh/rXDPrUb3yw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784291837;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ous9T1OifkieYAddXD/qSd5Bb5rc4D0/T59mWTAeVmk=;
-	b=xzV1iAWQ9Exz10a6Fv+tAdwxdmyFXLXz6l6Wf5rcDYM+IhLuU+m0xf69t+zZvO0vqKIYwl
-	7s9Gu6J0E7IVaCDg==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Nam Cao <namcao@linutronix.de>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: Re: [PATCH v3 5/5] riscv: vdso: Implement
- __vdso_futex_robust_try_unlock()
-Message-ID: <20260717142423-c5be3c7c-d4cb-4a68-8e85-3e3754e42666@linutronix.de>
-References: <cover.1784274927.git.namcao@linutronix.de>
- <b3447fdd87cdd607b685940a1801b841066337fa.1784274927.git.namcao@linutronix.de>
+	Fri, 17 Jul 2026 12:39:18 +0000
+Received: from [192.168.0.104] (unknown [123.116.46.73])
+	by APP-05 (Coremail) with SMTP id zQCowAA3aEJdIlpqSVQHAA--.9369S2;
+	Fri, 17 Jul 2026 20:38:53 +0800 (CST)
+Message-ID: <0e65ddab-f066-4d9a-b032-d1e55e76fe47@iscas.ac.cn>
+Date: Fri, 17 Jul 2026 20:38:53 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b3447fdd87cdd607b685940a1801b841066337fa.1784274927.git.namcao@linutronix.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/5] riscv: compat_vdso: Build with zacas if available
+To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+References: <cover.1784274927.git.namcao@linutronix.de>
+ <704e0bbacee5f23d1351a686f3a783e31699fb3b.1784274927.git.namcao@linutronix.de>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <704e0bbacee5f23d1351a686f3a783e31699fb3b.1784274927.git.namcao@linutronix.de>
+X-CM-TRANSID: zQCowAA3aEJdIlpqSVQHAA--.9369S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF17WF4UKr4fZw4rArW5Wrg_yoW8ur47pF
+	4DCrsYgFWDXrWkKrn7Jr4Fq345t3ZYga4agFyjqrWUZ3y5tFy2kwn5t39rWF9rZr1kC3yS
+	vF1I9F1Fkr1DAa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
+	ZFpf9x07betCcUUUUU=
+X-Originating-IP: [123.116.46.73]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_053720_352303_D564BC5F 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20260717_053916_618704_95AD6CE2 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,125 +82,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 10:06:38AM +0200, Nam Cao wrote:
-(...)
-
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-
-One question about the toolchain detection.
-With that cleared up:
-
-Reviewed-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-
-(Minus the asm bits...)
-
-> ---
->  arch/riscv/Kconfig                         |  1 +
->  arch/riscv/include/asm/cpufeature-macros.h |  2 +
->  arch/riscv/include/asm/futex_robust.h      | 16 +++++
->  arch/riscv/include/asm/vdso/futex.h        | 14 ++++
->  arch/riscv/kernel/compat_vdso/Makefile     |  7 +-
->  arch/riscv/kernel/compat_vdso/futex.c      |  3 +
->  arch/riscv/kernel/vdso.c                   | 61 ++++++++++++++++
->  arch/riscv/kernel/vdso/Makefile            | 14 +++-
->  arch/riscv/kernel/vdso/futex.c             | 84 ++++++++++++++++++++++
->  arch/riscv/kernel/vdso/vdso.lds.S          |  8 +++
->  10 files changed, 208 insertions(+), 2 deletions(-)
->  create mode 100644 arch/riscv/include/asm/futex_robust.h
->  create mode 100644 arch/riscv/include/asm/vdso/futex.h
->  create mode 100644 arch/riscv/kernel/compat_vdso/futex.c
->  create mode 100644 arch/riscv/kernel/vdso/futex.c
-
-(...)
-
-> diff --git a/arch/riscv/include/asm/futex_robust.h b/arch/riscv/include/a=
-sm/futex_robust.h
-> new file mode 100644
-> index 000000000000..16ec58e925c8
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/futex_robust.h
-> @@ -0,0 +1,16 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_RISCV_FUTEX_ROBUST_H
-> +#define _ASM_RISCV_FUTEX_ROBUST_H
-> +
-> +#include <asm/ptrace.h>
-> +#include <asm/vdso/futex.h>
-> +
-> +static inline void __user *arch_futex_robust_unlock_get_pop(struct pt_re=
-gs *regs)
-> +{
-> +	if (cpu_supports_zacas())
-> +		return (regs->a0 =3D=3D regs->a1) ? (void __user *)regs->a2 : NULL;
-> +	else
-> +		return (regs->t0 =3D=3D 0) ? (void __user *)regs->a2 : NULL;
-> +}
-
-Can it ever happen that the toolchain has differing zacas support between
-32-bit and 64-bit? Then cpu_supports_zacas() may not be sufficient.
-If it is guaranteed to be in sync I would prefer to reuse
-CONFIG_TOOLCHAIN_HAS_ZACAS instead of the cc-option check in the Makefile
-to make that clear and error out early if it should ever change.
-
-Also this assumes that compat vDSO alternative patching works.
-But this is not the case. My series [0] to implement it has not yet been
-applied. This revision is missing the note about this dependency.
-
-[0] https://lore.kernel.org/all/20260630-riscv-vdso32-alternative-v1-0-a32f=
-d89b7b1c@linutronix.de/
-
-> +#endif /* _ASM_RISCV_FUTEX_ROBUST_H */
-
-(...)
-
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Mak=
-efile
-> index 8dbf2532a573..d4238db8c6d3 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -27,12 +27,24 @@ asflags-y +=3D -DVDSO_CFI=3D1
->  endif
->  =
-
->  # Files to link into the vdso
-> -obj-vdso =3D $(patsubst %, %.o, $(vdso-syms)) note.o
-> +obj-vdso :=3D $(patsubst %, %.o, $(vdso-syms)) note.o
->  =
-
->  ifdef CONFIG_VDSO_GETRANDOM
->  obj-vdso +=3D vgetrandom-chacha.o
->  endif
->  =
-
-> +ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-> +
-> +obj-vdso +=3D futex.o
-> +
-> +ifdef CONFIG_64BIT
-> +vdso-syms +=3D __vdso_futex_robust_list64_try_unlock
-> +else
-> +vdso-syms +=3D __vdso_futex_robust_list32_try_unlock
-> +endif
-
-Could be :
-
-vdso-syms +=3D __vdso_futex_robust_list$(BITS)_try_unlock
-
-> +
-> +endif
-> +
->  ccflags-y :=3D -fno-stack-protector
->  ccflags-y +=3D -DDISABLE_BRANCH_PROFILING
->  ccflags-y +=3D -fno-builtin
-
-(...)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTmFtLAoKT24gNy8xNy8yNiAxNjowNiwgTmFtIENhbyB3cm90ZToKCj4gVGhlIGNvbXBhdCB2
+ZHNvIE1ha2VmaWxlIGRvZXMgbm90IGVuYWJsZSB6YWNhcywgZGlzYWxsb3dpbmcgc291cmNlCj4g
+ZmlsZXMgZnJvbSB1c2luZyB6YWNhcyBpbnN0cnVjdGlvbnMuIFRoaXMgaXMgYW4gb2JzdGFjbGUg
+dG8gYWRkaW5nCj4gcm9idXN0IF9fdmRzb19mdXRleF9yb2J1c3RfbGlzdDMyX3RyeV91bmxvY2so
+KSBpbiBhIGZvbGxvdy11cCBjb21taXQuCj4KPiBCdWlsZCB3aXRoIHphY2FzLCBpZiBjb21waWxl
+ciBzdXBwb3J0cyBpdC4KPgo+IFNpZ25lZC1vZmYtYnk6IE5hbSBDYW8gPG5hbWNhb0BsaW51dHJv
+bml4LmRlPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jb21wYXRfdmRzby9NYWtlZmlsZSB8
+IDQgKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0
+IGEvYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0X3Zkc28vTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC9jb21wYXRfdmRzby9NYWtlZmlsZQo+IGluZGV4IDYzNTgwYjMzZTNjZS4uZmZiZjg0YWVi
+MDgxIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2NvbXBhdF92ZHNvL01ha2VmaWxl
+Cj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0X3Zkc28vTWFrZWZpbGUKPiBAQCAtMTgs
+NiArMTgsMTAgQEAgZWxzZQo+ICAJQ09NUEFUX01BUkNIIDo9IHJ2MzJpbWFmZAo+ICBlbmRpZgo+
+ICAKPiAraWZuZXEgKCQoY2FsbCBjYy1vcHRpb24sLW1hYmk9aWxwMzIgLW1hcmNoPXJ2MzJpbWFf
+emFjYXMpLCkKPiArQ09NUEFUX01BUkNIIDo9ICQoQ09NUEFUX01BUkNIKV96YWNhcwo+ICtlbmRp
+Zgo+ICsKCkknbSB3b25kZXJpbmcgaWYgeW91IHdvdWxkIGJlIGludGVyZXN0ZWQgaW4gdXNpbmcg
+Lm9wdGlvbiBhcmNoLCAremFjYXMKZm9yIHRoaXMsIGluc3RlYWQgb2YgZW5hYmxpbmcgaXQgZm9y
+IGV2ZXJ5dGhpbmcuwqAKCkkgcmVjZW50bHkgZm91bmQgb3V0IHRoYXQgd2UgYWRkIGFuZCAqb25s
+eSogYWRkIFphY2FzIGFuZCBaYWJoYSB0byB0aGUKZ2xvYmFsIC1tYXJjaCBmb3Iga2VybmVsIGNv
+ZGUsIGp1c3QgZm9yIHVzZSBpbiBhc3NlbWJseSBjb2RlIGluCmFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vY21weGNoZy5oLgoKU28gdGhpcyBpcyAqcHJvYmFibHkqIG5vdCBhIGNvcnJlY3RuZXNzIHBy
+b2JsZW0sIHNpbmNlIGNvbXBpbGVycwpwcm9iYWJseSBkb24ndCBkbyBhdG9taWNzIG9uIHRoZWly
+IG93biBhY2NvcmQuIEhvd2V2ZXIsIEkgcGVyc29uYWxseQp0aGluayBpdCB3b3VsZCBiZSBhIGdv
+b2QgaWRlYSB0byBtYWtlIGV2ZXJ5dGhpbmcgY29uc2lzdGVudGx5IHVzZQoub3B0aW9uIGFyY2gu
+IFRoaXMgbWFrZXMgaXQgc28gdGhlcmUncyBubyBxdWVzdGlvbiBvbiB3aGF0IHRvIGRvIHRvIGdl
+dApleHRlbnNpb24gaW5zdHJ1Y3Rpb25zIGluIGFzc2VtYmx5IGNvZGUgLSB5b3UgYWx3YXlzIGRv
+LiBJIGhhdmUgYSBwYXRjaApXSVAgdGhhdCB3b3VsZCBtYWtlIGNtcHhjaGcuaCB1c2UgLm9wdGlv
+biBhcmNoIGFzIHdlbGwgdGhhdCBJIHdpbGwgc2VuZApzaG9ydGx5LgoKWW91IHdvdWxkIG5lZWQg
+dG8gd3JpdGUgc29tZSBtb3JlIGJvaWxlcnBsYXRlOgoKLm9wdGlvbiBwdXNoCi5vcHRpb24gYXJj
+aCwgK3phY2FzCmFtb2Nhcy53LnJsIC4uLgoub3B0aW9uIHBvcAoKQ29tcGlsYXRpb24gb2YgdGhp
+cyBjb2RlIG5lZWRzIHRvIGJlIGd1YXJkZWQgYmVoaW5kIHNvbWV0aGluZyBsaWtlIGlmCihJU19F
+TkFCTEVEKENPTkZJR19SSVNDVl9JU0FfWkFCSEEpKSwgd2hpY2ggQUZBSUNUIHlvdXIgY29kZSBk
+b2VzLgoKQnV0IGluIGV4Y2hhbmdlIGZvciB0aGlzIGJvaWxlcnBsYXRlLCBpdCB3b3VsZCBiZSBj
+b25zaXN0ZW50IHdpdGggc3R1ZmYKbGlrZSBaYmIsIGFuZCB0aGVyZSB3b3VsZCBiZSBubyBtb3Jl
+IG5lZWQgdG8gYmUgcGx1bWJpbmcgLW1hcmNoIGFyb3VuZAppbiBNYWtlZmlsZXMuCgpXaGF0IGRv
+IHlvdSB0aGluaz8KClZpdmlhbiAiZHJhbWZvcmV2ZXIiIFdhbmcKCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
