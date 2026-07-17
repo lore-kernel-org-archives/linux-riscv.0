@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F1BEC4450F
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 05:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54F8C44507
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 05:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:From:Cc:Mime-Version:Date
-	:In-Reply-To:Message-Id:Subject:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Mime-Version:Message-Id:
+	Subject:Cc:Date:From:To:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ojXrh2+vkwvg5cA0XhXVD6iT9helWQBP8oIAKD4ORCA=; b=Lnl3egjY+hUZML
-	ykxcipCGCwN9QwnYRfgZ39fDam2RSPAr1rmgkZzo29xE7KnblseAVE59ZrkuFqa23yWW+3aNThFr6
-	5SzBOMAdT5lj+ZYTRTFTBXXtHruU7irJmM09a0av/sMdNSzbvhdgTQJOjgDAABKqXzUKI8lGH9jKR
-	tphmd2Oq2TJPGml1ORJLiQ5OvxdbzRGTMKjzTyolgT1qyx0gJCDSQc95CTGVexyOg8boNaQsXlbkK
-	Q7CnaEnQ7Hyxu2fSECjLLZC9PGveFoaAloSGRT8rYtVmQxqMGohzIv35mrCM3RLaMBYZ5dRUdP0Lp
-	TrA1bdeOiV2juNMqAUog==;
+	List-Owner; bh=lQFLvJpnQgmPUPIO+0J8igdN5dVo3MB8WQpXlytlLY0=; b=0ew9P7jv6Yq62b
+	viPsOZFoBOFHCUU0E9ooAQEEj8sxrSEtxHK9TO0ER+xR7XM2mVQTtCuV9wk52a/tqnZzNEWAPEcuC
+	sN3ADVWsukYkANCofouGJFnzgyILuTUyF/JhErLytxL1ZIrO6euKtiWs+uS+MGzonQHpVZF11kmXK
+	dYtNNaxaFwAXhHrCCc36jBnJM6q9bx4P8SPY4FwZeKQ/91/rFe6GjC/DaOefaBzdCNprAdKki5Uqx
+	LXWoRMioaFiW8SCdojR+WqEpn/tABsPHE7MGo8DQCiBPZMQxnp8Bh4rVE1RiK4V9X5DIxD0Tsc289
+	J+RGWgBqnqEkAjTXSwFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbMF-00000001C8o-1WiA;
-	Fri, 17 Jul 2026 05:43:35 +0000
-Received: from va-2-39.ptr.blmpb.com ([209.127.231.39])
+	id 1wkbb2-00000001D3D-43jf;
+	Fri, 17 Jul 2026 05:58:52 +0000
+Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbMB-00000001C8O-2VSW
+	id 1wkbaz-00000001D2q-2OTZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Jul 2026 05:43:33 +0000
+	Fri, 17 Jul 2026 05:58:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1784267003; h=from:subject:
+ s=feishu2604151535; d=picoheart.com; t=1784267924; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=JCOtdNfgOrGOCZgzh2n24IcEN8m/33AeJE5HD99fGVE=;
- b=YoeOKgSJE7dnXJL9XpEtTcGaxf6ouNRQoc+oKAPBuzHuNj14TJiht/MKrJYhaRzRYx4eVc
- XewSm2a771/nrTRI11VvWc0rkDK2jBFqDTTBFbDTPNIgsjOKeXFOGDYnIWx8LV6oI3PzZ2
- 16vqY1faJ2VbyKe/IytkWvmW4+zKjXn7+kLPMtYbohDaRkGyuXCH1ZV8XQ0URNyMgaDXQF
- 4W+Mk7CE3HDNIxdSA9o1L7lw8Yn4ffoxiOTMHVRKoMw0Vbk5ezDfldijz0WKf/qIS7bckK
- 1sSGed0l/EFNjzaYCx6z+l2jPPrlSEzb3PvPwKAzKojaWKNqkJqMw8lDUXXH2g==
-Subject: Re: [PATCH v1 2/3] riscv: errata: picoheart: Add workaround for cbo.clean errata
-Message-Id: <eb0d8cbc-c3c3-47ed-bff6-fcb1b3900615@picoheart.com>
+ bh=OT3eXxqmb/XPmAO9tbM/WEjKSVZyNX1DbPYlzSWo6Ng=;
+ b=ERkq3/wQzBAASX44VlNg74VRGZT6QvOnV3ZKJQ95ajXwA7RJnRU0H5m0HtOcgn+i4a4NAv
+ DjzQJDUXJjhRHFfpwd4HFTlWW+5t40W+FxFtKA6dTVsha/PahZMjKZdmxaxViezDqBoIZK
+ XlR/y4KW9jP71yg026n137AUzw2Yp0Ruzmbh4xu6P1COGmiR3D10rfg3ryi/WI9bPL24Sy
+ DXvU7SPV81HQtGw4FbaZazK8vf0X/wkYOmSoEWCztnBQUmcf+lP6lWetA5+vjTDoi2EV6h
+ /Xf4PLz9rlsrRvhtsTlbJ9nDNdmAjDNuZRZf1PihwyZwnGGihvHP4ef6Tk2oCg==
+In-Reply-To: <96c3e2f3-602e-497a-937e-b56047ca3a27@iscas.ac.cn>
+X-Lms-Return-Path: <lba+26a59c492+e1556b+lists.infradead.org+yang.yicong@picoheart.com>
 Content-Language: en-US
+To: "Vivian Wang" <wangruikang@iscas.ac.cn>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Date: Fri, 17 Jul 2026 13:58:39 +0800
 User-Agent: Mozilla Thunderbird
-In-Reply-To: <9b6c2676-321e-4452-b27c-d6822b048a0e@iscas.ac.cn>
-Date: Fri, 17 Jul 2026 13:43:18 +0800
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+26a59c0f9+cae532+lists.infradead.org+yang.yicong@picoheart.com>
-Received: from [100.86.214.202] ([120.234.91.230]) by smtp.feishu.cn with ESMTPS; Fri, 17 Jul 2026 13:43:20 +0800
-Cc: <yang.yicong@picoheart.com>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>, 
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<linux-riscv@lists.infradead.org>, <yang.yicong@picoheart.com>, 
 	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
 	<cuiyunhui@bytedance.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-References: <20260715084724.26578-1-yang.yicong@picoheart.com> <20260715084724.26578-3-yang.yicong@picoheart.com> <4640558d-6536-45b1-ac8d-f5cbffe33d19@gmail.com> <9d85d96e-a7f1-4352-a019-f4cdbb06388e@picoheart.com> <9b6c2676-321e-4452-b27c-d6822b048a0e@iscas.ac.cn>
-To: "Vivian Wang" <wangruikang@iscas.ac.cn>, "Bo Gan" <ganboing@gmail.com>
+Subject: Re: [PATCH v1 2/3] riscv: errata: picoheart: Add workaround for cbo.clean errata
+Message-Id: <3ac14150-a3f1-4512-bb97-357e4ba24459@picoheart.com>
+Received: from [100.86.214.202] ([120.234.91.241]) by smtp.feishu.cn with ESMTPS; Fri, 17 Jul 2026 13:58:41 +0800
+Mime-Version: 1.0
+References: <20260715084724.26578-1-yang.yicong@picoheart.com> <20260715084724.26578-3-yang.yicong@picoheart.com> <96c3e2f3-602e-497a-937e-b56047ca3a27@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_224331_840881_9FBA544C 
-X-CRM114-Status: GOOD (  39.14  )
+X-CRM114-CacheID: sfid-20260716_225849_814169_FF05B73C 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,146 +68,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNy8xNy8yNiAxMToxMyBBTSwgVml2aWFuIFdhbmcgd3JvdGU6Cj4gT24gNy8xNi8yNiAyMDoy
-MCwgWWljb25nIFlhbmcgd3JvdGU6Cj4+IE9uIDcvMTYvMjYgNjoxNCBQTSwgQm8gR2FuIHdyb3Rl
-Ogo+Pj4+IFsuLi5dCj4+Pj4KPj4+IEJUVywgSSBqdXN0IGZvdW5kIHRoYXQgX19nZXRfdXNlciBp
-cyBub3QgY29ycmVjdCBmb3IgZmV0Y2hpbmcgaW5zbnMgZnJvbQo+Pj4gdXNlci4gSXQgZG9lc24n
-dCBzZXQgdGhlIE1YUiBiaXQsIGFuZCBpdCdsbCBmYWlsIGlmIHRoZSB1c2Vyc3BhY2UgbWFwcwo+
-Pj4gdGhlIHRleHQgcGFnZSBleGVjdXRhYmxlLCBidXQgbm90IHJlYWRhYmxlLgo+Pj4KPj4gZ29v
-ZCBwb2ludC4gdGhpcyBtYXliZSBhIGZhaXIgcmVhc29uIGZvciBhIGNvbW1tb24gZ2V0X2luc24o
-KSBmb3IgaGFuZGxpbmcKPj4gdGhlIGluc24gcmVhZC4gYnV0IGFueSBjYXNlIHRoYXQgdGhlIHVz
-ZXIgd291bGQgbWFwIHRoZSB0ZXh0IGFzIGV4ZWMtb25seQo+PiAoY29uc2lkZXJpbmcgd2UgZGlk
-bid0IGZpbmQgdGhpcyBmcm9tIGV4aXN0aW5nIGVtdWxhdGlvbiBjYXNlKT8KPj4KPiBUaGUgZmFj
-dCB0aGF0IHVzZXJzcGFjZSAqY2FuKiBkbyB0aGlzIGlzIGVub3VnaCBvZiBhIHVzZSBjYXNlIC0g
-aXQgbWFrZXMKPiBpdCBhIGNvcnJlY3RuZXNzIGlzc3VlLiBUaGUgZmFjdCB0aGF0IGl0IGlzIG5v
-dCB1c2VkIGluIG5vcm1hbCBzb2Z0d2FyZQo+IGlzIG5vdCByZWFsbHkgYSBwb2ludCBhZ2FpbnN0
-IGZpeGluZyBhIGNvcnJlY3RuZXNzIGlzc3VlLgo+IAo+IEJ1dCB5ZXMsIHRoaXMgb3RoZXJ3aXNl
-IGlzIGFuIGV4aXN0aW5nIGlzc3VlwqB3aXRoIHRoaXMgY29kZSBwYXR0ZXJuLgo+IAo+Pj4+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiBmYWxzZTsKPj4+PiArwqDCoMKgIH0KPj4+PiAr
-Cj4+Pj4gK8KgwqDCoCBpZiAoIWluc25faXNfY2JvX2NsZWFuX2ZsdXNoKGluc24pKQo+Pj4+ICvC
-oMKgwqDCoMKgwqDCoCByZXR1cm4gZmFsc2U7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqAgcnMxID0gUlZf
-RVhUUkFDVF9SUzFfUkVHKGluc24pOwo+Pj4+ICvCoMKgwqAgYWRkciA9IHJzMSA/ICgodW5zaWdu
-ZWQgbG9uZyAqKXJlZ3MpW3JzMV0gOiAwOwo+Pj4+ICvCoMKgwqAgbGluZV9hZGRyID0gKHZvaWQg
-X191c2VyICopQUxJR05fRE9XTihhZGRyLCByaXNjdl9jYm9tX2Jsb2NrX3NpemUpOwo+Pj4+ICsK
-Pj4+PiArwqDCoMKgIGlmICghYWNjZXNzX29rKGxpbmVfYWRkciwgcmlzY3ZfY2JvbV9ibG9ja19z
-aXplKSkgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoCBjdXJyZW50LT50aHJlYWQuYmFkX2NhdXNlID0g
-RVhDX1NUT1JFX1BBR0VfRkFVTFQ7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGdvdG8gZXJyX21hcDsK
-Pj4+PiArwqDCoMKgIH0KPj4+IEkgZmVlbCB0aGlzIG5lZWRzIHRvIGJlIHJld29ya2VkIGlmIHdl
-IHJlYWxseSB3YW50IHRvIGhhbmRsZSBpbnNuIGZhdWx0Cj4+PiB0aGlzIHdheS4gSXQgc2hvdWxk
-IG5vdCB0b3VjaCBjdXJyZW50LT50aHJlYWQuYmFkX2NhdXNlIG9yIGRpcmVjdGx5IGNhbGwKPj4+
-IGRvX3RyYXAuIFJhdGhlciwgZm9sbG93IHRoZSBwYXR0ZXJuIG9mIHJpc2N2X3ZfZmlyc3RfdXNl
-X2hhbmRsZXIuCj4+Pgo+PiBzZWUgdGhlIGNvbW1lbnQgdW5kZXIgZXJyX21hcDogYmVsb3cuIGZv
-ciBpbnZhbGlkIGFkZHJlc3Mgd2UgbmVlZAo+PiB0byBlbXVsYXRlIGl0IGFzIHBhZ2UvYWNjZXNz
-IGZhdWx0IChTSUdTRVYpIHJhdGhlciB0aGFuIGlsbGVnYWwKPj4gaW5zdHJ1Y3Rpb24gKFNJR0lM
-TCkgdGhhdCBsZWFkIHVzIGhlcmUsIHRodSBuZWVkIHRvIHVwZGF0ZQo+PiB0aGUgLT5iYWRfY2F1
-c2UgdG8gbWF0Y2ggdGhlIFNJR1NFVi4KPj4KPj4gaXQncyBub3QgY29tcGFyYWJsZSB0byByaXNj
-dl92X2ZpcnN0X3VzZV9oYW5kbGVyIHdoaWNoIGNhbiBzaW1wbHkKPj4ga2VlcCB0aGUgaWxsZWdh
-bCBleGNlcHRpb24gb24gZmFpbHVyZS4KPiAKPiBmb3JjZV9zaWdfZmF1bHQoU0lHU0VHViwgLi4u
-KQo+IAo+IFRoaXMgaGFuZGxlciBvbmx5IGFwcGxpZXMgdG8gdXNlciBtb2RlLCBzbyB5b3UgY2Fu
-IGdldCBhd2F5IHdpdGggc3R1ZmYKPiBsaWtlIHRoaXMuCgppdCdzIG5vdCBlbm91Z2gsIHdlIGFs
-c28gbmVlZCB0byBkdW1wIHRoZSBjb250ZXh0IGlmIGV4Y2VwdGlvbi10cmFjZQppcyBlbmFibGVk
-LiB0aGF0J3MgZXhhY3RseSB0aGUgKipvbmx5KiogdHdvIHRoaW5ncyBkb190cmFwKCkgd3JhcHBl
-ZDoKLSBkdW1wIHRoZSBjb250ZXh0IGlmIGV4Y2VwdGlvbi10cmFjZSBlbmFibGVkCi0gZm9yY2Vf
-c2lnX2ZhdWx0KCkKCj4gCj4+IFsuLi5dCj4+Cj4+Pj4gKwo+Pj4+ICvCoMKgwqAgaWYgKHJldCkK
-Pj4+PiArwqDCoMKgwqDCoMKgwqAgZ290byBlcnJfbWFwOwo+Pj4+ICsKPj4+PiArwqDCoMKgIHJl
-Z3MtPmVwYyArPSBHRVRfSU5TTl9MRU5HVEgoaW5zbik7Cj4+Pj4gK8KgwqDCoCByZXR1cm4gdHJ1
-ZTsKPj4+PiArCj4+Pj4gK2Vycl9tYXA6Cj4+Pj4gK8KgwqDCoCAvKgo+Pj4+ICvCoMKgwqDCoCAq
-IFdlJ2xsIHJlYWNoIGhlcmUgaWYgdGhlIHRhcmdldCBhZGRyZXNzIGlzIGludmFsaWQuCj4+Pj4g
-K8KgwqDCoMKgICogY2JvLntmbHVzaCAsY2xlYW59IG9uIGludmFsaWQgYWRkcmVzcyB3aWxsIGNh
-dXNlCj4+Pj4gK8KgwqDCoMKgICogc3RvcmUgcGFnZSBmYXVsdCwgdXBkYXRlIHRoZSBjYXVzZSBh
-bmQgYmFkYWRkci4KPj4+PiArwqDCoMKgwqAgKi8KPj4+PiArwqDCoMKgIHJlZ3MtPmJhZGFkZHIg
-PSBhZGRyOwo+Pj4+ICvCoMKgwqAgcmVncy0+Y2F1c2UgPSBjdXJyZW50LT50aHJlYWQuYmFkX2Nh
-dXNlOwo+Pj4+ICvCoMKgwqAgZG9fdHJhcChyZWdzLCBTSUdTRUdWLCBTRUdWX01BUEVSUiwgYWRk
-cik7Cj4+PiBTZWUgY29tbWVudCBhYm92ZS4KPj4+Cj4+Pj4gWy4uLl0KPj4+Pgo+Pj4+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJh
-cHMuYwo+Pj4+IGluZGV4IDhjNjJjNzcxYTY1Ni4uOWNkMjEwNzNiYWJjIDEwMDY0NAo+Pj4+IC0t
-LSBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwcy5jCj4+Pj4gQEAgLTE3Nyw2ICsxNzcsMTAgQEAgYXNtbGlua2FnZSBfX3Zpc2libGUg
-X190cmFwX3NlY3Rpb24gdm9pZCBkb190cmFwX2luc25faWxsZWdhbChzdHJ1Y3QgcHRfcmVncyAq
-cmUKPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqAgbG9jYWxfaXJxX2VuYWJsZSgpOwo+Pj4+IMKgIMKg
-wqDCoMKgwqDCoMKgwqDCoCBoYW5kbGVkID0gcmlzY3Zfdl9maXJzdF91c2VfaGFuZGxlcihyZWdz
-KTsKPj4+PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGlmICghaGFuZGxlZCkKPj4+PiArwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCBoYW5kbGVkID0gcmlzY3ZfcGljb2hlYXJ0X2lsbGVnYWxfaW5zbl9o
-YW5kbGVyKHJlZ3MpOwo+Pj4+ICsKPj4+IEkgZG9uJ3QgdGhpbmsgeW91IHNob3VsZCBoYWNrIHRo
-ZSBjb21tb24gaW5zbiBmYXVsdCBoYW5kbGVyIGJlbG93IGFuZCBjYWxsCj4+PiB5b3VyIGhhbmRs
-ZXIgZnVuY3Rpb24uIEF0IGxlYXN0IHlvdSBtdXN0IGVuc3VyZSB0aGlzIGlzIHJlYWxseSBhIG5v
-LW9wIG9uCj4+PiBvdGhlciBhcmNoL3BsYXRmb3Jtcy4KPj4+Cj4+IHRoaXMgaXMgYSBub3AgaWYg
-IUNPTkZJR19FUlJBVEFfUElDT0hFQVJUX0NCT19DTEVBTiBhbmQgb24gdW5hZmZlY3RlZCBwbGF0
-Zm9ybXMKPj4gKHRvZ2dsZWQgYnkgc3RhdGljIGtleSBoYXNfcGljb2hlYXJ0X2Nib19jbGVhbl9l
-cnJhdGEpLgo+IAo+IEkgdGhpbmsgd2hhdCBCbyBtaWdodCBiZSBnb2luZyBmb3IgaXMgaWYgKCFo
-YW5kbGVkICYmCj4gcmlzY3ZfY3B1X2hhc196aWNib21fZXJyYXRhKCkpIHRvIG1pbmltaXplIHRo
-ZSBvdmVyaGVhZCBvbiB1bmFmZmVjdGVkCj4gcGxhdGZvcm1zLCBlc3BlY2lhbGx5IHNpbmNlIHJp
-c2N2X3BpY29oZWFydF9pbGxlZ2FsX2luc25faGFuZGxlcigpIGlzCj4gYW5kIHNob3VsZCBiZSBj
-b21waWxlZCBvdXQtb2YtbGluZS4KPiAKCml0J3Mgb2theSBmb3IgbWUgaWYgeW91IG1lYW4gdG8s
-IGl0IGxvb2tlZCBhIGJpdCBmcmFnbWVudCBmb3IgbWUuCmFjdHVhbGx5IHRoZXJlJ3Mgb25seSBh
-IGphbHIgZGlmZmVyZW5jZSBhcyB0aGUgcmlzY3ZfY3B1X2hhc196aWNib21fZXJyYXRhKCkKaXMg
-Y2hlY2tlZCBvbmNlIGVudGVyaW5nIHRoZSByaXNjdl9waWNvaGVhcnRfaWxsZWdhbF9pbnNuX2hh
-bmRsZXIoKS4KCj4gQXNpZGUgZnJvbSBwb3RlbnRpYWxseSBoYXZpbmcgdGhpcyBydW4gZmFzdGVy
-LCBkb25lIHRoaXMgd2F5IGl0J3MgYWxzbwo+IG1vcmUgb2J2aW91cyB0aGF0IHRoaXMgZG9lcyBu
-b3RoaW5nIG9uIG5vbi1hZmZlY3RlZCBwbGF0Zm9ybXMuCj4gCj4gSG9uZXN0bHkgSSdtIG5vdCAq
-dG9vKiBjb25jZXJuZWQgYWJvdXQgcGVyZm9ybWFuY2UgaW4gd2hhdCdzIGRlc3RpbmVkIHRvCj4g
-YmUgdGhlIHNsb3cgcGF0aC4KCkkgZmVlbCB0aGUgc2FtZS4gdGhlIGlsbGVnYWwgdHJhcCBoYW5k
-bGluZyBzaG91bGQgbmV2ZXIgb24gYW55IHBlcmZvcm1hbmNlCmNyaXRpY2FsIHBhdGguCgo+IAo+
-Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoCBpZiAoIWhhbmRsZWQpCj4+Pj4gwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgZG9fdHJhcF9lcnJvcihyZWdzLCBTSUdJTEwsIElMTF9JTExPUEMsIHJlZ3Mt
-PmVwYywKPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-ICJPb3BzIC0gaWxsZWdhbCBpbnN0cnVjdGlvbiIpOwo+Pj4gSGF2ZSB5b3UgY29uc2lkZXJlZCBw
-dXR0aW5nIHRoaXMgdHJhcC1uLWVtdWxhdGUgbG9naWMgaW4gdGhlIFNCSSBmaXJtd2FyZQo+Pj4g
-c3VjaCBhcyBPcGVuU0JJLCB3aGljaCBJJ2QgYXNzdW1lIHlvdSBhcmUgdXNpbmc/IEluIE9wZW5T
-QkksIGl0J3MgYWxyZWFkeQo+Pj4gaGFuZGxpbmcgaWxsZWdhbCBpbnN0cnVjdGlvbiBmYXVsdCwg
-YW5kIGZvcndhcmRpbmcgdG8gT1MgaWYgbm90IGtub3duLiBXaHkKPj4+IG5vdCBoYW5kbGUgaXQg
-dGhlcmU/IEl0J2xsIHByb2JhYmx5IGJlIG1vcmUgZWZmaWNpZW50IGFuZCwgYmV0dGVyLCB5b3Ug
-Y2FuCj4+PiBzdXBwb3J0IHVucGF0Y2hlZCBMaW51eCBhbmQgdXNlcnNwYWNlLCBhbmQgZXZlbiBp
-biBHdWVzdCBWTS4gU3RpbGwsIHlvdXIKPj4+IHBpY29oZWFydF9lcnJhdGFfY21vX29wcyBpcyBy
-ZXF1aXJlZCwgdG8gYXZvaWQgdGhlIGVtdWxhdGlvbiBvdmVyaGVhZCBmb3IKPj4+IGtlcm5lbCBj
-Ym8uY2xlYW4gYXMgbXVjaCBhcyBwb3NzaWJsZS4KPj4gd2UgY2Fubm90IGFzc3VtZSB0aGF0IHRo
-ZSB1bmRlcmx5aW5nIG9wZW5TQkkgZG9lc24ndCBkZWxlZ2F0ZSB0aGUgaWxsZWdhbAo+PiBpbnN0
-cnVjdGlvbiBleGNlcHRpb24sIHJpZ2h0PyBbLi4uXQo+IAo+IEluIGdlbmVyYWwsIHRoaXMgaXMg
-bm90IGhvdyBMaW51eCBkb2VzIHRoaW5ncy4uLiBMaW51eCBzZWVzIGFsbCB0aGUKPiBmaXJtd2Fy
-ZSBhbmQgaGFyZHdhcmUgYmVsb3cgYXMgYW4gZW50aXJlIHRoaW5nLiBJdCdzIHdoYXQgUklTQy1W
-Cj4gZGVzY3JpYmVzIGFzIHRoZSAiU3VwZXJ2aXNvciBFeGVjdXRpb24gRW52aXJvbm1lbnQiICgi
-U0VFIikuIFNvLCAqaW4KPiBnZW5lcmFsKiB3ZSBzaG91bGQgYWJzb2x1dGVseSBhc3N1bWUgdGhh
-dCB0aGUgdW5kZXJseWluZyBTRUUgaW1wbGVtZW50cwo+IHRoaW5ncyBjb3JyZWN0bHkgaWYgYXQg
-YWxsIG1ha2VzIHNlbnNlLgoKaXQncyBub3QgYWJvdXQgdGhlIGNvcnJlY3RuZXNzIGJ1dCB0aGUg
-cG9saWN5IG9mIHRoZSBmaXJtd2FyZS4gdGhlIGtlcm5lbApjYW5ub3Qga25vdyB3aGV0aGVyIHRo
-ZSBleGNlcHRpb24gaXMgZGVsZWdhdGVkIG9yIGhhbmRsZWQgYnkgdGhlIGZpcm13YXJlLAppdCdz
-IGp1c3QgdHJhbnNwYXJlbnQgdG8gdGhlIGtlcm5lbC4uLgoKPiAKPiBPdGhlcndpc2UsIHRoaXMg
-bmV2ZXIgZW5kcyAtIHdoeSBjYW4gd2UgYXNzdW1lIHRoYXQgdGhlIHVuZGVybHlpbmcKPiBmaXJt
-d2FyZSBpcyBub3QganVzdCBidWdneT8gV2h5IGNhbiB3ZSBhc3N1bWUgdGhhdCB0aGUgaGFyZHdh
-cmUgcnVucyB0aGUKPiBhZGQgaW5zdHJ1Y3Rpb24gY29ycmVjdGx5PyBJdCdzIHRoZSBQYW5kb3Jh
-J3MgYm94IG9mIHRoaW5ncyB3ZSAiY2FuJ3QKPiBhc3N1bWUiLiBUaGVyZSdzIG5vIG5lZWQgdG8g
-b3BlbiB0aGF0IGJveCAtIHdlIGNhbiBqdXN0IHBhdGNoIHVwIHdoYXQncwo+IGxlYWtpbmcgb3V0
-IHdoZXJlIGl0IGhhcHBlbnMuCgouLi5zbyB0aGUgc29sdXRpb24gaXMgY2xlYXI6Ci0gaWYgdGhl
-IGZpcm13YXJlIGRlY2lkZSB0byBoYW5kbGUgdGhlIGlsbGVnYWwgaW5zdHJ1Y3Rpb24sIGl0J3Mg
-cmVzcG9uc2libGUKICBmb3IgaGFuZGxpbmcgdGhlIGVtdWxhdGlvbiAoZm9yIHRoZSBlcnJhdGEp
-LiBvdGhlcndpc2UgaXQncyBhIGJ1ZyBvZiB0aGUKICBmaXJtd2FyZS4KLSBvciBpZiB0aGUgZXhj
-ZXB0aW9uIGlzIGRlbGVnYXRlZCwgdGhlIGtlcm5lbCB3aWxsIGhhbmRsZSBpdC4KCnNvIGEgaGFu
-ZGxlciBpbiB0aGUga2VybmVsIGlzIGFsd2F5cyBuZWVkZWQuIGl0IHdvbid0IHJ1biBpbiB0aGUg
-Zm9ybWVyCnBvbGljeSBidXQgbmVjZXNzYXJ5IGluIHRoZSBsYXR0ZXIgb25lLgoKPiAKPiAqSG93
-ZXZlciosIHRoZXJlJ3MgYSBwcm9ibGVtIGZvciBlbXVsYXRpbmcgY2JvLmNsZWFuIGluIHNvZnR3
-YXJlIGluCj4gTS1tb2RlIGZpcm13YXJlOiBUaGVyZSdzIG5vIHNlcGFyYXRlIG1lbnZjZmcuQ0JD
-RSBjb250cm9sbGluZyBjYm8uY2xlYW4KPiBhbmQgbm90IGNiby5mbHVzaC4gVGhlcmUncyBvbmx5
-IGEgbWVudmNmZy5DQkNGRS4gU28gaGF2aW5nIE0tbW9kZSBGVwo+IGNsZWFyIG1lbnZjZmcuQ0JD
-RkUgYWN0dWFsbHkgKnByZWNsdWRlcyogUy1tb2RlIGhhdmluZyBlZmZpY2llbnQgY2JvLmNsZWFu
-Lgo+IAo+IEZvciBtYXhpbXVtIGNvcnJlY3RuZXNzLCBvbmUgbWlnaHQgaGF2ZSBNLW1vZGUgZmly
-bXdhcmUgY2xlYXIKPiBtZW52Y2ZnLkNCQ0ZFIGJ5IGRlZmF1bHQsIGVtdWxhdGUgYm90aCBhcyBj
-Ym8uZmx1c2gsIGFuZCBoYXZlIGEgRldGVAo+IHZlbmRvciBmZWF0dXJlIGZvciBTLW1vZGUgc29m
-dHdhcmUgdG8gZGVjbGFyZSAiSSBrbm93IHRvIG9ubHkgdXNlCj4gY2JvLmZsdXNoIGFuZCBub3Qg
-Y2JvLmNsZWFuLiBQbGVhc2UgZ2l2ZSBtZSB0aGUgcmF3IHNwZWVkIG9mIGNiby5mbHVzaC4iCj4g
-YnV0IEknbSB3b3JyaWVkIHRoYXQgdGhhdCdzICp3YXkqIG92ZXJjb21wbGljYXRpbmcgdGhpbmdz
-Lgo+IAoKYWJvdmUgeW91IG1lbnRpb25lZCBpcyBhbm90aGVyIHBvbGljeSBvZiB0aGUgZmlybXdh
-cmUgdGhhdCBpcyB0cmFuc3BhcmVudAp0byB0aGUga2VybmVsLiBpZiBtZW52Y2ZnLkNCQ0ZFIGlz
-IGNsZWFyZWQsIGFsbCB0aGUgdHJhcC1uLWVtdWxhdGUgc3R1ZmZzCmFyZSBoYW5kbGVkIGJ5IHRo
-ZSBmaXJtd2FyZSwgYnV0IGl0J2xsIGhhdmUgcGVyZm9ybWFuY2UgaXNzdWUgYXMgeW91IGFsc28K
-bWVudGlvbmVkLiBTbyBvdXIgcG9saWN5IGlzIHRyYXAtbi1lbXVsYXRlIHRoZSB1c2Vyc3BhY2Ug
-aW5zdHJ1Y3Rpb24gKGVpdGhlcgppbiBrZXJuZWwgb3IgZmlybXdhcmUgYWNjb3JkaW5nIHRvIHRo
-ZSBkZWxlZ2F0aW9uIHBvbGljeSkgYW5kIGV4ZWN1dGUKdGhlIGluc3RydWN0aW9uIGRpcmVjdGx5
-IGluIHRoZSBrZXJuZWwgc3BhY2UsIGFzIG1lbnRpb25lZCBpbiB0aGUgY29tbWl0LgoKdGhhbmtz
-LgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 7/17/26 10:44 AM, Vivian Wang wrote:
+> On 7/15/26 16:47, Yicong Yang wrote:
+>> cbo.clean may fail to write back the cacheline in a few very corner
+>> cases on the affected Picoheart SoCs. Since cbo.flush is not affected,
+>> the problem could be solved by promoting cbo.clean to cbo.flush to
+>> keep the data coherent. So Implement and register Picoheart specific
+>> riscv_nonstd_cache_ops for all the kernel space cache maintenance
+>> operations. Implement riscv_nonstd_cache_ops->wback with cbo.clean
+>> while other callbacks with corresponding CBO operations.
+>>
+>> This could solve the issue in the kernel space. For userspace, clear
+>> the xenvcfg.CBCFE to trap the cbo.{clean, flush} and emulate
+>> the cbo.clean with cbo.flush in the kernel space to avoid the issue.
+>>
+>> [...]
+>>
+>> diff --git a/arch/riscv/errata/picoheart/errata.c b/arch/riscv/errata/picoheart/errata.c
+>> index 53b690878f78..9392c1634ece 100644
+>> --- a/arch/riscv/errata/picoheart/errata.c
+>> +++ b/arch/riscv/errata/picoheart/errata.c
+>> @@ -5,20 +5,164 @@
+>>   * Author: Yicong Yang <yang.yicong@picoheart.com>
+>>   */
+>>  
+>> +#include <linux/align.h>
+>>  #include <linux/cacheflush.h>
+>>  #include <linux/cleanup.h>
+>> +#include <linux/jump_label.h>
+>>  #include <linux/kernel.h>
+>>  #include <linux/memory.h>
+>> +#include <linux/signal.h>
+>>  #include <linux/string.h>
+>> +#include <asm/asm-extable.h>
+>>  #include <asm/alternative.h>
+>> +#include <asm/cpufeature.h>
+>> +#include <asm/dma-noncoherent.h>
+>>  #include <asm/errata_list.h>
+>> +#include <asm/insn.h>
+>> +#include <asm/insn-def.h>
+>>  #include <asm/text-patching.h>
+>> +#include <asm/uaccess.h>
+>>  #include <asm/vendor_extensions.h>
+>>  #include <asm/vendorid_list.h>
+>>  
+>> +#ifdef CONFIG_ERRATA_PICOHEART_CBO_CLEAN
+>> +
+>> +static bool insn_is_cbo_clean_flush(u32 insn_buf)
+>> +{
+>> +	u32 rd, opcode, funct3, funct12;
+>> +
+>> +	/* CBO instructions don't have compressed variants */
+>> +	if (GET_INSN_LENGTH(insn_buf) != 4)
+>> +		return false;
+>> +
+>> +	rd = RV_EXTRACT_RD_REG(insn_buf);
+>> +	opcode = insn_buf & __INSN_OPCODE_MASK;
+>> +	funct3 = insn_buf & RV_INSN_FUNCT3_MASK;
+>> +	funct12 = insn_buf & RV_INSN_FUNCT12_MASK;
+>> +
+>> +	if (rd != 0 || opcode != 15 || funct3 != RV_ENCODE_FUNCT3(CBO) ||
+> 
+> This opcode != 15 could be opcode != RVG_OPCODE_FENCE.
+> 
+> Well... I'm not sure how we should deal with the fact that it's called
+> "FENCE". I'm more inclined to rename it to RVG_OPCODE_MISC_MEM because
+> that's what it's supposed to be.
+
+sounds reasonable to me. will rename and use it here.
+
+> 
+>> +	    (funct12 != RV_ENCODE_FUNCT12(CBO_CLEAN) &&
+>> +	     funct12 != RV_ENCODE_FUNCT12(CBO_FLUSH)))
+>> +		return false;
+>> +
+>> +	return true;
+>> +}
+>> +
+>> +bool riscv_picoheart_illegal_insn_handler(struct pt_regs *regs)
+>> +{
+>> +	u32 __user *epc = (u32 __user *)regs->epc;
+>> +	u32 insn = (u32)regs->badaddr;
+>> +	void __user *line_addr;
+>> +	int ret = 0;
+>> +	u64 addr;
+>> +	u32 rs1;
+>> +
+>> +	/* Do the emulation only for userspace on the sufferred platform */
+>> +	if (!user_mode(regs) || !riscv_cpu_has_zicbom_errata())
+> 
+> user_mode(regs) is already checked below in the handler right? I think
+> checking again here is unnecessary.
+
+maybe not (or I miss somewhere)?
+
+but the check here is to make sure we can bail out early for non-errata
+cases to avoid running unnecessary stuffs.
+
+> 
+> Also, I'd rather riscv_cpu_has_zicbom_errata() to have the word
+> "picoheart" in it, because "clean doesn't work, please flush instead" is
+> still rather specific. We could always rename this later.
+> 
+>> [...]
+>>
+>> +static void picoheart_errata_cache_wback(phys_addr_t paddr, size_t size)
+>> +{
+>> +	void *vaddr = phys_to_virt(paddr);
+>> +
+>> +	ALT_CMO_OP(FLUSH, vaddr, size, riscv_cbom_block_size);
+> 
+> Do we really need this? ...
+
+yes, this one line macro will make the code clear and simple. we
+only need to handling the logic of ourself (replace cbo.clean with
+cbo.flush) without caring about the underlying assemble and configs...
+
+> 
+>> +}
+>> +
+>> +static void picoheart_errata_cache_inv(phys_addr_t paddr, size_t size)
+>> +{
+>> +	void *vaddr = phys_to_virt(paddr);
+>> +
+>> +	ALT_CMO_OP(INVAL, vaddr, size, riscv_cbom_block_size);
+>> +}
+>> +
+>> +static void picoheart_errata_cache_wback_inv(phys_addr_t paddr, size_t size)
+>> +{
+>> +	void *vaddr = phys_to_virt(paddr);
+>> +
+>> +	ALT_CMO_OP(FLUSH, vaddr, size, riscv_cbom_block_size);
+>> +}
+>> +
+>> +struct riscv_nonstd_cache_ops picoheart_errata_cmo_ops = {
+>> +	.wback = &picoheart_errata_cache_wback,
+>> +	.inv = &picoheart_errata_cache_inv,
+>> +	.wback_inv = &picoheart_errata_cache_wback_inv,
+>> +};
+>> +
+>> +DEFINE_STATIC_KEY_FALSE(has_picoheart_cbo_clean_errata);
+>> +
+>> +static void picoheart_errata_probe_cbo_clean(unsigned int stage,
+>> +					     unsigned long archid,
+>> +					     unsigned long impid)
+>> +{
+>> +	if (!IS_ENABLED(CONFIG_ERRATA_PICOHEART_CBO_CLEAN))
+>> +		return;
+>> +
+>> +	if (stage != RISCV_ALTERNATIVES_BOOT)
+>> +		return;
+>> +
+>> +	if (!riscv_isa_extension_available(NULL, ZICBOM))
+>> +		return;
+> ... and this? Are there Picoheart CPUs with this specific archid or
+> impid that *doesn't* support Zicbom? Or systems with firmware that
+> doesn't enable Zicbom?
+
+it's sanity to have this check as this errata is for Zicbom, in
+case a certain version of firmware doesn't report Zicbom in any
+unknown reasons.
+
+thanks.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
