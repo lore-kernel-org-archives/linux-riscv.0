@@ -4,95 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 463CCC44512
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2026 23:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C904C44512
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 01:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uuOdb+Y1Ott0dCV6CUcyf2KYbOHFf2//S1FXvYJ5cos=; b=ISPthq6DlElQws
-	U+6SgjIFm5M30+h6+xUGaZncGd+aQP3CXEn3H/RaXkNvaG0aIJpjHuEGindGhcwAgc0aP04jX3GoW
-	hVw1T+ePH5luy0VCdrZvDOILDmTyHvgW+7NJeuW4Ev5p4ZvCrgk9+rBGhV+C08OHTi4LB2+ca41Bh
-	C1quoUdznAqpK1Ra8zvGWBUBdSiMTKrmDZX1QI9Dd6DFGqaddN7/fTzu9EvRpjlpdcx7peqGGzunL
-	PwSYvC7hdQ7n47Z2zI5ei5Iy7DWkpupaFMluFY0kDZt3rIsa7FgADBT+oc1siCo90ApgETx03VxkY
-	ouuc0RlrX2DPSJCsJZqQ==;
+	List-Owner; bh=BJ44fwU+idJV1LOukhZ6fLC6hV5bVoKNXTvydlh18Y0=; b=RIU7rW5pbC5SSG
+	O4uIZPg9C8f2JeR4lh7fiHH8uyWkdhpNC+FvYNAc4Ng5F8Uiro1wAYxQ1LRU8qMAqY5PFa6pC/uJH
+	tj80XXuYm/HiVEUSu+5yM5QyWD1pm6LmxpYdZZPxNzSYkkO2+7vPugBW1vgSsxyBCkQ7S/mbW43M/
+	KT0e9rv2Du739evAjODP+49epSYti6VS6GZj0w1i9bQtzlZe47wnWXntaLia1AohPvwCEwdvLM2LV
+	OOajUK3P+gW/I4HIh7vqMoK3cTA6l8ESWjRVZGrfmD/DwLAI/V7e/JyZADwdbwYoV8jRQAS791c+T
+	13ps+NNZwWP0pyWPhyEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkV97-00000000m62-01mp;
-	Thu, 16 Jul 2026 23:05:37 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1wkXWY-00000000ubF-3XZf;
+	Fri, 17 Jul 2026 01:37:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkV94-00000000m5A-2n6C
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jul 2026 23:05:35 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-80dc4a68e4aso59144007b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Jul 2026 16:05:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1784243133; x=1784847933; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XhKY29My7f0UHkdvHti6xaUzqbFLMYcjf/PtSfS7aGk=;
-        b=G9Nt2eRwTnk7Eb013loQRdo0Pwk3o6eDNrKNBVkoRmx8kb5dKsZSmkCcMfgckf3Lmi
-         IzpBXfDsMoADeVOeZ2UBhdvgIOB2VQ0FwgR1qSDUV16EOyDnDxKhVSK9RFl30uu8Nvxs
-         ZCtvKLm0zVXa7D1T9Eka6uhUtWEJnaC4I/ptvKiBk9yg3wS1Zo7LPH0OYzxlz8XPlzc1
-         CDkthtTWjAcvNfVyM5soB4tf756OrB72xj6Wppdn3zcFSiVTyOETA3Ea2WHj0ftDPLe5
-         oedItc2V5UasZBe2ohj1L+FCID5UF5aRa+BYzPd6QdZ8W5To0TRF18FI5hWPjQiTCEci
-         Jfkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784243133; x=1784847933;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XhKY29My7f0UHkdvHti6xaUzqbFLMYcjf/PtSfS7aGk=;
-        b=F6BNaQ2bMd82pwcHKwBg+gtqsI6qtXeRkvGlhuDJTJbtfU9LVXGORgL2k6GwkoWwEZ
-         0OgJITNxX048QqUMkdDyv51LvDXousysncNOvxbWue0My2nrAevpEHJehOTQs9z/L6fP
-         mCdIVPc7iSP4mxrTM95ruuXKg+ViWXuMTiv3u9rZ0SCAt61A3vKzvMnEpopk4HarrAtc
-         oTJqndnsuGFOR6+pQEi2+zVjbhcXfj1q7wGH41X5qXNHu/vYoWJvfjri8TKVHdVxkEcZ
-         Fwnqj32otzCn1pG9yGhu06dsQu7GFrPgttP03ah8t0GmBxMsOWDFIbsYrdUMDmzDkpSk
-         fmow==
-X-Forwarded-Encrypted: i=1; AHgh+Rp/67Wkvw2LXqHj8MJwKaRtCORUdzlqElu/e8rjJJczwMET7/CnyPBMfw7/fXa4/fuBx7AJ8ci7qRFY0w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnxwSp+PTmN1ALsYiyZLyQJWIP4NlzAGx7o8uyipMyG1oFBBh7
-	KSb9YxSEB/1R7XkusGWaQqRLihgk37SW4fOf/3zhWEA6A4q43V6vtP456w3bky1uv/OWj0C0GHN
-	wfCew5C4=
-X-Gm-Gg: AfdE7clK8tZ+x9Jz4wRs6nyaAFT1y699je31zvb6cGJyM+HZjeDMw+I+GO4ghJS5Hdp
-	8E5SHbnMxFwp58gLcmBs7IuusqM5z67t9eTa3Vroj84C7odplD0dim1XnaZ7a/8NEtTpG1wFagj
-	D/06v+Ro8UJpf9dF9uR02Of/MNgVyuJwPh9uzm/g1jicd/6YH6AMKEniLQ6UFMydu18jevrTsc3
-	oSKE3mWdHCqI3ooPnN4gU7W7q/oL19tX9Q1qMJiFz16q7lfJAm48C9xfvCLKsN/704Bnt8fQbim
-	6bSAWN1ZuB6EDGcQ/WYSrDKtnL7ltKTHXkEXCGe9hCziWN5AE/uErw2k3pWJmpCrAZgDnkifbxM
-	Td2QiVGAjE3DMEGrLex0s85c8uoTv2O4QNqfOqse8uxVCsWkRo7bqJgqEzy7d5RkXgNOSGAQc7H
-	QVdt4Kn2ze3GWC62/ms5RxonKPMx8N6q9px3P68bEIOoIYtJOJZYSumP+OiauAjcfvB+UA
-X-Received: by 2002:a05:690c:998e:b0:81e:c998:9c9a with SMTP id 00721157ae682-81ecf7eef26mr66141867b3.17.1784243133409;
-        Thu, 16 Jul 2026 16:05:33 -0700 (PDT)
-Received: from [192.168.2.129] ([2600:1700:220:59e0:40df:d071:3a06:1c14])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6be90499sm207006837b3.5.2026.07.16.16.05.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 16:05:33 -0700 (PDT)
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Date: Thu, 16 Jul 2026 18:05:10 -0500
-Subject: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
- linux/pci_ids.h
+	id 1wkXWX-00000000uaD-1kS7;
+	Fri, 17 Jul 2026 01:37:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8313A60A6C;
+	Fri, 17 Jul 2026 01:37:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8CDB1F00A3E;
+	Fri, 17 Jul 2026 01:37:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784252276;
+	bh=HQWHI05VLoFmTDGLD/8BrEB9TvW9zVg8VbA2I33LjSg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=SIjUb8AeamEEXIjQWPL5g2nKM1WJlVr1ofaI2WGxaJ2yDbrytsFrAgMPqwGwBmtN3
+	 7NYI8KEj2LUXkZvvOcs+bda2TUbTbPvjTA7U1Y/MJWyTSy0xhHYiM6XypYjqBoEgSv
+	 SoQy6esckD/8rVLNhc+/4l4BIaFbBXn2ntmmt+8PIZ5PL7qeD/6FzvfVqrC9fz07Iy
+	 9Kq1WenZdQeSgIToBYH4qXZFlG+/zUqILKX9TbDrN2bbIbHrebV464VadK2s1PDePJ
+	 TKQF3Ppf4apxHj75gEcdvUJfgJxACGi8UvkwbliDGtzXVH5rf/40F/QNKhMPldv+Xg
+	 J4GYyJpJDbt9w==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sasha Levin <sashal@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	x86@kernel.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+Subject: Re: [PATCH 6.12.y 0/6] cBPF JIT spray hardening
+Date: Thu, 16 Jul 2026 21:37:34 -0400
+Message-ID: <20260716232340.0007-stable-reply@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260715-cbpf-jit-spray-hardening-6-12-y-v1-0-d8585a9aed80@linux.intel.com>
+References: <20260715-cbpf-jit-spray-hardening-6-12-y-v1-0-d8585a9aed80@linux.intel.com>
 MIME-Version: 1.0
-Message-Id: <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
-References: <20260716-rtw89-spacemit-k3-v2-0-392b577ebf75@oss.tenstorrent.com>
-In-Reply-To: <20260716-rtw89-spacemit-k3-v2-0-392b577ebf75@oss.tenstorrent.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, 
- Ping-Ke Shih <pkshih@realtek.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Inochi Amaoto <inochiama@gmail.com>, Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-wireless@vger.kernel.org, 
- Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-X-Mailer: b4 0.15.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_160534_717952_0B6BA625 
-X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +78,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the vendor and device ID for the existing Spacemit K1 PCIe Root
-Complex to include/linux/pci_ids.h. Also add K3's Root Complex device ID
-to this header. This is done so that these values can be referenced in
-the rtw89 driver to enable 36-bit DMA ability in it for WiFi to function
-on the K3 Pico ITX board.
+On Wed, Jul 15, 2026 at 02:27:39PM -0700, Pawan Gupta wrote:
+> These backports harden BPF JIT against spectre-v2 class of attacks. Without
+> a predictor flush, execution of new BPF program may use stale prediction
+> left behind by the freed one.
 
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
----
- drivers/pci/controller/dwc/pcie-spacemit-k1.c | 3 ---
- include/linux/pci_ids.h                       | 4 ++++
- 2 files changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-index be20a520255b6..f89c6d46c7684 100644
---- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-+++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-@@ -21,9 +21,6 @@
- 
- #include "pcie-designware.h"
- 
--#define PCI_VENDOR_ID_SPACEMIT		0x201f
--#define PCI_DEVICE_ID_SPACEMIT_K1	0x0001
--
- /* Offsets and field definitions for link management registers */
- #define K1_PHY_AHB_IRQ_EN			0x0000
- #define PCIE_INTERRUPT_EN		BIT(0)
-diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
-index 1c9d40e09107d..d6f26cacc8e35 100644
---- a/include/linux/pci_ids.h
-+++ b/include/linux/pci_ids.h
-@@ -2640,6 +2640,10 @@
- #define PCI_VENDOR_ID_SUNIX		0x1fd4
- #define PCI_DEVICE_ID_SUNIX_1999	0x1999
- 
-+#define PCI_VENDOR_ID_SPACEMIT		0x201f
-+#define PCI_DEVICE_ID_SPACEMIT_K1	0x0001
-+#define PCI_DEVICE_ID_SPACEMIT_K3	0x0002
-+
- #define PCI_VENDOR_ID_HINT             0x3388
- #define PCI_DEVICE_ID_HINT_VXPROII_IDE 0x8013
- 
+Queued the series for 6.12, thanks.
 
 -- 
-2.43.0
-
+Thanks,
+Sasha
 
 _______________________________________________
 linux-riscv mailing list
