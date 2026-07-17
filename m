@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82768C44520
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 12:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFF0C4451C
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 12:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+ityyvG35O2/pZsaxE4f3iXzMmCNJP+kM5TUIs8sUZM=; b=XJgqCJMT6uSYMS
-	ETGhBGoSyBHabgGU82oYZs9WFLAPFCXfomY/lMmiMoj0OCbC39DcInjtlndkJJq8PeM1R1JZUukoZ
-	0NXROxSHYL5OvOPcJbspWdVwk4aZ5BfonbtgW+2a7C3hhb6uDmbxklpttSXY91CG1hGRabIMH8Lvj
-	TkKqud+msqgLt4YwgD2tLoSocUBXk+0bKgRdBler3WDSaN0aPMjtvs06VrwuvY5CgUTa+V5ogJzJ8
-	aeQ/6Mh7X33T0pcWhqknRlKskxHeiVAw11LWI9EX5rw0rxd8/pxRKpT2KNAwCHhRzW0pXATDK2Lw6
-	Cn6a2DP7T7si1eLibsSQ==;
+	List-Owner; bh=MvEqwCIdosrENti2YBScJ3hLYQk3ewVJq3HS1Xtj2Lo=; b=RzO9iuXYmGUf0k
+	tEVdd/+bcy5fgVNnolGJ8Vy6lgp/Al40oy11Gkgs60jfRNpFANCdDMmqMh9kjTr6fvu0kjPM3DrwT
+	BV+Xd8wfxgunf74dpMIif8pjhGhg3kmJ53KVXGhbpYAL5oTnJQ9xm00fEhVzQXujDb12VZFhVgqFk
+	b4u07XR4x/vH5nr5T805NPAWupWLNVs7GoK8OQ63G7dcASkRK7k5pAjXJb21zxoudQHTi8+aV5Ucf
+	PNOLXO+aq6m82xypLt74Py4F41rcprMiDFH/9PhnviARdgpcA6sQVbSdpOBFQrUcdOcMpcf6oPppR
+	Al0DSbWsqMjuIy6F8YIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhbk-00000002HWW-2SYD;
-	Fri, 17 Jul 2026 12:24:00 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wkhog-00000002IyA-26Dz;
+	Fri, 17 Jul 2026 12:37:22 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhbi-00000002HVv-2Yyd
+	id 1wkhoe-00000002IxT-0jQP
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Jul 2026 12:23:59 +0000
-Date: Fri, 17 Jul 2026 14:23:56 +0200
+	Fri, 17 Jul 2026 12:37:21 +0000
+Date: Fri, 17 Jul 2026 14:37:17 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784291036;
+	s=2020; t=1784291837;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xO8EJDNLQXYZNX5WvmlZoaYlYz+UKBjxvIw9pB5Jw2c=;
-	b=YwxKdLuqKo8h3mTU2CzbFobooTLMrRXd8zoUpwXRy75/M7vcbPOFwC2eWYsVj7cnVcOFlO
-	SUcS+bN8vXBAE/2p0S0NWNXFmW0/3aS8VZscJrAxfje26LfmWu7lzxP6w+3bfm2JUP06XG
-	SpdnMQmkemNZfIVKFwoPJiwHyJU+6npbKepo7oDqZefYDit4kqrSY7RnmYlFduXLE276jF
-	+ziOhGNL/XRj58X3fPAeqEpN684x6SPI4Z778cOqh0wO02ud3aiQ3J6Mk5yObW9P8cO+BS
-	UYPGBDvrNwwi9cxFdFOJdUMybfU2eqRLvaYbyH4suLmn6FSxmuiUf89cgbKsuw==
+	bh=ous9T1OifkieYAddXD/qSd5Bb5rc4D0/T59mWTAeVmk=;
+	b=O5Ws/EVGp4lerZ/AXCHpqyNnzBAzq8uyl+qAH3pCfuWujdOkqWw5iSO8oE1Zle5cmuvuGG
+	8LeidrWE1MyibP5ctNWXLl+ckyf4oB+pRbbI9B8VK1QZbDckidokTDcDzINhSfEEjpcOFD
+	UzdhxrKdVc4EqBjMpa6M+UJEje0k8oH5mCG4QixVq2LFPQRQnP8JuXvXETNrvFdZgs5eJ3
+	1EGUlKBENm1akmoPOwYTku/nj4m+0nM9aZAdcyveYgbyLPKljYb+TwABks1y7lWSUvHIBE
+	RERAhW+g5pjWPAWeCCVQQuRR1bR27NX6s331y54Fjlbgh5roDVh/rXDPrUb3yw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784291036;
+	s=2020e; t=1784291837;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xO8EJDNLQXYZNX5WvmlZoaYlYz+UKBjxvIw9pB5Jw2c=;
-	b=nZlovhQ/t8Fy847gao/4rZlYETZJ0iCf3LLLtbs23w2y5KabiYk4nHz/QPQNSRbmdCoiKI
-	BWFaP6pEcGJwJOBw==
+	bh=ous9T1OifkieYAddXD/qSd5Bb5rc4D0/T59mWTAeVmk=;
+	b=xzV1iAWQ9Exz10a6Fv+tAdwxdmyFXLXz6l6Wf5rcDYM+IhLuU+m0xf69t+zZvO0vqKIYwl
+	7s9Gu6J0E7IVaCDg==
 From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 To: Nam Cao <namcao@linutronix.de>
 Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -56,16 +56,17 @@ Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-kernel@vger.kernel.org, =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, 
 	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, 
 	Peter Zijlstra <peterz@infradead.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: Re: [PATCH v3 4/5] riscv: compat_vdso: Build with zacas if available
-Message-ID: <20260717142102-54acd82c-7635-4b85-a7f4-642eff8ced55@linutronix.de>
+Subject: Re: [PATCH v3 5/5] riscv: vdso: Implement
+ __vdso_futex_robust_try_unlock()
+Message-ID: <20260717142423-c5be3c7c-d4cb-4a68-8e85-3e3754e42666@linutronix.de>
 References: <cover.1784274927.git.namcao@linutronix.de>
- <704e0bbacee5f23d1351a686f3a783e31699fb3b.1784274927.git.namcao@linutronix.de>
+ <b3447fdd87cdd607b685940a1801b841066337fa.1784274927.git.namcao@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <704e0bbacee5f23d1351a686f3a783e31699fb3b.1784274927.git.namcao@linutronix.de>
+In-Reply-To: <b3447fdd87cdd607b685940a1801b841066337fa.1784274927.git.namcao@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_052358_821096_6068A078 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260717_053720_352303_D564BC5F 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +83,118 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 10:06:37AM +0200, Nam Cao wrote:
-> The compat vdso Makefile does not enable zacas, disallowing source
-> files from using zacas instructions. This is an obstacle to adding
-> robust __vdso_futex_robust_list32_try_unlock() in a follow-up commit.
-
-"obstacle" is a bit hard. It prevents using the optimized variant.
-
-> Build with zacas, if compiler supports it.
-> =
+On Fri, Jul 17, 2026 at 10:06:38AM +0200, Nam Cao wrote:
+(...)
 
 > Signed-off-by: Nam Cao <namcao@linutronix.de>
 
+One question about the toolchain detection.
+With that cleared up:
+
 Reviewed-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
 
-> ---
->  arch/riscv/kernel/compat_vdso/Makefile | 4 ++++
->  1 file changed, 4 insertions(+)
-> =
+(Minus the asm bits...)
 
-> diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/c=
-ompat_vdso/Makefile
-> index 63580b33e3ce..ffbf84aeb081 100644
-> --- a/arch/riscv/kernel/compat_vdso/Makefile
-> +++ b/arch/riscv/kernel/compat_vdso/Makefile
-> @@ -18,6 +18,10 @@ else
->  	COMPAT_MARCH :=3D rv32imafd
+> ---
+>  arch/riscv/Kconfig                         |  1 +
+>  arch/riscv/include/asm/cpufeature-macros.h |  2 +
+>  arch/riscv/include/asm/futex_robust.h      | 16 +++++
+>  arch/riscv/include/asm/vdso/futex.h        | 14 ++++
+>  arch/riscv/kernel/compat_vdso/Makefile     |  7 +-
+>  arch/riscv/kernel/compat_vdso/futex.c      |  3 +
+>  arch/riscv/kernel/vdso.c                   | 61 ++++++++++++++++
+>  arch/riscv/kernel/vdso/Makefile            | 14 +++-
+>  arch/riscv/kernel/vdso/futex.c             | 84 ++++++++++++++++++++++
+>  arch/riscv/kernel/vdso/vdso.lds.S          |  8 +++
+>  10 files changed, 208 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/futex_robust.h
+>  create mode 100644 arch/riscv/include/asm/vdso/futex.h
+>  create mode 100644 arch/riscv/kernel/compat_vdso/futex.c
+>  create mode 100644 arch/riscv/kernel/vdso/futex.c
+
+(...)
+
+> diff --git a/arch/riscv/include/asm/futex_robust.h b/arch/riscv/include/a=
+sm/futex_robust.h
+> new file mode 100644
+> index 000000000000..16ec58e925c8
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/futex_robust.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_RISCV_FUTEX_ROBUST_H
+> +#define _ASM_RISCV_FUTEX_ROBUST_H
+> +
+> +#include <asm/ptrace.h>
+> +#include <asm/vdso/futex.h>
+> +
+> +static inline void __user *arch_futex_robust_unlock_get_pop(struct pt_re=
+gs *regs)
+> +{
+> +	if (cpu_supports_zacas())
+> +		return (regs->a0 =3D=3D regs->a1) ? (void __user *)regs->a2 : NULL;
+> +	else
+> +		return (regs->t0 =3D=3D 0) ? (void __user *)regs->a2 : NULL;
+> +}
+
+Can it ever happen that the toolchain has differing zacas support between
+32-bit and 64-bit? Then cpu_supports_zacas() may not be sufficient.
+If it is guaranteed to be in sync I would prefer to reuse
+CONFIG_TOOLCHAIN_HAS_ZACAS instead of the cc-option check in the Makefile
+to make that clear and error out early if it should ever change.
+
+Also this assumes that compat vDSO alternative patching works.
+But this is not the case. My series [0] to implement it has not yet been
+applied. This revision is missing the note about this dependency.
+
+[0] https://lore.kernel.org/all/20260630-riscv-vdso32-alternative-v1-0-a32f=
+d89b7b1c@linutronix.de/
+
+> +#endif /* _ASM_RISCV_FUTEX_ROBUST_H */
+
+(...)
+
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Mak=
+efile
+> index 8dbf2532a573..d4238db8c6d3 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -27,12 +27,24 @@ asflags-y +=3D -DVDSO_CFI=3D1
 >  endif
 >  =
 
-> +ifneq ($(call cc-option,-mabi=3Dilp32 -march=3Drv32ima_zacas),)
-> +COMPAT_MARCH :=3D $(COMPAT_MARCH)_zacas
+>  # Files to link into the vdso
+> -obj-vdso =3D $(patsubst %, %.o, $(vdso-syms)) note.o
+> +obj-vdso :=3D $(patsubst %, %.o, $(vdso-syms)) note.o
+>  =
+
+>  ifdef CONFIG_VDSO_GETRANDOM
+>  obj-vdso +=3D vgetrandom-chacha.o
+>  endif
+>  =
+
+> +ifdef CONFIG_FUTEX_ROBUST_UNLOCK
+> +
+> +obj-vdso +=3D futex.o
+> +
+> +ifdef CONFIG_64BIT
+> +vdso-syms +=3D __vdso_futex_robust_list64_try_unlock
+> +else
+> +vdso-syms +=3D __vdso_futex_robust_list32_try_unlock
 > +endif
 
 Could be :
 
-ifeq ($(call cc-option-yn,-mabi=3Dilp32 -march=3Drv32ima_zacas),y)
+vdso-syms +=3D __vdso_futex_robust_list$(BITS)_try_unlock
 
 > +
->  COMPAT_CC_FLAGS :=3D -march=3D$(COMPAT_MARCH) -mabi=3Dilp32
->  =
+> +endif
+> +
+>  ccflags-y :=3D -fno-stack-protector
+>  ccflags-y +=3D -DDISABLE_BRANCH_PROFILING
+>  ccflags-y +=3D -fno-builtin
 
->  COMPAT_LD_FLAGS :=3D -melf32lriscv
-> -- =
-
-> 2.47.3
-> =
-
+(...)
 
 _______________________________________________
 linux-riscv mailing list
