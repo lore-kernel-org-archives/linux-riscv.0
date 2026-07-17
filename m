@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08AD1C44515
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 07:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47ED6C44517
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 07:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gGgblNEOGZlwfdDBgS5cbbU+6Tb/iRfdA3BJtph8jFs=; b=L9SS7C2Waquf1B
-	nG/a8CgsGM9Nd67IXOaQunOS1z1ax6btMfDeQ8AqI1jQlrpK7cAub4d95951uAlTwed7MhxyLloIW
-	jUH/9wVH6dj5CeyVnhCoQu+VISMoBWlPHFrwRaQSFp/EuTRFGVzUHeVJsOXjMS3mexpmQG2IuglGN
-	SYRorjXGNSj9tn7VpgvP4rjEaCNA1bhT04zPQGd73XzF8FU2woyT75naL24Dl84HfMwYIqo3vfaP0
-	hmFK6vsAcUCvVgJLRh2or2VsPzA1EtQ4/Hpx6Dir56slGeINc+qL5irbRHvbx82C5Yj2ZvYTwRS9T
-	7gzzx6+deNYPJ7SG8yhA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S5aFBDUC2W3+59JbCFyyMtSQDgYU/5xiQ96FOGo22TY=; b=uaGGfIlxp9YDdE
+	BXzHsw6VST7hcTAclS4RTvSxGa10XH8zTJlxuaNdS1Ah19F59AWO2ew6Js/AfPsYRfFySM3OaqI/J
+	RA4XSJNiujLo14qhw035JrVu+VnwDcL5HlY92aePdbkIlpGcITN0XBn0yYyO6THf0/bcnGlSIOzmn
+	eqGJRObwpkV3igFkI7DLUrM1C0D8ocoHu1d+8fgDEONpenk2v9aKOQf8NO07fR2tm3N5caVodw2cY
+	mFrq2Bg9tXRjBsDWHzjNJKiQ3Dh0CgFZqPE9bA2/3mXY1VKcSJvxDO6SjTRf6jNVKCO8WW2Bqn+QX
+	W0rPgJnHx6wijcvk9h6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcyN-00000001RRu-2TjG;
+	id 1wkcyN-00000001RRz-32rX;
 	Fri, 17 Jul 2026 07:27:03 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcyG-00000001RDV-0l04
+	id 1wkcyH-00000001RDy-3sXU
 	for linux-riscv@lists.infradead.org;
 	Fri, 17 Jul 2026 07:26:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1784273182;
-	bh=jEptvT1X09De8R5/A6uLESasfKVE1BpRXqYYNEEYFJw=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=aFGslG8v03MRxdtofzmH+ks5RHh4NDpKLX+9oFJklUC7bi+XgfxRQU7mjpMoFPYsP
-	 qE/2Ka/C+OAetdtyuJ2Bged2Tp/zPqMDgRO6YPMmu+2gFkPcFixpYxoArTExckPQmk
-	 Axjk3VQNW9ySDyesifkKN7CWV+nNITYEM9NqWgrI=
-X-QQ-mid: esmtpsz11t1784273172t86be77f2
-X-QQ-Originating-IP: Bw9tCNH376+ZtWl5C6e6i58YBeeAjXoMSEuf/COzNQY=
+	s=mxsw2412; t=1784273184;
+	bh=fymj27WXKJG2RMZe+ljkSj5ptI3AG/Qlm4jztXs9Ax0=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=spV0IHG0Fn8u4G7YI8Jsh9Bl7y1ARaS9Sqqe07kyXSlAiSbKvUYtlGJBbkXu7OToY
+	 X8w8h/ATVr9kQNZL+wzqVDI1ESiRx9ICngOC8YoT7Lh1Q11VZ9/seX2Qkw2/gADQFi
+	 UZlXev1YioXIE1MOzJ7yzJQTHbw56KDmNraDANQs=
+X-QQ-mid: esmtpsz19t1784273177tf811608e
+X-QQ-Originating-IP: i5+anhGPQj0cZfDYZeOkgyTzjxq1pAkh6BJR4p17JNI=
 Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 17 Jul 2026 15:26:10 +0800 (CST)
+	id ; Fri, 17 Jul 2026 15:26:14 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7455975292204269396
+X-BIZMAIL-ID: 9954810506696884270
 EX-QQ-RecipientCnt: 14
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH 0/3] clk: spacemit: k3: fix i2s clock topology and divider
- rates
-Date: Fri, 17 Jul 2026 00:26:00 -0700
-Message-Id: <20260717-k3-clk-fix-i2s-v1-0-e95001a692ee@linux.spacemit.com>
+Date: Fri, 17 Jul 2026 00:26:01 -0700
+Subject: [PATCH 1/3] dt-bindings: soc: spacemit: k3: add i2s_sysclk,
+ i2s_bclk_factor and i2s1_sysclk_src IDs
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMSwqDUAwAryJZG9D4K15FutBn1FSx5aWKIN7dq
- MthmNlB2QsrlMEOnldR+c4GcRiAG+q5Z5TWGCiiPMrjDMcE3TRiJxsKKWZMxatOCzIJFv08m7q
- H1fthXZoPu/91geM4ASF9h2ByAAAA
-X-Change-ID: 20260615-k3-clk-fix-i2s-5e278a472061
+Message-Id: <20260717-k3-clk-fix-i2s-v1-1-e95001a692ee@linux.spacemit.com>
+References: <20260717-k3-clk-fix-i2s-v1-0-e95001a692ee@linux.spacemit.com>
+In-Reply-To: <20260717-k3-clk-fix-i2s-v1-0-e95001a692ee@linux.spacemit.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
  Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -64,39 +62,38 @@ Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, 
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1867;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1318;
  i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=FUEnUCyCQt8oabfZeZlckH5YssHKTRkpCvLvgorY36Y=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFmRN3m5TV4lvbAMKDFa7Tl9styp+r7sLs+wbon1Rn/ZH
- 07d58rbUcrCIMbFICumyNL9gGdbgU+UbYFAoS/MHFYmkCEMXJwCMJFDpYwMm/UFp/5NnNVamblJ
- cvHN4rtZvJOZHl45xf1JYGbenyv6igz/02bw7zI1DfzXKv1C/tS1P7KFb5++nWrYdP/RDOnM25F
- n2AA=
+ bh=pmDemkdZ9ingitjiHnQJPHF6cz5rSUrFawXebGp5onc=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFmRN/m8Wz11pnE8dDmXuOxFvGnZqXJxY47AnWELXaoae
+ xuXinR3lLIwiHExyIopsnQ/4NlW4BNlWyBQ6Aszh5UJZAgDF6cATORxCSPDyQaFznrTkE1vxI4d
+ dOhqtL/jMWOJl+fUBrEeNo2z1VVTGBmaWLXr/Do436zPLV74siyqT6Fmisva851lp+a9jps0pYY
+ TAA==
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
  fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NzOHSugmTg7XFhOqTQmyscbdQ5wyP0fH3xplLwdQ2sm1dexmGbPII3oP
-	JeZKinuWiHB20hLoCnUOvtEuhZnUFoG/p+uDVUJQ5JUBYvwqsVINYgplSx+45ctAVOQguHI
-	eWYKCKnlNl0hKggvq/b6venkNHNPC98OEiLM3ebEhDC9qx1eMRd6edNjgsjwq7X6SLhPWJG
-	4PyLgAwcvPGmNJkepCFhl7+Bawm5uKVcCLW0uckHpD2lDuywUHJXQkf+pw5du+e3ZjMm5wx
-	KeAJhFhWg6m75xL6ny4ufX9hHWbCkkd/PrVEchibONmRgwaChmp45VhI0p4sNcC+FTqqUig
-	yHLVpg2DKB9eI36nkP2fpJNXJfHnJwF9lGX7uewXkxh6zZKgyneAqxKXS6dNGFl4p8W+4sd
-	ll96tbiq/Fjz9aZXVX77EJfayVpdmy26ocPIgD3fjyRzbIgKoYCYyCam0ejLwJ4myScmB0a
-	Av6Ie3HVs3aCDFKFN8IHGz+dR9EAC1GwEfhztCXkI5DTQuu9kOQK/Tb6C6mHGgrejTWMRXk
-	L/kO7PuB0SaA1rYfWtGdZd5Mrfa9Q9/zKqWPvLeoAWw99ZaOhL2mwEbiO6bURXzXpsedgqY
-	p9QVAqCGLiiJEbty9FgiTwDk7yk+ejohNb8r4sHDW0we1Hj/S7Vtlb/K1IcRLxg0EnZdqtm
-	YehUZRHWXbW29GOVdheyFMkdLkrg2PSN3zWmqW1tScwGAtp9ZRAIZ25ubJh7BgTl10svn67
-	tRVDKt8PJEoSSOs++PCLcqRD9PAMqLoGzbDpo8ELJwxdXn0rL0LtJJO6nGNe/bWnh4NGNes
-	oo8nTHVGLVxN8hQFTTjvg7c879rygX4b7VtGALtCByHYFwbNuNeSdUCpuhy+0vdIO+0QD3C
-	4OU66YiCgjXG2UEAw78C39rK6iCQ4N00ZhShAygm4IIrfhYG0oHVoIvbQymenhHSzKEu6qE
-	SbRdmag6QyEwFh+b+c7MmblZL3BJIRKXbSBQa4GtS+qsJpAr7ziRHUgD5wYxSNjAdTtgO+I
-	NXVF9AVtMmrKMEsEbh4k8bzyV2/eignEUXGCy74CLffC4Bysy2hS+owdYNJGxUqHxEfrk0C
-	w==
+X-QQ-XMAILINFO: NqN/wpVFVRYXOxlE2cRx/EeylxrLvwXRRmJBJvn7PPUMOSenr+bZ/JIW
+	Hg4GIRS0zIU76z3FudxKWR506GBVs3Jpdu8HG/9m33+Y3r8SM3b+JtawRtBO3nS8i6w+qLi
+	k7hX0OK//XMGcyAYGdu4gnNbbvAyKEnU0CBtsEGCx3l9wwcZVWkdU1yANWU0qKj5Rq5uznj
+	eAzZ3NhkF5z+ixulKQPGLjZcI/h1a+Hbk9VChSrTdJZSso2Vy7vOkwyKt+ZryDgIWFJIZgw
+	tGMaJQkPMSYcs0ylF12dHdk8jcp3URrm+fAiXun6eYtREQZM2yPXs2Kzrnn2hwHm5aQSmSl
+	W+UcIX1GEUD/AB9sjgCAAAIP2z5NZpe/FtTaLnhviN/SVN8yFImF6hlFIAahKhdDr2oAUNS
+	1JTbUzasnwkziUpMKyqSMCNL/TQbzMXU39+TVSzir97MgxUBf2fRMoXA7lklhkROT4x15DN
+	b4NmOwhWoMiUNzBjxB22nek1Cz42+7+Xs1sRO2MrGIWeN4UhNtodVyaOzQDM3r67AFW5ejl
+	IYC22gk74l7oYWVgsmlWo4dYfpN+Uwrt8AS4FRqqD6czHRy2/WK/vcFZIgdAzXLz+Tx4Lk1
+	lBE8helEbvZl7219r4Pp/CPEMmMU0q9Dz2ell52eIfbUtoKAkoYhsXlj9EDKIK5bZwNA5QR
+	PnyrGT4wxdxXEijNqHX0nOsj7NHPx7qmdi6ygCZiiUJkKMrx+ez4Cq8Xk6vc+tCdUhO0cPP
+	ZJSIxK26ho+PZeq27YVlyJu8Swrl8AZVgEqwb5ydsm63juH0aVICsIQ8pLwVjCrF6VbjDz0
+	PyMT75GRroD0cVeyuKYV7XZqeQ5MQzEf3eHI268rT+ux+LyxnOdPFHZAQ/gWAppZR+O2wgq
+	EdVrJGT+eiK4WNweRZwDlmWUTQZI2fVKWExcDQWSBq7NSwuveWYNyWFO4NKdTH6jB6ebWW6
+	L1z25W55JQe/gsAPKhLfXHe/x+AMGXWuwst/hSCW/dgEBj4Dx3P9Bw7a3PjQNpwfIQfgnwc
+	c1bP0D4MLv1daHU91c4aGZsC+8zMbyFgEvJHLHaPoDaC63R+Eksqu3eTaZKe4=
 X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_002657_098772_B659B4CB 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20260717_002658_268862_4A2D4117 
+X-CRM114-Status: UNSURE (   7.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,47 +111,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The K3 i2s clock tree was modelled on the K1 layout but does not match
-the actual K3 hardware topology, leading to incorrect clock rates being
-reported and programmed.
+Add three new clock IDs to expose clocks introduced by the topology fix:
+- CLK_MPMU_I2S_SYSCLK (51): the common i2s sysclk DDN at MPMU_ISCCR1
+- CLK_MPMU_I2S_BCLK_FACTOR (52): the implicit /2 factor feeding i2s_bclk
+- CLK_MPMU_I2S1_SYSCLK_SRC (53): the dedicated i2s1 sysclk source mux
 
-Three fixes are provided in dependency order:
+CLK_MPMU_I2S1_SYSCLK keeps its existing ID (47) but will be repointed to
+the real per-instance i2s1 clock in a subsequent patch. No in-tree user
+references this ID so the semantic change is contained.
 
-First, the MPMU_ISCCR syscon register is renamed to MPMU_ISCCR1 to
-match the hardware register name, and MPMU_ISCCR0 (offset 0x0040) is
-added. This prepares the header for the clock topology corrections that
-follow.
-
-Second, the clock topology is reworked to reflect the real hardware:
-the common i2s_sysclk DDN at MPMU_ISCCR1 is renamed from "i2s1_sysclk",
-an implicit 1/2 factor (i2s_bclk_factor) is introduced before i2s_bclk,
-and the dedicated i2s1 clock path (i2s1_sysclk_src MUX + i2s1_sysclk
-DDN backed by MPMU_ISCCR0) is added. CLK_MPMU_I2S1_SYSCLK keeps its
-existing ID but now refers to the real per-instance i2s1 clock; no
-in-tree user references this ID so the semantic change is contained.
-
-Third, the per-instance i2s sysclk DDNs (i2s{0,2,3,4,5}_sysclk_div)
-are corrected to account for the hardware-internal 1/2 factor by setting
-pre_div to 2 instead of 1, so clk_get_rate() and clk_set_rate() report
-and program the real hardware rate.
-
+Fixes: efe897b557e2 ("dt-bindings: soc: spacemit: k3: add clock support")
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
-Troy Mitchell (3):
-      dt-bindings: soc: spacemit: k3: add i2s_sysclk, i2s_bclk_factor and i2s1_sysclk_src IDs
-      clk: spacemit: k3: fix i2s clock topology
-      clk: spacemit: k3: fix missing /2 factor in i2s sysclk dividers
+ include/dt-bindings/clock/spacemit,k3-clocks.h | 3 +++
+ 1 file changed, 3 insertions(+)
 
- drivers/clk/spacemit/ccu-k3.c                  | 31 +++++++++++++++++---------
- include/dt-bindings/clock/spacemit,k3-clocks.h |  3 +++
- include/soc/spacemit/k3-syscon.h               |  3 ++-
- 3 files changed, 26 insertions(+), 11 deletions(-)
----
-base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
-change-id: 20260615-k3-clk-fix-i2s-5e278a472061
+diff --git a/include/dt-bindings/clock/spacemit,k3-clocks.h b/include/dt-bindings/clock/spacemit,k3-clocks.h
+index dfae52547cda..df0b9fe43b76 100644
+--- a/include/dt-bindings/clock/spacemit,k3-clocks.h
++++ b/include/dt-bindings/clock/spacemit,k3-clocks.h
+@@ -145,6 +145,9 @@
+ #define CLK_MPMU_I2S3_SYSCLK     48
+ #define CLK_MPMU_I2S4_SYSCLK     49
+ #define CLK_MPMU_I2S5_SYSCLK     50
++#define CLK_MPMU_I2S_SYSCLK      51
++#define CLK_MPMU_I2S_BCLK_FACTOR 52
++#define CLK_MPMU_I2S1_SYSCLK_SRC 53
+ 
+ /* APBC clocks */
+ #define CLK_APBC_UART0           0
 
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+-- 
+2.55.0
 
 
 _______________________________________________
